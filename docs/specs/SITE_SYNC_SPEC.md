@@ -40,8 +40,10 @@ of changed pages. Ledger each deploy in ROLL_HANDOFF. Failures stop the deploy l
 
 ## Branch note (load-bearing for S4)
 All session work sits on branch `immune-fixes-data` (19 commits ahead of main: ~28 races of
-race-data fixes + S2). This repo's CI deploys from main ("CI deploys were failing silently —
-fail loud" 197d5a1f), so MERGING TO MAIN IS THE DEPLOY TRIGGER. S4 sequence therefore:
+race-data fixes + S2). CORRECTION 2026-07-16: CI on main runs TESTS ONLY (regression/immune/link-check) — there is
+no push-triggered site deploy workflow. The outward deploy is LOCAL push_wordpress.py
+(tar+ssh per deploy-safely skill); merging to main is the version-control gate, not the
+deploy itself. S4 sequence therefore:
 finish S1/S3 on this branch → preflight gates green ON THE BRANCH → merge to main → CI deploy
 → cache purge + check_links + spot-curls → ledger. First merge = first auto-deploy (Matti
 chose auto-per-wave; the merge is the moment it goes outward).

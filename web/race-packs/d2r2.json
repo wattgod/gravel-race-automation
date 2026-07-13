@@ -4,7 +4,7 @@
   "distance_mi": 112.0,
   "demands": {
     "durability": 6,
-    "climbing": 7,
+    "climbing": 9,
     "vo2_power": 5,
     "threshold": 8,
     "technical": 4,
@@ -14,8 +14,18 @@
   },
   "top_categories": [
     {
-      "category": "Durability",
+      "category": "TT_Threshold",
       "score": 100,
+      "workouts": [
+        "Single Sustained Threshold",
+        "Threshold Ramps",
+        "Descending Threshold"
+      ],
+      "workout_context": "123ft/mi means long efforts at or near FTP on every climb. If your threshold cracks at minute 15, you'll walk the rest."
+    },
+    {
+      "category": "Durability",
+      "score": 92,
       "workouts": [
         "Tired VO2max",
         "Double Day Simulation",
@@ -24,18 +34,8 @@
       "workout_context": "At mile 60 of 112, glycogen is gone. This workout teaches your body to produce watts on fumes."
     },
     {
-      "category": "TT_Threshold",
-      "score": 100,
-      "workouts": [
-        "Single Sustained Threshold",
-        "Threshold Ramps",
-        "Descending Threshold"
-      ],
-      "workout_context": "62ft/mi means long efforts at or near FTP on every climb. If your threshold cracks at minute 15, you'll walk the rest."
-    },
-    {
       "category": "Over_Under",
-      "score": 86,
+      "score": 92,
       "workouts": [
         "Classic Over-Unders",
         "Ladder Over-Unders"
@@ -44,7 +44,7 @@
     },
     {
       "category": "G_Spot",
-      "score": 78,
+      "score": 77,
       "workouts": [
         "G-Spot Standard",
         "G-Spot Extended",
@@ -53,8 +53,17 @@
       "workout_context": "88\u201392% FTP is where you'll spend the hardest sustained miles of D2R2. Train it until it feels boring."
     },
     {
+      "category": "Mixed_Climbing",
+      "score": 72,
+      "workouts": [
+        "Seated/Standing Climbs",
+        "Variable Grade Simulation"
+      ],
+      "workout_context": "13,800ft of climbing on grades that change every minute. You need to switch from seated to standing without losing rhythm."
+    },
+    {
       "category": "Race_Simulation",
-      "score": 78,
+      "score": 72,
       "workouts": [
         "Breakaway Simulation",
         "Variable Pace Chaos",
@@ -64,7 +73,7 @@
     },
     {
       "category": "Gravel_Specific",
-      "score": 75,
+      "score": 69,
       "workouts": [
         "Surge and Settle",
         "Terrain Microbursts"
@@ -72,27 +81,18 @@
       "workout_context": "D2R2's Massachusetts rolling hills, Rural gravel forces constant power changes. Surge over the rough stuff, settle on the smooth, repeat for 112 miles."
     },
     {
-      "category": "Mixed_Climbing",
-      "score": 61,
-      "workouts": [
-        "Seated/Standing Climbs",
-        "Variable Grade Simulation"
-      ],
-      "workout_context": "7,000ft of climbing on grades that change every minute. You need to switch from seated to standing without losing rhythm."
-    },
-    {
       "category": "VO2max",
-      "score": 58,
+      "score": 53,
       "workouts": [
         "5x3 VO2 Classic",
         "Descending VO2 Pyramid",
         "Norwegian 4x8"
       ],
-      "workout_context": "7,000ft of climbing means repeated surges above threshold. VO2max work is how you survive the fifth climb, not just the first."
+      "workout_context": "13,800ft of climbing means repeated surges above threshold. VO2max work is how you survive the fifth climb, not just the first."
     },
     {
       "category": "Endurance",
-      "score": 57,
+      "score": 52,
       "workouts": [
         "Pre-Race Openers",
         "Terrain Simulation Z2"
@@ -101,7 +101,7 @@
     },
     {
       "category": "HVLI_Extended",
-      "score": 52,
+      "score": 48,
       "workouts": [
         "HVLI Extended Z2",
         "Multi-Hour Z2",
@@ -110,28 +110,28 @@
       "workout_context": "112 miles rewards fat oxidation. This volume work shifts your fuel mix so you're still burning fat at hour 5, not bonking at hour 3."
     },
     {
+      "category": "SFR_Muscle_Force",
+      "score": 48,
+      "workouts": [
+        "SFR Low Cadence",
+        "Force Repeats"
+      ],
+      "workout_context": "Low-cadence force work for 13,800ft of climbing. The slow, grinding ascents where you can't spin\u2014you push."
+    },
+    {
       "category": "Blended",
-      "score": 46,
+      "score": 43,
       "workouts": [
         "Z2 + VO2 Combo",
         "Endurance with Spikes"
       ],
-      "workout_context": "Endurance with intensity spikes baked in. Exactly what 7,000ft of climbing on Massachusetts rolling hills gravel does to your power file on race day."
-    },
-    {
-      "category": "Norwegian_Double",
-      "score": 46,
-      "workouts": [
-        "Norwegian 4x8 Classic",
-        "Double Threshold"
-      ],
-      "workout_context": "Two threshold sessions per week without the recovery cost of VO2max work. For 112 miles, sustainable FTP gains matter more than peak power."
+      "workout_context": "Endurance with intensity spikes baked in. Exactly what 13,800ft of climbing on Massachusetts rolling hills gravel does to your power file on race day."
     }
   ],
   "race_overlay": {
     "nutrition": "Target 60\u201380g carbs/hour for D2R2\u2019s 112 miles. Start fueling within the first 30 minutes \u2014 early fueling prevents late-race collapse. Bonking at mile 60 is a nutrition failure, not a fitness failure.",
-    "terrain": "Mixed terrain at D2R2 requires surface adaptability. Include weekly rides on massachusetts rolling hills gravel to build confidence. Expect: massachusetts rolling hills, rural gravel, 180km distance."
+    "terrain": "Mixed terrain at D2R2 requires surface adaptability. Include weekly rides on massachusetts rolling hills gravel to build confidence. Expect: massachusetts rolling hills, rural gravel, multi-distance event (180k/160k/115k/100k + shorter non-race options)."
   },
-  "pack_summary": "This 10-workout pack focuses on Durability, TT Threshold, and Over Under to prepare you for 112 miles of massachusetts rolling hills gravel in Deerfield, Massachusetts.",
-  "generated_at": "2026-03-06"
+  "pack_summary": "This 10-workout pack focuses on TT Threshold, Durability, and Over Under to prepare you for 112 miles of massachusetts rolling hills gravel in Greenfield, Massachusetts.",
+  "generated_at": "2026-07-13"
 }

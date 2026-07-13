@@ -1,14 +1,14 @@
 {
   "slug": "la-dromoise-gravel",
   "race_name": "La Dr\u00f4moise Gravel",
-  "distance_mi": 62.0,
+  "distance_mi": 43.0,
   "demands": {
-    "durability": 2,
-    "climbing": 6,
+    "durability": 1,
+    "climbing": 5,
     "vo2_power": 3,
-    "threshold": 6,
+    "threshold": 4,
     "technical": 6,
-    "heat_resilience": 1,
+    "heat_resilience": 0,
     "altitude": 4,
     "race_specificity": 6
   },
@@ -20,17 +20,7 @@
         "Surge and Settle",
         "Terrain Microbursts"
       ],
-      "workout_context": "La Dr\u00f4moise Gravel's French Alps, European gravel forces constant power changes. Surge over the rough stuff, settle on the smooth, repeat for 62 miles."
-    },
-    {
-      "category": "TT_Threshold",
-      "score": 90,
-      "workouts": [
-        "Single Sustained Threshold",
-        "Threshold Ramps",
-        "Descending Threshold"
-      ],
-      "workout_context": "89ft/mi means long efforts at or near FTP on every climb. If your threshold cracks at minute 15, you'll walk the rest."
+      "workout_context": "La Dr\u00f4moise Gravel's Diois forest fire roads, Vercors foothills (pre-Alps, not forces constant power changes. Surge over the rough stuff, settle on the smooth, repeat for 43 miles."
     },
     {
       "category": "Race_Simulation",
@@ -43,23 +33,14 @@
       "workout_context": "Race-pace efforts that mimic La Dr\u00f4moise Gravel's demands. Pacing, fueling, and tactical decisions under fatigue. Practice the race before September."
     },
     {
-      "category": "Over_Under",
-      "score": 80,
+      "category": "TT_Threshold",
+      "score": 65,
       "workouts": [
-        "Classic Over-Unders",
-        "Ladder Over-Unders"
+        "Single Sustained Threshold",
+        "Threshold Ramps",
+        "Descending Threshold"
       ],
-      "workout_context": "At La Dr\u00f4moise Gravel, surges push you above threshold and you have to recover while still riding. Over-unders train exactly that."
-    },
-    {
-      "category": "G_Spot",
-      "score": 70,
-      "workouts": [
-        "G-Spot Standard",
-        "G-Spot Extended",
-        "Criss-Cross"
-      ],
-      "workout_context": "88\u201392% FTP is where you'll spend the hardest sustained miles of La Dr\u00f4moise Gravel. Train it until it feels boring."
+      "workout_context": "114ft/mi means long efforts at or near FTP on every climb. If your threshold cracks at minute 15, you'll walk the rest."
     },
     {
       "category": "VO2max",
@@ -69,26 +50,16 @@
         "Descending VO2 Pyramid",
         "Norwegian 4x8"
       ],
-      "workout_context": "5,500ft of climbing means repeated surges above threshold. VO2max work is how you survive the fifth climb, not just the first."
+      "workout_context": "When someone attacks on diois forest fire roads (pistes foresti\u00e8res) in, you have 10 seconds to respond or you're off the back. This builds that response."
     },
     {
-      "category": "Mixed_Climbing",
-      "score": 60,
+      "category": "Over_Under",
+      "score": 62,
       "workouts": [
-        "Seated/Standing Climbs",
-        "Variable Grade Simulation"
+        "Classic Over-Unders",
+        "Ladder Over-Unders"
       ],
-      "workout_context": "5,500ft of climbing on grades that change every minute. You need to switch from seated to standing without losing rhythm."
-    },
-    {
-      "category": "Durability",
-      "score": 57,
-      "workouts": [
-        "Tired VO2max",
-        "Double Day Simulation",
-        "Progressive Fatigue"
-      ],
-      "workout_context": "62 miles on french Alps gravel burns energy faster than the distance suggests. Train the fade resistance now."
+      "workout_context": "At La Dr\u00f4moise Gravel, surges push you above threshold and you have to recover while still riding. Over-unders train exactly that."
     },
     {
       "category": "Critical_Power",
@@ -100,13 +71,33 @@
       "workout_context": "How long can you hold 105% FTP before you blow? At La Dr\u00f4moise Gravel, that number decides whether you bridge or get dropped."
     },
     {
-      "category": "SFR_Muscle_Force",
+      "category": "Mixed_Climbing",
+      "score": 50,
+      "workouts": [
+        "Seated/Standing Climbs",
+        "Variable Grade Simulation"
+      ],
+      "workout_context": "Varied gradients on diois forest fire roads (pistes foresti\u00e8res) in demand climbing versatility. Sit the shallow stuff, stand the steep stuff, switch without thinking."
+    },
+    {
+      "category": "G_Spot",
+      "score": 50,
+      "workouts": [
+        "G-Spot Standard",
+        "G-Spot Extended",
+        "Criss-Cross"
+      ],
+      "workout_context": "88\u201392% FTP is where you'll spend the hardest sustained miles of La Dr\u00f4moise Gravel. Train it until it feels boring."
+    },
+    {
+      "category": "Durability",
       "score": 40,
       "workouts": [
-        "SFR Low Cadence",
-        "Force Repeats"
+        "Tired VO2max",
+        "Double Day Simulation",
+        "Progressive Fatigue"
       ],
-      "workout_context": "Low-cadence force work for 5,500ft of climbing. The slow, grinding ascents where you can't spin\u2014you push."
+      "workout_context": "43 miles on diois forest fire roads (pistes foresti\u00e8res) in burns energy faster than the distance suggests. Train the fade resistance now."
     },
     {
       "category": "Anaerobic_Capacity",
@@ -115,23 +106,32 @@
         "2min Killers",
         "90sec Repeats"
       ],
-      "workout_context": "Short, max efforts are unavoidable. Punchy climbs, gap closures, attacks on french Alps gravel. If you haven't trained them, you'll crack."
+      "workout_context": "Short, max efforts are unavoidable. Punchy climbs, gap closures, attacks on diois forest fire roads (pistes foresti\u00e8res) in. If you haven't trained them, you'll crack."
     },
     {
-      "category": "Norwegian_Double",
+      "category": "Cadence_Work",
       "score": 40,
       "workouts": [
-        "Norwegian 4x8 Classic",
-        "Double Threshold"
+        "High Cadence Drills",
+        "Cadence Pyramids"
       ],
-      "workout_context": "Double-threshold training builds sustained power with less fatigue. More FTP per hour of training."
+      "workout_context": "Smooth pedaling at 43 miles saves muscle. Bad technique at mile 10 is invisible. At mile 80 it's a cramp."
+    },
+    {
+      "category": "SFR_Muscle_Force",
+      "score": 33,
+      "workouts": [
+        "SFR Low Cadence",
+        "Force Repeats"
+      ],
+      "workout_context": "Low-cadence force work for 4,921ft of climbing. The slow, grinding ascents where you can't spin\u2014you push."
     }
   ],
   "race_overlay": {
-    "nutrition": "Target 40\u201360g carbs/hour for La Dr\u00f4moise Gravel\u2019s 62 miles. Front-load calories in the first half. One bottle per hour minimum, more in heat.",
+    "nutrition": "Target 40\u201360g carbs/hour for La Dr\u00f4moise Gravel\u2019s 43 miles. Front-load calories in the first half. One bottle per hour minimum, more in heat.",
     "altitude": "Moderate altitude at La Dr\u00f4moise Gravel. Arrive 2\u20133 days early. Reduce intensity expectations by 5\u201310%. Hydrate aggressively.",
-    "terrain": "Mixed terrain at La Dr\u00f4moise Gravel requires surface adaptability. Include weekly rides on french alps gravel to build confidence. Expect: french alps, european gravel, france."
+    "terrain": "Mixed terrain at La Dr\u00f4moise Gravel requires surface adaptability. Include weekly rides on diois forest fire roads (pistes foresti\u00e8res) in the vercors foothills to build confidence. Expect: diois forest fire roads, vercors foothills (pre-alps, not high alps), vineyard passages."
   },
-  "pack_summary": "This 10-workout pack focuses on Gravel Specific, TT Threshold, and Race Simulation to prepare you for 62 miles of french alps gravel in Dr\u00f4me, France.",
-  "generated_at": "2026-03-06"
+  "pack_summary": "This 10-workout pack focuses on Gravel Specific, Race Simulation, and TT Threshold to prepare you for 43 miles of diois forest fire roads (pistes foresti\u00e8res) in the vercors foothills in Die, Dr\u00f4me, France.",
+  "generated_at": "2026-07-13"
 }

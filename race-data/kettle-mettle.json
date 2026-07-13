@@ -30,24 +30,24 @@
     },
     "climate": {
       "primary": "BC summer",
-      "description": "Generally mild conditions.",
+      "description": "Warm, dry interior-BC June; temperatures typically climb into the high 20s°C (80s°F) by afternoon in the Similkameen valley.",
       "challenges": [
-        "Variable weather",
-        "Generally mild",
-        "Mountainous terrain",
-        "Summer conditions"
+        "Afternoon heat build",
+        "Dry interior BC sun exposure",
+        "Forest-service-road exertion in the heat",
+        "Warm June conditions"
       ]
     },
     "terrain": {
-      "primary": "BC mountain gravel",
-      "surface": "Gravel roads through BC mountains. Significant elevation with mountain scenery.",
+      "primary": "Kettle Valley Railway rail trail + forest service road climbing",
+      "surface": "Kettle Valley Railway rail-trail grade (gentle, converted railway bed with wooden trestles and rail tunnels) stitched with forest service roads that carry nearly all of the course's climbing.",
       "technical_rating": 3,
       "features": [
-        "Significant mountainous (7000 feet)",
-        "BC mountain scenery",
-        "Mountain setting",
-        "Multiple distances",
-        "Regional event"
+        "5,889 ft of forest-service-road climbing",
+        "Wooden trestles and decommissioned rail tunnels",
+        "Wildflower canyons",
+        "Multiple distances (25/50/100km, +130km new for 2027)",
+        "BC Triple Crown of Gravel series event"
       ]
     },
     "gravel_god_rating": {
@@ -104,40 +104,40 @@
       "airport": "Kelowna (YLW) or Vancouver (YVR) varies by location",
       "lodging_strategy": "BC has good lodging options.",
       "food": "BC has full dining options. Stock nutrition.",
-      "packet_pickup": "Day before typically",
+      "packet_pickup": "Race morning, 6:55–7:55 AM at Princeton Rodeo Grounds",
       "parking": "At start/finish",
-      "official_site": "Check Kettle Mettle website"
+      "official_site": "kettlemettle.ca"
     },
     "history": {
-      "founded": null,
-      "founder": "BC organizers",
-      "origin_story": "Regional BC gravel event.",
+      "founded": 2014,
+      "founder": "Tri 1 Events",
+      "origin_story": "Founded 2014 by Tri 1 Events out of Princeton, BC — Western Canada's oldest gravel fondo, run on the historic Kettle Valley Railway corridor.",
       "notable_moments": [],
-      "reputation": "Regional BC event."
+      "reputation": "Long-running BC classic — the region's oldest gravel fondo, and a leg of the BC Triple Crown of Gravel series."
     },
     "course_description": {
       "character": "Kettle Valley Railway rail-trail gravel out of Princeton — wildflower canyons, historic wooden trestles and decommissioned rail tunnels, with forest-service-road climbing stacked into the 100km flagship (~1,795m). Distances: 25/50/100km, plus a new 130km added for 2027.",
       "suffering_zones": [
         {
-          "mile": 25,
-          "label": "Early Mountains",
-          "desc": "First mountain sections.",
-          "terrain_detail": "Mountainous",
-          "named_section": "Early Mountains"
+          "mile": 12,
+          "label": "Rail-Trail Miles",
+          "desc": "Deceptively calm, wide gravel flats on the gentle Kettle Valley rail grade — easy to overcook the pace here before the climbing starts.",
+          "terrain_detail": "Rail-trail grade, wildflower canyons",
+          "named_section": "KVR Corridor"
         },
         {
-          "mile": 40,
-          "label": "Midpoint",
-          "desc": "Halfway through the course.",
-          "terrain_detail": "Midpoint",
-          "named_section": "Halfway"
+          "mile": 35,
+          "label": "Forest Service Climbs",
+          "desc": "The course leaves the rail bed for forest service roads above Princeton — this is where nearly all of the 5,889 ft of climbing is collected.",
+          "terrain_detail": "Forest service road climbing",
+          "named_section": "Forest Roads"
         },
         {
-          "mile": 65,
-          "label": "Late Mountains",
-          "desc": "Final mountain sections before finish.",
-          "terrain_detail": "Late mountains",
-          "named_section": "Final Push"
+          "mile": 55,
+          "label": "Trestles and Tunnels",
+          "desc": "Late-course rail-trail sections with wooden trestles and decommissioned tunnels — dark enough that a light helps, and a welcome breather before Princeton.",
+          "terrain_detail": "Trestles, tunnels",
+          "named_section": "Approach to Princeton"
         }
       ],
       "signature_challenge": "BC mountainous terrain.",
@@ -146,37 +146,36 @@
     },
     "guide_variables": {
       "race_name": "Kettle Mettle",
-      "race_distance": "80 miles",
-      "race_elevation": "7,000 feet",
-      "race_date": "Summer",
-      "race_location": "British Columbia, Canada",
-      "race_terrain": "BC mountain gravel",
-      "race_weather": "BC summer mild",
+      "race_distance": "62 miles",
+      "race_elevation": "5,889 feet",
+      "race_date": "June",
+      "race_location": "Princeton, British Columbia, Canada",
+      "race_terrain": "Kettle Valley Railway rail trail + forest service road climbing",
+      "race_weather": "Warm, dry interior-BC June",
       "race_challenges": [
-        "Mountainous terrain",
-        "Regional field",
-        "Moderate costs",
-        "Variable weather",
-        "Significant elevation"
+        "Forest-service-road climbing",
+        "Warm June afternoon heat",
+        "Rail tunnels (bring a light)",
+        "Remote BC logistics"
       ],
       "altitude_section": false,
       "altitude_feet": null
     },
     "non_negotiables": [
       {
-        "requirement": "Mountain endurance",
+        "requirement": "Forest-service-road climbing strength",
         "by_when": "Week 8-10",
-        "why": "BC mountains require sustained effort."
+        "why": "Nearly all of the course's 5,889 ft of climbing arrives on forest service roads, not the gentle rail-trail grade."
       },
       {
-        "requirement": "Weather preparation",
+        "requirement": "Heat preparation",
         "by_when": "Week 4-6",
-        "why": "BC summer weather is variable."
+        "why": "Mid-June in the Similkameen typically runs warm and dry, with heat building through the afternoon."
       },
       {
-        "requirement": "Budget planning",
+        "requirement": "Travel/logistics planning",
         "by_when": "Week 12+",
-        "why": "Moderate costs ($1500+ total)."
+        "why": "Princeton, BC is a remote start — registration ~$100-150 CAD plus travel."
       }
     ],
     "research_metadata": {
@@ -248,19 +247,19 @@
           "pacing": "Mountainous terrain pacing",
           "fueling": "Nutrition for mountain riding",
           "weather": "Riding in variable BC weather",
-          "mountains": "Sustained mountain strategy"
+          "mountains": "Forest-service-road climbing strategy"
         }
       },
       "tier_overrides": {},
       "marketplace_variables": {
         "race_name": "Kettle Mettle",
-        "race_hook": "British Columbia mountain gravel challenge.",
-        "race_hook_detail": "Regional event with mountainous terrain.",
-        "distance": "80",
-        "dark_mile": "40",
-        "non_negotiable_1": "Mountain endurance",
-        "non_negotiable_2": "Weather preparation",
-        "non_negotiable_3": "Budget planning",
+        "race_hook": "Western Canada's oldest gravel fondo — a rail-trail cruise that turns into a forest-road climbing test.",
+        "race_hook_detail": "Kettle Valley Railway rail trail out of Princeton, BC, with 5,889 ft of forest-service-road climbing.",
+        "distance": "62",
+        "dark_mile": "35",
+        "non_negotiable_1": "Forest-service-road climbing strength",
+        "non_negotiable_2": "Heat preparation",
+        "non_negotiable_3": "Travel/logistics planning",
         "trainingpeaks_url": null
       }
     },
@@ -283,7 +282,7 @@
       },
       "climate": {
         "score": 3,
-        "explanation": "Historical weather data shows average highs of 65°F and lows of 44°F, with a 56% chance of rain on any given day. Weather conditions vary significantly by season. Fall riders plan for \"10-15 degrees and that light drizzly rain,\" while summer events feature \"hot sun\" during midday sections and the historic \"sunshine and great times\" reputation. Similar climate challenges to SBT GRVL."
+        "explanation": "Mid-June in the BC interior typically means a warm, dry day that gets hotter as the finish approaches — riders describe \"hot sun\" during midday sections and the event's historic \"sunshine and great times\" reputation. Hydrate earlier than feels necessary. Similar climate challenges to SBT GRVL."
       },
       "altitude": {
         "score": 2,
@@ -291,7 +290,7 @@
       },
       "adventure": {
         "score": 3,
-        "explanation": "The route passes through Myra Canyon Provincial Park with 17 historic trestles and several tunnels that riders describe as \"dark and cool, a welcome reprieve from the hot sun.\" Jessica Stephens notes \"you won't quite find a ride like this anywhere else.\""
+        "explanation": "The route runs the historic Kettle Valley Railway corridor out of Princeton — wildflower canyons, wooden trestles, and decommissioned rail tunnels riders describe as \"dark and cool, a welcome reprieve from the hot sun.\" Jessica Stephens notes \"you won't quite find a ride like this anywhere else.\""
       },
       "prestige": {
         "score": 2,
@@ -303,7 +302,7 @@
       },
       "experience": {
         "score": 3,
-        "explanation": "Rolling through \"wildflower-blanketed canyons\" and shaded railway tunnels while overlooking Okanagan wineries delivers memorable scenery. Fall riders see \"leaves on the vineyards turn a rich palette of gold and crimson\" across the valley views."
+        "explanation": "Rolling through \"wildflower-blanketed canyons\" and shaded railway tunnels along the Similkameen valley delivers memorable scenery. Riders are consistently surprised by how varied and challenging the forest-service-road sections are compared to the gentle rail-trail miles."
       },
       "community": {
         "score": 3,
@@ -311,7 +310,7 @@
       },
       "field_depth": {
         "score": 2,
-        "explanation": "With a field of 200-400 riders, marketed as suitable for \"beginner to intermediate\" riders with three distance options catering to novices and families. The wide accessibility focus means competitive depth stays shallow, drawing regional recreational riders more than elite talent. Less competitive depth than Almanzo 100."
+        "explanation": "With a field capped around 500 riders, marketed as suitable for \"beginner to intermediate\" riders with three distance options (soon four, with a 130km option new for 2027) catering to novices and families. The wide accessibility focus means competitive depth stays shallow, drawing regional recreational riders more than elite talent. Less competitive depth than Almanzo 100."
       },
       "value": {
         "score": 3,

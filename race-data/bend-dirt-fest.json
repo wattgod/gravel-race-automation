@@ -3,20 +3,20 @@
     "name": "Bend Dirt Fest",
     "slug": "bend-dirt-fest",
     "display_name": "Bend Dirt Fest",
-    "tagline": "Multi-discipline high desert festival in Bend—gravel, MTB, and trail run in one weekend.",
+    "tagline": "Multi-discipline high desert festival in Bend\u2014gravel, MTB, and trail run in one weekend.",
     "vitals": {
-      "distance_mi": 55,
-      "elevation_ft": 3000,
+      "distance_mi": 54,
+      "elevation_ft": 3800,
       "location": "Bend, Oregon",
       "location_badge": "BEND, OREGON",
       "county": "Deschutes County",
       "date": "July annually",
-      "date_specific": "2026: July 11",
+      "date_specific": "2026: July 11 (Saturday, CONFIRMED \u2014 ran as scheduled per organizer/BikeReg); 2027 PATTERN ESTIMATE: ~July 10 (second Saturday of July, per organizer's stated recurring format; not yet officially announced)",
       "terrain_types": [
         "High desert gravel roads",
-        "Doubletrack",
-        "Singletrack mix",
-        "Oregon volcanic landscape"
+        "Volcanic cinder/dirt surface",
+        "Oregon volcanic landscape",
+        "Multi-discipline festival (concurrent MTB + trail run)"
       ],
       "field_size": "500 riders (across all disciplines)",
       "start_time": "8:00 AM mass",
@@ -25,27 +25,27 @@
       "aid_stations": "Multiple on course",
       "cutoff_time": "None",
       "lat": 44.0582,
-      "lng": -121.3153
+      "lng": -121.3153,
+      "gain_display": "Varies"
     },
     "climate": {
       "primary": "July high desert summer",
-      "description": "Warm days (45-85°F), dry conditions, intense sun exposure.",
+      "description": "Warm days (45-85\u00b0F), dry conditions, intense sun exposure.",
       "challenges": [
-        "High desert sun—shade rare",
+        "High desert sun\u2014shade rare",
         "Temperature swings (cool mornings, hot afternoons)",
         "Dry air dehydration risk",
         "Elevation (Bend ~3,600 ft)"
       ]
     },
     "terrain": {
-      "primary": "High desert gravel + singletrack",
-      "surface": "Mixed: gravel roads, doubletrack, singletrack. Oregon volcanic soil. High desert terrain—exposed, dry, fast when conditions allow.",
+      "primary": "High desert gravel",
+      "surface": "Gravel roads over Oregon volcanic soil and cinder. High desert terrain\u2014exposed, dry, fast when conditions allow. (Singletrack is part of the separate 39-mile MTB course, not the gravel race.)",
       "technical_rating": 3,
       "features": [
         "High desert gravel roads",
-        "Singletrack sections",
-        "Doubletrack",
-        "Volcanic soil surface",
+        "Volcanic cinder/dirt surface",
+        "Front-loaded climbing (first 30mi)",
         "Exposed ridges",
         "Multi-discipline course options"
       ]
@@ -73,16 +73,16 @@
     },
     "biased_opinion": {
       "verdict": "Multi-Sport High Desert Party",
-      "summary": "Bend Dirt Fest is the Oregon Trail Cycling Series finale and a multi-discipline festival—gravel, MTB, trail run, all in one weekend. This isn't a pure gravel race; it's a celebration of Bend's outdoor culture. The course mixes high desert gravel roads, doubletrack, and singletrack. Field is small (~500 across all events), vibe is community-focused. If you're looking for a competitive gravel race, look elsewhere. If you want a fun weekend in Bend with friends, beer, and dirt, this is it.",
+      "summary": "Bend Dirt Fest is a new Mudslinger Events multi-discipline festival\u2014gravel, MTB, trail run, all in one weekend. This isn't a pure gravel race; it's a celebration of Bend's outdoor culture, in its second year as of 2026. The gravel course runs high desert gravel roads and volcanic cinder. Field is small (~500 across all events), vibe is community-focused. If you're looking for a competitive gravel race, look elsewhere. If you want a fun weekend in Bend with friends, beer, and dirt, this is it.",
       "strengths": [
-        "Bend, Oregon—outdoor mecca, great post-race scene",
+        "Bend, Oregon\u2014outdoor mecca, great post-race scene",
         "Multi-discipline options (gravel/MTB/trail run)",
-        "Oregon Trail Cycling Series finale—community vibe",
+        "New Mudslinger Events production\u2014strong debut, growing fast",
         "July weather usually dry and warm",
         "High desert scenery"
       ],
       "weaknesses": [
-        "Small field—not competitive",
+        "Small field\u2014not competitive",
         "Multi-discipline format dilutes gravel focus",
         "Course details sparse online",
         "Not a destination gravel race",
@@ -91,18 +91,18 @@
       "bottom_line": "This is a regional festival, not a bucket-list gravel race. If you live in the Pacific Northwest or want an excuse to visit Bend, it's fun. If you're traveling from afar specifically for gravel, there are better options. Think of it as a weekend party with bikes, not a race with a party."
     },
     "logistics": {
-      "nearest_airport": "Redmond Municipal Airport (RDM) — 20 miles north",
-      "alternate_airports": "Portland (PDX) — 160 miles northwest, Eugene (EUG) — 130 miles west",
+      "nearest_airport": "Redmond Municipal Airport (RDM) \u2014 20 miles north",
+      "alternate_airports": "Portland (PDX) \u2014 160 miles northwest, Eugene (EUG) \u2014 130 miles west",
       "lodging_note": "Bend has ample lodging but prices spike in summer. Book early.",
       "parking": "Free at event site",
       "packet_pickup": "Friday and Saturday morning",
-      "travel_summary": "Redmond airport is close. Portland is 3-hour drive (scenic). Bend is outdoor hub—crowded in summer. Rental car needed.",
+      "travel_summary": "Redmond airport is close. Portland is 3-hour drive (scenic). Bend is outdoor hub\u2014crowded in summer. Rental car needed.",
       "food_options": "Bend has excellent food scene. Aid stations on course.",
       "camping": "Multiple campgrounds nearby",
       "official_site": "https://www.benddirtfest.com"
     },
     "course_description": {
-      "character": "High desert mix: gravel roads, doubletrack, singletrack. Multi-discipline festival course. 50 miles, ~3,000 ft. Oregon volcanic landscape.",
+      "character": "High desert gravel and volcanic cinder roads through Oregon's Deschutes National Forest landscape. Multi-discipline festival course. 54 miles; gain unverified/conflicting across sources (roughly 3,000-4,000 ft).",
       "suffering_zones": [
         {
           "name": "High Desert Sun Exposure",
@@ -111,20 +111,20 @@
           "survival_strategy": "Hydrate aggressively. Sunscreen. Light colors."
         },
         {
-          "name": "Singletrack Sections",
-          "miles": "Varies",
-          "description": "MTB-style singletrack. Technical if not prepared.",
-          "survival_strategy": "MTB skills help. Lower tire pressure for traction."
+          "name": "Front-Loaded Climbing",
+          "miles": "First 30",
+          "description": "Nearly all the course's climbing lands in the first 30 miles before a mostly-downhill final 24 (per organizer course description).",
+          "survival_strategy": "Pace conservatively early \u2014 the back half rewards riders who didn't blow up on the climbing."
         }
       ],
-      "signature_challenge": "High desert heat and sun exposure. Singletrack technical sections."
+      "signature_challenge": "High desert heat and sun exposure. Front-loaded climbing in the first 30 miles, descending the final 24."
     },
     "history": {
-      "founded": "2010s",
-      "founder": "Oregon Trail Cycling",
-      "origin_story": "Bend Dirt Fest is the Oregon Trail Cycling Series finale. Multi-discipline festival celebrating Bend's outdoor culture. 500 participants across gravel, MTB, trail run.",
+      "founded": "2025 (inaugural year)",
+      "founder": "Mike Ripley / Mudslinger Events (22-year Central Oregon race producer)",
+      "origin_story": "Bend Dirt Fest launched in July 2025 as a new Mudslinger Events production, replacing the cancelled Oregon 24 MTB event on the calendar. Multi-discipline festival\u2014gravel, MTB, trail run\u2014celebrating Bend's outdoor culture. Grew ~120% into its second year (2026).",
       "notable_moments": [],
-      "reputation": "Regional festival. Multi-discipline community event."
+      "reputation": "New (2025-founded) regional festival. Multi-discipline community event."
     },
     "research_metadata": {
       "data_confidence": "researched",
@@ -170,7 +170,7 @@
       },
       "climate": {
         "score": 2,
-        "explanation": "Historical weather data shows average highs of 87°F and lows of 56°F, with a 8% chance of rain on any given day. July courses receive \"full sun\" with official warnings to \"dress for conditions, heat and potential dehydration.\" Terrain varies between \"red hero cinder dirt or fine moon dust\" depending on conditions. The high desert sun combined with exposed volcanic terrain demands serious hydration planning and UV protection throughout the day. More weather exposure than Belgian Waffle Ride San Diego."
+        "explanation": "Historical weather data shows average highs of 87\u00b0F and lows of 56\u00b0F, with a 8% chance of rain on any given day. July courses receive \"full sun\" with official warnings to \"dress for conditions, heat and potential dehydration.\" Terrain varies between \"red hero cinder dirt or fine moon dust\" depending on conditions. The high desert sun combined with exposed volcanic terrain demands serious hydration planning and UV protection throughout the day. More weather exposure than Belgian Waffle Ride San Diego."
       },
       "altitude": {
         "score": 2,
@@ -178,7 +178,7 @@
       },
       "adventure": {
         "score": 4,
-        "explanation": "Singletrack trails through Deschutes National Forest deliver authentic high desert adventure with volcanic terrain. Mike Ripley designed courses \"to create an event that embraced the adventure of Bend, Oregon. Where someone could roll out of bed, go run a half, head over to the Athletic Club, grab their bike — gravel or mountain — and have a great day.\""
+        "explanation": "Singletrack trails through Deschutes National Forest deliver authentic high desert adventure with volcanic terrain. Mike Ripley designed courses \"to create an event that embraced the adventure of Bend, Oregon. Where someone could roll out of bed, go run a half, head over to the Athletic Club, grab their bike \u2014 gravel or mountain \u2014 and have a great day.\""
       },
       "prestige": {
         "score": 3,
@@ -211,8 +211,8 @@
     },
     "final_verdict": {
       "score": "66 / 100",
-      "one_liner": "A solid debut that prioritizes good vibes over gravel glory, perfect for testing Oregon's dirt without the Oregon trail suffering.",
-      "should_you_race": "This works if you want a legitimate 50-mile dirt challenge without the circus atmosphere of bigger events. The 3,000 feet of climbing won't break anyone, but it'll remind you why base fitness matters. Skip it if you need competition depth or proven course logistics—first-year events always come with question marks.",
+      "one_liner": "A solid debut that prioritizes good vibes over gravel glory\u2014a legit test of Central Oregon's volcanic dirt.",
+      "should_you_race": "This works if you want a legitimate 54-mile dirt challenge without the circus atmosphere of bigger events. The front-loaded early climbing won't break anyone, but it'll remind you why base fitness matters. Skip it if you need competition depth or a longer race history\u2014this is only its second year.",
       "alternatives": "Gravel Worlds Oregon gives you proven course management and deeper fields if you want actual competition. For similar mileage with better established logistics, Dirty Kanza 100 delivers twice the suffering with half the organizational uncertainty.",
       "alternative_slugs": [
         "garmin-gravel-worlds",
@@ -340,7 +340,7 @@
           "view_count": 468,
           "upload_date": "20250701",
           "duration_string": "2:08",
-          "description": "Scarborough Bicycle Accident Law presents the 1st Annual Bend Dirt Fest – Saturday, July 12th.\n\nBend Dirt Fest is the multi-discipline race for everyone. Riders and Runners choose one of three options: a half marathon trail run, a 54 mile gravel grinder, or a 36 mile mountain bike course. Solo participants complete simultaneously and are scored based on their own times. You can also be a part of a 2 or 3 person team, add your times together, and complete against other teams! There’ll be live music, ice cold beer from 10 Barrel, plus vendors showing off the latest in gear, apparel, and crafts. So bring the family and friends to Bend Dirt Fest and enjoy everything that makes Bend and Central Oregon special! Visit benddirtfest.com for more information and to register.\n\n\n\n\n\n\n\n\n\nCheck out some of our other videos!\n\nPristine MTB Conditions on Bend’s Legendary Whoops\nhttps://youtu.be/ty4Ay8HLvrs\n\nWater is Everything (Part One)\nhttps://youtu.be/PlsJO3jhWXU\n\nWater is Everything (Part Two)\nhttps://youtu.be/1UAC7TA5CsM\n\nTree Well Rescue - Mt. Baker\nhttps://youtu.be/hfbWsGiPsBk\n\nWing Foiling with Bend Local Dennis Oliphant \nhttps://youtu.be/G01bn_9_jLg\n\n2022 Natural Selection Proving Grounds - Prineville, Oregon\nhttps://youtu.be/2AvlCbZ95IE\n\nSkiing the West Bowls at Mt. Bachelor\nhttps://youtu.be/ik6dJ-IQYpE\n\nUltra Marathoner Max King and the Bend Marathon and Half\nhttps://youtu.be/3_K33EN-bsk\n\nBecome a Street Dog Hero\nhttps://youtu.be/OimkxdIbuU4\n\nBend Oregon in Winter\nhttps://youtu.be/oKzAQdsC6OE\n\nSide Country skiing in Bend, Oregon\nhttps://youtu.be/kr0OImFiLSE\n\nWhat’s in your Backcountry Backpack with Bend, Oregon Local and Renowned Back Country Guide, David Marchi\nhttps://youtu.be/ZgpvRzMFpVU\n\nTime to Climb - Spring Climbing at Smith Rock\n https://youtu.be/LgoC8GRIl8Y\n\nWarm Springs Horse Network and Safe Acres Sanctuary - Making a Difference One Wild Horse at a Time\nhttps://youtu.be/iH1rIEy-Jdc\n\n#bendoregon, #bendoregonweather, #bendoregonhotels, #bendoregonairport, #gateway, #travel, #traveloregon, #haydenhomesamphitheater, #mtbachelor,",
+          "description": "Scarborough Bicycle Accident Law presents the 1st Annual Bend Dirt Fest \u2013 Saturday, July 12th.\n\nBend Dirt Fest is the multi-discipline race for everyone. Riders and Runners choose one of three options: a half marathon trail run, a 54 mile gravel grinder, or a 36 mile mountain bike course. Solo participants complete simultaneously and are scored based on their own times. You can also be a part of a 2 or 3 person team, add your times together, and complete against other teams! There\u2019ll be live music, ice cold beer from 10 Barrel, plus vendors showing off the latest in gear, apparel, and crafts. So bring the family and friends to Bend Dirt Fest and enjoy everything that makes Bend and Central Oregon special! Visit benddirtfest.com for more information and to register.\n\n\n\n\n\n\n\n\n\nCheck out some of our other videos!\n\nPristine MTB Conditions on Bend\u2019s Legendary Whoops\nhttps://youtu.be/ty4Ay8HLvrs\n\nWater is Everything (Part One)\nhttps://youtu.be/PlsJO3jhWXU\n\nWater is Everything (Part Two)\nhttps://youtu.be/1UAC7TA5CsM\n\nTree Well Rescue - Mt. Baker\nhttps://youtu.be/hfbWsGiPsBk\n\nWing Foiling with Bend Local Dennis Oliphant \nhttps://youtu.be/G01bn_9_jLg\n\n2022 Natural Selection Proving Grounds - Prineville, Oregon\nhttps://youtu.be/2AvlCbZ95IE\n\nSkiing the West Bowls at Mt. Bachelor\nhttps://youtu.be/ik6dJ-IQYpE\n\nUltra Marathoner Max King and the Bend Marathon and Half\nhttps://youtu.be/3_K33EN-bsk\n\nBecome a Street Dog Hero\nhttps://youtu.be/OimkxdIbuU4\n\nBend Oregon in Winter\nhttps://youtu.be/oKzAQdsC6OE\n\nSide Country skiing in Bend, Oregon\nhttps://youtu.be/kr0OImFiLSE\n\nWhat\u2019s in your Backcountry Backpack with Bend, Oregon Local and Renowned Back Country Guide, David Marchi\nhttps://youtu.be/ZgpvRzMFpVU\n\nTime to Climb - Spring Climbing at Smith Rock\n https://youtu.be/LgoC8GRIl8Y\n\nWarm Springs Horse Network and Safe Acres Sanctuary - Making a Difference One Wild Horse at a Time\nhttps://youtu.be/iH1rIEy-Jdc\n\n#bendoregon, #bendoregonweather, #bendoregonhotels, #bendoregonairport, #gateway, #travel, #traveloregon, #haydenhomesamphitheater, #mtbachelor,",
           "tags": [],
           "url": "https://www.youtube.com/watch?v=s9bQS_aXehc",
           "transcript": "[Music]\nHey everyone, this is Trevor with\nRecreation Leader. I just want to tell\nyou about this awesome event coming up\non July 12th. It is Dirtfest and we\nwould love to see you out there because\nthis is what makes Bend Ben.\nMy name is Mike Ripley, owner of\nMudslinger Events, and uh this is Ben\nDirtfest, our first year operating this\nmulti-port festival. uh in Bend, Oregon.\nSecond weekend of July on a Saturday.\nWe've always wanted to have an event\nthat incorporates trail running and\ngravel cycling and mountain biking.\nSomething that builds on the community's\nadventure and the fact that people in\nBen, they do everything. Somebody always\nhas a jam. And we want to be that\nlowhanging fruit for a really good day\noutdoors. At the Ben Dirtfest, we have a\nhalf marathon trail run. Uh it's about\n60/40 trail to road. the cycling events,\nthe gravel 55 miles, uh, and the\nmountain bike 39 filled with single\ntrack gravel, hard climbs, all the\ncycling events will take off at 8:15,\nuh, after the trail run takes off from\nthe athletic club at 8:00. We'll ride\nout Century and get over to Road 41\nwhere there'll be a course split, but\nthe running is going to be active all\nday, running by Rimrock for an aid\nstation uh, out and back and hit some\nreally good Ben single track uh, to come\nback for your friends. The key thing on\nthis event though is you can do it solo,\nbut if you find another person that is\none of those other disciplines, you\ncould do a twoerson or a threeperson to\ncollaborate and have your times all sync\nup for overall awards. We're just really\nreally excited about bringing a new\nevent to Ben that can involve anybody of\nany level. It's going to be just a\nwonderful time with a band, a DJ, food\ntrucks. If anybody wants more\ninformation, check out\nmudslingervents.com in our events tab or\nbenthurtfest.com and you get all the\ninformation including the tech guide and\nwhat to know for a great day on the\nsecond Saturday in July.",

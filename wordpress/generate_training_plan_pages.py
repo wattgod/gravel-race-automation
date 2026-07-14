@@ -45,6 +45,7 @@ PROJECT_ROOT = Path(__file__).resolve().parent.parent
 RACE_DATA_DIR = PROJECT_ROOT / "race-data"
 RACE_PACKS_DIR = PROJECT_ROOT / "web" / "race-packs"
 OUTPUT_DIR = PROJECT_ROOT / "wordpress" / "output" / "training-plan"
+TESTIMONIALS_PATH = PROJECT_ROOT / "data" / "testimonials.json"
 
 SITE_BASE_URL = "https://gravelgodcycling.com"
 QUESTIONNAIRE_URL = f"{SITE_BASE_URL}/questionnaire/"
@@ -334,6 +335,62 @@ def build_static_plan(rd: dict) -> str:
 </section>"""
 
 
+def load_testimonials(slug: str) -> list:
+    """Verified+consented testimonials for this race (display-side mirror).
+
+    Reads data/testimonials.json — the sync target of the source-of-truth
+    gravel-god-training-plans/db/testimonials.json. Returns [] if the file
+    is missing, empty, or unreadable, so the reviews section renders
+    nothing until real, verified entries exist (scoring-and-veracity: never
+    fabricate social proof).
+    """
+    try:
+        data = json.loads(TESTIMONIALS_PATH.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError):
+        return []
+    entries = data.get("testimonials", [])
+    return [
+        t for t in entries
+        if t.get("race_slug") == slug
+        and t.get("verified_by")
+        and t.get("consent") is True
+        and t.get("display") is True
+    ]
+
+
+def build_reviews(rd: dict, slug: str) -> str:
+    """On-site reviews/testimonials section — real, verified entries only.
+
+    Renders nothing until a testimonial for this race is verified, has
+    consent, and is flagged for display (scoring-and-veracity: an honest
+    empty state beats an invented quote). Every data-derived value is
+    esc()'d — this is server-rendered HTML, no innerHTML.
+    """
+    matches = load_testimonials(slug)
+    if not matches:
+        return ""
+
+    race_name = esc(rd["name"])
+    cards = []
+    for t in matches:
+        outcome_html = (
+            f'<p class="gg-tpp-review-outcome"><strong>Outcome:</strong> {esc(t.get("outcome"))}</p>'
+            if t.get("outcome") else ""
+        )
+        cards.append(f'''<div class="gg-tpp-review">
+      <p class="gg-tpp-review-meta">{esc(t.get("athlete_name"))} &middot; {race_name} &middot; {esc(t.get("date"))}</p>
+      <h4 class="gg-tpp-review-headline">{esc(t.get("headline"))}</h4>
+      <p class="gg-tpp-review-body">{esc(t.get("body"))}</p>
+      {outcome_html}</div>''')
+
+    return f'''<section class="gg-tpp-section" id="reviews">
+  <h2>What Riders Say</h2>
+  <div class="gg-tpp-reviews-grid">
+    {"".join(cards)}
+  </div>
+</section>'''
+
+
 def build_faq(rd: dict, pack: dict) -> tuple[str, list]:
     """Race-specific FAQ + (question, answer) pairs for schema."""
     name = rd["name"]
@@ -483,6 +540,12 @@ def build_css() -> str:
 .gg-tpp-tl-when { font-family: var(--gg-font-data); font-size: 12px; white-space: nowrap; }
 .gg-tpp-tl-phase { font-family: var(--gg-font-data); font-weight: 700; text-transform: uppercase; font-size: 12px; color: var(--gg-color-teal); }
 .gg-tpp-fueling li { margin-bottom: 8px; line-height: 1.6; }
+.gg-tpp-reviews-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 14px; }
+.gg-tpp-review { border: 3px solid #000; background: var(--gg-color-warm-paper); padding: 18px; }
+.gg-tpp-review-meta { font-family: var(--gg-font-data); font-size: 11px; letter-spacing: 1px; text-transform: uppercase; color: var(--gg-color-secondary-brown); margin: 0 0 10px; }
+.gg-tpp-review-headline { font-family: var(--gg-font-data); font-size: 15px; margin: 0 0 8px; text-transform: uppercase; color: #000; }
+.gg-tpp-review-body { font-size: 14px; line-height: 1.6; margin: 0 0 10px; }
+.gg-tpp-review-outcome { font-size: 13px; line-height: 1.5; margin: 0; color: var(--gg-color-teal); }
 .gg-tpp-faq-item { border: 2px solid #000; margin-bottom: 10px; background: #fff; }
 .gg-tpp-faq-item summary { font-family: var(--gg-font-data); font-size: 14px; font-weight: 600; padding: 14px 16px; cursor: pointer; }
 .gg-tpp-faq-item p { padding: 0 16px 14px; margin: 0; line-height: 1.6; }
@@ -542,6 +605,7 @@ def generate_page(rd: dict, pack: dict) -> str:
     workouts = build_workouts(rd, pack)
     timeline = build_timeline(rd)
     fueling = build_fueling(rd)
+    reviews = build_reviews(rd, slug)
     static_plan = build_static_plan(rd)
     faq_html, qa = build_faq(rd, pack)
     cta = build_cta(rd)
@@ -585,6 +649,7 @@ def generate_page(rd: dict, pack: dict) -> str:
 {workouts}
 {timeline}
 {fueling}
+{reviews}
 {static_plan}
 {faq_html}
 {cta}

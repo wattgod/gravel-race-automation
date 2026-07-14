@@ -1,0 +1,23 @@
+{
+  "_schema": "gg-testimonials-v1",
+  "_note": "DISPLAY-SIDE MIRROR. Source of truth is gravel-god-training-plans/db/testimonials.json — this file is synced FROM that one, one-way. Only entries that are verified + have explicit display consent get copied here; this is what generate_training_plan_pages.py reads to render the on-site reviews section. Never author new entries directly in this file. Governed by the scoring-and-veracity skill: an entry renders on a plan page ONLY if verified_by is set AND consent is true AND display is true.",
+  "_fields": {
+    "id": "stable slug, e.g. 'unbound-2026-jordans'",
+    "race_slug": "matches race-data / copy slug",
+    "plan_ref": "human plan title or planId the review is about",
+    "tier": "Finisher | Compete | Masters 50+ | Time-Crunched | Save My Race",
+    "athlete_name": "consent-appropriate name (first + initial)",
+    "date": "YYYY-MM (race month/year)",
+    "headline": "benefit-led one line (best-seller testimonial format)",
+    "body": "the quote in the athlete's words",
+    "outcome": "specific verifiable result if any (PB, first finish, AG place)",
+    "source": "tp_review | email | survey",
+    "source_ref": "the actual evidence pointer (TP review URL / Gmail msgId / survey id) — REQUIRED, this is the anti-fabrication anchor",
+    "consent": "boolean — explicit consent to display publicly",
+    "verified_by": "who confirmed it is real (e.g. 'matti')",
+    "verified_at": "YYYY-MM-DD",
+    "display": "boolean — final render gate"
+  },
+  "generated": null,
+  "testimonials": []
+}

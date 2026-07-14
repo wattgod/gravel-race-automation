@@ -641,6 +641,139 @@ class TestAutoDealCreation:
         assert len(deals) == 0  # no deal for post-purchase
 
 
+class TestCompletionRelativeDelay:
+    """Steps may schedule relative to plan completion instead of a fixed day.
+
+    delay_from_completion_days: N schedules a step at (plan_weeks * 7) + N
+    days from enrollment, reading plan_weeks from source_data. Falls back to
+    the step's static delay_days (or a documented 12-week default) when
+    plan_weeks is missing or invalid.
+    """
+
+    def test_resolves_full_delay_with_plan_weeks(self, fake_db):
+        from mission_control.services.sequence_engine import _step_delay_days
+
+        step = {"delay_from_completion_days": 3, "delay_days": 42}
+        assert _step_delay_days(step, {"plan_weeks": 12}) == 87
+
+    def test_resolves_short_plan(self, fake_db):
+        from mission_control.services.sequence_engine import _step_delay_days
+
+        step = {"delay_from_completion_days": 3, "delay_days": 42}
+        assert _step_delay_days(step, {"plan_weeks": 6}) == 45
+
+    def test_missing_plan_weeks_falls_back_to_delay_days(self, fake_db):
+        from mission_control.services.sequence_engine import _step_delay_days
+
+        step = {"delay_from_completion_days": 3, "delay_days": 42}
+        assert _step_delay_days(step, {}) == 42
+        assert _step_delay_days(step, None) == 42
+
+    def test_invalid_plan_weeks_falls_back_to_delay_days(self, fake_db):
+        from mission_control.services.sequence_engine import _step_delay_days
+
+        step = {"delay_from_completion_days": 3, "delay_days": 42}
+        assert _step_delay_days(step, {"plan_weeks": "twelve"}) == 42
+        assert _step_delay_days(step, {"plan_weeks": 0}) == 42
+        assert _step_delay_days(step, {"plan_weeks": -5}) == 42
+
+    def test_missing_plan_weeks_and_no_delay_days_uses_12wk_default(self, fake_db):
+        from mission_control.services.sequence_engine import _step_delay_days
+
+        step = {"delay_from_completion_days": 3}
+        assert _step_delay_days(step, {}) == 12 * 7 + 3 == 87
+
+    def test_static_delay_days_step_unaffected(self, fake_db):
+        """Regression: steps with only delay_days behave exactly as before."""
+        from mission_control.services.sequence_engine import _step_delay_days
+
+        step = {"delay_days": 10}
+        assert _step_delay_days(step, {"plan_weeks": 12}) == 10
+        assert _step_delay_days(step, {}) == 10
+        assert _step_delay_days(step, None) == 10
+
+    def test_enroll_first_step_completion_relative(self, fake_db):
+        """enroll() honors delay_from_completion_days on the first step."""
+        from mission_control.services.sequence_engine import enroll
+
+        fake_seq = {
+            "id": "test_completion_seq",
+            "name": "Test Completion Sequence",
+            "active": True,
+            "trigger": "plan_purchased",
+            "variants": {
+                "A": {"weight": 100, "steps": [
+                    {"delay_from_completion_days": 3, "delay_days": 42,
+                     "template": "nps_request", "subject": "one number, honestly"},
+                ]},
+            },
+        }
+        with patch(
+            "mission_control.services.sequence_engine.get_sequence",
+            return_value=fake_seq,
+        ):
+            before = datetime.now(timezone.utc)
+            result = enroll(
+                "completer@example.com", "Completer", "test_completion_seq",
+                source="plan_purchased", source_data={"plan_weeks": 12},
+            )
+
+        assert result is not None
+        next_send = datetime.fromisoformat(result["next_send_at"])
+        expected = before + timedelta(days=87)
+        assert abs((next_send - expected).total_seconds()) < 5
+
+    def test_send_next_step_schedules_completion_relative(self, fake_db):
+        """_send_next_step() honors delay_from_completion_days on the next step."""
+        import asyncio
+
+        from mission_control.services.sequence_engine import _send_next_step
+
+        fake_seq = {
+            "id": "test_completion_seq2",
+            "active": True,
+            "trigger": "plan_purchased",
+            "variants": {
+                "A": {"weight": 100, "steps": [
+                    {"delay_days": 21, "template": "progress_update",
+                     "subject": "welcome to the boring middle"},
+                    {"delay_from_completion_days": 3, "delay_days": 42,
+                     "template": "nps_request", "subject": "one number, honestly"},
+                ]},
+            },
+        }
+        enrollment = make_enrollment(
+            sequence_id="test_completion_seq2",
+            current_step=0,
+            source_data={"plan_weeks": 12},
+        )
+        fake_db.store["gg_sequence_enrollments"].append(enrollment)
+
+        with patch(
+            "mission_control.services.sequence_engine.get_sequence",
+            return_value=fake_seq,
+        ):
+            with patch(
+                "mission_control.services.sequence_engine.RESEND_API_KEY",
+                "fake-key",
+            ):
+                with patch(
+                    "mission_control.services.sequence_engine._send_email_sync",
+                    return_value="resend-id-1",
+                ):
+                    result = asyncio.new_event_loop().run_until_complete(
+                        _send_next_step(enrollment)
+                    )
+
+        assert result is True
+        assert enrollment["current_step"] == 1
+        next_send = datetime.fromisoformat(enrollment["next_send_at"])
+        now = datetime.now(timezone.utc)
+        # 87 (completion-relative) - 21 (progress_update's delay_days) = 66
+        expected = now + timedelta(days=66)
+        assert abs((next_send - expected).total_seconds()) < 5
+
+
 class TestCustomerSuppression:
     """Skip marketing emails to existing customers."""
 

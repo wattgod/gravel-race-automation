@@ -20,7 +20,51 @@ from mission_control.sequences import get_sequence, SEQUENCES
 # Triggers that are post-purchase — should NOT be suppressed for customers
 _POST_PURCHASE_TRIGGERS = {"plan_purchased"}
 
+# Fallback plan length (weeks) for completion-relative steps when the
+# enrollment's source_data carries no usable plan_weeks AND the step has no
+# static delay_days fallback of its own. 12 weeks matches our most common
+# tier-2 plan length. See _step_delay_days().
+_DEFAULT_PLAN_WEEKS = 12
+
 logger = logging.getLogger(__name__)
+
+
+def _step_delay_days(step: dict, source_data: dict | None) -> int:
+    """Resolve a step's cumulative delay-from-enrollment, in days.
+
+    Steps normally carry a static `delay_days` — CUMULATIVE from enrollment,
+    exactly as before. This function returns that value unchanged for such
+    steps (full backward compatibility).
+
+    A step may instead (additionally) carry `delay_from_completion_days: N`,
+    which schedules it relative to plan *completion* rather than a fixed
+    calendar day: `(plan_weeks * 7) + N` days from enrollment, where
+    `plan_weeks` comes from the enrollment's `source_data`.
+
+    Fallback order when `delay_from_completion_days` is present:
+      1. `source_data["plan_weeks"]` is a valid positive number -> use it.
+      2. else, if the step also has a static `delay_days` -> use that as-is
+         (documented fallback; lets a step degrade gracefully to a fixed day
+         when plan length isn't known yet).
+      3. else -> assume _DEFAULT_PLAN_WEEKS (12) weeks.
+    """
+    completion_delay = step.get("delay_from_completion_days")
+    if completion_delay is None:
+        return step["delay_days"]
+
+    plan_weeks = (source_data or {}).get("plan_weeks")
+    try:
+        plan_weeks = float(plan_weeks)
+        if plan_weeks <= 0:
+            raise ValueError
+    except (TypeError, ValueError):
+        plan_weeks = None
+
+    if plan_weeks is not None:
+        return int(plan_weeks * 7) + completion_delay
+    if "delay_days" in step:
+        return step["delay_days"]
+    return _DEFAULT_PLAN_WEEKS * 7 + completion_delay
 
 # Lock to prevent concurrent process_due_sends() from sending duplicate emails
 _processing_lock = asyncio.Lock()
@@ -53,8 +97,8 @@ def enroll(
     variant = _pick_variant(seq["variants"])
     steps = seq["variants"][variant]["steps"]
 
-    # Calculate first send time
-    first_delay = steps[0]["delay_days"] if steps else 0
+    # Calculate first send time (honors delay_from_completion_days if set)
+    first_delay = _step_delay_days(steps[0], source_data) if steps else 0
     now = datetime.now(timezone.utc)
     next_send = now + timedelta(days=first_delay)
 
@@ -282,8 +326,11 @@ async def _send_next_step(enrollment: dict) -> bool:
         # delay_days is CUMULATIVE from enrollment (day 0, 3, 7 = gaps of 3, 4).
         # Delta = next step's delay minus current step's delay.
         # min 1 day gap to prevent same-day sends from config errors.
-        next_delay = steps[next_step]["delay_days"]
-        current_delay = step["delay_days"]
+        # _step_delay_days() also resolves delay_from_completion_days steps
+        # (plan_weeks*7 + N) — see that function for fallback semantics.
+        source_data = enrollment.get("source_data") or {}
+        next_delay = _step_delay_days(steps[next_step], source_data)
+        current_delay = _step_delay_days(step, source_data)
         delta_days = next_delay - current_delay
         next_send = now + timedelta(days=max(delta_days, 1))
 

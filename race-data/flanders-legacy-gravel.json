@@ -5,7 +5,7 @@
     "display_name": "Leuven Legacy Gravel",
     "tagline": "Leuven's UCI World Series race on the 2024 Worlds course — first qualifier for 2027.",
     "vitals": {
-      "distance_mi": 91,
+      "distance_mi": 82,
       "elevation_ft": 3117,
       "location": "Leuven / Heverlee, Flemish Brabant, Belgium",
       "location_badge": "LEUVEN, BELGIUM",
@@ -26,7 +26,9 @@
       "cutoff_time": "Varies",
       "lat": 51.0378,
       "lng": 4.2406,
-      "start_elevation_asl_ft": 200
+      "start_elevation_asl_ft": 200,
+      "gain_display": "Varies",
+      "date_note_2026": "Course per UCI legacy-gravel-2026 page: 86-132 km lap-based by age group (2025 ran 97-147 km — prior-edition figures retired 2026-07-16)"
     },
     "climate": {
       "primary": "Belgian mid-October shoulder season",
@@ -116,7 +118,7 @@
       "reputation": "Regional Belgian event."
     },
     "course_description": {
-      "character": "RENAMED for 2026: 'Flanders Legacy Gravel' -> 'LEUVEN LEGACY GRAVEL' (old domain 301s to leuvenlegacygravel.be). Golazo's UCI GWS round from Leuven/Heverlee — first official qualifier for the 2027 Gravel Worlds in France: 147km (3 laps of a 48km Brabantse Wouden circuit, ~950m) for elite + younger cats; 92km (2 laps, ~600-610m) = official course for men 60+/women 50+. Rolling forest gravel reusing the 2024 UCI Gravel Worlds Leuven course — NOT Flemish Ardennes bergs/kasseien (prior profile's framing was wrong). RACE DAY IS SUNDAY. PRIOR 75mi/4,000ft matched nothing — corrected 2026-07-14. NOTE FOR MATTI: site page slug flanders-legacy-gravel needs a rename/redirect decision (F-class naming item).",
+      "character": "RENAMED for 2026: 'Flanders Legacy Gravel' -> 'LEUVEN LEGACY GRAVEL' (old domain 301s to leuvenlegacygravel.be). Golazo's UCI GWS round from Leuven/Heverlee — first official qualifier for the 2027 Gravel Worlds in France: 132km (3 laps of a 48km Brabantse Wouden circuit, ~950m) for elite + younger cats; 86km (2 laps, ~600-610m) = official course for men 60+/women 50+. Rolling forest gravel reusing the 2024 UCI Gravel Worlds Leuven course — NOT Flemish Ardennes bergs/kasseien (prior profile's framing was wrong). RACE DAY IS SUNDAY. PRIOR 75mi/4,000ft matched nothing — corrected 2026-07-14. NOTE FOR MATTI: site page slug flanders-legacy-gravel needs a rename/redirect decision (F-class naming item).",
       "suffering_zones": [
         {
           "mile": 25,

@@ -662,6 +662,29 @@
         "credit": "YouTube / Brent Kastner",
         "gif": true
       }
+    ],
+    "suffering_zones": [
+      {
+        "mile": 20,
+        "label": "High Plains Rolling",
+        "desc": "Open terrain with wind.",
+        "terrain_detail": "Ranch roads",
+        "named_section": "Early Miles"
+      },
+      {
+        "mile": 50,
+        "label": "Midpoint",
+        "desc": "Halfway through ranch country on the 100-mile Crusher.",
+        "terrain_detail": "Continued rolling",
+        "named_section": "Mid-Course"
+      },
+      {
+        "mile": 90,
+        "label": "Final Stretch",
+        "desc": "Last miles back toward Sheridan.",
+        "terrain_detail": "Final hills",
+        "named_section": "Finish"
+      }
     ]
   }
 }

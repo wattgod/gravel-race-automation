@@ -2,9 +2,9 @@
   "plan_metadata": {
     "name": "PODIUM ADVANCED GOAT",
     "duration_weeks": 12,
-    "philosophy": "Integrated Pyramidal Progression (GOAT Method)",
+    "philosophy": "Integrated Pyramidal Progression",
     "target_hours": "20-25",
-    "target_athlete": "Elite cyclist, podium contender, can commit 20-25 hrs/week, GOAT pursuit",
+    "target_athlete": "Elite cyclist, podium contender, can commit 20-25 hrs/week, chasing peak performance",
     "goal": "Complete race preparation through pyramidal base with strategic intensity integration—all systems developed, peak race fitness"
   },
   "weeks": [
@@ -16,7 +16,7 @@
       "workouts": [
         {
           "name": "W01 Mon - Rest",
-          "description": "• Welcome to PODIUM Advanced GOAT. You're chasing something exceptional—20-25 hours per week, 12 weeks to race-day peak. This is the Integrated Pyramidal approach: massive aerobic base with strategic intensity throughout. Elite gravel racing demands everything—you have the time to train everything. • WEEK PREVIEW: Tuesday has comprehensive testing. Wednesday is volume + technique. Thursday has durability assessment. Friday is easy. Saturday is peak long base (5-6 hours). Sunday has multi-system quality. • GOAT PHILOSOPHY: Volume is the foundation. Intensity is the sharpening. At 20-25 hours/week, you have enough volume to develop all systems. We'll train VO2max, threshold, durability, and neuromuscular throughout—not in isolated blocks, but integrated intelligently. • REST DAY NOTE: True rest. You're about to do serious work. Sleep 8+ hours tonight.",
+          "description": "• Welcome to PODIUM Advanced GOAT. You're chasing something exceptional—20-25 hours per week, 12 weeks to race-day peak. This is the Integrated Pyramidal approach: massive aerobic base with strategic intensity throughout. Elite gravel racing demands everything—you have the time to train everything. • WEEK PREVIEW: Tuesday has comprehensive testing. Wednesday is volume + technique. Thursday has durability assessment. Friday is easy. Saturday is peak long base (5-6 hours). Sunday has multi-system quality. • TRAINING PHILOSOPHY: Volume is the foundation. Intensity is the sharpening. At 20-25 hours/week, you have enough volume to develop all systems. We'll train VO2max, threshold, durability, and neuromuscular throughout—not in isolated blocks, but integrated intelligently. • REST DAY NOTE: True rest. You're about to do serious work. Sleep 8+ hours tonight.",
           "blocks": "    <FreeRide Duration=\"60\"/>\n"
         },
         {
@@ -198,7 +198,7 @@
         },
         {
           "name": "W05 Wed - Volume + Race-Pace Tempo",
-          "description": "• STRUCTURE: First 2 hours Z2 → 5x18 min @ 85-90% FTP (G-Spot, 5 min easy between) → Final 1.5 hours Z2 • G-Spot tempo (87-92% FTP)—this IS race pace. 90 minutes at sustainable race power. Building durability at race intensity. • CADENCE: Self-selected.",
+          "description": "• STRUCTURE: First 2 hours Z2 → 5x18 min @ 85-90% FTP (Strong Tempo, 5 min easy between) → Final 1.5 hours Z2 • Strong Tempo (87-92% FTP)—this IS race pace. 90 minutes at sustainable race power. Building durability at race intensity. • CADENCE: Self-selected.",
           "blocks": "    <Warmup Duration=\"600\" PowerLow=\"0.50\" PowerHigh=\"0.65\"/>\n    <SteadyState Duration=\"7200\" Power=\"0.70\" Cadence=\"85\"/>\n    <IntervalsT Repeat=\"5\" OnDuration=\"1080\" OnPower=\"0.875\" Cadence=\"90\" OffDuration=\"300\" OffPower=\"0.55\"/>\n    <SteadyState Duration=\"5400\" Power=\"0.70\" Cadence=\"85\"/>\n    <Cooldown Duration=\"600\" PowerLow=\"0.70\" PowerHigh=\"0.55\"/>\n"
         },
         {
@@ -241,7 +241,7 @@
         },
         {
           "name": "W06 Wed - Peak Volume + Race-Pace Tempo",
-          "description": "• STRUCTURE: First 2.5 hours Z2 → 6x18 min @ 87-92% FTP (G-Spot, 5 min easy between) → Final 1.5 hours Z2 • Peak G-Spot volume. 108 minutes at race pace within 5.5-hour ride. This IS race preparation. • CADENCE: Self-selected.",
+          "description": "• STRUCTURE: First 2.5 hours Z2 → 6x18 min @ 87-92% FTP (Strong Tempo, 5 min easy between) → Final 1.5 hours Z2 • Peak Strong Tempo volume. 108 minutes at race pace within 5.5-hour ride. This IS race preparation. • CADENCE: Self-selected.",
           "blocks": "    <Warmup Duration=\"600\" PowerLow=\"0.50\" PowerHigh=\"0.65\"/>\n    <SteadyState Duration=\"9000\" Power=\"0.70\" Cadence=\"85\"/>\n    <IntervalsT Repeat=\"6\" OnDuration=\"1080\" OnPower=\"0.90\" Cadence=\"90\" OffDuration=\"300\" OffPower=\"0.55\"/>\n    <SteadyState Duration=\"5400\" Power=\"0.70\" Cadence=\"85\"/>\n    <Cooldown Duration=\"600\" PowerLow=\"0.70\" PowerHigh=\"0.55\"/>\n"
         },
         {
@@ -514,12 +514,12 @@
         },
         {
           "name": "W12 Sat - Race Day or Rest",
-          "description": "• If racing Saturday: RACE DAY—EXECUTE YOUR PLAN • If racing Sunday: Complete rest or 45-60 min with brief openers • Race Day Notes: 12 weeks of GOAT-level preparation. 20-25 hours per week. Integrated pyramidal development. All systems trained. You've built race-day resilience through massive volume with embedded quality. • START STRATEGY: Controlled first 30 minutes. Find your group. Settle into race pace. • NUTRITION: 90-100g carbs/hour minimum. You've practiced this. • EXECUTION: Race pace is 87-92% FTP (G-Spot). Push surges when you see opportunity. • FINISH: Second half is where you dominate. Your durability is exceptional.",
+          "description": "• If racing Saturday: RACE DAY—EXECUTE YOUR PLAN • If racing Sunday: Complete rest or 45-60 min with brief openers • Race Day Notes: 12 weeks of elite-level preparation. 20-25 hours per week. Integrated pyramidal development. All systems trained. You've built race-day resilience through massive volume with embedded quality. • START STRATEGY: Controlled first 30 minutes. Find your group. Settle into race pace. • NUTRITION: 90-100g carbs/hour minimum. You've practiced this. • EXECUTION: Race pace is 87-92% FTP (Strong Tempo). Push surges when you see opportunity. • FINISH: Second half is where you dominate. Your durability is exceptional.",
           "blocks": "    <FreeRide Duration=\"60\"/>\n"
         },
         {
           "name": "W12 Sun - Race Day or Recovery",
-          "description": "• If racing Sunday: RACE DAY—EXECUTE YOUR PLAN • If raced Saturday: 45-60 min easy spin, celebrate, recover • Race Day Notes: You've done GOAT-level work. 20-25 hours per week. Massive aerobic base with integrated intensity. Your VO2max is sharp. Your threshold is race-ready. Your durability is exceptional. You've practiced everything—nutrition, pacing, gear. • GOAT EXECUTION: Start smart. Fuel constantly. Push the second half. When it hurts at hour 5, remember—you've trained longer and harder than this. Your preparation is exceptional. Now dominate.",
+          "description": "• If racing Sunday: RACE DAY—EXECUTE YOUR PLAN • If raced Saturday: 45-60 min easy spin, celebrate, recover • Race Day Notes: You've done elite-level work. 20-25 hours per week. Massive aerobic base with integrated intensity. Your VO2max is sharp. Your threshold is race-ready. Your durability is exceptional. You've practiced everything—nutrition, pacing, gear. • RACE EXECUTION: Start smart. Fuel constantly. Push the second half. When it hurts at hour 5, remember—you've trained longer and harder than this. Your preparation is exceptional. Now dominate.",
           "blocks": "    <FreeRide Duration=\"60\"/>\n"
         }
       ]
@@ -528,13 +528,13 @@
   "default_modifications": {
     "integrated_pyramidal_philosophy": {
       "enabled": true,
-      "description": "Integrated Pyramidal Progression (GOAT Method) - massive aerobic base with strategic intensity throughout",
+      "description": "Integrated Pyramidal Progression - massive aerobic base with strategic intensity throughout",
       "volume_range": "20-25 hours/week",
       "intensity_distribution": "Pyramidal base (Z2 dominant) with VO2, threshold, and durability work integrated throughout—not isolated blocks",
       "principle": "At elite volume, you have time to train everything. Volume is foundation, intensity is sharpening."
     },
     "pyramidal_distribution": {
-      "typical_week": "72-78% Z2, 14-18% Z3 (tempo/G-Spot), 8-12% Z4/Z5 (threshold/VO2)",
+      "typical_week": "72-78% Z2, 14-18% Z3 (tempo/Strong Tempo), 8-12% Z4/Z5 (threshold/VO2)",
       "long_ride_structure": "Aerobic base → tempo blocks → brief threshold/VO2 → aerobic finish",
       "intensity_integration": "Quality embedded in volume, not separate"
     },
@@ -563,7 +563,7 @@
     },
     "monday_week_preview": {
       "enabled": true,
-      "description": "Monday rest days include week preview, GOAT philosophy reminders, and elite context"
+      "description": "Monday rest days include week preview, training philosophy reminders, and elite context"
     },
     "elite_volume_context": {
       "enabled": true,

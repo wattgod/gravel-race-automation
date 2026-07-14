@@ -2,7 +2,7 @@
   "plan_metadata": {
     "name": "PODIUM ADVANCED",
     "duration_weeks": 12,
-    "philosophy": "HVLI/LSD-Centric (High Volume, Low Intensity)",
+    "philosophy": "High-Volume, Low-Intensity (Long Slow Distance) Training",
     "target_hours": "20-25",
     "target_athlete": "Elite ambition, professional volume capacity, podium/win goal",
     "goal": "Elite-level preparation through extreme durability and aerobic development"
@@ -10,13 +10,13 @@
   "weeks": [
     {
       "week_number": 1,
-      "focus": "Foundation Assessment & HVLI Introduction",
+      "focus": "Foundation Assessment & Long-Easy-Volume Introduction",
       "volume_percent": 70,
       "volume_hours": "14-17.5",
       "workouts": [
         {
           "name": "W01 Mon - Rest",
-          "description": "• Welcome to elite-level training. HVLI = High Volume, Low Intensity. This is how professional endurance athletes train—massive aerobic volume (mostly Z1-Z2) builds extreme durability, fat oxidation, and resilience. Weeks 1-4: pure base building. Weeks 5-8: maintain volume, add quality. Weeks 9-12: sharpen while preserving durability. Testing week—FTP Tuesday, durability assessment Saturday. You need 20-25 hours weekly. If you don't have that time, this isn't your plan. • WEEK PREVIEW: Foundation assessment week. Tuesday has FTP test + aerobic efficiency (45 min @ 65-70% FTP). Wednesday- This week establishes your baseline and introduces HVLI rhythm. • REST DAY NOTE: Fine to ride if you really want, but no longer than an hour and don't break 30 TSS.",
+          "description": "• Welcome to elite-level training. This is high-volume, low-intensity training. This is how professional endurance athletes train—massive aerobic volume (mostly Z1-Z2) builds extreme durability, fat oxidation, and resilience. Weeks 1-4: pure base building. Weeks 5-8: maintain volume, add quality. Weeks 9-12: sharpen while preserving durability. Testing week—FTP Tuesday, durability assessment Saturday. You need 20-25 hours weekly. If you don't have that time, this isn't your plan. • WEEK PREVIEW: Foundation assessment week. Tuesday has FTP test + aerobic efficiency (45 min @ 65-70% FTP). Wednesday- This week establishes your baseline and introduces your long-easy-volume rhythm. • REST DAY NOTE: Fine to ride if you really want, but no longer than an hour and don't break 30 TSS.",
           "blocks": "    <FreeRide Duration=\"60\"/>\n"
         },
         {
@@ -26,17 +26,17 @@
         },
         {
           "name": "W01 Wed - Easy Endurance Volume",
-          "description": "• First HVLI session. Conversational pace entire time. If you can't speak in full sentences, you're going too hard. This is your baseline pace. Get comfortable here—you'll spend 18-22 hours per week in this zone. Practice eating 60-70g carbs/hour.",
+          "description": "• First long-easy-volume session. Conversational pace entire time. If you can't speak in full sentences, you're going too hard. This is your baseline pace. Get comfortable here—you'll spend 18-22 hours per week in this zone. Practice eating 60-70g carbs/hour.",
           "blocks": "    <Warmup Duration=\"600\" PowerLow=\"0.50\" PowerHigh=\"0.65\"/>\n    <SteadyState Duration=\"10800\" Power=\"0.70\" Cadence=\"85\"/>\n    <Cooldown Duration=\"600\" PowerLow=\"0.70\" PowerHigh=\"0.55\"/>\n"
         },
         {
           "name": "W01 Thu - Easy Endurance Volume",
-          "description": "• Another easy day. HVLI means back-to-back volume days at aerobic pace. This builds durability without fatigue accumulation. Stay conversational. Practice fat oxidation—try lower carb fueling (~40g/hour) to train metabolic flexibility.",
+          "description": "• Another easy day. Long easy volume means back-to-back volume days at aerobic pace. This builds durability without fatigue accumulation. Stay conversational. Practice fat oxidation—try lower carb fueling (~40g/hour) to train metabolic flexibility.",
           "blocks": "    <Warmup Duration=\"600\" PowerLow=\"0.50\" PowerHigh=\"0.65\"/>\n    <SteadyState Duration=\"9000\" Power=\"0.70\" Cadence=\"85\"/>\n    <Cooldown Duration=\"600\" PowerLow=\"0.70\" PowerHigh=\"0.55\"/>\n"
         },
         {
           "name": "W01 Fri - Easy Endurance Volume",
-          "description": "• Third consecutive volume day. This is HVLI—massive aerobic load. Keep it easy. Your body is adapting to volume, not intensity. • REST DAY NOTE: Fine to ride if you really want, but no longer than an hour and don't break 30 TSS.",
+          "description": "• Third consecutive volume day. This is long easy volume—massive aerobic load. Keep it easy. Your body is adapting to volume, not intensity. • REST DAY NOTE: Fine to ride if you really want, but no longer than an hour and don't break 30 TSS.",
           "blocks": "    <FreeRide Duration=\"60\"/>\n"
         },
         {
@@ -46,7 +46,7 @@
         },
         {
           "name": "W01 Sun - Long Easy Endurance",
-          "description": "• Long easy ride to cap volume week. HVLI integrates year-round max during base phase. Lift heavy, rest fully between sets. This builds force production that converts to watts later. 60-minute session because you have the time and recovery capacity at elite level.",
+          "description": "• Long easy ride to cap volume week. Long easy volume integrates year-round max during base phase. Lift heavy, rest fully between sets. This builds force production that converts to watts later. 60-minute session because you have the time and recovery capacity at elite level.",
           "blocks": "    <Warmup Duration=\"600\" PowerLow=\"0.50\" PowerHigh=\"0.65\"/>\n    <SteadyState Duration=\"14400\" Power=\"0.70\" Cadence=\"85\"/>\n    <Cooldown Duration=\"600\" PowerLow=\"0.70\" PowerHigh=\"0.55\"/>\n"
         }
       ]
@@ -59,12 +59,12 @@
       "workouts": [
         {
           "name": "W02 Mon - Rest or Very Easy Spin",
-          "description": "• Optional: 60-90 min Z1 (50-60% FTP) • Rest day or extremely easy active recovery if feeling good. Don't underestimate the importance of true rest at high volume. • WEEK PREVIEW: Base volume building week. Tuesday- This week builds HVLI rhythm—massive aerobic accumulation. • REST DAY NOTE: Fine to ride if you really want, but no longer than an hour and don't break 30 TSS.",
+          "description": "• Optional: 60-90 min Z1 (50-60% FTP) • Rest day or extremely easy active recovery if feeling good. Don't underestimate the importance of true rest at high volume. • WEEK PREVIEW: Base volume building week. Tuesday- This week builds long-easy-volume rhythm—massive aerobic accumulation. • REST DAY NOTE: Fine to ride if you really want, but no longer than an hour and don't break 30 TSS.",
           "blocks": "    <FreeRide Duration=\"60\"/>\n"
         },
         {
           "name": "W02 Tue - Easy Endurance Volume",
-          "description": "• Long aerobic ride. Pure volume building. Conversational pace. This is the foundation of HVLI—massive Z2 accumulation. Eat consistently: 60-70g carbs/hour.",
+          "description": "• Long aerobic ride. Pure volume building. Conversational pace. This is the foundation of long easy volume—massive Z2 accumulation. Eat consistently: 60-70g carbs/hour.",
           "blocks": "    <Warmup Duration=\"600\" PowerLow=\"0.50\" PowerHigh=\"0.65\"/>\n    <SteadyState Duration=\"12600\" Power=\"0.70\" Cadence=\"85\"/>\n    <Cooldown Duration=\"600\" PowerLow=\"0.70\" PowerHigh=\"0.55\"/>\n"
         },
         {
@@ -74,7 +74,7 @@
         },
         {
           "name": "W02 Thu - Easy Endurance Volume",
-          "description": "• Third consecutive volume day. HVLI rhythm: constant aerobic stress, minimal intensity stress. This is how elite endurance is built.",
+          "description": "• Third consecutive volume day. Long-easy-volume rhythm: constant aerobic stress, minimal intensity stress. This is how elite endurance is built.",
           "blocks": "    <Warmup Duration=\"600\" PowerLow=\"0.50\" PowerHigh=\"0.65\"/>\n    <SteadyState Duration=\"10800\" Power=\"0.70\" Cadence=\"85\"/>\n    <Cooldown Duration=\"600\" PowerLow=\"0.70\" PowerHigh=\"0.55\"/>\n"
         },
         {
@@ -83,8 +83,8 @@
           "blocks": "    <Warmup Duration=\"600\" PowerLow=\"0.50\" PowerHigh=\"0.65\"/>\n    <SteadyState Duration=\"7200\" Power=\"0.70\" Cadence=\"85\"/>\n    <IntervalsT Repeat=\"3\" OnDuration=\"900\" OnPower=\"0.78\" Cadence=\"100\" OffDuration=\"300\" OffPower=\"0.55\"/>\n    <SteadyState Duration=\"4500\" Power=\"0.70\" Cadence=\"85\"/>\n    <Cooldown Duration=\"600\" PowerLow=\"0.70\" PowerHigh=\"0.55\"/>\n"
         },
         {
-          "name": "W02 Sat - Long HVLI Ride",
-          "description": "• Extended aerobic endurance. No intensity—pure volume. This is HVLI at its core. Practice everything: fueling (70-80g carbs/hour), hydration, bike fit, saddle comfort, hand positions. This is your A-ride of the week. Elite athletes do this weekly year-round.",
+          "name": "W02 Sat - Long Easy-Volume Ride",
+          "description": "• Extended aerobic endurance. No intensity—pure volume. This is long easy volume at its core. Practice everything: fueling (70-80g carbs/hour), hydration, bike fit, saddle comfort, hand positions. This is your A-ride of the week. Elite athletes do this weekly year-round.",
           "blocks": "    <Warmup Duration=\"600\" PowerLow=\"0.50\" PowerHigh=\"0.65\"/>\n    <SteadyState Duration=\"21600\" Power=\"0.70\" Cadence=\"85\"/>\n    <Cooldown Duration=\"600\" PowerLow=\"0.70\" PowerHigh=\"0.55\"/>\n"
         },
         {
@@ -107,7 +107,7 @@
         },
         {
           "name": "W03 Tue - Easy Endurance Volume",
-          "description": "• Long aerobic ride. Pure volume. Conversational pace. This is HVLI—relentless aerobic stress.",
+          "description": "• Long aerobic ride. Pure volume. Conversational pace. This is long easy volume—relentless aerobic stress.",
           "blocks": "    <Warmup Duration=\"600\" PowerLow=\"0.50\" PowerHigh=\"0.65\"/>\n    <SteadyState Duration=\"14400\" Power=\"0.70\" Cadence=\"85\"/>\n    <Cooldown Duration=\"600\" PowerLow=\"0.70\" PowerHigh=\"0.55\"/>\n"
         },
         {
@@ -126,7 +126,7 @@
           "blocks": "    <FreeRide Duration=\"60\"/>\n"
         },
         {
-          "name": "W03 Sat - Long HVLI Ride",
+          "name": "W03 Sat - Long Easy-Volume Ride",
           "description": "• STRUCTURE: Z2 (65-75% FTP), add 4x10 min @ 75-80% FTP scattered through hours 4-6 (3 min easy between) • Biggest ride yet. 7-8 hours mostly Z2 with light tempo touches when tired. This is elite-level volume. Eat 70-90g carbs/hour religiously. Practice race nutrition. Dial in everything—saddle height, cleat position, hand positions. This volume exposes all weaknesses. • CADENCE WORK: Mix cadences on tempo touches.",
           "blocks": "    <Warmup Duration=\"600\" PowerLow=\"0.50\" PowerHigh=\"0.65\"/>\n    <SteadyState Duration=\"10800\" Power=\"0.70\" Cadence=\"85\"/>\n    <IntervalsT Repeat=\"4\" OnDuration=\"600\" OnPower=\"0.78\" Cadence=\"100\" OffDuration=\"180\" OffPower=\"0.55\"/>\n    <SteadyState Duration=\"7200\" Power=\"0.70\" Cadence=\"85\"/>\n    <Cooldown Duration=\"600\" PowerLow=\"0.70\" PowerHigh=\"0.55\"/>\n"
         },
@@ -188,17 +188,17 @@
       "workouts": [
         {
           "name": "W05 Mon - Rest or Easy Spin",
-          "description": "• Optional: 60-90 min Z1 • Rest or very easy. Build phase begins—volume stays high, intensity adds carefully. • WEEK PREVIEW: Build phase begins. Wednesday has G-Spot intervals (first quality session—embedded in volume). Saturday has threshold development (embedded in volume). Volume stays high, quality adds carefully. • REST DAY NOTE: Fine to ride if you really want, but no longer than an hour and don't break 30 TSS.",
+          "description": "• Optional: 60-90 min Z1 • Rest or very easy. Build phase begins—volume stays high, intensity adds carefully. • WEEK PREVIEW: Build phase begins. Wednesday has Strong Tempo intervals (first quality session—embedded in volume). Saturday has threshold development (embedded in volume). Volume stays high, quality adds carefully. • REST DAY NOTE: Fine to ride if you really want, but no longer than an hour and don't break 30 TSS.",
           "blocks": "    <FreeRide Duration=\"60\"/>\n"
         },
         {
           "name": "W05 Tue - Easy Endurance Volume",
-          "description": "• Long aerobic ride. HVLI volume continues throughout build phase. This is what separates elite training—maintaining volume while adding quality.",
+          "description": "• Long aerobic ride. Long easy volume continues throughout build phase. This is what separates elite training—maintaining volume while adding quality.",
           "blocks": "    <Warmup Duration=\"600\" PowerLow=\"0.50\" PowerHigh=\"0.65\"/>\n    <SteadyState Duration=\"14400\" Power=\"0.70\" Cadence=\"85\"/>\n    <Cooldown Duration=\"600\" PowerLow=\"0.70\" PowerHigh=\"0.55\"/>\n"
         },
         {
-          "name": "W05 Wed - Quality Session #1: G-Spot",
-          "description": "• STRUCTURE: 60 min Z2 warmup → 4x20 min @ 87-92% FTP (7 min easy between) → 30 min Z2 cooldown • First quality session embedded in volume. Long warmup/cooldown maintains HVLI principles. G-Spot builds sustained power without excessive fatigue. Control breathing, stay seated, steady power. • CADENCE WORK: Mix cadences—intervals 1, 3 at high cadence (100+ rpm), intervals 2, 4 at low cadence (40-60 rpm).",
+          "name": "W05 Wed - Quality Session #1: Strong Tempo",
+          "description": "• STRUCTURE: 60 min Z2 warmup → 4x20 min @ 87-92% FTP (7 min easy between) → 30 min Z2 cooldown • First quality session embedded in volume. Long warmup/cooldown maintains long-easy-volume principles. Strong Tempo builds sustained power without excessive fatigue. Control breathing, stay seated, steady power. • CADENCE WORK: Mix cadences—intervals 1, 3 at high cadence (100+ rpm), intervals 2, 4 at low cadence (40-60 rpm).",
           "blocks": "    <Warmup Duration=\"600\" PowerLow=\"0.50\" PowerHigh=\"0.65\"/>\n    <SteadyState Duration=\"3600\" Power=\"0.70\" Cadence=\"85\"/>\n    <IntervalsT Repeat=\"4\" OnDuration=\"1200\" OnPower=\"0.895\" Cadence=\"100\" OffDuration=\"420\" OffPower=\"0.55\"/>\n    <SteadyState Duration=\"1800\" Power=\"0.70\" Cadence=\"85\"/>\n    <Cooldown Duration=\"600\" PowerLow=\"0.70\" PowerHigh=\"0.55\"/>\n"
         },
         {
@@ -213,11 +213,11 @@
         },
         {
           "name": "W05 Sat - Quality Session #2: Threshold",
-          "description": "• STRUCTURE: 90 min Z2 warmup → 3x20 min @ 95-100% FTP (8 min easy between) → 60 min Z2 cooldown • Threshold work embedded in volume ride. This is HVLI philosophy—quality within context of aerobic base. Race pace for 60 minutes total. Long warmup/cooldown maintains volume load. Eat 70-80g carbs/hour throughout entire ride. • CADENCE WORK: Mix cadences—interval 1 high cadence (100+ rpm), interval 2 low cadence (40-60 rpm), interval 3 self-selected.",
+          "description": "• STRUCTURE: 90 min Z2 warmup → 3x20 min @ 95-100% FTP (8 min easy between) → 60 min Z2 cooldown • Threshold work embedded in volume ride. This is the long-easy-volume philosophy—quality within context of aerobic base. Race pace for 60 minutes total. Long warmup/cooldown maintains volume load. Eat 70-80g carbs/hour throughout entire ride. • CADENCE WORK: Mix cadences—interval 1 high cadence (100+ rpm), interval 2 low cadence (40-60 rpm), interval 3 self-selected.",
           "blocks": "    <Warmup Duration=\"600\" PowerLow=\"0.50\" PowerHigh=\"0.65\"/>\n    <SteadyState Duration=\"5400\" Power=\"0.70\" Cadence=\"85\"/>\n    <IntervalsT Repeat=\"3\" OnDuration=\"1200\" OnPower=\"0.98\" Cadence=\"100\" OffDuration=\"480\" OffPower=\"0.55\"/>\n    <SteadyState Duration=\"3600\" Power=\"0.70\" Cadence=\"85\"/>\n    <Cooldown Duration=\"600\" PowerLow=\"0.70\" PowerHigh=\"0.55\"/>\n"
         },
         {
-          "name": "W05 Sun - Long HVLI Ride",
+          "name": "W05 Sun - Long Easy-Volume Ride",
           "description": "• Long easy ride day after quality. This maintains durability from base phase. Keep it conversational entire time. Explosive supports power production during intensity phases.",
           "blocks": "    <Warmup Duration=\"600\" PowerLow=\"0.50\" PowerHigh=\"0.65\"/>\n    <SteadyState Duration=\"21600\" Power=\"0.70\" Cadence=\"85\"/>\n    <Cooldown Duration=\"600\" PowerLow=\"0.70\" PowerHigh=\"0.55\"/>\n"
         }
@@ -241,7 +241,7 @@
         },
         {
           "name": "W06 Wed - Quality Session #1: VO2max + Threshold",
-          "description": "• STRUCTURE: 60 min Z2 warmup → 5x5 min @ 110-115% FTP (5 min easy between) → 20 min easy → 2x15 min @ 95-100% FTP (7 min easy between) → 30 min Z2 cooldown • Combined quality session within volume context. VO2max first, threshold when fatigued. This builds race-specific fitness—ability to surge and sustain. Long warmup/cooldown maintains HVLI volume. • RHYTHM INTERVALS: For threshold blocks, try rhythm pattern: 2 min Z3 (self-selected cadence) + 1 min Z4 (high cadence 100+ rpm) x 4, continuous. This simulates race variability. • CADENCE WORK: VO2 intervals—alternate high and low cadence. Threshold blocks—use rhythm pattern or mix cadences.",
+          "description": "• STRUCTURE: 60 min Z2 warmup → 5x5 min @ 110-115% FTP (5 min easy between) → 20 min easy → 2x15 min @ 95-100% FTP (7 min easy between) → 30 min Z2 cooldown • Combined quality session within volume context. VO2max first, threshold when fatigued. This builds race-specific fitness—ability to surge and sustain. Long warmup/cooldown maintains long easy volume. • RHYTHM INTERVALS: For threshold blocks, try rhythm pattern: 2 min Z3 (self-selected cadence) + 1 min Z4 (high cadence 100+ rpm) x 4, continuous. This simulates race variability. • CADENCE WORK: VO2 intervals—alternate high and low cadence. Threshold blocks—use rhythm pattern or mix cadences.",
           "blocks": "    <Warmup Duration=\"600\" PowerLow=\"0.50\" PowerHigh=\"0.65\"/>\n    <SteadyState Duration=\"3600\" Power=\"0.70\" Cadence=\"85\"/>\n    <IntervalsT Repeat=\"5\" OnDuration=\"300\" OnPower=\"1.12\" Cadence=\"100\" OffDuration=\"300\" OffPower=\"0.55\"/>\n    <SteadyState Duration=\"1200\" Power=\"0.65\" Cadence=\"85\"/>\n    <IntervalsT Repeat=\"2\" OnDuration=\"900\" OnPower=\"0.98\" Cadence=\"100\" OffDuration=\"420\" OffPower=\"0.55\"/>\n    <SteadyState Duration=\"1800\" Power=\"0.70\" Cadence=\"85\"/>\n    <Cooldown Duration=\"600\" PowerLow=\"0.70\" PowerHigh=\"0.55\"/>\n"
         },
         {
@@ -260,7 +260,7 @@
           "blocks": "    <Warmup Duration=\"600\" PowerLow=\"0.50\" PowerHigh=\"0.65\"/>\n    <SteadyState Duration=\"5400\" Power=\"0.70\" Cadence=\"85\"/>\n    <IntervalsT Repeat=\"2\" OnDuration=\"1800\" OnPower=\"0.98\" Cadence=\"100\" OffDuration=\"600\" OffPower=\"0.55\"/>\n    <SteadyState Duration=\"5400\" Power=\"0.70\" Cadence=\"85\"/>\n    <Cooldown Duration=\"600\" PowerLow=\"0.70\" PowerHigh=\"0.55\"/>\n"
         },
         {
-          "name": "W06 Sun - Long HVLI Ride",
+          "name": "W06 Sun - Long Easy-Volume Ride",
           "description": "• STRUCTURE: Z2 (65-75% FTP), add 4x10 min @ 75-80% FTP in hours 4-6 (3 min easy between) • Massive ride day after quality. This is extreme durability training. Keep it conversational except for tempo touches. Eat 80-90g carbs/hour. Test all race gear. Explosive maintains power production capacity.",
           "blocks": "    <Warmup Duration=\"600\" PowerLow=\"0.50\" PowerHigh=\"0.65\"/>\n    <SteadyState Duration=\"10800\" Power=\"0.70\" Cadence=\"85\"/>\n    <IntervalsT Repeat=\"4\" OnDuration=\"600\" OnPower=\"0.78\" Cadence=\"100\" OffDuration=\"180\" OffPower=\"0.55\"/>\n    <SteadyState Duration=\"10800\" Power=\"0.70\" Cadence=\"85\"/>\n    <Cooldown Duration=\"600\" PowerLow=\"0.70\" PowerHigh=\"0.55\"/>\n"
         }
@@ -303,7 +303,7 @@
           "blocks": "    <Warmup Duration=\"600\" PowerLow=\"0.50\" PowerHigh=\"0.65\"/>\n    <SteadyState Duration=\"5400\" Power=\"0.70\" Cadence=\"85\"/>\n    <IntervalsT Repeat=\"3\" OnDuration=\"1500\" OnPower=\"0.98\" Cadence=\"100\" OffDuration=\"600\" OffPower=\"0.55\"/>\n    <SteadyState Duration=\"6300\" Power=\"0.70\" Cadence=\"85\"/>\n    <Cooldown Duration=\"600\" PowerLow=\"0.70\" PowerHigh=\"0.55\"/>\n"
         },
         {
-          "name": "W07 Sun - Maximum HVLI Ride",
+          "name": "W07 Sun - Maximum Easy-Volume Ride",
           "description": "• STRUCTURE: Z2 (65-75% FTP), add 6x10 min @ 75-80% FTP scattered through hours 4-7 (3 min easy between) • Longest ride of plan. Day after big quality. This is extreme durability training—what elite gravel racing demands. Keep it conversational except tempo touches. Eat 80-100g carbs/hour. Test everything. shifts to stability during peak load—injury prevention focus.",
           "blocks": "    <Warmup Duration=\"600\" PowerLow=\"0.50\" PowerHigh=\"0.65\"/>\n    <SteadyState Duration=\"10800\" Power=\"0.70\" Cadence=\"85\"/>\n    <IntervalsT Repeat=\"6\" OnDuration=\"600\" OnPower=\"0.78\" Cadence=\"100\" OffDuration=\"180\" OffPower=\"0.55\"/>\n    <SteadyState Duration=\"10800\" Power=\"0.70\" Cadence=\"85\"/>\n    <Cooldown Duration=\"600\" PowerLow=\"0.70\" PowerHigh=\"0.55\"/>\n"
         }
@@ -317,7 +317,7 @@
       "workouts": [
         {
           "name": "W08 Mon - Rest",
-          "description": "• Recovery week after peak training block. You should feel very tired Monday. By Sunday you should feel fresh, strong, sharp. This is when all the training consolidates into fitness. If you're not recovered by Sunday, address sleep, nutrition, or life stress. Elite performance requires elite recovery. • WEEK PREVIEW: Recovery week. Tuesday-Sunday are easy endurance days (2.5-6 hours each). Wednesday has light G-Spot touch. Saturday is moderate endurance (5-6 hours). transitions to durability. This is when adaptation happens. • REST DAY NOTE: Fine to ride if you really want, but no longer than an hour and don't break 30 TSS.",
+          "description": "• Recovery week after peak training block. You should feel very tired Monday. By Sunday you should feel fresh, strong, sharp. This is when all the training consolidates into fitness. If you're not recovered by Sunday, address sleep, nutrition, or life stress. Elite performance requires elite recovery. • WEEK PREVIEW: Recovery week. Tuesday-Sunday are easy endurance days (2.5-6 hours each). Wednesday has light Strong Tempo touch. Saturday is moderate endurance (5-6 hours). transitions to durability. This is when adaptation happens. • REST DAY NOTE: Fine to ride if you really want, but no longer than an hour and don't break 30 TSS.",
           "blocks": "    <FreeRide Duration=\"60\"/>\n"
         },
         {
@@ -327,7 +327,7 @@
         },
         {
           "name": "W08 Wed - Easy Endurance + Light Quality",
-          "description": "• STRUCTURE: 60 min Z2 → 3x10 min @ 85-88% FTP (5 min easy between) → 45 min Z2 • Light G-Spot touch maintains fitness without fatigue. Should feel controlled and easy. • CADENCE WORK: Mix cadences—one high, one low, one self-selected.",
+          "description": "• STRUCTURE: 60 min Z2 → 3x10 min @ 85-88% FTP (5 min easy between) → 45 min Z2 • Light Strong Tempo touch maintains fitness without fatigue. Should feel controlled and easy. • CADENCE WORK: Mix cadences—one high, one low, one self-selected.",
           "blocks": "    <Warmup Duration=\"600\" PowerLow=\"0.50\" PowerHigh=\"0.65\"/>\n    <SteadyState Duration=\"3600\" Power=\"0.70\" Cadence=\"85\"/>\n    <IntervalsT Repeat=\"3\" OnDuration=\"600\" OnPower=\"0.865\" Cadence=\"90\" OffDuration=\"300\" OffPower=\"0.55\"/>\n    <SteadyState Duration=\"2700\" Power=\"0.70\" Cadence=\"85\"/>\n    <Cooldown Duration=\"600\" PowerLow=\"0.70\" PowerHigh=\"0.55\"/>\n"
         },
         {
@@ -365,7 +365,7 @@
         },
         {
           "name": "W09 Tue - Easy Endurance Volume",
-          "description": "• Long aerobic ride. HVLI volume continues even in peak phase. This is elite training—never sacrificing durability.",
+          "description": "• Long aerobic ride. Long easy volume continues even in peak phase. This is elite training—never sacrificing durability.",
           "blocks": "    <Warmup Duration=\"600\" PowerLow=\"0.50\" PowerHigh=\"0.65\"/>\n    <SteadyState Duration=\"14400\" Power=\"0.70\" Cadence=\"85\"/>\n    <Cooldown Duration=\"600\" PowerLow=\"0.70\" PowerHigh=\"0.55\"/>\n"
         },
         {
@@ -389,7 +389,7 @@
           "blocks": "    <Warmup Duration=\"600\" PowerLow=\"0.50\" PowerHigh=\"0.65\"/>\n    <SteadyState Duration=\"5400\" Power=\"0.70\" Cadence=\"85\"/>\n    <IntervalsT Repeat=\"3\" OnDuration=\"1200\" OnPower=\"0.98\" Cadence=\"100\" OffDuration=\"480\" OffPower=\"0.55\"/>\n    <SteadyState Duration=\"5400\" Power=\"0.70\" Cadence=\"85\"/>\n    <Cooldown Duration=\"600\" PowerLow=\"0.70\" PowerHigh=\"0.55\"/>\n"
         },
         {
-          "name": "W09 Sun - Long HVLI Ride",
+          "name": "W09 Sun - Long Easy-Volume Ride",
           "description": "• STRUCTURE: First 2 hours Z2 → 4x20 min @ 90-95% FTP (8 min easy between) in hours 3-6 → Final 90 min Z2 • Long race simulation. Sustained efforts when already tired = race day reality. Eat 80-100g carbs/hour. Test ALL race-day gear, nutrition, hydration systems. This is full dress rehearsal.",
           "blocks": "    <Warmup Duration=\"600\" PowerLow=\"0.50\" PowerHigh=\"0.65\"/>\n    <SteadyState Duration=\"7200\" Power=\"0.70\" Cadence=\"85\"/>\n    <IntervalsT Repeat=\"4\" OnDuration=\"1200\" OnPower=\"0.93\" Cadence=\"100\" OffDuration=\"480\" OffPower=\"0.55\"/>\n    <SteadyState Duration=\"5400\" Power=\"0.70\" Cadence=\"85\"/>\n    <Cooldown Duration=\"600\" PowerLow=\"0.70\" PowerHigh=\"0.55\"/>\n"
         }
@@ -413,7 +413,7 @@
         },
         {
           "name": "W10 Wed - Final Quality #1",
-          "description": "• STRUCTURE: 60 min Z2 → 6x5 min @ 110-115% FTP (5 min easy between) → 15 min easy → 2x20 min @ 95-100% FTP (10 min easy between) → 60 min Z2 • Final big quality session. VO2max keeps explosive power sharp. Threshold maintains race pace. You should feel powerful—peak fitness manifesting. Long warmup/cooldown maintains HVLI context. • CADENCE WORK: VO2 intervals—alternate high and low cadence. Threshold blocks—mix cadences or use rhythm pattern.",
+          "description": "• STRUCTURE: 60 min Z2 → 6x5 min @ 110-115% FTP (5 min easy between) → 15 min easy → 2x20 min @ 95-100% FTP (10 min easy between) → 60 min Z2 • Final big quality session. VO2max keeps explosive power sharp. Threshold maintains race pace. You should feel powerful—peak fitness manifesting. Long warmup/cooldown maintains long-easy-volume context. • CADENCE WORK: VO2 intervals—alternate high and low cadence. Threshold blocks—mix cadences or use rhythm pattern.",
           "blocks": "    <Warmup Duration=\"600\" PowerLow=\"0.50\" PowerHigh=\"0.65\"/>\n    <SteadyState Duration=\"3600\" Power=\"0.70\" Cadence=\"85\"/>\n    <IntervalsT Repeat=\"6\" OnDuration=\"300\" OnPower=\"1.12\" Cadence=\"100\" OffDuration=\"300\" OffPower=\"0.55\"/>\n    <SteadyState Duration=\"900\" Power=\"0.65\" Cadence=\"85\"/>\n    <IntervalsT Repeat=\"2\" OnDuration=\"1200\" OnPower=\"0.98\" Cadence=\"100\" OffDuration=\"600\" OffPower=\"0.55\"/>\n    <SteadyState Duration=\"3600\" Power=\"0.70\" Cadence=\"85\"/>\n    <Cooldown Duration=\"600\" PowerLow=\"0.70\" PowerHigh=\"0.55\"/>\n"
         },
         {
@@ -476,7 +476,7 @@
         },
         {
           "name": "W11 Sun - Easy Endurance + Optional",
-          "description": "• Easy recovery volume. Skip if tired. You're one week from race week. Trust HVLI process.",
+          "description": "• Easy recovery volume. Skip if tired. You're one week from race week. Trust the long-easy-volume process.",
           "blocks": "    <Warmup Duration=\"600\" PowerLow=\"0.50\" PowerHigh=\"0.65\"/>\n    <SteadyState Duration=\"10800\" Power=\"0.65\" Cadence=\"85\"/>\n    <Cooldown Duration=\"600\" PowerLow=\"0.65\" PowerHigh=\"0.55\"/>\n"
         }
       ]
@@ -514,7 +514,7 @@
         },
         {
           "name": "W12 Sat - Race Day or Rest",
-          "description": "• If racing Saturday: EXECUTE ELITE PLAN • If racing Sunday: Complete rest or 60-90 min easy Z2 with 3x30sec openers • Notes: If racing today—position with leaders from start, don't waste energy mid-pack, fuel aggressively (80-100g carbs/hour), execute decisively when opportunities arise. HVLI prepared you for extreme durability. Use it.",
+          "description": "• If racing Saturday: EXECUTE ELITE PLAN • If racing Sunday: Complete rest or 60-90 min easy Z2 with 3x30sec openers • Notes: If racing today—position with leaders from start, don't waste energy mid-pack, fuel aggressively (80-100g carbs/hour), execute decisively when opportunities arise. Long easy volume prepared you for extreme durability. Use it.",
           "blocks": "    <FreeRide Duration=\"60\"/>\n"
         },
         {
@@ -567,7 +567,7 @@
     },
     "monday_week_preview": {
       "enabled": true,
-      "description": "Monday rest days include week preview with key workouts, HVLI reminders, elite performance guidance, and volume expectations"
+      "description": "Monday rest days include week preview with key workouts, long-easy-volume reminders, elite performance guidance, and volume expectations"
     },
     "rest_day_tss_limit": 30,
     "rest_day_duration_limit_hours": 1,

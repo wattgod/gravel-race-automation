@@ -59,12 +59,12 @@
       "workouts": [
         {
           "name": "W02 Mon - Rest",
-          "description": "• Week 2 builds on Week 1's foundation. You're learning to read your body's signals. Key Masters principle: it's better to undertrain slightly than overtrain significantly. Overtraining at 50+ can sideline you for weeks. Undertraining? You miss one good workout. The risk/reward is clear. Be conservative. There's no medal for \"toughest Masters athlete in training.\" • WEEK PREVIEW: Building routine week. Tuesday introduces G-Spot intervals (if HRV/readiness green). Thursday is easy endurance (if recovered). Saturday has tempo ride (if feeling strong). This week establishes training rhythm with autoregulation. • REST DAY NOTE: Fine to ride if you really want, but no longer than an hour and don't break 30 TSS.",
+          "description": "• Week 2 builds on Week 1's foundation. You're learning to read your body's signals. Key Masters principle: it's better to undertrain slightly than overtrain significantly. Overtraining at 50+ can sideline you for weeks. Undertraining? You miss one good workout. The risk/reward is clear. Be conservative. There's no medal for \"toughest Masters athlete in training.\" • WEEK PREVIEW: Building routine week. Tuesday introduces Strong Tempo intervals (if HRV/readiness green). Thursday is easy endurance (if recovered). Saturday has tempo ride (if feeling strong). This week establishes training rhythm with autoregulation. • REST DAY NOTE: Fine to ride if you really want, but no longer than an hour and don't break 30 TSS.",
           "blocks": "    <FreeRide Duration=\"60\"/>\n"
         },
         {
-          "name": "W02 Tue - G-Spot Introduction (if HRV/readiness green)",
-          "description": "• STRUCTURE: 15 min warmup → 3x8 min @ 85-90% FTP (4 min easy between) → 10 min cooldown • Readiness Check: Green light? Do workout as prescribed. Yellow light (moderate readiness)? Do 3x6 min instead. Red light? Skip intervals, ride 30 min easy. G-Spot is \"uncomfortably sustainable\"—if you're gasping, back off 5%. • CADENCE WORK: Mix cadences—interval 1 high cadence (100+ rpm), interval 2 low cadence (40-60 rpm), interval 3 self-selected.",
+          "name": "W02 Tue - Strong Tempo Introduction (if HRV/readiness green)",
+          "description": "• STRUCTURE: 15 min warmup → 3x8 min @ 85-90% FTP (4 min easy between) → 10 min cooldown • Readiness Check: Green light? Do workout as prescribed. Yellow light (moderate readiness)? Do 3x6 min instead. Red light? Skip intervals, ride 30 min easy. Strong Tempo is \"uncomfortably sustainable\"—if you're gasping, back off 5%. • CADENCE WORK: Mix cadences—interval 1 high cadence (100+ rpm), interval 2 low cadence (40-60 rpm), interval 3 self-selected.",
           "blocks": "    <Warmup Duration=\"900\" PowerLow=\"0.50\" PowerHigh=\"0.75\"/>\n    <IntervalsT Repeat=\"3\" OnDuration=\"480\" OnPower=\"0.875\" Cadence=\"100\" OffDuration=\"240\" OffPower=\"0.55\"/>\n    <Cooldown Duration=\"600\" PowerLow=\"0.70\" PowerHigh=\"0.50\"/>\n"
         },
         {
@@ -188,12 +188,12 @@
       "workouts": [
         {
           "name": "W05 Mon - Rest",
-          "description": "• Build phase begins. Weeks 5-8 progressively increase intensity based on YOUR recovery. This is where autoregulation shines—if HRV is down or you feel tired, we back off. If you're recovered and strong, we push. Masters training is about working WITH your body, not against it. Quality over quantity always. • WEEK PREVIEW: Build phase begins. Tuesday has G-Spot intervals (if HRV green). Thursday is easy endurance (if recovered). Saturday has tempo endurance (if feeling strong). This week returns to quality work with HRV guidance. • REST DAY NOTE: Fine to ride if you really want, but no longer than an hour and don't break 30 TSS.",
+          "description": "• Build phase begins. Weeks 5-8 progressively increase intensity based on YOUR recovery. This is where autoregulation shines—if HRV is down or you feel tired, we back off. If you're recovered and strong, we push. Masters training is about working WITH your body, not against it. Quality over quantity always. • WEEK PREVIEW: Build phase begins. Tuesday has Strong Tempo intervals (if HRV green). Thursday is easy endurance (if recovered). Saturday has tempo endurance (if feeling strong). This week returns to quality work with HRV guidance. • REST DAY NOTE: Fine to ride if you really want, but no longer than an hour and don't break 30 TSS.",
           "blocks": "    <FreeRide Duration=\"60\"/>\n"
         },
         {
-          "name": "W05 Tue - G-Spot Intervals (if HRV green)",
-          "description": "• STRUCTURE: 15 min warmup → 3x10 min @ 85-90% FTP (4 min easy between) → 10 min cooldown • Readiness Check: Green? Full workout. Yellow? 3x7 min @ 85%. Red? Easy 30 min ride, skip intervals. Longer G-Spot than Week 2. Should feel sustainable discomfort. Control breathing, stay seated. • CADENCE WORK: Mix cadences—interval 1 high cadence (100+ rpm), interval 2 low cadence (40-60 rpm), interval 3 self-selected.",
+          "name": "W05 Tue - Strong Tempo Intervals (if HRV green)",
+          "description": "• STRUCTURE: 15 min warmup → 3x10 min @ 85-90% FTP (4 min easy between) → 10 min cooldown • Readiness Check: Green? Full workout. Yellow? 3x7 min @ 85%. Red? Easy 30 min ride, skip intervals. Longer Strong Tempo than Week 2. Should feel sustainable discomfort. Control breathing, stay seated. • CADENCE WORK: Mix cadences—interval 1 high cadence (100+ rpm), interval 2 low cadence (40-60 rpm), interval 3 self-selected.",
           "blocks": "    <Warmup Duration=\"900\" PowerLow=\"0.50\" PowerHigh=\"0.75\"/>\n    <IntervalsT Repeat=\"3\" OnDuration=\"600\" OnPower=\"0.875\" Cadence=\"100\" OffDuration=\"240\" OffPower=\"0.55\"/>\n    <Cooldown Duration=\"600\" PowerLow=\"0.70\" PowerHigh=\"0.50\"/>\n"
         },
         {
@@ -256,7 +256,7 @@
         },
         {
           "name": "W06 Sat - Longer Ride with Intensity (if strong)",
-          "description": "• STRUCTURE: 30 min easy → 2x10 min @ 85-90% FTP (5 min easy between) → 3x5 min @ 75-80% FTP (3 min easy between) → 15 min easy • Readiness Check: Green + good sleep? Full workout. Yellow? Shorten to 2x7 min G-Spot only, skip tempo. Red? 60 min easy ride. Longest ride with most intensity yet. Pace yourself. Eat 40-50g carbs/hour. • CADENCE WORK: Mix cadences on G-Spot and tempo blocks.",
+          "description": "• STRUCTURE: 30 min easy → 2x10 min @ 85-90% FTP (5 min easy between) → 3x5 min @ 75-80% FTP (3 min easy between) → 15 min easy • Readiness Check: Green + good sleep? Full workout. Yellow? Shorten to 2x7 min Strong Tempo only, skip tempo. Red? 60 min easy ride. Longest ride with most intensity yet. Pace yourself. Eat 40-50g carbs/hour. • CADENCE WORK: Mix cadences on Strong Tempo and tempo blocks.",
           "blocks": "    <Warmup Duration=\"600\" PowerLow=\"0.50\" PowerHigh=\"0.65\"/>\n    <SteadyState Duration=\"1800\" Power=\"0.68\" Cadence=\"85\"/>\n    <IntervalsT Repeat=\"2\" OnDuration=\"600\" OnPower=\"0.875\" Cadence=\"100\" OffDuration=\"300\" OffPower=\"0.55\"/>\n    <IntervalsT Repeat=\"3\" OnDuration=\"300\" OnPower=\"0.78\" Cadence=\"100\" OffDuration=\"180\" OffPower=\"0.55\"/>\n    <SteadyState Duration=\"900\" Power=\"0.68\" Cadence=\"85\"/>\n    <Cooldown Duration=\"600\" PowerLow=\"0.68\" PowerHigh=\"0.55\"/>\n"
         },
         {
@@ -274,12 +274,12 @@
       "workouts": [
         {
           "name": "W07 Mon - Rest",
-          "description": "• Biggest week of plan. By Saturday you should feel accumulated fatigue—tired but not destroyed. If you feel crushed by Wednesday, STOP and take extra rest. Masters athletes must respect fatigue. Week 8 is recovery, so push through IF you're recovering adequately (good sleep, good energy, no injury signs). But be ready to adjust. • WEEK PREVIEW: Peak training stress week. Tuesday has combined intensity (threshold + G-Spot—if HRV green). Thursday is easy endurance (if recovered). Saturday is longest ride of plan (if feeling strong). This is maximum sustainable load for 50+ athlete. • REST DAY NOTE: Fine to ride if you really want, but no longer than an hour and don't break 30 TSS.",
+          "description": "• Biggest week of plan. By Saturday you should feel accumulated fatigue—tired but not destroyed. If you feel crushed by Wednesday, STOP and take extra rest. Masters athletes must respect fatigue. Week 8 is recovery, so push through IF you're recovering adequately (good sleep, good energy, no injury signs). But be ready to adjust. • WEEK PREVIEW: Peak training stress week. Tuesday has combined intensity (threshold + Strong Tempo—if HRV green). Thursday is easy endurance (if recovered). Saturday is longest ride of plan (if feeling strong). This is maximum sustainable load for 50+ athlete. • REST DAY NOTE: Fine to ride if you really want, but no longer than an hour and don't break 30 TSS.",
           "blocks": "    <FreeRide Duration=\"60\"/>\n"
         },
         {
-          "name": "W07 Tue - Threshold + G-Spot (if HRV green)",
-          "description": "• STRUCTURE: 15 min warmup → 2x10 min @ 90-95% FTP (5 min easy between) → 10 min easy → 1x10 min @ 85-90% FTP → 10 min cooldown • Readiness Check: Green? Full workout. Yellow? Skip G-Spot, do 2x8 min threshold only. Red? 30 min easy ride. Biggest quality session yet. Threshold first while fresh, G-Spot when fatigued. This is race-specific work for Masters. • RHYTHM INTERVALS: For one interval, try rhythm pattern: 2 min Z3 (self-selected cadence) + 1 min Z4 (high cadence 100+ rpm) x 4, continuous. This simulates race variability. • CADENCE WORK: Mix cadences or use rhythm pattern.",
+          "name": "W07 Tue - Threshold + Strong Tempo (if HRV green)",
+          "description": "• STRUCTURE: 15 min warmup → 2x10 min @ 90-95% FTP (5 min easy between) → 10 min easy → 1x10 min @ 85-90% FTP → 10 min cooldown • Readiness Check: Green? Full workout. Yellow? Skip Strong Tempo, do 2x8 min threshold only. Red? 30 min easy ride. Biggest quality session yet. Threshold first while fresh, Strong Tempo when fatigued. This is race-specific work for Masters. • RHYTHM INTERVALS: For one interval, try rhythm pattern: 2 min Z3 (self-selected cadence) + 1 min Z4 (high cadence 100+ rpm) x 4, continuous. This simulates race variability. • CADENCE WORK: Mix cadences or use rhythm pattern.",
           "blocks": "    <Warmup Duration=\"900\" PowerLow=\"0.50\" PowerHigh=\"0.75\"/>\n    <IntervalsT Repeat=\"2\" OnDuration=\"600\" OnPower=\"0.93\" Cadence=\"100\" OffDuration=\"300\" OffPower=\"0.55\"/>\n    <SteadyState Duration=\"600\" Power=\"0.65\" Cadence=\"85\"/>\n    <IntervalsT Repeat=\"1\" OnDuration=\"600\" OnPower=\"0.875\" Cadence=\"100\" OffDuration=\"0\" OffPower=\"0.55\"/>\n    <Cooldown Duration=\"600\" PowerLow=\"0.70\" PowerHigh=\"0.50\"/>\n"
         },
         {

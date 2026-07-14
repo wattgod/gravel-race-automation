@@ -2,7 +2,7 @@
   "plan_metadata": {
     "name": "FINISHER ADVANCED",
     "duration_weeks": 12,
-    "philosophy": "GOAT Method (Gravel Optimized Adaptive Training)",
+    "philosophy": "Adaptive Training (adjusts pyramidal, polarized, and limiter-focused blocks to your signals)",
     "target_hours": "10-12",
     "target_athlete": "Strong cyclist, wants top-third finish, can monitor/adjust training",
     "goal": "Strong finish in top third of field, adaptive multi-method approach"
@@ -10,13 +10,13 @@
   "weeks": [
     {
       "week_number": 1,
-      "focus": "Assessment & GOAT Foundation",
+      "focus": "Assessment & Adaptive-Training Foundation",
       "volume_percent": 70,
       "volume_hours": "7-8.5",
       "workouts": [
         {
           "name": "W01 Mon - Rest",
-          "description": "• Welcome to the GOAT Method. This isn't one training philosophy—it's the best of all of them, adapted to you. Pyramidal base weeks. Polarized quality weeks. Limiter-focused blocks. G-Spot when time-crunched. All guided by your signals. This week: baseline testing. FTP test Tuesday. Durability test Saturday. Monitor HRV daily if possible. Let's see what you're working with. • WEEK PREVIEW: Baseline assessment week. Tuesday has FTP test + durability markers (HR drift check). Thursday introduces G-Spot intervals. Saturday is durability test ride (3.5-4 hours with power assessment). This week tells us your limiters. • REST DAY NOTE: Fine to ride if you really want, but no longer than an hour and don't break 30 TSS.",
+          "description": "• Welcome to your adaptive training plan. This isn't one training philosophy—it's the best of all of them, adapted to you. Pyramidal base weeks. Polarized quality weeks. Limiter-focused blocks. Strong Tempo when time-crunched. All guided by your signals. This week: baseline testing. FTP test Tuesday. Durability test Saturday. Monitor HRV daily if possible. Let's see what you're working with. • WEEK PREVIEW: Baseline assessment week. Tuesday has FTP test + durability markers (HR drift check). Thursday introduces Strong Tempo intervals. Saturday is durability test ride (3.5-4 hours with power assessment). This week tells us your limiters. • REST DAY NOTE: Fine to ride if you really want, but no longer than an hour and don't break 30 TSS.",
           "blocks": "    <FreeRide Duration=\"60\"/>\n"
         },
         {
@@ -30,13 +30,13 @@
           "blocks": "    <Warmup Duration=\"600\" PowerLow=\"0.50\" PowerHigh=\"0.65\"/>\n    <SteadyState Duration=\"4500\" Power=\"0.70\" Cadence=\"85\"/>\n    <Cooldown Duration=\"600\" PowerLow=\"0.70\" PowerHigh=\"0.55\"/>\n"
         },
         {
-          "name": "W01 Thu - G-Spot Introduction",
-          "description": "• STRUCTURE: 15 min warmup → 3x12 min @ 87-92% FTP (5 min easy between) → 10 min cooldown • First quality session. G-Spot is \"uncomfortably sustainable\"—harder than endurance, easier than threshold. This is efficient training for time-crunched weeks. Control your breathing, stay seated, keep it smooth. • CADENCE WORK: Alternate high cadence (100+ rpm seated) and low cadence (40-60 rpm seated, big gear) on intervals. This teaches power production in different ways.",
+          "name": "W01 Thu - Strong Tempo Introduction",
+          "description": "• STRUCTURE: 15 min warmup → 3x12 min @ 87-92% FTP (5 min easy between) → 10 min cooldown • First quality session. Strong Tempo is \"uncomfortably sustainable\"—harder than endurance, easier than threshold. This is efficient training for time-crunched weeks. Control your breathing, stay seated, keep it smooth. • CADENCE WORK: Alternate high cadence (100+ rpm seated) and low cadence (40-60 rpm seated, big gear) on intervals. This teaches power production in different ways.",
           "blocks": "    <Warmup Duration=\"900\" PowerLow=\"0.50\" PowerHigh=\"0.65\"/>\n    <IntervalsT Repeat=\"3\" OnDuration=\"720\" OnPower=\"0.90\" Cadence=\"100\" OffDuration=\"300\" OffPower=\"0.55\"/>\n    <Cooldown Duration=\"600\" PowerLow=\"0.70\" PowerHigh=\"0.50\"/>\n"
         },
         {
           "name": "W01 Fri - Rest or Active Recovery",
-          "description": "• Optional: 30-45 min Z1 spin (50-60% FTP) • Day off if needed. Easy spin if feeling good. Listen to your body—this is GOAT Method principle #1. • REST DAY NOTE: Fine to ride if you really want, but no longer than an hour and don't break 30 TSS.",
+          "description": "• Optional: 30-45 min Z1 spin (50-60% FTP) • Day off if needed. Easy spin if feeling good. Listen to your body—that's rule #1 of adaptive training. • REST DAY NOTE: Fine to ride if you really want, but no longer than an hour and don't break 30 TSS.",
           "blocks": "    <FreeRide Duration=\"60\"/>\n"
         },
         {
@@ -59,7 +59,7 @@
       "workouts": [
         {
           "name": "W02 Mon - Rest",
-          "description": "• Based on your Week 1 testing, we're starting with pyramidal base building. Lots of Z2, some tempo, occasional G-Spot. This week follows traditional base principles—build the aerobic engine first. Check your HRV if you're tracking. If HRV is significantly down from baseline, take an extra rest day or make today's ride easier. • WEEK PREVIEW: Pyramidal base week. Tuesday has tempo intervals (comfortably hard). Thursday progresses G-Spot (longer intervals). Saturday is long aerobic base with tempo work in final 90 minutes. Building the pyramid foundation. • REST DAY NOTE: Fine to ride if you really want, but no longer than an hour and don't break 30 TSS.",
+          "description": "• Based on your Week 1 testing, we're starting with pyramidal base building. Lots of Z2, some tempo, occasional Strong Tempo. This week follows traditional base principles—build the aerobic engine first. Check your HRV if you're tracking. If HRV is significantly down from baseline, take an extra rest day or make today's ride easier. • WEEK PREVIEW: Pyramidal base week. Tuesday has tempo intervals (comfortably hard). Thursday progresses Strong Tempo (longer intervals). Saturday is long aerobic base with tempo work in final 90 minutes. Building the pyramid foundation. • REST DAY NOTE: Fine to ride if you really want, but no longer than an hour and don't break 30 TSS.",
           "blocks": "    <FreeRide Duration=\"60\"/>\n"
         },
         {
@@ -73,13 +73,13 @@
           "blocks": "    <Warmup Duration=\"600\" PowerLow=\"0.50\" PowerHigh=\"0.65\"/>\n    <SteadyState Duration=\"4500\" Power=\"0.70\" Cadence=\"85\"/>\n    <Cooldown Duration=\"600\" PowerLow=\"0.70\" PowerHigh=\"0.55\"/>\n"
         },
         {
-          "name": "W02 Thu - G-Spot Progression",
-          "description": "• STRUCTURE: 15 min warmup → 3x15 min @ 87-92% FTP (5 min easy between) → 10 min cooldown • Longer G-Spot than last week. Mid-pyramid intensity. This is time-efficient fitness building. Stay smooth, control power output, don't spike at interval starts. • CADENCE WORK: Alternate cadences—interval 1 high cadence (100+ rpm), interval 2 low cadence (40-60 rpm), interval 3 self-selected.",
+          "name": "W02 Thu - Strong Tempo Progression",
+          "description": "• STRUCTURE: 15 min warmup → 3x15 min @ 87-92% FTP (5 min easy between) → 10 min cooldown • Longer Strong Tempo than last week. Mid-pyramid intensity. This is time-efficient fitness building. Stay smooth, control power output, don't spike at interval starts. • CADENCE WORK: Alternate cadences—interval 1 high cadence (100+ rpm), interval 2 low cadence (40-60 rpm), interval 3 self-selected.",
           "blocks": "    <Warmup Duration=\"900\" PowerLow=\"0.50\" PowerHigh=\"0.65\"/>\n    <IntervalsT Repeat=\"3\" OnDuration=\"900\" OnPower=\"0.90\" Cadence=\"100\" OffDuration=\"300\" OffPower=\"0.55\"/>\n    <Cooldown Duration=\"600\" PowerLow=\"0.70\" PowerHigh=\"0.50\"/>\n"
         },
         {
           "name": "W02 Fri - Rest",
-          "description": "• Rest day. GOAT Method respects recovery. You're building, not destroying. • REST DAY NOTE: Fine to ride if you really want, but no longer than an hour and don't break 30 TSS.",
+          "description": "• Rest day. This adaptive approach respects recovery. You're building, not destroying. • REST DAY NOTE: Fine to ride if you really want, but no longer than an hour and don't break 30 TSS.",
           "blocks": "    <FreeRide Duration=\"60\"/>\n"
         },
         {
@@ -102,7 +102,7 @@
       "workouts": [
         {
           "name": "W03 Mon - Rest",
-          "description": "• Biggest base week. By Saturday you should feel accumulated fatigue—that's the point. Week 4 we shift to a limiter block based on your testing and how this week feels. If you're crushing G-Spot but dying on long endurance, we'll target durability. If endurance feels easy but VO2max crushes you, we'll target that. GOAT Method adapts to YOUR limiters. • WEEK PREVIEW: Biggest base week. Tuesday has classic 2x20 threshold (top of pyramid). Thursday has VO2max assessment (identifies limiters). Saturday is longest ride (4.5-5 hours) with G-Spot efforts when tired—durability test. • REST DAY NOTE: Fine to ride if you really want, but no longer than an hour and don't break 30 TSS.",
+          "description": "• Biggest base week. By Saturday you should feel accumulated fatigue—that's the point. Week 4 we shift to a limiter block based on your testing and how this week feels. If you're crushing Strong Tempo but dying on long endurance, we'll target durability. If endurance feels easy but VO2max crushes you, we'll target that. This plan adapts to YOUR limiters. • WEEK PREVIEW: Biggest base week. Tuesday has classic 2x20 threshold (top of pyramid). Thursday has VO2max assessment (identifies limiters). Saturday is longest ride (4.5-5 hours) with Strong Tempo efforts when tired—durability test. • REST DAY NOTE: Fine to ride if you really want, but no longer than an hour and don't break 30 TSS.",
           "blocks": "    <FreeRide Duration=\"60\"/>\n"
         },
         {
@@ -127,7 +127,7 @@
         },
         {
           "name": "W03 Sat - Biggest Aerobic Day",
-          "description": "• STRUCTURE: First 2 hours Z2 → 4x12 min @ 85-90% FTP (5 min easy between) in hours 2-3 → Final hour Z2 • Longest ride yet. How do you feel during those 12-min efforts when already fatigued? Strong = good durability. Dying = durability is a limiter. This ride tells us a lot about your training needs. Eat 70-80g carbs/hour. • CADENCE WORK: Mix cadences on G-Spot efforts—some high, some low.",
+          "description": "• STRUCTURE: First 2 hours Z2 → 4x12 min @ 85-90% FTP (5 min easy between) in hours 2-3 → Final hour Z2 • Longest ride yet. How do you feel during those 12-min efforts when already fatigued? Strong = good durability. Dying = durability is a limiter. This ride tells us a lot about your training needs. Eat 70-80g carbs/hour. • CADENCE WORK: Mix cadences on Strong Tempo efforts—some high, some low.",
           "blocks": "    <Warmup Duration=\"600\" PowerLow=\"0.50\" PowerHigh=\"0.65\"/>\n    <SteadyState Duration=\"6000\" Power=\"0.70\" Cadence=\"85\"/>\n    <IntervalsT Repeat=\"4\" OnDuration=\"720\" OnPower=\"0.88\" Cadence=\"100\" OffDuration=\"300\" OffPower=\"0.55\"/>\n    <SteadyState Duration=\"3600\" Power=\"0.70\" Cadence=\"85\"/>\n    <Cooldown Duration=\"600\" PowerLow=\"0.70\" PowerHigh=\"0.55\"/>\n"
         },
         {
@@ -145,7 +145,7 @@
       "workouts": [
         {
           "name": "W04 Mon - Rest",
-          "description": "• Recovery week. Your body adapts during rest. Based on Weeks 1-3, we've identified your limiters. Next week begins a 3-week limiter block targeting your weakness. Could be threshold endurance, VO2max repeatability, durability, or sustained power. GOAT Method adapts to YOU. This week: recover and prepare. • WEEK PREVIEW: Recovery week. Wednesday has light G-Spot work (just maintaining fitness). Rest of week is easy endurance. shifts to explosive work (prepares for VO2max blocks). This is when adaptation happens. • REST DAY NOTE: Fine to ride if you really want, but no longer than an hour and don't break 30 TSS.",
+          "description": "• Recovery week. Your body adapts during rest. Based on Weeks 1-3, we've identified your limiters. Next week begins a 3-week limiter block targeting your weakness. Could be threshold endurance, VO2max repeatability, durability, or sustained power. This plan adapts to YOU. This week: recover and prepare. • WEEK PREVIEW: Recovery week. Wednesday has light Strong Tempo work (just maintaining fitness). Rest of week is easy endurance. shifts to explosive work (prepares for VO2max blocks). This is when adaptation happens. • REST DAY NOTE: Fine to ride if you really want, but no longer than an hour and don't break 30 TSS.",
           "blocks": "    <FreeRide Duration=\"60\"/>\n"
         },
         {
@@ -154,7 +154,7 @@
           "blocks": "    <Warmup Duration=\"600\" PowerLow=\"0.50\" PowerHigh=\"0.65\"/>\n    <SteadyState Duration=\"3600\" Power=\"0.65\" Cadence=\"85\"/>\n    <Cooldown Duration=\"600\" PowerLow=\"0.65\" PowerHigh=\"0.55\"/>\n"
         },
         {
-          "name": "W04 Wed - Light G-Spot",
+          "name": "W04 Wed - Light Strong Tempo",
           "description": "• STRUCTURE: 10 min warmup → 2x12 min @ 85-88% FTP (5 min easy between) → 10 min cooldown • Light quality work to maintain fitness without adding fatigue. Should feel controlled and easy. If it feels hard, you're not recovered yet—back off 5%. • CADENCE WORK: Mix cadences—one high, one low.",
           "blocks": "    <Warmup Duration=\"600\" PowerLow=\"0.50\" PowerHigh=\"0.70\"/>\n    <IntervalsT Repeat=\"2\" OnDuration=\"720\" OnPower=\"0.86\" Cadence=\"90\" OffDuration=\"300\" OffPower=\"0.55\"/>\n    <Cooldown Duration=\"600\" PowerLow=\"0.70\" PowerHigh=\"0.50\"/>\n"
         },
@@ -188,7 +188,7 @@
       "workouts": [
         {
           "name": "W05 Mon - Rest",
-          "description": "• Limiter Block begins. Based on your testing and Week 3 performance, we're targeting threshold endurance—your ability to hold race pace for extended periods. Three weeks of focused threshold work. This is Block Periodization principles within GOAT Method. Single focus, maximum adaptation. • WEEK PREVIEW: Threshold block begins. Wednesday has long threshold intervals (3x15 min). Saturday has extended threshold (2x25 min). This is concentrated loading on your biggest limiter. By Week 7 you'll feel threshold-specific fatigue—that's adaptation. • REST DAY NOTE: Fine to ride if you really want, but no longer than an hour and don't break 30 TSS.",
+          "description": "• Limiter Block begins. Based on your testing and Week 3 performance, we're targeting threshold endurance—your ability to hold race pace for extended periods. Three weeks of focused threshold work. This is Block Periodization within your adaptive plan. Single focus, maximum adaptation. • WEEK PREVIEW: Threshold block begins. Wednesday has long threshold intervals (3x15 min). Saturday has extended threshold (2x25 min). This is concentrated loading on your biggest limiter. By Week 7 you'll feel threshold-specific fatigue—that's adaptation. • REST DAY NOTE: Fine to ride if you really want, but no longer than an hour and don't break 30 TSS.",
           "blocks": "    <FreeRide Duration=\"60\"/>\n"
         },
         {
@@ -489,7 +489,7 @@
       "workouts": [
         {
           "name": "W12 Mon - Rest",
-          "description": "• Race week. Volume drops dramatically. Intensity stays sharp but brief. Check HRV if tracking—should be at or above baseline. You should feel fresh, powerful, ready. Nervous energy is normal—channel it into final prep. Check bike. Pack bags. Review race plan. Trust your training—GOAT Method got you here. • WEEK PREVIEW: Race week! Wednesday has final sharpness session (race openers). Thursday is easy spin or rest. Friday is pre-race shake-out. Saturday/Sunday: RACE DAY! • REST DAY NOTE: Fine to ride if you really want, but no longer than an hour and don't break 30 TSS.",
+          "description": "• Race week. Volume drops dramatically. Intensity stays sharp but brief. Check HRV if tracking—should be at or above baseline. You should feel fresh, powerful, ready. Nervous energy is normal—channel it into final prep. Check bike. Pack bags. Review race plan. Trust your training—this adaptive approach got you here. • WEEK PREVIEW: Race week! Wednesday has final sharpness session (race openers). Thursday is easy spin or rest. Friday is pre-race shake-out. Saturday/Sunday: RACE DAY! • REST DAY NOTE: Fine to ride if you really want, but no longer than an hour and don't break 30 TSS.",
           "blocks": "    <FreeRide Duration=\"60\"/>\n"
         },
         {
@@ -514,7 +514,7 @@
         },
         {
           "name": "W12 Sat - Race Day or Rest",
-          "description": "• If racing Saturday: EXECUTE YOUR PLAN • If racing Sunday: Complete rest or 20-30 min easy spin with 3x30sec openers • Notes: If racing today—start conservatively, fuel from the start (60-90g carbs/hour), pace yourself through first half, execute your race plan. GOAT Method prepared you for this. Trust it.",
+          "description": "• If racing Saturday: EXECUTE YOUR PLAN • If racing Sunday: Complete rest or 20-30 min easy spin with 3x30sec openers • Notes: If racing today—start conservatively, fuel from the start (60-90g carbs/hour), pace yourself through first half, execute your race plan. This adaptive training prepared you for this. Trust it.",
           "blocks": "    <FreeRide Duration=\"60\"/>\n"
         },
         {
@@ -528,7 +528,7 @@
   "default_modifications": {
     "goat_method": {
       "enabled": true,
-      "description": "Gravel Optimized Adaptive Training - combines pyramidal, polarized, limiter-focused blocks, and G-Spot based on athlete signals"
+      "description": "Combines pyramidal, polarized, limiter-focused, and Strong Tempo blocks based on athlete signals"
     },
     "cadence_work": {
       "enabled": true,
@@ -572,7 +572,7 @@
     },
     "monday_week_preview": {
       "enabled": true,
-      "description": "Monday rest days include week preview with key workouts, GOAT Method principles, and reminders"
+      "description": "Monday rest days include week preview with key workouts, adaptive-training reminders, and notes"
     },
     "rest_day_tss_limit": 30,
     "rest_day_duration_limit_hours": 1

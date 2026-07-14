@@ -2,7 +2,7 @@
   "plan_metadata": {
     "name": "AYAHUASCA SAVE MY RACE",
     "duration_weeks": 6,
-    "philosophy": "G-Spot/Threshold (Emergency Sharpening)",
+    "philosophy": "Strong Tempo/Threshold (Emergency Sharpening)",
     "target_hours": "3-5",
     "target_athlete": "Emergency situation, minimal time (3-5 hrs/week), needs to finish in 6 weeks",
     "goal": "Get race-ready FAST with time-efficient training, accept compromises"
@@ -16,7 +16,7 @@
       "workouts": [
         {
           "name": "W01 Mon - Rest",
-          "description": "• Welcome to emergency mode. You have 6 weeks to get ready for a gravel race with only 3-5 hours per week. This isn't ideal—but it's reality. We're using G-Spot and Threshold work because they give maximum bang-for-buck in minimal time. Accept this: you won't have perfect endurance. You won't have elite power. But you WILL be able to finish if you execute this plan and pace the race conservatively. Let's be honest about what we're working with. • WEEK PREVIEW: Rapid assessment week. Tuesday has quick FTP test (20 min sustained effort). Thursday introduces G-Spot intervals (3x10 min). Saturday is longest ride of week (75-90 min with G-Spot blocks). This week establishes your baseline and introduces time-efficient intensity. • REST DAY NOTE: Fine to ride if you really want, but no longer than an hour and don't break 30 TSS.",
+          "description": "• Welcome to emergency mode. You have 6 weeks to get ready for a gravel race with only 3-5 hours per week. This isn't ideal—but it's reality. We're using Strong Tempo and Threshold work because they give maximum bang-for-buck in minimal time. Accept this: you won't have perfect endurance. You won't have elite power. But you WILL be able to finish if you execute this plan and pace the race conservatively. Let's be honest about what we're working with. • WEEK PREVIEW: Rapid assessment week. Tuesday has quick FTP test (20 min sustained effort). Thursday introduces Strong Tempo intervals (3x10 min). Saturday is longest ride of week (75-90 min with Strong Tempo blocks). This week establishes your baseline and introduces time-efficient intensity. • REST DAY NOTE: Fine to ride if you really want, but no longer than an hour and don't break 30 TSS.",
           "blocks": "    <FreeRide Duration=\"60\"/>\n"
         },
         {
@@ -30,8 +30,8 @@
           "blocks": "    <FreeRide Duration=\"60\"/>\n"
         },
         {
-          "name": "W01 Thu - G-Spot Introduction",
-          "description": "• STRUCTURE: 15 min warmup → 3x10 min @ 87-92% FTP (4 min easy between) → 10 min cooldown • G-Spot is \"uncomfortably sustainable.\" This is your bread and butter for the next 6 weeks. Builds threshold power without destroying you. Stay seated, control breathing. If you blow up, back off 3-5%. • CADENCE WORK: Mix cadences—interval 1 high cadence (100+ rpm), interval 2 low cadence (40-60 rpm), interval 3 self-selected.",
+          "name": "W01 Thu - Strong Tempo Introduction",
+          "description": "• STRUCTURE: 15 min warmup → 3x10 min @ 87-92% FTP (4 min easy between) → 10 min cooldown • Strong Tempo is \"uncomfortably sustainable.\" This is your bread and butter for the next 6 weeks. Builds threshold power without destroying you. Stay seated, control breathing. If you blow up, back off 3-5%. • CADENCE WORK: Mix cadences—interval 1 high cadence (100+ rpm), interval 2 low cadence (40-60 rpm), interval 3 self-selected.",
           "blocks": "    <Warmup Duration=\"900\" PowerLow=\"0.50\" PowerHigh=\"0.75\"/>\n    <IntervalsT Repeat=\"3\" OnDuration=\"600\" OnPower=\"0.895\" Cadence=\"100\" OffDuration=\"240\" OffPower=\"0.55\"/>\n    <Cooldown Duration=\"600\" PowerLow=\"0.70\" PowerHigh=\"0.50\"/>\n"
         },
         {
@@ -41,7 +41,7 @@
         },
         {
           "name": "W01 Sat - Longer Endurance + Intensity",
-          "description": "• STRUCTURE: 20 min easy → 3x12 min @ 85-90% FTP (5 min easy between) → 15 min easy • Longest ride of the week. G-Spot blocks build both power and endurance in one session—time-efficient. Eat 40-50g carbs during ride. Practice fueling—you'll need it on race day. • CADENCE WORK: Mix cadences—intervals 1, 3 at high cadence (100+ rpm), interval 2 at low cadence (40-60 rpm).",
+          "description": "• STRUCTURE: 20 min easy → 3x12 min @ 85-90% FTP (5 min easy between) → 15 min easy • Longest ride of the week. Strong Tempo blocks build both power and endurance in one session—time-efficient. Eat 40-50g carbs during ride. Practice fueling—you'll need it on race day. • CADENCE WORK: Mix cadences—intervals 1, 3 at high cadence (100+ rpm), interval 2 at low cadence (40-60 rpm).",
           "blocks": "    <Warmup Duration=\"600\" PowerLow=\"0.50\" PowerHigh=\"0.65\"/>\n    <SteadyState Duration=\"1200\" Power=\"0.68\" Cadence=\"85\"/>\n    <IntervalsT Repeat=\"3\" OnDuration=\"720\" OnPower=\"0.875\" Cadence=\"100\" OffDuration=\"300\" OffPower=\"0.55\"/>\n    <SteadyState Duration=\"900\" Power=\"0.68\" Cadence=\"85\"/>\n    <Cooldown Duration=\"600\" PowerLow=\"0.68\" PowerHigh=\"0.55\"/>\n"
         },
         {
@@ -53,17 +53,17 @@
     },
     {
       "week_number": 2,
-      "focus": "Building G-Spot Foundation",
+      "focus": "Building Strong Tempo Foundation",
       "volume_percent": 85,
       "volume_hours": "2.5-4.25",
       "workouts": [
         {
           "name": "W02 Mon - Rest",
-          "description": "• Week 2 increases intensity duration slightly. You're building as much threshold power as possible with the time you have. G-Spot is king in emergency mode—87-92% FTP builds power without excessive fatigue. Every minute on the bike needs to count. No junk miles. • WEEK PREVIEW: Building G-Spot foundation. Tuesday has extended G-Spot intervals (3x12 min). Thursday introduces threshold work (2x10 min). Saturday is biggest session of week (90-105 min with mixed intensity). This week builds threshold power efficiently. • REST DAY NOTE: Fine to ride if you really want, but no longer than an hour and don't break 30 TSS.",
+          "description": "• Week 2 increases intensity duration slightly. You're building as much threshold power as possible with the time you have. Strong Tempo is king in emergency mode—87-92% FTP builds power without excessive fatigue. Every minute on the bike needs to count. No junk miles. • WEEK PREVIEW: Building Strong Tempo foundation. Tuesday has extended Strong Tempo intervals (3x12 min). Thursday introduces threshold work (2x10 min). Saturday is biggest session of week (90-105 min with mixed intensity). This week builds threshold power efficiently. • REST DAY NOTE: Fine to ride if you really want, but no longer than an hour and don't break 30 TSS.",
           "blocks": "    <FreeRide Duration=\"60\"/>\n"
         },
         {
-          "name": "W02 Tue - G-Spot Progression",
+          "name": "W02 Tue - Strong Tempo Progression",
           "description": "• STRUCTURE: 15 min warmup → 3x12 min @ 87-92% FTP (4 min easy between) → 10 min cooldown • Longer intervals than Week 1. This should feel hard but sustainable. You're building the engine. Control your breathing, stay smooth. If form breaks, end the interval early—quality over quantity. • CADENCE WORK: Mix cadences—interval 1 high cadence (100+ rpm), interval 2 low cadence (40-60 rpm), interval 3 self-selected.",
           "blocks": "    <Warmup Duration=\"900\" PowerLow=\"0.50\" PowerHigh=\"0.75\"/>\n    <IntervalsT Repeat=\"3\" OnDuration=\"720\" OnPower=\"0.895\" Cadence=\"100\" OffDuration=\"240\" OffPower=\"0.55\"/>\n    <Cooldown Duration=\"600\" PowerLow=\"0.70\" PowerHigh=\"0.50\"/>\n"
         },
@@ -84,7 +84,7 @@
         },
         {
           "name": "W02 Sat - Weekend Key Session",
-          "description": "• STRUCTURE: 20 min easy → 2x15 min @ 87-92% FTP (6 min easy between) → 10 min easy → 2x8 min @ 75-80% FTP (3 min easy between) → 15 min easy • Biggest session of week. G-Spot first, then tempo when tired. This builds power AND durability in one ride. Eat 40-60g carbs during ride. You're training your body to fuel under stress. • CADENCE WORK: Mix cadences on G-Spot blocks—one high cadence (100+ rpm), one low cadence (40-60 rpm).",
+          "description": "• STRUCTURE: 20 min easy → 2x15 min @ 87-92% FTP (6 min easy between) → 10 min easy → 2x8 min @ 75-80% FTP (3 min easy between) → 15 min easy • Biggest session of week. Strong Tempo first, then tempo when tired. This builds power AND durability in one ride. Eat 40-60g carbs during ride. You're training your body to fuel under stress. • CADENCE WORK: Mix cadences on Strong Tempo blocks—one high cadence (100+ rpm), one low cadence (40-60 rpm).",
           "blocks": "    <Warmup Duration=\"600\" PowerLow=\"0.50\" PowerHigh=\"0.65\"/>\n    <SteadyState Duration=\"1200\" Power=\"0.68\" Cadence=\"85\"/>\n    <IntervalsT Repeat=\"2\" OnDuration=\"900\" OnPower=\"0.895\" Cadence=\"100\" OffDuration=\"360\" OffPower=\"0.55\"/>\n    <SteadyState Duration=\"600\" Power=\"0.68\" Cadence=\"85\"/>\n    <IntervalsT Repeat=\"2\" OnDuration=\"480\" OnPower=\"0.78\" Cadence=\"100\" OffDuration=\"180\" OffPower=\"0.55\"/>\n    <SteadyState Duration=\"900\" Power=\"0.68\" Cadence=\"85\"/>\n    <Cooldown Duration=\"600\" PowerLow=\"0.68\" PowerHigh=\"0.55\"/>\n"
         },
         {
@@ -96,18 +96,18 @@
     },
     {
       "week_number": 3,
-      "focus": "Peak G-Spot Volume",
+      "focus": "Peak Strong Tempo Volume",
       "volume_percent": 100,
       "volume_hours": "3-5",
       "workouts": [
         {
           "name": "W03 Mon - Rest",
-          "description": "• Week 3 is your biggest training week. You'll do as much G-Spot and Threshold as your body can handle in 3-5 hours. By Saturday you should feel accumulated fatigue—that's the point. Week 4 backs off before final sharpening. This is your fitness-building week. Make it count. • WEEK PREVIEW: Peak G-Spot volume week. Tuesday has maximum G-Spot volume (4x10 min). Thursday has extended threshold (2x12 min). Saturday is biggest session of plan (105-120 min with mixed intensity). This is your \"A\" week. • REST DAY NOTE: Fine to ride if you really want, but no longer than an hour and don't break 30 TSS.",
+          "description": "• Week 3 is your biggest training week. You'll do as much Strong Tempo and Threshold as your body can handle in 3-5 hours. By Saturday you should feel accumulated fatigue—that's the point. Week 4 backs off before final sharpening. This is your fitness-building week. Make it count. • WEEK PREVIEW: Peak Strong Tempo volume week. Tuesday has maximum Strong Tempo volume (4x10 min). Thursday has extended threshold (2x12 min). Saturday is biggest session of plan (105-120 min with mixed intensity). This is your \"A\" week. • REST DAY NOTE: Fine to ride if you really want, but no longer than an hour and don't break 30 TSS.",
           "blocks": "    <FreeRide Duration=\"60\"/>\n"
         },
         {
-          "name": "W03 Tue - Peak G-Spot",
-          "description": "• STRUCTURE: 15 min warmup → 4x10 min @ 87-92% FTP (4 min easy between) → 10 min cooldown • Four intervals—most yet. This should be hard but doable. G-Spot builds threshold without crushing you. Stay controlled. If you fade on interval 4, that's fine—you pushed hard enough. • CADENCE WORK: Mix cadences—intervals 1, 3 at high cadence (100+ rpm), intervals 2, 4 at low cadence (40-60 rpm).",
+          "name": "W03 Tue - Peak Strong Tempo",
+          "description": "• STRUCTURE: 15 min warmup → 4x10 min @ 87-92% FTP (4 min easy between) → 10 min cooldown • Four intervals—most yet. This should be hard but doable. Strong Tempo builds threshold without crushing you. Stay controlled. If you fade on interval 4, that's fine—you pushed hard enough. • CADENCE WORK: Mix cadences—intervals 1, 3 at high cadence (100+ rpm), intervals 2, 4 at low cadence (40-60 rpm).",
           "blocks": "    <Warmup Duration=\"900\" PowerLow=\"0.50\" PowerHigh=\"0.75\"/>\n    <IntervalsT Repeat=\"4\" OnDuration=\"600\" OnPower=\"0.895\" Cadence=\"100\" OffDuration=\"240\" OffPower=\"0.55\"/>\n    <Cooldown Duration=\"600\" PowerLow=\"0.70\" PowerHigh=\"0.50\"/>\n"
         },
         {
@@ -127,7 +127,7 @@
         },
         {
           "name": "W03 Sat - Biggest Session of Plan",
-          "description": "• STRUCTURE: 20 min easy → 3x15 min @ 87-92% FTP (5 min easy between) → 15 min easy → 3x8 min @ 75-80% FTP (3 min easy between) → 15 min easy • Longest and hardest ride. Three G-Spot blocks, then three tempo blocks when tired. This is your \"A\" session—it builds power, endurance, and race simulation all in one. Eat 50-60g carbs during ride. This matters. You're teaching your body to fuel under stress—critical for race day survival. • CADENCE WORK: Mix cadences on G-Spot blocks—intervals 1, 3 at high cadence (100+ rpm), interval 2 at low cadence (40-60 rpm).",
+          "description": "• STRUCTURE: 20 min easy → 3x15 min @ 87-92% FTP (5 min easy between) → 15 min easy → 3x8 min @ 75-80% FTP (3 min easy between) → 15 min easy • Longest and hardest ride. Three Strong Tempo blocks, then three tempo blocks when tired. This is your \"A\" session—it builds power, endurance, and race simulation all in one. Eat 50-60g carbs during ride. This matters. You're teaching your body to fuel under stress—critical for race day survival. • CADENCE WORK: Mix cadences on Strong Tempo blocks—intervals 1, 3 at high cadence (100+ rpm), interval 2 at low cadence (40-60 rpm).",
           "blocks": "    <Warmup Duration=\"600\" PowerLow=\"0.50\" PowerHigh=\"0.65\"/>\n    <SteadyState Duration=\"1200\" Power=\"0.68\" Cadence=\"85\"/>\n    <IntervalsT Repeat=\"3\" OnDuration=\"900\" OnPower=\"0.895\" Cadence=\"100\" OffDuration=\"300\" OffPower=\"0.55\"/>\n    <SteadyState Duration=\"900\" Power=\"0.68\" Cadence=\"85\"/>\n    <IntervalsT Repeat=\"3\" OnDuration=\"480\" OnPower=\"0.78\" Cadence=\"100\" OffDuration=\"180\" OffPower=\"0.55\"/>\n    <SteadyState Duration=\"900\" Power=\"0.68\" Cadence=\"85\"/>\n    <Cooldown Duration=\"600\" PowerLow=\"0.68\" PowerHigh=\"0.55\"/>\n"
         },
         {
@@ -145,11 +145,11 @@
       "workouts": [
         {
           "name": "W04 Mon - Rest",
-          "description": "• Recovery week. Your body adapts during rest, not during work. By Friday you should feel fresh. If you're still tired by week's end, you pushed too hard in Week 3 or aren't sleeping enough. Emergency plans need emergency recovery discipline. • WEEK PREVIEW: Recovery week. Tuesday has light G-Spot (2x10 min, easier). Thursday is easy endurance. Saturday is moderate ride with light tempo touch. This is when adaptation happens. • REST DAY NOTE: Fine to ride if you really want, but no longer than an hour and don't break 30 TSS.",
+          "description": "• Recovery week. Your body adapts during rest, not during work. By Friday you should feel fresh. If you're still tired by week's end, you pushed too hard in Week 3 or aren't sleeping enough. Emergency plans need emergency recovery discipline. • WEEK PREVIEW: Recovery week. Tuesday has light Strong Tempo (2x10 min, easier). Thursday is easy endurance. Saturday is moderate ride with light tempo touch. This is when adaptation happens. • REST DAY NOTE: Fine to ride if you really want, but no longer than an hour and don't break 30 TSS.",
           "blocks": "    <FreeRide Duration=\"60\"/>\n"
         },
         {
-          "name": "W04 Tue - Light G-Spot",
+          "name": "W04 Tue - Light Strong Tempo",
           "description": "• STRUCTURE: 10 min warmup → 2x10 min @ 85-88% FTP (5 min easy between) → 10 min cooldown • Lighter than Week 3. Maintains fitness without adding fatigue. Should feel controlled and relatively easy. • CADENCE WORK: Mix cadences—one high cadence (100+ rpm), one low cadence (40-60 rpm).",
           "blocks": "    <Warmup Duration=\"600\" PowerLow=\"0.50\" PowerHigh=\"0.75\"/>\n    <IntervalsT Repeat=\"2\" OnDuration=\"600\" OnPower=\"0.865\" Cadence=\"90\" OffDuration=\"300\" OffPower=\"0.55\"/>\n    <Cooldown Duration=\"600\" PowerLow=\"0.70\" PowerHigh=\"0.50\"/>\n"
         },
@@ -188,7 +188,7 @@
       "workouts": [
         {
           "name": "W05 Mon - Rest",
-          "description": "• Two weeks to race. Training becomes race-specific now. You're practicing race pace, race duration (as much as possible), race fueling. Accept that your longest training ride is 2 hours but race might be 4-8+ hours. This means pacing and fueling are CRITICAL. You can't train your way out of this gap—you have to race smart. • WEEK PREVIEW: Race preparation week. Tuesday has race pace intervals (3x10 min @ 90-95% FTP). Thursday has G-Spot + openers (sharpening session). Saturday is final long race prep (105-120 min). This week practices race-specific efforts. • REST DAY NOTE: Fine to ride if you really want, but no longer than an hour and don't break 30 TSS.",
+          "description": "• Two weeks to race. Training becomes race-specific now. You're practicing race pace, race duration (as much as possible), race fueling. Accept that your longest training ride is 2 hours but race might be 4-8+ hours. This means pacing and fueling are CRITICAL. You can't train your way out of this gap—you have to race smart. • WEEK PREVIEW: Race preparation week. Tuesday has race pace intervals (3x10 min @ 90-95% FTP). Thursday has Strong Tempo + openers (sharpening session). Saturday is final long race prep (105-120 min). This week practices race-specific efforts. • REST DAY NOTE: Fine to ride if you really want, but no longer than an hour and don't break 30 TSS.",
           "blocks": "    <FreeRide Duration=\"60\"/>\n"
         },
         {
@@ -202,8 +202,8 @@
           "blocks": "    <FreeRide Duration=\"60\"/>\n"
         },
         {
-          "name": "W05 Thu - G-Spot + Openers",
-          "description": "• STRUCTURE: 15 min warmup → 2x12 min @ 87-92% FTP (5 min easy between) → 5 min easy → 3x1 min @ 100% FTP (2 min easy between) → 5 min cooldown • G-Spot maintains power, openers keep legs sharp. The 1-min efforts should feel snappy. This is race preparation—keeping your top-end responsive. • CADENCE WORK: Mix cadences on G-Spot blocks. High cadence (100+ rpm) on openers.",
+          "name": "W05 Thu - Strong Tempo + Openers",
+          "description": "• STRUCTURE: 15 min warmup → 2x12 min @ 87-92% FTP (5 min easy between) → 5 min easy → 3x1 min @ 100% FTP (2 min easy between) → 5 min cooldown • Strong Tempo maintains power, openers keep legs sharp. The 1-min efforts should feel snappy. This is race preparation—keeping your top-end responsive. • CADENCE WORK: Mix cadences on Strong Tempo blocks. High cadence (100+ rpm) on openers.",
           "blocks": "    <Warmup Duration=\"900\" PowerLow=\"0.50\" PowerHigh=\"0.75\"/>\n    <IntervalsT Repeat=\"2\" OnDuration=\"720\" OnPower=\"0.895\" Cadence=\"100\" OffDuration=\"300\" OffPower=\"0.55\"/>\n    <SteadyState Duration=\"300\" Power=\"0.65\" Cadence=\"85\"/>\n    <IntervalsT Repeat=\"3\" OnDuration=\"60\" OnPower=\"1.00\" Cadence=\"100\" OffDuration=\"120\" OffPower=\"0.55\"/>\n    <Cooldown Duration=\"300\" PowerLow=\"0.70\" PowerHigh=\"0.50\"/>\n"
         },
         {
@@ -270,7 +270,7 @@
   "default_modifications": {
     "emergency_philosophy": {
       "enabled": true,
-      "description": "Emergency plan for minimal time (3-5 hours/week) - time-efficient G-Spot/Threshold training",
+      "description": "Emergency plan for minimal time (3-5 hours/week) - time-efficient Strong Tempo/Threshold training",
       "volume_range": "3-5 hours/week",
       "reality_check": "Not optimal, but gets you to finish line with conservative pacing and aggressive fueling"
     },

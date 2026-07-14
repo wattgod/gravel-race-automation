@@ -16,7 +16,7 @@
       "workouts": [
         {
           "name": "W01 Mon - Rest",
-          "description": "• Welcome to your first week. This week is about establishing your baseline fitness and learning the rhythm of structured training. Don't skip the FTP test on Tuesday—everything in this plan is built around that number. Keep all other rides conversational easy. Your body needs to learn consistency before we add intensity. You're building an aerobic engine first, then we'll sharpen it later. • WEEK PREVIEW: This week focuses on establishing your baseline. Tuesday's FTP test sets your training zones for the entire plan. Thursday introduces your first G-Spot intervals—uncomfortably sustainable. Saturday is your first long ride (2.5-3 hours)—practice fueling here. Sunday includes • REST DAY NOTE: Fine to ride if you really want, but no longer than an hour and don't break 30 TSS.",
+          "description": "• Welcome to your first week. This week is about establishing your baseline fitness and learning the rhythm of structured training. Don't skip the FTP test on Tuesday—everything in this plan is built around that number. Keep all other rides conversational easy. Your body needs to learn consistency before we add intensity. You're building an aerobic engine first, then we'll sharpen it later. • WEEK PREVIEW: This week focuses on establishing your baseline. Tuesday's FTP test sets your training zones for the entire plan. Thursday introduces your first Strong Tempo intervals—uncomfortably sustainable. Saturday is your first long ride (2.5-3 hours)—practice fueling here. Sunday includes • REST DAY NOTE: Fine to ride if you really want, but no longer than an hour and don't break 30 TSS.",
           "blocks": "    <FreeRide Duration=\"60\"/>\n"
         },
         {
@@ -30,7 +30,7 @@
           "blocks": "    <Warmup Duration=\"600\" PowerLow=\"0.50\" PowerHigh=\"0.65\"/>\n    <SteadyState Duration=\"3600\" Power=\"0.68\" Cadence=\"85\"/>\n    <Cooldown Duration=\"600\" PowerLow=\"0.68\" PowerHigh=\"0.55\"/>\n"
         },
         {
-          "name": "W01 Thu - G-Spot Introduction",
+          "name": "W01 Thu - Strong Tempo Introduction",
           "description": "• STRUCTURE: 15 min warmup Z2 → 3x10 min @ 87-90% FTP (5 min easy spin between intervals) → 10 min cooldown • First taste of sustained discomfort. Should feel \"uncomfortably sustainable.\" Stay seated, control your breathing. If you're gasping, back off 2-3%. This isn't a race.",
           "blocks": "    <Warmup Duration=\"900\" PowerLow=\"0.50\" PowerHigh=\"0.65\"/>\n    <IntervalsT Repeat=\"3\" OnDuration=\"600\" OnPower=\"0.89\" Cadence=\"88\" OffDuration=\"300\" OffPower=\"0.55\"/>\n    <Cooldown Duration=\"600\" PowerLow=\"0.70\" PowerHigh=\"0.50\"/>\n"
         },
@@ -59,7 +59,7 @@
       "workouts": [
         {
           "name": "W02 Mon - Rest",
-          "description": "• Week 2 increases volume by 15-20%. Your body is still adapting to the training load, so recovery matters as much as the workouts. You should feel moderately tired by Friday—that's the point. If you're wrecked, you're going too hard on easy days. Most mistakes happen when athletes push Z2 into Z3 because their ego won't let them ride easy. • WEEK PREVIEW: Volume increases this week. Tuesday introduces tempo intervals (comfortably hard). Thursday progresses G-Spot intervals (longer and slightly harder). Saturday is a progressive long ride with intensity in the final hour—simulates pushing on tired legs. • REST DAY NOTE: Fine to ride if you really want, but no longer than an hour and don't break 30 TSS.",
+          "description": "• Week 2 increases volume by 15-20%. Your body is still adapting to the training load, so recovery matters as much as the workouts. You should feel moderately tired by Friday—that's the point. If you're wrecked, you're going too hard on easy days. Most mistakes happen when athletes push Z2 into Z3 because their ego won't let them ride easy. • WEEK PREVIEW: Volume increases this week. Tuesday introduces tempo intervals (comfortably hard). Thursday progresses Strong Tempo intervals (longer and slightly harder). Saturday is a progressive long ride with intensity in the final hour—simulates pushing on tired legs. • REST DAY NOTE: Fine to ride if you really want, but no longer than an hour and don't break 30 TSS.",
           "blocks": "    <FreeRide Duration=\"60\"/>\n"
         },
         {
@@ -73,7 +73,7 @@
           "blocks": "    <Warmup Duration=\"600\" PowerLow=\"0.50\" PowerHigh=\"0.65\"/>\n    <SteadyState Duration=\"4200\" Power=\"0.68\" Cadence=\"85\"/>\n    <Cooldown Duration=\"600\" PowerLow=\"0.68\" PowerHigh=\"0.55\"/>\n"
         },
         {
-          "name": "W02 Thu - G-Spot Progression",
+          "name": "W02 Thu - Strong Tempo Progression",
           "description": "• STRUCTURE: 15 min warmup → 3x12 min @ 87-92% FTP (4 min easy between) → 10 min cooldown • Slightly longer and slightly harder than last week. That's intentional progression. Control the start of each interval—don't spike power. Settle in at the right intensity and hold it steady.",
           "blocks": "    <Warmup Duration=\"900\" PowerLow=\"0.50\" PowerHigh=\"0.65\"/>\n    <IntervalsT Repeat=\"3\" OnDuration=\"720\" OnPower=\"0.90\" Cadence=\"88\" OffDuration=\"240\" OffPower=\"0.55\"/>\n    <Cooldown Duration=\"600\" PowerLow=\"0.70\" PowerHigh=\"0.50\"/>\n"
         },
@@ -145,11 +145,11 @@
       "workouts": [
         {
           "name": "W04 Mon - Rest",
-          "description": "• Recovery week. This is when your body actually gets stronger—adaptation happens during rest, not during work. You should feel fresh by the end of this week. If you don't, you're not recovering properly (check sleep, nutrition, life stress). Enjoy the lighter load. • WEEK PREVIEW: Recovery week—lighter volume, easier intensity. Tuesday has light G-Spot work (just maintaining fitness). Rest of week is easy endurance. This is when your body adapts and gets stronger. • REST DAY NOTE: Fine to ride if you really want, but no longer than an hour and don't break 30 TSS.",
+          "description": "• Recovery week. This is when your body actually gets stronger—adaptation happens during rest, not during work. You should feel fresh by the end of this week. If you don't, you're not recovering properly (check sleep, nutrition, life stress). Enjoy the lighter load. • WEEK PREVIEW: Recovery week—lighter volume, easier intensity. Tuesday has light Strong Tempo work (just maintaining fitness). Rest of week is easy endurance. This is when your body adapts and gets stronger. • REST DAY NOTE: Fine to ride if you really want, but no longer than an hour and don't break 30 TSS.",
           "blocks": "    <FreeRide Duration=\"60\"/>\n"
         },
         {
-          "name": "W04 Tue - Light G-Spot",
+          "name": "W04 Tue - Light Strong Tempo",
           "description": "• STRUCTURE: 10 min warmup → 2x15 min @ 85-88% FTP (5 min easy between) → 10 min cooldown • Easier than recent weeks. Keep power controlled, no heroics. This maintains fitness without adding fatigue. Think of it as \"reminding\" your body what hard feels like without crushing it.",
           "blocks": "    <Warmup Duration=\"600\" PowerLow=\"0.50\" PowerHigh=\"0.65\"/>\n    <IntervalsT Repeat=\"2\" OnDuration=\"900\" OnPower=\"0.86\" Cadence=\"88\" OffDuration=\"300\" OffPower=\"0.55\"/>\n    <Cooldown Duration=\"600\" PowerLow=\"0.70\" PowerHigh=\"0.50\"/>\n"
         },
@@ -188,7 +188,7 @@
       "workouts": [
         {
           "name": "W05 Mon - Rest",
-          "description": "• Welcome to the Build phase. Weeks 5-8 progressively increase both volume and intensity. You should be feeling fresh after last week's recovery. Now we sharpen the base you've built. Threshold work increases—this is where you build your race pace. • WEEK PREVIEW: Build phase begins. Tuesday has classic 2x20 threshold intervals (race pace training). Thursday increases G-Spot volume (4x12 min). Saturday combines long ride with G-Spot blocks—building ability to hit intensity when tired. • REST DAY NOTE: Fine to ride if you really want, but no longer than an hour and don't break 30 TSS.",
+          "description": "• Welcome to the Build phase. Weeks 5-8 progressively increase both volume and intensity. You should be feeling fresh after last week's recovery. Now we sharpen the base you've built. Threshold work increases—this is where you build your race pace. • WEEK PREVIEW: Build phase begins. Tuesday has classic 2x20 threshold intervals (race pace training). Thursday increases Strong Tempo volume (4x12 min). Saturday combines long ride with Strong Tempo blocks—building ability to hit intensity when tired. • REST DAY NOTE: Fine to ride if you really want, but no longer than an hour and don't break 30 TSS.",
           "blocks": "    <FreeRide Duration=\"60\"/>\n"
         },
         {
@@ -202,8 +202,8 @@
           "blocks": "    <Warmup Duration=\"600\" PowerLow=\"0.50\" PowerHigh=\"0.65\"/>\n    <SteadyState Duration=\"4500\" Power=\"0.68\" Cadence=\"85\"/>\n    <Cooldown Duration=\"600\" PowerLow=\"0.68\" PowerHigh=\"0.55\"/>\n"
         },
         {
-          "name": "W05 Thu - G-Spot Intervals",
-          "description": "• STRUCTURE: 15 min warmup → 4x12 min @ 87-92% FTP (4 min easy between) → 10 min cooldown • More total time at G-Spot than previous weeks. Stay controlled—don't spike watts at the start. Settle into each interval and hold steady power.",
+          "name": "W05 Thu - Strong Tempo Intervals",
+          "description": "• STRUCTURE: 15 min warmup → 4x12 min @ 87-92% FTP (4 min easy between) → 10 min cooldown • More total time at Strong Tempo than previous weeks. Stay controlled—don't spike watts at the start. Settle into each interval and hold steady power.",
           "blocks": "    <Warmup Duration=\"900\" PowerLow=\"0.50\" PowerHigh=\"0.65\"/>\n    <IntervalsT Repeat=\"4\" OnDuration=\"720\" OnPower=\"0.90\" Cadence=\"88\" OffDuration=\"240\" OffPower=\"0.55\"/>\n    <Cooldown Duration=\"600\" PowerLow=\"0.70\" PowerHigh=\"0.50\"/>\n"
         },
         {
@@ -231,7 +231,7 @@
       "workouts": [
         {
           "name": "W06 Mon - Rest",
-          "description": "• Volume and intensity both increase this week. You're building fitness through progressive overload. By Saturday you should feel tired but not destroyed. If you're consistently exhausted, back off 5-10% on power targets—better to finish workouts slightly easier than to blow up halfway through. • WEEK PREVIEW: Intensity progression week. Tuesday increases VO2max volume (6x4 min). Thursday combines threshold + G-Spot (hard when tired). Saturday is a long mixed-terrain simulation—varied intensity like gravel racing. • REST DAY NOTE: Fine to ride if you really want, but no longer than an hour and don't break 30 TSS.",
+          "description": "• Volume and intensity both increase this week. You're building fitness through progressive overload. By Saturday you should feel tired but not destroyed. If you're consistently exhausted, back off 5-10% on power targets—better to finish workouts slightly easier than to blow up halfway through. • WEEK PREVIEW: Intensity progression week. Tuesday increases VO2max volume (6x4 min). Thursday combines threshold + Strong Tempo (hard when tired). Saturday is a long mixed-terrain simulation—varied intensity like gravel racing. • REST DAY NOTE: Fine to ride if you really want, but no longer than an hour and don't break 30 TSS.",
           "blocks": "    <FreeRide Duration=\"60\"/>\n"
         },
         {
@@ -245,8 +245,8 @@
           "blocks": "    <Warmup Duration=\"600\" PowerLow=\"0.50\" PowerHigh=\"0.65\"/>\n    <SteadyState Duration=\"4800\" Power=\"0.68\" Cadence=\"85\"/>\n    <Cooldown Duration=\"600\" PowerLow=\"0.68\" PowerHigh=\"0.55\"/>\n"
         },
         {
-          "name": "W06 Thu - Threshold + G-Spot",
-          "description": "• STRUCTURE: 15 min warmup → 2x12 min @ 95-100% FTP + 2x10 min @ 87-92% FTP (5 min easy between all intervals) → 10 min cooldown • Combined stimulus—threshold first while fresh, then G-Spot when fatigued. This teaches your body to sustain power when tired. Stay mentally engaged through all intervals.",
+          "name": "W06 Thu - Threshold + Strong Tempo",
+          "description": "• STRUCTURE: 15 min warmup → 2x12 min @ 95-100% FTP + 2x10 min @ 87-92% FTP (5 min easy between all intervals) → 10 min cooldown • Combined stimulus—threshold first while fresh, then Strong Tempo when fatigued. This teaches your body to sustain power when tired. Stay mentally engaged through all intervals.",
           "blocks": "    <Warmup Duration=\"900\" PowerLow=\"0.50\" PowerHigh=\"0.75\"/>\n    <IntervalsT Repeat=\"2\" OnDuration=\"720\" OnPower=\"0.98\" Cadence=\"90\" OffDuration=\"300\" OffPower=\"0.55\"/>\n    <IntervalsT Repeat=\"2\" OnDuration=\"600\" OnPower=\"0.90\" Cadence=\"88\" OffDuration=\"300\" OffPower=\"0.55\"/>\n    <Cooldown Duration=\"600\" PowerLow=\"0.70\" PowerHigh=\"0.50\"/>\n"
         },
         {
@@ -274,7 +274,7 @@
       "workouts": [
         {
           "name": "W07 Mon - Rest",
-          "description": "• This is your biggest week of the plan. By Saturday you should feel significant accumulated fatigue—that's intentional. Week 8 is recovery, so push through knowing rest is coming. Every workout this week counts. Prioritize sleep. Eat enough protein. Hydrate constantly. • WEEK PREVIEW: Peak build week—biggest volume and intensity. Tuesday has 3x15 threshold (hardest threshold session). Thursday combines VO2max + G-Spot (big workout). Saturday is your longest ride with race simulation—this is your \"A\" workout. • REST DAY NOTE: Fine to ride if you really want, but no longer than an hour and don't break 30 TSS.",
+          "description": "• This is your biggest week of the plan. By Saturday you should feel significant accumulated fatigue—that's intentional. Week 8 is recovery, so push through knowing rest is coming. Every workout this week counts. Prioritize sleep. Eat enough protein. Hydrate constantly. • WEEK PREVIEW: Peak build week—biggest volume and intensity. Tuesday has 3x15 threshold (hardest threshold session). Thursday combines VO2max + Strong Tempo (big workout). Saturday is your longest ride with race simulation—this is your \"A\" workout. • REST DAY NOTE: Fine to ride if you really want, but no longer than an hour and don't break 30 TSS.",
           "blocks": "    <FreeRide Duration=\"60\"/>\n"
         },
         {
@@ -288,8 +288,8 @@
           "blocks": "    <Warmup Duration=\"600\" PowerLow=\"0.50\" PowerHigh=\"0.65\"/>\n    <SteadyState Duration=\"3600\" Power=\"0.65\" Cadence=\"85\"/>\n    <Cooldown Duration=\"600\" PowerLow=\"0.65\" PowerHigh=\"0.55\"/>\n"
         },
         {
-          "name": "W07 Thu - VO2max + G-Spot",
-          "description": "• STRUCTURE: 20 min warmup → 5x4 min @ 110-115% FTP + 2x12 min @ 87-92% FTP (4-5 min easy between) → 10 min cooldown • Big workout. VO2max first while fresh, then G-Spot when tired. This is hard but hugely effective. Break it into chunks mentally—5 VO2 efforts, then 2 G-Spot blocks. One at a time.",
+          "name": "W07 Thu - VO2max + Strong Tempo",
+          "description": "• STRUCTURE: 20 min warmup → 5x4 min @ 110-115% FTP + 2x12 min @ 87-92% FTP (4-5 min easy between) → 10 min cooldown • Big workout. VO2max first while fresh, then Strong Tempo when tired. This is hard but hugely effective. Break it into chunks mentally—5 VO2 efforts, then 2 Strong Tempo blocks. One at a time.",
           "blocks": "    <Warmup Duration=\"1200\" PowerLow=\"0.50\" PowerHigh=\"0.75\"/>\n    <IntervalsT Repeat=\"5\" OnDuration=\"240\" OnPower=\"1.12\" OffDuration=\"240\" OffPower=\"0.55\"/>\n    <IntervalsT Repeat=\"2\" OnDuration=\"720\" OnPower=\"0.90\" Cadence=\"88\" OffDuration=\"300\" OffPower=\"0.55\"/>\n    <Cooldown Duration=\"600\" PowerLow=\"0.70\" PowerHigh=\"0.50\"/>\n"
         },
         {
@@ -360,7 +360,7 @@
       "workouts": [
         {
           "name": "W09 Mon - Rest",
-          "description": "• Welcome to the Peak phase. Final four weeks before race day. Training becomes more race-specific now—longer sustained efforts, bigger gear work, gravel simulation. You've built the engine. Now we tune it for race day. • WEEK PREVIEW: Peak phase begins. Tuesday has race-pace threshold (2x20 min). Thursday has long G-Spot intervals (3x20 min). Saturday is a big race simulation ride—long sustained efforts like gravel racing. • REST DAY NOTE: Fine to ride if you really want, but no longer than an hour and don't break 30 TSS.",
+          "description": "• Welcome to the Peak phase. Final four weeks before race day. Training becomes more race-specific now—longer sustained efforts, bigger gear work, gravel simulation. You've built the engine. Now we tune it for race day. • WEEK PREVIEW: Peak phase begins. Tuesday has race-pace threshold (2x20 min). Thursday has long Strong Tempo intervals (3x20 min). Saturday is a big race simulation ride—long sustained efforts like gravel racing. • REST DAY NOTE: Fine to ride if you really want, but no longer than an hour and don't break 30 TSS.",
           "blocks": "    <FreeRide Duration=\"60\"/>\n"
         },
         {
@@ -374,8 +374,8 @@
           "blocks": "    <Warmup Duration=\"600\" PowerLow=\"0.50\" PowerHigh=\"0.65\"/>\n    <SteadyState Duration=\"4500\" Power=\"0.68\" Cadence=\"85\"/>\n    <Cooldown Duration=\"600\" PowerLow=\"0.68\" PowerHigh=\"0.55\"/>\n"
         },
         {
-          "name": "W09 Thu - G-Spot Progression",
-          "description": "• STRUCTURE: 20 min warmup → 3x20 min @ 87-92% FTP (5 min easy between) → 10 min cooldown • Long G-Spot intervals. This is just below threshold—sustainable discomfort. Builds your ability to hold strong power for extended periods. Perfect for long gravel race efforts.",
+          "name": "W09 Thu - Strong Tempo Progression",
+          "description": "• STRUCTURE: 20 min warmup → 3x20 min @ 87-92% FTP (5 min easy between) → 10 min cooldown • Long Strong Tempo intervals. This is just below threshold—sustainable discomfort. Builds your ability to hold strong power for extended periods. Perfect for long gravel race efforts.",
           "blocks": "    <Warmup Duration=\"1200\" PowerLow=\"0.50\" PowerHigh=\"0.65\"/>\n    <IntervalsT Repeat=\"3\" OnDuration=\"1200\" OnPower=\"0.90\" Cadence=\"88\" OffDuration=\"300\" OffPower=\"0.55\"/>\n    <Cooldown Duration=\"600\" PowerLow=\"0.70\" PowerHigh=\"0.50\"/>\n"
         },
         {
@@ -403,7 +403,7 @@
       "workouts": [
         {
           "name": "W10 Mon - Rest",
-          "description": "• Second-to-last hard week. You should be feeling fit and strong now. Two more weeks of quality work, then we taper. Focus on execution, recovery, and dialing in race-day logistics. Check your bike. Order any last nutrition products. Book travel. • WEEK PREVIEW: Final build week. Tuesday combines threshold + VO2max (race pace + top-end). Thursday has long G-Spot (2x25 min). Saturday is your last big training day—race-like intensity with long sustained blocks. • REST DAY NOTE: Fine to ride if you really want, but no longer than an hour and don't break 30 TSS.",
+          "description": "• Second-to-last hard week. You should be feeling fit and strong now. Two more weeks of quality work, then we taper. Focus on execution, recovery, and dialing in race-day logistics. Check your bike. Order any last nutrition products. Book travel. • WEEK PREVIEW: Final build week. Tuesday combines threshold + VO2max (race pace + top-end). Thursday has long Strong Tempo (2x25 min). Saturday is your last big training day—race-like intensity with long sustained blocks. • REST DAY NOTE: Fine to ride if you really want, but no longer than an hour and don't break 30 TSS.",
           "blocks": "    <FreeRide Duration=\"60\"/>\n"
         },
         {
@@ -417,7 +417,7 @@
           "blocks": "    <Warmup Duration=\"600\" PowerLow=\"0.50\" PowerHigh=\"0.65\"/>\n    <SteadyState Duration=\"4500\" Power=\"0.68\" Cadence=\"85\"/>\n    <Cooldown Duration=\"600\" PowerLow=\"0.68\" PowerHigh=\"0.55\"/>\n"
         },
         {
-          "name": "W10 Thu - Long G-Spot",
+          "name": "W10 Thu - Long Strong Tempo",
           "description": "• STRUCTURE: 20 min warmup → 2x25 min @ 87-92% FTP (7 min easy between) → 10 min cooldown • Long sustained efforts just below threshold. This is bread-and-butter gravel racing power. Hold it steady, stay relaxed, control your breathing. You should feel strong here.",
           "blocks": "    <Warmup Duration=\"1200\" PowerLow=\"0.50\" PowerHigh=\"0.65\"/>\n    <IntervalsT Repeat=\"2\" OnDuration=\"1500\" OnPower=\"0.90\" Cadence=\"88\" OffDuration=\"420\" OffPower=\"0.55\"/>\n    <Cooldown Duration=\"600\" PowerLow=\"0.70\" PowerHigh=\"0.50\"/>\n"
         },
@@ -446,7 +446,7 @@
       "workouts": [
         {
           "name": "W11 Mon - Rest",
-          "description": "• Taper week 1 of 2. Volume drops 30% but intensity stays high. This keeps you sharp while allowing freshness to return. You should start feeling \"race ready\" by the end of this week. Legs feel snappy, power comes easy. That's fitness + freshness. • WEEK PREVIEW: Taper begins. Tuesday has race-pace openers (shorter threshold intervals). Thursday combines G-Spot + openers (maintained intensity, reduced volume). Saturday is a moderate endurance ride with race efforts—final reminder workout. • REST DAY NOTE: Fine to ride if you really want, but no longer than an hour and don't break 30 TSS.",
+          "description": "• Taper week 1 of 2. Volume drops 30% but intensity stays high. This keeps you sharp while allowing freshness to return. You should start feeling \"race ready\" by the end of this week. Legs feel snappy, power comes easy. That's fitness + freshness. • WEEK PREVIEW: Taper begins. Tuesday has race-pace openers (shorter threshold intervals). Thursday combines Strong Tempo + openers (maintained intensity, reduced volume). Saturday is a moderate endurance ride with race efforts—final reminder workout. • REST DAY NOTE: Fine to ride if you really want, but no longer than an hour and don't break 30 TSS.",
           "blocks": "    <FreeRide Duration=\"60\"/>\n"
         },
         {
@@ -460,7 +460,7 @@
           "blocks": "    <Warmup Duration=\"600\" PowerLow=\"0.50\" PowerHigh=\"0.65\"/>\n    <SteadyState Duration=\"3000\" Power=\"0.68\" Cadence=\"85\"/>\n    <Cooldown Duration=\"600\" PowerLow=\"0.68\" PowerHigh=\"0.55\"/>\n"
         },
         {
-          "name": "W11 Thu - Short G-Spot + Openers",
+          "name": "W11 Thu - Short Strong Tempo + Openers",
           "description": "• STRUCTURE: 15 min warmup → 2x15 min @ 87-92% FTP + 3x1 min @ 105% FTP (5 min easy between all) → 10 min cooldown • Reduced volume, maintained intensity. The 1-min openers keep your top-end sharp. Should feel snappy and strong.",
           "blocks": "    <Warmup Duration=\"900\" PowerLow=\"0.50\" PowerHigh=\"0.70\"/>\n    <IntervalsT Repeat=\"2\" OnDuration=\"900\" OnPower=\"0.90\" Cadence=\"88\" OffDuration=\"300\" OffPower=\"0.55\"/>\n    <IntervalsT Repeat=\"3\" OnDuration=\"60\" OnPower=\"1.05\" OffDuration=\"240\" OffPower=\"0.55\"/>\n    <Cooldown Duration=\"600\" PowerLow=\"0.70\" PowerHigh=\"0.50\"/>\n"
         },

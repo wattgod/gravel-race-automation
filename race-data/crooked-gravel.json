@@ -11,7 +11,7 @@
       "location_badge": "WINTER PARK, CO",
       "county": "Grand County",
       "date": "Early August annually",
-      "date_specific": "2026: August 1",
+      "date_specific": "2026: August 1 (Saturday, CONFIRMED \u2014 geminiadventures.com/bike/crooked-gravel); 2027 PATTERN ESTIMATE: ~August 7 (first Saturday of August, per recurring scheduling; not yet officially announced)",
       "terrain_types": [
         "Mountain gravel",
         "High altitude",
@@ -26,14 +26,14 @@
       "cutoff_time": "Varies",
       "lat": 39.918,
       "lng": -105.7856,
-      "start_elevation_asl_ft": 9052,
-      "avg_elevation_asl_ft": 9500
+      "start_elevation_asl_ft": 8700,
+      "avg_elevation_asl_ft": 9600
     },
     "climate": {
       "primary": "Colorado mountain summer",
       "description": "High altitude with variable mountain conditions. Afternoon thunderstorms possible.",
       "challenges": [
-        "High altitude (8000-10000+ feet)",
+        "High altitude (8,700-10,500 feet)",
         "Afternoon thunderstorms",
         "Variable mountain weather",
         "Sun exposure at altitude"
@@ -44,8 +44,8 @@
       "surface": "Mountain gravel roads with significant elevation. High altitude terrain with challenging climbing.",
       "technical_rating": 3,
       "features": [
-        "Significant climbing (6000 feet)",
-        "High altitude (8000-10000+ feet)",
+        "Significant climbing (5,600 feet)",
+        "High altitude (8,700-10,500 feet)",
         "Mountain scenery",
         "Technical mountain gravel",
         "Colorado Rockies setting"
@@ -75,7 +75,7 @@
     },
     "biased_opinion": {
       "verdict": "Colorado Mountain Challenge",
-      "summary": "Crooked Gravel offers a genuine Colorado mountain gravel challenge with high altitude and significant climbing. Winter Park is a beautiful mountain resort town with good amenities. The course is challenging with 6000 feet of climbing at 8000-10000+ feet elevation. It's a well-organized regional event with a moderate field. The main appeal is the mountain setting and altitude challenge.",
+      "summary": "Crooked Gravel offers a genuine Colorado mountain gravel challenge with high altitude and significant climbing. Winter Park is a beautiful mountain resort town with good amenities. The course is challenging with 5,600 feet of climbing, starting at 8,700 feet and topping out at 10,500 feet after a 12-mile sustained climb. It's a well-organized regional event with a moderate field. The main appeal is the mountain setting and altitude challenge.",
       "strengths": [
         "Significant climbing and altitude challenge",
         "Beautiful Colorado mountain scenery",
@@ -93,8 +93,8 @@
     },
     "final_verdict": {
       "score": "59 / 100",
-      "one_liner": "Regional Colorado mountain gravel with high altitude and significant climbing.",
-      "should_you_race": "If you're in Colorado or the Front Range and want a mountain gravel challenge—yes, it's a well-organized event with genuine altitude and climbing. If you're traveling from far away—there are more prestigious mountain events elsewhere.",
+      "one_liner": "Regional Colorado mountain gravel with high altitude (8,700-10,500ft) and significant climbing.",
+      "should_you_race": "If you're in Colorado or the Front Range and want a mountain gravel challenge\u2014yes, it's a well-organized event with genuine altitude and climbing. If you're traveling from far away\u2014there are more prestigious mountain events elsewhere.",
       "alternatives": "For better Colorado mountain events: Leadville 100, Steamboat Gravel. For similar regional mountain vibes: other Front Range events.",
       "alternative_slugs": [
         "leadville-100"
@@ -106,7 +106,7 @@
       "food": "Resort town with good dining options. Stock race nutrition beforehand.",
       "packet_pickup": "Day before typically",
       "parking": "At start/finish",
-      "official_site": "Check Colorado cycling calendars",
+      "official_site": "https://geminiadventures.com/bike/crooked-gravel",
       "camping": "campgrounds near start or in Fraser (e"
     },
     "history": {
@@ -117,31 +117,31 @@
       "reputation": "Growing regional Colorado mountain event."
     },
     "course_description": {
-      "character": "Mountain gravel with significant climbing at high altitude.",
+      "character": "Mountain gravel with significant climbing (5,600ft) at high altitude (8,700-10,500ft).",
       "suffering_zones": [
         {
-          "mile": 15,
-          "label": "First Climb",
-          "desc": "Early climbing at altitude.",
-          "terrain_detail": "Mountain ascent",
-          "named_section": "Early Climb"
+          "mile": 13.5,
+          "label": "Church Park Climb",
+          "desc": "First climb of the day peaks near the mile-13.5 Church Park aid station, around 10,400 ft.",
+          "terrain_detail": "Mountain ascent to ~10,400 ft",
+          "named_section": "Church Park"
         },
         {
-          "mile": 35,
-          "label": "High Point",
-          "desc": "Highest elevation point.",
-          "terrain_detail": "10000+ feet",
-          "named_section": "Summit"
+          "mile": 39.5,
+          "label": "The Long Climb Begins",
+          "desc": "The Willow Creek aid station marks the start of the day's longest sustained climb \u2014 roughly 12 miles up to the course's 10,500-ft high point.",
+          "terrain_detail": "Start of the 12-mile sustained climb",
+          "named_section": "Willow Creek"
         },
         {
-          "mile": 50,
-          "label": "Final Climb",
-          "desc": "Last major climb to finish.",
-          "terrain_detail": "Final ascent",
-          "named_section": "Finish Climb"
+          "mile": 53.5,
+          "label": "Cresting at 10,500 ft",
+          "desc": "The Church Park #2 aid station comes after topping out near the course's 10,500-ft high point.",
+          "terrain_detail": "Course high point, ~10,500 ft",
+          "named_section": "The High Point"
         }
       ],
-      "signature_challenge": "6000 feet of climbing at 8000-10000+ feet altitude.",
+      "signature_challenge": "A 12-mile sustained climb from ~8,700 ft to the course's 10,500-ft high point, cresting around mile 53.",
       "ridewithgps_id": "42969175",
       "ridewithgps_name": "Crooked Gravel - 65mi Route Winter Park Colorado"
     },
@@ -154,13 +154,13 @@
       "race_terrain": "Colorado mountain gravel",
       "race_weather": "Mountain variability",
       "race_challenges": [
-        "High altitude (8000-10000+ feet)",
-        "6000 feet of climbing",
+        "High altitude (8,700-10,500 feet)",
+        "5,600 feet of climbing",
         "Afternoon thunderstorms",
         "Mountain weather"
       ],
       "altitude_section": true,
-      "altitude_feet": "9000-10000"
+      "altitude_feet": "8700-10500"
     },
     "non_negotiables": [
       {
@@ -171,7 +171,7 @@
       {
         "requirement": "Climbing strength",
         "by_when": "Week 6-8",
-        "why": "6000 feet of climbing requires strong aerobic capacity and climbing fitness."
+        "why": "5,600 feet of climbing requires strong aerobic capacity and climbing fitness."
       },
       {
         "requirement": "Thunderstorm awareness",
@@ -255,7 +255,7 @@
       "marketplace_variables": {
         "race_name": "Crooked Gravel",
         "race_hook": "62 miles of Colorado mountain gravel at 8000-10000+ feet.",
-        "race_hook_detail": "Regional mountain event in Winter Park with 6000 feet of climbing.",
+        "race_hook_detail": "Regional mountain event in Winter Park with 5,600 feet of climbing.",
         "distance": "67",
         "dark_mile": "35",
         "non_negotiable_1": "Altitude preparation",
@@ -275,15 +275,15 @@
       },
       "technicality": {
         "score": 3,
-        "explanation": "Course shifts from smooth gravel to \"teeth chattering rough\" washboard descents at 25-30mph. One rider described it as \"where I was officially introduced to what a gravel race is all about – those who can handle the downhills and those who can't,\" noting the technical challenge of \"flying down a rough dirt road with no suspension.\" Similar technical demands to Gravel Worlds."
+        "explanation": "Course shifts from smooth gravel to \"teeth chattering rough\" washboard descents at 25-30mph. One rider described it as \"where I was officially introduced to what a gravel race is all about \u2013 those who can handle the downhills and those who can't,\" noting the technical challenge of \"flying down a rough dirt road with no suspension.\" Similar technical demands to Gravel Worlds."
       },
       "elevation": {
         "score": 4,
-        "explanation": "The main climb on CR-50 delivers \"2,500 ft of vertical over 13 miles\" with the first climb topping out \"shy of 10,400 ft.\" One rider called it \"basically 11 miles of a 5-10% grade…..for eternity\" along The Blue Ridge, forcing a goal change from sub-5 hours to just staying on the bike. More climbing than SBT GRVL at the same score."
+        "explanation": "The main climb on CR-50 delivers \"2,500 ft of vertical over 13 miles\" with the first climb topping out \"shy of 10,400 ft.\" One rider called it \"basically 11 miles of a 5-10% grade\u2026..for eternity\" along The Blue Ridge, forcing a goal change from sub-5 hours to just staying on the bike. More climbing than SBT GRVL at the same score."
       },
       "climate": {
         "score": 3,
-        "explanation": "August temperatures hit 70-75°F during the race with biting flies that \"almost broke\" one rider who had to maintain pace \"quick enough to keep the flies from overwhelming me.\" Official warnings note afternoon thunderstorms are common with unpredictable mountain weather requiring rain gear. Similar climate challenges to SBT GRVL."
+        "explanation": "August temperatures hit 70-75\u00b0F during the race with biting flies that \"almost broke\" one rider who had to maintain pace \"quick enough to keep the flies from overwhelming me.\" Official warnings note afternoon thunderstorms are common with unpredictable mountain weather requiring rain gear. Similar climate challenges to SBT GRVL."
       },
       "altitude": {
         "score": 4,
@@ -433,12 +433,12 @@
       "videos": [
         {
           "video_id": "h9mrHFf9nbs",
-          "title": "🏔 Crooked Gravel 2025 – Winter Park, Colorado | GoPro Race Highlights",
+          "title": "\ud83c\udfd4 Crooked Gravel 2025 \u2013 Winter Park, Colorado | GoPro Race Highlights",
           "channel": "Peter Doyle",
           "view_count": 67,
           "upload_date": "20250811",
           "duration_string": "7:03",
-          "description": "Ride along with me in the Crooked Gravel 2025 race through the beautiful high country of Winter Park, Colorado. This 67 mile course took us over miles of rugged gravel roads, forest trails, and big mountain climbs — all surrounded by stunning Rocky Mountain scenery.\n\nShot on my GoPro for a rider’s-eye view of the action — from the dusty pace lines to the thrilling descents and quiet stretches deep in the forest. Gravel racing combines endurance, skill, and adventure, and Winter Park delivered it all.\n\n📍 Event: Crooked Gravel 2025\n🚴 Location: Winter Park, Colorado\n🎥 Camera: GoPro HERO10\n\nIf you enjoy cycling, adventure, or just beautiful mountain scenery, hit Like and Subscribe for more ride-along videos from races and epic rides across Colorado.",
+          "description": "Ride along with me in the Crooked Gravel 2025 race through the beautiful high country of Winter Park, Colorado. This 67 mile course took us over miles of rugged gravel roads, forest trails, and big mountain climbs \u2014 all surrounded by stunning Rocky Mountain scenery.\n\nShot on my GoPro for a rider\u2019s-eye view of the action \u2014 from the dusty pace lines to the thrilling descents and quiet stretches deep in the forest. Gravel racing combines endurance, skill, and adventure, and Winter Park delivered it all.\n\n\ud83d\udccd Event: Crooked Gravel 2025\n\ud83d\udeb4 Location: Winter Park, Colorado\n\ud83c\udfa5 Camera: GoPro HERO10\n\nIf you enjoy cycling, adventure, or just beautiful mountain scenery, hit Like and Subscribe for more ride-along videos from races and epic rides across Colorado.",
           "tags": [],
           "url": "https://www.youtube.com/watch?v=h9mrHFf9nbs",
           "curated": true,

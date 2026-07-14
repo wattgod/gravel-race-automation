@@ -1,30 +1,21 @@
 {
   "slug": "giro-sardegna-gravel",
   "race_name": "Giro Sardegna Gravel",
-  "distance_mi": 81.0,
+  "distance_mi": 66.5,
   "demands": {
-    "durability": 4,
-    "climbing": 8,
+    "durability": 2,
+    "climbing": 5,
     "vo2_power": 8,
-    "threshold": 8,
-    "technical": 8,
+    "threshold": 6,
+    "technical": 4,
     "heat_resilience": 3,
     "altitude": 2,
     "race_specificity": 10
   },
   "top_categories": [
     {
-      "category": "Gravel_Specific",
-      "score": 100,
-      "workouts": [
-        "Surge and Settle",
-        "Terrain Microbursts"
-      ],
-      "workout_context": "Giro Sardegna Gravel's Sardinian mountains gravel (75%), Paved roads (25%) forces constant power changes. Surge over the rough stuff, settle on the smooth, repeat for 81 miles."
-    },
-    {
       "category": "Race_Simulation",
-      "score": 95,
+      "score": 100,
       "workouts": [
         "Breakaway Simulation",
         "Variable Pace Chaos",
@@ -33,14 +24,23 @@
       "workout_context": "Race-pace efforts that mimic Giro Sardegna Gravel's demands. Pacing, fueling, and tactical decisions under fatigue. Practice the race before May."
     },
     {
-      "category": "TT_Threshold",
-      "score": 82,
+      "category": "Gravel_Specific",
+      "score": 89,
       "workouts": [
-        "Single Sustained Threshold",
-        "Threshold Ramps",
-        "Descending Threshold"
+        "Surge and Settle",
+        "Terrain Microbursts"
       ],
-      "workout_context": "105ft/mi means long efforts at or near FTP on every climb. If your threshold cracks at minute 15, you'll walk the rest."
+      "workout_context": "Giro Sardegna Gravel's Fast coastal gravel (non-technical), Rolling terrain forces constant power changes. Surge over the rough stuff, settle on the smooth, repeat for 66 miles."
+    },
+    {
+      "category": "VO2max",
+      "score": 81,
+      "workouts": [
+        "5x3 VO2 Classic",
+        "Descending VO2 Pyramid",
+        "Norwegian 4x8"
+      ],
+      "workout_context": "When someone attacks on southeast Sardinia coastal gravel\u2014fast, rolling,, you have 10 seconds to respond or you're off the back. This builds that response."
     },
     {
       "category": "Durability",
@@ -50,11 +50,21 @@
         "Double Day Simulation",
         "Progressive Fatigue"
       ],
-      "workout_context": "At mile 60 of 81, glycogen is gone. This workout teaches your body to produce watts on fumes."
+      "workout_context": "66 miles on southeast Sardinia coastal gravel\u2014fast, rolling, burns energy faster than the distance suggests. Train the fade resistance now."
+    },
+    {
+      "category": "TT_Threshold",
+      "score": 71,
+      "workouts": [
+        "Single Sustained Threshold",
+        "Threshold Ramps",
+        "Descending Threshold"
+      ],
+      "workout_context": "62ft/mi means long efforts at or near FTP on every climb. If your threshold cracks at minute 15, you'll walk the rest."
     },
     {
       "category": "Over_Under",
-      "score": 73,
+      "score": 60,
       "workouts": [
         "Classic Over-Unders",
         "Ladder Over-Unders"
@@ -62,18 +72,8 @@
       "workout_context": "At Giro Sardegna Gravel, surges push you above threshold and you have to recover while still riding. Over-unders train exactly that."
     },
     {
-      "category": "VO2max",
-      "score": 66,
-      "workouts": [
-        "5x3 VO2 Classic",
-        "Descending VO2 Pyramid",
-        "Norwegian 4x8"
-      ],
-      "workout_context": "8,530ft of climbing means repeated surges above threshold. VO2max work is how you survive the fifth climb, not just the first."
-    },
-    {
       "category": "G_Spot",
-      "score": 64,
+      "score": 56,
       "workouts": [
         "G-Spot Standard",
         "G-Spot Extended",
@@ -82,8 +82,17 @@
       "workout_context": "88\u201392% FTP is where you'll spend the hardest sustained miles of Giro Sardegna Gravel. Train it until it feels boring."
     },
     {
+      "category": "Anaerobic_Capacity",
+      "score": 56,
+      "workouts": [
+        "2min Killers",
+        "90sec Repeats"
+      ],
+      "workout_context": "Short, max efforts are unavoidable. Punchy climbs, gap closures, attacks on southeast Sardinia coastal gravel\u2014fast, rolling,. If you haven't trained them, you'll crack."
+    },
+    {
       "category": "Critical_Power",
-      "score": 64,
+      "score": 56,
       "workouts": [
         "Above CP Repeats",
         "W-Prime Depletion"
@@ -92,21 +101,12 @@
     },
     {
       "category": "Mixed_Climbing",
-      "score": 55,
+      "score": 42,
       "workouts": [
         "Seated/Standing Climbs",
         "Variable Grade Simulation"
       ],
-      "workout_context": "8,530ft of climbing on grades that change every minute. You need to switch from seated to standing without losing rhythm."
-    },
-    {
-      "category": "Anaerobic_Capacity",
-      "score": 55,
-      "workouts": [
-        "2min Killers",
-        "90sec Repeats"
-      ],
-      "workout_context": "Short, max efforts are unavoidable. Punchy climbs, gap closures, attacks on sardinian mountains\u2014rolling terrain with coastal. If you haven't trained them, you'll crack."
+      "workout_context": "Varied gradients on southeast Sardinia coastal gravel\u2014fast, rolling, demand climbing versatility. Sit the shallow stuff, stand the steep stuff, switch without thinking."
     },
     {
       "category": "Blended",
@@ -115,22 +115,22 @@
         "Z2 + VO2 Combo",
         "Endurance with Spikes"
       ],
-      "workout_context": "Endurance with intensity spikes baked in. Exactly what 8,530ft of climbing on sardinian mountains\u2014rolling terrain with coastal does to your power file on race day."
+      "workout_context": "Endurance with intensity spikes baked in. Exactly what 4,100ft of climbing on southeast Sardinia coastal gravel\u2014fast, rolling, does to your power file on race day."
     },
     {
-      "category": "SFR_Muscle_Force",
-      "score": 36,
+      "category": "Norwegian_Double",
+      "score": 33,
       "workouts": [
-        "SFR Low Cadence",
-        "Force Repeats"
+        "Norwegian 4x8 Classic",
+        "Double Threshold"
       ],
-      "workout_context": "Low-cadence force work for 8,530ft of climbing. The slow, grinding ascents where you can't spin\u2014you push."
+      "workout_context": "Double-threshold training builds sustained power with less fatigue. More FTP per hour of training."
     }
   ],
   "race_overlay": {
-    "nutrition": "Target 60\u201380g carbs/hour for Giro Sardegna Gravel\u2019s 81 miles. Start fueling within the first 30 minutes \u2014 early fueling prevents late-race collapse. Bonking at mile 60 is a nutrition failure, not a fitness failure.",
-    "terrain": "Highly technical terrain at Giro Sardegna Gravel demands practice on similar surfaces. Ride sardinian mountains\u2014rolling terrain with coastal views at race-day cadence weekly. Expect: sardinian mountains gravel (75%), paved roads (25%), rolling terrain. Practice cornering, descending, and power delivery on unstable surfaces. Dial in tire pressure before race week \u2014 5 PSI wrong costs you 15+ minutes over 81 miles."
+    "nutrition": "Target 40\u201360g carbs/hour for Giro Sardegna Gravel\u2019s 66 miles. Front-load calories in the first half. One bottle per hour minimum, more in heat.",
+    "terrain": "Mixed terrain at Giro Sardegna Gravel requires surface adaptability. Include weekly rides on southeast sardinia coastal gravel\u2014fast, rolling, non-technical to build confidence. Expect: fast coastal gravel (non-technical), rolling terrain, coastal views."
   },
-  "pack_summary": "This 10-workout pack focuses on Gravel Specific, Race Simulation, and TT Threshold to prepare you for 81 miles of sardinian mountains\u2014rolling terrain with coastal views in Siniscola, Sardinia, Italy.",
-  "generated_at": "2026-03-06"
+  "pack_summary": "This 10-workout pack focuses on Race Simulation, Gravel Specific, and VO2max to prepare you for 66 miles of southeast sardinia coastal gravel\u2014fast, rolling, non-technical in Muravera-Villasimius, Sardinia, Italy.",
+  "generated_at": "2026-07-13"
 }

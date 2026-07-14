@@ -1,12 +1,12 @@
 {
   "slug": "barry-roubaix",
   "race_name": "Barry-Roubaix Killer Gravel Road Race",
-  "distance_mi": 100.0,
+  "distance_mi": 62.0,
   "demands": {
-    "durability": 6,
+    "durability": 2,
     "climbing": 4,
     "vo2_power": 5,
-    "threshold": 7,
+    "threshold": 5,
     "technical": 4,
     "heat_resilience": 0,
     "altitude": 2,
@@ -14,28 +14,8 @@
   },
   "top_categories": [
     {
-      "category": "Durability",
-      "score": 100,
-      "workouts": [
-        "Tired VO2max",
-        "Double Day Simulation",
-        "Progressive Fatigue"
-      ],
-      "workout_context": "At mile 60 of 100, glycogen is gone. This workout teaches your body to produce watts on fumes."
-    },
-    {
-      "category": "TT_Threshold",
-      "score": 95,
-      "workouts": [
-        "Single Sustained Threshold",
-        "Threshold Ramps",
-        "Descending Threshold"
-      ],
-      "workout_context": "Barry-Roubaix Killer Gravel Road Race's Michigan rolling farmland gravel rewards steady threshold power. Surging and recovering costs more watts than just holding."
-    },
-    {
       "category": "Race_Simulation",
-      "score": 95,
+      "score": 100,
       "workouts": [
         "Breakaway Simulation",
         "Variable Pace Chaos",
@@ -45,35 +25,26 @@
     },
     {
       "category": "Gravel_Specific",
-      "score": 91,
+      "score": 96,
       "workouts": [
         "Surge and Settle",
         "Terrain Microbursts"
       ],
-      "workout_context": "Barry-Roubaix Killer Gravel Road Race's Michigan farmland, Rolling gravel forces constant power changes. Surge over the rough stuff, settle on the smooth, repeat for 100 miles."
+      "workout_context": "Barry-Roubaix Killer Gravel Road Race's Michigan farmland, Rolling gravel forces constant power changes. Surge over the rough stuff, settle on the smooth, repeat for 62 miles."
     },
     {
-      "category": "G_Spot",
-      "score": 75,
+      "category": "TT_Threshold",
+      "score": 78,
       "workouts": [
-        "G-Spot Standard",
-        "G-Spot Extended",
-        "Criss-Cross"
+        "Single Sustained Threshold",
+        "Threshold Ramps",
+        "Descending Threshold"
       ],
-      "workout_context": "88\u201392% FTP is where you'll spend the hardest sustained miles of Barry-Roubaix Killer Gravel Road Race. Train it until it feels boring."
-    },
-    {
-      "category": "Over_Under",
-      "score": 72,
-      "workouts": [
-        "Classic Over-Unders",
-        "Ladder Over-Unders"
-      ],
-      "workout_context": "At Barry-Roubaix Killer Gravel Road Race, surges push you above threshold and you have to recover while still riding. Over-unders train exactly that."
+      "workout_context": "65ft/mi means long efforts at or near FTP on every climb. If your threshold cracks at minute 15, you'll walk the rest."
     },
     {
       "category": "VO2max",
-      "score": 70,
+      "score": 74,
       "workouts": [
         "5x3 VO2 Classic",
         "Descending VO2 Pyramid",
@@ -82,17 +53,37 @@
       "workout_context": "When someone attacks on Michigan rolling farmland gravel, you have 10 seconds to respond or you're off the back. This builds that response."
     },
     {
-      "category": "Blended",
-      "score": 56,
+      "category": "Over_Under",
+      "score": 65,
       "workouts": [
-        "Z2 + VO2 Combo",
-        "Endurance with Spikes"
+        "Classic Over-Unders",
+        "Ladder Over-Unders"
       ],
-      "workout_context": "Endurance with intensity spikes baked in. Exactly what 3,500ft of climbing on Michigan rolling farmland gravel does to your power file on race day."
+      "workout_context": "At Barry-Roubaix Killer Gravel Road Race, surges push you above threshold and you have to recover while still riding. Over-unders train exactly that."
+    },
+    {
+      "category": "Durability",
+      "score": 61,
+      "workouts": [
+        "Tired VO2max",
+        "Double Day Simulation",
+        "Progressive Fatigue"
+      ],
+      "workout_context": "62 miles on Michigan rolling farmland gravel burns energy faster than the distance suggests. Train the fade resistance now."
+    },
+    {
+      "category": "G_Spot",
+      "score": 61,
+      "workouts": [
+        "G-Spot Standard",
+        "G-Spot Extended",
+        "Criss-Cross"
+      ],
+      "workout_context": "88\u201392% FTP is where you'll spend the hardest sustained miles of Barry-Roubaix Killer Gravel Road Race. Train it until it feels boring."
     },
     {
       "category": "Critical_Power",
-      "score": 54,
+      "score": 57,
       "workouts": [
         "Above CP Repeats",
         "W-Prime Depletion"
@@ -100,38 +91,46 @@
       "workout_context": "How long can you hold 105% FTP before you blow? At Barry-Roubaix Killer Gravel Road Race, that number decides whether you bridge or get dropped."
     },
     {
-      "category": "HVLI_Extended",
-      "score": 53,
-      "workouts": [
-        "HVLI Extended Z2",
-        "Multi-Hour Z2",
-        "Back-to-Back Long"
-      ],
-      "workout_context": "100 miles rewards fat oxidation. This volume work shifts your fuel mix so you're still burning fat at hour 5, not bonking at hour 3."
-    },
-    {
-      "category": "Endurance",
-      "score": 53,
-      "workouts": [
-        "Pre-Race Openers",
-        "Terrain Simulation Z2"
-      ],
-      "workout_context": "Every hard session works better with a bigger aerobic base. At 100 miles, base fitness is the difference between racing and surviving."
-    },
-    {
       "category": "Anaerobic_Capacity",
-      "score": 49,
+      "score": 52,
       "workouts": [
         "2min Killers",
         "90sec Repeats"
       ],
       "workout_context": "Short, max efforts are unavoidable. Punchy climbs, gap closures, attacks on Michigan rolling farmland gravel. If you haven't trained them, you'll crack."
+    },
+    {
+      "category": "Mixed_Climbing",
+      "score": 44,
+      "workouts": [
+        "Seated/Standing Climbs",
+        "Variable Grade Simulation"
+      ],
+      "workout_context": "Varied gradients on Michigan rolling farmland gravel demand climbing versatility. Sit the shallow stuff, stand the steep stuff, switch without thinking."
+    },
+    {
+      "category": "Blended",
+      "score": 37,
+      "workouts": [
+        "Z2 + VO2 Combo",
+        "Endurance with Spikes"
+      ],
+      "workout_context": "Endurance with intensity spikes baked in. Exactly what 4,000ft of climbing on Michigan rolling farmland gravel does to your power file on race day."
+    },
+    {
+      "category": "Norwegian_Double",
+      "score": 37,
+      "workouts": [
+        "Norwegian 4x8 Classic",
+        "Double Threshold"
+      ],
+      "workout_context": "Double-threshold training builds sustained power with less fatigue. More FTP per hour of training."
     }
   ],
   "race_overlay": {
-    "nutrition": "Target 60\u201380g carbs/hour for Barry-Roubaix Killer Gravel Road Race\u2019s 100 miles. Start fueling within the first 30 minutes \u2014 early fueling prevents late-race collapse. Bonking at mile 60 is a nutrition failure, not a fitness failure.",
-    "terrain": "Mixed terrain at Barry-Roubaix Killer Gravel Road Race requires surface adaptability. Include weekly rides on michigan rolling farmland gravel to build confidence. Expect: michigan farmland, rolling gravel, 100+ mile distance."
+    "nutrition": "Target 40\u201360g carbs/hour for Barry-Roubaix Killer Gravel Road Race\u2019s 62 miles. Front-load calories in the first half. One bottle per hour minimum, more in heat.",
+    "terrain": "Mixed terrain at Barry-Roubaix Killer Gravel Road Race requires surface adaptability. Include weekly rides on michigan rolling farmland gravel to build confidence. Expect: michigan farmland, rolling gravel, 62-mile killer flagship distance."
   },
-  "pack_summary": "This 10-workout pack focuses on Durability, TT Threshold, and Race Simulation to prepare you for 100 miles of michigan rolling farmland gravel in Hastings, Michigan.",
-  "generated_at": "2026-03-06"
+  "pack_summary": "This 10-workout pack focuses on Race Simulation, Gravel Specific, and TT Threshold to prepare you for 62 miles of michigan rolling farmland gravel in Hastings, Michigan.",
+  "generated_at": "2026-07-13"
 }

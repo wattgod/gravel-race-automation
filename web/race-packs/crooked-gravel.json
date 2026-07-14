@@ -1,7 +1,7 @@
 {
   "slug": "crooked-gravel",
   "race_name": "Crooked Gravel",
-  "distance_mi": 62.0,
+  "distance_mi": 67.0,
   "demands": {
     "durability": 2,
     "climbing": 7,
@@ -21,7 +21,7 @@
         "Descending VO2 Pyramid",
         "Norwegian 4x8"
       ],
-      "workout_context": "6,000ft of climbing means repeated surges above threshold. VO2max work is how you survive the fifth climb, not just the first."
+      "workout_context": "5,600ft of climbing means repeated surges above threshold. VO2max work is how you survive the fifth climb, not just the first."
     },
     {
       "category": "Gravel_Specific",
@@ -30,7 +30,7 @@
         "Surge and Settle",
         "Terrain Microbursts"
       ],
-      "workout_context": "Crooked Gravel's Mountain gravel, High altitude forces constant power changes. Surge over the rough stuff, settle on the smooth, repeat for 62 miles."
+      "workout_context": "Crooked Gravel's Mountain gravel, High altitude forces constant power changes. Surge over the rough stuff, settle on the smooth, repeat for 67 miles."
     },
     {
       "category": "TT_Threshold",
@@ -40,7 +40,7 @@
         "Threshold Ramps",
         "Descending Threshold"
       ],
-      "workout_context": "97ft/mi means long efforts at or near FTP on every climb. If your threshold cracks at minute 15, you'll walk the rest."
+      "workout_context": "84ft/mi means long efforts at or near FTP on every climb. If your threshold cracks at minute 15, you'll walk the rest."
     },
     {
       "category": "Race_Simulation",
@@ -78,7 +78,7 @@
         "Seated/Standing Climbs",
         "Variable Grade Simulation"
       ],
-      "workout_context": "6,000ft of climbing on grades that change every minute. You need to switch from seated to standing without losing rhythm."
+      "workout_context": "5,600ft of climbing on grades that change every minute. You need to switch from seated to standing without losing rhythm."
     },
     {
       "category": "Critical_Power",
@@ -106,7 +106,7 @@
         "Double Day Simulation",
         "Progressive Fatigue"
       ],
-      "workout_context": "62 miles on Colorado mountain gravel burns energy faster than the distance suggests. Train the fade resistance now."
+      "workout_context": "67 miles on Colorado mountain gravel burns energy faster than the distance suggests. Train the fade resistance now."
     },
     {
       "category": "SFR_Muscle_Force",
@@ -115,7 +115,7 @@
         "SFR Low Cadence",
         "Force Repeats"
       ],
-      "workout_context": "Low-cadence force work for 6,000ft of climbing. The slow, grinding ascents where you can't spin\u2014you push."
+      "workout_context": "Low-cadence force work for 5,600ft of climbing. The slow, grinding ascents where you can't spin\u2014you push."
     },
     {
       "category": "Anaerobic_Capacity",
@@ -128,10 +128,10 @@
     }
   ],
   "race_overlay": {
-    "nutrition": "Target 40\u201360g carbs/hour for Crooked Gravel\u2019s 62 miles. Front-load calories in the first half. One bottle per hour minimum, more in heat.",
-    "altitude": "Crooked Gravel with 6,000ft of climbing, much of it above 8,000ft demands altitude preparation. Arrive 5\u20137 days early for acclimatization. Expect 5\u201315% power reduction at altitude. Increase iron intake 4 weeks out. Hydrate aggressively \u2014 altitude increases fluid loss by 20\u201340%. High altitude (8000-10000+ feet); Sun exposure at altitude.",
+    "nutrition": "Target 40\u201360g carbs/hour for Crooked Gravel\u2019s 67 miles. Front-load calories in the first half. One bottle per hour minimum, more in heat.",
+    "altitude": "Crooked Gravel with 5,600ft of climbing, much of it above 8,000ft demands altitude preparation. Arrive 5\u20137 days early for acclimatization. Expect 5\u201315% power reduction at altitude. Increase iron intake 4 weeks out. Hydrate aggressively \u2014 altitude increases fluid loss by 20\u201340%. High altitude (8,700-10,500 feet); Sun exposure at altitude.",
     "terrain": "Mixed terrain at Crooked Gravel requires surface adaptability. Include weekly rides on colorado mountain gravel to build confidence. Expect: mountain gravel, high altitude, significant climbing."
   },
-  "pack_summary": "This 10-workout pack focuses on VO2max, Gravel Specific, and TT Threshold to prepare you for 62 miles of colorado mountain gravel in Winter Park, Colorado.",
-  "generated_at": "2026-03-06"
+  "pack_summary": "This 10-workout pack focuses on VO2max, Gravel Specific, and TT Threshold to prepare you for 67 miles of colorado mountain gravel in Winter Park, Colorado.",
+  "generated_at": "2026-07-13"
 }

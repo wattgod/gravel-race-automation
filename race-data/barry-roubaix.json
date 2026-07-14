@@ -6,16 +6,16 @@
     "tagline": "62-mile Michigan gravel with 1000+ riders in Hastings.",
     "vitals": {
       "distance_mi": 62,
-      "elevation_ft": 3500,
+      "elevation_ft": 4000,
       "location": "Hastings, Michigan",
       "location_badge": "HASTINGS, MI",
       "county": "Barry County",
       "date": "Mid-April annually",
-      "date_specific": "2026: April 18",
+      "date_specific": "2027: April 17 (Saturday, CONFIRMED \u2014 barry-roubaix.com; 2026 edition already ran)",
       "terrain_types": [
         "Michigan farmland",
         "Rolling gravel",
-        "100+ mile distance",
+        "62-mile Killer flagship distance",
         "Large field event"
       ],
       "field_size": "1000+ riders",
@@ -39,10 +39,10 @@
     },
     "terrain": {
       "primary": "Michigan rolling farmland gravel",
-      "surface": "Gravel roads through rolling southwest Michigan farmland. Moderate elevation with 100+ mile distance.",
+      "surface": "Gravel roads through rolling southwest Michigan farmland. Moderate elevation over the 62-mile Killer course.",
       "technical_rating": 2,
       "features": [
-        "Moderate rolling (3500 feet)",
+        "Moderate rolling (4,000 feet)",
         "Farmland scenery",
         "62-mile distance",
         "Large field (1000+ riders)",
@@ -67,15 +67,15 @@
       "field_depth": 2,
       "value": 3,
       "expenses": 3,
-      "score_note": "Large field Michigan event. 100+ miles is significant but rolling farmland terrain and regional field.",
+      "score_note": "Large field Michigan event. 62 miles of rolling farmland terrain and regional field keeps it in Tier 3.",
       "discipline": "gravel",
       "display_tier": 3
     },
     "biased_opinion": {
-      "verdict": "100-Mile Michigan Farmland Festival",
+      "verdict": "62-Mile Michigan Farmland Festival",
       "summary": "Barry-Roubaix is a large field gravel race in Hastings, Michigan--1000+ riders tackling the 62-mile Killer course of rolling farmland. The organization is solid, and the festival atmosphere is fun. However, it's rolling farmland terrain with a regional field, keeping it in Tier 3. Hastings provides moderate access and amenities. Spring weather can bring rain and mud.",
       "strengths": [
-        "100+ mile distance (significant challenge)",
+        "62-mile distance (solid regional challenge)",
         "Large field (1000+ riders, festival atmosphere)",
         "Well-organized event",
         "Michigan cycling community",
@@ -93,8 +93,8 @@
     "final_verdict": {
       "score": "53 / 100",
       "one_liner": "62-mile Michigan farmland gravel with 1000+ riders.",
-      "should_you_race": "If you want a 100+ mile challenge with large field and festival atmosphere\u2014yes, it's a fun event. If you want terrain variety or pro field depth\u2014look elsewhere.",
-      "alternatives": "For better century events: Unbound 200, Dirty Kanza. For similar large field events: other Michigan gravel races.",
+      "should_you_race": "If you want a 62-mile challenge with large field and festival atmosphere\u2014yes, it's a fun event. If you want terrain variety or pro field depth\u2014look elsewhere.",
+      "alternatives": "For longer/harder events: Unbound 200, Dirty Kanza. For similar large field events: other Michigan gravel races.",
       "alternative_slugs": [
         "unbound-200"
       ]
@@ -102,10 +102,10 @@
     "logistics": {
       "airport": "Grand Rapids (GRR) 45 minutes or Kalamazoo (AZO) 45 minutes",
       "lodging_strategy": "Hastings has moderate lodging options. Grand Rapids has more options.",
-      "food": "Hastings has moderate dining options. Stock nutrition for 100+ miles.",
+      "food": "Hastings has moderate dining options. Stock nutrition for the 62-mile distance.",
       "packet_pickup": "Day before",
       "parking": "At start/finish",
-      "official_site": "Check Barry-Roubaix website",
+      "official_site": "https://barry-roubaix.com/",
       "camping": "camping (first-come, $?, no hookups) right in town"
     },
     "history": {
@@ -143,33 +143,33 @@
           "named_section": "Homestretch"
         }
       ],
-      "signature_challenge": "100+ mile distance through Michigan farmland with spring weather.",
+      "signature_challenge": "62-mile distance through Michigan farmland with spring weather.",
       "ridewithgps_id": "31249124",
       "ridewithgps_name": "Barry-Roubaix Killer Gravel Road Race 62"
     },
     "guide_variables": {
       "race_name": "Barry-Roubaix",
-      "race_distance": "100 miles",
-      "race_elevation": "3,500 feet",
+      "race_distance": "62 miles",
+      "race_elevation": "4,000 feet",
       "race_date": "Spring",
       "race_location": "Hastings, Michigan",
       "race_terrain": "Michigan farmland gravel",
       "race_weather": "Michigan spring variability",
       "race_challenges": [
-        "100+ mile distance",
+        "62-mile distance",
         "Spring cool/rain/mud",
         "Rolling terrain endurance",
         "Large field navigation",
-        "Century pacing"
+        "Killer-course pacing"
       ],
       "altitude_section": false,
       "altitude_feet": null
     },
     "non_negotiables": [
       {
-        "requirement": "Century endurance",
+        "requirement": "62-mile endurance",
         "by_when": "Week 8-10",
-        "why": "100+ miles requires extensive endurance base and long-distance preparation."
+        "why": "62 miles of rolling Michigan farmland requires a solid endurance base and pacing discipline."
       },
       {
         "requirement": "Spring weather preparation",
@@ -248,8 +248,8 @@
         ],
         "race_specific": true,
         "topics": {
-          "pacing": "Century pacing discipline",
-          "fueling": "Nutrition strategy for 100+ miles",
+          "pacing": "62-mile Killer pacing discipline",
+          "fueling": "Nutrition strategy for the 62-mile Killer course",
           "weather": "Racing in Michigan spring weather",
           "navigation": "Large field positioning"
         }
@@ -257,11 +257,11 @@
       "tier_overrides": {},
       "marketplace_variables": {
         "race_name": "Barry-Roubaix",
-        "race_hook": "100+ miles of Michigan farmland gravel with 1000+ riders.",
-        "race_hook_detail": "Large field century event in Hastings.",
-        "distance": "100",
-        "dark_mile": "75",
-        "non_negotiable_1": "Century endurance",
+        "race_hook": "62 miles of Michigan farmland gravel with 1000+ riders.",
+        "race_hook_detail": "Large field gravel event in Hastings.",
+        "distance": "62",
+        "dark_mile": 47,
+        "non_negotiable_1": "62-mile endurance",
         "non_negotiable_2": "Spring weather preparation",
         "non_negotiable_3": "Large field navigation",
         "trainingpeaks_url": null
@@ -274,7 +274,7 @@
       },
       "race_quality": {
         "score": 3,
-        "explanation": "Solid organization for moving 5,500 bodies through rural Michigan, but the mass start creates chaos at bottlenecks like Sager Trail where 'only eight of us remained' in the front group. The new uphill finish adds a decent sting - 0.25 miles at 6% after 100 miles isn't nothing. Race runs smooth until weather turns it into a survival fest."
+        "explanation": "Solid organization for moving 5,500 bodies through rural Michigan, but the mass start creates chaos at bottlenecks like Sager Trail where 'only eight of us remained' in the front group. The new uphill finish adds a decent sting - 0.25 miles at 6% right at the line isn't nothing. Race runs smooth until weather turns it into a survival fest."
       },
       "experience": {
         "score": 3,

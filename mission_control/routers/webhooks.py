@@ -147,6 +147,15 @@ async def subscriber_webhook(
         source_data["race_slug"] = body["race_slug"]
     if body.get("race_name"):
         source_data["race_name"] = body["race_name"]
+    # plan_weeks (sent by a purchase payload) drives completion-relative review
+    # timing in post_purchase (sequence_engine._step_delay_days). Accept a
+    # positive number; silently ignore junk so a bad value never blocks enrollment.
+    _pw = body.get("plan_weeks")
+    try:
+        if _pw is not None and float(_pw) > 0:
+            source_data["plan_weeks"] = int(float(_pw))
+    except (TypeError, ValueError):
+        pass
 
     # Map capture source to sequence trigger
     trigger_map = {
@@ -156,6 +165,15 @@ async def subscriber_webhook(
         "race_quiz": "quiz_completed",
         "quiz_shared": "quiz_completed",
         "fueling_calculator": "new_subscriber",
+        # Plan purchases (Stripe / WooCommerce / own-site) -> post-purchase
+        # onboarding + review flywheel. The payment webhook must POST a source in
+        # this set, with brand + plan_weeks (+ race_slug). Until that POST exists
+        # the post_purchase sequence never enrolls anyone. See PIECE 2 in
+        # gravel-god-training-plans/docs/E01_REVIEW_FLYWHEEL.md.
+        "plan_purchased": "plan_purchased",
+        "plan_purchase": "plan_purchased",
+        "stripe_plan": "plan_purchased",
+        "woocommerce": "plan_purchased",
     }
     trigger = trigger_map.get(source, "new_subscriber")
 
@@ -166,8 +184,10 @@ async def subscriber_webhook(
         if result:
             enrolled.append(seq["id"])
 
-    # Also enroll in welcome if trigger wasn't new_subscriber
-    if trigger != "new_subscriber":
+    # Also enroll in welcome if trigger wasn't new_subscriber — but NOT
+    # purchasers: they already bought, so the welcome track (which pitches the
+    # plan) would be wrong for them.
+    if trigger not in ("new_subscriber", "plan_purchased"):
         for seq in get_sequences_for_trigger("new_subscriber", brand=brand):
             result = enroll(email, name, seq["id"], source=source, source_data=source_data)
             if result:

@@ -103,6 +103,60 @@ class TestSubscriberWebhook:
         assert quiz_enrollments[0]["source_data"].get("race_slug") == "unbound-gravel-200"
 
 
+class TestPlanPurchasedEnrollment:
+    """POST /webhooks/subscriber with a purchase source -> post_purchase + plan_weeks."""
+
+    def _post(self, client, payload):
+        return client.post(
+            "/webhooks/subscriber",
+            json=payload,
+            headers={"Authorization": "Bearer test-secret-123"},
+        )
+
+    def test_enrolls_post_purchase_with_plan_weeks_and_not_welcome(self, client, fake_db):
+        resp = self._post(client, {
+            "email": "buyer@example.com",
+            "name": "Plan Buyer",
+            "source": "plan_purchased",
+            "brand": "gravelgod",
+            "plan_weeks": 12,
+            "race_slug": "big-sugar",
+        })
+        assert resp.status_code == 200
+        # Only post_purchase — NOT the welcome track (buyers already bought).
+        assert resp.json()["enrolled"] == ["post_purchase_v1"]
+        rows = [e for e in fake_db.store["gg_sequence_enrollments"]
+                if e["contact_email"] == "buyer@example.com"]
+        assert len(rows) == 1
+        assert rows[0]["source_data"]["plan_weeks"] == 12
+        assert rows[0]["source_data"]["brand"] == "gravelgod"
+
+    def test_invalid_plan_weeks_ignored_but_still_enrolls(self, client, fake_db):
+        resp = self._post(client, {
+            "email": "buyer2@example.com",
+            "name": "Buyer Two",
+            "source": "plan_purchase",
+            "plan_weeks": "not-a-number",
+        })
+        assert resp.status_code == 200
+        rows = [e for e in fake_db.store["gg_sequence_enrollments"]
+                if e["contact_email"] == "buyer2@example.com"]
+        assert len(rows) == 1
+        assert "plan_weeks" not in rows[0]["source_data"]
+
+    def test_string_plan_weeks_coerced_to_int(self, client, fake_db):
+        resp = self._post(client, {
+            "email": "buyer3@example.com",
+            "name": "Buyer Three",
+            "source": "woocommerce",
+            "plan_weeks": "6",
+        })
+        assert resp.status_code == 200
+        rows = [e for e in fake_db.store["gg_sequence_enrollments"]
+                if e["contact_email"] == "buyer3@example.com"]
+        assert rows[0]["source_data"]["plan_weeks"] == 6
+
+
 class TestResendWebhook:
     """POST /webhooks/resend — records email events."""
 

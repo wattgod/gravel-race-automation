@@ -3,49 +3,50 @@
     "name": "Giro Sardegna Gravel",
     "slug": "giro-sardegna-gravel",
     "display_name": "Giro Sardegna Gravel",
-    "tagline": "Sardinian mountains—130km of island gravel, 2,600m elevation, Mediterranean views, May warmth.",
+    "tagline": "Southeast Sardinia coastal gravel\u2014107km, fast and non-technical, Mediterranean views, May warmth.",
     "vitals": {
-      "distance_mi": 81,
-      "elevation_ft": 8530,
-      "location": "Siniscola, Sardinia, Italy",
-      "location_badge": "SINISCOLA, SARDINIA",
+      "distance_mi": 66.5,
+      "elevation_ft": 4100,
+      "location": "Muravera-Villasimius, Sardinia, Italy",
+      "location_badge": "MURAVERA-VILLASIMIUS, SARDINIA",
       "county": "Sardinia",
       "date": "May annually",
-      "date_specific": "2026: May 1",
+      "date_specific": "2026: April 30-May 1 (sources conflict on exact race day \u2014 ucigravelworldseries.com/en/sardegna/ says Friday May 1; UCI race-eve article says April 30; both CONFIRMED via UCI, event already ran); 2027 not yet officially announced. PATTERN ESTIMATE: ~early May (per historical late-April/early-May scheduling)",
       "terrain_types": [
-        "Sardinian mountains gravel (75%)",
-        "Paved roads (25%)",
+        "Fast coastal gravel (non-technical)",
         "Rolling terrain",
-        "Coastal views"
+        "Coastal views",
+        "Southeast Sardinia"
       ],
       "field_size": "500-700 riders",
       "start_time": "Morning",
-      "registration": "Online. Cost: €90-€130 (~$100-$145 USD)",
+      "registration": "Online. Cost: \u20ac90-\u20ac130 (~$100-$145 USD)",
       "prize_purse": "None",
       "aid_stations": "Multiple on course",
       "cutoff_time": "None",
-      "lat": 40.5732,
-      "lng": 9.694
+      "lat": 39.28,
+      "lng": 9.55,
+      "gain_display": "Varies"
     },
     "climate": {
       "primary": "Sardinian spring",
-      "description": "May: 18-28°C, 20% rain chance, spring conditions.",
+      "description": "May: 18-28\u00b0C, 20% rain chance, spring conditions.",
       "challenges": [
-        "Heat (18-28°C)",
+        "Heat (18-28\u00b0C)",
         "Sun exposure",
         "Spring weather variability"
       ]
     },
     "terrain": {
-      "primary": "Sardinian mountains—rolling terrain with coastal views",
-      "surface": "75% gravel, 25% paved roads. Sardinian mountains—rolling terrain, coastal views. 2,600 m over 130 km. Siniscola area. Technical rating: 4/5.",
-      "technical_rating": 4,
+      "primary": "Southeast Sardinia coastal gravel\u2014fast, rolling, non-technical",
+      "surface": "Gravel/paved mix on fast, non-technical coastal roads between Muravera and Villasimius, southeast Sardinia. ~1,220-1,291 m elevation gain over 107 km (sources conflict). Technical rating: 2/5 (current edition; the earlier Siniscola-based editions were more mountainous/technical).",
+      "technical_rating": 2,
       "features": [
-        "Sardinian mountains",
+        "Fast coastal gravel (non-technical)",
         "Mediterranean coastal views",
         "Island terrain",
-        "Rolling mountain gravel",
-        "Good airport access (Olbia 60km)",
+        "Southeast Sardinia (Muravera-Villasimius)",
+        "Good airport access (Cagliari)",
         "Affordable entry"
       ]
     },
@@ -55,8 +56,8 @@
       "tier_label": "TIER 2",
       "logistics": 3,
       "length": 4,
-      "technicality": 4,
-      "elevation": 4,
+      "technicality": 2,
+      "elevation": 3,
       "climate": 3,
       "altitude": 1,
       "adventure": 5,
@@ -71,55 +72,54 @@
       "display_tier": 2
     },
     "biased_opinion": {
-      "verdict": "Sardinian Island Mountain Adventure",
-      "summary": "Giro Sardegna Gravel is Sardinian mountains—130 km, 2,600 m elevation. Founded ~2020. 75% gravel, 25% paved. Sardinian mountains—rolling terrain, Mediterranean coastal views. 500-700 riders. Siniscola, Sardinia (coastal town). May spring conditions (18-28°C). Affordable entry (€90-€130 / $100-$145). If you want Sardinian island gravel with Mediterranean views and affordable entry, this is it. If you need local/domestic, skip it. International destination race.",
+      "verdict": "Southeast Sardinia Coastal Gravel",
+      "summary": "Giro Sardegna Gravel's current UCI World Series edition runs from Muravera-Villasimius in southeast Sardinia\u2014107 km, fast and non-technical, gain conflicting across sources (~1,220-1,291 m). The event originally launched ~2020 based in Siniscola (NE Sardinia) with a more mountainous, technical profile; it has since relocated. 500-700 riders. May spring conditions (18-28\u00b0C). Affordable entry (\u20ac90-\u20ac130 / $100-$145). If you want Sardinian island gravel with Mediterranean views and affordable entry, this is it. If you need local/domestic, skip it. International destination race.",
       "strengths": [
-        "Sardinian mountains scenery (stunning)",
-        "Mediterranean coastal views",
+        "Mediterranean coastal scenery (stunning)",
+        "Fast, non-technical course\u2014approachable for a wide range of riders",
         "Island adventure (unique)",
         "Affordable entry ($100-$145 USD)",
-        "Good airport access (Olbia 60km)",
-        "Well-organized Italian event",
+        "Cagliari airport within reach of the current Muravera-Villasimius venue",
+        "Well-organized Italian event (UCI World Series)",
         "Post-race Sardinian food/wine"
       ],
       "weaknesses": [
-        "International travel required (Olbia 60km)",
-        "Elevation (2,600 m / 130 km)",
-        "15-20% DNF",
-        "Heat (May Sardinia 20-28°C)",
-        "Technical terrain",
-        "130 km distance"
+        "International travel required",
+        "Gain unverified/conflicting across sources (~1,220-1,291 m)",
+        "Heat (May Sardinia 20-28\u00b0C)",
+        "107 km distance",
+        "Venue changed recently\u2014recon evaporates each edition"
       ],
-      "bottom_line": "Giro Sardegna Gravel is Sardinian island mountain adventure. 130 km, 2,600 m, Mediterranean views. If you want Sardinian gravel with stunning scenery and affordable entry, this is it. If you need local/domestic, skip it. International travel required but Sardinia makes it worth it. Post-race food/wine."
+      "bottom_line": "Giro Sardegna Gravel is a Sardinian island adventure now based out of Muravera-Villasimius\u2014107 km, fast and non-technical, Mediterranean views. If you want Sardinian gravel with stunning scenery and affordable entry, this is it. If you need local/domestic, skip it. International travel required but Sardinia makes it worth it. Post-race food/wine."
     },
     "logistics": {
-      "nearest_airport": "Olbia (OLB) — 60 km (1-hour drive)",
-      "alternate_airports": "None convenient",
-      "lodging_note": "Siniscola, Sardinia. Book early.",
+      "nearest_airport": "Cagliari (CAG) \u2014 approx. 50-60 km",
+      "alternate_airports": "Olbia (OLB) is far from the current Muravera-Villasimius venue; use Cagliari",
+      "lodging_note": "Muravera or Villasimius, Sardinia. Book early.",
       "parking": "Check official website",
       "packet_pickup": "Day-before. Check official website.",
-      "travel_summary": "Fly to Olbia (OLB). Rental car needed (60 km, 1-hour drive to Siniscola). Coastal town lodging—book early. Day-before packet pickup. Race May. Post-race Sardinian food/wine.",
+      "travel_summary": "Fly to Cagliari (CAG). Drive to Muravera or Villasimius (~50-60 km). Coastal town lodging\u2014book early. Day-before packet pickup. Race late April/early May. Post-race Sardinian food/wine.",
       "food_options": "Aid stations on course. Post-race party with Sardinian food/wine.",
       "camping": "Check official website",
-      "official_site": "https://www.girosardegnagravel.com"
+      "official_site": "https://ucigravelworldseries.com/en/sardegna/"
     },
     "course_description": {
-      "character": "130 km, 2,600 m. 75% gravel, 25% paved. Sardinian mountains—rolling terrain, coastal views. Technical rating: 4/5.",
+      "character": "107 km. ~1,220-1,291 m elevation (Varies, sources conflict). Fast, non-technical coastal gravel between Muravera and Villasimius, southeast Sardinia.",
       "suffering_zones": [
         {
-          "name": "Throughout: Sardinian Mountains",
+          "name": "Throughout: Coastal Gravel",
           "miles": "Throughout",
-          "description": "Sardinian mountains. 2,600 m cumulative elevation. Rolling terrain.",
-          "survival_strategy": "Low gears. Pace conservatively. Cumulative elevation adds up. 130 km long."
+          "description": "Fast, non-technical coastal gravel and rolling terrain between Muravera and Villasimius. Cumulative elevation still adds up over 107 km even without technical sections.",
+          "survival_strategy": "Pace steadily. It's a fast course, so drafting and positioning matter more than technical skill."
         },
         {
           "name": "Throughout: May Warmth",
           "miles": "Throughout",
-          "description": "May Sardinia = 20-28°C. Warm. Sun exposure. Mediterranean heat.",
+          "description": "Late April/early May Sardinia = 20-28\u00b0C. Warm. Sun exposure. Mediterranean heat.",
           "survival_strategy": "3+ bottles. Sun protection. Hydrate constantly. Start early. Warmth is manageable."
         }
       ],
-      "signature_challenge": "130 km + 2,600 m elevation + May warmth. Sardinian mountains Mediterranean views.",
+      "signature_challenge": "107 km of fast, non-technical coastal gravel + May warmth. Mediterranean views between Muravera and Villasimius.",
       "ridewithgps_id": "48864427",
       "ridewithgps_name": "Giro Sardegna Gravel",
       "surface_breakdown": {
@@ -132,10 +132,10 @@
     "history": {
       "founded": "~2020",
       "founder": "Unknown",
-      "origin_story": "Giro Sardegna Gravel founded ~2020. Siniscola, Sardinia, Italy. 130 km, 500-700 riders. Sardinian mountains gravel.",
+      "origin_story": "Giro Sardegna Gravel launched ~2020 based in Siniscola (NE Sardinia) with a mountainous, technical profile. The event has since relocated to a Muravera-Villasimius (SE Sardinia) base with a faster, non-technical 107 km course, 500-700 riders.",
       "notable_moments": [
-        "2023: Warm, dry (20-28°C)",
-        "2024: Variable, some heat (18-28°C)"
+        "2023: Warm, dry (20-28\u00b0C)",
+        "2024: Variable, some heat (18-28\u00b0C)"
       ],
       "reputation": "Italian gravel scene. Sardinia. Island adventure. Mediterranean views. Well-organized."
     },
@@ -167,65 +167,65 @@
     "biased_opinion_ratings": {
       "prestige": {
         "score": 4,
-        "explanation": "UCI Gravel World Series qualifier with 30 years of Giro Sardegna history behind it—that's real pedigree. The road version drew legends like Eddy Merckx and Rik Van Looy, so the gravel edition inherits serious cycling credibility. Only in its second year as a gravel race, but it's already positioned as a 'legendary' World Series event. Missing that final prestige point because it's still proving itself in the gravel world."
+        "explanation": "UCI Gravel World Series qualifier with 30 years of Giro Sardegna history behind it\u2014that's real pedigree. The road version drew legends like Eddy Merckx and Rik Van Looy, so the gravel edition inherits serious cycling credibility. Only in its second year as a gravel race, but it's already positioned as a 'legendary' World Series event. Missing that final prestige point because it's still proving itself in the gravel world."
       },
       "race_quality": {
-        "score": 4,
-        "explanation": "Sophisticated course design starting with 3.5km of beach riding, then 6.7km around protected Capo Comino dunes before hitting the main 50km dirt circuit. The race offers smart age-graded distances—elites do the circuit twice (122km), older riders once (72km). UCI World Series standards mean proper organization and timing. Course hits Capo Comino Lighthouse at km 10.5, giving riders clear navigation markers."
+        "score": 3,
+        "explanation": "UCI World Series standards mean proper organization and timing. The pre-relocation Siniscola course (through ~2024) ran a sophisticated 50km-circuit design with beach and dune sections and age-graded distances (72-122km); the event has since relocated to Muravera-Villasimius with a faster, non-technical 107km course. Current-course specifics (feed zones, exact circuit design) are not yet independently verified."
       },
       "experience": {
-        "score": 5,
-        "explanation": "Beach start transitioning to protected coastal dunes, then dirt roads through southeast Sardinia's stunning coastline—this is proper adventure racing. The course combines marine sections with mountainous terrain, offering variety most gravel races can't touch. Starting on actual beach sand at Siniscola, then rolling through Berchida Beach and Bidderosa Natural Oasis creates an experience you'll never forget. Mediterranean backdrop with quiet roads means you're racing through postcard scenery."
+        "score": 3,
+        "explanation": "Mediterranean coastal scenery and Sardinian island adventure carry through the venue change. The pre-relocation Siniscola edition (beach start, Capo Comino, Bidderosa Natural Oasis) is well-documented but describes a course the event no longer runs; the current Muravera-Villasimius edition is a faster, non-technical 107km route along the southeast coast."
       },
       "community": {
         "score": 4,
-        "explanation": "Part of a week-long cycling festival with three format options, so you're embedded in serious cycling culture. The 30-year Giro Sardegna legacy brings established Italian cycling community and infrastructure. Being UCI World Series means international field mixing with local Sardinian riders. Small beach towns like Muravera and Villasimius create intimate race atmosphere, but the community is still building since this is only the second gravel edition."
+        "explanation": "Part of a UCI World Series with international field mixing with local Sardinian riders. The event relocated from Siniscola to Muravera-Villasimius; the newer venue's own community/atmosphere is still building since the move."
       },
       "field_depth": {
         "score": 4,
-        "explanation": "UCI World Series qualification draws international talent hunting points for World Championships in Australia. Age-graded distances from 72km to 122km means competitive fields across categories, not just the usual 30-something male dominance. The established Giro Sardegna reputation pulls quality riders, but as a newer gravel event it's still building the elite depth of established World Series races. Expect strong European contingent given the Mediterranean location. Deeper field than most — comparable to Badlands."
+        "explanation": "UCI World Series qualification draws international talent hunting points for World Championships. The established Giro Sardegna reputation pulls quality riders, but as a recently-relocated event (Siniscola -> Muravera-Villasimius) it's still building the elite depth of longer-established World Series races. Expect a strong European contingent given the Mediterranean location."
       },
       "value": {
         "score": 5,
-        "explanation": "You're getting Mediterranean island racing with World Series qualification for whatever the entry fee costs. The course design and variety—beach, dunes, dirt circuits, coastal roads—delivers more terrain types than most gravel races manage in twice the distance. Part of a 30-year cycling legacy event, so you're buying into established infrastructure and organization. Plus you're racing through protected natural areas that would cost serious money just to visit as a tourist."
+        "explanation": "You're getting Mediterranean island racing with World Series qualification for whatever the entry fee costs. The course design and variety\u2014beach, dunes, dirt circuits, coastal roads\u2014delivers more terrain types than most gravel races manage in twice the distance. Part of a 30-year cycling legacy event, so you're buying into established infrastructure and organization. Plus you're racing through protected natural areas that would cost serious money just to visit as a tourist."
       },
       "expenses": {
         "score": 3,
-        "explanation": "Registration runs €90-€130. Sardinia means flying to an island, then getting to small beach towns like Siniscola or Muravera-Villasimius. Nearest major airports are Cagliari or Olbia, adding transfer costs and time. Accommodation in coastal resort areas during late April/early May hits shoulder season pricing. Registration opens September 1st with February 28th early-bird cutoff, so plan ahead or pay more. Similar expense level to Belgian Waffle Ride San Diego."
+        "explanation": "Registration runs \u20ac90-\u20ac130. Sardinia means flying to an island, then getting to the current Muravera-Villasimius venue in the southeast (Cagliari is the nearest major airport, not Olbia, which served the earlier Siniscola-based editions). Accommodation in coastal resort areas during late April/early May hits shoulder season pricing. Similar expense level to Belgian Waffle Ride San Diego."
       },
       "length": {
-        "score": 4,
-        "explanation": "The 81-mile/122km elite distance hits the sweet spot for serious gravel racing without becoming a sufferfest. Smart course design with the 50km circuit means you know what you're getting into after the first loop. Age-graded options down to 72km show thoughtful race planning rather than one-size-fits-all brutality. Length works with the terrain—enough distance to make the Mediterranean scenery worthwhile without overstaying welcome. Longer than Belgian Waffle Ride San Diego."
+        "score": 3,
+        "explanation": "The current 107 km / 66.5-mile distance hits a moderate gravel-racing length\u2014long enough to matter, short enough not to become a sufferfest. The pre-relocation Siniscola course ran an 81-mile/122km elite distance with age-graded options down to 72km; the current Muravera-Villasimius course's own age-graded structure is not yet independently verified."
       },
       "technicality": {
-        "score": 4,
-        "explanation": "Starting on beach sand immediately tests bike handling and power management. The 6.7km asphalt section around protected dunes requires navigation skills and pace judgment before hitting the main dirt circuit. Combination of coastal terrain with mountainous sections means varied technical challenges throughout. Missing that fifth point because the 50km circuit design means you learn the technical sections on lap one, reducing unknowns. More technical than most — comparable to Belgian Waffle Ride San Diego."
+        "score": 2,
+        "explanation": "The current UCI-listed edition out of Muravera-Villasimius is described as fast and non-technical. The pre-relocation Siniscola course (beach-sand starts, dune sections) was more technical, but that course is no longer run. Less technical than most current gravel World Series rounds."
       },
       "elevation": {
-        "score": 4,
-        "explanation": "8,530 feet of climbing over 81 miles delivers consistent challenge without absurd gradients—that's about 105 feet per mile. The mountainous sections combined with coastal terrain suggests varied climbing from punchy coastal hills to longer inland ascents. Elevation profile works with the 50km circuit format, giving riders a preview of what's coming on the second loop. Enough climbing to matter without turning the Mediterranean scenery into a suffer-fest. More climbing than SBT GRVL at the same score."
+        "score": 3,
+        "explanation": "Roughly 1,220-1,291 m (sources conflict) of climbing over 107 km on the current Muravera-Villasimius course \u2014 moderate, not the 2,600m/8,530ft the old Siniscola-era course carried in this file. Coastal rolling terrain rather than sustained mountain climbing."
       },
       "climate": {
         "score": 3,
-        "explanation": "Historical weather data shows average highs of 74°F and lows of 59°F, with a 34% chance of rain on any given day. Late April/early May in Sardinia means shoulder season weather—could be perfect Mediterranean conditions or surprise spring storms. Coastal location brings wind exposure, especially during the beach start and dune sections around Capo Comino. The 'mild winter weather' description suggests generally favorable conditions, but island weather is unpredictable. You're gambling on Mediterranean spring, which usually pays off but offers no guarantees. Similar climate challenges to SBT GRVL."
+        "explanation": "Historical weather data shows average highs of 74\u00b0F and lows of 59\u00b0F, with a 34% chance of rain on any given day. Late April/early May in Sardinia means shoulder season weather\u2014could be perfect Mediterranean conditions or surprise spring storms. Coastal location brings wind exposure, especially during the beach start and dune sections around Capo Comino. The 'mild winter weather' description suggests generally favorable conditions, but island weather is unpredictable. You're gambling on Mediterranean spring, which usually pays off but offers no guarantees. Similar climate challenges to SBT GRVL."
       },
       "altitude": {
         "score": 1,
-        "explanation": "Sea level start in Siniscola with coastal terrain throughout means minimal altitude impact on performance. Mediterranean island racing keeps you near the coast, so no breathing issues or altitude adaptation needed. Even the mountainous sections stay relatively low given the island geography. This is pure coastal/low-elevation gravel racing. Lower altitude than Gravel Worlds — no thin-air concerns."
+        "explanation": "Sea-level coastal start on the current Muravera-Villasimius course means minimal altitude impact on performance. This is pure coastal/low-elevation gravel racing. Lower altitude than Gravel Worlds \u2014 no thin-air concerns."
       },
       "logistics": {
         "score": 3,
-        "explanation": "Small beach towns like Siniscola and Muravera-Villasimius offer charm but limited infrastructure for big events. Getting to Sardinia requires flight connections and ground transport to the race base. The 30-year Giro Sardegna experience helps organization, but the gravel version is still new and working out logistics kinks. Registration timeline suggests planning ahead is necessary—this isn't a show-up-and-race situation."
+        "explanation": "Small beach towns like Muravera and Villasimius (the current venue) offer charm but limited infrastructure for big events. Getting to Sardinia requires flight connections (Cagliari is closest) and ground transport to the race base. The event relocated from its original Siniscola base, so logistics details are still settling for the new venue."
       },
       "adventure": {
         "score": 5,
-        "explanation": "Beach start, protected coastal dunes, dirt circuits through Mediterranean island terrain—this hits every adventure racing checkbox. You're literally starting on the sand at Siniscola, racing through Bidderosa Natural Oasis, and navigating by the Capo Comino Lighthouse. The combination of marine and mountainous sections on quiet Sardinian roads delivers pure exploration. This is the kind of course that makes you forget you're racing and remember why you love riding bikes."
+        "explanation": "Coastal gravel through Mediterranean island terrain along Sardinia's southeast coast still delivers real adventure-racing appeal, even without the beach-and-dune sections the pre-relocation Siniscola course was known for (Bidderosa Natural Oasis, Capo Comino Lighthouse \u2014 features of the former course, not the current route)."
       }
     },
     "final_verdict": {
       "score": "76 / 100",
-      "one_liner": "Mediterranean gravel with UCI points that actually feels like a vacation until the dirt sections remind you why your watts matter.",
-      "should_you_race": "If you can hold threshold power on loose surfaces and don't mind mixing beach starts with proper gravel circuits, this delivers. The 50km circuit format means your pacing mistakes get amplified—show up undertrained for those dirt sections and the second lap becomes survival mode. Solid choice if you want UCI World Series points without the full sufferfest of most qualifiers.",
+      "one_liner": "Mediterranean gravel with UCI points on a fast, non-technical southeast Sardinia course.",
+      "should_you_race": "If you want UCI World Series points on a fast, non-technical coastal course with a Mediterranean island backdrop, this delivers. The event relocated from its original Siniscola base to Muravera-Villasimius, so course-specific pacing intel (circuit format, feed zones) is still settling for the new venue. Solid choice if you want UCI World Series points without a technical sufferfest.",
       "alternatives": "Gravel Worlds qualifiers like Gralloch in Scotland offer similar points with more technical challenge, while SBT GRVL gives you the big-field energy this lacks. If you want Mediterranean vibes with less travel complexity, consider Tuscany Trail or Spanish gravel events that don't require island logistics.",
       "alternative_slugs": [
         "garmin-gravel-worlds",
@@ -293,7 +293,7 @@
       "years": {
         "2024": {
           "key_takeaways": [
-            "The gravel component is newer—it was added as the second edition of the gravel race, with the first edition occurring in 2024"
+            "The gravel component is newer\u2014it was added as the second edition of the gravel race, with the first edition occurring in 2024"
           ]
         }
       },
@@ -367,7 +367,7 @@
           "view_count": 973,
           "upload_date": "20180916",
           "duration_string": "6:17",
-          "description": "Check out the DH track from Cala Gonone in Sardinia. If you like loose gravel and lots of rocks (limestone) you're in the right place 🤙🤙💪💪 Have cleaned and arranged the track with one of the locals here and it's fun, fast and technical. Enjoy and let me know what you think.",
+          "description": "Check out the DH track from Cala Gonone in Sardinia. If you like loose gravel and lots of rocks (limestone) you're in the right place \ud83e\udd19\ud83e\udd19\ud83d\udcaa\ud83d\udcaa Have cleaned and arranged the track with one of the locals here and it's fun, fast and technical. Enjoy and let me know what you think.",
           "tags": [
             "cala gonone",
             "canyon torque frx",
@@ -384,7 +384,7 @@
           "view_count": 301710,
           "upload_date": "20221009",
           "duration_string": "10:42",
-          "description": "Quanta fatica si fa con una Gravel su asfalto? | Scienza in bici\nLa gravel ha avuto un boom importante negli ultimi anni e ci sono sempre più persone che la utilizzano anche su strada. Ma a livello di dispendio energetico, di watt per intenderci, che differenza c’è tra una bici gravel e una da strada?\nIn questo video faremo un test per scoprirlo. \n\nGuarda il test su Komoot: https://www.komoot.com/tour/918035738 \n____________________\nSottoscrivi l’abbonamento a GCN+ adesso: https://gcn.eu/plus\nScrivi a GCN Italia 👉 gcnitalia@globalcyclingnetwork.com\n\nClicca qui per iscriverti a GCN Italia: https://gcn.eu/iscriviti e clicca qui per iscriverti se stai usando la app di YouTube: https://www.youtube.com/gcnitalia\nCompra la nostra nuova maglia termica Castelli: https://gcn.eu/7Gy\nGCN Events: https://gcn.eu/Fest\n\nMusica: Epidemic Sound\nBlack Margarita - Arc De Soleil\nHyperreality - Cushy\n\nFoto: © Velo Collection (TDW) / Getty Images & © Bettiniphoto / http://www.bettiniphoto.net/\n\nGCN Italia è il miglior canale di ciclismo su YouTube, da ora in italiano! Parleremo di ogni aspetto del ciclismo su strada… iscriviti e ti insegneremo come diventare un ciclista migliore grazie ai nostri suggerimenti. Ti aiuteremo a migliorare in salita, nella pedalata ed approfondiremo la tua conoscenza di questo sport meraviglioso. Potrai trovare inoltre le ultime notizie sul ciclismo italiano e mondiale proprio qui.\n\nI nostri ciclisti ex-professionisti ti parleranno di tutto – allenamento, equipaggiamento, ciclismo amatoriale e gare pro!\n\nIscriviti subito e unisciti a noi sul miglior canale di ciclismo di YouTube in italiano.\n\nGrazie ai nostri partners: \n\nColnago: https://gcn.eu/Colnago\nEnervit Nutrition: https://gcn.eu/Enervit\nCanyon: http://gcn.eu/-Canyon\nPinarello: https://gcn.eu/Pinarello\nElite: https://gcn.eu/EliteBottles\nPark Tool: https://gcn.eu/park-tool\nCastelli: https://gcn.eu/ITCastelli\nKomoot: https://gcn.eu/-komoot\nHJC: https://www.hjcsports.com/it/\nMuc-Off: https://muc-off.com/\nWahoo: https://it-eu.wahoofitness.com/\nURSUS: https://ursus.it/\nZwift:  http://zwift.com/\n\nYouTube - https://gcn.eu/iscriviti\nFacebook - https://gcn.eu/italia-facebook\nTwitter - https://gcn.eu/italia-twitter\nInstagram - https://gcn.eu/italia-instagram\nGCN Italia Racing: https://gcn.eu/Iscriviti-GCNItaliaRacing\nGCN Italia Racing Facebook - https://gcn.eu/italiaracing-facebook\n\n#ciclismo #GCNItalia #gcnitalia",
+          "description": "Quanta fatica si fa con una Gravel su asfalto? | Scienza in bici\nLa gravel ha avuto un boom importante negli ultimi anni e ci sono sempre pi\u00f9 persone che la utilizzano anche su strada. Ma a livello di dispendio energetico, di watt per intenderci, che differenza c\u2019\u00e8 tra una bici gravel e una da strada?\nIn questo video faremo un test per scoprirlo. \n\nGuarda il test su Komoot: https://www.komoot.com/tour/918035738 \n____________________\nSottoscrivi l\u2019abbonamento a GCN+ adesso: https://gcn.eu/plus\nScrivi a GCN Italia \ud83d\udc49 gcnitalia@globalcyclingnetwork.com\n\nClicca qui per iscriverti a GCN Italia: https://gcn.eu/iscriviti e clicca qui per iscriverti se stai usando la app di YouTube: https://www.youtube.com/gcnitalia\nCompra la nostra nuova maglia termica Castelli: https://gcn.eu/7Gy\nGCN Events: https://gcn.eu/Fest\n\nMusica: Epidemic Sound\nBlack Margarita - Arc De Soleil\nHyperreality - Cushy\n\nFoto: \u00a9 Velo Collection (TDW) / Getty Images & \u00a9 Bettiniphoto / http://www.bettiniphoto.net/\n\nGCN Italia \u00e8 il miglior canale di ciclismo su YouTube, da ora in italiano! Parleremo di ogni aspetto del ciclismo su strada\u2026 iscriviti e ti insegneremo come diventare un ciclista migliore grazie ai nostri suggerimenti. Ti aiuteremo a migliorare in salita, nella pedalata ed approfondiremo la tua conoscenza di questo sport meraviglioso. Potrai trovare inoltre le ultime notizie sul ciclismo italiano e mondiale proprio qui.\n\nI nostri ciclisti ex-professionisti ti parleranno di tutto \u2013 allenamento, equipaggiamento, ciclismo amatoriale e gare pro!\n\nIscriviti subito e unisciti a noi sul miglior canale di ciclismo di YouTube in italiano.\n\nGrazie ai nostri partners: \n\nColnago: https://gcn.eu/Colnago\nEnervit Nutrition: https://gcn.eu/Enervit\nCanyon: http://gcn.eu/-Canyon\nPinarello: https://gcn.eu/Pinarello\nElite: https://gcn.eu/EliteBottles\nPark Tool: https://gcn.eu/park-tool\nCastelli: https://gcn.eu/ITCastelli\nKomoot: https://gcn.eu/-komoot\nHJC: https://www.hjcsports.com/it/\nMuc-Off: https://muc-off.com/\nWahoo: https://it-eu.wahoofitness.com/\nURSUS: https://ursus.it/\nZwift:  http://zwift.com/\n\nYouTube - https://gcn.eu/iscriviti\nFacebook - https://gcn.eu/italia-facebook\nTwitter - https://gcn.eu/italia-twitter\nInstagram - https://gcn.eu/italia-instagram\nGCN Italia Racing: https://gcn.eu/Iscriviti-GCNItaliaRacing\nGCN Italia Racing Facebook - https://gcn.eu/italiaracing-facebook\n\n#ciclismo #GCNItalia #gcnitalia",
           "tags": [
             "\"ciclismo",
             "ciclismo oggi",
@@ -408,28 +408,28 @@
             "Gravel vs bici da corsa",
             "utilizzare una gravel su strada",
             "Come va la gravel su strada?",
-            "Cosa si può fare con una gravel?",
+            "Cosa si pu\u00f2 fare con una gravel?",
             "Prestazione bdc rispetto a gravel?",
             "bici gravel si o no",
             "differenza gravel e bici da corsa",
-            "ใ",
+            "\u0e43",
             "4843",
-            "ณ",
-            "๔",
-            "ិ",
-            "ꕔ",
-            "ꔸ",
-            "ꗶ",
-            "Ղ",
-            "ᠫ",
-            "ඡ",
-            "ක",
-            "ፕ15",
-            "ସ",
+            "\u0e13",
+            "\u0e54",
+            "\u17b7",
+            "\ua554",
+            "\ua538",
+            "\ua5f6",
+            "\u0542",
+            "\u182b",
+            "\u0da1",
+            "\u0d9a",
+            "\u135515",
+            "\u0b38",
             "f3",
-            "ሙ",
-            "ළ",
-            "ꚱ"
+            "\u1219",
+            "\u0dc5",
+            "\ua6b1"
           ],
           "url": "https://www.youtube.com/watch?v=cNBqzA1JuqM",
           "curated": false
@@ -455,7 +455,7 @@
           "view_count": 11971,
           "upload_date": "20220914",
           "duration_string": "27:01",
-          "description": "If you enjoy the content and want to help me in the process I’ve set up a buy me a coffee page, a virtual tip jar. \n\nhttps://www.buymeacoffee.com/JoshReid\n\nI've also set up a patreon for anyone who wishes to support the production of my videos.\n\nhttps://www.patreon.com/joshreid\n\nLuchos Dillitos banana leaves wrapped energy food (use code “JR25” for 25% discount)\n\ntinyurl.com/luchosjosh \n\nThe music I use is from Artlist - https://artlist.io/Josh-1285195\n\nKit list -\nGiant Revolt Advanced Pro\nGiant Dash L200 Bike Computer \nGiant Rev Pro MIPS Road Helmet\nGiant Surge Pro Shoes\nGiant SL U-Type TT bars\nGiant food pouch\nAttacus foundation jersey\nAttacus adventure bib shorts\nAttacus premium cycling socks\nAttacus gilet\nAttacus waterproof coat\nGiant buff\nHutchinson 32mm Tubeless Tyres\nArkel Frame Bag\nArkel Seatpacker \nArkel BB Packer Waterproof Handlebar bag\nRobens Mountain Bivvy\nRobens Moraine 1 sleeping bag\nDJI Mini 3 drone\nFidlock bottles\nVoile straps\nNitecore NB20000 Power Bank\nNitecore NPB2 Power Bank\nLeatherman style ps\nRestrap bolt on top tube bag\nWooden toothbrush and tooth paste tablets\n2 wall plugs with euro adapters\nSpare tubes\nPark tool tyre leavers\nLezyne pocket drive hand pump\nOld tyre section for a boot\nTop peak mini 20 Allen Key\nSealant \nTyre plugs\nCO2 canister\nBrake pads\nPatagonia jacket\nCamelback bag\nGoPro with pro standard mouth mount\nSun cream \nDi2 charger\nSoreen \nMarzipan \nPassport\nEuros\nLuchos energy blocks\nExposure lights\nAnd probably a few more bits I’ve forgotten",
+          "description": "If you enjoy the content and want to help me in the process I\u2019ve set up a buy me a coffee page, a virtual tip jar. \n\nhttps://www.buymeacoffee.com/JoshReid\n\nI've also set up a patreon for anyone who wishes to support the production of my videos.\n\nhttps://www.patreon.com/joshreid\n\nLuchos Dillitos banana leaves wrapped energy food (use code \u201cJR25\u201d for 25% discount)\n\ntinyurl.com/luchosjosh \n\nThe music I use is from Artlist - https://artlist.io/Josh-1285195\n\nKit list -\nGiant Revolt Advanced Pro\nGiant Dash L200 Bike Computer \nGiant Rev Pro MIPS Road Helmet\nGiant Surge Pro Shoes\nGiant SL U-Type TT bars\nGiant food pouch\nAttacus foundation jersey\nAttacus adventure bib shorts\nAttacus premium cycling socks\nAttacus gilet\nAttacus waterproof coat\nGiant buff\nHutchinson 32mm Tubeless Tyres\nArkel Frame Bag\nArkel Seatpacker \nArkel BB Packer Waterproof Handlebar bag\nRobens Mountain Bivvy\nRobens Moraine 1 sleeping bag\nDJI Mini 3 drone\nFidlock bottles\nVoile straps\nNitecore NB20000 Power Bank\nNitecore NPB2 Power Bank\nLeatherman style ps\nRestrap bolt on top tube bag\nWooden toothbrush and tooth paste tablets\n2 wall plugs with euro adapters\nSpare tubes\nPark tool tyre leavers\nLezyne pocket drive hand pump\nOld tyre section for a boot\nTop peak mini 20 Allen Key\nSealant \nTyre plugs\nCO2 canister\nBrake pads\nPatagonia jacket\nCamelback bag\nGoPro with pro standard mouth mount\nSun cream \nDi2 charger\nSoreen \nMarzipan \nPassport\nEuros\nLuchos energy blocks\nExposure lights\nAnd probably a few more bits I\u2019ve forgotten",
           "tags": [],
           "url": "https://www.youtube.com/watch?v=Kp1ymn6d1bg",
           "transcript": "[Music]\nforeign\nthank you\n[Applause]\nand cycling\nfrom cagliari to Puerto Torres\nwhich is when I get to the ferry across\nto Barcelona\nand the first part of the journey\nI've rode along the coast\nsince getting into\ncagliari in Sardinia\nuh\nI've cycled up the East Coast\nwhich was a lot lumpier than I was\nexpecting\nI was expecting to be a bit flatter with\nthe profile\num as I looked at the route for today\nand it looked flat and then with a\nmassive uh Hill at the end which I'm\ndoing now\nbut\nobviously I didn't zoom in close enough\nas it was up down up down up down which\nwas stunning beautiful Road\nand then\namazing beaches\nuh with Crystal Blue Water and uh super\nclear\nand beautiful swimming super nice\ntemperature\nso now I'm veering off\nfrom the coast\nand go into a place called Villa Salto\num\nand\nyeah it's 500 meters above sea level so\nwhere I started\nand I'm going to stay in a BNB\nso\nokay shower and hopefully wash my\nclothes\nI'm not exactly sure what's happened but\nthe hospitality\nof Sardinia\nhas meant that I'm very drunk\nTy where everyone pretty much knows\neveryone\nI'm now\nback on the road\nset off about 12. spend most of the\nmorning just sawing out my washing\ngetting that dry having nice clean\nuh filling up on some food and editing a\nbit of footage\nwe're now heading\ntowards Porto Torres which will probably\ntake me three days\nit's hot here in Sardinia\nrather strong headwind\nwhich is stopping the energy a little\nbit\num the plan was to set up a bit earlier\nfrom Villa Salto\nand get some miles in before the heat of\nmidday but that didn't quite pan out\nI think I'm gonna do a bit of riding\ninto the night tonight and Camp\nsomewhere late\njust to get some miles in when it's a\nbit cooler at night\nbut a lumpy old journey to Puerto Torres\nI'm currently riding\nalong an Old Mountain Road with very\nlittle traffic on\nit's supersonic\nit was suggested to me by a guy called\nMassimo and he's a local Sardinian\ncycling tour guide\nand he told me to come this way and I'm\nreally glad he did was absolutely\nstunning I think I used that word too\nmuch but\nsome of the roads that I've been on\njust amazing and especially in gold now\nwhich is now beautiful\nso my plan for today\nwas to get up early\nand uh get some kilometers under my belt\nbut what happened was I started late I\nstarted after after\num midday\nand uh I've just been taking so much\nfootage because it's just been\nso amazing to um ride through some of\nthese places and\nI was descending this um climb\nI just saw this Stone structure\nand I literally couldn't pass up the\nopportunity to Camp off it at the top\nyeah I've got my own dungeon\num got my baby site down there\non some stones and then the bikes on the\nother side there's no one about so I'm\nsure it'll be fine and then just a\nstunning view behind me\namazing\nyeah I wouldn't have known this was here\nbut um\nthanks Massimo this was a very good\nsuggestion\nI'm gonna sleep here tonight\num so I'm only done about 95 kilometers\nnot ideal\num but I'm gonna get up early\num start maybe 4 a.m or something\nand just back on and try and get it\num 200 kilometers plus done tomorrow and\nthat should be golden then on the menu\ntonight\num I was gonna stop at a pizzeria\nI'm gonna Camp here it's uh Japan which\nuh Rosemary red sticks with extra virgin\nolive oil\num product of Italy so yeah they're\ntasty then I got some Oreos got banana\num got some nuts\nso yeah I'll be fine and then\ngrab some food and coffee and a bar in\nthe morning\num yeah that's had to send back to the\ncoast tomorrow\nand then pull back in land I'm still\ngoing up the east side of the island\num which I was told was the best way to\ndo it and then I cut across to\nwherever I'm getting the ferry it's\num off the top of my mind but um\nyeah\noh beautiful I'm gonna put the phone\naway and just take in The View\nat 3am this morning and I started off\npretty high and then decided all the way\ndown to the coast\nall in the dark and\nthe sun was starting to\nbrighten up the sky when I got down to\nthe to the Sea and then I've just been\nsteadily climbing\nfor the rest of the day until now\nand now I'm about 1100 meters above sea\nlevel\nand it's pretty windy up here as you\nmight be able to hear\nyeah now to a long descent down\nI think my technique\nfor\nuh eating the prickly pears is improving\nso I'm now using an old pack of nuts to\ngrab it with my hand and then using\nthe pliers don't have a knife on\nbut they do have a\nfile on so I'm using a file to\ncut them open and then\nholding them down with the nut packet\nand then using a fork\nto uh scoop out the goods\nbut yeah still getting a few uh spikes\nin my hand but a lot less than I have\ndone in the past\nso I've accidentally\nended up on like a major road\nto Old Bayer\nand once you're on a major road you\ncan't really turn around and\ngo off the way you came and kind of like\nstuck on that category then\nso I just decided to just stick it out\nand come up with the next exit but\nunfortunately there was a tunnel\num one of the lanes was closed so\nthe whole other side of the tunnel so\nthere's two tunnels one going for One\nDirection one the other and\nit's closed for renovations and stuff so\nand it's a Sunday\nso there's there's no work going on\nand I've got a full Motorway tunnel to\nmyself\nuh a lot safer than being on the tunnel\nwith all the traffic\nyeah I need to work out how to get off\nthis main road\nuh onto a safer Road\nand a legal Road\nso this uh field wasn't quite as nice as\nyesterday's campsite but um I was just\ntired and had to do a bit of a detour\nbecause there's a closed road on the\nroute I was going to take\nso I just jumped in this field and\nit's kind of\nbeen plowed so the dirt's kind of soft\nso it's kind of comfortable\nyeah got about 100 kilometers to do a\nbit of a bit lumpy\num to start with and then downhill and\nthen coast and\nyeah it should be good\num let's go to a bar and get some\nespresso I'm all packed up and uh ready\nto hit the road\n70 kilometers\nfrom Puerto Torres where my\nuh tripping Sardinia ends\nI'm going up the\nthe last\nproper climb\nof the trip as well right now\nit's about get up to about 700 meters\nwhich is pretty small compared to some\nof the ones I've\nsummited\nbut still\nthe legs a little bit\nI just stopped in a village halfway up\nI kind of regret what I bought\nso I bought these wrap things well I\nthought they were wraps but they they\ndon't wrap very well as soon as you like\nfold them they break up\nand then I brought some chocolate spread\nand some bananas\nand because the wraps don't\nBend\nand it's just very difficult to eat\nand now I'm just so full\nand it's not great for climbing\nand because\nI wasn't enjoying that much I didn't\nreally finish them so now I'm carrying a\njar of chocolate spread and some wraps\nin my back pocket which is\nadding to the weight\nyeah get to the top of this climb and\nthen\nit's pretty much a descent down to the\ncoast\nand then right along the coast of Puerto\nTorres\nI'm just about to come into Porto Torres\nwhich means that I've finished my\ncycling\ninside in here and uh getting a ferry to\nBarcelona\nI'm gonna ride 70 miles\nup to Ponce\nI think that's how you pronounce it do a\ngravel race call ranks out",
@@ -463,12 +463,12 @@
         },
         {
           "video_id": "KTfg0JocgTM",
-          "title": "La bici gravel è solo una ‘seconda scelta’ dopo quella da strada o MTB?",
+          "title": "La bici gravel \u00e8 solo una \u2018seconda scelta\u2019 dopo quella da strada o MTB?",
           "channel": "GCN Italia",
           "view_count": 91724,
           "upload_date": "20231015",
           "duration_string": "11:12",
-          "description": "La bici gravel è solo una ‘seconda scelta’ dopo quella da strada o MTB? Oppure ha senso avere una gravel come prima e unica bici? Alan e Giorgio pedalano insieme con queste due tipologie di bici diverse, esponendo le ragioni di due punti di vista molto diversi.\n\nIn associazione con Shimano: https://bike.shimano.com/it-IT/home.html\n\nHa senso avere una gravel come unica bici? 👉 📲 https://gcn.eu/9WU\n____________________\nDai un'occhiata al nostro sito web: https://www.globalcyclingnetwork.com/\nSottoscrivi l’abbonamento a GCN+ adesso: https://gcn.eu/plus\nScrivi a GCN Italia 👉 gcnitalia@globalcyclingnetwork.com\n\nClicca qui per iscriverti a GCN Italia: https://gcn.eu/iscriviti e clicca qui per iscriverti se stai usando la app di YouTube: https://www.youtube.com/gcnitalia\nGCN Shop | Nuova Collezione Retro Climb ☀️ 🚴‍♂️ https://gcn.eu/RetroClimbIta\nGCN Events: https://gcn.eu/Fest\n\nMusica: Epidemic Sound\nFive 0 - Ruzer\nMan in Power (Instrumental Version) - House Of Say\nKick the Tires - Will Harrison\nK What - Bonkers Beat Club\nGroove Retrospective - Will Harrison\n\nFoto: © Velo Collection (TDW) / Getty Images & © Bettiniphoto / http://www.bettiniphoto.net/\n\nGCN Italia è il miglior canale di ciclismo su YouTube, da ora in italiano! Parleremo di ogni aspetto del ciclismo su strada… iscriviti e ti insegneremo come diventare un ciclista migliore grazie ai nostri suggerimenti. Ti aiuteremo a migliorare in salita, nella pedalata ed approfondiremo la tua conoscenza di questo sport meraviglioso. Potrai trovare inoltre le ultime notizie sul ciclismo italiano e mondiale proprio qui.\n\nI nostri ciclisti ex-professionisti ti parleranno di tutto – allenamento, equipaggiamento, ciclismo amatoriale e gare pro!\n\nIscriviti subito e unisciti a noi sul miglior canale di ciclismo di YouTube in italiano.\n\nGrazie ai nostri partners: \n\nColnago: https://gcn.eu/Colnago\nEnervit Nutrition: https://gcn.eu/Enervit\nCanyon: http://gcn.eu/-Canyon\nPinarello: https://gcn.eu/Pinarello\nElite: https://gcn.eu/EliteBottles\nPark Tool: https://gcn.eu/park-tool\nHJC: https://www.hjcsports.com/it/\nWahoo: https://it-eu.wahoofitness.com/\nZwift:  http://zwift.com/\nSilca: https://gcn.eu/SilcaEUGCN\nStrava: https://www.strava.com/\n\nYouTube - https://gcn.eu/iscriviti\nFacebook - https://gcn.eu/italia-facebook\nTwitter - https://gcn.eu/italia-twitter\nInstagram - https://gcn.eu/italia-instagram\nGCN Italia Racing: https://gcn.eu/Iscriviti-GCNItaliaRacing\nGCN Italia Racing Facebook - https://gcn.eu/italiaracing-facebook\n\n#ciclismo #GCNItalia #gcnitalia",
+          "description": "La bici gravel \u00e8 solo una \u2018seconda scelta\u2019 dopo quella da strada o MTB? Oppure ha senso avere una gravel come prima e unica bici? Alan e Giorgio pedalano insieme con queste due tipologie di bici diverse, esponendo le ragioni di due punti di vista molto diversi.\n\nIn associazione con Shimano: https://bike.shimano.com/it-IT/home.html\n\nHa senso avere una gravel come unica bici? \ud83d\udc49 \ud83d\udcf2 https://gcn.eu/9WU\n____________________\nDai un'occhiata al nostro sito web: https://www.globalcyclingnetwork.com/\nSottoscrivi l\u2019abbonamento a GCN+ adesso: https://gcn.eu/plus\nScrivi a GCN Italia \ud83d\udc49 gcnitalia@globalcyclingnetwork.com\n\nClicca qui per iscriverti a GCN Italia: https://gcn.eu/iscriviti e clicca qui per iscriverti se stai usando la app di YouTube: https://www.youtube.com/gcnitalia\nGCN Shop | Nuova Collezione Retro Climb \u2600\ufe0f \ud83d\udeb4\u200d\u2642\ufe0f https://gcn.eu/RetroClimbIta\nGCN Events: https://gcn.eu/Fest\n\nMusica: Epidemic Sound\nFive 0 - Ruzer\nMan in Power (Instrumental Version) - House Of Say\nKick the Tires - Will Harrison\nK What - Bonkers Beat Club\nGroove Retrospective - Will Harrison\n\nFoto: \u00a9 Velo Collection (TDW) / Getty Images & \u00a9 Bettiniphoto / http://www.bettiniphoto.net/\n\nGCN Italia \u00e8 il miglior canale di ciclismo su YouTube, da ora in italiano! Parleremo di ogni aspetto del ciclismo su strada\u2026 iscriviti e ti insegneremo come diventare un ciclista migliore grazie ai nostri suggerimenti. Ti aiuteremo a migliorare in salita, nella pedalata ed approfondiremo la tua conoscenza di questo sport meraviglioso. Potrai trovare inoltre le ultime notizie sul ciclismo italiano e mondiale proprio qui.\n\nI nostri ciclisti ex-professionisti ti parleranno di tutto \u2013 allenamento, equipaggiamento, ciclismo amatoriale e gare pro!\n\nIscriviti subito e unisciti a noi sul miglior canale di ciclismo di YouTube in italiano.\n\nGrazie ai nostri partners: \n\nColnago: https://gcn.eu/Colnago\nEnervit Nutrition: https://gcn.eu/Enervit\nCanyon: http://gcn.eu/-Canyon\nPinarello: https://gcn.eu/Pinarello\nElite: https://gcn.eu/EliteBottles\nPark Tool: https://gcn.eu/park-tool\nHJC: https://www.hjcsports.com/it/\nWahoo: https://it-eu.wahoofitness.com/\nZwift:  http://zwift.com/\nSilca: https://gcn.eu/SilcaEUGCN\nStrava: https://www.strava.com/\n\nYouTube - https://gcn.eu/iscriviti\nFacebook - https://gcn.eu/italia-facebook\nTwitter - https://gcn.eu/italia-twitter\nInstagram - https://gcn.eu/italia-instagram\nGCN Italia Racing: https://gcn.eu/Iscriviti-GCNItaliaRacing\nGCN Italia Racing Facebook - https://gcn.eu/italiaracing-facebook\n\n#ciclismo #GCNItalia #gcnitalia",
           "tags": [
             "ciclismo",
             "ciclismo sportivo",
@@ -497,21 +497,21 @@
             "gravel",
             "gravel monocorona",
             "doppia strada",
-            "ใ",
-            "ጟ",
-            "ጯ",
+            "\u0e43",
+            "\u131f",
+            "\u132f",
             "5214",
-            "ณ",
-            "๔",
-            "𐒎",
-            "𖬊",
-            "ዩ",
-            "ꕔ",
-            "ᠫ",
-            "ፕ15",
-            "ସ",
-            "ሙ",
-            "ꚢ"
+            "\u0e13",
+            "\u0e54",
+            "\ud801\udc8e",
+            "\ud81a\udf0a",
+            "\u12e9",
+            "\ua554",
+            "\u182b",
+            "\u135515",
+            "\u0b38",
+            "\u1219",
+            "\ua6a2"
           ],
           "url": "https://www.youtube.com/watch?v=KTfg0JocgTM",
           "curated": false

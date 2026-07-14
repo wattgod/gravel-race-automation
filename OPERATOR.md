@@ -57,3 +57,21 @@ make test       # Run all tests
 **"Missing SUPABASE_URL"** — Create `.env` with `SUPABASE_URL` and `SUPABASE_SERVICE_KEY`
 
 **Wrong plan duration** — Never regenerate a guide just to change styling. PDF print CSS lives in `pipeline/print.css` and is injected by step 8 at render time.
+
+## Media Radar Weekly Briefing
+
+Set `ANTHROPIC_API_KEY` and `RESEND_API_KEY` in `.env`, then run:
+
+```bash
+make media-radar
+python3 -m media_radar.run_weekly --dry-run
+python3 -m media_radar.run_weekly --dry-run --smoke  # one live source
+```
+
+The job stores raw transcripts and its seen-ID ledger locally under `data/media-radar/` (both are gitignored), writes committed weekly digests and the append-only glossary there, and emails `matti@endurelabs.app` unless `--dry-run` is used. Race-database flags are suggestions for manual verification only; this job has no race-database write step.
+
+Install the schedule deliberately with `crontab -e`; the program does not install it:
+
+```cron
+0 7 * * 1 cd /Users/mattirowe/endure-plan-engine && .venv/bin/python -m media_radar.run_weekly >> data/media-radar/media-radar.log 2>&1
+```

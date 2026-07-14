@@ -9,6 +9,8 @@ pyyaml>=6.0
 playwright>=1.40
 resend>=0.7
 pytest>=7.4
+youtube-transcript-api>=1.2
+feedparser>=6.0
 
 # Mission Control
 fastapi>=0.115

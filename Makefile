@@ -1,4 +1,4 @@
-.PHONY: generate test install setup validate check-gates check-tp check-all clean
+.PHONY: generate test install setup validate check-gates check-tp check-all clean media-radar
 
 INTAKE ?= tests/fixtures/sarah_printz.json
 ATHLETE ?= athletes/sarah-printz-20260213
@@ -28,6 +28,9 @@ ship: draft validate check-tp
 # Run all tests
 test:
 	python3 -m pytest tests/ -v
+
+media-radar:
+	python3 -m media_radar.run_weekly
 
 # Validate pipeline output independently of the pipeline
 validate:

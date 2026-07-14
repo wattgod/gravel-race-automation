@@ -1,0 +1,23 @@
+# Add or remove sources here; no Python changes are required.
+# YouTube channel IDs are used with the public uploads RSS feed (no API key).
+sources:
+  - id: bonk-bros-youtube
+    name: Bonk Bros (YouTube)
+    type: youtube
+    channel_id: UCsoVYcqfnIc4F3oaIYxf7-Q
+  - id: bonk-bros-podcast
+    name: Bonk Bros Podcast
+    type: podcast
+    rss_url: https://feed.podbean.com/bonkbros/feed.xml
+  - id: gravel-ride-podcast
+    name: The Gravel Ride Podcast
+    type: podcast
+    rss_url: https://thegravelride.bike/rss
+  - id: groadio
+    name: Escape Collective / Groadio
+    type: podcast
+    rss_url: https://groadio.libsyn.com/rss
+  - id: adventure-stache
+    name: Adventure Stache / With Pace
+    type: podcast
+    rss_url: https://rss.buzzsprout.com/277871.rss

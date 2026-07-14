@@ -97,3 +97,8 @@ youtube-research-results/
 # OS
 .DS_Store
 Thumbs.db
+
+# Media Radar raw copyrighted inputs and local dedup state
+data/media-radar/transcripts/
+data/media-radar/seen_ids.json
+data/media-radar/media-radar.log

@@ -13,8 +13,8 @@ This is the "immune system's" senses. It does three things and NOTHING else:
         GREEN  (auto-heal)  safe & mechanical — a regenerate fixes it
         YELLOW (needs you)  judgment — a fix is proposed, but a human approves
         RED    (issue only) unsafe to auto-fix — money path / security / systemic
-  3. REPORT   — write immune/report.json, append a run record to
-                immune/ledger.jsonl, and print a human digest.
+  3. REPORT   — write immune/report.json, append scan telemetry, and print a
+                human digest. CI/cron findings use this same Finding schema.
 
 IMPORTANT: this script never edits data, commits, or deploys. It is the *verifier*
 the nightly repair loop checks its candidate fixes against — the Karpathy rule:
@@ -64,7 +64,6 @@ GREEN, YELLOW, RED = "green", "yellow", "red"
 # Money-path CTA markers — the conversion links a visitor clicks (buy the plan /
 # talk to a coach). Anything on these paths is RED, never auto-healed.
 MONEY_PATH_MARKERS = ("/questionnaire/", "/coaching/")
-
 # Make audit_race_data.py importable and reuse its logic (don't reinvent it).
 sys.path.insert(0, str(SCRIPT_DIR))
 import audit_race_data  # noqa: E402
@@ -91,11 +90,41 @@ class Finding:
 REGEN_INDEX = "python3 scripts/generate_index.py --with-jsonld"
 
 RULES: list[tuple[str, str, str, str, str, str | None]] = [
+    # ── RED: money/security/prod are checked first and never auto-heal ──
+    (r"(?i)(stripe webhook|webhook|checkout|order delivery|fulfillment|/questionnaire/|"
+     r"/coaching/|prod(?:uction)? outage)",
+     "money-path", RED, "critical",
+     "Money path or production availability is involved — flag it for a human; "
+     "never auto-edit it.", None),
+    (r"(?i)(secret exposure|credential leak|permission escalation|security incident)",
+     "security", RED, "critical",
+     "Security-sensitive failure — handle by hand and never auto-edit credentials.", None),
     # ── GREEN: safe, mechanical, deterministic regenerate ──
     (r"race-index\.json (not found|count mismatch)",
      "index-drift", GREEN, "high",
      "Search index is stale/missing/out of sync with race-data — regenerate it.",
      REGEN_INDEX),
+    (r"(?i)(step-level strategy|strategy is not allowed here|invalid workflow yaml|"
+     r"::set-output|bad fromJson|fromJson.+(invalid|error))",
+     "ci-workflow-syntax", GREEN, "high",
+     "Apply the known-good workflow pattern (job-level strategy, GITHUB_OUTPUT, "
+     "and a guarded fromJson matrix), then verify the workflow and immune scan.",
+     "python3 scripts/immune_ci.py --apply-safe"),
+    (r"(?i)(node.?version drift|node 20 without native websocket|"
+     r"native websocket.+node 20)",
+     "ci-node-drift", GREEN, "high",
+     "Bump the workflow's configured Node runtime to the repository's known-good "
+     "version, then verify no new checks turn red.",
+     "python3 scripts/immune_ci.py --apply-safe"),
+    (r"(?i)scheduled workflow.+(?:3|three).+(?:missing script|missing/empty secret|"
+     r"secret.+(?:missing|empty))",
+     "ci-disable-broken-schedule", GREEN, "medium",
+     "Disable only the broken schedule (retain workflow_dispatch), verify the "
+     "workflow, and surface the disabled automation for human follow-up.",
+     "python3 scripts/immune_ci.py --apply-safe"),
+    (r"(?i)(known[- ]noise|cancelled by a newer run|dependabot.+expected failure)",
+     "known-noise", GREEN, "low",
+     "Suppress this known-noise pattern from action lists and count it only.", None),
     # ── YELLOW: judgment — propose a fix, human approves (includes ALL ratings) ──
     (r"SCORE MISMATCH",
      "score-math", YELLOW, "high",
@@ -135,6 +164,18 @@ RULES: list[tuple[str, str, str, str, str, str | None]] = [
      "Two profiles look like the same event — a human picks the canonical one to "
      "keep (see docs/LESSONS_LEARNED.md — this has bitten the database before: "
      "landrun-100/mid-south, sbt-grvl/steamboat-gravel).", None),
+    (r"(?i)(failing test|tests? failed|pytest.+failed|assertionerror)",
+     "ci-test-failure", YELLOW, "high",
+     "A real test is failing — inspect the failure and propose a reviewed PR.", None),
+    (r"(?i)(monitor.+(?:fail|real site issue)|core web vital|gsc alert|"
+     r"impression drop|position regression|low ctr)",
+     "site-health", YELLOW, "high",
+     "A monitor found a real site regression — investigate and propose a reviewed fix.",
+     None),
+    (r"(?i)cron.+(?:failed repeatedly|consecutive failures|zero work|0 work|no work)",
+     "cron-unhealthy", YELLOW, "high",
+     "The cron is repeatedly failing or doing no work — inspect its run records and "
+     "propose a fix; do not guess at production behavior.", None),
     # ── RED: unsafe to auto-fix, ever ──
     (r"\.env not in \.gitignore|Possible hardcoded API key|Possible hardcoded (secret|key)",
      "security", RED, "critical",

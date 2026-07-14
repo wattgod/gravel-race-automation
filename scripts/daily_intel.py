@@ -1,10 +1,9 @@
 #!/usr/bin/env python3
-"""Morning Intel — daily interpreted report for both brands.
+"""Morning Command — the ecosystem's single daily composer and emailer.
 
-Collects GA4, checkout health, Mission Control activity + errors, and
-workflow statuses; interprets via Claude with 7-day trend context; emails
-gravelgodcoaching@gmail.com; snapshots everything to data/intel-snapshots/
-so trends compound. Spec: docs/specs/daily-intel-report.md.
+Aggregates commerce, immune findings/repairs, GSC/CWV snapshots, ecosystem CI,
+and Endure Labs cron health. It ranks human-needed work, suppresses green/noise,
+and is the only daily process allowed to send email.
 
 Every collector is fail-soft: a broken source becomes a BROKEN line in the
 report — the email always sends (order-killer lesson: failures loud to the
@@ -12,8 +11,8 @@ coach, never silent).
 
 Usage:
     python3 scripts/daily_intel.py                # collect + interpret + send + snapshot
-    python3 scripts/daily_intel.py --dry-run      # everything except the send
-    python3 scripts/daily_intel.py --no-llm       # skip interpretation (plain digest)
+    python3 scripts/daily_intel.py --preview      # offline-safe print; no send/write
+    python3 scripts/daily_intel.py --json         # machine report; no send
 
 Env (see .github/workflows/daily-intel.yml):
     GA4_CREDENTIALS, GG_GA4_PROPERTY_ID, RL_GA4_PROPERTY_ID,
@@ -26,6 +25,8 @@ from __future__ import annotations
 import argparse
 import json
 import os
+import re
+import subprocess
 import sys
 import urllib.error
 import urllib.request
@@ -34,6 +35,12 @@ from pathlib import Path
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 SNAPSHOT_DIR = PROJECT_ROOT / "data" / "intel-snapshots"
+HEALTH_DIR = PROJECT_ROOT / "reports" / "health"
+IMMUNE_REPORT = PROJECT_ROOT / "immune" / "report.json"
+IMMUNE_LEDGER = PROJECT_ROOT / "immune" / "ledger.jsonl"
+ECOSYSTEM_REPORT = HEALTH_DIR / "ci-cron.json"
+GSC_SNAPSHOT_DIR = PROJECT_ROOT / "data" / "gsc-snapshots"
+CWV_SNAPSHOT_DIR = PROJECT_ROOT / "data" / "cwv-snapshots"
 
 try:
     from dotenv import load_dotenv
@@ -512,6 +519,322 @@ def plain_digest(collected: dict) -> tuple[str, str]:
     return f"intel {collected['date']}: raw digest", "\n".join(lines)
 
 
+# ── Morning Command aggregation + deterministic interpretation ──────────
+
+SEVERITY_RANK = {"critical": 0, "high": 1, "medium": 2, "low": 3}
+LANE_RANK = {"red": 0, "yellow": 1, "green": 2}
+
+
+def _read_json(path: Path) -> dict:
+    try:
+        value = json.loads(path.read_text(encoding="utf-8"))
+        return value if isinstance(value, dict) else {"ok": False, "error": "unexpected JSON shape"}
+    except (OSError, json.JSONDecodeError) as exc:
+        return {"ok": False, "error": f"{type(exc).__name__}: {exc}"}
+
+
+def _latest_json(directory: Path) -> tuple[dict, Path | None]:
+    files = sorted(directory.glob("*.json")) if directory.exists() else []
+    if not files:
+        return {"ok": False, "error": "unavailable (no snapshot)"}, None
+    return _read_json(files[-1]), files[-1]
+
+
+def _snapshot_age_hours(path: Path | None) -> float | None:
+    if path is None:
+        return None
+    return round((datetime.now(timezone.utc).timestamp() - path.stat().st_mtime) / 3600, 1)
+
+
+def _data_age_hours(snapshot: dict, path: Path | None) -> float | None:
+    """Prefer the payload timestamp; checkout/git can make old files look new."""
+    raw = snapshot.get("timestamp") or snapshot.get("date")
+    if raw:
+        try:
+            parsed = datetime.fromisoformat(str(raw).replace("Z", "+00:00"))
+            if parsed.tzinfo is None:
+                parsed = parsed.replace(tzinfo=timezone.utc)
+            return round((datetime.now(timezone.utc) - parsed).total_seconds() / 3600, 1)
+        except ValueError:
+            pass
+    return _snapshot_age_hours(path)
+
+
+def _load_recent_intel(max_hours: int = 30) -> dict | None:
+    data, path = _latest_json(SNAPSHOT_DIR)
+    age = _snapshot_age_hours(path)
+    if path and age is not None and age <= max_hours and data.get("commerce_ledger"):
+        return data
+    return None
+
+
+def collect_base_intel(offline: bool = False) -> dict:
+    """Reuse a fresh snapshot for preview; otherwise run the existing collectors."""
+    if offline:
+        cached = _load_recent_intel()
+        if cached:
+            cached = {**cached, "source": "fresh intel snapshot"}
+            cached.pop("report", None)
+            return cached
+        unavailable = {"ok": False, "error": "unavailable in offline preview"}
+        return {
+            "date": date.today().isoformat(), "source": "offline",
+            "ga4": {b: dict(unavailable) for b in BRANDS},
+            "checkout": {b: dict(unavailable) for b in BRANDS},
+            "mission_control": dict(unavailable), "commerce_ledger": dict(unavailable),
+            "social": dict(unavailable), "constraint": dict(unavailable),
+        }
+    collected = {
+        "date": date.today().isoformat(), "source": "live collectors",
+        "ga4": {b: _safe(lambda b=b: collect_ga4(b)) for b in BRANDS},
+        "checkout": {b: _safe(lambda b=b: collect_checkout(b)) for b in BRANDS},
+        "mission_control": _safe(collect_mission_control),
+        "commerce_ledger": _safe(collect_commerce_ledger),
+        "social": _safe(collect_social),
+    }
+    collected["constraint"] = compute_constraint(collected["ga4"].get("gravelgod", {}))
+    return collected
+
+
+def load_site_health() -> dict:
+    gsc, gsc_path = _latest_json(GSC_SNAPSHOT_DIR)
+    cwv, cwv_path = _latest_json(CWV_SNAPSHOT_DIR)
+    gsc_age = _data_age_hours(gsc, gsc_path)
+    cwv_age = _data_age_hours(cwv, cwv_path)
+    if gsc_age is not None and gsc_age > 48:
+        gsc = {**gsc, "ok": False, "error": f"unavailable (snapshot stale: {gsc_age}h)"}
+    if cwv_age is not None and cwv_age > 48:
+        cwv = {**cwv, "ok": False, "error": f"unavailable (snapshot stale: {cwv_age}h)"}
+    return {
+        "gsc": {**gsc, "snapshot_age_hours": gsc_age,
+                "snapshot_file": str(gsc_path.relative_to(PROJECT_ROOT)) if gsc_path else None},
+        "cwv": {**cwv, "snapshot_age_hours": cwv_age,
+                "snapshot_file": str(cwv_path.relative_to(PROJECT_ROOT)) if cwv_path else None},
+    }
+
+
+def load_immune() -> dict:
+    report = _read_json(IMMUNE_REPORT)
+    if not IMMUNE_REPORT.exists():
+        report.update({"ok": False, "error": "unavailable (immune report missing)"})
+    return report
+
+
+def load_ecosystem() -> dict:
+    report = _read_json(ECOSYSTEM_REPORT)
+    if not ECOSYSTEM_REPORT.exists():
+        report.update({"ok": False, "error": "unavailable (CI/cron report missing)"})
+    return report
+
+
+def load_recent_heals(hours: int = 36) -> list[dict]:
+    if not IMMUNE_LEDGER.exists():
+        return []
+    cutoff = datetime.now(timezone.utc) - timedelta(hours=hours)
+    records = []
+    for line in IMMUNE_LEDGER.read_text(encoding="utf-8").splitlines():
+        try:
+            record = json.loads(line)
+            ts = datetime.fromisoformat(str(record.get("ts", "")).replace("Z", "+00:00"))
+        except (json.JSONDecodeError, ValueError):
+            continue
+        if record.get("type") == "fix" and record.get("lane") == "green" and ts >= cutoff:
+            records.append(record)
+    return records
+
+
+def _finding(code: str, lane: str, severity: str, title: str, detail: str,
+             remedy: str, source: str) -> dict:
+    return {"code": code, "lane": lane, "severity": severity, "title": title,
+            "detail": detail, "remedy": remedy, "auto_fix": None,
+            "source": source, "new": True}
+
+
+def commerce_findings(base: dict) -> list[dict]:
+    findings = []
+    ledger = base.get("commerce_ledger", {})
+    for order in ledger.get("failed_orders", []) if ledger.get("ok") else []:
+        who = order.get("name") or order.get("email") or "customer"
+        findings.append(_finding(
+            "failed-order", "red", "critical", f"Failed order · {who}",
+            str(order.get("error") or "delivery failed"),
+            "Restore this paid customer's delivery and confirm it by hand.", "commerce-ledger"))
+    for brand, checkout in base.get("checkout", {}).items():
+        if checkout.get("ok") is False and "unavailable" not in str(checkout.get("error", "")):
+            findings.append(_finding(
+                "money-path", "red", "critical", f"Checkout probe · {brand}",
+                str(checkout.get("error") or "checkout unhealthy"),
+                "Investigate the checkout manually; money-path code never auto-heals.",
+                "checkout-monitor"))
+    return findings
+
+
+def site_findings(site: dict) -> list[dict]:
+    findings: list[dict] = []
+    gsc = site.get("gsc", {})
+    if gsc.get("ok") is not False and gsc.get("overall"):
+        current = gsc.get("overall", {})
+        files = sorted(GSC_SNAPSHOT_DIR.glob("*.json"))
+        if len(files) >= 2:
+            previous = _read_json(files[-2]).get("overall", {})
+            if previous.get("impressions", 0):
+                drop = 100 * (previous["impressions"] - current.get("impressions", 0)) / previous["impressions"]
+                if drop > 20:
+                    findings.append(_finding(
+                        "site-health", "yellow", "high", "GSC impression drop",
+                        f"impressions down {drop:.1f}% vs prior snapshot",
+                        "Inspect indexing/query losses and propose a reviewed fix.", "gsc-snapshot"))
+    cwv = site.get("cwv", {})
+    for result in cwv.get("results", []) if cwv.get("ok") is not False else []:
+        failed = [key for key, grade in result.get("grades", {}).items() if grade == "FAIL"]
+        if failed:
+            money = any(term in result.get("url", "") for term in ("/questionnaire/", "/coaching/"))
+            findings.append(_finding(
+                "money-path" if money else "site-health", "red" if money else "yellow",
+                "critical" if money else "high", f"CWV · {result.get('label', 'page')}",
+                f"{result.get('strategy', 'unknown')}: {', '.join(failed)} failed",
+                ("Inspect manually; this is a money-path page." if money else
+                 "Inspect the snapshot and propose a performance fix."), "cwv-snapshot"))
+    return findings
+
+
+def rank_findings(findings: list[dict]) -> list[dict]:
+    unique: dict[tuple[str, str, str], dict] = {}
+    for finding in findings:
+        key = (finding.get("code", ""), finding.get("title", ""), finding.get("source", ""))
+        if key in unique and finding.get("detail") not in unique[key].get("detail", ""):
+            unique[key]["detail"] += "; " + finding.get("detail", "")
+        else:
+            unique[key] = dict(finding)
+    return sorted(unique.values(), key=lambda f: (
+        LANE_RANK.get(f.get("lane"), 9), SEVERITY_RANK.get(f.get("severity"), 9),
+        f.get("title", "")))
+
+
+def aggregate(offline: bool = False) -> dict:
+    base = collect_base_intel(offline=offline)
+    immune = load_immune()
+    ecosystem = load_ecosystem()
+    site = load_site_health()
+    findings = commerce_findings(base) + site_findings(site)
+    findings += [f for f in immune.get("findings", []) if f.get("new", True)]
+    findings += ecosystem.get("findings", [])
+    ranked = rank_findings(findings)
+    unavailable = []
+    for label, source in (
+        ("commerce", base.get("commerce_ledger", {})), ("immune", immune),
+        ("ecosystem CI", ecosystem.get("availability", {}).get("ci", ecosystem)),
+        ("cron", ecosystem.get("availability", {}).get("cron", ecosystem)),
+        ("GSC", site.get("gsc", {})), ("CWV", site.get("cwv", {})),
+    ):
+        if source.get("ok") is False or source.get("error"):
+            unavailable.append(label)
+    suppressed = ecosystem.get("counts", {}).get("suppressed", 0)
+    suppressed += sum(1 for f in immune.get("findings", []) if not f.get("new", True))
+    suppressed += sum(1 for f in ranked if f.get("lane") == "green")
+    return {
+        "date": base.get("date", date.today().isoformat()), "base": base,
+        "immune": immune, "ecosystem": ecosystem, "site_health": site,
+        "findings": ranked, "auto_healed": load_recent_heals(),
+        "suppressed": suppressed, "unavailable": sorted(set(unavailable)),
+    }
+
+
+def _sales_amount(ledger: dict) -> str:
+    for key in ("sales_total", "sales", "revenue", "revenue_total", "gross_sales"):
+        value = ledger.get(key)
+        if isinstance(value, (int, float)):
+            return f"${value:,.2f}"
+    amounts = [o.get("amount") for o in ledger.get("orders", [])]
+    if amounts and all(isinstance(value, (int, float)) for value in amounts):
+        return f"${sum(amounts):,.2f}"
+    return "$ unavailable"
+
+
+def render_morning_command(command: dict) -> tuple[str, str]:
+    date_label = command["date"]
+    base = command["base"]
+    ledger = base.get("commerce_ledger", {})
+    orders = ledger.get("orders", []) if ledger.get("ok") else []
+    failed = ledger.get("failed_orders", []) if ledger.get("ok") else []
+    human = [f for f in command["findings"] if f.get("lane") in {"red", "yellow"}]
+    reds = [f for f in human if f.get("lane") == "red"]
+    system_line = "systems up" if not reds and not command["unavailable"] else (
+        f"{len(reds)} red" if reds else f"{len(command['unavailable'])} sources unavailable")
+    attention = "1 thing needs you" if len(human) == 1 else f"{len(human)} things need you"
+    top = (f"{len(orders)} order{'s' if len(orders) != 1 else ''}; {system_line}; "
+           f"{attention}.")
+    lines = [f"MORNING COMMAND · {date_label}", f"TOP LINE: {top}", "", "💰 MONEY"]
+    funnel_bits = []
+    for brand, ga4 in base.get("ga4", {}).items():
+        if ga4.get("ok"):
+            funnel = ga4.get("funnel", {})
+            funnel_bits.append(
+                f"{brand} CTA {funnel.get('cta_click', 0)} → submit "
+                f"{funnel.get('form_submit', 0)} → checkout "
+                f"{funnel.get('begin_checkout', 0)} → purchase {funnel.get('purchase', 0)}"
+            )
+    order_label = f"{len(orders)} order{'s' if len(orders) != 1 else ''}"
+    lines.append(
+        f"{order_label} · sales {_sales_amount(ledger)} · {len(failed)} failed/lost" +
+        (f" · funnel {'; '.join(funnel_bits)}" if funnel_bits else " · funnel unavailable"))
+
+    lines.extend(["", "🔴 ACT TODAY"])
+    if human:
+        for index, finding in enumerate(human, 1):
+            lines.append(f"{index}. {finding.get('title')} · cause: {finding.get('detail')} · action: {finding.get('remedy')}")
+    else:
+        lines.append("None — let the systems run.")
+
+    lines.extend(["", "🟢 AUTO-HEALED"])
+    heals = command.get("auto_healed", [])
+    if heals:
+        lines.append(f"{len(heals)} fixed overnight:")
+        for record in heals:
+            lines.append(f"- {record.get('issue_class', 'issue')} · {record.get('fix_applied', 'fixed and verified')}")
+    else:
+        lines.append("0 fixed overnight.")
+
+    lines.extend(["", "🟡 PROPOSED"])
+    proposals = [f for f in human if re.search(r"https://github\.com/[^\s]+/pull/\d+", f.get("detail", ""))]
+    if proposals:
+        for finding in proposals:
+            url = re.search(r"https://github\.com/[^\s]+/pull/\d+", finding["detail"]).group(0)
+            lines.append(f"- {finding.get('title')} → {url}")
+    else:
+        lines.append("No PRs are waiting for approval.")
+
+    lines.extend(["", "📊 PULSE"])
+    gsc = command["site_health"].get("gsc", {})
+    if gsc.get("ok") is not False and gsc.get("overall"):
+        o = gsc["overall"]
+        lines.append(f"GSC (7d): {o.get('clicks', 0)} clicks · {o.get('impressions', 0)} impressions · {o.get('ctr', 0)}% CTR · pos {o.get('position', 0)}")
+    else:
+        lines.append("GSC: unavailable")
+    cwv = command["site_health"].get("cwv", {})
+    if cwv.get("ok") is not False and cwv.get("summary"):
+        s = cwv["summary"]
+        lines.append(f"CWV: score {s.get('avg_performance_score', 'unavailable')} · {s.get('fail_count', 0)} fails · {s.get('errors', 0)} errors")
+    else:
+        lines.append("CWV: unavailable")
+    for brand, ga4 in base.get("ga4", {}).items():
+        if ga4.get("ok"):
+            lines.append(f"{brand}: {ga4.get('sessions', 0)} sessions vs {ga4.get('sessions_7d_avg', 0)} 7d avg")
+    if command["unavailable"]:
+        lines.append("Unavailable: " + ", ".join(command["unavailable"]))
+
+    lines.extend(["", "🎯 DECIDE"])
+    decisions = [f for f in human if f.get("lane") == "yellow"][:3]
+    if decisions:
+        for finding in decisions:
+            lines.append(f"- {finding.get('title')}: approve investigation/fix, or accept as known backlog.")
+    else:
+        lines.append("No owner-only decision today.")
+    lines.extend(["", f"— suppressed: {command['suppressed']} green/known-noise items"])
+    subject = f"Morning Command · {date_label} · {len(human)} need you"
+    return subject, "\n".join(lines)
+
+
 # ── Delivery + snapshot ─────────────────────────────────────────────────
 
 def _md_to_html(md: str) -> str:
@@ -579,7 +902,7 @@ def send_email(subject: str, markdown: str) -> str:
         'border:2px solid #1a1a1a;padding:28px 32px;font-family:Georgia,serif;'
         'color:#1a1a1a;line-height:1.6;font-size:15px">'
         '<div style="font-family:\'Courier New\',monospace;font-size:11px;'
-        'letter-spacing:3px;color:#777777;margin-bottom:4px">MORNING INTEL</div>'
+        'letter-spacing:3px;color:#777777;margin-bottom:4px">MORNING COMMAND</div>'
         f'{body}'
         '<div style="margin-top:28px;padding-top:12px;border-top:1px solid #d0d0c8;'
         'font-family:\'Courier New\',monospace;font-size:11px;color:#999">'
@@ -587,7 +910,7 @@ def send_email(subject: str, markdown: str) -> str:
         'data/intel-snapshots/</div></div></div>'
     )
     code, body_resp = _http("https://api.resend.com/emails", data={
-        "from": "Morning Intel <matti@gravelgodcycling.com>",
+        "from": "Morning Command <matti@gravelgodcycling.com>",
         "to": [INTEL_TO],
         "subject": subject,
         "html": html,
@@ -598,43 +921,37 @@ def send_email(subject: str, markdown: str) -> str:
 
 
 def main() -> int:
-    ap = argparse.ArgumentParser()
-    ap.add_argument("--dry-run", action="store_true", help="skip the email send")
-    ap.add_argument("--no-llm", action="store_true", help="skip interpretation")
+    ap = argparse.ArgumentParser(description="Single ranked Morning Command composer")
+    ap.add_argument("--preview", action="store_true",
+                    help="offline-safe dry run: print only; never send or write snapshots")
+    ap.add_argument("--dry-run", action="store_true", help=argparse.SUPPRESS)
+    ap.add_argument("--json", action="store_true",
+                    help="print the aggregate and rendered report as JSON; never send")
+    ap.add_argument("--no-llm", action="store_true", help=argparse.SUPPRESS)
     args = ap.parse_args()
 
-    today = date.today().isoformat()
-    collected = {
-        "date": today,
-        "ga4": {b: _safe(lambda b=b: collect_ga4(b)) for b in BRANDS},
-        "checkout": {b: _safe(lambda b=b: collect_checkout(b)) for b in BRANDS},
-        "mission_control": _safe(collect_mission_control),
-        "commerce_ledger": _safe(collect_commerce_ledger),
-        "social": _safe(collect_social),
-        "workflows": _safe(collect_workflows),
-    }
-    collected["constraint"] = compute_constraint(collected["ga4"].get("gravelgod", {}))
-    trend = load_trend()
+    preview = args.preview or args.dry_run
+    command = aggregate(offline=preview or args.json)
+    subject, report = render_morning_command(command)
+    if args.json:
+        print(json.dumps({**command, "subject": subject, "report": report}, indent=2, default=str))
+        return 0
+    if preview:
+        print(f"SUBJECT: {subject}\n\n{report}")
+        return 0
 
-    if args.no_llm or not os.environ.get("ANTHROPIC_API_KEY"):
-        subject, report = plain_digest(collected)
-    else:
-        try:
-            subject, report = interpret(collected, trend)
-        except Exception as e:
-            subject, report = plain_digest(collected)
-            report = f"**INTERPRETATION FAILED: {e}**\n\n{report}"
-
+    today = command["date"]
     SNAPSHOT_DIR.mkdir(parents=True, exist_ok=True)
+    snapshot = {**command["base"], "morning_command": {
+        "findings": command["findings"], "auto_healed": command["auto_healed"],
+        "suppressed": command["suppressed"], "unavailable": command["unavailable"],
+    }, "report": report}
     (SNAPSHOT_DIR / f"{today}.json").write_text(
-        json.dumps({**collected, "report": report}, indent=1, default=str))
-    (SNAPSHOT_DIR / f"{today}.md").write_text(f"# {subject}\n\n{report}\n")
+        json.dumps(snapshot, indent=1, default=str) + "\n", encoding="utf-8")
+    (SNAPSHOT_DIR / f"{today}.md").write_text(
+        f"# {subject}\n\n{report}\n", encoding="utf-8")
     print(f"snapshot: data/intel-snapshots/{today}.json")
     print(f"subject:  {subject}")
-
-    if args.dry_run:
-        print("\n" + report)
-        return 0
     msg_id = send_email(subject, report)
     print(f"sent:     {msg_id} → {INTEL_TO}")
     return 0

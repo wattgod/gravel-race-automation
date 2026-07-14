@@ -1,9 +1,7 @@
 name: Daily Monitoring
 
 on:
-  schedule:
-    # Run once daily at 6 AM UTC (consolidates gsc-monitor, cwv-monitor, daily-marketing-report)
-    - cron: '0 6 * * *'
+  # Detector-only manual fallback. The daily schedule moved to Morning Command.
   workflow_dispatch:
 
 permissions:
@@ -34,12 +32,12 @@ jobs:
       - name: GSC monitoring
         env:
           GOOGLE_APPLICATION_CREDENTIALS: /tmp/gsc-creds.json
-        run: python scripts/gsc_tracker.py --snapshot --report --alert
+        run: python scripts/gsc_tracker.py --snapshot --report
 
       - name: CWV monitoring
         env:
           PAGESPEED_API_KEY: ${{ secrets.PAGESPEED_API_KEY }}
-        run: python scripts/cwv_monitor.py --snapshot --report --alert
+        run: python scripts/cwv_monitor.py --snapshot --report
 
       - name: Marketing report
         run: |

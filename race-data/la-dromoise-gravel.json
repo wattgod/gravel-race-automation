@@ -68,33 +68,33 @@
       "field_depth": 1,
       "value": 3,
       "expenses": 2,
-      "score_note": "Regional France event. Alps terrain with medium local field and scenic challenge.",
+      "score_note": "Regional France event through the Diois/Vercors foothills — a randonnée-style gravel day (no timing or podium) with a medium local field and a vineyard-to-forest scenic challenge.",
       "discipline": "gravel",
       "display_tier": 3
     },
     "biased_opinion": {
-      "verdict": "French Alps Gravel Challenge",
-      "summary": "La Drômoise Gravel is a regional event in France—Alps terrain with significant elevation. The French Alps are stunning, but the medium local field, regional organization, and limited prestige keep it in Tier 4.",
+      "verdict": "Diois Gravel Weekend",
+      "summary": "La Drômoise Gravel is a regional randonnée through the Diois forest fire roads and Vercors foothills above Die — vineyard passages, views toward the Vercors massif, and a GPS-trace-only 70km course with no timing or podium. It's a genuine regional gravel day, not a destination race.",
       "strengths": [
-        "French Alps scenery",
-        "Mountain challenge",
-        "European gravel experience",
+        "Diois/Vercors foothills scenery — vineyard tracks above Aurel and Barsac, views toward the Vercors massif",
+        "Randonnée format — no timing, no podium pressure, just the ride",
+        "GPS-trace navigation on real forest fire roads",
         "Good value",
-        "Alpine adventure"
+        "A 40km marked Lite option for riders who want a shorter day"
       ],
       "weaknesses": [
-        "Medium local field",
-        "Regional organization",
-        "Limited prestige",
-        "Variable weather",
-        "Higher European costs"
+        "Field size not published — hard to gauge how busy the course will feel",
+        "Regional organization, not an international destination race",
+        "Cutoff time not published",
+        "Variable late-September mountain weather",
+        "European travel costs for non-local riders"
       ],
-      "bottom_line": "A solid regional France Alps gravel race. Worth it for France/European riders. Not worth traveling internationally for."
+      "bottom_line": "A solid regional Diois/Vercors gravel randonnée. Worth it if you're local to France/Europe or want a low-pressure GPS-navigation day on real forest fire roads. Not worth traveling internationally for."
     },
     "final_verdict": {
       "score": "49 / 100",
-      "one_liner": "French Alps gravel challenge.",
-      "should_you_race": "If you're local to France/Europe—yes, it's solid. If you're traveling internationally—skip it.",
+      "one_liner": "A Diois/Vercors foothills gravel randonnée — GPS-trace navigation on forest fire roads above Die.",
+      "should_you_race": "If you're local to France/Europe and want a low-key, GPS-navigation randonnée through vineyard tracks and Vercors foothills forest roads — yes, it's solid. If you're traveling internationally for a marquee gravel race, look elsewhere; this is a regional day, not a destination event.",
       "alternatives": "For better France races: Gravel Fever, Wish One Millau.",
       "alternative_slugs": [
         "gravel-fever",
@@ -111,37 +111,50 @@
     },
     "history": {
       "founded": null,
-      "founder": "Local France organizers",
-      "origin_story": "Regional France Alps gravel event.",
-      "notable_moments": [],
-      "reputation": "Regional France event."
+      "founder": "Die Cycling Club",
+      "origin_story": "Organized by Die Cycling Club as part of the wider La Drômoise cyclosportive weekend (Friday-Sunday) in the Diois region of the Drôme. Gravel became its own category in its 4th year, run on Saturday as a standalone GPS-navigation day through the Diois forest fire roads and Vercors foothills.",
+      "notable_moments": [
+        "19th edition of the wider La Drômoise cyclosportive weekend; gravel is now in its 4th year as its own category"
+      ],
+      "reputation": "A regional Drôme cyclosportive weekend (Friday-Sunday) with gravel as one of its categories — GPS-trace navigation, forest fire roads, and vineyard passages through the Diois and Vercors foothills, run without timing or podium."
     },
     "course_description": {
-      "character": "French Alps gravel.",
+      "character": "A randonnée through the Diois forest fire roads and Vercors foothills above Die: vineyard tracks above Aurel and Barsac, forest tracks across the Solaure plateau and Roanne valley, and a finish near the Monastery of Sainte Croix. The 70km course runs GPS-trace navigation only — no course marking — with two aid stations along the way. No timing, no podium.",
       "suffering_zones": [
         {
-          "mile": 20,
-          "label": "Early Alps",
-          "desc": "First Alpine sections.",
-          "terrain_detail": "Mountainous",
-          "named_section": "Early Alps"
+          "label": "Solaure Plateau Opener",
+          "desc": "The course heads out from Die's Meyrosse start onto the Solaure plateau and Roanne valley forest tracks — GPS-trace navigation from the first pedal stroke, with no markings to follow.",
+          "terrain_detail": "Diois forest fire roads",
+          "named_section": "Solaure Plateau"
         },
         {
-          "mile": 31,
-          "label": "Midpoint",
-          "desc": "Halfway through the course.",
-          "terrain_detail": "Midpoint",
-          "named_section": "Halfway"
+          "km": 9,
+          "label": "First Aid Station",
+          "desc": "The first of two aid stations on the 70km course, after the early forest-road navigation settles in.",
+          "terrain_detail": "Forest fire road aid stop",
+          "named_section": "km 9 Aid"
         },
         {
-          "mile": 52,
-          "label": "Late Alps",
-          "desc": "Final Alpine sections before finish.",
-          "terrain_detail": "Late mountains",
-          "named_section": "Final Push"
+          "label": "Col de Royer Split",
+          "desc": "The 70km route shares its opener with the 40km Lite course and the MTB event before diverging here — riders on the shorter option peel off while the 70km continues into the Vercors foothills.",
+          "terrain_detail": "Route split point",
+          "named_section": "Col de Royer"
+        },
+        {
+          "label": "Vineyard Tracks Above Aurel and Barsac",
+          "desc": "Clairette vineyard tracks above Aurel and Barsac, with views toward the Vercors massif and the Dévoluy — a scenic stretch before the final push.",
+          "terrain_detail": "Vineyard gravel tracks",
+          "named_section": "Aurel-Barsac Vineyards"
+        },
+        {
+          "km": 48,
+          "label": "Second Aid Station",
+          "desc": "The second and final aid station on the 70km course, before the closing kilometers toward the finish near the Monastery of Sainte Croix.",
+          "terrain_detail": "Forest fire road aid stop",
+          "named_section": "km 48 Aid"
         }
       ],
-      "signature_challenge": "French Alps mountain terrain.",
+      "signature_challenge": "GPS-trace navigation on unmarked Diois forest fire roads — the terrain is manageable, but finding your way through 70km of forest track without course markings is the real test.",
       "ridewithgps_id": null,
       "ridewithgps_name": null
     },
@@ -167,17 +180,17 @@
       {
         "requirement": "Weather preparation",
         "by_when": "Week 4-6",
-        "why": "French Alps weather is variable."
+        "why": "Late-September Diois/Vercors foothills weather is variable — cool mornings, mild afternoons, and possible early-autumn rain."
       },
       {
         "requirement": "Mountain endurance",
         "by_when": "Week 6-8",
-        "why": "French Alps require sustained mountain effort."
+        "why": "1,500m of climbing on Diois forest fire roads through the Vercors foothills requires sustained climbing fitness."
       },
       {
         "requirement": "Self-sufficiency",
         "by_when": "Week 4-6",
-        "why": "Mountain terrain requires self-sufficiency."
+        "why": "GPS-trace-only navigation on the 70km course puts route-finding on the rider, with just two aid stations along the way."
       }
     ],
     "research_metadata": {
@@ -188,7 +201,8 @@
       ],
       "migration_notes": [
         "Generated from regional information",
-        "2026-07-13 wave-24 recon: RECONCILED to official cyclodromoise.com. Real event = 19th La Drômoise cyclosportive weekend, Fri Sep 18-Sun Sep 20 2026, organized by Die Cycling Club (~3,000-3,600 across all 3 days/disciplines). Gravel is its own category (4th gravel edition) on Saturday Sep 19 2026 CONFIRMED, two courses: Gravel-40km/950m (marked, shares MTB opener, splits at Col de Royer) and Gravel-70km-GPS/1,500m (GPS-trace navigation only, forest fire roads, aid stations km9/km48). Anchored vitals on the 70km/1,500m course as flagship (43mi/4,921ft); 40km/950m (25mi/3,117ft) is the Lite alternative, not yet added as a separate keyed course. Corrected: location Die (not generic 'Drôme'), terrain from fabricated 'French Alps' to actual Diois/Vercors foothills pre-Alps, prior stale date '2025: September 18' and prior distance/elevation (62mi/5,500ft matched no real course) fixed. RUNWAY: from 2026-07-16 to 2026-09-19 = ~9.3 weeks -> SHORT ladder (F8/TC8/SMR6), NOT full 7-plan ladder; bank 12wk copy per standing precedent. UNFIXED (out of recon scope, flagged for copy-authoring): biased_opinion/final_verdict/history/course_description blocks below are still 100% generic 'French Alps' template boilerplate (score 49/tier 3) with zero race-specific content -- a real copy-authoring pass using the terrain.features/guide_variables specifics above would meaningfully improve this profile. Field size and cutoff time are NOT publicly available anywhere web-searched -- do not fabricate; use soft/no-number language in copy. Sources: cyclodromoise.com, cyclodromoise.com/project/gravel-70km-gps/, cyclodromoise.com/project/gravel-40km/, finishers.com/en/event/la-dromoise."
+        "2026-07-13 wave-24 recon: RECONCILED to official cyclodromoise.com. Real event = 19th La Drômoise cyclosportive weekend, Fri Sep 18-Sun Sep 20 2026, organized by Die Cycling Club (~3,000-3,600 across all 3 days/disciplines). Gravel is its own category (4th gravel edition) on Saturday Sep 19 2026 CONFIRMED, two courses: Gravel-40km/950m (marked, shares MTB opener, splits at Col de Royer) and Gravel-70km-GPS/1,500m (GPS-trace navigation only, forest fire roads, aid stations km9/km48). Anchored vitals on the 70km/1,500m course as flagship (43mi/4,921ft); 40km/950m (25mi/3,117ft) is the Lite alternative, not yet added as a separate keyed course. Corrected: location Die (not generic 'Drôme'), terrain from fabricated 'French Alps' to actual Diois/Vercors foothills pre-Alps, prior stale date '2025: September 18' and prior distance/elevation (62mi/5,500ft matched no real course) fixed. RUNWAY: from 2026-07-16 to 2026-09-19 = ~9.3 weeks -> SHORT ladder (F8/TC8/SMR6), NOT full 7-plan ladder; bank 12wk copy per standing precedent. UNFIXED (out of recon scope, flagged for copy-authoring): biased_opinion/final_verdict/history/course_description blocks below are still 100% generic 'French Alps' template boilerplate (score 49/tier 3) with zero race-specific content -- a real copy-authoring pass using the terrain.features/guide_variables specifics above would meaningfully improve this profile. Field size and cutoff time are NOT publicly available anywhere web-searched -- do not fabricate; use soft/no-number language in copy. Sources: cyclodromoise.com, cyclodromoise.com/project/gravel-70km-gps/, cyclodromoise.com/project/gravel-40km/, finishers.com/en/event/la-dromoise.",
+        "2026-07-16 deep-field pass COMPLETE + marketplace_variables fixed (French Alps/62mi/dark-mile-31 purged)."
       ],
       "research_strength": {
         "overall": 87.2,
@@ -247,19 +261,19 @@
         ],
         "race_specific": true,
         "topics": {
-          "pacing": "Alps terrain pacing",
-          "fueling": "Nutrition for mountain riding",
-          "mountains": "Sustained mountain strategy",
-          "weather": "Riding in variable Alpine weather"
+          "pacing": "Pacing Diois fire-road climbs and GPS-trace navigation",
+          "fueling": "Nutrition between two aid stations (km 9 and km 48) on the 70km course",
+          "mountains": "Sustained climbing strategy for the Vercors foothills",
+          "weather": "Riding in variable late-September pre-Alpine weather"
         }
       },
       "tier_overrides": {},
       "marketplace_variables": {
         "race_name": "La Drômoise Gravel",
-        "race_hook": "French Alps gravel challenge.",
+        "race_hook": "Unmarked GPS-trace gravel through the Diois — 70 km of fire-road climbing out of Die.",
         "race_hook_detail": "Regional event with Alps terrain.",
-        "distance": "62",
-        "dark_mile": "31",
+        "distance": "43",
+        "dark_mile": "30",
         "non_negotiable_1": "Weather preparation",
         "non_negotiable_2": "Mountain endurance",
         "non_negotiable_3": "Self-sufficiency",
@@ -269,59 +283,59 @@
     "biased_opinion_ratings": {
       "logistics": {
         "score": 2,
-        "explanation": "Sunday 9h00 start on avenue du Texas with village départ at Meyrosse parking works, but GPS-only navigation puts route discovery entirely on riders - you get the GPX trace one week before. One rider noted being 'à genoux en train de retirer des cailloux de leurs chaussures' in the first kilometer, questioning if they really signed up for this."
+        "explanation": "Saturday-morning start from Die's Meyrosse start area, with the 40km Lite option sharing its opener with the MTB event before splitting at Col de Royer. The 70km course runs on GPS-trace navigation only — riders get the GPX trace ahead of race day and are on their own to follow it, with just two aid stations (km 9 and km 48) along the way."
       },
       "length": {
         "score": 3,
-        "explanation": "Multiple gravel options run 27km, 55km, and 75km across the weekend format. The 75km course delivers 1300m climbing through Drôme valleys with two feed stations at KM 23 and 61. Solidly middle-distance without being a sprint or epic suffer-fest, letting you pick your challenge level. Similar distance to Crusher in the Tushar."
+        "explanation": "Two gravel distances run on race Saturday: a marked 40km/950m Lite option and the flagship 70km/1,500m GPS-navigation course. At 43 miles with 4,921ft of climbing, the 70km sits solidly in middle-distance territory — a real day out without being an epic suffer-fest."
       },
       "technicality": {
         "score": 3,
-        "explanation": "Course mixes 'petites routes goudronnées et de pistes caillouteuses avec certains passages techniques courts' through Drôme terrain. The 75km route warns 'un parcours très exigeant à destination des spécialistes du gravel.' Expect rocky gravel sections that demand bike handling without requiring special skills. Similar technical demands to Gravel Worlds."
+        "explanation": "Nearly the entire 70km course runs on Diois forest fire roads, with small paved-road passages and stony technical sections mixed in. GPS-trace navigation adds a route-finding element on top of the terrain itself — riders need to handle both the bike and the map."
       },
       "elevation": {
         "score": 3,
-        "explanation": "The 75km delivers 1300m climbing through valleys of the Drôme and Bez with 'vue imprenable sur les falaises du Vercors sud.' Course moved to opposite slopes of Glandasse at the foot of Châtillon vineyard terrain. Respectable elevation gain that specialists will feel without being punitive. Similar elevation profile to Gravel Worlds."
+        "explanation": "1,500m of climbing over 70km through the Diois forest fire roads and Vercors foothills — respectable elevation gain for the distance, delivered through pre-Alps foothill terrain rather than high-mountain passes."
       },
       "climate": {
         "score": 2,
-        "explanation": "Historical weather data shows average highs of 72°F and lows of 54°F, with a 43% chance of rain on any given day. September conditions vary significantly - one rider experienced 'le vent et le froid' but noted 'Le soleil était au rendez vous.' Another mentioned 'Vent frais pour la saison' during mid-September timing. Cool winds and variable conditions are typical for the season in this region. More weather exposure than Belgian Waffle Ride San Diego. As Participant feedback puts it: \"Congratulations to the top organization. I discovered the magnificent landscapes of the Vercors that I didn't really know, although coming from the Ardèche plateau.\""
+        "explanation": "Late-September conditions in the Diois/Vercors foothills bring mild days, cool mornings, and variable mountain weather, with the possibility of early-autumn rain. Foothill terrain keeps conditions less extreme than high-altitude mountain racing, but layers are still worth packing."
       },
       "altitude": {
         "score": 2,
-        "explanation": "Course runs through Drôme valley terrain at the foot of Vercors cliffs rather than high mountain elevations. Now positioned on opposite slopes of Glandasse near vineyard country, suggesting moderate hill country altitude without oxygen concerns or dramatic elevation changes. Modest altitude compared to Belgian Waffle Ride San Diego."
+        "explanation": "The course runs through Vercors foothills terrain — pre-Alps, not high Alps — so altitude isn't a major physiological factor. Expect rolling hill-country climbing rather than thin-air effects."
       },
       "adventure": {
         "score": 4,
-        "explanation": "Course explores 'les vallées de la Drôme et du Bez' with vineyard passages and Vercors cliff views most international riders never see. One couple described 'Tout un week-end d'alternances entre randonnées cyclistes et voyages au cœur de l'échappée des rues' - cycling alternating with arts festival experiences."
+        "explanation": "The 70km route strings together the Solaure plateau and Roanne valley forest tracks, vineyard passages above Aurel and Barsac, and views toward the Dévoluy and Vercors massif, finishing near the Monastery of Sainte Croix. GPS-trace navigation on unmarked forest fire roads makes it feel like genuine exploration rather than a marked course."
       },
       "prestige": {
         "score": 2,
-        "explanation": "18th edition draws over 3,600 participants with Titouan Carod endorsing 'bravo à l'organisation au top.' Elite rider Nathalie Baillon finished 2nd in 2022, but this remains a regional cyclosportive with gravel components rather than a destination race with international recognition."
+        "explanation": "La Drômoise is a regional French cyclosportive weekend — its gravel category is in its 4th year, run alongside the longer-running road and MTB editions. It's a well-organized regional event rather than a race with international name recognition."
       },
       "race_quality": {
         "score": 2,
-        "explanation": "Multiple riders praised 'Une organisation exemplaire' with volunteers who 'nous ont accueillis et servis avec le sourire.' However, one organizer noted feed stations need more volunteers 'pour pouvoir distribuer les produits au rythme d'arrivée des participants' during peak arrivals."
+        "explanation": "Organized by Die Cycling Club as part of the broader La Drômoise weekend, with a marked 40km Lite option and a GPS-navigation 70km flagship course, two aid stations, and a randonnée format with no timing or podium."
       },
       "experience": {
         "score": 3,
-        "explanation": "Riders experience 'l'ambiance atypique du gravel Diois' with good-natured atmosphere where cyclists exchange 'regards complices après avoir survécu à une descente périlleuse.' The event runs alongside L'Échappée des Rues arts festival, blending cycling with cultural experiences."
+        "explanation": "A randonnée-style day through the Diois forest fire roads and Vercors foothills — no timing, no podium, just the ride. The atmosphere fits a regional French cyclosportive weekend: low-pressure, scenic, and focused on the terrain rather than the results."
       },
       "community": {
         "score": 2,
-        "explanation": "Strong volunteer support earns praise: 'Un gros merci également à tous les bénévoles qui nous ont accueillis et servis avec le sourire.' Organization quality gets consistent recognition from the 600+ gravel participants, but community remains primarily French regional rather than international gravel scene."
+        "explanation": "Organized by Die Cycling Club within the wider La Drômoise weekend, drawing a regional French field. It's a community event first — the randonnée format (no timing, no rankings) keeps the focus on riding together rather than racing each other."
       },
       "field_depth": {
         "score": 1,
-        "explanation": "Events are explicitly 'non chronométré, il n'y aura donc pas de classement' - no timing, no rankings. Over 3,600 participants spread across multiple distances and three days dilutes competitive depth. Format attracts recreational riders rather than serious racing field. Thinner field than Ouray Gravel Grinder."
+        "explanation": "No timing, no rankings — La Drômoise Gravel runs as a randonnée. Gravel-specific field size isn't published, and the format spreads riders across two courses (40km and 70km) plus the wider weekend's road and MTB events, which thins out any sense of a competitive field."
       },
       "value": {
         "score": 3,
-        "explanation": "Multi-day festival format offers three different course options with the gravel event integrated into arts festival weekend. Free 47-page preparation guide with LABICYCLE partnership included. Riders consistently praise organization quality for what appears to be reasonable French cyclosportive pricing."
+        "explanation": "Entry runs roughly €70-90 through finishers.com for a supported GPS-navigation day with two aid stations, plus the option to drop to the marked 40km Lite course. Reasonable pricing for a regional French cyclosportive weekend."
       },
       "expenses": {
         "score": 2,
-        "explanation": "Registration runs €70-90. Die location in provincial Drôme keeps accommodation costs regional rather than resort pricing. No major airport nearby requires driving or multiple connections through Lyon. Basic French village logistics work but expect regional standards rather than tourist amenities or luxury options. Higher total cost than Badlands."
+        "explanation": "Registration runs €70-90. Die sits in provincial Drôme, roughly two hours from Lyon (LYS) by car — no major airport nearby, so budget for driving or connections through Lyon. Regional lodging costs rather than resort or destination-race pricing."
       }
     },
     "citations": [

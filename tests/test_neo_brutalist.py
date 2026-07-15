@@ -1049,6 +1049,17 @@ class TestInteractiveRating:
         assert 'role="tab"' in html
         assert 'role="tabpanel"' in html
 
+    def test_radar_data_is_visible_without_javascript(self, normalized_data):
+        html = build_radar_charts(normalized_data["explanations"],
+                                  normalized_data["course_profile"],
+                                  normalized_data["opinion_total"])
+        assert html.count('class="gg-radar-polygon" fill-opacity="0.2"') == 2
+        assert 'stroke-dashoffset="1000"' not in html
+        assert 'class="gg-radar-dot" pointer-events="none" opacity="0"' not in html
+        js = build_inline_js()
+        assert "radarObs" not in js
+        assert "is-drawn" not in js
+
 
 # ── Full Page Assembly ────────────────────────────────────────
 

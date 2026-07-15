@@ -619,7 +619,7 @@ def _radar_svg(dims: list, explanations: dict, color_fill: str, color_stroke: st
             f'data-label="{esc(dim_label)}" data-score="{score_label}" tabindex="0" role="button" '
             f'aria-label="Explain {esc(dim_label)}, scored {score_label} out of 5"/>'
             f'<circle cx="{dx:.1f}" cy="{dy:.1f}" r="5" fill="{color_stroke}" '
-            f'stroke="{COLORS["dark_brown"]}" stroke-width="1.5" class="gg-radar-dot" pointer-events="none" opacity="0"/>'
+            f'stroke="{COLORS["dark_brown"]}" stroke-width="1.5" class="gg-radar-dot" pointer-events="none"/>'
             f'<circle cx="{dx:.1f}" cy="{dy:.1f}" r="10" fill="none" '
             f'stroke="{color_stroke}" stroke-width="1.5" opacity="0" '
             f'class="gg-radar-ring" pointer-events="none"/>'
@@ -665,7 +665,7 @@ def _radar_svg(dims: list, explanations: dict, color_fill: str, color_stroke: st
       <title id="{title_id}">{esc(label)} ratings for this race. Select a point for its explanation.</title>
       {''.join(grid_lines)}
       {''.join(axis_lines)}
-      <polygon points="{data_pts}" fill="{color_fill}" class="gg-radar-polygon" fill-opacity="0" stroke="{color_stroke}" stroke-width="2.5" stroke-dasharray="1000" stroke-dashoffset="1000"/>
+      <polygon points="{data_pts}" fill="{color_fill}" class="gg-radar-polygon" fill-opacity="0.2" stroke="{color_stroke}" stroke-width="2.5"/>
       {''.join(dots)}
       {''.join(labels)}
       {center_label}
@@ -792,8 +792,6 @@ def build_inline_js() -> str:
       if (panel) panel.hidden = !selected;
     });
     var activePanel = document.getElementById(tab.getAttribute('aria-controls'));
-    var chart = activePanel ? activePanel.querySelector('.gg-radar-chart') : null;
-    if (chart) chart.classList.add('is-drawn');
     if (shouldTrack && typeof gtag === 'function') {
       gtag('event', 'rating_tab_click', {rating_group: activePanel ? activePanel.getAttribute('data-rating-group') : ''});
     }
@@ -857,26 +855,6 @@ def build_inline_js() -> str:
     var initial = panel.querySelector('.gg-rating-tile[aria-pressed="true"]');
     if (initial) selectDimension(initial.getAttribute('data-rating-group'), initial.getAttribute('data-rating-key'), false);
   });
-
-  // Draw-in animation on scroll
-  if ('IntersectionObserver' in window) {
-    var radarObs = new IntersectionObserver(function(entries) {
-      entries.forEach(function(entry) {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('is-drawn');
-          // Stagger dot reveal
-          var dots = entry.target.querySelectorAll('.gg-radar-dot');
-          dots.forEach(function(dot, i) {
-            dot.style.transitionDelay = (0.8 + i * 0.08) + 's';
-          });
-          radarObs.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.3 });
-    document.querySelectorAll('.gg-radar-chart').forEach(function(chart) {
-      radarObs.observe(chart);
-    });
-  }
 
   // Click + hover on data points
   document.querySelectorAll('.gg-radar-hit').forEach(function(hit) {
@@ -5575,8 +5553,8 @@ body {{ margin: 0; background: var(--gg-color-warm-paper); }}
 .gg-neo-brutalist-page .gg-radar-chart {{ grid-area: radar; border: var(--gg-border-subtle); background: var(--gg-color-warm-paper); padding: 12px 8px; text-align: center; }}
 .gg-neo-brutalist-page .gg-radar-svg {{ width: 100%; height: auto; display: block; margin: 0 auto; }}
 .gg-neo-brutalist-page .gg-radar-label {{ font-family: var(--gg-font-data); font-size: var(--gg-font-size-2xs); font-weight: 700; text-transform: uppercase; letter-spacing: var(--gg-letter-spacing-wider); color: var(--gg-color-secondary-brown); margin-top: var(--gg-spacing-2xs); }}
-.gg-neo-brutalist-page .gg-radar-chart.is-drawn .gg-radar-polygon {{ stroke-dashoffset: 0 !important; fill-opacity: 0.2; transition: stroke-dashoffset 1.2s ease-out, fill-opacity 0.8s ease-out 0.6s; }}
-.gg-neo-brutalist-page .gg-radar-chart.is-drawn .gg-radar-dot {{ opacity: 1; transition: opacity 0.3s ease-out; }}
+.gg-neo-brutalist-page .gg-radar-polygon {{ fill-opacity: 0.2; }}
+.gg-neo-brutalist-page .gg-radar-dot {{ opacity: 1; }}
 .gg-neo-brutalist-page .gg-radar-hit:focus {{ outline: none; }}
 .gg-neo-brutalist-page .gg-radar-chart .gg-radar-ring {{ transition: opacity 0.2s; }}
 .gg-neo-brutalist-page [data-rating-group="course"] .gg-radar-spoke.is-active {{ stroke: var(--gg-color-teal); stroke-width: 2; }}

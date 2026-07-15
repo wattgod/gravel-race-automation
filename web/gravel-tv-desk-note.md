@@ -1,9 +1,9 @@
-# Desk Note — week of 2026-07-08
+# Desk Note — week of 2026-07-15
 
-**Week of 8 July 2026**
+**Week of 15 July 2026**
 
-A busy stretch. Thirty-one races across the week, with two Tier 1 events sharing the Saturday slot: Gran Fondo Suisse up in Villars-sur-Ollon on the 10th, and Crusher in the Tushar on the 11th out of Beaver, Utah — a race that will remind anyone who's looked at its elevation profile that "crusher" is not an accident of naming. The Switzerland cluster is worth noting: Gran Fondo Suisse, UCI Gravel Suisse/The Majestics, Gruyère Cycling Tour, and Gravel Suisse all fall within three days and a short drive of each other, which either reflects smart regional coordination or a scheduling conversation nobody finished.
+Saturday is the heavy lift. Jeroboam runs out of Erbusco in Lombardy — Tier 1, proper race, Franciacorta wine country doing double duty as a race venue. Same day, the Transcontinental starts its annual scatter across Europe, and L'Etape du Tour puts civilians on Bourg d'Oisans to Alpe d'Huez a day later. Three Tier 1 events in 48 hours is a reasonable weekend by any measure. Iowa also gets two races on Saturday: RAGBRAI doing its west-to-east crossing of the state, and the Albia Holy Cow down in Monroe County. Different audiences, obviously.
 
-Elsewhere on Saturday, the spread runs from the Pan Celtic Ultra (Wales to Ireland, which is its own logistical sentence) to the Cowboy Crusher in Glenrock, Wyoming at Tier 4. Oregon Trail Gravel Grinder opens things Wednesday across Central Oregon.
+Later in the week, Rad am Ring at the Nürburgring (July 24) is worth noting for the venue alone — a motor circuit repurposed for gravel is either inspired or mildly absurd, depending on your tolerance for novelty. Bob Cook Memorial Mt. Evans Hill Climb on the 25th is a straight-up altitude test out of Idaho Springs.
 
-Sunday closes with Granfondo Pinarello — La Pina in Treviso and Ned Gravel in Nederland, Colorado. Two different altitudes, same calendar box.
+Sixteen races across the fortnight, spread across Lombardy, the French Alps, Iowa, coastal Washington, and Germany. Pick your continent.

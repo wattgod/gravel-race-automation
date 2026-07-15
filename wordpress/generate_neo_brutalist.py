@@ -333,6 +333,26 @@ def _merge_youtube_quotes(youtube_data: dict) -> list:
     return merged[:4]
 
 
+def _normalize_surface_breakdown(raw: Any) -> dict:
+    """Normalize historical flat and route-keyed surface composition shapes.
+
+    Newer profiles use ``{"100 mi": {"gravel": 90}}`` while many legacy
+    road/gran-fondo profiles use ``{"paved": 100, "gravel": 0}``. Invalid
+    scalar values mean no chart data and must not break full-catalog renders.
+    """
+    if not isinstance(raw, dict) or not raw:
+        return {}
+
+    if all(not isinstance(value, dict) for value in raw.values()):
+        return {'Course': raw}
+
+    return {
+        str(label): surfaces
+        for label, surfaces in raw.items()
+        if isinstance(surfaces, dict) and surfaces
+    }
+
+
 def normalize_race_data(data: dict) -> dict:
     """Normalize race data from new-format JSON into a consistent shape
     with all fields the generator expects. Computes derived fields if missing."""
@@ -456,7 +476,7 @@ def normalize_race_data(data: dict) -> dict:
             'map_url': course.get('map_url', ''),
             # Historical data has used both locations. Terrain is canonical;
             # course_description remains a compatibility fallback.
-            'surface_breakdown': (
+            'surface_breakdown': _normalize_surface_breakdown(
                 terrain.get('surface_breakdown')
                 or course.get('surface_breakdown')
                 or {}
@@ -2492,7 +2512,12 @@ def build_course_route(rd: dict, history_html: str = '') -> str:
         for dist_label, surfaces in surface.items():
             segs = []
             normalized_surfaces = [
-                (stype, max(0, min(100, _parse_score(pct))))
+                (
+                    stype,
+                    max(0, min(100, _parse_score(
+                        pct[:-1] if isinstance(pct, str) and pct.endswith('%') else pct
+                    ))),
+                )
                 for stype, pct in surfaces.items()
             ]
             normalized_surfaces.sort(key=lambda x: -x[1])
@@ -6071,14 +6096,19 @@ def write_shared_assets(output_dir: Path) -> dict:
     for old in fonts_dir.glob("*.woff2"):
         if old.name not in wanted:
             old.unlink()
+    local_fonts_dir = Path(__file__).resolve().parent.parent / 'mission_control' / 'static' / 'fonts'
+    copied_fonts = 0
     for font_file in FONT_FILES:
-        src = BRAND_FONTS_DIR / font_file
+        brand_src = BRAND_FONTS_DIR / font_file
+        local_src = local_fonts_dir / font_file
+        src = brand_src if brand_src.exists() else local_src
         dst = fonts_dir / font_file
         if src.exists():
             shutil.copy2(src, dst)
+            copied_fonts += 1
         else:
-            print(f"  WARNING: Font file not found: {src}")
-    print(f"  Copied {len(FONT_FILES)} font files to {fonts_dir}/")
+            print(f"  WARNING: Font file not found in brand or local bundle: {font_file}")
+    print(f"  Copied {copied_fonts}/{len(FONT_FILES)} font files to {fonts_dir}/")
 
     css_content = _extract_css_content()
     js_content = _extract_js_content()

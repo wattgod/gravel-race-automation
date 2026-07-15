@@ -4,14 +4,14 @@
   "name": "La Dr\u00f4moise Gravel",
   "description": "Vineyard passages and Vercors cliff views through the Dr\u00f4me and Bez valleys of France.",
   "sport": "Gravel Cycling",
-  "startDate": "2025-09-18",
+  "startDate": "2026-09-19",
   "location": {
     "@type": "Place",
-    "name": "Dr\u00f4me, France",
+    "name": "Die, Dr\u00f4me, France",
     "address": {
       "@type": "PostalAddress",
-      "addressLocality": "Dr\u00f4me",
-      "addressRegion": "France"
+      "addressLocality": "Die",
+      "addressRegion": "Dr\u00f4me"
     }
   },
   "aggregateRating": {
@@ -21,5 +21,10 @@
     "ratingCount": "14",
     "name": "Gravel God Rating"
   },
-  "url": "https://www.cyclodromoise.com/"
+  "url": "https://www.cyclodromoise.com/",
+  "organizer": {
+    "@type": "Person",
+    "name": "Die Cycling Club",
+    "url": "https://www.cyclodromoise.com/"
+  }
 }

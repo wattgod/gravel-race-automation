@@ -55,6 +55,7 @@ from generate_neo_brutalist import (
     linkify_alternatives,
     normalize_race_data,
     score_bar_color,
+    write_shared_assets,
 )
 
 
@@ -841,6 +842,21 @@ class TestSurfaceBreakdownNormalization:
         data["race"]["course_description"]["surface_breakdown"] = {"100 mi": {"dirt": 70}}
         assert normalize_race_data(data)["course"]["surface_breakdown"] == {"100 mi": {"dirt": 70}}
 
+    def test_legacy_flat_surface_breakdown_gets_course_label(self, sample_race_data):
+        data = copy.deepcopy(sample_race_data)
+        data["race"]["terrain"]["surface_breakdown"] = {"paved": "100%", "gravel": 0}
+        rd = normalize_race_data(data)
+        assert rd["course"]["surface_breakdown"] == {
+            "Course": {"paved": "100%", "gravel": 0}
+        }
+        html = build_course_route(rd)
+        assert "paved 100%" in html
+
+    def test_invalid_scalar_surface_breakdown_is_ignored(self, sample_race_data):
+        data = copy.deepcopy(sample_race_data)
+        data["race"]["terrain"]["surface_breakdown"] = 100
+        assert normalize_race_data(data)["course"]["surface_breakdown"] == {}
+
 
 # ── Logistics Placeholder Suppression ─────────────────────────
 
@@ -1059,6 +1075,14 @@ class TestInteractiveRating:
         js = build_inline_js()
         assert "radarObs" not in js
         assert "is-drawn" not in js
+
+
+class TestSharedAssets:
+    def test_local_font_bundle_fills_missing_sibling_brand_repo(self, tmp_path):
+        write_shared_assets(tmp_path)
+        fonts_dir = tmp_path / "assets" / "fonts"
+        assert (fonts_dir / "SometypeMono-normal-latin.woff2").stat().st_size > 0
+        assert (fonts_dir / "SourceSerif4-normal-latin.woff2").stat().st_size > 0
 
 
 # ── Full Page Assembly ────────────────────────────────────────

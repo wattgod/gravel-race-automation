@@ -4,7 +4,7 @@
   "name": "Gravel Locos",
   "description": "Fast Texas gravel. River crossings. Scorching heat. The Unbound tune-up that breaks people.",
   "sport": "Gravel Cycling",
-  "startDate": "2026-05-23",
+  "startDate": "2027-05-22",
   "location": {
     "@type": "Place",
     "name": "Hico, Texas",
@@ -13,6 +13,12 @@
       "addressLocality": "Hico",
       "addressRegion": "Texas"
     }
+  },
+  "offers": {
+    "@type": "Offer",
+    "price": "85",
+    "priceCurrency": "USD",
+    "availability": "https://schema.org/LimitedAvailability"
   },
   "aggregateRating": {
     "@type": "AggregateRating",

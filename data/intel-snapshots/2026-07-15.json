@@ -1,0 +1,276 @@
+{
+ "date": "2026-07-15",
+ "ga4": {
+  "gravelgod": {
+   "sessions": 57,
+   "users": 39,
+   "pageviews": 100,
+   "sessions_7d_avg": 40.6,
+   "funnel": {
+    "cta_click": 4,
+    "form_start": 3,
+    "form_submit": 1,
+    "begin_checkout": 0,
+    "purchase": 0
+   },
+   "abandoned_submits": 1,
+   "top_pages": [
+    {
+     "path": "/gravel-races/",
+     "views": 22
+    },
+    {
+     "path": "/",
+     "views": 7
+    },
+    {
+     "path": "/course/",
+     "views": 4
+    },
+    {
+     "path": "/products/training-plans/",
+     "views": 4
+    },
+    {
+     "path": "/race/seven/",
+     "views": 3
+    },
+    {
+     "path": "/race/the-range/",
+     "views": 3
+    },
+    {
+     "path": "/articles/",
+     "views": 2
+    },
+    {
+     "path": "/articles/sweet-spot-training-cycling/",
+     "views": 2
+    }
+   ],
+   "channel_mix": {
+    "Organic Search": 39,
+    "Direct": 13,
+    "Unassigned": 4,
+    "Referral": 1
+   },
+   "top_landing": [
+    {
+     "path": "/",
+     "sessions": 4
+    },
+    {
+     "path": "/products/training-plans/",
+     "sessions": 4
+    },
+    {
+     "path": "",
+     "sessions": 3
+    },
+    {
+     "path": "/articles/sweet-spot-training-cycling/",
+     "sessions": 2
+    },
+    {
+     "path": "/course/",
+     "sessions": 2
+    },
+    {
+     "path": "/gravel-races/",
+     "sessions": 2
+    }
+   ],
+   "sessions_28d": 1049,
+   "funnel_28d": {
+    "cta_click": 39,
+    "form_start": 42,
+    "form_submit": 25,
+    "begin_checkout": 1,
+    "purchase": 3
+   },
+   "ok": true
+  },
+  "roadielabs": {
+   "sessions": 0,
+   "users": 0,
+   "pageviews": 0,
+   "sessions_7d_avg": 0.0,
+   "funnel": {
+    "cta_click": 0,
+    "form_start": 0,
+    "form_submit": 0,
+    "begin_checkout": 0,
+    "purchase": 0
+   },
+   "abandoned_submits": 0,
+   "top_pages": [],
+   "channel_mix": {},
+   "top_landing": [],
+   "sessions_28d": 8,
+   "funnel_28d": {
+    "cta_click": 0,
+    "form_start": 0,
+    "form_submit": 0,
+    "begin_checkout": 0,
+    "purchase": 0
+   },
+   "ok": true
+  }
+ },
+ "checkout": {
+  "gravelgod": {
+   "health_ok": true,
+   "stripe_checkout_ok": true,
+   "ok": true,
+   "error": ""
+  },
+  "roadielabs": {
+   "health_ok": true,
+   "stripe_checkout_ok": true,
+   "ok": true,
+   "error": ""
+  }
+ },
+ "mission_control": {
+  "hot_leads_14d": [
+   {
+    "email": "jbrooker03@hotmail.com",
+    "name": "",
+    "race": "UCI Gravel World Championships",
+    "brand": "gravelgod",
+    "sequence": "welcome_v1",
+    "step": 1,
+    "status": "active",
+    "opens": 1,
+    "clicks": 1
+   },
+   {
+    "email": "angela.waldrop@gmail.com",
+    "name": "",
+    "race": "Death Ride \u2014 Tour of the California Alps",
+    "brand": "gravelgod",
+    "sequence": "welcome_v1",
+    "step": 1,
+    "status": "active",
+    "opens": 1,
+    "clicks": 0
+   },
+   {
+    "email": "xanderbhs21@gmail.com",
+    "name": "",
+    "race": "Gunni Grinder",
+    "brand": "gravelgod",
+    "sequence": "welcome_v1",
+    "step": 2,
+    "status": "active",
+    "opens": 0,
+    "clicks": 0
+   },
+   {
+    "email": "xehahet640@bevriz.com",
+    "name": "",
+    "race": "Veneto Gravel",
+    "brand": "gravelgod",
+    "sequence": "welcome_v1",
+    "step": 2,
+    "status": "active",
+    "opens": 0,
+    "clicks": 0
+   },
+   {
+    "email": "paulcacha@hotmail.com",
+    "name": "",
+    "race": "Mad Gravel",
+    "brand": "gravelgod",
+    "sequence": "welcome_v1",
+    "step": 2,
+    "status": "active",
+    "opens": 0,
+    "clicks": 0
+   },
+   {
+    "email": "racerbenjamin@gmail.com",
+    "name": "",
+    "race": "The Rift",
+    "brand": "gravelgod",
+    "sequence": "welcome_v1",
+    "step": 3,
+    "status": "active",
+    "opens": 3,
+    "clicks": 1
+   },
+   {
+    "email": "michael.mendik@gmail.com",
+    "name": "",
+    "race": "Salida 76",
+    "brand": "gravelgod",
+    "sequence": "welcome_v1",
+    "step": 3,
+    "status": "active",
+    "opens": 2,
+    "clicks": 1
+   },
+   {
+    "email": "jseall@yahoo.com",
+    "name": "",
+    "race": "Melting Mann",
+    "brand": "gravelgod",
+    "sequence": "welcome_v1",
+    "step": 3,
+    "status": "active",
+    "opens": 2,
+    "clicks": 0
+   }
+  ],
+  "new_leads_24h": 0,
+  "leads_by_brand": {
+   "gravelgod": 0,
+   "roadielabs": 0
+  },
+  "countdown_enrollments": 0,
+  "emails_sent_24h": 11,
+  "opens_24h": 6,
+  "clicks_24h": 1,
+  "bounces_24h": 0,
+  "new_orders_24h_UNRELIABLE": "use ga4 purchase counts \u2014 gg_athletes is not written by purchases",
+  "errors_24h": [],
+  "ok": true
+ },
+ "commerce_ledger": {
+  "failed_orders": [],
+  "orders": [],
+  "questionnaire_starts": 0,
+  "recoveries": [],
+  "window_hours": 24,
+  "ok": true
+ },
+ "social": {
+  "accounts_live": false,
+  "queued_today": 0,
+  "queued_yesterday": 0,
+  "posts": [],
+  "ok": true
+ },
+ "workflows": {
+  "latest": {
+   "gravel-race-automation/link-check.yml": "failure",
+   "road-race-automation/link-check.yml": "failure",
+   "road-race-automation/checkout-monitor.yml": "success",
+   "gravel-race-automation/regression-tests.yml": "success"
+  },
+  "ok": true
+ },
+ "constraint": {
+  "ok": true,
+  "sessions_per_day": 37.5,
+  "cta_rate_pct": 3.72,
+  "cta_to_submit_pct": 64.1,
+  "submit_to_purchase_pct": 12.0,
+  "purchases_28d": 3,
+  "submits_28d": 25,
+  "ctas_28d": 39,
+  "sessions_per_day_needed_for_1_sale": 350,
+  "binding_constraint": "traffic \u2014 at these volumes no funnel rate is even measurable; nothing downstream is worth optimizing yet"
+ },
+ "report": "## TOP LINE\n- GravelGod sessions 57, above 7d avg (40.6) \u2014 but funnel stalled at form_submit (1), zero purchases, zero begin_checkout.\n- RoadieLabs: 0 sessions, 0 leads, still flat since baseline.\n- Two GitHub Actions link-check workflows failed overnight (gravel + road automation).\n\n## NUMBERS\n| Brand | Sessions (vs 7d avg) | CTA | Form Start | Form Submit | Checkout | Purchase | Leads |\n|---|---|---|---|---|---|---|---|\n| GravelGod | 57 (40.6) | 4 | 3 | 1 | 0 | 0 | 0 |\n| RoadieLabs | 0 (0.0) | 0 | 0 | 0 | 0 | 0 | 0 |\n\n## TRAFFIC\n**GravelGod**\n- Top pages: /gravel-races/ (22), / (7), /course/ (4), /products/training-plans/ (4), /race/seven/ (3)\n- Channel mix: Organic Search 39, Direct 13, Unassigned 4, Referral 1\n- Top landing: / (4), /products/training-plans/ (4), \"\" (3), /articles/sweet-spot-training-cycling/ (2), /course/ (2)\n- Nothing notable \u2014 mix and pages in line with recent pattern.\n\n**RoadieLabs**\n- Near-zero. No sessions recorded.\n\n## COMMERCE (ground truth)\nLedger empty \u2014 no orders, no failed orders, no recoveries, 0 questionnaire starts in the last 24h.\n\n## CONSTRAINT\nBinding constraint: traffic \u2014 at current volumes no funnel rate is measurable, nothing downstream worth optimizing. 28-day rates: CTA 3.72%, CTA\u2192submit 64.1%, submit\u2192purchase 12.0% (3 purchases / 25 submits / 39 CTAs over 28d). Need 350 sessions/day for one sale/day at these rates; actual is 37.5/day.\n\n## HOT LEADS\n- jbrooker03@hotmail.com \u2014 UCI Gravel World Championships, welcome_v1 step 1, 1 open/1 click. Reply personally about their race \u2014 use draft_race_reply.\n- angela.waldrop@gmail.com \u2014 Death Ride, welcome_v1 step 1, 1 open/0 clicks. Let sequence run.\n- xanderbhs21@gmail.com \u2014 Gunni Grinder, welcome_v1 step 2, 0/0. Let sequence run.\n- xehahet640@bevriz.com \u2014 Veneto Gravel, welcome_v1 step 2, 0/0. Let sequence run.\n- paulcacha@hotmail.com \u2014 Mad Gravel, welcome_v1 step 2, 0/0. Let sequence run.\n- racerbenjamin@gmail.com \u2014 The Rift, welcome_v1 step 3, 3 opens/1 click. Reply personally about their race \u2014 use draft_race_reply.\n- michael.mendik@gmail.com \u2014 Salida 76, welcome_v1 step 3, 2 opens/1 click. Reply personally about their race \u2014 use draft_race_reply.\n- jseall@yahoo.com \u2014 Melting Mann, welcome_v1 step 3, 2 opens/0 clicks. Let sequence run.\n\n## SOC"
+}

@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 #
 # Integration tests for fueling-lead-intake Cloudflare Worker.
-# Tests all 6 valid sources AND all rejection paths.
+# Tests all 7 valid sources AND all rejection paths.
 #
 # Usage:
 #   bash tests/test_worker_intake.sh
@@ -99,6 +99,13 @@ assert_status "quiz_shared: email + race" "200" "$R"
 
 R=$(post '{"email":"test-fuel@example.com","weight_lbs":"175","race_slug":"unbound","race_name":"Unbound Gravel","target_hours":"10","website":""}')
 assert_status "fueling_calculator: full payload" "200" "$R"
+
+# race_plan_ladder — the race-page plan-ladder "notify me" form
+# (wordpress/generate_neo_brutalist.py:1300,4798). Regression guard for the
+# P0 money-path bug where this source was missing from KNOWN_SOURCES and the
+# worker silently 400'd every plan-ladder lead.
+R=$(post '{"email":"test-pl@example.com","source":"race_plan_ladder","race_slug":"unbound","race_name":"Unbound Gravel","tier":"Finisher","website":""}')
+assert_status "race_plan_ladder: email + race + tier" "200" "$R"
 
 echo ""
 

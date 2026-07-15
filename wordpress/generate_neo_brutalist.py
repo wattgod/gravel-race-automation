@@ -1221,6 +1221,27 @@ document.querySelectorAll('.gg-faq-question').forEach(function(q) {
   });
 })();
 
+// Shared inline-form error display — never show a success state without a
+// confirmed 2xx response from the worker (CLAUDE.md: "never show a success
+// message without actually submitting the email").
+function ggShowFormError(form, msg) {
+  var err = form.querySelector('.gg-form-error');
+  if (!err) {
+    err = document.createElement('p');
+    err.className = 'gg-form-error';
+    err.setAttribute('role', 'alert');
+    err.style.cssText = 'font-family:var(--gg-font-data);font-size:12px;color:var(--gg-color-error,#c0392b);font-weight:700;margin-top:8px';
+    form.appendChild(err);
+  }
+  err.textContent = msg;
+  err.style.display = 'block';
+}
+function ggClearFormError(form) {
+  var err = form.querySelector('.gg-form-error');
+  if (err) err.style.display = 'none';
+}
+var GG_FORM_ERROR_MSG = 'Something went wrong — please try again.';
+
 // Email capture form — prep kit CTA
 (function() {
   var WORKER_URL='https://fueling-lead-intake.gravelgodcoaching.workers.dev';
@@ -1248,10 +1269,7 @@ document.querySelectorAll('.gg-faq-question').forEach(function(q) {
       alert('Please enter a valid email address.');return;
     }
     if(form.website&&form.website.value) return;
-    /* Cache email */
-    try{
-      localStorage.setItem(LS_KEY,JSON.stringify({email:email,exp:Date.now()+EXPIRY_DAYS*86400000}));
-    }catch(ex){}
+    ggClearFormError(form);
     /* POST to Worker */
     var payload={
       email:email,
@@ -1260,15 +1278,25 @@ document.querySelectorAll('.gg-faq-question').forEach(function(q) {
       source:form.source.value,
       website:form.website.value
     };
-    fetch(WORKER_URL,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)}).catch(function(){});
-    /* GA4 */
-    if(typeof gtag==='function'){
-      gtag('event','email_capture',{race_slug:form.race_slug.value,source:'race_profile'});
-    }
-    /* Show success state */
-    form.style.display='none';
-    var success=document.getElementById('gg-email-capture-success');
-    if(success) success.style.display='block';
+    fetch(WORKER_URL,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)})
+      .then(function(r){
+        if(!r.ok) throw new Error('bad status');
+        /* Cache email — only after a confirmed successful submission */
+        try{
+          localStorage.setItem(LS_KEY,JSON.stringify({email:email,exp:Date.now()+EXPIRY_DAYS*86400000}));
+        }catch(ex){}
+        /* GA4 */
+        if(typeof gtag==='function'){
+          gtag('event','email_capture',{race_slug:form.race_slug.value,source:'race_profile'});
+        }
+        /* Show success state */
+        form.style.display='none';
+        var success=document.getElementById('gg-email-capture-success');
+        if(success) success.style.display='block';
+      })
+      .catch(function(){
+        ggShowFormError(form, GG_FORM_ERROR_MSG);
+      });
   });
 })();
 
@@ -1287,6 +1315,7 @@ document.querySelectorAll('.gg-faq-question').forEach(function(q) {
         alert('Please enter a valid email address.');return;
       }
       if(form.website&&form.website.value) return;
+      ggClearFormError(form);
       var payload={
         email:email,
         race_slug:form.race_slug.value,
@@ -1295,13 +1324,19 @@ document.querySelectorAll('.gg-faq-question').forEach(function(q) {
         source:form.source.value,
         website:form.website.value
       };
-      fetch(WORKER_URL,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)}).catch(function(){});
-      if(typeof gtag==='function'){
-        gtag('event','email_capture',{race_slug:form.race_slug.value,tier:form.tier.value,source:'race_plan_ladder'});
-      }
-      form.style.display='none';
-      var success=form.nextElementSibling;
-      if(success&&success.classList.contains('gg-plan-ladder-success')) success.style.display='block';
+      fetch(WORKER_URL,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)})
+        .then(function(r){
+          if(!r.ok) throw new Error('bad status');
+          if(typeof gtag==='function'){
+            gtag('event','email_capture',{race_slug:form.race_slug.value,tier:form.tier.value,source:'race_plan_ladder'});
+          }
+          form.style.display='none';
+          var success=form.nextElementSibling;
+          if(success&&success.classList.contains('gg-plan-ladder-success')) success.style.display='block';
+        })
+        .catch(function(){
+          ggShowFormError(form, GG_FORM_ERROR_MSG);
+        });
     });
   });
 })();
@@ -1351,6 +1386,7 @@ document.querySelectorAll('.gg-faq-question').forEach(function(q) {
     if(!email||!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){alert('Please enter a valid email.');return;}
     if(form.website&&form.website.value) return;
 
+    ggClearFormError(form);
     var payload={
       email:email,
       source:'race_review',
@@ -1364,13 +1400,19 @@ document.querySelectorAll('.gg-faq-question').forEach(function(q) {
       worst:form.worst.value,
       website:form.website.value
     };
-    fetch(WORKER_URL,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)}).catch(function(){});
-    if(typeof gtag==='function') gtag('event','review_submit',{race_slug:form.race_slug.value,stars:stars});
+    fetch(WORKER_URL,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)})
+      .then(function(r){
+        if(!r.ok) throw new Error('bad status');
+        if(typeof gtag==='function') gtag('event','review_submit',{race_slug:form.race_slug.value,stars:stars});
 
-    /* Show success, clear char counts */
-    document.querySelectorAll('.gg-review-charcount').forEach(function(el){el.textContent='0/500';});
-    document.getElementById('gg-review-form-wrap').querySelector('.gg-review-form').style.display='none';
-    document.getElementById('gg-review-success').style.display='block';
+        /* Show success, clear char counts */
+        document.querySelectorAll('.gg-review-charcount').forEach(function(el){el.textContent='0/500';});
+        document.getElementById('gg-review-form-wrap').querySelector('.gg-review-form').style.display='none';
+        document.getElementById('gg-review-success').style.display='block';
+      })
+      .catch(function(){
+        ggShowFormError(form, GG_FORM_ERROR_MSG);
+      });
   });
 })();
 
@@ -1736,6 +1778,7 @@ document.querySelectorAll('.gg-pack-workout').forEach(function(card) {
     if(hp&&hp.value) return;
     var slug=form.race_slug.value;
     var raceDate=form.race_date.value;
+    ggClearFormError(form);
     var payload={
       email:email,
       source:'date_reminder',
@@ -1743,15 +1786,21 @@ document.querySelectorAll('.gg-pack-workout').forEach(function(card) {
       race_date:raceDate,
       website:hp?hp.value:''
     };
-    fetch(WORKER_URL,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)}).catch(function(){});
-    if(typeof gtag==='function') {
-      gtag('event','email_capture',{source:'date_reminder',race_slug:slug});
-    }
-    while(form.firstChild) form.removeChild(form.firstChild);
-    var msg=document.createElement('p');
-    msg.style.cssText='font-family:var(--gg-font-data);font-size:12px;color:var(--gg-color-teal);font-weight:700';
-    msg.textContent='\u2713 We will remind you 12 weeks out.';
-    form.appendChild(msg);
+    fetch(WORKER_URL,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)})
+      .then(function(r){
+        if(!r.ok) throw new Error('bad status');
+        if(typeof gtag==='function') {
+          gtag('event','email_capture',{source:'date_reminder',race_slug:slug});
+        }
+        while(form.firstChild) form.removeChild(form.firstChild);
+        var msg=document.createElement('p');
+        msg.style.cssText='font-family:var(--gg-font-data);font-size:12px;color:var(--gg-color-teal);font-weight:700';
+        msg.textContent='\u2713 We will remind you 12 weeks out.';
+        form.appendChild(msg);
+      })
+      .catch(function(){
+        ggShowFormError(form, GG_FORM_ERROR_MSG);
+      });
   });
 })();
 

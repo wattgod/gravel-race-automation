@@ -31,12 +31,12 @@
     },
     "climate": {
       "primary": "Colorado mountain summer",
-      "description": "High altitude with variable mountain conditions. Afternoon thunderstorms possible.",
+      "description": "Chilly 40s-50s°F at the start warming to 70s-80s°F by afternoon. Very strong UV exposure at altitude (7,000-11,000 ft). Afternoon thunderstorms possible.",
       "challenges": [
-        "High altitude (7000-9000+ feet)",
-        "Afternoon thunderstorms",
-        "Variable mountain weather",
-        "Sun exposure at altitude"
+        "High altitude (7,000-11,000 feet)",
+        "Cold start (40s-50s°F) warming to 70s-80s°F",
+        "Very strong UV exposure at altitude",
+        "Afternoon thunderstorms"
       ]
     },
     "terrain": {
@@ -44,8 +44,8 @@
       "surface": "Mountain gravel roads with significant elevation. High altitude terrain with challenging climbing.",
       "technical_rating": 3,
       "features": [
-        "Significant climbing (6000 feet)",
-        "High altitude (7000-9000+ feet)",
+        "Significant climbing (10,000 feet)",
+        "High altitude (7,000-11,000 feet)",
         "Mountain scenery near Vail",
         "Technical mountain gravel",
         "Colorado Rockies setting"
@@ -75,7 +75,7 @@
     },
     "biased_opinion": {
       "verdict": "Colorado Mountain Challenge Near Vail",
-      "summary": "Bighorn Gravel offers a genuine Colorado mountain gravel challenge with high altitude and significant climbing. Gypsum is a small town near Vail with basic amenities. The course is challenging with 6000 feet of climbing at 7000-9000+ feet elevation. It's a well-organized regional event with a moderate field. The main appeal is the mountain setting near Vail and altitude challenge.",
+      "summary": "Bighorn Gravel offers a genuine Colorado mountain gravel challenge with high altitude and significant climbing. Gypsum is a small town near Vail with basic amenities. The course is challenging with 10,000 feet of climbing at 7,000-11,000 feet elevation. It's a well-organized regional event with a moderate field. The main appeal is the mountain setting near Vail and altitude challenge.",
       "strengths": [
         "Significant climbing and altitude challenge",
         "Beautiful Colorado mountain scenery near Vail",
@@ -120,28 +120,28 @@
       "character": "Mountain gravel with significant climbing at high altitude.",
       "suffering_zones": [
         {
-          "mile": 15,
-          "label": "First Climb",
-          "desc": "Early climbing at altitude.",
-          "terrain_detail": "Mountain ascent",
-          "named_section": "Early Climb"
+          "mile": 13,
+          "label": "Opening Wall",
+          "desc": "~3,000 ft sustained climb in the first 13 miles, the signature gut-punch, at altitude.",
+          "terrain_detail": "Sustained mountain ascent",
+          "named_section": "Opening Wall"
         },
         {
           "mile": 35,
           "label": "High Point",
-          "desc": "Highest elevation point.",
-          "terrain_detail": "9000+ feet",
-          "named_section": "Summit"
+          "desc": "Rutted, rocky high jeep roads above 9,000 ft — keep focus or you could crash.",
+          "terrain_detail": "High jeep roads",
+          "named_section": "High Point"
         },
         {
-          "mile": 50,
-          "label": "Final Climb",
-          "desc": "Last major climb to finish.",
-          "terrain_detail": "Final ascent",
-          "named_section": "Finish Climb"
+          "mile": 75,
+          "label": "Final Singletrack",
+          "desc": "Final singletrack and berms to the finish, rowdy.",
+          "terrain_detail": "Singletrack and berms",
+          "named_section": "Final Singletrack"
         }
       ],
-      "signature_challenge": "6000 feet of climbing at 7000-9000+ feet altitude.",
+      "signature_challenge": "10,000 feet of climbing at 7,000-11,000 feet altitude.",
       "ridewithgps_id": null,
       "ridewithgps_name": null
     },
@@ -154,24 +154,24 @@
       "race_terrain": "Colorado mountain gravel",
       "race_weather": "Mountain variability",
       "race_challenges": [
-        "High altitude (7000-9000+ feet)",
-        "6000 feet of climbing",
+        "High altitude (7,000-11,000 feet)",
+        "10,000 feet of climbing",
         "Afternoon thunderstorms",
         "Mountain weather"
       ],
       "altitude_section": true,
-      "altitude_feet": "7000-9000+"
+      "altitude_feet": "7000-11000"
     },
     "non_negotiables": [
       {
         "requirement": "Altitude preparation",
         "by_when": "Week 6-8",
-        "why": "Racing at 7000-9000+ feet requires altitude acclimatization or preparation."
+        "why": "Racing at 7,000-11,000 feet requires altitude acclimatization or preparation."
       },
       {
         "requirement": "Climbing strength",
         "by_when": "Week 6-8",
-        "why": "6000 feet of climbing requires strong aerobic capacity and climbing fitness."
+        "why": "10,000 feet of climbing requires strong aerobic capacity and climbing fitness."
       },
       {
         "requirement": "Thunderstorm awareness",
@@ -254,8 +254,8 @@
       "tier_overrides": {},
       "marketplace_variables": {
         "race_name": "Bighorn Gravel",
-        "race_hook": "85 miles of Colorado mountain gravel at 7000-9000+ feet.",
-        "race_hook_detail": "Regional mountain event in Gypsum with 6000 feet of climbing.",
+        "race_hook": "85 miles of Colorado mountain gravel at 7,000-11,000 feet.",
+        "race_hook_detail": "Regional mountain event in Gypsum with 10,000 feet of climbing.",
         "distance": "62",
         "dark_mile": "35",
         "non_negotiable_1": "Altitude preparation",
@@ -709,7 +709,7 @@
             "curated": true
           }
         ],
-        "search_text": "Bighorn Gravel in Gypsum, Colorado is a challenging 62-mile race with 6000 feet of elevation gain that tests riders at altitude from 6000 to 10000 feet. The course features a brutal first climb where many riders lose contact with the field, followed by rolling terrain along creek valleys with pitches that go up and level out repeatedly. Technical sections include swoopy bermed single track and a challenging two-mile downhill. Terrain varies from county roads to rugged Jeep roads that can be rotted out with ruts from weather damage. The elevation significantly impacts power output and recovery, requiring careful pacing strategies. Some sections near the summit are too steep to ride, forcing walking. The race attracts strong competition including Leadville preparation riders, and offers on-site camping with a Sunday morning start schedule."
+        "search_text": "Bighorn Gravel in Gypsum, Colorado is a challenging 85-mile race with 10,000 feet of elevation gain that tests riders at altitude from 6,300 to 11,000 feet. The course features a brutal first climb where many riders lose contact with the field, followed by rolling terrain along creek valleys with pitches that go up and level out repeatedly. Technical sections include swoopy bermed single track and a challenging two-mile downhill. Terrain varies from county roads to rugged Jeep roads that can be rotted out with ruts from weather damage. The elevation significantly impacts power output and recovery, requiring careful pacing strategies. Some sections near the summit are too steep to ride, forcing walking. The race attracts strong competition including Leadville preparation riders, and offers on-site camping with a Sunday morning start schedule."
       }
     },
     "photos": [

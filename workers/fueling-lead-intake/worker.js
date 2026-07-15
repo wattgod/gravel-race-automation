@@ -7,7 +7,7 @@
  * payload, and the notification email subject/sender so road leads are
  * distinguishable in the shared list/inbox.
  *
- * Handles 9 capture sources:
+ * Handles 10 capture sources:
  *   - exit_intent:        email only (race profile exit popup)
  *   - race_profile:       email + race context (prep kit CTA)
  *   - prep_kit_gate:      email + race context (content unlock)
@@ -17,6 +17,7 @@
  *   - race_review:        email + race context + stars/review data (race profile review form)
  *   - state_hub:          email + state slug (state hub page subscribe)
  *   - date_reminder:      email + race slug + race date (race date reminder)
+ *   - race_plan_ladder:   email + race context + tier (plan-ladder "notify me" form)
  *   - fueling_calculator: email + weight + race + fueling data (detected by weight_lbs, no source field)
  *
  * Every valid submission upserts the contact into SendGrid Marketing Contacts.
@@ -29,7 +30,7 @@ const DISPOSABLE_DOMAINS = [
   'yopmail.com', 'temp-mail.org', 'getnada.com', 'mohmal.com'
 ];
 
-const KNOWN_SOURCES = ['exit_intent', 'race_profile', 'prep_kit_gate', 'race_quiz', 'quiz_shared', 'tire_guide', 'race_review', 'state_hub', 'date_reminder'];
+const KNOWN_SOURCES = ['exit_intent', 'race_profile', 'prep_kit_gate', 'race_quiz', 'quiz_shared', 'tire_guide', 'race_review', 'state_hub', 'date_reminder', 'race_plan_ladder'];
 
 export default {
   async fetch(request, env) {

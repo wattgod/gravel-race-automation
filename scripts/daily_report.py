@@ -25,6 +25,7 @@ import os
 import sys
 from collections import Counter
 from datetime import date, datetime, timedelta
+from html import escape as html_escape
 from pathlib import Path
 from xml.etree import ElementTree
 
@@ -316,6 +317,81 @@ def collect_athletes() -> dict:
         return {"configured": False}
 
 
+def collect_pipeline_e2e() -> dict:
+    """Latest custom-training-plan-pipeline daily E2E result (see ~/gg-e2e/).
+
+    Wrapped in a broad guard: this is a best-effort read of an external file and
+    must NEVER break the brief. Any failure degrades to ``configured: False``.
+    """
+    import re
+
+    try:
+        reports = Path.home() / "gg-e2e" / "reports"
+        files = sorted(reports.glob("e2e-20*.md"))
+        if not files:
+            return {"configured": False}
+        latest = files[-1]
+        text = latest.read_text(errors="replace")
+
+        m = re.match(r"e2e-(\d{4}-\d{2}-\d{2})\.md", latest.name)
+        report_date = m.group(1) if m else "?"
+        stale = report_date != CURRENT_DATE.isoformat()
+
+        if "deterministic gates PASS" in text:
+            det_gate = "PASS"
+        elif "❌ FAIL" in text or "gates FAIL" in text or "deterministic gates" not in text:
+            det_gate = "FAIL"
+        else:
+            det_gate = "?"
+        vm = re.search(r"VERDICT:\s*(GO|NO-GO)", text)
+        verdict = vm.group(1) if vm else "?"
+        pm = re.search(r"^- pytest:\s*\*\*(.+?)\*\*", text, re.M)
+        pytest_summary = pm.group(1) if pm else "?"
+        rm = re.search(r"^- Ref:\s*`(.+?)`\s*@\s*`(.+?)`", text, re.M)
+        ref, commit = (rm.group(1), rm.group(2)) if rm else ("?", "?")
+        racem = re.search(r"^- Fixture race:\s*\*\*(.+?)\*\*", text, re.M)
+        race = racem.group(1) if racem else "?"
+
+        # Capture blockers listed under the BLOCKERS: heading. Stop at WATCH: or
+        # the closing code-fence. Headings may carry markdown hashes (## WATCH:).
+        blockers = []
+        in_block = False
+        for line in text.splitlines():
+            if re.match(r"\s*#*\s*BLOCKERS:", line):
+                in_block = True
+                continue
+            if in_block:
+                if re.match(r"\s*#*\s*WATCH:", line) or line.strip() == "```":
+                    break
+                if line.strip() == "":
+                    continue
+                bm = re.match(r"\s*(\d+)\.\s+(.*)", line)
+                if bm:
+                    blockers.append(bm.group(2).strip())
+                elif blockers and line.strip():
+                    blockers[-1] += " " + line.strip()
+        # "none" is a sentinel only when it is the SOLE, standalone entry.
+        if len(blockers) == 1 and blockers[0].strip().lower().rstrip(".") == "none":
+            blockers = []
+        blocker_count = len(blockers)
+
+        return {
+            "configured": True,
+            "report_date": report_date,
+            "stale": stale,
+            "det_gate": det_gate,
+            "verdict": verdict,
+            "pytest": pytest_summary,
+            "ref": ref,
+            "commit": commit,
+            "race": race,
+            "blocker_count": blocker_count,
+            "blockers": blockers[:4],
+        }
+    except Exception:
+        return {"configured": False}
+
+
 # ── Commentary Engine ──────────────────────────────────────────────
 
 
@@ -465,6 +541,7 @@ def render_html(data: dict) -> str:
     ga4 = data.get("ga4", {})
     rev = data.get("revenue", {})
     ath = data.get("athletes", {})
+    e2e = data.get("pipeline_e2e", {})
     commentary = data.get("commentary", [])
 
     # Key metrics bar values
@@ -511,6 +588,62 @@ def render_html(data: dict) -> str:
       <table width="100%" cellpadding="0" cellspacing="0">
         <tr><td style="font-family:'Courier New',monospace;font-size:12px;text-transform:uppercase;letter-spacing:1px;color:#7d695d;padding-bottom:8px;">Commentary</td></tr>
         {commentary_html}
+      </table>
+    </td></tr>""")
+
+    # 3b. Pipeline E2E (custom training plan pipeline daily test + codex-sol)
+    if e2e.get("configured"):
+        gate = e2e.get("det_gate", "?")
+        verdict = e2e.get("verdict", "?")
+        gate_color = "#178079" if gate == "PASS" else "#c0392b"
+        verdict_color = "#178079" if verdict == "GO" else ("#c0392b" if verdict == "NO-GO" else "#7d695d")
+
+        def _pill(label: str, color: str) -> str:
+            return (f'<span style="display:inline-block;font-family:\'Courier New\',monospace;'
+                    f'font-size:11px;font-weight:bold;color:#fff;background:{color};'
+                    f'padding:3px 10px;border-radius:3px;letter-spacing:0.5px;">{label}</span>')
+
+        # Report content is external text — escape before it enters the markup.
+        e_pytest = html_escape(str(e2e.get("pytest", "?")))
+        e_ref = html_escape(str(e2e.get("ref", "?")))
+        e_commit = html_escape(str(e2e.get("commit", "?")))
+        e_race = html_escape(str(e2e.get("race", "?")))
+        e_date = html_escape(str(e2e.get("report_date", "?")))
+
+        stale_html = ""
+        if e2e.get("stale"):
+            stale_html = (f'<tr><td style="font-family:Georgia,serif;font-size:13px;color:#b8860b;'
+                          f'padding:6px 0 0;">&#9888; E2E did not run today &mdash; showing last result from '
+                          f'{e_date}.</td></tr>')
+
+        blockers_html = ""
+        if e2e.get("blocker_count", 0) > 0:
+            items = ""
+            for b in e2e.get("blockers", []):
+                snippet = html_escape(b[:180]) + ("&hellip;" if len(b) > 180 else "")
+                items += (f'<tr><td style="font-family:Georgia,serif;font-size:12px;color:#3a2e25;'
+                          f'padding:2px 0 2px 16px;line-height:1.5;">&#8226; {snippet}</td></tr>\n')
+            more = e2e.get("blocker_count", 0) - len(e2e.get("blockers", []))
+            more_html = (f'<tr><td style="font-family:Georgia,serif;font-size:12px;color:#7d695d;'
+                         f'padding:2px 0 2px 16px;">&#8226; &hellip;and {more} more (see '
+                         f'~/gg-e2e/reports/e2e-{e_date}.md)</td></tr>') if more > 0 else ""
+            blockers_html = (f'<tr><td style="font-family:Georgia,serif;font-size:12px;color:#7d695d;'
+                             f'padding:8px 0 2px;">codex-sol blockers ({e2e.get("blocker_count")}):</td></tr>'
+                             f'{items}{more_html}')
+
+        sections.append(f"""
+    <tr><td style="padding:20px 32px 12px;">
+      <table width="100%" cellpadding="0" cellspacing="0">
+        <tr><td style="font-family:'Courier New',monospace;font-size:12px;text-transform:uppercase;letter-spacing:1px;color:#7d695d;padding-bottom:8px;">Pipeline E2E &mdash; Custom Training Plan</td></tr>
+        <tr><td style="padding:2px 0 6px;">
+          {_pill("GATES " + gate, gate_color)} &nbsp; {_pill("codex-sol " + verdict, verdict_color)}
+        </td></tr>
+        <tr><td style="font-family:Georgia,serif;font-size:13px;color:#3a2e25;line-height:1.7;">
+          pytest: {e_pytest}<br>
+          ref: <span style="font-family:'Courier New',monospace;font-size:12px;">{e_ref}@{e_commit}</span> &middot; fixture race: {e_race}
+        </td></tr>
+        {stale_html}
+        {blockers_html}
       </table>
     </td></tr>""")
 
@@ -775,6 +908,7 @@ def collect_all() -> dict:
         "ga4": collect_ga4_metrics(),
         "revenue": collect_revenue(),
         "athletes": collect_athletes(),
+        "pipeline_e2e": collect_pipeline_e2e(),
     }
     data["commentary"] = generate_commentary(data)
     return data

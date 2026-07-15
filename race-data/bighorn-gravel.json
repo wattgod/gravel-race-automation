@@ -31,12 +31,12 @@
     },
     "climate": {
       "primary": "Colorado mountain summer",
-      "description": "High altitude with variable mountain conditions. Afternoon thunderstorms possible.",
+      "description": "Chilly 40s-50s°F at the start warming to 70s-80s°F by afternoon. Very strong UV exposure at altitude (7,000-11,000 ft). Afternoon thunderstorms possible.",
       "challenges": [
-        "High altitude (7000-9000+ feet)",
-        "Afternoon thunderstorms",
-        "Variable mountain weather",
-        "Sun exposure at altitude"
+        "High altitude (7,000-11,000 feet)",
+        "Cold start (40s-50s°F) warming to 70s-80s°F",
+        "Very strong UV exposure at altitude",
+        "Afternoon thunderstorms"
       ]
     },
     "terrain": {
@@ -120,25 +120,25 @@
       "character": "Mountain gravel with significant climbing at high altitude.",
       "suffering_zones": [
         {
-          "mile": 15,
-          "label": "First Climb",
-          "desc": "Early climbing at altitude.",
-          "terrain_detail": "Mountain ascent",
-          "named_section": "Early Climb"
+          "mile": 13,
+          "label": "Opening Wall",
+          "desc": "~3,000 ft sustained climb in the first 13 miles, the signature gut-punch, at altitude.",
+          "terrain_detail": "Sustained mountain ascent",
+          "named_section": "Opening Wall"
         },
         {
           "mile": 35,
           "label": "High Point",
-          "desc": "Highest elevation point.",
-          "terrain_detail": "9000+ feet",
-          "named_section": "Summit"
+          "desc": "Rutted, rocky high jeep roads above 9,000 ft — keep focus or you could crash.",
+          "terrain_detail": "High jeep roads",
+          "named_section": "High Point"
         },
         {
-          "mile": 50,
-          "label": "Final Climb",
-          "desc": "Last major climb to finish.",
-          "terrain_detail": "Final ascent",
-          "named_section": "Finish Climb"
+          "mile": 75,
+          "label": "Final Singletrack",
+          "desc": "Final singletrack and berms to the finish, rowdy.",
+          "terrain_detail": "Singletrack and berms",
+          "named_section": "Final Singletrack"
         }
       ],
       "signature_challenge": "6000 feet of climbing at 7000-9000+ feet altitude.",

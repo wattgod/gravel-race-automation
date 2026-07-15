@@ -79,8 +79,8 @@ class TestActiveStates:
     def test_btn_active_state(self):
         assert '.gg-btn:active' in self.css
 
-    def test_accordion_trigger_active(self):
-        assert '.gg-accordion-trigger:active' in self.css
+    def test_rating_tile_active(self):
+        assert '.gg-rating-tile:active' in self.css
 
     def test_faq_question_active(self):
         assert '.gg-faq-question:active' in self.css
@@ -114,31 +114,16 @@ class TestActiveStates:
 
 
 class TestFluidSizing:
-    """Accordion labels and demand bar labels must use clamp() for fluid sizing."""
+    """Rating and demand layouts must remain fluid without fixed-width overflow."""
 
     @pytest.fixture(autouse=True)
     def _load_css(self):
         from generate_neo_brutalist import get_page_css
         self.css = get_page_css()
 
-    def test_accordion_label_uses_clamp(self):
-        match = re.search(
-            r'\.gg-accordion-label\s*\{[^}]*width:\s*clamp\((\d+)px,\s*[\d.]+vw,\s*(\d+)px\)',
-            self.css,
-        )
-        assert match, "Accordion label width must use clamp() for fluid scaling"
-        min_val, max_val = int(match.group(1)), int(match.group(2))
-        assert min_val >= 60, f"clamp() minimum {min_val}px too small for readability"
-        assert max_val <= 120, f"clamp() maximum {max_val}px too large"
-        assert min_val < max_val, "clamp() minimum must be less than maximum"
-
-    def test_accordion_label_no_fixed_110px(self):
-        """No hardcoded width: 110px on accordion labels."""
-        match = re.search(
-            r'\.gg-accordion-label\s*\{[^}]*width:\s*110px',
-            self.css,
-        )
-        assert not match, "Accordion label must not use fixed 110px width"
+    def test_rating_panel_uses_minmax(self):
+        match = re.search(r'\.gg-rating-panel\s*\{[^}]*grid-template-columns:[^}]*minmax\(', self.css)
+        assert match, "Rating panel columns must use minmax() for fluid scaling"
 
     def test_demand_label_uses_clamp(self):
         match = re.search(
@@ -163,13 +148,8 @@ class TestFluidSizing:
         match = re.search(r'\.gg-cfg-field\s*\{[^}]*min-width:\s*min\(', self.css)
         assert match, "Configurator field min-width must use min() function"
 
-    def test_accordion_content_padding_uses_clamp(self):
-        """Accordion content padding-left must adapt to fluid label width."""
-        match = re.search(
-            r'\.gg-accordion-content\s*\{[^}]*padding:[^}]*clamp\(',
-            self.css,
-        )
-        assert match, "Accordion content padding must use clamp() to match fluid label width"
+    def test_rating_tiles_do_not_use_fixed_width(self):
+        assert not re.search(r'\.gg-rating-tile\s*\{[^}]*width:\s*\d+px', self.css)
 
 
 # ── 600px Breakpoint ─────────────────────────────────────────
@@ -255,11 +235,11 @@ class TestMinimumFontSizes:
         assert match, "Series badge font-size not found"
         assert int(match.group(1)) >= 11, f"Series badge is {match.group(1)}px, minimum 11px"
 
-    def test_difficulty_scale_readable(self):
-        """Difficulty scale must be at least 10px."""
-        match = re.search(r'\.gg-difficulty-scale\s*\{[^}]*font-size:\s*(\d+)px', self.css)
-        assert match, "Difficulty scale font-size not found"
-        assert int(match.group(1)) >= 10, f"Difficulty scale is {match.group(1)}px, minimum 10px"
+    def test_rating_tile_label_readable(self):
+        """Interactive rating labels must be at least 10px."""
+        match = re.search(r'\.gg-rating-tile-label\s*\{[^}]*font-size:\s*(\d+)px', self.css)
+        assert match, "Rating tile label font-size not found"
+        assert int(match.group(1)) >= 10
 
     def test_demand_label_readable(self):
         """Pack demand label must be at least 11px."""
@@ -322,9 +302,9 @@ class TestTouchTargets:
             f".gg-btn rule missing 44px touch target: {rule[:100]}"
         )
 
-    def test_accordion_trigger_min_height(self):
-        rule = self._rule_for_selector(self._mobile_block(), '.gg-neo-brutalist-page .gg-accordion-trigger')
-        assert 'min-height: 44px' in rule, f".gg-accordion-trigger rule: {rule[:100]}"
+    def test_rating_controls_min_height(self):
+        block = self._mobile_block()
+        assert re.search(r'\.gg-rating-tile[^\{]*\{[^}]*min-height:\s*44px', block)
 
     def test_faq_question_min_height(self):
         rule = self._rule_for_selector(self._mobile_block(), '.gg-neo-brutalist-page .gg-faq-question')
@@ -367,7 +347,7 @@ class TestTouchTargets:
 
 
 class TestCollapsibleSections:
-    """Mobile JS must make long sections collapsible."""
+    """Deep-dive JS must collapse retained detail while leaving the spine open."""
 
     @pytest.fixture(autouse=True)
     def _load_js(self):
@@ -382,31 +362,27 @@ class TestCollapsibleSections:
     def test_collapsible_section_js_exists(self):
         assert 'gg-section-collapsible' in self.js
 
-    def test_collapsible_respects_viewport_width(self):
-        """Should only collapse on screens ≤768px."""
-        assert 'window.innerWidth > 768' in self.js or 'innerWidth > 768' in self.js
+    def test_collapsible_is_scoped_to_deep_dive(self):
+        assert "'.gg-deep-dive > .gg-section" in self.js
 
     def test_collapsible_targets_history(self):
-        assert "'history'" in self.js
+        assert "section.contains(target)" in self.js
 
     def test_collapsible_targets_logistics(self):
-        assert "'logistics'" in self.js
+        assert "target.closest('.gg-deep-dive" in self.js
 
     def test_collapsible_targets_training(self):
-        assert "'training'" in self.js
+        assert "gg-section-collapsible" in self.js
 
     def test_collapsible_does_not_target_course(self):
-        """Course overview should NOT be collapsible — it's the primary content."""
-        # The list of collapsible IDs should not include 'course'
-        match = re.search(r'collapsibleIds\s*=\s*\[([^\]]+)\]', self.js)
-        assert match, "collapsibleIds array not found in JS"
-        assert "'course'" not in match.group(1), "Course section must not be collapsible"
+        """Selection is structural, not a brittle hardcoded course list."""
+        assert "collapsibleIds" not in self.js
 
     def test_collapsible_does_not_target_ratings(self):
-        """Ratings should NOT be collapsible — it's a key engagement section."""
-        match = re.search(r'collapsibleIds\s*=\s*\[([^\]]+)\]', self.js)
-        assert match, "collapsibleIds array not found in JS"
-        assert "'ratings'" not in match.group(1), "Ratings section must not be collapsible"
+        """Ratings remain outside .gg-deep-dive in page assembly."""
+        from generate_neo_brutalist import generate_page
+        source = Path(PROJECT_ROOT / "wordpress" / "generate_neo_brutalist.py").read_text()
+        assert "spine_sections = [ratings" in source
 
     def test_collapsible_sets_aria_expanded(self):
         assert "aria-expanded" in self.js

@@ -1,8 +1,7 @@
-"""Preparation Profile strip — northstar Phase 1 conversion engine.
+"""Preparation Profile strip rollback helper after the spine-first overhaul.
 
-The strip surfaces race demands + plan CTA above the fold (the full [08]
-section converted 0.5% of visitors when it was the only entry point —
-first funnel report, Jun 2026). These tests guard:
+The strip is deliberately no longer assembled on race pages. Its builder stays
+covered for rollback/history, while these tests guard:
 - render conditions (race-pack required, [08] must exist for the anchor)
 - the gg-* contract the countdown/price JS depends on
 - graceful degradation for missing/stale race dates (48 known stale profiles)
@@ -64,19 +63,15 @@ class TestJsContract:
                        'id="gg-prep-cta"'):
             assert needle in html, needle
 
-    def test_inline_js_targets_contract(self):
+    def test_inline_js_does_not_ship_removed_strip_logic(self):
         js = build_inline_js()
-        assert "getElementById('prep-strip')" in js
-        assert "data-race-date" in js
-        assert "getElementById('gg-prep-countdown')" in js
-        assert "getElementById('gg-prep-cta')" in js
+        assert "getElementById('prep-strip')" not in js
+        assert "getElementById('gg-prep-countdown')" not in js
+        assert "getElementById('gg-prep-cta')" not in js
 
-    def test_js_pricing_matches_server(self):
-        """$15/wk, min 4 weeks, $249 cap — must mirror webhook pricing."""
-        js = build_inline_js()
-        assert "weeks * 15" in js
-        assert "Math.max(4," in js
-        assert "249" in js
+    def test_server_copy_keeps_verified_price(self, packed_slug):
+        html = build_prep_strip(_rd(slug=packed_slug))
+        assert "$15/WK" in html
 
     def test_css_present(self):
         css = get_page_css()
@@ -100,11 +95,10 @@ class TestDateDegradation:
         html = build_prep_strip(_rd(slug=packed_slug))
         assert "$15/WK" in html
 
-    def test_past_date_guard_in_js(self):
-        """JS must bail (keep generic copy) for past/imminent dates —
-        48 profiles have known-stale dates."""
+    def test_removed_dynamic_price_logic_stays_removed(self):
         js = build_inline_js()
-        assert "days <= 7" in js
+        assert "Preparation strip" not in js
+        assert "gg-prep-countdown" not in js
 
 
 class TestSafety:

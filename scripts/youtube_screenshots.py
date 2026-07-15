@@ -3,6 +3,14 @@
 
 Uses yt-dlp + ffmpeg + Pillow heuristics. No AI API keys needed.
 
+Race-page ingestion contract: extraction alone does not make a still eligible.
+Before catalog sync, ``photo_qc.py`` must add a numeric ``ai_relevance`` score
+from 1–5 to every ``video-*`` entry. The renderer admits only scores of 4–5 and
+caps displayed video stills at two. Run
+``check_photo_relevance_coverage.py --fail-on-unscored`` after QC; never publish
+missing or non-numeric relevance fields. Preview GIFs may remain in the archive
+but are not rendered on race pages.
+
 Tier-aware:
   T1: up to 5 GIFs from up to 4 videos (capture wild moments)
   T2: up to 3 GIFs from up to 3 videos

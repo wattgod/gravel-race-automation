@@ -5,6 +5,10 @@
 **Live evidence:** `https://gravelgodcycling.com/crusher-in-the-tushar/` (fetched 2026-07-14)
 **Data sample:** `race-data/crusher-in-the-tushar.json`
 
+**Execution companion:** See `docs/race-page-overhaul-handoff.md` for the approved
+spine-first order, custom-plan-first offer, interactive-rating behavior, deploy gate,
+and the product decisions that supersede this document's earlier target DOM.
+
 **v2 changelog:** This revision folds in a GPT-5.6-sol code review that caught several
 factual errors in v1 that would have shipped broken behavior if a Codex executor had
 implemented v1 literally. Specifically: v1's T1 image gate would have crashed on

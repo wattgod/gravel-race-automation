@@ -176,12 +176,12 @@ EXPERIMENTS = [
     },
     {
         "id": "race_coaching_teaser",
-        "description": "Test coaching teaser CTA copy on race pages",
+        "description": "Closed before the race-page spine overhaul removed the teaser surface",
         "selector": "[data-ab='race_coaching_cta']",
         "pages": ["/race/*"],
         "traffic": 1.0,
         "start": "2026-03-25",
-        "end": None,
+        "end": "2026-07-13",
         "variants": [
             {
                 "id": "control",
@@ -202,6 +202,54 @@ EXPERIMENTS = [
         "conversion": {
             "type": "click",
             "selector": "[data-cta='coaching']",
+        },
+    },
+    {
+        "id": "race_offer_price_frame",
+        "description": "Test exact custom-plan price framing in the race-page offer",
+        "selector": "[data-ab='race_offer_price']",
+        "pages": ["/race/*"],
+        "traffic": 1.0,
+        "start": "2026-07-14",
+        "end": None,
+        "variants": [
+            {
+                "id": "control",
+                "name": "Weekly plus cap",
+                "content": "$15/week. Less than one gel per ride. Capped at $249.",
+            },
+            {
+                "id": "variant_a",
+                "name": "Daily equivalent",
+                "content": "About $2/day. Built to your race date, capped at $249.",
+            },
+            {
+                "id": "variant_b",
+                "name": "Weekly direct",
+                "content": "$15/week for the weeks you need. Never more than $249.",
+            },
+        ],
+        "conversion": {
+            "type": "click",
+            "selector": "[data-cta='custom_plan']",
+        },
+    },
+    {
+        "id": "race_offer_cta_copy",
+        "description": "Test custom-plan questionnaire CTA copy on race pages",
+        "selector": "[data-ab='race_offer_cta']",
+        "pages": ["/race/*"],
+        "traffic": 1.0,
+        "start": "2026-07-14",
+        "end": None,
+        "variants": [
+            {"id": "control", "name": "Build my plan", "content": "BUILD MY PLAN"},
+            {"id": "variant_a", "name": "Start questionnaire", "content": "START MY QUESTIONNAIRE"},
+            {"id": "variant_b", "name": "Build for this race", "content": "BUILD FOR THIS RACE"},
+        ],
+        "conversion": {
+            "type": "click",
+            "selector": "[data-cta='custom_plan']",
         },
     },
 ]

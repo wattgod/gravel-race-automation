@@ -312,3 +312,54 @@ class TestRenderHtml:
         html = render_html(data)
         assert "border-radius" not in html
         assert "box-shadow" not in html
+
+
+# ── Pipeline E2E collector (custom training plan pipeline) ─────────
+
+
+class TestCollectPipelineE2E:
+    SAMPLE = (
+        "# E2E 2026-07-15 — ✅ deterministic gates PASS · 🔴 codex-sol NO-GO\n\n"
+        "- Ref: `main` @ `137eff3`\n"
+        "- Fixture race: **Big Sugar Gravel**\n"
+        "- pytest: **1156 passed, 53 skipped**\n\n"
+        "## codex-sol adversarial verdict\n```\n"
+        "VERDICT: NO-GO\nBLOCKERS:\n"
+        "1. first blocker\n2. second one\n"
+        "## WATCH:\n1. not a blocker\n```\n"
+    )
+
+    def _collect(self, tmp_path, filename="e2e-2026-07-15.md", body=None):
+        from scripts import daily_report
+        reports = tmp_path / "gg-e2e" / "reports"
+        reports.mkdir(parents=True)
+        (reports / filename).write_text(self.SAMPLE if body is None else body)
+        with patch.object(daily_report.Path, "home", return_value=tmp_path):
+            return daily_report.collect_pipeline_e2e()
+
+    def test_absent_harness_is_not_configured(self, tmp_path):
+        from scripts import daily_report
+        with patch.object(daily_report.Path, "home", return_value=tmp_path):
+            assert daily_report.collect_pipeline_e2e() == {"configured": False}
+
+    def test_parses_gate_verdict_and_pytest(self, tmp_path):
+        e = self._collect(tmp_path)
+        assert e["configured"] and e["det_gate"] == "PASS" and e["verdict"] == "NO-GO"
+        assert e["ref"] == "main" and e["commit"] == "137eff3"
+        assert e["race"] == "Big Sugar Gravel"
+        assert e["pytest"].startswith("1156 passed")
+
+    def test_watch_heading_stops_blocker_parsing(self, tmp_path):
+        e = self._collect(tmp_path)
+        assert e["blocker_count"] == 2  # WATCH item is not counted
+        assert e["blockers"] == ["first blocker", "second one"]
+
+    def test_standalone_none_is_zero_blockers(self, tmp_path):
+        body = self.SAMPLE.split("BLOCKERS:")[0] + "BLOCKERS:\nnone\n## WATCH:\n```\n"
+        e = self._collect(tmp_path, body=body)
+        assert e["blocker_count"] == 0
+
+    def test_never_raises_on_garbage(self, tmp_path):
+        e = self._collect(tmp_path, body="\x00 not a report \xff no fields at all")
+        assert e["configured"] is True  # read succeeded; fields degrade to "?"
+        assert e["verdict"] == "?"

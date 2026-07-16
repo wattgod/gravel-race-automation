@@ -60,6 +60,7 @@ from generate_guide import (
     build_cta_training,
     build_cta_coaching,
     build_cta_finale,
+    build_chapter_email_capture,
     CTA_BUILDERS,
     esc,
     _md_inline,
@@ -569,6 +570,17 @@ def build_cluster_css() -> str:
 .gg-guide-unlocked .gg-cluster-gated-content{display:block}
 .gg-guide-unlocked .gg-cluster-gate{display:none}
 
+/* ── End-of-chapter email capture ── */
+.gg-guide-email-capture{border:3px solid var(--gg-color-dark-brown);background:var(--gg-color-warm-paper);padding:24px;margin:40px 0 0;text-align:center}
+.gg-guide-email-capture-text{font-family:var(--gg-font-editorial);font-size:14px;color:var(--gg-color-primary-brown);line-height:1.6;margin:0 0 16px}
+.gg-guide-email-capture-form{display:flex;gap:0;max-width:420px;margin:0 auto}
+.gg-guide-email-capture-input{flex:1;font-family:var(--gg-font-data);font-size:13px;padding:12px 14px;border:2px solid var(--gg-color-dark-brown);border-right:none;background:var(--gg-color-white);color:var(--gg-color-dark-brown);min-width:0}
+.gg-guide-email-capture-input:focus{outline:none;border-color:var(--gg-color-teal)}
+.gg-guide-email-capture-btn{font-family:var(--gg-font-data);font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:2px;padding:12px 18px;background:var(--gg-color-teal);color:var(--gg-color-white);border:2px solid var(--gg-color-teal);cursor:pointer;white-space:nowrap}
+.gg-guide-email-capture-btn:hover{background:var(--gg-color-light-teal)}
+.gg-guide-email-capture-success{font-family:var(--gg-font-data);font-size:13px;font-weight:700;color:var(--gg-color-light-teal);margin:16px 0 0}
+.gg-guide-email-capture-error{font-family:var(--gg-font-data);font-size:11px;font-weight:700;color:var(--gg-color-error);margin:8px 0 0}
+
 /* ── Responsive ── */
 @media(max-width:768px){
 .gg-cluster-grid{grid-template-columns:1fr}
@@ -578,6 +590,8 @@ def build_cluster_css() -> str:
 .gg-cluster-nav-next{text-align:left}
 .gg-cluster-gate-form{flex-direction:column}
 .gg-cluster-gate-form .gg-guide-btn{border-left:3px solid var(--gg-color-dark-brown)}
+.gg-guide-email-capture-form{flex-direction:column}
+.gg-guide-email-capture-input{border-right:2px solid var(--gg-color-dark-brown)}
 }
 '''
 
@@ -624,6 +638,56 @@ try{localStorage.setItem(STORAGE_KEY,"1");}catch(e){}
 track("guide_gate_unlock",{method:"email_form"});
 });
 }
+})();
+
+/* ── End-of-chapter email capture (friend-first-sequences.md §4.2-4.3) ── */
+(function(){
+"use strict";
+var WORKER_URL="https://fueling-lead-intake.gravelgodcoaching.workers.dev";
+var forms=document.querySelectorAll(".gg-guide-email-capture-form");
+forms.forEach(function(form){
+form.addEventListener("submit",function(e){
+e.preventDefault();
+var email=form.email.value.trim();
+if(!email||!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){
+alert("Please enter a valid email address.");
+return;
+}
+if(form.website&&form.website.value)return;
+var payload={
+email:email,
+source:"training_guide",
+guide_chapter:form.guide_chapter.value,
+website:form.website.value
+};
+try{
+var races=JSON.parse(localStorage.getItem("gg_viewed_races")||"[]");
+if(Array.isArray(races)&&races.length){
+var names=races.map(function(r){return r&&r.name;}).filter(Boolean);
+if(names.length)payload.viewed_races=names.slice(0,5);
+}
+}catch(e2){}
+var errEl=form.querySelector(".gg-guide-email-capture-error");
+if(errEl)errEl.style.display="none";
+fetch(WORKER_URL,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(payload)})
+.then(function(r){
+if(!r.ok)throw new Error("bad status");
+form.style.display="none";
+var success=document.getElementById(form.id+"-success");
+if(success)success.style.display="block";
+})
+.catch(function(){
+if(!errEl){
+errEl=document.createElement("p");
+errEl.className="gg-guide-email-capture-error";
+errEl.setAttribute("role","alert");
+form.appendChild(errEl);
+}
+errEl.textContent="Something went wrong — please try again.";
+errEl.style.display="block";
+});
+});
+});
 })();
 '''
 
@@ -801,6 +865,7 @@ def generate_chapter_page(chapter: dict, chapters: list, content: dict,
     hero = build_chapter_hero(chapter)
     rider_selector = build_rider_selector(content)
     chapter_content = build_chapter_content(chapter)
+    email_capture = build_chapter_email_capture(chapter)
     prev_next = build_prev_next_nav(chapter, chapters)
     jsonld = build_chapter_jsonld(chapter, content)
     footer = get_mega_footer_html()
@@ -825,11 +890,15 @@ def generate_chapter_page(chapter: dict, chapters: list, content: dict,
   <div class="gg-cluster-gated-content">
     {chapter_content}
 
+    {email_capture}
+
     {prev_next}
   </div>'''
     else:
         body_content = f'''
     {chapter_content}
+
+    {email_capture}
 
     {prev_next}'''
 

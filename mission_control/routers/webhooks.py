@@ -147,6 +147,32 @@ async def subscriber_webhook(
         source_data["race_slug"] = body["race_slug"]
     if body.get("race_name"):
         source_data["race_name"] = body["race_name"]
+    # Friend-register context (docs/specs/friend-first-sequences.md §4).
+    # Welcome day-0 renders exactly ONE opener branch via the wb_* keys —
+    # priority: guide chapter > browsing trail > race page. Mustache blocks
+    # render independently, so exclusivity MUST be enforced here, not in the
+    # template. race_name itself stays in source_data regardless (countdown
+    # and quiz sequences depend on it).
+    _chapter = str(body.get("guide_chapter", "")).strip()[:80]
+    _viewed = body.get("viewed_races")
+    if _chapter:
+        source_data["guide_chapter"] = _chapter
+        source_data["wb_guide"] = _chapter
+    elif isinstance(_viewed, list) and _viewed:
+        # short human-readable list for the template: "Unbound, SBT GRVL"
+        names = [str(v).strip()[:60] for v in _viewed if str(v).strip()][:5]
+        if names:
+            source_data["viewed_races"] = ", ".join(names)
+            source_data["wb_trail"] = source_data["viewed_races"]
+    elif source_data.get("race_name"):
+        source_data["wb_race"] = source_data["race_name"]
+    if any(source_data.get(k) for k in ("wb_guide", "wb_trail", "wb_race")):
+        source_data["any_context"] = "1"
+    # Seasonal sensitivity: Nov-Jan is offseason for the northern-hemisphere
+    # gravel calendar; welcome's anonymous branch swaps its opener.
+    from datetime import datetime, timezone
+    if datetime.now(timezone.utc).month in (11, 12, 1):
+        source_data["offseason"] = "1"
     # plan_weeks (sent by a purchase payload) drives completion-relative review
     # timing in post_purchase (sequence_engine._step_delay_days). Accept a
     # positive number; silently ignore junk so a bad value never blocks enrollment.
@@ -165,6 +191,7 @@ async def subscriber_webhook(
         "race_quiz": "quiz_completed",
         "quiz_shared": "quiz_completed",
         "fueling_calculator": "new_subscriber",
+        "training_guide": "new_subscriber",
         # Plan purchases (Stripe / WooCommerce / own-site) -> post-purchase
         # onboarding + review flywheel. The payment webhook must POST a source in
         # this set, with brand + plan_weeks (+ race_slug). Until that POST exists
@@ -184,14 +211,11 @@ async def subscriber_webhook(
         if result:
             enrolled.append(seq["id"])
 
-    # Also enroll in welcome if trigger wasn't new_subscriber — but NOT
-    # purchasers: they already bought, so the welcome track (which pitches the
-    # plan) would be wrong for them.
-    if trigger not in ("new_subscriber", "plan_purchased"):
-        for seq in get_sequences_for_trigger("new_subscriber", brand=brand):
-            result = enroll(email, name, seq["id"], source=source, source_data=source_data)
-            if result:
-                enrolled.append(seq["id"])
+    # WS-E (friend-first spec §4.1): no double-enrollment. Quiz and prep-kit
+    # leads get ONLY their source sequence — it is their opener track. The old
+    # "also enroll in welcome" behavior stacked overlapping opener tracks on
+    # one subscriber (verified live, Jul 2026) and made any per-track promise
+    # false. Deliberately removed; do not reintroduce.
 
     db.log_action(
         "subscriber_received", "webhook", email,

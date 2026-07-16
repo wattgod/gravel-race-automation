@@ -242,3 +242,76 @@ class TestUnsubscribeEndpoint:
         resp = client.get(f"/unsubscribe?email={email}&token={token}")
         assert resp.status_code == 200
         assert "Already" in resp.text
+
+
+class TestFriendRegisterEnrollment:
+    """WS-E + wb_* context (docs/specs/friend-first-sequences.md §4)."""
+
+    def _enroll(self, client, payload):
+        resp = client.post(
+            "/webhooks/subscriber", json=payload,
+            headers={"Authorization": "Bearer test-secret-123"},
+        )
+        assert resp.status_code == 200
+        return resp.json()
+
+    def test_quiz_lead_gets_only_its_source_sequence(self, client, fake_db):
+        """WS-E regression: no double-enrollment into welcome. A quiz lead's
+        opener track is race_specific — stacking welcome on top made every
+        per-track expectation false (live bug, Jul 2026)."""
+        data = self._enroll(client, {
+            "email": "ws-e-quiz@example.com", "source": "race_quiz",
+            "race_name": "Unbound", "race_slug": "unbound",
+        })
+        assert all("welcome" not in seq_id for seq_id in data["enrolled"]), \
+            f"quiz lead double-enrolled: {data['enrolled']}"
+
+    def test_prepkit_lead_gets_only_its_source_sequence(self, client, fake_db):
+        data = self._enroll(client, {
+            "email": "ws-e-kit@example.com", "source": "prep_kit_gate",
+            "race_name": "Unbound", "race_slug": "unbound",
+        })
+        assert all("welcome" not in seq_id for seq_id in data["enrolled"])
+
+    def _source_data(self, fake_db, email):
+        rows = [e for e in fake_db.store["gg_sequence_enrollments"]
+                if e["contact_email"] == email]
+        assert rows, "no enrollment created"
+        sd = rows[0]["source_data"]
+        return json.loads(sd) if isinstance(sd, str) else sd
+
+    def test_wb_branch_exclusivity_guide_wins(self, client, fake_db):
+        """Welcome day-0 renders exactly one opener: guide > trail > race."""
+        self._enroll(client, {
+            "email": "wb-guide@example.com", "source": "training_guide",
+            "guide_chapter": "Fueling", "viewed_races": ["Unbound", "SBT GRVL"],
+            "race_name": "Unbound",
+        })
+        sd = self._source_data(fake_db, "wb-guide@example.com")
+        assert sd.get("wb_guide") == "Fueling"
+        assert "wb_trail" not in sd and "wb_race" not in sd
+        assert sd.get("any_context") == "1"
+
+    def test_wb_branch_trail_beats_race(self, client, fake_db):
+        self._enroll(client, {
+            "email": "wb-trail@example.com", "source": "race_profile",
+            "viewed_races": ["Unbound", "Mid South"], "race_name": "Unbound",
+        })
+        sd = self._source_data(fake_db, "wb-trail@example.com")
+        assert sd.get("wb_trail") == "Unbound, Mid South"
+        assert "wb_guide" not in sd and "wb_race" not in sd
+
+    def test_wb_race_fallback_and_anonymous(self, client, fake_db):
+        self._enroll(client, {
+            "email": "wb-race@example.com", "source": "race_profile",
+            "race_name": "Unbound", "race_slug": "unbound",
+        })
+        sd = self._source_data(fake_db, "wb-race@example.com")
+        assert sd.get("wb_race") == "Unbound"
+        # anonymous: no context at all
+        self._enroll(client, {
+            "email": "wb-anon@example.com", "source": "exit_intent",
+        })
+        sd2 = self._source_data(fake_db, "wb-anon@example.com")
+        assert "any_context" not in sd2
+        assert not any(k.startswith("wb_") for k in sd2)

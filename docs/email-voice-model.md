@@ -1,67 +1,46 @@
-# Email Voice Model — Physiqonomics-derived (Jul 2026)
+# Email Voice Model — the Friend Register (Jul 2026, v3)
 
-Style bible for the Gravel God + Roadie Labs email sequences, derived from a
-deep study of Aadam Ali / Physiqonomics ("The Vitamin" newsletter). Applied to
-`mission_control/templates/emails/sequences/` in the Jul 2026 rewrite.
+Supersedes the Physiqonomics-derived device model (git history has it).
+Matti's re-direction Jul 16 2026: the drip machine was overengineered; the
+voice is not a device kit, it is a register. Canonical copy:
+`docs/specs/friend-register-copy.md`. Governing spec:
+`docs/specs/friend-first-sequences.md`.
 
-## The system in one paragraph
+## The register — three tests, every sentence
 
-**Fixed ritual container + evidence core + personality shell + objection
-ventriloquism + free-first selling.** The container (greeting, sections,
-sign-off, P.S.) never changes, so the personality can be loud without chaos.
-The science is always clean; the attitude lives only in the opinions. Name the
-reader's doubts before they do, concede what you must, and pitch by teaching.
+1. **Is it simple?** A few short sentences. One idea per email.
+2. **Is it about THEM?** Their race, their training, their week. ZERO
+   sentences about us, the site, the database, or the emails themselves.
+   No self-description, no meta ("as promised", "the sales email"), no
+   pitch-count announcements. A friend says "how's training going?"
+3. **Are we interested?** Every email ends on a real question we genuinely
+   want answered. To be interesting, be interested.
 
-## Devices in use (Gravel God — full organism, lower voltage)
+## Structural rules
 
-- **Objection headers in the reader's voice** — "Yeah, but I only have 8 hours
-  a week…" as a literal section header, answered straight. Used in
-  anti_pitch/repitch.
-- **The concession move** — admit where the argument is weak ("touché") so the
-  strong claims land. Integrity at the sentence level.
-- **Recurring strawman: Derek** — the Instagram gravel coach. Clearly
-  fictional archetype (like Aadam's "Becky"). The misinformation avatar.
-  Punch Derek and the industry, never the reader.
-- **Math as emotional weapon** — 24 gels, 600 grams, week six. Numbers hit.
-- **Sarcastic myth subjects** — "the aid station will save you (it will not)".
-- **Story → lesson → evidence → application** arc for content emails.
-- **P.S. chain** — every email's P.S. teases the next or invites a reply.
-- **Unsubscribe-as-freedom** (never denial framing — see
-  feedback_no_defensive_messaging: no "no sponsors/affiliates" copy, ever).
-- **Profanity budget:** ~1 per email, on opinions only, never on data.
+- **No broadcast ever pitches.** Countdown emails open the money
+  conversation ("tell me your week and I'll tell you what I'd do with the
+  time left"); the plan is offered in Matti's REPLY
+  (`scripts/draft_race_reply.py`). Replies are the conversion engine.
+- **Premise first.** The first line names why this email exists for THIS
+  person: what they grabbed, viewed, bought, or how far out their race is.
+  Calendar position is never a premise.
+- **The download shape** (Matti's words): "thanks for grabbing X. How did
+  you like Y? Any more questions, just hit reply — happy to help."
+- **Seasonal sensitivity:** the `offseason` flag (Nov–Jan) swaps the
+  anonymous welcome opener; annual `offseason_note` broadcast each November.
+- **No links unless the link serves them concretely.** The reply is the click.
+- Sign-off: — Matti. Lowercase subjects, tiny, about them.
 
-## Devices in use (Roadie Labs — skeleton only, deadpan skin)
+## Brand skins (same register, different accents)
 
-- **Study-breakdown template**: question subject → what the data says → what
-  it means for you → key takeaways. This IS the brand.
-- **Deadpan parenthetical** as the entire humor budget: "the climb is
-  'rolling' (it is not)".
-- **Verdict sentences** instead of profanity: "No." / "It isn't."
-- **Ventriloquized objections as data questions** — "'Field depth is
-  subjective.' Correct. Here is how we bounded it."
-- **Methodological transparency instead of self-deprecation** — show the
-  ruler, admit the error bars.
-- **Zero:** profanity, absurdist imagery, recurring characters, "you're
-  welcome" swagger, exclamation points.
+| | Gravel God | Roadie Labs | XC Ski Labs (proposed) |
+|---|---|---|---|
+| Accent | warm, first person | deadpan, clinical | deadpan-warm, first person |
+| Profanity | avoid (nothing in the 13 needs it) | zero | zero |
+| Example | "You bored yet?" | "Where is the training at?" | dry understatement |
 
-## Sequence architecture
+## Gate
 
-Timing is unchanged (research: engagement halves by ~day 12; pitch day 7,
-single re-pitch day 10, pure-value close day 17). Gravel welcome keeps its
-A/B: variant A = this voice, variant B = sober register (the control).
-Road sequences are single-track (list too small to split).
-
-Road sequences carry `"brand": "roadielabs"` and stay **inactive until
-roadielabs.com is verified in Resend** (DNS records) — flip `active` in
-`mission_control/sequences/road_*.py` after verification.
-
-## The friend-opener rule (Matti-approved, Jul 2026)
-
-Chosen over question-restyled lectures and everything else: **normal, one
-small question about them, no wasted time, value first.** Mechanics:
-callback to what THEY did ("you signed up from the {race_name} page") →
-value link with a concrete instruction → one answerable question ("A-race
-or stepping stone? one word"). Anonymous captures get the question as the
-opener. Conversational principles behind it: reason-for-writing-now, real
-questions over performance, no meta ("no welcome speech" is still a
-speech). Engine: mustache conditionals in _render_template.
+`scripts/friend_test.py --gate` (Tool / Body-Snatcher / Familiarity,
+calibrated on `docs/bonk-bros-voice-patterns.md`) + `slop_rules` + Matti.

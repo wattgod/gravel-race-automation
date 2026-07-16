@@ -1,116 +1,78 @@
 ---
 name: email-sequences
-description: Write, revise, or extend Gravel God / Roadie Labs email sequences (Mission Control drip emails, lifecycle triggers, broadcasts). Use whenever the task touches mission_control/templates/emails/, sequence definitions, subjects, or new email-marketing ideas for either brand. Encodes the Physiqonomics-derived voice models, the conversion principles, the hard constraints, and the ship process.
+description: Write, revise, or extend Gravel God / Roadie Labs email sequences (Mission Control drip emails, lifecycle triggers, broadcasts). Use whenever the task touches mission_control/templates/emails/, sequence definitions, subjects, or new email-marketing ideas for either brand. Encodes the friend register, the hard constraints, and the ship process.
 ---
 
-# Email Sequences — Gravel God + Roadie Labs
+# Email Sequences — Gravel God + Roadie Labs (Friend Register, Jul 2026)
 
-You are writing revenue email for two honest-critic cycling brands. The goal
-is one custom-plan sale per day ($15/wk, one payment, cap $249), which also
-feeds the coaching pipeline. The protected asset is trust: harsh public race
-scores earn it; every email either deposits or withdraws.
+Revenue email for honest-critic cycling brands. The protected asset is trust.
+**The drip-pitch era is over (Matti, Jul 16 2026): broadcasts never pitch;
+replies are the conversion engine** (`scripts/draft_race_reply.py`; the plan
+is offered inside Matti's reply when it fits).
 
-## Read first (canonical, in gravel-race-automation)
+## Read first (canonical)
 
-1. `docs/email-voice-model.md` — voice + devices per brand (Physiqonomics-derived)
-2. `docs/email-conversion-principles.md` — the five gears, masters' moves, council findings
-3. `docs/specs/race-countdown-trigger.md` — the lifecycle-trigger spec (if touching triggers)
+1. `docs/specs/friend-first-sequences.md` — governing spec
+2. `docs/specs/friend-register-copy.md` — canonical copy (13 emails + banked
+   offseason note). Templates mirror it; a divergence is a defect.
+3. `docs/email-voice-model.md` — the register, one page
+4. `docs/bonk-bros-voice-patterns.md` — voice north star
+
+## The register (three tests, every sentence)
+
+1. **Simple?** A few short sentences, one idea.
+2. **About THEM?** Their race/training/week. Zero sentences about us, the
+   site, the database, or the emails themselves. No meta, ever.
+3. **Interested?** End on a real question we genuinely want answered.
 
 ## Hard constraints (non-negotiable)
 
-- **Product facts are the only claims allowed:** built from the race's course
-  profile + rider FTP + real weekly hours; 48h delivery; ZWO + PDF overview;
-  course pacing/fueling targets; human rebuilds remaining weeks on reply;
-  $15/wk, one payment, cap $249; coaching exists (small roster). Verify any
-  race-specific number against `race-data/<slug>.json` before writing it.
-- **Never:** fabricated stats/testimonials/examples, countdown timers, fake
-  scarcity, defensive copy ("no sponsors", "no ambush"), identity-
-  transformation promises ("become a competitor"), hype adjectives.
-- **Promise-tracking:** whatever the welcome says about future email volume
-  must be literally true of the sequence. Count the sales emails.
-- **Single-pitch posture:** one sales email + one follow-up per sequence,
-  then done. Anti_pitch/repitch templates are SHARED across welcome/nurture/
-  quiz/win-back — keep them self-contained (no references that only welcome
-  readers would get).
-- **{race_name} merge field:** only safe where enrollment guarantees
-  source_data.race_name (quiz + countdown sequences). Never in welcome-track
-  pitch emails — most subscribers never supplied a race.
+- **Product facts only** (when facts appear at all — mostly in replies):
+  course profile + FTP + real hours; 48h; ZWO + PDF; $15/wk one payment cap
+  $249; human rebuilds on reply; small coaching roster. Verify race numbers
+  against `race-data/<slug>.json`.
+- **Never:** fabricated anything, countdown timers, fake scarcity, defensive
+  copy, identity-transformation promises, hype adjectives, banner/all-caps
+  CTAs, "as promised" sequence meta, resource catalogs, P.S. next-email
+  teasers, pitch paragraphs in broadcasts.
+- **Premise honesty:** an email may only claim the context its enrollment
+  guarantees. Welcome branches on ONE wb_* key (guide > trail > race —
+  exclusivity enforced in `webhooks.py`, tested in `test_webhooks.py::
+  TestFriendRegisterEnrollment`). {race_name} outside countdown/quiz tracks
+  needs a {{^race_name}} fallback branch (engine substitutes "your race" —
+  grammar breaks without one).
+- **WS-E:** never reintroduce also-enroll-in-welcome (double-enrollment bug,
+  removed Jul 2026, regression-tested).
+- **Seasonal:** `offseason` flag Nov–Jan swaps the anonymous welcome opener;
+  `offseason_note` broadcast sends each November (script: build before Nov).
+- **Sober variant B** (welcome) is the A/B control — do not edit it with
+  register changes; it measures the register against the old style.
 
-## Voice cheat-sheet
+## File map
 
-| | Gravel God | Roadie Labs |
-|---|---|---|
-| Register | Warm, irreverent, first-person Matti | Deadpan, clinical, institutional "we" allowed |
-| Profanity | ≤1 per email, opinions only, never on data | Zero |
-| Humor | Jokes allowed, never at the reader | Flat parenthetical only ("the climb is 'rolling' (it is not)") |
-| Instead of a swear | — | A verdict sentence: "No." / "It isn't." |
-| Honesty mechanism | Self-deprecation, concessions | Methodological transparency, error bars |
-| Urgency voltage | One line inside a story | Full audit-finding arithmetic |
-| Sign-off | — Matti | — Matti (terse body above it) |
-
-**THE FRIEND-OPENER RULE (Matti, Jul 2026 — his words: "normal, ask simple
-q about them without wasting their time, and provide value"):** openers talk
-about THEM, never about the email. When the capture context is known
-(race_name/race_slug in source_data), open with the callback + a value link +
-ONE small answerable question ("A-race or stepping stone? one word"). When
-anonymous, the question IS the opener ("which race? one line is plenty").
-Engine supports {{#race_name}}...{{/race_name}} / {{^race_name}}...{{/race_name}}
-conditional blocks — one template, both branches, never leak mustache or an
-empty placeholder (tests: TestConditionalPersonalization).
-
-Devices that must survive edits: objection headers in the reader's voice,
-the concession move, pitch-by-teaching, P.S. open loops, exit ramp EARLY +
-verb CTA LAST ("BUILD MY PLAN →"), scannable offer block (day-7 email only),
-representative sample week as proof, "everything models the rider, nothing
-models the race" as the competitive frame (never name competitor apps).
-
-## File map (gravel-race-automation repo — road emails also live HERE)
-
-- Sequence defs: `mission_control/sequences/*.py` — road = `road_*.py` with
-  `"brand": "roadielabs"`; absent brand key = gravelgod
+- Defs: `mission_control/sequences/*.py` (road = `road_*` or `brand` key;
+  `race_countdown.py` is MIXED-brand — check the `brand` key per sequence)
 - Templates: `mission_control/templates/emails/sequences/*.html` — keep each
-  file's existing `<style>` shell; GG marketing = teal-link letter, GG
-  post-purchase = boxed brand header, RL = monochrome (#1a1a1a on #f5f5f0)
-- Engine (brand senders, UTM, unsubscribe): `mission_control/services/sequence_engine.py`
-- Brand sender config: `mission_control/config.py` `BRAND_SEQUENCE_SENDERS`
-- Worker (lead intake, sends `brand` field): `workers/fueling-lead-intake/worker.js`
+  file's `<style>` shell; subjects live in the DEFS, not templates
+- Engine: `mission_control/services/sequence_engine.py`
+  (`_apply_conditionals` resolves NESTED mustache to a fixed point)
+- Enrollment/context: `mission_control/routers/webhooks.py` (wb_* keys,
+  offseason flag, trigger_map)
+- Worker: `workers/fueling-lead-intake/worker.js` (KNOWN_SOURCES incl.
+  training_guide; carries guide_chapter + viewed_races)
 
 ## Ship process
 
-1. Write/edit templates + sequence defs. Subjects live in the defs, not
-   the templates — update both.
-2. Self-check against the constraints above, then against
-   `wordpress/slop_rules.py` phrases.
-3. For major rewrites (new sequence, new pitch angle): run the autoreason
-   council (`/council`) — critique → counter-proposal → synthesis → 3 blind
-   judges with randomized labels. Judge on: conversion power, cringe risk,
-   trust preservation, brand differentiation, cohesion. Truncation check:
-   verify every proposal file contains ALL emails before judging.
-4. `python3 -m pytest mission_control/tests/test_brand_routing.py
-   mission_control/tests/test_sequence_engine.py -q` (70+ must pass; also
-   run any new tests). The registry test asserts every referenced template
-   file exists.
-5. Commit (stage ONLY your files — the repo often carries parallel WIP),
-   push to main → Railway auto-redeploys Mission Control; copy is live for
-   the next 15-min send cycle.
+1. Edit copy doc + templates + defs together (they must not diverge).
+2. Gate: `python3 scripts/friend_test.py --gate` (Tool / Body-Snatcher /
+   Familiarity; 2-of-2 variance policy on FAILs) + `wordpress/slop_rules.py`.
+3. `python3 -m pytest mission_control/tests/ -q` (ignore pre-existing
+   test_triage* 401 failures; everything else green).
+4. Matti reviews rendered copy before anything ships. Stage ONLY your files;
+   push to main → Railway redeploys; live next 15-min cycle.
 
-## Ops notes
+## Measurement
 
-- Resend domains: gravelgodcycling.com + roadielabs.com both verified
-  (road: DKIM/SPF/MX in Cloudflare via one-time authorization, Jul 2026).
-  Senders: matti@gravelgodcycling.com / matti@roadielabs.com.
-- Road sequences activate only if `active: True` AND the brand routes —
-  the subscriber webhook reads the worker's `brand` field; the
-  `plan_purchased` enrollment path may NOT carry brand yet (unverified).
-- Pre-existing: ~76 mission_control dashboard test failures (401 auth,
-  env-dependent) — not caused by email work; don't chase them.
-
-## Parked build-items (highest-leverage first)
-
-1. Race-countdown lifecycle trigger — SPEC'd, see docs/specs/.
-2. Footer doorknob: one-line plan link on ongoing content emails.
-3. Reply-mining: harvest "reply with your race" answers into copy + personal
-   weeks-remaining replies.
-4. Sample week hosted on each brand's How-it-works page (emails reference
-   the inline version only, deliberately, until this exists).
-5. purchase_welcome as forwardable delight (the CD Baby move).
+Replies (primary KPI) + GA4 purchase events + unsub/spam rates.
+`sequence_report.py` purchase numbers are broken (gg_athletes is never
+written by the purchase path) — do not cite them.

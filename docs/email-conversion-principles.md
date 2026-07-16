@@ -1,3 +1,9 @@
+> **SUPERSEDED (Jul 16 2026):** the friend-register spec
+> (`docs/specs/friend-first-sequences.md`) replaced broadcast pitching
+> entirely — replies are the conversion engine now. This doc is kept as
+> the WHY-layer archive of the drip era; its 'masters moves' apply to
+> REPLY copy, not broadcasts.
+
 # Email Conversion Principles — GG + RL
 
 Companion to `email-voice-model.md` (voice/devices). This is the WHY layer:

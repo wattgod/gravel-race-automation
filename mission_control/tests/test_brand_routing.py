@@ -134,7 +134,11 @@ class TestConditionalPersonalization:
         return _render_template(tpl, {"contact_name": "Test Rider",
                                       "source_data": source_data})
 
-    RACE_CONDITIONAL = ("welcome_value", "road_welcome_value", "anti_pitch",
+    # GG welcome_value moved off race_name/race_slug onto the friend-register
+    # wb_* context keys (docs/specs/friend-register-copy.md) — it's covered
+    # separately below. road_welcome_value is untouched and keeps the old
+    # race_name-conditional mechanism.
+    RACE_CONDITIONAL = ("road_welcome_value", "anti_pitch",
                         "repitch", "race_prep_tips", "road_anti_pitch",
                         "road_repitch", "road_prep_variables")
 
@@ -149,7 +153,7 @@ class TestConditionalPersonalization:
                 assert "{{" not in html and "}}" not in html, f"{tpl}: mustache leak"
 
     def test_known_race_gets_callback_opener(self):
-        for tpl in ("welcome_value", "road_welcome_value"):
+        for tpl in ("road_welcome_value",):
             html = self._render(tpl, {"race_name": "Big Sugar",
                                       "race_slug": "big-sugar"})
             assert "Big Sugar" in html
@@ -158,14 +162,36 @@ class TestConditionalPersonalization:
             assert "{{" not in html
 
     def test_anonymous_gets_question_opener(self):
-        for tpl in ("welcome_value", "road_welcome_value"):
+        for tpl in ("road_welcome_value",):
             html = self._render(tpl, {})
             assert "Big Sugar" not in html
             assert "{{" not in html
             assert "{race_name}" not in html   # engine fallback never leaks raw
 
-    def test_pitch_count_promise_in_both_branches(self):
-        # Promise-tracking survives personalization: both branches say two.
-        for sd in ({"race_name": "X", "race_slug": "x"}, {}):
+    def test_welcome_value_renders_without_leaking_placeholders(self):
+        # The pitch-count-promise machinery is gone — welcome_value is now
+        # the 4-branch friend-register opener (guide/trail/race/anonymous,
+        # offseason-aware). This just asserts both the fully anonymous case
+        # and a race-context case render clean: no mustache tags, no raw
+        # {wb_*} placeholders leaking through.
+        for sd in ({}, {"race_name": "X", "race_slug": "x"}):
             html = self._render("welcome_value", sd)
-            assert "two emails" in html.lower()
+            assert "{{" not in html and "}}" not in html, "mustache leak"
+            assert "{wb_guide}" not in html
+            assert "{wb_trail}" not in html
+            assert "{wb_race}" not in html
+
+    def test_welcome_value_branches_are_mutually_exclusive(self):
+        # Exactly one wb_* branch renders when its key + any_context are set.
+        html = self._render("welcome_value", {"wb_race": "Big Sugar",
+                                               "any_context": "1"})
+        assert "Big Sugar" in html
+        assert "what race are you getting ready for" not in html
+        assert "happy offseason" not in html
+        assert "{{" not in html and "}}" not in html
+
+    def test_welcome_value_offseason_branch(self):
+        html = self._render("welcome_value", {"offseason": "1"})
+        assert "happy offseason" in html
+        assert "what race are you getting ready for" not in html
+        assert "{{" not in html and "}}" not in html

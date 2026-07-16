@@ -1,0 +1,458 @@
+[
+  {
+    "seq": "nurture",
+    "day": 2,
+    "subject": "how'd the prep kit land?",
+    "verdict": {
+      "friend_score": 5,
+      "tool": {
+        "verdict": "pass",
+        "worst_line": "",
+        "why": "Direct, useful, and free of hype or needy sales energy."
+      },
+      "body_snatcher": {
+        "verdict": "pass",
+        "worst_line": "",
+        "why": "Specific to Alex's download, brief, plainspoken, and genuinely interested."
+      },
+      "familiarity": {
+        "verdict": "pass",
+        "worst_line": "",
+        "why": "Alex grabbed the kit; asking whether it helped is a timely, personal reason."
+      },
+      "one_fix": ""
+    }
+  },
+  {
+    "seq": "post_purchase",
+    "day": 0,
+    "subject": "got your questionnaire",
+    "verdict": {
+      "friend_score": 4,
+      "tool": {
+        "verdict": "pass",
+        "worst_line": "",
+        "why": "Direct, useful, and unexcited in the right way."
+      },
+      "body_snatcher": {
+        "verdict": "warn",
+        "worst_line": "The plan bends.",
+        "why": "That polished slogan briefly sounds like brand copy, not Matti texting."
+      },
+      "familiarity": {
+        "verdict": "pass",
+        "worst_line": "",
+        "why": "Alex just submitted the questionnaire; confirming receipt and inviting updates belongs today."
+      },
+      "one_fix": "Replace \u201cThe plan bends.\u201d with \u201cI\u2019d rather change it than have you pretend your week didn\u2019t.\u201d"
+    }
+  },
+  {
+    "seq": "post_purchase",
+    "day": 3,
+    "subject": "how did the first rides feel?",
+    "verdict": {
+      "friend_score": 4,
+      "tool": {
+        "verdict": "pass",
+        "worst_line": "",
+        "why": "Direct advice, no hype, and the self-own keeps the authority honest."
+      },
+      "body_snatcher": {
+        "verdict": "warn",
+        "worst_line": "Gravel God Alex \u2014 how did the first rides feel?",
+        "why": "The branded mail-merge greeting briefly exposes the marketing machine."
+      },
+      "familiarity": {
+        "verdict": "pass",
+        "worst_line": "",
+        "why": "Three days into a new plan is a believable moment to ask about the first rides."
+      },
+      "one_fix": "Alex \u2014 how did the first rides feel? Too easy is good right now. I\u2019ve screwed this up by adding extra. Did you?"
+    }
+  },
+  {
+    "seq": "post_purchase",
+    "day": 10,
+    "subject": "two weeks in \u2014 quick check",
+    "verdict": {
+      "friend_score": 4,
+      "tool": {
+        "verdict": "warn",
+        "worst_line": "Gravel God Alex \u2014 two weeks in.",
+        "why": "The branded nickname feels forced; a friend would just say Alex."
+      },
+      "body_snatcher": {
+        "verdict": "warn",
+        "worst_line": "Matti Rowe \u00b7 Gravel God Cycling \u00b7 gravelgodcycling.com",
+        "why": "Corporate footer briefly turns a specific human note back into marketing."
+      },
+      "familiarity": {
+        "verdict": "pass",
+        "worst_line": "",
+        "why": "Checking whether a purchased plan fits after two weeks is timely and personal."
+      },
+      "one_fix": "Replace the opener and footer with: \u201cAlex \u2014 you\u2019re two weeks in.\u201d and sign only \u201c\u2014 Matti.\u201d"
+    }
+  },
+  {
+    "seq": "post_purchase",
+    "day": 21,
+    "subject": "the boring middle",
+    "verdict": {
+      "friend_score": 3,
+      "tool": {
+        "verdict": "pass",
+        "worst_line": "",
+        "why": "Direct, useful, and not selling anything."
+      },
+      "body_snatcher": {
+        "verdict": "warn",
+        "worst_line": "that's where the fitness actually shows up.",
+        "why": "Generic coach wisdom with unearned certainty; Matti's specific voice disappears."
+      },
+      "familiarity": {
+        "verdict": "warn",
+        "worst_line": "Gravel God Alex \u2014 you're in the boring middle now.",
+        "why": "The plan phase provides a reason, but the branded address and footer expose the automation."
+      },
+      "one_fix": "Alex \u2014 three weeks in is usually where a plan starts feeling like unpaid admin. How are your legs?"
+    }
+  },
+  {
+    "seq": "post_purchase",
+    "day": 42,
+    "subject": "did {race_name} happen?",
+    "verdict": {
+      "friend_score": 4,
+      "tool": {
+        "verdict": "pass",
+        "worst_line": "",
+        "why": "Direct, low-key, and asks for the ugly truth without selling."
+      },
+      "body_snatcher": {
+        "verdict": "warn",
+        "worst_line": "The part that stings a little is the part I can fix.",
+        "why": "Polished feedback-copy briefly replaces Matti's simpler, interested-friend register."
+      },
+      "familiarity": {
+        "verdict": "pass",
+        "worst_line": "",
+        "why": "His race just happened; asking how it went is timely and personal."
+      },
+      "one_fix": "Alex \u2014 did Unbound happen? How\u2019d it go? Give me the version you wouldn\u2019t post on Instagram. \u2014 Matti"
+    }
+  },
+  {
+    "seq": "race_countdown",
+    "day": 0,
+    "subject": "16 weeks to {race_name}",
+    "verdict": {
+      "friend_score": 4,
+      "tool": {
+        "verdict": "pass",
+        "worst_line": "",
+        "why": "Direct, useful, and free of hype or needy sales energy."
+      },
+      "body_snatcher": {
+        "verdict": "warn",
+        "worst_line": "Are you where you wanted to be, training-wise?",
+        "why": "Slightly polished coach-speak, though the blunt offer restores Matti's specific voice."
+      },
+      "familiarity": {
+        "verdict": "pass",
+        "worst_line": "",
+        "why": "Sixteen weeks out is a real, person-specific reason to ask about training today."
+      },
+      "one_fix": "Alex \u2014 Unbound's sixteen weeks out. Where's training at? Tell me what your week actually looks like and I'll tell you what I'd do with it. \u2014 Matti"
+    }
+  },
+  {
+    "seq": "race_countdown",
+    "day": 0,
+    "subject": "8 weeks to {race_name}",
+    "verdict": {
+      "friend_score": 5,
+      "tool": {
+        "verdict": "pass",
+        "worst_line": "",
+        "why": "Direct and useful without hype, pressure, or fake excitement."
+      },
+      "body_snatcher": {
+        "verdict": "pass",
+        "worst_line": "",
+        "why": "Specific, plainspoken, and interested in Alex\u2019s actual training situation."
+      },
+      "familiarity": {
+        "verdict": "pass",
+        "worst_line": "",
+        "why": "Eight weeks before Alex\u2019s named race is a credible reason to reach out today."
+      },
+      "one_fix": ""
+    }
+  },
+  {
+    "seq": "race_specific",
+    "day": 1,
+    "subject": "which one are you actually considering?",
+    "verdict": {
+      "friend_score": 4,
+      "tool": {
+        "verdict": "pass",
+        "worst_line": "",
+        "why": "Direct, useful, and asks for a reply without begging or manufacturing excitement."
+      },
+      "body_snatcher": {
+        "verdict": "warn",
+        "worst_line": "Send me the shortlist and I'll tell you where I think the quiz got it right \u2014 and where it might have missed for you.",
+        "why": "Useful and specific, but polished enough to sound like programmed follow-up copy."
+      },
+      "familiarity": {
+        "verdict": "pass",
+        "worst_line": "",
+        "why": "Alex just used the finder; asking which races survived is a plausible reason to write today."
+      },
+      "one_fix": "Alex \u2014 which two or three races from the finder are you actually considering? Send them over. I\u2019ll tell you where it whiffed."
+    }
+  },
+  {
+    "seq": "race_specific",
+    "day": 4,
+    "subject": "where do races usually get you?",
+    "verdict": {
+      "friend_score": 4,
+      "tool": {
+        "verdict": "pass",
+        "worst_line": "",
+        "why": "Direct, useful, and free of hype or sales pressure."
+      },
+      "body_snatcher": {
+        "verdict": "warn",
+        "worst_line": "Genuinely curious.",
+        "why": "Claiming curiosity sounds slightly performed; the specific question already proves it."
+      },
+      "familiarity": {
+        "verdict": "warn",
+        "worst_line": "while Unbound is on your mind",
+        "why": "Plausible timing, but it dodges the concrete reason Matti knows Unbound is relevant."
+      },
+      "one_fix": "Alex \u2014 you grabbed the Unbound guide four days ago. Where do long races usually get you: starting too fast, getting bored halfway, or hanging on for the last hour? \u2014 Matti"
+    }
+  },
+  {
+    "seq": "welcome",
+    "day": 0,
+    "subject": "getting ready for one of these?",
+    "verdict": {
+      "friend_score": 2,
+      "tool": {
+        "verdict": "pass",
+        "worst_line": "",
+        "why": "No hype, pressure, fake excitement, or sales pitch."
+      },
+      "body_snatcher": {
+        "verdict": "fail",
+        "worst_line": "Alex \u2014 what race are you getting ready for? How's training going?",
+        "why": "Generic questions with no specific Matti detail; nearly any cycling brand could send this."
+      },
+      "familiarity": {
+        "verdict": "fail",
+        "worst_line": "Alex \u2014 what race are you getting ready for?",
+        "why": "It never names what Alex requested, so enrollment\u2014not a personal action\u2014is the apparent premise."
+      },
+      "one_fix": "Alex \u2014 thanks for grabbing [specific thing]. Are you using it for a race? How's training going?"
+    }
+  },
+  {
+    "seq": "welcome",
+    "day": 10,
+    "subject": "land on a race yet?",
+    "verdict": {
+      "friend_score": 4,
+      "tool": {
+        "verdict": "pass",
+        "worst_line": "",
+        "why": "Direct, useful, and free of sales pressure."
+      },
+      "body_snatcher": {
+        "verdict": "warn",
+        "worst_line": "Picking is half the fun.",
+        "why": "Stock warmth; the rest sounds specific and human."
+      },
+      "familiarity": {
+        "verdict": "warn",
+        "worst_line": "Alex \u2014 did you land on a race, or still shopping?",
+        "why": "Plausible follow-up, but nothing explains why Matti remembered today."
+      },
+      "one_fix": "Alex \u2014 you were still shopping when you grabbed [X]. Land on one, or stuck between two? Send me both. \u2014 Matti"
+    }
+  },
+  {
+    "seq": "welcome",
+    "day": 0,
+    "subject": "what you signed up for",
+    "verdict": {
+      "friend_score": 1,
+      "tool": {
+        "verdict": "fail",
+        "worst_line": "This is the most useful thing you can do with this email.",
+        "why": "Bossy, self-important, and openly optimizing the reply."
+      },
+      "body_snatcher": {
+        "verdict": "fail",
+        "worst_line": "Here is what that gets you: six emails over three weeks, then roughly one a week.",
+        "why": "Faceless compliance copy explaining the marketing machine."
+      },
+      "familiarity": {
+        "verdict": "fail",
+        "worst_line": "Race analysis and training arguments, plus two notes about what I sell \u2014 custom training plans ($15 per week of training, one payment) and coaching \u2014 on days seven and ten, clearly labeled.",
+        "why": "No friend announces a drip schedule and predetermined sales days."
+      },
+      "one_fix": "Delete the sequence explanation and pitch: \u201cThanks for grabbing the race ratings, Alex. Which race are you considering\u2014and what worries you about it? \u2014 Matti\u201d"
+    }
+  },
+  {
+    "seq": "welcome",
+    "day": 3,
+    "subject": "how long races actually unfold",
+    "verdict": {
+      "friend_score": 1,
+      "tool": {
+        "verdict": "fail",
+        "worst_line": "Your job is resolve.",
+        "why": "Commanding, polished coach-speak with fake certainty; no friend talks like this."
+      },
+      "body_snatcher": {
+        "verdict": "fail",
+        "worst_line": "One sentence to keep: survive act one, execute act two, capitalize in act three.",
+        "why": "Generic motivational copy that could come from any endurance brand."
+      },
+      "familiarity": {
+        "verdict": "fail",
+        "worst_line": "P.S. Next email: how the race scoring actually works, and what a 97 is worth.",
+        "why": "The drip schedule is the premise; nothing happened today that makes this personal."
+      },
+      "one_fix": "Replace the lesson with: \u201cAlex \u2014 what race are you training for, and where do long days usually fall apart for you?\u201d"
+    }
+  },
+  {
+    "seq": "welcome",
+    "day": 5,
+    "subject": "what a 97 means",
+    "verdict": {
+      "friend_score": 1,
+      "tool": {
+        "verdict": "fail",
+        "worst_line": "Every race, ranked",
+        "why": "This tagline drops the friend act and exposes the marketing furniture."
+      },
+      "body_snatcher": {
+        "verdict": "fail",
+        "worst_line": "The point of scoring races this way is that you plan a season around the numbers.",
+        "why": "Polished institutional instruction, not Matti showing genuine interest in Alex."
+      },
+      "familiarity": {
+        "verdict": "fail",
+        "worst_line": "Alex \u2014 Every race in the database is scored on the same fifteen criteria",
+        "why": "Nothing Alex did prompted this lecture today; day five is its only premise."
+      },
+      "one_fix": "Alex \u2014 you grabbed the race guide five days ago. Did the score change how you see the race, or does it seem wrong? \u2014 Matti"
+    }
+  },
+  {
+    "seq": "welcome",
+    "day": 7,
+    "subject": "the offer, stated plainly",
+    "verdict": {
+      "friend_score": 1,
+      "tool": {
+        "verdict": "fail",
+        "worst_line": "It is the outcome: you get faster on the hours you actually have, the bike fits inside your life instead of competing with it, and you arrive at your race prepared instead of hopeful.",
+        "why": "Polished outcome-selling dressed up as blunt honesty."
+      },
+      "body_snatcher": {
+        "verdict": "fail",
+        "worst_line": "Inputs: your race's actual course profile, your FTP, the hours you can genuinely train. Output: every workout from your start date to your start line, delivered within 48 hours, as files that load into Zwift or your head unit, with pacing and fueling for your course.",
+        "why": "This is a product specification, not Matti talking to Alex."
+      },
+      "familiarity": {
+        "verdict": "fail",
+        "worst_line": "This sequence contains two sales emails. This is the first; the second is a short follow-up in three days.",
+        "why": "Its stated reason for existing is the sales calendar."
+      },
+      "one_fix": "Replace the entire pitch with: \"Alex \u2014 what race are you training for, and where does the week keep going sideways? \u2014 Matti\""
+    }
+  },
+  {
+    "seq": "welcome",
+    "day": 10,
+    "subject": "the follow-up, and then we're done",
+    "verdict": {
+      "friend_score": 1,
+      "tool": {
+        "verdict": "fail",
+        "worst_line": "$249, once. Delivered in 48 hours.",
+        "why": "A straight-faced price close after a polished sales argument."
+      },
+      "body_snatcher": {
+        "verdict": "fail",
+        "worst_line": "The product is a plan that still fits on the day your circumstances change.",
+        "why": "Generic positioning copy; polished, faceless, and unlike Matti's interested friend register."
+      },
+      "familiarity": {
+        "verdict": "fail",
+        "worst_line": "Second and final note about the training plan, as promised.",
+        "why": "Its premise is sequence housekeeping and another pitch, not something Alex did today."
+      },
+      "one_fix": "Delete the broadcast pitch. Ask Alex one specific question about how training is fitting around life, then sell only in the reply."
+    }
+  },
+  {
+    "seq": "welcome",
+    "day": 17,
+    "subject": "a technique for the hard miles",
+    "verdict": {
+      "friend_score": 1,
+      "tool": {
+        "verdict": "fail",
+        "worst_line": "Nothing is for sale in this email.",
+        "why": "Preemptive sales denial sounds exactly like a marketer trying to lower your guard."
+      },
+      "body_snatcher": {
+        "verdict": "fail",
+        "worst_line": "The countermeasure is mechanical: inhale for 6 seconds, hold for 2, exhale for 7.",
+        "why": "Polished, generic wellness instruction with no Matti-specific experience, uncertainty, or personality."
+      },
+      "familiarity": {
+        "verdict": "fail",
+        "worst_line": "The rest of the mental toolkit \u2014 race-phase tactics, the in-race decision tree, the race-morning checklist \u2014 is free: Mental Training & Race Tactics .",
+        "why": "Day-17 broadcast advice exists to deliver a CTA, not because Alex gave Matti a reason today."
+      },
+      "one_fix": "Delete this scheduled broadcast; ask Alex about a specific hard moment only when their race timing or reply gives you a real premise."
+    }
+  },
+  {
+    "seq": "win_back",
+    "day": 0,
+    "subject": "did you end up racing it?",
+    "verdict": {
+      "friend_score": 2,
+      "tool": {
+        "verdict": "pass",
+        "worst_line": "",
+        "why": "No hype, pressure, fake excitement, or sales pitch."
+      },
+      "body_snatcher": {
+        "verdict": "warn",
+        "worst_line": "Either way I'm curious how the season's going.",
+        "why": "Generic warmth and the corporate footer make Matti sound partially replaced by marketing."
+      },
+      "familiarity": {
+        "verdict": "fail",
+        "worst_line": "Alex \u2014 a while back you were poking around the race database.",
+        "why": "A vague old browsing event does not explain why a friend would ask today."
+      },
+      "one_fix": "Name the actual race Alex viewed and ask, simply: \u201cAlex \u2014 did you end up racing [race name]?\u201d"
+    }
+  }
+]

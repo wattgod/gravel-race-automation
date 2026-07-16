@@ -1407,6 +1407,33 @@ def build_cta_finale() -> str:
   </div>'''
 
 
+def build_chapter_email_capture(chapter: dict) -> str:
+    """Build the quiet end-of-chapter email capture block.
+
+    docs/specs/friend-first-sequences.md §4.2-4.3 — the guide currently has
+    no capture point of its own. This is a single email field, no gate (the
+    guide stays free), posted directly to the fueling-lead-intake worker
+    with this chapter's title as guide_chapter so the welcome sequence can
+    branch on it. Imported by generate_guide_cluster.py and rendered once
+    per chapter page; the submit handler lives in build_cluster_js().
+    """
+    ch_id = esc(chapter["id"])
+    title = esc(chapter["title"])
+    form_id = f"gg-guide-capture-{ch_id}"
+    return f'''<div class="gg-guide-email-capture" id="{form_id}-block">
+    <p class="gg-guide-email-capture-text">Training for something? Leave your email and tell me the race — I'll help.</p>
+    <form class="gg-guide-email-capture-form" id="{form_id}" autocomplete="off">
+      <input type="hidden" name="guide_chapter" value="{title}">
+      <input type="hidden" name="website" value="">
+      <div class="gg-guide-email-capture-row">
+        <input type="email" name="email" required placeholder="your@email.com" class="gg-guide-email-capture-input" aria-label="Email address">
+        <button type="submit" class="gg-guide-email-capture-btn">SEND</button>
+      </div>
+    </form>
+    <p class="gg-guide-email-capture-success" id="{form_id}-success" style="display:none">&#10003; Got it &mdash; hit reply anytime.</p>
+  </div>'''
+
+
 def build_gate() -> str:
     """Build the content gate overlay between Ch 3 and Ch 4."""
     return f'''<div class="gg-guide-gate" id="gg-guide-gate">

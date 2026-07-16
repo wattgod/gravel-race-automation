@@ -21,7 +21,7 @@ GG_16 = {
     "variants": {
         "A": {"weight": 100, "name": "Window", "steps": [
             {"delay_days": 0, "template": "countdown_16w",
-             "subject": "{race_name} is {weeks_out} weeks out"},
+             "subject": "16 weeks to {race_name}"},
         ]},
     },
 }
@@ -35,7 +35,7 @@ GG_8 = {
     "variants": {
         "A": {"weight": 100, "name": "Triage", "steps": [
             {"delay_days": 0, "template": "countdown_8w",
-             "subject": "{race_name}: {weeks_out} weeks. still worth structuring."},
+             "subject": "8 weeks to {race_name}"},
         ]},
     },
 }

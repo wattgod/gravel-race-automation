@@ -1,0 +1,458 @@
+[
+  {
+    "seq": "race_countdown",
+    "day": 0,
+    "subject": "{race_name}: {weeks_out} weeks out",
+    "verdict": {
+      "friend_score": 1,
+      "tool": {
+        "verdict": "fail",
+        "worst_line": "The cap subsidizes exactly this week.",
+        "why": "Sales math dressed up as urgency, delivered with lawyerly certainty."
+      },
+      "body_snatcher": {
+        "verdict": "fail",
+        "worst_line": "There is no arrangement of the remaining weeks that reconstructs it.",
+        "why": "Faceless, overpolished copy; Matti sounds replaced by a management consultant."
+      },
+      "familiarity": {
+        "verdict": "fail",
+        "worst_line": "BUILD THE the Maratona PLAN \u2192",
+        "why": "Enrollment explains today, but the broadcast monologue and banner CTA kill the friend premise."
+      },
+      "one_fix": "Alex \u2014 you said the Maratona is the one. Your training window starts now. Want me to tell you honestly whether you need a plan? Reply with your weekly hours."
+    }
+  },
+  {
+    "seq": "race_countdown",
+    "day": 0,
+    "subject": "{race_name}: {weeks_out} weeks. the arithmetic.",
+    "verdict": {
+      "friend_score": 1,
+      "tool": {
+        "verdict": "fail",
+        "worst_line": "At $15 per week of training, the short runway is also the inexpensive one.",
+        "why": "A polished price justification followed by a shouty CTA is unmistakably sales copy."
+      },
+      "body_snatcher": {
+        "verdict": "fail",
+        "worst_line": "The triage arithmetic, honestly stated:",
+        "why": "Faceless consultant language, broken placeholders, and dense feature copy sound nothing like Matti."
+      },
+      "familiarity": {
+        "verdict": "warn",
+        "worst_line": "Alex \u2014 the Maratona is approximately weeks out.",
+        "why": "Enrollment explains today, but the email never acknowledges what Alex did or asks anything personal."
+      },
+      "one_fix": "Rewrite around the enrollment trigger: \u201cAlex \u2014 you\u2019re looking at Maratona with {weeks_out} weeks left. What\u2019s your biggest problem: fitness, pacing, or fueling?\u201d"
+    }
+  },
+  {
+    "seq": "road_nurture",
+    "day": 2,
+    "subject": "three variables that decide your fondo",
+    "verdict": {
+      "friend_score": 2,
+      "tool": {
+        "verdict": "warn",
+        "worst_line": "Every race profile covers course, pacing, and prep for that specific event: find yours .",
+        "why": "The abrupt generic CTA reveals the lesson as a sales setup."
+      },
+      "body_snatcher": {
+        "verdict": "fail",
+        "worst_line": "They convert existing fitness into availability.",
+        "why": "Polished consultant language; specific information, but no recognizable human speaking."
+      },
+      "familiarity": {
+        "verdict": "fail",
+        "worst_line": "P.S. Next: the race-week don't list.",
+        "why": "A scheduled nurture installment teasing another installment, with no personal reason to arrive today."
+      },
+      "one_fix": "Alex \u2014 which fondo are you riding? Send me the name and I\u2019ll tell you where people usually cook themselves."
+    }
+  },
+  {
+    "seq": "road_nurture",
+    "day": 5,
+    "subject": "race week: mostly don'ts",
+    "verdict": {
+      "friend_score": 2,
+      "tool": {
+        "verdict": "warn",
+        "worst_line": "Race week adds nothing. It can only subtract.",
+        "why": "Punchy, but the absolute certainty sounds performed rather than candid."
+      },
+      "body_snatcher": {
+        "verdict": "fail",
+        "worst_line": "Accordingly, a list of don'ts:",
+        "why": "Useful but faceless; any competent cycling coach could have written this polished checklist."
+      },
+      "familiarity": {
+        "verdict": "fail",
+        "worst_line": "Your race's profile marks where patience pays: the database .",
+        "why": "Nothing proves Alex races soon; the broken generic CTA exposes a scheduled nurture blast."
+      },
+      "one_fix": "Anchor it to Alex's actual race and one course-specific pacing trap: \u201cYour race is Saturday. That first climb is bait\u2014cap it at X.\u201d"
+    }
+  },
+  {
+    "seq": "road_nurture",
+    "day": 8,
+    "subject": "software models the rider, not the race",
+    "verdict": {
+      "friend_score": 2,
+      "tool": {
+        "verdict": "warn",
+        "worst_line": "Race circled: BUILD THE PLAN \u2192",
+        "why": "The shouty CTA breaks an otherwise restrained pitch and sounds like conversion copy."
+      },
+      "body_snatcher": {
+        "verdict": "fail",
+        "worst_line": "THE OFFER:",
+        "why": "The polished feature stack and objection script sound like a competent marketing department, not Matti texting Alex."
+      },
+      "familiarity": {
+        "verdict": "fail",
+        "worst_line": "This is the sales email. One short follow-up next week.",
+        "why": "It explicitly exists because the sequence calendar says day eight, not because something happened for Alex today."
+      },
+      "one_fix": "Replace the scheduled sales brochure with a race-specific note: \u201cAlex \u2014 what race did you circle? Send it over. I\u2019ll tell you whether your runway looks sane.\u201d"
+    }
+  },
+  {
+    "seq": "road_nurture",
+    "day": 11,
+    "subject": "the week-six problem",
+    "verdict": {
+      "friend_score": 2,
+      "tool": {
+        "verdict": "fail",
+        "worst_line": "If the answer is \u201ceventually\u201d: eventually is the expensive version of yes.",
+        "why": "Manufactured urgency dressed as arithmetic; it corners the reader instead of helping them decide."
+      },
+      "body_snatcher": {
+        "verdict": "warn",
+        "worst_line": "Weeks-to-race are a fixed stock.",
+        "why": "Distinctly Roadie Labs, but so polished and declarative it barely sounds like Matti texting."
+      },
+      "familiarity": {
+        "verdict": "fail",
+        "worst_line": "The promised follow-up. After this, the subject is closed.",
+        "why": "Its real reason for arriving today is sequence timing and another sales attempt."
+      },
+      "one_fix": "Cut the closing argument. Ask for Alex\u2019s race date, do the actual calendar math, then say plainly whether waiting matters."
+    }
+  },
+  {
+    "seq": "road_post_purchase",
+    "day": 0,
+    "subject": "your plan is in production",
+    "verdict": {
+      "friend_score": 3,
+      "tool": {
+        "verdict": "warn",
+        "worst_line": "That service is what you paid for; the workouts alone were never the scarce part.",
+        "why": "Sounds like polished value justification after the sale."
+      },
+      "body_snatcher": {
+        "verdict": "warn",
+        "worst_line": "Your plan is in production.",
+        "why": "Corporate status language makes Matti sound like an order-management system."
+      },
+      "familiarity": {
+        "verdict": "pass",
+        "worst_line": "",
+        "why": "Alex just bought a plan; confirming receipt and setting expectations is timely."
+      },
+      "one_fix": "Alex \u2014 I\u2019ve got your questionnaire. I\u2019m building around your race, FTP, and actual available hours. You\u2019ll have it within 48 hours."
+    }
+  },
+  {
+    "seq": "road_post_purchase",
+    "day": 3,
+    "subject": "week 1: calibration",
+    "verdict": {
+      "friend_score": 2,
+      "tool": {
+        "verdict": "warn",
+        "worst_line": "The plan says rest, you rest.",
+        "why": "Commands Alex like a subordinate; the certainty feels coach-performative, not friendly."
+      },
+      "body_snatcher": {
+        "verdict": "fail",
+        "worst_line": "This is the instruction most often ignored and most expensive to ignore.",
+        "why": "Faceless coaching copy with no Matti-specific mistake, hedge, deadpan aside, or methodological detail."
+      },
+      "familiarity": {
+        "verdict": "warn",
+        "worst_line": "Proper check-in at the end of week 2.",
+        "why": "Week-one calibration is timely, but this scheduled announcement never asks how Alex's actual rides feel."
+      },
+      "one_fix": "Alex \u2014 quick note because week one is where I usually turn a measurement into an ego test: hit the prescribed watts exactly. How have Zone 2 efforts felt so far?"
+    }
+  },
+  {
+    "seq": "road_post_purchase",
+    "day": 10,
+    "subject": "two weeks in \u2014 three questions",
+    "verdict": {
+      "friend_score": 4,
+      "tool": {
+        "verdict": "pass",
+        "worst_line": "",
+        "why": "Direct, useful, and unsalesy; the bluntness earns its place."
+      },
+      "body_snatcher": {
+        "verdict": "warn",
+        "worst_line": "Two weeks of data exist now. This email collects it.",
+        "why": "The robotic opener briefly sounds like automated account management, not Matti."
+      },
+      "familiarity": {
+        "verdict": "pass",
+        "worst_line": "",
+        "why": "Two weeks of training creates a specific, useful reason to check calibration now."
+      },
+      "one_fix": "Alex \u2014 you\u2019ve got two weeks on the plan now, so I want to check where I guessed wrong. Three quick ones:"
+    }
+  },
+  {
+    "seq": "road_post_purchase",
+    "day": 21,
+    "subject": "the build phase, explained",
+    "verdict": {
+      "friend_score": 3,
+      "tool": {
+        "verdict": "warn",
+        "worst_line": "The data on this is not ambiguous.",
+        "why": "Unqualified certainty sounds like a coach performing authority, not a friend showing the evidence."
+      },
+      "body_snatcher": {
+        "verdict": "warn",
+        "worst_line": "It is also where the fitness is actually manufactured.",
+        "why": "Distinctive deadpan appears, but much of the copy remains polished coaching-broadcast language."
+      },
+      "familiarity": {
+        "verdict": "pass",
+        "worst_line": "",
+        "why": "Week three creates a real reason to discuss stalled motivation, missed targets, and the approaching recovery week."
+      },
+      "one_fix": "Replace the authority flex with evidence and humility: \u201cI don\u2019t know your exact fatigue curve yet, but skipping recovery usually shows up as flat workouts, not bonus fitness.\u201d"
+    }
+  },
+  {
+    "seq": "road_post_purchase",
+    "day": 42,
+    "subject": "one number",
+    "verdict": {
+      "friend_score": 2,
+      "tool": {
+        "verdict": "warn",
+        "worst_line": "The honest number, please.",
+        "why": "Sounds like a survey administrator implying other answers are dishonest."
+      },
+      "body_snatcher": {
+        "verdict": "warn",
+        "worst_line": "Six weeks of plan data on your side; this email collects one number for ours.",
+        "why": "Brand-specific scoring helps, but the polished NPS script barely sounds like Matti."
+      },
+      "familiarity": {
+        "verdict": "fail",
+        "worst_line": "0 to 10 \u2014 how likely are you to recommend the plan to another rider?",
+        "why": "This exists because day 42 triggered an NPS survey, not because Matti has something personal to say."
+      },
+      "one_fix": "Alex \u2014 six weeks in, did the plan actually help? Reply 0\u201310. If it missed, tell me where; that\u2019s more useful."
+    }
+  },
+  {
+    "seq": "road_race_specific",
+    "day": 1,
+    "subject": "about your matches",
+    "verdict": {
+      "friend_score": 4,
+      "tool": {
+        "verdict": "pass",
+        "worst_line": "",
+        "why": "Direct, useful, and unsentimental. It asks for nothing except enough context to help."
+      },
+      "body_snatcher": {
+        "verdict": "warn",
+        "worst_line": "Ties are worth adjudicating.",
+        "why": "Specific Roadie Labs substance, but this phrase sounds like polished institutional copy, not Matti texting."
+      },
+      "familiarity": {
+        "verdict": "pass",
+        "worst_line": "",
+        "why": "Alex just requested matches; helping interpret them before committing is a credible reason to write today."
+      },
+      "one_fix": "Replace \u201cTies are worth adjudicating\u201d with: \u201cIf two are tied, send me both names. I\u2019ll tell you what the quiz flattened.\u201d"
+    }
+  },
+  {
+    "seq": "road_race_specific",
+    "day": 4,
+    "subject": "what {race_name} actually demands",
+    "verdict": {
+      "friend_score": 2,
+      "tool": {
+        "verdict": "warn",
+        "worst_line": "That is how the database stays worth reading.",
+        "why": "Self-important closing turns a useful correction request into a brand credibility pitch."
+      },
+      "body_snatcher": {
+        "verdict": "fail",
+        "worst_line": "Same distance category, opposite fitness demands.",
+        "why": "Polished expert copy with no hesitation, personal stake, or recognizable Matti texture."
+      },
+      "familiarity": {
+        "verdict": "fail",
+        "worst_line": "Read the course section of the profile twice.",
+        "why": "Nothing happened today; this is a scheduled lesson disguised as personal advice."
+      },
+      "one_fix": "Give today a real trigger: \u201cAlex \u2014 I re-read the Maratona profile and one section could screw up your pacing: the course demands.\u201d"
+    }
+  },
+  {
+    "seq": "road_race_specific",
+    "day": 10,
+    "subject": "software models the rider, not the race",
+    "verdict": {
+      "friend_score": 2,
+      "tool": {
+        "verdict": "fail",
+        "worst_line": "THE OFFER:",
+        "why": "The feature stack, price, and CTA turn bluntness into a polished sales pitch."
+      },
+      "body_snatcher": {
+        "verdict": "warn",
+        "worst_line": "The output is fitness in a generic shape. Races are not generic.",
+        "why": "Specific and credible, but polished positioning language overwhelms Matti's human voice."
+      },
+      "familiarity": {
+        "verdict": "fail",
+        "worst_line": "This is the sales email. One short follow-up next week. Then the subject is closed.",
+        "why": "It explicitly exists because the sequence calendar says to sell today."
+      },
+      "one_fix": "Replace the entire pitch with: \u201cAlex \u2014 the Maratona has 4,000-ish meters of climbing, so generic \u2018hilly ride\u2019 training is pretty useless. Send me your FTP and honest weekly hours. I\u2019ll tell you whether your runway looks workable before I try to sell you anything.\u201d"
+    }
+  },
+  {
+    "seq": "road_welcome",
+    "day": 0,
+    "subject": "427 races, one ruler",
+    "verdict": {
+      "friend_score": 2,
+      "tool": {
+        "verdict": "warn",
+        "worst_line": "What to expect from this list: mostly signal.",
+        "why": "Self-congratulation plus list-management language makes the confidence feel marketed."
+      },
+      "body_snatcher": {
+        "verdict": "fail",
+        "worst_line": "The free things worth your time, in order:",
+        "why": "The numbered resource tour is polished onboarding copy, not Matti talking to Alex."
+      },
+      "familiarity": {
+        "verdict": "warn",
+        "worst_line": "Two emails about the training plans we sell \u2014 one next week, one short follow-up after it.",
+        "why": "Enrollment justifies today, but announcing the campaign schedule exposes the broadcast machinery."
+      },
+      "one_fix": "Alex \u2014 you just joined, so start here: [database]. What race are you considering? Send me the name and I\u2019ll tell you what your remaining weeks can realistically do."
+    }
+  },
+  {
+    "seq": "road_welcome",
+    "day": 3,
+    "subject": "how many carbs does a gran fondo actually take?",
+    "verdict": {
+      "friend_score": 2,
+      "tool": {
+        "verdict": "pass",
+        "worst_line": "",
+        "why": "Clinical and blunt, with no hype, groveling, or fake excitement."
+      },
+      "body_snatcher": {
+        "verdict": "warn",
+        "worst_line": "Alex \u2014 A question with a numeric answer: how many gels does a 7-hour gran fondo actually require?",
+        "why": "The deadpan data voice fits, but the polished lecture opener sounds authored for a list."
+      },
+      "familiarity": {
+        "verdict": "fail",
+        "worst_line": "P.S. Next: the lowest-rated race in the database, and why publishing that number is the entire point of Roadie Labs.",
+        "why": "A scheduled lesson teasing the next installment has no person-specific reason to arrive today."
+      },
+      "one_fix": "Open with Alex\u2019s signup context and a real question: \u201cAlex \u2014 you signed up from the {race_name} page. How long do you expect to be out there?\u201d"
+    }
+  },
+  {
+    "seq": "road_welcome",
+    "day": 5,
+    "subject": "the race we rated 44",
+    "verdict": {
+      "friend_score": 2,
+      "tool": {
+        "verdict": "pass",
+        "worst_line": "",
+        "why": "Blunt, restrained, and never begs for attention or inflates the reader."
+      },
+      "body_snatcher": {
+        "verdict": "warn",
+        "worst_line": "That is not a weakness of the system; it is the system.",
+        "why": "Specific and credible, but polished manifesto language sometimes replaces Matti\u2019s human presence."
+      },
+      "familiarity": {
+        "verdict": "fail",
+        "worst_line": "Alex \u2014 The lowest score in the Roadie Labs database is 44 out of 100: L'\u00c9tape Indonesia.",
+        "why": "Nothing connects this day-five lecture to Alex\u2019s signup, race, question, or decision today."
+      },
+      "one_fix": "Rewrite the opener around Alex\u2019s signup context: \u201cAlex \u2014 before you use our ratings to book a flight, here\u2019s the race we\u2019d tell you not to fly for.\u201d"
+    }
+  },
+  {
+    "seq": "road_welcome",
+    "day": 7,
+    "subject": "software models the rider, not the race",
+    "verdict": {
+      "friend_score": 2,
+      "tool": {
+        "verdict": "warn",
+        "worst_line": "Race circled: BUILD THE PLAN \u2192",
+        "why": "The blunt honesty helps, but the capitalized CTA and exhaustive pitch still feel salesy."
+      },
+      "body_snatcher": {
+        "verdict": "warn",
+        "worst_line": "THE OFFER:",
+        "why": "Distinctive evidence and concessions survive, but sales-page structure overwhelms Matti's conversational identity."
+      },
+      "familiarity": {
+        "verdict": "fail",
+        "worst_line": "This is the sales email. One short follow-up next week.",
+        "why": "Its reason for arriving is sequence timing, openly admitted, not anything Alex did today."
+      },
+      "one_fix": "Alex \u2014 you signed up from the [race] page. Still racing it? Reply with your weekly hours and I\u2019ll tell you whether a plan is justified."
+    }
+  },
+  {
+    "seq": "road_welcome",
+    "day": 10,
+    "subject": "the week-six problem",
+    "verdict": {
+      "friend_score": 2,
+      "tool": {
+        "verdict": "fail",
+        "worst_line": "If the answer is \u201ceventually\u201d: eventually is the expensive version of yes.",
+        "why": "A sharp sales closer disguised as financial advice; it pressures instead of helping."
+      },
+      "body_snatcher": {
+        "verdict": "pass",
+        "worst_line": "",
+        "why": "Specific math, methodological candor, and deadpan verdicts sound distinctly Roadie Labs."
+      },
+      "familiarity": {
+        "verdict": "fail",
+        "worst_line": "Alex \u2014 The promised follow-up. After this, the subject is closed.",
+        "why": "Day-ten repitch language exposes the sequence machinery; no personal reason makes today matter."
+      },
+      "one_fix": "Alex \u2014 send me your race date and I\u2019ll tell you honestly whether starting now buys anything useful."
+    }
+  }
+]

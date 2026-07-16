@@ -5,23 +5,21 @@ register). Measure with scripts/sequence_report.py; decide manually once
 each variant has meaningful volume — do not auto-shift weights at this
 list size.
 
-A "Value-first": gift welcome, fueling math, honesty flex, anti-pitch,
-post-pitch essay. Matti's warm register.
+A "Value-first": friend-register rewrite (docs/specs/friend-register-copy.md,
+Jul 16) — a single opener keyed to whatever context the capture gave us
+(guide chapter / browsing trail / race page / anonymous, offseason-aware),
+plus one optional day-10 follow-up. No pitch in the broadcast; replies are
+the conversion engine.
 B "Sober": contract welcome, race three-act structure, how scoring works,
 plain-spec pitch, breathing technique. Plain declarative register.
+Unchanged — stays as the A/B control.
 """
 
-# Timing per research (Jun 2026): engagement halves by ~day 12, so pitch
-# at day 7 while attention is high; product named in email 1 (no ambush);
-# single re-pitch at day 10; pure-value email closes at day 17.
+# Friend-register set (docs/specs/friend-register-copy.md) — the pitch-count
+# promise machinery is gone with the removed pitch/repitch/essay steps.
 _STEPS_A = [
-    {"delay_days": 0, "template": "welcome_value", "subject": "start here (and tell me your race)"},
-    {"delay_days": 3, "template": "fueling_mistake", "subject": "the aid station will save you (it will not)"},
-    {"delay_days": 5, "template": "honest_ratings", "subject": "the race we gave a 36"},
-    {"delay_days": 7, "template": "anti_pitch", "subject": "your fitness has a shape. so does your race."},
-    {"delay_days": 10, "template": "repitch", "subject": "what happens in week six"},
-    # Post-pitch pure-value email — nothing for sale, keeps the relationship
-    {"delay_days": 17, "template": "essay_sweet_spot", "subject": "sweet spot isn't that sweet"},
+    {"delay_days": 0, "template": "welcome_value", "subject": "getting ready for one of these?"},
+    {"delay_days": 10, "template": "welcome_followup", "subject": "land on a race yet?"},
 ]
 
 _STEPS_B = [

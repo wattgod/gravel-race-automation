@@ -1242,6 +1242,26 @@ function ggClearFormError(form) {
 }
 var GG_FORM_ERROR_MSG = 'Something went wrong — please try again.';
 
+// Read the localStorage trail (viewed races + last-read guide chapter)
+// written by the shared header script and fold it into an email-capture
+// payload — see docs/specs/friend-first-sequences.md §4.2-4.3. Never
+// throws; a storage failure must never block form submission.
+function ggReadTrail() {
+  var trail = {};
+  try {
+    var races = JSON.parse(localStorage.getItem('gg_viewed_races') || '[]');
+    if (Array.isArray(races) && races.length) {
+      var names = races.map(function(r) { return r && r.name; }).filter(Boolean);
+      if (names.length) trail.viewed_races = names.slice(0, 5);
+    }
+  } catch (e) {}
+  try {
+    var chapter = localStorage.getItem('gg_guide_chapter');
+    if (chapter) trail.guide_chapter = chapter;
+  } catch (e) {}
+  return trail;
+}
+
 // Email capture form — prep kit CTA
 (function() {
   var WORKER_URL='https://fueling-lead-intake.gravelgodcoaching.workers.dev';
@@ -1278,6 +1298,9 @@ var GG_FORM_ERROR_MSG = 'Something went wrong — please try again.';
       source:form.source.value,
       website:form.website.value
     };
+    var trail=ggReadTrail();
+    if(trail.viewed_races) payload.viewed_races=trail.viewed_races;
+    if(trail.guide_chapter) payload.guide_chapter=trail.guide_chapter;
     fetch(WORKER_URL,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)})
       .then(function(r){
         if(!r.ok) throw new Error('bad status');
@@ -1324,6 +1347,9 @@ var GG_FORM_ERROR_MSG = 'Something went wrong — please try again.';
         source:form.source.value,
         website:form.website.value
       };
+      var trail=ggReadTrail();
+      if(trail.viewed_races) payload.viewed_races=trail.viewed_races;
+      if(trail.guide_chapter) payload.guide_chapter=trail.guide_chapter;
       fetch(WORKER_URL,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)})
         .then(function(r){
           if(!r.ok) throw new Error('bad status');
@@ -1786,6 +1812,9 @@ document.querySelectorAll('.gg-pack-workout').forEach(function(card) {
       race_date:raceDate,
       website:hp?hp.value:''
     };
+    var trail=ggReadTrail();
+    if(trail.viewed_races) payload.viewed_races=trail.viewed_races;
+    if(trail.guide_chapter) payload.guide_chapter=trail.guide_chapter;
     fetch(WORKER_URL,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)})
       .then(function(r){
         if(!r.ok) throw new Error('bad status');

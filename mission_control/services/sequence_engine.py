@@ -361,6 +361,12 @@ def _apply_conditionals(html: str, data: dict) -> str:
     prep_kit captures carry race_name) and anonymous ones (exit_intent)
     — the friend-opener rule: talk about THEM when you know anything
     about them, and never leak an empty placeholder when you don't.
+
+    Blocks may nest (e.g. {{^any_context}} wrapping {{^offseason}}/
+    {{#offseason}} in welcome_value) — a single regex pass only resolves
+    the outermost block and leaves inner tags raw inside its kept body,
+    so this re-applies to a fixed point (repeats until a pass makes no
+    further change) to resolve arbitrary nesting depth.
     """
     import re as _re
 
@@ -369,7 +375,12 @@ def _apply_conditionals(html: str, data: dict) -> str:
         has = bool(data.get(key))
         return body if has != inverse else ""
 
-    return _re.sub(r"\{\{([#^])(\w+)\}\}(.*?)\{\{/\2\}\}", _repl, html, flags=_re.S)
+    pattern = _re.compile(r"\{\{([#^])(\w+)\}\}(.*?)\{\{/\2\}\}", _re.S)
+    prev = None
+    while prev != html:
+        prev = html
+        html = pattern.sub(_repl, html)
+    return html
 
 
 def _render_template(template_name: str, enrollment: dict) -> str:

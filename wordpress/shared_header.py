@@ -316,4 +316,45 @@ def get_site_header_js() -> str:
     }
   }, { passive: true });
 })();
+
+// ── Trail capture — first-party breadcrumb for personalized welcome emails ──
+// (docs/specs/friend-first-sequences.md §4.2). No network requests here; the
+// email-capture forms read these keys when a visitor later subscribes.
+// Every localStorage access is wrapped in try/catch (private browsing throws).
+(function() {
+  // Race profile pages: /race/{slug}/ — keep last 5 viewed, most-recent-first,
+  // deduped by slug.
+  try {
+    var slugMatch = window.location.pathname.match(/^\/race\/([^\/]+)\//);
+    var slug = slugMatch ? slugMatch[1] : '';
+    if (slug) {
+      var titleEl = document.querySelector('.gg-hero h1');
+      var name = titleEl ? titleEl.textContent.trim() : '';
+      if (!name) {
+        var docTitle = document.title || '';
+        name = (docTitle.split(' Review ')[0] || docTitle.split('|')[0] || '').trim();
+      }
+      if (name) {
+        var races = [];
+        try {
+          races = JSON.parse(localStorage.getItem('gg_viewed_races') || '[]');
+        } catch (e2) {}
+        if (!Array.isArray(races)) races = [];
+        races = races.filter(function(r) { return r && r.slug !== slug; });
+        races.unshift({ slug: slug, name: name });
+        localStorage.setItem('gg_viewed_races', JSON.stringify(races.slice(0, 5)));
+      }
+    }
+  } catch (e) {}
+
+  // Guide chapter pages carry their title in .gg-guide-chapter-title — last
+  // chapter read wins (single value, no history).
+  try {
+    var chapterEl = document.querySelector('.gg-guide-chapter-title');
+    if (chapterEl) {
+      var chapterTitle = chapterEl.textContent.trim();
+      if (chapterTitle) localStorage.setItem('gg_guide_chapter', chapterTitle);
+    }
+  } catch (e) {}
+})();
 """

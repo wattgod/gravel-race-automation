@@ -18,6 +18,7 @@
  *   - state_hub:          email + state slug (state hub page subscribe)
  *   - date_reminder:      email + race slug + race date (race date reminder)
  *   - race_plan_ladder:   email + race context + tier (plan-ladder "notify me" form)
+ *   - training_guide:     email + optional guide_chapter (guide end-of-chapter capture)
  *   - fueling_calculator: email + weight + race + fueling data (detected by weight_lbs, no source field)
  *
  * Every valid submission upserts the contact into SendGrid Marketing Contacts.
@@ -30,7 +31,7 @@ const DISPOSABLE_DOMAINS = [
   'yopmail.com', 'temp-mail.org', 'getnada.com', 'mohmal.com'
 ];
 
-const KNOWN_SOURCES = ['exit_intent', 'race_profile', 'prep_kit_gate', 'race_quiz', 'quiz_shared', 'tire_guide', 'race_review', 'state_hub', 'date_reminder', 'race_plan_ladder'];
+const KNOWN_SOURCES = ['exit_intent', 'race_profile', 'prep_kit_gate', 'race_quiz', 'quiz_shared', 'tire_guide', 'race_review', 'state_hub', 'date_reminder', 'race_plan_ladder', 'training_guide'];
 
 export default {
   async fetch(request, env) {
@@ -72,6 +73,19 @@ export default {
     if (data.email) data.email = String(data.email).substring(0, 254);
     if (data.race_slug) data.race_slug = String(data.race_slug).substring(0, 100);
     if (data.race_name) data.race_name = String(data.race_name).substring(0, 200);
+    if (data.guide_chapter) data.guide_chapter = String(data.guide_chapter).substring(0, 80);
+    // Trail context (docs/specs/friend-first-sequences.md §4.2-4.3) — the
+    // browser's localStorage breadcrumb of recently viewed races, forwarded
+    // by any capture form so welcome-sequence branching works regardless of
+    // where the visitor actually converts.
+    if (Array.isArray(data.viewed_races)) {
+      data.viewed_races = data.viewed_races
+        .filter((r) => typeof r === 'string' && r)
+        .slice(0, 5)
+        .map((r) => r.substring(0, 60));
+    } else {
+      delete data.viewed_races;
+    }
 
     // Validate based on source
     const validation = validateBySource(source, data);
@@ -161,6 +175,10 @@ function validateBySource(source, data) {
       return { valid: false, error: 'Weight must be between 80-400 lbs' };
     }
   }
+
+  // training_guide (guide end-of-chapter capture): email only, required
+  // above for all sources. guide_chapter is optional context, already
+  // truncated to 80 chars before validation runs.
 
   return { valid: true };
 }
@@ -363,6 +381,10 @@ async function notifyMissionControl(env, data, source) {
       race_slug: data.race_slug || '',
       race_name: data.race_name || '',
     };
+    if (data.guide_chapter) payload.guide_chapter = data.guide_chapter;
+    if (Array.isArray(data.viewed_races) && data.viewed_races.length) {
+      payload.viewed_races = data.viewed_races;
+    }
 
     await fetch(`${env.MC_WEBHOOK_URL}/webhooks/subscriber`, {
       method: 'POST',

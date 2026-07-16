@@ -1,23 +1,21 @@
 """Roadie Labs nurture sequence — prep-kit / lead-magnet leads.
 
-Deadpan register. Shares road_anti_pitch/road_repitch with the welcome
-sequence (same posture: one pitch, one follow-up, done).
+Friend-register rewrite (docs/specs/friend-register-copy-road.md, Jul 16) —
+a single check-in on the prep notes they downloaded. No pitch in the
+broadcast. Deadpan register retained.
 
 ACTIVE — roadielabs.com verified in Resend Jul 2026.
 """
 
 _STEPS = [
-    {"delay_days": 2, "template": "road_prep_variables", "subject": "three variables that decide your fondo"},
-    {"delay_days": 5, "template": "road_race_week", "subject": "race week: mostly don'ts"},
-    {"delay_days": 8, "template": "road_anti_pitch", "subject": "software models the rider, not the race"},
-    {"delay_days": 11, "template": "road_repitch", "subject": "the week-six problem"},
+    {"delay_days": 2, "template": "road_prep_variables", "subject": "did the prep notes cover it?"},
 ]
 
 SEQUENCE = {
     "id": "road_nurture_v1",
     "name": "Roadie Labs Lead Nurture",
     "brand": "roadielabs",
-    "description": "Prep-kit and lead-magnet leads — prep substance, then the plain pitch.",
+    "description": "Prep-kit and lead-magnet leads — one honest check-in on the notes.",
     "trigger": "prep_kit_download",
     "active": True,
     "variants": {

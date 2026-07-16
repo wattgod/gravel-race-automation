@@ -12,8 +12,8 @@
 </head>
 <body>
   <div class="container">
-    <p>{first_name} — the finder gave you matches. Which ones are actually in contention?</p>
-    <p>Send the shortlist. We will tell you where the quiz is right and where it probably is not.</p>
+    <p>{{#race_name}}{first_name} — a while back you were looking at {race_name}. Did you end up riding it?{{/race_name}}{{^race_name}}{first_name} — a while back you were comparing races in the database. Did you end up riding one this year?{{/race_name}}</p>
+    <p>What is next on the calendar?</p>
     <p>— Matti</p>
     <div class="footer">Roadie Labs &middot; <a href="https://roadielabs.com">roadielabs.com</a></div>
   </div>

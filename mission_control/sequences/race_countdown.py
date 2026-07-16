@@ -50,7 +50,7 @@ RL_16 = {
     "variants": {
         "A": {"weight": 100, "name": "Window", "steps": [
             {"delay_days": 0, "template": "road_countdown_16w",
-             "subject": "{race_name}: {weeks_out} weeks out"},
+             "subject": "16 weeks to {race_name}"},
         ]},
     },
 }
@@ -65,7 +65,7 @@ RL_8 = {
     "variants": {
         "A": {"weight": 100, "name": "Triage", "steps": [
             {"delay_days": 0, "template": "road_countdown_8w",
-             "subject": "{race_name}: {weeks_out} weeks. the arithmetic."},
+             "subject": "8 weeks to {race_name}"},
         ]},
     },
 }

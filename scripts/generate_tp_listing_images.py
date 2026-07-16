@@ -328,10 +328,34 @@ def _find_logo_svg() -> Path:
     )
 
 
+
+# ── Browser-rasterized PNG assets (preferred over PIL redraws) ──────
+# Rendered from the canonical SVGs (design-lab prototype + gg-logo.svg)
+# via headless Chrome at 4x; committed under wordpress/assets/tp/.
+# PIL drawing functions below remain as fallback when a PNG is absent.
+ASSETS_TP_DIR = REPO_ROOT / "wordpress" / "assets" / "tp"
+_PNG_ASSET_CACHE: dict = {}
+
+def _png_asset(name: str, target_h: int) -> "Image.Image | None":
+    key = (name, target_h)
+    if key in _PNG_ASSET_CACHE:
+        return _PNG_ASSET_CACHE[key]
+    fp = ASSETS_TP_DIR / f"{name}.png"
+    if not fp.exists():
+        return None
+    img = Image.open(fp).convert("RGBA")
+    w = round(img.width * target_h / img.height)
+    img = img.resize((w, target_h), Image.LANCZOS)
+    _PNG_ASSET_CACHE[key] = img
+    return img
+
 def rasterize_logo(color: tuple, target_h: int) -> "Image.Image":
     """Rasterize the real gg logo SVG path to an RGBA silhouette of the
     given color and pixel height, using even-odd (XOR) fill so letterform
     counters render as holes rather than solid fill."""
+    png = _png_asset("logo", target_h)
+    if png is not None:
+        return png
     cache_key = (color, target_h)
     if cache_key in _LOGO_RASTER_CACHE:
         return _LOGO_RASTER_CACHE[cache_key]
@@ -896,7 +920,14 @@ def build_includes_image(race: dict, plan_class: str, plan: dict, altitude_flag:
         icon_box_size = 76
         icon_box = (x0 + 20, y0 + (TILE_H - icon_box_size) // 2,
                     x0 + 20 + icon_box_size, y0 + (TILE_H - icon_box_size) // 2 + icon_box_size)
-        ICON_DRAWERS[icon_key](draw, icon_box)
+        _asset_names = {"training": "cal", "heat": "flame", "skills": "skills",
+                        "mental": "grit", "fueling": "bottle", "strength": "strength",
+                        "altitude": "altitude", "masters": "masters", "women": "women"}
+        _png = _png_asset(_asset_names.get(icon_key, icon_key), icon_box_size)
+        if _png is not None:
+            img.paste(_png, (icon_box[0] + (icon_box_size - _png.width) // 2, icon_box[1]), _png)
+        else:
+            ICON_DRAWERS[icon_key](draw, icon_box)
 
         text_x = icon_box[2] + 22
         text_max_w = x1 - text_x - 20

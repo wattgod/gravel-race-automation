@@ -1,18 +1,18 @@
 {
   "race": {
-    "name": "UCI GRAVEL SUISSE / THE MAJESTICS",
+    "name": "THE MAJESTICS (formerly UCI Gravel Suisse)",
     "slug": "gravel-fondo-switzerland",
-    "display_name": "UCI Gravel Suisse",
-    "tagline": "UCI World Series racing in the Swiss Alps - where the world cycling headquarters meets 11,000 feet of alpine suffering",
+    "display_name": "The Majestics",
+    "tagline": "UCI World Series gravel in the Swiss Alps — where the world cycling headquarters meets alpine climbing",
     "vitals": {
-      "distance_mi": 68,
-      "distance_km": 110,
-      "elevation_ft": 11300,
-      "elevation_m": 3440,
+      "distance_mi": 66,
+      "distance_km": 106,
+      "elevation_ft": 8200,
+      "elevation_m": 2500,
       "location": "Aigle / Villars-sur-Ollon, Switzerland",
       "location_badge": "AIGLE, SWITZERLAND",
-      "date": "July annually",
-      "date_specific": "2026: July 12",
+      "date": "July annually (second weekend)",
+      "date_specific": "2027: July 11 (Sunday, PATTERN ESTIMATE — second Sunday of July, per 2026 date; official 2027 date not yet announced); 2026 edition (Sunday July 12, Aigle start) completed CONFIRMED, now historical",
       "lat": 46.7986,
       "lng": 8.232
     },
@@ -49,7 +49,7 @@
       },
       "length": {
         "score": 3,
-        "explanation": "At 104km, the granfondo sits solidly in mid-range territory - substantial but not ultra distance. The 72km mediofondo provides a shorter alternative. Elite rider Tessa Neefjes emphasizes preparation: \"I like to arrive early and do proper recons. I study the climbs, the downhills, the gravel and the lines.\" Similar distance to Crusher in the Tushar."
+        "explanation": "At 106km, the granfondo sits solidly in mid-range territory - substantial but not ultra distance. The 72km mediofondo provides a shorter alternative. Elite rider Tessa Neefjes emphasizes preparation: \"I like to arrive early and do proper recons. I study the climbs, the downhills, the gravel and the lines.\" Similar distance to Crusher in the Tushar."
       },
       "technicality": {
         "score": 3,
@@ -57,7 +57,7 @@
       },
       "elevation": {
         "score": 5,
-        "explanation": "A monstrous 3,440 meters (11,300 feet) of climbing makes this one of the most vertical races on the UCI calendar. The second half alone packs 2,300m of gain starting at km 50 where \"real climbing begins\" - pure alpine brutality culminating at Col de la Croix. Among the hilliest in gravel, comparable to Badlands."
+        "explanation": "2,500 meters (8,200 feet) of climbing over 106km makes this one of the more vertical races on the UCI calendar, even after the course was revised down from an earlier ~3,440m/110km configuration. Real climbing runs through the Route des Chaux area en route to Col de la Croix — alpine terrain with sustained gradient rather than flat gravel grinding. Comparable in spirit to Badlands, though less extreme than the pre-revision course."
       },
       "climate": {
         "score": 4,
@@ -65,7 +65,7 @@
       },
       "altitude": {
         "score": 3,
-        "explanation": "Start at valley level (380m) but climb to 1,819m at Col de la Croix. Moderate altitude impact - noticeable for flatlanders but not the oxygen debt you'd get at 10,000ft+. The highest point comes just 11km before the finish. Similar altitude considerations to Grinduro."
+        "explanation": "Start at valley level (Aigle, ~380m) then climb to Col de la Croix (1,819m) before finishing near Villars-sur-Ollon. Moderate altitude impact - noticeable for flatlanders but not the oxygen debt you'd get at 10,000ft+. Similar altitude considerations to Grinduro."
       },
       "adventure": {
         "score": 5,
@@ -108,9 +108,10 @@
     },
     "date": {
       "month": "July",
-      "typical": "Second weekend of July",
+      "typical": "Second weekend of July (multi-discipline: TT Friday, Road Saturday, Gravel Sunday)",
       "season": "Summer",
-      "year2026": "July 12, 2026"
+      "year2026": "July 12, 2026 (Sunday, completed)",
+      "year2027_estimate": "July 11, 2027 (Sunday, PATTERN ESTIMATE — not yet officially announced)"
     },
     "organizer": {
       "name": "RD Cycling",
@@ -118,24 +119,24 @@
     },
     "distances": [
       {
-        "name": "Granfondo (The Summit)",
-        "distance_km": 110,
-        "distance_mi": 68,
-        "elevation_m": 3440,
-        "elevation_ft": 11300,
-        "description": "Full UCI qualifying distance for all age groups - from UCI headquarters to Col de la Croix"
+        "name": "Granfondo (\"The Summit\")",
+        "distance_km": 106,
+        "distance_mi": 66,
+        "elevation_m": 2500,
+        "elevation_ft": 8200,
+        "description": "Full UCI qualifying distance for all age groups - from UCI headquarters in Aigle to the Villars-sur-Ollon area via Col de la Croix"
       },
       {
-        "name": "Mediofondo",
+        "name": "Mediofondo (\"The Ridge\")",
         "distance_km": 72,
         "distance_mi": 45,
-        "elevation_m": 2380,
-        "elevation_ft": 7800,
+        "elevation_m": 2000,
+        "elevation_ft": 6560,
         "description": "Official qualifying distance for men 60+ and women 50+ age groups"
       }
     ],
     "terrain": {
-      "overview": "50% paved / 50% unpaved alpine terrain. Starts flat in Rhone Valley, transitions to steep forest climbs and high-altitude gravel roads. Features a brutal 20% gradient section on Route des Chaux before the Col de la Croix finish.",
+      "overview": "Roughly half paved / half unpaved alpine terrain (organizer figure not published to the mile for the current course; treat as approximate). Starts flat in the Rhone Valley from Aigle, transitions to forest climbs and high-altitude gravel roads through the Route des Chaux area en route to Col de la Croix, finishing near Villars-sur-Ollon.",
       "surface_breakdown": {}
     },
     "registration": {
@@ -148,21 +149,20 @@
       "Starts at UCI World Cycling Center headquarters in Aigle - the global home of cycling",
       "Host venue for 2029 UCI Gravel World Championships",
       "Part of UCI Gravel World Series with Worlds qualification",
-      "One of the highest elevation-per-km ratios in the UCI series",
+      "Rebranded 'The Majestics' (merger of UCI Gran Fondo Suisse + UCI Gravel Suisse, first run as 'Gravel Suisse' in 2024)",
       "Multi-discipline weekend: TT Friday, Road Saturday, Gravel Sunday",
-      "50/50 paved/unpaved surface split",
       "Swiss precision organization and infrastructure",
-      "Finish at Col de la Croix (1,819m) with stunning alpine views"
+      "Route through Route des Chaux to Col de la Croix, finishing near Villars-sur-Ollon"
     ],
     "seriesAffiliation": "UCI Gravel World Series",
     "tier": "TIER 1",
     "popularity": "High - premier Swiss gravel event and UCI World Series qualifier",
-    "lastUpdated": "2026-01-13",
+    "lastUpdated": "2026-07-16",
     "dataQuality": "Excellent",
     "final_verdict": {
       "score": "74 / 100",
-      "one_liner": "The UCI's backyard playground where 3,300 meters of climbing separates tourists from gravel racers.",
-      "should_you_race": "You need legitimate climbing legs and a gravel bike that can handle 20% grades on loose surfaces. The second half destroys weekend warriors—if you can't sustain power on steep off-road climbs above 1,500 meters, the Route des Chaux will expose you. Come for the prestige and alpine scenery, but expect to earn every meter of that Col de la Croix finish.",
+      "one_liner": "The UCI's backyard playground where 2,500 meters of Alpine climbing separates tourists from gravel racers.",
+      "should_you_race": "You need legitimate climbing legs and a gravel bike that can handle steep alpine gradients on loose surfaces. The Route des Chaux/Col de la Croix section destroys weekend warriors—if you can't sustain power on steep off-road climbs above 1,500 meters, it will expose you. Come for the prestige and alpine scenery, but expect to earn every meter of that Col de la Croix summit.",
       "alternatives": "Unbound 200 offers similar suffering with less elevation but more distance and heat. Traka 360 in Spain delivers comparable climbing with better weather windows and fewer altitude issues for sea-level dwellers.",
       "alternative_slugs": [
         "the-traka",
@@ -170,32 +170,32 @@
       ]
     },
     "course_description": {
-      "character": "Starting at cycling's global headquarters in Aigle, this course lulls you through 30 miles of Rhone Valley false confidence before unleashing 3,300 meters of vertical punishment. The second half abandons civilization for alpine forest tracks and 20% wooden ladders disguised as bike paths. It's less gravel race, more high-altitude survival exam with a fancy UCI stamp.",
+      "character": "Starting at cycling's global headquarters in Aigle, this course runs through Rhone Valley flats before climbing through forest tracks and the Route des Chaux area to Col de la Croix (1,819m), finishing near Villars-sur-Ollon. Revised down from an earlier ~110km/3,440m configuration to the current ~106km/2,500m Granfondo — still a serious alpine test with a UCI stamp.",
       "suffering_zones": [
         {
           "mile": 6,
           "label": "Ollon Wake-Up Call",
-          "desc": "First off-road climb hits 10% average gradient for 3 miles. Your legs haven't warmed up, but the Alps don't care about your preparation routine."
+          "desc": "Early off-road climbing tests legs that haven't warmed up yet, per organizer/rider course notes."
         },
         {
-          "mile": 31,
-          "label": "Valley Floor Intermission",
-          "desc": "Flat roads through the Rhone Valley where you'll foolishly think this race is manageable. Use this time to eat everything in your pockets—you won't get another chance."
+          "mile": 20,
+          "label": "Rhone Valley",
+          "desc": "Flatter roads through the valley before the terrain turns upward — the calm before the Route des Chaux climbing."
         },
         {
-          "mile": 49,
-          "label": "The Real Race Begins",
-          "desc": "Everything changes at kilometer 80 when pavement ends and the woods swallow you whole. From here it's 2,300 meters of climbing to the finish with no mercy."
+          "mile": 40,
+          "label": "Route des Chaux",
+          "desc": "Forest gravel climbing through the Chaux/Gryon ski-area terrain, the main climbing block en route to Col de la Croix."
         },
         {
-          "mile": 58,
-          "label": "Route des Chaux Punishment",
-          "desc": "Twenty percent gradients on loose gravel through dense forest. Your bike becomes a hiking accessory and your quads become strangers."
+          "mile": 60,
+          "label": "Col de la Croix Summit",
+          "desc": "The high point of the course (1,819m) before the descent into the Villars-sur-Ollon finish."
         }
       ],
-      "signature_challenge": "The Route des Chaux section after mile 49 strips away any illusion that this is a normal gravel race. Twenty percent pitches on technical forest tracks at 5,000+ feet elevation turn bikes into anchors and legs into concrete. The thing nobody tells you: it's not just steep, it's steep when you're already cooked from the altitude and previous 2,000 meters of climbing.",
-      "ridewithgps_id": "52287506",
-      "ridewithgps_name": "UCI Gravel Suisse - The Summit"
+      "signature_challenge": "The Route des Chaux-to-Col de la Croix block is the defining test: alpine forest gravel climbing at altitude, arriving after Rhone Valley miles have already put time in riders' legs.",
+      "ridewithgps_id": null,
+      "ridewithgps_name": "2025-era 'The Summit' route archived (110km/3,440m, superseded by the current ~106km/2,500m Majestics course); current GPX distributed via official event registration/finishers.com"
     },
     "citations": [
       {
@@ -297,6 +297,11 @@
         "url": "https://www.gravelepic.com/info-switzerland",
         "category": "other",
         "label": "Gravelepic"
+      },
+      {
+        "url": "https://themajestics.ch/en/",
+        "category": "other",
+        "label": "The Majestics (official site, rebrand)"
       }
     ],
     "logistics": {
@@ -389,7 +394,10 @@
           "cross_reference": 50
         },
         "scored_at": "2026-02-04"
-      }
+      },
+      "migration_notes": [
+        "2026-07-16 P1 fact base: RENAME CANDIDATE flagged for Matti — official event has rebranded 'The Majestics' (merger of UCI Gran Fondo Suisse + UCI Gravel Suisse; first run as 'Gravel Suisse' in 2024). Facts in this profile reconciled under the current identity; slug (gravel-fondo-switzerland) and site copy untouched pending Matti's naming decision. Course also revised down from ~110km/3,440m to current ~106km/2,500m (Granfondo/'The Summit') and ~72km/2,000m (Mediofondo/'The Ridge'); next-edition date is a Sunday July 11, 2027 pattern estimate (2026 was Sunday July 12, official 2027 date not yet announced)."
+      ]
     }
   }
 }

@@ -33,7 +33,7 @@
       "primary": "Utah mountain summer",
       "description": "High altitude with variable mountain conditions. Afternoon thunderstorms possible.",
       "challenges": [
-        "High altitude (6000-8000+ feet)",
+        "High altitude (5,600-9,000+ feet)",
         "Afternoon thunderstorms",
         "Variable mountain weather",
         "Sun exposure at altitude"
@@ -103,7 +103,7 @@
     },
     "logistics": {
       "airport": "Salt Lake City (SLC) 45 min",
-      "lodging_strategy": "Francis has basic lodging. Park City (nearby) has resort options but is expensive.",
+      "lodging_strategy": "Heber City has basic lodging. Park City (nearby) has resort options but is expensive.",
       "food": "Small town with basic dining. Park City has more options.",
       "packet_pickup": "Day before typically",
       "parking": "At start/finish",
@@ -111,10 +111,10 @@
     },
     "history": {
       "founded": null,
-      "founder": "Local organizers",
-      "origin_story": "Regional gravel event in Wasatch Range.",
+      "founder": "Jeff Louder (retired pro, 2008 Tour of Utah winner); revived and now run under the Utah Gravel Series (co-founded by Breanne Nalder Harward), which launched in 2022",
+      "origin_story": "Created by Jeff Louder as the 'Wasatch Yeti,' the race went on hiatus before being revived under the Utah Gravel Series.",
       "notable_moments": [],
-      "reputation": "Growing regional Utah mountain event."
+      "reputation": "Growing regional Utah mountain event; Velo has called it 'the toughest gravel race you've never heard of.'"
     },
     "course_description": {
       "character": "Mountain gravel with significant climbing at high altitude.",
@@ -143,7 +143,7 @@
       ],
       "signature_challenge": "10,560 feet of climbing from a 5,600-foot start, climbing toward 9,000 feet on the Uinta western slope.",
       "ridewithgps_id": "51288808",
-      "ridewithgps_name": "2025 Wasatch All-Road Sasquatch 60 16June2025"
+      "ridewithgps_name": "2025 Wasatch All-Road Sasquatch 60 16June2025 (MISMATCH: this is the 53mi Sasquatch route, not the 82mi Bigfoot distance described above -- no verified RideWithGPS ID found for Bigfoot)"
     },
     "guide_variables": {
       "race_name": "Wasatch All-Road",
@@ -154,8 +154,8 @@
       "race_terrain": "Wasatch Range mountain gravel",
       "race_weather": "Mountain variability",
       "race_challenges": [
-        "High altitude (6000-8000+ feet)",
-        "6000 feet of climbing",
+        "High altitude (5,600-9,000+ feet)",
+        "10,560 feet of climbing",
         "Afternoon thunderstorms",
         "Mountain weather"
       ],
@@ -166,12 +166,12 @@
       {
         "requirement": "Altitude preparation",
         "by_when": "Week 6-8",
-        "why": "Racing at 6000-8000+ feet requires altitude acclimatization or preparation."
+        "why": "Racing at 5,600-9,000+ feet requires altitude acclimatization or preparation."
       },
       {
         "requirement": "Climbing strength",
         "by_when": "Week 6-8",
-        "why": "6000 feet of climbing requires strong aerobic capacity and climbing fitness."
+        "why": "10,560 feet of climbing requires strong aerobic capacity and climbing fitness."
       },
       {
         "requirement": "Thunderstorm awareness",
@@ -254,8 +254,8 @@
       "tier_overrides": {},
       "marketplace_variables": {
         "race_name": "Wasatch All-Road",
-        "race_hook": "62 miles of Wasatch Range mountain gravel at 6000-8000+ feet.",
-        "race_hook_detail": "Regional mountain event in Francis with 6000 feet of climbing.",
+        "race_hook": "82 miles of Wasatch Range mountain gravel with 10,560ft of climbing.",
+        "race_hook_detail": "Regional mountain event based in Heber City, Utah, climbing from a 5,600ft start toward the 9,000ft Uinta western slope.",
         "distance": "82",
         "dark_mile": "35",
         "non_negotiable_1": "Altitude preparation",
@@ -319,7 +319,7 @@
       },
       "expenses": {
         "score": 3,
-        "explanation": "Registration runs $80-120. Equipment demands include wider tires - even S-Works Pathfinder Pros \"slipped a few times\" on 17% grades while 2.4-inch tires still caused fishtailing. Heber City/Francis location accessible from Salt Lake City area without resort-level accommodation costs affecting overall race weekend budget. Similar expense level to Belgian Waffle Ride San Diego."
+        "explanation": "Registration runs $80-120. Equipment demands include wider tires - even S-Works Pathfinder Pros \"slipped a few times\" on 17% grades while 2.4-inch tires still caused fishtailing. Heber City location accessible from Salt Lake City area without resort-level accommodation costs affecting overall race weekend budget. Similar expense level to Belgian Waffle Ride San Diego."
       }
     },
     "citations": [

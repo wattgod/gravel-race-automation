@@ -1280,6 +1280,83 @@ def sync_og(og_dir: str):
         return None
 
 
+def sync_tp(tp_dir: str):
+    """Upload TP-listing images (header + includes-grid) to /tp/ on
+    SiteGround via tar+ssh pipe. Same pattern as sync_og — only syncs
+    *.jpg files (ignores stale artifacts), tar pipe for one connection.
+    Does NOT upload manifest.json (that's a build-time artifact, not a
+    hosted asset the TP descriptions reference).
+    """
+    ssh = get_ssh_credentials()
+    if not ssh:
+        return None
+    host, user, port = ssh
+
+    tp_path = Path(tp_dir)
+    if not tp_path.exists():
+        print(f"✗ TP listing image directory not found: {tp_path}")
+        return None
+
+    jpg_files = list(tp_path.glob("*.jpg"))
+    if not jpg_files:
+        print(f"✗ No .jpg files found in {tp_path}")
+        return None
+
+    remote_base = "~/www/gravelgodcycling.com/public_html/tp"
+
+    # Create remote directory
+    try:
+        subprocess.run(
+            [
+                "ssh", "-i", str(SSH_KEY), "-p", port,
+                f"{user}@{host}",
+                f"mkdir -p {remote_base}",
+            ],
+            check=True,
+            capture_output=True,
+            text=True,
+            timeout=15,
+        )
+    except subprocess.CalledProcessError as e:
+        print(f"✗ Failed to create remote directory: {e.stderr.strip()}")
+        return None
+
+    # tar+ssh pipe: local tar → ssh → remote tar extract
+    # Only include *.jpg files
+    filenames = [f.name for f in jpg_files]
+    print(f"  Uploading {len(filenames)} TP listing images via tar+ssh...")
+
+    try:
+        tar_cmd = ["tar", "-cf", "-", "-C", str(tp_path)] + filenames
+        ssh_cmd = [
+            "ssh", "-i", str(SSH_KEY), "-p", port,
+            f"{user}@{host}",
+            f"tar -xf - -C {remote_base}",
+        ]
+
+        tar_proc = subprocess.Popen(tar_cmd, stdout=subprocess.PIPE)
+        ssh_proc = subprocess.Popen(ssh_cmd, stdin=tar_proc.stdout,
+                                    stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        tar_proc.stdout.close()
+        stdout, stderr = ssh_proc.communicate(timeout=120)
+
+        if ssh_proc.returncode != 0:
+            print(f"✗ tar+ssh failed: {stderr.decode().strip()}")
+            return None
+
+        wp_url = os.environ.get("WP_URL", "https://gravelgodcycling.com")
+        print(f"✓ Uploaded {len(filenames)} TP listing images to {wp_url}/tp/")
+        return f"{wp_url}/tp/"
+    except subprocess.TimeoutExpired:
+        print("✗ Upload timed out (120s)")
+        tar_proc.kill()
+        ssh_proc.kill()
+        return None
+    except Exception as e:
+        print(f"✗ Error uploading TP listing images: {e}")
+        return None
+
+
 def sync_pages(pages_dir: str):
     """Upload race pages to /race/ on SiteGround via tar+ssh pipe.
 
@@ -3295,6 +3372,14 @@ if __name__ == "__main__":
         help="Path to OG image directory (default: wordpress/output/og)"
     )
     parser.add_argument(
+        "--sync-tp", action="store_true",
+        help="Upload TP-listing images (header + includes-grid) to /tp/ via tar+ssh"
+    )
+    parser.add_argument(
+        "--tp-dir", default="wordpress/output/tp",
+        help="Path to TP-listing image directory (default: wordpress/output/tp)"
+    )
+    parser.add_argument(
         "--sync-gravel-tv", action="store_true",
         help="Upload gravel-tv.html to /gravel-tv/ via SCP"
     )
@@ -3546,6 +3631,7 @@ if __name__ == "__main__":
         args.sync_index = True
         args.sync_widget = True
         args.sync_og = True
+        args.sync_tp = True
         args.sync_homepage = True
         args.sync_about = True
         args.sync_coaching = True
@@ -3581,7 +3667,7 @@ if __name__ == "__main__":
         args.purge_cache = True
 
     has_action = any([args.json, args.sync_index, args.sync_widget, args.sync_training,
-                      args.sync_guide, args.sync_guide_cluster, args.sync_og, args.sync_homepage, args.sync_gravel_tv, args.sync_about,
+                      args.sync_guide, args.sync_guide_cluster, args.sync_og, args.sync_tp, args.sync_homepage, args.sync_gravel_tv, args.sync_about,
                       args.sync_coaching, args.sync_coaching_apply, args.sync_consulting,
                       args.sync_training_plans, args.sync_success, args.sync_pages,
                       args.sync_sitemap, args.sync_redirects,
@@ -3617,6 +3703,8 @@ if __name__ == "__main__":
         _run("sync-guide-cluster", sync_guide_cluster, args.guide_cluster_dir)
     if args.sync_og:
         _run("sync-og", sync_og, args.og_dir)
+    if args.sync_tp:
+        _run("sync-tp", sync_tp, args.tp_dir)
     if args.sync_homepage:
         _run("sync-homepage", sync_homepage, args.homepage_file)
     if args.sync_gravel_tv:

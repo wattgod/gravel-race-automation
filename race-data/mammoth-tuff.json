@@ -5,7 +5,7 @@
     "display_name": "Mammoth Tuff",
     "tagline": "UCI Gravel World Series qualifier at 8,000 feet\u2014High Sierra alpine gravel where altitude humbles everyone.",
     "vitals": {
-      "distance_mi": 100,
+      "distance_mi": 89,
       "elevation_ft": 7500,
       "location": "Mammoth Lakes, California",
       "location_badge": "MAMMOTH LAKES, CALIFORNIA",
@@ -15,7 +15,7 @@
       "terrain_types": [
         "High Sierra alpine gravel",
         "Smooth fast roads",
-        "June Lake Loop scenery",
+        "Red Rock Canyon climb",
         "Altitude 7,880-8,000 ft"
       ],
       "field_size": "400+ riders",
@@ -41,11 +41,11 @@
     },
     "terrain": {
       "primary": "High Sierra alpine gravel\u2014smooth and fast",
-      "surface": "70% gravel, 30% paved. Smooth fast roads reward speed. Altitude 7,880-8,000 ft is defining feature. 7,500 ft elevation gain spread over 100 miles. Technical rating: 2/5.",
+      "surface": "63% gravel, 37% paved. Smooth fast roads reward speed. Altitude 7,880-8,000 ft is defining feature. 7,500 ft elevation gain spread over 89 miles (TUFFEST course). Technical rating: 2/5.",
       "technical_rating": 2,
       "features": [
         "Smooth gravel roads",
-        "June Lake Loop scenic section",
+        "Red Rock Canyon climb section",
         "High altitude throughout",
         "Fast conditions",
         "Sierra climbs",
@@ -75,7 +75,7 @@
     },
     "biased_opinion": {
       "verdict": "UCI Altitude Test in the High Sierra",
-      "summary": "Mammoth Tuff is a UCI Gravel World Series qualifier at 8,000 feet. 100 miles of smooth High Sierra gravel. Altitude is the challenge\u20147,880-8,000 ft throughout means 30% less oxygen. If you're sea-level, arrive 3-5 days early or suffer. Course isn't technical (2/5), it's fast and smooth. Mammoth Lakes is expensive resort town. June Lake Loop (mile 40-60) is stunning. UCI status brings competitive field (Keegan Swenson, Lauren De Crescenzo). If you want High Sierra scenery with altitude suffering, this is it.",
+      "summary": "Mammoth Tuff is a UCI Gravel World Series qualifier at 8,000 feet. 89 miles (the TUFFEST course) of smooth High Sierra gravel. Altitude is the challenge\u20147,880-8,000 ft throughout means 30% less oxygen. If you're sea-level, arrive 3-5 days early or suffer. Course isn't technical (2/5), it's fast and smooth. Mammoth Lakes is expensive resort town. The Red Rock Canyon climb (roughly mile 44-60, narrowest around mile 52-54) is the defining test. UCI status brings competitive field (Keegan Swenson, Lauren De Crescenzo). If you want High Sierra scenery with altitude suffering, this is it.",
       "strengths": [
         "High Sierra scenery\u2014stunning alpine landscapes",
         "UCI Gravel World Series qualifier",
@@ -104,24 +104,24 @@
       "official_site": "https://www.mammothtuff.com"
     },
     "course_description": {
-      "character": "100 miles of High Sierra alpine gravel. 7,500 ft elevation, 7,880-8,000 ft altitude. 70% gravel, 30% paved. Smooth fast roads. Technical rating: 2/5. Altitude is the defining challenge.",
+      "character": "89 miles of High Sierra alpine gravel (TUFFEST course). 7,500 ft elevation, 7,880-8,000 ft altitude. 63% gravel, 37% paved. Smooth fast roads. Technical rating: 2/5. Altitude is the defining challenge.",
       "suffering_zones": [
         {
           "name": "Throughout: Altitude",
-          "miles": "0-100",
+          "miles": "0-89",
           "description": "7,880-8,000 ft entire race. 30% less oxygen. Cumulative fatigue.",
           "survival_strategy": "Arrive 3-5 days early. Pace conservatively. Hydrate aggressively. Altitude compounds fatigue."
         },
         {
-          "name": "Mile 40-60: June Lake Loop",
-          "miles": "40-60",
-          "description": "Scenic but still at altitude. Midpoint fatigue + altitude = suffering.",
-          "survival_strategy": "Enjoy scenery but don't push hard. Save energy for final 40 miles."
+          "name": "Mile 44-60: Red Rock Canyon Climb",
+          "miles": "44-60",
+          "description": "The 16-mile, 4.3%-average climb back toward town, narrowest around mile 52-54 in Red Rock Canyon. Midpoint fatigue + altitude = suffering.",
+          "survival_strategy": "Pace the lower gradient early; save matches for the narrow canyon section. Don't push hard on the exposed sections."
         },
         {
-          "name": "Mile 80-100: Final Push",
-          "miles": "80-100",
-          "description": "Altitude fatigue cumulative. Final 20 miles hardest.",
+          "name": "Mile 60-89: Final Push",
+          "miles": "60-89",
+          "description": "Altitude fatigue cumulative after the Red Rock Canyon climb. Final miles back to the Village are hardest.",
           "survival_strategy": "Break into 10-mile chunks. Altitude effects peak late. Hydrate, eat, push."
         }
       ],
@@ -171,7 +171,7 @@
       },
       "length": {
         "score": 4,
-        "explanation": "The TUFFEST at 105 miles and TUFFER at 75 miles provide proper distance challenge without ultra-endurance excess. Amanda Nauman notes the deceptive profile: \"The first half of the ride is primarily descending and the second half is primarily climbing back to town.\" Three distance options prevent riders from choosing inappropriate challenges for their fitness level. Longer than Belgian Waffle Ride San Diego."
+        "explanation": "The TUFFEST at 89 miles and TUFFER at 67 miles provide proper distance challenge without ultra-endurance excess. Amanda Nauman notes the deceptive profile: \"The first half of the ride is primarily descending and the second half is primarily climbing back to town.\" Three distance options (TUFF/TUFFER/TUFFEST) prevent riders from choosing inappropriate challenges for their fitness level. Longer than Belgian Waffle Ride San Diego."
       },
       "technicality": {
         "score": 2,
@@ -179,7 +179,7 @@
       },
       "elevation": {
         "score": 4,
-        "explanation": "The TUFFEST delivers 7,500 feet over 105 miles with the hardest climbing back-loaded. Graham Johnson found \"the climb back up from the aid station was by far the hardest part of the race\" with the final stretch being \"a sandbox from hell.\" The UCI notes a brutal 16-mile climb at 4.3% average grade including the narrow Red Rock Canyon section. More climbing than SBT GRVL at the same score."
+        "explanation": "The TUFFEST delivers 7,500 feet over 89 miles with the hardest climbing back-loaded. Graham Johnson found \"the climb back up from the aid station was by far the hardest part of the race\" with the final stretch being \"a sandbox from hell.\" The UCI notes a brutal 16-mile climb at 4.3% average grade including the narrow Red Rock Canyon section. More climbing than SBT GRVL at the same score."
       },
       "climate": {
         "score": 2,
@@ -225,7 +225,7 @@
     "final_verdict": {
       "score": "76 / 100",
       "one_liner": "Altitude meets volcanic attitude in California's most honest sufferfest.",
-      "should_you_race": "Show up fit or the 8,000-foot starting elevation will expose every training shortcut you took. The 7,500 feet of climbing over 105 miles isn't negotiable, and volcanic gravel punishes both your legs and your equipment. This isn't a scenic tour\u2014it's a legitimate training ground that's produced Unbound winners for a reason.",
+      "should_you_race": "Show up fit or the 8,000-foot starting elevation will expose every training shortcut you took. The 7,500 feet of climbing over 89 miles isn't negotiable, and volcanic gravel punishes both your legs and your equipment. This isn't a scenic tour\u2014it's a legitimate training ground that's produced Unbound winners for a reason.",
       "alternatives": "Belgian Waffle Ride delivers similar suffer-per-mile ratios with more technical variety, while Crusher in the Tushar offers comparable high-altitude punishment with Utah's signature loose climbs. Both skip the volcanic rock tax but demand the same honest fitness.",
       "alternative_slugs": [
         "bwr-california",

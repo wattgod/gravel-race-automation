@@ -3,15 +3,16 @@
     "name": "PARIS TO ANCASTER",
     "slug": "paris-to-ancaster",
     "display_name": "Paris to Ancaster",
-    "tagline": "Canada's Spring Classic. 100km of mud chutes, rail trails, and chaos. The race that eats bikes.",
+    "tagline": "Canada's Spring Classic. 110km of mud chutes, rail trails, and chaos (70km age-band option for men 65+/women 50+). The race that eats bikes.",
     "vitals": {
-      "distance_mi": 62,
+      "distance_mi": 68,
       "elevation_ft": 4000,
+      "gain_display": "Varies",
       "location": "Paris to Ancaster, Ontario, Canada",
       "location_badge": "ONTARIO, CA",
       "county": "Brant/Hamilton",
       "date": "Late April annually",
-      "date_specific": "2026: April 26",
+      "date_specific": "2026: April 26 (Sunday, CONFIRMED — parisancaster.com; completed); 2027: April 25 (Sunday, PATTERN ESTIMATE — last Sunday of April, per 2026 date; official 2027 date not yet announced)",
       "terrain_types": [
         "Rail trail",
         "Farm lanes",
@@ -25,8 +26,8 @@
       "prize_purse": "UCI qualification points",
       "aid_stations": "Feed zones on course",
       "cutoff_time": "Time cuts at sectors",
-      "lat": 61.0667,
-      "lng": -107.9917,
+      "lat": 43.2,
+      "lng": -80.3833,
       "month": "April"
     },
     "climate": {
@@ -182,24 +183,24 @@
       "character": "A multi-surface chaos ride through Ontario farmland. Fast flat rail trail sections contrast with hike-a-bike mud chutes. The racing is European spring classic style—surge for position before the bottleneck sectors, survive the mud, then sprint for the final climb. Point-to-point from Paris to Ancaster.",
       "suffering_zones": [
         {
-          "mile": 10,
+          "mile": 11,
           "label": "First Mud Sector",
           "desc": "If you're not top 300, expect a traffic jam. Walking in deep clay while bikes pile up behind you."
         },
         {
-          "mile": 30,
+          "mile": 33,
           "label": "Powerline Mud",
           "desc": "'Bike-eating' sector. Derailleurs snap. Chains clog. The carnage peaks here."
         },
         {
-          "mile": 50,
+          "mile": 55,
           "label": "Late Farm Lanes",
-          "desc": "Fatigued legs + more mud. By now the course is churned up by 2,000 riders ahead of you."
+          "desc": "Fatigued legs + more mud. By now the course is churned up by 2,000+ riders ahead of you."
         },
         {
-          "mile": 60,
+          "mile": 67,
           "label": "Martin Road Climb",
-          "desc": "Final 1.3km at up to 18% gradient. Cramp central. The sting in the tail after 60 miles of chaos."
+          "desc": "Final ~1.3km at up to 18-20% gradient in the last kilometre before the finish. Cramp central. The sting in the tail after 68 miles of chaos."
         }
       ],
       "signature_challenge": "The mud chutes—deep clay sectors that turn racing into survival and break equipment and spirits.",

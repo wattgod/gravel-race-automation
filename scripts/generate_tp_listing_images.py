@@ -410,8 +410,19 @@ def rasterize_logo(color: tuple, target_h: int) -> "Image.Image":
 
 # ── Race data loading ────────────────────────────────────────────
 
+# db/plans slugs that diverge from the canonical race-data filename
+# (big-horn-gravel: plans-db slug is load-bearing via published guide URLs;
+# race-data was deduped to bighorn-gravel.json — same class as the guide
+# builder's _slug_aliases).
+RACE_DATA_SLUG_ALIASES = {"big-horn-gravel": "bighorn-gravel"}
+
+
 def load_race(slug: str, data_dir: Path = DATA_DIR) -> dict:
     path = data_dir / f"{slug}.json"
+    if not path.exists():
+        alias = RACE_DATA_SLUG_ALIASES.get(slug)
+        if alias:
+            path = data_dir / f"{alias}.json"
     if not path.exists():
         raise TPListingError(f"no race-data file for slug {slug!r}: {path}")
     with open(path) as f:

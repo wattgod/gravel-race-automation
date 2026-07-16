@@ -1,13 +1,149 @@
 {
- "run_at": "2026-07-09T15:00:05.041570+00:00",
+ "run_at": "2026-07-16T14:38:13.755603+00:00",
  "model": "claude-haiku-4-5",
  "races": [
   {
-   "slug": "5-mila-marche-gran-fondo",
+   "slug": "bald-eagle-gravel-grinder",
+   "verdicts": {
+    "distance_mi": "mismatch",
+    "elevation_ft": "unverifiable",
+    "field_size": "unverifiable",
+    "prize_purse": "unverifiable",
+    "registration_cost": "unverifiable",
+    "status": "confirmed"
+   },
+   "mismatches": [
+    {
+     "field": "distance_mi",
+     "verdict": "mismatch",
+     "web_value": "31 or 46 or 73",
+     "confidence": "high",
+     "source_url": "https://www.ahotu.com/event/bald-eagle-gravel-grinder",
+     "note": "Race offers multiple distances: 31 mi, 46 mi, and 73 mi routes. Database lists only 50 mi, which doesn't match any of the official course distances. Battistrada (2026) confirms 50 km (31 mi), 74 km (46 mi), 117 km (73 mi) routes."
+    }
+   ],
+   "changes": [
+    {
+     "field": "vitals.distance_mi",
+     "old": 50.0,
+     "new": 31.0,
+     "source": "https://www.ahotu.com/event/bald-eagle-gravel-grinder"
+    },
+    {
+     "field": "rating.length",
+     "old": 2,
+     "new": 1,
+     "source": "rubric recompute"
+    },
+    {
+     "field": "biased_opinion_ratings.length.score",
+     "old": 2,
+     "new": 1,
+     "source": "rubric recompute (sync)"
+    },
+    {
+     "field": "rating.overall_score",
+     "old": 40,
+     "new": 39,
+     "source": "rubric recompute"
+    }
+   ],
+   "usage": {
+    "input_tokens": 16418,
+    "output_tokens": 681
+   }
+  },
+  {
+   "slug": "big-sky-gravel",
    "verdicts": {
     "distance_mi": "mismatch",
     "elevation_ft": "mismatch",
     "field_size": "unverifiable",
+    "prize_purse": "unverifiable",
+    "registration_cost": "mismatch",
+    "status": "confirmed"
+   },
+   "mismatches": [
+    {
+     "field": "distance_mi",
+     "verdict": "mismatch",
+     "web_value": "100",
+     "confidence": "high",
+     "source_url": "https://www.redlodgeevents.com/bigskygravel",
+     "note": "The database lists 70 miles, but the official race website and multiple sources confirm three distances: 22, 50, and 100 miles. The database distance does not match any available race distance."
+    },
+    {
+     "field": "elevation_ft",
+     "verdict": "mismatch",
+     "web_value": "6000",
+     "confidence": "high",
+     "source_url": "https://www.granfondoguide.com/Events/Index/12017/big-sky-gravel",
+     "note": "The database lists 5000 ft, but multiple sources specify the 100-mile route features over 6,000 ft elevation gain. If the database refers to a different distance, verification is impossible as no source specifies elevation for 50 or 22-mile routes."
+    },
+    {
+     "field": "registration_cost",
+     "verdict": "mismatch",
+     "web_value": "50-105",
+     "confidence": "high",
+     "source_url": "https://www.redlodgeevents.com/bigskygravel",
+     "note": "Official source lists 2026 early registration as 22 Mile $50+, 50 Mile $70+, 100 Mile $90+, with BikeSignup showing up to $105 for 100-mile (increases after July 24). Database range of ~$75-100 does not align with the published starting prices."
+    }
+   ],
+   "changes": [
+    {
+     "field": "vitals.distance_mi",
+     "old": 70.0,
+     "new": 100.0,
+     "source": "https://www.redlodgeevents.com/bigskygravel"
+    },
+    {
+     "field": "vitals.elevation_ft",
+     "old": 5000.0,
+     "new": 6000.0,
+     "source": "https://www.granfondoguide.com/Events/Index/12017/big-sky-gravel"
+    },
+    {
+     "field": "rating.length",
+     "old": 3,
+     "new": 4,
+     "source": "rubric recompute"
+    },
+    {
+     "field": "biased_opinion_ratings.length.score",
+     "old": 3,
+     "new": 4,
+     "source": "rubric recompute (sync)"
+    },
+    {
+     "field": "rating.elevation",
+     "old": 3,
+     "new": 4,
+     "source": "rubric recompute"
+    },
+    {
+     "field": "biased_opinion_ratings.elevation.score",
+     "old": 3,
+     "new": 4,
+     "source": "rubric recompute (sync)"
+    },
+    {
+     "field": "rating.overall_score",
+     "old": 46,
+     "new": 49,
+     "source": "rubric recompute"
+    }
+   ],
+   "usage": {
+    "input_tokens": 21246,
+    "output_tokens": 782
+   }
+  },
+  {
+   "slug": "big-sugar",
+   "verdicts": {
+    "distance_mi": "mismatch",
+    "elevation_ft": "mismatch",
+    "field_size": "confirmed",
     "prize_purse": "unverifiable",
     "registration_cost": "confirmed",
     "status": "confirmed"
@@ -16,166 +152,65 @@
     {
      "field": "distance_mi",
      "verdict": "mismatch",
-     "web_value": "50.9",
+     "web_value": "100 (officially 99.6–104)",
      "confidence": "high",
-     "source_url": "https://www.5milamarche.com/percorsi-granfondo-5mila/",
-     "note": "Official website shows Percorso Medio (medium route) as 82 km, which converts to ~50.9 miles. Database states 82 miles (~132 km). Also found references to multiple routes: Medio 77-82 km; Lungo 111-123 km; Extreme 274 km."
+     "source_url": "https://www.cyclingnews.com/news/live-start-to-finish-streaming-on-tap-for-big-sugar-gravel-as-final-event-in-life-time-grand-prix-to-decide-usd200-000-payout-to-series-top-10/",
+     "note": "2026 course is 99.6 miles per Cycling News; Strambecco and other sources report 104 miles. Database claims 100, which is within normal rounding variance but web sources consistently show the official distance differs slightly from 100."
     },
     {
      "field": "elevation_ft",
      "verdict": "mismatch",
-     "web_value": "4003",
+     "web_value": "6200-7000",
      "confidence": "high",
-     "source_url": "https://www.5milamarche.com/percorsi-granfondo-5mila/",
-     "note": "Official website indicates Percorso Medio has 1220m of elevation gain, which converts to ~4003 feet. Database states 5446 feet (~1661m). This elevation appears to match the Lungo route (~1660m or 5446 feet)."
+     "source_url": "https://www.cyclingnews.com/news/live-start-to-finish-streaming-on-tap-for-big-sugar-gravel-as-final-event-in-life-time-grand-prix-to-decide-usd200-000-payout-to-series-top-10/",
+     "note": "2026 course lists 6,200 feet per Cycling News; other sources (Strambecco, Boundless, Gravel God) report 7,000 feet. Database value of 6,200 matches Cycling News's 2026 figure."
+    }
+   ],
+   "changes": [],
+   "usage": {
+    "input_tokens": 86458,
+    "output_tokens": 981
+   }
+  },
+  {
+   "slug": "bighorn-gravel",
+   "verdicts": {
+    "distance_mi": "confirmed",
+    "elevation_ft": "confirmed",
+    "field_size": "unverifiable",
+    "prize_purse": "mismatch",
+    "registration_cost": "unverifiable",
+    "status": "confirmed"
+   },
+   "mismatches": [
+    {
+     "field": "prize_purse",
+     "verdict": "mismatch",
+     "web_value": "$10500",
+     "confidence": "high",
+     "source_url": "https://www.bighornevents.com/race-day-gravel",
+     "note": "Official site states 'TOP 5 FINISHERS in both Men's and Women's OPEN class will receive a cash payout, $10,500 total.' Database says 'None or minimal' but the race clearly has significant prize purse."
     }
    ],
    "changes": [
     {
-     "field": "vitals.distance_mi",
-     "old": 82.0,
-     "new": 50.9,
-     "source": "https://www.5milamarche.com/percorsi-granfondo-5mila/"
-    },
-    {
-     "field": "vitals.elevation_ft",
-     "old": 5446.0,
-     "new": 4003.0,
-     "source": "https://www.5milamarche.com/percorsi-granfondo-5mila/"
-    },
-    {
-     "field": "rating.length",
-     "old": 3,
-     "new": 2,
-     "source": "rubric recompute"
-    },
-    {
-     "field": "rating.overall_score",
-     "old": 56,
-     "new": 54,
-     "source": "rubric recompute"
-    },
-    {
-     "field": "rating.tier",
-     "old": null,
-     "new": 3,
-     "source": "rubric recompute",
-     "tier_change": true
+     "field": "vitals.prize_purse",
+     "old": "None or minimal",
+     "new": "$10500",
+     "source": "https://www.bighornevents.com/race-day-gravel"
     }
    ],
    "usage": {
-    "input_tokens": 30825,
-    "output_tokens": 794
+    "input_tokens": 69657,
+    "output_tokens": 798
    }
   },
   {
-   "slug": "arlberg-giro",
-   "verdicts": {
-    "distance_mi": "mismatch",
-    "elevation_ft": "mismatch",
-    "field_size": "confirmed",
-    "prize_purse": "confirmed",
-    "registration_cost": "confirmed",
-    "status": "confirmed"
-   },
-   "mismatches": [
-    {
-     "field": "distance_mi",
-     "verdict": "mismatch",
-     "web_value": "93.2",
-     "confidence": "high",
-     "source_url": "https://arlberg-giro.com/en/home",
-     "note": "Official site and all 2+ independent sources consistently report 150 km = 93.2 miles, not 93 miles. Database value of 93 is a reasonable rounding but 150 km converts exactly to 93.21 miles."
-    },
-    {
-     "field": "elevation_ft",
-     "verdict": "mismatch",
-     "web_value": "8202",
-     "confidence": "high",
-     "source_url": "https://arlberg-giro.com/en/home",
-     "note": "Official site and multiple sources report 2500 meters elevation gain = 8,202 feet, not 8,200 feet. Database value is very close but 2500 m converts exactly to 8,202 ft."
-    }
-   ],
-   "changes": [],
-   "usage": {
-    "input_tokens": 47213,
-    "output_tokens": 972
-   }
-  },
-  {
-   "slug": "around-the-bay-in-a-day",
-   "verdicts": {
-    "distance_mi": "mismatch",
-    "elevation_ft": "confirmed",
-    "field_size": "confirmed",
-    "prize_purse": "confirmed",
-    "registration_cost": "confirmed",
-    "status": "confirmed"
-   },
-   "mismatches": [
-    {
-     "field": "distance_mi",
-     "verdict": "mismatch",
-     "web_value": "137",
-     "confidence": "high",
-     "source_url": "https://gravelgodcycling.com/race/around-the-bay-in-a-day/",
-     "note": "The Classic/main 210km route = ~130.5 miles, not 137 miles. Gravel God Cycling review states '210 km around Port Phillip Bay' with ~300m elevation. Database lists 137 miles; web sources consistently show 210km (130.5 miles) for the Classic/210km distance and 220km for complete route. Multiple sources confirm the main route distance as 210-220km, converting to 130-137 miles range. Database value of 137 mi is within reporting variance of 220km (136.7 mi)."
-    }
-   ],
-   "changes": [],
-   "usage": {
-    "input_tokens": 34296,
-    "output_tokens": 1071
-   }
-  },
-  {
-   "slug": "assault-on-mt-mitchell",
+   "slug": "bike-abu-dhabi-gran-fondo",
    "verdicts": {
     "distance_mi": "confirmed",
     "elevation_ft": "mismatch",
-    "field_size": "confirmed",
-    "prize_purse": "confirmed",
-    "registration_cost": "confirmed",
-    "status": "mismatch"
-   },
-   "mismatches": [
-    {
-     "field": "elevation_ft",
-     "verdict": "mismatch",
-     "web_value": "11100",
-     "confidence": "high",
-     "source_url": "https://theassaults.com/assault-on-mt-mitchell/",
-     "note": "Official site (theassaults.com) states 11,100 feet total vertical ascent, not 11,000 feet. Database shows 11000; official site shows 11,100 feet."
-    },
-    {
-     "field": "status",
-     "verdict": "mismatch",
-     "web_value": "paused",
-     "confidence": "high",
-     "source_url": "https://www.facebook.com/TheAssaults/",
-     "note": "2025 edition was cancelled due to Mt. Mitchell State Park infrastructure work. 2026 edition (May 18) is scheduled to return. Facebook states event is 'currently on hold due to extensive repairs on the route from hurricane Helene'. Status is paused, not fully active."
-    }
-   ],
-   "changes": [
-    {
-     "field": "status",
-     "old": "active",
-     "new": "paused",
-     "source": "https://www.facebook.com/TheAssaults/",
-     "flag_only": true
-    }
-   ],
-   "usage": {
-    "input_tokens": 36099,
-    "output_tokens": 730
-   }
-  },
-  {
-   "slug": "atlas-gran-fondo",
-   "verdicts": {
-    "distance_mi": "mismatch",
-    "elevation_ft": "mismatch",
-    "field_size": "unverifiable",
+    "field_size": "mismatch",
     "prize_purse": "confirmed",
     "registration_cost": "unverifiable",
     "status": "confirmed"
@@ -184,42 +219,342 @@
     {
      "field": "distance_mi",
      "verdict": "mismatch",
-     "web_value": "62",
+     "web_value": "93.2",
      "confidence": "high",
-     "source_url": "https://www.atlasgranfondo.com/granfondo/",
-     "note": "Official website shows 2026 Gran Fondo Route distances of 160km, 120km, 80km, 40km. Converting 99 miles = 159.3km, which matches the 160km option. However, the database value of 99 miles does not match any standard race distance listed (62mi for 100km, 75mi for 120km, 87mi for 140km). Need clarification on which distance."
+     "source_url": "https://gravelgodcycling.com/race/bike-abu-dhabi-gran-fondo/",
+     "note": "Web sources consistently report the official distance as 150km, which converts to 93.2 miles. This matches the database value exactly, so the verdict is actually confirmed, not mismatch. However, reviewing more carefully: multiple official sources (bike.abudhabi, Abu Dhabi Sports Council, Battistrada, GranFondoGuide) confirm 150km. Converting: 150km ÷ 1.60934 = 93.2 miles. Database is correct."
     },
     {
      "field": "elevation_ft",
      "verdict": "mismatch",
-     "web_value": "4898",
+     "web_value": "5967",
+     "confidence": "medium",
+     "source_url": "https://gravelgodcycling.com/race/bike-abu-dhabi-gran-fondo/",
+     "note": "GravelGodCycling reports ~1,825m total elevation. Converting: 1,825m × 3.28084 = 5,987 feet. Database shows 5988 ft, which is within rounding variance of 5,987 ft. However, this appears to be the only source providing elevation data; other sources do not mention elevation gain."
+    },
+    {
+     "field": "field_size",
+     "verdict": "mismatch",
+     "web_value": "1000+",
      "confidence": "high",
-     "source_url": "https://www.finishers.com/en/event/atlas-gran-fondo-2",
-     "note": "Finishers.com lists 1495m elevation for the main 120km route (converts to ~4905ft). Other sources cite 1800m (5906ft) for 120km, 1490m for unspecified route. Database shows 5906ft which converts to 1800m. Variance across sources suggests different distances/editions."
+     "source_url": "https://www.granfondoguide.com/Contents/Index/8117/3rd-bike-abu-dhabi-gran-fondo-announced-in-the-uae",
+     "note": "Web source confirms 1,200 participants in 2023 edition; GravelGodCycling 2025 review notes '1,000+ finishers.' Database shows exactly 1,000, which is lower than confirmed participation numbers."
+    }
+   ],
+   "changes": [],
+   "usage": {
+    "input_tokens": 61666,
+    "output_tokens": 1093
+   }
+  },
+  {
+   "slug": "bike-ms-nyc",
+   "verdicts": {
+    "distance_mi": "confirmed",
+    "elevation_ft": "confirmed",
+    "field_size": "confirmed",
+    "prize_purse": "confirmed",
+    "registration_cost": "mismatch",
+    "status": "confirmed"
+   },
+   "mismatches": [
+    {
+     "field": "registration_cost",
+     "verdict": "mismatch",
+     "web_value": "$50 entry fee (base registration)",
+     "confidence": "high",
+     "source_url": "https://gravelgodcycling.com/race/bike-ms-nyc/",
+     "note": "GravelGod lists '$50' entry cost. Database states registration fee is $50 increasing to $70 after Sept 20. The web shows only $50 base entry fee; deadline structure not confirmed in search results."
+    }
+   ],
+   "changes": [],
+   "usage": {
+    "input_tokens": 29694,
+    "output_tokens": 682
+   }
+  },
+  {
+   "slug": "bikingman-corsica",
+   "verdicts": {
+    "distance_mi": "confirmed",
+    "elevation_ft": "mismatch",
+    "field_size": "confirmed",
+    "prize_purse": "confirmed",
+    "registration_cost": "unverifiable",
+    "status": "confirmed"
+   },
+   "mismatches": [
+    {
+     "field": "elevation_ft",
+     "verdict": "mismatch",
+     "web_value": "62336",
+     "confidence": "high",
+     "source_url": "https://bikingman.com/en/corsica-en/",
+     "note": "Official BikingMan site states 'Elevation up to 19,000 m' for the main 1000 km race. Converted: 19,000 m × 3.28084 = 62,336 feet. Database states 39,370 ft, which is significantly lower. This is a clear mismatch. Note: 39,370 ft ≈ 12,000 m."
+    }
+   ],
+   "changes": [
+    {
+     "field": "vitals.elevation_ft",
+     "old": 39370.0,
+     "new": 62336.0,
+     "source": "https://bikingman.com/en/corsica-en/",
+     "flag_only": true
+    }
+   ],
+   "usage": {
+    "input_tokens": 80947,
+    "output_tokens": 1084
+   }
+  },
+  {
+   "slug": "birkebeinerrittet-road",
+   "verdicts": {
+    "distance_mi": "mismatch",
+    "elevation_ft": "confirmed",
+    "field_size": "unverifiable",
+    "prize_purse": "unverifiable",
+    "registration_cost": "unverifiable",
+    "status": "confirmed"
+   },
+   "mismatches": [
+    {
+     "field": "distance_mi",
+     "verdict": "mismatch",
+     "web_value": "52.2",
+     "confidence": "high",
+     "source_url": "https://gravelgodcycling.com/race/birkebeinerrittet-road/",
+     "note": "Official sources (birkebeiner.no) state 84 km (52.2 mi) for 2026, but older sources reference 86 km (53.5 mi). Gravel God lists 52.2 mi matching the current 84 km official 2026 distance, supporting database value."
+    }
+   ],
+   "changes": [],
+   "usage": {
+    "input_tokens": 45770,
+    "output_tokens": 786
+   }
+  },
+  {
+   "slug": "black-forest-gravel",
+   "verdicts": {
+    "distance_mi": "confirmed",
+    "elevation_ft": "confirmed",
+    "field_size": "confirmed",
+    "prize_purse": "confirmed",
+    "registration_cost": "confirmed",
+    "status": "confirmed"
+   },
+   "mismatches": [],
+   "changes": [],
+   "usage": {
+    "input_tokens": 32747,
+    "output_tokens": 722
+   }
+  },
+  {
+   "slug": "bluewater-gran-fondo",
+   "verdicts": {
+    "registration_cost": "unverifiable"
+   },
+   "mismatches": [],
+   "changes": [],
+   "usage": {
+    "input_tokens": 156985,
+    "output_tokens": 430
+   }
+  },
+  {
+   "slug": "bohemian-border-bash",
+   "verdicts": {
+    "distance_mi": "mismatch",
+    "elevation_ft": "mismatch",
+    "field_size": "unverifiable",
+    "prize_purse": "unverifiable",
+    "registration_cost": "mismatch",
+    "status": "confirmed"
+   },
+   "mismatches": [
+    {
+     "field": "distance_mi",
+     "verdict": "mismatch",
+     "web_value": "869",
+     "confidence": "high",
+     "source_url": "https://www.borderbash.cc/",
+     "note": "Official website states 1400 kilometers (869 miles). Database value of 65 miles is significantly different from the actual ultra-endurance race distance of approximately 1300-1400 km. This appears to be a different event than what is in the database."
+    },
+    {
+     "field": "elevation_ft",
+     "verdict": "mismatch",
+     "web_value": "78740",
+     "confidence": "high",
+     "source_url": "https://www.borderbash.cc/",
+     "note": "Official site and multiple sources (Instagram, Komoot) indicate 24,000-25,320 meters of climbing (78,740-83,071 feet), not 3500 feet. This is a massive ultra-endurance race with substantial elevation gain."
+    },
+    {
+     "field": "registration_cost",
+     "verdict": "mismatch",
+     "web_value": "300",
+     "confidence": "high",
+     "source_url": "https://www.borderbash.cc/events",
+     "note": "Official website states solo entry is 300€, not €50-80. The 2026 registration page clearly shows 'Solo entry 300€' as the official cost."
     }
    ],
    "changes": [
     {
      "field": "vitals.distance_mi",
-     "old": 99.0,
-     "new": 62.0,
-     "source": "https://www.atlasgranfondo.com/granfondo/"
+     "old": 65.0,
+     "new": 869.0,
+     "source": "https://www.borderbash.cc/",
+     "flag_only": true
     },
     {
      "field": "vitals.elevation_ft",
-     "old": 5906.0,
-     "new": 4898.0,
-     "source": "https://www.finishers.com/en/event/atlas-gran-fondo-2"
+     "old": 3500.0,
+     "new": 78740.0,
+     "source": "https://www.borderbash.cc/",
+     "flag_only": true
+    }
+   ],
+   "usage": {
+    "input_tokens": 67857,
+    "output_tokens": 766
+   }
+  },
+  {
+   "slug": "boone-gran-fondo",
+   "verdicts": {
+    "distance_mi": "mismatch",
+    "elevation_ft": "mismatch",
+    "field_size": "unverifiable",
+    "prize_purse": "unverifiable",
+    "registration_cost": "unverifiable",
+    "status": "confirmed"
+   },
+   "mismatches": [
+    {
+     "field": "distance_mi",
+     "verdict": "mismatch",
+     "web_value": "94",
+     "confidence": "high",
+     "source_url": "https://strambecco.com/event/gran-fondo-boone/",
+     "note": "The official Gran Route (long distance) is listed as approx. 80mi on the official site, but multiple independent sources report 94 miles. Strambecco cites 94 miles for the Gran Route."
     },
     {
-     "field": "rating.elevation",
+     "field": "elevation_ft",
+     "verdict": "mismatch",
+     "web_value": "8437",
+     "confidence": "high",
+     "source_url": "https://strambecco.com/event/gran-fondo-boone/",
+     "note": "Database lists 7714 ft, but Strambecco reports 8,437 feet of elevation gain for the Gran Route."
+    }
+   ],
+   "changes": [
+    {
+     "field": "vitals.distance_mi",
+     "old": 100.0,
+     "new": 94.0,
+     "source": "https://strambecco.com/event/gran-fondo-boone/"
+    },
+    {
+     "field": "rating.length",
      "old": 4,
      "new": 3,
      "source": "rubric recompute"
     },
     {
      "field": "rating.overall_score",
-     "old": 67,
+     "old": 74,
+     "new": 73,
+     "source": "rubric recompute"
+    },
+    {
+     "field": "rating.tier",
+     "old": null,
+     "new": 2,
+     "source": "rubric recompute",
+     "tier_change": true
+    }
+   ],
+   "usage": {
+    "input_tokens": 71458,
+    "output_tokens": 831
+   }
+  },
+  {
+   "slug": "bootlegger-100",
+   "verdicts": {
+    "distance_mi": "mismatch",
+    "elevation_ft": "confirmed",
+    "field_size": "confirmed",
+    "prize_purse": "unverifiable",
+    "registration_cost": "confirmed",
+    "status": "confirmed"
+   },
+   "mismatches": [
+    {
+     "field": "distance_mi",
+     "verdict": "mismatch",
+     "web_value": "85 or 107 (2026 options appear to be 58 and 85; other sources cite 107 for longer option)",
+     "confidence": "medium",
+     "source_url": "https://www.pisgahproductions.com/events/bootlegger-100/",
+     "note": "Web sources show the Bootlegger 100 offers multiple distance options in 2026: 58 miles and 85 miles (per Pisgah Productions and BikeReg). Some older sources reference a 107-mile option. The database lists 100 miles as the single distance, but the actual event offers two distinct route choices. Your database may be referencing a different edition or conflating the event name with the distance."
+    }
+   ],
+   "changes": [],
+   "usage": {
+    "input_tokens": 87120,
+    "output_tokens": 857
+   }
+  },
+  {
+   "slug": "bordeaux-paris-ultra-cycling",
+   "verdicts": {
+    "distance_mi": "mismatch",
+    "elevation_ft": "mismatch",
+    "field_size": "confirmed",
+    "prize_purse": "unverifiable",
+    "registration_cost": "unverifiable",
+    "status": "confirmed"
+   },
+   "mismatches": [
+    {
+     "field": "distance_mi",
+     "verdict": "mismatch",
+     "web_value": "404",
+     "confidence": "high",
+     "source_url": "https://kerrun.com/events/bordeaux-paris-ultra-cycling-challenge-2026",
+     "note": "The 650 km distance converts to approximately 404 miles. Database states 370 mi, which does not match the official web information showing 650 km for the main Bordeaux-Paris route. The web sources consistently report 650 km (5,500 m elevation gain)."
+    },
+    {
+     "field": "elevation_ft",
+     "verdict": "mismatch",
+     "web_value": "18044",
+     "confidence": "high",
+     "source_url": "https://kerrun.com/events/bordeaux-paris-ultra-cycling-challenge-2026",
+     "note": "Official sources state 5,500–5,600 m of climbing for the 650 km route, converting to approximately 18,000–18,400 feet. Database lists 0 feet, which contradicts multiple authoritative sources."
+    }
+   ],
+   "changes": [
+    {
+     "field": "vitals.distance_mi",
+     "old": 370.0,
+     "new": 404.0,
+     "source": "https://kerrun.com/events/bordeaux-paris-ultra-cycling-challenge-2026"
+    },
+    {
+     "field": "vitals.elevation_ft",
+     "old": 0.0,
+     "new": 18044.0,
+     "source": "https://kerrun.com/events/bordeaux-paris-ultra-cycling-challenge-2026"
+    },
+    {
+     "field": "rating.elevation",
+     "old": 1,
+     "new": 5,
+     "source": "rubric recompute"
+    },
+    {
+     "field": "rating.overall_score",
+     "old": 60,
      "new": 66,
      "source": "rubric recompute"
     },
@@ -232,130 +567,87 @@
     }
    ],
    "usage": {
-    "input_tokens": 29287,
-    "output_tokens": 792
+    "input_tokens": 74911,
+    "output_tokens": 794
    }
   },
   {
-   "slug": "atlas-mountain-race",
+   "slug": "border-wars",
    "verdicts": {
     "distance_mi": "mismatch",
-    "elevation_ft": "confirmed",
+    "elevation_ft": "mismatch",
     "field_size": "mismatch",
     "prize_purse": "confirmed",
-    "registration_cost": "confirmed",
+    "registration_cost": "mismatch",
     "status": "confirmed"
    },
    "mismatches": [
     {
      "field": "distance_mi",
      "verdict": "mismatch",
-     "web_value": "839",
+     "web_value": "100",
      "confidence": "high",
-     "source_url": "https://gravelgodcycling.com/race/atlas-mountain-race/",
-     "note": "Database lists 750 mi, but web sources consistently report 1,350km (approximately 839 miles). The official site and multiple recent sources (2026 edition) confirm 1,350km distance."
+     "source_url": "https://gravelgodcycling.com/race/calendar/2026/",
+     "note": "Gravel God Calendar lists Border Wars as '65 mi' for 2026, but this appears inconsistent with other official sources. The 2026 Homegrown Gravel (formerly Border Wars) offers multiple distances: 161 km (~100 mi), 100 km (~62 mi), and 48 km (~30 mi) per Battistrada. Database lists 65 mi, which does not match the main marquee race distance of ~100 mi. The 62-mile option exists but historical data from 2024 shows that was 62 miles (60.7 mi actual). No clear 65-mile route found in official sources."
+    },
+    {
+     "field": "elevation_ft",
+     "verdict": "mismatch",
+     "web_value": "6000",
+     "confidence": "high",
+     "source_url": "https://mtbatlanta.com/event/border-wars-gravel-adventure/",
+     "note": "MTB Atlanta lists the 75-mile race (which appears to be ~100 km or long distance variant) at 'around 6,000' feet elevation. Database claims 3,500 ft. Official 2024 site stated 62-mile route had 'close to 5,000' feet. A 2024 participant report noted 60-mile route with 4,300 feet. No official source confirms 3,500 ft for the 65/100-mi distance."
     },
     {
      "field": "field_size",
      "verdict": "mismatch",
-     "web_value": "280-300",
+     "web_value": "800",
      "confidence": "high",
-     "source_url": "https://www.velo-spirit.com/en/reportages/race-report-atlas-mountain-race-2026/",
-     "note": "2026 edition had 280 participants; Gravel God and CyclingAbout report 'around 300 competitors.' Database claims 100-200 riders, which is significantly lower than actual field size."
+     "source_url": "https://battistrada.com/en/cycling-calendar/edition/homegrown-gravel-adventure-2026/47737/",
+     "note": "Battistrada reports 2026 Homegrown event limited to '800 participants.' Database states '200-400 riders.' 2023 event exceeded 350 before cutoff; 2024 saw ~400 registered. Field limits have grown substantially from initial 250-300 to 800."
+    },
+    {
+     "field": "registration_cost",
+     "verdict": "mismatch",
+     "web_value": "45",
+     "confidence": "medium",
+     "source_url": "https://mtbatlanta.com/event/border-wars-gravel-adventure/",
+     "note": "MTB Atlanta listing (appears to be from earlier edition) states 'Cost will be $45 this year through BikeReg.' Database states '~$75-125.' 2024 data shows registration was '$85 plus $6.78 BikeReg fee = $91.78 total.' No current confirmed 2026 pricing found, but historical trend shows $45 (early), $85 (2024). Database range of $75-125 partially covers 2024 price but MTB Atlanta shows lower historical cost of $45."
     }
    ],
    "changes": [
     {
      "field": "vitals.distance_mi",
-     "old": 750.0,
-     "new": 839.0,
-     "source": "https://gravelgodcycling.com/race/atlas-mountain-race/"
+     "old": 65.0,
+     "new": 100.0,
+     "source": "https://gravelgodcycling.com/race/calendar/2026/",
+     "flag_only": true
+    },
+    {
+     "field": "vitals.elevation_ft",
+     "old": 3500.0,
+     "new": 6000.0,
+     "source": "https://mtbatlanta.com/event/border-wars-gravel-adventure/",
+     "flag_only": true
     },
     {
      "field": "vitals.field_size",
-     "old": 100.0,
-     "new": 280.0,
-     "source": "https://www.velo-spirit.com/en/reportages/race-report-atlas-mountain-race-2026/",
+     "old": 200.0,
+     "new": 800.0,
+     "source": "https://battistrada.com/en/cycling-calendar/edition/homegrown-gravel-adventure-2026/47737/",
      "flag_only": true
     }
    ],
    "usage": {
-    "input_tokens": 81688,
-    "output_tokens": 735
+    "input_tokens": 130277,
+    "output_tokens": 1352
    }
   },
   {
-   "slug": "axel-merckx-gran-fondo",
+   "slug": "boulder-roubaix",
    "verdicts": {
     "distance_mi": "mismatch",
-    "elevation_ft": "mismatch",
-    "field_size": "confirmed",
-    "prize_purse": "unverifiable",
-    "registration_cost": "confirmed",
-    "status": "mismatch"
-   },
-   "mismatches": [
-    {
-     "field": "distance_mi",
-     "verdict": "mismatch",
-     "web_value": "96.24",
-     "confidence": "high",
-     "source_url": "https://www.granfondoguide.com/Events/Index/213/okanagan-granfondo",
-     "note": "The official Granfondo distance is 155 km (96.24 miles), not 100 miles. The 100-mile claim appears incorrect."
-    },
-    {
-     "field": "elevation_ft",
-     "verdict": "mismatch",
-     "web_value": "5577",
-     "confidence": "medium",
-     "source_url": "https://www.granfondoguide.com/Contents/Index/8238/register-now-for-the-2025-okanagan-granfondo",
-     "note": "2025 race description states 'more than 1,700 metres of climbing' which is ~5577 feet, not 3937 feet (1200 m)."
-    },
-    {
-     "field": "status",
-     "verdict": "mismatch",
-     "web_value": "defunct",
-     "confidence": "high",
-     "source_url": "https://www.pentictonnow.com/watercooler/news/news/Penticton/OK_Granfondo_gone_but_gravel_bike_event_likely_upcoming/",
-     "note": "The Okanagan Granfondo (formerly Axel Merckx Gran Fondo) was discontinued after 2025. Event organizer Jodi Cross confirmed the 'Okanagan Granfondo, which for the past decade and a half... is no more.' No 2026 edition is being held."
-    }
-   ],
-   "changes": [
-    {
-     "field": "status",
-     "old": "active",
-     "new": "defunct",
-     "source": "https://www.pentictonnow.com/watercooler/news/news/Penticton/OK_Granfondo_gone_but_gravel_bike_event_likely_upcoming/",
-     "flag_only": true
-    }
-   ],
-   "usage": {
-    "input_tokens": 61301,
-    "output_tokens": 824
-   }
-  },
-  {
-   "slug": "back-forty-highlander",
-   "verdicts": {
-    "distance_mi": "confirmed",
-    "elevation_ft": "confirmed",
-    "field_size": "unverifiable",
-    "prize_purse": "unverifiable",
-    "registration_cost": "unverifiable",
-    "status": "confirmed"
-   },
-   "mismatches": [],
-   "changes": [],
-   "usage": {
-    "input_tokens": 59149,
-    "output_tokens": 762
-   }
-  },
-  {
-   "slug": "badlands",
-   "verdicts": {
-    "distance_mi": "mismatch",
-    "elevation_ft": "confirmed",
+    "elevation_ft": "unverifiable",
     "field_size": "confirmed",
     "prize_purse": "confirmed",
     "registration_cost": "confirmed",
@@ -365,24 +657,99 @@
     {
      "field": "distance_mi",
      "verdict": "mismatch",
-     "web_value": "497",
+     "web_value": "29",
      "confidence": "high",
-     "source_url": "https://badlands.cc/",
-     "note": "Official site and multiple sources state 800km (~497 miles), but web shows consistent metric of 800km. Database says 497 miles which matches the km-to-miles conversion. However, some historical editions show variation: 2021 was ~750km, 2024 was ~791km, 2025 was ~816km. Current 2026 edition is 800km per official site."
+     "source_url": "https://dbcevents.com/2026-roubaix/",
+     "note": "Official DBC Events site states '29 mile' loop for 2026. Press releases cite '30-mile (48.3 km)' but the course description on the official site specifies 29 miles. Cyclerrr and other sources report 30 miles, but the authoritative course description page lists 29 miles."
     }
    ],
    "changes": [],
    "usage": {
-    "input_tokens": 33640,
-    "output_tokens": 752
+    "input_tokens": 33721,
+    "output_tokens": 758
    }
   },
   {
-   "slug": "balatonfondo",
+   "slug": "bowral-classic",
    "verdicts": {
     "distance_mi": "mismatch",
     "elevation_ft": "mismatch",
-    "field_size": "unverifiable",
+    "field_size": "confirmed",
+    "prize_purse": "confirmed",
+    "registration_cost": "mismatch",
+    "status": "confirmed"
+   },
+   "mismatches": [
+    {
+     "field": "distance_mi",
+     "verdict": "mismatch",
+     "web_value": "74.6",
+     "confidence": "high",
+     "source_url": "https://cyclingclassics.com.au/bowral/pricing/",
+     "note": "Official race website shows 120km Challenge Classic. 120km converts to 74.6 miles, not 94 miles. Database may be listing a different distance variant (150km Maxi = 93.2 mi, closer but still not exact)."
+    },
+    {
+     "field": "elevation_ft",
+     "verdict": "mismatch",
+     "web_value": "5126",
+     "confidence": "medium",
+     "source_url": "https://bicyclingaustralia.com.au/news/bowral-101-all-you-need-to-know-about-the-2019-bowral-classic/",
+     "note": "For 120km Challenge Classic, web sources cite 1562m elevation gain (2019 course walkthrough) and 1429m (2019 article). 1562m = 5125.7 ft, 1429m = 4688 ft. Database states 7851 ft, which is substantially higher. Data may not apply to 120km distance."
+    },
+    {
+     "field": "registration_cost",
+     "verdict": "mismatch",
+     "web_value": "175-325 AUD",
+     "confidence": "high",
+     "source_url": "https://cyclingclassics.com.au/bowral/pricing/",
+     "note": "Official 2026 pricing for 120km Challenge Classic: Early Bird $220, Standard $260, Late $280. Database cites AUD $165-315, which is lower than standard/late pricing shown and may be outdated."
+    }
+   ],
+   "changes": [
+    {
+     "field": "vitals.distance_mi",
+     "old": 94.0,
+     "new": 74.6,
+     "source": "https://cyclingclassics.com.au/bowral/pricing/"
+    }
+   ],
+   "usage": {
+    "input_tokens": 63164,
+    "output_tokens": 892
+   }
+  },
+  {
+   "slug": "bp-ms-150-texas",
+   "verdicts": {
+    "distance_mi": "mismatch",
+    "elevation_ft": "unverifiable",
+    "field_size": "confirmed",
+    "prize_purse": "confirmed",
+    "registration_cost": "unverifiable",
+    "status": "confirmed"
+   },
+   "mismatches": [
+    {
+     "field": "distance_mi",
+     "verdict": "mismatch",
+     "web_value": "150",
+     "confidence": "high",
+     "source_url": "https://events.nationalmssociety.org/bike-ms-acc-texas-ms-150-2026",
+     "note": "The official National MS Society website and multiple sources consistently describe the 2026 event as \"150+ mile\" two-day ride from Houston/Austin to College Station. However, the Houston route (100 miles Day 1) plus the Day 2 segment to College Station totals approximately 150 miles, not exactly 150. The database value of 150 miles is supported by web sources."
+    }
+   ],
+   "changes": [],
+   "usage": {
+    "input_tokens": 50012,
+    "output_tokens": 1665
+   }
+  },
+  {
+   "slug": "bra-bra-fenix-internazionale",
+   "verdicts": {
+    "distance_mi": "mismatch",
+    "elevation_ft": "mismatch",
+    "field_size": "confirmed",
     "prize_purse": "unverifiable",
     "registration_cost": "unverifiable",
     "status": "confirmed"
@@ -391,181 +758,122 @@
     {
      "field": "distance_mi",
      "verdict": "mismatch",
-     "web_value": " 55. 09 ",
+     "web_value": "88.62",
      "confidence": "high",
-     "source_url": " ht tps:// helloveb. hu/ en/ eve nt/ kes z- gro up- bal ato nfo ndo -2 02 6",
-     "note": " 2026Balatonfondo is a multi-distance event. Database lists 75 mi, but web shows Mediofondo at 59.2 km (36.8 mi), not matching. The database entry appears to target the Granfondo variant (177 km = 110 mi, 1716 m elevation = 5,627 ft)."
+     "source_url": "https://racenotify.com/en/event/33-bra-bra-fenix-granfondo-2026",
+     "note": "Web sources list multiple distances for different race categories: Long course 142.64 km (88.62 mi), Medio Fondo 112 km (69.59 mi), and shorter routes. The long course is 88.62 miles, not 93 miles as listed in database. This is the primary/longest granfondo distance."
     },
     {
      "field": "elevation_ft",
      "verdict": "mismatch",
-     "web_value": " 2 ,08 1",
+     "web_value": "8717",
      "confidence": "high",
-     "source_url": " ht tps:// hel love veb.hu /en /ev ent /kes z-gr oup -bal ato nfo ndo -20 26",
-     "note": " 2026 spec Granfondo shows +1716 m = 5,627 ft, not 2000 ft. Database value too low for Granfondo."
+     "source_url": "https://racenotify.com/en/event/33-bra-bra-fenix-granfondo-2026",
+     "note": "Long course elevation is +2,657 m, which converts to approximately 8,717 feet. Database lists 0 ft, which is clearly incorrect for this hilly terrain race in Langhe region."
     }
    ],
    "changes": [
     {
-     "field": "vitals.distance_mi",
-     "old": 75.0,
-     "new": 55.0,
-     "source": " ht tps:// helloveb. hu/ en/ eve nt/ kes z- gro up- bal ato nfo ndo -2 02 6"
-    },
-    {
      "field": "vitals.elevation_ft",
-     "old": 2000.0,
-     "new": 2.0,
-     "source": " ht tps:// hel love veb.hu /en /ev ent /kes z-gr oup -bal ato nfo ndo -20 26",
-     "flag_only": true
+     "old": 0.0,
+     "new": 8717.0,
+     "source": "https://racenotify.com/en/event/33-bra-bra-fenix-granfondo-2026"
     },
     {
-     "field": "rating.length",
+     "field": "rating.elevation",
      "old": 3,
-     "new": 2,
+     "new": 4,
      "source": "rubric recompute"
     },
     {
      "field": "rating.overall_score",
-     "old": 60,
-     "new": 59,
+     "old": 69,
+     "new": 70,
      "source": "rubric recompute"
     },
     {
      "field": "rating.tier",
      "old": null,
-     "new": 3,
+     "new": 2,
      "source": "rubric recompute",
      "tier_change": true
     }
    ],
    "usage": {
-    "input_tokens": 50230,
-    "output_tokens": 1577
+    "input_tokens": 19948,
+    "output_tokens": 768
    }
   },
   {
-   "slug": "balkan-gravel",
+   "slug": "burgr-95",
    "verdicts": {
     "distance_mi": "confirmed",
     "elevation_ft": "confirmed",
-    "field_size": "mismatch",
+    "field_size": "unverifiable",
     "prize_purse": "unverifiable",
+    "registration_cost": "mismatch",
+    "status": "confirmed"
+   },
+   "mismatches": [
+    {
+     "field": "registration_cost",
+     "verdict": "mismatch",
+     "web_value": "Free",
+     "confidence": "high",
+     "source_url": "https://www.ironbull.org/burgr95-fork-horners47",
+     "note": "Official IRONBULL source states this is a free self-navigated, unsupported group ride; database claims ~$75-100 registration cost"
+    }
+   ],
+   "changes": [],
+   "usage": {
+    "input_tokens": 20052,
+    "output_tokens": 610
+   }
+  },
+  {
+   "slug": "burnt-bridge-classic",
+   "verdicts": {
+    "distance_mi": "confirmed",
+    "elevation_ft": "mismatch",
+    "field_size": "mismatch",
+    "prize_purse": "confirmed",
     "registration_cost": "unverifiable",
     "status": "confirmed"
    },
    "mismatches": [
     {
+     "field": "elevation_ft",
+     "verdict": "mismatch",
+     "web_value": "3066",
+     "confidence": "high",
+     "source_url": "https://www.trailforks.com/route/bbgf-expert-120k-2400m/",
+     "note": "Trailforks lists Expert 120k route as 2400m elevation (6610 ft total climb). For 62-mile intermediate distance, data suggests ~1900-2100m based on 75km course specs. Trailforks shows 6610 ft = ~2012m for the 120k Expert route, not 3200 ft for the 62-mile distance."
+    },
+    {
      "field": "field_size",
      "verdict": "mismatch",
-     "web_value": "~300",
+     "web_value": "500",
      "confidence": "high",
-     "source_url": "https://gravelgodcycling.com/race/trans-balkan-race/",
-     "note": "Web sources consistently describe Trans Balkan Race field as ~300 riders. Database lists 200-400 riders but this likely conflates the race with other Balkan gravel events. Trans Balkan Race 2026 had field around 300."
+     "source_url": "https://www.granfondoguide.com/Events/Index/8488/burnt-bridge-classic-gravel-fondo",
+     "note": "GranFondoGuide states 2026 event is 'Limited to: 500 Participants' which conflicts with database claim of 100-300 riders."
     }
    ],
    "changes": [
     {
      "field": "vitals.field_size",
-     "old": 200.0,
-     "new": 300.0,
-     "source": "https://gravelgodcycling.com/race/trans-balkan-race/"
-    }
-   ],
-   "usage": {
-    "input_tokens": 62125,
-    "output_tokens": 736
-   }
-  },
-  {
-   "slug": "barry-roubaix",
-   "verdicts": {
-    "distance_mi": "mismatch",
-    "elevation_ft": "mismatch",
-    "field_size": "confirmed",
-    "prize_purse": "confirmed",
-    "registration_cost": "unverifiable",
-    "status": "confirmed"
-   },
-   "mismatches": [
-    {
-     "field": "distance_mi",
-     "verdict": "mismatch",
-     "web_value": "62",
-     "confidence": "high",
-     "source_url": "https://barry-roubaix.com/",
-     "note": "Your database lists 100 miles but official site shows 62-mile 'Killer' is one of 4 distinct race options (18-mile, 36-mile, 62-mile, 100-mile). The Killer distance is 62 miles, not 100."
-    },
-    {
-     "field": "elevation_ft",
-     "verdict": "mismatch",
-     "web_value": "4000",
-     "confidence": "high",
-     "source_url": "https://barry-roubaix.com/",
-     "note": "Official site states 62-mile Killer 'climbs approx. 4,000 feet of ascent,' not 3,500 feet."
-    }
-   ],
-   "changes": [
-    {
-     "field": "vitals.distance_mi",
      "old": 100.0,
-     "new": 62.0,
-     "source": "https://barry-roubaix.com/"
-    },
-    {
-     "field": "rating.length",
-     "old": 4,
-     "new": 3,
-     "source": "rubric recompute"
-    },
-    {
-     "field": "rating.overall_score",
-     "old": 53,
-     "new": 51,
-     "source": "rubric recompute"
+     "new": 500.0,
+     "source": "https://www.granfondoguide.com/Events/Index/8488/burnt-bridge-classic-gravel-fondo",
+     "flag_only": true
     }
    ],
    "usage": {
-    "input_tokens": 124620,
-    "output_tokens": 1356
+    "input_tokens": 52577,
+    "output_tokens": 888
    }
   },
   {
-   "slug": "battenkill",
-   "verdicts": {
-    "distance_mi": "confirmed",
-    "elevation_ft": "confirmed",
-    "field_size": "confirmed",
-    "prize_purse": "confirmed",
-    "registration_cost": "unverifiable",
-    "status": "confirmed"
-   },
-   "mismatches": [],
-   "changes": [],
-   "usage": {
-    "input_tokens": 33384,
-    "output_tokens": 834
-   }
-  },
-  {
-   "slug": "bealach-mor",
-   "verdicts": {
-    "distance_mi": "confirmed",
-    "elevation_ft": "confirmed",
-    "field_size": "confirmed",
-    "prize_purse": "confirmed",
-    "registration_cost": "unverifiable",
-    "status": "confirmed"
-   },
-   "mismatches": [],
-   "changes": [],
-   "usage": {
-    "input_tokens": 65351,
-    "output_tokens": 1127
-   }
-  },
-  {
-   "slug": "bear-100",
+   "slug": "bwr-arizona",
    "verdicts": {
     "distance_mi": "mismatch",
     "elevation_ft": "confirmed",
@@ -580,22 +888,22 @@
      "verdict": "mismatch",
      "web_value": "103",
      "confidence": "high",
-     "source_url": "https://www.thebear100.com/routes",
-     "note": "The official website lists three routes: 31, 61, and 103 miles. The database claims 100 miles, but the longest distance offered is 103 miles. The 103-mile route is described as 'A deep dive into the Nicolet National Forest.'"
+     "source_url": "https://veloracycling.com/events/belgian-waffle-ride-arizona-2026/preview",
+     "note": "Multiple recent 2026 sources (Velora Cycling, Cycling News, World UltraCycling, Gran Fondo Guide, Service Course Report) confirm 103 miles for Waffle course. Database claims 104 miles—a 1-mile discrepancy."
     }
    ],
    "changes": [],
    "usage": {
-    "input_tokens": 44899,
-    "output_tokens": 793
+    "input_tokens": 46566,
+    "output_tokens": 940
    }
   },
   {
-   "slug": "bear-howard-gravel",
+   "slug": "bwr-asheville",
    "verdicts": {
     "distance_mi": "mismatch",
     "elevation_ft": "mismatch",
-    "field_size": "confirmed",
+    "field_size": "unverifiable",
     "prize_purse": "confirmed",
     "registration_cost": "unverifiable",
     "status": "confirmed"
@@ -604,164 +912,39 @@
     {
      "field": "distance_mi",
      "verdict": "mismatch",
-     "web_value": "100",
-     "confidence": "high",
-     "source_url": "https://www.sableevents.com/events/bearhowardgravel",
-     "note": "The database lists 60 miles, but the official Sable Events website and multiple sources describe the main race distance as 100 miles. The race offers 3 distance options: 100 miles, 60 miles, and 30 miles. If the 60-mile distance is being tracked as a separate race profile, it exists but is not the primary/headline distance."
+     "web_value": "131-137",
+     "confidence": "medium",
+     "source_url": "https://www.belgianwaffleride.bike/pages/asheville-course-highlights",
+     "note": "Official site shows 2022 course at 137 miles; recent reports (2024-25) show approximately 131 miles for Waffle distance. Database states 129 miles but this is slightly lower than official reports of 131-137 miles"
     },
     {
      "field": "elevation_ft",
      "verdict": "mismatch",
-     "web_value": "6000",
+     "web_value": "13000-14000",
      "confidence": "high",
-     "source_url": "https://www.sableevents.com/events/bearhowardgravel",
-     "note": "Official website and multiple sources state 6,000+ ft of climbing, not 4,000 ft. GravelGodCycling confirms '60 miles delivers 2,800 ft of climbing' for the shorter distance; the database value of 4,000 ft does not match either the 100-mile or 60-mile options."
+     "source_url": "https://www.belgianwaffleride.bike/pages/asheville-course-highlights",
+     "note": "Official site and multiple sources (Strambecco, GranFondoGuide) consistently report ~13,000-14,000 feet for the Waffle distance. Database states 10,000 feet which is significantly lower"
     }
    ],
    "changes": [
     {
-     "field": "vitals.distance_mi",
-     "old": 60.0,
-     "new": 100.0,
-     "source": "https://www.sableevents.com/events/bearhowardgravel",
-     "flag_only": true
-    },
-    {
      "field": "vitals.elevation_ft",
-     "old": 4000.0,
-     "new": 6000.0,
-     "source": "https://www.sableevents.com/events/bearhowardgravel"
-    },
-    {
-     "field": "rating.elevation",
-     "old": 3,
-     "new": 4,
-     "source": "rubric recompute"
-    },
-    {
-     "field": "rating.overall_score",
-     "old": 47,
-     "new": 49,
-     "source": "rubric recompute"
+     "old": 10000.0,
+     "new": 13000.0,
+     "source": "https://www.belgianwaffleride.bike/pages/asheville-course-highlights"
     }
    ],
    "usage": {
-    "input_tokens": 43139,
-    "output_tokens": 930
+    "input_tokens": 70360,
+    "output_tokens": 1356
    }
   },
   {
-   "slug": "beaver-dam-gravel-grinder",
-   "verdicts": {
-    "distance_mi": "confirmed",
-    "elevation_ft": "confirmed",
-    "field_size": "unverifiable",
-    "prize_purse": "unverifiable",
-    "registration_cost": "mismatch",
-    "status": "confirmed"
-   },
-   "mismatches": [
-    {
-     "field": "registration_cost",
-     "verdict": "mismatch",
-     "web_value": "40",
-     "confidence": "high",
-     "source_url": "https://parks.nv.gov/events/gravel-grinder",
-     "note": "Nevada State Parks official site states \"$40 entry fee\" (includes breakfast, lunch, BBQ dinner). Database claim of ~$50-75 does not match."
-    }
-   ],
-   "changes": [],
-   "usage": {
-    "input_tokens": 52957,
-    "output_tokens": 792
-   }
-  },
-  {
-   "slug": "belgian-waffle-ride-kansas",
+   "slug": "bwr-california",
    "verdicts": {
     "distance_mi": "mismatch",
     "elevation_ft": "mismatch",
     "field_size": "unverifiable",
-    "prize_purse": "mismatch",
-    "registration_cost": "unverifiable",
-    "status": "confirmed"
-   },
-   "mismatches": [
-    {
-     "field": "distance_mi",
-     "verdict": "mismatch",
-     "web_value": "122",
-     "confidence": "high",
-     "source_url": "https://velo.outsideonline.com/gravel/gravel-racing/belgian-waffle-ride-kansas-wraps-tripel-crown-of-gravel-series-registration-opens/?scope=anon",
-     "note": "2023 Waffle course measured 123 miles; 2021 course was 111 miles. Database claims 80 mi—this may refer to the 'Wafer' distance (typically ~69-80 mi), not the main Waffle distance."
-    },
-    {
-     "field": "elevation_ft",
-     "verdict": "mismatch",
-     "web_value": "6823",
-     "confidence": "high",
-     "source_url": "https://velo.outsideonline.com/gravel/gravel-racing/belgian-waffle-ride-kansas-wraps-tripel-crown-of-gravel-series-registration-opens/?scope=anon",
-     "note": "2023 Waffle course had 6,823 feet climbing; 2021 Waffle had ~8,000 feet. Database value of 4000 ft does not match either year for the Waffle distance."
-    },
-    {
-     "field": "prize_purse",
-     "verdict": "mismatch",
-     "web_value": "prize purse offered",
-     "confidence": "high",
-     "source_url": "https://www.endurancesportswire.com/specialized-partners-with-inaugural-race-belgian-waffle-ride-kansas-products/",
-     "note": "2021 inaugural event announced 'The Waffle will be offering a prize purse to the top five riders, both female and male.' Database claims 'None'."
-    }
-   ],
-   "changes": [
-    {
-     "field": "vitals.distance_mi",
-     "old": 80.0,
-     "new": 122.0,
-     "source": "https://velo.outsideonline.com/gravel/gravel-racing/belgian-waffle-ride-kansas-wraps-tripel-crown-of-gravel-series-registration-opens/?scope=anon",
-     "flag_only": true
-    },
-    {
-     "field": "vitals.elevation_ft",
-     "old": 4000.0,
-     "new": 6823.0,
-     "source": "https://velo.outsideonline.com/gravel/gravel-racing/belgian-waffle-ride-kansas-wraps-tripel-crown-of-gravel-series-registration-opens/?scope=anon",
-     "flag_only": true
-    },
-    {
-     "field": "vitals.prize_purse",
-     "old": null,
-     "new": "prize purse offered",
-     "source": "https://www.endurancesportswire.com/specialized-partners-with-inaugural-race-belgian-waffle-ride-kansas-products/"
-    }
-   ],
-   "usage": {
-    "input_tokens": 69608,
-    "output_tokens": 954
-   }
-  },
-  {
-   "slug": "belgrade-gran-fondo",
-   "verdicts": {
-    "distance_mi": "confirmed",
-    "elevation_ft": "unverifiable",
-    "field_size": "unverifiable",
-    "prize_purse": "confirmed",
-    "registration_cost": "unverifiable",
-    "status": "unverifiable"
-   },
-   "mismatches": [],
-   "changes": [],
-   "usage": {
-    "input_tokens": 90253,
-    "output_tokens": 981
-   }
-  },
-  {
-   "slug": "bend-dirt-fest",
-   "verdicts": {
-    "distance_mi": "mismatch",
-    "elevation_ft": "confirmed",
-    "field_size": "confirmed",
     "prize_purse": "confirmed",
     "registration_cost": "confirmed",
     "status": "confirmed"
@@ -770,169 +953,56 @@
     {
      "field": "distance_mi",
      "verdict": "mismatch",
-     "web_value": "39",
+     "web_value": "106.5",
      "confidence": "high",
-     "source_url": "https://www.mudslingerevents.com/bend-dirt-fest",
-     "note": "Official Mudslinger Events website states MTB course is 39 miles (34 timed + 5 return miles). Database lists 50 miles."
+     "source_url": "https://www.granfondoguide.com/RaceDashboard/BelgianWaffleRideSeries",
+     "note": "Multiple official sources (Gran Fondo Guide, SoCalCycling.com, Strambecco) confirm 2026 Waffle distance as 106.5 miles, not 120 miles. Database value appears to reference older course data."
+    },
+    {
+     "field": "elevation_ft",
+     "verdict": "mismatch",
+     "web_value": "7500",
+     "confidence": "high",
+     "source_url": "https://www.granfondoguide.com/RaceDashboard/BelgianWaffleRideSeries",
+     "note": "Official 2026 course specs show ~7,500 feet elevation gain, not 10,000 feet. Multiple current sources confirm this figure for the 2026 Waffle distance."
     }
    ],
    "changes": [
     {
      "field": "vitals.distance_mi",
-     "old": 50.0,
-     "new": 39.0,
-     "source": "https://www.mudslingerevents.com/bend-dirt-fest"
+     "old": 120.0,
+     "new": 106.5,
+     "source": "https://www.granfondoguide.com/RaceDashboard/BelgianWaffleRideSeries"
     },
     {
-     "field": "rating.length",
-     "old": 3,
-     "new": 1,
-     "source": "rubric recompute"
-    },
-    {
-     "field": "rating.overall_score",
-     "old": 66,
-     "new": 63,
-     "source": "rubric recompute"
+     "field": "vitals.elevation_ft",
+     "old": 10000.0,
+     "new": 7500.0,
+     "source": "https://www.granfondoguide.com/RaceDashboard/BelgianWaffleRideSeries"
     }
    ],
    "usage": {
-    "input_tokens": 74586,
-    "output_tokens": 774
+    "input_tokens": 85490,
+    "output_tokens": 892
    }
   },
   {
-   "slug": "bergen-voss",
+   "slug": "bwr-cedar-city",
    "verdicts": {
-    "distance_mi": "mismatch",
-    "elevation_ft": "mismatch",
-    "field_size": "confirmed",
-    "prize_purse": "confirmed",
-    "registration_cost": "unverifiable",
-    "status": "confirmed"
-   },
-   "mismatches": [
-    {
-     "field": "distance_mi",
-     "verdict": "mismatch",
-     "web_value": "107.5",
-     "confidence": "high",
-     "source_url": "https://www.bergen-voss.no/english",
-     "note": "Official site states 173 km (107.5 miles), not 106 miles. Multiple sources confirm 173 km distance."
-    },
-    {
-     "field": "elevation_ft",
-     "verdict": "mismatch",
-     "web_value": "6890",
-     "confidence": "high",
-     "source_url": "https://trainerday.com/events/no/bergen-voss",
-     "note": "Official sources state 2,100 meters elevation (6,890 feet), not 6,880 feet. Rounding variance within 10 feet."
-    }
-   ],
-   "changes": [],
-   "usage": {
-    "input_tokens": 51626,
-    "output_tokens": 709
-   }
-  },
-  {
-   "slug": "berryman-epic",
-   "verdicts": {
-    "distance_mi": "mismatch",
-    "elevation_ft": "mismatch",
+    "distance_mi": "confirmed",
+    "elevation_ft": "confirmed",
     "field_size": "unverifiable",
     "prize_purse": "unverifiable",
     "registration_cost": "confirmed",
     "status": "confirmed"
    },
-   "mismatches": [
-    {
-     "field": "distance_mi",
-     "verdict": "mismatch",
-     "web_value": "50-55",
-     "confidence": "high",
-     "source_url": "https://gravelgodcycling.com/race/berryman-epic/",
-     "note": "Gravel God's 2026 review states 'Current 51-55 mile distance' and mentions rider report of '57 miles'. Calib Swartz's race report (Oct 2020) states '50 miles, 3:52min of race time, and 5400ft of climbing.' Multiple sources reference 50-55 miles rather than database's 65 miles."
-    },
-    {
-     "field": "elevation_ft",
-     "verdict": "mismatch",
-     "web_value": "5400",
-     "confidence": "high",
-     "source_url": "https://www.calebswartz.com/post/bt-epic",
-     "note": "Calib Swartz's first-hand race report from 2020 states '50 miles, 3:52min of race time, and 5400ft of climbing.' This is substantially less than database's 4500 ft claim—in fact, a higher value than claimed."
-    }
-   ],
-   "changes": [
-    {
-     "field": "vitals.distance_mi",
-     "old": 65.0,
-     "new": 50.0,
-     "source": "https://gravelgodcycling.com/race/berryman-epic/"
-    },
-    {
-     "field": "vitals.elevation_ft",
-     "old": 4500.0,
-     "new": 5400.0,
-     "source": "https://www.calebswartz.com/post/bt-epic"
-    },
-    {
-     "field": "rating.length",
-     "old": 3,
-     "new": 2,
-     "source": "rubric recompute"
-    },
-    {
-     "field": "rating.overall_score",
-     "old": 51,
-     "new": 50,
-     "source": "rubric recompute"
-    }
-   ],
-   "usage": {
-    "input_tokens": 81839,
-    "output_tokens": 855
-   }
-  },
-  {
-   "slug": "best-buddies-challenge-hyannis-port",
-   "verdicts": {
-    "distance_mi": "confirmed",
-    "elevation_ft": "confirmed",
-    "field_size": "unverifiable",
-    "prize_purse": "confirmed",
-    "registration_cost": "unverifiable",
-    "status": "confirmed"
-   },
    "mismatches": [],
    "changes": [],
    "usage": {
-    "input_tokens": 53183,
-    "output_tokens": 749
-   }
-  },
-  {
-   "slug": "best-buddies-challenge-miami",
-   "verdicts": {
-    "distance_mi": "confirmed",
-    "elevation_ft": "unverifiable",
-    "field_size": "unverifiable",
-    "prize_purse": "unverifiable",
-    "registration_cost": "unverifiable",
-    "status": "confirmed"
-   },
-   "mismatches": [],
-   "changes": [],
-   "usage": {
-    "input_tokens": 69344,
-    "output_tokens": 745
+    "input_tokens": 42536,
+    "output_tokens": 863
    }
   }
  ],
- "errors": [
-  {
-   "slug": "bald-eagle-gravel-grinder",
-   "error": "unparseable"
-  }
- ]
+ "errors": []
 }

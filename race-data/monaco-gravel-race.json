@@ -3,15 +3,16 @@
     "name": "Monaco Gravel Race",
     "slug": "monaco-gravel-race",
     "display_name": "Monaco Gravel Race",
-    "tagline": "Monaco/French Alps—110km of steep climbs, 2,500m elevation, iconic location, 20-25% DNF.",
+    "tagline": "Peille, high above Monaco—116km of steep French Alps climbs, ~2,500m elevation, iconic location.",
     "vitals": {
-      "distance_mi": 68,
+      "distance_mi": 72,
       "elevation_ft": 8202,
-      "location": "Monaco",
-      "location_badge": "MONACO",
-      "county": "Monaco",
-      "date": "October annually",
-      "date_specific": "2026: April 19",
+      "gain_display": "Varies",
+      "location": "Peille, France (near Monaco)",
+      "location_badge": "PEILLE, FRANCE",
+      "county": "Alpes-Maritimes, France",
+      "date": "April annually",
+      "date_specific": "2026: April 19 (Sunday, CONFIRMED — raced in Peille per UCI/Cyclingnews race report; completed); 2027: April 18 (Sunday, PATTERN ESTIMATE — third Sunday of April, per 2025-2026 dates; official 2027 date not yet announced)",
       "terrain_types": [
         "Monaco/French Alps gravel (70%)",
         "Paved roads (30%)",
@@ -24,27 +25,27 @@
       "prize_purse": "None",
       "aid_stations": "Multiple on course",
       "cutoff_time": "None",
-      "lat": 43.7323,
-      "lng": 7.4277,
+      "lat": 43.8039,
+      "lng": 7.4028,
       "month": "April"
     },
     "climate": {
-      "primary": "Monaco autumn",
-      "description": "October: 12-22°C, 30% rain chance, autumn conditions.",
+      "primary": "Alpes-Maritimes spring (mid-April)",
+      "description": "Mid-April in the hills above Monaco: cool mountain mornings warming through the day, with mountain-weather variability on the Col de Braus/Col du Castillon climbs.",
       "challenges": [
-        "Temperature swings (12-22°C)",
-        "Rain risk (30%)",
-        "Autumn weather variability"
+        "Cool starts warming through the day",
+        "Mountain-weather variability at altitude on the col climbs",
+        "Spring temperature swings"
       ]
     },
     "terrain": {
       "primary": "Monaco/French Alps—steep technical climbs",
-      "surface": "70% gravel, 30% paved roads. Monaco/French Alps—steep climbs, technical. 2,500 m over 110 km = very steep. Monaco start/finish. Technical rating: 5/5.",
+      "surface": "70% gravel, 30% paved roads. French Alps—steep climbs, technical. Gain varies by source (organizer pre-race figure 2,400 m/120 km; post-race report 2,500 m/116 km). Peille start/finish. Technical rating: 5/5.",
       "technical_rating": 5,
       "features": [
-        "Monaco start/finish (iconic)",
-        "French Alps",
-        "Steep climbs (2,500 m / 110 km)",
+        "Peille start/finish, high above Monaco (iconic)",
+        "French Alps / Mercantour National Park",
+        "Steep climbs (gain varies by source, ~2,400-2,500 m)",
         "Technical terrain",
         "Good airport access (Nice 30km)",
         "Small field (300-500)"
@@ -73,9 +74,9 @@
     },
     "biased_opinion": {
       "verdict": "Monaco/French Alps Iconic Brutality",
-      "summary": "Monaco Gravel Race is Monaco/French Alps—110 km, 2,500 m elevation. Founded ~2020. 70% gravel, 30% paved. Steep climbs, technical. 300-500 riders. Monaco start/finish (iconic location). October autumn conditions (12-22°C). Expensive entry (€150-€200 / $165-$220). If you want Monaco/French Alps iconic location with brutal steep climbs, this is it. If you need manageable elevation or budget race, skip it. 20-25% DNF.",
+      "summary": "Monaco Gravel Race is a UCI Gravel World Series qualifier starting and finishing in Peille, high above Monaco—116 km, ~2,500 m elevation (organizer pre-race figures cite 120 km/2,400 m; treat gain as Varies). First run in 2025. 70% gravel, 30% paved. Steep climbs, technical. 300-500 riders. Peille start/finish, Mercantour National Park (iconic location). Mid-April spring conditions. Expensive entry (€150-€200 / $165-$220). If you want the Monaco-area iconic location with brutal steep climbs, this is it. If you need manageable elevation or a budget race, skip it.",
       "strengths": [
-        "Monaco start/finish (iconic location)",
+        "Peille start/finish, high above Monaco (iconic location)",
         "French Alps scenery (stunning)",
         "Steep climbs reward skills",
         "Small field (300-500)",
@@ -84,34 +85,33 @@
         "Prestige location"
       ],
       "weaknesses": [
-        "Brutal—2,500 m / 110 km = very steep",
-        "20-25% DNF",
-        "Expensive (€150-€200 / $165-$220 + Monaco lodging)",
+        "Brutal—gain varies by source, roughly 2,400-2,500 m over 116-120 km",
+        "Expensive (€150-€200 / $165-$220 + Monaco-area lodging)",
         "Technical terrain (not for beginners)",
-        "October rain risk (30%)",
-        "Monaco lodging expensive"
+        "Spring mountain-weather variability",
+        "Monaco-area lodging expensive"
       ],
-      "bottom_line": "Monaco Gravel Race is Monaco/French Alps brutality. 110 km, 2,500 m, very steep, 20-25% DNF. If you want Monaco iconic location with French Alps climbs, this is it. If you need manageable elevation or budget race, skip it. Expensive but iconic. Brutal."
+      "bottom_line": "Monaco Gravel Race is French Alps brutality staged above Monaco. 116 km, ~2,500 m, very steep. If you want the Monaco-area iconic location with French Alps climbs, this is it. If you need manageable elevation or budget race, skip it. Expensive but iconic. Brutal."
     },
     "logistics": {
       "nearest_airport": "Nice (NCE) — 30 km (30-minute drive)",
       "alternate_airports": "None convenient",
-      "lodging_note": "Monaco—expensive. Book early.",
+      "lodging_note": "Monaco/Peille area—expensive. Book early.",
       "parking": "Check official website",
       "packet_pickup": "Day-before. Check official website.",
-      "travel_summary": "Fly to Nice (NCE). Rental car or shuttle (30 km, 30-minute drive to Monaco). Monaco lodging—expensive, book early. Day-before packet pickup. Race October. Post-race party in Monaco.",
-      "food_options": "Aid stations on course. Post-race party in Monaco.",
+      "travel_summary": "Fly to Nice (NCE). Rental car or shuttle (30 km, 30-minute drive to Peille). Monaco-area lodging—expensive, book early. Day-before packet pickup. Race mid-April. Post-race party in Peille.",
+      "food_options": "Aid stations on course. Post-race party in Peille.",
       "camping": "Check official website",
-      "official_site": "https://www.monacogravelrace.com"
+      "official_site": "https://monacogravelrace.fr"
     },
     "course_description": {
-      "character": "110 km, 2,500 m. 70% gravel, 30% paved. Monaco/French Alps—steep climbs, technical. Technical rating: 5/5.",
+      "character": "116 km, ~2,500 m (gain varies by source; organizer pre-race figures cite 120 km/2,400 m). 70% gravel, 30% paved. Peille/French Alps—steep climbs, technical. Technical rating: 5/5.",
       "suffering_zones": [
         {
           "name": "Throughout: French Alps Steep Climbs",
-          "miles": "0-110",
-          "description": "2,500 m over 110 km = very steep. French Alps climbs. Brutal.",
-          "survival_strategy": "Very low gears. Pace conservatively. 2,500 m / 110 km is brutal. 20-25% DNF here."
+          "miles": "0-116",
+          "description": "~2,500 m over 116 km = very steep, including the Col de Braus, Col du Castillon, and Col des Banquettes. French Alps climbs. Brutal.",
+          "survival_strategy": "Very low gears. Pace conservatively. The gain is brutal by any source's figures."
         },
         {
           "name": "Throughout: Technical Terrain",
@@ -120,7 +120,7 @@
           "survival_strategy": "35-40mm tubeless. Technical skills required. Steep climbs. Focus on next aid."
         }
       ],
-      "signature_challenge": "110 km + 2,500 m elevation = very steep. Monaco/French Alps. 20-25% DNF.",
+      "signature_challenge": "116 km + ~2,500 m elevation = very steep. Peille/French Alps, high above Monaco.",
       "ridewithgps_id": "50327918",
       "ridewithgps_name": "Monaco gravel race UCI 120k 2025 VL",
       "surface_breakdown": {
@@ -128,17 +128,18 @@
           "gravel": 70,
           "pavement": 30
         }
-      }
+      },
+      "masters_course": "Official age-band course for men 60+/women 50+: ~83 km / ~1,800 m gain, sharing the flagship's start/finish but omitting the northern section, instead riding two local 33 km laps."
     },
     "history": {
-      "founded": "~2020",
+      "founded": "2025",
       "founder": "Unknown",
-      "origin_story": "Monaco Gravel Race founded ~2020. Monaco start/finish. 110 km, 300-500 riders. Monaco/French Alps. Steep climbs.",
+      "origin_story": "Monaco Gravel Race launched in 2025 as a new UCI Gravel World Series qualifier starting and finishing in Peille, high above Monaco. 116-120 km (source-dependent) through the Mercantour National Park. 300-500 riders. Steep French Alps climbs.",
       "notable_moments": [
-        "2023: Cool, dry (15-20°C)",
-        "2024: Variable, some rain (12-22°C)"
+        "2025: Inaugural edition — Mads Wurtz Schmidt and Morgan Aguirre win",
+        "2026: Romain Bardet and Sophie Wright win"
       ],
-      "reputation": "Monaco gravel scene. Monaco/French Alps. Iconic location. Steep climbs. Brutal. 20-25% DNF."
+      "reputation": "New (2025-founded) UCI Gravel World Series qualifier. Peille/French Alps, high above Monaco. Iconic location. Steep climbs. Brutal."
     },
     "research_metadata": {
       "data_confidence": "researched",
@@ -172,7 +173,7 @@
       },
       "length": {
         "score": 3,
-        "explanation": "Jan Stöckli stayed with the lead group early but \"after about a lap and a half, the effort caught up with me. I started to fade and couldn't maintain the early pace.\" The race becomes extremely demanding after ~60km, suggesting 68 miles hits the sweet spot between substantial and manageable. Similar distance to Crusher in the Tushar."
+        "explanation": "Jan Stöckli stayed with the lead group early but \"after about a lap and a half, the effort caught up with me. I started to fade and couldn't maintain the early pace.\" The race becomes extremely demanding after ~60km, suggesting the ~72-75 mile course hits the sweet spot between substantial and manageable. Similar distance to Crusher in the Tushar."
       },
       "technicality": {
         "score": 5,
@@ -216,7 +217,7 @@
       },
       "value": {
         "score": 2,
-        "explanation": "Racing in Monaco means paying Monaco prices for everything from accommodation to meals. The course delivers premium terrain through Mercantour National Park, but you're paying a luxury destination premium for 68 miles of gravel. Registration fees aren't published, but nothing about this location suggests budget-friendly."
+        "explanation": "Racing above Monaco means paying Monaco-area prices for everything from accommodation to meals. The course delivers premium terrain through Mercantour National Park, but you're paying a luxury destination premium for roughly 72 miles of gravel and paved climbing. Registration fees aren't published, but nothing about this location suggests budget-friendly."
       },
       "expenses": {
         "score": 2,
@@ -226,7 +227,7 @@
     "final_verdict": {
       "score": "74 / 100",
       "one_liner": "A UCI qualifier that trades the usual gravel brutality for Alpine scenery and climbing legs that'll make you question your gear choices.",
-      "should_you_race": "If you can handle 121 feet of climbing per mile on short, punchy ascents, this is your European gravel vacation with World Championship qualification upside. The Mercantour park setting means you're climbing through postcard scenery instead of Kansas cornfields. Skip it if you prefer sustained efforts over constant gear changes, or if you think 68 miles sounds easy because the math doesn't lie on those repeated kicks.",
+      "should_you_race": "If you can handle roughly 115 feet of climbing per mile on short, punchy ascents, this is your European gravel vacation with World Championship qualification upside. The Mercantour park setting means you're climbing through postcard scenery instead of Kansas cornfields. Skip it if you prefer sustained efforts over constant gear changes, or if you think 72 miles sounds easy because the math doesn't lie on those repeated kicks.",
       "alternatives": "Dirty Kanza offers similar UCI points without the airline ticket, while Gravel Worlds qualifiers like SBT GRVL give you high desert instead of Alpine views. If you want European gravel without the Monaco price tag, consider Gravel One Fifty in the UK for comparable terrain and fewer tourist crowds.",
       "alternative_slugs": [
         "garmin-gravel-worlds",

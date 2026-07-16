@@ -3,7 +3,7 @@
     "name": "Grinduro Italy",
     "slug": "grinduro-italy",
     "display_name": "Grinduro Italy",
-    "tagline": "Italian coastal mountain gravel in Finale Ligure.",
+    "tagline": "Tuscan hill gravel out of Massa Marittima.",
     "vitals": {
       "distance_mi": 62,
       "elevation_ft": 4921,
@@ -13,7 +13,7 @@
       "date": "Late September annually",
       "date_specific": "2026: September 26",
       "terrain_types": [
-        "Coastal mountains",
+        "Tuscan hills",
         "Timed segments",
         "Regional event",
         "Italy"
@@ -33,19 +33,19 @@
       "challenges": [
         "Variable weather",
         "Generally mild",
-        "Coastal mountain terrain",
+        "Tuscan hill terrain",
         "Spring/Fall conditions"
       ]
     },
     "terrain": {
-      "primary": "Italian coastal mountain gravel",
-      "surface": "Gravel roads through coastal mountains. Timed segment format with significant elevation and Mediterranean scenery.",
+      "primary": "Tuscan hill gravel",
+      "surface": "Gravel roads through the Tuscan hills. Timed segment format with significant elevation and Mediterranean scenery.",
       "technical_rating": 3,
       "features": [
-        "Significant coastal mountains (5500 feet)",
+        "Significant Tuscan hill climbing (5500 feet)",
         "Mediterranean scenery",
         "Timed segments",
-        "Finale Ligure setting",
+        "Massa Marittima, Tuscany setting",
         "Regional Grinduro event"
       ]
     },
@@ -67,13 +67,13 @@
       "field_depth": 2,
       "value": 2,
       "expenses": 2,
-      "score_note": "Regional Grinduro event. Coastal mountain terrain with professional organization and regional field.",
+      "score_note": "Regional Grinduro event. Tuscan hill terrain with professional organization and regional field.",
       "discipline": "gravel",
       "display_tier": 3
     },
     "biased_opinion": {
-      "verdict": "Mediterranean Coastal Mountain Gravel",
-      "summary": "Grinduro Italy is a regional Grinduro event in Finale Ligure—coastal mountain terrain with timed segments. The Mediterranean setting and professional organization are appealing, but the moderate costs and regional field keep it firmly in Tier 3.",
+      "verdict": "Tuscan Hill Gravel",
+      "summary": "Grinduro Italy is a regional Grinduro event in Massa Marittima, Tuscany—hilly Maremma terrain with timed segments. The Mediterranean setting and professional organization are appealing, but the moderate costs and regional field keep it firmly in Tier 3.",
       "strengths": [
         "Stunning Mediterranean scenery",
         "Professional Grinduro organization",
@@ -88,11 +88,11 @@
         "European travel costs",
         "Limited international draw"
       ],
-      "bottom_line": "A scenic Italian Grinduro event with coastal mountains. Worth it for European cyclists. Not a destination race for most international travelers."
+      "bottom_line": "A scenic Italian Grinduro event in the Tuscan hills. Worth it for European cyclists. Not a destination race for most international travelers."
     },
     "final_verdict": {
       "score": "53 / 100",
-      "one_liner": "Italian coastal mountain gravel in Finale Ligure.",
+      "one_liner": "Tuscan hill gravel out of Massa Marittima.",
       "should_you_race": "If you're in Europe and want a Grinduro experience—yes, it's solid. If you're international—consider Grinduro California instead.",
       "alternatives": "For better Grinduro events: Grinduro California. For similar Italian terrain: Veneto Gravel.",
       "alternative_slugs": [
@@ -103,8 +103,8 @@
     },
     "logistics": {
       "airport": "Genoa (GOA) 1 hour or Nice (NCE) 1.5 hours",
-      "lodging_strategy": "Finale Ligure has moderate lodging options.",
-      "food": "Finale Ligure has full dining options. Stock nutrition.",
+      "lodging_strategy": "Massa Marittima has moderate lodging options; the event bases at Bike Hotel Massa Vecchia.",
+      "food": "Massa Marittima has full dining options. Stock nutrition.",
       "packet_pickup": "Day before typically",
       "parking": "At start/finish",
       "official_site": "Check Grinduro website",
@@ -118,13 +118,13 @@
       "reputation": "Regional Grinduro event."
     },
     "course_description": {
-      "character": "Italian coastal mountain gravel with timed segments.",
+      "character": "Tuscan hill gravel with timed segments.",
       "suffering_zones": [
         {
           "mile": 20,
           "label": "Timed Segment 1",
           "desc": "First timed coastal climb.",
-          "terrain_detail": "Coastal mountain",
+          "terrain_detail": "Tuscan hills",
           "named_section": "Segment 1"
         },
         {
@@ -142,7 +142,7 @@
           "named_section": "Final Segment"
         }
       ],
-      "signature_challenge": "Mediterranean coastal mountain timed segments.",
+      "signature_challenge": "Tuscan hill timed segments.",
       "ridewithgps_id": "52669799",
       "ridewithgps_name": "Grinduro Italy 2025"
     },
@@ -152,10 +152,10 @@
       "race_elevation": "4,921 feet",
       "race_date": "Spring/Fall",
       "race_location": "Massa Marittima, Tuscany",
-      "race_terrain": "Italian coastal mountain gravel",
+      "race_terrain": "Tuscan hill gravel",
       "race_weather": "Mediterranean spring/fall mild",
       "race_challenges": [
-        "Coastal mountain terrain",
+        "Tuscan hill terrain",
         "Timed segments",
         "Moderate costs",
         "Variable weather",
@@ -166,9 +166,9 @@
     },
     "non_negotiables": [
       {
-        "requirement": "Coastal mountain endurance",
+        "requirement": "Hilly-terrain endurance",
         "by_when": "Week 8-10",
-        "why": "Coastal mountains with timed segments require sustained effort."
+        "why": "Sustained Tuscan hill climbing with timed segments requires sustained effort."
       },
       {
         "requirement": "Technical skills",
@@ -248,7 +248,7 @@
         "race_specific": true,
         "topics": {
           "pacing": "Timed segment pacing strategy",
-          "fueling": "Nutrition for coastal mountain riding",
+          "fueling": "Nutrition for hilly gravel riding",
           "technical": "Technical handling for segments",
           "segments": "Timed segment strategy"
         }
@@ -256,11 +256,11 @@
       "tier_overrides": {},
       "marketplace_variables": {
         "race_name": "Grinduro Italy",
-        "race_hook": "Italian coastal mountain gravel in Finale Ligure.",
+        "race_hook": "Tuscan hill gravel out of Massa Marittima.",
         "race_hook_detail": "Regional Grinduro event with timed segments.",
         "distance": "62",
         "dark_mile": "35",
-        "non_negotiable_1": "Coastal mountain endurance",
+        "non_negotiable_1": "Hilly-terrain endurance",
         "non_negotiable_2": "Technical skills",
         "non_negotiable_3": "Pacing discipline",
         "trainingpeaks_url": null
@@ -440,7 +440,7 @@
     },
     "youtube_data": {
       "researched_at": "2026-02-23",
-      "search_query": "Grinduro Italy gravel race Finale Ligure",
+      "search_query": "Grinduro Italy gravel race Massa Marittima Tuscany",
       "videos": [
         {
           "video_id": "aUz3lgYLdYs",
@@ -638,7 +638,7 @@
         "type": "video-1",
         "file": "grinduro-italy-video-1.jpg",
         "url": "/race-photos/grinduro-italy/grinduro-italy-video-1.jpg",
-        "alt": "Aerial view of Alpine village nestled in green valley surrounded by snow-capped mountains in Italy - Grinduro Italy - Finale Ligure, Italy",
+        "alt": "Aerial view of Alpine village nestled in green valley surrounded by snow-capped mountains in Italy - Grinduro Italy - Massa Marittima, Italy",
         "credit": "YouTube / Global Cycling Network",
         "primary": true,
         "ai_relevance": 2,
@@ -654,7 +654,7 @@
         "type": "video-2",
         "file": "grinduro-italy-video-2.jpg",
         "url": "/race-photos/grinduro-italy/grinduro-italy-video-2.jpg",
-        "alt": "Cyclist in high-visibility gear riding on wing of grounded aircraft in desert terrain - Grinduro Italy - Finale Ligure, Italy",
+        "alt": "Cyclist in high-visibility gear riding on wing of grounded aircraft in desert terrain - Grinduro Italy - Massa Marittima, Italy",
         "credit": "YouTube / Global Cycling Network",
         "primary": false,
         "ai_relevance": 3,
@@ -670,7 +670,7 @@
         "type": "video-3",
         "file": "grinduro-italy-video-3.jpg",
         "url": "/race-photos/grinduro-italy/grinduro-italy-video-3.jpg",
-        "alt": "Topographic race map showing cycling routes around Molina di Fiemme with red trail markings and mountain bike imagery - Grinduro Italy - Finale Ligure, Italy",
+        "alt": "Topographic race map showing cycling routes around Molina di Fiemme with red trail markings and mountain bike imagery - Grinduro Italy - Massa Marittima, Italy",
         "credit": "YouTube / Global Cycling Network",
         "primary": false,
         "ai_relevance": 4,

@@ -1,10 +1,10 @@
 {
   "slug": "nova-eroica",
   "race_name": "Nova Eroica",
-  "distance_mi": 84.0,
+  "distance_mi": 81.0,
   "demands": {
     "durability": 4,
-    "climbing": 8,
+    "climbing": 7,
     "vo2_power": 8,
     "threshold": 8,
     "technical": 6,
@@ -21,7 +21,7 @@
         "Variable Pace Chaos",
         "Sector Simulation"
       ],
-      "workout_context": "Race-pace efforts that mimic Nova Eroica's demands. Pacing, fueling, and tactical decisions under fatigue. Practice the race before October."
+      "workout_context": "Race-pace efforts that mimic Nova Eroica's demands. Pacing, fueling, and tactical decisions under fatigue. Practice the race before April."
     },
     {
       "category": "Gravel_Specific",
@@ -30,21 +30,21 @@
         "Surge and Settle",
         "Terrain Microbursts"
       ],
-      "workout_context": "Nova Eroica's Tuscan strade bianche (white roads) (70%), Paved roads (30%) forces constant power changes. Surge over the rough stuff, settle on the smooth, repeat for 84 miles."
+      "workout_context": "Nova Eroica's Tuscan strade bianche (white roads) (70%), Paved roads (30%) forces constant power changes. Surge over the rough stuff, settle on the smooth, repeat for 81 miles."
     },
     {
       "category": "TT_Threshold",
-      "score": 92,
+      "score": 88,
       "workouts": [
         "Single Sustained Threshold",
         "Threshold Ramps",
         "Descending Threshold"
       ],
-      "workout_context": "109ft/mi means long efforts at or near FTP on every climb. If your threshold cracks at minute 15, you'll walk the rest."
+      "workout_context": "81ft/mi means long efforts at or near FTP on every climb. If your threshold cracks at minute 15, you'll walk the rest."
     },
     {
       "category": "Over_Under",
-      "score": 82,
+      "score": 76,
       "workouts": [
         "Classic Over-Unders",
         "Ladder Over-Unders"
@@ -59,17 +59,7 @@
         "Descending VO2 Pyramid",
         "Norwegian 4x8"
       ],
-      "workout_context": "9,186ft of climbing means repeated surges above threshold. VO2max work is how you survive the fifth climb, not just the first."
-    },
-    {
-      "category": "G_Spot",
-      "score": 72,
-      "workouts": [
-        "G-Spot Standard",
-        "G-Spot Extended",
-        "Criss-Cross"
-      ],
-      "workout_context": "88\u201392% FTP is where you'll spend the hardest sustained miles of Nova Eroica. Train it until it feels boring."
+      "workout_context": "6,529ft of climbing means repeated surges above threshold. VO2max work is how you survive the fifth climb, not just the first."
     },
     {
       "category": "Durability",
@@ -79,16 +69,17 @@
         "Double Day Simulation",
         "Progressive Fatigue"
       ],
-      "workout_context": "At mile 60 of 84, glycogen is gone. This workout teaches your body to produce watts on fumes."
+      "workout_context": "At mile 60 of 81, glycogen is gone. This workout teaches your body to produce watts on fumes."
     },
     {
-      "category": "Mixed_Climbing",
-      "score": 62,
+      "category": "G_Spot",
+      "score": 69,
       "workouts": [
-        "Seated/Standing Climbs",
-        "Variable Grade Simulation"
+        "G-Spot Standard",
+        "G-Spot Extended",
+        "Criss-Cross"
       ],
-      "workout_context": "9,186ft of climbing on grades that change every minute. You need to switch from seated to standing without losing rhythm."
+      "workout_context": "88\u201392% FTP is where you'll spend the hardest sustained miles of Nova Eroica. Train it until it feels boring."
     },
     {
       "category": "Critical_Power",
@@ -109,28 +100,37 @@
       "workout_context": "Short, max efforts are unavoidable. Punchy climbs, gap closures, attacks on tuscan strade bianche\u2014rolling white gravel roads. If you haven't trained them, you'll crack."
     },
     {
+      "category": "Mixed_Climbing",
+      "score": 54,
+      "workouts": [
+        "Seated/Standing Climbs",
+        "Variable Grade Simulation"
+      ],
+      "workout_context": "6,529ft of climbing on grades that change every minute. You need to switch from seated to standing without losing rhythm."
+    },
+    {
       "category": "Blended",
       "score": 41,
       "workouts": [
         "Z2 + VO2 Combo",
         "Endurance with Spikes"
       ],
-      "workout_context": "Endurance with intensity spikes baked in. Exactly what 9,186ft of climbing on tuscan strade bianche\u2014rolling white gravel roads does to your power file on race day."
+      "workout_context": "Endurance with intensity spikes baked in. Exactly what 6,529ft of climbing on tuscan strade bianche\u2014rolling white gravel roads does to your power file on race day."
     },
     {
-      "category": "SFR_Muscle_Force",
+      "category": "Norwegian_Double",
       "score": 41,
       "workouts": [
-        "SFR Low Cadence",
-        "Force Repeats"
+        "Norwegian 4x8 Classic",
+        "Double Threshold"
       ],
-      "workout_context": "Low-cadence force work for 9,186ft of climbing. The slow, grinding ascents where you can't spin\u2014you push."
+      "workout_context": "Two threshold sessions per week without the recovery cost of VO2max work. For 81 miles, sustainable FTP gains matter more than peak power."
     }
   ],
   "race_overlay": {
-    "nutrition": "Target 60\u201380g carbs/hour for Nova Eroica\u2019s 84 miles. Start fueling within the first 30 minutes \u2014 early fueling prevents late-race collapse. Bonking at mile 60 is a nutrition failure, not a fitness failure.",
+    "nutrition": "Target 60\u201380g carbs/hour for Nova Eroica\u2019s 81 miles. Start fueling within the first 30 minutes \u2014 early fueling prevents late-race collapse. Bonking at mile 60 is a nutrition failure, not a fitness failure.",
     "terrain": "Mixed terrain at Nova Eroica requires surface adaptability. Include weekly rides on tuscan strade bianche\u2014rolling white gravel roads to build confidence. Expect: tuscan strade bianche (white roads) (70%), paved roads (30%), rolling tuscan hills."
   },
-  "pack_summary": "This 10-workout pack focuses on Race Simulation, Gravel Specific, and TT Threshold to prepare you for 84 miles of tuscan strade bianche\u2014rolling white gravel roads in Buonconvento, Tuscany, Italy.",
-  "generated_at": "2026-03-06"
+  "pack_summary": "This 10-workout pack focuses on Race Simulation, Gravel Specific, and TT Threshold to prepare you for 81 miles of tuscan strade bianche\u2014rolling white gravel roads in Buonconvento, Tuscany, Italy.",
+  "generated_at": "2026-07-16"
 }

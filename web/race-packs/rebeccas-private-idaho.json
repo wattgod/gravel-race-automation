@@ -1,10 +1,10 @@
 {
   "slug": "rebeccas-private-idaho",
   "race_name": "Rebecca's Private Idaho",
-  "distance_mi": 103.0,
+  "distance_mi": 104.0,
   "demands": {
     "durability": 6,
-    "climbing": 8,
+    "climbing": 7,
     "vo2_power": 9,
     "threshold": 8,
     "technical": 6,
@@ -21,7 +21,7 @@
         "Descending VO2 Pyramid",
         "Norwegian 4x8"
       ],
-      "workout_context": "8,500ft of climbing means repeated surges above threshold. VO2max work is how you survive the fifth climb, not just the first."
+      "workout_context": "6,860ft of climbing means repeated surges above threshold. VO2max work is how you survive the fifth climb, not just the first."
     },
     {
       "category": "Durability",
@@ -31,7 +31,7 @@
         "Double Day Simulation",
         "Progressive Fatigue"
       ],
-      "workout_context": "At mile 60 of 103, glycogen is gone. This workout teaches your body to produce watts on fumes."
+      "workout_context": "At mile 60 of 104, glycogen is gone. This workout teaches your body to produce watts on fumes."
     },
     {
       "category": "Race_Simulation",
@@ -50,21 +50,21 @@
         "Surge and Settle",
         "Terrain Microbursts"
       ],
-      "workout_context": "Rebecca's Private Idaho's High desert gravel, Mountain passes forces constant power changes. Surge over the rough stuff, settle on the smooth, repeat for 103 miles."
+      "workout_context": "Rebecca's Private Idaho's High desert gravel, Mountain passes forces constant power changes. Surge over the rough stuff, settle on the smooth, repeat for 104 miles."
     },
     {
       "category": "TT_Threshold",
-      "score": 77,
+      "score": 73,
       "workouts": [
         "Single Sustained Threshold",
         "Threshold Ramps",
         "Descending Threshold"
       ],
-      "workout_context": "83ft/mi means long efforts at or near FTP on every climb. If your threshold cracks at minute 15, you'll walk the rest."
+      "workout_context": "66ft/mi means long efforts at or near FTP on every climb. If your threshold cracks at minute 15, you'll walk the rest."
     },
     {
       "category": "Over_Under",
-      "score": 68,
+      "score": 63,
       "workouts": [
         "Classic Over-Unders",
         "Ladder Over-Unders"
@@ -78,11 +78,11 @@
         "Pre-Race Openers",
         "Terrain Simulation Z2"
       ],
-      "workout_context": "Every hard session works better with a bigger aerobic base. At 103 miles, base fitness is the difference between racing and surviving."
+      "workout_context": "Every hard session works better with a bigger aerobic base. At 104 miles, base fitness is the difference between racing and surviving."
     },
     {
       "category": "G_Spot",
-      "score": 60,
+      "score": 57,
       "workouts": [
         "G-Spot Standard",
         "G-Spot Extended",
@@ -100,15 +100,6 @@
       "workout_context": "How long can you hold 105% FTP before you blow? At Rebecca's Private Idaho, that number decides whether you bridge or get dropped."
     },
     {
-      "category": "Mixed_Climbing",
-      "score": 51,
-      "workouts": [
-        "Seated/Standing Climbs",
-        "Variable Grade Simulation"
-      ],
-      "workout_context": "8,500ft of climbing on grades that change every minute. You need to switch from seated to standing without losing rhythm."
-    },
-    {
       "category": "Anaerobic_Capacity",
       "score": 51,
       "workouts": [
@@ -118,20 +109,29 @@
       "workout_context": "Short, max efforts are unavoidable. Punchy climbs, gap closures, attacks on high desert gravel with sustained climbs. If you haven't trained them, you'll crack."
     },
     {
+      "category": "Mixed_Climbing",
+      "score": 45,
+      "workouts": [
+        "Seated/Standing Climbs",
+        "Variable Grade Simulation"
+      ],
+      "workout_context": "6,860ft of climbing on grades that change every minute. You need to switch from seated to standing without losing rhythm."
+    },
+    {
       "category": "Blended",
       "score": 40,
       "workouts": [
         "Z2 + VO2 Combo",
         "Endurance with Spikes"
       ],
-      "workout_context": "Endurance with intensity spikes baked in. Exactly what 8,500ft of climbing on high desert gravel with sustained climbs does to your power file on race day."
+      "workout_context": "Endurance with intensity spikes baked in. Exactly what 6,860ft of climbing on high desert gravel with sustained climbs does to your power file on race day."
     }
   ],
   "race_overlay": {
-    "nutrition": "Target 60\u201380g carbs/hour for Rebecca's Private Idaho\u2019s 103 miles. Start fueling within the first 30 minutes \u2014 early fueling prevents late-race collapse. Bonking at mile 60 is a nutrition failure, not a fitness failure.",
-    "altitude": "Rebecca's Private Idaho with 8,500ft of climbing, much of it above 8,000ft demands altitude preparation. Arrive 5\u20137 days early for acclimatization. Expect 5\u201315% power reduction at altitude. Increase iron intake 4 weeks out. Hydrate aggressively \u2014 altitude increases fluid loss by 20\u201340%. Altitude at 6,000-8,000 feet.",
+    "nutrition": "Target 60\u201380g carbs/hour for Rebecca's Private Idaho\u2019s 104 miles. Start fueling within the first 30 minutes \u2014 early fueling prevents late-race collapse. Bonking at mile 60 is a nutrition failure, not a fitness failure.",
+    "altitude": "Rebecca's Private Idaho with 6,860ft of climbing, much of it above 8,000ft demands altitude preparation. Arrive 5\u20137 days early for acclimatization. Expect 5\u201315% power reduction at altitude. Increase iron intake 4 weeks out. Hydrate aggressively \u2014 altitude increases fluid loss by 20\u201340%. Altitude at 6,000-8,000 feet.",
     "terrain": "Mixed terrain at Rebecca's Private Idaho requires surface adaptability. Include weekly rides on high desert gravel with sustained climbs to build confidence. Expect: high desert gravel, mountain passes, scenic forest roads."
   },
-  "pack_summary": "This 10-workout pack focuses on VO2max, Durability, and Race Simulation to prepare you for 103 miles of high desert gravel with sustained climbs in Ketchum, Idaho.",
-  "generated_at": "2026-03-06"
+  "pack_summary": "This 10-workout pack focuses on VO2max, Durability, and Race Simulation to prepare you for 104 miles of high desert gravel with sustained climbs in Ketchum, Idaho.",
+  "generated_at": "2026-07-16"
 }

@@ -1,9 +1,9 @@
 {
   "slug": "mammoth-tuff",
   "race_name": "Mammoth Tuff",
-  "distance_mi": 100.0,
+  "distance_mi": 89.0,
   "demands": {
-    "durability": 6,
+    "durability": 4,
     "climbing": 8,
     "vo2_power": 8,
     "threshold": 8,
@@ -31,7 +31,7 @@
         "Threshold Ramps",
         "Descending Threshold"
       ],
-      "workout_context": "75ft/mi means long efforts at or near FTP on every climb. If your threshold cracks at minute 15, you'll walk the rest."
+      "workout_context": "84ft/mi means long efforts at or near FTP on every climb. If your threshold cracks at minute 15, you'll walk the rest."
     },
     {
       "category": "Race_Simulation",
@@ -42,16 +42,6 @@
         "Sector Simulation"
       ],
       "workout_context": "Race-pace efforts that mimic Mammoth Tuff's demands. Pacing, fueling, and tactical decisions under fatigue. Practice the race before June."
-    },
-    {
-      "category": "Durability",
-      "score": 67,
-      "workouts": [
-        "Tired VO2max",
-        "Double Day Simulation",
-        "Progressive Fatigue"
-      ],
-      "workout_context": "At mile 60 of 100, glycogen is gone. This workout teaches your body to produce watts on fumes."
     },
     {
       "category": "Over_Under",
@@ -69,7 +59,7 @@
         "Surge and Settle",
         "Terrain Microbursts"
       ],
-      "workout_context": "Mammoth Tuff's High Sierra alpine gravel, Smooth fast roads forces constant power changes. Surge over the rough stuff, settle on the smooth, repeat for 100 miles."
+      "workout_context": "Mammoth Tuff's High Sierra alpine gravel, Smooth fast roads forces constant power changes. Surge over the rough stuff, settle on the smooth, repeat for 89 miles."
     },
     {
       "category": "G_Spot",
@@ -82,13 +72,14 @@
       "workout_context": "88\u201392% FTP is where you'll spend the hardest sustained miles of Mammoth Tuff. Train it until it feels boring."
     },
     {
-      "category": "Endurance",
+      "category": "Durability",
       "score": 55,
       "workouts": [
-        "Pre-Race Openers",
-        "Terrain Simulation Z2"
+        "Tired VO2max",
+        "Double Day Simulation",
+        "Progressive Fatigue"
       ],
-      "workout_context": "Every hard session works better with a bigger aerobic base. At 100 miles, base fitness is the difference between racing and surviving."
+      "workout_context": "At mile 60 of 89, glycogen is gone. This workout teaches your body to produce watts on fumes."
     },
     {
       "category": "Mixed_Climbing",
@@ -98,6 +89,15 @@
         "Variable Grade Simulation"
       ],
       "workout_context": "7,500ft of climbing on grades that change every minute. You need to switch from seated to standing without losing rhythm."
+    },
+    {
+      "category": "Endurance",
+      "score": 47,
+      "workouts": [
+        "Pre-Race Openers",
+        "Terrain Simulation Z2"
+      ],
+      "workout_context": "Every hard session works better with a bigger aerobic base. At 89 miles, base fitness is the difference between racing and surviving."
     },
     {
       "category": "Anaerobic_Capacity",
@@ -119,7 +119,7 @@
     },
     {
       "category": "Blended",
-      "score": 39,
+      "score": 33,
       "workouts": [
         "Z2 + VO2 Combo",
         "Endurance with Spikes"
@@ -128,10 +128,10 @@
     }
   ],
   "race_overlay": {
-    "nutrition": "Target 60\u201380g carbs/hour for Mammoth Tuff\u2019s 100 miles. Start fueling within the first 30 minutes \u2014 early fueling prevents late-race collapse. Bonking at mile 60 is a nutrition failure, not a fitness failure.",
+    "nutrition": "Target 60\u201380g carbs/hour for Mammoth Tuff\u2019s 89 miles. Start fueling within the first 30 minutes \u2014 early fueling prevents late-race collapse. Bonking at mile 60 is a nutrition failure, not a fitness failure.",
     "altitude": "Mammoth Tuff with 7,500ft of climbing, much of it above 8,000ft demands altitude preparation. Arrive 5\u20137 days early for acclimatization. Expect 5\u201315% power reduction at altitude. Increase iron intake 4 weeks out. Hydrate aggressively \u2014 altitude increases fluid loss by 20\u201340%. Altitude 7,880-8,000 ft (30% less oxygen); High altitude sun intensity.",
-    "terrain": "Mixed terrain at Mammoth Tuff requires surface adaptability. Include weekly rides on high sierra alpine gravel\u2014smooth and fast to build confidence. Expect: high sierra alpine gravel, smooth fast roads, june lake loop scenery."
+    "terrain": "Mixed terrain at Mammoth Tuff requires surface adaptability. Include weekly rides on high sierra alpine gravel\u2014smooth and fast to build confidence. Expect: high sierra alpine gravel, smooth fast roads, red rock canyon climb."
   },
-  "pack_summary": "This 10-workout pack focuses on VO2max, TT Threshold, and Race Simulation to prepare you for 100 miles of high sierra alpine gravel\u2014smooth and fast in Mammoth Lakes, California.",
-  "generated_at": "2026-03-06"
+  "pack_summary": "This 10-workout pack focuses on VO2max, TT Threshold, and Race Simulation to prepare you for 89 miles of high sierra alpine gravel\u2014smooth and fast in Mammoth Lakes, California.",
+  "generated_at": "2026-07-16"
 }

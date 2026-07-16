@@ -1,12 +1,12 @@
 {
   "slug": "devils-cardigan",
   "race_name": "Devils Cardigan",
-  "distance_mi": 120.0,
+  "distance_mi": 66.0,
   "demands": {
-    "durability": 6,
+    "durability": 2,
     "climbing": 8,
     "vo2_power": 4,
-    "threshold": 8,
+    "threshold": 6,
     "technical": 6,
     "heat_resilience": 0,
     "altitude": 4,
@@ -21,11 +21,20 @@
         "Threshold Ramps",
         "Descending Threshold"
       ],
-      "workout_context": "100ft/mi means long efforts at or near FTP on every climb. If your threshold cracks at minute 15, you'll walk the rest."
+      "workout_context": "114ft/mi means long efforts at or near FTP on every climb. If your threshold cracks at minute 15, you'll walk the rest."
+    },
+    {
+      "category": "Gravel_Specific",
+      "score": 100,
+      "workouts": [
+        "Surge and Settle",
+        "Terrain Microbursts"
+      ],
+      "workout_context": "Devils Cardigan's Tasmanian mountains, Australian gravel forces constant power changes. Surge over the rough stuff, settle on the smooth, repeat for 66 miles."
     },
     {
       "category": "Over_Under",
-      "score": 89,
+      "score": 97,
       "workouts": [
         "Classic Over-Unders",
         "Ladder Over-Unders"
@@ -33,37 +42,8 @@
       "workout_context": "At Devils Cardigan, surges push you above threshold and you have to recover while still riding. Over-unders train exactly that."
     },
     {
-      "category": "Gravel_Specific",
-      "score": 83,
-      "workouts": [
-        "Surge and Settle",
-        "Terrain Microbursts"
-      ],
-      "workout_context": "Devils Cardigan's Tasmanian mountains, Australian gravel forces constant power changes. Surge over the rough stuff, settle on the smooth, repeat for 120 miles."
-    },
-    {
-      "category": "G_Spot",
-      "score": 78,
-      "workouts": [
-        "G-Spot Standard",
-        "G-Spot Extended",
-        "Criss-Cross"
-      ],
-      "workout_context": "88\u201392% FTP is where you'll spend the hardest sustained miles of Devils Cardigan. Train it until it feels boring."
-    },
-    {
-      "category": "Durability",
-      "score": 75,
-      "workouts": [
-        "Tired VO2max",
-        "Double Day Simulation",
-        "Progressive Fatigue"
-      ],
-      "workout_context": "At mile 60 of 120, glycogen is gone. This workout teaches your body to produce watts on fumes."
-    },
-    {
       "category": "Race_Simulation",
-      "score": 75,
+      "score": 90,
       "workouts": [
         "Breakaway Simulation",
         "Variable Pace Chaos",
@@ -73,35 +53,36 @@
     },
     {
       "category": "Mixed_Climbing",
-      "score": 67,
+      "score": 80,
       "workouts": [
         "Seated/Standing Climbs",
         "Variable Grade Simulation"
       ],
-      "workout_context": "12,000ft of climbing on grades that change every minute. You need to switch from seated to standing without losing rhythm."
+      "workout_context": "7,545ft of climbing on grades that change every minute. You need to switch from seated to standing without losing rhythm."
+    },
+    {
+      "category": "G_Spot",
+      "score": 77,
+      "workouts": [
+        "G-Spot Standard",
+        "G-Spot Extended",
+        "Criss-Cross"
+      ],
+      "workout_context": "88\u201392% FTP is where you'll spend the hardest sustained miles of Devils Cardigan. Train it until it feels boring."
     },
     {
       "category": "VO2max",
-      "score": 61,
+      "score": 73,
       "workouts": [
         "5x3 VO2 Classic",
         "Descending VO2 Pyramid",
         "Norwegian 4x8"
       ],
-      "workout_context": "12,000ft of climbing means repeated surges above threshold. VO2max work is how you survive the fifth climb, not just the first."
-    },
-    {
-      "category": "Endurance",
-      "score": 50,
-      "workouts": [
-        "Pre-Race Openers",
-        "Terrain Simulation Z2"
-      ],
-      "workout_context": "Every hard session works better with a bigger aerobic base. At 120 miles, base fitness is the difference between racing and surviving."
+      "workout_context": "7,545ft of climbing means repeated surges above threshold. VO2max work is how you survive the fifth climb, not just the first."
     },
     {
       "category": "Critical_Power",
-      "score": 50,
+      "score": 60,
       "workouts": [
         "Above CP Repeats",
         "W-Prime Depletion"
@@ -110,28 +91,47 @@
     },
     {
       "category": "SFR_Muscle_Force",
-      "score": 44,
+      "score": 53,
       "workouts": [
         "SFR Low Cadence",
         "Force Repeats"
       ],
-      "workout_context": "Low-cadence force work for 12,000ft of climbing. The slow, grinding ascents where you can't spin\u2014you push."
+      "workout_context": "Low-cadence force work for 7,545ft of climbing. The slow, grinding ascents where you can't spin\u2014you push."
+    },
+    {
+      "category": "Durability",
+      "score": 50,
+      "workouts": [
+        "Tired VO2max",
+        "Double Day Simulation",
+        "Progressive Fatigue"
+      ],
+      "workout_context": "66 miles on tasmanian mountain gravel burns energy faster than the distance suggests. Train the fade resistance now."
+    },
+    {
+      "category": "Anaerobic_Capacity",
+      "score": 47,
+      "workouts": [
+        "2min Killers",
+        "90sec Repeats"
+      ],
+      "workout_context": "Short, max efforts are unavoidable. Punchy climbs, gap closures, attacks on tasmanian mountain gravel. If you haven't trained them, you'll crack."
     },
     {
       "category": "Norwegian_Double",
-      "score": 44,
+      "score": 40,
       "workouts": [
         "Norwegian 4x8 Classic",
         "Double Threshold"
       ],
-      "workout_context": "Two threshold sessions per week without the recovery cost of VO2max work. For 120 miles, sustainable FTP gains matter more than peak power."
+      "workout_context": "Double-threshold training builds sustained power with less fatigue. More FTP per hour of training."
     }
   ],
   "race_overlay": {
-    "nutrition": "Target 60\u201380g carbs/hour for Devils Cardigan\u2019s 120 miles. Start fueling within the first 30 minutes \u2014 early fueling prevents late-race collapse. Bonking at mile 60 is a nutrition failure, not a fitness failure.",
+    "nutrition": "Target 40\u201360g carbs/hour for Devils Cardigan\u2019s 66 miles. Front-load calories in the first half. One bottle per hour minimum, more in heat.",
     "altitude": "Moderate altitude at Devils Cardigan. Arrive 2\u20133 days early. Reduce intensity expectations by 5\u201310%. Hydrate aggressively.",
     "terrain": "Mixed terrain at Devils Cardigan requires surface adaptability. Include weekly rides on tasmanian mountain gravel to build confidence. Expect: tasmanian mountains, australian gravel, regional event."
   },
-  "pack_summary": "This 10-workout pack focuses on TT Threshold, Over Under, and Gravel Specific to prepare you for 120 miles of tasmanian mountain gravel in Tasmania, Australia.",
-  "generated_at": "2026-03-06"
+  "pack_summary": "This 10-workout pack focuses on TT Threshold, Gravel Specific, and Over Under to prepare you for 66 miles of tasmanian mountain gravel in Derby, Tasmania.",
+  "generated_at": "2026-07-16"
 }

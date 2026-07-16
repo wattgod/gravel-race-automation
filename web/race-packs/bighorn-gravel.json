@@ -8,7 +8,7 @@
     "vo2_power": 4,
     "threshold": 8,
     "technical": 6,
-    "heat_resilience": 1,
+    "heat_resilience": 0,
     "altitude": 8,
     "race_specificity": 8
   },
@@ -73,7 +73,7 @@
     },
     {
       "category": "Durability",
-      "score": 72,
+      "score": 67,
       "workouts": [
         "Tired VO2max",
         "Double Day Simulation",
@@ -92,7 +92,7 @@
     },
     {
       "category": "Endurance",
-      "score": 60,
+      "score": 56,
       "workouts": [
         "Pre-Race Openers",
         "Terrain Simulation Z2"
@@ -129,9 +129,9 @@
   ],
   "race_overlay": {
     "nutrition": "Target 60\u201380g carbs/hour for Bighorn Gravel\u2019s 85 miles. Start fueling within the first 30 minutes \u2014 early fueling prevents late-race collapse. Bonking at mile 60 is a nutrition failure, not a fitness failure.",
-    "altitude": "Bighorn Gravel with 10,000ft of climbing, much of it above 8,000ft demands altitude preparation. Arrive 5\u20137 days early for acclimatization. Expect 5\u201315% power reduction at altitude. Increase iron intake 4 weeks out. Hydrate aggressively \u2014 altitude increases fluid loss by 20\u201340%. High altitude (7000-9000+ feet); Sun exposure at altitude.",
+    "altitude": "Bighorn Gravel with 10,000ft of climbing, much of it above 8,000ft demands altitude preparation. Arrive 5\u20137 days early for acclimatization. Expect 5\u201315% power reduction at altitude. Increase iron intake 4 weeks out. Hydrate aggressively \u2014 altitude increases fluid loss by 20\u201340%. High altitude (6,300-11,000 feet); Very strong UV exposure at altitude.",
     "terrain": "Mixed terrain at Bighorn Gravel requires surface adaptability. Include weekly rides on colorado mountain gravel to build confidence. Expect: mountain gravel, high altitude, significant climbing."
   },
   "pack_summary": "This 10-workout pack focuses on TT Threshold, Gravel Specific, and Race Simulation to prepare you for 85 miles of colorado mountain gravel in Gypsum, Colorado.",
-  "generated_at": "2026-07-13"
+  "generated_at": "2026-07-16"
 }

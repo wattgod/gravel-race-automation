@@ -1,0 +1,275 @@
+{
+ "date": "2026-07-16",
+ "ga4": {
+  "gravelgod": {
+   "sessions": 42,
+   "users": 31,
+   "pageviews": 117,
+   "sessions_7d_avg": 42.5,
+   "funnel": {
+    "cta_click": 5,
+    "form_start": 2,
+    "form_submit": 1,
+    "begin_checkout": 0,
+    "purchase": 0
+   },
+   "abandoned_submits": 1,
+   "top_pages": [
+    {
+     "path": "/gravel-races/",
+     "views": 31
+    },
+    {
+     "path": "/",
+     "views": 6
+    },
+    {
+     "path": "/coaching/",
+     "views": 5
+    },
+    {
+     "path": "/course/",
+     "views": 4
+    },
+    {
+     "path": "/products/training-plans/",
+     "views": 4
+    },
+    {
+     "path": "/course/dirt-craft/",
+     "views": 3
+    },
+    {
+     "path": "/guide/",
+     "views": 3
+    },
+    {
+     "path": "/race/rasputitsa-spring-classic/",
+     "views": 3
+    }
+   ],
+   "channel_mix": {
+    "Organic Search": 26,
+    "Direct": 11,
+    "Unassigned": 5
+   },
+   "top_landing": [
+    {
+     "path": "/products/training-plans/",
+     "sessions": 4
+    },
+    {
+     "path": "/gravel-races/",
+     "sessions": 3
+    },
+    {
+     "path": "",
+     "sessions": 2
+    },
+    {
+     "path": "/",
+     "sessions": 2
+    },
+    {
+     "path": "/i-opened-a-fascat-ai-coaching-email-so-you-dont-have-to/",
+     "sessions": 2
+    },
+    {
+     "path": "/race/bowral-classic/",
+     "sessions": 2
+    }
+   ],
+   "sessions_28d": 1062,
+   "funnel_28d": {
+    "cta_click": 43,
+    "form_start": 43,
+    "form_submit": 26,
+    "begin_checkout": 1,
+    "purchase": 3
+   },
+   "ok": true
+  },
+  "roadielabs": {
+   "sessions": 0,
+   "users": 0,
+   "pageviews": 0,
+   "sessions_7d_avg": 0.0,
+   "funnel": {
+    "cta_click": 0,
+    "form_start": 0,
+    "form_submit": 0,
+    "begin_checkout": 0,
+    "purchase": 0
+   },
+   "abandoned_submits": 0,
+   "top_pages": [],
+   "channel_mix": {},
+   "top_landing": [],
+   "sessions_28d": 7,
+   "funnel_28d": {
+    "cta_click": 0,
+    "form_start": 0,
+    "form_submit": 0,
+    "begin_checkout": 0,
+    "purchase": 0
+   },
+   "ok": true
+  }
+ },
+ "checkout": {
+  "gravelgod": {
+   "health_ok": true,
+   "stripe_checkout_ok": true,
+   "ok": true,
+   "error": ""
+  },
+  "roadielabs": {
+   "health_ok": true,
+   "stripe_checkout_ok": true,
+   "ok": true,
+   "error": ""
+  }
+ },
+ "mission_control": {
+  "hot_leads_14d": [
+   {
+    "email": "killickluca@yahoo.co.nz",
+    "name": "",
+    "race": "Edition Zero",
+    "brand": "gravelgod",
+    "sequence": "welcome_v1",
+    "step": 1,
+    "status": "active",
+    "opens": 1,
+    "clicks": 0
+   },
+   {
+    "email": "jbrooker03@hotmail.com",
+    "name": "",
+    "race": "UCI Gravel World Championships",
+    "brand": "gravelgod",
+    "sequence": "welcome_v1",
+    "step": 1,
+    "status": "active",
+    "opens": 1,
+    "clicks": 1
+   },
+   {
+    "email": "angela.waldrop@gmail.com",
+    "name": "",
+    "race": "Death Ride \u2014 Tour of the California Alps",
+    "brand": "gravelgod",
+    "sequence": "welcome_v1",
+    "step": 2,
+    "status": "active",
+    "opens": 2,
+    "clicks": 0
+   },
+   {
+    "email": "xanderbhs21@gmail.com",
+    "name": "",
+    "race": "Gunni Grinder",
+    "brand": "gravelgod",
+    "sequence": "welcome_v1",
+    "step": 2,
+    "status": "active",
+    "opens": 0,
+    "clicks": 0
+   },
+   {
+    "email": "xehahet640@bevriz.com",
+    "name": "",
+    "race": "Veneto Gravel",
+    "brand": "gravelgod",
+    "sequence": "welcome_v1",
+    "step": 2,
+    "status": "active",
+    "opens": 0,
+    "clicks": 0
+   },
+   {
+    "email": "paulcacha@hotmail.com",
+    "name": "",
+    "race": "Mad Gravel",
+    "brand": "gravelgod",
+    "sequence": "welcome_v1",
+    "step": 3,
+    "status": "active",
+    "opens": 0,
+    "clicks": 0
+   },
+   {
+    "email": "racerbenjamin@gmail.com",
+    "name": "",
+    "race": "The Rift",
+    "brand": "gravelgod",
+    "sequence": "welcome_v1",
+    "step": 3,
+    "status": "active",
+    "opens": 3,
+    "clicks": 1
+   },
+   {
+    "email": "michael.mendik@gmail.com",
+    "name": "",
+    "race": "Salida 76",
+    "brand": "gravelgod",
+    "sequence": "welcome_v1",
+    "step": 3,
+    "status": "active",
+    "opens": 2,
+    "clicks": 1
+   }
+  ],
+  "new_leads_24h": 1,
+  "leads_by_brand": {
+   "gravelgod": 1,
+   "roadielabs": 0
+  },
+  "countdown_enrollments": 0,
+  "emails_sent_24h": 10,
+  "opens_24h": 5,
+  "clicks_24h": 0,
+  "bounces_24h": 0,
+  "new_orders_24h_UNRELIABLE": "use ga4 purchase counts \u2014 gg_athletes is not written by purchases",
+  "errors_24h": [],
+  "ok": true
+ },
+ "commerce_ledger": {
+  "failed_orders": [],
+  "orders": [],
+  "questionnaire_starts": 0,
+  "recoveries": [],
+  "window_hours": 24,
+  "ok": true
+ },
+ "social": {
+  "accounts_live": false,
+  "queued_today": 0,
+  "queued_yesterday": 0,
+  "posts": [],
+  "ok": true
+ },
+ "workflows": {
+  "latest": {
+   "gravel-race-automation/link-check.yml": "failure",
+   "road-race-automation/link-check.yml": "failure",
+   "road-race-automation/checkout-monitor.yml": "success",
+   "gravel-race-automation/regression-tests.yml": "success"
+  },
+  "ok": true
+ },
+ "constraint": {
+  "ok": true,
+  "sessions_per_day": 37.9,
+  "cta_rate_pct": 4.05,
+  "cta_to_submit_pct": 60.5,
+  "submit_to_purchase_pct": 11.5,
+  "purchases_28d": 3,
+  "submits_28d": 26,
+  "ctas_28d": 43,
+  "sessions_per_day_needed_for_1_sale": 354,
+  "binding_constraint": "traffic \u2014 at these volumes no funnel rate is even measurable; nothing downstream is worth optimizing yet"
+ },
+ "report": "## TOP LINE\n- Zero orders across both brands in the last 24h; commerce ledger empty.\n- Gravelgod: 42 sessions (vs 42.5 7d avg) \u2014 flat. Roadielabs: 0 sessions, again.\n- Funnel stalled early: 5 CTA clicks \u2192 2 form starts \u2192 1 submit \u2192 0 checkout \u2192 0 purchase. 1 abandoned submit.\n\n## NUMBERS\n| Brand | Sessions (7d avg) | CTA | Form Start | Submit | Checkout | Purchase | Leads |\n|---|---|---|---|---|---|---|---|\n| Gravelgod | 42 (42.5) | 5 | 2 | 1 | 0 | 0 | 1 |\n| Roadielabs | 0 (0.0) | 0 | 0 | 0 | 0 | 0 | 0 |\n\n## TRAFFIC\n**Gravelgod:**\n- Top pages: /gravel-races/ (31), / (6), /coaching/ (5), /course/ (4), /products/training-plans/ (4)\n- Channel mix: Organic Search 26, Direct 11, Unassigned 5\n- Top landing pages: /products/training-plans/ (4), /gravel-races/ (3), \"\" (2), / (2), /i-opened-a-fascat-ai-coaching-email-so-you-dont-have-to/ (2), /race/bowral-classic/ (2)\n- Nothing new here \u2014 same pattern as prior days, no spike or new referral source.\n\n**Roadielabs:** 0 sessions. Nothing to report.\n\n## COMMERCE (ground truth)\nNo orders, no failed orders, no cart-recovery emails sent, 0 questionnaire starts. Ledger is empty across the board.\n\n## CONSTRAINT\nBinding constraint: **traffic**. At 37.9 sessions/day, no funnel rate downstream is even measurable yet \u2014 28-day rates: CTA 4.05%, CTA\u2192submit 60.5%, submit\u2192purchase 11.5% (3 purchases / 26 submits / 43 CTAs). Need 354 sessions/day for 1 sale/day at current rates; running at 37.9. Nothing downstream is worth optimizing until traffic moves.\n\n## HOT LEADS\n- racerbenjamin@gmail.com \u2014 The Rift, welcome_v1 step 3, 3 opens/1 click. Engaged and mid-sequence \u2014 reply personally about their race, use draft_race_reply.\n- michael.mendik@gmail.com \u2014 Salida 76, welcome_v1 step 3, 2 opens/1 click. Same signal strength \u2014 draft_race_reply.\n- jbrooker03@hotmail.com \u2014 UCI Gravel World Championships, step 1, 1 open/1 click. Early but clicked \u2014 worth a note once past step 1.\n- Remaining 5 leads (Edition Zero, Death Ride, Gunni Grinder, Veneto Gravel, Mad Gravel) show low/no engagement \u2014 let sequence run, no action needed today.\n\n## SOCIAL\nAccounts not live. Queue: 0 today, 0 yesterday. Zero social sessions expected \u2014 no analysis to do here.\n\n## BROKEN\n- `gravel-race-automation/link-check.yml`: failure.\n- `road-race-automation/link-check.y"
+}

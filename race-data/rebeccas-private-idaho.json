@@ -5,8 +5,9 @@
     "display_name": "Rebecca's Private Idaho",
     "tagline": "Idaho's most beautiful gravel race. 100 miles through the Pioneer Mountains. Not made to be easy.",
     "vitals": {
-      "distance_mi": 103,
-      "elevation_ft": 8500,
+      "distance_mi": 104,
+      "elevation_ft": 6860,
+      "gain_display": "Varies",
       "location": "Ketchum, Idaho",
       "location_badge": "KETCHUM, IDAHO",
       "county": "Blaine County",
@@ -44,10 +45,11 @@
       "surface": "Well-maintained gravel roads, some chunky sections, forest service roads",
       "technical_rating": 3,
       "features": [
-        "Trail Creek Summit",
+        "Trail Creek Summit (outbound climb and final descent)",
+        "Corral Creek Summit (new for 2026: ~2,500 ft climb)",
         "Long steady climbs",
         "Fast gravel descents",
-        "Stunning mountain views"
+        "Views of the Lost River Range and Borah Peak"
       ]
     },
     "gravel_god_rating": {
@@ -112,7 +114,7 @@
       },
       "length": {
         "score": 4,
-        "explanation": "At 103 miles, the Baked Potato sits in that sweet spot where it's hard but doesn't become a death march. It's long enough to separate the weekend warriors from the real riders, especially when you add 6,200 feet of climbing at altitude. The distance forces pacing decisions early and punishes poor fueling choices later. Longer than Belgian Waffle Ride San Diego."
+        "explanation": "At 104 miles (updated with new roads for 2026), the Baked Potato sits in that sweet spot where it's hard but doesn't become a death march. It's long enough to separate the weekend warriors from the real riders, especially when you add roughly 6,200-6,860 feet of climbing at altitude (published gain varies by source). The distance forces pacing decisions early and punishes poor fueling choices later. Longer than Belgian Waffle Ride San Diego."
       },
       "technicality": {
         "score": 3,
@@ -120,7 +122,7 @@
       },
       "elevation": {
         "score": 4,
-        "explanation": "6,200 feet of climbing over 103 miles means consistent grinding rather than explosive climbs. Trail Creek Summit hits 7,900 feet, then you descend into remote Copper Basin before more rolling elevation through the high country. The sustained nature of the climbing, combined with thin air, makes this difficult even for strong riders. More climbing than SBT GRVL at the same score. As Edyn Teitge puts it: \"I was pretty excited for the TT because one of my strong points is climbing... The climb was pretty steep and we gained over 1000 ft, but I was able to maintain a speed of around 10 mph.\""
+        "explanation": "Roughly 6,200-6,860 feet of climbing over 104 miles (published gain varies by source) means consistent grinding rather than explosive climbs. Trail Creek Summit hits 7,900 feet, then you descend into remote Copper Basin and Wildhorse Canyon before the new-for-2026 Corral Creek Summit adds another ~2,500-foot climb. The sustained nature of the climbing, combined with thin air, makes this difficult even for strong riders. More climbing than SBT GRVL at the same score. As Edyn Teitge puts it: \"I was pretty excited for the TT because one of my strong points is climbing... The climb was pretty steep and we gained over 1000 ft, but I was able to maintain a speed of around 10 mph.\""
       },
       "climate": {
         "score": 3,
@@ -181,32 +183,33 @@
       "reputation": "Where gravel royalty meets grassroots community. The event Rebecca built in her backyard."
     },
     "course_description": {
-      "character": "Big mountain beauty with sustained but manageable climbing. Not the steepest grades, but relentless.",
+      "character": "Big mountain beauty with sustained but manageable climbing, updated for 2026 with new roads and a major new climb over Corral Creek Summit. Not the steepest grades, but relentless.",
       "suffering_zones": [
         {
           "mile": 30,
-          "label": "Trail Creek Climb",
-          "desc": "The signature climb. Long and steady. Pace yourself.",
-          "terrain_detail": "Sustained climbing at mile 30",
-          "named_section": "Trail Creek Climb"
+          "label": "Trail Creek Summit (outbound)",
+          "desc": "The long-standing signature climb out of Sun Valley. Long and steady. Pace yourself.",
+          "terrain_detail": "Sustained climbing, approximate mile",
+          "named_section": "Trail Creek Summit"
         },
         {
-          "mile": 65,
-          "label": "Afternoon Exposure",
-          "desc": "Open terrain, sun beating down, halfway fatigue settling in.",
-          "terrain_detail": "Exposed terrain with no shelter",
-          "named_section": "Afternoon Exposure"
+          "mile": 55,
+          "label": "Corral Creek Summit (new for 2026)",
+          "desc": "A new ~2,500-foot climb added for 2026, deep in the Copper Basin/Wildhorse Canyon backcountry with views of the Lost River Range and Borah Peak.",
+          "terrain_detail": "New major climb, approximate mile",
+          "named_section": "Corral Creek Summit"
         },
         {
-          "mile": 90,
-          "label": "Final Challenge",
-          "desc": "You can see Ketchum. But there's still climbing between you and the finish.",
-          "terrain_detail": "Key section at mile 90"
+          "mile": 80,
+          "label": "El Diablito",
+          "desc": "A ~5-mile diversion most riders tackle late in the race, before the final descent of Trail Creek Summit back to Sun Valley.",
+          "terrain_detail": "Late-race detour, approximate mile",
+          "named_section": "El Diablito"
         }
       ],
-      "signature_challenge": "The combination of distance, altitude, and relentless terrain. Nothing is crazy steep—but nothing is flat either.",
+      "signature_challenge": "The combination of distance, altitude, and relentless terrain — now with a major new climb over Corral Creek Summit. Nothing is crazy steep—but nothing is flat either.",
       "ridewithgps_id": "24722263",
-      "ridewithgps_name": "2017 Rebecca's Private Idaho Big Potato"
+      "ridewithgps_name": "2017 Rebecca's Private Idaho Big Potato (historical reference — course substantially changed for 2026)"
     },
     "research_metadata": {
       "data_confidence": "migrated",

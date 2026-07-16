@@ -11,7 +11,7 @@
       "location_badge": "MONTEREY, CALIFORNIA",
       "county": "Monterey County",
       "date": "Mid-April annually",
-      "date_specific": "2026: April 16-19",
+      "date_specific": "2027: April 15-18",
       "terrain_types": [
         "Fort Ord fire roads",
         "Coastal gravel",
@@ -23,7 +23,7 @@
       "registration": "Opens fall prior. Cost: ~$125 race entry",
       "prize_purse": "$15,000+",
       "aid_stations": "Multiple on course",
-      "cutoff_time": "Varies by distance",
+      "cutoff_time": "3rd lap must start by 1:30 PM; UNBOUND-qualifying finish by 4:00 PM",
       "lat": 36.2231,
       "lng": -121.3877
     },
@@ -113,7 +113,7 @@
       "reputation": "More festival than pure race. A great excuse to attend the biggest bike party in North America."
     },
     "course_description": {
-      "character": "Fast fire roads with coastal character. More about the experience than pure gravel suffering.",
+      "character": "Fast fire roads with coastal character. More about the experience than pure gravel suffering. The 90-mile race is 1/2/3 laps of an identical ~29.6-mile loop through Fort Ord National Monument and the Laguna Seca circuit, so signature features (Lookout Ridge, the sand pits, the finishing climb) recur every lap rather than appearing once.",
       "suffering_zones": [
         {
           "mile": 15,
@@ -123,17 +123,17 @@
           "named_section": "Fort Ord Rollers"
         },
         {
-          "mile": 40,
-          "label": "Sandy Sections",
-          "desc": "Beach proximity means sand. Momentum matters.",
-          "terrain_detail": "Key section at mile 40",
-          "named_section": "Sandy Sections"
+          "mile": 25,
+          "label": "Lookout Ridge",
+          "desc": "The lap's technical crux: a short, steep singletrack climb (roughly a quarter-mile, averaging ~15% grade) into loose corners and sandtraps late in each lap.",
+          "terrain_detail": "Key section near the end of each ~29.6mi lap",
+          "named_section": "Lookout Ridge"
         },
         {
           "mile": 55,
-          "label": "Final Challenge",
-          "desc": "Tired legs, dusty conditions, festival finish awaits.",
-          "terrain_detail": "Key section at mile 55"
+          "label": "Second Lap, Same Climbs",
+          "desc": "Riders on the 60 or 90-mile distance hit Lookout Ridge and the sand sections again on tired legs -- the course doesn't introduce new terrain each lap, it just repeats the same loop.",
+          "terrain_detail": "Key section at mile 55 (lap 2 repeat)"
         }
       ],
       "signature_challenge": "The distraction. There's so much happening at Sea Otter that the race can feel secondary. Stay focused or get caught up in expo madness.",

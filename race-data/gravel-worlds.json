@@ -11,7 +11,7 @@
       "location_badge": "LINCOLN, NEBRASKA",
       "county": "Lancaster County",
       "date": "Mid-August annually",
-      "date_specific": "2026: Aug 19-23 (Race Aug 22-23)",
+      "date_specific": "2026: Aug 19-23 (festival week — running/triathlon/shorter distances spread across the week); flagship GW150 race day is Saturday, August 22, CONFIRMED (gravelworlds.com/race-day)",
       "terrain_types": [
         "Nebraska farm gravel",
         "Minimum maintenance roads",
@@ -179,31 +179,31 @@
       "reputation": "The OG grassroots race. Where the gravel movement's spirit lives on."
     },
     "course_description": {
-      "character": "Long, hot, and humbling. NOT flat—'hill after hill after hill' averaging 4-5% grade either up or down the entire 150 miles through iconic cornfields. 10K+ feet of climbing with no single killer climb, just relentless rolling. Mud possible in wet years.",
+      "character": "Long, hot, and humbling. NOT flat—'hill after hill after hill' averaging 4-5% grade either up or down the entire 150 miles through iconic cornfields. 10K+ feet of climbing with no single killer climb, just relentless rolling. Mud possible in wet years. Organizer does not publish the exact route until 7-14 days before race day, so specific course features can't be confirmed this far out — the suffering zones below describe the heat/fatigue progression riders consistently report, not fixed course landmarks.",
       "suffering_zones": [
         {
           "mile": 50,
           "label": "Heat Onset",
-          "desc": "Morning cool is gone. The Nebraska sun starts earning its reputation.",
-          "terrain_detail": "Key section at mile 50",
+          "desc": "Morning cool is gone by this point in most editions. The Nebraska sun starts earning its reputation. (Progression marker, not a fixed course landmark — route isn't published until race week.)",
+          "terrain_detail": "Approximate — route TBD",
           "named_section": "Heat Onset"
         },
         {
           "mile": 100,
           "label": "Century Club",
-          "desc": "You've done 100 miles. There's 50 more. In August heat.",
-          "terrain_detail": "Key section at mile 100",
+          "desc": "100 miles down, 50 to go, typically deep in the day's heat. (Progression marker, not a fixed course landmark.)",
+          "terrain_detail": "Approximate — route TBD",
           "named_section": "Century Club"
         },
         {
           "mile": 130,
           "label": "Mind Games",
-          "desc": "Close enough to finish to hurt. Far enough to break.",
-          "terrain_detail": "Key section at mile 130",
+          "desc": "Close enough to finish to hurt, far enough to break — the closing miles where riders report the terrain 'zaps your legs.' (Progression marker, not a fixed course landmark.)",
+          "terrain_detail": "Approximate — route TBD",
           "named_section": "Mind Games"
         }
       ],
-      "signature_challenge": "The heat. August in Nebraska is oppressive. Heat adaptation isn't optional—it's survival.",
+      "signature_challenge": "The heat and the relentless rolling terrain (no flats, per rider accounts). Heat adaptation isn't optional—it's survival. Exact route is announced 7-14 days before race day, so specific landmarks aren't confirmable this far out.",
       "map_url": "https://ridewithgps.com/routes/51659517",
       "ridewithgps_id": "51659517"
     },
@@ -303,6 +303,11 @@
         "url": "https://www.slowtwitch.com/gravel/rosa-kloser-wins-gravel-worlds-after-epic-breakaway-with-geerike-schreurs/",
         "category": "other",
         "label": "Slowtwitch"
+      },
+      {
+        "url": "https://www.gravelworlds.com/race-day",
+        "category": "other",
+        "label": "Gravelworlds: Race Day (official schedule/date)"
       }
     ],
     "results": {

@@ -9,7 +9,7 @@ from fastapi import APIRouter, Form, Query, Request
 from fastapi.responses import HTMLResponse
 from fastapi.templating import Jinja2Templates
 
-from mission_control.config import WEB_TEMPLATES_DIR
+from mission_control.config import WEB_TEMPLATES_DIR, REPLY_TO_EMAIL
 from mission_control import supabase_client as db
 
 logger = logging.getLogger(__name__)
@@ -255,6 +255,10 @@ async def deliver_plan(request: Request, slug: str, dry_run: bool = Form(True)):
 
             result = resend.Emails.send({
                 "from": f"Gravel God Training <{RESEND_FROM_EMAIL}>",
+                # RESEND_FROM_EMAIL is a send-only identity with no mailbox —
+                # verified 2026-07-16: replies to it BOUNCE. Route replies to
+                # the real, tested inbox instead.
+                "reply_to": REPLY_TO_EMAIL,
                 "to": [athlete_email],
                 "subject": email_subject,
                 "html": email_body,

@@ -11,7 +11,7 @@
       "location_badge": "GYPSUM, CO",
       "county": "Eagle County",
       "date": "Mid-June annually",
-      "date_specific": "2026: June 20",
+      "date_specific": "2026: June 20 (Saturday, CONFIRMED — bighornevents.com/race-day-gravel; completed); 2027: June 19 (Saturday, PATTERN ESTIMATE — third Saturday of June, per 2026 date; official 2027 date not yet announced)",
       "terrain_types": [
         "Mountain gravel",
         "High altitude",
@@ -31,9 +31,9 @@
     },
     "climate": {
       "primary": "Colorado mountain summer",
-      "description": "Chilly 40s-50s°F at the start warming to 70s-80s°F by afternoon. Very strong UV exposure at altitude (7,000-11,000 ft). Afternoon thunderstorms possible.",
+      "description": "Chilly 40s-50s°F at the start warming to 70s-80s°F by afternoon. Very strong UV exposure at altitude (6,300-11,000 ft). Afternoon thunderstorms possible.",
       "challenges": [
-        "High altitude (7,000-11,000 feet)",
+        "High altitude (6,300-11,000 feet)",
         "Cold start (40s-50s°F) warming to 70s-80s°F",
         "Very strong UV exposure at altitude",
         "Afternoon thunderstorms"
@@ -45,7 +45,7 @@
       "technical_rating": 3,
       "features": [
         "Significant climbing (10,000 feet)",
-        "High altitude (7,000-11,000 feet)",
+        "High altitude (6,300-11,000 feet)",
         "Mountain scenery near Vail",
         "Technical mountain gravel",
         "Colorado Rockies setting"
@@ -75,7 +75,7 @@
     },
     "biased_opinion": {
       "verdict": "Colorado Mountain Challenge Near Vail",
-      "summary": "Bighorn Gravel offers a genuine Colorado mountain gravel challenge with high altitude and significant climbing. Gypsum is a small town near Vail with basic amenities. The course is challenging with 10,000 feet of climbing at 7,000-11,000 feet elevation. It's a well-organized regional event with a moderate field. The main appeal is the mountain setting near Vail and altitude challenge.",
+      "summary": "Bighorn Gravel offers a genuine Colorado mountain gravel challenge with high altitude and significant climbing. Gypsum is a small town near Vail with basic amenities. The course is challenging with 10,000 feet of climbing at 6,300-11,000 feet elevation. It's a well-organized regional event with a moderate field. The main appeal is the mountain setting near Vail and altitude challenge.",
       "strengths": [
         "Significant climbing and altitude challenge",
         "Beautiful Colorado mountain scenery near Vail",
@@ -141,7 +141,7 @@
           "named_section": "Final Singletrack"
         }
       ],
-      "signature_challenge": "10,000 feet of climbing at 7,000-11,000 feet altitude.",
+      "signature_challenge": "10,000 feet of climbing at 6,300-11,000 feet altitude.",
       "ridewithgps_id": null,
       "ridewithgps_name": null
     },
@@ -154,19 +154,19 @@
       "race_terrain": "Colorado mountain gravel",
       "race_weather": "Mountain variability",
       "race_challenges": [
-        "High altitude (7,000-11,000 feet)",
+        "High altitude (6,300-11,000 feet)",
         "10,000 feet of climbing",
         "Afternoon thunderstorms",
         "Mountain weather"
       ],
       "altitude_section": true,
-      "altitude_feet": "7000-11000"
+      "altitude_feet": "6300-11000"
     },
     "non_negotiables": [
       {
         "requirement": "Altitude preparation",
         "by_when": "Week 6-8",
-        "why": "Racing at 7,000-11,000 feet requires altitude acclimatization or preparation."
+        "why": "Racing at 6,300-11,000 feet requires altitude acclimatization or preparation."
       },
       {
         "requirement": "Climbing strength",
@@ -254,9 +254,9 @@
       "tier_overrides": {},
       "marketplace_variables": {
         "race_name": "Bighorn Gravel",
-        "race_hook": "85 miles of Colorado mountain gravel at 7,000-11,000 feet.",
+        "race_hook": "85 miles of Colorado mountain gravel at 6,300-11,000 feet.",
         "race_hook_detail": "Regional mountain event in Gypsum with 10,000 feet of climbing.",
-        "distance": "62",
+        "distance": "85",
         "dark_mile": "35",
         "non_negotiable_1": "Altitude preparation",
         "non_negotiable_2": "Climbing strength",

@@ -64,7 +64,7 @@ class TestBigSugarGolden:
         assert "TIER 1" in alt
         assert "86/100" in alt
         # Alt mirrors both subscore radars, not just the overall number.
-        assert "Course Profile" in alt
+        assert "Course" in alt
         assert "Editorial" in alt
 
     def test_includes_renders_for_finisher(self):
@@ -73,15 +73,16 @@ class TestBigSugarGolden:
         img, alt = g.build_includes_image(race, "finisher", plan, altitude_flag=False)
         assert img.mode == "RGB"
         assert img.width == g.INCLUDES_W
-        for _, copy_text in g.STANDARD_TILES:
-            assert copy_text in alt
+        # includes alt is empty by design (2026-07-16 ruling): the visible
+        # includes_summary paragraph is the text mirror.
+        assert alt == ""
 
     def test_masters_includes_appends_module_tile(self):
         race = g.load_race("big-sugar")
         plan = {"tier": "Masters 50+", "length_wk": 12}
         img, alt = g.build_includes_image(race, "masters", plan, altitude_flag=False)
-        assert "Masters 50+" in alt
-        assert g.MODULE_TILES["masters"][1] in alt
+        assert alt == ""
+        assert alt == ""
 
     @requires_plans_db
     def test_full_pipeline_generates_golden_set(self, tmp_path):
@@ -223,7 +224,7 @@ class TestAltitudeModule:
         assert g.check_altitude_flag(race) is True
         plan = {"tier": "Finisher", "length_wk": 12}
         img, alt = g.build_includes_image(race, "finisher", plan, altitude_flag=True)
-        assert g.MODULE_TILES["altitude"][1] in alt
+        assert alt == ""
 
     def test_altitude_tile_absent_for_low_elevation_fixture(self):
         race = g.load_race("big-sugar")

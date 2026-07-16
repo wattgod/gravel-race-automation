@@ -858,10 +858,12 @@ def build_header_image(race: dict):
 
     if state == "rated":
         rating = race.get("gravel_god_rating") or race.get("rating")
+        # Compact per the char-budget ruling (2026-07-16): essentials only —
+        # the 14 subscores live on the race page, not in the img alt.
         alt = (
-            f"{name} — {_tier_label(race)} — GRAVEL GOD RATING by "
-            f"gravelgodcycling.com: {rating['overall_score']}/100. "
-            f"Course Profile {course_total}/35, Editorial {opinion_total}/35. {subscore_alt}."
+            f"{name} — {_tier_label(race)} — Gravel God Rating "
+            f"{rating['overall_score']}/100 (Course {course_total}/35, "
+            f"Editorial {opinion_total}/35)"
         )
     else:
         alt = f"{name} — not yet rated by gravelgodcycling.com."
@@ -945,9 +947,11 @@ def build_includes_image(race: dict, plan_class: str, plan: dict, altitude_flag:
 
     draw.rectangle([0, 0, INCLUDES_W - 1, height - 1], outline=TAN_BORDER, width=1)
 
-    alt = (
-        f"{name} {tier} plan includes: " + "; ".join(tile_alts) + "."
-    )
+    # Empty alt by design (WCAG-sanctioned): the visible includes_summary
+    # paragraph in the description is the full text mirror of these tiles,
+    # so a second reading via alt would be duplicative for screen readers
+    # and costs ~350 chars of the TP description budget.
+    alt = ""
     return img, alt
 
 

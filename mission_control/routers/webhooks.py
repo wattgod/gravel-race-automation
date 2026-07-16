@@ -116,6 +116,45 @@ async def intake_webhook(
     return {"status": "created", "slug": slug}
 
 
+async def _send_enrollment_alert(
+    email: str, name: str, brand: str, source: str,
+    source_data: dict, enrolled: list[str],
+) -> None:
+    """Email the coach when someone new enrolls, with everything needed to
+    open the conversation: who, from where, and their race/chapter/trail
+    context. Recipient: ENROLLMENT_ALERT_EMAIL env, default REPLY_TO_EMAIL."""
+    import asyncio
+    import os
+    from html import escape
+    from mission_control.config import REPLY_TO_EMAIL
+    from mission_control.services.sequence_engine import _send_email_sync
+
+    to = os.environ.get("ENROLLMENT_ALERT_EMAIL", REPLY_TO_EMAIL)
+    context = (
+        source_data.get("wb_guide") and f"guide chapter: {source_data['wb_guide']}"
+        or source_data.get("wb_trail") and f"viewed: {source_data['wb_trail']}"
+        or source_data.get("race_name") and f"race: {source_data['race_name']}"
+        or "no context"
+    )
+    subject = f"new lead · {name or email} · {context} [{brand}]"
+    race = source_data.get("race_name", "")
+    drafter = (
+        f"<p style='color:#666'>reply-drafter: <code>python3 scripts/draft_race_reply.py "
+        f"\"{escape(race)}\"{' --brand road' if brand == 'roadielabs' else ''}</code></p>"
+        if race else ""
+    )
+    html = (
+        f"<p><b>{escape(name) or '(no name)'}</b> &lt;{escape(email)}&gt;</p>"
+        f"<ul>"
+        f"<li>brand: {escape(brand)}</li>"
+        f"<li>source: {escape(source)}</li>"
+        f"<li>context: {escape(context)}</li>"
+        f"<li>enrolled: {escape(', '.join(enrolled))}</li>"
+        f"</ul>{drafter}"
+    )
+    await asyncio.to_thread(_send_email_sync, to, subject, html, brand)
+
+
 @router.post("/subscriber")
 async def subscriber_webhook(
     request: Request,
@@ -221,6 +260,16 @@ async def subscriber_webhook(
         "subscriber_received", "webhook", email,
         f"Brand: {brand}, source: {source}, enrolled in: {', '.join(enrolled) or 'none (already enrolled)'}",
     )
+
+    # Coach alert: every NEW enrollment is a conversation opportunity (the
+    # friend-register model converts in replies), so Matti hears about it
+    # immediately. Loud to coach, invisible to customer — alert failure must
+    # never affect the enrollment (order-killer rule).
+    if enrolled:
+        try:
+            await _send_enrollment_alert(email, name, brand, source, source_data, enrolled)
+        except Exception:
+            logger.exception("enrollment alert failed (enrollment itself succeeded)")
 
     return {"status": "ok", "enrolled": enrolled}
 

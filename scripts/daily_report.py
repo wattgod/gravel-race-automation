@@ -317,6 +317,48 @@ def collect_athletes() -> dict:
         return {"configured": False}
 
 
+def collect_enrollments() -> dict:
+    """New sequence enrollments (last 24h) with reply context — the
+    friend-register KPI surface. Requires Supabase."""
+    try:
+        from datetime import timezone as _tz
+        from mission_control import supabase_client as db
+
+        cutoff = (datetime.now(_tz.utc) - timedelta(hours=24)).isoformat()
+        rows = db.select(
+            "gg_sequence_enrollments",
+            columns="contact_email,contact_name,sequence_id,source,source_data,enrolled_at",
+            order="enrolled_at", limit=500,
+        )
+        new = [r for r in rows if (r.get("enrolled_at") or "") >= cutoff]
+        people = []
+        for r in new:
+            sd = r.get("source_data") or {}
+            if isinstance(sd, str):
+                try:
+                    sd = json.loads(sd)
+                except (ValueError, TypeError):
+                    sd = {}
+            context = (
+                (sd.get("wb_guide") and "guide: " + str(sd["wb_guide"]))
+                or (sd.get("wb_trail") and "viewed: " + str(sd["wb_trail"]))
+                or (sd.get("race_name") and "race: " + str(sd["race_name"]))
+                or "\u2014"
+            )
+            people.append({
+                "email": r.get("contact_email", ""),
+                "name": r.get("contact_name", ""),
+                "sequence": r.get("sequence_id", ""),
+                "source": r.get("source", ""),
+                "brand": sd.get("brand", "gravelgod"),
+                "context": context,
+                "at": (r.get("enrolled_at") or "")[:16].replace("T", " "),
+            })
+        return {"configured": True, "count": len(people), "people": people}
+    except Exception:
+        return {"configured": False}
+
+
 def collect_pipeline_e2e() -> dict:
     """Latest custom-training-plan-pipeline daily E2E result (see ~/gg-e2e/).
 
@@ -758,6 +800,33 @@ def render_html(data: dict) -> str:
     else:
         sections.append(_not_configured_section("Athletes"))
 
+
+    # 8b. New enrollments (24h) — friend-register reply surface
+    enr = data.get("enrollments", {})
+    if enr.get("configured"):
+        _rows = "".join(
+            "<tr>"
+            + f"<td style='padding:4px 8px;font-size:12px'>{html_escape(p['at'])}</td>"
+            + f"<td style='padding:4px 8px'><b>{html_escape(p['name'] or p['email'])}</b>"
+            + f"<br><span style='color:#7d695d;font-size:11px'>{html_escape(p['email'])}</span></td>"
+            + f"<td style='padding:4px 8px;font-size:12px'>{html_escape(p['brand'])}</td>"
+            + f"<td style='padding:4px 8px;font-size:12px'>{html_escape(p['source'])}</td>"
+            + f"<td style='padding:4px 8px;font-size:12px'>{html_escape(p['context'])}</td>"
+            + f"<td style='padding:4px 8px;font-size:12px'>{html_escape(p['sequence'])}</td>"
+            + "</tr>"
+            for p in enr.get("people", [])
+        ) or "<tr><td colspan='6' style='padding:8px;color:#7d695d'>none in the last 24h</td></tr>"
+        sections.append(f"""
+        <tr><td style="font-family:'Courier New',monospace;font-size:12px;text-transform:uppercase;letter-spacing:1px;color:#7d695d;padding-bottom:8px;">New Enrollments (24h) \u2014 {enr.get('count', 0)}</td></tr>
+        <tr><td>
+        <p style="color:#7d695d;font-size:12px;margin:0 0 6px">Each one is a conversation \u2014 reply fast. Race known? <code>python3 scripts/draft_race_reply.py "&lt;race&gt;"</code></p>
+        <table style="width:100%;border-collapse:collapse">
+        <tr style="text-align:left"><th style="padding:4px 8px;font-size:11px">when (utc)</th><th style="padding:4px 8px;font-size:11px">who</th><th style="padding:4px 8px;font-size:11px">brand</th><th style="padding:4px 8px;font-size:11px">source</th><th style="padding:4px 8px;font-size:11px">context</th><th style="padding:4px 8px;font-size:11px">sequence</th></tr>
+        {_rows}
+        </table>
+        </td></tr>
+""")
+
     # 9. A/B Experiments
     if not ab.get("error"):
         exp_rows = ""
@@ -908,6 +977,7 @@ def collect_all() -> dict:
         "ga4": collect_ga4_metrics(),
         "revenue": collect_revenue(),
         "athletes": collect_athletes(),
+        "enrollments": collect_enrollments(),
         "pipeline_e2e": collect_pipeline_e2e(),
     }
     data["commentary"] = generate_commentary(data)

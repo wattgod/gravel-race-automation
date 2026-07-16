@@ -5,13 +5,14 @@
     "display_name": "Sagan Fondo",
     "tagline": "California Sierra Nevada/Tahoe gravel in Truckee.",
     "vitals": {
-      "distance_mi": 70,
-      "elevation_ft": 7000,
+      "distance_mi": 66,
+      "elevation_ft": 4439,
+      "gain_display": "Varies",
       "location": "Truckee, California",
       "location_badge": "TRUCKEE, CA",
       "county": "Nevada County",
       "date": "Late June annually",
-      "date_specific": "2026: June 27",
+      "date_specific": "2026: June 27 (Saturday, CONFIRMED — truckeegravel.com; completed); 2027 not yet officially announced (organizer site marks it TBA); pattern would suggest late June, Saturday, based on recent years",
       "terrain_types": [
         "California Sierra Nevada/Tahoe",
         "Mountain gravel",
@@ -19,7 +20,7 @@
         "Northern California"
       ],
       "field_size": "400-800 riders",
-      "start_time": "5:45AM star",
+      "start_time": "8:00 AM",
       "registration": "Online. Cost: ~$100-150",
       "prize_purse": "Prizes for top finishers",
       "aid_stations": "Multiple aid stations",
@@ -44,10 +45,10 @@
       "surface": "Gravel roads through Sierra Nevada/Tahoe mountains. Significant elevation with mountain and lake scenery.",
       "technical_rating": 3,
       "features": [
-        "Significant mountain climbing (7000 feet)",
+        "Significant mountain climbing (medium/flagship course: ~4,439 feet per third-party course data; not published by organizer, treat as approximate)",
         "Tahoe/Sierra scenery",
         "Truckee setting",
-        "Multiple distances",
+        "Multiple distances (short ~30mi, medium ~66mi, long 100+mi)",
         "Regional event"
       ]
     },
@@ -79,7 +80,7 @@
       "strengths": [
         "Truckee/Tahoe (good access, spectacular setting)",
         "Sierra Nevada terrain",
-        "Significant climbing (7000 feet)",
+        "Significant climbing (medium course: ~4,439 feet, unofficial figure)",
         "Altitude (6000ft+)",
         "Good organization",
         "Named after Sagan"
@@ -109,7 +110,7 @@
       "food": "Truckee has full dining options. Stock nutrition.",
       "packet_pickup": "Day before",
       "parking": "At start/finish",
-      "official_site": "Check Sagan Fondo website"
+      "official_site": "https://www.truckeegravel.com/"
     },
     "history": {
       "founded": null,
@@ -119,27 +120,27 @@
       "reputation": "Regional CA event, now racing under the Truckee Gravel name; Sagan Fondo is its founding-era identity."
     },
     "course_description": {
-      "character": "Tahoe/Sierra mountain gravel with significant climbing and altitude.",
+      "character": "Tahoe/Sierra mountain gravel with significant climbing and altitude. Medium (flagship) course is ~66 miles, 84% gravel/16% paved, with aid stations at roughly miles 17, 25, 32, 45, and 55.",
       "suffering_zones": [
         {
-          "mile": 25,
+          "mile": 17,
           "label": "Early Climbs",
-          "desc": "First Sierra climbs at altitude.",
+          "desc": "First Sierra climbs at altitude, near the first aid station.",
           "terrain_detail": "Mountain climbing",
           "named_section": "Early Climbs"
         },
         {
-          "mile": 40,
+          "mile": 32,
           "label": "Midpoint",
-          "desc": "Halfway through the course.",
+          "desc": "Roughly halfway through the medium course.",
           "terrain_detail": "Midpoint",
           "named_section": "Halfway"
         },
         {
-          "mile": 60,
-          "label": "Final Climbs",
-          "desc": "Final Sierra sections before finish.",
-          "terrain_detail": "Late climbing",
+          "mile": 55,
+          "label": "Bear Valley Road Descent / Final Climbs",
+          "desc": "The signature Bear Valley Road descent and final Sierra sections before the finish.",
+          "terrain_detail": "Late climbing and descent",
           "named_section": "Final Push"
         }
       ],
@@ -148,15 +149,15 @@
       "ridewithgps_name": "Sagan Gravel Fondo slight Alteration",
       "surface_breakdown": {
         "overall": {
-          "dirt": 60,
-          "pavement": 40
+          "gravel": 84,
+          "pavement": 16
         }
       }
     },
     "guide_variables": {
       "race_name": "Sagan Fondo",
-      "race_distance": "70 miles",
-      "race_elevation": "7,000 feet",
+      "race_distance": "66 miles",
+      "race_elevation": "Varies (unofficial figure ~4,439 feet; organizer does not publish gain)",
       "race_date": "Summer",
       "race_location": "Truckee, California",
       "race_terrain": "California Sierra Nevada/Tahoe gravel",
@@ -175,7 +176,7 @@
       {
         "requirement": "Mountain climbing endurance",
         "by_when": "Week 10-12",
-        "why": "Tahoe/Sierra mountains require solid climbing fitness (7000 feet)."
+        "why": "Tahoe/Sierra mountains require solid climbing fitness (medium course: ~4,439 feet, unofficial figure)."
       },
       {
         "requirement": "Altitude preparation",

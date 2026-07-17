@@ -21,13 +21,11 @@ this handoff). Lineage by filename + `<title>`:
 | `preview-hybrid-card.html` | — | Hybrid of the above directions. |
 | `preview-integrations.html` | — | Integration exploration (large; likely cards embedded in existing page shells). |
 
-**GATE 0 — before any code: confirm with Matti (a) which variant is canonical (inference:
-`real-map-card-v5` for cards + `amundsen-gg-v3` for the page-level direction, being the
-"Clean Final"/latest names — but the design conversation happened in his other session,
-so CONFIRM, don't infer), and (b) the scope of "races layout":** race DETAIL pages
-(`/race/<slug>/`), the race CARDS on search/index/state-hub surfaces, the homepage, or all
-three. Matti's complaint was raised while looking at `/race/steamboat-gravel/`, so the
-detail page is at least in scope.
+**GATE 0 — RESOLVED by Matti, 2026-07-17:** canonical variants are
+**`preview-real-map-card-v5.html`** (cards / map treatment) **+ `preview-amundsen-gg-v3.html`**
+(page-level direction). Scope: **race DETAIL pages (`/race/<slug>/`) FIRST**; card surfaces
+(search/index/state hubs) and homepage come after the detail-page rollout, as follow-up
+phases. Do not re-open this decision; proceed to design extraction (§5 step 2).
 
 ---
 
@@ -84,7 +82,7 @@ this repo today. Facts to build on:
 
 ## 5. Suggested execution shape (adapt as you see fit)
 
-1. GATE 0 (variant + scope) with Matti.
+1. ~~GATE 0~~ RESOLVED (see §1): real-map-card-v5 + amundsen-gg-v3, race detail pages first.
 2. Extract the chosen prototype into a real template layer + tokens; write a DESIGN.md
    for the new direction (what changed vs neo-brutalist, which rule-tests updated).
 3. Map pipeline spike: fetch + cache polylines for the 208 RWGPS races; decide + build the

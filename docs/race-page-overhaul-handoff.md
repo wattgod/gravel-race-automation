@@ -1,5 +1,12 @@
 # Race-Page Overhaul — Execution Handoff
 
+> **Canonical update — 2026-07-17:** The final owner-approved and implemented
+> contract is now [`race-page-spine-v2-canonical.md`](race-page-spine-v2-canonical.md).
+> Where this earlier handoff conflicts with that document—especially the standalone
+> verdict, transition strip, `BUILT FOR THIS`, “less than one gel” framing, offer copy,
+> CTA placement, or Deep Dive commerce—the canonical document wins. This file remains
+> the evidence and original design-history record.
+
 **For:** the agent(s) driving the gravelgodcycling.com race-page redesign. **Author:** Fable, 2026-07-14. **Status:** design approved by Matti, ready to build. **You need no prior context — this is self-contained**, but the linked artifacts hold the detail.
 
 ## 0. The one-sentence goal

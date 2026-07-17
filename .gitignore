@@ -53,6 +53,9 @@ output/
 # Generated landing pages (regenerate with: python3 wordpress/generate_neo_brutalist.py --all)
 wordpress/output/
 
+# Race-page-redesign pilot output (regenerate with: python3 wordpress/generate_race_page_v2.py)
+wordpress/output_v2_pilot/
+
 # Video scripts (generated via: python3 scripts/generate_video_scripts.py)
 video-scripts/
 

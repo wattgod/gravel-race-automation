@@ -18,32 +18,32 @@ OUTPUT_DIR = PROJECT_ROOT / "wordpress" / "output" / "course" / "deliver"
 
 # Audio files referenced in lesson blocks
 AUDIO_FILES = {
-    "audio/deliver/daily-5-guided.mp3": {
+    "audio/daily-5-guided.mp3": {
         "title": "The Daily 5 — Guided Exercise",
         "description": "5-minute guided mental rehearsal covering: gratitude, intention, visualization, affirmation, breath.",
         "duration_target": "5:00",
     },
-    "audio/deliver/grit-stack-walkthrough.mp3": {
+    "audio/grit-stack-walkthrough.mp3": {
         "title": "The Grit Stack — Guided Walkthrough",
         "description": "Guided walk through the 5 steps: Breathe, Detach, Reframe, Execute, Segment.",
         "duration_target": "4:00",
     },
-    "audio/deliver/m3-breathing-space.mp3": {
+    "audio/m3-breathing-space.mp3": {
         "title": "3-Minute Breathing Space",
         "description": "Short mindfulness exercise: awareness, gathering, expanding. Based on MBCT protocol.",
         "duration_target": "3:00",
     },
-    "audio/deliver/m3-highlight-reel.mp3": {
+    "audio/m3-highlight-reel.mp3": {
         "title": "Highlight Reel Visualization",
         "description": "Guided visualization replaying peak performance moments with full sensory detail.",
         "duration_target": "6:00",
     },
-    "audio/deliver/post-race-debrief.mp3": {
+    "audio/post-race-debrief.mp3": {
         "title": "Post-Race Debrief — Guided Reflection",
         "description": "Structured audio guide walking through the post-race debrief process.",
         "duration_target": "5:00",
     },
-    "audio/deliver/pre-race-mental-warmup.mp3": {
+    "audio/pre-race-mental-warmup.mp3": {
         "title": "Pre-Race Mental Warm-Up",
         "description": "10-minute pre-race routine: centering breath, performance cues, race visualization, activation.",
         "duration_target": "10:00",
@@ -97,7 +97,7 @@ def main():
 
     # Write manifest for tracking
     import json
-    manifest_path = OUTPUT_DIR / "audio" / "deliver" / "audio-manifest.json"
+    manifest_path = OUTPUT_DIR / "audio" / "audio-manifest.json"
     manifest_path.write_text(json.dumps(manifest, indent=2) + "\n")
     print(f"\nManifest: {manifest_path}")
 

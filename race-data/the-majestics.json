@@ -5,7 +5,7 @@
     "vitals": {
       "slug": "the-majestics",
       "name": "The Majestics",
-      "date": "2026: July TBD",
+      "date": "2026: July 10-12 weekend (gravel race in program)",
       "date_specific": "2026: July TBD",
       "distance_mi": 81,
       "elevation_ft": 8800,
@@ -249,6 +249,242 @@
         }
       ],
       "quotes": []
-    }
+    },
+    "tagline": "UCI World Series gravel in the Swiss Alps — where the world cycling headquarters meets alpine climbing",
+    "terrain": {
+      "overview": "Roughly half paved / half unpaved alpine terrain (organizer figure not published to the mile for the current course; treat as approximate). Starts flat in the Rhone Valley from Aigle, transitions to forest climbs and high-altitude gravel roads through the Route des Chaux area en route to Col de la Croix, finishing near Villars-sur-Ollon.",
+      "surface_breakdown": {}
+    },
+    "distances": [
+      {
+        "name": "Granfondo (\"The Summit\")",
+        "distance_km": 106,
+        "distance_mi": 66,
+        "elevation_m": 2500,
+        "elevation_ft": 8200,
+        "description": "Full UCI qualifying distance for all age groups - from UCI headquarters in Aigle to the Villars-sur-Ollon area via Col de la Croix"
+      },
+      {
+        "name": "Mediofondo (\"The Ridge\")",
+        "distance_km": 72,
+        "distance_mi": 45,
+        "elevation_m": 2000,
+        "elevation_ft": 6560,
+        "description": "Official qualifying distance for men 60+ and women 50+ age groups"
+      }
+    ],
+    "weather": "Alpine summer conditions - generally pleasant but highly variable. Cool at altitude, potential for afternoon storms. Temperature can drop significantly at the Col de la Croix finish (1,819m).",
+    "organizer": {
+      "name": "RD Cycling",
+      "website": "https://ucigravelsuisse.com/en/"
+    },
+    "registration": {
+      "opens": "November (previous year)",
+      "website": "https://ucigravelsuisse.com/en/inscriptions/",
+      "notes": "Early registration discounts available. Swiss Cycling members receive 20% discount."
+    },
+    "seriesAffiliation": "UCI Gravel World Series",
+    "uniqueCharacteristics": [
+      "Starts at UCI World Cycling Center headquarters in Aigle - the global home of cycling",
+      "Host venue for 2029 UCI Gravel World Championships",
+      "Part of UCI Gravel World Series with Worlds qualification",
+      "Rebranded 'The Majestics' (merger of UCI Gran Fondo Suisse + UCI Gravel Suisse, first run as 'Gravel Suisse' in 2024)",
+      "Multi-discipline weekend: TT Friday, Road Saturday, Gravel Sunday",
+      "Swiss precision organization and infrastructure",
+      "Route through Route des Chaux to Col de la Croix, finishing near Villars-sur-Ollon"
+    ],
+    "tire_recommendations": {
+      "generated_at": "2026-02-19",
+      "primary": [
+        {
+          "rank": 1,
+          "tire_id": "vittoria-terreno-wet",
+          "name": "Vittoria Terreno Wet",
+          "brand": "Vittoria",
+          "recommended_width_mm": 40,
+          "msrp_usd": 79.99,
+          "weight_grams": 460,
+          "crr_watts": 39.0,
+          "why": "excellent wet grip"
+        },
+        {
+          "rank": 2,
+          "tire_id": "continental-terra-trail",
+          "name": "Continental Terra Trail",
+          "brand": "Continental",
+          "recommended_width_mm": 40,
+          "msrp_usd": 74.99,
+          "weight_grams": 450,
+          "crr_watts": 33.5,
+          "why": "excellent wet grip"
+        },
+        {
+          "rank": 3,
+          "tire_id": "specialized-pathfinder-pro",
+          "name": "Specialized Pathfinder Pro",
+          "brand": "Specialized",
+          "recommended_width_mm": 38,
+          "msrp_usd": 54.99,
+          "weight_grams": 380,
+          "crr_watts": 32.0,
+          "why": "Fast center, grippy edges. The modern all-rounder benchmark."
+        }
+      ],
+      "front_rear_split": {
+        "applicable": true,
+        "front": {
+          "tire_id": "rene-herse-snoqualmie-pass",
+          "name": "Rene Herse Snoqualmie Pass",
+          "width_mm": 44
+        },
+        "rear": {
+          "tire_id": "vittoria-terreno-wet",
+          "name": "Vittoria Terreno Wet",
+          "width_mm": 40
+        },
+        "rationale": "Faster front for reduced rolling resistance on straights, grippier rear for traction on loose climbs and corners"
+      },
+      "race_surface_profile": "wet",
+      "recommended_width_mm": 40,
+      "pressure_psi": {
+        "140_160lb_dry": "35-39",
+        "140_160lb_mixed": "32-36",
+        "140_160lb_wet": "30-34",
+        "160_180lb_dry": "38-42",
+        "160_180lb_mixed": "35-39",
+        "160_180lb_wet": "33-37",
+        "180_200lb_dry": "41-45",
+        "180_200lb_mixed": "38-42",
+        "180_200lb_wet": "36-40",
+        "200pluslb_dry": "44-48",
+        "200pluslb_mixed": "41-45",
+        "200pluslb_wet": "39-43"
+      }
+    },
+    "citations": [
+      {
+        "url": "https://ridewithgps.com/routes/52287506",
+        "category": "route",
+        "label": "RideWithGPS: UCI Gravel Suisse - The Summit"
+      },
+      {
+        "url": "https://gearjunkie.com/biking/gravel-epic-switzerland-bike-race",
+        "category": "media",
+        "label": "GearJunkie"
+      },
+      {
+        "url": "https://www.cyclingweekly.com/news",
+        "category": "media",
+        "label": "Cycling Weekly"
+      },
+      {
+        "url": "https://www.inkl.com/news/former-unbound-gravel-winner-carolin-schiff-returns-from-health-issues-with-new-13-rider-canyon-x-dt-swiss-all-terrain-racing-team",
+        "category": "community",
+        "label": "inkl.com: Former Unbound Gravel Winner Carolin Schiff Returns From ..."
+      },
+      {
+        "url": "https://www.cyclingnews.com/races/uci-gravel-world-series-events-2025/alentejo-gravel/results/",
+        "category": "community",
+        "label": "cyclingnews.com: Results"
+      },
+      {
+        "url": "https://www.finishers.com/en/event/uci-gran-fondo-suisse-time-trial",
+        "category": "community",
+        "label": "finishers.com: Uci Gran Fondo Suisse Time Trial"
+      },
+      {
+        "url": "https://www.canyon.com/en-us/meet-the-wildcards-all-terrain-racing/b16022026.html",
+        "category": "community",
+        "label": "canyon.com: B16022026.Html"
+      },
+      {
+        "url": "https://www.mso.swiss/en/events/2367-uci-gravel-suisse/results",
+        "category": "community",
+        "label": "mso.swiss: Results"
+      },
+      {
+        "url": "https://www.mso.swiss/en/events/2164-uci-gravel-suisse/results",
+        "category": "community",
+        "label": "mso.swiss: Results"
+      },
+      {
+        "url": "https://granfondo-cycling.com/best-race-gravel-bike-review/",
+        "category": "other",
+        "label": "Granfondo-Cycling"
+      },
+      {
+        "url": "https://ucigravelsuisse.com/en/inscriptions/",
+        "category": "other",
+        "label": "Ucigravelsuisse"
+      },
+      {
+        "url": "https://ucigravelworldseries.com/en/champery/",
+        "category": "other",
+        "label": "Ucigravelworldseries"
+      },
+      {
+        "url": "https://ucigravelworldseries.com/en/results/",
+        "category": "other",
+        "label": "Ucigravelworldseries"
+      },
+      {
+        "url": "https://ucigravelworldseries.com/en/villars/",
+        "category": "other",
+        "label": "Ucigravelworldseries"
+      },
+      {
+        "url": "https://www.cyclingnews.com/races/uci-gravel-world-series-events-2025/gravel-suisse/results/",
+        "category": "other",
+        "label": "Cyclingnews"
+      },
+      {
+        "url": "https://www.cycloworld.cc/en/gran-fondo/switzerland/uci-gravel-suisse/39735",
+        "category": "other",
+        "label": "Cycloworld"
+      },
+      {
+        "url": "https://www.grallochgravel.com/journal/tessa-neefjes-on-defending-her-gralloch-crown-belief-gravel-and-coming-back-stronger",
+        "category": "other",
+        "label": "Grallochgravel"
+      },
+      {
+        "url": "https://www.granfondoguide.com/Events/Index/11723/the-majestics",
+        "category": "other",
+        "label": "Granfondoguide"
+      },
+      {
+        "url": "https://www.gravelepic.com/epic-switzerland",
+        "category": "other",
+        "label": "Gravelepic"
+      },
+      {
+        "url": "https://www.gravelepic.com/info-switzerland",
+        "category": "other",
+        "label": "Gravelepic"
+      },
+      {
+        "url": "https://themajestics.ch/en/",
+        "category": "other",
+        "label": "The Majestics (official site, rebrand)"
+      }
+    ],
+    "popularity": "High - premier Swiss gravel event and UCI World Series qualifier",
+    "location": {
+      "city": "Aigle / Villars-sur-Ollon",
+      "state": "Canton of Vaud",
+      "country": "Switzerland",
+      "region": "Vaudois Alps"
+    },
+    "date": {
+      "month": "July",
+      "typical": "Second weekend of July (multi-discipline: TT Friday, Road Saturday, Gravel Sunday)",
+      "season": "Summer",
+      "year2026": "July 12, 2026 (Sunday, completed)",
+      "year2027_estimate": "July 11, 2027 (Sunday, PATTERN ESTIMATE — not yet officially announced)"
+    },
+    "former_names": [
+      "UCI Gravel Suisse",
+      "Gravel Fondo Switzerland"
+    ]
   }
 }

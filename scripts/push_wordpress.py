@@ -1571,6 +1571,18 @@ RewriteRule ^race/natchez-trace-gran-fondo/?$ /race/best-gravel-races-tennessee/
 RewriteRule ^race/walburg-dirty-30/?$ /race/best-gravel-races-texas/ [R=301,L]
 RewriteRule ^race/flint-hills-death-ride/?$ /race/best-gravel-races-kansas/ [R=301,L]
 RewriteRule ^race/kal-tour-dirty-100/?$ /race/best-gravel-races-michigan/ [R=301,L]
+
+# Race renames (2026-07, Matti-approved): event rebrands, slug follows.
+# VS rules MUST precede the wildcards (the old slug is a prefix of the VS slugs).
+RewriteRule ^race/badlands-vs-gravel-fondo-switzerland/?$ /race/the-majestics/ [R=301,L]
+RewriteRule ^race/gravel-fondo-switzerland-vs-the-traka/?$ /race/the-majestics/ [R=301,L]
+RewriteRule ^race/gravel-fondo-switzerland-vs-torino-nice-rally/?$ /race/the-majestics/ [R=301,L]
+RewriteRule ^race/gravel-fondo-switzerland-vs-transcontinental-race/?$ /race/the-majestics/ [R=301,L]
+RewriteRule ^race/gravel-fondo-switzerland-vs-uci-gravel-worlds/?$ /race/the-majestics/ [R=301,L]
+RewriteRule ^race/sagan-fondo/?$ /race/truckee-tahoe-gravel/ [R=301,L]
+RewriteRule ^race/sagan-fondo/(.*)$ /race/truckee-tahoe-gravel/$1 [R=301,L]
+RewriteRule ^race/gravel-fondo-switzerland/?$ /race/the-majestics/ [R=301,L]
+RewriteRule ^race/gravel-fondo-switzerland/(.*)$ /race/the-majestics/$1 [R=301,L]
 </IfModule>
 # END Gravel God Redirects
 """

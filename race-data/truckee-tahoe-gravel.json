@@ -1,8 +1,8 @@
 {
   "race": {
-    "name": "Sagan Fondo",
-    "slug": "sagan-fondo",
-    "display_name": "Sagan Fondo",
+    "name": "Truckee Tahoe Gravel",
+    "slug": "truckee-tahoe-gravel",
+    "display_name": "Truckee Tahoe Gravel",
     "tagline": "California Sierra Nevada/Tahoe gravel in Truckee.",
     "vitals": {
       "distance_mi": 66,
@@ -76,7 +76,7 @@
     },
     "biased_opinion": {
       "verdict": "California Tahoe/Sierra Gravel",
-      "summary": "Sagan Fondo is a regional event in Truckee, California\u2014Sierra Nevada/Tahoe mountain terrain with significant elevation and altitude. Named after Peter Sagan, it has good organization and the Tahoe/Sierra setting is spectacular. However, the regional field and California costs keep it in Tier 3. Truckee provides good access.",
+      "summary": "Truckee Tahoe Gravel (founded as Peter Sagan's Sagan Fondo) is a regional event in Truckee, California—Sierra Nevada/Tahoe mountain terrain with significant elevation and altitude. Named after Peter Sagan, it has good organization and the Tahoe/Sierra setting is spectacular. However, the regional field and California costs keep it in Tier 3. Truckee provides good access.",
       "strengths": [
         "Truckee/Tahoe (good access, spectacular setting)",
         "Sierra Nevada terrain",
@@ -97,7 +97,7 @@
     "final_verdict": {
       "score": "60 / 100",
       "one_liner": "California Sierra Nevada/Tahoe gravel in Truckee.",
-      "should_you_race": "If you're in California or visiting Tahoe\u2014yes, it's a solid event with spectacular terrain. If you're from out of state\u2014consider the costs and regional field.",
+      "should_you_race": "If you're in California or visiting Tahoe—yes, it's a solid event with spectacular terrain. If you're from out of state—consider the costs and regional field.",
       "alternatives": "For better CA events: Grinduro, BWR. For similar Tahoe events: other Tahoe gravel races.",
       "alternative_slugs": [
         "bwr-california",
@@ -115,9 +115,9 @@
     "history": {
       "founded": null,
       "founder": "Peter Sagan",
-      "origin_story": "Founded 2018 as Peter Sagan's Sagan Dirt Fondo. Renamed Truckee Dirt Fondo in 2019, and is now branded Truckee Gravel (truckeegravel.com, Bike Monkey) -- Sagan still attends. GG product pages keep the 'Sagan Fondo' slug/title for continuity, but the event itself races under the Truckee Gravel name today.",
+      "origin_story": "Founded 2018 as Peter Sagan's Sagan Dirt Fondo. Renamed Truckee Dirt Fondo in 2019, and is now branded Truckee Gravel (truckeegravel.com, Bike Monkey) -- Sagan still attends. GG catalog renamed to Truckee Tahoe Gravel 2026-07-16 (Matti-approved); old sagan-fondo URLs 301 here.",
       "notable_moments": [],
-      "reputation": "Regional CA event, now racing under the Truckee Gravel name; Sagan Fondo is its founding-era identity."
+      "reputation": "Regional CA event racing as Truckee Tahoe Gravel (truckeegravel.com, Bike Monkey); Sagan Fondo is its founding-era identity."
     },
     "course_description": {
       "character": "Tahoe/Sierra mountain gravel with significant climbing and altitude. Medium (flagship) course is ~66 miles, 84% gravel/16% paved, with aid stations at roughly miles 17, 25, 32, 45, and 55.",
@@ -155,7 +155,7 @@
       }
     },
     "guide_variables": {
-      "race_name": "Sagan Fondo",
+      "race_name": "Truckee Tahoe Gravel",
       "race_distance": "66 miles",
       "race_elevation": "Varies (unofficial figure ~4,439 feet; organizer does not publish gain)",
       "race_date": "Summer",
@@ -263,7 +263,7 @@
       },
       "tier_overrides": {},
       "marketplace_variables": {
-        "race_name": "Sagan Fondo",
+        "race_name": "Truckee Tahoe Gravel",
         "race_hook": "California Tahoe/Sierra gravel in Truckee.",
         "race_hook_detail": "Regional event with mountain climbing and altitude.",
         "distance": "70",
@@ -293,7 +293,7 @@
       },
       "climate": {
         "score": 3,
-        "explanation": "Historical weather data shows average highs of 75\u00b0F and lows of 46\u00b0F, with a 22% chance of rain on any given day. May 2018 Dirt Fondo delivered \"a spectacular early spring day, big blue sky, and dry, with no wind\" with ideal conditions where the famous white dust \"didn't really kick up very much.\" November road edition featured complementary \"autumn weather\" with \"low autumn light and shadows\" creating challenging descent visibility. High Sierra Nevada timing targets post-snowmelt but mountain weather variability remains. Similar climate challenges to SBT GRVL."
+        "explanation": "Historical weather data shows average highs of 75°F and lows of 46°F, with a 22% chance of rain on any given day. May 2018 Dirt Fondo delivered \"a spectacular early spring day, big blue sky, and dry, with no wind\" with ideal conditions where the famous white dust \"didn't really kick up very much.\" November road edition featured complementary \"autumn weather\" with \"low autumn light and shadows\" creating challenging descent visibility. High Sierra Nevada timing targets post-snowmelt but mountain weather variability remains. Similar climate challenges to SBT GRVL."
       },
       "altitude": {
         "score": 3,
@@ -708,6 +708,12 @@
         "credit": "YouTube / melges241",
         "gif": true
       }
+    ],
+    "former_names": [
+      "Sagan Fondo",
+      "Sagan Dirt Fondo",
+      "Truckee Dirt Fondo",
+      "Truckee Gravel"
     ]
   }
 }

@@ -5,12 +5,12 @@
     "display_name": "Belgian Waffle Ride North Carolina",
     "tagline": "The Hell of the East - where your gravel bike wishes it was a mountain bike and your legs wish they were someone else's.",
     "vitals": {
-      "distance_mi": 131,
-      "elevation_ft": 13000,
+      "distance_mi": 100,
+      "elevation_ft": 8000,
       "location": "Hendersonville, North Carolina",
       "location_badge": "HENDERSONVILLE, NC",
-      "date": "October annually",
-      "date_specific": "2026: October 3-4",
+      "date": "No confirmed 2026 edition — not part of the 2026 BWR Quad-Tripel Crown (Arizona, California, Utah, Montana)",
+      "date_specific": "Status: DROPPED — no official 2026 or 2027 date; last held October 3-4, 2025",
       "lat": 35.3187,
       "lng": -82.461,
       "registration": "Online. Cost: $195"
@@ -103,8 +103,8 @@
       "inaugural_year": 2022,
       "organizer": "Monuments of Cycling",
       "race_director": "Michael Marckx",
-      "venue": "Kanuga Resort",
-      "venue_address": "130 Kanuga Chapel Dr, Hendersonville, NC 28739",
+      "venue": "Wag Valley Farm (moved from Kanuga Resort for 2025 due to Hurricane Helene recovery; venue for any future edition unconfirmed)",
+      "venue_address": "Hendersonville, NC (exact address unconfirmed for any future edition)",
       "gravel_percentage": 40,
       "unroad_sectors": "16-20",
       "steepest_grade_percent": 29,
@@ -114,22 +114,22 @@
     "distance_options": [
       {
         "name": "Waffle",
-        "distance_mi": "100-137",
-        "elevation_ft": "9,000-14,000",
+        "distance_mi": "~100 (2025)",
+        "elevation_ft": "~8,000 (2025)",
         "entry_fee": 195,
         "description": "Full distance through challenging Appalachian terrain with all Unroad sectors"
       },
       {
         "name": "Wafer",
-        "distance_mi": "68-84",
-        "elevation_ft": "5,000-7,000",
+        "distance_mi": "~56 (2025)",
+        "elevation_ft": "Varies",
         "entry_fee": 195,
         "description": "Half distance with substantial climbing through Blue Ridge Mountains"
       },
       {
         "name": "Wanna",
-        "distance_mi": "35-40",
-        "elevation_ft": "2,500-4,000",
+        "distance_mi": "~26 (2025)",
+        "elevation_ft": "Varies",
         "entry_fee": 100,
         "description": "Entry-level BWR experience with select Unroad sectors"
       }
@@ -170,7 +170,6 @@
         "drive_time_minutes": 110
       },
       "lodging_options": [
-        "Kanuga Resort (on-site, recommended)",
         "Hendersonville hotels (10-15 min drive)",
         "Asheville hotels (30-40 min drive)"
       ],
@@ -212,11 +211,12 @@
     },
     "lastUpdated": "2026-01-13",
     "dataQuality": "Complete",
+    "status": "POLICY - Real, ongoing race through 2025 (5th Annual, Oct 3-4, 2025, Wag Valley Farm, Hendersonville NC) but NOT part of the confirmed 2026 BWR Quad-Tripel Crown (Arizona, California, Utah, Montana). No official 2026 or 2027 North Carolina date published on belgianwaffleride.bike as of July 2026.",
     "scoringVersion": "GravelGod v2.1",
     "final_verdict": {
       "score": "71 / 100",
       "one_liner": "The Appalachian meat grinder that puts 29% fire roads and hike-a-bike sections in your face whether you're ready or not.",
-      "should_you_race": "Show up if you've got a 30-tooth chainring, legitimate mountain bike handling skills, and the ego to walk your bike in front of strangers. The 13,000 feet of climbing through Carolina mountains will expose fitness gaps fast, and those singletrack bottlenecks mean pack position matters more than watts. Skip this if you think gravel racing should be mostly rideable.",
+      "should_you_race": "Show up if you've got a 30-tooth chainring, legitimate mountain bike handling skills, and the ego to walk your bike in front of strangers. The 8,000+ feet of climbing through Carolina mountains will expose fitness gaps fast, and those singletrack bottlenecks mean pack position matters more than watts. Skip this if you think gravel racing should be mostly rideable.",
       "alternatives": "Dirty Kanza gives you the distance and suffering without the technical mountain bike nonsense. Rebecca's Private Idaho delivers similar elevation and scenery but with more flow and less walking.",
       "alternative_slugs": [
         "rebeccas-private-idaho",
@@ -224,7 +224,7 @@
       ]
     },
     "course_description": {
-      "character": "BWR NC is the hell spawn of European classics and Appalachian brutality—40% unroad surfaces that mock your bike choice and 13,000 feet of climbing that laughs at your FTP. This isn't gravel racing, it's survival cycling through Blue Ridge punishment chambers where 29% fire roads meet creek crossings and your legs meet reality. The course dips into South Carolina just to add interstate humiliation to your suffering.",
+      "character": "BWR NC is the hell spawn of European classics and Appalachian brutality—40% unroad surfaces that mock your bike choice and 8,000+ feet of climbing that laughs at your FTP. This isn't gravel racing, it's survival cycling through Blue Ridge punishment chambers where 29% fire roads meet creek crossings and your legs meet reality. The course dips into South Carolina just to add interstate humiliation to your suffering.",
       "suffering_zones": [
         {
           "mile": 15,

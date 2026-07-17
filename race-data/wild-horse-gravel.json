@@ -5,13 +5,13 @@
     "display_name": "Wild Horse Gravel",
     "tagline": "Private-ranch gravel through the Book Cliffs — roads closed to the public every other day of the year.",
     "vitals": {
-      "distance_mi": 65,
-      "elevation_ft": 5500,
+      "distance_mi": 100,
+      "elevation_ft": "Varies",
       "location": "De Beque, Colorado (High Lonesome Ranch Basecamp)",
       "location_badge": "DE BEQUE, CO",
       "county": "Mesa County",
       "date": "Mid-May annually",
-      "date_specific": "2027: May 15 (Saturday pattern). *** 2027 COURSE CHANGE ANNOUNCED (geminiadventures.com): Mustang becomes 100 MILES, Gunslinger 75, Hoedown 30 — 'new courses will be announced soon'; free start-line camping added. The 65/46/30 configuration below is the FINAL 2026 layout — do not reuse for 2027 marketing. ***",
+      "date_specific": "2027: May 15 (Saturday-pattern estimate, NOT an officially confirmed date — verified 2026-07-16). RE-CONFIRMED on geminiadventures.com/bike/wild-horse-gravel: 'New for 2027! Free camping just steps away from the start line! 3 new courses and distances. Mustang-100 miles, Gunslinger-75 miles, Hoedown-30 miles' — but the same page also states 'New courses will be announced soon,' meaning full routes/elevation gain are NOT yet published. Distances above (100/75/30mi) are the confirmed 2027 announcement; elevation is 'Varies' until the organizer publishes route detail. The 65/46/30-mile / 5,500ft config elsewhere in this profile is the FINAL 2026 layout (confirmed via geminiadventures.com, BikeReg, Trailforks, granfondoguide, Bicycle Colorado — race ran/was scheduled Saturday, May 16, 2026) — it is retired and must not be reused for 2027 marketing.",
       "terrain_types": [
         "Book Cliffs high desert",
         "Private-ranch gravel",
@@ -120,7 +120,7 @@
       "reputation": "Small regional western Colorado event, prized locally for one-day-a-year access to closed private ranch roads."
     },
     "course_description": {
-      "character": "Gemini Adventures' Saturday race from High Lonesome Ranch Basecamp (~5,250ft — ALTITUDE RACE; venue, not De Beque town, is the right reference): Mustang 65mi/5,500ft (max 8,100ft) flagship, Gunslinger 46mi/4,000ft, Hoedown 30mi/3,000ft — single loops on private ranch roads closed to the public the rest of the year, through Book Cliffs canyon corridors, open rangeland, and high-desert mesas. 10-mile neutral rollout; staggered starts 8:00/8:30. Do NOT claim wild-horse herd sightings (unverified). PRIOR PROFILE 62mi/3,500ft matched nothing — corrected 2026-07-14.",
+      "character": "[LEGACY 2026 LAYOUT — RETIRED as of the 2027 course change announced on geminiadventures.com; do not present as current] Gemini Adventures' Saturday race from High Lonesome Ranch Basecamp (~5,250ft — ALTITUDE RACE; venue, not De Beque town, is the right reference): Mustang 65mi/5,500ft (max 8,100ft) flagship, Gunslinger 46mi/4,000ft, Hoedown 30mi/3,000ft — single loops on private ranch roads closed to the public the rest of the year, through Book Cliffs canyon corridors, open rangeland, and high-desert mesas. 10-mile neutral rollout; staggered starts 8:00/8:30. Do NOT claim wild-horse herd sightings (unverified). PRIOR PROFILE 62mi/3,500ft matched nothing — corrected 2026-07-14. FOR 2027: Mustang is now 100mi, Gunslinger 75mi, Hoedown remains 30mi — full route/elevation detail not yet published by organizer as of 2026-07-16.",
       "suffering_zones": [
         {
           "mile": 10,
@@ -150,8 +150,8 @@
     },
     "guide_variables": {
       "race_name": "Wild Horse Gravel",
-      "race_distance": "65 miles",
-      "race_elevation": "5,500 feet",
+      "race_distance": "100 miles (2027 Mustang; NOTE: 65mi/46mi/30mi was the retired 2026 config — see vitals.date_specific)",
+      "race_elevation": "Varies (2027 route/elevation not yet published by organizer)",
       "race_date": "Mid-May annually",
       "race_location": "De Beque, Colorado (High Lonesome Ranch Basecamp)",
       "race_terrain": "Private-ranch Book Cliffs high desert gravel",
@@ -252,7 +252,7 @@
         "race_name": "Wild Horse Gravel",
         "race_hook": "65 miles of private-ranch Book Cliffs gravel at altitude.",
         "race_hook_detail": "Small grassroots event on roads closed to the public the rest of the year, near De Beque.",
-        "distance": "65",
+        "distance": "100",
         "dark_mile": "30",
         "non_negotiable_1": "Heat and sun preparation",
         "non_negotiable_2": "Self-sufficiency",

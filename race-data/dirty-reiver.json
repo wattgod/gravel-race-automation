@@ -5,13 +5,13 @@
     "display_name": "Dirty Reiver",
     "tagline": "The UK's biggest gravel race. 200km through Kielder Forest. Cold, wet, and utterly British.",
     "vitals": {
-      "distance_mi": 130,
+      "distance_mi": 124,
       "elevation_ft": 14100,
       "location": "Kielder, Northumberland, England",
       "location_badge": "KIELDER, NORTHUMBERLAND, ENGLAND",
       "county": "Northumberland",
       "date": "Late April annually",
-      "date_specific": "2026: April 24-26",
+      "date_specific": "2026: April 24-25",
       "terrain_types": [
         "Forest gravel roads (two-track)",
         "Fist-size embedded rocks",
@@ -48,8 +48,8 @@
         "Technical rocky descents",
         "Notorious mud potential"
       ],
-      "gravel_percentage": 70,
-      "pavement_percentage": 30
+      "gravel_percentage": 95,
+      "pavement_percentage": 5
     },
     "gravel_god_rating": {
       "overall_score": 83,
@@ -86,7 +86,7 @@
       },
       "length": {
         "score": 4,
-        "explanation": "Rob Weaver learned that \"covering that distance when you're rattling over rocks, grit, gravel and mud takes more energy\" than expected, requiring a mountain bike approach to pacing. The 130-mile distance delivers serious hurt-locker territory with 8+ hours of riding, long enough to separate pretenders but achievable for fit riders who pace intelligently through Kielder's relentless terrain."
+        "explanation": "Rob Weaver learned that \"covering that distance when you're rattling over rocks, grit, gravel and mud takes more energy\" than expected, requiring a mountain bike approach to pacing. The 124-mile (200km) flagship distance delivers serious hurt-locker territory with 8+ hours of riding, long enough to separate pretenders but achievable for fit riders who pace intelligently through Kielder's relentless terrain."
       },
       "technicality": {
         "score": 4,
@@ -94,7 +94,7 @@
       },
       "elevation": {
         "score": 4,
-        "explanation": "Over 14,000 feet of climbing across 130 miles means relentless grinding through Kielder's undulating forest terrain. The course rarely offers flat recovery sections, with continuous ascents and descents that rattle riders over rough surfaces. David Arthur noted the \"demanding and challenging\" nature of the climbs, which provide enough vertical to crack legs and expose fitness gaps throughout the field."
+        "explanation": "Over 14,000 feet of climbing across the 124-mile (200km) distance means relentless grinding through Kielder's undulating forest terrain. The course rarely offers flat recovery sections, with continuous ascents and descents that rattle riders over rough surfaces. David Arthur noted the \"demanding and challenging\" nature of the climbs, which provide enough vertical to crack legs and expose fitness gaps throughout the field."
       },
       "climate": {
         "score": 4,
@@ -171,7 +171,7 @@
       "packet_pickup": "Friday/Saturday at venue. Long drive—plan accordingly.",
       "parking": "On-site available. Arrive early.",
       "official_site": "https://dirtyreiver.co.uk",
-      "camping": "camping at Kielder campsite with very limited on-site accommodation<u>[cyclingweekly"
+      "camping": "Camping at Kielder campsite with very limited on-site accommodation."
     },
     "history": {
       "founded": 2015,
@@ -223,12 +223,17 @@
     },
     "research_metadata": {
       "data_confidence": "migrated",
-      "validation_status": "pending",
+      "validation_status": "web_verified_2026-07-16",
       "sources": [
         "v1",
-        "v2"
+        "v2",
+        "https://dirtyreiver.co.uk/event/",
+        "https://www.cyclingweekly.com/news/gravel-riders-ready-here-are-the-registration-dates-for-gravels-biggest-events",
+        "https://sportive.com/event/dirty-reiver-2026/"
       ],
-      "migration_notes": [],
+      "migration_notes": [
+        "2026-07-16: date_specific corrected from 'April 24-26' to 'April 24-25' (official 2026 dates are Fri 24-Sat 25 April). vitals.distance_mi corrected from 130 (an unlabeled figure matching none of the three official distances) to 124, i.e. the 200km flagship distance that the elevation_ft (14,100ft/4,300m), ridewithgps_id, and course_description.signature_challenge already describe. gravel_percentage/pavement_percentage (previously 70/30) corrected to 95/5 to match this file's own terrain.surface text ('95% gravel for 200km distance') and the organizer's own description of the course as 'nearly 100% off-road.' logistics.camping field had a stray HTML/citation artifact ('<u>[cyclingweekly') removed. NOTE FOR POLICY REVIEW: organizer video content (youtube_data transcript, video_id referenced in this file) has the race director state at the start line 'today is not a race... it's about a challenge,' and results are listed alphabetically, not by time/placing, despite the site's 'results' object and this profile's competitive framing ('mass start,' 'field,' 'race_quality'). Event is real, active, and officially organized (sells out in under 24 hours for 2026), but its self-description as a non-competitive 'challenge ride' rather than a timed race should be confirmed/reconciled with this profile's CLEAR-race framing before being treated as fully fact-clean for training-plan copy."
+      ],
       "research_strength": {
         "overall": 91.8,
         "grade": "A",

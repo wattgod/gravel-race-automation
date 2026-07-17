@@ -5,8 +5,8 @@
     "display_name": "Battenkill",
     "tagline": "New York rolling hills gravel in Cambridge.",
     "vitals": {
-      "distance_mi": 65,
-      "elevation_ft": 5500,
+      "distance_mi": 63,
+      "elevation_ft": "~4,900-5,500 (Varies by course option; single official figure not published)",
       "location": "Cambridge, New York",
       "location_badge": "CAMBRIDGE, NY",
       "county": "Washington County",
@@ -106,7 +106,7 @@
       "food": "Small town with limited dining. Stock nutrition.",
       "packet_pickup": "Day before",
       "parking": "At start/finish",
-      "official_site": "Check Battenkill website"
+      "official_site": "https://anthemsportstours.com/battenkill"
     },
     "history": {
       "founded": null,
@@ -181,12 +181,15 @@
     ],
     "research_metadata": {
       "data_confidence": "moderate",
-      "validation_status": "pending",
+      "validation_status": "web_verified_2026-07-16",
       "sources": [
-        "new_york_cycling_community"
+        "new_york_cycling_community",
+        "https://anthemsportstours.com/battenkill",
+        "https://www.granfondoguide.com/Events/Index/12215/battenkill"
       ],
       "migration_notes": [
-        "Generated from regional information"
+        "Generated from regional information",
+        "2026-07-16: date_specific (2026-05-09) and organizer (Anthem Sports Tours) confirmed against official site. Course lineup is genuinely multi-distance (officially listed options span 14-106mi across different course-naming systems used in different years); no single official source ties one canonical distance to a specific elevation figure, so vitals.distance_mi/elevation_ft were set to the best-corroborated approximate values (63mi appears in two independent sources; elevation range 4,900-5,500ft reflects the spread across sources) rather than the single unverifiable 65mi/5,500ft pairing previously listed. official_site field was a placeholder ('Check Battenkill website') and has been corrected to the real URL."
       ],
       "research_strength": {
         "overall": 91.8,

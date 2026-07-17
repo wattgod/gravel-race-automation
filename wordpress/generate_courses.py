@@ -199,11 +199,41 @@ def get_flat_lessons(course: dict) -> list:
 # ── CSS ──────────────────────────────────────────────────────
 
 
+def course_page_class(course: dict) -> str:
+    """Wrapper class for the course page. Adds a scoped theme class when the
+    course opts into one via course.json "theme" (e.g. "desert"). Themes only
+    add scoped overrides — untouched courses keep the default look."""
+    theme = (course or {}).get("theme")
+    if theme == "desert":
+        return "gg-course-page gg-course-theme-desert"
+    return "gg-course-page"
+
+
+# Desert Editorial theme: warm-paper block surfaces + gold hairlines, scoped so it
+# ONLY affects courses with theme:"desert" (Dirt Craft). Hydration/Deliver are
+# untouched. Warms up the block backgrounds that otherwise use dark #3a2e25.
+DESERT_THEME_CSS = """
+/* ── Desert Editorial theme (scoped: theme:"desert" only) ── */
+.gg-course-theme-desert .gg-course-hero{background:var(--gg-color-warm-paper,#f5efe6);color:var(--gg-color-dark-brown,#3a2e25);border-bottom:2px solid var(--gg-color-gold,#9a7e0a)}
+.gg-course-theme-desert .gg-course-hero h1{color:var(--gg-color-dark-brown,#3a2e25)}
+.gg-course-theme-desert .gg-course-hero-subtitle{color:var(--gg-color-secondary-brown,#7d695d)}
+.gg-course-theme-desert .gg-guide-img-caption{background:var(--gg-color-warm-paper,#f5efe6);color:var(--gg-color-secondary-brown,#7d695d);border:1px solid var(--gg-color-tan,#d4c5b9);border-top:1px solid var(--gg-color-gold,#9a7e0a)}
+.gg-course-theme-desert .gg-guide-video-meta{background:var(--gg-color-warm-paper,#f5efe6);border:1px solid var(--gg-color-tan,#d4c5b9);border-top:0}
+.gg-course-theme-desert .gg-guide-video-title{color:var(--gg-color-dark-brown,#3a2e25)}
+.gg-course-theme-desert .gg-guide-video-frame{border:1px solid var(--gg-color-tan,#d4c5b9)}
+.gg-course-theme-desert .gg-guide-process-num{background:var(--gg-color-gold,#9a7e0a);color:var(--gg-color-warm-paper,#f5efe6)}
+.gg-course-theme-desert .gg-guide-tab-bar{background:var(--gg-color-warm-paper,#f5efe6)}
+.gg-course-theme-desert .gg-guide-gate-kicker{background:var(--gg-color-warm-paper,#f5efe6);color:var(--gg-color-gold,#9a7e0a)}
+.gg-course-theme-desert .gg-guide-rider-selector,
+.gg-course-theme-desert .gg-guide-rider-badge{background:var(--gg-color-warm-paper,#f5efe6)}
+"""
+
+
 def build_course_css() -> str:
     """Return all course-specific CSS, including guide block CSS and gamification."""
     guide_css = build_guide_css()
     return f"""{guide_css}
-
+{DESERT_THEME_CSS}
 /* ── Course Layout ── */
 /* overflow-x:clip (not hidden) — hidden creates a scroll container that
    breaks position:sticky on the lesson sidebar */
@@ -2101,7 +2131,7 @@ def build_landing_page(course: dict, all_courses: list = None) -> str:
   {get_ga4_head_snippet()}
 </head>
 <body>
-<div class="gg-course-page">
+<div class="{course_page_class(course)}">
 {header}
 
 <div class="gg-course-hero">
@@ -2274,7 +2304,7 @@ def build_lesson_page(course: dict, module: dict, lesson: dict,
   {get_ga4_head_snippet()}
 </head>
 <body>
-<div class="gg-course-page">
+<div class="{course_page_class(course)}">
 {header}
 
 <!-- Purchase Gate -->

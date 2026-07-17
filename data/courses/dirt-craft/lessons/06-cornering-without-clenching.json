@@ -1,0 +1,241 @@
+{
+  "id": "cornering-without-clenching",
+  "title": "Cornering Without Clenching",
+  "module": "control-the-inputs",
+  "lesson_number": 6,
+  "blocks": [
+    {
+      "type": "hero_stat",
+      "value": "85%",
+      "unit": "of calculated max speed",
+      "context": "is the entry speed that keeps you upright when the surface lies to you"
+    },
+    {
+      "type": "black_box",
+      "title": "Incident Report",
+      "content": "Rider enters a sweeping gravel corner at 17 mph. It's a nice bend — wide, good sightlines, dry packed surface at the entry. Midway through the turn, the surface transitions from packed gravel to loose over hardpack. The change was visible 30 feet earlier. The rider wasn't looking — eyes were on the front wheel, not scanning ahead (Lesson 4).\n\nThe front tire pushes. Not a dramatic washout — just a subtle drift toward the outside of the turn. The contact patch is sliding across marble-sized aggregate instead of biting into packed earth.\n\nThe rider's response is pure road instinct: tighten grip on the bars, tense the shoulders, and squeeze the left brake lever to slow down. Every input is exactly wrong.\n\nTighter grip transfers weight to the handlebars, increasing the load on a front tire that's already past its traction limit. Tensed shoulders prevent the bike from leaning independently of the body. Braking mid-corner demands traction that's already fully committed to turning — the traction circle from Lesson 5, exceeded in both dimensions simultaneously.\n\nThe front tire gives up. The bike low-sides into the drainage ditch at 14 mph. Hip, elbow, handlebar tape.\n\nThe surface change was the trigger. The rider's inputs were the cause. Three corrections — any one of them — would have saved the turn: looking ahead and spotting the transition, taking a wider line through the loose section, or simply not braking mid-corner."
+    },
+    {
+      "type": "sensation_target",
+      "label": "Asymmetric loading — outside foot heavy, inside hand almost empty",
+      "content": "Stand next to a wall and press your outside hand against it, like you're holding yourself upright while leaning. Your weight drives through your outside foot into the ground. That's the target sensation in a gravel corner.\n\nIn the turn: your outside foot is weighted and dropped — a heavy platform pushing straight down through the pedal into the tire. Your inside hand is barely touching the bar. If someone pulled the inside grip out of your hand mid-corner, almost nothing would change.\n\nThe bike leans beneath you while your body stays more upright than the bike. You're not leaning WITH the bike like a motorcycle racer — you're hovering above it while it falls into the turn.\n\nHere's the test: after a set of corners, check which palm is more fatigued. If both palms feel equal, you're cornering like pavement — symmetric, rigid, leaning your body with the bike. If the inside palm feels fresh and the outside foot feels heavy, you've found gravel cornering.\n\nThis is the weighted drop from Lesson 1, adapted for turns. Same principle — weight through the feet, quiet hands — but now it's asymmetric. Outside foot does 60-70% of the work. Inside hand does almost nothing."
+    },
+    {
+      "type": "prose",
+      "content": "### Line Selection: Surface First, Geometry Second\n\nOn pavement, the fastest line through a corner is the geometric apex — the racing line. Late entry, clip the inside, wide exit. Every road cyclist has internalized this. On a clean surface with predictable grip, it's correct.\n\nOn gravel, the fastest line is the one with the best surface. And the best surface is often nowhere near the geometric apex.\n\nThe scanning hierarchy for corner entry:\n\n1. **Surface quality** — Find the smoothest, most consistent surface. Packed tire tracks, the outside line where cars have compressed the gravel, the inside line where water drainage has swept away loose material. Read the surface first.\n2. **Surface transitions** — Identify where the surface changes: packed to loose, dry to wet. A transition mid-corner is where crashes happen (see the Incident Report). If there's a transition in the corner, your line must avoid it — or cross it while the bike is upright and traveling straight.\n3. **Debris and hazards** — Rocks, ruts, sand patches, puddles hiding potholes. These are secondary to overall surface quality but can ruin a good line.\n4. **Geometric apex** — Only after the surface questions are answered do you think about the traditional racing line. Often the best surface line IS close to the geometric line. Sometimes it's 3 feet wider. Take the 3 feet.\n\nI spent my first two years of gravel racing running the geometric line through every corner. Fast on paper, disastrous on dirt. The day I started choosing lines by surface quality instead of geometry, I stopped crashing in corners. Not gradually — I just stopped."
+    },
+    {
+      "type": "accordion",
+      "items": [
+        {
+          "title": "The outside-foot question, settled",
+          "content": "\"Outside foot down\" vs \"keep your pedals level\" is the loudest argument in bike handling, and it's a fake fight. Once you read what each camp actually says, they agree — they only differ on which one is the *default*.\n\nLee McCormack (who's known for level pedals) is explicit: *\"When you aggressively pump a corner (e.g., in a perfect and supportive berm) keep your feet level. When you're trying to survive a sketchy turn (e.g., on off-camber gravel), put all of your weight on your outside pedal.\"* BetterRide's Gene Hamilton argues outside-foot-down for traction; MBR's Paul Burwell teaches level as the neutral reset and drops the outside foot when the corner tightens and he needs maximum lean. Same answer, different defaults.\n\n**The gravel translation:** most gravel corners are flat, loose, and off-camber — exactly the \"survive it, set an edge\" case. So on gravel, **outside foot down and weighted is your working default**, and level feet are the exception you reach for when you're pumping a supportive berm or a bermed-out ditch line. This is the reverse of the modern flow-trail MTB default, and it's correct because your surface is the low-traction one."
+        },
+        {
+          "title": "Angulation vs inclination — lean the bike, or lean with it?",
+          "content": "Two ways to lean, and you need both. **Angulation** is leaning the *bike* more than your body — your weight stays stacked over the tires for grip. **Inclination** is leaning bike and body together as one unit, motorcycle-style. The folk rule says \"flat corner = angulation, berm = inclination,\" but ZEP Coaching debunks that as a false binary: *\"Pretty much all corners can have both... the point isn't when to do one and not the other but which one should be applied or focused on more.\"*\n\nOn loose flat gravel you lean toward **angulation** — bike leaned underneath you, body up, weight driving down through the outside foot into the contact patch (which is the same reason outside-foot-down wins here). In a supportive berm you can afford more **inclination**. McCormack's cue for the angulation feel: *\"Lean your bike more than your body. Stay loose. Let your bars turn on their own.\"*"
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "style": "tip",
+      "content": "**Get in the drops for anything fast or loose.** On a steep or sketchy gravel descent, riding the drops (not the hoods) puts your hands closer to the levers with more braking leverage, lowers your center of gravity, and locks your hands in so a hit can't bounce them off the bars. Hoods are fine at moderate speed and for climbing and visibility — but when it gets fast and loose, the drops are a control position, not just an aero one. One rider in the research put it bluntly: putting his hands in the drops \"made all that instability go away.\""
+    },
+    {
+      "type": "prose",
+      "content": "### High-Traction vs. Low-Traction Technique\n\nNot all gravel corners are the same. Your technique should change based on available grip.\n\n**High-traction corners (dry hardpack, packed fire road, firm dirt):**\n\n- Outside pedal weighted and dropped to 6 o'clock\n- Lean the bike into the turn — the bike leans more than your body\n- Inside hand light, providing gentle counterpressure to initiate and hold the lean\n- Outside hand firm but not clenched — this is your anchor point\n- Look through the exit of the corner, not at the apex (Lesson 4's quiet eye, applied to turns)\n- You can lean significantly — 20-30 degrees on good hardpack. The tire's knobs engage with the packed surface\n\n**Low-traction corners (loose gravel, wet, sand over hardpack):**\n\n- Keep the bike more upright. Less lean = less side-load on the tires = more traction budget\n- Steer through the turn rather than leaning through it. Turn the bars slightly in the direction of the turn\n- Wider line — the larger radius reduces the centripetal force at any given speed\n- Weight still through the outside foot, but your body stays more centered over the bike\n- Slower entry speed — the 85% rule (below) is non-negotiable on low-grip surfaces\n- Do not pedal through the corner if your inside pedal might clip. Level cranks, outside foot heavy\n\nThe transition between these techniques should happen based on what you FEEL through the tires and bars, not what the surface looks like. Lesson 3's traction exploration taught you to feel grip through your tires. In a corner, that same sensation tells you which technique applies. The quiet tire feel from correct pressure is your real-time feedback."
+    },
+    {
+      "type": "accordion",
+      "items": [
+        {
+          "title": "Wet Corner Physics and Coefficient Adjustments",
+          "content": "Wet gravel is a different sport. Everything you know about cornering gets a coefficient applied to it, and that coefficient is less than 1.\n\n**Wider lines.** The wider your radius, the less centripetal force the tires must generate. A line 2-3 feet wider than your dry-weather line can be the difference between grip and slide. Yes, you travel a slightly longer distance. You also stay upright.\n\n**Earlier apex.** On dry gravel, a late apex lets you see through the corner before committing. On wet gravel, an earlier apex gives you more room on the exit — which is where things go wrong when traction degrades. If the rear slides on exit, a wider exit line gives you space to recover.\n\n**Brake BEFORE, not during.** This is Lesson 5's core principle, amplified. On wet gravel, the traction circle is roughly 40% smaller than dry. Any braking input mid-corner is stealing from an already tiny turning budget. All speed management happens in the straight section before the turn. Set your entry speed on dry ground if possible.\n\n**Avoid painted lines, manhole covers, and metal grates.** These aren't gravel features, but they show up on gravel roads that share infrastructure with paved roads. Wet metal and paint have friction coefficients close to ice. Cross them while upright and straight, or don't cross them.\n\n**Accept the cost.** Wet corners are slower. Period. The rider who accepts a 20% speed reduction in wet corners and stays upright finishes ahead of the rider who tries to maintain dry-weather pace and crashes once. I've done the math on this with race files — a single crash costs 2-5 minutes. Riding 20% slower through 30 wet corners costs about 90 seconds total."
+        }
+      ]
+    },
+    {
+      "type": "accordion",
+      "items": [
+        {
+          "title": "Corner Speed Physics — Friction Coefficients and Lean Angle Math",
+          "content": "Every corner has a theoretical maximum speed. It's determined by physics: radius, surface friction coefficient, tire width, lean angle, and rider mass. The calculator below will give you the number.\n\nNever enter at that number. Enter at 85%.\n\nI'll be honest — I still get nervous in loose corners. The difference isn't that the fear went away. It's that I have a checklist now instead of a prayer.\n\nThe 85% rule exists because the calculator assumes a uniform surface, a consistent radius, zero wind, and a rider who holds a perfect line. Gravel gives you none of these. The surface changes mid-corner. The radius tightens where you can't see. A gust pushes you. You tense up and add 2 degrees of lean you didn't plan.\n\nThe 15% margin absorbs all of it. At 85% of max, you have budget to handle one surprise — a loose patch, a tightening radius, a front-tire push — without exceeding the traction limit. At 100% of max, any surprise puts you on the ground.\n\nThis isn't about being timid. It's about being honest about how much you don't know about the next 50 feet of surface. The best gravel riders I've watched don't carry more corner speed than everyone else. They carry better-calibrated corner speed — fast enough to be competitive, slow enough to handle surprises.\n\nAfter enough reps through a familiar set of corners, your 85% starts creeping up naturally. Not because you're being braver, but because you're reading the surface better (Lesson 8), your traction sense is sharper (Lesson 3), and your body defaults to the right technique without conscious thought. That's the progression from Lesson 12's flow state — earned speed, not hoped-for speed."
+        }
+      ]
+    },
+    {
+      "type": "prose",
+      "content": "### Corner Speed Calculator\n\nEstimate the maximum and recommended entry speed for a gravel corner. The recommended speed applies the 85% safety margin — the speed you should actually carry.\n\n_Interactive calculator coming soon — the numbers above are the method._"
+    },
+    {
+      "type": "callout",
+      "content": "The calculator gives you a starting point, not gospel. Real corners have variable radius, camber, and surface changes that no formula captures. Use the numbers to calibrate your instincts — if the calculator says 14 mph max on loose gravel and you've been entering at 18, that's a conversation worth having with yourself. The figure-8 drill below will teach your body what the numbers mean.",
+      "style": "tip"
+    },
+    {
+      "type": "process",
+      "title": "The 85% Rule",
+      "description": "The corner entry speed protocol. Deploy on every gravel corner where you cannot see the full exit.",
+      "steps": [
+        {
+          "step": 1,
+          "action": "Read the surface 50m out",
+          "detail": "Identify surface type, transitions, and debris before you commit to the corner."
+        },
+        {
+          "step": 2,
+          "action": "Choose the smoothest line",
+          "detail": "Pick the line with the best surface quality — not the geometric apex. Packed tire tracks, compressed outside line, swept inside line."
+        },
+        {
+          "step": 3,
+          "action": "Scrub to 85% of estimated max before turn-in",
+          "detail": "All braking happens on the straight before the corner. Use The Braking Budget from Lesson 5."
+        },
+        {
+          "step": 4,
+          "action": "Weight outside foot, lighten inside hand",
+          "detail": "Outside pedal dropped to 6 o'clock, heavy. Inside hand barely touching the bar. Bike leans beneath you."
+        },
+        {
+          "step": 5,
+          "action": "Coast through — no braking, no steering correction",
+          "detail": "The 15% margin absorbs surprises. Trust the setup. Exit wide if needed — wide is faster than crashed."
+        }
+      ]
+    },
+    {
+      "type": "drill",
+      "title": "Figure-8 Progression",
+      "time_minutes": 20,
+      "description": "Two markers on flat gravel, 20 meters apart. Ride figure-8s around them, tightening the radius over 4 sessions. This is where you build corner feel — the connection between lean angle, speed, and surface grip that no calculator can replace.",
+      "variants": [
+        {
+          "level": "beginner",
+          "label": "Flat gravel parking area, wide turns, low speed",
+          "steps": [
+            "Set two markers (water bottles, cones, rocks) 20 meters apart on a flat gravel surface.",
+            "Ride figure-8s around the markers at a comfortable speed — 8-10 mph. Focus on smooth, round turns, not speed.",
+            "Outside foot down at 6 o'clock in every turn. Inside hand light. Feel the asymmetric loading from the sensation target.",
+            "Ride 10 laps. On each lap, notice: Where does the front tire push? Where does it bite? Where do you tense up?",
+            "Move the markers 1 meter closer (19m apart). Ride 10 more laps. The tighter radius forces slightly more lean or slightly lower speed — your choice.",
+            "Continue tightening by 1 meter every 10 laps until you feel the front tire begin to push or your confidence drops. That's your current limit. Mark it.",
+            "Session goal: find your limit radius at 8-10 mph. No crashes, no heroics. Just data collection."
+          ]
+        },
+        {
+          "level": "intermediate",
+          "label": "Mixed-surface gravel, moderate speed, technique focus",
+          "steps": [
+            "Same setup, but choose a surface with some variety — packed in some areas, looser in others. This forces you to adjust technique mid-figure-8.",
+            "Start at 20m spacing, 10-12 mph. Higher speed means the turns demand more lean or a wider radius.",
+            "Practice switching between high-traction technique (lean the bike, stay upright) on packed sections and low-traction technique (bike upright, steer through) on loose sections.",
+            "Every 5 laps, tighten the markers by 1 meter. Feel how the required technique changes as the radius shrinks.",
+            "At each radius, do 2 laps with exaggerated outside-foot weighting, then 2 laps with intentionally equal hand pressure. Notice the difference in front-tire feedback.",
+            "Target: reach 12m spacing at 10-12 mph with zero front-tire push on either surface.",
+            "If the front pushes: slow down 1 mph and try again. Speed is the cheapest fix for a pushing front tire."
+          ]
+        },
+        {
+          "level": "race-pace",
+          "label": "Progressive speed at fixed radius, simulating race corner entry",
+          "steps": [
+            "Set markers at 15m apart — a moderately tight radius that simulates a real gravel corner.",
+            "Run 1: 5 laps at 10 mph. Establish your technique baseline. Outside foot heavy, inside hand empty, quiet eye through the exit.",
+            "Run 2: 5 laps at 12 mph. Same radius, 20% more speed. Feel where the traction limit shifts. More lean needed, or wider turns?",
+            "Run 3: 5 laps at 14 mph. This is approaching real descent corner speeds on tight turns. The front tire will tell you things. Listen.",
+            "Run 4: 5 laps at 15-16 mph if surface allows. You're now at 85-90% of what the calculator predicts for this radius on loose gravel.",
+            "Run 5: Back to 10 mph, but tighten markers to 10m. The smallest radius tests low-speed bike control — steering precision, body position, pedal clearance.",
+            "Debrief: Which speed + radius combination felt like 85% effort? That's your calibrated corner speed for this surface."
+          ]
+        }
+      ],
+      "proof_gate": {
+        "description": "Complete a 5-meter radius figure-8 at 10 mph on loose gravel with zero front-tire push.",
+        "metric": "binary",
+        "target": "5m radius, 10 mph, loose gravel surface, no front-tire push through 5 consecutive laps"
+      }
+    },
+    {
+      "type": "recovery_protocol",
+      "title": "When Prevention Fails",
+      "scenarios": [
+        {
+          "label": "Mid-Corner Front Tire Push",
+          "situation": "You're mid-corner and feel the front tire drift — a vague, greasy sensation through the bars. The tire is sliding toward the outside of the turn.",
+          "steps": [
+            "Widen the line immediately. Push the bike toward the outside of the corner. A wider radius reduces centripetal force on the tire — this is the single most effective input you have.",
+            "Reduce lean angle. Straighten the bike as much as the road allows. Less lean = less side-load = more traction budget for the front tire to recover.",
+            "Press harder through the outside foot. Drive your weight down through the pedal, not through the bars. This stabilizes the bike from below and shifts load away from the pushing front tire.",
+            "Do NOT brake. Any braking input adds force to a tire already past its traction limit. The traction circle is full — braking will overflow it and the front will wash out completely.",
+            "Do NOT steer tighter. Turning the bars into the corner increases the demand on a front tire that's already sliding. Fight the instinct to correct the line by steering — you correct it by widening.",
+            "Accept the wide exit. You'll drift 2-4 feet outside your intended line. That costs 1-2 seconds. A front washout costs 2-5 minutes and skin."
+          ]
+        },
+        {
+          "label": "Mid-Corner Rear Slide",
+          "situation": "The rear tire breaks loose mid-corner — you feel the back end step out, sliding toward the outside of the turn.",
+          "steps": [
+            "Stay off the brakes. Both brakes. A sliding rear tire has zero directional stability, and grabbing the front brake while the rear is loose will low-side you instantly.",
+            "Look where you want to go. Your body follows your eyes. Look at the exit of the corner, not at the sliding rear wheel. This keeps your upper body oriented in the right direction and prevents overcorrection.",
+            "Let the rear find its own grip. On most gravel surfaces, a rear slide is self-correcting if you don't make it worse. The tire will scrub speed through friction and re-engage. Keep your weight on the outside foot and wait.",
+            "If the rear catches suddenly, do NOT overcorrect. A snapping rear tire can kick the bike in the opposite direction. Keep your hands light on the bars and your core engaged. Let the bike settle beneath you.",
+            "Once grip returns, hold your line for 2-3 seconds before making any input. The tire needs time to re-establish full traction. Steering or braking immediately after recovery puts you right back at the limit."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "prose",
+      "content": "### Why This Matters for the Race Setup Card\n\nThe corner speed calculator feeds into your Race Setup Card. For any of the 757 races in the database, you can look at the descent profiles, estimate corner radii from satellite imagery or race reports, and calculate your target entry speeds by surface type.\n\nThis turns \"I hope I can make that corner\" into \"I know I need to enter that corner at 14 mph on wet hardpack.\" That number goes on the card. You see it before the race. When you crest the climb and start the descent, you already know the plan.\n\nLesson 9 (Descending as Play) will build on this — adding body position, aero tuck timing, and gradient-based weight shift to your corner speed fundamentals. For now, the foundation is this: **choose lines by surface, separate braking from turning (Lesson 5), load the outside foot, lighten the inside hand, and never enter faster than 85%.**"
+    },
+    {
+      "type": "video",
+      "id": "WVXgAqpjOAs",
+      "title": "How to Corner & Descend On Your Gravel Bike",
+      "channel": "The Pro's Closet",
+      "caption": "Gravel-specific cornering with multi-angle framing — line, lean, and outside-foot loading."
+    },
+    {
+      "type": "video",
+      "id": "GFKPtEzE4xw",
+      "title": "OVER 40 MOUNTAIN BIKE TIPS: CORNERING WITH CONFIDENCE | Loose over Hardpack!",
+      "channel": "Joy of Bike",
+      "mtb_demo": true,
+      "caption": "Cornering specifically on loose-over-hardpack — Dirt Craft's exact surface."
+    },
+    {
+      "type": "knowledge_check",
+      "question": "You're mid-corner on gravel at 15 mph when you feel the front tire push — a vague, drifting sensation through the bars. The surface has transitioned from packed to loose. What is the correct immediate response?",
+      "options": [
+        {
+          "text": "Apply the front brake to slow down and regain control",
+          "correct": false
+        },
+        {
+          "text": "Lean the bike harder into the turn to increase tire contact patch",
+          "correct": false
+        },
+        {
+          "text": "Widen the line, reduce lean angle, and press harder through the outside foot — do not brake",
+          "correct": true
+        },
+        {
+          "text": "Straighten up, brake to a stop, and walk through the loose section",
+          "correct": false
+        }
+      ],
+      "explanation": "A front-tire push means the tire has exceeded its traction budget for the current combination of speed, lean angle, and surface friction. Braking mid-corner adds braking force to an already-overloaded traction circle — this is the Incident Report crash. Leaning harder increases the side-load and makes the push worse. The correct response: widen the line (increasing effective radius, reducing centripetal force), reduce lean angle (decreasing side-load on the tire), and press harder through the outside foot (the weighted drop, driving traction through the rear tire and stabilizing the bike). No brake input. You're managing the traction circle — reducing the demands on it until the tire recovers grip. This is ugly and costs you 1-2 seconds. Crashing costs 2-5 minutes."
+    },
+    {
+      "type": "commitment",
+      "content": "Your commitment before Lesson 7: find a gravel corner and ride it 10 times. Use The 85% Rule every time. Note where the front tire pushes. Tighten the radius by 1 meter each set of 5."
+    },
+    {
+      "type": "callout",
+      "content": "Next lesson: Climbing Without Spinning Out. You've mastered the traction circle for braking and turning. Now we apply it to the other direction — driving force through the rear tire on loose climbs without breaking traction. The torque ceiling, cadence strategy, and why standing on gravel climbs is often the wrong move.",
+      "style": "next"
+    }
+  ]
+}

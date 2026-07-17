@@ -1,0 +1,284 @@
+{
+  "id": "braking-that-builds-confidence",
+  "title": "Braking That Builds Confidence",
+  "module": "control-the-inputs",
+  "lesson_number": 5,
+  "blocks": [
+    {
+      "type": "sensation_target",
+      "label": "Quiet discs — soft hiss, not howl",
+      "content": "Pull both brake levers gently until you hear the pads contact the rotors. That first whisper of friction — a soft, steady hiss — is the sound of controlled deceleration. Now squeeze harder. The hiss becomes a howl, a pulsing scream of metal and heat. That's panic braking.\n\nThe target sensation is all hiss, no howl. Light, steady pressure across both levers, left hand doing slightly more work than right. The bike slows progressively — no lurch, no skid, no weight transfer violent enough to unload either tire.\n\nHere's the test: descend a gravel hill and listen. If you can hear your rotors from 20 feet away, you're spending braking budget you don't have. If the only sound is tire crunch and wind, you've found it.\n\nOne more thing — your hands should feel almost bored. Two fingers on each lever, the rest wrapped around the bar for stability. If all four fingers are on the levers and your forearms are burning, you're white-knuckling the brakes the same way Lesson 1's death grip white-knuckled the bars."
+    },
+    {
+      "type": "hero_stat",
+      "value": "70-80%",
+      "unit": "of your stopping power",
+      "context": "comes from the front brake — the one most gravel riders are afraid to use"
+    },
+    {
+      "type": "black_box",
+      "title": "Incident Report",
+      "content": "Rider descends wet loose gravel at 19 mph. Road instinct: rear brake dominant. Right hand squeezes harder than left. Rear tire locks. Skids sideways, cutting a 4-foot arc across the loose surface.\n\nPanic response: rider grabs the front brake to compensate and arrest the slide. On wet loose gravel, the front tire has roughly 40% of its dry traction budget. The front washes out instantly — no warning, no progressive slide, just gone.\n\nDown at 19 mph. Left hip, left shoulder, left palm. Bike slides into the ditch.\n\nThe rear brake felt safer. It was the most dangerous input the rider made. The locked rear caused the slide. The panic grab of the front turned a recoverable skid into an unrecoverable crash.\n\nThe rider behind — who scrubbed speed with both brakes before the wet section and coasted through it — rolled past without touching a lever."
+    },
+    {
+      "type": "prose",
+      "content": "### Why Road Braking Instincts Will Crash You\n\nOn pavement, rear-brake-dominant technique is suboptimal but survivable. The rear tire has enough traction on asphalt that a lockup just means a skid mark and some lost speed. The front tire is nearly impossible to wash out on dry road. So road riders develop a habit: right hand does the work, left hand assists.\n\nOn gravel, this habit is actively dangerous. Here's why:\n\n1. **The rear tire has less traction than you think.** On loose gravel, the rear contact patch is already near its friction limit just from your body weight and pedaling forces. Add braking force, and you exceed the limit almost immediately. The rear locks, and a locked rear wheel has zero directional stability — it slides wherever gravity and momentum want it to go.\n\n2. **The front tire has more traction than you think.** Under braking, weight transfers forward. This loads the front tire and unloads the rear. The front contact patch grows, gains traction, and can handle significantly more braking force. On dry hardpack gravel, the front brake can deliver 3-4x the deceleration of the rear before losing grip.\n\n3. **The rear brake is a steering input, not just a speed input.** When the rear wheel locks and slides, the bike rotates around the front contact patch. You're no longer braking — you're turning. And you're turning in a direction you didn't choose."
+    },
+    {
+      "type": "accordion",
+      "items": [
+        {
+          "title": "Traction Circle Physics",
+          "content": "Every tire has a finite budget of grip. Think of it as a circle — a fixed-radius circle whose size depends on surface type, tire pressure, tire width, and load.\n\nInside the circle, you're fine. Outside the circle, you're sliding.\n\nThe critical insight: **braking and turning share the same budget.** If you're using 80% of the traction circle for braking, you only have 20% left for cornering. If you're using 80% for cornering, you only have 20% for braking.\n\nThis is why braking mid-corner crashes people. It's not that the surface suddenly got slippery. It's that you asked the tire to do two expensive things at once, and the total exceeded the budget.\n\nThe solution is spatial separation: brake in the straight sections, coast through the corners. This sounds obvious when you read it, but watch any group of gravel riders descend a twisty gravel road and count how many are braking through the turns. It's most of them. I was one of them for years."
+        }
+      ]
+    },
+    {
+      "type": "accordion",
+      "items": [
+        {
+          "title": "Stopping Distance Derivation and Braking Mechanics",
+          "content": "**70/30 front-rear split.** On dry gravel, aim for 70-80% of your braking force from the front, 20-30% from the rear. The front does the real stopping; the rear provides stability and a small contribution. On wet gravel, shift toward 60/40 — the front still leads, but you give the rear a bit more because weight transfer is more destabilizing on slick surfaces.\n\n**Pulse braking on loose surfaces.** Instead of steady pressure, apply the brakes in quick pulses — squeeze for half a second, release for half a second. Each pulse decelerates the bike. Each release lets the tires re-establish grip. This is slower than sustained braking but vastly more controlled. On loose-over-hardpack, pulse braking can cut stopping distance by 20-30% compared to a locked wheel that's plowing through loose material.\n\n**Speed-scrub zones.** Before every corner, identify the straight section where you'll do your braking. All of it. Enter the corner at the speed you want to carry through it. Coast through the turn. Accelerate out. This is the single most effective thing you can do for your descending. It's not about bravery — it's about moving your braking to where the tires have full traction budget available.\n\n**2-finger discipline.** Use your index and middle fingers on the brake levers. Ring finger and pinky stay wrapped around the bar. This does three things: (1) limits maximum braking force so you physically can't panic-grab, (2) maintains your grip on the handlebar for steering authority, and (3) reduces forearm fatigue on long descents. Modern hydraulic discs generate more than enough power with two fingers. If you need all four fingers to stop, your brakes need service.\n\nIf you nailed the weighted drop from Lesson 1, your hands are already light on the bars. Two-finger braking is the natural extension — light hands, light braking inputs, heavy feet keeping the bike planted."
+        }
+      ]
+    },
+    {
+      "type": "data_table",
+      "caption": "Maximum Deceleration and Stopping Distance by Surface Type (from 20 mph, 170 lb rider, hydraulic disc brakes, 42mm tires at 30 PSI)",
+      "headers": [
+        "Surface",
+        "Max Deceleration (g)",
+        "Stopping Distance (ft)",
+        "Front/Rear Split",
+        "Notes"
+      ],
+      "rows": [
+        [
+          "Dry Hardpack",
+          "0.65-0.75",
+          "28-32",
+          "80/20",
+          "Best grip. Full front-brake authority. Closest to road braking."
+        ],
+        [
+          "Wet Hardpack",
+          "0.40-0.55",
+          "38-52",
+          "70/30",
+          "Grip drops 30-40%. Pulse braking preferred. Watch for clay."
+        ],
+        [
+          "Loose Gravel",
+          "0.30-0.45",
+          "46-70",
+          "65/35",
+          "Loose material rolls under tires. Pulse braking essential. Rear locks easily."
+        ],
+        [
+          "Wet Loose Gravel",
+          "0.20-0.30",
+          "70-104",
+          "60/40",
+          "Worst common surface. Stopping distance 2-3x dry hardpack. Scrub speed early."
+        ],
+        [
+          "Sand",
+          "0.15-0.25",
+          "84-140",
+          "55/45",
+          "Front digs in. Very light front input. Speed management > braking."
+        ],
+        [
+          "Mud",
+          "0.10-0.20",
+          "104-208",
+          "50/50",
+          "Near-zero grip. Rim contamination reduces pad bite. Pump brakes to clear mud."
+        ]
+      ]
+    },
+    {
+      "type": "callout",
+      "content": "Look at those stopping distances. On dry hardpack, you stop in 30 feet from 20 mph. On wet loose gravel, it's 70-104 feet — more than triple. If you're carrying road-calibrated braking expectations into a wet gravel descent, you're going to overshoot every corner. The numbers don't lie, even when the surface looks rideable.",
+      "style": "tip"
+    },
+    {
+      "type": "process",
+      "title": "The Braking Budget",
+      "description": "The traction circle concept applied as a pre-descent planning tool. Deploy before every gravel descent.",
+      "steps": [
+        {
+          "step": 1,
+          "action": "Identify speed-scrub zones",
+          "detail": "Before the descent begins, pick the straight sections where you will do ALL your braking."
+        },
+        {
+          "step": 2,
+          "action": "Set entry speed with 2-finger front-brake drag",
+          "detail": "Use index and middle fingers on the front lever to scrub speed progressively before each corner or surface change."
+        },
+        {
+          "step": 3,
+          "action": "Coast through corners — zero brake input mid-turn",
+          "detail": "The traction circle is fully committed to turning. Any braking input mid-corner steals from the turning budget."
+        },
+        {
+          "step": 4,
+          "action": "Pulse-brake on loose",
+          "detail": "Squeeze-release, never lock. Each pulse decelerates; each release lets the tires re-establish grip."
+        }
+      ]
+    },
+    {
+      "type": "drill",
+      "title": "Speed-Set-Coast",
+      "time_minutes": 20,
+      "description": "Ride the same descent 5 times, progressively reducing the number of braking zones. Discover how much unnecessary braking you've been doing — most riders are shocked.",
+      "variants": [
+        {
+          "level": "beginner",
+          "label": "Gentle gravel descent, 5-8% grade, clear sightlines",
+          "steps": [
+            "Find a gravel descent you know well — 1-2 minutes long, moderate grade, corners you can see through. Ride it top to bottom at your normal pace.",
+            "Run 1 — Unlimited braking: Ride the descent naturally. Count every time you touch the brakes. Most riders hit 8-15 braking events on a 2-minute descent. Write the number down.",
+            "Run 2 — Five braking zones: Pick the 5 most important places to brake (usually before corners and at surface changes). Brake ONLY in those zones. Coast everywhere else.",
+            "Run 3 — Three braking zones: Cut to 3. You have to choose. Which corners actually need braking? Which ones did you brake for out of habit?",
+            "Run 4 — One braking zone: One single scrub point. Pick the spot where you need the most speed reduction. Everything else is body position, line choice, and the weighted drop from Lesson 1.",
+            "Run 5 — Zero braking: Enter the descent at a speed that lets you coast the entire way without touching the brakes. This will be slower than your normal entry speed. That's the point — this run teaches you what speed the descent actually requires."
+          ]
+        },
+        {
+          "level": "intermediate",
+          "label": "Steeper gravel descent, mixed surfaces, 8-12% grade",
+          "steps": [
+            "Same structure as beginner, but on a descent with surface changes — hardpack to loose, or dry to wet patches.",
+            "Key difference: your braking zones should align with surface transitions. Scrub speed BEFORE you reach the loose or wet section, not during.",
+            "Run 1: Count total braking events. Also note WHERE you're braking — straights or corners?",
+            "Runs 2-3: Prioritize your braking zones. Brake on straights before corners, not in the corners themselves. Apply the traction circle — separate braking from turning.",
+            "Run 4: One braking zone. Use body position and the quiet eye (Lesson 4) to manage speed everywhere else. Let your focus drift 3-5 seconds ahead of the bike.",
+            "Run 5: Zero braking. Find the entry speed where the descent rides itself. Your hip hinge from Lesson 2 and weighted drop from Lesson 1 do the speed management."
+          ]
+        },
+        {
+          "level": "race-pace",
+          "label": "Race-intensity descent with time pressure",
+          "steps": [
+            "Warm up with one easy run to identify the 2-3 critical braking points.",
+            "Run 1: Descend at race pace — the speed you'd actually carry in a race. Count braking events. For most riders at race pace, this is 3-6 events.",
+            "Runs 2-3: Reduce to 2 braking zones, then 1. Find speed through line selection and body position, not brakes. Use drops position for aerodynamic speed management (preview of Lesson 9).",
+            "Run 4: Zero braking at a moderate entry speed. Focus: can you maintain quiet hands and the weighted drop at the speed where your instincts scream 'brake'?",
+            "Run 5: Full send with 1-2 strategic braking points. Time this run. Compare to Run 1. Most riders find they're within 2-3 seconds despite dramatically less braking — because smoother = faster."
+          ]
+        }
+      ],
+      "proof_gate": {
+        "description": "Halve your braking events on a familiar descent while maintaining the same speed.",
+        "metric": "count",
+        "target": "50% reduction in braking events compared to your first unlimited run, at the same or faster speed"
+      }
+    },
+    {
+      "type": "recovery_protocol",
+      "title": "When Prevention Fails",
+      "scenarios": [
+        {
+          "label": "Rear Lockup Release",
+          "situation": "Your rear wheel locks and begins to skid sideways.",
+          "steps": [
+            "Immediately release the rear brake completely. Not feather — RELEASE. A locked rear wheel has zero directional stability. An unlocked rear wheel, even one that's still decelerating, tracks straight.",
+            "Keep the front brake steady. Do not grab it harder. Do not release it. Whatever pressure you had, maintain it. The front is your only functional brake right now.",
+            "Let the bike track straight for 1-2 seconds. Do not try to steer. The rear wheel needs to re-establish traction and the bike needs to realign. Your hip hinge from Lesson 2 is your friend here — keep the upper body loose.",
+            "Reapply the rear brake gently — 50% of whatever pressure caused the lockup. If it locks again, your speed is still too high for the surface. Front brake only until speed drops.",
+            "Debrief: the lockup happened because you asked the rear for more than it could give. Next time, shift more braking to the front earlier. The data table above tells you the split."
+          ]
+        },
+        {
+          "label": "Front Washout",
+          "situation": "Your front tire pushes, slides, or begins to lose traction during braking.",
+          "steps": [
+            "This is the honest part: if the front tire fully washes out during braking, your recovery options are extremely limited. Prevention is the strategy, not recovery.",
+            "If you feel the front beginning to push — a vague, greasy sensation through the bars — immediately reduce front brake pressure by 50%. Not release, reduce. You need to bring the tire back inside the traction circle.",
+            "Shift your weight rearward by pressing harder through the pedals. This unloads the front contact patch slightly and can restore grip.",
+            "Do not turn the handlebars. On a pushing front tire, steering input makes the slide worse. Straight-line the bike and let the tire find its own grip.",
+            "If you're in a corner when the front pushes, straighten the bike as much as the road allows. A wider line with less lean angle gives the front tire more grip budget. Accept a wider exit rather than forcing the original line.",
+            "The real fix is upstream: scrub speed before corners (speed-scrub zones), use pulse braking on loose surfaces, and never combine heavy braking with turning. If you're recovering from a front push, you overspent the budget 5 seconds earlier."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "drill",
+      "title": "Front Brake Only",
+      "time_minutes": 20,
+      "description": "BetterRide's single-brake isolation drill: ride a descent pretending your rear brake doesn't exist. It forces you to finish braking in a straight line before the corner and to trust the front — the lever that does most of the work and the one most gravel riders underuse.",
+      "proof_gate": {
+        "target": "You can descend a familiar gravel trail using only the front brake, finishing all braking before each corner and staying centered (not creeping back over the rear), in full control."
+      },
+      "variants": [
+        {
+          "level": "beginner",
+          "label": "Gentle known descent, front brake only",
+          "steps": [
+            "Pick a descent you know well with clear runouts.",
+            "Ride it pretending you have no rear brake — front only. Do all your slowing in a straight line before each corner.",
+            "Never brake and turn at the same time: cut speed straight, then release and turn.",
+            "Feel how much stopping power the front actually has. It's more than fear lets you believe."
+          ]
+        },
+        {
+          "level": "intermediate",
+          "label": "Add speed, keep it front-only",
+          "steps": [
+            "Same descent, carry more entry speed, still front-only.",
+            "Stay centered and hinged — don't creep back over the rear to feel 'safe'; that unweights the tire you're braking with.",
+            "Goal: brake-before-the-corner and front-brake trust become automatic. Then add the rear back as a fine-tuner, not the main event."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "prose",
+      "content": "### Building the Race Setup Card: Braking Distance Reference\n\nThis lesson feeds directly into your Race Setup Card. The stopping distance data above, combined with the surface breakdown from any race profile in the 757-race database, gives you a braking reference for specific descents.\n\nIf a race profile shows a descent with wet loose gravel at mile 47, you now know: stopping distance from 20 mph is 70-104 feet. Triple what you're used to on dry hardpack. You plan your speed-scrub zones before you roll out of bed on race morning.\n\nLesson 8 (Reading Surfaces at Speed) will build on this — teaching you to identify surface types in real time so you can adjust braking strategy on the fly. For now, the key lesson is simpler: **know the numbers, plan the zones, separate braking from turning.**"
+    },
+    {
+      "type": "video",
+      "id": "5Z7-cV6XoXc",
+      "mtb_demo": true,
+      "title": "How To Brake In Any Situation | MTB Skills",
+      "channel": "Global Mountain Bike Network",
+      "caption": "Front and rear braking demonstrated — see the weight shift and modulation."
+    },
+    {
+      "type": "knowledge_check",
+      "question": "You're descending a gravel road at 22 mph. Ahead, a sweeping left-hand corner with a transition from dry hardpack to wet loose gravel at the apex. What is the correct braking sequence?",
+      "options": [
+        {
+          "text": "Brake lightly through the corner, reducing speed gradually as you enter the wet section",
+          "correct": false
+        },
+        {
+          "text": "Scrub speed to 12-15 mph on the dry hardpack before the corner, coast through the wet section with zero braking",
+          "correct": true
+        },
+        {
+          "text": "Use rear brake only through the wet section to avoid front wheel washout",
+          "correct": false
+        },
+        {
+          "text": "Maintain speed and use body position to carry momentum through the corner",
+          "correct": false
+        }
+      ],
+      "explanation": "The traction circle is the key here. Braking through the corner — especially into a wet loose section — means you're asking the tires to brake AND turn simultaneously. On wet loose gravel, the traction budget is already small (stopping distance 2-3x dry hardpack). You need all of it for turning. The correct sequence: do ALL braking on the dry hardpack before the corner (where stopping distance is 28-32 feet, not 70-104 feet), set your entry speed, and coast through the wet section with zero brake input. Using rear-only braking in the wet is exactly the Incident Report scenario — rear locks, front grab, down. Maintaining speed through a wet surface transition is how you test the data table the hard way."
+    },
+    {
+      "type": "commitment",
+      "content": "Your commitment before Lesson 6: ride a familiar descent and count your braking events. Then ride it again using The Braking Budget — scrub before, coast through. Target: halve the count."
+    },
+    {
+      "type": "callout",
+      "content": "Next lesson: Cornering Without Clenching. You've learned to separate braking from turning. Now we'll teach you what to do IN the turn — asymmetric loading, line selection, and the 85% rule that keeps the front tire planted when the surface tries to push it.",
+      "style": "next"
+    }
+  ]
+}

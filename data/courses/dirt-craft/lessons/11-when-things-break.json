@@ -1,0 +1,342 @@
+{
+  "id": "when-things-break",
+  "title": "When Things Break",
+  "module": "find-the-speed",
+  "lesson_number": 11,
+  "blocks": [
+    {
+      "type": "hero_stat",
+      "value": "6 minutes",
+      "unit": "of actual repair work",
+      "context": "became an 11-mile walk and a DNF — because the rider hadn't practiced since the garage tutorial 6 months ago"
+    },
+    {
+      "type": "black_box",
+      "title": "Incident Report",
+      "content": "Mile 68 of a 130-mile gravel race. Rear tire loses pressure over 30 seconds — classic tubeless puncture, small thorn still embedded. Rider has a plug kit in their saddle bag. They bought it 6 months ago and practiced once in the garage on a clean tire in good light.\n\nThey stop. Hands are shaking from 4 hours of riding. They fumble the plug tool, drop the insertion needle in the grass, find it, try to locate the puncture by sound. Can't hear the hiss over wind and their own breathing. Spin the wheel — sealant spray marks the hole. They push the plug in at the wrong angle, it doesn't seat. Pull it out, try again. This time it holds, but the tire is flat.\n\nThey reach for a CO2 cartridge. First cartridge: they don't seat the inflator head properly. Half the CO2 vents into the air. Tire reaches 15 PSI — not enough to seat the bead. Second cartridge: bead seats, but they're now at 38 PSI with no way to adjust and zero backup inflation.\n\nThey ride 3 miles. The plug fails — it was inserted crooked. Tire goes flat again. No more CO2. No frame pump. They walk 11 miles to the next aid station.\n\nThe repair itself required 6 minutes of calm, sequenced work. The rider spent 22 minutes in escalating panic and burned both cartridges. The mechanical didn't end their race. The lack of practiced, automatic repair sequence did."
+    },
+    {
+      "type": "sensation_target",
+      "label": "Calm hands, clear sequence",
+      "content": "You pull over. You don't think about what to do — your hands are already unzipping the saddle bag. Plug tool, insertion needle, CO2. Laid out on the ground in order. Spin the wheel, find the hole, push the plug straight in. One smooth motion. Inflate, check, ride.\n\nThe feeling isn't bravery or grit. It's boredom. You've done this 30 times. Your hands know the sequence the way your legs know how to pedal. The adrenaline is still there — shaking hands, elevated heart rate, the clock ticking — but it flows around the sequence instead of disrupting it.\n\nThat's the target: a 3-minute tire plug that feels routine. Not because the situation isn't stressful, but because the motor pattern is deeper than the stress."
+    },
+    {
+      "type": "prose",
+      "content": "This is a motor skills problem, not a knowledge problem. You already know what a tire plug is. You need your hands to know it too. Three repairs, timed, under fatigue. That's the lesson.\n\nI learned this the hard way at a race in 2022 — fumbled a plug at mile 90, burned both CO2 cartridges, walked 8 miles in cycling shoes. I'd practiced exactly once, in my garage, with clean hands and good lighting. Now I practice monthly, outside, after a ride. The difference between a 3-minute fix and a DNF is reps, not knowledge."
+    },
+    {
+      "type": "prose",
+      "content": "### Repair 1: Tubeless Tire Plug — Target Time: Under 3 Minutes\n\nMost common gravel mechanical. The sequence:\n\n1. **Lean the bike drive-side up.** Don't flip it.\n2. **Spin the wheel slowly.** Listen for hiss, look for sealant spray. If the object is still embedded, leave it — it's marking the hole.\n3. **Remove the object.** Pull straight out. Note the angle — your plug goes in at the same angle.\n4. **Insert the plug.** Firm, steady, no wiggle. Push until ~1 cm of plug material remains visible. Pull the needle straight out.\n5. **Inflate.** One CO2 cartridge, properly seated. Target 30-35 PSI.\n6. **Spin and check.** 10 seconds with the plug at the bottom. Hissing = pull it, try again with a fresh strip.\n7. **Ride.** Check pressure at 5 min and 15 min."
+    },
+    {
+      "type": "data_table",
+      "headers": [
+        "Failure",
+        "Cause",
+        "Fix"
+      ],
+      "rows": [
+        [
+          "Plug won't seal",
+          "Inserted at wrong angle",
+          "Match the puncture angle, not perpendicular to tire surface"
+        ],
+        [
+          "Plug pushed through",
+          "Inserted too far",
+          "Stop when ~1 cm remains outside the tire"
+        ],
+        [
+          "CO2 vented into air",
+          "Bad inflator seal",
+          "Practice inflator head attachment until automatic"
+        ]
+      ],
+      "caption": "Tire Plug Failure Modes"
+    },
+    {
+      "type": "prose",
+      "content": "### Repair 2: Tube in a Tubeless Tire — Target Time: Under 8 Minutes\n\nBackup when the plug fails or the cut is too large (sidewall slice, double puncture, bead won't seal).\n\n1. **Unseat one bead.** Start opposite the valve. Push bead into center channel for slack. Use tire levers if needed.\n2. **Remove the valve core.** Sealant will drain — let it. You don't need it with a tube inside.\n3. **Wipe the tire interior.** Glove, rag, whatever. \"Mostly clean\" is good enough for race-day survival.\n4. **Slightly inflate the tube.** 5-10 PSI — just enough for shape. Prevents pinching.\n5. **Insert the tube.** Valve through rim hole first, tuck all the way around. Run your fingers around both sides to check for pinching. This is the critical step.\n6. **Re-seat the bead.** Work from the valve outward in both directions. Push already-seated bead into center channel for slack on the last section.\n7. **Inflate.** 35-40 PSI. Higher than normal tubeless — the tube needs more support.\n8. **Check for bulges.** Bulge = pinched tube. Deflate, fix, re-inflate.\n\nMost common failure: pinching the tube under the bead (immediate flat). Prevention: step 5."
+    },
+    {
+      "type": "prose",
+      "content": "### Repair 3: Chain Quick Link — Target Time: Under 5 Minutes\n\n1. **Shift to smallest cog (and smallest ring if 2x) before the chain jams.** If wrapped around cassette or derailleur, untangle first.\n2. **Identify the broken link.** Remove the damaged link AND the adjacent one — quick links connect outer plate to outer plate. Usually 2 links removed.\n3. **Push the pin out with your chain tool.** Slightly shorter chain is fine for finishing.\n4. **Thread the chain.** Chainring, through rear derailleur cage, over cassette cog. Check wear marks on cage plates if unsure of routing.\n5. **Connect the quick link.** One half on each end, plates outward. Pull taut by pressing backward on pedals — it clicks. No click = not enough tension. Stand and press.\n6. **Test all gears gently.** Shorter chain may not reach largest cog + largest chainring. Avoid that combo."
+    },
+    {
+      "type": "callout",
+      "content": "Carry the RIGHT quick link for your chain. 11-speed and 12-speed links are not interchangeable. Check your chain speed, buy the matching link, put it in the saddle bag. Verify once a season.",
+      "style": "tip"
+    },
+    {
+      "type": "data_table",
+      "headers": [
+        "Item",
+        "Spec",
+        "Check Before Race"
+      ],
+      "rows": [
+        [
+          "Tire plug kit",
+          "3+ plug strips + insertion needle",
+          "Strips dry out — squeeze test for flexibility"
+        ],
+        [
+          "Spare tube",
+          "Must fit your tire size (e.g., 45mm)",
+          "A 25-28mm road tube will NOT survive in a 45mm casing"
+        ],
+        [
+          "CO2 cartridges x2",
+          "16g min, 20g preferred for 40mm+",
+          "Two is non-negotiable — one inflates, one insures"
+        ],
+        [
+          "CO2 inflator head",
+          "Practice with YOUR specific model",
+          "They're all slightly different"
+        ],
+        [
+          "Tire levers x2",
+          "Lightweight plastic",
+          "Don't skip these for tubeless"
+        ],
+        [
+          "Chain quick link",
+          "Must match drivetrain speed (11s/12s)",
+          "11-speed and 12-speed are NOT interchangeable"
+        ],
+        [
+          "Chain tool",
+          "Micro size or multi-tool integrated",
+          "Test on a spare chain before race day"
+        ],
+        [
+          "Multi-tool",
+          "4/5/6mm hex + T25 Torx",
+          "Verify all bits present"
+        ],
+        [
+          "Spare derailleur hanger",
+          "Frame-specific — order the right one",
+          "No spare = singlespeed conversion if it snaps"
+        ]
+      ],
+      "caption": "Repair Kit Audit — Minimum for 40+ Mile Events"
+    },
+    {
+      "type": "callout",
+      "content": "Audit your kit the week before every race, not the morning of. Replace anything you used last race.",
+      "style": "tip"
+    },
+    {
+      "type": "accordion",
+      "items": [
+        {
+          "title": "Sealant Chemistry and Chain Mechanics",
+          "blocks": [
+            {
+              "type": "prose",
+              "content": "### Sealant Chemistry\n\nSealant maintenance is repair prevention. Fresh sealant (replaced every 2-3 months, or when it's visibly clumping) plugs small punctures before you even know they happened. Dried-out sealant plugs nothing. Check it by removing the valve core and poking a thin stick through the valve hole. If the sealant is liquid, you're good. If it's a ball of latex, you're riding unprotected. Race week: add 1 oz of fresh sealant regardless of what's in there.\n\nLatex-based sealants (Stan's, Orange Seal) work by suspending microparticles in ammonia-stabilized latex. When air escapes through a puncture, the pressure differential forces particles into the hole where they interlock and the latex cures around them. The ammonia evaporates over time — that's why sealant dries out. Higher temperatures accelerate evaporation. Desert races: check sealant the day before, not the week before."
+            },
+            {
+              "type": "prose",
+              "content": "### Chain Mechanics\n\nA bicycle chain is a series of inner and outer plate pairs connected by pins, with rollers between each pair that engage the cassette and chainring teeth. A quick link (also called a master link) replaces one pin connection with two interlocking plates that snap together under tension.\n\nWhy chains break on gravel: cross-chaining under load (big-big or small-small combos), impact from rocks hitting the lower chain run, or accumulated wear past 0.5% stretch where the rollers no longer seat properly in cassette valleys. A worn chain skips under hard pedaling — the rollers ride up the tooth faces instead of seating in the valleys. This is why chain replacement at 0.5% elongation prevents the cascading failure of chain + cassette + chainring."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "data_table",
+      "headers": [
+        "Don't",
+        "Why",
+        "Lead Time"
+      ],
+      "rows": [
+        [
+          "Install new tires night before",
+          "Bead not seated, sealant not distributed, pressure window unknown",
+          "1 week minimum — ride them first"
+        ],
+        [
+          "Swap chain morning of",
+          "New chains need 50-100 mi to stretch into cassette; skips under load on worn cassette",
+          "1 week + 50 miles"
+        ],
+        [
+          "Carry a tool you've never used",
+          "The middle of a race is not the time to read instructions",
+          "Practice once before it goes in the saddle bag"
+        ]
+      ],
+      "caption": "Nothing New on Race Day — Mechanical Edition"
+    },
+    {
+      "type": "prose",
+      "content": "### The Nuclear Option: Singlespeed Conversion\n\nDerailleur hanger snapped, rear derailleur destroyed, no spare. Last resort before walking.\n\n1. **Remove the rear derailleur entirely.**\n2. **Shorten the chain.** Remove links until it wraps taut (not binding) around one chainring and one cog — no derailleur to take up tension.\n3. **Pick your gear.** Middle cog = compromise. On a 1x 40T / 11-42, the 19T or 21T cog.\n4. **Route chain** directly from chainring to cog, skipping derailleur cage.\n5. **Ride gently.** No tensioner = slightly loose chain. Smooth cadence, no hard surges.\n\nI've done it once — 40 miles on a single gear after a cattle guard destroyed my derailleur. Miserable and I finished. Those are compatible outcomes."
+    },
+    {
+      "type": "callout",
+      "content": "This lesson covers mechanical breakdowns only. Bonking, dehydration, and fueling failures are a completely different system — that's Hydration Mastery Lesson 1 in Gravel God Academy. Don't conflate the two: a mechanical is a skills problem you solve with practiced hands. A bonk is a planning problem you solve 3 hours before it happens.",
+      "style": "tip"
+    },
+    {
+      "type": "process",
+      "title": "The Calm Hands Sequence",
+      "description": "Your field repair protocol. Deploy the moment something breaks. The sequence IS the calm.",
+      "steps": [
+        {
+          "step": 1,
+          "action": "Stop. Breathe. 6-2-7 once.",
+          "detail": "Your hands will shake — that's fine."
+        },
+        {
+          "step": 2,
+          "action": "Diagnose",
+          "detail": "Puncture (hissing/flat) or chain (dangling/jammed)."
+        },
+        {
+          "step": 3,
+          "action": "For puncture: locate hole, insert plug, inflate",
+          "detail": "Target: 3 minutes."
+        },
+        {
+          "step": 4,
+          "action": "For chain: find break, thread quick link, close",
+          "detail": "Target: 5 minutes."
+        },
+        {
+          "step": 5,
+          "action": "Test ride 50 meters before committing",
+          "detail": "If the fix fails, go to the backup (tube for puncture, singlespeed for chain)."
+        }
+      ]
+    },
+    {
+      "type": "drill",
+      "title": "Timed Repair Drills",
+      "time_minutes": 20,
+      "description": "Practice each of the 3 critical repairs under progressively realistic conditions. Time every attempt. The goal is automatic motor sequence under stress — not just knowing the steps, but having hands that execute them without conscious thought.",
+      "variants": [
+        {
+          "level": "beginner",
+          "label": "Garage, clean hands, no time pressure",
+          "steps": [
+            "Set up in your garage or workshop with good lighting and a clean floor.",
+            "Repair 1 — Tubeless plug: Deflate your rear tire partially. Use a pick or awl to create a small hole in the tread (or use an old tire). Practice the full plug sequence. Time it. Target: under 5 minutes on first attempts, under 3 minutes within 3 sessions.",
+            "Repair 2 — Tube in tubeless: Fully unseat one bead, remove valve core, insert a tube, re-seat the bead, inflate. Time it. Target: under 12 minutes on first attempts, under 8 minutes within 3 sessions.",
+            "Repair 3 — Chain quick link: Use your chain tool to break the chain at a link. Remove 2 links. Reconnect with the quick link. Time it. Target: under 8 minutes on first attempts, under 5 minutes within 3 sessions.",
+            "Run all 3 in sequence. Total time is your baseline. Write it down.",
+            "Repeat monthly. If any repair exceeds the target time, add an extra session that month."
+          ]
+        },
+        {
+          "level": "intermediate",
+          "label": "Outdoors, on a trail, realistic conditions",
+          "steps": [
+            "Ride to a gravel trailhead or remote gravel road. Stop at an uneven, non-ideal spot — not your garage, not a picnic table.",
+            "Repair 1 — Tubeless plug: With dirty hands and the bike leaning against a fence or tree (no bike stand), execute the full plug sequence. Time it. Target: under 3 minutes.",
+            "Repair 2 — Tube in tubeless: Same conditions. Gravel under your knees, wind blowing, no clean surface. This is where you discover that sealant makes everything slippery. Time it. Target: under 8 minutes.",
+            "Repair 3 — Chain quick link: Greasy hands, no rag, chain dragging in the dirt. Time it. Target: under 5 minutes.",
+            "Note which repairs got slower in field conditions vs garage. That delta is your vulnerability — it's where panic will cost you the most time on race day."
+          ]
+        },
+        {
+          "level": "race-pace",
+          "label": "After a 2-hour ride, fatigued hands, timed",
+          "steps": [
+            "Ride 2 hours at sweet spot effort (88-93% FTP) with gravel sections and surges. Your forearms should be fatigued, grip strength diminished, fine motor control compromised.",
+            "Pull over immediately — no cool-down, no stretching, no shaking out your hands.",
+            "Start the clock. Execute all 3 repairs in sequence: plug, tube, chain. Total time target: 16 minutes (3 + 8 + 5).",
+            "Your hands will be shaking. Your fingers will feel thick and clumsy. This is exactly what mile 68 feels like. This is the point of the drill.",
+            "If total time exceeds 20 minutes, the sequence isn't automatic yet. Add a mid-ride repair practice to your next 3 long rides.",
+            "Track times across sessions. When fatigued time is within 20% of fresh time, the motor pattern is race-ready."
+          ]
+        }
+      ],
+      "proof_gate": {
+        "description": "All 3 repairs completed under target time, outdoors, after a ride — the full race-pace simulation.",
+        "metric": "timed",
+        "target": "Tubeless plug under 3 min, tube install under 8 min, chain link under 5 min — all outdoors, all after a 2+ hour ride"
+      }
+    },
+    {
+      "type": "recovery_protocol",
+      "title": "When the Repair Fails",
+      "scenarios": [
+        {
+          "label": "Plug Won't Hold",
+          "situation": "You've inserted a tire plug but it's still leaking — the plug is crooked, the hole is too large, or the plug material didn't expand enough to seal.",
+          "steps": [
+            "Do NOT burn your second CO2 cartridge trying to re-inflate over a failed plug. You'll need that cartridge for the tube.",
+            "Pull the failed plug out. Leave the hole open.",
+            "Go straight to Repair 2: install a tube. Unseat one bead, remove the valve core, wipe the worst of the sealant out, insert the tube, re-seat, inflate with your remaining CO2.",
+            "This is why you carry both a plug kit AND a tube. The plug is the 3-minute fix. The tube is the backup when the 3-minute fix doesn't work. Carrying only one means a single failure mode ends your race."
+          ]
+        },
+        {
+          "label": "Tube Won't Seat in Tubeless Tire",
+          "situation": "You've installed a tube but the tire bead won't seat on the rim — the tire sits crooked, bulges in one spot, or won't hold pressure because the bead isn't locked into the rim hook.",
+          "steps": [
+            "Deflate completely. Remove the valve core from the tube to dump air fast.",
+            "Work the tire bead into the center channel of the rim all the way around both sides. The center channel has the smallest circumference — this creates the slack you need.",
+            "Re-seat the bead one side at a time. Start at the valve and work outward in both directions with your thumbs. Push the bead UP and OVER the rim hook, not just inward.",
+            "Replace the valve core. Inflate hard and fast — a full CO2 blast. The rapid pressure increase is what snaps the bead into the hook. A slow pump often can't generate enough force.",
+            "If the bead pops into place, you'll hear a distinct double-snap (one per side). If you don't hear it, deflate and start over from step 2. Check for tube pinched under the bead — run your fingers around both sides before inflating again."
+          ]
+        },
+        {
+          "label": "Chain Tool Breaks the Pin",
+          "situation": "You pushed the chain pin out to remove a damaged link, but the pin deformed or broke — now you can't reconnect using the chain tool.",
+          "steps": [
+            "If you have a quick link, you don't need the chain tool pin at all. A quick link connects outer plate to outer plate. Remove the damaged link section so both chain ends terminate in outer plates, then snap the quick link on.",
+            "If you have no quick link and the pin is broken or deformed, shorten the chain further to skip the damaged link entirely. Push out the NEXT pin (one link away from the damage) using what's left of your chain tool.",
+            "Route the shortened chain from chainring to a middle cog, skipping the rear derailleur. You're now riding singlespeed — no shifting, no derailleur tension needed.",
+            "Pick a gear you can both climb and cruise in. On a typical 1x gravel setup, the 19T-21T cog is the compromise. It won't be comfortable anywhere, but it'll be rideable everywhere.",
+            "Pedal smoothly. A shortened chain with no derailleur tensioner has slack — hard surges or standing sprints can bounce it off. Seated, steady effort gets you to the finish."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "video",
+      "id": "xZ8HqKPrRXY",
+      "title": "How To Fix A Punctured Tubeless Tyre | GCN Tech",
+      "channel": "GCN Tech",
+      "caption": "Tubeless plug repair, step by step — the field fix this lesson covers."
+    },
+    {
+      "type": "knowledge_check",
+      "question": "You're at mile 85 of a 120-mile gravel race. Your rear tire goes flat over 30 seconds. You stop and find a 4mm sidewall cut — sealant is spraying from the gash. You have a plug kit, a spare tube, 2 CO2 cartridges, and tire levers. What's the correct sequence?",
+      "options": [
+        {
+          "text": "Plug the sidewall cut, inflate with CO2, ride carefully",
+          "correct": false
+        },
+        {
+          "text": "Skip the plug — unseat the bead, remove the valve core, install the tube, re-seat, inflate with CO2",
+          "correct": true
+        },
+        {
+          "text": "Plug the cut from the inside by unseating the bead, then re-seat and inflate",
+          "correct": false
+        },
+        {
+          "text": "Apply extra sealant through the valve, spin the wheel to distribute, and hope it seals",
+          "correct": false
+        }
+      ],
+      "explanation": "A 4mm sidewall cut is too large for a standard plug — plugs work on tread punctures where the surrounding rubber compresses around the plug material. Sidewall cuts don't compress the same way because the casing is thinner and more flexible. The correct move is to go straight to Repair 2: tube in the tubeless tire. Don't waste time attempting a plug that won't hold — every failed attempt costs time and composure. Remove the valve core (sealant will drain, but you don't need it with a tube), install the tube, re-seat the bead, and inflate. The tube bridges the sidewall gap from the inside. Use your first CO2 cartridge carefully — seat the inflator head properly and inflate to 35-40 PSI. Keep the second cartridge as insurance for the remaining 35 miles."
+    },
+    {
+      "type": "commitment",
+      "content": "Your commitment before Lesson 12: run The Calm Hands Sequence for all 3 repairs this week. Timed. Outdoors. After a ride. If any repair exceeds the target time, repeat it until your hands know the sequence without your brain."
+    },
+    {
+      "type": "callout",
+      "content": "Next lesson: The Final Hour and Beyond. You've learned to ride the bike (Lessons 1-10) and fix the bike (this lesson). Now comes the hardest part — maintaining everything you've learned when your body and brain are falling apart at hour 5. The fatigue cascade is coming for all of us. The question is whether you notice it before it notices you.",
+      "style": "next"
+    }
+  ]
+}

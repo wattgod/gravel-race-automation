@@ -789,13 +789,43 @@ def render_image(block: dict) -> str:
 
 
 def render_video(block: dict) -> str:
-    """Render a video block with optional poster and caption."""
+    """Render a video block. Two shapes:
+    - YouTube embed: {"id", "title"?, "channel"?, "caption"?, "start"?, "mtb_demo"?}
+    - Self-hosted asset: {"asset_id", "poster"?, "alt"?, "caption"?}
+    """
+    caption = block.get("caption", "")
+    cap = f'<figcaption class="gg-guide-img-caption">{_md_inline(esc(caption))}</figcaption>' if caption else ''
+
+    # YouTube embed (Dirt Craft-style). Detected by "id" (a YouTube video id).
+    if block.get("id"):
+        vid = esc(block["id"])
+        src = f'https://www.youtube.com/embed/{vid}'
+        start = block.get("start")
+        if start:
+            src += f'?start={int(start)}'
+        title = esc(block.get("title", ""))
+        channel = esc(block.get("channel", ""))
+        meta_bits = ['<span class="gg-guide-video-kicker">Watch</span>']
+        if title:
+            meta_bits.append(f'<span class="gg-guide-video-title">{title}</span>')
+        if channel:
+            meta_bits.append(f'<span class="gg-guide-video-channel">{channel}</span>')
+        if block.get("mtb_demo"):
+            meta_bits.append('<span class="gg-guide-video-mtb">MTB demo &middot; transfers to gravel</span>')
+        meta = f'<div class="gg-guide-video-meta">{"".join(meta_bits)}</div>'
+        return (
+            '<figure class="gg-guide-video gg-guide-video--embed">'
+            f'<div class="gg-guide-video-frame"><iframe src="{src}" title="{title}" '
+            'loading="lazy" allowfullscreen referrerpolicy="strict-origin-when-cross-origin" '
+            'allow="accelerometer; encrypted-media; picture-in-picture"></iframe></div>'
+            f'{meta}{cap}</figure>'
+        )
+
+    # Self-hosted asset (existing behavior).
     asset_id = esc(block["asset_id"])
     poster_id = block.get("poster", "")
     alt = esc(block.get("alt", ""))
-    caption = block.get("caption", "")
     poster = f' poster="/guide/media/{esc(poster_id)}-1x.webp"' if poster_id else ''
-    cap = f'<figcaption class="gg-guide-img-caption">{_md_inline(esc(caption))}</figcaption>' if caption else ''
     return f'<figure class="gg-guide-img gg-guide-video"><video src="/guide/media/{asset_id}.mp4"{poster} controls preload="none" class="gg-guide-img-el">{alt}</video>{cap}</figure>'
 
 
@@ -1895,6 +1925,14 @@ def build_guide_css() -> str:
 .gg-guide-img--half-width{float:right;width:50%;margin:0 0 16px 20px}
 .gg-guide-img-placeholder{display:none;padding:32px 24px;background:#3a2e25;color:#d4c5b9;font-family:'Sometype Mono',monospace;font-size:12px;letter-spacing:1px;text-align:center;border:3px solid #3a2e25;min-height:120px;align-items:center;justify-content:center}
 .gg-guide-img--missing .gg-guide-img-placeholder{display:flex}
+.gg-guide-video--embed{margin:0 0 20px}
+.gg-guide-video-frame{position:relative;width:100%;aspect-ratio:16/9;border:3px solid #3a2e25;background:#1a1613;line-height:0}
+.gg-guide-video-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.gg-guide-video-meta{display:flex;gap:10px;align-items:baseline;flex-wrap:wrap;background:#3a2e25;border:3px solid #3a2e25;border-top:0;padding:8px 12px}
+.gg-guide-video-kicker{font-family:'Sometype Mono',monospace;font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#c9a92c}
+.gg-guide-video-title{font-family:'Source Serif 4',Georgia,serif;font-weight:700;font-size:14px;color:#f5efe6}
+.gg-guide-video-channel{font-family:'Sometype Mono',monospace;font-size:11px;color:#d4c5b9}
+.gg-guide-video-mtb{font-family:'Sometype Mono',monospace;font-size:9px;letter-spacing:1px;text-transform:uppercase;color:#4ECDC4;border:2px solid #178079;padding:1px 6px}
 
 /* ── Tooltips ── */
 .gg-tooltip-trigger{position:relative;cursor:help;border-bottom:2px dotted #9a7e0a;text-decoration:none}

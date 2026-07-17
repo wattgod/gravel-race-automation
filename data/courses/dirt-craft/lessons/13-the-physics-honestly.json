@@ -1,0 +1,221 @@
+{
+  "id": "the-physics-honestly",
+  "title": "The Physics, Honestly",
+  "module": "appendix",
+  "lesson_number": 13,
+  "blocks": [
+    {
+      "type": "hero_stat",
+      "value": "22°",
+      "unit": "of lean is the ceiling on dry loose gravel",
+      "context": "On the road you corner at 40°+. On gravel the bike is barely tipped when it lets go. Nothing about the lean angle warns you. That's the whole problem."
+    },
+    {
+      "type": "callout",
+      "style": "highlight",
+      "content": "**This lesson is optional.** Everything before it told you what to do. This one tells you why — and, more usefully, where the honest answer is \"nobody actually knows.\" You do not need the math to ride well. You need it when the folklore in the group ride contradicts what your body already learned in the drills, and you want to know who's right."
+    },
+    {
+      "type": "prose",
+      "content": "I built this lesson backwards. I had a research pass comb through the physics, the moto and rally literature, and every forum thread I could find. Then I had a second, more skeptical pass try to tear the first one apart. It worked. Two of my favorite theories died on the table — including one that felt so right I'd have taught it with a straight face. What follows is only what survived being attacked. Where something is still genuinely unsettled, I say so instead of selling you a clean answer that isn't there."
+    },
+    {
+      "type": "prose",
+      "content": "### One number runs everything: μ\n\nEvery surface has a grip coefficient — μ, \"mew.\" It's the single number that sets both how hard you can brake and how far you can lean. Tarmac is roughly μ = 0.85. Dry loose-over-hardpack gravel is roughly μ = 0.4. That's less than half.\n\nEverything that feels strange about gravel falls out of that one number. You are not a worse rider than you were on the road. You are riding a surface with half the grip, using instincts calibrated for the surface with all of it."
+    },
+    {
+      "type": "accordion",
+      "items": [
+        {
+          "title": "The Mu Number — the two formulas worth knowing",
+          "content": "**Lean ceiling.** The most you can lean before the tire slides is `lean = arctan(μ)`. On tarmac (μ≈0.85) that's about 40° — the lean roadies live at. On gravel (μ≈0.4) it's about **22°**. The bike feels almost upright at the limit. This is why gravel corners lie to you: on the road, deep lean is the warning signal that you're near the edge, and on gravel that signal never arrives — you're at the edge while the bike still feels casual.\n\n**Corner speed.** The fastest you can hold a corner of radius R is `v = √(μ · g · R)`. At μ = 0.4: a tight 10-meter switchback caps at ~14 mph, a 20-meter bend at ~20 mph, an open 40-meter sweeper at ~28 mph. Halving μ from road to gravel drops every one of those numbers by ~30%.\n\nThese are clean-physics ceilings for a steady, flat, single-μ corner. Real gravel is bumpy, cambered, and its μ changes patch to patch — so treat them as the wall you never touch, which is exactly what The 85% Rule from Lesson 6 is for."
+        }
+      ]
+    },
+    {
+      "type": "data_table",
+      "caption": "Lean ceiling and corner-speed ceiling by surface. Note how little lean gravel gives you — and that you are never lean-angle-limited on gravel, you are grip-limited at a lean angle that feels safe.",
+      "headers": [
+        "Surface",
+        "μ (approx)",
+        "Max lean",
+        "40m sweeper cap",
+        "20m bend cap"
+      ],
+      "rows": [
+        [
+          "Dry tarmac",
+          "0.85",
+          "40°",
+          "~41 mph",
+          "~29 mph"
+        ],
+        [
+          "Dry hardpack",
+          "0.65",
+          "33°",
+          "~36 mph",
+          "~25 mph"
+        ],
+        [
+          "Dry loose-over-hard",
+          "0.40",
+          "22°",
+          "~28 mph",
+          "~20 mph"
+        ],
+        [
+          "Wet loose gravel",
+          "0.25",
+          "14°",
+          "~22 mph",
+          "~16 mph"
+        ]
+      ]
+    },
+    {
+      "type": "prose",
+      "content": "### You can't brake yourself over the bars on the loose stuff. Until you can.\n\nThe fear that keeps riders off the front brake is going over the bars. On loose gravel that fear is misfiled. Pitching forward over the front wheel takes about 0.56–0.63 g of deceleration for normal bike-and-rider geometry. Loose gravel can only deliver about 0.3–0.5 g before the tire slides. The tire runs out of grip and washes **before** you can generate enough braking force to loop it. On the loose layer, the front brake's failure mode is a wash, not an endo — and a straight-line wash is far more survivable than the crash you're bracing for.\n\nThat is a real result, and it is why you can trust the front brake more than road instinct lets you. But it has a hard edge, and the edge is the whole reason this isn't a slogan."
+    },
+    {
+      "type": "callout",
+      "style": "warn",
+      "content": "**Where the endo comes back.** The \"can't go over the bars\" result is about the loose layer only. The instant your front tire finds high grip mid-brake — a swept-clean hardpack apex, a slab of rock, a pavement transition, a stone that stops the wheel dead — μ jumps back toward 0.6–0.8 and the pitchover threshold is right there again. The dangerous move is internalizing \"I can't endo on gravel\" and then hauling the front brake as you cross onto firm ground. Brake hard on the loose. Ease as the surface firms."
+    },
+    {
+      "type": "prose",
+      "content": "### The front brake does 76–86% of the work — even here\n\nLesson 5 told you 70–80% of your braking comes from the front. The physics backs it, and it's worth knowing why, because the reasoning is the opposite of the road version.\n\nOn tarmac the front does almost everything because you brake hard enough to lift the rear nearly off the ground — at that point the rear tire has no weight on it and its brake is nearly useless. On gravel you never brake that hard, so the rear keeps some load. But run the weight transfer at gravel's actual deceleration and the front still ends up supplying roughly 76–86% of the stopping force. The rear contributes real but modest braking — on the order of a fifth of the total. Use both. Trust the front. Just don't expect the rear to be your main speed control; its bigger job on gravel is steadying the bike and steering, not scrubbing speed."
+    },
+    {
+      "type": "black_box",
+      "title": "Two myths this course refuses to sell you",
+      "content": "**Myth 1: \"Commit harder and the front tire digs through the loose stuff to the grippy layer underneath.\"** This one is everywhere — rally schools teach a version of it — and it's the theory I almost taught you, because it makes committing feel like physics instead of nerve. It's wrong. A bike tire at a fixed pressure doesn't push harder into the ground when you load it; it just grows its contact patch. It does not spike the pressure needed to knife through to hardpack. When I had this checked, the claim failed verification outright and the mechanism didn't survive contact with how tires actually work. Committing is still right — but because tentative inputs make you stiff, late, and reactive, not because braking manufactures grip.\n\n**Myth 2: \"Hips way back, always.\"** Hips back is correct for one specific reason: on a steep grade, gravity is trying to pitch you forward, and getting back keeps the rear loaded and buys your arms room to absorb hits. That's real — keep doing it on the steeps. What's false is treating hips-back as a braking trick. Sliding your weight back to \"get grip\" actually unweights the front tire, which is the one you most need to brake and steer. Move back for grade and impacts. Don't move back to out-think the brake."
+    },
+    {
+      "type": "accordion",
+      "items": [
+        {
+          "title": "The genuinely unresolved part: front-vs-rear bias on the loose",
+          "content": "Here's where honest ends and folklore begins, and where you should distrust anyone who sounds too certain — including a coach.\n\nTwo defensible answers pull in opposite directions:\n\n**Pure stopping-power says front-biased.** You stop shortest by using the front hard, as above.\n\n**Crash-survival says bias slightly toward the rear.** If a tire has to let go, you desperately want it to be the rear, because a rear that steps out is recoverable and a front that washes usually isn't — the front wheel is what keeps you balanced. So there's a rational case for deliberately biasing a little more rear than \"shortest stop\" would suggest, trading a few feet of stopping distance for the safer tire being the one that breaks first.\n\nNobody has tested this cleanly on loose-over-hardpack at 30 mph. Moto and rally lore says one thing, road-bike lore says another, and neither was measured on your surface. The practical resolution isn't a number — it's the drills. Ride the one-brake and skid drills from Module 2 until you can feel which tire is about to go and modulate before it does. Feel beats the formula here, because the formula genuinely runs out."
+        }
+      ]
+    },
+    {
+      "type": "process",
+      "title": "The Mu Number",
+      "description": "A field method for turning a surface you can see into the two ceilings you actually ride to. You're not computing anything mid-corner — you're building the instinct off the bike so the numbers are already in your body when it counts.",
+      "steps": [
+        {
+          "step": 1,
+          "action": "Read the surface and name its μ out loud: tarmac ~0.85, dry hardpack ~0.65, dry loose-over-hard ~0.4, wet loose ~0.25.",
+          "detail": "Say the number. Naming it fights the road instinct that every dirt surface grips the same."
+        },
+        {
+          "step": 2,
+          "action": "Convert μ to a lean ceiling: roughly, 0.4 → ~22°, 0.65 → ~33°.",
+          "detail": "On loose, expect the bike to feel almost upright at the limit. If it feels tipped-over like a road corner, you are already past the edge."
+        },
+        {
+          "step": 3,
+          "action": "Convert μ to a corner-speed feel: on loose, an open sweeper you'd take at 40 on tarmac is a high-20s corner.",
+          "detail": "Halve the grip, cut ~30% off the speed."
+        },
+        {
+          "step": 4,
+          "action": "Debit the budget: braking and cornering draw from the same μ.",
+          "detail": "If you're still braking at turn-in, you have less grip left for the corner — so finish the hard braking earlier on the loose than you would on the road."
+        },
+        {
+          "step": 5,
+          "action": "Ride to 85% of that ceiling (Lesson 6), because your μ estimate is rough and the surface changes patch to patch.",
+          "detail": "The 15% is your margin for being wrong about the number."
+        }
+      ]
+    },
+    {
+      "type": "sensation_target",
+      "label": "What the grip ceiling feels like",
+      "content": "On loose gravel, the front tire warns you before it lets go — but the warning is faint and it comes through the bars, not through lean angle. It's a vague, greasy, drifting vagueness in the steering, like the front wheel briefly stopped telling you the truth. On the road you'd feel that as heavy lean. On gravel you feel almost no lean at all and then that soft drift. Learn that drift as the signal. It arrives earlier and quieter than you expect, and it is the only honest edge-of-grip cue the surface gives you."
+    },
+    {
+      "type": "drill",
+      "title": "The Skidpad Audit",
+      "time_minutes": 20,
+      "description": "A constant-radius circle whose only purpose is to let you feel the 22° ceiling so you stop being surprised by it. You are proving to your body that gravel lets go at a lean that feels absurdly safe — and that the warning comes through the bars, not the bike's angle.",
+      "proof_gate": {
+        "target": "You can ride your circle at a speed where the front tire audibly and feelably drifts, hold it there for a full lap without tightening your grip, and back off by feel before it washes — in both directions."
+      },
+      "variants": [
+        {
+          "level": "beginner",
+          "label": "Flat loose-gravel lot, big circle, low speed, full runout",
+          "steps": [
+            "Scuff a circle about 12–15 meters across in a flat, empty gravel lot with nothing to hit.",
+            "Ride it at an easy pace. Outside foot down and weighted, inside hand light, eyes across the circle to the far side — never at the front wheel.",
+            "Each lap, add a hair of speed. Notice how little the bike is leaning even as it gets quick. Say the lean out loud: \"that's maybe fifteen degrees.\" It will feel like nothing.",
+            "Keep adding until the front tire starts to whisper and drift — that vague greasy feel through the bars. That's the edge. That's 22° and μ = 0.4, live.",
+            "Back off by two mph. Sit right under the drift for a full lap. This is the point of the whole drill: the edge is calm, quiet, and at a lean you'd never have believed.",
+            "Switch directions. Your weak side will find the edge earlier. Spend more laps there.",
+            "Session goal: locate the drift in both directions without a crash and without a death grip. No heroics. You're collecting one feeling."
+          ]
+        },
+        {
+          "level": "intermediate",
+          "label": "Mixed loose-over-hardpack, tighter circle, add a brake",
+          "steps": [
+            "Same circle on loose-over-hardpack. Find the drift, then start easing the front brake gently while cornering.",
+            "Feel the budget move: as you add brake, the cornering grip shrinks and the drift arrives at a lower speed. That's the μ budget being split between braking and turning, in real time.",
+            "Now do the opposite — release the brake mid-corner and feel grip return to the corner. You are feeling the friction budget breathe.",
+            "Session goal: connect \"more brake = less lean available\" as a sensation, not a sentence."
+          ]
+        },
+        {
+          "level": "race-pace",
+          "label": "Known corner, build to the 85% line",
+          "steps": [
+            "Take a real gravel corner you've already run in the Figure-8 and Lesson 6 drills.",
+            "Estimate its μ and radius, get a rough ceiling speed, and set your entry at 85% of it.",
+            "Run it repeatedly, nudging entry speed up by half-mph steps, holding eyes to the exit, finishing braking before turn-in.",
+            "Session goal: arrive at an entry speed that feels fast and calm at once — the number and the body finally agreeing."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "knowledge_check",
+      "question": "You're on dry loose-over-hardpack (μ ≈ 0.4) entering a sweeper. The bike feels barely leaned — nothing like a committed road corner — yet you feel a faint drift through the bars. What's actually happening?",
+      "options": [
+        {
+          "text": "You have tons of margin left — the bike isn't even leaned over, so lean in harder",
+          "correct": false
+        },
+        {
+          "text": "You're at the grip ceiling. On gravel the limit arrives at ~22° of lean, so 'barely leaned' plus a front drift means you're already at the edge",
+          "correct": true
+        },
+        {
+          "text": "The front tire is underinflated; add pressure to firm up the steering",
+          "correct": false
+        },
+        {
+          "text": "You need to shift your weight back to drive the front tire down into the surface for more grip",
+          "correct": false
+        }
+      ],
+      "explanation": "On gravel you are grip-limited, not lean-limited. arctan(0.4) ≈ 22°, so the tire lets go at a lean that feels trivially safe compared to the road — the surface gives you no lean-angle warning. The faint drift through the bars is the real edge signal; heed it. Adding lean pushes you past the limit. And weighting the rear to 'drive the front down for grip' is the myth this lesson debunked — loading a fixed-pressure tire grows its contact patch, it doesn't knife it through to the hardpack."
+    },
+    {
+      "type": "prose",
+      "content": "### What this changes about how you ride\n\nNothing, if the drills are already in your body. Everything, if you've been waiting for permission to trust them. The physics doesn't give you a new technique — it tells you the techniques you drilled are the correct ones and the folklore fighting them is wrong. You corner at a lean that feels too safe because 22° really is the ceiling. You trust the front brake because you genuinely can't loop it on the loose. You finish braking early because the grip budget is smaller and shared. You commit because tentative is slow and reactive — not because committing conjures traction.\n\nAnd when someone on the group ride tells you to lean back and feather the rear into every loose corner, you'll know exactly which half of that is real and which half is a road habit wearing a gravel jersey."
+    },
+    {
+      "type": "commitment",
+      "content": "Your commitment: run The Skidpad Audit once this week and find the front-tire drift in both directions. Write down the speed where it showed up. That number — your real edge, felt not calculated — is worth more than every formula in this lesson."
+    },
+    {
+      "type": "callout",
+      "style": "next",
+      "content": "That's the physics, honestly — including the parts nobody has nailed down. Go back to the drills. The formulas were only ever here to tell you the drills weren't lying to you."
+    }
+  ]
+}

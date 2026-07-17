@@ -1,0 +1,406 @@
+{
+  "id": "the-final-hour",
+  "title": "The Final Hour and Beyond",
+  "module": "ride-in-flow",
+  "lesson_number": 12,
+  "blocks": [
+    {
+      "type": "sensation_target",
+      "label": "The reset click",
+      "content": "Every 20 minutes after hour 2, you run a 10-second body scan. It becomes as automatic as looking at your power meter.\n\nHeavy feet? Check. Quiet hands? ... No. Grip is at a 6. You consciously drop it to a 3. Elbows bent? They'd drifted straight — you bend them. Hinge moving? Hips had locked — you rock your pelvis once. Breathing anchored? You'd been shallow-chesting for who knows how long — you take three belly breaths. Eyes on far target? Your scan had contracted — you push your focal point back to 50 meters.\n\nThere's a moment — maybe a half-second — where the corrections land and the whole system re-engages. Your body settles into the pattern you drilled fresh. The front wheel starts floating over bumps again instead of smashing through them. Your line choice opens up. Your braking becomes proactive instead of reactive.\n\nThat's the click. It's the sensation of the right pattern re-engaging after fatigue has silently disengaged it. It doesn't last forever — fatigue will erode it again in 15-20 minutes. That's why you scan again. The click is not permanent. It's renewable."
+    },
+    {
+      "type": "black_box",
+      "title": "Incident Report",
+      "content": "Mile 130 of 150. The rider has been on the bike for 6 hours and 40 minutes. They are riding at 16 mph on a gravel descent with moderate loose-over-hardpack surface.\n\nThey don't notice that their forearms are pumped — grip pressure has been creeping up since hour 3. They're holding the bars at a 7 out of 10 instead of the 3 they practiced in Lesson 1. Their elbows have gradually straightened. The front wheel has been transmitting every bump for the last 30 minutes.\n\nThey don't notice that they're riding the geometric line through corners instead of the surface-optimal line they drilled in Lesson 6. The geometric apex is shorter but crosses a loose patch. Fresh, they'd read that surface in 0.8 seconds and adjust. At hour 6, their scan distance has contracted from 50 meters to 15.\n\nThey almost miss a braking point. The curve comes up faster than expected — not because the speed changed, but because their visual processing has slowed and their braking zones have been shrinking all afternoon. They grab both brakes hard. The rear locks for half a second. They save it.\n\nThey don't know their technique has degraded. They don't know that they don't know. They think they're \"just tired\" — legs heavy, motivation fading. The actual problem is that 11 lessons worth of skill are dissolving in a specific, predictable order, and nobody told them to check.\n\nThis is the fatigue cascade. It happens to every rider on every long ride. The difference between finishing strong and finishing scared is whether you have a system to catch it."
+    },
+    {
+      "type": "hero_stat",
+      "value": "~⅓",
+      "unit": "of technical precision lost by hour 4",
+      "context": "for most riders in a long gravel race — and they don't notice it happening"
+    },
+    {
+      "type": "prose",
+      "content": "Everything from Lessons 1-11 was built for this moment — when your body wants to quit being skilled and your brain has to intervene.\n\nTechnique doesn't just fade with fatigue. It degrades in a specific, predictable sequence that's invisible from the inside. You feel \"tired.\" What's actually happening is systematic loss of motor patterns. The good news: predictable means catchable."
+    },
+    {
+      "type": "prose",
+      "content": "### The Fatigue Cascade\n\nSkill degradation follows a consistent order. Fitness, nutrition, heat, and course difficulty shift the timeline — but the sequence is remarkably stable."
+    },
+    {
+      "type": "accordion",
+      "items": [
+        {
+          "title": "Fatigue Cascade Neuroscience: Stages and Mechanisms",
+          "blocks": [
+            {
+              "type": "data_table",
+              "headers": [
+                "Stage",
+                "Typical Onset",
+                "What Degrades",
+                "Skills Lost",
+                "Warning Sign"
+              ],
+              "rows": [
+                [
+                  "1: Grip escalation",
+                  "Hour 2-3",
+                  "Hands clamp from 3/10 to 6-7/10 — brain defaults to primitive motor pattern",
+                  "L1: weighted drop inverts, forearm fatigue accelerates",
+                  "Pinky check fails"
+                ],
+                [
+                  "2: Pedaling breakdown",
+                  "Hour 3-4",
+                  "Dead spots grow, mashing replaces smooth stroke, cadence drifts lower",
+                  "L1: pedal weighting, L7: rear-wheel spin on loose surfaces",
+                  "Standing surges on moderate grades"
+                ],
+                [
+                  "3: Line choice collapse",
+                  "Hour 4-5",
+                  "Scan contracts 50m to 15m, geometric lines replace surface-optimal",
+                  "L4 + L6 + L8 + L9: cornering, surface reading, descending",
+                  "Terrain changes surprise you"
+                ],
+                [
+                  "4: Reactive braking",
+                  "Hour 5+",
+                  "Braking in corners, grabbing rear, panic-stopping",
+                  "L1+L4+L5+L6+L8+L9 compound loss — surviving, not riding",
+                  "Braking mid-corner"
+                ]
+              ],
+              "caption": "Fatigue Cascade Stages"
+            },
+            {
+              "type": "prose",
+              "content": "The cascade follows the neurological hierarchy of motor control. Grip escalation (Stage 1) happens first because it's a reversion to the brainstem's startle-grip reflex — the oldest motor pattern, and the one the brain defaults to under stress and resource depletion. Stages 2-3 involve prefrontal and cerebellar coordination that degrades as blood glucose drops and core temperature rises. Stage 4 is the compound failure: when scan distance contracts AND grip escalates AND the hinge freezes, the rider has lost the feedforward planning loop entirely and is operating in pure reactive mode — stimulus → response, no anticipation. The body scan interrupts this cascade by forcing conscious re-engagement of the prefrontal planning loop, even briefly."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "prose",
+      "content": "### The Pinky Check\n\nEvery 15-20 minutes, lift both pinkies off the bars.\n\nEasy and natural = grip is fine. Feels risky, like you might lose control = Stage 1 of the cascade. Binary, instant, no estimation needed.\n\nPinky check fails: run the full body scan. Pinky check passes: keep riding, check again in 15-20 minutes."
+    },
+    {
+      "type": "prose",
+      "content": "### The Full Body Scan — 10 Seconds\n\nThis is the reset protocol. Run it every 20 minutes after hour 2, or immediately when the pinky check fails.\n\n1. **Feet** (2 seconds): Check that your pedals feel heavy — 70% of your weight pressing through your feet. If your feet feel light and your hands feel heavy, push weight down. Drop your heels 10 degrees. This is Lesson 1.\n\n2. **Hands** (2 seconds): Confirm grip at 3 out of 10, fingers wrapped loosely. If you're clamping, consciously release until the bars feel like a shelf your hands are resting on. This is Lesson 1.\n\n3. **Elbows and shoulders** (2 seconds): Elbows should be bent 20 degrees, shoulders dropped away from ears. If your arms are straight and your shoulders are up, you've lost the suspension system from Lesson 2. Bend and drop.\n\n4. **Hips** (2 seconds): Check that the hinge is moving. Rock your pelvis forward and back once. If your lower back feels locked and your vision is bouncing, the hinge has frozen. One conscious hip-rock resets it. This is Lesson 2.\n\n5. **Eyes and breath** (2 seconds): Notice whether you're looking 50 meters ahead or just 15. Push the focal point out to 3-5 seconds ahead. Take one deep belly breath. Exhale completely. This is Lesson 4.\n\nTen seconds. Five checkpoints. Each one maps to a skill you've already drilled. The scan doesn't teach you anything new — it re-engages what fatigue has silently disengaged."
+    },
+    {
+      "type": "prose",
+      "content": "### Two-Rule Mode\n\nAt hour 5+, you can't hold 11 lessons in working memory. Cognitive load shedding: reduce everything to two rules for the current terrain.\n\n- **Rolling gravel descent**: (1) Eyes 50 meters ahead. (2) Brakes before corners, not in them.\n- **Loose gravel climb**: (1) Stay seated. (2) Spin, don't mash.\n- **Technical singletrack**: (1) Light hands. (2) Look where you want to go.\n\nTwo rules you can actually hold are worth more than ten you can't. Rotate as terrain changes — you're choosing from a list you've already internalized."
+    },
+    {
+      "type": "prose",
+      "content": "### The 11-Lesson Stack vs. Fatigue"
+    },
+    {
+      "type": "data_table",
+      "headers": [
+        "Lesson",
+        "Core Skill",
+        "Fatigue Reversion"
+      ],
+      "rows": [
+        [
+          "L1: Letting Go",
+          "Weighted drop, quiet hands",
+          "First to erode — grip escalates, weight shifts to hands"
+        ],
+        [
+          "L2: Body Is the Suspension",
+          "Hip hinge, upper/lower separation",
+          "Core stiffens, hinge freezes"
+        ],
+        [
+          "L3: Traction",
+          "Tire pressure, traction sense",
+          "Fatigue-proof — pressure window set pre-race"
+        ],
+        [
+          "L4: Quiet Eye",
+          "Scan distance, peripheral processing",
+          "50m scan contracts to 15m stare"
+        ],
+        [
+          "L5: Braking",
+          "Braking budget, pulse braking",
+          "Regresses to panic-grabbing rear brake"
+        ],
+        [
+          "L6: Cornering",
+          "Surface-optimal lines, asymmetric loading",
+          "Defaults to geometric lines, symmetric grip"
+        ],
+        [
+          "L7: Climbing",
+          "Torque ceiling, cadence strategy",
+          "Reverts to standing surges and mashing"
+        ],
+        [
+          "L8: Surface Reading",
+          "50m scan, surface pre-adjustment",
+          "Stops pre-reading as scan contracts"
+        ],
+        [
+          "L9: Descending",
+          "Drops position, body-position speed",
+          "Retreats to hoods and constant braking"
+        ],
+        [
+          "L10: Pack Dynamics",
+          "Surface-adjusted pacing, variable-gap drafting",
+          "Reverts to constant-watt grinding"
+        ],
+        [
+          "L11: Repairs",
+          "3 timed repairs under pressure",
+          "Motor sequences survive better than decisions"
+        ]
+      ],
+      "caption": "What You Built, What Fatigue Takes"
+    },
+    {
+      "type": "callout",
+      "content": "Foundational skills (grip, hinge) degrade first — overridden by survival instincts. Complex skills (line choice, pacing) degrade because they require cognitive processing that fatigue erodes. The body scan catches the early ones. Two-rule mode protects the later ones.",
+      "style": "tip"
+    },
+    {
+      "type": "process",
+      "title": "The Dirt Craft Stack",
+      "description": "Your complete tool inventory. Every tool you've built across 12 lessons, in the order fatigue takes them away — and the order you restore them.",
+      "steps": [
+        {
+          "step": 1,
+          "action": "The Weighted Drop (L1)",
+          "detail": "Heavy feet, quiet hands. The foundation everything else sits on."
+        },
+        {
+          "step": 2,
+          "action": "The Hip Hinge (L2)",
+          "detail": "Upper and lower body separation. Head stays level, hips absorb."
+        },
+        {
+          "step": 3,
+          "action": "The Pressure Window (L3)",
+          "detail": "Your personal tire pressure range for each surface type."
+        },
+        {
+          "step": 4,
+          "action": "The Quiet Eye (L4)",
+          "detail": "Eyes 3-5 seconds ahead. Obstacles steer around themselves."
+        },
+        {
+          "step": 5,
+          "action": "The Braking Budget (L5)",
+          "detail": "Scrub before corners, coast through. Two fingers, never grab."
+        },
+        {
+          "step": 6,
+          "action": "The 85% Rule (L6)",
+          "detail": "Enter every corner at 85% of estimated max. Smooth surface first, geometry second."
+        },
+        {
+          "step": 7,
+          "action": "The Torque Ceiling (L7)",
+          "detail": "Higher cadence, lower gear, zero wheel spin. Butter, not peanut butter."
+        },
+        {
+          "step": 8,
+          "action": "The 50-Meter Scan (L8)",
+          "detail": "Read the surface before you reach it. Adjust before the transition, not during."
+        },
+        {
+          "step": 9,
+          "action": "The Position Ladder (L9)",
+          "detail": "Drops default. Weight shift by gradient. Tuck on straights."
+        },
+        {
+          "step": 10,
+          "action": "The Elastic Gap (L10)",
+          "detail": "Close on smooth, open on rough. Push efficient surfaces, ease off inefficient."
+        },
+        {
+          "step": 11,
+          "action": "The Calm Hands Sequence (L11)",
+          "detail": "Stop, breathe, diagnose, repair, test. The sequence IS the calm."
+        },
+        {
+          "step": 12,
+          "action": "The 20-Minute Reset (L12)",
+          "detail": "Body scan every 20 minutes. Correct what's drifted. The Pinky Check is your early warning."
+        }
+      ]
+    },
+    {
+      "type": "process",
+      "title": "The 20-Minute Reset",
+      "description": "Your fatigue management protocol. Deploy from hour 2 onward, every 20 minutes, for the rest of the ride.",
+      "steps": [
+        {
+          "step": 1,
+          "action": "Set a 20-minute repeating mental timer",
+          "detail": "Some riders use a watch beep. Some count climbs. Whatever anchors the cadence."
+        },
+        {
+          "step": 2,
+          "action": "At each mark, run the 10-second body scan",
+          "detail": "Feet heavy? Hands quiet? Hinge moving? Eyes on far target? Breathing anchored?"
+        },
+        {
+          "step": 3,
+          "action": "If any check fails, correct it",
+          "detail": "Feel the \"click\" as the right pattern re-engages."
+        },
+        {
+          "step": 4,
+          "action": "The Pinky Check",
+          "detail": "Lift pinkies off the bars. If it feels dangerous, you're deep in the fatigue cascade — deploy Two-Rule Mode."
+        },
+        {
+          "step": 5,
+          "action": "Two-Rule Mode",
+          "detail": "Pick only 2 rules to follow (e.g., \"heavy feet\" + \"eyes far\"). Shed everything else. Simplify to survive."
+        }
+      ]
+    },
+    {
+      "type": "drill",
+      "title": "Fatigue Simulation Protocol",
+      "time_minutes": 60,
+      "description": "A 3+ hour structured ride that simulates race-day fatigue and tests your ability to maintain technical skill under degradation. This is the capstone drill of the course — it integrates everything.",
+      "variants": [
+        {
+          "level": "beginner",
+          "label": "3-hour ride, self-assessment checkpoints",
+          "steps": [
+            "Plan a 3-hour gravel ride that includes at least 3 technical sections (corners, descents, loose climbs, rough terrain).",
+            "Hours 0-2: Ride at moderate endurance pace (65-75% FTP). Focus on executing all skills cleanly. This is your baseline.",
+            "At the 2-hour mark, begin the protocol: every 20 minutes, run the full body scan (feet, hands, elbows, hips, eyes).",
+            "After each body scan, ride a 2-minute 'skills proof' segment on the most technical terrain available. Rate your execution 1-10 on: grip pressure, line choice, braking control, body position.",
+            "Write down your scores (or speak them into a voice memo). Don't adjust the score to be kind to yourself — if your line choice was a 6, write 6.",
+            "After the ride, compare your hour-3 scores to your hour-1 baseline. The gap is your current degradation rate.",
+            "Repeat weekly for 4 weeks. Track whether the gap shrinks."
+          ]
+        },
+        {
+          "level": "intermediate",
+          "label": "3.5-hour ride with sweet spot blocks and skills tests",
+          "steps": [
+            "Plan a 3.5-hour gravel ride with technical sections every 20-30 minutes.",
+            "Hours 0-1: Endurance pace warm-up with conscious skill execution. Set your baseline scores on the first technical section.",
+            "Hours 1-2: Sweet spot effort (88-93% FTP) on gravel with 30-second surges every 10 minutes. This accelerates fatigue deliberately.",
+            "Hour 2 onward: Begin the protocol. Body scan every 20 minutes. Skills proof segment after each scan.",
+            "At each skills proof segment, add a specific test: (1) Pinky check — pass/fail. (2) Braking test — can you coast through a corner without braking? (3) Line test — did you ride the surface-optimal or geometric line?",
+            "Rate each segment 1-10. Note which skills degraded first — this tells you YOUR personal cascade order.",
+            "Compare scores at hour 3.5 to hour 1. Target: within 35% of baseline."
+          ]
+        },
+        {
+          "level": "race-pace",
+          "label": "4+ hour ride simulating race-day conditions",
+          "steps": [
+            "Plan a 4+ hour gravel ride at race intensity — sweet spot blocks, tempo sustained efforts, gravel climbs at threshold.",
+            "Hours 0-2: Race-simulation effort. Include group riding if possible. Push hard enough that hour 3 feels genuinely difficult.",
+            "Hour 2 onward: Full protocol. Body scan every 20 minutes. Skills proof segment every 20 minutes. Rate execution 1-10.",
+            "Hour 3 onward: Enter two-rule mode. For each terrain section, choose only 2 rules. After the section, assess: did you hold both rules?",
+            "Hour 4: Run the full skills proof one final time. Score grip, line choice, braking, body position, scan distance each 1-10.",
+            "This is your race readiness test. Compare hour-4 scores to fresh scores from a separate easy ride.",
+            "Target: hour-4 composite score within 25% of fresh composite score. Most untrained riders lose roughly a third of their technical precision. If you're under 25%, your fatigue resilience system is working."
+          ]
+        }
+      ],
+      "proof_gate": {
+        "description": "Technical execution score at hour 4 stays within 25% of fresh score — measured across grip pressure, line choice, braking control, body position, and scan distance.",
+        "metric": "percentage",
+        "target": "Less than 25% degradation from fresh baseline at hour 4 — your hour-4 composite score improves by at least 2 points over 4 weeks of practice"
+      }
+    },
+    {
+      "type": "knowledge_check",
+      "question": "You're at hour 4 of a 6-hour gravel race. You run the pinky check and it feels dangerous — like lifting your pinkies might cost you control. You also notice you've been braking in corners for the last 20 minutes. What fatigue cascade stage are you in, and what's the correction sequence?",
+      "options": [
+        {
+          "text": "Stage 1 only — just grip pressure. Loosen your hands and keep riding.",
+          "correct": false
+        },
+        {
+          "text": "Stage 4 — reactive braking. Focus on braking earlier before corners.",
+          "correct": false
+        },
+        {
+          "text": "Stages 1 and 4 simultaneously — run the full body scan, reset grip first, then push scan distance out to restore proactive braking zones.",
+          "correct": true
+        },
+        {
+          "text": "You're beyond correction — slow down and survive to the finish.",
+          "correct": false
+        }
+      ],
+      "explanation": "The failed pinky check confirms Stage 1 (grip pressure). Braking in corners confirms Stage 4 (reactive braking). But Stage 4 doesn't happen in isolation — if you're braking reactively, it's because your scan distance contracted (Stage 3) and your grip escalation (Stage 1) has been compounding for at least an hour. The correction starts at Stage 1 because grip is the foundation: run the full body scan, reset grip to a 3, bend your elbows, drop your shoulders. Then push your eyes back to 50 meters ahead — this restores the visual lead time you need to set speed BEFORE corners instead of braking IN them. You're not beyond correction. You're exactly where the scan was designed to catch you. The click is available. You just have to run the sequence."
+    },
+    {
+      "type": "prose",
+      "content": "### The Deliberate Practice Framework\n\nThe progression from here isn't more lessons — it's repetition under increasingly demanding conditions until the skills become how you ride."
+    },
+    {
+      "type": "data_table",
+      "headers": [
+        "Cadence",
+        "Practice",
+        "Details"
+      ],
+      "rows": [
+        [
+          "Monthly",
+          "Pick one skill to sharpen",
+          "Rotate through L1-L11. Run that lesson's drill at all 3 levels. Re-test the proof gate."
+        ],
+        [
+          "Weekly",
+          "One ride with conscious skill focus",
+          "Pick a 20-min block. Announce the skill. Rate execution 1-10."
+        ],
+        [
+          "Every long ride",
+          "Run the fatigue protocol",
+          "Body scan every 20 min after hour 2. Rate skills proof segments. Track scores."
+        ],
+        [
+          "Every race",
+          "Two-rule mode from the start",
+          "Don't wait for fatigue — start with 2 rules for opening terrain. Rotate as terrain changes."
+        ],
+        [
+          "Quarterly",
+          "Timed repair drills",
+          "L11 skills decay fastest. After a ride. Outdoors. Timed."
+        ]
+      ],
+      "caption": "Ongoing Practice Schedule"
+    },
+    {
+      "type": "callout",
+      "content": "Your Race Setup Card — the one you've been building through the calculators in Lessons 3, 5, 6, 7, 8, and 9 — is the tangible artifact of this course. Tire pressure windows, gearing checks, corner speed targets, braking distances, descent position triggers, all tied to a specific race from the 757 in the database. Print it. Tape it to your stem. It's not a cheat sheet — it's proof that you've done the work and pre-decided things that your fatigued brain shouldn't be deciding at mile 130.",
+      "style": "tip"
+    },
+    {
+      "type": "prose",
+      "content": "### Training Wheels You're Meant to Grow Out Of\n\nAll of this — 12 lessons, drills, proof gates, calculators — was scaffolding. The destination is the ride where you haven't thought about technique in 2 hours because it's just how you ride now.\n\nI was the rigid roadie white-knuckling washboard at 12 mph. Now I descend gravel with my pinkies floating. It took 18 months of deliberate work. On the other side of that work is a completely different relationship with the bike.\n\nIf you just ride for watts, you cap your enjoyment. If you get good at riding your bike, your enjoyment is endless.\n\nLook — you just read 12 lessons from a guy on the internet. That's worth exactly as much as what you do with it on the bike this weekend. The course is done. The riding isn't.\n\nGo ride."
+    },
+    {
+      "type": "commitment",
+      "content": "Your commitment after this course: ride 3+ hours and run The 20-Minute Reset from hour 2 onward. Rate your technical execution 1-10 at each checkpoint. Track it over 4 weeks. Watch the scores converge with your fresh-legs baseline. That convergence is proof that these tools work — and proof that you don't need this course anymore."
+    },
+    {
+      "type": "callout",
+      "content": "This course is training wheels you're meant to grow out of. The drills had structure so you could learn without structure. The proof gates had numbers so you could eventually ride without numbers. The body scan had a checklist so that one day, you won't need the checklist — your body will just click back into the right pattern on its own. That's the goal. Not 12 lessons memorized. Twelve lessons forgotten because they became automatic. See you on the gravel.",
+      "style": "next"
+    }
+  ]
+}

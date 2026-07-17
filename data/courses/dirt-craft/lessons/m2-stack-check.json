@@ -1,0 +1,248 @@
+{
+  "id": "control-stack-check",
+  "title": "Module 2: Control the Inputs — Stack Check",
+  "module": "control-the-inputs",
+  "lesson_number": null,
+  "blocks": [
+    {
+      "type": "callout",
+      "content": "Your tool stack is now 8 deep:\n\n**Module 1 — Trust the Bike:**\n1. **The Weighted Drop** — heels down, elbows bent, weight through pedals, hands quiet\n2. **The Hip Hinge** — decouple upper and lower body at the hips\n3. **The Pressure Window** — tire pressure envelope by surface and conditions\n4. **The Quiet Eye** — central vision 3-5 seconds ahead, scanning hierarchy\n\n**Module 2 — Control the Inputs:**\n5. **The Braking Budget** — front-dominant, pulse on loose, speed-set-coast\n6. **The 85% Rule** — enter every corner at 85% of estimated max speed\n7. **The Torque Ceiling** — maximum pedal force before the rear tire breaks loose\n8. **The 50-Meter Scan** — read surface transitions before you reach them\n\n2 retrieval questions from Module 1. 8 questions from Module 2. Time to see what stuck.",
+      "style": "tip"
+    },
+    {
+      "type": "quiz",
+      "question": "Spaced retrieval — Module 1: What does \"heavy feet, quiet hands\" mean physically?",
+      "options": [
+        {
+          "text": "Pedal hard and don't touch the brakes",
+          "correct": false
+        },
+        {
+          "text": "70% of your weight pressing through the pedals, hands resting on the bars with minimal grip pressure",
+          "correct": true
+        },
+        {
+          "text": "Stand on the pedals and hover your hands above the bars",
+          "correct": false
+        },
+        {
+          "text": "Push a hard gear and keep your upper body relaxed",
+          "correct": false
+        }
+      ],
+      "explanation": "Heavy feet, quiet hands is the Lesson 1 sensation target. 70% of your weight presses through the pedals into the bottom bracket — the lowest, most stable point of the bike-rider system. Your hands rest on the bars like resting on a shelf, bearing almost no load. Grip at a 3 out of 10. If your palms are red after rough gravel, the weight was in the wrong place."
+    },
+    {
+      "type": "quiz",
+      "question": "Spaced retrieval — Module 1: The Quiet Eye scanning hierarchy on gravel: ___ → ___ → ___.",
+      "options": [
+        {
+          "text": "Obstacle → line → speed",
+          "correct": false
+        },
+        {
+          "text": "Near field → mid field → far field",
+          "correct": false
+        },
+        {
+          "text": "Surface type → line → obstacle",
+          "correct": true
+        },
+        {
+          "text": "Speed → braking point → exit",
+          "correct": false
+        }
+      ],
+      "explanation": "The scanning hierarchy is surface type first, line second, individual obstacles last. Most riders invert this — they stare at rocks (obstacles) while missing the sand patch (surface type) that's the real hazard. Surface type determines your available traction. Line determines your path through that traction. Individual obstacles are handled by peripheral vision once the first two are set."
+    },
+    {
+      "type": "quiz",
+      "question": "What percentage of stopping power comes from the front brake on gravel?",
+      "options": [
+        {
+          "text": "50% — equal braking is the safest approach",
+          "correct": false
+        },
+        {
+          "text": "30-40% — the rear brake does most of the work on loose surfaces",
+          "correct": false
+        },
+        {
+          "text": "70-80% — weight transfers forward under deceleration, loading the front tire",
+          "correct": true
+        },
+        {
+          "text": "90%+ — you should almost never use the rear brake",
+          "correct": false
+        }
+      ],
+      "explanation": "70-80% of stopping power comes from the front brake because weight transfers forward under deceleration, increasing the front tire's contact patch and grip. The road instinct — rear-brake-dominant — is the number one cause of wet gravel crashes. The rear tire is already light under braking. Locking it is easy and leads to skids, overcorrection, and going down."
+    },
+    {
+      "type": "quiz",
+      "question": "Your rear wheel locks on wet gravel and begins to skid sideways. What's the correct recovery sequence?",
+      "options": [
+        {
+          "text": "Apply the front brake to compensate and straighten out",
+          "correct": false
+        },
+        {
+          "text": "Keep the rear brake applied and steer into the skid",
+          "correct": false
+        },
+        {
+          "text": "Full release of the rear brake, let the bike track straight, then gently reapply",
+          "correct": true
+        },
+        {
+          "text": "Release both brakes and coast until the bike stabilizes",
+          "correct": false
+        }
+      ],
+      "explanation": "Full release, track straight, gentle reapply. A locked rear wheel has zero directional control — it's a sled. Releasing the brake lets the tire regain traction and directional authority. Let the bike track straight for a beat, then reapply gently. Grabbing the front brake during a rear skid is the classic two-wheel-lockup crash sequence."
+    },
+    {
+      "type": "quiz",
+      "question": "You're entering a gravel corner. The 85% Rule means:",
+      "options": [
+        {
+          "text": "Use 85% of your available brake power before the corner",
+          "correct": false
+        },
+        {
+          "text": "Enter at 85% of your estimated maximum speed for that corner",
+          "correct": true
+        },
+        {
+          "text": "Lean the bike to 85% of maximum lean angle",
+          "correct": false
+        },
+        {
+          "text": "Maintain 85% of your straightaway speed through the turn",
+          "correct": false
+        }
+      ],
+      "explanation": "The 85% Rule: never enter a gravel corner faster than 85% of your calculated maximum speed. The 15% margin accounts for surface variability, mid-corner surprises (loose patch, wet spot), and the reality that your traction estimate is an estimate. On pavement, you can push to 95%. On gravel, the consequences of miscalculation are immediate."
+    },
+    {
+      "type": "quiz",
+      "question": "Mid-corner on loose gravel, your front tire pushes — it's drifting wider than your intended line. What do you NOT do?",
+      "options": [
+        {
+          "text": "Look where you want to go, not where the bike is heading",
+          "correct": false
+        },
+        {
+          "text": "Brake to slow down and regain front-tire grip",
+          "correct": true
+        },
+        {
+          "text": "Slightly reduce lean angle to unload the front tire",
+          "correct": false
+        },
+        {
+          "text": "Weight the outside pedal harder to increase tire contact",
+          "correct": false
+        }
+      ],
+      "explanation": "Do NOT brake mid-corner. The traction circle means your tires have a fixed grip budget — it's already being spent on cornering forces. Braking mid-corner demands traction the tire doesn't have, and the front washes out completely. The correct responses: look through the turn, reduce lean angle slightly, and weight the outside pedal. Prevention beats recovery — the 85% Rule exists so you never need to brake mid-corner."
+    },
+    {
+      "type": "quiz",
+      "question": "On a loose gravel climb above 8% gradient, should you stand or stay seated?",
+      "options": [
+        {
+          "text": "Stand — you can produce more power out of the saddle",
+          "correct": false
+        },
+        {
+          "text": "Alternate — stand on the steep bits, sit on the flatter sections",
+          "correct": false
+        },
+        {
+          "text": "Seated — standing unloads the rear wheel and causes the tire to spin on loose surfaces",
+          "correct": true
+        },
+        {
+          "text": "Stand with your weight shifted far back over the rear wheel",
+          "correct": false
+        }
+      ],
+      "explanation": "Seated. Standing on loose gravel shifts your weight forward and up, unloading the rear tire at the exact moment you're applying peak torque. The result: rear-wheel spin every 2-3 pedal strokes, wasted energy, lost momentum. Seated climbing keeps your weight centered over the rear tire. Hinge at hips, chin toward stem, slide forward slightly. Higher cadence + lower gear = same power with lower peak torque per stroke."
+    },
+    {
+      "type": "quiz",
+      "question": "\"Butter, not peanut butter\" refers to what sensation?",
+      "options": [
+        {
+          "text": "The smooth feeling of a well-lubricated chain",
+          "correct": false
+        },
+        {
+          "text": "How your tires should feel on properly-pressured hardpack",
+          "correct": false
+        },
+        {
+          "text": "A smooth pedal stroke without catch-and-release — each press gives consistently without skipping or surging",
+          "correct": true
+        },
+        {
+          "text": "The consistency of effort you should target on long gravel climbs",
+          "correct": false
+        }
+      ],
+      "explanation": "The Torque Ceiling sensation target. Each pedal stroke presses into something that gives smoothly and consistently — like a knife through butter. No skip, no grab, no surge. The moment you feel catch-and-release — peanut butter — you've exceeded the torque ceiling and the rear tire is on the edge of breaking loose. Higher cadence, lower gear, stay below the ceiling."
+    },
+    {
+      "type": "quiz",
+      "question": "Name the 4 gravel surface types from Lesson 8.",
+      "options": [
+        {
+          "text": "Smooth, chunky, sandy, muddy",
+          "correct": false
+        },
+        {
+          "text": "Hardpack, loose-over-hard, sand/mud, washboard",
+          "correct": true
+        },
+        {
+          "text": "Packed gravel, loose gravel, dirt, rock",
+          "correct": false
+        },
+        {
+          "text": "Fine gravel, coarse gravel, mixed surface, technical",
+          "correct": false
+        }
+      ],
+      "explanation": "The 4 surface types: hardpack, loose-over-hard, sand/mud, and washboard. Each has a distinct visual signature, sound profile, and riding technique. The 50-Meter Scan means identifying transitions between these surfaces before you reach them — not when your front wheel discovers them. Sound is a reading tool: tire noise pitch and rhythm change with each surface type."
+    },
+    {
+      "type": "quiz",
+      "question": "You're approaching a surface transition from hardpack to loose gravel at 20 mph. What's your adjustment priority?",
+      "options": [
+        {
+          "text": "Brake hard before the transition, then coast through",
+          "correct": false
+        },
+        {
+          "text": "Shift to a lower gear and increase cadence",
+          "correct": false
+        },
+        {
+          "text": "Weighted Drop first, then choose your line through the loose, then maintain pressure awareness",
+          "correct": true
+        },
+        {
+          "text": "Maintain speed — loose gravel requires momentum to stay upright",
+          "correct": false
+        }
+      ],
+      "explanation": "The adjustment priority for any surface transition: Weighted Drop first (heels down, elbows bent, weight through pedals), then line selection (smoothest path through the new surface), then pressure awareness (are your tires at the right pressure for this surface?). The Weighted Drop is always first because it takes a fraction of a second and gives you the stable platform to make every other decision from."
+    },
+    {
+      "type": "callout",
+      "content": "If you got 8 or more correct, your Control stack is locked in. You own 8 tools — 4 that built trust, 4 that gave you specific, repeatable technique. Module 3: Find the Speed.",
+      "style": "tip"
+    }
+  ]
+}

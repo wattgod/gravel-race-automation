@@ -1,0 +1,164 @@
+{
+  "id": "the-chimp-and-the-coach",
+  "title": "The Chimp and The Coach",
+  "description": "Your brain has two systems — one reacts, one decides. Performance lives in the gap between them.",
+  "blocks": [
+    {
+      "type": "callout",
+      "style": "highlight",
+      "content": "Module 1: The Two Brains — Your brain has two systems, one reacts, one decides. Performance lives in the gap between them. Over six lessons, you'll learn the machinery running under every training session and every race."
+    },
+    {
+      "type": "callout",
+      "style": "info",
+      "content": "Before you begin, rate yourself 1-10: How well do you currently manage your mental game during hard efforts? Write it down. You'll re-rate at the end of this module."
+    },
+    {
+      "type": "prose",
+      "content": "You're on a start line. Maybe it's a gravel race — one of those 100-milers where they hand you a course map and say \"good luck, there's no cell service after mile 30.\" Maybe it's the start corral of a marathon you've trained six months for. Maybe it's a local Tuesday throwdown with that one person who always attacks like they've got something to prove."
+    },
+    {
+      "type": "prose",
+      "content": "Your heart rate is already at 130 and you haven't taken a step. Your hands are sweating. Your brain is running a highlight reel — but not the good kind. Every bad start. Every bonk. Every time you got dropped before it even started hurting."
+    },
+    {
+      "type": "prose",
+      "content": "None of this is useful. You KNOW your fitness is fine. You did the training. Your numbers are where they should be. And yet your brain is acting like you're about to get eaten by a bear."
+    },
+    {
+      "type": "callout",
+      "style": "highlight",
+      "content": "By the end of this lesson, you will understand the two-brain system that drives every decision you make under pressure — and you'll have a tool to start seeing the gap between reaction and response."
+    },
+    {
+      "type": "callout",
+      "style": "highlight",
+      "content": "You have two brains. One reacts, one decides. The reactive brain — the chimp — is fast, emotional, and automatic. The deliberate brain — the coach — is slower, rational, and effortful. The chimp fires first. Always. Five times faster than the coach. By the time the coach has formed a rational thought, the chimp has already made three bad decisions."
+    },
+    {
+      "type": "tabs",
+      "tabs": [
+        {
+          "label": "The Chimp (System 1)",
+          "content": "Your limbic system — the emotional, reactive, survival-oriented machinery that evolved to keep you alive. It's ancient, powerful, and it doesn't give a damn about your race plan. It's the part that panics on descents, goes out too hard at race starts, and quits when you have 10% more to give. Marshall and Paterson call it the \"chimp brain\" in The Brave Athlete. It sees speed + exposure + gravity and screams DANGER. It sees competitors going fast and screams DON'T GET LEFT BEHIND. It gets there first. Every time."
+        },
+        {
+          "label": "The Coach (System 2)",
+          "content": "Your prefrontal cortex — the newest part of the human brain, evolutionarily speaking. Marshall and Paterson call it \"the professor\"; this course calls it \"the coach.\" The calm, rational voice that makes a pacing plan, decides to hold back on the first climb because six more are coming, and can look at a scary descent and say \"I've ridden this a hundred times, I know my line.\" It can override a bad thought with a better one. But it requires energy, it fatigues, and it's slower than the chimp. The coach is powerful — but only if you give it time to show up."
+        }
+      ]
+    },
+    {
+      "type": "accordion",
+      "items": [
+        {
+          "title": "Kahneman's Dual-Process Theory",
+          "content": "Daniel Kahneman published Thinking, Fast and Slow in 2011, synthesizing decades of research on dual-process theory. The idea that human cognition operates in two distinct modes — one fast and intuitive, one slow and analytical — has been validated across hundreds of studies. It's one of the most robust findings in all of psychology."
+        },
+        {
+          "title": "Marshall & Paterson: The Brave Athlete",
+          "content": "Marshall and Paterson brought Kahneman's framework into sport in 2017. They mapped the two systems onto athletic performance and documented the specific ways the limbic system hijacks athletic decision-making under pressure — working with athletes across disciplines."
+        },
+        {
+          "title": "The Fight-or-Flight Cascade",
+          "content": "When the chimp detects a threat — race starts, hard intervals, being passed, a hill that looks steeper than expected — it triggers the amygdala. The amygdala signals the hypothalamus, which activates the sympathetic nervous system. Heart rate up. Breathing shallow. Muscles tense. Cortisol and adrenaline flood your system. Completely appropriate if a predator is chasing you. Catastrophically unhelpful if you're executing a pacing strategy at mile one."
+        },
+        {
+          "title": "Ego Depletion",
+          "content": "The prefrontal cortex requires energy. Self-control — System 2 overriding System 1 — draws from a limited resource pool. Baumeister's original ego depletion model (supported by Hagger et al., 2009 meta-analysis, though later contested by a 2016 replication failure) suggests that every time you override a panicked thought in hour one, you're spending prefrontal resources you might desperately need in hour four when the race is actually being decided. Whether the mechanism is pure depletion or motivation-shifting, the practical observation holds: self-regulation gets harder over time."
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "style": "quote",
+      "content": "Between stimulus and response there is a space. In that space is our freedom and our power to choose our response.",
+      "attribution": "Widely attributed to Viktor Frankl"
+    },
+    {
+      "type": "knowledge_check",
+      "question": "The chimp brain fires before the coach brain because:",
+      "explanation": "Correct. The limbic system processes threats approximately five times faster than the prefrontal cortex can form a deliberate response. Speed, not intelligence.",
+      "options": [
+        {
+          "text": "The chimp brain is smarter",
+          "correct": false
+        },
+        {
+          "text": "The reactive brain processes information roughly five times faster than the deliberate brain",
+          "correct": true
+        },
+        {
+          "text": "The chimp brain has dedicated neural pathways that bypass the cortex",
+          "correct": false
+        },
+        {
+          "text": "The chimp brain has more neural connections",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "style": "highlight",
+      "content": "The Gap Check"
+    },
+    {
+      "type": "process_list",
+      "items": [
+        {
+          "label": "Pick one training session",
+          "detail": "Your next ride, run, swim, or ski. Any session where you'll face some difficulty."
+        },
+        {
+          "label": "Notice one reactive moment",
+          "detail": "The moment you see your power drop and think \"I'm losing fitness.\" The moment a car passes too close and your grip tightens. The moment you see another rider and your legs want to chase before your brain decides if chasing is smart."
+        },
+        {
+          "label": "Name it",
+          "detail": "Silently, internally: \"That was the chimp.\" That's it. Don't fix it. Don't fight it. Don't judge it. Just see it and name it."
+        },
+        {
+          "label": "Observe the gap",
+          "detail": "By naming the reactive response, you've already created a tiny gap — a sliver of space between impulse and response. You can't widen a gap you don't know exists. This is the seed of everything else in this course."
+        }
+      ]
+    },
+    {
+      "type": "scenario",
+      "prompt": "You're riding on a quiet road. A car passes too close — inches from your handlebar. Your grip tightens, heart rate spikes, jaw clenches. The chimp is screaming.",
+      "options": [
+        {
+          "label": "A",
+          "result": "The chimp wins. You've wasted energy, elevated cortisol, and spent the next 20 minutes replaying the incident instead of executing your training session. The reactive brain stayed in control the entire time.",
+          "best": false
+        },
+        {
+          "label": "B",
+          "result": "The Gap Check in action. You noticed the reactive response, named it, and created space for the coach to take over. The anger fades in 90 seconds instead of 20 minutes. You've just trained the gap.",
+          "best": false
+        },
+        {
+          "label": "C",
+          "result": "The chimp stays in control, just wearing different clothes. You're channeling the reactive energy into effort, but you haven't created any gap. The anger is driving the session, not your plan. Next time a car passes, the same thing will happen.",
+          "best": false
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "style": "info",
+      "content": "Your commitment: In your next training session, catch the chimp firing at least once. See it. Name it. Don't fix it. Prove to yourself that the gap exists."
+    },
+    {
+      "type": "callout",
+      "style": "highlight",
+      "content": "Your brain has two systems. One reacts, one decides. Every panic on a descent, every blown pacing plan, every moment you quit with more in the tank — that's the chimp getting there before the coach. But the gap between those two systems is real, and it's trainable."
+    },
+    {
+      "type": "callout",
+      "style": "info",
+      "content": "Next: Why your brain is actually the biggest limiter on your physical performance — and it has nothing to do with how smart you are."
+    }
+  ]
+}

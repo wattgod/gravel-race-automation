@@ -1,0 +1,152 @@
+{
+  "id": "where-confidence-actually-comes-from",
+  "title": "Where Confidence Actually Comes From",
+  "description": "Confidence isn't a personality trait. It's a judgment based on available evidence.",
+  "blocks": [
+    {
+      "type": "prose",
+      "content": "Think about the most confident you've ever felt before a race. Not during — before. That moment on the start line where something was just different. You weren't nervous. Or maybe you were, but it was the good kind — a loaded spring rather than a clenched fist. You looked around and instead of the usual \"they all look faster than me\" spiral, your brain was quiet."
+    },
+    {
+      "type": "prose",
+      "content": "Why that day? Not because someone told you that you were ready. Not because you read an inspirational quote. It was because you had evidence. Concrete evidence from your own training. Not a pep talk. Not a poster. Proof — from sessions you actually did — that you can do this. That's how confidence actually works."
+    },
+    {
+      "type": "callout",
+      "style": "highlight",
+      "content": "By the end of this lesson, you will have started an Evidence File — a curated collection of proof that you can do hard things."
+    },
+    {
+      "type": "matching",
+      "question": "Match each layer of the Identity Tree to its concept.",
+      "pairs": [
+        {
+          "left": "Roots",
+          "right": "Self-concept"
+        },
+        {
+          "left": "Trunk",
+          "right": "Self-worth"
+        },
+        {
+          "left": "Branches",
+          "right": "Self-esteem"
+        },
+        {
+          "left": "Leaves",
+          "right": "Self-efficacy"
+        }
+      ],
+      "explanation": "Correct. Roots = self-concept (deepest beliefs), trunk = self-worth (fundamental value), branches = self-esteem (domain-specific), leaves = self-efficacy (situational)."
+    },
+    {
+      "type": "callout",
+      "style": "highlight",
+      "content": "Confidence isn't a personality trait. It's a judgment — a calculated assessment your brain makes about your likelihood of success in a specific situation, based on available evidence."
+    },
+    {
+      "type": "image",
+      "asset_id": "bandura-four-sources",
+      "alt": "Bandura's four sources of self-efficacy arranged as a ranked pyramid — past performance at the base, then vicarious experience, verbal persuasion, and physiological state at the top",
+      "caption": "Bandura's four sources of self-efficacy, ranked by impact. Past performance is the gold standard. Physiological state is the most immediate signal."
+    },
+    {
+      "type": "accordion",
+      "items": [
+        {
+          "title": "Past Performance — Gold Standard and Trap",
+          "content": "Your own performance history is the most powerful source of self-efficacy. When you've done hard things and succeeded, your brain logs the evidence. But it cuts both ways — a negative spiral of bad performances builds evidence for \"I can't.\" The Evidence File exists to deliberately curate this source. You're not lying to yourself. You're making sure the brain has access to the full dataset, not just the failures it fixates on."
+        },
+        {
+          "title": "Vicarious Experience — Training Partners",
+          "content": "Watching someone similar to you succeed builds belief that you can do it too. This is why training partners who share your ability level are gold — when they hit a target, your brain registers \"if they can, maybe I can.\" It's also why comparing yourself to elites can backfire. They're too far from your reality for vicarious experience to build real efficacy."
+        },
+        {
+          "title": "Verbal Persuasion — Weakest Positive, Strongest Negative",
+          "content": "\"You can do it!\" is the weakest confidence builder. Easy to say, easy to dismiss. But verbal persuasion's negative form — \"you're not ready,\" \"that goal is unrealistic\" — is devastating. One dismissive comment from a coach or training partner can undermine months of evidence. Protect your inputs. And be careful what you say to other athletes."
+        },
+        {
+          "title": "Physiological State — Warm-Up as Confidence Signal",
+          "content": "How your body feels right now shapes confidence right now. Elevated heart rate, sweaty palms, tight muscles — the chimp reads these as danger signals and downgrades efficacy. A proper warm-up isn't just physical preparation. It's a confidence signal. When your body feels loose and ready, your brain believes you're ready."
+        }
+      ]
+    },
+    {
+      "type": "knowledge_check",
+      "question": "Select ALL of Bandura's four sources of self-efficacy.",
+      "explanation": "Correct. Past performance, vicarious experience, verbal persuasion, and physiological state. These four sources — ranked in that order of impact — are the architecture of confidence.",
+      "options": [
+        {
+          "text": "Past performance accomplishments",
+          "correct": true
+        },
+        {
+          "text": "Genetic talent",
+          "correct": false
+        },
+        {
+          "text": "Vicarious experience",
+          "correct": true
+        },
+        {
+          "text": "Verbal persuasion",
+          "correct": true
+        },
+        {
+          "text": "Social media validation",
+          "correct": false
+        },
+        {
+          "text": "Physiological/emotional state",
+          "correct": true
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "style": "highlight",
+      "content": "The Evidence File"
+    },
+    {
+      "type": "process_list",
+      "items": [
+        {
+          "label": "Start a list",
+          "detail": "Notebook, phone note, whatever you'll actually use. Label it: Evidence File."
+        },
+        {
+          "label": "Write 10 moments",
+          "detail": "Ten moments proving you can do hard things. Not results — moments. \"The day I held pace on the last interval when every cell wanted to stop.\" \"The morning I showed up to train in the rain when nobody else did.\" Specific, concrete, undeniable."
+        },
+        {
+          "label": "Add weekly",
+          "detail": "After every training week, add at least one new entry. The file grows. The evidence accumulates. The brain's dataset gets richer."
+        },
+        {
+          "label": "Read before every race",
+          "detail": "On race morning, read the file. All of it. You're feeding the most powerful source of self-efficacy — past performance — directly into your brain when it needs it most."
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "style": "tip",
+      "content": "Not results. Moments. \"The day I held pace on the last interval when every cell wanted to stop.\" That's evidence. A finish time is a number. Evidence is a story about your character."
+    },
+    {
+      "type": "callout",
+      "style": "info",
+      "content": "Your commitment: I will write my first 10 Evidence File entries by ___. (Pick a date. Write it down.)"
+    },
+    {
+      "type": "callout",
+      "style": "highlight",
+      "content": "Confidence isn't magic. It's architecture."
+    },
+    {
+      "type": "callout",
+      "style": "info",
+      "content": "Next — when your standards are so high that no evidence feels like enough."
+    }
+  ]
+}

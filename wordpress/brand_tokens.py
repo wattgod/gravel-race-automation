@@ -349,3 +349,247 @@ TIER_DESCS = {
     3: "Regional favorites and emerging races. Strong local scenes, genuine gravel character.",
     4: "Up-and-coming races and local grinders. Small fields, raw vibes, grassroots gravel.",
 }
+
+
+# ── Clean Pro Theme (Deliver) ──────────────────────────────
+
+
+CLEAN_PRO_COLORS = {
+    "primary": "#1a1a1a",       # Near-black (headlines)
+    "accent": "#4ECDC4",        # Turquoise (interactive states only)
+    "bg": "#ffffff",            # White
+    "bg_alt": "#fafafa",        # Off-white
+    "text": "#1a1a1a",          # Headlines
+    "text_body": "#4a4a4a",     # Body text
+    "text_muted": "#767676",    # Metadata/labels (WCAG AA compliant on white)
+    "border": "#e5e5e5",        # Hairlines
+    "error": "#c0392b",         # Wrong answers
+}
+
+
+def get_clean_pro_tokens_css() -> str:
+    """Return the :root CSS custom properties for Clean Pro theme (Deliver).
+
+    Maps --gg-* variables to Clean Pro values so existing block renderers
+    work without modification — they reference --gg-color-*, --gg-font-*,
+    and the output just looks different.
+    """
+    return """:root {
+  /* color — Clean Pro (Deliver) */
+  --gg-color-dark-brown: #1a1a1a;
+  --gg-color-primary-brown: #1a1a1a;
+  --gg-color-secondary-brown: #767676;
+  --gg-color-warm-brown: #767676;
+  --gg-color-tan: #e5e5e5;
+  --gg-color-sand: #fafafa;
+  --gg-color-warm-paper: #fafafa;
+  --gg-color-gold: #4ECDC4;
+  --gg-color-light-gold: #4ECDC4;
+  --gg-color-teal: #4ECDC4;
+  --gg-color-light-teal: #4ECDC4;
+  --gg-color-near-black: #1a1a1a;
+  --gg-color-white: #ffffff;
+  --gg-color-error: #c0392b;
+
+  /* Clean Pro semantic tokens */
+  --gl-primary: #1a1a1a;
+  --gl-accent: #4ECDC4;
+  --gl-bg: #ffffff;
+  --gl-bg-alt: #fafafa;
+  --gl-text: #1a1a1a;
+  --gl-text-body: #4a4a4a;
+  --gl-text-muted: #767676;
+  --gl-border: #e5e5e5;
+
+  /* font — Inter (3 weights) */
+  --gg-font-display: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --gg-font-data: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --gg-font-editorial: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --gg-font-size-2xs: 10px;
+  --gg-font-size-xs: 11px;
+  --gg-font-size-sm: 14px;
+  --gg-font-size-base: 16px;
+  --gg-font-size-md: 18px;
+  --gg-font-size-lg: 20px;
+  --gg-font-size-xl: 24px;
+  --gg-font-size-2xl: 28px;
+  --gg-font-size-3xl: 40px;
+  --gg-font-size-4xl: 48px;
+  --gg-font-size-5xl: 56px;
+  --gg-font-weight-regular: 400;
+  --gg-font-weight-semibold: 600;
+  --gg-font-weight-bold: 700;
+  --gg-font-weight-black: 700;
+
+  /* line-height */
+  --gg-line-height-tight: 1.1;
+  --gg-line-height-normal: 1.5;
+  --gg-line-height-relaxed: 1.7;
+  --gg-line-height-prose: 1.8;
+
+  /* letter-spacing */
+  --gg-letter-spacing-tight: -0.5px;
+  --gg-letter-spacing-normal: 0;
+  --gg-letter-spacing-wide: 1px;
+  --gg-letter-spacing-wider: 1.5px;
+  --gg-letter-spacing-ultra-wide: 2px;
+  --gg-letter-spacing-extreme: 3px;
+  --gg-letter-spacing-display: 4px;
+
+  /* spacing */
+  --gg-spacing-2xs: 4px;
+  --gg-spacing-xs: 8px;
+  --gg-spacing-sm: 12px;
+  --gg-spacing-md: 16px;
+  --gg-spacing-lg: 24px;
+  --gg-spacing-xl: 32px;
+  --gg-spacing-2xl: 48px;
+  --gg-spacing-3xl: 64px;
+  --gg-spacing-4xl: 96px;
+
+  /* border — Clean Pro uses hairlines + 4px radius */
+  --gg-border-width-subtle: 1px;
+  --gg-border-width-standard: 1px;
+  --gg-border-width-heavy: 2px;
+  --gg-border-color-default: #e5e5e5;
+  --gg-border-color-brand: #e5e5e5;
+  --gg-border-color-secondary: #e5e5e5;
+  --gg-border-color-gold: #4ECDC4;
+  --gg-border-radius: 4px;
+
+  /* animation */
+  --gg-animation-duration-instant: 0ms;
+  --gg-animation-duration-fast: 150ms;
+  --gg-animation-duration-normal: 300ms;
+  --gg-animation-duration-slow: 500ms;
+  --gg-animation-easing-sharp: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Composite tokens (derived) — Clean Pro */
+:root {
+  --gg-border-subtle: var(--gg-border-width-subtle) solid var(--gg-border-color-default);
+  --gg-border-standard: var(--gg-border-width-standard) solid var(--gg-border-color-default);
+  --gg-border-heavy: var(--gg-border-width-heavy) solid var(--gg-border-color-default);
+  --gg-border-double: var(--gg-border-width-heavy) double var(--gg-border-color-default);
+  --gg-border-gold: var(--gg-border-width-standard) solid var(--gg-border-color-gold);
+  --gg-border-brand: var(--gg-border-width-standard) solid var(--gg-border-color-brand);
+  --gg-border-secondary: var(--gg-border-width-standard) solid var(--gg-border-color-secondary);
+  --gg-transition-hover: var(--gg-animation-duration-normal) var(--gg-animation-easing-sharp);
+}
+
+/* Clean Pro body overrides */
+body {
+  background: var(--gl-bg, #ffffff);
+  color: var(--gl-text-body, #4a4a4a);
+  font-family: var(--gg-font-editorial);
+  font-size: var(--gg-font-size-base);
+  line-height: var(--gg-line-height-prose);
+}"""
+
+
+def get_clean_pro_font_face_css(font_path_prefix: str = "/course/assets/fonts") -> str:
+    """Return @font-face declarations for Inter (Google Fonts variable font).
+
+    Inter is loaded from Google Fonts CDN. No self-hosted woff2 needed.
+    Returns a <link> import instead of @font-face blocks.
+    """
+    return """/* Inter — Variable Weight — Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');"""
+
+
+def get_clean_pro_preload_hints() -> str:
+    """Return preconnect hints for Google Fonts (Inter)."""
+    return """<link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>"""
+
+
+def get_clean_pro_overrides_css() -> str:
+    """Return CSS overrides that make Røkt-themed components render in Clean Pro style.
+
+    These override hardcoded color values in the course CSS that don't use
+    CSS variables (e.g., inline background:#3a2e25 in hero sections).
+    """
+    return """/* ── Clean Pro Overrides ── */
+
+/* Hero: white bg, dark text instead of dark bg, light text */
+.gg-course-hero{background:#ffffff;color:#1a1a1a;border-bottom:1px solid #e5e5e5}
+.gg-course-hero h1{color:#1a1a1a}
+.gg-course-hero-subtitle{color:#4a4a4a}
+.gg-course-hero-badge{border-color:#4ECDC4;color:#4ECDC4}
+.gg-course-hero-price{color:#1a1a1a;font-weight:700}
+.gg-course-hero-cta{background:#1a1a1a;color:#ffffff;border-radius:4px}
+.gg-course-hero-cta:hover{background:#333333}
+
+/* Lesson header: clean light instead of dark brown */
+.gg-course-lesson-header{background:#fafafa;color:#1a1a1a;border-bottom:1px solid #e5e5e5}
+.gg-course-lesson-header h1{color:#1a1a1a}
+.gg-course-lesson-num{color:#4ECDC4}
+.gg-course-lesson-breadcrumb{color:#767676}
+.gg-course-lesson-breadcrumb a{color:#4a4a4a}
+
+/* Gate: clean white */
+.gg-course-gate{background:rgba(255,255,255,.97)}
+.gg-course-gate-inner{background:#ffffff;border:1px solid #e5e5e5;border-radius:4px}
+.gg-course-gate h2{color:#1a1a1a}
+.gg-course-gate p{color:#4a4a4a}
+.gg-course-gate-badge{border-color:#4ECDC4;color:#4ECDC4}
+.gg-course-gate-cta{background:#1a1a1a;border-radius:4px}
+.gg-course-gate-cta:hover{background:#333333}
+.gg-course-gate-form button{background:#1a1a1a;border-radius:4px}
+.gg-course-gate-form button:hover{background:#333333}
+.gg-course-gate-form input[type=email]{border:1px solid #e5e5e5;border-radius:4px}
+
+/* Progress sidebar: clean white */
+.gg-course-progress{background:#ffffff;border:1px solid #e5e5e5;border-radius:4px}
+
+/* Bottom CTA: clean */
+.gg-course-bottom-cta{background:#fafafa;border-top:1px solid #e5e5e5}
+.gg-course-bottom-cta h2{color:#1a1a1a}
+.gg-course-bottom-cta p{color:#4a4a4a}
+
+/* Streak badge: clean */
+.gg-streak-badge{color:#1a1a1a}
+
+/* Content body text */
+.gg-course-lesson-body p{color:#4a4a4a;line-height:1.8}
+.gg-course-lesson-body h1,.gg-course-lesson-body h2,.gg-course-lesson-body h3,.gg-course-lesson-body h4{color:#1a1a1a}
+
+/* Callout info variant */
+.gg-guide-callout--info{border-left:3px solid #767676;background:rgba(118,118,118,.04);padding:16px 20px}
+
+/* Scenario label for sport psych context */
+.gg-guide-scenario-label{content:'SCENARIO'}
+
+/* Section labels: use accent for quiz/check labels */
+.gg-guide-kc-label{color:#4ECDC4}
+
+/* Module outline borders */
+.gg-course-module-title{border-bottom:1px solid #e5e5e5;color:#1a1a1a}
+.gg-course-learn li::before{color:#4ECDC4}
+
+/* Nav buttons: dark, clean */
+.gg-course-nav a{color:#1a1a1a;border:1px solid #e5e5e5;border-radius:4px}
+.gg-course-nav a:hover{background:#1a1a1a;color:#ffffff;border-color:#1a1a1a}
+
+/* Mark complete button: dark */
+.gg-course-complete-btn{background:#1a1a1a;border-radius:4px}
+.gg-course-complete-btn:hover{background:#333333}
+.gg-course-complete-btn.gg-completed{background:#767676}
+
+/* Level-up overlay: clean */
+.gg-levelup-overlay{background:rgba(255,255,255,.92)}
+.gg-levelup-card{background:#ffffff;border:1px solid #e5e5e5;border-radius:4px}
+.gg-levelup-title{color:#1a1a1a}
+.gg-levelup-badge{color:#4ECDC4}
+.gg-levelup-name{color:#4ECDC4}
+.gg-levelup-btn{background:#1a1a1a;border-radius:4px}
+.gg-levelup-btn:hover{background:#333333}
+
+/* Cards: clean */
+.gg-course-card{background:#ffffff;border:1px solid #e5e5e5;border-radius:4px}
+.gg-course-card:hover{border-color:#4ECDC4}
+.gg-course-card-title{color:#1a1a1a}
+
+/* PWA banner: clean */
+.gg-pwa-banner{background:#1a1a1a}
+"""

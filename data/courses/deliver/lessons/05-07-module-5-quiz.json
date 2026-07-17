@@ -1,0 +1,168 @@
+{
+  "id": "module-5-quiz",
+  "title": "Module 5 Quiz",
+  "description": "Test your understanding of the race-day protocol from night-before through post-race debrief.",
+  "blocks": [
+    {
+      "type": "knowledge_check",
+      "question": "Night-Before Checklist: logistics should be finalized by what time?",
+      "explanation": "Correct. Equipment finalized by 7 PM. When gear is laid out and visible, the chimp can't obsess over uncertainty.",
+      "options": [
+        {
+          "text": "9 PM",
+          "correct": false
+        },
+        {
+          "text": "7 PM",
+          "correct": true
+        },
+        {
+          "text": "Midnight",
+          "correct": false
+        },
+        {
+          "text": "When you feel ready",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "knowledge_check",
+      "question": "Pre-Race Protocol: Min 1-5 = ___, Min 6-8 = ___, Min 9-10 = ___.",
+      "explanation": "Correct. Breathing first (physiological foundation), visualization second (builds on calm), identity priming third (loads working memory). Each phase builds on the previous one.",
+      "options": [
+        {
+          "text": "6-2-7 breathing, Highlight Reel, Schema Statement + Performance Statements",
+          "correct": true
+        },
+        {
+          "text": "Highlight Reel, Schema Statement, Activation Calibration",
+          "correct": false
+        },
+        {
+          "text": "Warm-up, Breathing, Visualization",
+          "correct": false
+        },
+        {
+          "text": "Schema Statement, 6-2-7 breathing, Highlight Reel",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "knowledge_check",
+      "question": "In the first hour of a race, you should trust ___ first, and use ___ for confirmation.",
+      "explanation": "Correct. Adrenaline subtracts 1-3 RPE points in the first hour, making threshold feel like tempo. Trust data early. Switch to RPE as primary later when adrenaline fades.",
+      "options": [
+        {
+          "text": "RPE first, data for confirmation",
+          "correct": false
+        },
+        {
+          "text": "Objective data (watch/power) first, RPE for confirmation",
+          "correct": true
+        },
+        {
+          "text": "Your competitor's pace first, RPE for confirmation",
+          "correct": false
+        },
+        {
+          "text": "How your legs feel first, heart rate for confirmation",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "knowledge_check",
+      "question": "Match each Grit Stack step to its action.",
+      "explanation": "Correct. Five specific actions, each doing a specific thing to your brain: parasympathetic brake, cognitive defusion, perceptual reappraisal, instructional self-talk, and task segmentation.",
+      "options": [
+        {
+          "text": "Breathe = 6-2-7 cycle, Detach = 'That's the chimp,' Reframe = Performance Statement, Execute = One technical cue, Segment = Next checkpoint only",
+          "correct": true
+        },
+        {
+          "text": "Breathe = Deep breath, Detach = Close eyes, Reframe = Think positive, Execute = Push harder, Segment = Count miles",
+          "correct": false
+        },
+        {
+          "text": "Breathe = Slow down, Detach = Ignore pain, Reframe = Visualize finish, Execute = Sprint, Segment = Time-based goals",
+          "correct": false
+        },
+        {
+          "text": "Breathe = Box breathing, Detach = Dissociate, Reframe = Mantra, Execute = Increase cadence, Segment = Split remaining distance in half",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "knowledge_check",
+      "question": "The Post-Race Debrief should be completed within:",
+      "explanation": "Correct. Within 24 hours — emotional memory is still accessible, details are fresh, and the narrative hasn't hardened yet. You can still shape the story.",
+      "options": [
+        {
+          "text": "One week",
+          "correct": false
+        },
+        {
+          "text": "24 hours",
+          "correct": true
+        },
+        {
+          "text": "When you feel ready to process",
+          "correct": false
+        },
+        {
+          "text": "Before your next training session",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "knowledge_check",
+      "question": "6. Scenario: An athlete rehearsed their nutrition plan three times in training. On race day, a volunteer hands them an unfamiliar gel at an aid station. Their planned gel is in the drop bag at mile 60. They're at mile 40. What should they do?",
+      "explanation": "Correct. Nothing new on race day is psychological, not just physiological. The unfamiliar gel introduces decision load and GI anxiety. Water bridges the gap. The rehearsed plan resumes at mile 60.",
+      "options": [
+        {
+          "text": "Take the unfamiliar gel — fuel is fuel and you need calories now",
+          "correct": false
+        },
+        {
+          "text": "Skip nutrition entirely until mile 60 when the drop bag arrives",
+          "correct": false
+        },
+        {
+          "text": "Water only until mile 60, then execute the rehearsed plan from the drop bag",
+          "correct": true
+        },
+        {
+          "text": "Take the unfamiliar gel and chase it with extra water to reduce GI risk",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "knowledge_check",
+      "question": "Scenario: Mile 50 of a 100-mile race. Your stomach is revolting — you haven't been able to eat for 30 minutes. You've lost 2 positions. The chimp is screaming 'You're going to bonk. This is over.' Deploy the Grit Stack. What is the correct sequence?",
+      "explanation": "Correct. The Grit Stack deployed precisely: the breath breaks the panic spiral, detachment separates you from the chimp's catastrophizing, reframing converts 'crisis' to 'hiccup' with actual data, execution gives you one concrete action, and segmentation shrinks the world to the next checkpoint.",
+      "options": [
+        {
+          "text": "Push harder to catch the riders ahead, then worry about nutrition at the next aid station",
+          "correct": false
+        },
+        {
+          "text": "Breathe (one 6-2-7) → Detach ('That's the chimp catastrophizing') → Reframe ('I have fuel for 30 more minutes, next aid is 10 away — this is a hiccup, not a crisis') → Execute ('Sip water, small bites, keep the pedals turning') → Segment ('Next aid station. That's my only job.')",
+          "correct": true
+        },
+        {
+          "text": "Stop and rest until your stomach settles, then resume racing",
+          "correct": false
+        },
+        {
+          "text": "Dissociate from the pain and think about something else until the discomfort passes",
+          "correct": false
+        }
+      ]
+    }
+  ]
+}

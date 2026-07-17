@@ -1,0 +1,255 @@
+{
+  "id": "deliver",
+  "title": "Deliver: Unlock Your Brain",
+  "subtitle": "Get out of your own way.",
+  "description": "A 6-module sport psychology course for endurance athletes. 38 lessons, 8 guided audio exercises, downloadable tools. Built on research. Delivered by The Stoic Coach.",
+  "price_usd": 79,
+  "stripe_payment_link": "https://buy.stripe.com/6oUaEYaaW48R2xh589fjG00",
+  "stripe_price_id": "price_1TAcO5LoaHDbEqSqMiwuEi13",
+  "theme": "clean-pro",
+  "instructor": {
+    "name": "Matt Rowe",
+    "title": "Founder, Endure Labs",
+    "bio": "Sport psychology practitioner, endurance coach, and founder of Endure Labs. Built Deliver from the research and 15+ years of coaching athletes through the mental side of endurance sport."
+  },
+  "what_youll_learn": [
+    "How your brain sabotages and supports endurance performance",
+    "Build an athletic identity that doesn't crack under pressure",
+    "Visualization, self-talk, and mental imagery techniques backed by research",
+    "Flow states, clutch performance, and motivation mechanics",
+    "A complete Race Day protocol from night-before to post-race debrief",
+    "Resilience tools for injury, burnout, and setbacks"
+  ],
+  "modules": [
+    {
+      "id": "the-two-brains",
+      "title": "The Two Brains",
+      "lessons": [
+        {
+          "id": "the-chimp-and-the-coach",
+          "title": "The Chimp and The Coach",
+          "file": "lessons/01-01-the-chimp-and-the-coach.json"
+        },
+        {
+          "id": "your-brain-is-the-limiter",
+          "title": "Your Brain Is the Limiter",
+          "file": "lessons/01-02-your-brain-is-the-limiter.json"
+        },
+        {
+          "id": "the-arousal-dial",
+          "title": "The Arousal Dial",
+          "file": "lessons/01-03-the-arousal-dial.json"
+        },
+        {
+          "id": "the-6-2-7",
+          "title": "The 6-2-7",
+          "file": "lessons/01-04-the-6-2-7.json"
+        },
+        {
+          "id": "attention-the-spotlight-you-control",
+          "title": "Attention — The Spotlight You Control",
+          "file": "lessons/01-05-attention-the-spotlight-you-control.json"
+        },
+        {
+          "id": "module-1-quiz",
+          "title": "Module 1 Quiz",
+          "file": "lessons/01-06-module-1-quiz.json"
+        }
+      ]
+    },
+    {
+      "id": "the-stories-you-tell-yourself",
+      "title": "The Stories You Tell Yourself",
+      "lessons": [
+        {
+          "id": "the-identity-tree",
+          "title": "The Identity Tree",
+          "file": "lessons/02-01-the-identity-tree.json"
+        },
+        {
+          "id": "where-confidence-actually-comes-from",
+          "title": "Where Confidence Actually Comes From",
+          "file": "lessons/02-02-where-confidence-actually-comes-from.json"
+        },
+        {
+          "id": "the-perfectionism-trap",
+          "title": "The Perfectionism Trap",
+          "file": "lessons/02-03-the-perfectionism-trap.json"
+        },
+        {
+          "id": "performance-statements",
+          "title": "Performance Statements",
+          "file": "lessons/02-04-performance-statements.json"
+        },
+        {
+          "id": "the-athletic-schema-statement",
+          "title": "The Athletic Schema Statement",
+          "file": "lessons/02-05-the-athletic-schema-statement.json"
+        },
+        {
+          "id": "module-2-quiz",
+          "title": "Module 2 Quiz",
+          "file": "lessons/02-06-module-2-quiz.json"
+        }
+      ]
+    },
+    {
+      "id": "seeing-before-doing",
+      "title": "Seeing Before Doing",
+      "lessons": [
+        {
+          "id": "visualization-is-not-daydreaming",
+          "title": "Visualization Is Not Daydreaming",
+          "file": "lessons/03-01-visualization-is-not-daydreaming.json"
+        },
+        {
+          "id": "the-personal-highlight-reel",
+          "title": "The Personal Highlight Reel",
+          "file": "lessons/03-02-the-personal-highlight-reel.json"
+        },
+        {
+          "id": "disaster-planning",
+          "title": "Disaster Planning",
+          "file": "lessons/03-03-disaster-planning.json"
+        },
+        {
+          "id": "self-talk-the-soundtrack",
+          "title": "Self-Talk — The Soundtrack",
+          "file": "lessons/03-04-self-talk-the-soundtrack.json"
+        },
+        {
+          "id": "detachment-in-action",
+          "title": "Detachment in Action",
+          "file": "lessons/03-05-detachment-in-action.json"
+        },
+        {
+          "id": "module-3-quiz",
+          "title": "Module 3 Quiz",
+          "file": "lessons/03-06-module-3-quiz.json"
+        }
+      ]
+    },
+    {
+      "id": "the-zone-and-the-red-line",
+      "title": "The Zone and The Red Line",
+      "lessons": [
+        {
+          "id": "what-flow-actually-is",
+          "title": "What Flow Actually Is",
+          "file": "lessons/04-01-what-flow-actually-is.json"
+        },
+        {
+          "id": "clutch-vs-flow",
+          "title": "Clutch vs. Flow",
+          "file": "lessons/04-02-clutch-vs-flow.json"
+        },
+        {
+          "id": "motivation-the-engine-under-everything",
+          "title": "Motivation — The Engine Under Everything",
+          "file": "lessons/04-03-motivation-the-engine-under-everything.json"
+        },
+        {
+          "id": "the-data-trap",
+          "title": "The Data Trap",
+          "file": "lessons/04-04-the-data-trap.json"
+        },
+        {
+          "id": "training-monotony-and-the-unmotivated-day",
+          "title": "Training Monotony and The Unmotivated Day",
+          "file": "lessons/04-05-training-monotony-and-the-unmotivated-day.json"
+        },
+        {
+          "id": "module-4-quiz",
+          "title": "Module 4 Quiz",
+          "file": "lessons/04-06-module-4-quiz.json"
+        }
+      ]
+    },
+    {
+      "id": "race-day",
+      "title": "Race Day",
+      "lessons": [
+        {
+          "id": "the-night-before",
+          "title": "The Night Before",
+          "file": "lessons/05-01-the-night-before.json"
+        },
+        {
+          "id": "race-morning",
+          "title": "Race Morning",
+          "file": "lessons/05-02-race-morning.json"
+        },
+        {
+          "id": "the-first-hour",
+          "title": "The First Hour",
+          "file": "lessons/05-03-the-first-hour.json"
+        },
+        {
+          "id": "deliver",
+          "title": "Deliver",
+          "file": "lessons/05-04-deliver.json"
+        },
+        {
+          "id": "fueling-your-head",
+          "title": "Fueling Your Head",
+          "file": "lessons/05-05-fueling-your-head.json"
+        },
+        {
+          "id": "after-the-line",
+          "title": "After The Line",
+          "file": "lessons/05-06-after-the-line.json"
+        },
+        {
+          "id": "module-5-quiz",
+          "title": "Module 5 Quiz",
+          "file": "lessons/05-07-module-5-quiz.json"
+        }
+      ]
+    },
+    {
+      "id": "when-it-all-goes-wrong",
+      "title": "When It All Goes Wrong",
+      "lessons": [
+        {
+          "id": "the-emotional-rollercoaster-is-normal",
+          "title": "The Emotional Rollercoaster Is Normal",
+          "file": "lessons/06-01-the-emotional-rollercoaster-is-normal.json"
+        },
+        {
+          "id": "stress-is-physical",
+          "title": "Stress Is Physical",
+          "file": "lessons/06-02-stress-is-physical.json"
+        },
+        {
+          "id": "coping-what-actually-works",
+          "title": "Coping — What Actually Works",
+          "file": "lessons/06-03-coping-what-actually-works.json"
+        },
+        {
+          "id": "injury-the-uninvited-teacher",
+          "title": "Injury — The Uninvited Teacher",
+          "file": "lessons/06-04-injury-the-uninvited-teacher.json"
+        },
+        {
+          "id": "mental-toughness-is-the-sum",
+          "title": "Mental Toughness Is the Sum",
+          "file": "lessons/06-05-mental-toughness-is-the-sum.json"
+        },
+        {
+          "id": "the-habit-not-the-goal",
+          "title": "The Habit, Not The Goal",
+          "file": "lessons/06-06-the-habit-not-the-goal.json"
+        },
+        {
+          "id": "module-6-quiz",
+          "title": "Module 6 Quiz",
+          "file": "lessons/06-07-module-6-quiz.json"
+        }
+      ]
+    }
+  ],
+  "meta_description": "Sport psychology course for endurance athletes. 6 modules, 38 lessons, guided exercises. Learn to manage your brain under pressure. $79.",
+  "og_image": "deliver-og.png",
+  "noindex": true,
+  "status": "active"
+}

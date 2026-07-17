@@ -35,21 +35,37 @@ const XP_KC_CORRECT = 5;
 const XP_MODULE_COMPLETE = 25;
 const XP_COURSE_COMPLETE = 100;
 
-const LEVELS = [
-  { level: 1, xp: 0,   name: 'Gravel Curious' },
-  { level: 2, xp: 50,  name: 'Dirt Dabbler' },
-  { level: 3, xp: 150, name: 'Gravel Grinder' },
-  { level: 4, xp: 300, name: 'Dust Demon' },
-  { level: 5, xp: 500, name: 'Gravel God' },
-];
+const COURSE_LEVELS = {
+  'gravel-hydration-mastery': [
+    { level: 1, xp: 0,   name: 'Gravel Curious' },
+    { level: 2, xp: 50,  name: 'Dirt Dabbler' },
+    { level: 3, xp: 150, name: 'Gravel Grinder' },
+    { level: 4, xp: 300, name: 'Dust Demon' },
+    { level: 5, xp: 500, name: 'Gravel God' },
+  ],
+  'deliver': [
+    { level: 1, xp: 0,   name: 'Aware' },
+    { level: 2, xp: 50,  name: 'Attuned' },
+    { level: 3, xp: 150, name: 'Focused' },
+    { level: 4, xp: 300, name: 'Composed' },
+    { level: 5, xp: 500, name: 'Delivered' },
+  ],
+};
 
-function getLevelInfo(totalXP) {
-  let current = LEVELS[0];
-  for (const lvl of LEVELS) {
+const DEFAULT_LEVELS = COURSE_LEVELS['gravel-hydration-mastery'];
+
+function getLevelsForCourse(courseId) {
+  return COURSE_LEVELS[courseId] || DEFAULT_LEVELS;
+}
+
+function getLevelInfo(totalXP, courseId) {
+  const levels = getLevelsForCourse(courseId);
+  let current = levels[0];
+  for (const lvl of levels) {
     if (totalXP >= lvl.xp) current = lvl;
   }
-  const nextIdx = LEVELS.findIndex(l => l.level === current.level + 1);
-  const next = nextIdx >= 0 ? LEVELS[nextIdx] : null;
+  const nextIdx = levels.findIndex(l => l.level === current.level + 1);
+  const next = nextIdx >= 0 ? levels[nextIdx] : null;
   return {
     level: current.level,
     name: current.name,
@@ -266,7 +282,7 @@ async function handleProgress(data, env, origin) {
       pct_complete: totalLessons > 0 ? Math.round((completedLessons.length / totalLessons) * 100) : 0,
       total_xp: userRow.total_xp,
       current_streak: userRow.current_streak,
-      level: getLevelInfo(userRow.total_xp)
+      level: getLevelInfo(userRow.total_xp, courseId)
     }, 200, origin);
   }
 
@@ -365,7 +381,7 @@ async function handleProgress(data, env, origin) {
       xp_events: xpEvents,
       total_xp: userRow.total_xp,
       current_streak: userRow.current_streak,
-      level: getLevelInfo(userRow.total_xp)
+      level: getLevelInfo(userRow.total_xp, courseId)
     }, 200, origin);
   }
 
@@ -431,7 +447,7 @@ async function handleKC(data, env, origin) {
     xp_awarded: xpAwarded,
     total_xp: userRow.total_xp,
     current_streak: userRow.current_streak,
-    level: getLevelInfo(userRow.total_xp)
+    level: getLevelInfo(userRow.total_xp, courseId)
   }, 200, origin);
 }
 
@@ -461,7 +477,7 @@ async function handleStats(data, env, origin) {
     current_streak: user.current_streak,
     longest_streak: user.longest_streak,
     last_active_date: user.last_active_date,
-    level: getLevelInfo(user.total_xp),
+    level: getLevelInfo(user.total_xp, data.course_id || null),
     leaderboard_rank: leaderboardRank
   }, 200, origin);
 }
@@ -492,7 +508,7 @@ async function handleLeaderboard(data, env, origin) {
     total_xp: row.total_xp,
     current_streak: row.current_streak,
     lessons_completed: row.lessons_completed,
-    level: getLevelInfo(row.total_xp)
+    level: getLevelInfo(row.total_xp, courseId)
   }));
 
   return jsonResponse({ course_id: courseId, leaderboard }, 200, origin);

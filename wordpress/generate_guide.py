@@ -44,6 +44,10 @@ from generate_neo_brutalist import (
 )
 
 from guide_infographics import INFOGRAPHIC_RENDERERS
+from deliver_infographics import DELIVER_INFOGRAPHIC_RENDERERS
+
+# Merge Deliver infographics into the main renderer map
+INFOGRAPHIC_RENDERERS.update(DELIVER_INFOGRAPHIC_RENDERERS)
 from shared_header import get_site_header_css, get_site_header_html
 from cookie_consent import get_consent_banner_html
 from brand_tokens import get_ga4_head_snippet
@@ -725,6 +729,155 @@ def render_personalized_content(block: dict) -> str:
     return f'<div class="gg-personalized">{"".join(parts)}</div>'
 
 
+def render_download(block: dict) -> str:
+    """Render a download link block."""
+    title = esc(block.get("title", "Download"))
+    url = esc(block["url"])
+    description = _md_inline(esc(block.get("description", "")))
+    desc_html = f'<p class="gg-guide-download-desc">{description}</p>' if description else ''
+    return (f'<div class="gg-guide-download">'
+            f'<a href="{url}" class="gg-guide-download-link" download>'
+            f'<span class="gg-guide-download-icon" aria-hidden="true">&#x1F4E5;</span>'
+            f'<span class="gg-guide-download-title">{title}</span>'
+            f'</a>{desc_html}</div>')
+
+
+def render_audio(block: dict) -> str:
+    """Render an HTML5 audio player block."""
+    title = esc(block.get("title", "Audio"))
+    src = esc(block["src"])
+    description = _md_inline(esc(block.get("description", "")))
+    desc_html = f'<p class="gg-guide-audio-desc">{description}</p>' if description else ''
+    return (f'<div class="gg-guide-audio">'
+            f'<div class="gg-guide-audio-label">{title}</div>'
+            f'<audio controls preload="none" class="gg-guide-audio-player">'
+            f'<source src="{src}" type="audio/mpeg">'
+            f'Your browser does not support audio.</audio>'
+            f'{desc_html}</div>')
+
+
+def render_sorting(block: dict) -> str:
+    """Render an interactive sorting/categorization exercise."""
+    prompt = esc(block["prompt"])
+    categories = block["categories"]
+    items = block["items"]
+
+    items_json = json.dumps(items, ensure_ascii=False)
+    cats_json = json.dumps(categories, ensure_ascii=False)
+
+    # Build item buttons
+    items_html = []
+    for i, item in enumerate(items):
+        items_html.append(
+            f'<button class="gg-guide-sorting-item" data-category="{esc(item["category"])}" '
+            f'data-index="{i}">{esc(item["text"])}</button>'
+        )
+
+    # Build category drop zones
+    cats_html = []
+    for cat in categories:
+        cats_html.append(
+            f'<div class="gg-guide-sorting-zone" data-category="{esc(cat)}">'
+            f'<div class="gg-guide-sorting-zone-label">{esc(cat)}</div>'
+            f'<div class="gg-guide-sorting-zone-items"></div>'
+            f'</div>'
+        )
+
+    feedback = block.get("feedback", {})
+    correct_fb = esc(feedback.get("correct", "All items sorted correctly."))
+    incorrect_fb = esc(feedback.get("incorrect", "Some items are in the wrong category. Try again."))
+
+    return f'''<div class="gg-guide-sorting" data-items='{esc(items_json)}' data-categories='{esc(cats_json)}'>
+      <div class="gg-guide-sorting-label">SORTING EXERCISE</div>
+      <p class="gg-guide-sorting-prompt">{prompt}</p>
+      <div class="gg-guide-sorting-items">{"".join(items_html)}</div>
+      <div class="gg-guide-sorting-zones">{"".join(cats_html)}</div>
+      <button class="gg-guide-sorting-check" style="display:none">CHECK ANSWERS</button>
+      <div class="gg-guide-sorting-feedback" style="display:none"
+           data-correct="{correct_fb}" data-incorrect="{incorrect_fb}"></div>
+    </div>'''
+
+
+def render_self_assessment(block: dict) -> str:
+    """Render a Likert-scale self-assessment (no correct answer)."""
+    prompt = esc(block["prompt"])
+    scale_min = block.get("scale_min", 1)
+    scale_max = block.get("scale_max", 10)
+    min_label = esc(block.get("min_label", "Low"))
+    max_label = esc(block.get("max_label", "High"))
+
+    buttons_html = []
+    for i in range(scale_min, scale_max + 1):
+        buttons_html.append(
+            f'<button class="gg-guide-sa-btn" data-value="{i}">{i}</button>'
+        )
+
+    return f'''<div class="gg-guide-self-assessment">
+      <div class="gg-guide-sa-label">SELF-ASSESSMENT</div>
+      <p class="gg-guide-sa-prompt">{prompt}</p>
+      <div class="gg-guide-sa-scale">
+        <span class="gg-guide-sa-anchor">{min_label}</span>
+        <div class="gg-guide-sa-buttons">{"".join(buttons_html)}</div>
+        <span class="gg-guide-sa-anchor">{max_label}</span>
+      </div>
+    </div>'''
+
+
+def render_matching(block: dict) -> str:
+    """Render a matching quiz — pair left items with right items."""
+    question = esc(block["question"])
+    pairs = block["pairs"]
+    explanation = esc(block.get("explanation", block.get("feedback", {}).get("correct", "")))
+
+    left_items = [esc(p["left"]) for p in pairs]
+    right_items = [esc(p["right"]) for p in pairs]
+
+    pairs_json = json.dumps([{"left": p["left"], "right": p["right"]} for p in pairs], ensure_ascii=False)
+
+    right_html = []
+    for i, item in enumerate(right_items):
+        right_html.append(
+            f'<div class="gg-guide-match-right" data-index="{i}">'
+            f'<select class="gg-guide-match-select">'
+            f'<option value="">Select...</option>'
+            + ''.join(f'<option value="{j}">{left_items[j]}</option>' for j in range(len(left_items)))
+            + f'</select>'
+            f'<span class="gg-guide-match-text">{item}</span>'
+            f'</div>'
+        )
+
+    return f'''<div class="gg-guide-matching" data-pairs='{esc(pairs_json)}'>
+      <div class="gg-guide-matching-label">MATCHING</div>
+      <p class="gg-guide-matching-question">{question}</p>
+      <div class="gg-guide-matching-grid">
+        <div class="gg-guide-matching-right">{"".join(right_html)}</div>
+      </div>
+      <button class="gg-guide-matching-check">CHECK MATCHES</button>
+      <div class="gg-guide-matching-explanation" style="display:none"><p>{explanation}</p></div>
+    </div>'''
+
+
+def render_fill_in_blank(block: dict) -> str:
+    """Render a fill-in-the-blank recall exercise."""
+    question = esc(block["question"])
+    # Support both single answer and multiple answers
+    answers = block.get("answers", [])
+    answer = esc(block.get("answer", ""))
+    if not answer and answers:
+        answer = esc(", ".join(answers))
+    explanation = esc(block.get("explanation", block.get("feedback", {}).get("correct", "")))
+
+    return f'''<div class="gg-guide-fill-blank" data-answer="{answer}">
+      <div class="gg-guide-fill-blank-label">RECALL</div>
+      <p class="gg-guide-fill-blank-question">{question}</p>
+      <div class="gg-guide-fill-blank-input-wrap">
+        <input type="text" class="gg-guide-fill-blank-input" placeholder="Type your answer..." autocomplete="off">
+        <button class="gg-guide-fill-blank-check">CHECK</button>
+      </div>
+      <div class="gg-guide-fill-blank-feedback" style="display:none"><p>{explanation}</p></div>
+    </div>'''
+
+
 # Block type -> renderer dispatch
 BLOCK_RENDERERS = {
     "prose": render_prose,
@@ -746,6 +899,12 @@ BLOCK_RENDERERS = {
     "race_callout": render_race_callout,
     "decision_tree": render_decision_tree,
     "personalized_content": render_personalized_content,
+    "download": render_download,
+    "audio": render_audio,
+    "sorting": render_sorting,
+    "self_assessment": render_self_assessment,
+    "matching": render_matching,
+    "fill_in_blank": render_fill_in_blank,
 }
 
 
@@ -1202,6 +1361,7 @@ def build_guide_css() -> str:
 .gg-guide-callout--quote{border-left-color:#9a7e0a;font-style:italic;background:rgba(183,149,11,0.04)}
 .gg-guide-callout--highlight{border-left-color:#9a7e0a}
 .gg-guide-callout--traffic_light{border-left-color:#9a7e0a}
+.gg-guide-callout--info{border-left:3px solid #6b7280;background:rgba(107,114,128,.05)}
 .gg-guide-callout p{font-family:'Source Serif 4',Georgia,serif;font-size:13px;line-height:1.7;margin:0 0 8px;color:#3a2e25}
 .gg-guide-callout p:last-child{margin-bottom:0}
 
@@ -1812,6 +1972,77 @@ def build_guide_css() -> str:
 .gg-decision-tree__question{font-size:16px}
 .gg-decision-tree__option{font-size:14px;padding:10px 12px}
 }
+
+/* ── Download Block ── */
+.gg-guide-download{border:3px solid #3a2e25;margin:0 0 24px;padding:16px 20px;background:#f5efe6;display:flex;flex-direction:column;gap:8px}
+.gg-guide-download-link{display:flex;align-items:center;gap:10px;text-decoration:none;color:#178079;font-family:'Sometype Mono',monospace;font-size:13px;font-weight:700;letter-spacing:1px;text-transform:uppercase}
+.gg-guide-download-link:hover{color:#4ECDC4}
+.gg-guide-download-icon{font-size:20px}
+.gg-guide-download-desc{font-family:'Source Serif 4',Georgia,serif;font-size:13px;color:#59473c;margin:0;line-height:1.6}
+
+/* ── Audio Block ── */
+.gg-guide-audio{border:3px solid #3a2e25;margin:0 0 24px;padding:16px 20px;background:#f5efe6}
+.gg-guide-audio-label{font-family:'Sometype Mono',monospace;font-size:13px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#3a2e25;margin-bottom:10px}
+.gg-guide-audio-player{width:100%;margin-bottom:8px}
+.gg-guide-audio-desc{font-family:'Source Serif 4',Georgia,serif;font-size:13px;color:#59473c;margin:0;line-height:1.6}
+
+/* ── Sorting Exercise ── */
+.gg-guide-sorting{border:3px solid #3a2e25;margin:0 0 24px;background:#f5efe6}
+.gg-guide-sorting-label{background:#59473c;color:#fff;padding:8px 16px;font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase}
+.gg-guide-sorting-prompt{font-family:'Source Serif 4',Georgia,serif;padding:16px 20px 8px;font-size:14px;font-weight:700;color:#3a2e25;margin:0}
+.gg-guide-sorting-items{padding:8px 20px 16px;display:flex;flex-wrap:wrap;gap:8px}
+.gg-guide-sorting-item{padding:10px 16px;background:#f5efe6;border:2px solid #3a2e25;cursor:pointer;font-family:'Sometype Mono',monospace;font-size:12px;text-align:left}
+.gg-guide-sorting-item:hover{background:#ede4d8}
+.gg-guide-sorting-item--placed{opacity:0.4;pointer-events:none}
+.gg-guide-sorting-item--correct{border-color:#178079;background:rgba(23,128,121,.08)}
+.gg-guide-sorting-item--incorrect{border-color:#c0392b;background:rgba(192,57,43,.08)}
+.gg-guide-sorting-zones{padding:0 20px 16px;display:flex;gap:12px;flex-wrap:wrap}
+.gg-guide-sorting-zone{flex:1;min-width:140px;border:2px dashed #d4c5b9;padding:12px;min-height:80px}
+.gg-guide-sorting-zone-label{font-family:'Sometype Mono',monospace;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#59473c;margin-bottom:8px}
+.gg-guide-sorting-zone-items{display:flex;flex-direction:column;gap:6px}
+.gg-guide-sorting-zone-items .gg-guide-sorting-item{opacity:1;pointer-events:auto;cursor:pointer}
+.gg-guide-sorting-check{margin:0 20px 16px;padding:10px 24px;background:#59473c;color:#fff;border:3px solid #3a2e25;font-family:'Sometype Mono',monospace;font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;cursor:pointer}
+.gg-guide-sorting-check:hover{background:#7d695d}
+.gg-guide-sorting-feedback{padding:12px 20px 16px;background:#f5efe6;border-top:2px solid #178079;font-family:'Source Serif 4',Georgia,serif;font-size:13px;line-height:1.6;color:#3a2e25}
+
+/* ── Self-Assessment ── */
+.gg-guide-self-assessment{border:3px solid #3a2e25;margin:0 0 24px;background:#f5efe6}
+.gg-guide-sa-label{background:#178079;color:#fff;padding:8px 16px;font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase}
+.gg-guide-sa-prompt{font-family:'Source Serif 4',Georgia,serif;padding:16px 20px 12px;font-size:14px;font-weight:700;color:#3a2e25;margin:0}
+.gg-guide-sa-scale{display:flex;align-items:center;gap:8px;padding:8px 20px 20px}
+.gg-guide-sa-anchor{font-family:'Sometype Mono',monospace;font-size:11px;font-weight:700;color:#59473c;letter-spacing:1px;text-transform:uppercase;min-width:40px}
+.gg-guide-sa-buttons{display:flex;gap:4px;flex-wrap:wrap}
+.gg-guide-sa-btn{width:36px;height:36px;display:flex;align-items:center;justify-content:center;border:2px solid #3a2e25;background:#f5efe6;font-family:'Sometype Mono',monospace;font-size:13px;font-weight:700;cursor:pointer}
+.gg-guide-sa-btn:hover{background:#ede4d8}
+.gg-guide-sa-btn--selected{background:#178079;color:#fff;border-color:#178079}
+
+/* ── Matching ── */
+.gg-guide-matching{border:3px solid #3a2e25;margin:0 0 24px;background:#f5efe6}
+.gg-guide-matching-label{background:#9a7e0a;color:#3a2e25;padding:8px 16px;font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase}
+.gg-guide-matching-question{font-family:'Source Serif 4',Georgia,serif;padding:16px 20px 8px;font-size:14px;font-weight:700;color:#3a2e25;margin:0}
+.gg-guide-matching-grid{padding:8px 20px 16px}
+.gg-guide-matching-right{display:flex;flex-direction:column;gap:8px}
+.gg-guide-match-right{display:flex;align-items:center;gap:12px;padding:8px;border:2px solid #d4c5b9;background:#f5efe6}
+.gg-guide-match-right--correct{border-color:#178079;background:rgba(23,128,121,.08)}
+.gg-guide-match-right--incorrect{border-color:#c0392b;background:rgba(192,57,43,.08)}
+.gg-guide-match-select{padding:6px 10px;border:2px solid #3a2e25;font-family:'Sometype Mono',monospace;font-size:12px;background:#f5efe6;min-width:120px}
+.gg-guide-match-text{font-family:'Source Serif 4',Georgia,serif;font-size:13px;color:#3a2e25;flex:1}
+.gg-guide-matching-check{margin:0 20px 16px;padding:10px 24px;background:#59473c;color:#fff;border:3px solid #3a2e25;font-family:'Sometype Mono',monospace;font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;cursor:pointer}
+.gg-guide-matching-check:hover{background:#7d695d}
+.gg-guide-matching-explanation{padding:12px 20px 16px;background:#f5efe6;border-top:2px solid #178079}
+.gg-guide-matching-explanation p{font-family:'Source Serif 4',Georgia,serif;font-size:13px;line-height:1.6;margin:0;color:#3a2e25}
+
+/* ── Fill in Blank ── */
+.gg-guide-fill-blank{border:3px solid #3a2e25;margin:0 0 24px;background:#f5efe6}
+.gg-guide-fill-blank-label{background:#9a7e0a;color:#3a2e25;padding:8px 16px;font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase}
+.gg-guide-fill-blank-question{font-family:'Source Serif 4',Georgia,serif;padding:16px 20px 8px;font-size:14px;font-weight:700;color:#3a2e25;margin:0}
+.gg-guide-fill-blank-input-wrap{padding:8px 20px 16px;display:flex;gap:8px;align-items:center}
+.gg-guide-fill-blank-input{flex:1;padding:10px 14px;border:2px solid #3a2e25;font-family:'Sometype Mono',monospace;font-size:13px;background:#f5efe6}
+.gg-guide-fill-blank-input:focus{outline:3px solid #9a7e0a;outline-offset:2px}
+.gg-guide-fill-blank-check{padding:10px 20px;background:#59473c;color:#fff;border:3px solid #3a2e25;font-family:'Sometype Mono',monospace;font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;cursor:pointer}
+.gg-guide-fill-blank-check:hover{background:#7d695d}
+.gg-guide-fill-blank-feedback{padding:12px 20px 16px;background:#f5efe6;border-top:2px solid #178079}
+.gg-guide-fill-blank-feedback p{font-family:'Source Serif 4',Georgia,serif;font-size:13px;line-height:1.6;margin:0;color:#3a2e25}
 
 /* ── Personalized Content (rider-type variants) ── */
 .gg-personalized{margin:16px 0;position:relative}

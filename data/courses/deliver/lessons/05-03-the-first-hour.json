@@ -1,0 +1,127 @@
+{
+  "id": "the-first-hour",
+  "title": "The First Hour",
+  "description": "The first hour is where discipline separates execution from impulse.",
+  "blocks": [
+    {
+      "type": "prose",
+      "content": "The gun goes off. A gap opens. Someone surges. Your legs want to follow — you're fresh, amped, and the chimp says GO. Every molecule of adrenaline is screaming one word: CHASE. So you chase. You feel incredible. Powerful. Invincible. For about 15 minutes."
+    },
+    {
+      "type": "prose",
+      "content": "Then you start paying for it. The pace that felt effortless was actually threshold. The gap you closed cost you a match you'll desperately need four hours from now. The cruelest part: it felt RIGHT. It didn't feel like a mistake until it was too late to fix."
+    },
+    {
+      "type": "callout",
+      "style": "highlight",
+      "content": "By the end of this lesson, you will have a pre-written First-Hour Focus Script."
+    },
+    {
+      "type": "knowledge_check",
+      "question": "The Pre-Race Protocol: Minutes 1-5 = ___, Minutes 6-8 = ___.",
+      "explanation": "Correct. The protocol sequence: 6-2-7 breathing first (physiological foundation), then Highlight Reel visualization (builds on the calm).",
+      "options": [
+        {
+          "text": "6-2-7 breathing, Highlight Reel visualization",
+          "correct": true
+        },
+        {
+          "text": "Schema Statement, Activation calibration",
+          "correct": false
+        },
+        {
+          "text": "Highlight Reel, Performance Statements",
+          "correct": false
+        },
+        {
+          "text": "Warm-up exercises, Breathing reset",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "style": "highlight",
+      "content": "The first hour is where discipline separates execution from impulse. Adrenaline makes hard paces feel easy — your brain's cost-prediction is lagging behind the expenditure. This is not the time to feel your way through. It's the time to execute a plan."
+    },
+    {
+      "type": "accordion",
+      "items": [
+        {
+          "title": "Attentional Focus — Broad-External and Narrow-Internal",
+          "content": "Alternate between broad-external (positioning, terrain, group energy) and narrow-internal (breathing rate, leg sensation, RPE). Don't get stuck in either. When the chimp locks your attention on a gap or competitor, redirect: 'Spotlight — come back. What's my RPE?' This is the Spotlight Drill under fire."
+        },
+        {
+          "title": "Adrenaline Override — Why 'Easy' Feels Easy",
+          "content": "Perceived effort in early exercise reflects brain motor command output, not peripheral fatigue (De Morree, Klein, & Marcora, 2012). Going out too hard FEELS EASY. In training, the chimp adds 1-3 RPE points. In the first hour of a race, adrenaline SUBTRACTS 1-3 points. A 7 feels like a 5. Threshold feels like tempo."
+        },
+        {
+          "title": "RPE First, Data for Confirmation",
+          "content": "RPE increases linearly with proportion of race completed regardless of actual conditions (Faulkner, Parfitt, & Eston, 2008). In the first hour, if your RPE is low and your data says you're at or above plan — you're going too hard. The adrenaline discount is active. Trust data early, trust RPE later."
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "style": "highlight",
+      "content": "First-Hour Focus Script"
+    },
+    {
+      "type": "process_list",
+      "items": [
+        {
+          "label": "Mantra: \"Settle. Execute. The race is long.\"",
+          "detail": "When the gun goes off and the chimp screams GO, answer with this. When a gap opens and your legs want to chase, answer with this. Instructional self-talk — three specific commands: settle your effort, execute your plan, remember the duration."
+        },
+        {
+          "label": "Check Pacing Every 10-15 Minutes",
+          "detail": "Run a quick diagnostic. Two questions: 'What's my RPE?' and 'What does my data say?' Compare them. In the first hour, if RPE is low and data says at-or-above plan, you're going too hard. The adrenaline discount is active. Back off."
+        },
+        {
+          "label": "Deploy Performance Statements",
+          "detail": "When anxiety spikes — 'You're going too slow,' 'They're all faster,' 'You don't belong here' — fire your pain-response Performance Statement. The chimp produces negative chess pieces. Your Performance Statements answer them with action-directed positive thought."
+        },
+        {
+          "label": "Resist Every Urge to Chase",
+          "detail": "Your If-Then Plans fire here: 'If someone surges in the first 10 minutes, I will hold my pace and let them go.' 'If my heart rate is above zone 2 in the first 20 minutes, I will back off regardless of how it feels.' The decision was already made — last week, with a clear head."
+        }
+      ]
+    },
+    {
+      "type": "scenario",
+      "prompt": "Mile 3 of a 100-mile gravel race. A group of 5 riders surges 15 seconds ahead. Your legs are fresh. The chimp is screaming: don't let them go. Your race plan says hold pace for the first hour.",
+      "options": [
+        {
+          "label": "A",
+          "result": "The chimp wins. At mile 3, you have no idea if this group will hold. You've abandoned your race plan based on a 15-second gap and fresh legs. By mile 30, the effort tax from that early surge compounds. By mile 60, you're alone and paying interest on a loan you took out at mile 3.",
+          "best": false
+        },
+        {
+          "label": "B",
+          "result": "The coach wins. You've demonstrated exactly the discipline the first hour demands. The mantra works: 'Settle. Execute. The race is long.' At mile 60, when those riders are fading, you'll be passing them with a controlled effort and a clear head.",
+          "best": false
+        },
+        {
+          "label": "C",
+          "result": "The worst of both worlds. You've violated your race plan AND failed to catch the group. You're now in no-man's land — faster than planned, slower than needed, and burning matches with no return. The half-commitment costs more than either full commitment.",
+          "best": false
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "style": "info",
+      "content": "Commitment: My first-hour mantra is: ___."
+    },
+    {
+      "type": "callout",
+      "style": "highlight",
+      "content": "The race isn't won in the first hour. But it can be lost there."
+    },
+    {
+      "type": "callout",
+      "style": "info",
+      "content": "Next — the moment where the race IS decided."
+    }
+  ]
+}

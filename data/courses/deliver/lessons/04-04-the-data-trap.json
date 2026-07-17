@@ -1,0 +1,140 @@
+{
+  "id": "the-data-trap",
+  "title": "The Data Trap",
+  "description": "When wearables override body signals, you lose the ability to read yourself.",
+  "blocks": [
+    {
+      "type": "prose",
+      "content": "You're having a great day — genuinely great, everything flowing — and then you look at your watch. The number doesn't match how you feel. Your pace was slower than expected. And in the half-second it took to read that number, the great session evaporated. Your mood shifted. Your legs suddenly felt heavier. You went from flowing to managing in the time it takes to glance at a screen."
+    },
+    {
+      "type": "prose",
+      "content": "Now the reverse: slogging through a session, tired legs, motivation at a 3. You check your watch — you're actually faster than usual. Just like that, the slog becomes acceptable. Your legs didn't change. A number changed your mind about how you felt. In both cases, a device overrode your own body's signals. You trusted the wristwatch more than your nervous system. When did we agree to that deal?"
+    },
+    {
+      "type": "callout",
+      "style": "highlight",
+      "content": "By the end of this lesson, you will have committed to one analog session per week to rebuild your internal sensing system."
+    },
+    {
+      "type": "knowledge_check",
+      "question": "Retrieval: The burnout trajectory moves from:",
+      "explanation": "Correct. The trajectory is predictable: intrinsic motivation degrades into extrinsic, then amotivation, then burnout. Catching the drift early is prevention.",
+      "options": [
+        {
+          "text": "Extrinsic → intrinsic → amotivation → burnout",
+          "correct": false
+        },
+        {
+          "text": "Intrinsic → extrinsic → amotivation → burnout",
+          "correct": true
+        },
+        {
+          "text": "Amotivation → extrinsic → intrinsic → recovery",
+          "correct": false
+        },
+        {
+          "text": "Ego orientation → task orientation → burnout → recovery",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "style": "highlight",
+      "content": "When wearables override body signals, you lose the ability to read yourself. Your ability to read your own body — interoception — is a trainable skill. And like any skill, it degrades with disuse. The more you rely on a device to tell you how you feel, the worse you get at knowing how you feel without it."
+    },
+    {
+      "type": "tabs",
+      "tabs": [
+        {
+          "label": "When Data Helps",
+          "content": "Tracking long-term trends. Confirming or correcting subjective experience. Informing decisions about training load, recovery, and periodization. Post-session analysis. Without data, you're guessing — and smart athletes don't guess when they don't have to."
+        },
+        {
+          "label": "When Data Hurts",
+          "content": "Mid-flow checks that break the spell. Overriding how you feel with what the number says. Daily comparison to past performances or other athletes. Creating dependence — 'I can't run without my watch because then it doesn't count.' Managing a dashboard instead of responding to the terrain. The cognitive load of processing multiple data streams is itself a source of mental fatigue."
+        }
+      ]
+    },
+    {
+      "type": "accordion",
+      "items": [
+        {
+          "title": "Perception Discrepancy",
+          "content": "When your body says one thing and the data says another. Bischof's team (Frontiers in Sports and Active Living, 2024) found this was one of the most psychologically distressing experiences athletes reported. It forces a choice: trust your body or trust the number. Most athletes choose the number — training themselves to override their own perceptual system with an external device."
+        },
+        {
+          "title": "Interoceptive Suppression",
+          "content": "When athletes habitually check external data to assess effort, they gradually lose the ability to assess effort internally. The neural pathways that process internal bodily signals — the insular cortex, the somatosensory regions — get less practice. Over months of data-first training, an athlete can genuinely lose the ability to distinguish between 'hard but sustainable' and 'about to blow up.' Not because they're bad at listening. Because they stopped practicing."
+        },
+        {
+          "title": "16 Technostress Factors (Bischof, 2024)",
+          "content": "Bischof's team identified 16 distinct sources of technostress in cyclists and triathletes: measurement data fixation, comparison pressure, perception discrepancy, technology dependence, techno-overload, and more. SDT ties in — heavy data reliance undermines autonomy (device tells you what to do), competence (improvement only counts if numbers confirm it), and relatedness (training partners become Strava competitors)."
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "style": "highlight",
+      "content": "Analog Sessions"
+    },
+    {
+      "type": "process_list",
+      "items": [
+        {
+          "label": "Once per week, train with zero devices",
+          "detail": "No watch. No heart rate monitor. No power meter. No phone. Decide what you're going to do based on feel. 'I'm going to run easy for about an hour.' No targets. No zones. Just effort by feel."
+        },
+        {
+          "label": "Rate RPE by feel alone",
+          "detail": "After the session, rate three things without checking any device: RPE (1-10), session quality (1-10), and estimated duration. What does 'moderate' feel like in your legs, your breathing, your mental state?"
+        },
+        {
+          "label": "Compare to data sessions",
+          "detail": "Then check a clock for actual duration. Do the next session on the same route with devices and compare. Were your feel-based estimates close to what the data would have told you? Or wildly off?"
+        },
+        {
+          "label": "Rebuild the internal signal",
+          "detail": "If estimates are close, your interoception is intact — maintain it. If wildly off, that's the data trap in action. Your internal sensing system has degraded from disuse. Analog Sessions are the rehab. After a few weeks, you'll feel the difference between zone 2 and zone 3 without looking at a number."
+        }
+      ]
+    },
+    {
+      "type": "scenario",
+      "prompt": "You're two hours into a long ride. Legs feel strong, breathing easy, rhythm locked in. You glance at your power meter: 15 watts below your target. The number doesn't match how you feel.",
+      "options": [
+        {
+          "label": "A",
+          "result": "You've overridden your body's signal with a screen. The flow state you were in? Gone. You're now managing a dashboard instead of riding. And if your body was right — if the effort was appropriate for the conditions — you've just pushed into unsustainable territory because a number told you to.",
+          "best": false
+        },
+        {
+          "label": "B",
+          "result": "Smart. You've preserved the flow state and your internal signal. The discrepancy might mean the power meter is drifting, or the conditions changed (wind, temperature, fatigue pattern). By trusting feel first and using data as confirmation, you stay in the driver's seat.",
+          "best": false
+        },
+        {
+          "label": "C",
+          "result": "Session disrupted. Focus lost. You've just told your brain that the device matters more than the experience. And you've practiced a pattern: when data and feel disagree, stop everything and fix the data. That's dependence, not awareness.",
+          "best": false
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "style": "info",
+      "content": "Your commitment: I will do one analog session this week on _____ [pick a day]. No watch. No phone. Just me and the effort and the oldest feedback system on earth."
+    },
+    {
+      "type": "callout",
+      "style": "highlight",
+      "content": "Data is a tool, not a coach. Learn to read yourself again. The watch can confirm what your body already knows — but only if your body still knows how to speak."
+    },
+    {
+      "type": "callout",
+      "style": "info",
+      "content": "Next — the day motivation isn't there. Not low. Absent. The pilot light is out. And it's not a character flaw."
+    }
+  ]
+}

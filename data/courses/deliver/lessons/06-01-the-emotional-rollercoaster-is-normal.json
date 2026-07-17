@@ -1,0 +1,145 @@
+{
+  "id": "the-emotional-rollercoaster-is-normal",
+  "title": "The Emotional Rollercoaster Is Normal",
+  "description": "The emotional rollercoaster is not weakness. It's a sign that this mattered to you.",
+  "blocks": [
+    {
+      "type": "callout",
+      "style": "highlight",
+      "content": "Module 6: When It All Goes Wrong. Adversity is the defining feature. Resilience is a skill."
+    },
+    {
+      "type": "callout",
+      "style": "info",
+      "content": "Before you begin, rate yourself 1-10: How well do you handle setbacks and adversity? Write it down. You'll re-rate at the end of this module."
+    },
+    {
+      "type": "prose",
+      "content": "Six weeks into a training block. You've been nailing workouts. Numbers trending up. You can feel it — this is your year. And then something breaks. A knee that makes you pull up mid-stride. Burnout so slow you didn't see it until you were sitting in your car, engine running, unable to walk into the gym. A relationship falls apart, a job disappears, a family member gets sick. The rug just got pulled."
+    },
+    {
+      "type": "callout",
+      "style": "highlight",
+      "content": "By the end of this lesson, you will recognize the grief stages in athletic setbacks and be able to name your current stage."
+    },
+    {
+      "type": "callout",
+      "style": "highlight",
+      "content": "The emotional rollercoaster is not weakness. It's a sign that this mattered to you. The only way through it is to name where you are and stop judging yourself for being on the ride."
+    },
+    {
+      "type": "timeline",
+      "title": "",
+      "steps": [
+        {
+          "label": "Denial",
+          "content": "\"It's not that bad. I'll rest two days and be fine.\" You keep checking your training plan like it's still relevant. You Google \"can you run on a stress fracture\" at 11 PM."
+        },
+        {
+          "label": "Anger",
+          "content": "\"Why me? I did everything right.\" You're furious at your body, the sport, the universe. You snap at people closest to you because the rage has nowhere else to go."
+        },
+        {
+          "label": "Bargaining",
+          "content": "\"If I just cross-train, I won't lose any fitness. Maybe I can do the race at 80%.\" You're negotiating with reality — trying to cut a deal with a situation that doesn't negotiate."
+        },
+        {
+          "label": "Depression",
+          "content": "\"What's the point?\" The quiet one. The alarm goes off and you don't get up. Not because you're tired — because nothing feels worth getting up for."
+        },
+        {
+          "label": "Acceptance",
+          "content": "\"This is where I am. What can I do from here?\" Not happiness. Not being OK with it. You've stopped fighting reality and started working with it."
+        }
+      ]
+    },
+    {
+      "type": "accordion",
+      "items": [
+        {
+          "title": "Kubler-Ross (1969) — The Five Stages",
+          "content": "Elisabeth Kubler-Ross's On Death and Dying established the five stages of grief — denial, anger, bargaining, depression, acceptance. So embedded in culture that people reference them without knowing the source."
+        },
+        {
+          "title": "Rotella & Heyman (1986) — Applied to Sport",
+          "content": "In Applied Sport Psychology, Rotella and Heyman argued that injured athletes experience genuine grief. When an athlete loses the ability to train and compete, they lose identity, routine, social connection, and goal pursuit. That's a real loss. Real losses produce grief."
+        },
+        {
+          "title": "Heil's Affective Cycle (1993) — Non-Linear",
+          "content": "John Heil's Psychology of Sport Injury changed the conversation: the stages aren't linear. His Affective Cycle describes three phases — distress, denial, and determined coping — and athletes oscillate between them. Acceptance on Monday, fury on Tuesday, bargaining on Wednesday. That's how this works."
+        },
+        {
+          "title": "Every Experience Is Unique",
+          "content": "Wiese-Bjornstal's 1998 Integrated Model showed your emotional response is filtered through personal factors (personality, history, how central sport is to your identity) and situational factors (sport, time of season, social support). You can't compare your recovery to anyone else's. Each setback is its own event."
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "style": "info",
+      "content": "The stages are not linear. You will cycle. You might feel acceptance on Monday and wake up angry on Tuesday. Don't compare to anyone else's timeline."
+    },
+    {
+      "type": "callout",
+      "style": "highlight",
+      "content": "Name Your Stage"
+    },
+    {
+      "type": "process_list",
+      "items": [
+        {
+          "label": "Where are you on the rollercoaster?",
+          "detail": "Am I in denial? Angry? Bargaining? Depressed? In determined coping? Pause and ask honestly."
+        },
+        {
+          "label": "Name it",
+          "detail": "Out loud if you can. \"I'm angry right now.\" \"I'm bargaining.\" \"I'm in denial and I know it.\" Naming creates distance — you shift from BEING angry to OBSERVING anger."
+        },
+        {
+          "label": "Write it down",
+          "detail": "Naming kills self-judgment. When what you're feeling has a name that appears in clinical textbooks, you stop beating yourself up for feeling it."
+        },
+        {
+          "label": "No judgment — all stages are normal",
+          "detail": "The injury is enough. The burnout is enough. You don't need to also feel guilty about being upset. Every athlete who has ever been sidelined has felt the same thing."
+        }
+      ]
+    },
+    {
+      "type": "scenario",
+      "prompt": "You tore your hamstring two weeks ago. You told your coach \"I'll run next week.\" Your PT says six more weeks. What are you telling yourself?",
+      "options": [
+        {
+          "label": "A",
+          "result": "Denial. You're checking your training plan like it's still relevant and refusing to accept the timeline. The injury doesn't care about your optimism.",
+          "best": false
+        },
+        {
+          "label": "B",
+          "result": "Bargaining. You're negotiating with reality, trying to cut a deal with a situation that doesn't negotiate. The math doesn't work, but the brain keeps running the numbers.",
+          "best": false
+        },
+        {
+          "label": "C",
+          "result": "Acceptance. Not happiness — clarity. You've stopped fighting reality and started working with it. This is where recovery begins.",
+          "best": false
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "style": "info",
+      "content": "My current stage is: ___. I accept that this is where I am right now."
+    },
+    {
+      "type": "callout",
+      "style": "highlight",
+      "content": "Name where you are. Stop judging yourself for being on the ride."
+    },
+    {
+      "type": "callout",
+      "style": "info",
+      "content": "Next — stress isn't just a feeling. It's in your muscles, your sleep, your immune system, and your recovery timeline."
+    }
+  ]
+}

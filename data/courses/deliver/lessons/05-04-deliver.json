@@ -1,0 +1,136 @@
+{
+  "id": "deliver",
+  "title": "Deliver",
+  "description": "This is clutch territory. Maximum deliberate effort. The moment every tool was built for.",
+  "blocks": [
+    {
+      "type": "prose",
+      "content": "There's a moment in every endurance race where the race actually happens. Not at the start. Not in the middle miles. Somewhere between 'this is hard' and 'I can't do this,' you make a decision — in ten seconds, maybe less — that determines the outcome of everything that came before it."
+    },
+    {
+      "type": "prose",
+      "content": "The chimp wakes up. It's been quiet for hours, but now it's screaming: 'This is too hard. You can't sustain this. The gap is too big. Just let it go.' And in that exact moment — with those words echoing in your skull — you have a choice."
+    },
+    {
+      "type": "callout",
+      "style": "highlight",
+      "content": "By the end of this lesson, you will have memorized the 5-step Grit Stack and be able to deploy it under pressure."
+    },
+    {
+      "type": "knowledge_check",
+      "question": "In the first hour, you should trust ___ first.",
+      "explanation": "Correct. In the first hour, adrenaline subtracts 1-3 RPE points, making threshold feel like tempo. Trust data early, trust RPE later.",
+      "options": [
+        {
+          "text": "Your competitor's pace",
+          "correct": false
+        },
+        {
+          "text": "RPE — your perceived effort",
+          "correct": false
+        },
+        {
+          "text": "Objective data (watch, power meter) — because adrenaline corrupts RPE early",
+          "correct": true
+        },
+        {
+          "text": "How your legs feel",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "style": "highlight",
+      "content": "This is clutch territory. Not flow. Flow is gone. Clutch is what's left — the most deliberate, most conscious, most intentional thing you've ever done. Maximum deliberate effort. The moment every tool in this course was built for."
+    },
+    {
+      "type": "tabs",
+      "tabs": [
+        {
+          "label": "Association — High Intensity",
+          "content": "At high intensity, the adaptive strategy is association: tune IN, monitor the body, stay connected to breathing, leg sensation, heart rate (Brick, MacIntyre, & Campbell, 2014). The deciding moment requires you to be fully, completely, brutally present with what your body is doing. You need that information to manage the effort and prevent catastrophic blowup."
+        },
+        {
+          "label": "Dissociation — Moderate Intensity",
+          "content": "At moderate intensity, dissociation — letting your mind wander, not monitoring closely — reduces perceived effort and is generally adaptive. But the deciding moment is NOT moderate intensity. Dissociating during the hardest moment of your race is checking out when you most need to check in."
+        }
+      ]
+    },
+    {
+      "type": "accordion",
+      "items": [
+        {
+          "title": "Segmentation",
+          "content": "Breaking remaining distance into sub-goals is one of the most robustly supported coping strategies in the literature. 'I can't hold this for another hour' triggers the shutdown response. 'I can hold it to the next mile marker' doesn't. The effort is identical. The framing changes everything."
+        },
+        {
+          "title": "Perceptual Reappraisal",
+          "content": "Pain tolerance at a fixed RPE predicted time trial performance (Astokorki & Mauger, 2017). Faster athletes didn't feel less pain — they tolerated more. 'My legs are burning' vs. 'My legs are telling me I'm working at a level most people never reach.' Same sensation. Different story. Different outcome."
+        },
+        {
+          "title": "Cross-References",
+          "content": "The Grit Stack integrates: Clutch state research (4.2) — deliberate effort under pressure. Performance Statements (2.4) — pre-written reframes for the chimp's negative chess pieces. 6-2-7 breathing (1.4) — parasympathetic brake in 15 seconds."
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "style": "highlight",
+      "content": "The Grit Stack"
+    },
+    {
+      "type": "image",
+      "asset_id": "grit-stack",
+      "alt": "The Grit Stack — five layers stacked vertically: Breathe, Detach, Reframe, Execute, Segment",
+      "caption": "Five steps. In order. Every time the deciding moment arrives."
+    },
+    {
+      "type": "process_list",
+      "items": [
+        {
+          "label": "1. Breathe (6-2-7)",
+          "detail": "One cycle. Inhale 6, hold 2, exhale 7. Fifteen seconds to engage the parasympathetic brake and occupy the chimp with counting so it can't continue its catastrophic monologue. Even an imperfect 6-2-7 under maximum duress is infinitely better than none."
+        },
+        {
+          "label": "2. Detach (\"That's the chimp\")",
+          "detail": "Name it. 'That's the chimp.' The screaming voice that says you can't continue? That's the chimp. The conviction you should quit? That's the chimp. You are not the chimp. 'I can't do this' hits differently with a prefix: 'The chimp says I can't do this.' One is a fact. The other is a report from an unreliable narrator."
+        },
+        {
+          "label": "3. Reframe (Performance Statement)",
+          "detail": "Change what the sensation means. 'My legs are burning' becomes 'My legs are telling me I'm working at a level most people never reach.' 'I can't hold this pace' becomes 'I don't KNOW if I can — the only way to find out is to keep going.' Deploy your pain-response Performance Statement. The pain is real. The story changes."
+        },
+        {
+          "label": "4. Execute (Commit)",
+          "detail": "Pick ONE technical cue. Not 'try harder.' One specific, executable action. On a bike: 'Smooth circles. Drop the heels.' Running: 'Light feet. Quick turnover.' The cue displaces catastrophic self-talk — your working memory can't hold both. You're either thinking 'I can't do this' or 'smooth circles.' Not both."
+        },
+        {
+          "label": "5. Segment (Next Checkpoint Only)",
+          "detail": "Shrink the world. The remaining distance is too big — don't look at it. What's the next checkpoint? The next aid station, the next mile marker, the next turn. That's your race now. You're not running a marathon. You're running to the next lamp post. '40 more miles of suffering' triggers shutdown. 'The next half-mile' doesn't."
+        }
+      ]
+    },
+    {
+      "type": "audio",
+      "title": "Grit Stack Walk-Through",
+      "src": "audio/deliver/grit-stack-walkthrough.mp3",
+      "description": "",
+      "duration": "5:00"
+    },
+    {
+      "type": "callout",
+      "style": "info",
+      "content": "Commitment: I will rehearse the Grit Stack in my next hard interval session."
+    },
+    {
+      "type": "callout",
+      "style": "highlight",
+      "content": "This is what you trained for. Not the fitness. This."
+    },
+    {
+      "type": "callout",
+      "style": "info",
+      "content": "Next — fueling your head, not just your body."
+    }
+  ]
+}

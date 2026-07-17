@@ -1,0 +1,163 @@
+{
+  "id": "the-perfectionism-trap",
+  "title": "The Perfectionism Trap",
+  "description": "High standards + self-compassion = growth. High standards + self-punishment = burnout.",
+  "blocks": [
+    {
+      "type": "prose",
+      "content": "You just ran a 1:32 half marathon. A PR by two minutes. And you're disappointed. Because you wanted 1:30. Because the last two miles were ugly. Because you know someone who ran 1:28 last weekend."
+    },
+    {
+      "type": "prose",
+      "content": "Or this: four perfect intervals out of five. Nailed the watts, nailed the cadence, felt strong. The fifth one faded — maybe 5% below target. And the session is a \"failure.\" Four perfect efforts erased by one imperfect one. The chimp's verdict: not good enough. Never good enough."
+    },
+    {
+      "type": "callout",
+      "style": "highlight",
+      "content": "By the end of this lesson, you will be able to distinguish adaptive from maladaptive perfectionism and deploy the Teammate Test."
+    },
+    {
+      "type": "knowledge_check",
+      "question": "The strongest source of self-efficacy is:",
+      "explanation": "Correct. Past performance is Bandura's gold standard — your own evidence that you've done hard things. The Evidence File deliberately curates this source.",
+      "options": [
+        {
+          "text": "Verbal persuasion",
+          "correct": false
+        },
+        {
+          "text": "Past performance accomplishments",
+          "correct": true
+        },
+        {
+          "text": "Physiological state",
+          "correct": false
+        },
+        {
+          "text": "Vicarious experience",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "style": "highlight",
+      "content": "High standards + self-compassion = growth. High standards + self-punishment = burnout."
+    },
+    {
+      "type": "tabs",
+      "tabs": [
+        {
+          "label": "Adaptive Perfectionism",
+          "content": "High standards, flexible response, self-compassion. You set ambitious goals and work incredibly hard. When you fall short, you assess honestly, extract the lesson, and move forward with self-respect intact. You can see the gap between where you are and where you want to be without hating yourself for not being there yet. This side produces growth."
+        },
+        {
+          "label": "Maladaptive Perfectionism",
+          "content": "Rigid standards, catastrophic response, self-punishment. Same ambitious goals. Same hard work. But when you fall short, you turn the knife inward. The bad session isn't a data point — it's a verdict. The goalposts move every time you reach them. Every PR should have been faster. Every good race had a flaw. This side produces burnout, anxiety, and — ironically — worse performance."
+        }
+      ]
+    },
+    {
+      "type": "accordion",
+      "items": [
+        {
+          "title": "Stoeber (2010) — Two Flavors of Perfectionism",
+          "content": "Perfectionistic strivings — setting high personal standards, pursuing excellence — are generally adaptive. They drive training adherence and correlate with effort. Perfectionistic concerns — fear of failure, harsh self-criticism, the sense that nothing is ever good enough — are toxic. Stoeber's work also showed that socially prescribed perfectionism (believing others demand perfection from you) specifically predicted burnout and anxiety."
+        },
+        {
+          "title": "Neff & Mosewich — Self-Compassion as Antidote",
+          "content": "Amber Mosewich (University of Alberta, 2011) found that self-compassion didn't lower standards or reduce drive. It buffered the toxic effects of perfectionism. Athletes with high standards AND high self-compassion performed more consistently, experienced less anxiety, and had dramatically lower burnout rates. Same standards. Same ambition. The only variable was how they treated themselves when they fell short."
+        },
+        {
+          "title": "The Burnout Mechanism",
+          "content": "Gustafsson's 2011 systematic review mapped the pathway: if nothing is ever good enough, effort never produces satisfaction. If effort never produces satisfaction, intrinsic reward evaporates. Without intrinsic reward, you're running on willpower alone. Willpower is finite. When it runs out, you burn out. Not because you weren't tough enough. Because perfectionism ate the reward."
+        }
+      ]
+    },
+    {
+      "type": "knowledge_check",
+      "question": "The key difference between high standards and maladaptive perfectionism is:",
+      "explanation": "Correct. Both have high standards. The difference is the response to falling short — self-compassion (growth) versus self-punishment (burnout).",
+      "options": [
+        {
+          "text": "How hard you train",
+          "correct": false
+        },
+        {
+          "text": "How you respond to falling short",
+          "correct": true
+        },
+        {
+          "text": "Whether you set goals",
+          "correct": false
+        },
+        {
+          "text": "Your genetic predisposition to anxiety",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "style": "highlight",
+      "content": "The Teammate Test"
+    },
+    {
+      "type": "process_list",
+      "items": [
+        {
+          "label": "After a bad session, write down what you're telling yourself",
+          "detail": "The raw, unfiltered internal monologue. Whatever the chimp is saying. \"I'm so slow.\" \"That was embarrassing.\" \"What's the point?\" Don't censor it. Get it on paper."
+        },
+        {
+          "label": "Imagine your best training partner had the same session",
+          "detail": "Same pace drop. Same missed targets. Same frustration. They're standing in front of you, defeated. What would you say to them?"
+        },
+        {
+          "label": "Write the teammate version",
+          "detail": "The message to yourself is brutal, absolute, identity-level destruction. The message to your training partner is honest but compassionate. It puts the session in context. It separates one bad day from permanent identity."
+        },
+        {
+          "label": "Say the teammate version to yourself",
+          "detail": "Out loud if you can. This is not toxic positivity. You're saying the thing a thoughtful, honest person would say to someone they respect. You're just aiming it at yourself for once."
+        }
+      ]
+    },
+    {
+      "type": "scenario",
+      "prompt": "You nailed 4 out of 5 intervals perfectly. The 5th faded — maybe 5% below target. Your training partner texts: \"How'd the session go?\"",
+      "options": [
+        {
+          "label": "A",
+          "result": "Maladaptive perfectionism in action. Four perfect efforts erased by one imperfect one. You've reinforced the narrative that nothing is ever good enough, and your training partner now thinks you had a bad day when you actually had a great one.",
+          "best": false
+        },
+        {
+          "label": "B",
+          "result": "Accurate and balanced. The response acknowledges reality — including the fade — without catastrophizing. Your Evidence File gets an entry. Your schema registers a good session. Your training partner gets the truth.",
+          "best": false
+        },
+        {
+          "label": "C",
+          "result": "Denial. Ignoring the fade means no learning happens. You also miss the chance to practice self-compassion in real time. And when you review the data later, the gap between what you said and what happened erodes trust in your own self-assessment.",
+          "best": false
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "style": "info",
+      "content": "Your commitment: The next time I have a 'bad' session, I will run the Teammate Test before judging myself."
+    },
+    {
+      "type": "callout",
+      "style": "highlight",
+      "content": "The standard isn't the problem. What you do to yourself when you miss it — that's the problem."
+    },
+    {
+      "type": "callout",
+      "style": "info",
+      "content": "Next — building the words that answer the chimp."
+    }
+  ]
+}

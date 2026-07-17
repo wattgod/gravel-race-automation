@@ -1,0 +1,121 @@
+{
+  "id": "stress-is-physical",
+  "title": "Stress Is Physical",
+  "description": "Mental stress amplifies physical pain. The vicious cycle is real.",
+  "blocks": [
+    {
+      "type": "prose",
+      "content": "Notice something right now. Where are your shoulders — up by your ears or dropped? Is your jaw clenched? Take one breath. Was it shallow, chest-only? If your shoulders were high, your jaw was tight, and your breath was shallow — you're stressed. And you probably didn't know it until you looked."
+    },
+    {
+      "type": "prose",
+      "content": "Stress isn't just a feeling. It's a physiological state. It lives in your muscles, your sleep, your digestion, your pain perception. When you're going through a setback, the stress doesn't stay in the \"mental\" category. Your body doesn't distinguish between \"I'm stressed about my injury\" and \"a bear is chasing me.\" The machinery is the same."
+    },
+    {
+      "type": "callout",
+      "style": "highlight",
+      "content": "By the end of this lesson, you will have completed a 5-domain Stress Audit and identified where stress is leaking between domains."
+    },
+    {
+      "type": "knowledge_check",
+      "question": "Heil's Affective Cycle of injury response is best described as:",
+      "explanation": "Right. Heil showed that athletes oscillate between distress, denial, and determined coping. Acceptance on Monday, anger on Tuesday. That's the cycle.",
+      "options": [
+        {
+          "text": "A linear progression from denial to acceptance",
+          "correct": false
+        },
+        {
+          "text": "Non-linear — athletes cycle and oscillate between stages",
+          "correct": true
+        },
+        {
+          "text": "A fixed 5-stage model identical to Kubler-Ross",
+          "correct": false
+        },
+        {
+          "text": "A model that applies only to career-ending injuries",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "style": "highlight",
+      "content": "Mental stress amplifies physical pain. Stress tightens muscles, steals sleep, elevates cortisol, increases inflammation, and makes every session feel harder than it is. The vicious cycle is real."
+    },
+    {
+      "type": "tabs",
+      "tabs": [
+        {
+          "label": "Stress Relievers (Acute)",
+          "content": "Work in the moment. Music. Laughter. Time in nature. A phone call with someone who makes you feel seen. Unplugging from social media for 24 hours. These are aspirin for the headache — they don't solve the underlying problem, but they give your nervous system a break so it can function."
+        },
+        {
+          "label": "Stress Balancers (Structural)",
+          "content": "Address the system. Sleep hygiene. Regular social connection. Meditation or mindfulness. Journaling. Consistent physical activity within your current limitations. These take longer, but they change the baseline. They lower the waterline so daily stressors don't overflow as easily."
+        }
+      ]
+    },
+    {
+      "type": "accordion",
+      "items": [
+        {
+          "title": "The Sympathetic Cascade",
+          "content": "Williams and Andersen's 1998 Stress-Athletic Injury Model found that athletes carrying high life stress responded to competitive stressors with greater physiological arousal — increased muscle tension, narrowed attention, decreased peripheral vision. Stress didn't just make them feel bad. It changed how their bodies functioned and directly increased injury probability."
+        },
+        {
+          "title": "The Vicious Cycle: Stress → Sleep → Stress → Recovery",
+          "content": "Fullagar's 2015 review in Sports Medicine laid it bare: sleep deprivation elevates cortisol, impairs glycogen resynthesis, reduces reaction time, increases perceived effort, and decreases motivation. Stress disrupts sleep. Poor sleep raises cortisol. Elevated cortisol increases inflammation and pain. You feel worse, which adds more stress. The cycle doesn't break itself. You have to intervene."
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "style": "highlight",
+      "content": "The Stress Audit"
+    },
+    {
+      "type": "process_list",
+      "items": [
+        {
+          "label": "Rate 1-10 across five domains",
+          "detail": "Training/Sport, Work/School, Relationships, Sleep, Health. 1 = peaceful and stable. 10 = on fire and barely coping. Be honest."
+        },
+        {
+          "label": "Find the leak",
+          "detail": "Add up all five. Over 30? You're carrying a stress load that's almost certainly affecting performance, recovery, and health. Now find the highest single score — that's your leak. A 9 in relationships doesn't stay in relationships — it raises training stress, disrupts sleep, affects health. Stress bleeds between domains."
+        },
+        {
+          "label": "Deploy stress relievers for acute relief",
+          "detail": "Grab the quick hits to get through the day: music, nature, a call with someone who gets it, unplugging from social media. These don't solve the root cause, but they give your nervous system a break."
+        },
+        {
+          "label": "Deploy stress balancers for the root cause",
+          "detail": "Target the highest-scoring domain with a specific structural change. Sleep highest? No screens after 9 PM, 6-2-7 in bed, consistent wake time. Work highest? Reinstate one boundary this week. Relationships? Have the conversation you've been avoiding."
+        }
+      ]
+    },
+    {
+      "type": "download",
+      "title": "Stress Audit Worksheet",
+      "url": "downloads/deliver/stress-audit-worksheet.pdf",
+      "description": ""
+    },
+    {
+      "type": "callout",
+      "style": "info",
+      "content": "I will complete the Stress Audit today and address the highest-scoring domain this week."
+    },
+    {
+      "type": "callout",
+      "style": "highlight",
+      "content": "Stress doesn't stay in its lane. Find the leak. Fix the leak."
+    },
+    {
+      "type": "callout",
+      "style": "info",
+      "content": "Next — coping strategies matched to what you can control."
+    }
+  ]
+}

@@ -1,0 +1,162 @@
+{
+  "id": "module-2-quiz",
+  "title": "Module 2 Quiz",
+  "description": "Test your understanding of identity, confidence, perfectionism, and self-talk.",
+  "blocks": [
+    {
+      "type": "prose",
+      "content": "Seven questions covering the core concepts from Module 2: The Stories You Tell Yourself. This is retrieval practice — one of the most effective ways to lock knowledge into long-term memory."
+    },
+    {
+      "type": "matching",
+      "question": "1. Match each layer of the Identity Tree to its concept.",
+      "pairs": [
+        {
+          "left": "Roots",
+          "right": "Self-concept"
+        },
+        {
+          "left": "Trunk",
+          "right": "Self-worth"
+        },
+        {
+          "left": "Branches",
+          "right": "Self-esteem"
+        },
+        {
+          "left": "Leaves",
+          "right": "Self-efficacy"
+        }
+      ],
+      "explanation": "Correct. The tree builds from the ground up: roots (self-concept), trunk (self-worth), branches (self-esteem), leaves (self-efficacy). Each layer is more specific and more changeable than the one below it."
+    },
+    {
+      "type": "knowledge_check",
+      "question": "2. Identity Foreclosure occurs when:",
+      "explanation": "Correct. Brewer, Van Raalte & Linder (1993) showed that when athletic identity becomes the ONLY identity, vulnerability skyrockets. Injury or a bad season doesn't just hurt — it's existential.",
+      "options": [
+        {
+          "text": "An athlete develops deep expertise in only one sport discipline",
+          "correct": false
+        },
+        {
+          "text": "An athlete's entire self-concept collapses into a single domain — being an athlete — with no other identity branches",
+          "correct": true
+        },
+        {
+          "text": "An athlete retires from competition voluntarily",
+          "correct": false
+        },
+        {
+          "text": "An athlete experiences normal pre-race anxiety",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "knowledge_check",
+      "question": "3. Select ALL four sources of self-efficacy (Bandura).",
+      "explanation": "Correct. Past performance, vicarious experience, verbal persuasion, and physiological/emotional state — ranked in that order of impact.",
+      "options": [
+        {
+          "text": "Past performance accomplishments",
+          "correct": true
+        },
+        {
+          "text": "Vicarious experience",
+          "correct": true
+        },
+        {
+          "text": "Verbal persuasion",
+          "correct": true
+        },
+        {
+          "text": "Genetic predisposition",
+          "correct": false
+        },
+        {
+          "text": "Physiological/emotional state",
+          "correct": true
+        },
+        {
+          "text": "Training volume",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "knowledge_check",
+      "question": "4. The Teammate Test addresses which psychological trap?",
+      "explanation": "Correct. The Teammate Test catches the double standard: brutal self-talk aimed inward that you'd never direct at someone you respect. Same honesty, more compassion, better results.",
+      "options": [
+        {
+          "text": "Over-arousal on race day",
+          "correct": false
+        },
+        {
+          "text": "Attentional narrowing during hard efforts",
+          "correct": false
+        },
+        {
+          "text": "Maladaptive perfectionism — the double standard between how you judge yourself and how you'd judge a training partner",
+          "correct": true
+        },
+        {
+          "text": "Identity Foreclosure after injury",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "matching",
+      "question": "5. Match each Performance Statement type to its example phrase.",
+      "pairs": [
+        {
+          "left": "Technical",
+          "right": "\"Quick feet, tall spine.\""
+        },
+        {
+          "left": "Pain Response",
+          "right": "\"You've hurt worse than this and finished.\""
+        },
+        {
+          "left": "Process",
+          "right": "\"Today's session is tomorrow's evidence.\""
+        }
+      ],
+      "explanation": "Correct. Technical = execution cue (body action). Pain Response = suffering counter-move (calm truth). Process = motivation for low days (reason to show up)."
+    },
+    {
+      "type": "fill_in_blank",
+      "question": "6. A Schema Statement has two parts: '___' (strength) and '___' (aspiration).",
+      "answers": [
+        "strength",
+        "aspiration"
+      ],
+      "explanation": "Correct. The Athletic Schema Statement combines who you are (a demonstrable strength) with where you're going (a bold aspiration). Strength + aspiration. Read daily."
+    },
+    {
+      "type": "knowledge_check",
+      "question": "7. An athlete who dismisses every compliment and fixates on the one thing that went wrong is exhibiting:",
+      "explanation": "Correct. Dismissing compliments while fixating on flaws is the hallmark of perfectionistic concerns — Stoeber's toxic flavor. It's not high standards. It's a filter that rejects positive evidence and amplifies negative, leading to chronic dissatisfaction and burnout.",
+      "options": [
+        {
+          "text": "Healthy self-assessment and attention to detail",
+          "correct": false
+        },
+        {
+          "text": "Adaptive perfectionism with high standards",
+          "correct": false
+        },
+        {
+          "text": "Maladaptive perfectionism — perfectionistic concerns that filter out positive evidence and amplify negative",
+          "correct": true
+        },
+        {
+          "text": "Low self-efficacy from insufficient training",
+          "correct": false
+        }
+      ]
+    }
+  ]
+}

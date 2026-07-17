@@ -1,0 +1,157 @@
+{
+  "id": "your-brain-is-the-limiter",
+  "title": "Your Brain Is the Limiter",
+  "description": "Your brain throttles output to protect you. The point where you think you've given everything is a signal, not a wall.",
+  "blocks": [
+    {
+      "type": "prose",
+      "content": "Two sessions in the same week. Same course. Same fitness — seven days apart, nothing had changed physiologically. Resting heart rate the same. HRV in the same range."
+    },
+    {
+      "type": "prose",
+      "content": "On Tuesday, a 90-minute threshold session on a familiar route. RPE was a 9 from the first effort. Legs screaming. Breathing labored too early. Barely finished. Sat in the driveway afterward convinced something was wrong."
+    },
+    {
+      "type": "prose",
+      "content": "On Saturday — four days later — same route, same hills, same climb. Went harder than Tuesday's effort. RPE maybe a 7. Talking on the way up. Same legs. Same lungs. Same engine. What changed? Not the body. The brain."
+    },
+    {
+      "type": "callout",
+      "style": "highlight",
+      "content": "By the end of this lesson, you will understand why your brain — not your muscles — is the primary limiter on endurance performance, and you'll have a tool to measure exactly how much your brain is inflating perceived effort."
+    },
+    {
+      "type": "knowledge_check",
+      "question": "Retrieval from Lesson 1.1: The \"gap\" between stimulus and response is:",
+      "explanation": "Correct. The gap between the chimp's reaction and your deliberate response is real and trainable. That's the entire foundation of this course.",
+      "options": [
+        {
+          "text": "Fixed at birth and cannot be changed",
+          "correct": false
+        },
+        {
+          "text": "Trainable — and widening it is the goal of mental skills training",
+          "correct": true
+        },
+        {
+          "text": "Only relevant during competition",
+          "correct": false
+        },
+        {
+          "text": "A metaphor with no neuroscientific basis",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "style": "highlight",
+      "content": "Your brain is the limiter. Not your legs, not your lungs, not your lactate threshold. Your brain shuts you down before you ever reach a physical wall — on purpose, to protect you. And it's conservative. The point where you believe you've given everything? That's a signal from your brain, not a signal from your muscles."
+    },
+    {
+      "type": "tabs",
+      "tabs": [
+        {
+          "label": "Central Governor (Noakes)",
+          "content": "Tim Noakes proposed the Central Governor Theory in the late 1990s. Your brain acts as a governor — like the limiter on an engine. It monitors signals from muscles, cardiovascular system, fuel stores, and temperature, making continuous unconscious calculations. If continuing at the current intensity poses risk, it throttles output — not by making muscles fail, but by making you feel like they're failing. It reduces motor unit recruitment while reserve capacity remains. The sprint finish proves it: runners speed up in the final miles because the brain releases the governor when the finish is close enough."
+        },
+        {
+          "label": "Psychobiological Model (Marcora)",
+          "content": "Samuele Marcora pushed further: exhaustion during endurance exercise is a conscious decision based on two things — your perception of effort and your motivation to continue. You stop when the effort you perceive reaches the maximum you're willing to tolerate, given how much you care about the goal. Not when your body hits a physiological limit. Perception of effort is cognitive — filtered through self-talk, emotion, attention, beliefs, mood, sleep, and whether you're racing or riding alone on a Tuesday. All of which are trainable."
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "style": "quote",
+      "content": "You cannot improve as an endurance athlete unless you change your relationship with perception of effort.",
+      "attribution": "Dr. Justin Ross"
+    },
+    {
+      "type": "accordion",
+      "items": [
+        {
+          "title": "The Sprint Finish Paradox",
+          "content": "If fatigue is purely peripheral — a muscle thing — then why do runners speed up at the end of marathons? If you're truly at maximum capacity at mile 24, a kick at mile 26 shouldn't be possible. But it happens. All the time. Elite and amateur alike. The energy was there the whole time. The brain was holding it in reserve."
+        },
+        {
+          "title": "Blanchfield Self-Talk Study (2014)",
+          "content": "In \"Talking Yourself Out of Exhaustion\" (Medicine & Science in Sports & Exercise), trained cyclists were split into two groups. One received motivational self-talk training — simple phrases like \"you're doing well\" and \"keep pushing.\" The self-talk group had lower perceived exertion AND significantly longer time to exhaustion. Same legs, same fitness. They rode longer and it felt easier. The only difference was the words running through their heads."
+        },
+        {
+          "title": "Perception Is Cognitive, Not Physical",
+          "content": "Perception of effort is not a direct readout of what's happening in your muscles. It's your brain's interpretation — filtered through self-talk, emotion, attention, your beliefs about yourself, your mood, whether you slept well. The raw physical effort might be a 7. The chimp's emotional markup — fear, frustration, catastrophic thinking — makes it feel like a 9. That markup is trainable."
+        }
+      ]
+    },
+    {
+      "type": "knowledge_check",
+      "question": "According to Marcora's Psychobiological Model, you stop exercising when:",
+      "explanation": "Correct. Marcora's model: you stop when perceived effort reaches the maximum you'll tolerate, given how much you care about the goal. It's a decision, not a failure.",
+      "options": [
+        {
+          "text": "Your muscles physically cannot contract anymore",
+          "correct": false
+        },
+        {
+          "text": "Lactic acid reaches a critical threshold",
+          "correct": false
+        },
+        {
+          "text": "Perceived effort reaches the maximum you're willing to tolerate given your motivation",
+          "correct": true
+        },
+        {
+          "text": "Your heart rate exceeds your maximum",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "style": "highlight",
+      "content": "The RPE Journal"
+    },
+    {
+      "type": "process_list",
+      "items": [
+        {
+          "label": "Pick three hard sessions",
+          "detail": "Intervals, a tempo ride, a long run with a hard finish — anything that qualifies as genuinely difficult for you."
+        },
+        {
+          "label": "Rate in the moment",
+          "detail": "At the single hardest moment of the session — the moment where you most wanted to quit — rate your RPE on a 1-10 scale. 10 is \"I literally cannot continue.\" Note the number mentally or tap it into your phone."
+        },
+        {
+          "label": "Rate again 10 minutes later",
+          "detail": "After you've caught your breath, had some water, let your heart rate come back down — rate that same hardest moment again. Same scale, same question."
+        },
+        {
+          "label": "Compare the two numbers",
+          "detail": "For almost everyone, the retrospective rating is lower — sometimes by 1-3 points. A moment that felt like a 9 becomes a 7. That gap is your brain's tax. The chimp's emotional markup layered on top of the actual physical sensation."
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "style": "info",
+      "content": "Most athletes find a 1-3 point gap between in-the-moment RPE and retrospective RPE. Once you can see it, you can account for it: \"The chimp says 9. It's probably a 7. I can do a 7.\""
+    },
+    {
+      "type": "callout",
+      "style": "info",
+      "content": "Your commitment: Do the RPE Journal for your next three hard sessions. Write down both numbers each time. Notice the pattern. Your brain is the limiter — and now you have the receipts."
+    },
+    {
+      "type": "callout",
+      "style": "highlight",
+      "content": "The point where you think you've given everything is a signal, not a wall. Perception of effort is cognitive — which means it's trainable. Your RPE Journal is going to show you exactly how much markup your brain is adding."
+    },
+    {
+      "type": "callout",
+      "style": "info",
+      "content": "Next: What happens when your brain is too amped up — or not amped up enough — and why the right level of activation is different for every athlete."
+    }
+  ]
+}

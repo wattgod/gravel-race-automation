@@ -1,0 +1,157 @@
+{
+  "id": "motivation-the-engine-under-everything",
+  "title": "Motivation — The Engine Under Everything",
+  "description": "Intrinsic motivation is the engine. When it runs dry, no external fuel replaces it.",
+  "blocks": [
+    {
+      "type": "prose",
+      "content": "Why did you start this sport? Not why you race. Not why you train. Why you started. For most of us, it was the feeling — the pure, intrinsic, \"I want to see what I'm capable of\" feeling. Not the medals. Not the Strava kudos. The feeling."
+    },
+    {
+      "type": "prose",
+      "content": "Now the harder question: is that still why you do it? Maybe you're training because you don't want to lose the fitness you've built. Maybe you're chasing a number that stopped being fun six months ago. Maybe you dread the 5 AM alarm but get up anyway because you'll feel guilty if you don't. That shift isn't burnout — not yet. But it's the road that leads there."
+    },
+    {
+      "type": "callout",
+      "style": "highlight",
+      "content": "By the end of this lesson, you will have assessed your motivation profile and identified warning signs of the burnout trajectory."
+    },
+    {
+      "type": "knowledge_check",
+      "question": "Retrieval: Clutch performance is best described as:",
+      "explanation": "Correct. Clutch is deliberate, effortful, and conscious — a 'making it happen' state. You choose it. On demand.",
+      "options": [
+        {
+          "text": "Effortless, automatic, intrinsically rewarding",
+          "correct": false
+        },
+        {
+          "text": "Deliberate, intense, maximum focused effort",
+          "correct": true
+        },
+        {
+          "text": "Relaxed concentration without self-awareness",
+          "correct": false
+        },
+        {
+          "text": "A state triggered by challenge-skills balance",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "style": "highlight",
+      "content": "Intrinsic motivation is the engine. It's renewable — the more you connect to why you started, the longer it runs. Extrinsic motivation is fossil fuel. It works, but it's finite. When the PRs stop coming, when the podiums dry up, you're left with an empty tank and no way to fill it."
+    },
+    {
+      "type": "image",
+      "asset_id": "sdt-three-needs",
+      "alt": "Self-Determination Theory diagram showing three basic psychological needs: Autonomy (feeling choice and control — 'I chose this plan, not just following orders'), Competence (feeling like you're getting better — 'I hit benchmarks I couldn't hit six months ago'), and Relatedness (connection to others — 'training partners, team, community').",
+      "caption": "SDT's Three Needs (Deci & Ryan). When these needs are met, motivation is self-sustaining. When they're thwarted, motivation erodes — no matter how disciplined you are."
+    },
+    {
+      "type": "timeline",
+      "title": "",
+      "steps": [
+        {
+          "label": "Intrinsic Motivation",
+          "content": "\"I love the feeling of being fit.\" \"I want to see what I'm capable of.\" The sport enriches your life. Renewable fuel."
+        },
+        {
+          "label": "Extrinsic Shift",
+          "content": "\"I need to beat my time from last year.\" \"I told everyone I was doing this race.\" The sport becomes about proving rather than enjoying. Fossil fuel."
+        },
+        {
+          "label": "Amotivation",
+          "content": "Going through the motions but can't remember why. The pilot light is flickering. Neither intrinsic reward nor external validation is producing motivation."
+        },
+        {
+          "label": "Burnout",
+          "content": "Emotional exhaustion, depersonalization, reduced accomplishment. The engine overheated on the wrong fuel. Predictable, well-documented — and preventable if caught early."
+        }
+      ]
+    },
+    {
+      "type": "accordion",
+      "items": [
+        {
+          "title": "Deci & Ryan — Self-Determination Theory",
+          "content": "Built over decades at the University of Rochester, SDT identifies three basic psychological needs: autonomy (choice and control), competence (getting better), and relatedness (connection). The landmark summary appeared in American Psychologist in 2000. When these needs are met, motivation is self-sustaining. When they're thwarted, motivation erodes regardless of discipline."
+        },
+        {
+          "title": "Harmonious vs. Obsessive Passion",
+          "content": "Robert Vallerand's Dualistic Model of Passion (2003) distinguishes two kinds. Harmonious passion: the sport enriches your life alongside other parts — relationships, work, rest. You can take a rest day without guilt. Obsessive passion: the sport controls you. Rest days feel like failure. Self-worth rises and falls with your last performance. Obsessive passion often looks like dedication from the outside. Inside, you're running on anxiety and compulsion."
+        },
+        {
+          "title": "Task vs. Ego Orientation",
+          "content": "John Nicholls (1984, Psychological Review): Task-oriented athletes define success by mastery — 'Did I improve? Did I execute my plan?' Ego-oriented athletes define success by comparison — 'Did I beat them? Where did I place?' Task orientation predicts resilience, persistence, and enjoyment. Ego orientation predicts anxiety, inconsistency, and burnout — because someone is always better."
+        }
+      ]
+    },
+    {
+      "type": "knowledge_check",
+      "question": "SDT's three basic psychological needs are:",
+      "explanation": "Correct. Autonomy (choice), competence (getting better), and relatedness (connection). When all three are met, motivation is self-sustaining.",
+      "options": [
+        {
+          "text": "Challenge, goals, and feedback",
+          "correct": false
+        },
+        {
+          "text": "Autonomy, competence, and relatedness",
+          "correct": true
+        },
+        {
+          "text": "Intrinsic motivation, extrinsic motivation, and amotivation",
+          "correct": false
+        },
+        {
+          "text": "Task orientation, ego orientation, and mastery",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "style": "highlight",
+      "content": "The Motivation Check"
+    },
+    {
+      "type": "process_list",
+      "items": [
+        {
+          "label": "Write why you do this",
+          "detail": "5 minutes. Honestly. Why are you training? Why are you racing? Why did you get up at 5 AM last Tuesday? Not the inspirational version. The real version."
+        },
+        {
+          "label": "Categorize intrinsic vs. extrinsic",
+          "detail": "Intrinsic: 'I love the feeling.' 'I want to see what I'm capable of.' Extrinsic: 'I need to beat my time.' 'I'll feel guilty if I don't train.' 'I don't want people to think I'm getting slower.' Count them up."
+        },
+        {
+          "label": "Check the warning signs",
+          "detail": "If the dominant reasons are about proving, comparing, obligating, or avoiding guilt — that's a warning sign. Your three basic needs are being undermined somewhere. The fix isn't to try harder."
+        },
+        {
+          "label": "Reconnect with one intrinsic reason",
+          "detail": "This week, do one session with zero performance targets. No pace, no power, no distance goal. Pick a route you've never done, or an old favorite. Just move because you chose to. Excavate the feeling that got you into this sport."
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "style": "info",
+      "content": "Your commitment: I will complete the Motivation Check and share my intrinsic/extrinsic ratio with a trusted person — coach, training partner, or friend."
+    },
+    {
+      "type": "callout",
+      "style": "highlight",
+      "content": "If the engine is running on the wrong fuel, no pacing strategy saves you. The burnout trajectory — intrinsic to extrinsic to amotivation to burnout — is predictable. And preventable. But only if you're honest about where you are on it."
+    },
+    {
+      "type": "callout",
+      "style": "info",
+      "content": "Next — when your data becomes a cage. The thing strapped to your wrist might be undermining your motivation, your flow, and your connection to your own body."
+    }
+  ]
+}

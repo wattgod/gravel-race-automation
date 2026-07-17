@@ -1,0 +1,153 @@
+{
+  "id": "coping-what-actually-works",
+  "title": "Coping — What Actually Works",
+  "description": "Problem-focused when you can control it. Emotion-focused when you can't. Avoidance always backfires.",
+  "blocks": [
+    {
+      "type": "prose",
+      "content": "Two athletes. Same injury — tibial stress reaction, eight weeks off, same prognosis. Athlete A scrolls social media, sees training partners posting long runs, gets furious. Tests the leg against doctor's orders. Ignores the pain. Tells nobody. Lies in bed replaying the moment of injury until 2 AM. Sleep: four hours."
+    },
+    {
+      "type": "prose",
+      "content": "Athlete B feels the same frustration. Names it: \"I'm angry today. That's OK.\" Journals three things she's frustrated about, then writes one thing she can control: her rehab appointment. Goes. Asks specific questions. Calls a friend. Sets a short-term goal. Bed at 10. Sleep: seven hours. Same injury. Wildly different trajectories. The difference is strategy."
+    },
+    {
+      "type": "callout",
+      "style": "highlight",
+      "content": "By the end of this lesson, you will be able to match coping strategy to situation based on controllability."
+    },
+    {
+      "type": "knowledge_check",
+      "question": "The Stress Audit evaluates how many domains?",
+      "explanation": "Right. Training/Sport, Work/School, Relationships, Sleep, and Health. Find the highest score — that's the leak.",
+      "options": [
+        {
+          "text": "3",
+          "correct": false
+        },
+        {
+          "text": "4",
+          "correct": false
+        },
+        {
+          "text": "5",
+          "correct": true
+        },
+        {
+          "text": "6",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "style": "highlight",
+      "content": "Problem-focused when you can control it. Emotion-focused when you can't. Avoidance always backfires."
+    },
+    {
+      "type": "tabs",
+      "tabs": [
+        {
+          "label": "Problem-Focused",
+          "content": "Take action to change the situation. Make a plan. Seek information. Adjust goals. DO something about the problem. Best when the stressor is controllable — concrete actions are available. The athlete who calls the PT, researches alternative races, builds a cross-training plan."
+        },
+        {
+          "label": "Emotion-Focused",
+          "content": "Manage the feelings the situation produces. Talk to someone. Journal. Practice mindfulness. Give yourself compassion. Process the emotion rather than fixing the unfixable. Best when the stressor is outside your control. You can't change it, so you manage your relationship with it."
+        },
+        {
+          "label": "Avoidance",
+          "content": "Deny, distract, or dodge. Pretend it's not happening. Numb out with screens, food, alcohol, overwork. Scrolling numbs anxiety for 20 minutes. Telling yourself \"it's fine\" keeps panic at bay for a day. But everything you delay compounds. Avoidance is debt with interest. It always costs more than the original bill."
+        }
+      ]
+    },
+    {
+      "type": "sorting",
+      "prompt": "Sort each scenario into Problem-Focused or Emotion-Focused coping:",
+      "categories": [
+        "Problem-Focused",
+        "Emotion-Focused"
+      ],
+      "items": [
+        {
+          "text": "Bad weather forecast for race day",
+          "category": "Emotion-Focused"
+        },
+        {
+          "text": "Recurring knee pain you haven't had examined",
+          "category": "Problem-Focused"
+        },
+        {
+          "text": "Got passed in the final km — can't change it now",
+          "category": "Emotion-Focused"
+        },
+        {
+          "text": "GI issues caused by your current nutrition plan",
+          "category": "Problem-Focused"
+        }
+      ],
+      "feedback": {
+        "correct": "Exactly. The question is always: can I control this? If yes, problem-focused. If no, emotion-focused.",
+        "incorrect": "The key question: can I control this? Weather and past race moments — no (emotion-focused). Knee pain and nutrition plans — yes (problem-focused)."
+      }
+    },
+    {
+      "type": "accordion",
+      "items": [
+        {
+          "title": "Lazarus & Folkman (1984) — The Transactional Model",
+          "content": "Stress, Appraisal, and Coping established the framework. Stress isn't just about the event — it's the transaction between person and event. Primary appraisal: \"Is this a threat?\" Secondary appraisal: \"Can I handle it?\" Your coping response follows from those two assessments. Nicholls and Polman (2007) confirmed the pattern across multiple sports: problem-focused strategies worked better when the stressor was controllable; avoidance was consistently linked to greater anxiety."
+        },
+        {
+          "title": "Self-Compassion as Coping (Mosewich, 2011)",
+          "content": "Mosewich found that self-compassion isn't just an identity tool — it's a coping mechanism. Treating yourself with the same kindness you'd offer a struggling training partner buffered against self-criticism after failures. It didn't lower standards. It prevented adding a second layer of suffering on top of the first. The injury hurts. Self-criticism makes the injury AND your mental state worse. Self-compassion addresses the mental state while the injury heals."
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "style": "highlight",
+      "content": "The Coping Match"
+    },
+    {
+      "type": "process_list",
+      "items": [
+        {
+          "label": "Name your biggest stressor",
+          "detail": "Be specific. Not \"my injury\" — \"I have a stress reaction in my tibia and I can't run for eight weeks.\" Not \"everything sucks\" — name the actual thing."
+        },
+        {
+          "label": "Can you control it?",
+          "detail": "Not \"can I influence it a little\" or \"can I wish really hard.\" Can you take concrete action that will materially change the situation?"
+        },
+        {
+          "label": "If yes: 3 action steps",
+          "detail": "Write three specific actions for this week. Not goals — actions. \"Call the PT.\" \"Research alternative races.\" \"Build a cross-training plan.\" Then do the first one. Today."
+        },
+        {
+          "label": "If no: acceptance + self-compassion",
+          "detail": "Name it. 6-2-7 breathing to calm the physiology. Teammate Test to check your narrative. Then the slower work — talking to someone, journaling, sitting with discomfort. Triage sequence: name, breathe, reframe."
+        },
+        {
+          "label": "Watch for avoidance",
+          "detail": "Are you \"problem-solving\" something uncontrollable? That's avoidance in a productive mask. \"Processing emotions\" about something you could fix with one phone call? Avoidance in a therapeutic mask. If you've been \"coping\" for two weeks and nothing has changed — you might be avoiding."
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "style": "info",
+      "content": "My biggest stressor right now is ___. I [can/cannot] control it. My strategy is ___."
+    },
+    {
+      "type": "callout",
+      "style": "highlight",
+      "content": "Match the strategy to the situation. Problem-focused when you can act. Emotion-focused when you can't. Stop adding self-punishment on top of suffering."
+    },
+    {
+      "type": "callout",
+      "style": "info",
+      "content": "Next — the uninvited teacher: injury."
+    }
+  ]
+}

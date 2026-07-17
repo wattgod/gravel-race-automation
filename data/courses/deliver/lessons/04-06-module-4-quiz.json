@@ -1,0 +1,180 @@
+{
+  "id": "module-4-quiz",
+  "title": "Module 4 Quiz",
+  "description": "Test your understanding of flow, clutch, motivation, data, and mental fatigue.",
+  "blocks": [
+    {
+      "type": "prose",
+      "content": "Seven questions covering the core concepts from Module 4. This is retrieval practice — one of the most effective ways to lock knowledge into long-term memory."
+    },
+    {
+      "type": "knowledge_check",
+      "question": "1. Match each state to its characteristic: Flow is ___. Clutch is ___.",
+      "explanation": "Correct. Flow is effortless and automatic — you fall into it when conditions are right. Clutch is deliberate and intense — you choose it when the moment demands maximum effort.",
+      "options": [
+        {
+          "text": "Flow = effortless, automatic, 'letting it happen' / Clutch = deliberate, intense, 'making it happen'",
+          "correct": true
+        },
+        {
+          "text": "Flow = deliberate, conscious, high effort / Clutch = effortless, unconscious, low effort",
+          "correct": false
+        },
+        {
+          "text": "Flow = high pressure, time slows down / Clutch = low pressure, time speeds up",
+          "correct": false
+        },
+        {
+          "text": "Flow = available on demand / Clutch = requires three specific triggers",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "knowledge_check",
+      "question": "2. Select ALL three flow triggers:",
+      "explanation": "Correct. Challenge-skills balance, clear goals, and unambiguous feedback. These are the three conditions you can engineer. The other six flow dimensions describe the experience, not the entry criteria.",
+      "options": [
+        {
+          "text": "Challenge-skills balance",
+          "correct": true
+        },
+        {
+          "text": "Loss of self-consciousness",
+          "correct": false
+        },
+        {
+          "text": "Clear goals",
+          "correct": true
+        },
+        {
+          "text": "Maximum deliberate effort",
+          "correct": false
+        },
+        {
+          "text": "Unambiguous feedback",
+          "correct": true
+        },
+        {
+          "text": "Intrinsic reward",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "knowledge_check",
+      "question": "3. The burnout trajectory is:",
+      "explanation": "Correct. The cascade is predictable: intrinsic motivation degrades into extrinsic when the sport becomes about proving rather than enjoying, then into amotivation (going through the motions), then burnout.",
+      "options": [
+        {
+          "text": "Burnout → amotivation → extrinsic → intrinsic recovery",
+          "correct": false
+        },
+        {
+          "text": "Intrinsic motivation → extrinsic motivation → amotivation → burnout",
+          "correct": true
+        },
+        {
+          "text": "Obsessive passion → harmonious passion → amotivation → burnout",
+          "correct": false
+        },
+        {
+          "text": "Ego orientation → task orientation → amotivation → burnout",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "knowledge_check",
+      "question": "4. Interoceptive suppression occurs when:",
+      "explanation": "Correct. When athletes habitually check external data, the neural pathways processing internal bodily signals get less practice and degrade. Use-it-or-lose-it. Analog Sessions are the rehabilitation.",
+      "options": [
+        {
+          "text": "Athletes suppress pain signals to continue racing",
+          "correct": false
+        },
+        {
+          "text": "Coaches suppress athlete autonomy in training plans",
+          "correct": false
+        },
+        {
+          "text": "Habitual data checking gradually atrophies the ability to assess effort internally",
+          "correct": true
+        },
+        {
+          "text": "Mental fatigue suppresses dopamine signaling",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "knowledge_check",
+      "question": "5. Off-Day Protocol Step 1: Name it — 'This is ___, not laziness.'",
+      "explanation": "Correct. 'This is mental fatigue, not laziness.' The reframe matters — the character judgment adds guilt, which adds cognitive load, which makes the adenosine problem worse. Naming it accurately breaks the spiral.",
+      "options": [
+        {
+          "text": "overtraining",
+          "correct": false
+        },
+        {
+          "text": "mental fatigue",
+          "correct": true
+        },
+        {
+          "text": "low motivation",
+          "correct": false
+        },
+        {
+          "text": "burnout",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "knowledge_check",
+      "question": "6. Match each SDT need to its sport example: An athlete who modifies their own workout plan is exercising ___. An athlete who hits benchmarks they couldn't hit 6 months ago is satisfying ___. An athlete who trains with a partner instead of solo is meeting ___.",
+      "explanation": "Correct. Modifying your own plan = autonomy (choice and control). Hitting new benchmarks = competence (getting better). Training with a partner = relatedness (connection to others).",
+      "options": [
+        {
+          "text": "Autonomy, Competence, Relatedness",
+          "correct": true
+        },
+        {
+          "text": "Competence, Autonomy, Relatedness",
+          "correct": false
+        },
+        {
+          "text": "Relatedness, Competence, Autonomy",
+          "correct": false
+        },
+        {
+          "text": "Autonomy, Relatedness, Competence",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "knowledge_check",
+      "question": "7. Scenario: You're in a flow state during a long ride. You glance at your power meter and see you're 15W below target. The flow breaks. What's the best response?",
+      "explanation": "Correct. Data should confirm what your body already told you, not override it. Mid-flow data checks are one of the 16 technostress factors Bischof identified. Trust the internal signal, use data at natural breakpoints, and consider Analog Sessions to rebuild interoception.",
+      "options": [
+        {
+          "text": "Hammer to hit the target number — the data knows better than feel",
+          "correct": false
+        },
+        {
+          "text": "Stop training with power meters entirely — data always hurts performance",
+          "correct": false
+        },
+        {
+          "text": "Note the discrepancy, trust the feel-based signal, and consider checking data only at natural breaks to protect flow states",
+          "correct": true
+        },
+        {
+          "text": "Recalibrate your power meter immediately — the device must be wrong",
+          "correct": false
+        }
+      ]
+    }
+  ]
+}

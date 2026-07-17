@@ -1,0 +1,143 @@
+{
+  "id": "the-arousal-dial",
+  "title": "The Arousal Dial",
+  "description": "Your best performance lives in a specific zone on the arousal dial — and that zone is different for every athlete.",
+  "blocks": [
+    {
+      "type": "prose",
+      "content": "Jason was a monster in training. Metronomic. Hit every number, every time. His training data was legitimately impressive. If you looked at his log, you'd think he was going to podium at every race."
+    },
+    {
+      "type": "prose",
+      "content": "But races? Jason came apart. He'd show up vibrating — heart rate in zone 3 just standing in the corral, jaw clenched, shoulders by his ears. The gun would go off and he'd sprint into the first mile of a six-hour race. He'd blow up within 30-45 minutes. Every. Single. Time. Jason was too aroused."
+    },
+    {
+      "type": "prose",
+      "content": "Sarah had the opposite problem. Calm. Too calm. She'd ease off the line like it was a recovery day, let gaps open because she felt no urgency, and realize 40 minutes in that the front group was a minute up the road. Sarah was under-aroused. Same sport. Opposite problems. Both mental."
+    },
+    {
+      "type": "callout",
+      "style": "highlight",
+      "content": "By the end of this lesson, you will understand the arousal-performance curve, identify where your optimal zone sits, and know whether you tend toward over- or under-arousal on race day."
+    },
+    {
+      "type": "knowledge_check",
+      "question": "Retrieval from Lesson 1.2: According to the Central Governor Theory, the sprint finish is possible because the brain was holding back:",
+      "explanation": "Correct. The sprint finish proves the brain was holding reserve capacity the entire time. If fatigue were purely peripheral, speeding up at the end would be impossible.",
+      "options": [
+        {
+          "text": "Lactic acid",
+          "correct": false
+        },
+        {
+          "text": "Reserve capacity — energy the brain kept in reserve throughout the race",
+          "correct": true
+        },
+        {
+          "text": "Adrenaline for the final push",
+          "correct": false
+        },
+        {
+          "text": "Fast-twitch muscle fibers",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "style": "highlight",
+      "content": "Your best performance lives in a specific zone on the arousal dial — a volume knob from 1 to 10. At 1, you're asleep. At 10, full panic. Your optimal zone is somewhere in the middle, and it's different for every athlete, every sport, and every situation within a sport."
+    },
+    {
+      "type": "image",
+      "asset_id": "yerkes-dodson",
+      "alt": "Yerkes-Dodson inverted U curve showing the relationship between arousal and performance",
+      "caption": "The Yerkes-Dodson Law: performance increases with arousal up to an optimal point, then drops off sharply. Your job is to find where your peak sits."
+    },
+    {
+      "type": "accordion",
+      "items": [
+        {
+          "title": "Yerkes-Dodson Law (1908)",
+          "content": "The relationship between arousal and performance is an inverted U. Performance increases as arousal increases, up to a point, then drops off fast. Published in 1908, replicated and refined ever since. Too little activation: unfocused, slow to react, can't access top gear. Too much: tense, burning matches, impulsive decisions, can't think clearly."
+        },
+        {
+          "title": "Sympathetic vs. Parasympathetic",
+          "content": "Your autonomic nervous system has two branches. The sympathetic (accelerator) increases heart rate, dumps adrenaline, tenses muscles, and narrows attention. The parasympathetic (brake) slows heart rate, relaxes muscles, deepens breathing, and broadens attention. The physical response to excitement and anxiety are virtually identical — same heart rate, same sweating, same tension. The only difference is how you interpret it."
+        },
+        {
+          "title": "IZOF — Individual Zones of Optimal Functioning (Hanin)",
+          "content": "Yuri Hanin's IZOF model refined Yerkes-Dodson by emphasizing that optimal arousal zones are individual. There is no universal 'right' level. Some athletes perform best at a 4. Others need a 7. Your zone is determined by your personality, your sport, and the specific demands of the moment. The only way to find it is to map your own data."
+        },
+        {
+          "title": "Task Complexity Matters",
+          "content": "Fine motor tasks — navigating a technical descent, threading through a pack — have a narrower optimal zone, sitting lower on the arousal scale. You need precision and relaxed hands. Gross motor, high-output tasks — sprinting, surging — tolerate more adrenaline and sit higher. Endurance tasks generally need moderate-to-low arousal: alert and focused but not amped. Calm intensity, not frantic energy."
+        }
+      ]
+    },
+    {
+      "type": "knowledge_check",
+      "question": "Peak performance occurs at:",
+      "explanation": "Correct. Hanin's IZOF model shows that optimal arousal is individual. Your zone depends on you, your sport, and the specific task.",
+      "options": [
+        {
+          "text": "Maximum arousal — the more fired up, the better",
+          "correct": false
+        },
+        {
+          "text": "Minimum arousal — stay as calm as possible",
+          "correct": false
+        },
+        {
+          "text": "An individual optimal zone that varies by athlete and task",
+          "correct": true
+        },
+        {
+          "text": "A fixed arousal level that is the same for all athletes",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "style": "highlight",
+      "content": "Know Your Zone"
+    },
+    {
+      "type": "process_list",
+      "items": [
+        {
+          "label": "Map your best performances",
+          "detail": "Think back to your last three best performances — races, key workouts, breakthroughs. For each, rate your arousal before and during the effort on a 1-10 scale. Be honest about what you actually felt, not what you think the 'right' answer should be."
+        },
+        {
+          "label": "Map your worst performances",
+          "detail": "Think about your last three worst performances — races where you underperformed relative to fitness. Rate those on the same 1-10 scale."
+        },
+        {
+          "label": "Find your zone",
+          "detail": "Where do your best performances cluster? For most endurance athletes, it's between 4 and 6. Enough edge to be sharp, not so much that you're brittle. That cluster is your optimal arousal zone."
+        },
+        {
+          "label": "Identify your pattern",
+          "detail": "If your worst performances cluster higher (7-9), you're a Jason — chronically over-aroused on race day. If they cluster lower (2-4), you're a Sarah — under-activated. Write these numbers down. You need to know which direction to move the dial."
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "style": "info",
+      "content": "Your commitment: Map your last three best and three worst performances to arousal levels this week. Write them down. Know your zone before we start building tools to move the dial."
+    },
+    {
+      "type": "callout",
+      "style": "highlight",
+      "content": "Performance isn't about maximum intensity. It's about optimal intensity — and optimal is personal. Your job is to figure out where you sit on the curve when you're at your best, and then learn to dial yourself there on demand."
+    },
+    {
+      "type": "callout",
+      "style": "info",
+      "content": "Next: The single most effective tool for moving the dial down when it's too high. Free, fifteen seconds, zero equipment. Breathing."
+    }
+  ]
+}

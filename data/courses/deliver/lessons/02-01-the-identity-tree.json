@@ -1,0 +1,130 @@
+{
+  "id": "the-identity-tree",
+  "title": "The Identity Tree",
+  "description": "You will never outperform your self-concept. The words after 'I am' set the ceiling.",
+  "blocks": [
+    {
+      "type": "callout",
+      "style": "highlight",
+      "content": "Module 2: The Stories You Tell Yourself. You will never outperform your self-concept."
+    },
+    {
+      "type": "callout",
+      "style": "info",
+      "content": "Before you begin, rate yourself 1-10: How clearly can you identify the stories driving your athletic identity? Write it down. You'll re-rate at the end of this module."
+    },
+    {
+      "type": "prose",
+      "content": "You just finished the worst race of your year. Maybe you hit the wall at mile 18 and shuffled home while training partners disappeared up the road. Maybe your legs never showed up and you spent five hours alone wondering what the point was."
+    },
+    {
+      "type": "prose",
+      "content": "The race is over. You're sitting in the car, replaying every moment you wish you could take back. But your brain isn't analyzing pacing or nutrition. It's doing something worse. It's writing a story about who you are. \"I'm just not a racer.\" \"I don't have what it takes.\" \"I'm not an athlete — I just play at being one.\" Those aren't tactical assessments. They're identity statements. They describe who you ARE. Permanently."
+    },
+    {
+      "type": "callout",
+      "style": "highlight",
+      "content": "By the end of this lesson, you will have audited your 'I am' statements and identified which are serving you and which are limiting you."
+    },
+    {
+      "type": "callout",
+      "style": "highlight",
+      "content": "Your self-concept is a tree — roots, trunk, branches, leaves. Each layer has different rules. The roots run deepest and change slowest. The leaves are situational and shift daily. Most athletes try to fix the leaves when the problem is in the roots."
+    },
+    {
+      "type": "image",
+      "asset_id": "identity-tree",
+      "alt": "The Identity Tree — roots labeled self-concept, trunk labeled self-worth, branches labeled self-esteem, leaves labeled self-efficacy",
+      "caption": "Dr. Justin Ross's Identity Tree: roots (self-concept) determine the size and health of everything above ground. Trunk (self-worth) is your fundamental value as a person. Branches (self-esteem) are domain-specific. Leaves (self-efficacy) are situational beliefs about specific tasks."
+    },
+    {
+      "type": "accordion",
+      "items": [
+        {
+          "title": "Ross's Tree Metaphor",
+          "content": "Your self-concept (roots) is built over years from thousands of experiences — coaches, parents, successes, failures, comparisons. Mostly invisible, but it determines everything above ground. Your self-worth (trunk) is your fundamental sense of value as a human being, not contingent on performance. If the trunk is strong, bad races lose leaves but the tree stands. If the trunk IS your race results, one bad season topples everything."
+        },
+        {
+          "title": "Harter — Self-Worth vs. Self-Esteem",
+          "content": "Susan Harter's work in the early 1990s clarified a critical distinction: self-worth is global — your value as a whole person. Self-esteem is domain-specific — you can have high self-esteem as a cook and low self-esteem as an athlete. They're branches, not the trunk. A thinning branch shouldn't kill the tree. If the trunk is solid, losing a branch hurts, but the tree recovers."
+        },
+        {
+          "title": "Bandura (1977) — Self-Efficacy",
+          "content": "Albert Bandura defined self-efficacy as your belief in your capability to execute behaviors necessary to produce specific outcomes. Not actual capability — BELIEF in capability. Across decades of research, Bandura showed this belief is often more predictive of performance than actual ability. If you believe you can hold the pace, you try harder, persist longer, stay calmer, and make better decisions. Belief shapes effort."
+        },
+        {
+          "title": "Identity Foreclosure (Brewer, Van Raalte & Linder, 1993)",
+          "content": "The AIMS scale revealed a paradox: strong athletic identity predicts better training adherence and persistence. But when athletic identity becomes your ONLY identity — when the athlete branch becomes the whole tree — vulnerability skyrockets. Injury, illness, or a bad season doesn't just hurt. It's existential. You didn't lose your fitness. You lost yourself. Have other branches. Nurture the trunk."
+        }
+      ]
+    },
+    {
+      "type": "scenario",
+      "prompt": "An athlete suffers a serious knee injury. Training was their entire identity — social circle, daily structure, sense of purpose. All of it revolved around the sport.",
+      "options": [
+        {
+          "label": "A",
+          "result": "Identity Foreclosure in action. With no other branches on the tree, one injury topples the entire sense of self. Depression, social withdrawal, and loss of purpose follow — not because the injury is career-ending, but because the identity was single-threaded.",
+          "best": false
+        },
+        {
+          "label": "B",
+          "result": "Resilient identity. Multiple branches on the tree mean one can thin without toppling the trunk. Self-worth stays intact. Recovery is faster because purpose and identity survive the injury.",
+          "best": false
+        },
+        {
+          "label": "C",
+          "result": "Denial. Refusing to acknowledge the impact prevents honest assessment and proper rehabilitation. The injury lingers longer, and the unprocessed emotional response surfaces later — often as anxiety or burnout when returning to training.",
+          "best": false
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "style": "highlight",
+      "content": "The Identity Audit"
+    },
+    {
+      "type": "process_list",
+      "items": [
+        {
+          "label": "Write 5 'I am' statements",
+          "detail": "Write what you actually believe about yourself as an athlete. Not what you think you should believe. The raw, gut-level truth. \"I am a strong climber but a weak time trialist.\" \"I am someone who trains well but can't race.\""
+        },
+        {
+          "label": "Ask: Fact or story?",
+          "detail": "\"I finished last in my age group\" is a fact. \"I'm not competitive\" is a story. Facts are data points. Stories are narratives built around data points. Narratives can be rewritten."
+        },
+        {
+          "label": "Ask: Serving or limiting?",
+          "detail": "\"I am weak in the heat\" might drive you to do heat adaptation training — that's serving you. \"I'm just not built for racing\" drives no productive action. It's a prison sentence."
+        },
+        {
+          "label": "Where did it come from?",
+          "detail": "A coach? A parent? One bad race you turned into a permanent identity? When you realize \"I'm not a climber\" came from one offhand comment three years ago, it starts to lose its authority."
+        }
+      ]
+    },
+    {
+      "type": "download",
+      "title": "Identity Audit Worksheet",
+      "url": "downloads/deliver/identity-audit-worksheet.pdf",
+      "description": ""
+    },
+    {
+      "type": "callout",
+      "style": "info",
+      "content": "Your commitment: I will complete the Identity Audit before my next training session."
+    },
+    {
+      "type": "callout",
+      "style": "highlight",
+      "content": "You can't fix what you can't see. Now you can see it."
+    },
+    {
+      "type": "callout",
+      "style": "info",
+      "content": "Next — where confidence actually comes from."
+    }
+  ]
+}

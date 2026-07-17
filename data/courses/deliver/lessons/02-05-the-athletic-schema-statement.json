@@ -1,0 +1,128 @@
+{
+  "id": "the-athletic-schema-statement",
+  "title": "The Athletic Schema Statement",
+  "description": "Your self-schema is the thoughts and feelings you have about yourself as an athlete. Choose it, or it chooses you.",
+  "blocks": [
+    {
+      "type": "prose",
+      "content": "Close your eyes and answer this honestly: Who are you as an athlete? Not what you do — who you ARE. If you had to describe yourself in one sentence, what would you say?"
+    },
+    {
+      "type": "prose",
+      "content": "If you drew a blank, or what came up was negative — \"I always fade,\" \"I'm okay but not great,\" \"I can't deliver\" — that's the vacuum. You have an athletic schema whether you know it or not. But you didn't choose it. It assembled itself from bad races, offhand comments, social media comparisons, and the brain's negativity bias. You're running your athletic life on a self-concept you never chose."
+    },
+    {
+      "type": "callout",
+      "style": "highlight",
+      "content": "By the end of this lesson, you will have a written Athletic Schema Statement that you read daily."
+    },
+    {
+      "type": "matching",
+      "question": "Match each Performance Statement type to its example phrase.",
+      "pairs": [
+        {
+          "left": "Technical",
+          "right": "\"Hips forward, light hands.\""
+        },
+        {
+          "left": "Pain Response",
+          "right": "\"If you keep moving, you'll get there.\""
+        },
+        {
+          "left": "Process",
+          "right": "\"Something is better than nothing.\""
+        }
+      ],
+      "explanation": "Correct. Technical = execution cue, Pain Response = suffering counter-move, Process = motivation for low days."
+    },
+    {
+      "type": "callout",
+      "style": "highlight",
+      "content": "Your self-schema is the thoughts and feelings you have about yourself as an athlete. Choose it, or it chooses you."
+    },
+    {
+      "type": "accordion",
+      "items": [
+        {
+          "title": "Schema Theory — Markus (1977)",
+          "content": "Hazel Markus demonstrated that self-schemas aren't passive storage — they actively filter incoming information. If your schema says \"I'm a strong closer,\" you notice and remember races where you finished strong. If it says \"I always fade,\" you remember every fade with excruciating detail. Same experiences. Different filter. Different reality. Schemas also resist change — they reject contradicting information and amplify confirming information."
+        },
+        {
+          "title": "Why Writing It Down Works",
+          "content": "The self-fulfilling prophecy (Merton, 1948): a belief, even initially false, changes behavior in ways that make the belief come true. If you truly believe you're a strong, resilient athlete, you train with more purpose, show up with more confidence, persist longer, and recover faster from setbacks. Those behavioral changes produce better outcomes — which reinforce the schema. The prophecy fulfills itself. Upward."
+        },
+        {
+          "title": "Connection to Bandura's Self-Efficacy",
+          "content": "Expectancy-value theory research (Eccles, Wigfield & Schiefele) showed that self-concept of ability — your belief about how good you are — is the single strongest predictor of persistence and achievement. Not actual ability. PERCEIVED ability. Your schema determines your ceiling. Brewer, Van Raalte, and Linder confirmed with the AIMS scale that deliberately constructed athletic identity produces measurable performance differences."
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "style": "highlight",
+      "content": "Write Your Athletic Schema Statement"
+    },
+    {
+      "type": "process_list",
+      "items": [
+        {
+          "label": "Identify your greatest strength",
+          "detail": "An actual, honest, demonstrable strength. Something you'd defend with evidence. Not about talent or speed — about character. \"I have a relentless work ethic.\" \"I am at my best when the conditions are worst.\" If the chimp says you don't have strengths, go back to your Evidence File."
+        },
+        {
+          "label": "Name your boldest aspiration",
+          "detail": "Not the safe dream. The real one. The one you're embarrassed to say out loud. Present tense, as if it's already happening. \"I am the strongest competitor on any start line I stand on.\" \"I am breaking three hours in the marathon.\""
+        },
+        {
+          "label": "Combine: Strength + Aspiration",
+          "detail": "\"I have a relentless work ethic. I am the strongest competitor on any start line I stand on.\" Yes, it sounds ridiculous. Write it anyway. The athletes who resist this exercise the hardest are usually the ones who need it most."
+        },
+        {
+          "label": "Read it daily",
+          "detail": "Every morning. Before every key session. On the start line. You're reprogramming the filter. The brain is a goal-seeking machine — give it a target, and behavior follows."
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "style": "tip",
+      "content": "Yes, it sounds dumb. Do it anyway. Read it until it stops sounding ridiculous. It will."
+    },
+    {
+      "type": "scenario",
+      "prompt": "You sit down to write your Athletic Schema Statement. It feels forced, embarrassing, like something from a self-help book you'd never buy.",
+      "options": [
+        {
+          "label": "A",
+          "result": "The vacuum fills itself. Without a deliberate schema, the brain's default mode network gravitates toward threat detection and self-criticism. Your athletic identity will be written for you — by negativity bias, bad races, and offhand comments. The ceiling stays where it is.",
+          "best": false
+        },
+        {
+          "label": "B",
+          "result": "The discomfort IS the signal. If it felt natural, you wouldn't need it. Writing it changes the target. Reading it daily reprograms the filter. Merton's self-fulfilling prophecy and Markus's schema theory both predict that the belief — once installed through repetition — will change your behavior before you even notice.",
+          "best": false
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "style": "info",
+      "content": "Your commitment: My Schema Statement: ___ (strength) + ___ (aspiration). I will read it daily starting tonight."
+    },
+    {
+      "type": "callout",
+      "style": "highlight",
+      "content": "The words after 'I am' set the ceiling. Choose them on purpose."
+    },
+    {
+      "type": "callout",
+      "style": "info",
+      "content": "Module 2 complete. Five tools. Five drafts of a new story. The stories you tell yourself aren't fixed. They're drafts. You just learned how to edit them."
+    },
+    {
+      "type": "callout",
+      "style": "info",
+      "content": "Rate yourself again: How clearly can you identify the stories driving your athletic identity? Compare to your Module 2 start rating."
+    }
+  ]
+}

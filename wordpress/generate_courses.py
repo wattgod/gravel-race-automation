@@ -24,13 +24,35 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent))
 from generate_guide import render_block, build_guide_css
-from brand_tokens import get_font_face_css, get_ga4_head_snippet, get_preload_hints, get_tokens_css
+from brand_tokens import (
+    get_font_face_css, get_ga4_head_snippet, get_preload_hints, get_tokens_css,
+    get_clean_pro_tokens_css, get_clean_pro_font_face_css,
+    get_clean_pro_preload_hints, get_clean_pro_overrides_css,
+)
 from shared_footer import get_mega_footer_html, get_mega_footer_css
 from shared_header import get_site_header_html, get_site_header_css
 from cookie_consent import get_consent_banner_html
 
 SITE_BASE_URL = "https://gravelgodcycling.com"
 WORKER_URL = "https://course-access.gravelgodcoaching.workers.dev"
+
+
+def get_theme_css(course: dict) -> tuple:
+    """Return (tokens_css, font_css, preload, overrides_css) for the course's theme."""
+    theme = course.get("theme", "rokt")
+    if theme == "clean-pro":
+        return (
+            get_clean_pro_tokens_css(),
+            get_clean_pro_font_face_css(),
+            get_clean_pro_preload_hints(),
+            get_clean_pro_overrides_css(),
+        )
+    return (
+        get_tokens_css(),
+        get_font_face_css("/race/assets/fonts"),
+        get_preload_hints("/race/assets/fonts"),
+        "",
+    )
 
 PROJECT_ROOT = Path(__file__).parent.parent
 COURSES_DATA_DIR = PROJECT_ROOT / "data" / "courses"
@@ -729,6 +751,136 @@ def build_course_js(course: dict, module_lesson_map: dict = None) -> str:
       }});
     }});
   }});
+
+  /* Sorting — click to assign items to zones */
+  document.querySelectorAll('.gg-guide-sorting').forEach(function(sorting){{
+    var items=sorting.querySelectorAll('.gg-guide-sorting-items > .gg-guide-sorting-item');
+    var zones=sorting.querySelectorAll('.gg-guide-sorting-zone');
+    var checkBtn=sorting.querySelector('.gg-guide-sorting-check');
+    var feedbackEl=sorting.querySelector('.gg-guide-sorting-feedback');
+    var selectedItem=null;
+
+    items.forEach(function(item){{
+      item.addEventListener('click',function(){{
+        if(item.classList.contains('gg-guide-sorting-item--placed')) return;
+        items.forEach(function(it){{it.style.outline=''}});
+        selectedItem=item;
+        item.style.outline='3px solid #178079';
+      }});
+    }});
+
+    zones.forEach(function(zone){{
+      zone.addEventListener('click',function(){{
+        if(!selectedItem) return;
+        var clone=selectedItem.cloneNode(true);
+        clone.classList.remove('gg-guide-sorting-item--placed');
+        clone.style.outline='';
+        clone.addEventListener('click',function(){{
+          clone.remove();
+          selectedItem.classList.remove('gg-guide-sorting-item--placed');
+          selectedItem.style.outline='';
+          var placed=sorting.querySelectorAll('.gg-guide-sorting-zone-items .gg-guide-sorting-item');
+          if(placed.length<items.length) checkBtn.style.display='none';
+        }});
+        zone.querySelector('.gg-guide-sorting-zone-items').appendChild(clone);
+        selectedItem.classList.add('gg-guide-sorting-item--placed');
+        selectedItem.style.outline='';
+        selectedItem=null;
+        var placed=sorting.querySelectorAll('.gg-guide-sorting-zone-items .gg-guide-sorting-item');
+        if(placed.length>=items.length) checkBtn.style.display='block';
+      }});
+    }});
+
+    if(checkBtn){{
+      checkBtn.addEventListener('click',function(){{
+        var allCorrect=true;
+        zones.forEach(function(zone){{
+          var zoneCat=zone.getAttribute('data-category');
+          zone.querySelectorAll('.gg-guide-sorting-item').forEach(function(item){{
+            if(item.getAttribute('data-category')===zoneCat){{
+              item.classList.add('gg-guide-sorting-item--correct');
+              item.classList.remove('gg-guide-sorting-item--incorrect');
+            }}else{{
+              item.classList.add('gg-guide-sorting-item--incorrect');
+              item.classList.remove('gg-guide-sorting-item--correct');
+              allCorrect=false;
+            }}
+          }});
+        }});
+        feedbackEl.style.display='block';
+        feedbackEl.textContent=allCorrect?feedbackEl.getAttribute('data-correct'):feedbackEl.getAttribute('data-incorrect');
+        checkBtn.disabled=true;
+      }});
+    }}
+  }});
+
+  /* Matching — dropdown select */
+  document.querySelectorAll('.gg-guide-matching').forEach(function(matching){{
+    var checkBtn=matching.querySelector('.gg-guide-matching-check');
+    var explanation=matching.querySelector('.gg-guide-matching-explanation');
+    var pairs=JSON.parse(matching.getAttribute('data-pairs')||'[]');
+
+    if(checkBtn){{
+      checkBtn.addEventListener('click',function(){{
+        var rights=matching.querySelectorAll('.gg-guide-match-right');
+        var allCorrect=true;
+        rights.forEach(function(right,idx){{
+          var select=right.querySelector('.gg-guide-match-select');
+          var selectedIdx=parseInt(select.value,10);
+          if(isNaN(selectedIdx)||pairs[selectedIdx].left!==pairs[idx].left){{
+            /* Check if the selected left matches the right for this pair */
+            var correct=false;
+            for(var p=0;p<pairs.length;p++){{
+              if(pairs[p].right===pairs[idx].right&&selectedIdx===p){{correct=true;break;}}
+            }}
+            /* Actually: the correct match is when selected left matches this right's pair */
+            var expectedLeft=pairs[idx].left;
+            correct=(!isNaN(selectedIdx)&&pairs[selectedIdx]&&pairs[selectedIdx].left===expectedLeft);
+            if(correct){{
+              right.classList.add('gg-guide-match-right--correct');
+              right.classList.remove('gg-guide-match-right--incorrect');
+            }}else{{
+              right.classList.add('gg-guide-match-right--incorrect');
+              right.classList.remove('gg-guide-match-right--correct');
+              allCorrect=false;
+            }}
+          }}else{{
+            right.classList.add('gg-guide-match-right--correct');
+            right.classList.remove('gg-guide-match-right--incorrect');
+          }}
+          select.disabled=true;
+        }});
+        explanation.style.display='block';
+        checkBtn.disabled=true;
+      }});
+    }}
+  }});
+
+  /* Fill-in-the-blank — text input check */
+  document.querySelectorAll('.gg-guide-fill-blank').forEach(function(block){{
+    var checkBtn=block.querySelector('.gg-guide-fill-blank-check');
+    var input=block.querySelector('.gg-guide-fill-blank-input');
+    var feedback=block.querySelector('.gg-guide-fill-blank-feedback');
+
+    if(checkBtn){{
+      checkBtn.addEventListener('click',function(){{
+        feedback.style.display='block';
+        input.disabled=true;
+        checkBtn.disabled=true;
+      }});
+    }}
+  }});
+
+  /* Self-Assessment — click to select value */
+  document.querySelectorAll('.gg-guide-self-assessment').forEach(function(block){{
+    var buttons=block.querySelectorAll('.gg-guide-sa-btn');
+    buttons.forEach(function(btn){{
+      btn.addEventListener('click',function(){{
+        buttons.forEach(function(b){{b.classList.remove('gg-guide-sa-btn--selected')}});
+        btn.classList.add('gg-guide-sa-btn--selected');
+      }});
+    }});
+  }});
 }})();
 
 /* ── PWA Install Banner ── */
@@ -823,12 +975,11 @@ def build_landing_page(course: dict) -> str:
     header = get_site_header_html(active="products")
     mega_footer = get_mega_footer_html()
 
-    tokens_css = get_tokens_css()
-    font_css = get_font_face_css("/race/assets/fonts")
-    preload = get_preload_hints("/race/assets/fonts")
+    tokens_css, font_css, preload, overrides_css = get_theme_css(course)
     header_css = get_site_header_css()
     footer_css = get_mega_footer_css()
     course_css = build_course_css()
+    noindex = '  <meta name="robots" content="noindex, nofollow">\n' if course.get("noindex") else ""
 
     return f'''<!DOCTYPE html>
 <html lang="en">
@@ -838,7 +989,7 @@ def build_landing_page(course: dict) -> str:
   <title>{title} | Gravel God Cycling</title>
   <meta name="description" content="{meta_desc}">
   <link rel="canonical" href="{canonical}">
-  <meta property="og:title" content="{title} | Gravel God Cycling">
+{noindex}  <meta property="og:title" content="{title} | Gravel God Cycling">
   <meta property="og:description" content="{meta_desc}">
   <meta property="og:type" content="product">
   <meta property="og:url" content="{canonical}">
@@ -850,6 +1001,7 @@ def build_landing_page(course: dict) -> str:
 {tokens_css}
 {header_css}
 {course_css}
+{overrides_css}
 {footer_css}
   </style>
   {get_ga4_head_snippet()}
@@ -952,9 +1104,7 @@ def build_lesson_page(course: dict, module: dict, lesson: dict,
     header = get_site_header_html(active="products")
     mega_footer = get_mega_footer_html()
 
-    tokens_css = get_tokens_css()
-    font_css = get_font_face_css("/race/assets/fonts")
-    preload = get_preload_hints("/race/assets/fonts")
+    tokens_css, font_css, preload, overrides_css = get_theme_css(course)
     header_css = get_site_header_css()
     footer_css = get_mega_footer_css()
     course_css = build_course_css()
@@ -979,6 +1129,7 @@ def build_lesson_page(course: dict, module: dict, lesson: dict,
 {tokens_css}
 {header_css}
 {course_css}
+{overrides_css}
 {footer_css}
   </style>
   {get_ga4_head_snippet()}

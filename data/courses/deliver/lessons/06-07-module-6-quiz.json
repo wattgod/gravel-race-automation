@@ -1,0 +1,205 @@
+{
+  "id": "module-6-quiz",
+  "title": "Module 6 Quiz",
+  "description": "Test your understanding of adversity, coping, injury, mental toughness, and habit formation.",
+  "blocks": [
+    {
+      "type": "matching",
+      "question": "Match each grief stage to the athlete example:",
+      "pairs": [
+        {
+          "left": "Denial",
+          "right": "\"I'll rest two days and be fine. I've trained through worse.\""
+        },
+        {
+          "left": "Anger",
+          "right": "\"Why me? I did everything right. This isn't fair.\""
+        },
+        {
+          "left": "Bargaining",
+          "right": "\"If I just cross-train, I won't lose any fitness.\""
+        },
+        {
+          "left": "Depression",
+          "right": "\"What's the point? Everyone else will be ahead of me.\""
+        },
+        {
+          "left": "Acceptance",
+          "right": "\"This is where I am. What can I do from here?\""
+        }
+      ],
+      "explanation": "Right. Naming the stage creates distance between you and the emotion — from BEING angry to OBSERVING anger."
+    },
+    {
+      "type": "sorting",
+      "prompt": "Sort each coping scenario into Problem-Focused or Emotion-Focused:",
+      "categories": [
+        "Problem-Focused",
+        "Emotion-Focused"
+      ],
+      "items": [
+        {
+          "text": "Scheduling twice-weekly PT sessions",
+          "category": "Problem-Focused"
+        },
+        {
+          "text": "Journaling about frustration after a DNF",
+          "category": "Emotion-Focused"
+        },
+        {
+          "text": "Researching alternative goal races",
+          "category": "Problem-Focused"
+        },
+        {
+          "text": "Using the Teammate Test after a bad workout",
+          "category": "Emotion-Focused"
+        },
+        {
+          "text": "Adjusting nutrition plan to fix GI issues",
+          "category": "Problem-Focused"
+        },
+        {
+          "text": "Practicing 6-2-7 breathing after getting race results you can't change",
+          "category": "Emotion-Focused"
+        }
+      ],
+      "feedback": {
+        "correct": "Exactly. Problem-focused when you can take concrete action. Emotion-focused when the situation is outside your control and you manage your relationship with it.",
+        "incorrect": "Problem-focused = taking action to change the situation (PT sessions, alternative races, nutrition adjustments). Emotion-focused = managing feelings about what you can't change (journaling, Teammate Test, breathing after fixed results)."
+      }
+    },
+    {
+      "type": "knowledge_check",
+      "question": "Select ALL four types of support an injured athlete needs (Cheadle):",
+      "explanation": "All four: Psychological, Physical, Informational, Motivational. Most injured athletes get one or two — the missing ones are usually psychological and motivational.",
+      "options": [
+        {
+          "text": "Psychological support — validation of the emotional experience",
+          "correct": true
+        },
+        {
+          "text": "Physical support — proper medical care and rehabilitation",
+          "correct": true
+        },
+        {
+          "text": "Informational support — clear answers, realistic timelines",
+          "correct": true
+        },
+        {
+          "text": "Tactical support — race strategy adjustments",
+          "correct": false
+        },
+        {
+          "text": "Motivational support — reminders you will come back",
+          "correct": true
+        },
+        {
+          "text": "Technical support — biomechanical analysis",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "matching",
+      "question": "Match each of the 4 C's to the module that builds it:",
+      "pairs": [
+        {
+          "left": "Control",
+          "right": "Module 1 — Gap Check, 6-2-7, Know Your Zone"
+        },
+        {
+          "left": "Confidence",
+          "right": "Module 2 — Evidence File, Schema Statement"
+        },
+        {
+          "left": "Challenge",
+          "right": "Module 3 — If-Then Plans, Disaster Planning"
+        },
+        {
+          "left": "Commitment",
+          "right": "Module 4 — Motivation Check, Off-Day Protocol"
+        }
+      ],
+      "explanation": "Each C maps to a module. Find the weakest. Go build it. One tool, five days."
+    },
+    {
+      "type": "fill_in_blank",
+      "question": "Complete the Daily 5 sequence: Minute 1 = ___, Minute 2 = ___, Minute 3 = ___, Minute 4 = ___, Minute 5 = ___.",
+      "answers": [
+        "6-2-7 Breathing",
+        "Highlight Reel",
+        "Performance Statements",
+        "Schema Statement",
+        "Gratitude and Reflection"
+      ],
+      "explanation": "Breathe. See. Speak. Affirm. Reflect. Five minutes. Every day."
+    },
+    {
+      "type": "knowledge_check",
+      "question": "Stage 2 of the competence model (Conscious Incompetence) feels like:",
+      "explanation": "Right. Awareness has outpaced skill. You can see the errors now, which feels terrible — but seeing them is the prerequisite for fixing them. This is where most people quit. Don't.",
+      "options": [
+        {
+          "text": "Effortless mastery",
+          "correct": false
+        },
+        {
+          "text": "Getting worse — you can see errors you couldn't see before",
+          "correct": true
+        },
+        {
+          "text": "Blissful ignorance",
+          "correct": false
+        },
+        {
+          "text": "Automatic skill deployment",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "scenario",
+      "prompt": "An athlete is 4 weeks post-surgery on a meniscus repair. Physical therapy is going well. When asked how they're doing, they say: \"I'm fine. I just need to push through it. I'll be racing again in two weeks.\" Their PT says the timeline is 8-10 more weeks.",
+      "options": [
+        {
+          "label": "A",
+          "result": "Half right. The stage identification is correct — denial. But problem-focused coping aimed at accelerating an uncontrollable timeline is exactly how athletes re-injure themselves. The healing timeline isn't controllable.",
+          "best": false
+        },
+        {
+          "label": "B",
+          "result": "Correct. The stage is denial — \"I'm fine\" and an unrealistic timeline are textbook markers. The healing process is not controllable, so emotion-focused coping is appropriate: name the stage, accept the real timeline, use the Teammate Test, and ensure they have all four support types (psychological, physical, informational, motivational).",
+          "best": false
+        },
+        {
+          "label": "C",
+          "result": "Dangerous. Confusing denial with toughness is how athletes re-injure themselves. Mental toughness includes knowing when to stop, following medical guidance, and working WITH reality — not overriding it with willpower. Pushing a 10-week rehab into 2 weeks isn't toughness. It's recklessness.",
+          "best": false
+        }
+      ]
+    },
+    {
+      "type": "knowledge_check",
+      "question": "7. Which of the following correctly lists the 4 C's of mental toughness?",
+      "explanation": "Correct. Clough's 4 C's: Control (life and emotions), Commitment (goal-setting and persistence), Challenge (seeing threat as opportunity), and Confidence (self-belief and interpersonal). These aren't personality traits — they're trainable skills.",
+      "options": [
+        {
+          "text": "Courage, Consistency, Composure, Confidence",
+          "correct": false
+        },
+        {
+          "text": "Control, Commitment, Challenge, Confidence",
+          "correct": true
+        },
+        {
+          "text": "Control, Commitment, Competitiveness, Concentration",
+          "correct": false
+        },
+        {
+          "text": "Confidence, Composure, Challenge, Commitment",
+          "correct": false
+        }
+      ]
+    }
+  ]
+}

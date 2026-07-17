@@ -1,7 +1,7 @@
 """XC Ski Labs welcome — friend-register, deadpan-warm skin.
 
-INACTIVE until xcskilabs.com is verified in Resend (same gate road went
-through). Copy: docs/specs/friend-register-copy-xc.md. Season inversion:
+ACTIVE — xcskilabs.com verified in Resend Jul 17 2026 (DKIM/SPF via
+SiteGround DNS). Copy: docs/specs/friend-register-copy-xc.md. Season inversion:
 XC offseason = Apr-Oct (webhook computes the flag per-brand).
 """
 
@@ -16,7 +16,7 @@ SEQUENCE = {
     "description": "New XC Ski Labs subscriber — context-aware friend opener.",
     "trigger": "new_subscriber",
     "brand": "xcskilabs",
-    "active": False,
+    "active": True,
     "variants": {
         "A": {"weight": 100, "name": "Friend register", "steps": _STEPS},
     },

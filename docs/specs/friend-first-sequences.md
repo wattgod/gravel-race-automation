@@ -99,9 +99,15 @@ reply — happy to help."
 GG first (A vs sober-B control stands). RL follows in the same register,
 deadpan skin ("Roadie Labs would say: 'Eight weeks to the Maratona. Where
 is the training at?'") after GG shows non-negative replies/unsubs for ~2
-weeks. XC: same register at launch; full infra prerequisites in v2 archive
-(webhook allowlist, UTM domains, worker CORS/brand maps, Resend domain,
-registry, senders).
+weeks. XC: infra BUILT Jul 17 (brand key+senders, webhook allowlist, per-brand
+offseason calendars — XC offseason = Apr-Oct, inverted!, UTM domains, worker
+brand maps + CORS deployed, xc_welcome/xc_win_back defs + 4 templates in
+docs/specs/friend-register-copy-xc.md skin, registry + routing tests).
+Sequences ship `active: False` behind TWO remaining gates: (1) Matti verifies
+xcskilabs.com in the Resend dashboard (API key is send-scoped; add the DKIM/
+SPF records it emits to XC's DNS host, then flip active), (2) xcskilabs.com
+site forms POST to fueling-lead-intake with brand: "xcskilabs" (NordicLab
+repo build — nothing captures there yet).
 
 ## 6. Kept from the v1/v2 program (not wasted)
 

@@ -3,7 +3,7 @@ main = "worker.js"
 compatibility_date = "2024-01-01"
 
 [vars]
-ALLOWED_ORIGINS = "https://gravelgodcycling.com,https://www.gravelgodcycling.com,https://roadielabs.com,https://www.roadielabs.com"
+ALLOWED_ORIGINS = "https://gravelgodcycling.com,https://www.gravelgodcycling.com,https://roadielabs.com,https://www.roadielabs.com,https://xcskilabs.com,https://www.xcskilabs.com"
 SG_LIST_ID = "6f2810be-0b48-42bb-b84d-f1a38b56af73"
 SG_FIELD_LATEST_SOURCE = "w1_T"
 SG_FIELD_RACE_SLUG = "e2_T"
@@ -11,7 +11,7 @@ SG_FIELD_RACE_NAME = "w3_T"
 SG_FIELD_HAS_FUELING = "w4_T"
 
 [env.production]
-vars = { ALLOWED_ORIGINS = "https://gravelgodcycling.com,https://www.gravelgodcycling.com,https://roadielabs.com,https://www.roadielabs.com", SG_LIST_ID = "6f2810be-0b48-42bb-b84d-f1a38b56af73", SG_FIELD_LATEST_SOURCE = "w1_T", SG_FIELD_RACE_SLUG = "e2_T", SG_FIELD_RACE_NAME = "w3_T", SG_FIELD_HAS_FUELING = "w4_T" }
+vars = { ALLOWED_ORIGINS = "https://gravelgodcycling.com,https://www.gravelgodcycling.com,https://roadielabs.com,https://www.roadielabs.com,https://xcskilabs.com,https://www.xcskilabs.com", SG_LIST_ID = "6f2810be-0b48-42bb-b84d-f1a38b56af73", SG_FIELD_LATEST_SOURCE = "w1_T", SG_FIELD_RACE_SLUG = "e2_T", SG_FIELD_RACE_NAME = "w3_T", SG_FIELD_HAS_FUELING = "w4_T" }
 
 # Secrets (set via: wrangler secret put SECRET_NAME)
 # SENDGRID_API_KEY     — SendGrid API key (mail send + marketing contacts)

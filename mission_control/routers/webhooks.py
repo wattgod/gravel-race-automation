@@ -138,10 +138,11 @@ async def _send_enrollment_alert(
     )
     subject = f"new lead · {name or email} · {context} [{brand}]"
     race = source_data.get("race_name", "")
+    # draft_race_reply.py knows gravel + road race data only; no hint for XC.
     drafter = (
         f"<p style='color:#666'>reply-drafter: <code>python3 scripts/draft_race_reply.py "
         f"\"{escape(race)}\"{' --brand road' if brand == 'roadielabs' else ''}</code></p>"
-        if race else ""
+        if race and brand in ("gravelgod", "roadielabs") else ""
     )
     html = (
         f"<p><b>{escape(name) or '(no name)'}</b> &lt;{escape(email)}&gt;</p>"
@@ -176,9 +177,9 @@ async def subscriber_webhook(
     name = _truncate(body.get("name", "").strip(), _MAX_NAME_LEN)
     source = _truncate(body.get("source", "unknown"), _MAX_SOURCE_LEN)
 
-    # Brand routing (worker sends "gravelgod" | "roadielabs"; unknown → gravelgod)
+    # Brand routing (worker sends the brand key; unknown → gravelgod)
     brand = str(body.get("brand", "gravelgod")).lower()
-    if brand not in ("gravelgod", "roadielabs"):
+    if brand not in ("gravelgod", "roadielabs", "xcskilabs"):
         brand = "gravelgod"
 
     source_data = {"brand": brand}
@@ -207,10 +208,17 @@ async def subscriber_webhook(
         source_data["wb_race"] = source_data["race_name"]
     if any(source_data.get(k) for k in ("wb_guide", "wb_trail", "wb_race")):
         source_data["any_context"] = "1"
-    # Seasonal sensitivity: Nov-Jan is offseason for the northern-hemisphere
-    # gravel calendar; welcome's anonymous branch swaps its opener.
+    # Seasonal sensitivity — PER BRAND, the calendars are inverted:
+    # gravel/road offseason = Nov-Jan; XC ski offseason = Apr-Oct (Nov-Mar
+    # is their race season). Welcome's anonymous branch swaps its opener.
     from datetime import datetime, timezone
-    if datetime.now(timezone.utc).month in (11, 12, 1):
+    _month = datetime.now(timezone.utc).month
+    _offseason_months = {
+        "gravelgod": (11, 12, 1),
+        "roadielabs": (11, 12, 1),
+        "xcskilabs": (4, 5, 6, 7, 8, 9, 10),
+    }
+    if _month in _offseason_months.get(brand, (11, 12, 1)):
         source_data["offseason"] = "1"
     # plan_weeks (sent by a purchase payload) drives completion-relative review
     # timing in post_purchase (sequence_engine._step_delay_days). Accept a

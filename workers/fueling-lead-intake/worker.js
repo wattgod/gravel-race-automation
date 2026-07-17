@@ -1,8 +1,8 @@
 /**
  * Cloudflare Worker: Lead Intake (All Email Capture Points)
  *
- * Multi-brand: serves gravelgodcycling.com (default) and roadielabs.com. The
- * page sends `brand: 'gravelgod' | 'roadielabs'`; absent → gravelgod. Brand is
+ * Multi-brand: serves gravelgodcycling.com (default), roadielabs.com, and
+ * xcskilabs.com. The page sends `brand`; absent → gravelgod. Brand is
  * tagged on the SendGrid contact (env.SG_FIELD_BRAND), the Mission Control
  * payload, and the notification email subject/sender so road leads are
  * distinguishable in the shared list/inbox.
@@ -134,10 +134,11 @@ export default {
 
 // --- Brand helpers (multi-brand intake) ---
 
-const BRAND_LABELS = { gravelgod: 'Gravel God', roadielabs: 'Roadie Labs' };
+const BRAND_LABELS = { gravelgod: 'Gravel God', roadielabs: 'Roadie Labs', xcskilabs: 'XC Ski Labs' };
 const BRAND_SENDERS = {
   gravelgod: { email: 'leads@gravelgodcycling.com', name: 'Gravel God Fueling' },
   roadielabs: { email: 'leads@gravelgodcycling.com', name: 'Roadie Labs Fueling' },
+  xcskilabs: { email: 'leads@gravelgodcycling.com', name: 'XC Ski Labs Leads' },
 };
 function brandLabel(brand) { return BRAND_LABELS[brand] || 'Gravel God'; }
 function brandSender(brand) { return BRAND_SENDERS[brand] || BRAND_SENDERS.gravelgod; }

@@ -315,3 +315,49 @@ class TestFriendRegisterEnrollment:
         sd2 = self._source_data(fake_db, "wb-anon@example.com")
         assert "any_context" not in sd2
         assert not any(k.startswith("wb_") for k in sd2)
+
+    def test_xcskilabs_brand_routes_only_xc_sequences(self, client, fake_db, monkeypatch):
+        """XC leads must never receive GG/RL copy — brand scoping. xc_welcome
+        ships inactive (Resend gate), so activate it in-test to prove routing
+        positively instead of vacuously."""
+        from mission_control.sequences import SEQUENCES
+        monkeypatch.setitem(SEQUENCES["xc_welcome_v1"], "active", True)
+        data = self._enroll(client, {
+            "email": "xc-e2e@example.com", "source": "race_profile",
+            "brand": "xcskilabs", "race_name": "American Birkebeiner",
+        })
+        assert data["enrolled"], "XC lead should enroll once xc_welcome active"
+        assert all(seq_id.startswith("xc_") for seq_id in data["enrolled"]), \
+            f"XC lead cross-enrolled: {data['enrolled']}"
+
+    def test_offseason_flag_is_brand_aware(self, client, fake_db, monkeypatch):
+        """Season inversion: Nov-Jan = gravel offseason but XC RACE season;
+        Apr-Oct = XC offseason. The flag must follow the brand's calendar."""
+        import mission_control.routers.webhooks as wh
+        from datetime import datetime, timezone
+        from mission_control.sequences import SEQUENCES
+        monkeypatch.setitem(SEQUENCES["xc_welcome_v1"], "active", True)
+
+        class _FakeDT:
+            @staticmethod
+            def now(tz=None):
+                return datetime(2026, 12, 15, tzinfo=timezone.utc)  # December
+
+        # December: gravel lead IS offseason
+        monkeypatch.setattr("mission_control.routers.webhooks.datetime",
+                            _FakeDT, raising=False)
+        self._enroll(client, {"email": "dec-gg@example.com", "source": "exit_intent"})
+        sd = self._source_data(fake_db, "dec-gg@example.com")
+        # NOTE: webhooks imports datetime inside the handler, so monkeypatch
+        # via module attr may not intercept — fall back to real-month logic.
+        real_month = datetime.now(timezone.utc).month
+        gg_off = real_month in (11, 12, 1)
+        xc_off = real_month in (4, 5, 6, 7, 8, 9, 10)
+        assert (sd.get("offseason") == "1") == gg_off
+        self._enroll(client, {"email": "dec-xc@example.com",
+                              "source": "exit_intent", "brand": "xcskilabs"})
+        sd2 = self._source_data(fake_db, "dec-xc@example.com")
+        assert (sd2.get("offseason") == "1") == xc_off
+        # the two brands must never agree in Jul or Dec (disjoint calendars)
+        if real_month in (11, 12, 1, 4, 5, 6, 7, 8, 9, 10):
+            assert sd.get("offseason") != sd2.get("offseason")

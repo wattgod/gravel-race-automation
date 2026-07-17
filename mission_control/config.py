@@ -55,6 +55,14 @@ BRAND_SEQUENCE_SENDERS = {
         "reply_to": os.environ.get("RL_REPLY_TO_EMAIL", "gravelgodcoaching@gmail.com"),
         "utm_source": "roadie_labs",
     },
+    # XC sends require xcskilabs.com verified in Resend first — until then
+    # xc_* sequences stay inactive (same gate road went through).
+    "xcskilabs": {
+        "from_email": os.environ.get("XC_SEQUENCE_FROM_EMAIL", "matti@xcskilabs.com"),
+        "from_name": os.environ.get("XC_SEQUENCE_FROM_NAME", "Matti at XC Ski Labs"),
+        "reply_to": os.environ.get("XC_REPLY_TO_EMAIL", "gravelgodcoaching@gmail.com"),
+        "utm_source": "xc_ski_labs",
+    },
 }
 
 # Published race-date maps for the countdown trigger (see

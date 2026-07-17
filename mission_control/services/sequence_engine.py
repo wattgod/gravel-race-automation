@@ -433,7 +433,7 @@ def _inject_utm_params(
         return f'href="{url}{sep}{utm}"'
 
     return re.sub(
-        r'href="(https://(?:gravelgodcycling|roadielabs)\.com[^"]*)"',
+        r'href="(https://(?:gravelgodcycling|roadielabs|xcskilabs)\.com[^"]*)"',
         _add_utm,
         html,
     )

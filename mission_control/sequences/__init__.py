@@ -1,7 +1,7 @@
 """Sequence registry — loads all sequence definitions and exports SEQUENCES dict.
 
 Sequences are brand-scoped: each definition may carry a "brand" key
-("gravelgod" | "roadielabs"); absent means "gravelgod" (back-compat with
+("gravelgod" | "roadielabs" | "xcskilabs"); absent means "gravelgod" (back-compat with
 pre-multi-brand definitions). Enrollment filters on (trigger, brand) so a
 Roadie Labs lead never receives Gravel God copy and vice versa.
 """
@@ -17,6 +17,8 @@ from mission_control.sequences.road_nurture import SEQUENCE as road_nurture
 from mission_control.sequences.road_race_specific import SEQUENCE as road_race_specific
 from mission_control.sequences.road_post_purchase import SEQUENCE as road_post_purchase
 from mission_control.sequences.race_countdown import GG_8, GG_16, RL_8, RL_16
+from mission_control.sequences.xc_welcome import SEQUENCE as xc_welcome
+from mission_control.sequences.xc_win_back import SEQUENCE as xc_win_back
 
 DEFAULT_BRAND = "gravelgod"
 
@@ -34,6 +36,8 @@ SEQUENCES: dict[str, dict] = {
     GG_8["id"]: GG_8,
     RL_16["id"]: RL_16,
     RL_8["id"]: RL_8,
+    xc_welcome["id"]: xc_welcome,
+    xc_win_back["id"]: xc_win_back,
 }
 
 

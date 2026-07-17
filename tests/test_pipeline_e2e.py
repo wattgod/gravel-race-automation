@@ -425,16 +425,18 @@ class TestParseDateSpecific:
 class TestCrossReferenceRaceDate:
     """Cross-reference intake dates against race-data/ database."""
 
-    def test_sbt_grvl_date_match(self):
-        """SBT GRVL 2026 is June 28 — cross-ref should confirm."""
-        result = cross_reference_race_date("SBT GRVL", "2026-06-28", BASE_DIR)
+    def test_big_sugar_date_match(self):
+        """Big Sugar 2026 is October 17 (Saturday) — cross-ref should confirm.
+        (Anchored on a confirmed future edition; the old SBT anchor went stale
+        when the 2026 edition ran and 2027 moved to TBD.)"""
+        result = cross_reference_race_date("Big Sugar", "2026-10-17", BASE_DIR)
         assert result["matched"] is True
         assert result["date_match"] is True
-        assert result["day_of_week"] == "Sunday"
+        assert result["day_of_week"] == "Saturday"
 
-    def test_sbt_grvl_wrong_date(self):
-        """If intake says June 27, cross-ref should flag mismatch."""
-        result = cross_reference_race_date("SBT GRVL", "2026-06-27", BASE_DIR)
+    def test_big_sugar_wrong_date(self):
+        """If intake says October 16, cross-ref should flag mismatch."""
+        result = cross_reference_race_date("Big Sugar", "2026-10-16", BASE_DIR)
         assert result["matched"] is True
         assert result["date_match"] is False
         assert result["warning"] is not None
@@ -444,8 +446,8 @@ class TestCrossReferenceRaceDate:
         assert result["matched"] is False
 
     def test_day_of_week_always_populated(self):
-        result = cross_reference_race_date("SBT GRVL", "2026-06-28", BASE_DIR)
-        assert result["day_of_week"] == "Sunday"
+        result = cross_reference_race_date("Big Sugar", "2026-10-17", BASE_DIR)
+        assert result["day_of_week"] == "Saturday"
 
 
 class TestGuideDateHelpers:

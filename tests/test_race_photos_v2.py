@@ -470,4 +470,9 @@ class TestRealRaceData:
             if isinstance(course, dict) and course.get("ridewithgps_id"):
                 rwgps_count += 1
         assert total >= 328, f"Race catalog shrank: {total} (floor 328)"
-        assert rwgps_count >= 210, f"Expected >=210 RWGPS routes, got {rwgps_count}"
+        # Floor re-pinned 210 -> 208 on 2026-07-16: three stale routes were
+        # deliberately archived as superseded courses (bwr-arizona 2023,
+        # bwr-california 2024, heck-of-the-north prior edition) during the
+        # web-verification fact-fix batches — an honest correction, not a
+        # coverage regression.
+        assert rwgps_count >= 208, f"Expected >=208 RWGPS routes, got {rwgps_count}"

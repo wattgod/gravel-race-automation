@@ -11,7 +11,7 @@
       "location_badge": "XONRUPT-LONGEMER, VOSGES, FRANCE",
       "county": "Vosges Mountains",
       "date": "No confirmed recurring date — last held June 2024",
-      "date_specific": "No 2026 edition confirmed. Last confirmed edition: June 28-30, 2024 (inaugural Vosges edition). Grinduro's official 2025 and 2026 series calendars (grinduro.com, battistrada.com) do not list France.",
+      "date_specific": "Status: NO EDITION CONFIRMED — absent from 2025/2026 Grinduro calendars; last ran June 2024 (Vosges)",
       "terrain_types": [
         "Vosges mountain gravel",
         "French forest roads",
@@ -159,7 +159,8 @@
           "cross_reference": 75
         },
         "scored_at": "2026-02-04"
-      }
+      },
+      "status_verification_2026_07_16": "No 2026 edition confirmed. Last confirmed edition: June 28-30, 2024 (inaugural Vosges edition). Grinduro's official 2025 and 2026 series calendars (grinduro.com, battistrada.com) do not list France."
     },
     "biased_opinion_ratings": {
       "logistics": {
@@ -358,6 +359,10 @@
         "200pluslb_mixed": "36-40",
         "200pluslb_wet": "34-38"
       }
+    },
+    "taking_a_break": {
+      "label": "TAKING A BREAK",
+      "line": "Grinduro France hasn't run since 2024 and isn't on the current Grinduro calendar. This plan still trains you for exactly this kind of day."
     }
   }
 }

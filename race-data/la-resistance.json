@@ -12,7 +12,7 @@
       "location_badge": "TALLOIRES, FRANCE",
       "county": "French Alps",
       "date": "September annually (status contested for 2026 — see date_specific)",
-      "date_specific": "CONTESTED (verified 2026-07-16): granfondoguide.com lists Sept 19, 2026 (90km/130km) but explicitly marks it 'Cancelled.' Official organizer site laresistance.cc is still live with active Event/Course/Entry/Rules pages as of this check, but its content is JS-rendered and could not be independently fetched/confirmed. Do not state a confirmed 2026 date without organizer confirmation.",
+      "date_specific": "Status: CONTESTED — aggregator marks Sept 2026 'Cancelled'; organizer site live but unconfirmed (checked 2026-07-16)",
       "terrain_types": [
         "French Alps",
         "Alpine gravel",
@@ -206,7 +206,8 @@
           "cross_reference": 15
         },
         "scored_at": "2026-02-04"
-      }
+      },
+      "status_verification_2026_07_16": "CONTESTED (verified 2026-07-16): granfondoguide.com lists Sept 19, 2026 (90km/130km) but explicitly marks it 'Cancelled.' Official organizer site laresistance.cc is still live with active Event/Course/Entry/Rules pages as of this check, but its content is JS-rendered and could not be independently fetched/confirmed. Do not state a confirmed 2026 date without organizer confirmation."
     },
     "training_config": {
       "workout_modifications": {

@@ -11,7 +11,7 @@
       "location_badge": "JAY, VERMONT",
       "county": "Caledonia County (Northeast Kingdom)",
       "date": "Late March annually (HISTORICAL PATTERN — organizer not currently hosting)",
-      "date_specific": "STATUS UNKNOWN / NOT ORGANIZING (verified 2026-07-16): organizer (Rasputitsa Dirt, via Facebook) states 'we aren't asking you to register for anything, and we aren't organizing anything,' following co-founder Anthony Moccia's death on March 13, 2026 after stage 4 cancer. No 2026 race ran. A third-party aggregator (Strambecco) lists an unconfirmed 'Mar 27, 2027' placeholder date, but this is NOT an official organizer confirmation — do not cite it as a real date.",
+      "date_specific": "Status: NOT ORGANIZING — organizer statement 2026; no confirmed next edition (aggregator 2027 date is a placeholder)",
       "terrain_types": [
         "Vermont Class 4 roads (unmaintained dirt)",
         "Mud (guaranteed in April)",
@@ -169,7 +169,8 @@
           "cross_reference": 100
         },
         "scored_at": "2026-02-04"
-      }
+      },
+      "status_verification_2026_07_16": "STATUS UNKNOWN / NOT ORGANIZING (verified 2026-07-16): organizer (Rasputitsa Dirt, via Facebook) states 'we aren't asking you to register for anything, and we aren't organizing anything,' following co-founder Anthony Moccia's death on March 13, 2026 after stage 4 cancer. No 2026 race ran. A third-party aggregator (Strambecco) lists an unconfirmed 'Mar 27, 2027' placeholder date, but this is NOT an official organizer confirmation — do not cite it as a real date."
     },
     "biased_opinion_ratings": {
       "logistics": {
@@ -718,6 +719,10 @@
         "credit": "YouTube / Watt Wagon",
         "gif": true
       }
-    ]
+    ],
+    "taking_a_break": {
+      "label": "TAKING A BREAK",
+      "line": "Rasputitsa is on pause with no next edition announced. The course isn't going anywhere — train for it now and be first in line when it's back."
+    }
   }
 }

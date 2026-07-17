@@ -11,7 +11,7 @@
       "location_badge": "HELLENTHAL, EIFEL, GERMANY",
       "county": "Eifel Region",
       "date": "No confirmed recurring date — last confirmed edition May 2025",
-      "date_specific": "No 2026 edition confirmed. Last confirmed edition: May 23-25, 2025 (Hellenthal). Grinduro's official 2026 series calendar (grinduro.com, battistrada.com) does not list Germany; a third-party gravel calendar shows an unconfirmed May 2026 placeholder, not an official organizer date.",
+      "date_specific": "Status: NO EDITION CONFIRMED — absent from 2026 Grinduro calendar; last ran May 2025 (Hellenthal)",
       "terrain_types": [
         "Eifel volcanic landscape",
         "German forest gravel roads",
@@ -167,7 +167,8 @@
           "cross_reference": 100
         },
         "scored_at": "2026-02-04"
-      }
+      },
+      "status_verification_2026_07_16": "No 2026 edition confirmed. Last confirmed edition: May 23-25, 2025 (Hellenthal). Grinduro's official 2026 series calendar (grinduro.com, battistrada.com) does not list Germany; a third-party gravel calendar shows an unconfirmed May 2026 placeholder, not an official organizer date."
     },
     "biased_opinion_ratings": {
       "logistics": {
@@ -634,6 +635,10 @@
         "credit": "YouTube / Annika Langvad",
         "gif": true
       }
-    ]
+    ],
+    "taking_a_break": {
+      "label": "TAKING A BREAK",
+      "line": "Grinduro Germany isn't on the current Grinduro calendar. This plan still trains you for exactly this kind of day."
+    }
   }
 }

@@ -404,6 +404,7 @@ def normalize_race_data(data: dict) -> dict:
         field_size_short = '~' + fs_match.group(1)
 
     return {
+        'taking_a_break': race.get('taking_a_break'),
         'name': race.get('display_name') or race.get('name', 'Unknown Race'),
         'slug': race.get('slug', ''),
         'tagline': race.get('tagline', ''),
@@ -1899,7 +1900,8 @@ def build_sports_event_jsonld(rd: dict) -> Optional[dict]:
         "name": rd['name'],
         "description": rd['tagline'],
         "sport": "Gravel Cycling",
-        "eventStatus": "https://schema.org/EventScheduled",
+        "eventStatus": ("https://schema.org/EventPostponed"
+                        if rd.get('taking_a_break') else "https://schema.org/EventScheduled"),
         "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
         "startDate": start_date,
         "endDate": end_date,
@@ -2093,11 +2095,25 @@ def build_hero(rd: dict) -> str:
             '    <a class="gg-hero-score-label gg-hero-rider-ask" href="#racer-reviews" data-cta="hero_rate_race">RIDER SCORE &middot; RATE IT &rarr;</a>'
         )
 
+    # "Taking a break" strip — races kept in the catalog between editions
+    # (race-data key `taking_a_break: {label, line}`, parent-authored).
+    break_note = rd.get('taking_a_break') or {}
+    break_html = ''
+    if break_note.get('label') and break_note.get('line'):
+        break_html = (
+            '\n    <div class="gg-break-strip" style="border:2px solid var(--gg-color-gold);'
+            'background:var(--gg-color-warm-paper);padding:10px 14px;margin:14px 0 0">'
+            f'<div style="font-family:var(--gg-font-data);font-size:11px;font-weight:700;'
+            f'color:var(--gg-color-gold);letter-spacing:var(--gg-letter-spacing-wider)">{esc(break_note["label"])}</div>'
+            f'<div style="font-family:var(--gg-font-editorial);color:var(--gg-color-dark-brown);'
+            f'margin-top:4px">{esc(break_note["line"])}</div></div>'
+        )
+
     return f'''<section class="gg-hero">
   <div class="gg-hero-content">
     <span class="gg-hero-tier">{esc(rd['tier_label'])}</span>{series_badge}
     <h1>{esc(rd['name'])}</h1>
-    <div class="gg-hero-vitals">{vitals_line}</div>
+    <div class="gg-hero-vitals">{vitals_line}</div>{break_html}
   </div>
   <div class="gg-hero-scores">
   <div class="gg-hero-score">

@@ -11,7 +11,7 @@
       "location_badge": "LAHTI, FINLAND",
       "country": "Finland",
       "date": "August annually (HIATUS — see date_specific)",
-      "date_specific": "ON HIATUS FOR 2026 (verified 2026-07-16 directly on fnldgrvl.com): official organizer statement is 'FNLD GRVL is taking a hiatus in 2026' with 'Stay tuned for future news and updates.' Third-party aggregators (Battistrada, Cycloworld) still list a stale 'August 8, 2026' date — that date is NOT confirmed by the organizer and should not be used. No 2027 revival has been announced. Note: the separate UEC European Gravel Championships ARE confirmed for Lahti, Jul 30-Aug 1, 2027, but that is a different UEC-organized event, not a FNLD GRVL revival — do not conflate the two.",
+      "date_specific": "Status: ON HIATUS — no 2026 edition; no return announced (organizer-confirmed 2026-07-16)",
       "terrain_types": [
         "Well-maintained gravel roads",
         "Forest paths",
@@ -403,7 +403,8 @@
           "cross_reference": 100
         },
         "scored_at": "2026-02-04"
-      }
+      },
+      "status_verification_2026_07_16": "ON HIATUS FOR 2026 (verified 2026-07-16 directly on fnldgrvl.com): official organizer statement is 'FNLD GRVL is taking a hiatus in 2026' with 'Stay tuned for future news and updates.' Third-party aggregators (Battistrada, Cycloworld) still list a stale 'August 8, 2026' date — that date is NOT confirmed by the organizer and should not be used. No 2027 revival has been announced. Note: the separate UEC European Gravel Championships ARE confirmed for Lahti, Jul 30-Aug 1, 2027, but that is a different UEC-organized event, not a FNLD GRVL revival — do not conflate the two."
     },
     "youtube_data": {
       "researched_at": "2026-02-23",
@@ -589,7 +590,11 @@
         "credit": "YouTube / FNLD GRVL @grvlevents",
         "gif": true
       }
-    ]
+    ],
+    "taking_a_break": {
+      "label": "TAKING A BREAK",
+      "line": "FNLD GRVL is on hiatus with no return announced. The course's demands haven't changed — be ready if it comes back."
+    }
   },
   "dataQuality": "High"
 }

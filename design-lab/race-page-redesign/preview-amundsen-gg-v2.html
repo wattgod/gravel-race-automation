@@ -1,0 +1,2013 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gravel God Cycling — Amundsen Feel v2</title>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,300;1,8..60,400&family=Sometype+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --gg-primary: #1a1613;
+      --gg-secondary: #3a2e25;
+      --gg-brown: #59473c;
+      --gg-brown-light: #8c7568;
+      --gg-tan: #d4c5b9;
+      --gg-sand: #ede4d8;
+      --gg-paper: #f5efe6;
+      --gg-paper-warm: #ede4d8;
+      --gg-teal: #1A8A82;
+      --gg-teal-hover: #22a59c;
+      --gg-teal-light: #4ECDC4;
+      --gg-teal-muted: #7dd8d2;
+      --gg-gold: #B7950B;
+      --gg-gold-light: #c9a92c;
+      --gg-t1: #59473c;
+      --gg-t2: #8c7568;
+      --gg-t3: #999999;
+      --gg-t4: #cccccc;
+      --gg-muted: #8c7568;
+      --gg-text-on-dark: #f5efe6;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Source Serif 4', Georgia, serif;
+      background: var(--gg-paper);
+      color: var(--gg-primary);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    /* ── FILM GRAIN ── */
+    body::after {
+      content: '';
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      pointer-events: none;
+      opacity: 0.03;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+      background-size: 256px 256px;
+    }
+
+    /* ── SCROLL PROGRESS ── */
+    .scroll-progress {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 3px;
+      background: var(--gg-teal);
+      z-index: 1001;
+      width: 0%;
+      transition: width 0.1s linear;
+    }
+
+    /* ── CUSTOM CURSOR ── */
+    .cursor-dot {
+      width: 8px; height: 8px;
+      background: var(--gg-teal);
+      border-radius: 50%;
+      position: fixed;
+      pointer-events: none;
+      z-index: 9998;
+      transition: transform 0.15s ease;
+      mix-blend-mode: difference;
+    }
+    .cursor-ring {
+      width: 40px; height: 40px;
+      border: 1px solid var(--gg-teal);
+      border-radius: 50%;
+      position: fixed;
+      pointer-events: none;
+      z-index: 9997;
+      transition: transform 0.3s ease, width 0.3s ease, height 0.3s ease;
+      transform: translate(-50%, -50%);
+      opacity: 0.5;
+    }
+    .cursor-ring.hover { width: 64px; height: 64px; opacity: 0.8; }
+
+    /* ── GOLD TOP BAR ── */
+    .top-bar {
+      height: 4px;
+      background: var(--gg-gold);
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 1002;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 4px; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 24px 56px;
+      background: transparent;
+      transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    nav.scrolled {
+      padding: 16px 56px;
+      background: rgba(245, 239, 230, 0.92);
+      backdrop-filter: blur(16px) saturate(1.4);
+      border-bottom: 1px solid rgba(212, 197, 185, 0.6);
+    }
+    .nav-logo {
+      font-family: 'Sometype Mono', monospace;
+      font-weight: 700;
+      font-size: 0.8rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--gg-text-on-dark);
+      text-decoration: none;
+      transition: color 0.5s ease;
+    }
+    nav.scrolled .nav-logo { color: var(--gg-secondary); }
+    .nav-links { display: flex; gap: 40px; list-style: none; }
+    .nav-links a {
+      font-family: 'Sometype Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      text-decoration: none;
+      color: rgba(245, 239, 230, 0.5);
+      transition: color 0.3s ease;
+      position: relative;
+    }
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -4px; left: 0;
+      width: 0; height: 1px;
+      background: var(--gg-gold);
+      transition: width 0.3s ease;
+    }
+    .nav-links a:hover { color: var(--gg-text-on-dark); }
+    .nav-links a:hover::after { width: 100%; }
+    nav.scrolled .nav-links a { color: var(--gg-muted); }
+    nav.scrolled .nav-links a:hover { color: var(--gg-secondary); }
+
+    /* ── HERO — cinematic landscape ── */
+    .hero {
+      height: 100vh;
+      min-height: 800px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 0 56px 80px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero__landscape {
+      position: absolute;
+      inset: 0;
+      /* Layered gradients that evoke open gravel roads, golden hour, distant ridgelines */
+      background:
+        /* Sky glow — warm gold horizon */
+        radial-gradient(ellipse 160% 50% at 50% 85%, rgba(183, 149, 11, 0.15) 0%, transparent 60%),
+        /* Teal atmosphere — cool distant mountains */
+        radial-gradient(ellipse 100% 60% at 30% 40%, rgba(26, 138, 130, 0.1) 0%, transparent 50%),
+        /* Base — dark earth tones */
+        linear-gradient(175deg, #2a2820 0%, #1e1a14 30%, #1a1613 60%, #141210 100%);
+    }
+    /* Horizon line */
+    .hero__horizon {
+      position: absolute;
+      bottom: 35%;
+      left: 0; right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent 5%, rgba(183, 149, 11, 0.12) 30%, rgba(183, 149, 11, 0.2) 50%, rgba(183, 149, 11, 0.12) 70%, transparent 95%);
+      z-index: 1;
+    }
+    /* Mountain silhouette */
+    .hero__mountains {
+      position: absolute;
+      bottom: 30%;
+      left: 0; right: 0;
+      z-index: 1;
+    }
+    /* Animated grain */
+    .hero::after {
+      content: '';
+      position: absolute;
+      inset: -50%;
+      z-index: 2;
+      pointer-events: none;
+      opacity: 0.05;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+      animation: grain 8s steps(10) infinite;
+    }
+    @keyframes grain {
+      0%, 100% { transform: translate(0, 0); }
+      10% { transform: translate(-5%, -10%); }
+      30% { transform: translate(7%, -15%); }
+      50% { transform: translate(-15%, 10%); }
+      70% { transform: translate(0%, 10%); }
+      90% { transform: translate(-10%, 10%); }
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 3;
+      max-width: 900px;
+    }
+    .hero-eyebrow {
+      font-family: 'Sometype Mono', monospace;
+      font-size: 0.6rem;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: var(--gg-gold);
+      margin-bottom: 24px;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: heroReveal 1s cubic-bezier(0.16, 1, 0.3, 1) 0.3s forwards;
+    }
+    .hero h1 {
+      font-family: 'Sometype Mono', monospace;
+      font-weight: 400;
+      font-size: clamp(3rem, 7vw, 6.5rem);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--gg-text-on-dark);
+      line-height: 0.95;
+      margin-bottom: 32px;
+    }
+    .hero h1 .line { display: block; overflow: hidden; }
+    .hero h1 .line span {
+      display: inline-block;
+      opacity: 0;
+      transform: translateY(100%);
+      animation: heroLineReveal 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+    .hero h1 .line:nth-child(1) span { animation-delay: 0.4s; }
+    .hero h1 .line:nth-child(2) span { animation-delay: 0.55s; color: var(--gg-teal); }
+    .hero h1 .line:nth-child(3) span { animation-delay: 0.7s; }
+
+    @keyframes heroLineReveal { to { opacity: 1; transform: translateY(0); } }
+    @keyframes heroReveal { to { opacity: 1; transform: translateY(0); } }
+
+    .hero-desc {
+      font-weight: 300;
+      font-style: italic;
+      font-size: 1.15rem;
+      color: rgba(245, 239, 230, 0.5);
+      line-height: 1.7;
+      max-width: 480px;
+      margin-bottom: 48px;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: heroReveal 1s cubic-bezier(0.16, 1, 0.3, 1) 0.8s forwards;
+    }
+
+    /* Hero mini-stats */
+    .hero-stats {
+      display: flex;
+      gap: 48px;
+      opacity: 0;
+      animation: heroReveal 1s cubic-bezier(0.16, 1, 0.3, 1) 1s forwards;
+    }
+    .hero-stat {
+      display: flex;
+      flex-direction: column;
+    }
+    .hero-stat__number {
+      font-family: 'Sometype Mono', monospace;
+      font-weight: 700;
+      font-size: 1.8rem;
+      color: var(--gg-text-on-dark);
+      line-height: 1;
+    }
+    .hero-stat__label {
+      font-family: 'Sometype Mono', monospace;
+      font-size: 0.5rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(245, 239, 230, 0.3);
+      margin-top: 6px;
+    }
+
+    .hero-scroll {
+      position: absolute;
+      bottom: 40px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 3;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+    }
+    .hero-scroll__text {
+      font-family: 'Sometype Mono', monospace;
+      font-size: 0.55rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: rgba(245, 239, 230, 0.2);
+    }
+    .hero-scroll__line {
+      width: 1px; height: 48px;
+      background: linear-gradient(to bottom, rgba(26, 138, 130, 0.4), transparent);
+      animation: scrollPulse 2s ease-in-out infinite;
+    }
+    @keyframes scrollPulse {
+      0%, 100% { opacity: 0.3; transform: scaleY(1); }
+      50% { opacity: 0.8; transform: scaleY(1.2); }
+    }
+
+    /* ── MARQUEE ── */
+    .marquee {
+      overflow: hidden;
+      padding: 20px 0;
+      background: var(--gg-primary);
+      border-bottom: 1px solid rgba(245, 239, 230, 0.05);
+    }
+    .marquee__inner {
+      display: flex;
+      gap: 64px;
+      animation: marqueeScroll 45s linear infinite;
+      width: max-content;
+    }
+    .marquee__item {
+      font-family: 'Sometype Mono', monospace;
+      font-size: 0.6rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(245, 239, 230, 0.12);
+      white-space: nowrap;
+      display: flex;
+      align-items: center;
+      gap: 64px;
+    }
+    .marquee__item::after { content: '\2022'; color: var(--gg-teal); opacity: 0.3; }
+    @keyframes marqueeScroll {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    /* ── SECTION RHYTHM ── */
+    section {
+      padding: 140px 56px;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+    .section-label {
+      font-family: 'Sometype Mono', monospace;
+      font-size: 0.6rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--gg-muted);
+      margin-bottom: 56px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .section-label::after {
+      content: '';
+      height: 1px;
+      width: 48px;
+      background: var(--gg-tan);
+    }
+
+    /* ── RADAR CHART INTRO ── */
+    .radar-intro {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 96px;
+      align-items: center;
+    }
+    .radar-intro__left h2 {
+      font-family: 'Source Serif 4', Georgia, serif;
+      font-weight: 300;
+      font-size: clamp(2rem, 3.5vw, 3rem);
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+      margin-bottom: 24px;
+    }
+    .radar-intro__left h2 em {
+      font-style: italic;
+      color: var(--gg-teal);
+    }
+    .radar-intro__left p {
+      font-size: 1.05rem;
+      color: var(--gg-brown-light);
+      line-height: 1.9;
+      margin-bottom: 20px;
+    }
+    .radar-intro__right {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .radar-chart {
+      width: 100%;
+      max-width: 420px;
+    }
+    .radar-chart svg {
+      width: 100%;
+      height: auto;
+    }
+
+    /* ── STATS STRIP ── */
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2px;
+      background: var(--gg-tan);
+      margin: 0;
+      max-width: none;
+      padding: 0;
+    }
+    .stat {
+      background: var(--gg-paper);
+      padding: 64px 48px;
+      text-align: center;
+      position: relative;
+    }
+    .stat__icon {
+      margin-bottom: 16px;
+    }
+    .stat__number {
+      font-family: 'Sometype Mono', monospace;
+      font-weight: 700;
+      font-size: clamp(2.5rem, 4vw, 4rem);
+      letter-spacing: -0.02em;
+      color: var(--gg-secondary);
+      line-height: 1;
+      margin-bottom: 12px;
+    }
+    .stat__label {
+      font-family: 'Sometype Mono', monospace;
+      font-size: 0.6rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gg-muted);
+    }
+
+    /* ── ELEVATION PROFILE BREAK ── */
+    .elevation-break {
+      width: 100%;
+      position: relative;
+      overflow: hidden;
+      background: var(--gg-primary);
+      padding: 0;
+    }
+    .elevation-break__content {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 80px 56px 0;
+      position: relative;
+      z-index: 2;
+    }
+    .elevation-break__label {
+      font-family: 'Sometype Mono', monospace;
+      font-size: 0.55rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--gg-gold);
+      margin-bottom: 12px;
+    }
+    .elevation-break__title {
+      font-family: 'Source Serif 4', Georgia, serif;
+      font-weight: 300;
+      font-style: italic;
+      font-size: 1.6rem;
+      color: rgba(245, 239, 230, 0.7);
+      line-height: 1.4;
+      max-width: 500px;
+      margin-bottom: 40px;
+    }
+    .elevation-break__stats {
+      display: flex;
+      gap: 48px;
+      margin-bottom: 48px;
+    }
+    .elevation-break__stat-value {
+      font-family: 'Sometype Mono', monospace;
+      font-weight: 700;
+      font-size: 1.5rem;
+      color: var(--gg-text-on-dark);
+      line-height: 1;
+    }
+    .elevation-break__stat-label {
+      font-family: 'Sometype Mono', monospace;
+      font-size: 0.45rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(245, 239, 230, 0.3);
+      margin-top: 4px;
+    }
+    .elevation-break svg {
+      display: block;
+      width: 100%;
+    }
+
+    /* ── PULL QUOTE ── */
+    .pull-quote {
+      padding: 100px 56px;
+      max-width: 1000px;
+      margin: 0 auto;
+      text-align: center;
+      position: relative;
+    }
+    .pull-quote::before {
+      content: '\201C';
+      font-family: 'Source Serif 4', Georgia, serif;
+      font-size: 12rem;
+      color: var(--gg-tan);
+      opacity: 0.3;
+      position: absolute;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      line-height: 1;
+    }
+    .pull-quote blockquote {
+      font-weight: 300;
+      font-style: italic;
+      font-size: clamp(1.5rem, 2.8vw, 2.4rem);
+      line-height: 1.4;
+      color: var(--gg-primary);
+      letter-spacing: -0.01em;
+      position: relative;
+    }
+    .pull-quote blockquote span { color: var(--gg-teal); }
+    .pull-quote .attribution {
+      font-family: 'Sometype Mono', monospace;
+      font-size: 0.6rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gg-muted);
+      margin-top: 32px;
+    }
+
+    /* ── FEATURED RACE CARDS — with score gauge ── */
+    .races-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 56px;
+    }
+    .race-card {
+      perspective: 1000px;
+      cursor: pointer;
+    }
+    .race-card__inner {
+      transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+      transform-style: preserve-3d;
+    }
+    .race-card__image {
+      width: 100%;
+      aspect-ratio: 16/10;
+      position: relative;
+      overflow: hidden;
+      margin-bottom: 24px;
+    }
+    .race-card__image-bg {
+      position: absolute;
+      inset: 0;
+      transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .race-card:hover .race-card__image-bg { transform: scale(1.05); }
+    .race-card__image-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(26,22,19,0.85) 0%, rgba(26,22,19,0.2) 40%, transparent 70%);
+      z-index: 1;
+    }
+    .race-card__tier {
+      position: absolute;
+      top: 20px; left: 20px;
+      z-index: 2;
+      font-family: 'Sometype Mono', monospace;
+      font-weight: 700;
+      font-size: 0.5rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      padding: 4px 12px;
+    }
+    .race-card__tier--t1 { color: var(--gg-gold); border: 1px solid var(--gg-gold); }
+    /* Score gauge in bottom-right of image */
+    .race-card__gauge {
+      position: absolute;
+      bottom: 16px; right: 16px;
+      z-index: 2;
+      width: 64px; height: 64px;
+    }
+    .race-card__gauge svg { width: 100%; height: 100%; }
+    .race-card__gauge-text {
+      font-family: 'Sometype Mono', monospace;
+      font-weight: 700;
+      font-size: 14px;
+      fill: var(--gg-text-on-dark);
+    }
+    /* Mini elevation in bottom of image */
+    .race-card__elevation {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      z-index: 2;
+      height: 48px;
+      opacity: 0.3;
+    }
+    .race-card__elevation svg { width: 100%; height: 100%; }
+
+    .race-card__label {
+      font-family: 'Sometype Mono', monospace;
+      font-size: 0.55rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gg-teal);
+      margin-bottom: 10px;
+    }
+    .race-card__title {
+      font-family: 'Source Serif 4', Georgia, serif;
+      font-weight: 600;
+      font-size: 1.6rem;
+      line-height: 1.25;
+      margin-bottom: 12px;
+    }
+    .race-card__desc {
+      font-size: 0.95rem;
+      color: var(--gg-muted);
+      line-height: 1.7;
+      margin-bottom: 20px;
+    }
+    /* Mini dimension bars */
+    .race-card__dims {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+    .dim-bar {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .dim-bar__label {
+      font-family: 'Sometype Mono', monospace;
+      font-size: 0.45rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gg-muted);
+    }
+    .dim-bar__track {
+      height: 3px;
+      background: var(--gg-sand);
+      position: relative;
+    }
+    .dim-bar__fill {
+      height: 100%;
+      background: var(--gg-teal);
+      transition: width 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+      width: 0;
+    }
+    .race-card__link {
+      font-family: 'Sometype Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gg-secondary);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: gap 0.3s ease, color 0.3s ease;
+    }
+    .race-card__link:hover { gap: 14px; color: var(--gg-teal); }
+
+    /* ── TIER DISTRIBUTION INFOGRAPHIC ── */
+    .tier-section {
+      background: var(--gg-primary);
+      padding: 140px 56px;
+      max-width: none;
+      position: relative;
+      overflow: hidden;
+    }
+    .tier-section::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(183, 149, 11, 0.2), transparent);
+    }
+    .tier-section__inner {
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+    .tier-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 32px;
+      margin-top: 64px;
+    }
+    .tier-block {
+      position: relative;
+      padding: 40px 32px;
+      border-top: 3px solid;
+      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .tier-block:hover { transform: translateY(-4px); }
+    .tier-block--t1 { border-color: var(--gg-gold); }
+    .tier-block--t2 { border-color: var(--gg-teal); }
+    .tier-block--t3 { border-color: var(--gg-brown-light); }
+    .tier-block--t4 { border-color: rgba(245, 239, 230, 0.15); }
+    .tier-block__count {
+      font-family: 'Sometype Mono', monospace;
+      font-weight: 700;
+      font-size: 3.5rem;
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+    .tier-block--t1 .tier-block__count { color: var(--gg-gold); }
+    .tier-block--t2 .tier-block__count { color: var(--gg-teal); }
+    .tier-block--t3 .tier-block__count { color: var(--gg-brown-light); }
+    .tier-block--t4 .tier-block__count { color: rgba(245, 239, 230, 0.3); }
+    .tier-block__name {
+      font-family: 'Sometype Mono', monospace;
+      font-size: 0.55rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: rgba(245, 239, 230, 0.5);
+      margin-bottom: 16px;
+    }
+    .tier-block__desc {
+      font-family: 'Source Serif 4', Georgia, serif;
+      font-style: italic;
+      font-size: 0.9rem;
+      color: rgba(245, 239, 230, 0.3);
+      line-height: 1.6;
+    }
+    /* Vertical bar chart */
+    .tier-block__bar-wrap {
+      margin-top: 24px;
+      height: 120px;
+      display: flex;
+      align-items: flex-end;
+    }
+    .tier-block__bar {
+      width: 100%;
+      transition: height 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+      height: 0;
+    }
+    .tier-block--t1 .tier-block__bar { background: var(--gg-gold); opacity: 0.3; }
+    .tier-block--t2 .tier-block__bar { background: var(--gg-teal); opacity: 0.3; }
+    .tier-block--t3 .tier-block__bar { background: var(--gg-brown-light); opacity: 0.3; }
+    .tier-block--t4 .tier-block__bar { background: rgba(245, 239, 230, 0.08); }
+
+    /* ── HORIZONTAL SCROLL: RACE SHOWCASE ── */
+    .race-scroll-wrapper {
+      overflow: hidden;
+      padding: 0;
+      max-width: none;
+      margin: 0;
+    }
+    .race-scroll-header {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 140px 56px 48px;
+    }
+    .race-scroll-hint {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 56px;
+      font-family: 'Sometype Mono', monospace;
+      font-size: 0.55rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gg-tan);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+    .race-scroll-hint::after {
+      content: ''; height: 1px; flex: 1;
+      background: linear-gradient(to right, var(--gg-tan), transparent);
+    }
+    .race-scroll {
+      overflow-x: auto;
+      overflow-y: hidden;
+      padding: 0 56px 80px;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+      display: flex;
+      gap: 24px;
+    }
+    .race-scroll::-webkit-scrollbar { display: none; }
+    .showcase-card {
+      flex: 0 0 360px;
+      scroll-snap-align: start;
+      background: var(--gg-primary);
+      padding: 32px;
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      display: flex;
+      flex-direction: column;
+    }
+    .showcase-card:first-child { margin-left: calc((100vw - 1400px) / 2 + 56px); }
+    .showcase-card:last-child { margin-right: 56px; }
+    .showcase-card:hover { transform: translateY(-4px); }
+    .showcase-card__number {
+      font-family: 'Sometype Mono', monospace;
+      font-weight: 700;
+      font-size: 6rem;
+      color: rgba(245, 239, 230, 0.04);
+      position: absolute;
+      top: -8px; right: 12px;
+      line-height: 1;
+    }
+    .showcase-card__discipline {
+      font-family: 'Sometype Mono', monospace;
+      font-size: 0.5rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--gg-gold);
+      margin-bottom: 12px;
+    }
+    .showcase-card__name {
+      font-family: 'Sometype Mono', monospace;
+      font-weight: 500;
+      font-size: 1.05rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--gg-text-on-dark);
+      margin-bottom: 6px;
+      line-height: 1.3;
+    }
+    .showcase-card__location {
+      font-family: 'Source Serif 4', Georgia, serif;
+      font-style: italic;
+      font-size: 0.85rem;
+      color: rgba(245, 239, 230, 0.35);
+      margin-bottom: 20px;
+    }
+    /* Mini radar in showcase card */
+    .showcase-card__radar {
+      width: 100%;
+      aspect-ratio: 1;
+      max-width: 180px;
+      margin: 0 auto 20px;
+      opacity: 0.6;
+    }
+    .showcase-card__radar svg { width: 100%; height: 100%; }
+    .showcase-card__bar {
+      height: 2px;
+      background: rgba(245, 239, 230, 0.08);
+    }
+    .showcase-card__bar-fill {
+      height: 100%;
+      background: var(--gg-teal);
+      transition: width 1s cubic-bezier(0.16, 1, 0.3, 1);
+      width: 0;
+    }
+    .showcase-card__bar-label {
+      font-family: 'Sometype Mono', monospace;
+      font-size: 0.5rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: rgba(245, 239, 230, 0.2);
+      margin-top: 8px;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    /* ── TRAINING CTA ── */
+    .training-cta {
+      background: var(--gg-primary);
+      color: var(--gg-text-on-dark);
+      padding: 160px 56px;
+      max-width: none;
+      position: relative;
+      overflow: hidden;
+    }
+    .training-cta::before {
+      content: '';
+      position: absolute;
+      top: -50%; right: -20%;
+      width: 70%; height: 200%;
+      background: radial-gradient(ellipse, rgba(26, 138, 130, 0.06) 0%, transparent 70%);
+    }
+    .training-cta__inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 96px;
+      align-items: center;
+      position: relative;
+    }
+    .training-cta__text { }
+    .training-cta__eyebrow {
+      font-family: 'Sometype Mono', monospace;
+      font-size: 0.55rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--gg-gold);
+      margin-bottom: 24px;
+    }
+    .training-cta h2 {
+      font-family: 'Sometype Mono', monospace;
+      font-weight: 400;
+      font-size: clamp(1.6rem, 3vw, 2.4rem);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 24px;
+      line-height: 1.2;
+    }
+    .training-cta p {
+      font-weight: 300;
+      font-style: italic;
+      font-size: 1.05rem;
+      color: rgba(245, 239, 230, 0.5);
+      line-height: 1.8;
+      margin-bottom: 40px;
+    }
+    .training-cta__btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      font-family: 'Sometype Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      text-decoration: none;
+      color: var(--gg-primary);
+      background: var(--gg-teal);
+      padding: 18px 48px;
+      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      position: relative;
+      overflow: hidden;
+    }
+    .training-cta__btn::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: var(--gg-teal-hover);
+      transform: scaleX(0);
+      transform-origin: right;
+      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      z-index: 0;
+    }
+    .training-cta__btn:hover::before { transform: scaleX(1); transform-origin: left; }
+    .training-cta__btn span { position: relative; z-index: 1; }
+
+    /* Demand vector viz */
+    .demand-viz {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .demand-row {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .demand-row__label {
+      font-family: 'Sometype Mono', monospace;
+      font-size: 0.5rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: rgba(245, 239, 230, 0.3);
+      width: 100px;
+      text-align: right;
+      flex-shrink: 0;
+    }
+    .demand-row__track {
+      flex: 1;
+      height: 4px;
+      background: rgba(245, 239, 230, 0.06);
+      position: relative;
+    }
+    .demand-row__fill {
+      height: 100%;
+      transition: width 1.5s cubic-bezier(0.16, 1, 0.3, 1);
+      width: 0;
+    }
+    .demand-row__fill--high { background: var(--gg-teal); }
+    .demand-row__fill--med { background: var(--gg-gold); opacity: 0.7; }
+    .demand-row__fill--low { background: rgba(245, 239, 230, 0.15); }
+    .demand-row__value {
+      font-family: 'Sometype Mono', monospace;
+      font-size: 0.5rem;
+      color: rgba(245, 239, 230, 0.3);
+      width: 30px;
+      flex-shrink: 0;
+    }
+
+    /* ── TESTIMONIALS ── */
+    .testimonials {
+      padding: 140px 56px;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+    .testimonial-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 48px;
+    }
+    .testimonial {
+      padding-top: 32px;
+      border-top: 2px solid var(--gg-secondary);
+    }
+    .testimonial:nth-child(2) { transform: translateY(40px); }
+    .testimonial:nth-child(3) { transform: translateY(80px); }
+    .testimonial__tag {
+      font-family: 'Sometype Mono', monospace;
+      font-size: 0.5rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--gg-teal);
+      margin-bottom: 20px;
+    }
+    .testimonial__text {
+      font-style: italic;
+      font-size: 1rem;
+      line-height: 1.8;
+      color: #3a2e25;
+      margin-bottom: 24px;
+    }
+    .testimonial__name {
+      font-family: 'Sometype Mono', monospace;
+      font-size: 0.55rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gg-muted);
+    }
+
+    /* ── FINAL CTA ── */
+    .final-cta {
+      text-align: center;
+      padding: 120px 56px;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+    .final-cta__mark {
+      font-family: 'Sometype Mono', monospace;
+      font-weight: 700;
+      font-size: 3rem;
+      color: var(--gg-tan);
+      opacity: 0.3;
+      margin-bottom: 32px;
+    }
+    .final-cta h3 {
+      font-weight: 300;
+      font-style: italic;
+      font-size: 1.8rem;
+      line-height: 1.4;
+      margin-bottom: 40px;
+    }
+    .final-cta__link {
+      font-family: 'Sometype Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      text-decoration: none;
+      color: var(--gg-secondary);
+      border-bottom: 1px solid var(--gg-teal);
+      padding-bottom: 4px;
+      transition: color 0.3s ease;
+    }
+    .final-cta__link:hover { color: var(--gg-teal); }
+
+    /* ── FOOTER ── */
+    footer {
+      padding: 56px;
+      border-top: 2px solid var(--gg-secondary);
+      max-width: 1400px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 48px;
+      align-items: end;
+    }
+    .footer-brand {
+      font-family: 'Sometype Mono', monospace;
+      font-size: 0.55rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gg-muted);
+      line-height: 2.2;
+    }
+    .footer-links { text-align: center; }
+    .footer-links a {
+      font-family: 'Sometype Mono', monospace;
+      font-size: 0.55rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      text-decoration: none;
+      color: var(--gg-tan);
+      margin: 0 16px;
+      transition: color 0.3s ease;
+    }
+    .footer-links a:hover { color: var(--gg-secondary); }
+    .footer-sign-off {
+      text-align: right;
+      font-style: italic;
+      font-size: 0.85rem;
+      color: var(--gg-muted);
+    }
+
+    /* ── ANIMATIONS ── */
+    .reveal {
+      opacity: 0; transform: translateY(32px);
+      transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1), transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .reveal-left {
+      opacity: 0; transform: translateX(-32px);
+      transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1), transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .reveal-left.visible { opacity: 1; transform: translateX(0); }
+    .reveal-right {
+      opacity: 0; transform: translateX(32px);
+      transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1), transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .reveal-right.visible { opacity: 1; transform: translateX(0); }
+    .stagger-1 { transition-delay: 0.1s; }
+    .stagger-2 { transition-delay: 0.2s; }
+    .stagger-3 { transition-delay: 0.3s; }
+    .stagger-4 { transition-delay: 0.4s; }
+
+    @media (prefers-reduced-motion: reduce) {
+      .reveal, .reveal-left, .reveal-right { opacity: 1; transform: none; transition: none; }
+      .hero h1 .line span { opacity: 1; transform: none; animation: none; }
+      .hero-eyebrow, .hero-desc, .hero-stats { opacity: 1; transform: none; animation: none; }
+      .marquee__inner { animation: none; }
+      .hero::after { animation: none; }
+      .cursor-dot, .cursor-ring { display: none; }
+    }
+
+    @media (max-width: 1024px) {
+      .radar-intro { grid-template-columns: 1fr; gap: 48px; }
+      .training-cta__inner { grid-template-columns: 1fr; gap: 64px; }
+      .tier-grid { grid-template-columns: 1fr 1fr; }
+      .showcase-card:first-child { margin-left: 56px; }
+    }
+
+    @media (max-width: 768px) {
+      nav { padding: 16px 24px; }
+      nav.scrolled { padding: 12px 24px; }
+      .nav-links { gap: 20px; }
+      .hero { padding: 0 24px 60px; min-height: 600px; }
+      .hero-stats { gap: 32px; flex-wrap: wrap; }
+      section { padding: 80px 24px; }
+      .races-grid { grid-template-columns: 1fr; gap: 40px; }
+      .testimonial-grid { grid-template-columns: 1fr; }
+      .testimonial:nth-child(2), .testimonial:nth-child(3) { transform: none; }
+      .pull-quote { padding: 60px 24px; }
+      .pull-quote blockquote { font-size: 1.3rem; }
+      .stats { grid-template-columns: 1fr 1fr; }
+      .tier-grid { grid-template-columns: 1fr; }
+      footer { grid-template-columns: 1fr; gap: 24px; text-align: left; }
+      .footer-links { text-align: left; }
+      .footer-sign-off { text-align: left; }
+      .race-scroll-header { padding: 80px 24px 32px; }
+      .race-scroll { padding: 0 24px 48px; }
+      .showcase-card:first-child { margin-left: 0; }
+      .showcase-card { flex: 0 0 300px; }
+      .elevation-break__content { padding: 48px 24px 0; }
+      .elevation-break__stats { gap: 32px; flex-wrap: wrap; }
+      .training-cta { padding: 96px 24px; }
+      .final-cta { padding: 80px 24px; }
+      .cursor-dot, .cursor-ring { display: none; }
+    }
+
+    ::selection { background: var(--gg-teal-muted); color: var(--gg-primary); }
+  </style>
+</head>
+<body>
+
+  <div class="top-bar"></div>
+  <div class="scroll-progress" id="scrollProgress"></div>
+  <div class="cursor-dot" id="cursorDot"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
+
+  <!-- NAV -->
+  <nav id="nav">
+    <a href="#" class="nav-logo">Gravel God</a>
+    <ul class="nav-links">
+      <li><a href="#races">Races</a></li>
+      <li><a href="#tiers">Tiers</a></li>
+      <li><a href="#training">Training</a></li>
+      <li><a href="#articles">Articles</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO — aspirational, landscape-driven -->
+  <section class="hero">
+    <div class="hero__landscape"></div>
+    <div class="hero__horizon"></div>
+    <!-- Mountain silhouette SVG -->
+    <div class="hero__mountains">
+      <svg viewBox="0 0 1400 200" preserveAspectRatio="none" style="width:100%;height:200px;display:block;">
+        <path d="M0,200 L0,140 L80,100 L160,130 L240,70 L320,110 L400,50 L480,90 L520,40 L580,80 L640,30 L720,75 L800,45 L860,85 L920,55 L980,95 L1040,60 L1100,100 L1160,70 L1220,110 L1280,80 L1340,120 L1400,90 L1400,200 Z" fill="rgba(26,22,19,0.4)"/>
+        <path d="M0,200 L0,160 L100,130 L200,155 L300,110 L400,140 L500,95 L560,120 L640,80 L720,115 L800,90 L880,130 L960,100 L1040,135 L1120,105 L1200,140 L1300,115 L1400,145 L1400,200 Z" fill="rgba(26,22,19,0.7)"/>
+      </svg>
+    </div>
+    <div class="hero-content">
+      <div class="hero-eyebrow">The gravel race database</div>
+      <h1>
+        <span class="line"><span>Every race.</span></span>
+        <span class="line"><span>Every mile.</span></span>
+        <span class="line"><span>Mapped.</span></span>
+      </h1>
+      <p class="hero-desc">757 gravel, bikepacking, and MTB races profiled across 15 dimensions. Find the one that matches your legs.</p>
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <div class="hero-stat__number">757</div>
+          <div class="hero-stat__label">Races</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat__number">15</div>
+          <div class="hero-stat__label">Criteria</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat__number">60+</div>
+          <div class="hero-stat__label">Regions</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat__number">4</div>
+          <div class="hero-stat__label">Tiers</div>
+        </div>
+      </div>
+    </div>
+    <div class="hero-scroll">
+      <span class="hero-scroll__text">Scroll</span>
+      <div class="hero-scroll__line"></div>
+    </div>
+  </section>
+
+  <!-- MARQUEE -->
+  <div class="marquee">
+    <div class="marquee__inner">
+      <span class="marquee__item">Unbound 200</span>
+      <span class="marquee__item">SBT GRVL</span>
+      <span class="marquee__item">Belgian Waffle Ride</span>
+      <span class="marquee__item">Mid South</span>
+      <span class="marquee__item">Crusher in the Tushar</span>
+      <span class="marquee__item">Gravel Worlds</span>
+      <span class="marquee__item">DKXL</span>
+      <span class="marquee__item">Rebecca's Private Idaho</span>
+      <span class="marquee__item">The Rift Iceland</span>
+      <span class="marquee__item">Steamboat Gravel</span>
+      <span class="marquee__item">Gravel Locos</span>
+      <span class="marquee__item">Big Sugar</span>
+      <span class="marquee__item">Unbound 200</span>
+      <span class="marquee__item">SBT GRVL</span>
+      <span class="marquee__item">Belgian Waffle Ride</span>
+      <span class="marquee__item">Mid South</span>
+      <span class="marquee__item">Crusher in the Tushar</span>
+      <span class="marquee__item">Gravel Worlds</span>
+      <span class="marquee__item">DKXL</span>
+      <span class="marquee__item">Rebecca's Private Idaho</span>
+    </div>
+  </div>
+
+  <!-- RADAR CHART INTRO -->
+  <section>
+    <div class="section-label reveal">How we profile races</div>
+    <div class="radar-intro">
+      <div class="radar-intro__left reveal-left">
+        <h2>15 dimensions.<br>One <em>honest</em> score.</h2>
+        <p>Every race is scored across distance, climbing, technicality, prestige, logistics, scenic value, community, field depth, and more. The shape of the radar tells the story of the race.</p>
+        <p>A Sufferfest looks different from a Hidden Gem. A Prestige Play looks nothing like an All-Rounder. The data shows you which races match <em>your</em> kind of racing.</p>
+      </div>
+      <div class="radar-intro__right reveal-right">
+        <div class="radar-chart">
+          <!-- Interactive SVG Radar Chart -->
+          <svg viewBox="0 0 400 400" id="radarChart">
+            <!-- Grid rings -->
+            <circle cx="200" cy="200" r="160" fill="none" stroke="rgba(212,197,185,0.2)" stroke-width="1"/>
+            <circle cx="200" cy="200" r="120" fill="none" stroke="rgba(212,197,185,0.15)" stroke-width="1"/>
+            <circle cx="200" cy="200" r="80" fill="none" stroke="rgba(212,197,185,0.1)" stroke-width="1"/>
+            <circle cx="200" cy="200" r="40" fill="none" stroke="rgba(212,197,185,0.05)" stroke-width="1"/>
+            <!-- Axis lines -->
+            <line x1="200" y1="40" x2="200" y2="360" stroke="rgba(212,197,185,0.08)" stroke-width="1"/>
+            <line x1="44" y1="110" x2="356" y2="290" stroke="rgba(212,197,185,0.08)" stroke-width="1"/>
+            <line x1="44" y1="290" x2="356" y2="110" stroke="rgba(212,197,185,0.08)" stroke-width="1"/>
+            <line x1="40" y1="200" x2="360" y2="200" stroke="rgba(212,197,185,0.08)" stroke-width="1"/>
+            <!-- Data polygon — "Sufferfest" archetype -->
+            <polygon id="radarPoly" points="" fill="rgba(26,138,130,0.15)" stroke="rgba(26,138,130,0.6)" stroke-width="2"/>
+            <!-- Data dots -->
+            <g id="radarDots"></g>
+            <!-- Labels -->
+            <text x="200" y="28" text-anchor="middle" font-family="Sometype Mono" font-size="8" letter-spacing="1.5" fill="#8c7568" text-transform="uppercase">DISTANCE</text>
+            <text x="370" y="108" text-anchor="end" font-family="Sometype Mono" font-size="8" letter-spacing="1.5" fill="#8c7568">CLIMBING</text>
+            <text x="370" y="296" text-anchor="end" font-family="Sometype Mono" font-size="8" letter-spacing="1.5" fill="#8c7568">TECHNICALITY</text>
+            <text x="200" y="385" text-anchor="middle" font-family="Sometype Mono" font-size="8" letter-spacing="1.5" fill="#8c7568">PRESTIGE</text>
+            <text x="30" y="296" text-anchor="start" font-family="Sometype Mono" font-size="8" letter-spacing="1.5" fill="#8c7568">ADVENTURE</text>
+            <text x="30" y="108" text-anchor="start" font-family="Sometype Mono" font-size="8" letter-spacing="1.5" fill="#8c7568">LOGISTICS</text>
+            <!-- Archetype label -->
+            <text x="200" y="206" text-anchor="middle" font-family="Sometype Mono" font-size="10" letter-spacing="2" fill="rgba(26,138,130,0.6)" id="radarLabel">SUFFERFEST</text>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS STRIP with icons -->
+  <div class="stats">
+    <div class="stat reveal stagger-1">
+      <div class="stat__icon">
+        <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+          <path d="M4 28L10 12L16 20L22 8L28 16" stroke="#1A8A82" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <div class="stat__number"><span class="counter" data-target="757">0</span></div>
+      <div class="stat__label">Races profiled</div>
+    </div>
+    <div class="stat reveal stagger-2">
+      <div class="stat__icon">
+        <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+          <polygon points="16,4 20,12 28,14 22,20 24,28 16,24 8,28 10,20 4,14 12,12" stroke="#B7950B" stroke-width="1.5" fill="none"/>
+        </svg>
+      </div>
+      <div class="stat__number"><span class="counter" data-target="15">0</span></div>
+      <div class="stat__label">Scoring dimensions</div>
+    </div>
+    <div class="stat reveal stagger-3">
+      <div class="stat__icon">
+        <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+          <circle cx="16" cy="16" r="10" stroke="#8c7568" stroke-width="1.5"/>
+          <circle cx="16" cy="16" r="4" fill="#8c7568" opacity="0.3"/>
+          <line x1="16" y1="2" x2="16" y2="6" stroke="#8c7568" stroke-width="1.5"/>
+          <line x1="16" y1="26" x2="16" y2="30" stroke="#8c7568" stroke-width="1.5"/>
+          <line x1="2" y1="16" x2="6" y2="16" stroke="#8c7568" stroke-width="1.5"/>
+          <line x1="26" y1="16" x2="30" y2="16" stroke="#8c7568" stroke-width="1.5"/>
+        </svg>
+      </div>
+      <div class="stat__number"><span class="counter" data-target="60">0</span>+</div>
+      <div class="stat__label">Regions covered</div>
+    </div>
+    <div class="stat reveal stagger-4">
+      <div class="stat__icon">
+        <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+          <rect x="6" y="10" width="20" height="14" rx="2" stroke="#59473c" stroke-width="1.5"/>
+          <polygon points="13,15 13,21 20,18" fill="#59473c" opacity="0.4"/>
+        </svg>
+      </div>
+      <div class="stat__number"><span class="counter" data-target="283">0</span></div>
+      <div class="stat__label">YouTube enriched</div>
+    </div>
+  </div>
+
+  <!-- ELEVATION PROFILE BREAK — Unbound 200 -->
+  <div class="elevation-break" id="elevSection">
+    <div class="elevation-break__content">
+      <div class="elevation-break__label reveal">Unbound 200 &mdash; Emporia, Kansas</div>
+      <div class="elevation-break__title reveal stagger-1">200 miles across the Flint Hills. Rolling limestone roads, creek crossings, and weather that changes by the hour.</div>
+      <div class="elevation-break__stats reveal stagger-2">
+        <div>
+          <div class="elevation-break__stat-value">200 mi</div>
+          <div class="elevation-break__stat-label">Distance</div>
+        </div>
+        <div>
+          <div class="elevation-break__stat-value">10,400'</div>
+          <div class="elevation-break__stat-label">Elevation</div>
+        </div>
+        <div>
+          <div class="elevation-break__stat-value">92</div>
+          <div class="elevation-break__stat-label">Score</div>
+        </div>
+        <div>
+          <div class="elevation-break__stat-value">T1</div>
+          <div class="elevation-break__stat-label">Tier</div>
+        </div>
+      </div>
+    </div>
+    <!-- Elevation profile SVG -->
+    <svg viewBox="0 0 1400 200" preserveAspectRatio="none" style="display:block;width:100%;height:180px;">
+      <defs>
+        <linearGradient id="elevGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+          <stop offset="0%" stop-color="#1A8A82" stop-opacity="0.3"/>
+          <stop offset="100%" stop-color="#1A8A82" stop-opacity="0.02"/>
+        </linearGradient>
+      </defs>
+      <!-- Elevation fill -->
+      <path d="M0,200 L0,120 L50,115 L100,100 L140,110 L180,90 L220,105 L260,80 L300,95 L340,70 L380,88 L420,65 L460,82 L500,55 L540,75 L580,50 L600,60 L640,45 L680,65 L720,40 L760,58 L800,48 L840,70 L880,55 L920,75 L960,60 L1000,80 L1040,65 L1080,85 L1120,70 L1160,90 L1200,78 L1240,95 L1280,85 L1320,100 L1360,92 L1400,110 L1400,200 Z"
+            fill="url(#elevGrad)"/>
+      <!-- Elevation line -->
+      <path d="M0,120 L50,115 L100,100 L140,110 L180,90 L220,105 L260,80 L300,95 L340,70 L380,88 L420,65 L460,82 L500,55 L540,75 L580,50 L600,60 L640,45 L680,65 L720,40 L760,58 L800,48 L840,70 L880,55 L920,75 L960,60 L1000,80 L1040,65 L1080,85 L1120,70 L1160,90 L1200,78 L1240,95 L1280,85 L1320,100 L1360,92 L1400,110"
+            fill="none" stroke="#1A8A82" stroke-width="2" opacity="0.6"/>
+      <!-- Mile markers -->
+      <text x="0" y="195" font-family="Sometype Mono" font-size="9" fill="rgba(245,239,230,0.15)">0</text>
+      <text x="350" y="195" font-family="Sometype Mono" font-size="9" fill="rgba(245,239,230,0.15)">50</text>
+      <text x="700" y="195" font-family="Sometype Mono" font-size="9" fill="rgba(245,239,230,0.15)">100</text>
+      <text x="1050" y="195" font-family="Sometype Mono" font-size="9" fill="rgba(245,239,230,0.15)">150</text>
+      <text x="1370" y="195" font-family="Sometype Mono" font-size="9" fill="rgba(245,239,230,0.15)">200</text>
+    </svg>
+  </div>
+
+  <!-- FEATURED RACES — with score gauges + dimension bars -->
+  <section id="races">
+    <div class="section-label reveal">Featured Races</div>
+    <div class="races-grid">
+      <div class="race-card reveal stagger-1" data-tilt>
+        <div class="race-card__inner">
+          <div class="race-card__image">
+            <div class="race-card__image-bg" style="background: linear-gradient(160deg, #3a4a3a 0%, #2a2e15 30%, #1a1613 100%);"></div>
+            <div class="race-card__image-overlay"></div>
+            <div class="race-card__tier race-card__tier--t1">Tier 1</div>
+            <!-- Score gauge -->
+            <div class="race-card__gauge">
+              <svg viewBox="0 0 64 64">
+                <circle cx="32" cy="32" r="28" fill="none" stroke="rgba(245,239,230,0.08)" stroke-width="3"/>
+                <circle cx="32" cy="32" r="28" fill="none" stroke="#1A8A82" stroke-width="3"
+                  stroke-dasharray="176" stroke-dashoffset="14" stroke-linecap="round"
+                  transform="rotate(-90 32 32)" opacity="0.7"/>
+                <text x="32" y="36" text-anchor="middle" class="race-card__gauge-text">92</text>
+              </svg>
+            </div>
+            <!-- Mini elevation silhouette -->
+            <div class="race-card__elevation">
+              <svg viewBox="0 0 400 48" preserveAspectRatio="none">
+                <path d="M0,48 L0,30 L30,28 L60,20 L90,25 L120,15 L150,22 L180,10 L210,18 L240,8 L270,16 L300,12 L330,20 L360,15 L400,24 L400,48 Z"
+                  fill="rgba(26,138,130,0.15)"/>
+              </svg>
+            </div>
+          </div>
+          <div class="race-card__label">Gravel &mdash; Emporia, KS &mdash; Jun 2026</div>
+          <div class="race-card__title">Unbound 200</div>
+          <div class="race-card__desc">The race that defined the discipline. 200 miles of Flint Hills gravel, creek crossings, and weather that changes by the hour.</div>
+          <div class="race-card__dims" data-animate-bars>
+            <div class="dim-bar">
+              <div class="dim-bar__label">Prestige</div>
+              <div class="dim-bar__track"><div class="dim-bar__fill" data-width="100%"></div></div>
+            </div>
+            <div class="dim-bar">
+              <div class="dim-bar__label">Distance</div>
+              <div class="dim-bar__track"><div class="dim-bar__fill" data-width="95%"></div></div>
+            </div>
+            <div class="dim-bar">
+              <div class="dim-bar__label">Adventure</div>
+              <div class="dim-bar__track"><div class="dim-bar__fill" data-width="85%"></div></div>
+            </div>
+          </div>
+          <a href="#" class="race-card__link">View full profile <span>&rarr;</span></a>
+        </div>
+      </div>
+
+      <div class="race-card reveal stagger-2" data-tilt>
+        <div class="race-card__inner">
+          <div class="race-card__image">
+            <div class="race-card__image-bg" style="background: linear-gradient(160deg, #2a3530 0%, #1e2818 40%, #1a1613 100%);"></div>
+            <div class="race-card__image-overlay"></div>
+            <div class="race-card__tier race-card__tier--t1">Tier 1</div>
+            <div class="race-card__gauge">
+              <svg viewBox="0 0 64 64">
+                <circle cx="32" cy="32" r="28" fill="none" stroke="rgba(245,239,230,0.08)" stroke-width="3"/>
+                <circle cx="32" cy="32" r="28" fill="none" stroke="#1A8A82" stroke-width="3"
+                  stroke-dasharray="176" stroke-dashoffset="21" stroke-linecap="round"
+                  transform="rotate(-90 32 32)" opacity="0.7"/>
+                <text x="32" y="36" text-anchor="middle" class="race-card__gauge-text">88</text>
+              </svg>
+            </div>
+            <div class="race-card__elevation">
+              <svg viewBox="0 0 400 48" preserveAspectRatio="none">
+                <path d="M0,48 L0,35 L40,25 L80,30 L120,12 L160,22 L200,8 L240,18 L280,6 L320,20 L360,14 L400,28 L400,48 Z"
+                  fill="rgba(26,138,130,0.15)"/>
+              </svg>
+            </div>
+          </div>
+          <div class="race-card__label">Gravel &mdash; Steamboat Springs, CO &mdash; Aug 2026</div>
+          <div class="race-card__title">Steamboat Gravel</div>
+          <div class="race-card__desc">Routt County at altitude. High passes, wildflower meadows, and a town that understands gravel racing.</div>
+          <div class="race-card__dims" data-animate-bars>
+            <div class="dim-bar">
+              <div class="dim-bar__label">Climbing</div>
+              <div class="dim-bar__track"><div class="dim-bar__fill" data-width="95%"></div></div>
+            </div>
+            <div class="dim-bar">
+              <div class="dim-bar__label">Scenic</div>
+              <div class="dim-bar__track"><div class="dim-bar__fill" data-width="90%"></div></div>
+            </div>
+            <div class="dim-bar">
+              <div class="dim-bar__label">Altitude</div>
+              <div class="dim-bar__track"><div class="dim-bar__fill" data-width="88%"></div></div>
+            </div>
+          </div>
+          <a href="#" class="race-card__link">View full profile <span>&rarr;</span></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PULL QUOTE -->
+  <div class="pull-quote reveal">
+    <blockquote>I finished Unbound in 13:47 this year. Last year I DNF'd at mile 140. The plan was boring as hell <span>but it worked.</span></blockquote>
+    <div class="attribution">Sarah K. &mdash; Unbound finisher</div>
+  </div>
+
+  <!-- TIER DISTRIBUTION -->
+  <div class="tier-section" id="tiers">
+    <div class="tier-section__inner">
+      <div class="section-label reveal" style="color: rgba(245,239,230,0.4);">Tier Distribution</div>
+      <div class="tier-grid">
+        <div class="tier-block tier-block--t1 reveal stagger-1">
+          <div class="tier-block__count"><span class="counter" data-target="48">0</span></div>
+          <div class="tier-block__name">Tier 1 &mdash; Score 80+</div>
+          <div class="tier-block__desc">The best in the world. Iconic courses, deep fields, race-defining experiences.</div>
+          <div class="tier-block__bar-wrap">
+            <div class="tier-block__bar" data-height="40%"></div>
+          </div>
+        </div>
+        <div class="tier-block tier-block--t2 reveal stagger-2">
+          <div class="tier-block__count"><span class="counter" data-target="156">0</span></div>
+          <div class="tier-block__name">Tier 2 &mdash; Score 60-79</div>
+          <div class="tier-block__desc">Excellent races with strong character. Many riders' favorites live here.</div>
+          <div class="tier-block__bar-wrap">
+            <div class="tier-block__bar" data-height="70%"></div>
+          </div>
+        </div>
+        <div class="tier-block tier-block--t3 reveal stagger-3">
+          <div class="tier-block__count"><span class="counter" data-target="312">0</span></div>
+          <div class="tier-block__name">Tier 3 &mdash; Score 45-59</div>
+          <div class="tier-block__desc">Solid regional events. Great racing without the hype premium.</div>
+          <div class="tier-block__bar-wrap">
+            <div class="tier-block__bar" data-height="100%"></div>
+          </div>
+        </div>
+        <div class="tier-block tier-block--t4 reveal stagger-4">
+          <div class="tier-block__count"><span class="counter" data-target="241">0</span></div>
+          <div class="tier-block__name">Tier 4 &mdash; Score &lt;45</div>
+          <div class="tier-block__desc">Local, accessible, honest. Every community needs these races.</div>
+          <div class="tier-block__bar-wrap">
+            <div class="tier-block__bar" data-height="85%"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- HORIZONTAL SCROLL: SHOWCASE -->
+  <div class="race-scroll-wrapper" id="showcase">
+    <div class="race-scroll-header">
+      <div class="section-label reveal">Race Showcase</div>
+    </div>
+    <div class="race-scroll-hint reveal">Drag to explore</div>
+    <div class="race-scroll" id="raceScroll">
+      <div class="showcase-card" data-fill="92">
+        <div class="showcase-card__number">01</div>
+        <div class="showcase-card__discipline">Gravel &mdash; Tier 1</div>
+        <div class="showcase-card__name">Unbound 200</div>
+        <div class="showcase-card__location">Emporia, KS &mdash; 200mi</div>
+        <div class="showcase-card__radar">
+          <svg viewBox="0 0 120 120">
+            <circle cx="60" cy="60" r="50" fill="none" stroke="rgba(245,239,230,0.06)" stroke-width="1"/>
+            <circle cx="60" cy="60" r="35" fill="none" stroke="rgba(245,239,230,0.04)" stroke-width="1"/>
+            <polygon points="60,12 105,35 105,85 60,108 15,85 15,35" fill="rgba(26,138,130,0.12)" stroke="rgba(26,138,130,0.4)" stroke-width="1.5"/>
+          </svg>
+        </div>
+        <div class="showcase-card__bar"><div class="showcase-card__bar-fill"></div></div>
+        <div class="showcase-card__bar-label"><span>Score</span><span>92/100</span></div>
+      </div>
+      <div class="showcase-card" data-fill="88">
+        <div class="showcase-card__number">02</div>
+        <div class="showcase-card__discipline">Gravel &mdash; Tier 1</div>
+        <div class="showcase-card__name">SBT GRVL</div>
+        <div class="showcase-card__location">Steamboat Springs, CO &mdash; 140mi</div>
+        <div class="showcase-card__radar">
+          <svg viewBox="0 0 120 120">
+            <circle cx="60" cy="60" r="50" fill="none" stroke="rgba(245,239,230,0.06)" stroke-width="1"/>
+            <circle cx="60" cy="60" r="35" fill="none" stroke="rgba(245,239,230,0.04)" stroke-width="1"/>
+            <polygon points="60,18 100,30 108,78 60,105 12,78 20,30" fill="rgba(26,138,130,0.12)" stroke="rgba(26,138,130,0.4)" stroke-width="1.5"/>
+          </svg>
+        </div>
+        <div class="showcase-card__bar"><div class="showcase-card__bar-fill"></div></div>
+        <div class="showcase-card__bar-label"><span>Score</span><span>88/100</span></div>
+      </div>
+      <div class="showcase-card" data-fill="87">
+        <div class="showcase-card__number">03</div>
+        <div class="showcase-card__discipline">Gravel &mdash; Tier 1</div>
+        <div class="showcase-card__name">Belgian Waffle Ride</div>
+        <div class="showcase-card__location">San Marcos, CA &mdash; 130mi</div>
+        <div class="showcase-card__radar">
+          <svg viewBox="0 0 120 120">
+            <circle cx="60" cy="60" r="50" fill="none" stroke="rgba(245,239,230,0.06)" stroke-width="1"/>
+            <circle cx="60" cy="60" r="35" fill="none" stroke="rgba(245,239,230,0.04)" stroke-width="1"/>
+            <polygon points="60,15 95,28 105,75 60,100 18,82 22,32" fill="rgba(26,138,130,0.12)" stroke="rgba(26,138,130,0.4)" stroke-width="1.5"/>
+          </svg>
+        </div>
+        <div class="showcase-card__bar"><div class="showcase-card__bar-fill"></div></div>
+        <div class="showcase-card__bar-label"><span>Score</span><span>87/100</span></div>
+      </div>
+      <div class="showcase-card" data-fill="86">
+        <div class="showcase-card__number">04</div>
+        <div class="showcase-card__discipline">Gravel &mdash; Tier 1</div>
+        <div class="showcase-card__name">Mid South</div>
+        <div class="showcase-card__location">Stillwater, OK &mdash; 100mi</div>
+        <div class="showcase-card__radar">
+          <svg viewBox="0 0 120 120">
+            <circle cx="60" cy="60" r="50" fill="none" stroke="rgba(245,239,230,0.06)" stroke-width="1"/>
+            <circle cx="60" cy="60" r="35" fill="none" stroke="rgba(245,239,230,0.04)" stroke-width="1"/>
+            <polygon points="60,20 90,32 98,80 60,102 22,80 30,32" fill="rgba(26,138,130,0.12)" stroke="rgba(26,138,130,0.4)" stroke-width="1.5"/>
+          </svg>
+        </div>
+        <div class="showcase-card__bar"><div class="showcase-card__bar-fill"></div></div>
+        <div class="showcase-card__bar-label"><span>Score</span><span>86/100</span></div>
+      </div>
+      <div class="showcase-card" data-fill="85">
+        <div class="showcase-card__number">05</div>
+        <div class="showcase-card__discipline">Gravel &mdash; Tier 1</div>
+        <div class="showcase-card__name">Crusher in the Tushar</div>
+        <div class="showcase-card__location">Beaver, UT &mdash; 70mi</div>
+        <div class="showcase-card__radar">
+          <svg viewBox="0 0 120 120">
+            <circle cx="60" cy="60" r="50" fill="none" stroke="rgba(245,239,230,0.06)" stroke-width="1"/>
+            <circle cx="60" cy="60" r="35" fill="none" stroke="rgba(245,239,230,0.04)" stroke-width="1"/>
+            <polygon points="60,12 80,25 108,68 60,98 15,72 35,22" fill="rgba(26,138,130,0.12)" stroke="rgba(26,138,130,0.4)" stroke-width="1.5"/>
+          </svg>
+        </div>
+        <div class="showcase-card__bar"><div class="showcase-card__bar-fill"></div></div>
+        <div class="showcase-card__bar-label"><span>Score</span><span>85/100</span></div>
+      </div>
+      <div class="showcase-card" data-fill="84">
+        <div class="showcase-card__number">06</div>
+        <div class="showcase-card__discipline">Bikepacking &mdash; Tier 1</div>
+        <div class="showcase-card__name">DKXL</div>
+        <div class="showcase-card__location">Emporia, KS &mdash; 350mi</div>
+        <div class="showcase-card__radar">
+          <svg viewBox="0 0 120 120">
+            <circle cx="60" cy="60" r="50" fill="none" stroke="rgba(245,239,230,0.06)" stroke-width="1"/>
+            <circle cx="60" cy="60" r="35" fill="none" stroke="rgba(245,239,230,0.04)" stroke-width="1"/>
+            <polygon points="60,8 75,30 100,72 60,108 20,72 45,30" fill="rgba(26,138,130,0.12)" stroke="rgba(26,138,130,0.4)" stroke-width="1.5"/>
+          </svg>
+        </div>
+        <div class="showcase-card__bar"><div class="showcase-card__bar-fill"></div></div>
+        <div class="showcase-card__bar-label"><span>Score</span><span>84/100</span></div>
+      </div>
+      <div class="showcase-card" data-fill="83">
+        <div class="showcase-card__number">07</div>
+        <div class="showcase-card__discipline">Gravel &mdash; Tier 1</div>
+        <div class="showcase-card__name">The Rift</div>
+        <div class="showcase-card__location">Hella, Iceland &mdash; 200km</div>
+        <div class="showcase-card__radar">
+          <svg viewBox="0 0 120 120">
+            <circle cx="60" cy="60" r="50" fill="none" stroke="rgba(245,239,230,0.06)" stroke-width="1"/>
+            <circle cx="60" cy="60" r="35" fill="none" stroke="rgba(245,239,230,0.04)" stroke-width="1"/>
+            <polygon points="60,14 88,28 102,75 60,105 18,75 32,28" fill="rgba(26,138,130,0.12)" stroke="rgba(26,138,130,0.4)" stroke-width="1.5"/>
+          </svg>
+        </div>
+        <div class="showcase-card__bar"><div class="showcase-card__bar-fill"></div></div>
+        <div class="showcase-card__bar-label"><span>Score</span><span>83/100</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TRAINING CTA — split layout with demand vector viz -->
+  <div class="training-cta" id="training">
+    <div class="training-cta__inner">
+      <div class="training-cta__text">
+        <div class="training-cta__eyebrow reveal">Race-Specific Training</div>
+        <h2 class="reveal stagger-1">Train for the<br>course, not<br>the clock</h2>
+        <p class="reveal stagger-2">Every race has a demand profile &mdash; 8 dimensions that tell your body what it needs. Plans built from that analysis, not a template.</p>
+        <a href="#" class="training-cta__btn reveal stagger-3"><span>Configure your plan &rarr;</span></a>
+      </div>
+      <div class="demand-viz reveal-right" id="demandViz">
+        <div class="demand-row">
+          <div class="demand-row__label">Durability</div>
+          <div class="demand-row__track"><div class="demand-row__fill demand-row__fill--high" data-width="90%"></div></div>
+          <div class="demand-row__value">9.0</div>
+        </div>
+        <div class="demand-row">
+          <div class="demand-row__label">Climbing</div>
+          <div class="demand-row__track"><div class="demand-row__fill demand-row__fill--high" data-width="75%"></div></div>
+          <div class="demand-row__value">7.5</div>
+        </div>
+        <div class="demand-row">
+          <div class="demand-row__label">VO2 Power</div>
+          <div class="demand-row__track"><div class="demand-row__fill demand-row__fill--med" data-width="45%"></div></div>
+          <div class="demand-row__value">4.5</div>
+        </div>
+        <div class="demand-row">
+          <div class="demand-row__label">Threshold</div>
+          <div class="demand-row__track"><div class="demand-row__fill demand-row__fill--high" data-width="80%"></div></div>
+          <div class="demand-row__value">8.0</div>
+        </div>
+        <div class="demand-row">
+          <div class="demand-row__label">Technical</div>
+          <div class="demand-row__track"><div class="demand-row__fill demand-row__fill--med" data-width="55%"></div></div>
+          <div class="demand-row__value">5.5</div>
+        </div>
+        <div class="demand-row">
+          <div class="demand-row__label">Heat</div>
+          <div class="demand-row__track"><div class="demand-row__fill demand-row__fill--high" data-width="70%"></div></div>
+          <div class="demand-row__value">7.0</div>
+        </div>
+        <div class="demand-row">
+          <div class="demand-row__label">Altitude</div>
+          <div class="demand-row__track"><div class="demand-row__fill demand-row__fill--low" data-width="20%"></div></div>
+          <div class="demand-row__value">2.0</div>
+        </div>
+        <div class="demand-row">
+          <div class="demand-row__label">Race Spec.</div>
+          <div class="demand-row__track"><div class="demand-row__fill demand-row__fill--high" data-width="85%"></div></div>
+          <div class="demand-row__value">8.5</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TESTIMONIALS -->
+  <div class="testimonials">
+    <div class="section-label reveal">What riders say</div>
+    <div class="testimonial-grid">
+      <div class="testimonial reveal stagger-1">
+        <div class="testimonial__tag">Unbound finisher &mdash; 10 hrs/wk</div>
+        <div class="testimonial__text">&ldquo;I finished Unbound in 13:47 this year. Last year I DNF'd at mile 140 because I had no idea how to pace myself and ran out of food twice. The plan was boring as hell but it worked.&rdquo;</div>
+        <div class="testimonial__name">Sarah K. &mdash; Marketing director</div>
+      </div>
+      <div class="testimonial reveal stagger-2">
+        <div class="testimonial__tag">Regional podium &mdash; 12 hrs/wk</div>
+        <div class="testimonial__text">&ldquo;First time I cracked top 20. Not because I got fitter &mdash; I've been 'fit enough' for years. I just finally learned to not go hard when it felt easy and actually recover on easy days.&rdquo;</div>
+        <div class="testimonial__name">Marcus T. &mdash; Registered nurse</div>
+      </div>
+      <div class="testimonial reveal stagger-3">
+        <div class="testimonial__tag">SBT GRVL top third &mdash; 8 hrs/wk</div>
+        <div class="testimonial__text">&ldquo;I went from blowing up on every climb longer than 10 minutes to finishing SBT GRVL Black in the top third. The difference was pacing and fueling, not some magic workout.&rdquo;</div>
+        <div class="testimonial__name">Chris M. &mdash; Software engineer</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FINAL CTA -->
+  <div class="final-cta reveal">
+    <div class="final-cta__mark">GG</div>
+    <h3>757 races. 15 dimensions.<br>Find the one that fits your legs.</h3>
+    <a href="#races" class="final-cta__link">Explore the database &rarr;</a>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-brand">
+      Gravel God Cycling<br>
+      Race database &amp; training<br>
+      gravelgodcycling.com
+    </div>
+    <div class="footer-links">
+      <a href="#">Races</a>
+      <a href="#">Training</a>
+      <a href="#">Articles</a>
+      <a href="#">About</a>
+    </div>
+    <div class="footer-sign-off">
+      Every race. Every mile. Mapped.
+    </div>
+  </footer>
+
+  <script>
+    (function() {
+      'use strict';
+
+      var progressBar = document.getElementById('scrollProgress');
+      var nav = document.getElementById('nav');
+      var dot = document.getElementById('cursorDot');
+      var ring = document.getElementById('cursorRing');
+      var mouseX = 0, mouseY = 0, ringX = 0, ringY = 0;
+      var isMobile = window.matchMedia('(max-width: 768px)').matches || 'ontouchstart' in window;
+
+      /* ── Scroll handlers ── */
+      function updateProgress() {
+        var h = document.documentElement.scrollHeight - window.innerHeight;
+        progressBar.style.width = (h > 0 ? (window.scrollY / h) * 100 : 0) + '%';
+      }
+      function updateNav() {
+        nav.classList.toggle('scrolled', window.scrollY > 80);
+      }
+
+      var ticking = false;
+      window.addEventListener('scroll', function() {
+        if (!ticking) {
+          requestAnimationFrame(function() {
+            updateProgress();
+            updateNav();
+            ticking = false;
+          });
+          ticking = true;
+        }
+      });
+
+      /* ── Custom Cursor ── */
+      if (!isMobile) {
+        document.addEventListener('mousemove', function(e) {
+          mouseX = e.clientX; mouseY = e.clientY;
+          dot.style.left = mouseX - 4 + 'px';
+          dot.style.top = mouseY - 4 + 'px';
+        });
+        (function animateRing() {
+          ringX += (mouseX - ringX) * 0.12;
+          ringY += (mouseY - ringY) * 0.12;
+          ring.style.left = ringX + 'px';
+          ring.style.top = ringY + 'px';
+          requestAnimationFrame(animateRing);
+        })();
+        document.querySelectorAll('a, button, .race-card, .showcase-card, .tier-block').forEach(function(el) {
+          el.addEventListener('mouseenter', function() { ring.classList.add('hover'); });
+          el.addEventListener('mouseleave', function() { ring.classList.remove('hover'); });
+        });
+      } else {
+        dot.style.display = 'none';
+        ring.style.display = 'none';
+      }
+
+      /* ── Intersection Observer — reveals ── */
+      if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        var revealObserver = new IntersectionObserver(function(entries) {
+          entries.forEach(function(entry) {
+            if (entry.isIntersecting) entry.target.classList.add('visible');
+          });
+        }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+        document.querySelectorAll('.reveal, .reveal-left, .reveal-right').forEach(function(el) {
+          revealObserver.observe(el);
+        });
+
+        /* Counter animation */
+        var counterObserver = new IntersectionObserver(function(entries) {
+          entries.forEach(function(entry) {
+            if (entry.isIntersecting) {
+              var el = entry.target;
+              var target = parseInt(el.getAttribute('data-target'), 10);
+              var start = performance.now();
+              (function step(now) {
+                var p = Math.min((now - start) / 1500, 1);
+                el.textContent = Math.round((1 - Math.pow(1 - p, 3)) * target);
+                if (p < 1) requestAnimationFrame(step);
+              })(performance.now());
+              counterObserver.unobserve(el);
+            }
+          });
+        }, { threshold: 0.5 });
+        document.querySelectorAll('.counter').forEach(function(el) { counterObserver.observe(el); });
+
+        /* Showcase card bar fills */
+        var barObserver = new IntersectionObserver(function(entries) {
+          entries.forEach(function(entry) {
+            if (entry.isIntersecting) {
+              var fill = entry.target.getAttribute('data-fill');
+              var bar = entry.target.querySelector('.showcase-card__bar-fill');
+              if (bar && fill) setTimeout(function() { bar.style.width = fill + '%'; }, 200);
+              barObserver.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.3 });
+        document.querySelectorAll('.showcase-card').forEach(function(el) { barObserver.observe(el); });
+
+        /* Tier bar heights */
+        var tierObserver = new IntersectionObserver(function(entries) {
+          entries.forEach(function(entry) {
+            if (entry.isIntersecting) {
+              var bar = entry.target.querySelector('.tier-block__bar');
+              var h = bar ? bar.getAttribute('data-height') : null;
+              if (bar && h) setTimeout(function() { bar.style.height = h; }, 200);
+              tierObserver.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.3 });
+        document.querySelectorAll('.tier-block').forEach(function(el) { tierObserver.observe(el); });
+
+        /* Dimension bars on race cards */
+        var dimObserver = new IntersectionObserver(function(entries) {
+          entries.forEach(function(entry) {
+            if (entry.isIntersecting) {
+              entry.target.querySelectorAll('.dim-bar__fill').forEach(function(bar) {
+                var w = bar.getAttribute('data-width');
+                if (w) setTimeout(function() { bar.style.width = w; }, 300);
+              });
+              dimObserver.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.3 });
+        document.querySelectorAll('[data-animate-bars]').forEach(function(el) { dimObserver.observe(el); });
+
+        /* Demand vector bars */
+        var demandObserver = new IntersectionObserver(function(entries) {
+          entries.forEach(function(entry) {
+            if (entry.isIntersecting) {
+              entry.target.querySelectorAll('.demand-row__fill').forEach(function(bar, i) {
+                var w = bar.getAttribute('data-width');
+                if (w) setTimeout(function() { bar.style.width = w; }, 150 * i);
+              });
+              demandObserver.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.3 });
+        var dv = document.getElementById('demandViz');
+        if (dv) demandObserver.observe(dv);
+      }
+
+      /* ── 3D Card Tilt ── */
+      if (!isMobile) {
+        document.querySelectorAll('[data-tilt]').forEach(function(card) {
+          card.addEventListener('mousemove', function(e) {
+            var rect = card.getBoundingClientRect();
+            var x = (e.clientX - rect.left) / rect.width - 0.5;
+            var y = (e.clientY - rect.top) / rect.height - 0.5;
+            var inner = card.querySelector('.race-card__inner');
+            if (inner) inner.style.transform = 'rotateY(' + (x * 6) + 'deg) rotateX(' + (-y * 6) + 'deg)';
+          });
+          card.addEventListener('mouseleave', function() {
+            var inner = card.querySelector('.race-card__inner');
+            if (inner) inner.style.transform = 'rotateY(0) rotateX(0)';
+          });
+        });
+      }
+
+      /* ── Race scroll drag ── */
+      var raceScroll = document.getElementById('raceScroll');
+      var isDragging = false, startX = 0, scrollLeft = 0;
+      raceScroll.addEventListener('mousedown', function(e) {
+        isDragging = true;
+        startX = e.pageX - raceScroll.offsetLeft;
+        scrollLeft = raceScroll.scrollLeft;
+        raceScroll.style.cursor = 'grabbing';
+      });
+      raceScroll.addEventListener('mouseleave', function() { isDragging = false; raceScroll.style.cursor = 'grab'; });
+      raceScroll.addEventListener('mouseup', function() { isDragging = false; raceScroll.style.cursor = 'grab'; });
+      raceScroll.addEventListener('mousemove', function(e) {
+        if (!isDragging) return;
+        e.preventDefault();
+        raceScroll.scrollLeft = scrollLeft - ((e.pageX - raceScroll.offsetLeft) - startX) * 1.5;
+      });
+      raceScroll.style.cursor = 'grab';
+
+      /* ── Radar chart animation — morphing between archetypes ── */
+      var archetypes = {
+        'SUFFERFEST': [0.9, 0.95, 0.85, 0.7, 0.9, 0.5],
+        'ALL-ROUNDER': [0.7, 0.7, 0.65, 0.75, 0.7, 0.7],
+        'PRESTIGE PLAY': [0.6, 0.7, 0.5, 0.95, 0.4, 0.8],
+        'HIDDEN GEM': [0.5, 0.6, 0.4, 0.3, 0.95, 0.45]
+      };
+      var archetypeNames = Object.keys(archetypes);
+      var currentArchetype = 0;
+      var radarPoly = document.getElementById('radarPoly');
+      var radarDots = document.getElementById('radarDots');
+      var radarLabel = document.getElementById('radarLabel');
+      var cx = 200, cy = 200, maxR = 155;
+
+      function getRadarPoints(values) {
+        return values.map(function(v, i) {
+          var angle = (Math.PI * 2 * i / values.length) - Math.PI / 2;
+          return {
+            x: cx + Math.cos(angle) * maxR * v,
+            y: cy + Math.sin(angle) * maxR * v
+          };
+        });
+      }
+
+      function setRadar(values, label) {
+        var pts = getRadarPoints(values);
+        radarPoly.setAttribute('points', pts.map(function(p) { return p.x + ',' + p.y; }).join(' '));
+        radarDots.innerHTML = pts.map(function(p) {
+          return '<circle cx="' + p.x + '" cy="' + p.y + '" r="4" fill="#1A8A82" opacity="0.8"/>';
+        }).join('');
+        radarLabel.textContent = label;
+      }
+
+      // Animate between archetypes
+      var currentValues = archetypes[archetypeNames[0]].slice();
+      setRadar(currentValues, archetypeNames[0]);
+
+      function morphRadar() {
+        currentArchetype = (currentArchetype + 1) % archetypeNames.length;
+        var target = archetypes[archetypeNames[currentArchetype]];
+        var start = currentValues.slice();
+        var duration = 800;
+        var startTime = performance.now();
+
+        radarLabel.textContent = archetypeNames[currentArchetype];
+
+        (function step(now) {
+          var p = Math.min((now - startTime) / duration, 1);
+          var eased = 1 - Math.pow(1 - p, 3);
+          currentValues = start.map(function(s, i) {
+            return s + (target[i] - s) * eased;
+          });
+          setRadar(currentValues, archetypeNames[currentArchetype]);
+          if (p < 1) requestAnimationFrame(step);
+        })(performance.now());
+      }
+
+      setInterval(morphRadar, 3500);
+
+      /* ── Smooth anchors ── */
+      document.querySelectorAll('a[href^="#"]').forEach(function(a) {
+        a.addEventListener('click', function(e) {
+          var target = document.querySelector(this.getAttribute('href'));
+          if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+        });
+      });
+
+      updateProgress();
+      updateNav();
+    })();
+  </script>
+
+</body>
+</html>

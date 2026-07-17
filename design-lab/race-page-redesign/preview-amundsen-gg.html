@@ -1,0 +1,1805 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gravel God Cycling — Amundsen Feel Preview</title>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,300;1,8..60,400&family=Sometype+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      /* ── GG Brand Colors mapped to Amundsen structure ── */
+      --gg-primary: #1a1613;
+      --gg-secondary: #3a2e25;
+      --gg-brown: #59473c;
+      --gg-brown-light: #8c7568;
+      --gg-tan: #d4c5b9;
+      --gg-sand: #ede4d8;
+      --gg-paper: #f5efe6;
+      --gg-paper-warm: #ede4d8;
+
+      /* Accents */
+      --gg-teal: #1A8A82;
+      --gg-teal-hover: #22a59c;
+      --gg-teal-light: #4ECDC4;
+      --gg-teal-muted: #7dd8d2;
+      --gg-gold: #B7950B;
+      --gg-gold-light: #c9a92c;
+
+      /* Tier colors */
+      --gg-t1: #59473c;
+      --gg-t2: #8c7568;
+      --gg-t3: #999999;
+      --gg-t4: #cccccc;
+
+      /* Functional */
+      --gg-muted: #8c7568;
+      --gg-text-on-dark: #f5efe6;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Source Serif 4', Georgia, serif;
+      background: var(--gg-paper);
+      color: var(--gg-primary);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+      cursor: default;
+    }
+
+    /* ── FILM GRAIN — warm tint ── */
+    body::after {
+      content: '';
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      pointer-events: none;
+      opacity: 0.03;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+      background-size: 256px 256px;
+    }
+
+    /* ── SCROLL PROGRESS ── */
+    .scroll-progress {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 3px;
+      background: var(--gg-teal);
+      z-index: 1001;
+      width: 0%;
+      transition: width 0.1s linear;
+    }
+
+    /* ── CUSTOM CURSOR ── */
+    .cursor-dot {
+      width: 8px;
+      height: 8px;
+      background: var(--gg-teal);
+      border-radius: 50%;
+      position: fixed;
+      pointer-events: none;
+      z-index: 9998;
+      transition: transform 0.15s ease, opacity 0.15s ease;
+      mix-blend-mode: difference;
+    }
+    .cursor-ring {
+      width: 40px;
+      height: 40px;
+      border: 1px solid var(--gg-teal);
+      border-radius: 50%;
+      position: fixed;
+      pointer-events: none;
+      z-index: 9997;
+      transition: transform 0.3s ease, width 0.3s ease, height 0.3s ease, border-color 0.3s ease;
+      transform: translate(-50%, -50%);
+      opacity: 0.5;
+    }
+    .cursor-ring.hover {
+      width: 64px;
+      height: 64px;
+      border-color: var(--gg-teal-light);
+      opacity: 0.8;
+    }
+
+    /* ── GOLD TOP BAR (GG signature) ── */
+    .top-bar {
+      height: 4px;
+      background: var(--gg-gold);
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1002;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 4px;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 24px 56px;
+      background: transparent;
+      transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+      border-bottom: 1px solid transparent;
+    }
+    nav.scrolled {
+      padding: 16px 56px;
+      background: rgba(245, 239, 230, 0.92);
+      backdrop-filter: blur(16px) saturate(1.4);
+      -webkit-backdrop-filter: blur(16px) saturate(1.4);
+      border-bottom-color: rgba(212, 197, 185, 0.6);
+    }
+    .nav-logo {
+      font-family: 'Sometype Mono', monospace;
+      font-weight: 700;
+      font-size: 0.8rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--gg-text-on-dark);
+      text-decoration: none;
+      transition: color 0.5s ease;
+    }
+    nav.scrolled .nav-logo { color: var(--gg-secondary); }
+    .nav-links {
+      display: flex;
+      gap: 40px;
+      list-style: none;
+    }
+    .nav-links a {
+      font-family: 'Sometype Mono', monospace;
+      font-weight: 400;
+      font-size: 0.65rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      text-decoration: none;
+      color: rgba(245, 239, 230, 0.5);
+      transition: color 0.3s ease;
+      position: relative;
+    }
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 1px;
+      background: var(--gg-gold);
+      transition: width 0.3s ease;
+    }
+    .nav-links a:hover { color: var(--gg-text-on-dark); }
+    .nav-links a:hover::after { width: 100%; }
+    nav.scrolled .nav-links a { color: var(--gg-muted); }
+    nav.scrolled .nav-links a:hover { color: var(--gg-secondary); }
+
+    /* ── HERO — cinematic dark brown ── */
+    .hero {
+      height: 100vh;
+      min-height: 800px;
+      background: var(--gg-primary);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 0 56px 80px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 120% 80% at 70% 30%, rgba(26, 138, 130, 0.08) 0%, transparent 60%),
+        radial-gradient(ellipse 80% 60% at 20% 70%, rgba(183, 149, 11, 0.06) 0%, transparent 50%),
+        linear-gradient(170deg, #2a231e 0%, #1e1810 40%, #1a1613 100%);
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      inset: -50%;
+      z-index: 1;
+      pointer-events: none;
+      opacity: 0.05;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+      animation: grain 8s steps(10) infinite;
+    }
+    @keyframes grain {
+      0%, 100% { transform: translate(0, 0); }
+      10% { transform: translate(-5%, -10%); }
+      20% { transform: translate(-15%, 5%); }
+      30% { transform: translate(7%, -15%); }
+      40% { transform: translate(-5%, 15%); }
+      50% { transform: translate(-15%, 10%); }
+      60% { transform: translate(15%, 0%); }
+      70% { transform: translate(0%, 10%); }
+      80% { transform: translate(3%, 15%); }
+      90% { transform: translate(-10%, 10%); }
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 900px;
+    }
+    .hero-eyebrow {
+      font-family: 'Sometype Mono', monospace;
+      font-size: 0.6rem;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: var(--gg-gold);
+      margin-bottom: 24px;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: heroReveal 1s cubic-bezier(0.16, 1, 0.3, 1) 0.3s forwards;
+    }
+    .hero h1 {
+      font-family: 'Sometype Mono', monospace;
+      font-weight: 400;
+      font-size: clamp(3.5rem, 8vw, 7rem);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--gg-text-on-dark);
+      line-height: 0.95;
+      margin-bottom: 32px;
+    }
+    .hero h1 .line {
+      display: block;
+      overflow: hidden;
+    }
+    .hero h1 .line span {
+      display: inline-block;
+      opacity: 0;
+      transform: translateY(100%);
+      animation: heroLineReveal 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+    .hero h1 .line:nth-child(1) span { animation-delay: 0.4s; }
+    .hero h1 .line:nth-child(2) span { animation-delay: 0.55s; }
+    .hero h1 .line:nth-child(2) span { color: var(--gg-teal); }
+
+    @keyframes heroLineReveal {
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes heroReveal {
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .hero-desc {
+      font-family: 'Source Serif 4', Georgia, serif;
+      font-weight: 300;
+      font-style: italic;
+      font-size: 1.15rem;
+      color: rgba(245, 239, 230, 0.5);
+      line-height: 1.7;
+      max-width: 520px;
+      margin-bottom: 48px;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: heroReveal 1s cubic-bezier(0.16, 1, 0.3, 1) 0.8s forwards;
+    }
+    .hero-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      font-family: 'Sometype Mono', monospace;
+      font-weight: 400;
+      font-size: 0.7rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      text-decoration: none;
+      color: var(--gg-text-on-dark);
+      padding: 16px 0;
+      border-bottom: 1px solid rgba(26, 138, 130, 0.4);
+      transition: all 0.4s ease;
+      opacity: 0;
+      animation: heroReveal 1s cubic-bezier(0.16, 1, 0.3, 1) 1s forwards;
+    }
+    .hero-cta .arrow {
+      display: inline-block;
+      transition: transform 0.4s ease;
+    }
+    .hero-cta:hover { color: var(--gg-teal); border-bottom-color: var(--gg-teal); }
+    .hero-cta:hover .arrow { transform: translateX(8px); }
+
+    .hero-scroll {
+      position: absolute;
+      bottom: 40px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+    }
+    .hero-scroll__text {
+      font-family: 'Sometype Mono', monospace;
+      font-size: 0.55rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: rgba(245, 239, 230, 0.2);
+    }
+    .hero-scroll__line {
+      width: 1px;
+      height: 48px;
+      background: linear-gradient(to bottom, rgba(26, 138, 130, 0.4), transparent);
+      animation: scrollPulse 2s ease-in-out infinite;
+    }
+    @keyframes scrollPulse {
+      0%, 100% { opacity: 0.3; transform: scaleY(1); }
+      50% { opacity: 0.8; transform: scaleY(1.2); }
+    }
+
+    /* ── MARQUEE ── */
+    .marquee {
+      overflow: hidden;
+      padding: 20px 0;
+      background: var(--gg-primary);
+      border-bottom: 1px solid rgba(245, 239, 230, 0.05);
+    }
+    .marquee__inner {
+      display: flex;
+      gap: 64px;
+      animation: marqueeScroll 40s linear infinite;
+      width: max-content;
+    }
+    .marquee__item {
+      font-family: 'Sometype Mono', monospace;
+      font-size: 0.6rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(245, 239, 230, 0.12);
+      white-space: nowrap;
+      display: flex;
+      align-items: center;
+      gap: 64px;
+    }
+    .marquee__item::after {
+      content: '\2022';
+      color: var(--gg-teal);
+      opacity: 0.3;
+    }
+    @keyframes marqueeScroll {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    /* ── SECTION RHYTHM ── */
+    section {
+      padding: 140px 56px;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+    .section-label {
+      font-family: 'Sometype Mono', monospace;
+      font-weight: 400;
+      font-size: 0.6rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--gg-muted);
+      margin-bottom: 56px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .section-label::after {
+      content: '';
+      height: 1px;
+      width: 48px;
+      background: var(--gg-tan);
+    }
+
+    /* ── SPLIT INTRO ── */
+    .split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 96px;
+      align-items: start;
+    }
+    .split__left {
+      position: sticky;
+      top: 140px;
+    }
+    .split__left h2 {
+      font-family: 'Source Serif 4', Georgia, serif;
+      font-weight: 300;
+      font-size: clamp(2rem, 3.5vw, 3.2rem);
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+    }
+    .split__left h2 em {
+      font-style: italic;
+      color: var(--gg-teal);
+    }
+    .split__right p {
+      font-size: 1.05rem;
+      color: #3a2e25;
+      line-height: 1.9;
+      margin-bottom: 28px;
+    }
+    .split__right p:first-child::first-letter {
+      font-family: 'Sometype Mono', monospace;
+      font-size: 3.5rem;
+      float: left;
+      line-height: 1;
+      margin-right: 12px;
+      margin-top: 4px;
+      color: var(--gg-teal);
+    }
+
+    /* ── STATS STRIP ── */
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2px;
+      background: var(--gg-tan);
+      margin: 0;
+      max-width: none;
+      padding: 0;
+    }
+    .stat {
+      background: var(--gg-paper);
+      padding: 64px 48px;
+      text-align: center;
+    }
+    .stat__number {
+      font-family: 'Sometype Mono', monospace;
+      font-weight: 700;
+      font-size: clamp(2.5rem, 4vw, 4rem);
+      letter-spacing: -0.02em;
+      color: var(--gg-secondary);
+      line-height: 1;
+      margin-bottom: 12px;
+    }
+    .stat__label {
+      font-family: 'Sometype Mono', monospace;
+      font-size: 0.6rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gg-muted);
+    }
+
+    /* ── PULL QUOTE ── */
+    .pull-quote {
+      padding: 100px 56px;
+      max-width: 1000px;
+      margin: 0 auto;
+      text-align: center;
+      position: relative;
+    }
+    .pull-quote::before {
+      content: '\201C';
+      font-family: 'Source Serif 4', Georgia, serif;
+      font-size: 12rem;
+      color: var(--gg-tan);
+      opacity: 0.3;
+      position: absolute;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      line-height: 1;
+    }
+    .pull-quote blockquote {
+      font-family: 'Source Serif 4', Georgia, serif;
+      font-weight: 300;
+      font-style: italic;
+      font-size: clamp(1.5rem, 2.8vw, 2.4rem);
+      line-height: 1.4;
+      color: var(--gg-primary);
+      letter-spacing: -0.01em;
+      position: relative;
+    }
+    .pull-quote blockquote span {
+      color: var(--gg-teal);
+    }
+    .pull-quote .attribution {
+      font-family: 'Sometype Mono', monospace;
+      font-size: 0.6rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gg-muted);
+      margin-top: 32px;
+    }
+
+    /* ── PARALLAX IMAGE BREAK ── */
+    .image-break {
+      width: 100%;
+      height: 70vh;
+      min-height: 500px;
+      position: relative;
+      overflow: hidden;
+    }
+    .image-break__bg {
+      position: absolute;
+      inset: -20%;
+      will-change: transform;
+    }
+    .image-break__overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, rgba(26, 22, 19, 0.3), rgba(26, 22, 19, 0.6));
+      z-index: 1;
+    }
+    .image-break__text {
+      position: absolute;
+      bottom: 56px;
+      left: 56px;
+      z-index: 2;
+      max-width: 500px;
+    }
+    .image-break__label {
+      font-family: 'Sometype Mono', monospace;
+      font-size: 0.55rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--gg-gold);
+      margin-bottom: 12px;
+    }
+    .image-break__title {
+      font-family: 'Source Serif 4', Georgia, serif;
+      font-weight: 300;
+      font-style: italic;
+      font-size: 1.6rem;
+      color: rgba(245, 239, 230, 0.7);
+      line-height: 1.4;
+    }
+
+    /* ── RACE CARDS — 3D tilt ── */
+    .races-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 56px;
+    }
+    .race-card {
+      perspective: 1000px;
+      cursor: pointer;
+    }
+    .race-card__inner {
+      transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+      transform-style: preserve-3d;
+    }
+    .race-card__image {
+      width: 100%;
+      aspect-ratio: 16/10;
+      position: relative;
+      overflow: hidden;
+      margin-bottom: 24px;
+    }
+    .race-card__image-bg {
+      position: absolute;
+      inset: 0;
+      transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .race-card:hover .race-card__image-bg { transform: scale(1.05); }
+    .race-card__image-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(26,22,19,0.8) 0%, transparent 50%);
+      z-index: 1;
+    }
+    .race-card__tier {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      z-index: 2;
+      font-family: 'Sometype Mono', monospace;
+      font-weight: 700;
+      font-size: 0.5rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      padding: 4px 12px;
+      border: 1px solid rgba(245, 239, 230, 0.3);
+    }
+    .race-card__tier--t1 { color: var(--gg-gold); border-color: var(--gg-gold); }
+    .race-card__tier--t2 { color: var(--gg-teal-light); border-color: var(--gg-teal-light); }
+    .race-card__score {
+      position: absolute;
+      bottom: 20px;
+      right: 20px;
+      z-index: 2;
+      font-family: 'Sometype Mono', monospace;
+      font-weight: 700;
+      font-size: 2.5rem;
+      color: rgba(245, 239, 230, 0.12);
+      line-height: 1;
+    }
+    .race-card__label {
+      font-family: 'Sometype Mono', monospace;
+      font-size: 0.55rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gg-teal);
+      margin-bottom: 10px;
+    }
+    .race-card__title {
+      font-family: 'Source Serif 4', Georgia, serif;
+      font-weight: 600;
+      font-size: 1.6rem;
+      line-height: 1.25;
+      margin-bottom: 12px;
+    }
+    .race-card__desc {
+      font-size: 0.95rem;
+      color: var(--gg-muted);
+      line-height: 1.7;
+      margin-bottom: 24px;
+    }
+    .race-card__meta {
+      display: flex;
+      gap: 24px;
+      margin-bottom: 20px;
+    }
+    .race-card__meta-item {
+      font-family: 'Sometype Mono', monospace;
+      font-size: 0.55rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gg-muted);
+    }
+    .race-card__meta-item strong {
+      color: var(--gg-secondary);
+      font-weight: 700;
+    }
+    .race-card__link {
+      font-family: 'Sometype Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gg-secondary);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: gap 0.3s ease, color 0.3s ease;
+    }
+    .race-card__link:hover { gap: 14px; color: var(--gg-teal); }
+
+    /* ── HORIZONTAL SCROLL: RACE SHOWCASE ── */
+    .race-scroll-wrapper {
+      overflow: hidden;
+      padding: 0;
+      max-width: none;
+      margin: 0;
+    }
+    .race-scroll-header {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 140px 56px 48px;
+    }
+    .race-scroll {
+      position: relative;
+      overflow-x: auto;
+      overflow-y: hidden;
+      padding: 0 56px 80px;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+      display: flex;
+      gap: 24px;
+    }
+    .race-scroll::-webkit-scrollbar { display: none; }
+    .showcase-card {
+      flex: 0 0 340px;
+      scroll-snap-align: start;
+      background: var(--gg-primary);
+      padding: 40px 32px;
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .showcase-card:first-child { margin-left: calc((100vw - 1400px) / 2 + 56px); }
+    .showcase-card:last-child { margin-right: 56px; }
+    .showcase-card:hover { transform: translateY(-4px); }
+    .showcase-card__number {
+      font-family: 'Sometype Mono', monospace;
+      font-weight: 700;
+      font-size: 6rem;
+      color: rgba(245, 239, 230, 0.04);
+      position: absolute;
+      top: -8px;
+      right: 12px;
+      line-height: 1;
+    }
+    .showcase-card__discipline {
+      font-family: 'Sometype Mono', monospace;
+      font-size: 0.5rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--gg-gold);
+      margin-bottom: 16px;
+    }
+    .showcase-card__name {
+      font-family: 'Sometype Mono', monospace;
+      font-weight: 500;
+      font-size: 1.1rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--gg-text-on-dark);
+      margin-bottom: 8px;
+      line-height: 1.3;
+    }
+    .showcase-card__location {
+      font-family: 'Source Serif 4', Georgia, serif;
+      font-style: italic;
+      font-size: 0.85rem;
+      color: rgba(245, 239, 230, 0.35);
+      margin-bottom: 24px;
+    }
+    .showcase-card__bar {
+      height: 2px;
+      background: rgba(245, 239, 230, 0.08);
+      position: relative;
+    }
+    .showcase-card__bar-fill {
+      height: 100%;
+      background: var(--gg-teal);
+      transition: width 1s cubic-bezier(0.16, 1, 0.3, 1);
+      width: 0;
+    }
+    .showcase-card__bar-label {
+      font-family: 'Sometype Mono', monospace;
+      font-size: 0.5rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: rgba(245, 239, 230, 0.2);
+      margin-top: 8px;
+      display: flex;
+      justify-content: space-between;
+    }
+    .race-scroll-hint {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 56px;
+      font-family: 'Sometype Mono', monospace;
+      font-size: 0.55rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gg-tan);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+    .race-scroll-hint::after {
+      content: '';
+      height: 1px;
+      flex: 1;
+      background: linear-gradient(to right, var(--gg-tan), transparent);
+    }
+
+    /* ── TRAINING CTA — dark panel ── */
+    .training-cta {
+      background: var(--gg-primary);
+      color: var(--gg-text-on-dark);
+      padding: 160px 56px;
+      max-width: none;
+      position: relative;
+      overflow: hidden;
+    }
+    .training-cta::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -20%;
+      width: 70%;
+      height: 200%;
+      background: radial-gradient(ellipse, rgba(26, 138, 130, 0.06) 0%, transparent 70%);
+    }
+    .training-cta__inner {
+      max-width: 700px;
+      margin: 0 auto;
+      text-align: center;
+      position: relative;
+    }
+    .training-cta__eyebrow {
+      font-family: 'Sometype Mono', monospace;
+      font-size: 0.55rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--gg-gold);
+      margin-bottom: 32px;
+    }
+    .training-cta h2 {
+      font-family: 'Sometype Mono', monospace;
+      font-weight: 400;
+      font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 28px;
+      line-height: 1.2;
+    }
+    .training-cta p {
+      font-family: 'Source Serif 4', Georgia, serif;
+      font-weight: 300;
+      font-style: italic;
+      font-size: 1.1rem;
+      color: rgba(245, 239, 230, 0.5);
+      line-height: 1.8;
+      margin-bottom: 48px;
+    }
+    .training-cta__btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      font-family: 'Sometype Mono', monospace;
+      font-weight: 400;
+      font-size: 0.65rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      text-decoration: none;
+      color: var(--gg-primary);
+      background: var(--gg-teal);
+      padding: 18px 48px;
+      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      position: relative;
+      overflow: hidden;
+    }
+    .training-cta__btn::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: var(--gg-teal-hover);
+      transform: scaleX(0);
+      transform-origin: right;
+      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      z-index: 0;
+    }
+    .training-cta__btn:hover::before { transform: scaleX(1); transform-origin: left; }
+    .training-cta__btn span { position: relative; z-index: 1; }
+
+    /* ── HOW IT WORKS — 3-step ── */
+    .how-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 64px;
+    }
+    .how-step {
+      position: relative;
+    }
+    .how-step__number {
+      font-family: 'Sometype Mono', monospace;
+      font-weight: 700;
+      font-size: 5rem;
+      color: var(--gg-tan);
+      opacity: 0.3;
+      line-height: 1;
+      margin-bottom: 16px;
+    }
+    .how-step__title {
+      font-family: 'Sometype Mono', monospace;
+      font-weight: 500;
+      font-size: 0.75rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gg-secondary);
+      margin-bottom: 12px;
+    }
+    .how-step__desc {
+      font-family: 'Source Serif 4', Georgia, serif;
+      font-size: 0.95rem;
+      color: var(--gg-muted);
+      line-height: 1.8;
+    }
+
+    /* ── TESTIMONIALS ── */
+    .testimonials {
+      padding: 140px 56px;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+    .testimonial-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 48px;
+    }
+    .testimonial {
+      padding-top: 32px;
+      border-top: 2px solid var(--gg-secondary);
+    }
+    .testimonial:nth-child(2) { transform: translateY(40px); }
+    .testimonial:nth-child(3) { transform: translateY(80px); }
+    .testimonial__tag {
+      font-family: 'Sometype Mono', monospace;
+      font-size: 0.5rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--gg-teal);
+      margin-bottom: 20px;
+    }
+    .testimonial__text {
+      font-family: 'Source Serif 4', Georgia, serif;
+      font-style: italic;
+      font-size: 1rem;
+      line-height: 1.8;
+      color: #3a2e25;
+      margin-bottom: 24px;
+    }
+    .testimonial__name {
+      font-family: 'Sometype Mono', monospace;
+      font-size: 0.55rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gg-muted);
+    }
+
+    /* ── PRICING ── */
+    .pricing {
+      padding: 140px 56px;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+    .pricing-header {
+      max-width: 500px;
+      margin-bottom: 72px;
+    }
+    .pricing-header h2 {
+      font-family: 'Source Serif 4', Georgia, serif;
+      font-weight: 300;
+      font-size: 2.4rem;
+      line-height: 1.2;
+      margin-bottom: 16px;
+    }
+    .pricing-header p {
+      font-family: 'Source Serif 4', Georgia, serif;
+      font-style: italic;
+      font-size: 1rem;
+      color: var(--gg-muted);
+    }
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 0;
+    }
+    .price-card {
+      padding: 56px 40px;
+      border: 2px solid var(--gg-tan);
+      border-right: none;
+      position: relative;
+      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .price-card:last-child { border-right: 2px solid var(--gg-tan); }
+    .price-card:hover { border-color: var(--gg-teal-muted); }
+    .price-card--featured {
+      background: var(--gg-primary);
+      color: var(--gg-text-on-dark);
+      border-color: var(--gg-primary);
+      transform: scaleY(1.03);
+      z-index: 1;
+    }
+    .price-card--featured:hover { border-color: var(--gg-primary); }
+    .price-card__badge {
+      font-family: 'Sometype Mono', monospace;
+      font-size: 0.5rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--gg-primary);
+      background: var(--gg-gold);
+      padding: 4px 12px;
+      display: inline-block;
+      margin-bottom: 24px;
+    }
+    .price-card__name {
+      font-family: 'Sometype Mono', monospace;
+      font-size: 0.6rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--gg-muted);
+      margin-bottom: 20px;
+    }
+    .price-card--featured .price-card__name { color: var(--gg-gold); }
+    .price-card__amount {
+      font-family: 'Sometype Mono', monospace;
+      font-weight: 700;
+      font-size: 3rem;
+      letter-spacing: -0.02em;
+      margin-bottom: 4px;
+    }
+    .price-card__period {
+      font-family: 'Source Serif 4', Georgia, serif;
+      font-style: italic;
+      font-size: 0.85rem;
+      color: var(--gg-muted);
+      margin-bottom: 40px;
+    }
+    .price-card--featured .price-card__period { color: rgba(245, 239, 230, 0.4); }
+    .price-card__divider {
+      height: 2px;
+      background: var(--gg-tan);
+      margin-bottom: 32px;
+    }
+    .price-card--featured .price-card__divider { background: rgba(245, 239, 230, 0.1); }
+    .price-card__features {
+      list-style: none;
+      font-family: 'Source Serif 4', Georgia, serif;
+      font-size: 0.9rem;
+      line-height: 2.4;
+      color: var(--gg-muted);
+      margin-bottom: 40px;
+    }
+    .price-card__features li::before {
+      content: '\2014\00a0';
+      color: var(--gg-teal-muted);
+    }
+    .price-card--featured .price-card__features { color: rgba(245, 239, 230, 0.5); }
+    .price-card__btn {
+      display: block;
+      text-align: center;
+      font-family: 'Sometype Mono', monospace;
+      font-size: 0.6rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 16px 32px;
+      transition: all 0.4s ease;
+    }
+    .price-card__btn--outline {
+      color: var(--gg-secondary);
+      border: 2px solid var(--gg-tan);
+    }
+    .price-card__btn--outline:hover { border-color: var(--gg-secondary); background: var(--gg-paper-warm); }
+    .price-card__btn--filled {
+      color: var(--gg-primary);
+      background: var(--gg-teal);
+    }
+    .price-card__btn--filled:hover { background: var(--gg-teal-hover); }
+
+    /* ── PRE-FOOTER CTA ── */
+    .final-cta {
+      text-align: center;
+      padding: 120px 56px;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+    .final-cta__mark {
+      font-family: 'Sometype Mono', monospace;
+      font-weight: 700;
+      font-size: 3rem;
+      color: var(--gg-tan);
+      opacity: 0.3;
+      margin-bottom: 32px;
+    }
+    .final-cta h3 {
+      font-family: 'Source Serif 4', Georgia, serif;
+      font-weight: 300;
+      font-style: italic;
+      font-size: 1.8rem;
+      line-height: 1.4;
+      margin-bottom: 40px;
+    }
+    .final-cta__link {
+      font-family: 'Sometype Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      text-decoration: none;
+      color: var(--gg-secondary);
+      border-bottom: 1px solid var(--gg-teal);
+      padding-bottom: 4px;
+      transition: color 0.3s ease;
+    }
+    .final-cta__link:hover { color: var(--gg-teal); }
+
+    /* ── FOOTER ── */
+    footer {
+      padding: 56px;
+      border-top: 2px solid var(--gg-secondary);
+      max-width: 1400px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 48px;
+      align-items: end;
+    }
+    .footer-brand {
+      font-family: 'Sometype Mono', monospace;
+      font-size: 0.55rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gg-muted);
+      line-height: 2.2;
+    }
+    .footer-links {
+      text-align: center;
+    }
+    .footer-links a {
+      font-family: 'Sometype Mono', monospace;
+      font-size: 0.55rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      text-decoration: none;
+      color: var(--gg-tan);
+      margin: 0 16px;
+      transition: color 0.3s ease;
+    }
+    .footer-links a:hover { color: var(--gg-secondary); }
+    .footer-sign-off {
+      text-align: right;
+      font-family: 'Source Serif 4', Georgia, serif;
+      font-style: italic;
+      font-size: 0.85rem;
+      color: var(--gg-muted);
+    }
+
+    /* ── ANIMATIONS ── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(32px);
+      transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1), transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .reveal-left {
+      opacity: 0;
+      transform: translateX(-32px);
+      transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1), transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .reveal-left.visible { opacity: 1; transform: translateX(0); }
+    .reveal-right {
+      opacity: 0;
+      transform: translateX(32px);
+      transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1), transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .reveal-right.visible { opacity: 1; transform: translateX(0); }
+    .stagger-1 { transition-delay: 0.1s; }
+    .stagger-2 { transition-delay: 0.2s; }
+    .stagger-3 { transition-delay: 0.3s; }
+    .stagger-4 { transition-delay: 0.4s; }
+
+    @media (prefers-reduced-motion: reduce) {
+      .reveal, .reveal-left, .reveal-right { opacity: 1; transform: none; transition: none; }
+      .hero h1 .line span { opacity: 1; transform: none; animation: none; }
+      .hero-eyebrow, .hero-desc, .hero-cta { opacity: 1; transform: none; animation: none; }
+      .marquee__inner { animation: none; }
+      .hero::after { animation: none; }
+      .hero-scroll__line { animation: none; }
+      .cursor-dot, .cursor-ring { display: none; }
+    }
+
+    @media (max-width: 1024px) {
+      .split { grid-template-columns: 1fr; gap: 48px; }
+      .split__left { position: static; }
+      .how-grid { grid-template-columns: 1fr; gap: 48px; }
+      .showcase-card:first-child { margin-left: 56px; }
+    }
+
+    @media (max-width: 768px) {
+      nav { padding: 16px 24px; }
+      nav.scrolled { padding: 12px 24px; }
+      .nav-links { gap: 20px; }
+      .hero { padding: 0 24px 60px; min-height: 600px; }
+      section { padding: 80px 24px; }
+      .races-grid { grid-template-columns: 1fr; gap: 40px; }
+      .testimonial-grid { grid-template-columns: 1fr; }
+      .testimonial:nth-child(2), .testimonial:nth-child(3) { transform: none; }
+      .pricing-grid { grid-template-columns: 1fr; }
+      .price-card { border-right: 2px solid var(--gg-tan); border-bottom: none; }
+      .price-card:last-child { border-bottom: 2px solid var(--gg-tan); }
+      .price-card--featured { transform: none; }
+      .pull-quote blockquote { font-size: 1.3rem; }
+      .pull-quote { padding: 60px 24px; }
+      .stats { grid-template-columns: 1fr 1fr; }
+      footer { grid-template-columns: 1fr; gap: 24px; text-align: left; }
+      .footer-links { text-align: left; }
+      .footer-sign-off { text-align: left; }
+      .race-scroll-header { padding: 80px 24px 32px; }
+      .race-scroll { padding: 0 24px 48px; }
+      .showcase-card:first-child { margin-left: 0; }
+      .showcase-card { flex: 0 0 280px; }
+      .image-break__text { left: 24px; bottom: 32px; }
+      .training-cta { padding: 96px 24px; }
+      .final-cta { padding: 80px 24px; }
+      .cursor-dot, .cursor-ring { display: none; }
+      .how-grid { grid-template-columns: 1fr; gap: 40px; }
+    }
+
+    ::selection {
+      background: var(--gg-teal-muted);
+      color: var(--gg-primary);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- GOLD TOP BAR -->
+  <div class="top-bar"></div>
+
+  <!-- SCROLL PROGRESS -->
+  <div class="scroll-progress" id="scrollProgress"></div>
+
+  <!-- CUSTOM CURSOR -->
+  <div class="cursor-dot" id="cursorDot"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
+
+  <!-- NAV -->
+  <nav id="nav">
+    <a href="#" class="nav-logo">Gravel God</a>
+    <ul class="nav-links">
+      <li><a href="#races">Races</a></li>
+      <li><a href="#showcase">Showcase</a></li>
+      <li><a href="#training">Training</a></li>
+      <li><a href="#pricing">Pricing</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-content">
+      <div class="hero-eyebrow">757 races &mdash; scored on 15 criteria &mdash; no sponsors</div>
+      <h1>
+        <span class="line"><span>Find your</span></span>
+        <span class="line"><span>next race.</span></span>
+      </h1>
+      <p class="hero-desc">Every gravel, bikepacking, and MTB race in the US &mdash; scored, mapped, and profiled. No affiliates, no pulled punches. Just the data.</p>
+      <a href="#races" class="hero-cta">Explore the database <span class="arrow">&rarr;</span></a>
+    </div>
+    <div class="hero-scroll">
+      <span class="hero-scroll__text">Scroll</span>
+      <div class="hero-scroll__line"></div>
+    </div>
+  </section>
+
+  <!-- MARQUEE -->
+  <div class="marquee">
+    <div class="marquee__inner">
+      <span class="marquee__item">Unbound 200</span>
+      <span class="marquee__item">SBT GRVL</span>
+      <span class="marquee__item">Belgian Waffle Ride</span>
+      <span class="marquee__item">Mid South</span>
+      <span class="marquee__item">Gravel Worlds</span>
+      <span class="marquee__item">DKXL</span>
+      <span class="marquee__item">Steamboat Gravel</span>
+      <span class="marquee__item">Crusher in the Tushar</span>
+      <span class="marquee__item">The Rift</span>
+      <span class="marquee__item">Leadville Trail 100 MTB</span>
+      <span class="marquee__item">Gravel Locos</span>
+      <span class="marquee__item">Rebecca's Private Idaho</span>
+      <span class="marquee__item">Unbound 200</span>
+      <span class="marquee__item">SBT GRVL</span>
+      <span class="marquee__item">Belgian Waffle Ride</span>
+      <span class="marquee__item">Mid South</span>
+      <span class="marquee__item">Gravel Worlds</span>
+      <span class="marquee__item">DKXL</span>
+      <span class="marquee__item">Steamboat Gravel</span>
+      <span class="marquee__item">Crusher in the Tushar</span>
+    </div>
+  </div>
+
+  <!-- SPLIT INTRO -->
+  <section>
+    <div class="section-label reveal">About</div>
+    <div class="split">
+      <div class="split__left reveal-left">
+        <h2>Scored, not <em>sponsored.</em></h2>
+      </div>
+      <div class="split__right">
+        <p class="reveal-right stagger-1">Every race in the database is evaluated across 15 independent criteria &mdash; distance, climbing, technicality, prestige, logistics, scenic value, and nine more. The score is a number, not an opinion shaped by ad spend.</p>
+        <p class="reveal-right stagger-2">Tier 1 means something. It means your race scored above 80 on a system designed to resist hype. Tier 4 doesn't mean bad &mdash; it means local, accessible, honest about what it is. Every tier has races worth your entry fee.</p>
+        <p class="reveal-right stagger-3">757 profiles. Four tiers. No sponsor influence. Find the race that matches your ambition, your calendar, and your legs.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <div class="stats">
+    <div class="stat reveal stagger-1">
+      <div class="stat__number"><span class="counter" data-target="757">0</span></div>
+      <div class="stat__label">Races profiled</div>
+    </div>
+    <div class="stat reveal stagger-2">
+      <div class="stat__number"><span class="counter" data-target="15">0</span></div>
+      <div class="stat__label">Scoring criteria</div>
+    </div>
+    <div class="stat reveal stagger-3">
+      <div class="stat__number"><span class="counter" data-target="60">0</span>+</div>
+      <div class="stat__label">Regions covered</div>
+    </div>
+    <div class="stat reveal stagger-4">
+      <div class="stat__number"><span class="counter" data-target="283">0</span></div>
+      <div class="stat__label">YouTube enriched</div>
+    </div>
+  </div>
+
+  <!-- PULL QUOTE 1 -->
+  <div class="pull-quote reveal">
+    <blockquote>The rating doesn't care about your marketing budget. It cares about your <span>climb profile.</span></blockquote>
+    <div class="attribution">On the scoring methodology</div>
+  </div>
+
+  <!-- PARALLAX IMAGE BREAK 1 -->
+  <div class="image-break" data-parallax>
+    <div class="image-break__bg" id="parallax1" style="background: linear-gradient(160deg, #3a2e25 0%, #2a1e15 30%, #1a1613 60%, #0e0a08 100%);"></div>
+    <div class="image-break__overlay"></div>
+    <div class="image-break__text">
+      <div class="image-break__label">Tier 1 &mdash; Score 92</div>
+      <div class="image-break__title">200 miles of Flint Hills gravel. No trees, no shade, no excuses. Just you and the wind.</div>
+    </div>
+  </div>
+
+  <!-- FEATURED RACES -->
+  <section id="races">
+    <div class="section-label reveal">Featured Races</div>
+    <div class="races-grid">
+      <div class="race-card reveal stagger-1" data-tilt>
+        <div class="race-card__inner">
+          <div class="race-card__image">
+            <div class="race-card__image-bg" style="background: linear-gradient(160deg, #3a4a3a 0%, #2a1e15 50%, #1a1613 100%);"></div>
+            <div class="race-card__image-overlay"></div>
+            <div class="race-card__tier race-card__tier--t1">Tier 1</div>
+            <div class="race-card__score">92</div>
+          </div>
+          <div class="race-card__label">Gravel &mdash; Emporia, KS</div>
+          <div class="race-card__title">Unbound 200</div>
+          <div class="race-card__meta">
+            <div class="race-card__meta-item"><strong>200</strong> mi</div>
+            <div class="race-card__meta-item"><strong>Jun</strong> 2026</div>
+            <div class="race-card__meta-item"><strong>P5</strong> Prestige</div>
+          </div>
+          <div class="race-card__desc">The flagship. 200 miles of Flint Hills gravel that breaks people and builds legends. The race that defined the discipline.</div>
+          <a href="#" class="race-card__link">View profile <span>&rarr;</span></a>
+        </div>
+      </div>
+      <div class="race-card reveal stagger-2" data-tilt>
+        <div class="race-card__inner">
+          <div class="race-card__image">
+            <div class="race-card__image-bg" style="background: linear-gradient(160deg, #2a3530 0%, #1e1810 50%, #1a1613 100%);"></div>
+            <div class="race-card__image-overlay"></div>
+            <div class="race-card__tier race-card__tier--t1">Tier 1</div>
+            <div class="race-card__score">88</div>
+          </div>
+          <div class="race-card__label">Gravel &mdash; Steamboat Springs, CO</div>
+          <div class="race-card__title">Steamboat Gravel</div>
+          <div class="race-card__meta">
+            <div class="race-card__meta-item"><strong>140</strong> mi</div>
+            <div class="race-card__meta-item"><strong>Aug</strong> 2026</div>
+            <div class="race-card__meta-item"><strong>P4</strong> Prestige</div>
+          </div>
+          <div class="race-card__desc">Routt County at altitude. High passes, wildflower meadows, and a town that actually understands what gravel racing is.</div>
+          <a href="#" class="race-card__link">View profile <span>&rarr;</span></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section>
+    <div class="section-label reveal">How it works</div>
+    <div class="how-grid">
+      <div class="how-step reveal stagger-1">
+        <div class="how-step__number">01</div>
+        <div class="how-step__title">Pick your race</div>
+        <div class="how-step__desc">757 races. Scored honestly. Filter by what actually matters to you &mdash; not what a sponsor paid us to promote.</div>
+      </div>
+      <div class="how-step reveal stagger-2">
+        <div class="how-step__number">02</div>
+        <div class="how-step__title">Read the real take</div>
+        <div class="how-step__desc">Every profile has editorial opinions, rider intel from YouTube transcripts, and scoring breakdowns. No marketing copy.</div>
+      </div>
+      <div class="how-step reveal stagger-3">
+        <div class="how-step__number">03</div>
+        <div class="how-step__title">Show up ready</div>
+        <div class="how-step__desc">Race-specific training plans built from demand analysis &mdash; climbing, threshold, durability, heat. Not generic base plans with your name on them.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HORIZONTAL SCROLL: TIER 1 SHOWCASE -->
+  <div class="race-scroll-wrapper" id="showcase">
+    <div class="race-scroll-header">
+      <div class="section-label reveal">Tier 1 Showcase</div>
+    </div>
+    <div class="race-scroll-hint reveal">Drag to explore</div>
+    <div class="race-scroll" id="raceScroll">
+      <div class="showcase-card" data-fill="92">
+        <div class="showcase-card__number">01</div>
+        <div class="showcase-card__discipline">Gravel</div>
+        <div class="showcase-card__name">Unbound 200</div>
+        <div class="showcase-card__location">Emporia, KS &mdash; 200mi</div>
+        <div class="showcase-card__bar"><div class="showcase-card__bar-fill"></div></div>
+        <div class="showcase-card__bar-label"><span>Score</span><span>92/100</span></div>
+      </div>
+      <div class="showcase-card" data-fill="88">
+        <div class="showcase-card__number">02</div>
+        <div class="showcase-card__discipline">Gravel</div>
+        <div class="showcase-card__name">SBT GRVL</div>
+        <div class="showcase-card__location">Steamboat Springs, CO &mdash; 140mi</div>
+        <div class="showcase-card__bar"><div class="showcase-card__bar-fill"></div></div>
+        <div class="showcase-card__bar-label"><span>Score</span><span>88/100</span></div>
+      </div>
+      <div class="showcase-card" data-fill="87">
+        <div class="showcase-card__number">03</div>
+        <div class="showcase-card__discipline">Gravel</div>
+        <div class="showcase-card__name">Belgian Waffle Ride</div>
+        <div class="showcase-card__location">San Marcos, CA &mdash; 130mi</div>
+        <div class="showcase-card__bar"><div class="showcase-card__bar-fill"></div></div>
+        <div class="showcase-card__bar-label"><span>Score</span><span>87/100</span></div>
+      </div>
+      <div class="showcase-card" data-fill="86">
+        <div class="showcase-card__number">04</div>
+        <div class="showcase-card__discipline">Gravel</div>
+        <div class="showcase-card__name">Mid South</div>
+        <div class="showcase-card__location">Stillwater, OK &mdash; 100mi</div>
+        <div class="showcase-card__bar"><div class="showcase-card__bar-fill"></div></div>
+        <div class="showcase-card__bar-label"><span>Score</span><span>86/100</span></div>
+      </div>
+      <div class="showcase-card" data-fill="85">
+        <div class="showcase-card__number">05</div>
+        <div class="showcase-card__discipline">Gravel</div>
+        <div class="showcase-card__name">Crusher in the Tushar</div>
+        <div class="showcase-card__location">Beaver, UT &mdash; 70mi</div>
+        <div class="showcase-card__bar"><div class="showcase-card__bar-fill"></div></div>
+        <div class="showcase-card__bar-label"><span>Score</span><span>85/100</span></div>
+      </div>
+      <div class="showcase-card" data-fill="84">
+        <div class="showcase-card__number">06</div>
+        <div class="showcase-card__discipline">Bikepacking</div>
+        <div class="showcase-card__name">DKXL</div>
+        <div class="showcase-card__location">Emporia, KS &mdash; 350mi</div>
+        <div class="showcase-card__bar"><div class="showcase-card__bar-fill"></div></div>
+        <div class="showcase-card__bar-label"><span>Score</span><span>84/100</span></div>
+      </div>
+      <div class="showcase-card" data-fill="84">
+        <div class="showcase-card__number">07</div>
+        <div class="showcase-card__discipline">Gravel</div>
+        <div class="showcase-card__name">Gravel Worlds</div>
+        <div class="showcase-card__location">Lincoln, NE &mdash; 150mi</div>
+        <div class="showcase-card__bar"><div class="showcase-card__bar-fill"></div></div>
+        <div class="showcase-card__bar-label"><span>Score</span><span>84/100</span></div>
+      </div>
+      <div class="showcase-card" data-fill="83">
+        <div class="showcase-card__number">08</div>
+        <div class="showcase-card__discipline">Gravel</div>
+        <div class="showcase-card__name">The Rift</div>
+        <div class="showcase-card__location">Hella, Iceland &mdash; 200km</div>
+        <div class="showcase-card__bar"><div class="showcase-card__bar-fill"></div></div>
+        <div class="showcase-card__bar-label"><span>Score</span><span>83/100</span></div>
+      </div>
+      <div class="showcase-card" data-fill="82">
+        <div class="showcase-card__number">09</div>
+        <div class="showcase-card__discipline">Gravel</div>
+        <div class="showcase-card__name">Rebecca's Private Idaho</div>
+        <div class="showcase-card__location">Ketchum, ID &mdash; 100mi</div>
+        <div class="showcase-card__bar"><div class="showcase-card__bar-fill"></div></div>
+        <div class="showcase-card__bar-label"><span>Score</span><span>82/100</span></div>
+      </div>
+      <div class="showcase-card" data-fill="81">
+        <div class="showcase-card__number">10</div>
+        <div class="showcase-card__discipline">Gravel</div>
+        <div class="showcase-card__name">Gravel Locos</div>
+        <div class="showcase-card__location">Hico, TX &mdash; 150mi</div>
+        <div class="showcase-card__bar"><div class="showcase-card__bar-fill"></div></div>
+        <div class="showcase-card__bar-label"><span>Score</span><span>81/100</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PULL QUOTE 2 -->
+  <div class="pull-quote reveal">
+    <blockquote>If you're not training for the course, <span>you're just training.</span> There's a difference.</blockquote>
+    <div class="attribution">On race-specific preparation</div>
+  </div>
+
+  <!-- PARALLAX IMAGE BREAK 2 -->
+  <div class="image-break" data-parallax>
+    <div class="image-break__bg" id="parallax2" style="background: linear-gradient(140deg, #2a3028 0%, #1a1613 40%, #1e1410 100%);"></div>
+    <div class="image-break__overlay"></div>
+    <div class="image-break__text">
+      <div class="image-break__label">Race-specific training</div>
+      <div class="image-break__title">Demand analysis across 8 dimensions &mdash; climbing, threshold, durability, heat resilience, altitude, and more</div>
+    </div>
+  </div>
+
+  <!-- TRAINING CTA -->
+  <div class="training-cta" id="training">
+    <div class="training-cta__inner">
+      <div class="training-cta__eyebrow reveal">Race-Specific Plans</div>
+      <h2 class="reveal stagger-1">Train for the<br>course, not the clock</h2>
+      <p class="reveal stagger-2">Every race has a demand profile &mdash; 8 dimensions that determine what your body needs to finish strong. Our plans are built from that analysis, not a template with your name on it. Less than your race hotel &mdash; $2/day.</p>
+      <a href="#pricing" class="training-cta__btn reveal stagger-3"><span>Configure your plan &rarr;</span></a>
+    </div>
+  </div>
+
+  <!-- TESTIMONIALS -->
+  <div class="testimonials">
+    <div class="section-label reveal">What riders say</div>
+    <div class="testimonial-grid">
+      <div class="testimonial reveal stagger-1">
+        <div class="testimonial__tag">Unbound finisher &mdash; 10 hrs/wk</div>
+        <div class="testimonial__text">&ldquo;I finished Unbound in 13:47 this year. Last year I DNF'd at mile 140 because I had no idea how to pace myself and ran out of food twice. Matti's plan was boring as hell but it worked.&rdquo;</div>
+        <div class="testimonial__name">Sarah K. &mdash; Marketing director</div>
+      </div>
+      <div class="testimonial reveal stagger-2">
+        <div class="testimonial__tag">Regional podium &mdash; 12 hrs/wk</div>
+        <div class="testimonial__text">&ldquo;First time I cracked top 20 at a regional race. Not because I got fitter &mdash; I've been 'fit enough' for years. I just finally learned to not go hard when it felt easy.&rdquo;</div>
+        <div class="testimonial__name">Marcus T. &mdash; Registered nurse</div>
+      </div>
+      <div class="testimonial reveal stagger-3">
+        <div class="testimonial__tag">SBT GRVL top third &mdash; 8 hrs/wk</div>
+        <div class="testimonial__text">&ldquo;I went from blowing up on every climb longer than 10 minutes to finishing SBT GRVL Black in the top third. The difference was pacing and fueling strategy, not some magic workout.&rdquo;</div>
+        <div class="testimonial__name">Chris M. &mdash; SBT GRVL Black</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PRICING -->
+  <div class="pricing" id="pricing">
+    <div class="pricing-header reveal">
+      <div class="section-label">Pricing</div>
+      <h2>Invest in your race day.</h2>
+      <p>Race-specific plans built from demand analysis. Not templates.</p>
+    </div>
+    <div class="pricing-grid">
+      <div class="price-card reveal stagger-1">
+        <div class="price-card__name">Single Race Plan</div>
+        <div class="price-card__amount">$149</div>
+        <div class="price-card__period">One race, one plan</div>
+        <div class="price-card__divider"></div>
+        <ul class="price-card__features">
+          <li>8-dimension demand analysis</li>
+          <li>Periodized training plan</li>
+          <li>5 race-specific workouts</li>
+          <li>Fueling strategy</li>
+          <li>Race week protocol</li>
+        </ul>
+        <a href="#" class="price-card__btn price-card__btn--outline">Get started</a>
+      </div>
+      <div class="price-card price-card--featured reveal stagger-2">
+        <div class="price-card__badge">Most popular</div>
+        <div class="price-card__name">Season Plan</div>
+        <div class="price-card__amount">$349</div>
+        <div class="price-card__period">Full season, multiple races</div>
+        <div class="price-card__divider"></div>
+        <ul class="price-card__features">
+          <li>Everything in Single Race</li>
+          <li>Season-long periodization</li>
+          <li>Multi-race sequencing</li>
+          <li>Monthly check-ins</li>
+          <li>Plan adjustments</li>
+        </ul>
+        <a href="#" class="price-card__btn price-card__btn--filled">Get started</a>
+      </div>
+      <div class="price-card reveal stagger-3">
+        <div class="price-card__name">Full Coaching</div>
+        <div class="price-card__amount">$499</div>
+        <div class="price-card__period">Per month, cancel anytime</div>
+        <div class="price-card__divider"></div>
+        <ul class="price-card__features">
+          <li>Everything in Season Plan</li>
+          <li>Weekly plan updates</li>
+          <li>Unlimited messaging</li>
+          <li>Workout analysis</li>
+          <li>Race-day strategy call</li>
+        </ul>
+        <a href="#" class="price-card__btn price-card__btn--outline">Get started</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- FINAL CTA -->
+  <div class="final-cta reveal">
+    <div class="final-cta__mark">GG</div>
+    <h3>The start line doesn't care how fit you feel.<br>It cares how prepared you are.</h3>
+    <a href="#races" class="final-cta__link">Explore 757 races &rarr;</a>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-brand">
+      Gravel God Cycling<br>
+      Race database &amp; training<br>
+      gravelgodcycling.com
+    </div>
+    <div class="footer-links">
+      <a href="#">Races</a>
+      <a href="#">Training</a>
+      <a href="#">Articles</a>
+      <a href="#">About</a>
+    </div>
+    <div class="footer-sign-off">
+      Scored, not sponsored.
+    </div>
+  </footer>
+
+  <script>
+    (function() {
+      'use strict';
+
+      /* ── Scroll Progress ── */
+      var progressBar = document.getElementById('scrollProgress');
+      function updateProgress() {
+        var h = document.documentElement.scrollHeight - window.innerHeight;
+        var pct = h > 0 ? (window.scrollY / h) * 100 : 0;
+        progressBar.style.width = pct + '%';
+      }
+
+      /* ── Nav scroll ── */
+      var nav = document.getElementById('nav');
+      function updateNav() {
+        if (window.scrollY > 80) {
+          nav.classList.add('scrolled');
+        } else {
+          nav.classList.remove('scrolled');
+        }
+      }
+
+      /* ── Custom Cursor ── */
+      var dot = document.getElementById('cursorDot');
+      var ring = document.getElementById('cursorRing');
+      var mouseX = 0, mouseY = 0, ringX = 0, ringY = 0;
+      var isMobile = window.matchMedia('(max-width: 768px)').matches || 'ontouchstart' in window;
+
+      if (!isMobile) {
+        document.addEventListener('mousemove', function(e) {
+          mouseX = e.clientX;
+          mouseY = e.clientY;
+          dot.style.left = mouseX - 4 + 'px';
+          dot.style.top = mouseY - 4 + 'px';
+        });
+
+        function animateRing() {
+          ringX += (mouseX - ringX) * 0.12;
+          ringY += (mouseY - ringY) * 0.12;
+          ring.style.left = ringX + 'px';
+          ring.style.top = ringY + 'px';
+          requestAnimationFrame(animateRing);
+        }
+        animateRing();
+
+        document.querySelectorAll('a, button, .race-card, .showcase-card, .price-card__btn').forEach(function(el) {
+          el.addEventListener('mouseenter', function() { ring.classList.add('hover'); });
+          el.addEventListener('mouseleave', function() { ring.classList.remove('hover'); });
+        });
+      } else {
+        dot.style.display = 'none';
+        ring.style.display = 'none';
+      }
+
+      /* ── Parallax ── */
+      function updateParallax() {
+        document.querySelectorAll('[data-parallax]').forEach(function(section) {
+          var rect = section.getBoundingClientRect();
+          var bg = section.querySelector('.image-break__bg');
+          if (bg && rect.bottom > 0 && rect.top < window.innerHeight) {
+            var progress = (window.innerHeight - rect.top) / (window.innerHeight + rect.height);
+            var offset = (progress - 0.5) * 60;
+            bg.style.transform = 'translateY(' + offset + 'px)';
+          }
+        });
+      }
+
+      /* ── Scroll Handler ── */
+      var ticking = false;
+      window.addEventListener('scroll', function() {
+        if (!ticking) {
+          requestAnimationFrame(function() {
+            updateProgress();
+            updateNav();
+            updateParallax();
+            ticking = false;
+          });
+          ticking = true;
+        }
+      });
+
+      /* ── Intersection Observer — reveals ── */
+      if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        var revealObserver = new IntersectionObserver(function(entries) {
+          entries.forEach(function(entry) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('visible');
+            }
+          });
+        }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+        document.querySelectorAll('.reveal, .reveal-left, .reveal-right').forEach(function(el) {
+          revealObserver.observe(el);
+        });
+
+        /* ── Counter animation ── */
+        var counterObserver = new IntersectionObserver(function(entries) {
+          entries.forEach(function(entry) {
+            if (entry.isIntersecting) {
+              var el = entry.target;
+              var target = parseInt(el.getAttribute('data-target'), 10);
+              var duration = 1500;
+              var start = performance.now();
+              function step(now) {
+                var progress = Math.min((now - start) / duration, 1);
+                var eased = 1 - Math.pow(1 - progress, 3);
+                el.textContent = Math.round(eased * target);
+                if (progress < 1) requestAnimationFrame(step);
+              }
+              requestAnimationFrame(step);
+              counterObserver.unobserve(el);
+            }
+          });
+        }, { threshold: 0.5 });
+
+        document.querySelectorAll('.counter').forEach(function(el) {
+          counterObserver.observe(el);
+        });
+
+        /* ── Showcase card bar fills ── */
+        var barObserver = new IntersectionObserver(function(entries) {
+          entries.forEach(function(entry) {
+            if (entry.isIntersecting) {
+              var fill = entry.target.getAttribute('data-fill');
+              var bar = entry.target.querySelector('.showcase-card__bar-fill');
+              if (bar && fill) {
+                setTimeout(function() {
+                  bar.style.width = fill + '%';
+                }, 200);
+              }
+              barObserver.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.3 });
+
+        document.querySelectorAll('.showcase-card').forEach(function(el) {
+          barObserver.observe(el);
+        });
+      }
+
+      /* ── 3D Card Tilt ── */
+      if (!isMobile) {
+        document.querySelectorAll('[data-tilt]').forEach(function(card) {
+          card.addEventListener('mousemove', function(e) {
+            var rect = card.getBoundingClientRect();
+            var x = (e.clientX - rect.left) / rect.width - 0.5;
+            var y = (e.clientY - rect.top) / rect.height - 0.5;
+            var inner = card.querySelector('.race-card__inner');
+            if (inner) {
+              inner.style.transform = 'rotateY(' + (x * 6) + 'deg) rotateX(' + (-y * 6) + 'deg)';
+            }
+          });
+          card.addEventListener('mouseleave', function() {
+            var inner = card.querySelector('.race-card__inner');
+            if (inner) inner.style.transform = 'rotateY(0) rotateX(0)';
+          });
+        });
+      }
+
+      /* ── Race scroll drag ── */
+      var raceScroll = document.getElementById('raceScroll');
+      var isDragging = false, startX = 0, scrollLeft = 0;
+
+      raceScroll.addEventListener('mousedown', function(e) {
+        isDragging = true;
+        startX = e.pageX - raceScroll.offsetLeft;
+        scrollLeft = raceScroll.scrollLeft;
+        raceScroll.style.cursor = 'grabbing';
+      });
+      raceScroll.addEventListener('mouseleave', function() { isDragging = false; raceScroll.style.cursor = 'grab'; });
+      raceScroll.addEventListener('mouseup', function() { isDragging = false; raceScroll.style.cursor = 'grab'; });
+      raceScroll.addEventListener('mousemove', function(e) {
+        if (!isDragging) return;
+        e.preventDefault();
+        var x = e.pageX - raceScroll.offsetLeft;
+        raceScroll.scrollLeft = scrollLeft - (x - startX) * 1.5;
+      });
+      raceScroll.style.cursor = 'grab';
+
+      /* ── Smooth anchor scroll ── */
+      document.querySelectorAll('a[href^="#"]').forEach(function(a) {
+        a.addEventListener('click', function(e) {
+          var target = document.querySelector(this.getAttribute('href'));
+          if (target) {
+            e.preventDefault();
+            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        });
+      });
+
+      /* ── Init ── */
+      updateProgress();
+      updateNav();
+    })();
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,837 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GG Race Cards — Cartographic Route Map Concept</title>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,300;1,8..60,400&family=Sometype+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #1a1613;
+      --secondary: #3a2e25;
+      --brown: #59473c;
+      --brown-light: #8c7568;
+      --tan: #d4c5b9;
+      --sand: #ede4d8;
+      --paper: #f5efe6;
+      --teal: #1A8A82;
+      --teal-light: #4ECDC4;
+      --gold: #B7950B;
+      --muted: #8c7568;
+      --on-dark: #f5efe6;
+      --ease: cubic-bezier(0.16, 1, 0.3, 1);
+      --mono: 'Sometype Mono', monospace;
+      --serif: 'Source Serif 4', Georgia, serif;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: var(--serif);
+      background: var(--paper);
+      color: var(--primary);
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+    body::after {
+      content: '';
+      position: fixed; inset: 0; z-index: 9999;
+      pointer-events: none; opacity: 0.025;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+      background-size: 256px;
+    }
+
+    .page-header {
+      padding: 48px;
+      text-align: center;
+    }
+    .page-header h1 {
+      font-family: var(--mono); font-weight: 400; font-size: 0.7rem;
+      letter-spacing: 0.3em; text-transform: uppercase; color: var(--muted);
+      margin-bottom: 8px;
+    }
+    .page-header p {
+      font-style: italic; color: var(--brown-light); font-size: 0.95rem;
+    }
+
+    /* ════════════════════════════════════════
+       BENTO GRID — Featured Races
+       ════════════════════════════════════════ */
+    .bento-section {
+      max-width: 1320px; margin: 0 auto; padding: 0 48px 80px;
+    }
+    .sec-label {
+      font-family: var(--mono); font-size: 0.55rem;
+      letter-spacing: 0.3em; text-transform: uppercase;
+      color: var(--muted); margin-bottom: 40px;
+      display: flex; align-items: center; gap: 16px;
+    }
+    .sec-label::after { content: ''; height: 1px; width: 40px; background: var(--tan); }
+
+    .bento {
+      display: grid;
+      grid-template-columns: 1.3fr 1fr;
+      grid-template-rows: 1fr 1fr;
+      gap: 20px;
+      height: 720px;
+    }
+    .bento__lead { grid-row: 1 / 3; }
+
+    /* ════════════════════════════════════════
+       RACE CARD — Cartographic Route Map
+       ════════════════════════════════════════ */
+    .race-card {
+      position: relative; overflow: hidden; cursor: pointer;
+      height: 100%;
+      transition: transform 0.5s var(--ease);
+    }
+    .race-card:hover { transform: translateY(-3px); }
+
+    /* Dark cartographic background */
+    .race-card__map {
+      position: absolute; inset: 0;
+      background: var(--primary);
+      overflow: hidden;
+    }
+
+    /* Road grid SVG — thin lines like etched glass */
+    .race-card__roads {
+      position: absolute; inset: 0;
+      opacity: 0.08;
+      transition: opacity 0.6s var(--ease);
+    }
+    .race-card:hover .race-card__roads { opacity: 0.14; }
+
+    /* Route line — bold, animated draw-on */
+    .race-card__route {
+      position: absolute; inset: 0;
+      z-index: 1;
+    }
+    .race-card__route svg {
+      width: 100%; height: 100%;
+    }
+    .route-line {
+      stroke: var(--teal);
+      stroke-width: 2.5;
+      fill: none;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      filter: drop-shadow(0 0 6px rgba(26,138,130,0.4));
+    }
+    .route-line--glow {
+      stroke: var(--teal-light);
+      stroke-width: 1;
+      fill: none;
+      opacity: 0.3;
+      stroke-linecap: round;
+    }
+
+    /* Start/Finish markers */
+    .race-card__markers {
+      position: absolute; inset: 0; z-index: 2;
+    }
+    .marker {
+      position: absolute;
+      display: flex; flex-direction: column; align-items: center;
+    }
+    .marker__dot {
+      width: 10px; height: 10px; border-radius: 50%;
+      border: 2px solid var(--on-dark);
+      position: relative;
+    }
+    .marker__dot::after {
+      content: '';
+      position: absolute; inset: -6px;
+      border-radius: 50%;
+      border: 1px solid rgba(245,239,230,0.15);
+      animation: markerPulse 2.5s ease-in-out infinite;
+    }
+    @keyframes markerPulse {
+      0%,100%{transform:scale(1);opacity:0.3}50%{transform:scale(1.4);opacity:0}
+    }
+    .marker__label {
+      font-family: var(--mono); font-size: 0.4rem;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: rgba(245,239,230,0.5); margin-top: 6px;
+      white-space: nowrap;
+    }
+
+    /* Place names on map (like pint glass) */
+    .race-card__places {
+      position: absolute; inset: 0; z-index: 1;
+    }
+    .place-name {
+      position: absolute;
+      font-family: var(--serif); font-style: italic;
+      font-size: 0.7rem; color: rgba(245,239,230,0.12);
+      white-space: nowrap;
+      transform: rotate(-15deg);
+      pointer-events: none;
+    }
+    .place-name--city {
+      font-family: var(--mono); font-style: normal;
+      font-size: 0.55rem; letter-spacing: 0.1em;
+      color: rgba(245,239,230,0.2);
+      transform: none;
+    }
+
+    /* Gradient overlays */
+    .race-card__gradient-top {
+      position: absolute; top: 0; left: 0; right: 0; height: 40%;
+      background: linear-gradient(to bottom, rgba(26,22,19,0.6), transparent);
+      z-index: 3;
+    }
+    .race-card__gradient-bottom {
+      position: absolute; bottom: 0; left: 0; right: 0; height: 55%;
+      background: linear-gradient(to top, rgba(26,22,19,0.95) 10%, rgba(26,22,19,0.6) 50%, transparent);
+      z-index: 3;
+    }
+
+    /* Elevation profile silhouette at bottom edge */
+    .race-card__elev {
+      position: absolute; bottom: 0; left: 0; right: 0; z-index: 2;
+      height: 60px; opacity: 0.15;
+    }
+
+    /* Top info (tier badge + score gauge) */
+    .race-card__top {
+      position: absolute; top: 0; left: 0; right: 0;
+      z-index: 4; padding: 20px 24px;
+      display: flex; justify-content: space-between; align-items: flex-start;
+    }
+    .tier-badge {
+      font-family: var(--mono); font-size: 0.45rem; font-weight: 700;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      padding: 5px 12px;
+      backdrop-filter: blur(8px);
+    }
+    .tier-badge--t1 {
+      color: var(--gold); border: 1px solid rgba(183,149,11,0.5);
+      background: rgba(183,149,11,0.08);
+    }
+    .tier-badge--t2 {
+      color: var(--teal-light); border: 1px solid rgba(78,205,196,0.4);
+      background: rgba(26,138,130,0.08);
+    }
+    .score-gauge { width: 56px; height: 56px; }
+    .score-gauge__text {
+      font-family: var(--mono); font-weight: 700; font-size: 13px;
+      fill: var(--on-dark);
+    }
+
+    /* Bottom info */
+    .race-card__info {
+      position: absolute; bottom: 0; left: 0; right: 0;
+      z-index: 4; padding: 24px;
+    }
+    .race-card__discipline {
+      font-family: var(--mono); font-size: 0.45rem;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--teal-light); margin-bottom: 6px;
+    }
+    .race-card__name {
+      font-family: var(--serif); font-weight: 600;
+      color: var(--on-dark); line-height: 1.15;
+      margin-bottom: 10px;
+    }
+    .bento__lead .race-card__name { font-size: 2rem; }
+    .bento__side .race-card__name { font-size: 1.2rem; }
+    .race-card__tagline {
+      font-style: italic; font-size: 0.9rem;
+      color: rgba(245,239,230,0.45); margin-bottom: 16px;
+      line-height: 1.5;
+    }
+    .race-card__meta {
+      display: flex; gap: 20px; margin-bottom: 16px;
+    }
+    .meta-item {
+      font-family: var(--mono); font-size: 0.45rem;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: rgba(245,239,230,0.35);
+    }
+    .meta-item strong { color: var(--on-dark); font-weight: 700; }
+
+    /* Dimension bars */
+    .race-card__dims {
+      display: flex; gap: 16px;
+    }
+    .dim { flex: 1; }
+    .dim__label {
+      font-family: var(--mono); font-size: 0.38rem;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      color: rgba(245,239,230,0.2); margin-bottom: 3px;
+    }
+    .dim__track { height: 2px; background: rgba(245,239,230,0.06); }
+    .dim__fill {
+      height: 100%; background: var(--teal);
+      width: 0; transition: width 1.2s var(--ease);
+    }
+
+    /* Hover glow effect */
+    .race-card__glow {
+      position: absolute; inset: 0; z-index: 0;
+      opacity: 0;
+      transition: opacity 0.6s var(--ease);
+      background: radial-gradient(ellipse 60% 40% at 50% 60%, rgba(26,138,130,0.08) 0%, transparent 70%);
+    }
+    .race-card:hover .race-card__glow { opacity: 1; }
+
+    /* ════════════════════════════════════════
+       DARK SECTION — Showcase scroll cards
+       ════════════════════════════════════════ */
+    .dark-sec {
+      background: var(--primary); padding: 100px 0 80px;
+    }
+    .dark-sec .sec-label {
+      color: rgba(245,239,230,0.3);
+      padding: 0 48px;
+      max-width: 1320px; margin: 0 auto 40px;
+    }
+    .dark-sec .sec-label::after { background: rgba(245,239,230,0.1); }
+
+    .showcase-scroll {
+      display: flex; gap: 20px; overflow-x: auto;
+      padding: 0 48px 48px;
+      scrollbar-width: none; cursor: grab;
+      scroll-snap-type: x mandatory;
+    }
+    .showcase-scroll::-webkit-scrollbar { display: none; }
+
+    .showcase-card {
+      flex: 0 0 380px; scroll-snap-align: start;
+      position: relative; overflow: hidden;
+      aspect-ratio: 3/4;
+      cursor: pointer;
+      transition: transform 0.4s var(--ease);
+    }
+    .showcase-card:hover { transform: translateY(-3px); }
+
+    /* Same cartographic treatment but smaller */
+    .showcase-card .race-card__map { position: absolute; inset: 0; background: #1e1a14; }
+    .showcase-card .race-card__roads { position: absolute; inset: 0; opacity: 0.06; }
+    .showcase-card:hover .race-card__roads { opacity: 0.1; }
+    .showcase-card .race-card__route { position: absolute; inset: 0; z-index: 1; }
+    .showcase-card .race-card__gradient-top {
+      position: absolute; top: 0; left: 0; right: 0; height: 30%;
+      background: linear-gradient(to bottom, rgba(30,26,20,0.5), transparent);
+      z-index: 3;
+    }
+    .showcase-card .race-card__gradient-bottom {
+      position: absolute; bottom: 0; left: 0; right: 0; height: 60%;
+      background: linear-gradient(to top, rgba(30,26,20,0.95) 15%, rgba(30,26,20,0.5) 50%, transparent);
+      z-index: 3;
+    }
+    .showcase-card .race-card__top {
+      position: absolute; top: 0; left: 0; right: 0;
+      z-index: 4; padding: 16px 20px;
+      display: flex; justify-content: space-between; align-items: flex-start;
+    }
+    .showcase-card .race-card__info {
+      position: absolute; bottom: 0; left: 0; right: 0;
+      z-index: 4; padding: 20px;
+    }
+    .showcase-card .race-card__name { font-size: 1.3rem; }
+
+    /* Score bar at bottom of showcase card */
+    .showcase-card__score-bar {
+      margin-top: 16px;
+    }
+    .score-bar__track {
+      height: 3px; background: rgba(245,239,230,0.06);
+    }
+    .score-bar__fill {
+      height: 100%; background: var(--teal);
+      width: 0; transition: width 1.2s var(--ease);
+    }
+    .score-bar__labels {
+      display: flex; justify-content: space-between; margin-top: 6px;
+      font-family: var(--mono); font-size: 0.4rem;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      color: rgba(245,239,230,0.15);
+    }
+
+    /* Ghost number */
+    .showcase-card__ghost {
+      font-family: var(--mono); font-weight: 700; font-size: 7rem;
+      color: rgba(245,239,230,0.025); position: absolute;
+      top: -10px; right: 8px; line-height: 1; z-index: 1;
+    }
+
+    /* ════════════════════════════════════════
+       PIPELINE INFO
+       ════════════════════════════════════════ */
+    .pipeline-sec {
+      max-width: 800px; margin: 0 auto; padding: 80px 48px;
+    }
+    .pipeline-sec h2 {
+      font-family: var(--mono); font-size: 0.7rem;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      margin-bottom: 24px;
+    }
+    .pipeline-sec p {
+      font-size: 0.95rem; color: var(--brown-light);
+      line-height: 1.8; margin-bottom: 16px;
+    }
+    .pipeline-sec code {
+      font-family: var(--mono); font-size: 0.8rem;
+      background: var(--sand); padding: 2px 6px;
+    }
+
+    /* ════════════════════════════════════════
+       ANIMATIONS
+       ════════════════════════════════════════ */
+    .reveal {
+      opacity: 0; transform: translateY(24px);
+      transition: opacity 0.8s var(--ease), transform 0.8s var(--ease);
+    }
+    .reveal.vis { opacity: 1; transform: translateY(0); }
+    .s1{transition-delay:.1s}.s2{transition-delay:.2s}.s3{transition-delay:.3s}
+
+    @media(max-width:1024px){
+      .bento { grid-template-columns: 1fr; height: auto; }
+      .bento__lead { grid-row: auto; }
+      .bento__lead .race-card { height: 500px; }
+      .bento__side .race-card { height: 350px; }
+    }
+    @media(max-width:768px){
+      .bento-section { padding: 0 24px 60px; }
+      .bento { gap: 16px; }
+      .bento__lead .race-card { height: 420px; }
+      .bento__side .race-card { height: 300px; }
+      .showcase-card { flex: 0 0 300px; }
+      .showcase-scroll { padding: 0 24px 40px; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="page-header">
+  <h1>Race Card Concept — Cartographic Route Maps</h1>
+  <p>Inspired by the Unbound finisher pint glass. Programmatically generatable from lat/lng + road network data.</p>
+</div>
+
+<!-- ═══════════ BENTO GRID ═══════════ -->
+<div class="bento-section">
+  <div class="sec-label">Featured Races</div>
+  <div class="bento">
+
+    <!-- LEAD CARD — Unbound 200 -->
+    <div class="bento__lead">
+      <div class="race-card reveal" id="card1">
+        <div class="race-card__map">
+          <!-- Road grid (Emporia, KS — simplified grid pattern) -->
+          <div class="race-card__roads">
+            <svg viewBox="0 0 600 800" preserveAspectRatio="none" style="width:100%;height:100%">
+              <!-- Horizontal roads -->
+              <line x1="0" y1="80" x2="600" y2="80" stroke="#f5efe6" stroke-width="0.5"/>
+              <line x1="0" y1="140" x2="600" y2="140" stroke="#f5efe6" stroke-width="0.8"/>
+              <line x1="0" y1="200" x2="600" y2="200" stroke="#f5efe6" stroke-width="0.5"/>
+              <line x1="0" y1="260" x2="600" y2="260" stroke="#f5efe6" stroke-width="0.5"/>
+              <line x1="0" y1="320" x2="600" y2="320" stroke="#f5efe6" stroke-width="0.8"/>
+              <line x1="0" y1="380" x2="600" y2="380" stroke="#f5efe6" stroke-width="0.5"/>
+              <line x1="0" y1="440" x2="600" y2="440" stroke="#f5efe6" stroke-width="0.5"/>
+              <line x1="0" y1="500" x2="600" y2="500" stroke="#f5efe6" stroke-width="0.8"/>
+              <line x1="0" y1="560" x2="600" y2="560" stroke="#f5efe6" stroke-width="0.5"/>
+              <line x1="0" y1="620" x2="600" y2="620" stroke="#f5efe6" stroke-width="0.5"/>
+              <line x1="0" y1="680" x2="600" y2="680" stroke="#f5efe6" stroke-width="0.8"/>
+              <line x1="0" y1="740" x2="600" y2="740" stroke="#f5efe6" stroke-width="0.5"/>
+              <!-- Vertical roads -->
+              <line x1="60" y1="0" x2="60" y2="800" stroke="#f5efe6" stroke-width="0.5"/>
+              <line x1="120" y1="0" x2="120" y2="800" stroke="#f5efe6" stroke-width="0.5"/>
+              <line x1="200" y1="0" x2="200" y2="800" stroke="#f5efe6" stroke-width="0.8"/>
+              <line x1="280" y1="0" x2="280" y2="800" stroke="#f5efe6" stroke-width="0.5"/>
+              <line x1="340" y1="0" x2="340" y2="800" stroke="#f5efe6" stroke-width="0.5"/>
+              <line x1="400" y1="0" x2="400" y2="800" stroke="#f5efe6" stroke-width="0.8"/>
+              <line x1="460" y1="0" x2="460" y2="800" stroke="#f5efe6" stroke-width="0.5"/>
+              <line x1="520" y1="0" x2="520" y2="800" stroke="#f5efe6" stroke-width="0.5"/>
+              <!-- Diagonal county roads (gravel roads!) -->
+              <line x1="0" y1="300" x2="300" y2="0" stroke="#f5efe6" stroke-width="0.3" stroke-dasharray="4,8"/>
+              <line x1="300" y1="800" x2="600" y2="500" stroke="#f5efe6" stroke-width="0.3" stroke-dasharray="4,8"/>
+              <line x1="0" y1="500" x2="500" y2="0" stroke="#f5efe6" stroke-width="0.3" stroke-dasharray="4,8"/>
+              <line x1="100" y1="800" x2="600" y2="300" stroke="#f5efe6" stroke-width="0.3" stroke-dasharray="4,8"/>
+            </svg>
+          </div>
+
+          <!-- Route line (Unbound loop) -->
+          <div class="race-card__route">
+            <svg viewBox="0 0 600 800" preserveAspectRatio="none" style="width:100%;height:100%">
+              <!-- Glow line -->
+              <path class="route-line--glow" d="M300,520 L280,480 L240,440 L200,380 L180,320 L160,260 L140,200 L160,160 L200,140 L260,120 L320,100 L380,80 L420,100 L460,140 L480,200 L500,260 L480,320 L460,380 L440,440 L400,480 L360,520 L320,540 L300,520" stroke-width="8" filter="blur(4px)"/>
+              <!-- Main route -->
+              <path class="route-line" d="M300,520 L280,480 L240,440 L200,380 L180,320 L160,260 L140,200 L160,160 L200,140 L260,120 L320,100 L380,80 L420,100 L460,140 L480,200 L500,260 L480,320 L460,380 L440,440 L400,480 L360,520 L320,540 L300,520"
+                stroke-dasharray="2000" stroke-dashoffset="2000" id="route1"/>
+            </svg>
+          </div>
+
+          <!-- Place names (etched style) -->
+          <div class="race-card__places">
+            <span class="place-name" style="top:30%;left:12%">Flint Hills</span>
+            <span class="place-name" style="top:55%;left:55%">Chase County</span>
+            <span class="place-name" style="top:15%;right:15%">Lyon County</span>
+            <span class="place-name place-name--city" style="bottom:35%;left:42%">Emporia</span>
+          </div>
+
+          <!-- Start/Finish marker -->
+          <div class="race-card__markers">
+            <div class="marker" style="bottom:33%;left:48%">
+              <div class="marker__dot" style="background:var(--teal)"></div>
+              <div class="marker__label">Start / Finish</div>
+            </div>
+          </div>
+
+          <div class="race-card__glow"></div>
+          <div class="race-card__gradient-top"></div>
+          <div class="race-card__gradient-bottom"></div>
+
+          <!-- Elevation silhouette -->
+          <div class="race-card__elev">
+            <svg viewBox="0 0 600 60" preserveAspectRatio="none" style="width:100%;height:100%">
+              <path d="M0,60 L0,35 L30,32 L60,24 L90,28 L120,18 L150,25 L180,12 L210,20 L240,8 L270,16 L300,12 L330,20 L360,15 L390,24 L420,18 L450,26 L480,22 L510,30 L540,25 L570,32 L600,28 L600,60Z"
+                fill="rgba(26,138,130,0.2)"/>
+            </svg>
+          </div>
+
+          <!-- Top: Tier + Score -->
+          <div class="race-card__top">
+            <div class="tier-badge tier-badge--t1">Tier 1</div>
+            <div class="score-gauge">
+              <svg viewBox="0 0 56 56">
+                <circle cx="28" cy="28" r="24" fill="none" stroke="rgba(245,239,230,0.06)" stroke-width="2.5"/>
+                <circle cx="28" cy="28" r="24" fill="none" stroke="var(--teal)" stroke-width="2.5"
+                  stroke-dasharray="151" stroke-dashoffset="12" stroke-linecap="round"
+                  transform="rotate(-90 28 28)" opacity="0.7"/>
+                <text x="28" y="32" text-anchor="middle" class="score-gauge__text">92</text>
+              </svg>
+            </div>
+          </div>
+
+          <!-- Bottom: Info -->
+          <div class="race-card__info">
+            <div class="race-card__discipline">Gravel &mdash; Emporia, Kansas</div>
+            <div class="race-card__name">Unbound 200</div>
+            <div class="race-card__tagline">The race that defined the discipline. 200 miles of Flint Hills limestone.</div>
+            <div class="race-card__meta">
+              <div class="meta-item"><strong>200</strong> mi</div>
+              <div class="meta-item"><strong>10,400'</strong> elev</div>
+              <div class="meta-item"><strong>Jun</strong> 2026</div>
+              <div class="meta-item"><strong>P5</strong> prestige</div>
+            </div>
+            <div class="race-card__dims" data-anim>
+              <div class="dim"><div class="dim__label">Prestige</div><div class="dim__track"><div class="dim__fill" data-w="100%"></div></div></div>
+              <div class="dim"><div class="dim__label">Distance</div><div class="dim__track"><div class="dim__fill" data-w="95%"></div></div></div>
+              <div class="dim"><div class="dim__label">Adventure</div><div class="dim__track"><div class="dim__fill" data-w="85%"></div></div></div>
+              <div class="dim"><div class="dim__label">Climate</div><div class="dim__track"><div class="dim__fill" data-w="78%"></div></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SIDE CARD — Steamboat Gravel -->
+    <div class="bento__side">
+      <div class="race-card reveal s1" id="card2">
+        <div class="race-card__map">
+          <div class="race-card__roads">
+            <svg viewBox="0 0 600 400" preserveAspectRatio="none" style="width:100%;height:100%">
+              <!-- Mountain road pattern — fewer grids, more winding -->
+              <path d="M0,200 Q150,180 300,200 Q450,220 600,200" stroke="#f5efe6" stroke-width="0.6" fill="none"/>
+              <path d="M0,120 Q200,100 400,140 Q500,160 600,120" stroke="#f5efe6" stroke-width="0.4" fill="none"/>
+              <path d="M0,280 Q100,300 250,260 Q400,240 600,280" stroke="#f5efe6" stroke-width="0.4" fill="none"/>
+              <path d="M100,0 Q120,200 100,400" stroke="#f5efe6" stroke-width="0.4" fill="none"/>
+              <path d="M300,0 Q280,150 320,300 Q340,350 300,400" stroke="#f5efe6" stroke-width="0.6" fill="none"/>
+              <path d="M500,0 Q480,200 500,400" stroke="#f5efe6" stroke-width="0.4" fill="none"/>
+              <!-- Switchbacks -->
+              <path d="M150,50 L180,80 L160,110 L190,140 L170,170" stroke="#f5efe6" stroke-width="0.3" fill="none" stroke-dasharray="3,6"/>
+              <path d="M420,250 L440,280 L420,310 L440,340 L420,370" stroke="#f5efe6" stroke-width="0.3" fill="none" stroke-dasharray="3,6"/>
+            </svg>
+          </div>
+          <div class="race-card__route">
+            <svg viewBox="0 0 600 400" preserveAspectRatio="none" style="width:100%;height:100%">
+              <path class="route-line--glow" d="M300,340 L260,300 L220,260 L180,200 L160,140 L200,100 L260,80 L320,60 L380,80 L420,120 L440,180 L420,240 L380,300 L340,340 L300,340" stroke-width="8" filter="blur(4px)"/>
+              <path class="route-line" d="M300,340 L260,300 L220,260 L180,200 L160,140 L200,100 L260,80 L320,60 L380,80 L420,120 L440,180 L420,240 L380,300 L340,340 L300,340"
+                stroke-dasharray="1500" stroke-dashoffset="1500" id="route2"/>
+            </svg>
+          </div>
+          <div class="race-card__places">
+            <span class="place-name" style="top:22%;left:10%">Routt County</span>
+            <span class="place-name place-name--city" style="bottom:22%;left:38%">Steamboat</span>
+          </div>
+          <div class="race-card__markers">
+            <div class="marker" style="bottom:18%;left:47%">
+              <div class="marker__dot" style="background:var(--teal)"></div>
+              <div class="marker__label">Start / Finish</div>
+            </div>
+          </div>
+          <div class="race-card__glow"></div>
+          <div class="race-card__gradient-top"></div>
+          <div class="race-card__gradient-bottom"></div>
+          <div class="race-card__top">
+            <div class="tier-badge tier-badge--t1">Tier 1</div>
+            <div class="score-gauge"><svg viewBox="0 0 56 56"><circle cx="28" cy="28" r="24" fill="none" stroke="rgba(245,239,230,0.06)" stroke-width="2.5"/><circle cx="28" cy="28" r="24" fill="none" stroke="var(--teal)" stroke-width="2.5" stroke-dasharray="151" stroke-dashoffset="18" stroke-linecap="round" transform="rotate(-90 28 28)" opacity="0.7"/><text x="28" y="32" text-anchor="middle" class="score-gauge__text">88</text></svg></div>
+          </div>
+          <div class="race-card__info">
+            <div class="race-card__discipline">Gravel &mdash; Steamboat Springs, CO</div>
+            <div class="race-card__name">Steamboat Gravel</div>
+            <div class="race-card__meta">
+              <div class="meta-item"><strong>140</strong> mi</div>
+              <div class="meta-item"><strong>12,800'</strong> elev</div>
+              <div class="meta-item"><strong>Aug</strong> 2026</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SIDE CARD — Belgian Waffle Ride -->
+    <div class="bento__side">
+      <div class="race-card reveal s2" id="card3">
+        <div class="race-card__map">
+          <div class="race-card__roads">
+            <svg viewBox="0 0 600 400" preserveAspectRatio="none" style="width:100%;height:100%">
+              <!-- Coastal SoCal road grid — mix of grid + canyon -->
+              <line x1="0" y1="100" x2="600" y2="100" stroke="#f5efe6" stroke-width="0.6"/>
+              <line x1="0" y1="200" x2="600" y2="200" stroke="#f5efe6" stroke-width="0.8"/>
+              <line x1="0" y1="300" x2="600" y2="300" stroke="#f5efe6" stroke-width="0.6"/>
+              <line x1="150" y1="0" x2="150" y2="400" stroke="#f5efe6" stroke-width="0.6"/>
+              <line x1="300" y1="0" x2="300" y2="400" stroke="#f5efe6" stroke-width="0.8"/>
+              <line x1="450" y1="0" x2="450" y2="400" stroke="#f5efe6" stroke-width="0.6"/>
+              <!-- Canyon roads -->
+              <path d="M50,350 Q100,250 200,200 Q300,150 350,50" stroke="#f5efe6" stroke-width="0.3" fill="none" stroke-dasharray="3,6"/>
+              <path d="M400,380 Q450,280 500,200 Q550,120 580,50" stroke="#f5efe6" stroke-width="0.3" fill="none" stroke-dasharray="3,6"/>
+            </svg>
+          </div>
+          <div class="race-card__route">
+            <svg viewBox="0 0 600 400" preserveAspectRatio="none" style="width:100%;height:100%">
+              <path class="route-line--glow" d="M280,330 L220,280 L160,220 L140,160 L180,110 L240,80 L320,60 L400,80 L460,120 L480,180 L460,240 L400,300 L340,340 L280,330" stroke-width="8" filter="blur(4px)"/>
+              <path class="route-line" d="M280,330 L220,280 L160,220 L140,160 L180,110 L240,80 L320,60 L400,80 L460,120 L480,180 L460,240 L400,300 L340,340 L280,330"
+                stroke-dasharray="1500" stroke-dashoffset="1500" id="route3"/>
+            </svg>
+          </div>
+          <div class="race-card__places">
+            <span class="place-name" style="top:18%;right:12%">North County</span>
+            <span class="place-name place-name--city" style="bottom:22%;left:35%">San Marcos</span>
+          </div>
+          <div class="race-card__markers">
+            <div class="marker" style="bottom:18%;left:43%">
+              <div class="marker__dot" style="background:var(--teal)"></div>
+              <div class="marker__label">Start / Finish</div>
+            </div>
+          </div>
+          <div class="race-card__glow"></div>
+          <div class="race-card__gradient-top"></div>
+          <div class="race-card__gradient-bottom"></div>
+          <div class="race-card__top">
+            <div class="tier-badge tier-badge--t1">Tier 1</div>
+            <div class="score-gauge"><svg viewBox="0 0 56 56"><circle cx="28" cy="28" r="24" fill="none" stroke="rgba(245,239,230,0.06)" stroke-width="2.5"/><circle cx="28" cy="28" r="24" fill="none" stroke="var(--teal)" stroke-width="2.5" stroke-dasharray="151" stroke-dashoffset="20" stroke-linecap="round" transform="rotate(-90 28 28)" opacity="0.7"/><text x="28" y="32" text-anchor="middle" class="score-gauge__text">87</text></svg></div>
+          </div>
+          <div class="race-card__info">
+            <div class="race-card__discipline">Gravel &mdash; San Marcos, CA</div>
+            <div class="race-card__name">Belgian Waffle Ride</div>
+            <div class="race-card__meta">
+              <div class="meta-item"><strong>130</strong> mi</div>
+              <div class="meta-item"><strong>11,000'</strong> elev</div>
+              <div class="meta-item"><strong>May</strong> 2026</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════ DARK SECTION — Showcase Cards ═══════════ -->
+<div class="dark-sec">
+  <div class="sec-label">Race Showcase</div>
+  <div class="showcase-scroll" id="showcase">
+
+    <div class="showcase-card" data-fill="86">
+      <div class="race-card__map">
+        <div class="race-card__roads">
+          <svg viewBox="0 0 400 540" preserveAspectRatio="none" style="width:100%;height:100%">
+            <line x1="0" y1="90" x2="400" y2="90" stroke="#f5efe6" stroke-width="0.4"/>
+            <line x1="0" y1="180" x2="400" y2="180" stroke="#f5efe6" stroke-width="0.6"/>
+            <line x1="0" y1="270" x2="400" y2="270" stroke="#f5efe6" stroke-width="0.4"/>
+            <line x1="0" y1="360" x2="400" y2="360" stroke="#f5efe6" stroke-width="0.6"/>
+            <line x1="0" y1="450" x2="400" y2="450" stroke="#f5efe6" stroke-width="0.4"/>
+            <line x1="100" y1="0" x2="100" y2="540" stroke="#f5efe6" stroke-width="0.4"/>
+            <line x1="200" y1="0" x2="200" y2="540" stroke="#f5efe6" stroke-width="0.6"/>
+            <line x1="300" y1="0" x2="300" y2="540" stroke="#f5efe6" stroke-width="0.4"/>
+          </svg>
+        </div>
+        <div class="race-card__route">
+          <svg viewBox="0 0 400 540" preserveAspectRatio="none" style="width:100%;height:100%">
+            <path class="route-line" d="M200,440 L170,380 L140,320 L120,260 L140,200 L180,150 L220,120 L270,130 L300,170 L290,230 L260,290 L240,350 L220,410 L200,440"
+              stroke-dasharray="1200" stroke-dashoffset="1200"/>
+          </svg>
+        </div>
+      </div>
+      <div class="showcase-card__ghost">04</div>
+      <div class="race-card__gradient-top"></div>
+      <div class="race-card__gradient-bottom"></div>
+      <div class="race-card__top">
+        <div class="tier-badge tier-badge--t1">Tier 1</div>
+        <div class="score-gauge"><svg viewBox="0 0 56 56"><circle cx="28" cy="28" r="24" fill="none" stroke="rgba(245,239,230,0.06)" stroke-width="2.5"/><circle cx="28" cy="28" r="24" fill="none" stroke="var(--teal)" stroke-width="2.5" stroke-dasharray="151" stroke-dashoffset="21" stroke-linecap="round" transform="rotate(-90 28 28)" opacity="0.7"/><text x="28" y="32" text-anchor="middle" class="score-gauge__text">86</text></svg></div>
+      </div>
+      <div class="race-card__info">
+        <div class="race-card__discipline">Gravel &mdash; Stillwater, OK</div>
+        <div class="race-card__name">Mid South</div>
+        <div class="race-card__meta">
+          <div class="meta-item"><strong>100</strong> mi</div>
+          <div class="meta-item"><strong>Mar</strong> 2026</div>
+        </div>
+        <div class="showcase-card__score-bar">
+          <div class="score-bar__track"><div class="score-bar__fill" data-w="86%"></div></div>
+          <div class="score-bar__labels"><span>Score</span><span>86/100</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="showcase-card" data-fill="85">
+      <div class="race-card__map">
+        <div class="race-card__roads">
+          <svg viewBox="0 0 400 540" preserveAspectRatio="none" style="width:100%;height:100%">
+            <path d="M0,200 Q200,180 400,220" stroke="#f5efe6" stroke-width="0.5" fill="none"/>
+            <path d="M0,340 Q200,320 400,360" stroke="#f5efe6" stroke-width="0.5" fill="none"/>
+            <path d="M120,0 Q140,270 120,540" stroke="#f5efe6" stroke-width="0.5" fill="none"/>
+            <path d="M280,0 Q260,270 280,540" stroke="#f5efe6" stroke-width="0.5" fill="none"/>
+            <path d="M50,80 L100,120 L80,170 L120,210 L90,260" stroke="#f5efe6" stroke-width="0.3" fill="none" stroke-dasharray="3,6"/>
+          </svg>
+        </div>
+        <div class="race-card__route">
+          <svg viewBox="0 0 400 540" preserveAspectRatio="none" style="width:100%;height:100%">
+            <path class="route-line" d="M200,460 L160,400 L120,320 L100,240 L120,160 L180,100 L260,80 L320,120 L340,200 L320,280 L280,360 L240,420 L200,460"
+              stroke-dasharray="1200" stroke-dashoffset="1200"/>
+          </svg>
+        </div>
+      </div>
+      <div class="showcase-card__ghost">05</div>
+      <div class="race-card__gradient-top"></div>
+      <div class="race-card__gradient-bottom"></div>
+      <div class="race-card__top">
+        <div class="tier-badge tier-badge--t1">Tier 1</div>
+        <div class="score-gauge"><svg viewBox="0 0 56 56"><circle cx="28" cy="28" r="24" fill="none" stroke="rgba(245,239,230,0.06)" stroke-width="2.5"/><circle cx="28" cy="28" r="24" fill="none" stroke="var(--teal)" stroke-width="2.5" stroke-dasharray="151" stroke-dashoffset="23" stroke-linecap="round" transform="rotate(-90 28 28)" opacity="0.7"/><text x="28" y="32" text-anchor="middle" class="score-gauge__text">85</text></svg></div>
+      </div>
+      <div class="race-card__info">
+        <div class="race-card__discipline">Gravel &mdash; Beaver, UT</div>
+        <div class="race-card__name">Crusher in the Tushar</div>
+        <div class="race-card__meta">
+          <div class="meta-item"><strong>70</strong> mi</div>
+          <div class="meta-item"><strong>10,000'</strong> elev</div>
+        </div>
+        <div class="showcase-card__score-bar">
+          <div class="score-bar__track"><div class="score-bar__fill" data-w="85%"></div></div>
+          <div class="score-bar__labels"><span>Score</span><span>85/100</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="showcase-card" data-fill="84">
+      <div class="race-card__map">
+        <div class="race-card__roads">
+          <svg viewBox="0 0 400 540" preserveAspectRatio="none" style="width:100%;height:100%">
+            <line x1="0" y1="135" x2="400" y2="135" stroke="#f5efe6" stroke-width="0.5"/>
+            <line x1="0" y1="270" x2="400" y2="270" stroke="#f5efe6" stroke-width="0.6"/>
+            <line x1="0" y1="405" x2="400" y2="405" stroke="#f5efe6" stroke-width="0.5"/>
+            <line x1="130" y1="0" x2="130" y2="540" stroke="#f5efe6" stroke-width="0.5"/>
+            <line x1="260" y1="0" x2="260" y2="540" stroke="#f5efe6" stroke-width="0.5"/>
+          </svg>
+        </div>
+        <div class="race-card__route">
+          <svg viewBox="0 0 400 540" preserveAspectRatio="none" style="width:100%;height:100%">
+            <path class="route-line" d="M200,460 L170,400 L130,320 L110,240 L130,160 L190,100 L260,90 L310,130 L330,200 L310,280 L270,360 L230,420 L200,460"
+              stroke-dasharray="1200" stroke-dashoffset="1200"/>
+          </svg>
+        </div>
+      </div>
+      <div class="showcase-card__ghost">06</div>
+      <div class="race-card__gradient-top"></div>
+      <div class="race-card__gradient-bottom"></div>
+      <div class="race-card__top">
+        <div class="tier-badge tier-badge--t2">Tier 1</div>
+        <div class="score-gauge"><svg viewBox="0 0 56 56"><circle cx="28" cy="28" r="24" fill="none" stroke="rgba(245,239,230,0.06)" stroke-width="2.5"/><circle cx="28" cy="28" r="24" fill="none" stroke="var(--teal)" stroke-width="2.5" stroke-dasharray="151" stroke-dashoffset="24" stroke-linecap="round" transform="rotate(-90 28 28)" opacity="0.7"/><text x="28" y="32" text-anchor="middle" class="score-gauge__text">84</text></svg></div>
+      </div>
+      <div class="race-card__info">
+        <div class="race-card__discipline">Bikepacking &mdash; Emporia, KS</div>
+        <div class="race-card__name">DKXL</div>
+        <div class="race-card__meta">
+          <div class="meta-item"><strong>350</strong> mi</div>
+          <div class="meta-item"><strong>Jun</strong> 2026</div>
+        </div>
+        <div class="showcase-card__score-bar">
+          <div class="score-bar__track"><div class="score-bar__fill" data-w="84%"></div></div>
+          <div class="score-bar__labels"><span>Score</span><span>84/100</span></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<script>
+(function(){
+  var ease = 'cubic-bezier(0.16, 1, 0.3, 1)';
+
+  /* Reveals + bar fills */
+  var ro = new IntersectionObserver(function(es){
+    es.forEach(function(e){
+      if(!e.isIntersecting) return;
+      e.target.classList.add('vis');
+      // Animate bars
+      e.target.querySelectorAll('[data-w]').forEach(function(b,i){
+        setTimeout(function(){ b.style.width = b.getAttribute('data-w'); }, 150*i);
+      });
+      ro.unobserve(e.target);
+    });
+  }, {threshold:0.15});
+  document.querySelectorAll('.reveal').forEach(function(el){ ro.observe(el); });
+
+  /* Route line draw-on */
+  var routeObs = new IntersectionObserver(function(es){
+    es.forEach(function(e){
+      if(!e.isIntersecting) return;
+      e.target.querySelectorAll('.route-line[stroke-dashoffset]').forEach(function(line){
+        line.style.transition = 'stroke-dashoffset 2s ' + ease;
+        line.style.strokeDashoffset = '0';
+      });
+      routeObs.unobserve(e.target);
+    });
+  }, {threshold:0.2});
+  document.querySelectorAll('.race-card, .showcase-card').forEach(function(el){ routeObs.observe(el); });
+
+  /* Score bar fills in showcase */
+  var scoreObs = new IntersectionObserver(function(es){
+    es.forEach(function(e){
+      if(!e.isIntersecting) return;
+      e.target.querySelectorAll('.score-bar__fill[data-w]').forEach(function(b){
+        setTimeout(function(){ b.style.width = b.getAttribute('data-w'); }, 300);
+      });
+      scoreObs.unobserve(e.target);
+    });
+  }, {threshold:0.3});
+  document.querySelectorAll('.showcase-card').forEach(function(el){ scoreObs.observe(el); });
+
+  /* Showcase drag */
+  var sc = document.getElementById('showcase');
+  var drag=false, sx=0, sl=0;
+  sc.addEventListener('mousedown',function(e){drag=true;sx=e.pageX-sc.offsetLeft;sl=sc.scrollLeft;sc.style.cursor='grabbing'});
+  sc.addEventListener('mouseleave',function(){drag=false;sc.style.cursor='grab'});
+  sc.addEventListener('mouseup',function(){drag=false;sc.style.cursor='grab'});
+  sc.addEventListener('mousemove',function(e){if(!drag)return;e.preventDefault();sc.scrollLeft=sl-((e.pageX-sc.offsetLeft)-sx)*1.5});
+
+  /* Tilt on bento cards */
+  var isMob = matchMedia('(max-width:768px)').matches;
+  if(!isMob){
+    document.querySelectorAll('.bento .race-card').forEach(function(c){
+      c.addEventListener('mousemove',function(e){
+        var r=c.getBoundingClientRect();
+        var x=(e.clientX-r.left)/r.width-0.5;
+        var y=(e.clientY-r.top)/r.height-0.5;
+        c.style.transform='perspective(800px) rotateY('+(x*4)+'deg) rotateX('+(-y*4)+'deg) translateY(-3px)';
+      });
+      c.addEventListener('mouseleave',function(){ c.style.transform=''; });
+    });
+  }
+})();
+</script>
+
+</body>
+</html>

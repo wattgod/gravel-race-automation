@@ -109,7 +109,7 @@ registry, senders).
 - `docs/bonk-bros-voice-patterns.md` — voice reference for judging + future
   copy.
 - Findings docs — the diagnosis that led here (premise > polish).
-- The council-merged 28-email set (session scratchpad `merged-gg-final.md`)
+- The council-merged 28-email set (`docs/archive/friend-register/council-merged-28-set.md`)
   — parts bank if any dead slot ever needs reviving.
 - Sol-review forensics: WS-E bug, attribution breakage, XC prerequisite
   list — all still true and tracked above.

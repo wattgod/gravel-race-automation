@@ -3083,6 +3083,76 @@ def build_training(rd: dict) -> str:
   </section>'''
 
 
+def build_custom_plan_offer(rd: dict) -> str:
+    """Build the owner-approved custom-plan offer used in the short spine."""
+    race_name = rd['name']
+    if rd.get('slug') == 'unbound-200':
+        copy = (
+            "A training plan for Unbound's 200 miles of heat, wind, and rough "
+            "flint—shaped to your fitness and the hours you have."
+        )
+    else:
+        copy = (
+            f"A training plan for {race_name}—shaped to your fitness and the "
+            "hours you have."
+        )
+    href = f"{TRAINING_PLANS_URL}?race={rd['slug']}"
+    return f'''<section class="gg-approved-section gg-offer" data-measure-section="custom-plan">
+  <div class="gg-approved-inner">
+    <span class="gg-approved-kicker">Custom plan</span>
+    <h2>Train for {esc(race_name)}</h2>
+    <p>{esc(copy)}</p>
+  </div>
+  <div class="gg-approved-inner gg-offer-action">
+    <a class="gg-plan-cta" href="{esc(href)}" data-cta="approved_custom_plan">START MY CUSTOM PLAN &rarr;</a>
+    <span class="gg-offer-price">$15 / WEEK</span>
+  </div>
+</section>'''
+
+
+def build_coaching_footnote(rd: dict) -> str:
+    """Build the approved coaching footnote beneath the custom-plan offer."""
+    href = f"{COACHING_URL}?race={rd['slug']}"
+    return f'''<aside class="gg-coaching-note" data-measure-section="coaching">
+  <div>
+    <h2>Really want to see what you can do?</h2>
+    <p>Hire a coach. You&rsquo;ll never become what you could be alone. (And no, AI isn&rsquo;t a person.)</p>
+  </div>
+  <a class="gg-coaching-link" href="{esc(href)}" data-cta="approved_coaching">GET ME IN YOUR CORNER &rarr;</a>
+</aside>'''
+
+
+def build_training_intelligence(rd: dict) -> str:
+    """Restore [07] Training as editorial rider intelligence, without sales."""
+    race_name = rd['name']
+    countdown_html = ''
+    date_specific = rd['vitals'].get('date_specific', '')
+    cd_start, _cd_end = parse_event_dates(date_specific)
+    if cd_start:
+        parts = cd_start.split('-')
+        month_names = {v: k.capitalize() for k, v in MONTH_NUMBERS.items()}
+        display_month = month_names.get(parts[1], parts[1])
+        display_date = f"{display_month} {int(parts[2])}, {parts[0]}"
+        countdown_html = (
+            f'<div class="gg-countdown" data-date="{cd_start}">'
+            f'<span class="gg-countdown-num" id="gg-days-left">'
+            f'{esc(display_date)}</span> {esc(race_name.upper())}</div>'
+        )
+    gear_html = _build_riders_report([
+        (rd.get('rider_intel', {}).get('gear_mentions', []), 'text'),
+    ])
+    body = countdown_html + gear_html
+    if not body:
+        body = '<p class="gg-prose">Race-specific preparation details are included in the demand profile below.</p>'
+    return f'''<section id="training" class="gg-section gg-fade-section">
+    <div class="gg-section-header">
+      <span class="gg-section-kicker">[07]</span>
+      <h2 class="gg-section-title">Training</h2>
+    </div>
+    <div class="gg-section-body">{body}</div>
+  </section>'''
+
+
 # ── Workout showcase data for race-specific training section ──
 # Each entry: viz structure, duration, descriptions for the flagship workout
 # per archetype category. Viz format matches training-plans.html.
@@ -4217,8 +4287,13 @@ def build_prep_strip(rd: dict) -> str:
   </section>'''
 
 
-def build_train_for_race(rd: dict, prep_kit_html: str = '') -> str:
-    """Build the deep-dive demand profile, configurator, and capped previews."""
+def build_train_for_race(
+        rd: dict, prep_kit_html: str = '', include_commerce: bool = True) -> str:
+    """Build the deep-dive demand profile and capped workout previews.
+
+    ``include_commerce=False`` retains the useful training intelligence while
+    removing the configurator, plan links, and all other purchase paths.
+    """
     slug = rd['slug']
     race_name = rd['name']
 
@@ -4416,6 +4491,11 @@ def build_train_for_race(rd: dict, prep_kit_html: str = '') -> str:
     # Workout toggle + panel — only render if we have workouts
     workouts_section = ''
     if num_workouts > 0:
+        guide_link = (
+            f'        <p class="gg-pack-workouts-more"><a href="/race/{esc(slug)}/training-plan/" '
+            f'data-cta="pack_plan_guide">Read the full {esc(race_name)} training guide &rarr;</a></p>\n'
+            if include_commerce else ''
+        )
         workouts_section = (
             f'<div class="gg-pack-workouts-toggle" id="gg-pack-workouts-toggle">\n'
             f'        <button type="button" class="gg-pack-toggle-btn" id="gg-pack-toggle-btn" '
@@ -4431,23 +4511,14 @@ def build_train_for_race(rd: dict, prep_kit_html: str = '') -> str:
             f'archetype library based on {esc(race_name)}&rsquo;s specific demands. '
             f'Click any workout to see the full execution protocol.</p>\n'
             f'        {workouts_html}\n'
-            f'        <p class="gg-pack-workouts-more"><a href="/race/{esc(slug)}/training-plan/" data-cta="pack_plan_guide">Read the full {esc(race_name)} training guide &rarr;</a></p>\n'
+            f'{guide_link}'
             f'      </div>'
         )
 
-    return f'''<section id="train-for-race" class="gg-section gg-fade-section">
-    <div class="gg-section-header">
-      <span class="gg-section-kicker">[08]</span>
-      <h2 class="gg-section-title">Train for {esc(race_name)}</h2>
-    </div>
-    <div class="gg-section-body">
-      <div class="gg-pack-demands">
-        <h3 class="gg-pack-subtitle">RACE DEMAND PROFILE</h3>
-        <div class="gg-pack-demands-inline">
-          {demands_html}
-        </div>
-      </div>
-      <div class="gg-cfg-bar">
+    commerce_html = ''
+    race_data_script = ''
+    if include_commerce:
+        commerce_html = f'''<div class="gg-cfg-bar">
         <h3 class="gg-cfg-title">PREVIEW YOUR TRAINING PLAN</h3>
         <div class="gg-cfg-inputs">
           <div class="gg-cfg-field">
@@ -4489,11 +4560,26 @@ def build_train_for_race(rd: dict, prep_kit_html: str = '') -> str:
       <div class="gg-pack-cta gg-cfg-cta" id="gg-cfg-cta" style="display:none;" aria-hidden="true">
         <a href="{plan_url}" class="gg-btn gg-cfg-cta-btn" id="gg-cfg-cta-link" tabindex="-1">BUILD MY PLAN</a>
         <p class="gg-pack-cta-detail" id="gg-cfg-cta-detail"></p>
+      </div>'''
+        race_data_script = f'<script>window.__GG_RACE_DATA__={race_data_json};</script>'
+
+    return f'''<section id="train-for-race" class="gg-section gg-fade-section">
+    <div class="gg-section-header">
+      <span class="gg-section-kicker">[08]</span>
+      <h2 class="gg-section-title">Train for {esc(race_name)}</h2>
+    </div>
+    <div class="gg-section-body">
+      <div class="gg-pack-demands">
+        <h3 class="gg-pack-subtitle">RACE DEMAND PROFILE</h3>
+        <div class="gg-pack-demands-inline">
+          {demands_html}
+        </div>
       </div>
+      {commerce_html}
       {workouts_section}
       {prep_kit_html}
     </div>
-    <script>window.__GG_RACE_DATA__={race_data_json};</script>
+    {race_data_script}
   </section>'''
 
 
@@ -6133,10 +6219,33 @@ body {{ margin: 0; background: var(--gg-color-warm-paper); }}
 
 # ── Shared Assets ─────────────────────────────────────────────
 
+APPROVED_TOP_CSS = '''<style>
+.gg-neo-brutalist-page .gg-approved-section { max-width: var(--gg-max-width); margin: 0 auto var(--gg-spacing-xl); background: var(--gg-color-warm-paper); }
+.gg-neo-brutalist-page .gg-approved-inner { padding: clamp(24px, 3vw, 44px); }
+.gg-neo-brutalist-page .gg-approved-kicker { display: block; margin-bottom: var(--gg-spacing-sm); font-family: var(--gg-font-data); font-size: var(--gg-font-size-2xs); font-weight: 800; letter-spacing: var(--gg-letter-spacing-wider); text-transform: uppercase; color: var(--gg-color-teal); }
+.gg-neo-brutalist-page .gg-approved-section h2 { font-family: var(--gg-font-editorial); color: var(--gg-color-dark-brown); }
+.gg-neo-brutalist-page .gg-offer { display: grid; grid-template-columns: minmax(0, 1fr) minmax(250px, 390px); gap: clamp(24px, 5vw, 72px); align-items: center; border: var(--gg-border-standard); border-top: 5px solid var(--gg-color-teal); }
+.gg-neo-brutalist-page .gg-offer h2 { margin: 0 0 var(--gg-spacing-sm); font-size: clamp(1.8rem, 3vw, 3rem); line-height: 1.05; }
+.gg-neo-brutalist-page .gg-offer p { max-width: 780px; margin: 0; font-family: var(--gg-font-editorial); font-size: clamp(1.05rem, 1.55vw, 1.3rem); line-height: 1.55; color: var(--gg-color-secondary-brown); }
+.gg-neo-brutalist-page .gg-offer-action { display: grid; min-width: min(100%, 290px); gap: var(--gg-spacing-xs); }
+.gg-neo-brutalist-page .gg-offer-price { font-family: var(--gg-font-data); font-size: var(--gg-font-size-xs); font-weight: 800; letter-spacing: var(--gg-letter-spacing-wide); text-align: center; color: var(--gg-color-secondary-brown); }
+.gg-neo-brutalist-page .gg-plan-cta { display: block; padding: 18px 22px; border: 3px solid var(--gg-color-dark-brown); background: var(--gg-color-gold); color: var(--gg-color-dark-brown); font-family: var(--gg-font-data); font-size: clamp(.82rem, 1.2vw, 1rem); font-weight: 900; letter-spacing: var(--gg-letter-spacing-wide); text-align: center; text-decoration: none; text-transform: uppercase; }
+.gg-neo-brutalist-page .gg-plan-cta:hover, .gg-neo-brutalist-page .gg-plan-cta:focus-visible { background: var(--gg-color-dark-brown); color: var(--gg-color-warm-paper); }
+.gg-neo-brutalist-page .gg-coaching-note { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: var(--gg-spacing-lg); align-items: center; max-width: var(--gg-max-width); margin: calc(var(--gg-spacing-xl) * -0.35) auto var(--gg-spacing-2xl); padding: clamp(20px, 3vw, 30px); border: 1px solid var(--gg-color-tan); border-left: 5px solid var(--gg-color-teal); background: var(--gg-color-sand); }
+.gg-neo-brutalist-page .gg-coaching-note h2 { margin: 0 0 5px; font-family: var(--gg-font-editorial); font-size: clamp(1.25rem, 2vw, 1.75rem); line-height: 1.15; }
+.gg-neo-brutalist-page .gg-coaching-note p { margin: 0; font-family: var(--gg-font-editorial); font-size: 1rem; line-height: 1.45; color: var(--gg-color-secondary-brown); }
+.gg-neo-brutalist-page .gg-coaching-link { font-family: var(--gg-font-data); font-size: .78rem; font-weight: 900; letter-spacing: var(--gg-letter-spacing-wide); color: var(--gg-color-teal); text-transform: uppercase; white-space: nowrap; }
+@media (max-width: 820px) {
+  .gg-neo-brutalist-page .gg-offer { grid-template-columns: 1fr; }
+  .gg-neo-brutalist-page .gg-offer-action { min-width: 0; }
+  .gg-neo-brutalist-page .gg-coaching-note { grid-template-columns: 1fr; }
+}
+</style>'''
+
 
 def _extract_css_content() -> str:
     """Extract raw CSS from get_page_css() (strip <style> tags)."""
-    raw = get_page_css()
+    raw = get_page_css() + APPROVED_TOP_CSS
     return raw.replace('<style>', '').replace('</style>', '').strip()
 
 
@@ -6236,22 +6345,24 @@ def generate_page(rd: dict, race_index: list = None, external_assets: dict = Non
     hero = build_hero(rd)
     course_overview = build_course_overview(rd, race_index)
     history = build_history(rd)
-    course_route = build_course_route(rd, history)
+    course_route = build_course_route(rd)
     from_the_field = build_from_the_field(rd)
     ratings = build_ratings(rd)
-    verdict = build_verdict(rd, race_index)
     racer_reviews = build_racer_reviews(rd)
     email_capture = build_email_capture(rd)
     visible_faq = build_visible_faq(rd)
     news = build_news_section(rd)
-    training = build_training(rd)
-    train_for_race = build_train_for_race(rd, email_capture)
+    custom_plan = build_custom_plan_offer(rd)
+    coaching = build_coaching_footnote(rd)
+    training = build_training_intelligence(rd)
+    train_for_race = build_train_for_race(
+        rd, email_capture, include_commerce=False)
     logistics_sec = build_logistics_section(rd)
     tire_picks = build_tire_picks(rd)
     similar = build_similar_races(rd, race_index)
     citations_sec = build_citations_section(rd)
     footer = build_footer(rd)
-    sticky_cta = build_sticky_cta(rd['name'], rd['slug'])
+    sticky_cta = ''
 
     # Dynamic TOC — only link to sections that have content
     active = {'course', 'ratings', 'training'}  # always present
@@ -6261,8 +6372,6 @@ def generate_page(rd: dict, race_index: list = None, external_assets: dict = Non
         active.add('route')
     if from_the_field:
         active.add('from-the-field')
-    if verdict:
-        active.add('verdict')
     if logistics_sec:
         active.add('logistics')
     if tire_picks:
@@ -6277,7 +6386,6 @@ def generate_page(rd: dict, race_index: list = None, external_assets: dict = Non
         active.add('citations')
     toc = build_toc(active)
     breakdown = build_breakdown_tiles(active)
-    transition = build_training_transition(rd['name'])
 
     # Use external assets if provided, otherwise inline
     if external_assets:
@@ -6289,19 +6397,18 @@ def generate_page(rd: dict, race_index: list = None, external_assets: dict = Non
         css = critical_css + '\n  ' + external_assets['css_tag']
         inline_js = external_assets['js_tag']
     else:
-        css = get_page_css()
+        css = get_page_css() + APPROVED_TOP_CSS
         inline_js = build_inline_js()
 
-    # The first pass is deliberately short: evidence and verdict first, then a
-    # quiet hinge into the custom offer. Everything retained for trust and SEO
-    # remains server-rendered in the deep dive below.
-    spine_sections = [verdict, ratings, breakdown, transition, training]
+    # The approved first pass is locked: ratings, custom plan, coaching
+    # footnote, then the original Full Breakdown navigation.
+    spine_sections = [ratings, custom_plan, coaching, breakdown]
     spine = '\n\n  '.join(section for section in spine_sections if section)
 
     deep_sections = []
-    for section in [course_overview, course_route, from_the_field,
-                    racer_reviews, train_for_race, logistics_sec, tire_picks,
-                    news, similar, visible_faq, citations_sec]:
+    for section in [course_overview, history, course_route, from_the_field,
+                    racer_reviews, training, train_for_race, logistics_sec,
+                    tire_picks, news, similar, visible_faq, citations_sec]:
         if section:
             deep_sections.append(section)
 

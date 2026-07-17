@@ -1139,21 +1139,21 @@ class TestFullPage:
         assert 'id="history"' in html
         assert 'id="route"' in html
         assert 'id="ratings"' in html
-        assert 'id="verdict"' in html
         assert 'id="training"' in html
         assert 'id="logistics"' in html
+        assert 'id="verdict"' not in html
 
     def test_spine_order_and_deep_dive_demote(self, normalized_data):
         html = generate_page(normalized_data)
         ordered_markers = [
             'class="gg-hero"',
-            'id="verdict"',
             'id="ratings"',
+            'data-measure-section="custom-plan"',
+            'data-measure-section="coaching"',
             'id="breakdown"',
-            'class="gg-training-transition"',
-            'id="training"',
             'id="deep-dive"',
             'id="course"',
+            'id="training"',
         ]
         positions = [html.index(marker) for marker in ordered_markers]
         assert positions == sorted(positions)
@@ -1168,12 +1168,26 @@ class TestFullPage:
         assert 'class="gg-coaching-teaser"' not in html
         assert 'class="gg-tire-callout"' not in html
         assert 'id="gg-date-reminder-form"' not in html
+        assert 'class="gg-sticky-cta"' not in html
 
-    def test_ab_client_and_race_offer_experiments_are_present(self, normalized_data):
+    def test_approved_offer_is_not_rewritten_by_old_ab_experiments(self, normalized_data):
         html = generate_page(normalized_data)
         assert "gg-ab-tests" in html
-        assert 'data-ab="race_offer_price"' in html
-        assert 'data-ab="race_offer_cta"' in html
+        assert 'data-ab="race_offer_price"' not in html
+        assert 'data-ab="race_offer_cta"' not in html
+        assert 'data-cta="approved_custom_plan"' in html
+        assert 'data-cta="approved_coaching"' in html
+
+    def test_deep_dive_keeps_training_intelligence_without_commerce(self, normalized_data):
+        html = generate_page(normalized_data)
+        deep = html.split('<div class="gg-deep-dive" id="deep-dive"', 1)[1].split('<footer', 1)[0]
+        assert 'id="training"' in deep
+        for forbidden in [
+            '/questionnaire/', '/coaching/', 'BUILD MY PLAN',
+            'PREVIEW MY PLAN', '/training-plan/', 'gg-pack-cta',
+            'gg-cfg-bar', 'data-cta="coaching"',
+        ]:
+            assert forbidden not in deep
 
     def test_no_inline_event_handlers(self, normalized_data):
         html = generate_page(normalized_data)

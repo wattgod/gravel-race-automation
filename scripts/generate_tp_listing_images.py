@@ -677,20 +677,25 @@ def draw_radar(base_img: "Image.Image", cx: int, cy: int, r: int, dims: list,
         draw.ellipse([pt[0] - rad, pt[1] - rad, pt[0] + rad, pt[1] + rad],
                      fill=color, outline=DARK_BROWN, width=2)
 
-    # Axis labels (short code + n/5), positioned outside the ring.
-    label_r = r + 46
+    # Axis labels (full word + n/5), positioned outside the ring.
+    # 2026-07-16 (Matti: "specs aren't clear"): 3-letter codes replaced with
+    # the full DIM_LABELS words — the image displays at ~40% scale in the TP
+    # description column, where LOG/CST/FLD read as noise. Geometry: widest
+    # word (EXPERIENCE, 10ch @32px bold ≈ 198px) at a near-horizontal vertex
+    # extends to ~307px from column center vs the 310px half-column.
+    label_r = r + 58
     for i, dim in enumerate(dims):
         lx, ly = _radar_point(cx, cy, r, angle_offset, n, i, label_r)
-        code = DIM_SHORT[dim]
+        word = DIM_LABELS[dim].upper()
         score_text = f"{scores[dim]}/5"
-        assert_contrast(DARK_BROWN, PAPER, font_axis.size, True, f"radar axis label {code}")
-        assert_contrast(color, PAPER, font_score.size, True, f"radar axis score {code}")
-        assert_type_floor(font_axis.size, f"radar axis label {code}")
-        assert_type_floor(font_score.size, f"radar axis score {code}")
-        cw = tw(draw, code, font_axis)
+        assert_contrast(DARK_BROWN, PAPER, font_axis.size, True, f"radar axis label {word}")
+        assert_contrast(color, PAPER, font_score.size, True, f"radar axis score {word}")
+        assert_type_floor(font_axis.size, f"radar axis label {word}")
+        assert_type_floor(font_score.size, f"radar axis score {word}")
+        cw = tw(draw, word, font_axis)
         sw = tw(draw, score_text, font_score)
-        draw.text((lx - cw / 2, ly - 26), code, fill=DARK_BROWN, font=font_axis)
-        draw.text((lx - sw / 2, ly + 2), score_text, fill=color, font=font_score)
+        draw.text((lx - cw / 2, ly - 38), word, fill=DARK_BROWN, font=font_axis)
+        draw.text((lx - sw / 2, ly + 4), score_text, fill=color, font=font_score)
 
     # Center total.
     total = sum(scores_list)
@@ -704,11 +709,12 @@ def draw_radar(base_img: "Image.Image", cx: int, cy: int, r: int, dims: list,
     mw = tw(draw, max_text, font_center_label)
     draw.text((cx - mw / 2, cy + 14), max_text, fill=SEC_BROWN, font=font_center_label)
 
-    # Chart label underneath.
+    # Chart label underneath — clear of the bottom vertex labels (they extend
+    # to ~label_r + score line; +48 keeps daylight between them).
     assert_type_floor(font_center_label.size, "radar chart label")
     assert_contrast(DARK_BROWN, PAPER, font_center_label.size, True, "radar chart label")
     lbl_w = tw(draw, label, font_center_label)
-    draw.text((cx - lbl_w / 2, cy + r + label_r - r + 6), label, fill=DARK_BROWN, font=font_center_label)
+    draw.text((cx - lbl_w / 2, cy + label_r + 48), label, fill=DARK_BROWN, font=font_center_label)
 
 
 # ── Header image ─────────────────────────────────────────────────
@@ -734,7 +740,10 @@ def build_header_image(race: dict):
     month = month_match.group(1).upper() if month_match else ""
 
     margin = 48
-    radar_h = 460 if state == "rated" else 0
+    # 580 = 264 (center offset clearing the top vertex word+score stack at
+    # label_r+44) + 256 (bottom stack) + 60 (chart label + pad). The old 460
+    # let top vertex labels bleed into the title block (Matti: "jumbled").
+    radar_h = 580 if state == "rated" else 0
     footer_pad = 40
 
     font_kicker = load_font(FONT_DATA_BOLD, 20)
@@ -770,7 +779,10 @@ def build_header_image(race: dict):
     name_line_h = 62
     chip_y = 52 + len(lines) * name_line_h + 8
     th_chip = th(_measure_draw, "TIER", font_tier) + 16
-    top_h = chip_y + th_chip + 20
+    # Meta line gets its OWN row under the chip (it used to share the chip
+    # row and crowd the score block on long location strings).
+    meta_row_h = th(_measure_draw, "M", font_meta) + 14
+    top_h = chip_y + th_chip + 12 + meta_row_h + 18
     height = top_h + radar_h + footer_pad
 
     img = Image.new("RGBA", (HEADER_W, height), PAPER + (255,))
@@ -797,16 +809,14 @@ def build_header_image(race: dict):
         assert_type_floor(font_tier.size, "tier chip")
         draw.rectangle([text_x, chip_y, text_x + tw_chip, chip_y + th_chip], fill=GOLD)
         draw.text((text_x + 14, chip_y + 8), tier_text, fill=DARK_BROWN, font=font_tier)
-        meta_x = text_x + tw_chip + 20
     else:
-        meta_x = text_x
         th_chip = th(draw, "TIER", font_tier) + 16
 
     meta_parts = [p for p in (location.upper(), month, distance) if p]
     meta_line = "  ·  ".join(meta_parts)
     assert_contrast(SEC_BROWN, PAPER, font_meta.size, False, "meta line")
     assert_type_floor(font_meta.size, "meta line")
-    draw.text((meta_x, chip_y + 4), meta_line, fill=SEC_BROWN, font=font_meta)
+    draw.text((text_x, chip_y + th_chip + 12), meta_line, fill=SEC_BROWN, font=font_meta)
 
     # Score block, right side.
     if state == "rated":
@@ -849,7 +859,10 @@ def build_header_image(race: dict):
 
         col_w = HEADER_W // 2
         radius = 150
-        cy = top_h + 60 + radius
+        # cy sits so the TOP vertex label stack (word at label_r+38 above the
+        # vertex) clears the divider — the old top_h+60+radius drew labels
+        # into the title block.
+        cy = top_h + 264
         draw_radar(img, col_w // 2, cy, radius, COURSE_DIMS, course_scores, TEAL,
                    "COURSE PROFILE", font_axis, font_axis, font_center, font_center_label, 35)
         draw.line([(col_w, top_h + 10), (col_w, top_h + radar_h - 30)], fill=TAN_RULE, width=1)

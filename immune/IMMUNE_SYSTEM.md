@@ -16,7 +16,7 @@ never edits, commits, or deploys anything.
 ```
         ┌─────────────────────────────────────────────────────┐
         │  LAYER 1  (dumb, fast, free)   scripts/immune_check.py│
-        │  score/tier math · coords · tagline/RWGPS ·           │
+        │  score/tier math · coords · tagline/RWGPS · CI/crons  │
         │  search-index parity · money-path alive ·             │
         │  near-duplicates · security                           │
         └───────────────┬─────────────────────────────────────┘
@@ -42,14 +42,15 @@ metric improved, else roll back*) is what makes autonomous repair safe.
 
 | Lane | What's in it | What happens |
 |------|--------------|--------------|
-| 🟢 **auto-heal** | stale/missing search index (`web/race-index.json` count drifted from `race-data/`) | Repair loop applies the safe fix → Layer 1 must stay green → commits. Logged. |
-| 🟡 **needs you** | **all scores/tiers** (score-math, tier-math), missing tagline, bad coordinates, bad RideWithGPS ids, malformed JSON, near-duplicate races | A fix is *proposed* into a branch/PR. You get a 1-click link in the digest. |
-| 🔴 **issue only** | **anything on the money path** (`/questionnaire/`, `/coaching/`), possible secret exposure, systemic breakage | No edit. Flagged red in the digest. You (or the agent, with your yes) handle it. |
+| 🟢 **auto-heal** | stale/missing search index; known workflow YAML patterns; Node drift; disabling the schedule of a repeatedly broken scheduled workflow | Repair loop applies the safe home-repo fix → both verifiers must gain no RED → commits and logs. Sibling-repo fixes become YELLOW PR proposals. |
+| 🟡 **needs you** | **all scores/tiers**, missing content/data, failing tests, real monitor issues, ambiguous CI, repeated/zero-work crons | A fix is *proposed* into a branch/PR. You get a 1-click link in Morning Command. |
+| 🔴 **issue only** | **anything on the money path** (Stripe/webhook, checkout, order delivery, `/questionnaire/`, `/coaching/`), secrets/security, production outages | No edit. Flagged red in Morning Command. You handle it. |
 
 **Hard rule:** the money path never auto-heals, even if the fix looks trivial.
 This is encoded in `immune_check.py` (money-path findings are always RED).
 
-The lane for every check lives in the `RULES` table in `scripts/immune_check.py`.
+The lane for every check lives in the `RULES` table in `scripts/immune_check.py`;
+`scripts/immune_ci.py` emits that exact `Finding` schema.
 To move something between lanes, edit one row there — that's the whole policy surface.
 
 ---
@@ -72,8 +73,9 @@ per-profile DETECT layer here instead reuses `scripts/audit_race_data.py`'s
 is reused as-is for the live check; its `DEAD LINKS` output format was already
 identical to the reference implementation this was cloned from.
 
-It writes `immune/report.json` (latest full result) and appends a run record to
-`immune/ledger.jsonl`. **It never edits, commits, or deploys.**
+It writes `immune/report.json` (latest full result) and appends scan telemetry
+to `immune/scans.jsonl`. The tracked `immune/ledger.jsonl` contains fixes only.
+**It never edits, commits, or deploys.**
 
 ---
 
@@ -92,12 +94,12 @@ Once a night a scheduled Claude Code agent runs this exact routine:
 4. **For each 🔴 finding:** open a GitHub issue (or reuse the open one); never edit.
 5. **Log.** Append a `type:"fix"` record to `immune/ledger.jsonl` for anything
    healed or PR'd, including the `regression_check` that will now catch a recurrence.
-6. **Report.** Send ONE digest email (below). Deploy only if you've turned on
+6. **Report.** Morning Command sends ONE consolidated email. Deploy only if you've turned on
    deploy authority (see switches) — otherwise it stops at "committed, awaiting deploy."
 
-### The nightly digest (your morning ritual)
+### Morning Command (your morning ritual)
 ```
-Subject: 🩺 Immune report — <date> (<N> need you)
+Subject: Morning Command · <date> · <N> need you
 
 ✅ AUTO-HEALED (n)   <one line each>
 ⚠️ NEEDS YOU (n)     <title → PR link>
@@ -109,9 +111,9 @@ Subject: 🩺 Immune report — <date> (<N> need you)
 
 ## The ledger — why the same mistake can't sneak back
 
-`immune/ledger.jsonl` is the memory. Two record types:
-- `type:"scan"` — every run's counts (the health history / streak).
-- `type:"fix"` — a resolved issue: what broke, root cause, the fix, and crucially
+`immune/ledger.jsonl` is the permanent fix memory. Scan records live in the
+gitignored `immune/scans.jsonl`; the ledger contains `type:"fix"` records — a
+resolved issue: what broke, root cause, the fix, and crucially
   **`regression_check`** — the exact check in `immune_check.py` that now fails if
   it recurs.
 

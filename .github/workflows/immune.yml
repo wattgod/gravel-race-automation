@@ -1,7 +1,7 @@
 name: Immune Check
 
-# Layer 1 of the immune system: the deterministic verifier. Runs on every push
-# and nightly. Fails the build ONLY on a RED finding (dead money path, possible
+# Layer 1 of the immune system: the deterministic verifier. Runs on every push;
+# the daily scan is composed by Morning Command. Fails ONLY on a RED finding (dead money path, possible
 # secret) so real emergencies are loud; judgment-call YELLOW findings are left for
 # the nightly agent's PR, not a blocked push.
 #
@@ -11,8 +11,6 @@ name: Immune Check
 
 on:
   push:
-  schedule:
-    - cron: "0 6 * * *"   # 06:00 UTC nightly
   workflow_dispatch:
 
 jobs:

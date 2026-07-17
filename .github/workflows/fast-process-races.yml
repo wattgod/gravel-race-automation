@@ -82,13 +82,14 @@ jobs:
                   ]
               }
           
-          print(f"::set-output name=matrix::{json.dumps(matrix)}")
+          with open(os.environ["GITHUB_OUTPUT"], "a") as output:
+              output.write(f"matrix={json.dumps(matrix)}\n")
           print(f"Processing {len(matrix.get('include', []))} races")
           EOF
 
   process:
     needs: prepare
-    if: ${{ fromJson(needs.prepare.outputs.matrix).include != '[]' }}
+    if: ${{ fromJson(needs.prepare.outputs.matrix).include[0] != null }}
     runs-on: ubuntu-latest
     strategy:
       matrix: ${{ fromJson(needs.prepare.outputs.matrix) }}
@@ -148,4 +149,3 @@ jobs:
           git add research-dumps/ briefs/ landing-pages/ data/processed/
           git commit -m "Fast-processed: ${{ matrix.race_name }}" || echo "No changes"
           git push || echo "Push failed"
-

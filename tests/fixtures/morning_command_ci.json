@@ -1,0 +1,18 @@
+{
+  "ok": true,
+  "repos": {
+    "wattgod/gravel-race-automation": [
+      {"workflowName": "Broken YAML", "conclusion": "failure", "event": "push", "databaseId": 101},
+      {"workflowName": "Broken YAML", "conclusion": "success", "event": "push", "databaseId": 100},
+      {"workflowName": "Tests", "conclusion": "failure", "event": "push", "databaseId": 201},
+      {"workflowName": "Tests", "conclusion": "failure", "event": "push", "databaseId": 200},
+      {"workflowName": "Green", "conclusion": "success", "event": "push", "databaseId": 301}
+    ],
+    "wattgod/road-race-automation": [
+      {"workflowName": "Node Sync", "conclusion": "failure", "event": "schedule", "databaseId": 401},
+      {"workflowName": "Node Sync", "conclusion": "failure", "event": "schedule", "databaseId": 400}
+    ]
+  },
+  "errors": {},
+  "limit": 5
+}

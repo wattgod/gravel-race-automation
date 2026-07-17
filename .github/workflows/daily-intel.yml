@@ -1,8 +1,7 @@
-name: Morning Intel
+name: Morning Command
 
-# Daily interpreted report (GA4 + checkout + Mission Control + errors) for
-# both brands → gravelgodcoaching@gmail.com, with snapshots committed to
-# data/intel-snapshots/ so trends compound. Spec: docs/specs/daily-intel-report.md
+# Single daily detector chain + ranked email for commerce, immune, site health,
+# ecosystem CI, and Endure Labs cron health.
 
 on:
   schedule:
@@ -16,34 +15,58 @@ permissions:
 jobs:
   intel:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 35
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
-          python-version: "3.12"
+          python-version: "3.11"
       - name: Install dependencies
-        run: pip install --quiet google-analytics-data supabase python-dotenv
+        run: pip install --quiet google-analytics-data google-api-python-client google-auth supabase python-dotenv pyyaml
       - name: Write GA4 credentials
         run: echo "$GA4_CREDENTIALS_JSON" > ga4-credentials.json
         env:
           GA4_CREDENTIALS_JSON: ${{ secrets.GA4_CREDENTIALS_JSON }}
-      - name: Run Morning Intel
+      - name: Write GSC credentials
+        run: echo "$GSC_SERVICE_ACCOUNT_JSON" > /tmp/gsc-creds.json
+        env:
+          GSC_SERVICE_ACCOUNT_JSON: ${{ secrets.GSC_SERVICE_ACCOUNT_JSON }}
+      - name: Capture GSC detector snapshot
+        continue-on-error: true
+        env:
+          GOOGLE_APPLICATION_CREDENTIALS: /tmp/gsc-creds.json
+        run: python3 scripts/gsc_tracker.py --snapshot --report
+      - name: Capture CWV detector snapshot
+        continue-on-error: true
+        env:
+          PAGESPEED_API_KEY: ${{ secrets.PAGESPEED_API_KEY }}
+        run: python3 scripts/cwv_monitor.py --snapshot --report
+      - name: Run immune detector
+        continue-on-error: true
+        run: python3 scripts/immune_check.py --json --fail-on red > /tmp/immune.json
+      - name: Run CI and cron detector + verified safe repairs
+        env:
+          GH_TOKEN: ${{ secrets.ECOSYSTEM_GH_TOKEN || github.token }}
+          ENDURELABS_CRON_HEALTH_URL: ${{ secrets.ENDURELABS_CRON_HEALTH_URL }}
+          ENDURELABS_CRON_HEALTH_TOKEN: ${{ secrets.ENDURELABS_CRON_HEALTH_TOKEN }}
+          ENDURELABS_SUPABASE_URL: ${{ secrets.ENDURELABS_SUPABASE_URL }}
+          ENDURELABS_SUPABASE_SERVICE_KEY: ${{ secrets.ENDURELABS_SUPABASE_SERVICE_KEY }}
+        run: python3 scripts/immune_ci.py --apply-safe
+      - name: Compose and send Morning Command
         env:
           GG_GA4_PROPERTY_ID: ${{ secrets.GG_GA4_PROPERTY_ID }}
           RL_GA4_PROPERTY_ID: ${{ secrets.RL_GA4_PROPERTY_ID }}
           SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
           SUPABASE_SERVICE_KEY: ${{ secrets.SUPABASE_SERVICE_KEY }}
           RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
-          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           CRON_SECRET: ${{ secrets.CRON_SECRET }}
-          GH_TOKEN: ${{ github.token }}
+          GH_TOKEN: ${{ secrets.ECOSYSTEM_GH_TOKEN || github.token }}
         run: python3 scripts/daily_intel.py
       - name: Commit snapshot
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add data/intel-snapshots/
-          git diff --cached --quiet || git commit -m "chore: intel snapshot $(date +%Y-%m-%d)"
+          git add data/intel-snapshots/ data/gsc-snapshots/ data/cwv-snapshots/ reports/health/ immune/ledger.jsonl .github/workflows/
+          git diff --cached --quiet || git commit -m "chore: morning command $(date +%Y-%m-%d)"
           git pull --rebase origin main || true
           git push

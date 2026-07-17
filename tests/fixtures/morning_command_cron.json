@@ -1,0 +1,10 @@
+{
+  "ok": true,
+  "runs": [
+    {"cron_name": "david-resolve-predictions", "status": "success", "work_count": 0},
+    {"cron_name": "david-resolve-predictions", "status": "success", "work_count": 0},
+    {"cron_name": "calendar-refresh", "status": "failed", "work_count": 0},
+    {"cron_name": "calendar-refresh", "status": "failed", "work_count": 0},
+    {"cron_name": "healthy", "status": "success", "work_count": 12}
+  ]
+}

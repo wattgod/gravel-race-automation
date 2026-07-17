@@ -321,15 +321,23 @@ def collect_enrollments() -> dict:
     """New sequence enrollments (last 24h) with reply context — the
     friend-register KPI surface. Requires Supabase."""
     try:
+        import urllib.request
         from datetime import timezone as _tz
-        from mission_control import supabase_client as db
+
+        # REST, not the supabase SDK — local cron python lacks the package
+        # (same pattern as scripts/sequence_report.py).
+        base = os.environ["SUPABASE_URL"]
+        key = (os.environ.get("SUPABASE_SERVICE_ROLE_KEY")
+               or os.environ.get("SUPABASE_SERVICE_KEY", ""))
+        url = (f"{base}/rest/v1/gg_sequence_enrollments"
+               "?select=contact_email,contact_name,sequence_id,source,source_data,enrolled_at"
+               "&order=enrolled_at.desc&limit=500")
+        req = urllib.request.Request(
+            url, headers={"apikey": key, "Authorization": f"Bearer {key}"})
+        with urllib.request.urlopen(req, timeout=30) as resp:
+            rows = json.loads(resp.read().decode())
 
         cutoff = (datetime.now(_tz.utc) - timedelta(hours=24)).isoformat()
-        rows = db.select(
-            "gg_sequence_enrollments",
-            columns="contact_email,contact_name,sequence_id,source,source_data,enrolled_at",
-            order="enrolled_at", limit=500,
-        )
         new = [r for r in rows if (r.get("enrolled_at") or "") >= cutoff]
         people = []
         for r in new:

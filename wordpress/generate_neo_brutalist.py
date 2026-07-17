@@ -6459,7 +6459,7 @@ def generate_page(rd: dict, race_index: list = None, external_assets: dict = Non
 <body>
 
 <a href="#ratings" class="gg-skip-link">Skip to content</a>
-<div class="gg-neo-brutalist-page" data-race-slug="{esc(rd['slug'])}" data-page-format="spine-v2">
+<div class="gg-neo-brutalist-page" data-race-slug="{esc(rd['slug'])}" data-page-format="spine-v2-approved">
   {nav_header}
 
   {hero}

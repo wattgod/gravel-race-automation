@@ -150,6 +150,20 @@ def parse_event_dates(date_str: str) -> tuple[str | None, str | None]:
             end = f"{year}-{month}-{int(end_day):02d}" if end_day else start
             return start, end
 
+    # Common profile form: "July 5, 2026" (optionally with notes/time).
+    month_first = re.search(r'\b([A-Za-z]+)\s+(\d{1,2}),\s*(\d{4})\b', clean)
+    if month_first:
+        month_name, day, year = month_first.groups()
+        month = MONTH_NUMBERS.get(month_name.lower())
+        if month is None:
+            try:
+                month = datetime.strptime(month_name[:3], '%b').strftime('%m')
+            except ValueError:
+                month = None
+        if month:
+            parsed = f"{year}-{month}-{int(day):02d}"
+            return parsed, parsed
+
     # If the string contains a year but we still couldn't parse it, warn
     if re.search(r'\d{4}', date_str):
         logger.warning("Date contains year but failed to parse: %s", date_str)
@@ -456,7 +470,10 @@ def normalize_race_data(data: dict) -> dict:
         },
         'biased_opinion': {
             'verdict': bo.get('verdict', ''),
-            'summary': bo.get('summary', ''),
+            # Historical profiles use either ``summary`` or ``overview`` for
+            # the same editor-written judgment. Preserve both instead of
+            # silently dropping the verdict on older profiles.
+            'summary': bo.get('summary', '') or bo.get('overview', ''),
             'strengths': bo.get('strengths', []),
             'weaknesses': bo.get('weaknesses', []),
             'bottom_line': bo.get('bottom_line', ''),
@@ -464,7 +481,10 @@ def normalize_race_data(data: dict) -> dict:
         'final_verdict': {
             'score': final_verdict.get('score', ''),
             'one_liner': final_verdict.get('one_liner', ''),
-            'should_you_race': final_verdict.get('should_you_race', ''),
+            'should_you_race': (
+                final_verdict.get('should_you_race', '')
+                or final_verdict.get('full_verdict', '')
+            ),
             'alternatives': final_verdict.get('alternatives', ''),
         },
         'course': {
@@ -1256,6 +1276,7 @@ document.querySelectorAll('.gg-faq-question').forEach(function(q) {
   if (typeof gtag !== 'function') return;
   var page = document.querySelector('.gg-neo-brutalist-page');
   var raceSlug = page ? (page.getAttribute('data-race-slug') || '') : '';
+  var pageFormat = page ? (page.getAttribute('data-page-format') || '') : '';
   document.querySelectorAll('a[data-cta], a.gg-btn, a.gg-btn--outline, a.gg-prep-kit-link').forEach(function(link) {
     link.addEventListener('click', function() {
       var text = this.textContent.trim().replace(/\s+/g, ' ');
@@ -1272,7 +1293,8 @@ document.querySelectorAll('.gg-faq-question').forEach(function(q) {
         cta_text: text.substring(0, 50),
         cta_section: section_id,
         cta_href: href,
-        race_slug: raceSlug
+        race_slug: raceSlug,
+        page_format: pageFormat
       });
     });
   });
@@ -1281,22 +1303,55 @@ document.querySelectorAll('.gg-faq-question').forEach(function(q) {
 // Section exposure — one event per measured section after it becomes visible.
 // This records real scrolling/viewport behavior without synthetic page-load hits.
 (function() {
+  var crumb = document.getElementById('gg-races-crumb');
+  if (!crumb || !document.referrer) return;
+  try {
+    var referrer = new URL(document.referrer);
+    var path = referrer.pathname;
+    var isDiscovery = referrer.origin === window.location.origin && (
+      path.indexOf('/gravel-races/') === 0 ||
+      path.indexOf('/race/calendar/') === 0 ||
+      path.indexOf('/race/best-') === 0 ||
+      path.indexOf('/race/tier-') === 0 ||
+      path.indexOf('/race/series/') === 0
+    );
+    if (isDiscovery) {
+      crumb.href = path + referrer.search;
+      crumb.textContent = 'Back to results';
+    }
+  } catch(e) {}
+})();
+
+(function() {
   if (typeof gtag !== 'function' || !('IntersectionObserver' in window)) return;
   var page = document.querySelector('.gg-neo-brutalist-page');
   var raceSlug = page ? (page.getAttribute('data-race-slug') || '') : '';
+  var pageFormat = page ? (page.getAttribute('data-page-format') || '') : '';
   var seen = {};
   var observer = new IntersectionObserver(function(entries) {
     entries.forEach(function(entry) {
       if (!entry.isIntersecting) return;
-      var section = entry.target.getAttribute('data-measure-section');
+      var section = entry.target.getAttribute('data-measure-section') || ('deep_' + (entry.target.id || 'section'));
       if (!section || seen[section]) return;
       seen[section] = true;
-      gtag('event', 'race_section_view', {race_slug: raceSlug, section: section});
+      gtag('event', 'race_section_view', {race_slug: raceSlug, page_format: pageFormat, section: section, section_name: section});
       observer.unobserve(entry.target);
     });
   }, {threshold: 0.25});
-  document.querySelectorAll('[data-measure-section]').forEach(function(el) { observer.observe(el); });
+  document.querySelectorAll('[data-measure-section], .gg-deep-dive > section[id]').forEach(function(el) { observer.observe(el); });
 })();
+
+document.querySelectorAll('a[data-related-race]').forEach(function(link) {
+  link.addEventListener('click', function() {
+    if (typeof gtag !== 'function') return;
+    var page = document.querySelector('.gg-neo-brutalist-page');
+    gtag('event', 'related_race_click', {
+      race_slug: page ? (page.getAttribute('data-race-slug') || '') : '',
+      page_format: page ? (page.getAttribute('data-page-format') || '') : '',
+      related_race_slug: link.getAttribute('data-related-race') || ''
+    });
+  });
+});
 
 // Calendar download — avoids executable data in inline event attributes.
 document.querySelectorAll('.gg-cal-btn--ics').forEach(function(link) {
@@ -2703,16 +2758,23 @@ def build_verdict(rd: dict, race_index: list = None) -> str:
     strengths = bo.get('strengths', [])
     weaknesses = bo.get('weaknesses', [])
 
-    if not strengths and not weaknesses and not fv.get('should_you_race'):
-        # Fallback: show summary if available
-        if bo.get('summary'):
-            return f'''<section id="verdict" class="gg-section gg-section--dark gg-fade-section">
+    if not strengths and not weaknesses:
+        # Thin/legacy profiles often have a sourced one-line editorial verdict
+        # but no Race/Skip lists. Show that real copy rather than omitting the
+        # decision from the spine or padding it with generic list items.
+        verdict_text = (
+            bo.get('summary')
+            or fv.get('should_you_race')
+            or fv.get('one_liner')
+        )
+        if verdict_text:
+            return f'''<section id="verdict" class="gg-section gg-section--dark gg-fade-section" data-measure-section="verdict">
     <div class="gg-section-header gg-section-header--gold">
       <span class="gg-section-kicker">[06]</span>
       <h2 class="gg-section-title">Final Verdict</h2>
     </div>
     <div class="gg-section-body">
-      <div class="gg-prose"><p>{esc(bo["summary"])}</p></div>
+      <div class="gg-prose"><p>{esc(verdict_text)}</p></div>
     </div>
   </section>'''
         return ''
@@ -2787,7 +2849,7 @@ def build_breakdown_tiles(active_sections: set[str]) -> str:
             f'<a class="gg-breakdown-tile" href="#{media_target}">'
             f'<span>Photos / News</span><small>See the race through sourced field media.</small></a>'
         )
-    return f'''<nav id="breakdown" class="gg-breakdown" aria-label="Full race breakdown">
+    return f'''<nav id="breakdown" class="gg-breakdown" aria-label="Full race breakdown" data-measure-section="breakdown">
       <div class="gg-breakdown-head"><span>FULL BREAKDOWN</span><p>Jump to the detail you need.</p></div>
       <div class="gg-breakdown-grid">{''.join(tiles)}</div>
     </nav>'''
@@ -5067,13 +5129,13 @@ def build_similar_races(rd: dict, race_index: list) -> str:
         tier_num = r.get('tier', 4)
         dist = r.get('distance_mi', '')
         dist_str = f" &middot; {dist} mi" if dist else ''
-        cards.append(f'''<a href="/race/{esc(r['slug'])}/" class="gg-similar-card">
+        cards.append(f'''<a href="/race/{esc(r['slug'])}/" class="gg-similar-card" data-related-race="{esc(r['slug'])}">
         <span class="gg-similar-tier">T{tier_num}</span>
         <span class="gg-similar-name">{esc(r['name'])}</span>
         <span class="gg-similar-meta">{esc(r.get('location', ''))}{dist_str} &middot; {r.get('overall_score', 0)}/100</span>
       </a>''')
 
-    return f'''<section class="gg-section gg-fade-section">
+    return f'''<section class="gg-section gg-fade-section" id="similar-races">
     <div class="gg-section-header gg-section-header--dark">
       <span class="gg-section-kicker">[&mdash;]</span>
       <h2 class="gg-section-title">Similar Races</h2>
@@ -5213,14 +5275,14 @@ def build_nav_header(rd: dict, race_index: list) -> str:
     """Build visible navigation header with breadcrumb trail."""
     return get_site_header_html(active="races") + '''
   <div class="gg-reading-progress" id="gg-reading-progress"><div class="gg-reading-progress-bar" id="gg-reading-progress-bar"></div></div>
-''' + f'''  <div class="gg-breadcrumb">
+''' + f'''  <nav class="gg-breadcrumb" aria-label="Breadcrumb">
     <a href="{SITE_BASE_URL}/">Home</a>
     <span class="gg-breadcrumb-sep">&rsaquo;</span>
-    <a href="{SITE_BASE_URL}/gravel-races/">Gravel Races</a>
+    <a href="{SITE_BASE_URL}/gravel-races/" id="gg-races-crumb">Gravel Races</a>
     <span class="gg-breadcrumb-sep">&rsaquo;</span>
     {_build_breadcrumb_series_segment(rd)}
     <span class="gg-breadcrumb-current">{esc(rd['name'])}</span>
-  </div>'''
+  </nav>'''
 
 
 def build_footer(rd: dict = None) -> str:
@@ -6233,11 +6295,11 @@ def generate_page(rd: dict, race_index: list = None, external_assets: dict = Non
     # The first pass is deliberately short: evidence and verdict first, then a
     # quiet hinge into the custom offer. Everything retained for trust and SEO
     # remains server-rendered in the deep dive below.
-    spine_sections = [ratings, breakdown, transition, training]
+    spine_sections = [verdict, ratings, breakdown, transition, training]
     spine = '\n\n  '.join(section for section in spine_sections if section)
 
     deep_sections = []
-    for section in [verdict, course_overview, course_route, from_the_field,
+    for section in [course_overview, course_route, from_the_field,
                     racer_reviews, train_for_race, logistics_sec, tire_picks,
                     news, similar, visible_faq, citations_sec]:
         if section:
@@ -6290,7 +6352,7 @@ def generate_page(rd: dict, race_index: list = None, external_assets: dict = Non
 <body>
 
 <a href="#ratings" class="gg-skip-link">Skip to content</a>
-<div class="gg-neo-brutalist-page" data-race-slug="{esc(rd['slug'])}">
+<div class="gg-neo-brutalist-page" data-race-slug="{esc(rd['slug'])}" data-page-format="spine-v2">
   {nav_header}
 
   {hero}

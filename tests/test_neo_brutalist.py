@@ -649,6 +649,9 @@ class TestParseEventDates:
     def test_single_day(self):
         assert parse_event_dates("2026: June 15") == ("2026-06-15", "2026-06-15")
 
+    def test_month_first_date(self):
+        assert parse_event_dates("May 1, 2026") == ("2026-05-01", "2026-05-01")
+
     def test_same_month_range(self):
         assert parse_event_dates("2026: August 19-23") == ("2026-08-19", "2026-08-23")
 
@@ -794,6 +797,8 @@ class TestSections:
     def test_similar_races(self, normalized_data, sample_race_index):
         html = build_similar_races(normalized_data, sample_race_index)
         assert "gg-similar-card" in html
+        assert 'data-related-race=' in html
+        assert 'id="similar-races"' in html
 
     def test_news_section_has_ticker(self, normalized_data):
         html = build_news_section(normalized_data)
@@ -993,10 +998,11 @@ class TestNav:
 
     def test_breadcrumb_outside_header(self, normalized_data):
         html = build_nav_header(normalized_data, [])
-        # Breadcrumb should be a separate div, not inside <header>
+        # Breadcrumb should be a separate landmark, not inside <header>.
         header_end = html.index("</header>")
         breadcrumb_start = html.index('class="gg-breadcrumb"')
         assert breadcrumb_start > header_end
+        assert '<nav class="gg-breadcrumb" aria-label="Breadcrumb">' in html
 
     def test_breadcrumb_has_race_name_and_tier(self, normalized_data):
         html = build_nav_header(normalized_data, [])
@@ -1141,16 +1147,19 @@ class TestFullPage:
         html = generate_page(normalized_data)
         ordered_markers = [
             'class="gg-hero"',
+            'id="verdict"',
             'id="ratings"',
             'id="breakdown"',
             'class="gg-training-transition"',
             'id="training"',
             'id="deep-dive"',
-            'id="verdict"',
             'id="course"',
         ]
         positions = [html.index(marker) for marker in ordered_markers]
         assert positions == sorted(positions)
+        assert 'id="breakdown" class="gg-breakdown" aria-label="Full race breakdown" data-measure-section="breakdown"' in html
+        assert ".gg-deep-dive > section[id]" in html
+        assert "related_race_click" in html
 
     def test_old_sales_surfaces_are_not_assembled(self, normalized_data):
         html = generate_page(normalized_data)

@@ -29,6 +29,7 @@
   var savedConfigs = [];
   try { savedConfigs = JSON.parse(localStorage.getItem('gg-saved-filters') || '[]'); } catch(e) { savedConfigs = []; }
   var activeSavedIndex = -1;
+  var lastTrackedSearchSignature = '';
 
   var COMPARE_COLORS = [
     { stroke: '#59473c', fill: 'rgba(89,71,60,0.15)' },
@@ -446,7 +447,7 @@
   // ── URL state ──
   function loadFromURL() {
     var params = new URLSearchParams(window.location.search);
-    if (params.get('q')) document.getElementById('gg-search').value = params.get('q');
+    if (params.get('q')) document.getElementById('gg-search').value = normalizeSearchQuery(params.get('q'));
     if (params.get('tier')) document.getElementById('gg-tier').value = params.get('tier');
     if (params.get('region')) document.getElementById('gg-region').value = params.get('region');
     if (params.get('distance')) document.getElementById('gg-distance').value = params.get('distance');
@@ -535,6 +536,10 @@
   }
 
   // ── Filter helpers ──
+  function normalizeSearchQuery(value) {
+    return String(value || '').trim().replace(/\s+/g, ' ').toLowerCase();
+  }
+
   function countByFilter(filterKey, filterValue) {
     return allRaces.filter(function(r) {
       if (filterKey === 'tier') return r.tier == filterValue;
@@ -619,7 +624,7 @@
   }
 
   function getFilters() {
-    var search = document.getElementById('gg-search').value.toLowerCase();
+    var search = normalizeSearchQuery(document.getElementById('gg-search').value);
     var tier = document.getElementById('gg-tier').value;
     var region = document.getElementById('gg-region').value;
     var distance = document.getElementById('gg-distance').value;
@@ -1497,6 +1502,23 @@
     document.getElementById('gg-count').textContent =
       filtered.length + ' race' + (filtered.length !== 1 ? 's' : '') + ' found';
 
+    var filters = getFilters();
+    var searchSignature = [filters.search, filters.tier, filters.region, filters.distance, filters.month, filters.discipline].join('|');
+    if (searchSignature !== lastTrackedSearchSignature && searchSignature.replace(/\|/g, '')) {
+      lastTrackedSearchSignature = searchSignature;
+      if (typeof gtag === 'function') {
+        gtag('event', 'race_search', {
+          search_term: filters.search,
+          result_count: filtered.length,
+          tier: filters.tier,
+          region: filters.region,
+          distance: filters.distance,
+          month: filters.month,
+          discipline: filters.discipline
+        });
+      }
+    }
+
     if (compareMode && compareSlugs.length >= 2) {
       renderComparePanel();
       renderActivePills();
@@ -1564,6 +1586,18 @@
 
   // Delegated event listeners — avoid inline onclick/onchange (XSS prevention)
   document.addEventListener('click', function(e) {
+    var raceLink = e.target.closest('a[href*="/race/"]');
+    if (raceLink) {
+      var match = (raceLink.getAttribute('href') || '').match(/\/race\/([^/?#]+)/);
+      if (match && typeof gtag === 'function') {
+        gtag('event', 'race_result_click', {
+          race_slug: match[1],
+          search_term: getFilters().search,
+          result_mode: displayMode,
+          result_sort: currentSort
+        });
+      }
+    }
     var favBtn = e.target.closest('.gg-fav-btn');
     if (favBtn && favBtn.dataset.slug) {
       toggleFavorite(favBtn.dataset.slug);

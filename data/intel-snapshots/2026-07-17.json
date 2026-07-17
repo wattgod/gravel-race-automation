@@ -1,0 +1,299 @@
+{
+ "date": "2026-07-17",
+ "ga4": {
+  "gravelgod": {
+   "sessions": 20,
+   "users": 16,
+   "pageviews": 41,
+   "sessions_7d_avg": 40.4,
+   "funnel": {
+    "cta_click": 0,
+    "form_start": 1,
+    "form_submit": 1,
+    "begin_checkout": 0,
+    "purchase": 0
+   },
+   "abandoned_submits": 1,
+   "top_pages": [
+    {
+     "path": "/articles/",
+     "views": 7
+    },
+    {
+     "path": "/",
+     "views": 6
+    },
+    {
+     "path": "/gravel-races/",
+     "views": 3
+    },
+    {
+     "path": "/insights/",
+     "views": 3
+    },
+    {
+     "path": "/guide/",
+     "views": 2
+    },
+    {
+     "path": "/race/grassroots-gravel/",
+     "views": 2
+    },
+    {
+     "path": "/about/",
+     "views": 1
+    },
+    {
+     "path": "/coaching/",
+     "views": 1
+    }
+   ],
+   "channel_mix": {
+    "Organic Search": 11,
+    "Direct": 6,
+    "Unassigned": 3
+   },
+   "top_landing": [
+    {
+     "path": "",
+     "sessions": 3
+    },
+    {
+     "path": "/",
+     "sessions": 2
+    },
+    {
+     "path": "/gravel-races/",
+     "sessions": 1
+    },
+    {
+     "path": "/guide/",
+     "sessions": 1
+    },
+    {
+     "path": "/guide/training-fundamentals/",
+     "sessions": 1
+    },
+    {
+     "path": "/products/training-plans/",
+     "sessions": 1
+    }
+   ],
+   "sessions_28d": 1049,
+   "funnel_28d": {
+    "cta_click": 41,
+    "form_start": 42,
+    "form_submit": 27,
+    "begin_checkout": 1,
+    "purchase": 3
+   },
+   "ok": true
+  },
+  "roadielabs": {
+   "sessions": 1,
+   "users": 1,
+   "pageviews": 1,
+   "sessions_7d_avg": 0.1,
+   "funnel": {
+    "cta_click": 0,
+    "form_start": 0,
+    "form_submit": 0,
+    "begin_checkout": 0,
+    "purchase": 0
+   },
+   "abandoned_submits": 0,
+   "top_pages": [
+    {
+     "path": "/race/tour-du-mont-blanc-cyclo/",
+     "views": 1
+    }
+   ],
+   "channel_mix": {
+    "Direct": 1,
+    "Unassigned": 1
+   },
+   "top_landing": [
+    {
+     "path": "",
+     "sessions": 1
+    },
+    {
+     "path": "/race/tour-du-mont-blanc-cyclo/",
+     "sessions": 1
+    }
+   ],
+   "sessions_28d": 6,
+   "funnel_28d": {
+    "cta_click": 0,
+    "form_start": 0,
+    "form_submit": 0,
+    "begin_checkout": 0,
+    "purchase": 0
+   },
+   "ok": true
+  }
+ },
+ "checkout": {
+  "gravelgod": {
+   "health_ok": true,
+   "stripe_checkout_ok": true,
+   "ok": true,
+   "error": ""
+  },
+  "roadielabs": {
+   "health_ok": true,
+   "stripe_checkout_ok": true,
+   "ok": true,
+   "error": ""
+  }
+ },
+ "mission_control": {
+  "hot_leads_14d": [
+   {
+    "email": "gravelgodcoaching+e2e-xcguide@gmail.com",
+    "name": "",
+    "race": "(no race given)",
+    "brand": "xcskilabs",
+    "sequence": "xc_welcome_v1",
+    "step": 1,
+    "status": "active",
+    "opens": 0,
+    "clicks": 0
+   },
+   {
+    "email": "gravelgodcoaching+e2e-xctest@gmail.com",
+    "name": "E2E XCTest",
+    "race": "American Birkebeiner",
+    "brand": "xcskilabs",
+    "sequence": "xc_welcome_v1",
+    "step": 1,
+    "status": "active",
+    "opens": 0,
+    "clicks": 0
+   },
+   {
+    "email": "gravelgodcoaching+e2e-roadtest@gmail.com",
+    "name": "E2E RoadTest",
+    "race": "Maratona dles Dolomites",
+    "brand": "roadielabs",
+    "sequence": "road_welcome_v1",
+    "step": 1,
+    "status": "active",
+    "opens": 0,
+    "clicks": 0
+   },
+   {
+    "email": "gravelgodcoaching+e2e-friendtest@gmail.com",
+    "name": "E2E FriendTest",
+    "race": "(no race given)",
+    "brand": "gravelgod",
+    "sequence": "welcome_v1",
+    "step": 1,
+    "status": "active",
+    "opens": 1,
+    "clicks": 0
+   },
+   {
+    "email": "hartleyjohn50@gmail.com",
+    "name": "",
+    "race": "Unbound Gravel 100",
+    "brand": "gravelgod",
+    "sequence": "nurture_v1",
+    "step": 0,
+    "status": "active",
+    "opens": 0,
+    "clicks": 0
+   },
+   {
+    "email": "killickluca@yahoo.co.nz",
+    "name": "",
+    "race": "Edition Zero",
+    "brand": "gravelgod",
+    "sequence": "welcome_v1",
+    "step": 1,
+    "status": "active",
+    "opens": 1,
+    "clicks": 0
+   },
+   {
+    "email": "jbrooker03@hotmail.com",
+    "name": "",
+    "race": "UCI Gravel World Championships",
+    "brand": "gravelgod",
+    "sequence": "welcome_v1",
+    "step": 1,
+    "status": "active",
+    "opens": 1,
+    "clicks": 1
+   },
+   {
+    "email": "angela.waldrop@gmail.com",
+    "name": "",
+    "race": "Death Ride \u2014 Tour of the California Alps",
+    "brand": "gravelgod",
+    "sequence": "welcome_v1",
+    "step": 2,
+    "status": "active",
+    "opens": 2,
+    "clicks": 1
+   }
+  ],
+  "new_leads_24h": 5,
+  "leads_by_brand": {
+   "gravelgod": 2,
+   "roadielabs": 1,
+   "xcskilabs": 2
+  },
+  "countdown_enrollments": 0,
+  "emails_sent_24h": 8,
+  "opens_24h": 5,
+  "clicks_24h": 1,
+  "bounces_24h": 0,
+  "new_orders_24h_UNRELIABLE": "use ga4 purchase counts \u2014 gg_athletes is not written by purchases",
+  "errors_24h": [],
+  "ok": true
+ },
+ "commerce_ledger": {
+  "failed_orders": [],
+  "orders": [],
+  "questionnaire_starts": 0,
+  "recoveries": [
+   {
+    "email": "acceptance+roadie-20260716@roadielabs.com",
+    "product": "training_plan",
+    "timestamp": "2026-07-17T06:00:35.929817"
+   }
+  ],
+  "window_hours": 24,
+  "ok": true
+ },
+ "social": {
+  "accounts_live": false,
+  "queued_today": 0,
+  "queued_yesterday": 0,
+  "posts": [],
+  "ok": true
+ },
+ "workflows": {
+  "latest": {
+   "gravel-race-automation/link-check.yml": "failure",
+   "road-race-automation/link-check.yml": "failure",
+   "road-race-automation/checkout-monitor.yml": "success",
+   "gravel-race-automation/regression-tests.yml": "success"
+  },
+  "ok": true
+ },
+ "constraint": {
+  "ok": true,
+  "sessions_per_day": 37.5,
+  "cta_rate_pct": 3.91,
+  "cta_to_submit_pct": 65.9,
+  "submit_to_purchase_pct": 11.1,
+  "purchases_28d": 3,
+  "submits_28d": 27,
+  "ctas_28d": 41,
+  "sessions_per_day_needed_for_1_sale": 350,
+  "binding_constraint": "traffic \u2014 at these volumes no funnel rate is even measurable; nothing downstream is worth optimizing yet"
+ },
+ "report": "**INTERPRETATION FAILED: no text block in model response**\n\n## RAW DIGEST \u2014 2026-07-17 (interpretation unavailable)\n\n### Gravel God\n- sessions 20 (7d avg 40.4), funnel {'cta_click': 0, 'form_start': 1, 'form_submit': 1, 'begin_checkout': 0, 'purchase': 0}\n- checkout: OK\n\n### Roadie Labs\n- sessions 1 (7d avg 0.1), funnel {'cta_click': 0, 'form_start': 0, 'form_submit': 0, 'begin_checkout': 0, 'purchase': 0}\n- checkout: OK\n\n- leads 5, emails 8, errors 0 (orders: see GA4 purchase counts)"
+}

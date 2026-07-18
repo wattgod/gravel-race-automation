@@ -22,6 +22,7 @@ from generate_homepage import (
     build_nav,
     build_ticker,
     build_hero,
+    build_ladder_strip,
     build_stats_bar,
     build_featured_races,
     build_bento_features,
@@ -300,6 +301,27 @@ class TestSectionBuilders:
         assert "How We Rate" in hero
         assert "gg-hp-hero-stats" in hero
 
+    def test_hero_deck_has_updated_copy(self, stats, race_index):
+        """Deck must carry the new sub-line and dynamic race-count/criteria vars."""
+        hero = build_hero(stats, race_index)
+        expected = (
+            f'{stats["race_count"]} races scored on {stats["dimensions"]} criteria '
+            '&mdash; and the training to show up ready for the one you pick.'
+        )
+        assert expected in hero
+
+    def test_hero_deck_no_hero_tagline_ab(self, stats, race_index):
+        """hero_tagline experiment is retired — attribute must be gone."""
+        hero = build_hero(stats, race_index)
+        assert 'data-ab="hero_tagline"' not in hero
+
+    def test_hero_has_get_race_ready_cta(self, stats, race_index):
+        """New additive secondary CTA anchors to the ladder strip."""
+        hero = build_hero(stats, race_index)
+        assert 'href="#ladder"' in hero
+        assert 'data-ga="hero_get_race_ready"' in hero
+        assert "GET RACE-READY" in hero
+
     def test_hero_has_radar_viz(self, stats, race_index):
         hero = build_hero(stats, race_index)
         assert 'data-viz="hero-radar"' in hero
@@ -395,6 +417,110 @@ class TestSectionBuilders:
         html = build_footer()
         assert "/products/training-plans/" in html
         assert "/guide/" in html
+
+
+# ── Ladder strip ─────────────────────────────────────────────
+
+
+class TestLadderStrip:
+    """Tests for the 3-cell ladder strip (ladder-strip-spec.md)."""
+
+    def test_strip_present_exactly_once(self, stats):
+        html = build_ladder_strip(stats)
+        assert html.count('id="ladder"') == 1
+        assert html.count("gg-hp-ladder-cell") == 3
+
+    def test_three_cells_numbered(self, stats):
+        html = build_ladder_strip(stats)
+        assert ">01<" in html
+        assert ">02<" in html
+        assert ">03<" in html
+
+    def test_headlines_present(self, stats):
+        html = build_ladder_strip(stats)
+        assert "Pick a race" in html
+        assert "Get a plan" in html
+        assert "Find out what you could be." in html
+
+    def test_bodies_present(self, stats):
+        html = build_ladder_strip(stats)
+        assert f'{stats["race_count"]} races, rated. Start with yours.' in html
+        assert "Built for the race on your calendar, around the hours you actually have." in html
+        assert "A human in your corner &mdash; not an AI, not a spreadsheet." in html
+
+    def test_cta_labels_present(self, stats):
+        html = build_ladder_strip(stats)
+        assert "BROWSE &rarr;" in html
+        assert "GET A TRAINING PLAN &rarr;" in html
+        assert "GET ME IN YOUR CORNER &rarr;" in html
+
+    def test_cta_hrefs_correct(self, stats):
+        html = build_ladder_strip(stats)
+        assert 'href="https://gravelgodcycling.com/gravel-races/"' in html
+        assert 'href="https://gravelgodcycling.com/questionnaire/"' in html
+        assert 'href="https://gravelgodcycling.com/coaching/"' in html
+        # Coaching CTA must NOT use the imported COACHING_URL (/coaching/apply/)
+        assert 'href="https://gravelgodcycling.com/coaching/apply/"' not in html
+
+    def test_data_ga_hooks(self, stats):
+        html = build_ladder_strip(stats)
+        assert 'data-ga="ladder_pick_race"' in html
+        assert 'data-ga="ladder_get_plan"' in html
+        assert 'data-ga="ladder_coaching"' in html
+
+    def test_no_data_animate(self, stats):
+        html = build_ladder_strip(stats)
+        assert "data-animate" not in html
+
+    def test_uses_dynamic_race_count_not_hardcoded(self, stats, race_index):
+        """Race count must come from the stats dict, not a hardcoded literal."""
+        html = build_ladder_strip(stats)
+        other_stats = dict(stats)
+        other_stats["race_count"] = stats["race_count"] + 1
+        other_html = build_ladder_strip(other_stats)
+        assert html != other_html
+        assert str(other_stats["race_count"]) in other_html
+
+    def test_ladder_css_present(self):
+        css = build_homepage_css()
+        assert ".gg-hp-ladder {" in css
+
+    def test_ladder_css_mobile_stack(self):
+        css = build_homepage_css()
+        assert "@media (max-width: 720px)" in css
+        mobile_block = re.search(
+            r'@media \(max-width: 720px\)\s*\{(.*?)\n\}', css, re.DOTALL
+        )
+        assert mobile_block is not None
+        assert "gg-hp-ladder-grid" in mobile_block.group(1)
+
+    def test_ladder_css_no_hardcoded_hex(self):
+        """New ladder CSS block must be tokens-only — legacy homepage CSS
+        elsewhere is exempt (contains intentional hex predating tokens)."""
+        css = build_homepage_css()
+        block = re.search(
+            r'/\* ── Ladder strip BEGIN.*?── \*/(.*?)/\* ── Ladder strip END ── \*/',
+            css, re.DOTALL,
+        )
+        assert block is not None, "Ladder strip CSS markers not found"
+        hex_matches = re.findall(r'#[0-9a-fA-F]{3,8}\b', block.group(1))
+        assert hex_matches == [], f"Hardcoded hex in ladder CSS: {hex_matches}"
+
+    def test_ladder_uses_gg_tokens_only(self):
+        """Ladder CSS must use only the tokens named in the per-brand spec facts."""
+        css = build_homepage_css()
+        block = re.search(
+            r'/\* ── Ladder strip BEGIN.*?── \*/(.*?)/\* ── Ladder strip END ── \*/',
+            css, re.DOTALL,
+        )
+        assert block is not None
+        used_tokens = set(re.findall(r'var\((--gg-color-[a-z0-9-]+)\)', block.group(1)))
+        allowed = {
+            "--gg-color-warm-paper", "--gg-color-dark-brown",
+            "--gg-color-tan", "--gg-color-sand",
+        }
+        assert used_tokens <= allowed, f"Unexpected tokens in ladder CSS: {used_tokens - allowed}"
+        assert "--gg-color-gold" not in block.group(1), "Gold must not be used in the ladder strip"
 
 
 # ── CSS ──────────────────────────────────────────────────────
@@ -537,6 +663,7 @@ class TestFullPage:
         assert "gg-site-header" in homepage_html
         assert "gg-hp-ticker" in homepage_html
         assert "gg-hp-hero" in homepage_html
+        assert "gg-hp-ladder" in homepage_html
         assert "gg-hp-stats-stripe" in homepage_html
         assert "gg-hp-content-grid" in homepage_html
         assert "gg-hp-bento" in homepage_html

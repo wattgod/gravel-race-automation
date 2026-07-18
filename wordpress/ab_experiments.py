@@ -23,36 +23,11 @@ OUTPUT_DIR = PROJECT_ROOT / "web" / "ab"
 # ── Experiment definitions ───────────────────────────────────
 
 EXPERIMENTS = [
-    {
-        "id": "homepage_hero_tagline",
-        "description": "Test hero tagline copy on homepage",
-        "selector": "[data-ab='hero_tagline']",
-        "pages": ["/", "/index.html"],
-        "traffic": 1.0,
-        "start": "2026-02-16",
-        "end": None,
-        "variants": [
-            {
-                "id": "control",
-                "name": "Original tagline",
-                "content": "757 races. 15 criteria. Every score assigned by hand.",
-            },
-            {
-                "id": "variant_a",
-                "name": "Short & direct",
-                "content": "757 gravel races, scored by hand and ranked into tiers.",
-            },
-            {
-                "id": "variant_b",
-                "name": "Reddit proof",
-                "content": "I read every Reddit thread, registration page, and Strava segment so you don\u2019t have to.",
-            },
-        ],
-        "conversion": {
-            "type": "click",
-            "selector": "[data-ga='hero_cta_click'], [data-ga='hero_search'] button",
-        },
-    },
+    # NOTE: "homepage_hero_tagline" retired 2026-07-18 (ladder-strip-spec.md
+    # ADDENDUM #1) \u2014 ran at 100% traffic with no end date on stale
+    # hardcoded-count variants ("757 races") that would have clobbered the
+    # new hero sub-line at runtime. data-ab="hero_tagline" was dropped from
+    # generate_homepage.py's hero deck in the same change.
     {
         "id": "training_price_frame",
         "description": "Test price framing on training plans card",

@@ -564,7 +564,7 @@ def build_hero(stats: dict, race_index: list = None) -> str:
         <p class="gg-hp-hero-kicker">THE {CURRENT_YEAR} RACE DATABASE</p>
         <h1 id="hero-title">Every gravel race, rated.</h1>
         <div class="gg-hp-accent-line" aria-hidden="true"></div>
-        <p class="gg-hp-hero-deck" data-ab="hero_tagline">{race_count} races scored on {dimensions} criteria.</p>
+        <p class="gg-hp-hero-deck">{race_count} races scored on {dimensions} criteria &mdash; and the training to show up ready for the one you pick.</p>
         <!-- Search-forward: inline search bar -->
         <form class="gg-hp-hero-search" action="{SITE_BASE_URL}/gravel-races/" method="get" role="search">
           <input type="text" name="q" class="gg-hp-hero-search-input" placeholder="Search races, locations, or what riders say..." aria-label="Search races" autocomplete="off">
@@ -577,6 +577,12 @@ def build_hero(stats: dict, race_index: list = None) -> str:
           <a href="{SITE_BASE_URL}/gravel-races/?tier=1" class="gg-hp-chip gg-hp-chip--gold" data-ga="hero_chip_click" data-ga-label="tier1">Tier 1</a>
           <a href="{SITE_BASE_URL}/race/methodology/" class="gg-hp-chip" data-ga="hero_secondary_click">How We Rate</a>
         </div>
+        <!-- Added CTA (ladder-strip-spec.md ADDENDUM #2): existing search form
+             and chips (incl. "How We Rate") stay untouched; this anchor is a
+             new, additive secondary action pointing at the ladder strip below. -->
+        <div class="gg-hp-hero-actions">
+          <a href="#ladder" class="gg-hp-btn-secondary" data-ga="hero_get_race_ready">GET RACE-READY &darr;</a>
+        </div>
         <!-- Animated stat counters -->
         <div class="gg-hp-hero-stats">
           <div class="gg-hp-hero-stat"><span class="gg-hp-hero-stat-num" data-counter="{race_count}">{race_count}</span><span class="gg-hp-hero-stat-label">Races</span></div>
@@ -585,6 +591,54 @@ def build_hero(stats: dict, race_index: list = None) -> str:
         </div>
       </div>
       {_build_hero_radar_viz(race_index)}
+    </div>
+  </section>'''
+
+
+def build_ladder_strip(stats: dict) -> str:
+    """Build the 3-cell 'ladder' strip: pick a race -> get a plan -> get coached.
+
+    NEW section (ladder-strip-spec.md, owner-approved Jul 18 2026). Sits
+    immediately after the hero, before the stats stripe / rankings. Full-width
+    band, 1px top+bottom border in the brand ink token, 1px hairline dividers
+    between cells. No cards, no shadows, no animation, square corners, tokens
+    only (see build_homepage_css() for the CSS block).
+    """
+    race_count = stats["race_count"]
+    # SANCTIONED EXCEPTION to the anti-defensive-messaging rule: "not an AI, not
+    # a spreadsheet" already ships on this page in the coaching_scarcity data-ab
+    # variant above (build_email_capture()) and is the Roadie Labs 2026-07-18
+    # /coaching/ hero precedent (generate_coaching.py build_hero()). Carried
+    # verbatim into cell 03 below.
+    cells = [
+        (
+            "01", "Pick a race",
+            f"{race_count} races, rated. Start with yours.",
+            "BROWSE &rarr;", f"{SITE_BASE_URL}/gravel-races/", "ladder_pick_race",
+        ),
+        (
+            "02", "Get a plan",
+            "Built for the race on your calendar, around the hours you actually have.",
+            "GET A TRAINING PLAN &rarr;", TRAINING_PLANS_URL, "ladder_get_plan",
+        ),
+        (
+            "03", "Find out what you could be.",
+            "A human in your corner &mdash; not an AI, not a spreadsheet.",
+            "GET ME IN YOUR CORNER &rarr;", f"{SITE_BASE_URL}/coaching/", "ladder_coaching",
+        ),
+    ]
+    cell_html = ""
+    for num, head, body, cta_label, href, ga in cells:
+        cell_html += f'''
+      <div class="gg-hp-ladder-cell">
+        <span class="gg-hp-ladder-num">{num}</span>
+        <h3 class="gg-hp-ladder-head">{head}</h3>
+        <p class="gg-hp-ladder-body">{body}</p>
+        <a href="{href}" class="gg-hp-ladder-cta" data-ga="{ga}">{cta_label}</a>
+      </div>'''
+
+    return f'''<section class="gg-hp-ladder" id="ladder">
+    <div class="gg-hp-ladder-grid">{cell_html}
     </div>
   </section>'''
 
@@ -1322,6 +1376,25 @@ a { text-decoration: none; color: #178079; }
 .gg-hp-cal-cta .gg-hp-btn--primary:hover,
 .gg-hp-guide-cta .gg-hp-btn--primary:hover { border-color: #9a7e0a; color: #fff; }
 
+/* ── Ladder strip BEGIN (tokens only — no hardcoded hex; see
+   ladder-strip-spec.md) ── */
+.gg-hp-ladder { border-top: 1px solid var(--gg-color-dark-brown); border-bottom: 1px solid var(--gg-color-dark-brown); background: var(--gg-color-warm-paper); }
+.gg-hp-ladder-grid { max-width: 1080px; margin: 0 auto; display: grid; grid-template-columns: repeat(3, 1fr); }
+.gg-hp-ladder-cell { padding: 32px 28px; border-right: 1px solid var(--gg-color-tan); }
+.gg-hp-ladder-cell:last-child { border-right: none; }
+.gg-hp-ladder-num { display: block; font-family: 'Sometype Mono', monospace; font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--gg-color-tan); margin-bottom: 14px; }
+.gg-hp-ladder-head { font-family: 'Source Serif 4', Georgia, serif; font-size: 20px; font-weight: 600; line-height: 1.25; color: var(--gg-color-dark-brown); margin-bottom: 10px; }
+.gg-hp-ladder-body { font-size: 15px; line-height: 1.55; color: var(--gg-color-dark-brown); margin-bottom: 16px; }
+.gg-hp-ladder-cta { display: inline-block; font-family: 'Sometype Mono', monospace; font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--gg-color-dark-brown); text-decoration: none; }
+.gg-hp-ladder-cta:hover { text-decoration: underline; }
+/* Mobile: stack vertically with horizontal hairlines; no horizontal overflow at 390px */
+@media (max-width: 720px) {
+  .gg-hp-ladder-grid { grid-template-columns: 1fr; }
+  .gg-hp-ladder-cell { border-right: none; border-bottom: 1px solid var(--gg-color-tan); }
+  .gg-hp-ladder-cell:last-child { border-bottom: none; }
+}
+/* ── Ladder strip END ── */
+
 /* ── Stats stripe ───────────────────────────────────────── */
 .gg-hp-stats-stripe { background: #3a2e25; padding: 0 48px; }
 .gg-hp-stats-inner { max-width: 1080px; margin: 0 auto; display: grid; grid-template-columns: repeat(5, 1fr); }
@@ -1998,6 +2071,7 @@ def generate_homepage(race_index: list, race_data_dir: Path = None,
     top_bar = build_top_bar()
     nav = build_nav()
     hero = build_hero(stats, race_index)
+    ladder = build_ladder_strip(stats)
     stats_stripe = build_stats_bar(stats)
     ticker = build_ticker(one_liners, substack_posts, upcoming)
     content_grid = build_content_grid(race_index, stats, upcoming)
@@ -2057,6 +2131,8 @@ def generate_homepage(race_index: list, race_data_dir: Path = None,
   {nav}
 
   {hero}
+
+  {ladder}
 
   {stats_stripe}
 

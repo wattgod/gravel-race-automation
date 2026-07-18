@@ -1,37 +1,7 @@
 {
   "version": 1,
-  "generated": "2026-07-09",
+  "generated": "2026-07-18",
   "experiments": [
-    {
-      "id": "homepage_hero_tagline",
-      "selector": "[data-ab='hero_tagline']",
-      "pages": [
-        "/",
-        "/index.html"
-      ],
-      "traffic": 1.0,
-      "variants": [
-        {
-          "id": "control",
-          "name": "Original tagline",
-          "content": "757 races. 15 criteria. Every score assigned by hand."
-        },
-        {
-          "id": "variant_a",
-          "name": "Short & direct",
-          "content": "757 gravel races, scored by hand and ranked into tiers."
-        },
-        {
-          "id": "variant_b",
-          "name": "Reddit proof",
-          "content": "I read every Reddit thread, registration page, and Strava segment so you don’t have to."
-        }
-      ],
-      "conversion": {
-        "type": "click",
-        "selector": "[data-ga='hero_cta_click'], [data-ga='hero_search'] button"
-      }
-    },
     {
       "id": "training_price_frame",
       "selector": "[data-ab='training_price']",

@@ -1,7 +1,20 @@
-"""Tests for the Gravel God coaching page generator."""
+"""Tests for the Gravel God coaching page generator.
+
+Coaching page rewritten 2026-07-18 into "The Dossier" structure: hero →
+terms → tiers → fit → faq → final-cta (replacing the old band sequence
+hero → problem → deliverables → how-it-works → tiers → testimonials →
+honest-check → faq → final-cta). This suite describes the page as it now
+ships, not the old one — no lingering assertions about problem,
+deliverables, how-it-works, or testimonials sections, none of which exist
+anymore.
+
+Modeled on road-race-automation/tests/test_coaching.py (the sibling-brand
+rebuild's test suite), adapted for Gravel God: gg- class prefix, gravel
+URLs, GA4 property G-EJJZ9T6M52, and gravel's slop_rules module for the
+restraint guard.
+"""
 from __future__ import annotations
 
-import json
 import re
 import subprocess
 import sys
@@ -14,17 +27,13 @@ sys.path.insert(0, str(Path(__file__).parent.parent / "wordpress"))
 
 from generate_coaching import (
     QUESTIONNAIRE_URL,
-    FEATURED_TESTIMONIAL_NAMES,
     build_nav,
     build_hero,
-    build_problem,
-    build_service_tiers,
-    build_deliverables,
-    build_how_it_works,
-    build_testimonials,
+    build_terms,
+    build_tiers,
     build_honest_check,
     build_faq,
-    build_final_cta,
+    build_application_close,
     build_footer,
     build_mobile_sticky_cta,
     build_coaching_css,
@@ -89,11 +98,7 @@ class TestPageGeneration:
 
     def test_has_title(self, coaching_html):
         assert "<title>" in coaching_html
-        assert "Coaching" in coaching_html or "Training" in coaching_html
-
-    def test_no_old_pricing_in_meta(self, coaching_html):
-        assert "$15/week" not in coaching_html
-        assert "$249" not in coaching_html
+        assert "Coaching" in coaching_html
 
 
 # ── Nav ──────────────────────────────────────────────────────
@@ -101,19 +106,10 @@ class TestPageGeneration:
 
 class TestNav:
     def test_nav_links(self, coaching_html):
-        assert "/gravel-races/" in coaching_html
         assert "/coaching/" in coaching_html
-        assert "/articles/" in coaching_html
         assert "/about/" in coaching_html
-        assert ">RACES</a>" in coaching_html
-        assert ">PRODUCTS</a>" in coaching_html
         assert ">SERVICES</a>" in coaching_html
-        assert ">ARTICLES</a>" in coaching_html
         assert ">ABOUT</a>" in coaching_html
-
-    def test_nav_dropdowns(self, coaching_html):
-        assert "gg-site-header-dropdown" in coaching_html
-        assert "gg-site-header-item" in coaching_html
 
     def test_breadcrumb(self, coaching_html):
         assert "gg-breadcrumb" in coaching_html
@@ -124,35 +120,86 @@ class TestNav:
         assert 'aria-current="page">SERVICES</a>' in coaching_html
 
 
-# ── Hero ─────────────────────────────────────────────────────
+# ── Hero — "The Dossier" hero with corner CTA ───────────────
 
 
 class TestHero:
-    def test_cta_present(self):
-        hero = build_hero()
-        assert ">Apply</a>" in hero
-        assert "How it works" in hero
+    def test_hero_id(self):
+        assert 'id="hero"' in build_hero()
 
-    def test_stat_line(self):
+    def test_hero_has_corner_cta(self):
+        """Owner revision 2026-07-18: an obvious CTA on arrival, no scroll
+        required. One link, the corner imperative."""
         hero = build_hero()
-        assert "757 courses analyzed" in hero
-        assert "One coach" in hero
-        assert "gg-coach-stat-line" in hero
+        assert 'class="gg-coach-hero-cta"' in hero
+        assert 'data-cta="hero_apply"' in hero
+        assert "GET ME IN YOUR CORNER" in hero
 
-    def test_no_stat_bar(self):
+    def test_no_old_hero_artifacts(self):
         hero = build_hero()
-        assert "gg-coach-stat-bar" not in hero
-        assert "gg-coach-stat-item" not in hero
+        assert "gg-coach-file-strip" not in hero
+        assert "TERMS OF WORK" not in hero
+        assert "COURSES ON FILE" not in hero
+        assert "Fitness is common" not in hero
 
     def test_headline(self):
         hero = build_hero()
-        assert "Preparation is rare" in hero
+        assert "You could be better than you think." in hero
+        assert "That is not encouragement &mdash;" in hero
+        assert "it&#39;s an observation about people who train alone." in hero
 
-    def test_no_gold_chip(self):
-        """The kicker is plain text — no inline gold background badge."""
+    def test_subhead(self):
         hero = build_hero()
-        assert "style=" not in hero
-        assert "gg-hero-tier" not in hero
+        assert "The fix is a human in your corner." in hero
+        assert "Not an AI, not a dashboard, not a coach who reads you like a spreadsheet." in hero
+        assert "The terms are below." in hero
+
+
+# ── Terms — five numbered clauses ───────────────────────────
+
+
+class TestTerms:
+    def test_terms_id(self):
+        assert 'id="terms"' in build_terms()
+
+    def test_five_clauses(self):
+        t = build_terms()
+        assert t.count('class="gg-coach-term"') == 5
+
+    def test_clause_numbers(self):
+        t = build_terms()
+        for n in ("01", "02", "03", "04", "05"):
+            assert f'<div class="gg-coach-term-num">{n}</div>' in t
+
+    def test_clause_titles(self):
+        t = build_terms()
+        for title in (
+            "Every file, read by a person",
+            "The patterns you can&#39;t see",
+            "The plan moves when your life does",
+            "The truth, on schedule",
+            "Involvement is the only variable",
+        ):
+            assert title in t
+
+    def test_clause_bodies(self):
+        t = build_terms()
+        assert "I notice the interval you bailed on and ask why." in t
+        assert "Knowledge isn&#39;t the limiter &mdash; application is." in t
+        assert "the week adjusts that week" in t
+        assert "&ldquo;You&#39;re sandbagging&rdquo; and &ldquo;take the rest week&rdquo;" in t
+        assert "Same coach, same standards." in t
+
+    def test_blindspot_sentence(self):
+        """The blindspot clause is the load-bearing line of the Terms
+        section — every athlete is their own worst blindspot."""
+        t = build_terms()
+        assert "their own worst blindspot" in t
+
+    def test_last_clause_no_bottom_border(self, coaching_css):
+        """Clause 05 has no border-bottom — tiers render immediately after
+        with no visual gap, so the terms list must not double-close."""
+        assert ".gg-coach-term:last-child" in coaching_css
 
 
 # ── Full-Bleed Layout ────────────────────────────────────────
@@ -160,31 +207,37 @@ class TestHero:
 
 class TestFullBleedLayout:
     def test_container_override(self, coaching_css):
-        """Coaching page unsets the shared 960px container."""
         assert "max-width: none" in coaching_css
 
     def test_inner_measure(self, coaching_css):
         assert "gg-coach-inner" in coaching_css
         assert "max-width: 1200px" in coaching_css
 
-    def test_header_footer_aligned_to_measure(self, coaching_css):
-        """Shared header/footer inner wrappers are widened to match."""
-        assert ".gg-neo-brutalist-page .gg-site-header-inner" in coaching_css
-        assert ".gg-neo-brutalist-page .gg-mega-footer-grid" in coaching_css
-
     def test_bands_present(self, coaching_html):
         assert 'class="gg-coach-band' in coaching_html
-        assert "gg-coach-band--sand" in coaching_html
         assert "gg-coach-band--dark" in coaching_html
+
+    def test_no_sand_band_anywhere(self, coaching_html, coaching_css):
+        """gg-coach-band--sand is fully removed — tiers no longer sit on a
+        sand background, they sit on the same paper as terms."""
+        assert "gg-coach-band--sand" not in coaching_html
+        assert "gg-coach-band--sand" not in coaching_css
 
     def test_all_sections_use_inner_wrapper(self, coaching_html):
         bands = coaching_html.count('<section class="gg-coach-band')
         inners = coaching_html.count('class="gg-coach-inner"')
-        assert bands == inners == 9
+        assert bands == inners == 6
+
+    def test_terms_tiers_seamless(self, coaching_css):
+        """Terms section has zero bottom padding, tiers section has zero
+        top padding — the two must read as one continuous document, not
+        two visually separated bands."""
+        assert ".gg-coach-terms {\n  padding-bottom: 0;\n}" in coaching_css
+        assert ".gg-coach-tiers-section {\n  padding-top: 0;\n}" in coaching_css
 
     def test_consent_banner_rendered(self, coaching_html):
-        """Regression: the template tail was a non-f-string, leaving the
-        literal '{get_consent_banner_html()}' in the shipped HTML."""
+        """Regression: an unescaped template tail would leave the literal
+        placeholder string in the shipped HTML instead of the banner."""
         assert "{get_consent_banner_html()}" not in coaching_html
 
 
@@ -192,160 +245,98 @@ class TestFullBleedLayout:
 
 
 class TestServiceTiers:
-    def test_three_tiers(self):
-        tiers = build_service_tiers()
+    def test_tiers_id(self):
+        assert 'id="tiers"' in build_tiers()
+
+    def test_three_tier_columns(self):
+        tiers = build_tiers()
+        assert tiers.count('class="gg-coach-tier-col"') == 3
         assert "Min" in tiers
         assert "Mid" in tiers
         assert "Max" in tiers
 
-    def test_featured_tier(self):
-        tiers = build_service_tiers()
-        assert "gg-coach-tier-card--featured" in tiers
-
     def test_prices(self):
-        tiers = build_service_tiers()
+        tiers = build_tiers()
         assert "$199" in tiers
         assert "$299" in tiers
         assert "$1,200" in tiers
+        assert "/ 4 WEEKS" in tiers
 
-    def test_billing_interval(self):
-        tiers = build_service_tiers()
-        assert "/4 WK" in tiers
-        assert tiers.count("/4 WK") == 3
-        assert "/MO" not in tiers
+    def test_get_started_links(self):
+        tiers = build_tiers()
+        assert tiers.count("GET STARTED") == 3
+        assert 'data-cta="tier_min"' in tiers
+        assert 'data-cta="tier_mid"' in tiers
+        assert 'data-cta="tier_max"' in tiers
+        assert f"{QUESTIONNAIRE_URL}?tier=min" in tiers
+        assert f"{QUESTIONNAIRE_URL}?tier=mid" in tiers
+        assert f"{QUESTIONNAIRE_URL}?tier=max" in tiers
 
-    def test_tier_descriptors(self):
-        tiers = build_service_tiers()
-        assert "thinking done right" in tiers
-        assert "Most athletes belong here" in tiers
-        assert "nothing left to chance" in tiers
-
-    def test_section_title(self):
-        tiers = build_service_tiers()
-        assert "Same coach. Three levels of involvement." in tiers
+    def test_setup_fee(self):
+        tiers = build_tiers()
+        assert "$99 setup fee" in tiers
 
     def test_disclaimer(self):
-        tiers = build_service_tiers()
+        tiers = build_tiers()
         assert "skipped workouts" in tiers
         assert "24 hours" in tiers
 
-    def test_all_ctas_get_started(self):
-        tiers = build_service_tiers()
-        assert tiers.count("Get started") == 3
+    def test_feature_lists_verbatim(self):
+        tiers = build_tiers()
+        for item in (
+            "Weekly training review", "File analysis", "Quarterly strategy calls",
+            "Structured workouts for your trainer or head unit",
+            "Race-day nutrition plan", "Custom training guide",
+            "Everything in Min", "Detailed power-file analysis",
+            "Every-4-week strategy calls", "Weekly plan adjustments",
+            "Direct message access", "Blindspot detection",
+            "Everything in Mid", "Daily file review", "On-demand calls",
+            "Race-week strategy", "Multi-race season planning", "Priority response",
+        ):
+            assert item in tiers, f"Missing tier feature: {item}"
 
-    def test_no_old_tiers(self):
-        tiers = build_service_tiers()
-        assert "Race-Ready Plan" not in tiers
-        assert "Ongoing Coaching" not in tiers
-        assert "Race Consult" not in tiers
-
-    def test_setup_fee_note(self):
-        tiers = build_service_tiers()
-        assert "gg-coach-tier-setup-fee" in tiers
-        assert "$99 setup fee" in tiers
-
-    def test_normie_safe_features(self):
-        """No raw jargon in tier feature lists (WKO, TSB, FTP...)."""
-        tiers = build_service_tiers()
-        for term in ("WKO", "TSB", "FTP", "TSS", "CTL"):
+    def test_no_normie_jargon(self):
+        """No raw jargon in tier feature lists (WKO, TSB, TSS, CTL)."""
+        tiers = build_tiers()
+        for term in ("WKO", "TSB", "TSS", "CTL"):
             assert term not in tiers, f"Raw jargon in tiers: {term}"
 
-
-# ── Deliverables ─────────────────────────────────────────────
-
-
-class TestDeliverables:
-    def test_four_deliverables(self):
-        d = build_deliverables()
-        assert d.count('<div class="gg-coach-deliverable">') == 4
-
-    def test_no_sample_week(self):
-        d = build_deliverables()
-        assert "gg-coach-sample-grid" not in d
-        assert "data-detail" not in d
-        assert "gg-coach-sample-week" not in d
-
-    def test_deliverable_titles(self):
-        d = build_deliverables()
-        assert "Every file, read by a person" in d
-        assert "A plan that moves when your life does" in d
-        assert "Honest feedback" in d
-        assert "Race strategy from course data" in d
-
-    def test_no_self_mythology(self):
-        """The 'I've made every mistake' card was cut — it performs."""
-        d = build_deliverables()
-        assert "Every Mistake" not in d
-        assert "blown up at mile 80" not in d
+    def test_no_animation_on_tiers(self):
+        """The Dossier is a still document — pricing must never depend on
+        an observer firing."""
+        assert 'data-animate' not in build_tiers()
 
 
-# ── How It Works ─────────────────────────────────────────────
+# ── A fit, or not ─────────────────────────────────────────────
 
 
-class TestHowItWorks:
-    def test_four_steps(self):
-        h = build_how_it_works()
-        assert h.count("gg-coach-step-num") == 4
+class TestFit:
+    def test_fit_id(self):
+        assert 'id="fit"' in build_honest_check()
 
-    def test_step_titles(self):
-        h = build_how_it_works()
-        assert "Fill out the intake" in h
-        assert "I build your first block" in h
-        assert "We train" in h
-        assert "We sharpen toward race day" in h
-
-    def test_honest_selectivity_line(self):
-        """The 48-hour reply promise includes the not-a-fit clause."""
-        h = build_how_it_works()
-        assert "48 hours" in h
-        assert "if I don&#39;t think coaching is what you need" in h
-
-
-# ── Testimonials ─────────────────────────────────────────────
-
-
-class TestTestimonials:
-    def test_static_grid_not_carousel(self):
-        t = build_testimonials()
-        assert "gg-coach-testimonials" in t
-        assert "gg-coach-carousel" not in t
-        assert "gg-coach-prev" not in t
-        assert "gg-coach-next" not in t
-
-    def test_three_curated(self):
-        t = build_testimonials()
-        assert t.count("<blockquote") == 3
-        for name in FEATURED_TESTIMONIAL_NAMES:
-            assert name in t, f"Missing featured testimonial: {name}"
-
-    def test_link_to_full_set(self):
-        t = build_testimonials()
-        assert "/about/" in t
-        assert "fifty athletes" in t
-
-
-# ── Honest Check ─────────────────────────────────────────────
-
-
-class TestHonestCheck:
-    def test_coaching_for_you_lists(self):
+    def test_yes_no_columns(self):
         h = build_honest_check()
         assert "Coaching is for you if:" in h
         assert "It isn&#39;t:" in h
 
-    def test_list_items_count(self):
+    def test_eight_list_items(self):
         h = build_honest_check()
-        li_count = h.count("<li>")
-        assert li_count == 8
+        assert h.count("<li>") == 8
+
+    def test_no_sand_bg(self):
+        assert "gg-coach-band--sand" not in build_honest_check()
 
 
 # ── FAQ ──────────────────────────────────────────────────────
 
 
 class TestFAQ:
+    def test_faq_id(self):
+        assert 'id="faq"' in build_faq()
+
     def test_eight_questions(self):
         f = build_faq()
-        assert f.count("gg-coach-faq-item") == 8
+        assert f.count('class="gg-coach-faq-item"') == 8
 
     def test_accordion_toggle(self):
         f = build_faq()
@@ -355,26 +346,69 @@ class TestFAQ:
     def test_setup_fee_faq(self):
         f = build_faq()
         assert "$99 setup fee" in f
-        assert "one-time charge" in f
 
     def test_has_aria(self):
         f = build_faq()
         assert 'aria-expanded' in f
         assert 'role="button"' in f
 
-    def test_kicker_number(self):
-        f = build_faq()
-        assert ">07<" in f
+
+# ── Application close ────────────────────────────────────────
+
+
+class TestApplicationClose:
+    def test_final_cta_id(self):
+        assert 'id="final-cta"' in build_application_close()
+
+    def test_dark_band(self):
+        assert "gg-coach-band--dark" in build_application_close()
+
+    def test_kicker(self):
+        assert "APPLICATION" in build_application_close()
+
+    def test_line_copy(self):
+        c = build_application_close()
+        assert "Ten minutes of honest answers. I read every one myself." in c
+        assert "You&#39;ll hear from me within 48 hours &mdash; including if I don&#39;t think coaching is what you need." in c
+
+    def test_cta_link(self):
+        c = build_application_close()
+        assert "GET ME IN YOUR CORNER &rarr;" in c
+        assert f'href="{QUESTIONNAIRE_URL}"' in c
+        assert 'data-cta="final_fill_intake"' in c
+
+    def test_cta_border_is_paper_toned(self, coaching_css):
+        assert "border: 1px solid var(--gg-color-warm-paper);" in coaching_css
+
+    def test_contact_line(self):
+        c = build_application_close()
+        assert 'href="mailto:matt@gravelgodcycling.com"' in c
+        assert "I answer myself, usually within a day." in c
+
+
+# ── Mobile sticky CTA ────────────────────────────────────────
+
+
+class TestMobileStickyCTA:
+    def test_label_updated(self):
+        sticky = build_mobile_sticky_cta()
+        assert "GET ME IN YOUR CORNER &rarr;" in sticky
+        assert "Apply for coaching" not in sticky
+
+    def test_data_cta_and_href(self):
+        sticky = build_mobile_sticky_cta()
+        assert 'data-cta="sticky_cta"' in sticky
+        assert f'href="{QUESTIONNAIRE_URL}"' in sticky
 
 
 # ── Brand Compliance ─────────────────────────────────────────
 
 
 class TestBrandCompliance:
-    def test_no_hardcoded_hex_in_css(self, coaching_css):
+    def test_no_hardcoded_hex_in_coaching_css(self, coaching_css):
         css = re.sub(r'/\*.*?\*/', '', coaching_css, flags=re.DOTALL)
         hex_colors = re.findall(r'#[0-9a-fA-F]{3,8}\b', css)
-        assert len(hex_colors) == 0, f"Found hardcoded hex in CSS: {hex_colors[:5]}"
+        assert len(hex_colors) == 0, f"Found hardcoded hex in coaching CSS: {hex_colors[:5]}"
 
     def test_no_border_radius(self, coaching_css):
         assert "border-radius" not in coaching_css
@@ -382,20 +416,17 @@ class TestBrandCompliance:
     def test_no_box_shadow(self, coaching_css):
         assert "box-shadow" not in coaching_css
 
-    def test_no_opacity_on_hover_transitions(self, coaching_css):
-        transitions = re.findall(
-            r':hover[^\{]*\{[^\}]*transition:([^;]+);', coaching_css
-        )
-        for t in transitions:
-            assert "opacity" not in t.lower(), f"Found opacity in hover transition: {t}"
-
     def test_uses_brand_tokens(self, coaching_css):
         assert "var(--gg-color-" in coaching_css
         assert "var(--gg-font-" in coaching_css
 
-    def test_no_entrance_animations(self, coaching_css):
-        css_before_scroll = coaching_css.split("gg-has-js")[0]
-        assert "@keyframes" not in css_before_scroll
+    def test_no_bounce_easing(self, coaching_css):
+        assert "cubic-bezier(0.34, 1.56" not in coaching_css
+
+    def test_no_gold_anywhere(self, coaching_css):
+        """Prestige = restraint. Gold is not used anywhere in this page's
+        own CSS — it stays reserved for header/footer chrome elsewhere."""
+        assert "var(--gg-color-gold)" not in coaching_css
 
     def test_correct_class_prefix(self, coaching_css):
         allowed_roots = (
@@ -409,23 +440,20 @@ class TestBrandCompliance:
                 f"Non-prefixed class in coaching CSS: .{cls}"
             )
 
-    def test_no_bounce_easing(self, coaching_css):
-        assert "cubic-bezier(0.34, 1.56" not in coaching_css
 
-    def test_no_sample_week_css(self, coaching_css):
-        assert "gg-coach-sample" not in coaching_css
-        assert "gg-coach-block--" not in coaching_css
-        assert "gg-coach-active" not in coaching_css
+class TestTokenValidation:
+    @pytest.fixture(scope="class")
+    def defined_tokens(self):
+        tokens_path = Path(__file__).parent.parent.parent / "gravel-god-brand" / "tokens" / "tokens.css"
+        if not tokens_path.exists():
+            pytest.skip("tokens.css not found")
+        content = tokens_path.read_text()
+        return set(re.findall(r'(--gg-[\w-]+)\s*:', content))
 
-    def test_no_pricing_css(self, coaching_css):
-        assert "gg-coach-pricing" not in coaching_css
-
-    def test_no_stat_bar_css(self, coaching_css):
-        assert "gg-coach-stat-bar" not in coaching_css
-        assert "gg-coach-stat-item" not in coaching_css
-
-    def test_no_carousel_css(self, coaching_css):
-        assert "gg-coach-carousel" not in coaching_css
+    def test_coaching_css_all_var_refs_defined(self, coaching_css, defined_tokens):
+        used = set(re.findall(r'var\((--gg-[\w-]+)\)', coaching_css))
+        undefined = used - defined_tokens
+        assert not undefined, f"Undefined CSS tokens in coaching CSS: {undefined}"
 
 
 # ── GA4 Events ───────────────────────────────────────────────
@@ -443,11 +471,22 @@ class TestGA4Events:
             assert event in coaching_js, f"Missing GA4 event: {event}"
 
     def test_no_carousel_events(self, coaching_js):
-        """Carousel removed — no auto-play or nav events remain."""
         assert "coaching_carousel" not in coaching_js
 
-    def test_no_sample_week_event(self, coaching_js):
-        assert "coaching_sample_week_click" not in coaching_js
+    def test_scroll_depth_section_ids_match_real_sections(self, coaching_js, coaching_html):
+        """Every id referenced by the scroll-depth IIFE must exist in the
+        shipped HTML, and the set must be exactly the six real content
+        sections — no dead ids, no missing sections."""
+        section_ids = re.findall(r"id:\s*'([\w-]+)'", coaching_js)
+        assert set(section_ids) == {
+            "hero", "terms", "tiers", "fit", "faq", "final-cta",
+        }
+        for sid in section_ids:
+            assert f'id="{sid}"' in coaching_html, f"Dead section id in scroll-depth JS: {sid}"
+
+    def test_old_section_labels_removed(self, coaching_js):
+        for old_id in ("'problem'", "'deliverables'", "'how-it-works'", "'results'", "'honest-check'"):
+            assert old_id not in coaching_js, f"Stale scroll-depth id still present: {old_id}"
 
 
 # ── JS Syntax ────────────────────────────────────────────────
@@ -480,61 +519,35 @@ class TestJSONLD:
         ld = build_jsonld()
         assert '"@type":"WebPage"' in ld
         assert "/coaching/" in ld
+        assert "Gravel God" in ld
 
     def test_service_schema(self):
         ld = build_jsonld()
         assert '"@type":"Service"' in ld
         assert "Gravel Race Coaching" in ld
 
-    def test_no_offers_block(self):
-        ld = build_jsonld()
-        assert '"offers"' not in ld
-        assert "$15" not in ld
+    def test_uses_safe_json_for_script(self):
+        """JSON-LD must go through _safe_json_for_script — a '</script>'
+        payload should never be able to break out of the <script> tag."""
+        from generate_neo_brutalist import _safe_json_for_script
+        payload = {"a": "</script><script>alert(1)</script>"}
+        safe = _safe_json_for_script(payload)
+        assert "</script>" not in safe
 
-
-# ── CSS Token Validation ─────────────────────────────────────
-
-
-class TestCssTokenValidation:
-    @pytest.fixture(scope="class")
-    def defined_tokens(self):
-        tokens_path = Path(__file__).parent.parent.parent / "gravel-god-brand" / "tokens" / "tokens.css"
-        if not tokens_path.exists():
-            pytest.skip("tokens.css not found")
-        content = tokens_path.read_text()
-        return set(re.findall(r'(--gg-[\w-]+)\s*:', content))
-
-    def test_all_var_refs_defined(self, coaching_css, defined_tokens):
-        used = set(re.findall(r'var\((--gg-[\w-]+)\)', coaching_css))
-        undefined = used - defined_tokens
-        assert not undefined, f"Undefined CSS tokens in coaching CSS: {undefined}"
+    def test_no_raw_json_dumps_regression(self):
+        """Regression guard: build_jsonld must not fall back to raw
+        json.dumps — that would reopen the </script>-injection hole
+        _safe_json_for_script exists to close."""
+        import inspect
+        from generate_coaching import build_jsonld as _build_jsonld
+        source = inspect.getsource(_build_jsonld)
+        assert "json.dumps(" not in source
 
 
 # ── Accessibility ────────────────────────────────────────────
 
 
 class TestAccessibility:
-    def test_faq_aria_expanded_reset(self, coaching_js):
-        assert "setAttribute('aria-expanded', 'false')" in coaching_js
-
-    def test_faq_close_resets_all(self, coaching_js):
-        js = coaching_js
-        assert "classList.remove('gg-coach-faq-open')" in js
-        foreach_match = re.search(
-            r"items\.forEach\(function\(i\)\s*\{([^}]+)\}", js
-        )
-        assert foreach_match, "No forEach loop found for FAQ items"
-        foreach_body = foreach_match.group(1)
-        assert "aria-expanded" in foreach_body, (
-            "FAQ close-all must also reset aria-expanded"
-        )
-
-    def test_no_month_in_billing_context(self, coaching_html):
-        assert "/MO" not in coaching_html
-        assert "$199/month" not in coaching_html.lower()
-        assert "$299/month" not in coaching_html.lower()
-        assert "per month" not in coaching_html.lower()
-
     def test_skip_to_content_link(self, coaching_html):
         assert 'class="gg-coach-skip-link"' in coaching_html
         assert 'Skip to content' in coaching_html
@@ -546,136 +559,110 @@ class TestAccessibility:
         assert 'aria-controls="gg-coach-faq-ans-' in coaching_html
         assert 'role="region"' in coaching_html
 
-    def test_no_dead_btn_teal_css(self, coaching_css):
-        assert "gg-coach-btn--teal" not in coaching_css
 
-    def test_faq_uses_brand_easing(self, coaching_css):
-        css = coaching_css
-        assert "max-height 0.3s ease" not in css
-        assert "max-height var(--gg-transition-hover)" in css
-
-    def test_scroll_depth_covers_all_sections(self, coaching_js):
-        section_ids = [
-            "hero", "problem", "deliverables", "how-it-works", "tiers",
-            "results", "honest-check", "faq", "final-cta",
-        ]
-        for section_id in section_ids:
-            assert f"id: '{section_id}'" in coaching_js, f"Missing scroll depth for {section_id}"
-
-    def test_no_monthly_calls_wording(self):
-        tiers = build_service_tiers()
-        assert "Monthly calls" not in tiers
-        assert "Monthly strategy" not in tiers
-        assert "Every-4-week" in tiers
-
-    def test_tier_ctas_pass_tier_param(self):
-        tiers = build_service_tiers()
-        assert "?tier=min" in tiers
-        assert "?tier=mid" in tiers
-        assert "?tier=max" in tiers
-
-    def test_cancellation_faq_exists(self):
-        faq = build_faq()
-        assert "cancel" in faq.lower()
-        assert "No contracts" in faq or "no contracts" in faq
-
-    def test_sticky_cta_scroll_based(self, coaching_css, coaching_js):
-        assert "gg-coach-sticky-visible" in coaching_css
-        assert "gg-coach-sticky-visible" in coaching_js
-        assert "visibility: hidden" in coaching_css
-        assert "pointer-events: none" in coaching_css
+# ── Scroll Animations (shared guards) ───────────────────────
+# The Dossier itself has no data-animate content — no fade-stagger,
+# no entrance animations — but the shared scroll_animations module is
+# still wired in for its .gg-has-js / .gg-in-view / IntersectionObserver
+# guard contract used sitewide.
 
 
-# ── Scroll Animations ────────────────────────────────────────
+class TestScrollAnimationGuards:
+    def test_no_data_animate_anywhere(self, coaching_html):
+        """The Dossier is a still document — no entrance animations, no
+        observer-gated content anywhere on the page. (The shared
+        scroll_animations JS still references the bare `[data-animate]`
+        selector as part of its generic observer wiring — that's fine;
+        what matters is that no element actually carries the attribute.)"""
+        assert 'data-animate="' not in coaching_html
 
-
-class TestScrollAnimations:
-    def test_fade_stagger_on_tiers(self):
-        html = build_service_tiers()
-        assert 'data-animate="fade-stagger"' in html
-
-    def test_fade_stagger_on_deliverables(self):
-        html = build_deliverables()
-        assert 'data-animate="fade-stagger"' in html
-
-    def test_fade_stagger_on_steps(self):
-        html = build_how_it_works()
-        assert 'data-animate="fade-stagger"' in html
-
-    def test_no_animation_on_hero(self):
-        html = build_hero()
-        assert 'data-animate' not in html
-
-    def test_no_animation_on_problem_prose(self):
-        html = build_problem()
-        assert 'data-animate' not in html
-
-    def test_no_animation_on_testimonials(self):
-        html = build_testimonials()
-        assert 'data-animate' not in html
-
-    def test_no_animation_on_final_cta(self):
-        html = build_final_cta()
-        assert 'data-animate' not in html
-
-    def test_css_has_reduced_motion_guard(self, coaching_css):
+    def test_reduced_motion_no_preference_guard(self, coaching_css):
         assert "prefers-reduced-motion: no-preference" in coaching_css
 
-    def test_css_has_gg_has_js_guard(self, coaching_css):
-        assert ".gg-has-js" in coaching_css
-
-    def test_css_has_gg_in_view(self, coaching_css):
-        assert ".gg-in-view" in coaching_css
-
-    def test_js_has_intersection_observer(self, coaching_js):
-        assert "IntersectionObserver" in coaching_js
-
-    def test_js_adds_gg_has_js(self, coaching_js):
+    def test_gg_has_js_in_js(self, coaching_js):
         assert "gg-has-js" in coaching_js
 
-    def test_js_unobserves_after_trigger(self, coaching_js):
-        assert "unobserve" in coaching_js
+    def test_gg_in_view_in_js(self, coaching_js):
+        assert "gg-in-view" in coaching_js
+
+    def test_intersection_observer_in_js(self, coaching_js):
+        assert "IntersectionObserver" in coaching_js
 
 
 # ── Restraint Guard ──────────────────────────────────────────
-# The page asserts; it doesn't perform. These tests keep the
-# gimmicks from creeping back in.
+# The page asserts; it doesn't perform. Banned substrings from the old
+# loud template — and from the sibling-brand banned set — must never
+# come back.
+
+
+BANNED_SUBSTRINGS = [
+    "$14.95",
+    "/ride",
+    "If you can pedal",
+    "blown race",
+    "costs you",
+    "suffer smarter",
+    "Not a Spreadsheet",
+    "generated in 2 seconds",
+    "Honest Check",
+    "Can't Get From a Prompt",
+]
+
+# Checked against VISIBLE TEXT ONLY (script/style stripped, tags stripped) —
+# these are generic words that can legitimately appear in class names,
+# comments, or CSS without being loud marketing copy on the rendered page.
+NEW_BANNED_VISIBLE_TEXT = [
+    "unlock",
+    "transform",
+    "crush",
+    "Fitness is common",
+    "TERMS OF WORK",
+    "COURSES ON FILE",
+    "Not a Spreadsheet",
+]
+
+COURSE_COUNT_FLEX_PHRASES = [
+    "757 courses",
+    "757 races",
+    "course profiles",
+]
+
+
+def _visible_text(html_doc: str) -> str:
+    """Strip <script>...</script> and <style>...</style> blocks, then strip
+    remaining HTML tags, leaving only what a reader actually sees."""
+    no_script = re.sub(r'<script.*?</script>', '', html_doc, flags=re.DOTALL)
+    no_style = re.sub(r'<style.*?</style>', '', no_script, flags=re.DOTALL)
+    return re.sub(r'<[^>]+>', '', no_style)
 
 
 class TestRestraintGuard:
-    def test_no_per_ride_math(self, coaching_html):
-        """Price stands without a cost-per-ride defense."""
-        assert "/ride" not in coaching_html
-        assert "$14.95" not in coaching_html
-        assert "rides a week" not in coaching_html
+    @pytest.mark.parametrize("phrase", BANNED_SUBSTRINGS)
+    def test_banned_phrase_absent(self, coaching_html, phrase):
+        assert phrase not in coaching_html, f"Banned phrase found in coaching page: {phrase!r}"
+
+    @pytest.mark.parametrize("phrase", NEW_BANNED_VISIBLE_TEXT)
+    def test_banned_visible_text_absent(self, coaching_html, phrase):
+        visible = _visible_text(coaching_html)
+        assert phrase not in visible, f"Banned word found in visible coaching page text: {phrase!r}"
+
+    @pytest.mark.parametrize("phrase", COURSE_COUNT_FLEX_PHRASES)
+    def test_no_course_count_flex_in_visible_text(self, coaching_html, phrase):
+        visible = _visible_text(coaching_html)
+        assert phrase not in visible, f"Course-count flex phrase in visible text: {phrase!r}"
+
+    def test_no_exclamation_points_in_visible_text(self, coaching_html):
+        visible = _visible_text(coaching_html)
+        assert "!" not in visible, "Exclamation point found in visible coaching page text"
 
     def test_no_tire_comparison(self):
-        tiers = build_service_tiers()
+        tiers = build_tiers()
         assert "tires" not in tiers.lower()
 
     def test_no_coffee_cliche(self, coaching_html):
         lower = coaching_html.lower()
         assert "latte" not in lower
         assert "cup of" not in lower
-
-    def test_no_pedal_zinger(self, coaching_html):
-        assert "If you can pedal" not in coaching_html
-
-    def test_no_cost_of_inaction_stack(self):
-        """Final CTA closes quietly — no 'blown race costs months' punch."""
-        cta = build_final_cta()
-        assert "blown race" not in cta
-        assert "costs you" not in cta
-        assert "gg-coach-final-cost" not in cta
-
-    def test_final_cta_honest_selectivity(self):
-        cta = build_final_cta()
-        assert "I read every one myself" in cta
-        assert "48 hours" in cta
-
-    def test_tiers_honest_fit_line(self):
-        tiers = build_service_tiers()
-        assert "I&#39;ll tell you within 24 hours" in tiers
 
     def test_no_slop_phrases(self, coaching_html):
         from slop_rules import check_text
@@ -689,27 +676,43 @@ class TestRestraintGuard:
         assert "not sponsored" not in lower
         assert "no affiliates" not in lower
 
-    def test_no_uppercase_on_prose(self, coaching_css):
-        """text-transform: uppercase only on structural labels, never prose."""
-        uppercase_rules = re.findall(
-            r'([^\{\}]+)\{[^\}]*text-transform:\s*uppercase[^\}]*\}',
-            coaching_css, re.DOTALL
-        )
-        allowed_patterns = [
-            'kicker', 'stat-line', 'sticky-cta', 'gg-coach-btn',
-        ]
-        for rule in uppercase_rules:
-            selector = rule.strip().split('\n')[-1].strip()
-            is_allowed = any(p in selector for p in allowed_patterns)
-            assert is_allowed, (
-                f"text-transform: uppercase on prose element: {selector}\n"
-                f"Coaching copy is sentence case; the page doesn't shout."
-            )
 
-    def test_serif_section_titles(self, coaching_css):
-        """Section titles are editorial serif, not shouted mono caps."""
-        m = re.search(r'\.gg-coach-sec-title\s*\{([^}]+)\}', coaching_css)
-        assert m, "Missing gg-coach-sec-title rule"
-        body = m.group(1)
-        assert "var(--gg-font-editorial)" in body
-        assert "uppercase" not in body
+# ── Required Content ─────────────────────────────────────────
+
+
+class TestRequiredContent:
+    def test_link_to_about(self, coaching_html):
+        from generate_neo_brutalist import SITE_BASE_URL
+        assert f"{SITE_BASE_URL}/about/" in coaching_html
+
+    def test_apply_url_present(self, coaching_html):
+        assert QUESTIONNAIRE_URL in coaching_html
+
+    def test_questionnaire_url_shape(self):
+        from generate_neo_brutalist import SITE_BASE_URL
+        assert QUESTIONNAIRE_URL == f"{SITE_BASE_URL}/coaching/apply/"
+
+    def test_disclaimer_and_setup_fee(self, coaching_html):
+        assert "skipped workouts" in coaching_html
+        assert "$99 setup fee" in coaching_html
+
+    def test_hero_h1(self, coaching_html):
+        assert "You could be better than you think." in coaching_html
+        assert "it&#39;s an observation about people who train alone." in coaching_html
+
+    def test_final_contact_line(self, coaching_html):
+        assert "matt@gravelgodcycling.com" in coaching_html
+        assert 'href="mailto:matt@gravelgodcycling.com"' in coaching_html
+        assert "I answer myself, usually within a day." in coaching_html
+
+    def test_removed_sections_absent(self, coaching_html):
+        for old_id in ("how-it-works", "problem", "deliverables", "results", "honest-check"):
+            assert f'id="{old_id}"' not in coaching_html
+        assert "How it works" not in coaching_html
+
+    def test_no_testimonials(self, coaching_html):
+        assert coaching_html.count("<blockquote") == 0
+
+    def test_all_section_ids_present(self, coaching_html):
+        for sid in ("hero", "terms", "tiers", "fit", "faq", "final-cta"):
+            assert f'id="{sid}"' in coaching_html

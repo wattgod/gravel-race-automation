@@ -380,9 +380,12 @@ class TestCollapsibleSections:
 
     def test_collapsible_does_not_target_ratings(self):
         """Ratings remain outside .gg-deep-dive in page assembly."""
-        from generate_neo_brutalist import generate_page
         source = Path(PROJECT_ROOT / "wordpress" / "generate_neo_brutalist.py").read_text()
-        assert "spine_sections = [verdict, ratings" in source
+        assert "spine_sections = [ratings, custom_plan, coaching, breakdown]" in source
+        deep_dive_assembly = source.split("deep_sections = []", 1)[1].split(
+            "deep_content =", 1
+        )[0]
+        assert "ratings" not in deep_dive_assembly
 
     def test_collapsible_sets_aria_expanded(self):
         assert "aria-expanded" in self.js

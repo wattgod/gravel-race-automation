@@ -619,10 +619,14 @@ ICON_DRAWERS = {
     "masters": draw_icon_masters,
 }
 
+# Fix #2 (heat-training gating, gravel-god-training-plans/specs/heat-gating/
+# SPEC.md H4): the heat tile is climate-conditional wording, not a fixed
+# entry — see HEAT_TILES below. Kept out of STANDARD_TILES so listing text
+# (tools/build_tp_listing_fixture.py's build_includes_summary) and this
+# includes-image tile never disagree.
 STANDARD_TILES = [
     ("training", "Structured rides tailored to your zones — exportable to your devices"),
     ("strength", "Strength built in, with video walkthroughs"),
-    ("heat", "Heat-training protocols for racing in the hot stuff"),
     ("skills", "Workouts to improve your skills and ability in the peloton"),
     ("mental", "Weekly coach notes + the Gravel Grit mental program"),
     ("fueling", "How to optimize nutrition and hydration for training and racing"),
@@ -631,6 +635,16 @@ STANDARD_TILES = [
 MODULE_TILES = {
     "altitude": ("altitude", "Altitude-adjusted pacing and acclimation guidance for this course's elevation"),
     "masters": ("masters", "Recovery-first structuring engineered for the Masters 50+ athlete"),
+}
+
+# Fix #2: heat tile wording by register (high/moderate -> "active"; low/
+# unknown -> "default"). Mirrors gravel-god-training-plans/tools/
+# tp_catalog_config.py's HEAT_TILE_LABELS (that repo's short-phrase style;
+# this is the Title-cased sentence for the rendered tile). [MATTI: ratify
+# tile wording per docs/research/heat-training-gating.md §3.]
+HEAT_TILES = {
+    "active": ("heat", "Heat-training protocols for racing in the hot stuff"),
+    "default": ("heat", "Heat protocols for when your race calls for them"),
 }
 
 
@@ -904,12 +918,26 @@ TILE_MARGIN = 40
 TILES_PER_ROW = 2
 
 
-def build_includes_image(race: dict, plan_class: str, plan: dict, altitude_flag: bool):
-    """Returns (PIL.Image RGB, alt_text str)."""
+def build_includes_image(race: dict, plan_class: str, plan: dict, altitude_flag: bool,
+                          heat_risk: str = "unknown"):
+    """Returns (PIL.Image RGB, alt_text str). `heat_risk` (Fix #2: "high"/
+    "moderate"/"low"/"unknown" from tools/heat_classifier.py, defaults
+    "unknown") selects the heat tile's wording — the tile itself always
+    renders at its original 3rd position; only the copy is conditional.
+    Image regen against a real heat_risk value is rollout, not this
+    deliverable — this function just needs to accept the input. Masters
+    plans always get the default/soft wording regardless of heat_risk
+    (gravel-god-training-plans specs/heat-gating/SPEC.md H4: "low/unknown/
+    masters render [default]") — mirrors
+    gravel-god-training-plans/tools/build_tp_listing_fixture.py's
+    build_includes_summary()."""
     name = race.get("display_name") or race.get("name") or race.get("slug")
     tier = plan.get("tier", plan_class)
 
+    use_active = heat_risk in ("high", "moderate") and plan_class != "masters"
+    heat_tile = HEAT_TILES["active" if use_active else "default"]
     tiles = list(STANDARD_TILES)
+    tiles.insert(2, heat_tile)
     if altitude_flag:
         tiles.append(MODULE_TILES["altitude"])
     if plan_class == "masters":
@@ -1020,10 +1048,12 @@ def save_manifest(manifest: dict, path: Path):
 
 def generate_for_race(slug: str, plan_classes: list = None, data_dir: Path = DATA_DIR,
                        output_dir: Path = OUTPUT_DIR, plans_db_path: Path = DEFAULT_PLANS_DB,
-                       manifest: dict = None) -> dict:
+                       manifest: dict = None, heat_risk: str = "unknown") -> dict:
     """Generate the header image and one includes image per requested plan
     class for a race. Returns the manifest entry for this race (also merges
-    into `manifest` if provided)."""
+    into `manifest` if provided). `heat_risk` (Fix #2) defaults "unknown" —
+    wiring a real per-race classification through this CLI is rollout, not
+    this deliverable; see build_includes_image()."""
     race = load_race(slug, data_dir)
     altitude_flag = check_altitude_flag(race)
 
@@ -1050,7 +1080,7 @@ def generate_for_race(slug: str, plan_classes: list = None, data_dir: Path = DAT
             continue
         # Prefer the longest published variant as the representative record.
         plan = max(candidates, key=lambda p: p.get("length_wk", 0))
-        includes_img, includes_alt = build_includes_image(race, pc, plan, altitude_flag)
+        includes_img, includes_alt = build_includes_image(race, pc, plan, altitude_flag, heat_risk)
         includes_path = save_and_hash(includes_img, output_dir, f"{slug}-{pc}-includes")
         entry["plans"][pc] = {"file": includes_path.name, "alt": includes_alt}
 
@@ -1070,6 +1100,14 @@ def main():
     parser.add_argument("--data-dir", type=Path, default=DATA_DIR)
     parser.add_argument("--output-dir", type=Path, default=OUTPUT_DIR)
     parser.add_argument("--plans-db", type=Path, default=DEFAULT_PLANS_DB)
+    # Fix #2 (heat-training gating): heat register for the includes tile
+    # wording (gravel-god-training-plans/tools/heat_classifier.py). A single
+    # flag applies uniformly to every slug in this invocation — per-race
+    # classification at batch scale (--all-p0) is rollout, not this
+    # deliverable; call generate_for_race() directly per-slug from a rollout
+    # script if each race needs its own real register.
+    parser.add_argument("--heat-risk", choices=["high", "moderate", "low", "unknown"],
+                         default="unknown", help="Heat register for the includes tile wording. Default unknown.")
     args = parser.parse_args()
 
     if not args.slug and not args.all_p0:
@@ -1083,7 +1121,7 @@ def main():
     for slug in slugs:
         try:
             generate_for_race(slug, args.plan_classes, args.data_dir, args.output_dir,
-                               args.plans_db, manifest)
+                               args.plans_db, manifest, heat_risk=args.heat_risk)
             print(f"  OK: {slug}")
         except TPListingError as e:
             print(f"  ERROR: {slug}: {e}")

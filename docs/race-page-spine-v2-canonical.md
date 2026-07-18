@@ -1,7 +1,7 @@
 # Gravel God Race Pages — Canonical Spine v2
 
 **Decision date:** 2026-07-17  
-**Status:** Implemented and catalog-audited on `race-page-final-mock`; staged, not deployed  
+**Status:** Deployed to production from `race-page-final-mock` on 2026-07-17  
 **Owner approval:** Matti approved the final mock before catalog rollout  
 **Supersedes:** conflicting structure/copy instructions in the 2026-07-14 overhaul handoff and simplification spec
 
@@ -144,9 +144,20 @@ uv run --python 3.11 --no-project python -m py_compile \
 python3 scripts/audit_spine_v2_catalog.py
 ```
 
-## Deploy gate
+## Production deployment record
 
-The staged catalog is not permission to publish. Do not push to `main`, trigger the
-catalog-sync workflow, upload WordPress output, or purge caches without Matti’s
-separate deploy approval. Before an approved deploy, rerun the focused tests, catalog
-audit, and repository preflight; then follow `.claude/skills/deploy-safely/SKILL.md`.
+Matti approved production deployment on 2026-07-17. The dedicated staged catalog was
+uploaded directly with `push_wordpress.py --sync-pages --pages-dir` and SiteGround's
+static, dynamic, memcached, and OPcache layers were purged successfully.
+
+- 736/736 expected slugs exist on the server.
+- 736/736 contain `data-page-format="spine-v2-approved"`.
+- The deployed CSS and JS SHA-256 hashes match the generated artifacts.
+- Ordinary and cache-busted HTTP requests return the approved layout, GA4 property,
+  custom-plan CTA, and accordion Deep Dive.
+- Rendered desktop and 390px mobile checks found no horizontal overflow or console
+  errors; the Course Overview accordion changed `aria-expanded` from `false` to
+  `true` when activated.
+
+Future deployments still require separate owner approval, fresh generation and
+catalog audits, and `.claude/skills/deploy-safely/SKILL.md`.

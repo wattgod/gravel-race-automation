@@ -105,9 +105,18 @@ Regions: {', '.join(regions)}.
 - [RSS feed]({SITE_URL}/feed/races.xml)
 - [MCP Server (GitHub)](https://github.com/wattgod/gravel-race-automation)
 - [Individual race profiles]({SITE_URL}/race/{{slug}}/)
-- [Markdown profiles]({SITE_URL}/race/{{slug}}/index.md)
+- [Markdown profiles]({SITE_URL}/race/{{slug}}.md)
 - [Race training-plan guides]({SITE_URL}/race/{{slug}}/training-plan/)
 - [Race prep kits]({SITE_URL}/race/{{slug}}/prep-kit/)
+
+## Markdown Mirrors
+
+Every race profile is also published as clean Markdown with YAML
+frontmatter, one file per race, at:
+
+`{SITE_URL}/race/{{slug}}.md`
+
+e.g. {SITE_URL}/race/unbound-200.md
 
 ## Contact
 
@@ -227,6 +236,7 @@ def generate_llms_full_txt(index: list[dict], race_data_dir: Path) -> str:
         lines.append(f"### {name}")
         lines.append(f"Tier {tier} | Score: {score}/100 | {dist} | {elev} | {loc} | {month} | {disc}")
         lines.append(f"Profile: {SITE_URL}/race/{slug}/")
+        lines.append(f"Markdown: {SITE_URL}/race/{slug}.md")
 
         summary = _race_summary(slug, race_data_dir)
         if summary:
@@ -235,14 +245,17 @@ def generate_llms_full_txt(index: list[dict], race_data_dir: Path) -> str:
 
         lines.append("")
 
-    # T3/T4 races as table (now includes discipline)
+    # T3/T4 races as table (now includes discipline + slug)
     lines.append(f"## Tier 3 & Tier 4 Races ({len(t3_t4)} races)")
     lines.append("")
-    lines.append("| Name | Tier | Score | Distance | Elevation | Location | Month | Discipline |")
-    lines.append("|------|------|-------|----------|-----------|----------|-------|------------|")
+    lines.append(f"Each race's Markdown mirror is at {SITE_URL}/race/{{slug}}.md — the Slug column below gives {{slug}}.")
+    lines.append("")
+    lines.append("| Name | Slug | Tier | Score | Distance | Elevation | Location | Month | Discipline |")
+    lines.append("|------|------|------|-------|----------|-----------|----------|-------|------------|")
 
     for r in t3_t4:
         name = _md_escape(r.get("name", r["slug"]))
+        slug = _md_escape(r["slug"])
         tier = r.get("tier", "?")
         score = r.get("overall_score", "?")
         dist = _fmt_dist(r.get("distance_mi"))
@@ -250,7 +263,7 @@ def generate_llms_full_txt(index: list[dict], race_data_dir: Path) -> str:
         loc = _md_escape(r.get("location", "—"))
         month = _md_escape(r.get("month") or "—")
         disc = _md_escape(r.get("discipline") or "gravel")
-        lines.append(f"| {name} | {tier} | {score} | {dist} | {elev} | {loc} | {month} | {disc} |")
+        lines.append(f"| {name} | {slug} | {tier} | {score} | {dist} | {elev} | {loc} | {month} | {disc} |")
 
     lines.append("")
 

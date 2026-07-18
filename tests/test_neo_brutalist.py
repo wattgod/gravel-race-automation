@@ -1037,6 +1037,12 @@ class TestFullPage:
         html = generate_page(normalized_data)
         assert 'rel="canonical"' in html
 
+    def test_has_markdown_alternate_link(self, normalized_data):
+        """Head must advertise the Markdown mirror at /race/{slug}.md (AI-search ingestibility)."""
+        html = generate_page(normalized_data)
+        slug = normalized_data["slug"]
+        assert f'<link rel="alternate" type="text/markdown" href="https://gravelgodcycling.com/race/{slug}.md">' in html
+
     def test_has_jsonld(self, normalized_data):
         html = generate_page(normalized_data)
         assert "application/ld+json" in html

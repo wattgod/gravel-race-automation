@@ -6215,6 +6215,7 @@ def generate_page(rd: dict, race_index: list = None, external_assets: dict = Non
   <meta name="description" content="{esc(seo_description)}">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="{esc(canonical_url)}">
+  <link rel="alternate" type="text/markdown" href="{esc(SITE_BASE_URL)}/race/{esc(rd['slug'])}.md">
   <link rel="icon" type="image/svg+xml" href="https://gravelgodcycling.com/gg-logo.svg">
   <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
   <link rel="dns-prefetch" href="https://ridewithgps.com">

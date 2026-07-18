@@ -191,32 +191,7 @@ FEATURED_ONSITE_ARTICLES = [
 ]
 
 # ── Athlete testimonials (from live site coaching section) ──────
-TESTIMONIALS = [
-    {
-        "quote": "I finished Unbound in 13:47 this year. Last year I DNF\u2019d at mile 140 because I had no idea how to pace myself and ran out of food twice. Matti\u2019s plan was boring as hell but it worked.",
-        "name": "Sarah K.",
-        "title": "Unbound 200 finisher",
-        "tags": "Gravel \u00b7 9 hrs/week \u00b7 Elementary school teacher",
-    },
-    {
-        "quote": "First time I cracked top 20 at a regional race. Not because I got fitter\u2014I\u2019ve been \u2018fit enough\u2019 for years. I just finally learned to not go hard when it felt easy and actually recover on easy days.",
-        "name": "Marcus T.",
-        "title": "consistent podium threat",
-        "tags": "Gravel \u00b7 12 hrs/week \u00b7 Night shift RN",
-    },
-    {
-        "quote": "Matti told me to stop doing VO2 intervals in February and I thought he was an idiot. Then I PR\u2019d every race distance from June through September. Turns out base actually matters.",
-        "name": "Jordan P.",
-        "title": "multiple Cat 1/2 wins",
-        "tags": "Road & gravel \u00b7 14 hrs/week \u00b7 Software engineer",
-    },
-    {
-        "quote": "I went from blowing up on every climb longer than 10 minutes to finishing SBT GRVL Black in the top third. The difference was pacing and fueling strategy, not some magic workout.",
-        "name": "Chris M.",
-        "title": "SBT GRVL Black finisher",
-        "tags": "Gravel \u00b7 10 hrs/week \u00b7 Two kids under 5",
-    },
-]
+TESTIMONIALS = []  # removed 2026-07-18 — no homepage testimonials (owner ruling); full set on /about/
 
 
 def esc(text) -> str:
@@ -1070,7 +1045,7 @@ def build_sidebar(stats: dict, race_index: list, upcoming: list) -> str:
 
     # 5. Sidebar CTA
     cta_html = f'''<div class="gg-hp-sidebar-cta">
-      <h3>Don&rsquo;t wing race day</h3>
+      <h3>A plan for the race on your calendar</h3>
       <p>Your target race has specific terrain, elevation, and weather. Your plan should too.</p>
       <a href="{esc(TRAINING_PLANS_URL)}" class="gg-hp-sidebar-cta-btn" data-ga="sidebar_cta_click">Get Your Plan &rarr;</a>
     </div>'''
@@ -1097,7 +1072,7 @@ def build_content_grid(race_index: list, stats: dict, upcoming: list) -> str:
 def build_how_it_works(stats: dict = None) -> str:
     race_count = stats["race_count"] if stats else 328
     steps = [
-        ("01", "PICK YOUR RACE", f"{race_count} races. Scored honestly. Filter by terrain, distance, climbing, and what actually matters to you."),
+        ("01", "PICK YOUR RACE", f"{race_count} races, scored. Filter by terrain, distance, climbing, and what actually matters to you."),
         ("02", "READ THE REAL TAKE", "Every rating comes with an editorial opinion. We tell you if it&rsquo;s worth the flight, the entry fee, and the suffering."),
         ("03", "SHOW UP READY", "You&rsquo;ve already paid for the entry fee. Don&rsquo;t waste it. Race-specific plans so you don&rsquo;t blow up at mile 60 like we did."),
     ]
@@ -1157,7 +1132,7 @@ def build_training_cta() -> str:
       <div class="gg-hp-cta-left">
         <h2>Train for the course, not just the distance</h2>
         <p>Every generic plan treats gravel like a road race with dirt. This isn&rsquo;t that. Training plans matched to your target race&rsquo;s exact terrain, elevation profile, and typical conditions. Built around your schedule, your fitness, and your goal.</p>
-        <p class="gg-hp-cta-price" data-ab="training_price">Race-specific. Built for your target event. Less than your race hotel &mdash; $2/day.</p>
+        <p class="gg-hp-cta-price" data-ab="training_price">Custom-built for your target event &mdash; $15 a week.</p>
         <a href="{esc(TRAINING_PLANS_URL)}" class="gg-hp-cta-btn" data-ga="training_plan_click" data-ab="training_cta_btn">Get Your Plan &rarr;</a>
       </div>
       <div class="gg-hp-cta-right" role="img" aria-label="Training plan preview"></div>
@@ -1166,35 +1141,16 @@ def build_training_cta() -> str:
 
 
 def build_testimonials() -> str:
-    """Build the athlete testimonials section with quotes from coached athletes."""
-    if not TESTIMONIALS:
-        return ""
-
-    cards = ""
-    for t in TESTIMONIALS:
-        cards += f'''
-      <div class="gg-hp-test-card">
-        <blockquote class="gg-hp-test-quote">&ldquo;{esc(t["quote"])}&rdquo;</blockquote>
-        <div class="gg-hp-test-attr">
-          <span class="gg-hp-test-name">{esc(t["name"])}</span>
-          <span class="gg-hp-test-title">{esc(t["title"])}</span>
-        </div>
-        <div class="gg-hp-test-tags">{esc(t["tags"])}</div>
-      </div>'''
-
+    """Homepage coaching band. The testimonial cards were removed 2026-07-18
+    (owner ruling: no testimonials — same call as /coaching/; the full set
+    lives on /about/). Section id + data-ab/data-ga hooks preserved for the
+    A/B templates that target them."""
     return f'''<section class="gg-hp-testimonials" id="testimonials">
-    <div class="gg-hp-section-header">
-      <h2>ATHLETE RESULTS</h2>
-      <p class="gg-hp-section-intro">Real plans. Real races. Real finishes.</p>
-    </div>
-    <div class="gg-hp-test-grid" data-animate="fade-stagger">{cards}
-    </div>
     <div class="gg-hp-test-cta">
-      <p data-ab="coaching_scarcity">A human in your corner. Adapts week to week. Limited spots.</p>
-      <a href="{esc(SITE_BASE_URL)}/coaching/" class="gg-hp-btn gg-hp-btn--primary" data-ga="coaching_cta_testimonials">SEE COACHING OPTIONS &rarr;</a>
+      <p data-ab="coaching_scarcity">You could be better than you think. A human in your corner &mdash; not an AI, not a spreadsheet.</p>
+      <a href="{esc(SITE_BASE_URL)}/coaching/" class="gg-hp-btn gg-hp-btn--primary" data-ga="coaching_cta_testimonials">GET ME IN YOUR CORNER &rarr;</a>
     </div>
   </section>'''
-
 
 def build_email_capture(posts: list = None) -> str:
     articles = posts or []

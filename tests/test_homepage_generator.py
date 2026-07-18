@@ -937,10 +937,12 @@ class TestLatestTakes:
 
 class TestTestimonials:
     def test_testimonials_section(self):
+        """Now the quiet coaching band (owner ruling 2026-07-18: no
+        homepage testimonials). No quote cards may ever return."""
         html = build_testimonials()
-        if html:  # May be empty if TESTIMONIALS is empty
-            assert "ATHLETE RESULTS" in html
-            assert "gg-hp-test-card" in html
+        assert "GET ME IN YOUR CORNER" in html
+        assert "gg-hp-test-card" not in html
+        assert "blockquote" not in html
 
 
 # ── Brand & Tone Guard Tests ────────────────────────────────
@@ -1741,10 +1743,11 @@ class TestSectionIntros:
         assert "stand behind" in html
 
     def test_testimonials_intro(self):
-        """Testimonials must have a section intro."""
+        """The section is the coaching band now — corner copy, no intro
+        header, no quotes (owner ruling 2026-07-18)."""
         html = build_testimonials()
-        assert "gg-hp-section-intro" in html
-        assert "Real plans" in html
+        assert "A human in your corner" in html
+        assert "blockquote" not in html
 
     def test_sidebar_stats_intro(self, stats, race_index, upcoming):
         """Sidebar BY THE NUMBERS must have a section intro."""
@@ -1769,7 +1772,6 @@ class TestSectionIntros:
         for section_html, name in [
             (rankings, "rankings"),
             (takes, "latest takes"),
-            (testimonials, "testimonials"),
         ]:
             match = re.search(
                 r'class="gg-hp-section-intro">(.*?)</p>',
@@ -1784,7 +1786,6 @@ class TestSectionIntros:
         expected_fragments = [
             "Sorted by the numbers",
             "stand behind",
-            "Real plans",
             "at a glance",
             "compares themselves",
             "on the calendar",

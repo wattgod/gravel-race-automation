@@ -48,6 +48,16 @@ AUDIO_FILES = {
         "description": "10-minute pre-race routine: centering breath, performance cues, race visualization, activation.",
         "duration_target": "10:00",
     },
+    "audio/six-two-seven-guided.mp3": {
+        "title": "6-2-7 Guided Breathing",
+        "description": "Guided run-through of the full 6-2-7 protocol: inhale 6, hold 2, exhale 7.",
+        "duration_target": "5:00",
+    },
+    "audio/progressive-muscle-relaxation.mp3": {
+        "title": "Progressive Muscle Relaxation",
+        "description": "15-minute full-body downshift for over-aroused athletes. Lying down, not driving.",
+        "duration_target": "15:00",
+    },
 }
 
 

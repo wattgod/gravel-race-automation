@@ -1,0 +1,292 @@
+{
+ "date": "2026-07-18",
+ "ga4": {
+  "gravelgod": {
+   "sessions": 25,
+   "users": 22,
+   "pageviews": 40,
+   "sessions_7d_avg": 38.4,
+   "funnel": {
+    "cta_click": 0,
+    "form_start": 0,
+    "form_submit": 0,
+    "begin_checkout": 0,
+    "purchase": 0
+   },
+   "abandoned_submits": 0,
+   "top_pages": [
+    {
+     "path": "/gravel-races/",
+     "views": 5
+    },
+    {
+     "path": "/",
+     "views": 4
+    },
+    {
+     "path": "/insights/",
+     "views": 3
+    },
+    {
+     "path": "/products/training-plans/",
+     "views": 3
+    },
+    {
+     "path": "/articles/",
+     "views": 2
+    },
+    {
+     "path": "/race/big-sugar/",
+     "views": 2
+    },
+    {
+     "path": "/articles/sweet-spot-training-cycling/",
+     "views": 1
+    },
+    {
+     "path": "/i-screwed-up-foco-fondo-so-you-dont-have-to/",
+     "views": 1
+    }
+   ],
+   "channel_mix": {
+    "Organic Search": 13,
+    "Direct": 10,
+    "Referral": 2
+   },
+   "top_landing": [
+    {
+     "path": "/",
+     "sessions": 3
+    },
+    {
+     "path": "/products/training-plans/",
+     "sessions": 3
+    },
+    {
+     "path": "/gravel-races/",
+     "sessions": 2
+    },
+    {
+     "path": "/race/big-sugar/",
+     "sessions": 2
+    },
+    {
+     "path": "",
+     "sessions": 1
+    },
+    {
+     "path": "/i-screwed-up-foco-fondo-so-you-dont-have-to/",
+     "sessions": 1
+    }
+   ],
+   "sessions_28d": 1039,
+   "funnel_28d": {
+    "cta_click": 41,
+    "form_start": 42,
+    "form_submit": 27,
+    "begin_checkout": 1,
+    "purchase": 3
+   },
+   "ok": true
+  },
+  "roadielabs": {
+   "sessions": 0,
+   "users": 0,
+   "pageviews": 0,
+   "sessions_7d_avg": 0.1,
+   "funnel": {
+    "cta_click": 0,
+    "form_start": 0,
+    "form_submit": 0,
+    "begin_checkout": 0,
+    "purchase": 0
+   },
+   "abandoned_submits": 0,
+   "top_pages": [],
+   "channel_mix": {},
+   "top_landing": [],
+   "sessions_28d": 6,
+   "funnel_28d": {
+    "cta_click": 0,
+    "form_start": 0,
+    "form_submit": 0,
+    "begin_checkout": 0,
+    "purchase": 0
+   },
+   "ok": true
+  }
+ },
+ "checkout": {
+  "gravelgod": {
+   "health_ok": true,
+   "stripe_checkout_ok": true,
+   "ok": true,
+   "error": ""
+  },
+  "roadielabs": {
+   "health_ok": true,
+   "stripe_checkout_ok": true,
+   "ok": true,
+   "error": ""
+  }
+ },
+ "mission_control": {
+  "hot_leads_14d": [
+   {
+    "email": "sum-wasted-2e@icloud.com",
+    "name": "",
+    "race": "Gravel Worlds",
+    "brand": "gravelgod",
+    "sequence": "nurture_v1",
+    "step": 0,
+    "status": "active",
+    "opens": 0,
+    "clicks": 0
+   },
+   {
+    "email": "gravelgodcoaching+e2e-xcguide@gmail.com",
+    "name": "",
+    "race": "(no race given)",
+    "brand": "xcskilabs",
+    "sequence": "xc_welcome_v1",
+    "step": 1,
+    "status": "active",
+    "opens": 0,
+    "clicks": 0
+   },
+   {
+    "email": "gravelgodcoaching+e2e-xctest@gmail.com",
+    "name": "E2E XCTest",
+    "race": "American Birkebeiner",
+    "brand": "xcskilabs",
+    "sequence": "xc_welcome_v1",
+    "step": 1,
+    "status": "active",
+    "opens": 0,
+    "clicks": 0
+   },
+   {
+    "email": "gravelgodcoaching+e2e-roadtest@gmail.com",
+    "name": "E2E RoadTest",
+    "race": "Maratona dles Dolomites",
+    "brand": "roadielabs",
+    "sequence": "road_welcome_v1",
+    "step": 1,
+    "status": "active",
+    "opens": 0,
+    "clicks": 0
+   },
+   {
+    "email": "gravelgodcoaching+e2e-friendtest@gmail.com",
+    "name": "E2E FriendTest",
+    "race": "(no race given)",
+    "brand": "gravelgod",
+    "sequence": "welcome_v1",
+    "step": 1,
+    "status": "active",
+    "opens": 1,
+    "clicks": 0
+   },
+   {
+    "email": "hartleyjohn50@gmail.com",
+    "name": "",
+    "race": "Unbound Gravel 100",
+    "brand": "gravelgod",
+    "sequence": "nurture_v1",
+    "step": 0,
+    "status": "active",
+    "opens": 0,
+    "clicks": 0
+   },
+   {
+    "email": "killickluca@yahoo.co.nz",
+    "name": "",
+    "race": "Edition Zero",
+    "brand": "gravelgod",
+    "sequence": "welcome_v1",
+    "step": 1,
+    "status": "active",
+    "opens": 1,
+    "clicks": 0
+   },
+   {
+    "email": "jbrooker03@hotmail.com",
+    "name": "",
+    "race": "UCI Gravel World Championships",
+    "brand": "gravelgod",
+    "sequence": "welcome_v1",
+    "step": 2,
+    "status": "active",
+    "opens": 2,
+    "clicks": 1
+   }
+  ],
+  "new_leads_24h": 1,
+  "leads_by_brand": {
+   "gravelgod": 1,
+   "roadielabs": 0
+  },
+  "countdown_enrollments": 0,
+  "emails_sent_24h": 4,
+  "opens_24h": 2,
+  "clicks_24h": 0,
+  "bounces_24h": 0,
+  "new_orders_24h_UNRELIABLE": "use ga4 purchase counts \u2014 gg_athletes is not written by purchases",
+  "errors_24h": [],
+  "ok": true
+ },
+ "commerce_ledger": {
+  "failed_orders": [],
+  "orders": [
+   {
+    "email": "acceptance+roadie-20260716@roadielabs.com",
+    "error": null,
+    "name": "Example Athlete",
+    "product_type": "training_plan",
+    "success": true,
+    "timestamp": "2026-07-17T16:26:21.420809"
+   },
+   {
+    "email": "acceptance+roadie-20260716@roadielabs.com",
+    "error": null,
+    "name": "Example Athlete",
+    "product_type": "training_plan",
+    "success": true,
+    "timestamp": "2026-07-17T17:00:51.177662"
+   }
+  ],
+  "questionnaire_starts": 0,
+  "recoveries": [],
+  "window_hours": 24,
+  "ok": true
+ },
+ "social": {
+  "accounts_live": false,
+  "queued_today": 0,
+  "queued_yesterday": 0,
+  "posts": [],
+  "ok": true
+ },
+ "workflows": {
+  "latest": {
+   "gravel-race-automation/link-check.yml": "failure",
+   "road-race-automation/link-check.yml": "failure",
+   "road-race-automation/checkout-monitor.yml": "success",
+   "gravel-race-automation/regression-tests.yml": "success"
+  },
+  "ok": true
+ },
+ "constraint": {
+  "ok": true,
+  "sessions_per_day": 37.1,
+  "cta_rate_pct": 3.95,
+  "cta_to_submit_pct": 65.9,
+  "submit_to_purchase_pct": 11.1,
+  "purchases_28d": 3,
+  "submits_28d": 27,
+  "ctas_28d": 41,
+  "sessions_per_day_needed_for_1_sale": 346,
+  "binding_constraint": "traffic \u2014 at these volumes no funnel rate is even measurable; nothing downstream is worth optimizing yet"
+ },
+ "report": "**INTERPRETATION FAILED: no text block in model response**\n\n## RAW DIGEST \u2014 2026-07-18 (interpretation unavailable)\n\n### Gravel God\n- sessions 25 (7d avg 38.4), funnel {'cta_click': 0, 'form_start': 0, 'form_submit': 0, 'begin_checkout': 0, 'purchase': 0}\n- checkout: OK\n\n### Roadie Labs\n- sessions 0 (7d avg 0.1), funnel {'cta_click': 0, 'form_start': 0, 'form_submit': 0, 'begin_checkout': 0, 'purchase': 0}\n- checkout: OK\n\n- leads 1, emails 4, errors 0 (orders: see GA4 purchase counts)"
+}

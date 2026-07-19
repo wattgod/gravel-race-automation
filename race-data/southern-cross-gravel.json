@@ -6,7 +6,7 @@
     "tagline": "Punchy Georgia mountain gravel with a winery finish and the best post-race party in the Southeast.",
     "vitals": {
       "distance_mi": 50,
-      "elevation_ft": 6200,
+      "elevation_ft": 5500,
       "location": "Dahlonega, Georgia",
       "location_badge": "DAHLONEGA, GEORGIA",
       "county": "Lumpkin County",
@@ -40,11 +40,10 @@
     },
     "terrain": {
       "primary": "Punchy mountain gravel",
-      "surface": "70% gravel/dirt forest roads, 20% paved connectors, 10% technical doubletrack/singletrack. Red Georgia clay—smooth when dry, slick when wet.",
+      "surface": "Mostly gravel roads with some pavement and pasture or trail sections on the Montaluce property, plus grass in the final half mile.",
       "technical_rating": 4,
       "features": [
-        "Constant elevation change—no extended flats",
-        "Steep, short pitches (8-12% grades typical)",
+        "Two major sustained climbs and two long descents",
         "Winding Stair Gap climb (also the mile-12/32 aid station)",
         "Cooper Gap and Springer Mountain descents (course guide flags both as high-caution)",
         "Course crosses the Appalachian Trail at 4 points",
@@ -103,31 +102,21 @@
       "official_site": "https://mountaingoatadventures.com/southernx"
     },
     "course_description": {
-      "character": "Constant elevation change with no extended flats. Punchy, steep pitches (8-12% typical) spread throughout. This is NOT a power race—it's a climbing and bike-handling test. North Georgia Appalachian terrain: relentless rollers, technical descents, and forest road gravel, starting and finishing at Montaluce Winery.",
+      "character": "The approximately 50-mile flagship gains about 5,500 feet on mostly gravel roads with some pavement and pasture or trail sections. It has two major sustained climbs and two long descents, with grass in the final half mile to Montaluce Winery.",
       "suffering_zones": [
         {
-          "name": "Winding Stair Gap Climb",
-          "miles": "Approaching mile 12",
-          "description": "The course's first big sustained climb, leading to the mile-12 aid station. Mountain-bike gearing helps here — the race's own guide singles it out as the climb where lower gears pay off.",
-          "survival_strategy": "Riders on the 30mi course only face this climb once before peeling off toward Cooper Gap; 50mi riders climb it again on the way back."
+          "mile": 12,
+          "label": "Winding Stair Gap",
+          "desc": "The 50-mile course reaches the Winding Stair Gap aid station after its first major sustained climb.",
+          "terrain_detail": "Sustained gravel climb and aid station",
+          "named_section": "Winding Stair Gap"
         },
         {
-          "name": "Cooper Gap Descent",
-          "miles": "Mid-course",
-          "description": "A long, high-speed descent that the race's own course guidelines flag (alongside the Springer Mountain descent) as a top hazard — support vehicles are banned from driving up it during the race for rider safety.",
-          "survival_strategy": "Stay off the brakes but stay in control; the road is open to public traffic and other trail users throughout."
-        },
-        {
-          "name": "Springer Mountain Descent",
-          "miles": "Late course",
-          "description": "The other descent the organizers call out by name as a caution zone, on tired legs late in the 50mi route.",
-          "survival_strategy": "Fatigue plus a fast, loose descent is the real risk here — conserve some focus for the final miles, not just the finish-line kick."
-        },
-        {
-          "name": "Appalachian Trail Crossings",
-          "miles": "Throughout",
-          "description": "The course crosses the Appalachian Trail at 4 points during peak thru-hiker season. Riders are required to yield to hikers and horses on these multiuse Forest Service roads.",
-          "survival_strategy": "Expect to slow or stop for AT thru-hikers and equestrians — not a racing hazard, but a real time cost if you hit a crossing at the wrong moment."
+          "mile": 32,
+          "label": "Winding Stair Gap Return",
+          "desc": "The 50-mile course visits the same Winding Stair Gap aid station a second time at mile 32.",
+          "terrain_detail": "Second aid-station pass",
+          "named_section": "Winding Stair Gap Return"
         }
       ],
       "signature_challenge": "One aid station, visited twice: 50mi riders must clear Winding Stair Gap (mile 12) by 12:30 PM or get redirected onto the 30mi course back to Montaluce Winery.",

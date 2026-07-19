@@ -5,8 +5,8 @@
     "display_name": "Lost and Found Gravel",
     "tagline": "The Lost Sierra's biggest weekend — Sierra Buttes Trail Stewardship's flagship gravel fundraiser.",
     "vitals": {
-      "distance_mi": 100,
-      "elevation_ft": 6000,
+      "distance_mi": 99,
+      "elevation_ft": 5946,
       "location": "Portola, California",
       "location_badge": "PORTOLA, CA",
       "county": "Plumas County",
@@ -22,11 +22,10 @@
       "start_time": "Morning start",
       "registration": "Online (lostandfoundbikeride.com). Cost: ~$100-180",
       "prize_purse": "Modest prizes",
-      "aid_stations": "Multiple aid stations",
+      "aid_stations": "Five aid stations on the 2026 Full Bull",
       "cutoff_time": "Varies",
       "lat": 39.8105,
       "lng": -120.4695,
-      "gain_display": "Varies",
       "start_elevation_asl_ft": 4856
     },
     "climate": {
@@ -41,10 +40,10 @@
     },
     "terrain": {
       "primary": "California Sierra Nevada gravel",
-      "surface": "70-80% dirt/gravel through Sierra Nevada forest roads and historic railroad grade, with the remainder pavement. Significant climbing with mountain scenery.",
+      "surface": "The 2026 Full Bull is 84% dirt on a 99-mile Lost Sierra route, with the remainder on pavement.",
       "technical_rating": 3,
       "features": [
-        "Significant mountain climbing (gain shifts year to year on reroutes)",
+        "5,946 feet of climbing on the 2026 Full Bull",
         "Sierra Nevada scenery",
         "Portola City Park setting",
         "Multiple distances (Full Bull/Mid Moo/Half Calf)",
@@ -108,7 +107,7 @@
       "food": "Small town with limited dining. Stock nutrition.",
       "packet_pickup": "Day before typically",
       "parking": "At start/finish",
-      "official_site": "lostandfoundbikeride.com",
+      "official_site": "https://lostandfoundbikeride.com/lost-and-found/ride.php",
       "camping": "Camping and overlanding-style set-ups fill Portola for the weekend; lodging is limited, so most riders camp."
     },
     "history": {
@@ -122,33 +121,11 @@
       "reputation": "Beloved regional CA gravel festival with a trail-building mission — three-time winner Serena Gordon calls it \"sort of the reason we ride and race bikes.\""
     },
     "course_description": {
-      "character": "Mass-rollout gravel race + festival from Portola City Park (~4,856ft) in the Lost Sierra, organized by the Sierra Buttes Trail Stewardship since 2014 as the fundraiser for the Lost Sierra Route. Three courses: Full Bull ~100mi, Mid Moo ~60mi, Half Calf ~40mi — 70-80% dirt/gravel including historic railroad grade, with exact mileage and gain shifting year to year on reroutes (organizer's own pages disagree on gain figures — display 'Varies'). ~2,000 riders, Friday expo, Saturday race + party/camping.",
-      "suffering_zones": [
-        {
-          "mile": 8.4,
-          "label": "Dirt Transition",
-          "desc": "A sneaky, easy-to-miss left turn where the course leaves pavement for dirt after a fast descent.",
-          "terrain_detail": "Hidden left turn onto dirt",
-          "named_section": "Dirt Transition"
-        },
-        {
-          "mile": 30,
-          "label": "Windy Valley",
-          "desc": "A wide, exposed valley that regularly delivers a brutal headwind riders have to grind through.",
-          "terrain_detail": "Exposed valley, headwind",
-          "named_section": "Windy Valley"
-        },
-        {
-          "mile": 33,
-          "label": "Climb Six",
-          "desc": "A loose, chunky climb of about 2.7 miles that kicks up to roughly 10% — one of the harder ascents on course.",
-          "terrain_detail": "Sustained loose-gravel climb",
-          "named_section": "Climb Six"
-        }
-      ],
-      "signature_challenge": "Sustained Sierra Nevada climbing on rerouted forest and railroad-grade gravel out of Portola.",
-      "ridewithgps_id": "48961525",
-      "ridewithgps_name": "Lost and Found Graveler"
+      "character": "The 2026 Full Bull is a 99-mile Lost Sierra route with 5,946 feet of gain and 84% dirt. The organizer notes that published route distances are approximate within a few miles.",
+      "suffering_zones": [],
+      "signature_challenge": "A long, mostly dirt route with 5,946 feet of climbing through the Lost Sierra.",
+      "ridewithgps_id": null,
+      "ridewithgps_name": null
     },
     "guide_variables": {
       "race_name": "Lost and Found Gravel",

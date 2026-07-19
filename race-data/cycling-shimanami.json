@@ -5,43 +5,68 @@
     "display_name": "Cycling Shimanami 2026",
     "tagline": "Japan's premier international cycling event across the Seto Inland Sea",
     "vitals": {
-      "location": "Imabari, Ehime Prefecture to Onomichi, Hiroshima Prefecture, Japan",
+      "location": "Onomichi, Hiroshima Prefecture to Imabari, Ehime Prefecture, Japan",
       "coordinates": {
         "start": {
-          "latitude": 34.0667,
-          "longitude": 132.9833
-        },
-        "finish": {
           "latitude": 34.4086,
           "longitude": 133.205
+        },
+        "finish": {
+          "latitude": 34.0667,
+          "longitude": 132.9833
         }
       },
       "date": "October",
       "distance_km": 70,
       "distance_miles": 43.5,
-      "elevation_gain_m": null,
-      "elevation_gain_ft": null,
+      "elevation_gain_m": 737,
+      "elevation_gain_ft": 2417,
       "discipline": "road",
       "event_type": "mass participation cycling event",
       "frequency": "biennial",
       "course_options": [
         {
-          "name": "30 km course",
-          "distance_km": 30,
-          "difficulty": "beginner"
-        },
-        {
-          "name": "70 km course",
+          "name": "IMABARI 70: Onomichi to Imabari one way",
           "distance_km": 70,
           "difficulty": "intermediate"
         },
         {
-          "name": "140 km course",
+          "name": "INNOSHIMA 70: Onomichi to Kamijima round trip",
+          "distance_km": 70,
+          "difficulty": "intermediate"
+        },
+        {
+          "name": "AROUND OMISHIMA 100: Imabari to Omishima round trip",
+          "distance_km": 100,
+          "difficulty": "advanced"
+        },
+        {
+          "name": "COMPLETE SHIMANAMI 140: Imabari to Onomichi round trip",
           "distance_km": 140,
           "difficulty": "advanced"
+        },
+        {
+          "name": "ONOMICHI 65: Imabari to Onomichi one way",
+          "distance_km": 65,
+          "difficulty": "intermediate"
+        },
+        {
+          "name": "OMISHIMA 70: Imabari to Omishima round trip",
+          "distance_km": 70,
+          "difficulty": "intermediate"
+        },
+        {
+          "name": "YUMESHIMA 75: Imabari to Kamijima one way",
+          "distance_km": 75,
+          "difficulty": "intermediate"
+        },
+        {
+          "name": "OSHIMA 30: Imabari to Oshima round trip",
+          "distance_km": 30,
+          "difficulty": "beginner"
         }
       ],
-      "elevation_ft": 1300,
+      "elevation_ft": 2417,
       "date_specific": "2026: October 25",
       "slug": "cycling-shimanami",
       "distance_mi": 43.5
@@ -54,7 +79,7 @@
       "wind_conditions": "light"
     },
     "terrain": {
-      "overview": "Relatively flat route crossing nine bridges that link six islands across the Seto Inland Sea, featuring dedicated blue-line cycling paths with ocean views throughout.",
+      "overview": "The IMABARI 70 crosses nine bridges and six islands from Onomichi to Imabari, with repeated climbs to bridge decks and event-only access to normally car-only expressway sections.",
       "surface_breakdown": {
         "paved": 100,
         "gravel": 0,
@@ -63,8 +88,8 @@
       "characteristics": [
         "Nine major bridge crossings",
         "Island-to-island connectivity",
-        "Dedicated cyclist paths",
-        "Minimal elevation gain",
+        "Normally car-only expressway sections opened for the event",
+        "Repeated climbing to bridge decks",
         "Coastal scenery"
       ]
     },
@@ -205,26 +230,26 @@
       ]
     },
     "course_description": {
-      "character": "A scenic, relatively flat island-hopping route across nine iconic bridges spanning the Seto Inland Sea. The Shimanami Kaido connects six islands (Oshima, Omishima, Hakatajima, Innoshima, Ikuchi-jima, and Mukaishima) between Imabari on Shikoku Island and Onomichi in Hiroshima Prefecture. Dedicated blue-line cycling paths, 150+ rest oases, and comprehensive aid stations with local food and cultural experiences characterize the route. The event allows cyclists unique access to the normally car-only expressway main road, creating an unforgettable atmosphere with closed roads, cheering locals, and photographers lining the route.",
+      "character": "The IMABARI 70 is a one-way island crossing from Onomichi to Imabari over six islands and nine bridges. Its advertised distance is about 70 km; the organizer-linked route measures roughly 66 km with about 737 m of climbing. Paved island roads alternate with normally car-only expressway sections opened to cyclists for the event, and the elevation accumulates through repeated bridge approaches rather than one major climb.",
       "suffering_zones": [
         {
-          "label": "Shiratakiyama viewpoint climb (optional but challenging, offering panoramic island chain views)",
+          "label": "Onomichi rollout from Mukaishima",
           "description": ""
         },
         {
-          "label": "Kumakogen countryside section with technical turns and relentless inclines (27 km course variant)",
+          "label": "Repeated bridge approaches across six islands",
           "description": ""
         },
         {
-          "label": "Omogo-kei Gorge passage with elevation changes",
+          "label": "Normally car-only expressway sections",
           "description": ""
         },
         {
-          "label": "UFO Line section with distant ocean views and sustained climbing",
+          "label": "Final run into Imabari",
           "description": ""
         }
       ],
-      "signature_challenge": "The nine bridge crossings themselves, particularly the longest bridge onto Shikoku Island, which require sustained effort but reward with spectacular Seto Inland Sea vistas. The optional Shiratakiyama climb offers the most significant elevation challenge with stone kami (gods) statues lining the ascent.",
+      "signature_challenge": "Nine bridge crossings and their repeated approaches. The route never has one defining mountain, but the short climbs to bridge level keep returning while the open-water setting leaves pace exposed to wind.",
       "ridewithgps_id": null,
       "ridewithgps_name": null
     },

@@ -26,8 +26,8 @@
       "cutoff_time": "Varies",
       "lat": 40.6103,
       "lng": -111.2805,
-      "start_elevation_asl_ft": 5600,
-      "avg_elevation_asl_ft": 9000
+      "start_elevation_asl_ft": 5795,
+      "avg_elevation_asl_ft": 8613
     },
     "climate": {
       "primary": "Utah mountain summer",
@@ -41,7 +41,8 @@
     },
     "terrain": {
       "primary": "Wasatch Range mountain gravel",
-      "surface": "Mountain gravel roads with significant elevation. High altitude terrain with challenging climbing.",
+      "surface": "The organizer-published Bigfoot course is 77% gravel, including loose surfaces and grades above 10% on the high-elevation western slope of the Uinta Range.",
+      "gravel_percentage": 77,
       "technical_rating": 3,
       "features": [
         "Massive climbing (10,560 feet)",
@@ -117,33 +118,19 @@
       "reputation": "Growing regional Utah mountain event; Velo has called it 'the toughest gravel race you've never heard of.'"
     },
     "course_description": {
-      "character": "Mountain gravel with significant climbing at high altitude.",
+      "character": "The organizer-published Bigfoot flagship is 82 miles with 10,560 feet of gain and 77% gravel on the western slope of the Uinta Range.",
       "suffering_zones": [
         {
-          "mile": 15,
-          "label": "First Climb",
-          "desc": "Early climbing at altitude.",
-          "terrain_detail": "Mountain ascent",
-          "named_section": "Early Climb"
-        },
-        {
-          "mile": 35,
-          "label": "High Point",
-          "desc": "Highest elevation point.",
-          "terrain_detail": "9,000+ feet",
-          "named_section": "Summit"
-        },
-        {
-          "mile": 50,
-          "label": "Final Climb",
-          "desc": "Last major climb to finish.",
-          "terrain_detail": "Final ascent",
-          "named_section": "Finish Climb"
+          "mile": 17,
+          "label": "Course High Point",
+          "desc": "The current organizer-linked Bigfoot route reaches its high point of approximately 10,068 feet near mile 17.",
+          "terrain_detail": "High point",
+          "named_section": "Course High Point"
         }
       ],
-      "signature_challenge": "10,560 feet of climbing from a 5,600-foot start, climbing toward 9,000 feet on the Uinta western slope.",
-      "ridewithgps_id": "51288808",
-      "ridewithgps_name": "2025 Wasatch All-Road Sasquatch 60 16June2025 (MISMATCH: this is the 53mi Sasquatch route, not the 82mi Bigfoot distance described above -- no verified RideWithGPS ID found for Bigfoot)"
+      "signature_challenge": "10,560 feet of climbing from a start near 5,800 feet, with the current route reaching approximately 10,068 feet on the Uinta western slope.",
+      "ridewithgps_id": "52063183",
+      "ridewithgps_name": "2025 Wasatch All-Road Bigfoot 5Aug2025 (current organizer-linked Bigfoot route)"
     },
     "guide_variables": {
       "race_name": "Wasatch All-Road",
@@ -160,7 +147,7 @@
         "Mountain weather"
       ],
       "altitude_section": true,
-      "altitude_feet": "5600-9000"
+      "altitude_feet": "5800-10068"
     },
     "non_negotiables": [
       {

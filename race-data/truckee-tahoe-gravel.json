@@ -6,7 +6,7 @@
     "tagline": "California Sierra Nevada/Tahoe gravel in Truckee.",
     "vitals": {
       "distance_mi": 66,
-      "elevation_ft": 4439,
+      "elevation_ft": 4604,
       "gain_display": "Varies",
       "location": "Truckee, California",
       "location_badge": "TRUCKEE, CA",
@@ -28,11 +28,11 @@
       "lat": 39.3279,
       "lng": -120.1836,
       "start_elevation_asl_ft": 5800,
-      "avg_elevation_asl_ft": 6500
+      "avg_elevation_asl_ft": 6076
     },
     "climate": {
       "primary": "California Sierra Nevada summer",
-      "description": "Mountain weather with significant altitude.",
+      "description": "Sierra mountain conditions on a course that starts near 5,800 feet and averages approximately 6,076 feet above sea level.",
       "challenges": [
         "Altitude (6000ft+)",
         "Mountain weather variability",
@@ -42,10 +42,11 @@
     },
     "terrain": {
       "primary": "California Sierra Nevada/Tahoe gravel",
-      "surface": "Gravel roads through Sierra Nevada/Tahoe mountains. Significant elevation with mountain and lake scenery.",
+      "surface": "The current medium course is 84% gravel and 16% paved on Sierra Nevada and Tahoe National Forest roads.",
+      "gravel_percentage": 84,
       "technical_rating": 3,
       "features": [
-        "Significant mountain climbing (medium/flagship course: ~4,439 feet per third-party course data; not published by organizer, treat as approximate)",
+        "Approximately 4,604 feet of positive gain from the organizer-linked medium-course GPX; organizer does not publish gain as a course spec",
         "Tahoe/Sierra scenery",
         "Truckee setting",
         "Multiple distances (short ~30mi, medium ~66mi, long 100+mi)",
@@ -120,33 +121,33 @@
       "reputation": "Regional CA event racing as Truckee Tahoe Gravel (truckeegravel.com, Bike Monkey); Sagan Fondo is its founding-era identity."
     },
     "course_description": {
-      "character": "Tahoe/Sierra mountain gravel with significant climbing and altitude. Medium (flagship) course is ~66 miles, 84% gravel/16% paved, with aid stations at roughly miles 17, 25, 32, 45, and 55.",
+      "character": "The current medium course is 66.2 miles, 84% gravel and 16% paved, with organizer-published aid stations at miles 17, 25, 32, 45, and 55.",
       "suffering_zones": [
         {
           "mile": 17,
-          "label": "Early Climbs",
-          "desc": "First Sierra climbs at altitude, near the first aid station.",
-          "terrain_detail": "Mountain climbing",
-          "named_section": "Early Climbs"
+          "label": "Aid Station 1",
+          "desc": "The first organizer-published medium-course aid station.",
+          "terrain_detail": "Aid station",
+          "named_section": "Aid Station 1"
         },
         {
           "mile": 32,
-          "label": "Midpoint",
-          "desc": "Roughly halfway through the medium course.",
-          "terrain_detail": "Midpoint",
-          "named_section": "Halfway"
+          "label": "Aid Station 3",
+          "desc": "The third organizer-published medium-course aid station.",
+          "terrain_detail": "Aid station",
+          "named_section": "Aid Station 3"
         },
         {
           "mile": 55,
-          "label": "Bear Valley Road Descent / Final Climbs",
-          "desc": "The signature Bear Valley Road descent and final Sierra sections before the finish.",
-          "terrain_detail": "Late climbing and descent",
-          "named_section": "Final Push"
+          "label": "Final Aid Station",
+          "desc": "The final organizer-published medium-course aid station.",
+          "terrain_detail": "Aid station",
+          "named_section": "Final Aid Station"
         }
       ],
-      "signature_challenge": "Tahoe/Sierra mountain climbing at 6000ft+ altitude.",
-      "ridewithgps_id": "36389814",
-      "ridewithgps_name": "Sagan Gravel Fondo slight Alteration",
+      "signature_challenge": "A 66-mile Sierra course that is 84% gravel, starting near 5,800 feet above sea level.",
+      "ridewithgps_id": null,
+      "ridewithgps_name": "Organizer-linked medium-course GPX: 2024 Truckee Gravel 70 (still linked from the current event page)",
       "surface_breakdown": {
         "overall": {
           "gravel": 84,
@@ -157,7 +158,7 @@
     "guide_variables": {
       "race_name": "Truckee Tahoe Gravel",
       "race_distance": "66 miles",
-      "race_elevation": "Varies (unofficial figure ~4,439 feet; organizer does not publish gain)",
+      "race_elevation": "Varies (organizer-linked GPX best value ~4,604 feet; organizer does not publish gain as a course spec)",
       "race_date": "Summer",
       "race_location": "Truckee, California",
       "race_terrain": "California Sierra Nevada/Tahoe gravel",
@@ -176,7 +177,7 @@
       {
         "requirement": "Mountain climbing endurance",
         "by_when": "Week 10-12",
-        "why": "Tahoe/Sierra mountains require solid climbing fitness (medium course: ~4,439 feet, unofficial figure)."
+        "why": "The organizer-linked medium-course GPX records approximately 4,604 feet of positive gain."
       },
       {
         "requirement": "Altitude preparation",

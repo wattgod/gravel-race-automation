@@ -12,10 +12,10 @@
       "location_badge": "PEILLE, FRANCE",
       "county": "Alpes-Maritimes, France",
       "date": "April annually",
-      "date_specific": "2026: April 19 (Sunday, CONFIRMED — raced in Peille per UCI/Cyclingnews race report; completed); 2027: April 18 (Sunday, PATTERN ESTIMATE — third Sunday of April, per 2025-2026 dates; official 2027 date not yet announced)",
+      "date_specific": "2026: April 19 (Sunday, confirmed and completed); the organizer has not announced a 2027 date",
       "terrain_types": [
-        "Monaco/French Alps gravel (70%)",
-        "Paved roads (30%)",
+        "Rocky mountain tracks",
+        "Secondary mountain roads",
         "Steep climbs",
         "Technical terrain"
       ],
@@ -27,7 +27,8 @@
       "cutoff_time": "None",
       "lat": 43.8039,
       "lng": 7.4028,
-      "month": "April"
+      "month": "April",
+      "start_elevation_asl_ft": 2133
     },
     "climate": {
       "primary": "Alpes-Maritimes spring (mid-April)",
@@ -40,7 +41,7 @@
     },
     "terrain": {
       "primary": "Monaco/French Alps—steep technical climbs",
-      "surface": "70% gravel, 30% paved roads. French Alps—steep climbs, technical. Gain varies by source (organizer pre-race figure 2,400 m/120 km; post-race report 2,500 m/116 km). Peille start/finish. Technical rating: 5/5.",
+      "surface": "Very rocky mountain tracks at the start and finish, with trails and secondary mountain roads between them. The organizer estimates 80% of race time on trails and 20% on roads; this is not a distance split.",
       "technical_rating": 5,
       "features": [
         "Peille start/finish, high above Monaco (iconic)",
@@ -105,31 +106,25 @@
       "official_site": "https://monacogravelrace.fr"
     },
     "course_description": {
-      "character": "116 km, ~2,500 m (gain varies by source; organizer pre-race figures cite 120 km/2,400 m). 70% gravel, 30% paved. Peille/French Alps—steep climbs, technical. Technical rating: 5/5.",
+      "character": "The completed 2026 elite course was 116 km with ~2,500 m of gain; organizer pre-race figures cited 120 km/2,400 m, so gain varies by source. The route used rocky mountain tracks and secondary roads around Peille, Col de Braus, Col du Castillon, and Col des Banquettes.",
       "suffering_zones": [
         {
-          "name": "Throughout: French Alps Steep Climbs",
-          "miles": "0-116",
-          "description": "~2,500 m over 116 km = very steep, including the Col de Braus, Col du Castillon, and Col des Banquettes. French Alps climbs. Brutal.",
-          "survival_strategy": "Very low gears. Pace conservatively. The gain is brutal by any source's figures."
+          "name": "Throughout: Mountain climbing",
+          "miles": "Throughout",
+          "description": "The completed 2026 elite route gained approximately 2,500 m over 116 km, including Col de Braus, Col du Castillon, and Col des Banquettes.",
+          "survival_strategy": "Use low gearing for the repeated mountain climbing."
         },
         {
-          "name": "Throughout: Technical Terrain",
+          "name": "Start and finish: Rocky track",
           "miles": "Throughout",
-          "description": "Technical French Alps gravel. Steep climbs. Technical rating: 5/5.",
-          "survival_strategy": "35-40mm tubeless. Technical skills required. Steep climbs. Focus on next aid."
+          "description": "The first and last six kilometres use a very rocky mountain track, with trails and secondary mountain roads between them.",
+          "survival_strategy": "Ride the rocky opening and closing track with care."
         }
       ],
-      "signature_challenge": "116 km + ~2,500 m elevation = very steep. Peille/French Alps, high above Monaco.",
+      "signature_challenge": "The completed 116 km elite route gained approximately 2,500 m on mountain tracks and secondary roads above Monaco.",
       "ridewithgps_id": "50327918",
       "ridewithgps_name": "Monaco gravel race UCI 120k 2025 VL",
-      "surface_breakdown": {
-        "overall": {
-          "gravel": 70,
-          "pavement": 30
-        }
-      },
-      "masters_course": "Official age-band course for men 60+/women 50+: ~83 km / ~1,800 m gain, sharing the flagship's start/finish but omitting the northern section, instead riding two local 33 km laps."
+      "masters_course": "The 2026 organizer program assigned a 98 km / 2,200 m course to men 60+ and women 50+; the main catalog profile remains the completed elite course."
     },
     "history": {
       "founded": "2025",

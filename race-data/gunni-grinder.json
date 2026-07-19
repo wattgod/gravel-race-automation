@@ -5,13 +5,13 @@
     "display_name": "Gunni Grinder",
     "tagline": "High-altitude Colorado mountain gravel with 10,000 feet of climbing and thin air at 10,000 ft.",
     "vitals": {
-      "distance_mi": 120,
-      "elevation_ft": 10000,
+      "distance_mi": 120.5,
+      "elevation_ft": 9785,
       "location": "Gunnison, Colorado",
       "location_badge": "GUNNISON, COLORADO",
       "county": "Gunnison County",
       "date": "Mid-September annually",
-      "date_specific": "2026: September 12 (SATURDAY — thegunnigrinder.com/findarace/Battistrada; PRIOR 'September 6' was wrong and caused an erroneous Sunday §D shift in the July remediation)",
+      "date_specific": "2026: September 12 (SATURDAY, CONFIRMED — organizer event and 120 course pages)",
       "terrain_types": [
         "High-altitude mountain gravel",
         "Colorado Rocky Mountain roads",
@@ -22,12 +22,12 @@
       "start_time": "Morning (time TBD)",
       "registration": "First-come first-served. Opens ~spring. Cost: $80-$120 (distance-dependent)",
       "prize_purse": "$5,000 ($2,500 men, $2,500 women)",
-      "aid_stations": "Miles 40, 80. Water, snacks, mechanical. 40+ miles between stations.",
+      "aid_stations": "Three checkpoints / neutral aid stations on the 120; riders are told to be prepared to self-support.",
       "cutoff_time": "None specified.",
       "lat": 38.6477,
       "lng": -107.0603,
-      "start_elevation_asl_ft": 7703,
-      "avg_elevation_asl_ft": 8200
+      "start_elevation_asl_ft": 7694,
+      "avg_elevation_asl_ft": 8754
     },
     "climate": {
       "primary": "High-altitude early September Colorado",
@@ -41,7 +41,7 @@
     },
     "terrain": {
       "primary": "High-altitude mountain gravel",
-      "surface": "80% gravel/dirt mountain roads, 15% doubletrack, 5% paved. Rocky, rugged Colorado gravel with embedded rocks.",
+      "surface": "Approximately 83% gravel and dirt roads, including remote roads that receive little to no maintenance; the remainder is paved.",
       "technical_rating": 4,
       "features": [
         "Sustained mountain climbs (Cochetopa Pass: 15 miles)",
@@ -99,41 +99,29 @@
       "parking": "Free in downtown Gunnison (start/finish).",
       "packet_pickup": "Friday afternoon and Saturday morning",
       "travel_summary": "Travel is a pain. Gunnison airport is small/expensive with limited flights. Denver is 3.5 hours away over mountain passes. Rental car mandatory. Budget travel time.",
-      "food_options": "2 on-course aid stations (miles 40, 80). Post-race: BBQ in downtown park—burgers, local beer, live bluegrass.",
+      "food_options": "Three checkpoints / neutral aid stations on the 120; riders should also be prepared to self-support.",
       "camping": "Dispersed BLM camping abundant nearby",
-      "official_site": "https://www.gunnigrinder.com"
+      "official_site": "https://www.thegunnigrinder.com"
     },
     "course_description": {
-      "character": "High-altitude mountain gravel with sustained climbs and big descents. 10,000 ft elevation gain over 120 miles at 7,700-10,000 ft base. Altitude is the defining challenge—oxygen is 25-30% thinner than sea level. Cochetopa Pass (miles 30-45) is a 15-mile sustained grind. High alpine sections (miles 50-70) max out altitude. Taylor Canyon rollers (miles 85-105) finish with relentless punchy climbs. This is a legitimate mountain challenge, not rolling gravel.",
+      "character": "The organizer-linked 120.5-mile loop gains 9,785 feet, starts near 7,694 feet, averages about 8,754 feet, and reaches about 10,511 feet. Approximately 83% is unpaved, including remote gravel and dirt roads that receive little to no maintenance.",
       "suffering_zones": [
         {
-          "name": "Cochetopa Pass Road Climb",
-          "miles": "30-45",
-          "description": "15 miles of sustained climbing at 8,000+ ft elevation. Not steep, but relentless. Altitude makes every pedal stroke harder. Just keep spinning.",
-          "survival_strategy": "Sustained effort at high altitude. Oxygen is thin. Power is down 10-15%. Relentless—no bailout, just grind it out."
+          "name": "Throughout: High-altitude loop",
+          "miles": "Throughout",
+          "description": "The route starts near 7,694 feet, averages about 8,754 feet, and reaches about 10,511 feet while accumulating 9,785 feet of gain.",
+          "survival_strategy": "Plan for a long climbing day at high altitude."
         },
         {
-          "name": "High Alpine Exposure",
-          "miles": "50-70",
-          "description": "Above treeline. Exposed to wind. Altitude maxes out (9,500-10,000 ft). No shade, no shelter. Oxygen is thin. Where altitude sickness shows up.",
-          "survival_strategy": "Peak altitude. Breathing is hardest here. Wind exposure. No recovery. Altitude sickness (headache, nausea) common."
-        },
-        {
-          "name": "Razor Creek Descent",
-          "miles": "~75",
-          "description": "Technical, loose, steep, rocky descent. Demands focus and bike-handling. Crashes happen here. White-knuckle if not confident.",
-          "survival_strategy": "Technical skills test when tired. Loose gravel and rocks. Fast riders gap here; cautious riders lose time or crash."
-        },
-        {
-          "name": "Taylor Canyon Rollers",
-          "miles": "85-105",
-          "description": "Constant punchy climbs when legs are cooked. No recovery. Still above 8,000 ft. The grind never ends.",
-          "survival_strategy": "Relentless rollers when glycogen is depleted. Still at altitude. Mentally and physically exhausting—20 miles that feel like 40."
+          "name": "Throughout: Remote unpaved roads",
+          "miles": "Throughout",
+          "description": "Approximately 83% of the loop is gravel and dirt, including remote roads that receive little to no maintenance.",
+          "survival_strategy": "Carry enough supplies for the gaps between three neutral checkpoints."
         }
       ],
-      "signature_challenge": "15 miles of sustained climbing at 8,000+ ft elevation. Not steep, but relentless. Altitude makes every pedal stroke harder. Just keep spinning.",
-      "ridewithgps_id": "46250094",
-      "ridewithgps_name": "Gunni Grinder (copy) CO, Gravel"
+      "signature_challenge": "A 120.5-mile loop with 9,785 feet of gain and an average elevation near 8,754 feet.",
+      "ridewithgps_id": "34138332",
+      "ridewithgps_name": "Gunni 2021 long haul"
     },
     "history": {
       "founded": 2020,

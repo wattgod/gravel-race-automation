@@ -5,14 +5,14 @@
     "display_name": "Gravel Locos",
     "tagline": "Fast Texas gravel. River crossings. Scorching heat. The Unbound tune-up that breaks people.",
     "vitals": {
-      "distance_mi": 157,
-      "elevation_ft": 7884,
+      "distance_mi": 118,
+      "elevation_ft": 6000,
       "gain_display": "Varies",
       "location": "Hico, Texas",
       "location_badge": "HICO, TEXAS",
       "county": "Hamilton County (northern edge of Texas Hill Country)",
-      "date": "Late May annually",
-      "date_specific": "2027: May 22 (SATURDAY, CONFIRMED — organizer announcement via gravellocos.bike/Facebook; 2026 ran Saturday, May 23)",
+      "date": "No current edition published by the organizer",
+      "date_specific": "Status: HOLD — the organizer site still publishes only the completed May 24, 2025 edition and its 2025 routes; no current course or registration page is available",
       "terrain_types": [
         "Smooth limestone gravel",
         "Fast Hill Country ranch roads",
@@ -22,11 +22,11 @@
       ],
       "field_size": "Deep pro field (past fields have included Julien Gagne, Justine Barrow, Peter Stetina, Ted King) plus large amateur turnout - key Unbound tune-up",
       "start_time": "8:30 AM (all routes) - Hico, Texas (cowboy town associated with Billy the Kid)",
-      "registration": "Tiered by route (2026 rates): GL30 La Pequeña $85, GL60 La Mediana $115, GL100 La Gran Piedra $155, GL150 La Loca $185. No longer a free/donation-only entry — that was an earlier-era model that has since moved to paid tiered registration.",
+      "registration": "No current registration page published; the organizer's registration page remains on the completed 2025 edition.",
       "prize_purse": "None confirmed for current editions - community/charity-rooted event, not a purse race",
       "aid_stations": "Multiple well-stocked. 2022 had one run out of water after the 3 B's climbs - riders waited 30+ minutes.",
       "cutoff_time": "Not strictly enforced but heat and water logistics are bigger constraints",
-      "distance_options": "GL150 La Loca ~157 mi ($185), GL100 La Gran Piedra ~112-118 mi ($155), GL60 La Mediana ~62-68 mi ($115), GL30 La Pequeña ~26 mi ($85)",
+      "distance_options": "Completed 2025 routes: GL110 La Gran Piedra 118 mi / ~6,000 ft, GL60 La Mediana 68 mi / ~4,000 ft, GL30 La Pequeña 25.8 mi / ~1,500 ft; no current edition routes published",
       "lat": 31.9814,
       "lng": -98.0309
     },
@@ -41,18 +41,15 @@
       ]
     },
     "terrain": {
-      "primary": "Smooth, fast Hill Country gravel with endless rollers",
-      "surface": "'Gorgeous' wildflower-lined gravel roads and fast limestone surfaces. 'Smooth' and 'perfect for gravel' per riders. Some chunkier patches but no singletrack or rock gardens.",
+      "primary": "Open-road Hill Country gravel with water crossings",
+      "surface": "The completed 2025 routes used open public roads and water crossings, with backup routes for flooding; the organizer does not publish a current surface split.",
       "technical_rating": 2,
       "features": [
-        "Well-packed limestone gravel",
-        "Loco Hill (60-mile route signature climb)",
-        "Endless rollers (7,884 ft distributed)",
-        "Pavement connectors",
-        "Open ranch roads with little shade"
-      ],
-      "gravel_percentage": 85,
-      "pavement_percentage": 15
+        "Open public roads",
+        "Water crossings",
+        "Backup routes for flooding",
+        "Limited cell service"
+      ]
     },
     "gravel_god_rating": {
       "overall_score": 83,
@@ -186,34 +183,19 @@
       "reputation": "'Go ride this race.' Free, community-driven, pro-heavy. The anti-corporate gravel race with legendary Texas hospitality and BBQ."
     },
     "course_description": {
-      "character": "'The scenery around Hico was stunning, adorned with wildflowers, and the gravel paths were as smooth as other riders had mentioned.' Difficulty is about relentless rollers, heat, and length - not technical terrain.",
+      "character": "The organizer still publishes only the completed 2025 routes. That year's flagship was 118 miles with approximately 6,000 feet of climbing on open roads with water crossings and a flood backup route.",
       "suffering_zones": [
         {
-          "mile": 60,
-          "label": "Heat-Soaked Mid-Race",
-          "desc": "Heat typically spikes. Shade is scarce. If you've under-hydrated, you start to unravel here while still far from home.",
-          "terrain_detail": "Open ranch roads, no shade, heat builds",
-          "named_section": "The Heat Zone"
-        },
-        {
-          "mile": 100,
-          "label": "After the 3B Climbs",
-          "desc": "This is where the 2022 aid station ran out of water. Riders waited 30+ minutes at 120°F. Even in good years, this is where under-prepared riders crack.",
-          "terrain_detail": "2022: aid station ran dry here",
-          "named_section": "The Breaking Point"
-        },
-        {
-          "mile": 150,
-          "label": "Final Ascent to Hico",
-          "desc": "Rolling climb back into town. 7,884 ft of gain catches up to you here. Cramps and mental fatigue hit hardest in the final miles.",
-          "terrain_detail": "Final rollers after 150+ miles",
-          "named_section": "The Final Push"
+          "miles": "Throughout",
+          "name": "Completed 2025 course",
+          "description": "The 118-mile flagship used open public roads and water crossings, with a backup route for flooding; no current edition course is published.",
+          "survival_strategy": "Wait for the organizer's next course before planning around specific route demands."
         }
       ],
-      "signature_challenge": "The heat-soaked late race is the defining suffer zone. In normal years, cumulative rollers plus Texas heat near the end are what everyone talks about. In 2022, riders literally ran out of water.",
+      "signature_challenge": "No current course is published; the last completed flagship was 118 miles with approximately 6,000 feet of gain.",
       "map_url": "https://www.gravellocos.bike/hico",
-      "ridewithgps_id": "50345473",
-      "ridewithgps_name": "NTX Police Cycling & Gravel Locos 40mil Training Ride"
+      "ridewithgps_id": "48976863",
+      "ridewithgps_name": "2025 GL110 La Gran Piedra"
     },
     "research_metadata": {
       "data_confidence": "migrated",

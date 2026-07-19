@@ -13,8 +13,8 @@
       "date": "Spring (date varies year to year — April 2026, June 2025)",
       "date_specific": "2026: Sunday, April 12 (CONFIRMED — federciclismo.it FCI listing; part of the April 10-12 festival weekend; completed); 2027 not yet officially announced — the event's calendar date has moved year to year (June 2025, April 2026), though the competitive race consistently runs on Sunday",
       "terrain_types": [
-        "Tuscan strade bianche (white roads) (70%)",
-        "Paved roads (30%)",
+        "Tuscan strade bianche (white roads)",
+        "Road transfer sections",
         "Rolling Tuscan hills",
         "Medieval town"
       ],
@@ -39,7 +39,7 @@
     },
     "terrain": {
       "primary": "Tuscan strade bianche—rolling white gravel roads",
-      "surface": "70% gravel (strade bianche), 30% paved roads. Tuscan strade bianche—rolling hills, white gravel roads. 1,990 m over 131 km (Terre di Siena, the flagship competitive route). Medieval town start/finish. Technical rating: 3/5.",
+      "surface": "The Terre di Siena route runs mainly on Tuscan strade bianche, with timed special sections and road transfers. It gains 1,990 m over 131.1 km from Buonconvento.",
       "technical_rating": 3,
       "features": [
         "Tuscan strade bianche (iconic white roads)",
@@ -102,25 +102,25 @@
       "travel_summary": "Fly to Florence (FLR). Rental car needed (80 km, 1.5-hour drive to Buonconvento). Medieval town lodging—book early. Day-before packet pickup. Race held in spring (exact month varies by year). Post-race Tuscan food/wine.",
       "food_options": "Aid stations on course. Post-race party with Tuscan food/wine celebration.",
       "camping": "Check official website",
-      "official_site": "https://www.novaeroica.it"
+      "official_site": "https://www.eroica.cc/eventi/nova-eroica-buonconvento/"
     },
     "course_description": {
-      "character": "131 km, 1,990 m (Terre di Siena route). 70% gravel (strade bianche), 30% paved. Tuscan rolling hills. Technical rating: 3/5.",
+      "character": "The 131.1 km Terre di Siena route gains 1,990 m on Tuscan strade bianche and road transfers, with five timed sections. It starts and finishes in Buonconvento.",
       "suffering_zones": [
         {
-          "name": "Throughout: Tuscan Rolling Hills",
+          "name": "Throughout: Terre di Siena",
           "miles": "Throughout",
-          "description": "Rolling Tuscan hills. 1,990 m cumulative elevation. Strade bianche (white roads).",
-          "survival_strategy": "Pace conservatively. Moderate gears. Cumulative elevation adds up. 131 km long."
+          "description": "The 131.1 km flagship gains 1,990 m on Tuscan strade bianche and road transfers from Buonconvento.",
+          "survival_strategy": "Pace the full route around the five timed sections."
         },
         {
-          "name": "Throughout: Strade Bianche (White Roads)",
+          "name": "Five timed sections",
           "miles": "Throughout",
-          "description": "Iconic Tuscan white gravel roads. Smooth but dusty. 32-38mm tires recommended.",
-          "survival_strategy": "32-38mm tubeless. Steady pace. Dusty but beautiful. Enjoy scenery."
+          "description": "The Terre di Siena competitive route includes five timed special sections, including the Monte Sante Marie climb.",
+          "survival_strategy": "Account for the timed efforts within the longer day."
         }
       ],
-      "signature_challenge": "131 km + 1,990 m cumulative elevation. Tuscan strade bianche rolling hills.",
+      "signature_challenge": "A 131.1 km strade bianche route with 1,990 m of gain and five timed sections.",
       "ridewithgps_id": "39107798",
       "ridewithgps_name": "ITALY - Tuscany - Nova Eroica 90km"
     },

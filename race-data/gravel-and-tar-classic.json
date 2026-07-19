@@ -11,10 +11,10 @@
       "location_badge": "MANAWAT\u016a, NEW ZEALAND",
       "county": "Manawat\u016b-Whanganui",
       "date": "Mid-to-late January annually (elite UCI race — not open amateur registration)",
-      "date_specific": "2027: January 24 confirmed by organizer (UCI 1.2 elite/international-license race, Ashhurst start). The 2025 edition was cancelled due to low entries (per Wikipedia); the organizer's own results archive has not been updated past 2023. The public amateur companion ride has been rebranded 'Slicks and Stones Gravel Assault' with its first edition under the new name/venue (Apiti village) scheduled Apr 1, 2026 — this is a different course, distance, and venue than the historic 'Slicks and Stones' amateur ride previously paired with this race.",
+      "date_specific": "2027: January 24 confirmed by the organizer, starting from Ashhurst. The Classic is open to elite and under-19 individual cyclists; registration details, course distance, and elevation gain have not yet been published. The separate amateur Slicks and Stones page says that event is temporarily postponed because of low entries.",
       "terrain_types": [
-        "New Zealand gravel (70%)",
-        "Paved roads (30%)",
+        "Gravel roads (approximately 25%)",
+        "Sealed roads (approximately 75%)",
         "Rolling hills",
         "Farmland"
       ],
@@ -39,7 +39,7 @@
     },
     "terrain": {
       "primary": "New Zealand countryside\u2014rolling hills, farmland",
-      "surface": "Elite Classic course changes every year per the organizer (roughly 75% sealed / 25% gravel sectors historically) \u2014 current-year distance/elevation not verifiable in advance. The amateur 'Slicks and Stones Gravel Assault' (relaunching Apr 2026, Apiti village) is ~80% gravel: Full Assault 120 km / 1,882 m, Half Assault 60 km / 1,062 m. Manawat\u016b area. Technical rating: 3/5.",
+      "surface": "The organizer describes the 2027 Classic as approximately 75% sealed roads and 25% gravel roads in the Pohangina region. Current distance and elevation gain are not yet published.",
       "technical_rating": 3,
       "features": [
         "New Zealand countryside",
@@ -102,39 +102,22 @@
       "travel_summary": "Fly to Palmerston North (PMR). Rental car needed (30 km, 30-minute drive to Manawat\u016b). Region lodging--book early. Day-before packet pickup. Race January. Post-race food.",
       "food_options": "Aid stations on course. Post-race party with New Zealand food/wine.",
       "camping": "Check official website",
-      "official_site": "https://www.gravelandtar.co.nz"
+      "official_site": "https://gravelandtar.com/classicuci"
     },
     "course_description": {
-      "character": "Elite UCI Classic course changes yearly (~75% sealed/25% gravel historically); amateur 'Slicks and Stones Gravel Assault' (Apiti, relaunching Apr 2026) is ~80% gravel \u2014 Full Assault 120 km / 1,882 m, Half Assault 60 km / 1,062 m. New Zealand countryside\u2014rolling hills, farmland. Technical rating: 3/5.",
+      "character": "The 2027 Classic is an elite and under-19 road race on approximately 75% sealed and 25% gravel roads in the Pohangina region. The organizer has not yet published its distance or elevation gain.",
       "suffering_zones": [
         {
-          "name": "Throughout: Long Distance",
-          "miles": "0-160",
-          "description": "160 km is long. 2,000 m cumulative elevation. New Zealand countryside.",
-          "survival_strategy": "Pace conservatively. 4+ bottles. Break into chunks. 160 km is long. Mental toughness."
-        },
-        {
-          "name": "Throughout: January Warmth",
+          "name": "Throughout: Mixed road surfaces",
           "miles": "Throughout",
-          "description": "January NZ = 20-28\u00b0C. Warm. Sun exposure.",
-          "survival_strategy": "4+ bottles. Sun protection. Hydrate constantly. Start early. Warmth is manageable."
-        },
-        {
-          "name": "Km 120+: Distance Fatigue",
-          "miles": "120-160",
-          "description": "40 km to go. Legs tired. 15-20% DNF here.",
-          "survival_strategy": "Break into chunks. Focus on next aid. Mental toughness. Push through."
+          "description": "The 2027 Classic is approximately 75% sealed roads and 25% gravel roads; its distance and gain are not yet published.",
+          "survival_strategy": "Wait for the organizer's current course and technical guide before planning around specific demands."
         }
       ],
-      "signature_challenge": "160 km long distance + 2,000 m elevation. New Zealand countryside.",
+      "signature_challenge": "A mixed-surface elite road race whose 2027 course distance and gain are not yet published.",
       "ridewithgps_id": "45397123",
       "ridewithgps_name": "new zealand gravel and tar classic",
-      "surface_breakdown": {
-        "overall": {
-          "gravel": 70,
-          "pavement": 30
-        }
-      }
+      "surface_breakdown": null
     },
     "history": {
       "founded": "2016 (UCI 1.2 status since 2018)",

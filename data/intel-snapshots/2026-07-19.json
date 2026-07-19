@@ -1,0 +1,300 @@
+{
+ "date": "2026-07-19",
+ "ga4": {
+  "gravelgod": {
+   "sessions": 24,
+   "users": 19,
+   "pageviews": 36,
+   "sessions_7d_avg": 36.9,
+   "funnel": {
+    "cta_click": 0,
+    "form_start": 2,
+    "form_submit": 1,
+    "begin_checkout": 0,
+    "purchase": 0
+   },
+   "abandoned_submits": 1,
+   "top_pages": [
+    {
+     "path": "/",
+     "views": 3
+    },
+    {
+     "path": "/guide/training-fundamentals/",
+     "views": 3
+    },
+    {
+     "path": "/coaching/",
+     "views": 2
+    },
+    {
+     "path": "/guide/",
+     "views": 2
+    },
+    {
+     "path": "/guide/workout-execution/",
+     "views": 2
+    },
+    {
+     "path": "/race/bwr-california/tires/",
+     "views": 2
+    },
+    {
+     "path": "/race/ned-gravel/",
+     "views": 2
+    },
+    {
+     "path": "/race/rock-cobbler/",
+     "views": 2
+    }
+   ],
+   "channel_mix": {
+    "Organic Search": 18,
+    "Direct": 6
+   },
+   "top_landing": [
+    {
+     "path": "/",
+     "sessions": 3
+    },
+    {
+     "path": "/guide/",
+     "sessions": 2
+    },
+    {
+     "path": "",
+     "sessions": 1
+    },
+    {
+     "path": "/coaching/",
+     "sessions": 1
+    },
+    {
+     "path": "/coaching/apply/",
+     "sessions": 1
+    },
+    {
+     "path": "/guide/training-fundamentals/",
+     "sessions": 1
+    }
+   ],
+   "sessions_28d": 1030,
+   "funnel_28d": {
+    "cta_click": 41,
+    "form_start": 39,
+    "form_submit": 22,
+    "begin_checkout": 1,
+    "purchase": 3
+   },
+   "ok": true
+  },
+  "roadielabs": {
+   "sessions": 2,
+   "users": 2,
+   "pageviews": 2,
+   "sessions_7d_avg": 0.4,
+   "funnel": {
+    "cta_click": 0,
+    "form_start": 0,
+    "form_submit": 0,
+    "begin_checkout": 0,
+    "purchase": 0
+   },
+   "abandoned_submits": 0,
+   "top_pages": [
+    {
+     "path": "/coaching/",
+     "views": 1
+    },
+    {
+     "path": "/race/etape-caledonia/",
+     "views": 1
+    }
+   ],
+   "channel_mix": {
+    "Direct": 1,
+    "Organic Search": 1,
+    "Unassigned": 1
+   },
+   "top_landing": [
+    {
+     "path": "",
+     "sessions": 1
+    },
+    {
+     "path": "/coaching/",
+     "sessions": 1
+    },
+    {
+     "path": "/race/etape-caledonia/",
+     "sessions": 1
+    }
+   ],
+   "sessions_28d": 8,
+   "funnel_28d": {
+    "cta_click": 0,
+    "form_start": 0,
+    "form_submit": 0,
+    "begin_checkout": 0,
+    "purchase": 0
+   },
+   "ok": true
+  }
+ },
+ "checkout": {
+  "gravelgod": {
+   "health_ok": true,
+   "stripe_checkout_ok": true,
+   "ok": true,
+   "error": ""
+  },
+  "roadielabs": {
+   "health_ok": true,
+   "stripe_checkout_ok": true,
+   "ok": true,
+   "error": ""
+  }
+ },
+ "mission_control": {
+  "hot_leads_14d": [
+   {
+    "email": "deaneinerson@gmail.com",
+    "name": "",
+    "race": "Tour Divide",
+    "brand": "gravelgod",
+    "sequence": "nurture_v1",
+    "step": 0,
+    "status": "active",
+    "opens": 0,
+    "clicks": 0
+   },
+   {
+    "email": "judo_guido@yahoo.com",
+    "name": "",
+    "race": "Filthy 50",
+    "brand": "gravelgod",
+    "sequence": "nurture_v1",
+    "step": 0,
+    "status": "active",
+    "opens": 0,
+    "clicks": 0
+   },
+   {
+    "email": "connerbane@gmail.com",
+    "name": "",
+    "race": "RAIN - Ride Across Indiana",
+    "brand": "gravelgod",
+    "sequence": "welcome_v1",
+    "step": 1,
+    "status": "active",
+    "opens": 1,
+    "clicks": 0
+   },
+   {
+    "email": "sum-wasted-2e@icloud.com",
+    "name": "",
+    "race": "Gravel Worlds",
+    "brand": "gravelgod",
+    "sequence": "nurture_v1",
+    "step": 0,
+    "status": "active",
+    "opens": 0,
+    "clicks": 0
+   },
+   {
+    "email": "gravelgodcoaching+e2e-xcguide@gmail.com",
+    "name": "",
+    "race": "(no race given)",
+    "brand": "xcskilabs",
+    "sequence": "xc_welcome_v1",
+    "step": 1,
+    "status": "active",
+    "opens": 0,
+    "clicks": 0
+   },
+   {
+    "email": "gravelgodcoaching+e2e-xctest@gmail.com",
+    "name": "E2E XCTest",
+    "race": "American Birkebeiner",
+    "brand": "xcskilabs",
+    "sequence": "xc_welcome_v1",
+    "step": 1,
+    "status": "active",
+    "opens": 0,
+    "clicks": 0
+   },
+   {
+    "email": "gravelgodcoaching+e2e-roadtest@gmail.com",
+    "name": "E2E RoadTest",
+    "race": "Maratona dles Dolomites",
+    "brand": "roadielabs",
+    "sequence": "road_welcome_v1",
+    "step": 1,
+    "status": "active",
+    "opens": 0,
+    "clicks": 0
+   },
+   {
+    "email": "gravelgodcoaching+e2e-friendtest@gmail.com",
+    "name": "E2E FriendTest",
+    "race": "(no race given)",
+    "brand": "gravelgod",
+    "sequence": "welcome_v1",
+    "step": 1,
+    "status": "active",
+    "opens": 1,
+    "clicks": 0
+   }
+  ],
+  "new_leads_24h": 4,
+  "leads_by_brand": {
+   "gravelgod": 4,
+   "roadielabs": 0
+  },
+  "countdown_enrollments": 0,
+  "emails_sent_24h": 7,
+  "opens_24h": 4,
+  "clicks_24h": 0,
+  "bounces_24h": 0,
+  "new_orders_24h_UNRELIABLE": "use ga4 purchase counts \u2014 gg_athletes is not written by purchases",
+  "errors_24h": [],
+  "ok": true
+ },
+ "commerce_ledger": {
+  "failed_orders": [],
+  "orders": [],
+  "questionnaire_starts": 0,
+  "recoveries": [],
+  "window_hours": 24,
+  "ok": true
+ },
+ "social": {
+  "accounts_live": false,
+  "queued_today": 0,
+  "queued_yesterday": 0,
+  "posts": [],
+  "ok": true
+ },
+ "workflows": {
+  "latest": {
+   "gravel-race-automation/link-check.yml": "failure",
+   "road-race-automation/link-check.yml": "failure",
+   "road-race-automation/checkout-monitor.yml": "success",
+   "gravel-race-automation/regression-tests.yml": "success"
+  },
+  "ok": true
+ },
+ "constraint": {
+  "ok": true,
+  "sessions_per_day": 36.8,
+  "cta_rate_pct": 3.98,
+  "cta_to_submit_pct": 53.7,
+  "submit_to_purchase_pct": 13.6,
+  "purchases_28d": 3,
+  "submits_28d": 22,
+  "ctas_28d": 41,
+  "sessions_per_day_needed_for_1_sale": 343,
+  "binding_constraint": "traffic \u2014 at these volumes no funnel rate is even measurable; nothing downstream is worth optimizing yet"
+ },
+ "report": "**INTERPRETATION FAILED: no text block in model response**\n\n## RAW DIGEST \u2014 2026-07-19 (interpretation unavailable)\n\n### Gravel God\n- sessions 24 (7d avg 36.9), funnel {'cta_click': 0, 'form_start': 2, 'form_submit': 1, 'begin_checkout': 0, 'purchase': 0}\n- checkout: OK\n\n### Roadie Labs\n- sessions 2 (7d avg 0.4), funnel {'cta_click': 0, 'form_start': 0, 'form_submit': 0, 'begin_checkout': 0, 'purchase': 0}\n- checkout: OK\n\n- leads 4, emails 7, errors 0 (orders: see GA4 purchase counts)"
+}

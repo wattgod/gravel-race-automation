@@ -7,7 +7,6 @@
     "vitals": {
       "distance_mi": 104,
       "elevation_ft": 6860,
-      "gain_display": "Varies",
       "location": "Ketchum, Idaho",
       "location_badge": "KETCHUM, IDAHO",
       "county": "Blaine County",
@@ -27,8 +26,8 @@
       "cutoff_time": "12 hours for 100-mile distance",
       "lat": 43.6807,
       "lng": -114.3637,
-      "start_elevation_asl_ft": 5850,
-      "avg_elevation_asl_ft": 6500
+      "start_elevation_asl_ft": 5883,
+      "avg_elevation_asl_ft": 7108
     },
     "climate": {
       "primary": "High desert mountain",
@@ -42,7 +41,7 @@
     },
     "terrain": {
       "primary": "High desert gravel with sustained climbs",
-      "surface": "Well-maintained gravel roads, some chunky sections, forest service roads",
+      "surface": "Gravel roads through the central Idaho backcountry. The organizer publishes no surface percentage.",
       "technical_rating": 3,
       "features": [
         "Trail Creek Summit (outbound climb and final descent)",
@@ -183,33 +182,16 @@
       "reputation": "Where gravel royalty meets grassroots community. The event Rebecca built in her backyard."
     },
     "course_description": {
-      "character": "Big mountain beauty with sustained but manageable climbing, updated for 2026 with new roads and a major new climb over Corral Creek Summit. Not the steepest grades, but relentless.",
+      "character": "104 miles and 6,860 feet of climbing on a redesigned gravel route with a sustained 2,500-foot climb over Corral Creek Summit.",
       "suffering_zones": [
         {
-          "mile": 30,
-          "label": "Trail Creek Summit (outbound)",
-          "desc": "The long-standing signature climb out of Sun Valley. Long and steady. Pace yourself.",
-          "terrain_detail": "Sustained climbing, approximate mile",
-          "named_section": "Trail Creek Summit"
-        },
-        {
-          "mile": 55,
-          "label": "Corral Creek Summit (new for 2026)",
-          "desc": "A new ~2,500-foot climb added for 2026, deep in the Copper Basin/Wildhorse Canyon backcountry with views of the Lost River Range and Borah Peak.",
-          "terrain_detail": "New major climb, approximate mile",
-          "named_section": "Corral Creek Summit"
-        },
-        {
-          "mile": 80,
-          "label": "El Diablito",
-          "desc": "A ~5-mile diversion most riders tackle late in the race, before the final descent of Trail Creek Summit back to Sun Valley.",
-          "terrain_detail": "Late-race detour, approximate mile",
-          "named_section": "El Diablito"
+          "name": "Corral Creek Summit",
+          "miles": "Course position unpublished",
+          "description": "A sustained 2,500-foot climb on the redesigned 2026 Baked Potato route.",
+          "survival_strategy": "Use low gearing and pace the sustained climb."
         }
       ],
-      "signature_challenge": "The combination of distance, altitude, and relentless terrain — now with a major new climb over Corral Creek Summit. Nothing is crazy steep—but nothing is flat either.",
-      "ridewithgps_id": "24722263",
-      "ridewithgps_name": "2017 Rebecca's Private Idaho Big Potato (historical reference — course substantially changed for 2026)"
+      "signature_challenge": "The 104-mile distance, 6,860 feet of climbing, and sustained 2,500-foot climb over Corral Creek Summit."
     },
     "research_metadata": {
       "data_confidence": "migrated",

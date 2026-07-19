@@ -5,19 +5,21 @@
     "vitals": {
       "slug": "the-majestics",
       "name": "The Majestics",
-      "date": "2026: July 10-12 weekend (gravel race in program)",
-      "date_specific": "2026: July TBD",
-      "distance_mi": 81,
-      "elevation_ft": 8800,
-      "location": "Villars-sur-Ollon, Vaud, Switzerland",
-      "terrain": "Paved roads",
-      "website": "https://ucigranfondoworldseries.com/en/villars/",
-      "registration_url": "https://www.finishers.com/en/event/uci-gran-fondo-suisse-time-trial",
+      "date": "July annually",
+      "date_specific": "2026: July 12 (completed); 2027: July 11 within the July 9-11 festival",
+      "distance_mi": 65.9,
+      "elevation_ft": 8202,
+      "location": "Aigle to Villars-sur-Ollon, Vaud, Switzerland",
+      "terrain": "Alpine gravel roads and tracks",
+      "website": "https://themajestics.ch/en/uci-gravel-world-series/",
+      "registration_url": "https://themajestics.ch/en/",
       "prestige": 3,
       "overall_score": 79,
       "tier": 2,
-      "discipline": "road",
-      "month": "July"
+      "discipline": "gravel",
+      "month": "July",
+      "start_elevation_asl_ft": 1256,
+      "avg_elevation_asl_ft": 3053
     },
     "gravel_god_rating": {
       "logistics": 4,
@@ -103,49 +105,15 @@
       }
     },
     "course_description": {
-      "summary": "The Majestics Granfondo starts in Villars-sur-Ollon, tackling high Vaud Alps passes including double ascents of Col de la Croix at 1778m and Col du Pillon at 1544m. Riders descend to Hongrin valley's 690m dam before climbing Col des Mosses and La Forclaz, finishing with a punishing Croix retrace. This UCI GFWS qualifier delivers Grand Tour intensity over approximately 130km with 2700m gain on paved roads.",
-      "terrain_breakdown": {
-        "paved": 100,
-        "gravel": 0,
-        "singletrack": 0,
-        "other": 0
-      },
-      "key_segments": [
-        {
-          "name": "Col de la Croix (first ascent)",
-          "description": "Initial warm-up climb from Villars-sur-Ollon reaching 1778m after time trial start area.",
-          "distance_mi": 4.6,
-          "difficulty": "HC"
-        },
-        {
-          "name": "Col du Mittelberg",
-          "description": "Breathtaking link from Pays-d'Enhaut to Saanenland at 1633m through wild landscapes.",
-          "distance_mi": 6.2,
-          "difficulty": "1"
-        },
-        {
-          "name": "Hongrin Valley to Dam",
-          "description": "Descent to lowest point at 690m lake and dam before major climbs resume.",
-          "distance_mi": 12.4,
-          "difficulty": "descent"
-        },
-        {
-          "name": "Col des Mosses and La Forclaz",
-          "description": "Mid-late climbs at 1445m and 1283m building to final challenge.",
-          "distance_mi": 8.7,
-          "difficulty": "2"
-        },
-        {
-          "name": "Final Col de la Croix",
-          "description": "Race-ending steep retrace to 1778m summit from Villars-sur-Ollon base.",
-          "distance_mi": 4.6,
-          "difficulty": "HC"
-        }
-      ],
-      "elevation_profile": "Multiple high passes with early double Croix/Pillon warm-up, valley bottom at Hongrin dam, late Mosses/Forclaz, and Croix finale; steady 6-13% gradients.",
-      "aid_stations": "Multiple along 150km route at key valleys and passes including post-Pillon, Hongrin area, and pre-Mosses."
+      "summary": "The Summit runs 106 km from the World Cycling Center in Aigle to Villars-sur-Ollon with 2,500 m of climbing. The first 58 km cross the Rhone Valley before the route climbs through forest sections, open meadows, 4x4 tracks, steep ramps, and technical gravel descents.",
+      "terrain_breakdown": {},
+      "key_segments": [],
+      "elevation_profile": "The course ranges from 373 m to 1,828 m, with most of the 2,500 m of gain concentrated in the second half.",
+      "aid_stations": "See the current organizer roadbook.",
+      "suffering_zones": []
     },
     "logistics": {
+      "official_site": "https://themajestics.ch/en/uci-gravel-world-series/",
       "registration": {
         "opens": "November 2025",
         "closes": "July 7 2026",
@@ -252,7 +220,8 @@
     },
     "tagline": "UCI World Series gravel in the Swiss Alps — where the world cycling headquarters meets alpine climbing",
     "terrain": {
-      "overview": "Roughly half paved / half unpaved alpine terrain (organizer figure not published to the mile for the current course; treat as approximate). Starts flat in the Rhone Valley from Aigle, transitions to forest climbs and high-altitude gravel roads through the Route des Chaux area en route to Col de la Croix, finishing near Villars-sur-Ollon.",
+      "overview": "The first 58 km cross the Rhone Valley before the route climbs into the Vaud Alps.",
+      "surface": "Alpine gravel across forest sections, open meadows, 4x4 tracks, steep ramps, and technical gravel descents.",
       "surface_breakdown": {}
     },
     "distances": [

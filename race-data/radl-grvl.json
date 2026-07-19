@@ -5,18 +5,17 @@
     "display_name": "RADL GRVL",
     "tagline": "Adelaide Hills adventure—127km of rolling Australian bush, ~2,200m elevation, South Australia gravel.",
     "vitals": {
-      "distance_mi": 79,
-      "elevation_ft": 7218,
+      "distance_mi": 79.6,
+      "elevation_ft": 6199,
       "location": "Adelaide Hills, South Australia",
       "location_badge": "ADELAIDE HILLS, AUSTRALIA",
       "county": "South Australia",
       "date": "January annually (Tour Down Under week)",
       "date_specific": "2026: January 23 (most recent edition). Organizers announced Jul 2, 2026 that RADL GRVL is paused for 2027 — no 2027 edition; a return in 2028 is hoped for but not confirmed.",
       "terrain_types": [
-        "Adelaide Hills gravel (85%)",
-        "Dirt roads (15%)",
-        "Rolling Australian bush",
-        "Cumulative elevation"
+        "Adelaide Hills roads and private vineyard paths",
+        "61% unpaved",
+        "Shiraz Trail"
       ],
       "field_size": "400-600 riders",
       "start_time": "Morning",
@@ -39,7 +38,7 @@
     },
     "terrain": {
       "primary": "Adelaide Hills—rolling Australian bush gravel",
-      "surface": "Mostly gravel with some paved connectors (Blue course ~70% gravel). Adelaide Hills—rolling Australian bush terrain. ~2,200 m over 127 km (Blue/Adelaide Hills course) cumulative elevation. Technical rating: 3/5.",
+      "surface": "61% unpaved on Adelaide Hills roads, the Shiraz Trail, and private vineyard paths, with paved connectors.",
       "technical_rating": 3,
       "features": [
         "Adelaide Hills",
@@ -101,31 +100,31 @@
       "travel_summary": "Fly to Adelaide (ADL). Rental car or shuttle (30 km, 30-minute drive). Adelaide city lodging—book early. Day-before packet pickup. Race late January (Tour Down Under week).",
       "food_options": "Aid stations on course. Post-race party in Adelaide.",
       "camping": "Check official website",
-      "official_site": "https://www.radlgrvl.com.au"
+      "official_site": "https://www.radlgrvl.com/"
     },
     "course_description": {
-      "character": "127 km (Blue/Adelaide Hills course), ~2,200 m. Mostly gravel with paved connectors. Adelaide Hills—rolling Australian bush. Technical rating: 3/5.",
+      "character": "128.1 km and 1,889 m of climbing on a 61% unpaved route through the Adelaide Hills, including the Shiraz Trail and private vineyard paths.",
       "suffering_zones": [
         {
           "name": "Throughout: Adelaide Hills Rolling Terrain",
           "miles": "Throughout",
-          "description": "Rolling Australian bush. ~2,200 m cumulative elevation. Relentless.",
-          "survival_strategy": "Pace conservatively. Low gears. Cumulative elevation adds up. 127 km long."
+          "description": "The organizer-linked Blue route accumulates 1,889 m of climbing across 128.1 km.",
+          "survival_strategy": "Pace conservatively. Low gears. Cumulative elevation adds up."
         },
         {
           "name": "Throughout: Chunky Australian Gravel",
           "miles": "Throughout",
-          "description": "Chunky gravel. 35-40mm tires recommended.",
-          "survival_strategy": "35-40mm tubeless. Steady pace. Chunky but not technical."
+          "description": "The route is 61% unpaved, including the Shiraz Trail and private vineyard paths.",
+          "survival_strategy": "Use equipment suited to mixed paved and unpaved roads."
         }
       ],
-      "signature_challenge": "127 km + ~2,200 m cumulative elevation. Rolling Australian bush.",
-      "ridewithgps_id": "53794771",
+      "signature_challenge": "128.1 km with 1,889 m of climbing across the Adelaide Hills.",
+      "ridewithgps_id": "53152471",
       "ridewithgps_name": "2026 RADL GRVL p/b Quad Lock Blue Adelaide Hills Course",
       "surface_breakdown": {
         "overall": {
-          "gravel": 85,
-          "dirt": 15
+          "unpaved": 61,
+          "paved": 39
         }
       }
     },

@@ -19,13 +19,13 @@
         "Italy"
       ],
       "field_size": "300-500 riders",
-      "start_time": "2:00pm",
+      "start_time": "9:00 AM",
       "registration": "Online. Cost: ~€100-150",
       "prize_purse": "Modest prizes",
       "aid_stations": "Multiple aid stations",
       "cutoff_time": "Varies",
-      "lat": 44.1689,
-      "lng": 8.3437
+      "lat": 43.0528,
+      "lng": 10.8927
     },
     "climate": {
       "primary": "Mediterranean spring/fall",
@@ -39,10 +39,10 @@
     },
     "terrain": {
       "primary": "Tuscan hill gravel",
-      "surface": "Gravel roads through the Tuscan hills. Timed segment format with significant elevation and Mediterranean scenery.",
+      "surface": "A 100-kilometre Tuscan route split into 60-kilometre and 40-kilometre loops, alternating pavement and dirt with climbs, descents, flowing singletrack, and secondary roads.",
       "technical_rating": 3,
       "features": [
-        "Significant Tuscan hill climbing (5500 feet)",
+        "1,500 metres of climbing across two loops",
         "Mediterranean scenery",
         "Timed segments",
         "Massa Marittima, Tuscany setting",
@@ -102,12 +102,12 @@
       ]
     },
     "logistics": {
-      "airport": "Genoa (GOA) 1 hour or Nice (NCE) 1.5 hours",
+      "airport": "Pisa (PSA) or Florence (FLR)",
       "lodging_strategy": "Massa Marittima has moderate lodging options; the event bases at Bike Hotel Massa Vecchia.",
       "food": "Massa Marittima has full dining options. Stock nutrition.",
       "packet_pickup": "Day before typically",
       "parking": "At start/finish",
-      "official_site": "Check Grinduro website",
+      "official_site": "https://grinduro.com/italy/",
       "camping": "camping upgrades include campsite €25/person for two nights, camper van spot €75/person for two nights (requires separate ticket"
     },
     "history": {
@@ -118,33 +118,11 @@
       "reputation": "Regional Grinduro event."
     },
     "course_description": {
-      "character": "Tuscan hill gravel with timed segments.",
-      "suffering_zones": [
-        {
-          "mile": 20,
-          "label": "Timed Segment 1",
-          "desc": "First timed coastal climb.",
-          "terrain_detail": "Tuscan hills",
-          "named_section": "Segment 1"
-        },
-        {
-          "mile": 35,
-          "label": "Timed Segment 2",
-          "desc": "Second timed section.",
-          "terrain_detail": "Midpoint",
-          "named_section": "Segment 2"
-        },
-        {
-          "mile": 50,
-          "label": "Final Timed Segment",
-          "desc": "Final timed descent.",
-          "terrain_detail": "Late segment",
-          "named_section": "Final Segment"
-        }
-      ],
-      "signature_challenge": "Tuscan hill timed segments.",
-      "ridewithgps_id": "52669799",
-      "ridewithgps_name": "Grinduro Italy 2025"
+      "character": "The 2026 event starts and finishes at Bike Hotel Massa Vecchia near Massa Marittima. Riders cover a 60-kilometre morning loop and a 40-kilometre afternoon loop, totalling 1,500 metres of elevation gain, with four timed segments of five to ten minutes each.",
+      "suffering_zones": [],
+      "signature_challenge": "Four timed segments within a 100-kilometre route that mixes pavement, dirt, climbs, descents, and flowing singletrack.",
+      "ridewithgps_id": null,
+      "ridewithgps_name": null
     },
     "guide_variables": {
       "race_name": "Grinduro Italy",

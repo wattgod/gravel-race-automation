@@ -5,9 +5,9 @@
     "display_name": "Gravel Grit 'n Grind",
     "tagline": "Sweden's UCI World Series Saturday — farmland, forest doubletrack, and Nordic grit outside Halmstad.",
     "vitals": {
-      "distance_mi": 93,
-      "elevation_ft": 2000,
-      "location": "Halmstad, Sweden (Heagård farm)",
+      "distance_mi": 83,
+      "elevation_ft": 3926,
+      "location": "Halmstad, Sweden",
       "location_badge": "HALMSTAD, SWEDEN",
       "date": "Late September 2026 (moved from mid-August for permits); historical pattern mid-August",
       "terrain_types": [
@@ -31,8 +31,8 @@
       "challenges": []
     },
     "terrain": {
-      "primary": "Mixed gravel",
-      "surface": "Gravel roads",
+      "primary": "Halland farm and forest gravel",
+      "surface": "Approximately 90 percent gravel through open Halland farmland, rolling hills, and smaller forest tracks, with fast smooth sections and rocky descents.",
       "technical_rating": 3,
       "features": []
     },
@@ -119,6 +119,9 @@
       "score": "49 / 100",
       "one_liner": "A UCI Gravel World Series stop on the Swedish coast—rolling lakeside forests, Nordic farm roads, and a multi-day weekend format in Halmstad."
     },
+    "logistics": {
+      "official_site": "https://gravelgritngrind.se/"
+    },
     "course": {
       "ridewithgps_id": "45904274",
       "ridewithgps_name": "Gravel Grit 'n Grind Granfondo 133km"
@@ -133,7 +136,7 @@
     "course_description": {
       "ridewithgps_id": "45904274",
       "ridewithgps_name": "Gravel Grit 'n Grind Granfondo 133km",
-      "character": "Saturday's UCI GWS qualifier stage from Heagård farm outside Halmstad: 150km (93mi) or 90km option — ~90% gravel across Halland farmlands, forest dual tracks, and rocky descents via Torup/Gräsås/Getinge; GAIN UNPUBLISHED (display Varies). Sunday runs a separate Nordic Gravel Series event (125/90km) in Simlångsdalen — riders can enter either or both days; our plans anchor the SATURDAY UCI stage (single-day registerable, flagship-day precedent). Age-band course split (90km for 60+/50+) reported but LOW-CONFIDENCE — copy must not assert it. Qualifier for 2026 Worlds (Western Australia) + 2027 Euros (Lahti). PRIOR 50mi/2,000ft profile mismatched; 2026 date MOVED to Sep 26 — corrected 2026-07-14."
+      "character": "The Saturday UCI Gravel World Series stage is the flagship course. Current UCI materials list the long route at 133 kilometres, and the organizer says the route did not change when the 2026 event moved to September 26. The organizer describes approximately 90 percent gravel through open farmland, rolling hills, smaller forest tracks, and rocky descents. The named 133-kilometre route records 1,196 metres of gain, retained as a numeric best value with gain_display Varies."
     },
     "tire_recommendations": {
       "generated_at": "2026-02-19",

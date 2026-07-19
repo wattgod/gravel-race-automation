@@ -6,12 +6,12 @@
     "tagline": "Southeast Gravel's Appalachian leg from the town the Appalachian Trail walks through.",
     "vitals": {
       "distance_mi": 61,
-      "elevation_ft": 6000,
+      "elevation_ft": 6616,
       "location": "Hot Springs, North Carolina",
       "location_badge": "HOT SPRINGS, NC",
       "county": "Madison County",
       "date": "Mid-May annually",
-      "date_specific": "2027: May 15 (pattern from Sat May 16 2026; 2026 edition complete)",
+      "date_specific": "2026: May 16",
       "terrain_types": [
         "Appalachian mountain gravel",
         "Southeast Gravel series",
@@ -107,7 +107,7 @@
       "food": "Small town with limited dining — stock nutrition. Friday night Q&A with guest pros at Big Pillow Brewery; finish-line food and beer Saturday.",
       "packet_pickup": "Friday night, 6–8pm at downtown venues (e.g. Vinyl Pies); Saturday morning option at Hot Springs Resort.",
       "parking": "At start/finish",
-      "official_site": "Check North Carolina cycling calendars",
+      "official_site": "https://www.southeastgravel.com/hot-springs-gravel-gauntlet",
       "camping": "Camping available at Hot Springs Resort after the race, with finish-line food, beer, and hangouts."
     },
     "history": {
@@ -118,33 +118,33 @@
       "reputation": "Regional NC event."
     },
     "course_description": {
-      "character": "Southeast Gravel series race (event 3 of 4) out of Hot Springs, NC (start/finish at Hot Springs Resort & Spa): Long Course 61 miles, Short 27.2 miles (3,502ft verified), plus a 13-mile fun course. Long-course gain unpublished — organizer bills 2026 as 'the hilliest course yet'. One flat stretch along the French Broad River; everything else is sustained climbing on Appalachian forest roads. The Appalachian Trail runs down the town's main street.",
+      "character": "Southeast Gravel race from Hot Springs Resort & Spa: the 2026 long course is 61 miles with 6,616 feet of gain on the organizer-linked route. The organizer describes one flat stretch along the river and sustained climbing across the remainder of its hilliest course yet. Long-course aid stations are at miles 11.5, 45, and 53.5.",
       "suffering_zones": [
         {
-          "mile": 20,
-          "label": "Early Climbing Begins",
-          "desc": "The flat French Broad River opening stretch ends and the course's sustained Appalachian forest-road climbing gets underway.",
-          "terrain_detail": "Mountains",
-          "named_section": "Early Climbs"
+          "mile": 12,
+          "label": "Aid Station One",
+          "desc": "The first long-course aid station is at mile 11.5.",
+          "terrain_detail": "Aid station",
+          "named_section": "Aid Station One"
         },
         {
-          "mile": 40,
-          "label": "Midpoint",
-          "desc": "Roughly halfway, with the climbing rhythm fully established — an aid station follows near mile 45.",
-          "terrain_detail": "Midpoint",
-          "named_section": "Halfway"
+          "mile": 45,
+          "label": "Aid Station Two",
+          "desc": "The second long-course aid station is at mile 45.",
+          "terrain_detail": "Aid station",
+          "named_section": "Aid Station Two"
         },
         {
-          "mile": 60,
-          "label": "Late Climbs",
-          "desc": "The course's final sustained climbs before the return to Hot Springs, with an aid station near mile 53.5 to fuel the last push.",
-          "terrain_detail": "Late climbs",
-          "named_section": "Final Push"
+          "mile": 54,
+          "label": "Aid Station Three",
+          "desc": "The third long-course aid station is at mile 53.5.",
+          "terrain_detail": "Aid station",
+          "named_section": "Aid Station Three"
         }
       ],
       "signature_challenge": "Appalachian mountain climbing in remote western North Carolina.",
-      "ridewithgps_id": "50194650",
-      "ridewithgps_name": "Official SEG Hot Springs Gravel Gauntlet Long Course (copy)"
+      "ridewithgps_id": "54670830",
+      "ridewithgps_name": "2026 SEG Hot Springs Gravel Gauntlet Long Course"
     },
     "guide_variables": {
       "race_name": "Hot Springs Gravel Gauntlet",

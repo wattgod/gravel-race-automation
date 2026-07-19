@@ -6,31 +6,32 @@
     "tagline": "The UK's biggest gravel race. 200km through Kielder Forest. Cold, wet, and utterly British.",
     "vitals": {
       "distance_mi": 124,
-      "elevation_ft": 14100,
+      "elevation_ft": 12100,
+      "gain_display": "Varies",
       "location": "Kielder, Northumberland, England",
       "location_badge": "KIELDER, NORTHUMBERLAND, ENGLAND",
       "county": "Northumberland",
       "date": "Late April annually",
       "date_specific": "2026: April 24-25",
       "terrain_types": [
-        "Forest gravel roads (two-track)",
-        "Fist-size embedded rocks",
-        "Rocky Mountain-style forest roads",
-        "Moorland crossings"
+        "Hard-packed gravel access roads",
+        "All grades of loose gravel",
+        "Kielder Forest",
+        "Nearly 100% off-road"
       ],
       "field_size": "2,000 riders (sells out in 6 hours)",
-      "start_time": "Saturday early morning",
+      "start_time": "9:00-9:30 AM Saturday",
       "registration": "Opens winter. Sells out in 6 hours. Cost: £100-150",
       "prize_purse": "Varies",
       "aid_stations": "3 with full support",
-      "cutoff_time": "12 hours",
+      "cutoff_time": "Course closes at 10:00 PM; route cutoffs at 37 km (11:45 AM) and 139 km (5:45 PM)",
       "distance_options": "65km (40mi), 130km (80mi), 200km (124mi) - 'Rite of passage in the gravel world'",
       "lat": 55.2265,
       "lng": -2.5725
     },
     "climate": {
       "primary": "British April weather gamble",
-      "description": "5-15°C (41-59°F), high rain probability. Cold + wet + wind. British April is a dice roll.",
+      "description": "Changeable April conditions in remote Kielder Forest; the 2026 rider brief requires a waterproof jacket, warm hat or buff, and a spare base layer regardless of the forecast.",
       "challenges": [
         "Cold + wet + wind combination",
         "High rain probability",
@@ -39,8 +40,8 @@
       ]
     },
     "terrain": {
-      "primary": "Forest gravel roads with technical singletrack",
-      "surface": "Forest two-track with 'fist or larger size rocks embedded.' Less like Midwest hero gravel, more like Rocky Mountain forest roads. Mix of 'delightfully smooth road' and chunky rocky sections. 95% gravel for 200km distance.",
+      "primary": "Kielder Forest gravel access roads",
+      "surface": "Nearly 100% off-road on well-surfaced, hard-packed gravel access roads through Kielder Forest, with all grades of loose gravel on the 200 km course.",
       "technical_rating": 4,
       "features": [
         "Kielder Forest fire roads",
@@ -48,8 +49,8 @@
         "Technical rocky descents",
         "Notorious mud potential"
       ],
-      "gravel_percentage": 95,
-      "pavement_percentage": 5
+      "gravel_percentage": null,
+      "pavement_percentage": null
     },
     "gravel_god_rating": {
       "overall_score": 83,
@@ -192,31 +193,31 @@
       ]
     },
     "course_description": {
-      "character": "Classic British suffering. Cold, wet, hilly, and beautiful. Kielder Forest doesn't negotiate.",
+      "character": "The 2026 200 km course is one continuous loop through Kielder Forest with approximately 3,700 metres of climbing. The organizer describes it as nearly 100% off-road on hard-packed gravel access roads, with all grades of loose gravel.",
       "suffering_zones": [
         {
-          "mile": 31,
-          "label": "First Moorland Crossing",
-          "desc": "Exposed. Wind hits. Weather reveals itself. Your clothing choices get tested.",
-          "terrain_detail": "Exposed moorland with no shelter",
-          "named_section": "The Exposure Test"
+          "mile": 40,
+          "label": "Feed Station 1",
+          "desc": "The first official 2026 feed station is at 65 kilometres, about 40 miles into the 200 km loop.",
+          "terrain_detail": "Kielder Forest gravel access roads",
+          "named_section": "Feed Station 1"
         },
         {
-          "mile": 62,
-          "label": "Midway Reality Check",
-          "desc": "If it's wet, you're wet. If it's cold, you're cold. No changing that now.",
-          "terrain_detail": "Deep in Kielder Forest",
-          "named_section": "The Acceptance Zone"
+          "mile": 68,
+          "label": "Feed Station 2",
+          "desc": "The second official 2026 feed station and drop-bag point is at 109 kilometres, about 68 miles into the loop.",
+          "terrain_detail": "Kielder Forest gravel access roads",
+          "named_section": "Feed Station 2"
         },
         {
-          "mile": 106,
-          "label": "Final Climbs",
-          "desc": "Tired legs meet technical terrain. The finish is still 40km away.",
-          "terrain_detail": "Rocky descents on exhausted legs",
-          "named_section": "The Grind Home"
+          "mile": 99,
+          "label": "Feed Station 3",
+          "desc": "The final official 2026 feed station is at 159 kilometres, about 99 miles into the 200 km loop.",
+          "terrain_detail": "Kielder Forest gravel access roads",
+          "named_section": "Feed Station 3"
         }
       ],
-      "signature_challenge": "The combination: 4,300 meters of climbing on technical terrain in British weather. Any one factor is manageable. Together, they break riders.",
+      "signature_challenge": "Approximately 3,700 metres of climbing across a 200 km loop that is nearly all off-road, with remote Kielder terrain and changeable April weather.",
       "ridewithgps_id": "53326466",
       "ridewithgps_name": "Dirty Reiver 200km 2024",
       "map_url": null

@@ -5,9 +5,8 @@
     "display_name": "D2R2",
     "tagline": "180km Massachusetts rolling hills gravel from Greenfield (Deerfield Dirt-Road Randonnée).",
     "vitals": {
-      "distance_mi": 112,
-      "elevation_ft": 13800,
-      "gain_display": "Varies",
+      "distance_mi": 115,
+      "elevation_ft": 13000,
       "location": "Greenfield, Massachusetts",
       "location_badge": "GREENFIELD, MA",
       "county": "Franklin County",
@@ -16,7 +15,7 @@
       "terrain_types": [
         "Massachusetts rolling hills",
         "Rural gravel",
-        "Multi-distance event (180K/160K/115K/100K + shorter non-race options)"
+        "Multi-distance event (180K/140K/110K/100K plus shorter options)"
       ],
       "field_size": "300-600 riders",
       "start_time": "6:00 AM start (180K); later starts for shorter distances",
@@ -24,7 +23,7 @@
       "prize_purse": "Modest prizes",
       "aid_stations": "Multiple aid stations",
       "cutoff_time": "Varies",
-      "distance_options": "180K (~112mi, hardest/longest), 160K (~99mi, >7,000ft per organizer), 115K (~71mi), 100K (~62mi), plus a 40-mile Green River Tour and 12/16-mile Family Ride (non-race, minimal hills)",
+      "distance_options": "2026: 180K (~115mi, hardest/longest), 140K (86mi), 110K (68mi), 100K (~62mi), 90K, an 80K point-to-point ride, a 36-52mi Green River Tour, and a 12mi Family Ride",
       "lat": 42.5437,
       "lng": -72.6047
     },
@@ -40,10 +39,10 @@
     },
     "terrain": {
       "primary": "Massachusetts rolling hills gravel",
-      "surface": "Gravel roads through rolling western Massachusetts hills. Significant elevation with 180km distance.",
+      "surface": "About 60% unpaved on mixed-surface back roads through western Massachusetts.",
       "technical_rating": 2,
       "features": [
-        "Significant rolling hills (13,000+ ft on the 180K, varies by year)",
+        "Significant rolling hills (13,000 ft on the 2026 180K organizer map)",
         "Rural and mountain scenery",
         "180km distance",
         "Western Massachusetts setting",
@@ -120,40 +119,11 @@
       "reputation": "Northeast regional event; often called 'the original gravel grinder.'"
     },
     "course_description": {
-      "character": "Rolling hills gravel, multiple distances from a 12-mile Family Ride up to the 180K (112mi).",
-      "suffering_zones": [
-        {
-          "mile": 35,
-          "label": "First Third",
-          "desc": "35 miles in, settling into pace.",
-          "terrain_detail": "Rolling",
-          "named_section": "Early Miles"
-        },
-        {
-          "mile": 56,
-          "label": "Halfway",
-          "desc": "Halfway point, 56 miles to go.",
-          "terrain_detail": "Midpoint",
-          "named_section": "Halfway"
-        },
-        {
-          "mile": 85,
-          "label": "The Grind",
-          "desc": "85 miles in, mental game begins.",
-          "terrain_detail": "Late miles",
-          "named_section": "The Grind"
-        },
-        {
-          "mile": 100,
-          "label": "Final Push",
-          "desc": "Last 12 miles to finish.",
-          "terrain_detail": "Final miles",
-          "named_section": "Homestretch"
-        }
-      ],
-      "signature_challenge": "180km distance with 13,000+ feet of rolling hills climbing on the longest route (gain varies by year/route naming churn — treat as an estimate, not a fixed spec).",
-      "ridewithgps_id": "52352400",
-      "ridewithgps_name": "D2R2 Green River Ride 2025 (updated 8/22)"
+      "character": "The 2026 longest route remains the 180K in name but measures about 115 miles after the new Greenfield start and finish added 5 kilometres. The organizer map lists 13,000 feet of climbing, and the organizer-linked route is approximately 60% unpaved.",
+      "suffering_zones": [],
+      "signature_challenge": "About 115 miles and 13,000 feet of climbing on the 2026 180K route, including grades up to 20 percent late in the ride.",
+      "ridewithgps_id": "53904113",
+      "ridewithgps_name": "D2R2 180k Classic 2026"
     },
     "guide_variables": {
       "race_name": "D2R2",

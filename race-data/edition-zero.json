@@ -7,16 +7,17 @@
     "vitals": {
       "distance_mi": 154,
       "elevation_ft": 11500,
+      "gain_display": "Varies",
       "location": "Waimate, New Zealand",
       "location_badge": "WAIMATE, NZ",
       "county": "South Island",
       "date": "Late November annually",
       "date_specific": "2026: November 28",
       "terrain_types": [
-        "New Zealand mountains",
-        "South Island gravel",
-        "Regional event",
-        "New Zealand"
+        "75% gravel",
+        "South Island back roads",
+        "GPX-only navigation",
+        "Velodrome start and finish"
       ],
       "field_size": "200-400 riders",
       "start_time": "Morning start",
@@ -39,7 +40,7 @@
     },
     "terrain": {
       "primary": "New Zealand mountain gravel",
-      "surface": "Gravel roads through South Island mountains. Significant elevation with mountain scenery.",
+      "surface": "75% gravel on South Island back roads, with GPX-only navigation.",
       "technical_rating": 3,
       "features": [
         "Significant mountainous (11,500 feet)",
@@ -102,7 +103,7 @@
       "food": "South Island has full dining options. Stock nutrition.",
       "packet_pickup": "Day before typically",
       "parking": "At start/finish",
-      "official_site": "https://zero-editions.org/"
+      "official_site": "https://www.greatkiwigravel.com/editionzerogravel"
     },
     "history": {
       "founded": null,
@@ -112,31 +113,38 @@
       "reputation": "Regional New Zealand event."
     },
     "course_description": {
-      "character": "New Zealand mountain gravel.",
+      "character": "The 2026 Mains is a 248-kilometre course with approximately 3,500 metres of climbing and 75% gravel. It starts and finishes at the Victoria Park Velodrome in Waimate, uses GPX-only navigation, and has four aid stations with two drop-bag points.",
       "suffering_zones": [
         {
-          "mile": 30,
-          "label": "Early Mountains",
-          "desc": "First mountain sections.",
-          "terrain_detail": "Mountainous",
-          "named_section": "Early Mountains"
+          "mile": 40,
+          "label": "Cannington Aid Station",
+          "desc": "The first official 2026 Mains aid station and drop-bag point is at 64 kilometres, about 40 miles into the course.",
+          "terrain_detail": "Mains course",
+          "named_section": "Cannington"
         },
         {
-          "mile": 50,
-          "label": "Midpoint",
-          "desc": "Halfway through the course.",
-          "terrain_detail": "Midpoint",
-          "named_section": "Halfway"
+          "mile": 75,
+          "label": "Water Aid Station",
+          "desc": "The second official 2026 Mains aid station is at 121 kilometres, about 75 miles into the course.",
+          "terrain_detail": "Mains course",
+          "named_section": "Water Aid Station"
         },
         {
-          "mile": 80,
-          "label": "Late Mountains",
-          "desc": "Final mountain sections before finish.",
-          "terrain_detail": "Late mountains",
-          "named_section": "Final Push"
+          "mile": 103,
+          "label": "Cattle Creek Aid Station",
+          "desc": "The third official 2026 Mains aid station and second drop-bag point is at 166 kilometres, about 103 miles into the course.",
+          "terrain_detail": "Mains course",
+          "named_section": "Cattle Creek"
+        },
+        {
+          "mile": 131,
+          "label": "Waihaorunga Aid Station",
+          "desc": "The final official 2026 Mains aid station is at 211 kilometres, about 131 miles into the course.",
+          "terrain_detail": "Mains course",
+          "named_section": "Waihaorunga"
         }
       ],
-      "signature_challenge": "New Zealand mountainous terrain.",
+      "signature_challenge": "A 248-kilometre, 75%-gravel course with approximately 3,500 metres of climbing, GPX-only navigation, and no personal or team support on course.",
       "ridewithgps_id": null,
       "ridewithgps_name": null
     },

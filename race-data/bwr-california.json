@@ -3,18 +3,18 @@
     "name": "Belgian Waffle Ride",
     "slug": "bwr-california",
     "display_name": "Belgian Waffle Ride",
-    "tagline": "The most technical gravel race in America. 130 miles of everything—road, dirt, singletrack, sand, suffering.",
+    "tagline": "The original BWR: 107 miles across 30 road and unroad sectors from Del Mar.",
     "vitals": {
-      "distance_mi": 106,
-      "elevation_ft": 7500,
+      "distance_mi": 107,
+      "elevation_ft": 7367,
       "location": "Del Mar, California",
       "location_badge": "DEL MAR, CALIFORNIA",
       "county": "San Diego County",
       "date": "Late April–early May annually",
       "date_specific": "2027: April 25 (Sunday, CONFIRMED — belgianwaffleride.bike/pages/future-dates); 2026 edition (May 2-3, Del Mar Polo Fields) completed, now historical",
       "terrain_types": [
-        "70% pavement",
-        "30% unroad (dirt, gravel, single-track, sand, rock gardens)",
+        "47% pavement",
+        "53% unroad (dirt, gravel, single-track, sand, rock gardens)",
         "water crossings",
         "technical descents"
       ],
@@ -22,8 +22,8 @@
       "start_time": "7:00 AM mass start",
       "registration": "Open registration (no lottery). Early bird: $195+ (increases after December 1). Registration: belgianwaffleride.bike",
       "prize_purse": "$50,000+ (Waffle elites only, largest in one-day gravel racing)",
-      "aid_stations": "9 fully-stocked feed zones with Belgian-themed sector names. Comprehensive course marking.",
-      "cutoff_time": "7:45 PM (12 hours from elite start)",
+      "aid_stations": "6 feed zones on the 2026 Waffle course. Comprehensive course marking.",
+      "cutoff_time": "Two major route cutoffs: mile 31.8 at 11:30 AM for men/11:40 AM for women, and mile 48.1 at 12:45 PM.",
       "lat": 32.9595,
       "lng": -117.2653
     },
@@ -39,7 +39,7 @@
     },
     "terrain": {
       "primary": "Mixed unroad and pavement",
-      "surface": "70% pavement, 30% unroad—dirt, gravel, single-track, sand, water crossings, rock gardens. MTB experience STRONGLY recommended.",
+      "surface": "53% unroad and 47% pavement on the 2026 Waffle, mixing gravel, deep sand, rocks, doubletrack, decomposed granite, dirt, and singletrack across 30 unroad sectors.",
       "technical_rating": 5,
       "features": [
         "Single-track sections",
@@ -191,38 +191,17 @@
       "reputation": "BWR California remains the flagship event of the series, with the $50,000+ prize purse being the largest in one-day gravel racing. The 40% DNF rate is nearly double Unbound's attrition. This isn't accidental. Marckx designed the course to expose riders who 'do the group rides that never do any work and then all of a sudden, they're there for the sprint.' BWR rewards those who can actually ride bikes, not just pedal them."
     },
     "course_description": {
-      "character": "Since the 2025 move to Del Mar Polo Fields, Belgian Waffle Ride California runs roughly 106-107 miles with about 7,500 feet of climbing, mixing ~70% pavement with ~30% 'unroad'—dirt, gravel, single-track, sand, water crossings, rock gardens. The signature Double Peak summit finish (pre-2025 San Marcos course) was dropped; the current course ends in more gravel instead. The route still uses Belgian-themed sector names marking specific suffering zones.",
-      "suffering_zones": [
-        {
-          "mile": 22,
-          "label": "Rock Garden",
-          "desc": "Early rock garden sector (organizer course notes / Veloworthy race coverage, ~mile 22) that starts separating the field before the course settles into its rhythm."
-        },
-        {
-          "mile": 48,
-          "label": "Ramona / Pamo Climb",
-          "desc": "Ramona aid station (~mile 48) followed by the Pamo Valley climb—named waypoints confirmed in 2025 race-day course coverage; Ramona is also a published cutoff-time checkpoint at mile 48.1."
-        },
-        {
-          "mile": 70,
-          "label": "Lemon Twistenberg",
-          "desc": "Long dirt sector where lead groups get blown apart, per 2025 pro race analysis (Drew Dillman). Followed by the biggest paved climb on course (~5 miles)."
-        },
-        {
-          "mile": 100,
-          "label": "Zick-Zack / Saint Lusardi",
-          "desc": "Organizer-named closing sectors (2026 course preview): sharp switchback climbs and a technical sand/gravel finish—the new 'terminal exam' since Double Peak was dropped from the course."
-        }
-      ],
+      "character": "The 2026 Waffle starts and finishes at the Del Mar Polo Fields and covers 107 miles with 7,367 feet of climbing. Its 30 unroad sectors make up 53% of the route and mix gravel, deep sand, rocks, doubletrack, decomposed granite, dirt, and singletrack. The former Double Peak summit finish is not part of the Del Mar course; Zick-Zack and Saint Lusardi are among the closing sectors.",
+      "suffering_zones": [],
       "signature_challenge": "The un-road format—tire choice and bike handling matter as much as FTP—now closes with Zick-Zack and Saint Lusardi instead of the retired Double Peak summit finish.",
-      "ridewithgps_id": null,
-      "ridewithgps_name": "2024 route archived (pre-Del Mar/San Marcos course, superseded); current-year routes hosted at ridewithgps.com/organizations/3542-2026-belgian-waffle-ride",
+      "ridewithgps_id": "54026340",
+      "ridewithgps_name": "Waffle with Boden and Black Canyons (2026 official race-book link)",
       "surface_breakdown": {
         "overall": {
-          "pavement": 70,
-          "unroad": 30
+          "pavement": 47,
+          "unroad": 53
         },
-        "note": "Collapsed to organizer's published 70/30 pavement/unroad split (2026); prior 40/30/20 pavement/gravel/singletrack breakdown was unsourced for the current course and didn't total the vitals split."
+        "note": "Organizer's 2026 Race Bijbel publishes 53% unroad for the Waffle; its linked Ride with GPS route reports 52% unpaved. The race-book figure is used here."
       }
     },
     "research_metadata": {

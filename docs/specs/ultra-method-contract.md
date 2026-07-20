@@ -1,4 +1,4 @@
-# Ultra Method Contract — v2 (G0.5)
+# Ultra Method Contract — v2.2 (G0.5)
 
 Normative implementation contract for all Gravel God ultra-bikepacking training
 products. v1 → sol G0.5 review NO-GO (7 findings: non-deterministic prescription,
@@ -30,8 +30,12 @@ States (deterministic, evaluated at intake):
 - **CATCH-UP**: P-4 passes, but runway <16w OR any of P-1..P-3 fail with runway
   <16w → §12.3 rules.
 - **EXTENDED-BASE ENTRY**: P-1..P-3 not all met but runway ≥16w → the athlete
-  runs the standard structure with bands reduced 20% for the first 4 weeks and
-  back-to-backs delayed 2 weeks; sim preserved. Re-evaluate at week 4.
+  runs the standard structure with weeks 2–5 hours at floor0.25(0.8 × canonical)
+  and B2B entry delayed 2 weeks; SIM preserved. Transition rule: if completed
+  hours in weeks 2–4 ≥80% of the reduced prescription → canonical table from
+  week 5; otherwise the 0.8 reduction extends through week 8, then canonical
+  resumes unconditionally. QC conformance for this state checks the REDUCED
+  reference values for the reduced weeks (state-aware conformance, §13.1).
 - **MINIMUM VIABLE RUNWAY**: 6 weeks (matches the custom engine's floor). Runway
   <6w → no plan product; route to consult/coaching (fit filter, not upsell).
 
@@ -136,7 +140,7 @@ one); Strength = sessions per §8.
 | 8 | base | LOAD | 9.00 | 4.25 | no | 1 | 2 | - |
 | 9 | base | LOAD | 9.75 | 4.50 | no | 1 | 2 | RETEST |
 | 10 | build | RECOVERY | 6.25 | 2.50 | no | 0 | 1 | - |
-| 11 | build | LOAD | 10.50 | 5.00 | yes | 2 | 1 | - |
+| 11 | build | LOAD | 10.50 | 5.00 | no | 2 | 1 | - |
 | 12 | build | LOAD | 11.50 | 5.50 | yes | 2 | 1 | - |
 | 13 | build | RECOVERY | 7.25 | 2.50 | no | 0 | 1 | - |
 | 14 | build | MINI-SIM | 11.25 | 5.50 | SIM | 0 | 0 | - |
@@ -151,6 +155,9 @@ one); Strength = sessions per §8.
 | 23 | cons | TAPER | 5.00 | 4.00 | no | 0 | 0 | - |
 | 24 | cons | TAPER | 2.00 | 1.00 | no | 0 | 0 | - |
 
+W1 note: the testing week's 2.50h "long day" is the fixed 360-protocol
+calibration ride; the ≤12% long-day step rule applies from the week-2 seed
+(3.25h) onward — the W1→W2 step is a documented seed, not a progression.
 
 Derivation rules (for the generator and for custom lengths): load-week ramp
 ≤10% floor-rounded to 0.25h; recovery week = 65% of preceding load week, zero
@@ -249,8 +256,10 @@ base long days; altitude/heat apply the existing note protocols; freeroute_tasks
 adds route-research off-bike items in specificity weeks + route-plan validation
 to §5.1; length_bias only affects recommendation copy (both SKUs stay valid).
 Pilot values: Tour Divide {1.3, 0, true, false, false, "24w"}, Colorado Trail
-Race {1.4, 2, true, false, false, "24w"}, Badlands {1.2, 1, false, true,
-false, null} — subject to demand-profile confirmation at SKU build.
+Race {1.4, 2, true, false, false, "24w"}, Badlands {1.2, 1, true, true,
+false, null}  (altitude corrected: race-data shows 3,396 m Pico Veleta,
+altitude criterion 5 — the ASL rule fires; length_bias stays null because
+Badlands' ~750 km expected finish sits under the >10-day 24w-bias rule) — subject to demand-profile confirmation at SKU build.
 
 ## 11. Availability scaling (custom; bend order)
 
@@ -267,17 +276,34 @@ delivered on any timeline; products must say so (fit filter).
 
 - 12.1 Runway >36w: hold-then-build — base-pattern maintenance until exactly 24
   weeks remain, then the 24w structure verbatim.
-- 12.2 Custom lengths 16–36w: post-testing weeks = N−1. Phase allocation uses
-  the canonical 24w post-testing split base/build/spec/cons = 8/7/4/4 (ratios
-  8/23, 7/23, 4/23, 4/23) via **largest-remainder apportionment** over N−1 with
-  a minimum of 1 week per phase; ties break toward BASE then BUILD. Worked
-  example N=20: N−1=19 → quotas 6.61/5.78/3.30/3.30 → floors 6/5/3/3 (=17),
-  remainders .61/.78/.30/.30 → +1 build, +1 base → **7/6/3/3**. Recovery
-  cadence and SIM placement then apply per §§5–6. ≥20w gets the mini-sim.
-- 12.3 CATCH-UP (<16w, ≥6w, P-4 pass): testing week, then build-biased load
-  weeks at real availability (ramp/recovery rules unchanged), ONE 2-day SIM iff
-  runway ≥10w, consolidation ≥2w with final week openers-only. Naming: never
-  "Ultra" SKU naming (R2). Day-1 note MUST contain the normative template:
+- 12.2 Custom lengths 16–36w: **generated, not prose-derived.** The custom
+  table for any (N, Masters) IS the output of
+  `docs/specs/ultra_method_tables.py build(N, masters)` — the same algorithm
+  that produces the canonical tables (N=16/24 return them verbatim). The
+  algorithm, normatively: post-testing weeks = N−1 apportioned over the
+  canonical 8/7/4/4 split by largest remainder, min 1 week/phase, ties breaking
+  base > build > spec > cons (worked example N=20: 7/6/3/3); recovery cadence
+  and all §2 derivation rules apply; SIM week = min(round(0.75·N), N−3),
+  snapped to the last spec week if apportionment placed it in consolidation;
+  MINI-SIM iff N≥20, at the build LOAD week nearest round(0.58·N) (ties later);
+  retests at round(0.375·N) and, iff N≥20, SIM−1; B2B entry = second build LOAD
+  week iff N≥20 else first; taper hours from the fixed ladder keyed by
+  consolidation length (2→[6,2] · 3→[8,6,2] · 4→[9,7,5,2] · 5→[10,8,6,4,2] ·
+  6→[10,8,6,5,3,2] · 7→[10,9,7,6,4,3,2]); strength = 0 in the final 2 weeks.
+  The script self-tests every N∈[16,36] × Masters against all assertions.
+- 12.3 CATCH-UP (<16w, ≥6w, P-4 pass) — deterministic: week 1 = testing week
+  at min(6.0, athlete 4-week average) hours; consolidation = max(2,
+  round(0.2·N)) final weeks on the taper ladder keyed by that length; all
+  remaining weeks = build-type LOAD weeks seeded at hours = min(6.0, athlete
+  4-week average) and long day = min(3.0, 0.75 × longest ride in last 6 weeks),
+  progressing under the identical ramp/recovery/floor rules (recovery cadence
+  per Masters flag); ONE 2-day SIM iff N≥10 at week N−(consolidation length)−1
+  with §5 dose formulas; final week openers-only. SIM-variant rule: if the
+  athlete lacks 2 consecutive available days, apply §5's two-loaded-singles
+  substitution and append the sim-variant sentence to the Day-1 note: "Your
+  simulation is split into two single loaded days — treat the second as a
+  systems re-test, not a new experiment." Naming: never "Ultra" SKU naming
+  (R2). Day-1 note MUST contain the normative template:
   "Full preparation for {race} is a {16|24}-week build. You have {N} weeks.
   This plan makes the most of them — it prioritizes {durability_focus_list} and
   omits {omitted_list}. What it cannot do is replace the base months; ride
@@ -302,11 +328,15 @@ and final 2 weeks; (7) no workout on/after race start; no race-day workout
 emitted; (8) sleep-dep ban — banned phrases (case-insensitive substrings):
 "sleep deprivation", "sleep-deprived", "ride through the night", "skip sleep",
 "train on no sleep", "without sleep", "all-nighter"; (9) testing copy contains
-only §7's tokens as week references (regex: no literal "week \d+" in testing
-templates outside token expansion); (10) race deltas within §10 schema bounds;
+only §7's tokens as week references — banned patterns (case-insensitive):
+`week\s+\d+`, `\bW\d+\b`, and spelled forms `week (one|two|three|four|five|six|
+seven|eight|nine|ten|eleven|twelve|thirteen|fourteen|fifteen|sixteen|twenty|
+twenty-four)`, all outside token expansion; (10) race deltas within §10 schema bounds;
 (11) R1 banned first-person-ultra phrase list (shared with WS-G tests): "when I
 raced", "my Tour Divide", "I finished the", "I've raced", "my time on the
-Divide" (+ repo-standard variants file).
+Divide". The full variants list lives at `qc/ultra_banned_phrases.txt`
+(gravel-god-training-plans repo; created by WS-P's QC-profile deliverable,
+seeded from the two lists in this section; WS-C reads the same file).
 
 ## 14. Engine supersession clause
 

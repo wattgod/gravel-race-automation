@@ -16,18 +16,72 @@ def q(x):
     return math.floor(x * 4) / 4  # floor to 0.25h
 
 
-def build(duration, masters):
-    rec_cad = 3 if masters else 4
+
+
+CANONICAL_SPLIT = {'base': 8, 'build': 7, 'spec': 4, 'cons': 4}  # 24w post-testing
+TIE_ORDER = ['base', 'build', 'spec', 'cons']
+
+
+def apportion(n_post_test):
+    """Largest-remainder apportionment of post-testing weeks over the canonical
+    8/7/4/4 split; min 1 week/phase; ties break base > build > spec > cons."""
+    total = sum(CANONICAL_SPLIT.values())
+    quotas = {ph: n_post_test * w / total for ph, w in CANONICAL_SPLIT.items()}
+    alloc = {ph: max(1, math.floor(quotas[ph])) for ph in TIE_ORDER}
+    while sum(alloc.values()) < n_post_test:
+        rem = sorted(TIE_ORDER, key=lambda ph: (-(quotas[ph] - math.floor(quotas[ph])), TIE_ORDER.index(ph)))
+        for ph in rem:
+            if sum(alloc.values()) < n_post_test:
+                alloc[ph] += 1
+            break
+    while sum(alloc.values()) > n_post_test:
+        rem = sorted(TIE_ORDER, key=lambda ph: ((quotas[ph] - math.floor(quotas[ph])), -TIE_ORDER.index(ph)))
+        for ph in rem:
+            if alloc[ph] > 1 and sum(alloc.values()) > n_post_test:
+                alloc[ph] -= 1
+            break
+    return alloc
+
+
+def phase_map(duration):
+    """Phase layout for any duration 16-36. Canonical 16/24 use fixed layouts;
+    other N use apportionment. Returns (phases, sim_week, mini_week, retests)."""
     if duration == 16:
         phases = {1: 'test'} | {w: 'base' for w in range(2, 7)} | \
                  {w: 'build' for w in range(7, 12)} | {w: 'spec' for w in range(12, 14)} | \
                  {w: 'cons' for w in range(14, 17)}
-        sim_week, mini_week, retests = 12, None, [9]
-    else:
+        return phases, 12, None, [9]
+    if duration == 24:
         phases = {1: 'test'} | {w: 'base' for w in range(2, 10)} | \
                  {w: 'build' for w in range(10, 17)} | {w: 'spec' for w in range(17, 21)} | \
                  {w: 'cons' for w in range(21, 25)}
-        sim_week, mini_week, retests = 18, 14, [9, 17]
+        return phases, 18, 14, [9, 17]
+    alloc = apportion(duration - 1)
+    phases = {1: 'test'}
+    w = 2
+    for ph in TIE_ORDER:
+        for _ in range(alloc[ph]):
+            phases[w] = ph
+            w += 1
+    sim_week = min(round(0.75 * duration), duration - 3)
+    if phases.get(sim_week) == 'cons':  # snap SIM into spec phase if apportionment pushed cons early
+        sim_week = max(k for k, v in phases.items() if v == 'spec')
+    mini_week = None
+    if duration >= 20:
+        target = round(0.58 * duration)
+        build_weeks = [k for k, v in phases.items() if v == 'build']
+        mini_week = min(build_weeks, key=lambda k: (abs(k - target), -k))
+    first_retest = round(0.375 * duration)
+    retests = [first_retest]
+    if duration >= 20:
+        retests.append(sim_week - 1)
+    return phases, sim_week, mini_week, retests
+
+
+def build(duration, masters):
+    assert 16 <= duration <= 36, "contract range"
+    rec_cad = 3 if masters else 4
+    phases, sim_week, mini_week, retests = phase_map(duration)
     hours = {1: 6.0}
     long_day = {1: 2.5}
     rec_weeks = set()
@@ -43,9 +97,13 @@ def build(duration, masters):
     for w in range(2, duration + 1):
         ph = phases[w]
         if ph == 'cons':
-            idx = w - (14 if duration == 16 else 21)
-            vals = ([8.0, 6.0, 2.0] if duration == 16 else [9.0, 7.0, 5.0, 2.0])
-            hours[w] = vals[idx]
+            cons_weeks = sorted(k for k, v in phases.items() if v == 'cons')
+            idx = cons_weeks.index(w)
+            k = len(cons_weeks)
+            TAPER = {2: [6.0, 2.0], 3: [8.0, 6.0, 2.0], 4: [9.0, 7.0, 5.0, 2.0],
+                     5: [10.0, 8.0, 6.0, 4.0, 2.0], 6: [10.0, 8.0, 6.0, 5.0, 3.0, 2.0],
+                     7: [10.0, 9.0, 7.0, 6.0, 4.0, 3.0, 2.0]}
+            hours[w] = TAPER[k][idx]
             long_day[w] = min(4.0, hours[w] - 1) if hours[w] > 3 else 1.0
             continue
         if w == sim_week:
@@ -70,12 +128,21 @@ def build(duration, masters):
             ld = q(min(ld * 1.12, {'base': 4.5, 'build': 6.0, 'spec': 6.0}[ph]))
             long_day[w] = ld
             prev_load = hours[w]
-    for w in range(3, duration + 1):
-        if w in rec_weeks or w in (sim_week, mini_week) or phases[w] == 'cons' \
-                or (w - 1) in rec_weeks or (w - 1) in (sim_week, mini_week):
+    max_load_seen = hours[1]
+    prev_l = hours[1]
+    for w in range(2, duration + 1):
+        if phases[w] == 'cons' or w in (sim_week, mini_week):
             continue
-        assert hours[w] <= hours[w - 1] * 1.101 + 1e-9, (duration, masters, w)
+        if w in rec_weeks:
+            assert abs(hours[w] - q(prev_l * 0.65)) < 1e-9, (duration, masters, w, 'recovery formula')
+            continue
+        # LOAD week: ramp vs previous load week AND vs max load seen (re-entry rule)
+        assert hours[w] <= max(prev_l, max_load_seen) * 1.101 + 1e-9, (duration, masters, w, 'ramp')
         assert long_day[w] <= hours[w], (duration, masters, w, 'ld>hours')
+        if w >= 3 and (w - 1) not in rec_weeks and (w - 1) not in (sim_week, mini_week) and phases[w-1] != 'test':
+            assert long_day[w] <= long_day[w - 1] * 1.121 + 1e-9, (duration, masters, w, 'ld step')
+        prev_l = hours[w]
+        max_load_seen = max(max_load_seen, hours[w])
     rows = []
     for w in range(1, duration + 1):
         ph = phases[w]
@@ -84,17 +151,17 @@ def build(duration, masters):
                 'MINI-SIM' if w == mini_week else (
                     'RECOVERY' if w in rec_weeks else (
                         'TAPER' if ph == 'cons' else 'LOAD'))))
-        b2b = 'yes' if (wt == 'LOAD' and ph in ('build', 'spec')
-                        and w >= (7 if duration == 16 else 11)) else (
+        build_loads = sorted(k for k, v in phases.items()
+                             if v == 'build' and k not in rec_weeks and k != mini_week)
+        b2b_start = build_loads[1] if (duration >= 20 and len(build_loads) > 1) else build_loads[0]
+        b2b = 'yes' if (wt == 'LOAD' and ph in ('build', 'spec') and w >= b2b_start) else (
             'SIM' if wt in ('SIM', 'MINI-SIM') else 'no')
         inten = 0 if wt in ('TEST', 'RECOVERY', 'SIM', 'MINI-SIM') else (
             1 if ph in ('base', 'spec') else 2)
         if ph == 'cons':
-            inten = 1 if w == (14 if duration == 16 else 21) else 0
+            inten = 1 if w == min(k for k, v in phases.items() if v == 'cons') else 0
         str_n = 0 if wt in ('SIM', 'MINI-SIM') else (2 if ph == 'base' else 1)
-        if duration == 16 and w >= 15:
-            str_n = 0
-        if duration == 24 and w >= 23:
+        if w >= duration - 1:  # final 2 weeks: no strength
             str_n = 0
         flags = []
         if w in retests:
@@ -112,6 +179,13 @@ def build(duration, masters):
 
 
 if __name__ == '__main__':
-    for d in (16, 24):
+    import io, contextlib
+    for d in range(16, 37):          # self-test: every custom length must generate
+        for m in (False, True):      # and satisfy all assertions
+            if d in (16, 24):
+                continue
+            with contextlib.redirect_stdout(io.StringIO()):
+                build(d, m)
+    for d in (16, 24):               # canonical output
         for m in (False, True):
             build(d, m)

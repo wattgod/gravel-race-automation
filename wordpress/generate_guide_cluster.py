@@ -46,6 +46,13 @@ from brand_tokens import (
     get_font_face_css,
     get_preload_hints,
 )
+from guide_configs import (
+    GRAVEL_CHAPTER_META,
+    GRAVEL_GUIDE,
+    GUIDE_CONFIGS,
+    GateEndpointMode,
+    GuideConfig,
+)
 
 # Reuse ALL block renderers + helpers from existing guide generator
 import generate_guide
@@ -70,9 +77,10 @@ from generate_guide import (
 
 # ── Constants ──────────────────────────────────────────────────
 
-GUIDE_DIR = Path(__file__).parent.parent / "guide"
-CONTENT_JSON = GUIDE_DIR / "gravel-guide-content.json"
-OUTPUT_DIR = Path(__file__).parent / "output" / "guide"
+# Backwards-compatible public aliases for the existing gravel guide. New guide
+# behavior must receive a GuideConfig instead of reading these module globals.
+CONTENT_JSON = GRAVEL_GUIDE.content_path
+OUTPUT_DIR = GRAVEL_GUIDE.output_dir
 
 # Chapter URL slugs — maps chapter id to URL slug
 # (chapter ids in JSON already match desired URL slugs)
@@ -82,40 +90,7 @@ FREE_CHAPTERS = {1, 2, 3}
 GATED_CHAPTERS = {4, 5, 6, 7, 8}
 
 # SEO keyword targets per chapter
-CHAPTER_META = {
-    "what-is-gravel-racing": {
-        "title_suffix": "What Is Gravel Racing? — Beginner's Guide",
-        "description": "Everything you need to know about gravel racing: gear, rider categories, and what to expect. Free chapter from the Gravel God Training Guide.",
-    },
-    "race-selection": {
-        "title_suffix": "How to Choose a Gravel Race — Selection Guide",
-        "description": "How to choose the right gravel race: 14-dimension scoring system, tier rankings, and what to look for. Free chapter from the Gravel God Training Guide.",
-    },
-    "training-fundamentals": {
-        "title_suffix": "Gravel Race Training Fundamentals",
-        "description": "Training fundamentals for gravel racing: periodization, zone training, and building your base. Free chapter from the Gravel God Training Guide.",
-    },
-    "workout-execution": {
-        "title_suffix": "Gravel Workout Execution — Interval Training Guide",
-        "description": "How to execute gravel-specific workouts: intervals, endurance rides, and structured training for race performance.",
-    },
-    "nutrition-fueling": {
-        "title_suffix": "Gravel Race Nutrition & Fueling Strategy",
-        "description": "Complete gravel race nutrition guide: daily fueling, race-day calories, hydration strategy, and how to avoid bonking.",
-    },
-    "mental-training-race-tactics": {
-        "title_suffix": "Mental Training & Race Tactics for Gravel",
-        "description": "Mental training and race tactics for gravel racing: pacing strategy, decision-making under fatigue, and competitive mindset.",
-    },
-    "race-week": {
-        "title_suffix": "Race Week Protocol — Gravel Race Preparation",
-        "description": "Race week protocol for gravel racing: taper schedule, equipment checks, nutrition loading, and race morning routine.",
-    },
-    "post-race": {
-        "title_suffix": "Post-Race Recovery & What's Next",
-        "description": "Post-race recovery guide: immediate recovery, training restart timeline, and planning your next gravel race.",
-    },
-}
+CHAPTER_META = GRAVEL_CHAPTER_META
 
 # Date published for schema
 DATE_PUBLISHED = "2025-06-01"
@@ -124,9 +99,15 @@ DATE_PUBLISHED = "2025-06-01"
 # ── Content Loading ────────────────────────────────────────────
 
 
-def load_content() -> dict:
+def _guide_url(config: GuideConfig, chapter_id: str = "") -> str:
+    """Return a guide-relative URL while preserving the trailing-slash contract."""
+    base = config.url_base.rstrip("/")
+    return f"{base}/{chapter_id.strip('/')}/" if chapter_id else f"{base}/"
+
+
+def load_content(config: GuideConfig = GRAVEL_GUIDE) -> dict:
     """Load and return guide content JSON."""
-    return json.loads(CONTENT_JSON.read_text(encoding="utf-8"))
+    return json.loads(config.content_path.read_text(encoding="utf-8"))
 
 
 # ── Pillar Page Builders ───────────────────────────────────────
@@ -167,7 +148,7 @@ def _estimate_read_time(chapter: dict) -> int:
     return max(3, round(minutes))
 
 
-def build_chapter_grid(chapters: list) -> str:
+def build_chapter_grid(chapters: list, config: GuideConfig = GRAVEL_GUIDE) -> str:
     """Build the 8-card chapter grid for the pillar page."""
     cards = []
     for ch in chapters:
@@ -189,7 +170,7 @@ def build_chapter_grid(chapters: list) -> str:
                   'var(--gg-color-primary-brown)', 'var(--gg-color-dark-brown)']
         bg = colors[(num - 1) % len(colors)]
 
-        cards.append(f'''<a href="/guide/{esc(ch_id)}/" class="gg-cluster-card{lock_class}" data-chapter="{num}">
+        cards.append(f'''<a href="{_guide_url(config, esc(ch_id))}" class="gg-cluster-card{lock_class}" data-chapter="{num}">
       <div class="gg-cluster-card-header" style="background:{bg}">
         <span class="gg-cluster-card-num">CHAPTER {num:02d}</span>
         {lock_icon}
@@ -205,7 +186,7 @@ def build_chapter_grid(chapters: list) -> str:
     </a>''')
 
     # Add configurator card as a full-width "bonus" card
-    cfg_card = f'''<a href="/guide/race-prep-configurator/" class="gg-cluster-card gg-cluster-card--configurator" data-configurator="true" style="grid-column:1/-1">
+    cfg_card = f'''<a href="{_guide_url(config, 'race-prep-configurator')}" class="gg-cluster-card gg-cluster-card--configurator" data-configurator="true" style="grid-column:1/-1">
       <div class="gg-cluster-card-header" style="background:var(--gg-color-teal)">
         <span class="gg-cluster-card-num">INTERACTIVE TOOL</span>
       </div>
@@ -221,22 +202,56 @@ def build_chapter_grid(chapters: list) -> str:
 
     return f'''<div class="gg-cluster-grid" id="gg-cluster-grid">
     {"".join(cards)}
-    {cfg_card}
+    {cfg_card if config.include_configurator else ''}
   </div>'''
 
 
-def build_pillar_cta_section() -> str:
+def _build_config_ctas(config: GuideConfig, blocks: tuple[str, ...]) -> str:
+    """Render configured conversion blocks; legacy builders keep gravel exact."""
+    legacy_builders = {
+        "newsletter": build_cta_newsletter,
+        "training_plans": build_cta_training,
+        "coaching": build_cta_coaching,
+    }
+    rendered = []
+    for block in blocks:
+        if block in legacy_builders:
+            rendered.append(legacy_builders[block]())
+            continue
+        target = esc(config.cta_set.targets[block])
+        if block == "ultra_shelf":
+            rendered.append(f'''<div class="gg-guide-cta gg-guide-cta--training">
+    <div class="gg-guide-cta-inner">
+      <span class="gg-guide-cta-kicker">ULTRA &amp; BIKEPACKING</span>
+      <h3>Find an Ultra &amp; Bikepacking Race</h3>
+      <p>Explore Gravel God's bikepacking race shelf and compare the demands before you choose a target.</p>
+      <a href="{target}" class="gg-guide-btn gg-guide-btn--primary">EXPLORE RACES</a>
+    </div>
+  </div>''')
+        elif block == "coaching_corner":
+            rendered.append(f'''<div class="gg-guide-cta gg-guide-cta--coaching">
+    <div class="gg-guide-cta-inner">
+      <span class="gg-guide-cta-kicker">IN YOUR CORNER</span>
+      <h3>1:1 Coaching</h3>
+      <p>A human in your corner for individualized programming and race preparation.</p>
+      <a href="{target}" class="gg-guide-btn gg-guide-btn--secondary">APPLY FOR COACHING</a>
+    </div>
+  </div>''')
+        else:
+            raise ValueError(f"Unknown CTA block '{block}' for guide '{config.key}'")
+    return "\n  ".join(rendered)
+
+
+def build_pillar_cta_section(config: GuideConfig = GRAVEL_GUIDE) -> str:
     """Build the CTA section interspersed in the pillar page."""
-    return f'''{build_cta_newsletter()}
-  {build_cta_training()}
-  {build_cta_coaching()}'''
+    return _build_config_ctas(config, config.cta_set.pillar_blocks)
 
 
-def build_pillar_jsonld(content: dict) -> str:
+def build_pillar_jsonld(content: dict, config: GuideConfig = GRAVEL_GUIDE) -> str:
     """Build Course + BreadcrumbList JSON-LD for the pillar page."""
-    canonical = f"{SITE_BASE_URL}/guide/"
+    canonical = f"{SITE_BASE_URL}{_guide_url(config)}"
     try:
-        mtime = CONTENT_JSON.stat().st_mtime
+        mtime = config.content_path.stat().st_mtime
         date_modified = datetime.fromtimestamp(mtime).strftime("%Y-%m-%d")
     except OSError:
         date_modified = datetime.now().strftime("%Y-%m-%d")
@@ -277,7 +292,7 @@ def build_pillar_jsonld(content: dict) -> str:
             {
                 "@type": "ListItem",
                 "position": 2,
-                "name": "Training Guide",
+                "name": config.guide_label,
                 "item": canonical,
             },
         ],
@@ -292,13 +307,13 @@ def build_pillar_jsonld(content: dict) -> str:
 # ── Chapter Page Builders ──────────────────────────────────────
 
 
-def build_chapter_breadcrumb(chapter: dict) -> str:
+def build_chapter_breadcrumb(chapter: dict, config: GuideConfig = GRAVEL_GUIDE) -> str:
     """Build 3-item breadcrumb: Home > Training Guide > Chapter Title."""
     title = esc(chapter["title"])
     return f'''<div class="gg-breadcrumb">
     <a href="{SITE_BASE_URL}/">Home</a>
     <span class="gg-breadcrumb-sep">&rsaquo;</span>
-    <a href="/guide/">Training Guide</a>
+    <a href="{_guide_url(config)}">{esc(config.guide_label)}</a>
     <span class="gg-breadcrumb-sep">&rsaquo;</span>
     <span class="gg-breadcrumb-current">{title}</span>
   </div>'''
@@ -359,7 +374,8 @@ def build_chapter_progress(chapter: dict, chapters: list) -> str:
   </div>'''
 
 
-def build_prev_next_nav(chapter: dict, chapters: list) -> str:
+def build_prev_next_nav(chapter: dict, chapters: list,
+                        config: GuideConfig = GRAVEL_GUIDE) -> str:
     """Build prev/next chapter navigation at bottom of chapter page."""
     num = chapter["number"]
     prev_ch = None
@@ -376,7 +392,7 @@ def build_prev_next_nav(chapter: dict, chapters: list) -> str:
         prev_title = esc(prev_ch["title"])
         prev_slug = esc(prev_ch["id"])
         parts.append(
-            f'<a href="/guide/{prev_slug}/" class="gg-cluster-nav-prev">'
+            f'<a href="{_guide_url(config, prev_slug)}" class="gg-cluster-nav-prev">'
             f'<span class="gg-cluster-nav-dir">&larr; PREVIOUS</span>'
             f'<span class="gg-cluster-nav-title">Ch {prev_ch["number"]}: {prev_title}</span>'
             f'</a>'
@@ -391,7 +407,7 @@ def build_prev_next_nav(chapter: dict, chapters: list) -> str:
         if next_ch.get("gated"):
             lock = ' <span class="gg-cluster-nav-lock" aria-hidden="true">&#128274;</span>'
         parts.append(
-            f'<a href="/guide/{next_slug}/" class="gg-cluster-nav-next">'
+            f'<a href="{_guide_url(config, next_slug)}" class="gg-cluster-nav-next">'
             f'<span class="gg-cluster-nav-dir">NEXT &rarr;{lock}</span>'
             f'<span class="gg-cluster-nav-title">Ch {next_ch["number"]}: {next_title}</span>'
             f'</a>'
@@ -404,19 +420,42 @@ def build_prev_next_nav(chapter: dict, chapters: list) -> str:
   </nav>'''
 
 
-def build_chapter_gate(chapter: dict) -> str:
+def build_chapter_gate(chapter: dict, config: GuideConfig = GRAVEL_GUIDE) -> str:
     """Build the gate overlay for gated chapter pages."""
     title = esc(chapter["title"])
+    if config.gate_form.endpoint_mode is GateEndpointMode.WORKER_FIRST:
+        # The action is intentionally retained as a no-JS FormSubmit fallback.
+        # JavaScript posts to the worker first and unlocks without waiting.
+        return f'''<div class="gg-guide-gate gg-cluster-gate" id="gg-guide-gate">
+    <div class="gg-guide-gate-inner">
+      <span class="gg-guide-gate-kicker">THIS CHAPTER IS LOCKED</span>
+      <h2>Unlock {title}</h2>
+      <p>Subscribe to unlock all premium chapters instantly.</p>
+      <form action="{esc(config.gate_form.formsubmit_endpoint)}" method="POST" class="gg-cluster-gate-form" id="gg-cluster-gate-form">
+        <input type="hidden" name="_subject" value="{esc(config.gate_form.subject_label)}: {title}">
+        <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_next" value="{SITE_BASE_URL}{_guide_url(config, chapter['id'])}?unlocked=1">
+        <input type="hidden" name="source" value="{esc(config.gate_form.worker_source_value)}">
+        <input type="text" name="website" value="" tabindex="-1" autocomplete="off" aria-hidden="true" class="gg-visually-hidden">
+        <input type="email" name="email" placeholder="your@email.com" required class="gg-cluster-gate-email" aria-label="Email address">
+        <button type="submit" class="gg-guide-btn gg-guide-btn--primary">UNLOCK FREE</button>
+      </form>
+      <button class="gg-guide-gate-bypass" id="gg-guide-gate-bypass">I already subscribed &mdash; unlock</button>
+    </div>
+  </div>'''
+
+    # Do not alter the grandfathered gravel FormSubmit gate while it remains live.
     return f'''<div class="gg-guide-gate gg-cluster-gate" id="gg-guide-gate">
     <div class="gg-guide-gate-inner">
       <span class="gg-guide-gate-kicker">THIS CHAPTER IS LOCKED</span>
       <h2>Unlock {title}</h2>
       <p>Subscribe to the Gravel God newsletter to unlock all premium chapters instantly. Covers workout execution, nutrition, mental training, race week protocol, and post-race recovery.</p>
       <form action="https://formsubmit.co/gravelgodcoaching@gmail.com" method="POST" class="gg-cluster-gate-form" id="gg-cluster-gate-form">
-        <input type="hidden" name="_subject" value="Guide Unlock: {title}">
+        <input type="hidden" name="_subject" value="{esc(config.gate_form.subject_label)}: {title}">
         <input type="hidden" name="_template" value="table">
         <input type="hidden" name="_captcha" value="false">
-        <input type="hidden" name="_next" value="{SITE_BASE_URL}/guide/{esc(chapter['id'])}/?unlocked=1">
+        <input type="hidden" name="_next" value="{SITE_BASE_URL}{_guide_url(config, esc(chapter['id']))}?unlocked=1">
         <input type="email" name="email" placeholder="your@email.com" required class="gg-cluster-gate-email" aria-label="Email address">
         <button type="submit" class="gg-guide-btn gg-guide-btn--primary">UNLOCK FREE</button>
       </form>
@@ -425,18 +464,19 @@ def build_chapter_gate(chapter: dict) -> str:
   </div>'''
 
 
-def build_chapter_jsonld(chapter: dict, content: dict) -> str:
+def build_chapter_jsonld(chapter: dict, content: dict,
+                         config: GuideConfig = GRAVEL_GUIDE) -> str:
     """Build Article + BreadcrumbList JSON-LD for a chapter page."""
     ch_id = chapter["id"]
-    canonical = f"{SITE_BASE_URL}/guide/{ch_id}/"
+    canonical = f"{SITE_BASE_URL}{_guide_url(config, ch_id)}"
     try:
-        mtime = CONTENT_JSON.stat().st_mtime
+        mtime = config.content_path.stat().st_mtime
         date_modified = datetime.fromtimestamp(mtime).strftime("%Y-%m-%d")
     except OSError:
         date_modified = datetime.now().strftime("%Y-%m-%d")
     og_image = f"{SITE_BASE_URL}/wp-content/uploads/gravel-god-og.png"
 
-    meta = CHAPTER_META.get(ch_id, {})
+    meta = config.chapter_meta.get(ch_id, {})
     description = meta.get("description", content.get("meta_description", ""))
 
     article = {
@@ -461,7 +501,7 @@ def build_chapter_jsonld(chapter: dict, content: dict) -> str:
         "isPartOf": {
             "@type": "Course",
             "name": content["title"],
-            "url": f"{SITE_BASE_URL}/guide/",
+            "url": f"{SITE_BASE_URL}{_guide_url(config)}",
         },
     }
 
@@ -478,8 +518,8 @@ def build_chapter_jsonld(chapter: dict, content: dict) -> str:
             {
                 "@type": "ListItem",
                 "position": 2,
-                "name": "Training Guide",
-                "item": f"{SITE_BASE_URL}/guide/",
+                "name": config.guide_label,
+                "item": f"{SITE_BASE_URL}{_guide_url(config)}",
             },
             {
                 "@type": "ListItem",
@@ -599,9 +639,62 @@ def build_cluster_css() -> str:
 # ── Cluster JS ─────────────────────────────────────────────────
 
 
-def build_cluster_js() -> str:
+def _build_worker_first_cluster_js(config: GuideConfig) -> str:
+    """Return worker-first gate/capture behavior for new guide configurations."""
+    storage_key = f"{config.local_storage_key_prefix}_unlocked"
+    event_prefix = config.ga4_event_label_prefix
+    worker_url = config.gate_form.worker_endpoint
+    source = config.gate_form.worker_source_value
+    return f'''/* ── Guide Cluster Unlock ── */
+(function(){{
+"use strict";
+var STORAGE_KEY="{storage_key}";
+var WORKER_URL="{worker_url}";
+var SOURCE="{source}";
+function track(n,p){{if(typeof gtag==="function")gtag("event",n,Object.assign({{transport_type:"beacon"}},p||{{}}));}}
+function unlock(method){{
+try{{localStorage.setItem(STORAGE_KEY,"1");}}catch(e){{}}
+document.documentElement.classList.add("gg-guide-unlocked");
+var gatedContent=document.querySelector(".gg-cluster-gated-content");
+if(gatedContent)gatedContent.style.display="block";
+var gate=document.getElementById("gg-guide-gate");
+if(gate)gate.style.display="none";
+track("{event_prefix}_gate_unlock",{{method:method||"unknown"}});
+}}
+if(new URLSearchParams(window.location.search).get("unlocked")==="1")unlock("email_form");
+try{{if(localStorage.getItem(STORAGE_KEY)==="1")document.documentElement.classList.add("gg-guide-unlocked");}}catch(e){{}}
+var bypassBtn=document.getElementById("gg-guide-gate-bypass");
+if(bypassBtn)bypassBtn.addEventListener("click",function(){{unlock("manual_bypass");}});
+function postLead(payload){{
+fetch(WORKER_URL,{{method:"POST",headers:{{"Content-Type":"application/json"}},body:JSON.stringify(payload)}}).catch(function(){{}});
+}}
+var gateForm=document.getElementById("gg-cluster-gate-form");
+if(gateForm)gateForm.addEventListener("submit",function(e){{
+e.preventDefault();
+if(gateForm.website&&gateForm.website.value)return;
+postLead({{email:gateForm.email.value.trim(),source:SOURCE,guide_chapter:"{config.guide_label}",website:""}});
+unlock("email_form");
+}});
+document.querySelectorAll(".gg-guide-email-capture-form").forEach(function(form){{
+form.addEventListener("submit",function(e){{
+e.preventDefault();
+var email=form.email.value.trim();
+if(!email||!/^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/.test(email)){{alert("Please enter a valid email address.");return;}}
+if(form.website&&form.website.value)return;
+postLead({{email:email,source:SOURCE,guide_chapter:form.guide_chapter.value,website:form.website.value}});
+form.style.display="none";
+var success=document.getElementById(form.id+"-success");
+if(success)success.style.display="block";
+track("{event_prefix}_email_capture",{{chapter:form.guide_chapter.value}});
+}});
+}});
+}})();
+'''
+
+
+def build_cluster_js(config: GuideConfig = GRAVEL_GUIDE) -> str:
     """Return JS additions for the cluster layout (gate form, unlock persistence)."""
-    return '''
+    legacy_js = '''
 /* ── Guide Cluster Unlock ── */
 (function(){
 "use strict";
@@ -690,6 +783,9 @@ errEl.style.display="block";
 });
 })();
 '''
+    if config.gate_form.endpoint_mode is GateEndpointMode.FORM_SUBMIT:
+        return legacy_js
+    return _build_worker_first_cluster_js(config)
 
 
 # ── Page Assembly ──────────────────────────────────────────────
@@ -764,9 +860,10 @@ def build_head(title: str, description: str, canonical: str,
 
 
 def generate_pillar_page(content: dict, guide_css: str, guide_js: str,
-                         cluster_css: str, cluster_js: str, inline: bool) -> str:
+                         cluster_css: str, cluster_js: str, inline: bool,
+                         config: GuideConfig = GRAVEL_GUIDE) -> str:
     """Generate the pillar page HTML."""
-    canonical = f"{SITE_BASE_URL}/guide/"
+    canonical = f"{SITE_BASE_URL}{_guide_url(config)}"
 
     if inline:
         css_html = f'<style>{guide_css}\n{cluster_css}</style>'
@@ -779,15 +876,17 @@ def generate_pillar_page(content: dict, guide_css: str, guide_js: str,
     breadcrumb = f'''<div class="gg-breadcrumb">
     <a href="{SITE_BASE_URL}/">Home</a>
     <span class="gg-breadcrumb-sep">&rsaquo;</span>
-    <span class="gg-breadcrumb-current">Training Guide</span>
+    <span class="gg-breadcrumb-current">{esc(config.guide_label)}</span>
   </div>'''
 
     hero = build_pillar_hero(content)
     rider_selector = build_rider_selector(content)
-    chapter_grid = build_chapter_grid(content["chapters"])
-    ctas = build_pillar_cta_section()
-    finale = build_cta_finale()
-    jsonld = build_pillar_jsonld(content)
+    chapter_grid = build_chapter_grid(content["chapters"], config)
+    ctas = build_pillar_cta_section(config)
+    finale = build_cta_finale() if config.key == GRAVEL_GUIDE.key else _build_config_ctas(
+        config, config.cta_set.finale_blocks
+    )
+    jsonld = build_pillar_jsonld(content, config)
     footer = get_mega_footer_html()
 
     head = build_head(
@@ -833,13 +932,14 @@ def generate_pillar_page(content: dict, guide_css: str, guide_js: str,
 
 def generate_chapter_page(chapter: dict, chapters: list, content: dict,
                           guide_css: str, guide_js: str,
-                          cluster_css: str, cluster_js: str, inline: bool) -> str:
+                          cluster_css: str, cluster_js: str, inline: bool,
+                          config: GuideConfig = GRAVEL_GUIDE) -> str:
     """Generate a single chapter page HTML."""
     ch_id = chapter["id"]
-    canonical = f"{SITE_BASE_URL}/guide/{ch_id}/"
+    canonical = f"{SITE_BASE_URL}{_guide_url(config, ch_id)}"
     num = chapter["number"]
 
-    meta = CHAPTER_META.get(ch_id, {})
+    meta = config.chapter_meta.get(ch_id, {})
     title = meta.get("title_suffix", f"Chapter {num}: {chapter['title']}")
     description = meta.get("description", content.get("meta_description", ""))
 
@@ -855,19 +955,19 @@ def generate_chapter_page(chapter: dict, chapters: list, content: dict,
     next_url = None
     for ch in chapters:
         if ch["number"] == num - 1:
-            prev_url = f"{SITE_BASE_URL}/guide/{ch['id']}/"
+            prev_url = f"{SITE_BASE_URL}{_guide_url(config, ch['id'])}"
         if ch["number"] == num + 1:
-            next_url = f"{SITE_BASE_URL}/guide/{ch['id']}/"
+            next_url = f"{SITE_BASE_URL}{_guide_url(config, ch['id'])}"
 
     nav = get_site_header_html(active="products")
-    breadcrumb = build_chapter_breadcrumb(chapter)
+    breadcrumb = build_chapter_breadcrumb(chapter, config)
     progress = build_chapter_progress(chapter, chapters)
     hero = build_chapter_hero(chapter)
     rider_selector = build_rider_selector(content)
     chapter_content = build_chapter_content(chapter)
     email_capture = build_chapter_email_capture(chapter)
-    prev_next = build_prev_next_nav(chapter, chapters)
-    jsonld = build_chapter_jsonld(chapter, content)
+    prev_next = build_prev_next_nav(chapter, chapters, config)
+    jsonld = build_chapter_jsonld(chapter, content, config)
     footer = get_mega_footer_html()
 
     head = build_head(
@@ -884,7 +984,7 @@ def generate_chapter_page(chapter: dict, chapters: list, content: dict,
     # Gated chapters wrap content behind gate
     is_gated = chapter.get("gated", False)
     if is_gated:
-        gate_html = build_chapter_gate(chapter)
+        gate_html = build_chapter_gate(chapter, config)
         body_content = f'''
   {gate_html}
   <div class="gg-cluster-gated-content">
@@ -905,7 +1005,7 @@ def generate_chapter_page(chapter: dict, chapters: list, content: dict,
     # CTA after chapter
     cta_html = ''
     cta_type = chapter.get("cta_after")
-    if cta_type and cta_type != "gate" and cta_type in CTA_BUILDERS:
+    if cta_type and cta_type != "gate" and cta_type in CTA_BUILDERS and config.key == GRAVEL_GUIDE.key:
         cta_html = CTA_BUILDERS[cta_type]()
     elif cta_type == "finale":
         cta_html = build_cta_finale()
@@ -1297,9 +1397,9 @@ track("configurator_race_selected",{race:raceSelect.value});
 '''
 
 
-def build_configurator_jsonld() -> str:
+def build_configurator_jsonld(config: GuideConfig = GRAVEL_GUIDE) -> str:
     """Build JSON-LD for the configurator page."""
-    canonical = f"{SITE_BASE_URL}/guide/race-prep-configurator/"
+    canonical = f"{SITE_BASE_URL}{_guide_url(config, 'race-prep-configurator')}"
     og_image = f"{SITE_BASE_URL}/wp-content/uploads/gravel-god-og.png"
 
     article = {
@@ -1324,8 +1424,8 @@ def build_configurator_jsonld() -> str:
         "itemListElement": [
             {"@type": "ListItem", "position": 1, "name": "Home",
              "item": f"{SITE_BASE_URL}/"},
-            {"@type": "ListItem", "position": 2, "name": "Training Guide",
-             "item": f"{SITE_BASE_URL}/guide/"},
+            {"@type": "ListItem", "position": 2, "name": config.guide_label,
+             "item": f"{SITE_BASE_URL}{_guide_url(config)}"},
             {"@type": "ListItem", "position": 3, "name": "Race Prep Configurator",
              "item": canonical},
         ]
@@ -1336,9 +1436,10 @@ def build_configurator_jsonld() -> str:
 
 
 def generate_configurator_page(content: dict, guide_css: str, guide_js: str,
-                                cluster_css: str, cluster_js: str, inline: bool) -> str:
+                                cluster_css: str, cluster_js: str, inline: bool,
+                                config: GuideConfig = GRAVEL_GUIDE) -> str:
     """Generate the race prep configurator page HTML."""
-    canonical = f"{SITE_BASE_URL}/guide/race-prep-configurator/"
+    canonical = f"{SITE_BASE_URL}{_guide_url(config, 'race-prep-configurator')}"
     cfg_css = build_configurator_css()
     cfg_js = build_configurator_js()
     race_data_js = build_configurator_race_data()
@@ -1350,7 +1451,7 @@ def generate_configurator_page(content: dict, guide_css: str, guide_js: str,
     breadcrumb = f'''<div class="gg-breadcrumb">
     <a href="{SITE_BASE_URL}/">Home</a>
     <span class="gg-breadcrumb-sep">&rsaquo;</span>
-    <a href="{SITE_BASE_URL}/guide/">Training Guide</a>
+    <a href="{SITE_BASE_URL}{_guide_url(config)}">{esc(config.guide_label)}</a>
     <span class="gg-breadcrumb-sep">&rsaquo;</span>
     <span class="gg-breadcrumb-current">Race Prep Configurator</span>
   </div>'''
@@ -1361,8 +1462,10 @@ def generate_configurator_page(content: dict, guide_css: str, guide_js: str,
   </div>'''
 
     body_html = build_configurator_body()
-    gate_html = build_chapter_gate({"title": "Race Prep Configurator", "id": "race-prep-configurator"})
-    jsonld = build_configurator_jsonld()
+    gate_html = build_chapter_gate(
+        {"title": "Race Prep Configurator", "id": "race-prep-configurator"}, config
+    )
+    jsonld = build_configurator_jsonld(config)
     footer = get_mega_footer_html()
 
     head = build_head(
@@ -1406,32 +1509,54 @@ def generate_configurator_page(content: dict, guide_css: str, guide_js: str,
 # ── Main ───────────────────────────────────────────────────────
 
 
-def generate_cluster(output_dir: Path = None, inline: bool = False):
-    """Generate all 10 pages of the guide cluster (pillar + 8 chapters + configurator)."""
+def _guide_js_for_config(config: GuideConfig) -> str:
+    """Namespace legacy guide interactions without modifying the gravel baseline."""
+    guide_js = build_guide_js()
+    if config.key == GRAVEL_GUIDE.key:
+        return guide_js
+    return (guide_js
+            .replace("gg_guide_unlocked", f"{config.local_storage_key_prefix}_unlocked")
+            .replace('"guide_', f'"{config.ga4_event_label_prefix}_'))
+
+
+def generate_cluster(output_dir: Path = None, inline: bool = False,
+                     config: GuideConfig = GRAVEL_GUIDE) -> bool:
+    """Generate one configured guide cluster; skip missing skeleton content clearly."""
     if output_dir is None:
-        output_dir = OUTPUT_DIR
+        output_dir = config.output_dir
+    if not config.content_path.exists():
+        print(f"Skipping guide '{config.key}': content file not found: {config.content_path}")
+        return False
     output_dir.mkdir(parents=True, exist_ok=True)
 
-    content = load_content()
+    content = load_content(config)
     chapters = content["chapters"]
-    print(f"Loaded {len(chapters)} chapters from {CONTENT_JSON}")
+    print(f"Loaded {len(chapters)} chapters from {config.content_path}")
 
     # Activate glossary for tooltip resolution
-    generate_guide._GLOSSARY = content.get("glossary")
+    if config.glossary_source == config.content_path:
+        generate_guide._GLOSSARY = content.get("glossary")
+    elif config.glossary_source.exists():
+        generate_guide._GLOSSARY = json.loads(
+            config.glossary_source.read_text(encoding="utf-8")
+        ).get("glossary")
+    else:
+        print(f"Warning: glossary source not found for guide '{config.key}': {config.glossary_source}")
+        generate_guide._GLOSSARY = None
     # Load race index for race-connected block renderers
     generate_guide._RACE_INDEX = generate_guide.load_race_index()
 
     # Build CSS/JS once
     guide_css = build_guide_css()
-    guide_js = build_guide_js()
+    guide_js = _guide_js_for_config(config)
     cluster_css = build_cluster_css()
-    cluster_js = build_cluster_js()
+    cluster_js = build_cluster_js(config)
 
     # 1. Generate pillar page
     pillar_dir = output_dir
     pillar_dir.mkdir(parents=True, exist_ok=True)
     pillar_html = generate_pillar_page(content, guide_css, guide_js,
-                                        cluster_css, cluster_js, inline)
+                                        cluster_css, cluster_js, inline, config)
     pillar_file = pillar_dir / "index.html"
     pillar_file.write_text(pillar_html, encoding="utf-8")
     print(f"  Pillar: {pillar_file} ({len(pillar_html):,} bytes)")
@@ -1443,38 +1568,39 @@ def generate_cluster(output_dir: Path = None, inline: bool = False):
         ch_dir.mkdir(parents=True, exist_ok=True)
         ch_html = generate_chapter_page(chapter, chapters, content,
                                          guide_css, guide_js,
-                                         cluster_css, cluster_js, inline)
+                                         cluster_css, cluster_js, inline, config)
         ch_file = ch_dir / "index.html"
         ch_file.write_text(ch_html, encoding="utf-8")
         gated_label = " (gated)" if chapter.get("gated") else " (free)"
         print(f"  Ch {chapter['number']}: {ch_file} ({len(ch_html):,} bytes){gated_label}")
 
-    # 3. Generate configurator page
-    cfg_dir = output_dir / "race-prep-configurator"
-    cfg_dir.mkdir(parents=True, exist_ok=True)
-    cfg_html = generate_configurator_page(content, guide_css, guide_js,
-                                           cluster_css, cluster_js, inline)
-    cfg_file = cfg_dir / "index.html"
-    cfg_file.write_text(cfg_html, encoding="utf-8")
-    print(f"  Configurator: {cfg_file} ({len(cfg_html):,} bytes) (gated)")
+    page_count = 1 + len(chapters)
+    if config.include_configurator:
+        cfg_dir = output_dir / "race-prep-configurator"
+        cfg_dir.mkdir(parents=True, exist_ok=True)
+        cfg_html = generate_configurator_page(content, guide_css, guide_js,
+                                               cluster_css, cluster_js, inline, config)
+        cfg_file = cfg_dir / "index.html"
+        cfg_file.write_text(cfg_html, encoding="utf-8")
+        print(f"  Configurator: {cfg_file} ({len(cfg_html):,} bytes) (gated)")
+        page_count += 1
 
-    print(f"\nGenerated {2 + len(chapters)} pages in {output_dir}")
+    print(f"\nGenerated {page_count} pages in {output_dir}")
+    return True
 
 
 def main():
-    parser = argparse.ArgumentParser(
-        description="Generate Gravel God Training Guide as topic cluster"
-    )
-    parser.add_argument("--output-dir", default=str(OUTPUT_DIR),
-                        help="Output directory (default: wordpress/output/guide)")
+    parser = argparse.ArgumentParser(description="Generate a configured Gravel God guide cluster")
+    parser.add_argument("--guide", choices=sorted(GUIDE_CONFIGS), default=GRAVEL_GUIDE.key,
+                        help="Guide configuration to render (default: gravel)")
+    parser.add_argument("--output-dir", default=None,
+                        help="Output directory (defaults to the selected guide configuration)")
     parser.add_argument("--inline", action="store_true",
                         help="Inline CSS/JS for local preview")
     args = parser.parse_args()
 
-    generate_cluster(
-        output_dir=Path(args.output_dir),
-        inline=args.inline,
-    )
+    generate_cluster(output_dir=Path(args.output_dir) if args.output_dir else None,
+                     inline=args.inline, config=GUIDE_CONFIGS[args.guide])
 
 
 if __name__ == "__main__":

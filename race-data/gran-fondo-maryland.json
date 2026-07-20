@@ -196,32 +196,35 @@
       "character": "Northwest from Frederick's charm into municipal forest savagery, the Gran Route devours obscure backroads to Fort Ritchie's ruins before Catoctin plunges. Punchy Harp Hills and Gully tech terror precede Gambrill's ridge-crushing finale. Undulating watersheds and state park singletracks return you battle-scarred to downtown glory.",
       "suffering_zones": [
         {
-          "mile": 10,
           "label": "Frederick Municipal Forest #1",
-          "desc": "5.6mi timed bomb gaining 1,270ft through cool canopy—pure VAM torture. Crest for screaming descent rewards the bold. Sets the tone: survive or suffer.",
-          "terrain_detail": "Paved forest switchbacks, shaded pitches",
-          "named_section": "Timed Segment #1"
+          "desc": "First timed section for all distances: 5mi gaining over 1,250ft through the Municipal Forest before the course plummets off the west side of the range.",
+          "terrain_detail": "Forested mountain climb",
+          "named_section": "Timed Section #1"
         },
         {
-          "mile": 25,
           "label": "Harp Hill #2",
-          "desc": "1.4mi punchy up-down-up-down rollercoaster, 279ft vertical spikes. Short but soul-snapping intensity. Gasp for the 25mi backroad grind ahead.",
-          "terrain_detail": "Southern approach paved yo-yos",
-          "named_section": "Timed Segment #2"
+          "desc": "1.9mi up the southern approach with 650ft of vertical and a whopping punch at the top.",
+          "terrain_detail": "Southern approach, steep finish",
+          "named_section": "Timed Section #2"
         },
         {
-          "mile": 50,
-          "label": "The Gully of Darius #3",
-          "desc": "5.5mi dynamic beast: fast 4.9mi drop, then 300ft kicker amid 90° turns and bridges. Tar-chip slipfest demands skills or spills. Net downhill but heart-rate hell.",
-          "terrain_detail": "Tech descents, chip roads, sharp corners",
-          "named_section": "Timed Segment #3"
+          "label": "Ritchie Road #3",
+          "desc": "1.8mi with 600ft of gain up Ritchie Rd toward the decommissioned Fort Ritchie base.",
+          "terrain_detail": "Steady backroad climb",
+          "named_section": "Timed Section #3"
         },
         {
-          "mile": 71,
-          "label": "Gambrill Ridge #4",
-          "desc": "11.4mi hardest hit: 784ft/4.6mi opener into 6.8mi undulating ridge nightmare. Watersheds to Gambrill State Park crush quads. Final 1,000ft drop tempts complacency—watch the kickers.",
+          "label": "The Gully of Darius #4",
+          "desc": "5.5mi dynamic segment, not a timed climb: a wide 4.9mi descent losing 500ft, then a 300ft kicker to Hornets Nest Road, with several 90-degree turns, an old bridge crossing, and tar-and-chip surface.",
+          "terrain_detail": "Technical descent, chip roads, sharp corners",
+          "named_section": "Timed Section #4"
+        },
+        {
+          "mile": 60,
+          "label": "Gambrill Ridge #5",
+          "desc": "The hardest segment of the day: 11.4mi and 1,203ft, opening with 784ft over 4.6mi then a challenging, undulating 6.8mi along Gambrill Park Road through the Frederick Watershed.",
           "terrain_detail": "Ridge-top rollers, park roads",
-          "named_section": "Timed Segment #4"
+          "named_section": "Timed Section #5"
         }
       ],
       "signature_challenge": "Gambrill Park Road's 11.4mi timed finale—784ft opener explodes into endless ridge undulations through watershed wilds. Legs scream, mind fractures; only the strongest summit smiling. Defines Maryland as climber's crucible."

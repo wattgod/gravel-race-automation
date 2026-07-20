@@ -1,4 +1,4 @@
-# Ultra Method Contract — v2.6 (G0.5) — SOL-CLEAN (final fix applied per reviewer prescription) · awaiting owner approval (D-M1)
+# Ultra Method Contract — v2.6 (G0.5) — SOL-CLEAN · **D-M1 OWNER-APPROVED 2026-07-20** — BINDING for WS-P and WS-C
 
 Normative implementation contract for all Gravel God ultra-bikepacking training
 products. v1 → sol G0.5 review NO-GO (7 findings: non-deterministic prescription,

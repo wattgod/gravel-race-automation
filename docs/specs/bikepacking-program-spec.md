@@ -91,6 +91,10 @@ job with this explicit inventory:
    storage keys and GA4 labels.
 2. **Content**: `guide/bikepacking-guide-content.json` — 8 chapters as v1 described
    (demand profile / race selection on the Ultra shelf / training for repeatability
+   — ch3 OPENING FRAMING DEVICE, owner-approved: "No one trains for a 90-hour week —
+   not even the winners" (universal volume cap + universal race deficit, white paper
+   §2), with the contract §11A working-athlete volume architecture as the chapter
+   centerpiece and VO2-as-ceiling-maintenance per contract §3
    / systems / energy economy / mental game / logistics / simulation+race week),
    each chapter carrying a `sources` block (claim → white-paper tier or URL); a
    JSON schema validator enforces the block's presence and shape (R5).

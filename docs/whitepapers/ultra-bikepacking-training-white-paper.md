@@ -55,6 +55,18 @@ Three consequences follow **[principle]**:
   hour one but power — and posture, and appetite, and judgment — at hour ten of day
   six. Fatigue resistance, already the center of our gravel training model, stops
   being one quality among several and becomes the organizing quality.
+- **Training volume is capped for everyone — including winners.** Across
+  endurance sport, sustainable training tops out around 25–30 hours/week; the
+  ceiling is recoverable load, not ambition **[principle]**. Documented ultra
+  preparation confirms it: TCR winner Kristof Allegaert logged ~20,000 km in
+  seven months (~25–28 h/week) — elite dose, same human ceiling — while typical
+  TCR finishers ride 5,000–10,000 km in the final six months (~8–15 h/week in
+  season) **[verified]**. The race, meanwhile, demands 70–100 riding hours per
+  week. Nobody trains at race volume; everyone races in deficit. The finishing
+  gap is therefore closed by durability, pacing judgment, sleep strategy, and
+  systems — not by volume, which is capped for all entrants equally. (Elite
+  riders partially blur the cap by using long events as training — the
+  simulation block's argument in miniature.)
 - **Recovery becomes an in-race skill.** In single-day racing, recovery is what you
   do after. In ultras, recovery is executed *during* the race — sleep systems, refeed
   strategy, tissue management — and can be trained and planned like intervals.
@@ -186,8 +198,9 @@ scaled up **[position]**:
 - **Segmented goal structure**: the race is planned as resupply-to-resupply
   segments, never as a whole, because "1,800 miles to go" is not a usable thought.
 - **Rehearsed low points**: the simulation block deliberately includes riding
-  through a scheduled bad patch — underslept, behind on calories — so the first
-  encounter with the state is not in Montana.
+  through a scheduled bad patch — behind on calories, deep in accumulated leg
+  fatigue — so the first encounter with the state is not in Montana. (Deliberate
+  sleep restriction is explicitly NOT part of this rehearsal; see Section 10.)
 - **A human in the loop**: where race rules permit contact, scheduled coach
   check-ins function as external judgment; where they don't, the pre-commitment
   documents stand in for it.
@@ -245,6 +258,9 @@ Two implications for preparation **[position]**:
 
 ## Sources
 
+Volume evidence added 2026-07-20: Ride Far training-plan guidance
+(ridefar.info/rider/training/training-plan/ — six-month km figures, Allegaert/
+Pritchard totals, monthly-target recommendation).
 Verified findings and their live sources: `docs/research/ultra-bikepacking-coaching-market.md`
 (bikepackingcoach.cc Tour Divide program pages; ultramtb.net training plans and
 coaching; acier.cc coaching tiers; DotWatcher sleep-strategy and route-planning

@@ -47,7 +47,7 @@ jobs:
           python scripts/daily-marketing-report.py --output "reports/$(date +%Y-%m-%d).md"
         env:
           GA4_PROPERTY_ID: ${{ secrets.GA4_PROPERTY_ID }}
-          GOOGLE_APPLICATION_CREDENTIALS: data/gsc-service-account.json
+          GOOGLE_APPLICATION_CREDENTIALS: /tmp/gsc-creds.json
 
       - name: Commit changes
         run: |

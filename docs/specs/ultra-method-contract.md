@@ -1,4 +1,4 @@
-# Ultra Method Contract — v2.2 (G0.5)
+# Ultra Method Contract — v2.3 (G0.5) — SOL: GO · awaiting owner approval (D-M1)
 
 Normative implementation contract for all Gravel God ultra-bikepacking training
 products. v1 → sol G0.5 review NO-GO (7 findings: non-deterministic prescription,

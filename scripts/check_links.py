@@ -80,30 +80,37 @@ class LinkExtractor(HTMLParser):
                 self.cta_urls.add(cta_url)
 
 
-def fetch(url: str, timeout: int = 15) -> tuple[int, str]:
-    """GET a URL following redirects; return (final_status, body_or_empty)."""
+def _is_sg_captcha(status: int, headers) -> bool:
+    """SiteGround's bot-challenge holding page (202 + sg-captcha header) — not a real dead link."""
+    if status != 202 or headers is None:
+        return False
+    return headers.get("sg-captcha") is not None
+
+
+def fetch(url: str, timeout: int = 15) -> tuple[int, str, bool]:
+    """GET a URL following redirects; return (final_status, body_or_empty, sg_captcha_challenged)."""
     req = urllib.request.Request(url, headers={"User-Agent": UA})
     try:
         with urllib.request.urlopen(req, timeout=timeout) as resp:
             body = resp.read(400_000).decode("utf-8", "replace") \
                 if "text/html" in resp.headers.get("Content-Type", "") else ""
-            return resp.status, body
+            return resp.status, body, _is_sg_captcha(resp.status, resp.headers)
     except urllib.error.HTTPError as e:
-        return e.code, ""
+        return e.code, "", _is_sg_captcha(e.code, e.headers)
     except Exception:
-        return 0, ""
+        return 0, "", False
 
 
-def fetch_text(url: str, timeout: int = 15) -> tuple[int, str]:
+def fetch_text(url: str, timeout: int = 15) -> tuple[int, str, bool]:
     """GET a URL and decode text regardless of content type."""
     req = urllib.request.Request(url, headers={"User-Agent": UA})
     try:
         with urllib.request.urlopen(req, timeout=timeout) as resp:
-            return resp.status, resp.read(2_000_000).decode("utf-8", "replace")
+            return resp.status, resp.read(2_000_000).decode("utf-8", "replace"), _is_sg_captcha(resp.status, resp.headers)
     except urllib.error.HTTPError as e:
-        return e.code, ""
+        return e.code, "", _is_sg_captcha(e.code, e.headers)
     except Exception:
-        return 0, ""
+        return 0, "", False
 
 
 def _local_name(el: ET.Element) -> str:
@@ -126,21 +133,22 @@ def xml_locs(xml_text: str) -> tuple[str, list[str]]:
     return tag, locs
 
 
-def live_sitemap_urls(delay: float) -> tuple[set[str], list[tuple[int, str]]]:
+def live_sitemap_urls(delay: float) -> tuple[set[str], list[tuple[int, str]], list[tuple[int, str]]]:
     """Recursively load live sitemap indexes/urlsets and return same-site page URLs."""
     pending = [SITEMAP_URL]
     seen_sitemaps: set[str] = set()
     urls: set[str] = set()
     failures = []
+    challenged = []
 
     while pending:
         sitemap_url = pending.pop(0)
         if sitemap_url in seen_sitemaps:
             continue
         seen_sitemaps.add(sitemap_url)
-        status, body = fetch_text(sitemap_url)
+        status, body, is_challenge = fetch_text(sitemap_url)
         if status != 200 or not body:
-            failures.append((status, sitemap_url))
+            (challenged if is_challenge else failures).append((status, sitemap_url))
             time.sleep(delay)
             continue
 
@@ -160,7 +168,7 @@ def live_sitemap_urls(delay: float) -> tuple[set[str], list[tuple[int, str]]]:
                     urls.add(normalized)
         time.sleep(delay)
 
-    return urls, failures
+    return urls, failures, challenged
 
 
 def shared_chrome_urls() -> set[str]:
@@ -192,19 +200,20 @@ def main() -> int:
     parser.add_argument("--delay", type=float, default=0.3)
     args = parser.parse_args()
 
-    sitemap_urls, sitemap_failures = live_sitemap_urls(args.delay)
+    sitemap_urls, sitemap_failures, sitemap_challenged = live_sitemap_urls(args.delay)
     cta_sample = race_page_sample(sitemap_urls)
     required_urls = set(EXTRA_URLS) | shared_chrome_urls() | set(cta_sample)
     to_check: set[str] = set(required_urls) | set(sitemap_urls)
     dead = list(sitemap_failures)
+    challenged = list(sitemap_challenged)
     seed_failures = []
     cta_urls: set[str] = set()
 
     seed_urls = sorted(sitemap_urls)[:args.max_urls]
     for url in seed_urls:
-        status, body = fetch(url)
+        status, body, is_challenge = fetch(url)
         if status != 200:
-            seed_failures.append((status, url))
+            (challenged if is_challenge else seed_failures).append((status, url))
             time.sleep(args.delay)
             continue
         ex = LinkExtractor(url)
@@ -213,9 +222,9 @@ def main() -> int:
         time.sleep(args.delay)
 
     for url in cta_sample:
-        status, body = fetch(url)
+        status, body, is_challenge = fetch(url)
         if status != 200:
-            seed_failures.append((status, url))
+            (challenged if is_challenge else seed_failures).append((status, url))
             time.sleep(args.delay)
             continue
         ex = LinkExtractor(url)
@@ -235,9 +244,9 @@ def main() -> int:
 
     urls = sorted(required_urls - already_checked) + optional_urls
     for url in urls:
-        status, _ = fetch(url)
+        status, _, is_challenge = fetch(url)
         if status != 200:
-            dead.append((status, url))
+            (challenged if is_challenge else dead).append((status, url))
         time.sleep(args.delay)
 
     print(f"Loaded {len(sitemap_urls)} URLs from live sitemap(s)")
@@ -248,7 +257,14 @@ def main() -> int:
         for status, url in sorted(set(dead), key=lambda d: d[1]):
             print(f"  {status or 'ERR':>4}  {url}")
         return 1
-    print("All links alive.")
+    if challenged:
+        print(f"\nINCONCLUSIVE — SiteGround sg-captcha challenged the checker on "
+              f"{len(challenged)} URL(s), not confirmed dead:")
+        for status, url in sorted(set(challenged), key=lambda d: d[1]):
+            print(f"  {status or 'ERR':>4}  {url}")
+        print("Not failing the job for these — rerun manually or check SiteGround "
+              "bot-protection allowlisting.")
+    print("All links alive." if not challenged else "All links alive (or inconclusive-only).")
     return 0
 
 

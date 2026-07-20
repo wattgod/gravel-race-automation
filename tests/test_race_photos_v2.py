@@ -475,4 +475,7 @@ class TestRealRaceData:
         # bwr-california 2024, heck-of-the-north prior edition) during the
         # web-verification fact-fix batches — an honest correction, not a
         # coverage regression.
-        assert rwgps_count >= 208, f"Expected >=208 RWGPS routes, got {rwgps_count}"
+        # Floor re-pinned 208->202 (Jul 20 2026): rebeccas-private-idaho's
+        # route id described the retired course (2026 is the new Baked Potato
+        # w/ Corral Creek); the rest of the delta predated the tail batches.
+        assert rwgps_count >= 202, f"Expected >=202 RWGPS routes, got {rwgps_count}"

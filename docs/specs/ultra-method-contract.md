@@ -1,4 +1,4 @@
-# Ultra Method Contract — v2.5 (G0.5) — owner revisions + §11A engine-ready; post-SIM recovery week generator-enforced
+# Ultra Method Contract — v2.6 (G0.5) — SOL-CLEAN (final fix applied per reviewer prescription) · awaiting owner approval (D-M1)
 
 Normative implementation contract for all Gravel God ultra-bikepacking training
 products. v1 → sol G0.5 review NO-GO (7 findings: non-deterministic prescription,
@@ -202,10 +202,10 @@ generic VO2-cadence gate: for ultra, the gate is replaced by THIS cadence
 - Main SIM days: **16w → 2; 24w → 3; custom ≥28w → 4** (custom 16–19w → 2,
   20–27w → 3).
 - Placement: SIM week per tables (16w W12, 24w W18); custom = week
-  min(round(0.75·N), N−3). SIM days anchor to the WEEKEND of the SIM week and
-  END on its Sunday: 2-day = Sat–Sun (0 PTO days), 3-day = Fri–Sun (1 PTO
-  day), 4-day = Fri–Mon (2 PTO days; the Monday belongs to the following
-  recovery week). Days before the SIM within its week are recovery spins/rest.
+  min(round(0.75·N), N−3). SIM days anchor to the WEEKEND of the SIM week:
+  2-day = Sat–Sun and 3-day = Fri–Sun (both end on the SIM week's Sunday);
+  4-day = Fri–Mon, with the Monday spilling into the following recovery week.
+  Days before the SIM within its week are recovery spins/rest.
 - Dose: day 1 = floor0.25(1.10 × current long-day dose); each later day =
   floor0.25(0.80 × day 1). Fully loaded; race systems mandatory; systems
   checklist (§5.1) in calendar notes.
@@ -213,8 +213,9 @@ generic VO2-cadence gate: for ultra, the gate is replaced by THIS cadence
   duration never restricted (R4)**; rehearsed low point is calories/fatigue
   only.
 - Recovery after (precise semantics): the 4 calendar days (Masters: 5)
-  immediately following the final SIM day (i.e. Mon–Thu / Mon–Fri of the next
-  week) contain ONLY rest days or recovery spins, zero intensity, with
+  immediately following the final SIM day — Mon–Thu (Masters Mon–Fri) after
+  2/3-day SIMs; Tue–Fri (Masters Tue–Sat) after a 4-day SIM — contain ONLY
+  rest days or recovery spins, zero intensity, with
   combined moving time ≤60% of the preceding RECOVERY week's table hours
   (16w Standard example: ≤0.6×6.25 = 3.75h). The week after the main SIM is
   ALWAYS a RECOVERY-type week in the tables (generator-enforced). Hard QC

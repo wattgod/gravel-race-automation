@@ -32,6 +32,22 @@ adversarial review of spec and outputs.** This program IS Phase 6 of
 | R4 no sleep-deprivation training | white paper §10, all plan/guide content; simulations must carry recovery windows | ultra QC profile checks + banned-content guard |
 | R5 claims trace to evidence tiers | guide (per-chapter sources block, schema-validated), plan descriptions, custom guide ultra sections | WS-G: JSON schema validator. WS-P: C5-ultra requires a `sources:` sidecar per SKU description (claim → tier/URL), checked by the ultra QC profile's audit step. WS-C: training-guide builder emits the same sidecar for ultra sections; plan-truth validates its presence. |
 
+**STE rule (owner-directed 2026-07-20): all PROCEDURAL artifacts follow
+ASD-STE100-derived Simplified Technical English** — workout instructions/.zwo
+text, calendar notes (incl. SIM systems checklists, week-1 PTO note, race-start
+day-0 note), medical-hold/catch-up templates, QC docs, runbooks. Rules subset
+(machine-checkable where marked ✓): one instruction per sentence; procedural
+sentences ≤20 words, descriptive ≤25 (✓); active voice, imperative for
+instructions ("Check the pack balance", never "the pack balance should be
+checked"); no contractions in procedural text (✓); one topic per paragraph;
+one consistent term per concept (always "long day", never big-ride/long-one
+variation); "do not" constructions for prohibitions (✓). NOT full STE (no
+controlled-dictionary license) — this derived subset is the standard. SCOPE
+FENCE: STE applies to procedural text ONLY — guide prose, FAQ, plan
+descriptions, and all editorial/sales surfaces keep their existing registers;
+STE would flatten the brand there. The ✓ rules join the ultra QC profile as
+advisory checks on calendar-note text.
+
 Voice/register: unchanged from v1 (guide register per road-guide precedent; C5 +
 Built-For for descriptions; corner canon for coaching CTAs; Normie gate).
 

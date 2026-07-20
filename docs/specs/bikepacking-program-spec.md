@@ -1,8 +1,10 @@
-# Bikepacking Product Program: Guide + TP Plans + Custom Pipeline — v2
+# Bikepacking Product Program: Guide + TP Plans + Custom Pipeline — v2.2
 
-v2 drafted 2026-07-20 after codex-sol G0 review returned NO-GO with 8 blockers; all
-were verified against live code and are folded below. Status: awaiting G0.2 (sol
-re-review of THIS version), then owner gates per workstream. Execution model:
+History: v1 → sol G0 NO-GO (8 blockers, all verified + folded) → v2 → sol G0.2
+(4 residuals) → v2.1 → sol G0.3 (3 items: Masters E2E case, plan-truth validator
+must be built not assumed, header staleness) → v2.2 (this document; all folded).
+Status: **G0 CLOSED** — spec is execution-ready; remaining gates are G0.5 (method
+contract, owner approval D-M1) and the per-workstream gates below. Execution model:
 **Fable = spec/dispatch/review/verify/commit; codex = execution; codex-sol =
 adversarial review of spec and outputs.** This program IS Phase 6 of
 `docs/specs/road-catalog-migration-spec.md`, executed; per D-X1 the Ultra shelf
@@ -201,10 +203,16 @@ at 4–26 weeks; date-derived classification clamps at 24 and defaults to 12.
    parsing first; the Elementor widget edit is a separately-gated Matti-visible
    step, not assumed.
 8. **E2E**: refactor ~/gg-e2e into a case matrix (harness currently rewrites one
-   gravel fixture — sol-verified); add a bikepacking case with semantic
-   assertions: discipline propagation, runway (16/24/36), consecutive long days
-   present, simulation + recovery window present, no sleep-dep content, strength
-   continuity, R1 text guard on generated artifacts.
+   gravel fixture — sol-verified); add TWO bikepacking cases: (a) standard —
+   semantic assertions on discipline propagation, runway (16/24/36), consecutive
+   long days present, simulation + recovery window present, no sleep-dep content,
+   strength continuity, R1 text guard on generated artifacts; (b) **Masters
+   bikepacking** — same assertions PLUS the every-3rd-week Masters recovery
+   interaction surviving the ultra schedule.
+   The pipeline's plan-truth validator does not exist yet as code (only
+   PLAN_TRUTH_SPEC.md describes it): its implementation — at least the subset the
+   ultra assertions need — is an explicit WS-C deliverable and dependency, not an
+   assumed tool.
 
 **Owner gate**: sol review of the migration commit series; E2E green including the
 new case; D-C1 pricing already resolved (existing $15/wk, $249 cap).

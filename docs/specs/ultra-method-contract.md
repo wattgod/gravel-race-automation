@@ -1,4 +1,4 @@
-# Ultra Method Contract — v2.3 (G0.5) — SOL: GO · awaiting owner approval (D-M1)
+# Ultra Method Contract — v2.4 (G0.5) — owner revisions folded (VO2 retention, §11A volume architecture); re-review pending
 
 Normative implementation contract for all Gravel God ultra-bikepacking training
 products. v1 → sol G0.5 review NO-GO (7 findings: non-deterministic prescription,
@@ -168,12 +168,25 @@ intensity; phase hour caps base 10 / build 13 / specificity 14; long-day growth
 
 ## 3. Intensity (role and content)
 
-As table column. Content: base = tempo/sweet-spot durability placement (final
-third of a ride), RPE 6–7, no VO2. Build = one fatigue-resistance session
-(quality ≥2h into a long ride) + one standalone tempo/threshold RPE 7–8.
-Specificity = fatigue-resistance placement only. Taper week 14/21 = one short
-tempo touch. RPE-primary targets; power/HR secondary. Intensity's role is
-ceiling maintenance (white paper §2), never the plan's center.
+As table column — the COUNTS are fixed by the table; this section governs the
+CONTENT that rotates through those slots (owner correction 2026-07-20: VO2 is
+retained — the ceiling every all-day pace draws against decays if untouched;
+low dose, never eliminated).
+- Base (1 slot/wk): rotate tempo/sweet-spot durability placement (final third
+  of a ride, RPE 6–7) with a VO2 session (e.g. 4–5 × 3min RPE 9, full
+  recoveries) at a cadence of ≥1 VO2 session per 21 days (Masters: per 21 days
+  as well, capped at 1 per 14 days).
+- Build (2 slots/wk): slot A = fatigue-resistance session (quality ≥2h into a
+  long ride, tempo/threshold content); slot B rotates standalone threshold
+  (RPE 7–8) with VO2, keeping the ≥1-per-21-days VO2 cadence.
+- Specificity: fatigue-resistance placement only, plus AT MOST one standalone
+  VO2 touch in a non-SIM load week (optional, athlete-state dependent).
+- Taper week 14/21 = one short tempo touch; no VO2 in taper; none in SIM.
+RPE-primary targets; power/HR secondary. Intensity's role is ceiling
+maintenance (white paper §2), never the plan's center — the VO2 cadence is the
+maintenance schedule for that ceiling. This REVISES §14's supersession of the
+generic VO2-cadence gate: for ultra, the gate is replaced by THIS cadence
+(≥1/21 days in base+build), not deleted.
 
 ## 4. Long days and back-to-backs
 
@@ -273,6 +286,44 @@ Badlands' ~750 km expected finish sits under the >10-day 24w-bias rule) — subj
 Floor: <6.0 available h/week → Tour Divide-class preparation cannot be honestly
 delivered on any timeline; products must say so (fit filter).
 
+## 11A. Volume architecture for working athletes (normative)
+
+The prescription assumes a full-time job and a normal life; the hours are
+ARCHITECTED, not willed. All products carry these mechanisms (guide chapter 3
+teaches them; TP masters use the default template; custom plans map them to the
+athlete's real week):
+
+1. **Default weekly template** (TP masters): weekday sessions ≤90min except one
+   optional 2h midweek slot; long day Saturday; B2B partner day Sunday;
+   strength attached to existing ride days, never new days. Peak-week math
+   under this template: 5 weekday hours + long day + B2B day — 13h fits a
+   job without any weekday ride over 90min except the one 2h slot.
+2. **Commute conversion**: commute riding counts 1:1 toward prescribed hours;
+   riding the race pack on commutes is encouraged from build onward (free
+   loaded-adaptation; systems reps). Two 45–60min commute legs convert a work
+   day into 1.5–2h of invisible volume.
+3. **Split days (micro-doubles)**: any prescribed aerobic session ≥90min may be
+   split into AM/PM chunks of ≥45min each with no equivalence penalty; quality
+   sessions are never split.
+4. **Dark-hours riding**: pre-work and after-dark rides are not a workaround —
+   for ultras they are SPECIFICITY (racing means riding at dawn and after dark
+   on lights). From build onward, ≥1 ride per 14 days should happen in
+   dark/low-light conditions with race lighting; safety note required in plan
+   copy (lit routes/trainer substitution permitted).
+5. **Indoor density**: weekday quality sessions may be trainer-based; trainer
+   time counts 1:1 (no invented multipliers) but sessions are structured
+   no-coast, which is why 60–75min trainer slots can carry the quality work of
+   a longer outdoor ride `[position]`.
+6. **Utility miles**: errands ridden with the race pack count toward volume and
+   systems practice; explicitly encouraged in guide/plan copy.
+7. **PTO design**: the SIM block is deliberately shaped to fit a long weekend —
+   16w (2-day SIM): zero or one PTO day (Sat–Sun or Fri–Sat); 24w (3-day SIM):
+   ≤2 PTO days (Fri–Sun or Sat–Mon). Plan copy states the PTO ask at plan
+   start (week-1 note) so the athlete books it months ahead. The mini-SIM
+   (2 days) is always PTO-free (weekend).
+8. **What never bends**: the weekly long day (≥70% floor per §11), the SIM, and
+   recovery weeks. Everything else has a §11 bend order.
+
 ## 12. Boundary behavior
 
 - 12.1 Runway >36w: hold-then-build — base-pattern maintenance until exactly 24
@@ -337,7 +388,9 @@ only §7's tokens as week references — banned patterns (case-insensitive):
 `week\s+\d+`, `\bW\d+\b`, and spelled forms `week (one|two|three|four|five|six|
 seven|eight|nine|ten|eleven|twelve|thirteen|fourteen|fifteen|sixteen|twenty|
 twenty-four)`, all outside token expansion; (10) race deltas within §10 schema bounds;
-(11) R1 banned first-person-ultra phrase list (shared with WS-G tests): "when I
+(11) VO2 cadence — base+build phases contain ≥1 VO2-content quality session
+per rolling 21 days (Masters cap ≤1 per 14 days), zero VO2 in SIM/taper weeks;
+(12) R1 banned first-person-ultra phrase list (shared with WS-G tests): "when I
 raced", "my Tour Divide", "I finished the", "I've raced", "my time on the
 Divide". The full variants list lives at `qc/ultra_banned_phrases.txt`
 (gravel-god-training-plans repo; created by WS-P's QC-profile deliverable,

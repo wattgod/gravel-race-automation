@@ -1,0 +1,184 @@
+{
+  "id": "pack-dynamics-and-pacing",
+  "title": "Pack Dynamics & Pacing by Terrain",
+  "module": "find-the-speed",
+  "lesson_number": 10,
+  "blocks": [
+    {
+      "type": "hero_stat",
+      "value": "20 min",
+      "unit": "faster at the same average power",
+      "context": "when pacing is adjusted by surface type instead of holding constant wattage"
+    },
+    {
+      "type": "sensation_target",
+      "label": "Elastic connection / Surfing, not grinding",
+      "content": "Two sensation targets for this lesson, because it covers two skills.\n\n**Drafting on gravel — the bungee cord.** When you're following a wheel on smooth gravel, you feel an elastic connection to the rider ahead. Not rigid, not slack — elastic. The gap stretches on rough patches as you both navigate independently, then contracts as the surface smooths out and you slide back into the draft. You're connected but not chained. The bungee cord stretches to 3-4 bike lengths on rough stuff, contracts to 1.5-2 on smooth. If you feel rushed — lunging to close gaps, braking to avoid overlapping — the bungee is too tight. If you lose the wheel every time the surface changes, it's too loose.\n\n**Pacing by surface — surfing the wave.** Good surfaces are the wave. You catch them, push them, ride the efficiency. Bad surfaces are the trough between waves. You don't fight the trough — you survive it patiently and wait for the next wave. When the pacing is right, hard efforts feel productive (high speed per watt) and easy efforts feel strategic (preserving yourself for the next productive section). When the pacing is wrong, hard efforts feel futile (grinding 250W for 14 mph on sand) and easy efforts feel guilty (coasting on hardpack where you should be banking time)."
+    },
+    {
+      "type": "black_box",
+      "title": "Incident Report",
+      "content": "Two riders start a 150-mile gravel race with identical 250-watt FTP.\n\nRider A holds 250W everywhere. Steady. Disciplined. On loose gravel where drivetrain efficiency drops to 78%, those 250W produce 14 mph. On packed hardpack where efficiency is 95%, those 250W produce 19 mph. Rider A is grinding heroically on the bad surfaces and coasting on the good ones. By mile 100, glycogen is depleted from the sustained high-torque effort on loose sections. By mile 130, Rider A bonks. The last 20 miles take 2 hours.\n\nRider B rides by surface, not by power meter. On loose gravel: 85% FTP (213W) — patient, spinning, preserving glycogen during low-efficiency sections where extra watts produce minimal speed gains. On packed hardpack: 105% FTP (263W) — pushing where the return on investment is highest. Sand and mud: 75% FTP, purely survival. Smooth pavement: 110% FTP, banking time.\n\nRider B's average power for the day: 248W. Nearly identical to Rider A. But Rider B finishes 20 minutes faster and has enough left for a kick in the final 10 miles.\n\nSame engine. Same fuel. Different allocation. The power meter doesn't know what surface you're on. You have to."
+    },
+    {
+      "type": "prose",
+      "content": "I raced my first three gravel events staring at my power meter like it was a metronome. 250 watts. Hold 250 watts. The surface was irrelevant. The group around me was irrelevant. I was a 250-watt robot.\n\nI bonked in two of those three races. Not from underfueling — from misallocating effort. I was spending my most expensive watts on surfaces where those watts barely moved me forward, and then coasting through the sections where those watts would have been most efficient.\n\nGravel pacing isn't steady-state. It's investment allocation. You have a fixed budget of kilojoules for the day. Spend them where the return is highest."
+    },
+    {
+      "type": "accordion",
+      "items": [
+        {
+          "title": "Draft Savings Math and Pull Rotation Calculations",
+          "blocks": [
+            {
+              "type": "prose",
+              "content": "### Draft Savings on Gravel vs. Road\n\nDrafting on gravel works. It doesn't work as well as road drafting — roughly half the benefit you get on pavement — but 15-25% power savings is still significant, depending on gap and surface.\n\nWhy the savings are lower than road (25-35%):\n- Wider tires and lower speeds reduce the aerodynamic benefit\n- Rough surfaces create gaps that break the draft pocket\n- Line choice divergence means you're frequently offset from the ideal draft position\n- Riders spread laterally to pick their own lines through rough sections\n\nBut even 15% is enormous over a long day. At 250W solo, a 20% draft savings at the same speed costs roughly 200W. Over a 6-hour race, that's the difference between 5,400 kJ and 4,320 kJ of total work. That's meaningful glycogen you're keeping in reserve."
+            },
+            {
+              "type": "prose",
+              "content": "### Pull Rotation Math for Gravel\n\nOn the road, pull rotation is simple: take a pull, swing off, drift back. Equal time, equal effort. On gravel, it's more nuanced because the surface changes the calculus.\n\n**The energy cost of leading on gravel:**\n- On smooth gravel at 18-20 mph, leading costs roughly 25-30% more energy than drafting (similar to road)\n- On rough gravel at 14-16 mph, the aero penalty for leading drops to 10-15% — rolling resistance is now the dominant force, and that doesn't change based on position\n- On loose gravel at 10-14 mph, leading costs maybe 5-8% more than drafting — nearly irrelevant\n\nThis means pull rotation should adjust by surface:\n\n- **Packed sections (18+ mph)**: Short pulls (30-60 sec). The aero penalty is high, so rotate frequently to spread the cost.\n- **Mixed sections (14-18 mph)**: Longer pulls (1-2 min). The penalty is moderate, and constant rotation disrupts the group on variable surfaces.\n- **Rough sections (under 14 mph)**: Don't bother rotating. Everyone rides their own line at their own pace. The draft barely matters at these speeds. Regroup on the next smooth section.\n\nA practical rule: rotate on hardpack, single-file on mixed, every-rider-for-themselves on rough. Regroup after every rough section."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "prose",
+      "content": "**The variable-gap protocol:**\n\n- **Smooth, packed surface**: 1.5-2 bike lengths. Close enough for real aero benefit. You can hold a tight line because the surface is predictable.\n- **Mixed or transitional surface**: 2-3 bike lengths. You need room to pick your own line through loose patches without overlapping the rider ahead when they slow unexpectedly.\n- **Rough, loose, or technical surface**: 3-4 bike lengths. Each rider needs full independence to navigate. The draft benefit at these speeds (12-16 mph) is minimal anyway — rolling resistance dominates aerodynamic drag at low speeds.\n\nThe mistake I see constantly in gravel races: riders hold road-race gaps (half a wheel to one wheel) on loose gravel. When the rider ahead hits a rock and swerves, the follower has no reaction time. On gravel, the half-wheel game will put you on the ground."
+    },
+    {
+      "type": "prose",
+      "content": "### When to Leave a Group: Three Signals\n\nGroups in gravel racing are alliances of convenience, not permanent commitments. The wrong group costs more energy than solo riding. Here are the three signals that it's time to go:\n\n**Signal 1: The group pace doesn't match your race plan.** If the group is pushing 105% FTP on loose gravel (where your plan says 85%), you're burning matches you need later. This is the hardest signal to act on because the group FEELS efficient. It is efficient — for the group's pace. But if that pace depletes you by mile 100, the drafting savings were a bad trade.\n\n**Signal 2: The group is mechanically chaotic.** Erratic pace changes, poor line choice, riders overlapping wheels on rough terrain. If you're spending more mental energy avoiding crashes than you're saving in watts, leave. A smooth solo ride at 20W higher is less fatiguing than a chaotic group ride at 20W lower.\n\n**Signal 3: The group is slower than your sustainable solo pace on the current surface.** Do the math: if you can hold 18 mph solo on packed gravel, and the group is doing 19.5 mph, the draft savings make staying worthwhile. But if the group is doing 17 mph, you're going slower AND burning the mental energy of group riding. Ride off the front.\n\nThe flip side: if a faster group comes by and their pace matches your plan, don't let ego keep you from latching on. Free watts are free watts."
+    },
+    {
+      "type": "prose",
+      "content": "### Surface-Adjusted Pacing\n\nThis is the core concept of the lesson. Your power meter is surface-blind. You are not.\n\n**The efficiency spectrum:**\n- **Smooth pavement**: ~95% drivetrain efficiency. 250W = 250W of forward motion. Push here. 105-110% FTP.\n- **Packed hardpack gravel**: ~92% efficiency. Nearly as good as pavement. Push here. 100-105% FTP.\n- **Loose-over-hard gravel**: ~85% efficiency. Moderate losses from tire deflection and micro-slip. Hold steady. 90-95% FTP.\n- **Loose gravel / chunky rock**: ~78% efficiency. Significant losses. Ease off. 80-90% FTP.\n- **Sand, mud, deep gravel**: ~65% efficiency. A third of your power vanishes into the surface. Survival mode. 70-80% FTP.\n\nThe math is simple: on a surface where 250W produces 14 mph, going to 280W might produce 14.5 mph. That extra 30W bought you 0.5 mph — terrible return on investment. But on packed gravel where 250W produces 19 mph, those same extra 30W might produce 20.5 mph. Same watts, 3x the speed gain.\n\nThis is why constant-wattage pacing fails on gravel. The surfaces are too variable. The rider who allocates power by efficiency — pushing where watts convert to speed, easing off where they don't — finishes faster at the same or lower average power."
+    },
+    {
+      "type": "callout",
+      "content": "Surface-adjusted pacing connects directly to your fueling strategy. Pushing hard on efficient surfaces means higher carbohydrate burn during those windows — which is fine if you're fueling for it. The Gravel God Academy Hydration Mastery course covers carbohydrate periodization by effort level. The short version: eat on the easy surfaces so you have fuel for the hard pushes. Don't try to eat at 105% FTP on packed gravel — eat at 80% FTP on the rough stuff when intensity is low enough to digest.",
+      "style": "tip"
+    },
+    {
+      "type": "prose",
+      "content": "### Power Meter Pacing vs. Terrain Pacing\n\nPower meters are extraordinary tools. They're also dangerously seductive on gravel because they give you a precise number that ignores context.\n\n**Power meter pacing (road model):** Hold target watts. Adjust for grade. Ignore surface.\n\n**Terrain pacing (gravel model):** Hold target EFFORT relative to surface efficiency. Adjust for grade AND surface AND group dynamics.\n\nIn practice:\n- Glance at power on smooth sections to calibrate your effort (\"this feels like 260W and it IS 260W — good\").\n- Ignore power on rough sections. Ride by feel and surface. If your power drops to 200W on loose gravel because you're being patient, that's correct strategy, not weakness.\n- Use normalized power (NP) as your post-ride check, not average power. Terrain pacing produces a higher variability index (NP/avg) than road pacing — typically 1.05-1.15 vs road's 1.00-1.05. That's expected and correct.\n\nIf your NP equals your average power on a gravel race, you were pacing like it was a road time trial. You left time on the table."
+    },
+    {
+      "type": "process",
+      "title": "The Elastic Gap",
+      "description": "Your drafting and pacing protocol. Deploy any time you're riding with others or managing effort across mixed surfaces.",
+      "steps": [
+        {
+          "step": 1,
+          "action": "On smooth surfaces: close to 1.5-2 bike lengths",
+          "detail": "Maximum draft benefit where the surface is predictable."
+        },
+        {
+          "step": 2,
+          "action": "On rough surfaces: open to 3-4 lengths",
+          "detail": "Each rider needs independence to pick their own line."
+        },
+        {
+          "step": 3,
+          "action": "Feel the bungee cord",
+          "detail": "Constant elastic tension — never snapped tight or fully slack."
+        },
+        {
+          "step": 4,
+          "action": "Push efficient surfaces, ease off inefficient ones",
+          "detail": "Hardpack = 100-105% FTP. Loose/sand = 80-85% FTP."
+        },
+        {
+          "step": 5,
+          "action": "Three signals to leave a group",
+          "detail": "Pace too hot, too much braking, or group is slower than your solo pace on this surface."
+        }
+      ]
+    },
+    {
+      "type": "drill",
+      "title": "Accordion Intervals",
+      "time_minutes": 30,
+      "description": "Practice surface-adjusted pacing and variable-gap drafting on a familiar loop. The goal: faster average speed with equal or lower normalized power compared to steady-state riding.",
+      "variants": [
+        {
+          "level": "beginner",
+          "label": "Solo, 30-minute loop with mixed surfaces",
+          "steps": [
+            "Find a 30-minute gravel loop you know well — one with at least 2-3 distinct surface types (pavement, packed gravel, loose gravel).",
+            "Ride 1: Steady-state baseline. Hold the most even effort you can for the entire loop. Record time and average/normalized power.",
+            "Ride 2 (next ride): Surface-adjusted. Push packed sections to 100-105% FTP. Ease loose sections to 80-90% FTP. Pavement at 105-110% FTP. Survival pace on any sand or mud.",
+            "Compare times and normalized power. If Ride 2 is faster with equal or lower NP, the pacing strategy works.",
+            "The key sensation: Ride 2 should feel EASIER overall despite being faster. Hard efforts feel productive. Easy efforts feel strategic, not lazy.",
+            "Repeat weekly. Track the gap between steady-state and surface-adjusted times. It should widen as you get better at reading when to push and when to wait."
+          ]
+        },
+        {
+          "level": "intermediate",
+          "label": "With a partner, practicing variable-gap drafting",
+          "steps": [
+            "Ride with a partner of similar ability on a mixed-surface loop.",
+            "Practice the accordion: smooth sections at 1.5-2 bike lengths, rough sections at 3-4 bike lengths. The gap opens and closes like a bungee cord.",
+            "Pull rotation by surface: rotate on packed sections (30-60 sec pulls), single-file on mixed, solo lines on rough. Regroup after each rough section.",
+            "Target: zero 'rushed' moments. If either rider feels lunging to close a gap or braking to avoid a collision, the gap management needs work.",
+            "After 20 minutes, switch — the follower leads. Both riders should feel the difference between leading on smooth (hard) vs leading on rough (barely different from following).",
+            "Post-ride comparison: both riders should show lower NP than their solo steady-state baseline at equal or faster average speed. That's the draft working."
+          ]
+        },
+        {
+          "level": "race-pace",
+          "label": "Group simulation with surge management",
+          "steps": [
+            "With 2-4 riders, simulate race-group dynamics on a mixed-surface loop.",
+            "Designate one rider to set pace. That rider deliberately surges on smooth sections (simulating race attacks) and eases on rough sections.",
+            "Followers practice: close the gap on smooth (where draft matters most), let it stretch on rough (where it doesn't). Do NOT chase surges on loose gravel — the cost is too high and the draft benefit is too low.",
+            "Practice the three 'leave' signals: if the group pace exceeds your plan by more than 10% on rough surfaces for 5+ minutes, soft-pedal and let them go.",
+            "After 30 minutes, regroup and discuss: which surges were worth following? Which should have been ignored? Map the answers to surface type.",
+            "Key metric: the riders who managed their effort by surface should have lower NP and feel fresher than riders who matched every surge regardless of terrain."
+          ]
+        }
+      ],
+      "proof_gate": {
+        "description": "Average speed on a familiar loop increases 2-4% with equal or lower normalized power, demonstrating that surface-adjusted pacing extracts more speed from the same energy budget.",
+        "metric": "percentage",
+        "target": "2-4% faster average speed on familiar loop with equal or lower normalized power compared to steady-state baseline"
+      }
+    },
+    {
+      "type": "prose",
+      "content": "### Putting It Together: Race Day Execution\n\nHere's how all of this integrates on race day:\n\n**First 30 minutes:** Find a group that matches your target effort on the first smooth section. Don't evaluate based on the start line chaos — wait for the first real surface to see who's pacing wisely and who's redlining. Sit in the draft. Conserve.\n\n**Miles 10-80 (or your race's middle 60%):** Surface-adjusted pacing with group dynamics. Push on efficient surfaces, ease on inefficient ones. Rotate on smooth, ride solo lines on rough. Eat and drink on the rough sections when intensity is low.\n\n**The decision points:** Every time the group surges on rough terrain, evaluate: is this group still net-positive for me? If someone attacks on loose gravel, let them go. You'll likely catch them when they bonk at mile 100.\n\n**Final 20%:** This is where surface pacing pays its dividend. If you've been banking energy on the rough sections all day, you have glycogen left. The riders who ground out constant watts are fading. Push the packed sections harder. Sit up on the rough stuff. The separation happens now.\n\nThis connects to everything you've built: weighted drop and body suspension (Lessons 1-2) let you ride rough terrain without fatigue. Braking technique (Lesson 5) preserves traction. Surface reading (Lesson 8) tells you when to push. Descending position (Lesson 9) gives you free time. Now pacing ties it all together into a race strategy."
+    },
+    {
+      "type": "knowledge_check",
+      "question": "You're 80 miles into a 150-mile gravel race. You're sitting in a group of 6 riders on packed hardpack doing 19 mph. Your normalized power with the group is 225W (90% FTP). The course turns onto 8 miles of loose, chunky gravel. Two riders in the group immediately push to the front and increase effort to maintain speed. What do you do?",
+      "options": [
+        {
+          "text": "Match their effort to hold your position in the group — losing the draft would cost more energy than the surge",
+          "correct": false
+        },
+        {
+          "text": "Let the gap open to 3-4 bike lengths, ride your own line at 80-85% FTP, and plan to regroup when the surface improves",
+          "correct": true
+        },
+        {
+          "text": "Attack off the front to separate from the group before the loose section disrupts the paceline",
+          "correct": false
+        },
+        {
+          "text": "Drop to the back of the group and soft-pedal to recover for the next paved section",
+          "correct": false
+        }
+      ],
+      "explanation": "On loose, chunky gravel at 12-16 mph, draft savings drop to 5-8% — nearly irrelevant. The riders pushing hard on this surface are spending their most expensive watts on the lowest-return terrain. Let the gap stretch to 3-4 lengths so you can pick your own line through the rough stuff (Lesson 8). Ride at 80-85% FTP — patient, spinning, preserving glycogen. When the surface transitions back to packed gravel, close the gap using the draft savings where they actually matter. If those two riders burned themselves on the loose section, you'll catch them easily. If they didn't, you rejoin the group at the same cost as before but with more fuel in the tank. Attacking on loose gravel is the worst possible investment. Soft-pedaling completely wastes the section — 80-85% FTP still moves you forward at reasonable speed."
+    },
+    {
+      "type": "commitment",
+      "content": "Your commitment before Lesson 11: ride a 30-minute loop twice — once at steady power, once using The Elastic Gap (push hardpack, ease off loose). Compare average speed at equal or lower normalized power."
+    },
+    {
+      "type": "callout",
+      "content": "Next lesson: When Things Break. You've found the speed — now we make sure a flat tire at mile 68 doesn't turn into a DNF. Three critical field repairs, timed, with dirty hands. The sequence IS the calm.",
+      "style": "next"
+    }
+  ]
+}

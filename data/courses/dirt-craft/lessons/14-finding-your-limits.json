@@ -1,0 +1,195 @@
+{
+  "id": "finding-your-limits",
+  "title": "Finding Your Limits (On Purpose)",
+  "module": "skills-lab",
+  "lesson_number": 14,
+  "blocks": [
+    {
+      "type": "hero_stat",
+      "value": "60-70%",
+      "unit": "of available grip is where scared riders live",
+      "context": "You leave a third of your traction unused because you've never met the limit in a place where meeting it was free. This lesson is where you go find it."
+    },
+    {
+      "type": "callout",
+      "style": "highlight",
+      "content": "**Most skills courses skip this, and it's a real gap.** You can't confidently ride to an edge you've never felt. So we go feel it — deliberately, at walking pace, in an empty lot where a mistake costs a foot down and nothing else. You're not learning to crash. You're learning where the crash starts, so you can ride just under it instead of guessing."
+    },
+    {
+      "type": "prose",
+      "content": "### Why you have to feel it, not read it\n\nEvery number in this course — the μ estimates, the 22° lean ceiling, the 85% rule — is a map. Maps don't ride bikes. What lets you commit to a loose corner at speed is a body that has already felt the tire let go, and knows the feeling a half-second before it happens. That's not readable. It gets installed one controlled slip at a time.\n\nMost riders who look brave on the descent aren't. They found the limit slowly, in a field at low speed, enough times that the edge became information instead of fear. That's the whole difference, and it's practice, not nerve."
+    },
+    {
+      "type": "black_box",
+      "title": "The safe-skid principle",
+      "content": "Not all slides are equal, and this is the whole reason this lesson is safe to teach.\n\nA REAR-wheel skid is recoverable. The bike yaws, the rear steps out, and the geometry of the bike wants to straighten itself back out — you have a half-second to a full second to react, and the correction (ease off, steer with it) is learnable at low speed. You can skid the rear all day.\n\nA FRONT-wheel wash is not recoverable in the same way. The front wheel is what keeps you balanced; when it goes, there's often no time to catch it. So we treat the two tires completely differently. The rear, you deliberately break loose and play with. The front, you walk up to the edge of and never deliberately cross. Every drill below respects that line."
+    },
+    {
+      "type": "sensation_target",
+      "label": "The first whisper of slip",
+      "content": "On the rear brake, ease the lever until the tire stops rolling cleanly and starts to smear — a low grinding drag, the back of the bike going slightly light and loose under your hips. That's the first slip. It is not violent and it is not an emergency. It's a quiet handoff from grip to slide. Learn that exact moment — the sound, the loosening at your seat — because it is the same signal, scaled up, that you'll feel at 25 mph. The whole game is meeting it here so you recognize it there."
+    },
+    {
+      "type": "process",
+      "title": "The Slip Ladder",
+      "description": "Your repeatable method for meeting any traction limit safely: climb toward the edge in small steps, touch it, and step back. Never jump to the top rung. The ladder is the tool; every drill in this lesson is a way to climb it.",
+      "steps": [
+        {
+          "step": 1,
+          "action": "Pick a consequence-free arena.",
+          "detail": "Flat, open gravel or grass-over-dirt, long runout, nothing to hit, no traffic. Grass-over-dirt is ideal early — it slides at low speed and the landing is soft."
+        },
+        {
+          "step": 2,
+          "action": "Isolate one input.",
+          "detail": "One tire, one brake, or one corner — never all of it at once. You are collecting a single clean signal, not riding a trail."
+        },
+        {
+          "step": 3,
+          "action": "Climb in small steps.",
+          "detail": "Add a little speed, brake pressure, or lean each rep. The moment you feel the first slip, that rung is found. Do not force the next rung — earn it."
+        },
+        {
+          "step": 4,
+          "action": "Touch the edge, then release.",
+          "detail": "Feel the slip, then immediately ease the input and feel grip return. The release is the motor program you're installing — regaining control is the skill, not losing it."
+        },
+        {
+          "step": 5,
+          "action": "Log the rung and repeat.",
+          "detail": "Note the speed or lever pressure where slip began. Repeat until that rung is boring, then climb one more. Boring means it's becoming automatic. Automatic is the goal."
+        }
+      ]
+    },
+    {
+      "type": "drill",
+      "title": "Rear-Brake Skid & Steer",
+      "time_minutes": 20,
+      "description": "The safest, highest-value feel drill there is: deliberately lock and release the rear, then learn to steer the bike with a sliding rear. This is where a locked rear stops being an emergency and becomes an input you own.",
+      "proof_gate": {
+        "target": "You can lock the rear, hold a straight skid, and release into clean grip on demand — and initiate a small rear-wheel drift to the left and to the right and ride it out, without a front-brake grab and without a death grip."
+      },
+      "variants": [
+        {
+          "level": "beginner",
+          "label": "Flat gravel or grass-over-dirt, straight line, 8-12 mph",
+          "steps": [
+            "Roll at a slow, steady speed in the attack position — hinged, level feet, light hands.",
+            "Squeeze ONLY the rear brake hard enough to lock the wheel. Feel the rear slide straight behind you. Keep your eyes up and forward, not down at the wheel.",
+            "Release. Feel the tire grip and roll again. That lock-and-release is one rep.",
+            "Do 15-20 reps until locking and releasing the rear feels casual and controlled, not startling.",
+            "Goal: delete the flinch. A locked rear should feel like a tool you picked up, not a mistake that happened to you."
+          ]
+        },
+        {
+          "level": "intermediate",
+          "label": "Same surface, add steering — the pendulum",
+          "steps": [
+            "At 10-15 mph, lock the rear and, as it slides, steer/lean gently to the LEFT. The rear will step out to the right and the bike will pivot. Ride it out, release, grip returns.",
+            "Repeat to the RIGHT. Alternate: lock-drift-left, release, lock-drift-right, release — a slow pendulum.",
+            "Feel how the slide is steerable — a sliding rear is a direction-change tool, which is exactly 'backing it into' a loose corner, learned where it's free.",
+            "Goal: both directions feel equally available. Your weak side will lag; spend more reps there."
+          ]
+        },
+        {
+          "level": "race-pace",
+          "label": "Approach into a loose flat corner",
+          "steps": [
+            "On a known loose flat corner, carry a touch of rear brake into the entry and let the rear drift slightly as you turn, then release to grip for the exit.",
+            "Keep it small and deliberate. You're blending the pendulum into a real corner, not sliding for show.",
+            "Goal: use a controlled rear drift to rotate the bike into the corner, then hook up and drive out."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "style": "tip",
+      "content": "This drill sequence is lifted straight from how DH pro Ben Cathro teaches braking (Pinkbike, *How To Bike* EP5): descend a repeatable slope using only one brake at a time, shifting your weight over the wheel you're braking with, and treat the lockup as the lesson — squeeze until it slips, ease until it grips. The feedback loop *is* the skill."
+    },
+    {
+      "type": "drill",
+      "title": "Single-Brake Isolation Descent (Cathro Method)",
+      "time_minutes": 25,
+      "description": "Isolate each brake on a slope you can comfortably ride, so you learn what each one actually does before you ever combine them. Rear first (safe to skid), front second (walk to the edge, never cross it).",
+      "proof_gate": {
+        "target": "You can descend the slope on the rear brake alone and on the front brake alone, modulating each right up to — but the front never past — its slip point, in full control."
+      },
+      "variants": [
+        {
+          "level": "beginner",
+          "label": "Rear brake only — gentle repeatable slope",
+          "steps": [
+            "Find a gravel slope you can ride comfortably, with a clear runout at the bottom.",
+            "Descend using ONLY the rear brake. Shift your weight back over the rear tire to load it.",
+            "Modulate: squeeze until the rear starts to slip, ease until it grips. Ride the whole slope playing that edge.",
+            "Goal: learn exactly how much rear brake the surface will take before it breaks loose."
+          ]
+        },
+        {
+          "level": "intermediate",
+          "label": "Front brake only — approach the edge, do NOT cross it",
+          "steps": [
+            "Same slope. Descend using ONLY the front brake, weight centered and low, hinged back — never stiff-armed over the bars.",
+            "Squeeze progressively and feel the front load up and bite. The front will give you far more stopping power than you expect — that's the point.",
+            "The moment you feel the faintest front chatter or drift, EASE. Do not chase a front skid. On the loose you're proving the front is trustworthy and strong, not trying to wash it. Find the edge; live just under it.",
+            "Goal: overwrite the road-brain fear of the front lever with a felt sense of how much grip it actually has."
+          ]
+        },
+        {
+          "level": "race-pace",
+          "label": "Blend — both brakes, front-led",
+          "steps": [
+            "Now combine: lead with the front, support with the rear, on the same slope at a faster roll-in.",
+            "Do most of your slowing early and upright; feel the front carry ~70-80% of the work while the rear steadies and fine-tunes.",
+            "Goal: a smooth, front-led, one-zone stop that finishes before any corner would begin."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "prose",
+      "content": "### The one rule that keeps this safe\n\n**Skid the rear all you want. Never chase a front skid.** The rear is your playground — lock it, drift it, pendulum it, back it into corners. The front is a cliff edge you learn the location of by walking up to it slowly, never by jumping off. When the front finally does let go on the trail someday — and it will — your body will recognize the feeling *because you spent time near it here*, and your trained response (ease, don't grab, weight the outside) will fire before your panic does.\n\nThat's the entire purpose of deliberately finding your limits: not to live at the edge, but to make the edge familiar enough that it stops running your decisions."
+    },
+    {
+      "type": "video",
+      "id": "kR4B7XvedkM",
+      "title": "Where To Skid On Your Mountain Bike | MTB Skills",
+      "channel": "Global Mountain Bike Network",
+      "mtb_demo": true,
+      "caption": "Where and how to skid, and how to control the rear once it breaks loose."
+    },
+    {
+      "type": "knowledge_check",
+      "question": "You're building a limit-finding practice session in an empty gravel lot. Which approach actually develops usable feel — and stays safe?",
+      "options": [
+        {
+          "text": "Ride a fast trail and push into every corner until something slides, learning from whatever happens",
+          "correct": false
+        },
+        {
+          "text": "Deliberately lock and release the REAR to learn the slide and its recovery, while only ever approaching the FRONT's slip point without crossing it",
+          "correct": true
+        },
+        {
+          "text": "Practice washing the front wheel at speed so you learn to catch it when it happens for real",
+          "correct": false
+        },
+        {
+          "text": "Avoid skidding entirely — it wears tires and teaches bad habits",
+          "correct": false
+        }
+      ],
+      "explanation": "A rear skid is recoverable, so you deliberately break it loose and rehearse the release — that's The Slip Ladder in action. A front wash usually isn't recoverable, so you walk up to its edge to learn its location and trust its power, but never chase it. Pushing a fast trail until something random slides isn't practice — it's gambling with real consequences. And skidding, done deliberately in a safe arena, is exactly how you install the feel you can't get any other way."
+    },
+    {
+      "type": "commitment",
+      "content": "Your commitment: one 20-minute session in an empty lot this week doing nothing but Rear-Brake Skid & Steer. Find the first-slip point, ride the pendulum both directions, and write down the speed where the rear breaks loose. You now own a number your body found, not a number you read."
+    },
+    {
+      "type": "callout",
+      "style": "next",
+      "content": "You've met the edge on purpose and lived just under it. Every corner and descent in this course gets easier once the limit stops being a mystery — because now you're riding to a line you've actually felt, not one you're guessing at in the dark."
+    }
+  ]
+}

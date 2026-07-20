@@ -1,0 +1,248 @@
+{
+  "id": "speed-stack-check",
+  "title": "Module 3: Find the Speed — Stack Check",
+  "module": "find-the-speed",
+  "lesson_number": null,
+  "blocks": [
+    {
+      "type": "callout",
+      "content": "11 tools in the stack:\n\n**Module 1 — Trust the Bike:**\n1. The Weighted Drop\n2. The Hip Hinge\n3. The Pressure Window\n4. The Quiet Eye\n\n**Module 2 — Control the Inputs:**\n5. The Braking Budget\n6. The 85% Rule\n7. The Torque Ceiling\n8. The 50-Meter Scan\n\n**Module 3 — Find the Speed:**\n9. The Position Ladder\n10. The Elastic Gap\n11. The Calm Hands Sequence\n\n2 from Module 1. 2 from Module 2. 6 from Module 3.",
+      "style": "tip"
+    },
+    {
+      "type": "quiz",
+      "question": "Spaced retrieval — Module 1: The Hip Hinge decouples which two body systems?",
+      "options": [
+        {
+          "text": "Left side and right side — for independent pedaling",
+          "correct": false
+        },
+        {
+          "text": "Arms and legs — so your hands stay quiet while your legs drive",
+          "correct": false
+        },
+        {
+          "text": "Upper body and lower body — a stable lower body drives the pedals while a loose upper body absorbs terrain",
+          "correct": true
+        },
+        {
+          "text": "Core and extremities — a rigid core with flexible limbs",
+          "correct": false
+        }
+      ],
+      "explanation": "The Hip Hinge decouples upper and lower body. Your lower body is the stable, weighted platform driving the pedals. Your upper body floats above the terrain, absorbing bumps independently through bent elbows and a hinged torso. Road cycling trains you as one rigid unit. Gravel demands two separate systems, and the hip is where the separation happens."
+    },
+    {
+      "type": "quiz",
+      "question": "Spaced retrieval — Module 2: The Braking Budget says to coast through ___.",
+      "options": [
+        {
+          "text": "Rough sections — braking on bumpy terrain causes bouncing",
+          "correct": false
+        },
+        {
+          "text": "Straightaways — save your braking for corners",
+          "correct": false
+        },
+        {
+          "text": "Corners — scrub speed before the turn, coast through it",
+          "correct": true
+        },
+        {
+          "text": "Descents — let gravity do the work",
+          "correct": false
+        }
+      ],
+      "explanation": "Speed-set-coast: scrub speed before the corner, then coast through it. The traction circle means braking and cornering compete for the same limited grip budget. Braking mid-corner demands traction the tire can't provide. The Braking Budget is about spending your stopping power in the right places — straight-line braking zones before turns, not inside them."
+    },
+    {
+      "type": "quiz",
+      "question": "What's the default hand position for gravel descents?",
+      "options": [
+        {
+          "text": "Hoods — for quick access to shifting",
+          "correct": false
+        },
+        {
+          "text": "Tops — for a relaxed, upright position",
+          "correct": false
+        },
+        {
+          "text": "Drops — 22% aero improvement over hoods with full brake lever access",
+          "correct": true
+        },
+        {
+          "text": "Alternating between hoods and drops every few minutes",
+          "correct": false
+        }
+      ],
+      "explanation": "Drops are the default descent position. You get a 22% aero improvement over hoods, full brake lever access (more leverage from the bottom of the lever), and a lower center of mass. Most riders default to hoods because it feels more comfortable — but comfort isn't the goal on a descent. Control and speed are."
+    },
+    {
+      "type": "quiz",
+      "question": "At greater than 12% grade on a gravel descent, where should your body weight be?",
+      "options": [
+        {
+          "text": "Centered over the bottom bracket as always",
+          "correct": false
+        },
+        {
+          "text": "Forward over the handlebars for front-wheel traction",
+          "correct": false
+        },
+        {
+          "text": "Behind the saddle to prevent going over the bars",
+          "correct": true
+        },
+        {
+          "text": "Standing on the pedals with equal weight distribution",
+          "correct": false
+        }
+      ],
+      "explanation": "On steep descents above 12%, gravity wants to pitch you forward over the handlebars. Moving your weight behind the saddle — hips back, arms extended — keeps the rear wheel loaded and prevents the over-the-bars scenario. The steeper the grade, the further back you go. This is the weight shift by gradient principle from Lesson 9."
+    },
+    {
+      "type": "quiz",
+      "question": "Smooth, straight section on a gravel descent — no obstacles, good visibility. What position?",
+      "options": [
+        {
+          "text": "Stay in the drops, ready for anything",
+          "correct": false
+        },
+        {
+          "text": "Sit up and stretch — take advantage of the easy section",
+          "correct": false
+        },
+        {
+          "text": "Aero tuck — drops with elbows in, pedals level, chin low for 30% drag reduction",
+          "correct": true
+        },
+        {
+          "text": "Stand on the pedals to keep blood flowing",
+          "correct": false
+        }
+      ],
+      "explanation": "The Position Ladder: when the terrain allows it, tuck for free speed. A full aero tuck in the drops delivers roughly 30% drag reduction compared to riding upright on the hoods. On a smooth straight descent, that's free time — same gravity, same slope, significantly less air resistance. The key word is 'smooth' — you only tuck when the surface and visibility allow you to commit to the position."
+    },
+    {
+      "type": "quiz",
+      "question": "Draft savings on gravel vs road: roughly how much less efficient is drafting on gravel?",
+      "options": [
+        {
+          "text": "About the same — 25-35% savings on both surfaces",
+          "correct": false
+        },
+        {
+          "text": "About half — 15-25% on gravel vs 25-35% on road",
+          "correct": true
+        },
+        {
+          "text": "Drafting doesn't work on gravel — the speeds are too low",
+          "correct": false
+        },
+        {
+          "text": "Slightly less — 20-30% on gravel vs 25-35% on road",
+          "correct": false
+        }
+      ],
+      "explanation": "Draft savings on gravel are roughly half of road: 15-25% vs 25-35%. Lower speeds mean less aerodynamic benefit, and variable surfaces force larger gaps. But 15-25% power savings is still enormous over a 150-mile race. The Elastic Gap accounts for this — your following distance stretches and contracts with surface quality."
+    },
+    {
+      "type": "quiz",
+      "question": "Name the three signals that tell you it's time to leave a group.",
+      "options": [
+        {
+          "text": "Riders are rude, the pace is boring, you want to ride alone",
+          "correct": false
+        },
+        {
+          "text": "Pace is too hot, too much braking in the group, the group is slower than your solo pace",
+          "correct": true
+        },
+        {
+          "text": "You're at the back too often, pulls are uneven, the group won't rotate",
+          "correct": false
+        },
+        {
+          "text": "Heart rate too high, legs cramping, nutrition window missed",
+          "correct": false
+        }
+      ],
+      "explanation": "Three signals to leave: (1) the pace is too hot — you're above threshold just to hold the wheel, (2) there's too much braking in the group — the ride is surge-and-brake instead of smooth, meaning the draft savings are being eaten by the inefficiency, (3) the group is slower than your solo pace — the draft benefit doesn't compensate for the pace reduction."
+    },
+    {
+      "type": "quiz",
+      "question": "Surface changes from hardpack to loose gravel while you're drafting at 1.5-2 bike lengths. What happens to your gap?",
+      "options": [
+        {
+          "text": "Close it to 1 length — less aero benefit means you need to be closer",
+          "correct": false
+        },
+        {
+          "text": "Maintain 1.5-2 lengths — consistency is key",
+          "correct": false
+        },
+        {
+          "text": "Opens to 3-4 lengths — loose surface means more reaction time needed and less predictable lines",
+          "correct": true
+        },
+        {
+          "text": "Drop back to 5+ lengths — loose gravel drafting isn't worth the risk",
+          "correct": false
+        }
+      ],
+      "explanation": "The Elastic Gap: 1.5-2 bike lengths on smooth surfaces, opening to 3-4 on rough or loose. Loose gravel means less predictable lines from the rider ahead, more debris spray, and longer stopping distances. The gap stretches like a bungee cord — smooth sections pull it tight, rough sections let it open. Never fight to close the gap on bad surfaces."
+    },
+    {
+      "type": "quiz",
+      "question": "Target time for a tubeless tire plug in the field?",
+      "options": [
+        {
+          "text": "Under 1 minute — speed is everything in a race",
+          "correct": false
+        },
+        {
+          "text": "Under 3 minutes — calm hands, clear sequence",
+          "correct": true
+        },
+        {
+          "text": "Under 5 minutes — there's no rush, do it right",
+          "correct": false
+        },
+        {
+          "text": "Under 10 minutes — most riders take this long on race day",
+          "correct": false
+        }
+      ],
+      "explanation": "Under 3 minutes. The Calm Hands Sequence is a practiced, repeatable sequence — not a panicked fumble. When you've repped the repair, your hands know what to do even when your brain is running on fumes at mile 68. The sequence IS the calm. Monthly practice with dirty, tired hands is what separates a 3-minute plug from an 11-mile walk."
+    },
+    {
+      "type": "quiz",
+      "question": "Your tubeless plug won't hold after the first attempt. Next step?",
+      "options": [
+        {
+          "text": "Try a second plug in the same hole",
+          "correct": false
+        },
+        {
+          "text": "Use your second CO2 cartridge to force more sealant to the puncture",
+          "correct": false
+        },
+        {
+          "text": "Don't waste the second CO2 — install a tube",
+          "correct": true
+        },
+        {
+          "text": "Add more sealant and spin the wheel to coat the area",
+          "correct": false
+        }
+      ],
+      "explanation": "Don't waste a second CO2 on a plug that already failed. Install a tube. CO2 cartridges are finite and irreplaceable in the field. One failed plug attempt tells you the puncture is too large or in the wrong location for a plug. Switching to a tube is the reliable fallback — and you practiced that too (target: under 8 minutes). Stubbornness with a failed repair is how a 6-minute stop becomes a DNF."
+    },
+    {
+      "type": "callout",
+      "content": "11 tools. If you can name them all without looking back, you're ready for Module 4: Ride in Flow. The final lesson isn't about learning a new skill — it's about keeping all 11 skills engaged when your body wants to quit being skilled. That's The Final Hour.",
+      "style": "tip"
+    }
+  ]
+}

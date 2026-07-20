@@ -1,0 +1,267 @@
+{
+  "id": "climbing-without-spinning-out",
+  "title": "Climbing Without Spinning Out",
+  "module": "control-the-inputs",
+  "lesson_number": 7,
+  "blocks": [
+    {
+      "type": "hero_stat",
+      "value": "3rd",
+      "unit": "pedal stroke",
+      "context": "is where most gravel climb wheel-spin events happen — the torque spike from standing catches a tire already near its friction limit"
+    },
+    {
+      "type": "black_box",
+      "title": "Incident Report",
+      "content": "Rider approaches a 10% gravel pitch at 9 mph. Road instinct kicks in — they stand out of the saddle and surge, exactly the way they would attack on pavement. First pedal stroke holds. Second stroke, the rear tire chirps. Third stroke, the rear wheel spins freely for a full revolution.\n\nThe standing surge unloaded the rear wheel by shifting the rider's center of mass forward and up. Peak pedal force in a standing surge reaches 1.4x the rider's body weight. On pavement, the tire's coefficient of friction handles this easily. On loose-over-hard gravel, the maximum transmittable torque is roughly 40% lower than pavement.\n\nThe rider sits back down, but they're now in a 53x19 — a gear that requires 350W to turn at 60 RPM on this gradient. Their fatigued power is 220W. Cadence drops to 42 RPM. The bike wobbles. Momentum dies. They unclip and walk.\n\nThe rider next to them never stood. They were seated, hips hinged forward, spinning 78 RPM in a 36x34. Same gradient, same power, half the peak torque per pedal stroke. Zero wheel slip. They crested the climb still pedaling."
+    },
+    {
+      "type": "sensation_target",
+      "label": "Butter, not peanut butter",
+      "content": "Each pedal stroke presses into something that gives smoothly and consistently. No skip. No grab. No surge. The resistance feels like pushing a knife through room-temperature butter — constant, yielding, predictable.\n\nThe moment you feel catch-and-release — a tiny hesitation followed by a jolt of acceleration — you're above the torque ceiling. That catch-and-release is the tire alternating between static and dynamic friction. It's the gravel equivalent of a check engine light: something is about to break.\n\nHere's the calibration: on a loose gravel climb, pedal at a cadence where you could close your eyes and not know the surface had changed. That's the target. If you can feel each pedal stroke individually through the rear tire, your torque is too high."
+    },
+    {
+      "type": "accordion",
+      "items": [
+        {
+          "title": "Torque vs. Traction Physics and Gear Ratio Math",
+          "content": "Every combination of surface, tire, pressure, and gradient has a maximum torque the rear wheel can transmit before it breaks traction. This is the torque ceiling. On pavement, the ceiling is so high you'll never hit it — your legs give out first. On gravel, the ceiling drops dramatically, and it moves around depending on what's under your tire.\n\nThe math is simple. Torque at the rear wheel = pedal force x crank length x gear ratio. For a given power output, torque is inversely proportional to cadence:\n\n- **200W at 60 RPM** = 31.8 Nm at the crank\n- **200W at 80 RPM** = 23.9 Nm at the crank\n- **200W at 100 RPM** = 19.1 Nm at the crank\n\nSame power, same speed, same climb. But the 60 RPM rider is putting 67% more torque through the rear tire per pedal stroke than the 100 RPM rider. On hardpack, this doesn't matter. On loose gravel, that extra torque is the difference between grip and spin.\n\nThis is why cadence strategy on gravel is the opposite of road climbing orthodoxy. On pavement, lower cadence at higher torque is often more efficient for sub-threshold efforts. On gravel, higher cadence at lower torque keeps you under the ceiling."
+        }
+      ]
+    },
+    {
+      "type": "accordion",
+      "items": [
+        {
+          "title": "Why Standing Kills You — Weight Transfer and Torque Spike Physics",
+          "content": "When you stand on a road climb, three things happen:\n\n1. **Weight shifts forward.** Your center of mass moves from above the bottom bracket to above the handlebars. On pavement, this is fine — both wheels have abundant traction. On gravel, you've just unloaded the drive wheel by 15-25% of your body weight.\n2. **Torque spikes.** Standing climbing produces peak pedal forces 1.3-1.5x higher than seated climbing at the same average power. Each downstroke is a hammer blow. On pavement, the tire absorbs it. On gravel, the tire spins.\n3. **Cadence drops.** Most riders stand at 55-65 RPM, vs 75-90 seated. Lower cadence = higher torque per stroke = closer to the ceiling.\n\nThe combined effect is devastating: you've simultaneously reduced rear-wheel traction AND increased the force trying to break that traction. It's a double penalty.\n\nThis doesn't mean you can never stand on gravel. On hardpack, standing works fine. On moderate gradients (under 6-7%), the traction penalty is manageable. But on loose surfaces above 8%, standing is a coin flip — and the coin is weighted against you."
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "content": "Remember the weighted drop from Lesson 1? This is the climbing version. Heavy feet, quiet hands applies here too — but with a twist. On climbs, 'heavy feet' means pressing your weight DOWN through the pedals with smooth, circular strokes, not hammering on the downstroke. And 'quiet hands' means resisting the road instinct to pull on the bars during each pedal stroke. Pulling the bars lifts the rear wheel. Every time.",
+      "style": "tip"
+    },
+    {
+      "type": "prose",
+      "content": "### The Seated Climbing Ready Position\n\nThis is your default position for any gravel climb above 6% gradient on a loose surface.\n\n1. **Hinge at the hips.** Tilt your pelvis forward, bringing your chest closer to the stem. This shifts your center of mass forward without unloading the rear wheel — because you're still seated. Think of dropping your belly button toward the top tube.\n2. **Chin toward stem.** Not dramatically — just enough that your weight distribution favors the front wheel slightly. On steep gravel, the front wheel wants to wander. A slight forward lean anchors it.\n3. **Slide forward on the saddle.** Move 1-2 cm forward from your normal position. This keeps your weight centered over the bottom bracket rather than behind it, where steep gradients naturally push you.\n4. **Hands on the tops or hoods — never the drops.** Drops on a steep climb pull your upper body too far forward and can unweight the rear. Tops give you a relaxed position. Hoods give you brake access for gradient changes.\n5. **Relax your grip.** Death grip on climbs doesn't just waste energy — it makes you pull on the bars with each pedal stroke, which rocks the bike side to side and destabilizes the rear tire. Light hands, smooth circles.\n\nThe result: you're driving power straight down through the rear tire with maximum weight on the contact patch, while your upper body stays quiet and centered. The bike doesn't rock. The tire doesn't skip."
+    },
+    {
+      "type": "prose",
+      "content": "### Cadence Strategy for Loose Surfaces\n\nThe goal is simple: same power output, lower peak torque per pedal stroke. That means spinning faster in an easier gear.\n\n**Target cadence by surface:**\n- Hardpack: Normal climbing cadence (70-85 RPM). No special adjustment needed.\n- Loose-over-hard: Add 5-10 RPM to your normal climbing cadence. The loose top layer is thin but will punish torque spikes.\n- Full loose (deep gravel, sand, mud): Add 10-20 RPM. Spin as fast as you can without bouncing on the saddle. Smooth circles, not pistons.\n\n**The cadence-gradient matrix:**\nAs gradient increases, your speed drops and your available gearing becomes the limiting factor. This is where most riders get caught — they run out of gear before the climb runs out of gradient.\n\n- **Under 6%**: Stand or sit, your choice. Torque ceiling is high enough on most surfaces.\n- **6-8%**: Seated preferred on anything looser than hardpack. Cadence target: 75-85 RPM.\n- **8-11%**: Seated mandatory on loose surfaces. Cadence target: 70-80 RPM. This is the danger zone where gear selection makes or breaks you.\n- **11%+**: You need your absolute easiest gear, and you need to be okay with 60-70 RPM if that's all the gear allows. At this gradient, even perfect technique can't save you if your gearing tops out.\n\nIf your cadence drops below 55 RPM on a loose climb, you're almost certainly above the torque ceiling. The rear tire might not be spinning visibly, but it's micro-slipping on every downstroke — each slip costs you 2-3% of your forward momentum. Over a 20-minute climb, that's minutes lost to invisible traction failures."
+    },
+    {
+      "type": "data_table",
+      "caption": "Peak Pedal Torque by Cadence at Common Climbing Power Outputs",
+      "headers": [
+        "Power (W)",
+        "60 RPM",
+        "70 RPM",
+        "80 RPM",
+        "90 RPM",
+        "100 RPM"
+      ],
+      "rows": [
+        [
+          "150W",
+          "23.9 Nm",
+          "20.5 Nm",
+          "17.9 Nm",
+          "15.9 Nm",
+          "14.3 Nm"
+        ],
+        [
+          "200W",
+          "31.8 Nm",
+          "27.3 Nm",
+          "23.9 Nm",
+          "21.2 Nm",
+          "19.1 Nm"
+        ],
+        [
+          "250W",
+          "39.8 Nm",
+          "34.1 Nm",
+          "29.8 Nm",
+          "26.5 Nm",
+          "23.9 Nm"
+        ],
+        [
+          "300W",
+          "47.7 Nm",
+          "40.9 Nm",
+          "35.8 Nm",
+          "31.8 Nm",
+          "28.6 Nm"
+        ]
+      ]
+    },
+    {
+      "type": "callout",
+      "content": "The table above shows crank torque, not rear-wheel torque. Rear-wheel torque depends on your gear ratio. A 36x34 (1.06:1) transmits nearly the same torque to the wheel as the crank produces. A 40x11 (3.64:1) multiplies it by 3.6x. This is why being in the wrong gear on a gravel climb isn't just uncomfortable — it's mechanically impossible to maintain traction.",
+      "style": "tip"
+    },
+    {
+      "type": "process",
+      "title": "The Torque Ceiling",
+      "description": "The gravel climbing protocol. Deploy on any loose-surface climb above 6% gradient.",
+      "steps": [
+        {
+          "step": 1,
+          "action": "Shift to target gear before the gradient steepens",
+          "detail": "Shifting under load on loose gravel causes chain tension spikes that break rear-wheel traction. Get into your climbing gear early."
+        },
+        {
+          "step": 2,
+          "action": "Slide forward on saddle, chin toward stem",
+          "detail": "Hinge at the hips to shift your center of mass forward without unloading the rear wheel. Anchors the front wheel on steep pitches."
+        },
+        {
+          "step": 3,
+          "action": "Increase cadence 10-15 RPM above your road instinct",
+          "detail": "Same power, lower torque per pedal stroke. The physics are simple: higher cadence keeps you under the traction ceiling."
+        },
+        {
+          "step": 4,
+          "action": "Feel for 'butter not peanut butter'",
+          "detail": "If you feel catch-and-release — a tiny hesitation followed by a jolt — cadence is too low. Shift easier and spin faster until resistance is smooth and constant."
+        },
+        {
+          "step": 5,
+          "action": "Stay seated above 8% on loose surfaces",
+          "detail": "Standing unloads the rear wheel by 15-25% and spikes peak pedal force by 1.3-1.5x. Both push you over the torque ceiling."
+        }
+      ]
+    },
+    {
+      "type": "prose",
+      "content": "### Gearing Check Calculator\n\nWill your gearing survive the steepest pitch on your target race? Enter your details below. If you select a race from the database, max gradient and surface type will auto-populate from 757 race profiles.\n\n**How it works:** Fatigued power = 65% FTP (simulating hour 4+ of a long race). Speed calculated from power = (mass x 9.81 x gradient x speed) + rolling resistance. Cadence derived from speed, gear ratio, and wheel circumference. Pass threshold: cadence >= 55 RPM. Warning zone: 55-65 RPM. Comfortable: 65+ RPM.\n\n_Interactive calculator coming soon — the numbers above are the method._"
+    },
+    {
+      "type": "prose",
+      "content": "### Reading the Calculator Results\n\n**If you got ADEQUATE:** Good. Your gearing can handle the worst this course throws at you — at least on paper. But remember, the calculator assumes fatigued power at 65% FTP. If you've been riding for 8 hours and you're at 50% FTP, the math gets worse. Build in a margin.\n\n**If you got UNDERGEARED:** You have three options, ranked by effectiveness:\n\n1. **Change your cassette.** A 10-51T cassette (SRAM Eagle-style) or 11-46T gives you a bailout gear that will save you on the steepest pitches. This is the correct answer for most riders.\n2. **Change your chainring.** Dropping from a 42T to a 38T or 36T chainring shifts your entire gear range toward easier gears. You lose top-end speed on descents, but on a gravel course with 15%+ pitches, you weren't going to use that top end anyway.\n3. **Get stronger.** This works but takes 6-12 months. The cassette swap takes 15 minutes.\n\nI rode my first gravel race with a 42x11-36 cassette because that's what came on the bike. I walked three climbs. The guy who passed me on every single one was running a 38x11-46. We had similar FTPs. He just did the math beforehand and I didn't."
+    },
+    {
+      "type": "drill",
+      "title": "Cadence Ceiling Finder",
+      "time_minutes": 20,
+      "description": "Climb the same gravel hill four times at increasing cadence to find the exact RPM where rear-tire slip disappears. This maps your personal torque ceiling for this surface and gradient.",
+      "variants": [
+        {
+          "level": "beginner",
+          "label": "Moderate gravel climb (5-8%), endurance pace",
+          "steps": [
+            "Find a gravel climb that takes 2-4 minutes at easy effort. Consistent surface — not a mix of hardpack and loose. You want to isolate the cadence variable.",
+            "Rep 1: Climb at your natural road-climbing cadence. Note your gear, RPM, and any rear-tire slip events. Count them. Even a chirp counts.",
+            "Rep 2: Shift one gear easier, target +10 RPM over your Rep 1 cadence. Same power — just spinning faster. Count slip events.",
+            "Rep 3: Shift one more gear easier, target +20 RPM over Rep 1. At this cadence, the torque per stroke should be noticeably lower. Count slip events.",
+            "Rep 4: Find the cadence where you register zero rear-tire slip for the entire climb. This is your cadence floor for this gradient and surface.",
+            "Cool down with an easy spin back to the start. Record: gradient, surface type, cadence floor, gear used."
+          ]
+        },
+        {
+          "level": "intermediate",
+          "label": "Steep gravel climb (8-12%), sweet spot power",
+          "steps": [
+            "Same structure, but on a steeper pitch with looser surface. The torque ceiling drops with both gradient and surface quality.",
+            "Rep 1: Natural cadence at sweet spot power (88-93% FTP). Count slips. On steep loose gravel, you may get 5+ events in a single climb.",
+            "Rep 2: +10 RPM. You'll need to shift 1-2 gears easier. If you run out of gears, that's data — record it.",
+            "Rep 3: +20 RPM. Focus on smooth, circular pedal strokes. Eliminate any mashing. If your butt bounces on the saddle, you've gone too far.",
+            "Rep 4: Zero-slip cadence. On steep loose gravel, this might require a cadence that feels absurdly high — 90+ RPM on a 10% climb. That's the physics talking.",
+            "Record results alongside your beginner-variant data. You're building a personal torque ceiling map: gradient x surface = minimum cadence."
+          ]
+        },
+        {
+          "level": "race-pace",
+          "label": "Race-simulation climbing, mixed surfaces and gradients",
+          "steps": [
+            "Find a climb with surface transitions — starts hardpack, goes loose, or vice versa. Real race conditions.",
+            "Rep 1: Constant power, constant cadence through the entire climb. Count slips, and note WHERE they happen. The surface transitions are where the torque ceiling shifts under you.",
+            "Rep 2: Same power, but adjust cadence at each surface transition. Shift to an easier gear the moment the surface loosens. Shift back when it firms up. Count slips.",
+            "Rep 3: Add the seated climbing ready position — hinge forward, slide forward on saddle, light hands. Combined with cadence adjustment. Count slips.",
+            "Rep 4: Full race execution. Seated ready position, cadence adjusted by surface, power modulated by gradient (back off 5-10% on the steepest loose pitch, push 5-10% harder on the hardpack sections). Target: zero slips, same average power as Rep 1.",
+            "Compare Rep 1 and Rep 4 times. The technique-optimized run is almost always faster at equal or lower average power."
+          ]
+        }
+      ],
+      "proof_gate": {
+        "description": "Zero rear-wheel spin events on a familiar gravel climb at race-relevant power.",
+        "metric": "binary",
+        "target": "Complete a 3+ minute gravel climb at sweet spot power with zero rear-tire slip events — no chirps, no skips, no full spins"
+      }
+    },
+    {
+      "type": "recovery_protocol",
+      "title": "When Prevention Fails",
+      "scenarios": [
+        {
+          "label": "Rear Wheel Spin-Out",
+          "situation": "Your rear wheel breaks traction mid-climb — you feel the cadence spike and hear the tire buzz against loose surface.",
+          "steps": [
+            "Immediately ease pedal pressure. Reduce force on the downstroke by 50% — but do NOT stop pedaling. A complete pause followed by a restart creates a torque spike that spins the wheel again.",
+            "Shift up 1-2 gears while soft-pedaling. A harder gear at lower cadence sounds counterintuitive, but it reduces the torque spike per stroke that caused the spin. You're trading cadence for smoother force delivery.",
+            "Once the tire re-engages, gradually increase cadence back to your target. Feel for the butter sensation — smooth, constant resistance. If you feel catch-and-release, you're still too close to the ceiling.",
+            "Do NOT stand up. Standing shifts your weight forward, unloads the rear wheel further, and increases peak pedal force by 1.3-1.5x. All three make the spin worse. Stay seated, hips hinged forward, weight driving straight down through the pedals.",
+            "If the wheel spins a second time at the reduced effort, shift one more gear harder and drop power to 80% of what you were holding. Traction takes priority — you can't climb at all if the wheel won't grip."
+          ]
+        },
+        {
+          "label": "Total Traction Loss on Steep Loose Climb",
+          "situation": "The rear wheel is spinning freely, momentum is gone, and you're about to stop on a steep loose pitch.",
+          "steps": [
+            "Shift to your easiest gear BEFORE you come to a full stop. Once you're stationary, shifting under zero chain tension can drop the chain or jam the derailleur. Get the gear right while the wheel is still turning, even slowly.",
+            "If you still have any forward momentum, attempt a trackstand. Level the cranks, apply light pressure to the front brake, and balance. Even 3-5 seconds of stillness lets you restart without unclipping on a steep grade.",
+            "If you must unclip, unclip on the UPHILL side. Unclipping downhill on a steep pitch puts your foot on the low side — the bike tips away from you, and you're chasing it across loose gravel. Uphill foot plants on stable ground above the bike.",
+            "To restart: point the bike at a slight diagonal across the slope (not straight up). This reduces the effective gradient by 20-30%. One firm pedal stroke to get moving, then straighten your line once you have momentum.",
+            "If the surface is too loose to restart at any angle, walk the bike to the next firm section — hardpack, exposed rock, compacted tire tracks. Remount there. Walking 30 meters beats spinning the rear wheel for 2 minutes and going nowhere."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "prose",
+      "content": "### When Standing Actually Works on Gravel\n\nI've spent this entire lesson telling you not to stand. Here's when to break that rule:\n\n- **Hardpack climbs under 8%.** The surface has enough friction to handle the torque spike. Stand if you need to stretch or change muscle recruitment.\n- **Short punchy kickers (under 30 seconds).** Sometimes the gradient spikes to 15%+ for a very short distance. If you can clear it in 20 pedal strokes, a brief standing burst may be faster than trying to shift and spin — as long as you commit fully and don't half-stand.\n- **When you need to accelerate, not sustain.** Standing to gap a competitor on a brief hard section is a legitimate tactic. But do it on the firmest surface available, and sit back down the moment you've made your move.\n\nThe rule of thumb: stand on surface you trust, sit on surface you don't. And if you're not sure about the surface, sit. You can always stand later. You can't un-spin a rear wheel."
+    },
+    {
+      "type": "video",
+      "id": "dWBBh0zIWlI",
+      "mtb_demo": true,
+      "title": "How To Climb Anything On Your Mountain Bike",
+      "channel": "Global Mountain Bike Network",
+      "caption": "Weight balance on loose, steep climbs — keeping the front down and the rear hooked up."
+    },
+    {
+      "type": "knowledge_check",
+      "question": "You're approaching a 2-mile gravel climb that starts at 5% on packed dirt, steepens to 10% on loose rock for half a mile, then eases to 7% on hardpack for the final stretch. You're 4 hours into a race and sitting at roughly 65% FTP. What's your climbing strategy?",
+      "options": [
+        {
+          "text": "Stand and surge the entire climb to maintain momentum and get it over with quickly",
+          "correct": false
+        },
+        {
+          "text": "Stay seated the entire climb in your easiest gear to minimize torque throughout",
+          "correct": false
+        },
+        {
+          "text": "Seated at normal cadence on the packed 5%, shift easier and add 10-15 RPM for the loose 10% section with hips hinged forward, then stand and push the hardpack 7% finish",
+          "correct": true
+        },
+        {
+          "text": "Walk the loose 10% section to save energy for the hardpack finish",
+          "correct": false
+        }
+      ],
+      "explanation": "The correct approach adjusts technique to each surface and gradient. The packed 5% is low enough gradient that normal climbing works. The loose 10% is the danger zone — seated ready position, higher cadence, lower torque per stroke to stay under the ceiling. The hardpack 7% finish is firm enough to stand if you want to push the pace. Walking the loose section costs far more time than spinning through it with proper technique. Staying in the easiest gear the whole time wastes energy on the sections where you have more traction available."
+    },
+    {
+      "type": "commitment",
+      "content": "Your commitment before Lesson 8: ride your regular gravel climb using The Torque Ceiling. Zero rear-wheel spin events. If the rear breaks loose, cadence was too low."
+    },
+    {
+      "type": "callout",
+      "content": "Next lesson: Reading Surfaces at Speed. You've learned to manage traction on climbs — now we train your eyes to predict what's coming BEFORE you reach it. The 50-meter scan, sound as a reading tool, and the four gravel surface signatures. This is the last lesson in Module 2, and it bridges directly to Module 3: Find the Speed.",
+      "style": "next"
+    }
+  ]
+}

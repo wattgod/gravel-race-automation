@@ -1,0 +1,144 @@
+{
+  "id": "pumping",
+  "title": "Pumping: Speed Without Pedaling",
+  "module": "skills-lab",
+  "lesson_number": 16,
+  "blocks": [
+    {
+      "type": "hero_stat",
+      "value": "2-for-1",
+      "unit": "one skill that both absorbs impacts and makes speed",
+      "context": "Pumping is how you carry speed through rolling gravel — dips, whoops, undulating doubletrack — without spending watts. It's the same motion that smooths out chatter. Fair warning up front: it's real physical work, not free speed. But it's watts you'd otherwise never get back."
+    },
+    {
+      "type": "callout",
+      "style": "highlight",
+      "content": "**This is the closest thing to free speed in gravel, and it isn't quite free.** On rolling terrain, a rider who pumps carries momentum through every dip and rise while you pedal-and-coast and bleed speed. The skill is one thing — managing pressure through the bike — and it does two jobs: it makes speed on rolling ground, and it absorbs bumps when you don't want the speed. Learn it once, use it constantly."
+    },
+    {
+      "type": "prose",
+      "content": "### The whole mechanic in one sentence\n\nLee McCormack, who is the canonical source on this, puts it as plainly as it gets: *\"To pump rollers, you unweight on the front sides and press hard on the back sides. This way the fronts don't slow you down, and the backs give you speed.\"*\n\nThat's it. As you crest a roller or the top of a dip, you get light — you let the bike come up into you instead of shoving it into the upslope. As you come over the top and down the back side, you push hard, driving the bike down and forward into the descending face. His cue: *\"Push your legs down the backsides. Do this hard… The heavier you push into a backside, the lighter the bike will be on the frontside.\"* Light on the fronts so they don't brake you, heavy on the backs so they drive you."
+    },
+    {
+      "type": "prose",
+      "content": "### It's the same motion as row/anti-row\n\nYou already met the timing engine in Module 1. Pumping *is* row and anti-row applied to terrain: in the trough you **row** — pull the bars back, push the feet down, drive into the backside. Over the crest you **anti-row** — hinge and push the bars forward, pull the feet up, get light. When you cycle those with the bumps, your hands and feet trace little ellipses and the bike surges. If row/anti-row clicked for you, pumping is that skill pointed at rollers."
+    },
+    {
+      "type": "black_box",
+      "title": "The physics: push through the trough, not down the slope",
+      "content": "Most people pump at the wrong moment, and the physics says exactly when. From engineer and Pinkbike editor Seb Stott: *\"You don't want to extend your arms and legs when you're on the steepest part of the down slope, but the most tightly curved part of the transition… Push through the trough, compress over the crest.\"*\n\nWhy: at the curved bottom of a dip, your push is briefly in line with where you're going, so the work adds speed. On the straight, steepest part of a slope, the same push is aimed partly sideways to your travel and mostly wasted.\n\nAnd the honest part: *\"pumping is not 'free speed.' The work you do pushing yourself away from the ground… is what provides the energy that accelerates you.\"* Anyone who's done a few pump-track laps knows the burn. You're not cheating physics — you're doing real work at the one instant it converts cleanly into speed."
+    },
+    {
+      "type": "sensation_target",
+      "label": "The surge",
+      "content": "A good pump doesn't feel like effort in your legs the way pedaling does — it feels like a shove that arrives half a beat after you push. You compress over the top, then drive down the back, and a moment later the bike squirts forward underneath you like you squeezed it out of the dip. When the timing is off, there's no surge — you just feel like you're doing squats for nothing. Chase the surge. It's the feedback that tells you the push landed in the trough, not on the slope."
+    },
+    {
+      "type": "process",
+      "title": "The Pump Cycle",
+      "description": "The timing, broken into the four moments of a single roller or dip. Learn it on one bump, then chain it. This is row/anti-row aimed at terrain.",
+      "steps": [
+        {
+          "step": 1,
+          "action": "Approach light and low.",
+          "detail": "Come in off the pedals-and-coast habit, in the attack position — low, loose, weight in the feet. Stop pedaling before the terrain; pedaling through it fights the pump."
+        },
+        {
+          "step": 2,
+          "action": "Get light over the crest.",
+          "detail": "As you reach the top of the roller or the near lip of a dip, unweight — anti-row: hinge, push the bars forward, let the bike rise into you. Don't shove the bike into the upslope; that's braking."
+        },
+        {
+          "step": 3,
+          "action": "Push hard through the trough.",
+          "detail": "At the tightly curved bottom — not the steepest part of the slope — drive down and forward. Row: pull the bars back, push the feet down, into the backside. This is where the speed is made."
+        },
+        {
+          "step": 4,
+          "action": "Recover and reload.",
+          "detail": "Come back to light and low, ready for the next crest. On a series of rollers it becomes a rhythm: light-crest, heavy-trough, light-crest, heavy-trough."
+        }
+      ]
+    },
+    {
+      "type": "drill",
+      "title": "One Roller, Then the Track",
+      "time_minutes": 30,
+      "description": "You can't learn pumping by reading it and you can't learn it on a fitness ride. You learn it on repeatable rollers — ideally a pump track, which exists for exactly this — by trying to gain speed without pedaling.",
+      "proof_gate": {
+        "target": "You can roll into a single dip or roller with no pedaling and come out measurably faster than you entered, feeling the surge — then string several together and hold speed through them without a pedal stroke."
+      },
+      "variants": [
+        {
+          "level": "beginner",
+          "label": "One roller or dip, no pedaling",
+          "steps": [
+            "Find one roller, dip, or the bottom of a small gully you can approach the same way repeatedly.",
+            "Coast in — no pedaling through it. Get light over the top, push hard through the curved bottom.",
+            "The test is simple: did you come out faster than a dead coast would have? Compare a passive roll-through against a pumped one. Feel the difference.",
+            "Reps until the surge is repeatable, not accidental."
+          ]
+        },
+        {
+          "level": "intermediate",
+          "label": "Pump track — the cardinal-sin rule",
+          "steps": [
+            "Get to a pump track. This is the tool built for this skill; there is no faster way to learn it.",
+            "One rule: no pedaling. Pedaling is the cardinal sin here — the whole point is to circulate on pump alone.",
+            "Do laps. Early laps you'll die and go slow; that's the work of pumping being real. Keep the timing on the troughs.",
+            "Session goal: complete a lap, however slowly, without a single pedal stroke."
+          ]
+        },
+        {
+          "level": "race-pace",
+          "label": "Rolling gravel — carry it into the real world",
+          "steps": [
+            "On undulating doubletrack or a rolling gravel road, stop pedaling through the dips and pump them instead.",
+            "Notice how much speed you hold across a series of rises that you used to pedal-and-coast through.",
+            "Goal: pump the rolling stuff by default, spending watts only where pumping can't reach."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "video",
+      "id": "04e_s9_LpVA",
+      "mtb_demo": true,
+      "title": "How To Get More Speed From Trails With Pumping | Ben Cathro EP6",
+      "channel": "Pinkbike",
+      "caption": "The exact mechanic this lesson teaches — push through the troughs, float over the crests."
+    },
+    {
+      "type": "knowledge_check",
+      "question": "You're pumping a roller to gain speed. Where and how do you put the power down?",
+      "options": [
+        {
+          "text": "Extend hard on the steepest part of the downslope — that's where gravity helps most",
+          "correct": false
+        },
+        {
+          "text": "Push hard through the tightly curved bottom of the trough, and get light over the crest",
+          "correct": true
+        },
+        {
+          "text": "Pedal hard over the top of each roller to add speed",
+          "correct": false
+        },
+        {
+          "text": "Stay heavy and planted the whole way through to maximize traction",
+          "correct": false
+        }
+      ],
+      "explanation": "Push through the trough, compress over the crest. At the curved bottom your push lines up with your direction of travel, so the work becomes speed; on the steepest straight part of the slope the same push is aimed partly across your path and wasted. Get light over crests so the upslopes don't brake you. Pedaling fights the pump, and staying heavy the whole way erases the light-fronts half of the skill. And remember — this is real work, which is why it's the trough, not everywhere."
+    },
+    {
+      "type": "commitment",
+      "content": "Your commitment: find one roller or dip and prove to yourself you can exit it faster than a dead coast, no pedaling — just timing. If you can get to a pump track, do one no-pedal lap. That surge is the whole skill; everything else is reps."
+    },
+    {
+      "type": "callout",
+      "style": "next",
+      "content": "Pumping turns rolling terrain from a place you spend watts into a place you make speed. Paired with your cornering and limit work, it's how a ride stops being a series of efforts and starts being one connected, flowing line."
+    }
+  ]
+}

@@ -1,0 +1,147 @@
+{
+  "id": "how-to-practice",
+  "title": "How to Practice (So It Actually Sticks)",
+  "module": "start-here",
+  "lesson_number": 0,
+  "blocks": [
+    {
+      "type": "hero_stat",
+      "value": "20 min",
+      "unit": "of focused drilling beats a 3-hour 'just ride'",
+      "context": "Mileage makes you fitter. It does not make you better at riding your bike. This lesson is the operating system for every drill in this course — read it first, and the rest compounds."
+    },
+    {
+      "type": "callout",
+      "style": "highlight",
+      "content": "**Every other lesson hands you a drill. This one is how to run it.** Skill isn't installed by effort or saddle time — it's installed by a specific, repeatable, fairly boring loop. Worth being straight about who's teaching this: I'm not a naturally gifted bike handler. I was a stiff, nervous roadie who got a lot better by practicing deliberately over a long time. That's the whole method. It's slow, it works, and it's available to anyone willing to be bored on purpose."
+    },
+    {
+      "type": "prose",
+      "content": "### Why 'just ride more' quietly fails you\n\nHere's the thing nobody tells the strong self-taught rider: riding more doesn't fix your handling. It cements it. Lee McCormack, who has taught this longer than almost anyone, puts it flatly: *\"If you just go and ride, you will get better at going and riding. Whatever patterns you have are just going to get burned-in.\"* Every hour you spend death-gripping the bars at 60% of grip is an hour spent making the death grip more automatic.\n\nHe's blunt about where that leaves you: *\"If you don't have a natural talent, you might get stronger and you might get less afraid because you have confidence in your bike, but you're not going to get better. You should practice.\"* Strength and confidence are not skill. You can have a huge engine and still corner like a nervous beginner — because the engine was trained and the hands never were."
+    },
+    {
+      "type": "black_box",
+      "title": "The four rungs (a map, not a law)",
+      "content": "Skill acquisition climbs four rungs, and knowing which one you're on tells you what to do next:\n\n**1. Unconscious incompetence** — you don't know you're doing it wrong. (You think you can corner. You can corner on pavement.)\n\n**2. Conscious incompetence** — you now feel the fault. This course's job is to get you here fast; it's uncomfortable and it's progress.\n\n**3. Conscious competence** — you can do it right, but only when you're thinking hard about it.\n\n**4. Unconscious competence** — it's automatic; you do it right without a thought, even scared and tired.\n\nHonest note: this four-rung model is a teaching heuristic, not hard motor-learning science. It's useful because it names the gap between 'I did the drill once' (rung 3) and 'I do it without thinking mid-race' (rung 4). Reps are what carry you across that gap, and almost everyone quits at rung 3."
+    },
+    {
+      "type": "prose",
+      "content": "### How a skill actually engrains\n\nBetterRide's Gene Hamilton breaks improvement into three parts, and they're the right three: *\"1. Knowledge of how to do the skill correctly. 2. Practicing the skill with a focus on quality. 3. Body awareness.\"* Knowledge you get from a lesson. Quality and awareness you only get from reps that you're actually paying attention to.\n\nAnd not just any reps. The motor-learning research is clear on one dissociation: cramming a skill in one blocked session makes you look good *that day*, but **spacing and varying** your practice is what makes it stick weeks later. (Fair caveat: the size of that retention benefit is debated for real-world sport, so don't treat variety as magic — just know that ten minutes daily beats seventy minutes once, and practicing a skill in slightly different spots beats grooving it in exactly one.)"
+    },
+    {
+      "type": "process",
+      "title": "The Practice Loop",
+      "description": "The repeatable engine under every drill in this course. Run any skill through these five steps and it moves from 'I read about it' to 'my body owns it.' This is the tool the whole course is built on.",
+      "steps": [
+        {
+          "step": 1,
+          "action": "Isolate one component.",
+          "detail": "Not 'cornering' — the ONE piece: outside-foot weighting, or eyes-to-exit, or the first-slip point. A skill you can't name a single piece of is a skill you can't practice yet."
+        },
+        {
+          "step": 2,
+          "action": "Drill it slow, until it's boring.",
+          "detail": "Slow speed, low stakes, exaggerated. Boring is the goal — boring means the conscious effort is draining out and the movement is becoming automatic. Excitement means you're still on rung 3."
+        },
+        {
+          "step": 3,
+          "action": "Prove it with a gate.",
+          "detail": "Every drill has a proof gate — a specific, pass-or-fail check. You don't get to say you 'have' a skill because you did it once. You have it when you can do it on demand, both sides, without thinking."
+        },
+        {
+          "step": 4,
+          "action": "Space it, don't cram it.",
+          "detail": "Ten focused minutes several times a week beats one long grind. The rests between sessions are when the pattern consolidates. Put a drill in your warm-up and touch it every ride."
+        },
+        {
+          "step": 5,
+          "action": "Vary it, then chain it.",
+          "detail": "Once a piece is automatic, practice it in different corners, surfaces, and speeds — then combine it with the next piece. Real riding is components chained; you can only chain what each part has become invisible."
+        }
+      ]
+    },
+    {
+      "type": "sensation_target",
+      "label": "What 'automatic' feels like",
+      "content": "You'll know a skill has crossed to rung 4 when it goes quiet. Early on, doing it right feels loud — a checklist you run, effortful and fragile, gone the moment you get scared. Automatic feels like nothing at all: you arrive at the corner and your outside foot is already down, your eyes are already at the exit, and you never decided to do either. That silence — the absence of conscious effort under pressure — is the target. Chase boring. Boring is the sound of a skill becoming yours."
+    },
+    {
+      "type": "drill",
+      "title": "The 20-Minute Block",
+      "time_minutes": 20,
+      "description": "Not a skill drill — a template for how to run every OTHER drill in this course. Use it to turn any lesson's drill into a session that actually sticks.",
+      "proof_gate": {
+        "target": "You can take any drill in this course, name its single component, run it slow until it's boring, and pass its proof gate on demand, both sides — then repeat it across at least three separate days that week."
+      },
+      "variants": [
+        {
+          "level": "beginner",
+          "label": "One skill, one empty space, one focus",
+          "steps": [
+            "Pick ONE drill from one lesson. Just one. Write down the single component it trains.",
+            "Set a 20-minute timer. Do nothing else — no Strava, no 'and then I'll ride home the long way.' This is practice, not a ride.",
+            "Run the drill slow and exaggerated. When your mind wanders, that's the rep talking — bring the focus back to the one component.",
+            "Stop at 20 minutes even if it's going well. Leaving a little in the tank makes you want to come back."
+          ]
+        },
+        {
+          "level": "intermediate",
+          "label": "Space it across the week",
+          "steps": [
+            "Take the same drill and do a 10–15 minute block on three different days this week instead of one long session.",
+            "Each session, start by testing the proof gate cold — can you still do it without a warm-up? That cold test is the real measure of retention.",
+            "Notice it getting quieter and more automatic across the days. That's consolidation doing its work between sessions."
+          ]
+        },
+        {
+          "level": "race-pace",
+          "label": "Vary and chain",
+          "steps": [
+            "Once the component is automatic, run it in three different settings — a tighter corner, a looser surface, a faster entry.",
+            "Then chain it to the next component (e.g. outside-foot weighting + eyes-to-exit together).",
+            "Goal: the piece survives being combined and varied. That's rung 4 — skill you own, not skill you perform."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "video",
+      "id": "kFlEz0GYD3w",
+      "title": "I Practiced Cornering 50 Times A Day For A Week",
+      "channel": "Paul The Punter",
+      "caption": "A rider runs the exact loop this lesson describes — one skill, endless reps. Watch how much a week of deliberate practice changes."
+    },
+    {
+      "type": "knowledge_check",
+      "question": "You've got 90 minutes to spend this week getting better at loose cornering. Which plan actually builds the skill?",
+      "options": [
+        {
+          "text": "One 90-minute ride on your favorite loose trail, cornering as much as possible",
+          "correct": false
+        },
+        {
+          "text": "Three 20-minute focused blocks on separate days drilling ONE cornering component slow, testing the proof gate cold each time, then varying it",
+          "correct": true
+        },
+        {
+          "text": "Watch cornering videos for 90 minutes to build the knowledge first",
+          "correct": false
+        },
+        {
+          "text": "One 90-minute parking-lot session grinding the same corner until it's perfect",
+          "correct": false
+        }
+      ],
+      "explanation": "Skill engrains through spaced, focused, quality reps on an isolated component — three short blocks across the week, each starting with a cold proof-gate test, beats one long session (which grooves whatever you already do, good or bad). Riding the trail is where you USE the skill, not where you build it. Videos give you knowledge (step 1) but not reps. And one long grind is blocked practice — it looks good that day and fades faster than spaced practice."
+    },
+    {
+      "type": "commitment",
+      "content": "Your commitment before you touch any other lesson: pick one drill, run The 20-Minute Block on it, and put it on your calendar for two more days this week. You're not learning a skill yet — you're proving to yourself you can run the loop. Everything else in this course rides on it."
+    },
+    {
+      "type": "callout",
+      "style": "next",
+      "content": "You now have the operating system. Every lesson from here hands you a component and a proof gate — your job is to run them through The Practice Loop until they go quiet. Start with Module 1: Trust the Bike."
+    }
+  ]
+}

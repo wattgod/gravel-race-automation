@@ -1,0 +1,202 @@
+{
+  "id": "trust-stack-check",
+  "title": "Module 1: Trust the Bike — Stack Check",
+  "module": "trust-the-bike",
+  "lesson_number": null,
+  "blocks": [
+    {
+      "type": "callout",
+      "content": "You've built 4 tools so far:\n\n1. **The Weighted Drop** — drop heels, bend elbows, press through pedals, release hands\n2. **The Hip Hinge** — decouple upper and lower body at the hips\n3. **The Pressure Window** — find your tire pressure envelope by surface type\n4. **The Quiet Eye** — central vision 3-5 seconds ahead, peripheral handles the rest\n\nTime to see what stuck.",
+      "style": "tip"
+    },
+    {
+      "type": "quiz",
+      "question": "You hit unexpected washboard at 17 mph. What's the immediate physical response?",
+      "options": [
+        {
+          "text": "Brake to reduce speed before the washboard gets worse",
+          "correct": false
+        },
+        {
+          "text": "Stand up to absorb the bumps with your legs",
+          "correct": false
+        },
+        {
+          "text": "Drop heels, bend elbows, press weight through the pedals, soften your grip",
+          "correct": true
+        },
+        {
+          "text": "Grip the bars tighter and power through it",
+          "correct": false
+        }
+      ],
+      "explanation": "The Weighted Drop is the correct response to any unexpected surface change. Drop heels 10-15 degrees, bend elbows for 3 inches of vertical travel, press 70% of your weight through the pedals, and reduce grip to a 3 out of 10. Braking on washboard reduces traction. Standing shifts weight forward. Gripping tighter starts the death grip cycle."
+    },
+    {
+      "type": "quiz",
+      "question": "What should your palms feel like after 10 minutes of rough gravel?",
+      "options": [
+        {
+          "text": "Red and slightly sore — that means you were holding on properly",
+          "correct": false
+        },
+        {
+          "text": "Tingling from vibration — the bars transmit a lot of energy",
+          "correct": false
+        },
+        {
+          "text": "Exactly the same as when you started — no redness, no soreness, no tingling",
+          "correct": true
+        },
+        {
+          "text": "Numb — reduced blood flow is normal on rough terrain",
+          "correct": false
+        }
+      ],
+      "explanation": "The Palm Check is the proof gate for Lesson 1. If your palms are red, sore, or tingling after rough gravel, your weight was in your hands, not your feet. Correct weight distribution means your palms barely register the ride — the energy goes through your pedals, not your handlebars."
+    },
+    {
+      "type": "quiz",
+      "question": "What's the primary decoupling joint between upper and lower body on gravel?",
+      "options": [
+        {
+          "text": "Knees — they flex to absorb bumps",
+          "correct": false
+        },
+        {
+          "text": "Shoulders — they float above the terrain",
+          "correct": false
+        },
+        {
+          "text": "Hips — the hip hinge separates a stable lower body from a floating upper body",
+          "correct": true
+        },
+        {
+          "text": "Elbows — bent elbows are the primary suspension",
+          "correct": false
+        }
+      ],
+      "explanation": "The Hip Hinge is the decoupling joint. Road cycling trains your body as a single rigid unit — stiff core, locked hips, power from glutes. Gravel demands two separate systems: a stable lower body driving the pedals, and a loose upper body absorbing terrain independently. The hips are where the separation happens."
+    },
+    {
+      "type": "quiz",
+      "question": "Your vision bounces on rough terrain — you can't read a road sign while riding washboard. What's the problem?",
+      "options": [
+        {
+          "text": "You need a suspension fork",
+          "correct": false
+        },
+        {
+          "text": "Your hip hinge isn't engaged — your skeleton is transmitting bumps straight to your head",
+          "correct": true
+        },
+        {
+          "text": "You need to focus harder on the sign",
+          "correct": false
+        },
+        {
+          "text": "Your tire pressure is too low and the bike is wallowing",
+          "correct": false
+        }
+      ],
+      "explanation": "Vision bounce is the telltale sign that the Hip Hinge isn't engaged. When your hips aren't decoupling upper from lower body, every bump travels through your rigid skeleton directly to your head. The proof gate for Lesson 2: you should be able to read a road sign while riding washboard. If you can't, your body is one rigid unit instead of two separate systems."
+    },
+    {
+      "type": "quiz",
+      "question": "Your tires are buzzing on gravel — a high-pitched hum that makes the bike skip across the surface instead of sticking to it. Pressure is too ___?",
+      "options": [
+        {
+          "text": "Low — the tires are folding and creating friction noise",
+          "correct": false
+        },
+        {
+          "text": "High — the tires are bouncing off the surface instead of conforming to it",
+          "correct": true
+        },
+        {
+          "text": "About right — that buzzing sound is normal on gravel",
+          "correct": false
+        },
+        {
+          "text": "Unrelated — tire buzz depends on tread pattern, not pressure",
+          "correct": false
+        }
+      ],
+      "explanation": "Quiet tires are the sensation target for Lesson 3. When pressure is right, the buzzing stops. The bike sticks to the surface instead of skipping across it. You feel the ground through the tire, not the tire bouncing off the ground. High pressure on gravel causes the tire to ride on top of the surface, losing grip and creating that characteristic high-pitched buzz."
+    },
+    {
+      "type": "quiz",
+      "question": "Race day. It rained overnight, and the course is wet. Your dry-condition Pressure Window starts at 32 PSI. How do you adjust?",
+      "options": [
+        {
+          "text": "Add 3-5 PSI for better puncture protection on wet roads",
+          "correct": false
+        },
+        {
+          "text": "Drop 3-5 PSI from your dry baseline to increase the contact patch",
+          "correct": true
+        },
+        {
+          "text": "Keep the same pressure — rain doesn't affect tire grip on gravel",
+          "correct": false
+        },
+        {
+          "text": "Drop 10+ PSI to maximize grip in the mud",
+          "correct": false
+        }
+      ],
+      "explanation": "Wet conditions call for dropping 3-5 PSI from your dry baseline. Lower pressure increases the tire's contact patch, giving you more rubber on the ground when traction is reduced. Dropping too much (10+) risks pinch flats and squirmy handling. Adding pressure makes the problem worse — a harder tire has less grip on wet surfaces."
+    },
+    {
+      "type": "quiz",
+      "question": "Where should your central vision be focused when riding gravel?",
+      "options": [
+        {
+          "text": "On the ground directly in front of your wheel to spot obstacles",
+          "correct": false
+        },
+        {
+          "text": "3-5 seconds ahead of your current position",
+          "correct": true
+        },
+        {
+          "text": "On the rider in front of you",
+          "correct": false
+        },
+        {
+          "text": "Alternating between near and far every few seconds",
+          "correct": false
+        }
+      ],
+      "explanation": "The Quiet Eye technique puts your central vision 3-5 seconds ahead. At 18 mph, that's roughly 50 meters. Your peripheral vision handles near-field obstacles — rocks, ruts, and roots steer around themselves when you're not staring at them. The scanning hierarchy: surface type first, line second, individual obstacles last."
+    },
+    {
+      "type": "quiz",
+      "question": "You see a sharp rock 5 feet ahead on a gravel descent. What do you NOT do?",
+      "options": [
+        {
+          "text": "Trust your peripheral vision and maintain your far focal point",
+          "correct": false
+        },
+        {
+          "text": "Make a subtle weight shift to guide the bike around it",
+          "correct": false
+        },
+        {
+          "text": "Stare directly at the rock and try to steer around it",
+          "correct": true
+        },
+        {
+          "text": "Maintain your current line if the rock isn't in your path",
+          "correct": false
+        }
+      ],
+      "explanation": "Target fixation: looking at the rock makes you hit the rock. At 5 feet, it's too late for a deliberate line change anyway — that decision needed to happen 3-5 seconds earlier. The correct response is to keep your focal point ahead and let peripheral vision guide micro-adjustments. The Quiet Eye means you already identified this obstacle when it was 50 meters out and chose your line accordingly."
+    },
+    {
+      "type": "callout",
+      "content": "If you got 6 or more correct, your Trust stack is solid. You've internalized the foundation: weight through the pedals, hips as the hinge, pressure dialed, eyes ahead. Welcome to Module 2: Control the Inputs.",
+      "style": "tip"
+    }
+  ]
+}

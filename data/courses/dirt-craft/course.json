@@ -1,0 +1,185 @@
+{
+  "id": "dirt-craft",
+  "title": "Dirt Craft: Technical Gravel Mastery",
+  "subtitle": "Stop fighting the bike. Start riding it.",
+  "description": "The skills, numbers, and instincts that separate riders who race gravel from riders who survive it. 12 lessons built around deliberate practice drills, sensation targets, and the emotional journey from fear to flow.",
+  "price_usd": 29,
+  "stripe_payment_link": "https://buy.stripe.com/xxx",
+  "stripe_price_id": "price_xxx",
+  "instructor": {
+    "name": "Matt Rowe",
+    "title": "Head Coach, Gravel God Cycling",
+    "bio": "A reformed roadie who was genuinely terrible at bike handling — rigid arms, death grip, braking in corners, the whole disaster. Got better through years of deliberate practice: slow, boring, repetitive drills that eventually became invisible instinct. Now helping other riders make the same journey, faster."
+  },
+  "what_youll_learn": [
+    "Break the death-grip cycle and let the bike move beneath you",
+    "Find your personal traction envelope on any surface",
+    "Brake, corner, and climb on loose terrain with specific, repeatable technique",
+    "Read surfaces at speed and pre-adjust before transitions",
+    "Descend gravel as play, not survival — using body position for free speed",
+    "Execute field repairs under pressure in under 5 minutes",
+    "Maintain technique under deep fatigue with the 20-minute reset protocol",
+    "Build a Race Setup Card for any of 757 gravel races worldwide"
+  ],
+  "modules": [
+    {
+      "id": "start-here",
+      "title": "Start Here",
+      "tagline": "How to practice so it actually sticks. Read this first — it's the operating system for every drill that follows.",
+      "lessons": [
+        {
+          "id": "how-to-practice",
+          "title": "How to Practice (So It Actually Sticks)",
+          "file": "lessons/00-how-to-practice.json"
+        }
+      ]
+    },
+    {
+      "id": "trust-the-bike",
+      "title": "Trust the Bike",
+      "tagline": "The bike knows what to do. Your job is to stop preventing it.",
+      "lessons": [
+        {
+          "id": "letting-go",
+          "title": "Letting Go",
+          "file": "lessons/01-letting-go.json"
+        },
+        {
+          "id": "your-body-is-the-suspension",
+          "title": "Your Body Is the Suspension",
+          "file": "lessons/02-your-body-is-the-suspension.json"
+        },
+        {
+          "id": "where-traction-lives",
+          "title": "Where Traction Actually Lives",
+          "file": "lessons/03-where-traction-lives.json"
+        },
+        {
+          "id": "the-quiet-eye",
+          "title": "The Quiet Eye",
+          "file": "lessons/04-the-quiet-eye.json"
+        },
+        {
+          "id": "trust-stack-check",
+          "title": "Module 1: Stack Check",
+          "file": "lessons/m1-stack-check.json"
+        }
+      ]
+    },
+    {
+      "id": "control-the-inputs",
+      "title": "Control the Inputs",
+      "tagline": "Replace fear with specific, repeatable technique.",
+      "lessons": [
+        {
+          "id": "braking-that-builds-confidence",
+          "title": "Braking That Builds Confidence",
+          "file": "lessons/05-braking-that-builds-confidence.json"
+        },
+        {
+          "id": "cornering-without-clenching",
+          "title": "Cornering Without Clenching",
+          "file": "lessons/06-cornering-without-clenching.json"
+        },
+        {
+          "id": "climbing-without-spinning-out",
+          "title": "Climbing Without Spinning Out",
+          "file": "lessons/07-climbing-without-spinning-out.json"
+        },
+        {
+          "id": "reading-surfaces-at-speed",
+          "title": "Reading Surfaces at Speed",
+          "file": "lessons/08-reading-surfaces-at-speed.json"
+        },
+        {
+          "id": "control-stack-check",
+          "title": "Module 2: Stack Check",
+          "file": "lessons/m2-stack-check.json"
+        }
+      ]
+    },
+    {
+      "id": "find-the-speed",
+      "title": "Find the Speed",
+      "tagline": "Speed is the byproduct of skill meeting terrain.",
+      "lessons": [
+        {
+          "id": "descending-as-play",
+          "title": "Descending as Play, Not Survival",
+          "file": "lessons/09-descending-as-play.json"
+        },
+        {
+          "id": "pack-dynamics-and-pacing",
+          "title": "Pack Dynamics & Pacing by Terrain",
+          "file": "lessons/10-pack-dynamics-and-pacing.json"
+        },
+        {
+          "id": "when-things-break",
+          "title": "When Things Break",
+          "file": "lessons/11-when-things-break.json"
+        },
+        {
+          "id": "speed-stack-check",
+          "title": "Module 3: Stack Check",
+          "file": "lessons/m3-stack-check.json"
+        }
+      ]
+    },
+    {
+      "id": "ride-in-flow",
+      "title": "Ride in Flow",
+      "tagline": "If you just ride for watts, you cap your enjoyment. If you get good at riding your bike, your enjoyment is endless.",
+      "lessons": [
+        {
+          "id": "the-final-hour",
+          "title": "The Final Hour and Beyond",
+          "file": "lessons/12-the-final-hour.json"
+        },
+        {
+          "id": "flow-stack-check",
+          "title": "Module 4: Stack Check",
+          "file": "lessons/m4-stack-check.json"
+        }
+      ]
+    },
+    {
+      "id": "skills-lab",
+      "title": "Skills Lab",
+      "tagline": "Deliberate practice for the skills that separate riders — finding your traction limit on purpose, and the hops that turn obstacles into timing problems.",
+      "lessons": [
+        {
+          "id": "finding-your-limits",
+          "title": "Finding Your Limits (On Purpose)",
+          "file": "lessons/14-finding-your-limits.json"
+        },
+        {
+          "id": "hops-and-ruts",
+          "title": "Hops, Ledges, and Getting Out of Ruts",
+          "file": "lessons/15-hops-and-ruts.json"
+        },
+        {
+          "id": "pumping",
+          "title": "Pumping: Speed Without Pedaling",
+          "file": "lessons/16-pumping.json"
+        }
+      ]
+    },
+    {
+      "id": "appendix-the-physics",
+      "title": "Appendix: The Physics",
+      "tagline": "Optional. The why behind the what — including the parts nobody has nailed down.",
+      "optional": true,
+      "lessons": [
+        {
+          "id": "the-physics-honestly",
+          "title": "The Physics, Honestly",
+          "file": "lessons/13-the-physics-honestly.json"
+        }
+      ]
+    }
+  ],
+  "meta_description": "Master gravel bike handling: 12 drill-based lessons from fear to flow. Tire pressure calculators, cornering drills, descent technique, Race Setup Cards for 757 races. $29.",
+  "og_image": "course-dirt-craft-og.png",
+  "status": "development",
+  "theme": "desert"
+}

@@ -1,0 +1,294 @@
+{
+  "id": "flow-stack-check",
+  "title": "Module 4: Ride in Flow — Stack Check",
+  "module": "ride-in-flow",
+  "lesson_number": null,
+  "blocks": [
+    {
+      "type": "callout",
+      "content": "\"If you just ride for watts, you cap your enjoyment. If you get good at riding your bike, your enjoyment is endless.\"\n\n12 lessons. 12 tools. This is the final exam — one scenario per tool. No trivia. Just riding.",
+      "style": "tip"
+    },
+    {
+      "type": "quiz",
+      "question": "Mile 15. You're warming up on smooth gravel when the road surface suddenly transitions to chunky, fist-sized rocks. Your front wheel starts bouncing. What tool do you deploy and what does it feel like?",
+      "options": [
+        {
+          "text": "The Braking Budget — slow down before the rocks and coast through",
+          "correct": false
+        },
+        {
+          "text": "The Weighted Drop — heels down, elbows bent, 70% weight through pedals, hands at a 3 out of 10",
+          "correct": true
+        },
+        {
+          "text": "The Quiet Eye — look past the rocks to the smooth section beyond",
+          "correct": false
+        },
+        {
+          "text": "The Pressure Window — your tires are too hard for this surface",
+          "correct": false
+        }
+      ],
+      "explanation": "The Weighted Drop is always the first response to any surface change. It takes a fraction of a second and gives you the stable platform for everything else. Heels drop 10-15 degrees, elbows bend for 3 inches of vertical travel, 70% of weight presses through the pedals, grip drops to a 3. The front wheel stops bouncing because it's free to track the surface instead of transmitting every bump through locked arms."
+    },
+    {
+      "type": "quiz",
+      "question": "Mile 28. You've been on washboard for 3 minutes. Your vision is bouncing — you can't read the terrain ahead clearly. Everything past 20 feet is a blur. Which tool has disengaged, and what's the fix?",
+      "options": [
+        {
+          "text": "The Quiet Eye — refocus your gaze further ahead",
+          "correct": false
+        },
+        {
+          "text": "The Hip Hinge — your upper and lower body have re-coupled into one rigid unit. Rock your pelvis, re-engage the accordion between ribcage and pelvis",
+          "correct": true
+        },
+        {
+          "text": "The Weighted Drop — you've drifted back to the death grip",
+          "correct": false
+        },
+        {
+          "text": "The 50-Meter Scan — you need to read the surface transitions earlier",
+          "correct": false
+        }
+      ],
+      "explanation": "Vision bounce means the Hip Hinge has disengaged. Your skeleton is transmitting bumps from the wheels straight to your head because your hips stopped absorbing vertical displacement. The fix: consciously re-engage the accordion between ribcage and pelvis. Rock your pelvis once to find the hinge. When it's working, your head stays remarkably level while your hips do the absorbing. The proof gate: you should be able to read a road sign while riding washboard."
+    },
+    {
+      "type": "quiz",
+      "question": "Mile 40. You hear a high-pitched buzzing from your tires on a section of loose-over-hardpack. The bike feels skittish and keeps deflecting off small rocks. What tool applies, and what's the target sensation?",
+      "options": [
+        {
+          "text": "The Torque Ceiling — you're applying too much force through the pedals",
+          "correct": false
+        },
+        {
+          "text": "The 50-Meter Scan — you should have read this surface coming",
+          "correct": false
+        },
+        {
+          "text": "The Pressure Window — your tires are too hard. The target is quiet tires that stick to the surface, not skip across it",
+          "correct": true
+        },
+        {
+          "text": "The Weighted Drop — more weight through the pedals will settle the bike",
+          "correct": false
+        }
+      ],
+      "explanation": "Tire buzz and skittish handling on loose-over-hardpack means your pressure is too high for the surface. The Pressure Window target sensation is quiet tires — the bike sticks to the surface instead of bouncing off it. You feel the ground through the tire, not the tire skating on top. If you can stop safely, drop 3-5 PSI. If you can't stop, deploy the Weighted Drop as a short-term compensation — but the real fix is pressure."
+    },
+    {
+      "type": "quiz",
+      "question": "Mile 55. A rock appears 8 feet ahead on a fast gravel descent. You feel the urge to stare at it and jerk the bars. What tool overrides that instinct?",
+      "options": [
+        {
+          "text": "The Braking Budget — scrub speed and steer around it",
+          "correct": false
+        },
+        {
+          "text": "The Weighted Drop — press weight through pedals for stability",
+          "correct": false
+        },
+        {
+          "text": "The Quiet Eye — keep your focal point 3-5 seconds ahead, let peripheral vision handle the rock",
+          "correct": true
+        },
+        {
+          "text": "The 85% Rule — you were going too fast for this terrain",
+          "correct": false
+        }
+      ],
+      "explanation": "The Quiet Eye overrides target fixation. Looking at the rock makes you hit the rock — that's not folk wisdom, it's how motor control works. Your hands steer where your eyes focus. At 8 feet and speed, the line decision already happened when the rock was at 50 meters. Keep your central vision 3-5 seconds ahead. Your peripheral vision registered the rock and your body is already making the micro-adjustment. Trust the system."
+    },
+    {
+      "type": "quiz",
+      "question": "Mile 68. You're descending a wet gravel road toward a sharp left-hand switchback. You need to lose 8 mph before the corner. Where do you brake?",
+      "options": [
+        {
+          "text": "Through the first half of the corner — trail braking is fast",
+          "correct": false
+        },
+        {
+          "text": "In the straight-line braking zone before the corner, front-dominant, then coast through the turn",
+          "correct": true
+        },
+        {
+          "text": "Gradually through the entire approach and corner",
+          "correct": false
+        },
+        {
+          "text": "Hard on the rear brake just before the turn-in point",
+          "correct": false
+        }
+      ],
+      "explanation": "The Braking Budget: speed-set-coast. All braking happens in the straight-line zone before the corner. Front-brake-dominant (70-80% of stopping power). Then you coast through the turn — zero braking input mid-corner. The traction circle means braking and cornering compete for the same grip. On wet gravel, the budget is even tighter. Spend it all before the turn-in, then let the tires do one job at a time."
+    },
+    {
+      "type": "quiz",
+      "question": "Mile 82. You enter a sweeping gravel corner and the surface looks looser than expected. You estimated 18 mph max. The 85% Rule says you should enter at:",
+      "options": [
+        {
+          "text": "18 mph — you estimated correctly, trust your calculation",
+          "correct": false
+        },
+        {
+          "text": "15.3 mph — 85% of 18 mph, the margin accounts for exactly this kind of surface surprise",
+          "correct": true
+        },
+        {
+          "text": "12 mph — when in doubt, go slow",
+          "correct": false
+        },
+        {
+          "text": "16 mph — split the difference between cautious and calculated",
+          "correct": false
+        }
+      ],
+      "explanation": "85% of 18 mph is 15.3 mph. The 15% margin exists precisely for moments like this — when the surface is worse than expected mid-corner. If you entered at your estimated max and the surface degrades, your only options are bad (brake mid-corner, run wide, crash). At 85%, you have traction in reserve. The 85% Rule isn't about being slow — it's about never needing to brake where braking is most dangerous."
+    },
+    {
+      "type": "quiz",
+      "question": "Mile 95. You're grinding up a 10% loose gravel climb. Every 3rd pedal stroke, you feel a skip — the rear tire breaks traction for an instant, then catches. What tool and what's the fix?",
+      "options": [
+        {
+          "text": "The Weighted Drop — shift more weight to your feet",
+          "correct": false
+        },
+        {
+          "text": "The Hip Hinge — decouple your upper body to smooth the power delivery",
+          "correct": false
+        },
+        {
+          "text": "The Torque Ceiling — you're above it. Shift to an easier gear, increase cadence, stay seated with hips hinged forward",
+          "correct": true
+        },
+        {
+          "text": "The Pressure Window — drop tire pressure for more grip",
+          "correct": false
+        }
+      ],
+      "explanation": "The catch-and-release skip is the sensation of exceeding the Torque Ceiling — maximum force before the rear tire breaks loose. The fix: shift to an easier gear and increase cadence. Same power output, lower peak force per pedal stroke. Stay seated — standing on a 10% loose climb unloads the rear wheel and makes it worse. Hinge at hips, chin toward stem. Butter, not peanut butter."
+    },
+    {
+      "type": "quiz",
+      "question": "Mile 108. You're riding at 19 mph when you notice the road surface ahead changes from dark, packed gravel to lighter, looser material. You're 5 seconds away. What tool, and what's the sequence?",
+      "options": [
+        {
+          "text": "The Braking Budget — scrub speed before the transition",
+          "correct": false
+        },
+        {
+          "text": "The 50-Meter Scan — you've identified the transition. Weighted Drop, choose line through the new surface, maintain pressure awareness",
+          "correct": true
+        },
+        {
+          "text": "The Quiet Eye — keep looking past the transition to the surface beyond",
+          "correct": false
+        },
+        {
+          "text": "The Pressure Window — assess whether your pressure is right for the new surface",
+          "correct": false
+        }
+      ],
+      "explanation": "The 50-Meter Scan caught the transition 5 seconds early — exactly as designed. Now execute: Weighted Drop first (heels, elbows, pedal pressure, hands), then choose your line through the new surface (smoothest path, not geometric shortest), then maintain pressure awareness (is the bike responding correctly to this surface?). Pre-adjustment means the transition feels smooth instead of jolting. The rider behind you who didn't scan is about to get a surprise."
+    },
+    {
+      "type": "quiz",
+      "question": "Mile 118. You're on a long, smooth gravel descent — good visibility, no obstacles for 200 meters, gentle grade. The rider ahead is 3 seconds in front of you. How do you maximize free speed?",
+      "options": [
+        {
+          "text": "Close the gap and draft at 1.5 bike lengths for maximum savings",
+          "correct": false
+        },
+        {
+          "text": "The Position Ladder — drops, elbows in, chin low, pedals level. Full tuck on the smooth straight for 30% drag reduction",
+          "correct": true
+        },
+        {
+          "text": "Pedal hard to catch the rider and use the draft",
+          "correct": false
+        },
+        {
+          "text": "Coast and rest — save energy for the next climb",
+          "correct": false
+        }
+      ],
+      "explanation": "The Position Ladder: when terrain allows, climb the ladder to the most aerodynamic position. On a smooth, obstacle-free descent with good visibility, a full aero tuck delivers 30% drag reduction — that's free time, no extra watts. The rider 3 seconds ahead is too far for useful draft anyway. This is the free speed lesson from Lesson 9: same gravity, same slope, same legs, significantly less air resistance."
+    },
+    {
+      "type": "quiz",
+      "question": "Mile 125. You're drafting in a group of 4 on rolling gravel. The surface transitions from hardpack to loose. What happens to your following distance?",
+      "options": [
+        {
+          "text": "Hold tight at 1.5 lengths — don't lose the draft",
+          "correct": false
+        },
+        {
+          "text": "Drop back to 5+ lengths — loose surface drafting isn't safe",
+          "correct": false
+        },
+        {
+          "text": "The Elastic Gap opens from 1.5-2 lengths to 3-4 lengths — the bungee stretches on rough surfaces",
+          "correct": true
+        },
+        {
+          "text": "Move to the side for a better line rather than adjusting gap",
+          "correct": false
+        }
+      ],
+      "explanation": "The Elastic Gap: your following distance behaves like a bungee cord. Smooth hardpack pulls it tight (1.5-2 bike lengths). Loose gravel lets it stretch (3-4 lengths). The rider ahead will take less predictable lines on loose surfaces, debris spray increases, and your stopping distance grows. Never fight to close the gap on bad surfaces — the draft benefit isn't worth the crash risk. The gap will naturally close again when the surface improves."
+    },
+    {
+      "type": "quiz",
+      "question": "Mile 133. You hear a sudden hissing from your rear tire — sealant spraying. You pull over. The puncture is a clean 3mm hole from a thorn. What tool, and what's the sequence?",
+      "options": [
+        {
+          "text": "Remove the tire, install a tube, inflate with CO2",
+          "correct": false
+        },
+        {
+          "text": "Add more sealant and spin the wheel",
+          "correct": false
+        },
+        {
+          "text": "The Calm Hands Sequence — locate the hole, insert the plug, wait for sealant to bond, spin the wheel to verify, ride",
+          "correct": true
+        },
+        {
+          "text": "Ride on it — sealant will handle a 3mm hole eventually",
+          "correct": false
+        }
+      ],
+      "explanation": "The Calm Hands Sequence. A clean 3mm thorn hole is the textbook plug scenario. Locate the hole (sealant spray tells you where), insert the plug tool with a bacon strip, let sealant bond to the plug, spin the wheel to verify the seal, ride. Under 3 minutes if you've practiced monthly. Save the CO2 and the tube for when the plug fails. Calm hands, clear sequence — the sequence IS the calm."
+    },
+    {
+      "type": "quiz",
+      "question": "Mile 140 of 150. Your forearms ache. You're riding the geometric line through corners instead of the surface-optimal line. You almost missed a braking point. You don't feel like anything is wrong — you just feel tired. What tool do you deploy?",
+      "options": [
+        {
+          "text": "The Weighted Drop — re-engage heavy feet, quiet hands",
+          "correct": false
+        },
+        {
+          "text": "The Braking Budget — start braking earlier to compensate for slower reactions",
+          "correct": false
+        },
+        {
+          "text": "The 20-Minute Reset — run the full body scan: heavy feet? quiet hands? hinge moving? breathing anchored? eyes on far target? Find the click",
+          "correct": true
+        },
+        {
+          "text": "Just push through — 10 miles to go, technique can wait",
+          "correct": false
+        }
+      ],
+      "explanation": "The 20-Minute Reset. What you're describing is Stage 3 of the fatigue cascade — line choice collapse and contracted scan distance — with Stage 4 (reactive braking) beginning. You don't feel like anything is wrong because the degradation is invisible from the inside. The 20-Minute Reset is the 10-second body scan: heavy feet? Quiet hands? Hinge moving? Breathing anchored? Eyes on far target? Each correction takes a fraction of a second. Then the click — the moment the right pattern re-engages. It won't last forever. Fatigue will erode it again. That's why you scan every 20 minutes. The click is renewable."
+    },
+    {
+      "type": "callout",
+      "content": "You built 12 tools across 12 lessons:\n\n1. The Weighted Drop\n2. The Hip Hinge\n3. The Pressure Window\n4. The Quiet Eye\n5. The Braking Budget\n6. The 85% Rule\n7. The Torque Ceiling\n8. The 50-Meter Scan\n9. The Position Ladder\n10. The Elastic Gap\n11. The Calm Hands Sequence\n12. The 20-Minute Reset\n\nThis course is training wheels you're meant to grow out of. The drills stop being drills and become how you ride. The checklists stop being checklists and become automatic. The tools stay — they're yours now.\n\nGo ride.",
+      "style": "tip"
+    }
+  ]
+}

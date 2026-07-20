@@ -1,191 +1,244 @@
-# Bikepacking Product Program: Guide + TP Plans + Custom Pipeline
+# Bikepacking Product Program: Guide + TP Plans + Custom Pipeline — v2
 
-Drafted 2026-07-20 (Fable). Status: awaiting codex-sol adversarial review, then owner
-gates per workstream. Execution model per owner: **Fable = spec/dispatch/review/
-verify/commit; codex = execution; codex-sol = adversarial review of this spec and of
-each workstream's output.** This program IS Phase 6 of
-`docs/specs/road-catalog-migration-spec.md`, executed.
+v2 drafted 2026-07-20 after codex-sol G0 review returned NO-GO with 8 blockers; all
+were verified against live code and are folded below. Status: awaiting G0.2 (sol
+re-review of THIS version), then owner gates per workstream. Execution model:
+**Fable = spec/dispatch/review/verify/commit; codex = execution; codex-sol =
+adversarial review of spec and outputs.** This program IS Phase 6 of
+`docs/specs/road-catalog-migration-spec.md`, executed; per D-X1 the Ultra shelf
+(that spec's Phase 5) ships in gate G1 as part of WS-G's scope.
 
-## Evidence base (binding)
+## Evidence base
 
-- `docs/whitepapers/ultra-bikepacking-training-white-paper.md` (v1, evidence-tiered)
-- `docs/research/ultra-bikepacking-coaching-market.md` (verified/cited market research)
+- `docs/whitepapers/ultra-bikepacking-training-white-paper.md` v1.1 (owner review
+  pending; the §7/§10 sleep contradiction sol found is fixed — rehearsed low
+  points exclude sleep restriction). Owner approval of the white paper happens AT
+  G0.5 (authoritative; the method contract and white paper are reviewed together —
+  D-M1). G1's content gate then covers guide copy only.
+- `docs/research/ultra-bikepacking-coaching-market.md` (verified market research).
+- GA4 (90d, pulled 2026-07-18): bikepacking page views — torino-nice-rally 40,
+  colorado-trail-race 28, tour-divide 30 (17+13 across two path rows), badlands 23,
+  atlas-mountain-race <10.
 
-Hard rules inherited from both: **(R1)** no copy anywhere may claim or imply
-first-person ultra-racing experience; authority = method + evidence + the rated race
-database. **(R2)** no 12-week ultra plan product exists in this program — formats are
-4-month and 6-month (market-verified). **(R3)** no fabricated proof of any kind
-(testimonials, results, anecdotes). **(R4)** sleep-deprivation training is excluded
-from all products. **(R5)** every load-bearing claim in customer-facing content
-traces to a white-paper tier or a cited source; `[position]`-tier claims are stated
-as coaching positions, not facts.
+## Hard rules (R1–R5) and their enforcement scope
 
-## Voice/register (binding)
+| Rule | Scope (all customer-visible artifacts) | Enforcement point |
+|---|---|---|
+| R1 no first-person ultra claims | guide copy, plan titles/descriptions, ZWO text, calendar notes, custom-plan guides/welcome docs | banned-phrase guard in each repo's test/QC layer |
+| R2 no 12-week ultra SKU | TP catalog + marketing copy. NUANCE (custom pipeline): an athlete intake <16 weeks from an ultra race is SERVED, not rejected — the plan is framed honestly as time-limited preparation ("you are playing catch-up; here is what fits") and never titled or sold as an ultra plan format | registry/QC checks (WS-P); framing template + test (WS-C) |
+| R3 no fabricated proof | everywhere | existing anti-fabrication guards + review gates |
+| R4 no sleep-deprivation training | white paper §10, all plan/guide content; simulations must carry recovery windows | ultra QC profile checks + banned-content guard |
+| R5 claims trace to evidence tiers | guide (per-chapter sources block, schema-validated), plan descriptions, custom guide ultra sections | WS-G: JSON schema validator. WS-P: C5-ultra requires a `sources:` sidecar per SKU description (claim → tier/URL), checked by the ultra QC profile's audit step. WS-C: training-guide builder emits the same sidecar for ultra sections; plan-truth validates its presence. |
 
-Guide prose: the established guide register — Claude-authored, plain and useful,
-Matti's voice leaking through naturally, "not trying too hard" (owner precedent from
-the road guide build). Normie gate applies (no unexplained TSS/FTP/CTL jargon). Plan
-descriptions: the C5 seven-tier system-sans template + Built-For register (fit
-claims, no selling verbs, no outcome promises). CTAs use corner canon where coaching
-appears. Editorial-loud/offer-quiet split holds everywhere.
-
----
-
-## WS-G — The Bikepacking Guide (lead magnet, gravelgodcycling.com)
-
-**Template**: `guide/gravel-guide-content.json` schema (title/subtitle/
-meta_description/personalization/glossary/chapters[8] with sections[]), rendered by
-`wordpress/generate_guide.py`, email gate on chapters 4–8
-(`build_chapter_email_capture`, capture POSTs to the fueling-lead-intake worker —
-live infra, do not rebuild), GA4 guide events, end-of-chapter quiet capture.
-
-**Deliverables**
-1. `guide/bikepacking-guide-content.json` — 8 chapters mirroring the gravel guide's
-   arc, adapted to the ultra demand profile:
-   1. What Ultra Bikepacking Actually Asks (demand profile: repeatability not
-      peak-day; the 100mi/5,500ft-per-day framing; who these races are for)
-   2. Choosing Your Race (the rated ultra shelf — Tour Divide, CTR, TCR, Atlas,
-      Badlands et al., tiers/scores from race-data; free-route vs fixed-route)
-   3. Training for Repeatability (white paper §2–4: 6–9 month horizon, base
-      without catch-up, durability blocks, back-to-back days, simulation)
-   4. Systems: Bike, Pack, Sleep (verified practitioner doctrine, cited; gear
-      decision deadlines; test-before-race rule)
-   5. The Energy Economy (in-ride fueling → daily replenishment → appetite
-      management; resupply-constrained eating)
-   6. The Mental Game (pre-commitment: quitting rules written in advance;
-      segment thinking; rehearsed low points; "every athlete is their own worst
-      blindspot" mechanism)
-   7. Race Logistics (resupply mapping, navigation/route research, dot-watching
-      etiquette and rules-of-the-event self-supported ethics)
-   8. Simulation, Race Week & Beyond (the 2–4 day shakedown, final consolidation,
-      post-race recovery and what compounding multi-day fatigue means after)
-   Each chapter: 5–9 sections, glossary entries for new terms, personalization
-   hooks matching the existing schema. A `sources` block per chapter mapping
-   load-bearing claims → white-paper tier or URL (renderer may ignore it; it is
-   the audit trail satisfying R5).
-2. Generator support: parameterize `generate_guide.py` (content file + URL slug +
-   GA4 label as inputs) OR a thin `generate_bikepacking_guide.py` wrapper —
-   whichever the existing code structure makes least invasive; output at
-   `/bikepacking-guide/`, same gate mechanics (ch 4–8), capture source value
-   `bikepacking_guide` so Mission Control can branch the welcome context
-   (`wb_guide`-style) without new worker code.
-3. CTAs inside the guide: race pages (ultra shelf), coaching (corner canon line).
-   NO plan CTAs until WS-P ships; then chapter 3/8 CTAs may point at the ultra
-   plan SKUs. Never a 12-week plan CTA (R2).
-4. Tests mirroring the existing guide test surface (gate present on 4–8, GA4,
-   fonts, capture wiring, no-slop pass) + R1/R2 guards (banned first-person ultra
-   phrases list; no "12-week" in guide copy).
-
-**Owner gates**: D-G1 title/positioning (working title "The Bikepacking Race
-Guide" under Gravel God, presented on the Ultra shelf); Matti reads full content
-before deploy (fork-governance rule: no public content without his yes).
+Voice/register: unchanged from v1 (guide register per road-guide precedent; C5 +
+Built-For for descriptions; corner canon for coaching CTAs; Normie gate).
 
 ---
 
-## WS-P — TrainingPeaks marketplace bikepacking plans
+## G0.5 — THE METHOD CONTRACT (new; blocks WS-P and WS-C engine work)
 
-**Method source**: `../gravel-god-training-plans` — base-library engine (race-neutral
-masters + variations), Durability workout library, 360 Testing Week opener
-(TP 230732 precedent), strength system, description generator
-(`tools/description_generator/GENERATE.md` + C5 in `qc/SOL_QC_SPEC.md`),
-SWARM_RUNBOOK QC gates, TP upload last-mile (browser automation recipes in
-tp-maintenance memory/docs).
+Sol's core finding: no normative 16/24-week method exists, and letting two repos
+implement it independently invites incompatible products. Therefore a single
+deliverable precedes both engines:
 
-**Product (from verified market evidence)**
-- Formats: **16-week ("4-month") and 24-week ("6-month")** ultra plan masters —
-  never 12 (R2). Market price benchmark $65–75 (UltraMTB); our band decision is
-  D-P1.
-- Each plan bundles the **prep guide** (WS-G content exported as the plan's
-  document payload / linked hosted guide — the verified UltraMTB template: plans
-  ship WITH prep education).
-- Phase structure per white paper §4: base → durability build (back-to-back long
-  days, fatigue-resistance sessions from the Durability library) → specificity +
-  loaded simulation block (multi-day entries with explicit systems-shakedown
-  instructions) → consolidation/taper. 360 Testing Week opens. Strength/mobility
-  as a parallel track (positional sustainability bias). RPE-forward targets with
-  power/HR as secondary (ultras are paced by judgment).
-- Per-race SKUs per OD-1 (fragmentation intentional): pilot subset D-P2 —
-  recommend Tour Divide, Colorado Trail Race, Atlas Mountain Race first (highest
-  GG page traffic among the 14), each in both formats; race-neutral "Ultra Base"
-  master underneath, race variations layered the standard way.
-- Descriptions: C5 template + Built-For register; explicit horizon honesty ("this
-  plan assumes N hours/week and a base of X — it is not a crash plan"); R1 guard.
+**`docs/specs/ultra-method-contract.md`** (authored by Fable from the white paper,
+sol-reviewed, Matti-approved) defining, week by week for 16w and 24w:
+- prerequisites (base hours floor; what "not playing catch-up" means numerically)
+- phase boundaries (base / durability build / specificity+simulation /
+  consolidation-taper) for each duration
+- recovery cadence (incl. Masters every-3rd-week rule interaction)
+- consecutive-long-day rules (when back-to-backs enter, max stacking, recovery after)
+- simulation block: timing, length (2–4 days), loaded requirement, systems
+  checklist content, mandatory recovery window after (R4)
+- testing cadence: 360 Testing Week opener + retest schedule for 16/24w (current
+  engine retests once mid-plan and its COPY hardcodes "next 11 weeks"/week-seven
+  retest — the contract defines correct cadence and the copy templates must be
+  parameterized by plan length)
+- strength track periodization incl. taper behavior
+- end-state: multi-day race-start behavior replacing the single-Saturday race-week
+  model
+- normative weekly volume/load progression (hours and long-day dose per week,
+  per duration), intensity-session frequency by phase, taper/consolidation load
+  numbers, athlete-availability scaling rules (what bends first when weekly hours
+  are below prescription)
+- race-variation rules (how a race's demand profile perturbs the neutral master)
+- boundary behavior: below minimum viable runway (<16w catch-up framing, R2
+  nuance) and beyond 36 weeks (hold-then-build rule)
+- custom-pipeline adaptation rules: mapping to arbitrary lengths 16–36w
 
-**QC**: existing swarm gates (physiology validation, normie lint as C5 subset,
-sol per-SKU audit) + a new ultra-specific check: no plan may schedule
-sleep-deprivation training (R4) and simulation blocks must carry recovery windows.
-
-**Owner gates**: D-P1 pricing; D-P2 pilot race subset; publish gate (plans go
-private → Matti reviews → public, per the roll's standard flow).
+WS-P and WS-C both implement THIS document. Any deviation found in either
+implementation is a defect, not a choice.
 
 ---
 
-## WS-C — Custom training plan pipeline: bikepacking discipline
+## WS-G — The Bikepacking Guide + Ultra shelf
 
-**Source**: `../athlete-custom-training-plan-pipeline`. The pipeline already has a
-discipline axis (`derive_discipline: gravel/road/mtb from target race`;
-`workout_selector.py: phase × archetype × discipline`). Bikepacking becomes the
-fourth discipline value, NOT a fork.
+Sol verified the "existing guide path" claim false: `generate_guide.py` is a
+DEPRECATED monolith hardcoded to the gravel content file; the live system is
+`generate_guide_cluster.py` with a fixed 8-chapter metadata map, FormSubmit chapter
+gate (tests require it), worker-based end-of-chapter capture with fixed source
+`training_guide`, and /guide-hardcoded deploy, sitemap, and validation. The worker
+allowlist rejects unknown sources. WS-G is therefore a **multi-guide architecture**
+job with this explicit inventory:
 
-**Deliverables**
-1. `derive_discipline` recognizes the ultra races (the 14 rated + any bikepacking
-   race in race intake free-text) → `bikepacking`.
-2. Selection rules for the discipline: durability-dominant session mix, long-ride
-   progression with loaded/back-to-back variants, simulation-block insertion for
-   plans ≥16 weeks, strength track default ON, RPE-forward workout targets.
-3. Horizon support: verify and, if needed, extend max plan length to ≥36 weeks;
-   intake accepts race dates ≥6 months out without warning. Pricing: existing
-   $15/wk with cap (cap value for long horizons = D-C1; XC precedent caps at
-   $249) — implement against whatever cap Matti sets, no hardcoded new number.
-4. Intake: OPTIONAL ultra fields (target daily riding hours, prior multi-day
-   experience, sleep-system ownership) — all recoverable-optional per the
-   order-killer rule; absence never blocks plan generation.
-5. Plan-truth/compliance gates extended to the new discipline; one new case in the
-   daily E2E harness (~/gg-e2e/) exercising a bikepacking intake end-to-end.
-6. Delivery copy (plan notes, welcome doc) inherits R1–R5.
+1. **Cluster generator parameterization** (`generate_guide_cluster.py`): extract a
+   GuideConfig (content file, url base, chapter metadata map, GA4 event labels,
+   localStorage keys, gate form subject/source labels, CTA set, glossary). Gravel
+   guide = config #1 producing byte-identical output (regression-tested); the
+   bikepacking guide = config #2 at `/bikepacking-guide/` with collision-free
+   storage keys and GA4 labels.
+2. **Content**: `guide/bikepacking-guide-content.json` — 8 chapters as v1 described
+   (demand profile / race selection on the Ultra shelf / training for repeatability
+   / systems / energy economy / mental game / logistics / simulation+race week),
+   each chapter carrying a `sources` block (claim → white-paper tier or URL); a
+   JSON schema validator enforces the block's presence and shape (R5).
+3. **Gate + capture — worker-first (binding repo rule CLAUDE.md "every email form
+   MUST POST to its Cloudflare worker"; the gravel cluster's FormSubmit gate is a
+   grandfathered violation and is NOT copied)**: chapter 4–8 gate POSTs to the
+   fueling-lead-intake worker with honeypot (unlock never network-blocked;
+   FormSubmit allowed only as documented no-JS fallback, per the XC gate
+   precedent), and the end-of-chapter quiet capture uses the same worker; both use
+   NEW source value `bikepacking_guide`:
+   - worker.js allowlist + tests + wrangler deploy (the allowlist currently 400s
+     unknown sources — verified)
+   - Mission Control: map `bikepacking_guide` → guide-context welcome branch (the
+     wb_guide-style branch; confirm mapping rather than falling through to
+     `new_subscriber` default)
+4. **Deploy/validation surface**: push_wordpress sync for the new cluster path;
+   generate_sitemap.py addition; validate_deploy.py checks; robots/llms.txt
+   mention (llms generator already regenerates at deploy).
+5. **CTA truth**: the cluster's always-rendered training/coaching CTA block becomes
+   config-driven: bikepacking guide launches with CTAs → Ultra shelf race pages +
+   coaching (corner canon). Plan CTAs are added only when WS-P SKUs are live, and
+   then point at the 16/24-week SKUs (never 12-week — R2 guard in tests).
+6. **Ultra shelf (from migration spec Phase 5, pulled into this gate per D-X1)**:
+   rankings/search/homepage surfaces label bikepacking+mtb as "Ultra &
+   Bikepacking"; race-page custom-plan CTA suppressed for discipline=bikepacking
+   (until WS-C ships, then it may point to the custom pipeline with honest
+   horizon framing); coaching CTA unchanged. NOTE: gravel race-page generator work
+   must respect whatever branch/pilot state the concurrent race-page redesign
+   session has live — coordinate at execution time, verify live markers first.
+7. **Tests**: gravel-guide byte-parity regression, new-guide gate/capture/GA4/
+   fonts/slop, R1/R2 banned-phrase guards, sources-schema validation, sitemap and
+   deploy-validation coverage.
 
-**Owner gate**: D-C1 pricing cap; pipeline changes reviewed by sol before merge
-(standing pipeline practice), never `git add -A`, worktree if the concurrent
-committer is active.
+**Owner gate G1**: Matti reads full guide content + approves shelf presentation
+before deploy.
 
 ---
 
-## Sequencing & process
+## WS-P — TrainingPeaks marketplace ultra plans
 
-- **G0 (now)**: codex-sol adversarial review of THIS spec against all three repos;
-  Fable verifies sol's findings against live code, folds confirmed ones.
-- **G1**: WS-G build (codex executes content + generator; Fable verifies, tests,
-  Matti reads content, deploy via existing guide deploy path).
-- **G2**: WS-P engine + pilot SKUs (codex in gravel-god-training-plans; sol QC per
-  SKU; Matti pricing + publish gates).
-- **G3**: WS-C pipeline discipline (codex; sol review; E2E green).
-- WS-G and WS-P engine work may run in parallel AFTER G0 (different repos); WS-P's
-  bundled-guide payload depends on WS-G content freeze.
-- Each workstream: own commits, targeted staging, concurrent-session check, tests
-  green before any commit, no deploy without the workstream's owner gate.
+Reality (sol-verified): registry masters max out at 16 weeks; the engine has
+generic phases, ONE weekly long ride, an "ultra" selection overlay but no
+simulation block, a single-Saturday race-week model, one mid-plan retest with
+hardcoded-length copy. The QC contract (C5) assumes one-day races, 7-tier copy,
+`<Race> · <Tier> · <N>wk` titles, fixed prices. The physiology validator
+classifies by title keywords and never fails its exit status.
 
-## Anti-goals
+**Deliverables (all implement the G0.5 method contract):**
+1. **Engine**: 16w and 24w ultra masters — schedule_builder support for
+   consecutive long-day patterns and the simulation block; multi-day end-state
+   replacing race-Saturday; retest cadence + testing-week copy parameterized by
+   plan length; Masters interaction per contract; strength track wiring.
+2. **Product structure** (resolves sol's SKU-mapping gap): one race-neutral
+   **Ultra Base** master per duration (2 masters). Pilot SKUs = per-race
+   variations for **Tour Divide, Colorado Trail Race, Badlands** (GA4-cited above;
+   Torino-Nice excluded as a non-competitive rally; Atlas dropped — traffic
+   evidence didn't support it) × both durations = **6 SKUs**, single level
+   ("Finisher") for the pilot. Titles: `<Race> · Ultra · 16wk|24wk`. Prices:
+   $129/$199 (D-P1, constants in one place).
+3. **Guide delivery — decided**: the repo's existing proven mechanism — hosted
+   guide link as its own Day-1 calendar note (SWARM_RUNBOOK §G, "NO PDF",
+   reference notes 2393661-667). The note links the WS-G hosted guide. No TP
+   attachment experiments.
+4. **Ultra QC profile** (versioned, replaces "run existing gates"): C5-ultra
+   variant (title/price/copy-structure rules for the 2-duration ultra family;
+   multi-day end-state expectations; 7-description structure adapted or
+   explicitly waived per section); physiology validator gains ultra checks
+   (phase sequencing vs contract, simulation presence + recovery window, no
+   sleep-dep content, consecutive-day rules) AND a failing exit status; R1/R2
+   description guards; sol per-SKU audit stays.
+5. **Descriptions**: C5-ultra + Built-For; explicit prerequisites line (base
+   hours floor from the contract; "this is not a crash plan").
 
-No new brand. No 12-week ultra SKU ever. No first-person ultra narrative. No
-fabricated proof. No sleep-deprivation training content. No claiming the white
-paper's `[position]` tier as settled science in customer copy.
+**Owner gates**: publish flow (private → Matti review → public) per the roll.
 
-## Owner decisions — RESOLVED 2026-07-20
+---
 
-- **D-G1 (title)**: "The Complete Bikepacking Race Training Guide" — mirrors the
-  gravel guide's exact title pattern ("The Complete Gravel Racing Training Guide");
-  subtitle: "Everything you need to know about ultra-distance bikepacking races —
-  from systems to training to the mental game." Fable's call per owner delegation;
-  positioned under Gravel God on the Ultra shelf, URL /bikepacking-guide/.
-- **D-P1 (plan pricing)**: owner ruled $65–75 too low. Set **$129 (16-week) /
-  $199 (24-week)** — per-week parity with the $99/12-week gravel ceiling
-  (~$8.25/wk), sits above the whole existing catalog as the premium anchor the
-  cross-discipline teardown recommended, justified by length + bundled guide.
-  Constants live in one place; trivially adjustable at publish gate.
-- **D-P2 (pilot SKUs)**: Tour Divide, Colorado Trail Race, Atlas Mountain Race
-  (highest-traffic ultra pages), each in both formats, over a race-neutral Ultra
-  Base master.
-- **D-C1 (custom cap)**: SAME cap as all other races — $15/wk, existing $249 cap;
-  no new pricing logic, long horizons simply hit the cap.
-- **D-X1**: Ultra shelf (migration-spec Phase 5) ships WITH WS-G in gate G1 —
-  owner confirmed.
+## WS-C — Custom pipeline: bikepacking discipline (full migration map)
+
+Sol-verified reality: `derive_discipline` returns gravel/road/mtb;
+`build_race_snapshot.py` labels discipline from source DIRECTORY (so the 14
+bikepacking profiles enter as explicit `gravel`, which outranks name keywords);
+three-discipline assumptions live in the selection overlay config, training-guide
+branding/methodology dispatch, and fueling speed/duration math; generation clamps
+at 4–26 weeks; date-derived classification clamps at 24 and defaults to 12.
+
+**Migration map (every consumer changes together, one commit series):**
+1. `build_race_snapshot.py`: discipline from `gravel_god_rating.discipline` (or
+   race JSON field), not directory; regenerate the snapshot; assert the 14 races
+   carry `bikepacking`.
+2. `archetype.py derive_discipline`: fourth value + race-name keyword fallback.
+3. Scheduling layer — where the method actually lives (workout_selection.yaml
+   only rotates alternatives): `calculate_plan_dates.py` (runway/phase windows),
+   the calendar/block builders (back-to-back long-day patterns, simulation-block
+   insertion ≥16w, strength activation), race-day overlays (multi-day start
+   behavior), `block_compliance.py` and the plan-truth validator (both must
+   assert the ultra contract, not just tolerate it). `workout_selection.yaml`
+   gets only the selection-rotation overlay (durability-dominant, RPE-forward).
+4. `training_guide_builder.py`: bikepacking branding + methodology dispatch (ultra
+   sections sourced from white paper / guide content, R1-guarded).
+5. `calculate_fueling.py`: ultra speed/duration assumptions (multi-day energy
+   economy framing per contract).
+6. Checkout/webhook metadata: discipline label; runway rules — sellable horizon
+   16–36w for bikepacking targets; generation clamp raised to 36 for the
+   discipline; <16w intake → catch-up framing template (R2 nuance), never a
+   12-week default for ultra targets (the 12-week fallback branch is guarded by
+   discipline).
+7. Intake (public questionnaire is a live Elementor widget — repo CLAUDE.md
+   pitfall): optional ultra fields ship ONLY in the pipeline's own intake schema +
+   parsing first; the Elementor widget edit is a separately-gated Matti-visible
+   step, not assumed.
+8. **E2E**: refactor ~/gg-e2e into a case matrix (harness currently rewrites one
+   gravel fixture — sol-verified); add a bikepacking case with semantic
+   assertions: discipline propagation, runway (16/24/36), consecutive long days
+   present, simulation + recovery window present, no sleep-dep content, strength
+   continuity, R1 text guard on generated artifacts.
+
+**Owner gate**: sol review of the migration commit series; E2E green including the
+new case; D-C1 pricing already resolved (existing $15/wk, $249 cap).
+
+---
+
+## Sequencing (revised)
+
+- **G0.2 (now)**: sol re-review of this v2. Fable verifies + folds.
+- **G0.5**: Fable authors the method contract → sol review → **Matti approves the
+  method** (this is also his white-paper review moment).
+- **G1**: WS-G build (codex): parameterization + content + shelf. Gravel-guide
+  byte-parity is the safety rail. Matti content gate → deploy.
+- **G2**: WS-P engine + 6 pilot SKUs (codex, in gravel-god-training-plans),
+  implements the contract; ultra QC profile lands BEFORE SKU generation; sol
+  per-SKU audit; Matti publish gate.
+- **G3**: WS-C migration series (codex), implements the same contract; sol review;
+  E2E green.
+- WS-G's architecture/content may draft in parallel to G0.5, EXCEPT chapters 3
+  and 8 (training + simulation): their content freezes only against the approved
+  contract. WS-P and WS-C are serialized AFTER the contract
+  freezes (sol's parallel-implementation warning) — WS-P first, then WS-C reuses
+  the proven session/pattern definitions where formats align.
+
+## Anti-goals (unchanged)
+
+No new brand · no 12-week ultra SKU · no first-person ultra narrative · no
+fabricated proof · no sleep-deprivation training content · no `[position]` claims
+dressed as settled science.
+
+## Owner decisions
+
+RESOLVED: D-G1 title ("The Complete Bikepacking Race Training Guide"), D-P1
+pricing ($129/$199), D-C1 cap (existing $15/wk / $249), D-X1 (shelf ships with
+guide). REVISED by evidence: D-P2 pilot set = Tour Divide, Colorado Trail Race,
+Badlands (GA4-cited; Atlas out, Torino-Nice excluded as non-competitive).
+NEW: D-M1 — Matti approves the method contract at G0.5 (his key remaining gate).

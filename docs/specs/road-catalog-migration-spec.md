@@ -107,6 +107,17 @@ RL's 427 race-data profiles:
 
 ## Phase 5 — Bikepacking shelf (GG-side, independent of road phases)
 
+> RESEARCH UPDATE 2026-07-20 (docs/research/ultra-bikepacking-coaching-market.md,
+> verified/cited): the 12-week plan suppression below is CONFIRMED honest — no live
+> ultra vendor sells a 12-week product; practitioner formats are 4-6 month plans,
+> 6-9+ month coaching, and $45-80 consults. The coaching CTA staying is also
+> confirmed honest: verified ultra coaches deliver through exactly GG's machinery
+> (TrainingPeaks subscription, weekly-adaptive review, durability focus), the top
+> vendor's roster is FULL (supply-constrained market), and GG's Mid price sits below
+> the verified $400/mo benchmark. See optional Phase 6 for the ultra product ladder;
+> the credibility gap (every verified vendor is a finisher/winner of these races) is
+> the owner-level consideration there.
+
 - Rankings/search/homepage filters: bikepacking+mtb presented as "Ultra & Bikepacking"
   shelf, not blended into gravel tier lists (search UI already filters by discipline;
   audit the tiered rankings sections and tier hubs for blending).
@@ -115,6 +126,29 @@ RL's 427 race-data profiles:
   unchanged. MTB unchanged. Tests assert: no plan CTA on the 14 bikepacking pages,
   coaching CTA present, gravel pages unaffected (spot count).
 - llms.txt/llms-full.txt: bikepacking entries labeled with their discipline.
+
+## Phase 6 (OPTIONAL, owner decision) — Ultra product ladder
+
+If Matti wants to SERVE ultra prep rather than just gate it (research says he can,
+honestly, in the right formats — docs/research/ultra-bikepacking-coaching-market.md):
+
+- 6a. **Ultra consult SKU** ($45-80/call benchmark; two vendors prove the format):
+  race-strategy + logistics consults built on GG's race-demand database — the
+  cheapest honest entry, and the piece where the database is a real differentiator.
+- 6b. **4-6 month ultra plan + bundled prep guide** ($65-75 benchmark, UltraMTB
+  template): a NEW SKU format, not the 12-week engine output; prep guide covers
+  gear/sleep/resupply/mental chapters (research-sourced, no fabricated experience).
+- 6c. **1:1 ultra coaching**: existing coaching machinery + explicit non-training
+  scope (route/resupply planning, sleep strategy, pre-written quitting rules —
+  McSharry's verified package is the model). Longer minimum (6-9 months) than the
+  4-week gravel cycle.
+- CREDIBILITY GATE (Matti's call, blocks 6b/6c positioning): every verified vendor's
+  authority rests on personally finishing/winning these races. Options: transparent
+  framing (coach-the-training + research-backed logistics, no first-person claims),
+  partnering/guest expertise, or Matti racing one. NO copy may imply first-person
+  ultra racing experience that doesn't exist — this is a hard voice/trust rule.
+- If Phase 6 ships, Phase 5's plan-CTA suppression on bikepacking pages is replaced
+  by CTAs to the ultra SKUs instead.
 
 ## Process gates
 

@@ -32,21 +32,21 @@
     "storage_key": "gg_bikepacking_guide_rider_type"
   },
   "glossary": {
-    "B2B": "Back-to-back long days — a long ride followed by another substantial ride the next day, used to practice starting again while tired.",
+    "B2B": "Back-to-back long days use a long ride followed by another substantial ride the next day. They teach you to start again while tired.",
     "bivvy": "A minimal overnight sleep setup, usually a bivvy bag or shelter system carried on the bike.",
-    "catch-up preparation": "An honestly limited preparation block for a race that is too close for a full build. It prioritizes what fits rather than pretending missing fitness can be compressed.",
-    "dark-hours riding": "Riding before dawn or after dark with race lighting. In ultra preparation, it is both practical training and race-specific practice.",
-    "energy economy": "The full system of taking in, carrying, buying, digesting, and replacing energy over multiple days, not merely eating during a ride.",
-    "fatigue resistance": "The ability to keep producing useful power, posture, appetite, and judgment late in a long ride or after several long days.",
-    "free-route race": "A race with mandatory controls but no prescribed route between them; riders choose their own roads and route strategy.",
-    "loaded adaptation": "Training with the pack and equipment expected in the race so body, bike, and systems adapt to the real setup.",
-    "micro-double": "A weekday aerobic session split into two separate rides, usually morning and evening, with each part at least 45 minutes.",
-    "RPE": "Rate of Perceived Exertion — a 1-10 description of how hard an effort feels. It matters when terrain, fatigue, weather, and load make power less portable.",
+    "catch-up preparation": "An honestly limited preparation block for a race that is too close for a full build. It prioritizes what fits and states what the rider cannot compress.",
+    "dark-hours riding": "Riding before dawn or after dark with race lighting. It provides practical training and race-specific practice.",
+    "energy economy": "The system for taking in, carrying, buying, digesting, and replacing energy over multiple days.",
+    "fatigue resistance": "The ability to maintain useful power, posture, appetite, and judgment late in a long ride or after several long days.",
+    "free-route race": "A race with mandatory controls but no prescribed route between them. Riders choose their roads and route strategy.",
+    "loaded adaptation": "Training with the race pack and equipment so the body, bike, and systems adapt to the actual setup.",
+    "micro-double": "A weekday aerobic session split into two separate rides, usually morning and evening. Each ride lasts at least 45 minutes.",
+    "RPE": "Rate of Perceived Exertion — a 1-10 description of effort. It matters when terrain, fatigue, weather, and load make power less transferable.",
     "SIM": "Simulation block — a consecutive multi-day, fully loaded rehearsal that tests riding, fueling, sleep systems, navigation, and resupply before race day.",
     "systems": "The repeatable practical setup around riding: bike and pack, lighting, navigation, food, sleep, hygiene, repair, and decision rules.",
-    "Tour Divide-class": "A very high-demand, multi-week self-supported race profile requiring large daily riding volume, climbing, logistics, and recovery during the event.",
-    "VO2": "Short, very hard efforts that maintain the upper ceiling of aerobic capacity. They are maintenance work in ultra preparation, not the point of the race.",
-    "Z2": "Zone 2 — an easy, conversational endurance effort used to build aerobic capacity without creating excessive fatigue."
+    "Tour Divide-class": "A very high-demand, multi-week self-supported race profile requiring large daily riding volume, climbing, logistics, and in-race recovery.",
+    "VO2": "Short, very hard efforts that maintain the upper limit of aerobic capacity. They are maintenance work in ultra preparation.",
+    "Z2": "Zone 2 — an easy, conversational endurance effort that builds aerobic capacity without excessive fatigue."
   },
   "chapters": [
     {
@@ -59,16 +59,16 @@
       "sections": [
         {
           "id": "ch1-what-changes",
-          "title": "The Race Is Shaped Differently",
+          "title": "The Race Has a Different Shape",
           "blocks": [
             {
               "type": "prose",
-              "content": "An ultra-distance bikepacking race is not a long gravel race with more snacks. It asks for the same basic aerobic engine, then keeps asking after the normal finish line has come and gone.\n\nThe useful question is not, \"How fast can you ride today?\" It is, \"What can you repeat tomorrow after a loaded day, a mediocre meal, a rough section of road, and less recovery than you would choose at home?\" That is the shape of the problem.\n\nTour Divide, the Colorado Trail Race, the Transcontinental, Badlands, and Atlas Mountain Race all have different terrain and formats. They share one blunt fact: the rider who keeps functioning across days has an advantage over the rider who only has one spectacular day available."
+              "content": "An ultra-distance bikepacking race is not a long gravel race with extra food. It needs the same aerobic engine after the normal finish line has passed.\n\nAsk what you can repeat tomorrow after a loaded day, a poor meal, rough roads, and less recovery than you choose at home. That is the problem.\n\nTour Divide, the Colorado Trail Race, the Transcontinental, Badlands, and Atlas Mountain Race use different terrain and formats. They share one fact. Riders who function across days gain an advantage over riders with one exceptional day."
             },
             {
               "type": "callout",
               "style": "highlight",
-              "content": "Ultra racing rewards repeatable decisions. The bike has to keep rolling, the body has to keep eating, and the brain has to keep making sensible calls after the exciting part wears off."
+              "content": "Ultra racing rewards repeatable decisions. The bike must roll, the body must eat, and the brain must make sound decisions after the novelty ends."
             }
           ]
         },
@@ -78,34 +78,34 @@
           "blocks": [
             {
               "type": "prose",
-              "content": "In a single-day event, the central question is often sustainable output over a defined number of hours. In an ultra, output still matters, but the limiter migrates. Hands go numb. A neck starts objecting. A saddle issue becomes a skin issue. Food stops sounding good. A small navigation mistake becomes an hour. A pace that felt fine in the morning becomes expensive after dark.\n\nThat is why fitness alone is not enough, and why gear lists alone are not enough either. The race is a stack of systems. Each one is manageable in isolation. The problem is that they degrade together."
+              "content": "A single-day event centers on sustainable output for a defined number of hours. Output still matters in an ultra, but the limiter moves. Hands become numb. The neck protests. A saddle issue becomes a skin issue. Food loses appeal. A navigation error costs an hour. A morning pace becomes expensive after dark.\n\nFitness alone does not solve this problem. Gear lists alone do not solve it either. The race uses a stack of systems. Each system is manageable alone. They degrade together."
             },
             {
               "type": "process_list",
               "items": [
                 {
                   "label": "Engine",
-                  "detail": "Enough aerobic capacity to ride mostly easy, day after day.",
+                  "detail": "Build enough aerobic capacity to ride mostly easy across consecutive days.",
                   "percentage": 25
                 },
                 {
                   "label": "Durability",
-                  "detail": "Position, hands, feet, back, neck, and appetite still working late.",
+                  "detail": "Keep position, hands, feet, back, neck, and appetite functional late in the day.",
                   "percentage": 25
                 },
                 {
                   "label": "Energy economy",
-                  "detail": "Fueling and replenishing before the deficit gets large.",
+                  "detail": "Fuel and replenish before the energy deficit grows.",
                   "percentage": 20
                 },
                 {
                   "label": "Systems",
-                  "detail": "Navigation, pack, sleep, repair, lighting, and resupply functioning without drama.",
+                  "detail": "Keep navigation, pack, sleep, repair, lighting, and resupply working reliably.",
                   "percentage": 20
                 },
                 {
                   "label": "Judgment",
-                  "detail": "Pacing and decisions that remain sensible under fatigue.",
+                  "detail": "Maintain sensible pacing and decisions under fatigue.",
                   "percentage": 10
                 }
               ]
@@ -118,18 +118,18 @@
           "blocks": [
             {
               "type": "prose",
-              "content": "Most marquee ultras are self-supported. That does not mean romantic isolation. It means the rider is responsible for food, water, repairs, routing, weather decisions, and the consequences of getting any of those wrong.\n\nCommercial services can be part of a resupply plan where rules allow them. What is not available is a team car arriving with a jacket, a wheel, a warm meal, and a new plan. Build the habit now: know what is on the bike, know how it works, and know what the fallback is when the preferred plan fails."
+              "content": "Most major ultras are self-supported. This does not mean romantic isolation. Riders manage food, water, repairs, routing, weather decisions, and the results of poor decisions.\n\nCommercial services can support resupply where race rules allow them. A team car will not arrive with a jacket, wheel, meal, and revised plan. Know what is on the bike. Know how it works. Know the fallback when the preferred plan fails."
             },
             {
               "type": "accordion",
               "items": [
                 {
-                  "title": "The useful systems question",
-                  "content": "Ask, \"Can I use this while tired, cold, hungry, and standing beside the road?\" If the answer is no, it is not race-ready yet."
+                  "title": "Test each system",
+                  "content": "Ask whether you can use the system while tired, cold, hungry, and beside the road. Do not race with a system that fails this test."
                 },
                 {
-                  "title": "The useful gear question",
-                  "content": "Ask, \"What problem does this solve, and have I tested it loaded?\" A piece of gear that has not been used in training is still a theory."
+                  "title": "Test each item of gear",
+                  "content": "Identify the problem each item solves. Test each item with the loaded bike. Untested gear remains a theory."
                 }
               ]
             }
@@ -141,7 +141,7 @@
           "blocks": [
             {
               "type": "prose",
-              "content": "A normal event lets recovery happen afterward. An ultra makes recovery part of the event. Eating enough at a stop, drying a layer before it becomes a problem, protecting a contact point, taking a real sleep opportunity, and refusing a stupidly hard climb at the wrong moment are all recovery decisions.\n\nThere is no magic trick here. The rider is still accumulating fatigue. The aim is to manage that accumulation well enough that tomorrow remains possible."
+              "content": "A normal event allows recovery afterward. An ultra makes recovery part of the event. Eat enough at stops. Dry layers before they cause problems. Protect contact points. Take real sleep opportunities. Avoid a needlessly hard climb at the wrong time.\n\nFatigue still accumulates. Manage it well enough to make tomorrow possible."
             },
             {
               "type": "callout",
@@ -152,28 +152,28 @@
         },
         {
           "id": "ch1-honest-starting-point",
-          "title": "Start With the Race You Can Actually Prepare For",
+          "title": "Start With a Race You Can Prepare For",
           "blocks": [
             {
               "type": "personalized_content",
               "variants": {
                 "ayahuasca": {
-                  "content": "With fewer than six available hours most weeks, a Tour Divide-class objective is not an honest preparation target. Build riding consistency first, choose a shorter route or an adventure without a race clock, and learn the systems without betting the whole season on a heroic rescue."
+                  "content": "With fewer than six available hours most weeks, a Tour Divide-class objective is not an honest preparation target. Build riding consistency first. Choose a shorter route or an adventure without a race clock. Learn the systems without betting the season on a rescue."
                 },
                 "finisher": {
-                  "content": "Your best first ultra target is one whose daily demands leave room for learning. Prioritize a route with manageable logistics, a clear resupply pattern, and enough preparation time to build long days and test every system."
+                  "content": "Choose a first ultra whose daily demands leave room to learn. Prioritize manageable logistics, a clear resupply pattern, and enough preparation time for long days and systems testing."
                 },
                 "competitor": {
-                  "content": "You can use race selection to choose a demand profile rather than merely a famous name. Compare terrain, altitude, technicality, route format, and the practical cost of a mistake."
+                  "content": "Use race selection to choose a demand profile, not only a famous name. Compare terrain, altitude, technicality, route format, and the practical cost of a mistake."
                 },
                 "podium": {
-                  "content": "The useful edge is not simply more work. It is finding where the race compounds stress, then making that exact stress ordinary in preparation without compromising recovery."
+                  "content": "Find where the race compounds stress. Make that exact stress routine in preparation without damaging recovery."
                 }
               }
             },
             {
               "type": "prose",
-              "content": "Ambition is good. Pretending a calendar does not exist is not. Choose a race with enough runway to build, test, recover, and arrive with more than a spreadsheet full of intentions."
+              "content": "Ambition is useful. A calendar still sets limits. Choose a race with enough runway to build, test, recover, and arrive with more than intentions in a spreadsheet."
             }
           ]
         }
@@ -211,12 +211,12 @@
           "blocks": [
             {
               "type": "prose",
-              "content": "The famous races are famous for a reason, but fame is not a training prescription. Choose by what the route asks repeatedly: climbing, rough terrain, remoteness, heat or cold, altitude, navigation, resupply spacing, and the kind of sleep setup the race makes practical.\n\nA shorter route can be more demanding than a longer one if it forces hike-a-bike, technical descending, high altitude, or poor resupply. A route that looks manageable on a map can become expensive because every stop is difficult. Read the course as a chain of days, not as one intimidating total."
+              "content": "Famous races are famous for reasons. Fame does not prescribe training. Choose by the stresses the route repeats: climbing, rough terrain, remoteness, heat or cold, altitude, navigation, resupply spacing, and practical sleep setup.\n\nA shorter route can demand more than a longer route. It may require hike-a-bike, technical descents, high altitude, or difficult resupply. A manageable map can hide costly stops. Read the course as a chain of days, not one large total."
             },
             {
               "type": "callout",
               "style": "highlight",
-              "content": "Distance is a clue. The daily cost of moving through the route is the actual question."
+              "content": "Distance is a clue. The daily cost of moving through the route is the real question."
             }
           ]
         },
@@ -238,7 +238,7 @@
                   "Tour Divide",
                   "Fixed-route, self-supported",
                   "Tier 1 · 94",
-                  "Long daily repeatability, remoteness, climbing, and systems over a huge route."
+                  "Long daily repeatability, remoteness, climbing, and systems across a huge route."
                 ],
                 [
                   "Colorado Trail Race",
@@ -256,7 +256,7 @@
                   "Badlands",
                   "Fixed-route, self-supported",
                   "Tier 1 · 89",
-                  "Heat, rough terrain, climbing, and a compact but punishing multi-day effort."
+                  "Heat, rough terrain, climbing, and a compact, punishing multi-day effort."
                 ],
                 [
                   "Atlas Mountain Race",
@@ -268,7 +268,7 @@
             },
             {
               "type": "prose",
-              "content": "These scores are database ratings, not a claim that one race is universally harder or more worthwhile than another. They summarize the current profile in the race data. The right race is the one whose demands match the rider's experience, available preparation time, and appetite for consequence."
+              "content": "These scores are database ratings. They do not state that one race is universally harder or more worthwhile. They summarize the current race-data profile. Choose the race whose demands fit the rider's experience, available preparation time, and tolerance for consequence."
             }
           ]
         },
@@ -278,12 +278,12 @@
           "blocks": [
             {
               "type": "prose",
-              "content": "A fixed-route race gives you a prescribed line. The work is still substantial: follow it, navigate it, manage it, and deal with what the route gives you.\n\nA free-route race adds a second event on top of the riding. Between mandatory controls, the rider chooses the line. That means route planning, elevation tradeoffs, road quality, border and service assumptions, and the ability to revise a plan when reality disagrees. The Transcontinental is the obvious example. A route that is shorter on a screen may be slower, rougher, less supplied, or simply a terrible idea at night."
+              "content": "A fixed-route race provides a prescribed line. The work remains substantial. Follow it, navigate it, manage it, and respond to its conditions.\n\nA free-route race adds a second event to the riding. Riders choose their line between mandatory controls. They must manage route planning, elevation tradeoffs, road quality, border and service assumptions, and plan changes. The Transcontinental is a clear example. A shorter screen route may be slower, rougher, poorly supplied, or unsafe at night."
             },
             {
               "type": "callout",
               "style": "quote",
-              "content": "Free-route racing does not reward the prettiest line in a route planner. It rewards the line that still makes sense after three days of weather, fatigue, and closed-shop math."
+              "content": "Free-route racing does not reward the prettiest line in a route planner. It rewards the line that still works after three days of weather, fatigue, and closed shops."
             }
           ]
         },
@@ -295,20 +295,20 @@
               "type": "accordion",
               "items": [
                 {
-                  "title": "Can the training calendar support it?",
-                  "content": "Count available weeks, weekend protection, travel time, and the ability to complete a loaded simulation. If the calendar cannot hold the preparation, the race choice is doing too much work."
+                  "title": "Check the training calendar",
+                  "content": "Count available weeks, protected weekends, travel time, and time for a loaded simulation block. Choose another race if the calendar cannot support preparation."
                 },
                 {
-                  "title": "Can the body support the route?",
-                  "content": "Match the route to current skills. High-altitude technical riding, long hike-a-bike, desert heat, and remote surfaces are not interchangeable stressors."
+                  "title": "Check the rider and route match",
+                  "content": "Match the route to current skills. Do not treat high-altitude technical riding, hike-a-bike, desert heat, and remote surfaces as interchangeable."
                 },
                 {
-                  "title": "Can the logistics support it?",
-                  "content": "Budget for travel, resupply, repair, lodging or bivvy needs, transport home, and contingencies. The least glamorous line item is often the one that decides whether the plan is viable."
+                  "title": "Check the logistics",
+                  "content": "Budget for travel, resupply, repairs, lodging or bivvy needs, transport home, and contingencies. Include the costs that determine whether the plan works."
                 },
                 {
-                  "title": "Is the objective specific enough?",
-                  "content": "Define the desired experience: finish, ride self-supported, manage a route cleanly, complete a first multi-day race, or compete. Vague ambition makes pacing and preparation vague too."
+                  "title": "Define the objective",
+                  "content": "Define the desired experience. Choose finishing, self-supported riding, clean route management, a first multi-day race, or competition. Do not use vague ambition."
                 }
               ]
             }
@@ -316,11 +316,11 @@
         },
         {
           "id": "ch2-the-right-first-ultra",
-          "title": "The Right First Ultra Is Usually the One With Room to Learn",
+          "title": "Choose a First Ultra With Room to Learn",
           "blocks": [
             {
               "type": "prose",
-              "content": "A first ultra does not need to be the largest possible declaration of intent. A route with clearer resupply, fewer border and route-choice variables, and a manageable duration can teach the same durable lessons: riding loaded, solving small problems, eating when appetite fades, making a sensible sleep call, and beginning again the next morning.\n\nThe better first experience is the one that leaves room for judgment. Build from there."
+              "content": "A first ultra need not be the largest declaration of intent. A route with clearer resupply, fewer border and route-choice variables, and manageable duration teaches durable lessons. These lessons include loaded riding, small problem solving, eating with poor appetite, sound sleep decisions, and morning restarts.\n\nChoose the experience that leaves room for judgment. Build from it."
             },
             {
               "type": "personalized_content",
@@ -329,13 +329,13 @@
                   "content": "Start with supported overnighters or short self-supported routes. Learn to pack, eat, navigate, and repair before adding a multi-day race clock."
                 },
                 "finisher": {
-                  "content": "Look for a route where the main challenge is repeatable riding rather than every possible complication arriving at once."
+                  "content": "Choose a route where repeatable riding creates the main challenge. Do not add every complication at once."
                 },
                 "competitor": {
-                  "content": "Use the shelf to identify which stressor you want to develop next: altitude, technicality, navigation, heat, or larger daily volume."
+                  "content": "Use the shelf to select the next stressor to develop: altitude, technicality, navigation, heat, or larger daily volume."
                 },
                 "podium": {
-                  "content": "Study the race record, current route profile, and logistical failure points. The score is a useful index; the daily route analysis is where preparation gets specific."
+                  "content": "Study the race record, current route profile, and logistical failure points. Use the score as an index. Base preparation on daily route analysis."
                 }
               }
             }
@@ -379,7 +379,7 @@
           "blocks": [
             {
               "type": "prose",
-              "content": "No one trains for a 90-hour week — not even the winners.\n\nThat is the first useful fact about ultra preparation. Sustainable training volume is capped by recoverable load. The race may demand seventy to one hundred riding hours in a week, while even elite preparation lives far below that. Everyone races in a volume deficit.\n\nThe answer is not trying to imitate race volume until training breaks you. The answer is building durability, pacing judgment, sleep strategy, fueling habits, and systems that let a finite engine keep doing useful work. The rider who has made ordinary decisions repeatable closes more of that gap than the rider who simply accumulates the most heroic training week."
+              "content": "No one trains for a 90-hour week — not even the winners.\n\nThat is the first fact of ultra preparation. Recoverable load caps sustainable training volume. A race may require seventy to one hundred riding hours in a week. Elite preparation remains far below that. Every rider races in a volume deficit.\n\nDo not imitate race volume until training breaks you. Build durability, pacing judgment, sleep strategy, fueling habits, and systems. These systems let a finite engine do useful work repeatedly. Riders who make ordinary decisions repeatable close more of the gap than riders who collect the largest training weeks."
             },
             {
               "type": "callout",
@@ -394,7 +394,7 @@
           "blocks": [
             {
               "type": "prose",
-              "content": "The useful plan assumes a full-time job and a normal life. The hours are architected, not willed into existence. Most weekday sessions stay at 90 minutes or less, with one optional longer midweek slot. Saturday carries the long day. Sunday can carry a back-to-back partner ride at roughly 60-70% of Saturday's duration. Strength attaches to existing ride days rather than creating another obligation.\n\nA representative 13-hour peak week can be built with a six-hour Saturday, a four-hour Sunday, a 90-minute Tuesday, a one-hour Wednesday, and a 30-minute Thursday. No weekday ride needs to become a second job. The weekends do the volume; weekdays keep the engine and habits alive."
+              "content": "A useful plan assumes a full-time job and ordinary life. Design the hours. Do not depend on willpower. Keep most weekday sessions at 90 minutes or less. Use one optional longer midweek slot. Put the long day on Saturday. Add a Sunday back-to-back at roughly 60-70% of Saturday's duration. Attach strength work to existing ride days.\n\nA representative 13-hour peak week includes a six-hour Saturday, four-hour Sunday, 90-minute Tuesday, one-hour Wednesday, and 30-minute Thursday. Weekday riding does not need to become a second job. Weekends provide volume. Weekdays maintain the engine and habits."
             },
             {
               "type": "data_table",
@@ -407,13 +407,13 @@
               "rows": [
                 [
                   "Commute conversion",
-                  "Count commute riding 1:1. Two 45-60 minute legs create 1.5-2 hours of useful volume.",
-                  "Ride with the race pack from build onward when practical."
+                  "Count commute riding 1:1. Use two 45-60 minute legs to create 1.5-2 hours of volume.",
+                  "Use the race pack from build onward when practical."
                 ],
                 [
                   "Micro-doubles",
-                  "Split an aerobic weekday ride of at least 90 minutes into morning and evening chunks of at least 45 minutes.",
-                  "Never split quality work, long days, back-to-backs, or simulation days."
+                  "Split an aerobic weekday ride of at least 90 minutes into morning and evening rides of at least 45 minutes.",
+                  "Do not split quality work, long days, back-to-backs, or simulation days."
                 ],
                 [
                   "Dark-hours riding",
@@ -422,18 +422,18 @@
                 ],
                 [
                   "Indoor density",
-                  "Use the trainer for structured weekday work. Count the time normally.",
-                  "Do not invent trainer multipliers."
+                  "Use the trainer for structured weekday work. Count the actual time.",
+                  "Do not apply trainer multipliers."
                 ],
                 [
                   "Utility miles",
                   "Ride errands with the race pack when appropriate.",
-                  "Treat them as systems practice, not junk mileage."
+                  "Treat these rides as systems practice, not junk mileage."
                 ],
                 [
                   "PTO-designed SIM",
-                  "Book required work time off when the simulation needs a Friday or Monday.",
-                  "The simulation and recovery window are protected commitments."
+                  "Book required work time off when the simulation block needs Friday or Monday.",
+                  "Protect the simulation block and recovery window."
                 ]
               ]
             }
@@ -445,12 +445,12 @@
           "blocks": [
             {
               "type": "prose",
-              "content": "Ultra races are not raced at VO2 effort. That is precisely why VO2 work has a small, specific role: ceiling maintenance. All-day pace sits below aerobic capacity. Let the ceiling decay entirely and the usable easy pace shrinks with it.\n\nThe dosage stays modest. In base and build, include at least one VO2-containing quality session in each rolling 21-day period. A simple example is four to five three-minute hard efforts with full recovery. The rest of the quality work belongs closer to the race demand: controlled tempo or threshold placed late in a long ride, when fueling, posture, and judgment are already involved.\n\nVO2 is not the center of the plan. It disappears during simulation and taper periods. This is maintenance, not a suffering contest."
+              "content": "Ultra races do not use VO2 effort. VO2 work therefore has a small, specific role: ceiling maintenance. All-day pace sits below aerobic capacity. When the ceiling declines, usable easy pace declines with it.\n\nKeep the dosage modest. Include at least one VO2-containing quality session in each rolling 21-day base and build period. Use four to five three-minute hard efforts with full recovery. Place other quality work closer to race demand. Use controlled tempo or threshold late in a long ride, when fueling, posture, and judgment are active.\n\nVO2 does not lead the plan. Remove it during simulation and taper periods. This is maintenance."
             },
             {
               "type": "callout",
               "style": "quote",
-              "content": "The race does not need a rider who can win a three-minute effort. It benefits from a rider whose ordinary pace remains comfortably below a well-maintained ceiling."
+              "content": "The race does not need a rider who wins a three-minute effort. It needs a rider whose ordinary pace stays below a maintained ceiling."
             }
           ]
         },
@@ -464,25 +464,25 @@
               "steps": [
                 {
                   "label": "16-week structure",
-                  "content": "A compact full preparation structure for a rider who already has appropriate base fitness. It moves through base, durability build, specificity with a two-day simulation, then consolidation and taper."
+                  "content": "Use this compact full structure when the rider already has suitable base fitness. Progress through base, durability build, race specificity with a two-day simulation, consolidation, and taper."
                 },
                 {
                   "label": "24-week structure",
-                  "content": "The preferred structure when the calendar allows. It creates more room for base, progressive loaded long days, a three-day simulation, recovery, and resolving systems problems without panic."
+                  "content": "Use this preferred structure when the calendar allows. It provides time for base, progressive loaded long days, a three-day simulation, recovery, and systems corrections."
                 },
                 {
                   "label": "Beyond 24 weeks",
-                  "content": "Maintain a durable base until the structured build is due to begin. More calendar should create more consistency and systems practice, not endless escalation."
+                  "content": "Maintain a durable base until structured build begins. Use extra calendar time for consistency and systems practice, not endless escalation."
                 },
                 {
                   "label": "Less than 16 weeks",
-                  "content": "Use honest catch-up preparation if appropriate. State the missing work plainly, keep expectations conservative, and do not present it as a normal full build."
+                  "content": "Use honest catch-up preparation when appropriate. State the missing work. Keep expectations conservative. Do not present it as a full build."
                 }
               ]
             },
             {
               "type": "prose",
-              "content": "The exact calendar is less important than the order: build the chassis, add durability, make the work race-specific, complete a loaded simulation, recover from it, then arrive with no major systems questions left."
+              "content": "Calendar length matters less than sequence. Build the chassis. Add durability. Make work race-specific. Complete a loaded simulation block. Recover. Arrive without major systems questions."
             }
           ]
         },
@@ -492,22 +492,22 @@
           "blocks": [
             {
               "type": "prose",
-              "content": "A Tour Divide-class preparation has an honest minimum: six available training hours per week. Below that, the long-day progression, back-to-backs, systems practice, and simulation cannot be delivered credibly on any timeline.\n\nSix hours is not a promise of comfort or performance. It is the lower boundary where meaningful preparation can begin if the rider already has a consistent base and realistic expectations. Above that floor, reduce midweek volume first and then standalone intensity when life gets crowded. Protect the long day, the simulation, and recovery weeks as long as possible.\n\nThe plan should fit life. It should not require pretending life is absent."
+              "content": "Tour Divide-class preparation has an honest minimum: six available training hours per week. Below this level, no timeline delivers credible long-day progression, back-to-backs, systems practice, and a simulation block.\n\nSix hours does not promise comfort or performance. It marks the point where meaningful preparation starts for riders with a consistent base and realistic expectations. When life becomes crowded, reduce midweek volume first. Then reduce standalone intensity. Protect the long day, simulation block, and recovery weeks as long as possible.\n\nFit the plan to life. Do not pretend life is absent."
             },
             {
               "type": "personalized_content",
               "variants": {
                 "ayahuasca": {
-                  "content": "The immediate job is consistency, not an ultra calendar. Build six dependable hours before asking the schedule to carry multi-day specificity."
+                  "content": "Build consistency before you use an ultra calendar. Establish six dependable hours before asking the schedule to support multi-day specificity."
                 },
                 "finisher": {
-                  "content": "Your advantage is repeatable routine. Protect weekends, use commutes where possible, and practice carrying the pack before the long rides become truly long."
+                  "content": "Use repeatable routine as an advantage. Protect weekends. Use commutes when possible. Practice carrying the race pack before long days become truly long."
                 },
                 "competitor": {
-                  "content": "Use the extra hours to deepen durability and systems specificity, not to turn every weekday into intensity."
+                  "content": "Use extra hours for durability and systems specificity. Do not make every weekday an intensity session."
                 },
                 "podium": {
-                  "content": "The cap still applies. More work must remain recoverable, and the race-specific systems work still needs protected attention."
+                  "content": "The recoverable-load cap still applies. Keep added work recoverable. Protect race-specific systems work."
                 }
               }
             }
@@ -519,7 +519,7 @@
           "blocks": [
             {
               "type": "prose",
-              "content": "A back-to-back is not two big days because big numbers look serious. It is a long day followed by a shorter but still substantial day, usually around 60-70% of the first. The lesson is starting again while fatigue is present.\n\nLimit stacking. Outside a simulation, do not make three long days in a row the default. After a back-to-back, take at least a rest day or an easy spin of an hour or less before the next quality session. The adaptation comes from absorbing the work, not from proving how much can be survived."
+              "content": "A back-to-back is not two large days for impressive numbers. It uses a long day followed by a shorter, substantial day. The second day usually lasts 60-70% of the first. It teaches riders to start again with fatigue present.\n\nLimit stacking. Outside a simulation block, do not make three long days in a row standard practice. After a back-to-back, take at least one rest day or an easy spin of one hour or less. Schedule the next quality session afterward. Absorb the work. Do not measure success by what you survive."
             }
           ]
         }
@@ -565,12 +565,12 @@
           "blocks": [
             {
               "type": "prose",
-              "content": "A bikepacking system is a set of things that work together repeatedly: the bike, bags, repair kit, light, navigation device, clothing layers, sleep setup, food access, and the routines for using them.\n\nThe test is simple. Can you find the thing, use the thing, put it away, and continue riding without turning every stop into a garage-floor project? If not, the setup needs training time, not another product."
+              "content": "A bikepacking system consists of items that work together repeatedly. These include the bike, bags, repair kit, light, navigation device, clothing layers, sleep setup, food access, and operating routines.\n\nFind each item. Use it. Store it. Continue riding. Do not turn each stop into a garage-floor project. Give the setup training time if it fails this test. Do not buy another product first."
             },
             {
               "type": "callout",
               "style": "highlight",
-              "content": "The right pack is the one that stays quiet, reachable, balanced, and unremarkable after a long day. The exciting setup is usually still unfinished."
+              "content": "Use a pack that stays quiet, reachable, balanced, and unremarkable after a long day. An exciting setup often remains unfinished."
             }
           ]
         },
@@ -580,22 +580,22 @@
           "blocks": [
             {
               "type": "prose",
-              "content": "Hands, neck, feet, low back, and contact points are not side issues at ultra duration. They are often the places where a manageable ride becomes a chain of compensations. A fit that feels fast for a few hours may not be survivable across repeated long days.\n\nTreat position as trainable. Ride the actual cockpit, saddle, shorts, gloves, shoes, and pack on long days. Notice what worsens after hour five, not just what feels good leaving the driveway. Change one variable at a time and retest it. The simulation block exists partly to expose the assumptions that shorter rides politely hide."
+              "content": "Hands, neck, feet, low back, and contact points drive ultra performance. They often turn a manageable ride into a chain of compensations. A fit that feels fast for several hours may fail across repeated long days.\n\nTrain position. Use the actual cockpit, saddle, shorts, gloves, shoes, and race pack on long days. Note what worsens after hour five. Change one variable at a time. Retest it. The simulation block exposes assumptions that shorter rides hide."
             },
             {
               "type": "accordion",
               "items": [
                 {
-                  "title": "Hands and wrists",
-                  "content": "Test grip positions, tape, gloves, reach to controls, and bag interference. Numbness is information, not something to grit through until the race."
+                  "title": "Test hands and wrists",
+                  "content": "Test grip positions, tape, gloves, control reach, and bag interference. Treat numbness as information. Do not endure it until race day."
                 },
                 {
-                  "title": "Neck and back",
-                  "content": "Build trunk and posterior-chain resilience, then confirm that the pack and cockpit do not force a position the body cannot hold."
+                  "title": "Test neck and back",
+                  "content": "Build trunk and posterior-chain resilience. Confirm that the pack and cockpit do not force an unsustainable position."
                 },
                 {
-                  "title": "Feet and saddle",
-                  "content": "Test shoes, socks, cleat position, saddle, chamois, and hygiene routines on consecutive days. A small hot spot becomes a systems failure when ignored."
+                  "title": "Test feet and saddle",
+                  "content": "Test shoes, socks, cleat position, saddle, chamois, and hygiene routines on consecutive days. Correct hot spots before they become systems failures."
                 }
               ]
             }
@@ -607,12 +607,12 @@
           "blocks": [
             {
               "type": "prose",
-              "content": "The repair kit should be based on likely failures and personal competence. A spare tube matters only if the rider can install it in the conditions likely to occur. A chain tool matters only if it works with the drivetrain and a quick link is packed.\n\nPractice the boring repairs: flat, plug, tube, chain, loose bolt, brake rub, charging cable failure, and navigation-device restart. Then find out whether the pack can hold the tools where they are reachable without unloading the bike."
+              "content": "Build the repair kit around likely failures and personal competence. A spare tube only matters when you can install it in likely conditions. A chain tool only matters when it fits the drivetrain and you carry a quick link.\n\nPractice routine repairs: flat, plug, tube, chain, loose bolt, brake rub, charging-cable failure, and navigation-device restart. Confirm that the pack stores each tool within reach without unloading the bike."
             },
             {
               "type": "callout",
               "style": "quote",
-              "content": "Redundancy is not carrying two of everything. It is knowing which failure would end the ride and having a realistic answer for that one."
+              "content": "Redundancy does not mean carrying two of everything. It means identifying ride-ending failures and carrying realistic answers."
             }
           ]
         },
@@ -622,11 +622,11 @@
           "blocks": [
             {
               "type": "prose",
-              "content": "Dark-hours riding is race specificity, not a punishment for having a job. It teaches light placement, battery management, route readability, clothing choices, speed judgment, and the emotional difference between a normal road and the same road at 3 a.m.\n\nPractice with race lighting from build onward. Use lit routes, familiar roads, or an indoor trainer when conditions are unsafe. The lesson is competence, not manufactured danger."
+              "content": "Dark-hours riding provides race specificity. It teaches light placement, battery management, route readability, clothing choices, speed judgment, and the difference between a normal road and that road at 3 a.m.\n\nUse race lighting from build onward. Use lit routes, familiar roads, or an indoor trainer when conditions are unsafe. Build competence. Do not manufacture danger."
             },
             {
               "type": "prose",
-              "content": "Navigation deserves the same treatment. Carry the primary device, know its battery life, know how to load and follow the route, and have a backup that is actually usable. A phone in a dry bag with an unreadable screen is not a navigation strategy."
+              "content": "Apply the same method to navigation. Carry the primary device. Know its battery life. Know how to load and follow the route. Carry a usable backup. A phone in a dry bag with an unreadable screen is not a navigation strategy."
             }
           ]
         },
@@ -636,7 +636,7 @@
           "blocks": [
             {
               "type": "prose",
-              "content": "Practice deploying, packing, warming up in, and organizing the sleep setup if the race may require it. Learn what gets wet, what takes too long, what is hard to find in the dark, and what needs to be reachable before everything else comes out of the bags.\n\nDo not deliberately restrict sleep in training. Sleep-deprivation training is explicitly excluded. A simulation can include an overnight when bivvy competence is relevant, but the point is to test the system and the routine, then sleep as needed and recover afterward."
+              "content": "Practice deploying, packing, warming up in, and organizing the sleep setup when the race may require it. Learn what gets wet, takes too long, hides in the dark, or must stay accessible before other bags open.\n\nDo not deliberately restrict sleep in training. Sleep-deprivation training is explicitly excluded. A simulation block can include an overnight when bivvy competence matters. Test the system and routine. Sleep as needed. Recover afterward."
             },
             {
               "type": "callout",
@@ -679,16 +679,16 @@
       "sections": [
         {
           "id": "ch5-not-one-fueling-problem",
-          "title": "This Is More Than an Hourly Fueling Target",
+          "title": "Fueling Has Three Jobs",
           "blocks": [
             {
               "type": "prose",
-              "content": "Single-day fueling is mostly an input problem: take in enough carbohydrate each hour, manage fluids, avoid gut trouble, and finish. An ultra adds a second and third layer. The rider must also buy or carry enough food across a day, replenish after riding, and continue eating when appetite is unreliable.\n\nThat is why ultra fueling is an energy economy. The route, opening hours, town spacing, budget, pack space, weather, fatigue, and food tolerance all matter. The rider who waits to feel hungry may be waiting for a signal that is no longer dependable."
+              "content": "Single-day fueling focuses on input. Take in enough carbohydrate each hour, manage fluids, avoid gut trouble, and finish. An ultra adds two layers. Riders must buy or carry enough food through a day. They must replenish after riding and eat when appetite is unreliable.\n\nUltra fueling is an energy economy. Route, opening hours, town spacing, budget, pack space, weather, fatigue, and food tolerance all matter. Riders who wait for hunger may wait for a signal that fatigue has made unreliable."
             },
             {
               "type": "callout",
               "style": "highlight",
-              "content": "Eat by plan, not by appetite alone. Appetite is useful until fatigue makes it a liar."
+              "content": "Eat by plan, not appetite alone. Appetite is useful until fatigue makes it unreliable."
             }
           ]
         },
@@ -698,22 +698,22 @@
           "blocks": [
             {
               "type": "prose",
-              "content": "Use long rides to make fueling automatic. Carry food that can be opened with tired hands. Learn what works in heat, cold, rain, and at easy pace. Know what can be eaten while moving and what requires a stop.\n\nFrom the build phase onward, long rides use a fueling protocol with a target of at least 60 grams of carbohydrate per hour. That is a starting target for practice, not a license to ignore individual tolerance. The useful outcome is a routine that survives boredom and low motivation."
+              "content": "Use long rides to make fueling automatic. Carry food that tired hands can open. Test food in heat, cold, rain, and easy riding. Know what you can eat while moving and what needs a stop.\n\nFrom build onward, use a fueling protocol with at least 60 grams of carbohydrate per hour on long rides. Use this as a practice target. Do not ignore individual tolerance. Build a routine that survives boredom and low motivation."
             },
             {
               "type": "accordion",
               "items": [
                 {
-                  "title": "Make food reachable",
-                  "content": "The next hour of food belongs somewhere accessible without unpacking the bike."
+                  "title": "Store food within reach",
+                  "content": "Put the next hour of food where you can reach it without unpacking the bike."
                 },
                 {
-                  "title": "Use familiar food",
-                  "content": "Race day is not the moment to discover that an expensive drink mix turns the stomach after six hours."
+                  "title": "Use tested food",
+                  "content": "Use food you have tested. Do not discover on race day that a drink mix causes stomach trouble after six hours."
                 },
                 {
-                  "title": "Keep a fallback",
-                  "content": "Have simple, widely available options that work when the planned food is unavailable."
+                  "title": "Carry a fallback",
+                  "content": "Carry simple, widely available food that works when planned food is unavailable."
                 }
               ]
             }
@@ -725,12 +725,12 @@
           "blocks": [
             {
               "type": "prose",
-              "content": "Daily replenishment is not a recovery shake ceremony. It is practical arithmetic: buy food, eat enough of it, replace fluids and salt as conditions require, and leave the stop with the next stretch covered.\n\nPlan likely resupply towns, but do not build the whole race around one shop being open exactly when hoped. Carry a buffer. Know what a usable grocery-store stop looks like. A large meal helps, but the next day's food needs to exist too."
+              "content": "Daily replenishment uses practical arithmetic. Buy food. Eat enough. Replace fluids and salt as conditions require. Leave each stop with the next segment covered.\n\nPlan likely resupply towns. Do not depend on one shop opening exactly when expected. Carry a buffer. Know what a useful grocery-store stop provides. Eat a substantial meal, then secure food for the next day."
             },
             {
               "type": "callout",
               "style": "quote",
-              "content": "The best resupply stop is not the one with the perfect meal. It is the one that gets calories into the rider and creates a workable next segment."
+              "content": "The best resupply stop gets calories into the rider and creates a workable next segment."
             }
           ]
         },
@@ -740,22 +740,22 @@
           "blocks": [
             {
               "type": "prose",
-              "content": "A nutrition plan that only works with carefully measured products from the kitchen is not an ultra plan. Test gas-station food, café food, grocery-store food, packable food, and the timing of eating real meals around riding.\n\nDuring a simulation, rehearse the actual decision chain: what gets bought, what gets carried, what gets eaten now, what is reserved, and what happens when the preferred option is unavailable. This is where nutrition becomes operational rather than aspirational."
+              "content": "A nutrition plan that only works with measured kitchen products is not an ultra plan. Test gas-station food, café food, grocery-store food, packable food, and meal timing around riding.\n\nDuring a simulation block, rehearse the decision chain. Decide what to buy, carry, eat now, reserve, and replace when preferred food is unavailable. This makes nutrition operational."
             },
             {
               "type": "personalized_content",
               "variants": {
                 "ayahuasca": {
-                  "content": "Start by practicing regular eating on every ride longer than two hours. Consistency comes before complexity."
+                  "content": "Practice regular eating on every ride longer than two hours. Build consistency before complexity."
                 },
                 "finisher": {
-                  "content": "Use each long ride to test one practical question: what food stays appealing, what is easy to reach, and what local resupply option actually works."
+                  "content": "Use each long ride to test one practical question. Identify food that remains appealing, stays reachable, and works at local resupply stops."
                 },
                 "competitor": {
-                  "content": "Practice the full sequence on back-to-backs: in-ride intake, post-ride replenishment, next-day food carry, then starting again without waiting for appetite to feel perfect."
+                  "content": "Practice the full sequence on back-to-backs. Fuel during the ride. Replenish after it. Carry next-day food. Start again without waiting for perfect appetite."
                 },
                 "podium": {
-                  "content": "Treat resupply time and food decisions as pacing variables. The best plan is the one that preserves movement and judgment while keeping the energy deficit manageable."
+                  "content": "Treat resupply time and food decisions as pacing variables. Use the plan that preserves movement and judgment while controlling the energy deficit."
                 }
               }
             }
@@ -767,7 +767,7 @@
           "blocks": [
             {
               "type": "prose",
-              "content": "Do not wait for a dramatic bonk. If food has become unappealing, simplify the decision. Use small frequent portions, change texture or temperature, drink calories if tolerated, and take a real stop before the deficit becomes a crisis.\n\nThe exact solution varies by rider and route. The non-negotiable is noticing the trend early. An ultra is long enough for a modest deficit to become tomorrow's problem."
+              "content": "Do not wait for a dramatic bonk. Simplify the decision when food loses appeal. Eat small, frequent portions. Change texture or temperature. Drink calories when tolerated. Stop before the deficit becomes a crisis.\n\nExact solutions vary by rider and route. Notice the trend early. An ultra gives a modest deficit enough time to become tomorrow's problem."
             },
             {
               "type": "knowledge_check",
@@ -824,12 +824,12 @@
           "blocks": [
             {
               "type": "prose",
-              "content": "Fatigue changes judgment. That is not a character flaw; it is part of the race. After days of riding, small inconveniences can look like evidence that the whole project was a mistake. The brain becomes excellent at arguing for immediate relief.\n\nPreparation should account for that version of the rider. The goal is not to become permanently cheerful. It is to make fewer major decisions from the worst possible mental state."
+              "content": "Fatigue changes judgment. This is part of the race, not a character flaw. After several days of riding, small problems can appear to prove that the project failed. The brain argues effectively for immediate relief.\n\nPrepare for that version of the rider. Do not aim for permanent cheerfulness. Make fewer major decisions in the worst mental state."
             },
             {
               "type": "callout",
               "style": "highlight",
-              "content": "Do not expect tired judgment to be wise by force of personality. Give it a simple framework before the race starts."
+              "content": "Do not expect tired judgment to become wise through personality. Give it a simple framework before the race."
             }
           ]
         },
@@ -839,22 +839,22 @@
           "blocks": [
             {
               "type": "prose",
-              "content": "Create a short pre-commitment document before the race. Write the conditions that require stopping, the conditions that require rest and reassessment, and the conditions that merely feel bad but are expected. Include medical red flags, unsafe weather, equipment failures that cannot be managed, and any personal boundaries.\n\nThis is not a promise to continue no matter what. It is the opposite. It gives the rider permission to stop when a real stop condition exists and prevents an ordinary low point from silently becoming a verdict."
+              "content": "Create a short pre-commitment document before the race. Define conditions that require stopping, rest and reassessment, or continued riding. Include medical red flags, unsafe weather, unmanageable equipment failures, and personal boundaries.\n\nThis document does not require riding through every problem. It gives permission to stop when a real stop condition exists. It also prevents an ordinary low point from becoming a verdict."
             },
             {
               "type": "accordion",
               "items": [
                 {
-                  "title": "Stop conditions",
-                  "content": "Examples include serious injury symptoms, unsafe exposure, inability to operate safely, or a mechanical issue without a realistic repair path."
+                  "title": "Define stop conditions",
+                  "content": "List serious injury symptoms, unsafe exposure, inability to operate safely, and mechanical failures without a realistic repair path."
                 },
                 {
-                  "title": "Rest and reassess conditions",
-                  "content": "Examples include accumulating fatigue, poor fueling, rising irritability, or a navigation spiral that may be solved by food, warmth, sleep, and daylight."
+                  "title": "Define rest and reassess conditions",
+                  "content": "List accumulating fatigue, poor fueling, rising irritability, and navigation spirals. Use food, warmth, sleep, and daylight before deciding."
                 },
                 {
-                  "title": "Continue conditions",
-                  "content": "Expected discomfort, boredom, a slow patch, and the desire to quit during a normal low point are not automatically evidence that the race is over."
+                  "title": "Define continue conditions",
+                  "content": "Classify expected discomfort, boredom, slow patches, and normal low points. Do not treat them as automatic proof that the race has ended."
                 }
               ]
             }
@@ -866,7 +866,7 @@
           "blocks": [
             {
               "type": "prose",
-              "content": "The whole route is too large to be emotionally useful. Break it into the next useful unit: this climb, this weather window, this town, this food stop, this sleep decision, this morning.\n\nSegmentation is not denial. It is an operational way to keep attention attached to decisions that can still be made. A rider cannot pedal the remaining continent. A rider can eat now, top up water, choose a safe descent pace, and reach the next resupply."
+              "content": "The full route is too large to guide emotion. Break it into the next useful unit: this climb, weather window, town, food stop, sleep decision, or morning.\n\nSegmentation keeps attention on decisions you can make. Riders cannot pedal the remaining continent. They can eat now, refill water, select a safe descent pace, and reach the next resupply."
             },
             {
               "type": "callout",
@@ -881,7 +881,7 @@
           "blocks": [
             {
               "type": "prose",
-              "content": "A simulation should include the ordinary friction that exposes a system: accumulated leg fatigue, imperfect weather, the need to eat when food sounds dull, a long loaded day, and the annoyance of getting moving again.\n\nIt must not use deliberate sleep restriction as training. Sleep-deprivation training is explicitly disavowed. Practice the sleep system, practice an overnight where relevant, practice a decision rule for when rest is needed, and then allow normal sleep and recovery. The point is useful rehearsal, not manufacturing impairment."
+              "content": "A simulation block should include ordinary friction that exposes systems. Use accumulated leg fatigue, imperfect weather, unappealing food, a long loaded day, and morning restart friction.\n\nDo not use deliberate sleep restriction in training. Sleep-deprivation training is explicitly disavowed. Practice the sleep system. Practice an overnight when relevant. Practice decision rules for needed rest. Then allow normal sleep and recovery. Rehearse useful conditions. Do not manufacture impairment."
             },
             {
               "type": "callout",
@@ -896,22 +896,22 @@
           "blocks": [
             {
               "type": "prose",
-              "content": "The opening hours of an ultra are full of ways to spend tomorrow's legs. Other riders move away. The route feels fresh. A climb invites a little proving. Resist the urge to make the race meaningful before it has even started.\n\nUse RPE as the primary governor. Power and heart rate can inform the decision, but a loaded bike, rough terrain, heat, altitude, stops, and fatigue change what a number means. The useful pace is the one that leaves enough rider for the next day."
+              "content": "The opening hours offer many ways to spend tomorrow's legs. Other riders leave. The route feels fresh. Climbs invite proving. Do not force meaning onto the race before it starts.\n\nUse RPE as the primary governor. Power and heart rate provide useful information. A loaded bike, rough terrain, heat, altitude, stops, and fatigue change the meaning of numbers. Use the pace that leaves enough rider for the next day."
             },
             {
               "type": "personalized_content",
               "variants": {
                 "ayahuasca": {
-                  "content": "Your strongest move is usually to begin easier than feels necessary. Early patience is free speed later."
+                  "content": "Begin easier than necessary. Early patience creates speed later."
                 },
                 "finisher": {
-                  "content": "Set a pace that lets eating, navigation, and basic conversation remain possible. The race gets harder without help."
+                  "content": "Set a pace that allows eating, navigation, and basic conversation. The race adds difficulty without help."
                 },
                 "competitor": {
-                  "content": "Use early restraint as a competitive choice. A small pace reduction can protect the systems that make later speed possible."
+                  "content": "Use early restraint as a competitive choice. A small pace reduction protects systems that create later speed."
                 },
                 "podium": {
-                  "content": "Treat every hard move as an investment decision. Ask whether it improves the race outcome or simply satisfies the opening-day urge to establish position."
+                  "content": "Treat each hard move as an investment decision. Determine whether it improves the race outcome or only satisfies the urge to establish position."
                 }
               }
             }
@@ -955,12 +955,12 @@
           "blocks": [
             {
               "type": "prose",
-              "content": "Route research, gear choices, resupply mapping, sleep-system testing, and transport are not chores to finish in the final week. They are preparation work. Schedule them with the same seriousness as training rides because they compete for the same attention.\n\nA useful preparation calendar has decision deadlines. By a certain point, the bike setup is stable. By a later point, resupply assumptions have been tested. Near the race, nothing new enters unless an actual failure demands it. The point is to stop carrying a hundred unresolved questions into the start."
+              "content": "Route research, gear choices, resupply mapping, sleep-system testing, and transport are preparation work. Do not leave them for the final week. Schedule them as seriously as training rides because they use the same attention.\n\nUse decision deadlines. Stabilize the bike setup by one deadline. Test resupply assumptions by the next. Near the race, add nothing unless a real failure requires it. Do not carry one hundred unresolved questions to the start."
             },
             {
               "type": "callout",
               "style": "highlight",
-              "content": "If a decision is still open because it has never been tested, it is not flexibility. It is unfinished work."
+              "content": "An untested open decision is unfinished work, not flexibility."
             }
           ]
         },
@@ -970,22 +970,22 @@
           "blocks": [
             {
               "type": "prose",
-              "content": "Map totals are useful, but daily consequences are more useful. Where are the long gaps without food or water? Which climbs arrive after a difficult section? What will the route feel like in heat, rain, wind, or darkness? Where does the surface change? What does a mechanical problem cost in that particular place?\n\nFor a fixed route, this creates a daily risk map. For a free-route event, it also creates route-choice rules: when to trade distance for services, when to avoid a beautiful but slow line, and when to preserve options rather than locking into one plan."
+              "content": "Map totals are useful. Daily consequences are more useful. Identify long food and water gaps. Identify climbs after difficult sections. Identify conditions in heat, rain, wind, and darkness. Identify surface changes. Identify the cost of a mechanical in each location.\n\nFor fixed routes, build a daily risk map. For free-route events, build route-choice rules. Define when to trade distance for services, avoid a scenic slow line, or preserve options instead of committing to one plan."
             },
             {
               "type": "accordion",
               "items": [
                 {
-                  "title": "Services",
-                  "content": "Record likely hours, alternatives, water opportunities, cash needs, and the consequence of finding a place closed."
+                  "title": "Record services",
+                  "content": "Record likely hours, alternatives, water opportunities, cash needs, and the result of a closed service point."
                 },
                 {
-                  "title": "Terrain and weather",
-                  "content": "Mark the sections where surface, altitude, temperature, wind, or remoteness change the speed and safety assumptions."
+                  "title": "Mark terrain and weather",
+                  "content": "Mark sections where surface, altitude, temperature, wind, or remoteness change speed and safety assumptions."
                 },
                 {
-                  "title": "Decision points",
-                  "content": "Identify places where a reroute, sleep decision, or resupply choice must be made before options disappear."
+                  "title": "Identify decision points",
+                  "content": "Identify points where you must reroute, sleep, or resupply before options disappear."
                 }
               ]
             }
@@ -997,12 +997,12 @@
           "blocks": [
             {
               "type": "prose",
-              "content": "Resupply planning is not predicting the exact sandwich at the exact hour. It is understanding the route's food and water rhythm well enough to carry a buffer and make good decisions when reality is imperfect.\n\nCreate a simple map or sheet with primary stops, fallback stops, likely closing times, water gaps, and the carry needed for the next segment. Then test the approach during training. A resupply plan becomes useful when it helps the rider decide quickly, not when it becomes a fragile script."
+              "content": "Resupply planning does not predict the exact sandwich at an exact hour. It establishes the route's food and water rhythm, then provides a buffer for imperfect conditions.\n\nBuild a simple map or sheet with primary stops, fallback stops, likely closing times, water gaps, and required carry for the next segment. Test it during training. Use a resupply plan that speeds decisions. Do not build a fragile script."
             },
             {
               "type": "callout",
               "style": "quote",
-              "content": "The plan should make the next decision easier, not make a closed convenience store feel like a catastrophe."
+              "content": "The plan should ease the next decision. A closed convenience store should not become a catastrophe."
             }
           ]
         },
@@ -1012,22 +1012,22 @@
           "blocks": [
             {
               "type": "prose",
-              "content": "Gear experimentation belongs early enough that it can fail. Use the build and simulation period to test pack balance, rain systems, light runtime, charging, sleep setup, repair access, and clothing layers. Keep a notes file after each long ride.\n\nAfter the simulation, resolve what was learned. Do not keep adding novelty because online gear talk has made an old setup feel unfashionable. A known solution is worth more than a promising one at the start line."
+              "content": "Experiment with gear early enough to let it fail. Use build and simulation periods to test pack balance, rain systems, light runtime, charging, sleep setup, repair access, and clothing layers. Keep notes after each long day.\n\nResolve the findings after the simulation block. Do not add novelty because online gear discussion makes a known setup look old. A known solution has more value than a promising solution at the start line."
             },
             {
               "type": "personalized_content",
               "variants": {
                 "ayahuasca": {
-                  "content": "Build one simple setup and repeat it. The goal is fluency, not maximum bag capacity."
+                  "content": "Build one simple setup and repeat it. Build fluency. Do not chase maximum bag capacity."
                 },
                 "finisher": {
-                  "content": "Use long rides to test one system at a time, then write down the result before memory improves it."
+                  "content": "Test one system on each long ride. Record the result before memory changes it."
                 },
                 "competitor": {
-                  "content": "Use back-to-backs to test whether the setup remains useful on the second morning, not merely the first afternoon."
+                  "content": "Use back-to-backs to test whether the setup works on the second morning, not only the first afternoon."
                 },
                 "podium": {
-                  "content": "Treat every system as a time-and-risk tradeoff. The fastest arrangement is the one that minimizes unnecessary stops and prevents avoidable failures."
+                  "content": "Treat every system as a time-and-risk tradeoff. Use the arrangement that limits unnecessary stops and avoids preventable failures."
                 }
               }
             }
@@ -1039,7 +1039,7 @@
           "blocks": [
             {
               "type": "prose",
-              "content": "Travel arrangements, bike transport, start-town food, device charging, registration requirements, insurance, communications, and the route home all deserve a place in the plan. So does the exit plan: what happens if the rider scratches, suffers a major mechanical, becomes ill, or needs help without violating race rules.\n\nA well-considered exit plan does not make a scratch more likely. It makes the race safer and removes the pressure to turn every problem into a stubbornness test."
+              "content": "Plan travel, bike transport, start-town food, device charging, registration requirements, insurance, communications, and the route home. Plan the exit too. Define actions for a scratch, major mechanical, illness, or needed help within race rules.\n\nA sound exit plan does not increase the chance of scratching. It makes the race safer and removes pressure to turn every problem into a stubbornness test."
             }
           ]
         }
@@ -1077,12 +1077,12 @@
           "blocks": [
             {
               "type": "prose",
-              "content": "A simulation cannot recreate a multi-week race. It should not try. Its job is to concentrate the useful problems while there is still time to solve them: loaded consecutive days, fueling under fatigue, sleep-system setup, morning restart friction, contact points, navigation, resupply timing, and the reality of carrying the intended kit.\n\nThe output is a list of answers. What rubbed. What was hard to reach. Which food failed. Which battery assumption was wrong. Which pace was too expensive. What slowed the next morning. That list is more valuable than a dramatic training story."
+              "content": "A simulation block cannot recreate a multi-week race. Do not try. Concentrate useful problems while time remains to solve them. Test loaded consecutive days, fueling under fatigue, sleep setup, morning restart friction, contact points, navigation, resupply timing, and the intended kit.\n\nProduce a list of answers. Record what rubbed, stayed inaccessible, failed as food, used more battery, cost too much pace, or slowed the next morning. That list has more value than a dramatic training story."
             },
             {
               "type": "callout",
               "style": "highlight",
-              "content": "A simulation is successful when it reveals problems early enough to fix them."
+              "content": "A simulation block succeeds when it exposes problems early enough to correct them."
             }
           ]
         },
@@ -1092,7 +1092,7 @@
           "blocks": [
             {
               "type": "prose",
-              "content": "A standard 16-week structure uses a two-day simulation. A standard 24-week structure uses three days. Longer custom structures can use up to four. The days are consecutive, fully loaded, and anchored around a weekend whenever possible.\n\nFor a two-day block, Saturday and Sunday require no PTO. A three-day block runs Friday through Sunday and needs one day away from work. A four-day block runs Friday through Monday and needs two. Book that time early. This is the one training block that should not be casually displaced by a busy calendar."
+              "content": "A standard 16-week structure uses a two-day simulation block. A standard 24-week structure uses three days. Longer custom structures can use up to four. Use consecutive, fully loaded days. Anchor them around a weekend when possible.\n\nUse Saturday and Sunday for a two-day block. This needs no PTO. Use Friday through Sunday for a three-day block. This needs one day away from work. Use Friday through Monday for a four-day block. This needs two days. Book the time early. Protect this training block from casual calendar changes."
             },
             {
               "type": "data_table",
@@ -1104,19 +1104,19 @@
               "rows": [
                 [
                   "Load",
-                  "Use the race pack and the systems intended for the event."
+                  "Use the race pack and systems intended for the event."
                 ],
                 [
                   "Duration",
-                  "Use consecutive days appropriate to the preparation structure, not a one-day epic."
+                  "Use consecutive days that match the preparation structure. Do not use a one-day epic."
                 ],
                 [
                   "Fueling",
-                  "Follow the practiced in-ride protocol and rehearse practical resupply."
+                  "Follow the practiced in-ride protocol. Rehearse practical resupply."
                 ],
                 [
                   "Sleep",
-                  "Test the sleep system when relevant; do not deliberately restrict sleep."
+                  "Test the sleep system when relevant. Do not deliberately restrict sleep."
                 ],
                 [
                   "Navigation",
@@ -1124,7 +1124,7 @@
                 ],
                 [
                   "Recovery",
-                  "Protect the recovery period afterward. Absorption is part of the prescription."
+                  "Protect the recovery period afterward. Treat absorption as part of the prescription."
                 ]
               ]
             }
@@ -1136,7 +1136,7 @@
           "blocks": [
             {
               "type": "prose",
-              "content": "The simulation is a major training stress, not a final exam that must be followed by more proving. The next block begins with rest or recovery spins and no intensity. The recovery window gives the body time to absorb the load and gives the rider time to fix the systems failures that surfaced.\n\nTraining hard immediately afterward may look committed on paper. In practice, it can turn useful information into lingering fatigue. The recovery is part of the simulation prescription."
+              "content": "A simulation block creates major training stress. It is not a final exam followed by more proving. Begin the next block with rest or recovery spins. Do not add intensity. Use the recovery window to absorb load and correct exposed systems failures.\n\nHard training immediately afterward can turn useful information into lingering fatigue. Recovery remains part of the simulation prescription."
             },
             {
               "type": "callout",
@@ -1151,26 +1151,26 @@
           "blocks": [
             {
               "type": "prose",
-              "content": "The final phase is consolidation and taper, not a late search for fitness. Reduce volume, maintain a small amount of familiar movement, and protect sleep, food, travel, and calm. There is no useful new bike setup, nutrition theory, route obsession, or heroic long ride waiting to save the race.\n\nClose the practical loops: charge devices, confirm files and backups, inspect the bike, prepare documents, pack in a repeatable order, confirm the opening resupply plan, and review the decision rules. Then leave the setup alone."
+              "content": "Use the final phase for consolidation and taper. Do not search for late fitness. Reduce volume. Maintain familiar movement. Protect sleep, food, travel, and calm. No new bike setup, nutrition theory, route obsession, or heroic long ride will save the race.\n\nClose practical loops. Charge devices. Confirm files and backups. Inspect the bike. Prepare documents. Pack in a repeatable order. Confirm the opening resupply plan. Review decision rules. Then leave the setup alone."
             },
             {
               "type": "accordion",
               "items": [
                 {
-                  "title": "Bike",
-                  "content": "Inspect wear items, test shifting and braking, confirm tire condition and sealant, and make sure all fasteners and mounts are secure."
+                  "title": "Check the bike",
+                  "content": "Inspect wear items. Test shifting and braking. Confirm tire condition and sealant. Secure all fasteners and mounts."
                 },
                 {
-                  "title": "Navigation and power",
+                  "title": "Check navigation and power",
                   "content": "Confirm route files, device settings, charging cables, batteries, mounts, and the backup method."
                 },
                 {
-                  "title": "Food and water",
-                  "content": "Prepare the opening segment without trying to carry the whole race. Confirm the first meaningful resupply and a buffer."
+                  "title": "Prepare food and water",
+                  "content": "Prepare the opening segment. Do not carry food for the whole race. Confirm the first meaningful resupply and a buffer."
                 },
                 {
-                  "title": "Mind",
-                  "content": "Read the decision rules, define the first segment, and let the rest of the race remain tomorrow's problem."
+                  "title": "Prepare the mind",
+                  "content": "Read decision rules. Define the first segment. Leave the remaining race for tomorrow."
                 }
               ]
             }
@@ -1182,22 +1182,22 @@
           "blocks": [
             {
               "type": "prose",
-              "content": "The start is not the moment to demonstrate fitness. It is the moment to enter the race without creating a debt the rider will spend days repaying. Ride the opening segment at a pace that allows eating, drinking, observing the bike, and making quiet adjustments.\n\nUse the systems exactly as practiced. Follow the next-segment plan, not the entire route in one emotional gulp. If something is wrong, solve the smallest useful problem first: food, water, warmth, light, navigation, sleep, repair, then pace."
+              "content": "The start does not demonstrate fitness. It enters the race without creating debt that takes days to repay. Ride the opening segment at a pace that allows eating, drinking, bike observation, and quiet adjustments.\n\nUse systems exactly as practiced. Follow the next-segment plan. Do not process the whole route at once. Solve the smallest useful problem first: food, water, warmth, light, navigation, sleep, repair, then pace."
             },
             {
               "type": "personalized_content",
               "variants": {
                 "ayahuasca": {
-                  "content": "The win is making calm decisions and staying inside a sustainable effort. The race does not need an opening statement."
+                  "content": "Make calm decisions and maintain a sustainable effort. The race does not need an opening statement."
                 },
                 "finisher": {
-                  "content": "Begin with enough restraint that food, navigation, and body checks remain easy. The route will supply difficulty on its own."
+                  "content": "Begin with enough restraint to keep food, navigation, and body checks easy. The route supplies its own difficulty."
                 },
                 "competitor": {
-                  "content": "Let the early pace serve the full race. Avoid spending tomorrow's resilience merely to win an opening-hour comparison."
+                  "content": "Make early pace serve the full race. Do not spend tomorrow's resilience to win an opening-hour comparison."
                 },
                 "podium": {
-                  "content": "Start with tactical patience. Move only when the race outcome benefits, not because the first hours make every gap feel permanent."
+                  "content": "Start with tactical patience. Move only when the race outcome benefits. Do not react because early gaps feel permanent."
                 }
               }
             }

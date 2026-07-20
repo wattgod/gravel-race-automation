@@ -43,9 +43,12 @@ checked"); no contractions in procedural text (✓); one topic per paragraph;
 one consistent term per concept (always "long day", never big-ride/long-one
 variation); "do not" constructions for prohibitions (✓). NOT full STE (no
 controlled-dictionary license) — this derived subset is the standard. SCOPE
-FENCE: STE applies to procedural text ONLY — guide prose, FAQ, plan
-descriptions, and all editorial/sales surfaces keep their existing registers;
-STE would flatten the brand there. The ✓ rules join the ultra QC profile as
+FENCE (refined by owner 2026-07-20): STRICT STE applies to procedural text;
+the GUIDE's prose additionally follows STE-DISCIPLINED EDITORIAL (active voice,
+≤20-word average / 25 cap sentences, one idea per sentence, one term per
+concept, no hedging/filler/rhetorical questions — personality via precision).
+FAQ, plan descriptions, and sales surfaces keep their existing registers
+(C5/Built-For/corner canon); strict STE never applies there. The ✓ rules join the ultra QC profile as
 advisory checks on calendar-note text.
 
 Voice/register: unchanged from v1 (guide register per road-guide precedent; C5 +

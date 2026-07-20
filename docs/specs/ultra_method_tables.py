@@ -28,18 +28,22 @@ def apportion(n_post_test):
     total = sum(CANONICAL_SPLIT.values())
     quotas = {ph: n_post_test * w / total for ph, w in CANONICAL_SPLIT.items()}
     alloc = {ph: max(1, math.floor(quotas[ph])) for ph in TIE_ORDER}
-    while sum(alloc.values()) < n_post_test:
-        rem = sorted(TIE_ORDER, key=lambda ph: (-(quotas[ph] - math.floor(quotas[ph])), TIE_ORDER.index(ph)))
-        for ph in rem:
-            if sum(alloc.values()) < n_post_test:
-                alloc[ph] += 1
-            break
-    while sum(alloc.values()) > n_post_test:
-        rem = sorted(TIE_ORDER, key=lambda ph: ((quotas[ph] - math.floor(quotas[ph])), -TIE_ORDER.index(ph)))
-        for ph in rem:
-            if alloc[ph] > 1 and sum(alloc.values()) > n_post_test:
-                alloc[ph] -= 1
-            break
+    deficit = n_post_test - sum(alloc.values())
+    order = sorted(TIE_ORDER, key=lambda ph: (-(quotas[ph] - math.floor(quotas[ph])),
+                                              TIE_ORDER.index(ph)))
+    i = 0
+    while deficit > 0:  # award one remainder unit per phase, cycling if needed
+        alloc[order[i % len(order)]] += 1
+        deficit -= 1
+        i += 1
+    i = 0
+    order_rev = list(reversed(order))
+    while deficit < 0:
+        ph = order_rev[i % len(order_rev)]
+        if alloc[ph] > 1:
+            alloc[ph] -= 1
+            deficit += 1
+        i += 1
     return alloc
 
 
@@ -130,6 +134,7 @@ def build(duration, masters):
             prev_load = hours[w]
     max_load_seen = hours[1]
     prev_l = hours[1]
+    prev_ld = None  # last LOAD week's long day (skips W1/W2 seed)
     for w in range(2, duration + 1):
         if phases[w] == 'cons' or w in (sim_week, mini_week):
             continue
@@ -139,8 +144,9 @@ def build(duration, masters):
         # LOAD week: ramp vs previous load week AND vs max load seen (re-entry rule)
         assert hours[w] <= max(prev_l, max_load_seen) * 1.101 + 1e-9, (duration, masters, w, 'ramp')
         assert long_day[w] <= hours[w], (duration, masters, w, 'ld>hours')
-        if w >= 3 and (w - 1) not in rec_weeks and (w - 1) not in (sim_week, mini_week) and phases[w-1] != 'test':
-            assert long_day[w] <= long_day[w - 1] * 1.121 + 1e-9, (duration, masters, w, 'ld step')
+        if w >= 3 and prev_ld is not None:
+            assert long_day[w] <= prev_ld * 1.121 + 1e-9, (duration, masters, w, 'ld step')
+        prev_ld = long_day[w]
         prev_l = hours[w]
         max_load_seen = max(max_load_seen, hours[w])
     rows = []
@@ -178,8 +184,68 @@ def build(duration, masters):
     print("\n".join(rows))
 
 
+def build_catchup(runway, masters, avg_hours, longest_ride, emit=True):
+    """§12.3 catch-up generator: runway 6-15 weeks, P-4 passing athletes.
+
+    Deterministic per contract v2.2: W1 testing at min(6.0, avg_hours);
+    consolidation = max(2, round(0.2*runway)) taper-ladder weeks; remaining
+    weeks build-type LOADs seeded at min(6.0, avg_hours) hours and
+    min(3.0, 0.75*longest_ride) long day, standard ramp/recovery rules;
+    one 2-day SIM iff runway >= 10 at week runway - cons - 1."""
+    assert 6 <= runway <= 15, "catch-up range"
+    rec_cad = 3 if masters else 4
+    cons = max(2, round(0.2 * runway))
+    TAPER = {2: [6.0, 2.0], 3: [8.0, 6.0, 2.0], 4: [9.0, 7.0, 5.0, 2.0]}
+    sim_week = (runway - cons - 1) if runway >= 10 else None
+    seed_h = min(6.0, avg_hours)
+    seed_ld = min(3.0, 0.75 * longest_ride)
+    hours = {1: seed_h}
+    long_day = {1: min(2.5, seed_ld)}
+    rows = []
+    prev_l, ld = seed_h, seed_ld
+    c = 0
+    rec_weeks = set()
+    for w in range(2, runway - cons + 1):
+        if w == sim_week:
+            continue
+        c += 1
+        if c % rec_cad == 0:
+            rec_weeks.add(w)
+    for w in range(2, runway + 1):
+        if w > runway - cons:
+            idx = w - (runway - cons) - 1
+            hours[w] = TAPER[cons][idx]
+            long_day[w] = min(4.0, hours[w] - 1) if hours[w] > 3 else 1.0
+        elif w == sim_week:
+            d1 = q(ld * 1.10)
+            hours[w] = q(d1 + q(d1 * 0.80) + 1.5)
+            long_day[w] = d1
+        elif w in rec_weeks:
+            hours[w] = q(prev_l * 0.65)
+            long_day[w] = q(min(2.5, ld * 0.6))
+        else:
+            hours[w] = q(min(prev_l * 1.10, 13.0))
+            ld = q(min(ld * 1.12, 6.0))
+            long_day[w] = ld
+            prev_l = hours[w]
+    if emit:
+        print(f"\n### Catch-up table — {runway}w {'Masters' if masters else 'Standard'} "
+              f"(avg {avg_hours}h, longest {longest_ride}h)\n")
+        print("| Wk | Type | Hours | Long day |")
+        print("|---|---|---|---|")
+        for w in range(1, runway + 1):
+            wt = 'TEST' if w == 1 else ('SIM' if w == sim_week else (
+                'RECOVERY' if w in rec_weeks else (
+                    'TAPER' if w > runway - cons else 'LOAD')))
+            print(f"| {w} | {wt} | {hours[w]:.2f} | {long_day[w]:.2f} |")
+    return hours
+
+
 if __name__ == '__main__':
     import io, contextlib
+    for d in range(6, 16):           # self-test: catch-up range
+        for m in (False, True):
+            build_catchup(d, m, avg_hours=5.0, longest_ride=3.5, emit=False)
     for d in range(16, 37):          # self-test: every custom length must generate
         for m in (False, True):      # and satisfy all assertions
             if d in (16, 24):

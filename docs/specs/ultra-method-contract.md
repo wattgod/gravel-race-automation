@@ -30,11 +30,12 @@ States (deterministic, evaluated at intake):
 - **CATCH-UP**: P-4 passes, but runway <16w OR any of P-1..P-3 fail with runway
   <16w → §12.3 rules.
 - **EXTENDED-BASE ENTRY**: P-1..P-3 not all met but runway ≥16w → the athlete
-  runs the standard structure with weeks 2–5 hours at floor0.25(0.8 × canonical)
-  and B2B entry delayed 2 weeks; SIM preserved. Transition rule: if completed
-  hours in weeks 2–4 ≥80% of the reduced prescription → canonical table from
-  week 5; otherwise the 0.8 reduction extends through week 8, then canonical
-  resumes unconditionally. QC conformance for this state checks the REDUCED
+  runs the standard structure with weeks 2–4 hours at floor0.25(0.8 × canonical)
+  and B2B entry delayed 2 weeks; SIM preserved. Transition rule (evaluated at
+  the end of week 4): completed hours in weeks 2–4 ≥80% of the reduced
+  prescription → canonical table from week 5 onward; otherwise the 0.8
+  reduction extends over weeks 5–8, then canonical resumes unconditionally
+  from week 9. QC conformance for this state checks the REDUCED
   reference values for the reduced weeks (state-aware conformance, §13.1).
 - **MINIMUM VIABLE RUNWAY**: 6 weeks (matches the custom engine's floor). Runway
   <6w → no plan product; route to consult/coaching (fit filter, not upsell).
@@ -291,7 +292,9 @@ delivered on any timeline; products must say so (fit filter).
   consolidation length (2→[6,2] · 3→[8,6,2] · 4→[9,7,5,2] · 5→[10,8,6,4,2] ·
   6→[10,8,6,5,3,2] · 7→[10,9,7,6,4,3,2]); strength = 0 in the final 2 weeks.
   The script self-tests every N∈[16,36] × Masters against all assertions.
-- 12.3 CATCH-UP (<16w, ≥6w, P-4 pass) — deterministic: week 1 = testing week
+- 12.3 CATCH-UP (<16w, ≥6w, P-4 pass) — deterministic and generator-authoritative
+  (`ultra_method_tables.py build_catchup(runway, masters, avg_hours,
+  longest_ride)`, self-tested for runway 6–15): week 1 = testing week
   at min(6.0, athlete 4-week average) hours; consolidation = max(2,
   round(0.2·N)) final weeks on the taper ladder keyed by that length; all
   remaining weeks = build-type LOAD weeks seeded at hours = min(6.0, athlete
@@ -317,9 +320,11 @@ delivered on any timeline; products must say so (fit filter).
 ## 13. Machine-checkable QC assertions (ultra QC profile)
 
 Derivable from this contract, all hard-fail: (1) table conformance — generated
-plan's weekly hours/long-day/type sequence matches the canonical table for its
-duration+Masters flag within ±0.25h (LOAD weeks) / exact type mapping (custom:
-conformance to §12.2 allocation + §2 derivation rules); (2) exactly one testing
+plan's weekly hours/long-day/type sequence matches the generator output for its
+(duration, Masters) within ±0.25h (LOAD weeks) / exact type mapping; STATE-AWARE:
+for EXTENDED-BASE athletes the reference values for the reduced weeks (2–4, or
+2–8 on the failed-transition branch) are the reduced values per §1, not
+canonical; CATCH-UP plans check against `build_catchup()` output; (2) exactly one testing
 week at W1; retest weeks per table flags; (3) recovery cadence per Masters
 flag; zero intensity in recovery weeks (incl. Masters); (4) SIM present with
 §5 day count/dose formulas ±0.25h and the ≥4/≥5-day recovery window after; (5)

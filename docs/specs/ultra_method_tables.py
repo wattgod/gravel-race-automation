@@ -96,6 +96,9 @@ def build(duration, masters):
         c += 1
         if c % rec_cad == 0 and w not in (sim_week, mini_week) and phases[w] != 'cons':
             rec_weeks.add(w)
+    # the week after the main SIM is ALWAYS a recovery week (mandatory §5 window)
+    if sim_week + 1 <= duration and phases[sim_week + 1] != 'cons':
+        rec_weeks.add(sim_week + 1)
     ld = 3.0
     prev_load = 6.0
     for w in range(2, duration + 1):

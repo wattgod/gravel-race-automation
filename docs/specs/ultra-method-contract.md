@@ -1,4 +1,4 @@
-# Ultra Method Contract — v2.4 (G0.5) — owner revisions folded (VO2 retention, §11A volume architecture); re-review pending
+# Ultra Method Contract — v2.5 (G0.5) — owner revisions + §11A engine-ready; post-SIM recovery week generator-enforced
 
 Normative implementation contract for all Gravel God ultra-bikepacking training
 products. v1 → sol G0.5 review NO-GO (7 findings: non-deterministic prescription,
@@ -120,7 +120,7 @@ one); Strength = sessions per §8.
 | 16 | build | LOAD | 13.00 | 6.00 | yes | 2 | 1 | - |
 | 17 | spec | RECOVERY | 8.25 | 2.50 | no | 0 | 1 | RETEST |
 | 18 | spec | SIM | 18.00 | 6.50 | SIM | 0 | 0 | - |
-| 19 | spec | LOAD | 14.00 | 6.00 | yes | 1 | 1 | - |
+| 19 | spec | RECOVERY | 8.25 | 2.50 | no | 0 | 1 | - |
 | 20 | spec | LOAD | 14.00 | 6.00 | yes | 1 | 1 | - |
 | 21 | cons | TAPER | 9.00 | 4.00 | no | 1 | 1 | - |
 | 22 | cons | TAPER | 7.00 | 4.00 | no | 0 | 1 | - |
@@ -202,8 +202,10 @@ generic VO2-cadence gate: for ultra, the gate is replaced by THIS cadence
 - Main SIM days: **16w → 2; 24w → 3; custom ≥28w → 4** (custom 16–19w → 2,
   20–27w → 3).
 - Placement: SIM week per tables (16w W12, 24w W18); custom = week
-  min(round(0.75·N), N−3), where SIM days occupy the START of that calendar
-  week (Mon–Wed semantics), remainder of the week = recovery days.
+  min(round(0.75·N), N−3). SIM days anchor to the WEEKEND of the SIM week and
+  END on its Sunday: 2-day = Sat–Sun (0 PTO days), 3-day = Fri–Sun (1 PTO
+  day), 4-day = Fri–Mon (2 PTO days; the Monday belongs to the following
+  recovery week). Days before the SIM within its week are recovery spins/rest.
 - Dose: day 1 = floor0.25(1.10 × current long-day dose); each later day =
   floor0.25(0.80 × day 1). Fully loaded; race systems mandatory; systems
   checklist (§5.1) in calendar notes.
@@ -211,12 +213,12 @@ generic VO2-cadence gate: for ultra, the gate is replaced by THIS cadence
   duration never restricted (R4)**; rehearsed low point is calories/fatigue
   only.
 - Recovery after (precise semantics): the 4 calendar days (Masters: 5)
-  immediately following the final SIM day contain ONLY rest days or recovery
-  spins, zero intensity, and their COMBINED moving time is ≤60% of the
-  preceding RECOVERY week's table hours (e.g. 16w Standard: ≤0.6×6.25 = 3.75h
-  across the 4 days). These days span the SIM week's remainder and, if needed,
-  the start of the following week; the following week's table hours already
-  account for this (RECOVERY type). Hard QC assertion.
+  immediately following the final SIM day (i.e. Mon–Thu / Mon–Fri of the next
+  week) contain ONLY rest days or recovery spins, zero intensity, with
+  combined moving time ≤60% of the preceding RECOVERY week's table hours
+  (16w Standard example: ≤0.6×6.25 = 3.75h). The week after the main SIM is
+  ALWAYS a RECOVERY-type week in the tables (generator-enforced). Hard QC
+  assertion.
 - MINI-SIM (24w W14 and custom ≥20w): 2 days, day 1 = 1.00× long-day dose,
   day 2 = floor0.25(0.70 × day 1), unloaded sleep-out optional, systems subset.
 - Athlete lacks 2 consecutive available days (custom): SIM is replaced by two
@@ -294,17 +296,18 @@ teaches them; TP masters use the default template; custom plans map them to the
 athlete's real week):
 
 1. **Default weekly template** (TP masters): weekday sessions ≤90min except one
-   optional 2h midweek slot; long day Saturday; B2B partner day Sunday;
-   strength attached to existing ride days, never new days. Peak-week math
-   under this template: 5 weekday hours + long day + B2B day — 13h fits a
-   job without any weekday ride over 90min except the one 2h slot.
+   optional 2h midweek slot; long day Saturday; B2B partner Sunday at 60–70%
+   of the long day (§4); strength attached to existing ride days, never new
+   days. Peak-week worked example (24w W15, 13.00h): Sat 6.00 long day + Sun
+   4.00 B2B partner (67%) + Tue 1.50 + Wed 1.00 + Thu 0.50 = 13.00 — no
+   weekday ride over 90 minutes.
 2. **Commute conversion**: commute riding counts 1:1 toward prescribed hours;
    riding the race pack on commutes is encouraged from build onward (free
    loaded-adaptation; systems reps). Two 45–60min commute legs convert a work
    day into 1.5–2h of invisible volume.
-3. **Split days (micro-doubles)**: any prescribed aerobic session ≥90min may be
-   split into AM/PM chunks of ≥45min each with no equivalence penalty; quality
-   sessions are never split.
+3. **Split days (micro-doubles)**: weekday aerobic sessions ≥90min may be
+   split into AM/PM chunks of ≥45min each with no equivalence penalty. NEVER
+   split: quality sessions, the long day, the B2B partner day, SIM days.
 4. **Dark-hours riding**: pre-work and after-dark rides are not a workaround —
    for ultras they are SPECIFICITY (racing means riding at dawn and after dark
    on lights). From build onward, ≥1 ride per 14 days should happen in
@@ -313,14 +316,15 @@ athlete's real week):
 5. **Indoor density**: weekday quality sessions may be trainer-based; trainer
    time counts 1:1 (no invented multipliers) but sessions are structured
    no-coast, which is why 60–75min trainer slots can carry the quality work of
-   a longer outdoor ride `[position]`.
+   a longer outdoor ride.
 6. **Utility miles**: errands ridden with the race pack count toward volume and
    systems practice; explicitly encouraged in guide/plan copy.
-7. **PTO design**: the SIM block is deliberately shaped to fit a long weekend —
-   16w (2-day SIM): zero or one PTO day (Sat–Sun or Fri–Sat); 24w (3-day SIM):
-   ≤2 PTO days (Fri–Sun or Sat–Mon). Plan copy states the PTO ask at plan
-   start (week-1 note) so the athlete books it months ahead. The mini-SIM
-   (2 days) is always PTO-free (weekend).
+7. **PTO design** (layouts fixed by §5): 2-day SIM = Sat–Sun, 0 PTO days;
+   3-day = Fri–Sun, 1 PTO day; 4-day = Fri–Mon, 2 PTO days; mini-SIM = Sat–Sun,
+   0 PTO days. The week-1 calendar note MUST contain this normative sentence
+   (token-filled): "Week {sim_week} is your simulation block: {sim_days}
+   consecutive days, {sim_layout}. Book {pto_count} day(s) off work now —
+   this is the one week that can't flex."
 8. **What never bends**: the weekly long day (≥70% floor per §11), the SIM, and
    recovery weeks. Everything else has a §11 bend order.
 

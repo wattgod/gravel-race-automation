@@ -5,7 +5,7 @@
     "display_name": "Big Sugar Gravel",
     "tagline": "The Life Time Grand Prix finale—where the season ends and titles are decided on Ozark gravel.",
     "vitals": {
-      "distance_mi": 100,
+      "distance_mi": 99.6,
       "elevation_ft": 6200,
       "gain_display": "Varies",
       "start_elevation_asl_ft": 1300,
@@ -42,7 +42,7 @@
     },
     "terrain": {
       "primary": "Ozark Mountain gravel with punchy repeated climbs",
-      "surface": "Chunky, loose, and sharp gravel over hardpack. Higher mechanical failure rate than typical races.",
+      "surface": "Loose, rocky gravel on rarely maintained Ozark roads. The course includes a few pavement sections, water crossings, and bridges.",
       "technical_rating": 4,
       "features": [
         "Sugar Creek descent",
@@ -183,31 +183,24 @@
       "reputation": "The fall classic. Where the Grand Prix battles play out in the Ozark Mountains."
     },
     "course_description": {
-      "character": "Relentless punchy climbing with technical descents. The Ozarks don't have long climbs—they have endless short ones.",
+      "character": "The current flagship is 99.6 miles with approximately 6,200 feet of gain on rarely maintained Ozark roads with loose rocky gravel, limited pavement, water crossings, and bridges.",
       "suffering_zones": [
         {
-          "mile": 21,
-          "label": "Suicide Hill",
-          "desc": "The legendary Suicide Hill. Brutal reputation earned through years of carnage. 90° corners with descents—straight down into a turn at the bottom. Sharp gravel increases crash and puncture risk.",
-          "terrain_detail": "Steep descent with 90° turn at bottom, sharp loose gravel",
-          "named_section": "Suicide Hill"
+          "mile": 37,
+          "label": "Pineville Aid Station",
+          "desc": "The first organizer-published 100-mile aid station and support-crew checkpoint.",
+          "terrain_detail": "Aid station",
+          "named_section": "Pineville"
         },
         {
-          "mile": 55,
-          "label": "Missouri Border Grind",
-          "desc": "You've crossed into Missouri. The punchy 13%+ grade climbs keep coming. No sustained efforts—just repeated accelerations that shred diesel riders.",
-          "terrain_detail": "Punchy climbs 13%+ grade, crosses state line",
-          "named_section": "Missouri Section"
-        },
-        {
-          "mile": 80,
-          "label": "Exposed Gravel Stretch",
-          "desc": "Two miles of exposed threshold effort at 9-10 mph pace. 20+ mph wind gusts with nowhere to hide. The finish is close but these final 20 miles will empty you.",
-          "terrain_detail": "Exposed windy section, threshold pace required",
-          "named_section": "The Finishing Grind"
+          "mile": 73,
+          "label": "Rockford Grange Aid Station",
+          "desc": "The second organizer-published 100-mile aid station and support-crew checkpoint.",
+          "terrain_detail": "Aid station",
+          "named_section": "Rockford Grange"
         }
       ],
-      "signature_challenge": "The accumulated vertical. Whatever the number reads on race day (organizer-stated ~6,200ft for the current 100-mile course; it moves year to year), it comes in 50+ individual climbs. Death by a thousand punches.",
+      "signature_challenge": "Approximately 6,200 feet of gain across 99.6 miles of loose, rocky Ozark gravel and mixed surfaces.",
       "map_url": "https://ridewithgps.com/routes/52306059",
       "ridewithgps_id": "52306059"
     },

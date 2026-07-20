@@ -3,24 +3,24 @@
     "name": "Gravel and Tar Classic",
     "slug": "gravel-and-tar-classic",
     "display_name": "Gravel and Tar Classic",
-    "tagline": "New Zealand countryside--160km of farmland gravel, 2,000m elevation, January summer warmth, 15-20% DNF.",
+    "tagline": "New Zealand countryside gravel, January summer warmth — the UCI 'Classic' is elite-only; amateurs enter the companion 'Slicks and Stones Gravel Assault' instead.",
     "vitals": {
-      "distance_mi": 99,
-      "elevation_ft": 6562,
+      "distance_mi": 75,
+      "elevation_ft": 6175,
       "location": "Manawat\u016b-Whanganui, New Zealand",
       "location_badge": "MANAWAT\u016a, NEW ZEALAND",
       "county": "Manawat\u016b-Whanganui",
-      "date": "February annually",
-      "date_specific": "2027: January 16 (Feilding)",
+      "date": "Mid-to-late January annually (elite UCI race — not open amateur registration)",
+      "date_specific": "2027: January 24 confirmed by the organizer, starting from Ashhurst. The Classic is open to elite and under-19 individual cyclists; registration details, course distance, and elevation gain have not yet been published. The separate amateur Slicks and Stones page says that event is temporarily postponed because of low entries.",
       "terrain_types": [
-        "New Zealand gravel (70%)",
-        "Paved roads (30%)",
+        "Gravel roads (approximately 25%)",
+        "Sealed roads (approximately 75%)",
         "Rolling hills",
         "Farmland"
       ],
-      "field_size": "300-500 riders",
+      "field_size": "Elite Classic field is small and UCI-licensed-only; amateur field size for the rebranded 'Slicks and Stones Gravel Assault' (launching Apr 2026) is not yet published.",
       "start_time": "Morning",
-      "registration": "Online. Cost: NZ$150-$200 (~$90-$120 USD)",
+      "registration": "The elite 'Gravel and Tar Classic' itself requires a UCI Elite or International racing license endorsed by a National Federation — it is NOT open amateur registration. Amateur riders enter the separate 'Slicks and Stones Gravel Assault' event instead (~NZ$150-200 range historically; current pricing not published for the 2026 relaunch).",
       "prize_purse": "None",
       "aid_stations": "Multiple on course",
       "cutoff_time": "None",
@@ -39,7 +39,7 @@
     },
     "terrain": {
       "primary": "New Zealand countryside\u2014rolling hills, farmland",
-      "surface": "70% gravel, 30% paved roads. New Zealand countryside\u2014rolling hills, farmland. 2,000 m over 160 km. Manawat\u016b area. Technical rating: 3/5.",
+      "surface": "The organizer describes the 2027 Classic as approximately 75% sealed roads and 25% gravel roads in the Pohangina region. Current distance and elevation gain are not yet published.",
       "technical_rating": 3,
       "features": [
         "New Zealand countryside",
@@ -73,7 +73,7 @@
     },
     "biased_opinion": {
       "verdict": "New Zealand Countryside Long Distance",
-      "summary": "Gravel and Tar Classic is New Zealand countryside--160 km, 2,000 m elevation. Founded ~2018. 70% gravel, 30% paved. New Zealand countryside--rolling hills, farmland. 300-500 riders. Manawat\u016b-Whanganui, NZ. January midsummer conditions (18-28\u00b0C). Affordable entry (NZ$150-$200 / $90-$120). If you want New Zealand countryside with long distance and affordable entry, this is it. If you need short distance or local/domestic, skip it. 160 km is long. International destination race.",
+      "summary": "Gravel and Tar Classic is a UCI 1.2 elite/international-license-only road race with gravel sectors, founded 2016 (UCI status since 2018), in New Zealand's Manawat\u016b-Whanganui region. Amateur riders cannot enter the Classic itself \u2014 the public entry point is the companion ride, rebranded 'Slicks and Stones Gravel Assault,' relaunching at a new venue (Apiti) in April 2026 (Full Assault: 120 km / 1,882 m, ~80% gravel). The 2025 Classic was cancelled due to low entries. January midsummer conditions. If you want a New Zealand gravel adventure ride, target the amateur Gravel Assault event, not the Classic itself.",
       "strengths": [
         "New Zealand countryside scenery (stunning)",
         "Affordable entry ($90-$120 USD)",
@@ -91,7 +91,7 @@
         "Heat (January NZ 20-28\u00b0C)",
         "Limited international recognition"
       ],
-      "bottom_line": "Gravel and Tar Classic is New Zealand countryside long distance. 160 km, 2,000 m, January midsummer warmth. If you want New Zealand countryside with affordable entry, this is it. If you need short distance or local/domestic, skip it. 160 km is long. International travel required but New Zealand makes it worth it."
+      "bottom_line": "The 'Gravel and Tar Classic' name refers to a UCI elite/international-license-only road race — amateurs cannot register for it. If you want the New Zealand countryside gravel experience, target the amateur companion event, now called 'Slicks and Stones Gravel Assault' (Apiti, relaunching Apr 2026). Confirm current facts directly with the organizer before publishing training-plan copy against either event, since both have recently been restructured."
     },
     "logistics": {
       "nearest_airport": "Palmerston North (PMR) \u2014 30 km (30-minute drive)",
@@ -102,49 +102,34 @@
       "travel_summary": "Fly to Palmerston North (PMR). Rental car needed (30 km, 30-minute drive to Manawat\u016b). Region lodging--book early. Day-before packet pickup. Race January. Post-race food.",
       "food_options": "Aid stations on course. Post-race party with New Zealand food/wine.",
       "camping": "Check official website",
-      "official_site": "https://www.gravelandtar.co.nz"
+      "official_site": "https://gravelandtar.com/classicuci"
     },
     "course_description": {
-      "character": "160 km, 2,000 m. 70% gravel, 30% paved. New Zealand countryside\u2014rolling hills, farmland. Technical rating: 3/5.",
+      "character": "The 2027 Classic is an elite and under-19 road race on approximately 75% sealed and 25% gravel roads in the Pohangina region. The organizer has not yet published its distance or elevation gain.",
       "suffering_zones": [
         {
-          "name": "Throughout: Long Distance",
-          "miles": "0-160",
-          "description": "160 km is long. 2,000 m cumulative elevation. New Zealand countryside.",
-          "survival_strategy": "Pace conservatively. 4+ bottles. Break into chunks. 160 km is long. Mental toughness."
-        },
-        {
-          "name": "Throughout: January Warmth",
+          "name": "Throughout: Mixed road surfaces",
           "miles": "Throughout",
-          "description": "January NZ = 20-28\u00b0C. Warm. Sun exposure.",
-          "survival_strategy": "4+ bottles. Sun protection. Hydrate constantly. Start early. Warmth is manageable."
-        },
-        {
-          "name": "Km 120+: Distance Fatigue",
-          "miles": "120-160",
-          "description": "40 km to go. Legs tired. 15-20% DNF here.",
-          "survival_strategy": "Break into chunks. Focus on next aid. Mental toughness. Push through."
+          "description": "The 2027 Classic is approximately 75% sealed roads and 25% gravel roads; its distance and gain are not yet published.",
+          "survival_strategy": "Wait for the organizer's current course and technical guide before planning around specific demands."
         }
       ],
-      "signature_challenge": "160 km long distance + 2,000 m elevation. New Zealand countryside.",
+      "signature_challenge": "A mixed-surface elite road race whose 2027 course distance and gain are not yet published.",
       "ridewithgps_id": "45397123",
       "ridewithgps_name": "new zealand gravel and tar classic",
-      "surface_breakdown": {
-        "overall": {
-          "gravel": 70,
-          "pavement": 30
-        }
-      }
+      "surface_breakdown": null
     },
     "history": {
-      "founded": "~2018",
-      "founder": "Unknown",
-      "origin_story": "Gravel and Tar Classic founded ~2018. Manawat\u016b-Whanganui, New Zealand. 160 km, 300-500 riders. New Zealand countryside farmland gravel.",
+      "founded": "2016 (UCI 1.2 status since 2018)",
+      "founder": "Steve Stannard / Greasy Chain Charitable Trust",
+      "origin_story": "Gravel and Tar Classic launched 2016 in Manawat\u016b-Whanganui, New Zealand, gaining UCI 1.2 Oceania Tour status in 2018. It is an elite/international-license-only UCI road race with gravel sectors (the organizer's own site calls it 'the first serious gravel race in Australasia,' but it is UCI-registered as a road race, not a gravel event). The 2025 edition was cancelled due to low entries. The public-facing amateur companion ride has been rebranded 'Slicks and Stones Gravel Assault,' relaunching at a new venue (Apiti village) in April 2026.",
       "notable_moments": [
-        "2023: Warm, dry (20-28\u00b0C)",
-        "2024: Variable (18-28\u00b0C)"
+        "2022: Cancelled (COVID-19).",
+        "2025: Cancelled due to low entries.",
+        "2026: Amateur companion event relaunches under new name 'Slicks and Stones Gravel Assault' at a new venue (Apiti), Apr 1, 2026.",
+        "2027: Elite Classic confirmed by organizer for Jan 24, 2027 (Ashhurst)."
       ],
-      "reputation": "New Zealand gravel scene. Manawat\u016b. Long distance. Well-organized. Affordable entry."
+      "reputation": "New Zealand's toughest one-day UCI road race with gravel sectors \u2014 elite/UCI-license field only. Amateur entry point has been restructured and renamed; current amateur participant numbers not yet published."
     },
     "research_metadata": {
       "data_confidence": "researched",

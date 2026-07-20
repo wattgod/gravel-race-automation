@@ -42,14 +42,14 @@
     },
     "terrain": {
       "primary": "Steep paved highway climb",
-      "surface": "Fully paved Mt. Baker Highway (SR 542) winds relentlessly uphill through forests and switchbacks. Open to vehicles—real-world grit without full closure. Smooth enough for speed but pitches to 14% shred legs.",
+      "surface": "Fully paved Mt. Baker Highway (SR 542) winds uphill through forests and switchbacks. The highway is closed to motor traffic in both directions from 7:00am to noon on race day; pavement conditions vary year to year.",
       "technical_rating": 2,
       "features": [
         "Endless switchbacks",
         "Dense forest to alpine transition",
         "Panoramic glacier/lake views",
-        "14% wall near ski area",
-        "Vehicle traffic adds edge"
+        "Steep pitches near the ski area",
+        "Closed highway during the timed ascent"
       ]
     },
     "gravel_god_rating": {
@@ -71,7 +71,7 @@
       "value": 5,
       "expenses": 4,
       "cultural_impact": 3,
-      "tier_note": "T2 perfection for climbers craving scenery over suffering marathons. Epic views and pro nods like Phil Gaimon's record elevate it, but vehicle traffic and modest length cap T1 dreams. Sells out instantly—bucket-list staple for PNW masochists.",
+      "tier_note": "T2 perfection for climbers craving scenery over suffering marathons. Epic views and pro nods like Phil Gaimon's record elevate it, while modest length caps T1 dreams. Sells out instantly—bucket-list staple for PNW masochists.",
       "score_note": "Sum of 14 criteria: 4+3+2+5+4+4+5+3+5+5+5+3+5+4 = 57. cultural_impact = 3. Total = 60. (60/70)*100 = 86.",
       "editorial_tier": 1,
       "editorial_tier_label": "TIER 1",
@@ -96,7 +96,7 @@
       },
       "elevation": {
         "score": 5,
-        "explanation": "4,462ft in 22mi? Pure climbing nirvana at 6.5% average. Final miles near ski area are leg-melting gold. This is elevation done right—relentless, rewarding, record-worthy."
+        "explanation": "4,462ft in 22mi makes this pure climbing territory. The highway steepens near the ski area, and the uninterrupted ascent rewards disciplined pacing."
       },
       "climate": {
         "score": 4,
@@ -141,7 +141,7 @@
     },
     "biased_opinion": {
       "verdict": "Scenic Climb King",
-      "summary": "Mount Baker Hill Climb is PNW poetry in pain—22 miles of paved paradise punishing legs amid unreal glacier gazes. Vehicle-dodging grit elevates it beyond sanitized sufferfests. Pro records, sold-out hype, and nonprofit heart make it a must. Amateur-friendly categories welcome all to the agony party. Views alone justify the pilgrimage.",
+      "summary": "Mount Baker Hill Climb is PNW poetry in pain—22 miles of paved paradise punishing legs amid unreal glacier gazes. A closed mountain highway, pro records, sold-out hype, and nonprofit heart make it a must. Amateur-friendly categories welcome all to the agony party. Views alone justify the pilgrimage.",
       "strengths": [
         "Insane scenery trumps suffering",
         "Pro-level org on volunteer budget",
@@ -150,18 +150,18 @@
         "Bucket-list KOM bait"
       ],
       "weaknesses": [
-        "Vehicles mean no full closure bliss",
+        "Variable mountain-highway pavement",
         "Modest length for ultra fiends",
         "Parking scramble demands planning",
         "Elevation shy of true monsters",
         "Waitlists crush last-minuters"
       ],
-      "bottom_line": "Elite organization meets epic terrain. Race it for views that'll redefine your Strava. Skip only if traffic-phobic."
+      "bottom_line": "Elite organization meets epic terrain. Race it for the uninterrupted climb and views that'll redefine your Strava."
     },
     "final_verdict": {
       "score": "79 / 100",
       "one_liner": "Alpine masterpiece that punches way above its miles.",
-      "should_you_race": "Yes if you crave scenic suffering with pro cred—train climbs now. Skip if hating cars or needing 50+ miles. Perfect for intermediate hammers eyeing records.",
+      "should_you_race": "Yes if you crave scenic suffering with pro cred—train climbs now. Skip if you need 50+ miles or dislike a sustained one-way effort. Perfect for intermediate hammers eyeing records.",
       "alternatives": "Deadwood Classic (deadwood), Pikes Peak Hill Climb (pikes-peak), Alpe d'Huez proxies like RMCC Hill Climb",
       "alternative_slugs": [
         "deadwood-classic",
@@ -190,7 +190,7 @@
       "reputation": "Legendary for scenery and stakes—Gaimon calls it 'well-run, safe, scenic.' Positive pro-am vibe draws bucket-listers. Unbroken records fuel mystique."
     },
     "course_description": {
-      "character": "All-uphill paved assault on SR 542 from Glacier's forests to Artist Point's alpine glory. 6.5% average chews quads via switchbacks past communities, rivers, lakes. Steepens viciously near ski area—vehicle traffic amps real-road edge. Panoramic payoffs make pain poetic.",
+      "character": "All-uphill paved assault on SR 542 from Glacier's forests to Artist Point's alpine glory. The 22-mile course gains 4,462ft through switchbacks and steepens near the ski area, with the highway closed to motor traffic during the event. Panoramic payoffs make pain poetic.",
       "suffering_zones": [
         {
           "mile": 0,
@@ -209,12 +209,12 @@
         {
           "mile": 18,
           "label": "Ski Area Crusher",
-          "desc": "Steepens to 14% walls near Chair 1—pure burn zone. Aid beckons but summit taunts. Gaimon's ghost haunts.",
+          "desc": "The highway steepens near Chair 1—pure burn zone. Aid beckons but summit taunts. Gaimon's ghost haunts.",
           "terrain_detail": "Exposed paved ramps, max gradient",
           "named_section": "Final Miles to Artist Point"
         }
       ],
-      "signature_challenge": "The unrelenting 4,462ft over 22mi on open highway—6.5% average with 14% kicks demands sustained power. No hiding in pacelines; solo grind amid traffic and vistas tests grit like few U.S. climbs."
+      "signature_challenge": "The unrelenting 4,462ft over 22mi on a closed mountain highway demands sustained power. There is no descent inside the timed course and nowhere to hide from the accumulating grade."
     },
     "guide_variables": {
       "race_name": "Mount Baker Hill Climb",
@@ -226,7 +226,7 @@
       "race_weather": "Dry cool alpine September—variable at elevation",
       "race_challenges": [
         "Steep final miles",
-        "Vehicle traffic",
+        "Variable pavement conditions",
         "Sustained 6.5% gradient",
         "High-altitude chill"
       ],
@@ -237,7 +237,7 @@
       {
         "requirement": "8-10hr climbing weeks with 3x 1hr+ threshold efforts",
         "by_when": "Week 12",
-        "why": "This beast averages 6.5% for 22mi—legs must endure without fading. Final 14% walls expose weak pacing. Threshold base crushes KOM dreams or survival."
+        "why": "This 22-mile ascent gains 4,462ft—legs must endure without fading. The late steep pitches expose weak pacing. Threshold base crushes KOM dreams or survival."
       },
       {
         "requirement": "Test descents or shuttle reliance; pack layers",

@@ -13,7 +13,7 @@
       "location": "Steamboat Springs, Colorado",
       "location_badge": "STEAMBOAT SPRINGS, CO",
       "date": "Late June annually",
-      "date_specific": "2026: June 28",
+      "date_specific": "2027: TBD (2026 edition ran June 26-28)",
       "lat": 40.4848,
       "lng": -106.8317
     },
@@ -28,7 +28,8 @@
       "month": "June",
       "typical": "Late June",
       "season": "Summer",
-      "year2026": "June 28, 2026"
+      "year2026": "June 28, 2026",
+      "year2027": "June 28, 2027 (confirmed)"
     },
     "organizer": {
       "name": "SBT GRVL / Amy Charity",
@@ -59,9 +60,9 @@
       {
         "name": "GREEN",
         "distance": "25 miles",
-        "elevationGain": "2,000 feet",
-        "gravelPercentage": "40%",
-        "description": "Beginner-friendly introduction to champagne gravel"
+        "elevationGain": "1,822 feet",
+        "gravelPercentage": "31%",
+        "description": "Beginner-friendly introduction to champagne gravel (all-new 2026 route)"
       }
     ],
     "terrain": {
@@ -70,7 +71,7 @@
     },
     "registration": {
       "method": "Lottery via BikeReg",
-      "window": "October 14-31, 2025 for 2026 event",
+      "window": "October 14-31, 2025 for the 2026 event; 2027 window not yet announced",
       "fieldSize": "2,750 participants (2,000 riders, 750 racers)"
     },
     "weather": "High-altitude Colorado summer - cool mornings (40s-50s°F), warm afternoons (70s-80s°F), potential afternoon thunderstorms. Unpredictable mountain weather.",
@@ -177,7 +178,7 @@
     "final_verdict": {
       "score": "80 / 100",
       "one_liner": "Champagne gravel at altitude with a three-day festival vibe that somehow doesn't ruin the racing.",
-      "should_you_race": "If you can hold 20+ mph for five hours at 7,000 feet, the Black course rewards fitness with buttery gravel and legitimate competition. The 8 mph cutoff sounds generous until you're grinding into headwinds at altitude. Come undertrained and you'll get pulled to a shorter course, which isn't the worst fate given the scenery.",
+      "should_you_race": "If you can hold 20+ mph for five hours at 7,000 feet, the Black course rewards fitness with buttery gravel and legitimate competition. The roughly 10 mph elapsed-average cutoff at Mile 38 sounds generous until you're grinding into headwinds at altitude. Come undertrained and you'll get pulled to the Blue course finish, which isn't the worst fate given the scenery.",
       "alternatives": "Unbound 200 offers more prestige and suffering if you want the hardest test. Big Sugar delivers similar smooth gravel without the altitude penalty, while Dirty Kanza's spiritual successor BWR California gives you desert beauty with less lottery drama.",
       "alternative_slugs": [
         "big-sugar",
@@ -189,27 +190,27 @@
       "character": "SBT GRVL serves up 108 miles of Colorado's famous 'champagne gravel' - smooth, fast surfaces that seduce you into thinking this will be easy. The 8,189 feet of climbing happens gradually across working ranch land, aspen groves, and sage-covered hills, with 70% gravel that ranges from hero dirt to loose chunky sections that'll humble your bike handling.",
       "suffering_zones": [
         {
-          "mile": 20,
-          "label": "The First Cutoff",
-          "desc": "Miss the 8:30 AM cutoff here and you're redirected to the Blue Course. The champagne gravel has already started sorting the field on rolling ranch roads."
+          "mile": 4,
+          "label": "Zipp Cow Creek",
+          "desc": "A steep, chunky gravel climb right out of the gate -- the course's first real test before the field has settled in."
         },
         {
-          "mile": 37,
-          "label": "The Second Sort",
-          "desc": "Another cutoff point where dreams get redirected. You're deep enough into the sage hills that the smooth gravel has given way to chunkier, more technical surfaces."
+          "mile": 25,
+          "label": "Wahooligan Pass",
+          "desc": "Reached via Trout Creek, this is the Black Course's lone Category 3 climb (about 4.17 miles). The plateau between Cow Creek and here is exposed and vulnerable to headwind."
         },
         {
-          "mile": 65,
-          "label": "The Aspen Grind",
-          "desc": "Deep into ranch country where the cumulative elevation starts compounding your suffering. The gravel stays fast but your legs don't."
+          "mile": 38,
+          "label": "The Cutoff",
+          "desc": "The only officially published cutoff on the Black Course: reach the County Road 29/37D intersection by 10:15 AM (roughly a 10mph elapsed-average pace) or you're redirected onto the Blue Course finish."
         },
         {
-          "mile": 85,
-          "label": "The Reality Check",
-          "desc": "Twenty-three miles from home with most of the climbing behind you, but the champagne gravel has turned your legs to concrete. The math gets brutal here."
+          "mile": 54,
+          "label": "Hayden Gun Range",
+          "desc": "The race's main aid station and spectator zone, and the only checkpoint where outside/team nutrition support is permitted -- functionally the turnaround before the return toward Steamboat."
         }
       ],
-      "signature_challenge": "The thing nobody tells you about SBT GRVL: champagne gravel is fast until it isn't. The deceptively smooth surfaces let you burn matches early while the altitude and relentless rolling terrain compound every tactical mistake. By mile 80, that silky gravel feels like riding through wet cement, and you've got 28 miles to contemplate your pacing choices.",
+      "signature_challenge": "The thing nobody tells you about SBT GRVL: champagne gravel is fast until it isn't. The deceptively smooth surfaces let you burn matches early while altitude (course tops out near 8,500ft) and 21 categorized climbs compound every tactical mistake. Riders consistently report feeling it in their power output specifically in the back half, after the Mile 38 cutoff has already sorted the field.",
       "ridewithgps_id": "53876176",
       "ridewithgps_name": "Black Race Course | SBT GRVL® p/b Wahoo 2026"
     },
@@ -347,7 +348,8 @@
           "cross_reference": 15
         },
         "scored_at": "2026-02-04"
-      }
+      },
+      "date_note_2026_07_16": "prior date_specific: '2027: June 28' — Jun 28 2027 is a Monday (implausible); official 2027 date unannounced"
     },
     "youtube_data": {
       "researched_at": "2026-02-22",

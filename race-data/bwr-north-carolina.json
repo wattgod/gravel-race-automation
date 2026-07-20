@@ -5,12 +5,12 @@
     "display_name": "Belgian Waffle Ride North Carolina",
     "tagline": "The Hell of the East - where your gravel bike wishes it was a mountain bike and your legs wish they were someone else's.",
     "vitals": {
-      "distance_mi": 131,
-      "elevation_ft": 13000,
+      "distance_mi": 100,
+      "elevation_ft": 8000,
       "location": "Hendersonville, North Carolina",
       "location_badge": "HENDERSONVILLE, NC",
-      "date": "October annually",
-      "date_specific": "2026: October 3-4",
+      "date": "No confirmed 2026 edition — not part of the 2026 BWR Quad-Tripel Crown (Arizona, California, Utah, Montana)",
+      "date_specific": "Status: DROPPED — no official 2026 or 2027 date; last held October 3-4, 2025",
       "lat": 35.3187,
       "lng": -82.461,
       "registration": "Online. Cost: $195"
@@ -103,8 +103,8 @@
       "inaugural_year": 2022,
       "organizer": "Monuments of Cycling",
       "race_director": "Michael Marckx",
-      "venue": "Kanuga Resort",
-      "venue_address": "130 Kanuga Chapel Dr, Hendersonville, NC 28739",
+      "venue": "Wag Valley Farm (moved from Kanuga Resort for 2025 due to Hurricane Helene recovery; venue for any future edition unconfirmed)",
+      "venue_address": "Hendersonville, NC (exact address unconfirmed for any future edition)",
       "gravel_percentage": 40,
       "unroad_sectors": "16-20",
       "steepest_grade_percent": 29,
@@ -114,22 +114,22 @@
     "distance_options": [
       {
         "name": "Waffle",
-        "distance_mi": "100-137",
-        "elevation_ft": "9,000-14,000",
+        "distance_mi": "~100 (2025)",
+        "elevation_ft": "~8,000 (2025)",
         "entry_fee": 195,
         "description": "Full distance through challenging Appalachian terrain with all Unroad sectors"
       },
       {
         "name": "Wafer",
-        "distance_mi": "68-84",
-        "elevation_ft": "5,000-7,000",
+        "distance_mi": "~56 (2025)",
+        "elevation_ft": "Varies",
         "entry_fee": 195,
         "description": "Half distance with substantial climbing through Blue Ridge Mountains"
       },
       {
         "name": "Wanna",
-        "distance_mi": "35-40",
-        "elevation_ft": "2,500-4,000",
+        "distance_mi": "~26 (2025)",
+        "elevation_ft": "Varies",
         "entry_fee": 100,
         "description": "Entry-level BWR experience with select Unroad sectors"
       }
@@ -170,7 +170,6 @@
         "drive_time_minutes": 110
       },
       "lodging_options": [
-        "Kanuga Resort (on-site, recommended)",
         "Hendersonville hotels (10-15 min drive)",
         "Asheville hotels (30-40 min drive)"
       ],
@@ -212,11 +211,12 @@
     },
     "lastUpdated": "2026-01-13",
     "dataQuality": "Complete",
+    "status": "POLICY - Real, ongoing race through 2025 (5th Annual, Oct 3-4, 2025, Wag Valley Farm, Hendersonville NC) but NOT part of the confirmed 2026 BWR Quad-Tripel Crown (Arizona, California, Utah, Montana). No official 2026 or 2027 North Carolina date published on belgianwaffleride.bike as of July 2026.",
     "scoringVersion": "GravelGod v2.1",
     "final_verdict": {
       "score": "71 / 100",
       "one_liner": "The Appalachian meat grinder that puts 29% fire roads and hike-a-bike sections in your face whether you're ready or not.",
-      "should_you_race": "Show up if you've got a 30-tooth chainring, legitimate mountain bike handling skills, and the ego to walk your bike in front of strangers. The 13,000 feet of climbing through Carolina mountains will expose fitness gaps fast, and those singletrack bottlenecks mean pack position matters more than watts. Skip this if you think gravel racing should be mostly rideable.",
+      "should_you_race": "Show up if you've got a 30-tooth chainring, legitimate mountain bike handling skills, and the ego to walk your bike in front of strangers. The 8,000+ feet of climbing through Carolina mountains will expose fitness gaps fast, and those singletrack bottlenecks mean pack position matters more than watts. Skip this if you think gravel racing should be mostly rideable.",
       "alternatives": "Dirty Kanza gives you the distance and suffering without the technical mountain bike nonsense. Rebecca's Private Idaho delivers similar elevation and scenery but with more flow and less walking.",
       "alternative_slugs": [
         "rebeccas-private-idaho",
@@ -224,30 +224,16 @@
       ]
     },
     "course_description": {
-      "character": "BWR NC is the hell spawn of European classics and Appalachian brutality—40% unroad surfaces that mock your bike choice and 13,000 feet of climbing that laughs at your FTP. This isn't gravel racing, it's survival cycling through Blue Ridge punishment chambers where 29% fire roads meet creek crossings and your legs meet reality. The course dips into South Carolina just to add interstate humiliation to your suffering.",
+      "character": "The completed 2025 Waffle near Asheville was approximately 100 miles with 8,000 feet of climbing. The organizer has not published a 2026 or 2027 North Carolina edition or current course.",
       "suffering_zones": [
         {
-          "mile": 15,
-          "label": "The Bottleneck Conspiracy",
-          "desc": "Singletrack sections create conga lines of walking riders early in the race. You'll have the fitness to ride but nowhere to pass, turning the first hour into a hike-a-bike parade."
-        },
-        {
-          "mile": 45,
-          "label": "Fire Road Reckoning",
-          "desc": "Steep dirt climbs hit 29% grade where even your lowest gear becomes useless. This is where riders discover they needed that 40t chainring they didn't buy."
-        },
-        {
-          "mile": 85,
-          "label": "Creek Crossing Chaos",
-          "desc": "Multiple water crossings through rocky creek beds that destroy momentum and question your tire pressure choices. Hope you like wet feet with your suffering."
-        },
-        {
-          "mile": 110,
-          "label": "The Final Punishment",
-          "desc": "Late-race climbs through chunky gravel and loose rock when your legs are already cooked. This is where the course separates finishers from DNF statistics."
+          "miles": "Throughout",
+          "name": "Completed 2025 course",
+          "description": "The archived Waffle was approximately 100 miles with 8,000 feet of climbing; no current edition route is published.",
+          "survival_strategy": "Wait for a new organizer course before planning around specific sectors."
         }
       ],
-      "signature_challenge": "The hike-a-bike rate approaches 100% on certain sections—not because you can't ride them, but because the course design ensures traffic jams on unrideable singletrack climbs. BWR NC weaponizes bottlenecks, turning technical skill into patience training while your heart rate spikes from walking your bike up 25% grades.",
+      "signature_challenge": "No current course is published; the last completed Waffle was approximately 100 miles with 8,000 feet of climbing.",
       "ridewithgps_id": "52886757",
       "ridewithgps_name": "2025 BWR NC Waffle Final"
     },
@@ -418,7 +404,7 @@
       }
     },
     "terrain": {
-      "surface": "Rooty singletrack trails, rocky gravel, chunky loose rock, creek crossings. 40% unroad sectors.",
+      "surface": "The organizer has not published a current North Carolina course or surface breakdown; the available page describes only the completed 2025 edition.",
       "primary": "Technical rooty trails and rocky gravel — considerably more challenging than typical hard-pack",
       "technical_rating": 5,
       "features": [
@@ -764,6 +750,10 @@
         "credit": "YouTube / Pure Gravel",
         "gif": true
       }
-    ]
+    ],
+    "taking_a_break": {
+      "label": "TAKING A BREAK",
+      "line": "No North Carolina edition is on the current BWR calendar. Train the course anyway — BWR fitness travels."
+    }
   }
 }

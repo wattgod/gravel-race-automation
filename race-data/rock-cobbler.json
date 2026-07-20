@@ -3,15 +3,16 @@
     "name": "Rock Cobbler",
     "slug": "rock-cobbler",
     "display_name": "Rock Cobbler",
-    "tagline": "California's early season classic—100 miles of Central Valley rocks, dirt, and February weather roulette.",
+    "tagline": "California's early season classic—the Cobbler course runs 75-90 miles of Central Valley rocks, dirt, and February weather roulette.",
     "vitals": {
-      "distance_mi": 100,
-      "elevation_ft": 5000,
+      "distance_mi": 82,
+      "elevation_ft": 8700,
+      "gain_display": "Varies",
       "location": "Bakersfield, California",
       "location_badge": "BAKERSFIELD, CALIFORNIA",
       "county": "Kern County",
       "date": "Early February annually",
-      "date_specific": "2026: February 7",
+      "date_specific": "2026: February 7 (Saturday, CONFIRMED — rockcobbler.com; completed); 2027: February 6 (Saturday, PATTERN ESTIMATE — first Saturday of February, per 2026 date; official 2027 date not yet announced)",
       "terrain_types": [
         "Central Valley gravel",
         "Rocky sections",
@@ -19,7 +20,7 @@
         "Havilah climb"
       ],
       "field_size": "600+ riders",
-      "start_time": "6:30am",
+      "start_time": "8:00am (Cobbler, main category, staggered waves); Boulder (up to 115mi) starts 6:30am",
       "registration": "Online. Cost: $80-$120",
       "prize_purse": "None",
       "aid_stations": "Multiple on course",
@@ -40,7 +41,7 @@
     },
     "terrain": {
       "primary": "Central Valley gravel and dirt—rocks, rollers",
-      "surface": "60% gravel, 30% dirt roads, 10% pavement. Chunky sections, rocky descents. 5,000 ft elevation over 100 miles. Technical rating: 3/5.",
+      "surface": "60% gravel, 30% dirt roads, 10% pavement. Chunky sections, rocky descents. Three official distance/gain options that vary year to year (final routes announced race week): Pebbler ~40-50mi/3,000-5,000ft, Cobbler ~75-90mi/~8,700ft (the main category), Boulder up to ~115mi/~12,000ft. Technical rating: 3/5.",
       "technical_rating": 3,
       "features": [
         "Havilah climb",
@@ -74,7 +75,7 @@
     },
     "biased_opinion": {
       "verdict": "Early Season California Classic",
-      "summary": "Rock Cobbler is California's early season gravel classic—100 miles of Central Valley rocks, dirt, and Havilah climb. Founded by Stephen Fry in 2012. 600+ riders. February timing means weather roulette: 2023 was rain/mud (25%+ DNF), 2024 was perfect. Bakersfield is affordable ($80-120 lodging). Chunky rocky sections reward technical skills. Peter Stetina & Lauren De Crescenzo won 2024. If you're California-based and want early season test, it's great value ($80-$120). If you're flying in, weather risk is real.",
+      "summary": "Rock Cobbler is California's early season gravel classic—the main Cobbler course runs 75-90 miles of Central Valley rocks, dirt, and Havilah climb (with shorter Pebbler and longer Boulder options; final routes/gain vary year to year and aren't announced until race week). Founded by Stephen Fry in 2012. 600+ riders. February timing means weather roulette: 2023 was rain/mud (25%+ DNF), 2024 was perfect. Bakersfield is affordable ($80-120 lodging). Chunky rocky sections reward technical skills. Peter Stetina & Lauren De Crescenzo won 2024. If you're California-based and want early season test, it's great value ($80-$120). If you're flying in, weather risk is real.",
       "strengths": [
         "Great value ($80-$120 entry)",
         "Early season (February) for California riders",
@@ -103,28 +104,28 @@
       "official_site": "https://www.rockcobbler.com"
     },
     "course_description": {
-      "character": "100 miles of Central Valley gravel and dirt. 5,000 ft elevation. 60% gravel, 30% dirt, 10% pavement. Chunky rocky sections. Technical rating: 3/5.",
+      "character": "The main Cobbler course runs 75-90 miles of Central Valley gravel and dirt with roughly 8,700 ft of gain (routes and gain vary year to year; final course isn't announced until race week). 60% gravel, 30% dirt, 10% pavement. Chunky rocky sections. Technical rating: 3/5.",
       "suffering_zones": [
         {
-          "name": "Mile 30-40: Havilah Climb",
-          "miles": "30-40",
+          "name": "Early: Havilah Climb",
+          "miles": "Roughly first third (exact mileage varies by year's route)",
           "description": "Long steady grind. Early season legs suffer.",
           "survival_strategy": "Pace conservatively. Don't blow up early. Steady wins."
         },
         {
-          "name": "Mile 50-70: Rocky Descents",
-          "miles": "50-70",
+          "name": "Mid-course: Rocky Descents",
+          "miles": "Roughly middle third (exact mileage varies by year's route)",
           "description": "Technical, chunky. Flat risk high.",
           "survival_strategy": "Pick lines carefully. Tubeless helps. Check tire pressure."
         },
         {
-          "name": "Mile 80-100: Final Push",
-          "miles": "80-100",
-          "description": "Valley heat (if warm). Legs gone. 20 miles home.",
-          "survival_strategy": "Survive. Break into 10-mile chunks. Hydrate, eat, push."
+          "name": "Late: Final Push",
+          "miles": "Final third (exact mileage varies by year's route)",
+          "description": "Valley heat (if warm). Legs gone.",
+          "survival_strategy": "Survive. Break into chunks. Hydrate, eat, push."
         }
       ],
-      "signature_challenge": "February weather roulette. Chunky rocks. Early season fitness test.",
+      "signature_challenge": "February weather roulette. Chunky rocks. Early season fitness test. Routes and distances change every year — the surprise is part of the event.",
       "ridewithgps_id": "45578777",
       "ridewithgps_name": "2024  Rock Cobbler - GBC",
       "surface_breakdown": {

@@ -5,43 +5,68 @@
     "display_name": "Cycling Shimanami 2026",
     "tagline": "Japan's premier international cycling event across the Seto Inland Sea",
     "vitals": {
-      "location": "Imabari, Ehime Prefecture to Onomichi, Hiroshima Prefecture, Japan",
+      "location": "Onomichi, Hiroshima Prefecture to Imabari, Ehime Prefecture, Japan",
       "coordinates": {
         "start": {
-          "latitude": 34.0667,
-          "longitude": 132.9833
-        },
-        "finish": {
           "latitude": 34.4086,
           "longitude": 133.205
+        },
+        "finish": {
+          "latitude": 34.0667,
+          "longitude": 132.9833
         }
       },
       "date": "October",
       "distance_km": 70,
       "distance_miles": 43.5,
-      "elevation_gain_m": null,
-      "elevation_gain_ft": null,
+      "elevation_gain_m": 737,
+      "elevation_gain_ft": 2417,
       "discipline": "road",
       "event_type": "mass participation cycling event",
       "frequency": "biennial",
       "course_options": [
         {
-          "name": "30 km course",
-          "distance_km": 30,
-          "difficulty": "beginner"
-        },
-        {
-          "name": "70 km course",
+          "name": "IMABARI 70: Onomichi to Imabari one way",
           "distance_km": 70,
           "difficulty": "intermediate"
         },
         {
-          "name": "140 km course",
+          "name": "INNOSHIMA 70: Onomichi to Kamijima round trip",
+          "distance_km": 70,
+          "difficulty": "intermediate"
+        },
+        {
+          "name": "AROUND OMISHIMA 100: Imabari to Omishima round trip",
+          "distance_km": 100,
+          "difficulty": "advanced"
+        },
+        {
+          "name": "COMPLETE SHIMANAMI 140: Imabari to Onomichi round trip",
           "distance_km": 140,
           "difficulty": "advanced"
+        },
+        {
+          "name": "ONOMICHI 65: Imabari to Onomichi one way",
+          "distance_km": 65,
+          "difficulty": "intermediate"
+        },
+        {
+          "name": "OMISHIMA 70: Imabari to Omishima round trip",
+          "distance_km": 70,
+          "difficulty": "intermediate"
+        },
+        {
+          "name": "YUMESHIMA 75: Imabari to Kamijima one way",
+          "distance_km": 75,
+          "difficulty": "intermediate"
+        },
+        {
+          "name": "OSHIMA 30: Imabari to Oshima round trip",
+          "distance_km": 30,
+          "difficulty": "beginner"
         }
       ],
-      "elevation_ft": 1300,
+      "elevation_ft": 2417,
       "date_specific": "2026: October 25",
       "slug": "cycling-shimanami",
       "distance_mi": 43.5
@@ -54,7 +79,7 @@
       "wind_conditions": "light"
     },
     "terrain": {
-      "overview": "Relatively flat route crossing nine bridges that link six islands across the Seto Inland Sea, featuring dedicated blue-line cycling paths with ocean views throughout.",
+      "overview": "The IMABARI 70 crosses nine bridges and six islands from Onomichi to Imabari, with repeated climbs to bridge decks and event-only access to normally car-only expressway sections.",
       "surface_breakdown": {
         "paved": 100,
         "gravel": 0,
@@ -63,8 +88,8 @@
       "characteristics": [
         "Nine major bridge crossings",
         "Island-to-island connectivity",
-        "Dedicated cyclist paths",
-        "Minimal elevation gain",
+        "Normally car-only expressway sections opened for the event",
+        "Repeated climbing to bridge decks",
         "Coastal scenery"
       ]
     },
@@ -155,11 +180,11 @@
       }
     },
     "biased_opinion": {
-      "overview": "Cycling Shimanami represents the gold standard for mass-participation cycling events in Asia. The combination of top-tier organization, stunning scenery, and genuine cultural integration makes it exceptional for riders seeking an unforgettable experience rather than a competitive challenge. The event's biennial schedule and international draw create a unique atmosphere where thousands of cyclists from around the world share the road simultaneously, with locals cheering from sidewalks and photographers lining the route. The flat terrain and excellent support infrastructure make it accessible to a broad range of abilities, though this also means it lacks the physical severity that hardcore cyclists might seek. For those prioritizing logistics, experience quality, and community engagement over raw difficulty, this is a premier destination event."
+      "overview": "Cycling Shimanami represents the gold standard for mass-participation cycling events in Asia. The combination of top-tier organization, stunning scenery, and genuine cultural integration makes it exceptional for riders seeking an unforgettable experience rather than a competitive challenge. The event's biennial schedule and international draw create a unique atmosphere where thousands of cyclists from around the world share the road simultaneously, with locals cheering from sidewalks and photographers lining the route. The rolling bridge approaches add real climbing without turning the IMABARI 70 into a mountain event. For those prioritizing logistics, experience quality, and community engagement over raw difficulty, this is a premier destination event."
     },
     "final_verdict": {
       "one_liner": "Japan's most prestigious international cycling event offering unparalleled logistics, scenery, and cultural immersion across the Seto Inland Sea.",
-      "full_verdict": "Cycling Shimanami 2026 stands as a masterclass in event organization and cyclist-centric infrastructure. The event's strength lies not in physical difficulty but in its holistic experience: stunning bridge crossings, dedicated cycling paths, exceptional volunteer support, and authentic cultural integration. The October timing provides ideal weather, and the biennial schedule creates genuine international community. However, the relatively flat terrain and moderate distances mean this event appeals primarily to experience-seekers and recreational cyclists rather than those seeking competitive challenge or significant physical suffering. The comprehensive logistics—including bike rentals, luggage forwarding, and 150+ aid stations—eliminate typical cycling event friction points. For international cyclists planning a Japan cycling pilgrimage, this is non-negotiable; for those seeking a hard cycling challenge, look elsewhere."
+      "full_verdict": "Cycling Shimanami 2026 stands as a masterclass in event organization and cyclist-centric infrastructure. The event's strength lies in its holistic experience: stunning bridge crossings, event-only expressway access, volunteer support, and authentic cultural integration. The October timing and biennial schedule create a genuine international gathering. The repeated bridge approaches make the 70 km target rolling rather than flat, but this still appeals primarily to experience-seekers rather than riders chasing a competitive mountain challenge. For international cyclists planning a Japan cycling pilgrimage, this is non-negotiable; for those seeking a hard race, look elsewhere."
     },
     "logistics": {
       "overview": "Exceptionally well-organized event with comprehensive support for international participants. Registration opens April 2026. Multiple distance options accommodate varying abilities. Bike rentals available at 10 terminals throughout the route with drop-off flexibility. Luggage forwarding and accommodation partnerships facilitate multi-day touring.",
@@ -190,7 +215,7 @@
           "notes": "Alternative major hub with regional rail access"
         }
       ],
-      "accommodation": "Multiple lodging options available through event partnerships, including traditional onsen (hot spring) accommodations. Bike-into-room lodging available at select properties. Luggage transfer services connect accommodations along the route.",
+      "accommodation": "Cycling Shimanami 2026 does not offer affiliated accommodation or reservation services; participants arrange their own lodging.",
       "registration_notes": "Registration opens April 2026 through official website. International participants welcome. Multiple course distances available (30 km, 70 km, 140 km). Event expects approximately 7,000 participants from around the world. Computerized lottery system may be used if over-subscribed."
     },
     "history": {
@@ -205,33 +230,33 @@
       ]
     },
     "course_description": {
-      "character": "A scenic, relatively flat island-hopping route across nine iconic bridges spanning the Seto Inland Sea. The Shimanami Kaido connects six islands (Oshima, Omishima, Hakatajima, Innoshima, Ikuchi-jima, and Mukaishima) between Imabari on Shikoku Island and Onomichi in Hiroshima Prefecture. Dedicated blue-line cycling paths, 150+ rest oases, and comprehensive aid stations with local food and cultural experiences characterize the route. The event allows cyclists unique access to the normally car-only expressway main road, creating an unforgettable atmosphere with closed roads, cheering locals, and photographers lining the route.",
+      "character": "The IMABARI 70 is a one-way island crossing from Onomichi to Imabari over six islands and nine bridges. Its advertised distance is about 70 km; the organizer-linked route measures roughly 66 km with about 737 m of climbing. Paved island roads alternate with normally car-only expressway sections opened to cyclists for the event, and the elevation accumulates through repeated bridge approaches rather than one major climb.",
       "suffering_zones": [
         {
-          "label": "Shiratakiyama viewpoint climb (optional but challenging, offering panoramic island chain views)",
+          "label": "Onomichi rollout from Mukaishima",
           "description": ""
         },
         {
-          "label": "Kumakogen countryside section with technical turns and relentless inclines (27 km course variant)",
+          "label": "Repeated bridge approaches across six islands",
           "description": ""
         },
         {
-          "label": "Omogo-kei Gorge passage with elevation changes",
+          "label": "Normally car-only expressway sections",
           "description": ""
         },
         {
-          "label": "UFO Line section with distant ocean views and sustained climbing",
+          "label": "Final run into Imabari",
           "description": ""
         }
       ],
-      "signature_challenge": "The nine bridge crossings themselves, particularly the longest bridge onto Shikoku Island, which require sustained effort but reward with spectacular Seto Inland Sea vistas. The optional Shiratakiyama climb offers the most significant elevation challenge with stone kami (gods) statues lining the ascent.",
+      "signature_challenge": "Nine bridge crossings and their repeated approaches. The route never has one defining mountain, but the short climbs to bridge level keep returning while the open-water setting leaves pace exposed to wind.",
       "ridewithgps_id": null,
       "ridewithgps_name": null
     },
     "guide_variables": {
       "typical_start_time": "8:00 AM",
       "typical_finish_time": "5:00 PM",
-      "aid_station_count": 150,
+      "aid_station_count": 3,
       "water_sources": "Abundant at aid stations and oases throughout route",
       "food_options": "Local specialties at aid stations including daifuku confections and yuzu gelato",
       "bike_rental_terminals": 10,

@@ -3,40 +3,39 @@
     "name": "Gran Fondo Il Lombardia Felice Gimondi",
     "slug": "gran-fondo-il-lombardia",
     "display_name": "Gran Fondo Il Lombardia",
-    "tagline": "The Classic of the Falling Leaves. One Monument. Two legendary climbs. Lake Como in autumn. Ride the roads that close cycling's greatest season.",
+    "tagline": "The Classic of the Falling Leaves moves to Bergamo: Valcava, Miragolo, Salmezza, and a Bergamo Alta finish.",
     "vitals": {
-      "distance_mi": 68,
-      "elevation_ft": 5577,
-      "location": "Cantu, Como, Lombardy, Italy",
-      "location_badge": "CANTU, ITALY",
-      "date": "Second Sunday of October annually (day before the professional Il Lombardia)",
+      "distance_mi": 67.4,
+      "elevation_ft": 7874,
+      "location": "Bergamo, Lombardy, Italy",
+      "location_badge": "BERGAMO, ITALY",
+      "date": "Second Sunday of October annually (day after the professional Il Lombardia in 2026)",
       "date_specific": "2026: October 11",
       "terrain_types": [
-        "Paved Italian roads throughout",
-        "Steep Alpine-style climbs with hairpins",
-        "Rolling Brianza hills",
-        "Technical descents on narrow Italian roads"
+        "Paved roads through the Bergamo hills",
+        "Valcava, Miragolo, Salmezza, and Selvino",
+        "Technical descents and Selvino switchbacks",
+        "Cobbled Boccola approach into Bergamo Alta"
       ],
       "field_size": "~2,000-2,500 riders",
-      "start_time": "7:30 AM from Corso Europa, Cantu (grids open 6:30 AM)",
-      "registration": "Online via ENDU.net. Registration typically opens in spring, closes one week before race day. Credit card, bank transfer, or Satispay accepted.",
-      "prize_purse": "Age-group podium awards. UCI Gran Fondo qualifying event — top finishers earn qualification for UCI Gran Fondo World Championships.",
-      "aid_stations": "3 feed zones along the route plus start/finish area support. Medical assistance, breakdown service, and broom wagon throughout.",
+      "start_time": "2026 start from the Accademia della Guardia di Finanza in Bergamo",
+      "registration": "Online registration for 2026 is open through the organizer's registration link; payment by credit card, bank transfer, or Satispay.",
+      "prize_purse": "No prize purse or UCI Gran Fondo World Series qualification is stated by the 2026 organizer.",
+      "aid_stations": "Organizer-confirmed feeding points along the route, with medical assistance, breakdown service, and broom wagon.",
       "cutoff_time": "7 hours (finish by 14:30)",
-      "lat": 45.736,
-      "lng": 9.137,
+      "lat": 45.6983,
+      "lng": 9.6773,
       "distance_options": [
-        "Gran Fondo: 109.5 km / 68 mi with 1,700m climbing — full route including Muro di Sormano and Madonna del Ghisallo",
-        "Alternative Sormano bypass: 2 km detour avoids the Muro di Sormano via a milder gradient to the same summit"
+        "Gran Fondo: 108.5 km / 67.4 mi with 2,400m climbing — Bergamo loop via Valico di Valcava, Sedrina, Miragolo San Salvatore, Passo di Salmezza, and Selvino"
       ],
-      "entry_fee": "EUR 75-120 (tiered pricing, early registration discounts). Includes race number, Castelli jersey, race bag, chip timing, feed zones, medical assistance, breakdown service, broom wagon, and finisher medal."
+      "entry_fee": "EUR 70-90 by registration tier. Includes race number, technical jersey, race bag, breakdown and medical assistance, feeding points, broom wagon, and pasta party."
     },
     "climate": {
       "primary": "Autumn Mediterranean-continental transition",
-      "description": "Mid-October in the Lake Como foothills means cool, crisp autumn conditions. Temperatures typically range from 8-16C (47-61F), with morning starts in the low single digits possible. The famous autumn foliage that gives the professional race its nickname — La Classica delle Foglie Morte, the Classic of the Falling Leaves — is at its peak. Rainfall probability is moderate (roughly 12 rain days in October for the Como area), and when it comes, the steep descents off the Ghisallo and Sormano become treacherous. Fog in the valleys is possible in the early morning but usually burns off.",
+      "description": "Mid-October in the Bergamo hills means cool autumn conditions, with a cold early start possible and meaningful rain risk. The route climbs from the city into higher valleys before returning through Selvino and Bergamo Alta, so riders should expect temperature changes between the start, exposed summits, and long descents.",
       "challenges": [
         "Cool morning start temperatures (potentially 5-8C at 7:30 AM in October)",
-        "Moderate rain probability — wet descents off Sormano and Ghisallo are serious hazards",
+        "Rain can make the long descents from Valcava and through Selvino hazardous",
         "Temperature differentials between valleys and climb summits",
         "Fallen leaves on descent roads — reduced grip on corners",
         "Potential valley fog at the early morning start"
@@ -44,15 +43,15 @@
     },
     "terrain": {
       "primary": "Paved — Italian provincial and municipal roads",
-      "surface": "Well-maintained Italian asphalt throughout. The legendary climbs are on narrow but paved Italian mountain roads. Descents are technical with tight hairpins, particularly off the Ghisallo. The Brianza hills in the opening 25 km are rolling and scenic. Road surfaces vary from excellent on main roads to rough-but-rideable on the steeper mountain sections. Expect Italian road furniture — narrow lanes, stone walls close to the road, occasional rough patches.",
+      "surface": "Paved roads through the Bergamo area, including long mountain climbs, narrow descents, the famous Selvino switchbacks, and the cobbled Boccola approach into Bergamo Alta.",
       "technical_rating": 2,
       "features": [
-        "Muro di Sormano: 1.9 km at 15.8% average, maximum 27% — one of the steepest paved roads in European cycling",
-        "Colma di Sormano: 5.1 km at 6.6% average leading into the Muro",
-        "Madonna del Ghisallo: 8.5 km at 6.2% average, maximum 14% — home of the cycling patron saint",
-        "Rolling Brianza hills for the opening and closing 25 km",
-        "Technical descents on narrow Italian mountain roads with hairpin bends",
-        "Nearly 20 km descent from Ghisallo summit to Merone"
+        "Valico di Valcava: the longest and toughest ascent, with the final section above 10% and a maximum gradient of 17%",
+        "Passage through Sedrina, Felice Gimondi's hometown",
+        "Miragolo San Salvatore: approximately 9 km at 7% average with pitches around 12%",
+        "Passo di Salmezza: approximately 3 km at 9% with pitches above 15%",
+        "Descent through Selvino's switchbacks",
+        "Final Boccola climb on cobbles into Bergamo Alta, reaching 12%"
       ]
     },
     "gravel_god_rating": {
@@ -144,26 +143,26 @@
     },
     "biased_opinion": {
       "verdict": "The Monument You Can Ride",
-      "summary": "There are five Monuments in professional cycling. Five races that define the sport's soul. Il Lombardia is the last of them — the autumn closer, the Classic of the Falling Leaves, the race that has crowned the season's strongest one-day rider since 1905. And now you can ride it. The Gran Fondo Il Lombardia puts you on the Muro di Sormano — 27% gradient, the road so brutal it was removed from the professional race for three decades. It sends you up the Madonna del Ghisallo, past the church of cycling's patron saint, with Lake Como spread out below like a postcard that became reality. It wraps you in the autumn colors that gave the race its name. RCS Sport — the people who run the Giro d'Italia — handle the organization. Felice Gimondi's name is on the event. And the day after you finish, you can stand on the same roads and watch Pogacar, van der Poel, and Evenepoel race the Monument itself. This is as close as amateur cycling gets to the sacred.",
+      "summary": "There are five Monuments in professional cycling, and Il Lombardia is the autumn closer. The 2026 Gran Fondo changes its map without surrendering that identity: it starts in Bergamo for the first time, climbs Valcava, passes through Felice Gimondi's Sedrina, and stacks Miragolo and Salmezza before the Selvino descent and a Bergamo Alta finish. RCS Sport runs the event, and the professional Monument races the day before. This is Monument weekend translated into a 108.5 km amateur course with 2,400m of climbing.",
       "strengths": [
         "Monument pedigree: the amateur version of one of cycling's five most prestigious one-day races, organized by RCS Sport",
-        "Muro di Sormano: 1.9 km at 27% maximum gradient — one of the steepest paved roads in European cycling, unforgettable suffering",
-        "Madonna del Ghisallo: the patron saint of cycling, the chapel at the summit, Lake Como views — cycling's most spiritual climb",
-        "Autumn Lake Como: golden light, falling leaves, mountain views — peak 'Classic of the Falling Leaves' atmosphere",
-        "UCI-sanctioned with World Championship qualifying — this is real racing, not just a ride"
+        "Valcava's 17% maximum and long final ramps provide a genuine first selection",
+        "Miragolo and Salmezza stack sustained and steep climbing late in the course",
+        "The route passes through Sedrina in direct tribute to Felice Gimondi",
+        "Selvino's switchbacks and the Bergamo Alta finish give the new course a distinct Lombardy identity"
       ],
       "weaknesses": [
         "Young event (since 2019) — still building the depth and traditions of established Italian gran fondos",
-        "Cantu is functional, not glamorous — accommodation logistics require staying in Como and transferring",
+        "The all-new 2026 route has no established amateur benchmark yet",
         "October weather risk: rain transforms the steep descents from challenging to genuinely dangerous",
         "Moderate field size (~2,000) means less festival atmosphere than larger sportives"
       ],
-      "bottom_line": "If you have ever watched Il Lombardia on television and wondered what the Muro di Sormano actually feels like at 27%, this is how you find out. Monument roads. Autumn leaves. Lake Como. The patron saint of cycling. Ride like a hero."
+      "bottom_line": "A new Bergamo course under an old Monument name: Valcava, Gimondi's Sedrina, Selvino, and a Bergamo Alta finish. Ride like a hero."
     },
     "final_verdict": {
       "score": "70 / 100",
-      "one_liner": "The last Monument of the season — now yours to ride. Muro di Sormano at 27%. Madonna del Ghisallo. Lake Como in the falling leaves.",
-      "should_you_race": "Yes if you want to experience a cycling Monument from the inside — the same climbs, the same roads, the same autumn atmosphere that has defined professional cycling's season finale since 1905. Yes if the Muro di Sormano's 27% gradient is the kind of challenge that excites rather than terrifies you. Yes if UCI age-group competition and World Championship qualifying matter to your cycling ambitions. Skip if you want a pure gravel or off-road challenge. Skip if the October rain risk in northern Italy concerns you. Skip if you prefer large, festival-atmosphere events over the focused intensity of a competitive Italian gran fondo.",
+      "one_liner": "The last Monument of the season, rebuilt around Bergamo: 108.5 km, 2,400m, Valcava, Selvino, and Bergamo Alta.",
+      "should_you_race": "Yes if you want Monument-weekend atmosphere on a hard new Bergamo course with long and steep climbing. Skip if you are specifically chasing the former Ghisallo and Sormano gran fondo route — those climbs are not part of the 2026 edition.",
       "alternatives": "If you want another Italian Monument sportive: try Gran Fondo Strade Bianche for Tuscan white roads and Siena's Piazza del Campo. If you want a massive Italian gran fondo with Dolomite climbing: try the Maratona dles Dolomites. If you want the ultimate Alpine road challenge: try La Marmotte with 5,000m+ of climbing and a summit finish on Alpe d'Huez. If you want the Tour de France experience: try L'Etape du Tour.",
       "alternative_slugs": [
         "strade-bianche-gran-fondo",
@@ -173,11 +172,11 @@
       ]
     },
     "logistics": {
-      "airport": "Milan Malpensa (MXP) — 50 km, ~40 minutes to Cantu. Milan Linate (LIN) — 55 km, ~50 minutes. Bergamo Orio al Serio (BGY) — 65 km, ~55 minutes (budget airline hub). Group airport transfers available via tour operators.",
-      "lodging_strategy": "Stay in Como (20 minutes from Cantu start) for the widest selection of hotels, restaurants, and atmosphere. Lake Como in October is shoulder season — hotel pricing is reasonable compared to summer. Alternatively, stay in Cantu itself for proximity to the start, though options are limited. Tour operator packages (Sportive Breaks, Cycle Classic Tours, Italy Bike Tours) bundle accommodation, transfers, and race entry. Book early — Monument weekend fills up.",
-      "food": "Como and the surrounding Lake Como towns offer outstanding Italian cuisine — risotto alla Milanese, polenta with lake fish (missoltini), pizzoccheri. Pre-race: carb-load at any of Como's excellent trattorias. Post-race: pasta party in Piazza Marconi, Cantu. The Lake Como food scene alone justifies the trip.",
-      "packet_pickup": "Expo and packet pickup in Cantu the day before (Saturday). Collect race number, Castelli jersey, and race bag. The expo area is on Corso Europa near the start/finish.",
-      "parking": "Limited parking in central Cantu — arrive early. Designated parking areas are communicated pre-race. Many riders use organized transfers from Como hotels. The early 6:30 AM grid opening means parking fills fast.",
+      "airport": "Bergamo Orio al Serio (BGY) is the local airport; Milan Linate (LIN) and Milan Malpensa (MXP) provide additional international access.",
+      "lodging_strategy": "Stay in Bergamo for direct access to the 2026 start and finish. Monument weekend will concentrate riders and spectators in the city, so book early.",
+      "food": "Bergamo's Città Alta and lower city offer broad pre-race dining; the organizer includes a post-race pasta party.",
+      "packet_pickup": "Consult the organizer's 2026 participant information for expo and packet-pickup details in Bergamo.",
+      "parking": "Consult the organizer's 2026 participant information for parking and access around the Bergamo start and finish.",
       "official_site": "https://gfilombardia.it/en/"
     },
     "history": {
@@ -188,92 +187,92 @@
         "2019: Inaugural edition as Gran Fondo Il Lombardia Enel — 2,500 riders. Davide Busuito wins in 3h 00m 21s",
         "2019: Named in honor of Felice Gimondi following the champion's death in August 2019",
         "2024: Over 2,000 riders. Giuseppe Orlando wins men's race in 2h 57m 08s. Laura Simenc wins women's race in 3h 16m 47s",
-        "The Muro di Sormano — removed from the professional Il Lombardia in 1962 for being too steep, reinstated in 2012 — becomes the Gran Fondo's defining moment"
+        "2026: The Gran Fondo moves from Cantù to Bergamo, with a new route through Valcava, Sedrina, Miragolo, Salmezza, and Selvino"
       ],
-      "reputation": "The newest of the Monument sportives, but carrying 120 years of Il Lombardia heritage. The race that proves you don't need decades of gran fondo tradition when you have the Muro di Sormano at 27% and the patron saint of cycling at the Ghisallo summit."
+      "reputation": "One of the newest Monument sportives, carrying Il Lombardia's history into a 2026 Bergamo route designed around Felice Gimondi's home roads."
     },
     "course_description": {
-      "character": "A race of two legendary climbs bookended by the rolling Brianza hills. The route starts and finishes in Cantu, diving immediately into the undulating roads of the Brianza — the gentle, green foothills south of Lake Como that lull you into thinking this will be manageable. It is not. Within 30 km, the road tilts upward toward the Colma di Sormano, and then the gradient goes vertical: the Muro di Sormano, 1.9 km at 15.8% average with ramps touching 27%. After the Muro's savage descent, the route winds along Lake Como toward the second act: the Madonna del Ghisallo, 8.5 km of steady climbing to the church of cycling's patron saint. A sweeping 20 km descent to Merone gives temporary respite before the final 20 km of short, sharp climbs back to Cantu destroy whatever is left in your legs. The autumn colors, the lake views, the chapel at the Ghisallo summit — this course is as beautiful as it is brutal.",
+      "character": "The 2026 course is a new 108.5 km Bergamo loop with 2,400m of climbing. It starts from the Accademia della Guardia di Finanza, climbs the Valico di Valcava, passes through Sedrina, then stacks Miragolo San Salvatore and Passo di Salmezza before descending through Selvino. The finish reaches Colle Aperto in Bergamo Alta after the cobbled Boccola approach.",
       "suffering_zones": [
         {
           "mile": 0,
-          "label": "Brianza Hills",
-          "desc": "The opening 25 km through the Brianza — constant undulations on the roads south of Lake Como. Rolling terrain that never flattens out, slowly accumulating fatigue before the real climbing begins. The autumn foliage in the Brianza is stunning: chestnut trees, golden light, narrow Italian roads lined with stone walls.",
-          "terrain_detail": "Rolling hills, 2-4% gradients, paved Italian provincial roads",
-          "named_section": "Brianza — the foothills of Lake Como"
+          "label": "Bergamo to Valcava",
+          "desc": "The race leaves the Accademia della Guardia di Finanza and heads toward the Valico di Valcava, the longest and toughest ascent of the new route.",
+          "terrain_detail": "Paved city approach transitioning to a long mountain climb",
+          "named_section": "Valico di Valcava"
         },
         {
           "mile": 18,
-          "label": "Colma di Sormano",
-          "desc": "The approach to the main event. 5.1 km at 6.6% average — a proper, grinding climb through the forest that softens you up for what comes next. The gradient is honest and sustained. Experienced riders know this is just the appetizer.",
-          "terrain_detail": "Sustained 6.6% average gradient, forested road, narrowing as it climbs",
-          "named_section": "Colma di Sormano"
+          "label": "Valcava Final Ramps",
+          "desc": "The final section of Valcava stays above 10% and reaches a maximum gradient of 17%. This is the first decisive selection on the 2026 course.",
+          "terrain_detail": "Sustained steep paved climbing",
+          "named_section": "Valico di Valcava"
         },
         {
-          "mile": 21,
-          "label": "Muro di Sormano",
-          "desc": "The wall. 1.9 km at 15.8% average with a maximum gradient of 27%. This is one of the steepest paved roads used in any cycling event on Earth. The road was removed from the professional Il Lombardia in 1962 because it was considered inhumane — riders were walking, and the race organization couldn't justify it. It was reinstated in 2012. On the Gran Fondo, the Muro is the moment of truth: you either ride it or you walk it. At 27%, most riders are in their lowest gear, weaving across the road, heart rate at maximum, legs screaming. There is an alternative 2 km bypass for those who choose discretion over valor.",
-          "terrain_detail": "15.8% average, 27% maximum, concrete sections, brutally steep hairpins",
-          "named_section": "Muro di Sormano — Il Muro"
+          "mile": 30,
+          "label": "Sedrina and Miragolo",
+          "desc": "After passing through Felice Gimondi's hometown of Sedrina, the route climbs Miragolo San Salvatore for approximately 9 km at 7% average, with pitches around 12%.",
+          "terrain_detail": "Valley roads followed by sustained mountain climbing",
+          "named_section": "Miragolo San Salvatore"
         },
         {
           "mile": 43,
-          "label": "Madonna del Ghisallo",
-          "desc": "The spiritual heart of the race. 8.5 km at 6.2% average with a maximum of 14% near the summit. The climb rises from the shores of Lake Como through forest switchbacks to the chapel of the Madonna del Ghisallo — the patron saint of cycling, recognized by Pope Pius XII in 1949. The church at the summit houses jerseys, bikes, and trophies from cycling's greatest champions. The views of Lake Como from the upper slopes are breathtaking. After the Muro's violence, the Ghisallo is almost meditative — still hard, but beautiful.",
-          "terrain_detail": "8.5 km at 6.2% average, maximum 14%, paved mountain road with hairpins",
-          "named_section": "Madonna del Ghisallo — Cycling's Sacred Climb"
+          "label": "Passo di Salmezza",
+          "desc": "Salmezza follows with approximately 3 km at 9% and pitches above 15%, concentrating another steep effort late in the course.",
+          "terrain_detail": "Short, steep paved mountain climb",
+          "named_section": "Passo di Salmezza"
         },
         {
-          "mile": 55,
-          "label": "Ghisallo Descent to Merone",
-          "desc": "Nearly 20 km of descent from the Ghisallo summit to Merone in the valley. Fast, technical, with tight hairpins and narrow Italian roads. In dry conditions, this is exhilarating. In the wet, it is treacherous. Tired legs and cold hands make the technical demands real. This descent is where the race is won and lost in the age-group competition — the brave descenders gain minutes.",
-          "terrain_detail": "Technical descent, hairpin bends, narrow roads, ~20 km",
-          "named_section": "Ghisallo Descent"
+          "mile": 53,
+          "label": "Selvino Descent",
+          "desc": "The return toward Bergamo uses Selvino's famous switchbacks. It is fast and technical, with the weather able to turn the descent into a serious handling test.",
+          "terrain_detail": "Long technical paved descent with repeated switchbacks",
+          "named_section": "Selvino"
         },
         {
-          "mile": 55,
-          "label": "Brianza Attrition — The Final 20 km",
-          "desc": "The route back to Cantu through the Brianza hills is a war of attrition. Short, sharp climbs — none individually fearsome, but collectively devastating on legs that have already conquered the Muro and the Ghisallo. The terrain never flattens. Every false flat is actually uphill. The final kilometers into Cantu are a test of how much you have left. The answer, for most, is not much.",
-          "terrain_detail": "Rolling hills with short steep ramps, 3-8% gradients, cumulative fatigue terrain",
-          "named_section": "Brianza finale — the war of attrition"
+          "mile": 66,
+          "label": "Boccola and Bergamo Alta",
+          "desc": "The final approach climbs the cobbled Boccola road into Bergamo Alta, reaching 12% before the finish at Colle Aperto.",
+          "terrain_detail": "Cobbled urban climb with steep pitches",
+          "named_section": "Boccola"
         }
       ],
-      "signature_challenge": "The Muro di Sormano. 1.9 kilometers at 27% maximum gradient. The road that was removed from the professional Monument for being too cruel. The road that was reinstated because cycling realized it needed places where the strongest riders separate from the merely strong. On the Gran Fondo, the Muro is where your training, your gearing, your body weight, and your willingness to suffer converge into a single, vertical question: can you ride this wall?"
+      "signature_challenge": "Valcava sets the first major selection with a final section above 10% and a maximum of 17%, but the decisive accumulation comes later: Miragolo, the steep Salmezza ramps, the Selvino descent, and the final cobbled climb into Bergamo Alta."
     },
     "guide_variables": {
       "race_name": "Gran Fondo Il Lombardia Felice Gimondi",
-      "race_distance": "68 miles (109.5 km)",
-      "race_elevation": "5,577 feet (1,700 m)",
+      "race_distance": "67.4 miles (108.5 km)",
+      "race_elevation": "7,874 feet (2,400 m)",
       "race_date": "October",
-      "race_location": "Cantu, Lake Como, Italy",
-      "race_terrain": "Paved Italian roads — brutal climbs (Muro di Sormano 27%, Ghisallo 14%), rolling Brianza hills, technical descents",
-      "race_weather": "Autumn Lake Como: 8-16C (47-61F), moderate rain risk, cool mornings, potential fallen leaves on descents",
+      "race_location": "Bergamo, Lombardy, Italy",
+      "race_terrain": "Paved Bergamo roads — Valcava, Miragolo, Salmezza, Selvino switchbacks, and the cobbled Boccola finale",
+      "race_weather": "Autumn Bergamo: cool morning, rain risk, and temperature changes between valleys and summits",
       "race_challenges": [
-        "Muro di Sormano: 1.9 km at 27% maximum gradient — extreme steep climbing",
-        "Madonna del Ghisallo: 8.5 km at 6.2% average — long sustained climbing",
-        "1,700m of climbing compressed into 109.5 km — high climbing density",
-        "Technical descents on narrow Italian roads — bike handling under fatigue",
-        "Rolling Brianza hills in the final 20 km — cumulative attrition on tired legs",
-        "October weather variability — potential rain makes steep descents hazardous"
+        "Valico di Valcava: final section above 10%, maximum 17%",
+        "Miragolo San Salvatore: approximately 9 km at 7% average",
+        "Passo di Salmezza: approximately 3 km at 9%, with pitches above 15%",
+        "2,400m of climbing compressed into 108.5 km",
+        "Technical Selvino descent and cobbled Boccola finish",
+        "October weather variability — potential rain makes descents hazardous"
       ],
       "altitude_section": false,
-      "altitude_feet": 3609
+      "altitude_feet": 4380
     },
     "non_negotiables": [
       {
-        "requirement": "Sustained steep climbing — repeated intervals at 12-20% gradient to simulate the Muro di Sormano",
+        "requirement": "Sustained steep climbing — repeated intervals at 10-17% gradient",
         "by_when": "Week 6",
-        "why": "The Muro di Sormano's 27% maximum gradient is not something you can muscle through on race day without specific preparation. Train on the steepest hills available, in your lowest gear, at cadences below 60 RPM. If your local terrain doesn't offer 15%+ gradients, use a turbo trainer at maximum resistance. The goal is to teach your legs and cardiovascular system to produce power at extreme low cadence under high torque."
+        "why": "Valcava, Miragolo, and Salmezza combine long climbing with steep final ramps. Train low-cadence torque and choose gearing that remains usable above 15%."
       },
       {
         "requirement": "Back-to-back climb simulation — 2+ hours of continuous climbing with varied gradients",
         "by_when": "Week 7",
-        "why": "The Colma di Sormano, Muro di Sormano, and Madonna del Ghisallo come in sequence with only partial recovery between them. Your long ride should include 60-90 minutes of climbing at 5-7% (simulating the Ghisallo), followed by a recovery descent, then repeated steep efforts at maximum gradient (simulating the Muro). The final 20 km of rolling Brianza hills require climbing on pre-fatigued legs."
+        "why": "The 2026 route carries 2,400m in 108.5 km. Long rides should stack sustained climbing, steep ramps, partial recovery, and a final hard effort on tired legs."
       },
       {
         "requirement": "Descending confidence — practice technical descents on narrow roads at speed under fatigue",
         "by_when": "Week 8",
-        "why": "The Ghisallo descent is nearly 20 km of hairpins on narrow Italian roads. In the wet, it is genuinely dangerous. In the dry, it is where time is gained or lost. Practice descending on tired legs — after a hard climb effort, not when fresh. Focus on braking technique, line selection through hairpins, and body position at speed. If October weather brings rain, your descending skills become the difference between finishing safely and not finishing at all."
+        "why": "The return through Selvino uses repeated switchbacks, and rain would materially raise the handling demand. Practice braking, line selection, and body position after hard climbing."
       }
     ],
     "citations": [

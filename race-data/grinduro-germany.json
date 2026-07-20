@@ -3,15 +3,15 @@
     "name": "Grinduro Germany",
     "slug": "grinduro-germany",
     "display_name": "Grinduro Germany",
-    "tagline": "Enduro-style gravel festival in Germany's Eifel with timed descents, untimed climbs, and party vibes.",
+    "tagline": "Enduro-style gravel festival that ran in Germany's Eifel 2022-2025 — status uncertain, not on Grinduro's current series calendar.",
     "vitals": {
       "distance_mi": 62,
       "elevation_ft": 6562,
       "location": "Hellenthal, Eifel, Germany",
       "location_badge": "HELLENTHAL, EIFEL, GERMANY",
       "county": "Eifel Region",
-      "date": "Late May annually",
-      "date_specific": "2026: May 23-25 (Festival weekend)",
+      "date": "No confirmed recurring date — last confirmed edition May 2025",
+      "date_specific": "Status: NO EDITION CONFIRMED — absent from 2026 Grinduro calendar; last ran May 2025 (Hellenthal)",
       "terrain_types": [
         "Eifel volcanic landscape",
         "German forest gravel roads",
@@ -134,14 +134,15 @@
       "ridewithgps_name": "Grinduro Germany - Full Route"
     },
     "history": {
-      "founded": "2010s",
+      "founded": "2022",
       "founder": "Grinduro Series",
-      "origin_story": "Grinduro is an international series (Germany, France, Japan, Canada, USA) known for enduro-style gravel racing with festival atmosphere. Germany edition in Eifel region attracts 400-600 riders annually.",
+      "origin_story": "Grinduro Germany was part of the international Grinduro series, held in Hellenthal (Eifel region) with editions running 2022-2025. No 2026 edition has been confirmed or announced by the organizer, and Germany is absent from Grinduro's official 2026 series calendar.",
       "notable_moments": [
+        "2025: Held May 23-25 (most recent confirmed edition).",
         "2024: Dry, perfect conditions (60-68°F). Low DNF (~5%).",
         "2023: Rain on Saturday, muddy descents. ~10% DNF from conditions/crashes."
       ],
-      "reputation": "Festival gravel race. Party atmosphere, technical descents, international field."
+      "reputation": "Festival gravel race. Party atmosphere, technical descents, international field — but currently absent from Grinduro's official series calendar for 2026. Status uncertain, not currently bookable as a recurring race."
     },
     "research_metadata": {
       "data_confidence": "researched",
@@ -166,7 +167,8 @@
           "cross_reference": 100
         },
         "scored_at": "2026-02-04"
-      }
+      },
+      "status_verification_2026_07_16": "No 2026 edition confirmed. Last confirmed edition: May 23-25, 2025 (Hellenthal). Grinduro's official 2026 series calendar (grinduro.com, battistrada.com) does not list Germany; a third-party gravel calendar shows an unconfirmed May 2026 placeholder, not an official organizer date."
     },
     "biased_opinion_ratings": {
       "logistics": {
@@ -633,6 +635,10 @@
         "credit": "YouTube / Annika Langvad",
         "gif": true
       }
-    ]
+    ],
+    "taking_a_break": {
+      "label": "TAKING A BREAK",
+      "line": "Grinduro Germany isn't on the current Grinduro calendar. This plan still trains you for exactly this kind of day."
+    }
   }
 }

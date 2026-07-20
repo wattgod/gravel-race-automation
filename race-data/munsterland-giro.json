@@ -7,8 +7,8 @@
     "vitals": {
       "distance_mi": 78,
       "distance_km": 125,
-      "elevation_ft": 2953,
-      "elevation_m": 900,
+      "elevation_ft": 3711,
+      "elevation_m": 1131,
       "location": "Munster, North Rhine-Westphalia, Germany",
       "location_badge": "MUNSTER, GERMANY",
       "date": "October 3 annually (German Unity Day)",
@@ -16,12 +16,12 @@
       "terrain_types": [
         "Flat to gently rolling paved roads through Munsterland park landscape",
         "Rolling hills through the Baumberge region (longer routes)",
-        "Moderate climbs in the Teutoburg Forest foothills (125 km route)",
+        "Rolling climbs through the Baumberge (125 km route)",
         "Wide, well-maintained German rural roads",
         "Urban finish through Munster to Schlossplatz"
       ],
       "field_size": "4,500-7,500 amateur riders (LeezenCup), plus professional UCI 1.Pro peloton",
-      "start_time": "LeezenCup 60 km: 08:00, 95 km: 08:45, 125 km: 09:50",
+      "start_time": "Staggered starts by LeezenCup distance; consult the 2026 participant information for assigned times",
       "registration": "Online via muensterland-giro.de. Opens November of prior year. Early-bird pricing available until end of April, prices increase by EUR 10 from May onward. Late registration surcharge of EUR 15 from late September. Sells out — the 2025 LeezenCup was fully booked.",
       "prize_purse": "Awards for age categories in LeezenCup. Separate UCI prize money for professional race.",
       "aid_stations": "Feed stations along each route with water, food, and mechanical support. Medical assistance throughout.",
@@ -29,9 +29,9 @@
       "lat": 51.9607,
       "lng": 7.6261,
       "distance_options": [
-        "LeezenCup 60 km — 60 km / 100m elevation — flat park landscape, ideal for beginners",
-        "LeezenCup 95 km — 95 km / 500m elevation — rolling Munsterland terrain for ambitious amateurs",
-        "LeezenCup 125 km — 125 km / 900m elevation — Teutoburg Forest foothills for strong riders"
+        "Cup der Sparkasse Münsterland Ost: 68.1 km / 500m elevation",
+        "Cup der Provinzial Versicherung: 93.9 km / 825m elevation",
+        "Cup der LBS: 125.4 km / 1,131m elevation"
       ],
       "entry_fee": "EUR 45-80 (tiered pricing, early-bird discounts, late registration surcharge)"
     },
@@ -48,12 +48,12 @@
     },
     "terrain": {
       "primary": "Flat to gently rolling paved roads through the Munsterland region",
-      "surface": "Entirely paved roads throughout. Well-maintained German rural roads and cycling infrastructure through North Rhine-Westphalia. Munsterland is famously flat — the 60 km route gains only 100 meters of elevation across its entire distance. The 95 km route introduces gentle rolling terrain with 500m of climbing. The 125 km route ventures into the Teutoburg Forest foothills and the Baumberge hills, adding variety with moderate climbs up to 900m total elevation. Road surface quality is excellent — Germany's cycling infrastructure in the Munsterland is among the best in Europe. All routes finish with a run through central Munster to the Schlossplatz at the Prince-Bishop's Palace.",
+      "surface": "Entirely paved roads through the Münsterland and Baumberge. The official 2026 GPX files show a clear progression by distance: 68.1 km with 500m, 93.9 km with 825m, and 125.4 km with 1,131m. All three routes use the Baumberge before finishing at Münster's Schlossplatz.",
       "technical_rating": 1,
       "features": [
-        "60 km route: entirely flat through Munsterland park landscape — 100m total elevation, perfect for recreational riders",
-        "95 km route: gentle rolling terrain through western Munsterland — 500m elevation, typical Munsterland cycling",
-        "125 km route: Teutoburg Forest foothills and Baumberge hills — 900m elevation with moderate climbs and descents",
+        "68.1 km route: 500m of elevation through the Baumberge",
+        "93.9 km route: 825m of elevation through the Baumberge",
+        "125.4 km route: 1,131m of elevation through the Baumberge",
         "All routes share the iconic finish along the Promenade into Schlossplatz at the Prince-Bishop's Palace",
         "Rotating start cities through Munsterland districts — the route changes annually",
         "2026 route announced through the Baumberge region"
@@ -149,19 +149,19 @@
     },
     "biased_opinion": {
       "verdict": "Germany's Biggest Amateur Cycling Festival",
-      "summary": "The Sparkassen Munsterland Giro is the kind of event that makes you appreciate what German organizational efficiency can do with a flat landscape and a public holiday. Up to 7,500 riders on three distances through the Munsterland, finishing at a Baroque palace, followed by watching WorldTour sprinters contest the same finish line — all on German Unity Day. The terrain will not challenge your climbing legs. The wind might challenge your soul. But the combination of massive amateur participation, UCI professional racing, a 5,000-square-meter cycling trade fair, and Munster's deep-rooted cycling culture creates an experience that transcends the simplicity of the course. This is not a ride you do for the suffering. This is a ride you do for the spectacle, the community, and the singular pleasure of finishing at the Schlossplatz just hours before Jasper Philipsen does the same.",
+      "summary": "The Sparkassen Munsterland Giro is the kind of event that makes you appreciate what German organizational efficiency can do with a public holiday. Up to 7,500 riders choose three 2026 courses through the Baumberge, finishing at a Baroque palace before the professional race reaches the same finish line — all on German Unity Day. The 125.4 km Cup der LBS now carries 1,131m of climbing, so the long route is no flat procession. The combination of mass participation, UCI professional racing, a 5,000-square-meter cycling trade fair, and Münster's deep-rooted cycling culture creates an experience bigger than the course alone.",
       "strengths": [
         "Germany's largest amateur cycling event — 4,500-7,500 riders across three distances",
         "UCI 1.Pro professional race on the same day and course — top-tier sprinters finish where you finished",
         "Excellent organization by City of Munster Sports Department with 20 editions of refinement",
-        "Three distance options (60/95/125 km) make it accessible to everyone from beginners to strong amateurs",
+        "Three distance options (68.1/93.9/125.4 km) make it accessible to a broad range of riders",
         "Massive 5,000-square-meter cycling trade fair and festival at the Schlossplatz finish",
         "German Unity Day (October 3) means national holiday atmosphere with full road closures",
         "Munster is Germany's bicycle capital — cycling culture is authentic, not manufactured",
         "Affordable destination with excellent transport connections"
       ],
       "weaknesses": [
-        "Flat terrain offers minimal physical challenge — the Munsterland is not climbing country",
+        "The Baumberge climbs are substantial for the region but not Alpine in scale",
         "October weather in northern Germany is unpredictable — wind and rain are real risks",
         "Large field sizes (7,500) mean crowded roads in the early kilometers",
         "The professional and amateur races are separate — you ride in the morning, pros race in the afternoon",
@@ -169,12 +169,12 @@
         "Limited international recognition outside European cycling circles",
         "Sells out — late decision-makers may miss registration entirely"
       ],
-      "bottom_line": "If you want a physically punishing ride through dramatic mountains, look elsewhere. If you want the best amateur cycling festival in Germany — massive participation, professional racing, a genuine cycling city, and the kind of event-day atmosphere that justifies the travel — the Munsterland Giro delivers. It is the German cycling community's annual family reunion, held in the one city that takes cycling more seriously than anywhere else in the country."
+      "bottom_line": "If you want dramatic mountains, look elsewhere. If you want Germany's biggest amateur cycling festival with a properly rolling 2026 course through the Baumberge, the Munsterland Giro delivers."
     },
     "final_verdict": {
       "score": "66 / 100",
       "one_liner": "Germany's largest amateur cycling sportive — up to 7,500 riders through the Munsterland, finishing at Munster's Schlossplatz alongside a UCI 1.Pro professional race on German Unity Day.",
-      "should_you_race": "If you want to experience Germany's cycling culture at its most concentrated — absolutely. The Munsterland Giro is the country's biggest amateur cycling event in its most cycling-obsessed city, on a national holiday, with WorldTour professionals racing the same roads. If you need mountains, vertical, or technical terrain — this is not your event. If you are visiting from outside Europe, combine it with the Velothon Berlin, a Rhine cycling trip, or Cologne cycling events to build a worthwhile German cycling tour.",
+      "should_you_race": "If you want to experience Germany's cycling culture at its most concentrated — absolutely. The Munsterland Giro is the country's biggest amateur cycling event in its most cycling-obsessed city, on a national holiday, with WorldTour professionals racing the same roads. The 2026 long route adds 1,131m through the Baumberge without pretending to be Alpine. If you are visiting from outside Europe, combine it with another German or Low Countries cycling event to build a worthwhile tour.",
       "alternatives": "For European sportive with climbing: Amstel Gold Race Toerversie (Netherlands, 30 climbs). For Alpine gran fondo: Arlberg Giro (Austria, 2,500m climbing). For German cycling culture: Velothon Berlin. For flat fast sportive: L'Eroica (Italy, different character but iconic). For pro-am format: Prudential RideLondon.",
       "alternative_slugs": [
         "amstel-gold-race-toerversie",
@@ -212,12 +212,12 @@
       "reputation": "The Sparkassen Munsterland Giro is the undisputed centerpiece of German amateur road cycling. Held in Munster — a city where bicycles outnumber people and cycling is woven into daily life — the event combines Germany's largest amateur sportive with a UCI 1.Pro professional race that attracts top-tier sprinters. The roll call of professional winners reads like a sprinting hall of fame: Greipel, Kittel, Boonen, Cavendish, Philipsen. For amateur riders, the LeezenCup offers the rare experience of riding the same roads as WorldTour professionals on the same day, finishing at the same Schlossplatz, with 4,500-7,500 fellow cyclists. Twenty editions organized by the City of Munster's Sports Department have built an event with institutional credibility and community depth that commercial promoters rarely achieve."
     },
     "course_description": {
-      "character": "A flat to gently rolling sportive through the Munsterland region of North Rhine-Westphalia, with three distance options designed for mass participation. The routes radiate out from a rotating start city through pastoral park landscape, Baumberge hills, and the edge of the Teutoburg Forest before converging on the iconic Schlossplatz finish in central Munster. The course changes annually as start cities rotate through Munsterland districts, but the character remains constant — wide German roads through gentle countryside with a festival finish.",
+      "character": "Three paved 2026 courses start at Prinzipalmarkt in Münster, cross the Baumberge, and return to the Schlossplatz finish. The official GPX files list 68.1 km / 500m, 93.9 km / 825m, and 125.4 km / 1,131m, making the longest option a genuinely rolling race rather than a flat tour of the North German Plain.",
       "suffering_zones": [
         {
           "km": 0,
           "label": "Mass Start",
-          "desc": "Staggered starts from a rotating Munsterland town. The 125 km riders roll at 09:50, 95 km at 08:45, 60 km at 08:00. Early kilometers are crowded with thousands of riders sorting themselves by pace. The key is patience and holding your line in the group.",
+          "desc": "Each LeezenCup distance starts from its own Münsterland town. Early kilometers are crowded with riders sorting themselves by pace, so patience and a predictable line matter.",
           "terrain_detail": "Urban roads transitioning to rural Munsterland",
           "named_section": "Start Town"
         },
@@ -230,17 +230,17 @@
         },
         {
           "km": 60,
-          "label": "Baumberge Hills (95 km and 125 km routes)",
-          "desc": "The longer routes detour through the Baumberge — a low ridge of hills that passes for climbing country in the Munsterland. Short rises of 3-5% provide the only real elevation changes on the course. The 60 km route bypasses this section entirely.",
+          "label": "Baumberge Hills",
+          "desc": "All three 2026 routes cross the Baumberge. The official totals — 500m, 825m, and 1,131m — make this the defining terrain of every distance.",
           "terrain_detail": "Rolling hills, short moderate climbs",
           "named_section": "Baumberge"
         },
         {
           "km": 95,
-          "label": "Teutoburg Forest Fringe (125 km route only)",
-          "desc": "The longest route pushes northeast into the foothills of the Teutoburg Forest — the closest thing to climbing on any Munsterland Giro route. Serpentine-like sections through forested hills add variety and the only real elevation challenge of the day. This is where the 125 km route justifies its 900m of total climbing.",
-          "terrain_detail": "Moderate forest climbs, 3-5 km at 3-6% gradient",
-          "named_section": "Teutoburg Foothills"
+          "label": "Long-route Baumberge Accumulation",
+          "desc": "The Cup der LBS keeps adding Baumberge roads until its official total reaches 125.4 km and 1,131m. This accumulated climbing separates the longest option from the two shorter cups.",
+          "terrain_detail": "Repeated paved climbs and descents through the Baumberge",
+          "named_section": "Baumberge"
         },
         {
           "km": 115,
@@ -257,21 +257,21 @@
           "named_section": "Schlossplatz"
         }
       ],
-      "signature_challenge": "Wind across the open Munsterland. The course may be flat, but the exposure to North German wind transforms gentle terrain into a genuine endurance test. The Munsterland offers no shelter — no hills, no forests, no buildings — just flat agricultural landscape where a 25 km/h headwind adds 30 minutes to your finishing time and strips the romance from pastoral cycling."
+      "signature_challenge": "The Baumberge accumulation. Wind still matters on exposed Münsterland roads, but the 2026 long route's defining number is 1,131m of climbing across 125.4 km."
     },
     "guide_variables": {
       "race_name": "Sparkassen Munsterland Giro",
       "race_distance": "125 km (78 miles) — longest LeezenCup option",
-      "race_elevation": "900 m (2,953 ft) — longest route",
+      "race_elevation": "1,131 m (3,711 ft) — longest route",
       "race_date": "October 3 (German Unity Day)",
       "race_location": "Munster, North Rhine-Westphalia, Germany",
-      "race_terrain": "Flat to gently rolling paved roads through the Munsterland",
+      "race_terrain": "Paved rolling roads through the Münsterland and Baumberge",
       "race_weather": "Northern European autumn — 10-13C, variable, wind and rain possible",
       "race_challenges": [
         "Wind exposure across flat, open Munsterland agricultural landscape",
         "Large field sizes (4,500-7,500 riders) creating group-riding demands",
         "October weather variability — rain, cold, and wind possible",
-        "Moderate climbing on 125 km route through Baumberge and Teutoburg foothills",
+        "1,131m of climbing on the 125.4 km route through the Baumberge",
         "Drafting and group dynamics essential for comfortable completion",
         "No shelter from adverse weather on exposed flat terrain"
       ],
@@ -287,12 +287,12 @@
       {
         "requirement": "Wind management strategy",
         "by_when": "Week 4-6",
-        "why": "The Munsterland is flat and exposed. A headwind or crosswind can turn a pleasant ride into a grinding slog. Practice echelon riding, know when to sit in the group, and prepare mentally for conditions that make 60 km feel like 100 km."
+        "why": "The 2026 routes are exposed to wind while all three also cross the Baumberge. Practice echelon riding and prepare to manage wind after repeated rollers; the shortest official route maps to 68.1 km, not 60 km."
       },
       {
         "requirement": "Base endurance for chosen distance",
         "by_when": "Week 6-8",
-        "why": "The 125 km route at 900m elevation is a 4-6 hour effort depending on conditions and fitness. The 60 km route requires 2-3 hours of comfortable riding. Train for 20-30% more distance than your target route to have a margin for wind and weather."
+        "why": "The 125.4 km route with 1,131m of elevation is a 4-6 hour effort depending on conditions and fitness. Train for 20-30% more distance than your target route to have a margin for wind and weather."
       },
       {
         "requirement": "Wet weather gear and layering",
@@ -378,7 +378,7 @@
       ],
       "migration_notes": [
         "Profile created 2026-02-27 from comprehensive web research",
-        "Amateur component confirmed: LeezenCup with 3 distances (60/95/125 km), 4,500-7,500 riders",
+        "Amateur component confirmed: LeezenCup with 2026 routes at 68.1/93.9/125.4 km, 4,500-7,500 riders",
         "Pro race is UCI 1.Pro classified — separate from amateur Jedermann event",
         "Founded 2006 as successor to Groningen-Munster race, itself inspired by 2002 Giro d'Italia stage",
         "Name 'Giro' derives from the 2002 Giro d'Italia stage through Munster",

@@ -2,11 +2,11 @@
   "race": {
     "name": "BWR Montana",
     "slug": "bwr-montana",
-    "display_name": "BWR Montana (Belgian Waffle Ride Montana)",
+    "display_name": "BWR Montana",
     "tagline": "Montana Rockies adventure—AKA 'Hell of the Bozone': mountain gravel around Bozeman, waffles at the finish.",
     "vitals": {
-      "distance_mi": 115,
-      "elevation_ft": 8240,
+      "distance_mi": 100,
+      "elevation_ft": 8000,
       "gain_display": "Varies",
       "start_elevation_asl_ft": 4800,
       "location": "Bozeman, Montana",
@@ -15,16 +15,16 @@
       "date": "Late June annually",
       "date_specific": "2026: June 19-20 (Friday check-in/expo, Saturday race day — CONFIRMED, belgianwaffleride.bike; 2027 not yet announced)",
       "terrain_types": [
-        "Montana Rockies gravel (~60% unpaved on the Waffle course)",
-        "Paved valley roads",
-        "Mountain terrain",
-        "Technical sections"
+        "Steep gravel climbs",
+        "Smooth tarmac and rugged backcountry roads",
+        "Fast mountain descents",
+        "Montana Rockies terrain"
       ],
       "field_size": "500-800 riders",
       "start_time": "Morning",
       "registration": "Online. Cost: $180-$250",
       "prize_purse": "None",
-      "aid_stations": "Multiple on course (reported at roughly miles 22, 39, 67, 98 in a past edition)",
+      "aid_stations": "Course support varies by year; consult the current Race Bijbel",
       "cutoff_time": "None",
       "lat": 45.677,
       "lng": -111.0429,
@@ -41,7 +41,7 @@
     },
     "terrain": {
       "primary": "Montana Rockies—mountain technical terrain",
-      "surface": "Mixed gravel and paved roads (course composition varies by year/route length — the 2026 'Waffle' course is ~60% unpaved across 16 sectors). Montana Rockies mountain terrain, technical sections, around Bozeman. Technical rating: 4/5.",
+      "surface": "Smooth tarmac and rugged gravel roads around Bozeman. The course includes steep climbs and fast descents, and its exact composition varies by year.",
       "technical_rating": 4,
       "features": [
         "Montana Rockies",
@@ -104,26 +104,20 @@
       "travel_summary": "Fly to Bozeman (BZN). Rental car or shuttle. Bozeman lodging — book early. Day-before packet pickup at the Bozeman check-in/expo. Race late June. Post-race waffles.",
       "food_options": "Aid stations on course. Post-race waffles and party.",
       "camping": "Gallatin County Fairgrounds (901 N Black Ave, Bozeman) offers race-weekend RV/camping options — \"book early, everything sells out for race weekend.\"",
-      "official_site": "https://www.belgianwaffleride.bike/"
+      "official_site": "https://www.belgianwaffleride.bike/pages/belgian-waffle-ride-montana"
     },
     "course_description": {
-      "character": "Course length/gain vary by year — 2026's organizer-stated 'Waffle' course is 115mi/~8,240ft; a rider-logged 2025 edition ran ~87mi/~7,900ft. Mixed gravel and paved roads. Montana Rockies mountain terrain around Bozeman, technical sections. Technical rating: 4/5.",
+      "character": "The 2026 Waffle registration lists 100-ish miles, and the organizer describes more than 8,000 feet of climbing over smooth tarmac, steep gravel climbs, fast descents, and rugged backcountry roads. Exact route figures vary by year.",
       "suffering_zones": [
         {
           "name": "Throughout: Montana Rockies Climbs",
           "miles": "Throughout",
-          "description": "Montana Rockies mountain terrain around Bozeman. Cumulative elevation gain in the thousands of feet (varies by year). Technical climbs, with the course repeatedly crossing above 5,000ft.",
+          "description": "Montana Rockies terrain around Bozeman with more than 8,000 feet of climbing over changing paved and unpaved surfaces.",
           "survival_strategy": "Low gears. Pace conservatively. Technical skills required. 38-42mm tires."
-        },
-        {
-          "name": "Late-Race: Distance Fatigue",
-          "miles": "Final ~40km",
-          "description": "Legs tired in the closing miles. Mountain terrain continues.",
-          "survival_strategy": "Break into chunks. Focus on next aid. Mental toughness. Push through."
         }
       ],
-      "signature_challenge": "Year-variable distance/elevation (~115mi/~8,240ft per the 2026 organizer figures) + Montana Rockies mountain terrain around Bozeman + repeated crossings above the 5,000ft altitude line.",
-      "ridewithgps_id": "52041600",
+      "signature_challenge": "A year-variable Waffle of approximately 100 miles with more than 8,000 feet of climbing across paved and unpaved Montana mountain roads.",
+      "ridewithgps_id": null,
       "ridewithgps_name": "BWR Montana 2025 (autotraced) — note: from a prior-year edition; the route is redrawn most years so treat as illustrative, not the current course"
     },
     "history": {

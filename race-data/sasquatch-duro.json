@@ -6,12 +6,12 @@
     "tagline": "Western Oregon Coast Range mountain gravel in wine country.",
     "vitals": {
       "distance_mi": 67,
-      "elevation_ft": 5000,
+      "elevation_ft": 4976,
       "location": "Carlton, Oregon",
       "location_badge": "CARLTON, OR",
       "county": "Yamhill County",
       "date": "Mid-April annually",
-      "date_specific": "2027: April 24 (Saturday, PATTERN ESTIMATE — organizer Mudslinger Events unconfirmed; 2026 ran late April)",
+      "date_specific": "2027: April 10 (organizer confirmed)",
       "terrain_types": [
         "Mountain gravel",
         "Coast Range",
@@ -19,11 +19,11 @@
         "Wine country"
       ],
       "field_size": "100-250 riders",
-      "start_time": "10:00 AM with",
+      "start_time": "10:00 AM mass start",
       "registration": "Online. Cost: ~$80-100",
       "prize_purse": "None or minimal",
-      "aid_stations": "Multiple aid stations",
-      "cutoff_time": "Varies",
+      "aid_stations": "Long-course aid at miles 18, 30, and 46",
+      "cutoff_time": "1:00 PM hard cutoff for the long-course lap",
       "lat": 45.2943,
       "lng": -123.1765
     },
@@ -39,10 +39,10 @@
     },
     "terrain": {
       "primary": "Coast Range mountain gravel",
-      "surface": "Mountain gravel roads and forest roads. Significant elevation with technical terrain.",
+      "surface": "Smooth gravel and rugged sections through rolling vineyards, forests, and farmland, with paved and unpaved portions.",
       "technical_rating": 3,
       "features": [
-        "Significant climbing (5000 feet)",
+        "4,976 feet of climbing on the long course",
         "Coast Range mountains",
         "Forest roads",
         "Wine country scenery",
@@ -104,7 +104,7 @@
       "food": "Wine country town with good dining options.",
       "packet_pickup": "Day before typically",
       "parking": "At start/finish",
-      "official_site": "https://mudslingerevents.com",
+      "official_site": "https://www.mudslingerevents.com/sasquatch-duro",
       "camping": "camping available 16 minutes from Carlton"
     },
     "history": {
@@ -115,33 +115,33 @@
       "reputation": "Growing regional Oregon mountain event."
     },
     "course_description": {
-      "character": "Mountain gravel with significant climbing through Coast Range forests.",
+      "character": "The 67-mile long course gains 4,976 feet on paved and unpaved roads through Carlton's vineyards, forests, and farmland. The timed finish is several miles before the return to town.",
       "suffering_zones": [
         {
-          "mile": 15,
-          "label": "First Climb",
-          "desc": "Early climbing into Coast Range.",
-          "terrain_detail": "Mountain ascent",
-          "named_section": "Early Climb"
+          "mile": 18,
+          "label": "First Aid Station",
+          "desc": "The first supported checkpoint serves both courses.",
+          "terrain_detail": "Supported checkpoint",
+          "named_section": "Aid One"
         },
         {
-          "mile": 35,
-          "label": "High Point",
-          "desc": "Highest elevation point.",
-          "terrain_detail": "Forest summit",
-          "named_section": "Summit"
+          "mile": 30,
+          "label": "Second Aid Station",
+          "desc": "The second supported checkpoint precedes the long-course-only loop.",
+          "terrain_detail": "Long-course cutoff area",
+          "named_section": "Aid Two"
         },
         {
-          "mile": 50,
-          "label": "Final Climb",
-          "desc": "Last major climb to finish.",
-          "terrain_detail": "Final ascent",
-          "named_section": "Finish Climb"
+          "mile": 46,
+          "label": "Long-Course Aid Station",
+          "desc": "The third aid station serves the long course only.",
+          "terrain_detail": "Long-course checkpoint",
+          "named_section": "Aid Three"
         }
       ],
-      "signature_challenge": "5000 feet of climbing through Coast Range mountains.",
-      "ridewithgps_id": "50487074",
-      "ridewithgps_name": "Carlton Gravel Short Loop Sasquatch Duro"
+      "signature_challenge": "4,976 feet of climbing across a 67-mile long course through rolling wine-country and forest roads.",
+      "ridewithgps_id": null,
+      "ridewithgps_name": null
     },
     "guide_variables": {
       "race_name": "Sasquatch Duro",

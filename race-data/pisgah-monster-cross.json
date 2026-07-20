@@ -5,9 +5,8 @@
     "display_name": "Pisgah Monster Cross",
     "tagline": "Southeast gravel classic—69 miles, 8,777 feet of technical Appalachian terrain in Pisgah National Forest.",
     "vitals": {
-      "distance_mi": 69,
+      "distance_mi": 69.2,
       "elevation_ft": 8777,
-      "gain_display": "Varies",
       "location": "Pisgah Forest, North Carolina (near Brevard; Pisgah National Forest)",
       "location_badge": "PISGAH FOREST, NC",
       "county": "Transylvania County",
@@ -15,9 +14,7 @@
       "date_specific": "2026: September 12 (SATURDAY, CONFIRMED — pisgahproductions.com/events/pisgah-monster-cross-challenge/; 2027 not yet announced)",
       "terrain_types": [
         "Pisgah National Forest gravel and paved forest roads",
-        "Brief technical singletrack sections",
-        "Technical Appalachian terrain",
-        "Rocks, roots, steep descents"
+        "Brutal Appalachian climbing terrain"
       ],
       "field_size": "300-400 riders",
       "start_time": "8:00 AM",
@@ -41,7 +38,7 @@
     },
     "terrain": {
       "primary": "Pisgah National Forest—technical Appalachian terrain",
-      "surface": "Organizer (Pisgah Productions) frames the course as gravel and paved forest roads through Pisgah and Nantahala National Forests, riding on a gravel bike or monster-cross bike (e-bikes prohibited). Rider accounts (incl. a 2025 race-winner's video) describe real, if brief, technical singletrack sections — one is called 'the highlight of the course because it's like a mountain bike race' — so this is closer to true monster-cross (drop-bar cross/gravel bike on rougher-than-gravel terrain) than either pure gravel or an MTB race. No official gravel/singletrack percentage split is published; treat any specific split as unverified. 8,777 ft over 69 miles = steep, and gain has varied by year/direction in past editions. Technical rating: 5/5.",
+      "surface": "Pisgah and Nantahala forest gravel and paved roads.",
       "technical_rating": 5,
       "features": [
         "Pisgah National Forest",
@@ -106,24 +103,11 @@
       "official_site": "https://www.pisgahproductions.com/events/pisgah-monster-cross-challenge/"
     },
     "course_description": {
-      "character": "69 miles, ~8,777 ft (organizer figure; has varied by year/direction). Gravel and paved forest roads through Pisgah and Nantahala National Forests with brief technical singletrack sections. Technical rating: 5/5.",
-      "suffering_zones": [
-        {
-          "name": "Throughout: Pisgah Technical Terrain",
-          "miles": "Throughout",
-          "description": "Rocks, roots, loose gravel, and brief singletrack sections. Technical descents. 5/5 rating.",
-          "survival_strategy": "40-45mm aggressive tread. Gravel or monster-cross bike. Pick lines. Brake early."
-        },
-        {
-          "name": "Throughout: Steep Appalachian Climbs",
-          "miles": "Throughout",
-          "description": "~8,777 ft over 69 miles = steep, with cumulative fatigue. Gain has run higher (9,000-11,000+ft) in some past editions depending on course direction.",
-          "survival_strategy": "Low gears. Pace conservatively. Walk if needed. Steep."
-        }
-      ],
-      "signature_challenge": "Technical Appalachian terrain (5/5) + steep, year-variable climbing (~8,777 ft over 69mi in the current course).",
-      "ridewithgps_id": "28070012",
-      "ridewithgps_name": "2018 Pisgah Monster-Cross (note: this RideWithGPS track is from 2018 — course direction/details have varied by year since; not confirmed current for 2026)"
+      "character": "69.2 miles and 8,777 feet of climbing on gravel and paved roads through Pisgah and Nantahala National Forests.",
+      "suffering_zones": [],
+      "signature_challenge": "8,777 feet of climbing across 69.2 miles of gravel and paved forest roads.",
+      "ridewithgps_id": "49409140",
+      "ridewithgps_name": "Current organizer-linked Pisgah Monster-Cross Challenge route"
     },
     "history": {
       "founded": "~2012",

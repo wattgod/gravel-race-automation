@@ -11,7 +11,7 @@
       "location_badge": "LAMOILLE, NV",
       "county": "Elko County",
       "date": "Late June annually",
-      "date_specific": "2027: June 26 (Saturday, PATTERN ESTIMATE from 2026 Jun 27 — organizer unconfirmed)",
+      "date_specific": "2026: June 27",
       "terrain_types": [
         "Mountain gravel",
         "High desert",
@@ -26,12 +26,11 @@
       "cutoff_time": "None official",
       "lat": 40.728,
       "lng": -115.4784,
-      "start_elevation_asl_ft": 5460,
-      "avg_elevation_asl_ft": 6000
+      "start_elevation_asl_ft": 5460
     },
     "climate": {
       "primary": "Nevada mountain summer",
-      "description": "High altitude with variable mountain conditions.",
+      "description": "Dry, exposed northern Nevada conditions are possible on a remote route between 5,460 and 6,503 feet.",
       "challenges": [
         "High altitude (6000-8000+ feet)",
         "Variable mountain weather",
@@ -41,11 +40,11 @@
     },
     "terrain": {
       "primary": "Ruby Mountains gravel",
-      "surface": "Mountain and high desert gravel roads. Significant elevation with remote wilderness setting.",
+      "surface": "41 miles of gravel and 21 miles of pavement, including rough Fort Halleck Road gravel and the paved Secret Pass climb.",
       "technical_rating": 2,
       "features": [
-        "Significant climbing (5000 feet)",
-        "High altitude (6000-8000+ feet)",
+        "4,365 feet of climbing",
+        "Course elevations from 5,460 to 6,503 feet",
         "Ruby Mountains scenery",
         "Remote wilderness",
         "Mountain terrain"
@@ -104,7 +103,7 @@
       "food": "Tiny town with minimal dining. Bring your own.",
       "packet_pickup": "Race morning",
       "parking": "At start/finish",
-      "official_site": "Check Nevada cycling calendars",
+      "official_site": "https://www.rubyroubaix.com/the-race",
       "camping": "Camping options:**\n- Thomas Canyon Campground (USFS developed) in Lamoille Canyon — \"reserve early as this is a small and popula"
     },
     "history": {
@@ -115,31 +114,17 @@
       "reputation": "Tiny regional Nevada event."
     },
     "course_description": {
-      "character": "Mountain gravel through Ruby Mountains wilderness.",
+      "character": "The 62-mile Secret Pass out-and-back gains 4,365 feet across 41 miles of gravel and 21 miles of pavement, between 5,460 and 6,503 feet.",
       "suffering_zones": [
         {
-          "mile": 20,
-          "label": "Mountain Climbing",
-          "desc": "Elevation gain at altitude.",
-          "terrain_detail": "Mountain ascent",
-          "named_section": "Early Climbs"
-        },
-        {
-          "mile": 40,
-          "label": "Midpoint",
-          "desc": "Halfway through mountains.",
-          "terrain_detail": "Continued climbing",
-          "named_section": "Mid-Course"
-        },
-        {
-          "mile": 55,
-          "label": "Final Stretch",
-          "desc": "Last miles to finish.",
-          "terrain_detail": "Final hills",
-          "named_section": "Finish"
+          "mile": 18,
+          "label": "Secret Pass Turn",
+          "desc": "After 18 miles of dirt, the route turns onto the paved climb toward Secret Pass.",
+          "terrain_detail": "Paved 3-5% climb after rough gravel",
+          "named_section": "Secret Pass"
         }
       ],
-      "signature_challenge": "High altitude climbing in remote Ruby Mountains.",
+      "signature_challenge": "Repeated short gravel climbs around the longer paved climb to Secret Pass on a remote 62-mile out-and-back.",
       "ridewithgps_id": "53678724",
       "ridewithgps_name": "RubyRoubaix_SecretPass"
     },

@@ -6,12 +6,12 @@
     "tagline": "200km across Iceland's volcanic highlands. River crossings, lava fields, and the tectonic rift. Gravel's most otherworldly course.",
     "vitals": {
       "distance_mi": 124,
-      "elevation_ft": 6400,
+      "elevation_ft": 8530,
       "location": "Hvolsvöllur, Southern Iceland",
       "location_badge": "HVOLSVÖLLUR, SOUTHERN ICELAND",
       "county": "",
-      "date": "Early July annually",
-      "date_specific": "2026: July 4",
+      "date": "Mid-July annually",
+      "date_specific": "2026: July 17-18 (Abyss starts Fri July 17; Rift 200km, Crevasse 140km, and Crack 60km race Sat July 18)",
       "terrain_types": [
         "Black volcanic sand",
         "sharp lava rock",
@@ -69,7 +69,7 @@
       "field_depth": 3,
       "value": 4,
       "expenses": 3,
-      "tier_note": "UCI Gravel World Series event - bucket-list adventure prestige override",
+      "tier_note": "Independent event as of 2026 (departed the Gravel Earth Series, which it was part of for the prior two seasons; replaced on that series by Cuckoo Iceland) - bucket-list adventure prestige override",
       "editorial_tier": 2,
       "editorial_tier_label": "TIER 2",
       "business_tier": 2,
@@ -178,7 +178,8 @@
       "founder": "Reykjavík Cycling Club",
       "origin_story": "Created by Reykjavík Cycling Club to showcase Iceland's volcanic terrain. The course crosses the Mid-Atlantic Ridge—geological boundary between continents.",
       "notable_moments": [
-        "2018: Joined UCI Gravel World Series",
+        "Ran as part of the Gravel Earth Series (a non-UCI global series) for the two seasons prior to 2026",
+        "2026: departed the Gravel Earth Series to run as a standalone event; series slot taken by Cuckoo Iceland",
         "Expanded to 1,000+ riders",
         "Course literally rides the continental divide"
       ],
@@ -186,7 +187,7 @@
       "random_facts": [
         "Course crosses Mid-Atlantic Ridge—literally between North American and Eurasian tectonic plates",
         "Volcanic terrain looks like Mars with better air",
-        "UCI Gravel World Series event",
+        "Independent event as of 2026 (formerly part of the Gravel Earth Series, not the UCI Gravel World Series)",
         "Midnight sun in July means extended daylight",
         "Glacier-fed river crossings require dismount decisions"
       ]
@@ -223,12 +224,18 @@
     },
     "research_metadata": {
       "data_confidence": "migrated",
-      "validation_status": "pending",
+      "validation_status": "web_verified_2026-07-16",
       "sources": [
         "v1",
-        "v2"
+        "v2",
+        "https://www.therift.bike/",
+        "https://www.therift.bike/practical",
+        "https://www.cyclingnews.com/news/cuckoo-iceland-replaces-the-rift-for-revamped-2026-gravel-earth-series/",
+        "https://velo.outsideonline.com/gravel/gravel-earth-series-rift-messy-split/"
       ],
-      "migration_notes": [],
+      "migration_notes": [
+        "2026-07-16: date_specific corrected from 'July 4' (implausible/unannounced-looking single date) to the officially confirmed 2026 dates: Abyss (330km) starts Fri July 17, 2026; the main Rift (200km), Crevasse (140km), and Crack (60km) races run Sat July 18, 2026. elevation_ft corrected from 6,400 (1,951m) to 8,530 (2,600m) per the most-cited course figure for the 200km route; note year-to-year course variance has been reported (one prior edition's GPX read ~2,165m with most of the gain front-loaded in the first 70km), so treat as approximate, not exact. UCI Gravel World Series claims (tier_note, notable_moments, random_facts) were FALSE and have been corrected: The Rift was part of the (non-UCI) Gravel Earth Series for the two seasons prior to 2026, then split from that series for 2026 to run as a standalone independent event (Cuckoo Iceland took its Gravel Earth Series slot). No source found ties The Rift to the UCI Gravel World Series at any point."
+      ],
       "research_strength": {
         "overall": 91.8,
         "grade": "A",

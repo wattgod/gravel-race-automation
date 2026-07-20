@@ -3,21 +3,21 @@
     "name": "Vuelta Altas Cumbres",
     "slug": "vuelta-altas-cumbres",
     "display_name": "Vuelta Altas Cumbres",
-    "tagline": "Argentine Andes mountain gravel challenge.",
+    "tagline": "Sierras de C\u00f3rdoba mountain gravel through the Traslasierra Valley -- Argentina's first UCI Gravel World Series event.",
     "vitals": {
       "distance_mi": 75,
       "elevation_ft": 6330,
       "start_elevation_asl_ft": 2953,
       "avg_elevation_asl_ft": 7450,
-      "location": "C\u00f3rdoba, Argentina",
-      "location_badge": "C\u00d3RDOBA, ARGENTINA",
-      "county": "C\u00f3rdoba",
+      "location": "Villa Cura Brochero, C\u00f3rdoba Province, Argentina",
+      "location_badge": "VILLA CURA BROCHERO, ARGENTINA",
+      "county": "San Alberto Department, C\u00f3rdoba Province",
       "date": "Late March annually",
-      "date_specific": "2027: March 21",
+      "date_specific": "2027: March 21 (120km/82km/32km distances); 2026 edition ran March 29 (112km) as Argentina's first UCI Gravel World Series stop",
       "terrain_types": [
-        "Argentine Andes",
+        "Sierras de C\u00f3rdoba (Sierras Grandes/Traslasierra) mountain gravel",
         "South American gravel",
-        "Regional event",
+        "Pampa de Achala high plateau",
         "Argentina"
       ],
       "field_size": "200-400 riders",
@@ -26,12 +26,12 @@
       "prize_purse": "Modest prizes",
       "aid_stations": "Multiple aid stations",
       "cutoff_time": "Varies",
-      "lat": -31.4167,
-      "lng": -64.1834
+      "lat": -31.706,
+      "lng": -65.0185
     },
     "climate": {
-      "primary": "Argentine spring",
-      "description": "Variable mountain conditions.",
+      "primary": "Argentine late summer/early autumn (Southern Hemisphere)",
+      "description": "Late March in Córdoba Province is the summer-to-autumn transition, not spring (Argentina is in the Southern Hemisphere). Variable mountain conditions at altitude.",
       "challenges": [
         "Variable weather",
         "Cold possible",
@@ -40,15 +40,15 @@
       ]
     },
     "terrain": {
-      "primary": "Argentine Andes mountain gravel",
-      "surface": "Gravel roads through Argentine Andes. Extreme elevation with mountain scenery at high altitude.",
+      "primary": "Sierras de Córdoba mountain gravel (not the Andes -- a separate, older range in central Argentina)",
+      "surface": "Mixed dirt, gravel, and asphalt through the Traslasierra Valley and the Pampa de Achala high plateau. Extreme elevation with mountain scenery at high altitude.",
       "technical_rating": 4,
       "features": [
-        "Significant mountainous (6,330 feet)",
-        "Argentine Andes scenery",
-        "High altitude (7000+ feet)",
-        "75-mile distance",
-        "Regional event"
+        "Significant mountainous gain (organizer has not published an official figure; ~6,330ft estimated)",
+        "Sierras de Córdoba / Traslasierra Valley scenery",
+        "High altitude (Pampa de Achala plateau, 7,000+ feet)",
+        "~75-mile (120km) flagship distance for 2027",
+        "First Argentine stop on the UCI Gravel World Series (2026 edition)"
       ]
     },
     "gravel_god_rating": {
@@ -69,19 +69,19 @@
       "field_depth": 2,
       "value": 3,
       "expenses": 1,
-      "score_note": "Regional Argentine event. Extreme Andes terrain with difficult access, high costs, high altitude, and regional field.",
+      "score_note": "Regional Argentine event. Sierras de Córdoba terrain with difficult international access, high costs, high altitude, and regional field.",
       "discipline": "gravel",
       "display_tier": 2
     },
     "biased_opinion": {
-      "verdict": "Argentine Andes Mountain Adventure",
-      "summary": "Vuelta Altas Cumbres is a regional event in Argentine Andes\u2014extreme mountainous terrain with massive elevation at high altitude. The Argentine Andes are stunning, but the difficult/expensive access, extreme altitude, and regional field keep it firmly in Tier 3.",
+      "verdict": "Sierras de Córdoba Mountain Adventure",
+      "summary": "Vuelta Altas Cumbres is a regional event in the Sierras de C\u00f3rdoba (Traslasierra Valley)\u2014mountainous terrain with meaningful elevation at high altitude. The Sierras de C\u00f3rdoba are stunning, but the difficult/expensive international access, extreme altitude, and regional field keep it firmly in Tier 3.",
       "strengths": [
-        "Stunning Argentine Andes",
-        "Extreme elevation challenge",
-        "High altitude adventure",
+        "Stunning Sierras de C\u00f3rdoba scenery",
+        "Meaningful elevation challenge",
+        "High altitude adventure (Pampa de Achala plateau)",
         "Unique Argentine experience",
-        "100-mile challenge"
+        "First UCI Gravel World Series event in Argentina (2026)"
       ],
       "weaknesses": [
         "Difficult Argentina access",
@@ -90,11 +90,11 @@
         "Extreme altitude challenges",
         "Limited international draw"
       ],
-      "bottom_line": "An extreme Argentine Andes mountain gravel race with altitude challenge. Worth it for elite adventure seekers with big budgets. Not practical for most riders."
+      "bottom_line": "A Sierras de Córdoba mountain gravel race with a real altitude challenge. Worth it for elite adventure seekers with big budgets. Not practical for most riders."
     },
     "final_verdict": {
       "score": "60 / 100",
-      "one_liner": "Argentine Andes mountain gravel challenge.",
+      "one_liner": "Sierras de Córdoba mountain gravel challenge.",
       "should_you_race": "If you have a big budget and want an extreme Argentine experience\u2014maybe. For most riders\u2014there are better options.",
       "alternatives": "For better value: regional gravel races. For similar South American terrain: Transcordilleras.",
       "alternative_slugs": [
@@ -102,29 +102,31 @@
       ]
     },
     "logistics": {
-      "airport": "C\u00f3rdoba (COR) or Buenos Aires (EZE) varies by location",
-      "lodging_strategy": "C\u00f3rdoba has good lodging options.",
-      "food": "C\u00f3rdoba has full dining options. Stock nutrition.",
+      "airport": "C\u00f3rdoba (COR), then ~2-2.5hr drive southwest to Villa Cura Brochero in the Traslasierra Valley; Buenos Aires (EZE) requires a connecting flight to COR first",
+      "lodging_strategy": "Villa Cura Brochero is a small town (pop. ~11,000); book ahead. Larger Traslasierra towns like Mina Clavero have more options nearby.",
+      "food": "Limited options in Villa Cura Brochero itself; stock nutrition or plan through nearby Mina Clavero.",
       "packet_pickup": "Day before typically",
       "parking": "At start/finish",
-      "official_site": "Check Vuelta Altas Cumbres website"
+      "official_site": "https://vueltaaltascumbres.com.ar/"
     },
     "history": {
-      "founded": null,
-      "founder": "Argentine organizers",
-      "origin_story": "Regional Argentine Andes gravel event.",
-      "notable_moments": [],
-      "reputation": "Regional Argentine event."
+      "founded": 2026,
+      "founder": "Deportistas de Aventura Asociaci\u00f3n Civil (with Agencia C\u00f3rdoba Deportes and the Municipality of Villa Cura Brochero)",
+      "origin_story": "Launched in 2026 as the first Argentine stop on the UCI Gravel World Series, run out of Villa Cura Brochero in the Traslasierra Valley, C\u00f3rdoba Province.",
+      "notable_moments": [
+        "2026: Inaugural edition (March 29, 112km) -- first UCI Gravel World Series event held in Argentina, granting direct qualification to the 2026 UCI Gravel World Championships"
+      ],
+      "reputation": "New but internationally notable as Argentina's first UCI Gravel World Series race."
     },
     "course_description": {
-      "character": "Argentine Andes mountain gravel.",
+      "character": "Sierras de Córdoba mountain gravel through the Traslasierra Valley.",
       "suffering_zones": [
         {
           "mile": 30,
-          "label": "Early Andes",
-          "desc": "First Andes mountain sections.",
+          "label": "Early Sierras",
+          "desc": "First Sierras de Córdoba mountain sections out of Villa Cura Brochero.",
           "terrain_detail": "Mountainous",
-          "named_section": "Early Andes"
+          "named_section": "Early Sierras"
         },
         {
           "mile": 50,
@@ -134,7 +136,7 @@
           "named_section": "Halfway"
         }
       ],
-      "signature_challenge": "Argentine Andes extreme mountainous terrain at altitude.",
+      "signature_challenge": "Sierras de Córdoba mountainous terrain at altitude, cresting the Pampa de Achala high plateau.",
       "ridewithgps_id": null,
       "ridewithgps_name": null
     },
@@ -142,10 +144,10 @@
       "race_name": "Vuelta Altas Cumbres",
       "race_distance": "75 miles",
       "race_elevation": "6,330 feet",
-      "race_date": "Spring",
-      "race_location": "C\u00f3rdoba, Argentina",
-      "race_terrain": "Argentine Andes mountain gravel",
-      "race_weather": "Argentine spring variable",
+      "race_date": "Late March (Southern Hemisphere early autumn)",
+      "race_location": "Villa Cura Brochero, C\u00f3rdoba Province, Argentina",
+      "race_terrain": "Sierras de Córdoba mountain gravel",
+      "race_weather": "Argentine late-summer/early-autumn, variable at altitude",
       "race_challenges": [
         "Extreme mountainous terrain",
         "Regional field",
@@ -165,7 +167,7 @@
       {
         "requirement": "Mountain endurance",
         "by_when": "Week 8-10",
-        "why": "Argentine Andes extreme mountains require sustained effort."
+        "why": "Sierras de Córdoba mountains and the Pampa de Achala plateau require sustained effort at altitude."
       },
       {
         "requirement": "Budget planning",
@@ -250,7 +252,7 @@
       "tier_overrides": {},
       "marketplace_variables": {
         "race_name": "Vuelta Altas Cumbres",
-        "race_hook": "Argentine Andes mountain gravel challenge.",
+        "race_hook": "Sierras de Córdoba mountain gravel challenge.",
         "race_hook_detail": "Regional event with extreme mountainous terrain at altitude.",
         "distance": "75",
         "dark_mile": "50",
@@ -520,7 +522,7 @@
         "gear_mentions": [],
         "race_day_tips": [],
         "additional_quotes": [],
-        "search_text": "The available transcripts for the Vuelta Altas Cumbres race in C\u00f3rdoba, Argentina contain minimal coherent content, consisting primarily of music, applause, and fragmented words. No specific information about the 100-mile course with 12,000 feet of elevation gain could be extracted from these transcripts. Riders looking for detailed race intelligence about terrain conditions, gear recommendations, pacing strategies, or specific course challenges will need to seek additional sources, as these particular video transcripts do not provide actionable racing insights or detailed course descriptions."
+        "search_text": "The available transcripts for the Vuelta Altas Cumbres race near Villa Cura Brochero, C\u00f3rdoba Province, Argentina contain minimal coherent content, consisting primarily of music, applause, and fragmented words. No specific course elevation/distance detail could be extracted from these transcripts. Riders looking for detailed race intelligence about terrain conditions, gear recommendations, pacing strategies, or specific course challenges will need to seek additional sources, as these particular video transcripts do not provide actionable racing insights or detailed course descriptions."
       }
     },
     "photos": [

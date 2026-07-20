@@ -6,8 +6,8 @@
     "tagline": "Stars and stripes on gravel\u2014the national championship with open entry and a UCI Worlds pathway.",
     "vitals": {
       "distance_mi": 110,
-      "elevation_ft": 7000,
-      "location": "La Crescent, Minnesota (2025-26); previously Gering, Nebraska (2023-24)",
+      "elevation_ft": 7500,
+      "location": "La Crescent, Minnesota (2025-26); previously Gering, Nebraska (2023-24). 2027 host not yet announced.",
       "location_badge": "LA CRESCENT, MN",
       "county": "Houston County, Minnesota",
       "date": "Mid-September annually",
@@ -18,7 +18,7 @@
         "Rolling farm roads",
         "Punchy Driftless terrain"
       ],
-      "field_size": "~50-100+ per elite category; 42 national-title categories total",
+      "field_size": "766 riders total (2025); three course lengths (31/74/110mi) split across age/category groups",
       "start_time": "7:00 AM",
       "registration": "Open entry with USA Cycling racing membership required; no one-day licenses",
       "prize_purse": "National Championship jersey; UCI Gravel Worlds automatic qualification for top finishers",
@@ -39,7 +39,7 @@
     },
     "terrain": {
       "primary": "Driftless 'champagne gravel' and punchy blufftop climbs",
-      "surface": "Predominantly gravel roads (~90%+). La Crescent features the Driftless Region's characteristic 'champagne gravel'\u2014well-maintained but with frequent steep pitches. Multiple short climbs up to 1.3mi at 7.5% average, repeated 2mi climbs around 5%, and a final 1km climb averaging ~8%.",
+      "surface": "Predominantly gravel roads (~70-90%, rest paved connectors). La Crescent features the Driftless Region's characteristic 'champagne gravel'\u2014well-maintained but with frequent steep pitches. Per the 2025 race organizers, the 110mi course carries ~7,500ft of gain (nine climbs, roughly 1mi/500ft each); the 74mi Masters 50+/Juniors 15-18 course carries ~5,100ft (five main climbs); the 31mi course carries ~2,000ft (two climbs). Full 2026 GPX/course maps had not been published as of this write-up.",
       "technical_rating": 3,
       "features": [
         "Chicken Ridge climb",
@@ -182,22 +182,22 @@
       "character": "Driftless Region 'champagne gravel' with punchy blufftop climbs. The terrain looks Midwestern-gentle but delivers relentless 10-15% gradients throughout. Apple orchards, gravel quarries, and river valley views provide scenery between efforts.",
       "suffering_zones": [
         {
-          "mile": 30,
-          "label": "First Driftless Climbs",
-          "desc": "The punchy nature reveals itself\u2014short, steep pitches that accumulate fatigue early."
-        },
-        {
-          "mile": 65,
-          "label": "Chicken Ridge",
-          "desc": "Signature climb with steep gradients. Where the racing shapes up and legs start to feel it."
+          "mile": 35,
+          "label": "The Nine Climbs",
+          "desc": "Per race organizers, the 110mi course carries nine distinct climbs, each roughly a mile long and ~500ft, scattered through the body of the race rather than concentrated in one place -- death by a thousand cuts rather than one big effort."
         },
         {
           "mile": 100,
-          "label": "Accumulated Fatigue",
-          "desc": "The repeated climbs compound. What felt punchy early now feels brutal with 100 miles in the legs."
+          "label": "Chicken Ridge to the Quarry",
+          "desc": "All three distances share the same finishing circuit: the stout Chicken Ridge gravel climb, then a run through an apple orchard, then into a working gravel quarry, then a final ~1-mile climb averaging 8%."
+        },
+        {
+          "mile": 106,
+          "label": "The Paved Kicker Home",
+          "desc": "The closing miles are mostly paved, with one last gravel kicker up into a neighborhood, then a steep, curved paved descent back into La Crescent for the Main Street finish."
         }
       ],
-      "signature_challenge": "The relentless punchy climbs\u2014not big sustained efforts, but repeated 10-15% gradients that accumulate suffering throughout the championship distance.",
+      "signature_challenge": "Nine mile-long climbs spread through the body of the race, then a signature finishing circuit -- Chicken Ridge, an apple orchard, and a working gravel quarry -- before the final 1-mile, 8%-average kicker with roughly 4 miles still to go.",
       "ridewithgps_id": null,
       "ridewithgps_name": "USA Cycling Gravel National Championships -- 110 Miles (2026 La Crescent, MN course; prior editions' RideWithGPS route data is not applicable)"
     },

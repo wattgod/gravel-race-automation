@@ -11,28 +11,26 @@
       "location_badge": "ROWE MESA, NM",
       "county": "Santa Fe County",
       "date": "Mid-May annually",
-      "date_specific": "2027: May 15 (Saturday pattern; 40th Century weekend ran May 16-17 2026)",
+      "date_specific": "2026: May 16",
       "terrain_types": [
         "High-desert mesa gravel",
         "Ponderosa and piñon forest roads",
-        "ALTITUDE: ~7,500ft start",
+        "Rowe Mesa dirt and doubletrack",
         "Santa Fe Century weekend"
       ],
       "field_size": "100-200 riders",
-      "start_time": "Early morning start",
+      "start_time": "9:00 AM mass start",
       "registration": "Online (santafecentury.com)",
       "prize_purse": "Modest prizes",
-      "aid_stations": "4-5 aid stations",
+      "aid_stations": "Three food stops",
       "cutoff_time": "12-14 hours",
       "lat": 35.6876,
       "lng": -105.9385,
-      "gain_display": "Varies",
-      "start_elevation_asl_ft": 7500,
-      "avg_elevation_asl_ft": 7200
+      "gain_display": "Varies"
     },
     "climate": {
       "primary": "New Mexico high-desert spring (May)",
-      "description": "Cool mornings, strong sun, and dry air at high-desert altitude; wet years can turn Rowe Mesa's clay to notorious mud and alter the route.",
+      "description": "Wet conditions can turn Rowe Mesa's mud and clay into difficult riding and force the organizer to use an alternate route.",
       "challenges": [
         "High altitude (~7,500ft start)",
         "Strong May sun",
@@ -42,7 +40,7 @@
     },
     "terrain": {
       "primary": "New Mexico high-desert mesa gravel",
-      "surface": "High-desert mesa and forest-road gravel through the Santa Fe National Forest — Ponderosa groves and piñon-juniper country, with climbing gathered into the final 30 miles.",
+      "surface": "Rough dirt roads, pavement, rolling mesa gravel, forest doubletrack, and dirt roads, with moderate longer climbs in the closing mixed-terrain section.",
       "technical_rating": 3,
       "features": [
         "High-desert mesa gravel, climbing concentrated in final 30mi",
@@ -105,7 +103,7 @@
       "food": "Santa Fe has full dining options. Stock nutrition.",
       "packet_pickup": "Day before typically",
       "parking": "At start/finish",
-      "official_site": "Check Santa Fe Century Gravelón website"
+      "official_site": "https://www.santafecentury.com/gravelon-fondo/"
     },
     "history": {
       "founded": null,
@@ -115,7 +113,7 @@
       "reputation": "Regional NM event."
     },
     "course_description": {
-      "character": "Gravelón: 54 miles from Rowe Mesa (~7,500ft ASL, ~20min SE of Santa Fe, off Forest Road 326) — counterclockwise loop via Ojo de la Vaca Rd (15.9mi) and NM-34 (15.5mi) then forest roads through Ponderosa groves and piñon/juniper country; climbing concentrated in the final ~30mi back to the mesa; gain modest and imprecisely published (~2,850ft official w/ garbled formatting vs 3,100ft third-party — display Varies). Gravelito 25mi. Mass start 9:00 Saturday, awards 1:00. Wet-year clay mud can alter the route. PRIOR PROFILE 100mi/7,500ft-GAIN was a unit/field error (7,500 = START ELEVATION; no century gravel option exists) — corrected 2026-07-13. ALTITUDE RACE.",
+      "character": "Gravelón is a 54-mile timed loop from Rowe Mesa using rough dirt, pavement, rolling gravel, forest doubletrack, and dirt roads. The organizer's gain field is malformed as 2,85000 feet, and wet conditions can force an alternate route, so 2,850 feet is retained as a numeric best value with a Varies display.",
       "suffering_zones": [
         {
           "mile": 16,
@@ -125,21 +123,14 @@
           "named_section": "Ojo de la Vaca Road"
         },
         {
-          "mile": 24,
+          "mile": 31,
           "label": "Onto the Forest Roads",
-          "desc": "The NM-34 segment gives way to Santa Fe National Forest roads for the closing miles — this is where the course's climbing begins to gather.",
+          "desc": "After 15.9 miles on Ojo de la Vaca Road and 15.5 miles on Highway 34, the course turns onto Santa Fe National Forest roads.",
           "terrain_detail": "Forest road, Ponderosa and piñon-juniper",
           "named_section": "Forest Road Turn"
-        },
-        {
-          "mile": 54,
-          "label": "Final Climbs to Rowe Mesa",
-          "desc": "Climbing is concentrated in this closing stretch back to the Rowe Mesa finish, at altitude the whole way.",
-          "terrain_detail": "Climbing forest road, ~7,500ft ASL",
-          "named_section": "Final Climbs Home"
         }
       ],
-      "signature_challenge": "High-desert mesa climbing concentrated in the final 30 miles, at altitude.",
+      "signature_challenge": "A mixed-surface Rowe Mesa loop whose closing dirt and doubletrack include moderate longer climbs and can become muddy in wet conditions.",
       "ridewithgps_id": null,
       "ridewithgps_name": null
     },

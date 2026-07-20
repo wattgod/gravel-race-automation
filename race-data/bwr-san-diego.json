@@ -5,10 +5,10 @@
     "display_name": "Belgian Waffle Ride San Diego",
     "tagline": "The OG American Spring Classic. 130 miles of kasseien-crushing brutality where 1 in 3 riders DNF, and the survivors earn their waffles.",
     "vitals": {
-      "distance_mi": 131,
-      "distance_km": 211,
-      "elevation_ft": 12000,
-      "elevation_m": 3658,
+      "distance_mi": 106.5,
+      "distance_km": 171,
+      "elevation_ft": 7500,
+      "elevation_m": 2286,
       "off_road_mi": 52,
       "off_road_sectors": 23,
       "location": "Del Mar, California",
@@ -34,19 +34,19 @@
       "distances_offered": [
         {
           "name": "Waffle (Full)",
-          "distance_mi": "119-144",
-          "elevation_ft": "10,500-14,000",
+          "distance_mi": "~106.5 (2025; organizer says 2026 course is revised, exact figures not yet published)",
+          "elevation_ft": "~7,500 (2025; organizer says 2026 course is revised, exact figures not yet published)",
           "off_road_mi": 52
         },
         {
           "name": "Wafer (Mid)",
-          "distance_mi": "68-84",
-          "elevation_ft": "~6,500"
+          "distance_mi": "~60 (2025)",
+          "elevation_ft": "~3,750 (2025)"
         },
         {
           "name": "Wanna (Entry)",
-          "distance_mi": "40-44",
-          "elevation_ft": "~4,200"
+          "distance_mi": "~32.7 (2025)",
+          "elevation_ft": "~2,500 (2025)"
         }
       ],
       "registration_cost": {
@@ -284,6 +284,7 @@
     ],
     "last_updated": "2026-01-12",
     "research_source": "/tmp/gravel-race-automation/research-dumps/bwr-san-diego-raw.md",
+    "status": "CLEAR - Confirmed on the 2026 BWR Quad-Tripel Crown (Queen Leg). 2026: May 2-3 (Del Mar). 2027: Sunday, April 25 (per official belgianwaffleride.bike future-dates page). Distance/elevation figures reflect the last-published (2025) course; organizer states the 2026 course is revised with exact 2026 mileage/elevation not yet published as of July 2026.",
     "final_verdict": {
       "score": "79 / 100",
       "one_liner": "Belgian suffering translated to sunny San Diego, where Double Peak turns roadies into believers and flatlanders into casualties.",
@@ -297,7 +298,7 @@
       ]
     },
     "course_description": {
-      "character": "BWR San Diego masquerades as an American Belgian classic, trading cobblestones for bone-rattling dirt sectors and sandy washes across 23 off-road segments. You'll roll through 80 miles of pavement and 52 miles of 'unroad' — everything from rocky single-track at Lake Hodges to the infamous sandy traps of Bandy Canyon. The course saves its cruelest joke for last: Double Peak, a 4.5-mile climb that turns savage in the final mile when your legs are already cooked.",
+      "character": "BWR San Diego masquerades as an American Belgian classic, trading cobblestones for bone-rattling dirt sectors and sandy washes across 23 off-road segments — everything from rocky single-track at Lake Hodges to the infamous sandy traps of Bandy Canyon. The course saves its cruelest joke for last: Double Peak, a 4.5-mile climb that turns savage in the final mile when your legs are already cooked.",
       "suffering_zones": [
         {
           "mile": 35,
@@ -320,7 +321,7 @@
           "desc": "Final dirt section when fatigue makes every rock a potential race-ender. Ten miles from glory, infinite ways to blow up."
         }
       ],
-      "signature_challenge": "The Muur van Dubbelberg — Double Peak's final mile averages 11% with 20-23% pitches when you've already climbed 10,500 feet. The last 800 feet of elevation come in that brutal final kilometer, forcing riders to 'paperboy' diagonally across the road just to keep moving. Your FTP means nothing here.",
+      "signature_challenge": "The Muur van Dubbelberg — Double Peak's final mile averages 11% with 20-23% pitches when you've already climbed most of the day's 7,500+ feet. The last 800 feet of elevation come in that brutal final kilometer, forcing riders to 'paperboy' diagonally across the road just to keep moving. Your FTP means nothing here.",
       "ridewithgps_id": "38370873",
       "ridewithgps_name": "2021 Belgian Waffle Ride San Diego"
     },

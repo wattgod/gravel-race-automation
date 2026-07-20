@@ -3,7 +3,7 @@
     "name": "HIGHLANDS GRAVEL CLASSIC",
     "slug": "highlands-gravel-classic",
     "display_name": "Highlands Gravel Classic",
-    "tagline": "The only US qualifier for UCI Gravel World Championships. 67 miles of Ozark smashfest.",
+    "tagline": "One of the US qualifiers for UCI Gravel World Championships. 67 miles of Ozark smashfest.",
     "vitals": {
       "distance_mi": 67,
       "elevation_ft": 4850,
@@ -11,7 +11,7 @@
       "location_badge": "GOSHEN, AR",
       "county": "Washington County",
       "date": "April annually",
-      "date_specific": "2026: April 25",
+      "date_specific": "2027: April 24 (Saturday, PATTERN ESTIMATE — same weekend pattern as 2026; official 2027 date not yet announced); 2026 edition (Saturday April 25) completed CONFIRMED — Jenna Rinehart/Daxton Mock won",
       "terrain_types": [
         "Chunky gravel",
         "Loose rock",
@@ -101,11 +101,11 @@
       },
       "adventure": {
         "score": 4,
-        "explanation": "The only US qualifier for UCI Gravel World Championships, racing through remote Ozark backcountry under 'a lush awning of natural woodlands.' The technical descents create real danger - one rider crashed into fences due to limited visibility through trees. This isn't just adventure riding; it's your shot at Worlds if you can survive Arkansas chunk and heat."
+        "explanation": "One of a handful of US qualifiers for UCI Gravel World Championships (alongside Big Sugar and Mammoth TUFF), racing through remote Ozark backcountry under 'a lush awning of natural woodlands.' The technical descents create real danger - one rider crashed into fences due to limited visibility through trees. This isn't just adventure riding; it's a shot at Worlds if you can survive Arkansas chunk and heat."
       },
       "prestige": {
         "score": 4,
-        "explanation": "Unique status as the sole US qualifier for UCI Gravel World Championships draws serious talent. Despite this exclusivity, only 407 riders showed up in 2025 compared to Belgium's sold-out 2500-rider qualifier. The UCI backing provides international legitimacy, but American participation remains surprisingly low for such a valuable qualification opportunity. As Deanna Duke puts it: \"I thought I'd do a little (okay, very long) race report of the 2023 Highlands Gravel Classic in Fayetteville, AR, which was the only U.S.\""
+        "explanation": "UCI Gravel World Series qualifier status draws serious talent — Highlands is one of several US qualifiers (with Big Sugar and Mammoth TUFF), not the sole one. Despite that, only 407 riders showed up in 2025 compared to Belgium's sold-out 2500-rider qualifier. The UCI backing provides international legitimacy, but American participation remains surprisingly low for such a valuable qualification opportunity."
       },
       "race_quality": {
         "score": 4,
@@ -134,9 +134,9 @@
     },
     "biased_opinion": {
       "verdict": "UCI Qualifier",
-      "summary": "Highlands Gravel Classic is the only US path to UCI Gravel World Championships—that alone makes it significant. The race itself is a 67-mile smashfest through chunky Ozark gravel with constant climbs and technical descents. It's short enough to race hard and long enough to hurt. For anyone chasing UCI qualification, this is mandatory.",
+      "summary": "Highlands Gravel Classic is one of the US qualifiers for UCI Gravel World Championships (alongside Big Sugar and Mammoth TUFF)—that alone makes it significant. The race itself is a 67-mile smashfest through chunky Ozark gravel with constant climbs and technical descents (a 53-mile/3,700ft Masters course covers the official 60+/50+ age-band distance). It's short enough to race hard and long enough to hurt. For anyone chasing UCI qualification, this is a strong option.",
       "strengths": [
-        "Only US UCI Gravel World Championship qualifier",
+        "One of several US UCI Gravel World Championship qualifiers",
         "Beautiful Ozark mountain terrain",
         "Smashfest format rewards racing, not just surviving"
       ],
@@ -149,7 +149,7 @@
     },
     "final_verdict": {
       "score": "69 / 100",
-      "one_liner": "The only US path to UCI Gravel Worlds—67 miles of Ozark smashfest.",
+      "one_liner": "One of the US paths to UCI Gravel Worlds—67 miles of Ozark smashfest.",
       "should_you_race": "Yes if you're chasing UCI qualification. Yes if you want a short, intense race on technical terrain. Skip if you want ultra-endurance or smooth gravel.",
       "alternatives": "Big Sugar (same region, longer); BWR California (more technical); SBT GRVL (longer, Colorado mountains)",
       "alternative_slugs": [
@@ -171,7 +171,7 @@
       "founder": "Bruce Dunn and team",
       "origin_story": "Created to bring UCI Gravel World Series racing to the US. NW Arkansas's established cycling infrastructure made it the ideal location. Designed to be 90%+ gravel with technical challenges.",
       "notable_moments": [
-        "Established as only US UCI Gravel World Championship qualifier",
+        "Established as one of the US UCI Gravel World Championship qualifiers (alongside Big Sugar and Mammoth TUFF)",
         "Race director: 'The course kicked everybody's ass'",
         "Growing field as UCI gravel gains prominence"
       ],
@@ -330,6 +330,11 @@
         "url": "https://www.facebook.com/highlandsgravelclassic/videos/no-shortcuts-no-easy-miles-no-ordinary-racethe-highlands-gravel-classic-is-where/816828304455811/",
         "category": "social",
         "label": "Facebook"
+      },
+      {
+        "url": "https://ucigravelworldseries.com/en/calendar/",
+        "category": "other",
+        "label": "UCI Gravel World Series: 2026 calendar (multiple US qualifiers)"
       }
     ],
     "results": {
@@ -718,6 +723,24 @@
         "alt": "Course preview from Highlands Gravel Classic race footage",
         "credit": "YouTube / Justin McQuerry",
         "gif": true
+      }
+    ],
+    "distances": [
+      {
+        "name": "Open (19-59 men / 19-49 women)",
+        "distance_mi": 67,
+        "distance_km": 109,
+        "elevation_ft": 4850,
+        "elevation_m": 1480,
+        "description": "Official UCI qualifying distance for open/younger age categories"
+      },
+      {
+        "name": "Masters (60+ men / 50+ women)",
+        "distance_mi": 53,
+        "distance_km": 86,
+        "elevation_ft": 3700,
+        "elevation_m": 1130,
+        "description": "Official UCI qualifying distance for Masters age-band categories (men 60+, women 50+)"
       }
     ]
   }

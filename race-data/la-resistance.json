@@ -11,8 +11,8 @@
       "location": "Talloires, France",
       "location_badge": "TALLOIRES, FRANCE",
       "county": "French Alps",
-      "date": "September annually",
-      "date_specific": "2026: September 19",
+      "date": "September annually (status contested for 2026 — see date_specific)",
+      "date_specific": "Status: CONTESTED — aggregator marks Sept 2026 'Cancelled'; organizer site live but unconfirmed (checked 2026-07-16)",
       "terrain_types": [
         "French Alps",
         "Alpine gravel",
@@ -107,8 +107,9 @@
       "food": "French Alps has full dining options. Stock nutrition.",
       "packet_pickup": "Day before typically",
       "parking": "At start/finish",
-      "official_site": "Check La Resistance website"
+      "official_site": "https://www.laresistance.cc/"
     },
+    "notes": "VERIFIED 2026-07-16: (1) This is explicitly a RIDE, NOT A RACE/competitive sportive — organizers state 'the organisers encourage people to take time to enjoy riding with friends, take in the beauty of the route and reflect on sacrifices made on these roads' (freewheelingfrance.com; corroborated by cyclist.co.uk). Never market this as a timed race. (2) 2026 edition status is contradictory across sources — granfondoguide.com lists it as 'Cancelled'; official site laresistance.cc appears live/active but could not be independently confirmed. POLICY: get direct organizer confirmation before using in commercial copy or stating an active/upcoming date.",
     "history": {
       "founded": null,
       "founder": "French organizers",
@@ -205,7 +206,8 @@
           "cross_reference": 15
         },
         "scored_at": "2026-02-04"
-      }
+      },
+      "status_verification_2026_07_16": "CONTESTED (verified 2026-07-16): granfondoguide.com lists Sept 19, 2026 (90km/130km) but explicitly marks it 'Cancelled.' Official organizer site laresistance.cc is still live with active Event/Course/Entry/Rules pages as of this check, but its content is JS-rendered and could not be independently fetched/confirmed. Do not state a confirmed 2026 date without organizer confirmation."
     },
     "training_config": {
       "workout_modifications": {

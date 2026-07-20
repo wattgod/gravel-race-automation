@@ -5,13 +5,13 @@
     "display_name": "Oregon Coast Gravel Epic",
     "tagline": "Central Oregon coast gravel with coastal and mountain terrain.",
     "vitals": {
-      "distance_mi": 60,
-      "elevation_ft": 6677,
+      "distance_mi": 62,
+      "elevation_ft": 6733,
       "location": "Waldport, Oregon",
       "location_badge": "WALDPORT, OR",
       "county": "Lincoln County",
       "date": "Early May annually",
-      "date_specific": "2027: May 1 (Saturday, PATTERN ESTIMATE — organizer unconfirmed)",
+      "date_specific": "2027: May 1 (organizer confirmed)",
       "terrain_types": [
         "Coastal gravel",
         "Coast Range",
@@ -22,7 +22,7 @@
       "start_time": "Morning start",
       "registration": "Online. Cost: ~$80-100",
       "prize_purse": "None or minimal",
-      "aid_stations": "Multiple aid stations",
+      "aid_stations": "Long-course aid at miles 14, 31, and 46",
       "cutoff_time": "Varies",
       "lat": 44.427,
       "lng": -124.0672
@@ -39,10 +39,10 @@
     },
     "terrain": {
       "primary": "Coastal and Coast Range gravel",
-      "surface": "Mix of coastal and mountain gravel roads. Significant elevation with forest roads and coastal views.",
+      "surface": "65% unpaved logging roads and 35% pavement through the Siuslaw National Forest.",
       "technical_rating": 3,
       "features": [
-        "Significant climbing (5000 feet)",
+        "6,733 feet of climbing on the current organizer-linked route",
         "Coastal views",
         "Forest roads",
         "Coast Range terrain",
@@ -105,7 +105,7 @@
       "food": "Small coastal town with basic dining options.",
       "packet_pickup": "Day before typically",
       "parking": "At start/finish",
-      "official_site": "Check Oregon cycling calendars"
+      "official_site": "https://www.mudslingerevents.com/oregon-coast-gravel-epic"
     },
     "history": {
       "founded": null,
@@ -115,33 +115,33 @@
       "reputation": "Growing regional Oregon coast event."
     },
     "course_description": {
-      "character": "Mix of coastal and mountain gravel with significant climbing.",
+      "character": "The current Abomination long route is 61.6 miles with 6,733 feet of gain, using 65% unpaved logging roads and 35% pavement through the Siuslaw National Forest.",
       "suffering_zones": [
         {
-          "mile": 15,
-          "label": "First Climb",
-          "desc": "Early climbing into Coast Range.",
-          "terrain_detail": "Mountain ascent",
-          "named_section": "Early Climb"
+          "mile": 14,
+          "label": "Aid Alpha Course Split",
+          "desc": "The 37- and 62-mile routes split at the first aid station.",
+          "terrain_detail": "Long-course split",
+          "named_section": "Aid Alpha"
         },
         {
-          "mile": 35,
-          "label": "High Point",
-          "desc": "Highest elevation with coastal views.",
-          "terrain_detail": "Forest summit",
-          "named_section": "Summit"
+          "mile": 31,
+          "label": "Buck Creek Aid",
+          "desc": "The long-course-only second aid station is at Buck Creek.",
+          "terrain_detail": "Remote forest aid station",
+          "named_section": "Aid Bravo"
         },
         {
-          "mile": 50,
-          "label": "Final Climb",
-          "desc": "Last major climb to finish.",
-          "terrain_detail": "Final ascent",
-          "named_section": "Finish Climb"
+          "mile": 46,
+          "label": "Aid Charlie",
+          "desc": "The long route returns to the shared aid station at mile 46.",
+          "terrain_detail": "Final aid station",
+          "named_section": "Aid Charlie"
         }
       ],
-      "signature_challenge": "5000 feet of climbing with coastal and mountain terrain mix.",
+      "signature_challenge": "6,733 feet of climbing across 62 miles of coastal logging roads and pavement.",
       "ridewithgps_id": "50686348",
-      "ridewithgps_name": "Oregon Coast Gravel Epic Abomination (Long) Route 2026"
+      "ridewithgps_name": "Oregon Coast Gravel Epic Abomination (Long) Route 2027"
     },
     "guide_variables": {
       "race_name": "Oregon Coast Gravel Epic",

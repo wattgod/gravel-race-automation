@@ -10,8 +10,8 @@
       "location": "Derby, Tasmania",
       "location_badge": "TASMANIA, AUSTRALIA",
       "county": "Tasmania",
-      "date": "Mid-June annually",
-      "date_specific": "2026: June 20",
+      "date": "Late June annually (Southern Hemisphere winter)",
+      "date_specific": "2027: June 19 (Saturday, PATTERN ESTIMATE — third Saturday of June, per 2026 date; official 2027 date not yet announced); 2026 edition (June 20, Saturday) completed CONFIRMED — Brendan Johnston/Holly Harris won, UCI Gravel World Series qualifier",
       "terrain_types": [
         "Tasmanian mountains",
         "Australian gravel",
@@ -28,13 +28,13 @@
       "lng": 146.6367
     },
     "climate": {
-      "primary": "Tasmanian spring",
-      "description": "Variable mountain conditions.",
+      "primary": "Tasmanian winter (Southern Hemisphere June)",
+      "description": "Winter mountain conditions in northeast Tasmania—near-freezing starts, rain/sleet risk, and strong wind exposure on exposed climbs. Past editions have seen near-freezing temperatures with sleet, and near gale-force winds.",
       "challenges": [
-        "Variable weather",
-        "Cold possible",
-        "Mountainous terrain",
-        "Spring conditions"
+        "Near-freezing start temperatures",
+        "Rain and sleet risk (Southern Hemisphere winter)",
+        "Strong winds on exposed climbs",
+        "Fog reducing visibility"
       ]
     },
     "terrain": {
@@ -73,7 +73,7 @@
     },
     "biased_opinion": {
       "verdict": "Tasmanian Mountain Adventure",
-      "summary": "Devils Cardigan is a regional event in Tasmania\u2014mountainous terrain with significant elevation. The Tasmanian mountains are impressive and organization is solid, but the very difficult/expensive access and regional field keep it firmly in Tier 3.",
+      "summary": "Devils Cardigan is a regional event in Tasmania—mountainous terrain with significant elevation. The Tasmanian mountains are impressive and organization is solid, but the very difficult/expensive access and regional field keep it firmly in Tier 3.",
       "strengths": [
         "Tasmanian mountain scenery",
         "Good organization",
@@ -93,7 +93,7 @@
     "final_verdict": {
       "score": "54 / 100",
       "one_liner": "Tasmanian mountain gravel adventure.",
-      "should_you_race": "If you have a big budget and want a Tasmania experience\u2014maybe. For most riders\u2014there are better options.",
+      "should_you_race": "If you have a big budget and want a Tasmania experience—maybe. For most riders—there are better options.",
       "alternatives": "For better value: regional gravel races. For similar Australian terrain: Gravelista.",
       "alternative_slugs": [
         "gravelista"
@@ -108,31 +108,43 @@
       "official_site": "https://www.devilscardigan.com.au/"
     },
     "history": {
-      "founded": null,
-      "founder": "Tasmanian organizers",
-      "origin_story": "Regional Tasmanian gravel event.",
-      "notable_moments": [],
-      "reputation": "Regional Tasmanian event."
+      "founded": 2021,
+      "founder": "Blue Metal Tasmania (gravel guiding) and Tas Gravity Enduro",
+      "origin_story": "The Devils Cardigan launched in 2021 with 120 riders at the Blue Derby trailhead in northeast Tasmania, the brainchild of Blue Metal Tasmania and Tas Gravity Enduro. The course loops over the Mt Victoria Forest Reserve and through the Dorset farming valleys before finishing in the historic logging town of Branxholm. It hosted the AusCycling Gravel National Championships in 2023 and 2024, then joined the UCI Gravel World Series on May 10, 2025, and has run as an annual UCI qualifier since.",
+      "notable_moments": [
+        "2021: Inaugural edition, 120 riders",
+        "2023-2024: Hosted AusCycling Gravel National Championships",
+        "2025-05-10: UCI Gravel World Series debut",
+        "2026-06-20: Brendan Johnston and Holly Harris win the UCI-era edition"
+      ],
+      "reputation": "A young (2021-founded) but fast-rising Tasmanian gravel race — regional roots, now an annual UCI Gravel World Series qualifier since 2025."
     },
     "course_description": {
-      "character": "Tasmanian mountain gravel.",
+      "character": "Tasmanian mountain gravel through the Mt Victoria Forest Reserve and Dorset farming valleys, from the Blue Derby trailhead to Branxholm. Three named climbs define the 106km/66mi UCI-qualifier route.",
       "suffering_zones": [
         {
-          "mile": 35,
-          "label": "Early Mountains",
-          "desc": "First mountain sections.",
-          "terrain_detail": "Mountainous",
-          "named_section": "Early Mountains"
+          "mile": 5,
+          "label": "Mutual Valley",
+          "desc": "8.3km/5.2mi at 4.2% average — organizer materials describe it as starting 'straight from the gun'; UCI course notes place the start closer to ~7.5km/4.7mi in. Either way, it's the first major test.",
+          "terrain_detail": "Sustained gravel climb",
+          "named_section": "Mutual Valley"
+        },
+        {
+          "mile": 30,
+          "label": "Ralph Falls",
+          "desc": "10.5km/6.5mi, 600m/1,970ft of gain at 5% average with pitches to 16% — the longest climb on course, positioned roughly mid-race.",
+          "terrain_detail": "Long sustained climb with steep pitches",
+          "named_section": "Ralph Falls"
         },
         {
           "mile": 60,
-          "label": "Midpoint",
-          "desc": "Halfway through the course.",
-          "terrain_detail": "Midpoint",
-          "named_section": "Halfway"
+          "label": "Un-named Climb of Hell",
+          "desc": "3.5km/2.2mi, 280m/920ft of gain at 8% average with pitches to 15% — arrives within the final 10km/6.2mi before the Branxholm finish, when legs are already destroyed.",
+          "terrain_detail": "Steep late-race climb",
+          "named_section": "Un-named Climb of Hell"
         }
       ],
-      "signature_challenge": "Tasmanian mountainous terrain.",
+      "signature_challenge": "Three named climbs (Mutual Valley, Ralph Falls, Un-named Climb of Hell) across 106km/66mi and 2,300m/7,545ft — the third arrives in the closing 10km when there's nothing left in the tank.",
       "ridewithgps_id": null,
       "ridewithgps_name": null
     },
@@ -140,10 +152,10 @@
       "race_name": "Devils Cardigan",
       "race_distance": "66 miles",
       "race_elevation": "7,545 feet",
-      "race_date": "Spring",
+      "race_date": "Winter (Southern Hemisphere)",
       "race_location": "Tasmania, Australia",
       "race_terrain": "Tasmanian mountain gravel",
-      "race_weather": "Tasmanian spring variable",
+      "race_weather": "Tasmanian winter, variable and cold",
       "race_challenges": [
         "Mountainous terrain",
         "Regional field",
@@ -163,7 +175,7 @@
       {
         "requirement": "Weather preparation",
         "by_when": "Week 4-6",
-        "why": "Tasmanian spring weather is variable."
+        "why": "Tasmanian winter weather (June) is cold, wet, and variable."
       },
       {
         "requirement": "Budget planning",
@@ -239,7 +251,7 @@
         "topics": {
           "pacing": "Mountainous terrain pacing",
           "fueling": "Nutrition for mountain riding",
-          "weather": "Riding in variable Tasmanian weather",
+          "weather": "Riding in cold, wet Tasmanian winter conditions",
           "mountains": "Sustained mountain strategy"
         }
       },
@@ -267,7 +279,7 @@
       },
       "technicality": {
         "score": 3,
-        "explanation": "The gravel \"isn't what riders would normally call 'champagne gravel'\" but rather \"more like a rocky mountain bike trail in most parts.\" Max Hobson observed that \"for lighter and skinnier set-ups, this first descent has them rattled \u2013 quite literally rattled.\" Dead Horse Hill Descent became a race-defining technical challenge that caused multiple elite riders to puncture on the rough, rocky terrain. Similar technical demands to Gravel Worlds."
+        "explanation": "The gravel \"isn't what riders would normally call 'champagne gravel'\" but rather \"more like a rocky mountain bike trail in most parts.\" Max Hobson observed that \"for lighter and skinnier set-ups, this first descent has them rattled – quite literally rattled.\" Dead Horse Hill Descent became a race-defining technical challenge that caused multiple elite riders to puncture on the rough, rocky terrain. Similar technical demands to Gravel Worlds."
       },
       "elevation": {
         "score": 4,
@@ -275,7 +287,7 @@
       },
       "climate": {
         "score": 2,
-        "explanation": "Historical weather data shows average highs of 42\u00b0F and lows of 34\u00b0F, with a 65% chance of rain on any given day, and gusts reaching 28 mph. Tasmania's winter conditions create annual weather roulette. \"Year one had near-freezing conditions with bouts of rain and sleet-like scuds. Year two served up near gale-force winds.\" The 2023 race featured torrential rain that \"muddied the course\" significantly. Scott Mattern warns that \"layers against wind rain and cold are a must on each and every trip.\" More weather exposure than Belgian Waffle Ride San Diego."
+        "explanation": "Historical weather data shows average highs of 42°F and lows of 34°F, with a 65% chance of rain on any given day, and gusts reaching 28 mph. Tasmania's winter conditions create annual weather roulette. \"Year one had near-freezing conditions with bouts of rain and sleet-like scuds. Year two served up near gale-force winds.\" The 2023 race featured torrential rain that \"muddied the course\" significantly. Scott Mattern warns that \"layers against wind rain and cold are a must on each and every trip.\" More weather exposure than Belgian Waffle Ride San Diego."
       },
       "altitude": {
         "score": 2,
@@ -354,6 +366,21 @@
         "url": "https://theradavist.com/australian-gravel-national-championships",
         "category": "community",
         "label": "theradavist.com: Australian Gravel National Championships"
+      },
+      {
+        "url": "https://ucigravelworldseries.com/en/derby/",
+        "category": "other",
+        "label": "UCI Gravel World Series: Derby"
+      },
+      {
+        "url": "https://www.devilscardigan.com.au/course-2026",
+        "category": "other",
+        "label": "Devilscardigan: 2026 Course"
+      },
+      {
+        "url": "https://www.cyclingnews.com/pro-cycling/racing/uci-gravel-world-series-brendan-johnston-goes-solo-to-take-third-win-at-devils-cardigans-as-holly-harris-snares-a-first/",
+        "category": "other",
+        "label": "Cyclingnews: 2026 results"
       }
     ],
     "tire_recommendations": {
@@ -495,7 +522,7 @@
           "view_count": 330,
           "upload_date": "20250123",
           "duration_string": "40",
-          "description": "In 2023 and 2024, The Devils Cardigan \nproudly hosted the AusCycling Gravel \nNational Championships in Tasmania. \n\nIn 2025, it\u2019s time for Tassie to take on the world!\n\nWe are excited to share that the Devils Cardigan has joined the\nUCI Gravel World Series Family.\n\nWe Join Seven Gravel Race and Gravelista in Australia as a qualifying pathway to the \nUCI World Gravel Championships. \n\nSo my gravel minions, mark the dates below on your Calendar. \n\nSubscribe to our Channel follow us on our social channels and remember, \nyou\u2019re not here for a shoe shine.\nThis is The Devils Cardigan.",
+          "description": "In 2023 and 2024, The Devils Cardigan \nproudly hosted the AusCycling Gravel \nNational Championships in Tasmania. \n\nIn 2025, it’s time for Tassie to take on the world!\n\nWe are excited to share that the Devils Cardigan has joined the\nUCI Gravel World Series Family.\n\nWe Join Seven Gravel Race and Gravelista in Australia as a qualifying pathway to the \nUCI World Gravel Championships. \n\nSo my gravel minions, mark the dates below on your Calendar. \n\nSubscribe to our Channel follow us on our social channels and remember, \nyou’re not here for a shoe shine.\nThis is The Devils Cardigan.",
           "tags": [],
           "url": "https://www.youtube.com/watch?v=YEl1vOu5qbw",
           "curated": false

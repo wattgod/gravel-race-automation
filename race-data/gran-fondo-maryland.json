@@ -3,10 +3,10 @@
     "name": "Gran Fondo Maryland",
     "slug": "gran-fondo-maryland",
     "display_name": "Gran Fondo Maryland",
-    "tagline": "100 miles of savage Maryland climbs crushing souls with 10,000ft through Catoctin wilds.",
+    "tagline": "87 miles of savage Maryland climbs gaining 8,500ft through Catoctin wilds.",
     "vitals": {
-      "distance_mi": 100,
-      "elevation_ft": 10000,
+      "distance_mi": 87,
+      "elevation_ft": 8500,
       "location": "Frederick, Maryland, USA",
       "location_badge": "FREDERICK, MD",
       "date": "September",
@@ -21,16 +21,17 @@
       "start_time": "8:00-8:30 AM",
       "registration": "Competitive entry with timed segments, post-ride feasts, and festivities included",
       "prize_purse": "National Championship titles and age-group podiums",
-      "aid_stations": "4-5 fully stocked feed zones across the Gran Route",
+      "aid_stations": "Fully stocked aid stations, typically about every 25 miles",
       "cutoff_time": "Strict 10mph progression speed or get swept to shorter route—no exceptions",
       "lat": 39.4143,
       "lng": -77.4103,
       "distance_options": [
-        "Gran Route: 100mi, 10,000ft — brutal national champs course with 4 timed KOMs",
-        "Medio Route: 65mi, 4,500ft — shares final timed beast on Gambrill",
+        "Gran Route: 87mi, 8,500ft — open fondo and national championship course with 5 timed sections",
+        "Junior 14-16 / Senior 70+ National Championship Route: 70mi",
+        "Medio Route: 60mi — 3 timed sections",
         "Piccolo Route: 30mi — social spin for the less masochistic"
       ],
-      "entry_fee": "$150-250"
+      "entry_fee": "$160-230 for Gran/Medio, depending on registration date"
     },
     "climate": {
       "primary": "Temperate fall — mild but unpredictable",
@@ -143,11 +144,11 @@
     },
     "biased_opinion": {
       "verdict": "Climber's savage nationals gem",
-      "summary": "Gran Fondo Maryland isn't messing around—100 miles of Appalachian fury hosting USA Cycling's Gran Nats with four timed gut-punches that crown real champions. Forget flat spins; this is forested hellscapes, ridge-top rollers, and technical daggers testing every fiber. Historic Frederick finish delivers the party payoff, but only if you survive Gambrill's wrath. Prestige elevates it beyond regional fare, though field depth lags elite Euros.",
+      "summary": "Gran Fondo Maryland isn't messing around—87 miles of Appalachian fury hosting USA Cycling's Gran Nats with five timed gut-punches that crown real champions. Forget flat spins; this is forested hellscapes, ridge-top rollers, and technical daggers testing every fiber. Historic Frederick finish delivers the party payoff, but only if you survive Gambrill's wrath. Prestige elevates it beyond regional fare, though field depth lags elite Euros.",
       "strengths": [
         "National Championships prestige",
-        "10k ft of pure climbing pain",
-        "Four elite timed segments",
+        "8,500ft of pure climbing pain",
+        "Five timed segments",
         "Wild parkland adventure",
         "Legendary finish festivities"
       ],
@@ -163,7 +164,7 @@
     "final_verdict": {
       "score": "73 / 100",
       "one_liner": "Brutal Nats beast devours legs in Catoctin chaos.",
-      "should_you_race": "Yes if you're a climber chasing national hardware and 10k ft romps. Skip if humidity or tech descents terrify you—stick to pan-flat spins.",
+      "should_you_race": "Yes if you're a climber chasing national hardware and an 8,500ft day. Skip if humidity or tech descents terrify you—stick to pan-flat spins.",
       "alternatives": "Gran Fondo Asheville for southern savage climbs, Boone Gran Fondo for Appalachian twin terror, Highlands Gran Fondo for gravel-infused pain.",
       "alternative_slugs": [
         "gran-fondo-asheville",
@@ -195,40 +196,43 @@
       "character": "Northwest from Frederick's charm into municipal forest savagery, the Gran Route devours obscure backroads to Fort Ritchie's ruins before Catoctin plunges. Punchy Harp Hills and Gully tech terror precede Gambrill's ridge-crushing finale. Undulating watersheds and state park singletracks return you battle-scarred to downtown glory.",
       "suffering_zones": [
         {
-          "mile": 10,
           "label": "Frederick Municipal Forest #1",
-          "desc": "5.6mi timed bomb gaining 1,270ft through cool canopy—pure VAM torture. Crest for screaming descent rewards the bold. Sets the tone: survive or suffer.",
-          "terrain_detail": "Paved forest switchbacks, shaded pitches",
-          "named_section": "Timed Segment #1"
+          "desc": "First timed section for all distances: 5mi gaining over 1,250ft through the Municipal Forest before the course plummets off the west side of the range.",
+          "terrain_detail": "Forested mountain climb",
+          "named_section": "Timed Section #1"
         },
         {
-          "mile": 25,
           "label": "Harp Hill #2",
-          "desc": "1.4mi punchy up-down-up-down rollercoaster, 279ft vertical spikes. Short but soul-snapping intensity. Gasp for the 25mi backroad grind ahead.",
-          "terrain_detail": "Southern approach paved yo-yos",
-          "named_section": "Timed Segment #2"
+          "desc": "1.9mi up the southern approach with 650ft of vertical and a whopping punch at the top.",
+          "terrain_detail": "Southern approach, steep finish",
+          "named_section": "Timed Section #2"
         },
         {
-          "mile": 50,
-          "label": "The Gully of Darius #3",
-          "desc": "5.5mi dynamic beast: fast 4.9mi drop, then 300ft kicker amid 90° turns and bridges. Tar-chip slipfest demands skills or spills. Net downhill but heart-rate hell.",
-          "terrain_detail": "Tech descents, chip roads, sharp corners",
-          "named_section": "Timed Segment #3"
+          "label": "Ritchie Road #3",
+          "desc": "1.8mi with 600ft of gain up Ritchie Rd toward the decommissioned Fort Ritchie base.",
+          "terrain_detail": "Steady backroad climb",
+          "named_section": "Timed Section #3"
         },
         {
-          "mile": 71,
-          "label": "Gambrill Ridge #4",
-          "desc": "11.4mi hardest hit: 784ft/4.6mi opener into 6.8mi undulating ridge nightmare. Watersheds to Gambrill State Park crush quads. Final 1,000ft drop tempts complacency—watch the kickers.",
+          "label": "The Gully of Darius #4",
+          "desc": "5.5mi dynamic segment, not a timed climb: a wide 4.9mi descent losing 500ft, then a 300ft kicker to Hornets Nest Road, with several 90-degree turns, an old bridge crossing, and tar-and-chip surface.",
+          "terrain_detail": "Technical descent, chip roads, sharp corners",
+          "named_section": "Timed Section #4"
+        },
+        {
+          "mile": 60,
+          "label": "Gambrill Ridge #5",
+          "desc": "The hardest segment of the day: 11.4mi and 1,203ft, opening with 784ft over 4.6mi then a challenging, undulating 6.8mi along Gambrill Park Road through the Frederick Watershed.",
           "terrain_detail": "Ridge-top rollers, park roads",
-          "named_section": "Timed Segment #4"
+          "named_section": "Timed Section #5"
         }
       ],
       "signature_challenge": "Gambrill Park Road's 11.4mi timed finale—784ft opener explodes into endless ridge undulations through watershed wilds. Legs scream, mind fractures; only the strongest summit smiling. Defines Maryland as climber's crucible."
     },
     "guide_variables": {
       "race_name": "Gran Fondo Maryland",
-      "race_distance": "161 km (100 miles)",
-      "race_elevation": "3048 meters (10000 feet)",
+      "race_distance": "140 km (87 miles)",
+      "race_elevation": "2591 meters (8500 feet)",
       "race_date": "September",
       "race_location": "Frederick, Maryland, USA",
       "race_terrain": "Hilly forested roads with tech descents and mountain ridges",
@@ -243,7 +247,7 @@
     },
     "non_negotiables": [
       {
-        "requirement": "8hr century with 10k ft at 10mph progression minimum",
+        "requirement": "87-mile ride with 8,500ft at the 10mph progression minimum",
         "by_when": "Week 12",
         "why": "Cutoffs are brutal—no mercy for dawdlers, sweeps you to medio ignominy. Builds base for Gambrill's late crush. Test on 100mi/8k ft sim with tech bits."
       },

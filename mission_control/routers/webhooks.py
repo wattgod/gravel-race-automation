@@ -239,6 +239,7 @@ async def subscriber_webhook(
         "quiz_shared": "quiz_completed",
         "fueling_calculator": "new_subscriber",
         "training_guide": "new_subscriber",
+        "bikepacking_guide": "new_subscriber",
         # Plan purchases (Stripe / WooCommerce / own-site) -> post-purchase
         # onboarding + review flywheel. The payment webhook must POST a source in
         # this set, with brand + plan_weeks (+ race_slug). Until that POST exists

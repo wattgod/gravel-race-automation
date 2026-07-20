@@ -7,7 +7,7 @@
  * payload, and the notification email subject/sender so road leads are
  * distinguishable in the shared list/inbox.
  *
- * Handles 10 capture sources:
+ * Handles 12 capture sources:
  *   - exit_intent:        email only (race profile exit popup)
  *   - race_profile:       email + race context (prep kit CTA)
  *   - prep_kit_gate:      email + race context (content unlock)
@@ -19,6 +19,7 @@
  *   - date_reminder:      email + race slug + race date (race date reminder)
  *   - race_plan_ladder:   email + race context + tier (plan-ladder "notify me" form)
  *   - training_guide:     email + optional guide_chapter (guide end-of-chapter capture)
+ *   - bikepacking_guide:  email + optional guide_chapter (bikepacking guide capture)
  *   - fueling_calculator: email + weight + race + fueling data (detected by weight_lbs, no source field)
  *
  * Every valid submission upserts the contact into SendGrid Marketing Contacts.
@@ -31,7 +32,7 @@ const DISPOSABLE_DOMAINS = [
   'yopmail.com', 'temp-mail.org', 'getnada.com', 'mohmal.com'
 ];
 
-const KNOWN_SOURCES = ['exit_intent', 'race_profile', 'prep_kit_gate', 'race_quiz', 'quiz_shared', 'tire_guide', 'race_review', 'state_hub', 'date_reminder', 'race_plan_ladder', 'training_guide'];
+const KNOWN_SOURCES = ['exit_intent', 'race_profile', 'prep_kit_gate', 'race_quiz', 'quiz_shared', 'tire_guide', 'race_review', 'state_hub', 'date_reminder', 'race_plan_ladder', 'training_guide', 'bikepacking_guide'];
 
 export default {
   async fetch(request, env) {
@@ -177,7 +178,7 @@ function validateBySource(source, data) {
     }
   }
 
-  // training_guide (guide end-of-chapter capture): email only, required
+  // training_guide and bikepacking_guide (guide captures): email only, required
   // above for all sources. guide_chapter is optional context, already
   // truncated to 80 chars before validation runs.
 

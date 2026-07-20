@@ -280,14 +280,20 @@ class TestFriendRegisterEnrollment:
         sd = rows[0]["source_data"]
         return json.loads(sd) if isinstance(sd, str) else sd
 
-    def test_wb_branch_exclusivity_guide_wins(self, client, fake_db):
-        """Welcome day-0 renders exactly one opener: guide > trail > race."""
+    @pytest.mark.parametrize("source", ("training_guide", "bikepacking_guide"))
+    def test_guide_sources_get_one_guide_context_welcome(self, client, fake_db, source):
+        """Both guide sources enroll once in welcome with the guide opener."""
         self._enroll(client, {
-            "email": "wb-guide@example.com", "source": "training_guide",
+            "email": f"wb-{source}@example.com", "source": source,
             "guide_chapter": "Fueling", "viewed_races": ["Unbound", "SBT GRVL"],
             "race_name": "Unbound",
         })
-        sd = self._source_data(fake_db, "wb-guide@example.com")
+        email = f"wb-{source}@example.com"
+        rows = [e for e in fake_db.store["gg_sequence_enrollments"]
+                if e["contact_email"] == email]
+        assert len(rows) == 1
+        assert rows[0]["sequence_id"] == "welcome_v1"
+        sd = self._source_data(fake_db, email)
         assert sd.get("wb_guide") == "Fueling"
         assert "wb_trail" not in sd and "wb_race" not in sd
         assert sd.get("any_context") == "1"

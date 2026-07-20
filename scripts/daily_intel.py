@@ -1,10 +1,11 @@
 #!/usr/bin/env python3
-"""Morning Intel — daily interpreted report for both brands.
+"""Morning Intel — daily report for both brands.
 
 Collects GA4, checkout health, Mission Control activity + errors, and
-workflow statuses; interprets via Claude with 7-day trend context; emails
-gravelgodcoaching@gmail.com; snapshots everything to data/intel-snapshots/
-so trends compound. Spec: docs/specs/daily-intel-report.md.
+workflow statuses; renders the factual core deterministically; asks Claude
+only for the subject hook, TOP LINE, and DO TODAY; emails
+gravelgodcoaching@gmail.com; snapshots everything to data/intel-snapshots/ so
+trends compound. Spec: docs/specs/daily-intel-report.md.
 
 Every collector is fail-soft: a broken source becomes a BROKEN line in the
 report — the email always sends (order-killer lesson: failures loud to the
@@ -121,7 +122,7 @@ def collect_ga4(brand: str) -> dict:
         return {"ok": False, "error": f"{BRANDS[brand]['property_env']} not set"}
     client = BetaAnalyticsDataClient()
     y = (date.today() - timedelta(days=1)).isoformat()
-    week_ago = (date.today() - timedelta(days=8)).isoformat()
+    week_ago = (date.today() - timedelta(days=7)).isoformat()  # 7 full days ending yesterday
 
     def run(metrics, dimensions=None, date_from=y, date_to=y, limit=100):
         return client.run_report(RunReportRequest(
@@ -168,7 +169,7 @@ def collect_ga4(brand: str) -> dict:
         "sessions": int(t[0].value) if t else 0,
         "users": int(t[1].value) if t else 0,
         "pageviews": int(t[2].value) if t else 0,
-        "sessions_7d_avg": round(week_sessions / 8, 1),
+        "sessions_7d_avg": round(week_sessions / 7, 1),
         "funnel": {stage: sum(ev.get(e, 0) for e in evs)
                    for stage, evs in FUNNEL_STAGES.items()},
         "abandoned_submits": max(0, sum(ev.get(e, 0) for e in FUNNEL_STAGES["form_submit"])
@@ -392,7 +393,15 @@ def load_trend(days: int = 7) -> list[dict]:
                               "purchases": (g.get("funnel") or {}).get("purchase")}
             mc = snap.get("mission_control", {})
             compact["leads"] = mc.get("new_leads_24h")
-            compact["orders"] = mc.get("new_orders_24h")
+            purchases = []
+            for b in BRANDS:
+                value = (((snap.get("ga4") or {}).get(b) or {}).get("funnel") or {}).get(
+                    "purchase", 0)
+                try:
+                    purchases.append(int(value or 0))
+                except (TypeError, ValueError):
+                    purchases.append(0)
+            compact["orders"] = sum(purchases)
             trend.append(compact)
         except Exception:
             continue
@@ -401,77 +410,370 @@ def load_trend(days: int = 7) -> list[dict]:
 
 # ── Interpretation ──────────────────────────────────────────────────────
 
+def _display(value, default="0") -> str:
+    if value is None or value == "":
+        return default
+    return str(value)
+
+
+def _path(value) -> str:
+    if value is None or value == "":
+        return "(not set)"
+    return str(value)
+
+
+def _funnel_line(funnel: dict) -> str:
+    return (
+        f"cta {_display(funnel.get('cta_click'))} → "
+        f"form_start {_display(funnel.get('form_start'))} → "
+        f"submit {_display(funnel.get('form_submit'))} → "
+        f"checkout {_display(funnel.get('begin_checkout'))} → "
+        f"purchase {_display(funnel.get('purchase'))}"
+    )
+
+
+def _person(item: dict) -> str:
+    name = (item.get("name") or "").strip()
+    email = (item.get("email") or "").strip()
+    if name and email:
+        return f"{name} <{email}>"
+    return name or email or "unknown customer"
+
+
+def _collector_failures(collected: dict) -> list[str]:
+    broken = []
+    for group in ("ga4", "checkout"):
+        for brand, result in (collected.get(group) or {}).items():
+            if not isinstance(result, dict) or result.get("ok") is not False:
+                continue
+            label = BRANDS.get(brand, {}).get("label", brand)
+            error = _display(result.get("error"), "unknown error")
+            if group == "checkout":
+                broken.append(f"checkout {label} FAIL: {error}")
+            else:
+                broken.append(f"GA4 {label} collector failed: {error}")
+    for key, label in (
+        ("mission_control", "Mission Control"),
+        ("commerce_ledger", "commerce ledger"),
+        ("social", "social"),
+        ("workflows", "workflows"),
+    ):
+        result = collected.get(key) or {}
+        if not isinstance(result, dict) or result.get("ok") is not False:
+            continue
+        error = _display(result.get("error"), "unknown error")
+        broken.append(f"{label} collector failed: {error}")
+    constraint = collected.get("constraint") or {}
+    if isinstance(constraint, dict) and constraint.get("ok") is False:
+        error = _display(constraint.get("error"), "unknown error")
+        broken.append(f"constraint unavailable: {error}")
+    return broken
+
+
+def render_report(collected: dict) -> str:
+    """Render the factual report sections without network calls or inference."""
+    lines = [
+        "## NUMBERS",
+        "| Brand | Sessions (vs 7d avg) | Funnel | Leads |",
+        "|---|---:|---|---:|",
+    ]
+    ga4 = collected.get("ga4") or {}
+    mc = collected.get("mission_control") or {}
+    leads_by_brand = mc.get("leads_by_brand") or {}
+    for brand, meta in BRANDS.items():
+        g = ga4.get(brand) or {}
+        if g.get("ok"):
+            sessions = _display(g.get("sessions"))
+            avg = _display(g.get("sessions_7d_avg"))
+            session_cell = f"{sessions} (vs {avg})"
+            funnel = _funnel_line(g.get("funnel") or {})
+        else:
+            session_cell = "unavailable"
+            funnel = "unavailable"
+        if mc.get("ok"):
+            leads = _display(leads_by_brand.get(brand), "unavailable")
+        else:
+            leads = "unavailable"
+        lines.append(f"| {meta['label']} | {session_cell} | {funnel} | {leads} |")
+
+    lines.extend(["", "## TRAFFIC"])
+    for brand, meta in BRANDS.items():
+        g = ga4.get(brand) or {}
+        if not g.get("ok"):
+            lines.append(f"- **{meta['label']}:** traffic unavailable.")
+            continue
+        sessions = g.get("sessions") or 0
+        try:
+            has_traffic = float(sessions) > 5
+        except (TypeError, ValueError):
+            has_traffic = False
+        if not has_traffic:
+            lines.append(f"- **{meta['label']}:** {sessions} sessions; near-zero traffic.")
+            continue
+        pages = ", ".join(
+            f"{_path(p.get('path'))} ({_display(p.get('views'))} views)"
+            for p in (g.get("top_pages") or [])[:5]
+        ) or "none"
+        channels = ", ".join(
+            f"{name} {_display(count)}"
+            for name, count in (g.get("channel_mix") or {}).items()
+        ) or "none"
+        landing = ", ".join(
+            f"{_path(p.get('path'))} ({_display(p.get('sessions'))} sessions)"
+            for p in (g.get("top_landing") or [])[:5]
+        ) or "none"
+        lines.extend([
+            f"- **{meta['label']} top pages:** {pages}.",
+            f"- **{meta['label']} channel mix:** {channels}.",
+            f"- **{meta['label']} top landing:** {landing}.",
+        ])
+
+    lines.extend(["", "## COMMERCE (GROUND TRUTH)"])
+    ledger = collected.get("commerce_ledger") or {}
+    if not ledger.get("ok"):
+        lines.append("- commerce ledger unavailable.")
+    else:
+        orders = list(ledger.get("orders") or [])
+        failed_orders = list(ledger.get("failed_orders") or [])
+        failed_orders.extend(o for o in orders if o.get("success") is False)
+        successful_orders = [o for o in orders if o.get("success") is not False]
+        recoveries = list(ledger.get("recoveries") or [])
+        starts = ledger.get("questionnaire_starts") or 0
+        if not failed_orders and not successful_orders and not recoveries and not starts:
+            lines.append("- no orders, cart recoveries, or questionnaire starts.")
+        else:
+            seen_failures = set()
+            for order in failed_orders:
+                identity = (order.get("timestamp"), order.get("email"), order.get("error"))
+                if identity in seen_failures:
+                    continue
+                seen_failures.add(identity)
+                product = order.get("product_type") or order.get("product") or "order"
+                error = _display(order.get("error"), "unknown fulfillment error")
+                lines.append(
+                    f"- **FAILED ORDER:** {_person(order)} — {product}; "
+                    f"fulfillment FAILED: {error}."
+                )
+            for order in successful_orders:
+                product = order.get("product_type") or order.get("product") or "order"
+                outcome = "fulfilled" if order.get("success") is True else "outcome unknown"
+                lines.append(f"- order: {_person(order)} — {product}; fulfillment {outcome}.")
+            for recovery in recoveries:
+                product = recovery.get("product") or recovery.get("product_type") or "order"
+                lines.append(f"- cart recovery: {_person(recovery)} — {product}.")
+            lines.append(f"- questionnaire starts: {starts}.")
+
+    lines.extend(["", "## CONSTRAINT"])
+    constraint = collected.get("constraint") or {}
+    if not constraint.get("ok"):
+        lines.append("- constraint unavailable.")
+    else:
+        binding = _display(constraint.get("binding_constraint"), "not available")
+        lines.append(f"- binding constraint: {binding}.")
+        lines.append(
+            "- 28d rates: "
+            f"CTA {_display(constraint.get('cta_rate_pct'))}%; "
+            f"CTA→submit {_display(constraint.get('cta_to_submit_pct'))}%; "
+            f"submit→purchase {_display(constraint.get('submit_to_purchase_pct'))}%."
+        )
+        needed = constraint.get("sessions_per_day_needed_for_1_sale")
+        needed_text = _display(needed, "not measurable")
+        actual = _display(constraint.get("sessions_per_day"), "not available")
+        lines.append(f"- sessions/day needed for 1 sale/day: {needed_text}; actual: {actual}.")
+
+    lines.extend(["", "## HOT LEADS"])
+    hot_leads = (mc.get("hot_leads_14d") or []) if mc.get("ok") else []
+    if not hot_leads:
+        lines.append("- no hot leads in the last 14 days.")
+    else:
+        for lead in hot_leads:
+            person = _person(lead)
+            race = lead.get("race") or "(no race given)"
+            sequence = lead.get("sequence") or "unknown sequence"
+            step = _display(lead.get("step"), "unknown")
+            opens = _display(lead.get("opens"))
+            clicks = _display(lead.get("clicks"))
+            lines.append(
+                f"- {person} — {race}; {sequence} step {step}; "
+                f"{opens} opens/{clicks} clicks."
+            )
+
+    social = collected.get("social") or {}
+    if social.get("accounts_live"):
+        lines.extend(["", "## SOCIAL"])
+        queued_today = _display(social.get("queued_today"))
+        queued_yesterday = _display(social.get("queued_yesterday"))
+        lines.append(f"- queued: {queued_today} today; {queued_yesterday} yesterday.")
+        for post in social.get("posts") or []:
+            brand = post.get("brand") or "unknown brand"
+            race = post.get("race") or "unknown race"
+            kind = post.get("kind") or "post"
+            lines.append(f"- {brand}: {race} — {kind}.")
+
+    lines.extend(["", "## BROKEN"])
+    broken = []
+    failed_for_broken = list(ledger.get("failed_orders") or [])
+    failed_for_broken.extend(
+        order for order in (ledger.get("orders") or []) if order.get("success") is False)
+    seen_failures = set()
+    for order in failed_for_broken:
+        identity = (order.get("timestamp"), order.get("email"), order.get("error"))
+        if identity in seen_failures:
+            continue
+        seen_failures.add(identity)
+        error = _display(order.get("error"), "unknown fulfillment error")
+        broken.append(f"FAILED ORDER: {_person(order)} — {error}")
+    broken.extend(_collector_failures(collected))
+    if mc.get("ok"):
+        for error in mc.get("errors_24h") or []:
+            action = error.get("action") or "unknown action"
+            details = error.get("details") or "no details"
+            broken.append(f"Mission Control {action}: {details}")
+    workflows = collected.get("workflows") or {}
+    if workflows.get("ok"):
+        for name, conclusion in (workflows.get("latest") or {}).items():
+            if conclusion != "success":
+                broken.append(f"workflow {name}: {conclusion}")
+    broken.extend(str(line) for line in (collected.get("report_issues") or []) if line)
+    if broken:
+        lines.extend(f"- {line}" for line in broken)
+    else:
+        lines.append("- nothing broken.")
+    return "\n".join(lines)
+
+
+def safe_render(collected: dict) -> str:
+    """render_report, but a rendering crash can never cost the email.
+
+    A collector that returns HTTP 200 with a drifted shape passes _safe's
+    ok=True and would crash render_report — the one failure mode this script
+    must never have (email always sends). Fall back to a minimal report that
+    names the error instead.
+    """
+    try:
+        return render_report(collected)
+    except Exception as e:
+        reason = f"{type(e).__name__}: {e}"[:300]
+        lines = [f"## BROKEN", f"- report rendering crashed: {reason}",
+                 "- full sections unavailable; raw snapshot has the data"]
+        ga4 = collected.get("ga4") if isinstance(collected, dict) else {}
+        for brand, meta in BRANDS.items():
+            g = (ga4 or {}).get(brand)
+            if isinstance(g, dict) and g.get("ok"):
+                lines.append(f"- {meta['label']}: sessions {g.get('sessions')}")
+        return "\n".join(lines)
+
+
+def detect_tracking_regression(
+        collected: dict, prior_snapshots: list[dict]) -> str | None:
+    """Return a warning when healthy traffic has had zero CTA events for 3 days."""
+    def is_zero_event_day(snapshot):
+        g = ((snapshot.get("ga4") or {}).get("gravelgod") or {})
+        funnel = g.get("funnel") or {}
+        if g.get("ok") is not True or "cta_click" not in funnel:
+            return False
+        try:
+            enough_sessions = float(g.get("sessions") or 0) >= 15
+            zero_ctas = int(funnel["cta_click"]) == 0
+        except (TypeError, ValueError):
+            return False
+        return enough_sessions and zero_ctas
+
+    priors = list(prior_snapshots or [])
+    if not is_zero_event_day(collected) or len(priors) < 2:
+        return None
+    if not all(is_zero_event_day(snapshot) for snapshot in priors[:2]):
+        return None
+    sessions = ((collected.get("ga4") or {}).get("gravelgod") or {}).get("sessions")
+    return (
+        f"possible GA4 event-tracking regression: {sessions} sessions but "
+        "0 cta_click for 3+ consecutive days"
+    )
+
+
+def load_prior_snapshots(today: str, days: int = 2) -> list[dict]:
+    """Load exact preceding calendar days; a missing day breaks consecutiveness."""
+    snapshots = []
+    current = date.fromisoformat(today)
+    for offset in range(1, days + 1):
+        path = SNAPSHOT_DIR / f"{current - timedelta(days=offset)}.json"
+        if not path.exists():
+            break
+        try:
+            loaded = json.loads(path.read_text())
+        except Exception:
+            break
+        if not isinstance(loaded, dict):
+            break
+        snapshots.append(loaded)
+    return snapshots
+
+
+def interpretation_failure_streak(today: str) -> int:
+    """Count today's failure plus explicit failures on consecutive prior days."""
+    streak = 1
+    current = date.fromisoformat(today)
+    offset = 1
+    while True:
+        path = SNAPSHOT_DIR / f"{current - timedelta(days=offset)}.json"
+        if not path.exists():
+            break
+        try:
+            status = json.loads(path.read_text()).get("interpretation_ok")
+        except Exception:
+            break
+        if status is not False:
+            break
+        streak += 1
+        offset += 1
+    return streak
+
+
 INTERPRET_PROMPT = """You are writing the Morning Intel report for Matti, who runs two \
 honest-critic cycling race-database businesses (Gravel God Cycling, Roadie Labs) selling \
 $15/wk custom training plans (cap $249). Target: one plan sale per day. Baseline when \
 this started (Jun 2026): ~35 users/day, ~1 sale/month.
 
 Register: deadpan, terse, zero hype, zero filler. Like a good analyst who respects the \
-reader's time. NEVER invent or extrapolate a number not present in the data below. If a \
-collector failed, that goes in BROKEN — do not guess what its data would have said.
+reader's time. NEVER invent or extrapolate a number not present in the context below. \
+The commerce ledger is ground truth and overrides GA4. The factual report is already \
+rendered; do not repeat its sections or add new facts.
 
 Write EXACTLY this structure (markdown):
 Line 1: `SUBJECT: intel {date}: <hook under 60 chars — the single most important fact>`
 Then:
 ## TOP LINE
 - 3 bullets max. What actually happened yesterday. Numbers inline.
-## NUMBERS
-A compact per-brand markdown table: sessions (vs 7d avg), funnel steps, leads, orders.
-## TRAFFIC
-For each brand with >5 sessions: top pages (path + views, top 3-5), the channel mix \
-(organic/direct/referral with counts), and top landing pages — this is where the reader \
-learns WHAT people read and WHERE they came from. One line per item, real paths. If a \
-brand is near-zero, one line says so and moves on. Flag anything notable (a page \
-suddenly popular, a new referral source).
-## COMMERCE (ground truth)
-From commerce_ledger (the Railway order ledger — this OVERRIDES any GA4 inference): \
-orders in the last 24h with names and fulfillment outcomes, cart-recovery emails sent, \
-real questionnaire starts. A FAILED order (success=false) is a paying customer without \
-a product — lead the whole report with it if one exists. If the ledger shows nothing, \
-one line.
-## CONSTRAINT
-Use ONLY the precomputed numbers in `constraint` (never compute your own): state the \
-binding constraint by name, the 28-day funnel rates, and the sessions/day needed for \
-one sale/day at current rates vs actual sessions/day. Two or three sentences, plain.
-## HOT LEADS
-From mission_control.hot_leads_14d: one line per person — name/email, their race, \
-where they are in which sequence, opens/clicks — ending with ONE concrete suggested \
-action (e.g. "reply personally about their race — use draft_race_reply"). These are real \
-humans Matti may email today; be specific, never invent engagement they don't have. \
-If empty: one line.
-## SOCIAL
-Metrics that matter, in strict order (say WHY when numbers exist): \
-(1) social-driven SESSIONS from ga4 channel_mix — the only metric connected to the \
-sales constraint; (2) link clicks per post; (3) engagement rate per post as a voice \
-signal. Follower counts and likes are explicitly NOT success — never celebrate them. \
-Also report what the engine queued (social.posts). While social.accounts_live is \
-false: one line — queue status + zero social sessions is expected, no analysis theater.
-## BROKEN
-Every failed probe/collector/error, severity-ranked. A failed ORDER outranks \
-everything else in the report. If nothing: one line saying so.
 ## DO TODAY
-Max 3 action items, each one line: the action, the why, expected impact. If the right \
-move is "nothing — let it run", say that.
+Max 3 one-line actions: the action, the why, expected impact. If the right move is \
+"nothing — let it run", say that.
 
 DATA (today):
 {data}
 
 TREND (last {n} days, compact):
 {trend}
+
+DETERMINISTIC FACTUAL REPORT:
+{report}
 """
 
 
-def interpret(collected: dict, trend: list[dict]) -> tuple[str, str]:
-    """Return (subject, markdown_body) from Claude; raises on failure."""
-    api_key = os.environ["ANTHROPIC_API_KEY"]
+def interpret(collected: dict, trend: list[dict], report: str) -> tuple[str, str]:
+    """Return (subject, narration) from Claude; raises on malformed output."""
+    api_key = os.environ.get("ANTHROPIC_API_KEY")
+    if not api_key:
+        raise RuntimeError("ANTHROPIC_API_KEY not set")
     prompt = INTERPRET_PROMPT.format(
         date=collected["date"], n=len(trend),
         data=json.dumps(collected, indent=1, default=str)[:24000],
         trend=json.dumps(trend, indent=0, default=str)[:6000],
+        report=report,
     )
     code, body = _http(
         "https://api.anthropic.com/v1/messages",
-        data={"model": INTEL_MODEL, "max_tokens": 1500,
+        data={"model": INTEL_MODEL, "max_tokens": 4000,
+              "thinking": {"type": "disabled"},
               "messages": [{"role": "user", "content": prompt}]},
         headers={"x-api-key": api_key, "anthropic-version": "2023-06-01"},
         timeout=120,
@@ -484,32 +786,34 @@ def interpret(collected: dict, trend: list[dict]) -> tuple[str, str]:
                      if b.get("type") == "text").strip()
     if not text:
         raise RuntimeError("no text block in model response")
+    if text.startswith("```"):  # tolerate a markdown fence around the response
+        text = text.strip("`").removeprefix("markdown").strip()
     first, _, rest = text.partition("\n")
-    subject = first.replace("SUBJECT:", "").strip() if first.startswith("SUBJECT:") \
-        else f"intel {collected['date']}"
-    return subject, rest.strip()
+    if not first.startswith("SUBJECT:"):
+        raise RuntimeError("model response missing SUBJECT line")
+    subject = first.replace("SUBJECT:", "", 1).strip() or f"intel {collected['date']}"
+    narration = rest.strip()
+    top_index = narration.find("## TOP LINE")
+    do_index = narration.find("## DO TODAY")
+    if top_index != 0 or do_index <= top_index:
+        raise RuntimeError("model response missing TOP LINE or DO TODAY")
+    headers = [line for line in narration.splitlines() if line.startswith("## ")]
+    if headers != ["## TOP LINE", "## DO TODAY"]:
+        raise RuntimeError("model response included an unexpected section")
+    return subject, narration
+
+
+def combine_report(narration: str, deterministic_report: str) -> str:
+    """Place deterministic facts between the model's two narrative sections."""
+    top, marker, actions = narration.partition("## DO TODAY")
+    if not marker:
+        raise ValueError("narration missing DO TODAY")
+    return f"{top.strip()}\n\n{deterministic_report}\n\n## DO TODAY{actions}".strip()
 
 
 def plain_digest(collected: dict) -> tuple[str, str]:
-    """No-LLM fallback: readable digest of the raw numbers."""
-    lines = [f"## RAW DIGEST — {collected['date']} (interpretation unavailable)"]
-    for b, meta in BRANDS.items():
-        g = collected["ga4"].get(b, {})
-        lines.append(f"\n### {meta['label']}")
-        if g.get("ok"):
-            lines.append(f"- sessions {g['sessions']} (7d avg {g['sessions_7d_avg']}), "
-                         f"funnel {g['funnel']}")
-        else:
-            lines.append(f"- GA4 FAILED: {g.get('error')}")
-        c = collected["checkout"].get(b, {})
-        lines.append(f"- checkout: {'OK' if c.get('ok') else 'FAIL ' + str(c.get('error'))}")
-    mc = collected["mission_control"]
-    if mc.get("ok"):
-        lines.append(f"\n- leads {mc['new_leads_24h']}, emails {mc['emails_sent_24h']}, "
-                     f"errors {len(mc['errors_24h'])} (orders: see GA4 purchase counts)")
-    else:
-        lines.append(f"\n- Mission Control FAILED: {mc.get('error')}")
-    return f"intel {collected['date']}: raw digest", "\n".join(lines)
+    """Explicit no-LLM mode: deterministic sections and a raw-digest subject."""
+    return f"intel {collected['date']}: raw digest", safe_render(collected)
 
 
 # ── Delivery + snapshot ─────────────────────────────────────────────────
@@ -614,22 +918,45 @@ def main() -> int:
         "workflows": _safe(collect_workflows),
     }
     collected["constraint"] = compute_constraint(collected["ga4"].get("gravelgod", {}))
+    try:
+        tracking_issue = detect_tracking_regression(
+            collected, load_prior_snapshots(today))
+    except Exception as e:
+        tracking_issue = f"tracking-regression check crashed: {type(e).__name__}: {e}"
+    collected["report_issues"] = [tracking_issue] if tracking_issue else []
     trend = load_trend()
+    deterministic_report = safe_render(collected)
 
-    if args.no_llm or not os.environ.get("ANTHROPIC_API_KEY"):
+    if args.no_llm:
+        # deliberately skipped, not broken — must not extend the failure streak
+        collected["interpretation_ok"] = None
         subject, report = plain_digest(collected)
     else:
         try:
-            subject, report = interpret(collected, trend)
+            subject, narration = interpret(collected, trend, deterministic_report)
+            report = combine_report(narration, deterministic_report)
+            collected["interpretation_ok"] = True
         except Exception as e:
-            subject, report = plain_digest(collected)
-            report = f"**INTERPRETATION FAILED: {e}**\n\n{report}"
+            reason = str(e).replace("\n", " ")[:300] or type(e).__name__
+            collected["interpretation_ok"] = False
+            collected["report_issues"].append(f"interpretation unavailable: {reason}")
+            deterministic_report = safe_render(collected)
+            try:
+                streak = interpretation_failure_streak(today)
+            except Exception:
+                streak = 1
+            subject = f"intel {today}: INTERPRETATION BROKEN — day {streak}"
+            report = f"INTERPRETATION UNAVAILABLE: {reason}\n\n{deterministic_report}"
 
-    SNAPSHOT_DIR.mkdir(parents=True, exist_ok=True)
-    (SNAPSHOT_DIR / f"{today}.json").write_text(
-        json.dumps({**collected, "report": report}, indent=1, default=str))
-    (SNAPSHOT_DIR / f"{today}.md").write_text(f"# {subject}\n\n{report}\n")
-    print(f"snapshot: data/intel-snapshots/{today}.json")
+    # persistence must never cost the email — snapshot failures ride in the report
+    try:
+        SNAPSHOT_DIR.mkdir(parents=True, exist_ok=True)
+        (SNAPSHOT_DIR / f"{today}.json").write_text(
+            json.dumps({**collected, "report": report}, indent=1, default=str))
+        (SNAPSHOT_DIR / f"{today}.md").write_text(f"# {subject}\n\n{report}\n")
+        print(f"snapshot: data/intel-snapshots/{today}.json")
+    except Exception as e:
+        report += f"\n- BROKEN: snapshot write failed: {type(e).__name__}: {e}"
     print(f"subject:  {subject}")
 
     if args.dry_run:

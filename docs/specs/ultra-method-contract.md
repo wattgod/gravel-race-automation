@@ -35,6 +35,12 @@ States (deterministic, evaluated at intake):
 - **MINIMUM VIABLE RUNWAY**: 6 weeks (matches the custom engine's floor). Runway
   <6w → no plan product; route to consult/coaching (fit filter, not upsell).
 
+State precedence (evaluate top-down, first match wins):
+MEDICAL HOLD → BELOW-MINIMUM-RUNWAY (<6w) → CATCH-UP (6–15w) → EXTENDED-BASE
+(≥16w, P-1..P-3 not all met) → PREPARED. A medically-held athlete is never
+routed to consult-as-product; the hold template (§12.4) governs regardless of
+runway.
+
 ## 2. Canonical week-by-week prescription (AUTHORITATIVE)
 
 The tables are the contract. Prose elsewhere explains; where prose and table
@@ -183,8 +189,13 @@ ceiling maintenance (white paper §2), never the plan's center.
 - Overnight encouraged where the race requires bivvy competence; **sleep
   duration never restricted (R4)**; rehearsed low point is calories/fatigue
   only.
-- Recovery after: ≥4 days (Masters ≥5) at ≤60% of the PRECEDING RECOVERY WEEK's
-  hours (defined value from the table), zero intensity. Hard QC assertion.
+- Recovery after (precise semantics): the 4 calendar days (Masters: 5)
+  immediately following the final SIM day contain ONLY rest days or recovery
+  spins, zero intensity, and their COMBINED moving time is ≤60% of the
+  preceding RECOVERY week's table hours (e.g. 16w Standard: ≤0.6×6.25 = 3.75h
+  across the 4 days). These days span the SIM week's remainder and, if needed,
+  the start of the following week; the following week's table hours already
+  account for this (RECOVERY type). Hard QC assertion.
 - MINI-SIM (24w W14 and custom ≥20w): 2 days, day 1 = 1.00× long-day dose,
   day 2 = floor0.25(0.70 × day 1), unloaded sleep-out optional, systems subset.
 - Athlete lacks 2 consecutive available days (custom): SIM is replaced by two

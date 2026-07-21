@@ -1,0 +1,294 @@
+{
+ "date": "2026-07-21",
+ "ga4": {
+  "gravelgod": {
+   "sessions": 29,
+   "users": 28,
+   "pageviews": 83,
+   "sessions_7d_avg": 32.4,
+   "funnel": {
+    "cta_click": 6,
+    "form_start": 3,
+    "form_submit": 2,
+    "begin_checkout": 0,
+    "purchase": 0
+   },
+   "abandoned_submits": 2,
+   "top_pages": [
+    {
+     "path": "/",
+     "views": 11
+    },
+    {
+     "path": "/gravel-races/",
+     "views": 11
+    },
+    {
+     "path": "/guide/workout-execution/",
+     "views": 2
+    },
+    {
+     "path": "/products/training-plans/",
+     "views": 2
+    },
+    {
+     "path": "/race/best-gravel-races-colorado/",
+     "views": 2
+    },
+    {
+     "path": "/race/bwr-montana/",
+     "views": 2
+    },
+    {
+     "path": "/race/cheaha-challenge-gran-fondo/",
+     "views": 2
+    },
+    {
+     "path": "/race/gravel-unravel-why-not-chee/",
+     "views": 2
+    }
+   ],
+   "channel_mix": {
+    "Organic Search": 20,
+    "Direct": 7,
+    "Unassigned": 2
+   },
+   "top_landing": [
+    {
+     "path": "/",
+     "sessions": 2
+    },
+    {
+     "path": "/products/training-plans/",
+     "sessions": 2
+    },
+    {
+     "path": "",
+     "sessions": 1
+    },
+    {
+     "path": "/author/gravelgodcoachinggmail-com/",
+     "sessions": 1
+    },
+    {
+     "path": "/fueling-methodology/",
+     "sessions": 1
+    },
+    {
+     "path": "/gravel-races/",
+     "sessions": 1
+    }
+   ],
+   "sessions_28d": 1011,
+   "funnel_28d": {
+    "cta_click": 46,
+    "form_start": 39,
+    "form_submit": 21,
+    "begin_checkout": 1,
+    "purchase": 3
+   },
+   "ok": true
+  },
+  "roadielabs": {
+   "sessions": 1,
+   "users": 1,
+   "pageviews": 1,
+   "sessions_7d_avg": 1.0,
+   "funnel": {
+    "cta_click": 0,
+    "form_start": 0,
+    "form_submit": 0,
+    "begin_checkout": 0,
+    "purchase": 0
+   },
+   "abandoned_submits": 0,
+   "top_pages": [
+    {
+     "path": "/race/bowral-classic/",
+     "views": 1
+    }
+   ],
+   "channel_mix": {
+    "Organic Search": 1,
+    "Unassigned": 1
+   },
+   "top_landing": [
+    {
+     "path": "",
+     "sessions": 1
+    },
+    {
+     "path": "/race/bowral-classic/",
+     "sessions": 1
+    }
+   ],
+   "sessions_28d": 11,
+   "funnel_28d": {
+    "cta_click": 0,
+    "form_start": 0,
+    "form_submit": 0,
+    "begin_checkout": 0,
+    "purchase": 0
+   },
+   "ok": true
+  }
+ },
+ "checkout": {
+  "gravelgod": {
+   "health_ok": true,
+   "stripe_checkout_ok": true,
+   "ok": true,
+   "error": ""
+  },
+  "roadielabs": {
+   "health_ok": true,
+   "stripe_checkout_ok": true,
+   "ok": true,
+   "error": ""
+  }
+ },
+ "mission_control": {
+  "hot_leads_14d": [
+   {
+    "email": "gravelgodcoaching+e2e-bpguide@gmail.com",
+    "name": "",
+    "race": "(no race given)",
+    "brand": "gravelgod",
+    "sequence": "welcome_v1",
+    "step": 1,
+    "status": "active",
+    "opens": 1,
+    "clicks": 0
+   },
+   {
+    "email": "g.e.mainard@gmail.com",
+    "name": "",
+    "race": "Hotter'N Hell Hundred",
+    "brand": "roadielabs",
+    "sequence": "road_welcome_v1",
+    "step": 1,
+    "status": "active",
+    "opens": 0,
+    "clicks": 0
+   },
+   {
+    "email": "deaneinerson@gmail.com",
+    "name": "",
+    "race": "Tour Divide",
+    "brand": "gravelgod",
+    "sequence": "nurture_v1",
+    "step": 1,
+    "status": "completed",
+    "opens": 1,
+    "clicks": 0
+   },
+   {
+    "email": "judo_guido@yahoo.com",
+    "name": "",
+    "race": "Filthy 50",
+    "brand": "gravelgod",
+    "sequence": "nurture_v1",
+    "step": 1,
+    "status": "completed",
+    "opens": 0,
+    "clicks": 0
+   },
+   {
+    "email": "connerbane@gmail.com",
+    "name": "",
+    "race": "RAIN - Ride Across Indiana",
+    "brand": "gravelgod",
+    "sequence": "welcome_v1",
+    "step": 1,
+    "status": "active",
+    "opens": 1,
+    "clicks": 0
+   },
+   {
+    "email": "sum-wasted-2e@icloud.com",
+    "name": "",
+    "race": "Gravel Worlds",
+    "brand": "gravelgod",
+    "sequence": "nurture_v1",
+    "step": 1,
+    "status": "completed",
+    "opens": 0,
+    "clicks": 0
+   },
+   {
+    "email": "gravelgodcoaching+e2e-xcguide@gmail.com",
+    "name": "",
+    "race": "(no race given)",
+    "brand": "xcskilabs",
+    "sequence": "xc_welcome_v1",
+    "step": 1,
+    "status": "active",
+    "opens": 0,
+    "clicks": 0
+   },
+   {
+    "email": "gravelgodcoaching+e2e-xctest@gmail.com",
+    "name": "E2E XCTest",
+    "race": "American Birkebeiner",
+    "brand": "xcskilabs",
+    "sequence": "xc_welcome_v1",
+    "step": 1,
+    "status": "active",
+    "opens": 0,
+    "clicks": 0
+   }
+  ],
+  "new_leads_24h": 1,
+  "leads_by_brand": {
+   "gravelgod": 1,
+   "roadielabs": 0
+  },
+  "countdown_enrollments": 0,
+  "emails_sent_24h": 5,
+  "opens_24h": 4,
+  "clicks_24h": 0,
+  "bounces_24h": 0,
+  "new_orders_24h_UNRELIABLE": "use ga4 purchase counts \u2014 gg_athletes is not written by purchases",
+  "errors_24h": [],
+  "ok": true
+ },
+ "commerce_ledger": {
+  "failed_orders": [],
+  "orders": [],
+  "questionnaire_starts": 0,
+  "recoveries": [],
+  "window_hours": 24,
+  "ok": true
+ },
+ "social": {
+  "accounts_live": false,
+  "queued_today": 0,
+  "queued_yesterday": 0,
+  "posts": [],
+  "ok": true
+ },
+ "workflows": {
+  "latest": {
+   "gravel-race-automation/link-check.yml": "failure",
+   "road-race-automation/link-check.yml": "success",
+   "road-race-automation/checkout-monitor.yml": "success",
+   "gravel-race-automation/regression-tests.yml": "success"
+  },
+  "ok": true
+ },
+ "constraint": {
+  "ok": true,
+  "sessions_per_day": 36.1,
+  "cta_rate_pct": 4.55,
+  "cta_to_submit_pct": 45.7,
+  "submit_to_purchase_pct": 14.3,
+  "purchases_28d": 3,
+  "submits_28d": 21,
+  "ctas_28d": 46,
+  "sessions_per_day_needed_for_1_sale": 337,
+  "binding_constraint": "traffic \u2014 at these volumes no funnel rate is even measurable; nothing downstream is worth optimizing yet"
+ },
+ "report_issues": [],
+ "interpretation_ok": true,
+ "report": "## TOP LINE\n- Gravel God: 29 sessions (vs 32.4 7d avg), 2 form submits, 0 purchases. 28d run: 3 purchases from 1,011 sessions.\n- Roadie Labs essentially dormant: 1 session, 0 funnel activity.\n- Workflow `gravel-race-automation/link-check.yml` failed \u2014 only broken item today.\n\n## NUMBERS\n| Brand | Sessions (vs 7d avg) | Funnel | Leads |\n|---|---:|---|---:|\n| Gravel God | 29 (vs 32.4) | cta 6 \u2192 form_start 3 \u2192 submit 2 \u2192 checkout 0 \u2192 purchase 0 | 1 |\n| Roadie Labs | 1 (vs 1.0) | cta 0 \u2192 form_start 0 \u2192 submit 0 \u2192 checkout 0 \u2192 purchase 0 | 0 |\n\n## TRAFFIC\n- **Gravel God top pages:** / (11 views), /gravel-races/ (11 views), /guide/workout-execution/ (2 views), /products/training-plans/ (2 views), /race/best-gravel-races-colorado/ (2 views).\n- **Gravel God channel mix:** Organic Search 20, Direct 7, Unassigned 2.\n- **Gravel God top landing:** / (2 sessions), /products/training-plans/ (2 sessions), (not set) (1 sessions), /author/gravelgodcoachinggmail-com/ (1 sessions), /fueling-methodology/ (1 sessions).\n- **Roadie Labs:** 1 sessions; near-zero traffic.\n\n## COMMERCE (GROUND TRUTH)\n- no orders, cart recoveries, or questionnaire starts.\n\n## CONSTRAINT\n- binding constraint: traffic \u2014 at these volumes no funnel rate is even measurable; nothing downstream is worth optimizing yet.\n- 28d rates: CTA 4.55%; CTA\u2192submit 45.7%; submit\u2192purchase 14.3%.\n- sessions/day needed for 1 sale/day: 337; actual: 36.1.\n\n## HOT LEADS\n- gravelgodcoaching+e2e-bpguide@gmail.com \u2014 (no race given); welcome_v1 step 1; 1 opens/0 clicks.\n- g.e.mainard@gmail.com \u2014 Hotter'N Hell Hundred; road_welcome_v1 step 1; 0 opens/0 clicks.\n- deaneinerson@gmail.com \u2014 Tour Divide; nurture_v1 step 1; 1 opens/0 clicks.\n- judo_guido@yahoo.com \u2014 Filthy 50; nurture_v1 step 1; 0 opens/0 clicks.\n- connerbane@gmail.com \u2014 RAIN - Ride Across Indiana; welcome_v1 step 1; 1 opens/0 clicks.\n- sum-wasted-2e@icloud.com \u2014 Gravel Worlds; nurture_v1 step 1; 0 opens/0 clicks.\n- gravelgodcoaching+e2e-xcguide@gmail.com \u2014 (no race given); xc_welcome_v1 step 1; 0 opens/0 clicks.\n- E2E XCTest <gravelgodcoaching+e2e-xctest@gmail.com> \u2014 American Birkebeiner; xc_welcome_v1 step 1; 0 opens/0 clicks.\n\n## BROKEN\n- workflow gravel-race-automation/link-check.yml: failure\n\n## DO TODAY\n- Check `link-check.yml` failure log \u2014 broken links suppress SEO/organic, which is 20 of 29 sessions today.\n- Nothing else \u2014 337 sessions/day needed for 1 sale/day vs 36.1 actual; funnel tuning is not the lever right now.\n- No hot lead has clicked in 14 days \u2014 leave nurture sequences running, don't hand-intervene on zero-signal leads."
+}

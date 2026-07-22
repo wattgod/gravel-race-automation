@@ -1,9 +1,9 @@
-# Desk Note — week of 2026-07-15
+# Desk Note — week of 2026-07-22
 
-**Week of 15 July 2026**
+**Week of July 22, 2026**
 
-Saturday is the heavy lift. Jeroboam runs out of Erbusco in Lombardy — Tier 1, proper race, Franciacorta wine country doing double duty as a race venue. Same day, the Transcontinental starts its annual scatter across Europe, and L'Etape du Tour puts civilians on Bourg d'Oisans to Alpe d'Huez a day later. Three Tier 1 events in 48 hours is a reasonable weekend by any measure. Iowa also gets two races on Saturday: RAGBRAI doing its west-to-east crossing of the state, and the Albia Holy Cow down in Monroe County. Different audiences, obviously.
+Two Tier-2 races open the weekend on Friday and Saturday from very different postcards: Rad am Ring uses the Nürburgring circuit and surrounding roads in Rhineland-Palatinate, while Bob Cook Memorial Mt. Evans Hill Climb goes up from Idaho Springs, Colorado — a hill climb that does exactly what the name says. Black Forest Gravel (Freiburg) and Lake Country Gravel (Oconomowoc, Wisconsin) fill out Saturday's Tier-3 card alongside Tour de Gap in Fulton, Mississippi. Sunday adds Rad am Ring Gravel at Tier 3 and The Divide out of Manton, Michigan at Tier 4.
 
-Later in the week, Rad am Ring at the Nürburgring (July 24) is worth noting for the venue alone — a motor circuit repurposed for gravel is either inspired or mildly absurd, depending on your tolerance for novelty. Bob Cook Memorial Mt. Evans Hill Climb on the 25th is a straight-up altitude test out of Idaho Springs.
+The following weekend is considerably busier. Colorado Trail Race — Durango to Denver, the only Tier-1 event in this two-week window — starts August 2nd. Pan-Mass Challenge, Pelotonia, Copper Triangle, and Tour de Big Bear all land August 1st at Tier 2. Arlberg Giro in St. Anton and Boone Gran Fondo in North Carolina round out August 2nd.
 
-Sixteen races across the fortnight, spread across Lombardy, the French Alps, Iowa, coastal Washington, and Germany. Pick your continent.
+Twenty races across two weekends, one continent-crossing Tier-1. Colorado Trail Race begins Sunday, August 2nd.

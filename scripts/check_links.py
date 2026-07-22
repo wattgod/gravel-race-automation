@@ -49,10 +49,17 @@ SKIP_SCHEMES = ("#", "mailto:", "tel:", "data:", "javascript:")
 
 # SiteGround's bot protection answers with HTTP 202 + an `sg-captcha` header
 # instead of the page (Roadie Labs, 2026-07-22: 18 false "dead" findings, all
-# 202). A 202 is never a real response from this site, so treat it as a
-# challenge: back off, retry, and report still-challenged URLs separately
-# rather than as dead links.
-CHALLENGE_BACKOFF = (20, 45)  # seconds to wait before each retry
+# 202). A 202 is never a real response from this site, so exactly 202 is
+# treated as a challenge (a real 404/500 stays dead even if it carries the
+# header): back off, retry, and report still-challenged URLs separately
+# rather than as dead links. Retries draw from a scan-wide sleep budget so a
+# long WAF window can't blow the caller's timeout (immune_check allows 900s
+# for the whole subprocess) — once the budget is spent, challenged URLs are
+# recorded immediately without retrying.
+CHALLENGE_BACKOFF = (20, 45)   # seconds to wait before each retry
+CHALLENGE_RETRY_BUDGET = 180   # total seconds of backoff sleep per scan
+
+_challenge_budget = CHALLENGE_RETRY_BUDGET
 
 
 def normalize_url(url: str, base: str = SITE + "/", *, same_site_only: bool = True) -> str | None:
@@ -97,21 +104,24 @@ def _fetch_once(url: str, timeout: int, text_mode: bool) -> tuple[int, str, bool
             else:
                 body = resp.read(400_000).decode("utf-8", "replace") \
                     if "text/html" in resp.headers.get("Content-Type", "") else ""
-            challenged = resp.status == 202 or "sg-captcha" in resp.headers
-            return resp.status, body, challenged
+            return resp.status, body, resp.status == 202
     except urllib.error.HTTPError as e:
-        challenged = e.code == 202 or (e.headers is not None and "sg-captcha" in e.headers)
-        return e.code, "", challenged
+        return e.code, "", e.code == 202
     except Exception:
         return 0, "", False
 
 
 def _fetch_retry(url: str, timeout: int, text_mode: bool) -> tuple[int, str, bool]:
-    """_fetch_once, retrying with backoff while the WAF challenges us."""
+    """_fetch_once, retrying with backoff (budget-capped) while the WAF challenges us."""
+    global _challenge_budget
     status, body, challenged = _fetch_once(url, timeout, text_mode)
     for pause in CHALLENGE_BACKOFF:
         if not challenged:
             break
+        if _challenge_budget < pause:
+            print(f"  WAF challenge on {url} — retry budget spent, recording as challenged")
+            break
+        _challenge_budget -= pause
         print(f"  WAF challenge on {url} — retrying in {pause}s")
         time.sleep(pause)
         status, body, challenged = _fetch_once(url, timeout, text_mode)
@@ -277,24 +287,32 @@ def main() -> int:
             dead.append((status, url))
         time.sleep(args.delay)
 
+    challenged_set = {u for _, u in challenged_urls}
+    n_challenged_seeds = len(challenged_set & (set(seed_urls) | set(cta_sample)))
     print(f"Loaded {len(sitemap_urls)} URLs from live sitemap(s)")
-    print(f"Checked {len(seed_urls)} sitemap seed pages + {len(urls)} discovered/required URLs")
+    print(f"Checked {len(seed_urls)} sitemap seed pages + {len(urls)} discovered/required URLs"
+          + (f" ({n_challenged_seeds} seed/CTA pages challenged — their outbound links "
+             f"NOT crawled this run)" if n_challenged_seeds else ""))
     print(f"Checked data-cta hrefs from {len(cta_sample)} sampled race pages: {len(cta_urls)} CTA URLs")
     # Print challenged BEFORE dead: immune_check parses everything after the
     # "DEAD LINKS" header as dead links.
     if challenged_urls:
-        print(f"\nWAF-CHALLENGED ({len(challenged_urls)}): still behind SiteGround's "
+        rows = sorted(set(challenged_urls), key=lambda d: d[1])
+        print(f"\nWAF-CHALLENGED ({len(rows)}): still behind SiteGround's "
               f"bot challenge after retries — scan inconclusive, NOT dead links")
-        for status, url in sorted(set(challenged_urls), key=lambda d: d[1]):
+        for status, url in rows:
             print(f"  {status or 'ERR':>4}  {url}")
     if dead:
-        print(f"\nDEAD LINKS ({len(dead)}):")
-        for status, url in sorted(set(dead), key=lambda d: d[1]):
+        rows = sorted(set(dead), key=lambda d: d[1])
+        print(f"\nDEAD LINKS ({len(rows)}):")
+        for status, url in rows:
             print(f"  {status or 'ERR':>4}  {url}")
         return 1
     if challenged_urls:
-        print("No dead links; some URLs unverifiable this run (WAF challenge).")
-        return 0
+        # Exit 2, not 0: an inconclusive scan must not read as a green one in
+        # the weekly workflow. immune_check treats rc 2 + WAF block as YELLOW.
+        print("No dead links found, but the scan is INCONCLUSIVE (WAF challenges).")
+        return 2
     print("All links alive.")
     return 0
 

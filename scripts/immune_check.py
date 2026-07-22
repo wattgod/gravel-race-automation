@@ -305,40 +305,65 @@ def run_live_link_check() -> list[Finding]:
                         str(e), "The live link checker couldn't run — check network/site.",
                         None, "check_links")]
     findings: list[Finding] = []
-    m = re.search(r"WAF-CHALLENGED \((\d+)\)", proc.stdout)
-    if m:
+    # Sectioned parse: an entry line only counts for the section whose header
+    # was seen last, and any non-entry line closes the section.
+    challenged: list[str] = []
+    dead: list[tuple[str, str]] = []
+    section = None
+    for line in proc.stdout.splitlines():
+        if line.startswith("WAF-CHALLENGED"):
+            section = "waf"
+            continue
+        if line.startswith("DEAD LINKS"):
+            section = "dead"
+            continue
+        m = re.match(r"\s+(\d+|ERR)\s+(\S+)$", line)
+        if not m:
+            section = None
+            continue
+        if section == "waf":
+            challenged.append(m.group(2))
+        elif section == "dead":
+            dead.append((m.group(1), m.group(2)))
+    if challenged:
+        shown = sorted(set(challenged))
         findings.append(Finding(
             "live-check-challenged", YELLOW, "low", "Live Check Challenged by WAF",
-            f"{m.group(1)} URLs still behind SiteGround's bot challenge (HTTP 202 + "
-            "sg-captcha) after backoff retries",
+            f"{len(shown)} URLs unverifiable behind SiteGround's bot challenge "
+            f"(HTTP 202) after backoff retries: " + " ".join(shown[:12])
+            + (f" (+{len(shown) - 12} more)" if len(shown) > 12 else ""),
             "The scanner tripped SiteGround's bot protection, so these URLs could not "
             "be verified this run — an inconclusive scan, not an outage (Roadie Labs "
             "2026-07-22: 18 false money-path-404/dead-link findings were exactly "
             "this). Re-run later; investigate only if it persists across days.",
             None, "check_links"))
-    in_dead = False
-    for line in proc.stdout.splitlines():
-        if line.startswith("DEAD LINKS"):
-            in_dead = True
-            continue
-        if in_dead and line.strip():
-            m = re.match(r"\s*(\d+|ERR)\s+(\S+)", line)
-            if not m:
-                continue
-            status, url = m.group(1), m.group(2)
-            money = any(marker in url for marker in MONEY_PATH_MARKERS)
-            findings.append(Finding(
-                "money-path-404" if money else "dead-link",
-                RED if money else YELLOW,
-                "critical" if money else "medium",
-                "Money-Path 404" if money else "Dead Link",
-                f"{status}  {url}",
-                ("A conversion link a visitor clicks is dead — likely the "
-                 "questionnaire/coaching page isn't deployed or the cache "
-                 "wasn't purged. Money path, so a human confirms the "
-                 "re-deploy.") if money else
-                "A same-site link is dead — a human confirms the fix.",
-                None, "check_links"))
+    for status, url in dead:
+        money = any(marker in url for marker in MONEY_PATH_MARKERS)
+        findings.append(Finding(
+            "money-path-404" if money else "dead-link",
+            RED if money else YELLOW,
+            "critical" if money else "medium",
+            "Money-Path 404" if money else "Dead Link",
+            f"{status}  {url}",
+            ("A conversion link a visitor clicks is dead — likely the "
+             "questionnaire/coaching page isn't deployed or the cache "
+             "wasn't purged. Money path, so a human confirms the "
+             "re-deploy.") if money else
+            "A same-site link is dead — a human confirms the fix.",
+            None, "check_links"))
+    # A crash or parse drift must be a finding, never a silent green:
+    # rc 0 = clean, rc 1 = dead links (must have parsed some),
+    # rc 2 = inconclusive (must have parsed a WAF block).
+    rc = proc.returncode
+    if rc not in (0, 1, 2) or (rc == 1 and not dead) or (rc == 2 and not challenged):
+        findings.append(Finding(
+            "live-check-failed", YELLOW, "medium", "Live Check Failed",
+            f"check_links.py exited {rc} but its output parsed to "
+            f"{len(dead)} dead / {len(challenged)} challenged URLs; "
+            f"stderr tail: {proc.stderr[-400:].strip() or '(empty)'}",
+            "The live link checker crashed or its output format drifted from what "
+            "this parser expects — the site was NOT verified this run.",
+            None, "check_links"))
     return findings
 
 

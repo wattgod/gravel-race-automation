@@ -1575,11 +1575,11 @@ RewriteRule ^race/black-forest-gravel/?$ /race/best-gravel-races-germany/ [R=301
 RewriteRule ^race/ozark-gravel/?$ /race/best-gravel-races-arkansas/ [R=301,L]
 RewriteRule ^race/pirate-cycling-league-gravel/?$ /race/best-gravel-races-california/ [R=301,L]
 RewriteRule ^race/grasslands-100/?$ /race/best-gravel-races-texas/ [R=301,L]
-RewriteRule ^race/balkan-gravel/?$ /race/calendar/ [R=301,L]
+RewriteRule ^race/balkan-gravel/?$ /race/calendar/2026/ [R=301,L]
 # greek-gravel: /race/best-gravel-races-greece/ no longer generates — removing
 # greek-gravel drops Greece to 2 real races, below the state-hub MIN_RACES=3
 # floor (wordpress/generate_state_hubs.py) — fall back to calendar instead.
-RewriteRule ^race/greek-gravel/?$ /race/calendar/ [R=301,L]
+RewriteRule ^race/greek-gravel/?$ /race/calendar/2026/ [R=301,L]
 RewriteRule ^race/natchez-trace-gran-fondo/?$ /race/best-gravel-races-tennessee/ [R=301,L]
 RewriteRule ^race/walburg-dirty-30/?$ /race/best-gravel-races-texas/ [R=301,L]
 RewriteRule ^race/flint-hills-death-ride/?$ /race/best-gravel-races-kansas/ [R=301,L]
@@ -1596,6 +1596,24 @@ RewriteRule ^race/sagan-fondo/?$ /race/truckee-tahoe-gravel/ [R=301,L]
 RewriteRule ^race/sagan-fondo/(.*)$ /race/truckee-tahoe-gravel/$1 [R=301,L]
 RewriteRule ^race/gravel-fondo-switzerland/?$ /race/the-majestics/ [R=301,L]
 RewriteRule ^race/gravel-fondo-switzerland/(.*)$ /race/the-majestics/$1 [R=301,L]
+
+# Dead-reference self-healing (2026-07-22 link audit: 215 stale /tires/ +
+# 24 undeployed VS URLs sat in the sitemap 404ing). If the page exists on
+# disk these rules never fire; if it doesn't, 301 to the parent race page
+# (or the races hub) instead of 404ing. MUST stay after the specific VS
+# rename rules above — those pages also don't exist on disk and would be
+# misrouted by these generic fallbacks.
+RewriteCond %{DOCUMENT_ROOT}/race/$1/tires/index.html !-f
+RewriteRule ^race/([^/]+)/tires/?$ /race/$1/ [R=301,L]
+RewriteCond %{DOCUMENT_ROOT}/race/$1-vs-$2/index.html !-f
+RewriteCond %{DOCUMENT_ROOT}/race/$1/index.html -f
+RewriteRule ^race/([^/]+?)-vs-([^/]+?)/?$ /race/$1/ [R=301,L]
+RewriteCond %{DOCUMENT_ROOT}/race/$1-vs-$2/index.html !-f
+RewriteRule ^race/([^/]+?)-vs-([^/]+?)/?$ /gravel-races/ [R=301,L]
+
+# WP's default blog feed is 403-blocked; send /feed/ to the maintained race
+# RSS instead of a dead end. Anchored so /feed/races.xml itself is untouched.
+RewriteRule ^feed/?$ /feed/races.xml [R=301,L]
 </IfModule>
 # END Gravel God Redirects
 """
@@ -1630,9 +1648,27 @@ def sync_redirects():
             timeout=15,
         )
         current = result.stdout
+        # A failed read must NEVER be treated as an empty .htaccess — the
+        # write below would erase the WordPress/SGO directives (sol review
+        # 2026-07-22). Require a clean exit AND recognizable content.
+        if result.returncode != 0 or "# BEGIN WordPress" not in current:
+            print("✗ Refusing to write: remote .htaccess read failed or "
+                  f"content unrecognized (rc={result.returncode}, "
+                  f"{len(current)} bytes)")
+            return False
     except Exception as e:
         print(f"✗ Failed to read remote .htaccess: {e}")
         return False
+
+    # Keep a dated remote backup so a bad block is one `cp` from reverted.
+    subprocess.run(
+        [
+            "ssh", "-i", str(SSH_KEY), "-p", port,
+            f"{user}@{host}",
+            f"cp {remote_htaccess} {remote_htaccess}.bak-$(date +%Y%m%d)",
+        ],
+        capture_output=True, text=True, timeout=15,
+    )
 
     # Check if our block already exists
     if REDIRECT_MARKER in current:

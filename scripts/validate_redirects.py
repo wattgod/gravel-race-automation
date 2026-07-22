@@ -39,6 +39,12 @@ def extract_redirects_from_source():
         if m:
             pattern = m.group(1)
             target = m.group(2)
+            # Skip generic/self-healing rules with capture groups (e.g. the
+            # missing-tires/VS fallbacks added 2026-07-22) — their patterns
+            # aren't literal paths and their targets contain backreferences,
+            # so there is no single testable URL.
+            if "(" in pattern or "\\d" in pattern or "$1" in target or "$2" in target:
+                continue
             # Convert regex pattern to a testable URL path
             # Handle escape levels: \\. or \\\\. → .
             test_path = re.sub(r'\\+\.', '.', pattern)

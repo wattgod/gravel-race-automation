@@ -24,8 +24,8 @@ jobs:
       - name: Check live links (gravelgodcycling.com)
         run: |
           set -o pipefail
-          python3 scripts/check_links.py --max-urls 300 --delay 0.4 2>&1 | tee /tmp/link-check.txt
-          status=${PIPESTATUS[0]}
+          status=0
+          python3 scripts/check_links.py --max-urls 300 --delay 0.4 2>&1 | tee /tmp/link-check.txt || status=$?
           {
             echo "## Link Check"
             echo
@@ -33,4 +33,13 @@ jobs:
             cat /tmp/link-check.txt
             echo '```'
           } >> "$GITHUB_STEP_SUMMARY"
+          # Exit 2 = inconclusive: the WAF challenged this datacenter runner,
+          # so nothing was proven dead OR alive. Warn-and-pass — a red here
+          # would fire most weeks from runner IPs alone (2026-07-22: first
+          # post-fix run got 19 challenges, 0 dead links). The nightly immune
+          # scan from a residential IP is the authoritative challenge monitor.
+          if [ "$status" = "2" ]; then
+            echo "::warning::Link check INCONCLUSIVE — SiteGround WAF challenged the runner; dead-link status unverified this run"
+            exit 0
+          fi
           exit "$status"

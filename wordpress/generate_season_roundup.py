@@ -26,6 +26,12 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).parent))
 from brand_tokens import TIER_NAMES, get_ga4_head_snippet
 
+# Roundups indexable only via the owner-approved allowlist (WS5 Option A).
+INDEXABLE_ROUNDUPS = frozenset(
+    __import__("json").loads(
+        (Path(__file__).resolve().parent.parent / "config" / "indexable-roundups.json")
+        .read_text())["indexable"])
+
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 INDEX_PATH = PROJECT_ROOT / "web" / "race-index.json"
 OUTPUT_DIR = PROJECT_ROOT / "wordpress" / "output" / "blog"
@@ -87,13 +93,18 @@ def classify_blog_slug(slug):
 def filter_by_month(races, year, month):
     """Filter races by year and month.
 
-    Matches on the 'month' field (e.g. "June") from race-index.json.
-    Year filtering requires date_specific or assumes current year races.
+    Month matches the 'month' field; year matches the index's 'year' field
+    (parsed from date_specific). Races with unknown year are kept — a known
+    DIFFERENT year (e.g. a stale 2025 date) is excluded, so a "June 2026"
+    roundup never lists an event we can only date to 2025. (Fixed 2026-07-22:
+    the year argument was previously ignored entirely.)
     """
     month_name = MONTH_NAMES.get(month, "").lower()
     if not month_name:
         return []
-    return [r for r in races if (r.get("month") or "").lower() == month_name]
+    return [r for r in races
+            if (r.get("month") or "").lower() == month_name
+            and (r.get("year") is None or r.get("year") == year)]
 
 
 def filter_by_region(races, region_key):
@@ -222,7 +233,7 @@ def generate_roundup_html(title, subtitle, intro, races, slug, category_tag,
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="robots" content="noindex, follow">
+  <meta name="robots" content="{'index, follow' if slug in INDEXABLE_ROUNDUPS else 'noindex, follow'}">
   <title>{esc(title)}: {esc(subtitle)} — Gravel God</title>
   <meta name="description" content="{esc(title)}: {esc(subtitle)}. {stats['count']} races rated and ranked by Gravel God.">
   <meta property="og:title" content="{esc(title)}: {esc(subtitle)} — Gravel God">
@@ -444,7 +455,7 @@ def generate_roundup_html(title, subtitle, intro, races, slug, category_tag,
     </div>
 
     <div class="gg-blog-cta">
-      <a href="{SITE_URL}/gravel-races/">Explore All 328 Races &rarr;</a>
+      <a href="{SITE_URL}/gravel-races/">Explore All Races &rarr;</a>
     </div>
 
     <div class="gg-blog-footer">

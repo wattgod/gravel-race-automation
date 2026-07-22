@@ -1,0 +1,41 @@
+{
+  "comment": "Roundups allowed to be INDEXED (robots index,follow + sitemap). WS5 Option A 2026-07-22: monthly roundups approved; regional/season pages are candidates awaiting Matti's 'strongest' pick; tier roundups not offered. Consumed by generate_season_roundup.py and generate_sitemap.py.",
+  "indexable": [
+    "roundup-january-2026",
+    "roundup-february-2026",
+    "roundup-march-2026",
+    "roundup-april-2026",
+    "roundup-may-2026",
+    "roundup-june-2026",
+    "roundup-july-2026",
+    "roundup-august-2026",
+    "roundup-september-2026",
+    "roundup-october-2026",
+    "roundup-november-2026",
+    "roundup-december-2026"
+  ],
+  "candidates_awaiting_owner_pick": [
+    "roundup-europe-fall-2026",
+    "roundup-europe-spring-2026",
+    "roundup-europe-summer-2026",
+    "roundup-europe-winter-2026",
+    "roundup-international-fall-2026",
+    "roundup-international-spring-2026",
+    "roundup-international-summer-2026",
+    "roundup-international-winter-2026",
+    "roundup-midwest-fall-2026",
+    "roundup-midwest-spring-2026",
+    "roundup-midwest-summer-2026",
+    "roundup-northeast-fall-2026",
+    "roundup-northeast-spring-2026",
+    "roundup-northeast-summer-2026",
+    "roundup-southeast-fall-2026",
+    "roundup-southeast-spring-2026",
+    "roundup-southeast-summer-2026",
+    "roundup-southeast-winter-2026",
+    "roundup-west-fall-2026",
+    "roundup-west-spring-2026",
+    "roundup-west-summer-2026",
+    "roundup-west-winter-2026"
+  ]
+}

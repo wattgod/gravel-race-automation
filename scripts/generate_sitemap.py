@@ -21,7 +21,13 @@ from xml.dom.minidom import parseString
 SITE_BASE_URL = "https://gravelgodcycling.com"
 
 # Only these blog categories are indexable — unknown categories excluded by default (safe)
-INDEXABLE_BLOG_CATEGORIES = frozenset({"roundup", "recap", "article"})
+# recaps/previews pulled 2026-07-22 (WS5 Option A); roundups indexable only
+# via the owner-approved allowlist in config/indexable-roundups.json.
+INDEXABLE_BLOG_CATEGORIES = frozenset({"roundup", "article"})
+INDEXABLE_ROUNDUPS = frozenset(
+    __import__("json").loads(
+        (Path(__file__).resolve().parent.parent / "config" / "indexable-roundups.json")
+        .read_text())["indexable"])
 
 
 def load_series_slugs(project_root: Path) -> list:
@@ -391,6 +397,8 @@ def generate_blog_sitemap(blog_index: list, output_path: Path) -> Path:
             continue
         category = entry.get("category", "preview")
         if category not in INDEXABLE_BLOG_CATEGORIES:
+            continue
+        if category == "roundup" and entry.get("slug") not in INDEXABLE_ROUNDUPS:
             continue
         priority = priority_map.get(category, "0.6")
         lastmod = entry.get("date", today)

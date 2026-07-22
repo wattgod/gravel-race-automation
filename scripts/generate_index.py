@@ -194,6 +194,15 @@ def extract_month(date_str: str) -> Optional[str]:
     return None
 
 
+def extract_year(vitals: dict) -> Optional[int]:
+    """Extract the event year from date_specific (e.g. "2026: June 6") or date."""
+    for field in ("date_specific", "date"):
+        m = re.search(r"(20\d{2})", str(vitals.get(field, "") or ""))
+        if m:
+            return int(m.group(1))
+    return None
+
+
 def build_index_entry_from_profile(slug: str, data: dict) -> dict:
     """Build index entry from a canonical race JSON."""
     race = data.get("race", {})
@@ -218,6 +227,7 @@ def build_index_entry_from_profile(slug: str, data: dict) -> dict:
         "location": location,
         "region": extract_region(location),
         "month": extract_month(vitals.get("date", "")),
+        "year": extract_year(vitals),
         "distance_mi": vitals.get("distance_mi"),
         "elevation_ft": vitals.get("elevation_ft"),
         "tier": rating.get("tier", 3),
@@ -317,6 +327,7 @@ def build_index_entry_from_flat(race: dict) -> dict:
         "location": location,
         "region": extract_region(location),
         "month": extract_month(date_str),
+        "year": None,
         "distance_mi": distance,
         "elevation_ft": elevation,
         "tier": int(race.get("TIER", 3)) if str(race.get("TIER", "3")).isdigit() else 3,

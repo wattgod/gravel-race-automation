@@ -131,7 +131,9 @@ def generate_blog_index(blog_dir=None, output_dir=None):
     # Also scan articles directory
     articles_path = blog_path.parent / "articles"
     if articles_path.exists():
-        html_files.extend(sorted(articles_path.glob("*.html")))
+        # index.html is the articles landing page, not an article entry
+        html_files.extend(sorted(f for f in articles_path.glob("*.html")
+                                 if f.name != "index.html"))
 
     if not html_files:
         print("No blog/article HTML files found.")

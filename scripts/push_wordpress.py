@@ -2480,6 +2480,82 @@ def sync_plan_pages(plan_dir: str):
     return f"{wp_url}/race/"
 
 
+def sync_tire_pages(tire_pages_dir: str):
+    """Deploy /tire/ review + comparison pages from a FRESH staging tree and
+    RECONCILE: after upload, remote dirs not present in the staging set are
+    deleted. tar+ssh alone only adds — stale trees caused three incidents on
+    2026-07-22 (sitemap tires/VS, /blog/, /tire/ fabricated mentions).
+
+    Staging tree layout: {slug}/index.html per page (as emitted by
+    generate_tire_pages.py / generate_tire_vs_pages.py --output-dir).
+    """
+    ssh = get_ssh_credentials()
+    if not ssh:
+        return None
+    host, user, port = ssh
+
+    src = Path(tire_pages_dir)
+    dirs = sorted(d.name for d in src.iterdir()
+                  if d.is_dir() and (d / "index.html").exists()) if src.exists() else []
+    if not dirs:
+        print(f"✗ No page dirs with index.html in {src}")
+        return None
+
+    remote_base = "~/www/gravelgodcycling.com/public_html/tire"
+
+    print(f"  Uploading {len(dirs)} /tire/ pages via tar+ssh...")
+    try:
+        tar_cmd = ["tar", "-cf", "-", "-C", str(src)] + dirs
+        ssh_cmd = ["ssh", "-i", str(SSH_KEY), "-p", port, f"{user}@{host}",
+                   f"mkdir -p {remote_base} && tar -xf - -C {remote_base}"]
+        tar_proc = subprocess.Popen(tar_cmd, stdout=subprocess.PIPE)
+        ssh_proc = subprocess.Popen(ssh_cmd, stdin=tar_proc.stdout,
+                                    stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        tar_proc.stdout.close()
+        _, err = ssh_proc.communicate(timeout=300)
+        if ssh_proc.returncode != 0:
+            print(f"✗ Upload failed: {err.decode().strip()}")
+            return None
+    except Exception as e:  # noqa: BLE001
+        print(f"✗ Upload failed: {e}")
+        return None
+
+    # Reconcile: delete remote orphan dirs (bounded to /tire/, name-validated).
+    try:
+        result = subprocess.run(
+            ["ssh", "-i", str(SSH_KEY), "-p", port, f"{user}@{host}",
+             f"ls {remote_base}"],
+            capture_output=True, text=True, timeout=30)
+        if result.returncode != 0:
+            print("  (reconcile skipped: could not list remote /tire/)")
+        else:
+            import re as _re
+            remote = set(result.stdout.split())
+            orphans = sorted(d for d in remote - set(dirs)
+                             if _re.fullmatch(r"[a-z0-9][a-z0-9-]*", d))
+            if orphans:
+                # names are regex-validated ([a-z0-9-]) so no quoting needed;
+                # quoting the ~-path would suppress tilde expansion and no-op.
+                rm_names = " ".join(orphans)
+                rm = subprocess.run(
+                    ["ssh", "-i", str(SSH_KEY), "-p", port, f"{user}@{host}",
+                     f"cd {remote_base} && rm -rf {rm_names} && ls | wc -l"],
+                    capture_output=True, text=True, timeout=60)
+                if rm.returncode != 0:
+                    print(f"✗ Reconcile rm FAILED: {rm.stderr.strip()}")
+                else:
+                    print(f"  Reconciled: removed {len(orphans)} stale remote dirs "
+                          f"(remote now has {rm.stdout.strip()} entries): "
+                          f"{' '.join(orphans[:6])}{' …' if len(orphans) > 6 else ''}")
+            else:
+                print("  Reconciled: no stale remote dirs")
+    except Exception as e:  # noqa: BLE001
+        print(f"  (reconcile skipped: {e})")
+
+    print(f"✓ Uploaded {len(dirs)} pages to https://gravelgodcycling.com/tire/")
+    return len(dirs)
+
+
 def sync_tire_guides(tire_guide_dir: str):
     """Upload tire guide pages to /race/{slug}/tires/ on SiteGround via tar+ssh.
 
@@ -3640,6 +3716,12 @@ if __name__ == "__main__":
         help="Path to training-plan pages dir (default: wordpress/output/training-plan)"
     )
     parser.add_argument(
+        "--sync-tire-pages", action="store_true",
+        help="Deploy /tire/ review+comparison pages from --tire-pages-dir (fresh staging) with remote reconcile")
+    parser.add_argument(
+        "--tire-pages-dir", default=None,
+        help="Fresh staging dir of {slug}/index.html trees for --sync-tire-pages")
+    parser.add_argument(
         "--sync-tire-guides", action="store_true",
         help="Upload tire guide pages to /race/{slug}/tires/ via tar+ssh"
     )
@@ -3870,6 +3952,11 @@ if __name__ == "__main__":
         _run("sync-plan-pages", sync_plan_pages, args.plan_dir)
     if args.sync_tire_guides:
         _run("sync-tire-guides", sync_tire_guides, args.tire_guide_dir)
+    if args.sync_tire_pages:
+        if not args.tire_pages_dir:
+            print("✗ --sync-tire-pages requires --tire-pages-dir (fresh staging tree)")
+        else:
+            _run("sync-tire-pages", sync_tire_pages, args.tire_pages_dir)
     if args.sync_series:
         _run("sync-series", sync_series, args.series_dir)
     if args.sync_blog:

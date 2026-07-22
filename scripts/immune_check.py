@@ -189,6 +189,43 @@ def check_search_index_parity() -> list[Finding]:
     return []
 
 
+def check_tombstone_resurrection() -> list[Finding]:
+    """Fabricated races purged 2026-07-22 (config/tombstones.json) must never
+    reappear in race-data or any active artifact — a resurrected tombstone
+    means a bad restore, a stale branch merge, or a generator regression."""
+    tomb_file = PROJECT_ROOT / "config" / "tombstones.json"
+    if not tomb_file.exists():
+        return [Finding("tombstones-missing", YELLOW, "medium", "Tombstone Registry Missing",
+                        "config/tombstones.json not found",
+                        "The fabricated-race tombstone registry is gone — exclusion "
+                        "sets in 8 generators load from it and will crash.",
+                        None, "immune")]
+    slugs = {t["slug"] for t in json.loads(tomb_file.read_text())["tombstones"]}
+    findings = []
+    resurrected = sorted(s for s in slugs if (RACE_DATA_DIR / f"{s}.json").exists())
+    if resurrected:
+        findings.append(Finding(
+            "tombstone-resurrected", RED, "critical", "Fabricated Race Resurrected",
+            f"tombstoned profiles reappeared in race-data: {' '.join(resurrected)}",
+            "A fabricated race profile is back in the catalog — bad restore, stale "
+            "branch merge, or manual re-add. It will regenerate pages on next build. "
+            "Delete it and find how it returned.", None, "immune"))
+    if RACE_INDEX_FILE.exists():
+        try:
+            idx = RACE_INDEX_FILE.read_text(encoding="utf-8")
+            leaked = sorted(s for s in slugs if s in idx)
+            if leaked:
+                findings.append(Finding(
+                    "tombstone-in-index", RED, "critical", "Fabricated Race In Search Index",
+                    f"tombstoned slugs present in race-index.json: {' '.join(leaked)}",
+                    "The search index references a fabricated race — the exclusion "
+                    "in generate_index.py failed or the index is stale.",
+                    None, "immune"))
+        except OSError:
+            pass
+    return findings
+
+
 def check_money_path_wiring() -> list[Finding]:
     """Offline guard: the live race-page generator must still emit the money-path
     CTA(s). If a future edit drops it, that's a money-path regression — RED,
@@ -489,6 +526,7 @@ def main() -> int:
     findings: list[Finding] = []
     findings += run_profile_audit()
     findings += check_search_index_parity()
+    findings += check_tombstone_resurrection()
     findings += check_money_path_wiring()
     findings += check_fuzzy_duplicates()
     findings += check_security()

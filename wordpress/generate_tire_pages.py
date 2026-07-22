@@ -1233,7 +1233,10 @@ def build_json_ld(tire: dict, race_recs: list) -> str:
             "priceCurrency": "USD",
             "availability": "https://schema.org/InStock",
         }
-    # Use real community review data when 3+ reviews exist; fallback to proxy
+    # AggregateRating only from real approved community reviews (3+). Never
+    # synthesize a rating from recommendation counts: an invented ratingValue
+    # published as Product schema is a fabricated claim (scoring-and-veracity
+    # SKILL: real submissions only) and misrepresents ratingCount to Google.
     approved_reviews = [r for r in tire.get("community_reviews", []) if r.get("approved")]
     if len(approved_reviews) >= 3:
         avg = sum(r["stars"] for r in approved_reviews) / len(approved_reviews)
@@ -1242,15 +1245,6 @@ def build_json_ld(tire: dict, race_recs: list) -> str:
             "ratingValue": f"{avg:.1f}",
             "bestRating": "5",
             "ratingCount": str(len(approved_reviews)),
-        }
-    elif rec_count > 0:
-        # Proxy rating based on recommendation count until enough reviews
-        rating_value = min(4.5, 3.0 + (rec_count / 50) * 1.5)
-        product["aggregateRating"] = {
-            "@type": "AggregateRating",
-            "ratingValue": f"{rating_value:.1f}",
-            "bestRating": "5",
-            "ratingCount": str(rec_count),
         }
 
     combined = json.dumps([breadcrumb, product], indent=2)

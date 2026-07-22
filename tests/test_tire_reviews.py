@@ -460,7 +460,11 @@ class TestCommunityReviewsSection(unittest.TestCase):
 
 
 class TestJsonLdAggregateRating(unittest.TestCase):
-    """JSON-LD uses real reviews when 3+ exist, proxy otherwise."""
+    """JSON-LD aggregateRating comes ONLY from 3+ real approved reviews.
+
+    The old proxy branch (rating synthesized from recommendation counts) was
+    removed 2026-07-22: an invented ratingValue published as Product schema is
+    a fabricated claim (scoring-and-veracity SKILL: real submissions only)."""
 
     def _parse_jsonld(self, tire, race_recs=None):
         html = build_json_ld(tire, race_recs or [])
@@ -487,16 +491,13 @@ class TestJsonLdAggregateRating(unittest.TestCase):
         product = [s for s in schemas if s.get("@type") == "Product"][0]
         self.assertNotIn("aggregateRating", product)
 
-    def test_two_reviews_with_recs_uses_proxy(self):
+    def test_two_reviews_with_recs_no_synthetic_rating(self):
+        """Below the real-review threshold, rec count must NOT invent a rating."""
         tire = _tire_with_reviews(2)
         recs = [{"race": "test"}] * 20
         schemas = self._parse_jsonld(tire, race_recs=recs)
         product = [s for s in schemas if s.get("@type") == "Product"][0]
-        self.assertIn("aggregateRating", product)
-        agg = product["aggregateRating"]
-        # 20 recs: 3.0 + (20/50) * 1.5 = 3.6
-        self.assertEqual(agg["ratingValue"], "3.6")
-        self.assertEqual(agg["ratingCount"], "20")
+        self.assertNotIn("aggregateRating", product)
 
     def test_real_rating_overrides_proxy(self):
         """When 3+ reviews exist, rec count doesn't matter."""
@@ -509,13 +510,13 @@ class TestJsonLdAggregateRating(unittest.TestCase):
         self.assertEqual(agg["ratingValue"], "2.5")
         self.assertEqual(agg["ratingCount"], "4")
 
-    def test_proxy_capped_at_4_5(self):
+    def test_zero_reviews_many_recs_no_synthetic_rating(self):
+        """Even huge rec counts never fabricate an aggregateRating."""
         tire = _tire_with_reviews(0)
         recs = [{"race": "test"}] * 1000
         schemas = self._parse_jsonld(tire, race_recs=recs)
         product = [s for s in schemas if s.get("@type") == "Product"][0]
-        agg = product["aggregateRating"]
-        self.assertEqual(agg["ratingValue"], "4.5")
+        self.assertNotIn("aggregateRating", product)
 
     def test_jsonld_is_valid_json(self):
         tire = _tire_with_reviews(5)

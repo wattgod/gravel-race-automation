@@ -24,7 +24,7 @@ from datetime import date
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent))
-from brand_tokens import TIER_NAMES
+from brand_tokens import TIER_NAMES, get_ga4_head_snippet
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 INDEX_PATH = PROJECT_ROOT / "web" / "race-index.json"
@@ -423,6 +423,7 @@ def generate_roundup_html(title, subtitle, intro, races, slug, category_tag,
       .gg-roundup-grid {{ grid-template-columns: 1fr; }}
     }}
   </style>
+{get_ga4_head_snippet()}
 </head>
 <body>
   <div class="gg-blog-container">

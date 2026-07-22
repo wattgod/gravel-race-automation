@@ -2,15 +2,16 @@
   "@context": "https://schema.org",
   "@type": "SportsEvent",
   "name": "Monaco Gravel Race",
-  "description": "Monaco/French Alps\u2014110km of steep climbs, 2,500m elevation, iconic location, 20-25% DNF.",
+  "description": "Peille, high above Monaco\u2014116km of steep French Alps climbs, ~2,500m elevation, iconic location.",
   "sport": "Gravel Cycling",
   "startDate": "2026-04-19",
   "location": {
     "@type": "Place",
-    "name": "Monaco",
+    "name": "Peille, France (near Monaco)",
     "address": {
       "@type": "PostalAddress",
-      "addressLocality": "Monaco"
+      "addressLocality": "Peille",
+      "addressRegion": "France (near Monaco)"
     }
   },
   "offers": {
@@ -26,5 +27,5 @@
     "ratingCount": "14",
     "name": "Gravel God Rating"
   },
-  "url": "https://www.monacogravelrace.com"
+  "url": "https://monacogravelrace.fr"
 }

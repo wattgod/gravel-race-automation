@@ -2,14 +2,15 @@
   "@context": "https://schema.org",
   "@type": "SportsEvent",
   "name": "The Majestics",
-  "description": "",
+  "description": "UCI World Series gravel in the Swiss Alps \u2014 where the world cycling headquarters meets alpine climbing",
   "sport": "Gravel Cycling",
+  "startDate": "2026-07-12",
   "location": {
     "@type": "Place",
-    "name": "Villars-sur-Ollon, Vaud, Switzerland",
+    "name": "Aigle to Villars-sur-Ollon, Vaud, Switzerland",
     "address": {
       "@type": "PostalAddress",
-      "addressLocality": "Villars-sur-Ollon",
+      "addressLocality": "Aigle to Villars-sur-Ollon",
       "addressRegion": "Vaud"
     }
   },
@@ -19,5 +20,6 @@
     "bestRating": "100",
     "ratingCount": "14",
     "name": "Gravel God Rating"
-  }
+  },
+  "url": "https://themajestics.ch/en/uci-gravel-world-series/"
 }

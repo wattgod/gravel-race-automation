@@ -2,8 +2,9 @@
   "@context": "https://schema.org",
   "@type": "SportsEvent",
   "name": "BWR Utah (Belgian Waffle Ride Utah)",
-  "description": "Utah red rock adventure\u2014135km of high-desert gravel, 3,000m elevation, May heat, waffles.",
+  "description": "Utah red rock adventure\u2014188km of high-desert gravel, 1,811m elevation, June heat, waffles.",
   "sport": "Gravel Cycling",
+  "startDate": "2026-06-12",
   "location": {
     "@type": "Place",
     "name": "Cedar City, Utah",
@@ -26,10 +27,10 @@
     "ratingCount": "14",
     "name": "Gravel God Rating"
   },
-  "url": "https://www.belgianwaffleride.com",
+  "url": "https://www.belgianwaffleride.bike/pages/utah",
   "organizer": {
     "@type": "Person",
     "name": "Belgian Waffle Ride series",
-    "url": "https://www.belgianwaffleride.com"
+    "url": "https://www.belgianwaffleride.bike/pages/utah"
   }
 }

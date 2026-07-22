@@ -1,0 +1,51 @@
+{
+  "products": [
+    {
+      "id": "prod_UgF2m0L2GKWVxC",
+      "name": "Dirt Craft"
+    },
+    {
+      "id": "prod_UgF2MMiWRvJWdQ",
+      "name": "Gravel Hydration Mastery"
+    },
+    {
+      "id": "prod_UgF2iGks4AATX2",
+      "name": "Gravel Academy 2-Pack"
+    }
+  ],
+  "prices": [
+    {
+      "id": "price_1TgsYhLoaHDbEqSqBkasPyQb",
+      "course_id": "dirt-craft",
+      "amount": 2900
+    },
+    {
+      "id": "price_1TgsYkLoaHDbEqSqZJEuBwdS",
+      "course_id": "gravel-hydration-mastery",
+      "amount": 1900
+    },
+    {
+      "id": "price_1TgsYlLoaHDbEqSqcIj6fhIT",
+      "course_id": "bundle",
+      "amount": 3900
+    }
+  ],
+  "payment_links": [
+    {
+      "id": "plink_1TgsYjLoaHDbEqSqYVMLi2p0",
+      "url": "https://buy.stripe.com/00w00k3MyeNv5JtcABfjG01",
+      "course_id": "dirt-craft"
+    },
+    {
+      "id": "plink_1TgsYlLoaHDbEqSqxt14vCKr",
+      "url": "https://buy.stripe.com/5kQcN60Am6gZ6NxeIJfjG02",
+      "course_id": "gravel-hydration-mastery"
+    },
+    {
+      "id": "plink_1TgsYmLoaHDbEqSqxwbZRq9d",
+      "url": "https://buy.stripe.com/4gMaEY5UGfRz3Bl7ghfjG03",
+      "course_id": "gravel-hydration-mastery,dirt-craft",
+      "bundle": true
+    }
+  ]
+}

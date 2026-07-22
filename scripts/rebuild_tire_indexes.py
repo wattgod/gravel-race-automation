@@ -19,6 +19,11 @@ import argparse
 import json
 import sys
 from collections import defaultdict
+
+TOMBSTONED_SLUGS = frozenset(
+    t["slug"] for t in __import__("json").loads(
+        (__import__("pathlib").Path(__file__).resolve().parent.parent
+         / "config" / "tombstones.json").read_text())["tombstones"])
 from pathlib import Path
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
@@ -58,6 +63,8 @@ def scan_race_tire_links() -> tuple:
 
         race = data.get("race", data)
         slug = race.get("slug") or path.stem
+        if slug in TOMBSTONED_SLUGS:
+            continue  # fabricated races must never re-enter tire indexes
         name = race.get("name", slug)
         tr = race.get("tire_recommendations")
         if not tr or not isinstance(tr, dict):

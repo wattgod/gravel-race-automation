@@ -22,6 +22,7 @@ import argparse
 import json
 import os
 import sys
+from pathlib import Path
 from datetime import date
 
 # Ensure scripts/ is importable
@@ -713,20 +714,13 @@ def _get_race_tier(path: str) -> int:
 # =============================================================================
 
 # SITE-SYNC S3 (docs/specs/SITE_SYNC_SPEC.md): fabricated race pages removed
-# 2026-07, 301-redirected to state/region best-of hubs. race-data/*.json is
-# KEPT for the audit trail but must never regenerate a page.
-REMOVED_FABRICATED_SLUGS = {
-    "black-forest-gravel",
-    "ozark-gravel",
-    "pirate-cycling-league-gravel",
-    "grasslands-100",
-    "balkan-gravel",
-    "greek-gravel",
-    "natchez-trace-gran-fondo",
-    "walburg-dirty-30",
-    "flint-hills-death-ride",
-    "kal-tour-dirty-100",
-}
+# 2026-07, 301-redirected to state/region best-of hubs. profiles DELETED 2026-07-22
+# (research-dumps + git history are the audit trail); tombstones are canonical
+# in config/tombstones.json and must never regenerate a page.
+REMOVED_FABRICATED_SLUGS = frozenset(
+    t["slug"] for t in __import__("json").loads(
+        (Path(__file__).resolve().parent.parent / "config" / "tombstones.json")
+        .read_text())["tombstones"])
 
 
 def main() -> None:

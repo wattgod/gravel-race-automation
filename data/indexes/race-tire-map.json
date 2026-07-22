@@ -298,29 +298,6 @@
       "position": "primary"
     }
   ],
-  "balkan-gravel": [
-    {
-      "tire_id": "vittoria-terreno-wet",
-      "name": "Vittoria Terreno Wet",
-      "rank": 1,
-      "width_mm": 40,
-      "position": "primary"
-    },
-    {
-      "tire_id": "continental-terra-trail",
-      "name": "Continental Terra Trail",
-      "rank": 2,
-      "width_mm": 40,
-      "position": "primary"
-    },
-    {
-      "tire_id": "specialized-pathfinder-pro",
-      "name": "Specialized Pathfinder Pro",
-      "rank": 3,
-      "width_mm": 38,
-      "position": "primary"
-    }
-  ],
   "barry-roubaix": [
     {
       "tire_id": "vittoria-terreno-wet",
@@ -505,29 +482,6 @@
       "position": "primary"
     }
   ],
-  "big-horn-gravel": [
-    {
-      "tire_id": "schwalbe-g-one-bite",
-      "name": "Schwalbe G-One Bite",
-      "rank": 1,
-      "width_mm": 45,
-      "position": "primary"
-    },
-    {
-      "tire_id": "maxxis-reaver",
-      "name": "Maxxis Reaver",
-      "rank": 2,
-      "width_mm": 45,
-      "position": "primary"
-    },
-    {
-      "tire_id": "wtb-resolute",
-      "name": "WTB Resolute",
-      "rank": 3,
-      "width_mm": 42,
-      "position": "primary"
-    }
-  ],
   "big-sky-gravel": [
     {
       "tire_id": "specialized-pathfinder-pro",
@@ -594,29 +548,6 @@
       "name": "Vittoria Terreno Mix",
       "rank": 3,
       "width_mm": 40,
-      "position": "primary"
-    }
-  ],
-  "black-forest-gravel": [
-    {
-      "tire_id": "vittoria-terreno-wet",
-      "name": "Vittoria Terreno Wet",
-      "rank": 1,
-      "width_mm": 40,
-      "position": "primary"
-    },
-    {
-      "tire_id": "continental-terra-trail",
-      "name": "Continental Terra Trail",
-      "rank": 2,
-      "width_mm": 40,
-      "position": "primary"
-    },
-    {
-      "tire_id": "specialized-pathfinder-pro",
-      "name": "Specialized Pathfinder Pro",
-      "rank": 3,
-      "width_mm": 38,
       "position": "primary"
     }
   ],
@@ -1977,29 +1908,6 @@
       "position": "primary"
     }
   ],
-  "flint-hills-death-ride": [
-    {
-      "tire_id": "specialized-pathfinder-pro",
-      "name": "Specialized Pathfinder Pro",
-      "rank": 1,
-      "width_mm": 38,
-      "position": "primary"
-    },
-    {
-      "tire_id": "goodyear-connector",
-      "name": "Goodyear Connector",
-      "rank": 2,
-      "width_mm": 40,
-      "position": "primary"
-    },
-    {
-      "tire_id": "continental-terra-trail",
-      "name": "Continental Terra Trail",
-      "rank": 3,
-      "width_mm": 40,
-      "position": "primary"
-    }
-  ],
   "fools-gold-gravel-grinder": [
     {
       "tire_id": "irc-boken-double-cross",
@@ -2046,7 +1954,7 @@
       "position": "primary"
     }
   ],
-  "fuego-xl": [
+  "fuego-mtb": [
     {
       "tire_id": "specialized-pathfinder-pro",
       "name": "Specialized Pathfinder Pro",
@@ -2209,24 +2117,24 @@
   ],
   "gran-fondo-hincapie": [
     {
-      "tire_id": "specialized-pathfinder-pro",
-      "name": "Specialized Pathfinder Pro",
+      "tire_id": "continental-grand-prix-5000",
+      "name": "Continental Grand Prix 5000",
       "rank": 1,
-      "width_mm": 38,
+      "width_mm": 28,
       "position": "primary"
     },
     {
-      "tire_id": "panaracer-gravelking-sk",
-      "name": "Panaracer GravelKing SK",
+      "tire_id": "vittoria-corsa-pro",
+      "name": "Vittoria Corsa Pro",
       "rank": 2,
-      "width_mm": 40,
+      "width_mm": 28,
       "position": "primary"
     },
     {
-      "tire_id": "vittoria-terreno-mix",
-      "name": "Vittoria Terreno Mix",
+      "tire_id": "schwalbe-pro-one",
+      "name": "Schwalbe Pro One",
       "rank": 3,
-      "width_mm": 40,
+      "width_mm": 28,
       "position": "primary"
     }
   ],
@@ -2254,29 +2162,6 @@
     }
   ],
   "grasshopper-series": [
-    {
-      "tire_id": "specialized-pathfinder-pro",
-      "name": "Specialized Pathfinder Pro",
-      "rank": 1,
-      "width_mm": 38,
-      "position": "primary"
-    },
-    {
-      "tire_id": "vittoria-terreno-mix",
-      "name": "Vittoria Terreno Mix",
-      "rank": 2,
-      "width_mm": 40,
-      "position": "primary"
-    },
-    {
-      "tire_id": "continental-terra-trail",
-      "name": "Continental Terra Trail",
-      "rank": 3,
-      "width_mm": 40,
-      "position": "primary"
-    }
-  ],
-  "grasslands-100": [
     {
       "tire_id": "specialized-pathfinder-pro",
       "name": "Specialized Pathfinder Pro",
@@ -2572,29 +2457,6 @@
       "name": "Vittoria Terreno Mix",
       "rank": 3,
       "width_mm": 40,
-      "position": "primary"
-    }
-  ],
-  "gravel-fondo-switzerland": [
-    {
-      "tire_id": "vittoria-terreno-wet",
-      "name": "Vittoria Terreno Wet",
-      "rank": 1,
-      "width_mm": 40,
-      "position": "primary"
-    },
-    {
-      "tire_id": "continental-terra-trail",
-      "name": "Continental Terra Trail",
-      "rank": 2,
-      "width_mm": 40,
-      "position": "primary"
-    },
-    {
-      "tire_id": "specialized-pathfinder-pro",
-      "name": "Specialized Pathfinder Pro",
-      "rank": 3,
-      "width_mm": 38,
       "position": "primary"
     }
   ],
@@ -2963,29 +2825,6 @@
       "name": "Panaracer GravelKing SK",
       "rank": 3,
       "width_mm": 43,
-      "position": "primary"
-    }
-  ],
-  "greek-gravel": [
-    {
-      "tire_id": "specialized-pathfinder-pro",
-      "name": "Specialized Pathfinder Pro",
-      "rank": 1,
-      "width_mm": 38,
-      "position": "primary"
-    },
-    {
-      "tire_id": "panaracer-gravelking-sk",
-      "name": "Panaracer GravelKing SK",
-      "rank": 2,
-      "width_mm": 40,
-      "position": "primary"
-    },
-    {
-      "tire_id": "vittoria-terreno-mix",
-      "name": "Vittoria Terreno Mix",
-      "rank": 3,
-      "width_mm": 40,
       "position": "primary"
     }
   ],
@@ -3681,24 +3520,24 @@
   ],
   "iron-horse-bicycle-classic": [
     {
-      "tire_id": "irc-boken-double-cross",
-      "name": "IRC Boken Double Cross",
+      "tire_id": "continental-gp5000",
+      "name": "Continental GP5000",
       "rank": 1,
-      "width_mm": 42,
+      "width_mm": 28,
       "position": "primary"
     },
     {
-      "tire_id": "specialized-pathfinder-pro",
-      "name": "Specialized Pathfinder Pro",
+      "tire_id": "vittoria-corsa-pro",
+      "name": "Vittoria Corsa Pro",
       "rank": 2,
-      "width_mm": 42,
+      "width_mm": 28,
       "position": "primary"
     },
     {
-      "tire_id": "vittoria-terreno-mix",
-      "name": "Vittoria Terreno Mix",
+      "tire_id": "pirelli-p-zero-race",
+      "name": "Pirelli P Zero Race",
       "rank": 3,
-      "width_mm": 40,
+      "width_mm": 28,
       "position": "primary"
     }
   ],
@@ -3745,29 +3584,6 @@
       "name": "Panaracer GravelKing SK",
       "rank": 3,
       "width_mm": 43,
-      "position": "primary"
-    }
-  ],
-  "kal-tour-dirty-100": [
-    {
-      "tire_id": "specialized-pathfinder-pro",
-      "name": "Specialized Pathfinder Pro",
-      "rank": 1,
-      "width_mm": 38,
-      "position": "primary"
-    },
-    {
-      "tire_id": "panaracer-gravelking-sk",
-      "name": "Panaracer GravelKing SK",
-      "rank": 2,
-      "width_mm": 40,
-      "position": "primary"
-    },
-    {
-      "tire_id": "vittoria-terreno-mix",
-      "name": "Vittoria Terreno Mix",
-      "rank": 3,
-      "width_mm": 40,
       "position": "primary"
     }
   ],
@@ -4553,29 +4369,6 @@
       "position": "primary"
     }
   ],
-  "natchez-trace-gran-fondo": [
-    {
-      "tire_id": "specialized-pathfinder-pro",
-      "name": "Specialized Pathfinder Pro",
-      "rank": 1,
-      "width_mm": 38,
-      "position": "primary"
-    },
-    {
-      "tire_id": "panaracer-gravelking-sk",
-      "name": "Panaracer GravelKing SK",
-      "rank": 2,
-      "width_mm": 40,
-      "position": "primary"
-    },
-    {
-      "tire_id": "vittoria-terreno-mix",
-      "name": "Vittoria Terreno Mix",
-      "rank": 3,
-      "width_mm": 40,
-      "position": "primary"
-    }
-  ],
   "ned-gravel": [
     {
       "tire_id": "specialized-pathfinder-pro",
@@ -4829,29 +4622,6 @@
       "position": "primary"
     }
   ],
-  "oregon-gran-fondo": [
-    {
-      "tire_id": "specialized-pathfinder-pro",
-      "name": "Specialized Pathfinder Pro",
-      "rank": 1,
-      "width_mm": 38,
-      "position": "primary"
-    },
-    {
-      "tire_id": "vittoria-terreno-mix",
-      "name": "Vittoria Terreno Mix",
-      "rank": 2,
-      "width_mm": 40,
-      "position": "primary"
-    },
-    {
-      "tire_id": "continental-terra-trail",
-      "name": "Continental Terra Trail",
-      "rank": 3,
-      "width_mm": 40,
-      "position": "primary"
-    }
-  ],
   "oregon-trail-gravel": [
     {
       "tire_id": "specialized-pathfinder-pro",
@@ -4944,29 +4714,6 @@
       "position": "primary"
     }
   ],
-  "ozark-gravel": [
-    {
-      "tire_id": "specialized-pathfinder-pro",
-      "name": "Specialized Pathfinder Pro",
-      "rank": 1,
-      "width_mm": 42,
-      "position": "primary"
-    },
-    {
-      "tire_id": "irc-boken-double-cross",
-      "name": "IRC Boken Double Cross",
-      "rank": 2,
-      "width_mm": 42,
-      "position": "primary"
-    },
-    {
-      "tire_id": "panaracer-gravelking-sk",
-      "name": "Panaracer GravelKing SK",
-      "rank": 3,
-      "width_mm": 43,
-      "position": "primary"
-    }
-  ],
   "paris-mountain-gravel-grinder": [
     {
       "tire_id": "specialized-pathfinder-pro",
@@ -5056,29 +4803,6 @@
       "name": "Vittoria Terreno Mix",
       "rank": 3,
       "width_mm": 40,
-      "position": "primary"
-    }
-  ],
-  "pirate-cycling-league-gravel": [
-    {
-      "tire_id": "irc-boken-double-cross",
-      "name": "IRC Boken Double Cross",
-      "rank": 1,
-      "width_mm": 42,
-      "position": "primary"
-    },
-    {
-      "tire_id": "specialized-pathfinder-pro",
-      "name": "Specialized Pathfinder Pro",
-      "rank": 2,
-      "width_mm": 42,
-      "position": "primary"
-    },
-    {
-      "tire_id": "panaracer-gravelking-sk",
-      "name": "Panaracer GravelKing SK",
-      "rank": 3,
-      "width_mm": 43,
       "position": "primary"
     }
   ],
@@ -5746,29 +5470,6 @@
       "name": "Vittoria Terreno Mix",
       "rank": 3,
       "width_mm": 40,
-      "position": "primary"
-    }
-  ],
-  "sagan-fondo": [
-    {
-      "tire_id": "irc-boken-double-cross",
-      "name": "IRC Boken Double Cross",
-      "rank": 1,
-      "width_mm": 42,
-      "position": "primary"
-    },
-    {
-      "tire_id": "specialized-pathfinder-pro",
-      "name": "Specialized Pathfinder Pro",
-      "rank": 2,
-      "width_mm": 42,
-      "position": "primary"
-    },
-    {
-      "tire_id": "panaracer-gravelking-sk",
-      "name": "Panaracer GravelKing SK",
-      "rank": 3,
-      "width_mm": 43,
       "position": "primary"
     }
   ],
@@ -6462,6 +6163,29 @@
       "position": "primary"
     }
   ],
+  "the-majestics": [
+    {
+      "tire_id": "vittoria-terreno-wet",
+      "name": "Vittoria Terreno Wet",
+      "rank": 1,
+      "width_mm": 40,
+      "position": "primary"
+    },
+    {
+      "tire_id": "continental-terra-trail",
+      "name": "Continental Terra Trail",
+      "rank": 2,
+      "width_mm": 40,
+      "position": "primary"
+    },
+    {
+      "tire_id": "specialized-pathfinder-pro",
+      "name": "Specialized Pathfinder Pro",
+      "rank": 3,
+      "width_mm": 38,
+      "position": "primary"
+    }
+  ],
   "the-mane-event-gravel": [
     {
       "tire_id": "specialized-pathfinder-pro",
@@ -6922,6 +6646,29 @@
       "position": "primary"
     }
   ],
+  "truckee-tahoe-gravel": [
+    {
+      "tire_id": "irc-boken-double-cross",
+      "name": "IRC Boken Double Cross",
+      "rank": 1,
+      "width_mm": 42,
+      "position": "primary"
+    },
+    {
+      "tire_id": "specialized-pathfinder-pro",
+      "name": "Specialized Pathfinder Pro",
+      "rank": 2,
+      "width_mm": 42,
+      "position": "primary"
+    },
+    {
+      "tire_id": "panaracer-gravelking-sk",
+      "name": "Panaracer GravelKing SK",
+      "rank": 3,
+      "width_mm": 43,
+      "position": "primary"
+    }
+  ],
   "turnhout-gravel": [
     {
       "tire_id": "vittoria-terreno-wet",
@@ -7241,29 +6988,6 @@
       "name": "Pirelli Cinturato Gravel S",
       "rank": 3,
       "width_mm": 45,
-      "position": "primary"
-    }
-  ],
-  "walburg-dirty-30": [
-    {
-      "tire_id": "specialized-pathfinder-pro",
-      "name": "Specialized Pathfinder Pro",
-      "rank": 1,
-      "width_mm": 38,
-      "position": "primary"
-    },
-    {
-      "tire_id": "goodyear-connector",
-      "name": "Goodyear Connector",
-      "rank": 2,
-      "width_mm": 40,
-      "position": "primary"
-    },
-    {
-      "tire_id": "continental-terra-trail",
-      "name": "Continental Terra Trail",
-      "rank": 3,
-      "width_mm": 40,
       "position": "primary"
     }
   ],

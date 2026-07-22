@@ -105,12 +105,6 @@
       "position": "primary",
       "surface": "wet"
     },
-    "balkan-gravel": {
-      "rank": 3,
-      "width_mm": 38,
-      "position": "primary",
-      "surface": "wet"
-    },
     "barry-roubaix": {
       "rank": 3,
       "width_mm": 38,
@@ -158,12 +152,6 @@
       "width_mm": 42,
       "position": "primary",
       "surface": "mixed"
-    },
-    "black-forest-gravel": {
-      "rank": 3,
-      "width_mm": 38,
-      "position": "primary",
-      "surface": "wet"
     },
     "bohemian-border-bash": {
       "rank": 3,
@@ -393,12 +381,6 @@
       "position": "primary",
       "surface": "wet"
     },
-    "flint-hills-death-ride": {
-      "rank": 1,
-      "width_mm": 38,
-      "position": "rear",
-      "surface": "mixed"
-    },
     "fools-gold-gravel-grinder": {
       "rank": 2,
       "width_mm": 42,
@@ -411,7 +393,7 @@
       "position": "rear",
       "surface": "mixed"
     },
-    "fuego-xl": {
+    "fuego-mtb": {
       "rank": 1,
       "width_mm": 38,
       "position": "rear",
@@ -447,12 +429,6 @@
       "position": "rear",
       "surface": "mixed"
     },
-    "gran-fondo-hincapie": {
-      "rank": 1,
-      "width_mm": 38,
-      "position": "rear",
-      "surface": "mixed"
-    },
     "gran-fondo-ozarks": {
       "rank": 2,
       "width_mm": 42,
@@ -460,12 +436,6 @@
       "surface": "mixed"
     },
     "grasshopper-series": {
-      "rank": 1,
-      "width_mm": 38,
-      "position": "rear",
-      "surface": "mixed"
-    },
-    "grasslands-100": {
       "rank": 1,
       "width_mm": 38,
       "position": "rear",
@@ -518,12 +488,6 @@
       "width_mm": 38,
       "position": "rear",
       "surface": "mixed"
-    },
-    "gravel-fondo-switzerland": {
-      "rank": 3,
-      "width_mm": 38,
-      "position": "primary",
-      "surface": "wet"
     },
     "gravel-locos": {
       "rank": 3,
@@ -600,12 +564,6 @@
     "great-otway-gravel-grind": {
       "rank": 1,
       "width_mm": 42,
-      "position": "rear",
-      "surface": "mixed"
-    },
-    "greek-gravel": {
-      "rank": 1,
-      "width_mm": 38,
       "position": "rear",
       "surface": "mixed"
     },
@@ -741,12 +699,6 @@
       "position": "rear",
       "surface": "mixed"
     },
-    "iron-horse-bicycle-classic": {
-      "rank": 2,
-      "width_mm": 42,
-      "position": "primary",
-      "surface": "mixed"
-    },
     "jeroboam": {
       "rank": 1,
       "width_mm": 38,
@@ -756,12 +708,6 @@
     "just-gravel": {
       "rank": 1,
       "width_mm": 42,
-      "position": "rear",
-      "surface": "mixed"
-    },
-    "kal-tour-dirty-100": {
-      "rank": 1,
-      "width_mm": 38,
       "position": "rear",
       "surface": "mixed"
     },
@@ -903,12 +849,6 @@
       "position": "rear",
       "surface": "mixed"
     },
-    "natchez-trace-gran-fondo": {
-      "rank": 1,
-      "width_mm": 38,
-      "position": "rear",
-      "surface": "mixed"
-    },
     "ned-gravel": {
       "rank": 1,
       "width_mm": 42,
@@ -969,12 +909,6 @@
       "position": "primary",
       "surface": "mixed"
     },
-    "oregon-gran-fondo": {
-      "rank": 1,
-      "width_mm": 38,
-      "position": "rear",
-      "surface": "mixed"
-    },
     "oregon-trail-gravel": {
       "rank": 1,
       "width_mm": 42,
@@ -999,12 +933,6 @@
       "position": "rear",
       "surface": "mixed"
     },
-    "ozark-gravel": {
-      "rank": 1,
-      "width_mm": 42,
-      "position": "rear",
-      "surface": "mixed"
-    },
     "paris-mountain-gravel-grinder": {
       "rank": 1,
       "width_mm": 42,
@@ -1021,12 +949,6 @@
       "rank": 1,
       "width_mm": 38,
       "position": "rear",
-      "surface": "mixed"
-    },
-    "pirate-cycling-league-gravel": {
-      "rank": 2,
-      "width_mm": 42,
-      "position": "primary",
       "surface": "mixed"
     },
     "polish-gravel": {
@@ -1153,12 +1075,6 @@
       "rank": 1,
       "width_mm": 38,
       "position": "rear",
-      "surface": "mixed"
-    },
-    "sagan-fondo": {
-      "rank": 2,
-      "width_mm": 42,
-      "position": "primary",
       "surface": "mixed"
     },
     "salida-76": {
@@ -1299,6 +1215,12 @@
       "position": "rear",
       "surface": "mixed"
     },
+    "the-majestics": {
+      "rank": 3,
+      "width_mm": 38,
+      "position": "primary",
+      "surface": "wet"
+    },
     "the-mane-event-gravel": {
       "rank": 1,
       "width_mm": 42,
@@ -1377,6 +1299,12 @@
       "position": "rear",
       "surface": "mixed"
     },
+    "truckee-tahoe-gravel": {
+      "rank": 2,
+      "width_mm": 42,
+      "position": "primary",
+      "surface": "mixed"
+    },
     "turnhout-gravel": {
       "rank": 3,
       "width_mm": 38,
@@ -1420,12 +1348,6 @@
       "surface": "mixed"
     },
     "veneto-gravel": {
-      "rank": 1,
-      "width_mm": 38,
-      "position": "rear",
-      "surface": "mixed"
-    },
-    "walburg-dirty-30": {
       "rank": 1,
       "width_mm": 38,
       "position": "rear",

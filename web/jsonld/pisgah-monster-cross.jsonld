@@ -2,16 +2,16 @@
   "@context": "https://schema.org",
   "@type": "SportsEvent",
   "name": "Pisgah Monster Cross",
-  "description": "Southeast gravel classic\u201450 miles, 8,000 feet of technical Appalachian terrain in Pisgah National Forest.",
+  "description": "Southeast gravel classic\u201469 miles, 8,777 feet of technical Appalachian terrain in Pisgah National Forest.",
   "sport": "Gravel Cycling",
   "startDate": "2026-09-12",
   "location": {
     "@type": "Place",
-    "name": "Brevard, North Carolina (Pisgah National Forest)",
+    "name": "Pisgah Forest, North Carolina (near Brevard; Pisgah National Forest)",
     "address": {
       "@type": "PostalAddress",
-      "addressLocality": "Brevard",
-      "addressRegion": "North Carolina (Pisgah National Forest)"
+      "addressLocality": "Pisgah Forest",
+      "addressRegion": "North Carolina (near Brevard; Pisgah National Forest)"
     }
   },
   "offers": {
@@ -27,10 +27,10 @@
     "ratingCount": "14",
     "name": "Gravel God Rating"
   },
-  "url": "https://www.pisgahmonstercross.com",
+  "url": "https://www.pisgahproductions.com/events/pisgah-monster-cross-challenge/",
   "organizer": {
     "@type": "Person",
     "name": "Pisgah Productions",
-    "url": "https://www.pisgahmonstercross.com"
+    "url": "https://www.pisgahproductions.com/events/pisgah-monster-cross-challenge/"
   }
 }

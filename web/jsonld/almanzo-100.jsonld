@@ -14,6 +14,12 @@
       "addressRegion": "Minnesota"
     }
   },
+  "offers": {
+    "@type": "Offer",
+    "price": "35",
+    "priceCurrency": "USD",
+    "availability": "https://schema.org/LimitedAvailability"
+  },
   "aggregateRating": {
     "@type": "AggregateRating",
     "ratingValue": "70",

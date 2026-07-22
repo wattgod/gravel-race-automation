@@ -478,4 +478,6 @@ class TestRealRaceData:
         # Floor re-pinned 208->202 (Jul 20 2026): rebeccas-private-idaho's
         # route id described the retired course (2026 is the new Baked Potato
         # w/ Corral Creek); the rest of the delta predated the tail batches.
-        assert rwgps_count >= 202, f"Expected >=202 RWGPS routes, got {rwgps_count}"
+        # Floor re-pinned 202->198 (Jul 22 2026): 10 fabricated race profiles
+        # deleted (config/tombstones.json); 4 of them carried rwgps ids.
+        assert rwgps_count >= 198, f"Expected >=198 RWGPS routes, got {rwgps_count}"

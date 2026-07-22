@@ -7,11 +7,11 @@
   "startDate": "2026-09-26",
   "location": {
     "@type": "Place",
-    "name": "Halmstad, Sweden (Heag\u00e5rd farm)",
+    "name": "Halmstad, Sweden",
     "address": {
       "@type": "PostalAddress",
       "addressLocality": "Halmstad",
-      "addressRegion": "Sweden (Heag\u00e5rd farm)"
+      "addressRegion": "Sweden"
     }
   },
   "aggregateRating": {
@@ -20,5 +20,6 @@
     "bestRating": "100",
     "ratingCount": "14",
     "name": "Gravel God Rating"
-  }
+  },
+  "url": "https://gravelgritngrind.se/"
 }

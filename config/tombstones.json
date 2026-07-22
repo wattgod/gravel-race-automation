@@ -1,0 +1,55 @@
+{
+  "comment": "Fabricated races removed from the catalog (SITE-SYNC S3, 2026-07; profiles deleted 2026-07-22 per docs/specs/cleanup-program-jul22.md). Research dumps + git history are the audit trail. Nothing here may appear in any generated output, index, sitemap, or data derivative.",
+  "tombstones": [
+    {
+      "slug": "balkan-gravel",
+      "reason": "fabricated",
+      "redirect": "/race/calendar/2026/"
+    },
+    {
+      "slug": "black-forest-gravel",
+      "reason": "fabricated",
+      "redirect": "/race/best-gravel-races-germany/"
+    },
+    {
+      "slug": "flint-hills-death-ride",
+      "reason": "fabricated",
+      "redirect": "/race/best-gravel-races-kansas/"
+    },
+    {
+      "slug": "grasslands-100",
+      "reason": "fabricated",
+      "redirect": "/race/best-gravel-races-texas/"
+    },
+    {
+      "slug": "greek-gravel",
+      "reason": "fabricated",
+      "redirect": "/race/calendar/2026/"
+    },
+    {
+      "slug": "kal-tour-dirty-100",
+      "reason": "fabricated",
+      "redirect": "/race/best-gravel-races-michigan/"
+    },
+    {
+      "slug": "natchez-trace-gran-fondo",
+      "reason": "fabricated",
+      "redirect": "/race/best-gravel-races-tennessee/"
+    },
+    {
+      "slug": "ozark-gravel",
+      "reason": "fabricated",
+      "redirect": "/race/best-gravel-races-arkansas/"
+    },
+    {
+      "slug": "pirate-cycling-league-gravel",
+      "reason": "fabricated",
+      "redirect": "/race/best-gravel-races-california/"
+    },
+    {
+      "slug": "walburg-dirty-30",
+      "reason": "fabricated",
+      "redirect": "/race/best-gravel-races-texas/"
+    }
+  ]
+}

@@ -2,9 +2,9 @@
   "@context": "https://schema.org",
   "@type": "SportsEvent",
   "name": "MAAP Beechworth Granite Classic",
-  "description": "Victorian high country gravel in historic gold rush territory.",
+  "description": "Victorian high country gravel ride in historic gold rush territory \u2014 explicitly podium-free, not a timed race.",
   "sport": "Gravel Cycling",
-  "startDate": "2026-04-18",
+  "startDate": "2026-01-17",
   "location": {
     "@type": "Place",
     "name": "Beechworth, Victoria",
@@ -27,8 +27,10 @@
     "ratingCount": "14",
     "name": "Gravel God Rating"
   },
+  "url": "https://beechworthgraniteclassic.com.au/",
   "organizer": {
     "@type": "Person",
-    "name": "MAAP (cycling apparel brand)"
+    "name": "Ben Kraus (organizer), evolved from his local 'Tour de Beechworth' ride; MAAP is the title sponsor, not the organizer",
+    "url": "https://beechworthgraniteclassic.com.au/"
   }
 }

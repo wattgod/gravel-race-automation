@@ -1611,6 +1611,21 @@ RewriteRule ^race/([^/]+?)-vs-([^/]+?)/?$ /race/$1/ [R=301,L]
 RewriteCond %{DOCUMENT_ROOT}/race/$1-vs-$2/index.html !-f
 RewriteRule ^race/([^/]+?)-vs-([^/]+?)/?$ /gravel-races/ [R=301,L]
 
+# Fabricated-race blog previews pulled 2026-07-22 (stale deploys of pre-S3
+# template previews; race pages were already 301'd in SITE-SYNC S3).
+RewriteRule ^blog/balkan-gravel/?$ /blog/ [R=301,L]
+RewriteRule ^blog/flint-hills-death-ride/?$ /blog/ [R=301,L]
+RewriteRule ^blog/grasslands-100/?$ /blog/ [R=301,L]
+RewriteRule ^blog/greek-gravel/?$ /blog/ [R=301,L]
+RewriteRule ^blog/natchez-trace-gran-fondo/?$ /blog/ [R=301,L]
+
+# Self-healing for stale blog URLs (2026-07-22 reconcile: server /blog/ had
+# 109 orphan dirs from older preview generations). A /blog/ URL that exists
+# as neither dir nor file 301s to the blog index instead of 404ing.
+RewriteCond %{DOCUMENT_ROOT}/blog/$1 !-d
+RewriteCond %{DOCUMENT_ROOT}/blog/$1 !-f
+RewriteRule ^blog/([^/]+?)/?$ /blog/ [R=301,L]
+
 # WP's default blog feed is 403-blocked; send /feed/ to the maintained race
 # RSS instead of a dead end. Anchored so /feed/races.xml itself is untouched.
 RewriteRule ^feed/?$ /feed/races.xml [R=301,L]

@@ -47,6 +47,13 @@ EXTRA_URLS = [
 UA = "GravelGod-LinkCheck/1.0 (+https://gravelgodcycling.com; weekly self-audit)"
 SKIP_SCHEMES = ("#", "mailto:", "tel:", "data:", "javascript:")
 
+# SiteGround's bot protection answers with HTTP 202 + an `sg-captcha` header
+# instead of the page (Roadie Labs, 2026-07-22: 18 false "dead" findings, all
+# 202). A 202 is never a real response from this site, so treat it as a
+# challenge: back off, retry, and report still-challenged URLs separately
+# rather than as dead links.
+CHALLENGE_BACKOFF = (20, 45)  # seconds to wait before each retry
+
 
 def normalize_url(url: str, base: str = SITE + "/", *, same_site_only: bool = True) -> str | None:
     """Resolve a URL and strip fragment/query to match the reference checker."""
@@ -80,30 +87,45 @@ class LinkExtractor(HTMLParser):
                 self.cta_urls.add(cta_url)
 
 
-def fetch(url: str, timeout: int = 15) -> tuple[int, str]:
-    """GET a URL following redirects; return (final_status, body_or_empty)."""
+def _fetch_once(url: str, timeout: int, text_mode: bool) -> tuple[int, str, bool]:
+    """GET a URL following redirects; return (final_status, body, challenged)."""
     req = urllib.request.Request(url, headers={"User-Agent": UA})
     try:
         with urllib.request.urlopen(req, timeout=timeout) as resp:
-            body = resp.read(400_000).decode("utf-8", "replace") \
-                if "text/html" in resp.headers.get("Content-Type", "") else ""
-            return resp.status, body
+            if text_mode:
+                body = resp.read(2_000_000).decode("utf-8", "replace")
+            else:
+                body = resp.read(400_000).decode("utf-8", "replace") \
+                    if "text/html" in resp.headers.get("Content-Type", "") else ""
+            challenged = resp.status == 202 or "sg-captcha" in resp.headers
+            return resp.status, body, challenged
     except urllib.error.HTTPError as e:
-        return e.code, ""
+        challenged = e.code == 202 or (e.headers is not None and "sg-captcha" in e.headers)
+        return e.code, "", challenged
     except Exception:
-        return 0, ""
+        return 0, "", False
 
 
-def fetch_text(url: str, timeout: int = 15) -> tuple[int, str]:
+def _fetch_retry(url: str, timeout: int, text_mode: bool) -> tuple[int, str, bool]:
+    """_fetch_once, retrying with backoff while the WAF challenges us."""
+    status, body, challenged = _fetch_once(url, timeout, text_mode)
+    for pause in CHALLENGE_BACKOFF:
+        if not challenged:
+            break
+        print(f"  WAF challenge on {url} — retrying in {pause}s")
+        time.sleep(pause)
+        status, body, challenged = _fetch_once(url, timeout, text_mode)
+    return status, body, challenged
+
+
+def fetch(url: str, timeout: int = 15) -> tuple[int, str, bool]:
+    """GET a URL following redirects; return (final_status, body, challenged)."""
+    return _fetch_retry(url, timeout, text_mode=False)
+
+
+def fetch_text(url: str, timeout: int = 15) -> tuple[int, str, bool]:
     """GET a URL and decode text regardless of content type."""
-    req = urllib.request.Request(url, headers={"User-Agent": UA})
-    try:
-        with urllib.request.urlopen(req, timeout=timeout) as resp:
-            return resp.status, resp.read(2_000_000).decode("utf-8", "replace")
-    except urllib.error.HTTPError as e:
-        return e.code, ""
-    except Exception:
-        return 0, ""
+    return _fetch_retry(url, timeout, text_mode=True)
 
 
 def _local_name(el: ET.Element) -> str:
@@ -126,19 +148,24 @@ def xml_locs(xml_text: str) -> tuple[str, list[str]]:
     return tag, locs
 
 
-def live_sitemap_urls(delay: float) -> tuple[set[str], list[tuple[int, str]]]:
+def live_sitemap_urls(delay: float) -> tuple[set[str], list[tuple[int, str]], list[tuple[int, str]]]:
     """Recursively load live sitemap indexes/urlsets and return same-site page URLs."""
     pending = [SITEMAP_URL]
     seen_sitemaps: set[str] = set()
     urls: set[str] = set()
     failures = []
+    challenged_list = []
 
     while pending:
         sitemap_url = pending.pop(0)
         if sitemap_url in seen_sitemaps:
             continue
         seen_sitemaps.add(sitemap_url)
-        status, body = fetch_text(sitemap_url)
+        status, body, challenged = fetch_text(sitemap_url)
+        if challenged:
+            challenged_list.append((status, sitemap_url))
+            time.sleep(delay)
+            continue
         if status != 200 or not body:
             failures.append((status, sitemap_url))
             time.sleep(delay)
@@ -160,7 +187,7 @@ def live_sitemap_urls(delay: float) -> tuple[set[str], list[tuple[int, str]]]:
                     urls.add(normalized)
         time.sleep(delay)
 
-    return urls, failures
+    return urls, failures, challenged_list
 
 
 def shared_chrome_urls() -> set[str]:
@@ -192,7 +219,7 @@ def main() -> int:
     parser.add_argument("--delay", type=float, default=0.3)
     args = parser.parse_args()
 
-    sitemap_urls, sitemap_failures = live_sitemap_urls(args.delay)
+    sitemap_urls, sitemap_failures, challenged_urls = live_sitemap_urls(args.delay)
     cta_sample = race_page_sample(sitemap_urls)
     required_urls = set(EXTRA_URLS) | shared_chrome_urls() | set(cta_sample)
     to_check: set[str] = set(required_urls) | set(sitemap_urls)
@@ -202,7 +229,11 @@ def main() -> int:
 
     seed_urls = sorted(sitemap_urls)[:args.max_urls]
     for url in seed_urls:
-        status, body = fetch(url)
+        status, body, challenged = fetch(url)
+        if challenged:
+            challenged_urls.append((status, url))
+            time.sleep(args.delay)
+            continue
         if status != 200:
             seed_failures.append((status, url))
             time.sleep(args.delay)
@@ -213,7 +244,11 @@ def main() -> int:
         time.sleep(args.delay)
 
     for url in cta_sample:
-        status, body = fetch(url)
+        status, body, challenged = fetch(url)
+        if challenged:
+            challenged_urls.append((status, url))
+            time.sleep(args.delay)
+            continue
         if status != 200:
             seed_failures.append((status, url))
             time.sleep(args.delay)
@@ -235,19 +270,31 @@ def main() -> int:
 
     urls = sorted(required_urls - already_checked) + optional_urls
     for url in urls:
-        status, _ = fetch(url)
-        if status != 200:
+        status, _, challenged = fetch(url)
+        if challenged:
+            challenged_urls.append((status, url))
+        elif status != 200:
             dead.append((status, url))
         time.sleep(args.delay)
 
     print(f"Loaded {len(sitemap_urls)} URLs from live sitemap(s)")
     print(f"Checked {len(seed_urls)} sitemap seed pages + {len(urls)} discovered/required URLs")
     print(f"Checked data-cta hrefs from {len(cta_sample)} sampled race pages: {len(cta_urls)} CTA URLs")
+    # Print challenged BEFORE dead: immune_check parses everything after the
+    # "DEAD LINKS" header as dead links.
+    if challenged_urls:
+        print(f"\nWAF-CHALLENGED ({len(challenged_urls)}): still behind SiteGround's "
+              f"bot challenge after retries — scan inconclusive, NOT dead links")
+        for status, url in sorted(set(challenged_urls), key=lambda d: d[1]):
+            print(f"  {status or 'ERR':>4}  {url}")
     if dead:
         print(f"\nDEAD LINKS ({len(dead)}):")
         for status, url in sorted(set(dead), key=lambda d: d[1]):
             print(f"  {status or 'ERR':>4}  {url}")
         return 1
+    if challenged_urls:
+        print("No dead links; some URLs unverifiable this run (WAF challenge).")
+        return 0
     print("All links alive.")
     return 0
 

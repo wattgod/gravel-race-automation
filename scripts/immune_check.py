@@ -305,6 +305,17 @@ def run_live_link_check() -> list[Finding]:
                         str(e), "The live link checker couldn't run — check network/site.",
                         None, "check_links")]
     findings: list[Finding] = []
+    m = re.search(r"WAF-CHALLENGED \((\d+)\)", proc.stdout)
+    if m:
+        findings.append(Finding(
+            "live-check-challenged", YELLOW, "low", "Live Check Challenged by WAF",
+            f"{m.group(1)} URLs still behind SiteGround's bot challenge (HTTP 202 + "
+            "sg-captcha) after backoff retries",
+            "The scanner tripped SiteGround's bot protection, so these URLs could not "
+            "be verified this run — an inconclusive scan, not an outage (Roadie Labs "
+            "2026-07-22: 18 false money-path-404/dead-link findings were exactly "
+            "this). Re-run later; investigate only if it persists across days.",
+            None, "check_links"))
     in_dead = False
     for line in proc.stdout.splitlines():
         if line.startswith("DEAD LINKS"):

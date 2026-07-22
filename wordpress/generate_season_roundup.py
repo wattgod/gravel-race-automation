@@ -585,6 +585,28 @@ def generate_tier_roundup(races, tier, year, output_dir):
     return slug
 
 
+def expected_roundup_slugs(races, year):
+    """Pure, zero-render enumeration of the roundup slugs generate_all would
+    produce — shared with scripts/deploy_parity.py so the parity manifest and
+    the generator can never disagree (a unit test enforces the match)."""
+    slugs = set()
+    for month in range(1, 13):
+        if len(filter_by_month(races, year, month)) >= MIN_RACES_FOR_ROUNDUP:
+            slugs.add(f"roundup-{MONTH_NAMES[month].lower()}-{year}")
+    for region_key in REGIONS:
+        for season in SEASONS:
+            season_months = SEASONS[season]
+            regional = filter_by_region(races, region_key)
+            n = sum(1 for r in regional
+                    if MONTH_NUMBERS.get((r.get("month") or "").lower(), 0) in season_months)
+            if n >= MIN_RACES_FOR_ROUNDUP:
+                slugs.add(f"roundup-{region_key}-{season}-{year}")
+    for tier in (1, 2, 3, 4):
+        if len(filter_by_tier(races, tier)) >= MIN_RACES_FOR_ROUNDUP:
+            slugs.add(f"roundup-tier-{tier}-{year}")
+    return slugs
+
+
 def generate_all(races, year, output_dir, dry_run=False):
     """Generate all roundup types."""
     generated = []

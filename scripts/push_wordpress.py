@@ -1601,6 +1601,40 @@ RewriteRule ^race/gravel-fondo-switzerland/(.*)$ /race/the-majestics/$1 [R=301,L
 # Serbia below the state-hub MIN_RACES floor.
 RewriteRule ^race/best-gravel-races-serbia/?$ /gravel-races/ [R=301,L]
 
+# Duplicate-race removals (immune-surfaced, commits e18dafba + road-tail):
+# old slug 301s to the kept canonical twin, subpaths preserved.
+# Live dirs deleted 2026-07-22 (deploy-parity first run).
+RewriteRule ^race/big-horn-gravel/?$ /race/bighorn-gravel/ [R=301,L]
+RewriteRule ^race/big-horn-gravel/(.*)$ /race/bighorn-gravel/$1 [R=301,L]
+RewriteRule ^race/dreilaendergiro/?$ /race/dreilander-giro/ [R=301,L]
+RewriteRule ^race/dreilaendergiro/(.*)$ /race/dreilander-giro/$1 [R=301,L]
+RewriteRule ^race/gran-fondo-felice-gimondi/?$ /race/granfondo-felice-gimondi/ [R=301,L]
+RewriteRule ^race/gran-fondo-felice-gimondi/(.*)$ /race/granfondo-felice-gimondi/$1 [R=301,L]
+RewriteRule ^race/gran-fondo-guadeloupe/?$ /race/granfondo-la-guadeloupe/ [R=301,L]
+RewriteRule ^race/gran-fondo-guadeloupe/(.*)$ /race/granfondo-la-guadeloupe/$1 [R=301,L]
+RewriteRule ^race/gran-fondo-novi-sad/?$ /race/granfondo-novi-sad/ [R=301,L]
+RewriteRule ^race/gran-fondo-novi-sad/(.*)$ /race/granfondo-novi-sad/$1 [R=301,L]
+RewriteRule ^race/gran-fondo-via-del-sale/?$ /race/granfondo-via-del-sale/ [R=301,L]
+RewriteRule ^race/gran-fondo-via-del-sale/(.*)$ /race/granfondo-via-del-sale/$1 [R=301,L]
+RewriteRule ^race/gran-fondo-vosges/?$ /race/granfondo-vosges/ [R=301,L]
+RewriteRule ^race/gran-fondo-vosges/(.*)$ /race/granfondo-vosges/$1 [R=301,L]
+RewriteRule ^race/granfondo-strade-bianche/?$ /race/strade-bianche-gran-fondo/ [R=301,L]
+RewriteRule ^race/granfondo-strade-bianche/(.*)$ /race/strade-bianche-gran-fondo/$1 [R=301,L]
+RewriteRule ^race/istria-gran-fondo/?$ /race/istria-granfondo/ [R=301,L]
+RewriteRule ^race/istria-gran-fondo/(.*)$ /race/istria-granfondo/$1 [R=301,L]
+RewriteRule ^race/oetztaler-radmarathon/?$ /race/otztaler-radmarathon/ [R=301,L]
+RewriteRule ^race/oetztaler-radmarathon/(.*)$ /race/otztaler-radmarathon/$1 [R=301,L]
+RewriteRule ^race/tour-de-tucson/?$ /race/el-tour-de-tucson/ [R=301,L]
+RewriteRule ^race/tour-de-tucson/(.*)$ /race/el-tour-de-tucson/$1 [R=301,L]
+RewriteRule ^race/gran-fondo-greece-loutraki/?$ /race/gran-fondo-loutraki/ [R=301,L]
+RewriteRule ^race/gran-fondo-greece-loutraki/(.*)$ /race/gran-fondo-loutraki/$1 [R=301,L]
+RewriteRule ^race/granfondo-stelvio-santini/?$ /race/la-stelvio-santini/ [R=301,L]
+RewriteRule ^race/granfondo-stelvio-santini/(.*)$ /race/la-stelvio-santini/$1 [R=301,L]
+RewriteRule ^race/hotternhell-hundred/?$ /race/hottern-hell-hundred/ [R=301,L]
+RewriteRule ^race/hotternhell-hundred/(.*)$ /race/hottern-hell-hundred/$1 [R=301,L]
+# Greece hub retired (greek-gravel removal dropped Greece below the floor)
+RewriteRule ^race/best-gravel-races-greece/?$ /gravel-races/ [R=301,L]
+
 # Dead-reference self-healing (2026-07-22 link audit: 215 stale /tires/ +
 # 24 undeployed VS URLs sat in the sitemap 404ing). If the page exists on
 # disk these rules never fire; if it doesn't, 301 to the parent race page

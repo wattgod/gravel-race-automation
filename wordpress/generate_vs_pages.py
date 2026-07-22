@@ -107,7 +107,9 @@ def select_pairs(races: list) -> list:
         t1s = [r for r in region_races if r["tier"] == 1]
         t2s = sorted(
             [r for r in region_races if r["tier"] == 2],
-            key=lambda x: -x.get("overall_score", 0),
+            # slug tiebreak: score ties must not make the top-5 cutoff
+            # input-order-dependent (deploy-parity flapped on this, 2026-07-22)
+            key=lambda x: (-x.get("overall_score", 0), x["slug"]),
         )[:5]
         for a in t1s:
             for b in t2s:
@@ -117,7 +119,9 @@ def select_pairs(races: list) -> list:
     for region_races in by_region.values():
         t2s = sorted(
             [r for r in region_races if r["tier"] == 2],
-            key=lambda x: -x.get("overall_score", 0),
+            # slug tiebreak: score ties must not make the top-5 cutoff
+            # input-order-dependent (deploy-parity flapped on this, 2026-07-22)
+            key=lambda x: (-x.get("overall_score", 0), x["slug"]),
         )[:5]
         for i, a in enumerate(t2s):
             for b in t2s[i + 1:]:
@@ -125,12 +129,15 @@ def select_pairs(races: list) -> list:
 
     # Sort by combined score (highest-value pairs first) and cap
     race_map = {r["slug"]: r for r in races}
+    # Tiebreak on the pair itself: equal combined scores at the MAX_PAIRS
+    # boundary must not make the cap hash-seed-dependent (deploy-parity
+    # flapped on this, 2026-07-22).
     pair_list = sorted(
         pairs,
-        key=lambda p: -(
+        key=lambda p: (-(
             race_map.get(p[0], {}).get("overall_score", 0)
             + race_map.get(p[1], {}).get("overall_score", 0)
-        ),
+        ), p),
     )
     return pair_list[:MAX_PAIRS]
 

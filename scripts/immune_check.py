@@ -329,6 +329,54 @@ def check_security() -> list[Finding]:
     return findings
 
 
+def run_deploy_parity() -> list[Finding]:
+    """Live-tree drift check (scripts/deploy_parity.py): the add-only deploy
+    stack means stale pages survive every deploy — four incidents on
+    2026-07-22 alone. ORPHAN = live but no longer generated; UNDEPLOYED =
+    expected by the generators' own rules but absent live."""
+    import tempfile
+    out = Path(tempfile.mkstemp(suffix=".json")[1])
+    try:
+        proc = subprocess.run(
+            [sys.executable, str(SCRIPT_DIR / "deploy_parity.py"), "--json", str(out)],
+            capture_output=True, text=True, timeout=300)
+        if proc.returncode not in (0, 1) or not out.exists() or not out.read_text().strip():
+            return [Finding("deploy-parity-failed", YELLOW, "medium", "Deploy Parity Check Failed",
+                            f"deploy_parity.py rc={proc.returncode}; stderr: "
+                            f"{proc.stderr.strip()[-300:] or '(empty)'}",
+                            "The live-tree drift check could not run — parity unverified.",
+                            None, "deploy_parity")]
+        data = json.loads(out.read_text())
+    except Exception as e:  # noqa: BLE001
+        return [Finding("deploy-parity-failed", YELLOW, "medium", "Deploy Parity Check Failed",
+                        str(e), "The live-tree drift check could not run — parity unverified.",
+                        None, "deploy_parity")]
+    finally:
+        out.unlink(missing_ok=True)
+    findings = []
+    orphans = data.get("orphans", [])
+    undeployed = data.get("undeployed", [])
+    if orphans:
+        shown = " ".join(o["path"] for o in orphans[:10])
+        findings.append(Finding(
+            "deploy-orphans", YELLOW, "medium", "Live Pages No Longer Generated",
+            f"{len(orphans)} live paths outside current generation rules: {shown}"
+            + (f" (+{len(orphans)-10} more)" if len(orphans) > 10 else ""),
+            "These pages exist on the server but no generator would produce them "
+            "today — stale deploys serving outdated content. Retire (delete + "
+            "301) or re-adopt them into a rule.", None, "deploy_parity"))
+    if undeployed:
+        shown = " ".join(u["path"] for u in undeployed[:10])
+        findings.append(Finding(
+            "deploy-undeployed", YELLOW, "medium", "Expected Pages Absent Live",
+            f"{len(undeployed)} rule-expected paths missing from the live site: {shown}"
+            + (f" (+{len(undeployed)-10} more)" if len(undeployed) > 10 else ""),
+            "The generators' rules expect these pages but they are not deployed — "
+            "a partial deploy or a rule/data change that never shipped.",
+            None, "deploy_parity"))
+    return findings
+
+
 def run_live_link_check() -> list[Finding]:
     """Run the existing live checker as a subprocess and parse its DEAD LINKS
     block. A dead link on the money path (/questionnaire/ or /coaching/) is a
@@ -532,6 +580,7 @@ def main() -> int:
     findings += check_security()
     if args.live:
         findings += run_live_link_check()
+        findings += run_deploy_parity()
 
     if args.accept_baseline:
         # RED is never baselined (mark_new keeps it alerting); only accept non-RED.

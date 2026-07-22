@@ -386,8 +386,10 @@ def build_faq(state: str, races: list, disc_label: str = "Gravel") -> tuple:
 def build_related_content(state: str, races: list) -> str:
     """Cross-links to coaching, tire guides, and training resources."""
     links = []
-    # Top tire guides for highest-tier races in this state
-    tire_races = sorted(races, key=lambda r: r.get("overall_score", 0), reverse=True)[:3]
+    # Top tire guides for highest-tier races in this state (only races that
+    # actually have a generated tire guide page — see #dead-tire-crosslinks)
+    tire_candidates = [r for r in races if r.get("has_tire_guide")]
+    tire_races = sorted(tire_candidates, key=lambda r: r.get("overall_score", 0), reverse=True)[:3]
     for r in tire_races:
         slug = r.get("slug", "")
         name = r.get("name", "")

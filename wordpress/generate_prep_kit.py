@@ -1829,15 +1829,24 @@ def build_pk_equipment(guide_sections: dict, raw: dict, rd: dict) -> str:
         raw.get("climate", {}), raw.get("weather")
     )
 
+    # Only link to /tires/ if this race actually has a generated tire guide —
+    # otherwise the crosslink 404s (see #dead-tire-crosslinks).
+    tire_crosslink_html = ""
+    if rd.get("tire_recommendations", {}).get("primary"):
+        tire_crosslink_html = (
+            '<div class="gg-guide-callout" style="margin:16px 0;padding:12px 16px;border-left:3px solid var(--gg-color-teal)">'
+            f'<p style="margin:0;font-size:14px"><strong>{_tire_crosslink_text(rd)}</strong> '
+            f'<a href="/race/{esc(rd["slug"])}/tires/" style="color:var(--gg-color-teal)">See full analysis &rarr;</a></p>'
+            '</div>'
+        )
+
     return f'''<section class="gg-pk-section">
     <div class="gg-pk-section-header">
       <span class="gg-pk-section-num">04</span>
       <h2>Equipment &amp; Packing Checklist</h2>
     </div>
     {tire_html}
-    <div class="gg-guide-callout" style="margin:16px 0;padding:12px 16px;border-left:3px solid var(--gg-color-teal)">
-      <p style="margin:0;font-size:14px"><strong>{_tire_crosslink_text(rd)}</strong> <a href="/race/{esc(rd['slug'])}/tires/" style="color:var(--gg-color-teal)">See full analysis &rarr;</a></p>
-    </div>
+    {tire_crosslink_html}
     {climate_html}
     {render_accordion(accordion_block)}
   </section>'''

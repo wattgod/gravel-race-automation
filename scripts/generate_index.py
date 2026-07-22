@@ -227,6 +227,7 @@ def build_index_entry_from_profile(slug: str, data: dict) -> dict:
         "has_profile": True,
         "profile_url": f"/race/{slug}/",
         "discipline": rating.get("discipline", "gravel"),
+        "has_tire_guide": bool(race.get("tire_recommendations", {}).get("primary")),
     }
 
     # Include coordinates if available
@@ -326,6 +327,7 @@ def build_index_entry_from_flat(race: dict) -> dict:
         "profile_url": None,
         "has_rwgps": False,
         "discipline": "gravel",
+        "has_tire_guide": False,
     }
 
 

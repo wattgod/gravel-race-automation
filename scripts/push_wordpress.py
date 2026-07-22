@@ -1597,6 +1597,10 @@ RewriteRule ^race/sagan-fondo/(.*)$ /race/truckee-tahoe-gravel/$1 [R=301,L]
 RewriteRule ^race/gravel-fondo-switzerland/?$ /race/the-majestics/ [R=301,L]
 RewriteRule ^race/gravel-fondo-switzerland/(.*)$ /race/the-majestics/$1 [R=301,L]
 
+# Serbia hub retired 2026-07-22: deleting fabricated balkan-gravel dropped
+# Serbia below the state-hub MIN_RACES floor.
+RewriteRule ^race/best-gravel-races-serbia/?$ /gravel-races/ [R=301,L]
+
 # Dead-reference self-healing (2026-07-22 link audit: 215 stale /tires/ +
 # 24 undeployed VS URLs sat in the sitemap 404ing). If the page exists on
 # disk these rules never fire; if it doesn't, 301 to the parent race page

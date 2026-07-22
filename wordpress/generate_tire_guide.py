@@ -1985,7 +1985,19 @@ def main():
             print("ERROR: No data directory found with JSON files.", file=sys.stderr)
             sys.exit(1)
 
-        files = [f for f in sorted(primary.glob('*.json')) if f.stem not in REMOVED_FABRICATED_SLUGS]
+        # Only races with actual tire recommendations get a guide page — the
+        # sitemap, race-page links, and prep-kit/hub crosslinks all key off
+        # tire_recommendations.primary. Generating without this filter would
+        # resurrect the ~217 stale pages removed 2026-07-22.
+        def _has_tire_recs(f: Path) -> bool:
+            try:
+                r = json.loads(f.read_text(encoding="utf-8")).get("race", {})
+            except (OSError, json.JSONDecodeError):
+                return False
+            return bool((r.get("tire_recommendations") or {}).get("primary"))
+
+        files = [f for f in sorted(primary.glob('*.json'))
+                 if f.stem not in REMOVED_FABRICATED_SLUGS and _has_tire_recs(f)]
         total = len(files)
         success = 0
         errors = []

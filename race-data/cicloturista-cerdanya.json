@@ -15,7 +15,7 @@
       "date": "2026: July 4",
       "date_specific": "2026: July 4",
       "location": "Puigcerdà, Catalonia, Spain",
-      "distance_mi": 90,
+      "distance_mi": 52,
       "elevation_ft": 8770
     },
     "course_description": {
@@ -43,7 +43,7 @@
     },
     "gravel_god_rating": {
       "logistics": 4,
-      "length": 3,
+      "length": 2,
       "technicality": 1,
       "elevation": 4,
       "climate": 4,
@@ -57,10 +57,14 @@
       "value": 4,
       "expenses": 4,
       "cultural_impact": 2,
-      "overall_score": 77,
+      "overall_score": 76,
       "tier": 2,
       "tier_label": "TIER 2",
-      "discipline": "road"
+      "discipline": "road",
+      "editorial_tier": 2,
+      "editorial_tier_label": "TIER 2",
+      "display_tier": 2,
+      "display_tier_label": "TIER 2"
     },
     "biased_opinion_ratings": {
       "scenery": 5,

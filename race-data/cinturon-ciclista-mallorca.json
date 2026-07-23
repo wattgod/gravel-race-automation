@@ -16,7 +16,7 @@
       "date_specific": "2026: February 8",
       "location": "Mallorca, Spain",
       "distance_mi": 106,
-      "elevation_ft": 0
+      "elevation_ft": 16404
     },
     "course_description": {
       "overview": "Multi-day amateur stage race circling the island of Mallorca, featuring approximately 170 km total distance across stages on paved roads with typical Mallorcan terrain including coastal flats and inland climbs.",
@@ -40,7 +40,7 @@
       "logistics": 3,
       "length": 3,
       "technicality": 1,
-      "elevation": 3,
+      "elevation": 5,
       "climate": 4,
       "altitude": 1,
       "adventure": 3,
@@ -52,10 +52,14 @@
       "value": 4,
       "expenses": 3,
       "cultural_impact": 0,
-      "overall_score": 56,
+      "overall_score": 59,
       "tier": 3,
       "tier_label": "TIER 3",
-      "discipline": "road"
+      "discipline": "road",
+      "editorial_tier": 3,
+      "editorial_tier_label": "TIER 3",
+      "display_tier": 3,
+      "display_tier_label": "TIER 3"
     },
     "biased_opinion_ratings": {
       "scenery": 4,

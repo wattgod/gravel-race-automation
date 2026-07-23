@@ -1598,6 +1598,10 @@ RewriteRule ^race/kal-tour-dirty-100/?$ /race/best-gravel-races-michigan/ [R=301
 # Chiang Mai; all references were circular self-sourcing). Subpaths covered.
 RewriteRule ^race/chiang-mai-gran-fondo/?$ /race/calendar/2026/ [R=301,L]
 RewriteRule ^race/chiang-mai-gran-fondo/(.*)$ /race/calendar/2026/ [R=301,L]
+# gfny-bali -> gfny-belitung (event relocated/rebranded 2026; bali.gfny.com
+# itself 301s to belitung.gfny.com). Subpaths preserved.
+RewriteRule ^race/gfny-bali/?$ /race/gfny-belitung/ [R=301,L]
+RewriteRule ^race/gfny-bali/(.*)$ /race/gfny-belitung/$1 [R=301,L]
 
 # Race renames (2026-07, Matti-approved): event rebrands, slug follows.
 # VS rules MUST precede the wildcards (the old slug is a prefix of the VS slugs).

@@ -1,0 +1,297 @@
+{
+ "date": "2026-07-23",
+ "ga4": {
+  "gravelgod": {
+   "sessions": 23,
+   "users": 19,
+   "pageviews": 64,
+   "sessions_7d_avg": 24.9,
+   "funnel": {
+    "cta_click": 6,
+    "form_start": 0,
+    "form_submit": 0,
+    "begin_checkout": 0,
+    "purchase": 0
+   },
+   "abandoned_submits": 0,
+   "top_pages": [
+    {
+     "path": "/course/",
+     "views": 4
+    },
+    {
+     "path": "/race/uci-gravel-dustman/",
+     "views": 4
+    },
+    {
+     "path": "/course/dirt-craft/",
+     "views": 3
+    },
+    {
+     "path": "/",
+     "views": 2
+    },
+    {
+     "path": "/questionnaire/",
+     "views": 2
+    },
+    {
+     "path": "/race/best-gravel-races-colorado/",
+     "views": 2
+    },
+    {
+     "path": "/race/crooked-gravel/",
+     "views": 2
+    },
+    {
+     "path": "/race/gunni-grinder/",
+     "views": 2
+    }
+   ],
+   "channel_mix": {
+    "Organic Search": 12,
+    "Direct": 11
+   },
+   "top_landing": [
+    {
+     "path": "/race/uci-gravel-dustman/",
+     "sessions": 2
+    },
+    {
+     "path": "/",
+     "sessions": 1
+    },
+    {
+     "path": "/course/",
+     "sessions": 1
+    },
+    {
+     "path": "/course/gravel-hydration-mastery/lesson/sweat-rate-science/",
+     "sessions": 1
+    },
+    {
+     "path": "/insights/",
+     "sessions": 1
+    },
+    {
+     "path": "/race/gran-fondo-mont-ventoux/training-plan/",
+     "sessions": 1
+    }
+   ],
+   "sessions_28d": 973,
+   "funnel_28d": {
+    "cta_click": 49,
+    "form_start": 34,
+    "form_submit": 21,
+    "begin_checkout": 1,
+    "purchase": 2
+   },
+   "ok": true
+  },
+  "roadielabs": {
+   "sessions": 2,
+   "users": 1,
+   "pageviews": 2,
+   "sessions_7d_avg": 1.6,
+   "funnel": {
+    "cta_click": 0,
+    "form_start": 0,
+    "form_submit": 0,
+    "begin_checkout": 0,
+    "purchase": 0
+   },
+   "abandoned_submits": 0,
+   "top_pages": [
+    {
+     "path": "/race/gran-fondo-utah/",
+     "views": 1
+    },
+    {
+     "path": "/race/lotoja-classic/",
+     "views": 1
+    }
+   ],
+   "channel_mix": {
+    "Direct": 2,
+    "Unassigned": 1
+   },
+   "top_landing": [
+    {
+     "path": "",
+     "sessions": 2
+    },
+    {
+     "path": "/race/gran-fondo-utah/",
+     "sessions": 1
+    }
+   ],
+   "sessions_28d": 15,
+   "funnel_28d": {
+    "cta_click": 0,
+    "form_start": 0,
+    "form_submit": 0,
+    "begin_checkout": 0,
+    "purchase": 0
+   },
+   "ok": true
+  }
+ },
+ "checkout": {
+  "gravelgod": {
+   "health_ok": true,
+   "stripe_checkout_ok": true,
+   "ok": true,
+   "error": ""
+  },
+  "roadielabs": {
+   "health_ok": true,
+   "stripe_checkout_ok": true,
+   "ok": true,
+   "error": ""
+  }
+ },
+ "mission_control": {
+  "hot_leads_14d": [
+   {
+    "email": "tri-beat_f@proton.me",
+    "name": "",
+    "race": "Alpenbrevet",
+    "brand": "gravelgod",
+    "sequence": "nurture_v1",
+    "step": 0,
+    "status": "active",
+    "opens": 0,
+    "clicks": 0
+   },
+   {
+    "email": "sydburkeco@gmail.om",
+    "name": "",
+    "race": "Vapor Trail 125",
+    "brand": "gravelgod",
+    "sequence": "nurture_v1",
+    "step": 0,
+    "status": "active",
+    "opens": 0,
+    "clicks": 0
+   },
+   {
+    "email": "armsofs@gmail.com",
+    "name": "",
+    "race": "Mammoth Tuff",
+    "brand": "gravelgod",
+    "sequence": "nurture_v1",
+    "step": 0,
+    "status": "active",
+    "opens": 0,
+    "clicks": 0
+   },
+   {
+    "email": "osctty@gmail.com",
+    "name": "",
+    "race": "Hotter'N Hell Hundred",
+    "brand": "roadielabs",
+    "sequence": "road_welcome_v1",
+    "step": 1,
+    "status": "active",
+    "opens": 0,
+    "clicks": 0
+   },
+   {
+    "email": "gravelgodcoaching+e2e-bpguide@gmail.com",
+    "name": "",
+    "race": "(no race given)",
+    "brand": "gravelgod",
+    "sequence": "welcome_v1",
+    "step": 1,
+    "status": "active",
+    "opens": 1,
+    "clicks": 0
+   },
+   {
+    "email": "g.e.mainard@gmail.com",
+    "name": "",
+    "race": "Hotter'N Hell Hundred",
+    "brand": "roadielabs",
+    "sequence": "road_welcome_v1",
+    "step": 1,
+    "status": "active",
+    "opens": 0,
+    "clicks": 0
+   },
+   {
+    "email": "deaneinerson@gmail.com",
+    "name": "",
+    "race": "Tour Divide",
+    "brand": "gravelgod",
+    "sequence": "nurture_v1",
+    "step": 1,
+    "status": "completed",
+    "opens": 1,
+    "clicks": 0
+   },
+   {
+    "email": "judo_guido@yahoo.com",
+    "name": "",
+    "race": "Filthy 50",
+    "brand": "gravelgod",
+    "sequence": "nurture_v1",
+    "step": 1,
+    "status": "completed",
+    "opens": 0,
+    "clicks": 0
+   }
+  ],
+  "new_leads_24h": 0,
+  "leads_by_brand": {
+   "gravelgod": 0,
+   "roadielabs": 0
+  },
+  "countdown_enrollments": 0,
+  "emails_sent_24h": 2,
+  "opens_24h": 2,
+  "clicks_24h": 0,
+  "bounces_24h": 0,
+  "new_orders_24h_UNRELIABLE": "use ga4 purchase counts \u2014 gg_athletes is not written by purchases",
+  "errors_24h": [],
+  "ok": true
+ },
+ "commerce_ledger": {
+  "failed_orders": [],
+  "orders": [],
+  "questionnaire_starts": 0,
+  "recoveries": [],
+  "window_hours": 24,
+  "ok": true
+ },
+ "social": {
+  "accounts_live": false,
+  "queued_today": 0,
+  "queued_yesterday": 0,
+  "posts": [],
+  "ok": true
+ },
+ "workflows": {
+  "latest": {
+   "gravel-race-automation/link-check.yml": "failure",
+   "road-race-automation/link-check.yml": "success",
+   "road-race-automation/checkout-monitor.yml": "success",
+   "gravel-race-automation/regression-tests.yml": "success"
+  },
+  "ok": true
+ },
+ "constraint": {
+  "ok": true,
+  "sessions_per_day": 34.8,
+  "cta_rate_pct": 5.04,
+  "cta_to_submit_pct": 42.9,
+  "submit_to_purchase_pct": 9.5,
+  "purchases_28d": 2,
+  "submits_28d": 21,
+  "ctas_28d": 49,
+  "sessions_per_day_needed_for_1_sale": 487,
+  "binding_constraint": "traffic \u2014 at these volumes no funnel rate is even measurable; nothing downstream is worth optimizing yet"
+ },
+ "report_issues": [],
+ "interpretation_ok": true,
+ "report": "## TOP LINE\n- Gravel God: 23 sessions, 6 CTA clicks, 0 form starts \u2014 clicks didn't convert to anything downstream.\n- Zero orders, zero leads, zero checkout starts across both brands today.\n- gravel-race-automation/link-check.yml still failing.\n\n## NUMBERS\n| Brand | Sessions (vs 7d avg) | Funnel | Leads |\n|---|---:|---|---:|\n| Gravel God | 23 (vs 24.9) | cta 6 \u2192 form_start 0 \u2192 submit 0 \u2192 checkout 0 \u2192 purchase 0 | 0 |\n| Roadie Labs | 2 (vs 1.6) | cta 0 \u2192 form_start 0 \u2192 submit 0 \u2192 checkout 0 \u2192 purchase 0 | 0 |\n\n## TRAFFIC\n- **Gravel God top pages:** /course/ (4 views), /race/uci-gravel-dustman/ (4 views), /course/dirt-craft/ (3 views), / (2 views), /questionnaire/ (2 views).\n- **Gravel God channel mix:** Organic Search 12, Direct 11.\n- **Gravel God top landing:** /race/uci-gravel-dustman/ (2 sessions), / (1 sessions), /course/ (1 sessions), /course/gravel-hydration-mastery/lesson/sweat-rate-science/ (1 sessions), /insights/ (1 sessions).\n- **Roadie Labs:** 2 sessions; near-zero traffic.\n\n## COMMERCE (GROUND TRUTH)\n- no orders, cart recoveries, or questionnaire starts.\n\n## CONSTRAINT\n- binding constraint: traffic \u2014 at these volumes no funnel rate is even measurable; nothing downstream is worth optimizing yet.\n- 28d rates: CTA 5.04%; CTA\u2192submit 42.9%; submit\u2192purchase 9.5%.\n- sessions/day needed for 1 sale/day: 487; actual: 34.8.\n\n## HOT LEADS\n- tri-beat_f@proton.me \u2014 Alpenbrevet; nurture_v1 step 0; 0 opens/0 clicks.\n- sydburkeco@gmail.om \u2014 Vapor Trail 125; nurture_v1 step 0; 0 opens/0 clicks.\n- armsofs@gmail.com \u2014 Mammoth Tuff; nurture_v1 step 0; 0 opens/0 clicks.\n- osctty@gmail.com \u2014 Hotter'N Hell Hundred; road_welcome_v1 step 1; 0 opens/0 clicks.\n- gravelgodcoaching+e2e-bpguide@gmail.com \u2014 (no race given); welcome_v1 step 1; 1 opens/0 clicks.\n- g.e.mainard@gmail.com \u2014 Hotter'N Hell Hundred; road_welcome_v1 step 1; 0 opens/0 clicks.\n- deaneinerson@gmail.com \u2014 Tour Divide; nurture_v1 step 1; 1 opens/0 clicks.\n- judo_guido@yahoo.com \u2014 Filthy 50; nurture_v1 step 1; 0 opens/0 clicks.\n\n## BROKEN\n- workflow gravel-race-automation/link-check.yml: failure\n\n## DO TODAY\n- Fix link-check.yml \u2014 unresolved broken links can silently kill traffic/conversion; cheap to check, costly to ignore.\n- Nothing else \u2014 traffic (34.8/day) is ~7% of the 487/day needed for 1 sale/day; funnel tuning is not the lever right now.\n- 8 hot leads sitting at step 0/1 with near-zero opens \u2014 confirm nurture sequences are actually firing, not stalled."
+}

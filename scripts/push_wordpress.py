@@ -1594,6 +1594,10 @@ RewriteRule ^race/natchez-trace-gran-fondo/?$ /race/best-gravel-races-tennessee/
 RewriteRule ^race/walburg-dirty-30/?$ /race/best-gravel-races-texas/ [R=301,L]
 RewriteRule ^race/flint-hills-death-ride/?$ /race/best-gravel-races-kansas/ [R=301,L]
 RewriteRule ^race/kal-tour-dirty-100/?$ /race/best-gravel-races-michigan/ [R=301,L]
+# chiang-mai-gran-fondo: fabricated-as-named (2026-07-23 audit — GFNY never ran
+# Chiang Mai; all references were circular self-sourcing). Subpaths covered.
+RewriteRule ^race/chiang-mai-gran-fondo/?$ /race/calendar/2026/ [R=301,L]
+RewriteRule ^race/chiang-mai-gran-fondo/(.*)$ /race/calendar/2026/ [R=301,L]
 
 # Race renames (2026-07, Matti-approved): event rebrands, slug follows.
 # VS rules MUST precede the wildcards (the old slug is a prefix of the VS slugs).
@@ -1610,6 +1614,9 @@ RewriteRule ^race/gravel-fondo-switzerland/(.*)$ /race/the-majestics/$1 [R=301,L
 # Serbia hub retired 2026-07-22: deleting fabricated balkan-gravel dropped
 # Serbia below the state-hub MIN_RACES floor.
 RewriteRule ^race/best-gravel-races-serbia/?$ /gravel-races/ [R=301,L]
+# Thailand hub retired 2026-07-23: chiang-mai-gran-fondo tombstone dropped
+# Thailand's parseable races below the hub floor.
+RewriteRule ^race/best-gravel-races-thailand/?$ /gravel-races/ [R=301,L]
 
 # Duplicate-race removals (immune-surfaced, commits e18dafba + road-tail):
 # old slug 301s to the kept canonical twin, subpaths preserved.

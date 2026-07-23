@@ -1357,6 +1357,15 @@ def sync_tp(tp_dir: str):
         return None
 
 
+# Utility pages whose canonical URL is the site ROOT — sync_pages must not
+# ship them under /race/ (duplicate content; removed + 301'd 2026-07-23).
+ROOT_CANONICAL_SLUGS = frozenset({
+    "about", "articles", "coaching", "consulting", "cookies", "course",
+    "gravel-tv", "guide", "homepage", "insights", "privacy", "terms",
+    "training-plans",
+})
+
+
 def sync_pages(pages_dir: str):
     """Upload race pages to /race/ on SiteGround via tar+ssh pipe.
 
@@ -1374,7 +1383,8 @@ def sync_pages(pages_dir: str):
         print(f"✗ Pages directory not found: {pages_path}")
         return None
 
-    html_files = sorted(pages_path.glob("*.html"))
+    html_files = sorted(f for f in pages_path.glob("*.html")
+                        if f.stem not in ROOT_CANONICAL_SLUGS)
     # Also check for pre-built subdirectories (vs pages, state hubs, etc.)
     SKIP_DIRS = {"assets", "og", "prep-kit", "blog", "race"}
     subdirs_with_pages = [
@@ -1634,6 +1644,12 @@ RewriteRule ^race/hotternhell-hundred/?$ /race/hottern-hell-hundred/ [R=301,L]
 RewriteRule ^race/hotternhell-hundred/(.*)$ /race/hottern-hell-hundred/$1 [R=301,L]
 # Greece hub retired (greek-gravel removal dropped Greece below the floor)
 RewriteRule ^race/best-gravel-races-greece/?$ /gravel-races/ [R=301,L]
+
+# /race/{utility} duplicate copies removed 2026-07-23 (deploy-parity review:
+# sync_pages ships every flat output/*.html under /race/, duplicating pages
+# whose canonical is the site root). 301 to the root originals.
+RewriteRule ^race/(about|articles|coaching|consulting|cookies|course|gravel-tv|guide|insights|privacy|terms|training-plans)/?$ /$1/ [R=301,L]
+RewriteRule ^race/homepage/?$ / [R=301,L]
 
 # Dead-reference self-healing (2026-07-22 link audit: 215 stale /tires/ +
 # 24 undeployed VS URLs sat in the sitemap 404ing). If the page exists on

@@ -52,6 +52,12 @@ STATIC_REGISTRY = {
     "/privacy/", "/terms/", "/fueling-methodology/", "/course/", "/courses/",
     "/articles/", "/blog/", "/race/methodology/", "/race/calendar/",
     "/products/training-plans/",
+    # Utility pages whose canonical URL is under /race/ (the deploy stack's
+    # only page path; adjudicated 2026-07-23 — root versions do not exist):
+    "/race/blog-index/", "/race/coaching-apply/", "/race/coaching-welcome/",
+    "/race/consulting-confirmed/", "/race/mission-control/",
+    "/race/power-rankings-2026/", "/race/quiz/",
+    "/race/training-plans-success/", "/race/whitepaper-fueling/",
 }
 
 # Live sections we deliberately don't inventory (assets, WP internals, money

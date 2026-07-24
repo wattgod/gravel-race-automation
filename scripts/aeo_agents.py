@@ -70,6 +70,12 @@ NON_AI_SUPPRESSION_LIST = (
     "SeobilityBot",
     "Screaming Frog SEO Spider",
     "SiteAuditBot",
+    # Observed dominating the first live artifact (2026-07-23 smoke run):
+    # classic non-AI search crawlers, suppressed so genuine AI candidates
+    # (e.g. LinkupBot) stay visible.
+    "Baiduspider",
+    "Sogou web spider",
+    "SeznamBot",
 )
 
 COMBINED_ALLOWLIST = tuple(

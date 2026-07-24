@@ -24,7 +24,12 @@ RACE_DATA_DIR = PROJECT_ROOT / "race-data"
 OUTPUT_DIR = PROJECT_ROOT / "web"
 SITE_URL = "https://gravelgodcycling.com"
 
-TIER_LABELS = {1: "Tier 1 (Elite)", 2: "Tier 2 (Strong)", 3: "Tier 3 (Solid)", 4: "Tier 4 (Developing)"}
+TIER_LABELS = {
+    1: "Tier 1 (Elite)",
+    2: "Tier 2 (Contender)",
+    3: "Tier 3 (Solid)",
+    4: "Tier 4 (Roster)",
+}
 
 DIMENSIONS = [
     "logistics", "length", "technicality", "elevation", "climate",
@@ -70,7 +75,7 @@ def _md_escape(val) -> str:
 # llms.txt (brief)
 # ---------------------------------------------------------------------------
 
-def generate_llms_txt(index: list[dict]) -> str:
+def generate_llms_txt(index: list[dict], training_plan_slugs: set[str]) -> str:
     """Generate the brief llms.txt file."""
     tier_counts = {}
     for r in index:
@@ -80,19 +85,21 @@ def generate_llms_txt(index: list[dict]) -> str:
     regions = sorted(set(r.get("region", "Unknown") for r in index if r.get("region")))
     now = datetime.now(timezone.utc).strftime("%Y-%m-%d")
 
+    training_guide_count = len(training_plan_slugs)
+
     return f"""# Gravel God Race Database
 
-> The definitive gravel race database. {len(index)} races rated on 14 criteria, scored 0-100, and tiered 1-4.
+> The definitive gravel race database. {len(index)} races rated on 14 base dimensions plus a Cultural Impact bonus, scored 0-100+, and tiered 1-4.
 > Last generated: {now}
 
 ## Overview
 
-Gravel God is an independent gravel cycling database covering {len(index)} races across North America and beyond. Every race is scored on 14 dimensions (logistics, length, technicality, elevation, climate, altitude, adventure, prestige, race quality, experience, community, field depth, value, expenses) on a 1-5 scale, producing an overall score out of 100 and a tier assignment (T1=elite, T2=strong, T3=solid, T4=developing).
+Gravel God is a gravel cycling database covering {len(index)} races across North America and beyond. Every race is scored on 14 base dimensions (logistics, length, technicality, elevation, climate, altitude, adventure, prestige, race quality, experience, community, field depth, value, expenses) on a 1-5 scale, plus a Cultural Impact bonus from 0-5, producing an overall score out of 100+ and a tier assignment (T1=Elite, T2=Contender, T3=Solid, T4=Roster).
 
 - **Tier 1 (Elite)**: {tier_counts.get(1, 0)} races — score >= 80 or prestige override
-- **Tier 2 (Strong)**: {tier_counts.get(2, 0)} races — score >= 60
+- **Tier 2 (Contender)**: {tier_counts.get(2, 0)} races — score >= 60
 - **Tier 3 (Solid)**: {tier_counts.get(3, 0)} races — score >= 45
-- **Tier 4 (Developing)**: {tier_counts.get(4, 0)} races — score < 45
+- **Tier 4 (Roster)**: {tier_counts.get(4, 0)} races — score < 45
 
 Disciplines: gravel, MTB, bikepacking.
 Regions: {', '.join(regions)}.
@@ -108,6 +115,11 @@ Regions: {', '.join(regions)}.
 - [Markdown profiles]({SITE_URL}/race/{{slug}}.md)
 - [Race training-plan guides]({SITE_URL}/race/{{slug}}/training-plan/)
 - [Race prep kits]({SITE_URL}/race/{{slug}}/prep-kit/)
+
+## Training Plans
+
+- [Training Plans Hub]({SITE_URL}/products/training-plans/)
+- {training_guide_count} race-specific training guides are available at `{SITE_URL}/race/{{slug}}/training-plan/`.
 
 ## Markdown Mirrors
 
@@ -192,23 +204,29 @@ def generate_llms_full_txt(index: list[dict], race_data_dir: Path) -> str:
     lines = []
     lines.append("# Gravel God Race Database — Full Context")
     lines.append("")
-    lines.append(f"> {len(index)} gravel, MTB, and bikepacking races rated on 14 criteria.")
+    lines.append(
+        f"> {len(index)} gravel, MTB, and bikepacking races rated on "
+        "14 base dimensions plus a Cultural Impact bonus."
+    )
     lines.append(f"> Produced by Gravel God (gravelgodcycling.com). Generated: {now}")
     lines.append("")
 
     # Scoring methodology
     lines.append("## Scoring Methodology")
     lines.append("")
-    lines.append("Each race is scored on 14 dimensions (1-5 scale):")
+    lines.append("Each race is scored on 14 base dimensions (1-5 scale):")
     lines.append(", ".join(DIMENSIONS) + ".")
+    lines.append("Cultural Impact is a bonus dimension scored from 0-5.")
     lines.append("")
-    lines.append("Overall score = round((sum of 14 scores / 70) * 100).")
+    lines.append(
+        "Overall score = round(((sum of 14 base scores + Cultural Impact) / 70) * 100)."
+    )
     lines.append("")
     lines.append("Tier assignment:")
     lines.append("- Tier 1 (Elite): score >= 80, OR prestige=5 + score>=75")
-    lines.append("- Tier 2 (Strong): score >= 60, OR prestige=5 + score<75 (capped at T2)")
+    lines.append("- Tier 2 (Contender): score >= 60, OR prestige=5 + score<75 (capped at T2)")
     lines.append("- Tier 3 (Solid): score >= 45")
-    lines.append("- Tier 4 (Developing): score < 45")
+    lines.append("- Tier 4 (Roster): score < 45")
     lines.append("- Prestige 4 promotes one tier (but not into T1)")
     lines.append("")
 
@@ -309,7 +327,16 @@ def main():
     print(f"Loaded {len(index)} races from index")
 
     # Generate llms.txt
-    llms_txt = generate_llms_txt(index)
+    try:
+        from training_plan_inventory import fetch_live_training_plan_slugs
+
+        training_plan_slugs = fetch_live_training_plan_slugs()
+    except Exception as e:
+        print(f"ERROR: Could not fetch live training-guide inventory: {e}")
+        return 1
+    print(f"Loaded {len(training_plan_slugs)} live race training guides")
+
+    llms_txt = generate_llms_txt(index, training_plan_slugs)
     print(f"  llms.txt: {len(llms_txt):,} bytes")
 
     # Generate llms-full.txt

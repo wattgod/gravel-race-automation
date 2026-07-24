@@ -1,0 +1,487 @@
+{
+ "date": "2026-07-24",
+ "ga4": {
+  "gravelgod": {
+   "sessions": 35,
+   "users": 28,
+   "pageviews": 48,
+   "sessions_7d_avg": 26.6,
+   "funnel": {
+    "cta_click": 0,
+    "form_start": 2,
+    "form_submit": 0,
+    "begin_checkout": 0,
+    "purchase": 0
+   },
+   "abandoned_submits": 0,
+   "top_pages": [
+    {
+     "path": "/gravel-races/",
+     "views": 12
+    },
+    {
+     "path": "/race/race-across-america/",
+     "views": 4
+    },
+    {
+     "path": "/race/salida-76/",
+     "views": 4
+    },
+    {
+     "path": "/race/kettle-mettle/",
+     "views": 3
+    },
+    {
+     "path": "/race/the-rift/",
+     "views": 3
+    },
+    {
+     "path": "/",
+     "views": 2
+    },
+    {
+     "path": "/race/calendar/2026/",
+     "views": 2
+    },
+    {
+     "path": "/race/the-traka/tires/",
+     "views": 2
+    }
+   ],
+   "channel_mix": {
+    "Organic Search": 19,
+    "Direct": 13,
+    "Unassigned": 2,
+    "AI Assistant": 1
+   },
+   "top_landing": [
+    {
+     "path": "",
+     "sessions": 4
+    },
+    {
+     "path": "/gravel-races/",
+     "sessions": 3
+    },
+    {
+     "path": "/race/the-rift/",
+     "sessions": 3
+    },
+    {
+     "path": "/",
+     "sessions": 2
+    },
+    {
+     "path": "/race/calendar/2026/",
+     "sessions": 2
+    },
+    {
+     "path": "/race/race-across-america/",
+     "sessions": 2
+    }
+   ],
+   "sessions_28d": 981,
+   "funnel_28d": {
+    "cta_click": 48,
+    "form_start": 35,
+    "form_submit": 18,
+    "begin_checkout": 1,
+    "purchase": 2
+   },
+   "ok": true
+  },
+  "roadielabs": {
+   "sessions": 0,
+   "users": 0,
+   "pageviews": 0,
+   "sessions_7d_avg": 1.4,
+   "funnel": {
+    "cta_click": 0,
+    "form_start": 0,
+    "form_submit": 0,
+    "begin_checkout": 0,
+    "purchase": 0
+   },
+   "abandoned_submits": 0,
+   "top_pages": [],
+   "channel_mix": {},
+   "top_landing": [],
+   "sessions_28d": 15,
+   "funnel_28d": {
+    "cta_click": 0,
+    "form_start": 0,
+    "form_submit": 0,
+    "begin_checkout": 0,
+    "purchase": 0
+   },
+   "ok": true
+  }
+ },
+ "checkout": {
+  "gravelgod": {
+   "health_ok": true,
+   "stripe_checkout_ok": true,
+   "ok": true,
+   "error": ""
+  },
+  "roadielabs": {
+   "health_ok": true,
+   "stripe_checkout_ok": true,
+   "ok": true,
+   "error": ""
+  }
+ },
+ "mission_control": {
+  "hot_leads_14d": [
+   {
+    "email": "yachtofun@gmail.com",
+    "name": "",
+    "race": "(no race given)",
+    "brand": "gravelgod",
+    "sequence": "welcome_v1",
+    "step": 1,
+    "status": "active",
+    "opens": 1,
+    "clicks": 0
+   },
+   {
+    "email": "petogi@gmail.com",
+    "name": "",
+    "race": "D2R2",
+    "brand": "gravelgod",
+    "sequence": "nurture_v1",
+    "step": 0,
+    "status": "active",
+    "opens": 0,
+    "clicks": 0
+   },
+   {
+    "email": "tri-beat_f@proton.me",
+    "name": "",
+    "race": "Alpenbrevet",
+    "brand": "gravelgod",
+    "sequence": "nurture_v1",
+    "step": 1,
+    "status": "completed",
+    "opens": 1,
+    "clicks": 0
+   },
+   {
+    "email": "sydburkeco@gmail.om",
+    "name": "",
+    "race": "Vapor Trail 125",
+    "brand": "gravelgod",
+    "sequence": "nurture_v1",
+    "step": 1,
+    "status": "completed",
+    "opens": 0,
+    "clicks": 0
+   },
+   {
+    "email": "armsofs@gmail.com",
+    "name": "",
+    "race": "Mammoth Tuff",
+    "brand": "gravelgod",
+    "sequence": "nurture_v1",
+    "step": 1,
+    "status": "completed",
+    "opens": 1,
+    "clicks": 0
+   },
+   {
+    "email": "osctty@gmail.com",
+    "name": "",
+    "race": "Hotter'N Hell Hundred",
+    "brand": "roadielabs",
+    "sequence": "road_welcome_v1",
+    "step": 1,
+    "status": "active",
+    "opens": 0,
+    "clicks": 0
+   },
+   {
+    "email": "gravelgodcoaching+e2e-bpguide@gmail.com",
+    "name": "",
+    "race": "(no race given)",
+    "brand": "gravelgod",
+    "sequence": "welcome_v1",
+    "step": 2,
+    "status": "active",
+    "opens": 1,
+    "clicks": 0
+   },
+   {
+    "email": "g.e.mainard@gmail.com",
+    "name": "",
+    "race": "Hotter'N Hell Hundred",
+    "brand": "roadielabs",
+    "sequence": "road_welcome_v1",
+    "step": 1,
+    "status": "active",
+    "opens": 0,
+    "clicks": 0
+   }
+  ],
+  "new_leads_24h": 2,
+  "leads_by_brand": {
+   "gravelgod": 2,
+   "roadielabs": 0
+  },
+  "countdown_enrollments": 0,
+  "emails_sent_24h": 7,
+  "opens_24h": 4,
+  "clicks_24h": 0,
+  "bounces_24h": 0,
+  "new_orders_24h_UNRELIABLE": "use ga4 purchase counts \u2014 gg_athletes is not written by purchases",
+  "errors_24h": [],
+  "ok": true
+ },
+ "commerce_ledger": {
+  "failed_orders": [],
+  "orders": [],
+  "questionnaire_starts": 0,
+  "recoveries": [],
+  "window_hours": 24,
+  "ok": true
+ },
+ "social": {
+  "accounts_live": false,
+  "queued_today": 0,
+  "queued_yesterday": 0,
+  "posts": [],
+  "ok": true
+ },
+ "workflows": {
+  "latest": {
+   "gravel-race-automation/link-check.yml": "failure",
+   "road-race-automation/link-check.yml": "success",
+   "road-race-automation/checkout-monitor.yml": "success",
+   "gravel-race-automation/regression-tests.yml": "success",
+   "gravel-race-automation/aeo-weekly.yml": "success"
+  },
+  "ok": true
+ },
+ "aeo": {
+  "state": "ok",
+  "ok": true,
+  "artifact": "aeo-weekly-2026-07-24.json",
+  "prior_artifact": null,
+  "generated_at_utc": "2026-07-24T03:28:41.614589Z",
+  "current_window": {
+   "end": "2026-07-23",
+   "start": "2026-07-17"
+  },
+  "brands": {
+   "gravelgod": {
+    "label": "Gravel God",
+    "ga4_status": "ok",
+    "logs_status": "ok",
+    "ai_referral_sessions": 2,
+    "ai_referral_delta": null,
+    "ai_referral_delta_text": "baseline \u2014 no prior artifact",
+    "user_fetch": 1264,
+    "user_fetch_delta": null,
+    "user_fetch_delta_text": "baseline \u2014 no prior artifact",
+    "search_index": 156,
+    "training_crawl": 0,
+    "llms_2xx": 1843,
+    "llms_non_2xx": 6,
+    "top_user_fetch_paths": [
+     {
+      "path": "/",
+      "hits": 125
+     },
+     {
+      "path": "/race/calendar/2026/",
+      "hits": 89
+     },
+     {
+      "path": "/race/race-across-america/",
+      "hits": 53
+     }
+    ]
+   },
+   "roadie": {
+    "label": "Roadie Labs",
+    "ga4_status": "ok",
+    "logs_status": "ok",
+    "ai_referral_sessions": 0,
+    "ai_referral_delta": null,
+    "ai_referral_delta_text": "baseline \u2014 no prior artifact",
+    "user_fetch": 50,
+    "user_fetch_delta": null,
+    "user_fetch_delta_text": "baseline \u2014 no prior artifact",
+    "search_index": 12,
+    "training_crawl": 0,
+    "llms_2xx": 494,
+    "llms_non_2xx": 2,
+    "top_user_fetch_paths": [
+     {
+      "path": "/race/whistler-granfondo/",
+      "hits": 3
+     },
+     {
+      "path": "/robots.txt",
+      "hits": 3
+     },
+     {
+      "path": "/",
+      "hits": 2
+     }
+    ]
+   },
+   "xcski": {
+    "label": "XC Ski Labs",
+    "ga4_status": "not_configured",
+    "logs_status": "ok",
+    "ai_referral_sessions": null,
+    "ai_referral_delta": null,
+    "ai_referral_delta_text": "baseline \u2014 no prior artifact",
+    "user_fetch": 11,
+    "user_fetch_delta": null,
+    "user_fetch_delta_text": "baseline \u2014 no prior artifact",
+    "search_index": 4,
+    "training_crawl": 0,
+    "llms_2xx": 279,
+    "llms_non_2xx": 0,
+    "top_user_fetch_paths": [
+     {
+      "path": "/",
+      "hits": 2
+     },
+     {
+      "path": "/race/birkebeinerrennet/",
+      "hits": 2
+     },
+     {
+      "path": "/race/engadin-la-diagonela/",
+      "hits": 2
+     }
+    ]
+   }
+  },
+  "unknown_agent_candidates": [
+   {
+    "brands": {
+     "gravelgod": 134
+    },
+    "count": 134,
+    "user_agent": "LinkupBot/1.0 (LinkupBot for web indexing; https://linkup.so/bot; bot@linkup.so)"
+   },
+   {
+    "brands": {
+     "gravelgod": 93,
+     "roadie": 6
+    },
+    "count": 99,
+    "user_agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_1) AppleWebKit/601.2.4 (KHTML, like Gecko) Version/9.0.1 Safari/601.2.4 fac"
+   },
+   {
+    "brands": {
+     "gravelgod": 95
+    },
+    "count": 95,
+    "user_agent": "Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko); compatible; ShapBot/0.1.0"
+   },
+   {
+    "brands": {
+     "gravelgod": 71
+    },
+    "count": 71,
+    "user_agent": "YisouSpider"
+   },
+   {
+    "brands": {
+     "gravelgod": 58
+    },
+    "count": 58,
+    "user_agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36 (Stripebot/1.0; +h"
+   },
+   {
+    "brands": {
+     "gravelgod": 12
+    },
+    "count": 12,
+    "user_agent": "Mozilla/5.0 (compatible; MojeekBot/0.11; +https://www.mojeek.com/bot.html)"
+   },
+   {
+    "brands": {
+     "gravelgod": 9
+    },
+    "count": 9,
+    "user_agent": "Mozilla/5.0 (compatible; Discordbot/2.0; +https://discordapp.com)"
+   },
+   {
+    "brands": {
+     "gravelgod": 6
+    },
+    "count": 6,
+    "user_agent": "Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko); compatible; AzureAI-SearchBot/1.0;"
+   },
+   {
+    "brands": {
+     "gravelgod": 6
+    },
+    "count": 6,
+    "user_agent": "Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko; compatible; MistralAI-User/1.0; +https://docs.mistral.ai/robots)"
+   },
+   {
+    "brands": {
+     "gravelgod": 6
+    },
+    "count": 6,
+    "user_agent": "SEBot-WA"
+   },
+   {
+    "brands": {
+     "gravelgod": 4
+    },
+    "count": 4,
+    "user_agent": "Mozilla/5.0 (compatible; YandexFavicons/1.0; +http://yandex.com/bots)"
+   },
+   {
+    "brands": {
+     "xcski": 2
+    },
+    "count": 2,
+    "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 Edg/140."
+   },
+   {
+    "brands": {
+     "gravelgod": 2
+    },
+    "count": 2,
+    "user_agent": "Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko); compatible; SEOJuice-SearchBot/1.0; +https://seojuice.io/bot"
+   },
+   {
+    "brands": {
+     "xcski": 2
+    },
+    "count": 2,
+    "user_agent": "RecordedFuture Global Inventory Crawler"
+   },
+   {
+    "brands": {
+     "gravelgod": 2
+    },
+    "count": 2,
+    "user_agent": "Twitterbot/1.0"
+   }
+  ]
+ },
+ "constraint": {
+  "ok": true,
+  "sessions_per_day": 35.0,
+  "cta_rate_pct": 4.89,
+  "cta_to_submit_pct": 37.5,
+  "submit_to_purchase_pct": 11.1,
+  "purchases_28d": 2,
+  "submits_28d": 18,
+  "ctas_28d": 48,
+  "sessions_per_day_needed_for_1_sale": 490,
+  "binding_constraint": "traffic \u2014 at these volumes no funnel rate is even measurable; nothing downstream is worth optimizing yet"
+ },
+ "report_issues": [],
+ "interpretation_ok": true,
+ "report": "## TOP LINE\n- Gravel God sessions hit 35 (vs 26.6 avg) but generated 0 CTA clicks, 0 purchases \u2014 traffic and funnel disconnected today.\n- Zero orders, zero recoveries, zero questionnaire starts for the 7th straight day; no lead progressed to checkout.\n- Roadie Labs sessions dropped to 0. Gravel God link-check workflow failing.\n\n## NUMBERS\n| Brand | Sessions (vs 7d avg) | Funnel | Leads |\n|---|---:|---|---:|\n| Gravel God | 35 (vs 26.6) | cta 0 \u2192 form_start 2 \u2192 submit 0 \u2192 checkout 0 \u2192 purchase 0 | 2 |\n| Roadie Labs | 0 (vs 1.4) | cta 0 \u2192 form_start 0 \u2192 submit 0 \u2192 checkout 0 \u2192 purchase 0 | 0 |\n\n## TRAFFIC\n- **Gravel God top pages:** /gravel-races/ (12 views), /race/race-across-america/ (4 views), /race/salida-76/ (4 views), /race/kettle-mettle/ (3 views), /race/the-rift/ (3 views).\n- **Gravel God channel mix:** Organic Search 19, Direct 13, Unassigned 2, AI Assistant 1.\n- **Gravel God top landing:** (not set) (4 sessions), /gravel-races/ (3 sessions), /race/the-rift/ (3 sessions), / (2 sessions), /race/calendar/2026/ (2 sessions).\n- **Roadie Labs:** 0 sessions; near-zero traffic.\n\n## COMMERCE (GROUND TRUTH)\n- no orders, cart recoveries, or questionnaire starts.\n\n## CONSTRAINT\n- binding constraint: traffic \u2014 at these volumes no funnel rate is even measurable; nothing downstream is worth optimizing yet.\n- 28d rates: CTA 4.89%; CTA\u2192submit 37.5%; submit\u2192purchase 11.1%.\n- sessions/day needed for 1 sale/day: 490; actual: 35.0.\n\n## HOT LEADS\n- yachtofun@gmail.com \u2014 (no race given); welcome_v1 step 1; 1 opens/0 clicks.\n- petogi@gmail.com \u2014 D2R2; nurture_v1 step 0; 0 opens/0 clicks.\n- tri-beat_f@proton.me \u2014 Alpenbrevet; nurture_v1 step 1; 1 opens/0 clicks.\n- sydburkeco@gmail.om \u2014 Vapor Trail 125; nurture_v1 step 1; 0 opens/0 clicks.\n- armsofs@gmail.com \u2014 Mammoth Tuff; nurture_v1 step 1; 1 opens/0 clicks.\n- osctty@gmail.com \u2014 Hotter'N Hell Hundred; road_welcome_v1 step 1; 0 opens/0 clicks.\n- gravelgodcoaching+e2e-bpguide@gmail.com \u2014 (no race given); welcome_v1 step 2; 1 opens/0 clicks.\n- g.e.mainard@gmail.com \u2014 Hotter'N Hell Hundred; road_welcome_v1 step 1; 0 opens/0 clicks.\n\n## AEO (WEEKLY)\n- completed window: 2026-07-17 through 2026-07-23; AI-referral sessions are a lower-bound click-through proxy, not proof of citation.\n- **Gravel God:** AI-referral 2 (baseline \u2014 no prior artifact); user_fetch 1264 (baseline \u2014 no prior artifact); search_index 156; training_crawl 0; llms.txt/.md 2xx 1843 (6 non-2xx).\n- **Gravel God top fetched paths:** / (125), /race/calendar/2026/ (89), /race/race-across-america/ (53).\n- **Roadie Labs:** AI-referral 0 (baseline \u2014 no prior artifact); user_fetch 50 (baseline \u2014 no prior artifact); search_index 12; training_crawl 0; llms.txt/.md 2xx 494 (2 non-2xx).\n- **Roadie Labs top fetched paths:** /race/whistler-granfondo/ (3), /robots.txt (3), / (2).\n- **XC Ski Labs:** AI-referral not configured; user_fetch 11 (baseline \u2014 no prior artifact); search_index 4; training_crawl 0; llms.txt/.md 2xx 279.\n- **XC Ski Labs top fetched paths:** / (2), /race/birkebeinerrennet/ (2), /race/engadin-la-diagonela/ (2).\n- **Unknown agent candidates (spoofable):** LinkupBot/1.0 (LinkupBot for web indexing; https://linkup.so/bot; bot@linkup.so) (134; gravelgod 134), Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_1) AppleWebKit/601.2.4 (KHTML, like Gecko) Version/9.0.1 Safari/601.2.4 fac (99; gravelgod 93, roadie 6), Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko); compatible; ShapBot/0.1.0 (95; gravelgod 95), YisouSpider (71; gravelgod 71), Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36 (Stripebot/1.0; +h (58; gravelgod 58), Mozilla/5.0 (compatible; MojeekBot/0.11; +https://www.mojeek.com/bot.html) (12; gravelgod 12), Mozilla/5.0 (compatible; Discordbot/2.0; +https://discordapp.com) (9; gravelgod 9), Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko); compatible; AzureAI-SearchBot/1.0; (6; gravelgod 6), Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko; compatible; MistralAI-User/1.0; +https://docs.mistral.ai/robots) (6; gravelgod 6), SEBot-WA (6; gravelgod 6), Mozilla/5.0 (compatible; YandexFavicons/1.0; +http://yandex.com/bots) (4; gravelgod 4), Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 Edg/140. (2; xcski 2), Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko); compatible; SEOJuice-SearchBot/1.0; +https://seojuice.io/bot (2; gravelgod 2), RecordedFuture Global Inventory Crawler (2; xcski 2), Twitterbot/1.0 (2; gravelgod 2).\n\n## BROKEN\n- workflow gravel-race-automation/link-check.yml: failure\n\n## DO TODAY\n- Check gravel-race-automation/link-check.yml failure \u2014 broken links could explain 0 CTAs despite traffic spike. Impact: unblocks funnel top.\n- Nothing to optimize on rates (submit\u2192purchase, CTA%) \u2014 sample sizes too thin, constraint is traffic (35 vs 490 needed). Don't touch the funnel.\n- Manually nudge the two 0-open leads (sydburkeco, g.e.mainard, osctty) with a direct check-in \u2014 cheapest lever available today given zero organic funnel movement."
+}

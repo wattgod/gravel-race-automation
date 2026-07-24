@@ -51,16 +51,19 @@ BRANDS = {
         "domain": "gravelgodcycling.com",
         "env_prefix": "",
         "ga4_property_env": "GG_GA4_PROPERTY_ID",
+        "llms_marker": "# Gravel God Race Database",
     },
     "roadie": {
         "domain": "roadielabs.com",
         "env_prefix": "RL_",
         "ga4_property_env": "RL_GA4_PROPERTY_ID",
+        "llms_marker": "# Roadie Labs Race Database",
     },
     "xcski": {
         "domain": "xcskilabs.com",
         "env_prefix": "XC_",
         "ga4_property_env": None,
+        "llms_marker": "# XC Ski Labs Race Database",
     },
 }
 
@@ -490,6 +493,33 @@ def _merge_unknown_candidates(
     )[:MAX_UNKNOWN_CANDIDATES]
 
 
+def check_llms_marker(brand: str, timeout: int = 20) -> dict[str, Any]:
+    """Verify the live /llms.txt still serves OUR database file.
+
+    Born from the Jul 24 regression: AIOSEO regenerates a physical llms.txt
+    daily and SiteGround's nginx serves physical files before Apache ever
+    consults the .htaccess rewrite, so plugin content silently displaced
+    ours. chmod 444 on the server is the defense; this is the dead-man that
+    catches the next silent displacement (renders as BROKEN in Morning
+    Intel via the stale/invalid path).
+    """
+    import urllib.request
+
+    meta = BRANDS[brand]
+    url = f"https://{meta['domain']}/llms.txt"
+    req = urllib.request.Request(
+        url, headers={"User-Agent": "gg-aeo-weekly/1 (self-check)"})
+    with urllib.request.urlopen(req, timeout=timeout) as resp:
+        head = resp.read(4096).decode("utf-8", "replace")
+    marker = str(meta["llms_marker"])
+    ok = head.lstrip("﻿\n\r ").startswith(marker)
+    return {
+        "status": "ok" if ok else "displaced",
+        "marker": marker,
+        "first_line": head.splitlines()[0][:120] if head else "",
+    }
+
+
 def collect_weekly(now: datetime | None = None) -> dict[str, Any]:
     """Run all collectors fail-soft and return a schema-versioned artifact."""
     generated = now or datetime.now(timezone.utc)
@@ -520,7 +550,11 @@ def collect_weekly(now: datetime | None = None) -> dict[str, Any]:
             log_result = _empty_log_error(
                 f"{type(exc).__name__}: {exc}", dates)
             candidates = []
-        artifact["brands"][brand] = {"ga4": ga4, **log_result}
+        try:
+            llms = check_llms_marker(brand)
+        except Exception as exc:
+            llms = {"status": "error", "error": _error(f"{type(exc).__name__}: {exc}")}
+        artifact["brands"][brand] = {"ga4": ga4, "llms_serving": llms, **log_result}
         unknown_by_brand[brand] = candidates
     artifact["unknown_agent_candidates"] = _merge_unknown_candidates(unknown_by_brand)
     return artifact

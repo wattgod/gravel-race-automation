@@ -3455,6 +3455,23 @@ def sync_llms_txt():
     remote_base = "~/www/gravelgodcycling.com/public_html"
     uploaded = 0
 
+    # /llms.txt is deliberately left chmod 444 on the server (see below) so
+    # AIOSEO's daily physical-file regeneration fails instead of clobbering
+    # our content — SiteGround's nginx serves existing static files directly,
+    # so the .htaccess rewrite alone never gets consulted while a physical
+    # llms.txt exists. Unlock it before our own upload.
+    try:
+        subprocess.run(
+            [
+                "ssh", "-i", str(SSH_KEY), "-p", port,
+                f"{user}@{host}",
+                f"chmod 644 {remote_base}/llms.txt 2>/dev/null || true",
+            ],
+            check=False, capture_output=True, text=True, timeout=30,
+        )
+    except Exception as e:
+        print(f"⚠ Could not pre-unlock llms.txt (continuing): {e}")
+
     # (local_filename, remote_filename) — llms-repo.txt is llms.txt's content
     # uploaded a second time under the AIOSEO-immune filename (see docstring).
     uploads = [("llms.txt", "llms.txt"), ("llms-full.txt", "llms-full.txt"), ("llms.txt", "llms-repo.txt")]
@@ -3508,14 +3525,19 @@ def sync_llms_txt():
               + ", ".join(sorted(required_failures)))
         return False
 
-    # Fix permissions (only the files this function targets, not the whole root)
+    # Fix permissions (only the files this function targets, not the whole
+    # root). llms.txt is then RE-LOCKED to 444: AIOSEO regenerates its own
+    # physical llms.txt daily and nginx serves physical files before Apache
+    # ever consults the .htaccess rewrite — read-only is what actually makes
+    # our content durable. The pre-unlock above pairs with this.
     remote_targets = " ".join(f"{remote_base}/{f}" for f in filenames)
     try:
         subprocess.run(
             [
                 "ssh", "-i", str(SSH_KEY), "-p", port,
                 f"{user}@{host}",
-                f"chmod 644 {remote_targets} 2>/dev/null",
+                f"chmod 644 {remote_targets} 2>/dev/null; "
+                f"chmod 444 {remote_base}/llms.txt 2>/dev/null",
             ],
             check=True,
             capture_output=True,

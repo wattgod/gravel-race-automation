@@ -499,10 +499,16 @@ def _collect_aeo(today: date | None = None) -> dict:
         )
         ga4_delta = _aeo_delta(ga4_sessions, prior_ga4_sessions)
         user_fetch_delta = _aeo_delta(user_fetch, prior_user_fetch)
+        llms_serving = current_brand.get("llms_serving") or {}
         rendered_brands[brand] = {
             "label": label,
             "ga4_status": (current_brand.get("ga4") or {}).get("status", "error"),
             "logs_status": (current_brand.get("logs") or {}).get("status", "error"),
+            # "displaced" = the live /llms.txt no longer starts with our
+            # database marker (e.g. AIOSEO clobbered it again) — surfaced
+            # as a BROKEN line by _collector_failures.
+            "llms_serving_status": llms_serving.get("status", "unknown"),
+            "llms_serving_first_line": llms_serving.get("first_line", ""),
             "ai_referral_sessions": ga4_sessions,
             "ai_referral_delta": ga4_delta,
             "ai_referral_delta_text": _aeo_delta_text(ga4_delta),
@@ -642,6 +648,16 @@ def _collector_failures(collected: dict) -> list[str]:
             and aeo.get("state") in {"stale", "invalid"}
             and aeo.get("ok") is False):
         broken.append(_display(aeo.get("error"), "AEO weekly artifact unavailable"))
+    if isinstance(aeo, dict) and aeo.get("state") == "ok":
+        for brand, summary in (aeo.get("brands") or {}).items():
+            if not isinstance(summary, dict):
+                continue
+            if summary.get("llms_serving_status") == "displaced":
+                first = summary.get("llms_serving_first_line") or "?"
+                broken.append(
+                    f"{summary.get('label', brand)} /llms.txt DISPLACED — live file "
+                    f"no longer starts with our database marker (serving: {first!r}); "
+                    f"likely AIOSEO clobbered it again")
     return broken
 
 

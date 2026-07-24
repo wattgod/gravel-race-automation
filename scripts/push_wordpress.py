@@ -1741,14 +1741,18 @@ def sync_redirects():
         return False
 
     # Keep a dated remote backup so a bad block is one `cp` from reverted.
-    subprocess.run(
+    backup = subprocess.run(
         [
             "ssh", "-i", str(SSH_KEY), "-p", port,
             f"{user}@{host}",
-            f"cp {remote_htaccess} {remote_htaccess}.bak-$(date +%Y%m%d)",
+            f"cp {remote_htaccess} {remote_htaccess}.bak-$(date +%Y%m%d-%H%M%S)",
         ],
         capture_output=True, text=True, timeout=15,
     )
+    if backup.returncode != 0:
+        print(f"✗ Refusing to write: remote .htaccess backup failed: "
+              f"{backup.stderr.strip()}")
+        return False
 
     # Check if our block already exists
     if REDIRECT_MARKER in current:
@@ -3437,13 +3441,16 @@ def sync_llms_txt():
     try:
         subprocess.run(
             [sys.executable, "scripts/generate_llms_txt.py"],
-            check=True, capture_output=True, text=True, timeout=60,
+            check=True, capture_output=True, text=True, timeout=150,
         )
         print("  Regenerated llms.txt + llms-full.txt")
     except subprocess.CalledProcessError as e:
-        print(f"⚠ llms.txt regeneration failed, uploading existing files: {e.stderr.strip()}")
+        detail = (e.stderr or e.stdout or "").strip()
+        print(f"✗ llms.txt regeneration failed; refusing stale upload: {detail}")
+        return False
     except Exception as e:
-        print(f"⚠ llms.txt regeneration failed, uploading existing files: {e}")
+        print(f"✗ llms.txt regeneration failed; refusing stale upload: {e}")
+        return False
 
     remote_base = "~/www/gravelgodcycling.com/public_html"
     uploaded = 0
@@ -3464,12 +3471,14 @@ def sync_llms_txt():
     except Exception as e:
         print(f"⚠ Could not resolve IndexNow key filename, skipping: {e}")
 
+    failed_uploads = []
     for local_filename, remote_filename in uploads:
         local_path = Path("web") / local_filename
         if not local_path.exists():
             print(f"✗ {local_filename} not found: {local_path}")
             if local_filename in ("llms.txt", "llms-full.txt"):
                 print(f"  Run: python3 scripts/generate_llms_txt.py first")
+            failed_uploads.append(remote_filename)
             continue
 
         try:
@@ -3487,8 +3496,17 @@ def sync_llms_txt():
             uploaded += 1
         except subprocess.CalledProcessError as e:
             print(f"✗ SCP failed for {remote_filename}: {e.stderr.strip()}")
+            failed_uploads.append(remote_filename)
         except Exception as e:
             print(f"✗ Error uploading {remote_filename}: {e}")
+            failed_uploads.append(remote_filename)
+
+    required_uploads = {"llms.txt", "llms-full.txt", "llms-repo.txt"}
+    required_failures = required_uploads.intersection(failed_uploads)
+    if required_failures:
+        print("✗ Required llms uploads failed: "
+              + ", ".join(sorted(required_failures)))
+        return False
 
     # Fix permissions (only the files this function targets, not the whole root)
     remote_targets = " ".join(f"{remote_base}/{f}" for f in filenames)
@@ -4049,7 +4067,7 @@ if __name__ == "__main__":
     synced_markdown_urls = None
     if args.sync_markdown:
         synced_markdown_urls = sync_markdown(args.markdown_dir)
-        if synced_markdown_urls is False:
+        if not synced_markdown_urls:
             _failures.append("sync-markdown")
     if args.ping_indexnow:
         if synced_markdown_urls:

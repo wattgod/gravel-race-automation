@@ -33,39 +33,68 @@ def index():
     return json.loads(INDEX_FILE.read_text())
 
 
+@pytest.fixture
+def training_plan_slugs():
+    return {"unbound-200", "mid-south"}
+
+
 class TestLlmsTxt:
-    def test_starts_with_heading(self, index):
-        txt = generate_llms_txt(index)
+    def test_starts_with_heading(self, index, training_plan_slugs):
+        txt = generate_llms_txt(index, training_plan_slugs)
         assert txt.startswith("# Gravel God Race Database")
 
-    def test_has_race_count(self, index):
-        txt = generate_llms_txt(index)
+    def test_has_race_count(self, index, training_plan_slugs):
+        txt = generate_llms_txt(index, training_plan_slugs)
         assert str(len(index)) in txt
 
-    def test_has_tier_breakdown(self, index):
-        txt = generate_llms_txt(index)
+    def test_has_tier_breakdown(self, index, training_plan_slugs):
+        txt = generate_llms_txt(index, training_plan_slugs)
         assert "Tier 1" in txt
         assert "Tier 4" in txt
+        assert "Tier 2 (Contender)" in txt
+        assert "Tier 4 (Roster)" in txt
+        assert "Tier 2 (Strong)" not in txt
+        assert "Tier 4 (Developing)" not in txt
 
-    def test_has_machine_readable_links(self, index):
-        txt = generate_llms_txt(index)
+    def test_has_machine_readable_links(self, index, training_plan_slugs):
+        txt = generate_llms_txt(index, training_plan_slugs)
         assert "llms-full.txt" in txt
         assert "race-index.json" in txt
         assert "api/v1/docs" in txt
         assert "feed/races.xml" in txt
 
-    def test_has_contact(self, index):
-        txt = generate_llms_txt(index)
+    def test_has_training_plans_section(self, index, training_plan_slugs):
+        txt = generate_llms_txt(index, training_plan_slugs)
+        assert "## Training Plans" in txt
+        assert "https://gravelgodcycling.com/products/training-plans/" in txt
+        assert f"{len(training_plan_slugs)} race-specific training guides" in txt
+        assert txt.index("## Machine-Readable Resources") < txt.index("## Training Plans")
+        assert txt.index("## Training Plans") < txt.index("## Markdown Mirrors")
+
+    def test_has_contact(self, index, training_plan_slugs):
+        txt = generate_llms_txt(index, training_plan_slugs)
         assert "matt@gravelgodcycling.com" in txt
 
-    def test_reasonable_size(self, index):
-        txt = generate_llms_txt(index)
+    def test_reasonable_size(self, index, training_plan_slugs):
+        txt = generate_llms_txt(index, training_plan_slugs)
         assert 500 < len(txt) < 5000
 
-    def test_has_generation_timestamp(self, index):
+    def test_has_generation_timestamp(self, index, training_plan_slugs):
         """v2: llms.txt should include a generation date."""
-        txt = generate_llms_txt(index)
+        txt = generate_llms_txt(index, training_plan_slugs)
         assert "Generated:" in txt or "generated:" in txt.lower() or "Last generated:" in txt
+
+    def test_counts_are_derived_not_fixed(self):
+        synthetic_index = [
+            {"slug": "one", "tier": 1},
+            {"slug": "two", "tier": 4},
+            {"slug": "three", "tier": 4},
+        ]
+        txt = generate_llms_txt(synthetic_index, {"one", "three"})
+        assert "3 races rated" in txt
+        assert "2 race-specific training guides" in txt
+        for stale_count in ("733", "735", "744"):
+            assert stale_count not in txt
 
 
 class TestLlmsFullTxt:
@@ -76,7 +105,8 @@ class TestLlmsFullTxt:
     def test_has_scoring_methodology(self, index):
         txt = generate_llms_full_txt(index, RACE_DATA_DIR)
         assert "Scoring Methodology" in txt
-        assert "14 dimensions" in txt
+        assert "14 base dimensions" in txt
+        assert "Cultural Impact is a bonus dimension" in txt
 
     def test_has_t1_t2_section(self, index):
         txt = generate_llms_full_txt(index, RACE_DATA_DIR)
@@ -222,7 +252,7 @@ class TestEmptyInputs:
     """Generators must handle empty or minimal inputs without crashing."""
 
     def test_llms_txt_empty_index(self):
-        txt = generate_llms_txt([])
+        txt = generate_llms_txt([], set())
         assert "# Gravel God Race Database" in txt
         assert "0 races" in txt or "0" in txt
 

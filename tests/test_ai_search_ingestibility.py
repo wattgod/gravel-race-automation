@@ -75,7 +75,11 @@ class TestMarkdownGenerator:
             slug = entry["slug"]
             try:
                 md = generate_markdown_profiles.generate_profile(
-                    slug, index_map[slug], generate_markdown_profiles.RACE_DATA_DIR
+                    slug,
+                    index_map[slug],
+                    generate_markdown_profiles.RACE_DATA_DIR,
+                    len(index),
+                    set(),
                 )
             except Exception:
                 continue

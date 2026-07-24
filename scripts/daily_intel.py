@@ -35,6 +35,7 @@ from pathlib import Path
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 SNAPSHOT_DIR = PROJECT_ROOT / "data" / "intel-snapshots"
+AEO_DIR = PROJECT_ROOT / "data" / "aeo"
 
 try:
     from dotenv import load_dotenv
@@ -367,7 +368,8 @@ def collect_workflows() -> dict:
     for repo, wf in [("wattgod/gravel-race-automation", "link-check.yml"),
                      ("wattgod/road-race-automation", "link-check.yml"),
                      ("wattgod/road-race-automation", "checkout-monitor.yml"),
-                     ("wattgod/gravel-race-automation", "regression-tests.yml")]:
+                     ("wattgod/gravel-race-automation", "regression-tests.yml"),
+                     ("wattgod/gravel-race-automation", "aeo-weekly.yml")]:
         try:
             r = subprocess.run(
                 ["gh", "run", "list", "--repo", repo, "--workflow", wf,
@@ -378,6 +380,173 @@ def collect_workflows() -> dict:
         except Exception as e:
             out[f"{repo.split('/')[1]}/{wf}"] = f"unknown ({type(e).__name__})"
     return {"latest": out}
+
+
+AEO_BRANDS = {
+    "gravelgod": "Gravel God",
+    "roadie": "Roadie Labs",
+    "xcski": "XC Ski Labs",
+}
+
+
+def _aeo_total_days(brand: dict, bucket: str) -> int:
+    return sum(
+        int(day.get(bucket, 0) or 0)
+        for day in ((brand.get("logs") or {}).get("days") or {}).values()
+        if isinstance(day, dict)
+    )
+
+
+def _aeo_ga4_total(brand: dict) -> int | None:
+    ga4 = brand.get("ga4") or {}
+    if ga4.get("status") != "ok":
+        return None
+    return sum(int(value or 0) for value in (ga4.get("current_window") or {}).values())
+
+
+def _aeo_delta(current: int | None, prior: int | None) -> int | None:
+    if current is None or prior is None:
+        return None
+    return current - prior
+
+
+def _aeo_delta_text(delta: int | None) -> str:
+    if delta is None:
+        return "baseline — no prior artifact"
+    if delta > 0:
+        return f"+{delta} WoW"
+    if delta < 0:
+        return f"{delta} WoW"
+    return "0 WoW"
+
+
+def _load_aeo_artifact(path: Path) -> dict:
+    try:
+        artifact = json.loads(path.read_text())
+    except Exception as exc:
+        raise ValueError(f"{type(exc).__name__}: {exc}") from exc
+    try:
+        from scripts.aeo_weekly import validate_artifact
+    except ImportError:
+        from aeo_weekly import validate_artifact
+    errors = validate_artifact(artifact, path=path)
+    if errors:
+        raise ValueError("; ".join(errors))
+    return artifact
+
+
+def _collect_aeo(today: date | None = None) -> dict:
+    """Implementation for collect_aeo; the public collector is fully fail-soft."""
+    paths = sorted(AEO_DIR.glob("aeo-weekly-*.json"))
+    if not paths:
+        return {"state": "missing", "ok": True}
+    latest_path = paths[-1]
+    try:
+        latest = _load_aeo_artifact(latest_path)
+    except Exception as exc:
+        return {
+            "state": "invalid",
+            "ok": False,
+            "error": f"AEO weekly artifact invalid: {str(exc)[:300]}",
+        }
+    generated_date = datetime.fromisoformat(
+        latest["generated_at_utc"].replace("Z", "+00:00")).date()
+    utc_today = today or datetime.now(timezone.utc).date()
+    age_days = (utc_today - generated_date).days
+    if age_days < 0:
+        return {
+            "state": "invalid",
+            "ok": False,
+            "error": "AEO weekly artifact invalid: generated date is in the future",
+        }
+    if age_days > 8:
+        return {
+            "state": "stale",
+            "ok": False,
+            "age_days": age_days,
+            "error": f"AEO weekly artifact stale ({age_days} days)",
+        }
+
+    prior = None
+    prior_path = None
+    if len(paths) > 1:
+        prior_path = paths[-2]
+        try:
+            prior = _load_aeo_artifact(prior_path)
+        except Exception:
+            # A healthy current artifact remains useful; an unreadable historical
+            # comparison degrades to a baseline instead of hiding the section.
+            prior = None
+
+    latest_brands = latest.get("brands") or {}
+    prior_brands = (prior or {}).get("brands") or {}
+    rendered_brands = {}
+    for brand, label in AEO_BRANDS.items():
+        current_brand = latest_brands.get(brand) or {}
+        prior_brand = prior_brands.get(brand) or {}
+        ga4_sessions = _aeo_ga4_total(current_brand)
+        prior_ga4_sessions = _aeo_ga4_total(prior_brand) if prior else None
+        user_fetch = _aeo_total_days(current_brand, "user_fetch")
+        prior_user_fetch = (
+            _aeo_total_days(prior_brand, "user_fetch") if prior else None)
+        search_index = _aeo_total_days(current_brand, "search_index")
+        training_crawl = _aeo_total_days(current_brand, "training_crawl")
+        status_buckets = (current_brand.get("logs") or {}).get("status_buckets") or {}
+        llms_2xx = int(status_buckets.get("2xx", 0) or 0)
+        llms_non_2xx = sum(
+            int(status_buckets.get(status, 0) or 0)
+            for status in ("3xx", "4xx", "5xx")
+        )
+        ga4_delta = _aeo_delta(ga4_sessions, prior_ga4_sessions)
+        user_fetch_delta = _aeo_delta(user_fetch, prior_user_fetch)
+        rendered_brands[brand] = {
+            "label": label,
+            "ga4_status": (current_brand.get("ga4") or {}).get("status", "error"),
+            "logs_status": (current_brand.get("logs") or {}).get("status", "error"),
+            "ai_referral_sessions": ga4_sessions,
+            "ai_referral_delta": ga4_delta,
+            "ai_referral_delta_text": _aeo_delta_text(ga4_delta),
+            "user_fetch": user_fetch,
+            "user_fetch_delta": user_fetch_delta,
+            "user_fetch_delta_text": _aeo_delta_text(user_fetch_delta),
+            "search_index": search_index,
+            "training_crawl": training_crawl,
+            "llms_2xx": llms_2xx,
+            "llms_non_2xx": llms_non_2xx,
+            "top_user_fetch_paths": [
+                {
+                    "path": str(item.get("path") or "(not set)"),
+                    "hits": int(item.get("hits", 0) or 0),
+                }
+                for item in (current_brand.get("top_user_fetch_paths") or [])[:3]
+                if isinstance(item, dict)
+            ],
+        }
+    return {
+        "state": "ok",
+        "ok": True,
+        "artifact": latest_path.name,
+        "prior_artifact": prior_path.name if prior is not None and prior_path else None,
+        "generated_at_utc": latest["generated_at_utc"],
+        "current_window": latest["current_window"],
+        "brands": rendered_brands,
+        "unknown_agent_candidates": latest.get("unknown_agent_candidates") or [],
+    }
+
+
+def collect_aeo(today: date | None = None) -> dict:
+    """Load weekly AEO facts, returning an error state instead of ever raising."""
+    try:
+        return _collect_aeo(today=today)
+    except Exception as exc:
+        return {
+            "state": "invalid",
+            "ok": False,
+            "error": (
+                f"AEO weekly artifact invalid: "
+                f"{type(exc).__name__}: {str(exc)[:260]}"
+            ),
+        }
 
 
 def load_trend(days: int = 7) -> list[dict]:
@@ -467,6 +636,12 @@ def _collector_failures(collected: dict) -> list[str]:
     if isinstance(constraint, dict) and constraint.get("ok") is False:
         error = _display(constraint.get("error"), "unknown error")
         broken.append(f"constraint unavailable: {error}")
+    aeo = collected.get("aeo") or {}
+    if (
+            isinstance(aeo, dict)
+            and aeo.get("state") in {"stale", "invalid"}
+            and aeo.get("ok") is False):
+        broken.append(_display(aeo.get("error"), "AEO weekly artifact unavailable"))
     return broken
 
 
@@ -609,6 +784,67 @@ def render_report(collected: dict) -> str:
             race = post.get("race") or "unknown race"
             kind = post.get("kind") or "post"
             lines.append(f"- {brand}: {race} — {kind}.")
+
+    aeo = collected.get("aeo") or {}
+    if aeo.get("state") == "ok":
+        window = aeo.get("current_window") or {}
+        lines.extend([
+            "",
+            "## AEO (WEEKLY)",
+            (
+                f"- completed window: {_display(window.get('start'), 'unknown')} "
+                f"through {_display(window.get('end'), 'unknown')}; AI-referral "
+                "sessions are a lower-bound click-through proxy, not proof of citation."
+            ),
+        ])
+        for brand in AEO_BRANDS:
+            facts = (aeo.get("brands") or {}).get(brand) or {}
+            label = facts.get("label") or AEO_BRANDS[brand]
+            if facts.get("ga4_status") == "not_configured":
+                referral = "not configured"
+            elif facts.get("ga4_status") != "ok":
+                referral = "unavailable"
+            else:
+                referral = (
+                    f"{_display(facts.get('ai_referral_sessions'))} "
+                    f"({_display(facts.get('ai_referral_delta_text'))})"
+                )
+            if facts.get("logs_status") != "ok":
+                log_facts = "log collector unavailable"
+            else:
+                log_facts = (
+                    f"user_fetch {_display(facts.get('user_fetch'))} "
+                    f"({_display(facts.get('user_fetch_delta_text'))}); "
+                    f"search_index {_display(facts.get('search_index'))}; "
+                    f"training_crawl {_display(facts.get('training_crawl'))}; "
+                    f"llms.txt/.md 2xx {_display(facts.get('llms_2xx'))}"
+                )
+                if facts.get("llms_non_2xx", 0) > 0:
+                    log_facts += (
+                        f" ({_display(facts.get('llms_non_2xx'))} non-2xx)")
+            lines.append(
+                f"- **{label}:** AI-referral {referral}; {log_facts}.")
+            paths = ", ".join(
+                f"{_path(item.get('path'))} ({_display(item.get('hits'))})"
+                for item in (facts.get("top_user_fetch_paths") or [])[:3]
+            ) or "none"
+            lines.append(f"- **{label} top fetched paths:** {paths}.")
+        candidates = aeo.get("unknown_agent_candidates") or []
+        if candidates:
+            rendered_candidates = []
+            for item in candidates:
+                brands = ", ".join(
+                    f"{brand} {_display(count)}"
+                    for brand, count in (item.get("brands") or {}).items()
+                )
+                detail = f"; {brands}" if brands else ""
+                rendered_candidates.append(
+                    f"{_display(item.get('user_agent'), 'unknown')} "
+                    f"({_display(item.get('count'))}{detail})"
+                )
+            lines.append(
+                "- **Unknown agent candidates (spoofable):** "
+                + ", ".join(rendered_candidates) + ".")
 
     lines.extend(["", "## BROKEN"])
     broken = []
@@ -916,6 +1152,7 @@ def main() -> int:
         "commerce_ledger": _safe(collect_commerce_ledger),
         "social": _safe(collect_social),
         "workflows": _safe(collect_workflows),
+        "aeo": _safe(collect_aeo),
     }
     collected["constraint"] = compute_constraint(collected["ga4"].get("gravelgod", {}))
     try:

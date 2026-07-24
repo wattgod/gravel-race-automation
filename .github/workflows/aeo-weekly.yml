@@ -1,0 +1,81 @@
+name: AEO Weekly Monitor
+
+on:
+  schedule:
+    - cron: "30 10 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  monitor:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: pip install --quiet google-analytics-data
+
+      - name: Write GA4 credentials
+        run: echo "$GA4_CREDENTIALS_JSON" > ga4-credentials.json
+        env:
+          GA4_CREDENTIALS_JSON: ${{ secrets.GA4_CREDENTIALS_JSON }}
+
+      - name: Write SSH keys
+        env:
+          GG_SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+          RL_SSH_PRIVATE_KEY: ${{ secrets.RL_SSH_PRIVATE_KEY }}
+          XC_SSH_PRIVATE_KEY: ${{ secrets.XC_SSH_PRIVATE_KEY }}
+        run: |
+          mkdir -p "$RUNNER_TEMP/aeo-keys"
+          printf '%s\n' "$GG_SSH_PRIVATE_KEY" > "$RUNNER_TEMP/aeo-keys/gravelgod"
+          printf '%s\n' "$RL_SSH_PRIVATE_KEY" > "$RUNNER_TEMP/aeo-keys/roadie"
+          printf '%s\n' "$XC_SSH_PRIVATE_KEY" > "$RUNNER_TEMP/aeo-keys/xcski"
+          chmod 600 "$RUNNER_TEMP/aeo-keys/gravelgod" \
+            "$RUNNER_TEMP/aeo-keys/roadie" \
+            "$RUNNER_TEMP/aeo-keys/xcski"
+
+      - name: Collect weekly AEO facts
+        env:
+          GA4_CREDENTIALS: ${{ github.workspace }}/ga4-credentials.json
+          GG_GA4_PROPERTY_ID: ${{ secrets.GG_GA4_PROPERTY_ID }}
+          RL_GA4_PROPERTY_ID: ${{ secrets.RL_GA4_PROPERTY_ID }}
+          SSH_HOST: ${{ secrets.SSH_HOST }}
+          SSH_USER: ${{ secrets.SSH_USER }}
+          SSH_PORT: ${{ secrets.SSH_PORT }}
+          SSH_KEY_PATH: ${{ runner.temp }}/aeo-keys/gravelgod
+          RL_SSH_HOST: ${{ secrets.RL_SSH_HOST }}
+          RL_SSH_USER: ${{ secrets.RL_SSH_USER }}
+          RL_SSH_PORT: ${{ secrets.RL_SSH_PORT }}
+          RL_SSH_KEY_PATH: ${{ runner.temp }}/aeo-keys/roadie
+          XC_SSH_HOST: ${{ secrets.XC_SSH_HOST }}
+          XC_SSH_USER: ${{ secrets.XC_SSH_USER }}
+          XC_SSH_PORT: ${{ secrets.XC_SSH_PORT }}
+          XC_SSH_KEY_PATH: ${{ runner.temp }}/aeo-keys/xcski
+        run: python3 scripts/aeo_weekly.py
+
+      - name: Commit AEO artifact
+        run: |
+          git config user.name "aeo-weekly-bot"
+          git config user.email "aeo-weekly@gravelgodcycling.com"
+          git add data/aeo/
+          if git diff --cached --quiet; then
+            echo "No AEO artifact changes to commit."
+          else
+            git commit -m "chore: AEO weekly monitor $(date -u +%Y-%m-%d)"
+            for i in 1 2 3; do
+              git pull --rebase origin main && git push && break
+              [ "$i" = "3" ] && exit 1
+              sleep 5
+            done
+          fi
+
+      - name: Validate committed artifact
+        run: python3 scripts/aeo_weekly.py --validate-latest --require-all-ok

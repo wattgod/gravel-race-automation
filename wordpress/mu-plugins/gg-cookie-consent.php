@@ -1,8 +1,8 @@
 <?php
 /**
  * Plugin Name: Gravel God Cookie Consent
- * Description: Lightweight cookie consent banner with Google Consent Mode v2.
- * Version: 1.1
+ * Description: Geo-gated cookie consent banner with Google Consent Mode v2.
+ * Version: 1.2
  *
  * Deployed via: python3 scripts/push_wordpress.py --sync-consent
  *
@@ -33,14 +33,16 @@ function gg_consent_mode_defaults() {
     if ( current_user_can( 'edit_posts' ) ) return;
     ?>
 <script>
-window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}
-gtag('consent','default',{
-  'analytics_storage': /(^|; )gg_consent=accepted/.test(document.cookie) ? 'granted' : 'denied',
-  'ad_storage': 'denied',
-  'ad_user_data': 'denied',
-  'ad_personalization': 'denied',
-  'wait_for_update': 500
-});
+window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}
+var ggConsentStrictTimezones=new Set(["Africa/Ceuta","Asia/Famagusta","Asia/Nicosia","Atlantic/Azores","Atlantic/Canary","America/Cayenne","America/Guadeloupe","America/Marigot","America/Martinique","Arctic/Longyearbyen","Atlantic/Faeroe","Indian/Mayotte","Indian/Reunion","Atlantic/Faroe","Atlantic/Madeira","Atlantic/Reykjavik","Europe/Amsterdam","Europe/Athens","Europe/Belfast","Europe/Berlin","Europe/Bratislava","Europe/Brussels","Europe/Bucharest","Europe/Budapest","Europe/Busingen","Europe/Copenhagen","Europe/Dublin","Europe/Helsinki","Europe/Lisbon","Europe/Ljubljana","Europe/London","Europe/Luxembourg","Europe/Madrid","Europe/Malta","Europe/Mariehamn","Europe/Nicosia","Europe/Oslo","Europe/Paris","Europe/Prague","Europe/Riga","Europe/Rome","Europe/Sofia","Europe/Stockholm","Europe/Tallinn","Europe/Vaduz","Europe/Vienna","Europe/Vilnius","Europe/Warsaw","Europe/Zagreb","Europe/Zurich"]);
+var ggConsentTimezone='';var ggConsentTimezoneKnown=false;
+try{ggConsentTimezone=Intl.DateTimeFormat().resolvedOptions().timeZone||'';if(ggConsentTimezone){new Intl.DateTimeFormat('en-US',{timeZone:ggConsentTimezone});ggConsentTimezoneKnown=true}}catch(ggConsentTimezoneError){}
+var ggConsentRequiresOptIn=!ggConsentTimezoneKnown||ggConsentStrictTimezones.has(ggConsentTimezone);
+window.ggConsentRequiresOptIn=ggConsentRequiresOptIn;
+var ggConsentAccepted=/(^|; )gg_consent=accepted/.test(document.cookie);
+var ggConsentDeclined=/(^|; )gg_consent=declined/.test(document.cookie);
+var ggConsentAnalytics=ggConsentAccepted?'granted':ggConsentDeclined?'denied':ggConsentRequiresOptIn?'denied':'granted';
+gtag('consent','default',{'analytics_storage':ggConsentAnalytics,'ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied','wait_for_update':500});
 </script>
     <?php
 }
@@ -55,6 +57,10 @@ function gg_cookie_consent_banner() {
     if ( current_user_can( 'edit_posts' ) ) return;
     ?>
 <style>
+.gg-privacy-choices-footer{padding:8px 16px;text-align:center;background:#59473c;font-family:'Sometype Mono',monospace}
+.gg-privacy-choices{color:#d4c5b9;font-size:10px;letter-spacing:1px;text-transform:uppercase;text-decoration:underline;text-underline-offset:3px}
+.gg-privacy-choices:hover{color:#ffffff}
+.gg-privacy-choices:focus-visible{outline:2px solid #4ECDC4;outline-offset:2px}
 .gg-consent-banner{position:fixed;bottom:0;left:0;right:0;z-index:9999;background:#59473c;border-top:3px solid #9a7e0a;padding:16px 24px;display:none;align-items:center;justify-content:center;gap:16px;flex-wrap:wrap;font-family:'Sometype Mono',monospace}
 .gg-consent-banner.gg-consent-show{display:flex}
 .gg-consent-text{color:#d4c5b9;font-size:13px;line-height:1.5;max-width:640px}
@@ -69,6 +75,7 @@ function gg_cookie_consent_banner() {
 @media(max-width:600px){.gg-consent-banner{padding:10px 16px;gap:10px}.gg-consent-text{font-size:11px;text-align:center}.gg-consent-btn{padding:6px 14px;font-size:11px}}
 @media(prefers-reduced-motion:reduce){.gg-consent-btn{transition:none}}
 </style>
+<div class="gg-privacy-choices-footer"><a class="gg-privacy-choices" id="gg-privacy-choices" href="/cookies/#privacy-choices">Privacy choices</a></div>
 <div class="gg-consent-banner" id="gg-consent-banner" role="dialog" aria-label="Cookie consent" aria-describedby="gg-consent-desc">
   <p class="gg-consent-text" id="gg-consent-desc">We use cookies for analytics to improve this site. No ads, no tracking across sites. <a href="/cookies/">Learn more</a>.</p>
   <button class="gg-consent-btn gg-consent-accept" id="gg-consent-accept">Accept</button>
@@ -77,17 +84,25 @@ function gg_cookie_consent_banner() {
 <script>
 (function(){
   var b=document.getElementById('gg-consent-banner');
+  var p=document.getElementById('gg-privacy-choices');
   if(!b)return;
-  if(/(^|; )gg_consent=/.test(document.cookie))return;
-  /* Delay showing: 3s timeout OR first scroll, whichever comes first */
-  var shown=false;var tid;
-  function showBanner(){
-    if(shown)return;shown=true;
+  var tid;var autoPending=false;
+  function cancelAutoShow(){
+    if(!autoPending)return;autoPending=false;
     clearTimeout(tid);
+    window.removeEventListener('scroll',showBanner);
+  }
+  function showBanner(){
+    cancelAutoShow();
     b.classList.add('gg-consent-show');
   }
-  window.addEventListener('scroll',function(){showBanner();},{passive:true,once:true});
-  tid=setTimeout(showBanner,3000);
+  if(p){p.addEventListener('click',function(e){e.preventDefault();showBanner()})}
+  if(!/(^|; )gg_consent=/.test(document.cookie)&&window.ggConsentRequiresOptIn!==false){
+    /* Delay showing: 3s timeout OR first scroll, whichever comes first */
+    autoPending=true;
+    window.addEventListener('scroll',showBanner,{passive:true,once:true});
+    tid=setTimeout(showBanner,3000);
+  }
   document.getElementById('gg-consent-accept').addEventListener('click',function(){
     document.cookie='gg_consent=accepted;path=/;max-age=31536000;SameSite=Lax;Secure';
     if(typeof gtag==='function'){gtag('consent','update',{'analytics_storage':'granted'})}

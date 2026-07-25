@@ -46,7 +46,7 @@ def get_privacy_content() -> str:
 <h2>What We Collect</h2>
 <p>We collect only what is necessary to operate the site and provide our services:</p>
 <ul>
-<li><strong>Analytics data</strong> &mdash; via Google Analytics 4 (GA4), we collect anonymized usage data including pages visited, session duration, and general location (country/region). This data is collected only after you consent via the cookie banner. We do not intentionally send personally identifiable information to GA4. GA4 uses IP anonymization by default.</li>
+<li><strong>Analytics data</strong> &mdash; via Google Analytics 4 (GA4), we collect anonymized usage data including pages visited, session duration, and general location (country/region). For visitors whose browser timezone is in the EEA, United Kingdom, or Switzerland, analytics remains disabled until they accept the cookie banner. Elsewhere, analytics is enabled by default and can be disabled at any time through the <strong>Privacy choices</strong> link in the footer. If timezone detection fails, analytics remains disabled until accepted. We do not intentionally send personally identifiable information to GA4. GA4 uses IP anonymization by default.</li>
 <li><strong>Form submissions</strong> &mdash; when you fill out the training plan questionnaire or coaching application, we collect the information you provide (name, email, training data). This data is used solely to deliver the service you requested.</li>
 <li><strong>Payment information</strong> &mdash; processed securely by <a href="https://stripe.com/privacy" target="_blank" rel="noopener">Stripe</a>. We never see or store your full card number.</li>
 <li><strong>Email address</strong> &mdash; if you subscribe to our newsletter via Substack, your email is managed by <a href="https://substack.com/privacy" target="_blank" rel="noopener">Substack</a>.</li>
@@ -66,7 +66,7 @@ def get_privacy_content() -> str:
 <h2>Third-Party Services</h2>
 <p>We use the following third-party services that may process data on your behalf:</p>
 <ul>
-<li><strong>Google Analytics 4</strong> &mdash; anonymized site analytics (consent-gated)</li>
+<li><strong>Google Analytics 4</strong> &mdash; anonymized site analytics, opt-in in the EEA, United Kingdom, and Switzerland and opt-out elsewhere</li>
 <li><strong>Stripe</strong> &mdash; payment processing</li>
 <li><strong>Substack</strong> &mdash; newsletter delivery</li>
 <li><strong>Formsubmit.co</strong> &mdash; form handling for coaching applications</li>
@@ -83,7 +83,7 @@ def get_privacy_content() -> str:
 <ul>
 <li>Access the personal data we hold about you</li>
 <li>Request correction or deletion of your data</li>
-<li>Withdraw consent for analytics cookies at any time (clear your cookies or use browser settings)</li>
+<li>Disable analytics cookies at any time through the <strong>Privacy choices</strong> link in the footer</li>
 <li>Opt out of any marketing communications</li>
 </ul>
 <p>To exercise any of these rights, email <a href="mailto:{CONTACT_EMAIL}">{CONTACT_EMAIL}</a>.</p>
@@ -143,7 +143,7 @@ def get_cookies_content() -> str:
 </table>
 
 <h3>Analytics Cookies</h3>
-<p>Set only after you accept the cookie consent banner. Used to understand how visitors use the site so we can improve it.</p>
+<p>Used to understand how visitors use the site so we can improve it. For visitors whose browser timezone is in the EEA, United Kingdom, or Switzerland, these cookies are set only after the visitor accepts the cookie banner. Elsewhere they are enabled by default. If timezone detection fails, they remain disabled until accepted. Every visitor can disable them through the <strong>Privacy choices</strong> link in the footer.</p>
 <table class="gg-legal-table">
 <thead><tr><th>Cookie</th><th>Purpose</th><th>Duration</th></tr></thead>
 <tbody>
@@ -167,11 +167,11 @@ def get_cookies_content() -> str:
 </table>
 
 <h2>Third-Party Cookies</h2>
-<p>We do not use any advertising or social media tracking cookies. The only third-party cookies come from Google Analytics (consent-gated) and Jetpack (site security).</p>
+<p>We do not use any advertising or social media tracking cookies. The only third-party cookies come from Google Analytics (subject to the regional choice described above) and Jetpack (site security).</p>
 
 <h2>Managing Cookies</h2>
 <p>You can control cookies through your browser settings. Most browsers let you block or delete cookies. Note that blocking essential cookies may prevent parts of the site from working correctly.</p>
-<p>To withdraw analytics consent, clear your cookies or use your browser&rsquo;s cookie management tools. On your next visit, the consent banner will reappear.</p>
+<p>To change your analytics preference, use the <strong>Privacy choices</strong> link in the footer. Choosing Decline stores that preference for 365 days and disables analytics cookies in every region. Google Consent Mode may still send cookieless, non-identifying pings while cookies are declined.</p>
 """
 
 

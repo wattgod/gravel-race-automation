@@ -176,9 +176,11 @@ class TestCookiesContent:
     def test_ga_wildcard_cookie(self, content):
         assert "<code>_ga_*</code>" in content
 
-    def test_consent_gated_analytics(self, content):
-        """Analytics cookies must be described as consent-gated."""
-        assert "after you accept" in content
+    def test_geo_gated_analytics(self, content):
+        """Analytics policy must describe both regional defaults."""
+        assert "EEA, United Kingdom, or Switzerland" in content
+        assert "Elsewhere they are enabled by default" in content
+        assert "Privacy choices" in content
 
     def test_has_localstorage_section(self, content):
         """localStorage must be in a separate section, not cookie table."""

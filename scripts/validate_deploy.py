@@ -12,6 +12,7 @@ Usage:
 """
 
 import json
+import re
 import subprocess
 import sys
 import xml.etree.ElementTree as ET
@@ -630,7 +631,55 @@ def check_legal_pages(v):
             body = curl_body(url)
             v.check("noindex" in body, f"{path} is noindexed", "Missing noindex")
             v.check("gg-consent-banner" in body, f"{path} has consent banner", "Missing consent banner")
-            v.check("gg_consent=accepted" in body, f"{path} has consent cookie check", "Missing cookie logic")
+            v.check(
+                "gg_consent=accepted" in body and "gg_consent=declined" in body,
+                f"{path} honors both consent cookie overrides",
+                "Missing accepted or declined cookie logic",
+            )
+            v.check(
+                "Intl.DateTimeFormat().resolvedOptions().timeZone" in body
+                and "ggConsentRequiresOptIn=!ggConsentTimezoneKnown||" in body
+                and "ggConsentRequiresOptIn?'denied':'granted'" in body,
+                f"{path} has synchronous geo-gated defaults",
+                "Missing timezone classifier or granted/denied regional branch",
+            )
+            v.check(
+                all(zone in body for zone in (
+                    "Europe/Paris", "Europe/London", "Europe/Zurich",
+                    "Atlantic/Canary",
+                )),
+                f"{path} has EEA, UK, CH, and Atlantic timezone samples",
+                "Consent timezone allowlist is incomplete",
+            )
+            v.check(
+                all(zone not in body for zone in (
+                    "Europe/Istanbul", "Europe/Moscow", "Europe/Minsk",
+                    "Europe/Belgrade", "Europe/Kyiv",
+                )),
+                f"{path} excludes named non-EEA European timezones",
+                "A non-EEA timezone is incorrectly geo-gated",
+            )
+            v.check(
+                'id="gg-privacy-choices"' in body,
+                f"{path} has footer Privacy choices control",
+                "Missing global analytics opt-out control",
+            )
+            script_blocks = re.findall(
+                r"<script(?: [^>]*)?>(.*?)</script>", body, re.DOTALL)
+            config_blocks = [
+                block for block in script_blocks if "gtag('config'" in block
+            ]
+            consent_before_config = (
+                len(config_blocks) == 1
+                and "gtag('consent','default'" in config_blocks[0]
+                and config_blocks[0].find("gtag('consent','default'")
+                < config_blocks[0].find("gtag('config'")
+            )
+            v.check(
+                consent_before_config,
+                f"{path} defaults consent before config in one script",
+                "Repo pitfall #31 ordering regression",
+            )
             v.check("gg-site-header" in body, f"{path} has site header", "Missing header")
             v.check("gg-mega-footer" in body, f"{path} has mega footer", "Missing footer")
             v.check("og:image" in body, f"{path} has og:image", "Missing og:image meta tag")

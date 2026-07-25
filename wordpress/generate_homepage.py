@@ -1124,7 +1124,11 @@ def build_content_grid(race_index: list, stats: dict, upcoming: list) -> str:
 
 
 def build_how_it_works(stats: dict = None) -> str:
-    race_count = stats["race_count"] if stats else 328
+    race_count = (
+        stats["race_count"]
+        if stats is not None
+        else len(load_race_index())
+    )
     steps = [
         ("01", "PICK YOUR RACE", f"{race_count} races, scored. Filter by terrain, distance, climbing, and what actually matters to you."),
         ("02", "READ THE REAL TAKE", "Every rating comes with an editorial opinion. We tell you if it&rsquo;s worth the flight, the entry fee, and the suffering."),
@@ -2055,17 +2059,22 @@ def build_jsonld(stats: dict) -> str:
 
 
 def generate_homepage(race_index: list, race_data_dir: Path = None,
-                      guide_path: Path = None) -> str:
+                      guide_path: Path = None,
+                      substack_posts: list | None = None) -> str:
     stats = compute_stats(race_index)
     canonical_url = f"{SITE_BASE_URL}/"
-    # Round down to nearest 50 for title stability (757 → "750+", 800 → "800+")
+    # Round down to nearest 50 for title stability as the catalog changes.
     stable_count = (stats['race_count'] // 50) * 50
-    title = f"{stable_count}+ Gravel & Road Races Rated for {CURRENT_YEAR} | Gravel God"
-    meta_desc = f"Find your next gravel race. {stats['race_count']} races worldwide, rated on 15 criteria. Training plans and race intel."
+    title = f"{stable_count}+ Gravel, MTB & Ultra Races Rated for {CURRENT_YEAR} | Gravel God"
+    meta_desc = (
+        f"Find your next off-road cycling event. {stats['race_count']} races "
+        "worldwide, rated on 15 criteria. Training plans and race intel."
+    )
 
     one_liners = load_editorial_one_liners(race_data_dir)
     upcoming = load_upcoming_races(race_data_dir)
-    substack_posts = fetch_substack_posts()
+    if substack_posts is None:
+        substack_posts = fetch_substack_posts()
     chapters = load_guide_chapters(guide_path)
 
     top_bar = build_top_bar()
@@ -2171,13 +2180,21 @@ def main():
     parser.add_argument("--output-dir", default=str(OUTPUT_DIR), help="Output directory")
     parser.add_argument("--index-file", default=str(RACE_INDEX_PATH),
                         help="Path to race-index.json")
+    parser.add_argument(
+        "--offline",
+        action="store_true",
+        help="Build without fetching the live Substack RSS feed",
+    )
     args = parser.parse_args()
 
     output_dir = Path(args.output_dir)
     output_dir.mkdir(parents=True, exist_ok=True)
 
     race_index = load_race_index(Path(args.index_file))
-    html_content = generate_homepage(race_index)
+    html_content = generate_homepage(
+        race_index,
+        substack_posts=[] if args.offline else None,
+    )
 
     output_file = output_dir / "homepage.html"
     output_file.write_text(html_content, encoding="utf-8")

@@ -23,6 +23,7 @@ import argparse
 import html as html_mod
 import json
 import math
+import shutil
 import sys
 from collections import defaultdict
 from datetime import date
@@ -1052,6 +1053,22 @@ def main():
     pairs = select_pairs(all_races)
     print(f"Selected {len(pairs)} vs pairs")
 
+    expected_page_slugs = {
+        f"{slug_a}-vs-{slug_b}"
+        for slug_a, slug_b in pairs
+        if slug_a in race_map and slug_b in race_map
+    }
+    removed_stale = 0
+    if output_dir.exists():
+        for page_dir in output_dir.iterdir():
+            if (
+                page_dir.is_dir()
+                and "-vs-" in page_dir.name
+                and page_dir.name not in expected_page_slugs
+            ):
+                shutil.rmtree(page_dir)
+                removed_stale += 1
+
     generated = 0
     for slug_a, slug_b in pairs:
         race_a = race_map.get(slug_a)
@@ -1071,7 +1088,10 @@ def main():
         out_path.write_text(page_html, encoding="utf-8")
         generated += 1
 
-    print(f"\nDone. {generated} vs pages generated in {output_dir}/")
+    print(
+        f"\nDone. {generated} vs pages generated in {output_dir}/ "
+        f"({removed_stale} stale removed)"
+    )
 
 
 if __name__ == "__main__":

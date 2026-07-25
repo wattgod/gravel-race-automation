@@ -317,6 +317,11 @@ def generate_llms_full_txt(index: list[dict], race_data_dir: Path) -> str:
 def main():
     parser = argparse.ArgumentParser(description="Generate llms.txt and llms-full.txt")
     parser.add_argument("--dry-run", action="store_true", help="Preview sizes only")
+    parser.add_argument(
+        "--training-plan-dir",
+        type=Path,
+        help="Use a local flat training-plan build directory instead of live SSH inventory",
+    )
     args = parser.parse_args()
 
     if not INDEX_FILE.exists():
@@ -328,13 +333,27 @@ def main():
 
     # Generate llms.txt
     try:
-        from training_plan_inventory import fetch_live_training_plan_slugs
+        if args.training_plan_dir:
+            from training_plan_inventory import local_training_plan_slugs
 
-        training_plan_slugs = fetch_live_training_plan_slugs()
+            training_plan_slugs = local_training_plan_slugs(
+                args.training_plan_dir
+            )
+            inventory_source = "local"
+        else:
+            from training_plan_inventory import fetch_live_training_plan_slugs
+
+            training_plan_slugs = fetch_live_training_plan_slugs()
+            inventory_source = "live"
     except Exception as e:
-        print(f"ERROR: Could not fetch live training-guide inventory: {e}")
+        print(f"ERROR: Could not load training-guide inventory: {e}")
         return 1
-    print(f"Loaded {len(training_plan_slugs)} live race training guides")
+    active_slugs = {race["slug"] for race in index}
+    training_plan_slugs &= active_slugs
+    print(
+        f"Loaded {len(training_plan_slugs)} active race training guides "
+        f"from {inventory_source} inventory"
+    )
 
     llms_txt = generate_llms_txt(index, training_plan_slugs)
     print(f"  llms.txt: {len(llms_txt):,} bytes")

@@ -1504,6 +1504,11 @@ def main():
     parser = argparse.ArgumentParser(description="Preflight quality checks")
     parser.add_argument("--js", action="store_true", help="JS-only checks")
     parser.add_argument("--quick", action="store_true", help="Skip slow checks")
+    parser.add_argument(
+        "--offline",
+        action="store_true",
+        help="Skip checks that read live production state",
+    )
     args = parser.parse_args()
 
     print("=" * 60)
@@ -1554,7 +1559,11 @@ def main():
         check_citation_quality()
         check_photo_qc_health()
         check_slop_in_output()
-        check_questionnaire_parity()
+        if args.offline:
+            print("\n── Questionnaire Parity (live vs repo) ──")
+            print("  SKIP: offline build-only run")
+        else:
+            check_questionnaire_parity()
         if not args.quick:
             check_climate_classification()
             check_fabricated_claims()

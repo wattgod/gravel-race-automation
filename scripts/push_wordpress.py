@@ -17,6 +17,25 @@ import requests
 from dotenv import load_dotenv
 from pathlib import Path
 
+try:
+    from scripts.road_migration import (
+        DEFAULT_MAP_PATH as ROAD_MIGRATION_MAP_PATH,
+        DEFAULT_RACE_DATA_DIR as ROAD_MIGRATION_RACE_DATA_DIR,
+        generate_redirect_rules as generate_road_migration_redirect_rules,
+        generate_redirect_section as generate_road_migration_redirect_section,
+        load_approved_map as load_approved_road_migration_map,
+    )
+except ModuleNotFoundError:
+    # Direct invocation (`python scripts/push_wordpress.py`) places scripts/
+    # rather than the repository root on sys.path.
+    from road_migration import (
+        DEFAULT_MAP_PATH as ROAD_MIGRATION_MAP_PATH,
+        DEFAULT_RACE_DATA_DIR as ROAD_MIGRATION_RACE_DATA_DIR,
+        generate_redirect_rules as generate_road_migration_redirect_rules,
+        generate_redirect_section as generate_road_migration_redirect_section,
+        load_approved_map as load_approved_road_migration_map,
+    )
+
 load_dotenv()
 
 SSH_KEY = Path.home() / ".ssh" / "siteground_key"
@@ -1495,6 +1514,17 @@ def sync_pages(pages_dir: str):
     return f"{wp_url}/race/"
 
 
+_ROAD_MIGRATION_MAP = load_approved_road_migration_map(ROAD_MIGRATION_MAP_PATH)
+ROAD_MIGRATION_REDIRECT_RULES = generate_road_migration_redirect_rules(
+    _ROAD_MIGRATION_MAP,
+    ROAD_MIGRATION_RACE_DATA_DIR,
+)
+ROAD_MIGRATION_REDIRECT_SECTION = generate_road_migration_redirect_section(
+    _ROAD_MIGRATION_MAP,
+    ROAD_MIGRATION_RACE_DATA_DIR,
+)
+
+
 REDIRECT_BLOCK = """\
 # BEGIN Gravel God Redirects
 <IfModule mod_rewrite.c>
@@ -1512,6 +1542,7 @@ RewriteEngine On
 # AIOSEO doesn't know about. See scripts/push_wordpress.py::sync_llms_txt()
 # for the upload side (uploads web/llms.txt content to llms-repo.txt too).
 RewriteRule ^llms\\.txt$ /llms-repo.txt [L]
+""" + ROAD_MIGRATION_REDIRECT_SECTION + """
 
 # /page/N/ → / (homepage pagination is meaningless, prevents noindex gap)
 RewriteRule ^page/\\d+/?$ / [R=301,L]
@@ -1784,8 +1815,12 @@ def sync_redirects():
             print(f"✗ Failed to write .htaccess: {proc.stderr.strip()}")
             return False
         print("✓ Redirect rules deployed to .htaccess")
-        print("  6 utility redirects + 27 duplicate content redirects + 10 fabricated-race redirects (301)"
-              " + 1 llms.txt AIOSEO-override rule (internal rewrite, no redirect)")
+        road_delta = len((ROAD_MIGRATION_REDIRECT_SECTION + "\n").encode("utf-8"))
+        print(
+            f"  {len(ROAD_MIGRATION_REDIRECT_RULES)} generated road-migration "
+            f"redirects; estimated .htaccess delta {road_delta:,} bytes "
+            f"({road_delta / 1024:.1f} KiB)"
+        )
         return True
     except Exception as e:
         print(f"✗ Failed to upload .htaccess: {e}")

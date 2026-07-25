@@ -26,6 +26,9 @@ sys.path.insert(0, str(Path(__file__).parent))
 RACE_DATA = Path(__file__).parent.parent / "race-data"
 FLAT_DB = Path(__file__).parent.parent / "db" / "gravel_races_full_database.json"
 OUTPUT_DIR = Path(__file__).parent.parent / "web"
+ROAD_MIGRATION_MAP = (
+    Path(__file__).parent.parent / "docs" / "specs" / "road-migration-map.json"
+)
 
 # SITE-SYNC S3 (docs/specs/SITE_SYNC_SPEC.md): fabricated race pages removed
 # 2026-07, 301-redirected to state/region best-of hubs. profiles DELETED 2026-07-22
@@ -35,6 +38,47 @@ REMOVED_FABRICATED_SLUGS = frozenset(
     t["slug"] for t in __import__("json").loads(
         (Path(__file__).resolve().parent.parent / "config" / "tombstones.json")
         .read_text())["tombstones"])
+
+
+def _load_migrated_road_slugs() -> frozenset[str]:
+    """Return GG source slugs removed by the approved road migration.
+
+    This also prevents two legacy flat-database rows from resurfacing as
+    unprofiled gravel races after their canonical road JSONs are archived.
+    """
+    if not ROAD_MIGRATION_MAP.exists():
+        return frozenset()
+    migration_map = json.loads(ROAD_MIGRATION_MAP.read_text(encoding="utf-8"))
+    return frozenset(
+        entry["gg"]["slug"]
+        for entry in migration_map.get("entries", [])
+        if entry.get("action") in {"redirect", "hub_redirect"}
+    )
+
+
+MIGRATED_ROAD_SLUGS = _load_migrated_road_slugs()
+
+
+def load_profiles(data_dir: Path = RACE_DATA) -> dict[str, dict]:
+    """Load active canonical profiles from race-data/ only (non-recursive)."""
+    profiles = {}
+    for path in sorted(Path(data_dir).glob("*.json")):
+        if path.stem in REMOVED_FABRICATED_SLUGS | MIGRATED_ROAD_SLUGS:
+            continue
+        try:
+            profiles[path.stem] = json.loads(path.read_text())
+        except json.JSONDecodeError:
+            print(f"  ⚠ Skipping invalid JSON: {path.name}")
+    return profiles
+
+
+def discipline_sport(discipline: str) -> str:
+    """Map catalog discipline values to Schema.org SportsEvent sport labels."""
+    return {
+        "mtb": "Mountain Biking",
+        "bikepacking": "Bikepacking",
+        "gravel": "Gravel Cycling",
+    }.get(discipline or "gravel", "Gravel Cycling")
 
 
 def slugify(name: str) -> str:
@@ -372,7 +416,7 @@ def generate_jsonld(entry: dict, profile_data: dict = None) -> dict:
         "@type": "SportsEvent",
         "name": entry["name"],
         "description": entry.get("tagline", ""),
-        "sport": "Gravel Cycling",
+        "sport": discipline_sport(entry.get("discipline", "gravel")),
     }
 
     if iso_date:
@@ -436,15 +480,7 @@ def main():
     args = parser.parse_args()
 
     # Load all canonical profiles
-    profiles = {}
-    for f in sorted(RACE_DATA.glob("*.json")):
-        if f.stem in REMOVED_FABRICATED_SLUGS:
-            continue
-        try:
-            data = json.loads(f.read_text())
-            profiles[f.stem] = data
-        except json.JSONDecodeError:
-            print(f"  ⚠ Skipping invalid JSON: {f.name}")
+    profiles = load_profiles()
 
     # Load flat DB for races without profiles
     flat_raw = json.loads(FLAT_DB.read_text()) if FLAT_DB.exists() else []
@@ -470,6 +506,9 @@ def main():
         name = race.get("RACE_NAME", race.get("name", ""))
         slug = slugify(name)
 
+        if slug in MIGRATED_ROAD_SLUGS:
+            continue
+
         # Try to find a matching profile with fuzzy matching
         matched = find_matching_profile(name, profiles, seen_slugs)
         if matched:
@@ -494,6 +533,14 @@ def main():
     if args.with_jsonld:
         jsonld_dir = OUTPUT_DIR / "jsonld"
         jsonld_dir.mkdir(exist_ok=True)
+        expected_jsonld_names = {
+            f"{entry['slug']}.jsonld"
+            for entry in index
+            if entry["has_profile"]
+        }
+        for stale_path in jsonld_dir.glob("*.jsonld"):
+            if stale_path.name not in expected_jsonld_names:
+                stale_path.unlink()
         count = 0
         for entry in index:
             if entry["has_profile"]:

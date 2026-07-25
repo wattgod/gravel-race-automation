@@ -271,7 +271,10 @@ def test_roundup_has_cta(sample_races):
     html = generate_roundup_html(
         "Test", "Sub", "Intro.", sample_races, "roundup-test", "Cat"
     )
-    assert "Explore All 328 Races" in html
+    # Phase 2 of the Matti-approved road migration changes the catalog from
+    # 733 to 370 entries. The CTA intentionally stays count-free so future
+    # approved catalog changes cannot leave stale promotional copy behind.
+    assert "Explore All Races" in html
     assert "/gravel-races/" in html
 
 

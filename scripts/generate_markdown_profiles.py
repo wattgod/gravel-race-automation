@@ -518,6 +518,11 @@ def main():
         default=OUTPUT_DIR,
         help=f"Output directory (default: {OUTPUT_DIR})",
     )
+    parser.add_argument(
+        "--training-plan-dir",
+        type=Path,
+        help="Use a local flat training-plan build directory instead of live SSH inventory",
+    )
     args = parser.parse_args()
 
     if not INDEX_FILE.exists():
@@ -529,18 +534,39 @@ def main():
     print(f"Loaded {len(index)} races from index")
 
     try:
-        from training_plan_inventory import fetch_live_training_plan_slugs
+        if args.training_plan_dir:
+            from training_plan_inventory import local_training_plan_slugs
 
-        training_plan_slugs = fetch_live_training_plan_slugs()
+            training_plan_slugs = local_training_plan_slugs(
+                args.training_plan_dir
+            )
+            inventory_source = "local"
+        else:
+            from training_plan_inventory import fetch_live_training_plan_slugs
+
+            training_plan_slugs = fetch_live_training_plan_slugs()
+            inventory_source = "live"
     except Exception as e:
-        print(f"ERROR: Could not fetch live training-guide inventory: {e}")
+        print(f"ERROR: Could not load training-guide inventory: {e}")
         return 1
-    print(f"Loaded {len(training_plan_slugs)} live race training guides")
+    training_plan_slugs &= set(index_map)
+    print(
+        f"Loaded {len(training_plan_slugs)} active race training guides "
+        f"from {inventory_source} inventory"
+    )
 
     if args.slug:
         slugs = [args.slug]
     else:
         slugs = [r["slug"] for r in index]
+
+    removed_stale = 0
+    if not args.slug and not args.dry_run and args.output_dir.exists():
+        expected_names = {f"{slug}.md" for slug in slugs}
+        for stale_path in args.output_dir.glob("*.md"):
+            if stale_path.name not in expected_names:
+                stale_path.unlink()
+                removed_stale += 1
 
     generated = 0
     skipped = 0
@@ -575,6 +601,7 @@ def main():
 
     print(f"  Generated: {generated} profiles")
     print(f"  Skipped: {skipped}")
+    print(f"  Removed stale: {removed_stale}")
     print(f"  Total size: {total_bytes:,} bytes ({total_bytes / 1024:.0f} KB)")
 
     if args.dry_run:

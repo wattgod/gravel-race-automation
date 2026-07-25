@@ -1998,6 +1998,16 @@ def main():
 
         files = [f for f in sorted(primary.glob('*.json'))
                  if f.stem not in REMOVED_FABRICATED_SLUGS and _has_tire_recs(f)]
+        active_slugs = {f.stem for f in files}
+        stale_outputs = [
+            path for path in output_dir.glob("*.html")
+            if path.stem not in active_slugs
+        ]
+        for path in stale_outputs:
+            path.unlink()
+        if stale_outputs:
+            print(f"Pruned {len(stale_outputs)} stale tire guide pages")
+
         total = len(files)
         success = 0
         errors = []

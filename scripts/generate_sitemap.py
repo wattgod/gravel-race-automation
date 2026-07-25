@@ -171,6 +171,7 @@ def load_race_photos(data_dir: Path) -> dict:
 def generate_sitemap(race_index: list, output_path: Path, data_dir: Path = None,
                      series_slugs: list = None) -> Path:
     today = date.today().isoformat()
+    active_slugs = {race["slug"] for race in race_index}
 
     urlset = Element('urlset')
     urlset.set('xmlns', 'http://www.sitemaps.org/schemas/sitemap/0.9')
@@ -244,7 +245,12 @@ def generate_sitemap(race_index: list, output_path: Path, data_dir: Path = None,
         SubElement(url, 'priority').text = '0.8'
 
     # Training-plan pages (northstar P2 — commercial-intent SEO)
-    plan_slugs = load_plan_page_slugs(output_path.parent.parent)
+    # Generated satellite directories can outlive a removed race. Keep every
+    # race-scoped sitemap entry bound to the active catalog contract.
+    plan_slugs = [
+        slug for slug in load_plan_page_slugs(output_path.parent.parent)
+        if slug in active_slugs
+    ]
     for slug in plan_slugs:
         url = SubElement(urlset, 'url')
         SubElement(url, 'loc').text = f"{SITE_BASE_URL}/race/{slug}/training-plan/"
@@ -253,7 +259,10 @@ def generate_sitemap(race_index: list, output_path: Path, data_dir: Path = None,
         SubElement(url, 'priority').text = '0.8'
 
     # Tire guide pages
-    tire_slugs = load_tire_slugs(output_path.parent.parent)
+    tire_slugs = [
+        slug for slug in load_tire_slugs(output_path.parent.parent)
+        if slug in active_slugs
+    ]
     for slug in tire_slugs:
         url = SubElement(urlset, 'url')
         SubElement(url, 'loc').text = f"{SITE_BASE_URL}/race/{slug}/tires/"
@@ -449,14 +458,22 @@ def main():
     vs_slugs = load_vs_slugs(project_root)
     state_slugs = load_state_slugs(project_root)
     special_slugs = load_special_pages(project_root)
-    tire_slugs = load_tire_slugs(project_root)
+    active_slugs = {race["slug"] for race in race_index}
+    plan_slugs = [
+        slug for slug in load_plan_page_slugs(project_root)
+        if slug in active_slugs
+    ]
+    tire_slugs = [
+        slug for slug in load_tire_slugs(project_root)
+        if slug in active_slugs
+    ]
     tire_page_slugs = load_tire_page_slugs(project_root)
     tire_vs_slugs = load_tire_vs_slugs(project_root)
     course_slugs = load_course_slugs(project_root)
     course_url_count = (1 + len(course_slugs)) if course_slugs else 0
     guide_cluster_count = 10  # pillar + 8 chapters + configurator
     total_urls = (7 + guide_cluster_count + len(series_slugs) + len(vs_slugs) + len(state_slugs)
-                  + len(special_slugs) + len(tire_slugs)
+                  + len(special_slugs) + len(plan_slugs) + len(tire_slugs)
                   + len(tire_page_slugs) + len(tire_vs_slugs) + course_url_count + len(race_index))
     print(f"Generated sitemap: {output_path} ({total_urls} URLs)")
     if series_slugs:
@@ -467,6 +484,8 @@ def main():
         print(f"  Including {len(state_slugs)} state hub pages")
     if special_slugs:
         print(f"  Including {len(special_slugs)} special pages (calendar, rankings)")
+    if plan_slugs:
+        print(f"  Including {len(plan_slugs)} training-plan pages")
     if tire_slugs:
         print(f"  Including {len(tire_slugs)} tire guide pages")
     if tire_page_slugs:

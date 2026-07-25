@@ -4,7 +4,7 @@ Generate "The State of Gravel" data insights page in neo-brutalist style.
 
 A data journalism page (NYT/Pudding.cool style) with scroll-triggered
 infographics and editorial narrative. Surfaces original research from
-328 rated gravel race profiles across 14 scoring criteria.
+rated gravel race profiles across 15 scoring criteria (14 rated dimensions + cultural-impact bonus, /70).
 
 Uses brand tokens exclusively — zero hardcoded hex, no border-radius, no
 box-shadow, <rect> only (no <circle>).
@@ -625,7 +625,7 @@ def build_overrated_underrated(races: list[dict], editorial_facts: dict) -> str:
                     f"hiding behind a Tier 4 profile."
                 )
         return (
-            f"{name} scored {score} across 14 dimensions with a prestige of just {prestige}/5. "
+            f"{name} scored {score} across the rated dimensions with a prestige of just {prestige}/5. "
             f"The data sees what the hype cycle missed."
         )
 
@@ -690,7 +690,7 @@ def build_overrated_underrated(races: list[dict], editorial_facts: dict) -> str:
                 )
         return (
             f"Prestige {prestige}/5. Overall {score}. "
-            f"The 14 dimensions paint a more complicated picture than the "
+            f"The rated dimensions paint a more complicated picture than the "
             f"registration page. Tier {tier} by the data."
         )
 
@@ -708,7 +708,7 @@ def build_overrated_underrated(races: list[dict], editorial_facts: dict) -> str:
   <div class="gg-insights-ou-grid">
     <div class="gg-insights-ou-group">
       <div class="gg-insights-ou-group-title">Punching Above Their Weight</div>
-      <p class="gg-insights-ou-group-sub">These races scored well across 14 dimensions but have a prestige score of 2/5 or lower. The course delivers. The name recognition does not.</p>
+      <p class="gg-insights-ou-group-sub">These races scored well across the rated dimensions but have a prestige score of 2/5 or lower. The course delivers. The name recognition does not.</p>
 {under_cards}    </div>
     <div class="gg-insights-ou-group">
       <div class="gg-insights-ou-group-title">The Prestige Premium</div>
@@ -742,7 +742,7 @@ def build_hero(stats: dict) -> str:
     return f'''<section class="gg-insights-hero" id="hero">
   <div class="gg-insights-hero-inner">
     <h1 class="gg-insights-hero-title">The State of Gravel</h1>
-    <p class="gg-insights-hero-subtitle">{stats["total_races"]} gravel races. 14 scoring dimensions. {stats["states_with_races"]} states. Scroll to explore.</p>
+    <p class="gg-insights-hero-subtitle">{stats["total_races"]} gravel races. 15 scoring criteria. {stats["states_with_races"]} states. Scroll to explore.</p>
     <div class="gg-insights-counters">
 {counter_html}    </div>
   </div>
@@ -812,7 +812,7 @@ def build_data_story(races: list[dict], editorial_facts: dict) -> str:
 
     tier_section = f'''<section id="tier-breakdown" class="gg-insights-section">
   <h2 class="gg-insights-section-title">The Gravel 1%</h2>
-  <p class="gg-insights-narrative">{tier_counts[1]} of {total} races earn Tier 1. {tier_counts[3]} land in Tier 3. Scoring 80+ across {len(ALL_DIMS)} dimensions is hard. That is the point.</p>
+  <p class="gg-insights-narrative">{tier_counts[1]} of {total} races earn Tier 1. {tier_counts[3]} land in Tier 3. Scoring 80+ across 15 criteria is hard. That is the point.</p>
   <div class="gg-ins-data-chart" data-animate="bars">
 {tier_bars}  </div>
 </section>'''
@@ -1208,7 +1208,7 @@ def build_closing(race_count: int, stats: dict = None) -> str:
         items.append(f'<span class="gg-ins-closing-stat-item">{race_count} races</span>')
         if state_count:
             items.append(f'<span class="gg-ins-closing-stat-item">{state_count} states</span>')
-        items.append(f'<span class="gg-ins-closing-stat-item">{len(ALL_DIMS)} dimensions</span>')
+        items.append('<span class="gg-ins-closing-stat-item">15 criteria</span>')
         if median_price:
             items.append(f'<span class="gg-ins-closing-stat-item">${median_price} median entry</span>')
         stat_strip = f'''  <div class="gg-ins-closing-stats">
@@ -1218,7 +1218,7 @@ def build_closing(race_count: int, stats: dict = None) -> str:
 
     return f'''<section class="gg-insights-section gg-ins-closing" id="what-now">
   <h2 class="gg-insights-section-title">Now Go Race</h2>
-  <p class="gg-insights-narrative">{race_count} races. {len(ALL_DIMS)} dimensions. The data is here. Use it.</p>
+  <p class="gg-insights-narrative">{race_count} races. 15 criteria. The data is here. Use it.</p>
 {stat_strip}  <div class="gg-insights-closing-single">
     <a href="{SITE_BASE_URL}/gravel-races/" class="gg-insights-cta-btn-gold gg-insights-cta-btn-lg" data-cta="closing-explore">Explore All {race_count} Races</a>
   </div>

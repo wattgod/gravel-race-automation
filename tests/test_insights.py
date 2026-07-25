@@ -2828,10 +2828,13 @@ class TestDimParity:
         for dim in ALL_DIMS:
             assert dim in js_labels, f"Missing JS label for dim: {dim}"
 
-    def test_dim_count_not_hardcoded(self, insights_html):
-        """The dimension count string should match len(ALL_DIMS)."""
-        expected = f"{len(ALL_DIMS)} dimensions"
+    def test_criteria_count_canonical(self, insights_html):
+        """Public copy uses the canonical criteria count: len(ALL_DIMS) rated
+        dimensions + the cultural-impact bonus = 15 criteria (matches homepage
+        and about). Bare "{N} dimensions" phrasing must not reappear."""
+        expected = f"{len(ALL_DIMS) + 1} criteria"
         assert expected in insights_html
+        assert f"{len(ALL_DIMS)} dimensions" not in insights_html
 
     def test_no_hardcoded_14_dimensions(self, insights_html):
         """'14 dimensions' should NOT appear as a hardcoded string."""

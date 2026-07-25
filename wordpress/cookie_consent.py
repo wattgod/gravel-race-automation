@@ -46,6 +46,8 @@ EEA_UK_CH_TIMEZONES = (
     "Asia/Nicosia",
     "Atlantic/Azores",
     "Atlantic/Canary",
+    "Atlantic/Reykjavik",  # Iceland — EEA/EFTA, GDPR applies
+    "Atlantic/Faroe",  # Faroe Islands — strict-side inclusion (Danish realm)
     "Atlantic/Madeira",
     "Europe/Amsterdam",
     "Europe/Athens",

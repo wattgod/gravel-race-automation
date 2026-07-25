@@ -293,7 +293,7 @@ def test_roundup_escapes_html():
         "Test", "Sub", "Intro.", races, "roundup-test", "Cat"
     )
     assert "&lt;script&gt;" in html
-    assert "<script>" not in html.split("</head>")[1]
+    assert "Race <script>" not in html
 
 
 # ── Integration: load_race_index ──

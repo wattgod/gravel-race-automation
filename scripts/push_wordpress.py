@@ -3591,6 +3591,7 @@ if __name__ == "__main__":
                       args.sync_meta_descriptions, args.sync_mission_control,
                       args.sync_insights, args.sync_whitepaper, args.sync_embed, args.sync_rss,
                       args.sync_llms_txt, args.sync_markdown,
+                      args.sync_legal, args.sync_consent,
                       args.purge_cache])
     if not has_action:
         parser.error("Provide a sync flag (--sync-pages, --sync-index, etc.), --deploy-content, or --deploy-all")
@@ -3600,7 +3601,10 @@ if __name__ == "__main__":
     _failures: list = []
 
     def _run(name, fn, *fn_args):
-        if fn(*fn_args) is False:
+        # Falsy (False OR None) = failure: several sync_* functions return
+        # None on failure paths (sol-caught: sync_consent, sync_markdown) —
+        # `is False` alone let those report silent success.
+        if not fn(*fn_args):
             _failures.append(name)
 
     if args.json:

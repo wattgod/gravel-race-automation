@@ -46,6 +46,14 @@ EEA_UK_CH_TIMEZONES = (
     "Asia/Nicosia",
     "Atlantic/Azores",
     "Atlantic/Canary",
+    "America/Cayenne",
+    "America/Guadeloupe",
+    "America/Marigot",
+    "America/Martinique",
+    "Arctic/Longyearbyen",
+    "Atlantic/Faeroe",
+    "Indian/Mayotte",
+    "Indian/Reunion",
     "Atlantic/Reykjavik",  # Iceland — EEA/EFTA, GDPR applies
     "Atlantic/Faroe",  # Faroe Islands — strict-side inclusion (Danish realm)
     "Atlantic/Madeira",

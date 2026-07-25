@@ -171,7 +171,7 @@ def get_cookies_content() -> str:
 
 <h2>Managing Cookies</h2>
 <p>You can control cookies through your browser settings. Most browsers let you block or delete cookies. Note that blocking essential cookies may prevent parts of the site from working correctly.</p>
-<p>To change your analytics preference, use the <strong>Privacy choices</strong> link in the footer. Choosing Decline stores that preference for 365 days and disables analytics in every region.</p>
+<p>To change your analytics preference, use the <strong>Privacy choices</strong> link in the footer. Choosing Decline stores that preference for 365 days and disables analytics cookies in every region. Google Consent Mode may still send cookieless, non-identifying pings while cookies are declined.</p>
 """
 
 

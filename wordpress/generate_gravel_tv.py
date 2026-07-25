@@ -29,6 +29,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent))
 from brand_tokens import get_ga4_head_snippet, get_font_face_css, get_tokens_css
+from cookie_consent import get_consent_banner_html
 from shared_header import get_site_header_html, get_site_header_css, get_site_header_js
 
 PROJECT_ROOT = Path(__file__).parent.parent
@@ -373,6 +374,7 @@ def build_page() -> str:
   }});
 }})();
 </script>
+{get_consent_banner_html()}
 </body>
 </html>'''
 

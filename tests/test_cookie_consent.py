@@ -15,7 +15,11 @@ from pathlib import Path
 import pytest
 
 sys.path.insert(0, str(Path(__file__).parent.parent / "wordpress"))
-from cookie_consent import get_consent_banner_html
+from cookie_consent import (
+    EEA_UK_CH_TIMEZONES,
+    get_consent_banner_html,
+    requires_explicit_consent,
+)
 
 TOKENS_CSS = Path(__file__).parent.parent.parent / "gravel-god-brand" / "tokens" / "tokens.css"
 
@@ -105,6 +109,10 @@ class TestBannerStructure:
 
     def test_banner_id(self, banner):
         assert 'id="gg-consent-banner"' in banner
+
+    def test_has_footer_privacy_choices_link(self, banner):
+        assert 'id="gg-privacy-choices"' in banner
+        assert ">Privacy choices<" in banner
 
     def test_no_border_radius(self, css):
         assert "border-radius" not in css
@@ -217,6 +225,14 @@ class TestJsBehavior:
         """Decline MUST explicitly update consent to denied."""
         assert "'analytics_storage':'denied'" in js
 
+    def test_auto_show_only_for_strict_geo_without_cookie(self, js):
+        assert "window.ggConsentRequiresOptIn!==false" in js
+        assert "/(^|; )gg_consent=/.test(document.cookie)" in js
+
+    def test_privacy_choices_can_open_banner(self, js):
+        assert "gg-privacy-choices" in js
+        assert "e.preventDefault();showBanner()" in js
+
     def test_cookie_has_secure_flag(self, js):
         """All cookies must have Secure flag for HTTPS sites."""
         cookie_sets = re.findall(r"document\.cookie='[^']*'", js)
@@ -239,6 +255,43 @@ class TestJsBehavior:
     def test_removes_show_class(self, js):
         """Both accept and decline must hide the banner."""
         assert js.count("classList.remove('gg-consent-show')") == 2
+
+
+# ── Geographic classifier ─────────────────────────────────
+
+class TestTimezoneClassifier:
+    """The Python mirror and emitted JS share one explicit timezone list."""
+
+    @pytest.mark.parametrize("timezone", [
+        "Europe/Paris",
+        "Europe/Amsterdam",
+        "Atlantic/Canary",
+        "Asia/Nicosia",
+    ])
+    def test_eea_timezones_are_strict(self, timezone):
+        assert requires_explicit_consent(timezone)
+
+    @pytest.mark.parametrize("timezone", ["Europe/London", "Europe/Belfast"])
+    def test_uk_timezones_are_strict(self, timezone):
+        assert requires_explicit_consent(timezone)
+
+    def test_switzerland_is_strict(self):
+        assert requires_explicit_consent("Europe/Zurich")
+
+    @pytest.mark.parametrize("timezone", [
+        "Europe/Istanbul",
+        "Europe/Moscow",
+        "Europe/Minsk",
+        "Europe/Belgrade",
+        "Europe/Kyiv",
+    ])
+    def test_named_non_eea_european_zones_are_excluded(self, timezone):
+        assert timezone not in EEA_UK_CH_TIMEZONES
+        assert not requires_explicit_consent(timezone)
+
+    @pytest.mark.parametrize("timezone", [None, "", "Unknown/Timezone"])
+    def test_unknown_or_missing_timezone_fails_closed(self, timezone):
+        assert requires_explicit_consent(timezone)
 
 
 # ── CSS Brand Compliance ──────────────────────────────────

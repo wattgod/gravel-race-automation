@@ -170,6 +170,17 @@ class TestConsentMode:
         defaults = _extract_php_consent_defaults(php_source)
         for timezone in EEA_UK_CH_TIMEZONES:
             assert f'"{timezone}"' in defaults
+
+    def test_geo_zone_sets_exactly_equal(self, php_source):
+        """PHP's Set literal must equal the Python list EXACTLY — extra PHP
+        zones are as wrong as missing ones (sol-caught drift risk: the two
+        lists are manually duplicated)."""
+        import re
+        defaults = _extract_php_consent_defaults(php_source)
+        m = re.search(r"ggConsentStrictTimezones=new Set\(\[(.*?)\]\)", defaults)
+        assert m, "PHP strict-timezone Set literal not found"
+        php_zones = set(re.findall(r'"([^"]+)"', m.group(1)))
+        assert php_zones == set(EEA_UK_CH_TIMEZONES)
         for excluded in (
             "Europe/Istanbul",
             "Europe/Moscow",

@@ -1287,6 +1287,18 @@ def check_consent_snippet_centralized():
     check("All generators import get_ga4_head_snippet", len(missing_import) == 0,
           f"Missing import: {missing_import}")
 
+    missing_privacy_choices = []
+    for f in sorted(WORDPRESS_DIR.glob("generate_*.py")):
+        content = f.read_text()
+        if (
+            "get_ga4_head_snippet()" in content
+            and "get_consent_banner_html()" not in content
+        ):
+            missing_privacy_choices.append(f.name)
+    check("All GA4 generators include footer Privacy choices",
+          len(missing_privacy_choices) == 0,
+          f"Missing get_consent_banner_html(): {missing_privacy_choices}")
+
     # Check consent regex (not indexOf) across all generators
     indexof_files = []
     for f in sorted(WORDPRESS_DIR.glob("generate_*.py")):
@@ -1296,11 +1308,64 @@ def check_consent_snippet_centralized():
     check("No indexOf for consent check in generators", len(indexof_files) == 0,
           f"Found indexOf: {indexof_files}")
 
-    # Check brand_tokens.py snippet uses regex
-    bt = (WORDPRESS_DIR / "brand_tokens.py").read_text()
-    check("brand_tokens consent uses regex",
-          "/(^|; )gg_consent=accepted/.test" in bt,
-          "Must use regex, not indexOf")
+    # Inspect the composed output, not only source text: the consent source is
+    # cookie_consent.py and brand_tokens.py wraps it for every generator.
+    if str(WORDPRESS_DIR) not in sys.path:
+        sys.path.insert(0, str(WORDPRESS_DIR))
+    from brand_tokens import get_ga4_head_snippet
+    from cookie_consent import EEA_UK_CH_TIMEZONES
+
+    snippet = get_ga4_head_snippet()
+    check("Composed consent uses accepted-cookie regex",
+          "/(^|; )gg_consent=accepted/.test" in snippet,
+          "Accepted cookie override is missing or not prefix-safe")
+    check("Composed consent uses declined-cookie regex",
+          "/(^|; )gg_consent=declined/.test" in snippet,
+          "Declined cookie override is missing or not prefix-safe")
+    check("Composed consent uses synchronous timezone detection",
+          "Intl.DateTimeFormat().resolvedOptions().timeZone" in snippet,
+          "Missing client-side timezone classifier")
+    check("Composed consent fails closed on missing timezone",
+          "ggConsentRequiresOptIn=!ggConsentTimezoneKnown||" in snippet,
+          "Unknown or missing timezone must use strict consent")
+    check("Composed consent has both geo defaults",
+          "ggConsentRequiresOptIn?'denied':'granted'" in snippet,
+          "Missing EEA denied / non-EEA granted branch")
+
+    required_samples = (
+        "Europe/Paris",
+        "Europe/London",
+        "Europe/Zurich",
+        "Atlantic/Canary",
+    )
+    check("Consent timezone list includes EEA, UK, CH, and Atlantic samples",
+          all(zone in EEA_UK_CH_TIMEZONES and zone in snippet
+              for zone in required_samples),
+          f"Missing required timezone sample; list has {len(EEA_UK_CH_TIMEZONES)} entries")
+    excluded_zones = (
+        "Europe/Istanbul",
+        "Europe/Moscow",
+        "Europe/Minsk",
+        "Europe/Belgrade",
+        "Europe/Kyiv",
+    )
+    check("Consent timezone list excludes named non-EEA zones",
+          all(zone not in EEA_UK_CH_TIMEZONES and zone not in snippet
+              for zone in excluded_zones),
+          "A named non-EEA European timezone is incorrectly geo-gated")
+
+    script_blocks = re.findall(
+        r"<script(?: [^>]*)?>(.*?)</script>", snippet, re.DOTALL)
+    config_blocks = [block for block in script_blocks if "gtag('config'" in block]
+    same_block_ordered = (
+        len(config_blocks) == 1
+        and "gtag('consent','default'" in config_blocks[0]
+        and config_blocks[0].find("gtag('consent','default'")
+        < config_blocks[0].find("gtag('config'")
+    )
+    check("Consent default precedes GA config in the same script block",
+          same_block_ordered,
+          "Repo pitfall #31: geo default and gtag config must be synchronous")
 
     # Check PHP mu-plugin parity
     php_path = WORDPRESS_DIR / "mu-plugins" / "gg-cookie-consent.php"
@@ -1309,6 +1374,17 @@ def check_consent_snippet_centralized():
         check("PHP consent uses regex",
               "/(^|; )gg_consent=accepted/.test" in php,
               "Must use regex in PHP mu-plugin")
+        check("PHP consent honors declined cookie",
+              "/(^|; )gg_consent=declined/.test" in php,
+              "Missing declined-cookie override in PHP mu-plugin")
+        check("PHP consent has geo-gated defaults",
+              "ggConsentRequiresOptIn?'denied':'granted'" in php
+              and "Intl.DateTimeFormat().resolvedOptions().timeZone" in php
+              and "ggConsentRequiresOptIn=!ggConsentTimezoneKnown||" in php,
+              "Missing synchronous timezone branch in PHP mu-plugin")
+        check("PHP consent has Privacy choices link",
+              'id="gg-privacy-choices"' in php,
+              "Missing footer opt-out control in PHP mu-plugin")
         check("PHP consent has no indexOf",
               "indexOf" not in php or "gg_consent" not in php,
               "PHP still has indexOf for consent")

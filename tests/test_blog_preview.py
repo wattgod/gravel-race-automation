@@ -160,10 +160,11 @@ def test_generate_preview_escapes_html():
     """Verify HTML entities are escaped in output."""
     html = generate_preview_html("unbound-200")
     assert html is not None
-    # Should not contain unescaped angle brackets in text content
-    # (but will have them in HTML tags)
-    assert "<script>" not in html.split("</head>")[1].split("</body>")[0] or \
-           html.count("<script") <= 2  # Only the JSON-LD script
+    # The only body script is the static shared consent controller; race data
+    # must never create an additional script block.
+    body = html.split("</head>", 1)[1].split("</body>", 1)[0]
+    assert body.count("<script>") == 1
+    assert "document.getElementById('gg-consent-banner')" in body
 
 
 # ── Template quality ──

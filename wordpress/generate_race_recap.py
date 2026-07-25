@@ -20,6 +20,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent))
 from brand_tokens import TIER_NAMES, get_ga4_head_snippet
+from cookie_consent import get_consent_banner_html
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 RACE_DATA_DIR = PROJECT_ROOT / "race-data"
@@ -461,6 +462,7 @@ def generate_recap_html(slug, year):
       <a href="{SITE_URL}">Gravel God</a> &middot; {today_str}
     </div>
   </div>
+{get_consent_banner_html()}
 </body>
 </html>"""
 

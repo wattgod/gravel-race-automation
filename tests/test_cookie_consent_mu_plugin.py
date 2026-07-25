@@ -15,7 +15,7 @@ from pathlib import Path
 import pytest
 
 sys.path.insert(0, str(Path(__file__).parent.parent / "wordpress"))
-from cookie_consent import get_consent_banner_html
+from cookie_consent import EEA_UK_CH_TIMEZONES, get_consent_banner_html
 
 MU_PLUGIN = Path(__file__).parent.parent / "wordpress" / "mu-plugins" / "gg-cookie-consent.php"
 TOKENS_CSS = Path(__file__).parent.parent.parent / "gravel-god-brand" / "tokens" / "tokens.css"
@@ -147,23 +147,41 @@ class TestConsentMode:
     def test_consent_defaults_has_all_types(self, php_source):
         defaults = _extract_php_consent_defaults(php_source)
         assert "'analytics_storage'" in defaults
-        assert "'ad_storage': 'denied'" in defaults
-        assert "'ad_user_data': 'denied'" in defaults
-        assert "'ad_personalization': 'denied'" in defaults
+        assert "'ad_storage':'denied'" in defaults
+        assert "'ad_user_data':'denied'" in defaults
+        assert "'ad_personalization':'denied'" in defaults
 
     def test_consent_defaults_wait_for_update(self, php_source):
         defaults = _extract_php_consent_defaults(php_source)
-        assert "'wait_for_update': 500" in defaults
+        assert "'wait_for_update':500" in defaults
 
     def test_consent_defaults_checks_cookie(self, php_source):
-        """Consent defaults must check existing gg_consent cookie."""
+        """Both cookie values must override the geographic default."""
         defaults = _extract_php_consent_defaults(php_source)
         assert "gg_consent=accepted" in defaults
+        assert "gg_consent=declined" in defaults
 
     def test_consent_defaults_uses_regex(self, php_source):
         """Consent defaults must use regex for cookie check, not indexOf."""
         defaults = _extract_php_consent_defaults(php_source)
         assert "/(^|; )gg_consent=accepted/.test" in defaults
+
+    def test_geo_classifier_matches_python_source(self, php_source):
+        defaults = _extract_php_consent_defaults(php_source)
+        for timezone in EEA_UK_CH_TIMEZONES:
+            assert f'"{timezone}"' in defaults
+        for excluded in (
+            "Europe/Istanbul",
+            "Europe/Moscow",
+            "Europe/Minsk",
+            "Europe/Belgrade",
+            "Europe/Kyiv",
+        ):
+            assert excluded not in defaults
+
+    def test_missing_timezone_fails_closed(self, php_source):
+        defaults = _extract_php_consent_defaults(php_source)
+        assert "ggConsentRequiresOptIn=!ggConsentTimezoneKnown||" in defaults
 
 
 # ── Admin Exclusion ────────────────────────────────────────

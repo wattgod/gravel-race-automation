@@ -1043,6 +1043,21 @@ class TestFullPage:
         slug = normalized_data["slug"]
         assert f'<link rel="alternate" type="text/markdown" href="https://gravelgodcycling.com/race/{slug}.md">' in html
 
+    def test_has_geo_gated_consent_branches(self, normalized_data):
+        """A generated race page ships both synchronous regional defaults."""
+        html = generate_page(normalized_data)
+        head = html[:html.index("</head>")]
+        assert "ggConsentRequiresOptIn?'denied':'granted'" in head
+        assert "ggConsentRequiresOptIn=!ggConsentTimezoneKnown||" in head
+        assert "ggConsentAccepted?'granted':ggConsentDeclined?'denied'" in head
+        assert "Intl.DateTimeFormat().resolvedOptions().timeZone" in head
+        assert 'id="gg-privacy-choices"' in html
+
+        scripts = re.findall(r"<script(?: [^>]*)?>(.*?)</script>", head, re.DOTALL)
+        config_block = next(block for block in scripts if "gtag('config'" in block)
+        assert "gtag('consent','default'" in config_block
+        assert config_block.index("gtag('consent','default'") < config_block.index("gtag('config'")
+
     def test_has_jsonld(self, normalized_data):
         html = generate_page(normalized_data)
         assert "application/ld+json" in html

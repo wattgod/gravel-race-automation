@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Generate RSS 2.0 feed for the Gravel God race database.
 
-Produces web/feed/races.xml with all 328 races as items, sorted by tier (T1 first)
+Produces web/feed/races.xml with every active race as an item, sorted by tier (T1 first)
 then by score descending. Cycling blogs and aggregators can subscribe to get
 race data in their feed readers.
 
@@ -123,7 +123,7 @@ def generate_rss():
   <channel>
     <title>Gravel God — Race Database</title>
     <link>{SITE_URL}/gravel-races/</link>
-    <description>{count} gravel races rated and ranked on 14 criteria. Tier ratings, scores, locations, dates, and course details.</description>
+    <description>{count} cycling events rated and ranked on 14 criteria. Tier ratings, scores, locations, dates, and course details.</description>
     <language>en-us</language>
     <lastBuildDate>{now}</lastBuildDate>
     <atom:link href="{SITE_URL}/feed/races.xml" rel="self" type="application/rss+xml"/>

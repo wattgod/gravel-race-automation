@@ -23,6 +23,7 @@ import html as html_mod
 import json
 import math
 import re
+import shutil
 import sys
 from collections import defaultdict
 from datetime import date
@@ -100,21 +101,20 @@ def _slugify(name: str) -> str:
 
 
 def _discipline_label(races: list) -> str:
-    """Return 'Gravel', 'Road', or 'Cycling' based on discipline mix.
+    """Return 'Gravel' or 'Cycling' based on the active GG discipline mix.
 
     - >= 70% gravel → 'Gravel'
-    - >= 70% road → 'Road & Gravel'
-    - mixed → 'Cycling'
+    - MTB/bikepacking-heavy or mixed → 'Cycling'
+
+    Road profiles are a Roadie Labs catalog concern as of the approved
+    2026-07-24 migration and must never affect GG hub copy.
     """
     total = len(races)
     if total == 0:
         return "Cycling"
     gravel = sum(1 for r in races if r.get("discipline") == "gravel")
-    road = sum(1 for r in races if r.get("discipline") == "road")
     if gravel / total >= 0.7:
         return "Gravel"
-    if road / total >= 0.7:
-        return "Road & Gravel"
     return "Cycling"
 
 
@@ -1034,6 +1034,21 @@ def main():
     state_groups = group_races_by_state(all_races)
     print(f"Found {len(state_groups)} states/countries with {MIN_RACES}+ races")
 
+    expected_page_slugs = {
+        f"best-gravel-races-{_slugify(state)}"
+        for state in state_groups
+    }
+    removed_stale = 0
+    if output_dir.exists():
+        for page_dir in output_dir.iterdir():
+            if (
+                page_dir.is_dir()
+                and page_dir.name.startswith("best-gravel-races-")
+                and page_dir.name not in expected_page_slugs
+            ):
+                shutil.rmtree(page_dir)
+                removed_stale += 1
+
     generated = 0
     for state, races in sorted(state_groups.items(), key=lambda x: -len(x[1])):
         slug = _slugify(state)
@@ -1047,7 +1062,10 @@ def main():
         generated += 1
         print(f"  {page_slug}/ ({len(races)} races)")
 
-    print(f"\nDone. {generated} state hub pages generated in {output_dir}/")
+    print(
+        f"\nDone. {generated} state hub pages generated in {output_dir}/ "
+        f"({removed_stale} stale removed)"
+    )
 
 
 if __name__ == "__main__":

@@ -180,7 +180,10 @@ class TestLoadOfficialSites:
     def test_loads_from_real_data(self):
         """Loads at least some races from actual race-data/."""
         sites = load_official_sites()
-        assert len(sites) > 200  # we know ~289 have URLs
+        # Phase 2 of the Matti-approved road migration archives 363 active
+        # profiles. The remaining catalog has 169 official URLs as of
+        # 2026-07-24; source: docs/specs/road-migration-map.json.
+        assert len(sites) >= 169
 
     def test_unbound_present(self):
         """Unbound 200 is in the results."""

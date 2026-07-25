@@ -28,10 +28,10 @@ TIER_META = {
     1: {
         "name": "Elite",
         "slug": "tier-1",
-        "title": "The 25 Best Gravel Races in the World | Gravel God",
+        "title": "The {count} Best Gravel Races in the World | Gravel God",
         "h1": "Tier 1 — The Icons",
         "description": "The definitive gravel events. Top-tier fields, iconic courses, "
-                       "and bucket-list status. These 25 races define the sport.",
+                       "and bucket-list status. These {count} races define the sport.",
         "intro": (
             "These are the races that define gravel cycling. Every Tier 1 event has earned "
             "its place through a combination of top-tier competition, iconic terrain, "
@@ -42,7 +42,7 @@ TIER_META = {
     2: {
         "name": "Contender",
         "slug": "tier-2",
-        "title": "73 Must-Do Gravel Races | Contender Tier | Gravel God",
+        "title": "{count} Must-Do Gravel Races | Contender Tier | Gravel God",
         "h1": "Tier 2 — The Contenders",
         "description": "Established gravel races with strong reputations and competitive fields. "
                        "The next tier of must-do events for serious gravel riders.",
@@ -91,6 +91,8 @@ def esc(text) -> str:
 def build_hub_page(tier: int, races: list, all_races: list) -> str:
     """Generate a full tier hub page."""
     meta = TIER_META[tier]
+    meta_title = meta["title"].format(count=len(races))
+    meta_description = meta["description"].format(count=len(races))
     tier_color = COLORS.get(f"tier_{tier}", COLORS["primary_brown"])
 
     # Sort races by score descending
@@ -165,13 +167,13 @@ def build_hub_page(tier: int, races: list, all_races: list) -> str:
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{esc(meta["title"])}</title>
-  <meta name="description" content="{esc(meta["description"])}">
+  <title>{esc(meta_title)}</title>
+  <meta name="description" content="{esc(meta_description)}">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="{esc(canonical)}">
   <link rel="icon" type="image/svg+xml" href="https://gravelgodcycling.com/gg-logo.svg">
-  <meta property="og:title" content="{esc(meta["title"])}">
-  <meta property="og:description" content="{esc(meta["description"])}">
+  <meta property="og:title" content="{esc(meta_title)}">
+  <meta property="og:description" content="{esc(meta_description)}">
   <meta property="og:type" content="website">
   <meta property="og:url" content="{esc(canonical)}">
   <script type="application/ld+json">
@@ -179,7 +181,7 @@ def build_hub_page(tier: int, races: list, all_races: list) -> str:
     "@context": "https://schema.org",
     "@type": "CollectionPage",
     "name": "{esc(meta["h1"])}",
-    "description": "{esc(meta["description"])}",
+    "description": "{esc(meta_description)}",
     "url": "{esc(canonical)}",
     "numberOfItems": {len(races)},
     "isPartOf": {{

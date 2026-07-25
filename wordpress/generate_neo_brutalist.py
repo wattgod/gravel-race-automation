@@ -51,6 +51,18 @@ COURSE_DIMS = ['logistics', 'length', 'technicality', 'elevation', 'climate', 'a
 OPINION_DIMS = ['prestige', 'race_quality', 'experience', 'community', 'field_depth', 'value', 'expenses']
 ALL_DIMS = COURSE_DIMS + OPINION_DIMS
 
+DISCIPLINE_LABELS = {
+    "gravel": "GRAVEL",
+    "mtb": "MTB",
+    "bikepacking": "BIKEPACKING",
+}
+
+DISCIPLINE_SPORTS = {
+    "gravel": "Gravel Cycling",
+    "mtb": "Mountain Biking",
+    "bikepacking": "Bikepacking",
+}
+
 DIM_LABELS = {
     'logistics': 'Logistics',
     'length': 'Length',
@@ -403,11 +415,22 @@ def normalize_race_data(data: dict) -> dict:
     if fs_match:
         field_size_short = '~' + fs_match.group(1)
 
+    raw_discipline = (
+        rating.get("discipline")
+        or vitals.get("discipline")
+        or "gravel"
+    )
+    discipline = {
+        "mountain_bike": "mtb",
+        "mountain-bike": "mtb",
+    }.get(raw_discipline, raw_discipline)
+
     return {
         'taking_a_break': race.get('taking_a_break'),
         'name': race.get('display_name') or race.get('name', 'Unknown Race'),
         'slug': race.get('slug', ''),
         'tagline': race.get('tagline', ''),
+        'discipline': discipline,
         'overall_score': rating.get('overall_score', 0),
         'tier': rating.get('tier', 4),
         'tier_label': rating.get('tier_label', f"TIER {rating.get('tier', 4)}"),
@@ -1899,7 +1922,10 @@ def build_sports_event_jsonld(rd: dict) -> Optional[dict]:
         "@type": "SportsEvent",
         "name": rd['name'],
         "description": rd['tagline'],
-        "sport": "Gravel Cycling",
+        "sport": DISCIPLINE_SPORTS.get(
+            rd.get("discipline", "gravel"),
+            "Gravel Cycling",
+        ),
         "eventStatus": ("https://schema.org/EventPostponed"
                         if rd.get('taking_a_break') else "https://schema.org/EventScheduled"),
         "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
@@ -2052,6 +2078,14 @@ def build_hero(rd: dict) -> str:
     if series.get('id') and series.get('name'):
         series_badge = f' <a href="/race/series/{esc(series["id"])}/" class="gg-series-badge">{esc(series["name"]).upper()} SERIES</a>'
 
+    discipline = rd.get("discipline", "gravel")
+    discipline_badge = ""
+    if discipline != "gravel":
+        discipline_badge = (
+            f' <span class="gg-series-badge">'
+            f'{DISCIPLINE_LABELS.get(discipline, discipline.upper())}</span>'
+        )
+
     # Build vitals line: Location · Month · Distance · Elevation
     vitals = rd.get('vitals', {})
     parts = []
@@ -2111,7 +2145,7 @@ def build_hero(rd: dict) -> str:
 
     return f'''<section class="gg-hero">
   <div class="gg-hero-content">
-    <span class="gg-hero-tier">{esc(rd['tier_label'])}</span>{series_badge}
+    <span class="gg-hero-tier">{esc(rd['tier_label'])}</span>{discipline_badge}{series_badge}
     <h1>{esc(rd['name'])}</h1>
     <div class="gg-hero-vitals">{vitals_line}</div>{break_html}
   </div>
@@ -4794,7 +4828,7 @@ def _load_plans_by_slug() -> dict:
     """Load ../gravel-god-training-plans/db/plans.json, grouped by race_slug.
 
     Cached at module scope \u2014 the db has 500+ entries and `--all` regenerates
-    757 race pages per run, so this should be read once, not once per race.
+    the full active catalog, so this should be read once, not once per race.
     A missing file or malformed JSON degrades to an empty dict rather than
     crashing the generator: SITE-SYNC S2 requires races with no plan data to
     render nothing, which is exactly what an empty lookup produces.

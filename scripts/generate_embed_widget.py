@@ -2,7 +2,7 @@
 """Generate the embeddable race badge widget.
 
 Produces:
-  web/embed/embed-data.json  — compact race data for all 328 races
+  web/embed/embed-data.json  — compact race data for the active catalog
   web/embed/gg-embed.js      — self-contained widget renderer (~5KB)
   web/embed/demo.html        — copy-paste documentation page
 
@@ -178,7 +178,7 @@ def generate_embed_js():
 """
 
 
-def generate_demo_html():
+def generate_demo_html(race_count: int, data_size: int):
     """Generate the demo/documentation page."""
     return f"""<!DOCTYPE html>
 <html lang="en">
@@ -225,7 +225,7 @@ def generate_demo_html():
 
 <h2>How It Works</h2>
 <ul>
-  <li>The script loads a compact JSON file (~15KB) with all 328 race ratings</li>
+  <li>The script loads a compact JSON file ({data_size / 1024:.0f}KB) with all {race_count} active race ratings</li>
   <li>Each badge is rendered client-side with race name, tier, score, location, and date</li>
   <li>Clicking the badge links to the full race profile on Gravel God</li>
   <li>No dependencies, no cookies, no tracking (GA4 event only on gravelgodcycling.com)</li>
@@ -259,7 +259,7 @@ def main():
     print(f"  Embed JS: {len(embed_js):,} bytes")
 
     # 3. Generate demo HTML
-    demo_html = generate_demo_html()
+    demo_html = generate_demo_html(len(embed_data), len(data_json.encode("utf-8")))
     print(f"  Demo HTML: {len(demo_html):,} bytes")
 
     if args.dry_run:

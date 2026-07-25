@@ -456,8 +456,8 @@ class TestRealRaceData:
         """Verify RWGPS route coverage hasn't regressed.
 
         Originally pinned total == 328 — stale the moment the road-race
-        expansion grew the catalog to 757. Pin a FLOOR, not an exact count:
-        the catalog only grows, and coverage shouldn't shrink.
+        expansion grew the catalog to 757. Pin a FLOOR, not an exact count;
+        approved catalog removals must carry an explicit provenance note.
         """
         rwgps_count = 0
         total = 0
@@ -480,4 +480,7 @@ class TestRealRaceData:
         # w/ Corral Creek); the rest of the delta predated the tail batches.
         # Floor re-pinned 202->198 (Jul 22 2026): 10 fabricated race profiles
         # deleted (config/tombstones.json); 4 of them carried rwgps ids.
-        assert rwgps_count >= 198, f"Expected >=198 RWGPS routes, got {rwgps_count}"
+        # Floor re-pinned 198->194 (Jul 24 2026): Phase 2 of the approved road
+        # catalog migration archives 363 profiles; four had RWGPS route IDs.
+        # See docs/specs/road-migration-map.json.
+        assert rwgps_count >= 194, f"Expected >=194 RWGPS routes, got {rwgps_count}"

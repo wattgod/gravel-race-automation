@@ -21,6 +21,15 @@ def training_plan_slugs_from_inventory(live_paths: set[str]) -> set[str]:
     }
 
 
+def local_training_plan_slugs(output_dir: Path) -> set[str]:
+    """Return slugs from a local flat training-plan build directory."""
+    return {
+        path.stem
+        for path in Path(output_dir).glob("*.html")
+        if path.is_file()
+    }
+
+
 def fetch_live_training_plan_slugs() -> set[str]:
     """Fetch SiteGround once and return the live per-race training-guide slugs."""
     # The generators are also run directly from the repository root, outside

@@ -9,6 +9,7 @@ import pytest
 sys.path.insert(0, str(Path(__file__).parent.parent / "wordpress"))
 sys.path.insert(0, str(Path(__file__).parent.parent / "scripts"))
 
+from brand_tokens import get_ga4_head_snippet
 from generate_blog_preview import (
     find_candidates,
     generate_preview_html,
@@ -117,6 +118,14 @@ def test_generate_preview_has_seo():
     # No Article JSON-LD on noindexed preview pages (contradictory signals)
     assert "application/ld+json" not in html
     assert 'canonical' in html
+
+
+def test_generate_preview_has_ga4_consent_snippet():
+    """Every preview page must carry the centralized GA4 snippet in <head>."""
+    html = generate_preview_html("mid-south")
+    assert html is not None
+    head = html.split("<head>", 1)[1].split("</head>", 1)[0]
+    assert get_ga4_head_snippet() in head
 
 
 def test_generate_preview_clean_urls():
@@ -316,6 +325,14 @@ def test_blog_index_page_has_seo(tmp_path):
     assert 'rel="canonical"' in content
     assert "application/ld+json" in content
     assert '"CollectionPage"' in content
+
+
+def test_blog_index_page_has_ga4_consent_snippet(tmp_path):
+    """The emitted blog index must carry the centralized GA4 snippet in <head>."""
+    out_file = generate_blog_index_page(tmp_path)
+    content = out_file.read_text()
+    head = content.split("<head>", 1)[1].split("</head>", 1)[0]
+    assert get_ga4_head_snippet() in head
 
 
 def test_blog_index_page_has_filters(tmp_path):

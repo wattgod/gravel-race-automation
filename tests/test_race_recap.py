@@ -9,6 +9,7 @@ import pytest
 sys.path.insert(0, str(Path(__file__).parent.parent / "wordpress"))
 sys.path.insert(0, str(Path(__file__).parent.parent / "scripts"))
 
+from brand_tokens import get_ga4_head_snippet
 from generate_race_recap import (
     find_recap_candidates,
     generate_recap_html,
@@ -359,6 +360,8 @@ def test_generate_recap_with_results(tmp_path):
         assert "Race Recap" in html_content
         assert "Full Race Profile" in html_content
         assert "Free Prep Kit" in html_content
+        head = html_content.split("<head>", 1)[1].split("</head>", 1)[0]
+        assert get_ga4_head_snippet() in head
     finally:
         recap_mod.RACE_DATA_DIR = orig_dir
 

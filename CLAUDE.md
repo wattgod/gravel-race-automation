@@ -84,7 +84,7 @@ Race database site (gravelgodcycling.com) — 757 race profiles, 543 tire guides
 
 ## Known Pitfalls
 1. Coaching carousel auto-advance was firing GA events every 6s — fixed, test enforces.
-2. Blog generators (`generate_blog_preview.py`, `generate_blog_index_page.py`, `generate_race_recap.py`) are missing GA4 — not yet fixed.
+2. Blog generators (`generate_blog_preview.py`, `generate_blog_index_page.py`, `generate_race_recap.py`) were missing GA4 — fixed; generator tests enforce the centralized consent snippet in every emitted page.
 3. 48 profiles have stale 2025 dates. 7 profiles have genuinely undateable TBD dates.
 4. `esc(0)` is silently empty — Python falsiness. Check `is None or == ""`, not `if text`.
 5. SVG attributes can't resolve `var()`/`color-mix()` — use CSS classes only.

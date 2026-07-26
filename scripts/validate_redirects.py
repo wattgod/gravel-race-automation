@@ -11,26 +11,28 @@ Checks:
 Usage:
     python scripts/validate_redirects.py
     python scripts/validate_redirects.py --verbose
+    python scripts/validate_redirects.py --sample 50   # random subset for quick runs
 """
 
+import random
 import re
 import subprocess
 import sys
+from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
 
 
 def extract_redirects_from_source():
-    """Parse REDIRECT_BLOCK from push_wordpress.py to get all redirect rules."""
-    script = Path(__file__).resolve().parent / "push_wordpress.py"
-    content = script.read_text()
-    
-    # Extract the REDIRECT_BLOCK string
-    match = re.search(r'REDIRECT_BLOCK\s*=\s*"""\\\n(.*?)"""', content, re.DOTALL)
-    if not match:
-        print("ERROR: Could not find REDIRECT_BLOCK in push_wordpress.py")
-        sys.exit(1)
-    
-    block = match.group(1)
+    """Read the EVALUATED REDIRECT_BLOCK from push_wordpress.
+
+    Importing (rather than regex-parsing the source file) is load-bearing:
+    since the road migration, REDIRECT_BLOCK is a concatenation of a literal
+    and 726 generated rules — a source-text regex sees none of them (this
+    script silently validated zero redirects until 2026-07-25).
+    """
+    sys.path.insert(0, str(Path(__file__).resolve().parent))
+    from push_wordpress import REDIRECT_BLOCK
+    block = REDIRECT_BLOCK
     
     # Parse RewriteRule lines
     redirects = []
@@ -63,7 +65,9 @@ def extract_redirects_from_source():
 def check_redirect(source_path, expected_target, base_url="https://gravelgodcycling.com"):
     """Check a single redirect. Returns (ok, details)."""
     url = f"{base_url}{source_path}"
-    expected_full = f"{base_url}{expected_target}"
+    # Road-migration rules target roadielabs.com absolutely
+    expected_full = expected_target if expected_target.startswith("http") \
+        else f"{base_url}{expected_target}"
     
     try:
         result = subprocess.run(
@@ -84,8 +88,9 @@ def check_redirect(source_path, expected_target, base_url="https://gravelgodcycl
 
 
 def check_target(target_path, base_url="https://gravelgodcycling.com"):
-    """Check that a redirect target returns 200."""
-    url = f"{base_url}{target_path}"
+    """Check that a redirect target returns 200 (following redirects for
+    cross-domain targets, which may themselves normalize)."""
+    url = target_path if target_path.startswith("http") else f"{base_url}{target_path}"
     try:
         result = subprocess.run(
             ["curl", "-sI", "-o", "/dev/null", "-w", "%{http_code}", url],
@@ -101,54 +106,62 @@ def check_target(target_path, base_url="https://gravelgodcycling.com"):
 
 def main():
     verbose = "--verbose" in sys.argv or "-v" in sys.argv
-    
+    sample_n = None
+    if "--sample" in sys.argv:
+        sample_n = int(sys.argv[sys.argv.index("--sample") + 1])
+
     redirects = extract_redirects_from_source()
     if not redirects:
         print("ERROR: No redirects found in REDIRECT_BLOCK")
         sys.exit(1)
-    
+
+    if sample_n and sample_n < len(redirects):
+        redirects = random.sample(redirects, sample_n)
+        print(f"(random sample of {sample_n})")
+
     # Known exceptions: physical files that bypass mod_rewrite (nginx serves directly)
     KNOWN_EXCEPTIONS = set()
 
-    print(f"Validating {len(redirects)} redirects...\n")
+    to_check = [(s, t) for s, t in redirects if s not in KNOWN_EXCEPTIONS]
+    skipped = len(redirects) - len(to_check)
+    for source, _ in redirects:
+        if source in KNOWN_EXCEPTIONS:
+            print(f"  SKIP  {source} (physical file, nginx serves directly)")
 
-    # Check redirects
+    print(f"Validating {len(to_check)} redirects...\n")
+
     redirect_pass = 0
     redirect_fail = 0
-    skipped = 0
-    for source, target in redirects:
-        if source in KNOWN_EXCEPTIONS:
-            skipped += 1
-            print(f"  SKIP  {source} (physical file, nginx serves directly)")
-            continue
-        ok, details = check_redirect(source, target)
-        if ok:
-            redirect_pass += 1
-            if verbose:
-                print(f"  PASS  {source} → {target}")
-        else:
-            redirect_fail += 1
-            print(f"  FAIL  {source} → {details}")
-    
+    with ThreadPoolExecutor(max_workers=12) as pool:
+        results = pool.map(lambda st: (st[0], st[1], *check_redirect(st[0], st[1])), to_check)
+        for source, target, ok, details in results:
+            if ok:
+                redirect_pass += 1
+                if verbose:
+                    print(f"  PASS  {source} → {target}")
+            else:
+                redirect_fail += 1
+                print(f"  FAIL  {source} → {details}")
+
     # Check targets (deduplicated)
     targets = sorted(set(t for _, t in redirects))
     print(f"\nValidating {len(targets)} unique targets...")
     target_pass = 0
     target_fail = 0
-    for target in targets:
-        ok, details = check_target(target)
-        if ok:
-            target_pass += 1
-            if verbose:
-                print(f"  PASS  {target}")
-        else:
-            target_fail += 1
-            print(f"  FAIL  {target} → {details}")
+    with ThreadPoolExecutor(max_workers=12) as pool:
+        results = pool.map(lambda t: (t, *check_target(t)), targets)
+        for target, ok, details in results:
+            if ok:
+                target_pass += 1
+                if verbose:
+                    print(f"  PASS  {target}")
+            else:
+                target_fail += 1
+                print(f"  FAIL  {target} → {details}")
     
     # Summary
     print(f"\n{'='*50}")
-    tested = len(redirects) - skipped
-    print(f"Redirects: {redirect_pass}/{tested} pass ({skipped} skipped)")
+    print(f"Redirects: {redirect_pass}/{len(to_check)} pass ({skipped} skipped)")
     print(f"Targets:   {target_pass}/{len(targets)} pass")
     
     if redirect_fail > 0 or target_fail > 0:

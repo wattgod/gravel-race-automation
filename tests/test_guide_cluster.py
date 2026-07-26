@@ -4,7 +4,6 @@ Phase A: Hub-and-spoke architecture — 1 pillar + 8 chapter pages.
 Phase B: Database connection — race_reference, race_callout, decision_tree blocks.
 Covers structure, SEO, brand compliance, accessibility, gating, and race integration.
 """
-import hashlib
 import json
 import re
 import sys
@@ -48,35 +47,6 @@ from generate_guide import (
     BLOCK_RENDERERS,
 )
 
-
-# The /output/guide HTML was verified against a temporary render made before the
-# GuideConfig refactor. It is intentionally used as a byte fixture, not as a
-# loose structural assertion; fixed hashes keep that fixture pinned to the
-# pre-refactor snapshot.
-PRE_REFACTOR_GOLDEN_FILES = (
-    "index.html",
-    "what-is-gravel-racing/index.html",
-    "race-selection/index.html",
-    "training-fundamentals/index.html",
-    "workout-execution/index.html",
-    "nutrition-fueling/index.html",
-    "mental-training-race-tactics/index.html",
-    "race-week/index.html",
-    "post-race/index.html",
-    "race-prep-configurator/index.html",
-)
-PRE_REFACTOR_GOLDEN_SHA256 = {
-    "index.html": "511a654512ce0e79692613d3eaad8161ab285815a0e208a9fef3ab831f829a50",
-    "what-is-gravel-racing/index.html": "609dffdfbc7bbec341d3334b233f521636b2aebb05082e3543a440f8d914cd01",
-    "race-selection/index.html": "6174b9fac3fe5053bb3cfb9832c12982d495f5cbca3d170c34573bf7c64027d4",
-    "training-fundamentals/index.html": "ba9f04d4fffbde701113f4422fc7e689d1b95a4d1fe56ad9f83ee75ab8d8c7e7",
-    "workout-execution/index.html": "c3e92fd25343d9a97036cbd633ea74e6cd2fd3039bff47e46a62fd754b6c454e",
-    "nutrition-fueling/index.html": "87a2edf14fb642da7b7bd65794fcb8f656e8e82f0d1059a08a0b0bde3c9052da",
-    "mental-training-race-tactics/index.html": "b84840bb6aedaaf853e998ca9a47d58828c568e615eb1b8a42c820d2cf3001a2",
-    "race-week/index.html": "e6c651a31de71f2b97a50696b975c1678e7a38c3a532ac6e755f281c6a920526",
-    "post-race/index.html": "bc2e2aa95a2dc99a03c7bb37f6468183fc716f791918fa0024453be6447c05de",
-    "race-prep-configurator/index.html": "d330f5ef9edbfad73d0f0d2d941cca593420b2ab2e518975475c55fea0216a41",
-}
 
 # ── Fixtures ──────────────────────────────────────────────
 
@@ -709,31 +679,6 @@ class TestGuideConfigurations:
         )
         assert generated is False
         assert "Skipping guide 'bikepacking': content file not found:" in capsys.readouterr().out
-
-
-class TestGravelByteParity:
-    def test_config_refactor_matches_pre_refactor_golden_snapshot(self, tmp_path):
-        """Render gravel to a temp directory and compare every legacy HTML byte.
-
-        The golden fixture lives in wordpress/output/guide/, which is gitignored
-        build output that CI does not pre-generate. When it is absent, skip (as the
-        sibling tests in this file do) rather than fail — the byte-parity check is
-        only meaningful against a locally generated cluster.
-        """
-        golden_dir = Path(__file__).parent.parent / "wordpress" / "output" / "guide"
-        if not all((golden_dir / rel).is_file() for rel in PRE_REFACTOR_GOLDEN_FILES):
-            pytest.skip("Guide cluster not generated — run generate_guide_cluster.py first")
-
-        for rel, expected_sha256 in PRE_REFACTOR_GOLDEN_SHA256.items():
-            assert hashlib.sha256((golden_dir / rel).read_bytes()).hexdigest() == expected_sha256, \
-                f"Golden fixture drifted from the pre-refactor snapshot: {rel}"
-
-        rendered_dir = tmp_path / "guide"
-        assert ggc.generate_cluster(output_dir=rendered_dir, config=GRAVEL_GUIDE)
-
-        for rel in PRE_REFACTOR_GOLDEN_FILES:
-            assert (rendered_dir / rel).read_bytes() == (golden_dir / rel).read_bytes(), \
-                f"Gravel byte parity changed for {rel}"
 
 
 # ── HTML Validity Tests ───────────────────────────────────

@@ -2064,7 +2064,7 @@ def generate_homepage(race_index: list, race_data_dir: Path = None,
     canonical_url = f"{SITE_BASE_URL}/"
     # Round down to nearest 50 for title stability as the catalog changes.
     stable_count = (stats['race_count'] // 50) * 50
-    title = f"{stable_count}+ Gravel and Ultra & Bikepacking Races Rated for {CURRENT_YEAR} | Gravel God"
+    title = f"{stable_count}+ Gravel & Bikepacking Races Rated for {CURRENT_YEAR} | Gravel God"
     meta_desc = (
         f"Find your next off-road cycling event. {stats['race_count']} races "
         "worldwide, rated on 15 criteria. Training plans and race intel."

@@ -247,17 +247,19 @@ def test_blog_index_empty_dir(tmp_path):
 
 
 def test_blog_index_with_files(tmp_path):
-    """Generate index from preview HTML files."""
+    """Generate index from HTML files (published categories only — WS5)."""
     html = generate_preview_html("unbound-200")
     assert html is not None
     blog_dir = tmp_path / "blog"
     blog_dir.mkdir()
+    # A roundup slug is indexed; the same content under a preview slug is not.
+    (blog_dir / "roundup-unbound-2026.html").write_text(html)
     (blog_dir / "unbound-200.html").write_text(html)
     out_dir = tmp_path / "out"
 
     entries = generate_blog_index(blog_dir, out_dir)
     assert len(entries) == 1
-    assert entries[0]["slug"] == "unbound-200"
+    assert entries[0]["slug"] == "roundup-unbound-2026"
 
     # Verify JSON file was written
     index_file = out_dir / "blog-index.json"
@@ -272,7 +274,8 @@ def test_blog_index_sorted_by_date(tmp_path):
     blog_dir.mkdir()
 
     # Create two files with different dates in JSON-LD
-    for slug, dt in [("older", "2026-01-01"), ("newer", "2026-02-01")]:
+    for slug, dt in [("roundup-older-2026", "2026-01-01"),
+                     ("roundup-newer-2026", "2026-02-01")]:
         html = f'''<!DOCTYPE html><html><head>
         <title>{slug} — Gravel God</title>
         <meta name="description" content="Test">
@@ -282,8 +285,8 @@ def test_blog_index_sorted_by_date(tmp_path):
 
     entries = generate_blog_index(blog_dir, tmp_path)
     assert len(entries) == 2
-    assert entries[0]["slug"] == "newer"
-    assert entries[1]["slug"] == "older"
+    assert entries[0]["slug"] == "roundup-newer-2026"
+    assert entries[1]["slug"] == "roundup-older-2026"
 
 
 def test_blog_index_entry_schema(tmp_path):
@@ -293,7 +296,7 @@ def test_blog_index_entry_schema(tmp_path):
         pytest.skip("mid-south preview not generated")
     blog_dir = tmp_path / "blog"
     blog_dir.mkdir()
-    (blog_dir / "mid-south.html").write_text(html)
+    (blog_dir / "roundup-mid-south-2026.html").write_text(html)
 
     entries = generate_blog_index(blog_dir, tmp_path)
     assert len(entries) == 1
@@ -373,8 +376,9 @@ def test_blog_sitemap_structure(tmp_path):
     root = tree.getroot()
     ns = {"s": "http://www.sitemaps.org/schemas/sitemap/0.9"}
     urls = root.findall("s:url", ns)
-    # Blog index page + roundup + recap = 3 (preview excluded — noindexed)
-    assert len(urls) == 3
+    # Blog index page + allowlisted roundup = 2 (preview AND recap excluded —
+    # WS5 Option A pulled template recaps from the sitemap entirely)
+    assert len(urls) == 2
 
 
 def test_blog_sitemap_priorities(tmp_path):
@@ -415,13 +419,18 @@ def test_blog_sitemap_has_blog_index_page(tmp_path):
 
 
 def test_blog_sitemap_url_format(tmp_path):
-    """Blog URLs should use /blog/{slug}/ format."""
-    blog_index = [{"slug": "my-race-recap", "category": "recap", "date": "2026-02-12"}]
+    """Blog URLs should use /blog/{slug}/ format; recaps are excluded
+    entirely (WS5 Option A — template recaps pulled from the sitemap)."""
+    blog_index = [
+        {"slug": "roundup-march-2026", "category": "roundup", "date": "2026-02-12"},
+        {"slug": "my-race-recap", "category": "recap", "date": "2026-02-12"},
+    ]
     output = tmp_path / "blog-sitemap.xml"
     generate_blog_sitemap(blog_index, output)
 
     content = output.read_text()
-    assert "/blog/my-race-recap/" in content
+    assert "/blog/roundup-march-2026/" in content
+    assert "my-race-recap" not in content
 
 
 def test_blog_sitemap_empty(tmp_path):
@@ -866,3 +875,25 @@ def test_preview_hero_image_alt_text():
     assert 'alt="' in html
     # Alt should contain the race name
     assert "Unbound" in html.split('alt="')[1].split('"')[0]
+
+
+def test_blog_index_generator_excludes_previews_and_recaps(tmp_path):
+    """WS5 Option A regression guard: regenerating blog-index.json must never
+    re-list noindexed preview/recap pages (preflight.py runs the generator on
+    every deploy — an unfiltered scan would silently publish ~165 of them)."""
+    sys.path.insert(0, str(Path(__file__).parent.parent / "scripts"))
+    from generate_blog_index import generate_blog_index
+
+    blog_dir = tmp_path / "blog"
+    blog_dir.mkdir()
+    page = ('<html><head><title>{t}</title>'
+            '<meta name="robots" content="noindex">'
+            '</head><body>Published February 12, 2026</body></html>')
+    (blog_dir / "roundup-march-2026.html").write_text(page.format(t="March"))
+    (blog_dir / "unbound-200-recap.html").write_text(page.format(t="Recap"))
+    (blog_dir / "some-race.html").write_text(page.format(t="Preview"))
+
+    entries = generate_blog_index(blog_dir=blog_dir, output_dir=tmp_path)
+    assert [e["slug"] for e in entries] == ["roundup-march-2026"]
+    written = json.loads((tmp_path / "blog-index.json").read_text())
+    assert {e["category"] for e in written} == {"roundup"}

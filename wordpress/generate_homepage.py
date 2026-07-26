@@ -390,10 +390,11 @@ def build_ticker(one_liners: list, substack_posts: list, upcoming: list) -> str:
             items.append(f'<span class="gg-ticker-tag gg-ticker-tag--gold">JUST RACED</span> '
                          f'<a href="{SITE_BASE_URL}/race/{esc(race["slug"])}/">{esc(race["name"])}</a>')
 
-    # Substack posts
+    # Substack posts (external — indicate the off-site hop, estate-wide rule)
     for post in substack_posts:
         items.append(f'<span class="gg-ticker-tag gg-ticker-tag--brown">NEWSLETTER</span> '
-                     f'<a href="{esc(post["url"])}">{esc(post["title"])}</a>')
+                     f'<a href="{esc(post["url"])}" target="_blank" rel="noopener">{esc(post["title"])}'
+                     f'<span class="gg-external-indicator" aria-hidden="true">&#8599;</span></a>')
 
     # Editorial one-liners (random sample, rotates daily)
     sample_size = min(8, len(one_liners))
@@ -1306,6 +1307,7 @@ a { text-decoration: none; color: #178079; }
 .gg-ticker-tag--teal { background: #178079; color: #fff; }
 .gg-ticker-tag--gold { background: #9a7e0a; color: #fff; }
 .gg-ticker-tag--brown { background: #59473c; color: #fff; }
+.gg-external-indicator { margin-left: 2px; font-size: 0.75em; vertical-align: 0.15em; }
 .gg-ticker-tag--red { background: #c0392b; color: #fff; }
 .gg-hp-ticker-mobile { display: none; }
 

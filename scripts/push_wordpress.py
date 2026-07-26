@@ -1544,6 +1544,12 @@ RewriteEngine On
 RewriteRule ^llms\\.txt$ /llms-repo.txt [L]
 """ + ROAD_MIGRATION_REDIRECT_SECTION + """
 
+# Roundups orphaned by the road→RL migration (2026-07-24): their races moved
+# to Roadie Labs, dropping both below the MIN_RACES_FOR_ROUNDUP=3 floor, so
+# the generator no longer produces them. Pages removed from server 2026-07-25.
+RewriteRule ^blog/roundup-december-2026/?$ /blog/ [R=301,L]
+RewriteRule ^blog/roundup-northeast-fall-2026/?$ /blog/ [R=301,L]
+
 # /page/N/ → / (homepage pagination is meaningless, prevents noindex gap)
 RewriteRule ^page/\\d+/?$ / [R=301,L]
 

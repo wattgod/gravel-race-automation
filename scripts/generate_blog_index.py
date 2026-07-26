@@ -29,6 +29,13 @@ ARTICLES_DIR = PROJECT_ROOT / "wordpress" / "output" / "articles"
 OUTPUT_DIR = PROJECT_ROOT / "web"
 SITE_URL = "https://gravelgodcycling.com"
 
+# WS5 Option A (2026-07-22, e5c84877): template previews and recaps are pulled
+# from public blog surfaces. blog-index.json feeds the /blog/ index page AND
+# its client-side fetch of /blog/blog-index.json, so only these categories may
+# be published — without this filter a regeneration (preflight.py runs this
+# script) silently re-lists ~165 noindexed preview/recap pages on /blog/.
+PUBLISHED_CATEGORIES = frozenset({"roundup", "article"})
+
 
 def classify_blog_slug(slug, html_content=""):
     """Classify a blog slug by content type.
@@ -142,7 +149,7 @@ def generate_blog_index(blog_dir=None, output_dir=None):
     entries = []
     for f in html_files:
         meta = extract_blog_metadata(f)
-        if meta:
+        if meta and meta["category"] in PUBLISHED_CATEGORIES:
             entries.append(meta)
 
     # Sort by date descending (newest first)

@@ -1,9 +1,8 @@
 {
-  "comment": "Roundups allowed to be INDEXED (robots index,follow + sitemap). WS5 Option A: 12 monthlies + 9 regional-season survivors picked 2026-07-23 by rule: coherent region AND >=20 races. 'International' catch-alls stay noindex (weak unique intent, cannibalize monthlies); thin regionals (<20 races) stay noindex until the catalog fills them. Tier roundups not offered. Consumed by generate_season_roundup.py and generate_sitemap.py.",
+  "comment": "Roundups allowed to be INDEXED (robots index,follow + sitemap). WS5 Option A: 11 monthlies + 9 regional-season survivors (december-2026 retired 2026-07-25 — road migration left it under the 3-race floor); originally picked 2026-07-23 by rule: coherent region AND >=20 races. 'International' catch-alls stay noindex (weak unique intent, cannibalize monthlies); thin regionals (<20 races) stay noindex until the catalog fills them. Tier roundups not offered. Consumed by generate_season_roundup.py and generate_sitemap.py.",
   "indexable": [
     "roundup-april-2026",
     "roundup-august-2026",
-    "roundup-december-2026",
     "roundup-europe-fall-2026",
     "roundup-europe-spring-2026",
     "roundup-europe-summer-2026",

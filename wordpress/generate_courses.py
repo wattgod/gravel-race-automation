@@ -249,6 +249,19 @@ def build_course_css() -> str:
 .gg-course-hero-price{{font-family:var(--gg-font-data,'Sometype Mono',monospace);font-size:1.5rem;color:var(--gg-color-teal,#178079);margin:0 0 24px}}
 .gg-course-hero-cta{{display:inline-block;background:var(--gg-color-teal,#178079);color:#fff;font-family:var(--gg-font-data,'Sometype Mono',monospace);font-size:14px;letter-spacing:1.5px;text-transform:uppercase;padding:14px 40px;border:none;border-radius:2px;text-decoration:none;cursor:pointer;transition:background .2s}}
 .gg-course-hero-cta:hover{{background:#178079}}
+.gg-course-hero-signin{{font-family:var(--gg-font-data,'Sometype Mono',monospace);font-size:13px;margin-top:16px;color:var(--gg-color-warm-brown,#A68E80)}}
+.gg-course-hero-signin a{{color:inherit;text-decoration:underline}}
+.gg-course-theme-desert .gg-course-hero-signin{{color:var(--gg-color-secondary-brown,#7d695d)}}
+
+/* ── Landing: Already-Enrolled Sign-In ── */
+.gg-course-signin{{background:var(--gg-color-warm-paper,#f5efe6);border:1px solid var(--gg-color-tan,#d4c5b9);border-radius:4px;padding:40px 32px;margin:48px 0;text-align:center}}
+.gg-course-signin h2{{font-family:var(--gg-font-editorial,'Source Serif 4',Georgia,serif);font-size:1.4rem;color:var(--gg-color-dark-brown,#3a2e25);margin:0 0 12px}}
+.gg-course-signin p{{font-family:var(--gg-font-editorial,'Source Serif 4',Georgia,serif);color:var(--gg-color-primary-brown,#59473c);font-size:.95rem;margin:0 0 8px}}
+.gg-course-signin .gg-course-gate-form{{max-width:360px;margin:16px auto 0}}
+.gg-course-signin .gg-course-gate-error{{max-width:360px;margin:12px auto 0}}
+.gg-course-signin-status{{font-family:var(--gg-font-data,'Sometype Mono',monospace);font-size:13px;color:var(--gg-color-teal,#178079);margin-top:12px;display:none}}
+.gg-course-index-signin{{font-family:var(--gg-font-data,'Sometype Mono',monospace);font-size:13px;color:var(--gg-color-secondary-brown,#7d695d);text-align:center;margin-top:32px}}
+.gg-course-index-signin a{{color:var(--gg-color-teal,#178079)}}
 
 /* ── Landing: Description ── */
 .gg-course-desc{{padding:48px 0;font-family:var(--gg-font-editorial,'Source Serif 4',Georgia,serif);font-size:1.1rem;line-height:1.7;color:var(--gg-color-dark-brown,#3a2e25)}}
@@ -1979,6 +1992,78 @@ if('serviceWorker' in navigator){{
 # ── Page Builders ────────────────────────────────────────────
 
 
+def build_landing_signin_js(course: dict, first_lesson_url: str) -> str:
+    """Return JS for the landing page's already-enrolled sign-in: verifies the
+    email against the course-access worker, primes the same localStorage key
+    the lesson gate reads, and redirects into the first lesson. If a valid
+    unlock is already cached, swaps the buy CTAs to CONTINUE COURSE."""
+    slug = course["id"]
+    return f"""/* ── Already-Enrolled Sign-In ── */
+(function(){{
+  var WORKER_URL={json.dumps(WORKER_URL)};
+  var COURSE_ID={json.dumps(slug)};
+  var FIRST_LESSON_URL={json.dumps(first_lesson_url)};
+  var LS_KEY='gg-course-'+COURSE_ID;
+  var EXPIRY_DAYS=365;
+  var form=document.getElementById('gg-course-signin-form');
+  var errorEl=document.getElementById('gg-course-signin-error');
+  var statusEl=document.getElementById('gg-course-signin-status');
+  if(!form) return;
+
+  function showError(msg){{
+    if(!errorEl) return;
+    errorEl.textContent=msg;
+    errorEl.style.display='block';
+  }}
+
+  function setContinue(email){{
+    var ctas=document.querySelectorAll('.gg-course-hero-cta');
+    for(var i=0;i<ctas.length;i++){{
+      ctas[i].textContent='CONTINUE COURSE \\u2192';
+      ctas[i].setAttribute('href',FIRST_LESSON_URL);
+    }}
+    var heroSignin=document.getElementById('gg-course-hero-signin');
+    if(heroSignin) heroSignin.style.display='none';
+    form.style.display='none';
+    if(errorEl) errorEl.style.display='none';
+    if(statusEl){{
+      statusEl.textContent='Signed in as '+email+' \\u2014 your course is unlocked.';
+      statusEl.style.display='block';
+    }}
+  }}
+
+  try{{
+    var cached=JSON.parse(localStorage.getItem(LS_KEY)||'null');
+    if(cached&&cached.email&&cached.exp&&cached.exp>Date.now()){{setContinue(cached.email);}}
+  }}catch(e){{}}
+
+  form.addEventListener('submit',function(e){{
+    e.preventDefault();
+    if(form.website&&form.website.value){{return;}}
+    var email=form.email.value.trim().toLowerCase();
+    if(!email) return;
+    var btn=form.querySelector('button');
+    btn.disabled=true;btn.textContent='CHECKING\\u2026';
+    fetch(WORKER_URL+'/verify',{{method:'POST',headers:{{'Content-Type':'application/json'}},body:JSON.stringify({{email:email,course_id:COURSE_ID,website:form.website.value}})}})
+      .then(function(r){{return r.json();}})
+      .then(function(d){{
+        if(d.has_access){{
+          try{{localStorage.setItem(LS_KEY,JSON.stringify({{email:email,exp:Date.now()+EXPIRY_DAYS*86400000}}));}}catch(e){{}}
+          if(typeof gtag==='function'){{gtag('event','course_signin',{{course_id:COURSE_ID}});}}
+          window.location.href=FIRST_LESSON_URL;
+        }}else{{
+          btn.disabled=false;btn.textContent='ACCESS COURSE';
+          showError('No enrollment found for that email. Use the exact email from your checkout (or the one your coach set you up with) \\u2014 or email gravelgodcoaching@gmail.com and we\\u2019ll sort it out.');
+        }}
+      }})
+      .catch(function(){{
+        btn.disabled=false;btn.textContent='ACCESS COURSE';
+        showError('Couldn\\u2019t reach the server. Please try again in a minute.');
+      }});
+  }});
+}})();"""
+
+
 def build_og_meta(course: dict, og_title: str, og_desc: str, og_url: str,
                   og_type: str = "website") -> str:
     """Open Graph + Twitter card meta tags. og_image files live at
@@ -2088,6 +2173,12 @@ def build_landing_page(course: dict, all_courses: list = None) -> str:
     total_time_str = esc(format_course_total_time(course))
     bundle_html = build_bundle_strip(course, all_courses)
 
+    # Already-enrolled sign-in — verified against the course-access worker,
+    # then straight into lesson 1 (the lesson gate reads the same cache).
+    flat_lessons = get_flat_lessons(course)
+    first_lesson_url = f'{SITE_BASE_URL}/course/{slug}/lesson/{flat_lessons[0][1]["id"]}/'
+    signin_js = build_landing_signin_js(course, first_lesson_url)
+
     # Instructor
     instructor = course.get("instructor", {})
     instructor_html = ""
@@ -2141,6 +2232,7 @@ def build_landing_page(course: dict, all_courses: list = None) -> str:
     <p class="gg-course-hero-subtitle">{subtitle}</p>
     <div class="gg-course-hero-price">${price}</div>
     <a href="{stripe_link}" class="gg-course-hero-cta">ENROLL NOW</a>
+    <div class="gg-course-hero-signin" id="gg-course-hero-signin">Already enrolled? <a href="#gg-course-signin">Sign in with your email</a> &mdash; no card needed.</div>
   </div>
 </div>
 
@@ -2163,6 +2255,20 @@ def build_landing_page(course: dict, all_courses: list = None) -> str:
   {instructor_html}
 
   {bundle_html}
+
+  <div class="gg-course-signin" id="gg-course-signin">
+    <div class="gg-course-gate-badge">ALREADY ENROLLED?</div>
+    <h2>Sign in to your course</h2>
+    <p>Enter the email you enrolled with &mdash; the one from your Stripe receipt, or the one your coach set you up with. No credit card, no password.</p>
+    <form class="gg-course-gate-form" id="gg-course-signin-form" autocomplete="off">
+      <input type="hidden" name="website" value="">
+      <input type="email" name="email" required placeholder="your@email.com" aria-label="Email address">
+      <button type="submit">ACCESS COURSE</button>
+    </form>
+    <div class="gg-course-gate-error" id="gg-course-signin-error" role="alert"></div>
+    <div class="gg-course-signin-status" id="gg-course-signin-status"></div>
+    <p class="gg-course-gate-fine">Access is tied to your email. Trouble getting in? Email gravelgodcoaching@gmail.com.</p>
+  </div>
 </div>
 
 <div class="gg-course-bottom-cta">
@@ -2175,6 +2281,7 @@ def build_landing_page(course: dict, all_courses: list = None) -> str:
 </div>
 <script>
 {get_site_header_js()}
+{signin_js}
 </script>
 {get_consent_banner_html()}
 </body>
@@ -2487,6 +2594,15 @@ def build_course_index(courses: list) -> str:
           </div>
         </a>''')
 
+    signin_links = " &middot; ".join(
+        f'<a href="{SITE_BASE_URL}/course/{c["id"]}/#gg-course-signin">{esc(c["title"])}</a>'
+        for c in courses
+    )
+    signin_html = (
+        f'<p class="gg-course-index-signin">Already enrolled? '
+        f'Sign in with your email &mdash; no card needed: {signin_links}</p>'
+    ) if signin_links else ""
+
     header = get_site_header_html(active="products")
     mega_footer = get_mega_footer_html()
     tokens_css = get_tokens_css()
@@ -2524,6 +2640,7 @@ def build_course_index(courses: list) -> str:
     <div class="gg-course-grid">
       {"".join(cards_html)}
     </div>
+    {signin_html}
   </div>
 </div>
 {mega_footer}

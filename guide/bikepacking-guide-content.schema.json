@@ -60,7 +60,7 @@
         "claim": {"type": "string", "minLength": 12},
         "source": {
           "type": "string",
-          "pattern": "^(Ultra Bikepacking Training White Paper §.+ \\[(verified|principle|position)\\](, \\[(verified|principle|position)\\])*|Ultra Method Contract v2\\.6 §.+|race-data/[a-z0-9-]+\\.json(; race-data/[a-z0-9-]+\\.json)*)$"
+          "pattern": "^(Ultra Bikepacking Training White Paper §.+ \\[(verified|principle|position)\\](, \\[(verified|principle|position)\\])*|Ultra Method Contract v2\\.6 §.+|race-data/[a-z0-9-]+\\.json(; race-data/[a-z0-9-]+\\.json)*|https://[^\\s]+)$"
         }
       },
       "additionalProperties": false

@@ -75,7 +75,35 @@ def _sentences(text: str):
 
 
 def _word_count(sentence: str) -> int:
-    return len(re.findall(r"\b[\w’'-]+\b", sentence))
+    return len(re.findall(r"\b[\w’'–-]+\b", sentence))
+
+
+_PROCEDURAL_OPENERS = frozenset(
+    """
+    absorb add anchor apply arrive ask attach avoid book break build buy carry change
+    check choose complete concentrate confirm continue create decide define design
+    do dry eat experiment find fit follow give identify include keep know learn
+    leave limit make manage note notice place plan practice prepare preserve produce
+    protect put read reassess record recover rehearse replace resolve retest ride
+    schedule solve stabilize stop store take test train use
+    """.split()
+)
+
+
+def _prose_instructions(text: str):
+    """Yield instructional sentences without treating all editorial prose as STE."""
+    for sentence in _sentences(text):
+        opener = re.match(r"[A-Za-z]+", sentence)
+        if opener and opener.group(0).lower() in _PROCEDURAL_OPENERS:
+            yield sentence
+            continue
+        if re.match(
+            r"^(?:After|Before|If|When)\b.+,\s*"
+            rf"(?:{'|'.join(sorted(_PROCEDURAL_OPENERS))})\b",
+            sentence,
+            re.IGNORECASE,
+        ):
+            yield sentence
 
 
 def _procedural_copy(content: dict):
@@ -83,7 +111,9 @@ def _procedural_copy(content: dict):
         for section in chapter["sections"]:
             for block in section["blocks"]:
                 block_type = block["type"]
-                if block_type == "accordion":
+                if block_type == "prose":
+                    yield from _prose_instructions(block["content"])
+                elif block_type == "accordion":
                     yield from (item["content"] for item in block["items"])
                 elif block_type == "process_list":
                     yield from (item["detail"] for item in block["items"])

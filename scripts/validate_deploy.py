@@ -101,6 +101,7 @@ def check_key_pages(v):
         ("/", "Homepage"),
         ("/gravel-races/", "Race search page"),
         ("/guide/", "Training guide"),
+        ("/bikepacking-guide/", "Bikepacking training guide"),
         ("/race/methodology/", "Methodology page"),
         ("/about/", "About page"),
         ("/coaching/", "Coaching page"),
@@ -689,8 +690,8 @@ def check_legal_pages(v):
 
 
 def check_guide_cluster(v):
-    """Verify guide cluster pages (pillar + 8 chapters) are deployed."""
-    print("\n[Guide Cluster]")
+    """Verify both guide clusters and all chapter pages are deployed."""
+    print("\n[Guide Clusters]")
     guide_pages = [
         ("/guide/", "Guide pillar"),
         ("/guide/what-is-gravel-racing/", "Ch 1: What Is Gravel Racing"),
@@ -702,6 +703,15 @@ def check_guide_cluster(v):
         ("/guide/race-week/", "Ch 7: Race Week"),
         ("/guide/post-race/", "Ch 8: Post-Race"),
         ("/guide/race-prep-configurator/", "Race Prep Configurator"),
+        ("/bikepacking-guide/", "Bikepacking guide pillar"),
+        ("/bikepacking-guide/the-ultra-demand/", "Bikepacking Ch 1: Ultra Demand"),
+        ("/bikepacking-guide/choosing-your-race/", "Bikepacking Ch 2: Race Selection"),
+        ("/bikepacking-guide/training-for-repeatability/", "Bikepacking Ch 3: Training"),
+        ("/bikepacking-guide/systems-that-keep-you-moving/", "Bikepacking Ch 4: Systems"),
+        ("/bikepacking-guide/energy-economy/", "Bikepacking Ch 5: Energy Economy"),
+        ("/bikepacking-guide/the-mental-game/", "Bikepacking Ch 6: Mental Game"),
+        ("/bikepacking-guide/logistics-as-training/", "Bikepacking Ch 7: Logistics"),
+        ("/bikepacking-guide/simulation-and-race-week/", "Bikepacking Ch 8: Simulation"),
     ]
     for path, name in guide_pages:
         code = curl_status(f"{BASE_URL}{path}")
@@ -722,6 +732,19 @@ def check_guide_cluster(v):
         v.check("canonical" in ch_body.lower(), "Chapter page has canonical", "Missing canonical")
         v.check("breadcrumb" in ch_body.lower() or "BreadcrumbList" in ch_body,
                 "Chapter page has breadcrumb", "Missing breadcrumb")
+
+    bikepacking_body = curl_body(f"{BASE_URL}/bikepacking-guide/")
+    if bikepacking_body:
+        v.check(
+            "The Complete Bikepacking Race Training Guide" in bikepacking_body,
+            "Bikepacking pillar has approved title",
+            "Missing approved guide title",
+        )
+        v.check(
+            "/gravel-races/?discipline=ultra" in bikepacking_body,
+            "Bikepacking pillar links to Ultra & Bikepacking shelf",
+            "Missing Ultra & Bikepacking shelf CTA",
+        )
 
 
 def check_series_hubs(v):

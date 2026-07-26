@@ -12,6 +12,7 @@ pytest>=7.4
 python-frontmatter>=1.0
 fastmcp>=2.0
 beautifulsoup4>=4.12
+jsonschema>=4.20
 
 # Mission Control
 fastapi>=0.115

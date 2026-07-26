@@ -678,7 +678,7 @@ class TestGuideConfigurations:
         assert config.gate_form.endpoint_mode is GateEndpointMode.WORKER_FIRST
         assert config.gate_form.worker_source_value == "bikepacking_guide"
         assert config.cta_set.pillar_blocks == ("ultra_shelf", "coaching_corner")
-        assert config.cta_set.targets["ultra_shelf"] == "/gravel-races/?discipline=bikepacking"
+        assert config.cta_set.targets["ultra_shelf"] == "/gravel-races/?discipline=ultra"
         assert config.cta_set.targets["coaching_corner"].endswith("/coaching/apply/")
 
     def test_worker_first_gate_has_honeypot_and_worker_source(self):

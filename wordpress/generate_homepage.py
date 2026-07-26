@@ -572,8 +572,7 @@ def build_hero(stats: dict, race_index: list = None) -> str:
         </form>
         <div class="gg-hp-hero-chips">
           <a href="{SITE_BASE_URL}/gravel-races/?discipline=gravel" class="gg-hp-chip" data-ga="hero_chip_click" data-ga-label="gravel">Gravel</a>
-          <a href="{SITE_BASE_URL}/gravel-races/?discipline=bikepacking" class="gg-hp-chip" data-ga="hero_chip_click" data-ga-label="bikepacking">Bikepacking</a>
-          <a href="{SITE_BASE_URL}/gravel-races/?discipline=mtb" class="gg-hp-chip" data-ga="hero_chip_click" data-ga-label="mtb">MTB</a>
+          <a href="{SITE_BASE_URL}/gravel-races/?discipline=ultra" class="gg-hp-chip" data-ga="hero_chip_click" data-ga-label="ultra_bikepacking">Ultra &amp; Bikepacking</a>
           <a href="{SITE_BASE_URL}/gravel-races/?tier=1" class="gg-hp-chip gg-hp-chip--gold" data-ga="hero_chip_click" data-ga-label="tier1">Tier 1</a>
           <a href="{SITE_BASE_URL}/race/methodology/" class="gg-hp-chip" data-ga="hero_secondary_click">How We Rate</a>
         </div>
@@ -2065,7 +2064,7 @@ def generate_homepage(race_index: list, race_data_dir: Path = None,
     canonical_url = f"{SITE_BASE_URL}/"
     # Round down to nearest 50 for title stability as the catalog changes.
     stable_count = (stats['race_count'] // 50) * 50
-    title = f"{stable_count}+ Gravel, MTB & Ultra Races Rated for {CURRENT_YEAR} | Gravel God"
+    title = f"{stable_count}+ Gravel and Ultra & Bikepacking Races Rated for {CURRENT_YEAR} | Gravel God"
     meta_desc = (
         f"Find your next off-road cycling event. {stats['race_count']} races "
         "worldwide, rated on 15 criteria. Training plans and race intel."

@@ -601,6 +601,20 @@ try {{
         check("Guide cluster JS syntax", False, f"Error: {e}")
 
 
+def check_bikepacking_guide_content():
+    """Enforce the WS-G R1-R5 content contract before review or deploy."""
+    print("\n── Bikepacking Guide Content Contract ──")
+    sys.path.insert(0, str(PROJECT_ROOT / "scripts"))
+    from validate_bikepacking_guide import validate_content
+
+    errors = validate_content()
+    check(
+        "Bikepacking guide schema and R1-R5 guards",
+        not errors,
+        "; ".join(errors),
+    )
+
+
 def check_infographic_renderers():
     """Verify all infographic asset_ids in guide content JSON have renderers."""
     print("\n── Infographic Renderer Coverage ──")
@@ -1609,6 +1623,7 @@ def main():
         check_coaching_js_syntax()
         check_coaching_apply_js_syntax()
         check_guide_cluster_js_syntax()
+        check_bikepacking_guide_content()
         check_css_js_class_sync()
         check_worker_hydration_fields()
         check_pricing_parity()

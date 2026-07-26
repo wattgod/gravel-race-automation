@@ -92,10 +92,6 @@ GATED_CHAPTERS = {4, 5, 6, 7, 8}
 # SEO keyword targets per chapter
 CHAPTER_META = GRAVEL_CHAPTER_META
 
-# Date published for schema
-DATE_PUBLISHED = "2025-06-01"
-
-
 # ── Content Loading ────────────────────────────────────────────
 
 
@@ -250,11 +246,13 @@ def build_pillar_cta_section(config: GuideConfig = GRAVEL_GUIDE) -> str:
 def build_pillar_jsonld(content: dict, config: GuideConfig = GRAVEL_GUIDE) -> str:
     """Build Course + BreadcrumbList JSON-LD for the pillar page."""
     canonical = f"{SITE_BASE_URL}{_guide_url(config)}"
-    try:
-        mtime = config.content_path.stat().st_mtime
-        date_modified = datetime.fromtimestamp(mtime).strftime("%Y-%m-%d")
-    except OSError:
-        date_modified = datetime.now().strftime("%Y-%m-%d")
+    date_modified = config.date_modified
+    if not date_modified:
+        try:
+            mtime = config.content_path.stat().st_mtime
+            date_modified = datetime.fromtimestamp(mtime).strftime("%Y-%m-%d")
+        except OSError:
+            date_modified = datetime.now().strftime("%Y-%m-%d")
     og_image = f"{SITE_BASE_URL}/wp-content/uploads/gravel-god-og.png"
 
     course = {
@@ -274,7 +272,7 @@ def build_pillar_jsonld(content: dict, config: GuideConfig = GRAVEL_GUIDE) -> st
         },
         "courseWorkload": "PT4H",
         "isAccessibleForFree": True,
-        "datePublished": DATE_PUBLISHED,
+        "datePublished": config.date_published,
         "dateModified": date_modified,
         "image": og_image,
     }
@@ -469,11 +467,13 @@ def build_chapter_jsonld(chapter: dict, content: dict,
     """Build Article + BreadcrumbList JSON-LD for a chapter page."""
     ch_id = chapter["id"]
     canonical = f"{SITE_BASE_URL}{_guide_url(config, ch_id)}"
-    try:
-        mtime = config.content_path.stat().st_mtime
-        date_modified = datetime.fromtimestamp(mtime).strftime("%Y-%m-%d")
-    except OSError:
-        date_modified = datetime.now().strftime("%Y-%m-%d")
+    date_modified = config.date_modified
+    if not date_modified:
+        try:
+            mtime = config.content_path.stat().st_mtime
+            date_modified = datetime.fromtimestamp(mtime).strftime("%Y-%m-%d")
+        except OSError:
+            date_modified = datetime.now().strftime("%Y-%m-%d")
     og_image = f"{SITE_BASE_URL}/wp-content/uploads/gravel-god-og.png"
 
     meta = config.chapter_meta.get(ch_id, {})
@@ -485,7 +485,7 @@ def build_chapter_jsonld(chapter: dict, content: dict,
         "headline": f"Chapter {chapter['number']}: {chapter['title']}",
         "description": description,
         "url": canonical,
-        "datePublished": DATE_PUBLISHED,
+        "datePublished": config.date_published,
         "dateModified": date_modified,
         "image": og_image,
         "author": {
@@ -666,13 +666,14 @@ try{{if(localStorage.getItem(STORAGE_KEY)==="1")document.documentElement.classLi
 var bypassBtn=document.getElementById("gg-guide-gate-bypass");
 if(bypassBtn)bypassBtn.addEventListener("click",function(){{unlock("manual_bypass");}});
 function postLead(payload){{
-fetch(WORKER_URL,{{method:"POST",headers:{{"Content-Type":"application/json"}},body:JSON.stringify(payload)}}).catch(function(){{}});
+return fetch(WORKER_URL,{{method:"POST",headers:{{"Content-Type":"application/json"}},body:JSON.stringify(payload)}})
+.then(function(r){{if(!r.ok)throw new Error("bad status");return r;}});
 }}
 var gateForm=document.getElementById("gg-cluster-gate-form");
 if(gateForm)gateForm.addEventListener("submit",function(e){{
 e.preventDefault();
 if(gateForm.website&&gateForm.website.value)return;
-postLead({{email:gateForm.email.value.trim(),source:SOURCE,guide_chapter:"{config.guide_label}",website:""}});
+postLead({{email:gateForm.email.value.trim(),source:SOURCE,guide_chapter:"{config.guide_label}",website:""}}).catch(function(){{}});
 unlock("email_form");
 }});
 document.querySelectorAll(".gg-guide-email-capture-form").forEach(function(form){{
@@ -681,11 +682,25 @@ e.preventDefault();
 var email=form.email.value.trim();
 if(!email||!/^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/.test(email)){{alert("Please enter a valid email address.");return;}}
 if(form.website&&form.website.value)return;
-postLead({{email:email,source:SOURCE,guide_chapter:form.guide_chapter.value,website:form.website.value}});
+var errEl=form.querySelector(".gg-guide-email-capture-error");
+if(errEl)errEl.style.display="none";
+postLead({{email:email,source:SOURCE,guide_chapter:form.guide_chapter.value,website:form.website.value}})
+.then(function(){{
 form.style.display="none";
 var success=document.getElementById(form.id+"-success");
 if(success)success.style.display="block";
 track("{event_prefix}_email_capture",{{chapter:form.guide_chapter.value}});
+}})
+.catch(function(){{
+if(!errEl){{
+errEl=document.createElement("p");
+errEl.className="gg-guide-email-capture-error";
+errEl.setAttribute("role","alert");
+form.appendChild(errEl);
+}}
+errEl.textContent="Something went wrong — please try again.";
+errEl.style.display="block";
+}});
 }});
 }});
 }})();
@@ -742,7 +757,7 @@ forms.forEach(function(form){
 form.addEventListener("submit",function(e){
 e.preventDefault();
 var email=form.email.value.trim();
-if(!email||!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){
+if(!email||!/^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/.test(email)){
 alert("Please enter a valid email address.");
 return;
 }
@@ -1002,13 +1017,18 @@ def generate_chapter_page(chapter: dict, chapters: list, content: dict,
 
     {prev_next}'''
 
-    # CTA after chapter
+    # CTA after chapter. Gravel stays on the legacy builders for byte parity;
+    # new guides use only their configured, truth-preserving CTA inventory.
     cta_html = ''
     cta_type = chapter.get("cta_after")
     if cta_type and cta_type != "gate" and cta_type in CTA_BUILDERS and config.key == GRAVEL_GUIDE.key:
         cta_html = CTA_BUILDERS[cta_type]()
-    elif cta_type == "finale":
+    elif cta_type == "finale" and config.key == GRAVEL_GUIDE.key:
         cta_html = build_cta_finale()
+    elif cta_type == "finale":
+        cta_html = _build_config_ctas(config, config.cta_set.finale_blocks)
+    elif cta_type in config.cta_set.pillar_blocks:
+        cta_html = _build_config_ctas(config, (cta_type,))
 
     return f'''<!DOCTYPE html>
 <html lang="en">

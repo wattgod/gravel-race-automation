@@ -28,13 +28,6 @@ TIER_NAMES = {
     3: "Solid",
     4: "Grassroots",
 }
-DISCIPLINE_LABELS = {
-    "gravel": "gravel",
-    "mtb": "MTB",
-    "bikepacking": "bikepacking",
-}
-
-
 def _list_phrase(values: list[str]) -> str:
     if not values:
         return "cycling"
@@ -59,11 +52,11 @@ def render_directory(races: list[dict]) -> str:
         if race.get("series_id"):
             series[(race["series_id"], race.get("series_name") or race["series_id"])].append(race)
 
-    ordered_disciplines = [
-        DISCIPLINE_LABELS[discipline]
-        for discipline in ("gravel", "mtb", "bikepacking")
-        if discipline in disciplines
-    ]
+    ordered_disciplines = []
+    if "gravel" in disciplines:
+        ordered_disciplines.append("gravel")
+    if {"mtb", "bikepacking"} & set(disciplines):
+        ordered_disciplines.append("Ultra & Bikepacking")
     discipline_phrase = _list_phrase(ordered_disciplines)
 
     lines = [

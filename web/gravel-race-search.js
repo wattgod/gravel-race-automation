@@ -451,7 +451,11 @@
     if (params.get('region')) document.getElementById('gg-region').value = params.get('region');
     if (params.get('distance')) document.getElementById('gg-distance').value = params.get('distance');
     if (params.get('month')) document.getElementById('gg-month').value = params.get('month');
-    if (params.has('discipline')) document.getElementById('gg-discipline').value = params.get('discipline');
+    if (params.has('discipline')) {
+      var urlDiscipline = params.get('discipline');
+      if (urlDiscipline === 'mtb' || urlDiscipline === 'bikepacking') urlDiscipline = 'ultra';
+      document.getElementById('gg-discipline').value = urlDiscipline;
+    }
     if (params.get('sort')) currentSort = params.get('sort');
 
     // Restore display mode from URL
@@ -535,6 +539,14 @@
   }
 
   // ── Filter helpers ──
+  function matchesDiscipline(race, filterValue) {
+    var discipline = race.discipline || 'gravel';
+    if (filterValue === 'ultra') {
+      return discipline === 'bikepacking' || discipline === 'mtb';
+    }
+    return discipline === filterValue;
+  }
+
   function countByFilter(filterKey, filterValue) {
     return allRaces.filter(function(r) {
       if (filterKey === 'tier') return r.tier == filterValue;
@@ -545,7 +557,7 @@
         var d = r.distance_mi || 0;
         return d >= parts[0] && d <= parts[1];
       }
-      if (filterKey === 'discipline') return (r.discipline || 'gravel') === filterValue;
+      if (filterKey === 'discipline') return matchesDiscipline(r, filterValue);
       return true;
     }).length;
   }
@@ -607,7 +619,7 @@
     var discSel = document.getElementById('gg-discipline');
     var currentDisc = discSel.value;
     discSel.innerHTML = '<option value="">All Types</option>';
-    [['gravel', 'Gravel'], ['mtb', 'MTB'], ['bikepacking', 'Bikepacking']].forEach(function(pair) {
+    [['gravel', 'Gravel'], ['ultra', 'Ultra & Bikepacking']].forEach(function(pair) {
       var count = countByFilter('discipline', pair[0]);
       if (count > 0) {
         var opt = document.createElement('option');
@@ -669,7 +681,7 @@
       if (f.region === 'International' && (!r.region || US_REGIONS.has(r.region))) return false;
       if (f.region && f.region !== 'International' && r.region !== f.region) return false;
       if (f.month && r.month !== f.month) return false;
-      if (f.discipline && (r.discipline || 'gravel') !== f.discipline) return false;
+      if (f.discipline && !matchesDiscipline(r, f.discipline)) return false;
       if (f.distance) {
         var parts = f.distance.split('-').map(Number);
         var d = r.distance_mi || 0;
@@ -1045,7 +1057,7 @@
     var pills = [];
 
     var distLabels = { '0-50': 'Under 50 mi', '50-100': '50-100 mi', '100-200': '100-200 mi', '200-999': '200+ mi' };
-    var discLabels = { gravel: 'Gravel', mtb: 'MTB', bikepacking: 'Bikepacking' };
+    var discLabels = { gravel: 'Gravel', ultra: 'Ultra & Bikepacking' };
     var filterLabels = {
       search: f.search ? '"' + f.search + '"' : null,
       tier: f.tier ? 'Tier ' + f.tier : null,
@@ -1400,7 +1412,9 @@
     document.getElementById('gg-region').value = f.region || '';
     document.getElementById('gg-distance').value = f.distance || '';
     document.getElementById('gg-month').value = f.month || '';
-    document.getElementById('gg-discipline').value = f.discipline || 'gravel';
+    var savedDiscipline = f.discipline || 'gravel';
+    if (savedDiscipline === 'mtb' || savedDiscipline === 'bikepacking') savedDiscipline = 'ultra';
+    document.getElementById('gg-discipline').value = savedDiscipline;
     // Restore sort
     if (config.sort) {
       currentSort = config.sort;

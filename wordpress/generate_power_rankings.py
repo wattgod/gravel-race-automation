@@ -63,8 +63,9 @@ def build_power_rankings_page(races: list) -> str:
 
     # Discipline counts for filter buttons
     gravel_count = sum(1 for r in races if r.get("discipline", "gravel") == "gravel")
-    bp_count = sum(1 for r in races if r.get("discipline") == "bikepacking")
-    mtb_count = sum(1 for r in races if r.get("discipline") == "mtb")
+    ultra_count = sum(
+        1 for r in races if r.get("discipline") in {"bikepacking", "mtb"}
+    )
 
     # Build ranked list with position numbers and discipline data attributes
     cards = []
@@ -397,9 +398,8 @@ body {{ margin: 0; background: var(--gg-color-warm-paper); }}
   <div class="gg-pr-filters">
     <span class="gg-pr-filter-label">Show:</span>
     <button class="gg-pr-filter-btn active" data-disc="gravel">Gravel ({gravel_count})</button>
+    <button class="gg-pr-filter-btn" data-disc="ultra">Ultra &amp; Bikepacking ({ultra_count})</button>
     <button class="gg-pr-filter-btn" data-disc="all">All Disciplines ({len(races)})</button>
-    <button class="gg-pr-filter-btn" data-disc="bikepacking">Bikepacking ({bp_count})</button>
-    <button class="gg-pr-filter-btn" data-disc="mtb">MTB ({mtb_count})</button>
   </div>
 
   <div class="gg-pr-list">
@@ -434,7 +434,9 @@ body {{ margin: 0; background: var(--gg-color-warm-paper); }}
 
     cards.forEach(function(card) {{
       var disc = card.getAttribute('data-discipline');
-      var show = (activeDisc === 'all') || (disc === activeDisc);
+      var show = (activeDisc === 'all') ||
+        (activeDisc === 'ultra' && (disc === 'bikepacking' || disc === 'mtb')) ||
+        (disc === activeDisc);
       card.setAttribute('data-hidden', !show);
       if (show) {{
         rank++;

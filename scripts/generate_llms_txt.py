@@ -101,7 +101,7 @@ Gravel God is a gravel cycling database covering {len(index)} races across North
 - **Tier 3 (Solid)**: {tier_counts.get(3, 0)} races — score >= 45
 - **Tier 4 (Roster)**: {tier_counts.get(4, 0)} races — score < 45
 
-Disciplines: gravel, MTB, bikepacking.
+Disciplines: gravel and the Ultra & Bikepacking shelf (bikepacking + MTB).
 Regions: {', '.join(regions)}.
 
 ## Machine-Readable Resources
@@ -115,6 +115,7 @@ Regions: {', '.join(regions)}.
 - [Markdown profiles]({SITE_URL}/race/{{slug}}.md)
 - [Race training-plan guides]({SITE_URL}/race/{{slug}}/training-plan/)
 - [Race prep kits]({SITE_URL}/race/{{slug}}/prep-kit/)
+- [Complete Bikepacking Race Training Guide]({SITE_URL}/bikepacking-guide/)
 
 ## Training Plans
 
@@ -205,7 +206,7 @@ def generate_llms_full_txt(index: list[dict], race_data_dir: Path) -> str:
     lines.append("# Gravel God Race Database — Full Context")
     lines.append("")
     lines.append(
-        f"> {len(index)} gravel, MTB, and bikepacking races rated on "
+        f"> {len(index)} gravel and Ultra & Bikepacking shelf races rated on "
         "14 base dimensions plus a Cultural Impact bonus."
     )
     lines.append(f"> Produced by Gravel God (gravelgodcycling.com). Generated: {now}")

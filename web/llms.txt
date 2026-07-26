@@ -1,7 +1,7 @@
 # Gravel God Race Database
 
 > The definitive gravel race database. 370 races rated on 14 base dimensions plus a Cultural Impact bonus, scored 0-100+, and tiered 1-4.
-> Last generated: 2026-07-25
+> Last generated: 2026-07-26
 
 ## Overview
 
@@ -12,7 +12,7 @@ Gravel God is a gravel cycling database covering 370 races across North America 
 - **Tier 3 (Solid)**: 141 races — score >= 45
 - **Tier 4 (Roster)**: 76 races — score < 45
 
-Disciplines: gravel, MTB, bikepacking.
+Disciplines: gravel and the Ultra & Bikepacking shelf (bikepacking + MTB).
 Regions: Africa, Asia, Europe, Midwest, North America, Northeast, Oceania, Other, South, South America, West.
 
 ## Machine-Readable Resources
@@ -26,6 +26,7 @@ Regions: Africa, Asia, Europe, Midwest, North America, Northeast, Oceania, Other
 - [Markdown profiles](https://gravelgodcycling.com/race/{slug}.md)
 - [Race training-plan guides](https://gravelgodcycling.com/race/{slug}/training-plan/)
 - [Race prep kits](https://gravelgodcycling.com/race/{slug}/prep-kit/)
+- [Complete Bikepacking Race Training Guide](https://gravelgodcycling.com/bikepacking-guide/)
 
 ## Training Plans
 

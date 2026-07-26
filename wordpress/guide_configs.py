@@ -67,6 +67,8 @@ class GuideConfig:
     glossary_source: Path
     guide_label: str = "Training Guide"
     include_configurator: bool = False
+    date_published: str = "2025-06-01"
+    date_modified: str = ""
 
 
 GRAVEL_CHAPTER_META = {
@@ -130,7 +132,45 @@ GRAVEL_GUIDE = GuideConfig(
     ),
     glossary_source=GUIDE_DIR / "gravel-guide-content.json",
     include_configurator=True,
+    # Pin the existing live metadata so fresh checkouts render byte-identically.
+    date_modified="2026-07-10",
 )
+
+
+BIKEPACKING_CHAPTER_META = {
+    "the-ultra-demand": {
+        "title_suffix": "What Ultra Bikepacking Races Actually Demand",
+        "description": "Understand the repeatability, durability, systems, and judgment demands that define ultra-distance bikepacking races.",
+    },
+    "choosing-your-race": {
+        "title_suffix": "How to Choose an Ultra Bikepacking Race",
+        "description": "Compare ultra bikepacking race demands, route formats, logistics, and preparation runway before choosing your target.",
+    },
+    "training-for-repeatability": {
+        "title_suffix": "Training for Ultra Bikepacking Repeatability",
+        "description": "Build an ultra bikepacking week around repeatability, working-athlete volume, back-to-backs, recovery, and ceiling maintenance.",
+    },
+    "systems-that-keep-you-moving": {
+        "title_suffix": "Bikepacking Systems That Keep You Moving",
+        "description": "Test bike fit, contact points, repair, lighting, navigation, and sleep systems before an ultra bikepacking race.",
+    },
+    "energy-economy": {
+        "title_suffix": "Ultra Bikepacking Fueling and Energy Economy",
+        "description": "Practice hourly fueling, daily replenishment, resupply choices, and appetite management for multi-day bikepacking races.",
+    },
+    "the-mental-game": {
+        "title_suffix": "The Mental Game for Ultra Bikepacking",
+        "description": "Use pre-commitment rules, segmented goals, conservative pacing, and rested judgment during an ultra bikepacking race.",
+    },
+    "logistics-as-training": {
+        "title_suffix": "Ultra Bikepacking Logistics as Training",
+        "description": "Schedule route research, resupply mapping, gear decisions, travel, and exit planning as part of race preparation.",
+    },
+    "simulation-and-race-week": {
+        "title_suffix": "Bikepacking Simulation Blocks and Race Week",
+        "description": "Design a loaded multi-day simulation, protect its recovery window, close race-week loops, and start conservatively.",
+    },
+}
 
 
 BIKEPACKING_GUIDE = GuideConfig(
@@ -138,7 +178,7 @@ BIKEPACKING_GUIDE = GuideConfig(
     content_path=GUIDE_DIR / "bikepacking-guide-content.json",
     output_dir=OUTPUT_ROOT / "bikepacking-guide",
     url_base="/bikepacking-guide/",
-    chapter_meta={},
+    chapter_meta=BIKEPACKING_CHAPTER_META,
     ga4_event_label_prefix="bikepacking_guide",
     local_storage_key_prefix="gg_bikepacking_guide",
     gate_form=GateFormConfig(
@@ -150,12 +190,14 @@ BIKEPACKING_GUIDE = GuideConfig(
         pillar_blocks=("ultra_shelf", "coaching_corner"),
         finale_blocks=("ultra_shelf", "coaching_corner"),
         targets={
-            "ultra_shelf": "/gravel-races/?discipline=bikepacking",
+            "ultra_shelf": "/gravel-races/?discipline=ultra",
             "coaching_corner": COACHING_URL,
         },
     ),
     glossary_source=GUIDE_DIR / "bikepacking-guide-content.json",
     guide_label="Bikepacking Race Training Guide",
+    date_published="2026-07-25",
+    date_modified="2026-07-25",
 )
 
 

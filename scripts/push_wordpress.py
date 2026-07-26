@@ -458,8 +458,8 @@ def sync_guide(guide_dir: str):
     return f"{wp_url}/guide/"
 
 
-def sync_guide_cluster(cluster_dir: str):
-    """Upload guide cluster pages (pillar + 8 chapters) to /guide/ on SiteGround via tar+ssh.
+def sync_guide_cluster(cluster_dir: str, url_path: str = "guide"):
+    """Upload a guide cluster (pillar + chapters) to its SiteGround path.
 
     Each page is structured as {slug}/index.html under the cluster output directory.
     The pillar page is at index.html (root of cluster_dir).
@@ -490,7 +490,11 @@ def sync_guide_cluster(cluster_dir: str):
         print(f"✗ No guide chapter pages found in {cluster_path}")
         return None
 
-    remote_base = "~/www/gravelgodcycling.com/public_html/guide"
+    if url_path not in {"guide", "bikepacking-guide"}:
+        print(f"✗ Unsupported guide cluster URL path: {url_path}")
+        return None
+
+    remote_base = f"~/www/gravelgodcycling.com/public_html/{url_path}"
 
     # Create remote directory structure
     chapter_mkdir = " ".join(f"{remote_base}/{d.name}" for d in chapter_dirs)
@@ -555,11 +559,11 @@ def sync_guide_cluster(cluster_dir: str):
             timeout=15,
         )
     except subprocess.CalledProcessError:
-        print("⚠️  Warning: could not fix /guide/ permissions — verify manually")
+        print(f"⚠️  Warning: could not fix /{url_path}/ permissions — verify manually")
 
     wp_url = os.environ.get("WP_URL", "https://gravelgodcycling.com")
-    print(f"✓ Uploaded {page_count} guide cluster pages to {wp_url}/guide/")
-    return f"{wp_url}/guide/"
+    print(f"✓ Uploaded {page_count} guide cluster pages to {wp_url}/{url_path}/")
+    return f"{wp_url}/{url_path}/"
 
 
 SITE_BASE_URL = os.environ.get("WP_URL", "https://gravelgodcycling.com")
@@ -3696,6 +3700,14 @@ if __name__ == "__main__":
         help="Path to guide cluster directory (default: wordpress/output/guide)"
     )
     parser.add_argument(
+        "--sync-bikepacking-guide", action="store_true",
+        help="Upload the bikepacking guide cluster to /bikepacking-guide/ via tar+ssh"
+    )
+    parser.add_argument(
+        "--bikepacking-guide-dir", default="wordpress/output/bikepacking-guide",
+        help="Path to bikepacking guide output (default: wordpress/output/bikepacking-guide)"
+    )
+    parser.add_argument(
         "--sync-og", action="store_true",
         help="Upload OG images to /og/ via tar+ssh"
     )
@@ -4010,7 +4022,8 @@ if __name__ == "__main__":
         args.purge_cache = True
 
     has_action = any([args.json, args.sync_index, args.sync_widget, args.sync_training,
-                      args.sync_guide, args.sync_guide_cluster, args.sync_og, args.sync_tp, args.sync_homepage, args.sync_gravel_tv, args.sync_about,
+                      args.sync_guide, args.sync_guide_cluster, args.sync_bikepacking_guide,
+                      args.sync_og, args.sync_tp, args.sync_homepage, args.sync_gravel_tv, args.sync_about,
                       args.sync_coaching, args.sync_coaching_apply, args.sync_consulting,
                       args.sync_training_plans, args.sync_success, args.sync_pages,
                       args.sync_sitemap, args.sync_redirects,
@@ -4048,6 +4061,13 @@ if __name__ == "__main__":
         _run("sync-guide", sync_guide, args.guide_dir)
     if args.sync_guide_cluster:
         _run("sync-guide-cluster", sync_guide_cluster, args.guide_cluster_dir)
+    if args.sync_bikepacking_guide:
+        _run(
+            "sync-bikepacking-guide",
+            sync_guide_cluster,
+            args.bikepacking_guide_dir,
+            "bikepacking-guide",
+        )
     if args.sync_og:
         _run("sync-og", sync_og, args.og_dir)
     if args.sync_tp:

@@ -442,6 +442,12 @@ def normalize_race_data(data: dict) -> dict:
     return {
         'name': race.get('display_name') or race.get('name', 'Unknown Race'),
         'slug': race.get('slug', ''),
+        'discipline': (
+            rating.get('discipline')
+            or vitals.get('discipline')
+            or race.get('discipline')
+            or 'gravel'
+        ),
         'tagline': race.get('tagline', ''),
         'overall_score': rating.get('overall_score', 0),
         'tier': rating.get('tier', 4),
@@ -3085,6 +3091,9 @@ def build_training(rd: dict) -> str:
 
 def build_custom_plan_offer(rd: dict) -> str:
     """Build the owner-approved custom-plan offer used in the short spine."""
+    if rd.get('discipline') == 'bikepacking':
+        return ''
+
     race_name = rd['name']
     if rd.get('slug') == 'unbound-200':
         copy = (
@@ -4230,6 +4239,9 @@ def build_prep_strip(rd: dict) -> str:
     client-side from data-race-date so stale or past dates degrade to
     generic copy instead of a wrong price.
     """
+    if rd.get('discipline') == 'bikepacking':
+        return ''
+
     slug = rd['slug']
     race_name = rd['name']
 

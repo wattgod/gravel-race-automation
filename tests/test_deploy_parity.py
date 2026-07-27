@@ -12,9 +12,49 @@ PROJECT_ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(PROJECT_ROOT / "scripts"))
 
 import deploy_parity as dp
+import immune_check as immune
 
 
 ROOT = "/home/u/www/gravelgodcycling.com/public_html"
+
+
+class TestImmuneWrapper:
+    def test_missing_creds_skips_without_running_subprocess(self, monkeypatch):
+        monkeypatch.delenv("SSH_HOST", raising=False)
+        monkeypatch.delenv("SSH_USER", raising=False)
+
+        def unexpected_run(*args, **kwargs):
+            pytest.fail("deploy parity subprocess must not run without SSH creds")
+
+        monkeypatch.setattr(immune.subprocess, "run", unexpected_run)
+
+        findings = immune.run_deploy_parity()
+
+        assert len(findings) == 1
+        finding = findings[0]
+        assert finding.code == "deploy-parity-skipped"
+        assert finding.lane == immune.GREEN
+        assert finding.severity == "low"
+        assert finding.detail == (
+            "no SSH creds in this environment — live-tree drift unverified (not a defect)"
+        )
+
+    def test_creds_present_crash_remains_yellow_failure(self, monkeypatch):
+        monkeypatch.setenv("SSH_HOST", "example.test")
+        monkeypatch.setenv("SSH_USER", "scanner")
+
+        class Crashed:
+            returncode = 2
+            stderr = "ssh crashed"
+
+        monkeypatch.setattr(immune.subprocess, "run", lambda *args, **kwargs: Crashed())
+
+        findings = immune.run_deploy_parity()
+
+        assert len(findings) == 1
+        finding = findings[0]
+        assert finding.code == "deploy-parity-failed"
+        assert finding.lane == immune.YELLOW
 
 
 class TestParseInventory:

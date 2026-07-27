@@ -40,6 +40,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import re
 import subprocess
 import sys
@@ -334,6 +335,14 @@ def run_deploy_parity() -> list[Finding]:
     stack means stale pages survive every deploy — four incidents on
     2026-07-22 alone. ORPHAN = live but no longer generated; UNDEPLOYED =
     expected by the generators' own rules but absent live."""
+    if not os.environ.get("SSH_HOST") or not os.environ.get("SSH_USER"):
+        return [Finding(
+            "deploy-parity-skipped", GREEN, "low", "Deploy Parity Skipped",
+            "no SSH creds in this environment — live-tree drift unverified (not a defect)",
+            "Run the live-tree drift check from an environment with SSH_HOST and "
+            "SSH_USER configured.",
+            None, "deploy_parity")]
+
     import tempfile
     out = Path(tempfile.mkstemp(suffix=".json")[1])
     try:

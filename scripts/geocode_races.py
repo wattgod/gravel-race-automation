@@ -39,6 +39,7 @@ MANUAL_COORDS = {
     "grasshopper-adventure-series": (38.2975, -122.2869),  # Fairfax, CA
     "nordic-chase-gravel-edition": (55.6761, 12.5683),     # Copenhagen
     "haute-route-gravel": (45.1885, 5.7245),               # Grenoble, France (primary venue)
+    "spirit-world-100": (31.5394, -110.7550),               # Patagonia, AZ
 }
 
 

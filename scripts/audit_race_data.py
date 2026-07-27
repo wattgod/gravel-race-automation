@@ -56,6 +56,36 @@ def expected_tier_with_prestige(score, prestige):
 # This avoids false positives from 2-letter state abbreviations matching
 # country names (e.g. ", CO" in "Colombia", ", NE" in "New South Wales").
 
+US_STATES = [
+    "ALABAMA", "ALASKA", "ARIZONA", "ARKANSAS", "CALIFORNIA", "COLORADO",
+    "CONNECTICUT", "DELAWARE", "FLORIDA", "GEORGIA", "HAWAII", "IDAHO",
+    "ILLINOIS", "INDIANA", "IOWA", "KANSAS", "KENTUCKY", "LOUISIANA",
+    "MAINE", "MARYLAND", "MASSACHUSETTS", "MICHIGAN", "MINNESOTA",
+    "MISSISSIPPI", "MISSOURI", "MONTANA", "NEBRASKA", "NEVADA",
+    "NEW HAMPSHIRE", "NEW JERSEY", "NEW MEXICO", "NEW YORK",
+    "NORTH CAROLINA", "NORTH DAKOTA", "OHIO", "OKLAHOMA", "OREGON",
+    "PENNSYLVANIA", "RHODE ISLAND", "SOUTH CAROLINA", "SOUTH DAKOTA",
+    "TENNESSEE", "TEXAS", "UTAH", "VERMONT", "VIRGINIA", "WASHINGTON",
+    "WEST VIRGINIA", "WISCONSIN", "WYOMING"
+]
+
+US_ABBREVS = {
+    "AL", "AK", "AZ", "AR", "CA", "CO", "CT", "DE", "FL", "GA",
+    "HI", "ID", "IL", "IN", "IA", "KS", "KY", "LA", "ME", "MD",
+    "MA", "MI", "MN", "MS", "MO", "MT", "NE", "NV", "NH", "NJ",
+    "NM", "NY", "NC", "ND", "OH", "OK", "OR", "PA", "RI", "SC",
+    "SD", "TN", "TX", "UT", "VT", "VA", "WA", "WV", "WI", "WY"
+}
+
+
+def has_explicit_us_state(location, loc_upper):
+    """Return True for a full state name or comma-delimited state code."""
+    if any(re.search(rf"\b{re.escape(state)}\b", loc_upper) for state in US_STATES):
+        return True
+    match = re.search(r",\s+([A-Z]{2})(?:\s|$|\()", location.strip())
+    return bool(match and match.group(1) in US_ABBREVS)
+
+
 def detect_region(location):
     """
     Returns one of: 'us', 'canada', 'europe', 'africa', 's_america',
@@ -73,6 +103,12 @@ def detect_region(location):
     for kw in au_nz:
         if kw in loc_upper:
             return "australia_nz"
+
+    # A specific US state wins over a bare foreign-region keyword. This handles
+    # US towns such as "Patagonia, Arizona" and "Wales, Wisconsin" without
+    # moving the broad US abbreviation scan ahead of non-US countries.
+    if has_explicit_us_state(location, loc_upper):
+        return "us"
 
     # South America (check before US -- "Colombia" has ", CO")
     sa = ["BRAZIL", "ARGENTINA", "CHILE", "COLOMBIA", "COLOMBIAN",
@@ -144,34 +180,14 @@ def detect_region(location):
         return "asia"
 
     # US -- check full state names (these are unambiguous)
-    us_states = [
-        "ALABAMA", "ALASKA", "ARIZONA", "ARKANSAS", "CALIFORNIA", "COLORADO",
-        "CONNECTICUT", "DELAWARE", "FLORIDA", "GEORGIA", "HAWAII", "IDAHO",
-        "ILLINOIS", "INDIANA", "IOWA", "KANSAS", "KENTUCKY", "LOUISIANA",
-        "MAINE", "MARYLAND", "MASSACHUSETTS", "MICHIGAN", "MINNESOTA",
-        "MISSISSIPPI", "MISSOURI", "MONTANA", "NEBRASKA", "NEVADA",
-        "NEW HAMPSHIRE", "NEW JERSEY", "NEW MEXICO", "NEW YORK",
-        "NORTH CAROLINA", "NORTH DAKOTA", "OHIO", "OKLAHOMA", "OREGON",
-        "PENNSYLVANIA", "RHODE ISLAND", "SOUTH CAROLINA", "SOUTH DAKOTA",
-        "TENNESSEE", "TEXAS", "UTAH", "VERMONT", "VIRGINIA", "WASHINGTON",
-        "WEST VIRGINIA", "WISCONSIN", "WYOMING"
-    ]
-    for state in us_states:
-        if state in loc_upper:
-            return "us"
+    if any(re.search(rf"\b{re.escape(state)}\b", loc_upper) for state in US_STATES):
+        return "us"
 
     # US abbreviation check -- only at end of string or before a paren
     # e.g. "Emporia, KS" or "Central Oregon (multiple towns)"
-    us_abbrevs = {
-        "AL", "AK", "AZ", "AR", "CA", "CO", "CT", "DE", "FL", "GA",
-        "HI", "ID", "IL", "IN", "IA", "KS", "KY", "LA", "ME", "MD",
-        "MA", "MI", "MN", "MS", "MO", "MT", "NE", "NV", "NH", "NJ",
-        "NM", "NY", "NC", "ND", "OH", "OK", "OR", "PA", "RI", "SC",
-        "SD", "TN", "TX", "UT", "VT", "VA", "WA", "WV", "WI", "WY"
-    }
     # Match ", XX" at end of string or ", XX " followed by more text
     m = re.search(r',\s+([A-Z]{2})(?:\s|$|\()', location.strip())
-    if m and m.group(1) in us_abbrevs:
+    if m and m.group(1) in US_ABBREVS:
         return "us"
 
     if "USA" in loc_upper or "UNITED STATES" in loc_upper:

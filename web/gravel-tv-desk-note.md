@@ -1,9 +1,9 @@
-# Desk Note — week of 2026-07-22
+# Desk Note — week of 2026-07-29
 
-**Week of July 22, 2026**
+**Week of July 29, 2026**
 
-Two Tier-2 races open the weekend on Friday and Saturday from very different postcards: Rad am Ring uses the Nürburgring circuit and surrounding roads in Rhineland-Palatinate, while Bob Cook Memorial Mt. Evans Hill Climb goes up from Idaho Springs, Colorado — a hill climb that does exactly what the name says. Black Forest Gravel (Freiburg) and Lake Country Gravel (Oconomowoc, Wisconsin) fill out Saturday's Tier-3 card alongside Tour de Gap in Fulton, Mississippi. Sunday adds Rad am Ring Gravel at Tier 3 and The Divide out of Manton, Michigan at Tier 4.
+One race on the calendar this week earns real attention: the Colorado Trail Race, starting August 2nd from Durango and finishing in Denver. Tier 1, self-supported, roughly 535 miles of high-altitude singletrack and doubletrack through the Rockies. It's not a race in the conventional sense — no finish-line tape, no neutral rollout — but the effort required puts it above most events that do have those things. If you're not following the tracking, you should be.
 
-The following weekend is considerably busier. Colorado Trail Race — Durango to Denver, the only Tier-1 event in this two-week window — starts August 2nd. Pan-Mass Challenge, Pelotonia, Copper Triangle, and Tour de Big Bear all land August 1st at Tier 2. Arlberg Giro in St. Anton and Boone Gran Fondo in North Carolina round out August 2nd.
+Saturday August 1st splits between Bear Howard Gravel in Flagstaff and Crooked Gravel up in Winter Park, both Tier 3. De Ronde Van Grampian runs the same day out of Oxford, Michigan at Tier 4. The Bluewater International Gran Fondo in Sarnia rounds out the Sunday card at Tier 2. (Two Ontario events on the same weekend is a reasonable excuse to cross the border.)
 
-Twenty races across two weekends, one continent-crossing Tier-1. Colorado Trail Race begins Sunday, August 2nd.
+The following weekend adds Polish Gravel in Kraków and Heathland Gravel somewhere in Belgium — both Tier 3, both worth a watch if European gravel is your thing. CTR tracking goes live August 2nd.

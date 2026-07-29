@@ -1265,17 +1265,19 @@ def check_ga4_in_output_html():
 PLAN_INTENT_HREF_RE = re.compile(
     r"""href\s*=\s*["'][^"']*(?:
         /questionnaire(?:/|\?|["']) |
-        /training-plans(?:/|\?|["']) |
         /race/[^"']+/prep-kit/ |
         https://buy\.stripe\.com/
     )""",
     re.IGNORECASE | re.VERBOSE,
 )
-COACHING_CTA_RE = re.compile(
-    r"""<a\b(?=[^>]*\bhref\s*=\s*["'][^"']*/coaching(?:/|/apply/|\?)[^"']*["'])
+# Navigation links to coaching/training-plans are not conversion CTAs; they
+# qualify only when the anchor is explicitly marked as a CTA.
+MARKED_CTA_RE = re.compile(
+    r"""<a\b(?=[^>]*\bhref\s*=\s*["'][^"']*(?:/coaching(?:/|/apply/|\?)|/training-plans(?:/|\?|["']))[^"']*["'])
         (?=[^>]*(?:\bdata-cta\b|\bclass\s*=\s*["'][^"']*cta[^"']*["']))[^>]*>""",
     re.IGNORECASE | re.VERBOSE,
 )
+COACHING_CTA_RE = MARKED_CTA_RE  # back-compat alias
 
 
 def plan_intent_pages_missing_cta_click(output_dir: Path) -> list[Path]:
@@ -1288,6 +1290,19 @@ def plan_intent_pages_missing_cta_click(output_dir: Path) -> list[Path]:
     missing = []
     if not output_dir.exists():
         return missing
+    canonical_event_re = re.compile(
+        r"""(?:gtag\s*\(\s*["']event["']\s*,|track\s*\()\s*
+            ["']cta_click["']""",
+        re.IGNORECASE | re.VERBOSE)
+    # Pages may wire events three ways (repo pitfall: grepping page HTML
+    # alone gives false negatives): an inline literal call, a data-ga
+    # attribute dispatched through a shared variable handler, or a hashed
+    # JS bundle. A referenced bundle counts only if it contains the event.
+    script_ref_re = re.compile(r'src="[^"]*/([^"/]+\.js)"')
+    wired_bundles = {
+        f.name for f in output_dir.rglob("*.js")
+        if canonical_event_re.search(f.read_text(encoding="utf-8", errors="ignore"))
+    }
     for html_file in sorted(output_dir.rglob("*.html")):
         if any(part.startswith(".") for part in html_file.parts):
             continue
@@ -1297,12 +1312,17 @@ def plan_intent_pages_missing_cta_click(output_dir: Path) -> list[Path]:
             continue
         has_intent_cta = (
             PLAN_INTENT_HREF_RE.search(content) is not None
-            or COACHING_CTA_RE.search(content) is not None
+            or MARKED_CTA_RE.search(content) is not None
         )
-        if has_intent_cta and re.search(
-                r"""(?:gtag\s*\(\s*["']event["']\s*,|track\s*\()\s*
-                    ["']cta_click["']""",
-                content, re.IGNORECASE | re.VERBOSE) is None:
+        if not has_intent_cta:
+            continue
+        wired = (
+            canonical_event_re.search(content) is not None
+            or 'data-ga="cta_click"' in content
+            or any(name in wired_bundles
+                   for name in script_ref_re.findall(content))
+        )
+        if not wired:
             missing.append(html_file)
     return missing
 

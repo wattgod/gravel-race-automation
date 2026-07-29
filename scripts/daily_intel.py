@@ -85,9 +85,7 @@ MEASUREMENT_EPOCHS = [
         ),
     },
 ]
-# TODO: Set to the actual regeneration/redeploy date of the expanded cta_click
-# instrumentation (#44). While unset, the funnel epoch stays dormant.
-CTA_CLICK_COVERAGE_DEPLOY_DATE = None
+CTA_CLICK_COVERAGE_DEPLOY_DATE = "2026-07-29"
 if CTA_CLICK_COVERAGE_DEPLOY_DATE:
     MEASUREMENT_EPOCHS.append({
         "date": CTA_CLICK_COVERAGE_DEPLOY_DATE,

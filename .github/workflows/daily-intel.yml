@@ -32,6 +32,7 @@ jobs:
         env:
           GG_GA4_PROPERTY_ID: ${{ secrets.GG_GA4_PROPERTY_ID }}
           RL_GA4_PROPERTY_ID: ${{ secrets.RL_GA4_PROPERTY_ID }}
+          XC_GA4_PROPERTY_ID: ${{ secrets.XC_GA4_PROPERTY_ID }}
           SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
           SUPABASE_SERVICE_KEY: ${{ secrets.SUPABASE_SERVICE_KEY }}
           RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}

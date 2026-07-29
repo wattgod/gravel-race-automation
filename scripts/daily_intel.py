@@ -62,6 +62,12 @@ BRANDS = {
         "property_env": "RL_GA4_PROPERTY_ID",
         "monitor_email": "checkout-monitor@roadielabs.com",
     },
+    "xcski": {
+        "label": "XC Ski Labs",
+        "origin": "https://xcskilabs.com",
+        "property_env": "XC_GA4_PROPERTY_ID",
+        "monitor_email": "checkout-monitor@xcskilabs.com",
+    },
 }
 
 # The deployed gravel form JS predates the tp_* rename — both generations

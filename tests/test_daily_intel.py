@@ -101,7 +101,7 @@ def test_render_report_has_deterministic_sections_and_readable_funnel(collected)
 
 
 def test_measurement_window_fully_after_epoch_has_no_annotation(collected):
-    collected["date"] = "2026-08-25"
+    collected["date"] = "2026-09-25"
     collected["measurement_epochs"] = measurement_epochs_for_report(collected["date"])
 
     report = render_report(collected)

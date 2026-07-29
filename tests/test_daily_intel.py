@@ -5,7 +5,14 @@ from copy import deepcopy
 
 import pytest
 
-from scripts.daily_intel import combine_report, detect_tracking_regression, render_report
+from scripts.daily_intel import (
+    INTERPRET_PROMPT,
+    combine_report,
+    detect_tracking_regression,
+    measurement_epochs_for_report,
+    measurement_epochs_in_window,
+    render_report,
+)
 
 
 def _ga4(sessions=20, cta=2):
@@ -91,6 +98,51 @@ def test_render_report_has_deterministic_sections_and_readable_funnel(collected)
     assert "## SOCIAL" not in report
     assert "###" not in report
     assert report.endswith("- nothing broken.")
+
+
+def test_measurement_window_fully_after_epoch_has_no_annotation(collected):
+    collected["date"] = "2026-08-25"
+    collected["measurement_epochs"] = measurement_epochs_for_report(collected["date"])
+
+    report = render_report(collected)
+
+    assert collected["measurement_epochs"] == []
+    assert "measurement regime change" not in report
+
+
+def test_measurement_window_straddle_is_annotated_and_serializable(collected):
+    import json
+
+    collected["date"] = "2026-07-29"
+    collected["measurement_epochs"] = measurement_epochs_for_report(collected["date"])
+
+    report = render_report(collected)
+    snapshot = json.loads(json.dumps({**collected, "report": report}))
+
+    warning = (
+        "⚠ measurement regime change 2026-07-26 — comparison not like-for-like"
+    )
+    assert report.count(warning) == 2
+    assert "(28d sessions, funnel, and constraint rates)." in report
+    assert snapshot["measurement_epochs"] == [{
+        "date": "2026-07-26",
+        "scope": "sessions",
+        "label": (
+            "consent geo-gate deployed (f52d2722): non-EEA analytics default granted; "
+            "sessions before this date captured only opted-in visitors and are not comparable"
+        ),
+    }]
+    assert warning in snapshot["report"]
+    assert "analytics collection changes, not demand changes" in INTERPRET_PROMPT
+
+
+def test_empty_epoch_list_preserves_report_behavior(collected):
+    baseline = render_report(deepcopy(collected))
+    collected["measurement_epochs"] = []
+
+    assert render_report(collected) == baseline
+    assert measurement_epochs_in_window(
+        "2026-07-01", "2026-07-31", epochs=[]) == []
 
 
 def test_render_report_failed_orders_are_first_and_broken_is_complete(collected):

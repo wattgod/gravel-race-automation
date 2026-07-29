@@ -539,7 +539,8 @@ class TestConfiguratorJS:
         """All 3 GA4 events must be present."""
         assert 'configurator_interact' in js_content
         assert 'configurator_preview' in js_content
-        assert 'configurator_cta_click' in js_content
+        assert "source: 'configurator'" in js_content
+        assert "cta_name: 'personalized_plan'" in js_content
 
     def test_cta_passes_configurator_params(self, js_content):
         """CTA link must pass level, hours, weeks to questionnaire URL."""

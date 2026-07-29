@@ -1638,7 +1638,7 @@ class TestJs:
             "insights_ou_expand",
             "insights_rank_change",
             "insights_rank_reset",
-            "insights_cta_click",
+            "cta_click",
             "insights_section_view",
             "insights_scroll_depth",
             "insights_cal_expand",
@@ -1647,6 +1647,7 @@ class TestJs:
         ]
         for ev in events:
             assert ev in insights_js, f"GA4 event {ev} missing"
+        assert "source: 'insights'" in insights_js
 
     def test_no_scrolly_step_event(self, insights_js):
         """Old scrollytelling GA4 event should not exist."""

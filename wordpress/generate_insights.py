@@ -3135,7 +3135,7 @@ def build_insights_js() -> str:
   document.querySelectorAll('[data-cta]').forEach(function(el) {
     el.addEventListener('click', function() {
       if (typeof gtag === 'function') {
-        gtag('event', 'insights_cta_click', { cta_name: el.getAttribute('data-cta') });
+        gtag('event', 'cta_click', { source: 'insights', cta_name: el.getAttribute('data-cta') });
       }
     });
   });

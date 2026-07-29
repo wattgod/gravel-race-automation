@@ -584,6 +584,8 @@ def build_js() -> str:
   document.querySelectorAll('a[data-cta]').forEach(function(link) {
     link.addEventListener('click', function() {
       gtag('event', 'cta_click', {
+        source: 'training_plans',
+        cta_name: this.dataset.cta,
         cta_type: this.dataset.cta.indexOf('build') !== -1 ? 'build_plan' : 'other',
         cta_text: this.textContent.trim().slice(0, 50),
         cta_section: 'training_plan_page',

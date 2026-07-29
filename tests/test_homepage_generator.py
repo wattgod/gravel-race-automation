@@ -464,9 +464,11 @@ class TestLadderStrip:
 
     def test_data_ga_hooks(self, stats):
         html = build_ladder_strip(stats)
+        assert html.count('data-ga="cta_click"') == 2
         assert 'data-ga="ladder_pick_race"' in html
-        assert 'data-ga="ladder_get_plan"' in html
-        assert 'data-ga="ladder_coaching"' in html
+        assert 'data-ga-label="ladder_pick_race"' in html
+        assert 'data-ga-label="ladder_get_plan"' in html
+        assert 'data-ga-label="ladder_coaching"' in html
 
     def test_no_data_animate(self, stats):
         html = build_ladder_strip(stats)
@@ -694,8 +696,9 @@ class TestFullPage:
 
     def test_ctas_have_ga_tracking(self, homepage_html):
         for event in ['hero_chip_click', 'featured_race_click',
-                       'training_plan_click', 'sidebar_cta_click', 'guide_click']:
+                      'cta_click', 'guide_click']:
             assert f'data-ga="{event}"' in homepage_html, f"Missing GA event: {event}"
+        assert "source: 'homepage'" in homepage_html
 
     def test_no_broken_template_vars(self, homepage_html):
         assert "{race_count}" not in homepage_html

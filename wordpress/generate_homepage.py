@@ -629,12 +629,13 @@ def build_ladder_strip(stats: dict) -> str:
     ]
     cell_html = ""
     for num, head, body, cta_label, href, ga in cells:
+        event_name = "cta_click" if ga in {"ladder_get_plan", "ladder_coaching"} else ga
         cell_html += f'''
       <div class="gg-hp-ladder-cell">
         <span class="gg-hp-ladder-num">{num}</span>
         <h3 class="gg-hp-ladder-head">{head}</h3>
         <p class="gg-hp-ladder-body">{body}</p>
-        <a href="{href}" class="gg-hp-ladder-cta" data-ga="{ga}">{cta_label}</a>
+        <a href="{href}" class="gg-hp-ladder-cta" data-ga="{event_name}" data-ga-label="{ga}">{cta_label}</a>
       </div>'''
 
     return f'''<section class="gg-hp-ladder" id="ladder">
@@ -1101,7 +1102,7 @@ def build_sidebar(stats: dict, race_index: list, upcoming: list) -> str:
     cta_html = f'''<div class="gg-hp-sidebar-cta">
       <h3>A plan for the race on your calendar</h3>
       <p>Your target race has specific terrain, elevation, and weather. Your plan should too.</p>
-      <a href="{esc(TRAINING_PLANS_URL)}" class="gg-hp-sidebar-cta-btn" data-ga="sidebar_cta_click">Get Your Plan &rarr;</a>
+      <a href="{esc(TRAINING_PLANS_URL)}" class="gg-hp-sidebar-cta-btn" data-ga="cta_click" data-ga-label="sidebar_plan">Get Your Plan &rarr;</a>
     </div>'''
 
     return f'''{stats_html}
@@ -1191,7 +1192,7 @@ def build_training_cta() -> str:
         <h2>Train for the course, not just the distance</h2>
         <p>Every generic plan treats gravel like a road race with dirt. This isn&rsquo;t that. Training plans matched to your target race&rsquo;s exact terrain, elevation profile, and typical conditions. Built around your schedule, your fitness, and your goal.</p>
         <p class="gg-hp-cta-price" data-ab="training_price">Custom-built for your target event &mdash; $15 a week.</p>
-        <a href="{esc(TRAINING_PLANS_URL)}" class="gg-hp-cta-btn" data-ga="training_plan_click" data-ab="training_cta_btn">Get Your Plan &rarr;</a>
+      <a href="{esc(TRAINING_PLANS_URL)}" class="gg-hp-cta-btn" data-ga="cta_click" data-ga-label="training_plan">Get Your Plan &rarr;</a>
       </div>
       <div class="gg-hp-cta-right" role="img" aria-label="Training plan preview"></div>
     </div>
@@ -1206,7 +1207,7 @@ def build_testimonials() -> str:
     return f'''<section class="gg-hp-testimonials" id="testimonials">
     <div class="gg-hp-test-cta">
       <p data-ab="coaching_scarcity">You could be better than you think. A human in your corner &mdash; not an AI, not a spreadsheet.</p>
-      <a href="{esc(SITE_BASE_URL)}/coaching/" class="gg-hp-btn gg-hp-btn--primary" data-ga="coaching_cta_testimonials">GET ME IN YOUR CORNER &rarr;</a>
+      <a href="{esc(SITE_BASE_URL)}/coaching/" class="gg-hp-btn gg-hp-btn--primary" data-ga="cta_click" data-ga-label="coaching">GET ME IN YOUR CORNER &rarr;</a>
     </div>
   </section>'''
 
@@ -1759,7 +1760,10 @@ document.querySelectorAll('[data-ga]').forEach(function(el) {
     var event_name = el.getAttribute('data-ga');
     var label = el.getAttribute('data-ga-label') || '';
     if (typeof gtag === 'function') {
-      gtag('event', event_name, { event_label: label });
+      var params = event_name === 'cta_click'
+        ? { source: 'homepage', cta_name: label }
+        : { event_label: label };
+      gtag('event', event_name, params);
     }
   });
 });

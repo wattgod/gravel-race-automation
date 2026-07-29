@@ -1224,7 +1224,7 @@ document.querySelectorAll('.gg-faq-question').forEach(function(q) {
 
 (function() {
   if (typeof gtag !== 'function') return;
-  document.querySelectorAll('a.gg-btn, a.gg-btn--outline, a.gg-prep-kit-link').forEach(function(link) {
+  document.querySelectorAll('a.gg-btn, a.gg-btn--outline, a.gg-prep-kit-link, a.gg-email-capture-link').forEach(function(link) {
     link.addEventListener('click', function() {
       var text = this.textContent.trim().replace(/\s+/g, ' ');
       var href = this.getAttribute('href') || '';
@@ -1236,6 +1236,8 @@ document.querySelectorAll('.gg-faq-question').forEach(function(q) {
       var section = this.closest('.gg-section, .gg-sticky-cta');
       var section_id = section ? (section.id || section.className.split(' ')[0]) : 'unknown';
       gtag('event', 'cta_click', {
+        source: 'race_page',
+        cta_name: this.getAttribute('data-cta') || cta_type,
         cta_type: cta_type,
         cta_text: text.substring(0, 50),
         cta_section: section_id,
@@ -1804,7 +1806,9 @@ document.querySelectorAll('.gg-pack-workout').forEach(function(card) {
   if (cfgCtaLinkEl) {
     cfgCtaLinkEl.addEventListener('click', function() {
       if (typeof gtag === 'function') {
-        gtag('event', 'configurator_cta_click', {
+        gtag('event', 'cta_click', {
+          source: 'configurator',
+          cta_name: 'personalized_plan',
           race_slug: rd.slug,
           cta_text: cfgCtaLinkEl.textContent
         });

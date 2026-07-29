@@ -1020,7 +1020,7 @@ def build_practical() -> str:
 def build_inline_cta(text: str, note: str, ga_label: str) -> str:
     """Build an inline CTA block with a button and note."""
     return f'''<div class="gg-wp-inline-cta">
-  <a href="{SITE_BASE_URL}/gravel-races/" class="gg-wp-cta-button" data-ga="whitepaper_inline_cta" data-ga-label="{esc(ga_label)}">{esc(text)}</a>
+  <a href="{SITE_BASE_URL}/gravel-races/" class="gg-wp-cta-button" data-ga="cta_click" data-ga-label="{esc(ga_label)}">{esc(text)}</a>
   <p class="gg-wp-inline-cta-note">{note}</p>
 </div>'''
 
@@ -1197,7 +1197,7 @@ def build_cta() -> str:
     <div class="gg-wp-cta-inner">
       <h2 class="gg-wp-cta-heading">Run Your Number</h2>
       <p class="gg-wp-cta-text">Three inputs. Your weight, your FTP, your race. Find your race page and the calculator does the rest.</p>
-      <a href="{SITE_BASE_URL}/gravel-races/" class="gg-wp-cta-button" data-ga="whitepaper_cta_click" data-ga-label="race_prep_kits">FIND YOUR RACE</a>
+      <a href="{SITE_BASE_URL}/gravel-races/" class="gg-wp-cta-button" data-ga="cta_click" data-ga-source="whitepaper" data-ga-label="race_prep_kits">FIND YOUR RACE</a>
     </div>
   </div>
 </section>'''
@@ -1929,6 +1929,17 @@ def build_whitepaper_js() -> str:
 
   /* ── Progressive enhancement guard ── */
   document.documentElement.classList.add('gg-has-js');
+
+  document.querySelectorAll('.gg-wp-cta-button[data-ga="cta_click"]').forEach(function(el) {
+    el.addEventListener('click', function() {
+      if (typeof gtag === 'function') {
+        gtag('event', 'cta_click', {
+          source: 'whitepaper',
+          cta_name: el.getAttribute('data-ga-label') || 'whitepaper_cta'
+        });
+      }
+    });
+  });
 
   /* ── Reduced motion ── */
   var reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;

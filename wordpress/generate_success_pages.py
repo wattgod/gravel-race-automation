@@ -218,13 +218,15 @@ def build_success_js() -> str:
   }
 
   // Cross-sell CTA tracking
-  var ctas = document.querySelectorAll('.gg-success-cta');
+  var ctas = document.querySelectorAll('a[href*="/coaching/"]');
   ctas.forEach(function(cta) {
     cta.addEventListener('click', function() {
       if (typeof gtag === 'function') {
-        gtag('event', 'success_crosssell_click', {
-          product_type: ptype,
-          destination: cta.getAttribute('href'),
+        gtag('event', 'cta_click', {
+          source: 'coaching',
+          cta_name: cta.classList.contains('gg-success-cta')
+            ? 'success_cross_sell'
+            : 'complete_coaching_intake',
         });
       }
     });

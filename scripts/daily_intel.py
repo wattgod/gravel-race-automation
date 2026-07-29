@@ -85,6 +85,19 @@ MEASUREMENT_EPOCHS = [
         ),
     },
 ]
+# TODO: Set to the actual regeneration/redeploy date of the expanded cta_click
+# instrumentation (#44). While unset, the funnel epoch stays dormant.
+CTA_CLICK_COVERAGE_DEPLOY_DATE = None
+if CTA_CLICK_COVERAGE_DEPLOY_DATE:
+    MEASUREMENT_EPOCHS.append({
+        "date": CTA_CLICK_COVERAGE_DEPLOY_DATE,
+        "scope": "funnel",
+        "label": (
+            "cta_click coverage expanded to all plan-intent CTAs; "
+            "top-of-funnel counts before this date are not comparable"
+        ),
+    })
+
 MEASUREMENT_WARNING = (
     "⚠ measurement regime change {date} — comparison not like-for-like"
 )

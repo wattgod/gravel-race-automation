@@ -831,7 +831,7 @@ document.querySelectorAll('[data-about-tabs]').forEach(function(tabs) {
 // CTA click tracking
 document.querySelectorAll('[data-cta]').forEach(function(el) {
   el.addEventListener('click', function() {
-    if (typeof gtag === 'function') gtag('event', 'about_cta_click', { cta_name: el.getAttribute('data-cta') });
+    if (typeof gtag === 'function') gtag('event', 'cta_click', { source: 'about', cta_name: el.getAttribute('data-cta') });
   });
 });
 

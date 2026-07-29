@@ -404,7 +404,7 @@ def build_related_content(state: str, races: list) -> str:
     # Coaching
     links.append(
         '<a href="/coaching/" class="gg-state-related-link" '
-        'data-ga="state_hub_crosslink">'
+        'data-ga="state_hub_crosslink" data-cta="related_coaching">'
         '<span class="gg-state-related-label">1:1 Coaching</span>'
         f'Get coached for your {esc(state)} race</a>'
     )
@@ -994,7 +994,7 @@ body {{ margin: 0; background: var(--gg-color-warm-paper); }}
   <section class="gg-state-cta">
     <h2>Racing in {esc(state)}?</h2>
     <p>Get a personalized training plan for any {esc(state)} gravel race — tailored to your fitness, schedule, and goals.</p>
-    <a href="/questionnaire/" class="gg-state-cta-btn">Build My Plan</a>
+    <a href="/questionnaire/" class="gg-state-cta-btn" data-cta="build_my_plan">Build My Plan</a>
     <p style="font-size:11px;color:var(--gg-color-tan);margin-top:8px">$15/week, capped at $249. One-time payment.</p>
   </section>
 
@@ -1006,7 +1006,18 @@ body {{ margin: 0; background: var(--gg-color-warm-paper); }}
 
 </div>
 
-''' + '<script>' + get_site_header_js() + '</script>' + '''
+''' + '<script>' + get_site_header_js() + '''
+document.querySelectorAll('[data-cta]').forEach(function(el) {
+  el.addEventListener('click', function() {
+    if (typeof gtag === 'function') {
+      gtag('event', 'cta_click', {
+        source: 'state_hub',
+        cta_name: el.getAttribute('data-cta')
+      });
+    }
+  });
+});
+''' + '</script>' + '''
 
 {get_consent_banner_html()}
 </body>

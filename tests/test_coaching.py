@@ -464,7 +464,7 @@ class TestGA4Events:
         events = [
             "coaching_faq_open",
             "coaching_scroll_depth",
-            "coaching_cta_click",
+            "cta_click",
             "coaching_page_view",
         ]
         for event in events:

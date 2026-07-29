@@ -676,7 +676,7 @@ def build_consulting_js() -> str:
   /* CTA click tracking */
   document.querySelectorAll('[data-cta]').forEach(function(el){{
     el.addEventListener('click',function(){{
-      if(typeof gtag==='function'){{gtag('event','consulting_cta_click',{{'cta_name':el.getAttribute('data-cta')}})}}
+      if(typeof gtag==='function'){{gtag('event','cta_click',{{source:'consulting',cta_name:el.getAttribute('data-cta')}})}}
     }});
   }});
   /* Scroll depth */

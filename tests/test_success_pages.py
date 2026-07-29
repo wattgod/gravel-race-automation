@@ -100,7 +100,8 @@ class TestGA4Tracking:
         assert "session_id" in success_js
 
     def test_crosssell_click_tracking(self, success_js):
-        assert "success_crosssell_click" in success_js
+        assert "'cta_click'" in success_js
+        assert "source: 'coaching'" in success_js
 
     def test_conversion_dedup(self, success_js):
         assert "gg_converted_" in success_js

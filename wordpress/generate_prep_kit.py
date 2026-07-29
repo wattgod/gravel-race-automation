@@ -2328,7 +2328,16 @@ def build_prep_kit_css() -> str:
 
 def build_prep_kit_js() -> str:
     """JS for email gate, accordion toggle, and fueling calculator on prep kit pages."""
-    return """/* ── Email Gate ── */
+    return """/* ── Plan-intent CTA tracking ── */
+document.querySelectorAll('a[data-cta]').forEach(function(el){
+  el.addEventListener('click',function(){
+    if(typeof gtag==='function'){
+      gtag('event','cta_click',{source:'guide',cta_name:el.getAttribute('data-cta')});
+    }
+  });
+});
+
+/* ── Email Gate ── */
 (function(){
   var WORKER_URL='""" + FUELING_WORKER_URL + """';
   var LS_KEY='gg-pk-fueling';

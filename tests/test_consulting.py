@@ -366,7 +366,8 @@ class TestJSQuality:
         assert "classList" in consulting_js
 
     def test_cta_tracking(self, consulting_js):
-        assert "consulting_cta_click" in consulting_js
+        assert "'cta_click'" in consulting_js
+        assert "source:'consulting'" in consulting_js
         assert "data-cta" in consulting_js
 
     def test_scroll_depth(self, consulting_js):

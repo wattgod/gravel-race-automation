@@ -871,7 +871,7 @@ def build_coaching_js() -> str:
 /* CTA click attribution */
 document.querySelectorAll('[data-cta]').forEach(function(el) {
   el.addEventListener('click', function() {
-    if (typeof gtag === 'function') gtag('event', 'coaching_cta_click', { cta_name: el.getAttribute('data-cta') });
+    if (typeof gtag === 'function') gtag('event', 'cta_click', { source: 'coaching', cta_name: el.getAttribute('data-cta') });
   });
 });
 

@@ -1231,7 +1231,7 @@ def build_training_js() -> str:
   /* ── CTA Click Attribution ── */
   document.querySelectorAll('[data-cta]').forEach(function(el) {{
     el.addEventListener('click', function() {{
-      track('tp_cta_click', {{ cta_name: el.getAttribute('data-cta'), text: el.textContent.trim().substring(0, 40) }});
+      track('cta_click', {{ source: 'training_plans', cta_name: el.getAttribute('data-cta') }});
     }});
   }});
 

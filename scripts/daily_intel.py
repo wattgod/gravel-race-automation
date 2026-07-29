@@ -75,6 +75,22 @@ FUNNEL_STAGES = {
 }
 FUNNEL_EVENTS = [e for evs in FUNNEL_STAGES.values() for e in evs]
 
+# TODO: Set to the actual regeneration/redeploy date. Keeping this unset means
+# the epoch cannot annotate reports before the expanded instrumentation is live.
+CTA_CLICK_COVERAGE_DEPLOY_DATE = None
+MEASUREMENT_EPOCHS = (
+    [{
+        "date": CTA_CLICK_COVERAGE_DEPLOY_DATE,
+        "scope": "funnel",
+        "label": (
+            "cta_click coverage expanded to all plan-intent CTAs; "
+            "top-of-funnel counts before this date are not comparable"
+        ),
+    }]
+    if CTA_CLICK_COVERAGE_DEPLOY_DATE
+    else []
+)
+
 
 def _http(url: str, data: dict | None = None, headers: dict | None = None,
           timeout: int = 25) -> tuple[int, str]:

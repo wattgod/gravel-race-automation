@@ -514,7 +514,8 @@ class TestJsQuality:
         assert "tp_scroll_depth" in tp_js
 
     def test_cta_click_tracking(self, tp_js):
-        assert "tp_cta_click" in tp_js
+        assert "'cta_click'" in tp_js
+        assert "source: 'training_plans'" in tp_js
 
     def test_sample_week_click_tracking(self, tp_js):
         assert "tp_sample_week_click" in tp_js

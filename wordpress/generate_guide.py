@@ -2686,7 +2686,7 @@ if(ctaBlock.classList.contains("gg-guide-cta--newsletter")||ctaBlock.classList.c
 else if(ctaBlock.classList.contains("gg-guide-cta--training")||ctaBlock.classList.contains("gg-guide-finale-card--training"))ctaType="training_plan";
 else if(ctaBlock.classList.contains("gg-guide-cta--coaching")||ctaBlock.classList.contains("gg-guide-finale-card--coaching"))ctaType="coaching";
 }
-track("guide_cta_click",{cta_type:ctaType,link_url:link.href});
+track("cta_click",{source:"guide",cta_name:ctaType});
 });
 });
 function clearCalcErrors(calc){

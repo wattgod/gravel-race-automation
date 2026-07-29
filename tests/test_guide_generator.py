@@ -510,7 +510,7 @@ class TestAnalytics:
 
     def test_js_has_cta_click_event(self):
         js = build_guide_js()
-        assert "guide_cta_click" in js
+        assert 'track("cta_click",{source:"guide"' in js
 
     def test_js_has_time_on_page_event(self):
         js = build_guide_js()

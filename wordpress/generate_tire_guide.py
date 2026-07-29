@@ -1677,6 +1677,14 @@ def build_email_capture_section(rd: dict) -> str:
 def build_inline_js() -> str:
     """Build inline JavaScript for email capture form and exit-intent popup."""
     return '''<script>
+document.querySelectorAll('a[href*="/prep-kit/"]').forEach(function(el){
+  el.addEventListener('click',function(){
+    if(typeof gtag==='function'){
+      gtag('event','cta_click',{source:'guide',cta_name:'tire_guide_prep_kit'});
+    }
+  });
+});
+
 /* Email capture form — tire guide setup card CTA */
 (function(){
   var WORKER_URL='https://fueling-lead-intake.gravelgodcoaching.workers.dev';

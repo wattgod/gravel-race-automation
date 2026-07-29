@@ -1431,7 +1431,16 @@ def build_course_js(course: dict, module_lesson_map: dict = None) -> str:
     total = course["total_lessons"]
     # Build module lesson map JSON for module completion detection
     mlm_json = json.dumps(module_lesson_map or {})
-    return f"""/* ── Course Gate + Progress + Gamification ── */
+    return f"""/* ── Checkout CTA tracking ── */
+document.querySelectorAll('a[href^="https://buy.stripe.com/"]').forEach(function(el){{
+  el.addEventListener('click',function(){{
+    if(typeof gtag==='function'){{
+      gtag('event','cta_click',{{source:'training_plans',cta_name:'course_checkout'}});
+    }}
+  }});
+}});
+
+/* ── Course Gate + Progress + Gamification ── */
 (function(){{
   var WORKER_URL='{WORKER_URL}';
   var COURSE_ID='{esc(slug)}';
@@ -1998,7 +2007,16 @@ def build_landing_signin_js(course: dict, first_lesson_url: str) -> str:
     the lesson gate reads, and redirects into the first lesson. If a valid
     unlock is already cached, swaps the buy CTAs to CONTINUE COURSE."""
     slug = course["id"]
-    return f"""/* ── Already-Enrolled Sign-In ── */
+    return f"""/* ── Checkout CTA tracking ── */
+document.querySelectorAll('a[href^="https://buy.stripe.com/"]').forEach(function(el){{
+  el.addEventListener('click',function(){{
+    if(typeof gtag==='function'){{
+      gtag('event','cta_click',{{source:'training_plans',cta_name:'course_checkout'}});
+    }}
+  }});
+}});
+
+/* ── Already-Enrolled Sign-In ── */
 (function(){{
   var WORKER_URL={json.dumps(WORKER_URL)};
   var COURSE_ID={json.dumps(slug)};

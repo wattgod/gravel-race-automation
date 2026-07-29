@@ -1262,6 +1262,64 @@ def check_ga4_in_output_html():
         check(f"GA4 present in all {len(html_files)} output HTML files", True)
 
 
+PLAN_INTENT_HREF_RE = re.compile(
+    r"""href\s*=\s*["'][^"']*(?:
+        /questionnaire(?:/|\?|["']) |
+        /training-plans(?:/|\?|["']) |
+        /race/[^"']+/prep-kit/ |
+        https://buy\.stripe\.com/
+    )""",
+    re.IGNORECASE | re.VERBOSE,
+)
+COACHING_CTA_RE = re.compile(
+    r"""<a\b(?=[^>]*\bhref\s*=\s*["'][^"']*/coaching(?:/|/apply/|\?)[^"']*["'])
+        (?=[^>]*(?:\bdata-cta\b|\bclass\s*=\s*["'][^"']*cta[^"']*["']))[^>]*>""",
+    re.IGNORECASE | re.VERBOSE,
+)
+
+
+def plan_intent_pages_missing_cta_click(output_dir: Path) -> list[Path]:
+    """Return generated HTML pages with an intent CTA but no canonical event.
+
+    Navigation links to coaching are not conversion CTAs, so coaching links
+    qualify only when their anchor is explicitly marked as a CTA. Direct plan,
+    prep-kit, and Stripe checkout destinations always qualify.
+    """
+    missing = []
+    if not output_dir.exists():
+        return missing
+    for html_file in sorted(output_dir.rglob("*.html")):
+        if any(part.startswith(".") for part in html_file.parts):
+            continue
+        try:
+            content = html_file.read_text(encoding="utf-8")
+        except OSError:
+            continue
+        has_intent_cta = (
+            PLAN_INTENT_HREF_RE.search(content) is not None
+            or COACHING_CTA_RE.search(content) is not None
+        )
+        if has_intent_cta and re.search(
+                r"""(?:gtag\s*\(\s*["']event["']\s*,|track\s*\()\s*
+                    ["']cta_click["']""",
+                content, re.IGNORECASE | re.VERBOSE) is None:
+            missing.append(html_file)
+    return missing
+
+
+def check_plan_intent_cta_tracking():
+    """Fail closed when a generated plan-intent CTA lacks cta_click wiring."""
+    print("\n── Plan-intent CTA Tracking ──")
+    output_dir = WORDPRESS_DIR / "output"
+    missing = plan_intent_pages_missing_cta_click(output_dir)
+    check(
+        "Canonical cta_click on plan-intent pages",
+        not missing,
+        ", ".join(str(path.relative_to(WORDPRESS_DIR)) for path in missing[:10])
+        + (f" (+{len(missing) - 10} more)" if len(missing) > 10 else ""),
+    )
+
+
 def check_consent_snippet_centralized():
     """Ensure all generators use get_ga4_head_snippet() — no copy-pasted GA4 blocks."""
     print("\n── Consent Snippet Centralization ──")
@@ -1630,6 +1688,7 @@ def main():
         check_ab_config_sync()
         check_meta_descriptions()
         check_ga4_in_output_html()
+        check_plan_intent_cta_tracking()
         check_consent_snippet_centralized()
         check_mu_plugin_php_syntax()
         check_citation_quality()

@@ -36,6 +36,7 @@ from pathlib import Path
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 SNAPSHOT_DIR = PROJECT_ROOT / "data" / "intel-snapshots"
 AEO_DIR = PROJECT_ROOT / "data" / "aeo"
+SEO_DIR = PROJECT_ROOT / "data" / "seo"
 
 try:
     from dotenv import load_dotenv
@@ -427,7 +428,8 @@ def collect_workflows() -> dict:
                      ("wattgod/road-race-automation", "link-check.yml"),
                      ("wattgod/road-race-automation", "checkout-monitor.yml"),
                      ("wattgod/gravel-race-automation", "regression-tests.yml"),
-                     ("wattgod/gravel-race-automation", "aeo-weekly.yml")]:
+                     ("wattgod/gravel-race-automation", "aeo-weekly.yml"),
+                     ("wattgod/gravel-race-automation", "seo-weekly.yml")]:
         try:
             r = subprocess.run(
                 ["gh", "run", "list", "--repo", repo, "--workflow", wf,
@@ -613,6 +615,92 @@ def collect_aeo(today: date | None = None) -> dict:
         }
 
 
+def _load_seo_artifact(path: Path) -> dict:
+    try:
+        artifact = json.loads(path.read_text())
+    except Exception as exc:
+        raise ValueError(f"{type(exc).__name__}: {exc}") from exc
+    try:
+        from scripts.seo_weekly import validate_artifact
+    except ImportError:
+        from seo_weekly import validate_artifact
+    errors = validate_artifact(artifact, path=path)
+    if errors:
+        raise ValueError("; ".join(errors))
+    return artifact
+
+
+def _collect_seo(today: date | None = None) -> dict:
+    """Implementation for collect_seo; the public collector is fully fail-soft."""
+    paths = sorted(SEO_DIR.glob("seo-weekly-*.json"))
+    if not paths:
+        return {"state": "missing", "ok": True}
+    latest_path = paths[-1]
+    try:
+        latest = _load_seo_artifact(latest_path)
+    except Exception as exc:
+        return {
+            "state": "invalid",
+            "ok": False,
+            "error": f"SEO weekly artifact invalid: {str(exc)[:300]}",
+        }
+    generated_date = datetime.fromisoformat(
+        latest["generated_at_utc"].replace("Z", "+00:00")).date()
+    utc_today = today or datetime.now(timezone.utc).date()
+    age_days = (utc_today - generated_date).days
+    if age_days < 0:
+        return {
+            "state": "invalid",
+            "ok": False,
+            "error": "SEO weekly artifact invalid: generated date is in the future",
+        }
+    if age_days > 8:
+        return {
+            "state": "stale",
+            "ok": False,
+            "age_days": age_days,
+            "error": f"SEO weekly artifact stale ({age_days} days)",
+        }
+
+    overall = latest.get("overall") or {}
+    prior = overall.get("prior") or {}
+    clicks_delta = _aeo_delta(overall.get("clicks"), prior.get("clicks"))
+    impressions_delta = _aeo_delta(overall.get("impressions"), prior.get("impressions"))
+    return {
+        "state": "ok",
+        "ok": True,
+        "artifact": latest_path.name,
+        "generated_at_utc": latest["generated_at_utc"],
+        "current_window": latest["current_window"],
+        "overall": {
+            "clicks": overall.get("clicks"),
+            "impressions": overall.get("impressions"),
+            "ctr": overall.get("ctr"),
+            "position": overall.get("position"),
+            "clicks_delta": clicks_delta,
+            "clicks_delta_text": _aeo_delta_text(clicks_delta),
+            "impressions_delta": impressions_delta,
+            "impressions_delta_text": _aeo_delta_text(impressions_delta),
+        },
+        "top_candidates": latest.get("top_candidates") or [],
+    }
+
+
+def collect_seo(today: date | None = None) -> dict:
+    """Load weekly SEO facts, returning an error state instead of ever raising."""
+    try:
+        return _collect_seo(today=today)
+    except Exception as exc:
+        return {
+            "state": "invalid",
+            "ok": False,
+            "error": (
+                f"SEO weekly artifact invalid: "
+                f"{type(exc).__name__}: {str(exc)[:260]}"
+            ),
+        }
+
+
 def load_trend(days: int = 7) -> list[dict]:
     """Prior snapshots (compact) for trend context in the interpretation."""
     trend = []
@@ -716,6 +804,12 @@ def _collector_failures(collected: dict) -> list[str]:
                     f"{summary.get('label', brand)} /llms.txt DISPLACED — live file "
                     f"no longer starts with our database marker (serving: {first!r}); "
                     f"likely AIOSEO clobbered it again")
+    seo = collected.get("seo") or {}
+    if (
+            isinstance(seo, dict)
+            and seo.get("state") in {"stale", "invalid"}
+            and seo.get("ok") is False):
+        broken.append(_display(seo.get("error"), "SEO weekly artifact unavailable"))
     return broken
 
 
@@ -926,6 +1020,46 @@ def render_report(collected: dict) -> str:
             lines.append(
                 "- **Unknown agent candidates (spoofable):** "
                 + ", ".join(rendered_candidates) + ".")
+
+    seo = collected.get("seo") or {}
+    if seo.get("state") == "ok":
+        seo_overall = seo.get("overall") or {}
+        lines.extend([
+            "",
+            "## SEO (WEEKLY)",
+            (
+                f"- overall: {_display(seo_overall.get('clicks'))} clicks "
+                f"({_display(seo_overall.get('clicks_delta_text'))}), "
+                f"{_display(seo_overall.get('impressions'))} impressions "
+                f"({_display(seo_overall.get('impressions_delta_text'))})."
+            ),
+        ])
+        candidates = seo.get("top_candidates") or []
+        if candidates:
+            for candidate in candidates[:5]:
+                target = _path(candidate.get("target_path"))
+                bucket = candidate.get("bucket") or "unknown"
+                query = candidate.get("query")
+                query_part = f'"{query}" ' if query else ""
+                ctr_value = candidate.get("ctr")
+                ctr_text = (
+                    f"{float(ctr_value) * 100:.1f}%"
+                    if isinstance(ctr_value, (int, float)) else "n/a"
+                )
+                position_value = candidate.get("position")
+                position_text = (
+                    f"{float(position_value):.1f}"
+                    if isinstance(position_value, (int, float)) else "n/a"
+                )
+                lines.append(
+                    f"- #{_display(candidate.get('rank'))} [{bucket}] {target} — "
+                    f"{query_part}pos {position_text}, "
+                    f"{_display(candidate.get('impressions'))} impr, CTR {ctr_text} "
+                    f"— {_display(candidate.get('reason'), '')}"
+                )
+            lines.append("- Run /seo-updates to draft these.")
+        else:
+            lines.append("- no qualifying candidates this week.")
 
     lines.extend(["", "## BROKEN"])
     broken = []
@@ -1239,6 +1373,7 @@ def main() -> int:
         "social": _safe(collect_social),
         "workflows": _safe(collect_workflows),
         "aeo": _safe(collect_aeo),
+        "seo": _safe(collect_seo),
     }
     collected["constraint"] = compute_constraint(collected["ga4"].get("gravelgod", {}))
     try:

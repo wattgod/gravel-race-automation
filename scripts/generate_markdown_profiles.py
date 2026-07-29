@@ -534,17 +534,20 @@ def main():
     print(f"Loaded {len(index)} races from index")
 
     try:
-        if args.training_plan_dir:
-            from training_plan_inventory import local_training_plan_slugs
+        try:
+            from scripts import training_plan_inventory
+        except ImportError:
+            import training_plan_inventory
 
-            training_plan_slugs = local_training_plan_slugs(
+        if args.training_plan_dir:
+            training_plan_slugs = training_plan_inventory.local_training_plan_slugs(
                 args.training_plan_dir
             )
             inventory_source = "local"
         else:
-            from training_plan_inventory import fetch_live_training_plan_slugs
-
-            training_plan_slugs = fetch_live_training_plan_slugs()
+            training_plan_slugs = (
+                training_plan_inventory.fetch_live_training_plan_slugs()
+            )
             inventory_source = "live"
     except Exception as e:
         print(f"ERROR: Could not load training-guide inventory: {e}")

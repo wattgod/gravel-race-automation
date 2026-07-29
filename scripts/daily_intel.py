@@ -75,6 +75,53 @@ FUNNEL_STAGES = {
 }
 FUNNEL_EVENTS = [e for evs in FUNNEL_STAGES.values() for e in evs]
 
+MEASUREMENT_EPOCHS = [
+    {
+        "date": "2026-07-26",
+        "scope": "sessions",
+        "label": (
+            "consent geo-gate deployed (f52d2722): non-EEA analytics default granted; "
+            "sessions before this date captured only opted-in visitors and are not comparable"
+        ),
+    },
+]
+MEASUREMENT_WARNING = (
+    "⚠ measurement regime change {date} — comparison not like-for-like"
+)
+
+
+def measurement_epochs_in_window(
+        start: str | date, end: str | date,
+        epochs: list[dict] | None = None) -> list[dict]:
+    """Return measurement epochs contained in the inclusive date window."""
+    window_start = date.fromisoformat(start) if isinstance(start, str) else start
+    window_end = date.fromisoformat(end) if isinstance(end, str) else end
+    candidates = MEASUREMENT_EPOCHS if epochs is None else epochs
+    return [
+        epoch for epoch in candidates
+        if window_start <= date.fromisoformat(epoch["date"]) <= window_end
+    ]
+
+
+def measurement_epochs_for_report(report_date: str) -> list[dict]:
+    """Return epochs straddled by any comparison in a daily report."""
+    current = date.fromisoformat(report_date)
+    yesterday = current - timedelta(days=1)
+    return measurement_epochs_in_window(current - timedelta(days=28), yesterday)
+
+
+def _measurement_warnings(collected: dict, days: int) -> list[str]:
+    """Render warnings for persisted epochs that affect a comparison window."""
+    if not collected.get("date") or not collected.get("measurement_epochs"):
+        return []
+    report_date = date.fromisoformat(collected["date"])
+    yesterday = report_date - timedelta(days=1)
+    epochs = measurement_epochs_in_window(
+        report_date - timedelta(days=days), yesterday,
+        collected.get("measurement_epochs") or [],
+    )
+    return [MEASUREMENT_WARNING.format(date=epoch["date"]) for epoch in epochs]
+
 
 def _http(url: str, data: dict | None = None, headers: dict | None = None,
           timeout: int = 25) -> tuple[int, str]:
@@ -149,7 +196,7 @@ def collect_ga4(brand: str) -> dict:
 
     # 28-day aggregates for the constraint math (precomputed — the
     # interpreter must never do arithmetic itself)
-    m_ago = (date.today() - timedelta(days=29)).isoformat()
+    m_ago = (date.today() - timedelta(days=28)).isoformat()
     agg = run(["sessions"], date_from=m_ago, date_to=y)
     sessions_28d = int(agg.rows[0].metric_values[0].value) if agg.rows else 0
     ev28 = run(["eventCount"], ["eventName"], date_from=m_ago, date_to=y)
@@ -686,6 +733,9 @@ def render_report(collected: dict) -> str:
         else:
             leads = "unavailable"
         lines.append(f"| {meta['label']} | {session_cell} | {funnel} | {leads} |")
+    lines.extend(
+        f"- {warning}" for warning in _measurement_warnings(collected, 7)
+    )
 
     lines.extend(["", "## TRAFFIC"])
     for brand, meta in BRANDS.items():
@@ -771,6 +821,10 @@ def render_report(collected: dict) -> str:
         needed_text = _display(needed, "not measurable")
         actual = _display(constraint.get("sessions_per_day"), "not available")
         lines.append(f"- sessions/day needed for 1 sale/day: {needed_text}; actual: {actual}.")
+        lines.extend(
+            f"- {warning} (28d sessions, funnel, and constraint rates)."
+            for warning in _measurement_warnings(collected, 28)
+        )
 
     lines.extend(["", "## HOT LEADS"])
     hot_leads = (mc.get("hot_leads_14d") or []) if mc.get("ok") else []
@@ -991,6 +1045,10 @@ reader's time. NEVER invent or extrapolate a number not present in the context b
 The commerce ledger is ground truth and overrides GA4. The factual report is already \
 rendered; do not repeat its sections or add new facts.
 
+Measurement epochs in DATA mark analytics collection changes, not demand changes. If a \
+comparison straddles one, explicitly treat the apparent session jump and affected funnel \
+or constraint rates as not like-for-like; do not report them as increased demand.
+
 Write EXACTLY this structure (markdown):
 Line 1: `SUBJECT: intel {date}: <hook under 60 chars — the single most important fact>`
 Then:
@@ -1162,6 +1220,7 @@ def main() -> int:
     today = date.today().isoformat()
     collected = {
         "date": today,
+        "measurement_epochs": measurement_epochs_for_report(today),
         "ga4": {b: _safe(lambda b=b: collect_ga4(b)) for b in BRANDS},
         "checkout": {b: _safe(lambda b=b: collect_checkout(b)) for b in BRANDS},
         "mission_control": _safe(collect_mission_control),

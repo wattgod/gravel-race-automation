@@ -40,6 +40,9 @@ from xml.etree import ElementTree
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 CURRENT_DATE = date.today()
 SITE_BASE_URL = "https://gravelgodcycling.com"
+# GSC property: the service account is registered on the Domain property;
+# the URL-prefix form 403s (sufficient-permission error in daily reports).
+GSC_SITE_URL = "sc-domain:gravelgodcycling.com"
 
 # ── Report sections ──────────────────────────────────────────────
 
@@ -362,7 +365,7 @@ def fetch_gsc_data():
         for label, start, end in [("current_7d", seven_ago, today),
                                    ("previous_7d", fourteen_ago, seven_ago)]:
             resp = service.searchanalytics().query(
-                siteUrl=SITE_BASE_URL,
+                siteUrl=GSC_SITE_URL,
                 body={
                     "startDate": start.isoformat(),
                     "endDate": end.isoformat(),
@@ -380,7 +383,7 @@ def fetch_gsc_data():
 
         # Top queries
         resp = service.searchanalytics().query(
-            siteUrl=SITE_BASE_URL,
+            siteUrl=GSC_SITE_URL,
             body={
                 "startDate": seven_ago.isoformat(),
                 "endDate": today.isoformat(),
@@ -401,7 +404,7 @@ def fetch_gsc_data():
 
         # Top pages by clicks
         resp = service.searchanalytics().query(
-            siteUrl=SITE_BASE_URL,
+            siteUrl=GSC_SITE_URL,
             body={
                 "startDate": seven_ago.isoformat(),
                 "endDate": today.isoformat(),

@@ -233,6 +233,10 @@ class TestOgMeta:
 
     def test_og_image_files_exist(self):
         assets = PROJECT_ROOT / "wordpress" / "output" / "course" / "assets"
+        if not assets.exists():
+            pytest.skip(
+                "course OG assets not built here (run "
+                "scripts/generate_course_og.py; needs Pillow)")
         for course_dir in sorted(COURSES_DIR.iterdir()):
             course = load_course(course_dir)
             if not course or not course.get("og_image"):

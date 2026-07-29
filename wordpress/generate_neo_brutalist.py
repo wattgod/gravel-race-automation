@@ -250,6 +250,21 @@ PLAN_TIER_ORDER = {
     'Save My Race': 4,
 }
 
+SEO_TITLE_MAX_CHARS = 60
+SEO_DESCRIPTION_MAX_CHARS = 155
+
+
+def _validated_seo_override(rd: dict, field: str, max_chars: int) -> str:
+    """Return a per-race SEO override, enforcing the search-snippet charter."""
+    raw_value = rd.get("seo", {}).get(field, "")
+    value = "" if raw_value is None else str(raw_value).strip()
+    if value and len(value) > max_chars:
+        raise ValueError(
+            f"{rd.get('slug', 'unknown')}: seo.{field} is {len(value)} chars "
+            f"(maximum {max_chars})"
+        )
+    return value
+
 
 def build_seo_title(rd: dict) -> str:
     """Build an SEO-optimized <title> tag.
@@ -257,6 +272,10 @@ def build_seo_title(rd: dict) -> str:
     Target format: "{Race Name} Review {Year} | {Location} | Gravel God"
     Falls back to shorter forms if title exceeds ~60 chars.
     """
+    override = _validated_seo_override(rd, "title", SEO_TITLE_MAX_CHARS)
+    if override:
+        return override
+
     name = rd['name']
     location = rd['vitals'].get('location', '') or ''
     # Extract just state/country from full location like "Emporia, Kansas"
@@ -264,16 +283,19 @@ def build_seo_title(rd: dict) -> str:
 
     # Try full format first
     full = f"{name} Review {CURRENT_YEAR} | {loc_short} | Gravel God"
-    if len(full) <= 62:
+    if len(full) <= SEO_TITLE_MAX_CHARS:
         return full
 
     # Drop location if too long
     medium = f"{name} Review {CURRENT_YEAR} | Gravel God"
-    if len(medium) <= 62:
+    if len(medium) <= SEO_TITLE_MAX_CHARS:
         return medium
 
     # Minimal
-    return f"{name} | Gravel God"
+    suffix = " | Gravel God"
+    available = SEO_TITLE_MAX_CHARS - len(suffix)
+    short_name = name if len(name) <= available else name[:available].rsplit(" ", 1)[0]
+    return f"{short_name}{suffix}"
 
 
 def build_seo_description(rd: dict) -> str:
@@ -281,6 +303,12 @@ def build_seo_description(rd: dict) -> str:
 
     Combines tagline + score/tier + call-to-action suffix.
     """
+    override = _validated_seo_override(
+        rd, "description", SEO_DESCRIPTION_MAX_CHARS
+    )
+    if override:
+        return override
+
     tagline = rd.get('tagline', '').rstrip('.')
     score = rd.get('overall_score', 0)
     tier = rd.get('tier', 4)
@@ -297,11 +325,11 @@ def build_seo_description(rd: dict) -> str:
     if not tagline:
         return suffix.lstrip()
     desc = f"{tagline}.{suffix}"
-    if len(desc) <= 160:
+    if len(desc) <= SEO_DESCRIPTION_MAX_CHARS:
         return desc
 
     # Truncate tagline — prefer breaking at sentence boundary
-    max_tagline = 160 - len(suffix) - 1  # 1 for "."
+    max_tagline = SEO_DESCRIPTION_MAX_CHARS - len(suffix) - 1  # 1 for "."
     if max_tagline > 30:
         # Try to break at last complete sentence (period followed by space)
         candidate = tagline[:max_tagline]
@@ -430,6 +458,7 @@ def normalize_race_data(data: dict) -> dict:
         'name': race.get('display_name') or race.get('name', 'Unknown Race'),
         'slug': race.get('slug', ''),
         'tagline': race.get('tagline', ''),
+        'seo': race.get('seo', {}),
         'discipline': discipline,
         'overall_score': rating.get('overall_score', 0),
         'tier': rating.get('tier', 4),

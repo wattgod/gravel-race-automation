@@ -40,6 +40,8 @@ from generate_neo_brutalist import (
     build_ratings,
     build_similar_races,
     build_sports_event_jsonld,
+    build_seo_description,
+    build_seo_title,
     parse_event_dates,
     build_faq_jsonld,
     build_sticky_cta,
@@ -52,9 +54,52 @@ from generate_neo_brutalist import (
     esc,
     generate_page,
     linkify_alternatives,
+    load_race_data,
     normalize_race_data,
     score_bar_color,
 )
+
+
+class TestSeoMetadata:
+    def test_per_race_overrides_are_emitted(self, sample_race_data):
+        sample_race_data["race"]["seo"] = {
+            "title": "Test Gravel 100: Course & Tire Guide",
+            "description": "Course analysis, difficulty rating, tire picks, and training guidance for Test Gravel 100.",
+        }
+        rd = normalize_race_data(sample_race_data)
+
+        assert build_seo_title(rd) == sample_race_data["race"]["seo"]["title"]
+        assert build_seo_description(rd) == sample_race_data["race"]["seo"]["description"]
+
+    @pytest.mark.parametrize(
+        ("field", "limit", "builder"),
+        [
+            ("title", 60, build_seo_title),
+            ("description", 155, build_seo_description),
+        ],
+    )
+    def test_per_race_overrides_enforce_length_limit(
+        self, sample_race_data, field, limit, builder
+    ):
+        sample_race_data["race"]["seo"] = {field: "x" * (limit + 1)}
+        rd = normalize_race_data(sample_race_data)
+
+        with pytest.raises(ValueError, match=rf"seo\.{field} is {limit + 1} chars"):
+            builder(rd)
+
+    @pytest.mark.parametrize(
+        "slug", ["northcape-4000", "rebeccas-private-idaho"]
+    )
+    def test_ctr_pages_regenerate_deterministically(self, slug):
+        race_path = Path(__file__).resolve().parent.parent / "race-data" / f"{slug}.json"
+        rd = load_race_data(race_path)
+
+        first = generate_page(rd, [])
+        second = generate_page(rd, [])
+
+        assert first == second
+        assert len(build_seo_title(rd)) <= 60
+        assert len(build_seo_description(rd)) <= 155
 
 
 # ── Fixtures ──────────────────────────────────────────────────

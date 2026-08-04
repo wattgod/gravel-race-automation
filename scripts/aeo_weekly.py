@@ -15,6 +15,7 @@ import os
 import re
 import subprocess
 import sys
+import time
 from datetime import date, datetime, timedelta, timezone
 from pathlib import Path
 from typing import Any
@@ -45,6 +46,11 @@ DEFAULT_LOG_CEILING_BYTES = 500 * 1024 * 1024
 SSH_TIMEOUT_SECONDS = 270
 MAX_UNKNOWN_CANDIDATES = 15
 MAX_UNKNOWN_SAMPLE_CHARS = 120
+
+# Same backoff SiteGround's sg-captcha needs elsewhere in this repo
+# (scripts/check_links.py CHALLENGE_BACKOFF) — a fast retry doesn't reliably
+# clear a rate-based challenge.
+LLMS_CHALLENGE_BACKOFF = (20, 45)  # seconds to wait before each retry
 
 BRANDS = {
     "gravelgod": {
@@ -493,7 +499,18 @@ def _merge_unknown_candidates(
     )[:MAX_UNKNOWN_CANDIDATES]
 
 
-def check_llms_marker(brand: str, timeout: int = 20) -> dict[str, Any]:
+def _fetch_llms_head(url: str, timeout: int) -> str:
+    import urllib.request
+
+    req = urllib.request.Request(
+        url, headers={"User-Agent": "gg-aeo-weekly/1 (self-check)"})
+    with urllib.request.urlopen(req, timeout=timeout) as resp:
+        return resp.read(4096).decode("utf-8", "replace")
+
+
+def check_llms_marker(
+        brand: str, timeout: int = 20,
+        backoff: tuple[float, ...] = LLMS_CHALLENGE_BACKOFF) -> dict[str, Any]:
     """Verify the live /llms.txt still serves OUR database file.
 
     Born from the Jul 24 regression: AIOSEO regenerates a physical llms.txt
@@ -502,16 +519,24 @@ def check_llms_marker(brand: str, timeout: int = 20) -> dict[str, Any]:
     ours. chmod 444 on the server is the defense; this is the dead-man that
     catches the next silent displacement (renders as BROKEN in Morning
     Intel via the stale/invalid path).
-    """
-    import urllib.request
 
+    Retries (with the same backoff as scripts/check_links.py) on a
+    non-matching first response: SiteGround's sg-captcha can transiently
+    challenge this checker's non-browser UA (redirect to
+    /.well-known/sgcaptcha/), which looks identical to a real displacement
+    but clears on a later request. Since this check runs weekly, one
+    transient hit would otherwise mislabel a whole week of daily reports.
+    """
     meta = BRANDS[brand]
     url = f"https://{meta['domain']}/llms.txt"
-    req = urllib.request.Request(
-        url, headers={"User-Agent": "gg-aeo-weekly/1 (self-check)"})
-    with urllib.request.urlopen(req, timeout=timeout) as resp:
-        head = resp.read(4096).decode("utf-8", "replace")
     marker = str(meta["llms_marker"])
+    head = ""
+    for pause in (0.0, *backoff):
+        if pause:
+            time.sleep(pause)
+        head = _fetch_llms_head(url, timeout)
+        if head.lstrip("﻿\n\r ").startswith(marker):
+            break
     ok = head.lstrip("﻿\n\r ").startswith(marker)
     return {
         "status": "ok" if ok else "displaced",

@@ -98,3 +98,7 @@ Race database site (gravelgodcycling.com) — 757 race profiles, 543 tire guides
 13. **URL params for search page filters must use full names.** `?discipline=`, `?tier=`, `?region=`, `?q=` — NOT abbreviated forms. `loadFromURL()` in `gravel-race-search.js` is the authority.
 14. **When removing font files, also remove:** (a) `@font-face` declarations in `brand_tokens.py`, (b) CSS custom property tokens, (c) `<link rel="preload">` hints, (d) `FONT_FILES` list entries. `test_ux_overhaul.py::TestFontCleanup` enforces this.
 15. **Cards with optional visual elements need CSS that works both with and without them.** Never change `padding: 16px` to `padding: 0` globally when adding thumbnails. Use a modifier class (`.gg-card-has-thumb`) to scope the override.
+
+## Acceptance Recap (MANDATORY)
+
+Before ending any task, re-read the original request and answer in five lines only, no explanation: (1) asked — only what was actually said, no inferred scope; (2) did; (3) MISSING — asked but not done; (4) UNASKED — done but not asked; (5) UNVERIFIED — not proven to run, each with the exact check (a pytest selector, or the live gravelgodcycling.com URL after `push_wordpress.py`). Unsure → say unsure. An empty line 3/4/5 means "verified none," not "didn't check."

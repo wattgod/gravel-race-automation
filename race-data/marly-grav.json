@@ -5,18 +5,18 @@
     "display_name": "Marly Grav",
     "tagline": "Short, steep, and intense gravel through Limburg hills and Château Marly, Netherlands.",
     "vitals": {
-      "distance_mi": 65,
-      "elevation_ft": 1500,
-      "location": "Netherlands",
-      "location_badge": "NETHERLANDS",
-      "county": "Netherlands",
+      "distance_mi": 93,
+      "elevation_ft": 4890,
+      "location": "Valkenburg, South Limburg, Netherlands",
+      "location_badge": "VALKENBURG, NETHERLANDS",
+      "county": "South Limburg",
       "date": "Early May annually",
-      "date_specific": "2026: May 10",
+      "date_specific": "2027: May 9 (Sunday, confirmed by organizer)",
       "terrain_types": [
-        "Dutch countryside",
-        "Flat to rolling gravel",
-        "Regional event",
-        "Netherlands"
+        "South Limburg hills",
+        "Marly gravel and hollow roads",
+        "Steep climbs and fast descents",
+        "UCI Gravel World Series"
       ],
       "field_size": "200-400 riders",
       "start_time": "Morning start",
@@ -28,25 +28,25 @@
       "lng": 5.6343
     },
     "climate": {
-      "primary": "Dutch summer",
-      "description": "Generally mild conditions with wind.",
+      "primary": "Dutch spring",
+      "description": "Variable May conditions in the South Limburg hills.",
       "challenges": [
         "Variable weather",
-        "Generally mild",
+        "Cool or mild temperatures",
         "Wind",
-        "Summer conditions"
+        "Spring conditions"
       ]
     },
     "terrain": {
-      "primary": "Dutch flat to rolling gravel",
-      "surface": "Gravel roads through Dutch countryside. Minimal to moderate elevation with countryside scenery.",
+      "primary": "Short, steep South Limburg gravel loops",
+      "surface": "The organizer describes Marly gravel, hollow roads, steep climbs, and fast descents; the 2026 route statistics publish 68% gravel for the 150 km course.",
       "technical_rating": 2,
       "features": [
-        "Minimal to moderate elevation (1500 feet)",
-        "Countryside scenery",
-        "Dutch setting",
-        "Multiple distances",
-        "Regional event"
+        "Approximately 4,890 feet of climbing on the published 150 km course",
+        "Cauberg climb immediately after the start",
+        "South Limburg hills and hollow roads",
+        "104 km and 150 km race distances announced for 2027",
+        "UCI Gravel World Series qualifier"
       ]
     },
     "gravel_god_rating": {
@@ -56,7 +56,7 @@
       "logistics": 3,
       "length": 3,
       "technicality": 2,
-      "elevation": 1,
+      "elevation": 3,
       "climate": 3,
       "altitude": 1,
       "adventure": 2,
@@ -67,32 +67,32 @@
       "field_depth": 2,
       "value": 3,
       "expenses": 2,
-      "score_note": "Regional Dutch event. Flat to rolling terrain with moderate organization and regional field.",
+      "score_note": "UCI qualifier with repeated short climbs, approximately 1,490 metres of ascent on the published flagship route, and an international field.",
       "discipline": "gravel",
       "display_tier": 3
     },
     "biased_opinion": {
-      "verdict": "Dutch Flat to Rolling Gravel",
-      "summary": "Marly Grav is a regional event in Netherlands—flat to rolling terrain with minimal to moderate elevation. The Dutch countryside is nice, but the moderate organization and regional field keep it firmly in Tier 3. Netherlands provides good access.",
+      "verdict": "Short, Steep South Limburg Gravel",
+      "summary": "Marly Grav is a UCI Gravel World Series qualifier built around repeated loops through the South Limburg hills. The 2027 organizer announcement confirms 104 km and 150 km races from Valkenburg; the flagship demands repeated short climbs, fast descents, and sustained racing over approximately 4,890 feet of climbing.",
       "strengths": [
-        "Dutch countryside scenery",
-        "Dutch cycling community",
-        "Dutch mild summer weather",
-        "Regional pricing",
-        "Good Netherlands access"
+        "UCI Gravel World Series qualifier",
+        "South Limburg hills and hollow roads",
+        "Cauberg climb from the start",
+        "104 km and 150 km race options",
+        "Valkenburg cycling setting"
       ],
       "weaknesses": [
-        "Flat to rolling terrain (minimal elevation)",
-        "Moderate organization",
-        "Regional field only",
-        "Wind challenges",
-        "Limited international recognition"
+        "Repeated short, steep climbs",
+        "Fast descents demand attention",
+        "Three-loop flagship can punish poor pacing",
+        "Variable May weather",
+        "Edition-specific 2027 GPX is not yet published"
       ],
-      "bottom_line": "A solid regional Dutch gravel race with flat to rolling terrain. Worth it for Dutch/European cyclists. Not a destination race for international travelers."
+      "bottom_line": "A fast UCI qualifier where the accumulated climbing and repeated loops matter far more than the Netherlands' flat-riding stereotype."
     },
     "final_verdict": {
       "score": "46 / 100",
-      "one_liner": "Dutch flat to rolling gravel.",
+      "one_liner": "Short, steep UCI gravel racing through the South Limburg hills.",
       "should_you_race": "If you're in Netherlands/Europe and want a local event—yes, it's solid. If you're international—there are better options.",
       "alternatives": "For similar regional events: other Dutch gravel races. For more elevation: Belgian or German gravel races."
     },
@@ -102,87 +102,89 @@
       "food": "Netherlands has full dining options. Stock nutrition.",
       "packet_pickup": "Day before typically",
       "parking": "At start/finish",
-      "official_site": "Check Marly Grav website"
+      "official_site": "https://www.marlygrav.com/race"
     },
     "history": {
       "founded": null,
       "founder": "Dutch organizers",
-      "origin_story": "Regional Dutch gravel event.",
+      "origin_story": "South Limburg gravel event based in Valkenburg that joined the UCI Gravel World Series.",
       "notable_moments": [],
-      "reputation": "Regional Dutch event."
+      "reputation": "Large Dutch UCI Gravel World Series qualifier."
     },
     "course_description": {
-      "character": "Dutch flat to rolling gravel.",
+      "character": "Repeated short, steep climbing on gravel and hollow roads through the South Limburg hills.",
       "suffering_zones": [
         {
-          "mile": 20,
-          "label": "Early Flat",
-          "desc": "First flat sections.",
-          "terrain_detail": "Flat",
-          "named_section": "Early Flat"
+          "mile": 1,
+          "label": "Cauberg",
+          "desc": "The organizer says the race begins by climbing the Cauberg.",
+          "terrain_detail": "Steep paved climb",
+          "named_section": "Cauberg"
         },
         {
-          "mile": 35,
+          "mile": 47,
           "label": "Midpoint",
-          "desc": "Halfway through the course.",
-          "terrain_detail": "Midpoint",
+          "desc": "Approximate midpoint of the 150 km flagship course.",
+          "terrain_detail": "South Limburg gravel loops",
           "named_section": "Halfway"
         },
         {
-          "mile": 55,
-          "label": "Late Rolling",
-          "desc": "Final rolling sections before finish.",
-          "terrain_detail": "Late rolling",
+          "mile": 92,
+          "label": "Final Loop",
+          "desc": "The 150 km race completes three loops before returning to Valkenburg.",
+          "terrain_detail": "Marly gravel, hollow roads, climbs and descents",
           "named_section": "Final Push"
         }
       ],
-      "signature_challenge": "Dutch flat to rolling gravel with wind.",
+      "signature_challenge": "Three South Limburg loops totaling 150 km and approximately 1,490 m of climbing, with short steep climbs and fast descents.",
       "ridewithgps_id": "52812382",
       "ridewithgps_name": "Marly Grav Race 2025 - Course 100 km"
     },
     "guide_variables": {
       "race_name": "Marly Grav",
-      "race_distance": "65 miles",
-      "race_elevation": "1,500 feet",
-      "race_date": "Summer",
-      "race_location": "Netherlands",
-      "race_terrain": "Dutch flat to rolling gravel",
-      "race_weather": "Dutch summer mild with wind",
+      "race_distance": "93 miles (150 km flagship)",
+      "race_elevation": "approximately 4,890 feet",
+      "race_date": "May 9, 2027",
+      "race_location": "Valkenburg, South Limburg, Netherlands",
+      "race_terrain": "short, steep South Limburg gravel loops with hollow roads and fast descents",
+      "race_weather": "variable Dutch spring conditions",
       "race_challenges": [
-        "Flat to rolling terrain",
-        "Regional field",
-        "European costs",
+        "Repeated short, steep climbs",
+        "Approximately 4,890 feet of climbing",
+        "Three-loop 150 km flagship format",
         "Variable weather",
-        "Wind"
+        "Fast descents"
       ],
       "altitude_section": false,
       "altitude_feet": null
     },
     "non_negotiables": [
       {
-        "requirement": "Flat endurance",
+        "requirement": "Repeated-climb endurance",
         "by_when": "Week 8-10",
-        "why": "Dutch flat to rolling terrain requires sustained effort."
+        "why": "The flagship course accumulates approximately 4,890 feet of climbing through repeated South Limburg hills."
       },
       {
         "requirement": "Weather preparation",
         "by_when": "Week 4-6",
-        "why": "Dutch summer weather is variable with wind."
+        "why": "May conditions in South Limburg can be variable."
       },
       {
-        "requirement": "Pacing discipline",
+        "requirement": "Loop pacing discipline",
         "by_when": "Week 2-4",
-        "why": "Flat to rolling terrain requires pacing discipline."
+        "why": "The 150 km race uses three loops, making early overpacing costly."
       }
     ],
     "research_metadata": {
       "data_confidence": "moderate",
       "validation_status": "pending",
       "sources": [
-        "dutch_cycling_community"
+        "https://www.marlygrav.com/race",
+        "https://www.marlygrav.com/route-race"
       ],
       "migration_notes": [
-        "Generated from regional information"
+        "Corrected against organizer's 2027 race page and current route page on 2026-08-04",
+        "2027 exact date and 104/150 km formats confirmed; elevation and surface use organizer's published 2026 flagship route statistics"
       ],
       "research_strength": {
         "overall": 87.5,
@@ -204,7 +206,7 @@
     },
     "training_config": {
       "workout_modifications": {
-        "flat_endurance": {
+        "climbing_endurance": {
           "enabled": true,
           "weeks": [
             8,
@@ -237,26 +239,26 @@
           "pacing",
           "fueling",
           "weather",
-          "flat"
+          "climbing"
         ],
         "race_specific": true,
         "topics": {
-          "pacing": "Flat to rolling terrain pacing",
-          "fueling": "Nutrition for flat riding",
+          "pacing": "Three-loop pacing over repeated short climbs",
+          "fueling": "Nutrition for a 150 km race",
           "weather": "Riding in variable Dutch weather with wind",
-          "flat": "Sustained flat strategy"
+          "climbing": "Repeated short-climb strategy"
         }
       },
       "tier_overrides": {},
       "marketplace_variables": {
         "race_name": "Marly Grav",
-        "race_hook": "Dutch flat to rolling gravel.",
-        "race_hook_detail": "Regional event with flat to rolling terrain.",
-        "distance": "65",
-        "dark_mile": "35",
-        "non_negotiable_1": "Flat endurance",
+        "race_hook": "Short, steep UCI gravel racing through the South Limburg hills.",
+        "race_hook_detail": "Three flagship loops with repeated climbs and fast descents.",
+        "distance": "93",
+        "dark_mile": "70",
+        "non_negotiable_1": "Repeated-climb endurance",
         "non_negotiable_2": "Weather preparation",
-        "non_negotiable_3": "Pacing discipline",
+        "non_negotiable_3": "Loop pacing discipline",
         "trainingpeaks_url": null
       }
     },
@@ -275,7 +277,7 @@
       },
       "elevation": {
         "score": 1,
-        "explanation": "The 155km route features approximately 1,510m of climbing through rolling South Limburg terrain. \"Imagine: you clip in, take a deep breath, and boom: straight up the Cauberg. No time to warm up gradually.\" The persistent undulation provides steady climbing rather than meaningful altitude challenges in the Netherlands' modest hills. Flatter profile than Croatan Buck Fifty."
+        "explanation": "The published flagship route carries approximately 1,490m of climbing through the South Limburg hills and begins with the Cauberg. The persistent short climbs make accumulated ascent a defining race demand even though the course has no altitude component."
       },
       "climate": {
         "score": 3,

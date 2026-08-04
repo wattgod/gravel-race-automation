@@ -1,17 +1,17 @@
 {
   "race": {
-    "name": "Standard Deluxe Dirt Road Century",
+    "name": "Dirty Deluxe Dirt Road Century",
     "slug": "standard-deluxe-dirt-road-century",
-    "display_name": "Standard Deluxe Dirt Road Century",
-    "tagline": "100-mile Alabama dirt roads in Waverly.",
+    "display_name": "Dirty Deluxe Dirt Road Century",
+    "tagline": "Alabama dirt roads from a new home in Opelika.",
     "vitals": {
       "distance_mi": 100,
       "elevation_ft": 4000,
-      "location": "Waverly, Alabama",
-      "location_badge": "WAVERLY, AL",
+      "location": "Opelika, Alabama",
+      "location_badge": "OPELIKA, AL",
       "county": "Lee County",
-      "date": "Early November annually",
-      "date_specific": "2025: November 8",
+      "date": "May 15, 2027",
+      "date_specific": "2027: May 15. The organizer confirms the renamed event and move to downtown Opelika, but registration and final route details are still pending.",
       "terrain_types": [
         "Alabama dirt roads",
         "Rolling hills",
@@ -330,7 +330,17 @@
         "explanation": "Registration runs $60-100. Race organizers recommend \"at least 700x38c gravel tires\" and warn against showing up \"on 700x25c and get a double flat in the first mile.\" Waverly's tiny size (population 100) limits lodging options but keeps costs low, and the rural Alabama location about 15 minutes from Auburn provides affordable access without destination resort pricing. Similar expense level to Belgian Waffle Ride San Diego."
       }
     },
+    "eligibility": {
+      "status": "active",
+      "verified": "2026-08-04",
+      "source": "https://www.dirtroadcentury.com/"
+    },
     "citations": [
+      {
+        "url": "https://www.dirtroadcentury.com/",
+        "category": "official",
+        "label": "Official Dirty Deluxe site — 2027 date, relocation, and pending registration details"
+      },
       {
         "url": "https://www.bikeforums.net/southeast-regional-rides-events/1115197-alabama-standard-deluxe-dirt-road-century-october-21st-2017-a.html",
         "category": "other",

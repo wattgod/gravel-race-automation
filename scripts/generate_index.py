@@ -40,6 +40,33 @@ REMOVED_FABRICATED_SLUGS = frozenset(
         .read_text())["tombstones"])
 
 
+# Relative contribution of each physical criterion to overall difficulty.
+# Distance and climbing dominate what makes a day hard; surface adds real
+# cost; weather and altitude are meaningful but secondary for most races.
+_DIFFICULTY_WEIGHTS = {
+    "length": 0.30,
+    "elevation": 0.30,
+    "technicality": 0.20,
+    "climate": 0.10,
+    "altitude": 0.10,
+}
+
+
+def _difficulty_composite(scores: dict) -> float | None:
+    """Weighted 1-5 difficulty from the physical criteria.
+
+    ALL five must be scored. Renormalising over whichever happen to be present
+    lets a race with only length and elevation reach 5.0 and take full "brutal"
+    credit while three dimensions are unknown — a confident number built on
+    missing data. Return None instead and let the quiz apply its own neutral
+    default. Every currently profiled race carries all five, so this costs
+    nothing today and stops a partial profile from lying later.
+    """
+    if any(not isinstance(scores.get(k), (int, float)) for k in _DIFFICULTY_WEIGHTS):
+        return None
+    return round(sum(scores[k] * w for k, w in _DIFFICULTY_WEIGHTS.items()), 2)
+
+
 def _load_migrated_road_slugs() -> frozenset[str]:
     """Return GG source slugs removed by the approved road migration.
 
@@ -264,6 +291,17 @@ def build_index_entry_from_profile(slug: str, data: dict) -> dict:
         if isinstance(val, (int, float)):
             scores[var] = int(val)
 
+    # How hard the day is, 1-5, from the physical criteria only. The race
+    # quiz asks "How hard do you want it?" and weights the answer higher than
+    # any other question, but the field it read (difficulty_composite) was
+    # never produced by anything — so every race scored 2.5 and the two
+    # hardest answers matched nothing at all.
+    #
+    # Physical demand only: prestige, value and logistics say nothing about
+    # how much the race hurts. Weights sum to 1.0 so the result stays on the
+    # same 1-5 scale as its inputs.
+    difficulty = _difficulty_composite(scores)
+
 
     entry = {
         "name": race.get("display_name") or race.get("name", slug),
@@ -277,6 +315,7 @@ def build_index_entry_from_profile(slug: str, data: dict) -> dict:
         "tier": rating.get("tier", 3),
         "overall_score": rating.get("overall_score"),
         "scores": scores,
+        "difficulty_composite": difficulty,
         "tagline": race.get("tagline", ""),
         "has_profile": True,
         "profile_url": f"/race/{slug}/",

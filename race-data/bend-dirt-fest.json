@@ -5,13 +5,13 @@
     "display_name": "Bend Dirt Fest",
     "tagline": "Multi-discipline high desert festival in Bend\u2014gravel, MTB, and trail run in one weekend.",
     "vitals": {
-      "distance_mi": 54,
-      "elevation_ft": 3800,
+      "distance_mi": 54.68,
+      "elevation_ft": 4015,
       "location": "Bend, Oregon",
       "location_badge": "BEND, OREGON",
       "county": "Deschutes County",
       "date": "July annually",
-      "date_specific": "2026: July 11 (Saturday, CONFIRMED \u2014 ran as scheduled per organizer/BikeReg); 2027 PATTERN ESTIMATE: ~July 10 (second Saturday of July, per organizer's stated recurring format; not yet officially announced)",
+      "date_specific": "2027: July 10 (Saturday, confirmed by the organizer)",
       "terrain_types": [
         "High desert gravel roads",
         "Volcanic cinder/dirt surface",
@@ -26,7 +26,7 @@
       "cutoff_time": "None",
       "lat": 44.0582,
       "lng": -121.3153,
-      "gain_display": "Varies"
+      "gain_display": "4,015 ft"
     },
     "climate": {
       "primary": "July high desert summer",
@@ -102,7 +102,7 @@
       "official_site": "https://www.benddirtfest.com"
     },
     "course_description": {
-      "character": "High desert gravel and volcanic cinder roads through Oregon's Deschutes National Forest landscape. Multi-discipline festival course. 54 miles; gain unverified/conflicting across sources (roughly 3,000-4,000 ft).",
+      "character": "High desert gravel and volcanic cinder roads through Oregon's Deschutes National Forest landscape. The organizer's 2027 long-course Ride with GPS route measures 54.68 miles with 4,015 feet of climbing. The multi-discipline festival also offers a 38.68-mile short gravel course with 2,880 feet of climbing.",
       "suffering_zones": [
         {
           "name": "High Desert Sun Exposure",
@@ -130,9 +130,11 @@
       "data_confidence": "researched",
       "validation_status": "pending",
       "sources": [
-        "cursor_web_search"
+        "https://www.mudslingerevents.com/bend-dirt-fest",
+        "https://ridewithgps.com/routes/54816842",
+        "https://ridewithgps.com/routes/54816980"
       ],
-      "research_date": "2026-02-04",
+      "research_date": "2026-08-05",
       "research_strength": {
         "overall": 87.7,
         "grade": "A",

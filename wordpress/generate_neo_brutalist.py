@@ -1356,7 +1356,7 @@ function ggReadTrail() {
     var trail=ggReadTrail();
     if(trail.viewed_races) payload.viewed_races=trail.viewed_races;
     if(trail.guide_chapter) payload.guide_chapter=trail.guide_chapter;
-    fetch(WORKER_URL,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)})
+    fetch(WORKER_URL,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload),signal:(typeof AbortSignal!=='undefined'&&AbortSignal.timeout)?AbortSignal.timeout(10000):undefined})
       .then(function(r){
         if(!r.ok) throw new Error('bad status');
         /* Cache email — only after a confirmed successful submission */
@@ -1405,7 +1405,7 @@ function ggReadTrail() {
       var trail=ggReadTrail();
       if(trail.viewed_races) payload.viewed_races=trail.viewed_races;
       if(trail.guide_chapter) payload.guide_chapter=trail.guide_chapter;
-      fetch(WORKER_URL,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)})
+      fetch(WORKER_URL,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload),signal:(typeof AbortSignal!=='undefined'&&AbortSignal.timeout)?AbortSignal.timeout(10000):undefined})
         .then(function(r){
           if(!r.ok) throw new Error('bad status');
           if(typeof gtag==='function'){
@@ -1481,7 +1481,7 @@ function ggReadTrail() {
       worst:form.worst.value,
       website:form.website.value
     };
-    fetch(WORKER_URL,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)})
+    fetch(WORKER_URL,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload),signal:(typeof AbortSignal!=='undefined'&&AbortSignal.timeout)?AbortSignal.timeout(10000):undefined})
       .then(function(r){
         if(!r.ok) throw new Error('bad status');
         if(typeof gtag==='function') gtag('event','review_submit',{race_slug:form.race_slug.value,stars:stars});
@@ -1872,7 +1872,7 @@ document.querySelectorAll('.gg-pack-workout').forEach(function(card) {
     var trail=ggReadTrail();
     if(trail.viewed_races) payload.viewed_races=trail.viewed_races;
     if(trail.guide_chapter) payload.guide_chapter=trail.guide_chapter;
-    fetch(WORKER_URL,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)})
+    fetch(WORKER_URL,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload),signal:(typeof AbortSignal!=='undefined'&&AbortSignal.timeout)?AbortSignal.timeout(10000):undefined})
       .then(function(r){
         if(!r.ok) throw new Error('bad status');
         if(typeof gtag==='function') {

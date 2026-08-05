@@ -1084,7 +1084,7 @@ def build_inline_js() -> str:
     var payload={email:email,source:form.source.value,website:form.website.value};
     /* Only claim success once the capture is actually stored. A swallowed
        error used to show the unlocked state for a lead nobody recorded. */
-    fetch(WORKER_URL,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)})
+    fetch(WORKER_URL,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload),signal:(typeof AbortSignal!=='undefined'&&AbortSignal.timeout)?AbortSignal.timeout(10000):undefined})
     .then(function(resp){
       if(!resp.ok) throw new Error('bad status');
       try{localStorage.setItem(LS_KEY,JSON.stringify({email:email,exp:Date.now()+EXPIRY_DAYS*86400000}));}catch(ex){}
@@ -1182,7 +1182,7 @@ def build_inline_js() -> str:
     errEl.style.display='none';
 
     /* Fix #6: Await fetch response, handle errors */
-    fetch(WORKER_URL,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)})
+    fetch(WORKER_URL,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload),signal:(typeof AbortSignal!=='undefined'&&AbortSignal.timeout)?AbortSignal.timeout(10000):undefined})
     .then(function(resp){
       return resp.json().then(function(data){return{status:resp.status,body:data};});
     })

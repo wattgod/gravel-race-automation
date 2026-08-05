@@ -2374,10 +2374,6 @@ document.querySelectorAll('a[data-cta]').forEach(function(el){
       }
       /* Honeypot check */
       if(gateForm.website&&gateForm.website.value){return;}
-      /* Cache email */
-      try{
-        localStorage.setItem(LS_KEY,JSON.stringify({email:email,exp:Date.now()+EXPIRY_DAYS*86400000}));
-      }catch(ex){}
       /* Fire-and-forget POST to Worker */
       var payload={
         email:email,
@@ -2394,9 +2390,13 @@ document.querySelectorAll('a[data-cta]').forEach(function(el){
       /* Unlock only once the capture is recorded. A swallowed error used to
          unlock for a lead nobody captured — the rider got the kit and we got
          nothing, so no sequence ever ran for them. */
-      fetch(WORKER_URL,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)})
+      fetch(WORKER_URL,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload),signal:(typeof AbortSignal!=='undefined'&&AbortSignal.timeout)?AbortSignal.timeout(10000):undefined})
       .then(function(resp){
         if(!resp.ok) throw new Error('bad status');
+        /* Cache only once captured — this key is shared SSO across surfaces. */
+        try{
+          localStorage.setItem(LS_KEY,JSON.stringify({email:email,exp:Date.now()+EXPIRY_DAYS*86400000}));
+        }catch(ex){}
         if(typeof gtag==='function'){
           gtag('event','pk_gate_unlock',{race_slug:gateForm.race_slug.value});
         }
@@ -2652,7 +2652,7 @@ document.querySelectorAll('.gg-guide-accordion-trigger').forEach(function(btn){
       cramp_history:crampHistory,climate_heat:climateHeat,
       website:form.website.value
     };
-    fetch(WORKER_URL,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)})
+    fetch(WORKER_URL,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload),signal:(typeof AbortSignal!=='undefined'&&AbortSignal.timeout)?AbortSignal.timeout(10000):undefined})
     .then(function(resp){
       if(!resp.ok) throw new Error('bad status');
       /* GA4 event — only for a submit that actually landed */

@@ -23,6 +23,7 @@ Usage:
 
 import html as html_mod
 import json
+import re
 import sys
 from pathlib import Path
 
@@ -48,6 +49,30 @@ def load_race_index() -> list:
     return data.get("races", data) if isinstance(data, dict) else data
 
 
+def _num(value, default=0):
+    """Coerce an index value to a JS-safe number.
+
+    These fields are interpolated straight into a JS object literal. The index
+    is mostly numeric, but a profile occasionally carries a range or thousands
+    separators — "4,500-9,116" for elevation_ft. Emitted raw that becomes
+    `"ef":4,500-9,116`, which is a syntax error that invalidates the ENTIRE
+    race array, so the quiz script never executes and the quiz is dead.
+    Take the first number present (low end of a range) and fall back to
+    `default` when there is none.
+    """
+    if isinstance(value, bool):
+        return default
+    if isinstance(value, (int, float)):
+        return value
+    if value is None:
+        return default
+    m = re.search(r"-?\d+(?:\.\d+)?", str(value).replace(",", ""))
+    if not m:
+        return default
+    text = m.group()
+    return float(text) if "." in text else int(text)
+
+
 def build_quiz_page(races: list) -> str:
     """Build the complete quiz HTML page."""
 
@@ -56,17 +81,17 @@ def build_quiz_page(races: list) -> str:
     for r in races:
         slug = r.get("slug", "")
         name = r.get("name", "")
-        tier = r.get("tier", 4)
-        score = r.get("final_score", 0)
+        tier = _num(r.get("tier", 4), 4)
+        score = _num(r.get("final_score", 0))
         location = r.get("location", "")
         state = r.get("state", "")
         region = r.get("region", "")
         country = r.get("country", "US")
-        distance_mi = r.get("distance_mi", 0) or 0
-        elevation_ft = r.get("elevation_ft", 0) or 0
-        month_num = r.get("month_num", 0) or 0
-        difficulty = r.get("difficulty_composite", 0) or 0
-        technicality = r.get("technicality", 0) or 0
+        distance_mi = _num(r.get("distance_mi"))
+        elevation_ft = _num(r.get("elevation_ft"))
+        month_num = _num(r.get("month_num"))
+        difficulty = float(_num(r.get("difficulty_composite")))
+        technicality = _num(r.get("technicality"))
         terrain = r.get("terrain_primary", "")
         discipline = r.get("discipline", "gravel")
 
@@ -552,13 +577,25 @@ def build_quiz_js() -> str:
       var email=gateForm.email.value.trim();
       if(!email||!/^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/.test(email)){alert('Please enter a valid email.');return;}
       if(gateForm.website&&gateForm.website.value) return;
-      /* Cache */
-      try{localStorage.setItem(LS_KEY,JSON.stringify({email:email,exp:Date.now()+90*86400000}));}catch(ex){}
-      /* POST */
       var payload={email:email,source:'race_quiz',race_slug:top5[0]?top5[0].s:'',race_name:top5[0]?top5[0].n:'',website:gateForm.website.value};
-      fetch(WORKER_URL,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)}).catch(function(){});
-      if(typeof gtag==='function') gtag('event','email_capture',{source:'race_quiz'});
+      /* Show the results they earned regardless — but the gate also promises a
+         prep kit by email, so a failed capture must not pass silently or the
+         promise breaks with nobody knowing. */
       showResults(top5);
+      fetch(WORKER_URL,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)})
+      .then(function(resp){
+        if(!resp.ok) throw new Error('bad status');
+        try{localStorage.setItem(LS_KEY,JSON.stringify({email:email,exp:Date.now()+90*86400000}));}catch(ex){}
+        if(typeof gtag==='function') gtag('event','email_capture',{source:'race_quiz'});
+      })
+      .catch(function(){
+        var res=document.getElementById('gg-quiz-results');
+        if(!res||document.getElementById('gg-quiz-capture-err')) return;
+        var n=document.createElement('p');
+        n.id='gg-quiz-capture-err';
+        n.textContent='We could not save your email, so the prep kit will not arrive. Reload and try again.';
+        res.insertBefore(n,res.firstChild);
+      });
     });
   }
 
@@ -628,11 +665,25 @@ def build_quiz_js() -> str:
           var email=gateForm.email.value.trim();
           if(!email||!/^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/.test(email)){alert('Please enter a valid email.');return;}
           if(gateForm.website&&gateForm.website.value) return;
-          try{localStorage.setItem('gg-pk-fueling',JSON.stringify({email:email,exp:Date.now()+90*86400000}));}catch(ex){}
           var payload={email:email,source:'quiz_shared',race_slug:matched[0]?matched[0].s:'',race_name:matched[0]?matched[0].n:'',website:gateForm.website.value};
-          fetch(WORKER_URL,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)}).catch(function(){});
-          if(typeof gtag==='function') gtag('event','email_capture',{source:'quiz_shared'});
+          /* Show the results they earned regardless — but the gate also promises a
+             prep kit by email, so a failed capture must not pass silently or the
+             promise breaks with nobody knowing. */
           showResults(matched);
+          fetch(WORKER_URL,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)})
+          .then(function(resp){
+            if(!resp.ok) throw new Error('bad status');
+            try{localStorage.setItem('gg-pk-fueling',JSON.stringify({email:email,exp:Date.now()+90*86400000}));}catch(ex){}
+            if(typeof gtag==='function') gtag('event','email_capture',{source:'quiz_shared'});
+          })
+          .catch(function(){
+            var res=document.getElementById('gg-quiz-results');
+            if(!res||document.getElementById('gg-quiz-capture-err')) return;
+            var n=document.createElement('p');
+            n.id='gg-quiz-capture-err';
+            n.textContent='We could not save your email, so the prep kit will not arrive. Reload and try again.';
+            res.insertBefore(n,res.firstChild);
+          });
         });
       }
     }

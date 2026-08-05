@@ -5,11 +5,11 @@
     "display_name": "Heathland Gravel",
     "tagline": "Belgian heathland gravel challenge.",
     "vitals": {
-      "distance_mi": 65,
-      "elevation_ft": 3500,
-      "location": "Belgium",
-      "location_badge": "BELGIUM",
-      "county": "Belgium",
+      "distance_mi": 99,
+      "elevation_ft": 1781,
+      "location": "Maasmechelen, Belgium",
+      "location_badge": "MAASMECHELEN, BELGIUM",
+      "county": "Limburg",
       "date": "Early August annually",
       "date_specific": "2026: August 9",
       "terrain_types": [
@@ -19,7 +19,7 @@
         "Belgium"
       ],
       "field_size": "200-400 riders",
-      "start_time": "Morning start",
+      "start_time": "8:00 AM",
       "registration": "Online. Cost: ~€50-80",
       "prize_purse": "Modest prizes",
       "aid_stations": "Multiple aid stations",
@@ -42,7 +42,7 @@
       "surface": "Gravel roads through Belgian heathland. Moderate elevation with heathland scenery.",
       "technical_rating": 2,
       "features": [
-        "Moderate rolling (3500 feet)",
+        "543 meters of climbing",
         "Belgian heathland scenery",
         "Heathland setting",
         "Multiple distances",
@@ -151,12 +151,12 @@
     },
     "guide_variables": {
       "race_name": "Heathland Gravel",
-      "race_distance": "65 miles",
-      "race_elevation": "3,500 feet",
-      "race_date": "Spring",
-      "race_location": "Belgium",
+      "race_distance": "99 miles",
+      "race_elevation": "1,781 feet",
+      "race_date": "Early August",
+      "race_location": "Maasmechelen, Belgium",
       "race_terrain": "Belgian heathland gravel",
-      "race_weather": "Belgian spring mild",
+      "race_weather": "Belgian summer variable",
       "race_challenges": [
         "Heathland terrain",
         "Regional field",
@@ -185,13 +185,14 @@
       }
     ],
     "research_metadata": {
-      "data_confidence": "moderate",
-      "validation_status": "pending",
+      "data_confidence": "high",
+      "validation_status": "verified",
       "sources": [
-        "european_cycling_community"
+        "https://www.heathlandgravel.com/en/course",
+        "https://www.heathlandgravel.com/en/programme"
       ],
       "migration_notes": [
-        "Generated from regional information"
+        "Organizer re-verified 2026-08-04: August 9, 2026; 160 km; 543 m climbing; more than 80% unpaved; 10 timed sections; 08:00 start."
       ],
       "research_strength": {
         "overall": 89.2,
@@ -261,7 +262,7 @@
         "race_name": "Heathland Gravel",
         "race_hook": "Belgian heathland gravel challenge.",
         "race_hook_detail": "Regional event with heathland terrain.",
-        "distance": "65",
+        "distance": "99",
         "dark_mile": "33",
         "non_negotiable_1": "Heathland endurance",
         "non_negotiable_2": "Weather preparation",
@@ -276,7 +277,7 @@
       },
       "length": {
         "score": 3,
-        "explanation": "160km hits the gravel sweet spot - long enough to hurt without being a death march. Three distance options (70km, 110km, 160km) accommodate different ambitions rather than forcing everyone into the same suffering. The 65-mile user data doesn't match official distances, but any of these options deliver a proper day in the saddle. Similar distance to Crusher in the Tushar."
+        "explanation": "The 160-kilometer qualifier is nearly 100 miles, long enough to demand disciplined fueling and recovery between its 10 timed sections. The 70- and 110-kilometer options are untimed rides rather than the target race."
       },
       "technicality": {
         "score": 2,
@@ -284,7 +285,7 @@
       },
       "elevation": {
         "score": 2,
-        "explanation": "Mining slagheaps from Belgium's industrial heritage provide the main climbing through Hoge Kempen National Park's 127 square kilometers. One rider described 'wenig Höhenmeter' - low elevation gain - which matches the modest 3500 feet over 65 miles that won't break legs on uphills. Less climbing than The Mid South."
+        "explanation": "The organizer lists 543 meters of climbing over 160 kilometers. Mining slag heaps add the principal elevation, while the competitive demand comes from repeating speed across 10 timed sections rather than sustained mountain climbing."
       },
       "climate": {
         "score": 3,

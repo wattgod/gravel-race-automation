@@ -5,13 +5,13 @@
     "display_name": "Melting Mann",
     "tagline": "Southwest Michigan spring thaw gravel in Vandalia.",
     "vitals": {
-      "distance_mi": 62,
-      "elevation_ft": 2500,
+      "distance_mi": 58,
+      "elevation_ft": 3100,
       "location": "Vandalia, Michigan",
       "location_badge": "VANDALIA, MICHIGAN",
       "county": "Cass County",
       "date": "Late March annually",
-      "date_specific": "2026: March 28",
+      "date_specific": "2027: March 20",
       "terrain_types": [
         "Gravel roads",
         "Rural Michigan",
@@ -145,9 +145,9 @@
     },
     "guide_variables": {
       "race_name": "Melting Mann",
-      "race_distance": "62 miles",
-      "race_elevation": "2,500 feet",
-      "race_date": "Spring",
+      "race_distance": "58 miles",
+      "race_elevation": "3,100+ feet",
+      "race_date": "March 20, 2027",
       "race_location": "Vandalia, Michigan",
       "race_terrain": "Michigan gravel roads",
       "race_weather": "Michigan spring variability",
@@ -172,13 +172,15 @@
       }
     ],
     "research_metadata": {
-      "data_confidence": "moderate",
-      "validation_status": "pending",
+      "data_confidence": "high",
+      "validation_status": "verified",
       "sources": [
-        "michigan_cycling_community"
+        "https://meltingmann.com/",
+        "https://meltingmann.com/58-miles/",
+        "https://meltingmann.com/mann-road/"
       ],
       "migration_notes": [
-        "Generated from regional information"
+        "Organizer re-verified 2026-08-05: March 20, 2027; 58 miles; 3,100+ feet; 70% gravel; 09:00 start; Bald Hill, Kirk Lake Lungbuster, Patterson Hill, Mann Road, and Mount Misery."
       ],
       "research_strength": {
         "overall": 91.0,
@@ -244,9 +246,9 @@
       "tier_overrides": {},
       "marketplace_variables": {
         "race_name": "Melting Mann",
-        "race_hook": "62 miles of Michigan spring thaw gravel.",
+        "race_hook": "58 miles of Michigan spring-thaw gravel and Mann Road rollers.",
         "race_hook_detail": "Small grassroots event in Vandalia with potential mud.",
-        "distance": "62",
+        "distance": "58",
         "dark_mile": "40",
         "non_negotiable_1": "Rolling terrain endurance",
         "non_negotiable_2": "Mud handling skills",
@@ -269,7 +271,7 @@
       },
       "elevation": {
         "score": 2,
-        "explanation": "Called a 'roller coaster' course with 2500 feet of gain over 62 miles, which works out to manageable rollers rather than sustained climbs. No named climbs or elevation profile details provided, suggesting the hills are there but nothing worth bragging about. Southwest Michigan isn't known for mountains, and this course apparently doesn't change that reputation. Less climbing than The Mid South."
+        "explanation": "The organizer lists more than 3,100 feet over 58 miles and names Bald Hill, the Kirk Lake Lungbuster, Patterson Hill's Wall, Mann Road rollers, and the nearly mile-long Mount Misery climb. The demand is repeated short climbing rather than one sustained mountain ascent."
       },
       "climate": {
         "score": 2,
@@ -277,7 +279,7 @@
       },
       "altitude": {
         "score": 1,
-        "explanation": "This is southwest Michigan, not Colorado. Starting elevation isn't mentioned because it's essentially at sea level, and the 2500 feet of climbing doesn't take you anywhere meaningful altitude-wise. If you need altitude training, you're in the wrong state entirely. Lower altitude than Gravel Worlds — no thin-air concerns."
+        "explanation": "The course has no meaningful altitude exposure; its 3,100-plus feet come from accumulated southwest Michigan rollers and short climbs."
       },
       "adventure": {
         "score": 2,

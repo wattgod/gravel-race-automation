@@ -4795,9 +4795,9 @@ def build_email_capture(rd: dict) -> str:
     name = esc(rd["name"])
     return f'''<div class="gg-email-capture gg-fade-section" id="prep-kit-capture">
     <div class="gg-email-capture-inner">
-      <div class="gg-email-capture-badge">FREE DOWNLOAD</div>
+      <div class="gg-email-capture-badge">FREE</div>
       <h3 class="gg-email-capture-title">GET THE {name.upper()} PREP KIT</h3>
-      <p class="gg-email-capture-text">12-week training timeline, race-day checklists, packing list, and personalized fueling calculator — delivered instantly.</p>
+      <p class="gg-email-capture-text">12-week training timeline, race-day checklists, packing list, and personalized fueling calculator — unlocked instantly.</p>
       <form class="gg-email-capture-form" id="gg-email-capture-form" autocomplete="off">
         <input type="hidden" name="race_slug" value="{slug}">
         <input type="hidden" name="race_name" value="{name}">

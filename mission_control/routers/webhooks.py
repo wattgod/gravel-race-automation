@@ -7,7 +7,7 @@ from collections import defaultdict
 
 from fastapi import APIRouter, Header, HTTPException, Request
 
-from mission_control.config import WEBHOOK_SECRET
+from mission_control.config import BRAND_SITE_URLS, WEBHOOK_SECRET
 from mission_control import supabase_client as db
 from mission_control.sequences import get_sequences_for_trigger
 from mission_control.services.sequence_engine import enroll, record_event
@@ -18,6 +18,8 @@ router = APIRouter(prefix="/webhooks")
 
 # Basic email validation — intentionally permissive
 _EMAIL_RE = re.compile(r"^[^@\s]{1,64}@[^@\s]{1,255}$")
+# race_slug arrives from page JS and is interpolated into email hrefs.
+_SLUG_RE = re.compile(r"^[a-z0-9][a-z0-9-]{0,80}$")
 _MAX_NAME_LEN = 200
 _MAX_SOURCE_LEN = 100
 
@@ -201,6 +203,14 @@ async def subscriber_webhook(
     source_data = {"brand": brand}
     if body.get("race_slug"):
         source_data["race_slug"] = body["race_slug"]
+        # The race quiz promises "we'll also send you the free prep kit for your
+        # top match" and nothing ever sent it — the quiz emails linked only the
+        # homepage. The kit page already exists per race, so hand the templates
+        # a ready URL. race_slug arrives unsanitised from the page, and this
+        # value lands in an href, so only a well-formed slug builds a link.
+        _slug = str(body["race_slug"]).strip().lower()
+        if _SLUG_RE.match(_slug) and brand in BRAND_SITE_URLS:
+            source_data["prep_kit_url"] = f"{BRAND_SITE_URLS[brand]}/race/{_slug}/prep-kit/"
     if body.get("race_name"):
         source_data["race_name"] = body["race_name"]
     # Friend-register context (docs/specs/friend-first-sequences.md §4).

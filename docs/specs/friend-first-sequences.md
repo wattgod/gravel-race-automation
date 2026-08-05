@@ -52,7 +52,7 @@ until templated; then the templates ARE the copy. Set:
 | 8–12 | post_purchase d0/3/10/21/plan-end | got your questionnaire / first rides / two weeks in / boring middle / did {race_name} happen? | their plan, their weeks |
 | 13 | win_back d0 | did you end up racing it? | what they looked at last time |
 
-Guide-branch copy (Matti's words): "thanks for grabbing the guide. How did
+Guide-branch copy (Matti's words): "thanks for reading the guide. How did
 you like the chapter on {guide_chapter}? Any more questions there, just hit
 reply — happy to help."
 

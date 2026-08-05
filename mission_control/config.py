@@ -42,6 +42,14 @@ REPLY_TO_EMAIL = os.environ.get("REPLY_TO_EMAIL", "gravelgodcoaching@gmail.com")
 # (absent = gravelgod); the engine looks up sender/utm here. Road sends
 # require the roadielabs.com domain to be verified in Resend first —
 # until then road sequences should stay inactive.
+# Public site per brand — used to build in-email deep links (e.g. the prep kit
+# the race quiz promises to send).
+BRAND_SITE_URLS = {
+    "gravelgod": "https://gravelgodcycling.com",
+    "roadielabs": "https://roadielabs.com",
+    "xcskilabs": "https://xcskilabs.com",
+}
+
 BRAND_SEQUENCE_SENDERS = {
     "gravelgod": {
         "from_email": SEQUENCE_FROM_EMAIL,

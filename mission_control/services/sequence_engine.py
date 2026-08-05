@@ -9,6 +9,7 @@ import logging
 import random
 import re
 import urllib.parse
+from html import escape as html_escape
 from datetime import datetime, timedelta, timezone
 
 from mission_control import supabase_client as db
@@ -406,15 +407,20 @@ def _render_template(template_name: str, enrollment: dict) -> str:
     # payload), so it is applied FIRST and the identity fields overwrite it.
     # Otherwise a source_data key named "greeting" or "contact_email" would
     # silently redefine who the email is addressed to.
+    # Every substituted value is DATA, not markup, and most of it originates
+    # from page JS (race_name, wb_guide, viewed_races) which the intake worker
+    # only length-truncates. Without escaping, a crafted race_name closes the
+    # paragraph and injects arbitrary HTML — including an <a> to another domain
+    # — into an email sent from our own sending domain. Escape on the way in.
     replacements = {}
     for key, val in source_data.items():
         if val is not None:
-            replacements[f"{{{key}}}"] = str(val)
+            replacements[f"{{{key}}}"] = html_escape(str(val), quote=True)
     replacements.update({
-        "{contact_name}": enrollment.get("contact_name", ""),
-        "{contact_email}": enrollment.get("contact_email", ""),
-        "{first_name}": _first or "there",
-        "{greeting}": f"{_first} —" if _first else "Hey —",
+        "{contact_name}": html_escape(enrollment.get("contact_name", ""), quote=True),
+        "{contact_email}": html_escape(enrollment.get("contact_email", ""), quote=True),
+        "{first_name}": html_escape(_first or "there", quote=True),
+        "{greeting}": html_escape(f"{_first} —" if _first else "Hey —", quote=True),
     })
 
     for placeholder, value in replacements.items():

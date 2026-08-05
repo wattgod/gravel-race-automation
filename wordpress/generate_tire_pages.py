@@ -1002,7 +1002,7 @@ def build_community_reviews_section(tire: dict) -> str:
 def build_email_capture() -> str:
     return '''<div class="tp-email-capture">
     <div class="tp-email-capture-inner">
-      <div class="tp-email-capture-badge">FREE DOWNLOAD</div>
+      <div class="tp-email-capture-badge">FREE</div>
       <h3 class="tp-email-capture-title">GET A RACE DAY SETUP CARD</h3>
       <p class="tp-email-capture-text">Tire picks, pressure chart, sealant amounts, and tubeless tips &mdash; customized for any gravel race. Print it and tape it to your stem.</p>
       <form class="tp-email-capture-form" id="tp-email-capture-form" autocomplete="off">

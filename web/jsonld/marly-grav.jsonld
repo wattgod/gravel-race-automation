@@ -4,13 +4,14 @@
   "name": "Marly Grav",
   "description": "Short, steep, and intense gravel through Limburg hills and Ch\u00e2teau Marly, Netherlands.",
   "sport": "Gravel Cycling",
-  "startDate": "2026-05-10",
+  "startDate": "2027-05-09",
   "location": {
     "@type": "Place",
-    "name": "Netherlands",
+    "name": "Valkenburg, South Limburg, Netherlands",
     "address": {
       "@type": "PostalAddress",
-      "addressLocality": "Netherlands"
+      "addressLocality": "Valkenburg",
+      "addressRegion": "South Limburg"
     }
   },
   "aggregateRating": {
@@ -19,5 +20,6 @@
     "bestRating": "100",
     "ratingCount": "14",
     "name": "Gravel God Rating"
-  }
+  },
+  "url": "https://www.marlygrav.com/race"
 }

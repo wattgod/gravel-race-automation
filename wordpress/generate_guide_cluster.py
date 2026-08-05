@@ -665,15 +665,29 @@ if(new URLSearchParams(window.location.search).get("unlocked")==="1")unlock("ema
 try{{if(localStorage.getItem(STORAGE_KEY)==="1")document.documentElement.classList.add("gg-guide-unlocked");}}catch(e){{}}
 var bypassBtn=document.getElementById("gg-guide-gate-bypass");
 if(bypassBtn)bypassBtn.addEventListener("click",function(){{unlock("manual_bypass");}});
+/* Resolve only on a recorded capture. Swallowing the error used to unlock
+   and show success for a lead nobody captured, so no sequence ever ran. */
 function postLead(payload){{
-fetch(WORKER_URL,{{method:"POST",headers:{{"Content-Type":"application/json"}},body:JSON.stringify(payload)}}).catch(function(){{}});
+return fetch(WORKER_URL,{{method:"POST",headers:{{"Content-Type":"application/json"}},body:JSON.stringify(payload),signal:(typeof AbortSignal!=="undefined"&&AbortSignal.timeout)?AbortSignal.timeout(10000):undefined}})
+.then(function(r){{if(!r.ok)throw new Error("bad status");return r;}});
 }}
+function leadError(el,msg){{
+var id=(el.id||"gg-guide")+"-err";
+var e=document.getElementById(id);
+if(!e){{e=document.createElement("p");e.id=id;e.className="gg-guide-gate-fine";el.parentNode.insertBefore(e,el.nextSibling);}}
+e.textContent=msg;
+e.style.display="block";
+}}
+var LEAD_ERR="That did not go through. Check your connection and try again.";
 var gateForm=document.getElementById("gg-cluster-gate-form");
 if(gateForm)gateForm.addEventListener("submit",function(e){{
 e.preventDefault();
 if(gateForm.website&&gateForm.website.value)return;
-postLead({{email:gateForm.email.value.trim(),source:SOURCE,guide_chapter:"{config.guide_label}",website:""}});
-unlock("email_form");
+var b=gateForm.querySelector("button[type=submit]");
+if(b)b.disabled=true;
+postLead({{email:gateForm.email.value.trim(),source:SOURCE,guide_chapter:"{config.guide_label}",website:""}})
+.then(function(){{unlock("email_form");}})
+.catch(function(){{if(b)b.disabled=false;leadError(gateForm,LEAD_ERR);}});
 }});
 document.querySelectorAll(".gg-guide-email-capture-form").forEach(function(form){{
 form.addEventListener("submit",function(e){{
@@ -681,11 +695,16 @@ e.preventDefault();
 var email=form.email.value.trim();
 if(!email||!/^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/.test(email)){{alert("Please enter a valid email address.");return;}}
 if(form.website&&form.website.value)return;
-postLead({{email:email,source:SOURCE,guide_chapter:form.guide_chapter.value,website:form.website.value}});
+var sb=form.querySelector("button[type=submit]");
+if(sb)sb.disabled=true;
+postLead({{email:email,source:SOURCE,guide_chapter:form.guide_chapter.value,website:form.website.value}})
+.then(function(){{
 form.style.display="none";
 var success=document.getElementById(form.id+"-success");
 if(success)success.style.display="block";
 track("{event_prefix}_email_capture",{{chapter:form.guide_chapter.value}});
+}})
+.catch(function(){{if(sb)sb.disabled=false;leadError(form,LEAD_ERR);}});
 }});
 }});
 }})();

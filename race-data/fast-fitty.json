@@ -5,8 +5,8 @@
     "display_name": "Fast Fitty",
     "tagline": "Shaded canopy, Lacey Lake views, and fast Michigan farmland gravel near Charlotte.",
     "vitals": {
-      "distance_mi": 50,
-      "elevation_ft": 1800,
+      "distance_mi": 54,
+      "elevation_ft": 2550,
       "location": "Charlotte, Michigan",
       "location_badge": "CHARLOTTE, MI",
       "county": "Eaton County",
@@ -14,7 +14,7 @@
       "date_specific": "2026: August 15",
       "terrain_types": [
         "Michigan rolling",
-        "Local event",
+        "Farm-country gravel",
         "Midwest gravel",
         "Michigan"
       ],
@@ -28,24 +28,24 @@
       "lng": -84.8356
     },
     "climate": {
-      "primary": "Michigan spring",
-      "description": "Variable conditions.",
+      "primary": "Mid-August Michigan",
+      "description": "Summer heat and humidity can vary.",
       "challenges": [
         "Variable weather",
-        "Cold possible",
+        "Heat and humidity",
         "Rolling terrain",
-        "Spring conditions"
+        "Exposed farm roads"
       ]
     },
     "terrain": {
-      "primary": "Michigan rolling gravel",
-      "surface": "Gravel roads through Michigan countryside. Moderate elevation with rolling scenery.",
+      "primary": "Rolling Michigan gravel with long grinding climbs",
+      "surface": "Approximately 80% gravel and 20% pavement through Eaton and Barry County farm country.",
       "technical_rating": 2,
       "features": [
-        "Moderate rolling (1800 feet)",
+        "2,550 feet of rolling climbing",
         "Michigan countryside scenery",
         "Local community event",
-        "50-mile distance",
+        "54-mile main route",
         "Small field"
       ]
     },
@@ -116,7 +116,7 @@
       "reputation": "Local Michigan event."
     },
     "course_description": {
-      "character": "Michigan rolling gravel.",
+      "character": "Mostly gravel farm roads with repeated long, grinding climbs rather than one defining ascent.",
       "suffering_zones": [
         {
           "mile": 15,
@@ -140,33 +140,33 @@
           "named_section": "Final Push"
         }
       ],
-      "signature_challenge": "Michigan rolling terrain.",
+      "signature_challenge": "Repeated long, grinding climbs across 54 miles and 2,550 feet of climbing.",
       "ridewithgps_id": "32081488",
       "ridewithgps_name": "Fast Fitty"
     },
     "guide_variables": {
       "race_name": "Fast Fitty",
-      "race_distance": "50 miles",
-      "race_elevation": "1,800 feet",
-      "race_date": "Spring",
+      "race_distance": "54 miles",
+      "race_elevation": "2,550 feet",
+      "race_date": "Third Saturday of August",
       "race_location": "Charlotte, Michigan",
-      "race_terrain": "Michigan rolling gravel",
-      "race_weather": "Michigan spring variable",
+      "race_terrain": "80% gravel farm roads with long, grinding climbs",
+      "race_weather": "Mid-August Michigan heat and humidity can vary",
       "race_challenges": [
-        "Rolling terrain",
-        "Small local field",
-        "Variable weather",
-        "Limited organization",
-        "Moderate elevation"
+        "Repeated long climbs",
+        "Late-race heat management",
+        "Mixed gravel and pavement pacing",
+        "Two state-highway crossings",
+        "2,550 feet of climbing"
       ],
       "altitude_section": false,
       "altitude_feet": null
     },
     "non_negotiables": [
       {
-        "requirement": "Weather preparation",
+        "requirement": "Heat preparation",
         "by_when": "Week 4-6",
-        "why": "Michigan spring weather is variable."
+        "why": "The mid-August start can bring heat and humidity."
       },
       {
         "requirement": "Rolling endurance",
@@ -180,13 +180,13 @@
       }
     ],
     "research_metadata": {
-      "data_confidence": "moderate",
-      "validation_status": "pending",
+      "data_confidence": "high",
+      "validation_status": "verified",
       "sources": [
-        "michigan_cycling_community"
+        "https://www.jointhefightmi.org/fastfitty"
       ],
       "migration_notes": [
-        "Generated from regional information"
+        "Organizer re-verified 2026-08-04: Saturday August 15, 2026; 54 miles; 2,550 feet; approximately 80% gravel; 10:00 AM start; annual third Saturday of August."
       ],
       "research_strength": {
         "overall": 89.2,
@@ -256,7 +256,7 @@
         "race_name": "Fast Fitty",
         "race_hook": "Michigan local gravel challenge.",
         "race_hook_detail": "Local event with rolling terrain.",
-        "distance": "50",
+        "distance": "54",
         "dark_mile": "25",
         "non_negotiable_1": "Weather preparation",
         "non_negotiable_2": "Rolling endurance",

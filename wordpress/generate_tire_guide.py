@@ -1650,7 +1650,7 @@ def build_email_capture_section(rd: dict) -> str:
   <div class="tg-container">
     <div class="tg-email-capture">
       <div class="tg-email-capture-inner">
-        <div class="tg-email-capture-badge">FREE DOWNLOAD</div>
+        <div class="tg-email-capture-badge">FREE</div>
         <h3 class="tg-email-capture-title">GET YOUR RACE DAY SETUP CARD</h3>
         <p class="tg-email-capture-text">Tire picks, pressure chart, sealant amounts, and tubeless tips &mdash; customized for {name}. Print it and tape it to your stem.</p>
         <form class="tg-email-capture-form" id="tg-email-capture-form" autocomplete="off">

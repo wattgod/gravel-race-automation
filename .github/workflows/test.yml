@@ -1,12 +1,26 @@
 name: Run Tests
 
+# The suite reads race-data/**, web/race-index.json, research-dumps/** and
+# guide/** as fixtures, but this workflow used to trigger on push only for
+# changes under scripts/** or tests/**. Main is pushed to directly by the
+# data automation ("data: verify <race>"), so index/score/date drift landed
+# on main without ever running the tests that check for it — main showed
+# green from the faster Regression Tests workflow while the full suite had
+# been failing unseen. Run on every push to main instead of guessing paths.
 on:
   push:
-    paths:
-      - 'scripts/**'
-      - 'tests/**'
+    branches: [main, master]
   pull_request:
   workflow_dispatch:
+
+# Data automation pushes to main in bursts; only the newest commit needs a
+# full run.
+concurrency:
+  # Keyed by workflow + ref + event so a burst of data pushes collapses to the
+  # newest commit, without a manual workflow_dispatch cancelling (or being
+  # cancelled by) a push run on the same ref.
+  group: ${{ github.workflow }}-${{ github.ref }}-${{ github.event_name }}
+  cancel-in-progress: true
 
 jobs:
   test:

@@ -331,6 +331,46 @@ class TestFriendRegisterEnrollment:
         sd = self._source_data(fake_db, email)
         assert "wb_guide_url" not in sd
 
+    def test_quiz_capture_gets_prep_kit_url(self, client, fake_db):
+        """The quiz page promises "we'll also send you the free prep kit for
+        your top match" — the recap email must actually carry it."""
+        self._enroll(client, {
+            "email": "pk-quiz@example.com", "source": "race_quiz",
+            "race_slug": "unbound-200", "race_name": "Unbound 200",
+        })
+        sd = self._source_data(fake_db, "pk-quiz@example.com")
+        assert sd["prep_kit_url"] == (
+            "https://gravelgodcycling.com/race/unbound-200/prep-kit/"
+        )
+
+    def test_prep_kit_url_is_brand_scoped(self, client, fake_db):
+        self._enroll(client, {
+            "email": "pk-road@example.com", "source": "race_quiz",
+            "race_slug": "mallorca-312", "race_name": "Mallorca 312",
+            "brand": "roadielabs",
+        })
+        sd = self._source_data(fake_db, "pk-road@example.com")
+        assert sd["prep_kit_url"] == (
+            "https://roadielabs.com/race/mallorca-312/prep-kit/"
+        )
+
+    @pytest.mark.parametrize("bad_slug", [
+        '"><script>alert(1)</script>',
+        "../../etc/passwd",
+        "https://evil.example.com/x",
+        "Unbound 200",
+        "",
+    ])
+    def test_malformed_race_slug_builds_no_link(self, client, fake_db, bad_slug):
+        """race_slug is unsanitised page input landing in an href."""
+        email = f"pk-bad-{abs(hash(bad_slug))}@example.com"
+        self._enroll(client, {
+            "email": email, "source": "race_quiz",
+            "race_slug": bad_slug, "race_name": "Whatever",
+        })
+        sd = self._source_data(fake_db, email)
+        assert "prep_kit_url" not in sd
+
     def test_wb_branch_trail_beats_race(self, client, fake_db):
         self._enroll(client, {
             "email": "wb-trail@example.com", "source": "race_profile",

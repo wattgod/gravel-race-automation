@@ -282,6 +282,38 @@ class TestGuideChapterLink:
         assert "OVERRIDE" not in html
         assert "attacker@example.com" not in html
 
+    def test_race_name_cannot_inject_html_into_email(self, fake_db):
+        """race_name comes from page JS and the intake worker only truncates it.
+        Unescaped, a crafted value closes the paragraph and injects an <a> to
+        another domain into mail sent from our own sending domain."""
+        from mission_control.services.sequence_engine import _render_template
+
+        payload = '</p><a href="https://evil.example">verify account</a><p>'
+        html = _render_template("quiz_results_recap", {
+            "contact_name": "Victim", "contact_email": "v@x.com",
+            "source_data": {
+                "race_name": f"Nice Race{payload}",
+                "prep_kit_url": "https://gravelgodcycling.com/race/unbound-200/prep-kit/",
+            },
+        })
+        # The characters may survive as inert text; what must not survive is a
+        # live anchor pointing off-domain.
+        assert 'href="https://evil.example"' not in html
+        assert payload not in html
+        assert "&lt;a href=" in html  # rendered as visible text, not markup
+        # the legitimate link still works
+        assert 'href="https://gravelgodcycling.com/race/unbound-200/prep-kit/"' in html
+
+    def test_contact_name_cannot_inject_html(self, fake_db):
+        from mission_control.services.sequence_engine import _render_template
+
+        html = _render_template("welcome_value", {
+            "contact_name": '<script>alert(1)</script> Bob',
+            "contact_email": "b@x.com", "source_data": {},
+        })
+        assert "<script>" not in html
+        assert "&lt;script&gt;" in html
+
     def test_utm_injection_preserves_unlocked_param(self, fake_db):
         """The chapter URL already carries ?unlocked=1, so the UTM appender must
         use & — otherwise the link lands on a still-locked chapter."""

@@ -1011,7 +1011,7 @@ def build_race_overlap_section(tire_a: dict, tire_b: dict, overlap: dict) -> str
 def build_email_capture() -> str:
     return '''<div class="tvs-email-capture">
     <div class="tvs-email-capture-inner">
-      <div class="tvs-email-capture-badge">FREE DOWNLOAD</div>
+      <div class="tvs-email-capture-badge">FREE</div>
       <h3 class="tvs-email-capture-title">GET A RACE DAY SETUP CARD</h3>
       <p class="tvs-email-capture-text">Tire picks, pressure chart, sealant amounts, and tubeless tips &mdash; customized for any gravel race.</p>
       <form class="tvs-email-capture-form" id="tvs-email-capture-form" autocomplete="off">

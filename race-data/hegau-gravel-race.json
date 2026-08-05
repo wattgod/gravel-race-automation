@@ -5,8 +5,8 @@
     "display_name": "Hegau Gravel Race",
     "tagline": "German rolling gravel in Singen.",
     "vitals": {
-      "distance_mi": 65,
-      "elevation_ft": 3500,
+      "distance_mi": 67,
+      "elevation_ft": 6102,
       "location": "Singen, Germany",
       "location_badge": "SINGEN, GERMANY",
       "county": "Baden-Württemberg",
@@ -19,7 +19,7 @@
         "Southern Germany"
       ],
       "field_size": "200-400 riders",
-      "start_time": "Morning start",
+      "start_time": "10:10 AM",
       "registration": "Online. Cost: ~€80-120",
       "prize_purse": "Modest prizes",
       "aid_stations": "Multiple aid stations",
@@ -42,7 +42,7 @@
       "surface": "Gravel roads through German countryside. Moderate elevation with countryside scenery.",
       "technical_rating": 2,
       "features": [
-        "Moderate rolling (3500 feet)",
+        "1,860 meters of climbing",
         "Countryside scenery",
         "Singen setting",
         "Multiple distances",
@@ -145,8 +145,8 @@
     },
     "guide_variables": {
       "race_name": "Hegau Gravel Race",
-      "race_distance": "65 miles",
-      "race_elevation": "3,500 feet",
+      "race_distance": "67 miles",
+      "race_elevation": "6,102 feet",
       "race_date": "Summer",
       "race_location": "Singen, Germany",
       "race_terrain": "German rolling gravel",
@@ -179,13 +179,14 @@
       }
     ],
     "research_metadata": {
-      "data_confidence": "moderate",
-      "validation_status": "pending",
+      "data_confidence": "high",
+      "validation_status": "verified",
       "sources": [
-        "german_cycling_community"
+        "https://hegaugravel.de/gravel-102-km/",
+        "https://hegaugravel.de/distanz-hoehenmeter/"
       ],
       "migration_notes": [
-        "Generated from regional information"
+        "Organizer re-verified 2026-08-04: July 5, 2026; 108 km in two 54 km laps; 1,860 m climbing; 10:10 start; transponder timing; three feed points per lap; 14:00 second-lap cutoff."
       ],
       "research_strength": {
         "overall": 86.7,
@@ -255,7 +256,7 @@
         "race_name": "Hegau Gravel Race",
         "race_hook": "German rolling gravel in Singen.",
         "race_hook_detail": "Regional event with rolling countryside.",
-        "distance": "65",
+        "distance": "67",
         "dark_mile": "35",
         "non_negotiable_1": "Rolling endurance",
         "non_negotiable_2": "Weather preparation",
@@ -278,7 +279,7 @@
       },
       "elevation": {
         "score": 2,
-        "explanation": "The 3500ft of climbing includes a 6% grade with 9.2% peaks after 2km, plus the key Magdeberg climb at 15km averaging 3.6% with 8% sections. One rider warns \"Als Normalo sollte man keine zu dicke Übersetzung haben\" due to steep pitches, but it's steady climbing rather than sustained suffering. Less climbing than The Mid South."
+        "explanation": "The organizer lists 1,860 meters of climbing across the two-lap 108-kilometer course. Repeated climbs and the requirement to begin lap two before 14:00 make pacing more important than any single ascent."
       },
       "climate": {
         "score": 3,

@@ -91,16 +91,33 @@ def _month_num(value):
     return _MONTHS.get(str(value or "").strip().lower(), 0)
 
 
-def _state_from_location(location):
-    """The quiz matches US state names to decide west/central/east.
+_US_STATES = {
+    "alabama", "alaska", "arizona", "arkansas", "california", "colorado",
+    "connecticut", "delaware", "florida", "georgia", "hawaii", "idaho",
+    "illinois", "indiana", "iowa", "kansas", "kentucky", "louisiana", "maine",
+    "maryland", "massachusetts", "michigan", "minnesota", "mississippi",
+    "missouri", "montana", "nebraska", "nevada", "new hampshire", "new jersey",
+    "new mexico", "new york", "north carolina", "north dakota", "ohio",
+    "oklahoma", "oregon", "pennsylvania", "rhode island", "south carolina",
+    "south dakota", "tennessee", "texas", "utah", "vermont", "virginia",
+    "washington", "west virginia", "wisconsin", "wyoming",
+    "district of columbia",
+}
 
-    The index has no state field; `location` is "Emporia, Kansas" style, so the
-    trailing component carries it. International rows yield a country name,
-    which simply never matches a state list — the previous behaviour for
-    everything, since this field was empty for every race.
+
+def _state_from_location(location):
+    """US state from a "Emporia, Kansas" style location, or "".
+
+    The quiz decides west/central/east with a SUBSTRING match against state
+    names, so emitting anything non-US here is actively wrong: "Western
+    Australia" contains "west", and "New South Wales" contains "south", which
+    would file Australian races under the US regions. Only emit a value that is
+    an actual state.
     """
-    parts = [p.strip() for p in str(location or "").split(",") if p.strip()]
-    return parts[-1] if parts else ""
+    for part in reversed([p.strip() for p in str(location or "").split(",") if p.strip()]):
+        if part.lower() in _US_STATES:
+            return part
+    return ""
 
 
 def build_quiz_page(races: list) -> str:

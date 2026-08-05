@@ -21,6 +21,22 @@ _EMAIL_RE = re.compile(r"^[^@\s]{1,64}@[^@\s]{1,255}$")
 _MAX_NAME_LEN = 200
 _MAX_SOURCE_LEN = 100
 
+# Gravel guide chapter title -> URL slug. Mirrors the "id" field of each chapter
+# in guide/gravel-guide-content.json, which generate_guide_cluster.py uses as the
+# directory name under /guide/. Kept as a literal rather than imported so
+# Mission Control does not take a runtime dependency on the wordpress/ package;
+# if a chapter is renamed there, update this map or the link is silently dropped.
+GRAVEL_GUIDE_CHAPTER_SLUGS = {
+    "what is gravel racing?": "what-is-gravel-racing",
+    "race selection": "race-selection",
+    "training fundamentals": "training-fundamentals",
+    "workout execution": "workout-execution",
+    "nutrition & fueling": "nutrition-fueling",
+    "mental training & race tactics": "mental-training-race-tactics",
+    "race week protocol": "race-week",
+    "post-race & beyond": "post-race",
+}
+
 # In-memory rate limiter: {ip: [timestamp, ...]}
 _rate_buckets: dict[str, list[float]] = defaultdict(list)
 _RATE_LIMIT = 30       # max requests per window
@@ -198,6 +214,15 @@ async def subscriber_webhook(
     if _chapter:
         source_data["guide_chapter"] = _chapter
         source_data["wb_guide"] = _chapter
+        # Welcome day-0 asks how a chapter landed; without a link back there is
+        # nowhere for the reader to go, which reads as a promised-but-missing
+        # attachment. Titles do not slugify reliably ("Race Week Protocol" ->
+        # race-week), so map explicitly and emit nothing when unrecognised
+        # rather than linking a 404. Gravel only — road/xc welcome templates
+        # do not render wb_guide_url.
+        _slug = GRAVEL_GUIDE_CHAPTER_SLUGS.get(_chapter.casefold())
+        if _slug and brand == "gravelgod":
+            source_data["wb_guide_url"] = f"https://gravelgodcycling.com/guide/{_slug}/?unlocked=1"
     elif isinstance(_viewed, list) and _viewed:
         # short human-readable list for the template: "Unbound, SBT GRVL"
         names = [str(v).strip()[:60] for v in _viewed if str(v).strip()][:5]

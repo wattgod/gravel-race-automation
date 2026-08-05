@@ -13,24 +13,24 @@
 <body>
   <div class="container">
 {{#wb_guide}}
-    <p>{first_name} — thanks for grabbing the guide. How did you like the chapter on {wb_guide}?</p>
-    <p>Any more questions there, just hit reply — happy to help.</p>
+    <p>{greeting} thanks for reading the guide. How did you like the chapter on {wb_guide}?</p>
+    <p>{{#wb_guide_url}}You can pick it back up here: <a href="{wb_guide_url}">{wb_guide}</a>.{{/wb_guide_url}} Any more questions there, just hit reply — happy to help.</p>
 {{/wb_guide}}
 {{#wb_trail}}
-    <p>{first_name} — saw you checking out {wb_trail}. Racing one of them, or still deciding?</p>
+    <p>{greeting} saw you checking out {wb_trail}. Racing one of them, or still deciding?</p>
     <p>How's training going so far?</p>
 {{/wb_trail}}
 {{#wb_race}}
-    <p>{first_name} — saw you on the {wb_race} page. Is that the one you're getting ready for?</p>
+    <p>{greeting} saw you on the {wb_race} page. Is that the one you're getting ready for?</p>
     <p>How's training going?</p>
 {{/wb_race}}
 {{^any_context}}
 {{^offseason}}
-    <p>{first_name} — what race are you getting ready for?</p>
+    <p>{greeting} what race are you getting ready for?</p>
     <p>How's training going?</p>
 {{/offseason}}
 {{#offseason}}
-    <p>{first_name} — happy offseason. You bored yet?</p>
+    <p>{greeting} happy offseason. You bored yet?</p>
     <p>Happy with last year? What went well, what went badly? I'm always curious how people approach the offseason.</p>
 {{/offseason}}
 {{/any_context}}

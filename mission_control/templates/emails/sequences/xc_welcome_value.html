@@ -14,24 +14,24 @@
   <div class="container">
 
     {{#wb_guide}}
-    <p>{first_name} — thanks for reading the guide. How was the section on {wb_guide}?</p>
+    <p>{greeting} thanks for reading the guide. How was the section on {wb_guide}?</p>
     <p>Questions, hit reply. Happy to help.</p>
     {{/wb_guide}}
     {{#wb_trail}}
-    <p>{first_name} — saw you looking at {wb_trail}. Skiing one of them, or comparing?</p>
+    <p>{greeting} saw you looking at {wb_trail}. Skiing one of them, or comparing?</p>
     <p>How is training going?</p>
     {{/wb_trail}}
     {{#wb_race}}
-    <p>{first_name} — you were on the {wb_race} page. Is that the one you're pointing at?</p>
+    <p>{greeting} you were on the {wb_race} page. Is that the one you're pointing at?</p>
     <p>How is training going?</p>
     {{/wb_race}}
     {{^any_context}}
     {{^offseason}}
-    <p>{first_name} — what race are you getting ready for?</p>
+    <p>{greeting} what race are you getting ready for?</p>
     <p>How is the season going so far?</p>
     {{/offseason}}
     {{#offseason}}
-    <p>{first_name} — offseason. How did last winter go?</p>
+    <p>{greeting} offseason. How did last winter go?</p>
     <p>What worked, what did not? I'm always curious how skiers spend the summer.</p>
     {{/offseason}}
     {{/any_context}}

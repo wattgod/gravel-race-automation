@@ -225,6 +225,24 @@ class FakeDB:
         self.store.clear()
 
 
+@pytest.fixture(autouse=True)
+def _reset_rate_limiter():
+    """The webhook rate limiter is module-level state keyed by client IP, and
+    every test hits the same TestClient IP. Without this the suite silently
+    accumulates toward the 30-req/60s cap and whichever test happens to be
+    ~31st starts failing with 429 — a failure that looks like it belongs to
+    the test that tripped it rather than to the ones before it.
+    """
+    try:
+        from mission_control.routers.webhooks import _rate_buckets
+    except Exception:  # router not importable in some focused runs
+        yield
+        return
+    _rate_buckets.clear()
+    yield
+    _rate_buckets.clear()
+
+
 @pytest.fixture
 def fake_db():
     """Provides a clean in-memory DB and patches supabase_client._table."""

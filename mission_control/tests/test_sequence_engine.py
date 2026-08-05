@@ -143,9 +143,10 @@ class TestRenderTemplate:
             "contact_email": "sarah@example.com",
             "source_data": {"race_name": "Unbound 200"},
         })
-        assert "Sarah" in html  # {first_name} replaced
+        assert "Sarah" in html  # {greeting} resolved to the first name
         assert "Gravel God" in html  # template content present
-        assert "{first_name}" not in html  # placeholder replaced
+        assert "{greeting}" not in html  # placeholder replaced
+        assert "{first_name}" not in html
 
     def test_raises_on_missing_template(self, fake_db):
         from mission_control.services.sequence_engine import _render_template
@@ -163,6 +164,142 @@ class TestRenderTemplate:
         })
         assert isinstance(html, str)
         assert len(html) > 100
+
+
+class TestGreeting:
+    """A nameless lead used to render 'there —', which reads as a broken merge
+    field and cost a real reply ('no guide attached?'). {greeting} carries the
+    dash so the nameless case degrades to 'Hey —'."""
+
+    def test_named_lead_addressed_by_first_name(self, fake_db):
+        from mission_control.services.sequence_engine import _render_template
+
+        html = _render_template("welcome_value", {
+            "contact_name": "Roberto Hofman", "contact_email": "r@x.com",
+            "source_data": {"wb_guide": "Race Selection", "any_context": "1"},
+        })
+        assert "Roberto —" in html
+        assert "{greeting}" not in html
+
+    def test_nameless_lead_never_renders_there_dash(self, fake_db):
+        from mission_control.services.sequence_engine import _render_template
+
+        html = _render_template("welcome_value", {
+            "contact_name": "", "contact_email": "r@x.com",
+            "source_data": {"wb_guide": "Race Selection", "any_context": "1"},
+        })
+        assert "Hey —" in html
+        assert "there —" not in html
+        assert "{greeting}" not in html
+
+    def test_no_template_uses_bare_first_name_address(self, fake_db):
+        """The 'there —' shape is `{first_name} —`. Only sober_welcome may use
+        {first_name}, and it addresses inline ('Hi {first_name},')."""
+        from pathlib import Path
+
+        tdir = Path(__file__).resolve().parent.parent / "templates" / "emails" / "sequences"
+        offenders = [p.name for p in tdir.glob("*.html") if "{first_name} —" in p.read_text()]
+        assert offenders == [], f"use {{greeting}} instead: {offenders}"
+
+    def test_greeting_renders_in_every_template_that_uses_it(self, fake_db):
+        from pathlib import Path
+        from mission_control.services.sequence_engine import _render_template
+
+        tdir = Path(__file__).resolve().parent.parent / "templates" / "emails" / "sequences"
+        for p in sorted(tdir.glob("*.html")):
+            if "{greeting}" not in p.read_text():
+                continue
+            for name in ("Roberto Hofman", ""):
+                html = _render_template(p.stem, {
+                    "contact_name": name, "contact_email": "r@x.com", "source_data": {},
+                })
+                assert "{greeting}" not in html, f"{p.name} leaked {{greeting}} (name={name!r})"
+                assert "there —" not in html, f"{p.name} rendered 'there —' (name={name!r})"
+
+
+class TestGuideChapterLink:
+    """welcome_value asks how a chapter landed; without a link back there is
+    nowhere to go, which reads as a promised-but-missing attachment."""
+
+    def test_links_chapter_when_url_known(self, fake_db):
+        from mission_control.services.sequence_engine import _render_template
+
+        html = _render_template("welcome_value", {
+            "contact_name": "Roberto Hofman", "contact_email": "r@x.com",
+            "source_data": {
+                "wb_guide": "Race Selection", "any_context": "1",
+                "wb_guide_url": "https://gravelgodcycling.com/guide/race-selection/?unlocked=1",
+            },
+        })
+        assert 'href="https://gravelgodcycling.com/guide/race-selection/?unlocked=1"' in html
+        assert "pick it back up" in html
+
+    def test_no_link_and_no_marker_when_chapter_unrecognised(self, fake_db):
+        from mission_control.services.sequence_engine import _render_template
+
+        html = _render_template("welcome_value", {
+            "contact_name": "Jen", "contact_email": "j@x.com",
+            "source_data": {"wb_guide": "Some Renamed Chapter", "any_context": "1"},
+        })
+        assert "wb_guide_url" not in html
+        assert "pick it back up" not in html
+        assert "/guide/" not in html
+
+    def test_slug_map_matches_guide_content_json(self, fake_db):
+        """webhooks.py holds a literal copy of the chapter ids to avoid a runtime
+        dependency on wordpress/. If the guide is re-chaptered, this catches the
+        drift instead of silently dropping the link."""
+        import ast
+        import json
+        from pathlib import Path
+
+        root = Path(__file__).resolve().parent.parent.parent
+        src = (root / "mission_control" / "routers" / "webhooks.py").read_text()
+        mapping = next(
+            ast.literal_eval(n.value)
+            for n in ast.parse(src).body
+            if isinstance(n, ast.Assign)
+            and getattr(n.targets[0], "id", "") == "GRAVEL_GUIDE_CHAPTER_SLUGS"
+        )
+        content = json.loads((root / "guide" / "gravel-guide-content.json").read_text())
+        real = {c["title"].casefold(): c["id"] for c in content["chapters"]}
+        assert mapping == real
+
+    def test_source_data_cannot_override_identity_fields(self, fake_db):
+        """source_data comes from the intake worker payload. A key named
+        'greeting' must not be able to redefine who the email addresses."""
+        from mission_control.services.sequence_engine import _render_template
+
+        html = _render_template("welcome_value", {
+            "contact_name": "Roberto Hofman", "contact_email": "r@x.com",
+            "source_data": {
+                "wb_guide": "Race Selection", "any_context": "1",
+                "greeting": "OVERRIDE —", "first_name": "OVERRIDE",
+                "contact_name": "OVERRIDE", "contact_email": "attacker@example.com",
+            },
+        })
+        assert "Roberto —" in html
+        assert "OVERRIDE" not in html
+        assert "attacker@example.com" not in html
+
+    def test_utm_injection_preserves_unlocked_param(self, fake_db):
+        """The chapter URL already carries ?unlocked=1, so the UTM appender must
+        use & — otherwise the link lands on a still-locked chapter."""
+        from mission_control.services.sequence_engine import (
+            _inject_utm_params, _render_template,
+        )
+
+        html = _render_template("welcome_value", {
+            "contact_name": "Roberto Hofman", "contact_email": "r@x.com",
+            "source_data": {
+                "wb_guide": "Race Selection", "any_context": "1",
+                "wb_guide_url": "https://gravelgodcycling.com/guide/race-selection/?unlocked=1",
+            },
+        })
+        final = _inject_utm_params(html, "welcome_v1", "A", 0, brand="gravelgod")
+        assert "/guide/race-selection/?unlocked=1&utm_source=" in final
+        assert "?unlocked=1?" not in final
+        assert "unlocked=1&amp;utm" not in final  # not double-escaped into the href
 
 
 class TestRecordEvent:
@@ -486,6 +623,7 @@ class TestRenderPlaceholderFallback:
         html = _render_template("race_deep_dive", enrollment)
         assert "{race_name}" not in html
         assert "your race" in html
+        assert "{greeting}" not in html
         assert "{first_name}" not in html
 
     def test_all_sequence_templates_exist(self, fake_db):

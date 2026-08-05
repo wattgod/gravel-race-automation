@@ -1,9 +1,9 @@
-# Desk Note — week of 2026-07-29
+# Desk Note — week of 2026-08-05
 
-**Week of July 29, 2026**
+**Week of August 5, 2026**
 
-One race on the calendar this week earns real attention: the Colorado Trail Race, starting August 2nd from Durango and finishing in Denver. Tier 1, self-supported, roughly 535 miles of high-altitude singletrack and doubletrack through the Rockies. It's not a race in the conventional sense — no finish-line tape, no neutral rollout — but the effort required puts it above most events that do have those things. If you're not following the tracking, you should be.
+The calendar opens quietly on Saturday with Polish Gravel in Kraków and Heathland Gravel in Belgium on Sunday — both Tier 3, both worth tracking if you follow the European scene. The Watermoo (Dexter, Michigan) and Glenwood Gravel (Iowa) run alongside them as Tier 4 regional events. Nothing here demands you rearrange your weekend.
 
-Saturday August 1st splits between Bear Howard Gravel in Flagstaff and Crooked Gravel up in Winter Park, both Tier 3. De Ronde Van Grampian runs the same day out of Oxford, Michigan at Tier 4. The Bluewater International Gran Fondo in Sarnia rounds out the Sunday card at Tier 2. (Two Ontario events on the same weekend is a reasonable excuse to cross the border.)
+The real weight lands on August 15. Leadville Trail 100 MTB is the lone Tier 1 on the books, running out of Leadville, Colorado. Same day, Vermont Overland out of Ascutney Outdoors and Jämtlandspilen in Östersund both sit at Tier 2, which makes for an unusually crowded Saturday at that level. Lost River Classic in Mathias, West Virginia follows on the 16th (also Tier 2).
 
-The following weekend adds Polish Gravel in Kraków and Heathland Gravel somewhere in Belgium — both Tier 3, both worth a watch if European gravel is your thing. CTR tracking goes live August 2nd.
+The week closes with Garmin Gravel Worlds and its amateur counterpart, both Tier 3, both in Lincoln, Nebraska on the 19th. Twelve races across roughly two weeks — Leadville is the one to watch.

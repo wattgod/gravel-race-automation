@@ -1003,18 +1003,18 @@ def build_email_capture() -> str:
     return '''<div class="tp-email-capture">
     <div class="tp-email-capture-inner">
       <div class="tp-email-capture-badge">FREE</div>
-      <h3 class="tp-email-capture-title">GET A RACE DAY SETUP CARD</h3>
-      <p class="tp-email-capture-text">Tire picks, pressure chart, sealant amounts, and tubeless tips &mdash; customized for any gravel race. Print it and tape it to your stem.</p>
+      <h3 class="tp-email-capture-title">GET A RACE DAY TIRE SETUP</h3>
+      <p class="tp-email-capture-text">Tire picks, pressure chart, sealant amounts, and tubeless tips &mdash; customized for any gravel race.</p>
       <form class="tp-email-capture-form" id="tp-email-capture-form" autocomplete="off">
         <input type="hidden" name="source" value="tire_guide">
         <input type="hidden" name="website" value="">
         <div class="tp-email-capture-row">
           <input type="email" name="email" required placeholder="your@email.com" class="tp-email-capture-input" aria-label="Email address">
-          <button type="submit" class="tp-email-capture-btn">GET SETUP CARD</button>
+          <button type="submit" class="tp-email-capture-btn">SHOW TIRE SETUP</button>
         </div>
       </form>
       <div class="tp-email-capture-success" id="tp-email-capture-success" style="display:none">
-        <p class="tp-email-capture-check">&#10003; Setup card unlocked!</p>
+        <p class="tp-email-capture-check">&#10003; Tire setup unlocked!</p>
         <a href="/gravel-races/" class="tp-email-capture-link">Find Your Race &rarr;</a>
       </div>
       <p class="tp-email-capture-fine">No spam. Unsubscribe anytime.</p>
@@ -1076,13 +1076,28 @@ def build_inline_js() -> str:
       alert('Please enter a valid email address.');return;
     }
     if(form.website&&form.website.value) return;
-    try{localStorage.setItem(LS_KEY,JSON.stringify({email:email,exp:Date.now()+EXPIRY_DAYS*86400000}));}catch(ex){}
+    var subBtn=form.querySelector('button[type=submit]');
+    var errEl=document.getElementById('tp-email-capture-err');
+    if(!errEl){errEl=document.createElement('p');errEl.id='tp-email-capture-err';errEl.className='tp-email-capture-fine';form.parentNode.insertBefore(errEl,form.nextSibling);}
+    errEl.style.display='none';
+    if(subBtn) subBtn.disabled=true;
     var payload={email:email,source:form.source.value,website:form.website.value};
-    fetch(WORKER_URL,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)}).catch(function(){});
-    if(typeof gtag==='function') gtag('event','email_capture',{source:'tire_guide'});
-    form.style.display='none';
-    var success=document.getElementById('tp-email-capture-success');
-    if(success) success.style.display='block';
+    /* Only claim success once the capture is actually stored. A swallowed
+       error used to show the unlocked state for a lead nobody recorded. */
+    fetch(WORKER_URL,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)})
+    .then(function(resp){
+      if(!resp.ok) throw new Error('bad status');
+      try{localStorage.setItem(LS_KEY,JSON.stringify({email:email,exp:Date.now()+EXPIRY_DAYS*86400000}));}catch(ex){}
+      if(typeof gtag==='function') gtag('event','email_capture',{source:'tire_guide'});
+      form.style.display='none';
+      var success=document.getElementById('tp-email-capture-success');
+      if(success) success.style.display='block';
+    })
+    .catch(function(){
+      errEl.textContent='That did not go through. Check your connection and try again.';
+      errEl.style.display='block';
+      if(subBtn) subBtn.disabled=false;
+    });
   });
 })();
 

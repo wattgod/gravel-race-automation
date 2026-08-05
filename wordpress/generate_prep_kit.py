@@ -2386,12 +2386,27 @@ document.querySelectorAll('a[data-cta]').forEach(function(el){
         source:'prep_kit_gate',
         website:gateForm.website.value
       };
-      fetch(WORKER_URL,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)}).catch(function(){});
-      /* GA4 event */
-      if(typeof gtag==='function'){
-        gtag('event','pk_gate_unlock',{race_slug:gateForm.race_slug.value});
-      }
-      unlockContent(email);
+      var subBtn=gateForm.querySelector('button[type=submit]');
+      var errEl=document.getElementById('gg-pk-gate-err');
+      if(!errEl){errEl=document.createElement('p');errEl.id='gg-pk-gate-err';errEl.className='gg-pk-gate-fine';gateForm.parentNode.insertBefore(errEl,gateForm.nextSibling);}
+      errEl.style.display='none';
+      if(subBtn) subBtn.disabled=true;
+      /* Unlock only once the capture is recorded. A swallowed error used to
+         unlock for a lead nobody captured — the rider got the kit and we got
+         nothing, so no sequence ever ran for them. */
+      fetch(WORKER_URL,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)})
+      .then(function(resp){
+        if(!resp.ok) throw new Error('bad status');
+        if(typeof gtag==='function'){
+          gtag('event','pk_gate_unlock',{race_slug:gateForm.race_slug.value});
+        }
+        unlockContent(email);
+      })
+      .catch(function(){
+        errEl.textContent='That did not go through. Check your connection and try again.';
+        errEl.style.display='block';
+        if(subBtn) subBtn.disabled=false;
+      });
     });
   }
 })();
@@ -2637,11 +2652,15 @@ document.querySelectorAll('.gg-guide-accordion-trigger').forEach(function(btn){
       cramp_history:crampHistory,climate_heat:climateHeat,
       website:form.website.value
     };
-    fetch(WORKER_URL,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)}).catch(function(){});
-    /* GA4 event */
-    if(typeof gtag==='function'){
-      gtag('event','pk_fueling_submit',{race_slug:form.race_slug.value,has_ftp:ftp?'yes':'no',climate:climateHeat});
-    }
+    fetch(WORKER_URL,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)})
+    .then(function(resp){
+      if(!resp.ok) throw new Error('bad status');
+      /* GA4 event — only for a submit that actually landed */
+      if(typeof gtag==='function'){
+        gtag('event','pk_fueling_submit',{race_slug:form.race_slug.value,has_ftp:ftp?'yes':'no',climate:climateHeat});
+      }
+    })
+    .catch(function(){});
   });
 })();"""
 

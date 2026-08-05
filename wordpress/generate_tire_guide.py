@@ -1643,7 +1643,7 @@ def build_alternatives_section(alts: dict) -> str:
 
 
 def build_email_capture_section(rd: dict) -> str:
-    """Build email capture CTA — Race Day Setup Card download."""
+    """Build email capture CTA — unlocks the race-day tire setup guide."""
     slug = esc(rd["slug"])
     name = esc(rd["name"])
     return f'''<section class="tg-section">
@@ -1651,8 +1651,8 @@ def build_email_capture_section(rd: dict) -> str:
     <div class="tg-email-capture">
       <div class="tg-email-capture-inner">
         <div class="tg-email-capture-badge">FREE</div>
-        <h3 class="tg-email-capture-title">GET YOUR RACE DAY SETUP CARD</h3>
-        <p class="tg-email-capture-text">Tire picks, pressure chart, sealant amounts, and tubeless tips &mdash; customized for {name}. Print it and tape it to your stem.</p>
+        <h3 class="tg-email-capture-title">GET YOUR RACE DAY TIRE SETUP</h3>
+        <p class="tg-email-capture-text">Tire picks, pressure chart, sealant amounts, and tubeless tips &mdash; customized for {name}.</p>
         <form class="tg-email-capture-form" id="tg-email-capture-form" autocomplete="off">
           <input type="hidden" name="race_slug" value="{slug}">
           <input type="hidden" name="race_name" value="{name}">
@@ -1660,11 +1660,11 @@ def build_email_capture_section(rd: dict) -> str:
           <input type="hidden" name="website" value="">
           <div class="tg-email-capture-row">
             <input type="email" name="email" required placeholder="your@email.com" class="tg-email-capture-input" aria-label="Email address">
-            <button type="submit" class="tg-email-capture-btn">GET SETUP CARD</button>
+            <button type="submit" class="tg-email-capture-btn">SHOW TIRE SETUP</button>
           </div>
         </form>
         <div class="tg-email-capture-success" id="tg-email-capture-success" style="display:none">
-          <p class="tg-email-capture-check">&#10003; Setup card unlocked!</p>
+          <p class="tg-email-capture-check">&#10003; Tire setup unlocked!</p>
           <a href="/race/{slug}/tires/" class="tg-email-capture-link">View Your Tire Guide &rarr;</a>
         </div>
         <p class="tg-email-capture-fine">No spam. Unsubscribe anytime.</p>
@@ -1685,7 +1685,7 @@ document.querySelectorAll('a[href*="/prep-kit/"]').forEach(function(el){
   });
 });
 
-/* Email capture form — tire guide setup card CTA */
+/* Email capture form — tire setup CTA */
 (function(){
   var WORKER_URL='https://fueling-lead-intake.gravelgodcoaching.workers.dev';
   var LS_KEY='gg-pk-fueling';
@@ -1711,9 +1711,11 @@ document.querySelectorAll('a[href*="/prep-kit/"]').forEach(function(el){
       alert('Please enter a valid email address.');return;
     }
     if(form.website&&form.website.value) return;
-    try{
-      localStorage.setItem(LS_KEY,JSON.stringify({email:email,exp:Date.now()+EXPIRY_DAYS*86400000}));
-    }catch(ex){}
+    var subBtn=form.querySelector('button[type=submit]');
+    var errEl=document.getElementById('tg-email-capture-err');
+    if(!errEl){errEl=document.createElement('p');errEl.id='tg-email-capture-err';errEl.className='tg-email-capture-fine';form.parentNode.insertBefore(errEl,form.nextSibling);}
+    errEl.style.display='none';
+    if(subBtn) subBtn.disabled=true;
     var payload={
       email:email,
       race_slug:form.race_slug.value,
@@ -1721,13 +1723,26 @@ document.querySelectorAll('a[href*="/prep-kit/"]').forEach(function(el){
       source:form.source.value,
       website:form.website.value
     };
-    fetch(WORKER_URL,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)}).catch(function(){});
-    if(typeof gtag==='function'){
-      gtag('event','email_capture',{race_slug:form.race_slug.value,source:'tire_guide'});
-    }
-    form.style.display='none';
-    var success=document.getElementById('tg-email-capture-success');
-    if(success) success.style.display='block';
+    /* Only claim success once the capture is actually stored. A swallowed
+       error used to show the unlocked state for a lead nobody recorded. */
+    fetch(WORKER_URL,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)})
+    .then(function(resp){
+      if(!resp.ok) throw new Error('bad status');
+      try{
+        localStorage.setItem(LS_KEY,JSON.stringify({email:email,exp:Date.now()+EXPIRY_DAYS*86400000}));
+      }catch(ex){}
+      if(typeof gtag==='function'){
+        gtag('event','email_capture',{race_slug:form.race_slug.value,source:'tire_guide'});
+      }
+      form.style.display='none';
+      var success=document.getElementById('tg-email-capture-success');
+      if(success) success.style.display='block';
+    })
+    .catch(function(){
+      errEl.textContent='That did not go through. Check your connection and try again.';
+      errEl.style.display='block';
+      if(subBtn) subBtn.disabled=false;
+    });
   });
 })();
 

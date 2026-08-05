@@ -5,36 +5,36 @@
     "display_name": "West Coast Gravel",
     "tagline": "Oregon coast gravel challenge.",
     "vitals": {
-      "distance_mi": 55,
-      "elevation_ft": 4000,
+      "distance_mi": 53,
+      "elevation_ft": 6700,
       "location": "Yachats, OR",
       "location_badge": "YACHATS, OR",
       "county": "Lincoln County",
-      "date": "Early May annually",
-      "date_specific": "2026: May 3",
+      "date": "April 25, 2027",
+      "date_specific": "2027-04-25",
       "terrain_types": [
         "Oregon coast",
         "Coastal gravel",
         "Pacific Northwest",
         "Oregon"
       ],
-      "field_size": "75-125 riders",
+      "field_size": "Maximum 300 riders",
       "start_time": "9:00 AM",
-      "registration": "Online. Cost: ~$75-95",
+      "registration": "BikeReg; organizer-published 2027 pricing starts at $130",
       "prize_purse": "Modest prizes",
-      "aid_stations": "2-3 aid stations",
-      "cutoff_time": "8 hours",
+      "aid_stations": "Aid 1 at mile 16; long-course Aid 2 at mile 38",
+      "cutoff_time": "No departure from Yachats after 9:30 AM",
       "lat": 44.3128,
       "lng": -124.105
     },
     "climate": {
-      "primary": "Oregon coast summer",
+      "primary": "Oregon coast early spring",
       "description": "Variable coastal conditions.",
       "challenges": [
         "Variable weather",
         "Rain possible",
         "Coastal winds",
-        "Summer conditions"
+        "Cool early-spring conditions"
       ]
     },
     "terrain": {
@@ -42,10 +42,10 @@
       "surface": "Gravel roads through Oregon coast. Moderate elevation with coastal scenery.",
       "technical_rating": 3,
       "features": [
-        "Moderate mountainous (4000 feet)",
+        "Approximately 6,700 feet of climbing on the Erik the Red route",
         "Oregon coast scenery",
         "Pacific Northwest experience",
-        "55-mile distance",
+        "53-mile distance",
         "Small-medium field"
       ]
     },
@@ -140,18 +140,18 @@
           "named_section": "Final Push"
         }
       ],
-      "signature_challenge": "Oregon coast terrain.",
+      "signature_challenge": "A roughly 1,900-foot opening climb before rolling Siuslaw National Forest backroads and the exposed Yachats River Road return.",
       "ridewithgps_id": "48942508",
       "ridewithgps_name": "West Coast Gravel (OR) long course"
     },
     "guide_variables": {
       "race_name": "West Coast Gravel",
-      "race_distance": "55 miles",
-      "race_elevation": "4,000 feet",
-      "race_date": "Summer",
+      "race_distance": "53 miles",
+      "race_elevation": "approximately 6,700 feet",
+      "race_date": "April 25, 2027",
       "race_location": "Yachats, OR",
       "race_terrain": "Oregon coast gravel",
-      "race_weather": "Oregon coast summer",
+      "race_weather": "variable early-spring Oregon coast conditions",
       "race_challenges": [
         "Coastal terrain",
         "Variable weather",
@@ -181,12 +181,14 @@
     ],
     "research_metadata": {
       "data_confidence": "moderate",
-      "validation_status": "pending",
+      "validation_status": "verified_for_2027_plan_build",
       "sources": [
-        "or_cycling_community"
+        "https://www.mudslingerevents.com/west-coast-gravel",
+        "https://ridewithgps.com/trips/88821865"
       ],
       "migration_notes": [
-        "Generated from regional information"
+        "2027 organizer page confirms Sunday April 25, 2027, Yachats, 9 AM, and the 53-mile Erik the Red course.",
+        "Organizer-linked Ride with GPS route evidence supports approximately 6,700 feet of climbing; use an approximate qualifier in public copy."
       ],
       "research_strength": {
         "overall": 89.7,
@@ -256,7 +258,7 @@
         "race_name": "West Coast Gravel",
         "race_hook": "Oregon coast gravel challenge.",
         "race_hook_detail": "Regional event with coastal terrain.",
-        "distance": "55",
+        "distance": "53",
         "dark_mile": "27",
         "non_negotiable_1": "Weather preparation",
         "non_negotiable_2": "Coastal endurance",
@@ -655,7 +657,7 @@
             "curated": true
           }
         ],
-        "search_text": "The West Coast Gravel race in Yachats, Oregon features a challenging 55-mile course starting with a remote start format. The main challenge is a relentless 1,900-foot climb over the first 10 miles that strings riders across the mountainside. A dangerous left turn at mile 2.8 onto Forest Service Road 55 requires caution due to traffic, with fire department stationed for safety. After the initial climb, the course follows an up-and-down pattern gaining and losing elevation until the second aid station, then transitions to primarily downhill. The route includes Forest Service roads with giant potholes before finishing on Yachats River Road, where riders face a stiff headwind for the final flat paved miles. About 200 racers typically start this timed event, which uses sensors rather than finish line placement for results. The scenic Oregon coast setting provides beautiful views despite the challenging terrain and weather conditions."
+        "search_text": "The West Coast Gravel race in Yachats, Oregon features a challenging 53-mile course starting with a remote start format. The main challenge is a relentless 1,900-foot climb over the first 10 miles that strings riders across the mountainside. A dangerous left turn at mile 2.8 onto Forest Service Road 55 requires caution due to traffic, with fire department stationed for safety. After the initial climb, the course follows an up-and-down pattern gaining and losing elevation until the second aid station, then transitions to primarily downhill. The route includes Forest Service roads with giant potholes before finishing on Yachats River Road, where riders face a stiff headwind for the final flat paved miles. The organizer caps participation at 300 and uses chip timing over a remote-start and remote-finish segment. The scenic Oregon coast setting provides beautiful views despite the challenging terrain and weather conditions."
       }
     }
   }

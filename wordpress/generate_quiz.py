@@ -63,14 +63,44 @@ def _num(value, default=0):
     if isinstance(value, bool):
         return default
     if isinstance(value, (int, float)):
+        if isinstance(value, float) and (value != value or abs(value) == float("inf")):
+            return default
         return value
     if value is None:
         return default
-    m = re.search(r"-?\d+(?:\.\d+)?", str(value).replace(",", ""))
+    if isinstance(value, float) and value != value:  # NaN
+        return default
+    m = re.search(r"-?(?:\d+(?:\.\d+)?|\.\d+)", str(value).replace(",", ""))
     if not m:
         return default
     text = m.group()
-    return float(text) if "." in text else int(text)
+    if "." not in text:
+        return int(text)
+    number = float(text)
+    # inf/-inf/nan are not valid JS object-literal numbers
+    return number if number == number and abs(number) != float("inf") else default
+
+
+_MONTHS = {m: i for i, m in enumerate(
+    ["january", "february", "march", "april", "may", "june", "july",
+     "august", "september", "october", "november", "december"], start=1)}
+
+
+def _month_num(value):
+    """race-index.json stores month as a name ("July"), not a number."""
+    return _MONTHS.get(str(value or "").strip().lower(), 0)
+
+
+def _state_from_location(location):
+    """The quiz matches US state names to decide west/central/east.
+
+    The index has no state field; `location` is "Emporia, Kansas" style, so the
+    trailing component carries it. International rows yield a country name,
+    which simply never matches a state list — the previous behaviour for
+    everything, since this field was empty for every race.
+    """
+    parts = [p.strip() for p in str(location or "").split(",") if p.strip()]
+    return parts[-1] if parts else ""
 
 
 def build_quiz_page(races: list) -> str:
@@ -82,16 +112,16 @@ def build_quiz_page(races: list) -> str:
         slug = r.get("slug", "")
         name = r.get("name", "")
         tier = _num(r.get("tier", 4), 4)
-        score = _num(r.get("final_score", 0))
+        score = _num(r.get("overall_score", r.get("final_score", 0)))
         location = r.get("location", "")
-        state = r.get("state", "")
+        state = r.get("state") or _state_from_location(r.get("location", ""))
         region = r.get("region", "")
         country = r.get("country", "US")
         distance_mi = _num(r.get("distance_mi"))
         elevation_ft = _num(r.get("elevation_ft"))
-        month_num = _num(r.get("month_num"))
+        month_num = _num(r.get("month_num")) or _month_num(r.get("month"))
         difficulty = float(_num(r.get("difficulty_composite")))
-        technicality = _num(r.get("technicality"))
+        technicality = _num(r.get("technicality") or (r.get("scores") or {}).get("technicality"))
         terrain = r.get("terrain_primary", "")
         discipline = r.get("discipline", "gravel")
 
@@ -582,7 +612,7 @@ def build_quiz_js() -> str:
          prep kit by email, so a failed capture must not pass silently or the
          promise breaks with nobody knowing. */
       showResults(top5);
-      fetch(WORKER_URL,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)})
+      fetch(WORKER_URL,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload),signal:(typeof AbortSignal!=='undefined'&&AbortSignal.timeout)?AbortSignal.timeout(10000):undefined})
       .then(function(resp){
         if(!resp.ok) throw new Error('bad status');
         try{localStorage.setItem(LS_KEY,JSON.stringify({email:email,exp:Date.now()+90*86400000}));}catch(ex){}
@@ -670,7 +700,7 @@ def build_quiz_js() -> str:
              prep kit by email, so a failed capture must not pass silently or the
              promise breaks with nobody knowing. */
           showResults(matched);
-          fetch(WORKER_URL,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)})
+          fetch(WORKER_URL,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload),signal:(typeof AbortSignal!=='undefined'&&AbortSignal.timeout)?AbortSignal.timeout(10000):undefined})
           .then(function(resp){
             if(!resp.ok) throw new Error('bad status');
             try{localStorage.setItem('gg-pk-fueling',JSON.stringify({email:email,exp:Date.now()+90*86400000}));}catch(ex){}

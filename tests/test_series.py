@@ -186,8 +186,12 @@ class TestSeriesHubPages:
     def test_hub_page_exists(self, slug):
         hub_path = (PROJECT_ROOT / "wordpress" / "output" / "race" / "series"
                     / slug / "index.html")
-        if not (PROJECT_ROOT / "wordpress" / "output").exists():
-            pytest.skip("Generated output not present (fresh checkout)")
+        # Key the skip to the series output specifically. Gating on any
+        # wordpress/output/ meant that running ANY generator (the quiz writes
+        # there regardless of --output-dir) flipped these from skipped to
+        # failing, which reads as a regression in whatever you just changed.
+        if not (PROJECT_ROOT / "wordpress" / "output" / "race" / "series").exists():
+            pytest.skip("Series hub output not generated (fresh checkout)")
         assert hub_path.exists(), f"Missing series hub page: {hub_path}"
 
     @pytest.mark.parametrize("slug", [

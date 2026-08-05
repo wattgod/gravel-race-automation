@@ -762,7 +762,7 @@ if(names.length)payload.viewed_races=names.slice(0,5);
 }catch(e2){}
 var errEl=form.querySelector(".gg-guide-email-capture-error");
 if(errEl)errEl.style.display="none";
-fetch(WORKER_URL,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(payload)})
+fetch(WORKER_URL,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(payload),signal:(typeof AbortSignal!=="undefined"&&AbortSignal.timeout)?AbortSignal.timeout(10000):undefined})
 .then(function(r){
 if(!r.ok)throw new Error("bad status");
 form.style.display="none";

@@ -13,7 +13,7 @@
  *   - prep_kit_gate:      email + race context (content unlock)
  *   - race_quiz:          email + race context (quiz results gate)
  *   - quiz_shared:        email + race context (shared quiz results)
- *   - tire_guide:         email + race context (tire setup card CTA)
+ *   - tire_guide:         email + race context (tire setup CTA)
  *   - race_review:        email + race context + stars/review data (race profile review form)
  *   - state_hub:          email + state slug (state hub page subscribe)
  *   - date_reminder:      email + race slug + race date (race date reminder)

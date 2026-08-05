@@ -1664,8 +1664,7 @@ def build_email_capture_section(rd: dict) -> str:
           </div>
         </form>
         <div class="tg-email-capture-success" id="tg-email-capture-success" style="display:none">
-          <p class="tg-email-capture-check">&#10003; Tire setup unlocked!</p>
-          <a href="/race/{slug}/tires/" class="tg-email-capture-link">View Your Tire Guide &rarr;</a>
+          <p class="tg-email-capture-check">&#10003; You're on the list.</p>
         </div>
         <p class="tg-email-capture-fine">No spam. Unsubscribe anytime.</p>
       </div>
@@ -1725,7 +1724,7 @@ document.querySelectorAll('a[href*="/prep-kit/"]').forEach(function(el){
     };
     /* Only claim success once the capture is actually stored. A swallowed
        error used to show the unlocked state for a lead nobody recorded. */
-    fetch(WORKER_URL,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)})
+    fetch(WORKER_URL,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload),signal:(typeof AbortSignal!=='undefined'&&AbortSignal.timeout)?AbortSignal.timeout(10000):undefined})
     .then(function(resp){
       if(!resp.ok) throw new Error('bad status');
       try{

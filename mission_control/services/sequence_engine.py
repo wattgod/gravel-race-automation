@@ -395,15 +395,27 @@ def _render_template(template_name: str, enrollment: dict) -> str:
     # Replace placeholders with enrollment data
     source_data = enrollment.get("source_data") or {}
     html = _apply_conditionals(html, source_data)
-    replacements = {
-        "{contact_name}": enrollment.get("contact_name", ""),
-        "{contact_email}": enrollment.get("contact_email", ""),
-        "{first_name}": enrollment.get("contact_name", "").split()[0] if enrollment.get("contact_name") else "there",
-    }
-    # Add source_data replacements
+    # Most templates open with a bare address ("Roberto —"). A missing name used
+    # to fall through to the "there" fallback and render "there —", which reads
+    # like a broken merge field. {greeting} carries the dash so the nameless case
+    # degrades to "Hey —" instead. {first_name} keeps the old fallback for the
+    # one template that addresses inline ("Hi {first_name},").
+    _first = enrollment.get("contact_name", "").split()[0] if enrollment.get("contact_name") else ""
+
+    # source_data is attacker-adjacent (it originates from the intake worker
+    # payload), so it is applied FIRST and the identity fields overwrite it.
+    # Otherwise a source_data key named "greeting" or "contact_email" would
+    # silently redefine who the email is addressed to.
+    replacements = {}
     for key, val in source_data.items():
         if val is not None:
             replacements[f"{{{key}}}"] = str(val)
+    replacements.update({
+        "{contact_name}": enrollment.get("contact_name", ""),
+        "{contact_email}": enrollment.get("contact_email", ""),
+        "{first_name}": _first or "there",
+        "{greeting}": f"{_first} —" if _first else "Hey —",
+    })
 
     for placeholder, value in replacements.items():
         html = html.replace(placeholder, value)

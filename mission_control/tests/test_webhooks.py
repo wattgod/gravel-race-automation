@@ -298,6 +298,39 @@ class TestFriendRegisterEnrollment:
         assert "wb_trail" not in sd and "wb_race" not in sd
         assert sd.get("any_context") == "1"
 
+    def test_recognised_gravel_chapter_gets_unlock_url(self, client, fake_db):
+        """A recognised chapter title yields a link back into the guide — the
+        thing whose absence read as a missing attachment."""
+        self._enroll(client, {
+            "email": "wb-ch-known@example.com", "source": "training_guide",
+            "guide_chapter": "Race Selection",
+        })
+        sd = self._source_data(fake_db, "wb-ch-known@example.com")
+        assert sd["wb_guide_url"] == (
+            "https://gravelgodcycling.com/guide/race-selection/?unlocked=1"
+        )
+
+    def test_unrecognised_chapter_gets_no_url(self, client, fake_db):
+        """Better no link than a 404 — titles are free text from the page."""
+        self._enroll(client, {
+            "email": "wb-ch-unknown@example.com", "source": "training_guide",
+            "guide_chapter": "Some Renamed Chapter",
+        })
+        sd = self._source_data(fake_db, "wb-ch-unknown@example.com")
+        assert sd.get("wb_guide") == "Some Renamed Chapter"
+        assert "wb_guide_url" not in sd
+
+    @pytest.mark.parametrize("brand", ("roadielabs", "xcskilabs"))
+    def test_non_gravel_brands_never_get_gravel_guide_url(self, client, fake_db, brand):
+        """Chapter titles could collide across brands; the URL is gravel-only."""
+        email = f"wb-ch-{brand}@example.com"
+        self._enroll(client, {
+            "email": email, "source": "training_guide",
+            "guide_chapter": "Race Selection", "brand": brand,
+        })
+        sd = self._source_data(fake_db, email)
+        assert "wb_guide_url" not in sd
+
     def test_wb_branch_trail_beats_race(self, client, fake_db):
         self._enroll(client, {
             "email": "wb-trail@example.com", "source": "race_profile",

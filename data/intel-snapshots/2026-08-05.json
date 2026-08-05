@@ -1,0 +1,796 @@
+{
+ "date": "2026-08-05",
+ "measurement_epochs": [
+  {
+   "date": "2026-07-26",
+   "scope": "sessions",
+   "label": "consent geo-gate deployed (f52d2722): non-EEA analytics default granted; sessions before this date captured only opted-in visitors and are not comparable"
+  },
+  {
+   "date": "2026-07-29",
+   "scope": "funnel",
+   "label": "cta_click coverage expanded to all plan-intent CTAs; top-of-funnel counts before this date are not comparable"
+  }
+ ],
+ "ga4": {
+  "gravelgod": {
+   "sessions": 140,
+   "users": 129,
+   "pageviews": 287,
+   "sessions_7d_avg": 149.7,
+   "funnel": {
+    "cta_click": 10,
+    "form_start": 9,
+    "form_submit": 3,
+    "begin_checkout": 1,
+    "purchase": 2
+   },
+   "abandoned_submits": 1,
+   "top_pages": [
+    {
+     "path": "/gravel-races/",
+     "views": 28
+    },
+    {
+     "path": "/race/best-gravel-races-colorado/",
+     "views": 14
+    },
+    {
+     "path": "/",
+     "views": 10
+    },
+    {
+     "path": "/guide/",
+     "views": 10
+    },
+    {
+     "path": "/race/calendar/2026/",
+     "views": 6
+    },
+    {
+     "path": "/race/bear-howard-gravel/",
+     "views": 5
+    },
+    {
+     "path": "/race/best-gravel-races-georgia/",
+     "views": 5
+    },
+    {
+     "path": "/articles/",
+     "views": 4
+    }
+   ],
+   "channel_mix": {
+    "Organic Search": 119,
+    "Direct": 15,
+    "Unassigned": 5,
+    "Cross-network": 1
+   },
+   "top_landing": [
+    {
+     "path": "/race/best-gravel-races-colorado/",
+     "sessions": 13
+    },
+    {
+     "path": "/race/calendar/2026/",
+     "sessions": 6
+    },
+    {
+     "path": "/",
+     "sessions": 5
+    },
+    {
+     "path": "/guide/",
+     "sessions": 5
+    },
+    {
+     "path": "/race/bear-howard-gravel/",
+     "sessions": 5
+    },
+    {
+     "path": "/race/best-gravel-races-georgia/",
+     "sessions": 5
+    }
+   ],
+   "sessions_28d": 2006,
+   "funnel_28d": {
+    "cta_click": 82,
+    "form_start": 69,
+    "form_submit": 49,
+    "begin_checkout": 2,
+    "purchase": 4
+   },
+   "ok": true
+  },
+  "roadielabs": {
+   "sessions": 8,
+   "users": 7,
+   "pageviews": 10,
+   "sessions_7d_avg": 4.4,
+   "funnel": {
+    "cta_click": 0,
+    "form_start": 0,
+    "form_submit": 0,
+    "begin_checkout": 0,
+    "purchase": 0
+   },
+   "abandoned_submits": 0,
+   "top_pages": [
+    {
+     "path": "/race/gran-fondo-il-lombardia/",
+     "views": 7
+    },
+    {
+     "path": "/race/granfondo-antalya/",
+     "views": 1
+    },
+    {
+     "path": "/race/la-stelvio-santini/",
+     "views": 1
+    },
+    {
+     "path": "/race/lake-taupo-cycle-challenge/",
+     "views": 1
+    }
+   ],
+   "channel_mix": {
+    "Unassigned": 6,
+    "Organic Search": 5
+   },
+   "top_landing": [
+    {
+     "path": "",
+     "sessions": 7
+    },
+    {
+     "path": "/race/gran-fondo-il-lombardia/",
+     "sessions": 1
+    },
+    {
+     "path": "/race/granfondo-antalya/",
+     "sessions": 1
+    },
+    {
+     "path": "/race/la-stelvio-santini/",
+     "sessions": 1
+    },
+    {
+     "path": "/race/lake-taupo-cycle-challenge/",
+     "sessions": 1
+    }
+   ],
+   "sessions_28d": 80,
+   "funnel_28d": {
+    "cta_click": 1,
+    "form_start": 0,
+    "form_submit": 0,
+    "begin_checkout": 0,
+    "purchase": 0
+   },
+   "ok": true
+  },
+  "xcski": {
+   "sessions": 1,
+   "users": 1,
+   "pageviews": 1,
+   "sessions_7d_avg": 0.9,
+   "funnel": {
+    "cta_click": 0,
+    "form_start": 0,
+    "form_submit": 0,
+    "begin_checkout": 0,
+    "purchase": 0
+   },
+   "abandoned_submits": 0,
+   "top_pages": [
+    {
+     "path": "/race/finlandia-hiihto/",
+     "views": 1
+    }
+   ],
+   "channel_mix": {
+    "Organic Search": 1
+   },
+   "top_landing": [
+    {
+     "path": "/race/finlandia-hiihto/",
+     "sessions": 1
+    }
+   ],
+   "sessions_28d": 35,
+   "funnel_28d": {
+    "cta_click": 0,
+    "form_start": 2,
+    "form_submit": 1,
+    "begin_checkout": 0,
+    "purchase": 0
+   },
+   "ok": true
+  }
+ },
+ "checkout": {
+  "gravelgod": {
+   "health_ok": true,
+   "stripe_checkout_ok": true,
+   "ok": true,
+   "error": ""
+  },
+  "roadielabs": {
+   "health_ok": true,
+   "stripe_checkout_ok": true,
+   "ok": true,
+   "error": ""
+  },
+  "xcski": {
+   "health_ok": true,
+   "stripe_checkout_ok": true,
+   "ok": true,
+   "error": ""
+  }
+ },
+ "mission_control": {
+  "hot_leads_14d": [
+   {
+    "email": "roberto42195@hotmail.com",
+    "name": "",
+    "race": "The Traka 200",
+    "brand": "gravelgod",
+    "sequence": "welcome_v1",
+    "step": 1,
+    "status": "active",
+    "opens": 1,
+    "clicks": 0
+   },
+   {
+    "email": "gegeiuliana.carp@gmail.com",
+    "name": "",
+    "race": "NorthCape 4000",
+    "brand": "gravelgod",
+    "sequence": "welcome_v1",
+    "step": 1,
+    "status": "active",
+    "opens": 1,
+    "clicks": 0
+   },
+   {
+    "email": "hirendrakashyap@gmail.com",
+    "name": "",
+    "race": "Paris-Brest-Paris Randonneur",
+    "brand": "roadielabs",
+    "sequence": "road_nurture_v1",
+    "step": 0,
+    "status": "active",
+    "opens": 0,
+    "clicks": 0
+   },
+   {
+    "email": "bduke624@gmail.com",
+    "name": "",
+    "race": "Big Sugar Gravel",
+    "brand": "gravelgod",
+    "sequence": "nurture_v1",
+    "step": 0,
+    "status": "completed",
+    "opens": 0,
+    "clicks": 0
+   },
+   {
+    "email": "sirkiteman@hotmail.com",
+    "name": "",
+    "race": "(no race given)",
+    "brand": "gravelgod",
+    "sequence": "welcome_v1",
+    "step": 1,
+    "status": "active",
+    "opens": 0,
+    "clicks": 0
+   },
+   {
+    "email": "lily.s.bailey@gmail.com",
+    "name": "",
+    "race": "Torino Nice Rally",
+    "brand": "gravelgod",
+    "sequence": "nurture_v1",
+    "step": 1,
+    "status": "completed",
+    "opens": 1,
+    "clicks": 0
+   },
+   {
+    "email": "mark@sciberras.info",
+    "name": "",
+    "race": "NorthCape 4000",
+    "brand": "gravelgod",
+    "sequence": "nurture_v1",
+    "step": 1,
+    "status": "completed",
+    "opens": 1,
+    "clicks": 0
+   },
+   {
+    "email": "petogi@gmail.com",
+    "name": "",
+    "race": "D2R2",
+    "brand": "gravelgod",
+    "sequence": "welcome_v1",
+    "step": 3,
+    "status": "active",
+    "opens": 3,
+    "clicks": 0
+   }
+  ],
+  "new_leads_24h": 0,
+  "leads_by_brand": {
+   "gravelgod": 0,
+   "roadielabs": 0
+  },
+  "countdown_enrollments": 0,
+  "emails_sent_24h": 2,
+  "opens_24h": 3,
+  "clicks_24h": 0,
+  "bounces_24h": 0,
+  "new_orders_24h_UNRELIABLE": "use ga4 purchase counts \u2014 gg_athletes is not written by purchases",
+  "errors_24h": [],
+  "ok": true
+ },
+ "commerce_ledger": {
+  "failed_orders": [],
+  "orders": [
+   {
+    "email": "tahoetaj@yahoo.com",
+    "error": null,
+    "name": "Monika Renk",
+    "product_type": "training_plan",
+    "success": true,
+    "timestamp": "2026-08-04T16:18:41.372844"
+   }
+  ],
+  "questionnaire_starts": 0,
+  "recoveries": [],
+  "window_hours": 24,
+  "ok": true
+ },
+ "social": {
+  "accounts_live": false,
+  "queued_today": 0,
+  "queued_yesterday": 0,
+  "posts": [],
+  "ok": true
+ },
+ "workflows": {
+  "latest": {
+   "gravel-race-automation/link-check.yml": "failure",
+   "road-race-automation/link-check.yml": "success",
+   "road-race-automation/checkout-monitor.yml": "success",
+   "gravel-race-automation/regression-tests.yml": "success",
+   "gravel-race-automation/aeo-weekly.yml": "success",
+   "gravel-race-automation/seo-weekly.yml": "success"
+  },
+  "ok": true
+ },
+ "aeo": {
+  "state": "ok",
+  "ok": true,
+  "artifact": "aeo-weekly-2026-08-03.json",
+  "prior_artifact": "aeo-weekly-2026-07-27.json",
+  "generated_at_utc": "2026-08-03T11:41:00.060430Z",
+  "current_window": {
+   "end": "2026-08-02",
+   "start": "2026-07-27"
+  },
+  "brands": {
+   "gravelgod": {
+    "label": "Gravel God",
+    "ga4_status": "ok",
+    "logs_status": "ok",
+    "llms_serving_status": "displaced",
+    "llms_serving_first_line": "<html><head><link rel=\"icon\" href=\"data:;\"><meta http-equiv=\"refresh\" content=\"0;/.well-known/sgcaptcha/?r=%2Fllms.txt&y",
+    "ai_referral_sessions": 8,
+    "ai_referral_delta": 4,
+    "ai_referral_delta_text": "+4 WoW",
+    "user_fetch": 1235,
+    "user_fetch_delta": 38,
+    "user_fetch_delta_text": "+38 WoW",
+    "search_index": 749,
+    "training_crawl": 0,
+    "llms_2xx": 236,
+    "llms_non_2xx": 168,
+    "top_user_fetch_paths": [
+     {
+      "path": "/",
+      "hits": 99
+     },
+     {
+      "path": "/race/calendar/2026/",
+      "hits": 81
+     },
+     {
+      "path": "/race/northcape-4000/",
+      "hits": 48
+     }
+    ]
+   },
+   "roadie": {
+    "label": "Roadie Labs",
+    "ga4_status": "ok",
+    "logs_status": "ok",
+    "llms_serving_status": "displaced",
+    "llms_serving_first_line": "<html><head><link rel=\"icon\" href=\"data:;\"><meta http-equiv=\"refresh\" content=\"0;/.well-known/sgcaptcha/?r=%2Fllms.txt&y",
+    "ai_referral_sessions": 0,
+    "ai_referral_delta": 0,
+    "ai_referral_delta_text": "0 WoW",
+    "user_fetch": 350,
+    "user_fetch_delta": 257,
+    "user_fetch_delta_text": "+257 WoW",
+    "search_index": 167,
+    "training_crawl": 0,
+    "llms_2xx": 232,
+    "llms_non_2xx": 0,
+    "top_user_fetch_paths": [
+     {
+      "path": "/race/race-across-america/",
+      "hits": 35
+     },
+     {
+      "path": "/race/gran-fondo-il-lombardia/",
+      "hits": 17
+     },
+     {
+      "path": "/race/pan-mass-challenge/",
+      "hits": 12
+     }
+    ]
+   },
+   "xcski": {
+    "label": "XC Ski Labs",
+    "ga4_status": "not_configured",
+    "logs_status": "ok",
+    "llms_serving_status": "displaced",
+    "llms_serving_first_line": "<html><head><link rel=\"icon\" href=\"data:;\"><meta http-equiv=\"refresh\" content=\"0;/.well-known/sgcaptcha/?r=%2Fllms.txt&y",
+    "ai_referral_sessions": null,
+    "ai_referral_delta": null,
+    "ai_referral_delta_text": "baseline \u2014 no prior artifact",
+    "user_fetch": 10,
+    "user_fetch_delta": 2,
+    "user_fetch_delta_text": "+2 WoW",
+    "search_index": 10,
+    "training_crawl": 0,
+    "llms_2xx": 107,
+    "llms_non_2xx": 1,
+    "top_user_fetch_paths": [
+     {
+      "path": "/race/vasaloppet/",
+      "hits": 2
+     },
+     {
+      "path": "/race/birkebeinerrennet/",
+      "hits": 1
+     },
+     {
+      "path": "/race/engadin-skimarathon/",
+      "hits": 1
+     }
+    ]
+   }
+  },
+  "unknown_agent_candidates": [
+   {
+    "brands": {
+     "gravelgod": 146
+    },
+    "count": 146,
+    "user_agent": "LinkupBot/1.0 (LinkupBot for web indexing; https://linkup.so/bot; bot@linkup.so)"
+   },
+   {
+    "brands": {
+     "gravelgod": 130,
+     "roadie": 5
+    },
+    "count": 135,
+    "user_agent": "Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko); compatible; ShapBot/0.1.0"
+   },
+   {
+    "brands": {
+     "gravelgod": 75,
+     "roadie": 6
+    },
+    "count": 81,
+    "user_agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_1) AppleWebKit/601.2.4 (KHTML, like Gecko) Version/9.0.1 Safari/601.2.4 fac"
+   },
+   {
+    "brands": {
+     "gravelgod": 52
+    },
+    "count": 52,
+    "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/94.0.4606.81 Safari/537.36 (comp"
+   },
+   {
+    "brands": {
+     "gravelgod": 37,
+     "roadie": 1
+    },
+    "count": 38,
+    "user_agent": "Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko); compatible; SEOJuice-SearchBot/1.0; +https://seojuice.io/bot"
+   },
+   {
+    "brands": {
+     "gravelgod": 22
+    },
+    "count": 22,
+    "user_agent": "Mozilla/5.0 (compatible; MojeekBot/0.11; +https://www.mojeek.com/bot.html)"
+   },
+   {
+    "brands": {
+     "roadie": 9,
+     "xcski": 11
+    },
+    "count": 20,
+    "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 Edg/140."
+   },
+   {
+    "brands": {
+     "gravelgod": 19
+    },
+    "count": 19,
+    "user_agent": "YisouSpider"
+   },
+   {
+    "brands": {
+     "gravelgod": 11
+    },
+    "count": 11,
+    "user_agent": "GoogleMessages/20.2 facebookexternalhit/1.1 Facebot Twitterbot/1.0"
+   },
+   {
+    "brands": {
+     "gravelgod": 4,
+     "roadie": 3,
+     "xcski": 4
+    },
+    "count": 11,
+    "user_agent": "Pandalytics/2.0 (+https://domainsbot.com/network-crawler-pandalytics-kdc68dhsbd/)"
+   },
+   {
+    "brands": {
+     "gravelgod": 8
+    },
+    "count": 8,
+    "user_agent": "Twitterbot/1.0"
+   },
+   {
+    "brands": {
+     "gravelgod": 4,
+     "roadie": 2,
+     "xcski": 1
+    },
+    "count": 7,
+    "user_agent": "ExaSearchBot"
+   },
+   {
+    "brands": {
+     "gravelgod": 7
+    },
+    "count": 7,
+    "user_agent": "Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko; compatible; ABEvalBot/0.1) Version/11.1.2 Safari/605.1.15"
+   },
+   {
+    "brands": {
+     "gravelgod": 6
+    },
+    "count": 6,
+    "user_agent": "Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko; compatible; MistralAI-User/1.0; +https://docs.mistral.ai/robots)"
+   },
+   {
+    "brands": {
+     "gravelgod": 5
+    },
+    "count": 5,
+    "user_agent": "HanaleiBot runid=beta-stage-integration-test"
+   }
+  ]
+ },
+ "seo": {
+  "state": "ok",
+  "ok": true,
+  "artifact": "seo-weekly-2026-08-01.json",
+  "generated_at_utc": "2026-08-03T12:30:52.112420Z",
+  "current_window": {
+   "end": "2026-08-01",
+   "start": "2026-07-05"
+  },
+  "overall": {
+   "clicks": 2572,
+   "impressions": 84885,
+   "ctr": 0.03029981740001178,
+   "position": 8.677716911115038,
+   "clicks_delta": -135,
+   "clicks_delta_text": "-135 WoW",
+   "impressions_delta": -17303,
+   "impressions_delta_text": "-17303 WoW"
+  },
+  "top_candidates": [
+   {
+    "action": "improve_ranking",
+    "bucket": "striking_distance",
+    "clicks": 0,
+    "combined_upside": 138.225,
+    "ctr": 0.0,
+    "impressions": 1087,
+    "page": "/race/rebeccas-private-idaho/prep-kit/",
+    "position": 8.567617295308189,
+    "prior": {
+     "clicks": 0,
+     "ctr": 0.0,
+     "impressions": 151,
+     "position": 8.47019867549669
+    },
+    "query": "exposmall.com rebecca",
+    "rank": 1,
+    "reason": "'exposmall.com rebecca' ranks 8.6 on /race/rebeccas-private-idaho/prep-kit/ with 1087 impressions/28d \u2014 pushing to top 3 could add ~109 clicks.",
+    "score": 108.7,
+    "source_hint": "race-data/<slug>.json \u2192 seo.title/seo.description (+ profile fields for content); regenerate, preflight, deploy",
+    "supporting_queries": [
+     {
+      "clicks": 0,
+      "ctr": 0.0,
+      "impressions": 1087,
+      "position": 8.567617295308189,
+      "query": "exposmall.com rebecca"
+     }
+    ],
+    "target_path": "/race/rebeccas-private-idaho/prep-kit/"
+   },
+   {
+    "action": "refresh_content",
+    "bucket": "decliners",
+    "clicks": 4,
+    "combined_upside": 78.0,
+    "ctr": 0.04878048780487805,
+    "impressions": 82,
+    "page": "/race/steamboat-gravel/tires/",
+    "position": 8.426829268292682,
+    "prior": {
+     "clicks": 82,
+     "ctr": 0.20147420147420148,
+     "impressions": 407,
+     "position": 3.914004914004914
+    },
+    "query": null,
+    "rank": 2,
+    "reason": "/race/steamboat-gravel/tires/ clicks fell from 82 to 4, position worsened 3.9 \u2192 8.4 \u2014 refresh content.",
+    "score": 78.0,
+    "source_hint": "race-data/<slug>.json \u2192 seo.title/seo.description (+ profile fields for content); regenerate, preflight, deploy",
+    "supporting_queries": [],
+    "target_path": "/race/steamboat-gravel/tires/"
+   },
+   {
+    "action": "refresh_content",
+    "bucket": "decliners",
+    "clicks": 15,
+    "combined_upside": 78.23,
+    "ctr": 0.008912655971479501,
+    "impressions": 1683,
+    "page": "/race/race-across-america/",
+    "position": 9.599524658348187,
+    "prior": {
+     "clicks": 92,
+     "ctr": 0.010936757013789824,
+     "impressions": 8412,
+     "position": 7.870066571564432
+    },
+    "query": null,
+    "rank": 3,
+    "reason": "/race/race-across-america/ clicks fell from 92 to 15 \u2014 refresh content.",
+    "score": 77.0,
+    "source_hint": "race-data/<slug>.json \u2192 seo.title/seo.description (+ profile fields for content); regenerate, preflight, deploy",
+    "supporting_queries": [
+     {
+      "clicks": 0,
+      "ctr": 0.0,
+      "impressions": 41,
+      "position": 16.24390243902439,
+      "query": "race across america"
+     }
+    ],
+    "target_path": "/race/race-across-america/"
+   },
+   {
+    "action": "refresh_content",
+    "bucket": "decliners",
+    "clicks": 0,
+    "combined_upside": 66.0,
+    "ctr": 0.0,
+    "impressions": 93,
+    "page": "/race/burnt-bridge-classic/",
+    "position": 8.537634408602152,
+    "prior": {
+     "clicks": 66,
+     "ctr": 0.036646307606885066,
+     "impressions": 1801,
+     "position": 7.948362021099389
+    },
+    "query": null,
+    "rank": 4,
+    "reason": "/race/burnt-bridge-classic/ clicks fell from 66 to 0 \u2014 refresh content.",
+    "score": 66.0,
+    "source_hint": "race-data/<slug>.json \u2192 seo.title/seo.description (+ profile fields for content); regenerate, preflight, deploy",
+    "supporting_queries": [],
+    "target_path": "/race/burnt-bridge-classic/"
+   },
+   {
+    "action": "improve_ranking",
+    "bucket": "striking_distance",
+    "clicks": 2,
+    "combined_upside": 218.04999999999998,
+    "ctr": 0.0030165912518853697,
+    "impressions": 663,
+    "page": "/race/ned-gravel/",
+    "position": 6.5565610859728505,
+    "prior": {
+     "clicks": 1,
+     "ctr": 0.002197802197802198,
+     "impressions": 455,
+     "position": 6.712087912087912
+    },
+    "query": "ned gravel 2026",
+    "rank": 5,
+    "reason": "'ned gravel 2026' ranks 6.6 on /race/ned-gravel/ with 663 impressions/28d \u2014 pushing to top 3 could add ~64 clicks.",
+    "score": 64.3,
+    "source_hint": "race-data/<slug>.json \u2192 seo.title/seo.description (+ profile fields for content); regenerate, preflight, deploy",
+    "supporting_queries": [
+     {
+      "clicks": 2,
+      "ctr": 0.0030165912518853697,
+      "impressions": 663,
+      "position": 6.5565610859728505,
+      "query": "ned gravel 2026"
+     },
+     {
+      "clicks": 4,
+      "ctr": 0.009592326139088728,
+      "impressions": 417,
+      "position": 6.467625899280575,
+      "query": "ned gravel"
+     },
+     {
+      "clicks": 4,
+      "ctr": 0.009592326139088728,
+      "impressions": 417,
+      "position": 6.467625899280575,
+      "query": "ned gravel"
+     },
+     {
+      "clicks": 1,
+      "ctr": 0.004830917874396135,
+      "impressions": 207,
+      "position": 8.88888888888889,
+      "query": "ned gravel 2026 results"
+     },
+     {
+      "clicks": 1,
+      "ctr": 0.004830917874396135,
+      "impressions": 207,
+      "position": 8.88888888888889,
+      "query": "ned gravel 2026 results"
+     }
+    ],
+    "target_path": "/race/ned-gravel/"
+   }
+  ]
+ },
+ "constraint": {
+  "ok": true,
+  "sessions_per_day": 71.6,
+  "cta_rate_pct": 4.09,
+  "cta_to_submit_pct": 59.8,
+  "submit_to_purchase_pct": 8.2,
+  "purchases_28d": 4,
+  "submits_28d": 49,
+  "ctas_28d": 82,
+  "sessions_per_day_needed_for_1_sale": 502,
+  "binding_constraint": "traffic \u2014 at these volumes no funnel rate is even measurable; nothing downstream is worth optimizing yet"
+ },
+ "report_issues": [],
+ "interpretation_ok": true,
+ "report": "## TOP LINE\n- 1 order yesterday (Monika Renk, training_plan) \u2014 commerce ledger ground truth. Gravel God funnel showed 2 purchases in GA4 for the day; ledger is authoritative.\n- All three brands' /llms.txt still displaced by the sgcaptcha redirect \u2014 same issue flagged before, unresolved across brands.\n- gravel-race-automation/link-check.yml failing; road-race-automation equivalent is green.\n\n## NUMBERS\n| Brand | Sessions (vs 7d avg) | Funnel | Leads |\n|---|---:|---|---:|\n| Gravel God | 140 (vs 149.7) | cta 10 \u2192 form_start 9 \u2192 submit 3 \u2192 checkout 1 \u2192 purchase 2 | 0 |\n| Roadie Labs | 8 (vs 4.4) | cta 0 \u2192 form_start 0 \u2192 submit 0 \u2192 checkout 0 \u2192 purchase 0 | 0 |\n| XC Ski Labs | 1 (vs 0.9) | cta 0 \u2192 form_start 0 \u2192 submit 0 \u2192 checkout 0 \u2192 purchase 0 | unavailable |\n- \u26a0 measurement regime change 2026-07-29 \u2014 comparison not like-for-like\n\n## TRAFFIC\n- **Gravel God top pages:** /gravel-races/ (28 views), /race/best-gravel-races-colorado/ (14 views), / (10 views), /guide/ (10 views), /race/calendar/2026/ (6 views).\n- **Gravel God channel mix:** Organic Search 119, Direct 15, Unassigned 5, Cross-network 1.\n- **Gravel God top landing:** /race/best-gravel-races-colorado/ (13 sessions), /race/calendar/2026/ (6 sessions), / (5 sessions), /guide/ (5 sessions), /race/bear-howard-gravel/ (5 sessions).\n- **Roadie Labs top pages:** /race/gran-fondo-il-lombardia/ (7 views), /race/granfondo-antalya/ (1 views), /race/la-stelvio-santini/ (1 views), /race/lake-taupo-cycle-challenge/ (1 views).\n- **Roadie Labs channel mix:** Unassigned 6, Organic Search 5.\n- **Roadie Labs top landing:** (not set) (7 sessions), /race/gran-fondo-il-lombardia/ (1 sessions), /race/granfondo-antalya/ (1 sessions), /race/la-stelvio-santini/ (1 sessions), /race/lake-taupo-cycle-challenge/ (1 sessions).\n- **XC Ski Labs:** 1 sessions; near-zero traffic.\n\n## COMMERCE (GROUND TRUTH)\n- order: Monika Renk <tahoetaj@yahoo.com> \u2014 training_plan; fulfillment fulfilled.\n- questionnaire starts: 0.\n\n## CONSTRAINT\n- binding constraint: traffic \u2014 at these volumes no funnel rate is even measurable; nothing downstream is worth optimizing yet.\n- 28d rates: CTA 4.09%; CTA\u2192submit 59.8%; submit\u2192purchase 8.2%.\n- sessions/day needed for 1 sale/day: 502; actual: 71.6.\n- \u26a0 measurement regime change 2026-07-26 \u2014 comparison not like-for-like (28d sessions, funnel, and constraint rates).\n- \u26a0 measurement regime change 2026-07-29 \u2014 comparison not like-for-like (28d sessions, funnel, and constraint rates).\n\n## HOT LEADS\n- roberto42195@hotmail.com \u2014 The Traka 200; welcome_v1 step 1; 1 opens/0 clicks.\n- gegeiuliana.carp@gmail.com \u2014 NorthCape 4000; welcome_v1 step 1; 1 opens/0 clicks.\n- hirendrakashyap@gmail.com \u2014 Paris-Brest-Paris Randonneur; road_nurture_v1 step 0; 0 opens/0 clicks.\n- bduke624@gmail.com \u2014 Big Sugar Gravel; nurture_v1 step 0; 0 opens/0 clicks.\n- sirkiteman@hotmail.com \u2014 (no race given); welcome_v1 step 1; 0 opens/0 clicks.\n- lily.s.bailey@gmail.com \u2014 Torino Nice Rally; nurture_v1 step 1; 1 opens/0 clicks.\n- mark@sciberras.info \u2014 NorthCape 4000; nurture_v1 step 1; 1 opens/0 clicks.\n- petogi@gmail.com \u2014 D2R2; welcome_v1 step 3; 3 opens/0 clicks.\n\n## AEO (WEEKLY)\n- completed window: 2026-07-27 through 2026-08-02; AI-referral sessions are a lower-bound click-through proxy, not proof of citation.\n- **Gravel God:** AI-referral 8 (+4 WoW); user_fetch 1235 (+38 WoW); search_index 749; training_crawl 0; llms.txt/.md 2xx 236 (168 non-2xx).\n- **Gravel God top fetched paths:** / (99), /race/calendar/2026/ (81), /race/northcape-4000/ (48).\n- **Roadie Labs:** AI-referral 0 (0 WoW); user_fetch 350 (+257 WoW); search_index 167; training_crawl 0; llms.txt/.md 2xx 232.\n- **Roadie Labs top fetched paths:** /race/race-across-america/ (35), /race/gran-fondo-il-lombardia/ (17), /race/pan-mass-challenge/ (12).\n- **XC Ski Labs:** AI-referral not configured; user_fetch 10 (+2 WoW); search_index 10; training_crawl 0; llms.txt/.md 2xx 107 (1 non-2xx).\n- **XC Ski Labs top fetched paths:** /race/vasaloppet/ (2), /race/birkebeinerrennet/ (1), /race/engadin-skimarathon/ (1).\n- **Unknown agent candidates (spoofable):** LinkupBot/1.0 (LinkupBot for web indexing; https://linkup.so/bot; bot@linkup.so) (146; gravelgod 146), Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko); compatible; ShapBot/0.1.0 (135; gravelgod 130, roadie 5), Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_1) AppleWebKit/601.2.4 (KHTML, like Gecko) Version/9.0.1 Safari/601.2.4 fac (81; gravelgod 75, roadie 6), Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/94.0.4606.81 Safari/537.36 (comp (52; gravelgod 52), Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko); compatible; SEOJuice-SearchBot/1.0; +https://seojuice.io/bot (38; gravelgod 37, roadie 1), Mozilla/5.0 (compatible; MojeekBot/0.11; +https://www.mojeek.com/bot.html) (22; gravelgod 22), Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 Edg/140. (20; roadie 9, xcski 11), YisouSpider (19; gravelgod 19), GoogleMessages/20.2 facebookexternalhit/1.1 Facebot Twitterbot/1.0 (11; gravelgod 11), Pandalytics/2.0 (+https://domainsbot.com/network-crawler-pandalytics-kdc68dhsbd/) (11; gravelgod 4, roadie 3, xcski 4), Twitterbot/1.0 (8; gravelgod 8), ExaSearchBot (7; gravelgod 4, roadie 2, xcski 1), Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko; compatible; ABEvalBot/0.1) Version/11.1.2 Safari/605.1.15 (7; gravelgod 7), Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko; compatible; MistralAI-User/1.0; +https://docs.mistral.ai/robots) (6; gravelgod 6), HanaleiBot runid=beta-stage-integration-test (5; gravelgod 5).\n\n## SEO (WEEKLY)\n- overall: 2572 clicks (-135 WoW), 84885 impressions (-17303 WoW).\n- #1 [striking_distance] /race/rebeccas-private-idaho/prep-kit/ \u2014 \"exposmall.com rebecca\" pos 8.6, 1087 impr, CTR 0.0% \u2014 'exposmall.com rebecca' ranks 8.6 on /race/rebeccas-private-idaho/prep-kit/ with 1087 impressions/28d \u2014 pushing to top 3 could add ~109 clicks.\n- #2 [decliners] /race/steamboat-gravel/tires/ \u2014 pos 8.4, 82 impr, CTR 4.9% \u2014 /race/steamboat-gravel/tires/ clicks fell from 82 to 4, position worsened 3.9 \u2192 8.4 \u2014 refresh content.\n- #3 [decliners] /race/race-across-america/ \u2014 pos 9.6, 1683 impr, CTR 0.9% \u2014 /race/race-across-america/ clicks fell from 92 to 15 \u2014 refresh content.\n- #4 [decliners] /race/burnt-bridge-classic/ \u2014 pos 8.5, 93 impr, CTR 0.0% \u2014 /race/burnt-bridge-classic/ clicks fell from 66 to 0 \u2014 refresh content.\n- #5 [striking_distance] /race/ned-gravel/ \u2014 \"ned gravel 2026\" pos 6.6, 663 impr, CTR 0.3% \u2014 'ned gravel 2026' ranks 6.6 on /race/ned-gravel/ with 663 impressions/28d \u2014 pushing to top 3 could add ~64 clicks.\n- Run /seo-updates to draft these.\n\n## BROKEN\n- Gravel God /llms.txt DISPLACED \u2014 live file no longer starts with our database marker (serving: '<html><head><link rel=\"icon\" href=\"data:;\"><meta http-equiv=\"refresh\" content=\"0;/.well-known/sgcaptcha/?r=%2Fllms.txt&y'); likely AIOSEO clobbered it again\n- Roadie Labs /llms.txt DISPLACED \u2014 live file no longer starts with our database marker (serving: '<html><head><link rel=\"icon\" href=\"data:;\"><meta http-equiv=\"refresh\" content=\"0;/.well-known/sgcaptcha/?r=%2Fllms.txt&y'); likely AIOSEO clobbered it again\n- XC Ski Labs /llms.txt DISPLACED \u2014 live file no longer starts with our database marker (serving: '<html><head><link rel=\"icon\" href=\"data:;\"><meta http-equiv=\"refresh\" content=\"0;/.well-known/sgcaptcha/?r=%2Fllms.txt&y'); likely AIOSEO clobbered it again\n- workflow gravel-race-automation/link-check.yml: failure\n\n## DO TODAY\n- Fix /llms.txt redirect (AIOSEO clobbering) on all 3 brands \u2014 this is an AEO-visible outage, not a metrics glitch; every day it's live is lost AI-citation surface.\n- Investigate gravel-race-automation/link-check.yml failure \u2014 could be masking broken links feeding the same displacement issue.\n- Nothing else \u2014 traffic is the binding constraint (71.6/day actual vs 502 needed for 1 sale/day); funnel tuning isn't worth the time yet."
+}

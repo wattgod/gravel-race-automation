@@ -3,29 +3,29 @@
     "name": "Atlas Mountain Race",
     "slug": "atlas-mountain-race",
     "display_name": "Atlas Mountain Race",
-    "tagline": "Moroccan Atlas Mountains ultra-endurance gravel race.",
+    "tagline": "A fixed-route, unsupported crossing of Morocco's Atlas and Anti-Atlas mountains.",
     "vitals": {
-      "distance_mi": 839,
-      "elevation_ft": 80000,
-      "location": "Morocco",
-      "location_badge": "MOROCCO",
+      "distance_mi": 827,
+      "elevation_ft": 81011,
+      "location": "Ouzoud to Essaouira, Morocco",
+      "location_badge": "OUZOUD, MOROCCO",
       "county": "Atlas Mountains",
-      "date": "Early February annually",
-      "date_specific": "2026: February 6-15",
+      "date": "March 13-20, 2027",
+      "date_specific": "2027: March 13-20",
       "terrain_types": [
         "Atlas Mountains",
         "Ultra-endurance",
         "Self-supported",
         "Morocco"
       ],
-      "field_size": "100-200 riders",
-      "start_time": "Morning start",
-      "registration": "Online. Cost: ~€200-300",
+      "field_size": "Application-limited field; organizer does not publish a final 2027 count",
+      "start_time": "Start time pending",
+      "registration": "2027 general application closed; £375 plus £50 tracker rental if required and £50 sponsorship fee if applicable",
       "prize_purse": "None (self-supported)",
-      "aid_stations": "None (self-supported)",
-      "cutoff_time": "No cutoff",
-      "lat": 28.3348,
-      "lng": -10.3713
+      "aid_stations": "No rider-support aid stations; 3 staffed checkpoints plus commercial resupply",
+      "cutoff_time": "Eight-day race window",
+      "lat": 31.97085,
+      "lng": -6.75165
     },
     "climate": {
       "primary": "Moroccan spring",
@@ -43,9 +43,9 @@
       "surface": "Gravel roads and tracks through Atlas Mountains. Extreme elevation with mountain and desert scenery. Self-supported ultra-endurance format.",
       "technical_rating": 4,
       "features": [
-        "Extreme elevation (80000 feet total)",
+        "81,011 feet of climbing on the 2027 route",
         "Atlas Mountains scenery",
-        "750-mile ultra-endurance",
+        "827-mile single-stage ultra-endurance race",
         "Self-supported format",
         "Morocco adventure"
       ]
@@ -74,7 +74,7 @@
     },
     "biased_opinion": {
       "verdict": "Extreme Atlas Mountains Ultra-Endurance",
-      "summary": "Atlas Mountain Race is an ultra-endurance self-supported race through Morocco—750 miles with 80,000 feet of climbing. The Atlas Mountains are stunning and the adventure is extreme, but the very difficult access, extreme conditions, high costs, and self-supported format keep it in Tier 3.",
+      "summary": "Atlas Mountain Race is a fixed-route, unsupported 1,331-kilometer race from Ouzoud to Essaouira with 24,688 meters of climbing. The Atlas and Anti-Atlas terrain, limited resupply, and eight-day race window make it a Tier 2 destination for experienced ultra-endurance riders.",
       "strengths": [
         "Stunning Atlas Mountains",
         "Extreme adventure",
@@ -116,48 +116,26 @@
       "reputation": "Extreme ultra-endurance adventure."
     },
     "course_description": {
-      "character": "Atlas Mountains ultra-endurance self-supported gravel.",
-      "suffering_zones": [
-        {
-          "mile": 200,
-          "label": "First Mountain Range",
-          "desc": "Initial Atlas Mountains climbing.",
-          "terrain_detail": "Mountainous",
-          "named_section": "Early Mountains"
-        },
-        {
-          "mile": 400,
-          "label": "Midpoint",
-          "desc": "Halfway through 750 miles.",
-          "terrain_detail": "Midpoint",
-          "named_section": "Halfway"
-        },
-        {
-          "mile": 650,
-          "label": "Final Mountains",
-          "desc": "Final mountain sections before finish.",
-          "terrain_detail": "Late mountains",
-          "named_section": "Final Push"
-        }
-      ],
-      "signature_challenge": "750 miles and 80,000 feet through Atlas Mountains.",
-      "ridewithgps_id": "32078944",
-      "ridewithgps_name": "Atlas Mountain Race // Morocco"
+      "character": "The 2027 fixed route runs 1,331 kilometers from Ouzoud through the Atlas and Anti-Atlas to Essaouira, gaining 24,688 meters on gravel, singletrack, doubletrack, and remote colonial pistes with very little tarmac.",
+      "suffering_zones": [],
+      "signature_challenge": "The clock never stops during an unsupported eight-day crossing with long gaps between resupply points and mandatory hike-a-bike terrain.",
+      "ridewithgps_id": null,
+      "ridewithgps_name": "Official 2027 Atlas Mountain Race route collection"
     },
     "guide_variables": {
       "race_name": "Atlas Mountain Race",
-      "race_distance": "750 miles",
-      "race_elevation": "80,000 feet",
-      "race_date": "Spring",
-      "race_location": "Morocco",
+      "race_distance": "827 miles",
+      "race_elevation": "81,011 feet",
+      "race_date": "March 13-20, 2027",
+      "race_location": "Ouzoud to Essaouira, Morocco",
       "race_terrain": "Atlas Mountains ultra-endurance gravel",
       "race_weather": "Moroccan spring extreme",
       "race_challenges": [
-        "Ultra-endurance 750 miles",
+        "Unsupported 827-mile single-stage route",
         "Self-supported format",
         "Very high costs",
         "Extreme conditions",
-        "80,000 feet climbing"
+        "81,011 feet climbing"
       ],
       "altitude_section": true,
       "altitude_feet": 8000
@@ -166,7 +144,7 @@
       {
         "requirement": "Ultra-endurance training",
         "by_when": "Week 12+",
-        "why": "750 miles requires months of ultra-endurance preparation."
+        "why": "827 unsupported miles require months of ultra-endurance preparation."
       },
       {
         "requirement": "Self-sufficiency skills",
@@ -180,10 +158,10 @@
       }
     ],
     "research_metadata": {
-      "data_confidence": "moderate",
-      "validation_status": "pending",
+      "data_confidence": "high",
+      "validation_status": "official-2027-route-verified-2026-08-06",
       "sources": [
-        "ultra_endurance_community"
+        "https://www.themountainraces.cc/atlas-mountain-race"
       ],
       "migration_notes": [
         "Generated from regional information"
@@ -592,73 +570,49 @@
         "extracted_at": "2026-02-23",
         "key_challenges": [
           {
-            "name": "Tizi-n-Tichka Pass",
-            "description": "Lung busting 117 km climb with 1800m elevation gain where climbing begins almost immediately from the start. After reaching the top, riders face an obscure rocky descent down an old mule path littered with stones that's often difficult to find.",
-            "source_video_ids": [
-              "e5k5ayE9iqU"
-            ]
+            "name": "Immediate Atlas climbing",
+            "description": "The 2027 route starts in the foothills at Ouzoud and climbs toward the Cathedral of Imsfrane and the high plateau of Toujodine before the first major resupply at Tabant.",
+            "source_video_ids": []
           },
           {
-            "name": "Tizi-n-Tichka Descent",
-            "description": "Rocky descent down an old mule path littered with stones and often difficult to find. Most riders elect to walk the majority of the descent rather than ride. Gets cold at the top just as sun is setting, then big rocks and poor visibility make navigation extremely difficult.",
-            "source_video_ids": [
-              "e5k5ayE9iqU"
-            ]
+            "name": "Unsupported resupply gaps",
+            "description": "Tabant is approximately 180 kilometers from the start, and the organizer warns that some remote sections can exceed 100 kilometers with essentially no resupply.",
+            "source_video_ids": []
           },
           {
-            "name": "Day One Pass",
-            "mile_marker": "70",
-            "description": "Savage pass over 2,000m with snow, undulating terrain, and no clear path at some points. Takes all night to complete in pitch black conditions, making navigation extremely difficult. Riders pick their way down the mountain in darkness.",
-            "source_video_ids": [
-              "zR0MqbzLNLE"
-            ]
+            "name": "Continuous eight-day clock",
+            "description": "The clock never stops across a 1,331-kilometer route with 24,688 meters of climbing, rough tracks, mandatory walking, navigation, mechanical work, and sleep decisions.",
+            "source_video_ids": []
           }
         ],
         "terrain_notes": [
           {
-            "text": "Obscure rocky descent down old mule path littered with stones, often difficult to find. Most riders walk the majority rather than ride.",
-            "source_video_ids": [
-              "e5k5ayE9iqU"
-            ]
+            "text": "The 2027 route uses gravel, singletrack, doubletrack, and remote colonial pistes with very little tarmac.",
+            "source_video_ids": []
           },
           {
-            "text": "Lunar landscape with only rock dust and sagebrush after 300 kilometers, replacing earlier snow-capped peaks and almond trees.",
-            "source_video_ids": [
-              "e5k5ayE9iqU"
-            ]
-          },
-          {
-            "text": "Mix of tarmac and gravel roads, with really nice gravel sections that alternate between surface types throughout the route.",
-            "source_video_ids": [
-              "QuTkwrO1Rns"
-            ]
-          },
-          {
-            "text": "Savage pass with snow, undulating terrain, and no clear path at points where riders pick their way down the mountain.",
-            "source_video_ids": [
-              "zR0MqbzLNLE"
-            ]
+            "text": "The organizer describes broken roads, steep climbing, rough descents, mandatory walking, and long gaps between commercial resupply points.",
+            "source_video_ids": []
           }
         ],
-        "gear_mentions": [],
+        "gear_mentions": [
+          {
+            "text": "The organizer recommends wide tires, low gearing of at least 1:1, and says a hardtail 29er is often the safest all-round choice.",
+            "source_video_ids": []
+          },
+          {
+            "text": "Current required equipment includes front and rear lights, basic first aid, waterproof and insulated jackets, a survival blanket, a spare derailleur hanger, warm water-resistant gloves, and a sleep system comfortable at 0°C.",
+            "source_video_ids": []
+          }
+        ],
         "race_day_tips": [
           {
-            "text": "Remember to turn on your spot tracker at the start - easy to forget in pre-race routine and you'll lose the front group if you have to stop to sort it out.",
-            "source_video_ids": [
-              "QuTkwrO1Rns"
-            ]
+            "text": "Build food and water capacity from the final race manual and conservative pace; checkpoints are not personal support and should not be treated as aid stations.",
+            "source_video_ids": []
           },
           {
-            "text": "Try to keep heart rate in reasonable zone and not push too hard early, especially when trying to catch back up to groups.",
-            "source_video_ids": [
-              "QuTkwrO1Rns"
-            ]
-          },
-          {
-            "text": "Must reach checkpoint one to finish the race on time - it's mandatory for continuing in the event.",
-            "source_video_ids": [
-              "zR0MqbzLNLE"
-            ]
+            "text": "Use the final organizer-issued GPX and race manual as the controlling documents for route, equipment, checkpoints, and resupply.",
+            "source_video_ids": []
           }
         ],
         "additional_quotes": [
@@ -687,7 +641,7 @@
             "curated": true
           }
         ],
-        "search_text": "The Atlas Mountain Race features immediate brutal climbing from Marrakech starting with the lung-busting 117km Tizi-n-Tichka Pass with 1800m elevation gain. The descent is an obscure rocky mule path littered with stones where most riders walk rather than ride. After 300km, the landscape transforms from snow-capped peaks and almond trees to lunar terrain with only rock dust and sagebrush. Day one includes a savage 2000m+ pass with snow and no clear path, taking riders all night to complete in pitch darkness. Navigation is extremely difficult in these conditions. The route alternates between tarmac and gravel surfaces. Race starts at 6pm with mandatory bike checks and tracking devices. Riders experience severe sleep deprivation, living on 2-3 hours sleep nightly while wearing the same kit for days. Checkpoint one is mandatory to continue and finish on time."
+        "search_text": "The 2027 Atlas Mountain Race starts in Ouzoud on March 13 and runs to Essaouira on a fixed, unsupported 1,331-kilometer route with 24,688 meters of climbing. Riders cross the Atlas and Anti-Atlas on gravel, singletrack, doubletrack, and broken colonial pistes with very little tarmac. The clock runs continuously through an eight-day race window. The route climbs immediately toward the Cathedral of Imsfrane and the high plateau of Toujodine, with the first major resupply at Tabant around 180 kilometers. Long gaps between commercial resupply, mandatory walking, navigation, sleep, equipment, and self-repair decisions define the race."
       }
     },
     "photos": [

@@ -262,10 +262,10 @@ class TestGetRace:
             assert key not in race, f"Should strip {key}"
 
     def test_has_vitals(self):
-        result = mcp_server.get_race("unbound-200")
+        result = mcp_server.get_race("leadville-100")
         vitals = result["race"]["vitals"]
-        assert vitals["distance_mi"] == 200
-        assert vitals["elevation_ft"] == 11000
+        assert vitals["distance_mi"] == 100
+        assert vitals["elevation_ft"] == 11900
 
     def test_has_gravel_god_rating(self):
         result = mcp_server.get_race("unbound-200")
@@ -341,10 +341,10 @@ class TestCompareRaces:
 
 class TestGetTrainingContext:
     def test_valid_race(self):
-        ctx = mcp_server.get_training_context("unbound-200")
-        assert ctx["race_name"] == "Unbound 200"
-        assert ctx["distance_mi"] == 200
-        assert ctx["elevation_ft"] == 11000
+        ctx = mcp_server.get_training_context("leadville-100")
+        assert ctx["race_name"] == "Leadville Trail 100 MTB"
+        assert ctx["distance_mi"] == 100
+        assert ctx["elevation_ft"] == 11900
         assert ctx["tier"] == 1
 
     def test_has_emphasis(self):

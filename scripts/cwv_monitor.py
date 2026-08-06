@@ -35,7 +35,7 @@ MONITORED_URLS = [
     {"url": "https://gravelgodcycling.com/race/unbound-200/", "label": "T1 Race"},
     {"url": "https://gravelgodcycling.com/race/barry-roubaix/", "label": "T2 Race"},
     {"url": "https://gravelgodcycling.com/race/big-sugar/", "label": "T3 Race"},
-    {"url": "https://gravelgodcycling.com/race/3-state-3-mountain-challenge/", "label": "T4 Race"},
+    {"url": "https://gravelgodcycling.com/race/dirty-pecan/", "label": "T4 Race"},
     {"url": "https://gravelgodcycling.com/coaching/", "label": "Coaching"},
 ]
 

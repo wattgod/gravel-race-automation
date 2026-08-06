@@ -2,15 +2,16 @@
   "@context": "https://schema.org",
   "@type": "SportsEvent",
   "name": "Atlas Mountain Race",
-  "description": "Moroccan Atlas Mountains ultra-endurance gravel race.",
+  "description": "827 unsupported miles from Ouzoud across the Atlas to Essaouira.",
   "sport": "Bikepacking",
-  "startDate": "2026-02-06",
+  "startDate": "2027-03-13",
   "location": {
     "@type": "Place",
-    "name": "Morocco",
+    "name": "Ouzoud to Essaouira, Morocco",
     "address": {
       "@type": "PostalAddress",
-      "addressLocality": "Morocco"
+      "addressLocality": "Ouzoud to Essaouira",
+      "addressRegion": "Morocco"
     }
   },
   "aggregateRating": {

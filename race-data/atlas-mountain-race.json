@@ -3,15 +3,16 @@
     "name": "Atlas Mountain Race",
     "slug": "atlas-mountain-race",
     "display_name": "Atlas Mountain Race",
-    "tagline": "Moroccan Atlas Mountains ultra-endurance gravel race.",
+    "tagline": "827 unsupported miles from Ouzoud across the Atlas to Essaouira.",
     "vitals": {
-      "distance_mi": 839,
-      "elevation_ft": 80000,
-      "location": "Morocco",
+      "distance_mi": 827,
+      "elevation_ft": 81000,
+      "course_status": "verified",
+      "location": "Ouzoud to Essaouira, Morocco",
       "location_badge": "MOROCCO",
-      "county": "Atlas Mountains",
-      "date": "Early February annually",
-      "date_specific": "2026: February 6-15",
+      "county": "Atlas and Anti-Atlas Mountains",
+      "date": "March 13-20, 2027",
+      "date_specific": "2027: March 13-20",
       "terrain_types": [
         "Atlas Mountains",
         "Ultra-endurance",
@@ -19,16 +20,16 @@
         "Morocco"
       ],
       "field_size": "100-200 riders",
-      "start_time": "Morning start",
-      "registration": "Online. Cost: ~€200-300",
+      "start_time": "Exact 2027 start time pending",
+      "registration": "Applications required; £375 entry plus tracker and sponsorship fees where applicable. Men's field sold out; women's applications remain open until 25% of the field.",
       "prize_purse": "None (self-supported)",
-      "aid_stations": "None (self-supported)",
-      "cutoff_time": "No cutoff",
-      "lat": 28.3348,
-      "lng": -10.3713
+      "aid_stations": "Three staffed checkpoints; racing remains unsupported between them",
+      "cutoff_time": "Eight-day race window ending March 20, 2027",
+      "lat": 31.97085,
+      "lng": -6.75165
     },
     "climate": {
-      "primary": "Moroccan spring",
+      "primary": "Moroccan mountain and desert weather in March",
       "description": "Variable mountain and desert conditions.",
       "challenges": [
         "Extreme heat",
@@ -43,9 +44,9 @@
       "surface": "Gravel roads and tracks through Atlas Mountains. Extreme elevation with mountain and desert scenery. Self-supported ultra-endurance format.",
       "technical_rating": 4,
       "features": [
-        "Extreme elevation (80000 feet total)",
+        "81,000 feet of climbing",
         "Atlas Mountains scenery",
-        "750-mile ultra-endurance",
+        "827-mile ultra-endurance",
         "Self-supported format",
         "Morocco adventure"
       ]
@@ -74,7 +75,7 @@
     },
     "biased_opinion": {
       "verdict": "Extreme Atlas Mountains Ultra-Endurance",
-      "summary": "Atlas Mountain Race is an ultra-endurance self-supported race through Morocco—750 miles with 80,000 feet of climbing. The Atlas Mountains are stunning and the adventure is extreme, but the very difficult access, extreme conditions, high costs, and self-supported format keep it in Tier 3.",
+      "summary": "Atlas Mountain Race is 827 unsupported miles from Ouzoud to Essaouira with roughly 81,000 feet of climbing. It is a Tier 2 bikepacking race because the route and experience are exceptional, while the field stays small and the logistics punish anyone who treats it like a normal gravel event.",
       "strengths": [
         "Stunning Atlas Mountains",
         "Extreme adventure",
@@ -93,7 +94,7 @@
     },
     "final_verdict": {
       "score": "63 / 100",
-      "one_liner": "Moroccan Atlas Mountains ultra-endurance gravel race.",
+      "one_liner": "827 unsupported miles and 81,000 feet across Morocco.",
       "should_you_race": "If you're an elite ultra-endurance rider with a big budget—maybe. For most riders—there are better options.",
       "alternatives": "For similar ultra-endurance: Transcontinental Race. For better value: regional gravel races.",
       "alternative_slugs": [
@@ -101,7 +102,7 @@
       ]
     },
     "logistics": {
-      "airport": "Marrakech (RAK) varies by start location",
+      "airport": "Marrakech (RAK); arrange transfers to Ouzoud and home from Essaouira",
       "lodging_strategy": "Self-supported. Plan your own accommodation.",
       "food": "Self-supported. Carry all nutrition and resupply in villages.",
       "packet_pickup": "Pre-race briefing",
@@ -128,7 +129,7 @@
         {
           "mile": 400,
           "label": "Midpoint",
-          "desc": "Halfway through 750 miles.",
+          "desc": "Near the midpoint of an 827-mile route where resupply and sleep decisions compound.",
           "terrain_detail": "Midpoint",
           "named_section": "Halfway"
         },
@@ -140,24 +141,24 @@
           "named_section": "Final Push"
         }
       ],
-      "signature_challenge": "750 miles and 80,000 feet through Atlas Mountains.",
+      "signature_challenge": "827 unsupported miles and 81,000 feet through the Atlas and Anti-Atlas.",
       "ridewithgps_id": "32078944",
       "ridewithgps_name": "Atlas Mountain Race // Morocco"
     },
     "guide_variables": {
       "race_name": "Atlas Mountain Race",
-      "race_distance": "750 miles",
-      "race_elevation": "80,000 feet",
-      "race_date": "Spring",
-      "race_location": "Morocco",
+      "race_distance": "827 miles",
+      "race_elevation": "81,000 feet",
+      "race_date": "March 13-20, 2027",
+      "race_location": "Ouzoud to Essaouira, Morocco",
       "race_terrain": "Atlas Mountains ultra-endurance gravel",
-      "race_weather": "Moroccan spring extreme",
+      "race_weather": "March mountain cold, desert heat, wind, and possible snow",
       "race_challenges": [
-        "Ultra-endurance 750 miles",
+        "Ultra-endurance 827 miles",
         "Self-supported format",
         "Very high costs",
         "Extreme conditions",
-        "80,000 feet climbing"
+        "81,000 feet climbing"
       ],
       "altitude_section": true,
       "altitude_feet": 8000
@@ -166,7 +167,7 @@
       {
         "requirement": "Ultra-endurance training",
         "by_when": "Week 12+",
-        "why": "750 miles requires months of ultra-endurance preparation."
+        "why": "827 miles requires months of ultra-endurance preparation."
       },
       {
         "requirement": "Self-sufficiency skills",
@@ -180,13 +181,14 @@
       }
     ],
     "research_metadata": {
-      "data_confidence": "moderate",
-      "validation_status": "pending",
+      "data_confidence": "high",
+      "validation_status": "verified",
       "sources": [
-        "ultra_endurance_community"
+        "https://www.themountainraces.cc/atlas-mountain-race",
+        "https://themountainraces.eventrac.co.uk/e/atlas-mountain-race-13647"
       ],
       "migration_notes": [
-        "Generated from regional information"
+        "2026-08-06: Organizer confirms March 13-20, 2027, a fixed 1,331 km route with 24,688 m of climbing, and an unsupported single-stage course from Ouzoud to Essaouira. Converted values are approximately 827 miles and 81,000 feet."
       ],
       "research_strength": {
         "overall": 97.0,
@@ -256,9 +258,9 @@
       "tier_overrides": {},
       "marketplace_variables": {
         "race_name": "Atlas Mountain Race",
-        "race_hook": "Moroccan Atlas Mountains ultra-endurance gravel race.",
-        "race_hook_detail": "750-mile self-supported ultra-endurance adventure.",
-        "distance": "750",
+        "race_hook": "827 unsupported miles from Ouzoud to Essaouira.",
+        "race_hook_detail": "A fixed 1,331 km route with 24,688 m of climbing across the Atlas and Anti-Atlas.",
+        "distance": "827",
         "dark_mile": "400",
         "non_negotiable_1": "Ultra-endurance training",
         "non_negotiable_2": "Self-sufficiency skills",
@@ -269,11 +271,11 @@
     "biased_opinion_ratings": {
       "logistics": {
         "score": 1,
-        "explanation": "Michael Drummond describes \"1145km, One thousand, one hundred and forty five kilometres of mystery. The only true 'knowledge' gleaned from select vistas.\" No published entry fees, airport details, or packet pickup information for Morocco. Race provides GPX tracking and three staffed checkpoints across 750 miles—everything else is self-supported navigation through remote Atlas passes."
+        "explanation": "The start in Ouzoud and finish in Essaouira require separate transfer plans around a remote point-to-point course. The organizer supplies a validated GPX, three staffed checkpoints, bike-box transfer, and 24/7 race HQ; everything between checkpoints is still unsupported."
       },
       "length": {
         "score": 5,
-        "explanation": "Rory Stuart finished in \"6 days 4 hours 45 minutes but later reflected: I wholeheartedly think I did pretty darn well. Sure, I could've slept less.\" At 750 miles, riders average less than 10mph including stops. Justinas Leveika warns \"Don't get fooled by 'just' 160 km to the next CP. The average speed in this race is very low.\" Among the longest in gravel, comparable to Badlands."
+        "explanation": "Rory Stuart finished in \"6 days 4 hours 45 minutes but later reflected: I wholeheartedly think I did pretty darn well. Sure, I could've slept less.\" At 827 miles, average speed including stops stays low. Justinas Leveika warns not to be fooled by a 160 km leg to the next checkpoint."
       },
       "technicality": {
         "score": 4,
@@ -281,7 +283,7 @@
       },
       "elevation": {
         "score": 5,
-        "explanation": "The 2026 route includes Tizi N'Aït Imi—the highest pass at 2,910m—replacing the iconic Telouet Pass. 80,000 feet of climbing over 750 miles means constant elevation gain through Atlas Mountain crossings. James Hayden experienced \"a 10-kilometre climb at 10 percent in 35-degree heat\" as his welcome back to the Atlas. Among the hilliest in gravel, comparable to Badlands."
+        "explanation": "The verified 2027 route carries 24,688 m—about 81,000 feet—of climbing across 1,331 km. The start moves to Ouzoud before the route crosses the Atlas and Anti-Atlas to Essaouira."
       },
       "climate": {
         "score": 2,
@@ -301,7 +303,7 @@
       },
       "race_quality": {
         "score": 2,
-        "explanation": "Flooding stopped the 2022 race when \"heavy rain dramatically increased the water level of a close-by river to a level that we cannot cross it with our bikes anymore,\" forcing riders to wait at a gas station. Three checkpoints across 750 miles provides minimal race infrastructure. No published entry fees or detailed race manual suggests organizational gaps."
+        "explanation": "Flooding stopped the 2022 race when a river became impassable. For 2027 the organizer publishes the fee, manual, three staffed checkpoints, control and medical cars, 24/7 HQ, tracking, and bike-box transfer, but the unsupported format intentionally leaves a large share of execution to the rider."
       },
       "experience": {
         "score": 5,

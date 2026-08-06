@@ -497,7 +497,7 @@ class TestAnalyzeRaceDemands:
         data = _load_race("unbound-200")
         demands = analyze_race_demands(data)
         assert demands["durability"] == 10
-        assert demands["climbing"] == 7
+        assert demands["climbing"] == 4  # 2027 elevation is intentionally source-blocked
         assert demands["vo2_power"] == 10
         assert demands["threshold"] == 5  # >150mi -> 4, elev=3 >= 3 -> +1 = 5
         assert demands["technical"] == 8  # technicality=4 -> 8

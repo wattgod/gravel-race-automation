@@ -1,0 +1,132 @@
+name: Deploy Catalog Remediation 2026-08-06
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+          cache: pip
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Build scoped deployment payload
+        run: |
+          set -euo pipefail
+          mkdir -p /tmp/gg-pages /tmp/gg-photos/truckee-tahoe-gravel
+          for slug in \
+            okanagan-graveller \
+            kindling \
+            garden-route-giro \
+            reliance-tennessee-gravel \
+            truckee-tahoe-gravel
+          do
+            python wordpress/generate_neo_brutalist.py "$slug"
+            cp "wordpress/output/$slug.html" /tmp/gg-pages/
+          done
+
+          for file in \
+            sagan-fondo-video-1.jpg \
+            sagan-fondo-video-2.jpg \
+            sagan-fondo-video-3.jpg \
+            sagan-fondo-preview.gif \
+            sagan-fondo-preview-2.gif \
+            sagan-fondo-preview-3.gif
+          do
+            curl -L --fail --silent --show-error --retry 2 \
+              "https://gravelgodcycling.com/race-photos/sagan-fondo/$file" \
+              -o "/tmp/gg-photos/truckee-tahoe-gravel/$file"
+          done
+
+          python - <<'PY'
+          from pathlib import Path
+
+          pages = Path("/tmp/gg-pages")
+          expected = {
+              "okanagan-graveller.html": ("Okanagan Graveller",),
+              "kindling.html": ("Kindling",),
+              "garden-route-giro.html": ("Garden Route Giro",),
+              "reliance-tennessee-gravel.html": (
+                  "Reliance Tennessee Gravel", "70 miles", "8,100", "April 24"
+              ),
+              "truckee-tahoe-gravel.html": ("Truckee Tahoe Gravel",),
+          }
+          assert {p.name for p in pages.glob("*.html")} == set(expected)
+          for name, needles in expected.items():
+              body = (pages / name).read_text()
+              for needle in needles:
+                  assert needle in body, (name, needle)
+          reliance = (pages / "reliance-tennessee-gravel.html").read_text()
+          for stale in ("75 miles", "4,000 ft", "September 2025"):
+              assert stale not in reliance, stale
+          assert len(list(Path("/tmp/gg-photos/truckee-tahoe-gravel").iterdir())) == 6
+          PY
+
+      - name: Setup SSH
+        run: |
+          mkdir -p ~/.ssh
+          printf '%s\n' "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/siteground_key
+          chmod 600 ~/.ssh/siteground_key
+          ssh-keyscan -p "${{ secrets.SSH_PORT }}" "${{ secrets.SSH_HOST }}" >> ~/.ssh/known_hosts 2>/dev/null
+
+      - name: Deploy pages, media, and discovery assets
+        env:
+          SSH_HOST: ${{ secrets.SSH_HOST }}
+          SSH_USER: ${{ secrets.SSH_USER }}
+          SSH_PORT: ${{ secrets.SSH_PORT }}
+        run: |
+          python scripts/push_wordpress.py \
+            --sync-pages --pages-dir /tmp/gg-pages \
+            --sync-photos --photos-dir /tmp/gg-photos \
+            --sync-index \
+            --sync-widget \
+            --sync-embed \
+            --sync-rss \
+            --purge-cache
+
+      - name: Verify live payload
+        run: |
+          set -euo pipefail
+          for attempt in 1 2 3 4 5; do
+            ok=1
+            for slug in \
+              okanagan-graveller \
+              kindling \
+              garden-route-giro \
+              reliance-tennessee-gravel \
+              truckee-tahoe-gravel
+            do
+              curl -L --fail --silent --show-error \
+                "https://gravelgodcycling.com/race/$slug/?v=${GITHUB_SHA}" \
+                -o "/tmp/$slug.live.html" || ok=0
+            done
+
+            if [ "$ok" -eq 1 ] \
+              && grep -q "Reliance Tennessee Gravel" /tmp/reliance-tennessee-gravel.live.html \
+              && grep -q "70 miles" /tmp/reliance-tennessee-gravel.live.html \
+              && grep -q "8,100" /tmp/reliance-tennessee-gravel.live.html \
+              && grep -q "April 24" /tmp/reliance-tennessee-gravel.live.html \
+              && ! grep -q "75 miles" /tmp/reliance-tennessee-gravel.live.html \
+              && curl -L --fail --silent --show-error \
+                "https://gravelgodcycling.com/race-photos/truckee-tahoe-gravel/sagan-fondo-video-1.jpg?v=${GITHUB_SHA}" \
+                -o /dev/null
+            then
+              echo "Fresh scoped catalog payload is live (attempt $attempt)"
+              exit 0
+            fi
+            sleep 10
+          done
+          echo "::error::Scoped catalog payload did not verify live"
+          exit 1

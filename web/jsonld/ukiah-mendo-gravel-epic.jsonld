@@ -1,0 +1,24 @@
+{
+  "@context": "https://schema.org",
+  "@type": "SportsEvent",
+  "name": "Ukiah Mendo Gravel Epic",
+  "description": "A redwood-heavy series finale with 8,420 feet, private roads, and no free coast to the line.",
+  "sport": "Gravel Cycling",
+  "location": {
+    "@type": "Place",
+    "name": "Ukiah, California",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Ukiah",
+      "addressRegion": "California"
+    }
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "71",
+    "bestRating": "100",
+    "ratingCount": "14",
+    "name": "Gravel God Rating"
+  },
+  "url": "https://www.grasshopperadventureseries.com/ukiah-mendo-gravel-epic"
+}

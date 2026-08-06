@@ -1,14 +1,14 @@
 {
   "slug": "bear-100",
   "race_name": "Bear 100",
-  "distance_mi": 100.0,
+  "distance_mi": 103.0,
   "demands": {
     "durability": 6,
     "climbing": 4,
     "vo2_power": 2,
     "threshold": 7,
     "technical": 4,
-    "heat_resilience": 1,
+    "heat_resilience": 0,
     "altitude": 2,
     "race_specificity": 3
   },
@@ -25,13 +25,13 @@
     },
     {
       "category": "Durability",
-      "score": 91,
+      "score": 83,
       "workouts": [
         "Tired VO2max",
         "Double Day Simulation",
         "Progressive Fatigue"
       ],
-      "workout_context": "At mile 60 of 100, glycogen is gone. This workout teaches your body to produce watts on fumes."
+      "workout_context": "At mile 60 of 103, glycogen is gone. This workout teaches your body to produce watts on fumes."
     },
     {
       "category": "G_Spot",
@@ -59,26 +59,26 @@
         "Surge and Settle",
         "Terrain Microbursts"
       ],
-      "workout_context": "Bear 100's Gravel roads, Northwoods terrain forces constant power changes. Surge over the rough stuff, settle on the smooth, repeat for 100 miles."
-    },
-    {
-      "category": "Endurance",
-      "score": 61,
-      "workouts": [
-        "Pre-Race Openers",
-        "Terrain Simulation Z2"
-      ],
-      "workout_context": "Every hard session works better with a bigger aerobic base. At 100 miles, base fitness is the difference between racing and surviving."
+      "workout_context": "Bear 100's Gravel roads, Northwoods terrain forces constant power changes. Surge over the rough stuff, settle on the smooth, repeat for 103 miles."
     },
     {
       "category": "HVLI_Extended",
-      "score": 59,
+      "score": 56,
       "workouts": [
         "HVLI Extended Z2",
         "Multi-Hour Z2",
         "Back-to-Back Long"
       ],
-      "workout_context": "100 miles rewards fat oxidation. This volume work shifts your fuel mix so you're still burning fat at hour 5, not bonking at hour 3."
+      "workout_context": "103 miles rewards fat oxidation. This volume work shifts your fuel mix so you're still burning fat at hour 5, not bonking at hour 3."
+    },
+    {
+      "category": "Endurance",
+      "score": 56,
+      "workouts": [
+        "Pre-Race Openers",
+        "Terrain Simulation Z2"
+      ],
+      "workout_context": "Every hard session works better with a bigger aerobic base. At 103 miles, base fitness is the difference between racing and surviving."
     },
     {
       "category": "Race_Simulation",
@@ -88,7 +88,7 @@
         "Variable Pace Chaos",
         "Sector Simulation"
       ],
-      "workout_context": "Race-pace efforts that mimic Bear 100's demands. Pacing, fueling, and tactical decisions under fatigue. Practice the race before April."
+      "workout_context": "Race-pace efforts that mimic Bear 100's demands. Pacing, fueling, and tactical decisions under fatigue. Practice the race before May."
     },
     {
       "category": "Norwegian_Double",
@@ -97,7 +97,7 @@
         "Norwegian 4x8 Classic",
         "Double Threshold"
       ],
-      "workout_context": "Two threshold sessions per week without the recovery cost of VO2max work. For 100 miles, sustainable FTP gains matter more than peak power."
+      "workout_context": "Two threshold sessions per week without the recovery cost of VO2max work. For 103 miles, sustainable FTP gains matter more than peak power."
     },
     {
       "category": "Tempo",
@@ -106,7 +106,7 @@
         "Tempo Blocks",
         "Extended Tempo"
       ],
-      "workout_context": "Tempo is Bear 100's race pace. The wattage you'll hold for 100 miles on northwoods gravel roads. Train it until it's automatic."
+      "workout_context": "Tempo is Bear 100's race pace. The wattage you'll hold for 103 miles on northwoods gravel roads. Train it until it's automatic."
     },
     {
       "category": "Blended",
@@ -128,9 +128,9 @@
     }
   ],
   "race_overlay": {
-    "nutrition": "Target 60\u201380g carbs/hour for Bear 100\u2019s 100 miles. Start fueling within the first 30 minutes \u2014 early fueling prevents late-race collapse. Bonking at mile 60 is a nutrition failure, not a fitness failure.",
+    "nutrition": "Target 60\u201380g carbs/hour for Bear 100\u2019s 103 miles. Start fueling within the first 30 minutes \u2014 early fueling prevents late-race collapse. Bonking at mile 60 is a nutrition failure, not a fitness failure.",
     "terrain": "Mixed terrain at Bear 100 requires surface adaptability. Include weekly rides on northwoods gravel roads to build confidence. Expect: gravel roads, northwoods terrain, forest roads."
   },
-  "pack_summary": "This 10-workout pack focuses on TT Threshold, Durability, and G Spot to prepare you for 100 miles of northwoods gravel roads in Laona, Wisconsin.",
-  "generated_at": "2026-03-06"
+  "pack_summary": "This 10-workout pack focuses on TT Threshold, Durability, and G Spot to prepare you for 103 miles of northwoods gravel roads in Laona, Wisconsin.",
+  "generated_at": "2026-08-05"
 }

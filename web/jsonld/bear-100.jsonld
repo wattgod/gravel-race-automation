@@ -2,9 +2,9 @@
   "@context": "https://schema.org",
   "@type": "SportsEvent",
   "name": "Bear 100",
-  "description": "Northern Wisconsin Northwoods gravel century.",
+  "description": "Chip-timed spring gravel through Wisconsin's Nicolet National Forest.",
   "sport": "Gravel Cycling",
-  "startDate": "2026-04-02",
+  "startDate": "2026-05-02",
   "location": {
     "@type": "Place",
     "name": "Laona, Wisconsin",
@@ -16,7 +16,7 @@
   },
   "offers": {
     "@type": "Offer",
-    "price": "60",
+    "price": "59",
     "priceCurrency": "USD",
     "availability": "https://schema.org/LimitedAvailability"
   },
@@ -26,5 +26,11 @@
     "bestRating": "100",
     "ratingCount": "14",
     "name": "Gravel God Rating"
+  },
+  "url": "https://www.thebear100.com/",
+  "organizer": {
+    "@type": "Person",
+    "name": "Laona organizers and the Laona Rescue Squad",
+    "url": "https://www.thebear100.com/"
   }
 }

@@ -192,7 +192,6 @@ class TestCommunityPenetration:
     KNOWN_EXCEPTIONS = {
         "dirty-french",  # NYC restaurant, not a race — data is bogus
         "la-dromoise-gravel",  # Small French race, minimal English community content
-        "lake-country-gravel",  # One vague mention, no proper nouns (1.3KB)
         "scratch-ankle-gravel",  # All search results were MIT Scratch, not the race (1.9KB)
         "wild-gravel",  # No sources about the race found (0.9KB)
         "rose-city-rampage",  # Cancelled race, only promoter quotes (1.8KB)

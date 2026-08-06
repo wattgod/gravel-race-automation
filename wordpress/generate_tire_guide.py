@@ -210,6 +210,11 @@ def parse_terrain_text(raw_race: dict) -> tuple:
         vitals = {}
 
     tech_rating = terrain.get("technical_rating", 2)
+    if tech_rating is None:
+        # Explicit null means the organizer has not published enough course
+        # detail to score technicality. Keep downstream matching robust with
+        # the same neutral internal default used for a missing rating.
+        tech_rating = 2
     surface_val = terrain.get("surface", "")
     if isinstance(surface_val, dict):
         surface_val = " ".join(str(k) for k in surface_val.keys())

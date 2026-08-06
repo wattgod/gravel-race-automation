@@ -146,13 +146,18 @@ def _select_showcase_workouts(preview: dict) -> list:
 
 
 def _load_all_previews() -> list:
-    """Load all race pack preview JSONs."""
+    """Load race pack previews eligible for workout showcases."""
     if not PACK_DIR.exists():
         pytest.skip("web/race-packs/ directory not found")
     previews = []
     for f in sorted(PACK_DIR.glob('*.json')):
         with open(f) as fh:
-            previews.append(json.load(fh))
+            preview = json.load(fh)
+            # Unavailable artifacts intentionally have no demands or workout
+            # categories. They prevent source-blocked races from leaking
+            # invented recommendations into the sales path.
+            if preview.get('available', True) is not False:
+                previews.append(preview)
     if not previews:
         pytest.skip("No preview JSONs found")
     return previews

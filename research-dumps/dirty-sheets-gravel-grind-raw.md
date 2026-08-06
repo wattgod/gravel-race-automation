@@ -39,3 +39,18 @@
 - **"What I wish I knew" insights**: Unavailable in search results.
 - **Equipment recommendations**: Unavailable in search results.
 - **DNF rates**: Unavailable in search results.
+
+## 2026-08-06 PRIMARY-SOURCE VERIFICATION
+
+- The organizer confirms Saturday, October 17, 2026, at Serenbe in Chattahoochee Hills, Georgia. The February 8 date previously carried in the active profile was wrong.
+- The flagship course is 100+ miles with 6,815 feet of climbing and a 52/48 gravel-to-pavement split. It adds singletrack and doubletrack at Moore's Bridge and Serenbe. The route remains tentative until the organizer releases the final GPS file.
+- Start waves are 8:30 AM for men and 8:45 AM for women. The 100-mile field limit is 200; the total event limit across 100-, 62-, and 22-mile distances is 600.
+- The organizer publishes an estimated 6:00 PM completion at a 10 mph average, multiple stocked aid stops, roaming SAG, timing hardware, category podiums, and $3,000 split equally between the men's and women's 100-mile fields.
+- Registration is live through BikeReg. The organizer lists $85 early, $105 mid-cycle, $125 late, and $150 day-of pricing if space remains.
+- The course is unmarked. Riders must study and follow the organizer-provided GPS route.
+- Start/finish and parking are at Serenbe Flower Meadows, 10690 Hutchesons Ferry Road. Packet pickup is offered Thursday in College Park, Friday at MTB Atlanta HQ, and on race morning.
+- Official sources:
+  - https://dirtysheetsgravel.com/
+  - https://dirtysheetsgravel.com/100-mile/
+  - https://dirtysheetsgravel.com/details/
+  - https://www.bikereg.com/dirty-sheets-gravel-grind

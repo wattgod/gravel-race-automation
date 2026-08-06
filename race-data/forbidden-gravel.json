@@ -5,12 +5,12 @@
     "display_name": "Forbidden Gravel",
     "tagline": "Canadian coastal gravel challenge.",
     "vitals": {
-      "distance_mi": 55,
-      "elevation_ft": 4000,
+      "distance_mi": 68.4,
+      "elevation_ft": null,
       "location": "Cumberland, British Columbia, Canada",
       "location_badge": "CUMBERLAND, BC",
       "county": "British Columbia",
-      "date": "Mid-September annually",
+      "date": "September 20, 2026",
       "date_specific": "2026: September 20",
       "terrain_types": [
         "BC coastal mountains",
@@ -19,10 +19,10 @@
         "British Columbia"
       ],
       "field_size": "50-100 riders",
-      "start_time": "9:00 a.m. to",
+      "start_time": "Not yet published for 2026",
       "registration": "Online. Cost: ~$75-100 CAD",
       "prize_purse": "Modest prizes",
-      "aid_stations": "Limited aid stations",
+      "aid_stations": "Supported aid stations; count and locations not yet published for 2026",
       "cutoff_time": "Varies",
       "lat": 49.6185,
       "lng": -125.032
@@ -39,22 +39,23 @@
     },
     "terrain": {
       "primary": "BC coastal mountain gravel",
-      "surface": "Gravel roads through BC coastal mountains. Moderate elevation with coastal mountain scenery.",
+      "surface": "Gravel and dirt roads around Cumberland. The organizer says the redesigned 2026 long route follows the Puntledge River and climbs Forbidden Plateau Road; the final GPX and elevation total are not yet published.",
       "technical_rating": 3,
       "features": [
-        "Moderate mountainous (4000 feet)",
+        "Forbidden Plateau Road climb",
+        "Puntledge River corridor",
         "BC coastal scenery",
         "Local community event",
-        "55-mile distance",
+        "Approximately 110-kilometer long course",
         "Small field"
       ]
     },
     "gravel_god_rating": {
-      "overall_score": 41,
+      "overall_score": 43,
       "tier": 4,
       "tier_label": "TIER 4",
       "logistics": 2,
-      "length": 2,
+      "length": 3,
       "technicality": 3,
       "elevation": 3,
       "climate": 2,
@@ -67,7 +68,7 @@
       "field_depth": 1,
       "value": 3,
       "expenses": 2,
-      "score_note": "Local Canadian event. Coastal mountain terrain with remote access, moderate costs, and small local field.",
+      "score_note": "The organizer-confirmed 2026 Esperto grows to approximately 110 kilometers, lifting Length to 3; the overall score rises from 41 to 43 while the race remains Tier 4. Final 2026 elevation and GPX are still unpublished.",
       "discipline": "gravel",
       "display_tier": 4
     },
@@ -91,7 +92,7 @@
       "bottom_line": "A solid local BC coastal gravel race. Worth it for BC/Canadian riders. Not worth traveling for."
     },
     "final_verdict": {
-      "score": "41 / 100",
+      "score": "43 / 100",
       "one_liner": "Canadian coastal gravel challenge.",
       "should_you_race": "If you're local to BC—yes, it's solid. If you're traveling—skip it.",
       "alternatives": "For better Canadian races: Kettle Mettle, TransRockies Gravel Royale.",
@@ -106,7 +107,7 @@
       "food": "Cumberland has limited dining options. Stock nutrition.",
       "packet_pickup": "Day of typically",
       "parking": "At start/finish",
-      "official_site": "Check Forbidden Gravel website"
+      "official_site": "https://www.bcgravelseries.com/forbiddengravel"
     },
     "history": {
       "founded": null,
@@ -116,48 +117,27 @@
       "reputation": "Local Canadian event."
     },
     "course_description": {
-      "character": "BC coastal mountain gravel.",
-      "suffering_zones": [
-        {
-          "mile": 15,
-          "label": "Early Mountains",
-          "desc": "First mountain sections.",
-          "terrain_detail": "Mountainous",
-          "named_section": "Early Mountains"
-        },
-        {
-          "mile": 27,
-          "label": "Midpoint",
-          "desc": "Halfway through the course.",
-          "terrain_detail": "Midpoint",
-          "named_section": "Halfway"
-        },
-        {
-          "mile": 45,
-          "label": "Late Mountains",
-          "desc": "Final mountain sections before finish.",
-          "terrain_detail": "Late mountains",
-          "named_section": "Final Push"
-        }
-      ],
-      "signature_challenge": "BC coastal mountainous terrain.",
-      "ridewithgps_id": "51878707",
-      "ridewithgps_name": "Forbidden Gravel 2025 Version 2 long"
+      "character": "A redesigned 2026 Cumberland gravel course following the Puntledge River and climbing Forbidden Plateau Road. The organizer has announced the corridor and approximate distance, but not the final GPX or elevation total.",
+      "suffering_zones": [],
+      "signature_challenge": "The long climb toward Forbidden Plateau after the Puntledge River approach, with exact 2026 gradients still unpublished.",
+      "ridewithgps_id": null,
+      "ridewithgps_name": null,
+      "historical_route_note": "RideWithGPS route 51878707 is the 2025 long course and must not be presented as the redesigned 2026 route."
     },
     "guide_variables": {
       "race_name": "Forbidden Gravel",
-      "race_distance": "55 miles",
-      "race_elevation": "4,000 feet",
-      "race_date": "Summer",
+      "race_distance": "Approximately 110 kilometers (68.4 miles)",
+      "race_elevation": "Not yet published for 2026",
+      "race_date": "September 20, 2026",
       "race_location": "Cumberland, British Columbia, Canada",
-      "race_terrain": "BC coastal mountain gravel",
+      "race_terrain": "Cumberland gravel and dirt roads along the Puntledge River and up Forbidden Plateau Road",
       "race_weather": "BC coastal summer variable",
       "race_challenges": [
-        "Mountainous terrain",
-        "Small local field",
-        "Remote location",
-        "Limited organization",
-        "Variable weather"
+        "A redesigned course with final GPX still pending",
+        "The Forbidden Plateau Road climb",
+        "Remote logging-road exposure",
+        "Variable coastal weather",
+        "Self-sufficiency between supported aid stations"
       ],
       "altitude_section": false,
       "altitude_feet": null
@@ -181,12 +161,14 @@
     ],
     "research_metadata": {
       "data_confidence": "moderate",
-      "validation_status": "pending",
+      "validation_status": "verified",
       "sources": [
+        "bc_gravel_series_official",
         "canadian_cycling_community"
       ],
       "migration_notes": [
-        "Generated from regional information"
+        "Generated from regional information",
+        "2026-08-05: Official BC Gravel Series announcement confirms September 20, 2026, Cumberland, approximately 40/75/110 km options, and a redesigned long route along the Puntledge River and up Forbidden Plateau Road. Final 2026 GPX and elevation remain unpublished; historical routes are not carried forward as current facts."
       ],
       "research_strength": {
         "overall": 86.7,
@@ -256,12 +238,12 @@
         "race_name": "Forbidden Gravel",
         "race_hook": "Canadian coastal gravel challenge.",
         "race_hook_detail": "Local event with coastal mountain terrain.",
-        "distance": "55",
-        "dark_mile": "27",
+        "distance": "68.4",
+        "dark_mile": "final third",
         "non_negotiable_1": "Weather preparation",
         "non_negotiable_2": "Mountain endurance",
         "non_negotiable_3": "Self-sufficiency",
-        "trainingpeaks_url": null
+        "trainingpeaks_url": "https://www.trainingpeaks.com/training-plans/cycling/tp-667246/p"
       }
     },
     "biased_opinion_ratings": {
@@ -270,16 +252,16 @@
         "explanation": "Chad Grice notes the race features 'an entirely new route' for 2023 that evolved the course design, suggesting ongoing organizational development. The 2025 postponement after 'risk assessment' due to fire danger and land access restrictions shows reactive rather than proactive planning."
       },
       "length": {
-        "score": 2,
-        "explanation": "Chad Grice finished the 104km Esperto course in 5:07:18 at recreational pace, averaging 170W and 20.2 kph. Three distance options (Piccolo ~40km, Medio ~60km, Esperto ~104km) provide choice, but the longest sits in that weekend warrior zone without pushing epic boundaries. More compact than Grinduro."
+        "score": 3,
+        "explanation": "The organizer lists the redesigned 2026 Esperto at approximately 110km (68.4 miles), which falls squarely in the scoring rubric's 60-100 mile band. Shorter 40km and 75km options remain available, but the long-course rating uses the Esperto distance."
       },
       "technicality": {
         "score": 3,
-        "explanation": "The race opens with a critical right turn into fast singletrack where elite positioning matters immediately. Chad Grice describes hike-a-bike sections where 'we got to a steep and loose section and both had to dismount' with a dozen dismounts on the major climb alone. Similar technical demands to Gravel Worlds. As Chad Grice puts it: \"The second climb of the day was by far the most outrageous climb I have done in a gravel race.\""
+        "explanation": "The final 2026 GPX and surface breakdown are not yet published. A 2023 rider described steep, loose hike-a-bike sections on that edition, but those details cannot be carried forward as facts about the redesigned course. The provisional 3 reflects the announced Forbidden Plateau Road climb and historical handling demands, pending the final route."
       },
       "elevation": {
         "score": 3,
-        "explanation": "4000 feet over 55 miles means real climbing without being ridiculous — about 73 feet per mile. The Forbidden Plateau Road climb is likely where you'll earn your finisher's medal. It's elevation that'll test your gearing choices without requiring oxygen masks. Similar elevation profile to Gravel Worlds."
+        "explanation": "The organizer confirms that the redesigned 2026 route climbs Forbidden Plateau Road but has not published a final elevation total or GPX. A 2023 rider recorded 2,265m on that edition's 104km Esperto, so this remains a conservative 3 for meaningful climbing rather than a fabricated 2026 vertical figure."
       },
       "climate": {
         "score": 2,
@@ -287,11 +269,11 @@
       },
       "altitude": {
         "score": 1,
-        "explanation": "Starting from Cumberland near sea level, even the Forbidden Plateau Road climb won't reach physiologically significant altitude. The 1,000m+ climbing challenge comes from gradient and surface conditions, not thin air effects. Lower altitude than Gravel Worlds — no thin-air concerns."
+        "explanation": "Cumberland starts near sea level, and the announced Forbidden Plateau Road corridor is not a high-altitude environment. The final 2026 elevation profile is unpublished, but altitude acclimatization is not expected to be a meaningful race factor."
       },
       "adventure": {
         "score": 3,
-        "explanation": "Riding gravel roads named after forbidden plateaus on a remote Canadian island has adventure appeal. The expanded route along Puntledge River and climb up terrain rugged enough to postpone races suggests you'll earn some stories. It's not Patagonia, but it's real wilderness riding without the safety net of civilization every few miles. As Course Access puts it: \"The series offers exclusive private gravel roads in the remote wilderness, which feature muscle aching terrain, but also awe-inspiring views that can only be found on the West Coast of BC.\""
+        "explanation": "The official 2026 concept follows the Puntledge River before climbing Forbidden Plateau Road, giving the course a strong Vancouver Island backcountry identity. The final route is still pending, so the 3 reflects the announced corridor rather than unverified claims about remoteness or specific trail features."
       },
       "prestige": {
         "score": 1,
@@ -299,7 +281,7 @@
       },
       "race_quality": {
         "score": 2,
-        "explanation": "Jon Watkin's organization provides three distance options with full aid station support and neutral mechanical backup. However, the 2025 fire-related postponement and route changes suggest the operation is still finding its footing with land management logistics."
+        "explanation": "The organizer has confirmed three 2026 distance options and supported aid stations. The final route, aid-station layout, and start schedule remain unpublished, while the 2025 fire-related postponement illustrates the land-access risk the series must manage."
       },
       "experience": {
         "score": 2,
@@ -315,7 +297,7 @@
       },
       "value": {
         "score": 3,
-        "explanation": "Three distance options with full aid stations, neutral mechanical support, post-race food trucks, and camping options from $10-30 provide solid package value. Local dining partnerships and multi-event BC Gravel Series discounts up to 15% extend the value proposition."
+        "explanation": "Three distance options and organizer-confirmed supported aid stations create a solid core package. The 2026 event page does not yet publish enough detail on ancillary services to award a higher score, so the value rating remains a provisional 3."
       },
       "expenses": {
         "score": 2,
@@ -324,9 +306,19 @@
     },
     "citations": [
       {
+        "url": "https://www.bcgravelseries.com/post/2026-bc-gravel-series-registration-open",
+        "category": "official",
+        "label": "BC Gravel Series: 2026 registration, date, distances, and course corridor"
+      },
+      {
+        "url": "https://www.bcgravelseries.com/events",
+        "category": "official",
+        "label": "BC Gravel Series: 2026 event calendar"
+      },
+      {
         "url": "https://ridewithgps.com/routes/51878707",
         "category": "route",
-        "label": "RideWithGPS: Forbidden Gravel 2025 Version 2 long"
+        "label": "Historical only: Forbidden Gravel 2025 Version 2 long"
       },
       {
         "url": "https://bookofchad.ca/2023/06/22/forbidden-gravel-experiance/",
@@ -570,7 +562,7 @@
       ],
       "quotes": [
         {
-          "text": "This race is actually taking us up into the mountains and I heard there's a water crossing. It was a well organized event with lots of fun people, draw prizes/swag and great snacks in Cumberland's awesome mountain bike trail system in a beautiful forest.",
+          "text": "Historical 2022 Piccolo report: the race went into the mountains and may have included a water crossing; the rider praised the organization, volunteers, snacks, and Cumberland setting. This is atmosphere evidence, not a 2026 course description.",
           "source_video_id": "Kr8iV7wr-WA",
           "source_channel": "Heyjude's Adventures",
           "source_view_count": 42664,
@@ -578,7 +570,7 @@
           "curated": true
         },
         {
-          "text": "The downhill was pretty rough, really washboardy. Now why couldn't they build the road along the lake and not straight up a hill that's steep and long.",
+          "text": "A non-race 2023 Cumberland gravel ride found a Comox Lake descent rough and washboarded. That ride is regional surface context only and is not the redesigned 2026 race route.",
           "source_video_id": "t_BrOE_0-UM",
           "source_channel": "TheJakePopper",
           "source_view_count": 808,
@@ -590,22 +582,22 @@
         "extracted_at": "2026-02-23",
         "key_challenges": [
           {
-            "name": "Snow on practice route",
-            "description": "Riders encountered snow this deep during practice runs, forcing some to consider dropping down from media to piccolo distance.",
+            "name": "Historical snow on a 2022 practice route",
+            "description": "A rider encountered snow on a downloaded practice route before the 2022 edition. This is historical context and does not describe the redesigned 2026 course.",
             "source_video_ids": [
               "Kr8iV7wr-WA"
             ]
           },
           {
-            "name": "Route changes",
-            "description": "The downloaded practice route was not the actual race route being used on race day, causing confusion for participants.",
+            "name": "Historical route-file mismatch",
+            "description": "Before the 2022 edition, a rider said a downloaded practice route differed from the race-day course. For 2026, wait for the organizer's final GPX.",
             "source_video_ids": [
               "Kr8iV7wr-WA"
             ]
           },
           {
-            "name": "Washboardy descent to Comox Lake",
-            "description": "The downhill section was really washboardy and rough, with flat sections that were also washboardy.",
+            "name": "Regional washboard context",
+            "description": "A non-race 2023 Cumberland ride found a Comox Lake descent rough and washboarded. It is regional surface context, not a verified 2026 race segment.",
             "source_video_ids": [
               "t_BrOE_0-UM"
             ]
@@ -619,7 +611,7 @@
             ]
           },
           {
-            "text": "The downhill sections can be really washboardy and rough, making for challenging descents.",
+            "text": "A non-race 2023 Cumberland ride reported rough washboard near Comox Lake; the final 2026 race surface breakdown is unpublished.",
             "source_video_ids": [
               "t_BrOE_0-UM"
             ]
@@ -628,7 +620,7 @@
         "gear_mentions": [],
         "race_day_tips": [
           {
-            "text": "Come out for a practice run to verify the actual route, as downloaded routes may not match the race day course.",
+            "text": "Do not use historical downloads for 2026; wait for the organizer to publish the final redesigned-course GPX.",
             "source_video_ids": [
               "Kr8iV7wr-WA"
             ]
@@ -652,7 +644,7 @@
             "curated": true
           }
         ],
-        "search_text": "Forbidden Gravel takes riders into the mountains around Cumberland, British Columbia, utilizing logging roads that provide access to remote areas. The course features challenging washboardy descents, particularly on the downhill to Comox Lake. Riders report encountering snow during practice runs, which forced some to drop from longer distances to the piccolo category. A key challenge is route navigation, as practice routes downloaded beforehand may not match the actual race day course. The race organizers encouraged female participation by holding additional spots and offering discounts. Cumberland serves as the race hub and is known as one of the most popular mountain biking destinations on Vancouver Island, with Rider's Pizza serving as a popular stop for cyclists."
+        "search_text": "Forbidden Gravel is scheduled for September 20, 2026 in Cumberland, British Columbia. The organizer has announced approximately 40, 75, and 110 kilometer options with supported aid stations. The redesigned long course follows the Puntledge River and climbs Forbidden Plateau Road. The final 2026 GPX, elevation total, gradients, start time, and aid-station locations remain unpublished; historical route files and rider reports must not be presented as the current course."
       }
     },
     "photos": [

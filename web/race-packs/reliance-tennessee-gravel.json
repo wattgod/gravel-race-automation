@@ -1,14 +1,14 @@
 {
   "slug": "reliance-tennessee-gravel",
   "race_name": "Reliance Tennessee Gravel",
-  "distance_mi": 75.0,
+  "distance_mi": 70.0,
   "demands": {
-    "durability": 4,
-    "climbing": 5,
+    "durability": 2,
+    "climbing": 8,
     "vo2_power": 4,
-    "threshold": 8,
+    "threshold": 6,
     "technical": 6,
-    "heat_resilience": 1,
+    "heat_resilience": 0,
     "altitude": 2,
     "race_specificity": 6
   },
@@ -21,30 +21,48 @@
         "Threshold Ramps",
         "Descending Threshold"
       ],
-      "workout_context": "53ft/mi means long efforts at or near FTP on every climb. If your threshold cracks at minute 15, you'll walk the rest."
+      "workout_context": "116ft/mi means long efforts at or near FTP on every climb. If your threshold cracks at minute 15, you'll walk the rest."
     },
     {
       "category": "Gravel_Specific",
-      "score": 95,
+      "score": 100,
       "workouts": [
         "Surge and Settle",
         "Terrain Microbursts"
       ],
-      "workout_context": "Reliance Tennessee Gravel's Appalachian foothills, Forest gravel forces constant power changes. Surge over the rough stuff, settle on the smooth, repeat for 75 miles."
+      "workout_context": "Reliance Tennessee Gravel's Cherokee National Forest gravel, Chunky forest roads forces constant power changes. Surge over the rough stuff, settle on the smooth, repeat for 70 miles."
+    },
+    {
+      "category": "Over_Under",
+      "score": 97,
+      "workouts": [
+        "Classic Over-Unders",
+        "Ladder Over-Unders"
+      ],
+      "workout_context": "At Reliance Tennessee Gravel, surges push you above threshold and you have to recover while still riding. Over-unders train exactly that."
     },
     {
       "category": "Race_Simulation",
-      "score": 86,
+      "score": 90,
       "workouts": [
         "Breakaway Simulation",
         "Variable Pace Chaos",
         "Sector Simulation"
       ],
-      "workout_context": "Race-pace efforts that mimic Reliance Tennessee Gravel's demands. Pacing, fueling, and tactical decisions under fatigue. Practice the race before September."
+      "workout_context": "Race-pace efforts that mimic Reliance Tennessee Gravel's demands. Pacing, fueling, and tactical decisions under fatigue. Practice the race before April."
+    },
+    {
+      "category": "Mixed_Climbing",
+      "score": 80,
+      "workouts": [
+        "Seated/Standing Climbs",
+        "Variable Grade Simulation"
+      ],
+      "workout_context": "8,100ft of climbing on grades that change every minute. You need to switch from seated to standing without losing rhythm."
     },
     {
       "category": "G_Spot",
-      "score": 79,
+      "score": 77,
       "workouts": [
         "G-Spot Standard",
         "G-Spot Extended",
@@ -53,27 +71,8 @@
       "workout_context": "88\u201392% FTP is where you'll spend the hardest sustained miles of Reliance Tennessee Gravel. Train it until it feels boring."
     },
     {
-      "category": "Over_Under",
-      "score": 78,
-      "workouts": [
-        "Classic Over-Unders",
-        "Ladder Over-Unders"
-      ],
-      "workout_context": "At Reliance Tennessee Gravel, surges push you above threshold and you have to recover while still riding. Over-unders train exactly that."
-    },
-    {
-      "category": "Durability",
-      "score": 73,
-      "workouts": [
-        "Tired VO2max",
-        "Double Day Simulation",
-        "Progressive Fatigue"
-      ],
-      "workout_context": "75 miles on appalachian foothills gravel burns energy faster than the distance suggests. Train the fade resistance now."
-    },
-    {
       "category": "Critical_Power",
-      "score": 57,
+      "score": 60,
       "workouts": [
         "Above CP Repeats",
         "W-Prime Depletion"
@@ -82,55 +81,56 @@
     },
     {
       "category": "VO2max",
-      "score": 54,
+      "score": 57,
       "workouts": [
         "5x3 VO2 Classic",
         "Descending VO2 Pyramid",
         "Norwegian 4x8"
       ],
-      "workout_context": "When someone attacks on appalachian foothills gravel, you have 10 seconds to respond or you're off the back. This builds that response."
+      "workout_context": "8,100ft of climbing means repeated surges above threshold. VO2max work is how you survive the fifth climb, not just the first."
+    },
+    {
+      "category": "SFR_Muscle_Force",
+      "score": 53,
+      "workouts": [
+        "SFR Low Cadence",
+        "Force Repeats"
+      ],
+      "workout_context": "Low-cadence force work for 8,100ft of climbing. The slow, grinding ascents where you can't spin\u2014you push."
+    },
+    {
+      "category": "Durability",
+      "score": 50,
+      "workouts": [
+        "Tired VO2max",
+        "Double Day Simulation",
+        "Progressive Fatigue"
+      ],
+      "workout_context": "70 miles on cherokee National Forest mountain gravel burns energy faster than the distance suggests. Train the fade resistance now."
+    },
+    {
+      "category": "Anaerobic_Capacity",
+      "score": 47,
+      "workouts": [
+        "2min Killers",
+        "90sec Repeats"
+      ],
+      "workout_context": "Short, max efforts are unavoidable. Punchy climbs, gap closures, attacks on cherokee National Forest mountain gravel. If you haven't trained them, you'll crack."
     },
     {
       "category": "Norwegian_Double",
-      "score": 51,
+      "score": 40,
       "workouts": [
         "Norwegian 4x8 Classic",
         "Double Threshold"
       ],
       "workout_context": "Double-threshold training builds sustained power with less fatigue. More FTP per hour of training."
-    },
-    {
-      "category": "Mixed_Climbing",
-      "score": 48,
-      "workouts": [
-        "Seated/Standing Climbs",
-        "Variable Grade Simulation"
-      ],
-      "workout_context": "Varied gradients on appalachian foothills gravel demand climbing versatility. Sit the shallow stuff, stand the steep stuff, switch without thinking."
-    },
-    {
-      "category": "Anaerobic_Capacity",
-      "score": 44,
-      "workouts": [
-        "2min Killers",
-        "90sec Repeats"
-      ],
-      "workout_context": "Short, max efforts are unavoidable. Punchy climbs, gap closures, attacks on appalachian foothills gravel. If you haven't trained them, you'll crack."
-    },
-    {
-      "category": "Endurance",
-      "score": 40,
-      "workouts": [
-        "Pre-Race Openers",
-        "Terrain Simulation Z2"
-      ],
-      "workout_context": "Base fitness for Reliance Tennessee Gravel. Without this, the hard workouts break you down instead of building you up."
     }
   ],
   "race_overlay": {
-    "nutrition": "Target 40\u201360g carbs/hour for Reliance Tennessee Gravel\u2019s 75 miles. Front-load calories in the first half. One bottle per hour minimum, more in heat.",
-    "terrain": "Mixed terrain at Reliance Tennessee Gravel requires surface adaptability. Include weekly rides on appalachian foothills gravel to build confidence. Expect: appalachian foothills, forest gravel, regional event."
+    "nutrition": "Target 40\u201360g carbs/hour for Reliance Tennessee Gravel\u2019s 70 miles. Front-load calories in the first half. One bottle per hour minimum, more in heat.",
+    "terrain": "Mixed terrain at Reliance Tennessee Gravel requires surface adaptability. Include weekly rides on cherokee national forest mountain gravel to build confidence. Expect: cherokee national forest gravel, chunky forest roads, steep mountain climbs and descents."
   },
-  "pack_summary": "This 10-workout pack focuses on TT Threshold, Gravel Specific, and Race Simulation to prepare you for 75 miles of appalachian foothills gravel in Reliance, Tennessee.",
-  "generated_at": "2026-03-06"
+  "pack_summary": "This 10-workout pack focuses on TT Threshold, Gravel Specific, and Over Under to prepare you for 70 miles of cherokee national forest mountain gravel in Reliance, Tennessee.",
+  "generated_at": "2026-08-06"
 }

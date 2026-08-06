@@ -490,4 +490,7 @@ class TestRealRaceData:
         # Floor re-pinned 192->191 (Aug 6 2026): unsupported Glengarry and
         # InSayner route IDs were removed; the official R3G3 Epic route was
         # added, for a net reduction of one unverified geometry.
-        assert rwgps_count >= 191, f"Expected >=191 current RWGPS routes, got {rwgps_count}"
+        # Floor re-pinned 191->190 (Aug 6 2026): Atlas Mountain Race's old
+        # 2020 RWGPS route was retired after the organizer published the 2027
+        # course as a route collection without a verified single-route ID.
+        assert rwgps_count >= 190, f"Expected >=190 current RWGPS routes, got {rwgps_count}"

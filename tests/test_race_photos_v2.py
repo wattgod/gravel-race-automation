@@ -483,4 +483,6 @@ class TestRealRaceData:
         # Floor re-pinned 198->194 (Jul 24 2026): Phase 2 of the approved road
         # catalog migration archives 363 profiles; four had RWGPS route IDs.
         # See docs/specs/road-migration-map.json.
-        assert rwgps_count >= 194, f"Expected >=194 RWGPS routes, got {rwgps_count}"
+        # Forbidden Gravel's 2025 GPX was retired when the organizer announced
+        # a redesigned 2026 route without publishing its replacement.
+        assert rwgps_count >= 193, f"Expected >=193 current RWGPS routes, got {rwgps_count}"

@@ -4,7 +4,7 @@
   "name": "The Mid South",
   "description": "Oklahoma's weather lottery with a $100K purse and a guaranteed Bobby hug.",
   "sport": "Gravel Cycling",
-  "startDate": "2026-03-13",
+  "startDate": "2027-03-12",
   "location": {
     "@type": "Place",
     "name": "Stillwater, Oklahoma",
@@ -13,12 +13,6 @@
       "addressLocality": "Stillwater",
       "addressRegion": "Oklahoma"
     }
-  },
-  "offers": {
-    "@type": "Offer",
-    "price": "165",
-    "priceCurrency": "USD",
-    "availability": "https://schema.org/LimitedAvailability"
   },
   "aggregateRating": {
     "@type": "AggregateRating",

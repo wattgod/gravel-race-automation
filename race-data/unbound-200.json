@@ -6,12 +6,13 @@
     "tagline": "The Super Bowl of gravel. 200 miles through Kansas Flint Hills. Where legends are made and dreams die in the dust.",
     "vitals": {
       "distance_mi": 200,
-      "elevation_ft": 11000,
+      "elevation_ft": null,
+      "course_status": "source_blocked",
       "location": "Emporia, Kansas",
       "location_badge": "EMPORIA, KANSAS",
       "county": "Lyon County",
       "date": "Late May annually",
-      "date_specific": "2026: May 30",
+      "date_specific": "2027: June 5; 2027 route and elevation are still in development",
       "terrain_types": [
         "Flint Hills gravel",
         "rolling hills",
@@ -19,11 +20,11 @@
         "cattle guards"
       ],
       "field_size": "~1,500 riders in the 200-mile; ~5,000 total across all distances",
-      "start_time": "Saturday 6:00 AM",
-      "registration": "Random lottery plus qualifier coins, charity entries, volunteer & Life Time member paths. You don't buy your way in; you win the right to suffer.. Cost: $345",
-      "prize_purse": "$100,000 (split equally men/women)",
-      "aid_stations": "2 full checkpoints + 2 water oases. Everything between those points is on you, your crew, and whatever you can fix in the ditch.",
-      "cutoff_time": "None. (Finish by midnight encouraged)",
+      "start_time": "2027 start time pending",
+      "registration": "2027 lottery opens November 1 and closes November 15; fee is not yet published.",
+      "prize_purse": "2027 purse not yet published",
+      "aid_stations": "2027 aid plan pending with the edition-specific route.",
+      "cutoff_time": "2027 cutoff pending",
       "lat": 38.404,
       "lng": -96.1816
     },
@@ -212,8 +213,8 @@
     "guide_variables": {
       "race_name": "Unbound Gravel 200",
       "race_distance": "200 miles",
-      "race_elevation": "11,000 feet",
-      "race_date": "May",
+      "race_elevation": "TBD for the 2027 route",
+      "race_date": "June 5, 2027",
       "race_location": "Emporia, Kansas",
       "race_terrain": "Flint Hills gravel roads",
       "race_weather": "Hot and humid, typically 85-95°F",
@@ -382,14 +383,15 @@
       }
     },
     "research_metadata": {
-      "data_confidence": "migrated",
-      "validation_status": "pending",
+      "data_confidence": "moderate",
+      "validation_status": "source_blocked",
       "sources": [
-        "v1",
-        "v2",
-        "v3"
+        "https://www.unboundgravel.com/",
+        "https://www.unboundgravel.com/registration/"
       ],
-      "migration_notes": [],
+      "migration_notes": [
+        "2026-08-06: Organizer confirms June 5, 2027 and the 200-mile category, but states that 2027 routes are still in development. Edition-specific route and elevation facts are intentionally withheld."
+      ],
       "research_strength": {
         "overall": 92.6,
         "grade": "A",

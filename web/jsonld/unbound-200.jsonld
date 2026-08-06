@@ -4,7 +4,7 @@
   "name": "Unbound Gravel 200",
   "description": "The Super Bowl of gravel. 200 miles through Kansas Flint Hills. Where legends are made and dreams die in the dust.",
   "sport": "Gravel Cycling",
-  "startDate": "2026-05-30",
+  "startDate": "2027-06-05",
   "location": {
     "@type": "Place",
     "name": "Emporia, Kansas",
@@ -13,12 +13,6 @@
       "addressLocality": "Emporia",
       "addressRegion": "Kansas"
     }
-  },
-  "offers": {
-    "@type": "Offer",
-    "price": "345",
-    "priceCurrency": "USD",
-    "availability": "https://schema.org/LimitedAvailability"
   },
   "aggregateRating": {
     "@type": "AggregateRating",

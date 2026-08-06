@@ -5,13 +5,13 @@
     "display_name": "Oregon Trail Gravel Grinder",
     "tagline": "5 days. 5 stages. The Grand Tour of American Gravel.",
     "vitals": {
-      "distance_mi": 375,
-      "elevation_ft": 35000,
+      "distance_mi": 350,
+      "elevation_ft": 30000,
       "location": "Central Oregon (multiple towns)",
       "location_badge": "CENTRAL OREGON",
       "county": "Multiple counties",
       "date": "Early July annually",
-      "date_specific": "2026: July 8-12",
+      "date_specific": "2027: July 7-11",
       "terrain_types": [
         "High desert gravel",
         "Forest service roads",
@@ -143,12 +143,14 @@
       "ridewithgps_name": "2025 Oregon Trail Gravel Grinder Full Route"
     },
     "research_metadata": {
-      "data_confidence": "migrated",
-      "validation_status": "pending",
+      "data_confidence": "researched",
+      "validation_status": "verified",
       "sources": [
-        "v2"
+        "https://www.oregontrailgravelgrinder.com/"
       ],
-      "migration_notes": [],
+      "migration_notes": [
+        "2026-08-06: Organizer confirms July 7-11, 2027 and the competitive five-day Pioneer stage race at approximately 350 miles and 30,000 feet of climbing."
+      ],
       "research_strength": {
         "overall": 91.8,
         "grade": "A",

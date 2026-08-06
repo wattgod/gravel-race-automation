@@ -6,14 +6,15 @@
     "tagline": "350 miles of Kansas limestone hell with zero aid stations. The ultimate test of whether you actually like riding bikes or just think you do.",
     "vitals": {
       "distance_mi": 350,
-      "elevation_ft": 14000,
+      "elevation_ft": null,
+      "course_status": "source_blocked",
       "location": "Emporia, Kansas",
       "location_badge": "EMPORIA, KANSAS",
       "date": "Late May annually",
-      "date_specific": "2026: Friday, May 29 (3:00 PM start)",
+      "date_specific": "2027: Friday, June 4; 2027 route and elevation are still in development",
       "lat": 38.404,
       "lng": -96.1816,
-      "start_time": "3:00 PM Frid"
+      "start_time": "2027 start time pending"
     },
     "gravel_god_rating": {
       "overall_score": 90,
@@ -346,6 +347,15 @@
       "camping": "Camping\n\n**Lyon County Fairgrounds**\n- RV and tent camping available\n- Event-approved camping area\n\n**Emporia Senior Center**\n- T"
     },
     "research_metadata": {
+      "data_confidence": "moderate",
+      "validation_status": "source_blocked",
+      "sources": [
+        "https://www.unboundgravel.com/events-xl/",
+        "https://www.unboundgravel.com/"
+      ],
+      "migration_notes": [
+        "2026-08-06: Organizer confirms June 4, 2027 and an approximately 350-mile self-supported XL, but states that 2027 routes are still in development. Edition-specific route and elevation facts are intentionally withheld."
+      ],
       "research_strength": {
         "overall": 89.5,
         "grade": "A",

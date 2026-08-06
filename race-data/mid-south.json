@@ -5,24 +5,25 @@
     "display_name": "The Mid South",
     "tagline": "Oklahoma's weather lottery with a $100K purse and a guaranteed Bobby hug.",
     "vitals": {
-      "distance_mi": 100,
-      "elevation_ft": 6000,
+      "distance_mi": 106,
+      "elevation_ft": null,
+      "course_status": "source_blocked",
       "location": "Stillwater, Oklahoma",
       "location_badge": "STILLWATER, OKLAHOMA",
       "county": "Payne County",
       "date": "Mid-March annually",
-      "date_specific": "2026: March 13-14 (Pro race Friday, Amateur race Saturday)",
+      "date_specific": "2027: March 12 (Pro 100) and March 13 (main cycling events); 2027 route and elevation pending",
       "terrain_types": [
         "Oklahoma red clay roads",
         "rolling hills",
         "exposed ridgelines",
         "minimal technical features"
       ],
-      "field_size": "2,500+ riders (100mi), plus 50mi and 12mi options",
-      "start_time": "Pro Race: Friday 1:00 PM (2026 new format)<br>Amateur Race: Saturday 6:00 AM",
-      "registration": "Lottery system ('The Randomizer'). Opens October. Cost: ~$165 (100mi)",
-      "prize_purse": "$100,000 (split equally between elite men and women)",
-      "aid_stations": "Miles ~30, 60. Water, snacks, neutral support. Sparse but sufficient.",
+      "field_size": "2027 field cap not yet published; 106mi, 58mi, and 12mi cycling entries offered",
+      "start_time": "Pro 100 on Friday, March 12; amateur cycling on Saturday, March 13; exact 2027 start times pending",
+      "registration": "2027 registration is open through the organizer-linked Movemint page.",
+      "prize_purse": "2027 purse not yet published",
+      "aid_stations": "2027 aid plan pending with the edition-specific route.",
       "cutoff_time": "None. Finish when you finish. Bobby hugs everyone.",
       "lat": 36.1156,
       "lng": -97.0586
@@ -154,9 +155,9 @@
     },
     "guide_variables": {
       "race_name": "The Mid South",
-      "race_distance": "100 miles",
-      "race_elevation": "4,500 feet",
-      "race_date": "Mid-March",
+      "race_distance": "106 miles",
+      "race_elevation": "TBD for the 2027 route",
+      "race_date": "March 13, 2027",
       "race_location": "Stillwater, Oklahoma",
       "race_terrain": "Oklahoma red clay gravel roads",
       "race_weather": "Weather lottery: 40-75°F swings, potential freezing rain, heat, or wildfires",
@@ -192,13 +193,16 @@
       }
     ],
     "research_metadata": {
-      "data_confidence": "migrated",
-      "validation_status": "pending",
+      "data_confidence": "moderate",
+      "validation_status": "source_blocked",
       "sources": [
-        "v2",
-        "v3"
+        "https://www.midsouthgravel.com/",
+        "https://www.movemint.cc/events/the_mid_south_2027",
+        "https://www.midsouthgravel.com/routes"
       ],
-      "migration_notes": [],
+      "migration_notes": [
+        "2026-08-06: Organizer registration confirms the main cycling events on March 13, 2027 and labels the long amateur course 106 miles. The route page still publishes 2026 100-mile course details, so the 2027 route and elevation remain source-blocked."
+      ],
       "research_strength": {
         "overall": 93.2,
         "grade": "A",

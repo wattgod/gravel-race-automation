@@ -1,7 +1,17 @@
 # Chequamegon MTB Festival / Fat Tire Festival - Comprehensive Research
 
-**Research Date:** January 2026
+**Research Date:** January 2026; future-date and course refresh August 6, 2026
 **Official Website:** https://www.cheqmtb.com/
+
+---
+
+## AUGUST 2026 VERIFICATION UPDATE
+
+- The official event homepage publishes **September 18, 2027** under Future Dates: https://www.cheqmtb.com/
+- The official Chequamegon 40 page identifies the main race as a point-to-point course from Hayward to Cable over the American Birkebeiner Ski Trail and other wooded trails: https://www.cheqmtb.com/chequamegon-40/
+- That page links the official age-group route at https://ridewithgps.com/routes/44019400. The route payload reports 67,044.4 meters and 780.575 meters of climbing, or 41.7 miles and 2,561 feet.
+- The published race-day schedule, aid stations, cutoff, pricing, and corral details remain labeled for 2026. They are retained only as prior-edition context and are not asserted as 2027 facts.
+- The 14-dimension score was re-audited against the v2.2 rubric. Technicality moved from 5 to 3 because this is mixed off-road terrain with handling demands, not singletrack/extreme terrain; tactical congestion does not count as course technicality. The overall score therefore moves from 73 to 70, remaining Tier 2.
 
 ---
 

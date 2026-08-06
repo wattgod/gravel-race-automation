@@ -441,9 +441,9 @@ class TestComputeWakeTime:
         assert compute_wake_time("TBD") is None
 
     def test_race_morning_has_wake_time(self):
-        """Unbound has start_time — wake-up should appear in race morning."""
+        """Leadville has a verified 6:30 AM start — wake-up should appear."""
         guide = load_guide_sections()
-        rd, _ = _load_test_race(FULL_SLUG)
+        rd, _ = _load_test_race("leadville-100")
         html = build_pk_race_morning(guide, rd)
         assert "alarm" in html.lower()
 

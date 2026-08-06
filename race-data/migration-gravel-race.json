@@ -10,8 +10,8 @@
       "location": "Maasai Mara, Kenya",
       "location_badge": "MAASAI MARA, KENYA",
       "county": "",
-      "date": "Early June annually",
-      "date_specific": "2026: June 10-14",
+      "date": "Next edition date pending",
+      "date_specific": "2027: date not announced",
       "terrain_types": [
         "Red volcanic dust",
         "hard-packed savanna trails",
@@ -106,7 +106,7 @@
       "food": "Included in race package. Meals provided at camps.",
       "packet_pickup": "Race briefing at start location. All gear handled.",
       "parking": "N/A - airport transfers included",
-      "official_site": "https://migrationgravel.com",
+      "official_site": "https://www.migrationgravelrace.com/",
       "camping": "camping experience like it"
     },
     "history": {
@@ -165,12 +165,15 @@
       "map_url": null
     },
     "research_metadata": {
-      "data_confidence": "migrated",
-      "validation_status": "pending",
+      "data_confidence": "moderate",
+      "validation_status": "source_blocked",
       "sources": [
-        "v2"
+        "https://www.migrationgravelrace.com/",
+        "https://www.migrationgravelrace.com/schedule"
       ],
-      "migration_notes": [],
+      "migration_notes": [
+        "2026-08-06: The organizer markets the next edition as 2027 but still publishes June 16-19, 2026 in both its headline facts and detailed schedule. No internally consistent 2027 dates are available."
+      ],
       "research_strength": {
         "overall": 93.6,
         "grade": "A",

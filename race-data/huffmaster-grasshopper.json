@@ -1,0 +1,216 @@
+{
+  "race": {
+    "name": "Huffmaster Grasshopper",
+    "slug": "huffmaster-grasshopper",
+    "display_name": "Huffmaster Grasshopper",
+    "tagline": "Ninety mixed-terrain miles where wind, mud, and the back-half climbs decide the race.",
+    "vitals": {
+      "distance_mi": 90,
+      "elevation_ft": 4866,
+      "course_status": "source_blocked",
+      "location": "Maxwell, California",
+      "location_badge": "MAXWELL, CA",
+      "date": "Annual; next edition date pending",
+      "date_specific": "TBD — next edition date pending",
+      "last_confirmed_date": "2026-02-28",
+      "terrain_types": [
+        "Gravel roads",
+        "Lightly traveled pavement",
+        "Fast dirt descents",
+        "Open valley roads"
+      ],
+      "field_size": "Several hundred riders; exact 2026 count not published",
+      "start_time": "8:30 AM in 2026",
+      "registration": "2026 registration closed; no official 2027 edition published",
+      "prize_purse": "Cash prizes for top five pro men and women in 2026",
+      "aid_stations": "Two long-course aid stations in 2026",
+      "cutoff_time": "Not published",
+      "surface_breakdown": {
+        "paved_pct": 54,
+        "dirt_pct": 46
+      },
+      "lat": 39.2763,
+      "lng": -122.1914
+    },
+    "gravel_god_rating": {
+      "logistics": 2,
+      "length": 3,
+      "technicality": 3,
+      "elevation": 3,
+      "climate": 4,
+      "altitude": 2,
+      "adventure": 3,
+      "prestige": 3,
+      "race_quality": 4,
+      "experience": 3,
+      "community": 4,
+      "field_depth": 4,
+      "value": 3,
+      "expenses": 4,
+      "cultural_impact": 3,
+      "overall_score": 69,
+      "tier": 2,
+      "tier_label": "TIER 2",
+      "discipline": "gravel",
+      "display_tier": 2
+    },
+    "biased_opinion_ratings": {
+      "logistics": {
+        "score": 2,
+        "explanation": "Maxwell sits directly off Interstate 5 and the race starts at the high school, making access unusually simple for a rural gravel event."
+      },
+      "length": {
+        "score": 3,
+        "explanation": "The 90-mile long course sits squarely in the all-day endurance category without becoming an ultra."
+      },
+      "technicality": {
+        "score": 3,
+        "explanation": "Across 46% dirt, most of the difficulty comes from fast loose descending, mud, and pack compression at pinch points rather than continuous singletrack."
+      },
+      "elevation": {
+        "score": 3,
+        "explanation": "The 4,866 feet are back-loaded, with the decisive gravel climb near mile 40 and additional climbing after the field has already covered hours of flat road."
+      },
+      "climate": {
+        "score": 4,
+        "explanation": "Documented editions have combined headwinds, cold rain, mud, and even snow, making February conditions a defining variable rather than background noise."
+      },
+      "altitude": {
+        "score": 2,
+        "explanation": "The main climb tops near 1,700 feet, so altitude does not materially limit performance."
+      },
+      "adventure": {
+        "score": 3,
+        "explanation": "Remote roads between the Sacramento Valley and Mendocino National Forest create real isolation, though the route remains a road-and-gravel race rather than an expedition."
+      },
+      "prestige": {
+        "score": 3,
+        "explanation": "Huffmaster is an established Grasshopper fixture with repeated national cycling coverage and recognizable winners."
+      },
+      "race_quality": {
+        "score": 4,
+        "explanation": "Chip timing, emergency medical support, aid stations, event photography, cash prizes, and a full finish meal support a mature race operation."
+      },
+      "experience": {
+        "score": 3,
+        "explanation": "The remote back half and tactical surface changes are memorable, but the long flat approach makes the experience more race-specific than scenic-tour spectacular."
+      },
+      "community": {
+        "score": 4,
+        "explanation": "Grasshopper combines serious racing with coffee, lunch, a finish party, junior fields, teams, and a long-standing NorCal scene."
+      },
+      "field_depth": {
+        "score": 4,
+        "explanation": "The 2026 race included former US gravel champion Brennan Wertz and other national-level athletes, with both elite races decided in close sprints."
+      },
+      "value": {
+        "score": 3,
+        "explanation": "Support and inclusions are strong, but the completed event page no longer exposes a reliable entry price for comparison."
+      },
+      "expenses": {
+        "score": 4,
+        "explanation": "A drive-to race in a small Interstate 5 town can be done with ordinary lodging and food costs."
+      },
+      "cultural_impact": {
+        "score": 3,
+        "explanation": "Huffmaster has a durable identity inside the NorCal mixed-terrain calendar and earns national media attention beyond a typical regional gravel race."
+      }
+    },
+    "course_description": {
+      "character": "A tactical 54-percent paved, 46-percent dirt loop whose mostly flat first 25 miles give way to a climbing and descending contest in the remote back half.",
+      "signature_challenge": "The punchy gravel climb from roughly mile 40 to 43 breaks the large front group, then a fast dirt descent and later Huffmaster Ranch climb punish anyone who spent too much in the valley wind.",
+      "suffering_zones": [
+        {
+          "label": "Valley headwind",
+          "description": "The first 25 paved miles can become expensive when wind turns an apparently easy start into a positioning fight."
+        },
+        {
+          "label": "County Road 303 climb",
+          "description": "The course narrows and kicks upward near mile 40, historically splitting the main field into small groups."
+        },
+        {
+          "label": "Huffmaster Ranch and return",
+          "description": "A late climb followed by a long downhill drag rewards riders who can still work with a group after three or more hours."
+        }
+      ]
+    },
+    "terrain": {
+      "primary": "Mixed gravel and tarmac",
+      "surface": "54% paved and 46% dirt on the official 2026 long course",
+      "technical_rating": 3,
+      "features": [
+        "Wind-exposed valley pavement",
+        "Mud-prone gravel pinch points",
+        "Fast winding dirt descent",
+        "Back-half climbing"
+      ]
+    },
+    "climate": {
+      "primary": "Northern California late winter",
+      "description": "February weather can range from dry and fast to cold mud, snow, and persistent headwind.",
+      "challenges": [
+        "Headwind",
+        "Cold rain",
+        "Mud",
+        "Occasional snow"
+      ]
+    },
+    "logistics": {
+      "official_site": "https://www.grasshopperadventureseries.com/huffmaster",
+      "getting_there": "Maxwell is along Interstate 5; 2026 packet pickup and the start were based at Maxwell High School.",
+      "accommodation": "Lodging is limited in Maxwell, so many riders will base in a larger nearby town.",
+      "parking": "Organizer-designated school and town parking; follow the current rider guide when a new edition is announced."
+    },
+    "history": {
+      "founded": null,
+      "overview": "Huffmaster is a recurring mixed-terrain round of the Grasshopper Adventure Series.",
+      "notable_moments": [
+        "The 2023 edition became a mud-and-snow survival race with heavy attrition.",
+        "Brennan Wertz won the 2026 men's race in a course-record 3:50:02; Alia Shafi won the women's race."
+      ]
+    },
+    "final_verdict": {
+      "one_liner": "A deceptively tactical ninety-miler where the easy-looking road start merely delays the real bill.",
+      "who_is_it_for": "Riders who can race efficiently in a group, climb hard after two hours, descend loose roads at speed, and adapt equipment to late-winter conditions.",
+      "is_it_worth_it": "Yes when the organizer announces the next edition. It has field depth and course character that most regional mixed-terrain races cannot match; a 2027 plan remains blocked until official facts exist.",
+      "pro_tips": [
+        "Train long tempo in wind and learn to conserve energy inside a moving group.",
+        "Do not choose tires from the paved percentage alone; inspect the final mud report.",
+        "Practice a hard 10-15 minute climb after two hours of endurance work.",
+        "Fuel before the mile-40 split, not after it."
+      ]
+    },
+    "citations": [
+      {
+        "url": "https://www.grasshopperadventureseries.com/huffmaster",
+        "category": "official",
+        "label": "Huffmaster — official event page"
+      },
+      {
+        "url": "https://www.cyclingnews.com/pro-cycling/racing/grasshopper-adventure-series-brennan-wertz-delivers-knock-out-punch-in-three-up-sprint-for-third-consecutive-win-at-huffmaster/",
+        "category": "media",
+        "label": "Cyclingnews — 2026 results and race report"
+      },
+      {
+        "url": "https://www.altovelo.org/race-reports/race-report-2025-grasshopper-huffmaster-mens-pro",
+        "category": "rider_report",
+        "label": "Alto Velo — 2025 rider report"
+      },
+      {
+        "url": "https://berkeleybikeclub.org/race-repoorts/huffmaster-race-report-from-glen-a-2023",
+        "category": "rider_report",
+        "label": "Berkeley Bicycle Club — 2023 mud and snow report"
+      },
+      {
+        "url": "https://www.renehersecycles.com/brennan-wins-huffmaster-hopper-2026/",
+        "category": "industry",
+        "label": "Rene Herse — 2026 winner report"
+      }
+    ],
+    "research_metadata": {
+      "researched_at": "2026-08-06",
+      "next_edition_status": "source_blocked",
+      "known_gap": "The organizer has not published a 2027 date, route, price, or registration window."
+    }
+  }
+}

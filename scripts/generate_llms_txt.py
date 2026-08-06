@@ -71,6 +71,15 @@ def _md_escape(val) -> str:
     return s.replace("|", "\\|").replace("\n", " ")
 
 
+def _unavailable_training_plan_slugs(race_data_dir: Path) -> set[str]:
+    """Return races explicitly barred from race-specific plan artifacts."""
+    try:
+        from scripts.training_plan_inventory import unavailable_training_plan_slugs
+    except ImportError:
+        from training_plan_inventory import unavailable_training_plan_slugs
+    return unavailable_training_plan_slugs(race_data_dir)
+
+
 # ---------------------------------------------------------------------------
 # llms.txt (brief)
 # ---------------------------------------------------------------------------
@@ -350,6 +359,7 @@ def main():
         return 1
     active_slugs = {race["slug"] for race in index}
     training_plan_slugs &= active_slugs
+    training_plan_slugs -= _unavailable_training_plan_slugs(RACE_DATA_DIR)
     print(
         f"Loaded {len(training_plan_slugs)} active race training guides "
         f"from {inventory_source} inventory"

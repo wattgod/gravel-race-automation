@@ -83,13 +83,15 @@ class TestCatalogContract:
     ):
         # Phase 1 source snapshot: 733 active profiles. Phase 2 removes the
         # 363 redirect/hub_redirect records and keeps RVO, yielding 370.
-        # New gravel profiles added after migration increase the live catalog.
+        # Subsequent catalog work has a net -3: the prior +1 baseline, removal
+        # of eight fabricated profiles, and addition of four verified Grasshopper
+        # event profiles.
         source_count = migration_map["source_snapshot"]["gravel_god"][
             "race_data_total_profiles"
         ]
         departing_count = len(road_migration.redirected_entries(migration_map))
-        post_migration_additions = 1
-        assert len(race_index) == source_count - departing_count + post_migration_additions == 371
+        post_migration_additions = -3
+        assert len(race_index) == source_count - departing_count + post_migration_additions == 367
 
     def test_archived_profiles_never_feed_generated_index(
         self, migration_map, race_index
@@ -196,6 +198,14 @@ class TestRedirectGeneration:
         assert block.count(road_migration.REDIRECT_SECTION_BEGIN) == 1
         assert block.count(road_migration.REDIRECT_SECTION_END) == 1
         assert len(push_wordpress.ROAD_MIGRATION_REDIRECT_RULES) == 726
+
+    def test_source_blocked_colombia_subpages_redirect_to_race_profile(self):
+        block = push_wordpress.REDIRECT_BLOCK
+
+        assert (
+            "RewriteRule ^race/(gravel-bogota|gravel-medellin)/"
+            "(training-plan|tires)/?$ /race/$1/ [R=302,L]"
+        ) in block
 
 
 class TestRegeneratedCopies:

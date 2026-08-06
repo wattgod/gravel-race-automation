@@ -3,15 +3,17 @@
     "name": "Ardenne Gravel Stages",
     "slug": "ardenne-gravel-stages",
     "display_name": "Ardenne Gravel Stages",
-    "tagline": "Belgian Ardennes multi-stage gravel in Vielsalm/Engreux.",
+    "tagline": "Three days of Belgian Ardennes gravel from Vielsalm to Baraque Fraiture.",
     "vitals": {
-      "distance_mi": 168,
-      "elevation_ft": 17982,
-      "location": "Vielsalm/Engreux, Belgian Ardennes",
+      "distance_mi": 165,
+      "elevation_ft": 14009,
+      "course_status": "source_blocked",
+      "location": "Vielsalm, Gouvy, and Baraque Fraiture, Belgium",
       "location_badge": "VIELSALM, BELGIUM",
       "county": "Luxembourg Province",
-      "date": "Late September annually",
-      "date_specific": "2026: September 25",
+      "date": "Annual; next edition date pending",
+      "date_specific": "TBD — last confirmed July 3-5, 2026; next edition not announced",
+      "last_confirmed_date": "2026-07-03",
       "terrain_types": [
         "Belgian Ardennes",
         "Multi-stage",
@@ -43,9 +45,9 @@
       "technical_rating": 2,
       "features": [
         "Multi-stage format",
-        "Significant hilly (12000 feet total)",
+        "14,009 feet of climbing across three stages",
         "Forest scenery",
-        "Vielsalm/Engreux setting",
+        "Vielsalm, Gouvy, and Baraque Fraiture stages",
         "Regional event"
       ]
     },
@@ -73,7 +75,7 @@
     },
     "biased_opinion": {
       "verdict": "Belgian Ardennes Multi-Stage Gravel",
-      "summary": "Ardenne Gravel Stages is a regional multi-stage event in Vielsalm/Engreux, Belgian Ardennes—hilly terrain with significant elevation. The multi-stage format and Ardennes forest are appealing, but the moderate organization and regional field keep it firmly in Tier 3. Vielsalm provides good access.",
+      "summary": "Ardenne Gravel Stages links Vielsalm, Gouvy, and Baraque Fraiture across three hard days in the Belgian Ardennes. The 2026 edition covered 165 miles and 14,009 feet, but there is no 2027 date yet.",
       "strengths": [
         "Multi-stage format",
         "Ardennes forest scenery",
@@ -92,7 +94,7 @@
     },
     "final_verdict": {
       "score": "51 / 100",
-      "one_liner": "Belgian Ardennes multi-stage gravel in Vielsalm/Engreux.",
+      "one_liner": "Three Belgian Ardennes stages, 165 miles, and 14,009 feet of climbing.",
       "should_you_race": "If you're in Belgium/Europe and want a multi-stage local event—yes, it's solid. If you're international—there are better options.",
       "alternatives": "For better Belgian events: Houffa Gravel. For similar multi-stage events: other European stage races.",
       "alternative_slugs": [
@@ -101,11 +103,11 @@
     },
     "logistics": {
       "airport": "Brussels (BRU) 2 hours or Luxembourg (LUX) 1 hour",
-      "lodging_strategy": "Vielsalm/Engreux has moderate lodging options. Multi-day stay required.",
+      "lodging_strategy": "Base in the Vielsalm/Gouvy area and plan transfers between three stage locations.",
       "food": "Vielsalm has full dining options. Stock nutrition.",
       "packet_pickup": "Day before typically",
       "parking": "At start/finish",
-      "official_site": "Check Ardenne Gravel Stages website",
+      "official_site": "https://www.ardennegravelstages.com/en",
       "camping": "camping access, Sunday pasta party"
     },
     "history": {
@@ -140,16 +142,16 @@
           "named_section": "Final Stage"
         }
       ],
-      "signature_challenge": "Belgian Ardennes multi-stage hills in Vielsalm/Engreux.",
+      "signature_challenge": "Recovering well enough to climb again across three consecutive Ardennes stages.",
       "ridewithgps_id": "52808946",
       "ridewithgps_name": "Ardenne Gravel Stages - Etape 1-20126513"
     },
     "guide_variables": {
       "race_name": "Ardenne Gravel Stages",
-      "race_distance": "180 miles (multi-stage)",
-      "race_elevation": "12,000 feet (total)",
-      "race_date": "Summer",
-      "race_location": "Vielsalm/Engreux, Belgian Ardennes",
+      "race_distance": "165 miles across three stages",
+      "race_elevation": "14,009 feet total",
+      "race_date": "Next edition date pending",
+      "race_location": "Vielsalm, Gouvy, and Baraque Fraiture, Belgium",
       "race_terrain": "Belgian Ardennes gravel",
       "race_weather": "Belgian summer mild",
       "race_challenges": [
@@ -180,13 +182,13 @@
       }
     ],
     "research_metadata": {
-      "data_confidence": "moderate",
-      "validation_status": "pending",
+      "data_confidence": "high for the completed 2026 edition; next edition pending",
+      "validation_status": "source_blocked",
       "sources": [
-        "belgian_cycling_community"
+        "https://www.ardennegravelstages.com/en"
       ],
       "migration_notes": [
-        "Generated from regional information"
+        "2026-08-06: The organizer still publishes only the completed July 3-5, 2026 edition. Its three stages total 265 km and 4,270 m (approximately 165 miles and 14,009 feet). No 2027 edition or date is announced."
       ],
       "research_strength": {
         "overall": 84.7,
@@ -254,7 +256,7 @@
       "tier_overrides": {},
       "marketplace_variables": {
         "race_name": "Ardenne Gravel Stages",
-        "race_hook": "Belgian Ardennes multi-stage gravel in Vielsalm/Engreux.",
+        "race_hook": "Three Belgian Ardennes stages totaling 165 miles and 14,009 feet.",
         "race_hook_detail": "Regional multi-stage event with hilly terrain.",
         "distance": "180",
         "dark_mile": "90",
@@ -267,7 +269,7 @@
     "biased_opinion_ratings": {
       "logistics": {
         "score": 3,
-        "explanation": "Packet pickup windows are reasonable (09:00-11:30 Friday, 07:00-08:45 Saturday) with secure parking and camping access. However, stages spread across different towns (Vielsalm, Engreux, Baraque Fraiture) complicate logistics for non-campers, and zero airport guidance leaves international travel planning to you."
+        "explanation": "Packet pickup windows are reasonable with secure parking and camping access. Stages spread across Vielsalm, Gouvy, and Baraque Fraiture complicate logistics for non-campers, and international travel still requires self-planning."
       },
       "length": {
         "score": 5,
@@ -283,15 +285,15 @@
       },
       "climate": {
         "score": 3,
-        "explanation": "Late September conditions turned Stage 1 into a \"muddy course\" that affected elite tactics, with Trouwborst taking early control in the slick conditions. Belgian Ardennes shoulder season means 50-65°F temps with rain odds that can make gravel technical when wet. Similar climate challenges to SBT GRVL."
+        "explanation": "Past editions show that rain can turn the Ardennes stages muddy enough to change tactics and equipment choices. A July date improves the temperature odds, not the surface guarantee."
       },
       "altitude": {
         "score": 1,
-        "explanation": "The Ardennes barely reaches 2,300 feet at Baraque Fraiture, with stages starting much lower around Vielsalm and Engreux. Zero altitude considerations needed—this is sea-level racing with hills, not mountain suffering. Lower altitude than Gravel Worlds — no thin-air concerns."
+        "explanation": "The Ardennes barely reaches 2,300 feet at Baraque Fraiture, with stages starting much lower around Vielsalm and Gouvy. This is climbing without meaningful altitude stress."
       },
       "adventure": {
         "score": 3,
-        "explanation": "Multi-day stage racing through Wallonian forests with different daily start locations (Vielsalm, Centre Adeps d'Engreux, Baraque Fraiture) creates proper adventure variety. The format tests \"endurance, technique, and spirit\" across the Ardennes' dramatic landscapes over three distinct stages."
+        "explanation": "Multi-day racing through Wallonian forests with daily starts in Vielsalm, Gouvy, and Baraque Fraiture creates real stage-race variety. The format tests recovery as much as one-day fitness."
       },
       "prestige": {
         "score": 2,
@@ -319,7 +321,7 @@
       },
       "expenses": {
         "score": 2,
-        "explanation": "Registration runs €150-250. Belgian Ardennes tourist areas like Vielsalm and Engreux punish wallets for lodging beyond included camping. Limited lodging available at Centre Adeps d'Engreux for multi-stage participants, but no airport logistics support leaves international travelers figuring out connections solo. Higher total cost than Badlands."
+        "explanation": "Registration has historically run €150-250. A three-day stay and transfers among Vielsalm, Gouvy, and Baraque Fraiture raise the real cost, while international travelers must arrange their own airport connections."
       }
     },
     "citations": [

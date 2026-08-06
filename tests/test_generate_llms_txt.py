@@ -21,6 +21,7 @@ from scripts.generate_llms_txt import (
     _fmt_elev,
     _num,
     _race_summary,
+    _unavailable_training_plan_slugs,
 )
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
@@ -95,6 +96,19 @@ class TestLlmsTxt:
         assert "2 race-specific training guides" in txt
         for stale_count in ("733", "735", "744"):
             assert stale_count not in txt
+
+    def test_unavailable_plan_slugs_are_detected_from_canonical_profiles(self, tmp_path):
+        (tmp_path / "ready.json").write_text(json.dumps({
+            "race": {"slug": "ready", "vitals": {}}
+        }))
+        (tmp_path / "blocked.json").write_text(json.dumps({
+            "race": {
+                "slug": "blocked",
+                "vitals": {"pack_status": "unavailable"},
+            }
+        }))
+
+        assert _unavailable_training_plan_slugs(tmp_path) == {"blocked"}
 
 
 class TestLlmsFullTxt:

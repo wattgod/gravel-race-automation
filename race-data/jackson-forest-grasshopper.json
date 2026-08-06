@@ -1,0 +1,211 @@
+{
+  "race": {
+    "name": "Jackson Forest Grasshopper",
+    "slug": "jackson-forest-grasshopper",
+    "display_name": "Jackson Forest Grasshopper",
+    "tagline": "Thirty-two miles of redwood singletrack and gravel that belong on a hardtail, not a marketing spreadsheet.",
+    "vitals": {
+      "distance_mi": 32,
+      "elevation_ft": 4138,
+      "course_status": "source_blocked",
+      "location": "Caspar, California",
+      "location_badge": "CASPAR, CA",
+      "date": "Annual; next edition date pending",
+      "date_specific": "TBD — next edition date pending",
+      "last_confirmed_date": "2026-04-25",
+      "terrain_types": [
+        "Singletrack",
+        "Gravel roads",
+        "Dirt roads",
+        "Redwood forest"
+      ],
+      "field_size": "Exact 2026 count not published",
+      "start_time": "10:00 AM in 2026",
+      "registration": "2026 registration closed; no official 2027 edition published",
+      "prize_purse": "Cash prizes for top three pro men and women in 2026",
+      "aid_stations": "One location passed near miles 18.7 and 25.3 in 2026",
+      "cutoff_time": "Not published",
+      "surface_breakdown": {
+        "gravel_pct": 65,
+        "singletrack_pct": 35,
+        "paved_pct": 0
+      },
+      "lat": 39.3657,
+      "lng": -123.8164
+    },
+    "gravel_god_rating": {
+      "logistics": 3,
+      "length": 1,
+      "technicality": 5,
+      "elevation": 3,
+      "climate": 3,
+      "altitude": 1,
+      "adventure": 4,
+      "prestige": 2,
+      "race_quality": 4,
+      "experience": 4,
+      "community": 4,
+      "field_depth": 3,
+      "value": 3,
+      "expenses": 4,
+      "cultural_impact": 2,
+      "overall_score": 66,
+      "tier": 2,
+      "tier_label": "TIER 2",
+      "discipline": "mtb",
+      "display_tier": 2
+    },
+    "biased_opinion_ratings": {
+      "logistics": {
+        "score": 3,
+        "explanation": "Caspar and the Mendocino coast require regional travel and careful lodging, but the event remains reachable by car from Northern California population centers."
+      },
+      "length": {
+        "score": 1,
+        "explanation": "At 32 miles this is short by endurance-event standards, even if the terrain makes the elapsed time and fatigue much larger than a road-distance comparison suggests."
+      },
+      "technicality": {
+        "score": 5,
+        "explanation": "The 15 miles of singletrack, rough forest sections, changing dirt conditions, and explicit hardtail/XC recommendation make this an MTB-primary technical race."
+      },
+      "elevation": {
+        "score": 3,
+        "explanation": "The loop gains 4,138 feet in only 32 miles, so climbing arrives at a high rate even without a single mountain summit."
+      },
+      "climate": {
+        "score": 3,
+        "explanation": "Coastal fog and spring moisture near Mendocino can turn hero dirt into slick corners and mud quickly under the redwoods."
+      },
+      "altitude": {
+        "score": 1,
+        "explanation": "The course is near the Mendocino coast and never creates a meaningful altitude demand."
+      },
+      "adventure": {
+        "score": 4,
+        "explanation": "A one-lap race through Jackson Demonstration State Forest, entirely off road, delivers much more place and texture than its mileage implies."
+      },
+      "prestige": {
+        "score": 2,
+        "explanation": "Jackson Forest is a distinctive regional Grasshopper round, but it lacks the independent national identity of the series' best-known fixtures."
+      },
+      "race_quality": {
+        "score": 4,
+        "explanation": "Timing, medical support, a repeated aid point, bottle drop, event photography, cash prizes, and a finish meal support a professionally managed regional event."
+      },
+      "experience": {
+        "score": 4,
+        "explanation": "Flowing redwood singletrack and fast gravel make the experience unusually concentrated: almost every mile asks for either fitness or handling."
+      },
+      "community": {
+        "score": 4,
+        "explanation": "Grasshopper's junior categories, shared finish food, local trail relationships, and long-running NorCal participation create a strong community layer."
+      },
+      "field_depth": {
+        "score": 3,
+        "explanation": "The event offers pro and age-group categories with cash prizes, but current public coverage does not establish a consistently national elite field."
+      },
+      "value": {
+        "score": 3,
+        "explanation": "The race includes meaningful support and access, but the official page no longer supplies a comparable entry price for the completed edition."
+      },
+      "expenses": {
+        "score": 4,
+        "explanation": "It is a regional drive-to event for much of Northern California, with the main extra cost coming from limited coastal lodging."
+      },
+      "cultural_impact": {
+        "score": 2,
+        "explanation": "Its value is regional and discipline-specific: a credible bridge between gravel culture and XC mountain biking rather than a national landmark."
+      }
+    },
+    "course_description": {
+      "character": "A 100-percent off-road loop combining roughly 15 miles of singletrack with forest dirt and gravel roads.",
+      "signature_challenge": "The course rewards the rider who can preserve traction and composure through changing redwood-forest conditions while climbing more than 4,000 feet in 32 miles.",
+      "suffering_zones": [
+        {
+          "label": "Early forest entry",
+          "description": "The transition from start-line effort to narrow trail makes positioning and calm bike handling immediately valuable."
+        },
+        {
+          "label": "Technical singletrack",
+          "description": "Fifteen total miles of trail accumulate braking, cornering, and upper-body fatigue that a gravel-only training plan would miss."
+        },
+        {
+          "label": "Late aid-point return",
+          "description": "Riders pass the same aid location late in the loop, when fueling discipline and mistake-free handling matter most."
+        }
+      ]
+    },
+    "terrain": {
+      "primary": "XC mountain bike and gravel",
+      "surface": "35% singletrack and 65% dirt/gravel roads; 100% off road in the official 2026 course",
+      "technical_rating": 5,
+      "features": [
+        "Redwood singletrack",
+        "Fast forest roads",
+        "Technical corners",
+        "Weather-sensitive dirt"
+      ]
+    },
+    "climate": {
+      "primary": "Mendocino coastal spring",
+      "description": "Cool coastal air, fog, and residual spring moisture can change trail grip quickly.",
+      "challenges": [
+        "Fog",
+        "Mud",
+        "Wet roots",
+        "Rapid surface changes"
+      ]
+    },
+    "logistics": {
+      "official_site": "https://www.grasshopperadventureseries.com/jackson-forest-hopper",
+      "getting_there": "Drive to Caspar on the Mendocino coast and follow the current organizer parking map when a new edition is published.",
+      "accommodation": "Book coastal lodging early; inventory around Caspar and Mendocino is limited and often priced for tourism.",
+      "bike_warning": "The organizer says a gravel bike can finish, but recommends a hardtail or XC mountain bike."
+    },
+    "history": {
+      "founded": null,
+      "overview": "Jackson Forest returned to the Grasshopper Adventure Series in 2026 as its fourth round.",
+      "notable_moments": [
+        "The 2026 format put every rider on the same 32-mile loop rather than separate short and long courses."
+      ]
+    },
+    "final_verdict": {
+      "one_liner": "An XC race wearing Grasshopper colors, and better for admitting it.",
+      "who_is_it_for": "Riders with real singletrack skills, a hardtail or capable gravel setup, and the ability to climb repeatedly without losing technical precision.",
+      "is_it_worth_it": "Yes for the gravel-MTB crossover rider when the next edition is official. It should receive an MTB-primary plan, not a generic gravel clone; 2027 production is blocked pending organizer facts.",
+      "pro_tips": [
+        "Use a hardtail or XC bike unless your gravel handling is genuinely advanced.",
+        "Train repeated climbing with technical descending while fatigued.",
+        "Practice eating and drinking on rough terrain rather than assuming paved recovery windows.",
+        "Bring the organizer's full repair kit recommendation."
+      ]
+    },
+    "citations": [
+      {
+        "url": "https://www.grasshopperadventureseries.com/jackson-forest-hopper",
+        "category": "official",
+        "label": "Jackson Forest — official event page"
+      },
+      {
+        "url": "https://my.raceresult.com/394326/results",
+        "category": "results",
+        "label": "Race Result — 2026 timing and results"
+      },
+      {
+        "url": "https://www.cyclingnews.com/pro-cycling/gavin-sherry-and-flavia-oliveira-scorch-through-timed-sections-to-claim-wins-at-third-event-in-grasshopper-series-king-ridge/",
+        "category": "media",
+        "label": "Cyclingnews — 2026 series context and Jackson preview"
+      },
+      {
+        "url": "https://www.granfondoguide.com/Series/GrasshopperAdventure",
+        "category": "calendar",
+        "label": "Gran Fondo Guide — independent series listing; 2027 date remains unverified by organizer"
+      }
+    ],
+    "research_metadata": {
+      "researched_at": "2026-08-06",
+      "next_edition_status": "source_blocked",
+      "known_gap": "A third-party calendar lists April 24, 2027, but the organizer has not published a 2027 event page, route, price, or registration window."
+    }
+  }
+}

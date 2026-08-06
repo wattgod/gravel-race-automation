@@ -485,4 +485,6 @@ class TestRealRaceData:
         # See docs/specs/road-migration-map.json.
         # Forbidden Gravel's 2025 GPX was retired when the organizer announced
         # a redesigned 2026 route without publishing its replacement.
-        assert rwgps_count >= 193, f"Expected >=193 current RWGPS routes, got {rwgps_count}"
+        # Floor re-pinned 193->192 (Aug 6 2026): the fabricated 3 State 3
+        # Mountain gravel profile and its unrelated route geometry were removed.
+        assert rwgps_count >= 192, f"Expected >=192 current RWGPS routes, got {rwgps_count}"

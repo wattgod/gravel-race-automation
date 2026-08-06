@@ -1,13 +1,13 @@
 {
   "slug": "dirty-sheets-gravel-grind",
   "race_name": "Dirty Sheets Gravel Grind",
-  "distance_mi": 75.0,
+  "distance_mi": 100.0,
   "demands": {
-    "durability": 4,
-    "climbing": 4,
+    "durability": 6,
+    "climbing": 7,
     "vo2_power": 4,
-    "threshold": 7,
-    "technical": 4,
+    "threshold": 8,
+    "technical": 6,
     "heat_resilience": 1,
     "altitude": 2,
     "race_specificity": 6
@@ -21,40 +21,39 @@
         "Threshold Ramps",
         "Descending Threshold"
       ],
-      "workout_context": "Dirty Sheets Gravel Grind's Georgia rolling gravel rewards steady threshold power. Surging and recovering costs more watts than just holding."
+      "workout_context": "68ft/mi means long efforts at or near FTP on every climb. If your threshold cracks at minute 15, you'll walk the rest."
     },
     {
       "category": "Gravel_Specific",
-      "score": 89,
+      "score": 87,
       "workouts": [
         "Surge and Settle",
         "Terrain Microbursts"
       ],
-      "workout_context": "Dirty Sheets Gravel Grind's Rolling gravel, Rural Georgia forces constant power changes. Surge over the rough stuff, settle on the smooth, repeat for 75 miles."
+      "workout_context": "Dirty Sheets Gravel Grind's 52% gravel, 48% pavement forces constant power changes. Surge over the rough stuff, settle on the smooth, repeat for 100 miles."
     },
     {
-      "category": "Race_Simulation",
-      "score": 89,
+      "category": "Over_Under",
+      "score": 86,
       "workouts": [
-        "Breakaway Simulation",
-        "Variable Pace Chaos",
-        "Sector Simulation"
+        "Classic Over-Unders",
+        "Ladder Over-Unders"
       ],
-      "workout_context": "Race-pace efforts that mimic Dirty Sheets Gravel Grind's demands. Pacing, fueling, and tactical decisions under fatigue. Practice the race before February."
+      "workout_context": "At Dirty Sheets Gravel Grind, surges push you above threshold and you have to recover while still riding. Over-unders train exactly that."
     },
     {
       "category": "Durability",
-      "score": 85,
+      "score": 84,
       "workouts": [
         "Tired VO2max",
         "Double Day Simulation",
         "Progressive Fatigue"
       ],
-      "workout_context": "75 miles on Georgia rolling gravel burns energy faster than the distance suggests. Train the fade resistance now."
+      "workout_context": "At mile 60 of 100, glycogen is gone. This workout teaches your body to produce watts on fumes."
     },
     {
       "category": "G_Spot",
-      "score": 80,
+      "score": 78,
       "workouts": [
         "G-Spot Standard",
         "G-Spot Extended",
@@ -63,23 +62,23 @@
       "workout_context": "88\u201392% FTP is where you'll spend the hardest sustained miles of Dirty Sheets Gravel Grind. Train it until it feels boring."
     },
     {
-      "category": "Over_Under",
-      "score": 76,
+      "category": "Race_Simulation",
+      "score": 78,
       "workouts": [
-        "Classic Over-Unders",
-        "Ladder Over-Unders"
+        "Breakaway Simulation",
+        "Variable Pace Chaos",
+        "Sector Simulation"
       ],
-      "workout_context": "At Dirty Sheets Gravel Grind, surges push you above threshold and you have to recover while still riding. Over-unders train exactly that."
+      "workout_context": "Race-pace efforts that mimic Dirty Sheets Gravel Grind's demands. Pacing, fueling, and tactical decisions under fatigue. Practice the race before October."
     },
     {
-      "category": "VO2max",
-      "score": 63,
+      "category": "Mixed_Climbing",
+      "score": 61,
       "workouts": [
-        "5x3 VO2 Classic",
-        "Descending VO2 Pyramid",
-        "Norwegian 4x8"
+        "Seated/Standing Climbs",
+        "Variable Grade Simulation"
       ],
-      "workout_context": "When someone attacks on Georgia rolling gravel, you have 10 seconds to respond or you're off the back. This builds that response."
+      "workout_context": "6,815ft of climbing on grades that change every minute. You need to switch from seated to standing without losing rhythm."
     },
     {
       "category": "Critical_Power",
@@ -91,46 +90,48 @@
       "workout_context": "How long can you hold 105% FTP before you blow? At Dirty Sheets Gravel Grind, that number decides whether you bridge or get dropped."
     },
     {
-      "category": "Norwegian_Double",
-      "score": 52,
+      "category": "VO2max",
+      "score": 49,
       "workouts": [
-        "Norwegian 4x8 Classic",
-        "Double Threshold"
+        "5x3 VO2 Classic",
+        "Descending VO2 Pyramid",
+        "Norwegian 4x8"
       ],
-      "workout_context": "Double-threshold training builds sustained power with less fatigue. More FTP per hour of training."
+      "workout_context": "6,815ft of climbing means repeated surges above threshold. VO2max work is how you survive the fifth climb, not just the first."
     },
     {
       "category": "Endurance",
-      "score": 46,
+      "score": 48,
       "workouts": [
         "Pre-Race Openers",
         "Terrain Simulation Z2"
       ],
-      "workout_context": "Base fitness for Dirty Sheets Gravel Grind. Without this, the hard workouts break you down instead of building you up."
+      "workout_context": "Every hard session works better with a bigger aerobic base. At 100 miles, base fitness is the difference between racing and surviving."
     },
     {
-      "category": "Blended",
-      "score": 44,
+      "category": "HVLI_Extended",
+      "score": 46,
       "workouts": [
-        "Z2 + VO2 Combo",
-        "Endurance with Spikes"
+        "HVLI Extended Z2",
+        "Multi-Hour Z2",
+        "Back-to-Back Long"
       ],
-      "workout_context": "Endurance with intensity spikes baked in. Exactly what 3,000ft of climbing on Georgia rolling gravel does to your power file on race day."
+      "workout_context": "100 miles rewards fat oxidation. This volume work shifts your fuel mix so you're still burning fat at hour 5, not bonking at hour 3."
     },
     {
-      "category": "Mixed_Climbing",
-      "score": 44,
+      "category": "Norwegian_Double",
+      "score": 46,
       "workouts": [
-        "Seated/Standing Climbs",
-        "Variable Grade Simulation"
+        "Norwegian 4x8 Classic",
+        "Double Threshold"
       ],
-      "workout_context": "Varied gradients on Georgia rolling gravel demand climbing versatility. Sit the shallow stuff, stand the steep stuff, switch without thinking."
+      "workout_context": "Two threshold sessions per week without the recovery cost of VO2max work. For 100 miles, sustainable FTP gains matter more than peak power."
     }
   ],
   "race_overlay": {
-    "nutrition": "Target 40\u201360g carbs/hour for Dirty Sheets Gravel Grind\u2019s 75 miles. Front-load calories in the first half. One bottle per hour minimum, more in heat.",
-    "terrain": "Mixed terrain at Dirty Sheets Gravel Grind requires surface adaptability. Include weekly rides on georgia rolling gravel to build confidence. Expect: rolling gravel, rural georgia, regional event."
+    "nutrition": "Target 60\u201380g carbs/hour for Dirty Sheets Gravel Grind\u2019s 100 miles. Start fueling within the first 30 minutes \u2014 early fueling prevents late-race collapse. Bonking at mile 60 is a nutrition failure, not a fitness failure.",
+    "terrain": "Mixed terrain at Dirty Sheets Gravel Grind requires surface adaptability. Include weekly rides on punchy georgia mixed surface to build confidence. Expect: 52% gravel, 48% pavement, punchy rolling climbs."
   },
-  "pack_summary": "This 10-workout pack focuses on TT Threshold, Gravel Specific, and Race Simulation to prepare you for 75 miles of georgia rolling gravel in Chattahoochee Hills, Georgia.",
-  "generated_at": "2026-03-06"
+  "pack_summary": "This 10-workout pack focuses on TT Threshold, Gravel Specific, and Over Under to prepare you for 100 miles of punchy georgia mixed surface in Serenbe, Chattahoochee Hills, Georgia.",
+  "generated_at": "2026-08-06"
 }

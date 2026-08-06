@@ -118,7 +118,7 @@ class TestMonitoredURLs:
         "https://gravelgodcycling.com/race/unbound-200/",
         "https://gravelgodcycling.com/race/barry-roubaix/",
         "https://gravelgodcycling.com/race/big-sugar/",
-        "https://gravelgodcycling.com/race/3-state-3-mountain-challenge/",
+        "https://gravelgodcycling.com/race/dirty-pecan/",
         "https://gravelgodcycling.com/coaching/",
     ]
 

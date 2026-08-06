@@ -1,0 +1,216 @@
+{
+  "race": {
+    "name": "Ukiah Mendo Gravel Epic",
+    "slug": "ukiah-mendo-gravel-epic",
+    "display_name": "Ukiah Mendo Gravel Epic",
+    "tagline": "A redwood-heavy series finale with 8,420 feet, private roads, and no free coast to the line.",
+    "vitals": {
+      "distance_mi": 76,
+      "elevation_ft": 8420,
+      "course_status": "source_blocked",
+      "location": "Ukiah, California",
+      "location_badge": "UKIAH, CA",
+      "date": "Annual; next edition date pending",
+      "date_specific": "TBD — next edition date pending",
+      "last_confirmed_date": "2026-05-24",
+      "terrain_types": [
+        "Gravel roads",
+        "Private timber roads",
+        "Redwood pavement",
+        "Fast dirt descents"
+      ],
+      "field_size": "Several hundred riders; exact 2026 count not published",
+      "start_time": "9:00 AM staggered starts in 2026",
+      "registration": "2026 registration closed; no official 2027 edition published",
+      "prize_purse": "Cash prizes for top three pro men and women in 2026",
+      "aid_stations": "Miles 15.8, 32, and 57 for the 2026 long course",
+      "cutoff_time": "Not published",
+      "surface_breakdown": {
+        "paved_pct": 32,
+        "dirt_pct": 68
+      },
+      "lat": 39.15017,
+      "lng": -123.20778
+    },
+    "gravel_god_rating": {
+      "logistics": 3,
+      "length": 3,
+      "technicality": 3,
+      "elevation": 4,
+      "climate": 2,
+      "altitude": 2,
+      "adventure": 4,
+      "prestige": 3,
+      "race_quality": 4,
+      "experience": 4,
+      "community": 4,
+      "field_depth": 4,
+      "value": 3,
+      "expenses": 4,
+      "cultural_impact": 3,
+      "overall_score": 71,
+      "tier": 2,
+      "tier_label": "TIER 2",
+      "discipline": "gravel",
+      "display_tier": 2
+    },
+    "biased_opinion_ratings": {
+      "logistics": {
+        "score": 3,
+        "explanation": "Ukiah has usable lodging and a compact event base, but separate staging plus access restrictions on private Mendocino Redwood Company roads require attention."
+      },
+      "length": {
+        "score": 3,
+        "explanation": "Seventy-six miles is a substantial race day without crossing into ultra-distance territory."
+      },
+      "technicality": {
+        "score": 3,
+        "explanation": "The organizer recommends 40-42 mm treaded tires, and 2026 coverage documented punctures and a decisive final dirt descent, but this remains gravel rather than singletrack racing."
+      },
+      "elevation": {
+        "score": 4,
+        "explanation": "The course gains 8,420 feet, starting with roughly 1,900 feet in eight miles and reserving another major climb for the final third."
+      },
+      "climate": {
+        "score": 2,
+        "explanation": "Late May usually brings cool mornings and mild-to-warm afternoons, with wind on exposed ridges more likely to matter than extreme temperature."
+      },
+      "altitude": {
+        "score": 2,
+        "explanation": "The Mendocino hills are demanding but low enough that altitude is not a primary physiological stress."
+      },
+      "adventure": {
+        "score": 4,
+        "explanation": "One-day access through private redwood property and the long transition between Ukiah and the coast make the route feel larger than an ordinary regional loop."
+      },
+      "prestige": {
+        "score": 3,
+        "explanation": "The event closes a 29-season Grasshopper series and receives national coverage as an elite tune-up immediately before Unbound."
+      },
+      "race_quality": {
+        "score": 4,
+        "explanation": "Three aid points, wave starts, medical support, timing, photography, cash prizes, and a substantial finish party support a mature race operation."
+      },
+      "experience": {
+        "score": 4,
+        "explanation": "Private redwood roads, a long paved tactical middle, and the Low Gap return combine scenery and actual racing decisions."
+      },
+      "community": {
+        "score": 4,
+        "explanation": "The finale combines local partners, junior and team classifications, a weekend program, nonprofit support, and a devoted NorCal following."
+      },
+      "field_depth": {
+        "score": 4,
+        "explanation": "The 2026 race drew nationally competitive gravel and mountain-bike athletes and determined both the event podiums and overall Grasshopper elite titles."
+      },
+      "value": {
+        "score": 3,
+        "explanation": "Access and support are meaningful, but the completed event page does not preserve a reliable entry price for current comparison."
+      },
+      "expenses": {
+        "score": 4,
+        "explanation": "Northern California riders can treat Ukiah as a drive-to weekend with standard regional lodging rather than a flight-based destination."
+      },
+      "cultural_impact": {
+        "score": 3,
+        "explanation": "National media, elite participation, a Moriah Wilson Foundation connection, and series-finale status give it relevance beyond a local grinder."
+      }
+    },
+    "course_description": {
+      "character": "A 68-percent dirt course that opens with a long climb, crosses private timber land, uses a tactical paved middle, and finishes over the classic Low Gap corridor.",
+      "signature_challenge": "The top of the last major climb is not the finish: riders must still descend and manage a headwind-prone run back to Ukiah.",
+      "suffering_zones": [
+        {
+          "label": "Opening eight-mile climb",
+          "description": "Roughly 1,900 feet of gain immediately separates riders who can control early power from riders who chase the race emotionally."
+        },
+        {
+          "label": "Masonite Road to Highway 128",
+          "description": "Private-road gravel transitions into a long paved section where small-group cooperation can save or waste the race."
+        },
+        {
+          "label": "Low Gap return",
+          "description": "The final climb, dirt descent, and wind-exposed return demand both durability and clean tire management."
+        }
+      ]
+    },
+    "terrain": {
+      "primary": "Redwood gravel and mixed terrain",
+      "surface": "68% dirt and 32% paved on the official 2026 long course",
+      "technical_rating": 3,
+      "features": [
+        "Private Mendocino Redwood Company roads",
+        "Long opening climb",
+        "Paved redwood middle section",
+        "Classic Low Gap dirt return"
+      ]
+    },
+    "climate": {
+      "primary": "Mendocino late spring",
+      "description": "Cool mornings, mild-to-warm afternoons, possible residual moisture, and wind on exposed ridges.",
+      "challenges": [
+        "Temperature swing",
+        "Coastal haze",
+        "Ridge wind",
+        "Occasional spring moisture"
+      ]
+    },
+    "logistics": {
+      "official_site": "https://www.grasshopperadventureseries.com/ukiah-mendo-gravel-epic",
+      "getting_there": "Base in Ukiah; the 2026 event used Todd Grove Park for packet pickup and Ukiah High School for staged starts.",
+      "accommodation": "Hotels, motels, and limited event camping are available in Ukiah.",
+      "access_warning": "Most private-property miles are open only to registered riders during designated event windows."
+    },
+    "history": {
+      "founded": null,
+      "overview": "Ukiah Mendo Gravel Epic is the season finale of the Grasshopper Adventure Series.",
+      "notable_moments": [
+        "Samara Sheppard and Cole Davis won the 2026 elite races.",
+        "Jen Tavé and Cassius Anderson secured the 2026 overall Grasshopper titles at the finish."
+      ]
+    },
+    "final_verdict": {
+      "one_liner": "A genuine series finale: long enough to matter, steep enough to expose you, and tactical after the gravel appears to be over.",
+      "who_is_it_for": "Gravel racers who can climb for hours, work in a group on pavement, manage puncture risk, and still descend aggressively late in the day.",
+      "is_it_worth_it": "Yes when the next edition is announced. The private-road access, climbing density, and field quality make it a Tier 2 target; 2027 plan production remains blocked until the organizer publishes facts.",
+      "pro_tips": [
+        "Build durability with tempo or threshold work after three hours of endurance riding.",
+        "Practice cooperative pacing because miles 33-50 can reward a functional group.",
+        "Use modest tread and side knobs in the organizer's recommended 40-42 mm range unless final conditions say otherwise.",
+        "Keep fueling through the paved middle; the last climb and headwind still collect the bill."
+      ]
+    },
+    "citations": [
+      {
+        "url": "https://www.grasshopperadventureseries.com/ukiah-mendo-gravel-epic",
+        "category": "official",
+        "label": "Ukiah Mendo Gravel Epic — official event page"
+      },
+      {
+        "url": "https://www.cyclingnews.com/pro-cycling/racing/grasshopper-adventure-series-samara-sheppard-and-cole-davis-win-debuts-at-ukiah-mendo-gravel-epic-ahead-of-unbound-gravel/",
+        "category": "media",
+        "label": "Cyclingnews — 2026 report and results"
+      },
+      {
+        "url": "https://www.altovelo.org/race-reports/race-report-2026-ukiah-mendo-gravel-hopper-mens-30-39",
+        "category": "rider_report",
+        "label": "Alto Velo — 2026 age-group race report"
+      },
+      {
+        "url": "https://www.trailforks.com/route/ukiahmendo-gravel-epic-2024-long-course/",
+        "category": "route",
+        "label": "Trailforks — prior long-course route reference"
+      },
+      {
+        "url": "https://www.youtube.com/watch?v=be7tSKXtD8Y",
+        "category": "video",
+        "label": "Veloworthy — 2024 event documentary"
+      }
+    ],
+    "research_metadata": {
+      "researched_at": "2026-08-06",
+      "next_edition_status": "source_blocked",
+      "known_gap": "The organizer has not published a 2027 date, route, price, or registration window."
+    }
+  }
+}

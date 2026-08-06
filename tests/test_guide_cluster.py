@@ -755,7 +755,7 @@ class TestRaceReference:
         assert "Unbound" in html
 
     def test_renders_elevation_stat(self, race_index):
-        html = render_race_reference({"slug": "unbound-200", "context": "elevation"})
+        html = render_race_reference({"slug": "leadville-100", "context": "elevation"})
         assert "ft gain" in html
 
     def test_renders_distance_stat(self, race_index):
@@ -820,19 +820,19 @@ class TestRaceCallout:
 
     def test_renders_both_race_names(self, race_index):
         html = render_race_callout({
-            "slugs": ["unbound-200", "mid-south"],
+            "slugs": ["leadville-100", "mid-south"],
             "dimension": "elevation_ft"
         })
-        assert "Unbound" in html
+        assert "Leadville" in html
         assert "Mid South" in html
 
     def test_renders_stat_values(self, race_index):
         html = render_race_callout({
-            "slugs": ["unbound-200", "mid-south"],
+            "slugs": ["leadville-100", "mid-south"],
             "dimension": "elevation_ft"
         })
         assert "gg-race-callout__stat-value" in html
-        assert "11,000" in html  # Unbound elevation
+        assert "11,900" in html  # Leadville elevation
 
     def test_renders_overall_score_dimension(self, race_index):
         html = render_race_callout({

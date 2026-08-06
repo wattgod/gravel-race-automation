@@ -610,6 +610,27 @@ def generate_preview(race_data: dict) -> dict:
     race = race_data.get("race", {})
     slug = race.get("slug", "unknown")
     race_name = race.get("display_name") or race.get("name", slug)
+    vitals = race.get("vitals") or {}
+
+    # A source-blocked race does not have enough official information for a
+    # defensible demand profile. Emit an explicit unavailable artifact instead
+    # of preserving or regenerating invented workouts from stale facts.
+    if vitals.get("pack_status") == "unavailable":
+        return {
+            "slug": slug,
+            "race_name": race_name,
+            "available": False,
+            "unavailable_reason": vitals.get(
+                "course_status_reason",
+                "Official race details are not complete enough to build a plan.",
+            ),
+            "distance_mi": _safe_numeric(vitals, "distance_mi", 0),
+            "demands": {},
+            "top_categories": [],
+            "race_overlay": {},
+            "pack_summary": "Race-specific training preview not available.",
+            "generated_at": date.today().isoformat(),
+        }
 
     # 1. Demand analysis
     demands = analyze_race_demands(race_data)
@@ -628,7 +649,6 @@ def generate_preview(race_data: dict) -> dict:
     race_overlay = generate_race_overlay(race, demands)
 
     # 5. Distance for eligibility filtering in page generator
-    vitals = race.get("vitals") or {}
     distance_mi = _safe_numeric(vitals, "distance_mi", 0)
 
     return {

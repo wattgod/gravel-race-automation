@@ -1,24 +1,24 @@
 {
   "@context": "https://schema.org",
   "@type": "SportsEvent",
-  "name": "Ardenne Gravel Stages",
-  "description": "Three days of Belgian Ardennes gravel from Vielsalm to Baraque Fraiture.",
+  "name": "Low Gap Grasshopper",
+  "description": "A dirt-heavy January opener on private Mendocino timber roads.",
   "sport": "Gravel Cycling",
   "location": {
     "@type": "Place",
-    "name": "Vielsalm, Gouvy, and Baraque Fraiture, Belgium",
+    "name": "Ukiah, California",
     "address": {
       "@type": "PostalAddress",
-      "addressLocality": "Vielsalm",
-      "addressRegion": "Gouvy"
+      "addressLocality": "Ukiah",
+      "addressRegion": "California"
     }
   },
   "aggregateRating": {
     "@type": "AggregateRating",
-    "ratingValue": "56",
+    "ratingValue": "71",
     "bestRating": "100",
     "ratingCount": "14",
     "name": "Gravel God Rating"
   },
-  "url": "https://www.ardennegravelstages.com/en"
+  "url": "https://www.grasshopperadventureseries.com/grasshopper-adventure-series"
 }

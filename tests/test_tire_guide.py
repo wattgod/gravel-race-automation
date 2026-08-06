@@ -261,7 +261,7 @@ class TestEdgeCases(unittest.TestCase):
     def test_unpublished_distance_and_elevation(self):
         """Source-blocked course vitals should use neutral internal defaults."""
         raw = {
-            "terrain": {"technical_rating": 2, "surface": "hardpack gravel"},
+            "terrain": {"technical_rating": None, "surface": "course not published"},
             "vitals": {"distance_mi": None, "elevation_ft": None},
         }
         rd = {"slug": "test", "name": "Test Race", "vitals": {}}
@@ -270,6 +270,7 @@ class TestEdgeCases(unittest.TestCase):
 
         self.assertEqual(profile["distance_mi"], 50)
         self.assertEqual(profile["elevation_ft"], 0)
+        self.assertEqual(profile["tech_rating"], 2)
         self.assertEqual(len(get_top_tires(self.tires, profile)), 3)
 
     def test_no_features(self):

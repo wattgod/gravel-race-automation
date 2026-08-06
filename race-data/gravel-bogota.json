@@ -3,207 +3,213 @@
     "name": "Gravel Bogotá",
     "slug": "gravel-bogota",
     "display_name": "Gravel Bogotá",
-    "tagline": "Colombian Bogotá mountain gravel challenge.",
+    "tagline": "A high-altitude UCI qualifier with repeated climbing above Bogotá.",
     "vitals": {
       "distance_mi": 80,
-      "elevation_ft": 8000,
-      "location": "Bogotá, Colombia",
-      "location_badge": "BOGOTÁ, COLOMBIA",
-      "county": "Bogotá",
-      "date": "Year-round",
-      "date_specific": "2026: Various dates",
+      "elevation_ft": 6188,
+      "location": "Chía, Cundinamarca, Colombia",
+      "location_badge": "CHÍA, COLOMBIA",
+      "county": "Cundinamarca",
+      "date": "August 2, 2026",
+      "date_specific": "2026: August 2 (completed; next edition not announced)",
+      "course_status": "source_blocked",
+      "pack_status": "unavailable",
+      "course_status_label": "NEXT EDITION PENDING",
+      "course_status_reason": "The August 2, 2026 course is verified, but the organizer has not announced the next race date. No race-specific plan is for sale until that date is official.",
       "terrain_types": [
-        "Colombian mountains",
-        "South American gravel",
-        "Regional event",
-        "Colombia"
+        "61% gravel",
+        "39% pavement",
+        "Repeated high-altitude climbs",
+        "Paved opening and finish"
       ],
-      "field_size": "200-400 riders",
-      "start_time": "4:30 am to",
-      "registration": "Online. Cost: ~$100-150",
-      "prize_purse": "Modest prizes",
-      "aid_stations": "Multiple aid stations",
-      "cutoff_time": "Varies",
-      "lat": 4.6534,
-      "lng": -74.0836
+      "field_size": "Not published by the organizer",
+      "start_time": "Not published on the UCI event page",
+      "registration": "2026 registration closed; next edition not announced",
+      "prize_purse": "Not published",
+      "aid_stations": "Not published",
+      "cutoff_time": "Not published",
+      "lat": 4.8619,
+      "lng": -74.0583,
+      "start_elevation_asl_ft": 8402,
+      "max_elevation_asl_ft": 10135,
+      "route_options": [
+        "Long course raced in 2026: 128 km and nearly 1,900 m climbing",
+        "Short course listed by the organizer: 70 km and 1,348 m climbing"
+      ]
     },
     "climate": {
-      "primary": "Colombian mountain",
-      "description": "Generally mild conditions year-round.",
+      "primary": "High-altitude Andean",
+      "description": "The organizer confirms a start at 2,561 m and a high point at 3,089 m, but does not publish a race-day temperature range; altitude and fast weather changes are the dependable preparation signals.",
       "challenges": [
-        "Variable weather",
-        "Generally mild",
-        "High altitude",
-        "Mountain conditions"
+        "2,561-3,089 m altitude",
+        "Potential temperature swings",
+        "Exposed climbing",
+        "Mountain weather"
       ]
     },
     "terrain": {
-      "primary": "Colombian mountain gravel",
-      "surface": "Gravel roads through Colombian mountains near Bogotá. Significant elevation with mountain scenery at high altitude.",
-      "technical_rating": 3,
+      "primary": "High-altitude mixed surface",
+      "surface": "The 128 km course raced in 2026 was 61% gravel. It opened with 5 km of pavement, crossed repeated high-altitude climbs, and returned to a mostly paved finish in Chía.",
+      "technical_rating": 2,
       "features": [
-        "Significant mountainous (8000 feet)",
-        "Colombian mountain scenery",
-        "High altitude (8000+ feet)",
-        "Multiple distances",
-        "Regional event"
+        "Repeated published climbs",
+        "18.5% maximum grade on the second climb",
+        "2,561-3,089 m altitude",
+        "61% gravel",
+        "128 km long course raced in 2026"
       ]
     },
     "gravel_god_rating": {
-      "overall_score": 54,
+      "overall_score": 60,
       "tier": 3,
       "tier_label": "TIER 3",
-      "logistics": 1,
+      "logistics": 3,
       "length": 3,
-      "technicality": 3,
+      "technicality": 2,
       "elevation": 3,
-      "climate": 3,
-      "altitude": 4,
-      "adventure": 4,
-      "prestige": 2,
-      "race_quality": 2,
+      "climate": 2,
+      "altitude": 5,
+      "adventure": 3,
+      "prestige": 3,
+      "race_quality": 3,
       "experience": 4,
       "community": 3,
-      "field_depth": 2,
-      "value": 3,
-      "expenses": 1,
-      "score_note": "Regional Colombian event. Mountainous terrain with difficult access, high costs, high altitude, and regional field.",
+      "field_depth": 3,
+      "value": 2,
+      "expenses": 3,
+      "score_note": "A first-edition UCI qualifier with a verified 128 km race course, nearly 1,900 m climbing, and altitude above 10,000 ft; limited history and incomplete next-edition logistics keep it in Tier 3.",
       "discipline": "gravel",
       "display_tier": 3
     },
     "biased_opinion": {
-      "verdict": "Colombian Mountain Gravel",
-      "summary": "Gravel Bogotá is a regional event in Colombia—mountainous terrain with significant elevation at high altitude. The Colombian mountains are impressive, but the difficult/expensive access, high altitude, and regional field keep it firmly in Tier 3.",
+      "verdict": "Thin Air Is the Fifth Climb",
+      "summary": "Gravel Bogotá's inaugural long course covered 128 km with nearly 1,900 m of climbing, but the defining number is 3,089 m: the published course high point. Repeated climbs, 61% gravel, and UCI qualification make the racing legitimate; a one-edition history and no next-edition date keep it in Tier 3.",
       "strengths": [
-        "Colombian mountain scenery",
-        "High altitude challenge",
-        "Colombian mild weather",
-        "Unique Colombian experience",
-        "Mountain setting"
+        "Repeated published climbs with an 18.5% maximum grade",
+        "UCI Gravel World Series qualification",
+        "Verified 61% gravel course",
+        "Start above 8,400 feet",
+        "Chía setting close to Bogotá"
       ],
       "weaknesses": [
-        "Difficult Colombia access",
-        "Very high costs ($2000+ total)",
-        "Regional field only",
-        "High altitude challenges",
-        "Limited international draw"
+        "No next-edition date",
+        "No published field-size or cutoff detail",
+        "No operating history beyond the debut",
+        "Altitude punishes riders arriving from sea level",
+        "International travel still requires planning"
       ],
-      "bottom_line": "A scenic Colombian mountain gravel race with altitude challenge. Worth it for adventure seekers with big budgets. Not practical for most riders."
+      "bottom_line": "A real UCI race with a specific, unusually high-altitude course. Wait for the next edition announcement before planning the trip."
     },
     "final_verdict": {
-      "score": "54 / 100",
-      "one_liner": "Colombian Bogotá mountain gravel challenge.",
-      "should_you_race": "If you have a big budget and want a Colombian experience—maybe. For most riders—there are better options.",
-      "alternatives": "For better value: regional gravel races. For similar Colombian terrain: Gravel Medellín.",
+      "score": "60 / 100",
+      "one_liner": "Nearly 1,900 metres of climbing above 10,000 feet near Bogotá.",
+      "should_you_race": "Yes if high-altitude UCI racing is the point; wait until the organizer announces the next edition before buying travel.",
+      "alternatives": "For another UCI qualifier with a confirmed edition, compare Alentejo Gravel.",
       "alternative_slugs": [
-        "gravel-medellin"
+        "alentejo-gravel"
       ]
     },
     "logistics": {
-      "airport": "Bogotá (BOG) varies by location",
-      "lodging_strategy": "Bogotá has good lodging options.",
-      "food": "Bogotá has full dining options. Stock nutrition.",
-      "packet_pickup": "Day before typically",
-      "parking": "At start/finish",
-      "official_site": "Check Gravel Bogotá website"
+      "airport": "El Dorado International Airport (BOG); Chía is in the Bogotá metropolitan region",
+      "lodging_strategy": "Stay in Chía for race-morning simplicity or in Bogotá for a broader lodging inventory; verify the next start venue before booking.",
+      "food": "Chía and Bogotá have full dining and grocery options; arrive early enough to manage altitude and familiar nutrition.",
+      "packet_pickup": "Not published for the next edition",
+      "parking": "Not published for the next edition",
+      "official_site": "https://ucigravelworldseries.com/en/gravel-bogota/"
+    },
+    "eligibility": {
+      "status": "active",
+      "verified": "2026-08-06",
+      "source": "https://ucigravelworldseries.com/en/gravel-bogota/",
+      "status_note": "The official August 2, 2026 edition is now past. The event is a legitimate UCI Gravel World Series qualifier, but no next-edition date has been announced."
     },
     "history": {
-      "founded": null,
-      "founder": "Colombian organizers",
-      "origin_story": "Regional Colombian gravel event.",
-      "notable_moments": [],
-      "reputation": "Regional Colombian event."
+      "founded": 2026,
+      "founder": "UCI Gravel Bogotá organizing team",
+      "origin_story": "The event debuted as a UCI Gravel World Series qualifier in Chía after its original May date was moved to August 2, 2026.",
+      "notable_moments": [
+        "The August 2, 2026 debut used a 128 km course with nearly 1,900 m climbing and welcomed riders from ten nations"
+      ],
+      "reputation": "A new Colombian UCI qualifier whose altitude is more distinctive than its short history."
     },
     "course_description": {
-      "character": "Colombian mountain gravel.",
+      "character": "A 128 km, 61%-gravel race course with repeated climbs between 2,561 and 3,089 m above sea level.",
       "suffering_zones": [
         {
-          "mile": 25,
-          "label": "Early Mountains",
-          "desc": "First mountain sections.",
-          "terrain_detail": "Mountainous",
-          "named_section": "Early Mountains"
+          "mile": 9.5,
+          "label": "First Climb",
+          "desc": "A 5.4 km climb averages 6.0% and reaches 8.4% shortly after the opening pavement.",
+          "terrain_detail": "5.4 km at 6.0% average",
+          "named_section": "Climb 1"
         },
         {
-          "mile": 40,
-          "label": "Midpoint",
-          "desc": "Halfway through the course.",
-          "terrain_detail": "Midpoint",
-          "named_section": "Halfway"
+          "mile": 20.3,
+          "label": "Steepest Climb",
+          "desc": "The 4.2 km second climb averages 10.0% and includes the course's 18.5% maximum grade.",
+          "terrain_detail": "4.2 km at 10.0% average, 18.5% maximum",
+          "named_section": "Climb 2"
         },
         {
-          "mile": 65,
-          "label": "Late Mountains",
-          "desc": "Final mountain sections before finish.",
-          "terrain_detail": "Late mountains",
-          "named_section": "Final Push"
+          "mile": 26.1,
+          "label": "Third Climb",
+          "desc": "A short 1.66 km ascent averages 11.0% and reaches 13.0% before later, longer climbing sectors.",
+          "terrain_detail": "1.66 km at 11.0% average, 13.0% maximum",
+          "named_section": "Climb 3"
         }
       ],
-      "signature_challenge": "Colombian mountainous terrain at altitude.",
+      "signature_challenge": "Producing climbing power above 10,000 feet, especially on the second climb's 18.5% maximum grade.",
       "ridewithgps_id": null,
       "ridewithgps_name": null
     },
     "guide_variables": {
       "race_name": "Gravel Bogotá",
-      "race_distance": "80 miles",
-      "race_elevation": "8,000 feet",
-      "race_date": "Year-round",
-      "race_location": "Bogotá, Colombia",
-      "race_terrain": "Colombian mountain gravel",
-      "race_weather": "Colombian mountain mild",
+      "race_distance": "80 miles (128 km)",
+      "race_elevation": "6,188 feet (1,886 m)",
+      "race_date": "Next edition not announced",
+      "race_location": "Chía, Cundinamarca, Colombia",
+      "race_terrain": "61% gravel with repeated climbs and a mostly paved finish",
+      "race_weather": "High-altitude Andean conditions; exact race-day temperature range not published",
       "race_challenges": [
-        "Mountainous terrain",
-        "Regional field",
-        "Very high costs",
-        "High altitude",
-        "Significant elevation"
+        "2,561-3,089 m altitude",
+        "Repeated climbing over 128 km",
+        "18.5% maximum grade",
+        "61% gravel and frequent surface changes",
+        "No next-edition date yet"
       ],
       "altitude_section": true,
-      "altitude_feet": 8500
+      "altitude_feet": 8402
     },
     "non_negotiables": [
       {
         "requirement": "Altitude training",
         "by_when": "Week 8-10",
-        "why": "High altitude (8000+ feet) requires altitude adaptation."
+        "why": "The official course starts at 2,561 m and reaches 3,089 m."
       },
       {
-        "requirement": "Mountain endurance",
+        "requirement": "High-altitude climb pacing",
         "by_when": "Week 8-10",
-        "why": "Colombian mountains require sustained effort."
+        "why": "The official profile includes repeated climbs, including 4.2 km at 10.0%."
       },
       {
-        "requirement": "Budget planning",
-        "by_when": "Week 12+",
-        "why": "Very expensive ($2000+ total)."
+        "requirement": "Altitude arrival plan",
+        "by_when": "Before booking travel",
+        "why": "Sea-level athletes need a deliberate acclimatization and pacing strategy."
       }
     ],
     "research_metadata": {
-      "data_confidence": "moderate",
-      "validation_status": "pending",
+      "data_confidence": "high",
+      "validation_status": "verified",
       "sources": [
-        "colombian_cycling_community"
+        "https://ucigravelworldseries.com/en/gravel-bogota/",
+        "https://ucigravelworldseries.com/en/calendar-update-for-uci-gravel-events-in-colombia/",
+        "https://ucigravelworldseries.com/en/pelluad-and-franco-make-history-at-inaugural-gravel-bogota/",
+        "https://www.uci.org/competition-details/2026/GRA/78794"
       ],
       "migration_notes": [
-        "Generated from regional information"
-      ],
-      "research_strength": {
-        "overall": 87.5,
-        "grade": "A",
-        "weakest": "cross_reference",
-        "has_research_dump": true,
-        "dimensions": {
-          "source_diversity": 100,
-          "citation_density": 100,
-          "temporal_depth": 75,
-          "specificity": 100,
-          "statistical_backing": 100,
-          "voice_authenticity": 70,
-          "completeness": 82,
-          "cross_reference": 15
-        },
-        "scored_at": "2026-02-04"
-      }
+        "Replaced generic 80-mile/8,000-foot claims with the official post-race 128 km/nearly 1,900 m course for August 2, 2026",
+        "The event page contains stale 62-119 km summary text; the organizer's August 3 race report confirms the completed long course was 128 km with nearly 1,900 m climbing",
+        "Next edition remains unannounced; do not create a TrainingPeaks fleet from the completed 2026 date"
+      ]
     },
     "training_config": {
       "workout_modifications": {
@@ -244,61 +250,61 @@
         ],
         "race_specific": true,
         "topics": {
-          "pacing": "Mountainous terrain pacing at altitude",
-          "fueling": "Nutrition for altitude mountain riding",
-          "altitude": "Riding at high altitude",
-          "mountains": "Sustained mountain strategy"
+          "pacing": "Repeated-climb pacing above 2,500 m",
+          "fueling": "Fueling a 128 km mixed-surface race at altitude",
+          "altitude": "Racing between 2,561 and 3,089 m",
+          "mountains": "Managing the 10.0% second climb without overreaching"
         }
       },
       "tier_overrides": {},
       "marketplace_variables": {
         "race_name": "Gravel Bogotá",
-        "race_hook": "Colombian Bogotá mountain gravel challenge.",
-        "race_hook_detail": "Regional event with mountainous terrain at altitude.",
+        "race_hook": "Four high-altitude climbs above Bogotá.",
+        "race_hook_detail": "A 128 km UCI qualifier that reaches 3,089 m.",
         "distance": "80",
-        "dark_mile": "40",
+        "dark_mile": "48",
         "non_negotiable_1": "Altitude training",
-        "non_negotiable_2": "Mountain endurance",
-        "non_negotiable_3": "Budget planning",
+        "non_negotiable_2": "High-altitude climb pacing",
+        "non_negotiable_3": "Altitude arrival plan",
         "trainingpeaks_url": null
       }
     },
     "biased_opinion_ratings": {
       "logistics": {
-        "score": 1,
-        "explanation": "Registration opened January 1st but no information available on parking, packet pickup, start times, or local logistics for the May 24, 2026 debut. International travel to Chía with zero guidance on race weekend operations from organizers who run events across Brazil and Chile."
+        "score": 3,
+        "explanation": "Chía sits in the Bogotá metropolitan region with access through El Dorado International Airport, but the next edition has no packet-pickup, parking, start-time, or lodging guidance yet."
       },
       "length": {
         "score": 3,
-        "explanation": "80 miles hits the standard distance for UCI Gravel World Series events without being an ultra-endurance challenge. Long enough to create field separation and reward endurance, short enough that riders from different backgrounds can compete for Worlds qualification spots. Similar distance to Crusher in the Tushar."
+        "explanation": "The completed 2026 long course was 128 km: long enough to reward durability without becoming an ultra. The organizer also listed a shorter age-group course."
       },
       "technicality": {
-        "score": 3,
-        "explanation": "Course details unpublished for the 2026 debut, but the Colombian highland terrain around Chía suggests technical gravel and climbing challenges. The region's elevation and geography imply surface variety beyond simple dirt roads. Similar technical demands to Gravel Worlds."
+        "score": 2,
+        "explanation": "The organizer publishes a 61% gravel split with paved opening and finishing sectors, but does not identify singletrack, extreme rock, sand, or other highly technical terrain."
       },
       "elevation": {
         "score": 3,
-        "explanation": "8,000 feet of climbing over 80 miles averages 100 feet per mile, creating steady selection without extreme brutality. Respectable elevation gain that matches Colombian terrain expectations and will reward climbing strength throughout the race. Similar elevation profile to Gravel Worlds."
+        "explanation": "The completed long course climbed 1,886 m over 128 km. The published profile includes a 4.2 km climb averaging 10.0% and reaching 18.5%."
       },
       "climate": {
-        "score": 3,
-        "explanation": "May scheduling in Bogotá targets dry season conditions, smart planning for the highland climate. No race-specific weather data available, but the region typically offers stable conditions during this period if altitude doesn't affect performance. Similar climate challenges to SBT GRVL."
+        "score": 2,
+        "explanation": "The organizer does not publish a race-day temperature range. At this elevation, fast temperature and weather changes deserve preparation without inventing a specific heat or rain forecast."
       },
       "altitude": {
-        "score": 4,
-        "explanation": "Starting at 2,564 meters (8,412 feet) in Chía makes this a serious high-altitude challenge that separates sea-level athletes immediately. The thin air creates a physiological hurdle most gravel races can't match, defining the entire race experience. Higher altitude racing, comparable to SBT GRVL."
+        "score": 5,
+        "explanation": "The official profile starts at 2,561 m and reaches 3,089 m. Thin air is a defining physiological demand, not a background feature."
       },
       "adventure": {
-        "score": 4,
-        "explanation": "Racing in the Colombian highlands near the historic 'Pueblo de la Luna' offers terrain most riders will never see otherwise. The combination of Muisca ceremonial grounds, colonial architecture, and high-altitude gravel creates adventure beyond typical race locations."
+        "score": 3,
+        "explanation": "High-altitude gravel around Chía is distinctive and travel-worthy, while the metropolitan location and supported UCI format keep it short of expedition territory."
       },
       "prestige": {
-        "score": 2,
-        "explanation": "Part of the expanded 47-event UCI Gravel World Series offering Worlds qualification to top 25% finishers in each age group. Being among 16 new events added for South American growth is notable regionally, but it's a debut race with no competitive history."
+        "score": 3,
+        "explanation": "UCI Gravel World Series status and qualification for the UCI Gravel World Championships matter, but the event has only one completed edition and no established history yet."
       },
       "race_quality": {
-        "score": 2,
-        "explanation": "Organized by the team behind UCI events in Medellín, Brazil, and Chile, suggesting operational experience across South American gravel racing. However, no published course details, aid station information, or cutoff times available for the May 2026 debut."
+        "score": 3,
+        "explanation": "The organizer's post-race report confirms 128 km and nearly 1,900 m climbing, and the event page publishes altitude, surface split, and gradients. Aid, cutoff, and next-edition operating detail remain unpublished."
       },
       "experience": {
         "score": 4,
@@ -306,281 +312,46 @@
       },
       "community": {
         "score": 3,
-        "explanation": "Part of South American gravel expansion with the same organizers running events across the continent, building a regional network. UCI qualification format brings international riders to mix with Colombian gravel scene in an emerging market."
+        "explanation": "The inaugural edition welcomed riders from ten nations, and the UCI qualification format brought international riders into Colombia's emerging gravel scene."
       },
       "field_depth": {
-        "score": 2,
-        "explanation": "Worlds qualification potential attracts serious competitors, but South American gravel fields typically run smaller than European or US events. The 2,564-meter starting elevation will limit international participation from sea-level-based athletes. Less competitive depth than Almanzo 100. As Janosch Wintermantel puts it: \"Stage 5 was a hot and mainly flat one. We wrestled the field down to 8 riders before entering the last few kilometres. The last 3 kilometres were then a crazy hunt in open traffic.\""
+        "score": 3,
+        "explanation": "World Championship qualification should attract serious Colombian and regional riders, but no official field size or results depth was available at review time."
       },
       "value": {
-        "score": 3,
-        "explanation": "UCI Worlds qualification opportunity combined with access to unique Colombian highland terrain offers solid value proposition. No entry fees announced, but South American events typically price below European UCI races while delivering distinctive experiences."
+        "score": 2,
+        "explanation": "The course and qualification opportunity are meaningful, but the organizer has not published next-edition entry pricing or inclusions."
       },
       "expenses": {
-        "score": 1,
-        "explanation": "Registration runs $100-150. International flights to El Dorado Airport plus lodging near Chía with no logistical guidance creates expensive travel requirements. Getting to high-altitude Colombian gravel racing means significant costs for anyone outside South America, regardless of favorable peso exchange rates. More expensive than Atlas Mountain Race."
+        "score": 3,
+        "explanation": "International riders need flights and lodging, while the metropolitan setting avoids a second remote transfer. No unsupported dollar estimate is used."
       }
     },
     "citations": [
       {
-        "url": "https://gravel-club.com/events/gravel-bogota/",
-        "category": "other",
-        "label": "Gravel-Club"
-      },
-      {
-        "url": "https://gravelunion.cc/article/transcordilleras-colombian-adventure",
-        "category": "other",
-        "label": "Gravelunion"
-      },
-      {
         "url": "https://ucigravelworldseries.com/en/gravel-bogota/",
-        "category": "other",
-        "label": "Ucigravelworldseries"
+        "category": "official",
+        "label": "UCI Gravel World Series — Gravel Bogotá course, altitude, and date"
+      },
+      {
+        "url": "https://ucigravelworldseries.com/en/calendar-update-for-uci-gravel-events-in-colombia/",
+        "category": "official",
+        "label": "UCI Gravel World Series — Colombia calendar update"
+      },
+      {
+        "url": "https://www.uci.org/competition-details/2026/GRA/78794",
+        "category": "official",
+        "label": "UCI competition record — Gravel Bogotá 2026"
       },
       {
         "url": "https://www.uci.org/article/2026-gravelking-uci-gravel-world-series-a-comprehensive-season/XWSarTMx2S2EhfkqJvKMW",
-        "category": "community",
-        "label": "uci.org: Xwsartmx2S2Ehfkqjvkmw"
+        "category": "official",
+        "label": "UCI — 2026 Gravel World Series season overview"
       },
       {
-        "url": "https://steedcycles.com/blogs/steed-cycles/podcast-colombia-dreaming-part-two",
-        "category": "community",
-        "label": "steedcycles.com: Podcast Colombia Dreaming Part Two"
-      },
-      {
-        "url": "http://corywallace.com/2025/04/early-season-racing-25/",
-        "category": "community",
-        "label": "corywallace.com: Early Season Racing 25"
-      }
-    ],
-    "tire_recommendations": {
-      "generated_at": "2026-02-19",
-      "primary": [
-        {
-          "rank": 1,
-          "tire_id": "tufo-gravel-swampero",
-          "name": "Tufo Gravel Swampero",
-          "brand": "Tufo",
-          "recommended_width_mm": 40,
-          "msrp_usd": 69.95,
-          "weight_grams": 480,
-          "crr_watts": null,
-          "why": "strong mud clearance"
-        },
-        {
-          "rank": 2,
-          "tire_id": "schwalbe-g-one-ultrabite",
-          "name": "Schwalbe G-One Ultrabite",
-          "brand": "Schwalbe",
-          "recommended_width_mm": 40,
-          "msrp_usd": 69.9,
-          "weight_grams": 500,
-          "crr_watts": 42.0,
-          "why": "strong mud clearance"
-        },
-        {
-          "rank": 3,
-          "tire_id": "vittoria-terreno-wet",
-          "name": "Vittoria Terreno Wet",
-          "brand": "Vittoria",
-          "recommended_width_mm": 40,
-          "msrp_usd": 79.99,
-          "weight_grams": 460,
-          "crr_watts": 39.0,
-          "why": "strong mud clearance"
-        }
-      ],
-      "front_rear_split": {
-        "applicable": false
-      },
-      "race_surface_profile": "muddy",
-      "recommended_width_mm": 40,
-      "pressure_psi": {
-        "140_160lb_dry": "34-38",
-        "140_160lb_mixed": "30-34",
-        "140_160lb_wet": "28-32",
-        "160_180lb_dry": "36-40",
-        "160_180lb_mixed": "34-38",
-        "160_180lb_wet": "32-36",
-        "180_200lb_dry": "40-44",
-        "180_200lb_mixed": "36-40",
-        "180_200lb_wet": "34-38",
-        "200pluslb_dry": "42-46",
-        "200pluslb_mixed": "40-44",
-        "200pluslb_wet": "38-42"
-      }
-    },
-    "youtube_data": {
-      "researched_at": "2026-02-23",
-      "search_query": "Gravel Bogotá gravel race Bogotá",
-      "videos": [
-        {
-          "video_id": "D8LsJDB_Gjs",
-          "title": "Subachoque en BICICLETA de GRAVEL #20 🚴⏰ | Pueblos cerca a Bogota",
-          "channel": "Travesías en Bicicleta",
-          "view_count": 1912,
-          "upload_date": "20201110",
-          "duration_string": "8:40",
-          "description": "💣 BIKEPACKERS, conozcan los compadres de TEB: 🚩 https://rebrand.ly/5mz9fnb 🚩\n\nHoy vamos a rodar por el occidente de Bogotá haciendo un circuito entre Siberia y Pradera para explorar rutas de gravel, una modalidad de ciclismo que cada vez toma más fuerza en el país. \n\nFotos de la salida disponibles en: https://rebrand.ly/5mz9fnb\nVisita nuestro BLOG: https://www.travesiasenbicicleta.com/",
-          "tags": [
-            "salida en bicicleta",
-            "salir a rodar",
-            "rodadas colombia",
-            "entrenamiento para ciclistas",
-            "rutas para ciclismo",
-            "rutas bicicleta montaña",
-            "rutas mtb",
-            "recorridos para bicicletas",
-            "como entrenar en bici",
-            "TEB",
-            "travesias en bicicleta",
-            "travesias en bici",
-            "travesia en bicicleta",
-            "ciclismo de ruta",
-            "bicicleta de ruta",
-            "gravel",
-            "xc",
-            "mtb",
-            "mountainbike",
-            "ciclismo de montaña",
-            "mtb colombia",
-            "cycling",
-            "bike",
-            "bici",
-            "ciclismo colombia",
-            "ciclista",
-            "subachoque",
-            "gravel bike",
-            "pradera",
-            "bici gravel",
-            "cundinamarca"
-          ],
-          "url": "https://www.youtube.com/watch?v=D8LsJDB_Gjs",
-          "curated": false
-        },
-        {
-          "video_id": "kKu-5dN3oxI",
-          "title": "Fondo NOCTURNO en mi bicicleta DE GRAVEL Por toda la Sabana de Bogotá ¡Más de 200kilómetros!",
-          "channel": "Todos Los Dias En Bici",
-          "view_count": 6801,
-          "upload_date": "20250506",
-          "duration_string": "27:34",
-          "description": "Me fui con mis amigos Israel y Frank a rodar por la noche para entrenar una carrera de ultradistancia. Así nos fue en esta aventura",
-          "tags": [
-            "ciclismo",
-            "bicicletas",
-            "ciclismo de ruta",
-            "gopro"
-          ],
-          "url": "https://www.youtube.com/watch?v=kKu-5dN3oxI",
-          "curated": false
-        },
-        {
-          "video_id": "gGhdZrlJtv0",
-          "title": "Entrenando en la GRAVEL por el Cañón del Río Blanco, ruta entre Choachí y La Calera. Ruta DURA!",
-          "channel": "Todos Los Dias En Bici",
-          "view_count": 3917,
-          "upload_date": "20250520",
-          "duration_string": "14:35",
-          "description": "Entrenando para la Bogotá Non Stop en la ruta entre Choachí y La Calera. El Cañón del Río Claro es una ruta muy difícil que puedes hacer en Gravel o MTB",
-          "tags": [
-            "ciclismo",
-            "bicicletas",
-            "ciclismo de ruta",
-            "gopro"
-          ],
-          "url": "https://www.youtube.com/watch?v=gGhdZrlJtv0",
-          "curated": false
-        },
-        {
-          "video_id": "EpS7nfdHkfs",
-          "title": "Ruta FÁCIL en bici DE GRAVEL O MTB cerca de Bogotá.",
-          "channel": "Todos Los Dias En Bici",
-          "view_count": 15849,
-          "upload_date": "20210707",
-          "duration_string": "13:51",
-          "description": "Ruta fácil en bicicleta de Gravel o MTB cerca de Bogotá por el Club La Cima. Recomendada si estas empezando en el ciclismo de Gravel o MTB. \n\nTienda Patacón: https://www.tiendapatacon.com/\nhttps://www.instagram.com/tiendapatacon/\n\n¡Si te gusta mi contenido no olvides suscribirte!\nSígueme en instagram: https://www.instagram.com/todoslosdiasenbici/\nMi strava https://www.strava.com/athletes/todoslosdiasenbici\nFacebook: https://www.facebook.com/todoslosdiasenbici/\n\nMúsica:\nhttps://www.epidemicsound.com/referral/dlw6rg/",
-          "tags": [
-            "ciclismo",
-            "bicicletas",
-            "ciclismo de ruta",
-            "Ruta ciclismo Bogotá",
-            "Gravel Bogotá",
-            "ciclismo Bogotá",
-            "Alto dde Patios",
-            "La Cima La calera",
-            "Ruta gravel Bogotá",
-            "Ruta gravel",
-            "ruta fácil ciclismo",
-            "Ruta MTB Bogotá",
-            "Gravel La Calera",
-            "Grabel Bogotá"
-          ],
-          "url": "https://www.youtube.com/watch?v=EpS7nfdHkfs",
-          "curated": false
-        }
-      ],
-      "quotes": []
-    },
-    "photos": [
-      {
-        "type": "video-1",
-        "file": "gravel-bogota-video-1.jpg",
-        "url": "/race-photos/gravel-bogota/gravel-bogota-video-1.jpg",
-        "alt": "Cyclist in orange jersey riding on unpaved gravel road through Colombian countryside with trees and stone walls - Gravel Bogotá - Bogotá, Colombia",
-        "credit": "YouTube / Todos Los Dias En Bici",
-        "primary": true,
-        "ai_relevance": 5,
-        "ai_quality": 4,
-        "ai_keywords": [
-          "gravel road",
-          "Colombian countryside",
-          "unpaved terrain",
-          "rural cycling",
-          "stone walls"
-        ]
-      },
-      {
-        "type": "video-2",
-        "file": "gravel-bogota-video-2.jpg",
-        "url": "/race-photos/gravel-bogota/gravel-bogota-video-2.jpg",
-        "alt": "Gravel cyclist wearing helmet and sunglasses taking selfie on paved road near Peluqueria Barberia sign in Colombian town - Gravel Bogotá - Bogotá, Colombia",
-        "credit": "YouTube / Todos Los Dias En Bici",
-        "primary": false,
-        "ai_relevance": 3,
-        "ai_quality": 3,
-        "ai_keywords": [
-          "Colombian town",
-          "cycling selfie",
-          "gravel rider",
-          "paved road",
-          "town center"
-        ]
-      },
-      {
-        "type": "video-3",
-        "file": "gravel-bogota-video-3.jpg",
-        "url": "/race-photos/gravel-bogota/gravel-bogota-video-3.jpg",
-        "alt": "Two gravel cyclists in helmets and cycling gear being interviewed under tent at night during race event - Gravel Bogotá - Bogotá, Colombia",
-        "credit": "YouTube / Todos Los Dias En Bici",
-        "primary": false,
-        "ai_relevance": 2,
-        "ai_quality": 3,
-        "ai_keywords": [
-          "race interview",
-          "cycling event",
-          "night tent",
-          "gravel racers",
-          "post-race"
-        ]
-      },
-      {
-        "type": "preview-gif",
-        "file": "gravel-bogota-preview.gif",
-        "url": "/race-photos/gravel-bogota/gravel-bogota-preview.gif",
-        "alt": "Course preview from Gravel Bogota race footage",
-        "credit": "YouTube / Todos Los Dias En Bici",
-        "gif": true
+        "url": "https://ucigravelworldseries.com/en/pelluad-and-franco-make-history-at-inaugural-gravel-bogota/",
+        "category": "official",
+        "label": "UCI Gravel World Series — inaugural Gravel Bogotá race report"
       }
     ]
   }

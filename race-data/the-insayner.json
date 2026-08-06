@@ -1,446 +1,229 @@
 {
   "race": {
-    "name": "The Insayner",
+    "name": "InSayner Mountain Bike Race",
     "slug": "the-insayner",
-    "display_name": "The Insayner",
-    "tagline": "Snowmobile trails and logging roads through northern Wisconsin's state forest near Sayner.",
+    "display_name": "The InSayner",
+    "tagline": "Twenty-five miles of snowmobile trail, singletrack, logging road, creek crossings, and Northwoods race craft.",
     "vitals": {
-      "distance_mi": 55,
-      "elevation_ft": 2500,
+      "distance_mi": 25,
+      "elevation_ft": null,
       "location": "Sayner, Wisconsin",
       "location_badge": "SAYNER, WI",
       "county": "Vilas County",
-      "date": "Mid-June annually",
-      "date_specific": "2026: June 13",
+      "date": "June 13, 2026",
+      "date_specific": "2026: June 13 (completed; next edition not announced)",
+      "course_status": "source_blocked",
+      "pack_status": "unavailable",
+      "course_status_label": "NEXT EDITION PENDING",
+      "course_status_reason": "The 2026 race is complete and the organizer has not announced the next date. No race-specific plan is for sale until a future edition is official.",
       "terrain_types": [
-        "Wisconsin rolling",
-        "Local event",
-        "Midwest gravel",
-        "Wisconsin"
+        "Snowmobile trails",
+        "Musky Mountain singletrack",
+        "Logging roads",
+        "Gravel and short pavement"
       ],
-      "field_size": "50-100 riders",
+      "field_size": "Not published by the organizer",
       "start_time": "10:00 AM CDT",
-      "registration": "Online. Cost: ~$50-75",
-      "prize_purse": "Modest prizes",
-      "aid_stations": "Limited aid stations",
-      "cutoff_time": "Varies",
+      "registration": "2026 registration closed; 25-mile race entry was $45",
+      "prize_purse": "Awards and raffles; no cash purse published",
+      "aid_stations": "Not published",
+      "cutoff_time": "A course cutoff exists, but the exact time was not published",
       "lat": 45.9861,
-      "lng": -89.5326
+      "lng": -89.5326,
+      "route_options": [
+        "The InSayner: 25-mile back-country race",
+        "The Swarm: 15-mile adventure race",
+        "No-See-Um: 3.5-mile family ride"
+      ]
     },
     "climate": {
-      "primary": "Wisconsin summer",
-      "description": "Variable conditions.",
+      "primary": "Northern Wisconsin early summer",
+      "description": "The organizer does not publish a race-day temperature range. The practical risks are wet trail sections, humidity, and variable Northwoods conditions rather than altitude or extreme heat.",
       "challenges": [
-        "Variable weather",
-        "Humidity possible",
-        "Rolling terrain",
-        "Summer conditions"
+        "Wet trail traction is possible",
+        "Humidity and bugs",
+        "No organizer-published weather range"
       ]
     },
     "terrain": {
-      "primary": "Wisconsin rolling gravel",
-      "surface": "Gravel roads through Wisconsin countryside. Moderate elevation with rolling scenery.",
-      "technical_rating": 2,
+      "primary": "Northwoods back-country MTB crossover",
+      "surface": "The signature race leaves Sayner on snowmobile trails, crosses Musky Mountain singletrack, and uses logging roads, gravel, backroads, and short pavement before returning on snowmobile trails.",
+      "technical_rating": 4,
       "features": [
-        "Moderate rolling (2500 feet)",
-        "Wisconsin countryside scenery",
-        "Local community event",
-        "55-mile distance",
-        "Small field"
+        "Musky Mountain singletrack",
+        "Snowmobile-trail approaches",
+        "Plum Creek crossing",
+        "Logging roads and gravel",
+        "Published cutoff with alternate route"
       ]
     },
     "gravel_god_rating": {
-      "overall_score": 40,
-      "tier": 4,
-      "tier_label": "TIER 4",
-      "logistics": 2,
-      "length": 2,
-      "technicality": 2,
-      "elevation": 2,
+      "overall_score": 54,
+      "tier": 3,
+      "tier_label": "TIER 3",
+      "logistics": 3,
+      "length": 1,
+      "technicality": 4,
+      "elevation": 1,
       "climate": 2,
       "altitude": 1,
-      "adventure": 2,
-      "prestige": 1,
-      "race_quality": 2,
-      "experience": 2,
-      "community": 2,
-      "field_depth": 1,
-      "value": 4,
-      "expenses": 3,
-      "score_note": "Local Wisconsin event. Rolling terrain with remote access, low costs, and small local field.",
-      "discipline": "gravel",
-      "display_tier": 4
+      "adventure": 3,
+      "prestige": 2,
+      "race_quality": 3,
+      "experience": 3,
+      "community": 4,
+      "field_depth": 2,
+      "value": 5,
+      "expenses": 4,
+      "score_note": "The course is short, but it is a legitimate timed back-country race with mixed trail surfaces, a cutoff, and a direct trail-building mission. Technicality, value, and community lift it to 54 and Tier 3; missing elevation and field data prevent a higher grade.",
+      "discipline": "mtb",
+      "display_tier": 3
     },
     "biased_opinion": {
-      "verdict": "Wisconsin Local Gravel",
-      "summary": "The Insayner is a local event in Wisconsin—rolling terrain with moderate elevation. The Wisconsin countryside is nice and it's good value, but the small local field, remote location, and limited organization keep it in Tier 4.",
+      "verdict": "Short, Weird, Legit",
+      "summary": "The old profile inflated this into a generic 55-mile gravel race. The actual event is better and stranger: a 25-mile Northwoods mountain-bike race using snowmobile trail, Musky Mountain singletrack, logging roads, gravel, and creek crossings. It is short enough to race hard and technical enough to punish road-only preparation.",
       "strengths": [
-        "Wisconsin countryside scenery",
-        "Good value",
-        "Local community",
-        "Low costs",
-        "Remote experience"
+        "Specific mixed-terrain identity",
+        "Direct fundraiser for LAMBO trail work",
+        "$45 race entry in 2026",
+        "Published race-day schedule and cutoff policy",
+        "Three distances for different ability levels"
       ],
       "weaknesses": [
-        "Small local field only",
-        "Limited organization",
-        "Remote location",
-        "Variable weather",
-        "No national draw"
+        "No next-edition date",
+        "No official elevation figure",
+        "No published field size",
+        "MTB-primary rather than pure gravel"
       ],
-      "bottom_line": "A solid local Wisconsin gravel race. Worth it for Wisconsin/Midwest riders. Not worth traveling for."
+      "bottom_line": "Treat it as a short back-country MTB race, not a 55-mile gravel grinder; train technical repeatability and accelerations."
     },
     "final_verdict": {
-      "score": "40 / 100",
-      "one_liner": "Wisconsin local gravel challenge.",
-      "should_you_race": "If you're local to Wisconsin—yes, it's good value. If you're traveling—skip it.",
-      "alternatives": "For better Wisconsin races: Chequamegon, Almanzo.",
+      "score": "54 / 100",
+      "one_liner": "A $45 Northwoods trail fundraiser with more terrain variety than its 25 miles suggest.",
+      "should_you_race": "Yes if you want a community-first Wisconsin back-country race and can handle singletrack; no if you only ride smooth gravel roads.",
+      "alternatives": "For a longer Wisconsin off-road event, compare Chequamegon MTB Festival.",
       "alternative_slugs": [
-        "almanzo-100",
-        "chequamegon-mtb"
+        "chequamegon-mtb-festival"
       ]
     },
     "logistics": {
-      "airport": "Rhinelander (RHI) 60 minutes",
-      "lodging_strategy": "Sayner has limited lodging options. Plan ahead.",
-      "food": "Sayner has limited dining options. Stock nutrition.",
-      "packet_pickup": "Day of typically",
-      "parking": "At start/finish",
-      "official_site": "Check The Insayner website"
+      "airport": "Drive access to Sayner in northern Wisconsin; verify a future edition before booking",
+      "lodging_strategy": "Stay in Sayner or the Vilas County lake region; reserve early for summer weekends",
+      "food": "Carry enough fluid and nutrition for a hard 25-mile trail race; aid details were not published",
+      "packet_pickup": "2026 bib pickup ran 8:00-9:15 AM at the Sayner Community Building",
+      "parking": "Not published",
+      "official_site": "https://lamboriders.org/events/insayner"
+    },
+    "eligibility": {
+      "status": "active",
+      "verified": "2026-08-06",
+      "source": "https://www.bikesignup.com/Race/WI/Sayner/2023InSaynerMountainBikeRace",
+      "status_note": "The June 13, 2026 edition completed. The event identity and course are legitimate, but no next edition has been announced."
     },
     "history": {
       "founded": null,
-      "founder": "Local Wisconsin organizers",
-      "origin_story": "Local Wisconsin gravel event.",
-      "notable_moments": [],
-      "reputation": "Local Wisconsin event."
+      "founder": "Lakeland Area Mountain Bike Organization",
+      "origin_story": "LAMBO runs InSayner as a fundraiser for trail building and maintenance in northern Wisconsin.",
+      "notable_moments": [
+        "The 2026 program combined the 25-mile InSayner, 15-mile Swarm, and 3.5-mile No-See-Um family ride"
+      ],
+      "reputation": "A local Northwoods back-country event with a playful voice and concrete trail-building purpose."
     },
     "course_description": {
-      "character": "Wisconsin rolling gravel.",
+      "character": "A short but varied back-country race linking snowmobile trail, Musky Mountain singletrack, logging road, gravel, creek crossings, and brief pavement.",
       "suffering_zones": [
-        {
-          "mile": 15,
-          "label": "Early Rolling",
-          "desc": "First rolling sections.",
-          "terrain_detail": "Rolling",
-          "named_section": "Early Rolling"
-        },
-        {
-          "mile": 27,
-          "label": "Midpoint",
-          "desc": "Halfway through the course.",
-          "terrain_detail": "Midpoint",
-          "named_section": "Halfway"
-        },
-        {
-          "mile": 45,
-          "label": "Late Rolling",
-          "desc": "Final rolling sections before finish.",
-          "terrain_detail": "Late rolling",
-          "named_section": "Final Push"
-        }
+        {"mile": 0, "label": "Snowmobile-Trail Start", "desc": "The race leaves Sayner on snowmobile trail, forcing early position decisions on variable ground.", "terrain_detail": "Snowmobile trail", "named_section": "Sayner trail approach"},
+        {"mile": 8, "label": "Musky Mountain", "desc": "Singletrack adds handling load and makes passing more expensive than on the surrounding roads.", "terrain_detail": "Singletrack", "named_section": "Musky Mountain bike trails"},
+        {"mile": 20, "label": "Cutoff Decision", "desc": "The organizer uses a cutoff with an alternate return route; late-race pace must stay deliberate even on a short course.", "terrain_detail": "Backroad and snowmobile-trail return", "named_section": "Return to Sayner"}
       ],
-      "signature_challenge": "Wisconsin rolling terrain.",
-      "ridewithgps_id": "46993712",
-      "ridewithgps_name": "InSayner Long Course"
+      "signature_challenge": "Changing from fast backroad power to controlled singletrack handling without ever settling into one rhythm.",
+      "ridewithgps_id": null,
+      "ridewithgps_name": null
     },
     "guide_variables": {
-      "race_name": "The Insayner",
-      "race_distance": "55 miles",
-      "race_elevation": "2,500 feet",
-      "race_date": "Summer",
+      "race_name": "The InSayner",
+      "race_distance": "25 miles",
+      "race_elevation": "Not published",
+      "race_date": "Next edition not announced",
       "race_location": "Sayner, Wisconsin",
-      "race_terrain": "Wisconsin rolling gravel",
-      "race_weather": "Wisconsin summer variable",
+      "race_terrain": "Snowmobile trail, singletrack, logging roads, gravel, creek crossings, and short pavement",
+      "race_weather": "Variable northern Wisconsin early-summer conditions",
       "race_challenges": [
-        "Rolling terrain",
-        "Small local field",
-        "Remote location",
-        "Limited organization",
-        "Variable weather"
+        "Technical surface changes",
+        "Singletrack position",
+        "Short-race surge repeatability",
+        "Creek crossings",
+        "Published but unspecific cutoff"
       ],
       "altitude_section": false,
       "altitude_feet": null
     },
     "non_negotiables": [
-      {
-        "requirement": "Weather preparation",
-        "by_when": "Week 4-6",
-        "why": "Wisconsin summer weather is variable."
-      },
-      {
-        "requirement": "Rolling endurance",
-        "by_when": "Week 6-8",
-        "why": "Wisconsin rolling terrain requires sustained effort."
-      },
-      {
-        "requirement": "Self-sufficiency",
-        "by_when": "Week 4-6",
-        "why": "Limited organization and remote location require self-sufficiency."
-      }
+      {"requirement": "Singletrack handling", "by_when": "Week 8", "why": "The official course uses Musky Mountain singletrack."},
+      {"requirement": "Short-race repeatability", "by_when": "Week 9", "why": "Twenty-five miles rewards repeated hard accelerations rather than ultra-endurance pacing."},
+      {"requirement": "Mixed-surface rehearsal", "by_when": "Week 10", "why": "The course switches between trail, logging road, gravel, and pavement."}
     ],
     "research_metadata": {
-      "data_confidence": "moderate",
-      "validation_status": "pending",
+      "data_confidence": "high",
+      "validation_status": "verified",
       "sources": [
-        "wisconsin_cycling_community"
+        "https://www.bikesignup.com/Race/WI/Sayner/2023InSaynerMountainBikeRace",
+        "https://lamboriders.org/events/insayner"
       ],
       "migration_notes": [
-        "Generated from regional information"
-      ],
-      "research_strength": {
-        "overall": 89.2,
-        "grade": "A",
-        "weakest": "cross_reference",
-        "has_research_dump": true,
-        "dimensions": {
-          "source_diversity": 100,
-          "citation_density": 100,
-          "temporal_depth": 100,
-          "specificity": 100,
-          "statistical_backing": 100,
-          "voice_authenticity": 70,
-          "completeness": 76,
-          "cross_reference": 15
-        },
-        "scored_at": "2026-02-04"
-      }
+        "Corrected the fabricated 55-mile and 2,500-foot claims to the official 25-mile course and unknown elevation",
+        "Corrected the primary identity from generic gravel to MTB-primary mixed-surface back-country race",
+        "No TrainingPeaks fleet until a future edition is announced"
+      ]
+    },
+    "biased_opinion_ratings": {
+      "logistics": {"score": 3, "explanation": "Sayner requires a drive into northern Wisconsin, but the community-building start and compact race-day schedule are straightforward once you are there."},
+      "length": {"score": 1, "explanation": "The signature race is officially 25 miles, below the rubric's 40-mile threshold."},
+      "technicality": {"score": 4, "explanation": "Snowmobile trail, Musky Mountain singletrack, logging roads, gravel, and creek crossings force repeated handling changes."},
+      "elevation": {"score": 1, "explanation": "The organizer publishes no gain figure; the prior 2,500-foot claim was unsupported, so the grade remains conservative until a GPX exists."},
+      "climate": {"score": 2, "explanation": "Northern Wisconsin can be wet and humid in June, but there is no organizer evidence of routinely extreme conditions."},
+      "altitude": {"score": 1, "explanation": "The Sayner, Wisconsin course is low enough that altitude is not a training constraint."},
+      "adventure": {"score": 3, "explanation": "A true back-country mix through state forest and Musky Mountain is memorable despite the short distance."},
+      "prestige": {"score": 2, "explanation": "The InSayner has Northern Wisconsin recognition and a distinctive identity, but remains a regional race rather than a national one."},
+      "race_quality": {"score": 3, "explanation": "The 2026 schedule covered 3 events, a cutoff, awards, and registration; aid and field details remain thin."},
+      "experience": {"score": 3, "explanation": "The Musky Mountain terrain mix and playful organization make the day enjoyable, though it is not a destination-scale production."},
+      "community": {"score": 4, "explanation": "Entry funds LAMBO trail building and the event includes a free 3.5-mile family ride."},
+      "field_depth": {"score": 2, "explanation": "It is a timed race, but no entrant count, elite field, or deep results evidence is published for 2026."},
+      "value": {"score": 5, "explanation": "$45 for a timed signature race that funds local trails is exceptional value."},
+      "expenses": {"score": 4, "explanation": "The low fee and regional drive model keep total costs reasonable for Midwest riders."}
     },
     "training_config": {
       "workout_modifications": {
-        "weather_training": {
-          "enabled": true,
-          "weeks": [
-            4,
-            5,
-            6
-          ]
-        },
-        "rolling_endurance": {
-          "enabled": true,
-          "weeks": [
-            6,
-            7,
-            8
-          ]
-        },
-        "dress_rehearsal": {
-          "enabled": true,
-          "week": 8,
-          "day": "Saturday",
-          "duration_hours": {
-            "ayahuasca": 2,
-            "finisher": 3,
-            "compete": 4,
-            "podium": 5
-          }
-        }
+        "technical_repeatability": {"enabled": true, "weeks": [7, 8, 9, 10]},
+        "short_race_surges": {"enabled": true, "weeks": [8, 9, 10]},
+        "dress_rehearsal": {"enabled": true, "week": 10, "day": "Saturday", "duration_hours": {"ayahuasca": 2, "finisher": 3, "compete": 4, "podium": 4}}
       },
       "masterclass_topics": {
-        "priority_order": [
-          "pacing",
-          "fueling",
-          "weather",
-          "rolling"
-        ],
+        "priority_order": ["handling", "positioning", "pacing", "equipment"],
         "race_specific": true,
         "topics": {
-          "pacing": "Rolling terrain pacing",
-          "fueling": "Nutrition for rolling riding",
-          "weather": "Riding in variable Wisconsin weather",
-          "rolling": "Sustained rolling strategy"
+          "handling": "Moving between snowmobile trail and singletrack",
+          "positioning": "Entering Musky Mountain in the right group",
+          "pacing": "Racing hard for 25 mixed-surface miles",
+          "equipment": "MTB-capable tire and repair choices"
         }
       },
       "tier_overrides": {},
       "marketplace_variables": {
-        "race_name": "The Insayner",
-        "race_hook": "Wisconsin local gravel challenge.",
-        "race_hook_detail": "Local event with rolling terrain.",
-        "distance": "55",
-        "dark_mile": "27",
-        "non_negotiable_1": "Weather preparation",
-        "non_negotiable_2": "Rolling endurance",
-        "non_negotiable_3": "Self-sufficiency",
+        "race_name": "The InSayner",
+        "race_hook": "25 miles of Northwoods terrain changes",
+        "race_hook_detail": "A short MTB-primary back-country race across snowmobile trail, singletrack, logging road, and gravel.",
+        "distance": "25",
+        "dark_mile": "18",
+        "non_negotiable_1": "Singletrack handling",
+        "non_negotiable_2": "Short-race repeatability",
+        "non_negotiable_3": "Mixed-surface rehearsal",
         "trainingpeaks_url": null
       }
     },
-    "biased_opinion_ratings": {
-      "logistics": {
-        "score": 2,
-        "explanation": "Same-day registration and packet pickup from 8:00-9:15 AM at Sayner Community Center keeps things simple but basic. No information on parking, lodging, or airport access. Race directors Danny and Mike O. warn long course riders: \"don't count on any race support!\" You're on your own for everything except showing up race morning."
-      },
-      "length": {
-        "score": 2,
-        "explanation": "The format has shifted from the original 50+ mile \"savage, barbaric\" long course to current 25-mile and 15-mile options. Race directors enforce cutoffs strictly: \"this is NOT an all day event. YOU have a cut off to make, otherwise it's black top for you!\" The distances are respectable but not endurance challenges. More compact than Grinduro."
-      },
-      "technicality": {
-        "score": 2,
-        "explanation": "Trailforks rates this as intermediate difficulty, mixing snowmobile trails, logging roads, and creek crossings. There's an old ski hill run and various road sections including Plum Vitae and Klondike Roads. It's technical enough to keep you awake but nothing approaching true technical challenge - more navigational complexity than skill requirement. Less technical than The Mid South."
-      },
-      "elevation": {
-        "score": 2,
-        "explanation": "The course features \"sweet stretches of downhills\" and climbing Musky Mountain, plus an old ski hill run. Race directors note \"one bike's advantage won't last forever\" due to varied terrain demands. Northern Wisconsin's 2500 feet over 55 miles provides moderate undulation rather than serious climbing challenges. Less climbing than The Mid South."
-      },
-      "climate": {
-        "score": 2,
-        "explanation": "Mid-June conditions include \"slogging through mud\" and \"fending off mosquitoes and deer flies\" according to course descriptions. The Northern Highland forest setting concentrates insects around creek crossings and wooded sections. Weather variability can turn perfect conditions into survival challenges quickly. More weather exposure than Belgian Waffle Ride San Diego."
-      },
-      "altitude": {
-        "score": 1,
-        "explanation": "Northern Wisconsin lake country starting around 1700 feet elevation presents no altitude considerations. This is essentially sea level for cycling purposes with no acclimatization needed or performance impact from elevation. Lower altitude than Gravel Worlds — no thin-air concerns."
-      },
-      "adventure": {
-        "score": 2,
-        "explanation": "You're exploring the Northern Highland American Legion State Forest on snowmobile trails and logging roads, which has authentic backcountry feel. Creek crossings and remote forest sections provide some adventure factor, but it's more 'getting lost in Wisconsin woods' than epic gravel adventure. The terrain is exploratory without being challenging or scenic."
-      },
-      "prestige": {
-        "score": 1,
-        "explanation": "This is a local mountain bike fundraiser for trail development, not a recognized gravel event. The inaugural 2021 race drew nearly 80 registrations and 120 total attendees, showing growth potential. No notable winners or pro field, but it's building regional recognition as part of the Ironbear 1000 series."
-      },
-      "race_quality": {
-        "score": 2,
-        "explanation": "Race organization covers essentials with same-day registration, 9:15 AM rider meeting, and 1:30 PM awards with raffles. The directors' humor shows through course descriptions: \"Oh, you're one of THOSE people! The 25ish isn't enough? You think you're better than that, don't you?\" It's functional community organizing with personality."
-      },
-      "experience": {
-        "score": 2,
-        "explanation": "The course hits Vandercook Road multiple times, crosses Plum Creek twice (once without a bridge), and travels Klondike Road through state forest terrain. \"It levels the playing field for adventurers – folks who never raced a bike event before finished and placed in the top 3, while active racers dropped like, well, flies!\""
-      },
-      "community": {
-        "score": 2,
-        "explanation": "\"Over 120 people gathered in the small town of Sayner, WI, on Saturday, June 12th, for an adventure to remember\" at the inaugural race. All proceeds support the $350,000 Mus-ski Mountain Trails project. The event includes family options and connects \"like-minded silent sports enthusiasts\" for trail advocacy."
-      },
-      "field_depth": {
-        "score": 1,
-        "explanation": "The original format required minimum 20 registrations for the long course or defaulted riders to \"run the short course twice.\" Course conditions favor newcomers over experienced racers based on the inaugural results. This remains a participation event supporting trails rather than competitive racing. Thinner field than Ouray Gravel Grinder."
-      },
-      "value": {
-        "score": 4,
-        "explanation": "Entry fees of $11.60 to $48.70 directly support trail building and maintenance in Northern Highland American Legion State Forest. You get organized adventure, awards, raffles, and meaningful contribution to a $350,000 trail development project for the price of a decent lunch."
-      },
-      "expenses": {
-        "score": 3,
-        "explanation": "Registration runs $50-75. Sayner, Wisconsin offers limited but affordable lodging and dining options typical of small northwoods towns. The race starts at Sayner Community Center with straightforward logistics. Costs remain reasonable for a weekend in Wisconsin lake country, though choices are basic. Similar expense level to Belgian Waffle Ride San Diego."
-      }
-    },
     "citations": [
-      {
-        "url": "https://ridewithgps.com/routes/46993712",
-        "category": "route",
-        "label": "RideWithGPS: InSayner Long Course"
-      },
-      {
-        "url": "https://fat-bike.com/mc-events/insayner-adventure-bike-race/?mc_id=1004",
-        "category": "other",
-        "label": "Fat-Bike"
-      },
-      {
-        "url": "https://fat-bike.com/mc-events/the-inthe-insayner-23-mile-adventure-bike-rice/",
-        "category": "other",
-        "label": "Fat-Bike"
-      },
-      {
-        "url": "https://lamboriders.org/events/the-insayner/10544[2",
-        "category": "other",
-        "label": "Lamboriders"
-      },
-      {
-        "url": "https://vcnewsreview.com/stories/insayner-adventure-bike-race-kicks-off-fundraising-for-mus-ski-mountain-trail,149194",
-        "category": "other",
-        "label": "Vcnewsreview"
-      },
-      {
-        "url": "https://www.nwpulse.com/insayner-bike-race-to-deliver-big-adventure-this-saturday/",
-        "category": "other",
-        "label": "Nwpulse"
-      },
-      {
-        "url": "https://www.raceplace.com/events/162810/insayner-mountain-bike-race",
-        "category": "other",
-        "label": "Raceplace"
-      },
-      {
-        "url": "https://www.overlandgirl.com/mountain-biking/wisconsin-bike-races-supporting-trails",
-        "category": "community",
-        "label": "overlandgirl.com: Wisconsin Bike Races Supporting Trails"
-      },
-      {
-        "url": "https://www.ironbull.org/ironbear-1000",
-        "category": "community",
-        "label": "ironbull.org: Ironbear 1000"
-      },
-      {
-        "url": "https://fat-bike.com/2021/05/full-spectrum-cycling-113-sooo-much-goodness/",
-        "category": "community",
-        "label": "fat-bike.com: Full Spectrum Cycling 113 Sooo Much Goodness"
-      }
-    ],
-    "tire_recommendations": {
-      "generated_at": "2026-02-19",
-      "primary": [
-        {
-          "rank": 1,
-          "tire_id": "specialized-pathfinder-pro",
-          "name": "Specialized Pathfinder Pro",
-          "brand": "Specialized",
-          "recommended_width_mm": 38,
-          "msrp_usd": 54.99,
-          "weight_grams": 380,
-          "crr_watts": 32.0,
-          "why": "Fast center, grippy edges. The modern all-rounder benchmark."
-        },
-        {
-          "rank": 2,
-          "tire_id": "panaracer-gravelking-sk",
-          "name": "Panaracer GravelKing SK",
-          "brand": "Panaracer",
-          "recommended_width_mm": 40,
-          "msrp_usd": 64.9,
-          "weight_grams": 380,
-          "crr_watts": 32.5,
-          "why": "Affordable all-rounder. Light knobs add grip without killing speed."
-        },
-        {
-          "rank": 3,
-          "tire_id": "vittoria-terreno-mix",
-          "name": "Vittoria Terreno Mix",
-          "brand": "Vittoria",
-          "recommended_width_mm": 40,
-          "msrp_usd": 79.99,
-          "weight_grams": 420,
-          "crr_watts": 33.5,
-          "why": "Graphene versatility. Mixed-terrain grip with reasonable rolling speed."
-        }
-      ],
-      "front_rear_split": {
-        "applicable": true,
-        "front": {
-          "tire_id": "rene-herse-snoqualmie-pass",
-          "name": "Rene Herse Snoqualmie Pass",
-          "width_mm": 44
-        },
-        "rear": {
-          "tire_id": "specialized-pathfinder-pro",
-          "name": "Specialized Pathfinder Pro",
-          "width_mm": 38
-        },
-        "rationale": "Faster front for reduced rolling resistance on straights, grippier rear for traction on loose climbs and corners"
-      },
-      "race_surface_profile": "mixed",
-      "recommended_width_mm": 38,
-      "pressure_psi": {
-        "140_160lb_dry": "36-40",
-        "140_160lb_mixed": "33-37",
-        "140_160lb_wet": "31-35",
-        "160_180lb_dry": "39-43",
-        "160_180lb_mixed": "36-40",
-        "160_180lb_wet": "34-38",
-        "180_200lb_dry": "42-46",
-        "180_200lb_mixed": "39-43",
-        "180_200lb_wet": "37-41",
-        "200pluslb_dry": "45-49",
-        "200pluslb_mixed": "42-46",
-        "200pluslb_wet": "40-44"
-      }
-    }
+      {"url": "https://www.bikesignup.com/Race/WI/Sayner/2023InSaynerMountainBikeRace", "category": "official", "label": "Official 2026 registration and race description"},
+      {"url": "https://lamboriders.org/events/insayner", "category": "official", "label": "LAMBO event page"}
+    ]
   }
 }

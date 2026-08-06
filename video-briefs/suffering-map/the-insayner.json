@@ -2,19 +2,19 @@
   "slug": "the-insayner",
   "format": "suffering-map",
   "platform": "TikTok / Instagram Reels / YouTube Shorts",
-  "race_name": "The Insayner",
-  "race_tier": 4,
-  "race_score": 40,
+  "race_name": "The InSayner",
+  "race_tier": 3,
+  "race_score": 54,
   "duration_target_range": [
     15,
     30
   ],
   "estimated_duration_sec": 34,
-  "estimated_spoken_words": 43,
+  "estimated_spoken_words": 78,
   "story_arc": "hook-sequential-zones-loop",
   "primary_trope": {
     "name": "countdown",
-    "hook_text": "Where The Insayner breaks you",
+    "hook_text": "Where The InSayner breaks you",
     "mechanism": "Sequential escalation + anticipation"
   },
   "retention_targets": {
@@ -28,25 +28,24 @@
       "label": "HOOK",
       "time_range": "0:00-0:05",
       "duration_sec": 5,
-      "narration": "Here's where The Insayner breaks you. 55 mi. Zone by zone.",
-      "text_on_screen": "The Insayner — Where It Hurts",
+      "narration": "Here's where The InSayner breaks you. 25 mi. Zone by zone.",
+      "text_on_screen": "The InSayner — Where It Hurts",
       "visual": "Full route map, then zoom into first zone",
       "avatar_pose": "suffering",
       "broll_sources": [
         {
-          "type": "rwgps",
-          "id": "46993712",
-          "url": "https://ridewithgps.com/routes/46993712",
-          "use": "Route map overlay"
+          "type": "race_website",
+          "url": "https://lamboriders.org/events/insayner",
+          "use": "Hero image, branding reference"
         },
         {
           "type": "youtube_search",
-          "query": "The Insayner route map",
+          "query": "The InSayner route map",
           "use": "B-roll: route"
         },
         {
           "type": "youtube_search",
-          "query": "The Insayner course walkthrough",
+          "query": "The InSayner course walkthrough",
           "use": "B-roll: route"
         }
       ],
@@ -67,28 +66,27 @@
     },
     {
       "id": "zone_1",
-      "label": "ZONE 1: Mile 15",
+      "label": "ZONE 1: Mile 0",
       "time_range": "0:05-0:13",
       "duration_sec": 8,
-      "narration": "Mile 15. Early Rolling. First rolling sections.",
-      "text_on_screen": "MILE 15: Early Rolling",
+      "narration": "Mile 0. Snowmobile-Trail Start. The race leaves Sayner on snowmobile trail, forcing early position decisions on variable ground.",
+      "text_on_screen": "MILE 0: Snowmobile-Trail Start",
       "visual": "Route map with zone marker animation",
       "avatar_pose": "pointing",
       "broll_sources": [
         {
-          "type": "rwgps",
-          "id": "46993712",
-          "url": "https://ridewithgps.com/routes/46993712",
-          "use": "Route map overlay"
+          "type": "race_website",
+          "url": "https://lamboriders.org/events/insayner",
+          "use": "Hero image, branding reference"
         },
         {
           "type": "youtube_search",
-          "query": "The Insayner course preview",
+          "query": "The InSayner course preview",
           "use": "B-roll: terrain"
         },
         {
           "type": "youtube_search",
-          "query": "gravel cycling Wisconsin rolling gravel",
+          "query": "gravel cycling Northwoods back-country MTB crossover",
           "use": "B-roll: terrain"
         }
       ],
@@ -105,32 +103,31 @@
         3
       ],
       "editing_note": "Zone marker 1 appears on map. Progressive color intensity (green→yellow→red).",
-      "narration_wpm": 52.5
+      "narration_wpm": 135.0
     },
     {
       "id": "zone_2",
-      "label": "ZONE 2: Mile 27",
+      "label": "ZONE 2: Mile 8",
       "time_range": "0:13-0:21",
       "duration_sec": 8,
-      "narration": "Mile 27. Midpoint. Halfway through the course.",
-      "text_on_screen": "MILE 27: Midpoint",
+      "narration": "Mile 8. Musky Mountain. Singletrack adds handling load and makes passing more expensive than on the surrounding roads.",
+      "text_on_screen": "MILE 8: Musky Mountain",
       "visual": "Route map with zone marker animation",
       "avatar_pose": "pointing",
       "broll_sources": [
         {
-          "type": "rwgps",
-          "id": "46993712",
-          "url": "https://ridewithgps.com/routes/46993712",
-          "use": "Route map overlay"
+          "type": "race_website",
+          "url": "https://lamboriders.org/events/insayner",
+          "use": "Hero image, branding reference"
         },
         {
           "type": "youtube_search",
-          "query": "The Insayner course preview",
+          "query": "The InSayner course preview",
           "use": "B-roll: terrain"
         },
         {
           "type": "youtube_search",
-          "query": "gravel cycling Wisconsin rolling gravel",
+          "query": "gravel cycling Northwoods back-country MTB crossover",
           "use": "B-roll: terrain"
         }
       ],
@@ -147,32 +144,31 @@
         3
       ],
       "editing_note": "Zone marker 2 appears on map. Progressive color intensity (green→yellow→red).",
-      "narration_wpm": 52.5
+      "narration_wpm": 135.0
     },
     {
       "id": "zone_3",
-      "label": "ZONE 3: Mile 45",
+      "label": "ZONE 3: Mile 20",
       "time_range": "0:21-0:29",
       "duration_sec": 8,
-      "narration": "Mile 45. Late Rolling. Final rolling sections before finish.",
-      "text_on_screen": "MILE 45: Late Rolling",
+      "narration": "Mile 20. Cutoff Decision. The organizer uses a cutoff with an alternate return route; late-race pace must stay deliberate even on a.",
+      "text_on_screen": "MILE 20: Cutoff Decision",
       "visual": "Route map with zone marker animation",
       "avatar_pose": "suffering",
       "broll_sources": [
         {
-          "type": "rwgps",
-          "id": "46993712",
-          "url": "https://ridewithgps.com/routes/46993712",
-          "use": "Route map overlay"
+          "type": "race_website",
+          "url": "https://lamboriders.org/events/insayner",
+          "use": "Hero image, branding reference"
         },
         {
           "type": "youtube_search",
-          "query": "The Insayner course preview",
+          "query": "The InSayner course preview",
           "use": "B-roll: terrain"
         },
         {
           "type": "youtube_search",
-          "query": "gravel cycling Wisconsin rolling gravel",
+          "query": "gravel cycling Northwoods back-country MTB crossover",
           "use": "B-roll: terrain"
         }
       ],
@@ -189,7 +185,7 @@
         3
       ],
       "editing_note": "Zone marker 3 appears on map. Progressive color intensity (green→yellow→red). [RIFF HERE] after final zone reveal.",
-      "narration_wpm": 67.5
+      "narration_wpm": 165.0
     },
     {
       "id": "cta",
@@ -223,11 +219,11 @@
     "suffering"
   ],
   "meme_inserts": [],
-  "thumbnail_prompt": "South Park style cartoon cyclist in agony, route map background, red zone markers, 'The Insayner' text --ar 9:16 --cref [CHARACTER_URL]",
+  "thumbnail_prompt": "South Park style cartoon cyclist in agony, route map background, red zone markers, 'The InSayner' text --ar 9:16 --cref [CHARACTER_URL]",
   "narration_feasibility": {
-    "total_words": 43,
+    "total_words": 78,
     "total_duration_sec": 34,
-    "overall_wpm": 75.9,
+    "overall_wpm": 137.6,
     "warnings": [],
     "feasible": true
   },

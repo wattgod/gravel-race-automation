@@ -1,0 +1,30 @@
+{
+  "@context": "https://schema.org",
+  "@type": "SportsEvent",
+  "name": "R3G3",
+  "description": "One hundred four miles and nearly 8,900 feet through Ontario forest-access roads, with a 6:00 AM start and no navigation hand-holding.",
+  "sport": "Gravel Cycling",
+  "startDate": "2026-05-30",
+  "location": {
+    "@type": "Place",
+    "name": "Griffith, Ontario, Canada",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Griffith",
+      "addressRegion": "Ontario"
+    }
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "59",
+    "bestRating": "100",
+    "ratingCount": "14",
+    "name": "Gravel God Rating"
+  },
+  "url": "https://gravelcup.com/gravel-cup-events/r3g3-gravel-epic",
+  "organizer": {
+    "@type": "Person",
+    "name": "Gravel Cup Canada",
+    "url": "https://gravelcup.com/gravel-cup-events/r3g3-gravel-epic"
+  }
+}

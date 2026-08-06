@@ -3,14 +3,14 @@
   "format": "suffering-map",
   "platform": "TikTok / Instagram Reels / YouTube Shorts",
   "race_name": "Glengarry Games Gravel Run",
-  "race_tier": 4,
-  "race_score": 40,
+  "race_tier": 3,
+  "race_score": 53,
   "duration_target_range": [
     15,
     30
   ],
   "estimated_duration_sec": 34,
-  "estimated_spoken_words": 45,
+  "estimated_spoken_words": 76,
   "story_arc": "hook-sequential-zones-loop",
   "primary_trope": {
     "name": "countdown",
@@ -28,17 +28,11 @@
       "label": "HOOK",
       "time_range": "0:00-0:05",
       "duration_sec": 5,
-      "narration": "Here's where Glengarry Games Gravel Run breaks you. 50 mi. Zone by zone.",
+      "narration": "Here's where Glengarry Games Gravel Run breaks you. 70.8 mi. Zone by zone.",
       "text_on_screen": "Glengarry Games Gravel Run — Where It Hurts",
       "visual": "Full route map, then zoom into first zone",
       "avatar_pose": "suffering",
       "broll_sources": [
-        {
-          "type": "rwgps",
-          "id": "52063952",
-          "url": "https://ridewithgps.com/routes/52063952",
-          "use": "Route map overlay"
-        },
         {
           "type": "race_website",
           "url": "https://gravelcup.com/gravel-cup-events/glengarry-gravel-run",
@@ -72,20 +66,14 @@
     },
     {
       "id": "zone_1",
-      "label": "ZONE 1: Mile 15",
+      "label": "ZONE 1: Mile 0",
       "time_range": "0:05-0:13",
       "duration_sec": 8,
-      "narration": "Mile 15. Early Rolling. First rolling sections.",
-      "text_on_screen": "MILE 15: Early Rolling",
+      "narration": "Mile 0. Maxville Rollout. The event left the Highland Games venue for the county gravel network.",
+      "text_on_screen": "MILE 0: Maxville Rollout",
       "visual": "Route map with zone marker animation",
       "avatar_pose": "pointing",
       "broll_sources": [
-        {
-          "type": "rwgps",
-          "id": "52063952",
-          "url": "https://ridewithgps.com/routes/52063952",
-          "use": "Route map overlay"
-        },
         {
           "type": "race_website",
           "url": "https://gravelcup.com/gravel-cup-events/glengarry-gravel-run",
@@ -98,7 +86,7 @@
         },
         {
           "type": "youtube_search",
-          "query": "gravel cycling Ontario rolling gravel",
+          "query": "gravel cycling Rolling eastern-Ontario gravel",
           "use": "B-roll: terrain"
         }
       ],
@@ -115,24 +103,18 @@
         3
       ],
       "editing_note": "Zone marker 1 appears on map. Progressive color intensity (green→yellow→red).",
-      "narration_wpm": 52.5
+      "narration_wpm": 120.0
     },
     {
       "id": "zone_2",
-      "label": "ZONE 2: Mile 25",
+      "label": "ZONE 2: Mile 45",
       "time_range": "0:13-0:21",
       "duration_sec": 8,
-      "narration": "Mile 25. Midpoint. Halfway through the course.",
-      "text_on_screen": "MILE 25: Midpoint",
+      "narration": "Mile 45. Open County Roads. Heat, wind, and rolling gravel created the main late-race load on the archived Epic route.",
+      "text_on_screen": "MILE 45: Open County Roads",
       "visual": "Route map with zone marker animation",
       "avatar_pose": "pointing",
       "broll_sources": [
-        {
-          "type": "rwgps",
-          "id": "52063952",
-          "url": "https://ridewithgps.com/routes/52063952",
-          "use": "Route map overlay"
-        },
         {
           "type": "race_website",
           "url": "https://gravelcup.com/gravel-cup-events/glengarry-gravel-run",
@@ -145,7 +127,7 @@
         },
         {
           "type": "youtube_search",
-          "query": "gravel cycling Ontario rolling gravel",
+          "query": "gravel cycling Rolling eastern-Ontario gravel",
           "use": "B-roll: terrain"
         }
       ],
@@ -162,24 +144,18 @@
         3
       ],
       "editing_note": "Zone marker 2 appears on map. Progressive color intensity (green→yellow→red).",
-      "narration_wpm": 52.5
+      "narration_wpm": 150.0
     },
     {
       "id": "zone_3",
-      "label": "ZONE 3: Mile 40",
+      "label": "ZONE 3: Mile 70",
       "time_range": "0:21-0:29",
       "duration_sec": 8,
-      "narration": "Mile 40. Late Rolling. Final rolling sections before finish.",
-      "text_on_screen": "MILE 40: Late Rolling",
+      "narration": "Mile 70. Highland Games Oval. The final three-quarter lap put the finish in front of the covered grandstands.",
+      "text_on_screen": "MILE 70: Highland Games Oval",
       "visual": "Route map with zone marker animation",
       "avatar_pose": "suffering",
       "broll_sources": [
-        {
-          "type": "rwgps",
-          "id": "52063952",
-          "url": "https://ridewithgps.com/routes/52063952",
-          "use": "Route map overlay"
-        },
         {
           "type": "race_website",
           "url": "https://gravelcup.com/gravel-cup-events/glengarry-gravel-run",
@@ -192,7 +168,7 @@
         },
         {
           "type": "youtube_search",
-          "query": "gravel cycling Ontario rolling gravel",
+          "query": "gravel cycling Rolling eastern-Ontario gravel",
           "use": "B-roll: terrain"
         }
       ],
@@ -209,7 +185,7 @@
         3
       ],
       "editing_note": "Zone marker 3 appears on map. Progressive color intensity (green→yellow→red). [RIFF HERE] after final zone reveal.",
-      "narration_wpm": 67.5
+      "narration_wpm": 135.0
     },
     {
       "id": "cta",
@@ -245,9 +221,9 @@
   "meme_inserts": [],
   "thumbnail_prompt": "South Park style cartoon cyclist in agony, route map background, red zone markers, 'Glengarry Games Gravel Run' text --ar 9:16 --cref [CHARACTER_URL]",
   "narration_feasibility": {
-    "total_words": 45,
+    "total_words": 76,
     "total_duration_sec": 34,
-    "overall_wpm": 79.4,
+    "overall_wpm": 134.1,
     "warnings": [],
     "feasible": true
   },

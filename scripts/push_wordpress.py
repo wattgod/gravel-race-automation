@@ -1641,6 +1641,11 @@ RewriteRule ^race/kal-tour-dirty-100/?$ /race/best-gravel-races-michigan/ [R=301
 # Chiang Mai; all references were circular self-sourcing). Subpaths covered.
 RewriteRule ^race/chiang-mai-gran-fondo/?$ /race/calendar/2026/ [R=301,L]
 RewriteRule ^race/chiang-mai-gran-fondo/(.*)$ /race/calendar/2026/ [R=301,L]
+# polish-gravel: the prior generic Krakow identity had no supporting organizer
+# or event. Redirect the page and any old product subpaths to the verified
+# Niepolomice race from the same region.
+RewriteRule ^race/polish-gravel/?$ /race/wyscig-niepolomice/ [R=301,L]
+RewriteRule ^race/polish-gravel/(.*)$ /race/wyscig-niepolomice/ [R=301,L]
 # gfny-bali -> gfny-belitung (event relocated/rebranded 2026; bali.gfny.com
 # itself 301s to belitung.gfny.com). Subpaths preserved.
 RewriteRule ^race/gfny-bali/?$ https://roadielabs.com/race/gfny-belitung/ [R=301,L]

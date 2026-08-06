@@ -1,4 +1,4 @@
-# THE INSAYNER — COMMUNITY RESEARCH
+# INSAYNER MOUNTAIN BIKE RACE — COMMUNITY RESEARCH
 
 ## Race Overview & Mission
 The InSayner is a **fundraiser mountain bike race** supporting trail building and maintenance in Northern Wisconsin, specifically benefiting LAMBO (Lakeland Area Mountain Biking Organization) and the Musky Mountain trail system. The race takes place in the **Northern Highland-American Legion State Forest** near Sayner, WI, and is described as "three events in one" with varying difficulty levels.

@@ -668,10 +668,13 @@ def brief_tier_reveal(rd):
             "label": "EVIDENCE",
             "time_range": "0:10-0:22",
             "duration_sec": 12,
-            "narration": " ".join(
-                _narrate_score(dim, rd["explanations"][dim]["score"],
-                               slug, compact=True)
-                for dim in top_dims
+            "narration": _trim_narration(
+                " ".join(
+                    _narrate_score(dim, rd["explanations"][dim]["score"],
+                                   slug, compact=True)
+                    for dim in top_dims
+                ),
+                12,
             ),
             "text_on_screen": "Score cards cycling",
             "visual": "Animated score cards — one per dimension",

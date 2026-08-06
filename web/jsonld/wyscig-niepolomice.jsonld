@@ -1,0 +1,30 @@
+{
+  "@context": "https://schema.org",
+  "@type": "SportsEvent",
+  "name": "Wy\u015bcig Niepo\u0142omice",
+  "description": "Ninety-nine fast forest kilometres with just enough technical ground to punish lazy positioning.",
+  "sport": "Gravel Cycling",
+  "startDate": "2026-09-19",
+  "location": {
+    "@type": "Place",
+    "name": "Niepo\u0142omice, Ma\u0142opolska, Poland",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Niepo\u0142omice",
+      "addressRegion": "Ma\u0142opolska"
+    }
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "59",
+    "bestRating": "100",
+    "ratingCount": "14",
+    "name": "Gravel God Rating"
+  },
+  "url": "https://wyscig.cc/en/race/niepolomice-en/",
+  "organizer": {
+    "@type": "Person",
+    "name": "Tomasz Marczy\u0144ski and Velo Creation",
+    "url": "https://wyscig.cc/en/race/niepolomice-en/"
+  }
+}

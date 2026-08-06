@@ -3,19 +3,19 @@
   "format": "should-you-race",
   "platform": "YouTube",
   "race_name": "Glengarry Games Gravel Run",
-  "race_tier": 4,
-  "race_score": 40,
+  "race_tier": 3,
+  "race_score": 53,
   "duration_target_range": [
     480,
     720
   ],
   "estimated_duration_sec": 585,
-  "estimated_spoken_words": 369,
+  "estimated_spoken_words": 450,
   "story_arc": "promise → course → data-staircase → pro/con → verdict → alternatives",
   "primary_trope": {
-    "name": "tier_reveal",
-    "hook_text": "328 races. 14 dimensions. Where does Glengarry Games Gravel Run land?",
-    "mechanism": "Countdown / ranking — inherent escalation and social comparison."
+    "name": "hidden_gem",
+    "hook_text": "The best race you've never heard of.",
+    "mechanism": "FOMO / loss aversion — the viewer is MISSING something. Losses feel 2.5x stronger than equivalent gains."
   },
   "retention_targets": {
     "1min_hold": ">70%",
@@ -28,17 +28,11 @@
       "label": "HOOK + PROMISE",
       "time_range": "0:00-0:15",
       "duration_sec": 15,
-      "narration": "Should you race Glengarry Games Gravel Run? I rated 328 gravel races on 14 dimensions. Glengarry Games Gravel Run scored 40 out of 100. Grassroots tier. Here's what that actually means for your season.",
+      "narration": "Should you race Glengarry Games Gravel Run? I rated 328 gravel races on 15 dimensions. Glengarry Games Gravel Run scored 53 out of 100. Solid tier. Here's what that actually means for your season.",
       "text_on_screen": "Should You Race Glengarry Games Gravel Run?",
       "visual": "Title card + tier badge + avatar",
       "avatar_pose": "presenting",
       "broll_sources": [
-        {
-          "type": "rwgps",
-          "id": "52063952",
-          "url": "https://ridewithgps.com/routes/52063952",
-          "use": "Route map overlay"
-        },
         {
           "type": "race_website",
           "url": "https://gravelcup.com/gravel-cup-events/glengarry-gravel-run",
@@ -76,17 +70,11 @@
       "label": "THE COURSE",
       "time_range": "0:15-1:15",
       "duration_sec": 60,
-      "narration": "Glengarry Games Gravel Run. Maxville, Ontario, Canada. 50 mi. Ontario rolling gravel.",
-      "text_on_screen": "Glengarry Games Gravel Run | Maxville, Ontario, Canada | 50 mi",
+      "narration": "Glengarry Games Gravel Run. Maxville, Ontario, Canada. 70.8 mi. A 114 km archived Epic course on rolling eastern-Ontario gravel, ending with an oval-track lap inside the Highland Games venue.",
+      "text_on_screen": "Glengarry Games Gravel Run | Maxville, Ontario, Canada | 70.8 mi",
       "visual": "Route map + terrain footage",
       "avatar_pose": "presenting",
       "broll_sources": [
-        {
-          "type": "rwgps",
-          "id": "52063952",
-          "url": "https://ridewithgps.com/routes/52063952",
-          "use": "Route map overlay"
-        },
         {
           "type": "race_website",
           "url": "https://gravelcup.com/gravel-cup-events/glengarry-gravel-run",
@@ -116,14 +104,14 @@
         40
       ],
       "editing_note": "Let the course breathe. Show the route map, then cut to terrain-specific B-roll. This is the SETUP phase — grounding the viewer before the data analysis. Pacing: 25-40 sec cuts.",
-      "narration_wpm": 12.0
+      "narration_wpm": 29.0
     },
     {
       "id": "scores_top",
       "label": "THE SCORES — Top 8",
       "time_range": "1:15-4:15",
       "duration_sec": 180,
-      "narration": "Fourteen dimensions. Here's where it lands. Value. 4 out of 5. Strong value proposition. The Highland Games partnership delivers unique spectator atmosphere and festival access alongside the cycling event. Expenses. 3 out of 5. Mid-range expenses. Budget a proper race weekend. Logistics. 2 out of 5. Basic setup. Don't expect hand-holding. The 2026 race date remains unconfirmed, and no packet pickup details are documented. Length. 2 out of 5. Manageable distance. Back by lunch. The Epic Course at 114km delivers proper gravel distance, with elite finishers like Stephen Chapman averaging 36. Technicality. 2 out of 5. Your road bike might survive. Might. Elevation. 2 out of 5. Rolling terrain. Nothing that'll break you. Rolling hills around Maxville provide steady climbing without overwhelming elevation. Climate. 2 out of 5. Weather cooperates more often than not. Historical weather data shows average highs of 77°F and lows of 61°F, with a 64% chance of rain on any given day. Adventure. 2 out of 5. Some interesting terrain. Mostly familiar. Shane Hotchkiss describes Ontario gravel events as \"more like an adventure than a race,\" capturing the spirit of these rolling countryside routes.",
+      "narration": "Fourteen dimensions. Here's where it lands. Experience. 4 out of 5. The kind of race that reshapes your season. The Highland Games oval finish in front of covered grandstands gives the 114 km Epic a defined finale. Community. 4 out of 5. Strong community. This race builds friendships. Embedding the race in the Glengarry Highland Games created actual spectators and a broader regional gathering. Logistics. 3 out of 5. Gets the job done. Nothing fancy. Maxville is reachable from Ottawa or Montréal, but Highland Games demand and the lack of a current edition complicate planning. Length. 3 out of 5. Proper race distance. Enough to hurt. The archived official Epic route was 114 km, or 70. Climate. 3 out of 5. The weather could go either way. An early-August Ontario race can impose meaningful heat and humidity across exposed county roads. Adventure. 3 out of 5. This race takes you somewhere different. The county-road course is standard gravel, but finishing inside the Highland Games gives the event memorable character. Race Quality. 3 out of 5. Solid production value. Gravel Cup Canada published routes, staggered starts, timing, and a technical guide; the event lacks a current edition to prove durability. Value. 3 out of 5. Reasonable price for what's offered. The 2025 event included 3 routes and timing, but the archived official page does not preserve a verifiable price.",
       "text_on_screen": "14 DIMENSIONS",
       "visual": "Score cards — 8 expanded dimensions",
       "avatar_pose": "thinking",
@@ -143,43 +131,43 @@
       "editing_note": "PROGRESSIVE RHYTHM: start tight (15-20 sec per dimension), slow down for the most interesting scores (30-40 sec). Each score: number appears, brief pause, explanation. Avatar reacts to extreme scores (5/5 = chef_kiss, 1/5 = facepalm). RE-ENGAGEMENT at 3:00 mark: insert a surprising score reveal or a meme reaction to break the pattern.",
       "evidence_data": [
         {
-          "dimension": "Value",
+          "dimension": "Experience",
           "score": 4,
           "max": 5
         },
         {
-          "dimension": "Expenses",
-          "score": 3,
+          "dimension": "Community",
+          "score": 4,
           "max": 5
         },
         {
           "dimension": "Logistics",
-          "score": 2,
+          "score": 3,
           "max": 5
         },
         {
           "dimension": "Length",
-          "score": 2,
-          "max": 5
-        },
-        {
-          "dimension": "Technicality",
-          "score": 2,
-          "max": 5
-        },
-        {
-          "dimension": "Elevation",
-          "score": 2,
+          "score": 3,
           "max": 5
         },
         {
           "dimension": "Climate",
-          "score": 2,
+          "score": 3,
           "max": 5
         },
         {
           "dimension": "Adventure",
-          "score": 2,
+          "score": 3,
+          "max": 5
+        },
+        {
+          "dimension": "Race Quality",
+          "score": 3,
+          "max": 5
+        },
+        {
+          "dimension": "Value",
+          "score": 3,
           "max": 5
         }
       ],
@@ -189,14 +177,14 @@
         "suggested_clip": "avatar reaction to most extreme score",
         "duration_sec": 2
       },
-      "narration_wpm": 62.7
+      "narration_wpm": 76.0
     },
     {
       "id": "scores_remaining",
       "label": "THE SCORES — Also Scored",
       "time_range": "4:15-5:00",
       "duration_sec": 45,
-      "narration": "The rest. Quick-fire. Race Quality. 2 out of 5. Adequate. Room for improvement. Experience. 2 out of 5. Fine. Just fine. Community. 2 out of 5. Polite. Not exactly warm. Altitude. 1 out of 5. Sea level. Your lungs get a day off. Prestige. 1 out of 5. Zero name recognition. Field Depth. 1 out of 5. Not exactly stacked.",
+      "narration": "The rest. Quick-fire. Expenses. 3 out of 5. Mid-range expenses. Budget a proper race weekend. Technicality. 2 out of 5. Your road bike might survive. Might. Prestige. 2 out of 5. Building a name. Not there yet. Field Depth. 2 out of 5. Small but scrappy field. Elevation. 1 out of 5. Flat. Your climbing legs get a rest day. Altitude. 1 out of 5. Sea level. Your lungs get a day off.",
       "text_on_screen": null,
       "visual": "Quick-fire score list — remaining 6 dimensions",
       "avatar_pose": "counting",
@@ -216,37 +204,37 @@
       "editing_note": "FAST PACING — 7 seconds per dimension. Quick-fire energy change from the deep analysis above. This is a PATTERN INTERRUPT through pacing shift.",
       "evidence_data": [
         {
-          "dimension": "Race Quality",
+          "dimension": "Expenses",
+          "score": 3,
+          "max": 5
+        },
+        {
+          "dimension": "Technicality",
           "score": 2,
           "max": 5
         },
         {
-          "dimension": "Experience",
+          "dimension": "Prestige",
           "score": 2,
           "max": 5
         },
         {
-          "dimension": "Community",
+          "dimension": "Field Depth",
           "score": 2,
+          "max": 5
+        },
+        {
+          "dimension": "Elevation",
+          "score": 1,
           "max": 5
         },
         {
           "dimension": "Altitude",
           "score": 1,
           "max": 5
-        },
-        {
-          "dimension": "Prestige",
-          "score": 1,
-          "max": 5
-        },
-        {
-          "dimension": "Field Depth",
-          "score": 1,
-          "max": 5
         }
       ],
-      "narration_wpm": 80.0
+      "narration_wpm": 97.3
     },
     {
       "id": "strengths",
@@ -258,12 +246,6 @@
       "visual": "Strengths list overlay with positive visual treatment",
       "avatar_pose": "thumbs_up",
       "broll_sources": [
-        {
-          "type": "rwgps",
-          "id": "52063952",
-          "url": "https://ridewithgps.com/routes/52063952",
-          "use": "Route map overlay"
-        },
         {
           "type": "race_website",
           "url": "https://gravelcup.com/gravel-cup-events/glengarry-gravel-run",
@@ -295,11 +277,10 @@
       "editing_note": "Warm energy. Each strength gets its own card. Avatar genuinely positive.",
       "content_data": {
         "strengths": [
-          "Ontario countryside scenery",
-          "Good value",
-          "Local community",
-          "Low costs",
-          "Moderate access"
+          "Distinctive Highland Games setting",
+          "Three official 2025 distances",
+          "Grandstand oval-track finish",
+          "Real Gravel Cup Canada organization"
         ]
       },
       "narration_wpm": 10.7
@@ -329,11 +310,10 @@
       "editing_note": "MIDPOINT RE-ENGAGEMENT. This is ~55% through. Open with burst sequence (quick cuts, warning sounds). Then deliver weaknesses honestly. Preview what's coming: 'Now, should you actually do this race?' [RIFF HERE] at the transition.",
       "content_data": {
         "weaknesses": [
-          "Small local field only",
-          "Limited organization",
-          "Moderate terrain",
-          "Variable weather",
-          "No national draw"
+          "No 2026 edition",
+          "No next date or registration",
+          "No official elevation total",
+          "Only one documented edition"
         ]
       },
       "meme_insert": {
@@ -354,12 +334,6 @@
       "visual": "Map + logistics card overlay",
       "avatar_pose": "presenting",
       "broll_sources": [
-        {
-          "type": "rwgps",
-          "id": "52063952",
-          "url": "https://ridewithgps.com/routes/52063952",
-          "use": "Route map overlay"
-        },
         {
           "type": "race_website",
           "url": "https://gravelcup.com/gravel-cup-events/glengarry-gravel-run",
@@ -391,9 +365,8 @@
       "editing_note": "Utility section. Lower energy, practical value. Hybrid Tempo: alternate fast logistics items (10-15 sec) with slow map visuals (30 sec).",
       "content_data": {
         "logistics": [
-          "Fly into: Ottawa 90 minutes",
-          "Lodging: Maxville has limited lodging options. Plan ahead.",
-          "Entry: $50-75"
+          "Fly into: Maxville is between Ottawa and Montréal; wait for a future venue confirmation before booking",
+          "Lodging: The Highland Games creates regional demand; reserve only after an official race announcement"
         ]
       },
       "narration_wpm": 8.0
@@ -403,8 +376,8 @@
       "label": "VERDICT",
       "time_range": "7:30-8:30",
       "duration_sec": 60,
-      "narration": "Verdict: Ontario Local Gravel. If you're local to Ontario. yes, it's good value. If you're traveling. skip it.",
-      "text_on_screen": "Ontario Local Gravel — 40/100",
+      "narration": "Verdict: Great Finish, No Future Date. If it returns, the Highland Games finish makes it worth local attention. Do not plan travel or buy a plan until an official date exists.",
+      "text_on_screen": "Great Finish, No Future Date — 53/100",
       "visual": "Verdict badge + full scorecard summary",
       "avatar_pose": "thinking",
       "broll_sources": [],
@@ -421,14 +394,14 @@
         40
       ],
       "editing_note": "CLOSE THE MAIN LOOP. 0.5s silence before verdict. Tier badge slams in. Avatar delivers final take. DO NOT signal 'wrapping up' — maintain energy.",
-      "narration_wpm": 18.0
+      "narration_wpm": 31.0
     },
     {
       "id": "alternatives",
       "label": "ALTERNATIVES",
       "time_range": "8:30-9:15",
       "duration_sec": 45,
-      "narration": "If Glengarry Games Gravel Run isn't quite right for you. For better Ontario races: Back Forty Highlander, Ghost of the Gravel.",
+      "narration": "If Glengarry Games Gravel Run isn't quite right for you. For Gravel Cup Canada's confirmed current event, compare R3G3.",
       "text_on_screen": "ALTERNATIVES",
       "visual": "Race cards for alternative races",
       "avatar_pose": "shrug",
@@ -446,7 +419,7 @@
         40
       ],
       "editing_note": "Bonus value — viewers who reach this point are highly engaged. Cross-reference other videos/races.",
-      "narration_wpm": 28.0
+      "narration_wpm": 25.3
     },
     {
       "id": "cta",
@@ -498,11 +471,11 @@
       "duration_sec": 1.5
     }
   ],
-  "thumbnail_prompt": "South Park style flat cutout character, dramatic reveal pose, tier badge prominent, 'Glengarry Games Gravel Run' bold text, tier badge 'GRASSROOTS', high contrast red/yellow/white, cycling gear, handlebar mustache --ar 16:9 --cref [CHARACTER_URL]",
+  "thumbnail_prompt": "South Park style flat cutout character, excited pointing, treasure chest, 'Glengarry Games Gravel Run' bold text, tier badge 'SOLID', high contrast red/yellow/white, cycling gear, handlebar mustache --ar 16:9 --cref [CHARACTER_URL]",
   "narration_feasibility": {
-    "total_words": 369,
+    "total_words": 450,
     "total_duration_sec": 585,
-    "overall_wpm": 37.8,
+    "overall_wpm": 46.2,
     "warnings": [],
     "feasible": true
   },

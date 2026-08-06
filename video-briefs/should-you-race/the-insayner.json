@@ -2,20 +2,20 @@
   "slug": "the-insayner",
   "format": "should-you-race",
   "platform": "YouTube",
-  "race_name": "The Insayner",
-  "race_tier": 4,
-  "race_score": 40,
+  "race_name": "The InSayner",
+  "race_tier": 3,
+  "race_score": 54,
   "duration_target_range": [
     480,
     720
   ],
   "estimated_duration_sec": 585,
-  "estimated_spoken_words": 361,
+  "estimated_spoken_words": 422,
   "story_arc": "promise → course → data-staircase → pro/con → verdict → alternatives",
   "primary_trope": {
-    "name": "tier_reveal",
-    "hook_text": "328 races. 14 dimensions. Where does The Insayner land?",
-    "mechanism": "Countdown / ranking — inherent escalation and social comparison."
+    "name": "underdog_reveal",
+    "hook_text": "This Solid race scored higher than Unbound on Value.",
+    "mechanism": "Von Restorff effect — the outlier demands attention. Underdog arcs trigger prediction error (brain expected low, got high)."
   },
   "retention_targets": {
     "1min_hold": ">70%",
@@ -28,25 +28,24 @@
       "label": "HOOK + PROMISE",
       "time_range": "0:00-0:15",
       "duration_sec": 15,
-      "narration": "Should you race The Insayner? I rated 328 gravel races on 14 dimensions. The Insayner scored 40 out of 100. Grassroots tier. Here's what that actually means for your season.",
-      "text_on_screen": "Should You Race The Insayner?",
+      "narration": "Should you race The InSayner? I rated 328 gravel races on 15 dimensions. The InSayner scored 54 out of 100. Solid tier. Here's what that actually means for your season.",
+      "text_on_screen": "Should You Race The InSayner?",
       "visual": "Title card + tier badge + avatar",
       "avatar_pose": "presenting",
       "broll_sources": [
         {
-          "type": "rwgps",
-          "id": "46993712",
-          "url": "https://ridewithgps.com/routes/46993712",
-          "use": "Route map overlay"
+          "type": "race_website",
+          "url": "https://lamboriders.org/events/insayner",
+          "use": "Hero image, branding reference"
         },
         {
           "type": "youtube_search",
-          "query": "The Insayner gravel race",
+          "query": "The InSayner gravel race",
           "use": "B-roll: hero"
         },
         {
           "type": "youtube_search",
-          "query": "The Insayner cycling 2026",
+          "query": "The InSayner cycling 2026",
           "use": "B-roll: hero"
         }
       ],
@@ -71,25 +70,24 @@
       "label": "THE COURSE",
       "time_range": "0:15-1:15",
       "duration_sec": 60,
-      "narration": "The Insayner. Sayner, Wisconsin. 55 mi. Wisconsin rolling gravel.",
-      "text_on_screen": "The Insayner | Sayner, Wisconsin | 55 mi",
+      "narration": "The InSayner. Sayner, Wisconsin. 25 mi. A short but varied back-country race linking snowmobile trail, Musky Mountain singletrack, logging road, gravel, creek crossings, and brief pavement.",
+      "text_on_screen": "The InSayner | Sayner, Wisconsin | 25 mi",
       "visual": "Route map + terrain footage",
       "avatar_pose": "presenting",
       "broll_sources": [
         {
-          "type": "rwgps",
-          "id": "46993712",
-          "url": "https://ridewithgps.com/routes/46993712",
-          "use": "Route map overlay"
+          "type": "race_website",
+          "url": "https://lamboriders.org/events/insayner",
+          "use": "Hero image, branding reference"
         },
         {
           "type": "youtube_search",
-          "query": "The Insayner route map",
+          "query": "The InSayner route map",
           "use": "B-roll: route"
         },
         {
           "type": "youtube_search",
-          "query": "The Insayner course walkthrough",
+          "query": "The InSayner course walkthrough",
           "use": "B-roll: route"
         }
       ],
@@ -106,14 +104,14 @@
         40
       ],
       "editing_note": "Let the course breathe. Show the route map, then cut to terrain-specific B-roll. This is the SETUP phase — grounding the viewer before the data analysis. Pacing: 25-40 sec cuts.",
-      "narration_wpm": 9.0
+      "narration_wpm": 26.0
     },
     {
       "id": "scores_top",
       "label": "THE SCORES — Top 8",
       "time_range": "1:15-4:15",
       "duration_sec": 180,
-      "narration": "Let's go through the scores. Value. 4 out of 5. Strong value proposition. Expenses. 3 out of 5. Standard gravel race budget. Logistics. 2 out of 5. You'll figure it out. Eventually. Same-day registration and packet pickup from 8:00-9:15 AM at Sayner Community Center keeps things simple but basic. Length. 2 out of 5. Manageable distance. Back by lunch. The format has shifted from the original 50+ mile \"savage, barbaric\" long course to current 25-mile and 15-mile options. Technicality. 2 out of 5. Your road bike might survive. Might. Trailforks rates this as intermediate difficulty, mixing snowmobile trails, logging roads, and creek crossings. Elevation. 2 out of 5. A few hills. Nothing to lose sleep over. The course features \"sweet stretches of downhills\" and climbing Musky Mountain, plus an old ski hill run. Climate. 2 out of 5. Mild conditions. Nothing dramatic. Mid-June conditions include \"slogging through mud\" and \"fending off mosquitoes and deer flies\" according to course descriptions. Adventure. 2 out of 5. Mild adventure. Scenic ride with a number plate. You're exploring the Northern Highland American Legion State Forest on snowmobile trails and logging roads, which has authentic backcountry feel.",
+      "narration": "Let's go through the scores. Value. 5 out of 5. Exceptional value. Almost feels like a steal. $45 for a timed signature race that funds local trails is exceptional value. Technicality. 4 out of 5. Your equipment choices will be tested. Snowmobile trail, Musky Mountain singletrack, logging roads, gravel, and creek crossings force repeated handling changes. Community. 4 out of 5. Strong community. This race builds friendships. Entry funds LAMBO trail building and the event includes a free 3. Expenses. 4 out of 5. Your wallet will survive this one. The low fee and regional drive model keep total costs reasonable for Midwest riders. Logistics. 3 out of 5. Adequate. The word was invented for this. Sayner requires a drive into northern Wisconsin, but the community-building start and compact race-day schedule are straightforward once you are there. Adventure. 3 out of 5. Genuine adventure elements. Expect the unexpected. A true back-country mix through state forest and Musky Mountain is memorable despite the short distance. Race Quality. 3 out of 5. Solid production value. The 2026 schedule covered 3 events, a cutoff, awards, and registration; aid and field details remain thin. Experience. 3 out of 5. Memorable course. Has character. The Musky Mountain terrain mix and playful organization make the day enjoyable, though it is not a destination-scale production.",
       "text_on_screen": "14 DIMENSIONS",
       "visual": "Score cards — 8 expanded dimensions",
       "avatar_pose": "thinking",
@@ -134,42 +132,42 @@
       "evidence_data": [
         {
           "dimension": "Value",
+          "score": 5,
+          "max": 5
+        },
+        {
+          "dimension": "Technicality",
+          "score": 4,
+          "max": 5
+        },
+        {
+          "dimension": "Community",
           "score": 4,
           "max": 5
         },
         {
           "dimension": "Expenses",
-          "score": 3,
+          "score": 4,
           "max": 5
         },
         {
           "dimension": "Logistics",
-          "score": 2,
-          "max": 5
-        },
-        {
-          "dimension": "Length",
-          "score": 2,
-          "max": 5
-        },
-        {
-          "dimension": "Technicality",
-          "score": 2,
-          "max": 5
-        },
-        {
-          "dimension": "Elevation",
-          "score": 2,
-          "max": 5
-        },
-        {
-          "dimension": "Climate",
-          "score": 2,
+          "score": 3,
           "max": 5
         },
         {
           "dimension": "Adventure",
-          "score": 2,
+          "score": 3,
+          "max": 5
+        },
+        {
+          "dimension": "Race Quality",
+          "score": 3,
+          "max": 5
+        },
+        {
+          "dimension": "Experience",
+          "score": 3,
           "max": 5
         }
       ],
@@ -179,14 +177,14 @@
         "suggested_clip": "avatar reaction to most extreme score",
         "duration_sec": 2
       },
-      "narration_wpm": 64.0
+      "narration_wpm": 72.7
     },
     {
       "id": "scores_remaining",
       "label": "THE SCORES — Also Scored",
       "time_range": "4:15-5:00",
       "duration_sec": 45,
-      "narration": "And the rest of the scorecard. Race Quality. 2 out of 5. Adequate. Room for improvement. Experience. 2 out of 5. Pleasant enough. Won't change your life. Community. 2 out of 5. Polite. Not exactly warm. Altitude. 1 out of 5. Sea level. Your lungs get a day off. Prestige. 1 out of 5. Zero name recognition. Field Depth. 1 out of 5. Not exactly stacked.",
+      "narration": "And the rest of the scorecard. Climate. 2 out of 5. Mild conditions. Nothing dramatic. Prestige. 2 out of 5. Building a name. Not there yet. Field Depth. 2 out of 5. Small but scrappy field. Length. 1 out of 5. Short enough to call a training ride. Elevation. 1 out of 5. Your biggest climb is the parking garage. Altitude. 1 out of 5. Sea level. Your lungs get a day off.",
       "text_on_screen": null,
       "visual": "Quick-fire score list — remaining 6 dimensions",
       "avatar_pose": "counting",
@@ -206,62 +204,61 @@
       "editing_note": "FAST PACING — 7 seconds per dimension. Quick-fire energy change from the deep analysis above. This is a PATTERN INTERRUPT through pacing shift.",
       "evidence_data": [
         {
-          "dimension": "Race Quality",
+          "dimension": "Climate",
           "score": 2,
           "max": 5
         },
         {
-          "dimension": "Experience",
+          "dimension": "Prestige",
           "score": 2,
           "max": 5
         },
         {
-          "dimension": "Community",
+          "dimension": "Field Depth",
           "score": 2,
+          "max": 5
+        },
+        {
+          "dimension": "Length",
+          "score": 1,
+          "max": 5
+        },
+        {
+          "dimension": "Elevation",
+          "score": 1,
           "max": 5
         },
         {
           "dimension": "Altitude",
           "score": 1,
           "max": 5
-        },
-        {
-          "dimension": "Prestige",
-          "score": 1,
-          "max": 5
-        },
-        {
-          "dimension": "Field Depth",
-          "score": 1,
-          "max": 5
         }
       ],
-      "narration_wpm": 88.0
+      "narration_wpm": 97.3
     },
     {
       "id": "strengths",
       "label": "STRENGTHS",
       "time_range": "5:00-5:45",
       "duration_sec": 45,
-      "narration": "What The Insayner does well.",
+      "narration": "What The InSayner does well.",
       "text_on_screen": "STRENGTHS",
       "visual": "Strengths list overlay with positive visual treatment",
       "avatar_pose": "thumbs_up",
       "broll_sources": [
         {
-          "type": "rwgps",
-          "id": "46993712",
-          "url": "https://ridewithgps.com/routes/46993712",
-          "use": "Route map overlay"
+          "type": "race_website",
+          "url": "https://lamboriders.org/events/insayner",
+          "use": "Hero image, branding reference"
         },
         {
           "type": "youtube_search",
-          "query": "The Insayner finish line",
+          "query": "The InSayner finish line",
           "use": "B-roll: positive"
         },
         {
           "type": "youtube_search",
-          "query": "The Insayner race highlights",
+          "query": "The InSayner race highlights",
           "use": "B-roll: positive"
         }
       ],
@@ -280,11 +277,11 @@
       "editing_note": "Warm energy. Each strength gets its own card. Avatar genuinely positive.",
       "content_data": {
         "strengths": [
-          "Wisconsin countryside scenery",
-          "Good value",
-          "Local community",
-          "Low costs",
-          "Remote experience"
+          "Specific mixed-terrain identity",
+          "Direct fundraiser for LAMBO trail work",
+          "$45 race entry in 2026",
+          "Published race-day schedule and cutoff policy",
+          "Three distances for different ability levels"
         ]
       },
       "narration_wpm": 6.7
@@ -314,11 +311,10 @@
       "editing_note": "MIDPOINT RE-ENGAGEMENT. This is ~55% through. Open with burst sequence (quick cuts, warning sounds). Then deliver weaknesses honestly. Preview what's coming: 'Now, should you actually do this race?' [RIFF HERE] at the transition.",
       "content_data": {
         "weaknesses": [
-          "Small local field only",
-          "Limited organization",
-          "Remote location",
-          "Variable weather",
-          "No national draw"
+          "No next-edition date",
+          "No official elevation figure",
+          "No published field size",
+          "MTB-primary rather than pure gravel"
         ]
       },
       "meme_insert": {
@@ -340,10 +336,9 @@
       "avatar_pose": "presenting",
       "broll_sources": [
         {
-          "type": "rwgps",
-          "id": "46993712",
-          "url": "https://ridewithgps.com/routes/46993712",
-          "use": "Route map overlay"
+          "type": "race_website",
+          "url": "https://lamboriders.org/events/insayner",
+          "use": "Hero image, branding reference"
         },
         {
           "type": "youtube_search",
@@ -352,7 +347,7 @@
         },
         {
           "type": "youtube_search",
-          "query": "The Insayner race day",
+          "query": "The InSayner race day",
           "use": "B-roll: logistics"
         }
       ],
@@ -371,9 +366,9 @@
       "editing_note": "Utility section. Lower energy, practical value. Hybrid Tempo: alternate fast logistics items (10-15 sec) with slow map visuals (30 sec).",
       "content_data": {
         "logistics": [
-          "Fly into: Rhinelander 60 minutes",
-          "Lodging: Sayner has limited lodging options. Plan ahead.",
-          "Entry: $50-75"
+          "Fly into: Drive access to Sayner in northern Wisconsin; verify a future edition before booking",
+          "Lodging: Stay in Sayner or the Vilas County lake region; reserve early for summer weekends",
+          "Entry: $45"
         ]
       },
       "narration_wpm": 4.0
@@ -383,8 +378,8 @@
       "label": "VERDICT",
       "time_range": "7:30-8:30",
       "duration_sec": 60,
-      "narration": "Verdict: Wisconsin Local Gravel. If you're local to Wisconsin. yes, it's good value. If you're traveling. skip it.",
-      "text_on_screen": "Wisconsin Local Gravel — 40/100",
+      "narration": "Verdict: Short, Weird, Legit. Yes if you want a community-first Wisconsin back-country race and can handle singletrack; no if you only ride smooth gravel roads.",
+      "text_on_screen": "Short, Weird, Legit — 54/100",
       "visual": "Verdict badge + full scorecard summary",
       "avatar_pose": "thinking",
       "broll_sources": [],
@@ -401,14 +396,14 @@
         40
       ],
       "editing_note": "CLOSE THE MAIN LOOP. 0.5s silence before verdict. Tier badge slams in. Avatar delivers final take. DO NOT signal 'wrapping up' — maintain energy.",
-      "narration_wpm": 18.0
+      "narration_wpm": 25.0
     },
     {
       "id": "alternatives",
       "label": "ALTERNATIVES",
       "time_range": "8:30-9:15",
       "duration_sec": 45,
-      "narration": "If The Insayner isn't quite right for you. For better Wisconsin races: Chequamegon, Almanzo.",
+      "narration": "If The InSayner isn't quite right for you. For a longer Wisconsin off-road event, compare Chequamegon MTB Festival.",
       "text_on_screen": "ALTERNATIVES",
       "visual": "Race cards for alternative races",
       "avatar_pose": "shrug",
@@ -426,7 +421,7 @@
         40
       ],
       "editing_note": "Bonus value — viewers who reach this point are highly engaged. Cross-reference other videos/races.",
-      "narration_wpm": 18.7
+      "narration_wpm": 24.0
     },
     {
       "id": "cta",
@@ -451,7 +446,7 @@
         40
       ],
       "editing_note": "End ABRUPTLY after CTA. No 'thanks for watching' wind-down.",
-      "engagement_question": "Have you raced The Insayner? Did we get the score right? Drop it in the comments.",
+      "engagement_question": "Have you raced The InSayner? Did we get the score right? Drop it in the comments.",
       "narration_wpm": 32.0
     }
   ],
@@ -478,11 +473,11 @@
       "duration_sec": 1.5
     }
   ],
-  "thumbnail_prompt": "South Park style flat cutout character, dramatic reveal pose, tier badge prominent, 'The Insayner' bold text, tier badge 'GRASSROOTS', high contrast red/yellow/white, cycling gear, handlebar mustache --ar 16:9 --cref [CHARACTER_URL]",
+  "thumbnail_prompt": "South Park style flat cutout character, shocked expression, hidden gem sparkle effect, 'The InSayner' bold text, tier badge 'SOLID', high contrast red/yellow/white, cycling gear, handlebar mustache --ar 16:9 --cref [CHARACTER_URL]",
   "narration_feasibility": {
-    "total_words": 361,
+    "total_words": 422,
     "total_duration_sec": 585,
-    "overall_wpm": 37.0,
+    "overall_wpm": 43.3,
     "warnings": [],
     "feasible": true
   },

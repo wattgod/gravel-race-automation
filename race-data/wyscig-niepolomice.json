@@ -1,0 +1,264 @@
+{
+  "race": {
+    "name": "Wyścig by Tomasz Marczyński — Niepołomice",
+    "slug": "wyscig-niepolomice",
+    "display_name": "Wyścig Niepołomice",
+    "tagline": "Ninety-nine fast forest kilometres with just enough technical ground to punish lazy positioning.",
+    "vitals": {
+      "distance_mi": 61.5,
+      "elevation_ft": 889,
+      "location": "Niepołomice, Małopolska, Poland",
+      "location_badge": "NIEPOŁOMICE, POLAND",
+      "county": "Małopolska",
+      "date": "September 19, 2026",
+      "date_specific": "2026: September 19",
+      "course_status": "verified",
+      "pack_status": "pending",
+      "terrain_types": [
+        "Forest gravel tracks",
+        "Fast hardpack",
+        "Short technical sectors",
+        "Flat race profile"
+      ],
+      "field_size": "Not published by the organizer",
+      "start_time": "10:10 AM",
+      "registration": "Online through September 18, 2026. Basic entry: 199 PLN",
+      "prize_purse": "Not published",
+      "aid_stations": "On-course buffet included with entry; exact locations not published",
+      "cutoff_time": "Not published",
+      "lat": 50.033,
+      "lng": 20.2179,
+      "route_options": [
+        "Long: 99 km and approximately 271 m climbing from the official GPX",
+        "Short: 47 km and approximately 131 m climbing from the official GPX"
+      ]
+    },
+    "climate": {
+      "primary": "Early-autumn southern Poland",
+      "description": "The organizer does not publish a race-day temperature range. September in the Niepołomice Forest can be mild or wet, so the dependable preparation signal is variable traction rather than heat or altitude.",
+      "challenges": [
+        "Rain can change fast forest tracks",
+        "Cool start conditions are possible",
+        "No organizer-published weather range"
+      ]
+    },
+    "terrain": {
+      "primary": "Fast, nearly flat forest gravel",
+      "surface": "The official long-course GPX covers 99 km with approximately 271 m of accumulated climbing. The organizer describes lightning-fast gravel tracks mixed with technical forest segments and a signature hairpin in a clearing.",
+      "technical_rating": 2,
+      "features": [
+        "99 km long course",
+        "Approximately 271 m climbing",
+        "Signature clearing hairpin",
+        "Fast and technical forest sectors"
+      ]
+    },
+    "gravel_god_rating": {
+      "overall_score": 59,
+      "tier": 3,
+      "tier_label": "TIER 3",
+      "logistics": 3,
+      "length": 3,
+      "technicality": 2,
+      "elevation": 1,
+      "climate": 2,
+      "altitude": 1,
+      "adventure": 3,
+      "prestige": 3,
+      "race_quality": 4,
+      "experience": 4,
+      "community": 4,
+      "field_depth": 3,
+      "value": 4,
+      "expenses": 4,
+      "score_note": "The ninth edition has a real operating history, professional timing, a former WorldTour rider behind it, and a strong Kraków-area festival. The flat course and regional rather than international field keep it at 59 and Tier 3.",
+      "discipline": "gravel",
+      "display_tier": 3
+    },
+    "biased_opinion": {
+      "verdict": "Speed Is the Difficulty",
+      "summary": "This is not a climbing contest. The long GPX gains only about 271 metres in 99 kilometres, so the race is decided by positioning, repeated accelerations, surface speed, and whether you can keep eating while the group refuses to settle down.",
+      "strengths": [
+        "Nine-edition history",
+        "Published GPX for both distances",
+        "Low 199 PLN entry fee",
+        "Festival and after-party tied to the Kraków cycling community",
+        "Fast course that rewards real race craft"
+      ],
+      "weaknesses": [
+        "Minimal climbing",
+        "No published field-size or cutoff figures",
+        "Limited evidence of international field depth",
+        "Organizer does not publish exact aid locations"
+      ],
+      "bottom_line": "A legitimate regional Polish gravel race where flat does not mean easy; train speed durability and pack skills, not mountain climbing."
+    },
+    "final_verdict": {
+      "score": "59 / 100",
+      "one_liner": "A fast, established forest race that makes you earn every metre through speed rather than elevation.",
+      "should_you_race": "Yes if you want tactical, high-speed gravel near Kraków; skip it if your idea of gravel requires a mountain profile.",
+      "alternatives": "For a longer Polish ultra-format, compare Sudovia Gravel.",
+      "alternative_slugs": [
+        "sudovia-gravel"
+      ]
+    },
+    "logistics": {
+      "airport": "Kraków John Paul II International Airport; verify race-day transfers to Niepołomice",
+      "lodging_strategy": "Stay in Niepołomice for race-morning simplicity or Kraków for the organizer's end-of-season after-party",
+      "food": "Entry includes a recovery meal and on-course buffet; carry race nutrition for a fast event where stopping costs the group",
+      "packet_pickup": "Race-office details are governed by the organizer's current regulations",
+      "parking": "Not published on the English event page",
+      "official_site": "https://wyscig.cc/en/race/niepolomice-en/"
+    },
+    "eligibility": {
+      "status": "active",
+      "verified": "2026-08-06",
+      "source": "https://wyscig.cc/en/race/niepolomice-en/",
+      "status_note": "The September 19, 2026 edition is open for registration with official long and short GPX files and published regulations."
+    },
+    "history": {
+      "founded": 2018,
+      "founder": "Tomasz Marczyński and Velo Creation",
+      "origin_story": "Niepołomice hosted the first Wyścig by Tomasz Marczyński and returns as the ninth-edition 2026 season finale.",
+      "notable_moments": [
+        "The 2026 event adds the J-Labs Polish IT Industry Gravel Championships on the 47 km course"
+      ],
+      "reputation": "An established southern-Poland cycling event built around the Niepołomice Forest and Kraków cycling community."
+    },
+    "course_description": {
+      "character": "A nearly flat 99 km forest race where sustained speed, group position, and repeated accelerations matter more than climbing watts.",
+      "suffering_zones": [
+        {
+          "mile": 0,
+          "label": "Opening Selection",
+          "desc": "The flat profile encourages an immediate high-speed race; losing the useful group is more expensive than any climb.",
+          "terrain_detail": "Fast forest gravel",
+          "named_section": "Niepołomice Forest"
+        },
+        {
+          "mile": 31,
+          "label": "Mid-Race Speed Debt",
+          "desc": "At halfway, repeated accelerations and vibration—not accumulated vertical gain—start separating riders who trained only steady endurance.",
+          "terrain_detail": "Fast and technical gravel sectors",
+          "named_section": "Forest tracks"
+        },
+        {
+          "mile": 55,
+          "label": "The Clearing Hairpin",
+          "desc": "The organizer's signature hairpin rewards position and clean braking before the final run toward Niepołomice.",
+          "terrain_detail": "Technical turn on otherwise fast ground",
+          "named_section": "Agrafka na polanie"
+        }
+      ],
+      "signature_challenge": "Holding race speed for 99 km on a course too flat to give you a recovery climb or a safe place to drift backward.",
+      "ridewithgps_id": null,
+      "ridewithgps_name": null
+    },
+    "guide_variables": {
+      "race_name": "Wyścig Niepołomice",
+      "race_distance": "61.5 miles (99 km)",
+      "race_elevation": "889 feet (approximately 271 m)",
+      "race_date": "September 19, 2026",
+      "race_location": "Niepołomice, Małopolska, Poland",
+      "race_terrain": "Fast forest gravel with short technical sectors",
+      "race_weather": "Variable early-autumn conditions; exact organizer range not published",
+      "race_challenges": [
+        "High-speed group positioning",
+        "Repeated accelerations",
+        "Fueling without losing the group",
+        "Technical forest sectors at speed",
+        "Saturday race-week timing"
+      ],
+      "altitude_section": false,
+      "altitude_feet": null
+    },
+    "non_negotiables": [
+      {
+        "requirement": "High-speed endurance",
+        "by_when": "Week 8",
+        "why": "The 99 km course has only about 271 m climbing, so speed durability defines the day."
+      },
+      {
+        "requirement": "Group-surge repeatability",
+        "by_when": "Week 9",
+        "why": "Fast forest racing creates repeated accelerations without long recovery climbs."
+      },
+      {
+        "requirement": "Fuel while moving",
+        "by_when": "Week 10",
+        "why": "A flat group race punishes riders who need to stop or sit up to eat."
+      }
+    ],
+    "research_metadata": {
+      "data_confidence": "high",
+      "validation_status": "verified",
+      "sources": [
+        "https://wyscig.cc/en/race/niepolomice-en/",
+        "https://wyscig.cc/wp-content/uploads/2026/02/Regulations_Wyscig_by_Tomasz_Marczynski_Niepolomice_2026.pdf",
+        "https://my.raceresult.com/384127/registration",
+        "https://wyscig.cc/wp-content/uploads/gpx/2026/niepo/Wyscig_TM_Niepolomice_2026_dlugi.gpx",
+        "https://wyscig.cc/wp-content/uploads/gpx/2026/niepo/Wyscig_TM_Niepolomice_2026_krotki.gpx"
+      ],
+      "migration_notes": [
+        "Added the authoritative real Polish event after tombstoning the fabricated generic polish-gravel profile",
+        "Distance and elevation come from the organizer's 2026 GPX; accumulated positive elevation was computed from track points",
+        "No TrainingPeaks fleet was claimed at profile creation; pack remains pending"
+      ]
+    },
+    "biased_opinion_ratings": {
+      "logistics": {"score": 3, "explanation": "Niepołomice sits close enough to Kraków for international access, but the organizer has not published parking or transfer detail on the English event page."},
+      "length": {"score": 3, "explanation": "The official long GPX is 99 km, placing it just over the rubric's 60-mile threshold."},
+      "technicality": {"score": 2, "explanation": "The organizer describes technical forest segments and a signature hairpin, but the dominant character is fast gravel rather than extreme terrain."},
+      "elevation": {"score": 1, "explanation": "The official 99 km GPX accumulates only about 271 m, or 889 feet, well below the 2,000-foot threshold."},
+      "climate": {"score": 2, "explanation": "Early-autumn rain can alter forest traction, but there is no evidence of routinely extreme heat, cold, or storms."},
+      "altitude": {"score": 1, "explanation": "The GPX stays roughly between 197 and 212 m above sea level, so altitude is irrelevant."},
+      "adventure": {"score": 3, "explanation": "Racing through the Niepołomice Forest and finishing a long-running local series is memorable, though not remote expedition terrain."},
+      "prestige": {"score": 3, "explanation": "Nine editions, Tomasz Marczyński's name, and a national industry championship create real Polish recognition without establishing international-icon status."},
+      "race_quality": {"score": 4, "explanation": "Official GPX files, published regulations, professional Race Result registration, course buffet, and a full event festival indicate a professional regional operation."},
+      "experience": {"score": 4, "explanation": "The forest race, castle expo, junior event, recovery meal, and Kraków after-party create more than a bare start-and-finish transaction."},
+      "community": {"score": 4, "explanation": "The organizer explicitly ties the ninth edition to the Kraków cycling community and runs a multi-generational festival and season finale."},
+      "field_depth": {"score": 3, "explanation": "The event is competitive and team-classified, but the organizer does not publish an entrant count or evidence of a deep international field."},
+      "value": {"score": 4, "explanation": "199 PLN includes timing, a start package, on-course buffet, and recovery meal, which is strong value for a fully operated event."},
+      "expenses": {"score": 4, "explanation": "Regional Polish pricing and access from Kraków keep the likely trip below major destination-race costs for European riders."}
+    },
+    "training_config": {
+      "workout_modifications": {
+        "speed_endurance": {"enabled": true, "weeks": [7, 8, 9, 10]},
+        "surge_repeatability": {"enabled": true, "weeks": [8, 9, 10]},
+        "dress_rehearsal": {
+          "enabled": true,
+          "week": 10,
+          "day": "Saturday",
+          "duration_hours": {"ayahuasca": 3, "finisher": 4, "compete": 5, "podium": 6}
+        }
+      },
+      "masterclass_topics": {
+        "priority_order": ["positioning", "speed_endurance", "fueling", "surface_skill"],
+        "race_specific": true,
+        "topics": {
+          "positioning": "Staying in the useful group on flat gravel",
+          "speed_endurance": "Repeated acceleration without climbing recovery",
+          "fueling": "Eating and drinking at race speed",
+          "surface_skill": "Braking and cornering on fast forest tracks"
+        }
+      },
+      "tier_overrides": {},
+      "marketplace_variables": {
+        "race_name": "Wyścig Niepołomice",
+        "race_hook": "99 km of flat-out forest gravel",
+        "race_hook_detail": "A nearly flat ninth-edition race where positioning and speed durability replace mountain climbing.",
+        "distance": "61.5",
+        "dark_mile": "48",
+        "non_negotiable_1": "High-speed endurance",
+        "non_negotiable_2": "Group-surge repeatability",
+        "non_negotiable_3": "Fuel while moving",
+        "trainingpeaks_url": null
+      }
+    },
+    "citations": [
+      {"url": "https://wyscig.cc/en/race/niepolomice-en/", "category": "official", "label": "Official 2026 event page"},
+      {"url": "https://wyscig.cc/wp-content/uploads/2026/02/Regulations_Wyscig_by_Tomasz_Marczynski_Niepolomice_2026.pdf", "category": "official", "label": "Official 2026 regulations"},
+      {"url": "https://my.raceresult.com/384127/registration", "category": "registration", "label": "Official 2026 registration"}
+    ]
+  }
+}

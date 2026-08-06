@@ -1,16 +1,16 @@
 {
   "@context": "https://schema.org",
   "@type": "SportsEvent",
-  "name": "Nanaimo Unpaved",
-  "description": "A real Vancouver Island race through 2025, now absent from the official BC Gravel Series calendar.",
+  "name": "West Coast Slugger",
+  "description": "Port Alberni forest roads, waterfront views, steep walls, and enough isolation to make 45 mm tires feel sensible.",
   "sport": "Gravel Cycling",
-  "startDate": "2025-06-15",
+  "startDate": "2026-05-17",
   "location": {
     "@type": "Place",
-    "name": "Nanaimo, British Columbia, Canada",
+    "name": "Port Alberni, British Columbia, Canada",
     "address": {
       "@type": "PostalAddress",
-      "addressLocality": "Nanaimo",
+      "addressLocality": "Port Alberni",
       "addressRegion": "British Columbia"
     }
   },
@@ -21,10 +21,10 @@
     "ratingCount": "14",
     "name": "Gravel God Rating"
   },
-  "url": "https://www.bcgravelseries.com/nanaimounpaved",
+  "url": "https://www.bcgravelseries.com/westcoastslugger",
   "organizer": {
     "@type": "Person",
     "name": "Panache Cycling Sports and BC Gravel Series",
-    "url": "https://www.bcgravelseries.com/nanaimounpaved"
+    "url": "https://www.bcgravelseries.com/westcoastslugger"
   }
 }

@@ -2,9 +2,9 @@
   "@context": "https://schema.org",
   "@type": "SportsEvent",
   "name": "Glengarry Games Gravel Run",
-  "description": "Rolling gravel through Highland Games country in Maxville, Ontario.",
+  "description": "A one-edition Highland Games gravel race whose grandstand finish was real\u2014and whose 2026 date was not.",
   "sport": "Gravel Cycling",
-  "startDate": "2026-08-02",
+  "startDate": "2025-08-03",
   "location": {
     "@type": "Place",
     "name": "Maxville, Ontario, Canada",
@@ -14,18 +14,17 @@
       "addressRegion": "Ontario"
     }
   },
-  "offers": {
-    "@type": "Offer",
-    "price": "50",
-    "priceCurrency": "USD",
-    "availability": "https://schema.org/LimitedAvailability"
-  },
   "aggregateRating": {
     "@type": "AggregateRating",
-    "ratingValue": "40",
+    "ratingValue": "53",
     "bestRating": "100",
     "ratingCount": "14",
     "name": "Gravel God Rating"
   },
-  "url": "https://gravelcup.com/gravel-cup-events/glengarry-gravel-run"
+  "url": "https://gravelcup.com/gravel-cup-events/glengarry-gravel-run",
+  "organizer": {
+    "@type": "Person",
+    "name": "Gravel Cup Canada and the Glengarry Highland Games",
+    "url": "https://gravelcup.com/gravel-cup-events/glengarry-gravel-run"
+  }
 }

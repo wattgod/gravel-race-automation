@@ -487,4 +487,7 @@ class TestRealRaceData:
         # a redesigned 2026 route without publishing its replacement.
         # Floor re-pinned 193->192 (Aug 6 2026): the fabricated 3 State 3
         # Mountain gravel profile and its unrelated route geometry were removed.
-        assert rwgps_count >= 192, f"Expected >=192 current RWGPS routes, got {rwgps_count}"
+        # Floor re-pinned 192->191 (Aug 6 2026): unsupported Glengarry and
+        # InSayner route IDs were removed; the official R3G3 Epic route was
+        # added, for a net reduction of one unverified geometry.
+        assert rwgps_count >= 191, f"Expected >=191 current RWGPS routes, got {rwgps_count}"

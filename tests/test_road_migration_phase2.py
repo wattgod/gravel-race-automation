@@ -83,15 +83,15 @@ class TestCatalogContract:
     ):
         # Phase 1 source snapshot: 733 active profiles. Phase 2 removes the
         # 363 redirect/hub_redirect records and keeps RVO, yielding 370.
-        # Subsequent catalog work has a net -3: the prior +1 baseline, removal
-        # of eight fabricated profiles, and addition of four verified Grasshopper
-        # event profiles.
+        # Subsequent catalog work has a net -1: the prior net -3 baseline, then
+        # the Aug. 6 audit removed fabricated Polish Gravel and added verified
+        # R3G3, West Coast Slugger, and Wyscig Niepolomice profiles (net +2).
         source_count = migration_map["source_snapshot"]["gravel_god"][
             "race_data_total_profiles"
         ]
         departing_count = len(road_migration.redirected_entries(migration_map))
-        post_migration_additions = -3
-        assert len(race_index) == source_count - departing_count + post_migration_additions == 367
+        post_migration_additions = -1
+        assert len(race_index) == source_count - departing_count + post_migration_additions == 369
 
     def test_archived_profiles_never_feed_generated_index(
         self, migration_map, race_index

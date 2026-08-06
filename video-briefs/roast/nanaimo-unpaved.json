@@ -3,19 +3,19 @@
   "format": "roast",
   "platform": "All platforms",
   "race_name": "Nanaimo Unpaved",
-  "race_tier": 4,
-  "race_score": 39,
+  "race_tier": 3,
+  "race_score": 57,
   "duration_target_range": [
     180,
     300
   ],
   "estimated_duration_sec": 225,
-  "estimated_spoken_words": 131,
+  "estimated_spoken_words": 150,
   "story_arc": "expose: pitch → reality → data → verdict",
   "primary_trope": {
-    "name": "tier_reveal",
-    "hook_text": "328 races. 14 dimensions. Where does Nanaimo Unpaved land?",
-    "mechanism": "Countdown / ranking — inherent escalation and social comparison."
+    "name": "david_vs_goliath",
+    "hook_text": "This Solid race beats half the Elite tier.",
+    "mechanism": "Loss aversion — framing around what elite races LACK that this underdog HAS."
   },
   "retention_targets": {
     "30s_hold": ">70%",
@@ -28,11 +28,16 @@
       "label": "HOOK",
       "time_range": "0:00-0:10",
       "duration_sec": 10,
-      "narration": "We gave Nanaimo Unpaved the verdict: BC Coastal Gravel. Grassroots tier. 39 out of 100. Let me tell you what that really means.",
-      "text_on_screen": "Nanaimo Unpaved: BC Coastal Gravel",
+      "narration": "We gave Nanaimo Unpaved the verdict: Real Race, Retired Calendar Slot. Solid tier. 57 out of 100. Let me tell you what that really means.",
+      "text_on_screen": "Nanaimo Unpaved: Real Race, Retired Calendar Slot",
       "visual": "Verdict badge slam + tier badge + avatar",
       "avatar_pose": "mustache_twirl",
       "broll_sources": [
+        {
+          "type": "race_website",
+          "url": "https://www.bcgravelseries.com/nanaimounpaved",
+          "use": "Hero image, branding reference"
+        },
         {
           "type": "youtube_search",
           "query": "Nanaimo, British Columbia, Canada drone",
@@ -58,7 +63,7 @@
       ],
       "editing_note": "Open with verdict like a boxing title card. Avatar with villain energy. Music: ominous build. PROMISE the viewer they'll learn the real story.",
       "psych_mechanism": "Curiosity gap + cognitive dissonance (verdict vs expectation).",
-      "narration_wpm": 138.0
+      "narration_wpm": 150.0
     },
     {
       "id": "marketing_pitch",
@@ -70,6 +75,11 @@
       "visual": "Marketing highlights overlay — strengths as bullet points",
       "avatar_pose": "skeptical",
       "broll_sources": [
+        {
+          "type": "race_website",
+          "url": "https://www.bcgravelseries.com/nanaimounpaved",
+          "use": "Hero image, branding reference"
+        },
         {
           "type": "youtube_search",
           "query": "Nanaimo Unpaved official trailer",
@@ -96,11 +106,11 @@
       "editing_note": "Read strengths in an exaggerated 'promotional voice.' Avatar side-eyes camera. Bright, clean visuals — this is the 'too good to be true' section. CONTRAST PATTERN: this calm section sets up the burst at 0:50.",
       "content_data": {
         "strengths": [
-          "BC coastal scenery",
-          "Good value",
-          "Local community",
-          "Moderate costs",
-          "Nanaimo access"
+          "Verified 2024 and 2025 operation",
+          "Three substantial route choices",
+          "Vancouver Island forest setting",
+          "Professional BC Gravel Series support",
+          "107 timed 2024 finishers"
         ]
       },
       "narration_wpm": 12.0
@@ -116,13 +126,18 @@
       "avatar_pose": "facepalm",
       "broll_sources": [
         {
+          "type": "race_website",
+          "url": "https://www.bcgravelseries.com/nanaimounpaved",
+          "use": "Hero image, branding reference"
+        },
+        {
           "type": "youtube_search",
           "query": "Nanaimo Unpaved course preview",
           "use": "B-roll: terrain"
         },
         {
           "type": "youtube_search",
-          "query": "gravel cycling BC coastal gravel",
+          "query": "gravel cycling Coastal-forest gravel and dirt",
           "use": "B-roll: terrain"
         }
       ],
@@ -147,11 +162,10 @@
       },
       "content_data": {
         "weaknesses": [
-          "Small local field only",
-          "Limited organization",
-          "Moderate terrain",
-          "Variable weather",
-          "No national draw"
+          "Absent from the 2026 series calendar",
+          "No next-edition announcement",
+          "No official elevation totals on the archived page",
+          "Island travel adds cost"
         ]
       },
       "narration_wpm": 5.0
@@ -161,7 +175,7 @@
       "label": "THE NUMBERS DON'T LIE",
       "time_range": "1:50-2:50",
       "duration_sec": 60,
-      "narration": "Fourteen dimensions. No opinions. Just scores. Altitude. 1 out of 5. Oxygen plentiful. Power output normal. This is Vancouver Island coastal terrain starting near sea level. Prestige. 1 out of 5. Under the radar. Completely unknown. This is the finale event of a 3-race Vancouver Island series that includes Campbell River and Duncan, with Trek backing and local sponsors. Field Depth. 1 out of 5. Not exactly stacked.",
+      "narration": "Fourteen dimensions. No opinions. Just scores. Altitude. 1 out of 5. Oxygen plentiful. Power output normal. The coastal Nanaimo setting does not create an altitude-training requirement. Elevation. 2 out of 5. Rolling terrain. Nothing that'll break you. The organizer does not publish total gain on the archived page; a conservative 2 replaces the unsupported 3,500-foot claim. Prestige. 2 out of 5. Known in certain circles. Niche following. BC Gravel Series affiliation is credible regionally, but two editions do not create national prestige.",
       "text_on_screen": "THE DATA",
       "visual": "Score cards — lowest 3 dimensions with explanations",
       "avatar_pose": "thinking",
@@ -186,25 +200,25 @@
           "max": 5
         },
         {
-          "dimension": "Prestige",
-          "score": 1,
+          "dimension": "Elevation",
+          "score": 2,
           "max": 5
         },
         {
-          "dimension": "Field Depth",
-          "score": 1,
+          "dimension": "Prestige",
+          "score": 2,
           "max": 5
         }
       ],
-      "narration_wpm": 68.0
+      "narration_wpm": 82.0
     },
     {
       "id": "verdict",
       "label": "THE BOTTOM LINE",
       "time_range": "2:50-3:30",
       "duration_sec": 40,
-      "narration": "A solid local BC coastal gravel race. Worth it for BC/Canadian riders. Not worth traveling for.",
-      "text_on_screen": "BC Coastal Gravel — 39/100",
+      "narration": "Preserve the race history, but do not sell a current Nanaimo plan or silently rename it West Coast Slugger.",
+      "text_on_screen": "Real Race, Retired Calendar Slot — 57/100",
       "visual": "Verdict card + final tier badge",
       "avatar_pose": "thinking",
       "broll_sources": [],
@@ -221,14 +235,14 @@
         25
       ],
       "editing_note": "PAYOFF. Close the open loop from the hook. Avatar delivers final take directly to camera. End ABRUPTLY — never signal 'we're wrapping up.' MrBeast rule: cut to CTA mid-energy.",
-      "narration_wpm": 24.0
+      "narration_wpm": 28.5
     },
     {
       "id": "cta",
       "label": "CTA",
       "time_range": "3:30-3:45",
       "duration_sec": 15,
-      "narration": "Full breakdown. All 14 dimensions. Free prep kit. Link in bio.",
+      "narration": "Full breakdown. All 15 dimensions. Free prep kit. Link in bio.",
       "text_on_screen": "gravelgodcycling.com/race/nanaimo-unpaved",
       "visual": "URL overlay + engagement question",
       "avatar_pose": "pointing",
@@ -265,11 +279,11 @@
       "duration_sec": 1.5
     }
   ],
-  "thumbnail_prompt": "South Park style flat cutout character, dramatic reveal pose, tier badge prominent, 'Nanaimo Unpaved' bold text, tier badge 'GRASSROOTS', high contrast red/yellow/white, cycling gear, handlebar mustache --ar 16:9 --cref [CHARACTER_URL]",
+  "thumbnail_prompt": "South Park style flat cutout character, boxing stance, David vs Goliath framing, 'Nanaimo Unpaved' bold text, tier badge 'SOLID', high contrast red/yellow/white, cycling gear, handlebar mustache --ar 16:9 --cref [CHARACTER_URL]",
   "narration_feasibility": {
-    "total_words": 131,
+    "total_words": 150,
     "total_duration_sec": 225,
-    "overall_wpm": 34.9,
+    "overall_wpm": 40.0,
     "warnings": [],
     "feasible": true
   },

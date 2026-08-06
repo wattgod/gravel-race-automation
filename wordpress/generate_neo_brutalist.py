@@ -470,7 +470,7 @@ def normalize_race_data(data: dict) -> dict:
         'vitals': {
             'distance': f"{vitals.get('distance_mi', '--')} mi" if vitals.get('distance_mi') else '--',
             'distance_mi': vitals.get('distance_mi', 0),
-            'elevation': f"{vitals.get('elevation_ft', '--'):,} ft" if isinstance(vitals.get('elevation_ft'), (int, float)) else str(vitals.get('elevation_ft', '--')),
+            'elevation': f"{vitals.get('elevation_ft'):,} ft" if isinstance(vitals.get('elevation_ft'), (int, float)) else '--',
             'location': vitals.get('location', '--'),
             'location_badge': vitals.get('location_badge', vitals.get('location', '--')),
             'date': short_date or vitals.get('date', '--'),

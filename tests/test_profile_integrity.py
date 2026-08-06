@@ -120,7 +120,8 @@ class TestVitalSigns:
             # Accept numeric or string ranges (e.g., "48-91")
             has_dist = dist is not None and str(dist).strip() not in ("", "0", "?")
             has_elev = elev is not None and str(elev).strip() not in ("", "0", "?")
-            if not has_dist and not has_elev:
+            course_is_source_blocked = vitals.get("course_status") == "source_blocked"
+            if not has_dist and not has_elev and not course_is_source_blocked:
                 missing.append(fname)
 
         if missing:

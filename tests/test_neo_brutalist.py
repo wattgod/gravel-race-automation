@@ -353,6 +353,15 @@ class TestNormalize:
         assert "5,000" in v["elevation"]
         assert v["location"] == "Emporia, Kansas"
 
+    def test_unpublished_course_vitals_render_as_dashes(self, sample_race_data):
+        sample_race_data["race"]["vitals"]["distance_mi"] = None
+        sample_race_data["race"]["vitals"]["elevation_ft"] = None
+
+        vitals = normalize_race_data(sample_race_data)["vitals"]
+
+        assert vitals["distance"] == "--"
+        assert vitals["elevation"] == "--"
+
     def test_date_formatted(self, normalized_data):
         assert "June 15, 2026" in normalized_data["vitals"]["date"]
 

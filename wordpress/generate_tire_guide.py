@@ -227,6 +227,8 @@ def parse_terrain_text(raw_race: dict) -> tuple:
     combined = surface + " " + features
 
     distance_mi = vitals.get("distance_mi", 50)
+    if distance_mi is None:
+        distance_mi = 50
     if isinstance(distance_mi, str):
         # Handle strings like "70" or "50-100"
         try:
@@ -235,6 +237,8 @@ def parse_terrain_text(raw_race: dict) -> tuple:
             logging.warning("Could not parse distance_mi '%s', defaulting to 50", distance_mi)
             distance_mi = 50
     elevation_ft = vitals.get("elevation_ft", 0)
+    if elevation_ft is None:
+        elevation_ft = 0
     if isinstance(elevation_ft, str):
         # Handle strings like "4,500-9,116" — take the first number
         try:

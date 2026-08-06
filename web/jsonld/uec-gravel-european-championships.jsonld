@@ -1,0 +1,30 @@
+{
+  "@context": "https://schema.org",
+  "@type": "SportsEvent",
+  "name": "UEC Gravel European Championships \u2014 Lahti 2027",
+  "description": "A European title on Finland's hardpack gravel. Qualification is real; the final course is not published yet.",
+  "sport": "Gravel Cycling",
+  "startDate": "2027-07-31",
+  "location": {
+    "@type": "Place",
+    "name": "Lahti, Finland",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Lahti",
+      "addressRegion": "Finland"
+    }
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "63",
+    "bestRating": "100",
+    "ratingCount": "14",
+    "name": "Gravel God Rating"
+  },
+  "url": "https://www.gravellahti2027.com/",
+  "organizer": {
+    "@type": "Person",
+    "name": "Union Europeenne de Cyclisme",
+    "url": "https://www.gravellahti2027.com/"
+  }
+}

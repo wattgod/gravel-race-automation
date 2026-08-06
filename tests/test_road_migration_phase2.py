@@ -83,11 +83,13 @@ class TestCatalogContract:
     ):
         # Phase 1 source snapshot: 733 active profiles. Phase 2 removes the
         # 363 redirect/hub_redirect records and keeps RVO, yielding 370.
+        # New gravel profiles added after migration increase the live catalog.
         source_count = migration_map["source_snapshot"]["gravel_god"][
             "race_data_total_profiles"
         ]
         departing_count = len(road_migration.redirected_entries(migration_map))
-        assert len(race_index) == source_count - departing_count == 370
+        post_migration_additions = 1
+        assert len(race_index) == source_count - departing_count + post_migration_additions == 371
 
     def test_archived_profiles_never_feed_generated_index(
         self, migration_map, race_index

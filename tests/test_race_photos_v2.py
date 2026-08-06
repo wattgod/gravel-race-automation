@@ -452,6 +452,20 @@ class TestRealRaceData:
             assert "No people" in prompt, f"{data_file.stem}: missing 'No people' instruction"
             assert "no watermarks" in prompt, f"{data_file.stem}: missing 'no watermarks' instruction"
 
+    def test_photo_urls_follow_canonical_slug(self):
+        """Renamed races must not retain retired photo-directory URLs."""
+        for data_file in sorted(DATA_DIR.glob("*.json")):
+            with open(data_file) as f:
+                data = json.load(f)
+            race = data.get("race", data)
+            slug = race.get("slug", data_file.stem)
+            expected_prefix = f"/race-photos/{slug}/"
+            for photo in race.get("photos", []):
+                assert photo.get("url", "").startswith(expected_prefix), (
+                    f"{slug}: photo URL must start with {expected_prefix}: "
+                    f"{photo.get('url')}"
+                )
+
     def test_rwgps_coverage_count(self):
         """Verify RWGPS route coverage hasn't regressed.
 

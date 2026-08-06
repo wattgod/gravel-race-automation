@@ -1,0 +1,29 @@
+{
+  "@context": "https://schema.org",
+  "@type": "SportsEvent",
+  "name": "Garden Route Giro",
+  "description": "Six stages, seven Western Cape towns, and a Grand Tour-shaped gravel race from ocean to Karoo and back.",
+  "sport": "Gravel Cycling",
+  "location": {
+    "@type": "Place",
+    "name": "Mossel Bay to Wilderness, Western Cape, South Africa",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Mossel Bay to Wilderness",
+      "addressRegion": "Western Cape"
+    }
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "70",
+    "bestRating": "100",
+    "ratingCount": "14",
+    "name": "Gravel God Rating"
+  },
+  "url": "https://www.gardenroutegiro.co.za/",
+  "organizer": {
+    "@type": "Person",
+    "name": "Dryland Event Management",
+    "url": "https://www.gardenroutegiro.co.za/"
+  }
+}

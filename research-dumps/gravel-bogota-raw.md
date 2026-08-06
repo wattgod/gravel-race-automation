@@ -17,3 +17,23 @@ Gravel Bogotá is a new or expanding addition to the UCI Gravel World Series 202
 
 ## RACE REPORTS & RIDER EXPERIENCE
 No race reports, rider experiences/quotes, "what I wish I knew" insights, equipment recommendations, or DNF rates available. As a 2026 UCI series event with no prior editions detailed in results, participant feedback is absent.
+
+## 2026-08-06 PRIMARY-SOURCE CORRECTION
+
+The original dump above is superseded where it conflicts with the sources below.
+
+- The UCI Gravel World Series moved Gravel Bogotá from May to **Sunday, August 2, 2026**, in **Chía**. The official calendar-update notice says the change followed organizer, authority, and federation discussions.
+- The organizer's August 3 race report confirms that the completed long course was **128 km with nearly 1,900 m of climbing**. This supersedes the event page's stale 62-119 km summary text. The event-page course section lists a 70 km shorter option with 1,348 m climbing.
+- The long course was **61% gravel**. It opened with 5 km of pavement and returned to a mostly paved finish.
+- The event page describes repeated climbs and publishes a gradient table. The steepest listed sector is 4.2 km at 10.0% average and 18.5% maximum. The page's prose says four climbs while its table lists five uphill sectors, so the database avoids claiming an exact climb count.
+- The course starts at **2,561 m above sea level** and reaches **3,089 m**. Those are altitude figures, not climbing gain.
+- The UCI competition record lists Gravel Bogotá in Chía for August 1-2, 2026 as a UCI Gravel World Series event.
+- No next edition, next-edition registration, field size, aid plan, cutoff, or prize purse was published at review time. The completed 2026 date must not be used to build a saleable plan fleet.
+- Gravel Medellín did not take place in 2026. The same official calendar update says it was postponed to the 2027 season, without an exact date or course.
+
+Primary sources checked 2026-08-06:
+
+1. https://ucigravelworldseries.com/en/gravel-bogota/
+2. https://ucigravelworldseries.com/en/calendar-update-for-uci-gravel-events-in-colombia/
+3. https://ucigravelworldseries.com/en/pelluad-and-franco-make-history-at-inaugural-gravel-bogota/
+4. https://www.uci.org/competition-details/2026/GRA/78794

@@ -199,6 +199,14 @@ class TestRedirectGeneration:
         assert block.count(road_migration.REDIRECT_SECTION_END) == 1
         assert len(push_wordpress.ROAD_MIGRATION_REDIRECT_RULES) == 726
 
+    def test_source_blocked_colombia_subpages_redirect_to_race_profile(self):
+        block = push_wordpress.REDIRECT_BLOCK
+
+        assert (
+            "RewriteRule ^race/(gravel-bogota|gravel-medellin)/"
+            "(training-plan|tires)/?$ /race/$1/ [R=302,L]"
+        ) in block
+
 
 class TestRegeneratedCopies:
     def test_sitemap_has_no_departed_race_scoped_urls(self, migration_map):

@@ -844,6 +844,20 @@ class TestSections:
         assert "BUILD MY PLAN" not in html
         assert "/prep-kit/" not in html
 
+    def test_source_blocked_training_uses_race_specific_reason(self, sample_race_data):
+        sample_race_data["race"]["vitals"].update({
+            "course_status": "source_blocked",
+            "course_status_label": "NEXT EDITION PENDING",
+            "course_status_reason": "The completed course is known, but the next date is not.",
+        })
+        rd = normalize_race_data(sample_race_data)
+
+        html = build_training(rd)
+
+        assert "Next Edition Pending" in html
+        assert "The completed course is known, but the next date is not." in html
+        assert "BUILD MY PLAN" not in html
+
     def test_source_blocked_page_suppresses_plan_and_prep_ctas(self, sample_race_data):
         sample_race_data["race"]["vitals"]["course_status"] = "source_blocked"
         rd = normalize_race_data(sample_race_data)
@@ -852,6 +866,7 @@ class TestSections:
 
         assert 'id="gg-sticky-cta"' not in html
         assert 'id="prep-kit-capture"' not in html
+        assert 'id="gg-date-reminder-form"' not in html
         assert f"{TRAINING_PLANS_URL}?race=test-gravel-100" not in html
         assert "/race/test-gravel-100/prep-kit/" not in html
 

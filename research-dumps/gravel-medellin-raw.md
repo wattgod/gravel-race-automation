@@ -61,3 +61,20 @@
 **DNF rates if available**: Unavailable.
 
 *Note: Search results focus on 2026 UCI Gravel World Series calendar confirmation. Extensive details like course, logistics, and history unavailable—likely due to event being newly announced. No official race website found in results; registration noted as "opened January 1, 2026" on Gran Fondo Guide[6]. A separate "Bogotá Medellín Gravel Tour" (Feb 22, 2026–Jan 3, 2027) appears unrelated multi-day tour[1].*
+
+## 2026-08-06 PRIMARY-SOURCE CORRECTION
+
+The original dump above is superseded where it conflicts with the current official sources below.
+
+- The UCI Gravel World Series calendar update says Gravel Medellín, originally planned for **August 8, 2026**, **did not take place in 2026**.
+- The event was postponed to the **2027 season**, but the organizer has not announced an exact 2027 date.
+- The official event page still says only **"More information later"** under Course. It publishes no distance, elevation gain, surface mix, climbs, start venue, field size, registration price, aid plan, cutoff, or prize purse.
+- The event page describes Medellín's city elevation and general climate, but those city facts are not course facts.
+- Unsupported claims about a 75-mile/7,500-foot course, 200-400 riders, $100-150 registration, multiple aid stations, and a $2,000 trip cost were removed.
+- Videos and quotes about Transcordilleras and general Colombian riding are not evidence about Gravel Medellín and were removed from the profile.
+- Keep the event in the database as a postponed, source-blocked UCI race. Do not create a TrainingPeaks fleet until the organizer publishes an exact date and course.
+
+Primary sources checked 2026-08-06:
+
+1. https://ucigravelworldseries.com/en/gravel-medellin/
+2. https://ucigravelworldseries.com/en/calendar-update-for-uci-gravel-events-in-colombia/

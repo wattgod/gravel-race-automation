@@ -472,6 +472,8 @@ def normalize_race_data(data: dict) -> dict:
             'distance_mi': vitals.get('distance_mi', 0),
             'elevation': f"{vitals.get('elevation_ft'):,} ft" if isinstance(vitals.get('elevation_ft'), (int, float)) else '--',
             'course_status': vitals.get('course_status', ''),
+            'course_status_label': vitals.get('course_status_label', ''),
+            'course_status_reason': vitals.get('course_status_reason', ''),
             'location': vitals.get('location', '--'),
             'location_badge': vitals.get('location_badge', vitals.get('location', '--')),
             'date': short_date or vitals.get('date', '--'),
@@ -3023,6 +3025,12 @@ def build_training(rd: dict) -> str:
 
     if rd['vitals'].get('course_status') == 'source_blocked':
         official_site = rd.get('logistics', {}).get('official_site', '')
+        status_label = rd['vitals'].get('course_status_label') or 'COURSE DETAILS PENDING'
+        status_reason = rd['vitals'].get('course_status_reason') or (
+            'The organizer has confirmed the event, but not the exact distance, '
+            'elevation, route, aid plan, or cutoff. We will publish the '
+            'training-plan ladder after those details are official.'
+        )
         official_link = (
             f'<a href="{esc(official_site)}" class="gg-btn gg-btn--outline" '
             f'target="_blank" rel="noopener">CHECK OFFICIAL UPDATES</a>'
@@ -3037,9 +3045,9 @@ def build_training(rd: dict) -> str:
       {countdown_html}
       {gear_html}
       <div class="gg-training-primary">
-        <h3>Course Details Pending</h3>
+        <h3>{esc(status_label.title())}</h3>
         <p class="gg-training-subtitle">No race-specific plan is for sale yet.</p>
-        <p>The organizer has confirmed the event, but not the exact distance, elevation, route, aid plan, or cutoff. We will publish the training-plan ladder after those details are official.</p>
+        <p>{esc(status_reason)}</p>
         {official_link}
       </div>
     </div>
@@ -6226,7 +6234,7 @@ def generate_page(rd: dict, race_index: list = None, external_assets: dict = Non
     tire_picks = build_tire_picks(rd)
     tire_callout = build_tire_guide_callout(rd)
     coaching_teaser = build_coaching_teaser(rd)
-    date_reminder = build_date_reminder(rd)
+    date_reminder = '' if source_blocked else build_date_reminder(rd)
     similar = build_similar_races(rd, race_index)
     citations_sec = build_citations_section(rd)
     footer = build_footer(rd)

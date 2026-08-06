@@ -312,6 +312,20 @@ class TestPreviewGeneration:
         preview = generate_preview(race_data)
         assert preview["race_name"] == "Test Race"
 
+    def test_source_blocked_race_emits_unavailable_preview(self):
+        """Unknown official facts must not produce invented workout demands."""
+        vitals = _make_vitals(distance_mi=75, elevation_ft=7500)
+        vitals["pack_status"] = "unavailable"
+        vitals["course_status_reason"] = "The next date and course are not official."
+
+        preview = generate_preview(_make_race(vitals=vitals))
+
+        assert preview["available"] is False
+        assert preview["unavailable_reason"] == vitals["course_status_reason"]
+        assert preview["demands"] == {}
+        assert preview["top_categories"] == []
+        assert preview["race_overlay"] == {}
+
     def test_top_categories_count(self):
         """Should return up to TOP_N_DEFAULT categories."""
         data = _make_race(

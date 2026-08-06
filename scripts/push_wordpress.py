@@ -1607,6 +1607,12 @@ RewriteRule ^about-me/?$ /about/ [R=301,L]
 RewriteRule ^race/dirty-kanza/?$ /race/unbound-200/ [R=301,L]
 RewriteRule ^race/oregon-trail-gravel-grinder/?$ /race/oregon-trail-gravel/ [R=301,L]
 
+# Colombia races are source-blocked after the 2026 season: Bogotá has no
+# next-edition date, while Medellín was canceled and postponed without a
+# 2027 date or course. Keep stale generated plan/tire pages out of the money
+# path until the organizer publishes the missing facts.
+RewriteRule ^race/(gravel-bogota|gravel-medellin)/(training-plan|tires)/?$ /race/$1/ [R=302,L]
+
 # /training-plans/ directory → product page (prevents 403)
 RewriteRule ^training-plans/?$ /products/training-plans/ [R=301,L]
 

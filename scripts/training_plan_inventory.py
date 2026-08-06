@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import json
 import re
 from pathlib import Path
 
@@ -28,6 +29,21 @@ def local_training_plan_slugs(output_dir: Path) -> set[str]:
         for path in Path(output_dir).glob("*.html")
         if path.is_file()
     }
+
+
+def unavailable_training_plan_slugs(
+    race_data_dir: Path = PROJECT_ROOT / "race-data",
+) -> set[str]:
+    """Return canonical races explicitly barred from plan-guide artifacts."""
+    unavailable = set()
+    for path in Path(race_data_dir).glob("*.json"):
+        try:
+            race = json.loads(path.read_text()).get("race", {})
+        except (OSError, json.JSONDecodeError):
+            continue
+        if (race.get("vitals") or {}).get("pack_status") == "unavailable":
+            unavailable.add(race.get("slug") or path.stem)
+    return unavailable
 
 
 def fetch_live_training_plan_slugs() -> set[str]:

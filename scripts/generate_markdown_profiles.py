@@ -553,6 +553,9 @@ def main():
         print(f"ERROR: Could not load training-guide inventory: {e}")
         return 1
     training_plan_slugs &= set(index_map)
+    training_plan_slugs -= training_plan_inventory.unavailable_training_plan_slugs(
+        RACE_DATA_DIR
+    )
     print(
         f"Loaded {len(training_plan_slugs)} active race training guides "
         f"from {inventory_source} inventory"

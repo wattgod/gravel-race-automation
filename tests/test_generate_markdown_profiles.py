@@ -28,7 +28,10 @@ from scripts.generate_markdown_profiles import (
     _fmt_dist,
     _fmt_elev,
 )
-from scripts.training_plan_inventory import training_plan_slugs_from_inventory
+from scripts.training_plan_inventory import (
+    training_plan_slugs_from_inventory,
+    unavailable_training_plan_slugs,
+)
 from wordpress.slop_rules import check_text
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
@@ -253,6 +256,19 @@ A race-specific training guide for Example Race is available:
             "has-guide",
             "also-has-guide",
         }
+
+    def test_unavailable_training_plan_inventory_uses_canonical_flag(self, tmp_path):
+        (tmp_path / "ready.json").write_text(json.dumps({
+            "race": {"slug": "ready", "vitals": {}}
+        }))
+        (tmp_path / "blocked.json").write_text(json.dumps({
+            "race": {
+                "slug": "blocked",
+                "vitals": {"pack_status": "unavailable"},
+            }
+        }))
+
+        assert unavailable_training_plan_slugs(tmp_path) == {"blocked"}
 
 
 class TestEdgeCases:

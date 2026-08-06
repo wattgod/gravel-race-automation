@@ -471,6 +471,7 @@ def normalize_race_data(data: dict) -> dict:
             'distance': f"{vitals.get('distance_mi', '--')} mi" if vitals.get('distance_mi') else '--',
             'distance_mi': vitals.get('distance_mi', 0),
             'elevation': f"{vitals.get('elevation_ft'):,} ft" if isinstance(vitals.get('elevation_ft'), (int, float)) else '--',
+            'course_status': vitals.get('course_status', ''),
             'location': vitals.get('location', '--'),
             'location_badge': vitals.get('location_badge', vitals.get('location', '--')),
             'date': short_date or vitals.get('date', '--'),
@@ -3019,6 +3020,30 @@ def build_training(rd: dict) -> str:
     gear_html = _build_riders_report([
         (rd.get('rider_intel', {}).get('gear_mentions', []), "text"),
     ])
+
+    if rd['vitals'].get('course_status') == 'source_blocked':
+        official_site = rd.get('logistics', {}).get('official_site', '')
+        official_link = (
+            f'<a href="{esc(official_site)}" class="gg-btn gg-btn--outline" '
+            f'target="_blank" rel="noopener">CHECK OFFICIAL UPDATES</a>'
+            if official_site else ''
+        )
+        return f'''<section id="training" class="gg-section gg-fade-section">
+    <div class="gg-section-header">
+      <span class="gg-section-kicker">[07]</span>
+      <h2 class="gg-section-title">Training</h2>
+    </div>
+    <div class="gg-section-body">
+      {countdown_html}
+      {gear_html}
+      <div class="gg-training-primary">
+        <h3>Course Details Pending</h3>
+        <p class="gg-training-subtitle">No race-specific plan is for sale yet.</p>
+        <p>The organizer has confirmed the event, but not the exact distance, elevation, route, aid plan, or cutoff. We will publish the training-plan ladder after those details are official.</p>
+        {official_link}
+      </div>
+    </div>
+  </section>'''
 
     return f'''<section id="training" class="gg-section gg-fade-section">
     <div class="gg-section-header">
@@ -6188,12 +6213,13 @@ def generate_page(rd: dict, race_index: list = None, external_assets: dict = Non
     ratings = build_ratings(rd)
     verdict = build_verdict(rd, race_index)
     racer_reviews = build_racer_reviews(rd)
-    email_capture = build_email_capture(rd)
+    source_blocked = rd['vitals'].get('course_status') == 'source_blocked'
+    email_capture = '' if source_blocked else build_email_capture(rd)
     visible_faq = build_visible_faq(rd)
     news = build_news_section(rd)
     training = build_training(rd)
-    plan_ladder = build_plan_ladder(rd)
-    train_for_race = build_train_for_race(rd)
+    plan_ladder = '' if source_blocked else build_plan_ladder(rd)
+    train_for_race = '' if source_blocked else build_train_for_race(rd)
     # Strip only renders when [08] exists — its anchor target must be present
     prep_strip = build_prep_strip(rd) if train_for_race else ''
     logistics_sec = build_logistics_section(rd)
@@ -6204,7 +6230,7 @@ def generate_page(rd: dict, race_index: list = None, external_assets: dict = Non
     similar = build_similar_races(rd, race_index)
     citations_sec = build_citations_section(rd)
     footer = build_footer(rd)
-    sticky_cta = build_sticky_cta(rd['name'], rd['slug'])
+    sticky_cta = '' if source_blocked else build_sticky_cta(rd['name'], rd['slug'])
 
     # Dynamic TOC — only link to sections that have content
     active = {'course', 'ratings', 'training'}  # always present

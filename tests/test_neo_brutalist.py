@@ -21,6 +21,7 @@ from generate_neo_brutalist import (
     MONTH_NUMBERS,
     OPINION_DIMS,
     RACER_RATING_THRESHOLD,
+    TRAINING_PLANS_URL,
     US_STATES,
     _build_race_name_map,
     _safe_json_for_script,
@@ -356,11 +357,13 @@ class TestNormalize:
     def test_unpublished_course_vitals_render_as_dashes(self, sample_race_data):
         sample_race_data["race"]["vitals"]["distance_mi"] = None
         sample_race_data["race"]["vitals"]["elevation_ft"] = None
+        sample_race_data["race"]["vitals"]["course_status"] = "source_blocked"
 
         vitals = normalize_race_data(sample_race_data)["vitals"]
 
         assert vitals["distance"] == "--"
         assert vitals["elevation"] == "--"
+        assert vitals["course_status"] == "source_blocked"
 
     def test_date_formatted(self, normalized_data):
         assert "June 15, 2026" in normalized_data["vitals"]["date"]
@@ -829,6 +832,28 @@ class TestSections:
         # The countdown span should show a real date, not dashes
         assert "June 15, 2026" in html
         assert 'id="gg-days-left">--' not in html
+
+    def test_source_blocked_training_does_not_sell_a_plan(self, sample_race_data):
+        sample_race_data["race"]["vitals"]["course_status"] = "source_blocked"
+        rd = normalize_race_data(sample_race_data)
+
+        html = build_training(rd)
+
+        assert "Course Details Pending" in html
+        assert "No race-specific plan is for sale yet" in html
+        assert "BUILD MY PLAN" not in html
+        assert "/prep-kit/" not in html
+
+    def test_source_blocked_page_suppresses_plan_and_prep_ctas(self, sample_race_data):
+        sample_race_data["race"]["vitals"]["course_status"] = "source_blocked"
+        rd = normalize_race_data(sample_race_data)
+
+        html = generate_page(rd, [])
+
+        assert 'id="gg-sticky-cta"' not in html
+        assert 'id="prep-kit-capture"' not in html
+        assert f"{TRAINING_PLANS_URL}?race=test-gravel-100" not in html
+        assert "/race/test-gravel-100/prep-kit/" not in html
 
     def test_visible_faq_renders(self, normalized_data):
         html = build_visible_faq(normalized_data)

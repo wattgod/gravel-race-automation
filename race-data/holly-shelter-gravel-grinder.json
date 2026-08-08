@@ -5,11 +5,11 @@
     "display_name": "Holly Shelter Gravel Grinder",
     "tagline": "Coastal plain gravel in southeast North Carolina's Holly Shelter Game Land.",
     "vitals": {
-      "distance_mi": 75,
-      "elevation_ft": 1500,
-      "location": "Southeast North Carolina (Holly Shelter Game Land)",
-      "location_badge": "HOLLY SHELTER, NC",
-      "county": "Southeast North Carolina",
+      "distance_mi": 54.7,
+      "elevation_ft": 293,
+      "location": "Holly Shelter Game Land, Rocky Point, North Carolina",
+      "location_badge": "ROCKY POINT, NORTH CAROLINA",
+      "county": "Pender County",
       "date": "Late March annually",
       "date_specific": "2026: March 28",
       "terrain_types": [
@@ -18,14 +18,14 @@
         "Regional event",
         "Southeast North Carolina"
       ],
-      "field_size": "100-300 riders",
-      "start_time": "9:00 AM to",
-      "registration": "Online. Cost: ~$60-100",
-      "prize_purse": "Modest prizes",
-      "aid_stations": "Multiple aid stations",
-      "cutoff_time": "Varies",
-      "lat": 38.8869,
-      "lng": -76.9973
+      "field_size": "Approximately 180 riders across both distances",
+      "start_time": "9:00 AM mass start",
+      "registration": "BikeReg. 2026 long-course entry was $85 early and $95 after March 15.",
+      "prize_purse": "Top-three category awards; no published cash purse",
+      "aid_stations": "Long course at miles 25 and 47",
+      "cutoff_time": "No published cutoff",
+      "lat": 34.552033,
+      "lng": -77.8110491
     },
     "climate": {
       "primary": "North Carolina spring/fall",
@@ -42,7 +42,7 @@
       "surface": "Gravel roads through Holly Shelter Game Land. Minimal elevation (flat to rolling) with forest and coastal scenery.",
       "technical_rating": 2,
       "features": [
-        "Minimal elevation (1500 feet)",
+        "Only 293 feet of climbing",
         "Coastal plain scenery",
         "Holly Shelter Game Land",
         "Southeast North Carolina setting",
@@ -104,9 +104,9 @@
       "airport": "Wilmington (ILM) 30 minutes",
       "lodging_strategy": "Wilmington has lodging options. Holly Shelter area has limited options.",
       "food": "Moderate dining options. Stock nutrition.",
-      "packet_pickup": "Day before typically",
-      "parking": "At start/finish",
-      "official_site": "Check North Carolina cycling calendars"
+      "packet_pickup": "2026: race-morning registration opened at 7:15 AM and closed at 8:30 AM",
+      "parking": "Follow current organizer directions for Holly Shelter Game Land, 7471 Shaw Highway",
+      "official_site": "https://www.trans-sylvaniaproductions.com/hsgg"
     },
     "history": {
       "founded": null,
@@ -146,10 +146,10 @@
     },
     "guide_variables": {
       "race_name": "Holly Shelter Gravel Grinder",
-      "race_distance": "75 miles",
-      "race_elevation": "1,500 feet",
-      "race_date": "Spring or Fall",
-      "race_location": "Southeast North Carolina (Holly Shelter Game Land)",
+      "race_distance": "54.7 miles",
+      "race_elevation": "293 feet",
+      "race_date": "2026 edition completed March 28; next edition not announced",
+      "race_location": "Holly Shelter Game Land, Rocky Point, North Carolina",
       "race_terrain": "Coastal plain gravel",
       "race_weather": "NC variability",
       "race_challenges": [
@@ -180,13 +180,13 @@
       }
     ],
     "research_metadata": {
-      "data_confidence": "moderate",
-      "validation_status": "pending",
+      "data_confidence": "high",
+      "validation_status": "official-source-verified",
       "sources": [
-        "north_carolina_cycling_community"
+        "https://www.trans-sylvaniaproductions.com/hsgg"
       ],
       "migration_notes": [
-        "Generated from regional information"
+        "Corrected 2026-08-08: the official 2026 long course was 54.7 miles with 293 feet of climbing, not 75 miles and 1,500 feet."
       ],
       "research_strength": {
         "overall": 85.5,

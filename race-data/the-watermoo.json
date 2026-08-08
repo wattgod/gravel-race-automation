@@ -3,10 +3,10 @@
     "name": "The Watermoo",
     "slug": "the-watermoo",
     "display_name": "The Watermoo",
-    "tagline": "Southeast Michigan gravel in Dexter near Ann Arbor.",
+    "tagline": "One hundred eleven miles of timed Michigan gravel, tarmac, and a river crossing.",
     "vitals": {
-      "distance_mi": 62,
-      "elevation_ft": 3000,
+      "distance_mi": 111,
+      "elevation_ft": 3997,
       "location": "Dexter, Michigan",
       "location_badge": "DEXTER, MICHIGAN",
       "county": "Washtenaw County",
@@ -18,12 +18,12 @@
         "Rolling hills",
         "Farmland"
       ],
-      "field_size": "100-250 riders",
-      "start_time": "Morning start",
-      "registration": "Online. Cost: ~$60-90",
-      "prize_purse": "None",
-      "aid_stations": "Basic aid stations",
-      "cutoff_time": "None official",
+      "field_size": "Not published",
+      "start_time": "2026: 6:11 AM wave for riders targeting 14 mph or less; 7:11 AM wave for riders targeting more than 14 mph",
+      "registration": "BikeReg. 2026 pricing rose from $88 to $111 before registration closed August 1.",
+      "prize_purse": "None; no podiums, though official results record finish times",
+      "aid_stations": "Pit-stop details are published in the current rider guide",
+      "cutoff_time": "No official cutoff published",
       "lat": 42.3373,
       "lng": -83.8842
     },
@@ -38,22 +38,22 @@
     },
     "terrain": {
       "primary": "Southeast Michigan gravel roads",
-      "surface": "Gravel roads through southeast Michigan. Rolling terrain with moderate elevation.",
+      "surface": "The official 2026 route is roughly 69% unpaved, mixing southeast Michigan gravel, tarmac, a road that is no longer a road, and a river crossing.",
       "technical_rating": 2,
       "features": [
-        "Rolling Michigan terrain",
-        "Rural and farmland scenery",
-        "Mix of road conditions",
-        "Moderate elevation changes",
-        "Southeast Michigan setting"
+        "111-mile single-loop format",
+        "Approximately 3,997 feet of climbing",
+        "About 69% unpaved surface",
+        "River crossing",
+        "Rolling farmland and woodland roads"
       ]
     },
     "gravel_god_rating": {
-      "overall_score": 44,
-      "tier": 4,
-      "tier_label": "TIER 4",
+      "overall_score": 46,
+      "tier": 3,
+      "tier_label": "TIER 3",
       "logistics": 3,
-      "length": 3,
+      "length": 4,
       "technicality": 2,
       "elevation": 2,
       "climate": 2,
@@ -66,13 +66,13 @@
       "field_depth": 1,
       "value": 4,
       "expenses": 3,
-      "score_note": "Small grassroots southeast Michigan event. Near Ann Arbor but limited infrastructure.",
+      "score_note": "A distinctive timed 111-mile grassroots race with a river crossing, good Dexter access, and a real century-plus demand; no podiums and limited field depth cap the score.",
       "discipline": "gravel",
-      "display_tier": 4
+      "display_tier": 3
     },
     "biased_opinion": {
-      "verdict": "Ann Arbor Area Grassroots Ride",
-      "summary": "The Watermoo is a small grassroots gravel race in southeast Michigan near Ann Arbor. The proximity to Ann Arbor gives it better access than some rural events, but it's still a small regional race with basic organization and limited field depth. It's an honest local event with rolling terrain and affordable pricing for Michigan cyclists.",
+      "verdict": "A Real 111-Mile Michigan Test",
+      "summary": "The Watermoo is a timed 111-mile race from Dexter, Michigan, on mostly gravel plus tarmac, rough abandoned-road terrain, and a river crossing. It has no podiums or cash purse, but official timing, a century-plus route, two self-seeded waves, and approximately 4,000 feet of climbing make it a legitimate endurance target rather than the old 62-mile local-ride profile.",
       "strengths": [
         "Affordable regional pricing",
         "Near Ann Arbor (better access)",
@@ -86,12 +86,12 @@
         "No prestige or recognition",
         "Limited appeal beyond locals"
       ],
-      "bottom_line": "A small local gravel race in southeast Michigan. Perfect for locals or Ann Arbor area cyclists who want an affordable summer ride. Not worth traveling far for."
+      "bottom_line": "A strong regional target for riders who want their first gravel century-plus race or a distinctive Michigan endurance day; the route matters more than podium prestige."
     },
     "final_verdict": {
       "score": "44 / 100",
-      "one_liner": "Small grassroots southeast Michigan ride near Ann Arbor.",
-      "should_you_race": "Only if you're in southeast Michigan or the Ann Arbor area and want an affordable gravel ride. Not worth traveling for.",
+      "one_liner": "A timed 111-mile Michigan gravel race with a river crossing and nearly 4,000 feet of climbing.",
+      "should_you_race": "Yes if a well-supported century-plus challenge with unusual terrain matters more to you than podiums or a deep elite field.",
       "alternatives": "For better Michigan events: Barry-Roubaix, Lumberjack 100. For similar grassroots vibes: other regional Midwest events.",
       "alternative_slugs": [
         "barry-roubaix"
@@ -101,9 +101,9 @@
       "airport": "Detroit (DTW) 45 min",
       "lodging_strategy": "Dexter has basic lodging. Ann Arbor (30 min) has more options.",
       "food": "Small city with dining options. Stock race nutrition beforehand.",
-      "packet_pickup": "Race morning typically",
-      "parking": "At start/finish",
-      "official_site": "Check Michigan cycling calendars"
+      "packet_pickup": "Follow the current rider guide for packet and parking instructions",
+      "parking": "Start and after-party area at Jolly Pumpkin in Dexter; use the current rider guide",
+      "official_site": "https://thewatermoo.com/"
     },
     "history": {
       "founded": null,
@@ -113,7 +113,7 @@
       "reputation": "Small regional Michigan event."
     },
     "course_description": {
-      "character": "Rolling southeast Michigan gravel through rural areas.",
+      "character": "A century-plus rolling loop mixing gravel, tarmac, rough abandoned-road surface, and a river crossing.",
       "suffering_zones": [
         {
           "mile": 20,
@@ -137,17 +137,17 @@
           "named_section": "Finish"
         }
       ],
-      "signature_challenge": "Rolling southeast Michigan terrain and summer heat.",
-      "ridewithgps_id": "43962788",
-      "ridewithgps_name": "2023 THE WATERMOO"
+      "signature_challenge": "Keeping pace, fueling, and equipment together for 111 miles before negotiating the river crossing and late rolling terrain.",
+      "ridewithgps_id": "56477076",
+      "ridewithgps_name": "2026 THE WATERMOO"
     },
     "guide_variables": {
       "race_name": "The Watermoo",
-      "race_distance": "62 miles",
-      "race_elevation": "3,000 feet",
-      "race_date": "Summer",
+      "race_distance": "111 miles",
+      "race_elevation": "3,997 feet",
+      "race_date": "2026 edition completed August 8; next edition not announced",
       "race_location": "Dexter, Michigan",
-      "race_terrain": "Southeast Michigan gravel roads",
+      "race_terrain": "Mostly unpaved rolling roads, tarmac, abandoned-road terrain, and a river crossing",
       "race_weather": "Michigan summer",
       "race_challenges": [
         "Rolling terrain",
@@ -170,13 +170,14 @@
       }
     ],
     "research_metadata": {
-      "data_confidence": "moderate",
-      "validation_status": "pending",
+      "data_confidence": "high",
+      "validation_status": "official-source-verified",
       "sources": [
-        "michigan_cycling_community"
+        "https://thewatermoo.com/",
+        "https://ridewithgps.com/routes/56477076"
       ],
       "migration_notes": [
-        "Generated from regional information"
+        "Corrected 2026-08-08: prior top-level profile incorrectly described a 62-mile race. The official event and 2026 route confirm a 111-mile timed race."
       ],
       "research_strength": {
         "overall": 86.5,
@@ -258,7 +259,7 @@
         "explanation": "The race offers two wave starts (6:11am for riders averaging 14mph or less, 7:11am for faster riders) allowing self-seeding by pace. Ken Lemieux found the aid station at mile 72 well-stocked with water and snacks when he needed recovery. The start location at 2319 Bishop Cir E in Dexter provides organized staging with post-race festivities at Jolly Pumpkin."
       },
       "length": {
-        "score": 3,
+        "score": 4,
         "explanation": "111 miles is a century-plus distance that requires real preparation and commitment. It's long enough to hurt but not so long that it becomes a sufferfest for its own sake. The research shows a discrepancy with the listed 62 miles, but 111 miles is what's consistently reported across sources and represents solid gravel race distance. Similar distance to Crusher in the Tushar. As Ken Lemieux puts it: \"Before the Watermoo race, I had only done two rides that were 100 miles long, and my longest race was 35 miles.\""
       },
       "technicality": {

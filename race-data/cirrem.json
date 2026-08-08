@@ -3,51 +3,51 @@
     "name": "CIRREM",
     "slug": "cirrem",
     "display_name": "CIRREM",
-    "tagline": "Rolling Illinois farmland gravel in rural Roubaix.",
+    "tagline": "One hundred kilometers of winter gravel through Iowa's Madison County hills.",
     "vitals": {
-      "distance_mi": 75,
-      "elevation_ft": 3000,
-      "location": "Roubaix, Illinois",
-      "location_badge": "ROUBAIX, IL",
-      "county": "Bureau County",
-      "date": "Late February annually",
+      "distance_mi": 64.7,
+      "elevation_ft": 3380,
+      "location": "Cumming, Iowa",
+      "location_badge": "CUMMING, IOWA",
+      "county": "Madison County",
+      "date": "Late February or early March",
       "date_specific": "2026: February 28",
       "terrain_types": [
-        "Illinois farmland",
-        "Rolling gravel",
-        "Regional event",
-        "Northern Illinois"
+        "Iowa gravel roads",
+        "Madison County hills",
+        "Winter conditions",
+        "Self-supported racing"
       ],
-      "field_size": "100-300 riders",
-      "start_time": "Morning start",
-      "registration": "Online. Cost: ~$60-100",
-      "prize_purse": "Modest prizes",
-      "aid_stations": "Multiple aid stations",
-      "cutoff_time": "Varies",
-      "lat": 40.0797,
-      "lng": -89.4337
+      "field_size": "500-rider cap",
+      "start_time": "10:00 AM",
+      "registration": "Online registration; the organizer warns that the field sells out quickly",
+      "prize_purse": "Category awards; no published cash purse",
+      "aid_stations": "One roughly halfway checkpoint with food and drink",
+      "cutoff_time": "No published cutoff or sag support; riders who abandon must arrange their own return",
+      "lat": 41.4822,
+      "lng": -93.7626
     },
     "climate": {
-      "primary": "Illinois spring/fall",
-      "description": "Variable conditions with heat, wind, and humidity possible.",
+      "primary": "Iowa winter",
+      "description": "Late February can bring frozen gravel, snow, rain, wind, thawing mud, or dry cold in the same event cycle.",
       "challenges": [
-        "Heat possible (spring)",
-        "Cool possible (fall)",
+        "Subfreezing start possible",
+        "Snow or rain",
         "Wind exposure",
-        "Humidity",
-        "Variable weather"
+        "Freeze-thaw gravel",
+        "Rapidly changing road conditions"
       ]
     },
     "terrain": {
-      "primary": "Illinois rolling farmland gravel",
-      "surface": "Gravel roads through rolling northern Illinois farmland. Moderate elevation with farmland scenery.",
+      "primary": "Hilly Madison County gravel",
+      "surface": "A roughly 100-kilometer loop on rolling and hilly rural gravel roads south-west of Des Moines.",
       "technical_rating": 2,
       "features": [
-        "Moderate rolling (3000 feet)",
-        "Farmland scenery",
-        "Northern Illinois setting",
-        "Multiple distances",
-        "Regional event"
+        "Approximately 3,380 feet of climbing",
+        "Exposed Iowa farm roads",
+        "One 100-kilometer race distance",
+        "Mid-course checkpoint",
+        "Winter gravel variability"
       ]
     },
     "gravel_god_rating": {
@@ -68,34 +68,34 @@
       "field_depth": 2,
       "value": 3,
       "expenses": 3,
-      "score_note": "Regional Illinois event. Rolling farmland terrain with rural location and limited organization.",
+      "score_note": "A well-established, fast-selling Iowa winter race with real category competition and unusually consequential weather; self-supported logistics and regional reach keep it Tier 3.",
       "discipline": "gravel",
       "display_tier": 3
     },
     "biased_opinion": {
-      "verdict": "Rural Illinois Farmland Gravel",
-      "summary": "CIRREM is a regional event in rural Roubaix, northern Illinois. The rolling farmland terrain offers moderate climbing with farmland scenery, but the rural location, limited amenities, and moderate organization keep it firmly in Tier 3. Roubaix is a small town with limited lodging and dining. It's a solid regional event for Illinois cyclists.",
+      "verdict": "Iowa Winter Gravel With Teeth",
+      "summary": "CIRREM starts and finishes at the Cumming Tap in Cumming, Iowa, and sends one 100-kilometer field through the cold, hilly gravel of Madison County. The race is simple and self-supported, but the winter surface, wind, quick sellout, and established category competition make it much more serious than the old fabricated Illinois profile suggested.",
       "strengths": [
-        "Rolling Illinois terrain",
-        "Northern Illinois location",
-        "Moderate climbing",
-        "Farmland scenery",
-        "Illinois cycling community"
+        "Authentic winter conditions",
+        "Hilly Madison County course",
+        "Strong Iowa gravel community",
+        "Simple Cumming Tap start and finish",
+        "Competitive category fields"
       ],
       "weaknesses": [
-        "Rural location (limited access)",
-        "Limited amenities",
-        "Moderate organization",
-        "Regional field only",
-        "Limited national recognition"
+        "Minimal on-course support",
+        "No sag service",
+        "Weather can turn the course into survival",
+        "Limited lodging in Cumming",
+        "No next-edition date published"
       ],
-      "bottom_line": "A solid regional Illinois gravel race with rolling farmland terrain. Worth it for Illinois cyclists seeking a local event. Not a destination race for out-of-state travelers."
+      "bottom_line": "A legitimate Iowa winter classic for riders who want a hard 100K and accept self-sufficiency; the cold and road conditions are the point."
     },
     "final_verdict": {
       "score": "46 / 100",
-      "one_liner": "Rural rolling Illinois farmland gravel in Roubaix.",
-      "should_you_race": "If you're in Illinois and want a local rolling gravel event—yes, it's a solid regional race. If you're from out of state—there are better options.",
-      "alternatives": "For better Midwest events: Gravel Worlds, Almanzo 100, Dirty Kanza. For similar regional events: other Illinois gravel races.",
+      "one_liner": "A hilly, self-supported Iowa 100K raced in whatever late winter delivers.",
+      "should_you_race": "Yes if winter gravel, self-sufficiency, and a hard four-to-six-hour day sound like a feature rather than a warning.",
+      "alternatives": "For a warmer Midwest race, target a spring or summer gravel event; for similar weather exposure, choose another established winter classic.",
       "alternative_slugs": [
         "almanzo-100",
         "garmin-gravel-worlds",
@@ -103,12 +103,12 @@
       ]
     },
     "logistics": {
-      "airport": "Chicago (ORD/MDW) 2 hours or Peoria (PIA) 1 hour",
-      "lodging_strategy": "Roubaix has very limited lodging. Princeton or Peru have more options.",
-      "food": "Small town with limited dining. Stock nutrition.",
-      "packet_pickup": "Day before typically",
-      "parking": "At start/finish",
-      "official_site": "Check Illinois cycling calendars"
+      "airport": "Des Moines International Airport (DSM), about 15 miles from Cumming",
+      "lodging_strategy": "Stay in the Des Moines metro; Cumming itself has very limited lodging.",
+      "food": "The Cumming Tap anchors race morning and the finish; carry everything needed beyond the halfway checkpoint.",
+      "packet_pickup": "Race-morning check-in at the Cumming Tap, historically 8:00-9:45 AM",
+      "parking": "Follow current organizer instructions around the Cumming Tap",
+      "official_site": "https://cirrem.com/"
     },
     "history": {
       "founded": null,
@@ -118,7 +118,7 @@
       "reputation": "Regional Illinois event."
     },
     "course_description": {
-      "character": "Rolling Illinois farmland gravel with moderate climbing.",
+      "character": "A hilly 100-kilometer Iowa gravel loop whose difficulty changes with freeze, thaw, snow, rain, and wind.",
       "suffering_zones": [
         {
           "mile": 20,
@@ -142,24 +142,24 @@
           "named_section": "Final Push"
         }
       ],
-      "signature_challenge": "Rolling Illinois farmland gravel in rural Roubaix.",
+      "signature_challenge": "Holding pace and keeping hands, feet, food, and equipment functional through Madison County winter conditions.",
       "ridewithgps_id": "53919197",
       "ridewithgps_name": "CIRREM Short"
     },
     "guide_variables": {
       "race_name": "CIRREM",
-      "race_distance": "75 miles",
-      "race_elevation": "3,000 feet",
-      "race_date": "Spring or Fall",
-      "race_location": "Roubaix, Illinois",
-      "race_terrain": "Illinois rolling farmland gravel",
-      "race_weather": "Illinois variability",
+      "race_distance": "64.7 miles",
+      "race_elevation": "3,380 feet",
+      "race_date": "2026 edition completed February 28; next edition not announced",
+      "race_location": "Cumming, Iowa",
+      "race_terrain": "Hilly Madison County gravel",
+      "race_weather": "Iowa winter variability",
       "race_challenges": [
-        "Rolling terrain",
-        "Rural location",
-        "Heat or cool possible",
+        "Winter clothing and equipment management",
+        "Hilly gravel pacing",
+        "Freeze-thaw surfaces",
         "Wind exposure",
-        "Limited amenities"
+        "Self-supported execution"
       ],
       "altitude_section": false,
       "altitude_feet": null
@@ -182,13 +182,16 @@
       }
     ],
     "research_metadata": {
-      "data_confidence": "moderate",
-      "validation_status": "pending",
+      "data_confidence": "high",
+      "validation_status": "official-source-verified",
       "sources": [
-        "illinois_cycling_community"
+        "https://cirrem.com/",
+        "https://cirrem.com/race-info/",
+        "https://cirrem.com/results/",
+        "https://ridewithgps.com/routes/53919197"
       ],
       "migration_notes": [
-        "Generated from regional information"
+        "Corrected 2026-08-08: prior profile used the wrong state and course identity. The official race starts and finishes in Cumming, Iowa and runs through Madison County."
       ],
       "research_strength": {
         "overall": 91.0,

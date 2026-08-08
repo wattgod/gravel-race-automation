@@ -169,3 +169,79 @@ def test_hibernator_is_truthfully_cataloged_as_a_noncompetitive_ride():
     assert index["name"] == "Hibernator 100"
     assert index["distance_mi"] == 103
     assert index["overall_score"] == 43
+
+
+def test_tour_de_gap_is_the_noncompetitive_texas_road_ride():
+    race = _race("tour-de-gap")
+    vitals = race["vitals"]
+
+    assert vitals["location"] == "Buffalo Gap, Texas"
+    assert vitals["distance_mi"] == 62
+    assert race["terrain"]["primary"] == "Paved West Texas county roads"
+    assert race["gravel_god_rating"]["discipline"] == "road"
+    assert race["eligibility"]["race_plan_eligible"] is False
+    assert "not a USA Cycling-sanctioned race" in race["eligibility"]["status_note"]
+    _assert_score_contract(race)
+
+    profile_text = json.dumps(race)
+    assert "Fulton, Mississippi" not in profile_text
+    assert "Mississippi rolling hills gravel" not in profile_text
+
+    index = _index_entry("tour-de-gap")
+    assert index["location"] == "Buffalo Gap, Texas"
+    assert index["distance_mi"] == 62
+
+
+def test_cirrem_is_the_cumming_iowa_winter_100k():
+    race = _race("cirrem")
+    vitals = race["vitals"]
+
+    assert vitals["location"] == "Cumming, Iowa"
+    assert vitals["distance_mi"] == 64.7
+    assert vitals["elevation_ft"] == 3380
+    assert vitals["start_time"] == "10:00 AM"
+    assert race["course_description"]["ridewithgps_id"] == "53919197"
+    assert race["logistics"]["official_site"] == "https://cirrem.com/"
+    _assert_score_contract(race)
+
+    profile_text = json.dumps(race)
+    assert "Roubaix, Illinois" not in profile_text
+    assert "Northern Illinois" not in profile_text
+
+    index = _index_entry("cirrem")
+    assert index["location"] == "Cumming, Iowa"
+    assert index["distance_mi"] == 64.7
+
+
+def test_watermoo_uses_the_official_111_mile_route():
+    race = _race("the-watermoo")
+    vitals = race["vitals"]
+
+    assert vitals["distance_mi"] == 111
+    assert vitals["elevation_ft"] == 3997
+    assert race["course_description"]["ridewithgps_id"] == "56477076"
+    assert "river crossing" in race["terrain"]["surface"]
+    assert race["gravel_god_rating"]["overall_score"] == 46
+    _assert_score_contract(race)
+
+    index = _index_entry("the-watermoo")
+    assert index["distance_mi"] == 111
+    assert index["elevation_ft"] == 3997
+
+
+def test_holly_shelter_uses_the_current_official_long_course():
+    race = _race("holly-shelter-gravel-grinder")
+    vitals = race["vitals"]
+
+    assert vitals["distance_mi"] == 54.7
+    assert vitals["elevation_ft"] == 293
+    assert vitals["location"].startswith("Holly Shelter Game Land, Rocky Point")
+    assert vitals["aid_stations"] == "Long course at miles 25 and 47"
+    assert race["logistics"]["official_site"] == (
+        "https://www.trans-sylvaniaproductions.com/hsgg"
+    )
+    _assert_score_contract(race)
+
+    index = _index_entry("holly-shelter-gravel-grinder")
+    assert index["distance_mi"] == 54.7
+    assert index["elevation_ft"] == 293

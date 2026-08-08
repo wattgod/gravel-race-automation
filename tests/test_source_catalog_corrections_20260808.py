@@ -107,3 +107,30 @@ def test_del_fuego_profile_is_the_2027_hain_flagship():
     assert index["year"] == 2027
     assert index["distance_mi"] == 652.4
     assert index["overall_score"] == 70
+
+
+def test_gravel_roubaix_profile_is_the_titusville_roughneck_race():
+    race = _race("gravel-roubaix")
+    vitals = race["vitals"]
+
+    assert race["name"] == "Roughneck Gravel Roubaix"
+    assert vitals["location"].startswith("Titusville")
+    assert vitals["distance_mi"] == 101.9
+    assert vitals["elevation_ft"] == 9985
+    assert "next edition pending" in vitals["date_specific"]
+    assert race["course_description"]["ridewithgps_id"] == "53075138"
+    assert race["logistics"]["official_site"].startswith(
+        "https://www.oilvalleyendurance.com/"
+    )
+    assert race["gravel_god_rating"]["overall_score"] == 67
+    _assert_score_contract(race)
+
+    profile_text = json.dumps(race)
+    assert "Palmerton" not in profile_text
+    assert "Sager Road" not in profile_text
+    assert "Wissahickon" not in profile_text
+
+    index = _index_entry("gravel-roubaix")
+    assert index["name"] == "Roughneck Gravel Roubaix"
+    assert index["distance_mi"] == 101.9
+    assert index["overall_score"] == 67

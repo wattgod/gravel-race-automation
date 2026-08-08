@@ -4460,14 +4460,14 @@
     "thumb": "/race-photos/gravel-and-tar-classic/gravel-and-tar-classic-video-1.jpg"
   },
   {
-    "name": "Gravel Roubaix",
+    "name": "Roughneck Gravel Roubaix",
     "slug": "gravel-roubaix",
-    "location": "Palmerton, Pennsylvania",
+    "location": "Titusville, Pennsylvania",
     "region": "Northeast",
-    "month": "April",
+    "month": null,
     "year": 2026,
-    "distance_mi": 100,
-    "elevation_ft": 8000,
+    "distance_mi": 101.9,
+    "elevation_ft": 9985,
     "tier": 2,
     "overall_score": 67,
     "scores": {
@@ -4478,23 +4478,24 @@
       "climate": 3,
       "altitude": 2,
       "adventure": 4,
-      "prestige": 3,
+      "prestige": 2,
       "race_quality": 3,
       "experience": 4,
       "community": 3,
-      "field_depth": 3,
+      "field_depth": 2,
       "value": 4,
-      "expenses": 4
+      "expenses": 4,
+      "cultural_impact": 2
     },
     "difficulty_composite": 3.7,
-    "tagline": "The Hell of the East - 8,000 feet of Pocono punishment that'll make you question every life decision",
+    "tagline": "Oil-country gravel that climbs out of the Allegheny River valley.",
     "has_profile": true,
     "profile_url": "/race/gravel-roubaix/",
     "discipline": "gravel",
     "has_tire_guide": true,
-    "lat": 40.8015,
-    "lng": -75.6102,
-    "rwgps_id": "53316252"
+    "lat": 41.627,
+    "lng": -79.674,
+    "rwgps_id": "53075138"
   },
   {
     "name": "Grinduro Canada",

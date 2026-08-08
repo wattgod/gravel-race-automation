@@ -1,72 +1,85 @@
 {
   "race": {
     "raceId": "gravel-roubaix",
-    "name": "Gravel Roubaix",
+    "name": "Roughneck Gravel Roubaix",
     "slug": "gravel-roubaix",
-    "display_name": "Gravel Roubaix",
-    "tagline": "The Hell of the East - 8,000 feet of Pocono punishment that'll make you question every life decision",
+    "display_name": "Roughneck Gravel Roubaix",
+    "tagline": "Oil-country gravel that climbs out of the Allegheny River valley.",
     "location": {
-      "city": "Palmerton",
+      "city": "Titusville",
       "state": "Pennsylvania",
       "country": "USA",
-      "region": "Pocono Mountains"
+      "region": "Oil Creek and Allegheny River valley"
     },
     "vitals": {
-      "distance_mi": 100,
-      "elevation_ft": 8000,
-      "location": "Palmerton, Pennsylvania",
-      "location_badge": "PALMERTON, PA",
-      "date": "April annually",
-      "date_specific": "2026: April 26",
-      "lat": 40.8015,
-      "lng": -75.6102,
-      "start_time": "7:00 AM EST"
+      "distance_mi": 101.9,
+      "elevation_ft": 9985,
+      "location": "Titusville, Pennsylvania",
+      "location_badge": "TITUSVILLE, PA",
+      "date": "Next edition not announced",
+      "date_specific": "2026: May 23 (completed; next edition pending)",
+      "lat": 41.627,
+      "lng": -79.674,
+      "start_time": "8:30 AM"
     },
     "date": {
-      "month": "April",
-      "typical": "late April",
+      "month": "May",
+      "typical": "late May when scheduled",
       "season": "Spring",
-      "year2026": "April 26, 2026"
+      "year2026": "May 23, 2026 (completed)"
     },
     "organizer": {
-      "name": "Gravel Roubaix",
-      "website": "https://www.gravelroubaix.com/"
+      "name": "Oil Valley Endurance",
+      "website": "https://www.oilvalleyendurance.com/events/roughneck-gravel-roubaix/"
     },
     "distances": [
       {
-        "name": "100 Mile",
-        "distance": "100 miles",
-        "elevationGain": "8,000+ feet",
-        "description": "Extremely challenging course through Pocono Mountains with relentless climbing"
+        "name": "The McKinney",
+        "distance": "250.3 miles",
+        "elevationGain": "Use the organizer-linked route for the current edition",
+        "description": "The event's gravel ultra route"
       },
       {
-        "name": "50 Mile",
-        "distance": "50 miles",
-        "elevationGain": "4,000+ feet",
-        "description": "Half distance with substantial climbing in mountainous terrain"
+        "name": "The McClintock",
+        "distance": "101.9 miles",
+        "elevationGain": "9,985 feet on the organizer-linked 2026 route",
+        "description": "The graded flagship distance in this profile"
+      },
+      {
+        "name": "The Colonel Drake",
+        "distance": "63.1 miles",
+        "elevationGain": "Use the organizer-linked route for the current edition",
+        "description": "Metric-century option"
+      },
+      {
+        "name": "Short routes",
+        "distance": "38.5, 25.8, and 13.6 miles in 2026",
+        "elevationGain": "Varies by route",
+        "description": "Three shorter routes listed by the organizer"
       }
     ],
     "terrain": {
-      "overview": "Pocono Mountain gravel roads - steep sustained climbs, technical rocky descents, remote forest roads",
-      "surface_breakdown": {}
+      "overview": "Predominantly gravel roads that repeatedly climb out of the Allegheny River valley and pass Oil Creek landmarks near Titusville",
+      "surface_breakdown": {
+        "gravel": "The organizer and event reporting describe the principal routes as approximately 95 percent gravel",
+        "pavement": "Short connections, the Titusville start and finish, and route-dependent transitions"
+      }
     },
-    "registration": "Opens winter, sells out quickly",
-    "weather": "Unpredictable spring mountain weather - temperatures 40s-60s°F, potential for rain, cold, or mud",
+    "registration": "The May 23, 2026 event is complete; no 2027 registration or date is published",
+    "weather": "Late-spring conditions in northwest Pennsylvania can shift between cool rain, wind, dry dust, and warmer exposed climbing",
     "uniqueCharacteristics": [
-      "One of the toughest gravel races in the Eastern US",
-      "8,000+ feet of climbing in 100 miles is exceptionally challenging",
-      "Steep Pocono Mountain terrain with 10-15% grades",
-      "Technical rocky descents require bike handling skills",
-      "Named after Paris-Roubaix for its brutal difficulty",
-      "Beautiful but demanding mountain scenery",
-      "Spring conditions can include mud and cold",
-      "Post-race at Blue Mountain Brewery",
-      "Reputation as a 'suffer fest' among gravel racers"
+      "Six 2026 route choices from 13.6 to 250.3 miles",
+      "The McClintock combines 101.9 miles with nearly 10,000 feet of climbing",
+      "Predominantly gravel routes climb repeatedly from the Allegheny River valley",
+      "Historic Drake Well, McClintock Well, and Pithole oil-country setting",
+      "Aid-station and mechanical support documented across prior editions",
+      "A Titusville start and finish tied directly to the local community",
+      "Four editions of published results from 2022 through 2026"
     ],
     "seriesAffiliation": "Independent",
-    "popularity": "High - known as one of toughest East Coast races",
-    "lastUpdated": "2026-01-13",
-    "dataQuality": "Complete",
+    "popularity": "Established regional event with roughly 400 riders reported in 2024",
+    "lastUpdated": "2026-08-08",
+    "dataQuality": "Verified identity and completed 2026 course; next-edition date pending",
     "gravel_god_rating": {
       "overall_score": 67,
       "editorial_tier": 2,
@@ -82,13 +95,14 @@
       "climate": 3,
       "altitude": 2,
       "adventure": 4,
-      "prestige": 3,
+      "prestige": 2,
       "race_quality": 3,
       "experience": 4,
       "community": 3,
-      "field_depth": 3,
+      "field_depth": 2,
       "value": 4,
       "expenses": 4,
+      "cultural_impact": 2,
       "tier": 2,
       "tier_label": "TIER 2",
       "discipline": "gravel"
@@ -96,210 +110,156 @@
     "biased_opinion_ratings": {
       "logistics": {
         "score": 2,
-        "explanation": "Located in remote Pennsylvania oil country, this race draws from regional gravel scenes but lacks major metro proximity. Kari notes 'I did not have a single negative car or dog interaction on this whole route - a rarity even on the best of routes!' The unique Caboose Motel offers converted train car rooms a block from the start."
+        "explanation": "Titusville is a small northwest Pennsylvania city rather than a major transport hub. Regional riders can drive, but flights generally require a rental car and the organizer directs visitors to local lodging and destination information."
       },
       "length": {
         "score": 4,
-        "explanation": "The Colonel Drake route spans 71-75 miles with relentless climbing. Women's pre-ride participants quit after the first two climbs on a 13-mile loop, deciding 'to take the bike path back to the venue and rest our legs because with non-stop climbs like that, race day would be no joke!' Longer than Belgian Waffle Ride San Diego."
+        "explanation": "This profile grades the 101.9-mile McClintock route, placing it just inside the scoring system's 100-to-150-mile band. The separate McKinney route extended to 250.3 miles in 2026."
       },
       "technicality": {
         "score": 4,
-        "explanation": "Otto Road presents 'a somewhat rutted and rocky jeep road in the middle of the forest.' The finish on Drake Well BMX track 'proved to be quite the challenge for some at the end of a long ride.' All routes boast 95% gravel coverage across nearly 2,200 miles of public gravel roads. More technical than most — comparable to Belgian Waffle Ride San Diego. As Kari puts it: \"Around mile 18, I noticed it was loose again but I didn't want to lose any more time and I thought I'd be able to make it to the aid station. I was wrong.\""
+        "explanation": "Event reporting documents rutted and rocky forest-road sectors, loose surfaces, long dirt descents, and a historical BMX-track finish. The main routes are described as approximately 95 percent gravel, making handling and line choice material rather than decorative."
       },
       "elevation": {
         "score": 4,
-        "explanation": "Over 7,800 feet of climbing with 'epic climbs that virtually start in the Allegheny River and traverse six miles to the summit.' Kari confirms 'there isn't a single stretch of flat on the Colonel Drake route until you hop on the bike path in the last mile.' More climbing than SBT GRVL at the same score. As Kari puts it: \"This race is not for the faint of heart. With 71 miles and over 7,800 ft. of elevation gain, it will test your legs and your capacity for suffering.\""
+        "explanation": "The organizer-linked 2026 McClintock file records 3,043.5 meters, or about 9,985 feet, of gain. That is at the top of the scoring system's 6,000-to-10,000-foot band and reflects repeated climbs out of the Allegheny River valley."
       },
       "climate": {
         "score": 3,
-        "explanation": "Historical weather data shows average highs of 60°F and lows of 40°F, with a 51% chance of rain on any given day. April conditions started 'in the mid 40's and chilly' with 'temps climbing along with the elevation gain' throughout the day. A 2019 edition featured 'a very windy day for this race.' Dry conditions create dusty roads with recently graded sections having scatter gravel. Similar climate challenges to SBT GRVL."
+        "explanation": "A late-May race in northwest Pennsylvania can bring cool rain, wind, wet gravel, or dry dust, but the organizer does not present the event as an extreme-weather race. Preparation needs range, not a single dramatic forecast."
       },
       "altitude": {
         "score": 2,
-        "explanation": "Pennsylvania terrain tops out around 2,500 feet elevation with minimal altitude impact. The challenge comes from accumulated elevation gain rather than thin air - routes climb from the Allegheny River valley repeatedly without high-altitude concerns. Modest altitude compared to Belgian Waffle Ride San Diego."
+        "explanation": "The route remains below 3,000 feet above sea level. The difficulty comes from accumulated climbing and surface, not meaningful hypoxic exposure."
       },
       "adventure": {
         "score": 4,
-        "explanation": "Routes pass the longest continuously producing oil well in the world and Historic Pithole City, once home to 15,000 residents, now a ghost town with aid station. The National Historic Landmark Jersey Bridge crossing before the BMX track finish adds historical character to the suffer fest."
+        "explanation": "The course uses oil-country gravel around Drake Well, the still-producing McClintock Well, Pithole, and the Allegheny River valley. That industrial history and the repeated remote climbs give the event an identity beyond a generic century."
       },
       "prestige": {
-        "score": 3,
-        "explanation": "Anthony Grinnell won The Colonel Drake Metric Century among over 100 cyclists in 2024. Rapid growth from 150 participants in 2022 to 400 in 2024 shows regional momentum, but lacks national recognition beyond Pennsylvania oil country gravel scenes."
+        "score": 2,
+        "explanation": "Roughneck has a real regional following and published results from 2022 through 2026, but it remains a young local-to-regional event without national series status or a nationally defining field."
       },
       "race_quality": {
         "score": 3,
-        "explanation": "Three local bike shops provide mechanical support at aid stations with 'formula one pit stops, with volunteers grabbing your bike, filling your bottles, handing you food and sending you on your way.' Police escort leads groups out of town with immediate gravel climbing."
+        "explanation": "Prior editions document staffed aid stations, local bike-shop mechanical support, route files, multiple distance choices, and complete results. That is good organization, while the event's scale and public information remain regional rather than elite-production level."
       },
       "experience": {
         "score": 4,
-        "explanation": "Kari describes it as testing 'your legs and your capacity for suffering' with 'the pack broke up pretty quickly after the start of the first climb.' The combination of oil history, relentless climbing, and BMX track finish creates a memorable Pennsylvania gravel challenge."
+        "explanation": "Nearly 10,000 feet of climbing on the McClintock route, historical oil-country landmarks, and a community-centered Titusville start make this a memorable day rather than an interchangeable gravel loop."
       },
       "community": {
         "score": 3,
-        "explanation": "Residents stand outside homes cheering with locals 'offering water or snacks' throughout the day. In 2022, over five resident-run aid stations supplemented official support. Post-race festivities at the restored Ironworks Tap House feature live streaming and podium ceremonies."
+        "explanation": "The event was built with the Titusville community, local organizations, resident aid, and regional bike shops. Reported participation reached roughly 400 in 2024, supporting a good regional vibe without implying legendary scale."
       },
       "field_depth": {
-        "score": 3,
-        "explanation": "Field size doubled from 150 to 300+ riders between 2022-2023, reaching 400 cyclists in 2024. Regional competitors like Anthony Grinnell provide competitive depth, but the field remains primarily Pennsylvania and Ohio gravel riders rather than national contenders. Similar competitive depth to Rule of Three. As Kari puts it: \"I did not have a single negative car or dog interaction on this whole route - a rarity even on the best of routes! All of the roads were dry and dusty; many were flat pack and fast with some pretty bu...\""
+        "score": 2,
+        "explanation": "Published category results show competitive racing across the route options, but the discoverable field is primarily regional and does not support a claim of national professional depth."
       },
       "value": {
         "score": 4,
-        "explanation": "95% gravel coverage across historical oil country with extensive local support including resident aid stations creates strong value proposition. Three bike shop mechanical support and post-race venue at the restored Ironworks provides solid event infrastructure for the entry fee."
+        "explanation": "The completed 2026 McClintock entry was listed at $65 and included a long, route-supported gravel race with results and local mechanical infrastructure. That is good value even though the exact next-edition package is not yet published."
       },
       "expenses": {
         "score": 4,
-        "explanation": "Budget-friendly lodging includes the Caboose Motel's converted train cars and Oil Creek Family Campground 10 minutes south. Regional location keeps travel costs reasonable for Mid-Atlantic and Ohio gravel riders, with modest small-town pricing throughout Titusville. More affordable than Crusher in the Tushar."
+        "explanation": "Titusville lodging and entry are comparatively affordable for drive-market riders. Travelers who must fly and rent a car will spend more, so the event is reasonable rather than universally budget-level."
+      },
+      "cultural_impact": {
+        "score": 2,
+        "explanation": "A dedicated regional following, roughly 400 reported riders, local support, and the distinctive oil-history setting justify established-regional impact without claiming a national cultural footprint."
       }
     },
     "final_verdict": {
       "score": "67 / 100",
-      "one_liner": "A proper gravel beatdown disguised as a backyard Pennsylvania sufferfest.",
-      "should_you_race": "Show up ready for 8,000 feet of climbing and terrain that switches moods faster than spring weather. The Three Sisters will expose weak legs early, and Sager Road's sandy chaos separates pretenders from contenders. You need solid bike handling skills and the fitness to climb repeatedly—this isn't a gentle introduction to gravel racing.",
-      "alternatives": "Barry-Roubaix offers similar Roubaix vibes with better organization and flatter Michigan terrain. SBT GRVL delivers comparable suffering with Colorado scenery and fewer logistics headaches than Pennsylvania's unpredictable conditions.",
+      "one_liner": "A century of oil-country gravel with almost 10,000 feet of climbing.",
+      "should_you_race": "Yes, if you want a regional gravel race whose difficulty comes from repeated Allegheny River valley climbs, rough roads, and a genuinely distinctive Titusville setting. Wait for the next official date and route before buying travel or building a race-specific calendar.",
+      "alternatives": "Barry-Roubaix offers a larger Michigan field and a different surface profile. The separate 250-mile McKinney route stays inside the same Roughneck event for riders who want an ultra rather than the McClintock century.",
       "alternative_slugs": [
-        "barry-roubaix",
-        "sbt-grvl"
+        "barry-roubaix"
       ]
     },
     "course_description": {
-      "character": "Barry-Roubaix throws everything at you except actual cobblestones. Eighty percent gravel roads with pavement breaks, sand traps, mud wallows, and one brutal mile of rocky two-track that separates pretenders from finishers. The terrain rolls constantly through Michigan farmland, never letting you settle into a rhythm.",
+      "character": "Roughneck starts and finishes in Titusville and sends riders onto predominantly gravel roads around the Allegheny River and Oil Creek. The McClintock's defining demand is repeated climbing: the organizer-linked 2026 file records 101.9 miles and about 9,985 feet of gain.",
       "suffering_zones": [
         {
-          "mile": 2,
-          "label": "The Three Sisters",
-          "desc": "Three punchy gravel climbs right after the pavement start, averaging 3.5% but spiking to 15%. If you didn't warm up properly, your lungs explode here and the race is over."
+          "miles": "Route-dependent",
+          "label": "Allegheny River valley climbs",
+          "desc": "Long gravel climbs repeatedly leave the river valley. Gear and pace for accumulation rather than one summit."
         },
         {
-          "mile": 25,
-          "label": "The Wall",
-          "desc": "Quarter-mile of 12% grade that fake-crests twice. When you think you're done climbing, a sharp left turn reveals more wall waiting to crush your soul."
+          "miles": "Route-dependent",
+          "label": "Rutted forest roads",
+          "desc": "Prior race reporting identifies loose, rocky, and rutted sectors where handling and tire choices matter."
         },
         {
-          "mile": 40,
-          "label": "Sager Road",
-          "desc": "A mile of unmaintained two-track that's either sandy hell, rocky chaos, or muddy bike-destroyer depending on weather. This is where the front group fractures."
+          "miles": "Route-dependent",
+          "label": "Pithole and oil-country roads",
+          "desc": "Historic oil landmarks and remote gravel provide the course identity, with limited services away from official support."
         },
         {
-          "mile": 75,
-          "label": "The Reckoning",
-          "desc": "Your legs are cooked and there's still 25 miles left. The gravel stops feeling firm and starts feeling like quicksand under your wheels."
+          "miles": "Final approach",
+          "label": "Return to Titusville",
+          "desc": "The last climbs and descent demand attention after a high-gain century; use the current route file rather than historical turn notes."
         }
       ],
-      "signature_challenge": "Sager Road is the course's true character test—a narrow, unmaintained seasonal road that can be sandy, rocky, or muddy depending on conditions. It's where separation occurs in the front of the race because fitness alone won't save you when your bike handling skills get exposed on technical terrain at race pace.",
-      "ridewithgps_id": "53316252",
-      "ridewithgps_name": "WIP - Charly-ROUBAIX-45  Holicong Park - Classic Hunterdon County Ride - GRAVEL Version ",
+      "signature_challenge": "The McClintock puts nearly 10,000 feet of gain into roughly 102 miles. Repeated six-mile-scale climbs out of the Allegheny River valley make conservative pacing and reliable descending more important than one dramatic feature.",
+      "ridewithgps_id": "53075138",
+      "ridewithgps_name": "2026 The McClintock",
       "surface_breakdown": {
         "overall": {
-          "gravel": 50,
-          "pavement": 50
+          "gravel": 95,
+          "pavement": 5
         }
       }
     },
     "citations": [
       {
-        "url": "https://ridewithgps.com/routes/53316252",
+        "url": "https://www.oilvalleyendurance.com/events/roughneck-gravel-roubaix/",
+        "category": "official",
+        "label": "Oil Valley Endurance: Roughneck Gravel Roubaix"
+      },
+      {
+        "url": "https://www.oilvalleyendurance.com/events/roughneck-gravel-roubaix/routes/",
+        "category": "official",
+        "label": "Oil Valley Endurance: current and previous routes"
+      },
+      {
+        "url": "https://www.oilvalleyendurance.com/events/roughneck-gravel-roubaix/guidelines/",
+        "category": "official",
+        "label": "Oil Valley Endurance: route guidelines"
+      },
+      {
+        "url": "https://www.oilvalleyendurance.com/events/roughneck-gravel-roubaix/results/",
+        "category": "results",
+        "label": "Oil Valley Endurance: 2022-2026 results"
+      },
+      {
+        "url": "https://ridewithgps.com/routes/53075138",
         "category": "route",
-        "label": "RideWithGPS: WIP - Charly-ROUBAIX-45  Holicong Park - Classic Hunterdon County Ride - GRAVEL Version "
+        "label": "Organizer-linked 2026 McClintock route"
       },
       {
         "url": "https://www.gravelcyclist.com/training-rides/all-about-the-roughneck-gravel-roubaix-titusville-pennsylvania/",
         "category": "media",
-        "label": "Gravel Cyclist"
-      },
-      {
-        "url": "https://www.reddit.com/r/cycling/comments/hyao3n/specialized_roubaix_as_gravel_bike/",
-        "category": "community",
-        "label": "Reddit"
-      },
-      {
-        "url": "https://www.reddit.com/r/cycling/comments/vdv3d0/specialized_roubaix_bike_on_gravel/",
-        "category": "community",
-        "label": "Reddit"
-      },
-      {
-        "url": "https://www.reddit.com/r/gravelcycling/comments/1cm8yqu/anyone_using_the_new_roubaix_as_a_gravel_bike/",
-        "category": "community",
-        "label": "Reddit"
-      },
-      {
-        "url": "https://www.reddit.com/r/gravelcycling/comments/mcb7zy/opinions_wanted_on_switching_my_2020_roubaix/",
-        "category": "community",
-        "label": "Reddit"
-      },
-      {
-        "url": "https://www.reddit.com/r/gravelcycling/comments/tfjn5l/wisconsin_gravel_roubaix/",
-        "category": "community",
-        "label": "Reddit"
-      },
-      {
-        "url": "https://www.reddit.com/r/specialized/comments/110bc9y/roubaix_gravel/",
-        "category": "community",
-        "label": "Reddit"
-      },
-      {
-        "url": "https://www.trainerroad.com/forum/t/gap-training-advice-for-barry-roubaix/13009",
-        "category": "community",
-        "label": "TrainerRoad"
-      },
-      {
-        "url": "https://barry-roubaix.com/courses-descriptions",
-        "category": "other",
-        "label": "Barry-Roubaix"
-      },
-      {
-        "url": "https://barry-roubaix.com/lodging",
-        "category": "other",
-        "label": "Barry-Roubaix"
-      },
-      {
-        "url": "https://barry-roubaix.com/maps-and-files",
-        "category": "other",
-        "label": "Barry-Roubaix"
-      },
-      {
-        "url": "https://barry-roubaix.com/register",
-        "category": "other",
-        "label": "Barry-Roubaix"
-      },
-      {
-        "url": "https://barry-roubaix.com/results",
-        "category": "other",
-        "label": "Barry-Roubaix"
-      },
-      {
-        "url": "https://ilovegravelracing.com/event/roughneck-gravel-roubaix/",
-        "category": "other",
-        "label": "Ilovegravelracing"
-      },
-      {
-        "url": "https://www.360velo.com/barry-roubaix-gravel-race-overview-and-tips/",
-        "category": "other",
-        "label": "360Velo"
-      },
-      {
-        "url": "https://www.gravel-results.com/race/20817",
-        "category": "other",
-        "label": "Gravel-Results"
+        "label": "Gravel Cyclist: event and course overview"
       },
       {
         "url": "https://www.ohiogravelgrinders.com/blog/2023/5/28/recap-roughneck-gravel-roubaix",
         "category": "community",
-        "label": "ohiogravelgrinders.com: Recap Roughneck Gravel Roubaix"
+        "label": "Ohio Gravel Grinders: rider recap"
       },
       {
         "url": "https://www.venangoextra.com/roughneck-gravel-roubaix-attracts-about-400-cyclists",
         "category": "community",
-        "label": "venangoextra.com: Roughneck Gravel Roubaix Attracts About 400 Cyclists"
-      },
-      {
-        "url": "https://www.youtube.com/watch?v=f2wMs9slIsk",
-        "category": "community",
-        "label": "youtube.com: Watch"
+        "label": "Venango Extra: 2024 participation report"
       }
     ],
     "logistics": {
-      "official_site": "https://barry-roubaix.com/",
-      "camping": "Campground about 10 minutes south of town"
+      "official_site": "https://www.oilvalleyendurance.com/events/roughneck-gravel-roubaix/",
+      "start_finish": "Titusville, Pennsylvania; confirm the exact venue in the next-edition rider documents",
+      "lodging": "The organizer publishes Titusville and Crawford County visitor guides",
+      "camping": "Oil Creek Family Campground and other regional options; verify availability directly",
+      "next_edition": "No 2027 date, registration cycle, or route is published as of August 8, 2026"
     },
     "tire_recommendations": {
       "generated_at": "2026-02-19",
@@ -370,10 +330,13 @@
       }
     },
     "research_metadata": {
+      "verified_at": "2026-08-08",
+      "confidence": "medium",
+      "identity_resolution": "The stored conflated identity was replaced with the actual Roughneck Gravel Roubaix in Titusville. The completed 2026 McClintock route anchors the profile; no future date is inferred.",
       "research_strength": {
-        "overall": 88.5,
-        "grade": "A",
-        "weakest": "cross_reference",
+        "overall": 82,
+        "grade": "B",
+        "weakest": "future edition",
         "has_research_dump": true,
         "dimensions": {
           "source_diversity": 100,
@@ -385,26 +348,13 @@
           "completeness": 52,
           "cross_reference": 15
         },
-        "scored_at": "2026-02-04"
+        "scored_at": "2026-08-08"
       }
     },
     "youtube_data": {
-      "researched_at": "2026-02-23",
-      "search_query": "Gravel Roubaix gravel race Palmerton",
-      "videos": [
-        {
-          "video_id": "DrOX8YN2FS0",
-          "title": "Wissahickon Mountain Biking Edit V2 - NEW BIKE!! - FUEL EX 8!!",
-          "channel": "The Friendly Neighborhood Mountain Biker",
-          "view_count": 838,
-          "upload_date": "20200129",
-          "duration_string": "2:34",
-          "description": "This is an edit I made with a friend of mine over winter break with my new bike (Trek Fuel EX 8 27.5+). It was a lot of fun and I hope you enjoy. If you want to watch the bloopers and behind the scenes, go to my channel to see that video.\n\nMusic: \"Mr. Sandman\" by the Chordettes",
-          "tags": [],
-          "url": "https://www.youtube.com/watch?v=DrOX8YN2FS0",
-          "curated": false
-        }
-      ],
+      "researched_at": "2026-08-08",
+      "search_query": "Roughneck Gravel Roubaix Titusville",
+      "videos": [],
       "quotes": []
     }
   }

@@ -32,6 +32,7 @@ from generate_race_pack_previews import (
     TOP_N_MIN,
     calculate_category_scores,
     generate_pack_summary,
+    generate_race_overlay,
     generate_preview,
     generate_preview_from_file,
     get_top_categories,
@@ -691,6 +692,22 @@ class TestPackSummary:
         ]
         summary = generate_pack_summary(race, top_categories)
         assert "200 miles" in summary
+
+    def test_summary_preserves_decimal_distance(self):
+        """Verified decimal mileage must not be silently truncated."""
+        race = {
+            "vitals": {"distance_mi": 54.7, "location": "Rocky Point, NC"},
+            "terrain": {"primary": "coastal gravel"},
+        }
+        top_categories = [
+            {"category": "Durability", "score": 100, "workouts": ["A"]},
+        ]
+
+        summary = generate_pack_summary(race, top_categories)
+        assert "54.7 miles" in summary
+
+        overlay = generate_race_overlay(race, {"technical": 2})
+        assert "54.7 miles" in overlay["nutrition"]
 
     def test_summary_terrain_lowercase(self):
         """Terrain in summary should be lowercase."""

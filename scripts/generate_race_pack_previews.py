@@ -251,6 +251,14 @@ def _extract_location(race: dict) -> str:
     return "the course"
 
 
+def _format_distance(distance: float) -> str:
+    """Format miles without silently discarding a verified decimal course length."""
+    rounded = round(float(distance), 1)
+    if rounded.is_integer():
+        return str(int(rounded))
+    return f"{rounded:.1f}"
+
+
 def generate_pack_summary(race: dict, top_categories: list) -> str:
     """Generate a 1-sentence pack summary.
 
@@ -277,7 +285,7 @@ def generate_pack_summary(race: dict, top_categories: list) -> str:
 
     # Distance formatting
     if distance >= 1:
-        dist_str = f"{int(distance)} miles"
+        dist_str = f"{_format_distance(distance)} miles"
     else:
         dist_str = "the full distance"
 
@@ -369,21 +377,21 @@ def generate_race_overlay(race: dict, demands: dict) -> dict:
     # ── Nutrition ──
     if distance >= 150:
         overlay['nutrition'] = (
-            f"Ultra-distance fueling for {int(distance)} miles: 80\u2013100g carbs/hour from mile 1 \u2014 "
+            f"Ultra-distance fueling for {_format_distance(distance)} miles: 80\u2013100g carbs/hour from mile 1 \u2014 "
             f"don\u2019t wait until you\u2019re hungry. "
             f"Practice your exact race-day nutrition in every long training ride. "
             f"Carry backup calories. "
-            f"{int(distance)} miles burns 8,000\u201312,000+ calories \u2014 you cannot replace them all, but you must try."
+            f"{_format_distance(distance)} miles burns 8,000\u201312,000+ calories \u2014 you cannot replace them all, but you must try."
         )
     elif distance >= 80:
         overlay['nutrition'] = (
-            f"Target 60\u201380g carbs/hour for {race_name}\u2019s {int(distance)} miles. "
+            f"Target 60\u201380g carbs/hour for {race_name}\u2019s {_format_distance(distance)} miles. "
             f"Start fueling within the first 30 minutes \u2014 early fueling prevents late-race collapse. "
             f"Bonking at mile 60 is a nutrition failure, not a fitness failure."
         )
     elif distance >= 40:
         overlay['nutrition'] = (
-            f"Target 40\u201360g carbs/hour for {race_name}\u2019s {int(distance)} miles. "
+            f"Target 40\u201360g carbs/hour for {race_name}\u2019s {_format_distance(distance)} miles. "
             f"Front-load calories in the first half. One bottle per hour minimum, more in heat."
         )
     else:
@@ -432,7 +440,7 @@ def generate_race_overlay(race: dict, demands: dict) -> dict:
             f"Ride {terrain_str} at race-day cadence weekly.{detail_line} "
             f"Practice cornering, descending, and power delivery on unstable surfaces. "
             f"Dial in tire pressure before race week \u2014 "
-            f"5 PSI wrong costs you 15+ minutes over {int(distance) if distance >= 1 else 'the full'} miles."
+            f"5 PSI wrong costs you 15+ minutes over {_format_distance(distance) if distance >= 1 else 'the full'} miles."
         )
     elif tech_score >= 4:
         overlay['terrain'] = (
@@ -508,11 +516,11 @@ def generate_workout_context(race: dict, demands: dict, category: str) -> str:
 
     if category == 'Durability':
         if distance >= 150:
-            return f"{int(distance)} miles. Your legs will beg to quit after 120. This trains the power output you need from mile 130 onward."
+            return f"{_format_distance(distance)} miles. Your legs will beg to quit after 120. This trains the power output you need from mile 130 onward."
         elif distance >= 80:
-            return f"At mile 60 of {int(distance)}, glycogen is gone. This workout teaches your body to produce watts on fumes."
+            return f"At mile 60 of {_format_distance(distance)}, glycogen is gone. This workout teaches your body to produce watts on fumes."
         else:
-            return f"{int(distance)} miles on {terrain_str} burns energy faster than the distance suggests. Train the fade resistance now."
+            return f"{_format_distance(distance)} miles on {terrain_str} burns energy faster than the distance suggests. Train the fade resistance now."
     elif category == 'VO2max':
         if elevation >= 5000:
             return f"{int(elevation):,}ft of climbing means repeated surges above threshold. VO2max work is how you survive the fifth climb, not just the first."
@@ -520,9 +528,9 @@ def generate_workout_context(race: dict, demands: dict, category: str) -> str:
             return f"When someone attacks on {terrain_str}, you have 10 seconds to respond or you're off the back. This builds that response."
     elif category == 'HVLI_Extended':
         if distance >= 100:
-            return f"{int(distance)} miles rewards fat oxidation. This volume work shifts your fuel mix so you're still burning fat at hour 5, not bonking at hour 3."
+            return f"{_format_distance(distance)} miles rewards fat oxidation. This volume work shifts your fuel mix so you're still burning fat at hour 5, not bonking at hour 3."
         else:
-            return f"The aerobic base that lets you ride {terrain_str} at tempo for {int(distance)} miles without cracking. No shortcuts."
+            return f"The aerobic base that lets you ride {terrain_str} at tempo for {_format_distance(distance)} miles without cracking. No shortcuts."
     elif category == 'Race_Simulation':
         if month:
             return f"Race-pace efforts that mimic {_poss(race_name)} demands. Pacing, fueling, and tactical decisions under fatigue. Practice the race before {month}."
@@ -547,10 +555,10 @@ def generate_workout_context(race: dict, demands: dict, category: str) -> str:
         # Truncate absurdly long terrain descriptions
         if len(terrain_detail) > 60:
             terrain_detail = terrain_detail[:60].rsplit(' ', 1)[0]
-        return f"{_poss(race_name)} {terrain_detail} forces constant power changes. Surge over the rough stuff, settle on the smooth, repeat for {int(distance)} miles."
+        return f"{_poss(race_name)} {terrain_detail} forces constant power changes. Surge over the rough stuff, settle on the smooth, repeat for {_format_distance(distance)} miles."
     elif category == 'Endurance':
         if distance >= 80:
-            return f"Every hard session works better with a bigger aerobic base. At {int(distance)} miles, base fitness is the difference between racing and surviving."
+            return f"Every hard session works better with a bigger aerobic base. At {_format_distance(distance)} miles, base fitness is the difference between racing and surviving."
         else:
             return f"Base fitness for {race_name}. Without this, the hard workouts break you down instead of building you up."
     elif category == 'Critical_Power':
@@ -564,7 +572,7 @@ def generate_workout_context(race: dict, demands: dict, category: str) -> str:
         return f"5-second power closes gaps and wins field sprints. At {race_name}, neuromuscular snap is a tactical tool, not just a finish-line move."
     elif category == 'Norwegian_Double':
         if distance >= 80:
-            return f"Two threshold sessions per week without the recovery cost of VO2max work. For {int(distance)} miles, sustainable FTP gains matter more than peak power."
+            return f"Two threshold sessions per week without the recovery cost of VO2max work. For {_format_distance(distance)} miles, sustainable FTP gains matter more than peak power."
         else:
             return f"Double-threshold training builds sustained power with less fatigue. More FTP per hour of training."
     elif category == 'SFR_Muscle_Force':
@@ -573,7 +581,7 @@ def generate_workout_context(race: dict, demands: dict, category: str) -> str:
         else:
             return f"Torque for headwinds and {terrain_str}. When cadence drops below 70rpm, muscular strength keeps the watts up."
     elif category == 'Cadence_Work':
-        return f"Smooth pedaling at {int(distance)} miles saves muscle. Bad technique at mile 10 is invisible. At mile 80 it's a cramp."
+        return f"Smooth pedaling at {_format_distance(distance)} miles saves muscle. Bad technique at mile 10 is invisible. At mile 80 it's a cramp."
     elif category == 'Blended':
         if elevation >= 3000:
             return f"Endurance with intensity spikes baked in. Exactly what {int(elevation):,}ft of climbing on {terrain_str} does to your power file on race day."
@@ -581,11 +589,11 @@ def generate_workout_context(race: dict, demands: dict, category: str) -> str:
             return f"Long rides with hard efforts mixed in. Simulates what {_poss(race_name)} {terrain_str} actually does to you."
     elif category == 'Tempo':
         if distance >= 80:
-            return f"Tempo is {_poss(race_name)} race pace. The wattage you'll hold for {int(distance)} miles on {terrain_str}. Train it until it's automatic."
+            return f"Tempo is {_poss(race_name)} race pace. The wattage you'll hold for {_format_distance(distance)} miles on {terrain_str}. Train it until it's automatic."
         else:
             return f"76\u201385% FTP for extended efforts. At {race_name}, tempo is the floor you'll live on. Make it feel easy."
     elif category == 'LT1_MAF':
-        return f"Below LT1, you burn fat. Above it, you burn glycogen. For {int(distance)} miles, a higher LT1 means slower bonk."
+        return f"Below LT1, you burn fat. Above it, you burn glycogen. For {_format_distance(distance)} miles, a higher LT1 means slower bonk."
     elif category == 'Recovery':
         return f"Hard training without recovery is just fatigue. These easy spins keep the adaptations coming between the real sessions."
     else:

@@ -74,7 +74,7 @@
     },
     "biased_opinion": {
       "verdict": "Iowa Winter Gravel With Teeth",
-      "summary": "CIRREM starts and finishes at the Cumming Tap in Cumming, Iowa, and sends one 100-kilometer field through the cold, hilly gravel of Madison County. The race is simple and self-supported, but the winter surface, wind, quick sellout, and established category competition make it much more serious than the old fabricated Illinois profile suggested.",
+      "summary": "CIRREM starts and finishes at the Cumming Tap in Cumming, Iowa, and sends one 100-kilometer field through the cold, hilly gravel of Madison County. The race is simple and self-supported, but the winter surface, wind, quick sellout, and established category competition make it a serious test.",
       "strengths": [
         "Authentic winter conditions",
         "Hilly Madison County course",
@@ -112,10 +112,10 @@
     },
     "history": {
       "founded": null,
-      "founder": "Illinois organizers",
-      "origin_story": "Regional Illinois gravel event.",
+      "founder": null,
+      "origin_story": "An established winter gravel race based at the Cumming Tap in Cumming, Iowa.",
       "notable_moments": [],
-      "reputation": "Regional Illinois event."
+      "reputation": "Established Iowa winter gravel race."
     },
     "course_description": {
       "character": "A hilly 100-kilometer Iowa gravel loop whose difficulty changes with freeze, thaw, snow, rain, and wind.",
@@ -128,14 +128,14 @@
           "named_section": "Early Rollers"
         },
         {
-          "mile": 40,
-          "label": "Midpoint",
-          "desc": "Halfway through the course.",
-          "terrain_detail": "Midpoint",
-          "named_section": "Halfway"
+          "mile": 32,
+          "label": "Halfway Checkpoint",
+          "desc": "The course's only organized checkpoint.",
+          "terrain_detail": "Madison County gravel",
+          "named_section": "Halfway Checkpoint"
         },
         {
-          "mile": 60,
+          "mile": 55,
           "label": "Late Rollers",
           "desc": "Final rolling sections before finish.",
           "terrain_detail": "Late rolling",
@@ -168,12 +168,12 @@
       {
         "requirement": "Rolling endurance",
         "by_when": "Week 8-10",
-        "why": "Rolling Illinois terrain requires sustained effort."
+        "why": "Madison County's repeated gravel hills require sustained effort."
       },
       {
-        "requirement": "Heat and wind preparation",
+        "requirement": "Cold, wind, and surface preparation",
         "by_when": "Week 4-6",
-        "why": "Illinois spring/fall means heat and wind are possible."
+        "why": "Late-February freeze, thaw, precipitation, and wind can redefine the course."
       },
       {
         "requirement": "Rural self-sufficiency",
@@ -221,7 +221,7 @@
             10
           ]
         },
-        "heat_training": {
+        "cold_weather_training": {
           "enabled": true,
           "weeks": [
             4,
@@ -245,26 +245,26 @@
         "priority_order": [
           "pacing",
           "fueling",
-          "heat",
+          "cold",
           "wind"
         ],
         "race_specific": true,
         "topics": {
           "pacing": "Rolling terrain pacing",
-          "fueling": "Nutrition for moderate rolling",
-          "heat": "Racing in Illinois heat and humidity",
-          "wind": "Riding in farmland wind"
+          "fueling": "Fueling and drinking in cold conditions",
+          "cold": "Cold-weather clothing and equipment management",
+          "wind": "Riding exposed Madison County gravel in winter wind"
         }
       },
       "tier_overrides": {},
       "marketplace_variables": {
         "race_name": "CIRREM",
-        "race_hook": "Rolling Illinois farmland gravel in rural Roubaix.",
-        "race_hook_detail": "Regional event with moderate climbing.",
-        "distance": "75",
-        "dark_mile": "40",
+        "race_hook": "64.7 miles of hilly, self-supported winter gravel through Madison County, Iowa.",
+        "race_hook_detail": "A fast-selling late-February 100K from the Cumming Tap with one halfway checkpoint and no sag.",
+        "distance": "64.7",
+        "dark_mile": "45",
         "non_negotiable_1": "Rolling endurance",
-        "non_negotiable_2": "Heat and wind preparation",
+        "non_negotiable_2": "Cold, wind, and surface preparation",
         "non_negotiable_3": "Rural self-sufficiency",
         "trainingpeaks_url": null
       }
@@ -280,11 +280,11 @@
       },
       "technicality": {
         "score": 2,
-        "explanation": "Madison County's winding hills include bridges with \"spaces between the boards that eat wheels for lunch—seriously, a friend separated his shoulder last weekend on it.\" The 5000+ feet of climbing comes via grinding rollers rather than technical descents, though conditions create handling challenges when gravel turns to \"peanut-buttery build up.\" Less technical than The Mid South."
+        "explanation": "Madison County's winding hills include bridges with \"spaces between the boards that eat wheels for lunch—seriously, a friend separated his shoulder last weekend on it.\" The climbing comes via grinding rollers rather than technical descents, though conditions create handling challenges when gravel turns to \"peanut-buttery build up.\" Less technical than The Mid South."
       },
       "elevation": {
         "score": 2,
-        "explanation": "Over 5000 feet of climbing across 63 miles through Madison County's rolling terrain. The race organizers describe it as \"winding hills\" that test persistence rather than explosive power. It's Iowa elevation—death by a thousand papercuts rather than mountain passes. Less climbing than The Mid South."
+        "explanation": "The current mapped route climbs about 3,380 feet across 64.7 miles through Madison County's rolling terrain. The race organizers describe winding hills that test persistence rather than explosive power. It's Iowa elevation—death by a thousand papercuts rather than mountain passes. Less climbing than The Mid South."
       },
       "climate": {
         "score": 2,
@@ -434,7 +434,7 @@
     },
     "youtube_data": {
       "researched_at": "2026-02-23",
-      "search_query": "CIRREM gravel race Roubaix",
+      "search_query": "CIRREM gravel race Cumming Iowa",
       "videos": [
         {
           "video_id": "jrkU2qZaG0E",

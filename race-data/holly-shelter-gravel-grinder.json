@@ -28,11 +28,11 @@
       "lng": -77.8110491
     },
     "climate": {
-      "primary": "North Carolina spring/fall",
-      "description": "Variable conditions with heat possible in spring, cool possible in fall, and humidity.",
+      "primary": "North Carolina early spring",
+      "description": "Late-March coastal conditions can range from cool and wet to warm and humid.",
       "challenges": [
-        "Heat possible (spring)",
-        "Cool possible (fall)",
+        "Heat possible",
+        "Cool or wet conditions possible",
         "Humidity",
         "Variable weather"
       ]
@@ -119,25 +119,25 @@
       "character": "Flat to rolling coastal plain gravel.",
       "suffering_zones": [
         {
-          "mile": 25,
+          "mile": 15,
           "label": "Early Miles",
           "desc": "First quarter of the course.",
           "terrain_detail": "Flat",
           "named_section": "Early Miles"
         },
         {
-          "mile": 40,
+          "mile": 27,
           "label": "Midpoint",
           "desc": "Halfway through the course.",
           "terrain_detail": "Midpoint",
           "named_section": "Halfway"
         },
         {
-          "mile": 60,
-          "label": "Late Miles",
-          "desc": "Final miles before finish.",
+          "mile": 47,
+          "label": "Final Aid Station",
+          "desc": "The last supported stop before the finish.",
           "terrain_detail": "Flat",
-          "named_section": "Final Push"
+          "named_section": "Mile 47 Aid"
         }
       ],
       "signature_challenge": "Flat coastal plain gravel in Holly Shelter Game Land.",
@@ -171,7 +171,7 @@
       {
         "requirement": "Heat and humidity preparation",
         "by_when": "Week 4-6",
-        "why": "NC spring/fall means heat and humidity are possible."
+        "why": "Late-March coastal North Carolina can still turn warm and humid."
       },
       {
         "requirement": "Pacing discipline",
@@ -256,7 +256,7 @@
         "race_name": "Holly Shelter Gravel Grinder",
         "race_hook": "Flat coastal plain gravel in southeast North Carolina's Holly Shelter Game Land.",
         "race_hook_detail": "Regional event with minimal elevation near Wilmington.",
-        "distance": "75",
+        "distance": "54.7",
         "dark_mile": "40",
         "non_negotiable_1": "Flat endurance",
         "non_negotiable_2": "Heat and humidity preparation",

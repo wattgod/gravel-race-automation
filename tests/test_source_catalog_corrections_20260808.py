@@ -202,11 +202,16 @@ def test_cirrem_is_the_cumming_iowa_winter_100k():
     assert vitals["start_time"] == "10:00 AM"
     assert race["course_description"]["ridewithgps_id"] == "53919197"
     assert race["logistics"]["official_site"] == "https://cirrem.com/"
+    assert race["training_config"]["marketplace_variables"]["distance"] == "64.7"
+    assert "cold_weather_training" in race["training_config"]["workout_modifications"]
+    assert "heat_training" not in race["training_config"]["workout_modifications"]
     _assert_score_contract(race)
 
     profile_text = json.dumps(race)
     assert "Roubaix, Illinois" not in profile_text
     assert "Northern Illinois" not in profile_text
+    assert "Rolling Illinois" not in profile_text
+    assert "75 miles" not in profile_text
 
     index = _index_entry("cirrem")
     assert index["location"] == "Cumming, Iowa"
@@ -222,6 +227,8 @@ def test_watermoo_uses_the_official_111_mile_route():
     assert race["course_description"]["ridewithgps_id"] == "56477076"
     assert "river crossing" in race["terrain"]["surface"]
     assert race["gravel_god_rating"]["overall_score"] == 46
+    assert race["final_verdict"]["score"] == "46 / 100"
+    assert race["training_config"]["marketplace_variables"]["distance"] == "111"
     _assert_score_contract(race)
 
     index = _index_entry("the-watermoo")
@@ -240,6 +247,7 @@ def test_holly_shelter_uses_the_current_official_long_course():
     assert race["logistics"]["official_site"] == (
         "https://www.trans-sylvaniaproductions.com/hsgg"
     )
+    assert race["training_config"]["marketplace_variables"]["distance"] == "54.7"
     _assert_score_contract(race)
 
     index = _index_entry("holly-shelter-gravel-grinder")

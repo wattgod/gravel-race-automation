@@ -121,6 +121,49 @@ def test_log_collector_mocks_one_ssh_call_with_timeout(monkeypatch):
     assert kwargs["timeout"] == 270
 
 
+def test_llms_marker_check_retries_past_a_transient_captcha_challenge(
+        monkeypatch):
+    captcha_head = (
+        '<html><head><link rel="icon" href="data:;">'
+        '<meta http-equiv="refresh" content="0;/.well-known/sgcaptcha/?r=%2Fllms.txt">'
+        '</head></html>'
+    )
+    real_head = "# Gravel God Race Database\n\n> The definitive gravel race database.\n"
+    responses = [captcha_head, captcha_head, real_head]
+    calls = []
+    sleeps = []
+
+    def fake_fetch(url, timeout):
+        calls.append((url, timeout))
+        return responses[len(calls) - 1]
+
+    monkeypatch.setattr(aeo_weekly, "_fetch_llms_head", fake_fetch)
+    monkeypatch.setattr(aeo_weekly.time, "sleep", lambda s: sleeps.append(s))
+
+    result = aeo_weekly.check_llms_marker("gravelgod", backoff=(20, 45))
+
+    assert result["status"] == "ok"
+    assert len(calls) == 3
+    assert sleeps == [20, 45]
+
+
+def test_llms_marker_check_reports_displaced_after_exhausting_retries(
+        monkeypatch):
+    captcha_head = (
+        '<html><head><link rel="icon" href="data:;">'
+        '<meta http-equiv="refresh" content="0;/.well-known/sgcaptcha/?r=%2Fllms.txt">'
+        '</head></html>'
+    )
+
+    monkeypatch.setattr(
+        aeo_weekly, "_fetch_llms_head", lambda url, timeout: captcha_head)
+    monkeypatch.setattr(aeo_weekly.time, "sleep", lambda s: None)
+
+    result = aeo_weekly.check_llms_marker("gravelgod", backoff=(0, 0))
+
+    assert result["status"] == "displaced"
+
+
 def test_ga4_collector_uses_two_reports_and_filters_sources_in_python(
         monkeypatch):
     class Value:

@@ -84,3 +84,26 @@ def test_bikingman_profile_is_the_555_gravel_format():
     assert index["year"] == 2027
     assert index["distance_mi"] == 310.7
     assert index["overall_score"] == 70
+
+
+def test_del_fuego_profile_is_the_2027_hain_flagship():
+    race = _race("gravel-del-fuego")
+    vitals = race["vitals"]
+
+    assert race["name"] == "Del Fuego Race"
+    assert vitals["date_specific"] == "2027: April 10"
+    assert vitals["distance_km"] == 1050
+    assert vitals["elevation_m"] == 8157
+    assert vitals["cutoff_time"] == "5.7 days"
+    assert vitals["location"].startswith("Puerto Natales to Caleta María")
+    assert race["gravel_god_rating"]["discipline"] == "gravel"
+    assert race["gravel_god_rating"]["overall_score"] == 70
+    assert "Baqueanos" in race["biased_opinion"]["summary"]
+    assert "Milodón" in race["biased_opinion"]["summary"]
+    _assert_score_contract(race)
+
+    index = _index_entry("gravel-del-fuego")
+    assert index["month"] == "April"
+    assert index["year"] == 2027
+    assert index["distance_mi"] == 652.4
+    assert index["overall_score"] == 70

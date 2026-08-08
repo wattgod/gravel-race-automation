@@ -1,191 +1,178 @@
 {
   "race": {
-    "name": "Gravel del Fuego",
+    "name": "Del Fuego Race",
     "slug": "gravel-del-fuego",
-    "display_name": "Gravel del Fuego",
-    "tagline": "Chilean Patagonia gravel adventure.",
+    "display_name": "Del Fuego Race",
+    "tagline": "A 1,050-kilometer line from Puerto Natales to the end of the road.",
     "vitals": {
-      "distance_mi": 100,
-      "elevation_ft": 8000,
-      "location": "Patagonia, Chile",
-      "location_badge": "PATAGONIA, CHILE",
-      "county": "Patagonia",
-      "date": "Mid-April annually",
-      "date_specific": "2026: April 11",
+      "distance_mi": 652.4,
+      "distance_km": 1050,
+      "elevation_ft": 26762,
+      "elevation_m": 8157,
+      "location": "Puerto Natales to Caleta María, Magallanes, Chile",
+      "location_badge": "CHILEAN PATAGONIA",
+      "county": "Magallanes and Chilean Antarctica",
+      "date": "April 10, 2027",
+      "date_specific": "2027: April 10",
       "terrain_types": [
-        "Chilean Patagonia",
-        "South American gravel",
-        "Regional event",
-        "Chile"
+        "Patagonian gravel roads",
+        "public roads with traffic",
+        "pampas and forest tracks",
+        "Strait of Magellan ferry crossing"
       ],
-      "field_size": "100-200 riders",
-      "start_time": "Morning start",
-      "registration": "Online. Cost: ~$150-250",
-      "prize_purse": "Modest prizes",
-      "aid_stations": "Limited aid stations",
-      "cutoff_time": "Varies",
-      "lat": -33.0162,
-      "lng": -71.5219
+      "field_size": "50-rider Haín cap; organizer reports 200+ event riders",
+      "start_time": "7:15 AM",
+      "registration": "Online; Haín individual entry listed at CLP 625,000",
+      "prize_purse": "Top-three awards by Haín category; no cash purse published",
+      "aid_stations": "11 aid stations and 12 control posts listed in the Haín inclusions",
+      "cutoff_time": "5.7 days",
+      "lat": -51.726553,
+      "lng": -72.506492
     },
     "climate": {
-      "primary": "Patagonian summer",
-      "description": "Variable mountain conditions.",
+      "primary": "Patagonian autumn",
+      "description": "April reduces the usual summer wind but does not remove exposure to cold, wind, rain, snow, and fast weather changes.",
       "challenges": [
-        "Variable weather",
-        "Wind",
-        "Cold possible",
-        "Mountain conditions"
+        "winds that can exceed 100 km/h",
+        "hypothermia and cold rain",
+        "snow and storms",
+        "long exposed segments far from medical care"
       ]
     },
     "terrain": {
-      "primary": "Patagonian mountain gravel",
-      "surface": "Gravel roads through Chilean Patagonia. Significant elevation with dramatic mountain scenery.",
+      "primary": "Patagonian mixed-surface ultra",
+      "surface": "A mandatory single-stage route on open public roads and gravel from Puerto Natales through Torres del Paine, the Patagonian steppe, Pali Aike, Tierra del Fuego, and the final road to Caleta María.",
       "technical_rating": 3,
       "features": [
-        "Significant mountainous (8000 feet)",
-        "Patagonian scenery",
-        "Wind challenges",
-        "100-mile distance",
-        "Regional event"
+        "Cordillera Paine and Torres del Paine National Park",
+        "Pali Aike and the Patagonian steppe",
+        "Strait of Magellan ferry crossing",
+        "Cordón Baquedano and Pampa Guanaco",
+        "Lago Fagnano descent and Caleta María finish"
       ]
     },
     "gravel_god_rating": {
-      "overall_score": 53,
-      "tier": 3,
-      "tier_label": "TIER 3",
-      "logistics": 1,
-      "length": 4,
+      "overall_score": 70,
+      "tier": 2,
+      "tier_label": "TIER 2",
+      "logistics": 5,
+      "length": 5,
       "technicality": 3,
-      "elevation": 3,
-      "climate": 2,
-      "altitude": 2,
+      "elevation": 5,
+      "climate": 5,
+      "altitude": 1,
       "adventure": 5,
       "prestige": 2,
-      "race_quality": 2,
+      "race_quality": 3,
       "experience": 5,
-      "community": 2,
+      "community": 3,
       "field_depth": 2,
       "value": 3,
       "expenses": 1,
-      "score_note": "Regional Chilean event. Patagonian terrain with very difficult access, very high costs, and small field.",
+      "cultural_impact": 1,
+      "score_note": "Haín is an emerging fourth-edition Patagonian ultra whose extreme course and serious support system outrun its still-small competitive footprint.",
       "discipline": "gravel",
-      "display_tier": 3
+      "display_tier": 2
     },
     "biased_opinion": {
-      "verdict": "Patagonian Mountain Adventure",
-      "summary": "Gravel del Fuego is a regional event in Chilean Patagonia—mountainous terrain with significant elevation. The Patagonian scenery is stunning, but the very difficult/expensive access, wind, and small field keep it firmly in Tier 3.",
+      "verdict": "Patagonia Without the Postcard Filter",
+      "summary": "Del Fuego Race now publishes three distinct 2027 formats. This profile grades Haín: 1,050 kilometers, 8,157 meters of gain, a Strait of Magellan crossing, and a remote Caleta María finish inside 5.7 days. Baqueanos and Milodón are real 250- and 170-kilometer alternatives, not evidence for a fictional 100-mile course.",
       "strengths": [
-        "Stunning Patagonian scenery",
-        "Extreme adventure",
-        "Unique Chilean experience",
-        "Dramatic mountains",
-        "Wind challenge"
+        "A complete Puerto Natales-to-Tierra del Fuego journey",
+        "GPS tracking, rescue vehicles, and remote aid built into the format",
+        "Torres del Paine, Pali Aike, Pampa Guanaco, and Caleta María on one route",
+        "Solo and pair categories",
+        "A route that is difficult for reasons beyond raw distance"
       ],
       "weaknesses": [
-        "Very difficult Chile access",
-        "Very high costs ($2500+ total)",
-        "Small field only",
-        "Extreme wind",
-        "Limited organization"
+        "International access and point-to-point extraction are expensive",
+        "The Haín field is capped at 50 riders",
+        "The organizer's public schedule and regulation copy contain date and checkpoint-count inconsistencies",
+        "Public roads remain open to traffic",
+        "The final GPX and control details can change close to race day"
       ],
-      "bottom_line": "An extreme Patagonian gravel adventure. Worth it for elite adventure seekers with big budgets. Not practical for most riders."
+      "bottom_line": "Race Haín only if a 650-mile Patagonian ultra is already inside your competence. Choose Baqueanos or Milodón when you want the place without pretending every rider needs the longest line."
     },
     "final_verdict": {
-      "score": "53 / 100",
-      "one_liner": "Chilean Patagonia gravel adventure.",
-      "should_you_race": "If you have a big budget and want a Patagonian experience—maybe. For most riders—there are better options.",
-      "alternatives": "For better value: regional gravel races. For similar Chilean terrain: Karukinka.",
+      "score": "70 / 100",
+      "one_liner": "A 1,050-kilometer line from Puerto Natales to the end of the road.",
+      "should_you_race": "Yes, if your ultra systems are already proven and you want the logistics, weather, and isolation to be part of the test. No, if this would be your first unsupported overnight ride.",
+      "alternatives": "Within the same event, Baqueanos offers 250 kilometers and Milodón 170. For a separate Tierra del Fuego stage-race experience, compare Karukinka when it has a confirmed future edition.",
       "alternative_slugs": [
         "karukinka"
       ]
     },
     "logistics": {
-      "airport": "Punta Arenas (PUQ) varies by location",
-      "lodging_strategy": "Patagonia has limited lodging options. Plan ahead.",
-      "food": "Limited dining options. Stock nutrition.",
-      "packet_pickup": "Day before typically",
-      "parking": "At start/finish",
-      "official_site": "Check Gravel del Fuego website"
+      "airport": "Punta Arenas (PUQ), then ground transfer to Puerto Natales",
+      "lodging_strategy": "Book Puerto Natales before the event and a post-race plan around extraction to Porvenir and onward travel to Punta Arenas.",
+      "food": "Haín lists 11 aid stations plus hot carbohydrate-and-protein meals at three controls; riders remain responsible for their complete nutrition plan.",
+      "packet_pickup": "El Galpón, Puerto Natales; the current Haín regulation lists April 9, 2027",
+      "parking": "Do not assume a finish-line vehicle transfer; Haín ends remotely at Caleta María and includes extraction to Porvenir.",
+      "official_site": "https://delfuegorace.com/carrera/hain-race"
     },
     "history": {
-      "founded": null,
-      "founder": "Chilean organizers",
-      "origin_story": "Regional Chilean Patagonia gravel event.",
+      "founded": 2024,
+      "founder": "Tito Nazar and Áspero SPA",
+      "origin_story": "The organizer built Del Fuego around a point-to-point ride through Chilean Patagonia rather than a repeated festival circuit. The 2027 event is presented as the fourth edition.",
       "notable_moments": [],
-      "reputation": "Regional Chilean event."
+      "reputation": "An emerging international ultra with a small field and an unusually ambitious route."
     },
     "course_description": {
-      "character": "Patagonian mountain gravel.",
-      "suffering_zones": [
-        {
-          "mile": 30,
-          "label": "Early Mountains",
-          "desc": "First mountain sections.",
-          "terrain_detail": "Mountainous",
-          "named_section": "Early Mountains"
-        },
-        {
-          "mile": 50,
-          "label": "Midpoint",
-          "desc": "Halfway through the course.",
-          "terrain_detail": "Midpoint",
-          "named_section": "Halfway"
-        },
-        {
-          "mile": 80,
-          "label": "Late Mountains",
-          "desc": "Final mountain sections before finish.",
-          "terrain_detail": "Late mountains",
-          "named_section": "Final Push"
-        }
-      ],
-      "signature_challenge": "Patagonian mountainous terrain with wind.",
+      "character": "A non-stop, single-stage Patagonian crossing with mandatory controls, organizer aid, no private outside assistance, and open-road exposure.",
+      "suffering_zones": [],
+      "signature_challenge": "Keeping equipment, navigation, fueling, sleep, and judgment intact from Puerto Natales through the ferry crossing and the final remote road to Caleta María.",
       "ridewithgps_id": null,
       "ridewithgps_name": null
     },
     "guide_variables": {
-      "race_name": "Gravel del Fuego",
-      "race_distance": "100 miles",
-      "race_elevation": "8,000 feet",
-      "race_date": "Summer",
-      "race_location": "Patagonia, Chile",
-      "race_terrain": "Patagonian mountain gravel",
-      "race_weather": "Patagonian summer variable",
+      "race_name": "Del Fuego Race — Haín",
+      "race_distance": "652.4 miles",
+      "race_elevation": "26,762 feet",
+      "race_date": "April 10, 2027",
+      "race_location": "Puerto Natales to Caleta María, Chilean Patagonia",
+      "race_terrain": "open-road Patagonian gravel and mixed surfaces",
+      "race_weather": "Patagonian autumn with serious wind and cold exposure",
       "race_challenges": [
-        "Mountainous terrain",
-        "Small field",
-        "Very high costs",
-        "Extreme wind",
-        "Significant elevation"
+        "multi-day self-sufficiency",
+        "26,762 feet of climbing",
+        "wind, cold, and rapid weather changes",
+        "ferry and remote-control logistics",
+        "field repair and evacuation planning"
       ],
       "altitude_section": false,
       "altitude_feet": null
     },
     "non_negotiables": [
       {
-        "requirement": "Mountain endurance",
-        "by_when": "Week 8-10",
-        "why": "Patagonian mountains require sustained effort."
+        "requirement": "Loaded-bike multi-day durability",
+        "by_when": "Before the final training block",
+        "why": "Haín is a 1,050-kilometer non-stop race, not a long one-day fondo."
       },
       {
-        "requirement": "Wind training",
-        "by_when": "Week 6-8",
-        "why": "Patagonian wind is extreme and requires specific preparation."
+        "requirement": "Complete navigation, lighting, repair, sleep, and charging systems",
+        "by_when": "Before the dress rehearsal",
+        "why": "The mandatory route crosses remote country where outside assistance is prohibited."
       },
       {
-        "requirement": "Budget planning",
-        "by_when": "Week 12+",
-        "why": "Very expensive ($2500+ total)."
+        "requirement": "Final-regulation and GPX reconciliation",
+        "by_when": "When the organizer issues final documents",
+        "why": "The organizer can change controls and the route close to race day."
       }
     ],
     "research_metadata": {
-      "data_confidence": "moderate",
-      "validation_status": "pending",
+      "data_confidence": "high",
+      "validation_status": "verified",
       "sources": [
-        "chilean_cycling_community"
+        "official 2027 event page",
+        "official Haín distance page",
+        "official 2027 terms and race regulations",
+        "official event story",
+        "rider reports and founder interview"
       ],
       "migration_notes": [
-        "Generated from regional information"
+        "Corrected 2026-08-08 from a fabricated 100-mile identity to the official 2027 Haín 1,050-kilometer flagship.",
+        "The public Haín distance page publishes 8,157 meters of gain; a bundled regulation fragment still says approximately 8,734 meters, so the dedicated current distance page controls until the final GPX is issued.",
+        "The organizer's 2027 regulation contains copied weekday/date inconsistencies. April 10, 2027 is Saturday and is used as the Haín start because it matches the event window and Haín itinerary."
       ],
       "research_strength": {
         "overall": 86.7,
@@ -202,12 +189,20 @@
           "completeness": 76,
           "cross_reference": 15
         },
-        "scored_at": "2026-02-04"
+        "scored_at": "2026-08-08"
       }
     },
     "training_config": {
       "workout_modifications": {
-        "mountain_endurance": {
+        "multi_day_durability": {
+          "enabled": true,
+          "weeks": [
+            7,
+            8,
+            9
+          ]
+        },
+        "systems_rehearsal": {
           "enabled": true,
           "weeks": [
             8,
@@ -215,23 +210,16 @@
             10
           ]
         },
-        "wind_training": {
-          "enabled": true,
-          "weeks": [
-            6,
-            7,
-            8
-          ]
-        },
         "dress_rehearsal": {
           "enabled": true,
           "week": 10,
           "day": "Saturday",
           "duration_hours": {
-            "ayahuasca": 4,
-            "finisher": 5,
-            "compete": 6,
-            "podium": 7
+            "finisher": 8,
+            "time_crunched": 6,
+            "compete": 10,
+            "masters": 8,
+            "save_my_race": 7
           }
         }
       },
@@ -239,127 +227,139 @@
         "priority_order": [
           "pacing",
           "fueling",
-          "wind",
-          "mountains"
+          "sleep",
+          "navigation",
+          "equipment"
         ],
         "race_specific": true,
         "topics": {
-          "pacing": "Mountainous terrain pacing in wind",
-          "fueling": "Nutrition for mountain riding",
-          "wind": "Riding in extreme Patagonian wind",
-          "mountains": "Sustained mountain strategy"
+          "pacing": "Conservative multi-day pacing across 1,050 kilometers",
+          "fueling": "Food and water planning between the final published controls",
+          "sleep": "Decision rules for safe stops without training through sleep deprivation",
+          "navigation": "Primary and backup navigation across a mandatory route",
+          "equipment": "Loaded-bike reliability, lighting, charging, repair, and cold-weather systems"
         }
       },
       "tier_overrides": {},
       "marketplace_variables": {
-        "race_name": "Gravel del Fuego",
-        "race_hook": "Chilean Patagonia gravel adventure.",
-        "race_hook_detail": "Regional event with mountainous terrain and wind.",
-        "distance": "100",
-        "dark_mile": "50",
-        "non_negotiable_1": "Mountain endurance",
-        "non_negotiable_2": "Wind training",
-        "non_negotiable_3": "Budget planning",
+        "race_name": "Del Fuego Race — Haín",
+        "race_hook": "From Puerto Natales to the end of the road.",
+        "race_hook_detail": "A 1,050-kilometer Patagonian ultra with 8,157 meters of climbing and a 5.7-day limit.",
+        "distance": "652.4",
+        "dark_mile": null,
+        "non_negotiable_1": "Loaded-bike multi-day durability",
+        "non_negotiable_2": "Navigation, lighting, repair, sleep, and charging systems",
+        "non_negotiable_3": "Final-regulation and GPX reconciliation",
         "trainingpeaks_url": null
       }
     },
     "biased_opinion_ratings": {
       "logistics": {
-        "score": 1,
-        "explanation": "Digital tickets via Welcu email, kit pickup at Plaza de Puerto Natales, mandatory bike check with minimal timing details. Carola Fresno describes the start line chaos: 'My training had been limited, I'd never attempted a distance like this, and the cold morning air combined with the sheer number of kilometres ahead made both my body and mind tremble.' Flying to Chile's end for a race that leaves you crying at the start line before the logistics even begin."
+        "score": 5,
+        "explanation": "Haín starts in Puerto Natales, crosses the Strait of Magellan, finishes on the remote road at Caleta María, and then requires organizer extraction to Porvenir plus onward ferry travel. Medical facilities can be more than seven hours away, so this meets the rubric's extreme-remoteness threshold."
       },
       "length": {
-        "score": 4,
-        "explanation": "The 250K Baqueanos route has an 18-hour cutoff, while the 1000K expedition allows 6.5 days through Tierra del Fuego. Carola Fresno found herself 'alone, which was more than half the race' during her 250km attempt. Long enough that recreational riders spend most of their time in complete isolation, short enough that elite finishers like Juan Carlos Escolar can complete it in under three days. Longer than Belgian Waffle Ride San Diego."
+        "score": 5,
+        "explanation": "The current Haín page publishes 1,050 kilometers, or 652.4 miles, with a 5.7-day limit. That is far beyond the rubric's 150-mile top band; the separate 250- and 170-kilometer formats do not reduce the flagship distance graded here."
       },
       "technicality": {
         "score": 3,
-        "explanation": "Course passes through Torres del Paine National Park, Cueva del Milodón, and reaches Caleta María via dirt roads and Patagonian steppe. Carola Fresno broke at 'the Milodón sector' facing endless headwinds that 'felt like they were trying to stop me in my tracks.' The terrain demands enough skill that recreational riders hit mental breakdowns at specific geographic landmarks, not just from distance. Similar technical demands to Gravel Worlds."
+        "explanation": "The organizer describes gravel, public roads, pampas, forests, repeated climbing, and remote mixed surfaces, but does not market Haín as singletrack or extreme technical trail. Mixed terrain and loaded-bike control justify a three without converting exposure and distance into a handling score."
       },
       "elevation": {
-        "score": 3,
-        "explanation": "8000ft over 100 miles averages 80ft per mile — nothing crazy by mountain standards but enough to matter when Patagonian weather turns. No elevation profile published, no named climbs, no indication of where the hurt happens. That's moderate climbing with maximum uncertainty about when it hits. Similar elevation profile to Gravel Worlds. As Carola Fresno puts it: \"250 kilometres with 3000 metres of elevation gain in less than 20hrs sounds insane to most people. And maybe it is? But the magic lies in this — that in the end, time doesn't really matter.\""
+        "score": 5,
+        "explanation": "The dedicated 2027 Haín page lists 8,157 meters, approximately 26,762 feet, of climbing. That comfortably exceeds the rubric's 10,000-foot top band even before the burden of carrying ultra-distance equipment is considered."
       },
       "climate": {
-        "score": 2,
-        "explanation": "Historical weather data shows average highs of 70°F and lows of 50°F, with a 10% chance of rain on any given day. April in Patagonia means 'pack layers for changes' and potential rain, wind, and sun in the same day. The directors claim it's 'the best time of year to pedal in Patagonia' but that's like being the smartest kid on the short bus. Unpredictable weather in remote terrain with minimal race support is a recipe for suffering. More weather exposure than Belgian Waffle Ride San Diego. As Carola Fresno puts it: \"The headwind at times felt endless, like it was trying to stop me in my tracks. I just wanted to finish.\""
+        "score": 5,
+        "explanation": "The Haín regulation requires winter gloves, waterproof layers, insulated clothing, and an emergency system while explicitly naming winds above 100 km/h, snow, storms, and hypothermia among accepted risks. Multi-day autumn exposure at this remoteness meets the rubric's extreme-climate band."
       },
       "altitude": {
-        "score": 2,
-        "explanation": "Puerto Natales sits near sea level with the route climbing through Torres del Paine to higher elevations, but no maximum altitude data published. The 1000K route crosses into Tierra del Fuego via the Strait of Magellan ferry, maintaining relatively low elevations throughout. Low enough that altitude sickness isn't mentioned in any rider reports, high enough to provide dramatic Andean and ice field views. Modest altitude compared to Belgian Waffle Ride San Diego."
+        "score": 1,
+        "explanation": "Puerto Natales and the Strait of Magellan are near sea level, and the organizer publishes no course summit or acclimatization requirement. Total climbing is enormous, but gain is not altitude; without a verified high point the rubric stays at one."
       },
       "adventure": {
         "score": 5,
-        "explanation": "Course traverses Campo de Hielo Sur borders, passes Grey Glacier, crosses Strait of Magellan by ferry, and reaches King Penguin Reserve in Tierra del Fuego. Photographer Clemente Diaz calls it 'a rite of passage' while founder Tito Nazar describes 'finding places where you can discover the strength that lives in your own solitude.' The 1000K route literally ends at the bottom of the world in landscapes most humans will never see."
+        "explanation": "Haín links Torres del Paine, Pali Aike, the Strait of Magellan, Tierra del Fuego, Pampa Guanaco, Lago Fagnano, and the final road to Caleta María. A mandatory 1,050-kilometer line through those places earns the rubric's bucket-list adventure score."
       },
       "prestige": {
         "score": 2,
-        "explanation": "Third edition in 2026 with 88 riders from 10 countries in 2024, including winners Juan Carlos Escolar from Spain and Ashley Wedelich from USA. Still building recognition beyond the ultra-cycling community, though DotWatcher provides coverage and the race attracts international fields. Growing international participation but not yet established among the sport's marquee events."
+        "explanation": "The organizer calls 2027 the fourth edition, and the event has international riders and specialist bikepacking coverage, but it remains young and outside the established global championship or marquee-ultra tier. Local-to-emerging recognition is a two."
       },
       "race_quality": {
-        "score": 2,
-        "explanation": "They can't even nail down basic course details — user says 100 miles/8000ft but official routes are 170K, 250K, or 1000K with no elevation profiles published. No aid station info, no surface breakdown, no technical briefings beyond 'mandatory bike check.' The organizers promise 'exigente as inolvidable' but won't show you a proper course map. That's amateur hour masquerading as adventure."
+        "score": 3,
+        "explanation": "GPS tracking, rescue vehicles, control and aid posts, hot meals, mandatory equipment, remote extraction, and a detailed rule set show serious production. Conflicting schedule copy, 11-versus-12 control language, and a route that may change near race day keep the grade at good rather than professional-flawless."
       },
       "experience": {
         "score": 5,
-        "explanation": "Puerto Natales to Caleta María through Campo de Hielo Sur is the end of the world stuff. You're traversing ice fields, passing Cueva del Milodón, dealing with Patagonian wildlife in low season. The directors nailed it: 'Autumn is the best time of year to pedal in Patagonia, and Gravel del Fuego is the perfect excuse to do it.' When the scenery writes checks this big, it doesn't matter if the organization bounces a few."
+        "explanation": "The event is a point-to-point crossing rather than a loop dressed up with scenery: riders leave Puerto Natales, cross to Tierra del Fuego, and finish at the end of the public road. That is a life-changing format when the rider has the competence to experience it safely."
       },
       "community": {
-        "score": 2,
-        "explanation": "Targeting Chilean and Argentine riders for a 'unique Patagonian adventure' sounds nice until you realize that's a tiny pool. Three editions in and they're still trying to convince people this race exists. Remote location means remote community."
+        "score": 3,
+        "explanation": "The event reports more than 200 riders and participation from more than 20 countries across three formats, with a pre-race social ride and shared closing ceremony. That is a credible international gathering, but not yet the durable culture of a long-established festival."
       },
       "field_depth": {
         "score": 2,
-        "explanation": "No data on field size, no notable finishers, no prize purse mentioned. When a race can't tell you who's racing or how many show up, that's your answer right there. The 250K has a 20-hour cutoff which suggests they're not filtering for speed demons. This is adventure tourism with timing chips, not competitive racing. Less competitive depth than Almanzo 100."
+        "explanation": "Haín is capped at 50 riders and awards solo and pair categories, but the organizer does not publish an elite start list or major cash purse. There is real competition inside a small ultra field, not evidence for a deeper score."
       },
       "value": {
         "score": 3,
-        "explanation": "Starting at $180 USD for access to some of the most remote terrain on Earth isn't highway robbery. But that's just the entry fee — flying to Puerto Natales, booking hotels near the Plaza early, and the recommended multi-day stay to explore Torres del Paine adds up fast. You're paying for location access, not race production value."
+        "explanation": "The CLP 625,000 Haín entry includes tracking, national-park access, 11 aid stations, rescue coverage, several hot meals, photography, a finish bag, extraction to Porvenir, and the closing event. That is fair value for the support delivered, not a bargain."
       },
       "expenses": {
         "score": 1,
-        "explanation": "Registration runs $150-250. Flights to Puerto Natales via Santiago, then accommodations near Plaza de Puerto Natales during April peak season. The 1000K finishes in Porvenir with awards in Punta Arenas, requiring additional flights or 3.5-hour bus transfers. Ferry crossings cost extra with 'approximately 30 minutes' crossing time and riders must 'carry money to pay for passenger and bicycle.' End-of-the-world expensive with multiple transportation legs and remote location premiums. More expensive than Atlas Mountain Race."
+        "explanation": "The Haín fee, travel through Santiago or Punta Arenas, Puerto Natales lodging, bike transport, ferries, insurance with air evacuation, and post-race extraction logistics make a typical international trip comfortably exceed the rubric's $2,000 extreme-expense threshold."
+      },
+      "cultural_impact": {
+        "score": 1,
+        "explanation": "A fourth-edition event drawing riders from multiple countries and specialist media has an emerging footprint. Its capped fields and short history do not support a regional or national cultural bonus yet."
       }
     },
     "citations": [
       {
-        "url": "https://bikepacking.com/event/gravel-del-fuego-2026/",
-        "category": "other",
-        "label": "Bikepacking"
+        "url": "https://delfuegorace.com/",
+        "category": "official",
+        "label": "Del Fuego Race: official 2027 event and distance overview"
+      },
+      {
+        "url": "https://delfuegorace.com/carrera/hain-race",
+        "category": "official",
+        "label": "Del Fuego Race: Haín distance, gain, controls, limit, route, and inclusions"
+      },
+      {
+        "url": "https://delfuegorace.com/la-aventura",
+        "category": "official",
+        "label": "Del Fuego Race: route philosophy, safety, and all three formats"
+      },
+      {
+        "url": "https://delfuegorace.com/terminos-y-condiciones",
+        "category": "official",
+        "label": "Del Fuego Race: 2027 terms and Haín regulations"
+      },
+      {
+        "url": "https://delfuegorace.com/carrera/baqueanos-race",
+        "category": "official",
+        "label": "Del Fuego Race: Baqueanos 250-kilometer alternative"
+      },
+      {
+        "url": "https://delfuegorace.com/carrera/milodon-race",
+        "category": "official",
+        "label": "Del Fuego Race: Milodón 170-kilometer alternative"
       },
       {
         "url": "https://dotwatcher.cc/feature/gravel-del-fuego-2025-landscapes-too-big-to-frame",
         "category": "tracking",
-        "label": "DotWatcher"
+        "label": "DotWatcher: 2025 rider and landscape reporting"
       },
       {
-        "url": "https://linktr.ee/graveldelfuego",
-        "category": "other",
-        "label": "Linktr"
-      },
-      {
-        "url": "https://mapmagic.app/blog/2024/01/24/gravel-del-fuego-2024/",
-        "category": "other",
-        "label": "Mapmagic"
-      },
-      {
-        "url": "https://thegravelride.bike/gravel-del-fuego-race-a-patagonian-adventure-with-tito-nazar",
-        "category": "other",
-        "label": "Thegravelride"
-      },
-      {
-        "url": "https://www.granfondoguide.com/Events/Index/11396/gravel-del-fuego",
-        "category": "other",
-        "label": "Granfondoguide"
+        "url": "https://www.youtube.com/watch?v=tEB0nL5FeZA",
+        "category": "community",
+        "label": "The Gravel Ride Podcast: founder interview with Tito Nazar"
       }
     ],
     "results": {
-      "years": {
-        "2024": {
-          "winner_male": "Tito Nazar"
-        }
-      },
-      "latest_year": "2024"
+      "years": {},
+      "latest_year": null
     },
     "tire_recommendations": {
       "generated_at": "2026-02-19",

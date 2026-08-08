@@ -1,101 +1,232 @@
 {
   "race": {
-    "name": "BikingMan Corsica",
+    "name": "555 Corsica by BikingMan",
     "slug": "bikingman-corsica",
+    "display_name": "555 Corsica",
+    "tagline": "A 500-kilometer self-supported crossing of Corsica with 10,000 meters of climbing and roughly 100 kilometers of forest track.",
     "vitals": {
-      "distance": "500 km, 1000 km, or 555 km gravel",
-      "elevation_gain": "12000m (reported)",
-      "terrain": "Mixed road and gravel with spectacular climbs",
-      "surface": "Road and gravel options",
-      "avg_gradient": "Unknown",
-      "aid_stations": "Unknown",
-      "time_limit": "Unknown",
-      "field_size": "Nearly 200 participants (2024 reference)",
-      "participation_trend": "Growing with new 2026 formats",
-      "date": "2026: May 24-31",
-      "date_specific": "2026: May 24",
-      "location": "Corsica, France",
-      "distance_mi": 435,
-      "elevation_ft": 39370
-    },
-    "course_description": {
-      "overview": "BikingMan Corsica 2026 offers three ultracycling formats exploring the island of Corsica with spectacular climbs, natural parks, heavenly beaches, enchanting coasts, desert terrain, and Cap Corse. Participants can choose a complete tour of the island or attempt a crossing from South to North.",
-      "key_segments": [
-        {
-          "name": "Island circumnavigation or South-North crossing",
-          "distance": "1000 km (BikingMan format)",
-          "description": "Complete exploration of Corsica's treasures including natural parks, beaches, and Cap Corse"
-        },
-        {
-          "name": "Road half-distance",
-          "distance": "500 km (HALF format)",
-          "description": "100% road course covering key highlights of the island"
-        },
-        {
-          "name": "Ultra-distance gravel",
-          "distance": "555 km gravel",
-          "description": "Gravel-specific route through Corsican terrain"
-        }
+      "distance_km": 500,
+      "distance_mi": 310.7,
+      "elevation_m": 10000,
+      "elevation_ft": 32808,
+      "location": "Porto-Vecchio to Biguglia, Corsica, France",
+      "location_badge": "CORSICA, FRANCE",
+      "country": "France",
+      "date": "2027: May 27",
+      "date_specific": "2027: May 27",
+      "terrain_types": [
+        "Corsican secondary roads",
+        "Approximately 100 km of forest tracks",
+        "Self-supported island crossing",
+        "Sustained mountain climbing"
       ],
-      "difficulty_narrative": "Difficult terrain with longer, steeper hills. The event features spectacular climbs throughout the island with significant elevation gain (12,000m reported). Courses are designed for experienced ultracyclists willing to take on XXL challenges."
+      "field_size": "Not published for the 2027 555 field",
+      "start_time": "7:00 AM from Porto-Vecchio",
+      "registration": "https://dashboard.bikingman.com/fr/course/",
+      "prize_purse": "Finisher and category awards; no cash purse published",
+      "aid_stations": "Two mandatory checkpoints with water, snacks, hot food, rest beds, and charging",
+      "cutoff_time": "60 hours",
+      "lat": 41.5914,
+      "lng": 9.2797
     },
-    "logistics": {
-      "getting_there": "Event starts in Biguglia, Upper Corsica. Corsica is accessible by ferry or flight from mainland France.",
-      "accommodation": "Not specified in available sources. Participants should arrange lodging in Biguglia or nearby areas.",
-      "registration_details": "Registration opened January 1, 2026. Participants can register via the BikingMan Dashboard platform. Waiting list available for interested cyclists.",
-      "bike_logistics": "Not specified. Standard ultracycling self-supported format assumed.",
-      "local_considerations": "Event takes place in late May during favorable weather conditions. Corsica's Mediterranean climate and diverse terrain (beaches, mountains, desert) require preparation for varied conditions."
+    "climate": {
+      "primary": "Mediterranean island mountain conditions",
+      "description": "The organizer does not promise a fixed weather profile. Riders must carry the mandatory reflective clothing, lights, water capacity, and repair equipment and reconcile their kit with the final briefing.",
+      "challenges": [
+        "Large temperature changes between coast and interior",
+        "Exposed island wind",
+        "Overnight riding",
+        "Weather-dependent forest-track conditions"
+      ]
+    },
+    "terrain": {
+      "primary": "Self-supported Corsican gravel ultra",
+      "surface": "The organizer describes the 555 as a 500-kilometer gravel format with about 100 kilometers of forest tracks. The remaining course uses Corsican secondary roads and mixed connectors; the final trace and checkpoint locations are issued later.",
+      "technical_rating": 3,
+      "features": [
+        "South-to-north crossing from Porto-Vecchio",
+        "10,000 meters of climbing",
+        "Approximately 100 kilometers of forest tracks",
+        "Two mandatory checkpoints",
+        "Solo or pair categories",
+        "60-hour limit"
+      ]
     },
     "gravel_god_rating": {
+      "overall_score": 70,
+      "tier": 2,
+      "tier_label": "TIER 2",
       "logistics": 3,
       "length": 5,
       "technicality": 3,
       "elevation": 5,
-      "climate": 4,
-      "altitude": 2,
+      "climate": 3,
+      "altitude": 1,
       "adventure": 5,
-      "prestige": 4,
+      "prestige": 3,
       "race_quality": 4,
       "experience": 4,
-      "community": 4,
+      "community": 3,
       "field_depth": 3,
       "value": 3,
       "expenses": 2,
-      "cultural_impact": 3,
-      "overall_score": 77,
-      "tier": 2,
-      "tier_label": "TIER 2",
-      "discipline": "bikepacking"
+      "cultural_impact": 2,
+      "discipline": "bikepacking",
+      "display_tier": 2
     },
-    "biased_opinion_ratings": {
-      "scenery": 5,
-      "course_design": 4,
-      "race_atmosphere": 4,
-      "post_race_experience": 3,
-      "value_for_money": 3,
-      "accessibility": 3,
-      "overall_score": 77,
-      "tier": 2,
-      "tier_label": "TIER 2"
+    "biased_opinion": {
+      "verdict": "A real gravel ultra, not the 1,000-kilometer road race",
+      "summary": "555 Corsica is the gravel member of BikingMan's Corsica week: 500 kilometers, 10,000 meters of climbing, roughly 100 kilometers of forest tracks, two checkpoints, and a 60-hour clock. The route is long enough to demand sleep, fueling, repair, and pacing systems rather than one heroic day.",
+      "strengths": [
+        "A full south-to-north Corsican crossing",
+        "Serious 500-kilometer ultra distance",
+        "Two staffed checkpoints with practical rider support",
+        "Solo and pair categories",
+        "A mature BikingMan event operation"
+      ],
+      "weaknesses": [
+        "The final trace and checkpoint locations arrive later",
+        "Only about one fifth of the route is described as forest track",
+        "Island travel and split start/finish logistics add cost",
+        "A 60-hour cutoff leaves little room for a casual touring pace"
+      ],
+      "bottom_line": "Choose 555 Corsica for a supported-enough but still self-reliant island ultra. Do not buy it expecting a 555-kilometer pure-gravel loop or the separate 1,000-kilometer road format."
     },
-    "final_verdict": {
-      "one_liner": "A premier ultracycling championship event combining legendary Corsican scenery with serious elevation and multiple format options for diverse skill levels.",
-      "who_is_it_for": "Experienced ultracyclists seeking a prestigious world championship event with stunning Mediterranean island scenery. Suitable for solo riders and teams across multiple distance formats (500 km, 555 km gravel, or 1000 km).",
-      "is_it_worth_it": "Yes, for serious ultracycling competitors. BikingMan Corsica is part of the 2026 BikingMan World Championship series (first since 2016), offering championship points and prestige. The diverse formats and island exploration appeal to adventure-focused cyclists.",
-      "pro_tips": [
-        "Register early as the event has growing participation and limited spots",
-        "Choose your format strategically: the 1000 km BikingMan offers full island experience, while the 500 km HALF provides a more accessible road option",
-        "Prepare for significant elevation (12,000m) despite island terrain—bring appropriate climbing fitness",
-        "Plan accommodation in Biguglia or nearby areas well in advance for late May travel"
+    "logistics": {
+      "nearest_airport": "Bastia Poretta Airport, less than 30 minutes from the Biguglia race village",
+      "alternate_airports": "Corsica Ferries serves Bastia; the organizer publishes negotiated ferry rates",
+      "lodging_note": "The San Damiano campsite in Biguglia hosts the race village. Book island transport and lodging early.",
+      "parking": "Use the organizer's current race-village instructions.",
+      "packet_pickup": "Mandatory equipment control in Porto-Vecchio on May 26, 2027, from 2:00 PM to 6:30 PM.",
+      "travel_summary": "The 555 starts in Porto-Vecchio and finishes with the Corsica race operation in Biguglia. An optional bus-and-bike shuttle runs from the San Damiano race village to the start.",
+      "food_options": "Two checkpoints provide water, snacks, hot coffee, hot meals, charging, and rest beds; the event remains self-supported between them.",
+      "official_site": "https://bikingman.com/en/corsica-en/"
+    },
+    "course_description": {
+      "character": "A 500-kilometer south-to-north Corsican crossing with 10,000 meters of climbing, approximately 100 kilometers of forest tracks, two mandatory checkpoints, and a 60-hour limit. The organizer publishes the final trace and exact checkpoint locations closer to the race.",
+      "suffering_zones": [
+        {
+          "name": "The cumulative Corsican climbing",
+          "description": "Ten thousand meters of gain across 500 kilometers makes restraint on the early climbs essential.",
+          "survival_strategy": "Cap the opening effort, eat before every long climb, and treat the first night as part of the plan rather than an emergency."
+        },
+        {
+          "name": "Forest-track sectors",
+          "description": "About 100 kilometers of the route use forest tracks where equipment choice and repairability matter more than road speed.",
+          "survival_strategy": "Use the organizer's minimum 40 mm tire guidance as a floor, protect the sidewalls, and carry the mandatory tube and repair kit."
+        },
+        {
+          "name": "The second checkpoint to Biguglia",
+          "description": "The final segment arrives after accumulated climbing, darkness, and limited sleep rather than at a pre-published kilometer marker.",
+          "survival_strategy": "Leave the checkpoint fed, charged, and deliberate; do not trade the ability to navigate and descend for a few minutes saved at the stop."
+        }
+      ],
+      "signature_challenge": "Keeping a sustainable system intact for 500 kilometers and 10,000 meters of climbing inside 60 hours."
+    },
+    "history": {
+      "founded": null,
+      "founder": "BikingMan",
+      "origin_story": "The 2027 Corsica event is BikingMan's tenth Corsican edition, while the organizer labels the gravel 555 as its third edition.",
+      "notable_moments": [
+        "2027: 555 Corsica starts May 27 from Porto-Vecchio as a 500-kilometer gravel format"
+      ],
+      "reputation": "A demanding gravel-ultra format inside the established BikingMan Corsica event week."
+    },
+    "research_metadata": {
+      "data_confidence": "high",
+      "validation_status": "official-2027-date-course-verified-2026-08-08",
+      "sources": [
+        "https://bikingman.com/en/corsica-en/",
+        "https://dashboard.bikingman.com/fr/course/"
+      ],
+      "research_date": "2026-08-08",
+      "migration_notes": [
+        "Corrected a profile that conflated the 1,000-kilometer road event, the road Half, and the gravel 555. The sellable race identity is the 2027 555 Corsica: May 27, 500 km, 10,000 m, 60 hours."
       ]
     },
-    "suffering_zones": {
-      "climbing": 5,
-      "distance": 5,
-      "technicality": 3,
-      "exposure": 3,
-      "mental": 4,
-      "overall_suffering": 4.0
-    }
+    "biased_opinion_ratings": {
+      "logistics": {
+        "score": 3,
+        "explanation": "Bastia airport and ferry access make Corsica reachable, and the organizer offers an optional shuttle for riders and bikes from Biguglia to the Porto-Vecchio start. A point-to-point island ultra still requires more planning than a normal start-finish event."
+      },
+      "length": {
+        "score": 5,
+        "explanation": "The official 500-kilometer distance is well beyond the scoring rubric's 150-mile threshold. It is an ultra that requires sleep and stop strategy, not a long gran fondo."
+      },
+      "technicality": {
+        "score": 3,
+        "explanation": "The organizer says roughly 100 kilometers use forest tracks and recommends 40-45 mm tires, a large cassette, and gravel or hardtail equipment. Most of the total distance is not described as technical trail, so this stays at mixed-terrain rather than extreme."
+      },
+      "elevation": {
+        "score": 5,
+        "explanation": "The official 10,000-meter total converts to roughly 32,800 feet, more than three times the top-band threshold in the published rubric. Climbing is the defining physical demand."
+      },
+      "climate": {
+        "score": 3,
+        "explanation": "The course crosses a Mediterranean island through day and night, but the organizer does not publish a reliable edition-specific temperature or storm forecast this far out. Variable coastal, interior, and overnight conditions justify a moderate score without inventing weather."
+      },
+      "altitude": {
+        "score": 1,
+        "explanation": "The organizer publishes total gain but no verified high-altitude summit figure for the 2027 555. Without evidence of a course altitude above the rubric threshold, the profile makes no acclimatization claim."
+      },
+      "adventure": {
+        "score": 5,
+        "explanation": "A self-supported south-to-north crossing of Corsica, through forest tracks and 10,000 meters of climbing, is a destination ultra rather than a standard closed circuit."
+      },
+      "prestige": {
+        "score": 3,
+        "explanation": "BikingMan calls 2027 its tenth Corsican edition and the dashboard labels 555 Corsica edition three. The parent series has international recognition, but this gravel format is not yet an iconic global classic."
+      },
+      "race_quality": {
+        "score": 4,
+        "explanation": "GPS tracking, mandatory equipment inspection, two staffed checkpoints, charging, rest beds, hot food, and rider transport show a professional ultra operation. The late final trace is normal for this format but keeps it below flawless."
+      },
+      "experience": {
+        "score": 4,
+        "explanation": "The island crossing, long climbing bill, and finish-line support create a memorable event. The experience depends heavily on a rider's self-management because the event is intentionally self-supported between checkpoints."
+      },
+      "community": {
+        "score": 3,
+        "explanation": "The organizer runs a shared race village, welcome dinners, Race Angels, and a closing ceremony across four Corsica formats. That is a real event community, though no verified 2027 participation total supports a higher score."
+      },
+      "field_depth": {
+        "score": 3,
+        "explanation": "Solo and pair categories and a championship-series setting should produce a competitive ultra field, but the organizer has not published a 2027 start list or field count."
+      },
+      "value": {
+        "score": 3,
+        "explanation": "Published pricing of 199-269 euros includes tracking and checkpoint services across a 500-kilometer event. It is fair ultra-event value, with substantial self-support still required."
+      },
+      "expenses": {
+        "score": 2,
+        "explanation": "Travel to Corsica, lodging, a point-to-point start, and specialized ultra equipment make the total trip expensive even before registration. The organizer's shuttle and campsite help but do not make it a low-cost race."
+      },
+      "cultural_impact": {
+        "score": 2,
+        "explanation": "The established BikingMan series gives the race an international niche following, but the third gravel edition does not yet have evidence of mass participation or broad cultural reach."
+      }
+    },
+    "final_verdict": {
+      "score": "70 / 100",
+      "one_liner": "Five hundred kilometers, ten thousand meters up, and just enough support to keep this a race rather than a tour.",
+      "should_you_race": "Race it if you already know how to fuel, repair, navigate, and sleep inside a multi-day effort. The terrain is mixed rather than pure gravel, but the 60-hour Corsican crossing is absolutely an ultra.",
+      "alternatives": "Atlas Mountain Race offers a longer and rougher unsupported bikepacking problem; Badlands offers a more famous off-road ultra with less checkpoint support.",
+      "alternative_slugs": [
+        "atlas-mountain-race",
+        "badlands"
+      ]
+    },
+    "citations": [
+      {
+        "url": "https://bikingman.com/en/corsica-en/",
+        "category": "official",
+        "label": "BikingMan Corsica official event page"
+      },
+      {
+        "url": "https://dashboard.bikingman.com/fr/course/",
+        "category": "official",
+        "label": "BikingMan official 2027 race calendar"
+      }
+    ]
   }
 }

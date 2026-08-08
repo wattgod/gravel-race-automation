@@ -1,0 +1,86 @@
+"""Regression contracts for the August 8 authoritative race corrections."""
+
+from __future__ import annotations
+
+import json
+from pathlib import Path
+
+
+ROOT = Path(__file__).resolve().parents[1]
+RATING_KEYS = {
+    "logistics",
+    "length",
+    "technicality",
+    "elevation",
+    "climate",
+    "altitude",
+    "adventure",
+    "prestige",
+    "race_quality",
+    "experience",
+    "community",
+    "field_depth",
+    "value",
+    "expenses",
+}
+
+
+def _race(slug: str) -> dict:
+    return json.loads(
+        (ROOT / "race-data" / f"{slug}.json").read_text(encoding="utf-8")
+    )["race"]
+
+
+def _index_entry(slug: str) -> dict:
+    index = json.loads((ROOT / "web" / "race-index.json").read_text(encoding="utf-8"))
+    return next(row for row in index if row["slug"] == slug)
+
+
+def _assert_score_contract(race: dict) -> None:
+    rating = race["gravel_god_rating"]
+    explained = race["biased_opinion_ratings"]
+    assert RATING_KEYS <= rating.keys()
+    assert RATING_KEYS <= explained.keys()
+    assert all(explained[key]["score"] == rating[key] for key in RATING_KEYS)
+    raw = sum(rating[key] for key in RATING_KEYS) + rating.get("cultural_impact", 0)
+    assert rating["overall_score"] == round(raw / 70 * 100)
+
+
+def test_gralloch_is_the_2027_race_not_the_separate_ultra():
+    race = _race("the-gralloch")
+    vitals = race["vitals"]
+
+    assert race["name"] == "The Gralloch"
+    assert vitals["date_specific"] == "2027: May 15"
+    assert vitals["distance_km"] == 111
+    assert vitals["elevation_m"] == 1761
+    assert vitals["location"].startswith("Gatehouse of Fleet")
+    assert race["gravel_god_rating"]["overall_score"] == 71
+    assert "200 km" not in race["biased_opinion"]["summary"]
+    _assert_score_contract(race)
+
+    index = _index_entry("the-gralloch")
+    assert index["month"] == "May"
+    assert index["year"] == 2027
+    assert index["distance_mi"] == 69.0
+    assert index["overall_score"] == 71
+
+
+def test_bikingman_profile_is_the_555_gravel_format():
+    race = _race("bikingman-corsica")
+    vitals = race["vitals"]
+
+    assert race["name"] == "555 Corsica by BikingMan"
+    assert vitals["date_specific"] == "2027: May 27"
+    assert vitals["distance_km"] == 500
+    assert vitals["elevation_m"] == 10000
+    assert vitals["cutoff_time"] == "60 hours"
+    assert race["gravel_god_rating"]["discipline"] == "bikepacking"
+    assert race["gravel_god_rating"]["overall_score"] == 70
+    _assert_score_contract(race)
+
+    index = _index_entry("bikingman-corsica")
+    assert index["month"] == "May"
+    assert index["year"] == 2027
+    assert index["distance_mi"] == 310.7
+    assert index["overall_score"] == 70

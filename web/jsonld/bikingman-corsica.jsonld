@@ -1,24 +1,30 @@
 {
   "@context": "https://schema.org",
   "@type": "SportsEvent",
-  "name": "BikingMan Corsica",
-  "description": "",
+  "name": "555 Corsica",
+  "description": "A 500-kilometer self-supported crossing of Corsica with 10,000 meters of climbing and roughly 100 kilometers of forest track.",
   "sport": "Bikepacking",
-  "startDate": "2026-05-24",
+  "startDate": "2027-05-27",
   "location": {
     "@type": "Place",
-    "name": "Corsica, France",
+    "name": "Porto-Vecchio to Biguglia, Corsica, France",
     "address": {
       "@type": "PostalAddress",
-      "addressLocality": "Corsica",
-      "addressRegion": "France"
+      "addressLocality": "Porto-Vecchio to Biguglia",
+      "addressRegion": "Corsica"
     }
   },
   "aggregateRating": {
     "@type": "AggregateRating",
-    "ratingValue": "77",
+    "ratingValue": "70",
     "bestRating": "100",
     "ratingCount": "14",
     "name": "Gravel God Rating"
+  },
+  "url": "https://bikingman.com/en/corsica-en/",
+  "organizer": {
+    "@type": "Person",
+    "name": "BikingMan",
+    "url": "https://bikingman.com/en/corsica-en/"
   }
 }

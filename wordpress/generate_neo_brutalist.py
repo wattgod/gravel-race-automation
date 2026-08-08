@@ -387,6 +387,7 @@ def normalize_race_data(data: dict) -> dict:
     history = race.get('history', {})
     logistics = race.get('logistics', {})
     final_verdict = race.get('final_verdict', {})
+    eligibility = race.get('eligibility', {})
 
     # Warn about missing sections that produce degraded output
     if not vitals:
@@ -455,6 +456,8 @@ def normalize_race_data(data: dict) -> dict:
 
     return {
         'taking_a_break': race.get('taking_a_break'),
+        'race_plan_eligible': eligibility.get('race_plan_eligible', True),
+        'eligibility': eligibility,
         'name': race.get('display_name') or race.get('name', 'Unknown Race'),
         'slug': race.get('slug', ''),
         'tagline': race.get('tagline', ''),
@@ -2084,9 +2087,14 @@ def build_faq_jsonld(rd: dict) -> Optional[dict]:
     # Add verdict question
     should_race = rd['final_verdict'].get('should_you_race', '').strip()
     if should_race:
+        verdict_question = (
+            f"Should I race {name}?"
+            if rd.get('race_plan_eligible', True)
+            else f"Is {name} a race?"
+        )
         questions.append({
             "@type": "Question",
-            "name": f"Should I race {name}?",
+            "name": verdict_question,
             "acceptedAnswer": {
                 "@type": "Answer",
                 "text": should_race,
@@ -2364,12 +2372,14 @@ def build_course_overview(rd: dict, race_index: list = None) -> str:
         iso_date = cal_start.replace('-', '')
         race_title = rd['name']
         location_str = v.get('location', '')
+        event_type = "Gravel race" if rd.get('race_plan_eligible', True) else "Gravel event"
+        event_description = f"{event_type} — {race_title}. More info at gravelgodcycling.com"
         from urllib.parse import quote
         gcal_url = (
             f"https://calendar.google.com/calendar/render?action=TEMPLATE"
             f"&text={quote(race_title)}"
             f"&dates={iso_date}/{iso_date}"
-            f"&details={quote(f'Gravel race — {race_title}. More info at gravelgodcycling.com')}"
+            f"&details={quote(event_description)}"
             f"&location={quote(location_str)}"
         )
         ics_data = (
@@ -2379,7 +2389,7 @@ def build_course_overview(rd: dict, race_index: list = None) -> str:
             f"DTEND;VALUE=DATE:{iso_date}\\n"
             f"SUMMARY:{race_title}\\n"
             f"LOCATION:{location_str}\\n"
-            f"DESCRIPTION:Gravel race. More info at gravelgodcycling.com\\n"
+            f"DESCRIPTION:{event_type}. More info at gravelgodcycling.com\\n"
             f"END:VEVENT\\nEND:VCALENDAR"
         )
         cal_html = f'''<div class="gg-calendar-export">
@@ -2805,9 +2815,10 @@ def build_verdict(rd: dict, race_index: list = None) -> str:
     race_items = '\n          '.join(f'<li>{esc(s)}</li>' for s in strengths) if strengths else '<li>See the ratings above for details.</li>'
     skip_items = '\n          '.join(f'<li>{esc(w)}</li>' for w in weaknesses) if weaknesses else '<li>See the ratings above for details.</li>'
 
+    positive_label = "Race This If" if rd.get('race_plan_eligible', True) else "Ride This If"
     verdict_grid = f'''<div class="gg-verdict-grid">
         <div class="gg-verdict-box gg-verdict-box--race">
-          <div class="gg-verdict-box-title">Race This If</div>
+          <div class="gg-verdict-box-title">{positive_label}</div>
           <ul class="gg-verdict-list">
           {race_items}
           </ul>
@@ -5036,7 +5047,12 @@ def build_visible_faq(rd: dict) -> str:
     # Verdict question
     should_race = fv.get('should_you_race', '').strip()
     if should_race:
-        questions.append((f"Should I race {name}?", should_race))
+        verdict_question = (
+            f"Should I race {name}?"
+            if rd.get('race_plan_eligible', True)
+            else f"Is {name} a race?"
+        )
+        questions.append((verdict_question, should_race))
 
     if not questions:
         return ''
@@ -6220,28 +6236,32 @@ def generate_page(rd: dict, race_index: list = None, external_assets: dict = Non
     from_the_field = build_from_the_field(rd)
     ratings = build_ratings(rd)
     verdict = build_verdict(rd, race_index)
-    racer_reviews = build_racer_reviews(rd)
+    race_plan_eligible = rd.get('race_plan_eligible', True)
+    racer_reviews = build_racer_reviews(rd) if race_plan_eligible else ''
     source_blocked = rd['vitals'].get('course_status') == 'source_blocked'
-    email_capture = '' if source_blocked else build_email_capture(rd)
+    suppress_plan_marketing = source_blocked or not race_plan_eligible
+    email_capture = '' if suppress_plan_marketing else build_email_capture(rd)
     visible_faq = build_visible_faq(rd)
     news = build_news_section(rd)
-    training = build_training(rd)
-    plan_ladder = '' if source_blocked else build_plan_ladder(rd)
-    train_for_race = '' if source_blocked else build_train_for_race(rd)
+    training = build_training(rd) if race_plan_eligible else ''
+    plan_ladder = '' if suppress_plan_marketing else build_plan_ladder(rd)
+    train_for_race = '' if suppress_plan_marketing else build_train_for_race(rd)
     # Strip only renders when [08] exists — its anchor target must be present
     prep_strip = build_prep_strip(rd) if train_for_race else ''
     logistics_sec = build_logistics_section(rd)
     tire_picks = build_tire_picks(rd)
     tire_callout = build_tire_guide_callout(rd)
-    coaching_teaser = build_coaching_teaser(rd)
-    date_reminder = '' if source_blocked else build_date_reminder(rd)
+    coaching_teaser = build_coaching_teaser(rd) if race_plan_eligible else ''
+    date_reminder = '' if suppress_plan_marketing else build_date_reminder(rd)
     similar = build_similar_races(rd, race_index)
     citations_sec = build_citations_section(rd)
     footer = build_footer(rd)
-    sticky_cta = '' if source_blocked else build_sticky_cta(rd['name'], rd['slug'])
+    sticky_cta = '' if suppress_plan_marketing else build_sticky_cta(rd['name'], rd['slug'])
 
     # Dynamic TOC — only link to sections that have content
-    active = {'course', 'ratings', 'training'}  # always present
+    active = {'course', 'ratings'}
+    if training:
+        active.add('training')
     if history:
         active.add('history')
     if course_route:

@@ -326,6 +326,25 @@ class TestPreviewGeneration:
         assert preview["top_categories"] == []
         assert preview["race_overlay"] == {}
 
+    def test_noncompetitive_event_emits_unavailable_preview(self):
+        """Active rides classified as noncompetitive must not market plans."""
+        data = _make_race(vitals=_make_vitals(distance_mi=103))
+        data["race"]["eligibility"] = {
+            "status": "active",
+            "race_plan_eligible": False,
+            "status_note": "The organizer explicitly says this is not a race.",
+        }
+
+        preview = generate_preview(data)
+
+        assert preview["available"] is False
+        assert preview["unavailable_reason"] == data["race"]["eligibility"]["status_note"]
+        assert preview["distance_mi"] == 103
+        assert preview["demands"] == {}
+        assert preview["top_categories"] == []
+        assert preview["race_overlay"] == {}
+        assert "noncompetitive" in preview["pack_summary"]
+
     def test_top_categories_count(self):
         """Should return up to TOP_N_DEFAULT categories."""
         data = _make_race(

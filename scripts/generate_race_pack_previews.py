@@ -611,26 +611,44 @@ def generate_preview(race_data: dict) -> dict:
     slug = race.get("slug", "unknown")
     race_name = race.get("display_name") or race.get("name", slug)
     vitals = race.get("vitals") or {}
+    eligibility = race.get("eligibility") or {}
+
+    def unavailable_preview(reason: str, summary: str) -> dict:
+        return {
+            "slug": slug,
+            "race_name": race_name,
+            "available": False,
+            "unavailable_reason": reason,
+            "distance_mi": _safe_numeric(vitals, "distance_mi", 0),
+            "demands": {},
+            "top_categories": [],
+            "race_overlay": {},
+            "pack_summary": summary,
+            "generated_at": date.today().isoformat(),
+        }
+
+    # Some active calendar entries are explicitly noncompetitive rides. Keep
+    # their discovery pages, but do not generate or expose race-plan previews.
+    if eligibility.get("race_plan_eligible") is False:
+        return unavailable_preview(
+            eligibility.get(
+                "status_note",
+                "The organizer classifies this event as noncompetitive.",
+            ),
+            "No race-specific training preview: this is a noncompetitive event.",
+        )
 
     # A source-blocked race does not have enough official information for a
     # defensible demand profile. Emit an explicit unavailable artifact instead
     # of preserving or regenerating invented workouts from stale facts.
     if vitals.get("pack_status") == "unavailable":
-        return {
-            "slug": slug,
-            "race_name": race_name,
-            "available": False,
-            "unavailable_reason": vitals.get(
+        return unavailable_preview(
+            vitals.get(
                 "course_status_reason",
                 "Official race details are not complete enough to build a plan.",
             ),
-            "distance_mi": _safe_numeric(vitals, "distance_mi", 0),
-            "demands": {},
-            "top_categories": [],
-            "race_overlay": {},
-            "pack_summary": "Race-specific training preview not available.",
-            "generated_at": date.today().isoformat(),
-        }
+            "Race-specific training preview not available.",
+        )
 
     # 1. Demand analysis
     demands = analyze_race_demands(race_data)

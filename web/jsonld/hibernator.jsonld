@@ -1,8 +1,8 @@
 {
   "@context": "https://schema.org",
   "@type": "SportsEvent",
-  "name": "Hibernator",
-  "description": "Northern Wisconsin cooler-season Northwoods gravel.",
+  "name": "Hibernator 100",
+  "description": "A noncompetitive autumn gravel adventure through the Nicolet National Forest.",
   "sport": "Gravel Cycling",
   "startDate": "2026-10-03",
   "location": {
@@ -16,7 +16,7 @@
   },
   "offers": {
     "@type": "Offer",
-    "price": "60",
+    "price": "39",
     "priceCurrency": "USD",
     "availability": "https://schema.org/LimitedAvailability"
   },
@@ -27,5 +27,5 @@
     "ratingCount": "14",
     "name": "Gravel God Rating"
   },
-  "url": "https://www.thebear100.com/hibernator-100"
+  "url": "https://www.thebear100.com/"
 }

@@ -841,7 +841,8 @@ class TestSections:
 
         assert "Course Details Pending" in html
         assert "No race-specific plan is for sale yet" in html
-        assert "BUILD MY PLAN" not in html
+        assert ">BUILD MY PLAN" not in html
+        assert "questionnaire/?race=test-gravel-100" not in html
         assert "/prep-kit/" not in html
 
     def test_source_blocked_training_uses_race_specific_reason(self, sample_race_data):
@@ -869,6 +870,31 @@ class TestSections:
         assert 'id="gg-date-reminder-form"' not in html
         assert f"{TRAINING_PLANS_URL}?race=test-gravel-100" not in html
         assert "/race/test-gravel-100/prep-kit/" not in html
+
+    def test_noncompetitive_event_suppresses_race_and_plan_surfaces(self, sample_race_data):
+        sample_race_data["race"]["eligibility"] = {
+            "status": "active",
+            "race_plan_eligible": False,
+            "status_note": "The organizer explicitly states this is not a race.",
+        }
+        rd = normalize_race_data(sample_race_data)
+
+        html = generate_page(rd, [])
+
+        assert rd["race_plan_eligible"] is False
+        assert "Ride This If" in html
+        assert "Is Test Gravel 100 a race?" in html
+        assert "Gravel event" in html
+        assert 'id="gg-sticky-cta"' not in html
+        assert 'id="prep-kit-capture"' not in html
+        assert 'id="gg-date-reminder-form"' not in html
+        assert 'id="training"' not in html
+        assert 'id="train-for-race"' not in html
+        assert 'id="gg-racer-reviews"' not in html
+        assert ">BUILD MY PLAN" not in html
+        assert "questionnaire/?race=test-gravel-100" not in html
+        assert "Race This If" not in html
+        assert "Gravel race — Test Gravel 100" not in html
 
     def test_visible_faq_renders(self, normalized_data):
         html = build_visible_faq(normalized_data)

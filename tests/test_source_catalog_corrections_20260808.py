@@ -134,3 +134,38 @@ def test_gravel_roubaix_profile_is_the_titusville_roughneck_race():
     assert index["name"] == "Roughneck Gravel Roubaix"
     assert index["distance_mi"] == 101.9
     assert index["overall_score"] == 67
+
+
+def test_hibernator_is_truthfully_cataloged_as_a_noncompetitive_ride():
+    race = _race("hibernator")
+    vitals = race["vitals"]
+
+    assert race["name"] == "Hibernator 100"
+    assert vitals["date_specific"] == "2026: October 3"
+    assert vitals["distance_mi"] == 103
+    assert vitals["elevation_ft"] == 3398
+    assert vitals["start_time"].startswith("8:00 AM CT")
+    assert vitals["registration"] == "BikeReg. $39 for all three routes."
+    assert race["course_description"]["ridewithgps_id"] == "47924518"
+    assert race["eligibility"]["status"] == "active"
+    assert race["eligibility"]["race_plan_eligible"] is False
+    assert "not a race" in race["eligibility"]["status_note"].lower()
+    assert "not a race" in race["biased_opinion"]["summary"].lower()
+    assert race["gravel_god_rating"]["overall_score"] == 43
+    _assert_score_contract(race)
+
+    profile_text = json.dumps(race)
+    for unrelated in (
+        "East Burke",
+        "Rasputitsa",
+        "Hathersage",
+        "bikesignup.com/Race/VT",
+        "activemindedprofessor.com",
+        "crosscycleadventures.com",
+    ):
+        assert unrelated not in profile_text
+
+    index = _index_entry("hibernator")
+    assert index["name"] == "Hibernator 100"
+    assert index["distance_mi"] == 103
+    assert index["overall_score"] == 43

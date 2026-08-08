@@ -1,42 +1,27 @@
-# HIBERNATOR - RAW RESEARCH DUMP
+# HIBERNATOR 100 — VERIFIED RESEARCH DUMP
 
-## OFFICIAL DATA
-- **2025 and 2026 race dates**: 2025 date is Saturday, October 4, 2025, starting at 12:00am PDT (likely local time reference, event in Laona, WI).[2][4][5] No 2026 date found in search results.
-- **Registration cost / entry fees**: Unavailable in search results.
-- **Field size (number of participants)**: Unavailable in search results.
-- **Distance options and elevation gain for each**: 2025 routes include 31, 61, and 103 miles (user query notes 62 miles, likely aligns with 61-mile option); elevation gain unavailable beyond user-provided 3500 ft for 62 miles.[1]
-- **Prize purse**: Unavailable in search results (no mention of prizes; event supports Laona Rescue Squad with 100% proceeds).[1]
-- **Start location and time**: Starts at Laona Rescue Squad, 4863 Elm St, Laona, WI 54541 (listed under Crandon in one source, but confirmed Laona).[1][2] Start time 12:00am PDT on October 4, 2025 (may adjust for local Central Time).[2]
-- **Aid station details, cutoff times**: Laona Rescue Squad provides route support until 5 PM; riders not confident in finishing before then should select shorter route.[3]
+Verified on 2026-08-08 against the organizer, its official route links, and BikeReg.
 
-## TERRAIN & COURSE
-- **Surface breakdown (% gravel, pavement, singletrack, dirt)**: Unavailable in search results.
-- **Key course features, named climbs/sectors**: Explores "hidden gravel" in Nicolet National Forest; no specific climbs or sectors named.[1]
-- **Technical difficulty level**: Unavailable in search results; described as testing "grit" for first-timers to veterans.[1]
-- **Elevation profile description**: Unavailable beyond user-provided 3500 ft gain.[1]
+## Official facts
 
-## CLIMATE & CONDITIONS
-- **Typical weather for the race date/location**: Autumn gravel event in early October in northern Wisconsin (Nicolet National Forest); no specific typical conditions detailed.[1][4]
-- **Historical weather incidents (mud years, heat, wind)**: Unavailable in search results.
-- **Altitude (starting elevation, max elevation)**: Unavailable in search results (Laona, WI is low elevation in northern Wisconsin forest area).
+- Active event: October 3, 2026, in Laona, Wisconsin.
+- 31-, 61-, and 103-mile routes.
+- 61- and 103-mile starts at 8:00 AM CT; 31-mile start at 9:00 AM CT.
+- $39 entry for every route; 250-rider cap.
+- Flagship route: approximately 102.8 miles and 3,398 feet of climbing from the organizer-linked RideWithGPS route.
+- Three miles of easy singletrack on both longer routes.
+- Limited support until 5:00 PM; neutral water stops but no supplied food.
+- Marked course plus maps, cue sheets, and GPX; backup navigation required.
 
-## LOGISTICS
-- **Nearest airport**: Unavailable in search results.
-- **Lodging options and strategy**: Unavailable in search results (Laona population 400, implies limited local options).[1]
-- **Parking situation**: Unavailable in search results.
-- **Packet pickup details**: Unavailable in search results.
+## Adjudication
 
-## COMMUNITY & REPUTATION
-- **Race history (founded year, founder if known)**: Founded 2013; Twelfth Annual in 2025 confirms ~2014 start (Laona Rescue Squad provides support since 2014).[1][4]
-- **Notable past winners / pro riders who have raced it**: Unavailable in search results.
-- **Rider reviews and quotes (Reddit, forums, race reports)**: Unavailable in search results.
-- **YouTube race coverage**: Unavailable in search results.
-- **How the race is perceived in the gravel community**: Presented as a tradition since 2013 gathering riders in small-town Laona (pop. 400) to explore Nicolet National Forest gravel; supports Laona Rescue Squad (100% proceeds for equipment/training).[1]
+Hibernator is not a race. The official rules say so directly and reinforce the classification with manual timing, no prizes, and e-bike eligibility. It remains a valid active event page, but it must be excluded from the Gravel God race-plan pipeline. Any published race-specific training plan is a catalog error that must be unpublished with a TrainingPeaks receipt.
 
-## RACE REPORTS & RIDER EXPERIENCE
-- **Specific rider experiences and quotes**: Unavailable in search results.
-- **"What I wish I knew" insights**: Unavailable in search results.
-- **Equipment recommendations from participants**: Unavailable in search results.
-- **DNF rates if available**: Unavailable in search results.
+## Sources
 
-*Note: Search results primarily from official site thebear100.com (event host) and related registrations; insufficient data on many categories despite multiple result hits. Additional web searches yielded no further details on missing items.*
+1. https://www.thebear100.com/
+2. https://www.thebear100.com/copy-of-faqs-rules
+3. https://www.thebear100.com/about-1
+4. https://www.thebear100.com/our-story
+5. https://www.bikereg.com/76638
+6. https://ridewithgps.com/routes/47924518

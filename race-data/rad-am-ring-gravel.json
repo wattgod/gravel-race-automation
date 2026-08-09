@@ -6,24 +6,24 @@
     "tagline": "Formula 1 arena start, then gravel circuits around the Nürburgring's Green Hell.",
     "vitals": {
       "distance_mi": 62,
-      "elevation_ft": 4000,
+      "elevation_ft": 7218,
       "location": "Nürburg, Germany",
       "location_badge": "NÜRBURG, GERMANY",
       "county": "Rhineland-Palatinate",
       "date": "Late July annually",
-      "date_specific": "2026: July 26",
+      "date_specific": "2027: July 24",
       "terrain_types": [
         "German Eifel",
         "European gravel",
         "Germany",
         "Eifel"
       ],
-      "field_size": "150-200 riders",
-      "start_time": "Morning start",
-      "registration": "Online. Cost: ~€70-90",
-      "prize_purse": "Modest prizes",
-      "aid_stations": "3 aid stations",
-      "cutoff_time": "8 hours",
+      "field_size": "500+ participants in the latest published edition",
+      "start_time": "Saturday Grand Depart; verify the final 2027 timetable",
+      "registration": "2027 entry details pending; the organizer confirms the July 23-25 event weekend",
+      "prize_purse": "The latest published 125 km race offered prize money; verify 2027 awards",
+      "aid_stations": "Latest published course: Bergwerk drinks, Hohe Acht food and drinks, plus a feed and tech zone",
+      "cutoff_time": "Latest published 100 km rule: complete three laps within 4:30 to start the final lap; verify 2027 rules",
       "lat": 50.3413,
       "lng": 6.9519
     },
@@ -39,24 +39,24 @@
     },
     "terrain": {
       "primary": "German Eifel gravel",
-      "surface": "Gravel roads through German Eifel. Moderate elevation with scenic countryside.",
+      "surface": "A roughly 25 km circuit mixing Grand Prix and Nordschleife asphalt with gravel descents, trails, and forest roads around the Eifel.",
       "technical_rating": 3,
       "features": [
-        "Moderate mountainous (4000 feet)",
-        "German Eifel scenery",
-        "European gravel experience",
-        "62-mile distance",
-        "Medium field"
+        "Four laps for the 100 km race",
+        "Approximately 2,200 meters / 7,218 feet of climbing",
+        "Formula 1 arena start and finish",
+        "Gravel descents, trails, forest roads, and Nordschleife asphalt",
+        "Feed and tech support between laps"
       ]
     },
     "gravel_god_rating": {
-      "overall_score": 46,
+      "overall_score": 47,
       "tier": 3,
       "tier_label": "TIER 3",
       "logistics": 2,
       "length": 3,
       "technicality": 3,
-      "elevation": 3,
+      "elevation": 4,
       "climate": 2,
       "altitude": 1,
       "adventure": 3,
@@ -67,13 +67,13 @@
       "field_depth": 1,
       "value": 3,
       "expenses": 2,
-      "score_note": "Regional Germany event. Eifel terrain with medium field and moderate elevation.",
+      "score_note": "Regional German event with a singular Nürburgring setting. The corrected 100 km course climbs about 2,200 meters, moving Elevation from 3 to 4 under the published rubric and the overall score from 46 to 47.",
       "discipline": "gravel",
       "display_tier": 3
     },
     "biased_opinion": {
       "verdict": "German Eifel Gravel",
-      "summary": "Rad am Ring Gravel is a regional event in Germany—Eifel terrain with moderate elevation. The countryside is scenic, but the medium local field, regional organization, and limited prestige keep it in Tier 4.",
+      "summary": "Rad am Ring Gravel is a regional event with a setting no normal forest race can copy: a Formula 1 arena, the Nordschleife, and a steep mixed-surface circuit through the Eifel. The field and gravel history are still developing, which keeps the race in Tier 3 despite the venue and climbing load.",
       "strengths": [
         "German Eifel scenery",
         "European gravel experience",
@@ -91,8 +91,8 @@
       "bottom_line": "A solid regional Germany gravel race. Worth it for Germany/European riders. Not worth traveling internationally for."
     },
     "final_verdict": {
-      "score": "46 / 100",
-      "one_liner": "Germany gravel challenge.",
+      "score": "47 / 100",
+      "one_liner": "Four climbing-heavy circuits through the Nürburgring's Green Hell.",
       "should_you_race": "If you're local to Germany/Europe—yes, it's solid. If you're traveling internationally—skip it.",
       "alternatives": "For better Germany races: Hegau Gravel Race, 3Rides Aachen.",
       "alternative_slugs": [
@@ -106,7 +106,7 @@
       "food": "Nürburg has dining. Stock nutrition.",
       "packet_pickup": "Day of typically",
       "parking": "At start/finish",
-      "official_site": "Check Rad am Ring Gravel website"
+      "official_site": "https://radamring.de/de/disziplinen/gravel-race"
     },
     "history": {
       "founded": null,
@@ -116,7 +116,7 @@
       "reputation": "Regional Germany event."
     },
     "course_description": {
-      "character": "German Eifel gravel.",
+      "character": "A repeated mixed-surface circuit that starts on the Grand Prix track, drops on gravel toward Breidscheid, rejoins the Nordschleife, climbs roughly 300 meters in 5.5 kilometers toward Hohe Acht, and returns through trails, forest roads, and circuit asphalt.",
       "suffering_zones": [
         {
           "mile": 20,
@@ -147,8 +147,8 @@
     "guide_variables": {
       "race_name": "Rad am Ring Gravel",
       "race_distance": "62 miles",
-      "race_elevation": "4,000 feet",
-      "race_date": "Summer",
+      "race_elevation": "7,218 feet",
+      "race_date": "Saturday, July 24, 2027",
       "race_location": "Nürburg, Germany",
       "race_terrain": "German Eifel gravel",
       "race_weather": "German summer",
@@ -156,8 +156,8 @@
         "Eifel terrain",
         "Variable weather",
         "Rain possible",
-        "Moderate elevation",
-        "Regional field"
+        "Four repeated climbing laps",
+        "Fast mixed-surface descents"
       ],
       "altitude_section": false,
       "altitude_feet": null
@@ -180,10 +180,12 @@
       }
     ],
     "research_metadata": {
-      "data_confidence": "moderate",
-      "validation_status": "pending",
+      "data_confidence": "high",
+      "validation_status": "verified_current_event_and_latest_published_course",
       "sources": [
-        "germany_cycling_community"
+        "germany_cycling_community",
+        "https://radamring.de/de?lang-notice=en",
+        "https://radamring.de/de/disziplinen/gravel-race?lang-notice=en"
       ],
       "migration_notes": [
         "Generated from regional information"
@@ -254,8 +256,8 @@
       "tier_overrides": {},
       "marketplace_variables": {
         "race_name": "Rad am Ring Gravel",
-        "race_hook": "Germany gravel challenge.",
-        "race_hook_detail": "Regional event with Eifel terrain.",
+        "race_hook": "Race gravel through the Nürburgring's Green Hell.",
+        "race_hook_detail": "Four climbing-heavy circuits mixing Formula 1 asphalt, Nordschleife sectors, gravel descents, trails, and forest roads.",
         "distance": "62",
         "dark_mile": "31",
         "non_negotiable_1": "Weather preparation",
@@ -278,8 +280,8 @@
         "explanation": "The course transitions from Grand Prix track to Nordschleife, then predominantly off-road with loose gravel on steep descents where \"you had to slide around corners more than steer.\" One rooty section forced most riders to walk, while a 17% gradient between Karussell and Hohe Acht challenges even experienced riders. Glass debris on the most technical descent adds hazard navigation. Similar technical demands to Gravel Worlds."
       },
       "elevation": {
-        "score": 3,
-        "explanation": "The 300m climb over 5.5km to Hohen Acht dominates each 25km loop, totaling 2,300m over 100km for the full distance. Renée found \"the long climbs suited me well and I could make up the lost time\" after conservative descending. The elevation profile rewards sustained climbing power over explosive efforts. Similar elevation profile to Gravel Worlds."
+        "score": 4,
+        "explanation": "The organizer lists 2,200 meters of climbing for the 100 km race, including roughly 300 meters over 5.5 kilometers toward Hohe Acht on each circuit. That is about 7,218 feet and squarely meets the published 6,000-10,000-foot score-4 rubric."
       },
       "climate": {
         "score": 2,
@@ -315,7 +317,7 @@
       },
       "value": {
         "score": 3,
-        "explanation": "You're getting access to the Nürburgring complex and Eifel region for what's presumably reasonable German event pricing. The festival atmosphere means entertainment beyond just your race, and 62 miles with 4000 feet gives you a day's work. No specific pricing data available, but German events typically deliver honest value without American markup nonsense."
+        "explanation": "The entry buys access to the Nürburgring complex, a Formula 1 arena start, Nordschleife sectors, and a 100 km course with about 2,200 meters of climbing. The 2027 price is not published, so the value score remains provisional rather than pretending the prior fee still applies."
       },
       "expenses": {
         "score": 2,
@@ -323,6 +325,16 @@
       }
     },
     "citations": [
+      {
+        "url": "https://radamring.de/de?lang-notice=en",
+        "category": "official",
+        "label": "Rad am Ring: 2027 event dates"
+      },
+      {
+        "url": "https://radamring.de/de/disziplinen/gravel-race?lang-notice=en",
+        "category": "official",
+        "label": "Rad am Ring: gravel distances, climbing, course and support"
+      },
       {
         "url": "https://radamring.de/en/results-of-the-gravel-survey-your-feedback-on-our-gravel-debut/",
         "category": "other",
@@ -354,6 +366,12 @@
         "label": "nuerburgring.de: Rad Am Ring 2025 Ueberragende Stimmung In Der Gruenen Hoelle"
       }
     ],
+    "eligibility": {
+      "status": "active",
+      "verified": "2026-08-09",
+      "source": "https://radamring.de/de?lang-notice=en",
+      "notes": "The organizer confirms the July 23-25, 2027 festival. The gravel race remains part of Saturday's Grand Depart; final 2027 discipline regulations and course documents are pending."
+    },
     "tire_recommendations": {
       "generated_at": "2026-02-19",
       "primary": [

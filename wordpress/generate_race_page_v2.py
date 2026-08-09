@@ -105,7 +105,11 @@ def build_route_map_v2(rd: dict) -> str:
     or an explicit no-verified-route placeholder. Exactly one, never both,
     never a fabricated line. Uses only existing brand tokens (no new colors —
     see IMPLEMENTATION_PLAN.md §1/§5)."""
-    geometry = load_route_geometry(rd["slug"])
+    # A cache file can outlive the edition it documented. Only surface cached
+    # geometry while the current source profile still identifies a verified
+    # RideWithGPS route; clearing the source id is the explicit stale-map gate.
+    route_id = (rd.get("course") or {}).get("ridewithgps_id")
+    geometry = load_route_geometry(rd["slug"]) if route_id else None
 
     if geometry and geometry.get("path_d") and geometry.get("viewbox"):
         vb_parts = geometry["viewbox"].split()

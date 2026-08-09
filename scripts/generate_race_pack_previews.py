@@ -251,6 +251,27 @@ def _extract_location(race: dict) -> str:
     return "the course"
 
 
+def _stage_count(race: dict) -> int:
+    """Return the supported consecutive event-day count, or zero.
+
+    Race-pack copy used to treat a multi-day event's aggregate distance as one
+    continuous ride. The TrainingPeaks pipeline supports two- and three-day
+    blocks, so the public preview must describe the same event shape.
+    """
+    stage_block = (
+        (race.get("training_config") or {})
+        .get("workout_modifications", {})
+        .get("stage_block", {})
+    )
+    if not stage_block.get("enabled"):
+        return 0
+    try:
+        count = int(stage_block.get("stages", 0))
+    except (TypeError, ValueError):
+        return 0
+    return count if count in {2, 3} else 0
+
+
 def generate_pack_summary(race: dict, top_categories: list) -> str:
     """Generate a 1-sentence pack summary.
 
@@ -276,6 +297,7 @@ def generate_pack_summary(race: dict, top_categories: list) -> str:
         focus_str = "targeted training"
 
     # Distance formatting
+    stage_count = _stage_count(race)
     if distance >= 1:
         dist_str = f"{int(distance)} miles"
     else:
@@ -284,6 +306,12 @@ def generate_pack_summary(race: dict, top_categories: list) -> str:
     # Terrain: lowercase, strip trailing period
     terrain_str = terrain_primary.rstrip(".").lower() if terrain_primary else "mixed terrain"
 
+    if stage_count:
+        return (
+            f"This 10-workout pack focuses on {focus_str} "
+            f"to prepare you for {dist_str} of {terrain_str} across "
+            f"{stage_count} consecutive days in {location}."
+        )
     return (
         f"This 10-workout pack focuses on {focus_str} "
         f"to prepare you for {dist_str} of {terrain_str} in {location}."
@@ -303,6 +331,7 @@ def generate_race_overlay(race: dict, demands: dict) -> dict:
     race_name = race.get('display_name') or race.get('name', 'this race')
     location = _extract_location(race)
     terrain_primary = _extract_terrain_primary(race)
+    stage_count = _stage_count(race)
 
     # Extract month from date string
     date_str = vitals.get('date', '') or vitals.get('date_specific', '') or ''
@@ -367,7 +396,21 @@ def generate_race_overlay(race: dict, demands: dict) -> dict:
         )
 
     # ── Nutrition ──
-    if distance >= 150:
+    if stage_count:
+        per_day = distance / stage_count if distance else 0
+        if per_day >= 80:
+            carb_target = "60–90g"
+        elif per_day >= 40:
+            carb_target = "40–70g"
+        else:
+            carb_target = "30–60g"
+        overlay['nutrition'] = (
+            f"Target {carb_target} carbs/hour on each of {_poss(race_name)} "
+            f"{stage_count} event days. Begin recovery fueling within 30 minutes "
+            f"of every finish, replace fluid and sodium, then eat a full carbohydrate-"
+            f"forward meal. Tomorrow's legs are built the night before."
+        )
+    elif distance >= 150:
         overlay['nutrition'] = (
             f"Ultra-distance fueling for {int(distance)} miles: 80\u2013100g carbs/hour from mile 1 \u2014 "
             f"don\u2019t wait until you\u2019re hungry. "
@@ -485,6 +528,7 @@ def generate_workout_context(race: dict, demands: dict, category: str) -> str:
         terrain_str = terrain_str[:50].rsplit(' ', 1)[0]
     elevation = _safe_numeric(vitals, 'elevation_ft', 0)
     terrain_types = vitals.get('terrain_types', []) or []
+    stage_count = _stage_count(race)
     # Title-case terrain_types entries that start with state names
     clean_terrain_types = []
     for tt in terrain_types:
@@ -505,6 +549,93 @@ def generate_workout_context(race: dict, demands: dict, category: str) -> str:
         if m in date_str:
             month = m
             break
+
+    if stage_count:
+        total = int(round(distance))
+        stage_contexts = {
+            'Durability': (
+                f"{total} miles across {stage_count} consecutive days. Train the "
+                "repeatable power that still exists after yesterday's ride is in your legs."
+            ),
+            'VO2max': (
+                f"Timed stages reward repeated high power, including on day {stage_count}. "
+                "VO2 work keeps the final hard segment from becoming damage control."
+            ),
+            'HVLI_Extended': (
+                f"Multi-day volume builds the aerobic base to cover {total} total miles "
+                "without turning every transfer into recovery debt."
+            ),
+            'Race_Simulation': (
+                f"Back-to-back race simulations rehearse {_poss(race_name)} real problem: "
+                "perform, recover overnight, then perform again."
+            ),
+            'TT_Threshold': (
+                f"The clock runs on selected stages at {race_name}. Build repeatable "
+                "threshold power without racing the transfers between them."
+            ),
+            'G_Spot': (
+                f"Sustainable 88–92% FTP gives you hard, controlled speed on timed "
+                f"segments without emptying day {stage_count}'s legs on day one."
+            ),
+            'Mixed_Climbing': (
+                f"Climbing must be repeatable across {stage_count} days. Switch cadence "
+                "and position without burning matches you need tomorrow."
+            ),
+            'Over_Under': (
+                f"Timed stages surge above threshold, then demand recovery while you keep "
+                f"moving. Over-unders train that pattern for both {_poss(race_name)} days."
+            ),
+            'Gravel_Specific': (
+                f"{_poss(race_name)} changing Scottish gravel rewards traction, cadence, "
+                f"and power control that stay reliable across {stage_count} days."
+            ),
+            'Endurance': (
+                f"Aerobic efficiency covers the untimed transfers without stealing the "
+                f"power reserved for timed stages across {stage_count} days."
+            ),
+            'Critical_Power': (
+                "Decisive timed segments live just above sustainable power. Train how long "
+                "you can stay there and how quickly you can reset for the next one."
+            ),
+            'Anaerobic_Capacity': (
+                f"Short maximum efforts decide timed segments, but they must remain "
+                f"available through day {stage_count}."
+            ),
+            'Sprint_Neuromuscular': (
+                "Neuromuscular snap launches hard timed segments without requiring every "
+                "transfer to become a race."
+            ),
+            'Norwegian_Double': (
+                f"Controlled threshold density builds sustainable speed for a "
+                f"{stage_count}-day event without the recovery cost of constant VO2 work."
+            ),
+            'SFR_Muscle_Force': (
+                f"Low-cadence force keeps climbing torque available on tired legs across "
+                f"{stage_count} consecutive days."
+            ),
+            'Cadence_Work': (
+                f"Efficient cadence saves muscle across {total} total miles and keeps day "
+                f"{stage_count}'s timed efforts sharp."
+            ),
+            'Blended': (
+                f"Endurance with controlled intensity spikes matches a stage event: ride "
+                f"the transfers, race the segments, repeat for {stage_count} days."
+            ),
+            'Tempo': (
+                "Tempo is the transfer-day workhorse: fast enough to move, controlled enough "
+                "to preserve timed-stage power and overnight recovery."
+            ),
+            'LT1_MAF': (
+                f"A higher LT1 reduces glycogen cost across {total} total miles and makes "
+                f"between-day recovery more effective."
+            ),
+            'Recovery': (
+                f"Recovery is part of the event, not time away from it. Easy work helps you "
+                f"absorb hard sessions and return ready on day {stage_count}."
+            ),
+        }
+        if category in stage_contexts:
+            return stage_contexts[category]
 
     if category == 'Durability':
         if distance >= 150:

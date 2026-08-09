@@ -35,6 +35,7 @@ from generate_race_pack_previews import (
     generate_pack_summary,
     generate_preview,
     generate_preview_from_file,
+    generate_workout_context,
     get_top_categories,
     write_preview,
 )
@@ -450,6 +451,34 @@ class TestEdgeCases:
         # Should still generate a pack summary
         assert "pack" in preview["pack_summary"].lower() or "workout" in preview["pack_summary"].lower()
         assert len(preview["pack_summary"]) > 20
+
+    def test_stage_event_copy_uses_multiday_shape_not_continuous_mileage(self):
+        data = _make_race(
+            vitals=_make_vitals(
+                distance_mi=93.2,
+                elevation_ft=None,
+                date="May 1-2, 2027",
+            ),
+            terrain={"primary": "Scottish Borders gravel enduro"},
+            name="Muck n Mac Fest",
+        )
+        data["race"]["training_config"] = {
+            "workout_modifications": {
+                "stage_block": {"enabled": True, "stages": 2}
+            }
+        }
+
+        preview = generate_preview(data)
+
+        assert "93 miles of scottish borders gravel enduro across 2 consecutive days" in preview["pack_summary"]
+        assert "each of Muck n Mac Fest's 2 event days" in preview["race_overlay"]["nutrition"]
+        assert "mile 60" not in preview["race_overlay"]["nutrition"]
+        assert "repeatable power" in generate_workout_context(
+            data["race"], preview["demands"], "Durability"
+        )
+        assert "racing the transfers" in generate_workout_context(
+            data["race"], preview["demands"], "TT_Threshold"
+        )
 
     def test_missing_terrain_no_terrain_types(self):
         """Race with no terrain and no terrain_types should fall back to 'mixed terrain'."""

@@ -106,6 +106,17 @@ class TestRouteMapFallbackState:
         assert "gg-route-map__line" not in html
         assert "gg-route-map__glow" not in html
 
+    def test_cached_geometry_is_hidden_after_current_route_id_is_cleared(self, steamboat_rd):
+        rd = dict(steamboat_rd)
+        rd["course"] = dict(steamboat_rd["course"])
+        rd["course"]["ridewithgps_id"] = None
+
+        html = build_route_map_v2(rd)
+
+        assert "gg-route-map--empty" in html
+        assert "NO VERIFIED ROUTE ON FILE" in html
+        assert "gg-route-map__line" not in html
+
     def test_exactly_one_state_ever(self, steamboat_rd, no_route_rd):
         """Never both real-route and empty-state markup in the same output."""
         for rd in (steamboat_rd, no_route_rd):

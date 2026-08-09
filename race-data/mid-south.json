@@ -5,24 +5,24 @@
     "display_name": "The Mid South",
     "tagline": "Oklahoma's weather lottery with a $100K purse and a guaranteed Bobby hug.",
     "vitals": {
-      "distance_mi": 100,
-      "elevation_ft": 6000,
+      "distance_mi": 106.9,
+      "elevation_ft": 6506,
       "location": "Stillwater, Oklahoma",
       "location_badge": "STILLWATER, OKLAHOMA",
       "county": "Payne County",
       "date": "Mid-March annually",
-      "date_specific": "2026: March 13-14 (Pro race Friday, Amateur race Saturday)",
+      "date_specific": "2027: March 13 main cycling events (festival March 11-13; pro cycling Friday March 12)",
       "terrain_types": [
         "Oklahoma red clay roads",
         "rolling hills",
         "exposed ridgelines",
         "minimal technical features"
       ],
-      "field_size": "2,500+ riders (100mi), plus 50mi and 12mi options",
-      "start_time": "Pro Race: Friday 1:00 PM (2026 new format)<br>Amateur Race: Saturday 6:00 AM",
-      "registration": "Lottery system ('The Randomizer'). Opens October. Cost: ~$165 (100mi)",
+      "field_size": "2,500+ riders in prior editions; 2027 cycling options are 106, 58, and 12 miles",
+      "start_time": "Main cycling events are Saturday; the exact 2027 start schedule is coming soon",
+      "registration": "2027 registration is open through Movemint. Main-course open entry: $179.36 before platform pricing changes.",
       "prize_purse": "$100,000 (split equally between elite men and women)",
-      "aid_stations": "Miles ~30, 60. Water, snacks, neutral support. Sparse but sufficient.",
+      "aid_stations": "The current published route places aid at miles 28, 61, and near the final sector; verify the final 2027 rider documents.",
       "cutoff_time": "None. Finish when you finish. Bobby hugs everyone.",
       "lat": 36.1156,
       "lng": -97.0586
@@ -124,39 +124,40 @@
       "reputation": "The unofficial U.S. gravel season opener. Known for Bobby's finish-line hugs, unpredictable weather, iconic red clay, and one of gravel's strongest community vibes. The DFL (Dead F*cking Last) rider gets a giant steer skull trophy and massive celebration."
     },
     "course_description": {
-      "character": "Fast and tactical when dry. Unrideable mud slog when wet. The weather decides what race you're getting.",
+      "character": "The current main route covers 106.9 miles and 6,506 feet of climbing. It is fast and tactical when dry and can become a mud slog when Oklahoma red clay is wet.",
       "suffering_zones": [
         {
-          "mile": 30,
-          "label": "First Reality Check",
-          "desc": "Aid station one. Decide if you're racing or surviving.",
-          "terrain_detail": "Key section at mile 30",
-          "named_section": "First Reality Check"
+          "mile": 28,
+          "label": "Mulhall Aid",
+          "desc": "The current route reaches its first aid station in Mulhall before a rolling sector toward Guthrie.",
+          "terrain_detail": "Current published route detail; verify against the final 2027 course.",
+          "named_section": "Mulhall Aid"
         },
         {
-          "mile": 60,
-          "label": "The Grind Begins",
-          "desc": "Aid station two. 40 miles left. Mental game starts here.",
-          "terrain_detail": "Key section at mile 60",
-          "named_section": "The Grind Begins"
+          "mile": 61,
+          "label": "Guthrie Aid",
+          "desc": "The current route reaches its principal mid-course aid station in downtown Guthrie.",
+          "terrain_detail": "Current published route detail; verify against the final 2027 course.",
+          "named_section": "Guthrie Aid"
         },
         {
-          "mile": 85,
-          "label": "The Final Push",
-          "desc": "Last 15 miles. You can see the finish but your legs disagree.",
-          "terrain_detail": "Key section at mile 85",
-          "named_section": "The Final Push"
+          "mile": 82,
+          "label": "Cimarron Crossing and Bovine Bypass",
+          "desc": "The current route crosses the Cimarron River, then reaches the private Bovine Bypass doubletrack before returning to Stillwater.",
+          "terrain_detail": "Current published route detail; verify access and exact routing against the final 2027 course.",
+          "named_section": "Cimarron Crossing and Bovine Bypass"
         }
       ],
       "signature_challenge": "The weather lottery. You train for months but Oklahoma decides what race you're riding.",
-      "ridewithgps_id": "48969927",
-      "ridewithgps_name": "Mid%20South%202026%20100%20Mile"
+      "ridewithgps_id": "53941085",
+      "ridewithgps_name": "2026 Mid South 100",
+      "edition_note": "The 2027 registration page confirms a 106-mile main cycling event on Saturday, March 13. The published 106.9-mile route and 6,506-foot profile are from 2026 and should be reconciled against the final 2027 rider documents before race day."
     },
     "guide_variables": {
       "race_name": "The Mid South",
-      "race_distance": "100 miles",
-      "race_elevation": "4,500 feet",
-      "race_date": "Mid-March",
+      "race_distance": "106.9 miles on the current published route; 2027 registration labels the main event 106 miles",
+      "race_elevation": "6,506 feet on the current published route",
+      "race_date": "Saturday, March 13, 2027",
       "race_location": "Stillwater, Oklahoma",
       "race_terrain": "Oklahoma red clay gravel roads",
       "race_weather": "Weather lottery: 40-75°F swings, potential freezing rain, heat, or wildfires",
@@ -307,9 +308,9 @@
       },
       "marketplace_variables": {
         "race_name": "The Mid South",
-        "race_hook": "100 miles of Oklahoma red clay. Weather lottery that decides your race. Bobby Wintle hugs every finisher.",
+        "race_hook": "106 miles of Oklahoma red clay. Weather lottery that decides your race. Bobby Wintle hugs every finisher.",
         "race_hook_detail": "The Mid South is what happens when someone builds a gravel race around unreasonable hospitality instead of unreasonable suffering.",
-        "distance": "100",
+        "distance": "106.9",
         "dark_mile": "60",
         "non_negotiable_1": "Weather adaptation training for unpredictable conditions",
         "non_negotiable_2": "Red clay handling skills and mud preparation",
@@ -377,9 +378,19 @@
     },
     "citations": [
       {
-        "url": "https://ridewithgps.com/routes/48969927",
+        "url": "https://ridewithgps.com/routes/53941085",
         "category": "route",
-        "label": "RideWithGPS: Mid%20South%202026%20100%20Mile"
+        "label": "RideWithGPS: 2026 Mid South 100"
+      },
+      {
+        "url": "https://www.midsouthgravel.com/routes/project-one-f4fe3",
+        "category": "official",
+        "label": "The Mid South: current main route"
+      },
+      {
+        "url": "https://www.movemint.cc/events/the_mid_south_2027",
+        "category": "official",
+        "label": "The Mid South 2027 registration"
       },
       {
         "url": "https://bikepacking.com/plog/mega-mid-south-2024/",

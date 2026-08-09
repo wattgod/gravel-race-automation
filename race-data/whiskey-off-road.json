@@ -11,7 +11,7 @@
       "location_badge": "PRESCOTT, AZ",
       "county": "Yavapai County",
       "date": "April annually",
-      "date_specific": "2026: April 24-26 (Race Day: Sunday, April 26)",
+      "date_specific": "2027: April 23-25; plan the amateur 50 Proof for Saturday, April 24 and verify the final schedule",
       "terrain_types": [
         "Singletrack",
         "Doubletrack",
@@ -19,11 +19,11 @@
         "Fire roads"
       ],
       "field_size": "~2,000 riders",
-      "start_time": "Sunday morning (waves)",
-      "registration": "Tiered pricing, register early for best rate. Sells out.",
-      "prize_purse": "$30,000 total ($5,000 winner), equal men/women",
-      "aid_stations": "Multiple well-stocked aid stations throughout course",
-      "cutoff_time": "None specified, but 94-95% finish rate",
+      "start_time": "Latest published amateur schedule: Saturday 8:00 and 8:15 AM 50 Proof waves; verify the final 2027 schedule",
+      "registration": "2027 preregistration notification is open; final entry fees and registration dates are pending",
+      "prize_purse": "Final 2027 awards and purse pending",
+      "aid_stations": "Latest published 50 Proof plan: four aid stations near miles 18, 24, 30, and 35; verify the final 2027 course plan",
+      "cutoff_time": "Latest published amateur plan: 12:50 PM and 1:20 PM course cutoffs with support ending at 4:00 PM; verify 2027",
       "lat": 34.54,
       "lng": -112.4688
     },
@@ -256,7 +256,7 @@
     "special_features": {
       "duo_team": "50-Proof Duo Team Category: Team relay format modeled after South Africa's Cape Epic",
       "single_speed": "Dedicated single speed categories—course is 'very rigid SS friendly' per forum consensus",
-      "pro_crit": "Saturday Pro Criterium in downtown Prescott",
+      "pro_crit": "Latest published schedule: Friday Pro Criterium in downtown Prescott",
       "music": "Free Greensky Bluegrass concert Saturday evening",
       "expo": "Three-day Bike & Gear Expo access included with registration",
       "beneficiaries": "Event supports Yavapai County Food Bank and Prevent Child Abuse Arizona"
@@ -279,8 +279,8 @@
       },
       {
         "url": "https://epicrides.com/events/whiskey-off-road/event-guide/",
-        "category": "other",
-        "label": "Epicrides"
+        "category": "official",
+        "label": "Whiskey Off-Road: 2027 weekend and current event guide"
       },
       {
         "url": "https://epicrides.com/events/whiskey-off-road/event-guide/feesschedules/",
@@ -416,7 +416,32 @@
         "200pluslb_wet": "38-42"
       }
     },
+    "guide_variables": {
+      "race_name": "Whiskey Off-Road 50 Proof",
+      "race_distance": "50 miles",
+      "race_elevation": "about 6,523 feet on the recent course; final 2027 route pending",
+      "race_date": "Saturday, April 24, 2027; verify the final 2027 schedule",
+      "race_location": "Prescott, Arizona",
+      "race_terrain": "Prescott National Forest singletrack, doubletrack, gravel roads, fire roads, and short paved links",
+      "race_weather": "Variable high-desert spring conditions across a large elevation range",
+      "race_challenges": [
+        "Long sustained climbing from Skull Valley",
+        "Rocky and loose singletrack descents under fatigue",
+        "High-desert weather and temperature swings",
+        "Wave-start pacing and course-cutoff discipline"
+      ],
+      "altitude_section": true,
+      "altitude_feet": 7000
+    },
     "research_metadata": {
+      "data_confidence": "high",
+      "validation_status": "verified_2027_weekend_and_current_50_proof_format;_final_2027_schedule_pending",
+      "sources": [
+        "https://epicrides.com/events/whiskey-off-road/event-guide/"
+      ],
+      "migration_notes": [
+        "2026-08-09: Organizer confirms the April 23-25, 2027 weekend. The latest official schedule places amateur 25 and 50 Proof rides on Saturday; the plan uses Saturday, April 24 with an explicit final-schedule override."
+      ],
       "research_strength": {
         "overall": 97.0,
         "grade": "A",
@@ -434,6 +459,12 @@
         },
         "scored_at": "2026-02-04"
       }
+    },
+    "eligibility": {
+      "status": "active",
+      "verified": "2026-08-09",
+      "source": "https://epicrides.com/events/whiskey-off-road/event-guide/",
+      "notes": "The organizer confirms April 23-25, 2027. The latest official schedule places the amateur 50 Proof on Saturday, so planning uses April 24 while requiring the final 2027 schedule, course, aid, cutoff, and awards documents to override."
     },
     "youtube_data": {
       "researched_at": "2026-02-23",

@@ -1,0 +1,25 @@
+{
+  "@context": "https://schema.org",
+  "@type": "SportsEvent",
+  "name": "Hazel Valley Rally",
+  "description": "Rugged Ozark National Forest gravel from Hazel Valley Ranch.",
+  "sport": "Gravel Cycling",
+  "startDate": "2027-04-10",
+  "location": {
+    "@type": "Place",
+    "name": "Washington County, Arkansas",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Washington County",
+      "addressRegion": "Arkansas"
+    }
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "59",
+    "bestRating": "100",
+    "ratingCount": "14",
+    "name": "Gravel God Rating"
+  },
+  "url": "https://www.ruleofthree.bike/hazelvalleyrally"
+}

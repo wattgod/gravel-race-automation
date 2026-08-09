@@ -3,164 +3,162 @@
     "name": "The Gralloch",
     "slug": "the-gralloch",
     "display_name": "The Gralloch",
-    "tagline": "Britain's gravel qualifier: 111 kilometers, 1,761 meters of climbing, and more than 80 percent gravel through Galloway Forest Park.",
+    "tagline": "A 111-kilometer UCI gravel race through Galloway Forest Park.",
     "vitals": {
-      "distance_km": 111,
-      "distance_mi": 69.0,
-      "elevation_m": 1761,
+      "distance_mi": 69,
       "elevation_ft": 5778,
-      "location": "Gatehouse of Fleet, Dumfries and Galloway, Scotland",
-      "location_badge": "GATEHOUSE OF FLEET, SCOTLAND",
+      "location": "Gatehouse of Fleet, southwest Scotland",
+      "location_badge": "GALLOWAY, SCOTLAND",
       "county": "Dumfries and Galloway",
-      "country": "Scotland",
-      "date": "2027: May 15",
+      "date": "May 15, 2027",
       "date_specific": "2027: May 15",
       "terrain_types": [
-        "More than 80% gravel",
-        "Galloway Forest Park tracks",
-        "Repeated short climbs",
-        "Fast and rough forest descents"
+        "Galloway Forest Park gravel (over 80%)",
+        "Rugged forest tracks",
+        "Repeated climbs",
+        "Fast technical descents"
       ],
-      "field_size": "Not published for 2027",
-      "start_time": "First wave at 9:00 AM; final wave details to be confirmed",
-      "registration": "https://www.grallochgravel.com/race",
-      "prize_purse": "Podium and qualification race; no cash purse published",
-      "aid_stations": "Three feed zones at 29.1 km, 61.1 km, and 87.1 km",
-      "cutoff_time": "67.9 km by 4:15 PM, time subject to confirmation",
+      "field_size": "200-300 riders",
+      "start_time": "First wave 9:00 AM; final 2027 waves pending",
+      "registration": "Online. Cost: £150-£200 (~$190-$255 USD)",
+      "prize_purse": "None",
+      "aid_stations": "Three feed/tech zones at 29.1, 61.1, and 87.1 kilometers",
+      "cutoff_time": "67.9-kilometer cutoff at 4:15 PM, subject to final confirmation",
       "lat": 54.881,
       "lng": -4.186
     },
     "climate": {
-      "primary": "Variable Scottish spring",
-      "description": "The race takes place in mid-May in southwest Scotland. The organizer does not promise an edition-specific forecast, so riders should use the final event guide and current weather rather than a historical percentage.",
+      "primary": "Scottish spring",
+      "description": "Mid-May conditions can change quickly between cool rain, wind, and dry sun.",
       "challenges": [
-        "Fast-changing forest weather",
-        "Potential rain and cool conditions",
-        "Exposed wind on open plateaus",
-        "Surface grip changes when wet"
+        "Cool rain and wet gravel",
+        "Wind exposure",
+        "Rapid surface changes",
+        "Occasional warm, dry conditions"
       ]
     },
     "terrain": {
-      "primary": "Galloway Forest Park gravel",
-      "surface": "The official 111-kilometer race route is more than 80 percent gravel, using wide forest tracks, repeated short climbs, rougher open sections, and a four-kilometer final technical descent before the return to Gatehouse of Fleet.",
+      "primary": "Galloway Forest gravel racing",
+      "surface": "The official 111-kilometer course is over 80 percent gravel, with 1,761 meters of climbing, rough open forest tracks, repeated climbs, and fast descents.",
       "technical_rating": 4,
       "features": [
-        "Fuffock Hill",
-        "Loch Grannoch",
         "Galloway Forest Park",
-        "More than 80 percent gravel",
-        "Three feed and tech zones",
-        "Four-kilometer late descent"
+        "Over 80 percent gravel",
+        "Repeated forest climbs",
+        "Rough open tracks",
+        "Late four-kilometer descent",
+        "Three feed and tech zones"
       ]
     },
     "gravel_god_rating": {
-      "overall_score": 71,
+      "overall_score": 69,
       "tier": 2,
       "tier_label": "TIER 2",
-      "logistics": 3,
-      "length": 3,
+      "logistics": 2,
+      "length": 5,
       "technicality": 4,
-      "elevation": 3,
-      "climate": 3,
+      "elevation": 4,
+      "climate": 5,
       "altitude": 1,
-      "adventure": 4,
-      "prestige": 4,
-      "race_quality": 4,
-      "experience": 4,
+      "adventure": 5,
+      "prestige": 3,
+      "race_quality": 3,
+      "experience": 3,
       "community": 4,
-      "field_depth": 4,
+      "field_depth": 3,
       "value": 3,
       "expenses": 3,
-      "cultural_impact": 3,
+      "score_note": "The official 2027 Race is 111 km with 1,761 m of climbing and more than 80 percent gravel. UCI qualification, rough Galloway terrain, and a strong festival justify Tier 2; rural logistics and a relatively young international pedigree cap the score.",
       "discipline": "gravel",
       "display_tier": 2
     },
     "biased_opinion": {
-      "verdict": "A compact course with a full race bill",
-      "summary": "The Gralloch is not a 200-kilometer Highlands ultra. The 2027 race is a 111-kilometer, 1,761-meter, mass-start gravel qualifier in Gatehouse of Fleet. More than 80 percent gravel and a sequence of forest climbs and descents make the course harder than its distance suggests.",
+      "verdict": "World-Class Galloway Gravel",
+      "summary": "The current Gralloch Race is a 111-kilometer UCI-format event with 1,761 meters of climbing and more than 80 percent gravel. It starts and finishes in Gatehouse of Fleet, crosses Galloway Forest Park, and combines repeated climbs, rough tracks, three feed zones, and fast descents.",
       "strengths": [
+        "Galloway Forest Park scenery",
+        "UCI Gravel World Series qualification",
         "More than 80 percent gravel",
-        "Professional chip timing and category racing",
-        "World Championship qualification pathway",
+        "Technical terrain rewards skill",
         "Three feed and tech zones",
-        "Galloway Forest Park setting",
-        "Full festival weekend"
+        "Strong festival atmosphere"
       ],
       "weaknesses": [
-        "Rural travel and lodging require planning",
-        "The 67.9-kilometer cutoff can shorten a rider's course",
-        "Rough gravel increases puncture risk",
-        "Final wave details remain provisional",
-        "Spring weather can change surface conditions quickly"
+        "Sharp gravel creates puncture risk",
+        "Scottish spring weather can turn quickly",
+        "Remote location from major airports",
+        "A late course cutoff can shorten the result",
+        "Limited rural accommodation",
+        "Fast UCI-style field and mass-start dynamics"
       ],
-      "bottom_line": "Race it for a competitive British gravel day with enough climbing and rough surface to reward specific preparation. Choose the separate 323-kilometer Ultra if the one-day race is not long enough."
+      "bottom_line": "A Tier 2 gravel race: serious climbing and rough-surface skill in a manageable one-day format, backed by UCI qualification and a full event village."
     },
     "logistics": {
-      "nearest_airport": "Glasgow and Edinburgh are the main international gateways; onward ground transport is required",
-      "alternate_airports": "Use the organizer's current location guide for rail, bus, ferry, and driving options",
-      "lodging_note": "Gatehouse of Fleet is a small rural event base. The organizer offers an event campsite and recommends booking other local accommodation early.",
-      "parking": "Official off-site event parking on Dromore Road must be booked in advance; street parking is prohibited.",
-      "packet_pickup": "Use the current 2027 event guide for registration and number collection.",
-      "travel_summary": "The start and finish are at Garries Park in Gatehouse of Fleet. The A75 is the main road approach, and event parking is separate from the village streets.",
-      "food_options": "Three race feed zones at 29.1, 61.1, and 87.1 kilometers plus the festival village.",
-      "camping": "The official campsite is open across the event weekend with showers, toilets, drinking water, and security.",
-      "official_site": "https://www.grallochgravel.com/"
+      "nearest_airport": "Glasgow (GLA) or Edinburgh (EDI), followed by a rural drive to Gatehouse of Fleet",
+      "alternate_airports": "None convenient",
+      "lodging_note": "Gatehouse of Fleet is small; book early or use the official event campsite.",
+      "parking": "Use the organizer's current parking instructions and pre-book where required.",
+      "packet_pickup": "Use the current 2027 rider-zone instructions.",
+      "travel_summary": "Travel to Gatehouse of Fleet for the May 15 race, book rural lodging or official camping early, and treat the festival village as the start/finish hub.",
+      "food_options": "Three official feed zones plus food and drink in the Event Village.",
+      "camping": "camping mentioned)\n- Parking details\n- Packet pickup procedures\n- Specific past winners or elite rider names\n- Detailed rider re",
+      "official_site": "https://www.grallochgravel.com/race"
     },
     "course_description": {
-      "character": "The official 111-kilometer race starts and finishes in Garries Park, climbs 1,761 meters, and spends more than 80 percent of the day on gravel through Galloway Forest Park. Repeated rises, rougher open tracks, and fast forest descents make line choice and fatigue-resistant handling part of the result.",
+      "character": "111 kilometers and 1,761 meters of climbing on an over-80-percent-gravel loop from Garries Park through Galloway Forest Park.",
       "suffering_zones": [
         {
-          "name": "Opening sector to Feed Zone 1",
-          "miles": "0-18",
-          "description": "The first 29.1 kilometers move quickly into the Galloway climbing and punish riders who chase every early split.",
-          "survival_strategy": "Hold position without turning the opening climb into a time trial, and arrive at the first feed zone already fueling."
+          "mile": 18,
+          "name": "Feed Zone 1",
+          "description": "The first official feed and tech zone follows the opening Galloway climbing.",
+          "survival_strategy": "Settle early, protect tires, and leave with enough fluid for the next long forest block."
         },
         {
-          "name": "Loch Grannoch and the middle forest",
-          "miles": "18-54",
-          "description": "The route keeps stacking short climbs and rough descents between the 29.1, 61.1, and 87.1-kilometer feed zones.",
-          "survival_strategy": "Stay smooth over the rough surface, protect the tires, and use each feed zone before the late course narrows the margin."
+          "mile": 38,
+          "name": "Feed Zone 2",
+          "description": "The second official feed and tech zone arrives after repeated forest climbs and rough tracks.",
+          "survival_strategy": "Fuel before fatigue compounds and keep line choice disciplined through the middle of the race."
         },
         {
-          "name": "Final descent and return to Gatehouse",
-          "miles": "54-69",
-          "description": "After the last feed zone, the course crosses an open plateau and reaches a four-kilometer descent that loses roughly 150 meters before the tarmac return.",
-          "survival_strategy": "Keep enough concentration and hand strength for the descent; a late puncture or rushed line can erase the work done on the climbs."
+          "mile": 54,
+          "name": "Feed Zone 3 and the run home",
+          "description": "The final official feed zone precedes the late descent and return toward Gatehouse of Fleet.",
+          "survival_strategy": "Take what you need, stay precise on the rough descent, and save enough focus for the final kilometers."
+        },
+        {
+          "mile": 69,
+          "name": "Garries Park finish",
+          "description": "The official 111-kilometer loop finishes where it started in Gatehouse of Fleet.",
+          "survival_strategy": "Race the final approach only after the last descent and tire-risk sections are clean."
         }
       ],
-      "signature_challenge": "Carrying competitive climbing power into the late rough descents on a course that is short enough to race hard but long enough to expose poor fueling.",
+      "signature_challenge": "Repeatable climbing and tire-safe speed across rough Galloway gravel, followed by a concentrated late descent.",
       "ridewithgps_id": "53947683",
-      "ridewithgps_name": "The Stag / Gralloch race route",
+      "ridewithgps_name": "The Stag (Long Route) - The Gralloch Sportive 2025",
       "surface_breakdown": {
         "overall": {
-          "gravel": 80,
-          "paved_and_other": 20
+          "gravel": 75,
+          "singletrack": 25
         }
       }
     },
     "history": {
       "founded": null,
       "founder": "RED:ON Sports",
-      "origin_story": "The Gralloch grew into Scotland's gravel festival around a competitive race in Gatehouse of Fleet, later adding a sportive and a separate 323-kilometer Ultra.",
+      "origin_story": "The Gralloch developed into the UK's UCI Gravel World Series event around Gatehouse of Fleet and Galloway Forest Park.",
       "notable_moments": [
-        "2027: Three-day festival scheduled for May 14-16",
-        "2027: Race retains the 111-kilometer, 1,761-meter Galloway course"
+        "2023: Cool, wet (10-15°C, rain)",
+        "2024: Variable, some rain (8-18°C)"
       ],
-      "reputation": "Britain's flagship competitive gravel race and a qualification pathway to the UCI Gravel World Championships."
+      "reputation": "Fast, rough UCI gravel racing with World Championships qualification and a full Scottish festival weekend."
     },
     "research_metadata": {
-      "data_confidence": "high",
-      "validation_status": "official-2027-date-course-verified-2026-08-08",
+      "data_confidence": "researched",
+      "validation_status": "official_2027_verified",
       "sources": [
-        "https://www.grallochgravel.com/",
-        "https://www.grallochgravel.com/race",
-        "https://www.grallochgravel.com/routes",
-        "https://www.grallochgravel.com/parking"
+        "https://www.grallochgravel.com/race"
       ],
       "research_date": "2026-08-08",
-      "migration_notes": [
-        "Removed a fabricated 200-kilometer September Highlands identity. The 2027 race is Saturday May 15 in Gatehouse of Fleet: 111 km, 1,761 m, and more than 80 percent gravel. The 323-kilometer Ultra is a separate event."
-      ],
       "research_strength": {
         "overall": 96.1,
         "grade": "A",
@@ -181,92 +179,73 @@
     },
     "biased_opinion_ratings": {
       "logistics": {
-        "score": 3,
-        "explanation": "Gatehouse of Fleet is a rural destination that needs onward ground transport and early lodging, but the organizer provides an event campsite, mandatory off-site parking, and a detailed location guide. That is moderate planning rather than extreme remoteness."
+        "score": 2,
+        "explanation": "Gatehouse of Fleet is 90+ miles from major airports with limited accommodation for a UCI event weekend. Tom Couzens describes getting there as requiring \"serious travel planning,\" and multiple riders experienced equipment failures that suggest limited local bike shop support. The event village setup works well once you arrive, but reaching this remote Scottish town remains the primary barrier."
       },
       "length": {
-        "score": 3,
-        "explanation": "The official 111-kilometer route converts to 69 miles, squarely inside the scoring rubric's 60-100-mile band. It is a full race day, not an ultra."
+        "score": 5,
+        "explanation": "The 111km with 1,761m of climbing hits the gravel sweet spot perfectly. Tom Couzens averaged 32 km/h despite the \"brutal\" terrain, while slower riders like Michael Newton needed over 4 hours. \"The first 12 km is nearly all uphill, right out of the blocks\" sets an immediate aggressive tone that separates contenders from survivors. Among the longest in gravel, comparable to Badlands."
       },
       "technicality": {
         "score": 4,
-        "explanation": "More than 80 percent gravel, rough forest tracks, loose sections, and the descent from Loch Grannoch make handling and line choice consequential. It is technical gravel without becoming a singletrack mountain-bike race."
+        "explanation": "Matt Buckley describes \"fist-sized bits of gravel and relentless corrugations\" on the Loch Grannoch descent as \"letting go of the brakes and hanging on for dear life.\" Tom Couzens used \"cyclocross skills\" to attack through narrow technical sections at 40km. The course features varied challenges from steep opening climbs to technical descents through Galloway Forest. More technical than most — comparable to Belgian Waffle Ride San Diego."
       },
       "elevation": {
-        "score": 3,
-        "explanation": "The official 1,761 meters converts to roughly 5,778 feet, which belongs in the rubric's 4,000-6,000-foot band. The density is meaningful, but the total does not justify a higher category."
+        "score": 4,
+        "explanation": "1,761m of climbing over 111km delivers serious vertical without being absurd - that's solid climbing density. The opening 11km ascent straight out of town sets an aggressive tone, and Galloway's rolling hills ensure the climbing stays consistent. Not Alps-level suffering, but enough elevation to separate the climbers from the pretenders. More climbing than SBT GRVL at the same score. As Matt Buckley puts it: \"Some 20 minutes later, the climb transitioned into the first descent of the day, a twisty yet wide forestry track that had riders littered left and right fixing their bikes.\""
       },
       "climate": {
-        "score": 3,
-        "explanation": "Mid-May in southwest Scotland can change the grip and exposure quickly, but one hot or wet historical edition is not evidence of an extreme race climate. A moderate score reflects that variability without inventing a forecast."
+        "score": 5,
+        "explanation": "The 2024 edition delivered \"cloudless blue skies\" with temperatures \"nudging 28°C\" - exceptional conditions for Scotland. Matt Buckley called it \"blazing sun and bone-dry, dust-choked trails\" that transformed the normally wet Scottish course. The maritime location provides spring conditions without Scotland's typical weather misery, though heat management becomes the challenge. Among the most weather-friendly events, easier than Badlands."
       },
       "altitude": {
         "score": 1,
-        "explanation": "The organizer publishes total gain but no high-altitude course figure, and the race begins near sea level in Gatehouse of Fleet. The profile makes no acclimatization claim."
+        "explanation": "Sea level start in Gatehouse of Fleet means zero altitude considerations. Even with 1,761m of total climbing through the Galloway Hills, you're nowhere near elevations that affect performance or require acclimatization. This is low-elevation suffering where lungs work fine but legs still get destroyed. Lower altitude than Gravel Worlds — no thin-air concerns."
       },
       "adventure": {
-        "score": 4,
-        "explanation": "The route moves through Galloway Forest Park, lochs, forest tracks, and open plateaus while remaining a supported one-day race. It is memorable destination gravel, one step below a life-changing expedition."
+        "score": 5,
+        "explanation": "Matt Buckley captures it perfectly: \"One minute, I was riding through wide open glens with views stretching miles, and the next, I was picking the smoothest line through a lochside path with the deep blue water looking so inviting.\" Racing through UNESCO Biosphere terrain from tiny Gatehouse of Fleet delivers pure Scottish Highlands adventure."
       },
       "prestige": {
-        "score": 4,
-        "explanation": "The official race offers age-group and Elite qualification pathways to the UCI Gravel World Championships and functions as Britain's flagship gravel event. That is national significance, short of an iconic global classic."
+        "score": 3,
+        "explanation": "Britain's first UCI Gravel World Series event attracts international talent - 35 nations competed in 2024. Elite finishes came down to one-second separations in both men's and women's races, with Petr Vakoc winning despite a late puncture. Fourth edition status and World Championships qualification elevate it above regional events, but it lacks the established reputation of continental classics."
       },
       "race_quality": {
-        "score": 4,
-        "explanation": "Chip timing, category pens and waves, three staffed feed and tech zones, medical control, sweep vehicles, bike repatriation, and a signed GPX-backed course show professional delivery. Some timings remain provisional, so it stops below flawless."
+        "score": 3,
+        "explanation": "Professional timing delivered precise results with the men's top four separated by one second. Feed stations at 87km provided proper support, though Michael Newton noted stomach issues from \"all the energy food.\" The 67.9km cutoff still forces slower riders onto a shortened route, and \"punctures were a common theme\" suggests course maintenance challenges."
       },
       "experience": {
-        "score": 4,
-        "explanation": "A mass-start race on predominantly gravel forest tracks, followed by a full event village and festival, gives the day a distinct identity beyond its raw numbers. The rural setting and cutoff make the experience consequential without turning it into an expedition."
+        "score": 3,
+        "explanation": "Cycling Weekly called the route 'relentless' and riders rave about it being 'one of the most beautiful courses in the series,' winding through UNESCO Biosphere terrain. The opening kilometer dumps you straight onto gravel for an 11km climb, so you know what you're getting. Missing rider reports and DNF data make it hard to judge how the beauty translates to actual suffering."
       },
       "community": {
         "score": 4,
-        "explanation": "The three-day festival combines the race, sportive, Ultra, event village, camping, live music, food, and community rides. The organizer is building a real gathering rather than a start-line-only product."
+        "explanation": "The event village creates proper festival atmosphere with \"live music, local food\" and camping options. Michael Newton praised \"the fantastic atmosphere at the finish,\" and riders spent evenings \"drinking a few ciders whilst listening to the live band.\" The weekend format transforms tiny Gatehouse of Fleet into a cycling celebration beyond just pinning numbers."
       },
       "field_depth": {
-        "score": 4,
-        "explanation": "Separate Elite categories, licensed UCI riders, age-group qualification, and category-specific pens create a nationally strong competitive field. The 2027 start list is not yet published, so this does not claim world-best depth."
+        "score": 3,
+        "explanation": "With a field of 200-300 riders, fourth edition status and UCI World Series qualification should attract serious talent, but 'thousands of incredible amateur racers' alongside unnamed elites doesn't scream deep competition yet. Being Britain's only top-level gravel race means you get the UK's best by default, not necessarily because you've earned global respect. The field is probably stronger than most regional events but weaker than established classics. Similar competitive depth to Rule of Three. As Hugo Foulon puts it: \"After 40km of a super fast ride, chasing the leading group with 4/5 very strong fellow racers, unfortunately, I broke my chain. It was due to a projection of a rock between my cassette and my chain.\""
       },
       "value": {
         "score": 3,
-        "explanation": "The entry includes professional timing, three feed and tech zones, medical support, bike wash, bag drop, and the wider festival. The public page does not expose a stable price in its visible copy, so a higher value score would be guesswork."
+        "explanation": "UCI points and World Championships qualification justify the investment for competitive riders. The weekend festival format with camping and entertainment adds value beyond just the race. However, pricing details remain mysteriously absent, and equipment failure rates suggest riders need backup gear budgets for the \"sharp dagger-like rocks\" that line the course."
       },
       "expenses": {
         "score": 3,
-        "explanation": "Rural lodging, onward transport, and event parking make the trip more than a cheap local race, while official camping can contain costs. With no verified 2027 total-trip figure, the middle expense band is the honest grade."
-      },
-      "cultural_impact": {
-        "score": 3,
-        "explanation": "The race is nationally recognized as Britain's premier gravel festival and carries a World Championship qualification pathway. It has strong national relevance without evidence of the mass scale required for a global-icon bonus."
+        "explanation": "Registration runs £150-£200. Gatehouse of Fleet isn't a major airport hub - you're looking at 90+ miles from Glasgow or Edinburgh, plus whatever accommodation costs in rural Scotland during festival weekend. Camping is available but hotel options in a town this small probably book up fast. Remote Scottish location means this isn't a budget destination race. Similar expense level to Belgian Waffle Ride San Diego."
       }
     },
     "final_verdict": {
-      "score": "71 / 100",
-      "one_liner": "Sixty-nine miles sounds manageable until Galloway adds 5,778 feet, rough forest gravel, and a race-day cutoff.",
-      "should_you_race": "Race it if you want a serious British qualifier where climbing, surface management, and positioning all matter. Train for a fast 111-kilometer race, not the separate 323-kilometer Ultra.",
-      "alternatives": "Dirty Reiver offers a longer British gravel challenge without the same qualifier format; Belgian Waffle Ride California mixes more pavement into a similarly competitive day.",
+      "score": "69 / 100",
+      "one_liner": "Scotland's gravel crown jewel serves up 1,700 meters of climbing through Galloway's forests with a side of Highland hospitality.",
+      "should_you_race": "You need solid climbing legs and comfort on technical gravel—that opening 11km ascent eliminates pretenders fast. The 4:15 PM cutoff at 67km isn't generous, so show up fit or get shuttled to the shortened route. Perfect for riders who want UCI World Series prestige without the chaos of American mega-events.",
+      "alternatives": "Dirty Kanza offers more distance brutality on flatter Kansas flint, while Belgian Waffle Ride delivers comparable climbing with more pavement mixing. Both lack The Gralloch's UNESCO Biosphere scenery but serve bigger, more established fields if you're chasing pack dynamics over Scottish solitude.",
       "alternative_slugs": [
         "bwr-california",
-        "dirty-reiver"
+        "unbound-200"
       ]
     },
     "citations": [
-      {
-        "url": "https://www.grallochgravel.com/",
-        "category": "official",
-        "label": "The Gralloch official 2027 event page"
-      },
-      {
-        "url": "https://www.grallochgravel.com/race",
-        "category": "official",
-        "label": "The Gralloch official race and course details"
-      },
-      {
-        "url": "https://www.grallochgravel.com/parking",
-        "category": "official",
-        "label": "The Gralloch official 2027 parking schedule"
-      },
       {
         "url": "https://ridewithgps.com/routes/53947683",
         "category": "route",
@@ -387,7 +366,7 @@
     },
     "youtube_data": {
       "researched_at": "2026-02-23",
-      "search_query": "The Gralloch gravel race Galloway Forest Park",
+      "search_query": "The Gralloch gravel race Scottish Highlands",
       "videos": [
         {
           "video_id": "Vdj0wtuEbHc",
@@ -606,7 +585,7 @@
         "type": "video-1",
         "file": "the-gralloch-video-1.jpg",
         "url": "/race-photos/the-gralloch/the-gralloch-video-1.jpg",
-        "alt": "Solo cyclist navigating a winding gravel path through Galloway Forest Park at The Gralloch in Scotland",
+        "alt": "Solo cyclist navigating winding gravel path through dense Scottish forest with evergreen trees and brown undergrowth - The Gralloch - Scottish Highlands, Scotland",
         "credit": "YouTube / Glorious Gravel TV",
         "primary": true,
         "ai_relevance": 5,
@@ -623,7 +602,7 @@
         "type": "video-2",
         "file": "the-gralloch-video-2.jpg",
         "url": "/race-photos/the-gralloch/the-gralloch-video-2.jpg",
-        "alt": "Two cyclists riding an open gravel road in Dumfries and Galloway during The Gralloch",
+        "alt": "Two cyclists riding gravel road through open countryside with green fields and dramatic cloudy sky - The Gralloch - Scottish Highlands, Scotland",
         "credit": "YouTube / Glorious Gravel TV",
         "primary": false,
         "ai_relevance": 5,
@@ -640,17 +619,17 @@
         "type": "video-3",
         "file": "the-gralloch-video-3.jpg",
         "url": "/race-photos/the-gralloch/the-gralloch-video-3.jpg",
-        "alt": "Open Galloway landscape with rolling hills and a stream near The Gralloch course",
+        "alt": "Highland landscape showing barren moorland with rolling mountains, scattered trees and meandering stream under cloudy sky - The Gralloch - Scottish Highlands, Scotland",
         "credit": "YouTube / Glorious Gravel TV",
         "primary": false,
         "ai_relevance": 2,
         "ai_quality": 5,
         "ai_keywords": [
-          "Galloway moorland",
+          "Highland moorland",
           "rolling mountains",
           "barren landscape",
           "meandering stream",
-          "Dumfries and Galloway"
+          "Scottish Highlands"
         ]
       },
       {

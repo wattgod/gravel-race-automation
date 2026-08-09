@@ -93,6 +93,23 @@ class TestSeoMetadata:
         assert "DTSTART;VALUE=DATE:20270611" in html
         assert "DTEND;VALUE=DATE:20270612" in html
 
+    def test_race_around_rwanda_multiday_calendar_covers_finish_deadline(self):
+        race_path = (
+            Path(__file__).resolve().parent.parent
+            / "race-data"
+            / "race-around-rwanda.json"
+        )
+        rd = normalize_race_data(load_race_data(race_path))
+
+        assert parse_event_dates(rd["vitals"]["date_specific"]) == (
+            "2027-02-07",
+            "2027-02-13",
+        )
+        html = build_course_overview(rd)
+        assert "dates=20270207/20270214" in html
+        assert "DTSTART;VALUE=DATE:20270207" in html
+        assert "DTEND;VALUE=DATE:20270214" in html
+
     def test_per_race_overrides_are_emitted(self, sample_race_data):
         sample_race_data["race"]["seo"] = {
             "title": "Test Gravel 100: Course & Tire Guide",
@@ -356,6 +373,9 @@ class TestCountryDetection:
 
     def test_spain(self):
         assert detect_country("Girona, Spain") == "ES"
+
+    def test_rwanda(self):
+        assert detect_country("Kigali, Rwanda") == "RW"
 
     def test_parenthetical_state(self):
         assert detect_country("Pisgah, North Carolina (Pisgah National Forest)") == "US"

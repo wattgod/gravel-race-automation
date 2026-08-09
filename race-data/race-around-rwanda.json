@@ -5,51 +5,37 @@
     "vitals": {
       "distance": "1000 km",
       "elevation_gain": "19000 m",
-      "terrain": "45% off-road, 55% road",
+      "terrain": "48% off-road, 52% road",
       "surface": "Mixed (gravel and asphalt)",
       "avg_gradient": "1.9%",
       "aid_stations": "4 checkpoints",
       "time_limit": "163 hours",
       "field_size": "Unknown",
       "participation_trend": "Unknown",
-      "date": "2026: February 1-7",
-      "date_specific": "2026: February 1",
+      "date": "February 7-13, 2027",
+      "date_specific": "2027: February 7-13 (race start February 7; finish deadline February 13)",
       "location": "Kigali, Rwanda",
       "distance_mi": 621,
       "elevation_ft": 62335
     },
     "course_description": {
-      "overview": "Race Around Rwanda is a self-supported bikepacking circumnavigation of Rwanda starting and finishing at Tugende bike cafe in central Kigali. The 1000 km route features 19000 meters of elevation gain across 45% off-road terrain, earning it the nickname 'Land of a Thousand Hills.' Riders have 163 hours to complete the course with 4 mandatory checkpoints along the route.",
+      "overview": "Race Around Rwanda is a self-supported bikepacking circumnavigation of Rwanda starting and finishing at Tugende bike cafe in central Kigali. The 1000 km route features 19000 meters of elevation gain across 48% off-road terrain, earning it the nickname 'Land of a Thousand Hills.' Riders have 163 hours to complete the course with 4 mandatory checkpoints along the route.",
       "key_segments": [
         {
-          "name": "Checkpoint 1",
-          "distance": "~250 km",
-          "description": "First quarter of the circumnavigation with mixed terrain"
-        },
-        {
-          "name": "Checkpoint 2",
-          "distance": "~250 km",
-          "description": "Second quarter continuing around Rwanda"
-        },
-        {
-          "name": "Checkpoint 3",
-          "distance": "~250 km",
-          "description": "Third quarter of the route"
-        },
-        {
-          "name": "Checkpoint 4",
-          "distance": "~250 km",
-          "description": "Final quarter returning to Kigali"
+          "name": "Four mandatory checkpoints",
+          "distance": "Across the 1000 km route",
+          "description": "Use the organizer's final 2027 route file and checkpoint bulletin for exact locations, spacing, and intermediate cutoffs."
         }
       ],
-      "difficulty_narrative": "This is a challenging ultra-distance bikepacking event combining significant elevation gain with self-supported logistics. The 45% off-road component adds technical difficulty, while Rwanda's mountainous terrain ensures relentless climbing. The 163-hour time limit (approximately 6.8 days) requires sustained pace and efficient self-management of nutrition, hydration, and bike maintenance."
+      "difficulty_narrative": "This is a challenging ultra-distance bikepacking event combining significant elevation gain with self-supported logistics. The 48% off-road component adds technical difficulty, while Rwanda's mountainous terrain ensures relentless climbing. The 163-hour time limit (approximately 6.8 days) requires sustained pace and efficient self-management of nutrition, hydration, and bike maintenance."
     },
     "logistics": {
-      "getting_there": "Race start and finish is at Tugende bike cafe in central Kigali, approximately 20 minutes by taxi from Rwanda's only international airport. All countries can receive visa on entry to Rwanda; African Union, Commonwealth, and Francophonie members receive free visas, while others can pay in USD or by credit card at arrival.",
-      "accommodation": "This is a self-supported event with no organized accommodation. Riders must carry their own gear or utilize commercial services (hotels, restaurants) along the route. Luggage storage is provided in Kigali at the start/finish location for extra bags and bike boxes.",
-      "registration_details": "Rider registration and briefing occurred on January 31, 2026. Race entry includes: route GPX file, live GPS tracking, athlete musette with t-shirt and cap, Rwandan SIM card with 7 days of data, gifts at checkpoints, finisher gift, pre-race breakfast at 3:30 AM, access to race photos, closing party, and support staff at checkpoints with on-call medical team.",
+      "getting_there": "Race start and finish is at Tugende bike cafe in central Kigali, approximately 20 minutes by taxi from Rwanda's international airport. Check current entry and visa requirements with Rwanda Immigration before travel.",
+      "accommodation": "This is a self-supported event. Riders may carry sleep gear or use commercially available lodging and campsites along the route. The organizer says luggage storage is provided in Kigali at the start and finish for extra bags and bike boxes.",
+      "registration_details": "Registration for the 2027 edition is open through the organizer's RaR Events store. Rider registration and briefing are scheduled for the afternoon of February 6, the race starts early on February 7, and the 163-hour limit ends with the finish party late on February 13. Confirm the final start time and checkpoint cutoffs in the organizer's pre-race documents.",
       "bike_logistics": "This is a self-supported event where riders carry all necessary equipment. No luggage transport to checkpoints is provided. Riders can purchase supplies in shops along the route and utilize local bike mechanics. A GPS tracker is provided for real-time live tracking visible at racearoundrwanda.com/live.",
-      "local_considerations": "Participants must be at least 18 years old, sign a fitness declaration, and provide proof of insurance. Medical insurance covering this type of event and country is mandatory. A local SIM card with 4G functionality works on 99% of the route. The event is organized by RaR Events Ltd., a Rwanda-registered organization run by British and Belgian residents."
+      "local_considerations": "Participants must be at least 18 years old, sign a fitness declaration, and provide proof of insurance. Medical insurance covering this type of event and country is mandatory. The organizer advises using filtered or bottled water. The event is organized by RaR Events Ltd., a Rwanda-registered organization.",
+      "official_site": "https://racearoundrwanda.com/"
     },
     "gravel_god_rating": {
       "logistics": 3,
@@ -89,10 +75,21 @@
       "is_it_worth_it": "Yes, for the right rider. Race Around Rwanda offers authentic adventure, stunning scenery, and a well-organized event in a unique African setting. The self-supported format and technical terrain provide genuine challenge. However, the relatively small field size and emerging prestige mean it's best suited for adventure-focused cyclists rather than those seeking competitive depth or major accolades.",
       "pro_tips": [
         "Arrive in Kigali several days early to acclimate, test your bike setup, and scout the start area near Tugende bike cafe",
-        "Maximize the provided Rwandan SIM card with 4G data for navigation and emergency communication throughout the race",
-        "Pre-position supplies at checkpoints if possible, or identify shops near each checkpoint to resupply efficiently",
+        "Arrange a working local SIM or eSIM before the start and keep offline navigation available as a fallback",
+        "Map commercially available shops, lodging, and repair options before the start so every resupply remains self-supported",
         "Practice your self-supported setup extensively before the race; mechanical issues cannot be delegated to support crews"
       ]
+    },
+    "eligibility": {
+      "status": "active",
+      "verified": "2026-08-09",
+      "source": "https://racearoundrwanda.com/",
+      "status_note": "The organizer's current RAR 2027 section lists rider registration and briefing on February 6, a February 7 early-morning start, and a February 13 late-evening finish deadline. Registration is open through the organizer-linked RaR Events store."
+    },
+    "source_review": {
+      "reviewed_at": "2026-08-09",
+      "race_date": "2027-02-07",
+      "facts_scope": "The current RAR 2027 header is authoritative for the 2027 schedule and 163-hour limit. It confirms 1000 km, 19000 m of climbing, 48 percent off-road terrain, four checkpoints, and a Kigali start and finish. The older FAQ text naming February 2, 2025 and a 159-hour limit is stale and is deliberately excluded from 2027 plan copy. The exact start time and checkpoint cutoffs remain subject to final organizer documents."
     },
     "suffering_zones": {
       "climbing": 5,

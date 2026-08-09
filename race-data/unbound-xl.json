@@ -9,14 +9,17 @@
       "elevation_ft": 14000,
       "location": "Emporia, Kansas",
       "location_badge": "EMPORIA, KANSAS",
-      "date": "Late May annually",
-      "date_specific": "2026: Friday, May 29 (3:00 PM start)",
+      "date": "Early June annually",
+      "date_specific": "2027: Friday, June 4",
       "lat": 38.404,
       "lng": -96.1816,
-      "start_time": "3:00 PM Frid"
+      "start_time": "Friday; final 2027 start time pending",
+      "registration": "$270 lottery entry. The organizer lists the lottery window as November 1-15 and winner notification on November 21.",
+      "aid_stations": "Fully self-supported with no outside support; final 2027 route and resupply opportunities are pending.",
+      "cutoff_time": "Final 2027 cutoff pending; use the organizer's final athlete guide as authoritative."
     },
     "gravel_god_rating": {
-      "overall_score": 90,
+      "overall_score": 91,
       "editorial_tier": 1,
       "editorial_tier_label": "TIER 1",
       "business_tier": 1,
@@ -26,7 +29,7 @@
       "logistics": 3,
       "length": 5,
       "technicality": 4,
-      "elevation": 4,
+      "elevation": 5,
       "climate": 4,
       "altitude": 2,
       "adventure": 5,
@@ -40,7 +43,8 @@
       "tier": 1,
       "tier_label": "TIER 1",
       "discipline": "gravel",
-      "cultural_impact": 5
+      "cultural_impact": 5,
+      "score_note": "The 350-mile fully self-supported overnight format remains one of gravel's defining ultra-endurance challenges. Elevation corrected from 4 to 5 under the published rubric because recent routes total roughly 14,000 feet; overall score rises from 90 to 91. The final 2027 route remains pending."
     },
     "biased_opinion_ratings": {
       "logistics": {
@@ -56,8 +60,8 @@
         "explanation": "Sharp Flint Hills limestone slices tires while you make constant line choices in darkness. The 2023 mud turned bikes immovable - Chris Mehlman went \"eight miles in two-and-a-half hours\" through Kansas clay that \"resembles concrete\" and clogs drivetrains in seconds."
       },
       "elevation": {
-        "score": 4,
-        "explanation": "14,000 feet of climbing across relentless prairie rollers that accumulate over 350 miles. No massive climbs, but the constant elevation changes through Council Grove, Lake Kahola, and Pillsbury Crossing grind down legs over the ultra-distance."
+        "score": 5,
+        "explanation": "Recent routes total roughly 14,000 feet across relentless prairie rollers, which scores 5 under the published elevation rubric. The final 2027 route is pending, so that figure is a planning reference rather than an edition-specific promise."
       },
       "climate": {
         "score": 4,
@@ -226,8 +230,8 @@
       },
       {
         "url": "https://www.unboundgravel.com/events-xl/",
-        "category": "community",
-        "label": "unboundgravel.com: Events Xl"
+        "category": "official",
+        "label": "UNBOUND Gravel XL: 2027 date, distance, price, lottery, and format"
       },
       {
         "url": "https://en.wikipedia.org/wiki/Unbound_Gravel",
@@ -258,8 +262,30 @@
         "url": "https://escapecollective.com/gallery-and-report-britton-jackson-win-2025-unbound-xl/",
         "category": "other",
         "label": "Escapecollective"
+      },
+      {
+        "url": "https://www.unboundgravel.com/officialrules/",
+        "category": "official",
+        "label": "UNBOUND Gravel: current official rules"
       }
     ],
+    "guide_variables": {
+      "race_name": "UNBOUND Gravel XL",
+      "race_distance": "approximately 350 miles",
+      "race_elevation": "about 14,000 feet on recent routes; final 2027 route pending",
+      "race_date": "Friday, June 4, 2027",
+      "race_location": "Emporia, Kansas",
+      "race_terrain": "fully self-supported overnight Flint Hills gravel",
+      "race_weather": "Variable Kansas conditions across day and night; prepare for heat, wind, rain, and mud",
+      "race_challenges": [
+        "Overnight durability across approximately 350 miles",
+        "Fully self-supported navigation and resupply",
+        "Lighting, battery, and repair redundancy",
+        "Sleep-deprivation management and disciplined stops"
+      ],
+      "altitude_section": false,
+      "altitude_feet": null
+    },
     "results": {
       "years": {
         "2024": {
@@ -346,6 +372,12 @@
       "camping": "Camping\n\n**Lyon County Fairgrounds**\n- RV and tent camping available\n- Event-approved camping area\n\n**Emporia Senior Center**\n- T"
     },
     "research_metadata": {
+      "data_confidence": "high",
+      "validation_status": "verified_current_event_distance_and_format;_2027_route_pending",
+      "sources": [
+        "https://www.unboundgravel.com/events-xl/",
+        "https://www.unboundgravel.com/officialrules/"
+      ],
       "research_strength": {
         "overall": 89.5,
         "grade": "A",
@@ -363,6 +395,12 @@
         },
         "scored_at": "2026-02-04"
       }
+    },
+    "eligibility": {
+      "status": "active",
+      "verified": "2026-08-09",
+      "source": "https://www.unboundgravel.com/events-xl/",
+      "notes": "The organizer confirms the approximately 350-mile, solo, fully self-supported overnight race for Friday, June 4, 2027. The final 2027 route, elevation, start time, resupply details, and cutoff remain pending; recent-course figures are planning references only."
     },
     "youtube_data": {
       "researched_at": "2026-02-22",

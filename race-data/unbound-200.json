@@ -10,8 +10,8 @@
       "location": "Emporia, Kansas",
       "location_badge": "EMPORIA, KANSAS",
       "county": "Lyon County",
-      "date": "Late May annually",
-      "date_specific": "2026: May 30",
+      "date": "Early June annually",
+      "date_specific": "2027: June 5",
       "terrain_types": [
         "Flint Hills gravel",
         "rolling hills",
@@ -19,17 +19,17 @@
         "cattle guards"
       ],
       "field_size": "~1,500 riders in the 200-mile; ~5,000 total across all distances",
-      "start_time": "Saturday 6:00 AM",
-      "registration": "Random lottery plus qualifier coins, charity entries, volunteer & Life Time member paths. You don't buy your way in; you win the right to suffer.. Cost: $345",
-      "prize_purse": "$100,000 (split equally men/women)",
-      "aid_stations": "2 full checkpoints + 2 water oases. Everything between those points is on you, your crew, and whatever you can fix in the ditch.",
-      "cutoff_time": "None. (Finish by midnight encouraged)",
+      "start_time": "Saturday; final 2027 start time pending",
+      "registration": "$345 lottery entry. The organizer lists the lottery window as November 1-15 and winner notification on November 21.",
+      "prize_purse": "$60,000 total on the current official 200-mile page, split equally between elite men and elite women",
+      "aid_stations": "Final 2027 checkpoint plan pending. The official rules page currently describes designated checkpoints and water oases for the 200-mile race.",
+      "cutoff_time": "Final 2027 cutoff schedule pending; current official rules establish checkpoint cutoffs from a 10 mph average.",
       "lat": 38.404,
       "lng": -96.1816
     },
     "climate": {
       "primary": "Flint Hills heat",
-      "description": "Late May brings 85-95°F days with high humidity",
+      "description": "Early June can bring heat and humidity, but Kansas wind, rain, and mud remain material planning variables",
       "challenges": [
         "Heat adaptation critical",
         "Hydration demands extreme",
@@ -48,13 +48,13 @@
       ]
     },
     "gravel_god_rating": {
-      "overall_score": 93,
+      "overall_score": 95,
       "tier": 1,
       "tier_label": "TIER 1",
       "logistics": 4,
       "length": 5,
       "technicality": 4,
-      "elevation": 3,
+      "elevation": 5,
       "climate": 5,
       "altitude": 1,
       "adventure": 5,
@@ -66,7 +66,7 @@
       "value": 4,
       "expenses": 4,
       "tier_note": "Lifetime Grand Prix flagship event - THE race by which all gravel events are measured",
-      "score_note": "THE gravel race. cultural_impact=5 bonus for flagship status. Dim adj: tech 3→4, expenses 2→4, value 3→4.",
+      "score_note": "THE gravel race. cultural_impact=5 bonus for flagship status. Elevation corrected from 3 to 5 under the published rubric because recent routes total roughly 11,000 feet; overall score rises from 93 to 95. The final 2027 route remains pending.",
       "editorial_tier": 1,
       "editorial_tier_label": "TIER 1",
       "business_tier": 1,
@@ -90,8 +90,8 @@
         "explanation": "Chunky flint rock roads demand equipment survival over bike handling skills. At Kaw Reserve Road, minidini10 found it \"rough and rocky\" with \"bottles everywhere and people pulled over to fix their bikes.\" Bertn05 avoided crashes when riders around him went down: \"3 times I avoided these\" on technical sections."
       },
       "elevation": {
-        "score": 3,
-        "explanation": "Over 10,000 feet of climbing across Flint Hills rollers creates death by accumulated suffering. Isaiah Newkirk acknowledged the challenge: \"I went into the race knowing the course wasn't necessarily ideal for me due to the considerable elevation gain.\" The constant undulation proves more wearing than single dramatic climbs through relentless 50-150 foot ascents."
+        "score": 5,
+        "explanation": "Recent routes total roughly 11,000 feet across Flint Hills rollers, which scores 5 under the published elevation rubric. The final 2027 route is pending, so that figure is a planning reference rather than an edition-specific promise."
       },
       "climate": {
         "score": 5,
@@ -212,15 +212,16 @@
     "guide_variables": {
       "race_name": "Unbound Gravel 200",
       "race_distance": "200 miles",
-      "race_elevation": "11,000 feet",
-      "race_date": "May",
+      "race_elevation": "about 11,000 feet on recent routes; final 2027 route pending",
+      "race_date": "Saturday, June 5, 2027",
       "race_location": "Emporia, Kansas",
       "race_terrain": "Flint Hills gravel roads",
-      "race_weather": "Hot and humid, typically 85-95°F",
+      "race_weather": "Variable Kansas late-spring conditions; prepare for heat, wind, rain, and mud",
       "race_challenges": [
-        "Extreme heat and humidity",
-        "Long distance requiring exceptional endurance",
-        "Technical gravel sections requiring bike handling skills"
+        "All-day durability over 200 miles",
+        "Sharp Flint Hills limestone and repair self-sufficiency",
+        "Variable heat, wind, rain, and mud",
+        "Checkpoint fueling and conservative group pacing"
       ],
       "altitude_section": false,
       "altitude_feet": null
@@ -382,12 +383,14 @@
       }
     },
     "research_metadata": {
-      "data_confidence": "migrated",
-      "validation_status": "pending",
+      "data_confidence": "high",
+      "validation_status": "verified_current_event_and_distance;_2027_route_pending",
       "sources": [
         "v1",
         "v2",
-        "v3"
+        "v3",
+        "https://www.unboundgravel.com/events-200/",
+        "https://www.unboundgravel.com/officialrules/"
       ],
       "migration_notes": [],
       "research_strength": {
@@ -603,8 +606,24 @@
         "url": "https://www.trainerroad.com/forum/t/unbound-gravel-race-recap/53441?page=9",
         "category": "community",
         "label": "TrainerRoad"
+      },
+      {
+        "url": "https://www.unboundgravel.com/events-200/",
+        "category": "official",
+        "label": "UNBOUND Gravel 200: 2027 date, distance, price, and lottery"
+      },
+      {
+        "url": "https://www.unboundgravel.com/officialrules/",
+        "category": "official",
+        "label": "UNBOUND Gravel: current official rules"
       }
     ],
+    "eligibility": {
+      "status": "active",
+      "verified": "2026-08-09",
+      "source": "https://www.unboundgravel.com/events-200/",
+      "notes": "The organizer confirms the 200-mile race for Saturday, June 5, 2027. The final 2027 route, elevation, start time, checkpoints, and cutoff details remain pending; recent-course figures are planning references only."
+    },
     "results": {
       "years": {
         "2024": {

@@ -3,33 +3,42 @@
     "name": "Muck n Mac Fest",
     "slug": "muck-n-mac-fest",
     "display_name": "Muck n Mac Fest",
-    "tagline": "Muck n Mac Fest. 55 miles of gravel through Traquair House.",
+    "tagline": "Two days of Scottish Borders gravel, timed enduro stages, and festival recovery at Traquair House.",
     "vitals": {
-      "distance_mi": 55,
-      "elevation_ft": 3500,
+      "distance_mi": 93.2,
+      "elevation_ft": null,
       "location": "Traquair House, Scotland, UK",
       "location_badge": "TRAQUAIR, SCOTLAND",
       "county": "Scottish Borders",
-      "date": "Early May annually",
-      "date_specific": "2026: May 2",
+      "date": "May 1-2, 2027",
+      "date_specific": "2027: May 1-2",
+      "course_status": "2027 dates, long-weekender distance, and two-day format confirmed; final GPX and exact gain pending",
+      "pack_status": "pending",
+      "course_status_label": "2027 TWO-DAY FORMAT VERIFIED",
+      "course_status_reason": "The organizer confirms the April 30-May 2, 2027 festival, riding on Saturday and Sunday, approximately 75 km per day for the Long Weekender, marked courses, GPX files for both days, and electronic timing for stages. The 2027 GPX files and exact elevation are not published, so the plan preserves elevation as unknown and defers exact stage execution to the final rider documents.",
       "terrain_types": [
-        "UK Scotland",
-        "British gravel",
-        "UK",
-        "Scottish Borders"
+        "Scottish Borders gravel",
+        "Forestry tracks",
+        "Timed enduro segments",
+        "Scenic transfer stages"
       ],
-      "field_size": "100-150 riders",
-      "start_time": "7:00 AM Satu",
-      "registration": "Online. Cost: ~£70-90",
-      "prize_purse": "Modest prizes",
-      "aid_stations": "3 aid stations",
-      "cutoff_time": "8 hours",
+      "field_size": "Full-weekend riding is capped at 400 entries; day-only riding is capped at 50 entries per day",
+      "start_time": "9:00 a.m. Saturday and Sunday",
+      "registration": "2027 registration is open; the first 100 Full Weekender entries are listed at £110",
+      "prize_purse": "Not published for 2027",
+      "aid_stations": "Rider support and feed stations are advertised; exact 2027 locations are pending the GPX files",
+      "cutoff_time": "Not published for 2027",
       "lat": 55.6083,
-      "lng": -3.0638
+      "lng": -3.0638,
+      "route_options": [
+        "Long Weekender: approximately 75 km Saturday plus 75 km Sunday",
+        "Short Weekender: approximately 40 km Saturday plus 40 km Sunday",
+        "Riding Only: long or short course on either day"
+      ]
     },
     "climate": {
-      "primary": "UK summer",
-      "description": "Variable Scottish conditions.",
+      "primary": "Scottish spring",
+      "description": "Variable early-May conditions in the Tweed Valley.",
       "challenges": [
         "Variable weather",
         "Rain likely",
@@ -38,15 +47,15 @@
       ]
     },
     "terrain": {
-      "primary": "UK Scotland gravel",
-      "surface": "Gravel roads through Scottish Borders. Moderate elevation with scenic countryside.",
+      "primary": "Scottish Borders gravel enduro",
+      "surface": "Forestry tracks, quiet gravel roads, hidden valleys, and timed enduro segments linked by scenic transfers.",
       "technical_rating": 2,
       "features": [
-        "Moderate rolling (3500 feet)",
-        "Scottish Borders scenery",
-        "UK gravel experience",
-        "55-mile distance",
-        "Small-medium field"
+        "Approximately 75 km on each of two consecutive days",
+        "Timed enduro stages",
+        "Scottish Borders forestry tracks",
+        "Recovery between ride days",
+        "Final 2027 GPX files still pending"
       ]
     },
     "gravel_god_rating": {
@@ -67,33 +76,33 @@
       "field_depth": 1,
       "value": 3,
       "expenses": 2,
-      "score_note": "Regional UK event. Scottish Borders terrain with small-medium local field.",
+      "score_note": "Regional Scottish two-day gravel festival with timed stages, strong venue experience, and limited competitive depth.",
       "discipline": "gravel",
       "display_tier": 4
     },
     "biased_opinion": {
-      "verdict": "UK Scotland Gravel",
-      "summary": "Muck n Mac Fest is a regional event in UK—Scottish Borders terrain with moderate elevation. The countryside is scenic, but the small-medium local field, regional organization, and limited prestige keep it in Tier 4.",
+      "verdict": "Scottish Gravel Weekender",
+      "summary": "Muck n Mac Fest combines two substantial Scottish Borders gravel days with timed enduro segments, transfers, camping, and a festival at Traquair House. The venue and format lift the experience, while regional field depth and limited prestige keep it in Tier 4.",
       "strengths": [
         "Scottish Borders scenery",
-        "UK gravel experience",
+        "Two-day gravel-enduro format",
         "Traquair House venue",
         "Good value",
         "British community"
       ],
       "weaknesses": [
-        "Small-medium local field",
-        "Regional organization",
+        "Regional field",
+        "Exact 2027 routes still pending",
         "Limited prestige",
         "Variable weather",
         "Rain likely"
       ],
-      "bottom_line": "A solid regional UK Scotland gravel race. Worth it for UK riders. Not worth traveling internationally for."
+      "bottom_line": "A distinctive Scottish gravel weekender for riders who want racing, transfers, camping, and festival time in one package."
     },
     "final_verdict": {
       "score": "40 / 100",
-      "one_liner": "UK Scotland gravel challenge.",
-      "should_you_race": "If you're local to UK—yes, it's solid. If you're traveling internationally—skip it.",
+      "one_liner": "Two Borders gravel days with the clock running only when it matters.",
+      "should_you_race": "Race it if a social two-day gravel enduro and festival is more appealing than one continuous mass-start sufferfest.",
       "alternatives": "For better UK races: Lauf Gritfest.",
       "alternative_slugs": [
         "lauf-gritfest"
@@ -102,91 +111,95 @@
     "logistics": {
       "airport": "Edinburgh (EDI) 90 minutes",
       "lodging_strategy": "Traquair has limited lodging. Consider Peebles.",
-      "food": "Traquair has limited dining. Stock nutrition.",
-      "packet_pickup": "Day of typically",
-      "parking": "At start/finish",
-      "official_site": "Check Muck n Mac Fest website",
-      "camping": "camping included with all weekend tickets"
+      "food": "The festival village advertises local catering, coffee, and bar service; carry the nutrition required between official support points.",
+      "packet_pickup": "Race sign-on is based at the event village; final 2027 hours are pending rider notes",
+      "parking": "Parking is included and based at the event village",
+      "official_site": "https://outsiderevents.eventrac.co.uk/e/muck-n-mac-fest-13569",
+      "camping": "Weekend camping, showers, and festival access are included with Full Weekender entries"
     },
     "history": {
-      "founded": null,
-      "founder": "Local UK organizers",
-      "origin_story": "Regional UK Scottish Borders gravel event.",
+      "founded": 2022,
+      "founder": "Outsider Events",
+      "origin_story": "A gravel-enduro and festival weekend built around Traquair House and the Tweed Valley's forestry roads and trails.",
       "notable_moments": [],
-      "reputation": "Regional UK event."
+      "reputation": "A small, highly rated Scottish gravel festival with a timed-segment format."
     },
     "course_description": {
-      "character": "UK Scottish Borders gravel.",
+      "character": "Two consecutive gravel-enduro days from Traquair House, with approximately 75 km per day, timed segments, and untimed transfers.",
       "suffering_zones": [
         {
-          "mile": 18,
-          "label": "Early Borders",
-          "desc": "First Borders sections.",
-          "terrain_detail": "Rolling",
-          "named_section": "Early Borders"
+          "mile": 0,
+          "label": "Saturday Restraint",
+          "desc": "The first 75 km day is substantial even when only selected stages are timed; avoid spending Sunday's legs in the opening transfers.",
+          "terrain_detail": "Forestry gravel and timed segments",
+          "named_section": "Day 1"
         },
         {
-          "mile": 27,
-          "label": "Midpoint",
-          "desc": "Halfway through the course.",
-          "terrain_detail": "Midpoint",
-          "named_section": "Halfway"
+          "mile": 47,
+          "label": "Festival Turnaround",
+          "desc": "The event village is the recovery checkpoint: feed, rehydrate, reset the bike, manage wet kit, and protect sleep before day two.",
+          "terrain_detail": "Between-day recovery",
+          "named_section": "Traquair House"
         },
         {
-          "mile": 45,
-          "label": "Late Borders",
-          "desc": "Final Borders sections before finish.",
-          "terrain_detail": "Late rolling",
-          "named_section": "Final Push"
+          "mile": 70,
+          "label": "Sunday Timing",
+          "desc": "Return to the timed segments on accumulated fatigue and spend effort on the clock rather than racing every transfer.",
+          "terrain_detail": "Timed enduro stages on tired legs",
+          "named_section": "Day 2"
         }
       ],
-      "signature_challenge": "UK Scottish Borders terrain.",
-      "ridewithgps_id": "50611662",
-      "ridewithgps_name": "Muck n' Mac Fest (2025) - Day 2 Long"
+      "signature_challenge": "Recovering at the festival village well enough to race Sunday's timed stages instead of merely surviving the second 75 km day.",
+      "ridewithgps_id": null,
+      "ridewithgps_name": null
     },
     "guide_variables": {
       "race_name": "Muck n Mac Fest",
-      "race_distance": "55 miles",
-      "race_elevation": "3,500 feet",
-      "race_date": "Summer",
-      "race_location": "Traquair House, Scotland, UK",
-      "race_terrain": "UK Scotland gravel",
-      "race_weather": "UK summer",
+      "race_distance": "Approximately 150 km / 93.2 miles across two days",
+      "race_elevation": "Exact 2027 gain pending the organizer's final GPX files",
+      "race_date": "May 1-2, 2027",
+      "race_location": "Traquair House, Innerleithen, Scotland",
+      "race_terrain": "Scottish Borders forestry tracks, quiet gravel, timed enduro stages, and scenic transfers",
+      "race_weather": "Variable Scottish spring with rain, mud, wind, and cold possible",
       "race_challenges": [
-        "Borders terrain",
-        "Variable weather",
-        "Rain likely",
-        "Regional field",
-        "Limited support"
+        "Two-day load management",
+        "Between-day recovery",
+        "Timed-stage pacing",
+        "Wet-surface handling",
+        "Festival-site equipment reset"
       ],
       "altitude_section": false,
       "altitude_feet": null
     },
     "non_negotiables": [
       {
-        "requirement": "Weather preparation",
-        "by_when": "Week 4-6",
-        "why": "Scottish weather is variable with rain likely."
+        "requirement": "Back-to-back gravel block",
+        "by_when": "Week 8",
+        "why": "The Long Weekender is approximately 75 km on both Saturday and Sunday."
       },
       {
-        "requirement": "Rolling endurance",
-        "by_when": "Week 6-8",
-        "why": "Scottish Borders require sustained rolling effort."
+        "requirement": "Between-day recovery routine",
+        "by_when": "Week 9",
+        "why": "Feeding, wet-kit management, bike service, and sleep after Saturday determine Sunday's timed-stage quality."
       },
       {
-        "requirement": "Self-sufficiency",
-        "by_when": "Week 4-6",
-        "why": "Limited aid stations require self-sufficiency."
+        "requirement": "Timed-stage restraint",
+        "by_when": "Week 10",
+        "why": "The enduro format rewards controlled transfers and deliberate efforts on the clock rather than constant racing."
       }
     ],
     "research_metadata": {
-      "data_confidence": "moderate",
-      "validation_status": "pending",
+      "data_confidence": "medium",
+      "validation_status": "build_ready_with_final_route_guard",
       "sources": [
-        "uk_cycling_community"
+        "https://outsiderevents.eventrac.co.uk/e/muck-n-mac-fest-13569",
+        "https://www.outsiderevents.com/scottish-gravel-riding-events",
+        "https://www.mucknmacfest.co.uk/longcourseweekender"
       ],
       "migration_notes": [
-        "Generated from regional information"
+        "Cleared on 2026-08-09 after the plan pipeline gained receipt-tested support for two consecutive event days",
+        "The 2027 organizer entry confirms dates, approximately 75 km per day, marked courses, GPX files for both days, and electronic timing, but the files and exact elevation are not yet published",
+        "The 2026 long-weekender page establishes the stable two-day gravel-enduro demand; final 2027 rider documents override all historical route details"
       ],
       "research_strength": {
         "overall": 88.4,
@@ -208,6 +221,24 @@
     },
     "training_config": {
       "workout_modifications": {
+        "stage_block": {
+          "enabled": true,
+          "stages": 2,
+          "dates": [
+            "2027-05-01",
+            "2027-05-02"
+          ],
+          "reason": "Receipt-gated TrainingPeaks customization supports two consecutive event-day workouts"
+        },
+        "recovery_rehearsal": {
+          "enabled": true,
+          "weeks": [
+            7,
+            8,
+            9,
+            10
+          ]
+        },
         "weather_training": {
           "enabled": true,
           "weeks": [
@@ -226,41 +257,34 @@
         },
         "dress_rehearsal": {
           "enabled": true,
-          "week": 8,
-          "day": "Saturday",
-          "duration_hours": {
-            "ayahuasca": 2,
-            "finisher": 3,
-            "compete": 4,
-            "podium": 5
-          }
+          "reason": "Rehearse two consecutive gravel days, timed-segment pacing, wet-surface handling, and the overnight equipment-and-recovery reset"
         }
       },
       "masterclass_topics": {
         "priority_order": [
+          "recovery",
           "pacing",
           "fueling",
-          "weather",
-          "rolling"
+          "weather"
         ],
         "race_specific": true,
         "topics": {
-          "pacing": "Borders terrain pacing",
-          "fueling": "Nutrition for rolling riding",
-          "weather": "Riding in variable Scottish weather",
-          "rolling": "Sustained rolling strategy"
+          "recovery": "Executing the Traquair House overnight reset",
+          "pacing": "Separating timed-stage effort from transfer intensity",
+          "fueling": "Moving from Saturday ride fueling into immediate Sunday preparation",
+          "weather": "Managing wet kit, traction, and temperature across two Scottish spring days"
         }
       },
       "tier_overrides": {},
       "marketplace_variables": {
         "race_name": "Muck n Mac Fest",
-        "race_hook": "UK Scotland gravel challenge.",
-        "race_hook_detail": "Regional event with Borders terrain.",
-        "distance": "55",
-        "dark_mile": "27",
-        "non_negotiable_1": "Weather preparation",
-        "non_negotiable_2": "Rolling endurance",
-        "non_negotiable_3": "Self-sufficiency",
+        "race_hook": "Two days of Scottish gravel enduro at Traquair House",
+        "race_hook_detail": "Approximately 75 km per day, timed stages, untimed transfers, camping, and a festival-village recovery reset.",
+        "distance": "93.2",
+        "dark_mile": "47",
+        "non_negotiable_1": "Back-to-back gravel block",
+        "non_negotiable_2": "Between-day recovery routine",
+        "non_negotiable_3": "Timed-stage restraint",
         "trainingpeaks_url": null
       }
     },
@@ -271,7 +295,7 @@
       },
       "length": {
         "score": 2,
-        "explanation": "The Border.200 delivers 200km with 3,500m elevation in one push, but weekend options split into manageable 75km days with untimed transfer sections between stages. Mark notes you can \"take twice as long to get value for money\" in the enduro format. The gravel enduro structure prioritizes pacing flexibility over sustained distance suffering. More compact than Grinduro."
+        "explanation": "The organizer's 2027 Long Weekender is approximately 75 km on both Saturday and Sunday, or roughly 150 km total, with untimed transfers between timed stages. Mark notes you can \"take twice as long to get value for money\" in the enduro format. The two-day structure rewards repeatability and recovery more than one continuous ultra-distance effort."
       },
       "technicality": {
         "score": 2,
@@ -279,7 +303,7 @@
       },
       "elevation": {
         "score": 2,
-        "explanation": "Long course weekends gain approximately 1,600m per day across \"steep gradients\" through ancient woodlands and moorland passes. The Border.200 accumulates 3,500m over 200km, averaging 17.5m per kilometer. Routes include \"flowing gravel descents\" but no signature climbs are identified in the terrain descriptions. Less climbing than The Mid South."
+        "explanation": "The organizer's current Long Weekender description uses more than 3,000 m across two days as the planning baseline, with steep gradients, ancient woodland, and moorland passes. Exact 2027 gain remains unpublished and is deliberately not presented as a verified edition figure."
       },
       "climate": {
         "score": 2,
@@ -295,7 +319,7 @@
       },
       "prestige": {
         "score": 2,
-        "explanation": "Fifth edition in 2026 means this thing barely has training wheels off. No pro field mentioned, no notable winners in the research dump, just a small Scottish Borders festival trying to find its identity. 400 total riders across all formats isn't drawing the cycling world's attention."
+        "explanation": "The sixth edition in 2027 is established enough to have a repeat community but remains a regional Scottish festival rather than a destination pro race. No elite field or notable winners are promoted, and full-weekend riding is capped at 400 entries."
       },
       "race_quality": {
         "score": 2,
@@ -311,15 +335,15 @@
       },
       "field_depth": {
         "score": 1,
-        "explanation": "Border.200 caps at 200 riders with weekend options splitting the remaining 200 spaces across multiple formats. No competitive categories, timing splits, or notable racers mentioned in rider reports. Al C describes \"friendly staff\" and Mark notes it works for \"pros and people like me who take twice as long,\" confirming participation-focused rather than competitive depth. Thinner field than Ouray Gravel Grinder."
+        "explanation": "The organizer caps full-weekend riding at 400 entries and day-only riding at 50 entries per day. No elite field or notable racers are promoted. Al C describes \"friendly staff\" and Mark notes it works for \"pros and people like me who take twice as long,\" confirming participation-focused rather than elite depth."
       },
       "value": {
         "score": 3,
-        "explanation": "£72-80 for the Border.200 with free camping is reasonable for a weekend in Scotland. Full weekend packages at £110-125 include multiple ride days, camping, and festival access. You're paying for the experience package, not just bike racing, which works if that's what you want."
+        "explanation": "The first 100 2027 Full Weekender entries are listed at £110 and include two marked ride days, timing, both GPX files, camping, showers, parking, and festival access. You're paying for the complete weekend rather than only a start number."
       },
       "expenses": {
         "score": 2,
-        "explanation": "Registration runs £70-90. Scottish Borders location requires 6-hour drive from London, 1.5 hours from Edinburgh. Free camping controls accommodation costs but food runs festival pricing. Aid stations rated 3.87/5 suggest planning for self-sufficiency between stops. Course navigation scored 4.12/5 with GPX files provided, reducing gear uncertainty. Higher total cost than Badlands."
+        "explanation": "The current early Full Weekender price is £110. The Scottish Borders location is roughly 1.5 hours from Edinburgh; included camping, parking, and showers control accommodation costs, while travel and festival food remain the main extras."
       }
     },
     "citations": [
@@ -377,7 +401,7 @@
           "tire_id": "specialized-pathfinder-pro",
           "name": "Specialized Pathfinder Pro",
           "brand": "Specialized",
-          "recommended_width_mm": 38,
+          "recommended_width_mm": 40,
           "msrp_usd": 54.99,
           "weight_grams": 380,
           "crr_watts": 32.0,
@@ -416,12 +440,12 @@
         "rear": {
           "tire_id": "specialized-pathfinder-pro",
           "name": "Specialized Pathfinder Pro",
-          "width_mm": 38
+          "width_mm": 40
         },
         "rationale": "Faster front for reduced rolling resistance on straights, grippier rear for traction on loose climbs and corners"
       },
       "race_surface_profile": "mixed",
-      "recommended_width_mm": 38,
+      "recommended_width_mm": 40,
       "pressure_psi": {
         "140_160lb_dry": "36-40",
         "140_160lb_mixed": "33-37",

@@ -31,6 +31,7 @@ from generate_race_pack_previews import (
     TOP_N_DEFAULT,
     TOP_N_MIN,
     calculate_category_scores,
+    generate_race_overlay,
     generate_pack_summary,
     generate_preview,
     generate_preview_from_file,
@@ -364,6 +365,22 @@ class TestPreviewGeneration:
         preview = generate_preview(data)
         scores = [tc["score"] for tc in preview["top_categories"]]
         assert scores == sorted(scores, reverse=True)
+
+    def test_low_altitude_rating_does_not_prescribe_acclimatization(self):
+        """A low altitude demand must not invent an acclimatization protocol."""
+        race = _make_race()["race"]
+
+        overlay = generate_race_overlay(race, {"altitude": 4})
+
+        assert "altitude" not in overlay
+
+    def test_moderate_altitude_rating_prescribes_short_acclimatization(self):
+        """A genuinely moderate altitude demand keeps the shorter protocol."""
+        race = _make_race()["race"]
+
+        overlay = generate_race_overlay(race, {"altitude": 6})
+
+        assert overlay["altitude"].startswith("Moderate altitude")
 
 
 # ── TestPreviewForRealRaces (integration) ─────────────────────────────

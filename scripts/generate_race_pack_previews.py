@@ -411,7 +411,7 @@ def generate_race_overlay(race: dict, demands: dict) -> dict:
             f"Increase iron intake 4 weeks out. "
             f"Hydrate aggressively \u2014 altitude increases fluid loss by 20\u201340%.{challenge_line}"
         )
-    elif alt_score >= 4:
+    elif alt_score >= 6:
         overlay['altitude'] = (
             f"Moderate altitude at {race_name}. "
             f"Arrive 2\u20133 days early. Reduce intensity expectations by 5\u201310%. "

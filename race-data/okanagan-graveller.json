@@ -15,22 +15,22 @@
       "county": "Central Okanagan",
       "date": "June 27, 2027",
       "date_specific": "2027: June 27",
-      "course_status": "source_blocked",
-      "pack_status": "unavailable",
-      "course_status_label": "2027 ROUTES PENDING",
-      "course_status_reason": "The organizer has confirmed the date and three distances, but says Ride With GPS routes are coming in fall. Its 2027 page also lists both approximately 2,000 m and 2,400 m for the 120 km Boulder, so no race-specific plan is for sale until the route and gain agree.",
+      "course_status": "2027 date, venue, distance, and demands confirmed; final map and exact gain pending",
+      "pack_status": "pending",
+      "course_status_label": "2027 CORE VERIFIED",
+      "course_status_reason": "The organizer confirms June 27, 2027 at Telemark Nordic Club, the 120 km Boulder, sustained mountain climbing, rugged forest service roads, fast gravel descents, stocked refuel stations, and a 2 p.m. final-refuel cutoff. The promised Ride With GPS map is still pending and the page currently lists both approximately 2,000 m and 2,400 m of climbing, so the plan preserves elevation as unknown and defers the exact route to the final rider documents.",
       "terrain_types": [
         "Forest service roads",
         "Sustained mountain climbs",
         "Rugged gravel",
         "Fast gravel descents"
       ],
-      "field_size": "Not published for 2027",
+      "field_size": "The organizer caps the three-distance event at 600; the Boulder-specific cap is not published",
       "start_time": "Not published for 2027",
       "registration": "2027 registration is open; current price was not exposed on the organizer page",
       "prize_purse": "Podium recognition and sponsor draw prizes; no cash purse published",
-      "aid_stations": "Not published for 2027",
-      "cutoff_time": "Not published for 2027",
+      "aid_stations": "Stocked refuel stations with water, electrolytes, fruit, and sweet and savoury snacks; exact 2027 locations are pending the route maps",
+      "cutoff_time": "2:00 p.m. at the last refuel station",
       "lat": 49.8625,
       "lng": -119.5836,
       "route_options": [
@@ -41,7 +41,7 @@
     },
     "climate": {
       "primary": "Interior British Columbia summer",
-      "description": "The organizer does not publish a 2027 temperature range. Prepare for exposed summer heat at lower elevations and cooler, rapidly changing conditions on the forest-road climbs.",
+      "description": "The organizer says June mountain conditions can include sunshine, wind, rain, heat, or all four in one day. Prepare for exposed summer heat at lower elevations and cooler, rapidly changing conditions on the forest-road climbs.",
       "challenges": [
         "Dry summer heat",
         "Mountain weather changes",
@@ -83,8 +83,8 @@
       "display_tier": 2
     },
     "biased_opinion": {
-      "verdict": "Promising, Mountainous, Not Yet Final",
-      "summary": "Telemark Nordic Club gives this race a much sharper identity than a generic valley gravel ride: long forest-road climbs, real backcountry, and three distances with podium categories. The date is firm. The course is not. The page currently contradicts itself on the Boulder elevation, and the actual 2027 maps are still promised for fall.",
+      "verdict": "Backcountry Climbing Test",
+      "summary": "Telemark Nordic Club gives this race a much sharper identity than a generic valley gravel ride: 120 km of long forest-road climbs, rugged backcountry, fast gravel descents, timed results, and real podium categories. The stable demands are specific enough to train now. The page currently contradicts itself on the Boulder elevation, so the plan and guide leave exact gain and route execution to the promised final maps.",
       "strengths": [
         "Confirmed Sunday date",
         "Timed results and age-group podiums",
@@ -95,15 +95,15 @@
       "weaknesses": [
         "No published 2027 GPX",
         "Conflicting Boulder elevation figures",
-        "No published 2027 start, aid, or cutoff details",
+        "No published 2027 start time or final aid-station map",
         "Young event with limited field-depth evidence"
       ],
-      "bottom_line": "Put it on the calendar, but do not buy a course-specific training plan until the organizer publishes the promised maps and one authoritative gain figure."
+      "bottom_line": "Train the stable challenge now: 120 km of sustained mountain climbing, rugged forest roads, fast loose descents, backcountry fueling, and variable June weather. Use the final rider documents for exact elevation, turns, and aid locations."
     },
     "final_verdict": {
       "score": "60 / 100",
-      "one_liner": "A credible Okanagan mountain-gravel race whose 2027 course still needs one clean source of truth.",
-      "should_you_race": "Yes if you want a community-forward mountain gravel weekend in British Columbia and can tolerate waiting for the final route.",
+      "one_liner": "A 120 km Okanagan mountain-gravel race where sustained climbing, backcountry fueling, and late loose-surface descending decide the day.",
+      "should_you_race": "Yes if you want a community-forward mountain gravel weekend in British Columbia. The date, venue, distance, climbing-heavy character, support model, and cutoff are firm enough to prepare for; verify the final map and gain before race week.",
       "alternatives": "For an established Canadian mountain-gravel benchmark, compare The Last Best Ride or one of the Triple Crown of Gravel events.",
       "alternative_slugs": [
         "the-last-best-ride"
@@ -112,7 +112,7 @@
     "logistics": {
       "airport": "Kelowna International Airport (YLW); verify the final venue instructions before booking transfers",
       "lodging_strategy": "Stay in West Kelowna or Kelowna; the organizer advertises on-site camping at Telemark Nordic Club",
-      "food": "Plan self-sufficient climbing nutrition until the 2027 aid-station schedule is published",
+      "food": "The organizer promises stocked refuel stations, but riders should still rehearse self-sufficient climbing nutrition until the final locations are published",
       "packet_pickup": "Not published for 2027",
       "parking": "Not published for 2027",
       "official_site": "https://okanagangraveller.com/"
@@ -167,14 +167,14 @@
     ],
     "research_metadata": {
       "data_confidence": "medium",
-      "validation_status": "source_blocked",
+      "validation_status": "build_ready",
       "sources": [
         "https://okanagangraveller.com/"
       ],
       "migration_notes": [
         "New race discovered during the August 2026 final-catalog audit",
         "Stored the confirmed 2027 date and distances but left elevation null because the official page contradicts itself",
-        "No TrainingPeaks fleet until the promised 2027 route maps are published and verified"
+        "Cleared for a Climber plan ladder on 2026-08-09 because the confirmed date, venue, 120 km distance, terrain, support model, and cutoff establish the stable training demands; final route and exact gain remain explicit race-week verification items"
       ]
     },
     "biased_opinion_ratings": {
@@ -197,7 +197,7 @@
       "workout_modifications": {
         "sustained_climbing": {"enabled": true, "weeks": [7, 8, 9, 10]},
         "gravel_descending": {"enabled": true, "weeks": [8, 9, 10]},
-        "dress_rehearsal": {"enabled": false, "reason": "Awaiting authoritative 2027 route and elevation"}
+        "dress_rehearsal": {"enabled": true, "reason": "Rehearse the confirmed 120 km climbing, backcountry fueling, variable mountain weather, and loose-descending demands; use the final route map for turn-by-turn specificity"}
       },
       "masterclass_topics": {
         "priority_order": ["climbing", "fueling", "handling", "pacing"],

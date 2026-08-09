@@ -15,10 +15,10 @@
       "county": "Sarah Baartman District",
       "date": "April 24-26, 2027",
       "date_specific": "2027: April 24-26",
-      "course_status": "source_blocked",
-      "pack_status": "unavailable",
-      "course_status_label": "STAGE PLAN UNSUPPORTED",
-      "course_status_reason": "The organizer confirms the 2027 window and publishes three stage summaries totaling 303 km and 3,770 m, but some page copy still references the postponed 2026 edition. The current TrainingPeaks pipeline models one race day, not three consecutive race stages.",
+      "course_status": "verified",
+      "pack_status": "pending",
+      "course_status_label": "2027 THREE-STAGE ROUTE VERIFIED",
+      "course_status_reason": "The organizer's current pages confirm April 24-26, 2027, open registration, and publish three consecutive stages totaling 303 km and 3,770 m. Some lower-page labels still say 2026 after the inaugural edition was postponed, so the current header, registration record, and any final 2027 rider documents override stale labels.",
       "terrain_types": [
         "Great Karoo gravel roads",
         "Long open climbs",
@@ -170,7 +170,7 @@
     ],
     "research_metadata": {
       "data_confidence": "medium",
-      "validation_status": "source_blocked",
+      "validation_status": "verified_with_stale_label_guard",
       "sources": [
         "https://kindling-gravel.com/",
         "https://kindling-gravel.com/route/",
@@ -179,7 +179,7 @@
       "migration_notes": [
         "New race discovered during the August 2026 final-catalog audit",
         "Totals are calculated from the organizer's three published stage figures",
-        "No TrainingPeaks fleet until the pipeline supports three consecutive race days and the official pages consistently name the 2027 edition"
+        "TrainingPeaks stage support verified in the pipeline on 2026-08-09; the current 2027 page header and registration record override stale 2026 body labels"
       ]
     },
     "biased_opinion_ratings": {
@@ -200,9 +200,9 @@
     },
     "training_config": {
       "workout_modifications": {
-        "stage_block": {"enabled": false, "reason": "Current pipeline supports one Race Day, not three consecutive race stages"},
+        "stage_block": {"enabled": true, "stages": 3, "dates": ["2027-04-24", "2027-04-25", "2027-04-26"], "reason": "Receipt-gated TrainingPeaks customization supports three consecutive stage workouts"},
         "recovery_rehearsal": {"enabled": true, "weeks": [7, 8, 9, 10]},
-        "dress_rehearsal": {"enabled": false, "reason": "Requires a multi-day training-plan model"}
+        "dress_rehearsal": {"enabled": true, "reason": "Use the Ultra master progression and overnight-recovery rehearsals before the three-stage race block"}
       },
       "masterclass_topics": {
         "priority_order": ["recovery", "pacing", "fueling", "travel"],

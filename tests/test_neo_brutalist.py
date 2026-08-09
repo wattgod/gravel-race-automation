@@ -62,6 +62,37 @@ from generate_neo_brutalist import (
 
 
 class TestSeoMetadata:
+    def test_seo_title_uses_confirmed_event_year(self, normalized_data):
+        normalized_data["vitals"]["date"] = "June 11, 2027"
+        normalized_data["vitals"]["date_specific"] = (
+            "2027: Friday, June 11 at 8:00 AM Mountain Time"
+        )
+        assert "Review 2027" in build_seo_title(normalized_data)
+
+    def test_long_meta_tagline_stops_at_complete_clause(self):
+        rd = {
+            "tagline": (
+                "Closed roads, 2,400 meters of climbing, and 111 mountainous "
+                "kilometers in Brazil's Serra do Mar."
+            ),
+            "overall_score": 64,
+            "tier": 2,
+            "vitals": {"location": "Cunha, São Paulo, Brazil"},
+        }
+        description = build_seo_description(rd)
+        assert description.startswith("Closed roads, 2,400 meters of climbing.")
+        assert "111 mountainous." not in description
+        assert len(description) <= 155
+
+    def test_single_day_calendar_uses_exclusive_next_day_end(self, normalized_data):
+        normalized_data["vitals"]["date_specific"] = (
+            "2027: Friday, June 11 at 8:00 AM Mountain Time"
+        )
+        html = build_course_overview(normalized_data)
+        assert "dates=20270611/20270612" in html
+        assert "DTSTART;VALUE=DATE:20270611" in html
+        assert "DTEND;VALUE=DATE:20270612" in html
+
     def test_per_race_overrides_are_emitted(self, sample_race_data):
         sample_race_data["race"]["seo"] = {
             "title": "Test Gravel 100: Course & Tire Guide",

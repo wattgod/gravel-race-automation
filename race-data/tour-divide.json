@@ -10,8 +10,8 @@
       "location": "Banff, Alberta to Antelope Wells, New Mexico",
       "location_badge": "BANFF TO MEXICO",
       "county": "Continental Divide (5 US states, 2 Canadian provinces)",
-      "date": "Second Friday in June annually (Grand Depart)",
-      "date_specific": "2026: Friday, June 12th at 8AM",
+      "date": "June 11, 2027 (Grand Depart)",
+      "date_specific": "2027: Friday, June 11 at 8:00 AM Mountain Time",
       "terrain_types": [
         "Gravel roads",
         "Forest service roads",
@@ -185,6 +185,17 @@
       "official_site": "https://tourdivide.org",
       "camping": "Campground\n- After summit, 13 miles riding above 11,000 ft\n- Curvy gravel road through colored aspens\n\n**Fleecer Ridge (Montana):**"
     },
+    "eligibility": {
+      "status": "active",
+      "verified": "2026-08-09",
+      "source": "https://tourdivide.org/the_rules",
+      "status_note": "Tour Divide's official rules define the southbound Grand Depart as the second Friday in June every year. In 2027 that recurrence falls on June 11. Letters of intent are accepted annually from the winter solstice until the Grand Depart, and year-round individual time trials remain eligible for the general classification."
+    },
+    "source_review": {
+      "reviewed_at": "2026-08-09",
+      "race_date": "2027-06-11",
+      "facts_scope": "The 2027 Grand Depart date is resolved directly from the organizer's annual second-Friday-in-June rule, not projected from a third-party calendar. The current official rules confirm the solo, self-supported, one-stage format, equal-opportunity requirements, and no formal cutoff. Route totals remain the current profile values until the organizer or Adventure Cycling publishes a superseding 2027 route notice."
+    },
     "history": {
       "founded": 2008,
       "founder": "Matthew Lee (expanded from Mike Curiak's Great Divide Race)",
@@ -337,9 +348,19 @@
         "label": "Rambleur"
       },
       {
-        "url": "http://tourdivide.org/the_rules",
-        "category": "other",
-        "label": "Tourdivide"
+        "url": "https://tourdivide.org/the_rules",
+        "category": "official",
+        "label": "Tour Divide official rules and annual Grand Depart recurrence"
+      },
+      {
+        "url": "https://tourdivide.org/about",
+        "category": "official",
+        "label": "Tour Divide official route and Grand Depart overview"
+      },
+      {
+        "url": "https://tourdivide.org/contact",
+        "category": "official",
+        "label": "Tour Divide official annual letters-of-intent window"
       },
       {
         "url": "https://bikepacking.com/routes/great-divide-mountain-bike-route-gdmbr/",

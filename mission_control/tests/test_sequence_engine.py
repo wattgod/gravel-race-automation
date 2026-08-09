@@ -501,6 +501,37 @@ class TestUnsubscribe:
         count = unsubscribe("nobody@example.com")
         assert count == 0
 
+    def test_unsubscribed_contact_cannot_be_reenrolled(self, fake_db):
+        """unsubscribe() only pauses active enrollments — the enroll-time
+        guard is what stops a later job (countdown, debrief, win-back)
+        from re-enrolling an unsubscribed contact into fresh marketing."""
+        from mission_control.services.sequence_engine import enroll
+
+        email = "optout@example.com"
+        e = make_enrollment(contact_email=email, status="unsubscribed",
+                            sequence_id="nurture_v1")
+        fake_db.store["gg_sequence_enrollments"].append(e)
+
+        result = enroll(email, "Opt Out", "race_debrief_v1", source="race_debrief")
+        assert result is None
+        seq_ids = {r["sequence_id"] for r in fake_db.store["gg_sequence_enrollments"]}
+        assert "race_debrief_v1" not in seq_ids
+
+    def test_unsubscribed_contact_still_gets_post_purchase(self, fake_db):
+        """Post-purchase is transactional — a marketing opt-out must not
+        block the plan-delivery sequence."""
+        from mission_control.services.sequence_engine import enroll
+
+        email = "optout-buyer@example.com"
+        e = make_enrollment(contact_email=email, status="unsubscribed",
+                            sequence_id="nurture_v1")
+        fake_db.store["gg_sequence_enrollments"].append(e)
+
+        result = enroll(email, "Opt Out Buyer", "post_purchase_v1",
+                        source="plan_purchased")
+        assert result is not None
+        assert result["sequence_id"] == "post_purchase_v1"
+
 
 class TestUnsubscribeTokens:
     """HMAC-based unsubscribe token generation and verification."""

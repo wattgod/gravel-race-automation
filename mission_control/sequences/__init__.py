@@ -17,6 +17,7 @@ from mission_control.sequences.road_nurture import SEQUENCE as road_nurture
 from mission_control.sequences.road_race_specific import SEQUENCE as road_race_specific
 from mission_control.sequences.road_post_purchase import SEQUENCE as road_post_purchase
 from mission_control.sequences.race_countdown import GG_8, GG_16, RL_8, RL_16
+from mission_control.sequences.race_debrief import GG_DEBRIEF, RL_DEBRIEF
 from mission_control.sequences.xc_welcome import SEQUENCE as xc_welcome
 from mission_control.sequences.xc_win_back import SEQUENCE as xc_win_back
 
@@ -36,6 +37,8 @@ SEQUENCES: dict[str, dict] = {
     GG_8["id"]: GG_8,
     RL_16["id"]: RL_16,
     RL_8["id"]: RL_8,
+    GG_DEBRIEF["id"]: GG_DEBRIEF,
+    RL_DEBRIEF["id"]: RL_DEBRIEF,
     xc_welcome["id"]: xc_welcome,
     xc_win_back["id"]: xc_win_back,
 }

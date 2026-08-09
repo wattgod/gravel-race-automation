@@ -35,3 +35,13 @@ async def race_countdown():
         await run_race_countdown()
     except Exception as e:
         logger.error("Race countdown failed: %s", e)
+
+
+@scheduler.scheduled_job("cron", hour=14, minute=30, id="race_debrief")
+async def race_debrief():
+    """Daily post-race debrief enrollment (14:30 UTC, after countdown)."""
+    from mission_control.services.race_debrief import run_race_debrief
+    try:
+        await run_race_debrief()
+    except Exception as e:
+        logger.error("Race debrief failed: %s", e)

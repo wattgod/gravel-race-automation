@@ -43,6 +43,12 @@ _MAX_ENROLLMENTS_PER_RUN = 200
 # Last-good cache so one bad fetch doesn't blank a brand for the day.
 _dates_cache: dict[str, dict[str, str]] = {}
 
+# SiteGround (and roadielabs' host) bot-filter 403s library default UAs
+# (Python-urllib/*, "Mozilla (compatible; ...)"). A plain identifying UA
+# passes. Without this every fetch 403'd and the job aborted daily —
+# silently — from the day it shipped.
+_USER_AGENT = "GG-MissionControl/1.0"
+
 
 def classify_weeks(weeks_out: float) -> int | None:
     """Map weeks-to-race onto a countdown tier, or None if out of window."""
@@ -56,7 +62,8 @@ def _fetch_dates_sync() -> dict[str, dict[str, str]]:
     """Fetch each brand's race-dates.json; fall back to last-good on failure."""
     for brand, url in RACE_DATES_URLS.items():
         try:
-            with urllib.request.urlopen(url, timeout=10) as resp:
+            req = urllib.request.Request(url, headers={"User-Agent": _USER_AGENT})
+            with urllib.request.urlopen(req, timeout=10) as resp:
                 _dates_cache[brand] = json.load(resp)
         except Exception as e:
             logger.warning("race-dates fetch failed for %s (%s): %s — using cache (%d entries)",
@@ -99,6 +106,11 @@ async def run_race_countdown(today: date | None = None) -> dict:
     dates = await asyncio.to_thread(_fetch_dates_sync)
     if not any(dates.values()):
         logger.error("race-countdown: no race dates available for any brand — aborting run")
+        # Surface the abort where an operator will actually see it. This
+        # exact path failed silently for weeks (403'd fetches) with the only
+        # evidence buried in Railway logs.
+        db.log_action("race_countdown_aborted", "sequence", "",
+                      "no race dates available for any brand — fetches failed")
         return summary
 
     enrollments = db.select(

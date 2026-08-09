@@ -158,3 +158,12 @@ BODY:
 What worked, what did not? We are always curious how people run the offseason.
 
 — Matti
+
+### race_debrief · day 0 · road_race_debrief   (daily job services/race_debrief.py — race passed 3–180 days ago; {when_phrase} supplied by the job; friend-test 4/5)
+SUBJECT: how did {race_name} go?
+BODY:
+{greeting} did you race {race_name} {when_phrase}? Happy with how it went?
+
+What held up, what did not? If the day came apart — pacing, fueling, the back half — tell me what happened.
+
+— Matti

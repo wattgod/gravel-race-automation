@@ -94,6 +94,21 @@ def enroll(
     if existing:
         return None
 
+    # Contact-level unsubscribe guard. unsubscribe() only pauses the
+    # enrollments that are active at that moment — without this check any
+    # later job (countdown, debrief, win-back) would re-enroll an
+    # unsubscribed contact into a fresh marketing sequence. Post-purchase
+    # triggers stay exempt (transactional).
+    if seq.get("trigger") not in _POST_PURCHASE_TRIGGERS:
+        unsubbed = db.select_one(
+            "gg_sequence_enrollments",
+            match={"contact_email": email, "status": "unsubscribed"},
+        )
+        if unsubbed:
+            logger.info("enroll blocked (unsubscribed contact): %s -> %s",
+                        email, sequence_id)
+            return None
+
     # Assign variant by weight
     variant = _pick_variant(seq["variants"])
     steps = seq["variants"][variant]["steps"]

@@ -145,8 +145,46 @@ class TestRunRaceCountdown:
 
     def test_aborts_when_no_dates(self):
         p1, p2, p3, p4 = self._base_patches({"gravelgod": {}, "roadielabs": {}}, [])
-        with p1, p2, p3, p4, patch(
+        with p1, p2, p3, p4 as mock_log, patch(
                 "mission_control.services.race_countdown.enroll") as mock_enroll:
             summary = _run(run_race_countdown(today=date(2026, 7, 1)))
         assert summary["enrolled"] == 0
         mock_enroll.assert_not_called()
+        # The abort must surface in the audit log, not just process logs —
+        # this exact path failed silently every day for weeks.
+        actions = {c.args[0] for c in mock_log.call_args_list}
+        assert "race_countdown_aborted" in actions
+
+
+class TestFetchDatesUserAgent:
+    def test_fetch_sends_identifying_user_agent(self):
+        """SiteGround 403s Python-urllib's default UA. The fetch must send
+        an identifying UA or the job aborts daily with an empty cache —
+        which is exactly what happened in prod from the day this shipped."""
+        from mission_control.services import race_countdown as rc
+
+        captured = []
+
+        class _Resp:
+            def read(self):
+                return b"{}"
+            def __enter__(self):
+                return self
+            def __exit__(self, *a):
+                return False
+
+        def fake_urlopen(req, timeout=None):
+            captured.append(req)
+            return _Resp()
+
+        with patch("mission_control.services.race_countdown.urllib.request.urlopen",
+                   side_effect=fake_urlopen):
+            rc._fetch_dates_sync()
+
+        assert captured, "fetch made no requests"
+        import urllib.request as ur
+        for req in captured:
+            assert isinstance(req, ur.Request), "must pass a Request (with headers), not a bare URL"
+            ua = req.get_header("User-agent", "")
+            assert ua == rc._USER_AGENT
+            assert not ua.lower().startswith("python-urllib")

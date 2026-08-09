@@ -1,9 +1,9 @@
 {
   "slug": "croatan-buck-fifty",
   "race_name": "Croatan Buck Fifty",
-  "distance_mi": 150.0,
+  "distance_mi": 139.0,
   "demands": {
-    "durability": 8,
+    "durability": 6,
     "climbing": 2,
     "vo2_power": 5,
     "threshold": 7,
@@ -21,11 +21,11 @@
         "Double Day Simulation",
         "Progressive Fatigue"
       ],
-      "workout_context": "150 miles. Your legs will beg to quit after 120. This trains the power output you need from mile 130 onward."
+      "workout_context": "At mile 60 of 139, glycogen is gone. This workout teaches your body to produce watts on fumes."
     },
     {
       "category": "TT_Threshold",
-      "score": 73,
+      "score": 89,
       "workouts": [
         "Single Sustained Threshold",
         "Threshold Ramps",
@@ -35,16 +35,16 @@
     },
     {
       "category": "Gravel_Specific",
-      "score": 73,
+      "score": 89,
       "workouts": [
         "Surge and Settle",
         "Terrain Microbursts"
       ],
-      "workout_context": "Croatan Buck Fifty's Croatan National Forest gravel (90%), Dirt roads (10%) forces constant power changes. Surge over the rough stuff, settle on the smooth, repeat for 150 miles."
+      "workout_context": "Croatan Buck Fifty's Croatan National Forest gravel (90%), Dirt roads (10%) forces constant power changes. Surge over the rough stuff, settle on the smooth, repeat for 139 miles."
     },
     {
       "category": "Race_Simulation",
-      "score": 73,
+      "score": 89,
       "workouts": [
         "Breakaway Simulation",
         "Variable Pace Chaos",
@@ -53,28 +53,18 @@
       "workout_context": "Race-pace efforts that mimic Croatan Buck Fifty's demands. Pacing, fueling, and tactical decisions under fatigue. Practice the race before March."
     },
     {
-      "category": "HVLI_Extended",
-      "score": 61,
-      "workouts": [
-        "HVLI Extended Z2",
-        "Multi-Hour Z2",
-        "Back-to-Back Long"
-      ],
-      "workout_context": "150 miles rewards fat oxidation. This volume work shifts your fuel mix so you're still burning fat at hour 5, not bonking at hour 3."
-    },
-    {
       "category": "VO2max",
-      "score": 61,
+      "score": 74,
       "workouts": [
         "5x3 VO2 Classic",
         "Descending VO2 Pyramid",
         "Norwegian 4x8"
       ],
-      "workout_context": "5,000ft of climbing means repeated surges above threshold. VO2max work is how you survive the fifth climb, not just the first."
+      "workout_context": "When someone attacks on croatan National Forest\u2014flat coastal gravel,, you have 10 seconds to respond or you're off the back. This builds that response."
     },
     {
       "category": "G_Spot",
-      "score": 59,
+      "score": 72,
       "workouts": [
         "G-Spot Standard",
         "G-Spot Extended",
@@ -83,26 +73,8 @@
       "workout_context": "88\u201392% FTP is where you'll spend the hardest sustained miles of Croatan Buck Fifty. Train it until it feels boring."
     },
     {
-      "category": "Endurance",
-      "score": 58,
-      "workouts": [
-        "Pre-Race Openers",
-        "Terrain Simulation Z2"
-      ],
-      "workout_context": "Every hard session works better with a bigger aerobic base. At 150 miles, base fitness is the difference between racing and surviving."
-    },
-    {
-      "category": "Blended",
-      "score": 55,
-      "workouts": [
-        "Z2 + VO2 Combo",
-        "Endurance with Spikes"
-      ],
-      "workout_context": "Endurance with intensity spikes baked in. Exactly what 5,000ft of climbing on croatan National Forest\u2014flat coastal gravel, does to your power file on race day."
-    },
-    {
       "category": "Over_Under",
-      "score": 47,
+      "score": 57,
       "workouts": [
         "Classic Over-Unders",
         "Ladder Over-Unders"
@@ -111,7 +83,7 @@
     },
     {
       "category": "Critical_Power",
-      "score": 47,
+      "score": 57,
       "workouts": [
         "Above CP Repeats",
         "W-Prime Depletion"
@@ -119,19 +91,47 @@
       "workout_context": "How long can you hold 105% FTP before you blow? At Croatan Buck Fifty, that number decides whether you bridge or get dropped."
     },
     {
-      "category": "Tempo",
-      "score": 45,
+      "category": "HVLI_Extended",
+      "score": 56,
       "workouts": [
-        "Tempo Blocks",
-        "Extended Tempo"
+        "HVLI Extended Z2",
+        "Multi-Hour Z2",
+        "Back-to-Back Long"
       ],
-      "workout_context": "Tempo is Croatan Buck Fifty's race pace. The wattage you'll hold for 150 miles on croatan National Forest\u2014flat coastal gravel,. Train it until it's automatic."
+      "workout_context": "139 miles rewards fat oxidation. This volume work shifts your fuel mix so you're still burning fat at hour 5, not bonking at hour 3."
+    },
+    {
+      "category": "Endurance",
+      "score": 56,
+      "workouts": [
+        "Pre-Race Openers",
+        "Terrain Simulation Z2"
+      ],
+      "workout_context": "Every hard session works better with a bigger aerobic base. At 139 miles, base fitness is the difference between racing and surviving."
+    },
+    {
+      "category": "Blended",
+      "score": 56,
+      "workouts": [
+        "Z2 + VO2 Combo",
+        "Endurance with Spikes"
+      ],
+      "workout_context": "Long rides with hard efforts mixed in. Simulates what Croatan Buck Fifty's croatan National Forest\u2014flat coastal gravel, actually does to you."
+    },
+    {
+      "category": "Anaerobic_Capacity",
+      "score": 52,
+      "workouts": [
+        "2min Killers",
+        "90sec Repeats"
+      ],
+      "workout_context": "2-minute all-out efforts on croatan National Forest\u2014flat coastal gravel,. Closing gaps, responding to attacks, sprinting for position. Train the burn."
     }
   ],
   "race_overlay": {
-    "nutrition": "Ultra-distance fueling for 150 miles: 80\u2013100g carbs/hour from mile 1 \u2014 don\u2019t wait until you\u2019re hungry. Practice your exact race-day nutrition in every long training ride. Carry backup calories. 150 miles burns 8,000\u201312,000+ calories \u2014 you cannot replace them all, but you must try.",
+    "nutrition": "Target 60\u201380g carbs/hour for Croatan Buck Fifty\u2019s 139 miles. Start fueling within the first 30 minutes \u2014 early fueling prevents late-race collapse. Bonking at mile 60 is a nutrition failure, not a fitness failure.",
     "terrain": "Mixed terrain at Croatan Buck Fifty requires surface adaptability. Include weekly rides on croatan national forest\u2014flat coastal gravel, sandy terrain to build confidence. Expect: croatan national forest gravel (90%), dirt roads (10%), flat coastal terrain."
   },
-  "pack_summary": "This 10-workout pack focuses on Durability, TT Threshold, and Gravel Specific to prepare you for 150 miles of croatan national forest\u2014flat coastal gravel, sandy terrain in New Bern, North Carolina (Croatan National Forest).",
-  "generated_at": "2026-03-06"
+  "pack_summary": "This 10-workout pack focuses on Durability, TT Threshold, and Gravel Specific to prepare you for 139 miles of croatan national forest\u2014flat coastal gravel, sandy terrain in Swansboro, North Carolina.",
+  "generated_at": "2026-08-08"
 }

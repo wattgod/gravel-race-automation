@@ -30,6 +30,27 @@ class TestDebriefSequences:
         assert sequence_brand(SEQUENCES["race_debrief_v1"]) == "gravelgod"
         assert sequence_brand(SEQUENCES["road_race_debrief_v1"]) == "roadielabs"
 
+    def test_gravel_ab_variants_split_evenly_same_subject(self):
+        """A/B tests the body only — subject held constant so the split
+        isolates one variable. Road stays single-variant (no test power)."""
+        variants = SEQUENCES["race_debrief_v1"]["variants"]
+        assert set(variants) == {"A", "B"}
+        assert variants["A"]["weight"] == variants["B"]["weight"] == 50
+        subjects = {v["steps"][0]["subject"] for v in variants.values()}
+        assert len(subjects) == 1
+        templates = {v["steps"][0]["template"] for v in variants.values()}
+        assert templates == {"race_debrief", "race_debrief_minimal"}
+        assert set(SEQUENCES["road_race_debrief_v1"]["variants"]) == {"A"}
+
+    def test_all_variant_templates_exist(self):
+        from mission_control.config import WEB_TEMPLATES_DIR
+        for seq_id in ("race_debrief_v1", "road_race_debrief_v1"):
+            for v in SEQUENCES[seq_id]["variants"].values():
+                for step in v["steps"]:
+                    path = (WEB_TEMPLATES_DIR / "emails" / "sequences"
+                            / f"{step['template']}.html")
+                    assert path.exists(), f"missing template: {step['template']}"
+
     def test_not_reachable_from_subscriber_triggers(self):
         for trigger in ("new_subscriber", "prep_kit_download", "quiz_completed"):
             for brand in ("gravelgod", "roadielabs"):

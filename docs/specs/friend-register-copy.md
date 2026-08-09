@@ -164,11 +164,18 @@ I'm always curious how people approach the offseason.
 
 — Matti
 
-### race_debrief · day 0 · race_debrief   (daily job services/race_debrief.py — race passed 3–180 days ago; {when_phrase} supplied by the job: "the other weekend" / "a few weeks back" / "back in {Month}"; friend-test 5/5)
+### race_debrief · day 0 · race_debrief   (VARIANT A "Honest read", weight 50 — daily job services/race_debrief.py, race passed 3–180 days ago; {when_phrase} supplied by the job: "the other weekend" / "a few weeks back" / "back in {Month}"; friend-test 5/5)
 SUBJECT: how'd {race_name} go?
 BODY:
 {greeting} did you end up racing {race_name} {when_phrase}? Happy with how it went?
 
 What went well, what went badly? If something fell apart — pacing, fueling, the back half — tell me what happened and I'll give you my honest read.
+
+— Matti
+
+### race_debrief · day 0 · race_debrief_minimal   (VARIANT B "Bare question", weight 50 — same subject so the split isolates the body; tests whether the diagnostic frame earns replies or the bare friend question beats it; friend-test 5/5)
+SUBJECT: how'd {race_name} go?
+BODY:
+{greeting} did you end up racing {race_name} {when_phrase}? How'd it go?
 
 — Matti

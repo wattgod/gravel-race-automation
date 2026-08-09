@@ -9,6 +9,12 @@ well, what went badly?
 No pitch. The plan/coaching conversation happens in Matti's REPLY
 (draft_race_reply.py) — replies are the conversion engine. Register per
 docs/email-voice-model.md.
+
+A/B (gravel only — road's 4 leads can't power a test): same subject, body
+varies structurally. A frames the reply ("what went well/badly" + honest
+read offer); B is the bare friend question. The metric that matters is
+replies — attribute by looking up the enrollment's variant. Opens per
+variant are on the sequence detail page.
 """
 
 GG_DEBRIEF = {
@@ -18,8 +24,12 @@ GG_DEBRIEF = {
     "trigger": "race_debrief",
     "active": True,
     "variants": {
-        "A": {"weight": 100, "name": "Debrief", "steps": [
+        "A": {"weight": 50, "name": "Honest read", "steps": [
             {"delay_days": 0, "template": "race_debrief",
+             "subject": "how'd {race_name} go?"},
+        ]},
+        "B": {"weight": 50, "name": "Bare question", "steps": [
+            {"delay_days": 0, "template": "race_debrief_minimal",
              "subject": "how'd {race_name} go?"},
         ]},
     },

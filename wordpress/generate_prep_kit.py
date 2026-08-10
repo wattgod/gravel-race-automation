@@ -1078,22 +1078,44 @@ def build_terrain_emphasis_callout(rd: dict, raw: Optional[dict] = None) -> str:
         climate_insight = _extract_dimension_insight(bor, "climate", 200)
         weather = raw.get("weather", {})
         high = weather.get("avg_high_f", 0) if isinstance(weather, dict) else 0
+        climate_band = classify_climate_heat(raw.get("climate"), climate_score)
 
         if climate_insight:
-            heat_note = f" Expected highs of {high}\u00b0F." if high and high >= 80 else ""
+            if climate_band in {"warm", "hot", "extreme"}:
+                heat_note = (
+                    f" Expected highs of {high}\u00b0F." if high and high >= 80 else ""
+                )
+                prep_note = " Start heat adaptation 2 weeks before race."
+            elif climate_band == "cool":
+                heat_note = ""
+                prep_note = (
+                    " Rehearse cold-start layering, wet-weather equipment, and"
+                    " mid-ride layer changes before race week."
+                )
+            else:
+                heat_note = ""
+                prep_note = (
+                    " Rehearse clothing, hydration, and pacing for the published"
+                    " conditions before race week."
+                )
             tips.append(
                 f"<strong>Climate prep is essential.</strong> {esc(climate_insight)}"
-                f"{heat_note} Start heat adaptation 2 weeks before race."
+                f"{heat_note}{prep_note}"
             )
         elif climate_score >= 4 and high and high >= 85:
             tips.append(
                 f"Start heat adaptation 2 weeks before race \u2014 expected highs"
                 f" of {high}\u00b0F. Train in warmest part of day."
             )
+        elif climate_band == "cool":
+            tips.append(
+                "Rehearse cold-start layering, wet-weather equipment, and"
+                " mid-ride layer changes before race week"
+            )
         else:
             tips.append(
-                "Include 1 hot-weather ride per week in Build phase to build"
-                " heat tolerance and dial in hydration"
+                "Rehearse clothing, hydration, and pacing for the published"
+                " conditions before race week"
             )
 
     # Altitude

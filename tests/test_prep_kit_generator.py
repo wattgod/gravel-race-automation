@@ -620,6 +620,35 @@ class TestTerrainEmphasisCallout:
         # But tech=3 should trigger skills tip
         assert "Race-Specific Training Focus" in html
 
+    def test_cold_climate_does_not_prescribe_heat_adaptation(self):
+        rd = {
+            "rating": {"technicality": 1, "climate": 3},
+            "vitals": {
+                "terrain_types": [],
+                "elevation": "2,000 ft",
+                "distance_mi": 100,
+            },
+        }
+        raw = {
+            "climate": {
+                "primary": "Late-winter conditions",
+                "description": "Cold start with rain and mud possible",
+                "challenges": ["Cold start", "Wet weather"],
+            },
+            "biased_opinion_ratings": {
+                "climate": {
+                    "score": 3,
+                    "explanation": "Expect a cold, wet start and changing layers.",
+                }
+            },
+        }
+
+        html = build_terrain_emphasis_callout(rd, raw)
+
+        assert "cold-start layering" in html
+        assert "heat adaptation" not in html
+        assert "hot-weather ride" not in html
+
 
 # ── Section Numbering ────────────────────────────────────────
 

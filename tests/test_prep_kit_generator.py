@@ -244,6 +244,36 @@ class TestSectionBuilders:
         assert "Race Week Countdown" in html
         assert "gg-guide-timeline" in html
 
+    @pytest.mark.parametrize(
+        ("race_date", "expected_first", "expected_race_day"),
+        [
+            ("2027-04-23", "Saturday (6 days out)", "Friday (Race Day)"),
+            ("2027-04-24", "Sunday (6 days out)", "Saturday (Race Day)"),
+            ("2027-04-25", "Monday (6 days out)", "Sunday (Race Day)"),
+        ],
+    )
+    def test_race_week_uses_exact_race_weekday(
+        self, race_date, expected_first, expected_race_day
+    ):
+        raw = dict(self.full_raw)
+        raw["source_review"] = {"race_date": race_date}
+
+        html = build_pk_race_week(self.guide, raw)
+
+        assert expected_first in html
+        assert expected_race_day in html
+        if race_date == "2027-04-25":
+            assert "Sunday (1 day out)" not in html
+
+    def test_reviewed_tire_width_overrides_generic_bucket(self):
+        rd, raw = _load_test_race("west-coast-gravel")
+
+        html = build_pk_equipment(self.guide, raw, rd)
+
+        assert "Run 45mm or wider tires" in html
+        assert "Pathfinder Pro 47mm" in html
+        assert "Run 40-45mm tires" not in html
+
     def test_equipment(self):
         html = build_pk_equipment(self.guide, self.full_raw, self.full_rd)
         assert "Equipment" in html

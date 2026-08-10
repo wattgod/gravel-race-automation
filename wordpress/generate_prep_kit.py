@@ -22,7 +22,7 @@ import json
 import math
 import re
 import sys
-from datetime import datetime
+from datetime import datetime, timedelta
 from pathlib import Path
 from typing import Any, Optional
 
@@ -154,6 +154,7 @@ def load_raw_training_data(filepath: Path) -> dict:
         "biased_opinion": race.get("biased_opinion", {}),
         "final_verdict": race.get("final_verdict", {}),
         "history": race.get("history", {}),
+        "source_review": race.get("source_review", {}),
         "weather": weather,
         "quotes": quotes,
     }
@@ -186,6 +187,82 @@ def week_to_phase(week: int) -> str:
         if lo <= week <= hi:
             return phase
     return "build"  # Default to build if out of range
+
+
+def parse_exact_race_date(raw: dict) -> Optional[datetime]:
+    """Return the exact race date when the profile publishes one."""
+    source_review = raw.get("source_review", {})
+    if isinstance(source_review, dict):
+        iso_date = source_review.get("race_date", "")
+        if isinstance(iso_date, str):
+            try:
+                return datetime.strptime(iso_date, "%Y-%m-%d")
+            except ValueError:
+                pass
+
+    vitals = raw.get("vitals", {})
+    date_specific = vitals.get("date_specific", "") if isinstance(vitals, dict) else ""
+    if isinstance(date_specific, str):
+        match = re.search(
+            r"(?P<year>20\d{2})\D+(?P<month>[A-Za-z]+)\s+(?P<day>\d{1,2})",
+            date_specific,
+        )
+        if match:
+            try:
+                return datetime.strptime(
+                    f"{match.group('year')} {match.group('month')} {match.group('day')}",
+                    "%Y %B %d",
+                )
+            except ValueError:
+                pass
+    return None
+
+
+def personalize_race_week_timeline(block: dict, raw: dict) -> dict:
+    """Align the seven-day taper to the race's real weekday."""
+    race_date = parse_exact_race_date(raw)
+    if race_date is None:
+        return block
+
+    authored_steps = block.get("steps", [])
+    if len(authored_steps) < 7:
+        return block
+
+    prep_contents = [
+        authored_steps[0]["content"],
+        authored_steps[1]["content"],
+        authored_steps[2]["content"],
+        authored_steps[3]["content"],
+        authored_steps[4]["content"],
+        (
+            "20-30 minutes very easy with 3 × 1 min race-pace openers only if "
+            "that is part of your practiced routine; otherwise take complete rest. "
+            "Finish logistics, charge devices, and get off your feet."
+        ),
+    ]
+    steps = []
+    for days_out, content in zip(range(6, 0, -1), prep_contents):
+        day = race_date - timedelta(days=days_out)
+        suffix = "day out" if days_out == 1 else "days out"
+        steps.append(
+            {
+                "label": f"{day.strftime('%A')} ({days_out} {suffix})",
+                "content": content,
+            }
+        )
+    steps.append(
+        {
+            "label": f"{race_date.strftime('%A')} (Race Day)",
+            "content": (
+                "Race day. Follow the warm-up, fueling, pacing, equipment, and "
+                "safety plan you rehearsed. Nothing new."
+            ),
+        }
+    )
+
+    personalized = dict(block)
+    personalized["steps"] = steps
+    return personalized
 
 
 def build_phase_extras(workout_mods: dict) -> dict:
@@ -1479,6 +1556,40 @@ def build_tire_recommendation(raw: dict, rd: dict) -> str:
         {pressure_html}
       </div>'''
 
+    # Prefer reviewed race-specific enrichment over generic terrain buckets.
+    # This keeps organizer minimums and the dedicated tire guide consistent
+    # with the prep kit.
+    enriched = rd.get("tire_recommendations", {})
+    primary = enriched.get("primary", []) if isinstance(enriched, dict) else []
+    if primary:
+        recommended_width = enriched.get("recommended_width_mm")
+        width_tip = (
+            f"Run {recommended_width}mm or wider tires for this course"
+            if recommended_width
+            else "Match tire width to the reviewed race-specific setup"
+        )
+        tire_items = "".join(
+            f"<li>{esc(tire.get('name', ''))} "
+            f"{esc(str(tire.get('recommended_width_mm', '')))}mm</li>"
+            for tire in primary[:4]
+            if isinstance(tire, dict) and tire.get("name")
+        )
+        terrain = raw.get("terrain", {})
+        terrain_primary = (
+            terrain.get("primary", "") if isinstance(terrain, dict) else ""
+        )
+        label = (
+            f"Tire Setup ({esc(terrain_primary)})"
+            if terrain_primary
+            else "Tire Setup"
+        )
+        return f'''<div class="gg-guide-callout gg-guide-callout--highlight">
+        <p><strong>{label}:</strong></p>
+        <ul><li>{esc(width_tip)}</li></ul>
+        <p style="margin:12px 0 4px;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--gg-color-teal)">Reviewed Picks for This Course:</p>
+        <ul>{tire_items}</ul>
+      </div>'''
+
     # Generic tire recommendations from terrain data
     terrain = raw.get("terrain", {})
     if not isinstance(terrain, dict):
@@ -1809,7 +1920,7 @@ def build_pk_race_week(guide_sections: dict, raw: dict) -> str:
       <h2>Race Week Countdown</h2>
     </div>
     {weather_html}
-    {render_timeline(timeline_block)}
+    {render_timeline(personalize_race_week_timeline(timeline_block, raw))}
   </section>'''
 
 

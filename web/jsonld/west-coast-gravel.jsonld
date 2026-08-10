@@ -2,33 +2,35 @@
   "@context": "https://schema.org",
   "@type": "SportsEvent",
   "name": "West Coast Gravel",
-  "description": "Oregon coast gravel challenge.",
+  "description": "A steep Sunday run from the Pacific into Siuslaw National Forest.",
   "sport": "Gravel Cycling",
-  "startDate": "2026-05-03",
+  "startDate": "2027-04-25",
   "location": {
     "@type": "Place",
-    "name": "Yachats, OR",
+    "name": "Yachats, Oregon",
     "address": {
       "@type": "PostalAddress",
       "addressLocality": "Yachats",
-      "addressRegion": "OR"
+      "addressRegion": "Oregon"
     }
   },
   "offers": {
     "@type": "Offer",
-    "price": "75",
+    "price": "130",
     "priceCurrency": "USD",
     "availability": "https://schema.org/LimitedAvailability"
   },
   "aggregateRating": {
     "@type": "AggregateRating",
-    "ratingValue": "43",
+    "ratingValue": "44",
     "bestRating": "100",
     "ratingCount": "14",
     "name": "Gravel God Rating"
   },
+  "url": "https://www.mudslingerevents.com/west-coast-gravel",
   "organizer": {
     "@type": "Person",
-    "name": "Mudslinger Events"
+    "name": "Mudslinger Events",
+    "url": "https://www.mudslingerevents.com/west-coast-gravel"
   }
 }

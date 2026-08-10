@@ -3,60 +3,60 @@
     "name": "West Coast Gravel",
     "slug": "west-coast-gravel",
     "display_name": "West Coast Gravel",
-    "tagline": "Oregon coast gravel challenge.",
+    "tagline": "A steep Sunday run from the Pacific into Siuslaw National Forest.",
     "vitals": {
-      "distance_mi": 55,
-      "elevation_ft": 4000,
-      "location": "Yachats, OR",
+      "distance_mi": 53,
+      "elevation_ft": 6690,
+      "location": "Yachats, Oregon",
       "location_badge": "YACHATS, OR",
       "county": "Lincoln County",
-      "date": "Early May annually",
-      "date_specific": "2026: May 3",
+      "date": "Late April",
+      "date_specific": "2027: April 25 (Sunday)",
       "terrain_types": [
-        "Oregon coast",
-        "Coastal gravel",
-        "Pacific Northwest",
-        "Oregon"
+        "Siuslaw National Forest backroads",
+        "Coastal forest gravel",
+        "Paved rollout and timed finish",
+        "Loose corners and potholes"
       ],
-      "field_size": "75-125 riders",
-      "start_time": "9:00 AM",
-      "registration": "Online. Cost: ~$75-95",
-      "prize_purse": "Modest prizes",
-      "aid_stations": "2-3 aid stations",
-      "cutoff_time": "8 hours",
+      "field_size": "300-rider event limit",
+      "start_time": "9:00am departure; 8:45am rider meeting; no departures after 9:30am",
+      "registration": "$130 early, $140 before January 1, and $150 after April 2; no refunds, with same-year credit available by email at least 14 days before the event",
+      "prize_purse": "Top-three category awards; long- and short-course overall champions receive next-year entry, with 50% discounts for second and third overall",
+      "aid_stations": "Aid 1 at mile 16; long-course Aid 2 at mile 38; water, Hammer HEED, food, communications support, and drop-bag service",
+      "cutoff_time": "No riders may depart Yachats after 9:30am; the organizer does not publish a finish cutoff",
       "lat": 44.3128,
       "lng": -124.105
     },
     "climate": {
-      "primary": "Oregon coast summer",
-      "description": "Variable coastal conditions.",
+      "primary": "Variable Oregon coast spring",
+      "description": "The organizer reports favorable weather in roughly three quarters of past editions but explicitly tells riders to bring rain gear for Oregon Coast variability.",
       "challenges": [
         "Variable weather",
         "Rain possible",
         "Coastal winds",
-        "Summer conditions"
+        "Cool spring conditions"
       ]
     },
     "terrain": {
-      "primary": "Oregon coast gravel",
-      "surface": "Gravel roads through Oregon coast. Moderate elevation with coastal scenery.",
+      "primary": "Steep Oregon coast forest gravel",
+      "surface": "The 53-mile Erik the Red route leaves Yachats on Highway 101, starts timing remotely on National Forest Road 55, and climbs into Siuslaw National Forest before returning on open public roads. The organizer-linked route records about 6,690 feet of gain.",
       "technical_rating": 3,
       "features": [
-        "Moderate mountainous (4000 feet)",
-        "Oregon coast scenery",
-        "Pacific Northwest experience",
-        "55-mile distance",
-        "Small-medium field"
+        "About 6,690 feet of climbing",
+        "A roughly 1,900-foot opening climb",
+        "Remote timed start and finish",
+        "Loose corners and potholes",
+        "Open roads with a high-traffic 55mph zone"
       ]
     },
     "gravel_god_rating": {
-      "overall_score": 43,
+      "overall_score": 44,
       "tier": 4,
       "tier_label": "TIER 4",
       "logistics": 2,
       "length": 2,
       "technicality": 3,
-      "elevation": 3,
+      "elevation": 4,
       "climate": 2,
       "altitude": 1,
       "adventure": 3,
@@ -67,33 +67,33 @@
       "field_depth": 1,
       "value": 3,
       "expenses": 3,
-      "score_note": "Regional OR event. Coastal terrain with small-medium field and remote location.",
+      "score_note": "The organizer-confirmed 53-mile route and its linked route file correct the old 55-mile/4,000-foot record to approximately 6,690 feet of climbing. That moves elevation to the rubric's 4/5 band; the remaining scores stay conservative for a regional event with meaningful open-road exposure.",
       "discipline": "gravel",
       "display_tier": 4
     },
     "biased_opinion": {
-      "verdict": "Oregon Coast Gravel",
-      "summary": "West Coast Gravel is a regional event in Oregon—coastal terrain with moderate elevation. The Oregon coast is scenic, but the small-medium local field, remote location, and limited organization keep it in Tier 4.",
+      "verdict": "A short race with a long-course climbing bill",
+      "summary": "West Coast Gravel compresses roughly 6,690 feet of climbing into 53 miles between Yachats and Siuslaw National Forest. The terrain, remote timing, and exposed public-road return make it substantially harder than the old profile suggested, but its regional reach and traffic-management constraints keep it in Tier 4.",
       "strengths": [
         "Oregon coast scenery",
-        "Coastal adventure",
-        "Pacific Northwest experience",
-        "Good value",
-        "Coastal challenge"
+        "Siuslaw National Forest backroads",
+        "About 126 feet of climbing per mile",
+        "Two stocked aid stations and drop-bag service",
+        "Strong post-race food and awards package"
       ],
       "weaknesses": [
-        "Small-medium local field",
-        "Remote location",
-        "Limited organization",
-        "Variable weather",
-        "Rain possible"
+        "No traffic control",
+        "High-traffic 55mph road section",
+        "Sunday-only packet pickup",
+        "Rain and coastal wind risk",
+        "Regional rather than national field"
       ],
-      "bottom_line": "A solid regional OR coast gravel race. Worth it for OR/Northwest riders. Not worth traveling far for."
+      "bottom_line": "A genuinely hard Oregon Coast race whose 53-mile headline understates the climbing. It is a strong regional target, but the open-road exposure is part of the deal."
     },
     "final_verdict": {
-      "score": "43 / 100",
-      "one_liner": "Oregon coast gravel challenge.",
-      "should_you_race": "If you're local to OR—yes, it's solid. If you're traveling—skip it.",
+      "score": "44 / 100",
+      "one_liner": "Fifty-three miles, roughly 6,690 feet, and no traffic control.",
+      "should_you_race": "Yes if you want a compact climbing race on the Oregon Coast and are comfortable racing on open roads; skip it if protected-road logistics are non-negotiable.",
       "alternatives": "For better OR races: Oregon Coast Gravel Epic, Oregon Gran Fondo.",
       "alternative_slugs": [
         "oregon-coast-gravel-epic",
@@ -101,107 +101,109 @@
       ]
     },
     "logistics": {
-      "airport": "Eugene (EUG) 90 minutes",
-      "lodging_strategy": "Yachats has limited lodging. Plan ahead.",
-      "food": "Yachats has limited dining. Stock nutrition.",
-      "packet_pickup": "Day of typically",
-      "parking": "At start/finish",
-      "official_site": "Check West Coast Gravel website"
+      "airport": "Eugene Airport (EUG), roughly 90 minutes by car",
+      "lodging_strategy": "Stay in or near Yachats and book early; the event shares the weekend with Saturday's Oregon Coast Gravel Epic nine miles north in Waldport.",
+      "food": "Every participant receives a post-event food voucher; carry enough race fuel to bridge the two stocked aid stations.",
+      "packet_pickup": "Sunday only, 7:00-8:30am at the Yachats Commons gazebo",
+      "parking": "Park in Yachats; the ride departs from Yachats Commons before regrouping for the timed start on National Forest Road 55",
+      "official_site": "https://www.mudslingerevents.com/west-coast-gravel"
     },
     "history": {
       "founded": null,
       "founder": "Mudslinger Events",
-      "origin_story": "Regional OR coast gravel event.",
+      "origin_story": "A Viking-themed second day of the organizer's Oregon Coast gravel weekend, pairing the 53-mile Erik the Red route with the shorter 32-mile Leif Erikson option.",
       "notable_moments": [],
-      "reputation": "Regional OR event."
+      "reputation": "A steep Oregon Triple Crown stop with a scenic coastal setting and unusually consequential climbing for its distance."
     },
     "course_description": {
-      "character": "Oregon coast gravel.",
+      "character": "A paved rollout from Yachats leads to a remote timed start, a sustained forest climb, rolling gravel, and a fast open-road return. Timing ends one mile before Yachats for safety.",
       "suffering_zones": [
         {
-          "mile": 18,
-          "label": "Early Coast",
-          "desc": "First coastal sections.",
-          "terrain_detail": "Coastal",
-          "named_section": "Early Coast"
+          "mile": 4,
+          "label": "Remote timed start",
+          "desc": "After the self-start rollout on Highway 101, riders regroup on National Forest Road 55 and cross the remote timing line.",
+          "terrain_detail": "Open-road rollout into forest gravel",
+          "named_section": "NF 55"
         },
         {
-          "mile": 27,
-          "label": "Midpoint",
-          "desc": "Halfway through the course.",
-          "terrain_detail": "Midpoint",
-          "named_section": "Halfway"
+          "mile": 14,
+          "label": "Opening climb",
+          "desc": "Rider reports describe nearly 1,900 feet of climbing in roughly the first ten timed miles, followed by continued rolling ascent.",
+          "terrain_detail": "Sustained forest-road climbing",
+          "named_section": "Main climb"
         },
         {
-          "mile": 45,
-          "label": "Late Coast",
-          "desc": "Final coastal sections before finish.",
-          "terrain_detail": "Late coastal",
-          "named_section": "Final Push"
+          "mile": 38,
+          "label": "Aid 2 and return",
+          "desc": "The second long-course aid station precedes the generally descending return and exposed Yachats River Road section.",
+          "terrain_detail": "Forest descent, potholes, and open-road return",
+          "named_section": "Aid 2"
         }
       ],
-      "signature_challenge": "Oregon coast terrain.",
+      "signature_challenge": "Managing roughly 6,690 feet of climbing in only 53 miles while preserving handling and attention for loose corners, potholes, and the uncontrolled public-road return.",
       "ridewithgps_id": "48942508",
       "ridewithgps_name": "West Coast Gravel (OR) long course"
     },
     "guide_variables": {
       "race_name": "West Coast Gravel",
-      "race_distance": "55 miles",
-      "race_elevation": "4,000 feet",
-      "race_date": "Summer",
-      "race_location": "Yachats, OR",
-      "race_terrain": "Oregon coast gravel",
-      "race_weather": "Oregon coast summer",
+      "race_distance": "53 miles",
+      "race_elevation": "approximately 6,690 feet",
+      "race_date": "April 25, 2027",
+      "race_location": "Yachats, Oregon",
+      "race_terrain": "steep Siuslaw National Forest gravel with paved rollout and open-road return",
+      "race_weather": "variable Oregon coast spring weather with rain and wind possible",
       "race_challenges": [
-        "Coastal terrain",
-        "Variable weather",
-        "Rain possible",
-        "Remote location",
-        "Limited support"
+        "About 6,690 feet of climbing",
+        "Nearly 1,900 feet in the opening timed climb",
+        "Loose corners and potholes",
+        "Open roads and a high-traffic 55mph zone",
+        "Sunday race-week logistics"
       ],
       "altitude_section": false,
       "altitude_feet": null
     },
     "non_negotiables": [
       {
-        "requirement": "Weather preparation",
-        "by_when": "Week 4-6",
-        "why": "Oregon coast weather is variable with rain possible."
+        "requirement": "Climbing durability",
+        "by_when": "Week 8-10",
+        "why": "The 53-mile long course carries about 6,690 feet of climbing, with much of the damage beginning immediately after the timed start."
       },
       {
-        "requirement": "Coastal endurance",
+        "requirement": "Wet-corner and pothole handling",
         "by_when": "Week 6-8",
-        "why": "Oregon coast terrain requires sustained effort."
+        "why": "The organizer warns about loose corners and recommends 45mm or wider tires; rider reports add consequential potholes."
       },
       {
-        "requirement": "Self-sufficiency",
+        "requirement": "Open-road safety rehearsal",
         "by_when": "Week 4-6",
-        "why": "Remote location and limited aid require self-sufficiency."
+        "why": "The course has no traffic control and includes a high-traffic 55mph section where the organizer recommends a taillight."
       }
     ],
     "research_metadata": {
-      "data_confidence": "moderate",
-      "validation_status": "pending",
+      "data_confidence": "high for 2027 date, distance, location, schedule, pricing, support, and safety; high for the current organizer-linked route distance and approximate gain",
+      "validation_status": "official-source verified 2026-08-10",
       "sources": [
-        "or_cycling_community"
+        "https://www.mudslingerevents.com/west-coast-gravel",
+        "https://ridewithgps.com/routes/48942508"
       ],
       "migration_notes": [
-        "Generated from regional information"
+        "The organizer page confirms Sunday, April 25, 2027, and a 53-mile Erik the Red route; its leftover 'first weekend of May' prose is treated as stale template copy rather than the event date.",
+        "The organizer-linked RideWithGPS route records 85,216.4 meters and 2,039.14 meters of gain, approximately 53 miles and 6,690 feet. Route details remain subject to organizer updates."
       ],
       "research_strength": {
-        "overall": 89.7,
+        "overall": 89.4,
         "grade": "A",
         "weakest": "cross_reference",
         "has_research_dump": true,
         "dimensions": {
-          "source_diversity": 100,
+          "source_diversity": 85,
           "citation_density": 100,
           "temporal_depth": 75,
           "specificity": 100,
           "statistical_backing": 100,
-          "voice_authenticity": 100,
-          "completeness": 76,
-          "cross_reference": 15
+          "voice_authenticity": 90,
+          "completeness": 90,
+          "cross_reference": 75
         },
         "scored_at": "2026-02-04"
       }
@@ -226,8 +228,8 @@
         },
         "dress_rehearsal": {
           "enabled": true,
-          "week": 8,
-          "day": "Saturday",
+          "week": 10,
+          "day": "Sunday",
           "duration_hours": {
             "ayahuasca": 2,
             "finisher": 3,
@@ -245,22 +247,22 @@
         ],
         "race_specific": true,
         "topics": {
-          "pacing": "Coastal terrain pacing",
-          "fueling": "Nutrition for coastal riding",
-          "coastal": "Sustained coastal strategy",
-          "weather": "Riding in variable Oregon coast weather"
+          "pacing": "Containing the opening climb and preserving the return",
+          "fueling": "Fueling a three- to five-hour climbing race around mile-16 and mile-38 aid",
+          "coastal": "Handling the remote start and open-road Yachats return",
+          "weather": "Tire, layer, and taillight choices for variable Oregon coast conditions"
         }
       },
       "tier_overrides": {},
       "marketplace_variables": {
         "race_name": "West Coast Gravel",
-        "race_hook": "Oregon coast gravel challenge.",
-        "race_hook_detail": "Regional event with coastal terrain.",
-        "distance": "55",
-        "dark_mile": "27",
-        "non_negotiable_1": "Weather preparation",
-        "non_negotiable_2": "Coastal endurance",
-        "non_negotiable_3": "Self-sufficiency",
+        "race_hook": "A 53-mile Oregon Coast race with roughly 6,690 feet of climbing.",
+        "race_hook_detail": "Remote timing, a sustained forest climb, loose corners, and an uncontrolled public-road return.",
+        "distance": "53",
+        "dark_mile": "38",
+        "non_negotiable_1": "Climbing durability",
+        "non_negotiable_2": "Wet-corner and pothole handling",
+        "non_negotiable_3": "Open-road safety rehearsal",
         "trainingpeaks_url": null
       }
     },
@@ -275,15 +277,15 @@
       },
       "technicality": {
         "score": 3,
-        "explanation": "The course features \"terrain new to many riders with a thrilling twist that has seldom seen a bike tire on\" through Siuslaw National Forest backroads. Organizers require 35mm+ tires and recommend 38mm when wet for increased contact. The finish includes a \"tricky 3-mile descent\" that tests bike handling skills. Similar technical demands to Gravel Worlds."
+        "explanation": "The course features Siuslaw National Forest backroads, loose corners, potholes, and a long forest descent. The organizer recommends 45mm or wider tires, while current rider reports describe consequential holes and rougher-than-expected surfaces. This is meaningful handling demand without evidence of sustained singletrack or extreme technical terrain."
       },
       "elevation": {
-        "score": 3,
-        "explanation": "Starting from sea-level Yachats and climbing inland through forest terrain delivers substantial elevation change, with community reports mentioning 5000 feet total. The Leif Erikson route having \"less climbing\" confirms the Erik the Red loop packs enough vertical to matter over its 53 miles. Similar elevation profile to Gravel Worlds."
+        "score": 4,
+        "explanation": "The organizer-linked 53-mile Erik the Red route records 2,039.14 meters, or approximately 6,690 feet, of climbing. The rubric assigns 4/5 to 6,000-10,000 feet, and the roughly 1,900-foot opening climb concentrates that demand early."
       },
       "climate": {
         "score": 2,
-        "explanation": "Organizers report \"great weather 75% of the time\" over the past decade, but warn \"Always bring good rain gear when visiting the Oregon Coast!\" The 2025 edition was described as \"A beautiful day for a gravel race,\" though Pacific Northwest May weather remains unpredictable. More weather exposure than Belgian Waffle Ride San Diego."
+        "explanation": "Organizers report favorable weather in roughly three quarters of past editions but explicitly warn riders to bring rain gear for the Oregon Coast. Moving to late April does not remove the spring rain, wind, and temperature variability that riders must prepare for."
       },
       "altitude": {
         "score": 1,
@@ -299,7 +301,7 @@
       },
       "race_quality": {
         "score": 2,
-        "explanation": "The race website can't even nail down basic details—they list 53 miles officially but can't provide elevation gain, aid station locations, or cutoff times. Packet pickup ends at 8:30 AM for a 9:00 AM start, giving you 30 minutes to figure out mechanical issues. That's not race organization, that's wing-it-and-pray. As Post-Race Celebration puts it: \"Custom Medals for all 11 divisions awarded starting at 1:pm and 1:30 pm. Live Music onsite and food vendors to use your 14.00 food voucher.\""
+        "explanation": "The organizer publishes the date, route choices, start protocol, aid-mile locations, marking plan, support, and safety rules, and uses remote timing to reduce Highway 101 risk. The weaknesses are real: Sunday packet pickup closes only 30 minutes before departure, the page retains a stale first-weekend-of-May sentence, and no finish cutoff is stated."
       },
       "experience": {
         "score": 2,
@@ -307,7 +309,7 @@
       },
       "community": {
         "score": 2,
-        "explanation": "Post-race features live music, $14 food vouchers for local vendors, and custom medals across 11 divisions. 10 Barrel Brewing provides beverages while Village Bean coffee shop opens at 7 AM for pre-race fuel. The weekend format builds camaraderie among riders tackling consecutive days."
+        "explanation": "Post-race features live music, a $15 food voucher, and custom medals across 11 divisions. The Village Bean opens for pre-race coffee, and the two-day Oregon Coast format builds camaraderie among riders tackling consecutive events."
       },
       "field_depth": {
         "score": 1,
@@ -315,11 +317,11 @@
       },
       "value": {
         "score": 3,
-        "explanation": "The package includes custom medals, $14 food vouchers, fully stocked aid stations with Hammer Nutrition products, and drop bag service. Combining with Saturday's Oregon Coast Gravel Epic creates weekend value for riders wanting consecutive gravel challenges."
+        "explanation": "The package includes custom medals, a $15 food voucher, two fully stocked aid stations with Hammer Nutrition products, mechanical support at the venue and first aid station, communications coverage, and drop-bag service."
       },
       "expenses": {
         "score": 3,
-        "explanation": "Registration runs $75-95. Yachats offers affordable Oregon Coast lodging compared to destination resort towns. The small village setting means reasonable accommodation costs, and the two-day format lets riders split weekend expenses across multiple events. Local food vouchers stretch post-race dining dollars. Similar expense level to Belgian Waffle Ride San Diego."
+        "explanation": "The organizer lists $130 early pricing, $140 before January 1, and $150 after April 2. Yachats is a small coastal destination where limited lodging rewards early booking, but the event does not require resort-level travel and includes post-race food credit."
       }
     },
     "citations": [
@@ -329,9 +331,9 @@
         "label": "RideWithGPS: West Coast Gravel (OR) long course"
       },
       {
-        "url": "https://www.granfondoguide.com/Events/Index/9349/west-coast-gravel",
-        "category": "other",
-        "label": "Granfondoguide"
+        "url": "https://www.mudslingerevents.com/west-coast-gravel",
+        "category": "official",
+        "label": "Mudslinger Events: 2027 date, routes, schedule, pricing, support, and safety"
       },
       {
         "url": "https://www.gravel-results.com/race/20752",
@@ -339,37 +341,7 @@
         "label": "Gravel-Results"
       },
       {
-        "url": "https://www.gravelstoke.com/gravel-cycling-gear-blog/mammoth-tuff-2024-through-sand-and-sky",
-        "category": "other",
-        "label": "Gravelstoke"
-      },
-      {
-        "url": "https://www.mudslingerevents.com/oregon-coast-gravel-epic",
-        "category": "other",
-        "label": "Mudslingerevents"
-      },
-      {
-        "url": "https://www.mudslingerevents.com/west-coast-gravel",
-        "category": "other",
-        "label": "Mudslingerevents"
-      },
-      {
-        "url": "https://www.reddit.com/r/gravelcycling/comments/13a2jmi/vaast_a1_at_the_end_of_the_oregon_coast_gravel/",
-        "category": "community",
-        "label": "Reddit"
-      },
-      {
         "url": "https://www.reddit.com/r/gravelcycling/comments/uh1mkv/2022_west_coast_gravel_race_erik_the_red/",
-        "category": "community",
-        "label": "Reddit"
-      },
-      {
-        "url": "https://www.reddit.com/r/newfoundland/comments/q5duzd/corner_brook_west_coast_gravel_bike_trails/",
-        "category": "community",
-        "label": "Reddit"
-      },
-      {
-        "url": "https://www.reddit.com/r/xbiking/comments/khhqlq/dadbiking_on_west_coast_gravel/",
         "category": "community",
         "label": "Reddit"
       },
@@ -385,10 +357,21 @@
       },
       {
         "url": "https://strambecco.com/event/west-coast-gravl/",
-        "category": "community",
-        "label": "strambecco.com: West Coast Gravl"
+        "category": "other",
+        "label": "Strambecco: West Coast Gravl event overview"
       }
     ],
+    "eligibility": {
+      "status": "active",
+      "verified": "2026-08-10",
+      "source": "https://www.mudslingerevents.com/west-coast-gravel",
+      "status_note": "The organizer is accepting 2027 registration for West Coast Gravel on Sunday, April 25, 2027, with the 53-mile Erik the Red race route and 32-mile Leif Erikson option."
+    },
+    "source_review": {
+      "reviewed_at": "2026-08-10",
+      "race_date": "2027-04-25",
+      "facts_scope": "The organizer page is authoritative for the Sunday, April 25, 2027 date; Yachats venue; 53-mile Erik the Red and 32-mile Leif Erikson choices; schedule; pricing; 300-rider limit; remote timing; aid-mile locations; support; and open-road safety rules. Its embedded, organizer-linked RideWithGPS route supports approximately 53 miles and 6,690 feet for the current long-course file. The organizer may update that route before race day, so mile-specific course narrative beyond published aid and timing locations remains labeled as current-route or rider-report evidence. The page's 'first weekend of May' sentence conflicts with its repeated April 25 date and is treated as stale template prose."
+    },
     "tire_recommendations": {
       "generated_at": "2026-02-19",
       "primary": [
@@ -397,7 +380,7 @@
           "tire_id": "specialized-pathfinder-pro",
           "name": "Specialized Pathfinder Pro",
           "brand": "Specialized",
-          "recommended_width_mm": 42,
+          "recommended_width_mm": 47,
           "msrp_usd": 54.99,
           "weight_grams": 420,
           "crr_watts": 32.0,
@@ -408,7 +391,7 @@
           "tire_id": "irc-boken-double-cross",
           "name": "IRC Boken Double Cross",
           "brand": "IRC",
-          "recommended_width_mm": 42,
+          "recommended_width_mm": 45,
           "msrp_usd": 59.99,
           "weight_grams": 400,
           "crr_watts": null,
@@ -419,7 +402,7 @@
           "tire_id": "panaracer-gravelking-sk",
           "name": "Panaracer GravelKing SK",
           "brand": "Panaracer",
-          "recommended_width_mm": 43,
+          "recommended_width_mm": 45,
           "msrp_usd": 64.9,
           "weight_grams": 410,
           "crr_watts": 32.5,
@@ -431,17 +414,17 @@
         "front": {
           "tire_id": "panaracer-gravelking-tlc",
           "name": "Panaracer GravelKing TLC",
-          "width_mm": 43
+          "width_mm": 45
         },
         "rear": {
           "tire_id": "specialized-pathfinder-pro",
           "name": "Specialized Pathfinder Pro",
-          "width_mm": 42
+          "width_mm": 47
         },
         "rationale": "Faster front for reduced rolling resistance on straights, grippier rear for traction on loose climbs and corners"
       },
       "race_surface_profile": "mixed",
-      "recommended_width_mm": 42,
+      "recommended_width_mm": 45,
       "pressure_psi": {
         "140_160lb_dry": "32-36",
         "140_160lb_mixed": "30-34",
@@ -655,7 +638,7 @@
             "curated": true
           }
         ],
-        "search_text": "The West Coast Gravel race in Yachats, Oregon features a challenging 55-mile course starting with a remote start format. The main challenge is a relentless 1,900-foot climb over the first 10 miles that strings riders across the mountainside. A dangerous left turn at mile 2.8 onto Forest Service Road 55 requires caution due to traffic, with fire department stationed for safety. After the initial climb, the course follows an up-and-down pattern gaining and losing elevation until the second aid station, then transitions to primarily downhill. The route includes Forest Service roads with giant potholes before finishing on Yachats River Road, where riders face a stiff headwind for the final flat paved miles. About 200 racers typically start this timed event, which uses sensors rather than finish line placement for results. The scenic Oregon coast setting provides beautiful views despite the challenging terrain and weather conditions."
+        "search_text": "The West Coast Gravel race in Yachats, Oregon features a challenging 53-mile course starting with a remote timing format. The main challenge is a relentless 1,900-foot climb over the first 10 timed miles that strings riders across the mountainside. A dangerous left turn onto Forest Service Road 55 requires caution due to traffic, with fire support stationed nearby. After the initial climb, the course follows an up-and-down pattern gaining and losing elevation until the second aid station, then transitions to primarily downhill. The route includes Forest Service roads with giant potholes before finishing on Yachats River Road, where riders can face a stiff headwind for the final flat paved miles. Recent rider reports describe about 200 starters in this timed event, which uses remote sensors rather than finish-line placement for results. The scenic Oregon coast setting provides beautiful views despite the challenging terrain and variable weather."
       }
     }
   }

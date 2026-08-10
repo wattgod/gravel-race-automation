@@ -4,7 +4,7 @@
   "name": "Rad am Ring Gravel",
   "description": "Formula 1 arena start, then gravel circuits around the N\u00fcrburgring's Green Hell.",
   "sport": "Gravel Cycling",
-  "startDate": "2026-07-26",
+  "startDate": "2027-07-24",
   "location": {
     "@type": "Place",
     "name": "N\u00fcrburg, Germany",
@@ -16,9 +16,10 @@
   },
   "aggregateRating": {
     "@type": "AggregateRating",
-    "ratingValue": "46",
+    "ratingValue": "47",
     "bestRating": "100",
     "ratingCount": "14",
     "name": "Gravel God Rating"
-  }
+  },
+  "url": "https://radamring.de/de/disziplinen/gravel-race"
 }

@@ -1,5 +1,5 @@
 {
-  "comment": "Fabricated races removed from the catalog (SITE-SYNC S3, 2026-07; profiles deleted 2026-07-22 per docs/specs/cleanup-program-jul22.md). Research dumps + git history are the audit trail. Nothing here may appear in any generated output, index, sitemap, or data derivative.",
+  "comment": "Fabricated, duplicate, and otherwise invalid race identities removed from the catalog. Research dumps + git history are the audit trail. Nothing here may appear in any generated output, index, sitemap, or data derivative.",
   "tombstones": [
     {
       "slug": "balkan-gravel",
@@ -100,6 +100,11 @@
       "slug": "polish-gravel",
       "reason": "fabricated generic Krakow identity assembled from unrelated city-cycling material; no organizer, registration, results, or official event exists under this name",
       "redirect": "/race/wyscig-niepolomice/"
+    },
+    {
+      "slug": "pony-xpress-gravel-160",
+      "reason": "duplicate and invalid unit identity: this is the same Colorado Pony Xpress event as pony-xpress, and the organizer's 160K flagship was misrepresented as a separate 160-mile race",
+      "redirect": "/race/pony-xpress/"
     }
   ]
 }

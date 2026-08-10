@@ -34,7 +34,7 @@ ROAD_MIGRATION_MAP = (
 # 2026-07, 301-redirected to state/region best-of hubs. profiles DELETED 2026-07-22
 # (research-dumps + git history are the audit trail); tombstones are canonical
 # in config/tombstones.json and must never resurface in the index/sitemap/search.
-REMOVED_FABRICATED_SLUGS = frozenset(
+TOMBSTONED_SLUGS = frozenset(
     t["slug"] for t in __import__("json").loads(
         (Path(__file__).resolve().parent.parent / "config" / "tombstones.json")
         .read_text())["tombstones"])
@@ -90,7 +90,7 @@ def load_profiles(data_dir: Path = RACE_DATA) -> dict[str, dict]:
     """Load active canonical profiles from race-data/ only (non-recursive)."""
     profiles = {}
     for path in sorted(Path(data_dir).glob("*.json")):
-        if path.stem in REMOVED_FABRICATED_SLUGS | MIGRATED_ROAD_SLUGS:
+        if path.stem in TOMBSTONED_SLUGS | MIGRATED_ROAD_SLUGS:
             continue
         try:
             profiles[path.stem] = json.loads(path.read_text())
@@ -545,7 +545,10 @@ def main():
         name = race.get("RACE_NAME", race.get("name", ""))
         slug = slugify(name)
 
-        if slug in MIGRATED_ROAD_SLUGS:
+        # The flat database is an older discovery source. Without applying the
+        # same tombstone boundary here, deleting an invalid canonical profile
+        # merely resurrects it as an unprofiled catalog row.
+        if slug in TOMBSTONED_SLUGS | MIGRATED_ROAD_SLUGS:
             continue
 
         # Try to find a matching profile with fuzzy matching

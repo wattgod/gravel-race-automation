@@ -1675,6 +1675,10 @@ RewriteRule ^race/best-gravel-races-thailand/?$ /gravel-races/ [R=301,L]
 # Live dirs deleted 2026-07-22 (deploy-parity first run).
 RewriteRule ^race/big-horn-gravel/?$ /race/bighorn-gravel/ [R=301,L]
 RewriteRule ^race/big-horn-gravel/(.*)$ /race/bighorn-gravel/$1 [R=301,L]
+# pony-xpress-gravel-160 was a duplicate identity created by reading the
+# organizer's 160K flagship distance as 160 miles. Keep the verified 160K race.
+RewriteRule ^race/pony-xpress-gravel-160/?$ /race/pony-xpress/ [R=301,L]
+RewriteRule ^race/pony-xpress-gravel-160/(.*)$ /race/pony-xpress/$1 [R=301,L]
 RewriteRule ^race/dreilaendergiro/?$ https://roadielabs.com/race/dreilander-giro/ [R=301,L]
 RewriteRule ^race/dreilaendergiro/(.*)$ https://roadielabs.com/race/dreilander-giro/$1 [R=301,L]
 RewriteRule ^race/gran-fondo-felice-gimondi/?$ https://roadielabs.com/race/granfondo-felice-gimondi/ [R=301,L]

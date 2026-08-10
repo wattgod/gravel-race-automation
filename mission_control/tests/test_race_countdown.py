@@ -188,3 +188,59 @@ class TestFetchDatesUserAgent:
             ua = req.get_header("User-agent", "")
             assert ua == rc._USER_AGENT
             assert not ua.lower().startswith("python-urllib")
+
+
+class TestFetchErrorSurfacing:
+    def test_probe_names_the_exception_per_brand(self):
+        """A fetch that fails in prod but passes locally is undiagnosable
+        from the audit log unless the probe records the actual exception."""
+        from mission_control.services import race_countdown as rc
+
+        def fake_urlopen(req, timeout=None):
+            raise OSError("HTTP Error 403: Forbidden")
+
+        rc._dates_cache.clear()
+        rc._last_errors.clear()
+        with patch("mission_control.services.race_countdown.urllib.request.urlopen",
+                   side_effect=fake_urlopen):
+            detail = rc.probe_race_dates()
+        assert "FAILED" in detail
+        assert "403" in detail
+        for brand in rc.RACE_DATES_URLS:
+            assert brand in detail
+
+    def test_probe_reports_ok_with_counts_and_clears_errors(self):
+        from mission_control.services import race_countdown as rc
+
+        rc._dates_cache.clear()
+        rc._last_errors["gravelgod"] = "stale error from a previous pass"
+
+        class _Resp:
+            def read(self):
+                return b'{"unbound-200": "2027-06-05"}'
+            def __enter__(self):
+                return self
+            def __exit__(self, *a):
+                return False
+
+        with patch("mission_control.services.race_countdown.urllib.request.urlopen",
+                   return_value=_Resp()):
+            detail = rc.probe_race_dates()
+        assert "FAILED" not in detail
+        assert "ok (1 entries)" in detail
+        assert not rc._last_errors
+
+    def test_abort_audit_entry_includes_fetch_errors(self):
+        from mission_control.services import race_countdown as rc
+
+        rc._last_errors.clear()
+        rc._last_errors["gravelgod"] = "HTTPError('403: Forbidden')"
+        with patch("mission_control.services.race_countdown._fetch_dates_sync",
+                   return_value={"gravelgod": {}, "roadielabs": {}}), \
+             patch("mission_control.services.race_countdown.db.select", return_value=[]), \
+             patch("mission_control.services.race_countdown.db.log_action") as mock_log:
+            _run(run_race_countdown(today=date(2026, 7, 1)))
+        rc._last_errors.clear()
+        abort = [c for c in mock_log.call_args_list
+                 if c.args[0] == "race_countdown_aborted"]
+        assert abort and "403" in abort[0].args[3]

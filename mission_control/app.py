@@ -29,6 +29,27 @@ async def lifespan(app: FastAPI):
     except Exception as e:
         logger.warning("Scheduler failed to start: %s", e)
 
+    # Startup probe: record whether race-dates fetches work from THIS
+    # environment. The countdown job aborted silently for weeks because the
+    # fetch failed only in prod — this writes the pass/fail (with the actual
+    # exception) to gg_audit_log on every deploy.
+    try:
+        import asyncio as _asyncio
+        from mission_control import supabase_client as _db
+        from mission_control.services.race_countdown import probe_race_dates
+
+        async def _startup_probe():
+            try:
+                detail = await _asyncio.to_thread(probe_race_dates)
+                _db.log_action("race_dates_probe", "system", "startup", detail[:500])
+                logger.info("race-dates startup probe: %s", detail)
+            except Exception as e:
+                logger.warning("race-dates startup probe failed: %s", e)
+
+        _asyncio.get_running_loop().create_task(_startup_probe())
+    except Exception as e:
+        logger.warning("race-dates startup probe not scheduled: %s", e)
+
     yield
 
     # Shutdown

@@ -43,6 +43,11 @@ _MAX_ENROLLMENTS_PER_RUN = 200
 # Last-good cache so one bad fetch doesn't blank a brand for the day.
 _dates_cache: dict[str, dict[str, str]] = {}
 
+# Last fetch error per brand (cleared on success) — surfaced in the abort
+# audit entry and the startup probe so a failing fetch names its exception
+# in gg_audit_log instead of only in Railway logs.
+_last_errors: dict[str, str] = {}
+
 # SiteGround (and roadielabs' host) bot-filter 403s library default UAs
 # (Python-urllib/*, "Mozilla (compatible; ...)"). A plain identifying UA
 # passes. Without this every fetch 403'd and the job aborted daily —
@@ -65,10 +70,27 @@ def _fetch_dates_sync() -> dict[str, dict[str, str]]:
             req = urllib.request.Request(url, headers={"User-Agent": _USER_AGENT})
             with urllib.request.urlopen(req, timeout=10) as resp:
                 _dates_cache[brand] = json.load(resp)
+            _last_errors.pop(brand, None)
         except Exception as e:
+            _last_errors[brand] = repr(e)
             logger.warning("race-dates fetch failed for %s (%s): %s — using cache (%d entries)",
                            brand, url, e, len(_dates_cache.get(brand, {})))
     return _dates_cache
+
+
+def probe_race_dates() -> str:
+    """One fetch pass, summarized for the audit log. Called at app startup
+    (see app.py lifespan) so every deploy immediately records whether the
+    dates pipeline works FROM THIS ENVIRONMENT — a fetch that passes from a
+    dev laptop can still fail from the host's egress."""
+    dates = _fetch_dates_sync()
+    parts = []
+    for brand in RACE_DATES_URLS:
+        if brand in _last_errors:
+            parts.append(f"{brand}: FAILED {_last_errors[brand]}")
+        else:
+            parts.append(f"{brand}: ok ({len(dates.get(brand) or {})} entries)")
+    return " | ".join(parts)
 
 
 def gather_candidates(enrollments: list[dict]) -> tuple[dict, set]:
@@ -109,8 +131,9 @@ async def run_race_countdown(today: date | None = None) -> dict:
         # Surface the abort where an operator will actually see it. This
         # exact path failed silently for weeks (403'd fetches) with the only
         # evidence buried in Railway logs.
+        errors = "; ".join(f"{b}: {e}" for b, e in _last_errors.items()) or "unknown"
         db.log_action("race_countdown_aborted", "sequence", "",
-                      "no race dates available for any brand — fetches failed")
+                      f"no race dates available for any brand — {errors}"[:500])
         return summary
 
     enrollments = db.select(

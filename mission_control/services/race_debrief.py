@@ -23,6 +23,7 @@ from datetime import date, datetime, timezone
 from mission_control import supabase_client as db
 from mission_control.services.race_countdown import (
     _fetch_dates_sync,
+    _last_errors as _rc_errors,
     gather_candidates,
 )
 from mission_control.services.sequence_engine import enroll
@@ -61,8 +62,9 @@ async def run_race_debrief(today: date | None = None) -> dict:
     dates = await asyncio.to_thread(_fetch_dates_sync)
     if not any(dates.values()):
         logger.error("race-debrief: no race dates available for any brand — aborting run")
+        errors = "; ".join(f"{b}: {e}" for b, e in _rc_errors.items()) or "unknown"
         db.log_action("race_debrief_aborted", "sequence", "",
-                      "no race dates available for any brand — fetches failed")
+                      f"no race dates available for any brand — {errors}"[:500])
         return summary
 
     enrollments = db.select(

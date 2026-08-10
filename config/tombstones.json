@@ -105,6 +105,16 @@
       "slug": "pony-xpress-gravel-160",
       "reason": "duplicate and invalid unit identity: this is the same Colorado Pony Xpress event as pony-xpress, and the organizer's 160K flagship was misrepresented as a separate 160-mile race",
       "redirect": "/race/pony-xpress/"
+    },
+    {
+      "slug": "almanzo-100",
+      "reason": "retired identity: Almanzo last ran in Spring Valley in 2018; the city took over and renamed the current race Spring Valley 100, now Spring Valley Wilder 100",
+      "redirect": "/race/spring-valley-100/"
+    },
+    {
+      "slug": "rasputitsa-spring-classic",
+      "reason": "duplicate historical name for the same Vermont event tracked canonically as rasputitsa",
+      "redirect": "/race/rasputitsa/"
     }
   ]
 }

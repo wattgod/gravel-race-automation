@@ -1,12 +1,12 @@
 {
   "race": {
-    "name": "Spring Valley 100",
+    "name": "Spring Valley Wilder 100",
     "slug": "spring-valley-100",
-    "display_name": "Spring Valley 100",
+    "display_name": "Spring Valley Wilder 100",
     "tagline": "100 miles of self-supported gravel through Minnesota's Bluff Country.",
     "vitals": {
-      "distance_mi": 100,
-      "elevation_ft": 4000,
+      "distance_mi": 102,
+      "elevation_ft": 5174,
       "location": "Spring Valley, Minnesota",
       "location_badge": "SPRING VALLEY, MN",
       "county": "Fillmore County",
@@ -18,31 +18,31 @@
         "Midwest gravel",
         "Minnesota"
       ],
-      "field_size": "50-100 riders",
+      "field_size": "Organizer does not publish a cap or registration total",
       "start_time": "8:00 a.m.",
-      "registration": "Online. Cost: ~$75-100",
-      "prize_purse": "Modest prizes",
-      "aid_stations": "Multiple aid stations",
-      "cutoff_time": "Varies",
+      "registration": "Online via BikeReg. 2026 price: $35",
+      "prize_purse": "2026: $50 gift cards and commemorative awards for first male and female finishers in both distances",
+      "aid_stations": "None advertised; organizer defines the race as self-supported and prohibits hand-up support",
+      "cutoff_time": "No cutoff published",
       "lat": 43.687,
       "lng": -92.3893
     },
     "climate": {
-      "primary": "Minnesota summer",
-      "description": "Variable conditions.",
+      "primary": "Minnesota spring",
+      "description": "Mid-May in southeastern Minnesota can bring heat, rain, wind, or cold across exposed Bluff Country roads.",
       "challenges": [
         "Variable weather",
         "Humidity possible",
         "Rolling terrain",
-        "Summer conditions"
+        "Spring conditions"
       ]
     },
     "terrain": {
       "primary": "Minnesota rolling gravel",
-      "surface": "Gravel roads through Minnesota countryside. Moderate elevation with rolling scenery.",
+      "surface": "Self-supported gravel roads through southeastern Minnesota's rolling hills and Bluff Country.",
       "technical_rating": 2,
       "features": [
-        "Moderate rolling (4000 feet)",
+        "About 5,174 feet of climbing on the organizer-linked 2026 route",
         "Minnesota countryside scenery",
         "Local community event",
         "100-mile distance",
@@ -50,7 +50,7 @@
       ]
     },
     "gravel_god_rating": {
-      "overall_score": 44,
+      "overall_score": 47,
       "tier": 4,
       "tier_label": "TIER 4",
       "logistics": 3,
@@ -63,17 +63,17 @@
       "prestige": 1,
       "race_quality": 2,
       "experience": 2,
-      "community": 2,
+      "community": 3,
       "field_depth": 1,
-      "value": 3,
+      "value": 4,
       "expenses": 3,
-      "score_note": "Local Minnesota event. Rolling terrain with good access, moderate costs, 100-mile distance, and small local field.",
+      "score_note": "A $35, self-supported 100-mile Bluff Country race with 17 years of Spring Valley continuity and Gravel 'Sota membership; strong grassroots value, limited field-depth evidence, and minimal event support keep it in Tier 4.",
       "discipline": "gravel",
       "display_tier": 4
     },
     "biased_opinion": {
       "verdict": "Minnesota Local Century",
-      "summary": "Spring Valley 100 is a local event in Minnesota—rolling terrain with moderate elevation over 100 miles. The Minnesota countryside is nice and the distance is challenging, but the small local field and limited organization keep it in Tier 4.",
+      "summary": "Spring Valley Wilder 100 is a self-supported Minnesota gravel century through rolling Bluff Country. The $35 entry, 17 years of local continuity, and Gravel 'Sota membership are real strengths; limited field-depth evidence and intentionally minimal support keep it in Tier 4.",
       "strengths": [
         "Minnesota countryside scenery",
         "100-mile challenge",
@@ -91,28 +91,31 @@
       "bottom_line": "A solid local Minnesota century gravel race. Worth it for Minnesota/Midwest riders. Not worth traveling for."
     },
     "final_verdict": {
-      "score": "44 / 100",
+      "score": "47 / 100",
       "one_liner": "Minnesota local gravel challenge.",
       "should_you_race": "If you're local to Minnesota—yes, it's solid. If you're traveling—skip it.",
-      "alternatives": "For better Minnesota races: Almanzo, Dirty Benjamin.",
+      "alternatives": "For other Minnesota gravel races: The Heywood and Dirty Benjamin.",
       "alternative_slugs": [
-        "almanzo-100"
+        "the-heywood"
       ]
     },
     "logistics": {
       "airport": "Rochester (RST) 45 minutes",
       "lodging_strategy": "Spring Valley has good lodging options.",
       "food": "Spring Valley has full dining options. Stock nutrition.",
-      "packet_pickup": "Day of typically",
-      "parking": "At start/finish",
-      "official_site": "Check Spring Valley 100 website"
+      "packet_pickup": "2026: Friday at Bluff Brothers Brewing or race morning at the Methodist Church Museum",
+      "parking": "Start at Methodist Church Museum; finish at Spring Valley Willow Park",
+      "official_site": "https://springvalleyeda.org/spring-valley-gravel-bike-races/"
     },
     "history": {
-      "founded": null,
-      "founder": "Local Minnesota organizers",
-      "origin_story": "Local Minnesota gravel event.",
-      "notable_moments": [],
-      "reputation": "Local Minnesota event."
+      "founded": 2021,
+      "founder": "Spring Valley Economic Development Authority",
+      "origin_story": "After Almanzo last ran in Spring Valley in 2018, the city took over the local gravel century and renamed it Spring Valley 100. The 2026 edition adopted the Wilder 100 name while continuing the Spring Valley race lineage.",
+      "notable_moments": [
+        "2021: Spring Valley EDA relaunched the local century as Spring Valley 100",
+        "2026: Renamed Spring Valley Wilder 100 and joined the Gravel 'Sota series"
+      ],
+      "reputation": "Grassroots, barrier-free, self-supported Bluff Country gravel racing."
     },
     "course_description": {
       "character": "Minnesota rolling gravel.",
@@ -139,23 +142,23 @@
           "named_section": "Final Push"
         }
       ],
-      "signature_challenge": "Minnesota rolling terrain over 100 miles.",
-      "ridewithgps_id": "46674434",
-      "ridewithgps_name": "2024 Spring Valley 100 Forestville Bypass"
+      "signature_challenge": "Roughly 102 self-supported miles and 5,174 feet of climbing across rolling Bluff Country roads.",
+      "ridewithgps_id": "54987672",
+      "ridewithgps_name": "Spring Valley Wilder 100"
     },
     "guide_variables": {
-      "race_name": "Spring Valley 100",
-      "race_distance": "100 miles",
-      "race_elevation": "4,000 feet",
-      "race_date": "Summer",
+      "race_name": "Spring Valley Wilder 100",
+      "race_distance": "102 miles (organizer calls it the Wilder 100)",
+      "race_elevation": "5,174 feet",
+      "race_date": "Mid-May",
       "race_location": "Spring Valley, Minnesota",
       "race_terrain": "Minnesota rolling gravel",
-      "race_weather": "Minnesota summer variable",
+      "race_weather": "Minnesota spring variability",
       "race_challenges": [
         "Rolling terrain",
-        "Small local field",
+        "Self-supported execution",
         "100-mile distance",
-        "Limited organization",
+        "No advertised aid stations",
         "Variable weather"
       ],
       "altitude_section": false,
@@ -165,7 +168,7 @@
       {
         "requirement": "Weather preparation",
         "by_when": "Week 4-6",
-        "why": "Minnesota summer weather is variable."
+        "why": "Minnesota spring weather is variable."
       },
       {
         "requirement": "Century endurance",
@@ -179,13 +182,16 @@
       }
     ],
     "research_metadata": {
-      "data_confidence": "moderate",
-      "validation_status": "pending",
+      "data_confidence": "high for 2026 identity and course; 2027 not announced",
+      "validation_status": "current-source-verified",
       "sources": [
-        "minnesota_cycling_community"
+        "https://springvalleyeda.org/spring-valley-gravel-bike-races/",
+        "https://ridewithgps.com/routes/54987672"
       ],
       "migration_notes": [
-        "Generated from regional information"
+        "2026 official source refresh: current event name is Spring Valley Wilder 100; official page confirms May 16, $35, self-supported rules, 8:00 a.m. start, awards, and Gravel 'Sota membership",
+        "Organizer-linked RideWithGPS route 54987672 measures 163.615 km and 1,577.08 m, rounded here to 102 miles and 5,174 feet",
+        "No organizer-confirmed 2027 date is published as of 2026-08-10"
       ],
       "research_strength": {
         "overall": 84.9,
@@ -252,10 +258,10 @@
       },
       "tier_overrides": {},
       "marketplace_variables": {
-        "race_name": "Spring Valley 100",
+        "race_name": "Spring Valley Wilder 100",
         "race_hook": "Minnesota local gravel challenge.",
         "race_hook_detail": "Local event with 100-mile rolling terrain.",
-        "distance": "100",
+        "distance": "102",
         "dark_mile": "50",
         "non_negotiable_1": "Weather preparation",
         "non_negotiable_2": "Century endurance",
@@ -278,7 +284,7 @@
       },
       "elevation": {
         "score": 3,
-        "explanation": "Four thousand feet includes the notorious \"soul-breaking Oriole Road at mile 91\" that hits when riders are already depleted. The bluff country pattern of valleys and plateaus creates consistent climbing without massive single ascents, though race organizers recommend training on \">10% grade\" hills with multiple repeats to prepare for the accumulated suffering. Similar elevation profile to Gravel Worlds."
+        "explanation": "The organizer-linked 2026 route records 1,577.08 meters, or about 5,174 feet, across 102 miles. The Bluff Country pattern of valleys and plateaus creates repeated climbing without one defining mountain, and the late rollers still arrive after a full self-supported day."
       },
       "climate": {
         "score": 2,
@@ -294,7 +300,7 @@
       },
       "prestige": {
         "score": 1,
-        "explanation": "Spring Valley 100 operates as grassroots racing with zero prize purse and finishes at a frisbee golf course. Connection to nearby La Crescent Gravel National Championships provides some regional relevance as preparatory training, but this remains local Minnesota cycling rather than destination racing that draws notable competitors or national attention."
+        "explanation": "Spring Valley Wilder 100 remains grassroots racing rather than a destination draw. The 2026 event awards commemorative prizes and $50 gift cards to first male and female finishers in both distances, but it publishes no elite field, national classification, or deep prize purse."
       },
       "race_quality": {
         "score": 2,
@@ -305,16 +311,16 @@
         "explanation": "Rolling through the distinctive Driftless Region with its repeating pattern of river valleys and farmland plateaus provides scenic variety, enhanced by the covered forest coolness before each bridge crossing. The \"soul-breaking Oriole Road at mile 91\" delivers memorable late-race suffering, though finishing at Willow Park's frisbee golf course deflates any epic conclusion."
       },
       "community": {
-        "score": 2,
-        "explanation": "\"Barrier-free\" racing attracts Minnesota cyclists with pre-race \"electrifying\" atmosphere in the grassy lot and \"nervous bantering\" among riders wearing CRo-designed kits from regional events. Connection to Gravel 'Sota series and local sponsors like Lupulin Brewing shows regional support, but the community remains distinctly local rather than drawing broader gravel racing participation."
+        "score": 3,
+        "explanation": "The organizer describes 17 consecutive years of barrier-free gravel racing from Spring Valley, and the 2026 race joined Gravel 'Sota as the series opener. City ownership, volunteer support, and a deliberately accessible $35 entry show durable regional community even without national reach."
       },
       "field_depth": {
         "score": 1,
         "explanation": "Field size remains undisclosed, though 2021's extreme conditions saw only 150 of 350 registered riders start, with maybe \"15 riders\" in the opening lead group before early splits. No notable competitive results emerge from sixteen years of racing, and Gerasimos G.'s detailed race reports suggest participation cycling rather than serious competitive depth. Thinner field than Ouray Gravel Grinder."
       },
       "value": {
-        "score": 3,
-        "explanation": "\"Free to public, self-supported gravel road races\" deliver 100 miles of curated Driftless Region terrain with minimal entry costs (recent years show $35 registration). Four thousand feet of climbing and sixteen years of route refinement provide honest gravel challenge without premium event markup, making it accessible Minnesota racing with solid value proposition."
+        "score": 4,
+        "explanation": "The official 2026 price is $35 for roughly 102 miles and 5,174 feet on an organizer-linked route. Riders trade aid stations and premium production for an unusually inexpensive, established Bluff Country race, which is a strong value proposition for anyone prepared to be self-supported."
       },
       "expenses": {
         "score": 3,
@@ -323,9 +329,14 @@
     },
     "citations": [
       {
-        "url": "https://ridewithgps.com/routes/46674434",
+        "url": "https://springvalleyeda.org/spring-valley-gravel-bike-races/",
+        "category": "official",
+        "label": "Spring Valley EDA: 2026 Wilder 100 event, registration, rules, awards, and route links"
+      },
+      {
+        "url": "https://ridewithgps.com/routes/54987672",
         "category": "route",
-        "label": "RideWithGPS: 2024 Spring Valley 100 Forestville Bypass"
+        "label": "RideWithGPS: Spring Valley Wilder 100 organizer-linked 2026 route"
       },
       {
         "url": "https://springvalleyeda.org/spring-valley-100-and-spring-valley-60-gravel-bike-race-official-results/",

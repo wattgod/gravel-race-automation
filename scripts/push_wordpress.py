@@ -1679,6 +1679,14 @@ RewriteRule ^race/big-horn-gravel/(.*)$ /race/bighorn-gravel/$1 [R=301,L]
 # organizer's 160K flagship distance as 160 miles. Keep the verified 160K race.
 RewriteRule ^race/pony-xpress-gravel-160/?$ /race/pony-xpress/ [R=301,L]
 RewriteRule ^race/pony-xpress-gravel-160/(.*)$ /race/pony-xpress/$1 [R=301,L]
+# Almanzo last ran in Spring Valley in 2018. The city-owned successor is now
+# the Spring Valley Wilder 100; preserve old links without keeping two races.
+RewriteRule ^race/almanzo-100/?$ /race/spring-valley-100/ [R=301,L]
+RewriteRule ^race/almanzo-100/(.*)$ /race/spring-valley-100/$1 [R=301,L]
+# Rasputitsa Spring Classic is the historical long name of Rasputitsa, not a
+# second Vermont race.
+RewriteRule ^race/rasputitsa-spring-classic/?$ /race/rasputitsa/ [R=301,L]
+RewriteRule ^race/rasputitsa-spring-classic/(.*)$ /race/rasputitsa/$1 [R=301,L]
 RewriteRule ^race/dreilaendergiro/?$ https://roadielabs.com/race/dreilander-giro/ [R=301,L]
 RewriteRule ^race/dreilaendergiro/(.*)$ https://roadielabs.com/race/dreilander-giro/$1 [R=301,L]
 RewriteRule ^race/gran-fondo-felice-gimondi/?$ https://roadielabs.com/race/granfondo-felice-gimondi/ [R=301,L]

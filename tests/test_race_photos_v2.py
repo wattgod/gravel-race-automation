@@ -507,4 +507,7 @@ class TestRealRaceData:
         # Floor re-pinned 191->190 (Aug 6 2026): Atlas Mountain Race's old
         # 2020 RWGPS route was retired after the organizer published the 2027
         # course as a route collection without a verified single-route ID.
-        assert rwgps_count >= 190, f"Expected >=190 current RWGPS routes, got {rwgps_count}"
+        # Floor re-pinned 190->189 (Aug 10 2026): the retired Almanzo and
+        # duplicate Rasputitsa/Rad identities were removed; one duplicate
+        # geometry disappeared net of the current Spring Valley route.
+        assert rwgps_count >= 189, f"Expected >=189 current RWGPS routes, got {rwgps_count}"

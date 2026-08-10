@@ -714,8 +714,10 @@ class TestNoWorkoutsBeforePlanStart:
                 continue  # Race_Day has different format
             month_str, day_str = m.group(1), m.group(2)
             file_date = datetime.strptime(
-                f"{month_str}{day_str} 2026", "%b%d %Y"
+                f"{month_str}{day_str} {plan_start.year}", "%b%d %Y"
             ).date()
+            if file_date < plan_start and (plan_start - file_date).days > 180:
+                file_date = file_date.replace(year=plan_start.year + 1)
             assert file_date >= plan_start, (
                 f"CRITICAL: {f.name} is dated {file_date} which is BEFORE "
                 f"plan start {plan_start}. Athletes cannot time-travel."
@@ -769,8 +771,10 @@ class TestNoWorkoutsBeforePlanStart:
             m = re.search(r"_([A-Z][a-z]{2})(\d{2})_", f.name)
             if m:
                 file_date = datetime.strptime(
-                    f"{m.group(1)}{m.group(2)} 2026", "%b%d %Y"
+                    f"{m.group(1)}{m.group(2)} {plan_start.year}", "%b%d %Y"
                 ).date()
+                if file_date < plan_start and (plan_start - file_date).days > 180:
+                    file_date = file_date.replace(year=plan_start.year + 1)
                 dates.append(file_date)
 
         assert dates, "No workout files with dates found"

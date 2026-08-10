@@ -1687,6 +1687,10 @@ RewriteRule ^race/almanzo-100/(.*)$ /race/spring-valley-100/$1 [R=301,L]
 # second Vermont race.
 RewriteRule ^race/rasputitsa-spring-classic/?$ /race/rasputitsa/ [R=301,L]
 RewriteRule ^race/rasputitsa-spring-classic/(.*)$ /race/rasputitsa/$1 [R=301,L]
+# rad-dirt-fest duplicated the same Trinidad event already tracked as the-rad;
+# the duplicate profile also carried stale Salida race facts.
+RewriteRule ^race/rad-dirt-fest/?$ /race/the-rad/ [R=301,L]
+RewriteRule ^race/rad-dirt-fest/(.*)$ /race/the-rad/$1 [R=301,L]
 RewriteRule ^race/dreilaendergiro/?$ https://roadielabs.com/race/dreilander-giro/ [R=301,L]
 RewriteRule ^race/dreilaendergiro/(.*)$ https://roadielabs.com/race/dreilander-giro/$1 [R=301,L]
 RewriteRule ^race/gran-fondo-felice-gimondi/?$ https://roadielabs.com/race/granfondo-felice-gimondi/ [R=301,L]

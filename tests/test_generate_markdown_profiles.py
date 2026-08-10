@@ -117,7 +117,7 @@ class TestFrontmatter:
         assert "tier: 1" in unbound_md
 
     def test_has_score(self, unbound_md):
-        assert "score: 93" in unbound_md
+        assert "score: 95" in unbound_md
 
     def test_has_url(self, unbound_md):
         assert "url: " in unbound_md

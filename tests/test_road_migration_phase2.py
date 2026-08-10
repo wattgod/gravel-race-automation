@@ -83,17 +83,19 @@ class TestCatalogContract:
     ):
         # Phase 1 source snapshot: 733 active profiles. Phase 2 removes the
         # 363 redirect/hub_redirect records and keeps RVO, yielding 370.
-        # Subsequent catalog work has a net +2: the prior net -3 baseline, the
+        # Subsequent catalog work had a net +2: the prior net -3 baseline, the
         # Aug. 6 audit removed fabricated Polish Gravel and added verified
         # R3G3, West Coast Slugger, and Wyscig Niepolomice profiles (net +2),
         # then the final catalog pass added Okanagan Graveller, Kindling, and
-        # Garden Route Giro (net +3).
+        # Garden Route Giro (net +3). The Aug. 10 identity pass then removed
+        # three retired/duplicate active profiles: Almanzo, Rasputitsa Spring
+        # Classic, and Rad Dirt Fest (all preserve redirects to canonical pages).
         source_count = migration_map["source_snapshot"]["gravel_god"][
             "race_data_total_profiles"
         ]
         departing_count = len(road_migration.redirected_entries(migration_map))
-        post_migration_additions = 2
-        assert len(race_index) == source_count - departing_count + post_migration_additions == 372
+        post_migration_additions = -1
+        assert len(race_index) == source_count - departing_count + post_migration_additions == 369
 
     def test_archived_profiles_never_feed_generated_index(
         self, migration_map, race_index

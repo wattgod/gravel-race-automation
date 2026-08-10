@@ -3,7 +3,7 @@
     "name": "The Rad",
     "slug": "the-rad",
     "display_name": "The Rad Dirt Fest",
-    "tagline": "High-desert climbing in southern Colorado. Spanish Peaks backdrop, 10,000+ feet of vertical.",
+    "tagline": "113 miles through Trinidad's high desert and Spanish Peaks—long climbing, thin air, and a 31-mile unsupported stretch.",
     "vitals": {
       "distance_mi": 113,
       "elevation_ft": 10613,
@@ -13,50 +13,52 @@
       "date": "Late September annually",
       "date_specific": "2026: September 26",
       "terrain_types": [
-        "High-desert gravel",
-        "Mesa terrain",
-        "Long sustained climbs",
-        "Technical two-track"
+        "Maintained high-desert gravel (more than 90%)",
+        "Mostly rolling open roads",
+        "Long Spanish Peaks climbs",
+        "Two-mile technical South Shore Trail section"
       ],
-      "field_size": "500+ riders across distances",
-      "start_time": "Saturday morning",
-      "registration": "Opens via theraddirt.com. Tiered pricing by distance.",
-      "prize_purse": "Life Time event purse",
-      "aid_stations": "Multiple aid stations along course",
-      "cutoff_time": "Time limits per route with sweeps",
+      "field_size": "Organizer does not publish a cap; official 2024 media reported 1,000+ participants across the event",
+      "start_time": "9:30 a.m. for the 110-mile course",
+      "registration": "Online. 2026 110-mile price: $190 through August 25, then $200",
+      "prize_purse": "$5,000 total across the open men's and women's categories",
+      "aid_stations": "Six on the 113-mile course, including a mile 43.6 drop-bag stop",
+      "cutoff_time": "1:50 p.m. at mile 43.6; 6:30 p.m. at mile 90.3; 8:10 p.m. at mile 106.8",
       "lat": 37.1694,
       "lng": -104.5005,
       "start_elevation_asl_ft": 6025,
       "avg_elevation_asl_ft": 6800
     },
     "climate": {
-      "primary": "High-desert Colorado",
-      "description": "Early fall in Trinidad means cool mornings, warm afternoons. High desert sun plus altitude makes climbs hot.",
+      "primary": "Southern Colorado high desert in early autumn",
+      "description": "The organizer advises riders to expect lower 50s early, afternoon temperatures in the 80s, and fast-changing rain in the high desert.",
       "challenges": [
-        "Heat on long 18-mile climb",
-        "Exposed mesa terrain",
-        "Localized mud/ruts if rain",
-        "Altitude 6,000-9,000 ft"
+        "Thin air from roughly 6,000 to 8,921 feet",
+        "Large morning-to-afternoon temperature swing",
+        "Rapidly changing high-desert rain",
+        "Long exposed sections with limited cell service"
       ]
     },
     "terrain": {
       "primary": "High-desert gravel with long sustained climbs",
-      "surface": "Over 90% maintained gravel roads, short technical section at Trinidad Lake State Park",
-      "technical_rating": 3,
+      "surface": "The organizer describes more than 90% maintained gravel and mostly rolling roads. The exception is a two-mile South Shore Trail segment with loose, pitchy terrain.",
+      "technical_rating": 2,
       "features": [
-        "18-mile climb to 9,000 ft",
-        "Spanish Peaks backdrop",
-        "Technical two-track sections",
-        "Fast descents with ruts"
+        "Spanish Peaks and high-desert mesas",
+        "Course high point at 8,921 feet",
+        "Burro Canyon climb",
+        "Trinidad Lake State Park",
+        "Mostly maintained gravel",
+        "Two-mile technical South Shore Trail segment"
       ]
     },
     "gravel_god_rating": {
-      "overall_score": 73,
+      "overall_score": 69,
       "tier": 2,
       "tier_label": "TIER 2",
       "logistics": 3,
-      "length": 5,
-      "technicality": 3,
+      "length": 4,
+      "technicality": 2,
       "elevation": 5,
       "climate": 3,
       "altitude": 4,
@@ -66,32 +68,38 @@
       "experience": 4,
       "community": 3,
       "field_depth": 3,
-      "value": 4,
+      "value": 3,
       "expenses": 3,
-      "score_note": "Spanish Peaks scenery, 10K+ climbing at altitude. Life Time production quality. Overall +6 for adventure factor.",
+      "score_note": "The official page advertises 10,613 feet; the organizer-linked route file reports about 8,274 feet. Score uses the published course while disclosing the conflict.",
       "discipline": "gravel",
       "display_tier": 2
     },
     "biased_opinion": {
-      "verdict": "Climber's High-Desert Challenge",
-      "summary": "The Rad is a climbing race set against stunning Spanish Peaks scenery. The 18-mile climb to 9,000 ft with grades up to 18% defines the event. Well-organized Life Time production with challenging terrain.",
+      "verdict": "A Long, Fast Altitude Test in Southern Colorado",
+      "summary": "The Rad's Stubborn Dolores course is a 113-mile Trinidad race beneath the Spanish Peaks. The organizer advertises 10,613 feet of gain, while its current linked Ride with GPS file measures about 8,274 feet; either number means a long day at altitude. Most of the course is maintained gravel, but the late technical segment, three timed cutoffs, and 31-mile gap to aid punish riders who mistake smooth roads for an easy race.",
       "strengths": [
-        "The scenery: Spanish Peaks and sweeping mesas are stunning.",
-        "The climb: 18-mile sustained effort is a true test of climbing fitness.",
-        "The organization: Life Time event quality and support.",
-        "UNBOUND qualifier: Finishers earn qualifier coins for 2025."
+        "Spanish Peaks and high-desert scenery",
+        "113-mile distance with sustained altitude exposure",
+        "More than 90% maintained gravel",
+        "Six aid stations and a mile 43.6 drop bag",
+        "50 UNBOUND qualifier coins across the 110- and 70-mile fields",
+        "$5,000 open-category purse",
+        "Professional Life Time organization"
       ],
       "weaknesses": [
-        "Logistics: Trinidad is remote. Denver/Colorado Springs are hours away.",
-        "Altitude: 6,000-9,000 ft range affects sea-level riders.",
-        "Technical sections: Muddy/rutted descents can catch riders off-guard."
+        "Remote southern Colorado travel",
+        "Thin air up to an advertised 8,921-foot high point",
+        "Thirty-one miles between aid opportunities on the backside",
+        "Limited or nonexistent cell service on the long course",
+        "Open roads and rapidly changing high-desert weather",
+        "Organizer page and linked route file disagree on total climbing"
       ],
-      "bottom_line": "A serious climbing race in beautiful high-desert Colorado. Come prepared for altitude and long sustained efforts."
+      "bottom_line": "The roads are usually fast; the distance, climbing, unsupported gap, and late cutoffs are the real selection."
     },
     "final_verdict": {
-      "score": "73 / 100",
-      "one_liner": "High-desert climbing race with Spanish Peaks views and 10,000+ feet of vertical.",
-      "should_you_race": "Yes if you love climbing and want a challenging altitude race in stunning Colorado scenery. The 18-mile climb is the real deal.",
+      "score": "69 / 100",
+      "one_liner": "The Rad serves up fast gravel and Spanish Peaks views, but its 31-mile no-service stretch exposes every training shortcut.",
+      "should_you_race": "Race it if you want a long, fast gravel course where altitude management and self-support matter more than technical bravado. Skip it if remote travel, a premium entry fee, or a late-day cutoff turns preparation into guesswork.",
       "alternatives": "If you want Colorado gravel without the massive climb: Ned Gravel. If you want similar climbing: Crusher in the Tushar.",
       "alternative_slugs": [
         "crusher-in-the-tushar",
@@ -99,12 +107,12 @@
       ]
     },
     "logistics": {
-      "airport": "Denver (DEN) or Colorado Springs (COS) - several hours drive to Trinidad. Consider Pueblo for closer regional option.",
-      "lodging_strategy": "Trinidad and surrounding area. Event weekend likely sells out local hotels/campsites. Book early.",
-      "food": "Trinidad is a small town. Plan accordingly.",
-      "packet_pickup": "Standard Life Time check-in protocols. Athlete guide covers timing and mandatory gear.",
-      "parking": "Start in downtown Trinidad. Standard event footprint.",
-      "official_site": "https://www.theraddirt.com"
+      "airport": "Colorado Springs (COS) is approximately two hours by car; Denver (DEN) and Albuquerque (ABQ) are each approximately three hours away.",
+      "lodging_strategy": "Stay in Trinidad and book early; the organizer also lists a city camping option within a mile of the start/finish.",
+      "food": "Six aid stations serve the long course, but riders should leave mile 43.6 prepared for the organizer's warned 31-mile gap.",
+      "packet_pickup": "Friday, 2:00–7:00 p.m., or Saturday, 7:00–9:00 a.m., at 218 W Main Street; photo ID required and athletes must collect their own packets.",
+      "parking": "Use the organizer's current race-week instructions; downtown roads and expo operations affect access.",
+      "official_site": "https://www.theraddirt.com/"
     },
     "history": {
       "founded": 2021,
@@ -112,13 +120,13 @@
       "origin_story": "Created by Life Time in Trinidad to showcase gravel roads rarely experienced, with Spanish Peaks backdrops and high-desert terrain. Lauren De Crescenzo won the inaugural 110-mile event.",
       "notable_moments": [
         "Inaugural 2021 event established Trinidad as gravel destination",
-        "Was major series stop #6 in 2024 (dropped for 2025+)",
-        "2025 edition includes UNBOUND Gravel qualifier coin allocation"
+        "2024: Keegan Swenson and Lauren De Crescenzo won the 113-mile race",
+        "2026: Added 50 UNBOUND Gravel qualifier coins across the 110- and 70-mile distances"
       ],
       "reputation": "High-desert Colorado climbing race with stunning Spanish Peaks scenery. Long sustained climbs at altitude define the challenge."
     },
     "course_description": {
-      "character": "Long sustained climbs through high-desert Colorado. Spanish Peaks views and 10,000+ feet of vertical define the challenge.",
+      "character": "A 113-mile altitude race on mostly maintained high-desert gravel. The organizer advertises 10,613 feet of gain and an 8,921-foot high point; its linked route file currently reports about 8,274 feet of gain.",
       "suffering_zones": [
         {
           "mile": 6,
@@ -142,23 +150,29 @@
           "named_section": "Top of Course"
         },
         {
-          "mile": 100,
-          "label": "Chunky Sector",
-          "desc": "The chunkiest part of the course. Most susceptible to flatting. Right before fast run-in to town.",
-          "terrain_detail": "Rocky/chunky gravel near Trinidad Lake",
-          "named_section": "Flat Zone"
+          "mile": 90,
+          "label": "South Shore and the Final Cutoff",
+          "desc": "Fatigue meets a two-mile loose, pitchy trail segment before the 8:10 p.m. mile 106.8 cutoff.",
+          "terrain_detail": "Loose technical gravel near Trinidad Lake",
+          "named_section": "South Shore Trail"
         }
       ],
-      "signature_challenge": "The 18-mile climb to 9,000 ft. Long, steep, at altitude. This is where races are won and lost.",
-      "map_url": "https://www.theraddirt.com"
+      "signature_challenge": "Covering 113 miles at altitude while managing a 31-mile unsupported gap and three on-course cutoffs.",
+      "map_url": "https://ridewithgps.com/routes/51731077"
     },
     "research_metadata": {
-      "data_confidence": "migrated",
-      "validation_status": "pending",
+      "data_confidence": "researched",
+      "validation_status": "verified",
       "sources": [
-        "v2"
+        "official_event_info",
+        "official_2026_registration",
+        "official_stubborn_dolores_course",
+        "organizer_linked_ridewithgps_route",
+        "official_2021_athlete_guide"
       ],
       "migration_notes": [],
+      "research_date": "2026-08-10",
+      "notes": "The official course page advertises 10,613 feet of gain. The organizer-linked Ride with GPS route 51731077 reports 2,522.03 meters (about 8,274 feet). The profile preserves the organizer's advertised number and discloses the route-file conflict for training execution.",
       "research_strength": {
         "overall": 94.8,
         "grade": "A",
@@ -174,25 +188,88 @@
           "completeness": 94,
           "cross_reference": 75
         },
-        "scored_at": "2026-02-04"
+        "scored_at": "2026-08-10"
+      }
+    },
+    "guide_variables": {
+      "race_name": "The Rad Dirt Fest — Stubborn Dolores 110",
+      "race_distance": "113 miles",
+      "race_elevation": "10,613 feet advertised; approximately 8,274 feet in the organizer-linked route file",
+      "race_date": "September 26, 2026",
+      "race_location": "Trinidad, Colorado",
+      "race_terrain": "Mostly maintained high-desert gravel with sustained altitude climbing and a two-mile technical trail segment",
+      "race_weather": "Lower 50s early, 80s in the afternoon, and fast-changing high-desert rain",
+      "race_challenges": [
+        "113-mile distance",
+        "Climbing and thin air up to 8,921 feet",
+        "Thirty-one miles between aid opportunities on the backside",
+        "Three timed cutoffs",
+        "Late two-mile loose technical section"
+      ],
+      "altitude_section": true,
+      "altitude_feet": 8921
+    },
+    "training_config": {
+      "workout_modifications": {
+        "altitude_pacing": {
+          "enabled": true,
+          "weeks": [2, 3, 4]
+        },
+        "century_endurance": {
+          "enabled": true,
+          "weeks": [2, 3, 4, 5]
+        },
+        "dress_rehearsal": {
+          "enabled": true,
+          "week": 4,
+          "day": "Saturday",
+          "duration_hours": {
+            "ayahuasca": 3,
+            "finisher": 4,
+            "compete": 5,
+            "podium": 6
+          }
+        }
+      },
+      "masterclass_topics": {
+        "priority_order": ["pacing", "fueling", "altitude", "self_support"],
+        "race_specific": true,
+        "topics": {
+          "pacing": "Pacing a 113-mile course with sustained altitude exposure",
+          "fueling": "Fuel and hydration for the 31-mile gap between aid opportunities",
+          "altitude": "Managing effort and appetite up to 8,921 feet",
+          "self_support": "Repair, clothing, lighting, and cutoff planning for the remote backside"
+        }
+      },
+      "tier_overrides": {},
+      "marketplace_variables": {
+        "race_name": "The Rad Dirt Fest",
+        "race_hook": "A 113-mile Spanish Peaks altitude race on fast gravel.",
+        "race_hook_detail": "Mostly maintained roads disguise a long day with substantial climbing, a 31-mile unsupported gap, and three timed cutoffs.",
+        "distance": "113",
+        "dark_mile": "72",
+        "non_negotiable_1": "Altitude pacing",
+        "non_negotiable_2": "Long-course fueling",
+        "non_negotiable_3": "Self-supported cutoff execution",
+        "trainingpeaks_url": "https://www.trainingpeaks.com/training-plans/cycling/gran-fondo-century/tp-658748/the-rad-dirt-fest-save-my-race-6wk"
       }
     },
     "biased_opinion_ratings": {
       "logistics": {
         "score": 3,
-        "explanation": "Race hub operates from 218 W Main St for drop bags and awards, with clearly structured inbound support timing. Aaron Bible noted being \"shocked\" by Trinidad's downtown revitalization when picking up his race packet. Life Time's production standards show through organized aid station placement, though some basic travel logistics remain unspecified."
+        "explanation": "Life Time publishes packet pickup, start times, aid locations, drop-bag rules, crew points, and cutoffs. Trinidad is still a remote drive from major airports, and the organizer warns of limited cell service plus 31 miles to aid on the backside."
       },
       "length": {
-        "score": 5,
-        "explanation": "The 112-mile Stubborn Delores course with 10,400 feet of climbing is described as being \"for the hardiest\" riders. Elite racing stayed bunched through 46 miles before the field finally broke apart, with Vermeulen and Stetina's sprint finish coming after 68 miles of sustained effort. Distance plus elevation creates cumulative difficulty that separates prepared riders from the rest. Among the longest in gravel, comparable to Badlands."
+        "score": 4,
+        "explanation": "The featured Stubborn Dolores course is 113 miles. The distance creates a true all-day endurance demand, especially because the final cutoff checkpoint does not arrive until mile 106.8."
       },
       "technicality": {
-        "score": 3,
-        "explanation": "Course features \"a mix of pristine and punchy gravel\" with technical sections including \"gnarly climbs through town\" and \"a sporty descent in the last quarter mile\" that allowed Vermeulen to overtake Stetina at the finish. Aaron Bible valued his test bike's \"slack geometry\" for confidence \"where the terrain and surface is bound to be dynamic.\" Mostly smooth with strategic technical challenges. Similar technical demands to Gravel Worlds."
+        "score": 2,
+        "explanation": "The organizer describes more than 90% maintained gravel and mostly rolling roads. The two-mile South Shore Trail section adds loose, pitchy terrain late in the day, but it is an exception rather than the character of the full course."
       },
       "elevation": {
         "score": 5,
-        "explanation": "The 112-mile course delivers 10,400 feet of climbing through \"55 miles of gradual climbing\" followed by descending sections and \"a pretty brutal climb on blacktop\" near the finish. Elite fields stayed together through the sustained climbing before breaking apart in the final third. Even the 47-mile option packs 4,200 feet of gain with maximum elevation of 7,221 feet. Among the hilliest in gravel, comparable to Badlands."
+        "explanation": "The official course page advertises 10,613 feet of climbing and an 8,921-foot high point. The organizer-linked Ride with GPS file currently measures about 8,274 feet, a material discrepancy, but both figures put climbing at the center of the race."
       },
       "climate": {
         "score": 3,
@@ -220,15 +297,15 @@
       },
       "community": {
         "score": 3,
-        "explanation": "Life Time membership perks and early registration access create some insider dynamic. Part of the broader Life Time gravel series with UNBOUND and Big Sugar, but hasn't earned its own distinct tribal identity yet."
+        "explanation": "Trinidad's city leaders, local businesses, and volunteers are visibly invested in the event, and Life Time's official 2025 recap emphasizes that partnership. The event is supportive and established, though its identity remains closely tied to Life Time's broader series."
       },
       "field_depth": {
         "score": 3,
         "explanation": "With a field of 500+ riders across distances, elite men's racing featured Vermeulen, Stetina, Morton, Howes, and Beers in the lead group, while women saw de Crescenzo, Anthony, Skarda, and Thompson contending. The field includes \"seemingly every type of rider, pros and amateurs alike\" with international participation. Competitive depth is growing but the newer event hasn't yet established the decades-deep talent pool of established races. Similar competitive depth to Rule of Three."
       },
       "value": {
-        "score": 4,
-        "explanation": "Three distance options from $85-195 provide entry points for different commitment levels, while UNBOUND qualifier opportunities add value for series-focused riders. Trinidad's transformation into an outdoor recreation destination with \"newly established Office of Outdoor Recreation\" creates broader weekend value. The town's \"welcomed us with open arms\" approach enhances the overall experience beyond just race day."
+        "score": 3,
+        "explanation": "The 2026 long-course fee is $190 through August 25 and $200 afterward. Six aid stations, professional operations, a $5,000 purse, and access to 50 UNBOUND qualifier coins add real value, but this remains a premium entry rather than a bargain."
       },
       "expenses": {
         "score": 3,
@@ -236,6 +313,26 @@
       }
     },
     "citations": [
+      {
+        "url": "https://www.theraddirt.com/info/",
+        "category": "official",
+        "label": "Official 2026 event information"
+      },
+      {
+        "url": "https://www.theraddirt.com/registration/",
+        "category": "official",
+        "label": "Official 2026 registration and pricing"
+      },
+      {
+        "url": "https://www.theraddirt.com/stubborndolores/",
+        "category": "official",
+        "label": "Official Stubborn Dolores 110 course"
+      },
+      {
+        "url": "https://ridewithgps.com/routes/51731077",
+        "category": "route",
+        "label": "Organizer-linked Ride with GPS route"
+      },
       {
         "url": "https://rouvy.com/life-time/the-rad-dirt-fest",
         "category": "other",

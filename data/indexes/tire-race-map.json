@@ -1,8 +1,8 @@
 {
   "specialized-pathfinder-pro": {
-    "total_appearances": 376,
-    "primary_picks": 214,
-    "front_rear_picks": 162,
+    "total_appearances": 373,
+    "primary_picks": 212,
+    "front_rear_picks": 161,
     "avg_rank": 1.4,
     "most_common_width": 38,
     "races": [
@@ -68,14 +68,6 @@
         "rank": 0,
         "width_mm": 38,
         "position": "rear",
-        "surface": "mixed"
-      },
-      {
-        "slug": "almanzo-100",
-        "name": "ALMANZO 100",
-        "rank": 2,
-        "width_mm": 42,
-        "position": "primary",
         "surface": "mixed"
       },
       {
@@ -888,7 +880,7 @@
       },
       {
         "slug": "gravel-del-fuego",
-        "name": "Gravel del Fuego",
+        "name": "Del Fuego Race",
         "rank": 1,
         "width_mm": 42,
         "position": "primary",
@@ -896,7 +888,7 @@
       },
       {
         "slug": "gravel-del-fuego",
-        "name": "Gravel del Fuego",
+        "name": "Del Fuego Race",
         "rank": 0,
         "width_mm": 42,
         "position": "rear",
@@ -984,7 +976,7 @@
       },
       {
         "slug": "gravel-roubaix",
-        "name": "Gravel Roubaix",
+        "name": "Roughneck Gravel Roubaix",
         "rank": 3,
         "width_mm": 38,
         "position": "primary",
@@ -1257,22 +1249,6 @@
       {
         "slug": "heywood-ride",
         "name": "Heywood Ride",
-        "rank": 0,
-        "width_mm": 38,
-        "position": "rear",
-        "surface": "mixed"
-      },
-      {
-        "slug": "hibernator",
-        "name": "Hibernator",
-        "rank": 1,
-        "width_mm": 38,
-        "position": "primary",
-        "surface": "mixed"
-      },
-      {
-        "slug": "hibernator",
-        "name": "Hibernator",
         "rank": 0,
         "width_mm": 38,
         "position": "rear",
@@ -1682,7 +1658,7 @@
         "slug": "muck-n-mac-fest",
         "name": "Muck n Mac Fest",
         "rank": 1,
-        "width_mm": 38,
+        "width_mm": 40,
         "position": "primary",
         "surface": "mixed"
       },
@@ -1690,7 +1666,7 @@
         "slug": "muck-n-mac-fest",
         "name": "Muck n Mac Fest",
         "rank": 0,
-        "width_mm": 38,
+        "width_mm": 40,
         "position": "rear",
         "surface": "mixed"
       },
@@ -2376,7 +2352,7 @@
       },
       {
         "slug": "spring-valley-100",
-        "name": "Spring Valley 100",
+        "name": "Spring Valley Wilder 100",
         "rank": 1,
         "width_mm": 38,
         "position": "primary",
@@ -2384,7 +2360,7 @@
       },
       {
         "slug": "spring-valley-100",
-        "name": "Spring Valley 100",
+        "name": "Spring Valley Wilder 100",
         "rank": 0,
         "width_mm": 38,
         "position": "rear",
@@ -2890,7 +2866,7 @@
         "slug": "west-coast-gravel",
         "name": "West Coast Gravel",
         "rank": 1,
-        "width_mm": 42,
+        "width_mm": 47,
         "position": "primary",
         "surface": "mixed"
       },
@@ -2898,7 +2874,7 @@
         "slug": "west-coast-gravel",
         "name": "West Coast Gravel",
         "rank": 0,
-        "width_mm": 42,
+        "width_mm": 47,
         "position": "rear",
         "surface": "mixed"
       },
@@ -3017,8 +2993,8 @@
     ]
   },
   "vittoria-terreno-mix": {
-    "total_appearances": 127,
-    "primary_picks": 127,
+    "total_appearances": 126,
+    "primary_picks": 126,
     "front_rear_picks": 0,
     "avg_rank": 2.6,
     "most_common_width": 40,
@@ -3456,14 +3432,6 @@
         "surface": "mixed"
       },
       {
-        "slug": "hibernator",
-        "name": "Hibernator",
-        "rank": 2,
-        "width_mm": 40,
-        "position": "primary",
-        "surface": "mixed"
-      },
-      {
         "slug": "holly-shelter-gravel-grinder",
         "name": "Holly Shelter Gravel Grinder",
         "rank": 3,
@@ -3833,7 +3801,7 @@
       },
       {
         "slug": "spring-valley-100",
-        "name": "Spring Valley 100",
+        "name": "Spring Valley Wilder 100",
         "rank": 3,
         "width_mm": 40,
         "position": "primary",
@@ -4042,10 +4010,10 @@
     ]
   },
   "continental-terra-trail": {
-    "total_appearances": 93,
-    "primary_picks": 92,
+    "total_appearances": 91,
+    "primary_picks": 90,
     "front_rear_picks": 1,
-    "avg_rank": 2.6,
+    "avg_rank": 2.5,
     "most_common_width": 40,
     "races": [
       {
@@ -4075,14 +4043,6 @@
       {
         "slug": "alentejo-gravel",
         "name": "Alentejo Gravel",
-        "rank": 3,
-        "width_mm": 40,
-        "position": "primary",
-        "surface": "mixed"
-      },
-      {
-        "slug": "almanzo-100",
-        "name": "ALMANZO 100",
         "rank": 3,
         "width_mm": 40,
         "position": "primary",
@@ -4434,7 +4394,7 @@
       },
       {
         "slug": "gravel-roubaix",
-        "name": "Gravel Roubaix",
+        "name": "Roughneck Gravel Roubaix",
         "rank": 2,
         "width_mm": 40,
         "position": "primary",
@@ -4467,14 +4427,6 @@
       {
         "slug": "hellhole-gravel-grind",
         "name": "Hellhole Gravel Grind Stage Race",
-        "rank": 3,
-        "width_mm": 40,
-        "position": "primary",
-        "surface": "mixed"
-      },
-      {
-        "slug": "hibernator",
-        "name": "Hibernator",
         "rank": 3,
         "width_mm": 40,
         "position": "primary",
@@ -4795,9 +4747,9 @@
     ]
   },
   "rene-herse-snoqualmie-pass": {
-    "total_appearances": 165,
+    "total_appearances": 164,
     "primary_picks": 0,
-    "front_rear_picks": 165,
+    "front_rear_picks": 164,
     "avg_rank": 0,
     "most_common_width": 44,
     "races": [
@@ -5411,7 +5363,7 @@
       },
       {
         "slug": "gravel-roubaix",
-        "name": "Gravel Roubaix",
+        "name": "Roughneck Gravel Roubaix",
         "rank": 0,
         "width_mm": 44,
         "position": "front",
@@ -5516,14 +5468,6 @@
       {
         "slug": "heywood-ride",
         "name": "Heywood Ride",
-        "rank": 0,
-        "width_mm": 44,
-        "position": "front",
-        "surface": "mixed"
-      },
-      {
-        "slug": "hibernator",
-        "name": "Hibernator",
         "rank": 0,
         "width_mm": 44,
         "position": "front",
@@ -6124,10 +6068,10 @@
     ]
   },
   "vittoria-terreno-wet": {
-    "total_appearances": 117,
-    "primary_picks": 71,
+    "total_appearances": 116,
+    "primary_picks": 70,
     "front_rear_picks": 46,
-    "avg_rank": 1.5,
+    "avg_rank": 1.4,
     "most_common_width": 40,
     "races": [
       {
@@ -6684,7 +6628,7 @@
       },
       {
         "slug": "gravel-roubaix",
-        "name": "Gravel Roubaix",
+        "name": "Roughneck Gravel Roubaix",
         "rank": 1,
         "width_mm": 40,
         "position": "primary",
@@ -6692,7 +6636,7 @@
       },
       {
         "slug": "gravel-roubaix",
-        "name": "Gravel Roubaix",
+        "name": "Roughneck Gravel Roubaix",
         "rank": 0,
         "width_mm": 40,
         "position": "rear",
@@ -6869,14 +6813,6 @@
       {
         "slug": "paris-to-ancaster",
         "name": "PARIS TO ANCASTER",
-        "rank": 3,
-        "width_mm": 45,
-        "position": "primary",
-        "surface": "muddy"
-      },
-      {
-        "slug": "rasputitsa-spring-classic",
-        "name": "Rasputitsa Spring Classic",
         "rank": 3,
         "width_mm": 45,
         "position": "primary",
@@ -7270,8 +7206,8 @@
     ]
   },
   "pirelli-cinturato-gravel-s": {
-    "total_appearances": 64,
-    "primary_picks": 63,
+    "total_appearances": 62,
+    "primary_picks": 61,
     "front_rear_picks": 1,
     "avg_rank": 2.6,
     "most_common_width": 45,
@@ -7637,22 +7573,6 @@
         "surface": "technical"
       },
       {
-        "slug": "pony-xpress-gravel-160",
-        "name": "Pony Xpress Gravel 160",
-        "rank": 3,
-        "width_mm": 45,
-        "position": "primary",
-        "surface": "technical"
-      },
-      {
-        "slug": "rad-dirt-fest",
-        "name": "Rad Dirt Fest",
-        "rank": 3,
-        "width_mm": 45,
-        "position": "primary",
-        "surface": "technical"
-      },
-      {
         "slug": "rebeccas-private-idaho",
         "name": "Rebecca's Private Idaho",
         "rank": 3,
@@ -7790,603 +7710,9 @@
       }
     ]
   },
-  "pirelli-cinturato-gravel-m": {
-    "total_appearances": 30,
-    "primary_picks": 28,
-    "front_rear_picks": 2,
-    "avg_rank": 2.4,
-    "most_common_width": 40,
-    "races": [
-      {
-        "slug": "almanzo-100",
-        "name": "ALMANZO 100",
-        "rank": 1,
-        "width_mm": 40,
-        "position": "primary",
-        "surface": "mixed"
-      },
-      {
-        "slug": "almanzo-100",
-        "name": "ALMANZO 100",
-        "rank": 0,
-        "width_mm": 40,
-        "position": "rear",
-        "surface": "mixed"
-      },
-      {
-        "slug": "clarkes-gambit",
-        "name": "Clarkes Gambit",
-        "rank": 3,
-        "width_mm": 40,
-        "position": "primary",
-        "surface": "mixed"
-      },
-      {
-        "slug": "cohutta-gravel-grinder",
-        "name": "Cohutta Gravel Grinder",
-        "rank": 2,
-        "width_mm": 40,
-        "position": "primary",
-        "surface": "mixed"
-      },
-      {
-        "slug": "dusty-bandita",
-        "name": "Dusty Bandita",
-        "rank": 3,
-        "width_mm": 40,
-        "position": "primary",
-        "surface": "mixed"
-      },
-      {
-        "slug": "forbidden-gravel",
-        "name": "Forbidden Gravel",
-        "rank": 3,
-        "width_mm": 40,
-        "position": "primary",
-        "surface": "mixed"
-      },
-      {
-        "slug": "gravel-battle-of-sumter-forest",
-        "name": "Gravel Battle of Sumter Forest",
-        "rank": 3,
-        "width_mm": 40,
-        "position": "primary",
-        "surface": "mixed"
-      },
-      {
-        "slug": "gravel-burn",
-        "name": "Gravel Burn",
-        "rank": 3,
-        "width_mm": 40,
-        "position": "primary",
-        "surface": "mixed"
-      },
-      {
-        "slug": "gravel-del-fuego",
-        "name": "Gravel del Fuego",
-        "rank": 2,
-        "width_mm": 40,
-        "position": "primary",
-        "surface": "mixed"
-      },
-      {
-        "slug": "highlands-gravel-classic",
-        "name": "HIGHLANDS GRAVEL CLASSIC",
-        "rank": 1,
-        "width_mm": 40,
-        "position": "primary",
-        "surface": "mixed"
-      },
-      {
-        "slug": "highlands-gravel-classic",
-        "name": "HIGHLANDS GRAVEL CLASSIC",
-        "rank": 0,
-        "width_mm": 40,
-        "position": "rear",
-        "surface": "mixed"
-      },
-      {
-        "slug": "king-price-race-to-sun",
-        "name": "King Price Race to Sun",
-        "rank": 2,
-        "width_mm": 40,
-        "position": "primary",
-        "surface": "mixed"
-      },
-      {
-        "slug": "kowtown-gravel",
-        "name": "KowTown Gravel",
-        "rank": 3,
-        "width_mm": 40,
-        "position": "primary",
-        "surface": "mixed"
-      },
-      {
-        "slug": "le-grand-du-nord",
-        "name": "Le Grand du Nord",
-        "rank": 2,
-        "width_mm": 40,
-        "position": "primary",
-        "surface": "mixed"
-      },
-      {
-        "slug": "migration-gravel-race",
-        "name": "Migration Gravel Race",
-        "rank": 2,
-        "width_mm": 40,
-        "position": "primary",
-        "surface": "mixed"
-      },
-      {
-        "slug": "nordic-chase-gravel",
-        "name": "Nordic Chase Gravel Edition",
-        "rank": 2,
-        "width_mm": 40,
-        "position": "primary",
-        "surface": "mixed"
-      },
-      {
-        "slug": "oregon-trail-gravel",
-        "name": "Oregon Trail Gravel Grinder",
-        "rank": 3,
-        "width_mm": 40,
-        "position": "primary",
-        "surface": "mixed"
-      },
-      {
-        "slug": "radl-grvl",
-        "name": "RADL GRVL",
-        "rank": 3,
-        "width_mm": 40,
-        "position": "primary",
-        "surface": "mixed"
-      },
-      {
-        "slug": "reliance-tennessee-gravel",
-        "name": "Reliance Tennessee Gravel",
-        "rank": 3,
-        "width_mm": 40,
-        "position": "primary",
-        "surface": "mixed"
-      },
-      {
-        "slug": "rock-cobbler",
-        "name": "Rock Cobbler",
-        "rank": 3,
-        "width_mm": 40,
-        "position": "primary",
-        "surface": "mixed"
-      },
-      {
-        "slug": "santa-fe-century-gravelon",
-        "name": "Santa Fe Century Gravelón",
-        "rank": 2,
-        "width_mm": 40,
-        "position": "primary",
-        "surface": "mixed"
-      },
-      {
-        "slug": "the-rad",
-        "name": "The Rad",
-        "rank": 2,
-        "width_mm": 40,
-        "position": "primary",
-        "surface": "mixed"
-      },
-      {
-        "slug": "the-range",
-        "name": "The Range",
-        "rank": 2,
-        "width_mm": 40,
-        "position": "primary",
-        "surface": "mixed"
-      },
-      {
-        "slug": "trans-sylvania-epic",
-        "name": "Trans-Sylvania Epic",
-        "rank": 2,
-        "width_mm": 40,
-        "position": "primary",
-        "surface": "mixed"
-      },
-      {
-        "slug": "transrockies-gravel-royale",
-        "name": "TransRockies Gravel Royale",
-        "rank": 2,
-        "width_mm": 40,
-        "position": "primary",
-        "surface": "mixed"
-      },
-      {
-        "slug": "unbound-200",
-        "name": "Unbound 200",
-        "rank": 3,
-        "width_mm": 40,
-        "position": "primary",
-        "surface": "mixed"
-      },
-      {
-        "slug": "usa-cycling-gravel-nationals",
-        "name": "USA CYCLING GRAVEL NATIONAL CHAMPIONSHIPS",
-        "rank": 2,
-        "width_mm": 40,
-        "position": "primary",
-        "surface": "mixed"
-      },
-      {
-        "slug": "uwharrie-forest-gravel-grinder",
-        "name": "Uwharrie Forest Gravel Grinder",
-        "rank": 3,
-        "width_mm": 40,
-        "position": "primary",
-        "surface": "mixed"
-      },
-      {
-        "slug": "vapor-trail-125",
-        "name": "Vapor Trail 125",
-        "rank": 2,
-        "width_mm": 40,
-        "position": "primary",
-        "surface": "mixed"
-      },
-      {
-        "slug": "waukon-100",
-        "name": "Waukon 100",
-        "rank": 2,
-        "width_mm": 40,
-        "position": "primary",
-        "surface": "mixed"
-      }
-    ]
-  },
-  "vittoria-terreno-dry": {
-    "total_appearances": 42,
-    "primary_picks": 0,
-    "front_rear_picks": 42,
-    "avg_rank": 0,
-    "most_common_width": 40,
-    "races": [
-      {
-        "slug": "almanzo-100",
-        "name": "ALMANZO 100",
-        "rank": 0,
-        "width_mm": 40,
-        "position": "front",
-        "surface": "mixed"
-      },
-      {
-        "slug": "cohutta-gravel-grinder",
-        "name": "Cohutta Gravel Grinder",
-        "rank": 0,
-        "width_mm": 40,
-        "position": "front",
-        "surface": "mixed"
-      },
-      {
-        "slug": "filthy-50",
-        "name": "Filthy 50",
-        "rank": 0,
-        "width_mm": 40,
-        "position": "front",
-        "surface": "mixed"
-      },
-      {
-        "slug": "gravel-burn",
-        "name": "Gravel Burn",
-        "rank": 0,
-        "width_mm": 40,
-        "position": "front",
-        "surface": "mixed"
-      },
-      {
-        "slug": "gravel-del-fuego",
-        "name": "Gravel del Fuego",
-        "rank": 0,
-        "width_mm": 40,
-        "position": "front",
-        "surface": "mixed"
-      },
-      {
-        "slug": "gravel-worlds-amateur",
-        "name": "Gravel Worlds Amateur",
-        "rank": 0,
-        "width_mm": 40,
-        "position": "front",
-        "surface": "mixed"
-      },
-      {
-        "slug": "haute-route-gravel",
-        "name": "Haute Route Gravel",
-        "rank": 0,
-        "width_mm": 40,
-        "position": "front",
-        "surface": "mixed"
-      },
-      {
-        "slug": "highlands-gravel-classic",
-        "name": "HIGHLANDS GRAVEL CLASSIC",
-        "rank": 0,
-        "width_mm": 40,
-        "position": "front",
-        "surface": "mixed"
-      },
-      {
-        "slug": "jeroboam",
-        "name": "JEROBOAM",
-        "rank": 0,
-        "width_mm": 40,
-        "position": "front",
-        "surface": "mixed"
-      },
-      {
-        "slug": "king-price-race-to-sun",
-        "name": "King Price Race to Sun",
-        "rank": 0,
-        "width_mm": 40,
-        "position": "front",
-        "surface": "mixed"
-      },
-      {
-        "slug": "le-grand-du-nord",
-        "name": "Le Grand du Nord",
-        "rank": 0,
-        "width_mm": 40,
-        "position": "front",
-        "surface": "mixed"
-      },
-      {
-        "slug": "mammoth-tuff",
-        "name": "Mammoth Tuff",
-        "rank": 0,
-        "width_mm": 40,
-        "position": "front",
-        "surface": "mixed"
-      },
-      {
-        "slug": "migration-gravel-race",
-        "name": "Migration Gravel Race",
-        "rank": 0,
-        "width_mm": 40,
-        "position": "front",
-        "surface": "mixed"
-      },
-      {
-        "slug": "nordic-chase-gravel",
-        "name": "Nordic Chase Gravel Edition",
-        "rank": 0,
-        "width_mm": 40,
-        "position": "front",
-        "surface": "mixed"
-      },
-      {
-        "slug": "oregon-trail-gravel",
-        "name": "Oregon Trail Gravel Grinder",
-        "rank": 0,
-        "width_mm": 40,
-        "position": "front",
-        "surface": "mixed"
-      },
-      {
-        "slug": "pirinexus-360",
-        "name": "PIRINEXUS 360",
-        "rank": 0,
-        "width_mm": 40,
-        "position": "front",
-        "surface": "technical"
-      },
-      {
-        "slug": "pony-express-120",
-        "name": "Pony Express 120",
-        "rank": 0,
-        "width_mm": 40,
-        "position": "front",
-        "surface": "mixed"
-      },
-      {
-        "slug": "prairie-burn-100",
-        "name": "Prairie Burn 100",
-        "rank": 0,
-        "width_mm": 40,
-        "position": "front",
-        "surface": "mixed"
-      },
-      {
-        "slug": "radl-grvl",
-        "name": "RADL GRVL",
-        "rank": 0,
-        "width_mm": 40,
-        "position": "front",
-        "surface": "mixed"
-      },
-      {
-        "slug": "rebeccas-private-idaho",
-        "name": "Rebecca's Private Idaho",
-        "rank": 0,
-        "width_mm": 40,
-        "position": "front",
-        "surface": "technical"
-      },
-      {
-        "slug": "red-granite-grinder",
-        "name": "Red Granite Grinder",
-        "rank": 0,
-        "width_mm": 40,
-        "position": "front",
-        "surface": "mixed"
-      },
-      {
-        "slug": "rock-cobbler",
-        "name": "Rock Cobbler",
-        "rank": 0,
-        "width_mm": 40,
-        "position": "front",
-        "surface": "mixed"
-      },
-      {
-        "slug": "rule-of-three",
-        "name": "Rule of Three",
-        "rank": 0,
-        "width_mm": 40,
-        "position": "front",
-        "surface": "mixed"
-      },
-      {
-        "slug": "safari-gravel-race",
-        "name": "Safari Gravel Race",
-        "rank": 0,
-        "width_mm": 40,
-        "position": "front",
-        "surface": "mixed"
-      },
-      {
-        "slug": "santa-fe-century-gravelon",
-        "name": "Santa Fe Century Gravelón",
-        "rank": 0,
-        "width_mm": 40,
-        "position": "front",
-        "surface": "mixed"
-      },
-      {
-        "slug": "silver-city-century",
-        "name": "Silver City Century",
-        "rank": 0,
-        "width_mm": 40,
-        "position": "front",
-        "surface": "mixed"
-      },
-      {
-        "slug": "spirit-world-100",
-        "name": "Spirit World 100",
-        "rank": 0,
-        "width_mm": 40,
-        "position": "front",
-        "surface": "mixed"
-      },
-      {
-        "slug": "spotted-horse-ultra",
-        "name": "Spotted Horse Ultra",
-        "rank": 0,
-        "width_mm": 40,
-        "position": "front",
-        "surface": "mixed"
-      },
-      {
-        "slug": "spring-valley-100",
-        "name": "Spring Valley 100",
-        "rank": 0,
-        "width_mm": 40,
-        "position": "front",
-        "surface": "mixed"
-      },
-      {
-        "slug": "standard-deluxe-dirt-road-century",
-        "name": "Dirty Deluxe Dirt Road Century",
-        "rank": 0,
-        "width_mm": 40,
-        "position": "front",
-        "surface": "mixed"
-      },
-      {
-        "slug": "steamboat-gravel",
-        "name": "SBT GRVL",
-        "rank": 0,
-        "width_mm": 40,
-        "position": "front",
-        "surface": "mixed"
-      },
-      {
-        "slug": "switchgrass",
-        "name": "Switchgrass",
-        "rank": 0,
-        "width_mm": 40,
-        "position": "front",
-        "surface": "mixed"
-      },
-      {
-        "slug": "the-rad",
-        "name": "The Rad",
-        "rank": 0,
-        "width_mm": 40,
-        "position": "front",
-        "surface": "mixed"
-      },
-      {
-        "slug": "the-range",
-        "name": "The Range",
-        "rank": 0,
-        "width_mm": 40,
-        "position": "front",
-        "surface": "mixed"
-      },
-      {
-        "slug": "trans-sylvania-epic",
-        "name": "Trans-Sylvania Epic",
-        "rank": 0,
-        "width_mm": 40,
-        "position": "front",
-        "surface": "mixed"
-      },
-      {
-        "slug": "transcontinental-race",
-        "name": "TRANSCONTINENTAL RACE",
-        "rank": 0,
-        "width_mm": 40,
-        "position": "front",
-        "surface": "technical"
-      },
-      {
-        "slug": "transrockies-gravel-royale",
-        "name": "TransRockies Gravel Royale",
-        "rank": 0,
-        "width_mm": 40,
-        "position": "front",
-        "surface": "mixed"
-      },
-      {
-        "slug": "unbound-200",
-        "name": "Unbound 200",
-        "rank": 0,
-        "width_mm": 40,
-        "position": "front",
-        "surface": "mixed"
-      },
-      {
-        "slug": "usa-cycling-gravel-nationals",
-        "name": "USA CYCLING GRAVEL NATIONAL CHAMPIONSHIPS",
-        "rank": 0,
-        "width_mm": 40,
-        "position": "front",
-        "surface": "mixed"
-      },
-      {
-        "slug": "vapor-trail-125",
-        "name": "Vapor Trail 125",
-        "rank": 0,
-        "width_mm": 40,
-        "position": "front",
-        "surface": "mixed"
-      },
-      {
-        "slug": "waukon-100",
-        "name": "Waukon 100",
-        "rank": 0,
-        "width_mm": 40,
-        "position": "front",
-        "surface": "mixed"
-      },
-      {
-        "slug": "whiskey-off-road",
-        "name": "WHISKEY OFF-ROAD",
-        "rank": 0,
-        "width_mm": 40,
-        "position": "front",
-        "surface": "technical"
-      }
-    ]
-  },
   "schwalbe-g-one-bite": {
-    "total_appearances": 51,
-    "primary_picks": 44,
+    "total_appearances": 49,
+    "primary_picks": 42,
     "front_rear_picks": 7,
     "avg_rank": 1.1,
     "most_common_width": 45,
@@ -8680,22 +8006,6 @@
         "surface": "technical"
       },
       {
-        "slug": "pony-xpress-gravel-160",
-        "name": "Pony Xpress Gravel 160",
-        "rank": 1,
-        "width_mm": 45,
-        "position": "primary",
-        "surface": "technical"
-      },
-      {
-        "slug": "rad-dirt-fest",
-        "name": "Rad Dirt Fest",
-        "rank": 1,
-        "width_mm": 45,
-        "position": "primary",
-        "surface": "technical"
-      },
-      {
         "slug": "rebeccas-private-idaho",
         "name": "Rebecca's Private Idaho",
         "rank": 1,
@@ -8802,8 +8112,8 @@
     ]
   },
   "maxxis-reaver": {
-    "total_appearances": 42,
-    "primary_picks": 42,
+    "total_appearances": 40,
+    "primary_picks": 40,
     "front_rear_picks": 0,
     "avg_rank": 2.1,
     "most_common_width": 45,
@@ -9052,22 +8362,6 @@
         "slug": "pisgah-monster-cross",
         "name": "Pisgah Monster Cross",
         "rank": 3,
-        "width_mm": 45,
-        "position": "primary",
-        "surface": "technical"
-      },
-      {
-        "slug": "pony-xpress-gravel-160",
-        "name": "Pony Xpress Gravel 160",
-        "rank": 2,
-        "width_mm": 45,
-        "position": "primary",
-        "surface": "technical"
-      },
-      {
-        "slug": "rad-dirt-fest",
-        "name": "Rad Dirt Fest",
-        "rank": 2,
         "width_mm": 45,
         "position": "primary",
         "surface": "technical"
@@ -9645,7 +8939,7 @@
         "slug": "west-coast-gravel",
         "name": "West Coast Gravel",
         "rank": 2,
-        "width_mm": 42,
+        "width_mm": 45,
         "position": "primary",
         "surface": "mixed"
       },
@@ -9796,7 +9090,7 @@
       },
       {
         "slug": "gravel-del-fuego",
-        "name": "Gravel del Fuego",
+        "name": "Del Fuego Race",
         "rank": 3,
         "width_mm": 43,
         "position": "primary",
@@ -10316,7 +9610,7 @@
       },
       {
         "slug": "spring-valley-100",
-        "name": "Spring Valley 100",
+        "name": "Spring Valley Wilder 100",
         "rank": 2,
         "width_mm": 40,
         "position": "primary",
@@ -10430,7 +9724,7 @@
         "slug": "west-coast-gravel",
         "name": "West Coast Gravel",
         "rank": 3,
-        "width_mm": 43,
+        "width_mm": 45,
         "position": "primary",
         "surface": "mixed"
       },
@@ -10703,7 +9997,7 @@
         "slug": "west-coast-gravel",
         "name": "West Coast Gravel",
         "rank": 0,
-        "width_mm": 43,
+        "width_mm": 45,
         "position": "front",
         "surface": "mixed"
       },
@@ -10714,6 +10008,576 @@
         "width_mm": 43,
         "position": "front",
         "surface": "mixed"
+      }
+    ]
+  },
+  "pirelli-cinturato-gravel-m": {
+    "total_appearances": 28,
+    "primary_picks": 27,
+    "front_rear_picks": 1,
+    "avg_rank": 2.4,
+    "most_common_width": 40,
+    "races": [
+      {
+        "slug": "clarkes-gambit",
+        "name": "Clarkes Gambit",
+        "rank": 3,
+        "width_mm": 40,
+        "position": "primary",
+        "surface": "mixed"
+      },
+      {
+        "slug": "cohutta-gravel-grinder",
+        "name": "Cohutta Gravel Grinder",
+        "rank": 2,
+        "width_mm": 40,
+        "position": "primary",
+        "surface": "mixed"
+      },
+      {
+        "slug": "dusty-bandita",
+        "name": "Dusty Bandita",
+        "rank": 3,
+        "width_mm": 40,
+        "position": "primary",
+        "surface": "mixed"
+      },
+      {
+        "slug": "forbidden-gravel",
+        "name": "Forbidden Gravel",
+        "rank": 3,
+        "width_mm": 40,
+        "position": "primary",
+        "surface": "mixed"
+      },
+      {
+        "slug": "gravel-battle-of-sumter-forest",
+        "name": "Gravel Battle of Sumter Forest",
+        "rank": 3,
+        "width_mm": 40,
+        "position": "primary",
+        "surface": "mixed"
+      },
+      {
+        "slug": "gravel-burn",
+        "name": "Gravel Burn",
+        "rank": 3,
+        "width_mm": 40,
+        "position": "primary",
+        "surface": "mixed"
+      },
+      {
+        "slug": "gravel-del-fuego",
+        "name": "Del Fuego Race",
+        "rank": 2,
+        "width_mm": 40,
+        "position": "primary",
+        "surface": "mixed"
+      },
+      {
+        "slug": "highlands-gravel-classic",
+        "name": "HIGHLANDS GRAVEL CLASSIC",
+        "rank": 1,
+        "width_mm": 40,
+        "position": "primary",
+        "surface": "mixed"
+      },
+      {
+        "slug": "highlands-gravel-classic",
+        "name": "HIGHLANDS GRAVEL CLASSIC",
+        "rank": 0,
+        "width_mm": 40,
+        "position": "rear",
+        "surface": "mixed"
+      },
+      {
+        "slug": "king-price-race-to-sun",
+        "name": "King Price Race to Sun",
+        "rank": 2,
+        "width_mm": 40,
+        "position": "primary",
+        "surface": "mixed"
+      },
+      {
+        "slug": "kowtown-gravel",
+        "name": "KowTown Gravel",
+        "rank": 3,
+        "width_mm": 40,
+        "position": "primary",
+        "surface": "mixed"
+      },
+      {
+        "slug": "le-grand-du-nord",
+        "name": "Le Grand du Nord",
+        "rank": 2,
+        "width_mm": 40,
+        "position": "primary",
+        "surface": "mixed"
+      },
+      {
+        "slug": "migration-gravel-race",
+        "name": "Migration Gravel Race",
+        "rank": 2,
+        "width_mm": 40,
+        "position": "primary",
+        "surface": "mixed"
+      },
+      {
+        "slug": "nordic-chase-gravel",
+        "name": "Nordic Chase Gravel Edition",
+        "rank": 2,
+        "width_mm": 40,
+        "position": "primary",
+        "surface": "mixed"
+      },
+      {
+        "slug": "oregon-trail-gravel",
+        "name": "Oregon Trail Gravel Grinder",
+        "rank": 3,
+        "width_mm": 40,
+        "position": "primary",
+        "surface": "mixed"
+      },
+      {
+        "slug": "radl-grvl",
+        "name": "RADL GRVL",
+        "rank": 3,
+        "width_mm": 40,
+        "position": "primary",
+        "surface": "mixed"
+      },
+      {
+        "slug": "reliance-tennessee-gravel",
+        "name": "Reliance Tennessee Gravel",
+        "rank": 3,
+        "width_mm": 40,
+        "position": "primary",
+        "surface": "mixed"
+      },
+      {
+        "slug": "rock-cobbler",
+        "name": "Rock Cobbler",
+        "rank": 3,
+        "width_mm": 40,
+        "position": "primary",
+        "surface": "mixed"
+      },
+      {
+        "slug": "santa-fe-century-gravelon",
+        "name": "Santa Fe Century Gravelón",
+        "rank": 2,
+        "width_mm": 40,
+        "position": "primary",
+        "surface": "mixed"
+      },
+      {
+        "slug": "the-rad",
+        "name": "The Rad",
+        "rank": 2,
+        "width_mm": 40,
+        "position": "primary",
+        "surface": "mixed"
+      },
+      {
+        "slug": "the-range",
+        "name": "The Range",
+        "rank": 2,
+        "width_mm": 40,
+        "position": "primary",
+        "surface": "mixed"
+      },
+      {
+        "slug": "trans-sylvania-epic",
+        "name": "Trans-Sylvania Epic",
+        "rank": 2,
+        "width_mm": 40,
+        "position": "primary",
+        "surface": "mixed"
+      },
+      {
+        "slug": "transrockies-gravel-royale",
+        "name": "TransRockies Gravel Royale",
+        "rank": 2,
+        "width_mm": 40,
+        "position": "primary",
+        "surface": "mixed"
+      },
+      {
+        "slug": "unbound-200",
+        "name": "Unbound 200",
+        "rank": 3,
+        "width_mm": 40,
+        "position": "primary",
+        "surface": "mixed"
+      },
+      {
+        "slug": "usa-cycling-gravel-nationals",
+        "name": "USA CYCLING GRAVEL NATIONAL CHAMPIONSHIPS",
+        "rank": 2,
+        "width_mm": 40,
+        "position": "primary",
+        "surface": "mixed"
+      },
+      {
+        "slug": "uwharrie-forest-gravel-grinder",
+        "name": "Uwharrie Forest Gravel Grinder",
+        "rank": 3,
+        "width_mm": 40,
+        "position": "primary",
+        "surface": "mixed"
+      },
+      {
+        "slug": "vapor-trail-125",
+        "name": "Vapor Trail 125",
+        "rank": 2,
+        "width_mm": 40,
+        "position": "primary",
+        "surface": "mixed"
+      },
+      {
+        "slug": "waukon-100",
+        "name": "Waukon 100",
+        "rank": 2,
+        "width_mm": 40,
+        "position": "primary",
+        "surface": "mixed"
+      }
+    ]
+  },
+  "vittoria-terreno-dry": {
+    "total_appearances": 41,
+    "primary_picks": 0,
+    "front_rear_picks": 41,
+    "avg_rank": 0,
+    "most_common_width": 40,
+    "races": [
+      {
+        "slug": "cohutta-gravel-grinder",
+        "name": "Cohutta Gravel Grinder",
+        "rank": 0,
+        "width_mm": 40,
+        "position": "front",
+        "surface": "mixed"
+      },
+      {
+        "slug": "filthy-50",
+        "name": "Filthy 50",
+        "rank": 0,
+        "width_mm": 40,
+        "position": "front",
+        "surface": "mixed"
+      },
+      {
+        "slug": "gravel-burn",
+        "name": "Gravel Burn",
+        "rank": 0,
+        "width_mm": 40,
+        "position": "front",
+        "surface": "mixed"
+      },
+      {
+        "slug": "gravel-del-fuego",
+        "name": "Del Fuego Race",
+        "rank": 0,
+        "width_mm": 40,
+        "position": "front",
+        "surface": "mixed"
+      },
+      {
+        "slug": "gravel-worlds-amateur",
+        "name": "Gravel Worlds Amateur",
+        "rank": 0,
+        "width_mm": 40,
+        "position": "front",
+        "surface": "mixed"
+      },
+      {
+        "slug": "haute-route-gravel",
+        "name": "Haute Route Gravel",
+        "rank": 0,
+        "width_mm": 40,
+        "position": "front",
+        "surface": "mixed"
+      },
+      {
+        "slug": "highlands-gravel-classic",
+        "name": "HIGHLANDS GRAVEL CLASSIC",
+        "rank": 0,
+        "width_mm": 40,
+        "position": "front",
+        "surface": "mixed"
+      },
+      {
+        "slug": "jeroboam",
+        "name": "JEROBOAM",
+        "rank": 0,
+        "width_mm": 40,
+        "position": "front",
+        "surface": "mixed"
+      },
+      {
+        "slug": "king-price-race-to-sun",
+        "name": "King Price Race to Sun",
+        "rank": 0,
+        "width_mm": 40,
+        "position": "front",
+        "surface": "mixed"
+      },
+      {
+        "slug": "le-grand-du-nord",
+        "name": "Le Grand du Nord",
+        "rank": 0,
+        "width_mm": 40,
+        "position": "front",
+        "surface": "mixed"
+      },
+      {
+        "slug": "mammoth-tuff",
+        "name": "Mammoth Tuff",
+        "rank": 0,
+        "width_mm": 40,
+        "position": "front",
+        "surface": "mixed"
+      },
+      {
+        "slug": "migration-gravel-race",
+        "name": "Migration Gravel Race",
+        "rank": 0,
+        "width_mm": 40,
+        "position": "front",
+        "surface": "mixed"
+      },
+      {
+        "slug": "nordic-chase-gravel",
+        "name": "Nordic Chase Gravel Edition",
+        "rank": 0,
+        "width_mm": 40,
+        "position": "front",
+        "surface": "mixed"
+      },
+      {
+        "slug": "oregon-trail-gravel",
+        "name": "Oregon Trail Gravel Grinder",
+        "rank": 0,
+        "width_mm": 40,
+        "position": "front",
+        "surface": "mixed"
+      },
+      {
+        "slug": "pirinexus-360",
+        "name": "PIRINEXUS 360",
+        "rank": 0,
+        "width_mm": 40,
+        "position": "front",
+        "surface": "technical"
+      },
+      {
+        "slug": "pony-express-120",
+        "name": "Pony Express 120",
+        "rank": 0,
+        "width_mm": 40,
+        "position": "front",
+        "surface": "mixed"
+      },
+      {
+        "slug": "prairie-burn-100",
+        "name": "Prairie Burn 100",
+        "rank": 0,
+        "width_mm": 40,
+        "position": "front",
+        "surface": "mixed"
+      },
+      {
+        "slug": "radl-grvl",
+        "name": "RADL GRVL",
+        "rank": 0,
+        "width_mm": 40,
+        "position": "front",
+        "surface": "mixed"
+      },
+      {
+        "slug": "rebeccas-private-idaho",
+        "name": "Rebecca's Private Idaho",
+        "rank": 0,
+        "width_mm": 40,
+        "position": "front",
+        "surface": "technical"
+      },
+      {
+        "slug": "red-granite-grinder",
+        "name": "Red Granite Grinder",
+        "rank": 0,
+        "width_mm": 40,
+        "position": "front",
+        "surface": "mixed"
+      },
+      {
+        "slug": "rock-cobbler",
+        "name": "Rock Cobbler",
+        "rank": 0,
+        "width_mm": 40,
+        "position": "front",
+        "surface": "mixed"
+      },
+      {
+        "slug": "rule-of-three",
+        "name": "Rule of Three",
+        "rank": 0,
+        "width_mm": 40,
+        "position": "front",
+        "surface": "mixed"
+      },
+      {
+        "slug": "safari-gravel-race",
+        "name": "Safari Gravel Race",
+        "rank": 0,
+        "width_mm": 40,
+        "position": "front",
+        "surface": "mixed"
+      },
+      {
+        "slug": "santa-fe-century-gravelon",
+        "name": "Santa Fe Century Gravelón",
+        "rank": 0,
+        "width_mm": 40,
+        "position": "front",
+        "surface": "mixed"
+      },
+      {
+        "slug": "silver-city-century",
+        "name": "Silver City Century",
+        "rank": 0,
+        "width_mm": 40,
+        "position": "front",
+        "surface": "mixed"
+      },
+      {
+        "slug": "spirit-world-100",
+        "name": "Spirit World 100",
+        "rank": 0,
+        "width_mm": 40,
+        "position": "front",
+        "surface": "mixed"
+      },
+      {
+        "slug": "spotted-horse-ultra",
+        "name": "Spotted Horse Ultra",
+        "rank": 0,
+        "width_mm": 40,
+        "position": "front",
+        "surface": "mixed"
+      },
+      {
+        "slug": "spring-valley-100",
+        "name": "Spring Valley Wilder 100",
+        "rank": 0,
+        "width_mm": 40,
+        "position": "front",
+        "surface": "mixed"
+      },
+      {
+        "slug": "standard-deluxe-dirt-road-century",
+        "name": "Dirty Deluxe Dirt Road Century",
+        "rank": 0,
+        "width_mm": 40,
+        "position": "front",
+        "surface": "mixed"
+      },
+      {
+        "slug": "steamboat-gravel",
+        "name": "SBT GRVL",
+        "rank": 0,
+        "width_mm": 40,
+        "position": "front",
+        "surface": "mixed"
+      },
+      {
+        "slug": "switchgrass",
+        "name": "Switchgrass",
+        "rank": 0,
+        "width_mm": 40,
+        "position": "front",
+        "surface": "mixed"
+      },
+      {
+        "slug": "the-rad",
+        "name": "The Rad",
+        "rank": 0,
+        "width_mm": 40,
+        "position": "front",
+        "surface": "mixed"
+      },
+      {
+        "slug": "the-range",
+        "name": "The Range",
+        "rank": 0,
+        "width_mm": 40,
+        "position": "front",
+        "surface": "mixed"
+      },
+      {
+        "slug": "trans-sylvania-epic",
+        "name": "Trans-Sylvania Epic",
+        "rank": 0,
+        "width_mm": 40,
+        "position": "front",
+        "surface": "mixed"
+      },
+      {
+        "slug": "transcontinental-race",
+        "name": "TRANSCONTINENTAL RACE",
+        "rank": 0,
+        "width_mm": 40,
+        "position": "front",
+        "surface": "technical"
+      },
+      {
+        "slug": "transrockies-gravel-royale",
+        "name": "TransRockies Gravel Royale",
+        "rank": 0,
+        "width_mm": 40,
+        "position": "front",
+        "surface": "mixed"
+      },
+      {
+        "slug": "unbound-200",
+        "name": "Unbound 200",
+        "rank": 0,
+        "width_mm": 40,
+        "position": "front",
+        "surface": "mixed"
+      },
+      {
+        "slug": "usa-cycling-gravel-nationals",
+        "name": "USA CYCLING GRAVEL NATIONAL CHAMPIONSHIPS",
+        "rank": 0,
+        "width_mm": 40,
+        "position": "front",
+        "surface": "mixed"
+      },
+      {
+        "slug": "vapor-trail-125",
+        "name": "Vapor Trail 125",
+        "rank": 0,
+        "width_mm": 40,
+        "position": "front",
+        "surface": "mixed"
+      },
+      {
+        "slug": "waukon-100",
+        "name": "Waukon 100",
+        "rank": 0,
+        "width_mm": 40,
+        "position": "front",
+        "surface": "mixed"
+      },
+      {
+        "slug": "whiskey-off-road",
+        "name": "WHISKEY OFF-ROAD",
+        "rank": 0,
+        "width_mm": 40,
+        "position": "front",
+        "surface": "technical"
       }
     ]
   },
@@ -10759,10 +10623,10 @@
     ]
   },
   "schwalbe-g-one-ultrabite": {
-    "total_appearances": 15,
-    "primary_picks": 15,
+    "total_appearances": 14,
+    "primary_picks": 14,
     "front_rear_picks": 0,
-    "avg_rank": 1.2,
+    "avg_rank": 1.1,
     "most_common_width": 40,
     "races": [
       {
@@ -10833,14 +10697,6 @@
         "slug": "paris-to-ancaster",
         "name": "PARIS TO ANCASTER",
         "rank": 1,
-        "width_mm": 45,
-        "position": "primary",
-        "surface": "muddy"
-      },
-      {
-        "slug": "rasputitsa-spring-classic",
-        "name": "Rasputitsa Spring Classic",
-        "rank": 2,
         "width_mm": 45,
         "position": "primary",
         "surface": "muddy"
@@ -10888,10 +10744,10 @@
     ]
   },
   "tufo-gravel-swampero": {
-    "total_appearances": 15,
-    "primary_picks": 15,
+    "total_appearances": 14,
+    "primary_picks": 14,
     "front_rear_picks": 0,
-    "avg_rank": 2.1,
+    "avg_rank": 2.2,
     "most_common_width": 40,
     "races": [
       {
@@ -10962,14 +10818,6 @@
         "slug": "paris-to-ancaster",
         "name": "PARIS TO ANCASTER",
         "rank": 2,
-        "width_mm": 44,
-        "position": "primary",
-        "surface": "muddy"
-      },
-      {
-        "slug": "rasputitsa-spring-classic",
-        "name": "Rasputitsa Spring Classic",
-        "rank": 1,
         "width_mm": 44,
         "position": "primary",
         "surface": "muddy"

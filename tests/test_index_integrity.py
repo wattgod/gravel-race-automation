@@ -79,7 +79,7 @@ class TestIndexSync:
         "gravel-suisse",        # → gravel-fondo-switzerland
         "gravel-worlds-amateur",# → gravel-worlds
         "pony-xpress-gravel-160", # → pony-xpress
-        "rad-dirt-fest",        # → salida-76
+        "rad-dirt-fest",        # → the-rad
         "rasputitsa-spring-classic", # → rasputitsa
         "spring-valley-100",    # → almanzo-100
 

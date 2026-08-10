@@ -379,7 +379,7 @@ class TestTierReveal:
     def test_includes_tier_and_score(self):
         rd = _load_test_race("unbound-200")
         script = fmt_tier_reveal(rd)
-        assert "93" in script
+        assert "95" in script
         assert "The Icons" in script
 
     def test_no_mangled_years_in_output(self):

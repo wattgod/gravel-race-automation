@@ -66,7 +66,7 @@ DATA_DIRS = [RACE_DATA_DIR]
 # Known full-personalization race
 FULL_SLUG = "unbound-200"
 # Known generic race (no training_config)
-GENERIC_SLUG = "almanzo-100"
+GENERIC_SLUG = "croatan-buck-fifty"
 
 
 def _load_test_race(slug):

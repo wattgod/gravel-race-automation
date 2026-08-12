@@ -230,6 +230,94 @@ class TestFetchErrorSurfacing:
         assert "ok (1 entries)" in detail
         assert not rc._last_errors
 
+    def test_success_writes_db_last_good_copy(self):
+        from mission_control.services import race_countdown as rc
+
+        rc._dates_cache.clear()
+        rc._last_errors.clear()
+
+        class _Resp:
+            def read(self):
+                return b'{"unbound-200": "2027-06-05"}'
+            def __enter__(self):
+                return self
+            def __exit__(self, *a):
+                return False
+
+        with patch("mission_control.services.race_countdown.urllib.request.urlopen",
+                   return_value=_Resp()), \
+             patch("mission_control.services.race_countdown.db.set_setting") as mock_set:
+            rc._fetch_dates_sync()
+        keys = {c.args[0] for c in mock_set.call_args_list}
+        assert keys == {f"race_dates_{b}" for b in rc.RACE_DATES_URLS}
+        import json as _json
+        stored = _json.loads(mock_set.call_args_list[0].args[1])
+        assert stored["dates"] == {"unbound-200": "2027-06-05"}
+        assert "fetched_at" in stored
+
+    def test_fetch_failure_falls_back_to_db_copy(self):
+        """Railway restarts on every push, so the in-memory cache is often
+        empty when a job fires. A flaky fetch must fall back to the
+        gg_settings copy instead of aborting the run."""
+        import json as _json
+        from mission_control.services import race_countdown as rc
+
+        rc._dates_cache.clear()
+        rc._last_errors.clear()
+        stored = _json.dumps({"fetched_at": "2026-08-11T14:00:00+00:00",
+                              "dates": {"unbound-200": "2027-06-05"}})
+
+        def fake_urlopen(req, timeout=None):
+            raise ValueError("Expecting value: line 1 column 1 (char 0)")
+
+        with patch("mission_control.services.race_countdown.urllib.request.urlopen",
+                   side_effect=fake_urlopen), \
+             patch("mission_control.services.race_countdown.db.get_setting",
+                   return_value=stored):
+            dates = rc._fetch_dates_sync()
+        for brand in rc.RACE_DATES_URLS:
+            assert dates[brand] == {"unbound-200": "2027-06-05"}
+            assert "using DB copy from 2026-08-11" in rc._last_errors[brand]
+        rc._dates_cache.clear()
+        rc._last_errors.clear()
+
+    def test_fetch_failure_with_no_db_copy_still_aborts(self):
+        from mission_control.services import race_countdown as rc
+
+        rc._dates_cache.clear()
+        rc._last_errors.clear()
+        with patch("mission_control.services.race_countdown.urllib.request.urlopen",
+                   side_effect=OSError("HTTP Error 403: Forbidden")), \
+             patch("mission_control.services.race_countdown.db.get_setting",
+                   return_value=""):
+            dates = rc._fetch_dates_sync()
+        assert not any(dates.values())
+        rc._last_errors.clear()
+
+    def test_db_cache_write_failure_does_not_break_fetch(self):
+        from mission_control.services import race_countdown as rc
+
+        rc._dates_cache.clear()
+        rc._last_errors.clear()
+
+        class _Resp:
+            def read(self):
+                return b'{"a": "2026-09-01"}'
+            def __enter__(self):
+                return self
+            def __exit__(self, *a):
+                return False
+
+        with patch("mission_control.services.race_countdown.urllib.request.urlopen",
+                   return_value=_Resp()), \
+             patch("mission_control.services.race_countdown.db.set_setting",
+                   side_effect=RuntimeError("db down")):
+            dates = rc._fetch_dates_sync()
+        for brand in rc.RACE_DATES_URLS:
+            assert dates[brand] == {"a": "2026-09-01"}
+        assert not rc._last_errors
+        rc._dates_cache.clear()
+
     def test_abort_audit_entry_includes_fetch_errors(self):
         from mission_control.services import race_countdown as rc
 

@@ -64,18 +64,50 @@ def classify_weeks(weeks_out: float) -> int | None:
 
 
 def _fetch_dates_sync() -> dict[str, dict[str, str]]:
-    """Fetch each brand's race-dates.json; fall back to last-good on failure."""
+    """Fetch each brand's race-dates.json; fall back to last-good on failure.
+
+    Last-good lives in TWO places: this process (fast path) and gg_settings
+    (survives restarts). The in-memory cache alone is nearly useless on
+    Railway — every push to main redeploys, so the process is often minutes
+    old when a job fires, and one flaky fetch (the hosts intermittently
+    serve a non-JSON challenge page) used to mean an empty cache and an
+    aborted run.
+    """
     for brand, url in RACE_DATES_URLS.items():
         try:
             req = urllib.request.Request(url, headers={"User-Agent": _USER_AGENT})
             with urllib.request.urlopen(req, timeout=10) as resp:
                 _dates_cache[brand] = json.load(resp)
             _last_errors.pop(brand, None)
+            try:
+                db.set_setting(f"race_dates_{brand}", json.dumps({
+                    "fetched_at": datetime.now(timezone.utc).isoformat(),
+                    "dates": _dates_cache[brand],
+                }))
+            except Exception as e:  # cache write must never break the fetch
+                logger.warning("race-dates DB cache write failed for %s: %s", brand, e)
         except Exception as e:
             _last_errors[brand] = repr(e)
+            if not _dates_cache.get(brand):
+                _load_db_fallback(brand)
             logger.warning("race-dates fetch failed for %s (%s): %s — using cache (%d entries)",
                            brand, url, e, len(_dates_cache.get(brand, {})))
     return _dates_cache
+
+
+def _load_db_fallback(brand: str) -> None:
+    """Populate the in-memory cache for a brand from the gg_settings copy."""
+    try:
+        raw = db.get_setting(f"race_dates_{brand}")
+        if not raw:
+            return
+        stored = json.loads(raw)
+        dates = stored.get("dates") or {}
+        if dates:
+            _dates_cache[brand] = dates
+            _last_errors[brand] += f" (using DB copy from {stored.get('fetched_at', '?')[:10]}, {len(dates)} entries)"
+    except Exception as e:
+        logger.warning("race-dates DB fallback failed for %s: %s", brand, e)
 
 
 def probe_race_dates() -> str:

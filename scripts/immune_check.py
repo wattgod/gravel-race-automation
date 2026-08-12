@@ -313,7 +313,10 @@ def check_security() -> list[Finding]:
         re.compile(r"sk-ant-api\d{2}-[A-Za-z0-9_-]{20,}"),   # Anthropic
         re.compile(r"AIzaSy[A-Za-z0-9_-]{30,}"),              # Google
         re.compile(r"sk_live_[A-Za-z0-9]{20,}"),              # Stripe live secret key
-        re.compile(r"re_[A-Za-z0-9_]{20,}"),                  # Resend
+        # Lookbehind: a real key starts at a word boundary — without it this
+        # matched "re_checked_and_404_fails" inside a snake_case test name
+        # and RED-failed CI (2026-08-12).
+        re.compile(r"(?<![A-Za-z0-9_])re_[A-Za-z0-9_]{20,}"),  # Resend
     ]
     this_file = Path(__file__).resolve()
     for f in sorted(SCRIPT_DIR.glob("*.py")):
@@ -327,6 +330,50 @@ def check_security() -> list[Finding]:
             if kp.search(content):
                 findings.append(classify(f"{f.name}: Possible hardcoded API key"))
                 break
+    return findings
+
+
+def run_prep_kit_coverage() -> list[Finding]:
+    """Every gated race page must have a live prep-kit page — since the day-0
+    kit-delivery email shipped, a missing kit is a broken link in an email
+    from Matti, not just a dead on-site unlock (14 were missing on 2026-08-12).
+
+    Fingerprint discipline: a 404 finding's detail is the URL alone (stable);
+    non-404 failures (WAF 403, timeout) are transport noise, collapsed into a
+    single count-free finding so one flaky night can't mint fake "new" rows.
+    """
+    try:
+        import check_prep_kit_coverage as kit_cov
+        rows, _ = kit_cov.check_coverage(kit_cov.load_indexes(include_road=False))
+    except Exception as e:  # noqa: BLE001
+        return [Finding("prep-kit-coverage-failed", YELLOW, "medium",
+                        "Prep-Kit Coverage Check Failed", str(e)[:200],
+                        "The kit coverage checker couldn't run — check network/site.",
+                        None, "check_prep_kit_coverage")]
+    findings: list[Finding] = []
+    blocked = False
+    for row in rows:
+        if row["status"] == 200:
+            continue
+        if row["status"] == 404:
+            findings.append(Finding(
+                "prep-kit-missing", YELLOW, "high",
+                f"Prep kit missing: {row['slug']}",
+                row["url"],
+                "Race page carries the gate (and day-0 emails link here) but the "
+                "kit page 404s — generate it (wordpress/generate_prep_kit.py "
+                f"{row['slug']}) and deploy (push_wordpress.py --sync-prep-kits).",
+                None, "check_prep_kit_coverage"))
+        else:
+            blocked = True
+    if blocked:
+        findings.append(Finding(
+            "prep-kit-check-blocked", YELLOW, "low",
+            "Prep-Kit Coverage Partially Blocked",
+            "some kit URLs returned non-404 errors (WAF challenge / timeout) — "
+            "coverage unverified for those",
+            "Transport noise, usually WAF variance. Re-run; investigate only if "
+            "it persists across days.", None, "check_prep_kit_coverage"))
     return findings
 
 
@@ -590,6 +637,7 @@ def main() -> int:
     if args.live:
         findings += run_live_link_check()
         findings += run_deploy_parity()
+        findings += run_prep_kit_coverage()
 
     if args.accept_baseline:
         # RED is never baselined (mark_new keeps it alerting); only accept non-RED.

@@ -5,12 +5,25 @@
     "vitals": {
       "slug": "trans-balkan-race",
       "name": "Trans Balkan Race",
-      "date": "2026: June TBD",
-      "date_specific": "2026: June TBD",
-      "distance_mi": 839,
-      "elevation_ft": 65000,
-      "location": "Sezana, Slovenia to Kotor, Montenegro",
-      "terrain": "Paved roads",
+      "date": "May 28-June 6, 2027 event window; exact race start pending",
+      "date_specific": "TBD — official event window is 28 May through 6 June 2027; exact race start date is not yet separated from accreditation",
+      "distance_mi": 870,
+      "elevation_ft": 98425,
+      "location": "Dinaric Alps, Slovenia to Montenegro",
+      "terrain": "82% off-road, 18% paved",
+      "terrain_types": [
+        "Gravel roads",
+        "Remote trails",
+        "Mountain passes",
+        "Paved roads"
+      ],
+      "field_size": "Application field; 2027 capacity not yet published",
+      "aid_stations": "None—self-supported; public resupply only",
+      "cutoff_time": "10 days; finish deadline June 6, 2027",
+      "course_status": "source_blocked",
+      "pack_status": "unavailable",
+      "course_status_label": "2027 RACE START PENDING",
+      "course_status_reason": "The organizer confirms a May 28-June 6, 2027 event window and a 10-day limit, but has not published a 2027 schedule separating accreditation from the actual race start. Its 2026 schedule used the first day for accreditation and started the race the following morning.",
       "website": "https://www.transbalkanrace.com",
       "registration_url": "https://www.transbalkanrace.com/registrations/",
       "prestige": 3,
@@ -37,12 +50,13 @@
       "cultural_impact": 1,
       "overall_score": 73,
       "tier": 2,
-      "tier_label": "TIER 2"
+      "tier_label": "TIER 2",
+      "discipline": "bikepacking"
     },
     "biased_opinion_ratings": {
       "logistics": {
         "score": 3,
-        "explanation": "Applications open October 25 to November 10, 2025, with rolling reviews and mandatory briefing on May 28, 2026, in Sezana. Riders must submit ID, insurance, and health certificates, ensuring preparedness for the self-supported format across Slovenia, Croatia, Bosnia, and Montenegro. No organized transport means independent travel to the start near Trieste."
+        "explanation": "Applications for 2027 open October 25, 2026. Riders must solve their own transport and resupply across four countries, while the rules require full self-sufficiency and mandatory safety equipment."
       },
       "length": {
         "score": 5,
@@ -70,7 +84,7 @@
       },
       "prestige": {
         "score": 3,
-        "explanation": "Founded in 2019, the Trans Balkan Race has built a niche reputation in European bikepacking circles. Its women-led organization by Exploro Cycling Club adds unique appeal in ultra-distance events. Growing field of around 300 riders enhances its regional standing."
+        "explanation": "Founded in 2019, the Trans Balkan Race has built a niche reputation in European bikepacking circles. Its four-country Dinaric Alps route is distinctive, but it remains a selective ultra rather than a globally deep mass-participation race."
       },
       "race_quality": {
         "score": 3,
@@ -78,19 +92,19 @@
       },
       "experience": {
         "score": 4,
-        "explanation": "Unforgettable route through stunning Dinaric Alps National Parks offers raw beauty and solitude. Beach party finish in Kotor on June 7 celebrates resilience amid karst deserts and passes. Self-supported format turns landscapes into personal stories."
+        "explanation": "The route links Dinaric Alps National Parks, karst plateaus, forests, highlands, and a finish on Kotor Bay. The self-supported format turns that landscape into a ten-day problem-solving test rather than a supported tour."
       },
       "community": {
         "score": 4,
-        "explanation": "Exploro Cycling Club prioritizes inclusivity for women, trans, and non-binary riders in bikepacking. Events like Lael’s Women’s Rallies build a supportive culture shared in Trans Balkan Race. Small field of 300 fosters tight-knit camaraderie across borders."
+        "explanation": "The application-based solo and pair field creates a compact bikepacking community across four countries. Its culture is meaningful inside European ultra racing without the scale of the discipline's largest events."
       },
       "field_depth": {
         "score": 2,
-        "explanation": "Capacity limited to around 300 riders via selective applications ensures committed participants. Rolling reviews during 15-day window fill spots quickly for the 1400 km challenge. Field emphasizes endurance over elite speed in self-supported format."
+        "explanation": "The application process selects experienced riders, but the organizer has not published a 2027 capacity or an elite field list. The competitive depth therefore grades below the major global ultras."
       },
       "value": {
         "score": 4,
-        "explanation": "Entry fee supports curated GPX guide, tracker options, and beach party finish for epic value. Self-supported nature minimizes costs while delivering multi-country adventure. 80% refund before March 1, 2026, adds fairness to the investment."
+        "explanation": "The race delivers a curated, safety-conscious route through four countries plus tracking and checkpoint administration. The 2027 fee and refund terms are not yet published, so the grade rests on the route and event format rather than a stale price."
       },
       "expenses": {
         "score": 3,
@@ -102,12 +116,19 @@
       }
     },
     "course_description": {
-      "summary": "The Trans Balkan Race is a 1400 km self-supported bikepacking odyssey from Sezana, Slovenia, to Kotor, Montenegro, traversing the Dinaric Alps across four countries. Riders conquer 30,000 meters of climbing through karst deserts, glacial valleys, remote trails, and National Parks. It's a test of endurance celebrating raw landscapes and resilience.",
+      "summary": "The Trans Balkan Race is a 1400 km self-supported off-road race through the Dinaric Alps across Slovenia, Croatia, Bosnia and Herzegovina, and Montenegro. Its 30,000 meters of ascent, 82-percent off-road surface, sparse resupply, and ten-day limit make scale and self-management the defining demands.",
+      "character": "A 1400 km self-supported line through the Dinaric Alps with 30,000 meters of ascent and 82 percent off-road riding. The organizer describes remote mountain regions, karst plateaus, forests, mud, scarce water, and long gaps between resupply; scale and self-management matter more than technical tricks.",
       "terrain_breakdown": {
-        "paved": 100,
-        "gravel": 0,
+        "paved": 18,
+        "gravel": 82,
         "singletrack": 0,
         "other": 0
+      },
+      "surface_breakdown": {
+        "overall": {
+          "off-road": 82,
+          "pavement": 18
+        }
       },
       "key_segments": [
         {
@@ -130,25 +151,45 @@
         }
       ],
       "elevation_profile": "Continuous 30,000 meters of gain unfolds over 1400 km with no respite, featuring successive high passes in the Dinaric Alps. Early Slovenian climbs build into Bosnia's glacial vert, peaking in Montenegro's spine. Profile suits steady grinders over sprinters.",
-      "aid_stations": "Fully self-supported with no aid stations; riders validate brevet cards at checkpoints for route proof. Resupplies require off-route detours, rejoining exactly, emphasizing self-reliance."
+      "aid_stations": "Fully self-supported with no aid stations; riders validate brevet cards at checkpoints for route proof. Resupplies require off-route detours, rejoining exactly, emphasizing self-reliance.",
+      "signature_challenge": "Ten days to absorb 30,000 meters of ascent while solving food, water, sleep, navigation, weather, and mechanical problems without third-party support.",
+      "suffering_zones": [
+        {
+          "label": "Dinaric scale",
+          "desc": "The route stacks remote mountain passes, forests, and karst terrain across four countries; fatigue compounds long before the finish becomes relevant."
+        },
+        {
+          "label": "Water and resupply gaps",
+          "desc": "Karst terrain drains water underground and the organizer warns of scarce resupply, making every public stop part of the race strategy."
+        },
+        {
+          "label": "Montenegro finish push",
+          "desc": "The final highlands continue the climbing before the route drops toward Kotor Bay, when sleep debt and accumulated mechanical risk are highest."
+        }
+      ]
     },
     "logistics": {
+      "airport": "Trieste (TRS) and Ljubljana (LJU) are the nearest practical airports; confirm the 2027 start venue before booking.",
+      "lodging_strategy": "Arrange pre-start and finish lodging independently. During the race, carry sleep gear or use commercially available accommodation without pre-arranged support.",
+      "food": "No organizer aid stations. Buy food and water from public businesses and natural/public sources available equally to all riders; plan for long gaps.",
+      "packet_pickup": "The organizer has not yet published the 2027 accreditation and briefing schedule.",
+      "parking": "No 2027 parking or return-transport plan is published; this is a point-to-point international route.",
+      "official_site": "https://www.transbalkanrace.com/",
       "registration": {
-        "opens": "October 25, 2025",
-        "closes": "November 10, 2025 or sells out",
-        "cost": "€500-€700 (approx. $550-$770 USD)",
-        "lottery": false,
-        "capacity": 300
+        "opens": "October 25, 2026",
+        "closes": "Not yet published for 2027",
+        "cost": "Not yet published for 2027",
+        "lottery": false
       },
       "travel": {
-        "nearest_airport": "Ljubljana (LJU) or Trieste (TRS)",
-        "driving_from_major_city": "4 hours from Zagreb to Sezana",
-        "accommodation": "Pre-race lodging in Sezana; self-managed bivy or hotels during event. Finish beach party in Kotor provides post-race vibe.",
-        "bike_transport": "No rentals; ship bikes independently to Sezana. Carry mandatory gear including lights and survival blanket."
+        "nearest_airport": "Confirm the 2027 start venue before booking; the organizer has not yet published 2027 travel instructions.",
+        "driving_from_major_city": "Not yet published for 2027",
+        "accommodation": "Arrange start and finish lodging independently once the organizer publishes the 2027 venues; during the event, bivy or use public commercial accommodation without pre-arranged support.",
+        "bike_transport": "The 2027 transport plan is not yet published. Riders must carry the mandatory safety equipment for the entire race."
       },
       "race_day": {
-        "start_time": "9:00 CEST, May 29",
-        "cutoff": "June 7, 23:59 CEST (10 days)",
+        "start_time": "Exact 2027 race start date and clock time not yet published",
+        "cutoff": "10-day limit within the May 28-June 6, 2027 event window; exact clock time not yet published",
         "categories": "Solo or pairs, all distances full route",
         "awards": "Finishers list, classification based on GPX"
       }
@@ -158,6 +199,39 @@
       "ideal_preparation": "Build to 200+ km loaded rides with 4000m vert over 3-4 days. Include night riding and self-supported tours in mountains. Focus on recovery and mental grit for 10-day push.",
       "key_workouts": "3-day tour: 450 km/10,000m vert across varied terrain. Threshold intervals on 10% climbs simulating Dinaric passes. 24-hour loaded endurance ride with minimal sleep."
     },
+    "eligibility": {
+      "status": "active",
+      "verified": "2026-08-12",
+      "source": "https://www.transbalkanrace.com/",
+      "status_note": "The organizer publishes a May 28-June 6, 2027 event window, applications opening October 25, 2026, a 1400 km route with 30000 m of ascent, 82 percent off-road terrain, and a 10-day limit. Its 2027 schedule has not yet separated accreditation from the actual race start."
+    },
+    "source_review": {
+      "reviewed_at": "2026-08-12",
+      "race_date": null,
+      "facts_scope": "The organizer's 2027 homepage is authoritative for the May 28-June 6 event window, application opening date, distance, ascent, off-road share, and time limit. Current route and rules pages confirm the four-country Dinaric Alps course and self-supported format. The registration and FAQ pages still describe 2026 operational details; that 2026 schedule used the first event day for accreditation and started the race the next morning. Until the organizer publishes the 2027 schedule, exact Race Day, clock times, capacity, fee, venues, accreditation, and refund terms are deliberately excluded from 2027 plan copy."
+    },
+    "citations": [
+      {
+        "url": "https://www.transbalkanrace.com/",
+        "category": "official",
+        "label": "Official 2027 dates and race vitals"
+      },
+      {
+        "url": "https://www.transbalkanrace.com/Route/",
+        "category": "official",
+        "label": "Official route overview"
+      },
+      {
+        "url": "https://www.transbalkanrace.com/rules/",
+        "category": "official",
+        "label": "Official self-supported race rules"
+      },
+      {
+        "url": "https://www.transbalkanrace.com/route-guide/",
+        "category": "official",
+        "label": "Official route guide and resupply scope"
+      }
+    ],
     "history": {
       "founded": 2019,
       "notable_facts": "Organized by women-led Exploro Cycling Club, emphasizing inclusivity in ultras. Route evolved to 1400 km with minefield-safe scouting. Gained traction via Lael’s Women’s Rallies network."

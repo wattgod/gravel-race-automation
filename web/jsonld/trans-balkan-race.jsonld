@@ -3,14 +3,14 @@
   "@type": "SportsEvent",
   "name": "Trans Balkan Race",
   "description": "",
-  "sport": "Gravel Cycling",
+  "sport": "Bikepacking",
   "location": {
     "@type": "Place",
-    "name": "Sezana, Slovenia to Kotor, Montenegro",
+    "name": "Dinaric Alps, Slovenia to Montenegro",
     "address": {
       "@type": "PostalAddress",
-      "addressLocality": "Sezana",
-      "addressRegion": "Slovenia to Kotor"
+      "addressLocality": "Dinaric Alps",
+      "addressRegion": "Slovenia to Montenegro"
     }
   },
   "aggregateRating": {
@@ -19,5 +19,6 @@
     "bestRating": "100",
     "ratingCount": "14",
     "name": "Gravel God Rating"
-  }
+  },
+  "url": "https://www.transbalkanrace.com/"
 }

@@ -25,7 +25,7 @@ async def templates_index(request: Request):
             by_category[cat] = []
         by_category[cat].append(t)
 
-    return templates.TemplateResponse("templates_page/index.html", {
+    return templates.TemplateResponse(request, "templates_page/index.html", {
         "request": request,
         "active_page": "templates",
         "email_templates": email_templates,
@@ -52,7 +52,7 @@ async def template_preview(
         )
 
     athletes = db.select("gg_athletes", columns="slug, name", order="name")
-    return templates.TemplateResponse("templates_page/preview.html", {
+    return templates.TemplateResponse(request, "templates_page/preview.html", {
         "request": request,
         "active_page": "templates",
         "result": result,

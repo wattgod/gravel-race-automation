@@ -14,7 +14,11 @@ fastmcp>=2.0
 beautifulsoup4>=4.12
 
 # Mission Control
-fastapi>=0.115
+# Pinned after the 2026-08 outage: unpinned fastapi let a Railway rebuild pull
+# starlette 1.6, whose removed TemplateResponse shim 500'd every dashboard
+# page. Bump deliberately (run the dashboard tests), never implicitly.
+fastapi==0.141.1
+starlette==1.6.0
 uvicorn>=0.34
 jinja2>=3.1
 supabase>=2.0

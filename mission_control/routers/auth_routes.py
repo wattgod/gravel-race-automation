@@ -23,7 +23,7 @@ templates = Jinja2Templates(directory=str(WEB_TEMPLATES_DIR))
 
 @router.get("/login")
 async def login_page(request: Request, error: str = ""):
-    return templates.TemplateResponse("login.html", {
+    return templates.TemplateResponse(request, "login.html", {
         "request": request,
         "error": error,
     })
@@ -34,13 +34,13 @@ async def login_submit(request: Request, secret: str = Form("")):
     expected = _get_secret()
 
     if not expected:
-        return templates.TemplateResponse("login.html", {
+        return templates.TemplateResponse(request, "login.html", {
             "request": request,
             "error": "Server misconfigured — admin access is disabled.",
         }, status_code=503)
 
     if secret != expected:
-        return templates.TemplateResponse("login.html", {
+        return templates.TemplateResponse(request, "login.html", {
             "request": request,
             "error": "Invalid credentials.",
         }, status_code=401)

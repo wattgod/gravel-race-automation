@@ -156,7 +156,7 @@ async def triage(request: Request):
         and not recent_unsubscribes
     )
 
-    return templates.TemplateResponse("triage.html", {
+    return templates.TemplateResponse(request, "triage.html", {
         "request": request,
         "active_page": "triage",
         "load_error": load_error,

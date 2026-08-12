@@ -62,9 +62,9 @@ async def athlete_list(
     }
 
     if request.headers.get("HX-Request"):
-        return templates.TemplateResponse("partials/athlete_table.html", context)
+        return templates.TemplateResponse(request, "partials/athlete_table.html", context)
 
-    return templates.TemplateResponse("athletes/list.html", context)
+    return templates.TemplateResponse(request, "athletes/list.html", context)
 
 
 @router.get("/{slug}")
@@ -94,7 +94,7 @@ async def athlete_detail(request: Request, slug: str):
     today = date.today().isoformat()
     due_count = sum(1 for t in touchpoints if str(t.get("send_date", "")) <= today and not t.get("sent"))
 
-    return templates.TemplateResponse("athletes/detail.html", {
+    return templates.TemplateResponse(request, "athletes/detail.html", {
         "request": request,
         "active_page": "athletes",
         "athlete": athlete,

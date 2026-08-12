@@ -37,7 +37,7 @@ async def deals_index(request: Request):
 
     rev = revenue_vs_target()
 
-    return templates.TemplateResponse("deals/index.html", {
+    return templates.TemplateResponse(request, "deals/index.html", {
         "request": request,
         "active_page": "deals",
         "stages": STAGES,
@@ -50,7 +50,7 @@ async def deals_index(request: Request):
 @router.get("/new")
 async def deal_new(request: Request):
     """Create deal form."""
-    return templates.TemplateResponse("deals/new.html", {"request": request})
+    return templates.TemplateResponse(request, "deals/new.html", {"request": request})
 
 
 @router.post("/")
@@ -86,7 +86,7 @@ async def deal_detail(request: Request, deal_id: str):
     # Get payments
     payments = db.select("gg_payments", match={"deal_id": deal_id}, order="paid_at", order_desc=True)
 
-    return templates.TemplateResponse("deals/detail.html", {
+    return templates.TemplateResponse(request, "deals/detail.html", {
         "request": request,
         "active_page": "deals",
         "deal": deal,

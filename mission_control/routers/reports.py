@@ -45,7 +45,7 @@ async def reports_index(request: Request):
     # Athletes list for forms
     all_athletes = db.select("gg_athletes", columns="id, slug, name", order="name")
 
-    return templates.TemplateResponse("reports/index.html", {
+    return templates.TemplateResponse(request, "reports/index.html", {
         "request": request,
         "active_page": "reports",
         "nps_data": nps_data,

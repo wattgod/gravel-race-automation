@@ -30,7 +30,7 @@ async def analytics_index(request: Request):
     total_pageviews = sum(p["pageviews"] for p in top_pages) if top_pages else 0
     total_conversions = sum(e["count"] for e in conversions) if conversions else 0
 
-    return templates.TemplateResponse("analytics/index.html", {
+    return templates.TemplateResponse(request, "analytics/index.html", {
         "request": request,
         "active_page": "analytics",
         "top_pages": top_pages,

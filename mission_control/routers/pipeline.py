@@ -22,7 +22,7 @@ async def pipeline_index(request: Request):
     runs = db.get_pipeline_runs(limit=50)
     athletes = db.select("gg_athletes", columns="id, slug, name", order="name")
 
-    return templates.TemplateResponse("pipeline/index.html", {
+    return templates.TemplateResponse(request, "pipeline/index.html", {
         "request": request,
         "active_page": "pipeline",
         "runs": runs,
@@ -38,7 +38,7 @@ async def pipeline_run_detail(request: Request, run_id: str):
 
     athlete = db.get_athlete_by_id(run["athlete_id"])
 
-    return templates.TemplateResponse("pipeline/run_detail.html", {
+    return templates.TemplateResponse(request, "pipeline/run_detail.html", {
         "request": request,
         "active_page": "pipeline",
         "run": run,

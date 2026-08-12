@@ -31,7 +31,7 @@ async def sequence_list(request: Request):
             "stats": stats,
         })
 
-    return templates.TemplateResponse("sequences/index.html", {
+    return templates.TemplateResponse(request, "sequences/index.html", {
         "request": request,
         "active_page": "sequences",
         "sequences": sequence_data,
@@ -63,7 +63,7 @@ async def sequence_detail(request: Request, sequence_id: str):
         all_sends = db.select("gg_sequence_sends", order="sent_at", order_desc=True, limit=500)
         sends = [s for s in all_sends if s["enrollment_id"] in enrollment_ids]
 
-    return templates.TemplateResponse("sequences/detail.html", {
+    return templates.TemplateResponse(request, "sequences/detail.html", {
         "request": request,
         "active_page": "sequences",
         "sequence": seq,
@@ -88,7 +88,7 @@ async def sequence_enrollments(request: Request, sequence_id: str):
         limit=200,
     )
 
-    return templates.TemplateResponse("sequences/enrollments.html", {
+    return templates.TemplateResponse(request, "sequences/enrollments.html", {
         "request": request,
         "active_page": "sequences",
         "sequence": seq,

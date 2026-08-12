@@ -66,9 +66,9 @@ async def touchpoint_list(
     }
 
     if request.headers.get("HX-Request") and request.headers.get("HX-Target") == "touchpoint-body":
-        return templates.TemplateResponse("partials/touchpoint_table.html", context)
+        return templates.TemplateResponse(request, "partials/touchpoint_table.html", context)
 
-    return templates.TemplateResponse("touchpoints/index.html", context)
+    return templates.TemplateResponse(request, "touchpoints/index.html", context)
 
 
 @router.post("/send")

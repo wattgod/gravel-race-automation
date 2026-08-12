@@ -36,7 +36,7 @@ async def dashboard(request: Request):
     plans_sold = plans_sold_this_month()
     pipeline_value = total_open_pipeline_value()
 
-    return templates.TemplateResponse("dashboard.html", {
+    return templates.TemplateResponse(request, "dashboard.html", {
         "request": request,
         "active_page": "dashboard",
         "stats": stats,

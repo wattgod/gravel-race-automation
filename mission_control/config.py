@@ -83,6 +83,9 @@ RACE_DATES_URLS = {
     "roadielabs": os.environ.get(
         "RL_RACE_DATES_URL",
         "https://roadielabs.com/race-dates.json"),
+    "xcskilabs": os.environ.get(
+        "XC_RACE_DATES_URL",
+        "https://xcskilabs.com/race-dates.json"),
 }
 
 # Webhook secret (for Worker → Mission Control auth)

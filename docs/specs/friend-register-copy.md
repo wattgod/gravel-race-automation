@@ -59,6 +59,17 @@ Any questions about the race, just hit reply — happy to help.
 
 — Matti
 
+### kit delivery · day 0 · prep_kit_delivery   (prep_kit_gate only)
+SUBJECT: your {race_name} prep kit
+BODY:
+{greeting} thanks for grabbing {{#race_name}}the {race_name} prep kit{{/race_name}}{{^race_name}}the prep kit{{/race_name}}.
+
+{{#race_slug}}Here is the link so you do not lose it: https://gravelgodcycling.com/race/{race_slug}/prep-kit/.{{/race_slug}}
+
+Any questions about the race, hit reply. What are you trying to sort out?
+
+— Matti
+
 ### race_specific · day 1 · quiz_results_recap   (they ran the race finder)
 SUBJECT: which one are you actually considering?
 BODY:

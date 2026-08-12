@@ -56,6 +56,17 @@ Questions about the race, hit reply.
 
 — Matti
 
+### road kit delivery · day 0 · road_prep_kit_delivery   (prep_kit_gate only)
+SUBJECT: your {race_name} prep kit
+BODY:
+{greeting} thanks for grabbing {{#race_name}}the {race_name} prep kit{{/race_name}}{{^race_name}}the prep kit{{/race_name}}.
+
+{{#race_slug}}Here is the link before it disappears into a browser tab: https://roadielabs.com/race/{race_slug}/prep-kit/.{{/race_slug}}
+
+Questions about the race, hit reply. What are you trying to sort out?
+
+— Matti
+
 ### road_race_specific · day 1 · road_quiz_recap
 SUBJECT: which ones made the shortlist?
 BODY:

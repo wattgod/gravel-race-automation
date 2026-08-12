@@ -9,9 +9,36 @@ allowed. Sign-off: — Matti.
 Apr–Oct. The webhook computes `offseason` per-brand — never reuse the
 gravel calendar here.
 
-Launch set = welcome pair + win_back + banked offseason note. Race-finder /
-countdown / post-purchase tracks follow when XC's quiz, race-date triggers,
-and purchase webhook exist.
+Launch set includes the welcome pair, win-back, countdown, debrief, and banked
+offseason note. Race-finder and post-purchase tracks still depend on their XC
+intake surfaces.
+
+### xc race_countdown · xc_countdown_16w
+SUBJECT: 16 weeks to {race_name}
+BODY:
+{greeting} {race_name} is sixteen weeks out. Snow will change between now and then. The training window will not.
+
+Are you where you wanted to be? If not, what does your actual training week look like?
+
+— Matti
+
+### xc race_countdown · xc_countdown_8w
+SUBJECT: 8 weeks to {race_name}
+BODY:
+{greeting} eight weeks to {race_name}. Enough time to sharpen the skiing. Not enough time to invent a new athlete.
+
+How has training gone? What do your weekly hours look like right now?
+
+— Matti
+
+### xc race_debrief · xc_race_debrief
+SUBJECT: how'd {race_name} go?
+BODY:
+{greeting} did you race {race_name} {when_phrase}? Happy with how you skied?
+
+What held up, what did not? If the day came apart — kick, glide, fueling, the back half — tell me what happened.
+
+— Matti
 
 ### xc_welcome · day 0 · xc_welcome_value
 SUBJECT: which race?

@@ -69,3 +69,27 @@ RL_8 = {
         ]},
     },
 }
+
+XC_16 = {
+    "id": "xc_race_countdown_16_v1",
+    "name": "Race Countdown — 16 weeks (XC Ski Labs)",
+    "brand": "xcskilabs",
+    "description": "Full-window ski-race check-in, deadpan-warm register.",
+    "trigger": "race_countdown_16",
+    "active": True,
+    "variants": {"A": {"weight": 100, "name": "Window", "steps": [
+        {"delay_days": 0, "template": "xc_countdown_16w", "subject": "16 weeks to {race_name}"},
+    ]}},
+}
+
+XC_8 = {
+    "id": "xc_race_countdown_8_v1",
+    "name": "Race Countdown — 8 weeks (XC Ski Labs)",
+    "brand": "xcskilabs",
+    "description": "Short-runway ski-race check-in, deadpan-warm register.",
+    "trigger": "race_countdown_8",
+    "active": True,
+    "variants": {"A": {"weight": 100, "name": "Triage", "steps": [
+        {"delay_days": 0, "template": "xc_countdown_8w", "subject": "8 weeks to {race_name}"},
+    ]}},
+}

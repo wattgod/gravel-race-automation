@@ -29,6 +29,7 @@ class TestDebriefSequences:
     def test_registered_and_brand_scoped(self):
         assert sequence_brand(SEQUENCES["race_debrief_v1"]) == "gravelgod"
         assert sequence_brand(SEQUENCES["road_race_debrief_v1"]) == "roadielabs"
+        assert sequence_brand(SEQUENCES["xc_race_debrief_v1"]) == "xcskilabs"
 
     def test_gravel_ab_variants_split_evenly_same_subject(self):
         """A/B tests the body only — subject held constant so the split
@@ -44,7 +45,7 @@ class TestDebriefSequences:
 
     def test_all_variant_templates_exist(self):
         from mission_control.config import WEB_TEMPLATES_DIR
-        for seq_id in ("race_debrief_v1", "road_race_debrief_v1"):
+        for seq_id in ("race_debrief_v1", "road_race_debrief_v1", "xc_race_debrief_v1"):
             for v in SEQUENCES[seq_id]["variants"].values():
                 for step in v["steps"]:
                     path = (WEB_TEMPLATES_DIR / "emails" / "sequences"
@@ -53,7 +54,7 @@ class TestDebriefSequences:
 
     def test_not_reachable_from_subscriber_triggers(self):
         for trigger in ("new_subscriber", "prep_kit_download", "quiz_completed"):
-            for brand in ("gravelgod", "roadielabs"):
+            for brand in ("gravelgod", "roadielabs", "xcskilabs"):
                 ids = {s["id"] for s in get_sequences_for_trigger(trigger, brand=brand)}
                 assert not any("debrief" in i for i in ids)
 
@@ -94,6 +95,18 @@ class TestRunRaceDebrief:
         for c in mock_enroll.call_args_list:
             sd = c.kwargs["source_data"]
             assert {"race_name", "race_date", "when_phrase", "brand"} <= set(sd)
+
+    def test_enrolls_xc_debrief(self):
+        today = date(2026, 8, 9)
+        dates = {"xcskilabs": {"birkie": "2026-08-01"}}
+        rows = [{"contact_email": "ski@x.com", "contact_name": "S", "status": "completed",
+                 "source_data": {"race_slug": "birkie", "race_name": "Birkie", "brand": "xcskilabs"}}]
+        p1, p2, p3, p4 = self._base_patches(dates, rows)
+        with p1, p2, p3, p4, patch("mission_control.services.race_debrief.enroll",
+                                   return_value={"id": 1}) as mock_enroll:
+            summary = _run(run_race_debrief(today=today))
+        assert summary["enrolled"] == 1
+        assert mock_enroll.call_args.args[2] == "xc_race_debrief_v1"
 
     def test_window_edges(self):
         today = date(2026, 8, 9)
@@ -178,8 +191,8 @@ class TestRunRaceDebrief:
             {"contact_email": "busy@x.com", "contact_name": "B", "status": "active",
              "source_data": {"race_slug": "unbound-200", "brand": "gravelgod"}},
             # brand with no debrief sequence — skipped, not KeyError
-            {"contact_email": "xc@x.com", "contact_name": "X", "status": "completed",
-             "source_data": {"race_slug": "birkie", "brand": "xcskilabs"}},
+            {"contact_email": "other@x.com", "contact_name": "X", "status": "completed",
+             "source_data": {"race_slug": "other-race", "brand": "unknownbrand"}},
             # race not in dates file — skipped
             {"contact_email": "tbd@x.com", "contact_name": "T", "status": "completed",
              "source_data": {"race_slug": "no-date-race", "brand": "gravelgod"}},

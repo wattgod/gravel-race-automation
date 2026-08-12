@@ -49,3 +49,15 @@ RL_DEBRIEF = {
         ]},
     },
 }
+
+XC_DEBRIEF = {
+    "id": "xc_race_debrief_v1",
+    "name": "Race Debrief (XC Ski Labs)",
+    "brand": "xcskilabs",
+    "description": "Their ski race happened — ask for the real version.",
+    "trigger": "race_debrief",
+    "active": True,
+    "variants": {"A": {"weight": 100, "name": "Debrief", "steps": [
+        {"delay_days": 0, "template": "xc_race_debrief", "subject": "how'd {race_name} go?"},
+    ]}},
+}

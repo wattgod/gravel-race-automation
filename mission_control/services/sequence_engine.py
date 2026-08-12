@@ -364,6 +364,8 @@ def _render_subject(subject: str, source_data: dict) -> str:
         if val is not None:
             subject = subject.replace(f"{{{key}}}", str(val))
     # race_name is not guaranteed in source_data — never leak the placeholder
+    # or produce "your your race" for subjects shaped "your {race_name}".
+    subject = subject.replace("your {race_name}", "your race")
     return subject.replace("{race_name}", "your race")
 
 

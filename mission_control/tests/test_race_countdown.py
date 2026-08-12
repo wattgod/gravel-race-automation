@@ -55,13 +55,14 @@ class TestGatherCandidates:
 
 
 class TestCountdownSequences:
-    def test_four_sequences_registered_and_brand_scoped(self):
+    def test_six_sequences_registered_and_brand_scoped(self):
         assert sequence_brand(SEQUENCES["race_countdown_16_v1"]) == "gravelgod"
         assert sequence_brand(SEQUENCES["road_race_countdown_8_v1"]) == "roadielabs"
+        assert sequence_brand(SEQUENCES["xc_race_countdown_16_v1"]) == "xcskilabs"
 
     def test_not_reachable_from_subscriber_triggers(self):
         for trigger in ("new_subscriber", "prep_kit_download", "quiz_completed"):
-            for brand in ("gravelgod", "roadielabs"):
+            for brand in ("gravelgod", "roadielabs", "xcskilabs"):
                 ids = {s["id"] for s in get_sequences_for_trigger(trigger, brand=brand)}
                 assert not any("countdown" in i for i in ids)
 
@@ -105,6 +106,24 @@ class TestRunRaceCountdown:
         # source_data contract: countdown emails may safely use these fields
         sd = mock_enroll.call_args_list[0].kwargs["source_data"]
         assert {"race_name", "race_date", "weeks_out", "brand"} <= set(sd)
+
+    def test_enrolls_xc_in_both_windows(self):
+        today = date(2026, 7, 1)
+        dates = {"xcskilabs": {"birkie": "2026-10-21", "vasaloppet": "2026-08-26"}}
+        rows = [
+            {"contact_email": "x16@x.com", "contact_name": "X", "status": "completed",
+             "source_data": {"race_slug": "birkie", "race_name": "Birkie", "brand": "xcskilabs"}},
+            {"contact_email": "x8@x.com", "contact_name": "Y", "status": "completed",
+             "source_data": {"race_slug": "vasaloppet", "race_name": "Vasaloppet", "brand": "xcskilabs"}},
+        ]
+        p1, p2, p3, p4 = self._base_patches(dates, rows)
+        with p1, p2, p3, p4, patch("mission_control.services.race_countdown.enroll",
+                                   return_value={"id": 1}) as mock_enroll:
+            summary = _run(run_race_countdown(today=today))
+        assert summary["enrolled"] == 2
+        assert {c.args[2] for c in mock_enroll.call_args_list} == {
+            "xc_race_countdown_16_v1", "xc_race_countdown_8_v1",
+        }
 
     def test_suppressions(self):
         today = date(2026, 7, 1)

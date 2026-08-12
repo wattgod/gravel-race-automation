@@ -36,6 +36,7 @@ _MAX_DAYS_SINCE = 180
 _SEQUENCE_IDS = {
     "gravelgod": "race_debrief_v1",
     "roadielabs": "road_race_debrief_v1",
+    "xcskilabs": "xc_race_debrief_v1",
 }
 
 _CUSTOMER_STATUSES = ("delivered", "approved", "audit_passed")

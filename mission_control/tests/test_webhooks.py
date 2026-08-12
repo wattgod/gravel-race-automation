@@ -102,6 +102,28 @@ class TestSubscriberWebhook:
         assert len(quiz_enrollments) > 0
         assert quiz_enrollments[0]["source_data"].get("race_slug") == "unbound-gravel-200"
 
+    def test_prep_kit_gate_gets_nurture_and_separate_day_zero_delivery(self, client, fake_db):
+        resp = self._post(client, {
+            "email": "kit@example.com", "name": "Kit Rider", "source": "prep_kit_gate",
+            "brand": "gravelgod", "race_slug": "unbound-200", "race_name": "Unbound 200",
+        })
+        assert resp.status_code == 200
+        assert set(resp.json()["enrolled"]) == {"nurture_v1", "kit_delivery_v1"}
+        rows = {e["sequence_id"]: e for e in fake_db.store["gg_sequence_enrollments"]
+                if e["contact_email"] == "kit@example.com"}
+        assert rows["kit_delivery_v1"]["current_step"] == 0
+        assert rows["nurture_v1"]["current_step"] == 0
+
+    def test_non_kit_source_never_gets_delivery_sequence(self, client, fake_db):
+        resp = self._post(client, {"email": "profile@example.com", "source": "race_profile"})
+        assert "kit_delivery_v1" not in resp.json()["enrolled"]
+
+    def test_repeat_kit_submission_does_not_double_enroll(self, client, fake_db):
+        payload = {"email": "repeat-kit@example.com", "source": "prep_kit_gate",
+                   "race_slug": "unbound-200", "race_name": "Unbound 200"}
+        assert set(self._post(client, payload).json()["enrolled"]) == {"nurture_v1", "kit_delivery_v1"}
+        assert self._post(client, payload).json()["enrolled"] == []
+
 
 class TestPlanPurchasedEnrollment:
     """POST /webhooks/subscriber with a purchase source -> post_purchase + plan_weeks."""

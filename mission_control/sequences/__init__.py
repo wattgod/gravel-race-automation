@@ -16,10 +16,11 @@ from mission_control.sequences.road_welcome import SEQUENCE as road_welcome
 from mission_control.sequences.road_nurture import SEQUENCE as road_nurture
 from mission_control.sequences.road_race_specific import SEQUENCE as road_race_specific
 from mission_control.sequences.road_post_purchase import SEQUENCE as road_post_purchase
-from mission_control.sequences.race_countdown import GG_8, GG_16, RL_8, RL_16
-from mission_control.sequences.race_debrief import GG_DEBRIEF, RL_DEBRIEF
+from mission_control.sequences.race_countdown import GG_8, GG_16, RL_8, RL_16, XC_8, XC_16
+from mission_control.sequences.race_debrief import GG_DEBRIEF, RL_DEBRIEF, XC_DEBRIEF
 from mission_control.sequences.xc_welcome import SEQUENCE as xc_welcome
 from mission_control.sequences.xc_win_back import SEQUENCE as xc_win_back
+from mission_control.sequences.kit_delivery import GG as kit_delivery, ROAD as road_kit_delivery
 
 DEFAULT_BRAND = "gravelgod"
 
@@ -41,6 +42,11 @@ SEQUENCES: dict[str, dict] = {
     RL_DEBRIEF["id"]: RL_DEBRIEF,
     xc_welcome["id"]: xc_welcome,
     xc_win_back["id"]: xc_win_back,
+    kit_delivery["id"]: kit_delivery,
+    road_kit_delivery["id"]: road_kit_delivery,
+    XC_16["id"]: XC_16,
+    XC_8["id"]: XC_8,
+    XC_DEBRIEF["id"]: XC_DEBRIEF,
 }
 
 

@@ -35,6 +35,8 @@ _SEQUENCE_IDS = {
     ("gravelgod", 8): "race_countdown_8_v1",
     ("roadielabs", 16): "road_race_countdown_16_v1",
     ("roadielabs", 8): "road_race_countdown_8_v1",
+    ("xcskilabs", 16): "xc_race_countdown_16_v1",
+    ("xcskilabs", 8): "xc_race_countdown_8_v1",
 }
 
 _CUSTOMER_STATUSES = ("delivered", "approved", "audit_passed")

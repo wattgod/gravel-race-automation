@@ -338,12 +338,14 @@ def _last_json(text: str):
     return candidates[-1] if candidates else None
 
 
-def _build_user(reference, seq, email, body):
+def _build_user(reference, seq, email, body, race_placeholder="Unbound"):
     return USER_TMPL.format(
         reference=reference[:14000],
         seq=seq,
         day=email.get("delay_days", "?"),
-        subject=(email["subject"].replace("{race_name}", "Unbound")
+        # Placeholder must match the body's brand-specific sample race, or
+        # the judge reads "Unbound subject, Birkie body" as body-snatching.
+        subject=(email["subject"].replace("{race_name}", race_placeholder)
                  .replace("{weeks_out}", "8").replace("{first_name}", "Alex")),
         body=body[:9000],
     )
@@ -369,8 +371,8 @@ def judge_codex(model, user):
     return proc.stdout
 
 
-def judge(engine, client, model, reference, seq, email, body):
-    user = _build_user(reference, seq, email, body)
+def judge(engine, client, model, reference, seq, email, body, race_placeholder="Unbound"):
+    user = _build_user(reference, seq, email, body, race_placeholder)
     raw = judge_anthropic(client, model, user) if engine == "anthropic" else judge_codex(model, user)
     parsed = _last_json(raw)
     if parsed is None:
@@ -503,7 +505,8 @@ def main():
             print(f"  [{i}/{len(emails)}] SKIP {seq}/{e['template']} (no template)", file=sys.stderr)
             continue
         print(f"  [{i}/{len(emails)}] judging {seq} · {e['subject'][:45]}", file=sys.stderr)
-        verdict = judge(args.engine, client, model, reference, seq, e, body)
+        verdict = judge(args.engine, client, model, reference, seq, e, body,
+                        RACE_PLACEHOLDER.get(getattr(args, "brand", None) or "gravelgod", "Unbound"))
         results.append({"seq": seq, "day": e.get("delay_days", "?"),
                         "subject": e["subject"], "verdict": verdict})
 

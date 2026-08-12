@@ -21,7 +21,9 @@ from __future__ import annotations
 
 import argparse
 import difflib
+import html
 import json
+import re
 import subprocess
 import sys
 from datetime import date
@@ -38,6 +40,37 @@ BRANDS = {
                "plans_url": "https://gravelgodcycling.com/products/training-plans/"},
     "road": {"root": ROAD_ROOT, "site": "https://roadielabs.com",
              "plans_url": "https://roadielabs.com/training-plans/"},
+}
+
+# Debrief labels are evaluated in this order.  The first match is primary,
+# while every match is retained so a reply such as "DNS after the knee flared"
+# does not lose either part of the story.
+DEBRIEF_PRIORITY = (
+    "illness", "injury", "fueling", "pacing", "mechanical",
+    "dns_deferred", "logistics", "happy",
+)
+
+DEBRIEF_KEYWORDS = {
+    "illness": (r"\bsick\b", r"\bill(?:ness)?\b", r"\bcovid\b", r"\bflu\b", r"\bvirus\b", r"\bfever\b"),
+    "injury": (r"\binjur(?:y|ed)\b", r"\bknee\b", r"\bback pain\b", r"\bpt\b", r"physical therap", r"\bfit issue\b"),
+    "fueling": (r"\bfuel(?:ing|led)?\b", r"\bnutrition\b", r"\bbonk(?:ed|ing)?\b", r"\bcarbs?\b", r"\bgels?\b"),
+    "pacing": (r"\bpac(?:e|ed|ing)\b", r"\btoo hard\b", r"\btoo fast\b", r"\bblew up\b", r"\bback half\b"),
+    "mechanical": (r"\bmechanical\b", r"\bflat tire\b", r"\bpuncture\b", r"\bchain\b", r"\bderailleur\b", r"\bbroke(?:n)?\b"),
+    "dns_deferred": (r"\bdns\b", r"did not start", r"didn't start", r"\bdefer(?:red|ral)?\b", r"\bwithdrew\b"),
+    "logistics": (r"\blogistics?\b", r"\btravel\b", r"\bflight\b", r"\bhotel\b", r"\bregistration\b", r"\bstart time\b"),
+    "happy": (r"\bhappy\b", r"\bpr\b", r"personal best", r"\bnailed\b", r"\bgreat day\b", r"\bwent well\b"),
+}
+
+DEBRIEF_QUESTIONS = {
+    "illness": "What did your biggest week look like before you got sick?",
+    "injury": "What has the PT or bike-fit work not resolved yet?",
+    "fueling": "What did you eat and drink in the two hours before it started going wrong?",
+    "pacing": "Where did the effort first stop feeling sustainable?",
+    "mechanical": "Was it bad luck, or is there something in the setup you would change before the next one?",
+    "dns_deferred": "Do you have another race in mind, or is the next move getting healthy first?",
+    "logistics": "Which part of the day was still uncertain when you got to the start?",
+    "happy": "What do you think made the biggest difference?",
+    "unknown": "What part of the day do you most want to understand?",
 }
 
 
@@ -148,18 +181,128 @@ Either way, you picked a good one."""
     return f"{hi}\n\n{body}\n\n— Matti"
 
 
+def clean_reply_text(raw: str) -> str:
+    """Return the athlete-authored portion as plain, compact text."""
+    text = re.sub(r"(?is)<(blockquote|style|script)\b.*?</\1>", " ", raw or "")
+    text = re.sub(r"(?i)<br\s*/?>", "\n", text)
+    text = re.sub(r"(?i)</p\s*>", "\n", text)
+    text = re.sub(r"<[^>]+>", " ", text)
+    text = html.unescape(text)
+    kept = []
+    for line in text.splitlines():
+        stripped = line.strip()
+        if stripped.startswith(">") or re.match(r"(?i)^on .+ wrote:$", stripped):
+            break
+        if stripped:
+            kept.append(stripped)
+    return re.sub(r"\s+", " ", " ".join(kept)).strip()
+
+
+def classify_debrief(reply_text: str) -> dict:
+    """Deterministically classify a debrief reply; multiple labels may match."""
+    cleaned = clean_reply_text(reply_text)
+    folded = cleaned.casefold()
+    labels = [
+        label for label in DEBRIEF_PRIORITY
+        if any(re.search(pattern, folded) for pattern in DEBRIEF_KEYWORDS[label])
+    ]
+    return {"primary": labels[0] if labels else "unknown", "labels": labels, "text": cleaned}
+
+
+def _specific_fragment(cleaned: str) -> str:
+    if not cleaned:
+        return "I couldn't pull a clean sentence out of your reply"
+    fragment = re.split(r"(?<=[.!?])\s+", cleaned, maxsplit=1)[0].strip()
+    if len(fragment) > 150:
+        fragment = fragment[:147].rsplit(" ", 1)[0] + "…"
+    return f'“{fragment}”'
+
+
+def draft_debrief(reply_text: str, first_name: str = "", facts: dict | None = None) -> str:
+    """Draft a reply that acknowledges, diagnoses, and only then offers help."""
+    result = classify_debrief(reply_text)
+    primary = result["primary"]
+    hi = f"{first_name} —" if first_name else "Hey —"
+    fragment = _specific_fragment(result["text"])
+
+    if primary == "illness":
+        read = "Getting interrupted by illness is solvable, but the order matters — rebuild aerobically before you touch intensity."
+    elif primary == "injury":
+        read = "That sounds like a return-to-training problem before it is a fitness problem."
+    elif primary == "fueling":
+        read = "That sounds fixable, but only if we find the first missed bottle or calories instead of blaming the final hour."
+    elif primary == "pacing":
+        read = "The useful clue is where the day changed, not how ugly the finish felt."
+    elif primary == "mechanical":
+        read = "That is a rotten way for fitness to become irrelevant."
+    elif primary == "dns_deferred":
+        read = "Deferring was probably the right call if getting to the line had already become the whole fight."
+    elif primary == "logistics":
+        read = "A logistics miss can spend a lot of legs before the race even starts."
+    elif primary == "happy":
+        read = "Sounds like the day did what you hoped it would."
+    else:
+        read = "I want to make sure I am reading the day correctly."
+
+    body = [f"I read this part twice: {fragment}", read, DEBRIEF_QUESTIONS[primary]]
+
+    weeks = facts.get("weeks_out") if facts else None
+    has_next_race = bool(facts and weeks is not None and 0 <= weeks < 12)
+    returning = primary != "injury" or bool(re.search(
+        r"\b(return|returning|back (?:on|to)|cleared|riding again|training again)\b",
+        result["text"].casefold(),
+    ))
+    offer_mode = primary in {"illness", "injury", "fueling", "pacing"}
+    if offer_mode and has_next_race and returning:
+        body.append(
+            "If you want, I'll sketch the next 10 days for you — no charge, "
+            "just tell me how week one feels."
+        )
+
+    return f"{hi}\n\n" + "\n\n".join(body) + "\n\n— Matti"
+
+
 def main() -> int:
     ap = argparse.ArgumentParser()
-    ap.add_argument("race", help="race name or slug (fuzzy matched)")
+    ap.add_argument("race_query", nargs="?", help="race name or slug (fuzzy matched)")
+    ap.add_argument("--debrief", action="store_true", help="draft a reply to a post-race response")
+    ap.add_argument("--reply-file", help="debrief reply text file")
+    ap.add_argument("--reply", help="debrief reply text, or - to read stdin")
+    ap.add_argument("--race", dest="debrief_race", help="optional next race name or slug")
     ap.add_argument("--brand", choices=["gravel", "road"], default="gravel")
     ap.add_argument("--name", default="", help="rider first name")
     ap.add_argument("--copy", action="store_true", help="copy draft to clipboard (macOS)")
     args = ap.parse_args()
 
     brand = BRANDS[args.brand]
-    path = find_race(args.race, brand["root"])
+    if args.debrief:
+        if bool(args.reply_file) == bool(args.reply):
+            ap.error("--debrief requires exactly one of --reply-file or --reply")
+        if args.reply_file:
+            reply_text = Path(args.reply_file).read_text(encoding="utf-8")
+        elif args.reply == "-":
+            reply_text = sys.stdin.read()
+        else:
+            reply_text = args.reply or ""
+        facts = None
+        if args.debrief_race:
+            path = find_race(args.debrief_race, brand["root"])
+            if not path:
+                print(f"No race matching {args.debrief_race!r} in {args.brand} database.")
+                return 1
+            facts = race_facts(path, brand["site"])
+        text = draft_debrief(reply_text, args.name.strip().title(), facts)
+        print(text)
+        if args.copy:
+            subprocess.run(["pbcopy"], input=text.encode())
+            print("\n(copied to clipboard)")
+        return 0
+
+    if not args.race_query:
+        ap.error("race is required unless --debrief is used")
+    path = find_race(args.race_query, brand["root"])
     if not path:
-        print(f"No race matching {args.race!r} in {args.brand} database.")
+        print(f"No race matching {args.race_query!r} in {args.brand} database.")
         return 1
     facts = race_facts(path, brand["site"])
     text = draft(facts, args.name.strip().title(), brand["plans_url"])

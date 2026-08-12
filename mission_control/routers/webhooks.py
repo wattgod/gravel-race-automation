@@ -294,6 +294,16 @@ async def subscriber_webhook(
         if result:
             enrolled.append(seq["id"])
 
+    # Delivery is deliberately its own sequence. Adding a new day-0 step to
+    # nurture_v1 would reinterpret current_step=0 for legacy enrollments that
+    # are still waiting on the established day-2 check-in. Only a fresh kit
+    # gate submission gets this second, independently deduped enrollment.
+    if source == "prep_kit_gate":
+        for seq in get_sequences_for_trigger("prep_kit_delivery", brand=brand):
+            result = enroll(email, name, seq["id"], source=source, source_data=source_data)
+            if result:
+                enrolled.append(seq["id"])
+
     # WS-E (friend-first spec §4.1): no double-enrollment. Quiz and prep-kit
     # leads get ONLY their source sequence — it is their opener track. The old
     # "also enroll in welcome" behavior stacked overlapping opener tracks on

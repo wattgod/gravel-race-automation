@@ -133,6 +133,11 @@ class TestRenderSubject:
         result = _render_subject("Welcome to Gravel God", {})
         assert result == "Welcome to Gravel God"
 
+    def test_missing_race_does_not_double_your(self, fake_db):
+        from mission_control.services.sequence_engine import _render_subject
+
+        assert _render_subject("your {race_name} prep kit", {}) == "your race prep kit"
+
 
 class TestRenderTemplate:
     def test_renders_existing_template(self, fake_db):
@@ -164,6 +169,43 @@ class TestRenderTemplate:
         })
         assert isinstance(html, str)
         assert len(html) > 100
+
+    def test_prep_kit_delivery_renders_link_only_with_slug(self, fake_db):
+        from mission_control.services.sequence_engine import _render_template
+
+        base = {"contact_name": "Jen", "contact_email": "j@example.com"}
+        with_slug = _render_template("prep_kit_delivery", {
+            **base, "source_data": {"race_name": "Unbound 200", "race_slug": "unbound-200"},
+        })
+        without_slug = _render_template("prep_kit_delivery", {
+            **base, "source_data": {"race_name": "Unbound 200"},
+        })
+        assert "/race/unbound-200/prep-kit/" in with_slug
+        assert "Here is the link" not in without_slug
+        assert "Any questions" in without_slug
+        assert "the your race" not in without_slug
+
+    def test_legacy_nurture_step_zero_remains_day_two_checkin(self, fake_db):
+        from mission_control.sequences import SEQUENCES
+
+        for variant in SEQUENCES["nurture_v1"]["variants"].values():
+            assert variant["steps"][0] == {
+                "delay_days": 2, "template": "race_prep_tips", "subject": "how'd the prep kit land?",
+            }
+
+    def test_legacy_nurture_past_step_zero_completes_without_delivery(self, fake_db):
+        """A pre-existing nurture row must never discover the new receipt."""
+        import asyncio
+        from mission_control.services.sequence_engine import _send_next_step
+        from mission_control.tests.conftest import make_enrollment
+
+        enrollment = make_enrollment(
+            sequence_id="nurture_v1", variant="A", current_step=1, status="active",
+        )
+        fake_db.store["gg_sequence_enrollments"].append(enrollment)
+        assert asyncio.run(_send_next_step(enrollment)) is True
+        assert enrollment["status"] == "completed"
+        assert fake_db.store["gg_sequence_sends"] == []
 
 
 class TestGreeting:

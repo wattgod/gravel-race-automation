@@ -70,6 +70,11 @@ WEATHER_DIR = Path(__file__).parent.parent / "data" / "weather"
 QUOTES_DIR = Path(__file__).parent.parent / "data" / "quotes"
 CURRENT_YEAR = str(datetime.now().year)
 
+# Public legacy URL retained by active email captures. The canonical profile
+# slug is mid-south, but /the-mid-south/prep-kit/ has already been handed to
+# leads and must keep generating until the redirect/deploy is retired.
+PREP_KIT_SLUG_ALIASES = {"the-mid-south": "mid-south"}
+
 # Guide section IDs we extract content from
 GUIDE_SECTION_IDS = [
     "ch3-phases",       # 12-week training timeline
@@ -2991,7 +2996,8 @@ def generate_prep_kit_page(rd: dict, raw: dict, guide_sections: dict) -> str:
 def generate_single(slug: str, data_dirs: list, output_dir: Path,
                     guide_sections: dict) -> bool:
     """Generate prep kit for a single race. Returns True on success."""
-    filepath = find_data_file(slug, data_dirs)
+    data_slug = PREP_KIT_SLUG_ALIASES.get(slug, slug)
+    filepath = find_data_file(data_slug, data_dirs)
     if not filepath:
         print(f"  SKIP  {slug} — data file not found")
         return False

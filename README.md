@@ -37,6 +37,12 @@ python wordpress/generate_neo_brutalist.py --all
 # Regenerate the search index
 python scripts/generate_index.py --with-jsonld
 
+# Mine the cited, deterministic race-data changelog used by race-page sidebars
+python scripts/generate_race_intel.py
+
+# Regenerate race pages (the generated intel ships with the existing page sync)
+python wordpress/generate_neo_brutalist.py --all
+
 # Deploy everything
 python3 scripts/push_wordpress.py --deploy-all --purge-cache
 

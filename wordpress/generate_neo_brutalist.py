@@ -110,6 +110,7 @@ MONTH_NUMBERS = {
 }
 
 logger = logging.getLogger(__name__)
+RACE_INTEL_PATH = Path(__file__).resolve().parent.parent / "web" / "race-intel.json"
 
 
 def parse_event_dates(date_str: str) -> tuple[str | None, str | None]:
@@ -471,6 +472,7 @@ def normalize_race_data(data: dict) -> dict:
         'slug': race.get('slug', ''),
         'tagline': race.get('tagline', ''),
         'seo': race.get('seo', {}),
+        'website': race.get('website', ''),
         'discipline': discipline,
         'overall_score': rating.get('overall_score', 0),
         'tier': rating.get('tier', 4),
@@ -4778,6 +4780,49 @@ def build_news_section(rd: dict) -> str:
   </div>'''
 
 
+def load_race_intel(path: Path = RACE_INTEL_PATH) -> dict:
+    """Load generated race intel, degrading to an empty feed."""
+    try:
+        value = json.loads(path.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError):
+        return {}
+    return value if isinstance(value, dict) else {}
+
+
+def build_latest_sidebar(rd: dict, events: list[dict] | None) -> str:
+    """Render at most three deterministic race-data history events."""
+    if not events:
+        return ""
+    website = rd.get("website", "")
+    if not isinstance(website, str) or not website.startswith(("https://", "http://")):
+        website = ""
+    items = []
+    for event in events:
+        if len(items) >= 3:
+            break
+        try:
+            month = datetime.strptime(str(event.get("date", "")), "%Y-%m-%d").strftime("%b %Y")
+        except ValueError:
+            continue
+        text = esc(event.get("text", ""))
+        if not text:
+            continue
+        if event.get("type") == "date_confirmed" and website:
+            text_html = f'<a href="{esc(website)}" rel="noopener">{text}</a>'
+        else:
+            text_html = f"<span>{text}</span>"
+        items.append(
+            f'<li class="gg-latest-item"><time datetime="{esc(event.get("date", ""))}">'
+            f'{month}</time>{text_html}</li>'
+        )
+    if not items:
+        return ""
+    return f'''<aside class="gg-latest" aria-labelledby="gg-latest-title">
+    <h2 id="gg-latest-title">LATEST</h2>
+    <ol>{"".join(items)}</ol>
+  </aside>'''
+
+
 def build_pullquote(rd: dict) -> str:
     """Build a pull-quote block from the biased opinion summary.
     Uses summary (not bottom_line) to avoid duplicating the verdict section."""
@@ -5395,6 +5440,17 @@ body {{ margin: 0; background: var(--gg-color-warm-paper); }}
   box-sizing: border-box;
 }}
 
+/* Deterministic race-data changelog. The two-column shell exists only when
+   this race has recent events, so empty feeds preserve the current layout. */
+.gg-neo-brutalist-page .gg-page-body-with-latest {{ display: grid; grid-template-columns: minmax(0, 1fr) 220px; gap: var(--gg-spacing-lg); align-items: start; }}
+.gg-neo-brutalist-page .gg-latest {{ border: var(--gg-border-standard); padding: var(--gg-spacing-md); margin-top: var(--gg-spacing-lg); }}
+.gg-neo-brutalist-page .gg-latest h2 {{ margin: 0 0 var(--gg-spacing-sm); font-family: var(--gg-font-data); font-size: var(--gg-font-size-xs); letter-spacing: var(--gg-letter-spacing-ultra-wide); color: var(--gg-color-gold); }}
+.gg-neo-brutalist-page .gg-latest ol {{ list-style: none; padding: 0; margin: 0; }}
+.gg-neo-brutalist-page .gg-latest-item {{ border-top: 1px solid var(--gg-color-tan); padding: var(--gg-spacing-sm) 0; font-family: var(--gg-font-editorial); font-size: var(--gg-font-size-xs); line-height: 1.45; }}
+.gg-neo-brutalist-page .gg-latest-item:first-child {{ border-top: 0; padding-top: 0; }}
+.gg-neo-brutalist-page .gg-latest-item time {{ display: block; margin-bottom: var(--gg-spacing-2xs); font-family: var(--gg-font-data); font-size: var(--gg-font-size-2xs); letter-spacing: var(--gg-letter-spacing-wider); text-transform: uppercase; color: var(--gg-color-secondary-brown); }}
+.gg-neo-brutalist-page .gg-latest-item a {{ color: var(--gg-color-dark-brown); text-decoration-color: var(--gg-color-gold); text-underline-offset: 3px; }}
+
 /* Hero — clean editorial masthead: name left, score right */
 .gg-neo-brutalist-page .gg-hero {{ background: var(--gg-color-warm-paper); color: var(--gg-color-dark-brown); padding: 48px 32px; border-bottom: 2px solid var(--gg-color-gold); margin-bottom: 0; display: flex; align-items: flex-end; justify-content: space-between; gap: 32px; }}
 .gg-neo-brutalist-page .gg-hero-content {{ flex: 1; min-width: 0; }}
@@ -5441,6 +5497,8 @@ body {{ margin: 0; background: var(--gg-color-warm-paper); }}
 }}
 /* TOC — mobile: collapsible dropdown */
 @media (max-width: 768px) {{
+  .gg-neo-brutalist-page .gg-page-body-with-latest {{ grid-template-columns: 1fr; }}
+  .gg-neo-brutalist-page .gg-latest {{ grid-row: 1; margin-top: var(--gg-spacing-md); }}
   .gg-neo-brutalist-page .gg-toc {{ position: sticky; top: var(--gg-header-height, 56px); padding: 0; }}
   .gg-neo-brutalist-page .gg-toc-toggle {{
     display: flex; align-items: center; justify-content: space-between;
@@ -6209,7 +6267,8 @@ def write_shared_assets(output_dir: Path) -> dict:
 
 # ── Page Assembly ──────────────────────────────────────────────
 
-def generate_page(rd: dict, race_index: list = None, external_assets: dict = None) -> str:
+def generate_page(rd: dict, race_index: list = None, external_assets: dict = None,
+                  race_intel: dict | None = None) -> str:
     """Generate complete HTML page from normalized race data.
 
     If external_assets is provided, references external CSS/JS files instead of inlining.
@@ -6268,6 +6327,7 @@ def generate_page(rd: dict, race_index: list = None, external_assets: dict = Non
     citations_sec = build_citations_section(rd)
     footer = build_footer(rd)
     sticky_cta = '' if suppress_plan_marketing else build_sticky_cta(rd['name'], rd['slug'])
+    latest = build_latest_sidebar(rd, (race_intel or {}).get(rd['slug'], []))
 
     # Dynamic TOC — only link to sections that have content
     active = {'course', 'ratings'}
@@ -6316,6 +6376,19 @@ def generate_page(rd: dict, race_index: list = None, external_assets: dict = Non
             content_sections.append(section)
 
     content = '\n\n  '.join(content_sections)
+    if latest:
+        page_body = f'''<div class="gg-page-body-with-latest">
+    <main class="gg-page-main">
+      {toc}
+
+      {content}
+    </main>
+    {latest}
+  </div>'''
+    else:
+        page_body = f'''{toc}
+
+  {content}'''
 
     # SEO-optimized title and description
     seo_title = build_seo_title(rd)
@@ -6369,9 +6442,7 @@ def generate_page(rd: dict, race_index: list = None, external_assets: dict = Non
 
   {prep_strip}
 
-  {toc}
-
-  {content}
+  {page_body}
 
   {footer}
 </div>
@@ -6460,6 +6531,10 @@ def main():
             race_index = json.load(f)
         print(f"Loaded race index: {len(race_index)} races")
 
+    race_intel = load_race_intel()
+    if race_intel:
+        print(f"Loaded race intel: {len(race_intel)} races")
+
     if args.all:
         # Generate for all races in the primary data directory
         primary = None
@@ -6484,7 +6559,9 @@ def main():
             slug = f.stem.replace('-data', '')
             try:
                 rd = load_race_data(f)
-                page_html = generate_page(rd, race_index, external_assets=assets)
+                page_html = generate_page(
+                    rd, race_index, external_assets=assets, race_intel=race_intel
+                )
                 out = output_dir / f"{slug}.html"
                 out.write_text(page_html, encoding='utf-8')
                 success += 1
@@ -6509,7 +6586,9 @@ def main():
 
         assets = write_shared_assets(output_dir)
         rd = load_race_data(filepath)
-        page_html = generate_page(rd, race_index, external_assets=assets)
+        page_html = generate_page(
+            rd, race_index, external_assets=assets, race_intel=race_intel
+        )
         out = output_dir / f"{args.slug}.html"
         out.write_text(page_html, encoding='utf-8')
         print(f"Generated: {out}")

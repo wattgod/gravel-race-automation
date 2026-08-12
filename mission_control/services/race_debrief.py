@@ -55,9 +55,10 @@ def when_phrase(days_since: int, race_date: date) -> str:
 async def run_race_debrief(today: date | None = None) -> dict:
     """One debrief pass. Returns a summary dict for logging/tests."""
     today = today or datetime.now(timezone.utc).date()
-    summary = {"candidates": 0, "enrolled": 0, "skipped_window": 0,
-               "skipped_mid_sequence": 0, "skipped_customer": 0,
-               "skipped_no_date": 0, "skipped_no_sequence": 0, "capped": False}
+    summary = {"candidates": 0, "enrolled": 0, "enrolled_inferred": 0,
+               "skipped_window": 0, "skipped_mid_sequence": 0,
+               "skipped_customer": 0, "skipped_no_date": 0,
+               "skipped_no_sequence": 0, "capped": False}
 
     dates = await asyncio.to_thread(_fetch_dates_sync)
     if not any(dates.values()):
@@ -92,6 +93,20 @@ async def run_race_debrief(today: date | None = None) -> dict:
             continue
         race_date = date.fromisoformat(iso)
         days_since = (today - race_date).days
+        inferred = False
+        if days_since < _MIN_DAYS_SINCE:
+            # Catalog updates roll a past race's date forward to the next
+            # edition, which would silently exempt its leads from a debrief
+            # forever. Infer the previous edition one year back; the 3-180
+            # window on the inferred date naturally excludes races that are
+            # simply upcoming (a race N weeks out infers to ~52-N weeks ago,
+            # outside the window until the race is ~6 months away).
+            try:
+                prev_edition = race_date.replace(year=race_date.year - 1)
+            except ValueError:  # Feb 29 → Feb 28 of the prior year
+                prev_edition = race_date.replace(year=race_date.year - 1, day=28)
+            days_since = (today - prev_edition).days
+            inferred = True
         if not (_MIN_DAYS_SINCE <= days_since <= _MAX_DAYS_SINCE):
             summary["skipped_window"] += 1
             continue
@@ -117,13 +132,21 @@ async def run_race_debrief(today: date | None = None) -> dict:
                 "race_slug": info["race_slug"],
                 "race_name": info["race_name"],
                 "race_date": iso,
-                "when_phrase": when_phrase(days_since, race_date),
+                # An inferred edition date can be off by a week or two, so
+                # the phrase must not name a month — "this season" stays
+                # honest at any offset.
+                "when_phrase": "this season" if inferred
+                               else when_phrase(days_since, race_date),
+                **({"date_inferred": "true"} if inferred else {}),
             },
         )
         if result:
             summary["enrolled"] += 1
+            if inferred:
+                summary["enrolled_inferred"] += 1
             db.log_action("race_debrief_enrolled", "sequence", seq_id,
-                          f"{email} — {info['race_name']} was {days_since}d ago")
+                          f"{email} — {info['race_name']} was {days_since}d ago"
+                          + (" (inferred previous edition)" if inferred else ""))
 
     logger.info("race-debrief run: %s", summary)
     return summary

@@ -100,7 +100,7 @@ class TestRunRaceDebrief:
         dates = {"gravelgod": {
             "too-fresh": "2026-08-07",     # 2 days — dust not settled
             "too-old": "2025-12-01",       # >180 days — premise gone stale
-            "future": "2026-10-01",        # hasn't happened
+            "future": "2026-10-01",        # upcoming: infers ~313d ago, still out of window
         }, "roadielabs": {}}
         rows = [
             {"contact_email": f"{slug}@x.com", "contact_name": "X", "status": "completed",
@@ -113,6 +113,62 @@ class TestRunRaceDebrief:
             summary = _run(run_race_debrief(today=today))
         assert summary["skipped_window"] == 3
         mock_enroll.assert_not_called()
+
+    def test_rolled_date_infers_previous_edition(self):
+        """Catalog cleanup rolled past races to their 2027 dates, which
+        would orphan those leads forever. The job infers the previous
+        edition and debriefs with a month-free phrase."""
+        today = date(2026, 8, 12)
+        dates = {"gravelgod": {
+            "unbound-200": "2027-06-05",   # rolled; prev edition ~68d ago
+            "next-spring": "2026-10-01",   # genuinely upcoming — must NOT infer
+        }, "roadielabs": {}}
+        rows = [
+            {"contact_email": "rolled@x.com", "contact_name": "R", "status": "completed",
+             "source_data": {"race_slug": "unbound-200", "race_name": "Unbound 200",
+                             "brand": "gravelgod"}},
+            {"contact_email": "upcoming@x.com", "contact_name": "U", "status": "completed",
+             "source_data": {"race_slug": "next-spring", "brand": "gravelgod"}},
+        ]
+        p1, p2, p3, p4 = self._base_patches(dates, rows)
+        with p1, p2, p3, p4, patch(
+                "mission_control.services.race_debrief.enroll",
+                return_value={"id": 1}) as mock_enroll:
+            summary = _run(run_race_debrief(today=today))
+        assert summary["enrolled"] == 1
+        assert summary["enrolled_inferred"] == 1
+        assert summary["skipped_window"] == 1
+        sd = mock_enroll.call_args.kwargs["source_data"]
+        assert sd["when_phrase"] == "this season"
+        assert sd["date_inferred"] == "true"
+
+    def test_true_past_date_does_not_get_inferred_phrase(self):
+        today = date(2026, 8, 12)
+        dates = {"gravelgod": {"watermoo": "2026-08-08"}, "roadielabs": {}}
+        rows = [{"contact_email": "raced@x.com", "contact_name": "W", "status": "completed",
+                 "source_data": {"race_slug": "watermoo", "brand": "gravelgod"}}]
+        p1, p2, p3, p4 = self._base_patches(dates, rows)
+        with p1, p2, p3, p4, patch(
+                "mission_control.services.race_debrief.enroll",
+                return_value={"id": 1}) as mock_enroll:
+            summary = _run(run_race_debrief(today=today))
+        assert summary["enrolled"] == 1
+        assert summary["enrolled_inferred"] == 0
+        sd = mock_enroll.call_args.kwargs["source_data"]
+        assert sd["when_phrase"] == "the other weekend"
+        assert "date_inferred" not in sd
+
+    def test_feb29_rolled_date_does_not_crash(self):
+        today = date(2027, 3, 15)
+        dates = {"gravelgod": {"leap-race": "2028-02-29"}, "roadielabs": {}}
+        rows = [{"contact_email": "leap@x.com", "contact_name": "L", "status": "completed",
+                 "source_data": {"race_slug": "leap-race", "brand": "gravelgod"}}]
+        p1, p2, p3, p4 = self._base_patches(dates, rows)
+        with p1, p2, p3, p4, patch(
+                "mission_control.services.race_debrief.enroll",
+                return_value={"id": 1}):
+            summary = _run(run_race_debrief(today=today))
+        assert summary["enrolled"] == 1  # inferred 2027-02-28, 15d ago
 
     def test_suppressions_and_unknown_brand(self):
         today = date(2026, 8, 9)

@@ -4101,7 +4101,7 @@ if __name__ == "__main__":
                       args.sync_insights, args.sync_whitepaper, args.sync_embed, args.sync_rss,
                       args.sync_llms_txt, args.sync_markdown, args.ping_indexnow,
                       args.sync_legal, args.sync_consent, args.sync_tire_pages,
-                      args.purge_cache])
+                      args.sync_latest, args.purge_cache])
     if not has_action:
         parser.error("Provide a sync flag (--sync-pages, --sync-index, etc.), --deploy-content, or --deploy-all")
 

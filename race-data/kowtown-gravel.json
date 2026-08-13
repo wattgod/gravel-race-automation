@@ -3,29 +3,39 @@
     "name": "KowTown Gravel",
     "slug": "kowtown-gravel",
     "display_name": "KowTown Gravel",
-    "tagline": "KowTown Gravel. 60 miles of gravel through Kremmling.",
+    "tagline": "KowTown Gravel. An 88-mile high-country throwdown through Kremmling ranchland.",
     "vitals": {
-      "distance_mi": 60,
-      "elevation_ft": 4500,
-      "location": "Kremmling, CO",
+      "distance_mi": 88,
+      "elevation_ft": null,
+      "location": "Kremmling, Colorado",
       "location_badge": "KREMMLING, CO",
       "county": "Grand County",
-      "date": "Mid-June annually",
-      "date_specific": "2026: June 13",
+      "date": "June 12, 2027",
+      "date_specific": "2027: June 12 (Saturday)",
+      "course_status": "verified",
+      "pack_status": "pending",
+      "course_status_label": "2027 CORE VERIFIED",
+      "course_status_reason": "The organizer homepage confirms Saturday, June 12, 2027, West Grand High School as the common start and finish, and four race distances led by the 88-mile Bull. It describes hard-packed county roads, doubletrack, punchy climbs, technical descents, stocked aid, and on-course support. The separately labeled 2026 course page remains useful training-demand context but is not treated as the final 2027 map or elevation profile.",
       "terrain_types": [
-        "Colorado Rockies",
-        "Mountain gravel",
-        "High altitude",
-        "Colorado"
+        "Hard-packed county roads",
+        "High-country ranch roads",
+        "Doubletrack",
+        "Technical gravel descents"
       ],
-      "field_size": "100-200 riders",
-      "start_time": "5:00 PM",
-      "registration": "Online. Cost: ~$80-100",
-      "prize_purse": "Modest prizes",
-      "aid_stations": "2-3 aid stations",
-      "cutoff_time": "8-10 hours",
+      "field_size": "Not published for 2027",
+      "start_time": "Not published for 2027",
+      "registration": "The organizer has announced the 2027 date and distances; registration status and pricing are not yet published on the current homepage",
+      "prize_purse": "Not published for 2027",
+      "aid_stations": "The organizer advertises stocked aid stations and on-course support; exact 2027 locations and count are pending",
+      "cutoff_time": "Not published for 2027",
       "lat": 40.0587,
-      "lng": -106.3886
+      "lng": -106.3886,
+      "route_options": [
+        "Bull Course: 88 miles",
+        "Cow Course: 54 miles",
+        "Calf Course: 28 miles",
+        "Cow Dog Course: 16 miles"
+      ]
     },
     "climate": {
       "primary": "Colorado mountain summer",
@@ -39,14 +49,14 @@
     },
     "terrain": {
       "primary": "Colorado Rockies gravel",
-      "surface": "Gravel roads through Colorado Rockies. Significant elevation with mountain scenery.",
+      "surface": "The organizer describes high-country ranchland on hard-packed county roads and doubletrack, with long climbs, punchy rises, fast gravel, and technical descents.",
       "technical_rating": 3,
       "features": [
-        "Significant mountainous (4500 feet)",
-        "High altitude start",
-        "Colorado Rockies scenery",
-        "60-mile distance",
-        "Regional field"
+        "West Grand High School start and finish",
+        "Wide-open ranch country",
+        "Long high-country climbs",
+        "Technical descents",
+        "88-mile flagship distance"
       ]
     },
     "gravel_god_rating": {
@@ -73,7 +83,7 @@
     },
     "biased_opinion": {
       "verdict": "Colorado Mountain Gravel",
-      "summary": "KowTown Gravel is a regional event in Colorado—mountain terrain with significant elevation and high altitude. The Colorado Rockies are scenic, but the small regional field, remote location, and limited organization keep it in Tier 4.",
+      "summary": "KowTown Gravel is a Tier 3 regional Colorado race: an 88-mile high-country flagship with meaningful climbing, thin air, ranch-road character, and a grassroots Kremmling finish rather than a national-level field.",
       "strengths": [
         "Colorado Rockies scenery",
         "Mountain challenge",
@@ -105,10 +115,10 @@
       "airport": "Denver (DEN) 2 hours",
       "lodging_strategy": "Kremmling has limited lodging. Plan ahead or stay in nearby towns.",
       "food": "Kremmling has limited dining. Stock nutrition.",
-      "packet_pickup": "Day of typically",
-      "parking": "At start/finish",
-      "official_site": "Check KowTown Gravel website",
-      "camping": "camping check-in (Friday): **5:00 PM – 7:00 PM**[6]\nPacket pickup (Saturday morning): **6:30 AM – 9:00 AM**[6]\n\nCourse start tim"
+      "packet_pickup": "2027 packet-pickup schedule not yet published",
+      "parking": "All four announced routes start and finish at West Grand High School; final 2027 parking instructions are pending",
+      "official_site": "https://www.kowtowngravel.com/",
+      "camping": "On-site camping is advertised for the event weekend; final 2027 reservation and check-in details are pending"
     },
     "history": {
       "founded": null,
@@ -118,39 +128,17 @@
       "reputation": "Regional CO event."
     },
     "course_description": {
-      "character": "Colorado Rockies mountain gravel.",
-      "suffering_zones": [
-        {
-          "mile": 20,
-          "label": "Early Mountains",
-          "desc": "First mountain sections.",
-          "terrain_detail": "Mountainous",
-          "named_section": "Early Mountains"
-        },
-        {
-          "mile": 30,
-          "label": "Midpoint",
-          "desc": "Halfway through the course.",
-          "terrain_detail": "Midpoint",
-          "named_section": "Halfway"
-        },
-        {
-          "mile": 50,
-          "label": "Late Mountains",
-          "desc": "Final mountain sections before finish.",
-          "terrain_detail": "Late mountains",
-          "named_section": "Final Push"
-        }
-      ],
-      "signature_challenge": "Colorado Rockies mountain terrain at high altitude.",
+      "character": "High-country Colorado gravel across exposed ranchland, hard-packed county roads, doubletrack, punchy climbs, and technical descents.",
+      "suffering_zones": [],
+      "signature_challenge": "Managing repeated mountain efforts and technical descending in thin, exposed Kremmling air.",
       "ridewithgps_id": null,
       "ridewithgps_name": null
     },
     "guide_variables": {
       "race_name": "KowTown Gravel",
-      "race_distance": "60 miles",
-      "race_elevation": "4,500 feet",
-      "race_date": "Summer",
+      "race_distance": "88 miles",
+      "race_elevation": "not yet published for 2027",
+      "race_date": "June 12, 2027",
       "race_location": "Kremmling, CO",
       "race_terrain": "Colorado Rockies gravel",
       "race_weather": "Colorado mountain summer",
@@ -159,7 +147,7 @@
         "Mountain terrain",
         "Remote location",
         "Variable weather",
-        "Significant elevation"
+        "Technical descents"
       ],
       "altitude_section": true,
       "altitude_feet": 8000
@@ -178,17 +166,18 @@
       {
         "requirement": "Self-sufficiency",
         "by_when": "Week 4-6",
-        "why": "Limited aid stations and remote location require self-sufficiency."
+        "why": "The exposed ranch-country course and exact 2027 aid layout require a practiced carry plan."
       }
     ],
     "research_metadata": {
-      "data_confidence": "moderate",
-      "validation_status": "pending",
+      "data_confidence": "high for the date, distance, venue, and course character; pending for the final route and elevation",
+      "validation_status": "2027 core verified",
       "sources": [
-        "co_cycling_community"
+        "https://www.kowtowngravel.com/",
+        "https://www.kowtowngravel.com/courses"
       ],
       "migration_notes": [
-        "Generated from regional information"
+        "2027 homepage facts supersede the stale 60-mile profile; the labeled 2026 course page is retained only as planning-demand context"
       ],
       "research_strength": {
         "overall": 89.3,
@@ -207,6 +196,17 @@
         },
         "scored_at": "2026-02-04"
       }
+    },
+    "eligibility": {
+      "status": "active",
+      "verified": "2026-08-12",
+      "source": "https://www.kowtowngravel.com/",
+      "status_note": "The organizer homepage now directly confirms the Saturday, June 12, 2027 edition and its 88-, 54-, 28-, and 16-mile courses."
+    },
+    "source_review": {
+      "reviewed_at": "2026-08-12",
+      "race_date": "2027-06-12",
+      "facts_scope": "The current organizer homepage is authoritative for the June 12, 2027 date, West Grand High School start and finish, four distances, flagship-course character, general aid support, and event-weekend amenities. The separately labeled 2026 course page verifies the recurring high-altitude climbing and surface demands but is not carried forward as a final 2027 GPX, elevation total, route direction, aid count, cutoff, price, schedule, or award package."
     },
     "training_config": {
       "workout_modifications": {
@@ -258,8 +258,8 @@
         "race_name": "KowTown Gravel",
         "race_hook": "Colorado mountain gravel challenge.",
         "race_hook_detail": "Regional event with mountain terrain and high altitude.",
-        "distance": "60",
-        "dark_mile": "30",
+        "distance": "88",
+        "dark_mile": null,
         "non_negotiable_1": "Altitude acclimatization",
         "non_negotiable_2": "Mountain endurance",
         "non_negotiable_3": "Self-sufficiency",
@@ -325,6 +325,16 @@
       }
     },
     "citations": [
+      {
+        "url": "https://www.kowtowngravel.com/",
+        "category": "official",
+        "label": "Official 2027 date, distances, venue, course character, support, and event overview"
+      },
+      {
+        "url": "https://www.kowtowngravel.com/courses",
+        "category": "official",
+        "label": "Official labeled 2026 course details used only as training-demand context"
+      },
       {
         "url": "https://avidcyclist.com/event/kowtown-gravel/",
         "category": "other",

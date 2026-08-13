@@ -2,23 +2,17 @@
   "@context": "https://schema.org",
   "@type": "SportsEvent",
   "name": "KowTown Gravel",
-  "description": "KowTown Gravel. 60 miles of gravel through Kremmling.",
+  "description": "KowTown Gravel. An 88-mile high-country throwdown through Kremmling ranchland.",
   "sport": "Gravel Cycling",
-  "startDate": "2026-06-13",
+  "startDate": "2027-06-12",
   "location": {
     "@type": "Place",
-    "name": "Kremmling, CO",
+    "name": "Kremmling, Colorado",
     "address": {
       "@type": "PostalAddress",
       "addressLocality": "Kremmling",
-      "addressRegion": "CO"
+      "addressRegion": "Colorado"
     }
-  },
-  "offers": {
-    "@type": "Offer",
-    "price": "80",
-    "priceCurrency": "USD",
-    "availability": "https://schema.org/LimitedAvailability"
   },
   "aggregateRating": {
     "@type": "AggregateRating",
@@ -26,5 +20,6 @@
     "bestRating": "100",
     "ratingCount": "14",
     "name": "Gravel God Rating"
-  }
+  },
+  "url": "https://www.kowtowngravel.com/"
 }

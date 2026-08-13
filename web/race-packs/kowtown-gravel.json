@@ -1,12 +1,12 @@
 {
   "slug": "kowtown-gravel",
   "race_name": "KowTown Gravel",
-  "distance_mi": 60.0,
+  "distance_mi": 88.0,
   "demands": {
-    "durability": 2,
-    "climbing": 5,
+    "durability": 4,
+    "climbing": 4,
     "vo2_power": 2,
-    "threshold": 6,
+    "threshold": 8,
     "technical": 6,
     "heat_resilience": 0,
     "altitude": 6,
@@ -14,27 +14,37 @@
   },
   "top_categories": [
     {
-      "category": "Gravel_Specific",
-      "score": 100,
-      "workouts": [
-        "Surge and Settle",
-        "Terrain Microbursts"
-      ],
-      "workout_context": "KowTown Gravel's Colorado Rockies, Mountain gravel forces constant power changes. Surge over the rough stuff, settle on the smooth, repeat for 60 miles."
-    },
-    {
       "category": "TT_Threshold",
-      "score": 91,
+      "score": 100,
       "workouts": [
         "Single Sustained Threshold",
         "Threshold Ramps",
         "Descending Threshold"
       ],
-      "workout_context": "75ft/mi means long efforts at or near FTP on every climb. If your threshold cracks at minute 15, you'll walk the rest."
+      "workout_context": "KowTown Gravel's Colorado Rockies gravel rewards steady threshold power. Surging and recovering costs more watts than just holding."
+    },
+    {
+      "category": "Gravel_Specific",
+      "score": 93,
+      "workouts": [
+        "Surge and Settle",
+        "Terrain Microbursts"
+      ],
+      "workout_context": "KowTown Gravel's Hard-packed county roads, High-country ranch roads forces constant power changes. Surge over the rough stuff, settle on the smooth, repeat for 88 miles."
+    },
+    {
+      "category": "G_Spot",
+      "score": 80,
+      "workouts": [
+        "G-Spot Standard",
+        "G-Spot Extended",
+        "Criss-Cross"
+      ],
+      "workout_context": "88\u201392% FTP is where you'll spend the hardest sustained miles of KowTown Gravel. Train it until it feels boring."
     },
     {
       "category": "Race_Simulation",
-      "score": 86,
+      "score": 80,
       "workouts": [
         "Breakaway Simulation",
         "Variable Pace Chaos",
@@ -44,7 +54,7 @@
     },
     {
       "category": "Over_Under",
-      "score": 77,
+      "score": 73,
       "workouts": [
         "Classic Over-Unders",
         "Ladder Over-Unders"
@@ -53,7 +63,7 @@
     },
     {
       "category": "VO2max",
-      "score": 75,
+      "score": 70,
       "workouts": [
         "5x3 VO2 Classic",
         "Descending VO2 Pyramid",
@@ -62,27 +72,36 @@
       "workout_context": "When someone attacks on Colorado Rockies gravel, you have 10 seconds to respond or you're off the back. This builds that response."
     },
     {
-      "category": "G_Spot",
-      "score": 71,
+      "category": "Durability",
+      "score": 65,
       "workouts": [
-        "G-Spot Standard",
-        "G-Spot Extended",
-        "Criss-Cross"
+        "Tired VO2max",
+        "Double Day Simulation",
+        "Progressive Fatigue"
       ],
-      "workout_context": "88\u201392% FTP is where you'll spend the hardest sustained miles of KowTown Gravel. Train it until it feels boring."
+      "workout_context": "At mile 60 of 88, glycogen is gone. This workout teaches your body to produce watts on fumes."
     },
     {
-      "category": "Mixed_Climbing",
-      "score": 54,
+      "category": "Endurance",
+      "score": 57,
       "workouts": [
-        "Seated/Standing Climbs",
-        "Variable Grade Simulation"
+        "Pre-Race Openers",
+        "Terrain Simulation Z2"
       ],
-      "workout_context": "Varied gradients on Colorado Rockies gravel demand climbing versatility. Sit the shallow stuff, stand the steep stuff, switch without thinking."
+      "workout_context": "Every hard session works better with a bigger aerobic base. At 88 miles, base fitness is the difference between racing and surviving."
+    },
+    {
+      "category": "Norwegian_Double",
+      "score": 53,
+      "workouts": [
+        "Norwegian 4x8 Classic",
+        "Double Threshold"
+      ],
+      "workout_context": "Two threshold sessions per week without the recovery cost of VO2max work. For 88 miles, sustainable FTP gains matter more than peak power."
     },
     {
       "category": "Critical_Power",
-      "score": 54,
+      "score": 50,
       "workouts": [
         "Above CP Repeats",
         "W-Prime Depletion"
@@ -90,48 +109,29 @@
       "workout_context": "How long can you hold 105% FTP before you blow? At KowTown Gravel, that number decides whether you bridge or get dropped."
     },
     {
-      "category": "Durability",
-      "score": 48,
+      "category": "Tempo",
+      "score": 40,
       "workouts": [
-        "Tired VO2max",
-        "Double Day Simulation",
-        "Progressive Fatigue"
+        "Tempo Blocks",
+        "Extended Tempo"
       ],
-      "workout_context": "60 miles on Colorado Rockies gravel burns energy faster than the distance suggests. Train the fade resistance now."
+      "workout_context": "Tempo is KowTown Gravel's race pace. The wattage you'll hold for 88 miles on Colorado Rockies gravel. Train it until it's automatic."
     },
     {
-      "category": "Endurance",
-      "score": 46,
+      "category": "Mixed_Climbing",
+      "score": 40,
       "workouts": [
-        "Pre-Race Openers",
-        "Terrain Simulation Z2"
+        "Seated/Standing Climbs",
+        "Variable Grade Simulation"
       ],
-      "workout_context": "Base fitness for KowTown Gravel. Without this, the hard workouts break you down instead of building you up."
-    },
-    {
-      "category": "Norwegian_Double",
-      "score": 43,
-      "workouts": [
-        "Norwegian 4x8 Classic",
-        "Double Threshold"
-      ],
-      "workout_context": "Double-threshold training builds sustained power with less fatigue. More FTP per hour of training."
-    },
-    {
-      "category": "Cadence_Work",
-      "score": 43,
-      "workouts": [
-        "High Cadence Drills",
-        "Cadence Pyramids"
-      ],
-      "workout_context": "Smooth pedaling at 60 miles saves muscle. Bad technique at mile 10 is invisible. At mile 80 it's a cramp."
+      "workout_context": "Varied gradients on Colorado Rockies gravel demand climbing versatility. Sit the shallow stuff, stand the steep stuff, switch without thinking."
     }
   ],
   "race_overlay": {
-    "nutrition": "Target 40\u201360g carbs/hour for KowTown Gravel\u2019s 60 miles. Front-load calories in the first half. One bottle per hour minimum, more in heat.",
+    "nutrition": "Target 60\u201380g carbs/hour for KowTown Gravel\u2019s 88 miles. Start fueling within the first 30 minutes \u2014 early fueling prevents late-race collapse. Bonking at mile 60 is a nutrition failure, not a fitness failure.",
     "altitude": "Moderate altitude at KowTown Gravel. Arrive 2\u20133 days early. Reduce intensity expectations by 5\u201310%. Hydrate aggressively.",
-    "terrain": "Mixed terrain at KowTown Gravel requires surface adaptability. Include weekly rides on colorado rockies gravel to build confidence. Expect: colorado rockies, mountain gravel, high altitude."
+    "terrain": "Mixed terrain at KowTown Gravel requires surface adaptability. Include weekly rides on colorado rockies gravel to build confidence. Expect: hard-packed county roads, high-country ranch roads, doubletrack."
   },
-  "pack_summary": "This 10-workout pack focuses on Gravel Specific, TT Threshold, and Race Simulation to prepare you for 60 miles of colorado rockies gravel in Kremmling, CO.",
-  "generated_at": "2026-03-06"
+  "pack_summary": "This 10-workout pack focuses on TT Threshold, Gravel Specific, and G Spot to prepare you for 88 miles of colorado rockies gravel in Kremmling, Colorado.",
+  "generated_at": "2026-08-12"
 }

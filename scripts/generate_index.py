@@ -432,15 +432,30 @@ def generate_jsonld(entry: dict, profile_data: dict = None) -> dict:
 
     # Parse date for structured data
     date_specific = vitals.get("date_specific", "")
-    # Try to extract ISO date from strings like "2026: June 6"
+    # Only accept the canonical year-first date form.  Status prose can contain
+    # several years and unrelated numbers (for example, "Cancelled for 2026 ...
+    # no 2027 date") and must never be promoted to a fabricated event date.
     iso_date = None
-    date_match = re.search(r'(\d{4}).*?(\w+)\s+(\d+)', date_specific)
+    month_names = (
+        "January|February|March|April|May|June|July|August|September|October|"
+        "November|December|Jan|Feb|Mar|Apr|Jun|Jul|Aug|Sep|Sept|Oct|Nov|Dec"
+    )
+    weekdays = "Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday"
+    date_match = re.match(
+        rf'^\s*(\d{{4}}):\s*(?:(?:{weekdays}),?\s+)?'
+        rf'({month_names})\.?\s+(\d{{1,2}})(?:st|nd|rd|th)?\b',
+        date_specific,
+        flags=re.IGNORECASE,
+    )
     if date_match:
         year, month_name, day = date_match.groups()
         months = {"january": "01", "february": "02", "march": "03", "april": "04",
                   "may": "05", "june": "06", "july": "07", "august": "08",
-                  "september": "09", "october": "10", "november": "11", "december": "12"}
-        month_num = months.get(month_name.lower(), "01")
+                  "september": "09", "october": "10", "november": "11", "december": "12",
+                  "jan": "01", "feb": "02", "mar": "03", "apr": "04",
+                  "jun": "06", "jul": "07", "aug": "08", "sep": "09",
+                  "sept": "09", "oct": "10", "nov": "11", "dec": "12"}
+        month_num = months[month_name.lower()]
         iso_date = f"{year}-{month_num}-{int(day):02d}"
 
     # Parse price from registration string
@@ -460,6 +475,13 @@ def generate_jsonld(entry: dict, profile_data: dict = None) -> dict:
 
     if iso_date:
         jsonld["startDate"] = iso_date
+
+    break_note = race.get("taking_a_break") or {}
+    status_text = f'{date_specific} {break_note.get("label", "")}'.lower()
+    if "cancel" in status_text:
+        jsonld["eventStatus"] = "https://schema.org/EventCancelled"
+    elif break_note:
+        jsonld["eventStatus"] = "https://schema.org/EventPostponed"
 
     if entry.get("location"):
         loc = entry["location"]

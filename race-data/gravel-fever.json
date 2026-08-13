@@ -3,46 +3,46 @@
     "name": "Gravel Fever",
     "slug": "gravel-fever",
     "display_name": "Gravel Fever",
-    "tagline": "French rolling gravel in Châtellerault.",
+    "tagline": "The Châtellerault festival was cancelled for 2026 and has no announced replacement host.",
     "vitals": {
-      "distance_mi": 65,
-      "elevation_ft": 3500,
+      "distance_mi": 96.4,
+      "elevation_ft": 4996,
       "location": "Châtellerault, France",
       "location_badge": "CHÂTELLERAULT, FRANCE",
       "county": "Vienne",
-      "date": "Late September annually",
-      "date_specific": "2025: September 26-28",
+      "date": "No current edition announced",
+      "date_specific": "Cancelled for 2026 — Châtellerault funding ended; no replacement host or 2027 date announced",
       "terrain_types": [
-        "French countryside",
-        "Rolling gravel",
-        "Regional event",
-        "Central France"
+        "Historical Châtellerault gravel",
+        "Rolling western France terrain",
+        "Historic 150 km championship course",
+        "Mixed rural tracks and paved links"
       ],
-      "field_size": "200-400 riders",
-      "start_time": "10:00 am and",
-      "registration": "Online. Cost: ~€60-100",
-      "prize_purse": "Modest prizes",
-      "aid_stations": "Multiple aid stations",
-      "cutoff_time": "Varies",
+      "field_size": "No current field; prior festival drew more than 1,000 participants across formats",
+      "start_time": "No current start; historical 2025 competitive waves began at 8:30 AM",
+      "registration": "Closed; 2026 edition cancelled and no replacement edition announced",
+      "prize_purse": "No current prize purse",
+      "aid_stations": "Historical 2025 150 km course used support near km 38.5, 67.2, and 109.5",
+      "cutoff_time": "No current cutoff; historical 2025 championship used a 3:00 PM gate at km 85.8",
       "lat": 46.818,
       "lng": 0.5458
     },
     "climate": {
-      "primary": "French summer",
-      "description": "Generally mild conditions.",
+      "primary": "Western France autumn",
+      "description": "Prior late-September editions could be cool and wet; there is no current race date to forecast.",
       "challenges": [
         "Variable weather",
-        "Generally mild",
+        "Cool rain",
         "Rolling terrain",
-        "Summer conditions"
+        "Autumn conditions"
       ]
     },
     "terrain": {
       "primary": "French rolling gravel",
-      "surface": "Gravel roads through French countryside. Moderate elevation with countryside scenery.",
+      "surface": "The historical 2025 championship route covered 155.1 km and 1,522.8 m of climbing around Châtellerault; no replacement-host route is published.",
       "technical_rating": 2,
       "features": [
-        "Moderate rolling (3500 feet)",
+        "Historical 155.1 km / 1,522.8 m route",
         "Countryside scenery",
         "Châtellerault setting",
         "Multiple distances",
@@ -67,33 +67,33 @@
       "field_depth": 2,
       "value": 3,
       "expenses": 2,
-      "score_note": "Regional French event. Rolling terrain with moderate organization and regional field.",
+      "score_note": "Historical assessment of the Châtellerault festival and its 2025 championship course; the 2026 edition was cancelled and no replacement host is announced.",
       "discipline": "gravel",
       "display_tier": 3
     },
     "biased_opinion": {
       "verdict": "French Countryside Rolling Gravel",
-      "summary": "Gravel Fever is a regional event in Châtellerault, France—rolling countryside with moderate elevation. The French countryside is nice, but the moderate organization and regional field keep it firmly in Tier 3. Châtellerault provides moderate access.",
+      "summary": "Gravel Fever built a broad Châtellerault festival around multiple gravel formats and hosted the 2025 French Gravel Championships. The planned October 2026 return was cancelled after local funding ended, and no replacement host or 2027 edition is announced.",
       "strengths": [
         "French countryside scenery",
         "French cycling community",
-        "French mild summer weather",
+        "A proven multi-format festival concept",
         "Regional pricing",
         "Countryside setting"
       ],
       "weaknesses": [
         "Central France access (moderate)",
-        "Moderate organization",
-        "Regional field only",
-        "Moderate rolling only",
+        "The 2026 edition was cancelled",
+        "No replacement host or future date",
+        "No current route or registration",
         "Limited international recognition"
       ],
-      "bottom_line": "A solid regional French gravel race with rolling countryside. Worth it for French/European cyclists. Not a destination race for international travelers."
+      "bottom_line": "Keep the historical profile, but do not book travel or buy a race-dated plan: Gravel Fever has no current edition."
     },
     "final_verdict": {
       "score": "46 / 100",
-      "one_liner": "French rolling gravel in Châtellerault.",
-      "should_you_race": "If you're in France/Europe and want a local event—yes, it's solid. If you're international—there are better options.",
+      "one_liner": "A worthwhile French festival that currently has no start line.",
+      "should_you_race": "Not in 2026. Wait for France Vélo Événements to announce a replacement host, exact date, competitive format, and route before planning a trip.",
       "alternatives": "For better French events: Wish One Millau, 66° South Pyrénées. For similar regional events: other French gravel races.",
       "alternative_slugs": [
         "66-south-pyrenees",
@@ -101,61 +101,71 @@
       ]
     },
     "logistics": {
-      "airport": "Paris (CDG) 2.5 hours or Bordeaux (BOD) 2 hours",
-      "lodging_strategy": "Châtellerault has moderate lodging options.",
-      "food": "Châtellerault has full dining options. Stock nutrition.",
-      "packet_pickup": "Day before typically",
-      "parking": "At start/finish",
+      "airport": "Do not book race travel until a replacement host is announced",
+      "lodging_strategy": "No current host or venue; historical Châtellerault lodging is not a future-edition recommendation",
+      "food": "No current venue or event services are announced",
+      "packet_pickup": "No current edition",
+      "parking": "No current venue",
       "official_site": "https://gravelfever.fr/"
+    },
+    "eligibility": {
+      "status": "cancelled",
+      "race_plan_eligible": false,
+      "verified": "2026-08-13",
+      "source": "https://www.sporteco.com/gravel-fever-recherche-de-nouveaux-territoires-daccueil/",
+      "status_note": "The planned October 2026 Châtellerault festival was cancelled after Grand Châtellerault ended funding. No replacement host, date, competitive format, or route is announced."
     },
     "history": {
       "founded": null,
       "founder": "French organizers",
-      "origin_story": "Regional French gravel event.",
-      "notable_moments": [],
-      "reputation": "Regional French event."
+      "origin_story": "France Vélo Événements launched the multi-format festival in Châtellerault in 2023.",
+      "notable_moments": [
+        "2025: hosted the French Gravel Championships",
+        "2026: planned October edition cancelled after Grand Châtellerault ended its funding"
+      ],
+      "reputation": "A well-attended French gravel festival whose future now depends on finding a replacement host."
     },
     "course_description": {
-      "character": "French countryside rolling gravel.",
+      "character": "Historical rolling Châtellerault gravel; no future course is currently published.",
       "suffering_zones": [
         {
-          "mile": 20,
-          "label": "Early Rolling",
-          "desc": "First rolling sections.",
-          "terrain_detail": "Rolling",
-          "named_section": "Early Rolling"
+          "mile": 23.9,
+          "label": "Historical first support point",
+          "desc": "The 2025 150 km page placed its first support zone near km 38.5.",
+          "terrain_detail": "Historical route reference only",
+          "named_section": "Saint-Gervais-les-Trois-Clochers"
         },
         {
-          "mile": 35,
-          "label": "Midpoint",
-          "desc": "Halfway through the course.",
-          "terrain_detail": "Midpoint",
-          "named_section": "Halfway"
+          "mile": 41.8,
+          "label": "Historical second support point",
+          "desc": "The 2025 150 km page placed its second support zone near km 67.2.",
+          "terrain_detail": "Historical route reference only",
+          "named_section": "Les Ormes"
         },
         {
-          "mile": 55,
-          "label": "Late Rolling",
-          "desc": "Final rolling sections before finish.",
-          "terrain_detail": "Late rolling",
-          "named_section": "Final Push"
+          "mile": 68,
+          "label": "Historical third support point",
+          "desc": "The 2025 150 km page placed its third support zone near km 109.5.",
+          "terrain_detail": "Historical route reference only",
+          "named_section": "La Roche-Posay"
         }
       ],
-      "signature_challenge": "French countryside rolling in Châtellerault.",
+      "signature_challenge": "The historical 150 km course accumulated almost 5,000 feet without a defining mountain; a future host may change that profile entirely.",
       "ridewithgps_id": "52592435",
       "ridewithgps_name": "Gravel Fever 150 & Championnats de France FFC Gravel Elite hommes"
     },
     "guide_variables": {
       "race_name": "Gravel Fever",
-      "race_distance": "65 miles",
-      "race_elevation": "3,500 feet",
-      "race_date": "Summer",
+      "race_distance": "Historical: 96.4 miles",
+      "race_elevation": "Historical: 4,996 feet",
+      "race_date": "No current edition",
       "race_location": "Châtellerault, France",
       "race_terrain": "French rolling gravel",
-      "race_weather": "French summer mild",
+      "race_weather": "No current race date; prior editions ran in autumn",
       "race_challenges": [
         "Rolling terrain",
         "Regional field",
-        "European costs",
+        "No current edition",
         "Variable weather",
         "Moderate elevation"
       ],
@@ -171,7 +181,7 @@
       {
         "requirement": "Weather preparation",
         "by_when": "Week 4-6",
-        "why": "French summer weather is variable."
+        "why": "A future host and calendar slot could change the conditions entirely."
       },
       {
         "requirement": "Pacing discipline",
@@ -180,13 +190,16 @@
       }
     ],
     "research_metadata": {
-      "data_confidence": "moderate",
-      "validation_status": "pending",
+      "data_confidence": "high for cancellation; historical route only",
+      "validation_status": "2026-cancelled-no-replacement-host-verified-2026-08-13",
       "sources": [
-        "french_cycling_community"
+        "Gravel Fever organizer",
+        "Fédération Française de Cyclisme current calendar",
+        "France Vélo Événements cancellation confirmation",
+        "RideWithGPS historical 2025 route"
       ],
       "migration_notes": [
-        "Generated from regional information"
+        "2026 event cancellation verified 2026-08-13; historical 150 km course corrected from 65 mi / 3,500 ft to 96.4 mi / 4,996 ft"
       ],
       "research_strength": {
         "overall": 86.7,
@@ -254,10 +267,10 @@
       "tier_overrides": {},
       "marketplace_variables": {
         "race_name": "Gravel Fever",
-        "race_hook": "French rolling gravel in Châtellerault.",
-        "race_hook_detail": "Regional event with rolling countryside.",
-        "distance": "65",
-        "dark_mile": "35",
+        "race_hook": "Historical French championship gravel in Châtellerault.",
+        "race_hook_detail": "The 2026 festival was cancelled and no replacement host is announced.",
+        "distance": "96.4 historical; no current course",
+        "dark_mile": "68 historical",
         "non_negotiable_1": "Rolling endurance",
         "non_negotiable_2": "Weather preparation",
         "non_negotiable_3": "Pacing discipline",
@@ -324,6 +337,21 @@
     },
     "citations": [
       {
+        "url": "https://structures.ffc.fr/epreuves-ffc-disciplines/gravel/coupe-france/",
+        "category": "official",
+        "label": "FFC: current 2026 Coupe de France Gravel calendar lists three rounds and omits Châtellerault"
+      },
+      {
+        "url": "https://www.sporteco.com/gravel-fever-recherche-de-nouveaux-territoires-daccueil/",
+        "category": "news",
+        "label": "SPORTéco: France Vélo Événements confirms the 2026 cancellation and search for a replacement host"
+      },
+      {
+        "url": "https://gravelfever.fr/en/150-km/",
+        "category": "official",
+        "label": "Gravel Fever: historical 2025 150 km course, schedule, support points, and cutoff"
+      },
+      {
         "url": "https://ridewithgps.com/routes/52592435",
         "category": "route",
         "label": "RideWithGPS: Gravel Fever 150 & Championnats de France FFC Gravel Elite hommes"
@@ -388,6 +416,10 @@
         }
       },
       "latest_year": "2024"
+    },
+    "taking_a_break": {
+      "label": "2026 CANCELLED",
+      "line": "Grand Châtellerault ended funding for the planned October 2026 festival. France Vélo Événements is seeking a replacement host; no new edition, date, or route is announced."
     },
     "tire_recommendations": {
       "generated_at": "2026-02-19",

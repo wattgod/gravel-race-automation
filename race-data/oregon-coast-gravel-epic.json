@@ -10,20 +10,24 @@
       "location": "Waldport, Oregon",
       "location_badge": "WALDPORT, OR",
       "county": "Lincoln County",
-      "date": "Early May annually",
-      "date_specific": "2027: May 1 (organizer confirmed)",
+      "date": "April 24, 2027",
+      "date_specific": "2027: April 24 (Saturday)",
+      "course_status": "verified",
+      "pack_status": "verified",
+      "course_status_label": "2027 VERIFIED",
+      "course_status_reason": "The organizer's event page and 2027 registration link confirm Saturday, April 24, 2027 in Waldport, a 9:00am mass start, and the 60-mile Abomination flagship on 65% unpaved logging roads and 35% pavement. The current organizer-linked route supplies the more precise 61.6-mile and 6,733-foot planning values.",
       "terrain_types": [
         "Coastal gravel",
         "Coast Range",
         "Forest roads",
         "Coastal views"
       ],
-      "field_size": "100-250 riders",
-      "start_time": "Morning start",
-      "registration": "Online. Cost: ~$80-100",
-      "prize_purse": "None or minimal",
+      "field_size": "500-rider event limit",
+      "start_time": "9:00am mass start from Waldport Community Center",
+      "registration": "$130 early, $140 before January 2, and $150 after April 1; 2027 registration is open",
+      "prize_purse": "Top-three category awards; long- and short-course overall champions receive next-year entry, with 50% discounts for second and third overall",
       "aid_stations": "Long-course aid at miles 14, 31, and 46",
-      "cutoff_time": "Varies",
+      "cutoff_time": "Aid Alpha at mile 14: 11:30am hard cutoff for the long loop; Aid Bravo at mile 31: 2:00pm; Aid Charlie at mile 46: 4:00pm",
       "lat": 44.427,
       "lng": -124.0672
     },
@@ -145,14 +149,14 @@
     },
     "guide_variables": {
       "race_name": "Oregon Coast Gravel Epic",
-      "race_distance": "60 miles",
-      "race_elevation": "6,677 feet",
-      "race_date": "Spring or Summer",
+      "race_distance": "61.6 miles",
+      "race_elevation": "6,733 feet",
+      "race_date": "April 24, 2027",
       "race_location": "Waldport, Oregon",
       "race_terrain": "Coastal and Coast Range gravel",
       "race_weather": "Oregon coast variability",
       "race_challenges": [
-        "5000 feet of climbing",
+        "6,733 feet of climbing",
         "Rain and wind possible",
         "Coastal/mountain mix",
         "Variable weather"
@@ -173,13 +177,14 @@
       }
     ],
     "research_metadata": {
-      "data_confidence": "moderate",
-      "validation_status": "pending",
+      "data_confidence": "high for the 2027 date, registration, venue, start, route menu, surface split, aid and cutoff plan, and current organizer-linked flagship route",
+      "validation_status": "2027 verified",
       "sources": [
-        "oregon_cycling_community"
+        "https://www.mudslingerevents.com/oregon-coast-gravel-epic",
+        "https://ridewithgps.com/routes/50686348"
       ],
       "migration_notes": [
-        "Generated from regional information"
+        "The race-specific organizer page and linked 2027 registration supersede the event-index summary and prior annual date estimate"
       ],
       "research_strength": {
         "overall": 92.7,
@@ -245,9 +250,9 @@
       "tier_overrides": {},
       "marketplace_variables": {
         "race_name": "Oregon Coast Gravel Epic",
-        "race_hook": "62 miles of Oregon coast gravel with 5000 feet of climbing.",
+        "race_hook": "62 miles of Oregon coast gravel with 6,733 feet of climbing.",
         "race_hook_detail": "Regional coastal event in Waldport with mountain and ocean views.",
-        "distance": "60",
+        "distance": "62",
         "dark_mile": "35",
         "non_negotiable_1": "Climbing strength",
         "non_negotiable_2": "Weather preparation",
@@ -255,6 +260,7 @@
         "trainingpeaks_url": null
       }
     },
+    "status_note": "The organizer is accepting 2027 registration for Oregon Coast Gravel Epic on Saturday, April 24, 2027, with the 60-mile Abomination flagship, 49.4-mile Uncle Abomination, and 37-mile Son of Abomination routes.",
     "biased_opinion_ratings": {
       "logistics": {
         "score": 2,
@@ -315,9 +321,14 @@
     },
     "citations": [
       {
+        "url": "https://www.mudslingerevents.com/oregon-coast-gravel-epic",
+        "category": "official",
+        "label": "Official 2027 date, registration, venue, start, route menu, surface split, aid stations, cutoffs, and event rules"
+      },
+      {
         "url": "https://ridewithgps.com/routes/50686348",
         "category": "route",
-        "label": "RideWithGPS: Oregon Coast Gravel Epic Abomination (Long) Route 2026"
+        "label": "Organizer-linked RideWithGPS: Oregon Coast Gravel Epic Abomination long route"
       },
       {
         "url": "https://blog.sellwoodcycle.com/race-report-oregon-coast-gravel-epic/",
@@ -353,11 +364,6 @@
         "url": "https://www.joinbasecamp.com/post/shawns-story-oregon-coast-gravel-epic",
         "category": "other",
         "label": "Joinbasecamp"
-      },
-      {
-        "url": "https://www.mudslingerevents.com/oregon-coast-gravel-epic",
-        "category": "other",
-        "label": "Mudslingerevents"
       },
       {
         "url": "https://www.reddit.com/r/OregonCoast/comments/bnu0ui/photo_gallery_and_recap_of_the_oregon_coast/",

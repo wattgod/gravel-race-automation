@@ -510,4 +510,7 @@ class TestRealRaceData:
         # Floor re-pinned 190->189 (Aug 10 2026): the retired Almanzo and
         # duplicate Rasputitsa/Rad identities were removed; one duplicate
         # geometry disappeared net of the current Spring Valley route.
-        assert rwgps_count >= 189, f"Expected >=189 current RWGPS routes, got {rwgps_count}"
+        # Floor re-pinned 189->188 (Aug 13 2026): UCI Gravel Worlds moved
+        # from Limburg to Nannup; the 2025 RWGPS route was retired while the
+        # organizer's final 2026 GPX remains unpublished.
+        assert rwgps_count >= 188, f"Expected >=188 current RWGPS routes, got {rwgps_count}"

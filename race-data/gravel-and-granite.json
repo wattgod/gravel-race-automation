@@ -1,62 +1,72 @@
 {
   "race": {
-    "name": "Gravel and Granite",
+    "name": "Gravel n Granite",
     "slug": "gravel-and-granite",
-    "display_name": "Gravel and Granite",
+    "display_name": "Gravel n Granite",
     "tagline": "Creek crossings and national park granite country near Tenterfield, Australia.",
     "vitals": {
-      "distance_mi": 65,
-      "elevation_ft": 4500,
+      "distance_mi": 56.5,
+      "elevation_ft": null,
       "location": "Tenterfield, New South Wales, Australia",
       "location_badge": "TENTERFIELD, NSW",
       "county": "Tenterfield Shire",
-      "date": "Mid-May annually",
-      "date_specific": "2026: May 15",
+      "date": "March 6, 2027",
+      "date_specific": "2027: March 6 (Saturday gravel courses; event weekend March 5-7)",
+      "course_status": "verified_event_route_pending",
+      "pack_status": "pending",
+      "course_status_label": "2027 DATE, DISTANCE, AND DEMANDS VERIFIED",
+      "course_status_reason": "The organizer homepage confirms the March 5-7, 2027 event weekend, gravel courses on Saturday, March 6, and 38-, 66-, and 91-kilometre adventure-enduro routes. It identifies the 91-kilometre Range Rumble and describes big climbs, fast descents, rugged terrain, and National Park backroads. Exact 2027 elevation, GPX files, aid layout, schedule, and entry details are not yet published.",
       "terrain_types": [
-        "Australian mountains",
-        "Local event",
-        "Australian gravel",
-        "NSW"
+        "Fast gravel",
+        "Rugged granite-country terrain",
+        "National Park backroads",
+        "Big climbs and fast descents"
       ],
-      "field_size": "50-100 riders",
-      "start_time": "7:00am even",
-      "registration": "Online. Cost: ~$75-100 AUD",
-      "prize_purse": "Modest prizes",
-      "aid_stations": "Limited aid stations",
-      "cutoff_time": "Varies",
+      "field_size": "Not published for 2027",
+      "start_time": "Not published for 2027",
+      "registration": "The organizer is collecting newsletter signups; 2027 entry opening and price are not yet published",
+      "prize_purse": "Not published for 2027",
+      "aid_stations": "Not published for 2027",
+      "cutoff_time": "Not published for 2027",
       "lat": -28.8384,
-      "lng": 152.2813
+      "lng": 152.2813,
+      "route_options": [
+        "Range Rumble: 91 kilometres / 56.5 miles",
+        "Wellington Rocks: 66 kilometres / 41.0 miles",
+        "Basket Swamp Bash: 38 kilometres / 23.6 miles",
+        "Curry's Gap Dash: 11-kilometre family course"
+      ]
     },
     "climate": {
-      "primary": "Australian mountain spring",
-      "description": "Variable mountain conditions.",
+      "primary": "New England high-country late summer",
+      "description": "The March event sits in elevated granite country where rider reports show wind, rain, mud, and rapid temperature changes are all plausible.",
       "challenges": [
         "Variable weather",
         "Cold possible",
         "Mountain terrain",
-        "Spring conditions"
+        "Late-summer storms possible"
       ]
     },
     "terrain": {
-      "primary": "Australian mountain gravel",
-      "surface": "Gravel roads through Australian mountains. Significant elevation with mountain scenery.",
+      "primary": "Australian granite-country adventure enduro",
+      "surface": "The organizer describes fast gravel, rugged terrain, big climbs, fast descents, and National Park backroads around Tenterfield. Historical rider reports add corrugations, water crossings, cattle grids, and mixed gravel and bitumen, but final 2027 route files are pending.",
       "technical_rating": 3,
       "features": [
-        "Significant mountainous (4500 feet)",
-        "Australian mountain scenery",
-        "Local community event",
-        "65-mile distance",
-        "Small field"
+        "91-kilometre Range Rumble flagship",
+        "Big climbs and fast descents",
+        "National Park backroads",
+        "Granite-country scenery",
+        "Adventure-enduro format"
       ]
     },
     "gravel_god_rating": {
-      "overall_score": 44,
+      "overall_score": 41,
       "tier": 4,
       "tier_label": "TIER 4",
       "logistics": 2,
-      "length": 3,
+      "length": 2,
       "technicality": 3,
-      "elevation": 3,
+      "elevation": 2,
       "climate": 2,
       "altitude": 2,
       "adventure": 3,
@@ -67,13 +77,13 @@
       "field_depth": 1,
       "value": 3,
       "expenses": 2,
-      "score_note": "Local Australian event. Mountain terrain with remote access, moderate costs, and small local field.",
+      "score_note": "Provisional Tier 4 grade for a regional Australian adventure enduro. The 91-kilometre distance and demanding terrain are official; exact 2027 elevation, field, price, and operating details remain unpublished and are not awarded speculative credit.",
       "discipline": "gravel",
       "display_tier": 4
     },
     "biased_opinion": {
       "verdict": "Australian Mountain Gravel",
-      "summary": "Gravel and Granite is a local event in NSW—mountain terrain with significant elevation. The Australian mountains are scenic, but the very small field, remote location, and limited organization keep it in Tier 4.",
+      "summary": "Gravel n Granite is a regional NSW adventure enduro with a legitimate terrain identity: 91 kilometres through rugged granite country, big climbs, fast descents, and National Park backroads. Its 2027 weekend and core demands are official, but the final route file and operating details are still pending, so it remains a provisional Tier 4.",
       "strengths": [
         "Australian mountain scenery",
         "Good value",
@@ -91,7 +101,7 @@
       "bottom_line": "A solid local Australian mountain gravel race. Worth it for NSW/Australian riders. Not worth traveling for."
     },
     "final_verdict": {
-      "score": "44 / 100",
+      "score": "41 / 100",
       "one_liner": "Australian mountain gravel challenge.",
       "should_you_race": "If you're local to NSW—yes, it's solid. If you're traveling—skip it.",
       "alternatives": "For better Australian races: Gravel Gong, Dirty Gravel."
@@ -102,7 +112,7 @@
       "food": "Tenterfield has limited dining options. Stock nutrition.",
       "packet_pickup": "Day of typically",
       "parking": "At start/finish",
-      "official_site": "Check Gravel and Granite website"
+      "official_site": "https://www.gravelngranite.com.au/"
     },
     "history": {
       "founded": null,
@@ -112,48 +122,27 @@
       "reputation": "Local Australian event."
     },
     "course_description": {
-      "character": "Australian mountain gravel.",
-      "suffering_zones": [
-        {
-          "mile": 20,
-          "label": "Early Mountains",
-          "desc": "First mountain sections.",
-          "terrain_detail": "Mountainous",
-          "named_section": "Early Mountains"
-        },
-        {
-          "mile": 32,
-          "label": "Midpoint",
-          "desc": "Halfway through the course.",
-          "terrain_detail": "Midpoint",
-          "named_section": "Halfway"
-        },
-        {
-          "mile": 55,
-          "label": "Late Mountains",
-          "desc": "Final mountain sections before finish.",
-          "terrain_detail": "Late mountains",
-          "named_section": "Final Push"
-        }
-      ],
-      "signature_challenge": "Australian mountainous terrain.",
+      "character": "A 91-kilometre adventure enduro through Tenterfield's rugged granite country, combining fast gravel, major climbing, fast descents, and National Park backroads.",
+      "suffering_zones": [],
+      "signature_challenge": "Preserving climbing torque and descending control across an exact 2027 profile that the organizer has not yet released.",
       "ridewithgps_id": null,
       "ridewithgps_name": null
     },
     "guide_variables": {
-      "race_name": "Gravel and Granite",
-      "race_distance": "65 miles",
-      "race_elevation": "4,500 feet",
-      "race_date": "Spring",
+      "race_name": "Gravel n Granite",
+      "race_distance": "91 kilometres / 56.5 miles",
+      "race_elevation": "not yet published for 2027",
+      "race_date": "March 6, 2027",
       "race_location": "Tenterfield, New South Wales, Australia",
-      "race_terrain": "Australian mountain gravel",
-      "race_weather": "Australian mountain spring variable",
+      "race_terrain": "Fast gravel, rugged terrain, big climbs, fast descents, and National Park backroads",
+      "race_weather": "Variable New England high-country conditions",
       "race_challenges": [
         "Mountainous terrain",
-        "Very small field",
-        "Remote location",
-        "Limited organization",
-        "Significant elevation"
+        "91-kilometre endurance",
+        "Big climbs",
+        "Fast descents",
+        "Rugged National Park backroads",
+        "Variable high-country weather"
       ],
       "altitude_section": false,
       "altitude_feet": null
@@ -162,27 +151,27 @@
       {
         "requirement": "Mountain preparation",
         "by_when": "Week 6-8",
-        "why": "Australian mountains require specific preparation."
+        "why": "The organizer explicitly describes big climbs, fast descents, and rugged terrain."
       },
       {
         "requirement": "Mountain endurance",
         "by_when": "Week 6-8",
-        "why": "Australian mountains require sustained effort."
+        "why": "The flagship Range Rumble is 91 kilometres through granite country."
       },
       {
         "requirement": "Self-sufficiency",
         "by_when": "Week 4-6",
-        "why": "Limited organization and remote location require self-sufficiency."
+        "why": "Final 2027 aid locations are not yet published, so riders need a practiced carry plan."
       }
     ],
     "research_metadata": {
-      "data_confidence": "moderate",
-      "validation_status": "pending",
+      "data_confidence": "high for the 2027 weekend, Saturday gravel day, distance menu, and organizer-described demands; pending for final route files and operations",
+      "validation_status": "2027 core verified",
       "sources": [
-        "australian_cycling_community"
+        "https://www.gravelngranite.com.au/"
       ],
       "migration_notes": [
-        "Generated from regional information"
+        "The canceled May 2026 edition is superseded by the organizer's March 5-7, 2027 announcement; no unpublished elevation, start time, price, aid count, or cutoff is carried forward"
       ],
       "research_strength": {
         "overall": 92.2,
@@ -201,6 +190,17 @@
         },
         "scored_at": "2026-02-04"
       }
+    },
+    "eligibility": {
+      "status": "active",
+      "verified": "2026-08-12",
+      "source": "https://www.gravelngranite.com.au/",
+      "status_note": "The organizer confirms Gravel n Granite for March 5-7, 2027, with the gravel courses on Saturday, March 6 and a 91-kilometre flagship."
+    },
+    "source_review": {
+      "reviewed_at": "2026-08-12",
+      "race_date": "2027-03-06",
+      "facts_scope": "The organizer homepage is authoritative for the 2027 event weekend, Saturday gravel-course day, 38-, 66-, and 91-kilometre distances, and the broad surface and climbing demands. Exact elevation, final GPX files, start times, aid, cutoff, price, field, and awards are left pending. Historical rider reports are labeled as historical context rather than promised 2027 course facts."
     },
     "training_config": {
       "workout_modifications": {
@@ -249,11 +249,11 @@
       },
       "tier_overrides": {},
       "marketplace_variables": {
-        "race_name": "Gravel and Granite",
-        "race_hook": "Australian mountain gravel challenge.",
-        "race_hook_detail": "Local event with mountainous terrain.",
-        "distance": "65",
-        "dark_mile": "32",
+        "race_name": "Gravel n Granite",
+        "race_hook": "A 91-kilometre granite-country adventure enduro.",
+        "race_hook_detail": "Big climbs, fast descents, rugged terrain, and National Park backroads around Tenterfield.",
+        "distance": "56.5",
+        "dark_mile": "TBD with final 2027 route",
         "non_negotiable_1": "Mountain preparation",
         "non_negotiable_2": "Mountain endurance",
         "non_negotiable_3": "Self-sufficiency",
@@ -263,27 +263,27 @@
     "biased_opinion_ratings": {
       "logistics": {
         "score": 2,
-        "explanation": "Start location at 73 Manners Street with showground camping, but course redesign after a sabbatical year creates uncertainty. Organizers moved 2026 dates to May specifically because \"2026 GnG will be held in May, to make the most of the cooler weather,\" indicating previous timing was problematic. Complete route overhaul happened because \"many of the roads that we have used in previous years are now sealed.\""
+        "explanation": "The organizer has fixed the event in Tenterfield for March 5-7, 2027 and identifies Saturday as the gravel-course day, but start times, registration, final route files, aid, and cutoff remain unpublished. The rural setting still requires advance travel planning."
       },
       "length": {
-        "score": 3,
-        "explanation": "At 65 miles through NSW granite country, riders face sustained challenges without survival scenarios. Jacob learned pacing discipline on early climbs: \"I had to keep reminding myself not to push too hard on this climb, there was still an entire course to finish afterwards.\" Four feed stations at strategic intervals support the distance properly. Similar distance to Crusher in the Tushar."
+        "score": 2,
+        "explanation": "The organizer-confirmed 91-kilometre Range Rumble converts to 56.5 miles, placing it in the scoring rubric's 40-60-mile band. It is a meaningful endurance ride without reaching the 60-mile threshold for a length score of 3."
       },
       "technicality": {
         "score": 3,
         "explanation": "The Range Rumble features creek crossings and \"an absolute wall with grades in excess of 15%\" at the 50km crux climb. Surface mix runs 59% gravel including fire tracks and rough service roads through Basket Swamp and Boonoo Boonoo National Parks, designed for what organizers call \"Type 2 fun.\""
       },
       "elevation": {
-        "score": 3,
-        "explanation": "The 4,500 feet of climbing includes extended ascents and technical descents through national parks. Range Rumble course delivers \"about 10km\" of climbing at the 50km crux, with wall-grade pitches that matter without requiring mountaineering skills. The granite country terrain provides sustained vertical challenge. Similar elevation profile to Gravel Worlds."
+        "score": 2,
+        "explanation": "The organizer confirms big climbs and fast descents but has not published a 2027 elevation total. A conservative score of 2 recognizes meaningful climbing without inventing enough gain to award the 4,000-6,000-foot band."
       },
       "climate": {
         "score": 2,
-        "explanation": "Historical weather data shows average highs of 64°F and lows of 48°F, with a 50% chance of rain on any given day. Jacob rode through active snowfall: \"I spent the next 15 minutes grinding in my lowest gear with snow falling off the trees as we ascended,\" with \"muddy and sloppy\" conditions creating traction challenges. The May date change specifically targets \"cooler weather\" after previous timing proved problematic for rider comfort. More weather exposure than Belgian Waffle Ride San Diego."
+        "explanation": "The March date places the event in variable New England high-country conditions. Historical event footage reports strong wind, water crossings, and slippery surfaces, supporting a mild but real weather-management penalty without claiming that old conditions will define 2027."
       },
       "altitude": {
         "score": 2,
-        "explanation": "NSW granite country elevations stay within manageable bands while delivering mountain character. The 4,500 feet total gain indicates significant vertical through Great Dividing Range terrain without alpine complications. Creek crossings and extended climbing occur at modest absolute altitudes. Modest altitude compared to Belgian Waffle Ride San Diego."
+        "explanation": "Tenterfield's New England high-country setting adds climbing character without an organizer-published 2027 altitude profile or alpine exposure. The score remains modest until the final route provides exact elevations."
       },
       "adventure": {
         "score": 3,
@@ -295,30 +295,35 @@
       },
       "race_quality": {
         "score": 2,
-        "explanation": "Proper aid station placement every 17-20km with \"food, water, and first aid supplies\" shows solid organization basics. However, course evolution happened because \"many of the roads that we have used in previous years are now sealed,\" requiring completely new 2025 routes after taking a sabbatical year."
+        "explanation": "The organizer presents a four-course, full-weekend format and clearly distinguishes Saturday gravel from Sunday's climb and family ride. Exact 2027 aid, timing, route files, and rider services remain pending, so the quality score stays conservative."
       },
       "experience": {
         "score": 2,
-        "explanation": "Race village features \"DJs, food trucks, and local beer and wine at the Tenterfield Showgrounds\" with Friday night main street festivities. Jacob experienced \"lively atmosphere with the live band\" and electric dawn start energy, but the event's sabbatical year and complete course overhaul indicate experience consistency challenges."
+        "explanation": "The 2027 organizer pitch combines a Race Village, local beer, music, food, National Park backroads, and a full weekend in Tenterfield. That is a coherent regional experience, but the final program has not yet been released."
       },
       "community": {
         "score": 2,
-        "explanation": "Jacob felt \"the electricity at the dawn start\" as \"300 riders left under police escort out of downtown Wausau,\" with family-friendly weekend atmosphere and inclusive philosophy welcoming all bike types. The Saddlers MTB Club organizes this for trail network funding, but required course redesign shows organizational transitions."
+        "explanation": "The organizer explicitly designs the weekend for shared experience, with adaptive-friendly and family distances alongside the 91-kilometre flagship. Historical Tenterfield rider footage reinforces an inclusive local atmosphere; the prior Wisconsin sentence was unrelated and has been removed."
       },
       "field_depth": {
         "score": 1,
-        "explanation": "With a field of 50-100 riders, todd Meerdink worried that losing the lead group early would turn \"this race would quickly turn into just a group ride,\" indicating thin competitive depth. The explicit welcome for adaptive bikes and e-bikes alongside traditional categories prioritizes inclusivity over racing field strength in this regional NSW event. Thinner field than Ouray Gravel Grinder."
+        "explanation": "The organizer has not published a 2027 field or elite roster. The inclusive adventure-enduro positioning supports broad participation, but there is not enough current evidence to award national-level competitive depth."
       },
       "value": {
         "score": 3,
-        "explanation": "The NSW Government site lists it as 'free' which either means spectating or they're underselling their own race entry fees. If registration is actually cheap, 65 miles of Australian granite country for minimal cash outlay delivers decent bang for buck. Just don't expect premium race services at budget pricing."
+        "explanation": "A full weekend with multiple distances, a Race Village, National Park backroads, and a 91-kilometre flagship offers a substantial experience. The 2027 price is not yet published, so the value score is provisional rather than based on an assumed fee."
       },
       "expenses": {
         "score": 2,
-        "explanation": "Registration runs $75-100 AUD. Multi-bike welcome policy means riders can use existing mountain bikes rather than buying gravel-specific equipment, with Todd Meerdink successfully using 40mm tires on technical sections. Rural Tenterfield location requires travel from major cities, while Todd's Camelback strategy shows self-sufficient riders can minimize aid station dependencies. Higher total cost than Badlands."
+        "explanation": "Rural Tenterfield requires travel from a major airport or a long regional drive, while the organizer welcomes both gravel and mountain bikes. The 2027 entry price and required services remain unpublished, so no fee is assumed."
       }
     },
     "citations": [
+      {
+        "url": "https://www.gravelngranite.com.au/",
+        "category": "official",
+        "label": "Organizer homepage: March 5-7, 2027, Saturday gravel courses, distances, terrain, and weekend format"
+      },
       {
         "url": "https://driveinland.com.au/events/sporting-events/gravel-n-granite-tenterfield/",
         "category": "other",
@@ -340,19 +345,9 @@
         "label": "Thesaddlersmtbclub"
       },
       {
-        "url": "https://www.gravelcyclist.com/race-reports/2019-ironbull-granite-grinder-race-report-wausau-wisconsin-by-todd-meerdink/",
-        "category": "media",
-        "label": "Gravel Cyclist"
-      },
-      {
         "url": "https://www.nsw.gov.au/visiting-and-exploring-nsw/nsw-events/gravel-n-granite-tenterfield",
         "category": "other",
         "label": "Nsw"
-      },
-      {
-        "url": "https://www.ironbull.org/in-the-news/grinder-2022-race-report-jacob",
-        "category": "community",
-        "label": "ironbull.org: Grinder 2022 Race Report Jacob"
       }
     ],
     "tire_recommendations": {

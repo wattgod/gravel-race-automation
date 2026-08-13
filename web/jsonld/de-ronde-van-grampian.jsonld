@@ -4,7 +4,7 @@
   "name": "De Ronde Van Grampian",
   "description": "Private terrain, Bald Mountain singletrack, and Lake Orion views through Oakland County.",
   "sport": "Gravel Cycling",
-  "startDate": "2026-08-01",
+  "startDate": "2027-08-07",
   "location": {
     "@type": "Place",
     "name": "Oxford, Michigan",
@@ -14,17 +14,12 @@
       "addressRegion": "Michigan"
     }
   },
-  "offers": {
-    "@type": "Offer",
-    "price": "50",
-    "priceCurrency": "USD",
-    "availability": "https://schema.org/LimitedAvailability"
-  },
   "aggregateRating": {
     "@type": "AggregateRating",
     "ratingValue": "43",
     "bestRating": "100",
     "ratingCount": "14",
     "name": "Gravel God Rating"
-  }
+  },
+  "url": "https://www.drvg-gravel.com/"
 }

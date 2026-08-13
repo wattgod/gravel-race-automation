@@ -5,48 +5,57 @@
     "display_name": "De Ronde Van Grampian",
     "tagline": "Private terrain, Bald Mountain singletrack, and Lake Orion views through Oakland County.",
     "vitals": {
-      "distance_mi": 50,
-      "elevation_ft": 2000,
+      "distance_mi": 52,
+      "elevation_ft": 3123,
       "location": "Oxford, Michigan",
       "location_badge": "OXFORD, MI",
       "county": "Oakland County",
-      "date": "Early August annually",
-      "date_specific": "2026: August 1",
+      "date": "August 7, 2027",
+      "date_specific": "2027: August 7 (Saturday)",
+      "course_status": "verified",
+      "pack_status": "pending",
+      "course_status_label": "2027 DATE AND CORE COURSE VERIFIED",
+      "course_status_reason": "The organizer registration page confirms Saturday, August 7, 2027. The current event page publishes the 52-mile long-course distance, 3,123 feet of climbing, 99% gravel, Upland Hills Farm start and finish, the mile-33 long-course aid station, and the course's named terrain. The page still labels those course details 2026, so they are treated as the organizer's current training-demand specification rather than a final 2027 GPX or schedule.",
       "terrain_types": [
-        "Michigan rolling",
-        "Local event",
-        "Midwest gravel",
-        "Michigan"
+        "99% gravel roads",
+        "Rolling Oakland and Lapeer County roads",
+        "Bald Mountain singletrack",
+        "Rough sandy two-track"
       ],
-      "field_size": "100-200 riders",
-      "start_time": "8:30 AM",
-      "registration": "Online. Cost: ~$50-75",
-      "prize_purse": "Modest prizes",
-      "aid_stations": "Multiple aid stations",
-      "cutoff_time": "Varies",
+      "field_size": "Not published for 2027",
+      "start_time": "Not published for 2027",
+      "registration": "Registration opens in spring 2027",
+      "prize_purse": "Prizes for the top three overall men and women on the short and long courses, top three age groups, and registered-rider raffles; no cash purse published",
+      "aid_stations": "One aid station at approximately mile 33 on the long course",
+      "cutoff_time": "No 2027 rider cutoff published",
       "lat": 42.8248,
-      "lng": -83.2647
+      "lng": -83.2647,
+      "route_options": [
+        "Long: 52 miles / 3,123 feet",
+        "Short: 32 miles / 2,021 feet",
+        "Mini: 13 miles / 897 feet"
+      ]
     },
     "climate": {
-      "primary": "Michigan spring",
-      "description": "Variable conditions.",
+      "primary": "Michigan summer",
+      "description": "Early-August Michigan can be hot, humid, or wet; historical rider reports include both very humid and ideal editions.",
       "challenges": [
         "Variable weather",
-        "Cold possible",
+        "Heat and humidity possible",
         "Rolling terrain",
-        "Spring conditions"
+        "Summer rain possible"
       ]
     },
     "terrain": {
-      "primary": "Michigan rolling gravel",
-      "surface": "Gravel roads through Michigan countryside. Moderate elevation with rolling scenery.",
+      "primary": "Rolling Michigan gravel with a technical finish",
+      "surface": "The long course is 99% gravel and links the Barr and Drahner Road climbs, persistent rollers, Lake George roads, Bald Mountain North singletrack, and the private Upland Hills rough two-track and sandy, hilly finish.",
       "technical_rating": 2,
       "features": [
-        "Moderate rolling (2000 feet)",
-        "Michigan countryside scenery",
-        "Local community event",
-        "50-mile distance",
-        "Small field"
+        "3,123 feet over 52 miles",
+        "Barr Road and Drahner Road climbs",
+        "Lake George rollers",
+        "Bald Mountain North singletrack",
+        "Private Upland Hills two-track finish"
       ]
     },
     "gravel_god_rating": {
@@ -73,7 +82,7 @@
     },
     "biased_opinion": {
       "verdict": "Michigan Local Gravel",
-      "summary": "De Ronde Van Grampian is a local event in Michigan—rolling terrain with moderate elevation. The Michigan countryside is nice and it's good value, but the small local field and limited organization keep it in Tier 4.",
+      "summary": "De Ronde Van Grampian is a local Michigan race with a compact but specific challenge: 52 miles, 3,123 feet, relentless rollers, and a rough singletrack-and-two-track finish. Strong execution and local character lift it above a generic county-road ride, but its regional field keeps it in Tier 4.",
       "strengths": [
         "Michigan countryside scenery",
         "Good value",
@@ -101,12 +110,12 @@
       ]
     },
     "logistics": {
-      "airport": "Detroit (DTW) 1 hour",
+      "airport": "Detroit (DTW), approximately 1 hour by car",
       "lodging_strategy": "Oxford has limited lodging options. Book ahead.",
       "food": "Oxford has limited dining options. Stock nutrition.",
-      "packet_pickup": "Day of typically",
-      "parking": "At start/finish",
-      "official_site": "Check De Ronde Van Grampian website"
+      "packet_pickup": "The current event page lists 7:00-8:30 AM at Upland Hills Farm; the final 2027 schedule is pending",
+      "parking": "Start and finish are at Upland Hills Farm; final 2027 parking instructions are pending",
+      "official_site": "https://www.drvg-gravel.com/"
     },
     "history": {
       "founded": null,
@@ -116,77 +125,80 @@
       "reputation": "Local Michigan event."
     },
     "course_description": {
-      "character": "Michigan rolling gravel.",
+      "character": "A fast, rolling 99%-gravel race that saves its roughest singletrack, sandy two-track, and hilly private-land access for the finish.",
       "suffering_zones": [
         {
-          "mile": 15,
-          "label": "Early Rolling",
-          "desc": "First rolling sections.",
-          "terrain_detail": "Rolling",
-          "named_section": "Early Rolling"
+          "mile": 0,
+          "label": "Barr and Drahner Selection",
+          "desc": "The opening course drags riders over Barr Road and through the Drahner Road high point before the long route settles into repeated rollers.",
+          "terrain_detail": "Gravel climbs and fast county roads",
+          "named_section": "Barr Road and Drahner Road"
         },
         {
-          "mile": 25,
-          "label": "Midpoint",
-          "desc": "Halfway through the course.",
-          "terrain_detail": "Midpoint",
-          "named_section": "Halfway"
+          "mile": 33,
+          "label": "Long-Course Aid",
+          "desc": "The only published long-course aid station is at approximately mile 33, after prolonged rolling terrain through Oakland and Lapeer counties.",
+          "terrain_detail": "Rolling gravel with a single official resupply",
+          "named_section": "Oakwood and Hosner aid station"
         },
         {
-          "mile": 40,
-          "label": "Late Rolling",
-          "desc": "Final rolling sections before finish.",
-          "terrain_detail": "Late rolling",
-          "named_section": "Final Push"
+          "mile": 50,
+          "label": "Upland Hills Decision",
+          "desc": "Bald Mountain North singletrack leads into private Upland Hills access where rough two-track and sandy, hilly terrain decide the finish.",
+          "terrain_detail": "Singletrack, rough two-track, and sand",
+          "named_section": "Upland Hills"
         }
       ],
-      "signature_challenge": "Michigan rolling terrain.",
+      "signature_challenge": "Arriving at the rough Upland Hills finale with enough handling precision and punch after 50 miles of rolling gravel.",
       "ridewithgps_id": "52132750",
-      "ridewithgps_name": "De Ronde Van Grampian 2024 (copy)"
+      "ridewithgps_name": "Historical De Ronde Van Grampian 2024 reference",
+      "official_route_url": "https://www.strava.com/routes/3255687889976907442"
     },
     "guide_variables": {
       "race_name": "De Ronde Van Grampian",
-      "race_distance": "50 miles",
-      "race_elevation": "2,000 feet",
-      "race_date": "Spring",
+      "race_distance": "52 miles",
+      "race_elevation": "3,123 feet",
+      "race_date": "August 7, 2027",
       "race_location": "Oxford, Michigan",
-      "race_terrain": "Michigan rolling gravel",
-      "race_weather": "Michigan spring variable",
+      "race_terrain": "99% gravel with rollers, singletrack, rough two-track, and sand",
+      "race_weather": "Early-August Michigan heat, humidity, and rain variability",
       "race_challenges": [
         "Rolling terrain",
-        "Small local field",
-        "Variable weather",
-        "Limited organization",
-        "Moderate elevation"
+        "Repeated rolling climbs",
+        "A single long-course aid station around mile 33",
+        "Bald Mountain singletrack",
+        "Rough and sandy Upland Hills finish",
+        "Heat, humidity, or rain"
       ],
       "altitude_section": false,
       "altitude_feet": null
     },
     "non_negotiables": [
       {
-        "requirement": "Weather preparation",
+        "requirement": "Heat and rain preparation",
         "by_when": "Week 4-6",
-        "why": "Michigan spring weather is variable."
+        "why": "Early-August Michigan can be hot, humid, wet, or all three."
       },
       {
-        "requirement": "Rolling endurance",
+        "requirement": "Rolling power durability",
         "by_when": "Week 6-8",
-        "why": "Michigan rolling terrain requires sustained effort."
+        "why": "The long course stacks more than 3,000 feet of short climbing into 52 miles."
       },
       {
-        "requirement": "Self-sufficiency",
+        "requirement": "Late-race handling under fatigue",
         "by_when": "Week 4-6",
-        "why": "Limited organization requires self-sufficiency."
+        "why": "Singletrack, rough two-track, and sand arrive at the private-land finish."
       }
     ],
     "research_metadata": {
-      "data_confidence": "moderate",
-      "validation_status": "pending",
+      "data_confidence": "high for the 2027 date and current organizer-published long-course demands; pending for final 2027 schedule and GPX",
+      "validation_status": "2027 core verified",
       "sources": [
-        "michigan_cycling_community"
+        "https://www.drvg-gravel.com/event",
+        "https://www.drvg-gravel.com/register"
       ],
       "migration_notes": [
-        "Generated from regional information"
+        "The organizer's current 52-mile course page is labeled 2026 and is used as training-demand context; only the registration page's August 7 date is asserted as 2027"
       ],
       "research_strength": {
         "overall": 92.2,
@@ -205,6 +217,17 @@
         },
         "scored_at": "2026-02-04"
       }
+    },
+    "eligibility": {
+      "status": "active",
+      "verified": "2026-08-12",
+      "source": "https://www.drvg-gravel.com/register",
+      "status_note": "The organizer confirms the next De Ronde Van Grampian for Saturday, August 7, 2027, with registration opening in spring 2027."
+    },
+    "source_review": {
+      "reviewed_at": "2026-08-12",
+      "race_date": "2027-08-07",
+      "facts_scope": "The registration page is authoritative for the 2027 date. The organizer's current event page is authoritative for the present long-course distance, climbing, surface, named terrain, aid placement, venue, open-road rules, and route link, but remains labeled 2026 and is not represented as a final 2027 GPX or schedule."
     },
     "training_config": {
       "workout_modifications": {
@@ -254,13 +277,13 @@
       "tier_overrides": {},
       "marketplace_variables": {
         "race_name": "De Ronde Van Grampian",
-        "race_hook": "Michigan local gravel challenge.",
-        "race_hook_detail": "Local event with rolling terrain.",
-        "distance": "50",
-        "dark_mile": "25",
-        "non_negotiable_1": "Weather preparation",
-        "non_negotiable_2": "Rolling endurance",
-        "non_negotiable_3": "Self-sufficiency",
+        "race_hook": "Michigan rollers with a rough private-land finish.",
+        "race_hook_detail": "52 miles and 3,123 feet before singletrack, two-track, and sand decide the finish.",
+        "distance": "52",
+        "dark_mile": "33",
+        "non_negotiable_1": "Heat and rain preparation",
+        "non_negotiable_2": "Rolling power durability",
+        "non_negotiable_3": "Late-race handling under fatigue",
         "trainingpeaks_url": null
       }
     },
@@ -271,7 +294,7 @@
       },
       "length": {
         "score": 2,
-        "explanation": "Jason D finished the 50-mile course in 2:54, targeting \"under 3 hours... I really wanted 17 MPH and thought maybe a stretch was 18 MPH.\" At 2,942ft of gain over 50 miles, it's respectable weekend warrior territory but won't test endurance limits like longer gravel races. More compact than Grinduro."
+        "explanation": "The organizer's current long course is 52 miles with 3,123 feet of climbing, squarely inside the scoring rubric's 40-60-mile band. It is a compact but substantial race rather than an ultra-endurance day."
       },
       "technicality": {
         "score": 2,
@@ -279,7 +302,7 @@
       },
       "elevation": {
         "score": 2,
-        "explanation": "Barr Road creates the first major split where \"the fireworks started,\" according to Michael Green, while Mike Adsit found the \"rollers... really toasted my legs.\" Nearly 3,000 feet over 50 miles creates steady grinding work without brutal singular climbs. Less climbing than The Mid South."
+        "explanation": "The published 3,123 feet over 52 miles creates steady grinding work rather than a single mountain pass. Barr Road, Drahner Road, and the long-course rollers place it in the rubric's 2,000-4,000-foot band."
       },
       "climate": {
         "score": 2,
@@ -295,7 +318,7 @@
       },
       "prestige": {
         "score": 1,
-        "explanation": "C0nsumer calls this \"a new race, for sure\" that's still building recognition beyond the Michigan Gravel Race Series. No prize purse and local winners like Mark Eelnurme tell you this isn't attracting destination-level talent or national attention."
+        "explanation": "C0nsumer calls this \"a new race, for sure\" that's still building recognition beyond the Michigan Gravel Race Series. Local winners like Mark Eelnurme and a regional calendar position indicate local rather than national draw."
       },
       "race_quality": {
         "score": 2,
@@ -303,7 +326,7 @@
       },
       "experience": {
         "score": 2,
-        "explanation": "The exclusive access to Upland Hills private land that you can't pre-ride is cool - no trespassing allowed means race day surprises on sandy, hilly terrain. Hitting Oakland County's highest point at 1,250ft on Drahner Road gives you bragging rights for about five minutes. Post-race free beer while supplies last and a Dutch windmill sighting won't save you from the reality that 50 miles and 2,942ft of gain is a Tuesday ride with timing chips. As Course Features puts it: \"Natural rolling terrain in the area with amazing scenic views and a special single and double track mixed in for good fun! There is even a Dutch Windmill out on the 50 course!\""
+        "explanation": "Exclusive Upland Hills private land creates a race-day-only finale on sandy, hilly terrain. The organizer's current 52-mile course also reaches Oakland County's 1,250-foot high point, follows Lake George, and finishes through rough two-track after Bald Mountain singletrack."
       },
       "community": {
         "score": 3,
@@ -315,14 +338,29 @@
       },
       "value": {
         "score": 4,
-        "explanation": "You get exclusive access to private Upland Hills terrain that's off-limits otherwise, 99% gravel roads, timing, mechanical support, and post-race food and beer. c0nsumer's comparison to \"BRX\" quality execution and three distance options from 12 to 50 miles make this solid bang for buck."
+        "explanation": "You get exclusive access to private Upland Hills terrain, 99% gravel, timing, and three distances from 13 to 52 miles. c0nsumer's comparison to \"BRX\" quality execution supports strong regional value, although the final 2027 price is not yet published."
       },
       "expenses": {
         "score": 3,
-        "explanation": "Registration runs $50-75. Michael Green's tire choice strategy - \"higher volume 2.1 MTB tires on my gravel bike\" - and Jason D riding a fat bike show equipment flexibility keeps gear costs reasonable. Oxford, Michigan location means modest lodging and travel costs unless you're flying in from far away. Similar expense level to Belgian Waffle Ride San Diego."
+        "explanation": "Oxford's proximity to metro Detroit limits destination-travel friction, and rider reports show equipment flexibility from gravel bikes to fat bikes. The 2027 entry price is not yet published, so this score reflects regional access rather than a claimed fee."
       }
     },
     "citations": [
+      {
+        "url": "https://www.drvg-gravel.com/register",
+        "category": "official",
+        "label": "Organizer registration page: August 7, 2027 and spring registration opening"
+      },
+      {
+        "url": "https://www.drvg-gravel.com/event",
+        "category": "official",
+        "label": "Organizer event page: current routes, climbing, surfaces, aid, rules, venue, and awards"
+      },
+      {
+        "url": "https://www.strava.com/routes/3255687889976907442",
+        "category": "route",
+        "label": "Organizer-linked current long-course Strava route"
+      },
       {
         "url": "https://ridewithgps.com/routes/52132750",
         "category": "route",

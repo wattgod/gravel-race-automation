@@ -45,3 +45,13 @@ async def race_debrief():
         await run_race_debrief()
     except Exception as e:
         logger.error("Race debrief failed: %s", e)
+
+
+@scheduler.scheduled_job("cron", hour=15, id="race_watch")
+async def race_watch():
+    """Daily race-entry change notifications (15:00 UTC)."""
+    from mission_control.services.race_watch import run_race_watch
+    try:
+        await run_race_watch()
+    except Exception as e:
+        logger.error("Race watch failed: %s", e)

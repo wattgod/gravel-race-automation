@@ -72,7 +72,7 @@ def test_history_rows_accept_parentless_shallow_boundary(monkeypatch):
 
 
 def test_latest_sidebar_caps_formats_and_links_date_confirmation():
-    rd = {"website": "https://race.test"}
+    rd = {"website": "https://race.test", "slug": "test-race", "name": "Test Race"}
     events = [
         {"date": "2026-08-10", "type": "date_confirmed", "text": "Date confirmed"},
         {"date": "2026-07-03", "type": "rerated", "text": "Re-rated"},
@@ -85,7 +85,9 @@ def test_latest_sidebar_caps_formats_and_links_date_confirmation():
     assert '<a href="https://race.test"' in html
     assert ">Re-rated</span>" in html
     assert "Added" not in html
-    assert build_latest_sidebar(rd, []) == ""
+    empty_html = build_latest_sidebar(rd, [])
+    assert "WATCH THIS RACE" in empty_html
+    assert 'name="race_slug" value="test-race"' in empty_html
 
 
 def test_real_unbound_history_is_well_formed():

@@ -1346,6 +1346,36 @@ function ggReadTrail() {
   return trail;
 }
 
+// Race watch — a quiet expansion inside the existing LATEST ledger.
+(function() {
+  var WORKER_URL='https://fueling-lead-intake.gravelgodcoaching.workers.dev';
+  document.querySelectorAll('.gg-race-watch').forEach(function(watch) {
+    var slug=watch.getAttribute('data-race-slug')||'';
+    var key='gg-race-watch:'+slug;
+    var toggle=watch.querySelector('.gg-race-watch-toggle');
+    var form=watch.querySelector('.gg-race-watch-form');
+    var success=watch.querySelector('.gg-race-watch-success');
+    try {
+      if(localStorage.getItem(key)==='1') {
+        toggle.textContent='Watching \u2713';
+        return;
+      }
+    } catch(e) {}
+    toggle.addEventListener('click',function(){ form.hidden=!form.hidden; if(!form.hidden) form.email.focus(); });
+    form.addEventListener('submit',function(e) {
+      e.preventDefault();
+      var email=form.email.value.trim();
+      if(!email||!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { alert('Please enter a valid email address.'); return; }
+      if(form.website.value) return;
+      ggClearFormError(form);
+      var payload={email:email,source:'race_watch',race_slug:form.race_slug.value,race_name:form.race_name.value,website:form.website.value};
+      fetch(WORKER_URL,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload),signal:(typeof AbortSignal!=='undefined'&&AbortSignal.timeout)?AbortSignal.timeout(10000):undefined})
+        .then(function(r){if(!r.ok) throw new Error('bad status');try{localStorage.setItem(key,'1');}catch(ex){}form.hidden=true;toggle.textContent='Watching \u2713';success.hidden=false;})
+        .catch(function(){ggShowFormError(form,GG_FORM_ERROR_MSG);});
+    });
+  });
+})();
+
 // Email capture form — prep kit CTA
 (function() {
   var WORKER_URL='https://fueling-lead-intake.gravelgodcoaching.workers.dev';
@@ -4811,8 +4841,20 @@ def load_race_intel(path: Path = RACE_INTEL_PATH) -> dict:
 
 def build_latest_sidebar(rd: dict, events: list[dict] | None) -> str:
     """Render at most three deterministic race-data history events."""
+    slug = esc(rd.get("slug", ""))
+    name = esc(rd.get("name", ""))
+    watch = f'''<div class="gg-race-watch" data-race-slug="{slug}">
+      <button type="button" class="gg-race-watch-toggle">WATCH THIS RACE <span>— email me when this entry changes.</span></button>
+      <form class="gg-race-watch-form" hidden autocomplete="off">
+        <label>Email <input type="email" name="email" required placeholder="you@email.com" aria-label="Email address"></label>
+        <input type="text" name="website" class="gg-honeypot" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <input type="hidden" name="race_slug" value="{slug}"><input type="hidden" name="race_name" value="{name}">
+        <button type="submit">WATCH</button>
+      </form>
+      <p class="gg-race-watch-success" hidden>Watching. I'll email you when something changes.</p>
+    </div>'''
     if not events:
-        return ""
+        return f'<aside class="gg-latest gg-latest-empty" aria-label="Race updates">{watch}</aside>'
     website = rd.get("website", "")
     if not isinstance(website, str) or not website.startswith(("https://", "http://")):
         website = ""
@@ -4840,6 +4882,8 @@ def build_latest_sidebar(rd: dict, events: list[dict] | None) -> str:
     return f'''<aside class="gg-latest" aria-labelledby="gg-latest-title">
     <h2 id="gg-latest-title">LATEST</h2>
     <ol>{"".join(items)}</ol>
+    <a class="gg-latest-wire-link" href="/latest/">full wire &rarr;</a>
+    {watch}
   </aside>'''
 
 
@@ -5470,6 +5514,17 @@ body {{ margin: 0; background: var(--gg-color-warm-paper); }}
 .gg-neo-brutalist-page .gg-latest-item:first-child {{ border-top: 0; padding-top: 0; }}
 .gg-neo-brutalist-page .gg-latest-item time {{ display: block; margin-bottom: var(--gg-spacing-2xs); font-family: var(--gg-font-data); font-size: var(--gg-font-size-2xs); letter-spacing: var(--gg-letter-spacing-wider); text-transform: uppercase; color: var(--gg-color-secondary-brown); }}
 .gg-neo-brutalist-page .gg-latest-item a {{ color: var(--gg-color-dark-brown); text-decoration-color: var(--gg-color-gold); text-underline-offset: 3px; }}
+.gg-neo-brutalist-page .gg-latest-wire-link {{ display:inline-block;margin-top:var(--gg-spacing-xs);font-family:var(--gg-font-data);font-size:var(--gg-font-size-2xs);color:var(--gg-color-secondary-brown);text-underline-offset:3px; }}
+.gg-neo-brutalist-page .gg-race-watch {{ margin-top:var(--gg-spacing-sm);padding-top:var(--gg-spacing-sm);border-top:1px solid var(--gg-color-tan);font-family:var(--gg-font-data);font-size:var(--gg-font-size-2xs); }}
+.gg-neo-brutalist-page .gg-latest-empty .gg-race-watch {{ margin-top:0;padding-top:0;border-top:0; }}
+.gg-neo-brutalist-page .gg-race-watch-toggle {{ padding:0;border:0;background:transparent;color:var(--gg-color-dark-brown);font:inherit;font-weight:700;text-align:left;cursor:pointer; }}
+.gg-neo-brutalist-page .gg-race-watch-toggle span {{ font-weight:400; }}
+.gg-neo-brutalist-page .gg-race-watch-form {{ margin-top:var(--gg-spacing-sm); }}
+.gg-neo-brutalist-page .gg-race-watch-form label {{ display:block; }}
+.gg-neo-brutalist-page .gg-race-watch-form input[type=email] {{ width:100%;box-sizing:border-box;margin:var(--gg-spacing-2xs) 0;border:var(--gg-border-standard);padding:var(--gg-spacing-xs);font:inherit;background:var(--gg-color-cream); }}
+.gg-neo-brutalist-page .gg-race-watch-form button {{ border:var(--gg-border-standard);padding:var(--gg-spacing-xs) var(--gg-spacing-sm);background:var(--gg-color-gold);font:inherit;font-weight:700;cursor:pointer; }}
+.gg-neo-brutalist-page .gg-honeypot {{ position:absolute;left:-9999px;width:1px;height:1px; }}
+.gg-neo-brutalist-page .gg-race-watch-success {{ margin:var(--gg-spacing-xs) 0 0;color:var(--gg-color-teal);font-weight:700; }}
 
 /* Hero — clean editorial masthead: name left, score right */
 .gg-neo-brutalist-page .gg-hero {{ background: var(--gg-color-warm-paper); color: var(--gg-color-dark-brown); padding: 48px 32px; border-bottom: 2px solid var(--gg-color-gold); margin-bottom: 0; display: flex; align-items: flex-end; justify-content: space-between; gap: 32px; }}

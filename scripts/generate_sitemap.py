@@ -194,6 +194,16 @@ def generate_sitemap(race_index: list, output_path: Path, data_dir: Path = None,
     SubElement(url, 'changefreq').text = 'weekly'
     SubElement(url, 'priority').text = '0.9'
 
+    # /latest/ is a directly deployed static page. Never advertise it until
+    # its deploy artifact exists (same guard as other generated surfaces).
+    latest_page = output_path.parent.parent / "wordpress" / "output" / "latest" / "index.html"
+    if latest_page.exists():
+        url = SubElement(urlset, 'url')
+        SubElement(url, 'loc').text = f"{SITE_BASE_URL}/latest/"
+        SubElement(url, 'lastmod').text = today
+        SubElement(url, 'changefreq').text = 'daily'
+        SubElement(url, 'priority').text = '0.7'
+
     # Methodology page
     url = SubElement(urlset, 'url')
     SubElement(url, 'loc').text = f"{SITE_BASE_URL}/race/methodology/"

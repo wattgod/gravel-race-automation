@@ -21,6 +21,7 @@ from mission_control.sequences.race_debrief import GG_DEBRIEF, RL_DEBRIEF, XC_DE
 from mission_control.sequences.xc_welcome import SEQUENCE as xc_welcome
 from mission_control.sequences.xc_win_back import SEQUENCE as xc_win_back
 from mission_control.sequences.kit_delivery import GG as kit_delivery, ROAD as road_kit_delivery
+from mission_control.sequences.race_watch import SEQUENCE as race_watch
 
 DEFAULT_BRAND = "gravelgod"
 
@@ -47,6 +48,7 @@ SEQUENCES: dict[str, dict] = {
     XC_16["id"]: XC_16,
     XC_8["id"]: XC_8,
     XC_DEBRIEF["id"]: XC_DEBRIEF,
+    race_watch["id"]: race_watch,
 }
 
 

@@ -190,3 +190,12 @@ BODY:
 {greeting} did you end up racing {race_name} {when_phrase}? How'd it go?
 
 — Matti
+
+### race_watch · day 0 · race_watch_confirm   (transactional confirm for the watch-this-race affordance; the question makes it reply-able; friend-test 4/5)
+SUBJECT: watching {race_name}
+BODY:
+{greeting} you're watching {race_name} — when its entry changes (date confirmed, re-rated, course news), I'll send it over. Nothing else comes with this.
+
+Are you racing it, or still deciding?
+
+— Matti

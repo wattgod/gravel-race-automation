@@ -124,6 +124,13 @@ class TestSubscriberWebhook:
         assert set(self._post(client, payload).json()["enrolled"]) == {"nurture_v1", "kit_delivery_v1"}
         assert self._post(client, payload).json()["enrolled"] == []
 
+    def test_race_watch_enrolls_only_watch_sequence(self, client, fake_db):
+        resp = self._post(client, {"email": "watch@example.com", "source": "race_watch", "race_slug": "unbound-200", "race_name": "Unbound 200"})
+        assert resp.status_code == 200
+        assert resp.json()["enrolled"] == ["race_watch_v1"]
+        row = fake_db.store["gg_sequence_enrollments"][0]
+        assert row["source_data"]["race_slug"] == "unbound-200"
+
 
 class TestPlanPurchasedEnrollment:
     """POST /webhooks/subscriber with a purchase source -> post_purchase + plan_weeks."""

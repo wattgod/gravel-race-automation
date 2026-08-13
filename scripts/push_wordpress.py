@@ -3243,6 +3243,45 @@ def sync_insights(insights_file: str):
     return f"{wp_url}/insights/"
 
 
+def sync_latest(latest_file: str):
+    """Upload /latest/, its RSS feed, and the notifier's race-intel source."""
+    ssh = get_ssh_credentials()
+    if not ssh:
+        return None
+    host, user, port = ssh
+    page = Path(latest_file)
+    project_root = Path(__file__).resolve().parent.parent
+    uploads = [
+        (page, "latest/index.html"),
+        (project_root / "web" / "feed" / "latest.xml", "feed/latest.xml"),
+        (project_root / "web" / "race-intel.json", "race-intel.json"),
+    ]
+    missing = [str(path) for path, _ in uploads if not path.exists()]
+    if missing:
+        print(f"✗ Latest artifacts missing: {', '.join(missing)}")
+        print("  Run: python3 wordpress/generate_latest.py first")
+        return None
+    remote_root = "~/www/gravelgodcycling.com/public_html"
+    try:
+        subprocess.run(
+            ["ssh", "-i", str(SSH_KEY), "-p", port, f"{user}@{host}",
+             f"mkdir -p {remote_root}/latest {remote_root}/feed"],
+            check=True, capture_output=True, text=True, timeout=15,
+        )
+        for local, remote in uploads:
+            subprocess.run(
+                ["scp", "-i", str(SSH_KEY), "-P", port, str(local),
+                 f"{user}@{host}:{remote_root}/{remote}"],
+                check=True, capture_output=True, text=True, timeout=30,
+            )
+    except subprocess.CalledProcessError as exc:
+        print(f"✗ Latest sync failed: {exc.stderr.strip()}")
+        return None
+    wp_url = os.environ.get("WP_URL", "https://gravelgodcycling.com")
+    print(f"✓ Uploaded latest wire bundle: {wp_url}/latest/")
+    return f"{wp_url}/latest/"
+
+
 def sync_whitepaper(whitepaper_file: str):
     """Upload whitepaper-fueling.html to /fueling-methodology/index.html on SiteGround via SSH+SCP."""
     ssh = get_ssh_credentials()
@@ -3805,6 +3844,14 @@ if __name__ == "__main__":
         help="Path to insights page HTML (default: wordpress/output/insights.html)"
     )
     parser.add_argument(
+        "--sync-latest", action="store_true",
+        help="Upload /latest/, /feed/latest.xml, and /race-intel.json via SCP"
+    )
+    parser.add_argument(
+        "--latest-file", default="wordpress/output/latest/index.html",
+        help="Path to latest page HTML (default: wordpress/output/latest/index.html)"
+    )
+    parser.add_argument(
         "--sync-whitepaper", action="store_true",
         help="Upload white paper page to /fueling-methodology/ via SCP"
     )
@@ -4150,6 +4197,8 @@ if __name__ == "__main__":
         _run("sync-mission-control", sync_mission_control, args.mission_control_file)
     if args.sync_insights:
         _run("sync-insights", sync_insights, args.insights_file)
+    if args.sync_latest:
+        _run("sync-latest", sync_latest, args.latest_file)
     if args.sync_whitepaper:
         _run("sync-whitepaper", sync_whitepaper, args.whitepaper_file)
     if args.sync_embed:

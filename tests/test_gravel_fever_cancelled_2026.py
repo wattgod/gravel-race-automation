@@ -1,7 +1,12 @@
 import json
+import sys
 from pathlib import Path
 
 from scripts.generate_index import generate_jsonld
+
+
+sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "wordpress"))
+from generate_neo_brutalist import generate_page, normalize_race_data
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -50,8 +55,10 @@ def test_cancellation_evidence_and_page_notice_are_present():
 def test_generated_surfaces_carry_cancellation_not_a_live_date():
     dates = json.loads((ROOT / "web" / "race-dates.json").read_text(encoding="utf-8"))
     index = json.loads((ROOT / "web" / "race-index.json").read_text(encoding="utf-8"))
-    html = (ROOT / "wordpress" / "output" / "gravel-fever.html").read_text(
-        encoding="utf-8"
+    profile = json.loads(PROFILE.read_text(encoding="utf-8"))
+    html = generate_page(
+        normalize_race_data(profile),
+        index,
     )
 
     assert "gravel-fever" not in dates
@@ -61,8 +68,8 @@ def test_generated_surfaces_carry_cancellation_not_a_live_date():
     assert "2026 CANCELLED" in html
     assert "replacement host" in html
     assert "20260926" not in html
-    assert "BUILD MY PLAN" not in html
-    assert "PREVIEW YOUR TRAINING PLAN" not in html
+    assert 'id="train-for-race"' not in html
+    assert 'id="gg-pack-cta-default"' not in html
 
     jsonld = json.loads(
         (ROOT / "web" / "jsonld" / "gravel-fever.jsonld").read_text(

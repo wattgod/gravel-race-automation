@@ -1,15 +1,15 @@
 # Gravel God Race Database
 
-> The definitive gravel race database. 369 races rated on 14 base dimensions plus a Cultural Impact bonus, scored 0-100+, and tiered 1-4.
-> Last generated: 2026-08-10
+> The definitive gravel race database. 372 races rated on 14 base dimensions plus a Cultural Impact bonus, scored 0-100+, and tiered 1-4.
+> Last generated: 2026-08-13
 
 ## Overview
 
-Gravel God is a gravel cycling database covering 369 races across North America and beyond. Every race is scored on 14 base dimensions (logistics, length, technicality, elevation, climate, altitude, adventure, prestige, race quality, experience, community, field depth, value, expenses) on a 1-5 scale, plus a Cultural Impact bonus from 0-5, producing an overall score out of 100+ and a tier assignment (T1=Elite, T2=Contender, T3=Solid, T4=Roster).
+Gravel God is a gravel cycling database covering 372 races across North America and beyond. Every race is scored on 14 base dimensions (logistics, length, technicality, elevation, climate, altitude, adventure, prestige, race quality, experience, community, field depth, value, expenses) on a 1-5 scale, plus a Cultural Impact bonus from 0-5, producing an overall score out of 100+ and a tier assignment (T1=Elite, T2=Contender, T3=Solid, T4=Roster).
 
 - **Tier 1 (Elite)**: 30 races — score >= 80 or prestige override
-- **Tier 2 (Contender)**: 129 races — score >= 60
-- **Tier 3 (Solid)**: 137 races — score >= 45
+- **Tier 2 (Contender)**: 130 races — score >= 60
+- **Tier 3 (Solid)**: 139 races — score >= 45
 - **Tier 4 (Roster)**: 73 races — score < 45
 
 Disciplines: gravel, MTB, bikepacking.
@@ -18,7 +18,7 @@ Regions: Africa, Asia, Europe, Midwest, North America, Northeast, Oceania, Other
 ## Machine-Readable Resources
 
 - [Full LLM context (this database as text)](https://gravelgodcycling.com/llms-full.txt)
-- [Race index JSON (369 entries)](https://gravelgodcycling.com/race-index.json)
+- [Race index JSON (372 entries)](https://gravelgodcycling.com/race-index.json)
 - [REST API (OpenAPI)](https://gravelgodcycling.com/api/v1/docs)
 - [RSS feed](https://gravelgodcycling.com/feed/races.xml)
 - [MCP Server (GitHub)](https://github.com/wattgod/gravel-race-automation)
@@ -30,7 +30,7 @@ Regions: Africa, Asia, Europe, Midwest, North America, Northeast, Oceania, Other
 ## Training Plans
 
 - [Training Plans Hub](https://gravelgodcycling.com/products/training-plans/)
-- 352 race-specific training guides are available at `https://gravelgodcycling.com/race/{slug}/training-plan/`.
+- 351 race-specific training guides are available at `https://gravelgodcycling.com/race/{slug}/training-plan/`.
 
 ## Markdown Mirrors
 

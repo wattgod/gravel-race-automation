@@ -32,7 +32,7 @@ MANUAL_COORDS = {
     "gravel-earth": (41.9794, 2.8214),                  # Girona, Spain (HQ)
     "grinduro": (38.4324, -120.0356),                  # Quincy, CA (flagship)
     "transcontinental-race": (48.2082, 16.3738),       # Vienna (common start)
-    "uci-gravel-worlds": (45.2083, 5.7148),            # Grenoble, France (2025)
+    "uci-gravel-worlds": (-33.9784, 115.7638),         # Nannup, Western Australia (2026)
     "uci-gravel-suisse": (46.3188, 6.9746),            # Aigle, Switzerland
     "uci-gravel-dustman": (50.6292, 3.0573),           # Lille, France
     # Vague locations

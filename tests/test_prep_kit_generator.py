@@ -42,6 +42,10 @@ from generate_prep_kit import (
     build_pk_footer_cta,
     build_prep_kit_css,
     build_prep_kit_js,
+    build_runway_js,
+    build_kit_mode_toggle,
+    classify_runway,
+    get_kit_mode_variants,
     generate_prep_kit_page,
     FUELING_WORKER_URL,
     GUIDE_SECTION_IDS,
@@ -76,6 +80,55 @@ def _load_test_race(slug):
     rd = load_race_data(fp)
     raw = load_raw_training_data(fp)
     return rd, raw
+
+
+class TestRunwayEnhancement:
+    @pytest.mark.parametrize(
+        ("days", "expected"),
+        [(-1, None), (0, "race-week"), (10, "race-week"),
+         (11, "triage"), (56, "triage"), (57, "sharpen"),
+         (112, "sharpen"), (113, "build")],
+    )
+    def test_classification_thresholds(self, days, expected):
+        assert classify_runway(days) == expected
+
+    def test_script_embeds_slug_and_mirrored_thresholds(self):
+        script = build_runway_js("unbound-200", "Unbound 200")
+        assert '"slug": "unbound-200"' in script
+        assert "daysOut<=10" in script
+        assert "daysOut<=56" in script
+        assert "daysOut<=112" in script
+        assert "race-dates.json" in script
+
+    def test_script_data_is_safe_from_end_tag_injection(self):
+        script = build_runway_js("bad</script><script>alert(1)</script>", "Race")
+        assert "</script>" not in script.lower()
+        assert "<\\/script>" in script.lower()
+
+    def test_toggle_only_when_structured_variants_exist(self):
+        assert build_kit_mode_toggle({}) == ""
+        raw = {
+            "race_format": {
+                "typical_finish_times": {
+                    "fastest": "20-21 hours",
+                    "slowest": "30-40 hours (with stops)",
+                }
+            }
+        }
+        variants = get_kit_mode_variants(raw)
+        assert variants["racer_hours"] == 20.5
+        assert variants["finisher_hours"] == 35
+        html = build_kit_mode_toggle(raw)
+        assert 'data-kit-mode="finisher"' in html
+        assert 'data-kit-mode="racer"' in html
+
+    def test_static_page_has_no_runway_state_and_keeps_all_content(self):
+        rd, raw = _load_test_race(FULL_SLUG)
+        html = generate_prep_kit_page(rd, raw, load_guide_sections())
+        assert 'id="gg-pk-root" data-runway=' not in html
+        assert "12-Week Training Timeline" in html
+        assert "Race-Day Fueling" in html
+        assert "Equipment &amp; Packing Checklist" in html
 
 
 # ── Guide Section Loading ─────────────────────────────────────

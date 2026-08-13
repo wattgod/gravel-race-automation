@@ -37,6 +37,7 @@ from generate_neo_brutalist import (
     normalize_race_data,
     find_data_file,
     load_race_data,
+    _safe_json_for_script,
 )
 from generate_neo_brutalist import esc  # HTML escape helper
 
@@ -93,6 +94,19 @@ PHASE_RANGES = {
     "build": (5, 10),
     "taper": (11, 12),
 }
+
+
+def classify_runway(days_out: int) -> str | None:
+    """Mirror of classifyRunway in build_runway_js; keep thresholds in sync."""
+    if days_out < 0:
+        return None
+    if days_out <= 10:
+        return "race-week"
+    if days_out <= 56:
+        return "triage"
+    if days_out <= 112:
+        return "sharpen"
+    return "build"
 
 
 # ── Data Loading ──────────────────────────────────────────────
@@ -160,6 +174,7 @@ def load_raw_training_data(filepath: Path) -> dict:
         "final_verdict": race.get("final_verdict", {}),
         "history": race.get("history", {}),
         "source_review": race.get("source_review", {}),
+        "race_format": race.get("race_format", {}),
         "weather": weather,
         "quotes": quotes,
     }
@@ -1405,7 +1420,7 @@ def build_race_intelligence(rd: dict, raw: dict) -> str:
     if not parts:
         return ""
 
-    return f'''<section class="gg-pk-section">
+    return f'''<section class="gg-pk-section" data-kit-section="briefing">
     <div class="gg-pk-section-header">
       <span class="gg-pk-section-num">00</span>
       <h2>Race Briefing</h2>
@@ -1453,7 +1468,7 @@ def build_pk_logistics(raw: dict, rd: dict) -> str:
     # Budget planning callout (Task 8)
     budget_html = build_budget_callout(raw, rd)
 
-    return f'''<section class="gg-pk-section">
+    return f'''<section class="gg-pk-section" data-kit-section="logistics">
     <div class="gg-pk-section-header">
       <span class="gg-pk-section-num">00</span>
       <h2>Travel &amp; Logistics</h2>
@@ -1785,6 +1800,144 @@ def build_budget_callout(raw: dict, rd: dict) -> str:
 # ── Section Builders ──────────────────────────────────────────
 
 
+def _finish_time_hours(value: str) -> Optional[float]:
+    """Return the midpoint of a published hour range, or its single value."""
+    numbers = [float(n) for n in re.findall(r"\d+(?:\.\d+)?", value or "")]
+    if not numbers:
+        return None
+    return sum(numbers[:2]) / min(len(numbers), 2)
+
+
+def get_kit_mode_variants(raw: dict) -> Optional[dict]:
+    """Return variants only for an explicit published fast/slow finish spread."""
+    race_format = raw.get("race_format", {})
+    times = race_format.get("typical_finish_times", {}) if isinstance(race_format, dict) else {}
+    if not isinstance(times, dict):
+        return None
+    racer = times.get("fastest")
+    finisher = times.get("slowest")
+    if not isinstance(racer, str) or not racer.strip() or not isinstance(finisher, str) or not finisher.strip():
+        return None
+    racer_hours = _finish_time_hours(racer)
+    finisher_hours = _finish_time_hours(finisher)
+    if racer_hours is None or finisher_hours is None:
+        return None
+    return {
+        "finisher": finisher,
+        "racer": racer,
+        "finisher_hours": finisher_hours,
+        "racer_hours": racer_hours,
+    }
+
+
+def build_kit_mode_toggle(raw: dict) -> str:
+    """Build a mode control only when the profile supplies both readings."""
+    variants = get_kit_mode_variants(raw)
+    if not variants:
+        return ""
+    return f'''<div class="gg-pk-mode" data-kit-mode-control>
+      <div class="gg-pk-mode-label">Typical finish window</div>
+      <div class="gg-pk-mode-buttons" role="group" aria-label="Prep kit goal">
+        <button type="button" data-kit-mode="finisher" aria-pressed="true">Finisher</button>
+        <button type="button" data-kit-mode="racer" aria-pressed="false">Racer</button>
+      </div>
+      <p class="gg-pk-mode-reading">
+        <span data-kit-mode-value="finisher" data-hours="{variants['finisher_hours']:g}">{esc(variants['finisher'])}</span>
+        <span data-kit-mode-value="racer" data-hours="{variants['racer_hours']:g}" hidden>{esc(variants['racer'])}</span>
+      </p>
+    </div>'''
+
+
+def build_runway_js(slug: str, race_name: str) -> str:
+    """Build progressive-enhancement JS with script-safe page data."""
+    page_data = _safe_json_for_script({"slug": slug, "raceName": race_name})
+    return """(function(){
+  'use strict';
+  var page=""" + page_data + """;
+  var root=document.getElementById('gg-pk-root');
+  var line=document.getElementById('gg-pk-runway-line');
+  if(!root||!line) return;
+  /* Single source of truth: mirrors Python classify_runway(). */
+  function classifyRunway(daysOut){
+    if(daysOut<0) return null;
+    if(daysOut<=10) return 'race-week';
+    if(daysOut<=56) return 'triage';
+    if(daysOut<=112) return 'sharpen';
+    return 'build';
+  }
+  function setCollapsed(section,collapsed,note){
+    if(!section) return;
+    section.classList.toggle('gg-pk-section--collapsed',collapsed);
+    var button=section.querySelector('.gg-pk-collapse-toggle');
+    if(!button){
+      button=document.createElement('button');
+      button.type='button';
+      button.className='gg-pk-collapse-toggle';
+      button.addEventListener('click',function(){
+        var closed=section.classList.toggle('gg-pk-section--collapsed');
+        button.setAttribute('aria-expanded',String(!closed));
+        button.textContent=closed?(button.getAttribute('data-collapsed-label')||'Show section'):'Hide section';
+      });
+      section.querySelector('.gg-pk-section-header').appendChild(button);
+    }
+    button.setAttribute('data-collapsed-label',note||'Show section');
+    button.textContent=collapsed?(note||'Show section'):'Hide section';
+    button.setAttribute('aria-expanded',String(!collapsed));
+  }
+  fetch('/wp-content/uploads/race-dates.json',{credentials:'same-origin'})
+    .then(function(response){if(!response.ok) throw new Error('date fetch');return response.json();})
+    .then(function(dates){
+      var raw=dates&&dates[page.slug];
+      if(typeof raw!=='string') return;
+      var raceDate=new Date(raw+'T12:00:00');
+      if(isNaN(raceDate.getTime())) return;
+      var now=new Date();
+      var today=new Date(now.getFullYear(),now.getMonth(),now.getDate(),12);
+      var days=Math.ceil((raceDate-today)/86400000);
+      var runway=classifyRunway(days);
+      if(!runway) return;
+      root.setAttribute('data-runway',runway);
+      var gated=document.getElementById('gg-pk-gated-content');
+      if(gated&&gated.style.display!=='none') gated.style.display='flex';
+      var weeks=Math.max(0,Math.round(days/7));
+      line.textContent=page.raceName+' is '+weeks+' week'+(weeks===1?'':'s')+' out.';
+      line.hidden=false;
+      var sections=root.querySelectorAll('[data-kit-section]');
+      sections.forEach(function(section){
+        var kind=section.getAttribute('data-kit-section');
+        var collapsed=runway==='race-week'&&!['race-week','equipment','morning'].includes(kind);
+        var note='Show section';
+        if(runway==='triage'&&kind==='training'){
+          collapsed=true;
+          note=weeks+' weeks out, the plan you have is the plan — sharpen, don\'t rebuild';
+        }
+        setCollapsed(section,collapsed,note);
+      });
+    }).catch(function(){/* Unknown runway intentionally preserves current page. */});
+
+  var stored='finisher';
+  try{stored=localStorage.getItem('gg_kit_mode')||'finisher';}catch(e){}
+  if(stored!=='racer') stored='finisher';
+  function setMode(mode){
+    root.setAttribute('data-kit-mode',mode);
+    root.querySelectorAll('button[data-kit-mode]').forEach(function(button){
+      button.setAttribute('aria-pressed',String(button.getAttribute('data-kit-mode')===mode));
+    });
+    root.querySelectorAll('[data-kit-mode-value]').forEach(function(value){
+      value.hidden=value.getAttribute('data-kit-mode-value')!==mode;
+    });
+    var selected=root.querySelector('[data-kit-mode-value="'+mode+'"]');
+    var hours=document.getElementById('gg-pk-hours');
+    if(selected&&hours&&selected.getAttribute('data-hours')) hours.value=selected.getAttribute('data-hours');
+    try{localStorage.setItem('gg_kit_mode',mode);}catch(e){}
+  }
+  root.querySelectorAll('button[data-kit-mode]').forEach(function(button){
+    button.addEventListener('click',function(){setMode(button.getAttribute('data-kit-mode'));});
+  });
+  if(root.querySelector('[data-kit-mode-control]')) setMode(stored);
+})();"""
+
+
 def build_pk_header(rd: dict, raw: dict) -> str:
     """Build header with race name and vitals ribbon."""
     name = esc(rd["name"])
@@ -1809,6 +1962,7 @@ def build_pk_header(rd: dict, raw: dict) -> str:
     <div class="gg-pk-header-badge">{tier_label} PREP KIT</div>
     <h1 class="gg-pk-header-title">{name}</h1>
     <p class="gg-pk-header-subtitle">12-Week Training Timeline &bull; Race-Day Checklists &bull; Packing List</p>
+    <p class="gg-pk-runway-line" id="gg-pk-runway-line" hidden></p>
     {ribbon}
   </header>'''
 
@@ -1851,7 +2005,7 @@ def build_pk_training_timeline(guide_sections: dict, raw: dict, rd: dict) -> str
         quotes, criteria_filter=["elevation", "technicality", "climate"], max_quotes=2
     )
 
-    return f'''<section class="gg-pk-section">
+    return f'''<section class="gg-pk-section" data-kit-section="training">
     <div class="gg-pk-section-header">
       <span class="gg-pk-section-num">01</span>
       <h2>12-Week Training Timeline</h2>
@@ -1882,7 +2036,7 @@ def build_pk_non_negotiables(raw: dict) -> str:
         <p class="gg-pk-nn-why">{why}</p>
       </div>''')
 
-    return f'''<section class="gg-pk-section">
+    return f'''<section class="gg-pk-section" data-kit-section="training">
     <div class="gg-pk-section-header">
       <span class="gg-pk-section-num">02</span>
       <h2>Race-Specific Non-Negotiables</h2>
@@ -1919,7 +2073,7 @@ def build_pk_race_week(guide_sections: dict, raw: dict) -> str:
         <p><strong>Expected Conditions:</strong> {esc(weather)}</p>
       </div>'''
 
-    return f'''<section class="gg-pk-section">
+    return f'''<section class="gg-pk-section" data-kit-section="race-week">
     <div class="gg-pk-section-header">
       <span class="gg-pk-section-num">03</span>
       <h2>Race Week Countdown</h2>
@@ -1978,7 +2132,7 @@ def build_pk_equipment(guide_sections: dict, raw: dict, rd: dict) -> str:
             '</div>'
         )
 
-    return f'''<section class="gg-pk-section">
+    return f'''<section class="gg-pk-section" data-kit-section="equipment">
     <div class="gg-pk-section-header">
       <span class="gg-pk-section-num">04</span>
       <h2>Equipment &amp; Packing Checklist</h2>
@@ -2015,7 +2169,7 @@ def build_pk_race_morning(guide_sections: dict, rd: dict) -> str:
         <p><strong>{esc(rd["name"])} Start Time:</strong> {esc(start_time)}.{wake_line}</p>
       </div>'''
 
-    return f'''<section class="gg-pk-section">
+    return f'''<section class="gg-pk-section" data-kit-section="morning">
     <div class="gg-pk-section-header">
       <span class="gg-pk-section-num">05</span>
       <h2>Race Morning Protocol</h2>
@@ -2028,6 +2182,10 @@ def build_pk_race_morning(guide_sections: dict, rd: dict) -> str:
 def build_pk_fueling(guide_sections: dict, raw: dict, rd: dict) -> str:
     """Build Section 6: Race-Day Fueling (race-day nutrition + gut training)."""
     parts = []
+
+    mode_toggle = build_kit_mode_toggle(raw)
+    if mode_toggle:
+        parts.append(mode_toggle)
 
     # Distance-adjusted fueling estimate (duration-scaled carb rates)
     distance_mi = rd["vitals"].get("distance_mi", 0)
@@ -2112,7 +2270,7 @@ def build_pk_fueling(guide_sections: dict, raw: dict, rd: dict) -> str:
     if not parts:
         return ""
 
-    return f'''<section class="gg-pk-section">
+    return f'''<section class="gg-pk-section" data-kit-section="fueling">
     <div class="gg-pk-section-header">
       <span class="gg-pk-section-num">06</span>
       <h2>Race-Day Fueling</h2>
@@ -2157,7 +2315,7 @@ def build_pk_decision_tree(guide_sections: dict, rd: dict) -> str:
         <ul>{zone_items}</ul>
       </div>'''
 
-    return f'''<section class="gg-pk-section">
+    return f'''<section class="gg-pk-section" data-kit-section="decision">
     <div class="gg-pk-section-header">
       <span class="gg-pk-section-num">07</span>
       <h2>In-Race Decision Tree</h2>
@@ -2182,7 +2340,7 @@ def build_pk_recovery(guide_sections: dict) -> str:
     if not process_block:
         return ""
 
-    return f'''<section class="gg-pk-section">
+    return f'''<section class="gg-pk-section" data-kit-section="recovery">
     <div class="gg-pk-section-header">
       <span class="gg-pk-section-num">08</span>
       <h2>Post-Race Recovery</h2>
@@ -2225,6 +2383,7 @@ def build_prep_kit_css() -> str:
 .gg-pk-header-badge{display:inline-block;font-family:var(--gg-font-data);font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;background:var(--gg-color-near-black);color:var(--gg-color-warm-paper);padding:4px 12px;margin-bottom:12px}
 .gg-pk-header-title{font-family:var(--gg-font-data);font-size:32px;font-weight:700;text-transform:uppercase;letter-spacing:2px;margin:0 0 8px;color:var(--gg-color-near-black)}
 .gg-pk-header-subtitle{font-family:var(--gg-font-data);font-size:13px;color:var(--gg-color-secondary-brown);margin:0 0 16px;letter-spacing:1px}
+.gg-pk-runway-line{font-family:var(--gg-font-editorial);font-size:15px;font-weight:600;color:var(--gg-color-primary-brown);margin:0 0 16px}
 .gg-pk-vitals-ribbon{display:flex;flex-wrap:wrap;justify-content:center;gap:16px;padding-top:16px;border-top:2px solid var(--gg-color-tan)}
 .gg-pk-stat{font-family:var(--gg-font-data);font-size:13px;color:var(--gg-color-primary-brown)}
 
@@ -2234,6 +2393,32 @@ def build_prep_kit_css() -> str:
 .gg-pk-section-num{font-family:var(--gg-font-data);font-size:14px;font-weight:700;color:var(--gg-color-teal);letter-spacing:1px}
 .gg-pk-section-header h2{font-family:var(--gg-font-data);font-size:18px;font-weight:700;text-transform:uppercase;letter-spacing:1px;margin:0;color:var(--gg-color-near-black)}
 .gg-pk-subsection-title{font-family:var(--gg-font-data);font-size:14px;font-weight:700;text-transform:uppercase;letter-spacing:2px;margin:24px 0 12px;color:var(--gg-color-primary-brown)}
+.gg-pk-collapse-toggle{margin-left:auto;padding:6px 8px;border:2px solid var(--gg-color-near-black);background:var(--gg-color-warm-paper);color:var(--gg-color-near-black);font-family:var(--gg-font-data);font-size:10px;font-weight:700;text-align:right;cursor:pointer}
+.gg-pk-section--collapsed>:not(.gg-pk-section-header){display:none}
+[data-runway] .gg-pk-gated-content{flex-direction:column}
+[data-runway] [data-kit-section]{order:50}
+[data-runway] .gg-pk-footer{order:100}
+[data-runway="build"] [data-kit-section="training"]{order:1}
+[data-runway="build"] [data-kit-section="briefing"]{order:2}
+[data-runway="sharpen"] [data-kit-section="fueling"]{order:1}
+[data-runway="sharpen"] [data-kit-section="briefing"]{order:2}
+[data-runway="sharpen"] [data-kit-section="training"]{order:3}
+[data-runway="triage"] [data-kit-section="logistics"]{order:1}
+[data-runway="triage"] [data-kit-section="fueling"]{order:2}
+[data-runway="triage"] [data-kit-section="equipment"]{order:3}
+[data-runway="triage"] [data-kit-section="race-week"]{order:4}
+[data-runway="race-week"] [data-kit-section="equipment"]{order:1}
+[data-runway="race-week"] [data-kit-section="race-week"]{order:2}
+[data-runway="race-week"] [data-kit-section="morning"]{order:3}
+
+/* Goal toggle appears only for profiles with a published finish-time spread. */
+.gg-pk-mode{border:2px solid var(--gg-color-near-black);padding:16px;margin:0 0 20px;background:var(--gg-color-white)}
+.gg-pk-mode-label{font-family:var(--gg-font-data);font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:8px}
+.gg-pk-mode-buttons{display:flex}
+.gg-pk-mode-buttons button{border:2px solid var(--gg-color-near-black);background:var(--gg-color-warm-paper);color:var(--gg-color-near-black);padding:8px 14px;font-family:var(--gg-font-data);font-weight:700;text-transform:uppercase;cursor:pointer}
+.gg-pk-mode-buttons button+button{border-left:0}
+.gg-pk-mode-buttons button[aria-pressed="true"]{background:var(--gg-color-near-black);color:var(--gg-color-warm-paper)}
+.gg-pk-mode-reading{margin:10px 0 0;font-family:var(--gg-font-editorial);font-size:14px}
 
 /* ── Non-Negotiable Cards ── */
 .gg-pk-nn-grid{display:grid;gap:16px}
@@ -2487,7 +2672,8 @@ document.querySelectorAll('a[data-cta]').forEach(function(el){
 
   function unlockContent(email){
     gate.style.display='none';
-    content.style.display='block';
+    var root=document.getElementById('gg-pk-root');
+    content.style.display=root&&root.hasAttribute('data-runway')?'flex':'block';
     /* Pre-fill fueling calculator email if present */
     var calcEmail=document.getElementById('gg-pk-email');
     if(calcEmail&&email) calcEmail.value=email;
@@ -2942,6 +3128,7 @@ def generate_prep_kit_page(rd: dict, raw: dict, guide_sections: dict) -> str:
     preload = get_preload_hints("/race/assets/fonts")
     pk_css = build_prep_kit_css()
     js = build_prep_kit_js()
+    runway_js = build_runway_js(slug, name)
 
     meta_desc = f"Free race prep kit for {name}: 12-week training timeline, race-day checklists, packing list, and fueling strategy."
     title = f"Free {name} Prep Kit: 12-Week Plan, Checklists & Fueling | Gravel God"
@@ -2979,9 +3166,12 @@ def generate_prep_kit_page(rd: dict, raw: dict, guide_sections: dict) -> str:
   {get_ga4_head_snippet()}
 </head>
 <body>
-<div class="gg-pk-page">
+<div class="gg-pk-page" id="gg-pk-root">
 {body}
 </div>
+<script>
+{runway_js}
+</script>
 <script>
 {js}
 </script>

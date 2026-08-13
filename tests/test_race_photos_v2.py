@@ -513,4 +513,7 @@ class TestRealRaceData:
         # Floor re-pinned 189->188 (Aug 13 2026): UCI Gravel Worlds moved
         # from Limburg to Nannup; the 2025 RWGPS route was retired while the
         # organizer's final 2026 GPX remains unpublished.
-        assert rwgps_count >= 188, f"Expected >=188 current RWGPS routes, got {rwgps_count}"
+        # Floor re-pinned 188->187 (Aug 13 2026): Coast to Coast's profile
+        # carried an explicitly autotraced 2024 RWGPS geometry. The organizer
+        # publishes current GPX/TCX files directly but no verified RWGPS ID.
+        assert rwgps_count >= 187, f"Expected >=187 current RWGPS routes, got {rwgps_count}"

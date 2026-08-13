@@ -10,11 +10,11 @@
     300
   ],
   "estimated_duration_sec": 225,
-  "estimated_spoken_words": 122,
+  "estimated_spoken_words": 121,
   "story_arc": "expose: pitch → reality → data → verdict",
   "primary_trope": {
     "name": "tier_reveal",
-    "hook_text": "328 races. 14 dimensions. Where does Gravel Fever land?",
+    "hook_text": "328 races. 15 dimensions. Where does Gravel Fever land?",
     "mechanism": "Countdown / ranking — inherent escalation and social comparison."
   },
   "retention_targets": {
@@ -120,7 +120,7 @@
         "strengths": [
           "French countryside scenery",
           "French cycling community",
-          "French mild summer weather",
+          "A proven multi-format festival concept",
           "Regional pricing",
           "Countryside setting"
         ]
@@ -181,9 +181,9 @@
       "content_data": {
         "weaknesses": [
           "Central France access (moderate)",
-          "Moderate organization",
-          "Regional field only",
-          "Moderate rolling only",
+          "The 2026 edition was cancelled",
+          "No replacement host or future date",
+          "No current route or registration",
           "Limited international recognition"
         ]
       },
@@ -236,7 +236,7 @@
       "label": "THE BOTTOM LINE",
       "time_range": "2:50-3:30",
       "duration_sec": 40,
-      "narration": "A solid regional French gravel race with rolling countryside. Worth it for French/European cyclists. Not a destination race for international travelers.",
+      "narration": "Keep the historical profile, but do not book travel or buy a race-dated plan: Gravel Fever has no current edition.",
       "text_on_screen": "French Countryside Rolling Gravel — 46/100",
       "visual": "Verdict card + final tier badge",
       "avatar_pose": "thinking",
@@ -254,14 +254,14 @@
         25
       ],
       "editing_note": "PAYOFF. Close the open loop from the hook. Avatar delivers final take directly to camera. End ABRUPTLY — never signal 'we're wrapping up.' MrBeast rule: cut to CTA mid-energy.",
-      "narration_wpm": 31.5
+      "narration_wpm": 30.0
     },
     {
       "id": "cta",
       "label": "CTA",
       "time_range": "3:30-3:45",
       "duration_sec": 15,
-      "narration": "Full breakdown. All 14 dimensions. Free prep kit. Link in bio.",
+      "narration": "Full breakdown. All 15 dimensions. Free prep kit. Link in bio.",
       "text_on_screen": "gravelgodcycling.com/race/gravel-fever",
       "visual": "URL overlay + engagement question",
       "avatar_pose": "pointing",
@@ -300,9 +300,9 @@
   ],
   "thumbnail_prompt": "South Park style flat cutout character, dramatic reveal pose, tier badge prominent, 'Gravel Fever' bold text, tier badge 'SOLID', high contrast red/yellow/white, cycling gear, handlebar mustache --ar 16:9 --cref [CHARACTER_URL]",
   "narration_feasibility": {
-    "total_words": 122,
+    "total_words": 121,
     "total_duration_sec": 225,
-    "overall_wpm": 32.5,
+    "overall_wpm": 32.3,
     "warnings": [],
     "feasible": true
   },

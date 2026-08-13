@@ -84,6 +84,25 @@ class TestSeoMetadata:
         assert "111 mountainous." not in description
         assert len(description) <= 155
 
+    def test_word_truncated_meta_drops_dangling_function_word(self):
+        rd = {
+            "tagline": (
+                "The Châtellerault festival was cancelled for 2026 and has no "
+                "announced replacement host."
+            ),
+            "overall_score": 46,
+            "tier": 3,
+            "vitals": {"location": "Châtellerault, France"},
+        }
+
+        description = build_seo_description(rd)
+
+        assert "has no." not in description
+        assert description.startswith(
+            "The Châtellerault festival was cancelled for 2026 and has."
+        ) is False
+        assert len(description) <= 155
+
     def test_single_day_calendar_uses_exclusive_next_day_end(self, normalized_data):
         normalized_data["vitals"]["date_specific"] = (
             "2027: Friday, June 11 at 8:00 AM Mountain Time"
@@ -921,6 +940,25 @@ class TestSections:
         assert 'id="gg-date-reminder-form"' not in html
         assert f"{TRAINING_PLANS_URL}?race=test-gravel-100" not in html
         assert "/race/test-gravel-100/prep-kit/" not in html
+
+    def test_cancelled_page_suppresses_plan_and_prep_ctas(self, sample_race_data):
+        sample_race_data["race"]["taking_a_break"] = {
+            "label": "2026 CANCELLED",
+            "line": "Funding ended and no replacement host is announced.",
+        }
+        rd = normalize_race_data(sample_race_data)
+
+        html = generate_page(rd, [])
+
+        assert "2026 Cancelled" in html
+        assert "No race-specific plan is for sale yet" in html
+        assert "Funding ended and no replacement host is announced." in html
+        assert 'id="gg-sticky-cta"' not in html
+        assert 'id="prep-kit-capture"' not in html
+        assert 'id="gg-date-reminder-form"' not in html
+        assert f"{TRAINING_PLANS_URL}?race=test-gravel-100" not in html
+        assert "/race/test-gravel-100/prep-kit/" not in html
+        assert 'id="train-for-race"' not in html
 
     def test_noncompetitive_event_suppresses_race_and_plan_surfaces(self, sample_race_data):
         sample_race_data["race"]["eligibility"] = {

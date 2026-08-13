@@ -348,6 +348,18 @@ def build_seo_description(rd: dict) -> str:
             truncated = candidate[:clause_break].rstrip('.,;:—-')
         else:
             truncated = candidate.rsplit(' ', 1)[0].rstrip('.,;:—-')
+        # A complete clause can legitimately end in a short word ("no", "a",
+        # "the").  Word-boundary truncation cannot; avoid metadata such as
+        # "has no. Rated ..." by dropping the dangling word.
+        if clause_break <= 30 and truncated:
+            words = truncated.split()
+            dangling = {
+                'a', 'an', 'and', 'at', 'but', 'for', 'has', 'in', 'no', 'of',
+                'on', 'or', 'the', 'to', 'with',
+            }
+            while len(words) > 1 and words[-1].lower() in dangling:
+                words.pop()
+            truncated = ' '.join(words).rstrip('.,;:—-')
         return f"{truncated}.{suffix}"
 
     # Fallback: just tagline + score
@@ -3047,14 +3059,22 @@ def build_training(rd: dict) -> str:
         (rd.get('rider_intel', {}).get('gear_mentions', []), "text"),
     ])
 
-    if rd['vitals'].get('course_status') == 'source_blocked':
+    source_blocked = rd['vitals'].get('course_status') == 'source_blocked'
+    break_note = rd.get('taking_a_break') or {}
+    if source_blocked or break_note:
         official_site = rd.get('logistics', {}).get('official_site', '')
-        status_label = rd['vitals'].get('course_status_label') or 'COURSE DETAILS PENDING'
-        status_reason = rd['vitals'].get('course_status_reason') or (
-            'The organizer has confirmed the event, but not the exact distance, '
-            'elevation, route, aid plan, or cutoff. We will publish the '
-            'training-plan ladder after those details are official.'
-        )
+        if break_note:
+            status_label = break_note.get('label') or 'NO CURRENT EDITION'
+            status_reason = break_note.get('line') or (
+                'The organizer has not announced a current edition.'
+            )
+        else:
+            status_label = rd['vitals'].get('course_status_label') or 'COURSE DETAILS PENDING'
+            status_reason = rd['vitals'].get('course_status_reason') or (
+                'The organizer has confirmed the event, but not the exact distance, '
+                'elevation, route, aid plan, or cutoff. We will publish the '
+                'training-plan ladder after those details are official.'
+            )
         official_link = (
             f'<a href="{esc(official_site)}" class="gg-btn gg-btn--outline" '
             f'target="_blank" rel="noopener">CHECK OFFICIAL UPDATES</a>'
@@ -6309,7 +6329,9 @@ def generate_page(rd: dict, race_index: list = None, external_assets: dict = Non
     race_plan_eligible = rd.get('race_plan_eligible', True)
     racer_reviews = build_racer_reviews(rd) if race_plan_eligible else ''
     source_blocked = rd['vitals'].get('course_status') == 'source_blocked'
-    suppress_plan_marketing = source_blocked or not race_plan_eligible
+    suppress_plan_marketing = (
+        source_blocked or bool(rd.get('taking_a_break')) or not race_plan_eligible
+    )
     email_capture = '' if suppress_plan_marketing else build_email_capture(rd)
     visible_faq = build_visible_faq(rd)
     news = build_news_section(rd)

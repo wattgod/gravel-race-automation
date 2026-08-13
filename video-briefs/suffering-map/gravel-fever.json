@@ -10,7 +10,7 @@
     30
   ],
   "estimated_duration_sec": 34,
-  "estimated_spoken_words": 43,
+  "estimated_spoken_words": 77,
   "story_arc": "hook-sequential-zones-loop",
   "primary_trope": {
     "name": "countdown",
@@ -28,7 +28,7 @@
       "label": "HOOK",
       "time_range": "0:00-0:05",
       "duration_sec": 5,
-      "narration": "Here's where Gravel Fever breaks you. 65 mi. Zone by zone.",
+      "narration": "Here's where Gravel Fever breaks you. 96.4 mi. Zone by zone.",
       "text_on_screen": "Gravel Fever — Where It Hurts",
       "visual": "Full route map, then zoom into first zone",
       "avatar_pose": "suffering",
@@ -72,11 +72,11 @@
     },
     {
       "id": "zone_1",
-      "label": "ZONE 1: Mile 20",
+      "label": "ZONE 1: Mile 23.9",
       "time_range": "0:05-0:13",
       "duration_sec": 8,
-      "narration": "Mile 20. Early Rolling. First rolling sections.",
-      "text_on_screen": "MILE 20: Early Rolling",
+      "narration": "Mile 23.9. Historical first support point. The 2025 150 km page placed its first support zone near km 38.5.",
+      "text_on_screen": "MILE 23.9: Historical first support point",
       "visual": "Route map with zone marker animation",
       "avatar_pose": "pointing",
       "broll_sources": [
@@ -115,15 +115,15 @@
         3
       ],
       "editing_note": "Zone marker 1 appears on map. Progressive color intensity (green→yellow→red).",
-      "narration_wpm": 52.5
+      "narration_wpm": 142.5
     },
     {
       "id": "zone_2",
-      "label": "ZONE 2: Mile 35",
+      "label": "ZONE 2: Mile 41.8",
       "time_range": "0:13-0:21",
       "duration_sec": 8,
-      "narration": "Mile 35. Midpoint. Halfway through the course.",
-      "text_on_screen": "MILE 35: Midpoint",
+      "narration": "Mile 41.8. Historical second support point. The 2025 150 km page placed its second support zone near km 67.2.",
+      "text_on_screen": "MILE 41.8: Historical second support point",
       "visual": "Route map with zone marker animation",
       "avatar_pose": "pointing",
       "broll_sources": [
@@ -162,15 +162,15 @@
         3
       ],
       "editing_note": "Zone marker 2 appears on map. Progressive color intensity (green→yellow→red).",
-      "narration_wpm": 52.5
+      "narration_wpm": 142.5
     },
     {
       "id": "zone_3",
-      "label": "ZONE 3: Mile 55",
+      "label": "ZONE 3: Mile 68",
       "time_range": "0:21-0:29",
       "duration_sec": 8,
-      "narration": "Mile 55. Late Rolling. Final rolling sections before finish.",
-      "text_on_screen": "MILE 55: Late Rolling",
+      "narration": "Mile 68. Historical third support point. The 2025 150 km page placed its third support zone near km 109.5.",
+      "text_on_screen": "MILE 68: Historical third support point",
       "visual": "Route map with zone marker animation",
       "avatar_pose": "suffering",
       "broll_sources": [
@@ -209,7 +209,7 @@
         3
       ],
       "editing_note": "Zone marker 3 appears on map. Progressive color intensity (green→yellow→red). [RIFF HERE] after final zone reveal.",
-      "narration_wpm": 67.5
+      "narration_wpm": 142.5
     },
     {
       "id": "cta",
@@ -245,9 +245,9 @@
   "meme_inserts": [],
   "thumbnail_prompt": "South Park style cartoon cyclist in agony, route map background, red zone markers, 'Gravel Fever' text --ar 9:16 --cref [CHARACTER_URL]",
   "narration_feasibility": {
-    "total_words": 43,
+    "total_words": 77,
     "total_duration_sec": 34,
-    "overall_wpm": 75.9,
+    "overall_wpm": 135.9,
     "warnings": [],
     "feasible": true
   },

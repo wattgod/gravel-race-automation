@@ -1,40 +1,30 @@
 {
   "slug": "uci-gravel-worlds",
   "race_name": "UCI Gravel World Championships",
-  "distance_mi": 112.0,
+  "distance_mi": 88.9,
   "demands": {
-    "durability": 6,
-    "climbing": 8,
+    "durability": 4,
+    "climbing": 10,
     "vo2_power": 10,
     "threshold": 8,
     "technical": 8,
-    "heat_resilience": 6,
+    "heat_resilience": 0,
     "altitude": 2,
     "race_specificity": 10
   },
   "top_categories": [
     {
-      "category": "Durability",
-      "score": 100,
-      "workouts": [
-        "Tired VO2max",
-        "Double Day Simulation",
-        "Progressive Fatigue"
-      ],
-      "workout_context": "At mile 60 of 112, glycogen is gone. This workout teaches your body to produce watts on fumes."
-    },
-    {
       "category": "Gravel_Specific",
-      "score": 98,
+      "score": 100,
       "workouts": [
         "Surge and Settle",
         "Terrain Microbursts"
       ],
-      "workout_context": "UCI Gravel World Championships' Gravel (70%), Paved roads (30%) forces constant power changes. Surge over the rough stuff, settle on the smooth, repeat for 112 miles."
+      "workout_context": "UCI Gravel World Championships' Minimum 80% gravel, Blackwood Valley forest and farm roads forces constant power changes. Surge over the rough stuff, settle on the smooth, repeat for 88 miles."
     },
     {
       "category": "Race_Simulation",
-      "score": 93,
+      "score": 95,
       "workouts": [
         "Breakaway Simulation",
         "Variable Pace Chaos",
@@ -44,27 +34,17 @@
     },
     {
       "category": "TT_Threshold",
-      "score": 80,
+      "score": 89,
       "workouts": [
         "Single Sustained Threshold",
         "Threshold Ramps",
         "Descending Threshold"
       ],
-      "workout_context": "73ft/mi means long efforts at or near FTP on every climb. If your threshold cracks at minute 15, you'll walk the rest."
-    },
-    {
-      "category": "VO2max",
-      "score": 78,
-      "workouts": [
-        "5x3 VO2 Classic",
-        "Descending VO2 Pyramid",
-        "Norwegian 4x8"
-      ],
-      "workout_context": "8,202ft of climbing means repeated surges above threshold. VO2max work is how you survive the fifth climb, not just the first."
+      "workout_context": "137ft/mi means long efforts at or near FTP on every climb. If your threshold cracks at minute 15, you'll walk the rest."
     },
     {
       "category": "Over_Under",
-      "score": 71,
+      "score": 84,
       "workouts": [
         "Classic Over-Unders",
         "Ladder Over-Unders"
@@ -72,8 +52,18 @@
       "workout_context": "At UCI Gravel World Championships, surges push you above threshold and you have to recover while still riding. Over-unders train exactly that."
     },
     {
+      "category": "VO2max",
+      "score": 80,
+      "workouts": [
+        "5x3 VO2 Classic",
+        "Descending VO2 Pyramid",
+        "Norwegian 4x8"
+      ],
+      "workout_context": "12,182ft of climbing means repeated surges above threshold. VO2max work is how you survive the fifth climb, not just the first."
+    },
+    {
       "category": "Critical_Power",
-      "score": 69,
+      "score": 70,
       "workouts": [
         "Above CP Repeats",
         "W-Prime Depletion"
@@ -81,8 +71,17 @@
       "workout_context": "How long can you hold 105% FTP before you blow? At UCI Gravel World Championships, that number decides whether you bridge or get dropped."
     },
     {
+      "category": "Mixed_Climbing",
+      "score": 68,
+      "workouts": [
+        "Seated/Standing Climbs",
+        "Variable Grade Simulation"
+      ],
+      "workout_context": "12,182ft of climbing on grades that change every minute. You need to switch from seated to standing without losing rhythm."
+    },
+    {
       "category": "G_Spot",
-      "score": 62,
+      "score": 68,
       "workouts": [
         "G-Spot Standard",
         "G-Spot Extended",
@@ -92,47 +91,46 @@
     },
     {
       "category": "Anaerobic_Capacity",
-      "score": 62,
+      "score": 64,
       "workouts": [
         "2min Killers",
         "90sec Repeats"
       ],
-      "workout_context": "Short, max efforts are unavoidable. Punchy climbs, gap closures, attacks on varies by location\u2014rolling technical terrain. If you haven't trained them, you'll crack."
+      "workout_context": "Short, max efforts are unavoidable. Punchy climbs, gap closures, attacks on undulating Blackwood Valley gravel and repeated. If you haven't trained them, you'll crack."
     },
     {
-      "category": "Endurance",
-      "score": 53,
+      "category": "Durability",
+      "score": 61,
       "workouts": [
-        "Pre-Race Openers",
-        "Terrain Simulation Z2"
+        "Tired VO2max",
+        "Double Day Simulation",
+        "Progressive Fatigue"
       ],
-      "workout_context": "Every hard session works better with a bigger aerobic base. At 112 miles, base fitness is the difference between racing and surviving."
+      "workout_context": "At mile 60 of 88, glycogen is gone. This workout teaches your body to produce watts on fumes."
     },
     {
-      "category": "Mixed_Climbing",
-      "score": 53,
+      "category": "SFR_Muscle_Force",
+      "score": 45,
       "workouts": [
-        "Seated/Standing Climbs",
-        "Variable Grade Simulation"
+        "SFR Low Cadence",
+        "Force Repeats"
       ],
-      "workout_context": "8,202ft of climbing on grades that change every minute. You need to switch from seated to standing without losing rhythm."
+      "workout_context": "Low-cadence force work for 12,182ft of climbing. The slow, grinding ascents where you can't spin\u2014you push."
     },
     {
-      "category": "HVLI_Extended",
-      "score": 47,
+      "category": "Blended",
+      "score": 36,
       "workouts": [
-        "HVLI Extended Z2",
-        "Multi-Hour Z2",
-        "Back-to-Back Long"
+        "Z2 + VO2 Combo",
+        "Endurance with Spikes"
       ],
-      "workout_context": "112 miles rewards fat oxidation. This volume work shifts your fuel mix so you're still burning fat at hour 5, not bonking at hour 3."
+      "workout_context": "Endurance with intensity spikes baked in. Exactly what 12,182ft of climbing on undulating Blackwood Valley gravel and repeated does to your power file on race day."
     }
   ],
   "race_overlay": {
-    "heat": "October in Rotating (2024: Heerlen, Netherlands) can bring heat. Complete 3\u20134 heat exposure sessions in the final 2 weeks before UCI Gravel World Championships. Increase sodium intake 48 hours before race day.",
-    "nutrition": "Target 60\u201380g carbs/hour for UCI Gravel World Championships\u2019s 112 miles. Start fueling within the first 30 minutes \u2014 early fueling prevents late-race collapse. Bonking at mile 60 is a nutrition failure, not a fitness failure.",
-    "terrain": "Highly technical terrain at UCI Gravel World Championships demands practice on similar surfaces. Ride varies by location\u2014rolling technical terrain at race-day cadence weekly. Expect: gravel (70%), paved roads (30%), varies by location. Practice cornering, descending, and power delivery on unstable surfaces. Dial in tire pressure before race week \u2014 5 PSI wrong costs you 15+ minutes over 112 miles."
+    "nutrition": "Target 60\u201380g carbs/hour for UCI Gravel World Championships\u2019s 88 miles. Start fueling within the first 30 minutes \u2014 early fueling prevents late-race collapse. Bonking at mile 60 is a nutrition failure, not a fitness failure.",
+    "terrain": "Highly technical terrain at UCI Gravel World Championships demands practice on similar surfaces. Ride undulating blackwood valley gravel and repeated steep climbs at race-day cadence weekly. Expect: minimum 80% gravel, blackwood valley forest and farm roads, short, steep repeated climbs. Practice cornering, descending, and power delivery on unstable surfaces. Dial in tire pressure before race week \u2014 5 PSI wrong costs you 15+ minutes over 88 miles."
   },
-  "pack_summary": "This 10-workout pack focuses on Durability, Gravel Specific, and Race Simulation to prepare you for 112 miles of varies by location\u2014rolling technical terrain in Rotating (2024: Heerlen, Netherlands).",
-  "generated_at": "2026-03-06"
+  "pack_summary": "This 10-workout pack focuses on Gravel Specific, Race Simulation, and TT Threshold to prepare you for 88 miles of undulating blackwood valley gravel and repeated steep climbs in Nannup, Western Australia, Australia.",
+  "generated_at": "2026-08-13"
 }

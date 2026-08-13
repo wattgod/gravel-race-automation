@@ -3,62 +3,74 @@
     "name": "UCI Gravel World Championships",
     "slug": "uci-gravel-worlds",
     "display_name": "UCI Gravel World Championships",
-    "tagline": "UCI World Championship—180km elite, rainbow jersey, fastest field in gravel, rotating locations.",
+    "tagline": "The rainbow-jersey race comes to Nannup: steep, closely spaced climbs on Western Australia's Blackwood Valley gravel.",
     "vitals": {
-      "distance_mi": 112,
-      "elevation_ft": 8202,
-      "location": "Rotating (2024: Heerlen, Netherlands)",
-      "location_badge": "ROTATING LOCATION",
-      "county": "Varies",
+      "distance_km": 143,
+      "distance_mi": 88.9,
+      "elevation_m": 3713,
+      "elevation_ft": 12182,
+      "location": "Nannup, Western Australia, Australia",
+      "location_badge": "NANNUP, AUSTRALIA",
+      "county": "South West Region",
+      "country": "Australia",
       "date": "October annually",
-      "date_specific": "2026: October 10-11 (Nannup, Western Australia)",
+      "date_specific": "2026: October 10-11; elite men and men 19-49 race Sunday, October 11",
       "terrain_types": [
-        "Gravel (70%)",
-        "Paved roads (30%)",
-        "Varies by location",
-        "Technical sections"
+        "Minimum 80% gravel",
+        "Blackwood Valley forest and farm roads",
+        "Short, steep repeated climbs",
+        "9 km paved opening section"
       ],
-      "field_size": "1,000+ riders (elite + age group)",
-      "start_time": "Morning",
-      "registration": "UCI license required. Cost: €100-€150 (~$110-$165 USD)",
+      "field_size": "Not published",
+      "start_time": "10:00 AM; age-group waves follow from 10:20 AM",
+      "start_format": "Saturday: elite women, men 50+, and women's age groups. Sunday: elite men and men 19-49.",
+      "registration": "Qualification required. Qualified riders receive an official UCI invitation and registration link by email.",
+      "entry_fee": "Not published on the cited official pages",
       "prize_purse": "World Championship medals + rainbow jersey",
-      "aid_stations": "Multiple on course",
-      "cutoff_time": "Varies by category",
-      "lat": 45.2083,
-      "lng": 5.7148
+      "aid_stations": "Not yet published in the technical guide",
+      "cutoff_time": "Not yet published in the technical guide",
+      "lat": -33.9784,
+      "lng": 115.7638,
+      "start_elevation_asl_ft": 328,
+      "max_elevation_asl_ft": 984,
+      "route_options": [
+        "Long: 143 km / 88.9 mi with 3,713 m / 12,182 ft — elite men and men 19-49",
+        "Medium: 125 km / 77.7 mi with 3,177 m / 10,423 ft — men 50-64, elite women, and women 19-49",
+        "Short: 90 km / 55.9 mi with 2,030 m / 6,660 ft — men 65+ and women 50+"
+      ]
     },
     "climate": {
-      "primary": "Autumn (varies by location)",
-      "description": "October: 10-20°C, 40% rain chance, autumn conditions.",
+      "primary": "Western Australian spring—cool start, mild afternoon",
+      "description": "The organizer lists average October minimum and maximum temperatures of 10-21°C (49-69°F). The race stays at low altitude, between roughly 100 and 300 metres above sea level.",
       "challenges": [
-        "Cold (10-20°C)",
-        "Rain risk (40%)",
-        "Autumn weather variability",
-        "Varies by location"
+        "Cool 10°C / 49°F morning potential",
+        "Temperature change through a long race",
+        "Remote forest exposure",
+        "Limited resupply outside official race support"
       ]
     },
     "terrain": {
-      "primary": "Varies by location—rolling technical terrain",
-      "surface": "70% gravel, 30% paved roads. Varies by location. 2024 Heerlen (Netherlands)—rolling terrain, technical sections. 2022-2023 Italy—strade bianche. 180 km elite, 140 km age group. 2,500 m elevation (elite). Technical rating: 4/5.",
+      "primary": "Undulating Blackwood Valley gravel and repeated steep climbs",
+      "surface": "At least 80% gravel across varied unpaved surfaces. A 9 km undulating paved opening section returns between 36 km and 27 km to go; the long course adds an eastern loop before every category finishes on the same 27 km southern loop.",
       "technical_rating": 4,
       "features": [
         "UCI World Championship",
-        "Rotating locations (international)",
+        "First UCI Gravel Worlds held outside Europe",
         "Rainbow jersey",
-        "Elite + age group categories",
-        "Fastest field in gravel",
-        "UCI license required"
+        "143 km long course with 3,713 m of climbing",
+        "Minimum 80% gravel",
+        "Short, steep climbs with little recovery"
       ]
     },
     "gravel_god_rating": {
-      "overall_score": 90,
+      "overall_score": 83,
       "tier": 1,
       "tier_label": "TIER 1",
-      "logistics": 3,
-      "length": 5,
+      "logistics": 4,
+      "length": 3,
       "technicality": 4,
-      "elevation": 4,
-      "climate": 4,
+      "elevation": 5,
+      "climate": 2,
       "altitude": 1,
       "adventure": 5,
       "prestige": 5,
@@ -66,95 +78,104 @@
       "experience": 5,
       "community": 5,
       "field_depth": 5,
-      "value": 4,
-      "expenses": 3,
+      "value": 3,
+      "expenses": 1,
       "discipline": "gravel",
       "display_tier": 1,
       "cultural_impact": 5
     },
     "biased_opinion": {
       "verdict": "UCI World Championship—Rainbow Jersey",
-      "summary": "UCI Gravel World Championships is World Championship—180 km elite, 140 km age group. Founded 2022. 70% gravel, 30% paved. Rotating locations (2022-2023 Italy, 2024 Netherlands). 1,000+ riders (elite + age group). October autumn conditions (10-20°C, 40% rain). UCI license required (€100-€150 / $110-$165). If you want World Championship rainbow jersey and fastest field in gravel, this is it. If you need domestic/local race, skip it. International destination, prestige 5.",
+      "summary": "The 2026 UCI Gravel World Championships bring the rainbow-jersey race to Nannup for the first edition outside Europe. The primary men's long course is a provisional 143 km with 3,713 m of climbing and at least 80% gravel; other categories race 125 km or 90 km. Qualification is mandatory. This is a world-title start line on a genuinely severe climbing course, not an open-entry destination fondo.",
       "strengths": [
         "UCI World Championship (prestige 5)",
         "Rainbow jersey (elite winners)",
         "Fastest field in gravel (van der Poel, Vos, Vermeersch, Ferrand-Prévot)",
         "Elite + age group categories",
-        "Rotating international locations",
+        "First edition outside Europe",
         "Well-organized (UCI)",
         "World Championship podium ceremony"
       ],
       "weaknesses": [
         "UCI license required",
-        "International travel (rotating locations)",
-        "Long distance (180 km elite)",
-        "Weather (October rain 40%, cold)",
-        "20-30% DNF (elite)",
-        "Expensive (€100-€150 + travel)"
+        "Remote Western Australia travel",
+        "Qualification required",
+        "3,713 m of climbing on the long course",
+        "Final GPX and technical guide are still pending",
+        "Category-dependent course and race day"
       ],
-      "bottom_line": "UCI Gravel Worlds is World Championship. 180 km elite, rainbow jersey, fastest field in gravel. If you want World Championship prestige and UCI license, this is it. If you need domestic/local, skip it. International travel required but World Championship makes it worth it. Elite + age group categories."
+      "bottom_line": "If you qualified, Nannup is the assignment: prepare for dense climbing, remote gravel, and a world-title field. If you did not qualify, this is not a race you can simply add to the calendar."
     },
     "logistics": {
-      "nearest_airport": "Varies by location. 2024 Heerlen: Maastricht (MST) or Düsseldorf (DUS) — 30-50 km",
-      "alternate_airports": "Varies by location",
-      "lodging_note": "Varies by location. Book early.",
-      "parking": "Check UCI website",
-      "packet_pickup": "Multi-day expo. Check UCI website.",
-      "travel_summary": "Rotating locations. Check UCI website for current year location. International travel required. Book flights and lodging early. Multi-day expo. Race October. World Championship podium ceremony.",
-      "food_options": "Aid stations on course. World Championship expo and post-race ceremony.",
-      "camping": "Check UCI website",
-      "official_site": "https://www.uci.org"
+      "nearest_airport": "Perth Airport (PER) — approximately 285 km / 3 hours by car to Nannup",
+      "alternate_airports": "Busselton Margaret River Airport — approximately 50 km / 45 minutes by car to Nannup",
+      "lodging_note": "Busselton is the event hub and main accommodation centre, about 60 km / 45 minutes from the Nannup race course. Bridgetown and Manjimup are additional regional bases.",
+      "parking": "Final race-village parking instructions are pending the technical guide.",
+      "packet_pickup": "Registration is at Saltwater Busselton from 9:00 AM-5:00 PM Thursday, October 8, with late registration at the Nannup race village from 3:00-5:00 PM Friday, October 9.",
+      "travel_summary": "International riders fly to Perth, then drive about three hours to Nannup or base in Busselton. A rental car or organized event transport is the practical choice; the course is remote and the organizer advises offline maps and Telstra coverage for training rides.",
+      "food_options": "Nannup has cafes, a grocery store, bakery, and brewery, but on-course resupply details are pending the technical guide.",
+      "camping": "An event campground is planned; booking details are pending.",
+      "official_site": "https://gravelchampswesternaustralia.com/"
     },
     "course_description": {
-      "character": "180 km elite, 140 km age group. 70% gravel, 30% paved. Varies by location. Technical rating: 4/5.",
+      "character": "The long course packs 3,713 metres of climbing into 143 kilometres. The organizer describes wide gravel roads, varied unpaved surfaces, and climbs that are seldom long but arrive steeply and in quick succession. All categories share the same start, finish, and final 27 km southern loop.",
       "suffering_zones": [
         {
-          "name": "Throughout: World Championship Pace",
-          "miles": "0-180",
-          "description": "Fastest field in gravel. World Championship level racing. Elite pace is brutal.",
-          "survival_strategy": "Pace conservatively. World Championship field is fast. Focus on finishing. Elite = 180 km long."
+          "mile": 6,
+          "label": "End of the paved opener",
+          "desc": "Nine undulating paved kilometres invite a fast, nervous start before the race commits to the gravel.",
+          "terrain_detail": "Undulating pavement into gravel",
+          "named_section": "Opening sector"
         },
         {
-          "name": "Throughout: October Weather",
-          "miles": "0-180",
-          "description": "October = 40% rain, 10-20°C. Cold + wet = hypothermia risk.",
-          "survival_strategy": "Full waterproofs. Layers. Manage cold/wet. Hypothermia prevention critical."
+          "mile": 48,
+          "label": "Long-course eastern loop",
+          "desc": "The 143 km course adds an eastern extension to the already climbing-heavy 125 km medium route.",
+          "terrain_detail": "Remote rolling gravel and repeated steep climbs",
+          "named_section": "Long-course extension"
         },
         {
-          "name": "Mile 140+: Elite Distance Fatigue",
-          "miles": "140-180",
-          "description": "40 km to go. Legs gone. Mental game critical. 20-30% DNF here.",
-          "survival_strategy": "Break into chunks. Focus on next aid. Mental toughness. Push through."
+          "mile": 72,
+          "label": "Final southern loop",
+          "desc": "Every category finishes on the same final 27 km loop, including two more climbs after the long course has already accumulated most of its 12,182 feet.",
+          "terrain_detail": "Two late gravel climbs",
+          "named_section": "Final 27 km loop"
         }
       ],
-      "signature_challenge": "180 km elite + World Championship field + October weather. Rainbow jersey.",
-      "ridewithgps_id": "53011652",
-      "ridewithgps_name": "2025 UCI Gravel World Championships - Elite men 181",
+      "signature_challenge": "Absorbing 3,713 metres of ascent when the climbs are short, steep, and too tightly spaced to offer meaningful recovery.",
       "surface_breakdown": {
         "overall": {
-          "gravel": 70,
-          "pavement": 30
+          "gravel": 80,
+          "pavement": 20
         }
       }
     },
     "history": {
       "founded": "2022",
       "founder": "UCI",
-      "origin_story": "UCI Gravel World Championships founded 2022. Inaugural: Veneto, Italy. 2023: Vicenza, Italy. 2024: Heerlen, Netherlands. Rotating locations. Elite + age group. Rainbow jersey.",
+      "origin_story": "The UCI Gravel World Championships began in Veneto in 2022. The event returned to Veneto in 2023, moved to Flanders in 2024 and South Limburg in 2025, and reaches Nannup in 2026 for its first edition outside Europe. Elite and qualified age-group riders race for rainbow jerseys.",
       "notable_moments": [
         "2022 Veneto: Inaugural. Vermeersch (M), Ferrand-Prévot (W)",
-        "2023 Vicenza: Vermeersch (M), Ferrand-Prévot (W)",
-        "2024 Heerlen: van der Poel (M), Vos (W)"
+        "2023 Veneto: Mohorič (M), Niewiadoma (W)",
+        "2024 Flanders: Van der Poel (M), Vos (W)",
+        "2025 South Limburg: Florian Vermeersch (M), Wiebes (W)"
       ],
       "reputation": "UCI World Championship. Fastest field in gravel. Rainbow jersey. Elite + age group. Rotating international locations."
     },
     "research_metadata": {
-      "data_confidence": "researched",
-      "validation_status": "pending",
+      "data_confidence": "high for dates, category schedule, provisional distances, climbing, surface share, course character, and travel; final GPX, aid stations, and cutoffs pending",
+      "validation_status": "official-source 2026 refresh complete",
       "sources": [
-        "cursor_web_search"
+        "https://gravelchampswesternaustralia.com/courses/",
+        "https://gravelchampswesternaustralia.com/program/",
+        "https://gravelchampswesternaustralia.com/riders/faq/",
+        "https://gravelchampswesternaustralia.com/visitors/getting-there/",
+        "https://www.uci.org/competition-details/2026/GRA/78584"
       ],
-      "research_date": "2026-02-04",
+      "research_date": "2026-08-12",
+      "migration_notes": [
+        "2026 Nannup edition refreshed from the official host's July 27 course announcement and July 30 program; the former 2025 Limburg route geometry was removed."
+      ],
       "research_strength": {
         "overall": 99.1,
         "grade": "A",
@@ -175,76 +196,96 @@
     },
     "biased_opinion_ratings": {
       "logistics": {
-        "score": 3,
-        "explanation": "Joy A. Franco describes qualifying for Team USA as \"the privilege of a lifetime,\" though riders \"paid our own way\" for this World Championship. Paige notes the chaos: \"We also both missed a feed (those feeds were CHAOS) and were sharing a bottle.\" Rotating locations create annual challenges—Heerlen requires Maastricht or Düsseldorf airports 30-50km away."
+        "score": 4,
+        "explanation": "Nannup is roughly three hours by car from Perth Airport, while the nearest regional airport is about 45 minutes away. Busselton is the event hub rather than the race town, so flights, ground transport, and split-location race-week logistics require deliberate planning."
       },
       "length": {
-        "score": 5,
-        "explanation": "Elite women race 131km, elite men 180km—distances that create real selection. Joy A. Franco finished in 4h 52min despite blowing up: \"By the time we hit that main climb in Raar for the first time, I had already put in about 4-5 'all watts combined' efforts to stay with the group.\" The length forces accumulated suffering over explosive efforts."
+        "score": 3,
+        "explanation": "The primary 2026 men's course is 143 kilometres (88.9 miles), which sits in the rubric's 60-100 mile band. The 125 km medium and 90 km short courses keep every category substantial without making the event an ultra-distance race."
       },
       "technicality": {
         "score": 4,
-        "explanation": "Course varies by location but maintains World Championship standards. Joy A. Franco describes Heerlen terrain: \"the semi-technical downhill into the first real climb left little room for more than 2-women wide.\" Paige notes Italy \"was like a road race paired with a mountain bike race as well as some tight loose gravel sectors.\""
+        "explanation": "The organizer describes varied unpaved surfaces, steep gravel climbs, and remote descents, while the host SEVEN course warns that gravel bikes may concede time to mountain bikes on technical descents. Wide roads keep it below singletrack-extreme territory."
       },
       "elevation": {
-        "score": 4,
-        "explanation": "2,500m of climbing over 180km creates real selection without turning into pure climbing. Joy A. Franco describes the repeated suffering: \"We hit that paved climb in Raar for the final time... after the technical downhill, rejoining them before the next climb, which was much steeper and more technical on a rocky double wide trail.\""
+        "score": 5,
+        "explanation": "The provisional long course publishes 3,713 metres (12,182 feet) of gain in 143 kilometres. That clears the rubric's 10,000-foot threshold, with the difficulty amplified by short, steep climbs that follow one another with little recovery."
       },
       "climate": {
-        "score": 4,
-        "explanation": "October timing delivers northern European suffering—10-20°C conditions that test equipment choices. Joy A. Franco notes the pre-race challenges compounded by weather preparation needs. Steve Thomas describes the 2025 edition with \"dry autumnal weather\" but notes the region's typical \"great windswept intensity\" from Amstel Gold classic conditions."
+        "score": 2,
+        "explanation": "The organizer lists average October temperatures from 10°C to 21°C (49°F to 69°F). A cool start and long day require layers, but the published climate is only slightly challenging rather than extreme."
       },
       "altitude": {
         "score": 1,
-        "explanation": "All host locations remain at low European elevations. Steve Thomas notes the Netherlands Limburg region \"rarely tops 150m in altitude.\" Course rotates between Heerlen, Veneto, Vicenza—none create altitude adaptation challenges, keeping focus on gravel racing skills rather than thin-air management."
+        "explanation": "The 2026 course ranges from roughly 100 to 300 metres above sea level. Altitude adaptation is irrelevant; total climbing comes from constant vertical repetition rather than thin air."
       },
       "adventure": {
         "score": 5,
-        "explanation": "Mathieu van der Poel captures the tactical uncertainty: \"I wanted to make the race as hard as possible because I knew with a big group it could be a difficult situation for me.\" Course rotates annually—from Dutch farmland to Italian strade bianche—ensuring riders face unknown terrain combinations each year."
+        "explanation": "The first Gravel World Championships outside Europe sends a qualified international field into the remote forests and farmland of Western Australia's Blackwood Valley. A rotating world-title course in this setting makes Nannup a bucket-list assignment."
       },
       "prestige": {
         "score": 5,
-        "explanation": "This is the World Championship. Van der Poel and Vos took rainbow stripes in 2024, with Joy A. Franco calling it \"the privilege of a lifetime\" to represent Team USA. UCI license required—no tourists allowed. As Joy notes: \"This race was unlike anything I've ever done in my 18 years of bike racing experience.\""
+        "explanation": "This is the discipline's UCI World Championship, awarding elite and age-group rainbow jerseys. Its champion list includes Ferrand-Prévot, Niewiadoma, Vos, Wiebes, Van der Poel, Mohorič, and both Gianni and Florian Vermeersch."
       },
       "race_quality": {
         "score": 5,
-        "explanation": "180km elite distance with 2,500m of climbing creates brutal selection. Joy A. Franco describes the early destruction: \"When we hit that first real climb in Raar, the first real attack came and shattered things apart. It was the last I would see of the leaders as my legs imploded.\" World Championship standards throughout."
+        "explanation": "UCI championship production, qualification standards, separate elite and age-group titles, and category-specific courses place this at the top of the race-quality scale. The final technical guide is pending, but the event framework is world-championship level."
       },
       "experience": {
         "score": 5,
-        "explanation": "Racing for rainbow stripes changes everything—the nerves, tactics, suffering. Joy A. Franco captures the magnitude: \"This race was unlike anything I've ever done in my 18 years of bike racing experience in all the best ways possible and I'd do it all over again in a heartbeat.\" Multi-day expo, international field, October weather adds perfect misery."
+        "explanation": "A qualification-only chance to race for an age-group or elite rainbow jersey on the same Nannup weekend is the defining competitive experience in the discipline. The remote host region and first edition outside Europe reinforce that significance."
       },
       "community": {
         "score": 5,
-        "explanation": "Joy A. Franco praises the field quality: \"All of the women in the field were excellent bike handlers and never once did things feel sketch.\" USAC team dynamics impressed her—\"All of the women riders opted for the team tactics, and that spoke volume to the group of riders we had with us.\""
+        "explanation": "Qualified age-group riders and national-team elites converge on one championship weekend, with community rides and fan zones built around the host region. The shared pursuit of rainbow jerseys gives the event a stronger identity than a standard international fondo."
       },
       "field_depth": {
         "score": 5,
-        "explanation": "WorldTour riders van der Poel, Vos, Vermeersch racing alongside age group qualifiers creates unmatched depth. Marianne Vos notes the tactical complexity: \"There was a pretty big group but then on a harder part Lotte set a really high pace and then we were the four of us.\" Elite-level competition throughout the field."
+        "explanation": "National-team selection fills the elite races, while age-group riders must qualify through the UCI Gravel World Series. Past champions and podiums include leading WorldTour, mountain-bike, cyclocross, and gravel specialists, so no other mass-participation gravel field is deeper."
       },
       "value": {
-        "score": 4,
-        "explanation": "€100-150 entry fee reasonable for World Championship racing. Joy A. Franco's experience—representing Team USA, racing the same course as van der Poel and Vos—justifies the cost. International travel hurts, but this only happens once per year. Getting in via UCI license requirement is harder than paying for it."
+        "score": 3,
+        "explanation": "The entry fee has not been published on the cited official pages, so a premium value claim is not supportable yet. Racing for a rainbow jersey carries obvious value for a qualified rider, but the score stays neutral until the organizer publishes the price and final support package."
       },
       "expenses": {
-        "score": 3,
-        "explanation": "Rotating locations mean international flights, expensive accommodations. Joy A. Franco notes Team USA riders \"paid our own way\" for World Championships. Heerlen requires Maastricht or Düsseldorf airports—neither cheap. October timing hits prime European travel season pricing. Budget €2,000+ from North America including bike shipping."
+        "score": 1,
+        "explanation": "For the international audience, Western Australia means long-haul flights, bike transport, a rental car or event transfer, and lodging in Busselton or the surrounding region. The likely all-in trip exceeds the rubric's $2,000 extreme-expense threshold."
       }
     },
     "final_verdict": {
       "score": "83 / 100",
-      "one_liner": "The only gravel race where you can actually call yourself World Champion—if you can handle 180km of whatever terrain the UCI throws at you.",
-      "should_you_race": "You need a UCI license, the fitness for nearly five hours of World Championship pace racing, and the mental fortitude to suffer in front of 1,000+ of the world's fastest gravel riders. The course changes annually, so you're gambling on terrain, but if you can't handle 2,500m of climbing and October weather in Europe, stay home. This isn't about participation—it's about proving you belong with the global elite.",
-      "alternatives": "Unbound 200 gives you similar distance and prestige without the UCI bureaucracy and European travel costs. If you want that strade bianche experience more predictably, hit L'Eroica or Strade Bianche Gran Fondo where the terrain stays consistent and the October weather won't ruin your expensive European vacation.",
+      "one_liner": "The only gravel start line where 12,182 feet of Nannup climbing is merely the price of getting to race for a rainbow jersey.",
+      "should_you_race": "If you qualified, yes—but train for the course you actually have: 143 kilometres, 3,713 metres of climbing, at least 80 percent gravel, and almost no recovery between steep efforts. If you did not qualify, this is not an open-entry bucket-list race.",
+      "alternatives": "SEVEN uses the same Nannup terrain as a UCI Gravel World Series qualifier and is the direct course analogue. Unbound 200 offers comparable global prestige with open-entry pathways, but it is much longer and far flatter per mile.",
       "alternative_slugs": [
         "unbound-200"
       ]
     },
     "citations": [
       {
-        "url": "https://ridewithgps.com/routes/53011652",
-        "category": "route",
-        "label": "RideWithGPS: 2025 UCI Gravel World Championships - Elite men 181"
+        "url": "https://gravelchampswesternaustralia.com/courses/",
+        "category": "official",
+        "label": "2026 organizer — provisional category courses, climbing, surface share, terrain, and climate"
+      },
+      {
+        "url": "https://gravelchampswesternaustralia.com/wp-content/uploads/2026/01/The-Program-v12-1.pdf",
+        "category": "official",
+        "label": "2026 organizer program — category race days, start times, and registration schedule"
+      },
+      {
+        "url": "https://gravelchampswesternaustralia.com/riders/faq/",
+        "category": "official",
+        "label": "2026 organizer FAQ — qualification, travel, lodging, and pending technical guide"
+      },
+      {
+        "url": "https://www.uci.org/competition-details/2026/GRA/78584",
+        "category": "official",
+        "label": "UCI — official Nannup dates and championship classification"
+      },
+      {
+        "url": "https://www.uci.org/competition-hub/2025-uci-gravel-world-championships/31PTsbFpv99jmmhNo8XYG0?tab=courses-et-r%C3%A9sultats",
+        "category": "official",
+        "label": "UCI — 2025 champions and event history"
       },
       {
         "url": "https://cycling-info.com/discover-the-champions-of-the-uci-gravel-world-championships/",
@@ -314,14 +355,25 @@
     ],
     "results": {
       "years": {
+        "2025": {
+          "winner_male": "Florian Vermeersch",
+          "winner_female": "Lorena Wiebes",
+          "conditions": "South Limburg course with paved opening, gravel-heavy central loop, and final run to Maastricht.",
+          "key_takeaways": [
+            "Florian Vermeersch won the 181 km elite men's race solo.",
+            "Lorena Wiebes won the 131 km elite women's race."
+          ]
+        },
         "2024": {
-          "winner_male": "Gianni Vermeersch",
+          "winner_male": "Mathieu Van der Poel",
           "winner_female": "Marianne Vos",
-          "conditions": "- 2024 Heerlen: Cool, wet (10-15°C, rain) [Escape Collective] (",
-          "key_takeaways": []
+          "conditions": "Flanders course from Halle to Leuven with approximately 60% unpaved terrain.",
+          "key_takeaways": [
+            "The elite titles went to two Dutch multi-discipline champions."
+          ]
         }
       },
-      "latest_year": "2024"
+      "latest_year": "2025"
     },
     "tire_recommendations": {
       "generated_at": "2026-02-19",

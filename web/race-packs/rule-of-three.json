@@ -1,116 +1,69 @@
 {
   "slug": "rule-of-three",
   "race_name": "Rule of Three",
-  "distance_mi": 300.0,
+  "distance_mi": 115.0,
   "demands": {
-    "durability": 10,
-    "climbing": 9,
+    "durability": 6,
+    "climbing": 4,
     "vo2_power": 6,
-    "threshold": 5,
-    "technical": 4,
-    "heat_resilience": 7,
+    "threshold": 8,
+    "technical": 10,
+    "heat_resilience": 1,
     "altitude": 2,
     "race_specificity": 9
   },
   "top_categories": [
     {
-      "category": "Durability",
+      "category": "Gravel_Specific",
       "score": 100,
       "workouts": [
-        "Tired VO2max",
-        "Double Day Simulation",
-        "Progressive Fatigue"
+        "Surge and Settle",
+        "Terrain Microbursts"
       ],
-      "workout_context": "300 miles. Your legs will beg to quit after 120. This trains the power output you need from mile 130 onward."
-    },
-    {
-      "category": "Endurance",
-      "score": 58,
-      "workouts": [
-        "Pre-Race Openers",
-        "Terrain Simulation Z2"
-      ],
-      "workout_context": "Every hard session works better with a bigger aerobic base. At 300 miles, base fitness is the difference between racing and surviving."
+      "workout_context": "Rule of Three's Tarmac, Ozark gravel and technical B-roads forces constant power changes. Surge over the rough stuff, settle on the smooth, repeat for 115 miles."
     },
     {
       "category": "Race_Simulation",
-      "score": 57,
+      "score": 88,
       "workouts": [
         "Breakaway Simulation",
         "Variable Pace Chaos",
         "Sector Simulation"
       ],
-      "workout_context": "Race-pace efforts that mimic Rule of Three's demands. Pacing, fueling, and tactical decisions under fatigue. Practice the race before September."
+      "workout_context": "Race-pace efforts that mimic Rule of Three's demands. Pacing, fueling, and tactical decisions under fatigue. Practice the race before May."
     },
     {
-      "category": "HVLI_Extended",
-      "score": 56,
+      "category": "Durability",
+      "score": 70,
       "workouts": [
-        "HVLI Extended Z2",
-        "Multi-Hour Z2",
-        "Back-to-Back Long"
+        "Tired VO2max",
+        "Double Day Simulation",
+        "Progressive Fatigue"
       ],
-      "workout_context": "300 miles rewards fat oxidation. This volume work shifts your fuel mix so you're still burning fat at hour 5, not bonking at hour 3."
-    },
-    {
-      "category": "Over_Under",
-      "score": 52,
-      "workouts": [
-        "Classic Over-Unders",
-        "Ladder Over-Unders"
-      ],
-      "workout_context": "At Rule of Three, surges push you above threshold and you have to recover while still riding. Over-unders train exactly that."
-    },
-    {
-      "category": "Gravel_Specific",
-      "score": 52,
-      "workouts": [
-        "Surge and Settle",
-        "Terrain Microbursts"
-      ],
-      "workout_context": "Rule of Three's Kansas Flint Hills gravel (95%), Pavement (5%) forces constant power changes. Surge over the rough stuff, settle on the smooth, repeat for 300 miles."
+      "workout_context": "At mile 60 of 115, glycogen is gone. This workout teaches your body to produce watts on fumes."
     },
     {
       "category": "TT_Threshold",
-      "score": 50,
+      "score": 62,
       "workouts": [
         "Single Sustained Threshold",
         "Threshold Ramps",
         "Descending Threshold"
       ],
-      "workout_context": "50ft/mi means long efforts at or near FTP on every climb. If your threshold cracks at minute 15, you'll walk the rest."
+      "workout_context": "Rule of Three's relentless mixed-surface riding around Bentonville rewards steady threshold power. Surging and recovering costs more watts than just holding."
     },
     {
-      "category": "Mixed_Climbing",
-      "score": 47,
+      "category": "Critical_Power",
+      "score": 60,
       "workouts": [
-        "Seated/Standing Climbs",
-        "Variable Grade Simulation"
+        "Above CP Repeats",
+        "W-Prime Depletion"
       ],
-      "workout_context": "15,000ft of climbing on grades that change every minute. You need to switch from seated to standing without losing rhythm."
-    },
-    {
-      "category": "Blended",
-      "score": 42,
-      "workouts": [
-        "Z2 + VO2 Combo",
-        "Endurance with Spikes"
-      ],
-      "workout_context": "Endurance with intensity spikes baked in. Exactly what 15,000ft of climbing on Kansas Flint Hills\u2014same roads as Unbound, ultra does to your power file on race day."
-    },
-    {
-      "category": "VO2max",
-      "score": 40,
-      "workouts": [
-        "5x3 VO2 Classic",
-        "Descending VO2 Pyramid",
-        "Norwegian 4x8"
-      ],
-      "workout_context": "15,000ft of climbing means repeated surges above threshold. VO2max work is how you survive the fifth climb, not just the first."
+      "workout_context": "How long can you hold 105% FTP before you blow? At Rule of Three, that number decides whether you bridge or get dropped."
     },
     {
       "category": "G_Spot",
-      "score": 37,
+      "score": 50,
       "workouts": [
         "G-Spot Standard",
         "G-Spot Extended",
@@ -119,20 +72,65 @@
       "workout_context": "88\u201392% FTP is where you'll spend the hardest sustained miles of Rule of Three. Train it until it feels boring."
     },
     {
-      "category": "SFR_Muscle_Force",
-      "score": 31,
+      "category": "VO2max",
+      "score": 48,
       "workouts": [
-        "SFR Low Cadence",
-        "Force Repeats"
+        "5x3 VO2 Classic",
+        "Descending VO2 Pyramid",
+        "Norwegian 4x8"
       ],
-      "workout_context": "Low-cadence force work for 15,000ft of climbing. The slow, grinding ascents where you can't spin\u2014you push."
+      "workout_context": "When someone attacks on relentless mixed-surface riding around Bentonville, you have 10 seconds to respond or you're off the back. This builds that response."
+    },
+    {
+      "category": "Over_Under",
+      "score": 46,
+      "workouts": [
+        "Classic Over-Unders",
+        "Ladder Over-Unders"
+      ],
+      "workout_context": "At Rule of Three, surges push you above threshold and you have to recover while still riding. Over-unders train exactly that."
+    },
+    {
+      "category": "Anaerobic_Capacity",
+      "score": 46,
+      "workouts": [
+        "2min Killers",
+        "90sec Repeats"
+      ],
+      "workout_context": "2-minute all-out efforts on relentless mixed-surface riding around Bentonville. Closing gaps, responding to attacks, sprinting for position. Train the burn."
+    },
+    {
+      "category": "Cadence_Work",
+      "score": 42,
+      "workouts": [
+        "High Cadence Drills",
+        "Cadence Pyramids"
+      ],
+      "workout_context": "Smooth pedaling at 115 miles saves muscle. Bad technique at mile 10 is invisible. At mile 80 it's a cramp."
+    },
+    {
+      "category": "Blended",
+      "score": 38,
+      "workouts": [
+        "Z2 + VO2 Combo",
+        "Endurance with Spikes"
+      ],
+      "workout_context": "Long rides with hard efforts mixed in. Simulates what Rule of Three's relentless mixed-surface riding around Bentonville actually does to you."
+    },
+    {
+      "category": "Endurance",
+      "score": 34,
+      "workouts": [
+        "Pre-Race Openers",
+        "Terrain Simulation Z2"
+      ],
+      "workout_context": "Every hard session works better with a bigger aerobic base. At 115 miles, base fitness is the difference between racing and surviving."
     }
   ],
   "race_overlay": {
-    "heat": "September in Emporia, Kansas (same roads as Unbound Gravel) can bring heat. Complete 3\u20134 heat exposure sessions in the final 2 weeks before Rule of Three. Increase sodium intake 48 hours before race day.",
-    "nutrition": "Ultra-distance fueling for 300 miles: 80\u2013100g carbs/hour from mile 1 \u2014 don\u2019t wait until you\u2019re hungry. Practice your exact race-day nutrition in every long training ride. Carry backup calories. 300 miles burns 8,000\u201312,000+ calories \u2014 you cannot replace them all, but you must try.",
-    "terrain": "Mixed terrain at Rule of Three requires surface adaptability. Include weekly rides on kansas flint hills\u2014same roads as unbound, ultra distance to build confidence. Expect: kansas flint hills gravel (95%), pavement (5%), same roads as unbound."
+    "nutrition": "Target 60\u201380g carbs/hour for Rule of Three\u2019s 115 miles. Start fueling within the first 30 minutes \u2014 early fueling prevents late-race collapse. Bonking at mile 60 is a nutrition failure, not a fitness failure.",
+    "terrain": "Highly technical terrain at Rule of Three demands practice on similar surfaces. Ride relentless mixed-surface riding around bentonville at race-day cadence weekly. Expect: tarmac, ozark gravel and technical b-roads, flowy, climby singletrack. Practice cornering, descending, and power delivery on unstable surfaces. Dial in tire pressure before race week \u2014 5 PSI wrong costs you 15+ minutes over 115 miles."
   },
-  "pack_summary": "This 10-workout pack focuses on Durability, Endurance, and Race Simulation to prepare you for 300 miles of kansas flint hills\u2014same roads as unbound, ultra distance in Emporia, Kansas (same roads as Unbound Gravel).",
-  "generated_at": "2026-03-06"
+  "pack_summary": "This 10-workout pack focuses on Gravel Specific, Race Simulation, and Durability to prepare you for 115 miles of relentless mixed-surface riding around bentonville in Bentonville, Arkansas.",
+  "generated_at": "2026-08-13"
 }

@@ -90,12 +90,14 @@ class TestCatalogContract:
         # Garden Route Giro (net +3). The Aug. 10 identity pass then removed
         # three retired/duplicate active profiles: Almanzo, Rasputitsa Spring
         # Classic, and Rad Dirt Fest (all preserve redirects to canonical pages).
+        # The Aug. 12 UCI calendar reconciliation added Pyrénées Catalanes,
+        # Gravel Chile, and The Gravel of Marathon (net +3).
         source_count = migration_map["source_snapshot"]["gravel_god"][
             "race_data_total_profiles"
         ]
         departing_count = len(road_migration.redirected_entries(migration_map))
-        post_migration_additions = -1
-        assert len(race_index) == source_count - departing_count + post_migration_additions == 369
+        post_migration_additions = 2
+        assert len(race_index) == source_count - departing_count + post_migration_additions == 372
 
     def test_archived_profiles_never_feed_generated_index(
         self, migration_map, race_index

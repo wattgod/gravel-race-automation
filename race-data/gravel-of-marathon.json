@@ -1,0 +1,189 @@
+{
+  "race": {
+    "name": "The Gravel of Marathon",
+    "slug": "gravel-of-marathon",
+    "display_name": "The Gravel of Marathon",
+    "tagline": "Greece's first UCI gravel qualifier: three hard laps around Lake Marathon and 90 percent dirt.",
+    "vitals": {
+      "distance_km": 121,
+      "distance_mi": 75.2,
+      "elevation_m": 2020,
+      "elevation_ft": 6627,
+      "location": "Marathon, Attica, Greece",
+      "location_badge": "MARATHON, GREECE",
+      "country": "Greece",
+      "date": "Mid-November",
+      "date_specific": "2026: November 15 (Sunday)",
+      "terrain_types": ["Lake Marathon gravel", "Farm roads", "Concrete climbing wall", "Three-lap UCI qualifier"],
+      "field_size": "Not published",
+      "start_time": "Not published",
+      "start_format": "UCI Gravel World Series age-category competition; exact wave schedule not published",
+      "registration": "Registration is open through the organizer-linked ENDU platform for both official distances.",
+      "entry_fee": "Not stated on the cited public organizer page",
+      "aid_stations": "Not published",
+      "cutoff_time": "Not published",
+      "lat": 38.153,
+      "lng": 23.963,
+      "route_options": [
+        "Long: 121 km / 75.2 mi with 2,020 m / 6,627 ft, approximately 90% off-road — qualifier for elites, men 19-59, and women 19-49",
+        "Short: 86 km / 53.4 mi with 1,430 m / 4,692 ft, approximately 90% off-road — qualifier for men 60+ and women 50+"
+      ]
+    },
+    "climate": {
+      "primary": "Mediterranean late-autumn weather",
+      "description": "Mid-November in Attica is generally cooler than summer, but rain can turn the soft lake-edge dirt and farm roads into a different course. The race-specific forecast remains the authority close to the event.",
+      "challenges": ["Rain-sensitive dirt", "Cool start conditions", "Exposed lake wind", "Limited daylight late in the season"]
+    },
+    "terrain": {
+      "primary": "Repeated lake, farm-road, stream, and dam gravel loops",
+      "surface": "The organizer publishes approximately 90% off-road terrain, alternating soft lakeside dirt with rougher and smoother farm-road gravel, a shallow stream crossing, concrete ramps, and a final 1.5 km of asphalt over Marathon Dam.",
+      "technical_rating": 3,
+      "features": ["A 300 m concrete wall at 12%", "Five kilometres beside Lake Marathon", "A shallow stream crossing", "A 600 m climb reaching 11%", "A 1.5 km asphalt passage over Marathon Dam", "Three repetitions of the 36 km core loop"]
+    },
+    "gravel_god_rating": {
+      "overall_score": 57,
+      "tier": 3,
+      "tier_label": "TIER 3",
+      "logistics": 2,
+      "length": 3,
+      "technicality": 3,
+      "elevation": 4,
+      "climate": 2,
+      "altitude": 1,
+      "adventure": 4,
+      "prestige": 3,
+      "race_quality": 3,
+      "experience": 4,
+      "community": 2,
+      "field_depth": 3,
+      "value": 3,
+      "expenses": 2,
+      "cultural_impact": 1,
+      "score_note": "The inaugural Greek UCI qualifier has an unusually well-published course, 90 percent off-road, and meaningful climbing. The unproven first-edition field and operations record hold it in Tier 3.",
+      "discipline": "gravel",
+      "display_tier": 3,
+      "display_tier_label": "TIER 3"
+    },
+    "biased_opinion_ratings": {
+      "logistics": {"score": 2, "explanation": "Marathon is roughly 40 km from Athens with broad local lodging choices, which is much easier than most destination gravel races. Airport transfer, city traffic, and bike transport still require planning, but the event is not remote."},
+      "length": {"score": 3, "explanation": "The long course is 121 km, or 75.2 miles, inside the published score-three band. Three laps turn that moderate distance into a pacing problem because every steep feature returns."},
+      "technicality": {"score": 3, "explanation": "The official course alternates soft dirt, rough and smooth farm-road gravel, a shallow stream, a concrete wall, and fast asphalt over Marathon Dam. It asks for mixed-surface control without claiming extreme singletrack."},
+      "elevation": {"score": 4, "explanation": "The long course carries 2,020 metres, about 6,627 feet, of climbing. That clears the published 6,000-foot threshold for score four, compressed into three repetitions of the same hard loop."},
+      "climate": {"score": 2, "explanation": "November reduces the heat risk around Attica, while rain could materially change the 90-percent off-road surface. Conditions deserve equipment flexibility but are not inherently an extreme-climate challenge."},
+      "altitude": {"score": 1, "explanation": "The Marathon and Lake Marathon course stays at low elevation. The 12-percent and 11-percent ramps hurt because they repeat, not because oxygen is scarce."},
+      "adventure": {"score": 4, "explanation": "The race joins Lake Marathon, farm tracks, a stream crossing, the historic dam, and the town associated with the Battle of Marathon. Repeating terrain usually reduces adventure, but this loop has unusually strong place identity."},
+      "prestige": {"score": 3, "explanation": "This is Greece's first UCI Gravel World Series race and a qualifier for the 2027 Worlds. That matters immediately, but an inaugural event has no race history or established status of its own."},
+      "race_quality": {"score": 3, "explanation": "Bicycle Friendly Greece and the MBike team bring cycling-media and Athens Bike Festival experience, while the official course package is unusually specific. Actual race-day execution remains unproven until November."},
+      "experience": {"score": 4, "explanation": "Starting at Marathon Stadium, racing beside the lake, crossing a stream, and passing over Marathon Dam gives each 36 km lap a real narrative. The history-rich setting is likely memorable without relying on invented crowd claims."},
+      "community": {"score": 2, "explanation": "The organizer has supported Greek cycling media since 1999 and the Athens Bike Festival since 2010. The specific gravel race is brand new, so established-organizer reach should not be confused with a mature race community."},
+      "field_depth": {"score": 3, "explanation": "UCI qualification should draw strong Greek and regional age-group racers, but no start list or field size is published. The series status supports a competitive score, not a claim of elite international depth."},
+      "value": {"score": 3, "explanation": "A 121 km UCI qualifier with 90-percent dirt and an official course description is a substantial product. With no public entry price in the cited page, the honest score is neutral rather than promotional."},
+      "expenses": {"score": 2, "explanation": "Athens is internationally accessible and Marathon has varied lodging, but flights, bike transport, and multiple nights make this a high-cost trip for non-European athletes. Regional riders will spend much less."}
+    },
+    "course_description": {
+      "character": "A three-lap long course built around a 36 km core loop from Marathon Stadium. Each lap includes a gentle 4 km climb, a 300 m concrete wall at 12%, five kilometres beside Lake Marathon, alternating farm-road gravel, a shallow stream, a 600 m climb at up to 11%, and 1.5 km of asphalt over Marathon Dam.",
+      "signature_challenge": "Treating the first lap as reconnaissance, the second as work, and the third as a race—especially when the 12-percent wall and 11-percent climb return with more than 4,000 feet already in the legs.",
+      "suffering_zones": [
+        {"mile": 3, "label": "Concrete wall", "desc": "A gentle 4 km climb ends with 300 metres of concrete at up to 12 percent.", "terrain_detail": "Steep concrete ramp", "named_section": "The Wall"},
+        {"mile": 14, "label": "Lake and farm roads", "desc": "Soft lake-edge dirt transitions repeatedly into rougher and smoother farm-road gravel before the stream crossing.", "terrain_detail": "Variable gravel and shallow water", "named_section": "Lake Marathon loop"},
+        {"mile": 20, "label": "Dam return", "desc": "A 600 m climb at up to 11 percent precedes the final asphalt passage over Marathon Dam—and then the long-course riders do it again.", "terrain_detail": "Steep gravel climb into asphalt", "named_section": "Marathon Dam"},
+        {"mile": 63, "label": "Final-lap wall", "desc": "The last return to the concrete wall exposes anyone who raced the first two laps instead of pacing them.", "terrain_detail": "Repeated 12-percent ramp", "named_section": "The Wall, lap three"}
+      ],
+      "surface_breakdown": {"overall": {"gravel": 90, "pavement": 10}}
+    },
+    "biased_opinion": {
+      "verdict": "The Loop Is the Point",
+      "summary": "Three laps sound less adventurous until you inspect the lap: lake dirt, farm gravel, a stream, a concrete wall, another steep climb, and the Marathon Dam. The repeat format makes pacing brutally legible. If lap one feels heroic, lap three will collect the debt.",
+      "strengths": ["Approximately 90% off-road", "Detailed official course", "6,627 feet in 75 miles", "UCI qualifier stakes", "Easy access from Athens relative to most gravel destinations"],
+      "weaknesses": ["Inaugural event", "Repeated-loop format", "No published field history", "Current public page omits aid and cutoff details", "Potential rain-sensitive surfaces"],
+      "bottom_line": "One of the strongest new-race intakes in the catalog because the organizer published the actual demands. Tier 3 today; the first edition will decide whether it deserves more."
+    },
+    "logistics": {
+      "airport": "Athens International Airport (ATH), with Marathon approximately 40 km northeast of central Athens",
+      "lodging_strategy": "Stay in Marathon, Nea Makri, or the Schinias area for a short race-morning transfer; Athens works only if you plan traffic and parking carefully.",
+      "transport": "A rental car or confirmed event transfer is the practical option with a bike.",
+      "food": "Marathon and the surrounding coast have restaurants and groceries; bring tested race nutrition for the repeated laps.",
+      "packet_pickup": "Not published",
+      "parking": "Not published",
+      "official_site": "https://gravelofmarathon.gr/"
+    },
+    "history": {
+      "founded": 2026,
+      "founder": "Bicycle Friendly Greece and the MBike team",
+      "origin_story": "Created as Greece's first UCI Gravel World Series event by a team with cycling-media and festival experience.",
+      "notable_moments": [],
+      "reputation": "An inaugural event with an unusually transparent course package but no results history yet."
+    },
+    "guide_variables": {
+      "race_name": "The Gravel of Marathon",
+      "race_distance": "121 km / 75.2 miles",
+      "race_elevation": "2,020 m / 6,627 feet",
+      "race_date": "November 15, 2026",
+      "race_location": "Marathon, Greece",
+      "race_terrain": "Three 36 km loops of lake dirt, farm gravel, a stream, concrete ramps, and Marathon Dam",
+      "race_weather": "Mediterranean late autumn with meaningful rain risk",
+      "race_challenges": ["Lap discipline", "Repeated steep ramps", "Variable surface handling", "6,627 feet of climbing", "Late-season weather"],
+      "altitude_section": false,
+      "altitude_feet": null
+    },
+    "training_config": {
+      "workout_modifications": {
+        "repeat_climbing": {"enabled": true, "weeks": [6, 7, 8, 9]},
+        "variable_surface": {"enabled": true, "weeks": [5, 7, 9]},
+        "dress_rehearsal": {"enabled": true, "week": 10, "day": "Sunday", "duration_hours": {"finisher": 4, "time_crunched": 4, "compete": 5, "masters": 5}}
+      },
+      "masterclass_topics": {
+        "priority_order": ["lap_pacing", "climbing", "handling", "weather"],
+        "race_specific": true,
+        "topics": {"lap_pacing": "Dividing effort across three identical loops", "climbing": "Repeating short 11-12-percent ramps", "handling": "Switching between soft dirt, rough gravel, stream, and asphalt", "weather": "Adjusting tires and layers for November rain"}
+      },
+      "tier_overrides": {},
+      "marketplace_variables": {
+        "race_name": "The Gravel of Marathon",
+        "race_hook": "Train the third lap, not the first.",
+        "race_hook_detail": "Seven race-specific plans for Greece's first UCI gravel qualifier: 121 km, 2,020 metres, and the same steep ramps three times.",
+        "distance": "75.2",
+        "dark_mile": "63",
+        "non_negotiable_1": "Lap discipline",
+        "non_negotiable_2": "Repeat-climb durability",
+        "non_negotiable_3": "Variable-surface control",
+        "trainingpeaks_url": null
+      }
+    },
+    "non_negotiables": [
+      {"requirement": "Lap discipline", "by_when": "Week 8", "why": "The long course repeats its core 36 km loop three times."},
+      {"requirement": "Repeat-climb durability", "by_when": "Week 9", "why": "The 12-percent concrete wall and 11-percent climb return on every lap."},
+      {"requirement": "Variable-surface control", "by_when": "Week 7", "why": "The official course alternates soft dirt, rough gravel, farm roads, shallow water, concrete, and asphalt."}
+    ],
+    "final_verdict": {
+      "score": "57 / 100",
+      "one_liner": "Greece's first UCI gravel qualifier has more verified course substance than many established races.",
+      "should_you_race": "Race it if you want UCI stakes and can respect a repeat-lap pacing plan. Wait for first-edition results if operational certainty matters more than being early.",
+      "alternatives": "Gravel of Loutraki for an established Greek gravel event; Alentejo Gravel for a later-season European UCI qualifier."
+    },
+    "citations": [
+      {"url": "https://gravelofmarathon.gr/", "category": "official", "label": "Organizer — date, course, registration, surface, and organizer background"},
+      {"url": "https://ucigravelworldseries.com/en/marathon/", "category": "official", "label": "UCI Gravel World Series — official race and qualifier details"},
+      {"url": "https://ucigravelworldseries.com/en/calendar/", "category": "official", "label": "UCI Gravel World Series — official 2026-2027 calendar"},
+      {"url": "https://ucigravelworldseries.com/en/regulations/", "category": "official", "label": "UCI Gravel World Series — competition and qualification rules"}
+    ],
+    "eligibility": {
+      "status": "active",
+      "race_plan_eligible": true,
+      "verified": "2026-08-12",
+      "source": "https://gravelofmarathon.gr/",
+      "status_note": "The organizer and UCI confirm a competitive qualifier on Sunday, November 15, 2026, with registration open and complete long- and short-course facts. Current runway supports the full seven-plan ladder."
+    },
+    "source_review": {
+      "reviewed_at": "2026-08-12",
+      "race_date": "2026-11-15",
+      "facts_scope": "The organizer and UCI pages confirm the date, competition status, route distances, climbing totals, approximate off-road percentage, lap structure, named course features, registration state, organizer background, and lodging availability. Unpublished start time, fee, aid plan, cutoff, field size, and parking remain explicitly unknown."
+    },
+    "research_metadata": {
+      "data_confidence": "high for date, course, climbing, surface share, competition status, and registration; pending for operations and first-edition results",
+      "validation_status": "official-source intake complete",
+      "sources": ["https://gravelofmarathon.gr/", "https://ucigravelworldseries.com/en/marathon/", "https://ucigravelworldseries.com/en/calendar/", "https://ucigravelworldseries.com/en/regulations/"],
+      "migration_notes": ["New catalog intake from the official UCI Gravel World Series calendar; not related to the road-running Athens Marathon beyond location and event timing. "]
+    }
+  }
+}

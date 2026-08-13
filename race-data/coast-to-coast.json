@@ -6,24 +6,24 @@
     "tagline": "Michigan ultra-distance crossing from Lake Huron to Lake Michigan.",
     "vitals": {
       "distance_mi": 204,
-      "elevation_ft": 5000,
+      "elevation_ft": 6500,
       "location": "Au Gres to Ludington, Michigan",
       "location_badge": "AU GRES TO LUDINGTON, MI",
       "county": "Multiple counties",
       "date": "Late June annually",
-      "date_specific": "2026: June 27",
+      "date_specific": "2027: June 26 (Saturday)",
       "terrain_types": [
         "Gravel roads",
         "Rural Michigan",
         "Rolling terrain",
         "State crossing"
       ],
-      "field_size": "100-300 riders",
-      "start_time": "Early morning start (204-mile requires day/night riding)",
-      "registration": "Online. Cost: ~$100-150",
+      "field_size": "204-mile capacity: 500 men; women uncapped",
+      "start_time": "6:00 AM",
+      "registration": "2027 registration opens October 2026. 204-mile entry: $190-$225; 100-mile entry: $99-$125.",
       "prize_purse": "None",
-      "aid_stations": "Multiple aid stations for ultra distance",
-      "cutoff_time": "Varies (204-mile typically 24-30 hours)",
+      "aid_stations": "Three crew-access checkpoints at miles 54, 103, and 169, plus neutral water at mile 143. Checkpoints supply water and Gatorade; racers carry food from their crew or paid drop-bag service.",
+      "cutoff_time": "Ride Into the Sunset cutoff: 9:33 PM. Final cutoff: 2:30 AM Sunday.",
       "lat": 43.6212,
       "lng": -84.6824
     },
@@ -39,10 +39,10 @@
     },
     "terrain": {
       "primary": "Michigan gravel roads",
-      "surface": "Gravel roads across lower Michigan. Relatively flat to rolling terrain with moderate elevation overall.",
+      "surface": "85% gravel roads and two-tracks across Michigan's lower peninsula, with forest roads, snowmobile trails, sand, and a short gravel-friendly singletrack section.",
       "technical_rating": 2,
       "features": [
-        "Relatively flat Michigan terrain",
+        "6,500 feet of rolling accumulation",
         "Rolling sections",
         "Rural Michigan scenery",
         "State crossing (Lake Huron to Lake Michigan)",
@@ -50,13 +50,13 @@
       ]
     },
     "gravel_god_rating": {
-      "overall_score": 54,
+      "overall_score": 57,
       "tier": 3,
       "tier_label": "TIER 3",
       "logistics": 3,
       "length": 5,
       "technicality": 2,
-      "elevation": 2,
+      "elevation": 4,
       "climate": 2,
       "altitude": 1,
       "adventure": 4,
@@ -67,13 +67,13 @@
       "field_depth": 2,
       "value": 3,
       "expenses": 3,
-      "score_note": "Regional ultra-distance event. 204 miles is serious challenge but regional field and infrastructure.",
+      "score_note": "The organizer's 2027 course facts confirm 204 miles and approximately 6,500 feet, raising Elevation from 2 to 4 under the published rubric. The regional field and infrastructure keep Coast to Coast in Tier 3.",
       "discipline": "gravel",
       "display_tier": 3
     },
     "biased_opinion": {
       "verdict": "Michigan Ultra-Distance Challenge",
-      "summary": "Coast to Coast offers a genuine ultra-distance challenge—204 miles crossing Michigan from Lake Huron to Lake Michigan. The 100-mile loop option provides a more accessible alternative. It's a well-organized regional ultra event with good support, but the field is regional and the terrain is relatively flat Michigan gravel. The adventure of crossing the state is the main appeal.",
+      "summary": "Coast to Coast offers a genuine ultra-distance challenge—204 miles and about 6,500 feet crossing Michigan from Lake Huron to Lake Michigan. The 100-mile loop option provides a more accessible alternative. It's a well-organized regional ultra event with good support, but the field remains regional. The adventure of crossing the state is the main appeal.",
       "strengths": [
         "Genuine ultra-distance challenge (204 miles)",
         "100-mile loop option for accessibility",
@@ -83,15 +83,15 @@
       ],
       "weaknesses": [
         "Regional field depth only",
-        "Relatively flat terrain (less challenging than mountain ultras)",
+        "Climbing is accumulated rolling terrain rather than mountain passes",
         "Logistics of crossing state",
         "Long day/night for 204-mile",
         "Limited prestige outside Michigan"
       ],
-      "bottom_line": "A solid regional ultra-distance gravel race with the unique appeal of crossing Michigan. The 204-mile option is a serious challenge, though the terrain is less demanding than mountain ultras. Worth it for Michigan cyclists or those seeking an ultra-distance challenge in the Midwest. Not a destination race for distant travelers."
+      "bottom_line": "A solid regional ultra-distance gravel race with the unique appeal of crossing Michigan. The 204-mile option is a serious challenge, with 6,500 feet accumulated through rolling uplands, sand, forest roads, and two-tracks rather than mountain passes. Worth it for Michigan cyclists or riders seeking a Midwest double-century."
     },
     "final_verdict": {
-      "score": "54 / 100",
+      "score": "57 / 100",
       "one_liner": "Regional Michigan ultra-distance crossing the state from coast to coast.",
       "should_you_race": "If you're in Michigan or the Midwest and want an ultra-distance challenge—yes, it's a well-organized event with unique appeal. If you're traveling from far away—there are more prestigious ultra-distance events elsewhere.",
       "alternatives": "For better ultra-distance: Unbound XL (Kansas), Dirty Kanza (Kansas), Trans Iowa. For similar regional ultras: other Midwest ultra-distance events.",
@@ -104,10 +104,10 @@
     "logistics": {
       "airport": "Detroit (DTW) or Grand Rapids (GRR) - varies by start/finish",
       "lodging_strategy": "Au Gres (start) and Ludington (finish) have lodging. Book early. Shuttle logistics for 204-mile.",
-      "food": "Stock nutrition for ultra distance. Aid stations provided.",
-      "packet_pickup": "Day before typically",
-      "parking": "At start (shuttle to finish for 204-mile)",
-      "official_site": "micoasttocoast.com"
+      "food": "Carry food from a personal support crew or the paid drop-bag service. Checkpoints provide water and Gatorade but no food.",
+      "packet_pickup": "Friday, June 25, 2027, 2:00-8:00 PM at Point Au Gres Marina; a pre-race meeting is mandatory.",
+      "parking": "Point-to-point logistics require a personal crew or the organizer's paid shuttle and rescue-support service.",
+      "official_site": "https://micoasttocoast.com/"
     },
     "history": {
       "founded": null,
@@ -117,52 +117,51 @@
       "reputation": "Growing regional ultra-distance event in Michigan."
     },
     "course_description": {
-      "character": "Relatively flat to rolling Michigan gravel crossing the state.",
+      "character": "A 204-mile point-to-point crossing that starts on fast farm gravel, rises through rolling uplands, and turns rougher through Manistee National Forest two-tracks, snowmobile trails, roots, and sand.",
       "suffering_zones": [
         {
-          "mile": 50,
-          "label": "First Quarter",
-          "desc": "50 miles in, settling into ultra pace.",
-          "terrain_detail": "Early miles",
-          "named_section": "First Quarter"
+          "mile": 54,
+          "label": "Gladwin Checkpoint",
+          "desc": "First crew checkpoint; riders must leave by 11:25 AM.",
+          "terrain_detail": "Fast opening farm gravel",
+          "named_section": "Checkpoint 1"
         },
         {
-          "mile": 100,
-          "label": "Halfway",
-          "desc": "Halfway point, 100 miles to go.",
-          "terrain_detail": "Midpoint",
-          "named_section": "Halfway"
+          "mile": 103,
+          "label": "Marion Checkpoint",
+          "desc": "Halfway crew checkpoint; riders must leave by 4:20 PM.",
+          "terrain_detail": "Transition into rolling uplands",
+          "named_section": "Checkpoint 2"
         },
         {
-          "mile": 150,
-          "label": "The Grind",
-          "desc": "150 miles in, mental game begins.",
-          "terrain_detail": "Late miles",
-          "named_section": "The Grind"
+          "mile": 143,
+          "label": "Clay Hill Neutral Water",
+          "desc": "Neutral water and the 8:20 PM cutoff arrive in the hardest forest block.",
+          "terrain_detail": "Manistee National Forest two-track and sand",
+          "named_section": "Clay Hill"
         },
         {
-          "mile": 180,
-          "label": "Final Push",
-          "desc": "Last 24 miles to Lake Michigan.",
-          "terrain_detail": "Final miles",
-          "named_section": "Homestretch"
+          "mile": 169,
+          "label": "Big M Checkpoint",
+          "desc": "Final crew checkpoint; lights become mandatory and riders must leave by 10:55 PM.",
+          "terrain_detail": "Late forest riding into darkness",
+          "named_section": "Checkpoint 3"
         }
       ],
-      "signature_challenge": "204-mile ultra-distance across Michigan.",
-      "ridewithgps_id": "47196412",
-      "ridewithgps_name": "E24 12 Michigan 2024 Coast to Coast Gravel Grinder (autotraced)"
+      "signature_challenge": "Race from a Lake Huron sunrise to Lake Michigan before the 9:33 PM sunset cutoff—or keep riding under lights to the 2:30 AM final cutoff."
     },
     "guide_variables": {
       "race_name": "Coast to Coast",
       "race_distance": "204 miles",
-      "race_elevation": "5,000 feet",
-      "race_date": "June",
+      "race_elevation": "Approximately 6,500 feet",
+      "race_date": "Saturday, June 26, 2027",
       "race_location": "Au Gres to Ludington, Michigan",
       "race_terrain": "Michigan gravel roads",
       "race_weather": "Michigan June",
       "race_challenges": [
         "204-mile ultra-distance",
-        "Day/night riding",
+        "15-plus hours of day/night riding",
+        "85% gravel and two-track with sand and forest trails",
         "Mental endurance",
         "Pacing discipline"
       ],
@@ -178,7 +177,7 @@
       {
         "requirement": "Night riding preparation",
         "by_when": "Week 6-8",
-        "why": "204-mile option requires riding through the night with lights and navigation."
+        "why": "Riders missing the 9:33 PM sunset target continue in darkness; lights are mandatory after mile 169 and navigation is self-directed."
       },
       {
         "requirement": "Pacing discipline",
@@ -187,13 +186,15 @@
       }
     ],
     "research_metadata": {
-      "data_confidence": "moderate",
-      "validation_status": "pending",
+      "data_confidence": "high",
+      "validation_status": "verified",
       "sources": [
+        "official_organizer_2027",
         "michigan_cycling_community"
       ],
       "migration_notes": [
-        "Generated from regional information"
+        "Generated from regional information",
+        "Official 2027 date, course, registration, schedule, checkpoints, and cutoffs verified 2026-08-13."
       ],
       "research_strength": {
         "overall": 90.2,
@@ -212,6 +213,12 @@
         },
         "scored_at": "2026-02-04"
       }
+    },
+    "eligibility": {
+      "status": "active",
+      "verified": "2026-08-13",
+      "source": "https://micoasttocoast.com/204-mile-race/204-race-details/",
+      "status_note": "The organizer publishes the 2027 race for Saturday, June 26 with a 6:00 AM mass start, 204-mile competitive point-to-point course, approximately 6,500 feet of gain, three checkpoints, official cutoffs, results history, divisions, and 2027 registration pricing. Cleared for a race-specific training-plan fleet."
     },
     "training_config": {
       "workout_modifications": {
@@ -287,8 +294,8 @@
         "explanation": "Matt Acker designed the route as \"quintessential Michigan; rural country roads, farmland, dense forest, creeks, rivers, rolling hills, white pine stands, two-tracks.\" While forest sections include snowmobile trails and single-track, this isn't technical mountain terrain. The challenge comes from sand and navigation rather than gnarly descents or rock gardens. Less technical than The Mid South."
       },
       "elevation": {
-        "score": 2,
-        "explanation": "Jackie Gregory noted the 100-mile version has \"maybe 3,000 feet of climbing,\" suggesting the 204-mile route's 5,000 feet provides gentle rolling terrain. Matt Acker describes \"rolling hills\" through hardwoods and uplands, but this is Michigan's lower peninsula - barely noticeable undulations that won't challenge riders familiar with mountain climbing. Less climbing than The Mid South."
+        "score": 4,
+        "explanation": "The organizer publishes approximately 6,500 feet of gain for the 204-mile course. That crosses the scoring rubric's 6,000-foot threshold for a 4: the climbing is accumulated through rolling uplands rather than mountain passes, but it is still a material load over a double century."
       },
       "climate": {
         "score": 2,
@@ -320,52 +327,42 @@
       },
       "field_depth": {
         "score": 2,
-        "explanation": "With a field of 100-300 riders, zero data on field size or competitive depth. No notable winners or pro participation mentioned anywhere. When your biggest endorsement comes from \"Minister of Gravel,\" you're not drawing the sport's elite to Michigan's lower peninsula. Less competitive depth than Almanzo 100."
+        "explanation": "The organizer records 347 starters in the 204-mile race in 2026 and caps the 2027 men's field at 500, but it does not publish a national pro field or major prize purse. That is healthy regional depth, not an elite gravel start list."
       },
       "value": {
         "score": 3,
-        "explanation": "204 miles of varied Michigan terrain from Lake Huron to Lake Michigan typically delivers solid value, though no entry fee data is available. The unique two-lakes concept and crew support options add worth. Sarah Porch's experience with resident-provided aid stations suggests community value beyond race organization alone."
+        "explanation": "The 2027 fee is $190-$225 for 204 miles, with a point-to-point crossing, checkpoints, timing, finish meal, finisher gear, and an optional paid support system. The unique two-lakes concept and community support make that a fair regional value, though crew or shuttle costs keep it from scoring higher."
       },
       "expenses": {
         "score": 3,
-        "explanation": "Registration runs $100-150. Ludington offers lodging options as a tourist town, but you'll need transportation between Au Gres start and Ludington finish unless you're doing the 100-mile loop. Michigan isn't cheap but isn't Colorado resort pricing either. Crew requirements could add vehicle costs for some. Similar expense level to Belgian Waffle Ride San Diego."
+        "explanation": "The 204-mile registration runs $190-$225 in 2027. Ludington offers lodging, but the point-to-point format requires two-town lodging and either a crew vehicle or paid shuttle and rescue support, keeping total trip cost in the moderate range."
       }
     },
     "citations": [
       {
-        "url": "https://ridewithgps.com/routes/47196412",
-        "category": "route",
-        "label": "RideWithGPS: E24 12 Michigan 2024 Coast to Coast Gravel Grinder (autotraced)"
+        "url": "https://micoasttocoast.com/204-mile-race/204-race-details/",
+        "category": "official",
+        "label": "Coast to Coast 204-Mile Race Details - 2027"
       },
       {
-        "url": "https://cyclejourneys.co.nz/lynnette-coast-to-coast/",
-        "category": "other",
-        "label": "Cyclejourneys"
+        "url": "https://micoasttocoast.com/204-mile-race/204-race-route/",
+        "category": "official",
+        "label": "Coast to Coast 204-Mile Route and Course Files"
+      },
+      {
+        "url": "https://micoasttocoast.com/register/",
+        "category": "official",
+        "label": "Coast to Coast 2027 Registration"
       },
       {
         "url": "https://komcycling.com/blogs/product-blogs/dirty-chain-podcast-episode-104-michigan-coast-to-coast-with-nick-stanko",
         "category": "other",
-        "label": "Komcycling"
+        "label": "Dirty Chain Podcast: Michigan Coast to Coast"
       },
       {
         "url": "https://lmb.org/ride-calendar/coast-to-coast-gravel-grinder/",
         "category": "other",
-        "label": "Lmb"
-      },
-      {
-        "url": "https://sammanson.com/2024/03/01/2024-kathmandu-coast-to-coast-race-report-all-of-last-year/",
-        "category": "other",
-        "label": "Sammanson"
-      },
-      {
-        "url": "https://www.coasttocoast.co.nz/two-day-race-report",
-        "category": "other",
-        "label": "Coasttocoast"
-      },
-      {
-        "url": "https://www.dietitianapproved.com/blog/newzealandcoasttocoastracereport",
-        "category": "other",
-        "label": "Dietitianapproved"
+        "label": "League of Michigan Bicyclists Event Listing"
       },
       {
         "url": "https://www.granfondoguide.com/Events/Index/7062/coast-to-coast-gravel-grinder",
@@ -375,17 +372,12 @@
       {
         "url": "https://www.joinbasecamp.com/post/sarahs-story-coast-to-coast-gravel-grinder",
         "category": "other",
-        "label": "Joinbasecamp"
-      },
-      {
-        "url": "https://www.reddit.com/r/coasttocoastam/comments/136dnqt/please_retire_george_noory/",
-        "category": "community",
-        "label": "Reddit"
+        "label": "BaseCamp: Sarah's Coast to Coast Race Story"
       },
       {
         "url": "https://www.salsacycles.com/blogs/articles/coast-to-coast-gravel-grinder-a-new-epic-is-born",
         "category": "other",
-        "label": "Salsacycles"
+        "label": "Salsa Cycles: Coast to Coast Gravel Grinder"
       }
     ],
     "tire_recommendations": {

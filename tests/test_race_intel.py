@@ -11,6 +11,7 @@ sys.path.insert(0, str(ROOT / "wordpress"))
 
 from generate_race_intel import (  # noqa: E402
     BULK_COMMIT_FILE_LIMIT,
+    _history_rows,
     classify_changes,
     is_bulk_commit,
     mine_history,
@@ -55,6 +56,19 @@ def test_bulk_guard_threshold():
     paths = [f"race-data/race-{i}.json" for i in range(BULK_COMMIT_FILE_LIMIT)]
     assert is_bulk_commit(paths) is False
     assert is_bulk_commit(paths + ["race-data/one-more.json"]) is True
+
+
+def test_history_rows_accept_parentless_shallow_boundary(monkeypatch):
+    monkeypatch.setattr(
+        "generate_race_intel._git",
+        lambda *args, **kwargs: (
+            "\x1edeadbeef\t2026-08-12\t\n"
+            "race-data/unbound-200.json\n"
+        ),
+    )
+    assert _history_rows("6 months ago") == [
+        ("deadbeef", "2026-08-12", None, ["race-data/unbound-200.json"])
+    ]
 
 
 def test_latest_sidebar_caps_formats_and_links_date_confirmation():

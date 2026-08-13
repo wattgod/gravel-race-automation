@@ -121,7 +121,17 @@ def _history_rows(since_arg: str) -> list[tuple[str, str, str | None, list[str]]
         lines = [line.strip() for line in block.splitlines() if line.strip()]
         if not lines:
             continue
-        commit, commit_date, parents_text = lines[0].split("\t", 2)
+        # ``%P`` is empty for a root commit and for a depth-1 checkout whose
+        # boundary commit is presented without parents. ``strip()`` removes
+        # the trailing tab in that case, so keep the parent field optional.
+        metadata = lines[0].split("\t", 2)
+        if len(metadata) == 2:
+            commit, commit_date = metadata
+            parents_text = ""
+        elif len(metadata) == 3:
+            commit, commit_date, parents_text = metadata
+        else:
+            continue
         parents = parents_text.split()
         changed = [
             line for line in lines[1:]

@@ -5,6 +5,8 @@ from __future__ import annotations
 import json
 from pathlib import Path
 
+from scripts.geocode_races import MANUAL_COORDS
+
 
 ROOT = Path(__file__).resolve().parents[1]
 RATING_KEYS = (
@@ -79,3 +81,28 @@ def test_nannup_index_and_training_preview_match_the_profile() -> None:
     assert "Heerlen" not in preview_text
     assert "8,202" not in preview_text
     assert "112 miles" not in preview_text
+
+
+def test_nannup_machine_readable_derivatives_cannot_regress_to_europe() -> None:
+    dates = json.loads((ROOT / "web" / "race-dates.json").read_text(encoding="utf-8"))
+    # The public countdown starts with the two-day championship weekend; the
+    # plan itself targets the Sunday long-course categories.
+    assert dates["uci-gravel-worlds"] == "2026-10-10"
+    assert MANUAL_COORDS["uci-gravel-worlds"] == (-33.9784, 115.7638)
+
+    llms = (ROOT / "web" / "llms-full.txt").read_text(encoding="utf-8")
+    worlds_section = llms.split("### UCI Gravel World Championships", 1)[1].split(
+        "\n### ", 1
+    )[0]
+    assert "83/100 | 88.9 mi | 12,182 ft | Nannup" in worlds_section
+
+    brief = (ROOT / "briefs" / "uci-gravel-worlds-brief.md").read_text(
+        encoding="utf-8"
+    )
+    video_briefs = "\n".join(
+        path.read_text(encoding="utf-8")
+        for path in sorted((ROOT / "video-briefs").glob("*/uci-gravel-worlds.json"))
+    )
+    current_derivatives = brief + worlds_section + video_briefs
+    for stale_fact in ("Heerlen", "Grenoble", "112 mi", "8,202 ft"):
+        assert stale_fact not in current_derivatives

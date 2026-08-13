@@ -10,12 +10,12 @@
     720
   ],
   "estimated_duration_sec": 585,
-  "estimated_spoken_words": 481,
+  "estimated_spoken_words": 551,
   "story_arc": "promise → course → data-staircase → pro/con → verdict → alternatives",
   "primary_trope": {
-    "name": "extreme_length",
-    "hook_text": "Only a handful of races score 5/5 on Length. UCI Gravel World Championships is one.",
-    "mechanism": "Curiosity gap (specific) — knowing a perfect score exists but not why triggers dopamine anticipation."
+    "name": "expose",
+    "hook_text": "UCI Gravel World Championships has a dirty secret the brochure won't tell you.",
+    "mechanism": "Cognitive dissonance — viewer believed X was good, specific counter-evidence triggers emotional demand for resolution."
   },
   "retention_targets": {
     "1min_hold": ">70%",
@@ -28,20 +28,14 @@
       "label": "HOOK + PROMISE",
       "time_range": "0:00-0:15",
       "duration_sec": 15,
-      "narration": "Should you race UCI Gravel World Championships? I rated 328 gravel races on 14 dimensions. UCI Gravel World Championships scored 83 out of 100. The Icons tier. Here's what that actually means for your season.",
+      "narration": "Should you race UCI Gravel World Championships? I rated 328 gravel races on 15 dimensions. UCI Gravel World Championships scored 83 out of 100. The Icons tier. Here's what that actually means for your season.",
       "text_on_screen": "Should You Race UCI Gravel World Championships?",
       "visual": "Title card + tier badge + avatar",
       "avatar_pose": "presenting",
       "broll_sources": [
         {
-          "type": "rwgps",
-          "id": "53011652",
-          "url": "https://ridewithgps.com/routes/53011652",
-          "use": "Route map overlay"
-        },
-        {
           "type": "race_website",
-          "url": "https://www.uci.org",
+          "url": "https://gravelchampswesternaustralia.com/",
           "use": "Hero image, branding reference"
         },
         {
@@ -76,20 +70,14 @@
       "label": "THE COURSE",
       "time_range": "0:15-1:15",
       "duration_sec": 60,
-      "narration": "UCI Gravel World Championships. Rotating (2024: Heerlen, Netherlands). 112 mi. 180 km elite, 140 km age group. 70% gravel, 30% paved. Varies by location. Technical rating: 4/5.",
-      "text_on_screen": "UCI Gravel World Championships | Rotating (2024: Heerlen, Netherlands) | 112 mi",
+      "narration": "UCI Gravel World Championships. Nannup, Western Australia, Australia. 88.9 mi. The long course packs 3.7 thousand metres of climbing into 143 kilometres. The organizer describes wide gravel roads, varied unpaved surfaces, and climbs that are seldom long but arrive steeply and in quick succession. All categories share the same start, finish, and final 27 km southern loop.",
+      "text_on_screen": "UCI Gravel World Championships | Nannup, Western Australia, Australia | 88.9 mi",
       "visual": "Route map + terrain footage",
       "avatar_pose": "presenting",
       "broll_sources": [
         {
-          "type": "rwgps",
-          "id": "53011652",
-          "url": "https://ridewithgps.com/routes/53011652",
-          "use": "Route map overlay"
-        },
-        {
           "type": "race_website",
-          "url": "https://www.uci.org",
+          "url": "https://gravelchampswesternaustralia.com/",
           "use": "Hero image, branding reference"
         },
         {
@@ -116,14 +104,14 @@
         40
       ],
       "editing_note": "Let the course breathe. Show the route map, then cut to terrain-specific B-roll. This is the SETUP phase — grounding the viewer before the data analysis. Pacing: 25-40 sec cuts.",
-      "narration_wpm": 27.0
+      "narration_wpm": 57.0
     },
     {
       "id": "scores_top",
       "label": "THE SCORES — Top 8",
       "time_range": "1:15-4:15",
       "duration_sec": 180,
-      "narration": "Let's go through the scores. Length. 5 out of 5. Ultra distance. Bring lights and a plan. Elite women race 131km, elite men 180km—distances that create real selection. Adventure. 5 out of 5. Full expedition mode. Genuine backcountry. Prestige. 5 out of 5. Bucket list tier. The name speaks for itself. This is the World Championship. Race Quality. 5 out of 5. Best-in-class race production. 180km elite distance with 2,500m of climbing separates pretenders from contenders fast. Experience. 5 out of 5. This race ruins other races for you. Racing for rainbow stripes changes everything—the nerves, the tactics, the suffering. Community. 5 out of 5. Family reunion energy. Everyone belongs. Elite and age group categories racing the same brutal course creates instant respect. Field Depth. 5 out of 5. Deepest field in gravel. Murderer's row. The top ten in both elite races consisted entirely of WorldTour riders—van der Poel, Vos, Vermeersch, Mohorič, Pidcock racing alongside age group qualifiers. Technicality. 4 out of 5. Bike handling matters here. Practice your descents. Course varies by location but maintains World Championship standards.",
+      "narration": "Let's go through the scores. Elevation. 5 out of 5. Mountainous. Your granny gear will earn its keep. The provisional long course publishes 3,713 metres (12,182 feet) of gain in 143 kilometres. Adventure. 5 out of 5. Full expedition mode. Genuine backcountry. The first Gravel World Championships outside Europe sends a qualified international field into the remote forests and farmland of Western Australia's Blackwood Valley. Prestige. 5 out of 5. Bucket list tier. The name speaks for itself. This is the discipline's UCI World Championship, awarding elite and age-group rainbow jerseys. Race Quality. 5 out of 5. Best-in-class race production. UCI championship production, qualification standards, separate elite and age-group titles, and category-specific courses place this at the top of the race-quality scale. Experience. 5 out of 5. This race ruins other races for you. A qualification-only chance to race for an age-group or elite rainbow jersey on the same Nannup weekend is the defining competitive experience in the discipline. Community. 5 out of 5. Family reunion energy. Everyone belongs. Qualified age-group riders and national-team elites converge on one championship weekend, with community rides and fan zones built around the host region. Field Depth. 5 out of 5. Deepest field in gravel. Murderer's row. National-team selection fills the elite races, while age-group riders must qualify through the UCI Gravel World Series. Logistics. 4 out of 5. One less thing to worry about. Nannup is roughly three hours by car from Perth Airport, while the nearest regional airport is about 45 minutes away.",
       "text_on_screen": "14 DIMENSIONS",
       "visual": "Score cards — 8 expanded dimensions",
       "avatar_pose": "thinking",
@@ -143,7 +131,7 @@
       "editing_note": "PROGRESSIVE RHYTHM: start tight (15-20 sec per dimension), slow down for the most interesting scores (30-40 sec). Each score: number appears, brief pause, explanation. Avatar reacts to extreme scores (5/5 = chef_kiss, 1/5 = facepalm). RE-ENGAGEMENT at 3:00 mark: insert a surprising score reveal or a meme reaction to break the pattern.",
       "evidence_data": [
         {
-          "dimension": "Length",
+          "dimension": "Elevation",
           "score": 5,
           "max": 5
         },
@@ -178,7 +166,7 @@
           "max": 5
         },
         {
-          "dimension": "Technicality",
+          "dimension": "Logistics",
           "score": 4,
           "max": 5
         }
@@ -189,14 +177,14 @@
         "suggested_clip": "avatar reaction to most extreme score",
         "duration_sec": 2
       },
-      "narration_wpm": 59.7
+      "narration_wpm": 83.7
     },
     {
       "id": "scores_remaining",
       "label": "THE SCORES — Also Scored",
       "time_range": "4:15-5:00",
       "duration_sec": 45,
-      "narration": "The rest. Quick-fire. Elevation. 4 out of 5. Mountain passes on the menu. Climate. 4 out of 5. Conditions will test your kit choices. Value. 4 out of 5. Strong value proposition. Logistics. 3 out of 5. Adequate. The word was invented for this. Expenses. 3 out of 5. Mid-range expenses. Budget a proper race weekend. Altitude. 1 out of 5. Sea level. Your lungs get a day off.",
+      "narration": "The rest. Quick-fire. Technicality. 4 out of 5. Bike handling matters here. Practice your descents. Length. 3 out of 5. Proper race distance. Enough to hurt. Value. 3 out of 5. Reasonable price for what's offered. Climate. 2 out of 5. Weather cooperates more often than not. Altitude. 1 out of 5. Sea level. Your lungs get a day off. Expenses. 1 out of 5. Bring a second mortgage and strong opinions about hotels.",
       "text_on_screen": null,
       "visual": "Quick-fire score list — remaining 6 dimensions",
       "avatar_pose": "counting",
@@ -216,37 +204,37 @@
       "editing_note": "FAST PACING — 7 seconds per dimension. Quick-fire energy change from the deep analysis above. This is a PATTERN INTERRUPT through pacing shift.",
       "evidence_data": [
         {
-          "dimension": "Elevation",
+          "dimension": "Technicality",
           "score": 4,
           "max": 5
         },
         {
-          "dimension": "Climate",
-          "score": 4,
+          "dimension": "Length",
+          "score": 3,
           "max": 5
         },
         {
           "dimension": "Value",
-          "score": 4,
-          "max": 5
-        },
-        {
-          "dimension": "Logistics",
           "score": 3,
           "max": 5
         },
         {
-          "dimension": "Expenses",
-          "score": 3,
+          "dimension": "Climate",
+          "score": 2,
           "max": 5
         },
         {
           "dimension": "Altitude",
           "score": 1,
           "max": 5
+        },
+        {
+          "dimension": "Expenses",
+          "score": 1,
+          "max": 5
         }
       ],
-      "narration_wpm": 92.0
+      "narration_wpm": 98.7
     },
     {
       "id": "strengths",
@@ -259,14 +247,8 @@
       "avatar_pose": "thumbs_up",
       "broll_sources": [
         {
-          "type": "rwgps",
-          "id": "53011652",
-          "url": "https://ridewithgps.com/routes/53011652",
-          "use": "Route map overlay"
-        },
-        {
           "type": "race_website",
-          "url": "https://www.uci.org",
+          "url": "https://gravelchampswesternaustralia.com/",
           "use": "Hero image, branding reference"
         },
         {
@@ -299,7 +281,7 @@
           "Rainbow jersey (elite winners)",
           "Fastest field in gravel (van der Poel, Vos, Vermeersch, Ferrand-Prévot)",
           "Elite + age group categories",
-          "Rotating international locations",
+          "First edition outside Europe",
           "Well-organized (UCI)",
           "World Championship podium ceremony"
         ]
@@ -332,11 +314,11 @@
       "content_data": {
         "weaknesses": [
           "UCI license required",
-          "International travel (rotating locations)",
-          "Long distance (180 km elite)",
-          "Weather (October rain 40%, cold)",
-          "20-30% DNF (elite)",
-          "Expensive (€100-€150 + travel)"
+          "Remote Western Australia travel",
+          "Qualification required",
+          "3,713 m of climbing on the long course",
+          "Final GPX and technical guide are still pending",
+          "Category-dependent course and race day"
         ]
       },
       "meme_insert": {
@@ -358,19 +340,13 @@
       "avatar_pose": "presenting",
       "broll_sources": [
         {
-          "type": "rwgps",
-          "id": "53011652",
-          "url": "https://ridewithgps.com/routes/53011652",
-          "use": "Route map overlay"
-        },
-        {
           "type": "race_website",
-          "url": "https://www.uci.org",
+          "url": "https://gravelchampswesternaustralia.com/",
           "use": "Hero image, branding reference"
         },
         {
           "type": "youtube_search",
-          "query": "Rotating (2024: Heerlen, Netherlands) travel guide",
+          "query": "Nannup, Western Australia, Australia travel guide",
           "use": "B-roll: logistics"
         },
         {
@@ -394,7 +370,7 @@
       "editing_note": "Utility section. Lower energy, practical value. Hybrid Tempo: alternate fast logistics items (10-15 sec) with slow map visuals (30 sec).",
       "content_data": {
         "logistics": [
-          "Entry: €100-€150"
+          "Entry: $2,000"
         ]
       },
       "narration_wpm": 8.0
@@ -404,7 +380,7 @@
       "label": "VERDICT",
       "time_range": "7:30-8:30",
       "duration_sec": 60,
-      "narration": "Verdict: UCI World Championship—Rainbow Jersey. You need a UCI license, the fitness for nearly five hours of World Championship pace racing. And the mental fortitude to suffer in front of 1 thousand+ of the world's fastest gravel riders. The course changes annually, so you're gambling on terrain, but if you can't handle 2.5 thousandm of climbing and October weather in Europe, stay home. This isn't about participation. it's about proving you belong with the global elite.",
+      "narration": "Verdict: UCI World Championship—Rainbow Jersey. If you qualified, yes. but train for the course you actually have: 143 kilometres, 3.7 thousand metres of climbing, at least 80 percent gravel. And almost no recovery between steep efforts. If you did not qualify, this is not an open-entry bucket-list race.",
       "text_on_screen": "UCI World Championship—Rainbow Jersey — 83/100",
       "visual": "Verdict badge + full scorecard summary",
       "avatar_pose": "thumbs_up",
@@ -422,14 +398,14 @@
         40
       ],
       "editing_note": "CLOSE THE MAIN LOOP. 0.5s silence before verdict. Tier badge slams in. Avatar delivers final take. DO NOT signal 'wrapping up' — maintain energy.",
-      "narration_wpm": 76.0
+      "narration_wpm": 48.0
     },
     {
       "id": "alternatives",
       "label": "ALTERNATIVES",
       "time_range": "8:30-9:15",
       "duration_sec": 45,
-      "narration": "If UCI Gravel World Championships isn't quite right for you. Unbound 200 gives you similar distance and prestige without the UCI bureaucracy and European travel costs. If you want that strade bianche experience more predictably, hit L'Eroica or Strade Bianche Gran Fondo where the terrain stays consistent and the October weather won't ruin your expensive European vacation.",
+      "narration": "If UCI Gravel World Championships isn't quite right for you. SEVEN uses the same Nannup terrain as a UCI Gravel World Series qualifier and is the direct course analogue. Unbound 200 offers comparable global prestige with open-entry pathways, but it is much longer and far flatter per mile.",
       "text_on_screen": "ALTERNATIVES",
       "visual": "Race cards for alternative races",
       "avatar_pose": "shrug",
@@ -447,7 +423,7 @@
         40
       ],
       "editing_note": "Bonus value — viewers who reach this point are highly engaged. Cross-reference other videos/races.",
-      "narration_wpm": 76.0
+      "narration_wpm": 64.0
     },
     {
       "id": "cta",
@@ -499,11 +475,11 @@
       "duration_sec": 1.5
     }
   ],
-  "thumbnail_prompt": "South Park style flat cutout character, dramatic pose, 'UCI Gravel World Championships' bold text, tier badge 'THE ICONS', high contrast red/yellow/white, cycling gear, handlebar mustache --ar 16:9 --cref [CHARACTER_URL]",
+  "thumbnail_prompt": "South Park style flat cutout character, skeptical squinting, red warning flags background, 'UCI Gravel World Championships' bold text, tier badge 'THE ICONS', high contrast red/yellow/white, cycling gear, handlebar mustache --ar 16:9 --cref [CHARACTER_URL]",
   "narration_feasibility": {
-    "total_words": 481,
+    "total_words": 551,
     "total_duration_sec": 585,
-    "overall_wpm": 49.3,
+    "overall_wpm": 56.5,
     "warnings": [],
     "feasible": true
   },

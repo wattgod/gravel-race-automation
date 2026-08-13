@@ -290,7 +290,7 @@ def build_search_queries(race_name: str, location: str) -> list:
     clean_name = re.sub(r'^THE\s+', '', race_name, flags=re.IGNORECASE).strip()
 
     if location:
-        # Strip parenthetical content: "Rotating (2024: Heerlen, Netherlands)" → "Rotating"
+        # Strip parenthetical content: "Emporia (Lyon County, Kansas)" → "Emporia"
         loc_clean = re.sub(r'\([^)]*\)', '', location).strip().rstrip(',').strip()
         parts = [p.strip() for p in loc_clean.split(',') if p.strip()]
 

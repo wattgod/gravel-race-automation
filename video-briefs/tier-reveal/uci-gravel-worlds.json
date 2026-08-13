@@ -10,12 +10,12 @@
     35
   ],
   "estimated_duration_sec": 33,
-  "estimated_spoken_words": 79,
+  "estimated_spoken_words": 74,
   "story_arc": "hook-setup-evidence-reveal-loop",
   "primary_trope": {
-    "name": "extreme_length",
-    "hook_text": "Only a handful of races score 5/5 on Length. UCI Gravel World Championships is one.",
-    "mechanism": "Curiosity gap (specific) — knowing a perfect score exists but not why triggers dopamine anticipation."
+    "name": "expose",
+    "hook_text": "UCI Gravel World Championships has a dirty secret the brochure won't tell you.",
+    "mechanism": "Cognitive dissonance — viewer believed X was good, specific counter-evidence triggers emotional demand for resolution."
   },
   "retention_targets": {
     "3s_hold": ">65%",
@@ -28,10 +28,10 @@
       "label": "HOOK",
       "time_range": "0:00-0:05",
       "duration_sec": 5,
-      "narration": "Only a handful of races score 5/5 on Length. UCI Gravel World Championships is.",
-      "text_on_screen": "Only a handful of races score 5/5 on Length.",
+      "narration": "UCI Gravel World Championships has a dirty secret the brochure won't tell you.",
+      "text_on_screen": "UCI Gravel World Championships has a dirty secret the brochure won't tell you.",
       "visual": "Bold text overlay + avatar reaction",
-      "avatar_pose": "shocked",
+      "avatar_pose": "skeptical",
       "broll_sources": [],
       "music_bpm": [
         120,
@@ -46,38 +46,32 @@
         3
       ],
       "editing_note": "Pattern interrupt. Maximum visual stimulation. Text appears word-by-word (kinetic typography).",
-      "psych_mechanism": "Curiosity gap (specific) — knowing a perfect score exists but not why triggers dopamine anticipation.",
-      "narration_wpm": 168.0
+      "psych_mechanism": "Cognitive dissonance — viewer believed X was good, specific counter-evidence triggers emotional demand for resolution.",
+      "narration_wpm": 156.0
     },
     {
       "id": "setup",
       "label": "SETUP",
       "time_range": "0:05-0:10",
       "duration_sec": 5,
-      "narration": "UCI Gravel World Championships. Rotating (2024: Heerlen, Netherlands). 112 mi.",
-      "text_on_screen": "UCI Gravel World Championships | Rotating (2024: Heerlen, Netherlands)",
+      "narration": "UCI Gravel World Championships. Nannup, Western Australia, Australia. 88.9 mi.",
+      "text_on_screen": "UCI Gravel World Championships | Nannup, Western Australia, Australia",
       "visual": "Race card with location pin + route preview",
       "avatar_pose": "presenting",
       "broll_sources": [
         {
-          "type": "rwgps",
-          "id": "53011652",
-          "url": "https://ridewithgps.com/routes/53011652",
-          "use": "Route map overlay"
-        },
-        {
           "type": "race_website",
-          "url": "https://www.uci.org",
+          "url": "https://gravelchampswesternaustralia.com/",
           "use": "Hero image, branding reference"
         },
         {
           "type": "youtube_search",
-          "query": "Rotating (2024: Heerlen, Netherlands) drone",
+          "query": "Nannup, Western Australia, Australia drone",
           "use": "B-roll: location"
         },
         {
           "type": "youtube_search",
-          "query": "Rotating (2024: Heerlen, Netherlands) landscape",
+          "query": "Nannup, Western Australia, Australia landscape",
           "use": "B-roll: location"
         }
       ],
@@ -101,7 +95,7 @@
       "label": "EVIDENCE",
       "time_range": "0:10-0:22",
       "duration_sec": 12,
-      "narration": "Length. 5 out of 5. Ultra distance. Bring lights and a plan. Adventure. 5 out of 5. Full expedition mode. Genuine backcountry. Prestige. 5 out of 5. Bucket list tier. The name speaks for itself.",
+      "narration": "Elevation. 5 out of 5. Mountainous. Your granny gear will earn its keep. Adventure. 5 out of 5. Full expedition mode. Genuine backcountry. Prestige. 5 out of 5. Bucket list tier.",
       "text_on_screen": "Score cards cycling",
       "visual": "Animated score cards — one per dimension",
       "avatar_pose": "thinking",
@@ -121,7 +115,7 @@
       "editing_note": "Each dimension gets 4-5 seconds. Visual change on EVERY score. Use Von Restorff: if any score is 5/5 or 1/5, isolate it visually (different color flash, avatar reaction shot). [RIFF HERE] after any extreme score.",
       "evidence_data": [
         {
-          "dimension": "Length",
+          "dimension": "Elevation",
           "score": 5,
           "max": 5
         },
@@ -136,8 +130,7 @@
           "max": 5
         }
       ],
-      "narration_wpm": 175.0,
-      "wpm_warning": "Beat 'evidence': 175WPM (35w/12s) — too_fast"
+      "narration_wpm": 155.0
     },
     {
       "id": "reveal",
@@ -187,7 +180,7 @@
         3
       ],
       "editing_note": "Design for LOOP: the final frame should visually connect back to the hook frame. On TikTok, seamless loops = replays = the strongest algorithmic signal.",
-      "engagement_question": "What race deserves a perfect Length score?",
+      "engagement_question": "Is UCI Gravel World Championships overrated or worth every dollar?",
       "narration_wpm": 96.0
     }
   ],
@@ -195,19 +188,17 @@
     "excited",
     "pointing",
     "presenting",
-    "shocked",
+    "skeptical",
     "thinking"
   ],
   "meme_inserts": [],
-  "thumbnail_prompt": "South Park style flat cutout character, dramatic pose, 'UCI Gravel World Championships' bold text, tier badge 'THE ICONS', high contrast red/yellow/white, cycling gear, handlebar mustache --ar 9:16 --cref [CHARACTER_URL]",
+  "thumbnail_prompt": "South Park style flat cutout character, skeptical squinting, red warning flags background, 'UCI Gravel World Championships' bold text, tier badge 'THE ICONS', high contrast red/yellow/white, cycling gear, handlebar mustache --ar 9:16 --cref [CHARACTER_URL]",
   "narration_feasibility": {
-    "total_words": 79,
+    "total_words": 74,
     "total_duration_sec": 33,
-    "overall_wpm": 143.6,
-    "warnings": [
-      "Beat 'evidence': 175WPM (35w/12s) — too_fast"
-    ],
-    "feasible": false
+    "overall_wpm": 134.5,
+    "warnings": [],
+    "feasible": true
   },
   "content_pillars": "Tier List / Rankings (flagship, highest engagement)",
   "cross_platform_notes": {

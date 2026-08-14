@@ -1,0 +1,138 @@
+{
+  "slug": "kindling",
+  "race_name": "Kindling",
+  "distance_mi": 188.3,
+  "demands": {
+    "durability": 8,
+    "climbing": 8,
+    "vo2_power": 4,
+    "threshold": 5,
+    "technical": 6,
+    "heat_resilience": 6,
+    "altitude": 4,
+    "race_specificity": 8
+  },
+  "top_categories": [
+    {
+      "category": "Durability",
+      "score": 100,
+      "workouts": [
+        "Tired VO2max",
+        "Double Day Simulation",
+        "Progressive Fatigue"
+      ],
+      "workout_context": "188 miles across 3 consecutive days. Train the repeatable power that still exists after yesterday's ride is in your legs."
+    },
+    {
+      "category": "Gravel_Specific",
+      "score": 71,
+      "workouts": [
+        "Surge and Settle",
+        "Terrain Microbursts"
+      ],
+      "workout_context": "Kindling's changing Scottish gravel rewards traction, cadence, and power control that stay reliable across 3 days."
+    },
+    {
+      "category": "Race_Simulation",
+      "score": 69,
+      "workouts": [
+        "Breakaway Simulation",
+        "Variable Pace Chaos",
+        "Sector Simulation"
+      ],
+      "workout_context": "Back-to-back race simulations rehearse Kindling's real problem: perform, recover overnight, then perform again."
+    },
+    {
+      "category": "Endurance",
+      "score": 65,
+      "workouts": [
+        "Pre-Race Openers",
+        "Terrain Simulation Z2"
+      ],
+      "workout_context": "Aerobic efficiency covers the untimed transfers without stealing the power reserved for timed stages across 3 days."
+    },
+    {
+      "category": "Over_Under",
+      "score": 57,
+      "workouts": [
+        "Classic Over-Unders",
+        "Ladder Over-Unders"
+      ],
+      "workout_context": "Timed stages surge above threshold, then demand recovery while you keep moving. Over-unders train that pattern for both Kindling's days."
+    },
+    {
+      "category": "TT_Threshold",
+      "score": 56,
+      "workouts": [
+        "Single Sustained Threshold",
+        "Threshold Ramps",
+        "Descending Threshold"
+      ],
+      "workout_context": "The clock runs on selected stages at Kindling. Build repeatable threshold power without racing the transfers between them."
+    },
+    {
+      "category": "HVLI_Extended",
+      "score": 54,
+      "workouts": [
+        "HVLI Extended Z2",
+        "Multi-Hour Z2",
+        "Back-to-Back Long"
+      ],
+      "workout_context": "Multi-day volume builds the aerobic base to cover 188 total miles without turning every transfer into recovery debt."
+    },
+    {
+      "category": "Mixed_Climbing",
+      "score": 50,
+      "workouts": [
+        "Seated/Standing Climbs",
+        "Variable Grade Simulation"
+      ],
+      "workout_context": "Climbing must be repeatable across 3 days. Switch cadence and position without burning matches you need tomorrow."
+    },
+    {
+      "category": "VO2max",
+      "score": 46,
+      "workouts": [
+        "5x3 VO2 Classic",
+        "Descending VO2 Pyramid",
+        "Norwegian 4x8"
+      ],
+      "workout_context": "Timed stages reward repeated high power, including on day 3. VO2 work keeps the final hard segment from becoming damage control."
+    },
+    {
+      "category": "G_Spot",
+      "score": 43,
+      "workouts": [
+        "G-Spot Standard",
+        "G-Spot Extended",
+        "Criss-Cross"
+      ],
+      "workout_context": "Sustainable 88\u201392% FTP gives you hard, controlled speed on timed segments without emptying day 3's legs on day one."
+    },
+    {
+      "category": "Blended",
+      "score": 42,
+      "workouts": [
+        "Z2 + VO2 Combo",
+        "Endurance with Spikes"
+      ],
+      "workout_context": "Endurance with controlled intensity spikes matches a stage event: ride the transfers, race the segments, repeat for 3 days."
+    },
+    {
+      "category": "Critical_Power",
+      "score": 38,
+      "workouts": [
+        "Above CP Repeats",
+        "W-Prime Depletion"
+      ],
+      "workout_context": "Decisive timed segments live just above sustainable power. Train how long you can stay there and how quickly you can reset for the next one."
+    }
+  ],
+  "race_overlay": {
+    "heat": "April in Graaff-Reinet, Eastern Cape, South Africa can bring heat. Complete 3\u20134 heat exposure sessions in the final 2 weeks before Kindling. Increase sodium intake 48 hours before race day.",
+    "nutrition": "Target 40\u201370g carbs/hour on each of Kindling's 3 event days. Begin recovery fueling within 30 minutes of every finish, replace fluid and sodium, then eat a full carbohydrate-forward meal. Tomorrow's legs are built the night before.",
+    "terrain": "Mixed terrain at Kindling requires surface adaptability. Include weekly rides on karoo stage-race gravel to build confidence. Expect: great karoo gravel roads, long open climbs, remote farm tracks."
+  },
+  "pack_summary": "This 10-workout pack focuses on Durability, Gravel Specific, and Race Simulation to prepare you for 188 miles of karoo stage-race gravel across 3 consecutive days in Graaff-Reinet, Eastern Cape, South Africa.",
+  "generated_at": "2026-08-14"
+}

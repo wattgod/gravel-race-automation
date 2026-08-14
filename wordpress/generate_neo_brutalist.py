@@ -5018,6 +5018,7 @@ _PLANS_BY_SLUG_CACHE: Optional[dict] = None
 # so the page side aliases to it rather than the other way around.
 PLAN_SLUG_ALIASES = {
     "bighorn-gravel": "big-horn-gravel",  # dedup kept bighorn-gravel.json (a0b85bdf)
+    "gravel-suisse": "the-majestics",  # original TP suite predates the current page slug
 }
 
 

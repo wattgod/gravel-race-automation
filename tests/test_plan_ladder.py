@@ -88,6 +88,16 @@ class TestPublishedLinkCase:
         assert "12 wk" in html
         assert "$99" in html
 
+    def test_plan_slug_alias_renders_published_suite(self, monkeypatch):
+        _set_plans(monkeypatch, "the-majestics", [
+            _plan(
+                status="published",
+                marketplace_url="https://www.trainingpeaks.com/plan/659126",
+            ),
+        ])
+        html = build_plan_ladder(_rd(slug="gravel-suisse", name="Gravel Suisse"))
+        assert 'href="https://www.trainingpeaks.com/plan/659126"' in html
+
 
 class TestEmailGateCase:
     def test_private_plan_renders_notify_form(self, monkeypatch):

@@ -1,0 +1,137 @@
+{
+  "slug": "pyrenees-catalanes-gravel-tour",
+  "race_name": "Pyr\u00e9n\u00e9es Catalanes Gravel Tour",
+  "distance_mi": 62.1,
+  "demands": {
+    "durability": 2,
+    "climbing": 8,
+    "vo2_power": 7,
+    "threshold": 6,
+    "technical": 6,
+    "heat_resilience": 0,
+    "altitude": 8,
+    "race_specificity": 9
+  },
+  "top_categories": [
+    {
+      "category": "VO2max",
+      "score": 100,
+      "workouts": [
+        "5x3 VO2 Classic",
+        "Descending VO2 Pyramid",
+        "Norwegian 4x8"
+      ],
+      "workout_context": "7,500ft of climbing means repeated surges above threshold. VO2max work is how you survive the fifth climb, not just the first."
+    },
+    {
+      "category": "Gravel_Specific",
+      "score": 88,
+      "workouts": [
+        "Surge and Settle",
+        "Terrain Microbursts"
+      ],
+      "workout_context": "Pyr\u00e9n\u00e9es Catalanes Gravel Tour's High-altitude Pyrenean gravel, Cerdagne plateau forces constant power changes. Surge over the rough stuff, settle on the smooth, repeat for 62 miles."
+    },
+    {
+      "category": "Race_Simulation",
+      "score": 88,
+      "workouts": [
+        "Breakaway Simulation",
+        "Variable Pace Chaos",
+        "Sector Simulation"
+      ],
+      "workout_context": "Race-pace efforts that mimic Pyr\u00e9n\u00e9es Catalanes Gravel Tour's demands. Pacing, fueling, and tactical decisions under fatigue. Practice the race before September."
+    },
+    {
+      "category": "TT_Threshold",
+      "score": 73,
+      "workouts": [
+        "Single Sustained Threshold",
+        "Threshold Ramps",
+        "Descending Threshold"
+      ],
+      "workout_context": "121ft/mi means long efforts at or near FTP on every climb. If your threshold cracks at minute 15, you'll walk the rest."
+    },
+    {
+      "category": "Over_Under",
+      "score": 71,
+      "workouts": [
+        "Classic Over-Unders",
+        "Ladder Over-Unders"
+      ],
+      "workout_context": "At Pyr\u00e9n\u00e9es Catalanes Gravel Tour, surges push you above threshold and you have to recover while still riding. Over-unders train exactly that."
+    },
+    {
+      "category": "Mixed_Climbing",
+      "score": 59,
+      "workouts": [
+        "Seated/Standing Climbs",
+        "Variable Grade Simulation"
+      ],
+      "workout_context": "7,500ft of climbing on grades that change every minute. You need to switch from seated to standing without losing rhythm."
+    },
+    {
+      "category": "G_Spot",
+      "score": 56,
+      "workouts": [
+        "G-Spot Standard",
+        "G-Spot Extended",
+        "Criss-Cross"
+      ],
+      "workout_context": "88\u201392% FTP is where you'll spend the hardest sustained miles of Pyr\u00e9n\u00e9es Catalanes Gravel Tour. Train it until it feels boring."
+    },
+    {
+      "category": "Critical_Power",
+      "score": 55,
+      "workouts": [
+        "Above CP Repeats",
+        "W-Prime Depletion"
+      ],
+      "workout_context": "How long can you hold 105% FTP before you blow? At Pyr\u00e9n\u00e9es Catalanes Gravel Tour, that number decides whether you bridge or get dropped."
+    },
+    {
+      "category": "Anaerobic_Capacity",
+      "score": 49,
+      "workouts": [
+        "2min Killers",
+        "90sec Repeats"
+      ],
+      "workout_context": "Short, max efforts are unavoidable. Punchy climbs, gap closures, attacks on high-altitude gravel loops across the Cerdagne. If you haven't trained them, you'll crack."
+    },
+    {
+      "category": "Durability",
+      "score": 48,
+      "workouts": [
+        "Tired VO2max",
+        "Double Day Simulation",
+        "Progressive Fatigue"
+      ],
+      "workout_context": "62 miles on high-altitude gravel loops across the Cerdagne burns energy faster than the distance suggests. Train the fade resistance now."
+    },
+    {
+      "category": "Endurance",
+      "score": 39,
+      "workouts": [
+        "Pre-Race Openers",
+        "Terrain Simulation Z2"
+      ],
+      "workout_context": "Base fitness for Pyr\u00e9n\u00e9es Catalanes Gravel Tour. Without this, the hard workouts break you down instead of building you up."
+    },
+    {
+      "category": "SFR_Muscle_Force",
+      "score": 39,
+      "workouts": [
+        "SFR Low Cadence",
+        "Force Repeats"
+      ],
+      "workout_context": "Low-cadence force work for 7,500ft of climbing. The slow, grinding ascents where you can't spin\u2014you push."
+    }
+  ],
+  "race_overlay": {
+    "nutrition": "Target 40\u201360g carbs/hour for Pyr\u00e9n\u00e9es Catalanes Gravel Tour\u2019s 62 miles. Front-load calories in the first half. One bottle per hour minimum, more in heat.",
+    "altitude": "Pyr\u00e9n\u00e9es Catalanes Gravel Tour with 7,500ft of climbing, much of it above 8,000ft demands altitude preparation. Arrive 5\u20137 days early for acclimatization. Expect 5\u201315% power reduction at altitude. Increase iron intake 4 weeks out. Hydrate aggressively \u2014 altitude increases fluid loss by 20\u201340%. Fast temperature changes at mountain elevation.",
+    "terrain": "Mixed terrain at Pyr\u00e9n\u00e9es Catalanes Gravel Tour requires surface adaptability. Include weekly rides on high-altitude gravel loops across the cerdagne plateau to build confidence. Expect: high-altitude pyrenean gravel, cerdagne plateau, three-loop uci qualifier."
+  },
+  "pack_summary": "This 10-workout pack focuses on VO2max, Gravel Specific, and Race Simulation to prepare you for 62 miles of high-altitude gravel loops across the cerdagne plateau in Font-Romeu, Pyr\u00e9n\u00e9es-Orientales, France.",
+  "generated_at": "2026-08-14"
+}

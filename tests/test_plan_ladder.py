@@ -23,6 +23,17 @@ import generate_neo_brutalist as gnb
 from generate_neo_brutalist import build_inline_js, build_plan_ladder, get_page_css
 
 
+def test_configure_plans_db_resolves_path_and_invalidates_cache(tmp_path, monkeypatch):
+    source = tmp_path / "plans.json"
+    source.write_text('{"plans": []}\n', encoding="utf-8")
+    monkeypatch.setattr(gnb, "_PLANS_BY_SLUG_CACHE", {"stale": []})
+
+    gnb.configure_plans_db(source)
+
+    assert gnb.PLANS_DB_PATH == source.resolve()
+    assert gnb._PLANS_BY_SLUG_CACHE is None
+
+
 def _rd(slug="test-race", name="Test Race"):
     return {"slug": slug, "name": name}
 

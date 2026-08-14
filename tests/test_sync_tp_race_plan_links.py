@@ -1,5 +1,6 @@
 """Published Gravel God TrainingPeaks link synchronization."""
 
+import json
 import sys
 from pathlib import Path
 
@@ -67,3 +68,16 @@ def test_build_links_filters_and_sorts_published_gravel_plans():
 
     assert list(links) == ["race-a"]
     assert [plan["planId"] for plan in links["race-a"]] == [1, 2, 3]
+
+
+def test_oregon_trail_publishes_the_complete_full_7_ladder():
+    links = json.loads(
+        (Path(__file__).resolve().parent.parent / "data" / "tp-race-plan-links.json")
+        .read_text(encoding="utf-8")
+    )
+    ladder = links["oregon-trail-gravel"]
+
+    assert [plan["planId"] for plan in ladder] == [
+        669620, 669621, 669622, 669623, 669624, 669625, 669626
+    ]
+    assert all(plan["url"].endswith(f"tp-{plan['planId']}/p") for plan in ladder)

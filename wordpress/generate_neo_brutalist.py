@@ -5022,6 +5022,13 @@ PLAN_SLUG_ALIASES = {
 }
 
 
+def configure_plans_db(path: Path) -> None:
+    """Select an explicit plan database and invalidate the module cache."""
+    global PLANS_DB_PATH, _PLANS_BY_SLUG_CACHE
+    PLANS_DB_PATH = Path(path).resolve()
+    _PLANS_BY_SLUG_CACHE = None
+
+
 def _load_plans_by_slug() -> dict:
     """Load ../gravel-god-training-plans/db/plans.json, grouped by race_slug.
 
@@ -6579,10 +6586,20 @@ def main():
     parser.add_argument('--all', action='store_true', help='Generate pages for all races')
     parser.add_argument('--data-dir', help='Primary data directory (default: auto-detect)')
     parser.add_argument('--output-dir', default=None, help='Output directory (default: wordpress/output/)')
+    parser.add_argument(
+        '--plans-db',
+        type=Path,
+        help='Explicit gravel-god-training-plans db/plans.json path',
+    )
     args = parser.parse_args()
 
     if not args.slug and not args.all:
         parser.error("Provide a race slug or use --all")
+
+    if args.plans_db:
+        if not args.plans_db.is_file():
+            parser.error(f"Plan database not found: {args.plans_db}")
+        configure_plans_db(args.plans_db)
 
     # Resolve data directories
     script_dir = Path(__file__).parent

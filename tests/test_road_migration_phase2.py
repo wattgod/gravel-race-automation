@@ -81,13 +81,16 @@ class TestCatalogContract:
     def test_post_migration_catalog_count_has_map_provenance(
         self, migration_map, race_index
     ):
-        # Phase 1 source snapshot: 733 active profiles. Phase 2 removes the
-        # 363 redirect/hub_redirect records and keeps RVO, yielding 370.
+        # Phase 1 source snapshot: 733 active profiles. Phase 2 removed the
+        # 363 redirect/hub_redirect records and kept RVO, yielding 370. The
+        # Winterberg stage race was added after that historical snapshot.
         source_count = migration_map["source_snapshot"]["gravel_god"][
             "race_data_total_profiles"
         ]
         departing_count = len(road_migration.redirected_entries(migration_map))
-        assert len(race_index) == source_count - departing_count == 370
+        migration_baseline = source_count - departing_count
+        assert migration_baseline == 370
+        assert len(race_index) >= migration_baseline
 
     def test_archived_profiles_never_feed_generated_index(
         self, migration_map, race_index

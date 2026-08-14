@@ -1,0 +1,354 @@
+{
+  "race": {
+    "name": "3RIDES Gravel Winterberg",
+    "slug": "3rides-gravel-winterberg",
+    "display_name": "3RIDES Gravel Winterberg",
+    "tagline": "Three days, almost no asphalt, and enough Sauerland climbing to make recovery part of the race.",
+    "vitals": {
+      "distance_mi": 154,
+      "elevation_ft": 19193,
+      "location": "Winterberg, North Rhine-Westphalia, Germany",
+      "location_badge": "WINTERBERG, GERMANY",
+      "county": "Hochsauerlandkreis",
+      "date": "Mid-July; next edition unannounced",
+      "date_specific": "2027: TBD",
+      "terrain_types": [
+        "Highland forest gravel",
+        "Three-day stage race",
+        "Repeated short climbs",
+        "Ski-slope descents"
+      ],
+      "field_size": "Not published",
+      "start_time": "2026 schedule: 2:00 p.m. Friday and Saturday; 11:00 a.m. Sunday",
+      "registration": "2026 full stage race: €260-€270",
+      "prize_purse": "Cash prizes for the top three men and women overall; amount not published",
+      "aid_stations": "On-course and finish-area feed zones; exact spacing varies by stage",
+      "cutoff_time": "See edition-specific regulations",
+      "lat": 51.1929,
+      "lng": 8.5327,
+      "month": "July",
+      "max_elevation_asl_ft": 2762
+    },
+    "climate": {
+      "primary": "Sauerland highland summer",
+      "description": "July can be quick and dry, but the official course test was cold, wet, and muddy. The exposed Kahler Asten plateau makes wind and rain matter more than the modest altitude suggests.",
+      "challenges": [
+        "Fast-changing highland weather",
+        "Mud when the forest roads are wet",
+        "Wind exposure on Kahler Asten",
+        "Three consecutive race days"
+      ]
+    },
+    "terrain": {
+      "primary": "Hochsauerland forest gravel",
+      "surface": "The 2026 routes were almost entirely gravel, using fast forest roads, rolling highland tracks, ski-slope descents, and repeated climbs around Winterberg and Kahler Asten. The organizer described it as a gravel course rather than an MTB course.",
+      "technical_rating": 3,
+      "features": [
+        "14 km gravel time trial with roughly 300 m of climbing",
+        "105 km long Stage 2 with roughly 2,550 m of climbing",
+        "129 km long Stage 3 with roughly 3,000 m of climbing",
+        "Approximately 20 climbs per lap on the final stage",
+        "Kahler Asten high point at almost 842 m",
+        "Ski-slope descents and exposed highland plateaus"
+      ]
+    },
+    "gravel_god_rating": {
+      "overall_score": 70,
+      "tier": 2,
+      "tier_label": "TIER 2",
+      "editorial_tier": 2,
+      "editorial_tier_label": "TIER 2",
+      "business_tier": 2,
+      "business_tier_label": "TIER 2",
+      "display_tier": 2,
+      "display_tier_label": "TIER 2",
+      "logistics": 3,
+      "length": 5,
+      "technicality": 3,
+      "elevation": 5,
+      "climate": 3,
+      "altitude": 1,
+      "adventure": 4,
+      "prestige": 3,
+      "race_quality": 4,
+      "experience": 4,
+      "community": 3,
+      "field_depth": 4,
+      "value": 3,
+      "expenses": 3,
+      "cultural_impact": 1,
+      "discipline": "gravel",
+      "score_note": "A new but legitimate UCI-backed three-day stage race. The 2026 long-course combination earns maximum length and elevation scores; its first-year history keeps prestige and cultural impact below established European gravel fixtures."
+    },
+    "biased_opinion_ratings": {
+      "logistics": {
+        "score": 3,
+        "explanation": "Winterberg is a real tourism town with lodging and event infrastructure, but a Friday-through-Sunday race means three start windows, three recovery cycles, and at least a four-night trip for most riders. The organizer supplied timing, medical coverage, technical service, guarded bike parking, and bike wash in 2026."
+      },
+      "length": {
+        "score": 5,
+        "explanation": "The long 2026 stage-race option combined a 14 km prologue, 105 km on Saturday, and 129 km on Sunday: 248 km, or roughly 154 miles, across three days. That clears the rubric's 150-mile threshold before the cumulative recovery cost is even counted."
+      },
+      "technicality": {
+        "score": 3,
+        "explanation": "The course test found muddy slopes, ski-run descents, and technically varied forest tracks, but the organizer explicitly framed the route as pure gravel rather than an MTB course in disguise. Handling matters; mountain-bike survival skills should not."
+      },
+      "elevation": {
+        "score": 5,
+        "explanation": "The long 2026 format published roughly 300 m, 2,550 m, and 3,000 m of climbing across the three stages. That totals about 5,850 m or 19,193 feet, comfortably above the scoring rubric's 10,000-foot ceiling."
+      },
+      "climate": {
+        "score": 3,
+        "explanation": "July is normally workable, but the organizer's own course test happened in cold rain and mud. Kahler Asten is exposed enough that wind and rain can change the race without turning every edition into a weather lottery."
+      },
+      "altitude": {
+        "score": 1,
+        "explanation": "The course tops out near Kahler Asten at about 842 m or 2,762 feet. The climbing is severe because it repeats, not because the air is thin."
+      },
+      "adventure": {
+        "score": 4,
+        "explanation": "A gravel time trial followed by two full mass-start stages through the Rothaargebirge makes this a destination weekend. Ski-slope descents, forest highways, highland plateaus, and cumulative standings give it more narrative than another single-loop fondo."
+      },
+      "prestige": {
+        "score": 3,
+        "explanation": "Sunday's finale was a UCI Gravel World Series qualifier and the 2026 winners included Nele Laing and Jonas Lindberg. The Winterberg format was still brand-new in 2026, so the sanction is real but the event has not earned national-institution status yet."
+      },
+      "race_quality": {
+        "score": 4,
+        "explanation": "The published package included transponder timing, secured and signed courses, result service, feed zones, technical and medical support, guarded bike parking, photography, and bike wash. That is a professional first edition, with a point held back until the format proves repeatable."
+      },
+      "experience": {
+        "score": 4,
+        "explanation": "Three distinct race formats force riders to solve pacing, recovery, and tactics instead of simply surviving one long day. Winterberg's forest-and-ski terrain gives each stage a recognizable place and purpose."
+      },
+      "community": {
+        "score": 3,
+        "explanation": "The weekend mixed an age-group stage race, UCI qualification, and non-racing gravel rides, creating a broader festival than the elite result sheet suggests. It is promising, but one Winterberg edition is not enough to call the culture established."
+      },
+      "field_depth": {
+        "score": 4,
+        "explanation": "A UCI qualifier with elite winners Nele Laing and Jonas Lindberg is not a casual local field. The top 25 percent of each UCI age group qualified for Worlds, which gives the Sunday race real competitive consequences."
+      },
+      "value": {
+        "score": 3,
+        "explanation": "The 2026 full stage-race entry cost €260 before late registration. That is not cheap, but three timed stages plus medical, technical, feed-zone, photo, parking, and wash support make the price defensible rather than predatory."
+      },
+      "expenses": {
+        "score": 3,
+        "explanation": "European riders can reach Winterberg without expedition logistics, and the town has established tourism capacity. A multi-night stay and three-day food-and-recovery plan still push the weekend into moderate total-cost territory."
+      }
+    },
+    "biased_opinion": {
+      "verdict": "A stage race that makes the third day the hardest one",
+      "summary": "The numbers are rude: roughly 154 miles and 19,000 feet if you raced the long 2026 stages, with the UCI qualifier waiting on Sunday after two days already in your legs. Winterberg is new, not iconic. But the format is specific, the course is real gravel, and the production already looks more serious than most first editions.",
+      "strengths": [
+        "Three genuinely different race stages",
+        "UCI Gravel World Series finale",
+        "Almost no asphalt on the 2026 routes",
+        "Strong first-edition support package",
+        "Repeat climbing rewards durable riders"
+      ],
+      "weaknesses": [
+        "No official 2027 edition or date yet",
+        "The long format demands a full travel week, not a quick weekend",
+        "First-year history means reputation is still borrowed from the 3RIDES brand and UCI sanction",
+        "Wet forest roads can turn the technical cost up quickly"
+      ],
+      "bottom_line": "Build for three hard days, not one heroic Sunday. If the organizer confirms a 2027 return, Winterberg belongs on the European stage-race shortlist."
+    },
+    "final_verdict": {
+      "score": "70 / 100",
+      "one_liner": "A three-day UCI-backed climbing race where Sunday punishes every recovery mistake from Friday and Saturday.",
+      "should_you_race": "Yes if you want a true gravel stage race and can recover between hard days. Wait for an official next-edition announcement before booking travel or buying a plan.",
+      "alternatives": "Ardenne Gravel Stages offers another European multi-day format; The Traka carries more prestige in a single-event weekend.",
+      "alternative_slugs": [
+        "ardenne-gravel-stages",
+        "the-traka"
+      ]
+    },
+    "logistics": {
+      "nearest_airport": "Dortmund (DTM), approximately 90 km by road",
+      "alternate_airports": "Paderborn Lippstadt (PAD) and Düsseldorf (DUS)",
+      "lodging_note": "Winterberg is a tourism and winter-sports town, but the three-day format still rewards booking near the start/finish and staying through Monday.",
+      "parking": "The 2026 starter package included guarded bike parking; verify edition-specific vehicle parking.",
+      "packet_pickup": "Verify the next edition's schedule when registration opens.",
+      "travel_summary": "Plan for arrival by Thursday, racing Friday through Sunday, and departure Monday. Do not book against the completed 2026 dates.",
+      "food_options": "On-course and finish-area nutrition was included in 2026; athletes still need a deliberate between-stage recovery plan.",
+      "official_site": "https://winterberg.3rides.de/"
+    },
+    "course_description": {
+      "character": "The long 2026 format opened with a 14 km individual gravel time trial, then stacked a 105 km / 2,550 m Saturday and a 129 km / 3,000 m Sunday. Forest roads dominate, with ski-slope descents, repeated watershed crossings, and Kahler Asten exposure.",
+      "suffering_zones": [
+        {
+          "name": "Stage 1: The false-easy prologue",
+          "miles": "0-8.7",
+          "description": "Fourteen kilometers and roughly 300 m of climbing look small next to the weekend total. The trap is spending Saturday's legs to win Friday's seconds.",
+          "survival_strategy": "Race the time trial under control and start recovery immediately."
+        },
+        {
+          "name": "Stage 2: Kahler Asten repeats",
+          "miles": "Stage 2",
+          "description": "The long option repeated a 35 km lap three times for roughly 2,550 m of climbing, repeatedly crossing the Rhine-Weser watershed and climbing toward Kahler Asten.",
+          "survival_strategy": "Hold back on lap one, fuel before hunger, and keep traction on the short steep pitches."
+        },
+        {
+          "name": "Stage 3: The elimination race",
+          "miles": "Stage 3",
+          "description": "The long UCI finale covered 129 km and roughly 3,000 m with around 20 climbs per lap. It begins with two race days already in the body.",
+          "survival_strategy": "Treat overnight recovery as a race discipline and preserve enough torque for the final Kahler Asten return."
+        }
+      ],
+      "signature_challenge": "Your Sunday fitness is whatever Friday's pacing and Saturday night's recovery leave behind. The course does not need altitude or one monster climb; repeated Sauerland elevation across three days does the damage."
+    },
+    "guide_variables": {
+      "race_name": "3RIDES Gravel Winterberg",
+      "race_distance": "248 km / 154 miles across the long 2026 three-stage format",
+      "race_elevation": "5,850 m / 19,193 feet across the long 2026 format",
+      "race_date": "Next edition TBD",
+      "race_location": "Winterberg, Germany",
+      "race_terrain": "Fast forest gravel, repeated highland climbs, and ski-slope descents",
+      "race_weather": "Variable Sauerland summer weather",
+      "race_challenges": [
+        "Three consecutive race days",
+        "Repeated short and medium climbs",
+        "Between-stage recovery",
+        "Wet forest-road handling",
+        "Kahler Asten wind exposure"
+      ],
+      "altitude_section": false,
+      "altitude_feet": null
+    },
+    "non_negotiables": [
+      {
+        "requirement": "Back-to-back durability",
+        "by_when": "Weeks 8-10",
+        "why": "The hardest stage arrives after two race days, so one-day fitness is insufficient."
+      },
+      {
+        "requirement": "Between-stage recovery practice",
+        "by_when": "Weeks 6-10",
+        "why": "Fueling, sleep, equipment reset, and mobility between stages directly determine Sunday performance."
+      },
+      {
+        "requirement": "Wet-gravel descending and traction",
+        "by_when": "Weeks 4-8",
+        "why": "The official course test found mud and ski-slope descents; poor handling wastes energy even when conditions are not extreme."
+      }
+    ],
+    "history": {
+      "founded": "2026 in Winterberg",
+      "founder": "3RIDES",
+      "origin_story": "3RIDES moved its gravel race away from Aachen and launched a new three-day Winterberg format in 2026: an individual time trial, a stage race, and a UCI Gravel World Series finale.",
+      "notable_moments": [
+        "2026: Nele Laing won Saturday and Sunday to take the women's overall.",
+        "2026: Kevin Kuhn won the men's overall; Jonas Lindberg won the Sunday UCI race."
+      ],
+      "reputation": "A professionally produced first-year stage race with UCI consequences and a strong elite field, but not yet enough history to prove staying power."
+    },
+    "training_config": {
+      "workout_modifications": {
+        "multistage_endurance": {
+          "enabled": true,
+          "weeks": [
+            8,
+            9,
+            10
+          ]
+        },
+        "recovery_rehearsal": {
+          "enabled": true,
+          "weeks": [
+            6,
+            8,
+            10
+          ]
+        },
+        "dress_rehearsal": {
+          "enabled": true,
+          "week": 10,
+          "day": "Friday-Sunday"
+        }
+      },
+      "masterclass_topics": {
+        "priority_order": [
+          "pacing",
+          "recovery",
+          "fueling",
+          "wet-weather handling"
+        ],
+        "race_specific": true,
+        "topics": {
+          "pacing": "Spend Friday's effort without stealing from Sunday",
+          "recovery": "The between-stage reset",
+          "fueling": "Three-day glycogen and gut management",
+          "wet-weather handling": "Forest gravel, mud, and ski-slope descents"
+        }
+      },
+      "tier_overrides": {},
+      "marketplace_variables": {
+        "race_name": "3RIDES Gravel Winterberg",
+        "race_hook": "Three days, almost no asphalt, and cumulative Sauerland climbing.",
+        "race_hook_detail": "A gravel time trial followed by two full stages, with the UCI qualifier saved for Sunday.",
+        "distance": "154",
+        "dark_mile": "Stage 3",
+        "non_negotiable_1": "Back-to-back durability",
+        "non_negotiable_2": "Between-stage recovery practice",
+        "non_negotiable_3": "Wet-gravel descending and traction",
+        "trainingpeaks_url": null
+      }
+    },
+    "research_metadata": {
+      "data_confidence": "high for the completed 2026 edition; no next-edition date",
+      "validation_status": "source_blocked for training-plan publication until an official next edition is announced",
+      "research_date": "2026-08-13",
+      "sources": [
+        "3RIDES official stage-race page",
+        "3RIDES official FAQ and regulations",
+        "UCI competition listing",
+        "Winterberg city event listing",
+        "Cyclingnews 2026 results report"
+      ],
+      "migration_notes": [
+        "This is the Winterberg successor to the former Aachen gravel race, not an Aachen date refresh.",
+        "Do not publish a 2027 training-plan suite until the organizer confirms the edition and exact dates."
+      ]
+    },
+    "citations": [
+      {
+        "url": "https://3rides.de/en/winterberg/gravel-stage-race/",
+        "category": "official",
+        "label": "3RIDES: Gravel Stage Race routes and stage totals"
+      },
+      {
+        "url": "https://winterberg.3rides.de/en/gravel-at-its-finest-the-track-test-for-3rides-gravel-winterberg/",
+        "category": "official",
+        "label": "3RIDES: official Winterberg course test"
+      },
+      {
+        "url": "https://3rides.de/winterberg/faq/",
+        "category": "official",
+        "label": "3RIDES: 2026 entry fees and included services"
+      },
+      {
+        "url": "https://3rides.de/en/winterberg-rules",
+        "category": "official",
+        "label": "3RIDES: 2026 regulations and stage schedule"
+      },
+      {
+        "url": "https://www.uci.org/competition-details/2026/GRA/78806",
+        "category": "official",
+        "label": "UCI: 3Rides Gravel Race, Winterberg, July 19, 2026"
+      },
+      {
+        "url": "https://www.winterberg.de/vor-ort-aktuelles/veranstaltungen/3rides-gravel-winterberg/",
+        "category": "official",
+        "label": "Winterberg: official city event listing"
+      },
+      {
+        "url": "https://www.cyclingnews.com/pro-cycling/racing/uci-gravel-world-series-nele-laing-and-jonas-lindberg-claim-victory-at-3rides-gravel-winterberg/",
+        "category": "results",
+        "label": "Cyclingnews: 2026 race and overall results"
+      }
+    ]
+  }
+}

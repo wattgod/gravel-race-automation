@@ -7,12 +7,12 @@
     "vitals": {
       "distance_mi": 76,
       "elevation_ft": 8420,
-      "course_status": "source_blocked",
+      "course_status": "verified",
       "location": "Ukiah, California",
       "location_badge": "UKIAH, CA",
-      "date": "Annual; next edition date pending",
-      "date_specific": "TBD — next edition date pending",
-      "last_confirmed_date": "2026-05-24",
+      "date": "May annually",
+      "date_specific": "2027: May 23 (Sunday)",
+      "last_confirmed_date": "2027-05-23",
       "terrain_types": [
         "Gravel roads",
         "Private timber roads",
@@ -21,7 +21,7 @@
       ],
       "field_size": "Several hundred riders; exact 2026 count not published",
       "start_time": "9:00 AM staggered starts in 2026",
-      "registration": "2026 registration closed; no official 2027 edition published",
+      "registration": "2027 registration is open through the organizer's Movemint link; the event page still carries earlier-edition deadline details",
       "prize_purse": "Cash prizes for top three pro men and women in 2026",
       "aid_stations": "Miles 15.8, 32, and 57 for the 2026 long course",
       "cutoff_time": "Not published",
@@ -172,7 +172,7 @@
     "final_verdict": {
       "one_liner": "A genuine series finale: long enough to matter, steep enough to expose you, and tactical after the gravel appears to be over.",
       "who_is_it_for": "Gravel racers who can climb for hours, work in a group on pavement, manage puncture risk, and still descend aggressively late in the day.",
-      "is_it_worth_it": "Yes when the next edition is announced. The private-road access, climbing density, and field quality make it a Tier 2 target; 2027 plan production remains blocked until the organizer publishes facts.",
+      "is_it_worth_it": "Yes. The organizer has confirmed the May 23, 2027 edition, and the private-road access, 8,420 feet of climbing, and field quality make it a Tier 2 target worth dedicated preparation.",
       "pro_tips": [
         "Build durability with tempo or threshold work after three hours of endurance riding.",
         "Practice cooperative pacing because miles 33-50 can reward a functional group.",
@@ -207,10 +207,24 @@
         "label": "Veloworthy — 2024 event documentary"
       }
     ],
+    "eligibility": {
+      "status": "active",
+      "race_plan_eligible": true,
+      "status_note": "Organizer-confirmed 2027 competitive race with registration open, three current course options, wave starts, timing, and results."
+    },
+    "source_review": {
+      "reviewed_at": "2026-08-14",
+      "race_date": "2027-05-23",
+      "facts_scope": "The organizer confirms the 2027 date, open registration, 76-mile and 8,420-foot long course, 68-percent dirt mix, private-road access, and 34-mile and 23-mile options. Final dated 2027 operational details should override the undated schedule copy."
+    },
     "research_metadata": {
-      "researched_at": "2026-08-06",
-      "next_edition_status": "source_blocked",
-      "known_gap": "The organizer has not published a 2027 date, route, price, or registration window."
+      "researched_at": "2026-08-14",
+      "validation_status": "official-2027-date-and-course-verified-2026-08-14",
+      "next_edition_status": "build_ready",
+      "known_gap": "Final 2027 registration deadline, detailed schedule, start waves, aid locations, and pricing remain pending.",
+      "sources": [
+        "https://www.grasshopperadventureseries.com/ukiah-mendo-gravel-epic"
+      ]
     }
   }
 }

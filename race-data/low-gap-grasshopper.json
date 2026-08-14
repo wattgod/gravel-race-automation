@@ -7,12 +7,12 @@
     "vitals": {
       "distance_mi": 59,
       "elevation_ft": 6585,
-      "course_status": "source_blocked",
+      "course_status": "verified",
       "location": "Ukiah, California",
       "location_badge": "UKIAH, CA",
-      "date": "Annual; next edition date pending",
-      "date_specific": "TBD — next edition date pending",
-      "last_confirmed_date": "2026-01-25",
+      "date": "January annually",
+      "date_specific": "2027: January 31 (Sunday)",
+      "last_confirmed_date": "2027-01-31",
       "terrain_types": [
         "Gravel",
         "Dirt roads",
@@ -21,7 +21,7 @@
       ],
       "field_size": "Several hundred riders; exact 2026 count not published",
       "start_time": "9:00 AM category starts in 2026",
-      "registration": "2026 registration closed; no official 2027 edition published",
+      "registration": "2027 registration is open through the organizer's Movemint link; the event page still carries 2026 deadline details",
       "prize_purse": "Cash prizes for top three pro men and women in 2026",
       "aid_stations": "Miles 19 and 42 for the 2026 long course",
       "cutoff_time": "Not published",
@@ -156,7 +156,7 @@
       ]
     },
     "logistics": {
-      "official_site": "https://www.grasshopperadventureseries.com/grasshopper-adventure-series",
+      "official_site": "https://www.grasshopperadventureseries.com/low-gap",
       "getting_there": "Base in Ukiah and follow the event's staging instructions for Masonite Road; the race does not start directly at packet pickup.",
       "accommodation": "Hotels, motels, and limited camping options are available around Ukiah.",
       "access_warning": "Most of the course crosses private property and may only be ridden during organizer-authorized windows."
@@ -172,7 +172,7 @@
     "final_verdict": {
       "one_liner": "A short-on-paper, hard-in-practice private-road opener with enough climbing and winter uncertainty to expose lazy preparation.",
       "who_is_it_for": "Gravel racers who want dense climbing, fast dirt handling, and a strong Northern California competitive field without committing to an ultra-distance event.",
-      "is_it_worth_it": "Yes when the next edition is officially announced. The private-road access and mature Grasshopper production justify the trip; do not build a 2027 plan until the organizer publishes the date and course.",
+      "is_it_worth_it": "Yes. The organizer has confirmed the January 31, 2027 edition, and the private-road access plus mature Grasshopper production justify the trip for riders prepared for dense climbing and winter dirt.",
       "pro_tips": [
         "Train sustained climbing before race season rather than treating this as an easy January opener.",
         "Use tire volume and tread appropriate to the organizer's final mud report, not a midsummer setup.",
@@ -182,7 +182,7 @@
     },
     "citations": [
       {
-        "url": "https://www.grasshopperadventureseries.com/grasshopper-adventure-series",
+        "url": "https://www.grasshopperadventureseries.com/low-gap",
         "category": "official",
         "label": "Low Gap — official event page"
       },
@@ -207,10 +207,24 @@
         "label": "Visit Ukiah — local event listing"
       }
     ],
+    "eligibility": {
+      "status": "active",
+      "race_plan_eligible": true,
+      "status_note": "Organizer-confirmed 2027 race with registration open, a current competitive long course, category starts, timing, and results."
+    },
+    "source_review": {
+      "reviewed_at": "2026-08-14",
+      "race_date": "2027-01-31",
+      "facts_scope": "The organizer confirms the 2027 date, open registration, 59-mile and 6,585-foot long course, 95-percent dirt mix, and private-road access. Schedule, deadline, aid, and start-time copy inside the page still references 2026 and must not be presented as final 2027 operations."
+    },
     "research_metadata": {
-      "researched_at": "2026-08-06",
-      "next_edition_status": "source_blocked",
-      "known_gap": "The organizer has not published a 2027 date, route, pricing, or registration window."
+      "researched_at": "2026-08-14",
+      "validation_status": "official-2027-date-and-course-verified-2026-08-14",
+      "next_edition_status": "build_ready",
+      "known_gap": "Final 2027 schedule, registration deadline, start waves, aid details, and pricing remain pending.",
+      "sources": [
+        "https://www.grasshopperadventureseries.com/low-gap"
+      ]
     }
   }
 }

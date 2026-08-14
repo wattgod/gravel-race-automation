@@ -7,12 +7,12 @@
     "vitals": {
       "distance_mi": 32,
       "elevation_ft": 4138,
-      "course_status": "source_blocked",
+      "course_status": "verified",
       "location": "Caspar, California",
       "location_badge": "CASPAR, CA",
-      "date": "Annual; next edition date pending",
-      "date_specific": "TBD — next edition date pending",
-      "last_confirmed_date": "2026-04-25",
+      "date": "April annually",
+      "date_specific": "2027: April 10 (Saturday)",
+      "last_confirmed_date": "2027-04-10",
       "terrain_types": [
         "Singletrack",
         "Gravel roads",
@@ -21,7 +21,7 @@
       ],
       "field_size": "Exact 2026 count not published",
       "start_time": "10:00 AM in 2026",
-      "registration": "2026 registration closed; no official 2027 edition published",
+      "registration": "2027 registration is open through the organizer's Movemint link; the event page still carries 2026 deadline details",
       "prize_purse": "Cash prizes for top three pro men and women in 2026",
       "aid_stations": "One location passed near miles 18.7 and 25.3 in 2026",
       "cutoff_time": "Not published",
@@ -172,7 +172,7 @@
     "final_verdict": {
       "one_liner": "An XC race wearing Grasshopper colors, and better for admitting it.",
       "who_is_it_for": "Riders with real singletrack skills, a hardtail or capable gravel setup, and the ability to climb repeatedly without losing technical precision.",
-      "is_it_worth_it": "Yes for the gravel-MTB crossover rider when the next edition is official. It should receive an MTB-primary plan, not a generic gravel clone; 2027 production is blocked pending organizer facts.",
+      "is_it_worth_it": "Yes for the gravel-MTB crossover rider. The organizer has confirmed the April 10, 2027 race and one 32-mile, 100-percent off-road course; its plan must foreground climbing and singletrack handling rather than generic gravel durability.",
       "pro_tips": [
         "Use a hardtail or XC bike unless your gravel handling is genuinely advanced.",
         "Train repeated climbing with technical descending while fatigued.",
@@ -195,17 +195,26 @@
         "url": "https://www.cyclingnews.com/pro-cycling/gavin-sherry-and-flavia-oliveira-scorch-through-timed-sections-to-claim-wins-at-third-event-in-grasshopper-series-king-ridge/",
         "category": "media",
         "label": "Cyclingnews — 2026 series context and Jackson preview"
-      },
-      {
-        "url": "https://www.granfondoguide.com/Series/GrasshopperAdventure",
-        "category": "calendar",
-        "label": "Gran Fondo Guide — independent series listing; 2027 date remains unverified by organizer"
       }
     ],
+    "eligibility": {
+      "status": "active",
+      "race_plan_eligible": true,
+      "status_note": "Organizer-confirmed 2027 competitive off-road race with registration open, one course for all riders, timing, and category results."
+    },
+    "source_review": {
+      "reviewed_at": "2026-08-14",
+      "race_date": "2027-04-10",
+      "facts_scope": "The organizer confirms the 2027 date, open registration, one 32-mile and 4,138-foot course, 35-percent singletrack and 65-percent dirt-road mix, and two aid stations. Registration-deadline copy inside the page still references 2026; final dated 2027 operations should override."
+    },
     "research_metadata": {
-      "researched_at": "2026-08-06",
-      "next_edition_status": "source_blocked",
-      "known_gap": "A third-party calendar lists April 24, 2027, but the organizer has not published a 2027 event page, route, price, or registration window."
+      "researched_at": "2026-08-14",
+      "validation_status": "official-2027-date-and-course-verified-2026-08-14",
+      "next_edition_status": "build_ready",
+      "known_gap": "Final 2027 registration deadline, detailed schedule, start waves, aid locations, and pricing remain pending.",
+      "sources": [
+        "https://www.grasshopperadventureseries.com/jackson-forest-hopper"
+      ]
     }
   }
 }

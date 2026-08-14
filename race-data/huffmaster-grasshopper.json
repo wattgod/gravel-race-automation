@@ -7,12 +7,12 @@
     "vitals": {
       "distance_mi": 90,
       "elevation_ft": 4866,
-      "course_status": "source_blocked",
+      "course_status": "verified",
       "location": "Maxwell, California",
       "location_badge": "MAXWELL, CA",
-      "date": "Annual; next edition date pending",
-      "date_specific": "TBD — next edition date pending",
-      "last_confirmed_date": "2026-02-28",
+      "date": "February annually",
+      "date_specific": "2027: February 28 (Sunday)",
+      "last_confirmed_date": "2027-02-28",
       "terrain_types": [
         "Gravel roads",
         "Lightly traveled pavement",
@@ -21,7 +21,7 @@
       ],
       "field_size": "Several hundred riders; exact 2026 count not published",
       "start_time": "8:30 AM in 2026",
-      "registration": "2026 registration closed; no official 2027 edition published",
+      "registration": "2027 registration is open through the organizer's Movemint link; the event page still carries 2026 deadline details",
       "prize_purse": "Cash prizes for top five pro men and women in 2026",
       "aid_stations": "Two long-course aid stations in 2026",
       "cutoff_time": "Not published",
@@ -172,7 +172,7 @@
     "final_verdict": {
       "one_liner": "A deceptively tactical ninety-miler where the easy-looking road start merely delays the real bill.",
       "who_is_it_for": "Riders who can race efficiently in a group, climb hard after two hours, descend loose roads at speed, and adapt equipment to late-winter conditions.",
-      "is_it_worth_it": "Yes when the organizer announces the next edition. It has field depth and course character that most regional mixed-terrain races cannot match; a 2027 plan remains blocked until official facts exist.",
+      "is_it_worth_it": "Yes. The organizer has confirmed the February 28, 2027 edition, and it has field depth, wind exposure, and mixed-terrain course character that most regional races cannot match.",
       "pro_tips": [
         "Train long tempo in wind and learn to conserve energy inside a moving group.",
         "Do not choose tires from the paved percentage alone; inspect the final mud report.",
@@ -207,10 +207,24 @@
         "label": "Rene Herse — 2026 winner report"
       }
     ],
+    "eligibility": {
+      "status": "active",
+      "race_plan_eligible": true,
+      "status_note": "Organizer-confirmed 2027 race with registration open, competitive categories, timing, and current 90-mile and 59-mile routes."
+    },
+    "source_review": {
+      "reviewed_at": "2026-08-14",
+      "race_date": "2027-02-28",
+      "facts_scope": "The organizer confirms the 2027 date, open registration, 90-mile and 4,866-foot long course, 54-percent paved and 46-percent dirt mix, and the current Maxwell route. Schedule, registration-deadline, aid, and start-wave copy inside the page still references earlier editions and must not be presented as final 2027 operations."
+    },
     "research_metadata": {
-      "researched_at": "2026-08-06",
-      "next_edition_status": "source_blocked",
-      "known_gap": "The organizer has not published a 2027 date, route, price, or registration window."
+      "researched_at": "2026-08-14",
+      "validation_status": "official-2027-date-and-course-verified-2026-08-14",
+      "next_edition_status": "build_ready",
+      "known_gap": "Final 2027 schedule, registration deadline, start waves, aid details, and pricing remain pending.",
+      "sources": [
+        "https://www.grasshopperadventureseries.com/huffmaster"
+      ]
     }
   }
 }

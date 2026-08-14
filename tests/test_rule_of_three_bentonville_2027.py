@@ -56,16 +56,17 @@ def test_rule_of_three_is_bentonville_not_a_fabricated_kansas_ultra() -> None:
         assert stale_fact not in profile
 
 
-def test_rule_of_three_keeps_next_edition_route_uncertainty_explicit() -> None:
+def test_rule_of_three_is_plan_ready_without_erasing_route_uncertainty() -> None:
     race = json.loads(
         (ROOT / "race-data" / "rule-of-three.json").read_text(encoding="utf-8")
     )["race"]
 
     assert race["research_metadata"]["validation_status"] == (
-        "source_blocked_for_plan_until_2027_route_release"
+        "source_ready_guarded_for_2027_plan"
     )
     assert "new course every year" in race["terrain"]["surface"]
     assert "2027 route is not yet published" in race["course_description"]["character"]
+    assert "final 2027 route" in race["biased_opinion"]["bottom_line"]
     assert all(
         "pending" in option
         for option in race["vitals"]["route_options"]

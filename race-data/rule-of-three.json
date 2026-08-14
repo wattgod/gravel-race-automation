@@ -32,9 +32,9 @@
       "lat": 36.3729,
       "lng": -94.2088,
       "route_options": [
-        "Flagship: historically 115 miles; 2027 route and exact distance pending",
-        "Middle distance: historically 60 miles; 2027 route and exact distance pending",
-        "Short distance: historically 35 miles; 2027 route and exact distance pending"
+        "Organizer's current flagship format: 115 miles; the exact 2027 alignment and elevation remain pending",
+        "Organizer's current middle format: 60 miles; the exact 2027 alignment and elevation remain pending",
+        "Organizer's current short format: 35 miles; the exact 2027 alignment and elevation remain pending"
       ]
     },
     "climate": {
@@ -98,7 +98,7 @@
         "Spring rain can transform both B-roads and singletrack",
         "The flagship takes much longer than an ordinary road-heavy 115-miler"
       ],
-      "bottom_line": "Race it if choosing and handling one bike across three incompatible surfaces sounds interesting. Wait for the 2027 route before making course-specific claims or finalizing a race-week plan."
+      "bottom_line": "Race it if choosing and handling one bike across three incompatible surfaces sounds interesting. Train for the organizer's stable 115-mile three-surface format, but let the final 2027 route, rider bible, aid map, cutoff, and start schedule override every course-specific assumption."
     },
     "logistics": {
       "nearest_airport": "Northwest Arkansas National Airport (XNA), roughly 14 miles from Bentonville",
@@ -146,9 +146,9 @@
       "reputation": "A hard but intentionally playful Bentonville fixture built around mixed surfaces, equipment choice, and community rather than a conventional gravel-racing template."
     },
     "research_metadata": {
-      "data_confidence": "verified with explicit next-edition limits",
-      "validation_status": "source_blocked_for_plan_until_2027_route_release",
-      "research_date": "2026-08-13",
+      "data_confidence": "verified with explicit next-edition route limits",
+      "validation_status": "source_ready_guarded_for_2027_plan",
+      "research_date": "2026-08-14",
       "sources": [
         "https://www.ruleofthree.bike/",
         "https://www.ruleofthree.bike/thecourse",
@@ -220,7 +220,7 @@
     "final_verdict": {
       "score": "76 / 100",
       "one_liner": "A technically serious three-surface race hiding inside Bentonville's friendliest strange bike party.",
-      "should_you_race": "Yes if mixed-surface handling, equipment compromise, and a community-first event appeal to you. The date is confirmed, but wait for the annual route release before treating any prior year's mileage, climbing, sector order, or schedule as final.",
+      "should_you_race": "Yes if mixed-surface handling, equipment compromise, and a community-first event appeal to you. The date and stable 115/60/35-mile format are confirmed; treat the annual route, climbing, sector order, aid, cutoff, and start schedule as pending until the 2027 rider bible lands.",
       "alternatives": "Core4 uses a similarly deliberate multi-surface concept, while Big Sugar offers a larger Bentonville gravel race without making singletrack one-third of the identity.",
       "alternative_slugs": [
         "core4",

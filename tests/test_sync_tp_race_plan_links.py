@@ -81,3 +81,16 @@ def test_oregon_trail_publishes_the_complete_full_7_ladder():
         669620, 669621, 669622, 669623, 669624, 669625, 669626
     ]
     assert all(plan["url"].endswith(f"tp-{plan['planId']}/p") for plan in ladder)
+
+
+def test_rule_of_three_publishes_the_complete_full_7_ladder():
+    links = json.loads(
+        (Path(__file__).resolve().parent.parent / "data" / "tp-race-plan-links.json")
+        .read_text(encoding="utf-8")
+    )
+    ladder = links["rule-of-three"]
+
+    assert [plan["planId"] for plan in ladder] == [
+        669630, 669631, 669632, 669633, 669634, 669635, 669636
+    ]
+    assert all(plan["url"].endswith(f"tp-{plan['planId']}/p") for plan in ladder)

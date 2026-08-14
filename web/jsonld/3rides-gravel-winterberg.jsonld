@@ -1,0 +1,29 @@
+{
+  "@context": "https://schema.org",
+  "@type": "SportsEvent",
+  "name": "3RIDES Gravel Winterberg",
+  "description": "Three days, almost no asphalt, and enough Sauerland climbing to make recovery part of the race.",
+  "sport": "Gravel Cycling",
+  "location": {
+    "@type": "Place",
+    "name": "Winterberg, North Rhine-Westphalia, Germany",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Winterberg",
+      "addressRegion": "North Rhine-Westphalia"
+    }
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "70",
+    "bestRating": "100",
+    "ratingCount": "14",
+    "name": "Gravel God Rating"
+  },
+  "url": "https://winterberg.3rides.de/",
+  "organizer": {
+    "@type": "Person",
+    "name": "3RIDES",
+    "url": "https://winterberg.3rides.de/"
+  }
+}

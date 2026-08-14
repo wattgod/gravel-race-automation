@@ -120,6 +120,11 @@
       "slug": "rad-dirt-fest",
       "reason": "duplicate identity for the same Trinidad event tracked canonically as the-rad; the duplicate profile previously contained stale Salida race facts",
       "redirect": "/race/the-rad/"
+    },
+    {
+      "slug": "3rides-aachen",
+      "reason": "retired gravel identity: 3RIDES moved its gravel event from Aachen to a distinct three-day Winterberg format in 2026; the old profile mixed both locations and is not a current Aachen race",
+      "redirect": "/race/3rides-gravel-winterberg/"
     }
   ]
 }

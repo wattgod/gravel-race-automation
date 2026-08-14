@@ -252,11 +252,11 @@ def _extract_location(race: dict) -> str:
 
 
 def _stage_count(race: dict) -> int:
-    """Return the supported consecutive event-day count, or zero.
+    """Return the declared consecutive event-day count, or zero.
 
     Race-pack copy used to treat a multi-day event's aggregate distance as one
-    continuous ride. The TrainingPeaks pipeline supports two- and three-day
-    blocks, so the public preview must describe the same event shape.
+    continuous ride. Keep the public preview aligned with the event shape for
+    anything from a weekend stage block through a two-week stage race.
     """
     stage_block = (
         (race.get("training_config") or {})
@@ -269,7 +269,7 @@ def _stage_count(race: dict) -> int:
         count = int(stage_block.get("stages", 0))
     except (TypeError, ValueError):
         return 0
-    return count if count in {2, 3} else 0
+    return count if 2 <= count <= 14 else 0
 
 
 def generate_pack_summary(race: dict, top_categories: list) -> str:
@@ -307,9 +307,10 @@ def generate_pack_summary(race: dict, top_categories: list) -> str:
     terrain_str = terrain_primary.rstrip(".").lower() if terrain_primary else "mixed terrain"
 
     if stage_count:
+        day_join = "over" if " across " in terrain_str else "across"
         return (
             f"This 10-workout pack focuses on {focus_str} "
-            f"to prepare you for {dist_str} of {terrain_str} across "
+            f"to prepare you for {dist_str} of {terrain_str} {day_join} "
             f"{stage_count} consecutive days in {location}."
         )
     return (
@@ -378,13 +379,22 @@ def generate_race_overlay(race: dict, demands: dict) -> dict:
         if heat_challenges:
             challenge_line = ' Race-day realities: ' + '; '.join(c.rstrip('.') for c in heat_challenges[:2]) + '.'
 
-        overlay['heat'] = (
-            f"{climate_line}"
-            f"Begin heat acclimatization 10\u201314 days before {race_name} \u2014 "
-            f"20\u201330min sauna sessions or midday rides in full kit. "
-            f"Pre-load sodium 48 hours out. "
-            f"Target 500\u2013750ml/hr with electrolytes on race day.{challenge_line}"
-        )
+        if stage_count >= 4:
+            overlay['heat'] = (
+                f"{climate_line}"
+                f"Complete heat acclimatization before travel, then reassess fluid, "
+                f"sodium, cooling, dry kit, and sleep after every one of "
+                f"{_poss(race_name)} {stage_count} stages. One weather mistake cannot "
+                f"become a week-long recovery deficit.{challenge_line}"
+            )
+        else:
+            overlay['heat'] = (
+                f"{climate_line}"
+                f"Begin heat acclimatization 10\u201314 days before {race_name} \u2014 "
+                f"20\u201330min sauna sessions or midday rides in full kit. "
+                f"Pre-load sodium 48 hours out. "
+                f"Target 500\u2013750ml/hr with electrolytes on race day.{challenge_line}"
+            )
     elif heat_score >= 5:
         climate_line = ''
         if month and location != 'the course':
@@ -398,7 +408,9 @@ def generate_race_overlay(race: dict, demands: dict) -> dict:
     # ── Nutrition ──
     if stage_count:
         per_day = distance / stage_count if distance else 0
-        if per_day >= 80:
+        if stage_count >= 4 and per_day >= 40:
+            carb_target = "60–90g"
+        elif per_day >= 80:
             carb_target = "60–90g"
         elif per_day >= 40:
             carb_target = "40–70g"
@@ -552,6 +564,92 @@ def generate_workout_context(race: dict, demands: dict, category: str) -> str:
 
     if stage_count:
         total = int(round(distance))
+        if stage_count >= 4:
+            long_stage_contexts = {
+                'Durability': (
+                    f"{total} miles across {stage_count} consecutive stages. Train the "
+                    "power that still exists after several long days, not merely late in one ride."
+                ),
+                'VO2max': (
+                    f"Repeated selection points still arrive on day {stage_count}. VO2 work "
+                    "helps cover surges without turning every hard rise into overnight recovery debt."
+                ),
+                'HVLI_Extended': (
+                    f"Multi-hour Z2 and back-to-back long rides rehearse {_poss(race_name)} "
+                    "real demand: finish one substantial day, recover, then do it again."
+                ),
+                'Race_Simulation': (
+                    f"Back-to-back simulations rehearse pacing, fueling, equipment care, and "
+                    f"the overnight reset across {_poss(race_name)} {stage_count} stages."
+                ),
+                'TT_Threshold': (
+                    "Sustained climbs and fast group pressure demand controlled threshold work. "
+                    "Finish each effort without borrowing from tomorrow's stage."
+                ),
+                'G_Spot': (
+                    "Strong sub-threshold power lets you climb and pull without repeatedly "
+                    "crossing the line that ruins between-stage recovery."
+                ),
+                'Mixed_Climbing': (
+                    f"Climbing must stay repeatable across {stage_count} days. Change cadence "
+                    "and posture without damaging already-tired legs."
+                ),
+                'Over_Under': (
+                    "Stage-race surges push above threshold, then demand recovery while the "
+                    "race keeps moving. Over-unders train that repeatable pattern."
+                ),
+                'Gravel_Specific': (
+                    f"{_poss(race_name)} {terrain_str} forces repeated power changes. Settle "
+                    f"immediately after each surge so the cost does not compound across {stage_count} stages."
+                ),
+                'Endurance': (
+                    f"Most stages run for hours, and the next start arrives before recovery is "
+                    f"complete. Aerobic depth keeps daily work economical for all {stage_count} days."
+                ),
+                'Critical_Power': (
+                    "Decisive moves live just above sustainable power. Train the effort and "
+                    "the reset so both remain available late in the week."
+                ),
+                'Anaerobic_Capacity': (
+                    f"Short maximum efforts still decide selections, but they must remain "
+                    f"available through stage {stage_count}."
+                ),
+                'Sprint_Neuromuscular': (
+                    "Neuromuscular snap covers accelerations without requiring every stage "
+                    "to become an anaerobic gamble."
+                ),
+                'Norwegian_Double': (
+                    f"Controlled threshold density builds sustainable speed for a "
+                    f"{stage_count}-stage race without the recovery cost of constant VO2 work."
+                ),
+                'SFR_Muscle_Force': (
+                    "Low-cadence force keeps climbing torque available when gearing, surface, "
+                    "or late-week fatigue takes away your preferred cadence."
+                ),
+                'Cadence_Work': (
+                    f"Efficient cadence saves muscle across {total} total miles and keeps "
+                    f"stage {stage_count}'s legs useful."
+                ),
+                'Blended': (
+                    "Endurance with controlled intensity spikes mirrors a long stage: economical "
+                    "riding interrupted by climbs, wind, terrain, and pack accelerations."
+                ),
+                'Tempo': (
+                    "Tempo is the stage-race workhorse: fast enough to move, controlled enough "
+                    "to preserve fueling, recovery, and tomorrow's power."
+                ),
+                'LT1_MAF': (
+                    f"A higher LT1 reduces glycogen cost across {total} total miles and makes "
+                    "between-stage recovery more effective."
+                ),
+                'Recovery': (
+                    f"Recovery is part of the race. Easy work helps absorb hard sessions and "
+                    f"return ready through day {stage_count}."
+                ),
+            }
+            if category in long_stage_contexts:
+                return long_stage_contexts[category]
+
         stage_contexts = {
             'Durability': (
                 f"{total} miles across {stage_count} consecutive days. Train the "

@@ -1,137 +1,138 @@
 {
   "slug": "gravel-burn",
   "race_name": "Gravel Burn",
-  "distance_mi": 62.0,
+  "distance_mi": 466.0,
   "demands": {
-    "durability": 2,
-    "climbing": 8,
-    "vo2_power": 7,
-    "threshold": 6,
-    "technical": 6,
-    "heat_resilience": 3,
+    "durability": 10,
+    "climbing": 10,
+    "vo2_power": 8,
+    "threshold": 5,
+    "technical": 4,
+    "heat_resilience": 9,
     "altitude": 4,
     "race_specificity": 10
   },
   "top_categories": [
     {
-      "category": "Race_Simulation",
-      "score": 100,
-      "workouts": [
-        "Breakaway Simulation",
-        "Variable Pace Chaos",
-        "Sector Simulation"
-      ],
-      "workout_context": "Race-pace efforts that mimic Gravel Burn's demands. Pacing, fueling, and tactical decisions under fatigue. Practice the race before October."
-    },
-    {
-      "category": "Gravel_Specific",
-      "score": 97,
-      "workouts": [
-        "Surge and Settle",
-        "Terrain Microbursts"
-      ],
-      "workout_context": "Gravel Burn's South African highveld gravel (85%), Dirt roads (15%) forces constant power changes. Surge over the rough stuff, settle on the smooth, repeat for 62 miles."
-    },
-    {
-      "category": "VO2max",
-      "score": 79,
-      "workouts": [
-        "5x3 VO2 Classic",
-        "Descending VO2 Pyramid",
-        "Norwegian 4x8"
-      ],
-      "workout_context": "8,202ft of climbing means repeated surges above threshold. VO2max work is how you survive the fifth climb, not just the first."
-    },
-    {
-      "category": "TT_Threshold",
-      "score": 77,
-      "workouts": [
-        "Single Sustained Threshold",
-        "Threshold Ramps",
-        "Descending Threshold"
-      ],
-      "workout_context": "132ft/mi means long efforts at or near FTP on every climb. If your threshold cracks at minute 15, you'll walk the rest."
-    },
-    {
-      "category": "Over_Under",
-      "score": 74,
-      "workouts": [
-        "Classic Over-Unders",
-        "Ladder Over-Unders"
-      ],
-      "workout_context": "At Gravel Burn, surges push you above threshold and you have to recover while still riding. Over-unders train exactly that."
-    },
-    {
       "category": "Durability",
-      "score": 69,
+      "score": 100,
       "workouts": [
         "Tired VO2max",
         "Double Day Simulation",
         "Progressive Fatigue"
       ],
-      "workout_context": "62 miles on south African highveld\u2014rolling red dirt gravel burns energy faster than the distance suggests. Train the fade resistance now."
+      "workout_context": "466 miles across 7 consecutive stages. Train the power that still exists after several long days, not merely late in one ride."
+    },
+    {
+      "category": "Endurance",
+      "score": 63,
+      "workouts": [
+        "Pre-Race Openers",
+        "Terrain Simulation Z2"
+      ],
+      "workout_context": "Most stages run for hours, and the next start arrives before recovery is complete. Aerobic depth keeps daily work economical for all 7 days."
+    },
+    {
+      "category": "Race_Simulation",
+      "score": 57,
+      "workouts": [
+        "Breakaway Simulation",
+        "Variable Pace Chaos",
+        "Sector Simulation"
+      ],
+      "workout_context": "Back-to-back simulations rehearse pacing, fueling, equipment care, and the overnight reset across Gravel Burn's 7 stages."
+    },
+    {
+      "category": "HVLI_Extended",
+      "score": 54,
+      "workouts": [
+        "HVLI Extended Z2",
+        "Multi-Hour Z2",
+        "Back-to-Back Long"
+      ],
+      "workout_context": "Multi-hour Z2 and back-to-back long rides rehearse Gravel Burn's real demand: finish one substantial day, recover, then do it again."
+    },
+    {
+      "category": "VO2max",
+      "score": 54,
+      "workouts": [
+        "5x3 VO2 Classic",
+        "Descending VO2 Pyramid",
+        "Norwegian 4x8"
+      ],
+      "workout_context": "Repeated selection points still arrive on day 7. VO2 work helps cover surges without turning every hard rise into overnight recovery debt."
+    },
+    {
+      "category": "Over_Under",
+      "score": 52,
+      "workouts": [
+        "Classic Over-Unders",
+        "Ladder Over-Unders"
+      ],
+      "workout_context": "Stage-race surges push above threshold, then demand recovery while the race keeps moving. Over-unders train that repeatable pattern."
+    },
+    {
+      "category": "Gravel_Specific",
+      "score": 51,
+      "workouts": [
+        "Surge and Settle",
+        "Terrain Microbursts"
+      ],
+      "workout_context": "Gravel Burn's fast Great Karoo gravel across a seven-stage forces repeated power changes. Settle immediately after each surge so the cost does not compound across 7 stages."
     },
     {
       "category": "Mixed_Climbing",
-      "score": 62,
+      "score": 48,
       "workouts": [
         "Seated/Standing Climbs",
         "Variable Grade Simulation"
       ],
-      "workout_context": "8,202ft of climbing on grades that change every minute. You need to switch from seated to standing without losing rhythm."
+      "workout_context": "Climbing must stay repeatable across 7 days. Change cadence and posture without damaging already-tired legs."
+    },
+    {
+      "category": "TT_Threshold",
+      "score": 48,
+      "workouts": [
+        "Single Sustained Threshold",
+        "Threshold Ramps",
+        "Descending Threshold"
+      ],
+      "workout_context": "Sustained climbs and fast group pressure demand controlled threshold work. Finish each effort without borrowing from tomorrow's stage."
+    },
+    {
+      "category": "Blended",
+      "score": 40,
+      "workouts": [
+        "Z2 + VO2 Combo",
+        "Endurance with Spikes"
+      ],
+      "workout_context": "Endurance with controlled intensity spikes mirrors a long stage: economical riding interrupted by climbs, wind, terrain, and pack accelerations."
     },
     {
       "category": "G_Spot",
-      "score": 59,
+      "score": 36,
       "workouts": [
         "G-Spot Standard",
         "G-Spot Extended",
         "Criss-Cross"
       ],
-      "workout_context": "88\u201392% FTP is where you'll spend the hardest sustained miles of Gravel Burn. Train it until it feels boring."
-    },
-    {
-      "category": "Critical_Power",
-      "score": 58,
-      "workouts": [
-        "Above CP Repeats",
-        "W-Prime Depletion"
-      ],
-      "workout_context": "How long can you hold 105% FTP before you blow? At Gravel Burn, that number decides whether you bridge or get dropped."
-    },
-    {
-      "category": "Anaerobic_Capacity",
-      "score": 51,
-      "workouts": [
-        "2min Killers",
-        "90sec Repeats"
-      ],
-      "workout_context": "Short, max efforts are unavoidable. Punchy climbs, gap closures, attacks on south African highveld\u2014rolling red dirt gravel. If you haven't trained them, you'll crack."
+      "workout_context": "Strong sub-threshold power lets you climb and pull without repeatedly crossing the line that ruins between-stage recovery."
     },
     {
       "category": "SFR_Muscle_Force",
-      "score": 41,
+      "score": 32,
       "workouts": [
         "SFR Low Cadence",
         "Force Repeats"
       ],
-      "workout_context": "Low-cadence force work for 8,202ft of climbing. The slow, grinding ascents where you can't spin\u2014you push."
-    },
-    {
-      "category": "Endurance",
-      "score": 37,
-      "workouts": [
-        "Pre-Race Openers",
-        "Terrain Simulation Z2"
-      ],
-      "workout_context": "Base fitness for Gravel Burn. Without this, the hard workouts break you down instead of building you up."
+      "workout_context": "Low-cadence force keeps climbing torque available when gearing, surface, or late-week fatigue takes away your preferred cadence."
     }
   ],
   "race_overlay": {
-    "nutrition": "Target 40\u201360g carbs/hour for Gravel Burn\u2019s 62 miles. Front-load calories in the first half. One bottle per hour minimum, more in heat.",
-    "altitude": "Moderate altitude at Gravel Burn. Arrive 2\u20133 days early. Reduce intensity expectations by 5\u201310%. Hydrate aggressively.",
-    "terrain": "Mixed terrain at Gravel Burn requires surface adaptability. Include weekly rides on south african highveld\u2014rolling red dirt gravel to build confidence. Expect: south african highveld gravel (85%), dirt roads (15%), red dirt roads."
+    "heat": "October in Great Karoo, Eastern Cape, South Africa \u2014 The current organizer route guide gives an average range of 10-29\u00b0C, while the inaugural race produced freezing nights, heat, and a storm severe enough to neutralize racing. Complete heat acclimatization before travel, then reassess fluid, sodium, cooling, dry kit, and sleep after every one of Gravel Burn's 7 stages. One weather mistake cannot become a week-long recovery deficit. Race-day realities: Hot, exposed semi-desert stages; Seven consecutive days of sun, dust, and recovery demands.",
+    "nutrition": "Target 60\u201390g carbs/hour on each of Gravel Burn's 7 event days. Begin recovery fueling within 30 minutes of every finish, replace fluid and sodium, then eat a full carbohydrate-forward meal. Tomorrow's legs are built the night before.",
+    "terrain": "Mixed terrain at Gravel Burn requires surface adaptability. Include weekly rides on fast great karoo gravel across a seven-stage point-to-point route to build confidence. Expect: great karoo gravel roads, semi-desert mountain passes, fast non-technical gravel."
   },
-  "pack_summary": "This 10-workout pack focuses on Race Simulation, Gravel Specific, and VO2max to prepare you for 62 miles of south african highveld\u2014rolling red dirt gravel in Mpumalanga, South Africa.",
-  "generated_at": "2026-03-06"
+  "pack_summary": "This 10-workout pack focuses on Durability, Endurance, and Race Simulation to prepare you for 466 miles of fast great karoo gravel across a seven-stage point-to-point route over 7 consecutive days in Great Karoo, Eastern Cape, South Africa.",
+  "generated_at": "2026-08-13"
 }

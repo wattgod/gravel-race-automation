@@ -2,29 +2,29 @@
   "@context": "https://schema.org",
   "@type": "SportsEvent",
   "name": "Gravel Burn",
-  "description": "South African highveld classic\u2014100km of red dirt roads, 2,500m elevation, stunning Mpumalanga scenery.",
+  "description": "Seven days and 750km across the Great Karoo, with full-service Burn Camps and no hiding from cumulative fatigue.",
   "sport": "Gravel Cycling",
+  "startDate": "2027-10-24",
   "location": {
     "@type": "Place",
-    "name": "Mpumalanga, South Africa",
+    "name": "Great Karoo, Eastern Cape, South Africa",
     "address": {
       "@type": "PostalAddress",
-      "addressLocality": "Mpumalanga",
-      "addressRegion": "South Africa"
+      "addressLocality": "Great Karoo",
+      "addressRegion": "Eastern Cape"
     }
-  },
-  "offers": {
-    "@type": "Offer",
-    "price": "80",
-    "priceCurrency": "USD",
-    "availability": "https://schema.org/LimitedAvailability"
   },
   "aggregateRating": {
     "@type": "AggregateRating",
-    "ratingValue": "70",
+    "ratingValue": "74",
     "bestRating": "100",
     "ratingCount": "14",
     "name": "Gravel God Rating"
   },
-  "url": "https://www.gravelburn.co.za"
+  "url": "https://gravel-burn.com/",
+  "organizer": {
+    "@type": "Person",
+    "name": "Kevin Vermaak",
+    "url": "https://gravel-burn.com/"
+  }
 }

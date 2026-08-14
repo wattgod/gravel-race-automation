@@ -516,4 +516,7 @@ class TestRealRaceData:
         # Floor re-pinned 188->187 (Aug 13 2026): Coast to Coast's profile
         # carried an explicitly autotraced 2024 RWGPS geometry. The organizer
         # publishes current GPX/TCX files directly but no verified RWGPS ID.
-        assert rwgps_count >= 187, f"Expected >=187 current RWGPS routes, got {rwgps_count}"
+        # Floor re-pinned 187->186 (Aug 13 2026): 3RIDES moved its gravel race
+        # from Aachen to Winterberg. The retired Aachen profile carried the old
+        # venue's route; Winterberg's final 2027 course is not published yet.
+        assert rwgps_count >= 186, f"Expected >=186 current RWGPS routes, got {rwgps_count}"

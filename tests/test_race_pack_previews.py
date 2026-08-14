@@ -480,6 +480,37 @@ class TestEdgeCases:
             data["race"], preview["demands"], "TT_Threshold"
         )
 
+    def test_seven_stage_event_copy_uses_between_stage_recovery(self):
+        data = _make_race(
+            vitals=_make_vitals(
+                distance_mi=466,
+                elevation_ft=27887,
+                date="October 24-30, 2027",
+            ),
+            terrain={"primary": "Great Karoo gravel"},
+            name="Gravel Burn",
+        )
+        data["race"]["training_config"] = {
+            "workout_modifications": {
+                "stage_block": {"enabled": True, "stages": 7}
+            }
+        }
+
+        preview = generate_preview(data)
+
+        assert "across 7 consecutive days" in preview["pack_summary"]
+        assert "each of Gravel Burn's 7 event days" in preview["race_overlay"]["nutrition"]
+        assert "mile 130" not in preview["race_overlay"]["nutrition"]
+        assert "after several long days" in generate_workout_context(
+            data["race"], preview["demands"], "Durability"
+        )
+        assert "tomorrow's stage" in generate_workout_context(
+            data["race"], preview["demands"], "TT_Threshold"
+        )
+        assert "all 7 days" in generate_workout_context(
+            data["race"], preview["demands"], "Endurance"
+        )
+
     def test_missing_terrain_no_terrain_types(self):
         """Race with no terrain and no terrain_types should fall back to 'mixed terrain'."""
         vitals = {"distance_mi": 100, "elevation_ft": 5000, "location": "Nowhere, USA"}

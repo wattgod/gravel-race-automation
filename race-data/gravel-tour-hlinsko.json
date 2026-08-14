@@ -1,0 +1,351 @@
+{
+  "race": {
+    "name": "Gravel Tour Hlinsko",
+    "slug": "gravel-tour-hlinsko",
+    "display_name": "Gravel Tour Hlinsko",
+    "tagline": "Czech forest gravel in two acts: 86 rolling kilometres, then a second loop for anyone still racing.",
+    "vitals": {
+      "distance_km": 129,
+      "distance_mi": 80.2,
+      "elevation_m": 1577,
+      "elevation_ft": 5174,
+      "location": "Hlinsko, Pardubice Region, Czechia",
+      "location_badge": "HLINSKO, CZECHIA",
+      "country": "Czechia",
+      "date": "Early August",
+      "date_specific": "2026: August 1 (Saturday); no 2027 date published",
+      "terrain_types": [
+        "Iron Mountains gravel",
+        "Forest tracks",
+        "Two-loop format",
+        "UCI Gravel World Series"
+      ],
+      "field_size": "Not published",
+      "start_time": "Not published for the next eligible edition",
+      "start_format": "UCI Gravel World Series age-category competition",
+      "registration": "No registration cycle is published for the next eligible edition.",
+      "entry_fee": "Not published for the next eligible edition",
+      "aid_stations": "Not published for the next eligible edition",
+      "cutoff_time": "Not published for the next eligible edition",
+      "lat": 49.762,
+      "lng": 15.907,
+      "start_elevation_asl_ft": 1909,
+      "max_elevation_asl_ft": 2540,
+      "route_options": [
+        "Long: 129 km / 80.2 mi with 1,577 m / 5,174 ft, combining 86 km and 43 km loops",
+        "Short: 86 km / 53.4 mi with 1,102 m / 3,615 ft for older qualifier categories"
+      ]
+    },
+    "climate": {
+      "primary": "Temperate Czech summer weather",
+      "description": "Early August can be warm with thunderstorms. Forest shade limits exposure, while rain can make the tracks slower and more selective.",
+      "challenges": [
+        "Summer thunderstorm risk",
+        "Humid forest sections",
+        "Rain-softened tracks",
+        "Warm exposed climbs"
+      ]
+    },
+    "terrain": {
+      "primary": "Iron Mountains gravel",
+      "surface": "A dynamic mix of gravel roads, forest tracks, and rolling climbs across the Iron Mountains and Žďárské Vrchy; the organizer does not publish a surface percentage.",
+      "technical_rating": 3,
+      "features": [
+        "86 km mandatory main loop",
+        "43 km second loop",
+        "1,577 m total climbing",
+        "Five long-course refreshment zones",
+        "774 m course high point"
+      ]
+    },
+    "gravel_god_rating": {
+      "overall_score": 61,
+      "tier": 2,
+      "tier_label": "TIER 2",
+      "logistics": 3,
+      "length": 3,
+      "technicality": 3,
+      "elevation": 3,
+      "climate": 2,
+      "altitude": 1,
+      "adventure": 3,
+      "prestige": 3,
+      "race_quality": 4,
+      "experience": 3,
+      "community": 4,
+      "field_depth": 3,
+      "value": 4,
+      "expenses": 3,
+      "cultural_impact": 1,
+      "score_note": "Hlinsko combines an established 2019 event, repeated Czech championship hosting, experienced organizers, and a complete support package. It earns Tier 2 on substance rather than destination hype.",
+      "discipline": "gravel",
+      "display_tier": 2,
+      "display_tier_label": "TIER 2"
+    },
+    "biased_opinion_ratings": {
+      "logistics": {
+        "score": 3,
+        "explanation": "Hlinsko is about two hours east of Prague with rail connections and regional airports, requiring planning but not remote-event logistics."
+      },
+      "length": {
+        "score": 3,
+        "explanation": "The 129 km long course is 80.2 miles, inside the published 60–100-mile score-three band."
+      },
+      "technicality": {
+        "score": 3,
+        "explanation": "Hlinsko's 129 km route uses forest tracks and changing gravel surfaces that demand handling, but the official profile does not describe extreme descents or singletrack."
+      },
+      "elevation": {
+        "score": 3,
+        "explanation": "The official 1,577 m converts to 5,174 ft, in the published 4,000–6,000-foot score-three band."
+      },
+      "climate": {
+        "score": 2,
+        "explanation": "Early-August heat or storms can change the forest tracks, but the baseline Czech summer is only slightly challenging."
+      },
+      "altitude": {
+        "score": 1,
+        "explanation": "The 774 m high point is 2,540 ft, below the 3,000-foot threshold for meaningful altitude scoring."
+      },
+      "adventure": {
+        "score": 3,
+        "explanation": "Iron Mountains and highland forest roads are memorable, though the two-loop format and town-centre facilities keep the event grounded rather than epic."
+      },
+      "prestige": {
+        "score": 3,
+        "explanation": "UCI status and three Czech championship starts provide regional reputation without the national-icon history needed for a four."
+      },
+      "race_quality": {
+        "score": 4,
+        "explanation": "An organizing team with thirty years of professional sport experience supplies showers, catering, start-finish facilities, and five long-course feed zones."
+      },
+      "experience": {
+        "score": 3,
+        "explanation": "The varied highland terrain is enjoyable and raceable; passing through the finish before the second loop makes the suffering legible rather than cinematic."
+      },
+      "community": {
+        "score": 4,
+        "explanation": "The race has grown since 2019 and already hosted Czech championship activity, evidence of a durable domestic gravel base."
+      },
+      "field_depth": {
+        "score": 3,
+        "explanation": "UCI and national-championship links ensure a competitive Czech and regional field, but the official page does not publish a deep international start list."
+      },
+      "value": {
+        "score": 4,
+        "explanation": "Two strong courses, five feed zones, showers, and catering are an above-average package, even though the cited page does not list the fee."
+      },
+      "expenses": {
+        "score": 3,
+        "explanation": "Central-European access and modest-town lodging keep costs moderate for regional riders; international travel still exceeds budget-event territory."
+      }
+    },
+    "course_description": {
+      "character": "An 86 km rolling main loop through the Iron Mountains and Žďárské Vrchy, followed by a 43 km second loop for elite and younger categories.",
+      "signature_challenge": "Crossing the start-finish corridor after 86 km and beginning the second loop at race effort instead of mentally finishing early.",
+      "suffering_zones": [
+        {
+          "mile": 22,
+          "label": "Iron Mountains",
+          "desc": "Rolling forest roads accumulate without one defining climb.",
+          "terrain_detail": "Iron Mountains",
+          "named_section": "Železné Hory"
+        },
+        {
+          "mile": 53,
+          "label": "Finish-line pass",
+          "desc": "Long-course riders begin the extra 43 km while short-course riders stop.",
+          "terrain_detail": "Finish-line pass",
+          "named_section": "Hlinsko corridor"
+        },
+        {
+          "mile": 70,
+          "label": "Second-loop fatigue",
+          "desc": "Repeated rolling climbs expose anyone who treated the first loop like a finish.",
+          "terrain_detail": "Second-loop fatigue",
+          "named_section": "Highland loop"
+        }
+      ],
+      "surface_breakdown": {
+        "overall": {
+          "gravel": null,
+          "pavement": null
+        }
+      }
+    },
+    "biased_opinion": {
+      "verdict": "Czech forest gravel in two acts",
+      "summary": "An 86 km rolling main loop through the Iron Mountains and Žďárské Vrchy, followed by a 43 km second loop for elite and younger categories. Crossing the start-finish corridor after 86 km and beginning the second loop at race effort instead of mentally finishing early.",
+      "strengths": [
+        "86 km mandatory main loop",
+        "43 km second loop",
+        "1,577 m total climbing",
+        "Five long-course refreshment zones",
+        "774 m course high point"
+      ],
+      "weaknesses": [
+        "No organizer-confirmed next-edition operations package",
+        "Current public facts remain edition-specific",
+        "Entry price not preserved in the cited source"
+      ],
+      "bottom_line": "A 61/100 Tier 2 race on the published Gravel God rubric; worth cataloging now, with future plan publication gated on an eligible official date."
+    },
+    "logistics": {
+      "airport": "Prague (PRG), Brno (BRQ), or Pardubice (PED), followed by rail or road transfer",
+      "lodging_strategy": "Use Hlinsko for simple race access; the town is small enough that early booking is sensible.",
+      "transport": "Confirm race-day transport and bike handling with the organizer before booking.",
+      "food": "Bring tested race nutrition and verify local opening hours during race week.",
+      "packet_pickup": "Not published for the next eligible edition",
+      "parking": "Not published for the next eligible edition",
+      "official_site": "https://ucigravelworldseries.com/en/gravel-tour-hlinsko/"
+    },
+    "history": {
+      "founded": 2019,
+      "founder": "Official organizer listed by the UCI Gravel World Series",
+      "origin_story": "First held in 2019 and later used as the start of the Czech Gravel Championship three times before joining the UCI series.",
+      "notable_moments": [],
+      "reputation": "An established Czech gravel event upgraded into a credible international qualifier."
+    },
+    "guide_variables": {
+      "race_name": "Gravel Tour Hlinsko",
+      "race_distance": "129 km / 80.2 miles",
+      "race_elevation": "1,577 m / 5,174 feet",
+      "race_date": "2026: August 1 (Saturday); no 2027 date published",
+      "race_location": "Hlinsko, Pardubice Region, Czechia",
+      "race_terrain": "A dynamic mix of gravel roads, forest tracks, and rolling climbs across the Iron Mountains and Žďárské Vrchy; the organizer does not publish a surface percentage.",
+      "race_weather": "Temperate Czech summer weather",
+      "race_challenges": [
+        "86 km mandatory main loop",
+        "43 km second loop",
+        "1,577 m total climbing",
+        "Five long-course refreshment zones",
+        "774 m course high point"
+      ],
+      "altitude_section": false,
+      "altitude_feet": null
+    },
+    "training_config": {
+      "workout_modifications": {
+        "race_specific_endurance": {
+          "enabled": true,
+          "weeks": [
+            6,
+            7,
+            8,
+            9
+          ]
+        },
+        "surface_specificity": {
+          "enabled": true,
+          "weeks": [
+            5,
+            7,
+            9
+          ]
+        },
+        "dress_rehearsal": {
+          "enabled": true,
+          "week": 10,
+          "day": "Saturday",
+          "duration_hours": {
+            "finisher": 4,
+            "time_crunched": 4,
+            "compete": 5,
+            "masters": 5
+          }
+        }
+      },
+      "masterclass_topics": {
+        "priority_order": [
+          "pacing",
+          "handling",
+          "weather",
+          "logistics"
+        ],
+        "race_specific": true,
+        "topics": {
+          "pacing": "Crossing the start-finish corridor after 86 km and beginning the second loop at race effort instead of mentally finishing early.",
+          "handling": "A dynamic mix of gravel roads, forest tracks, and rolling climbs across the Iron Mountains and Žďárské Vrchy; the organizer does not publish a surface percentage.",
+          "weather": "Early August can be warm with thunderstorms. Forest shade limits exposure, while rain can make the tracks slower and more selective.",
+          "logistics": "Use Hlinsko for simple race access; the town is small enough that early booking is sensible."
+        }
+      },
+      "tier_overrides": {},
+      "marketplace_variables": {
+        "race_name": "Gravel Tour Hlinsko",
+        "race_hook": "Czech forest gravel in two acts: 86 rolling kilometres, then a second loop for anyone still racing.",
+        "race_hook_detail": "Crossing the start-finish corridor after 86 km and beginning the second loop at race effort instead of mentally finishing early.",
+        "distance": "80.2",
+        "dark_mile": "70",
+        "non_negotiable_1": "86 km mandatory main loop",
+        "non_negotiable_2": "43 km second loop",
+        "non_negotiable_3": "1,577 m total climbing",
+        "trainingpeaks_url": null
+      }
+    },
+    "non_negotiables": [
+      {
+        "requirement": "86 km mandatory main loop",
+        "by_when": "Week 8",
+        "why": "Crossing the start-finish corridor after 86 km and beginning the second loop at race effort instead of mentally finishing early."
+      },
+      {
+        "requirement": "43 km second loop",
+        "by_when": "Week 9",
+        "why": "A dynamic mix of gravel roads, forest tracks, and rolling climbs across the Iron Mountains and Žďárské Vrchy; the organizer does not publish a surface percentage."
+      },
+      {
+        "requirement": "1,577 m total climbing",
+        "by_when": "Week 10",
+        "why": "Early August can be warm with thunderstorms. Forest shade limits exposure, while rain can make the tracks slower and more selective."
+      }
+    ],
+    "final_verdict": {
+      "score": "61 / 100",
+      "one_liner": "Czech forest gravel in two acts: 86 rolling kilometres, then a second loop for anyone still racing.",
+      "should_you_race": "Race Gravel Tour Hlinsko if its verified terrain and UCI stakes match your goal; wait for the organizer's next-edition package before buying travel around an unconfirmed date.",
+      "alternatives": "Use the Gravel God race directory to compare another verified UCI qualifier with a confirmed future edition."
+    },
+    "citations": [
+      {
+        "url": "https://ucigravelworldseries.com/en/gravel-tour-hlinsko/",
+        "category": "official",
+        "label": "Organizer — official event identity and published facts"
+      },
+      {
+        "url": "https://ucigravelworldseries.com/en/calendar/",
+        "category": "official",
+        "label": "UCI Gravel World Series — official 2026-2027 calendar"
+      },
+      {
+        "url": "https://ucigravelworldseries.com/en/regulations/",
+        "category": "official",
+        "label": "UCI Gravel World Series — qualification rules"
+      }
+    ],
+    "eligibility": {
+      "status": "active",
+      "race_plan_eligible": true,
+      "verified": "2026-08-14",
+      "source": "https://ucigravelworldseries.com/en/gravel-tour-hlinsko/",
+      "status_note": "The August 1, 2026 qualifier is complete and no organizer-confirmed 2027 date is published."
+    },
+    "source_review": {
+      "reviewed_at": "2026-08-14",
+      "race_date": "2026-08-01",
+      "facts_scope": "The UCI page confirms the date, two-loop structure, distances, climbing totals, high point, support zones, organizer experience, and facility package. No 2027 date is published."
+    },
+    "research_metadata": {
+      "data_confidence": "high for the explicitly cited official facts; unresolved next-edition facts remain unknown",
+      "validation_status": "official-source intake complete",
+      "sources": [
+        "https://ucigravelworldseries.com/en/gravel-tour-hlinsko/",
+        "https://ucigravelworldseries.com/en/calendar/",
+        "https://ucigravelworldseries.com/en/regulations/"
+      ],
+      "migration_notes": [
+        "New catalog intake from the official 2026 UCI Gravel World Series calendar reconciliation."
+      ]
+    }
+  }
+}

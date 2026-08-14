@@ -1,0 +1,30 @@
+{
+  "@context": "https://schema.org",
+  "@type": "SportsEvent",
+  "name": "Gravel Tour Hlinsko",
+  "description": "Czech forest gravel in two acts: 86 rolling kilometres, then a second loop for anyone still racing.",
+  "sport": "Gravel Cycling",
+  "startDate": "2026-08-01",
+  "location": {
+    "@type": "Place",
+    "name": "Hlinsko, Pardubice Region, Czechia",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Hlinsko",
+      "addressRegion": "Pardubice Region"
+    }
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "61",
+    "bestRating": "100",
+    "ratingCount": "14",
+    "name": "Gravel God Rating"
+  },
+  "url": "https://ucigravelworldseries.com/en/gravel-tour-hlinsko/",
+  "organizer": {
+    "@type": "Person",
+    "name": "Official organizer listed by the UCI Gravel World Series",
+    "url": "https://ucigravelworldseries.com/en/gravel-tour-hlinsko/"
+  }
+}

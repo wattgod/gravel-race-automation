@@ -94,12 +94,15 @@ class TestCatalogContract:
         # Gravel Chile, and The Gravel of Marathon (net +3).
         # The Aug. 13 catalog audit replaced the retired mixed-identity 3RIDES
         # Aachen profile with the distinct Winterberg successor (net zero).
+        # The Aug. 14 official UCI calendar reconciliation added eight omitted
+        # qualifiers from Mexico, Canada, Italy, Czechia, Latvia, Denmark,
+        # Finland, and Estonia (net +8).
         source_count = migration_map["source_snapshot"]["gravel_god"][
             "race_data_total_profiles"
         ]
         departing_count = len(road_migration.redirected_entries(migration_map))
-        post_migration_additions = 2
-        assert len(race_index) == source_count - departing_count + post_migration_additions == 372
+        post_migration_additions = 10
+        assert len(race_index) == source_count - departing_count + post_migration_additions == 380
 
     def test_archived_profiles_never_feed_generated_index(
         self, migration_map, race_index

@@ -1,0 +1,30 @@
+{
+  "@context": "https://schema.org",
+  "@type": "SportsEvent",
+  "name": "Gravel Weekend Tukums",
+  "description": "Latvia's gravel festival is 91 percent dirt, sold out, and rolling almost every kilometre.",
+  "sport": "Gravel Cycling",
+  "startDate": "2026-08-08",
+  "location": {
+    "@type": "Place",
+    "name": "Tukums, Latvia",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Tukums",
+      "addressRegion": "Latvia"
+    }
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "61",
+    "bestRating": "100",
+    "ratingCount": "14",
+    "name": "Gravel God Rating"
+  },
+  "url": "https://gravelweekend.com/en/",
+  "organizer": {
+    "@type": "Person",
+    "name": "Official organizer listed by the UCI Gravel World Series",
+    "url": "https://gravelweekend.com/en/"
+  }
+}

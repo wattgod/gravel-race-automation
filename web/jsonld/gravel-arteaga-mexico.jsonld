@@ -1,0 +1,30 @@
+{
+  "@context": "https://schema.org",
+  "@type": "SportsEvent",
+  "name": "Gravel Arteaga Mexico",
+  "description": "Mexico's first UCI gravel qualifier starts high, climbs for forty kilometres, and stays in the Sierra Madre.",
+  "sport": "Gravel Cycling",
+  "startDate": "2026-08-30",
+  "location": {
+    "@type": "Place",
+    "name": "Arteaga, Coahuila, Mexico",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Arteaga",
+      "addressRegion": "Coahuila"
+    }
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "64",
+    "bestRating": "100",
+    "ratingCount": "14",
+    "name": "Gravel God Rating"
+  },
+  "url": "https://ucigravelworldseries.com/en/arteaga/",
+  "organizer": {
+    "@type": "Person",
+    "name": "Official organizer listed by the UCI Gravel World Series",
+    "url": "https://ucigravelworldseries.com/en/arteaga/"
+  }
+}

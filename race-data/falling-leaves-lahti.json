@@ -1,0 +1,357 @@
+{
+  "race": {
+    "name": "Falling Leaves Lahti",
+    "slug": "falling-leaves-lahti",
+    "display_name": "Falling Leaves Lahti",
+    "tagline": "One hundred nine miles of Finnish hardpack rollers with almost nowhere to hide.",
+    "vitals": {
+      "distance_km": 175,
+      "distance_mi": 108.7,
+      "elevation_m": 1586,
+      "elevation_ft": 5203,
+      "location": "Lahti, Finland",
+      "location_badge": "LAHTI, FINLAND",
+      "country": "Finland",
+      "date": "Mid-September",
+      "date_specific": "2026: September 12 (Saturday); no 2027 Falling Leaves date published",
+      "terrain_types": [
+        "Finnish hardpack",
+        "Endless short rollers",
+        "Dual-track forest",
+        "UCI Gravel World Series"
+      ],
+      "field_size": "Not published",
+      "start_time": "Not published for the next eligible edition",
+      "start_format": "UCI Gravel World Series age-category competition",
+      "registration": "No registration cycle is published for the next eligible edition.",
+      "entry_fee": "Not published for the next eligible edition",
+      "aid_stations": "Not published for the next eligible edition",
+      "cutoff_time": "Not published for the next eligible edition",
+      "lat": 60.983,
+      "lng": 25.655,
+      "start_elevation_asl_ft": 300,
+      "max_elevation_asl_ft": 700,
+      "route_options": [
+        "Long: 175 km / 108.7 mi with 1,586 m / 5,203 ft and 87% unpaved",
+        "Short: 100 km / 62.1 mi with 1,044 m / 3,425 ft"
+      ]
+    },
+    "climate": {
+      "primary": "Long-day Nordic summer with rain and wind risk",
+      "description": "The September qualifier brings shortening daylight and mild baseline temperatures, but Finnish rain and wind can make 175 km of hardpack materially slower and colder.",
+      "challenges": [
+        "Cold rain",
+        "Nordic wind",
+        "Long exposure",
+        "Rapid surface changes after weather"
+      ]
+    },
+    "terrain": {
+      "primary": "Finnish hardpack",
+      "surface": "The official course is 87% unpaved, mixing wide scenic roads, hardpack rollercoasters, and dual-track forest roads with no long climbs and almost no flat recovery.",
+      "technical_rating": 3,
+      "features": [
+        "175 km long course",
+        "1,586 m climbing",
+        "Seventy kilometres of near-continuous rollers",
+        "35 km northern forest loop",
+        "UCI Gravel World Series qualifier"
+      ]
+    },
+    "gravel_god_rating": {
+      "overall_score": 71,
+      "tier": 2,
+      "tier_label": "TIER 2",
+      "logistics": 2,
+      "length": 4,
+      "technicality": 3,
+      "elevation": 3,
+      "climate": 3,
+      "altitude": 1,
+      "adventure": 4,
+      "prestige": 4,
+      "race_quality": 4,
+      "experience": 5,
+      "community": 4,
+      "field_depth": 4,
+      "value": 4,
+      "expenses": 3,
+      "cultural_impact": 2,
+      "score_note": "An established Nordic Gravel Series event with a 175 km course, transparent surface facts, and UCI qualifier status. That combination earns a strong Tier 2 without inflating it into a global icon.",
+      "discipline": "gravel",
+      "display_tier": 2,
+      "display_tier_label": "TIER 2"
+    },
+    "biased_opinion_ratings": {
+      "logistics": {
+        "score": 2,
+        "explanation": "Lahti is about 100 km from Helsinki and reachable by train or car in roughly an hour, simple access for a major destination race."
+      },
+      "length": {
+        "score": 4,
+        "explanation": "The 175 km long course is 108.7 miles, inside the published 100–150-mile score-four band."
+      },
+      "technicality": {
+        "score": 3,
+        "explanation": "Hardpack, dual track, and endless rollers demand sustained control, but the official route has no extreme descents or singletrack claim."
+      },
+      "elevation": {
+        "score": 3,
+        "explanation": "The official 1,586 m converts to 5,203 ft, within the 4,000–6,000-foot score-three band."
+      },
+      "climate": {
+        "score": 3,
+        "explanation": "Finnish wind and cold rain are meaningful over 175 km, while the September qualifier avoids the most severe winter conditions."
+      },
+      "altitude": {
+        "score": 1,
+        "explanation": "Lahti's glacial ridges remain at low elevation; oxygen availability is irrelevant."
+      },
+      "adventure": {
+        "score": 4,
+        "explanation": "Salpausselkä UNESCO Geopark, Finnish Lakeland forest, and a 35 km northern nature loop create an epic Nordic day without remote survival logistics."
+      },
+      "prestige": {
+        "score": 4,
+        "explanation": "Nordic Gravel Series and UCI Gravel World Series status give the qualifier national and international significance."
+      },
+      "race_quality": {
+        "score": 4,
+        "explanation": "The organizer publishes exact surface share, route phases, climbing, and event logistics—evidence of professional operations."
+      },
+      "experience": {
+        "score": 5,
+        "explanation": "A 175 km hardpack rollercoaster through Finnish forest and lake country is the sort of course riders remember in their legs and their photos."
+      },
+      "community": {
+        "score": 4,
+        "explanation": "Falling Leaves is an established Nordic Gravel Series event rather than a one-year UCI shell, with a dedicated regional following."
+      },
+      "field_depth": {
+        "score": 4,
+        "explanation": "UCI Gravel World Series qualification attracts deep elite and age-group fields, supporting a four without claiming world-championship depth."
+      },
+      "value": {
+        "score": 4,
+        "explanation": "Two substantial courses and UCI qualification stakes create a strong sporting return, though the cited official page does not preserve the entry fee."
+      },
+      "expenses": {
+        "score": 3,
+        "explanation": "Helsinki access is straightforward, but Nordic lodging, food, and international bike travel keep the total trip moderate."
+      }
+    },
+    "course_description": {
+      "character": "The first 50 km roll south on wider roads, the next 70 km become a nearly continuous hardpack rollercoaster, a 35 km northern forest loop adds dual track, and the final 45 km return via Vuolenkoski.",
+      "signature_challenge": "Maintaining pressure through seventy kilometres with almost no flat road, then still having a group and clean line choice for the northern forest loop.",
+      "suffering_zones": [
+        {
+          "mile": 34,
+          "label": "Rollercoaster begins",
+          "desc": "After the southern opening, continuous hardpack rollers replace any stable rhythm.",
+          "terrain_detail": "Rollercoaster begins",
+          "named_section": "Salpausselkä rollers"
+        },
+        {
+          "mile": 77,
+          "label": "Northern loop",
+          "desc": "Thirty-five kilometres of dual-track forest make fatigue and line choice visible.",
+          "terrain_detail": "Northern loop",
+          "named_section": "Uimila loop"
+        },
+        {
+          "mile": 101,
+          "label": "Vuolenkoski return",
+          "desc": "The final 45 km punish riders who treated the middle section as the finish.",
+          "terrain_detail": "Vuolenkoski return",
+          "named_section": "Vuolenkoski"
+        }
+      ],
+      "surface_breakdown": {
+        "overall": {
+          "gravel": 87,
+          "pavement": 13
+        }
+      }
+    },
+    "biased_opinion": {
+      "verdict": "One hundred nine miles of Finnish hardpack rollers with almost nowhere to hide.",
+      "summary": "The first 50 km roll south on wider roads, the next 70 km become a nearly continuous hardpack rollercoaster, a 35 km northern forest loop adds dual track, and the final 45 km return via Vuolenkoski. Maintaining pressure through seventy kilometres with almost no flat road, then still having a group and clean line choice for the northern forest loop.",
+      "strengths": [
+        "175 km long course",
+        "1,586 m climbing",
+        "Seventy kilometres of near-continuous rollers",
+        "35 km northern forest loop",
+        "UCI Gravel World Series qualifier"
+      ],
+      "weaknesses": [
+        "No organizer-confirmed next-edition operations package",
+        "Current public facts remain edition-specific",
+        "Entry price not preserved in the cited source"
+      ],
+      "bottom_line": "A 71/100 Tier 2 race on the published Gravel God rubric; worth cataloging now, with future plan publication gated on an eligible official date."
+    },
+    "logistics": {
+      "airport": "Helsinki Airport (HEL), then rail or road to Lahti",
+      "lodging_strategy": "Stay in Lahti or near the Pajulahti event area; UCI qualifier demand makes early booking prudent.",
+      "transport": "Confirm race-day transport and bike handling with the organizer before booking.",
+      "food": "Bring tested race nutrition and verify local opening hours during race week.",
+      "packet_pickup": "Not published for the next eligible edition",
+      "parking": "Not published for the next eligible edition",
+      "official_site": "https://www.fallingleaveslahti.eu/"
+    },
+    "history": {
+      "founded": null,
+      "founder": "Official organizer listed by the UCI Gravel World Series",
+      "origin_story": "An established Nordic Gravel Series event whose organizer was selected to run the separate UEC European Gravel Championships in Lahti on July 31, 2027.",
+      "notable_moments": [],
+      "reputation": "A serious Nordic classic and UCI World Series qualifier."
+    },
+    "guide_variables": {
+      "race_name": "Falling Leaves Lahti",
+      "race_distance": "175 km / 108.7 miles",
+      "race_elevation": "1,586 m / 5,203 feet",
+      "race_date": "2026: September 12 (Saturday); no 2027 Falling Leaves date published",
+      "race_location": "Lahti, Finland",
+      "race_terrain": "The official course is 87% unpaved, mixing wide scenic roads, hardpack rollercoasters, and dual-track forest roads with no long climbs and almost no flat recovery.",
+      "race_weather": "Long-day Nordic summer with rain and wind risk",
+      "race_challenges": [
+        "175 km long course",
+        "1,586 m climbing",
+        "Seventy kilometres of near-continuous rollers",
+        "35 km northern forest loop",
+        "UCI Gravel World Series qualifier"
+      ],
+      "altitude_section": false,
+      "altitude_feet": null
+    },
+    "training_config": {
+      "workout_modifications": {
+        "race_specific_endurance": {
+          "enabled": true,
+          "weeks": [
+            6,
+            7,
+            8,
+            9
+          ]
+        },
+        "surface_specificity": {
+          "enabled": true,
+          "weeks": [
+            5,
+            7,
+            9
+          ]
+        },
+        "dress_rehearsal": {
+          "enabled": true,
+          "week": 10,
+          "day": "Saturday",
+          "duration_hours": {
+            "finisher": 4,
+            "time_crunched": 4,
+            "compete": 5,
+            "masters": 5
+          }
+        }
+      },
+      "masterclass_topics": {
+        "priority_order": [
+          "pacing",
+          "handling",
+          "weather",
+          "logistics"
+        ],
+        "race_specific": true,
+        "topics": {
+          "pacing": "Maintaining pressure through seventy kilometres with almost no flat road, then still having a group and clean line choice for the northern forest loop.",
+          "handling": "The official course is 87% unpaved, mixing wide scenic roads, hardpack rollercoasters, and dual-track forest roads with no long climbs and almost no flat recovery.",
+          "weather": "The September qualifier brings shortening daylight and mild baseline temperatures, but Finnish rain and wind can make 175 km of hardpack materially slower and colder.",
+          "logistics": "Stay in Lahti or near the Pajulahti event area; UCI qualifier demand makes early booking prudent."
+        }
+      },
+      "tier_overrides": {},
+      "marketplace_variables": {
+        "race_name": "Falling Leaves Lahti",
+        "race_hook": "One hundred nine miles of Finnish hardpack rollers with almost nowhere to hide.",
+        "race_hook_detail": "Maintaining pressure through seventy kilometres with almost no flat road, then still having a group and clean line choice for the northern forest loop.",
+        "distance": "108.7",
+        "dark_mile": "101",
+        "non_negotiable_1": "175 km long course",
+        "non_negotiable_2": "1,586 m climbing",
+        "non_negotiable_3": "Seventy kilometres of near-continuous rollers",
+        "trainingpeaks_url": null
+      }
+    },
+    "non_negotiables": [
+      {
+        "requirement": "175 km long course",
+        "by_when": "Week 8",
+        "why": "Maintaining pressure through seventy kilometres with almost no flat road, then still having a group and clean line choice for the northern forest loop."
+      },
+      {
+        "requirement": "1,586 m climbing",
+        "by_when": "Week 9",
+        "why": "The official course is 87% unpaved, mixing wide scenic roads, hardpack rollercoasters, and dual-track forest roads with no long climbs and almost no flat recovery."
+      },
+      {
+        "requirement": "Seventy kilometres of near-continuous rollers",
+        "by_when": "Week 10",
+        "why": "The September qualifier brings shortening daylight and mild baseline temperatures, but Finnish rain and wind can make 175 km of hardpack materially slower and colder."
+      }
+    ],
+    "final_verdict": {
+      "score": "71 / 100",
+      "one_liner": "One hundred nine miles of Finnish hardpack rollers with almost nowhere to hide.",
+      "should_you_race": "Race Falling Leaves Lahti if its verified terrain and UCI stakes match your goal; wait for the organizer's next-edition package before buying travel around an unconfirmed date.",
+      "alternatives": "Use the Gravel God race directory to compare another verified UCI qualifier with a confirmed future edition."
+    },
+    "citations": [
+      {
+        "url": "https://www.fallingleaveslahti.eu/",
+        "category": "official",
+        "label": "Organizer — official event identity and published facts"
+      },
+      {
+        "url": "https://ucigravelworldseries.com/en/calendar/",
+        "category": "official",
+        "label": "UCI Gravel World Series — official 2026-2027 calendar"
+      },
+      {
+        "url": "https://ucigravelworldseries.com/en/regulations/",
+        "category": "official",
+        "label": "UCI Gravel World Series — qualification rules"
+      },
+      {
+        "url": "https://ucigravelworldseries.com/en/lahti/",
+        "category": "official",
+        "label": "UCI series — 2026 qualifier course facts and separate 2027 championship announcement"
+      }
+    ],
+    "eligibility": {
+      "status": "active",
+      "race_plan_eligible": true,
+      "verified": "2026-08-14",
+      "source": "https://www.fallingleaveslahti.eu/",
+      "status_note": "The September 12, 2026 Falling Leaves qualifier is inside the six-week product floor and no organizer-confirmed 2027 Falling Leaves date is published. The July 31, 2027 UEC European Championship is a separately cataloged event with an unpublished championship course."
+    },
+    "source_review": {
+      "reviewed_at": "2026-08-14",
+      "race_date": "2026-09-12",
+      "facts_scope": "The UCI confirms the September 12, 2026 Falling Leaves qualifier, 175/100 km routes, 1,586/1,044 m climbing, 13% asphalt, and detailed route sequence. Its page also says the organizer will run the July 31, 2027 UEC European Championship, but the championship is separately cataloged and its final course must not be inferred from this 2026 qualifier."
+    },
+    "research_metadata": {
+      "data_confidence": "high for the explicitly cited official facts; unresolved next-edition facts remain unknown",
+      "validation_status": "official-source intake complete",
+      "sources": [
+        "https://www.fallingleaveslahti.eu/",
+        "https://ucigravelworldseries.com/en/calendar/",
+        "https://ucigravelworldseries.com/en/regulations/",
+        "https://ucigravelworldseries.com/en/lahti/"
+      ],
+      "migration_notes": [
+        "New catalog intake from the official 2026 UCI Gravel World Series calendar reconciliation."
+      ]
+    }
+  }
+}

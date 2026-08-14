@@ -1,0 +1,351 @@
+{
+  "race": {
+    "name": "The Wolf",
+    "slug": "the-wolf-dronninglund",
+    "display_name": "The Wolf",
+    "tagline": "Denmark gets hilly in a hurry: castle cobbles, rugged forest roads, and three laps for the young categories.",
+    "vitals": {
+      "distance_km": 165,
+      "distance_mi": 102.5,
+      "elevation_m": 1398,
+      "elevation_ft": 4587,
+      "location": "Dronninglund, North Jutland, Denmark",
+      "location_badge": "DRONNINGLUND, DENMARK",
+      "country": "Denmark",
+      "date": "Early September",
+      "date_specific": "2026: September 5 (Saturday); no 2027 date published",
+      "terrain_types": [
+        "North Jutland forest",
+        "Castle courtyard",
+        "Fast gravel",
+        "UCI Gravel World Series"
+      ],
+      "field_size": "Not published",
+      "start_time": "Not published for the next eligible edition",
+      "start_format": "UCI Gravel World Series age-category competition",
+      "registration": "No registration cycle is published for the next eligible edition.",
+      "entry_fee": "Not published for the next eligible edition",
+      "aid_stations": "Not published for the next eligible edition",
+      "cutoff_time": "Not published for the next eligible edition",
+      "lat": 57.16,
+      "lng": 10.293,
+      "start_elevation_asl_ft": 120,
+      "max_elevation_asl_ft": 446,
+      "route_options": [
+        "Long qualifier: UCI header lists 165 km; detailed page describes three 52 km laps with 466 m per lap",
+        "Other official distances: 123 km and 82 km listed for age categories"
+      ]
+    },
+    "climate": {
+      "primary": "Windy and changeable Danish early autumn",
+      "description": "September can be cool, wet, and windy. Forest shelter alternates with exposed rural sectors, making clothing and tire choice a live decision.",
+      "challenges": [
+        "North Sea wind",
+        "Cool rain",
+        "Wet forest roads",
+        "Changing exposure"
+      ]
+    },
+    "terrain": {
+      "primary": "North Jutland forest",
+      "surface": "The lap mixes wide fast gravel with rugged Dronninglund Storskov forest roads and an early technical passage through Voergaard Castle's moat and courtyard.",
+      "technical_rating": 3,
+      "features": [
+        "Voergaard Castle courtyard",
+        "Rugged forest tracks",
+        "466 m climbing per published lap",
+        "Multi-lap racing",
+        "Surprisingly hilly North Jutland"
+      ]
+    },
+    "gravel_god_rating": {
+      "overall_score": 63,
+      "tier": 2,
+      "tier_label": "TIER 2",
+      "logistics": 3,
+      "length": 4,
+      "technicality": 3,
+      "elevation": 3,
+      "climate": 3,
+      "altitude": 1,
+      "adventure": 4,
+      "prestige": 3,
+      "race_quality": 3,
+      "experience": 4,
+      "community": 3,
+      "field_depth": 3,
+      "value": 3,
+      "expenses": 3,
+      "cultural_impact": 1,
+      "score_note": "A former recreational event has become Denmark's UCI qualifier on a genuinely distinctive castle-and-forest loop. Conflicting official lap and headline distances keep the debut grade honest.",
+      "discipline": "gravel",
+      "display_tier": 2,
+      "display_tier_label": "TIER 2"
+    },
+    "biased_opinion_ratings": {
+      "logistics": {
+        "score": 3,
+        "explanation": "Dronninglund requires regional ground travel in northern Jutland but remains connected to Aalborg and Denmark's reliable road network."
+      },
+      "length": {
+        "score": 4,
+        "explanation": "The UCI header's 165 km long route is 102.5 miles, entering the published 100–150-mile score-four band."
+      },
+      "technicality": {
+        "score": 3,
+        "explanation": "A castle courtyard, moat passage, and rugged forest roads create mixed-terrain handling without evidence of extreme singletrack."
+      },
+      "elevation": {
+        "score": 3,
+        "explanation": "Three times the published 466 m per lap yields about 1,398 m or 4,587 ft, inside the 4,000–6,000-foot score-three band; the source inconsistency is retained."
+      },
+      "climate": {
+        "score": 3,
+        "explanation": "Wind, cool rain, and wet forest roads are meaningful in September, but the race is not designed around an extreme climate."
+      },
+      "altitude": {
+        "score": 1,
+        "explanation": "Knøsen reaches only 136 m, so altitude has no physiological role."
+      },
+      "adventure": {
+        "score": 4,
+        "explanation": "Racing through Voergaard Castle before repeated laps in one of North Jutland's largest forests gives the event unusual character."
+      },
+      "prestige": {
+        "score": 3,
+        "explanation": "UCI status makes The Wolf nationally relevant, while its competitive identity is still too new for higher prestige."
+      },
+      "race_quality": {
+        "score": 3,
+        "explanation": "The event has graduated from recreation to UCI competition with a published course concept; race-day execution at this level remains unproven."
+      },
+      "experience": {
+        "score": 4,
+        "explanation": "Castle grounds, forest tracks, and a surprisingly hilly Danish profile should make the day memorable beyond the series badge."
+      },
+      "community": {
+        "score": 3,
+        "explanation": "The Wolf already existed as a recreational event, giving the new competitive format a base without proving a large mature race culture."
+      },
+      "field_depth": {
+        "score": 3,
+        "explanation": "A UCI qualifier will draw serious Scandinavian riders, but no official field size or start list is published yet."
+      },
+      "value": {
+        "score": 3,
+        "explanation": "Multiple distances and qualification stakes make a fair package; the cited official page does not publish the entry fee."
+      },
+      "expenses": {
+        "score": 3,
+        "explanation": "Northern Jutland travel is moderate for Europeans and more expensive for fly-in riders, fitting the middle of the expense rubric."
+      }
+    },
+    "course_description": {
+      "character": "A multi-lap North Jutland race from Flauenskjold through Voergaard Castle and Dronninglund Storskov, alternating fast gravel with rough forest roads.",
+      "signature_challenge": "Handling the early castle selection cleanly, then resisting the temptation to over-race the first of three rolling forest laps.",
+      "suffering_zones": [
+        {
+          "mile": 3,
+          "label": "Voergaard Castle",
+          "desc": "The moat and courtyard create an early technical selection.",
+          "terrain_detail": "Voergaard Castle",
+          "named_section": "Voergaard Castle"
+        },
+        {
+          "mile": 32,
+          "label": "Forest roads",
+          "desc": "Rugged tracks interrupt the fast gravel late in each lap.",
+          "terrain_detail": "Forest roads",
+          "named_section": "Dronninglund Storskov"
+        },
+        {
+          "mile": 75,
+          "label": "Final-lap grind",
+          "desc": "Repeated short climbs accumulate far beyond what Denmark's reputation suggests.",
+          "terrain_detail": "Final-lap grind",
+          "named_section": "The Wolf loop"
+        }
+      ],
+      "surface_breakdown": {
+        "overall": {
+          "gravel": null,
+          "pavement": null
+        }
+      }
+    },
+    "biased_opinion": {
+      "verdict": "Denmark gets hilly in a hurry",
+      "summary": "A multi-lap North Jutland race from Flauenskjold through Voergaard Castle and Dronninglund Storskov, alternating fast gravel with rough forest roads. Handling the early castle selection cleanly, then resisting the temptation to over-race the first of three rolling forest laps.",
+      "strengths": [
+        "Voergaard Castle courtyard",
+        "Rugged forest tracks",
+        "466 m climbing per published lap",
+        "Multi-lap racing",
+        "Surprisingly hilly North Jutland"
+      ],
+      "weaknesses": [
+        "No organizer-confirmed next-edition operations package",
+        "Current public facts remain edition-specific",
+        "Entry price not preserved in the cited source"
+      ],
+      "bottom_line": "A 63/100 Tier 2 race on the published Gravel God rubric; worth cataloging now, with future plan publication gated on an eligible official date."
+    },
+    "logistics": {
+      "airport": "Aalborg Airport (AAL), followed by a regional ground transfer",
+      "lodging_strategy": "Use Dronninglund, Brønderslev, or Aalborg depending on inventory and race-morning transport.",
+      "transport": "Confirm race-day transport and bike handling with the organizer before booking.",
+      "food": "Bring tested race nutrition and verify local opening hours during race week.",
+      "packet_pickup": "Not published for the next eligible edition",
+      "parking": "Not published for the next eligible edition",
+      "official_site": "https://ucigravelworldseries.com/en/dronninglund/"
+    },
+    "history": {
+      "founded": null,
+      "founder": "Official organizer listed by the UCI Gravel World Series",
+      "origin_story": "Evolved from the recreational Ulven Gravl into a UCI Gravel World Series event for 2026.",
+      "notable_moments": [],
+      "reputation": "A promising Scandinavian qualifier with a distinctive castle-and-forest loop."
+    },
+    "guide_variables": {
+      "race_name": "The Wolf",
+      "race_distance": "165 km / 102.5 miles",
+      "race_elevation": "1,398 m / 4,587 feet",
+      "race_date": "2026: September 5 (Saturday); no 2027 date published",
+      "race_location": "Dronninglund, North Jutland, Denmark",
+      "race_terrain": "The lap mixes wide fast gravel with rugged Dronninglund Storskov forest roads and an early technical passage through Voergaard Castle's moat and courtyard.",
+      "race_weather": "Windy and changeable Danish early autumn",
+      "race_challenges": [
+        "Voergaard Castle courtyard",
+        "Rugged forest tracks",
+        "466 m climbing per published lap",
+        "Multi-lap racing",
+        "Surprisingly hilly North Jutland"
+      ],
+      "altitude_section": false,
+      "altitude_feet": null
+    },
+    "training_config": {
+      "workout_modifications": {
+        "race_specific_endurance": {
+          "enabled": true,
+          "weeks": [
+            6,
+            7,
+            8,
+            9
+          ]
+        },
+        "surface_specificity": {
+          "enabled": true,
+          "weeks": [
+            5,
+            7,
+            9
+          ]
+        },
+        "dress_rehearsal": {
+          "enabled": true,
+          "week": 10,
+          "day": "Saturday",
+          "duration_hours": {
+            "finisher": 4,
+            "time_crunched": 4,
+            "compete": 5,
+            "masters": 5
+          }
+        }
+      },
+      "masterclass_topics": {
+        "priority_order": [
+          "pacing",
+          "handling",
+          "weather",
+          "logistics"
+        ],
+        "race_specific": true,
+        "topics": {
+          "pacing": "Handling the early castle selection cleanly, then resisting the temptation to over-race the first of three rolling forest laps.",
+          "handling": "The lap mixes wide fast gravel with rugged Dronninglund Storskov forest roads and an early technical passage through Voergaard Castle's moat and courtyard.",
+          "weather": "September can be cool, wet, and windy. Forest shelter alternates with exposed rural sectors, making clothing and tire choice a live decision.",
+          "logistics": "Use Dronninglund, Brønderslev, or Aalborg depending on inventory and race-morning transport."
+        }
+      },
+      "tier_overrides": {},
+      "marketplace_variables": {
+        "race_name": "The Wolf",
+        "race_hook": "Denmark gets hilly in a hurry: castle cobbles, rugged forest roads, and three laps for the young categories.",
+        "race_hook_detail": "Handling the early castle selection cleanly, then resisting the temptation to over-race the first of three rolling forest laps.",
+        "distance": "102.5",
+        "dark_mile": "75",
+        "non_negotiable_1": "Voergaard Castle courtyard",
+        "non_negotiable_2": "Rugged forest tracks",
+        "non_negotiable_3": "466 m climbing per published lap",
+        "trainingpeaks_url": null
+      }
+    },
+    "non_negotiables": [
+      {
+        "requirement": "Voergaard Castle courtyard",
+        "by_when": "Week 8",
+        "why": "Handling the early castle selection cleanly, then resisting the temptation to over-race the first of three rolling forest laps."
+      },
+      {
+        "requirement": "Rugged forest tracks",
+        "by_when": "Week 9",
+        "why": "The lap mixes wide fast gravel with rugged Dronninglund Storskov forest roads and an early technical passage through Voergaard Castle's moat and courtyard."
+      },
+      {
+        "requirement": "466 m climbing per published lap",
+        "by_when": "Week 10",
+        "why": "September can be cool, wet, and windy. Forest shelter alternates with exposed rural sectors, making clothing and tire choice a live decision."
+      }
+    ],
+    "final_verdict": {
+      "score": "63 / 100",
+      "one_liner": "Denmark gets hilly in a hurry: castle cobbles, rugged forest roads, and three laps for the young categories.",
+      "should_you_race": "Race The Wolf if its verified terrain and UCI stakes match your goal; wait for the organizer's next-edition package before buying travel around an unconfirmed date.",
+      "alternatives": "Use the Gravel God race directory to compare another verified UCI qualifier with a confirmed future edition."
+    },
+    "citations": [
+      {
+        "url": "https://ucigravelworldseries.com/en/dronninglund/",
+        "category": "official",
+        "label": "Organizer — official event identity and published facts"
+      },
+      {
+        "url": "https://ucigravelworldseries.com/en/calendar/",
+        "category": "official",
+        "label": "UCI Gravel World Series — official 2026-2027 calendar"
+      },
+      {
+        "url": "https://ucigravelworldseries.com/en/regulations/",
+        "category": "official",
+        "label": "UCI Gravel World Series — qualification rules"
+      }
+    ],
+    "eligibility": {
+      "status": "active",
+      "race_plan_eligible": true,
+      "verified": "2026-08-14",
+      "source": "https://ucigravelworldseries.com/en/dronninglund/",
+      "status_note": "The September 5, 2026 race is inside the six-week product floor and no organizer-confirmed 2027 date is published."
+    },
+    "source_review": {
+      "reviewed_at": "2026-08-14",
+      "race_date": "2026-09-05",
+      "facts_scope": "The UCI confirms the date, listed 82/123/165 km distances, forest and castle course character, and 466 m climbing per described lap. The same page calls the lap 52 km, which does not reconcile with all headline distances, so the inconsistency stays explicit."
+    },
+    "research_metadata": {
+      "data_confidence": "high for the explicitly cited official facts; unresolved next-edition facts remain unknown",
+      "validation_status": "official-source intake complete",
+      "sources": [
+        "https://ucigravelworldseries.com/en/dronninglund/",
+        "https://ucigravelworldseries.com/en/calendar/",
+        "https://ucigravelworldseries.com/en/regulations/"
+      ],
+      "migration_notes": [
+        "New catalog intake from the official 2026 UCI Gravel World Series calendar reconciliation."
+      ]
+    }
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "@context": "https://schema.org",
+  "@type": "SportsEvent",
+  "name": "Tartu Rattamaraton Gravel",
+  "description": "A thirty-year Estonian bike marathon becomes 93 percent off-road UCI gravel without losing its festival scale.",
+  "sport": "Gravel Cycling",
+  "startDate": "2026-09-19",
+  "location": {
+    "@type": "Place",
+    "name": "Otep\u00e4\u00e4 to Elva, Estonia",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Otep\u00e4\u00e4 to Elva",
+      "addressRegion": "Estonia"
+    }
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "70",
+    "bestRating": "100",
+    "ratingCount": "14",
+    "name": "Gravel God Rating"
+  },
+  "url": "https://tartumaraton.ee/en/tartu-rattamaraton-2026",
+  "organizer": {
+    "@type": "Person",
+    "name": "Official organizer listed by the UCI Gravel World Series",
+    "url": "https://tartumaraton.ee/en/tartu-rattamaraton-2026"
+  }
+}

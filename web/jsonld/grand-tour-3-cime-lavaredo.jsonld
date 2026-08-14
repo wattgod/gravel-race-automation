@@ -1,0 +1,30 @@
+{
+  "@context": "https://schema.org",
+  "@type": "SportsEvent",
+  "name": "Grand Tour 3 Cime Lavaredo",
+  "description": "A 10,400-foot Dolomites gravel race where the last named climb crests after kilometre 100.",
+  "sport": "Gravel Cycling",
+  "startDate": "2026-06-20",
+  "location": {
+    "@type": "Place",
+    "name": "Auronzo di Cadore, Veneto, Italy",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Auronzo di Cadore",
+      "addressRegion": "Veneto"
+    }
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "73",
+    "bestRating": "100",
+    "ratingCount": "14",
+    "name": "Gravel God Rating"
+  },
+  "url": "https://ucigravelworldseries.com/en/auronzo-di-cadore/",
+  "organizer": {
+    "@type": "Person",
+    "name": "Official organizer listed by the UCI Gravel World Series",
+    "url": "https://ucigravelworldseries.com/en/auronzo-di-cadore/"
+  }
+}

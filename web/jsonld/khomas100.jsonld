@@ -1,0 +1,25 @@
+{
+  "@context": "https://schema.org",
+  "@type": "SportsEvent",
+  "name": "Khomas100",
+  "description": "Windhoek to Gross Barmen on 143 kilometers of fast, rugged Namibian gravel.",
+  "sport": "Gravel Cycling",
+  "startDate": "2026-08-22",
+  "location": {
+    "@type": "Place",
+    "name": "Windhoek to Gross Barmen, Namibia",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Windhoek to Gross Barmen",
+      "addressRegion": "Namibia"
+    }
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "71",
+    "bestRating": "100",
+    "ratingCount": "14",
+    "name": "Gravel God Rating"
+  },
+  "url": "https://khomas100.com.na/"
+}

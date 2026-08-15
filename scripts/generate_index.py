@@ -357,7 +357,7 @@ def build_index_entry_from_profile(slug: str, data: dict) -> dict:
         entry["series_name"] = series.get("name", "")
 
     # Include transcript search text from rider_intel or fallback to curated quotes
-    yt = race.get("youtube_data", {})
+    yt = race.get("youtube_data") or {}
     rider_intel = yt.get("rider_intel", {})
     search_text = rider_intel.get("search_text", "")
     if not search_text:

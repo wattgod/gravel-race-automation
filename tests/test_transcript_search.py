@@ -97,6 +97,11 @@ class TestIndexSearchTextField:
         entry = build_index_entry_from_profile("test-race", base_race)
         assert "st" not in entry
 
+    def test_no_st_when_youtube_data_is_explicit_null(self, base_race):
+        base_race["race"]["youtube_data"] = None
+        entry = build_index_entry_from_profile("test-race", base_race)
+        assert "st" not in entry
+
     def test_st_prefers_rider_intel_over_quotes(self, base_race):
         base_race["race"]["youtube_data"] = {
             "rider_intel": {

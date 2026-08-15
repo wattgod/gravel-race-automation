@@ -519,4 +519,7 @@ class TestRealRaceData:
         # Floor re-pinned 187->186 (Aug 13 2026): 3RIDES moved its gravel race
         # from Aachen to Winterberg. The retired Aachen profile carried the old
         # venue's route; Winterberg's final 2027 course is not published yet.
-        assert rwgps_count >= 186, f"Expected >=186 current RWGPS routes, got {rwgps_count}"
+        # Floor re-pinned 186->185 (Aug 15 2026): Red Granite's inherited
+        # route ID was removed because the organizer has not published a
+        # current route. Toppling Goliath likewise has no current route file.
+        assert rwgps_count >= 185, f"Expected >=185 current RWGPS routes, got {rwgps_count}"

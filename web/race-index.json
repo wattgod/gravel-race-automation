@@ -6684,7 +6684,7 @@
     "month": "October",
     "year": 2026,
     "distance_mi": 150,
-    "elevation_ft": 2800,
+    "elevation_ft": null,
     "tier": 3,
     "overall_score": 59,
     "scores": {
@@ -6704,16 +6704,13 @@
       "expenses": 3
     },
     "difficulty_composite": 2.6,
-    "tagline": "Wisconsin fall gravel—150/100/50 miles of rolling farmland, fall colors, and ultra-distance option.",
+    "tagline": "A 150-mile Wisconsin gravel day through dairy country, rivers, red granite roads, and peak hardwood color.",
     "has_profile": true,
     "profile_url": "/race/red-granite-grinder/",
     "discipline": "gravel",
     "has_tire_guide": true,
     "lat": 45.035,
-    "lng": -90.0739,
-    "rwgps_id": "52962151",
-    "st": "The Red Granite Grinder in Athens, Wisconsin features challenging hill sections that push riders to their gear limits, with one particularly difficult climb identified as 'the worst of it' by riders using climb tracking technology. The 150-mile course includes road biking segments through remote middle-of-nowhere areas. Riders describe it as an enjoyable event with good community atmosphere and people. The terrain includes significant climbs followed by downhill recovery sections. Some participants noted they didn't train adequately for the event's demands. The race takes place in a scenic rural setting with venues like Running Horse Farm along the route. Despite the physical challenges, riders expressed willingness to participate again, praising both the course design and the overall community feel of the event.",
-    "thumb": "/race-photos/red-granite-grinder/red-granite-grinder-video-1.jpg"
+    "lng": -90.0739
   },
   {
     "name": "Wyścig Niepołomice",
@@ -6937,6 +6934,42 @@
     "lng": -84.4991,
     "st": "The Reliance Tennessee gravel race features challenging terrain including dangerous bridge sections where crashes resulting in concussions and shoulder injuries have occurred. The course includes sustained climbs with 7% grades where riders slow to 7 miles per hour. Surface conditions can be hazardous, particularly tar sections that become slick when wet. The Web Brothers store serves as a key landmark and appears to be the only store in the area, making it an important logistical point. Riders are using Continental tubeless tires in 28mm widths for the varied terrain. The scenic route passes through beautiful areas that are popular with motorcycles and connects to areas like Cage Cove. The challenging nature of the course requires careful attention to technical descents and sustained climbing efforts.",
     "thumb": "/race-photos/reliance-tennessee-gravel/reliance-tennessee-gravel-video-1.jpg"
+  },
+  {
+    "name": "Toppling Goliath Gravel Grinder",
+    "slug": "toppling-goliath-gravel-grinder",
+    "location": "Decorah, Iowa",
+    "region": "Midwest",
+    "month": "October",
+    "year": 2026,
+    "distance_mi": 62,
+    "elevation_ft": 3500,
+    "tier": 3,
+    "overall_score": 57,
+    "scores": {
+      "logistics": 4,
+      "length": 3,
+      "technicality": 2,
+      "elevation": 2,
+      "climate": 2,
+      "altitude": 1,
+      "adventure": 3,
+      "prestige": 2,
+      "race_quality": 3,
+      "experience": 3,
+      "community": 4,
+      "field_depth": 2,
+      "value": 5,
+      "expenses": 4
+    },
+    "difficulty_composite": 2.2,
+    "tagline": "The Iowa Gravel Series championship: 100 kilometers of Driftless hills, brewery start and finish, and a hard 2:00 PM support horizon.",
+    "has_profile": true,
+    "profile_url": "/race/toppling-goliath-gravel-grinder/",
+    "discipline": "gravel",
+    "has_tire_guide": false,
+    "lat": 43.3033,
+    "lng": -91.7857
   },
   {
     "name": "TransRockies Gravel Royale",
@@ -8843,7 +8876,7 @@
     "thumb": "/race-photos/sea-otter-europe-gravel/sea-otter-europe-gravel-video-1.jpg"
   },
   {
-    "name": "Trans-Sylvania Epic",
+    "name": "Trans-Sylvania Gravel Epic",
     "slug": "trans-sylvania-epic",
     "location": "Pennsylvania",
     "region": "Northeast",
@@ -8877,7 +8910,7 @@
     "has_tire_guide": true,
     "lat": 40.97,
     "lng": -77.7279,
-    "st": "Trans-Sylvania Epic is a multi-day stage race in Pennsylvania's national forests featuring 47-mile opener stages and longer 60-65 mile days with significant climbing. Day four includes 61 miles with 6000 feet of elevation gain. The course features very rocky steep climbs that riders describe as nasty, including a key 2.5 mile climb out of Woodward. Roads are generally in good condition according to experienced riders. The race includes run sections that can be challenging with road cleats. Riders describe the Pennsylvania national forests as super green, lush and beautiful. Four-wheelers on course present some safety concerns. The multi-day format creates an immersion gravel experience through scenic wooded terrain with substantial daily elevation gains and technical climbing sections.",
+    "st": "Trans-Sylvania Gravel Epic is a multi-day stage race in Pennsylvania's national forests featuring 47-mile opener stages and longer 60-65 mile days with significant climbing. Day four includes 61 miles with 6000 feet of elevation gain. The course features very rocky steep climbs that riders describe as nasty, including a key 2.5 mile climb out of Woodward. Roads are generally in good condition according to experienced riders. The race includes run sections that can be challenging with road cleats. Riders describe the Pennsylvania national forests as super green, lush and beautiful. Four-wheelers on course present some safety concerns. The multi-day format creates an immersion gravel experience through scenic wooded terrain with substantial daily elevation gains and technical climbing sections.",
     "thumb": "/race-photos/trans-sylvania-epic/trans-sylvania-epic-video-1.jpg"
   },
   {

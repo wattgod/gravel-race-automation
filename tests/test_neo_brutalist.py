@@ -1489,6 +1489,21 @@ class TestNormalizeSilentFailures:
         # field_size may be None — that's fine, we just verify no crash
         assert 'field_size' in rd['vitals']
 
+    def test_explicit_null_youtube_data_renders_as_no_verified_media(self):
+        data = {
+            "race": {
+                "name": "No Video Race",
+                "slug": "no-video-race",
+                "gravel_god_rating": {"overall_score": 50, "tier": 3},
+                "vitals": {"location": "Somewhere"},
+                "youtube_data": None,
+            }
+        }
+        rd = normalize_race_data(data)
+        assert rd["youtube_videos"] == []
+        assert rd["youtube_quotes"] == []
+        assert rd["rider_intel"] == {}
+
 
 class TestJsonLdSafety:
     """Tests for JSON-LD injection prevention."""

@@ -1,10 +1,10 @@
 {
   "@context": "https://schema.org",
   "@type": "SportsEvent",
-  "name": "Trans-Sylvania Epic",
+  "name": "Trans-Sylvania Gravel Epic",
   "description": "Pennsylvania multi-stage mountain gravel.",
   "sport": "Gravel Cycling",
-  "startDate": "2026-05-19",
+  "startDate": "2026-05-21",
   "location": {
     "@type": "Place",
     "name": "Pennsylvania",
@@ -25,5 +25,6 @@
     "bestRating": "100",
     "ratingCount": "14",
     "name": "Gravel God Rating"
-  }
+  },
+  "url": "https://www.tsegravel.com/"
 }

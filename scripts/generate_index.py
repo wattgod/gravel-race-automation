@@ -176,7 +176,8 @@ def extract_region(location: str) -> str:
         "czech republic": "Europe", "romania": "Europe", "slovenia": "Europe",
         "croatia": "Europe", "greece": "Europe", "denmark": "Europe",
         "norway": "Europe", "finland": "Europe", "sweden": "Europe",
-        "luxembourg": "Europe", "monaco": "Europe", "ardennes": "Europe",
+        "latvia": "Europe", "luxembourg": "Europe", "monaco": "Europe",
+        "ardennes": "Europe",
         "flanders": "Europe", "eifel": "Europe", "drenthe": "Europe",
         "sardinia": "Europe", "tuscany": "Europe", "veneto": "Europe",
         "catalonia": "Europe", "andalusia": "Europe", "vosges": "Europe",
@@ -202,7 +203,13 @@ def extract_region(location: str) -> str:
         "japan": "Asia", "thailand": "Asia",
     }
     for country, region in country_map.items():
-        if country in location_lower:
+        is_short_code = len(country) <= 3 and country.isalpha()
+        matches = (
+            re.search(rf"(?<![a-z]){re.escape(country)}(?![a-z])", location_lower)
+            if is_short_code
+            else country in location_lower
+        )
+        if matches:
             return region
 
     # US regions — full state names
@@ -224,7 +231,6 @@ def extract_region(location: str) -> str:
             return region
 
     # US state abbreviations — match ", XX" or "XX/" patterns to avoid false positives
-    import re
     us_abbrev = {
         "West": ["CA", "OR", "WA", "CO", "UT", "MT", "WY", "ID", "NV", "AZ", "NM",
                  "AK", "HI"],

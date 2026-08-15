@@ -525,4 +525,6 @@ class TestRealRaceData:
         # Floor re-pinned 185->184 (Aug 15 2026): CIRREM's profile had the
         # independently uploaded "CIRREM Short" trace, but the organizer has
         # not published an authoritative next-edition route.
-        assert rwgps_count >= 184, f"Expected >=184 current RWGPS routes, got {rwgps_count}"
+        # Floor re-pinned 184->183 (Aug 15 2026): The Divide's inherited
+        # route ID belonged to the Tour Divide rather than the Manton event.
+        assert rwgps_count >= 183, f"Expected >=183 current RWGPS routes, got {rwgps_count}"

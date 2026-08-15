@@ -1695,6 +1695,10 @@ RewriteRule ^race/rad-dirt-fest/(.*)$ /race/the-rad/$1 [R=301,L]
 # Winterberg format in 2026. The old profile mixed both locations.
 RewriteRule ^race/3rides-aachen/?$ /race/3rides-gravel-winterberg/ [R=301,L]
 RewriteRule ^race/3rides-aachen/(.*)$ /race/3rides-gravel-winterberg/$1 [R=301,L]
+# No organizer or official event exists under the name Gravel des Flandres.
+# The retired page mixed unsupported facts with the old Flanders Gravel Series.
+RewriteRule ^race/gravel-des-flandres/?$ /race/calendar/2026/ [R=301,L]
+RewriteRule ^race/gravel-des-flandres/(.*)$ /race/calendar/2026/ [R=301,L]
 RewriteRule ^race/dreilaendergiro/?$ https://roadielabs.com/race/dreilander-giro/ [R=301,L]
 RewriteRule ^race/dreilaendergiro/(.*)$ https://roadielabs.com/race/dreilander-giro/$1 [R=301,L]
 RewriteRule ^race/gran-fondo-felice-gimondi/?$ https://roadielabs.com/race/granfondo-felice-gimondi/ [R=301,L]

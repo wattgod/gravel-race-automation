@@ -16,6 +16,7 @@ from typing import Any
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 RACE_DATA_DIR = PROJECT_ROOT / "race-data"
 DEFAULT_OUTPUT = PROJECT_ROOT / "web" / "race-intel.json"
+TOMBSTONES_PATH = PROJECT_ROOT / "config" / "tombstones.json"
 LOOKBACK_MONTHS = 18
 MAX_EVENTS_PER_RACE = 5
 # Normalization/enrichment sweeps are not news; keep mass edits out of the feed.
@@ -216,7 +217,17 @@ def mine_history(
                     break
                 feed[slug].append({"date": commit_date, **event})
 
-    return {slug: events for slug, events in sorted(feed.items()) if events}
+    tombstoned = {
+        row["slug"]
+        for row in json.loads(TOMBSTONES_PATH.read_text(encoding="utf-8"))[
+            "tombstones"
+        ]
+    }
+    return {
+        slug: events
+        for slug, events in sorted(feed.items())
+        if events and slug not in tombstoned
+    }
 
 
 def main() -> int:

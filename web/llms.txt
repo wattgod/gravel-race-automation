@@ -1,14 +1,14 @@
 # Gravel God Race Database
 
-> The definitive gravel race database. 380 races rated on 14 base dimensions plus a Cultural Impact bonus, scored 0-100+, and tiered 1-4.
+> The definitive gravel race database. 381 races rated on 14 base dimensions plus a Cultural Impact bonus, scored 0-100+, and tiered 1-4.
 > Last generated: 2026-08-15
 
 ## Overview
 
-Gravel God is a gravel cycling database covering 380 races across North America and beyond. Every race is scored on 14 base dimensions (logistics, length, technicality, elevation, climate, altitude, adventure, prestige, race quality, experience, community, field depth, value, expenses) on a 1-5 scale, plus a Cultural Impact bonus from 0-5, producing an overall score out of 100+ and a tier assignment (T1=Elite, T2=Contender, T3=Solid, T4=Roster).
+Gravel God is a gravel cycling database covering 381 races across North America and beyond. Every race is scored on 14 base dimensions (logistics, length, technicality, elevation, climate, altitude, adventure, prestige, race quality, experience, community, field depth, value, expenses) on a 1-5 scale, plus a Cultural Impact bonus from 0-5, producing an overall score out of 100+ and a tier assignment (T1=Elite, T2=Contender, T3=Solid, T4=Roster).
 
 - **Tier 1 (Elite)**: 30 races — score >= 80 or prestige override
-- **Tier 2 (Contender)**: 139 races — score >= 60
+- **Tier 2 (Contender)**: 140 races — score >= 60
 - **Tier 3 (Solid)**: 138 races — score >= 45
 - **Tier 4 (Roster)**: 73 races — score < 45
 
@@ -18,7 +18,7 @@ Regions: Africa, Asia, Europe, Midwest, North America, Northeast, Oceania, Other
 ## Machine-Readable Resources
 
 - [Full LLM context (this database as text)](https://gravelgodcycling.com/llms-full.txt)
-- [Race index JSON (380 entries)](https://gravelgodcycling.com/race-index.json)
+- [Race index JSON (381 entries)](https://gravelgodcycling.com/race-index.json)
 - [REST API (OpenAPI)](https://gravelgodcycling.com/api/v1/docs)
 - [RSS feed](https://gravelgodcycling.com/feed/races.xml)
 - [MCP Server (GitHub)](https://github.com/wattgod/gravel-race-automation)

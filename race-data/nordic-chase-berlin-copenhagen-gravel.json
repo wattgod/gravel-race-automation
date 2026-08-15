@@ -1,0 +1,191 @@
+{
+  "race": {
+    "name": "Nordic Chase Berlin to Copenhagen Gravel",
+    "slug": "nordic-chase-berlin-copenhagen-gravel",
+    "display_name": "Nordic Chase Berlin to Copenhagen Gravel",
+    "tagline": "A self-supported gravel ultra from Berlin to Copenhagen through German forest tracks, Baltic wind, and Danish gravel.",
+    "vitals": {
+      "distance_km": 730,
+      "distance_mi": 454,
+      "elevation_m": 4000,
+      "elevation_ft": 13123,
+      "course_status": "source_blocked",
+      "course_status_label": "2027 GRAND DEPART PENDING",
+      "course_status_reason": "The organizer's 2027 calendar confirms the Berlin-to-Copenhagen gravel event window, but the route page still describes the 2026 course and schedule. The final 2027 GPX and exact grand-depart date have not been published.",
+      "location": "Berlin, Germany to Copenhagen, Denmark",
+      "location_badge": "BERLIN TO COPENHAGEN",
+      "county": "Germany and Denmark",
+      "country": "Germany / Denmark",
+      "date": "2027: July 31-August 5 event window; exact grand depart pending",
+      "date_specific": "TBD — 2027 event window: July 31-August 5; exact grand depart pending",
+      "last_confirmed_date": null,
+      "terrain_types": [
+        "German forest tracks",
+        "Open gravel and farmland",
+        "Baltic coastal exposure",
+        "Ferry crossing into Denmark",
+        "Danish gravel paths"
+      ],
+      "field_size": "100-rider capacity in the latest detailed organizer edition",
+      "start_time": "Not yet published for 2027",
+      "start_format": "Self-supported mass grand depart; final 2027 schedule pending",
+      "registration": "2027 registration opens September 8, 2026 at 19:00 CET; priority access opens 48 hours earlier",
+      "entry_fee": "Not yet published for 2027",
+      "prize_purse": "No cash purse published; first rider to the finish wins",
+      "aid_stations": "None; riders resupply from public services under the self-supported rules",
+      "cutoff_time": "100-hour series format announced for 2027; route-specific final cutoff pending",
+      "lat": 52.52,
+      "lng": 13.405,
+      "route_options": [
+        "The latest detailed course is the organizer-reconned 2026 route: 730 km with 4,000 m of climbing from Berlin to Copenhagen",
+        "The final 2027 GPX is released with the race manual and overrides the planning reference"
+      ]
+    },
+    "climate": {
+      "primary": "Late-summer northern European",
+      "description": "The corridor trades altitude for exposure. Riders should expect mild-to-warm daylight hours, cooler nights, rain risk, and Baltic wind that can turn flat terrain into a persistent pacing problem.",
+      "challenges": [
+        "Baltic headwinds",
+        "Rain on forest and farm tracks",
+        "Cool overnight temperatures"
+      ]
+    },
+    "terrain": {
+      "primary": "Forest-track and coastal gravel ultra",
+      "surface": "The organizer describes dense woods, quiet farmland, Baltic coastline, a ferry crossing, and gravel paths across Sjælland. A 2027 surface percentage is not published.",
+      "technical_rating": 3,
+      "features": [
+        "Berlin city start",
+        "German forest tracks",
+        "Baltic Sea approach",
+        "Ferry into Denmark",
+        "Sjælland gravel to Copenhagen"
+      ]
+    },
+    "gravel_god_rating": {
+      "overall_score": 66,
+      "tier": 2,
+      "tier_label": "TIER 2",
+      "logistics": 4,
+      "length": 5,
+      "technicality": 3,
+      "elevation": 5,
+      "climate": 3,
+      "altitude": 1,
+      "adventure": 5,
+      "prestige": 2,
+      "race_quality": 4,
+      "experience": 4,
+      "community": 3,
+      "field_depth": 2,
+      "value": 3,
+      "expenses": 2,
+      "discipline": "gravel",
+      "display_tier": 2,
+      "scoring_notes": "The 66/100 score applies the published rubric to the established Berlin-to-Copenhagen identity and latest verified route, not an unpublished 2027 GPX. Ultra distance, 13,123 feet of climbing, and the international crossing score highly; the young series, 100-rider cap, and costly point-to-point trip keep prestige, field depth, and expenses conservative."
+    },
+    "biased_opinion_ratings": {
+      "logistics": {"score": 4, "explanation": "Berlin and Copenhagen are easy to reach, but the international point-to-point finish, ferry timing, self-arranged sleep, and extraction planning make this a significant destination-race operation."},
+      "length": {"score": 5, "explanation": "The latest detailed route is 730 kilometres and requires at least one overnight for nearly everyone."},
+      "technicality": {"score": 3, "explanation": "The organizer's 2026 route uses forest tracks and mixed gravel that reward handling without turning the event into a mountain-bike race."},
+      "elevation": {"score": 5, "explanation": "The latest detailed route carries 4,000 metres, or 13,123 feet, of climbing, above the published 10,000-foot threshold for the maximum score."},
+      "climate": {"score": 3, "explanation": "The announced July-August 2027 window is moderate, while rain and Baltic wind can still reshape the race."},
+      "altitude": {"score": 1, "explanation": "The 2026 Berlin-to-Copenhagen route has no sustained high-altitude exposure."},
+      "adventure": {"score": 5, "explanation": "A self-supported international crossing from Berlin to Copenhagen through forest and coast is a complete adventure."},
+      "prestige": {"score": 2, "explanation": "The route has a strong identity but only a short results history and a 100-rider cap, so it remains a growing event rather than a national fixture."},
+      "race_quality": {"score": 4, "explanation": "Organizer reconnaissance, tracking, and a capped field provide a credible foundation, with final 2027 detail still pending."},
+      "experience": {"score": 4, "explanation": "The move from Berlin forests to the Baltic ferry and a Copenhagen finish is memorable, while the final 2027 route remains unpublished."},
+      "community": {"score": 3, "explanation": "A 100-rider field, briefing, social ride, tracking, and finish welcome support a good small-event vibe without evidence for a legendary community score."},
+      "field_depth": {"score": 2, "explanation": "The 100-rider event is too new and small to claim an established deep competitive field."},
+      "value": {"score": 3, "explanation": "The 2026 package supplied GPS tracking and event structure, while riders still covered every resupply and overnight cost."},
+      "expenses": {"score": 2, "explanation": "Berlin-to-Copenhagen travel, accommodation, and northern-European prices put the 2027 trip in the rubric's high-cost range; expenses score lower when the trip costs more."}
+    },
+    "biased_opinion": {
+      "verdict": "The Cleaner Entry Into Nordic Chase",
+      "summary": "Berlin to Copenhagen is still a serious overnight ultra, but it is the more approachable of Nordic Chase's two gravel crossings: less climbing and a shorter route than Copenhagen to Oslo, with a satisfying geographic arc from German forests to the Baltic and across Sjælland. That does not make it beginner-friendly. Self-support, sleep, ferries, wind, and a 100-hour clock still punish sloppy execution.",
+      "strengths": [
+        "Distinct Berlin-to-Copenhagen point-to-point route",
+        "Lower climbing density than the Oslo edition",
+        "Forest, coast, ferry, and city-finish variety",
+        "Organizer reconnaissance and live GPS tracking"
+      ],
+      "weaknesses": [
+        "No organizer aid stations or private outside support",
+        "A young event with a small competitive field",
+        "Baltic wind can erase the advantage of modest elevation",
+        "The 2027 final route and grand-depart schedule are not published yet"
+      ],
+      "bottom_line": "The better Nordic Chase gravel choice for a first multi-night point-to-point ultra, once the organizer publishes the exact 2027 start and final route."
+    },
+    "course_description": {
+      "character": "The latest detailed route leaves Berlin, works north through forest tracks and farmland, reaches the Baltic, crosses by ferry into Denmark, and finishes on the gravel paths of Sjælland in Copenhagen. It is one continuous self-supported race, not a stage event. The final 2027 GPX may change and is intentionally not represented here as fixed.",
+      "signature_challenge": "Holding an efficient all-day pace through exposed, rolling terrain while coordinating resupply, sleep, navigation, and the ferry connection.",
+      "suffering_zones": [
+        {"name": "The Berlin rollout", "mile": "0-60", "description": "Urban navigation and early adrenaline reward restraint.", "survival_strategy": "Stay on the route, avoid traffic-risk heroics, and settle into an all-day pace."},
+        {"name": "Northern German forests", "mile": "60-260", "description": "Repetitive gravel, darkness, and limited services test focus.", "survival_strategy": "Plan night resupply in advance and keep navigation prompts visible and charged."},
+        {"name": "The Baltic approach", "mile": "260-350", "description": "Exposed wind can make nominally flat kilometres expensive.", "survival_strategy": "Ride power, not speed, and protect the legs before the ferry transition."},
+        {"name": "Sjælland to Copenhagen", "mile": "350-finish", "description": "The finish looks close while fatigue and small route decisions continue to accumulate.", "survival_strategy": "Keep eating and navigating until the timing mat rather than mentally finishing at the ferry."}
+      ]
+    },
+    "logistics": {
+      "nearest_airport": "Berlin Brandenburg Airport (BER) for the start",
+      "alternate_airports": "Copenhagen Airport (CPH) for departure after the finish",
+      "lodging_note": "Accommodation is not included. Riders arrange pre-race lodging and any sleep stops they use on course.",
+      "parking": "A point-to-point race; do not plan around leaving a car at the start",
+      "packet_pickup": "Berlin; final 2027 time and venue pending",
+      "travel_summary": "Arrive in Berlin, finish in Copenhagen, and depart by air or rail from Copenhagen. Build the trip around two different cities rather than a return to the start.",
+      "food_options": "Self-supported resupply from businesses available to every rider",
+      "camping": "Verify the race manual and local rules before planning outdoor sleep",
+      "official_site": "https://nordicchase.com/ber-cph-gravel"
+    },
+    "history": {
+      "founded": 2026,
+      "origin_story": "Nordic Chase expanded its inaugural Copenhagen concept into a four-race series, adding separate road and gravel corridors between Berlin, Copenhagen, and Oslo.",
+      "notable_moments": [
+        "2026: first Berlin-to-Copenhagen gravel edition used a 730-kilometre organizer-reconned course",
+        "2027: organizer retained the route identity in its four-race calendar"
+      ],
+      "reputation": "A young, small-field European gravel ultra with an unusually clear point-to-point narrative."
+    },
+    "final_verdict": {
+      "score": "69 / 100",
+      "one_liner": "Berlin forests, Baltic wind, a ferry, and 454 self-supported miles to Copenhagen.",
+      "should_you_race": "Yes if you have overnight gravel experience and want a point-to-point ultra without the extra climbing and distance of the Oslo route. It is still too consequential for an untested lighting, sleep, or resupply system.",
+      "alternatives": "Choose Nordic Chase Copenhagen to Oslo Gravel for the bigger three-country challenge, or a supported gravel stage race if independent sleep and resupply are not the experience you want."
+    },
+    "citations": [
+      {
+        "url": "https://nordicchase.com/",
+        "category": "official",
+        "label": "Nordic Chase official 2027 calendar and registration announcement"
+      },
+      {
+        "url": "https://nordicchase.com/ber-cph-gravel",
+        "category": "official",
+        "label": "Berlin to Copenhagen Gravel official route, rules, logistics, and latest detailed edition"
+      },
+      {
+        "url": "https://nordicchase.com/terms-and-conditions",
+        "category": "official",
+        "label": "Nordic Chase official race rules and self-supported terms"
+      }
+    ],
+    "eligibility": {
+      "status": "active",
+      "race_plan_eligible": true,
+      "status_note": "The organizer has confirmed the 2027 Berlin-to-Copenhagen gravel identity and July 31-August 5 event window. Training-plan publication remains source-blocked until it publishes the exact grand-depart date and final 2027 route package."
+    },
+    "research_metadata": {
+      "data_confidence": "official 2027 event window; latest organizer-reconned course retained only as a guarded planning reference",
+      "validation_status": "source_blocked_for_2027_plan",
+      "next_edition_status": "waiting_for_exact_grand_depart_and_final_route",
+      "known_gap": "The route page still carries the 2026 730 km / 4,000 m course and schedule. Do not clone, date, or publish a 2027 TrainingPeaks plan until the organizer confirms the 2027 grand depart and final GPX.",
+      "sources": [
+        "https://nordicchase.com/",
+        "https://nordicchase.com/ber-cph-gravel",
+        "https://nordicchase.com/terms-and-conditions"
+      ],
+      "research_date": "2026-08-15"
+    }
+  }
+}

@@ -1,678 +1,192 @@
 {
   "race": {
-    "name": "Nordic Chase Gravel Edition",
+    "name": "Nordic Chase Copenhagen to Oslo Gravel",
     "slug": "nordic-chase-gravel",
-    "display_name": "Nordic Chase Gravel Edition",
-    "tagline": "Multi-day Scandinavian adventure—Copenhagen to Oslo, 600km over 4 stages, supported with hotels and meals.",
+    "display_name": "Nordic Chase Copenhagen to Oslo Gravel",
+    "tagline": "A self-supported Nordic ultra from Copenhagen to Oslo, with the final 2027 grand-depart details still pending.",
     "vitals": {
-      "distance_mi": 373,
-      "elevation_ft": 26247,
+      "distance_km": 800,
+      "distance_mi": 497,
+      "elevation_m": 7200,
+      "elevation_ft": 23622,
+      "course_status": "source_blocked",
+      "course_status_label": "2027 GRAND DEPART PENDING",
+      "course_status_reason": "The organizer's 2027 calendar confirms the Copenhagen-to-Oslo gravel event window, but its route page still describes the 2026 course and schedule. The final 2027 GPX and exact grand-depart date have not been published.",
       "location": "Copenhagen, Denmark to Oslo, Norway",
-      "location_badge": "COPENHAGEN → OSLO",
-      "county": "Multi-country (Denmark, Sweden, Norway)",
-      "date": "June annually",
-      "date_specific": "Check official website for date",
+      "location_badge": "COPENHAGEN TO OSLO",
+      "county": "Denmark, Sweden, and Norway",
+      "country": "Denmark / Sweden / Norway",
+      "date": "2027: August 13-19 event window; exact grand depart pending",
+      "date_specific": "TBD — 2027 event window: August 13-19; exact grand depart pending",
+      "last_confirmed_date": null,
       "terrain_types": [
-        "Scandinavian gravel (70%)",
-        "Paved roads (30%)",
-        "Rolling countryside",
-        "Coastal sections"
+        "Nordic gravel roads",
+        "Forest tracks",
+        "Quiet rural lanes",
+        "Ferry crossing between Denmark and Sweden",
+        "Self-supported ultra-distance riding"
       ],
-      "field_size": "200-300 riders",
-      "start_time": "Multi-day stage race (4 stages)",
-      "registration": "Online. Cost: €400-€600 (includes hotels, meals, support)",
-      "prize_purse": "None",
-      "aid_stations": "Supported stage race (hotels, meals included)",
-      "cutoff_time": "Daily stage cutoffs",
-      "lat": 61.1529,
-      "lng": 8.7877
+      "field_size": "100-rider capacity in the latest detailed organizer edition",
+      "start_time": "Not yet published for 2027",
+      "start_format": "Self-supported mass grand depart; final 2027 schedule pending",
+      "registration": "2027 registration opens September 8, 2026 at 19:00 CET; priority access opens 48 hours earlier",
+      "entry_fee": "Not yet published for 2027; the 2026 standard entry was 2,250 DKK",
+      "prize_purse": "No cash purse published; first rider to the finish wins",
+      "aid_stations": "None; riders resupply from public services under the self-supported rules",
+      "cutoff_time": "100-hour series format announced for 2027; route-specific final cutoff pending",
+      "lat": 55.6761,
+      "lng": 12.5683,
+      "route_options": [
+        "The latest detailed course is the organizer-verified 2026 route: 800 km with 7,200 m of climbing from Copenhagen to Oslo",
+        "The final 2027 GPX is released with the race manual and overrides the planning reference"
+      ]
     },
     "climate": {
-      "primary": "Scandinavian summer",
-      "description": "June: 15-25°C, 30% rain chance, summer conditions.",
+      "primary": "Nordic summer with coastal exposure",
+      "description": "The August corridor can combine long daylight, mild temperatures, rain, and exposed Baltic or North Sea winds. Four days of changing conditions matter more than any single forecast.",
       "challenges": [
-        "Temperature swings (15-25°C)",
-        "Rain risk (30%)",
-        "Multi-day weather variability"
+        "Rain and temperature swings across three countries",
+        "Exposed coastal wind",
+        "Cold overnight riding during a multi-day effort"
       ]
     },
     "terrain": {
-      "primary": "Scandinavian countryside—rolling gravel + coastal sections",
-      "surface": "70% gravel, 30% paved roads. Multi-day stage race Copenhagen to Oslo. 4 stages ~150km each. Scandinavian countryside—rolling terrain, coastal sections. ~600 km total, ~8,000 m elevation. Technical rating: 3/5.",
+      "primary": "Long Nordic gravel and forest-road ultra",
+      "surface": "The organizer describes gravel roads, forest trails, and quiet villages. A 2027 surface percentage is not published.",
       "technical_rating": 3,
       "features": [
-        "Copenhagen start (Denmark)",
-        "Swedish countryside (rolling)",
-        "Oslo finish (Norway)",
-        "Multi-day stage race (4 days)",
-        "Supported (hotels, meals)",
-        "Scandinavian scenery"
+        "Copenhagen start",
+        "Denmark-to-Sweden ferry crossing",
+        "Remote Swedish forest sectors",
+        "Rolling approach to Oslo",
+        "Self-supported navigation"
       ]
     },
     "gravel_god_rating": {
-      "overall_score": 76,
+      "overall_score": 66,
       "tier": 2,
       "tier_label": "TIER 2",
-      "logistics": 3,
+      "logistics": 4,
       "length": 5,
       "technicality": 3,
-      "elevation": 4,
+      "elevation": 5,
       "climate": 3,
       "altitude": 1,
       "adventure": 5,
-      "prestige": 4,
-      "race_quality": 5,
-      "experience": 5,
-      "community": 4,
-      "field_depth": 3,
+      "prestige": 2,
+      "race_quality": 4,
+      "experience": 4,
+      "community": 3,
+      "field_depth": 2,
       "value": 3,
-      "expenses": 5,
+      "expenses": 2,
       "discipline": "gravel",
-      "display_tier": 2
-    },
-    "biased_opinion": {
-      "verdict": "Scandinavian Multi-Day Adventure",
-      "summary": "Nordic Chase Gravel Edition is multi-day Scandinavian adventure—Copenhagen to Oslo, ~600 km over 4 stages. Founded ~2019. 70% gravel, 30% paved. Supported stage race (hotels, meals included in €400-€600 entry). 200-300 riders. 4 stages ~150km each. Scandinavian countryside—rolling terrain, coastal sections. June summer conditions (15-25°C). If you want multi-day European adventure with support, this is it. If you want single-day or budget race, skip it. Expensive but all-inclusive.",
-      "strengths": [
-        "Multi-day adventure (Copenhagen to Oslo)",
-        "Supported (hotels, meals included)",
-        "Scandinavian scenery (stunning)",
-        "All-inclusive (€400-€600 covers everything)",
-        "Stage race format (4 days)",
-        "Good airports (CPH start, OSL finish)"
-      ],
-      "weaknesses": [
-        "Expensive (€400-€600)",
-        "Multi-day fatigue (4 days cumulative)",
-        "June rain risk (30%)",
-        "International travel required",
-        "Small field (200-300)",
-        "10-15% DNF"
-      ],
-      "bottom_line": "Nordic Chase is multi-day Scandinavian adventure. Copenhagen to Oslo, 600 km, 4 stages, supported. If you want European multi-day with stunning scenery and full support, this is it. If you want single-day or budget, skip it. Expensive but all-inclusive. Unique format."
-    },
-    "logistics": {
-      "nearest_airport": "Copenhagen (CPH) — start location. Oslo (OSL) — finish location.",
-      "alternate_airports": "None needed (start CPH, finish OSL)",
-      "lodging_note": "Included in entry fee (hotels each night).",
-      "parking": "Not applicable (multi-day stage race)",
-      "packet_pickup": "Day-before in Copenhagen.",
-      "travel_summary": "Fly to Copenhagen (CPH) for start. Finish in Oslo (OSL), fly home from there. Hotels, meals included in entry. Multi-day stage race (4 days). Day-before packet pickup Copenhagen.",
-      "food_options": "Meals included in entry fee. Supported stage race.",
-      "camping": "Not applicable (hotels included)",
-      "official_site": "https://www.nordicchase.com"
-    },
-    "course_description": {
-      "character": "~600 km, ~8,000 m. 70% gravel, 30% paved. Multi-day stage race (4 stages). Copenhagen to Oslo. Technical rating: 3/5.",
-      "suffering_zones": [
-        {
-          "name": "Stage 1: Copenhagen Start (Denmark)",
-          "miles": "Day 1",
-          "description": "Flat coastal. ~150 km. Warm-up stage.",
-          "survival_strategy": "Pace conservatively. 3 more days ahead. Don't blow up day 1."
-        },
-        {
-          "name": "Stage 2-3: Swedish Countryside",
-          "miles": "Day 2-3",
-          "description": "Rolling terrain. ~150 km each day. Cumulative fatigue.",
-          "survival_strategy": "Manage fatigue. Sleep well. Eat well. Multi-day = consistency."
-        },
-        {
-          "name": "Stage 4: Oslo Finish (Norway)",
-          "miles": "Day 4",
-          "description": "Final push to Oslo. Legs tired. Scenic finish.",
-          "survival_strategy": "Push through. Final day. Celebrate in Oslo."
-        }
-      ],
-      "signature_challenge": "Multi-day fatigue (4 days, 600 km). Supported but cumulative.",
-      "surface_breakdown": {
-        "overall": {
-          "gravel": 70,
-          "pavement": 30
-        }
-      }
-    },
-    "history": {
-      "founded": "~2019",
-      "founder": "Unknown",
-      "origin_story": "Nordic Chase Gravel Edition founded ~2019. Multi-day stage race Copenhagen to Oslo. ~600 km, 4 stages, 200-300 riders. Supported (hotels, meals included). Scandinavian adventure.",
-      "notable_moments": [
-        "2023: Cool, dry (15-20°C)",
-        "2024: Variable, some rain (12-22°C)"
-      ],
-      "reputation": "Multi-day Scandinavian adventure. Supported stage race. Expensive but all-inclusive."
-    },
-    "research_metadata": {
-      "data_confidence": "researched",
-      "validation_status": "pending",
-      "sources": [
-        "cursor_web_search"
-      ],
-      "research_date": "2026-02-04",
-      "research_strength": {
-        "overall": 96.1,
-        "grade": "A",
-        "weakest": "voice_authenticity",
-        "has_research_dump": true,
-        "dimensions": {
-          "source_diversity": 100,
-          "citation_density": 100,
-          "temporal_depth": 100,
-          "specificity": 100,
-          "statistical_backing": 100,
-          "voice_authenticity": 70,
-          "completeness": 94,
-          "cross_reference": 100
-        },
-        "scored_at": "2026-02-04"
-      }
+      "display_tier": 2,
+      "scoring_notes": "The 66/100 score applies the published rubric to the established Copenhagen-to-Oslo identity and latest verified route, not an unpublished 2027 GPX. The ultra distance, 23,622 feet of climbing, and three-country crossing score highly; the young series, 100-rider cap, and expensive point-to-point trip keep prestige, field depth, and expenses conservative."
     },
     "biased_opinion_ratings": {
-      "logistics": {
-        "score": 3,
-        "explanation": "Self-supported format with WhatsApp group coordination across three countries, plus mandatory ferry timing creates complexity. Alex Sychou and Ruben Lathuy both created tip videos after 2025 specifically to help future participants navigate the logistics. Accommodation isn't included in Nordic countries where overnights add up fast."
-      },
-      "length": {
-        "score": 5,
-        "explanation": "373 miles puts this in ultra-gravel territory with 103-hour cutoff creating real time pressure across Denmark, Sweden, and Norway. The course is \"undeniably more demanding\" than the road version according to organizers. This distance forces multi-day pacing decisions through remote Nordic wilderness. Among the longest in gravel, comparable to Badlands."
-      },
-      "technicality": {
-        "score": 3,
-        "explanation": "\"Over 80% gravel, more inland\" with terrain including \"forest tracks, open gravel, Baltic winds\" through dense woods and farmland. Organizer Gregory Sanders personally verified the route in summer 2025. The challenge comes from endurance navigation rather than extreme technical features. Similar technical demands to Gravel Worlds."
-      },
-      "elevation": {
-        "score": 4,
-        "explanation": "26,247 feet of climbing across 373 miles creates substantial suffering through \"gravel climbs to silent lakesides\" and Nordic ridgelines. The route hits \"the raw heart of southern Scandinavia\" with enough vertical to break legs over the distance without requiring alpine genetics. More climbing than SBT GRVL at the same score."
-      },
-      "climate": {
-        "score": 3,
-        "explanation": "Mid-August Nordic summer means endless daylight but riders face \"Baltic winds\" and weather variability crossing three countries. The route hits \"dense woods and quiet farmland before reaching the Baltic sea\" where conditions can change fast in remote sections. Similar climate challenges to SBT GRVL."
-      },
-      "altitude": {
-        "score": 1,
-        "explanation": "Starting at sea level in Copenhagen and staying in Nordic lowlands means altitude isn't a factor. The climbing comes from rolling terrain rather than elevation affecting oxygen intake. Your legs hurt from distance and surfaces, not thin air. Lower altitude than Gravel Worlds — no thin-air concerns."
-      },
-      "adventure": {
-        "score": 5,
-        "explanation": "The course description promises \"Start in Copenhagen, roll north through Denmark, hop the ferry to Sweden, and grind your way over gravel roads, forest trails, and through quiet Nordic villages.\" This three-country expedition \"under the endless glow of the Nordic summer\" delivers consequences most races can't match."
-      },
-      "prestige": {
-        "score": 4,
-        "explanation": "Limited to 100 riders with 2025 first-place finisher Alban Duvivier completing in 13 hours 29 minutes, while Emma Missale took the women's win in 16:39. The event is building credibility with participants like Alex Sychou creating instructional videos for future editions."
-      },
-      "race_quality": {
-        "score": 5,
-        "explanation": "Gregory Sanders personally verified the 373-mile route in summer 2025, with live GPS tracking via Follow My Challenge included. The race philosophy asks \"Is it a race or a ride? It's both\" - some push for fast times while others enjoy the journey through verified Nordic terrain."
-      },
-      "experience": {
-        "score": 5,
-        "explanation": "The route promises riders will \"experience gravel climbs to silent lakesides and the raw heart of southern Scandinavia.\" Post-race includes optional ferry back to Copenhagen with collective dinner party, creating expedition memories beyond just racing through three countries."
-      },
-      "community": {
-        "score": 4,
-        "explanation": "Coffee and croissants provided at 6 AM start with group photo at 6:45, plus pre-race social ride with drinks and snacks. \"Riders are welcome to draft and travel in groups, making it both a personal test and a shared experience.\" WhatsApp group helps coordinate the 100-rider field."
-      },
-      "field_depth": {
-        "score": 3,
-        "explanation": "Early-stage event with 2025 winners Alban Duvivier (13:29) and Emma Missale (16:39) establishing competitive benchmarks. The 100-rider cap and serious participants like those creating tip videos show commitment, but no established pro field or competitive pedigree yet. Similar competitive depth to Rule of Three. As Event Philosophy puts it: \"Created for the ultra-distance gravel and bikepacking community, Nordic Chase Gravel combines the grit of unsupported racing with the beauty of Nordic wilderness.\""
-      },
-      "value": {
-        "score": 3,
-        "explanation": "At 2,250 DKK (~302 EUR) for 373 miles across three countries, the math works for the unique route experience. Entry includes coffee and croissants, pre-race social activities, and GPS tracking. Media team follows in two cars capturing moments along the way."
-      },
-      "expenses": {
-        "score": 5,
-        "explanation": "Registration runs €400-€600. Beyond the 302 EUR entry, self-arranged accommodation across expensive Nordic countries adds up fast. Factor flights to Copenhagen, potential bike shipping, and Nordic food prices during the multi-day effort. The optional Oslo-Copenhagen ferry with dinner helps but doesn't offset overall Nordic expense. As Accommodation puts it: \"Not included in the registration. Riders need to arrange their own overnights (hotels, Airbnb's, hostels or sheltered options).\""
-      }
+      "logistics": {"score": 4, "explanation": "Two different endpoint cities, a cross-border ferry, self-arranged sleep, and possible extraction make this a significant destination-race operation even though Copenhagen and Oslo are strong transport hubs."},
+      "length": {"score": 5, "explanation": "The latest detailed route is 800 kilometres, firmly in multi-night ultra territory."},
+      "technicality": {"score": 3, "explanation": "The organizer's 2026 route uses forest tracks and gravel roads that demand control under fatigue without being marketed as extreme singletrack."},
+      "elevation": {"score": 5, "explanation": "The latest detailed route carries 7,200 metres, or 23,622 feet, of climbing, above the published 10,000-foot threshold for the maximum score."},
+      "climate": {"score": 3, "explanation": "The announced August 2027 window reduces heat risk but leaves real exposure to Nordic rain, wind, and cold overnight riding."},
+      "altitude": {"score": 1, "explanation": "The 2026 route's challenge comes from accumulated climbing and duration, not sustained high altitude."},
+      "adventure": {"score": 5, "explanation": "A self-supported crossing through Denmark, Sweden, and Norway with a ferry is expedition riding by any reasonable definition."},
+      "prestige": {"score": 2, "explanation": "The route has a distinctive identity, but the series is still young and capped at 100 riders, so it has not earned major national or international recognition."},
+      "race_quality": {"score": 4, "explanation": "Gregory Sanders' route reconnaissance, Follow My Challenge GPS tracking, a race manual, and a 100-rider cap support a professional format without enough history to call it elite or flawless."},
+      "experience": {"score": 4, "explanation": "Copenhagen, Swedish forests, and an Oslo finish create a memorable ride narrative, while the final 2027 route remains unpublished."},
+      "community": {"score": 3, "explanation": "The 100-rider cap, pre-race gathering, tracking, and Oslo finish welcome support a good event vibe, but there is not yet evidence for a legendary community score."},
+      "field_depth": {"score": 2, "explanation": "The 100-rider young event attracts committed ultra riders but does not have an established deep competitive field."},
+      "value": {"score": 3, "explanation": "The 2026 standard entry included Follow My Challenge GPS tracking and event organization, but riders still bought their own food, lodging, and travel."},
+      "expenses": {"score": 2, "explanation": "Copenhagen-to-Oslo travel, Nordic prices, accommodation, and possible extraction put the trip in the rubric's high-cost range; expenses score lower when the trip costs more."}
+    },
+    "biased_opinion": {
+      "verdict": "The Bigger, Harder Nordic Chase",
+      "summary": "This is the marquee gravel crossing in the Nordic Chase series: nearly 500 miles from Copenhagen to Oslo with no private support, a ferry between Denmark and Sweden, and enough forest road and overnight fatigue to turn small mistakes into expensive ones. The organizer has confirmed the 2027 event window, but not the exact grand depart or final GPX, so the latest 800-kilometre route is a planning reference rather than a promise.",
+      "strengths": [
+        "A genuine three-country point-to-point ultra",
+        "Organizer-verified route history and live GPS tracking",
+        "Small field and strong shared-adventure character",
+        "Finish in Oslo with optional return travel to Copenhagen"
+      ],
+      "weaknesses": [
+        "No organizer aid stations or private outside support",
+        "Accommodation, food, and extraction are the rider's responsibility",
+        "Nordic travel and resupply costs add up quickly",
+        "The 2027 final route and grand-depart schedule are not published yet"
+      ],
+      "bottom_line": "Train for a self-supported 100-hour gravel expedition, but do not anchor a dated plan until Nordic Chase publishes the 2027 grand depart and final route package."
+    },
+    "course_description": {
+      "character": "The latest organizer-verified route leaves Copenhagen, runs north through Denmark, crosses by ferry into Sweden, and uses gravel roads, forest trails, and quiet villages on the way to Oslo. It is an uninterrupted self-supported ultra, not a four-stage hotel race. The final 2027 GPX may change and is intentionally not represented here as fixed.",
+      "signature_challenge": "Keeping food, navigation, sleep, clothing, and bike reliability under control for roughly 800 kilometres without private support.",
+      "suffering_zones": [
+        {"name": "The Danish opening", "mile": "0-100", "description": "Fast terrain can tempt an unsustainable first-day pace.", "survival_strategy": "Cap effort early and start eating before speed disguises the cost."},
+        {"name": "Swedish forest sectors", "mile": "100-350", "description": "Long, quiet gravel where resupply timing and navigation matter.", "survival_strategy": "Carry a real food and water buffer and pre-plan every late-night service."},
+        {"name": "The second night", "mile": "300-425", "description": "Sleep debt, cold, and decision quality become performance limiters.", "survival_strategy": "Use a rehearsed sleep threshold instead of bargaining with obvious impairment."},
+        {"name": "The Oslo approach", "mile": "425-finish", "description": "Accumulated climbing and fatigue arrive after hundreds of kilometres.", "survival_strategy": "Ride the remaining time, not the remaining map distance, and keep fueling through the finish."}
+      ]
+    },
+    "logistics": {
+      "nearest_airport": "Copenhagen Airport (CPH) for the start",
+      "alternate_airports": "Oslo Airport (OSL) for departure after the finish",
+      "lodging_note": "Accommodation is not included. Riders arrange pre-race lodging and any sleep stops they use on course.",
+      "parking": "A point-to-point race; do not plan around leaving a car at the start",
+      "packet_pickup": "Copenhagen; final 2027 time and venue pending",
+      "travel_summary": "Fly or take rail to Copenhagen, finish in Oslo, then depart from Oslo or use the organizer's optional return-ferry arrangement if offered for 2027.",
+      "food_options": "Self-supported resupply from businesses available to every rider",
+      "camping": "Wild-camping rules vary by country; verify the current race manual and local law",
+      "official_site": "https://nordicchase.com/cph-osl-gravel"
+    },
+    "history": {
+      "founded": 2025,
+      "origin_story": "Nordic Chase began with a 400-kilometre Copenhagen loop in 2025 and expanded into a four-race road-and-gravel series linking Berlin, Copenhagen, and Oslo.",
+      "notable_moments": [
+        "2025: inaugural Copenhagen loop established the series",
+        "2026: Copenhagen-to-Oslo gravel expanded the concept to an 800-kilometre three-country crossing",
+        "2027: organizer announced a four-race calendar and retained this route identity"
+      ],
+      "reputation": "A young, small-field European ultra built around self-support, community, and point-to-point adventure."
     },
     "final_verdict": {
       "score": "76 / 100",
-      "one_liner": "Three countries, 100 hours, and enough Scandinavian gravel to remind you why self-supported ultras don't negotiate.",
-      "should_you_race": "You need serious self-supported experience and the mental fortitude for 100-hour efforts across three countries. The 60-80% gravel through Nordic forests isn't technical, but the distance and isolation will expose every weakness in your preparation and gear. Show up undertrained and you'll be arranging your own expensive extraction from rural Sweden.",
-      "alternatives": "Gravel Worlds gives you similar ultra-distance suffering with better logistics and more predictable conditions. If you want the Scandinavian experience without the commitment, Grinduro Scotland delivers Nordic-adjacent terrain in a more digestible format.",
-      "alternative_slugs": [
-        "garmin-gravel-worlds",
-        "grinduro"
-      ]
+      "one_liner": "Three countries, roughly 500 miles, and no support crew to rescue bad pacing or bad logistics.",
+      "should_you_race": "Yes if you already understand overnight self-supported riding and want the most complete Nordic Chase adventure. First-time ultra riders should prove their sleep, lighting, navigation, and resupply systems on shorter events before committing.",
+      "alternatives": "Choose Nordic Chase Berlin to Copenhagen Gravel for a shorter first step into the series, or a supported stage race if you want the scenery without managing every overnight decision yourself."
     },
     "citations": [
       {
-        "url": "https://bikepacking.com/event/2026-nordic-chase-chapter-two/",
-        "category": "other",
-        "label": "Bikepacking"
-      },
-      {
-        "url": "https://bikepacking.com/event/2026-nordic-chase-gravel/",
-        "category": "other",
-        "label": "Bikepacking"
-      },
-      {
-        "url": "https://gravelevents.com/european-gravel-events/",
-        "category": "other",
-        "label": "Gravelevents"
-      },
-      {
-        "url": "https://gravelevents.com/event/nordic-chase-gravel-edition/",
-        "category": "other",
-        "label": "Gravelevents"
-      },
-      {
-        "url": "https://gravelevents.com/location/copenhagen/",
-        "category": "other",
-        "label": "Gravelevents"
-      },
-      {
-        "url": "https://nordicchase.com/ber-cph-gravel",
-        "category": "other",
-        "label": "Nordicchase"
+        "url": "https://nordicchase.com/",
+        "category": "official",
+        "label": "Nordic Chase official 2027 calendar and registration announcement"
       },
       {
         "url": "https://nordicchase.com/cph-osl-gravel",
-        "category": "other",
-        "label": "Nordicchase"
+        "category": "official",
+        "label": "Copenhagen to Oslo Gravel official route, rules, logistics, and latest detailed edition"
       },
       {
-        "url": "https://nordictrailblazer.cc/races/unbound-gravel25/",
-        "category": "other",
-        "label": "Nordictrailblazer"
-      },
-      {
-        "url": "https://reddit.com/r/gravelcycling/comments/nordic-chase",
-        "category": "community",
-        "label": "Reddit"
-      },
-      {
-        "url": "https://veloatlas.com/ultra_cycling_events/nordic-chase-gravel/",
-        "category": "other",
-        "label": "Veloatlas"
-      },
-      {
-        "url": "https://granfondo-cycling.com/best-race-gravel-bike-review/",
-        "category": "community",
-        "label": "granfondo-cycling.com: Best Race Gravel Bike Review"
+        "url": "https://nordicchase.com/terms-and-conditions",
+        "category": "official",
+        "label": "Nordic Chase official race rules and self-supported terms"
       }
     ],
-    "tire_recommendations": {
-      "generated_at": "2026-02-19",
-      "primary": [
-        {
-          "rank": 1,
-          "tire_id": "specialized-pathfinder-pro",
-          "name": "Specialized Pathfinder Pro",
-          "brand": "Specialized",
-          "recommended_width_mm": 42,
-          "msrp_usd": 54.99,
-          "weight_grams": 420,
-          "crr_watts": 32.0,
-          "why": "Fast center, grippy edges. The modern all-rounder benchmark."
-        },
-        {
-          "rank": 2,
-          "tire_id": "pirelli-cinturato-gravel-m",
-          "name": "Pirelli Cinturato Gravel M",
-          "brand": "Pirelli",
-          "recommended_width_mm": 40,
-          "msrp_usd": 73.99,
-          "weight_grams": 440,
-          "crr_watts": 34.0,
-          "why": "Mixed-terrain specialist. Balanced grip and speed for variable conditions."
-        },
-        {
-          "rank": 3,
-          "tire_id": "vittoria-terreno-mix",
-          "name": "Vittoria Terreno Mix",
-          "brand": "Vittoria",
-          "recommended_width_mm": 40,
-          "msrp_usd": 79.99,
-          "weight_grams": 420,
-          "crr_watts": 33.5,
-          "why": "Graphene versatility. Mixed-terrain grip with reasonable rolling speed."
-        }
-      ],
-      "front_rear_split": {
-        "applicable": true,
-        "front": {
-          "tire_id": "vittoria-terreno-dry",
-          "name": "Vittoria Terreno Dry",
-          "width_mm": 40
-        },
-        "rear": {
-          "tire_id": "specialized-pathfinder-pro",
-          "name": "Specialized Pathfinder Pro",
-          "width_mm": 42
-        },
-        "rationale": "Faster front for reduced rolling resistance on straights, grippier rear for traction on loose climbs and corners"
-      },
-      "race_surface_profile": "mixed",
-      "recommended_width_mm": 42,
-      "pressure_psi": {
-        "140_160lb_dry": "32-36",
-        "140_160lb_mixed": "30-34",
-        "140_160lb_wet": "28-32",
-        "160_180lb_dry": "36-40",
-        "160_180lb_mixed": "32-36",
-        "160_180lb_wet": "30-34",
-        "180_200lb_dry": "38-42",
-        "180_200lb_mixed": "36-40",
-        "180_200lb_wet": "34-38",
-        "200pluslb_dry": "42-46",
-        "200pluslb_mixed": "38-42",
-        "200pluslb_wet": "36-40"
-      }
+    "eligibility": {
+      "status": "active",
+      "race_plan_eligible": true,
+      "status_note": "The organizer has confirmed the 2027 Copenhagen-to-Oslo gravel identity and August 13-19 event window. Training-plan publication remains source-blocked until it publishes the exact grand-depart date and final 2027 route package."
     },
-    "youtube_data": {
-      "researched_at": "2026-02-23",
-      "search_query": "Nordic Chase Gravel Edition gravel race Copenhagen",
-      "videos": [
-        {
-          "video_id": "lWlUXwrMeSY",
-          "title": "Nordic Chase - Introduction of the Ultra Cycling Series and Founder",
-          "channel": "Nordic Chase",
-          "view_count": 156,
-          "upload_date": "20251117",
-          "duration_string": "1:39",
-          "description": "Filmed and directed by Marijus Perlavicius",
-          "tags": [],
-          "url": "https://www.youtube.com/watch?v=lWlUXwrMeSY",
-          "transcript": "My name is Gregory. I'm 26 years old. I\nlive in Copenhagen since [music] three\nyears and I moved to this beautiful\ncountry for my job. But in my free time,\nI organized the Nordic [music] chase.\nThis time the second edition. And now we\nare going directly north from Berlin to\nOslo.\n[music]\n&gt;&gt; Nordic chase is an [music] ultra race.\nIt's the ultra race in the Nordic. The\nonly one in Copenhagen.\n&gt;&gt; So we go north. We have four races. Two\nfrom Berlin to Copenhagen and two from\nCopenhagen to Oslo. Always around 7 to\n800 km [music]\nand both a road and a gravel edition.\nNordic chase brings [music] three\nthings. It brings you a great challenge,\na long ultra distance [music] race. It\nbrings you adventure. You go through\nthree countries and you will have super\nnice landscapes, roads, more of a\ncoastal ride, gravel more inland. And\nthe third pillar is the community part\nwhere we host something before the race.\nWe make sure that you will never ride\nalone. And we have a super exciting\nparty at the end after the [music] race\nas well.\nThe Nordic Chase will offer you the\npossibility to go either for [music] the\nwin and go all out, but will also be a\nsuper nice experience for the ones that\n[music] want to explore more the nature,\nlook around, have a great time, and see\nlandscapes that they maybe have not seen\nso far. Just have a great time. [music]",
-          "curated": true,
-          "curation_reason": "Official race video from the Nordic Chase organizers providing specific details about the Copenhagen to Oslo gravel edition format and experience.",
-          "display_order": 1,
-          "thumbnail_url": "https://i.ytimg.com/vi/lWlUXwrMeSY/maxresdefault.jpg",
-          "thumbnail_score": 58.05
-        },
-        {
-          "video_id": "8oUm_99VwUo",
-          "title": "Forget Girona. Ride Finland’s Secret Gravel Cycling Capital – Ruka, Kuusamo",
-          "channel": "Josh Reid",
-          "view_count": 13442,
-          "upload_date": "20250912",
-          "duration_string": "13:38",
-          "description": "Find out more: gravel.ruka.fi/en\n\nInstagram: https://www.instagram.com/joshreids\nStrava: https://www.strava.com/athletes/reid_josh\nPatreon: https://www.patreon.com/joshreid\n\n🎥 FILM MAKING GEAR:\n• Canon EOS R6 Mark II (https://www.canon.co.uk/cameras/eos-r6-mark-ii/)\n\n🚲 MY BIKE:\n• Giant Revolt X (https://www.giant-bicycles.com/gb/revolt-x-advanced-pro-0)\n\nCheckout my favourite anti-chafe products here http://chamoisbuttr.com/\n\nIf you enjoy the content and want to help me in the process I’ve set up a buy me a coffee page, a virtual tip jar. \n\nhttps://www.buymeacoffee.com/JoshReid\n\nThe music I use is from Artlist - https://artlist.io/Josh-1285195\n\nBig thanks to the following companies who support me in my endeavours:\nGiant Bicycles,\nRestrap,\nEnduro Bearings,\nClif Bar,\nRedshift,\nChamois Butt'r,\nHutchinson Tyres,\nCafé Du Cycliste,\nInsta360,\nExposure Lights",
-          "tags": [],
-          "url": "https://www.youtube.com/watch?v=8oUm_99VwUo",
-          "transcript": "[Music]\nthe healers, they needed the, you know,\nhelp from from these uh natural spirits.\nSo that's that's why there's a there's a\nlong long long history in Finland that\nwhen you move to a new place, sauna\nfirst.\n&gt;&gt; Feel like this part of Finland is really\ngood for just being outside.\n&gt;&gt; It's freezing.\nFound some gravel. Looks really nice,\nactually.\nWe're dressed for a downpour, but I\nthink we're going to be okay.\nI think we're\nlucky with the weather.\nMarty and I have traveled\n10 hours north in Finland and we're now\nin Ruka\ntrying some of the gravel. Oh, it's a\nvery small. It's very nice.\n&gt;&gt; What are we looking for, Maddie?\n&gt;&gt; We're looking for a bakery. Well, it's a\ncafe. We are looking for a cafe for a\ncoffee and a baked good, but I couldn't\nplot to it on Hanky Bari. It's open.\nOld milk\nsay oat milk\ntime.\nI think this is a sauna with a view, but\nit is a bit cloudy.\n[Applause]\nIt's day two of Marut's\nRooker training camp to whip Josh into\nshape for his off season.\n&gt;&gt; I think there's just endless gravel\nhere.\nThe jackets are off, the sun's out, and\nthe leaves are pinging. It is gorgeous.\nWoohoo!\nI was advised to go for a Finnish\ntopping, but having had Finnish food for\nseveral days now, I needed some Italian\nhome comforts, even though I'm not\nItalian. So, I got the Italian\nmortaza rather than getting like a\nreindeer pizza.\n&gt;&gt; For dessert, we're going for blueberry.\n&gt;&gt; Don't hide the middle course that you\nhad.\nYou didn't just have peasy. You came\nback and you made a bowl of pasta.\n&gt;&gt; For dessert, we're going for blueberry\nyogurt topped with blueberries\n&gt;&gt; served with a side of\n&gt;&gt; served with a side. We love the blubs,\nbut I think of these blubes, the best\nblubs, the real blubes, because the\njuice tastes a bit like water, doesn't\nit?\n&gt;&gt; The one on the flight was amazing.\n&gt;&gt; Oh, the one on the flight was really\ngood. I reckon this one's got no added\nsugar, you know. And the one on the\nflight was probably just sugar. There's\nnothing in this, Josh.\nBut 100 g is 8 calories. It's 7%\nblabbard, which I assume means\nblueberry. Blab.\nOh, and no. Then it's 3% Blab's juice,\nwhich is blueberry juice. Do\n&gt;&gt; you think these blueberries are going to\nbe better than like\n&gt;&gt; the forest ones? Probably not.\n&gt;&gt; She said they're not.\n&gt;&gt; They're not bad blueberries.\n&gt;&gt; Blueberries from Berry Hub.\n&gt;&gt; Blueberries. Quite a subtle fruit. I\ndon't know whether the ones we have are\nlike jacked up in the UK, but these are\nquite subtle. Like\n&gt;&gt; it might be just out of season.\n&gt;&gt; Yeah, maybe. Well, we're only just after\nblueberry season.\nGood morning, Maddie.\n&gt;&gt; Good morning.\nWe are riding to an activity.\nUm, which means we're carrying all the\nstuff.\n&gt;&gt; You mean Josh is carrying all the stuff?\n&gt;&gt; Josh is carrying most of the stuff. He's\ngot both pairs of Birkenstocks.\nOne upon the frame top tube and one on\nhis backpack. Um, and we're going to\nwhat is it? A day in the life of a fin.\nWe've got everything on there.\nWe've got some um Birkenstocks and a and\na coat.\n&gt;&gt; Fun fact of the day, there are 5.6\nmillion inhabitants in Finland\nand 3 million sauners. Do you like my\nfun fact?\n&gt;&gt; Yeah. There are also 1,911\nlakes in the Kusama region. Samis\ninhabited nor northern Finland and also\nthey were they were in the early days\nalso uh living in the south of Finland.\nUm Kama was also inhabited by them.\nthere was a population of about 3 400\num uh sis here uh in the end of the\n1600s and that's then when the first\nFinnish newcomers came here from South\nFinland and um for thousands of years uh\nthis was also Sami land and the name of\nthe village Wonki actually has to do\nwith hunting so this was the local\nSami's hunting area a hunting area and\nmany places in Kosamo We don't have the\nSami culture and the local you know\nlanguage or dialect has been lost but\nthe names of places have been given\ngiven by the Samis who lived here for\nthousands of years and they have a few\nholy places also here in Kusama like\nsacrificial places that that they used\nthey they believe that the first\nbuilding you built to that you know\nvirgin pristine nature area with no\nother buildings that will lure the most\npowerful spirit of the region to move\ninto that building and because sauna was\na place where you not only bathe it, you\ndid transitional rituals, uh annual\nrituals, uh babies were born in a sauna,\ndead were washed in the sauna and\nillnesses were cured in the sauna. So\nthe healers they needed the you know\nhelp from these uh natural spirits. So\nthat's that's why there's a there's a\nwhen you move to a new place sauna\nfirst. Yeah. so that you get the most\npowerful spirit to to work there. And\nthen when this belief kind of died but\nstill it it was a custom those days when\num the early comers were already\nChristians but they still do you know\nthe sauna first. Of course it's like\nit's a good building to build first\nbecause especially summertime you can\nyou can use the benches for sleeping and\nyou can use the stove for cooking and\nthen you have you can wash you know you\nhave you have the means to to heat up\nwater and and wash there wash yourself\nthere. So that's why the that's why the\nsalona sauna first\nversions of the of the of it has sugar\nuh a little bit of salt and then\ncardamom in in Finland we call it bulla\np u l l l l l l l l l l l l l l l l l l\nl l l a and in Sweden it's called bulla\nwith a b so so this this pastry was was\na gift from the sweet and if you ever\nbeen to Sweden they have many fasc\nso so they always you The coffee. The\ncoffee.\n&gt;&gt; Coffee and the pastry.\n&gt;&gt; Yeah, coffee and a pastry. Let me see.\nSo, maybe you can. And then, of course,\nyou you shouldn't like roll it too thin.\n&gt;&gt; Luckily, I've actually done this before,\nso I'm not a newbie to cinnamon roll\nmaking. I'm so excited to see these.\nRoll with this as well. Maybe like that.\nPress it in the middle. And then then\nflip it. And then you have to add like\nmore more flour to it. If it's if it if\nit's not moving, if you don't make\nholes, then it's going to be like um you\nknow, just a big pocket full of hot air\nwith a with a very thin bottom crust and\na very thin upper crust. The oven has\nbeen heated to near 300°, sometimes a\nlittle bit over, but the but the bread\nthe bread cooks really quickly. Bakes\nreally quickly when it's about uh 280 to\n300°.\nI'm close. Do I need to go faster?\n&gt;&gt; Yeah, you need to go actually you go you\nput you you put this like under the\nbread. Yeah. A little bit under the one\nhand. And then a lower angle. And then\nyou have to do like a quick move. Yeah.\nNearly there. Be careful. Be careful.\nOh, be careful. Be careful.\n&gt;&gt; Oh my gosh. No. It was so good. There\nyou go.\n&gt;&gt; Okay. Okay. A bit of excitement. No\nworries.\n&gt;&gt; And now what do I do? I release it.\n&gt;&gt; Yeah, you you put it\n&gt;&gt; left side.\n&gt;&gt; That was really hard.\n&gt;&gt; So, your turn. I hope that that we we've\ncovered the bottom with the maybe a\nlittle bit, you know.\n&gt;&gt; Yes. Wow,\nthat was too good.\n&gt;&gt; If you worked in a pizzeria, I had an\nItalian.\n&gt;&gt; You need this sound. So then you know\nthat the the bread is ready. Never tried\nmousse before, strangely.\nAnd I think you've got mushrooms.\n&gt;&gt; Chanterels.\n&gt;&gt; Shanterels.\nIt feels quite soft.\n&gt;&gt; Okay.\nIt's going to be quite hot.\n&gt;&gt; How do you like moose?\nIt tastes like beef\nwith like\na bit more tender. That's actually\nreally nice. But I think it's cuz it's\nin a really nice red wine sauce.\nJust having a moment getting first.\n&gt;&gt; How How's this trip in Finland been?\n&gt;&gt; It's been pretty good to be honest. A\nlot of nature and I like nature. Feel\nlike this part of Finland's really good\nfor just being outside.\n&gt;&gt; It's a good way to end the trip. I think\nmaybe a roller coaster though.\n&gt;&gt; Oh, the child. Do you have like a full\nseat belt on? Yeah, I've only got one\naround my waist.\n&gt;&gt; It's not enough.\n&gt;&gt; You're on the child seat.\n&gt;&gt; I am on the child seat,\n&gt;&gt; but we're under 150 kilos. So,\n&gt;&gt; when she said, \"Are you under 150\nkilos?\" I was like,\n&gt;&gt; \"Yes, of course we're under.\" And then I\nobviously realized accumulatively, but\nalso, yes, definitely.\nOh my god. Slow down.\n&gt;&gt; Oh my god.\nAmazing.\n&gt;&gt; Thanks. So sonvatar is a is a overall\nsauna goddess from pre-Christian times\nand um you are asking if she's living in\nthe sauna you are asking her to come to\nsauna to to bring into the sauna the\ndifferent like um like uh sauna remedies\nthe different trees and leaves and and\nthings like this and then you are asking\nher to prepare the you know to to kind\nof like prepare the sauna remedies and\nuh then to help you bathe uh with these\nremedies. ies in order to to uh cut down\nyour problems, your worries, to kill any\nillnesses, to help you um win your\nbattles. And you know, because sauna is\nnot only it's only it's not only\nphysical well-being, it's only for it's\nalso for mental well-being.",
-          "curated": false
-        },
-        {
-          "video_id": "ivnFJosIiKw",
-          "title": "Believe the Hype! Norway's Ultimate Bikepacking Route",
-          "channel": "MatthewNorway",
-          "view_count": 218291,
-          "upload_date": "20241112",
-          "duration_string": "15:24",
-          "description": "Mjølkevegen offers an ideal introduction to Norway’s stunning gravel biking scene. It's easy to access, with plenty of accommodations and amenities along the route to keep you energized. In this video, I'll guide you through everything you need to know and what to expect on this remarkable ride. This is pure bikepacking perfection.\n\nTo access the Route Information, Sign up for a free Cycle Norway account here: https://cyclenorway.com/membership/\n\n00:00 - Intro to Mjølkevegen\n00:42 - Leaving Oslo, the route, and journey to Gol\n03:18 - The start of Mjølkevegen\n05:26 - Going off Route (Single Track)\n07:21 - Slettefjellet and camping\n09:29 - Day 2: Scenic Route Valdresflye\n11:05 - Jotunheimvegen (Most Famous Gravel Road in Norway)\n13:26 - Into the forest\n14:18 - Final Thoughts and Route Info \n\nFull information on this route and journey is available to logged-in users (free account) https://cyclenorway.com/routes/mjolkevegen_route/mjolkevegen/\n\nSchedule a call if you need assistance planning your Norwegian cycling holiday.\nhttps://calendly.com/cyclenorway\n\nBygdin Mountain Cabin Tour Video: https://youtu.be/CCT_i7EWP7I\n\n\n#Mjølkevegen #bikepackingNorway #Norwaycycling #Valdres #norwaytravel",
-          "tags": [
-            "Bikepacking Norway",
-            "Bike Touring",
-            "Bikepacking",
-            "Norway",
-            "Roadtrip",
-            "Norway Roadtrip",
-            "Epicrides",
-            "Europe's best ride",
-            "Tourism Norway",
-            "VisitNorway",
-            "GCN",
-            "Fjord Norway",
-            "Fjords",
-            "Glaciers",
-            "Bikepacking Europe",
-            "Biketouring Norway",
-            "fjords of Norway",
-            "Norway travel",
-            "travel Norway",
-            "bicycle touring",
-            "cycling norway",
-            "Mountain Roads",
-            "Bike Climb",
-            "Famous Bike Climbs",
-            "snow walls",
-            "mountain pass",
-            "Highestmountainpass",
-            "East Norway",
-            "Morning Mood",
-            "Greatest Day Ride",
-            "Valdres",
-            "Mjølkevegen"
-          ],
-          "url": "https://www.youtube.com/watch?v=ivnFJosIiKw",
-          "transcript": "so what makes a great bik packing route\nobviously quiet roads hard packed gravel\nperhaps some single track for adventure\nWild open Vistas epic climbs with\nstunning views great wild camping spots\ntraditional Mountain lodges easy access\nfor transport and Food\nSupplies not all Roots offer this in\nfact there are not many out there that\ncan take all these boxes very easily and\nthis my friends is why I'm going to\nintroduce you to Norway's greatest bike\npacking\n[Music]\nroute so this Journey Begins in Norway's\ncapital Oslo it's early Saturday morning\nin late August the whole country has\nbeen blessed with Sunshine for the\nweekend I'm looking for a weekend route\nthat is easy logistically with little\nplanning pre-booking or or\norganization m ofan is like the\nequivalent of Plug and Play click and\ncollect out of the box ready you\nbasically just jump on a train and go\nyou don't need to organize anything\nelse so this is the plan of action we\njump on the osot to Bergen train and get\noff halfway at the town of ghoul where\nthe Journey Begins day one we cycle 130\nkm to the only town on the route by to\nstun where we'll camp for the night day\ntwo is a comfortable 100 km to the end\npoint at vinstra and then from there\nit's a simple task of jumping on the\ntonim to Oslo train and 3 hours later\nwe're back home a total of 230 km of\ncycling 4,400 M of elevation gain with\nover 85% on perfect gravel roads\nso it's the last weekend of Summer\nperfect weather first train heading to\nthe mountains on a Saturday you'd think\nit'd be full of bik Packers but no just\nthis guy here and this is the beginning\nof a beautiful\nfriendship that's\nit so do you have any shoe\ncovers so like a couple of nerds were\nsat in the food Carriage comparing and\ntalking about our bite packing setups\nboring the hell out of everybody around\ndoes we were like Kindred Spirits we\nwere doing the exact same thing Eric was\ngoing a little bit further on and doing\na different route but same idea great\nweather power out a route to get back to\nOslo on Sunday what better way to spend\nyour\nweekend the great thing about the oso to\nBergen line is there's usually a full\ncarriage for bikes the reason for this\nis because of the famous roll of iron or\nR of iron cycling route\nwhich basically all these people are\nheading to it's kind of the only route\nthat most people know about I should\nmention that this is in 20121 and this\nis what the new cycling Carriage looks\nlike still plenty of space but you\nshould always book your bike on board in\nadvance so it's uh 9:30 it's 9:30 and we\nare in ghoul and uh the sun is shining\nwe got blue sky which is fantastic but\nit is not warm here there's a really\nreally cold Bree\num so I'm glad I brought some extra\nclothing honestly nothing is guaranteed\nin Norway that is for sure you should\nalways bring extra\nclothing all right guys this is what\nit's all about get up early on a\nSaturday morning you jump on the train\nand now I'm\nhere straight away you've got an 800 M\nclimb which will bring you up onto the\ntop of rolling Alpine Plains from there\nit flattens out with spectacular views\nfor the next 200 and so\nkm the gravel is in excellent condition\nand the traffic very light once in a\nwhile a car or tractor may pass you but\nin general these are cycling roads\nwhat I love about this route is in the\nwinter it's very popular for\nCrossCountry skiing so every 40 or 50 km\nyou're going to come across a small Cafe\nmaybe with a kiosk so easy to keep\nyourself resupplied without having to\ncarry too much food but just make sure\nyou check the opening times as sometimes\nthey close\nearly and what about water yeah you're\nnot going to have a problem filling them\nbottles up fast open\nples there trees dotted about\nalthough this section is very very flat\nyou get beautiful views of hemal\nmountain range and then on day two you\nhave yiman National Park as your\nbackdrop two spectacular mountain ranges\nalways on view oh my oh\nmy after a quick stop in vast set I\ndecided to go off Route a little bit and\ntry out a bit more of a rough road you\nsee there are so many gravel roads in\nthis area you don't have to stick to the\nroute you can experiment if you want but\nbe warned the road may disappear hello\nhow are\nyou so the path is turned onto basically\na single track for\nhikers 1.4 km to the normal\nRoad 1.4\nwe have a road we have a road goodbye\nfoot path hello\nRoad after that little stop at the cabin\nI took the wrong road out go and ask go\nand ask and ended up in a bit of a mess\nbut it was a little bit of an adventure\nand all roads will lead to vinra\neventually so we found our\nway don't you dare run out in front of\nme don't you dare oh bloody H where did\nyou come\nfrom wow what a view what a\nview not too shabby\nnow\nthat is a\ncabin oh\nnearly\nnearly we're going this way\nunfortunately I'd like to go this way\nbut this way it\nis the mighty slet fella often described\nas the sky Road climbing to over 1,000\n300 m above sea level it looks like a\nlittle Hill from a distance but you soon\nrealize this is no ordinary\nMountain if you take the northern route\nfrom ghoul this is one of Norway's\ntoughest gravel climbs an average\ngradient of over 10% will make you\nsuffer every meter up I can't describe\nyou how hard this climb is it's just\nnonstop up up up like there's no switch\nbacks to ease the gradient\nit's just one long stray\nroad with this crazy\ngradient at the top\nguys I think we're at the\ntop on reaching the top you are rewarded\nwith one of the best Gravel Road views\nin\nNorway oh wow wow wow wow that's\nincredible the camera and drone just not\ngive this Place Justice you need to be\nhere the edge of yiman National Park\nlies in front of you for the first time\nit's like a scene out of Lord of the\nRings the route is now entering a new\nstage some reindeers over there but\nthey're a little bit too far\naway you just about see him can't\nyou now what I should be doing is\npitching my tent here but I brought a\nbivvy to save weight and it's freezing\ncold and there are mosquitoes about so I\nhead down to the town of B\nStan where I find out the Beatles are\nplaying I should have been doing this\nbut I had this instead what a school boy\nerror don't bring a bivy if you have a\ntent it's worth the extra weight\nwell good morning from the road um it's\n9:00 it's a beautiful day again but we\nare 1,000 m above sea level and I tell\nyou when I got out of my uh bivvy this\nmorning oh my God it was so cold it was\njust that kind of mountain cold so we I\nslept at about about 850 m above sea\nlevel which is kind of like the lowest\npoint in this whole area this is Road 51\nit's quite a famous road cuz it goes\nkind of through yahyan or to the side of\nyahyan which is like the probably the\nmost famous National Park in Norway home\nof the Giants as well all the\nreally high mountains are in Norway so\nthe ones over 2,000 M so it's going to\nbe pretty\neffic 13 km from B stone and you reach\nanother beautiful mountain lodge this\none is one of my favorites I've actually\ndone a video on this which you can watch\nhere where I interview the owner and\ngive you a guided tour yeah okay welcome\nto bigd helds hotel bigd is a very old\nuh hotel in the mountains of Norway it\nwas actually established in uh\n1897 by a guy\ncalled it's beautiful\ninside but outside's even better\nthe paved scenic route to valder fer\ncontinues North but we're going to say\ngoodbye to the cars and jump on a\nbeautiful gravel road heading\neast Yim and vagan is probably the most\nfamous Gravel Road in Norway 45 km of\nwide open Alpine mountain terrain that\nticks every cyclist gravel Adventure box\njust make sure you remember to stop and\nturn around once in a while the views\nare something else\noh this is beautiful guys tell\nyou so this road is definitely\neverything that it made out to be it's\nabsolutely stunning in the landscape\nit's just so raw we' got a lot of trees\ndown here other side it's just kind of\nsweeping mountain\nlandscape and you can just see so far\nall around\nyou you can see for absolutely miles\nit's stunning absolutely stunning the\nroad's pretty damn good condition uh\nlots of ups and downs as you'd expect\nbut my goodness this is one hell of a\ngravel road I don't think you'll find\nmany better gravel roads in in Europe to\nAsia and wild wild wild\nwild look at this you move left or right\ndoesn't matter you want to play chicken\nwe'll play chicken yeah MAV in English\ntranslates to the milk way or the milk\nroute and that's basically cuz all the\ncows here in the summer can run freely\naround and apparently Legend has it this\nproduces the world's greatest milk\nso after around 40 km we dropped down a\nfew hundred m to the tree line and we\nreached basically a beautiful Forest\nArea and this will characterize most of\nthe region now as we head to\nvinstra W this would have been the\nperfect place to Camp last\nnight 600 m above sea levels so it's not\ngoing to be too\ncold look at this Lake\nman so what are your thoughts on this\nroute the weather up here is usually not\nthis good cold wet and windy conditions\nare not uncommon but having cycled this\nroute in all types of conditions I don't\nregret any opportunity to explore this\nterrain as you've seen logistically it's\neasy to do and to make it even easier on\ncy.com I have created a full detailed\npage explaining everything about this\nroute and all the Alternatives add-ons\ndetours extended options for every type\nof Adventure join the free membership\nand get\naccess and lastly what about the other\nbite Packer I met on the train on the\nway to\nghoul yeah I think he had a good time\ntoo and the year after we actually met\nup and did a few rots together you can\nwatch them here some of them are really\ngood check this one\nout no I agreed with it as well it's\nboth of our stupid ideas",
-          "curated": false
-        },
-        {
-          "video_id": "ylEcfEeYDkA",
-          "title": "🚴 25-Minute Bike Ride through Nordic Forest | POV Cycling Adventure",
-          "channel": "Kozmic Stranger",
-          "view_count": 292,
-          "upload_date": "20230809",
-          "duration_string": "25:29",
-          "description": "Get ready for an immersive cycling experience like no other! Embark on a captivating 25-minute virtual bike ride that takes you through the enchanting Nordic conifer forest and propels you along the exhilarating Danish bicycle highways of the greater Copenhagen region. 🌲🚴‍♂️🌧️\n\n🌟 Witness the mystic beauty of misty landscapes as you navigate through the Nordic forest, feeling the adrenaline of the adventure ahead. Follow the storm as you pedal through the heart of Copenhagen, capturing the essence of urban cycling against a backdrop of dramatic weather.\n\n🚴‍♀️ Feel the wind on your face, embrace the thrill of cycling in the rain, and absorb the breathtaking scenery that Denmark has to offer. This virtual POV bike ride is designed to transport you into the heart of the action, giving you a front-row seat to the Nordic nature and the bustling cityscapes.\n\nWhether you're a cycling enthusiast, a nature lover, or simply seeking a captivating escape, this virtual ride promises an unforgettable journey. Join us on this mesmerizing expedition that seamlessly blends nature's tranquility with urban energy.\n\n🔥 Immerse yourself in the Nordic beauty.\n🔥 Experience the rush of cycling through the storm.\n🔥 Explore Copenhagen's finest bike highways.\n\nHit that play button and let the adventure begin! Don't forget to like, share, and subscribe for more exciting virtual rides and immersive experiences. Get ready to pedal your way through an extraordinary adventure that will leave you inspired and invigorated! \n\n#VirtualBikeRide,#NordicCycling,#CopenhagenStormRide,#POVCycling,\n#NatureAdventure,#UrbanCycling,#ScandinavianNature,\n#CopenhagenViews,#BikingExperience,#RainyBikeRide,#CyclingTour,#MistyLandscape,#BikeHighways,#CopenhagenScenery,#AdrenalineRush,#POVAdventure,#CyclingInRain,#NatureEscape,#BikeExploration,#NordicBeauty,#VirtualExperience,#CopenhagenCityscape,#BikeThroughStorm,#NordicJourney,#CyclingEnthusiast,#ImmersiveRide,#CopenhagenCyclist,#VirtualAdventures,#ScandinavianCycling,#UrbanBiking,#BikeAdrenaline,#NatureDiscovery,#CyclingThrills,#CopenhagenUrban,#BikeChase,#NordicVibes,#VirtualJourney,#BikeWeather,#CopenhagenRoutes,#POVScenery,#NordicVistas,#CyclingCommunity,#MistyRide,#BikeStormChase,#CopenhagenStreets,#VirtualCyclist,#NordicScenery,#BikingInStorm,#\nCopenhagenRide,#NatureBeauty,#CyclingInNature,#BikeAdventure\n\n#VirtualBikeRide #NordicForestCycling #CopenhagenStormRide #POVBikingAdventure #CyclingExperience #MistyLandscape #UrbanCycling #NatureEscape #BikeHighways #AdrenalineRush #CopenhagenExploration #VirtualAdventure #RainyBikeRide #CyclingEnthusiast #ImmersiveExperience #VirtualCyclingTour #NatureAndCity #CopenhagenScenery #BikeThroughStorm #CopenhagenBikePaths #NordicBeauty #CyclingCommunity #VirtualEscapism #CopenhagenCityscape #CyclingThrills #BikeJourney",
-          "tags": [
-            "#VirtualBikeRide",
-            "#NordicCycling",
-            "#CopenhagenStormRide",
-            "#POVCycling",
-            "#NatureAdventure",
-            "#UrbanCycling",
-            "#ScandinavianNature",
-            "#CopenhagenViews",
-            "#BikingExperience",
-            "#RainyBikeRide",
-            "#CyclingTour",
-            "#MistyLandscape",
-            "#BikeHighways",
-            "#CopenhagenScenery",
-            "#AdrenalineRush",
-            "#POVAdventure",
-            "#CyclingInRain",
-            "#NatureEscape",
-            "#BikeExploration",
-            "#NordicBeauty",
-            "#VirtualExperience",
-            "#CopenhagenCityscape",
-            "#BikeThroughStorm",
-            "#NordicJourney",
-            "#CyclingEnthusiast",
-            "#ImmersiveRide",
-            "#CopenhagenCyclist",
-            "#VirtualAdventures",
-            "#ScandinavianCycling",
-            "#UrbanBiking"
-          ],
-          "url": "https://www.youtube.com/watch?v=ylEcfEeYDkA",
-          "curated": false
-        },
-        {
-          "video_id": "ZrDgjR1Xxq4",
-          "title": "BIKE RIDE DURING SUNRISE | FINNØY |  STAVANGER  NORWAY",
-          "channel": "Genevie",
-          "view_count": 183,
-          "upload_date": "20210423",
-          "duration_string": "15:50",
-          "description": "BIKE RIDE DURING SUNRISE | FINNØY STAVANGER,  NORWAY\n\nHere is a short video of me cycling to my work early in the morning.  I was just so amazed with the beautiful sunrise and started filming all the way to Judaberg.",
-          "tags": [
-            "BIKE RIDE DURING SUNRISE | FINNØY NORWAY",
-            "bike touring",
-            "norway roadtrip",
-            "Stavanger",
-            "Judaberg",
-            "Finnøy",
-            "Rogaland",
-            "virtual bike ride",
-            "cycling",
-            "sunrise",
-            "Norway",
-            "visit Finnøy Stavanger",
-            "island life",
-            "stavanger norway",
-            "cycling vlog",
-            "original sound",
-            "bicycle touring",
-            "cycling norway",
-            "cycle touring",
-            "bicycle tour",
-            "bicycle touring europe"
-          ],
-          "url": "https://www.youtube.com/watch?v=ZrDgjR1Xxq4",
-          "curated": false
-        }
+    "research_metadata": {
+      "data_confidence": "official 2027 event window; latest organizer-verified course retained only as a guarded planning reference",
+      "validation_status": "source_blocked_for_2027_plan",
+      "next_edition_status": "waiting_for_exact_grand_depart_and_final_route",
+      "known_gap": "The route page still carries the 2026 800 km / 7,200 m course and schedule. Do not clone, date, or publish a 2027 TrainingPeaks plan until the organizer confirms the 2027 grand depart and final GPX.",
+      "sources": [
+        "https://nordicchase.com/",
+        "https://nordicchase.com/cph-osl-gravel",
+        "https://nordicchase.com/terms-and-conditions"
       ],
-      "quotes": [
-        {
-          "text": "We have four races. Two from Berlin to Copenhagen and two from Copenhagen to Oslo. Always around 7 to 800 km and both a road and a gravel edition. You go through three countries and you will have super nice landscapes, roads more of a coastal ride, gravel more inland.",
-          "source_video_id": "lWlUXwrMeSY",
-          "source_channel": "Nordic Chase",
-          "source_view_count": 156,
-          "category": "course_difficulty",
-          "curated": true
-        },
-        {
-          "text": "Nordic chase brings three things. It brings you a great challenge, a long ultra distance race. It brings you adventure. You go through three countries and you will have super nice landscapes. And the third pillar is the community part where we host something before the race.",
-          "source_video_id": "lWlUXwrMeSY",
-          "source_channel": "Nordic Chase",
-          "source_view_count": 156,
-          "category": "race_atmosphere",
-          "curated": true
-        }
-      ],
-      "rider_intel": {
-        "extracted_at": "2026-02-23",
-        "key_challenges": [
-          {
-            "name": "Initial 800m climb from Gol",
-            "mile_marker": "0",
-            "description": "Straight away you've got an 800 M climb which will bring you up onto the top of rolling Alpine Plains",
-            "source_video_ids": [
-              "ivnFJosIiKw"
-            ]
-          }
-        ],
-        "terrain_notes": [
-          {
-            "text": "The gravel is in excellent condition and the traffic very light once in a while a car or tractor may pass you but in general these are cycling roads",
-            "source_video_ids": [
-              "ivnFJosIiKw"
-            ]
-          }
-        ],
-        "gear_mentions": [],
-        "race_day_tips": [
-          {
-            "text": "You should always bring extra clothing. Nothing is guaranteed in Norway even on sunny days there can be a really really cold breeze",
-            "source_video_ids": [
-              "ivnFJosIiKw"
-            ]
-          },
-          {
-            "text": "You should always book your bike on board in advance when taking the train",
-            "source_video_ids": [
-              "ivnFJosIiKw"
-            ]
-          },
-          {
-            "text": "Just make sure you check the opening times as sometimes cafes close early",
-            "source_video_ids": [
-              "ivnFJosIiKw"
-            ]
-          }
-        ],
-        "additional_quotes": [
-          {
-            "text": "You basically just jump on a train and go you don't need to organize anything else. It's like the equivalent of Plug and Play click and collect out of the box ready",
-            "source_video_id": "ivnFJosIiKw",
-            "source_channel": "MatthewNorway",
-            "source_view_count": 218291,
-            "category": "logistics",
-            "curated": true
-          },
-          {
-            "text": "Nordic chase brings three things. It brings you a great challenge, a long ultra distance race. It brings you adventure. You go through three countries and you will have super nice landscapes",
-            "source_video_id": "lWlUXwrMeSY",
-            "source_channel": "Nordic Chase",
-            "source_view_count": 156,
-            "category": "community",
-            "curated": true
-          }
-        ],
-        "search_text": "The Nordic Chase Gravel Edition runs from Copenhagen to Oslo covering 373 miles with 26,247 feet of elevation. The route features over 85% perfect gravel roads with excellent surface conditions and very light traffic. Riders face an immediate 800-meter climb from the starting point that brings them onto rolling Alpine plains, then flattens out with spectacular views for the next 200+ kilometers. The course offers beautiful views of mountain ranges including Hemal and Yiman National Park. Every 40-50 km there are small cafes and kiosks for resupply, though riders should check opening times as they sometimes close early. Water is readily available from fast flowing streams. Weather can be unpredictable with cold breezes even on sunny days, so extra clothing is essential. The race emphasizes community and adventure, taking riders through three countries with varied landscapes."
-      }
-    },
-    "photos": [
-      {
-        "type": "video-1",
-        "file": "nordic-chase-gravel-video-1.jpg",
-        "url": "/race-photos/nordic-chase-gravel/nordic-chase-gravel-video-1.jpg",
-        "alt": "Paved road winding through tall pine forest with clear blue sky overhead showing Nordic forest cycling terrain - Nordic Chase Gravel Edition - Copenhagen, Denmark to Oslo, Norway",
-        "credit": "YouTube / MatthewNorway",
-        "primary": true,
-        "ai_relevance": 5,
-        "ai_quality": 4,
-        "ai_keywords": [
-          "pine forest",
-          "paved road",
-          "Nordic terrain",
-          "forest cycling",
-          "blue sky"
-        ]
-      },
-      {
-        "type": "video-2",
-        "file": "nordic-chase-gravel-video-2.jpg",
-        "url": "/race-photos/nordic-chase-gravel/nordic-chase-gravel-video-2.jpg",
-        "alt": "First-person view from bicycle handlebars on gravel path through lush green forest with ferns and dense vegetation - Nordic Chase Gravel Edition - Copenhagen, Denmark to Oslo, Norway",
-        "credit": "YouTube / MatthewNorway",
-        "primary": false,
-        "ai_relevance": 5,
-        "ai_quality": 4,
-        "ai_keywords": [
-          "gravel path",
-          "forest trail",
-          "bicycle handlebars",
-          "first-person view",
-          "green vegetation"
-        ]
-      },
-      {
-        "type": "video-3",
-        "file": "nordic-chase-gravel-video-3.jpg",
-        "url": "/race-photos/nordic-chase-gravel/nordic-chase-gravel-video-3.jpg",
-        "alt": "Interior of rustic wooden building with warm lighting, decorative lamps, and large windows showing restaurant or lodge atmosphere - Nordic Chase Gravel Edition - Copenhagen, Denmark to Oslo, Norway",
-        "credit": "YouTube / MatthewNorway",
-        "primary": false,
-        "ai_relevance": 1,
-        "ai_quality": 3,
-        "ai_keywords": [
-          "indoor restaurant",
-          "wooden interior",
-          "warm lighting",
-          "rustic lodge"
-        ]
-      },
-      {
-        "type": "preview-gif",
-        "file": "nordic-chase-gravel-preview.gif",
-        "url": "/race-photos/nordic-chase-gravel/nordic-chase-gravel-preview.gif",
-        "alt": "Course preview from Nordic Chase Gravel race footage",
-        "credit": "YouTube / MatthewNorway",
-        "gif": true
-      },
-      {
-        "type": "preview-gif",
-        "file": "nordic-chase-gravel-preview-2.gif",
-        "url": "/race-photos/nordic-chase-gravel/nordic-chase-gravel-preview-2.gif",
-        "alt": "Course preview from Nordic Chase Gravel race footage",
-        "credit": "YouTube / MatthewNorway",
-        "gif": true
-      },
-      {
-        "type": "preview-gif",
-        "file": "nordic-chase-gravel-preview-3.gif",
-        "url": "/race-photos/nordic-chase-gravel/nordic-chase-gravel-preview-3.gif",
-        "alt": "Course preview from Nordic Chase Gravel race footage",
-        "credit": "YouTube / MatthewNorway",
-        "gif": true
-      }
-    ]
+      "research_date": "2026-08-15"
+    }
   }
 }

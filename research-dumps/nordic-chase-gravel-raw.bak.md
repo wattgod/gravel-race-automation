@@ -1,4 +1,4 @@
-# Nordic Chase Gravel Edition — Research Dump
+# Nordic Chase Copenhagen to Oslo Gravel — Historical Research Dump
 
 ## OFFICIAL DATA
 

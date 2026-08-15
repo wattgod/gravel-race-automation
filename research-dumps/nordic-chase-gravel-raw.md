@@ -1,65 +1,69 @@
-# NORDIC CHASE GRAVEL EDITION - RAW RESEARCH DUMP
+# NORDIC CHASE COPENHAGEN TO OSLO GRAVEL - 2027 SOURCE AUDIT
 
-## OFFICIAL DATA
-Nordic Chase Gravel Edition refers to multiple routes in the series, primarily **Copenhagen to Oslo** (CPH-OSL) and **Berlin to Copenhagen** (BER-CPH). Both are limited to **100 riders** per edition[1][2][5][7].
+Research date: 2026-08-15
 
-**2025 and 2026 race dates**: No 2025 dates found in results. For 2026: CPH-OSL runs **13-19 August 2026**; BER-CPH runs **31 July - 5 August 2026** (grand depart **Saturday, August 1st at 07:00**, final cutoff **Wednesday, August 5th at 11:00 AM** or **100 hours** from start)[1][2].
+## Identity decision
 
-**Registration cost / entry fees**: CPH-OSL: **Early Bird 1,950 DKK (~261 EUR)**, **Standard 2,250 DKK (~302 EUR)**; registrations sold out[2]. BER-CPH: **Early Bird 2,100 DKK (~280 EUR)** for first 20, **Standard 2,500 DKK (~330 EUR)**; opens **Sunday, December 7th at 10 a.m.**[1]. Prices include 25% Danish VAT; accommodation and some ferries not included[1][2].
+Nordic Chase Copenhagen to Oslo Gravel is one of four distinct Nordic Chase
+race identities. It is not an alias for Berlin to Copenhagen Gravel and is not
+a staged or supported tour. The organizer describes an unsupported,
+self-navigated point-to-point race through Denmark, Sweden, and Norway.
 
-**Field size**: **100 riders** maximum per edition[1][2][5][7].
+## Current official facts
 
-**Distance options and elevation gain**: CPH-OSL: **730-850 km**, **4,000-7,300 m** elevation (official site lists 730 km / 4,000 m; other sources cite 800+ km / 7,200 m)[2][5][6]. BER-CPH: **730 km**, **4,000 m** elevation[1][7]. No other distance options mentioned.
+- The Nordic Chase home page lists a 2027 Copenhagen-to-Oslo gravel event
+  window of August 13-19 and says the four-race series uses a 100-hour format.
+- The detailed route page still describes the completed 2026 edition: 800 km,
+  7,200 m of climbing, Copenhagen start, ferry into Sweden, and Oslo finish.
+- The latest detailed edition had a 100-rider capacity, GPS tracking, a race
+  manual, no organizer aid stations, and self-supported resupply rules.
+- The organizer says 2027 registration opens September 8, 2026 at 19:00 CET,
+  with priority access 48 hours earlier.
 
-**Prize purse**: No prize purse information available.
+## Community and secondary-source check
 
-**Start location and time**: CPH-OSL starts in **Copenhagen**; BER-CPH starts in **Berlin** (exact Copenhagen finish shared in race manual)[1][2]. BER-CPH grand depart: **07:00 Saturday, August 1st, 2026**[1][7].
+- The organizer's 2025 Reddit posts describe Nordic Chase as a young passion
+  project inspired by ultra racing and confirm that the first edition was a
+  smaller Copenhagen loop, not this Copenhagen-to-Oslo route.
+- A 2025 r/gravelcycling preparation thread for the 2026 event centers on
+  back-to-back long days, contact-point comfort, fueling, navigation power,
+  and sleep strategy. It is preparation discussion, not a completed-race
+  report, so it cannot prove 2027 course details or DNF rates.
+- A current KLU recap documents riders completing the 2026 Copenhagen-to-Oslo
+  ultra with little sleep, but does not publish a final gravel GPX or a 2027
+  grand-depart schedule.
+- Third-party event calendars agree on the 2026 identity and approximate
+  route scale. They are corroboration only; the official site controls current
+  dates, route, rules, and registration facts.
 
-**Aid station details, cutoff times**: Self-supported, no aid stations mentioned. CPH-OSL cutoff requires arrival in Oslo **before 2 PM August 18th** for ferry; overall **110 hours** per some sources, but official lists arrival by **August 19th**[2][6]. BER-CPH: **100 hours** total[1].
+## What is not established
 
-## TERRAIN & COURSE
-**Surface breakdown**: Over **60-80% gravel/unpaved**, including gravel roads, forest trails, farm roads, singletrack not specified separately[2][5][6].
+- No exact 2027 grand-depart date or start time is published.
+- No final 2027 GPX, surface percentage, route manual, or route-specific cutoff
+  is published.
+- No defensible gravel-specific 2026 DNF rate or deep elite-field history was
+  found in the sources reviewed.
+- No published cash prize purse was found.
 
-**Key course features, named climbs/sectors**: CPH-OSL: Ferry Helsingør-Helsingborg, deep forests, lakesides, rolling farmland, Swedish backcountry, Norwegian dramatic terrain to Oslo; links Denmark, Sweden, Norway[2][5][6]. No named climbs listed.
+## Scoring consequences
 
-**Technical difficulty level**: High endurance focus; self-supported ultra with remote gravel, forests, ridgelines; suitable for experienced gravel/bikepacking riders[5][6].
+The 66/100 T2 grade uses the latest official route only as a guarded planning
+reference. Length and elevation meet the published maximum-score thresholds;
+prestige, field depth, community, race quality, and expenses are deliberately
+conservative because the series is young, capped at 100 riders, and expensive
+to execute point-to-point.
 
-**Elevation profile description**: Rolling gravel with **4,000-7,300 m** total gain; fast-rolling sections mixed with forested climbs and remote paths[1][2][5][6]. Starting elevation not specified.
+## Training-plan consequence
 
-## CLIMATE & CONDITIONS
-**Typical weather for the race date/location**: Mid-August Nordic summer: endless daylight, mild temperatures expected in Denmark/Sweden/Norway route; specific forecasts unavailable.
+Do not clone, date, or publish a 2027 plan until the organizer publishes the
+exact grand depart and final route package. The course history supports a
+future FULL-7 ultra ladder, but not a dated 2027 TrainingPeaks calendar today.
 
-**Historical weather incidents**: No historical incidents (mud, heat, wind) found; event appears newish with no past editions detailed in results.
+## Sources
 
-**Altitude**: Starting near sea level in Copenhagen/Berlin; max elevation not specified beyond total gain.
-
-## LOGISTICS
-**Nearest airport**: Copenhagen (CPH) for start; Oslo (OSL) for finish (CPH-OSL); Berlin (BER) for BER-CPH start. Not explicitly stated but inferred from cities.
-
-**Lodging options and strategy**: **Not included** in registration; riders arrange own overnights, coordinate via **WhatsApp group**[1][2].
-
-**Parking situation**: No information available.
-
-**Packet pickup details**: No details found; welcome pack with sponsor goods included in entry[2].
-
-Ferry logistics: CPH-OSL includes **Helsingør-Helsingborg** ticket; post-race Oslo ferry **August 18th 4 PM** to Copenhagen (arrive **August 19th 10 AM**), dinner on board[2]. BER-CPH: Puttgarden-Rødby ferry **12.50 EUR** (bike extra 2 EUR), not included[1].
-
-## COMMUNITY & REPUTATION
-**Race history**: Part of **Nordic Chase** series connecting Northern European cities; gravel editions launched for 2026 (e.g., Edition II for BER-CPH); founded by Danish organization, exact year unknown[1][2][9][10]. Limited to 100 riders for exclusivity[1][2].
-
-**Notable past winners / pro riders**: No past winners or pro riders mentioned; appears no prior editions completed in results (2026-focused).
-
-**Rider reviews and quotes**: No rider reviews, Reddit/forum quotes, or race reports found in results.
-
-**YouTube race coverage**: No YouTube coverage identified.
-
-**How the race is perceived**: Viewed as ambitious self-supported ultra gravel adventure in bikepacking/gravel community; emphasizes endurance, Nordic wilderness, group riding allowed[5][6].
-
-## RACE REPORTS & RIDER EXPERIENCE
-**Specific rider experiences and quotes**: No specific experiences or quotes available.
-
-**"What I wish I knew" insights**: No insights found.
-
-**Equipment recommendations**: Live GPS tracking via **Follow My Challenge** (tracker rental included)[2]; gravel bike for 60-80% unpaved implied[5][6].
-
-**DNF rates**: No DNF rates available.
+1. https://nordicchase.com/
+2. https://nordicchase.com/cph-osl-gravel
+3. https://nordicchase.com/terms-and-conditions
+4. https://www.reddit.com/r/bikepacking/comments/1n5whkz/
+5. https://www.reddit.com/r/gravelcycling/comments/1oc77m7/
+6. https://www.klu.org/article/from-campus-to-racing-bike-klu-doctoral-students-conquer-the-nordic-chase-ultra-race

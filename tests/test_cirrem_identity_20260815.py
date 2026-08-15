@@ -8,8 +8,17 @@ from pathlib import Path
 import sys
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "scripts"))
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "wordpress"))
 
 from race_demand_analyzer import analyze_race_demands
+from generate_neo_brutalist import (
+    generate_page as generate_race_page,
+    load_race_data,
+)
+from generate_training_plan_pages import (
+    generate_page as generate_training_plan_page,
+    load_pack,
+)
 
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -79,7 +88,8 @@ def test_cirrem_extreme_cold_does_not_become_heat_training():
 def test_cirrem_generated_catalog_and_page_use_corrected_identity():
     index = json.loads((ROOT / "web" / "race-index.json").read_text())
     row = next(item for item in index if item["slug"] == "cirrem")
-    html = (ROOT / "wordpress" / "output" / "cirrem.html").read_text()
+    rd = load_race_data(ROOT / "race-data" / "cirrem.json")
+    html = generate_race_page(rd, index)
 
     assert row["location"] == "Cumming, Iowa"
     assert row["distance_mi"] == 62
@@ -91,9 +101,7 @@ def test_cirrem_generated_catalog_and_page_use_corrected_identity():
     assert "calendar.google.com/calendar/render" not in html
     assert 'data-date="2026-02-28"' not in html
 
-    plan_html = (
-        ROOT / "wordpress" / "output" / "training-plan" / "cirrem.html"
-    ).read_text()
+    plan_html = generate_training_plan_page(_race(), load_pack("cirrem"))
     assert "NEXT DATE NOT ANNOUNCED" in plan_html
     assert 'data-race-date="2026-02-28"' not in plan_html
     assert "2026: February 28" not in plan_html

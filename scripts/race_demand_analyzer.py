@@ -164,39 +164,52 @@ def _score_technical(rating: dict) -> int:
 def _score_heat_resilience(race: dict) -> int:
     """Score heat adaptation needed.
 
-    Base from climate score: if climate >= 4, start at climate * 2; else 0.
+    The climate rating measures total weather difficulty, not temperature
+    direction. Only use a high climate score as heat demand when the profile
+    also contains explicit heat evidence.
+
+    Base from climate score: with heat evidence, climate 5 -> 10 and climate
+    4 -> 6; otherwise 0.
     Scan rider intel search_text for heat keywords: +2 if found (cap 10).
     Scan climate.challenges for heat keywords: +1 if found (cap 10).
     """
     rating = race.get("gravel_god_rating") or {}
     climate_score = _safe_get(rating, "climate", 0)
 
-    if climate_score >= 5:
-        score = 10
-    elif climate_score == 4:
-        score = 6
-    else:
-        score = 0
-
     # Rider intel boost
     youtube_data = race.get("youtube_data") or {}
     rider_intel = youtube_data.get("rider_intel") or {}
     search_text = _safe_get(rider_intel, "search_text", "")
-    if search_text:
-        search_lower = search_text.lower()
-        for keyword in HEAT_KEYWORDS:
-            if keyword in search_lower:
-                score += 2
-                break
+    search_lower = search_text.lower() if search_text else ""
+    rider_heat = any(keyword in search_lower for keyword in HEAT_KEYWORDS)
 
     # Climate challenges boost
     climate_block = race.get("climate") or {}
     challenges = climate_block.get("challenges") or []
     challenges_text = " ".join(challenges).lower()
-    for keyword in HEAT_KEYWORDS:
-        if keyword in challenges_text:
-            score += 1
-            break
+    climate_text = " ".join(
+        [
+            str(climate_block.get("primary") or ""),
+            str(climate_block.get("description") or ""),
+            challenges_text,
+        ]
+    ).lower()
+    climate_heat = any(keyword in climate_text for keyword in HEAT_KEYWORDS)
+
+    if climate_heat or rider_heat:
+        if climate_score >= 5:
+            score = 10
+        elif climate_score == 4:
+            score = 6
+        else:
+            score = 0
+    else:
+        score = 0
+
+    if rider_heat:
+        score += 2
+    if any(keyword in challenges_text for keyword in HEAT_KEYWORDS):
+        score += 1
 
     return _clamp(score)
 

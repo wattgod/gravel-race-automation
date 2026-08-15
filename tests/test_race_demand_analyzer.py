@@ -307,8 +307,11 @@ class TestScoreTechnical:
 
 class TestScoreHeatResilience:
     def test_hot_race(self):
-        """climate=5 -> base 10, already at cap."""
-        race_data = _make_race(rating=_make_rating(climate=5))
+        """climate=5 with explicit heat evidence -> base 10."""
+        race_data = _make_race(
+            rating=_make_rating(climate=5),
+            climate={"description": "Extreme heat and humidity"},
+        )
         race = race_data["race"]
         assert _score_heat_resilience(race) == 10
 
@@ -332,11 +335,11 @@ class TestScoreHeatResilience:
         race = race_data["race"]
         assert _score_heat_resilience(race) == 8
 
-    def test_no_rider_intel(self):
-        """climate=4 -> base 6, no rider intel -> 6."""
+    def test_high_climate_score_without_heat_evidence(self):
+        """A severe climate score alone must not imply heat."""
         race_data = _make_race(rating=_make_rating(climate=4))
         race = race_data["race"]
-        assert _score_heat_resilience(race) == 6
+        assert _score_heat_resilience(race) == 0
 
     def test_climate_challenges_boost(self):
         """climate=4 -> base 6, challenges mention heat -> +1 = 7."""
@@ -382,13 +385,25 @@ class TestScoreHeatResilience:
         assert _score_heat_resilience(race) == 2
 
     def test_empty_challenges(self):
-        """Empty challenges list -> no boost."""
+        """Empty climate evidence does not turn weather severity into heat."""
         race_data = _make_race(
             rating=_make_rating(climate=4),
             climate={"challenges": []},
         )
         race = race_data["race"]
-        assert _score_heat_resilience(race) == 6
+        assert _score_heat_resilience(race) == 0
+
+    def test_extreme_cold_race_does_not_prescribe_heat_adaptation(self):
+        race_data = _make_race(
+            rating=_make_rating(climate=5),
+            climate={
+                "primary": "Iowa winter",
+                "description": "Snow, freezing rain, ice, mud, and strong wind",
+                "challenges": ["Freezing temperatures", "Snow and sleet"],
+            },
+        )
+
+        assert _score_heat_resilience(race_data["race"]) == 0
 
 
 # ── TestScoreAltitude ─────────────────────────────────────────────────
@@ -514,8 +529,8 @@ class TestAnalyzeRaceDemands:
         assert demands["vo2_power"] == 10
         assert demands["threshold"] == 8  # 100mi -> 7, elev=5 >= 3 -> +1 = 8
         assert demands["technical"] == 8  # technicality=4 -> 8
-        # climate=4 -> base 6, no heat keywords in challenges -> 6
-        assert demands["heat_resilience"] == 6
+        # Severe mountain weather is not evidence of heat acclimation demand.
+        assert demands["heat_resilience"] == 0
         assert demands["altitude"] == 10
         assert demands["race_specificity"] == 10
 
@@ -539,20 +554,19 @@ class TestAnalyzeRaceDemands:
 
 class TestAnalyzeRaceDemandsEdgeCases:
     def test_missing_rider_intel(self):
-        """No youtube_data -> heat from climate only."""
+        """No explicit heat evidence means no heat demand."""
         race_data = _make_race(
             rating=_make_rating(climate=4),
             climate={"challenges": []},
         )
         demands = analyze_race_demands(race_data)
-        assert demands["heat_resilience"] == 6
+        assert demands["heat_resilience"] == 0
 
     def test_missing_climate(self):
-        """No climate block -> heat defaults work (no challenges boost)."""
+        """No climate block means a severity score cannot identify heat."""
         race_data = _make_race(rating=_make_rating(climate=4))
         demands = analyze_race_demands(race_data)
-        # base=6, no climate block = no challenges boost -> 6
-        assert demands["heat_resilience"] == 6
+        assert demands["heat_resilience"] == 0
 
     def test_missing_vitals_fields(self):
         """Graceful with missing vitals fields."""

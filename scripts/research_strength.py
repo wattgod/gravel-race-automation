@@ -30,6 +30,7 @@ import csv
 import json
 import re
 import sys
+from datetime import date
 from io import StringIO
 from pathlib import Path
 from typing import Optional
@@ -460,7 +461,7 @@ def embed_scores(slug: str, scores: dict):
             dim: scores["dimensions"][dim]["score"]
             for dim in WEIGHTS
         },
-        "scored_at": "2026-02-04",
+        "scored_at": date.today().isoformat(),
     }
 
     json_path.write_text(json.dumps(data, indent=2, ensure_ascii=False) + "\n")

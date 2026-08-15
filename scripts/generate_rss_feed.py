@@ -43,7 +43,10 @@ def _build_description(race, full_data):
     if race.get("location"):
         parts.append(f"Location: {xml_escape(race['location'])}")
 
-    date_str = vitals.get("date_specific", vitals.get("date", ""))
+    if vitals.get("course_status") == "source_blocked":
+        date_str = vitals.get("date", "")
+    else:
+        date_str = vitals.get("date_specific", vitals.get("date", ""))
     if date_str:
         parts.append(f"Date: {xml_escape(date_str)}")
 

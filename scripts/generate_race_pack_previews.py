@@ -335,7 +335,10 @@ def generate_race_overlay(race: dict, demands: dict) -> dict:
     stage_count = _stage_count(race)
 
     # Extract month from date string
-    date_str = vitals.get('date', '') or vitals.get('date_specific', '') or ''
+    source_blocked = vitals.get('course_status') == 'source_blocked'
+    date_str = '' if source_blocked else (
+        vitals.get('date', '') or vitals.get('date_specific', '') or ''
+    )
     month = ''
     for m in ['January','February','March','April','May','June','July','August',
               'September','October','November','December']:
@@ -439,7 +442,8 @@ def generate_race_overlay(race: dict, demands: dict) -> dict:
     elif distance >= 40:
         overlay['nutrition'] = (
             f"Target 40\u201360g carbs/hour for {race_name}\u2019s {int(distance)} miles. "
-            f"Front-load calories in the first half. One bottle per hour minimum, more in heat."
+            f"Front-load calories in the first half. One bottle per hour minimum; "
+            f"adjust for conditions and sweat rate."
         )
     else:
         overlay['nutrition'] = (
@@ -554,7 +558,10 @@ def generate_workout_context(race: dict, demands: dict, category: str) -> str:
     elev_per_mi = round(elevation / distance) if distance > 0 else 0
 
     # Extract month
-    date_str = vitals.get('date', '') or vitals.get('date_specific', '') or ''
+    source_blocked = vitals.get('course_status') == 'source_blocked'
+    date_str = '' if source_blocked else (
+        vitals.get('date', '') or vitals.get('date_specific', '') or ''
+    )
     month = ''
     for m in ['January','February','March','April','May','June','July','August',
               'September','October','November','December']:

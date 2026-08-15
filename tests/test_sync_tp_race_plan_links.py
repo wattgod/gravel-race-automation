@@ -94,3 +94,24 @@ def test_rule_of_three_publishes_the_complete_full_7_ladder():
         669630, 669631, 669632, 669633, 669634, 669635, 669636
     ]
     assert all(plan["url"].endswith(f"tp-{plan['planId']}/p") for plan in ladder)
+
+
+def test_2027_grasshoppers_publish_their_complete_full_7_ladders():
+    links = json.loads(
+        (Path(__file__).resolve().parent.parent / "data" / "tp-race-plan-links.json")
+        .read_text(encoding="utf-8")
+    )
+    expected = {
+        "low-gap-grasshopper": list(range(669642, 669649)),
+        "huffmaster-grasshopper": list(range(669649, 669656)),
+        "jackson-forest-grasshopper": list(range(669656, 669663)),
+        "ukiah-mendo-gravel-epic": list(range(669663, 669670)),
+    }
+
+    for slug, plan_ids in expected.items():
+        ladder = links[slug]
+        assert [plan["planId"] for plan in ladder] == plan_ids
+        assert all(
+            plan["url"].endswith(f"tp-{plan['planId']}/p")
+            for plan in ladder
+        )

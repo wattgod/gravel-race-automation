@@ -3,33 +3,34 @@
     "name": "Hellhole Gravel Grind Stage Race",
     "slug": "hellhole-gravel-grind",
     "display_name": "Hellhole Gravel Grind Stage Race",
-    "tagline": "Multi-day South Carolina gravel in Jamestown.",
+    "tagline": "Two timed 75-mile forest stages, an optional night prologue, and almost no free speed in coastal South Carolina.",
     "vitals": {
       "distance_mi": 150,
-      "elevation_ft": 6000,
+      "elevation_ft": null,
+      "gain_display": "Not published",
       "location": "Jamestown, South Carolina",
       "location_badge": "JAMESTOWN, SC",
       "county": "Berkeley County",
       "date": "Early October annually",
       "date_specific": "2026: October 2-4",
       "terrain_types": [
-        "South Carolina rolling gravel",
-        "Multi-day stage race",
-        "Regional event",
-        "Central South Carolina"
+        "Francis Marion National Forest gravel",
+        "Two-day stage race",
+        "Hard-packed forest roads",
+        "Grassy doubletrack and Palmetto Trail sectors"
       ],
-      "field_size": "100-200 riders",
-      "start_time": "Morning starts daily",
-      "registration": "Online. Cost: ~$150-250",
-      "prize_purse": "Modest prizes",
-      "aid_stations": "Multiple aid stations daily",
-      "cutoff_time": "Daily cutoffs",
+      "field_size": "See official registration",
+      "start_time": "Optional Friday prologue 6:30 PM; Saturday and Sunday stages 9:00 AM",
+      "registration": "Online through the organizer's official registration link",
+      "prize_purse": "Awards for the top three finishers in each stage-race category",
+      "aid_stations": "One stocked aid station on each day's course; limited support",
+      "cutoff_time": "Seven hours per stage; five hours for the one-day 45-mile fondo",
       "lat": 33.286,
       "lng": -79.6926
     },
     "climate": {
-      "primary": "South Carolina spring/fall",
-      "description": "Variable conditions over multiple days.",
+      "primary": "Warm, humid coastal South Carolina fall",
+      "description": "October can still bring heat and humidity, and two long remote days amplify hydration and recovery mistakes.",
       "challenges": [
         "Heat possible",
         "Humidity",
@@ -38,15 +39,15 @@
       ]
     },
     "terrain": {
-      "primary": "South Carolina rolling gravel",
-      "surface": "Gravel roads through rolling SC terrain over multiple days. Moderate elevation per day.",
+      "primary": "Fast, flat forest gravel with rough interruptions",
+      "surface": "Approximately 90% unpaved forest roads and trails: mostly hard-packed gravel, plus grassy doubletrack, potholes, and Roubaix-rated Palmetto Trail sectors.",
       "technical_rating": 2,
       "features": [
-        "Moderate rolling per day (6000 feet total)",
-        "Rural scenery",
-        "Multi-day format",
-        "Jamestown setting",
-        "Regional event"
+        "Optional six-mile Friday night prologue",
+        "Approximately 75 miles on Saturday",
+        "Approximately 75 miles on Sunday",
+        "Remote, unmarked GPS-navigation courses",
+        "One aid station per stage and limited cellular service"
       ]
     },
     "gravel_god_rating": {
@@ -67,34 +68,34 @@
       "field_depth": 2,
       "value": 3,
       "expenses": 3,
-      "score_note": "Regional SC event. Multi-day format is significant but moderate organization and regional field.",
+      "score_note": "The two-day format, remote forest setting, and long history are meaningful. A regional field, limited support, and late route release keep it in Tier 3.",
       "discipline": "gravel",
       "display_tier": 3
     },
     "biased_opinion": {
       "verdict": "South Carolina Multi-Day Gravel",
-      "summary": "Hellhole Gravel Grind is a multi-day stage race in Jamestown, South Carolina—rolling terrain over multiple days. The multi-day format creates a challenge, but the moderate organization and regional field keep it in Tier 3. Jamestown provides moderate access.",
+      "summary": "Hellhole Gravel Grind is a two-day, approximately 150-mile stage race in Francis Marion National Forest, preceded by an optional six-mile night prologue. The terrain is flat but remote, mostly unpaved, lightly supported, and punishing when heat, potholes, or recovery mistakes compound.",
       "strengths": [
         "Multi-day format (significant challenge)",
-        "SC cycling community",
+        "Remote Francis Marion National Forest setting",
         "Adventure factor",
         "Regional pricing",
         "Stage race experience"
       ],
       "weaknesses": [
-        "Central SC access (moderate)",
-        "Moderate organization",
+        "Routes released only about two weeks before the event",
+        "One aid station per day and limited support",
         "Regional field only",
         "Heat/humidity concerns",
         "Multi-day logistics"
       ],
-      "bottom_line": "A solid regional South Carolina multi-day gravel race. Worth it for South Carolina cyclists seeking a stage race experience. Not a destination race for out-of-state travelers."
+      "bottom_line": "A legitimate regional stage race whose challenge comes from back-to-back 75-mile days, remote navigation, heat, and the recovery clock rather than climbing."
     },
     "final_verdict": {
       "score": "50 / 100",
-      "one_liner": "Multi-day South Carolina gravel in Jamestown.",
-      "should_you_race": "If you're in South Carolina and want a multi-day experience—yes, it's solid. If you're from out of state—there are better options.",
-      "alternatives": "For better stage races: other multi-day events. For similar regional events: other SC gravel races."
+      "one_liner": "Two timed 75-mile forest stages, an optional night prologue, and almost no free speed in coastal South Carolina.",
+      "should_you_race": "Race it if you want an established, low-elevation stage race where pacing, navigation, fueling, and overnight recovery decide the result.",
+      "alternatives": "Swamp Fox Gravel Fondo for a single-day Francis Marion event, or a larger destination stage race for deeper fields and more support."
     },
     "logistics": {
       "airport": "Charleston (CHS) 1 hour or Columbia (CAE) 1.5 hours",
@@ -102,58 +103,58 @@
       "food": "Small town with limited dining. Stock nutrition.",
       "packet_pickup": "Day before",
       "parking": "At start/finish",
-      "official_site": "Check South Carolina cycling calendars"
+      "official_site": "https://www.mtpleasantvelo.org/hellhole-gravel-grind-stage-race"
     },
     "history": {
       "founded": null,
-      "founder": "South Carolina organizers",
-      "origin_story": "Regional South Carolina stage race.",
+      "founder": "Mount Pleasant Velo Events",
+      "origin_story": "Mount Pleasant Velo developed the event from gravel exploration in Francis Marion National Forest and describes it as the first and longest-running gravel stage race in the United States.",
       "notable_moments": [],
-      "reputation": "Regional SC event."
+      "reputation": "An established regional stage race known for a fast prologue, remote forest roads, sparse support, and cumulative two-day attrition."
     },
     "course_description": {
-      "character": "Rolling SC gravel over multiple days.",
+      "character": "An optional six-mile night prologue precedes two approximately 75-mile timed stages on mostly unpaved forest roads and trails. The course is flat, remote, unmarked, and released close to race day.",
       "suffering_zones": [
         {
-          "mile": 50,
-          "label": "Day 1 Complete",
-          "desc": "First day done.",
-          "terrain_detail": "Day 1",
-          "named_section": "Day 1"
+          "mile": 6,
+          "label": "Friday Night Prologue",
+          "desc": "A short optional time-bonus effort under lights; open hard without turning six miles into Saturday's fatigue.",
+          "terrain_detail": "Six-mile all-gravel out-and-back from the Hellhole Road primitive camp",
+          "named_section": "Prologue"
         },
         {
-          "mile": 100,
-          "label": "Day 2 Complete",
-          "desc": "Halfway through, cumulative fatigue.",
-          "terrain_detail": "Day 2",
-          "named_section": "Day 2"
+          "mile": 81,
+          "label": "Saturday Stage Finish",
+          "desc": "Begin the overnight recovery clock immediately: carbohydrate, protein, fluid, sodium, clean kit, bike inspection, and sleep.",
+          "terrain_detail": "Approximately 75 miles, about 90% unpaved, with one stocked aid station",
+          "named_section": "Stage 1"
         },
         {
-          "mile": 150,
-          "label": "Final Day",
-          "desc": "Last day to finish.",
-          "terrain_detail": "Final day",
-          "named_section": "Final Day"
+          "mile": 156,
+          "label": "Sunday Stage Finish",
+          "desc": "Race the second 75-mile day only after protecting navigation, hydration, equipment, and attention through the remote final sectors.",
+          "terrain_detail": "Approximately 75 miles with a seven-hour cutoff",
+          "named_section": "Stage 2"
         }
       ],
-      "signature_challenge": "Multi-day endurance in South Carolina.",
+      "signature_challenge": "Starting Sunday's second 75-mile stage with enough recovery, hydration, equipment, and restraint left to race rather than unravel.",
       "ridewithgps_id": null,
       "ridewithgps_name": null
     },
     "guide_variables": {
       "race_name": "Hellhole Gravel Grind Stage Race",
       "race_distance": "150 miles (multi-day)",
-      "race_elevation": "6,000 feet (total)",
-      "race_date": "Spring or Fall",
-      "race_location": "Jamestown, South Carolina",
-      "race_terrain": "South Carolina rolling gravel",
-      "race_weather": "SC spring/fall variability",
+      "race_elevation": "Not published; the organizer describes the course as pancake flat",
+      "race_date": "October 2-4, 2026",
+      "race_location": "Francis Marion National Forest near Jamestown, South Carolina",
+      "race_terrain": "Mostly hard-packed gravel with potholes, grassy doubletrack, and Palmetto Trail sectors",
+      "race_weather": "Warm, humid coastal fall weather with limited shelter and support",
       "race_challenges": [
         "Multi-day format",
         "Heat/humidity possible",
         "Cumulative fatigue",
-        "Regional field",
-        "Multi-day logistics"
+        "Remote GPS navigation",
+        "Overnight recovery and bike reset"
       ],
       "altitude_section": false,
       "altitude_feet": null
@@ -161,18 +162,18 @@
     "non_negotiables": [
       {
         "requirement": "Multi-day endurance",
-        "by_when": "Week 12-14",
-        "why": "Multi-day format requires extensive endurance and recovery preparation."
+        "by_when": "Week 4",
+        "why": "Two approximately 75-mile stages require durable pacing and the ability to ride usefully again the next morning."
       },
       {
         "requirement": "Heat and humidity preparation",
-        "by_when": "Week 4-6",
+        "by_when": "Week 3",
         "why": "SC spring/fall means heat and humidity over multiple days."
       },
       {
         "requirement": "Multi-day pacing",
-        "by_when": "Week 2-4",
-        "why": "Multi-day format requires pacing discipline."
+        "by_when": "Week 2",
+        "why": "The optional prologue and first-stage speed cannot be allowed to consume Sunday's race."
       }
     ],
     "research_metadata": {
@@ -207,28 +208,25 @@
         "multi_day_endurance": {
           "enabled": true,
           "weeks": [
-            12,
-            13,
-            14
+            2,
+            3,
+            4
           ]
         },
         "heat_humidity_training": {
           "enabled": true,
           "weeks": [
-            4,
-            5,
-            6
+            2,
+            3,
+            4
           ]
         },
         "dress_rehearsal": {
           "enabled": true,
-          "week": 14,
+          "week": 4,
           "day": "Saturday-Sunday",
           "duration_hours": {
-            "ayahuasca": 6,
-            "finisher": 8,
-            "compete": 10,
-            "podium": 12
+            "save_my_race": 7
           }
         }
       },
@@ -250,14 +248,14 @@
       "tier_overrides": {},
       "marketplace_variables": {
         "race_name": "Hellhole Gravel Grind Stage Race",
-        "race_hook": "Multi-day South Carolina gravel in Jamestown.",
-        "race_hook_detail": "Regional stage race with multi-day challenge.",
+        "race_hook": "Two timed 75-mile forest stages, plus an optional night prologue.",
+        "race_hook_detail": "Remote, mostly unpaved Francis Marion roads make recovery, hydration, navigation, and bike care part of the race.",
         "distance": "150",
         "dark_mile": "100",
         "non_negotiable_1": "Multi-day endurance",
         "non_negotiable_2": "Heat and humidity preparation",
         "non_negotiable_3": "Multi-day pacing",
-        "trainingpeaks_url": null
+        "trainingpeaks_url": "https://www.trainingpeaks.com/training-plans/cycling/tp-669713/p"
       }
     },
     "biased_opinion_ratings": {
@@ -267,7 +265,7 @@
       },
       "length": {
         "score": 4,
-        "explanation": "150 miles over three days plus 6-mile prologue delivers stage race volume that breaks riders - \"50% of the stage racers ended the weekend with a DNF.\" Jake Andrews won the prologue at \"a blistering fast 24.5 mph performance\" with \"over half of the field laid down times averaging better than 21 mph for the six mile course.\" Two 75-mile stages back-to-back test cumulative fatigue as Pfaff Daddy, who \"usually rides me into the ground,\" was found \"seriously dehydrated\" at mile 35 on Sunday. Longer than Belgian Waffle Ride San Diego."
+        "explanation": "Two approximately 75-mile stages create nearly 150 miles of weekend racing, with an optional six-mile Friday prologue for stage racers. The distance is substantial because the second 75-mile start arrives after only one overnight recovery window."
       },
       "technicality": {
         "score": 2,
@@ -275,7 +273,7 @@
       },
       "elevation": {
         "score": 2,
-        "explanation": "Race director Chris Moore confirms the flat terrain: \"what the 75 mile one day portion of the hell hole is about 400 feet, about 400 feet of climbing.\" Despite being \"pancake flat,\" the 6000 feet over 150 miles still averages 40 feet per mile through Francis Marion National Forest. Moore notes their typical road rides \"can go 40 and 50 miles and do you know, less than a hundred feet\" in coastal South Carolina. Less climbing than The Mid South."
+        "explanation": "The organizer describes the course as pancake flat and does not publish a current total climbing figure. Elevation is not the limiter; wind, roughness, heat, and cumulative time on the bike are."
       },
       "climate": {
         "score": 2,
@@ -299,7 +297,7 @@
       },
       "experience": {
         "score": 3,
-        "explanation": "Three days racing through New War battlegrounds where Francis Marion \"used these swamps, creeks and forest areas to ambush and hide from the British.\" Friday night prologue with lights, Saturday brewery gathering at Commonhouse Aleworks, and Sunday post-race food from Empanada Cuisines create memorable moments beyond just racing. Stage winner jerseys and finisher awards recognize the 50% who complete all 150 miles through Francis Marion's remote wilderness."
+        "explanation": "The optional Friday night prologue, two long forest stages, Saturday gathering, and Sunday finish create a complete stage-race weekend rather than a single start-and-finish event."
       },
       "community": {
         "score": 3,
@@ -311,11 +309,11 @@
       },
       "value": {
         "score": 3,
-        "explanation": "Three days of racing through Francis Marion National Forest's New War battlegrounds, where organizers note \"completing it represents a true accomplishment.\" Stage winner jerseys, finisher awards for the 50% who survive, and included post-race food from Empanada Cuisines add value. Mid-race gathering at Commonhouse Aleworks and prologue under lights provide unique elements beyond standard gravel racing."
+        "explanation": "Two long timed stages, the optional night prologue, stage-race timing, post-race food, and a distinctive remote setting provide more event value than a standard one-day regional gravel race."
       },
       "expenses": {
         "score": 3,
-        "explanation": "Registration runs $150-250. Jamestown area near Charleston offers reasonable coastal lodging, with parking available at both Steelshed Lane and Hellhole Road Primitive Camp eliminating shuttle costs. Saturday brewery gathering and included Sunday post-race food reduce meal expenses. Minimum equipment needs include \"28c wide tires with tread\" and lights for prologue, but the first year podium included \"road bike, cross bike, and mountain bike\" showing flexible gear requirements keep costs manageable. Similar expense level to Belgian Waffle Ride San Diego."
+        "explanation": "Jamestown has limited lodging, but Charleston access is manageable and the event does not require a shuttle. Riders should budget for two nights, remote-course supplies, lights for the optional prologue, and enough spares to reset the bike between stages."
       }
     },
     "citations": [
@@ -356,10 +354,15 @@
       },
       {
         "url": "https://www.mtpleasantvelo.org/hellhole-gravel-grind-stage-race",
-        "category": "other",
-        "label": "Mtpleasantvelo"
+        "category": "official",
+        "label": "Mount Pleasant Velo official 2026 race page"
       }
     ],
+    "source_review": {
+      "reviewed_at": "2026-08-14",
+      "race_date": "2026-10-02",
+      "facts_scope": "The official organizer page confirms the optional Friday prologue, Saturday and Sunday stage dates, approximately 75 miles per stage, roughly 90% unpaved terrain, one aid station per day, seven-hour stage cutoffs, and late route release. Current total climbing is not published."
+    },
     "tire_recommendations": {
       "generated_at": "2026-02-19",
       "primary": [

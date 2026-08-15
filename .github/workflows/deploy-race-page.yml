@@ -1,0 +1,99 @@
+name: Deploy Race Page
+
+on:
+  workflow_dispatch:
+    inputs:
+      slug:
+        description: "Canonical race slug (for example, bootlegger-100)"
+        required: true
+        type: string
+
+permissions:
+  contents: read
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    steps:
+      - name: Checkout Gravel God source
+        uses: actions/checkout@v4
+
+      - name: Checkout published TrainingPeaks catalog
+        uses: actions/checkout@v4
+        with:
+          repository: wattgod/gravel-god-training-plans
+          ref: builtfor-publish
+          token: ${{ secrets.GH_PAT }}
+          path: gravel-god-training-plans
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+          cache: pip
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Build and validate scoped payload
+        env:
+          RACE_SLUG: ${{ inputs.slug }}
+        run: |
+          set -euo pipefail
+          if ! printf '%s' "$RACE_SLUG" | grep -Eq '^[a-z0-9]+(-[a-z0-9]+)*$'; then
+            echo "::error::Invalid race slug: $RACE_SLUG"
+            exit 1
+          fi
+          test -f "race-data/$RACE_SLUG.json"
+          mkdir -p /tmp/gg-race-page
+          python wordpress/generate_neo_brutalist.py "$RACE_SLUG" \
+            --data-dir race-data \
+            --output-dir /tmp/gg-race-page \
+            --plans-db gravel-god-training-plans/db/plans.json
+          test -s "/tmp/gg-race-page/$RACE_SLUG.html"
+          test -d /tmp/gg-race-page/assets
+          grep -Eq 'trainingpeaks\.com/training-plans/cycling/tp-[0-9]+' \
+            "/tmp/gg-race-page/$RACE_SLUG.html"
+
+      - name: Setup SSH
+        run: |
+          set -euo pipefail
+          mkdir -p ~/.ssh
+          printf '%s\n' "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/siteground_key
+          chmod 600 ~/.ssh/siteground_key
+          ssh-keyscan -p "${{ secrets.SSH_PORT }}" "${{ secrets.SSH_HOST }}" \
+            >> ~/.ssh/known_hosts 2>/dev/null
+
+      - name: Deploy page and shared assets
+        env:
+          SSH_HOST: ${{ secrets.SSH_HOST }}
+          SSH_USER: ${{ secrets.SSH_USER }}
+          SSH_PORT: ${{ secrets.SSH_PORT }}
+        run: |
+          python scripts/push_wordpress.py \
+            --sync-pages \
+            --pages-dir /tmp/gg-race-page \
+            --purge-cache
+
+      - name: Verify exact live page
+        env:
+          RACE_SLUG: ${{ inputs.slug }}
+        run: |
+          set -euo pipefail
+          expected="/tmp/gg-race-page/$RACE_SLUG.html"
+          live="/tmp/$RACE_SLUG.live.html"
+          for attempt in 1 2 3 4 5; do
+            if curl -L --fail --silent --show-error --compressed \
+              "https://gravelgodcycling.com/race/$RACE_SLUG/?v=${GITHUB_SHA}-${GITHUB_RUN_ATTEMPT}" \
+              -o "$live" && cmp -s "$expected" "$live"; then
+              echo "Exact race page is live (attempt $attempt)"
+              exit 0
+            fi
+            echo "Attempt $attempt: live bytes do not yet match the deployed page"
+            sleep 10
+          done
+          echo "::error::Live race page did not match the scoped deployment"
+          sha256sum "$expected" "$live" || true
+          exit 1

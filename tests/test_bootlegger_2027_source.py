@@ -81,3 +81,22 @@ def test_bootlegger_index_uses_corrected_date_location_and_grade():
     assert indexed["location"] == "Lenoir, North Carolina"
     assert indexed["overall_score"] == 71
     assert indexed["tier"] == 2
+
+
+def test_bootlegger_workout_pack_stays_fact_bounded_and_customer_ready():
+    pack = json.loads(
+        (ROOT / "web" / "race-packs" / f"{SLUG}.json").read_text(encoding="utf-8")
+    )
+    rendered = json.dumps(pack)
+
+    assert pack["distance_mi"] == 85
+    assert "Wilson Creek Gorge" in pack["pack_summary"]
+    assert "Maple Sally Road" in pack["pack_summary"]
+    for rejected in (
+        "glycogen is gone",
+        "Bonking at mile 60",
+        "5 PSI wrong costs you 15+ minutes",
+        "western North Carolina mountain gravel with.",
+        "you'll walk the rest",
+    ):
+        assert rejected not in rendered

@@ -96,6 +96,17 @@ def test_rule_of_three_publishes_the_complete_full_7_ladder():
     assert all(plan["url"].endswith(f"tp-{plan['planId']}/p") for plan in ladder)
 
 
+def test_bootlegger_publishes_the_complete_full_7_ladder():
+    links = json.loads(
+        (Path(__file__).resolve().parent.parent / "data" / "tp-race-plan-links.json")
+        .read_text(encoding="utf-8")
+    )
+    ladder = links["bootlegger-100"]
+
+    assert [plan["planId"] for plan in ladder] == list(range(669681, 669688))
+    assert all(plan["url"].endswith(f"tp-{plan['planId']}/p") for plan in ladder)
+
+
 def test_2027_grasshoppers_publish_their_complete_full_7_ladders():
     links = json.loads(
         (Path(__file__).resolve().parent.parent / "data" / "tp-race-plan-links.json")

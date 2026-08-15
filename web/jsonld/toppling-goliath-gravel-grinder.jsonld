@@ -1,36 +1,36 @@
 {
   "@context": "https://schema.org",
   "@type": "SportsEvent",
-  "name": "Red Granite Grinder",
-  "description": "A 150-mile Wisconsin gravel day through dairy country, rivers, red granite roads, and peak hardwood color.",
+  "name": "Toppling Goliath Gravel Grinder",
+  "description": "The Iowa Gravel Series championship: 100 kilometers of Driftless hills, brewery start and finish, and a hard 2:00 PM support horizon.",
   "sport": "Gravel Cycling",
   "startDate": "2026-10-10",
   "location": {
     "@type": "Place",
-    "name": "Athens, Wisconsin (Central Wisconsin)",
+    "name": "Decorah, Iowa",
     "address": {
       "@type": "PostalAddress",
-      "addressLocality": "Athens",
-      "addressRegion": "Wisconsin (Central Wisconsin)"
+      "addressLocality": "Decorah",
+      "addressRegion": "Iowa"
     }
   },
   "offers": {
     "@type": "Offer",
-    "price": "75",
+    "price": "40",
     "priceCurrency": "USD",
     "availability": "https://schema.org/LimitedAvailability"
   },
   "aggregateRating": {
     "@type": "AggregateRating",
-    "ratingValue": "59",
+    "ratingValue": "57",
     "bestRating": "100",
     "ratingCount": "14",
     "name": "Gravel God Rating"
   },
-  "url": "https://www.redgranitegrinder.com/",
+  "url": "https://iowagravelseries.com/goliath/",
   "organizer": {
     "@type": "Person",
-    "name": "Shane Hitz",
-    "url": "https://www.redgranitegrinder.com/"
+    "name": "Iowa Gravel Series and local partners",
+    "url": "https://iowagravelseries.com/goliath/"
   }
 }

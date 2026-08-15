@@ -410,6 +410,7 @@ def normalize_race_data(data: dict) -> dict:
     logistics = race.get('logistics', {})
     final_verdict = race.get('final_verdict', {})
     eligibility = race.get('eligibility', {})
+    youtube_data = race.get('youtube_data') or {}
 
     # Warn about missing sections that produce degraded output
     if not vitals:
@@ -551,11 +552,11 @@ def normalize_race_data(data: dict) -> dict:
             'official_site': logistics.get('official_site', ''),
         },
         'youtube_videos': [
-            v for v in race.get('youtube_data', {}).get('videos', [])
+            v for v in youtube_data.get('videos', [])
             if v.get('curated')
         ][:3],
-        'youtube_quotes': _merge_youtube_quotes(race.get('youtube_data', {})),
-        'rider_intel': race.get('youtube_data', {}).get('rider_intel', {}),
+        'youtube_quotes': _merge_youtube_quotes(youtube_data),
+        'rider_intel': youtube_data.get('rider_intel', {}),
         'series': race.get('series', {}),
         'terrain': race.get('terrain', {}),
         'climate_data': race.get('climate', {}),

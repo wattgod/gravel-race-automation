@@ -2,62 +2,74 @@
   "race": {
     "name": "Bootlegger 100",
     "slug": "bootlegger-100",
-    "display_name": "Bootlegger 100",
-    "tagline": "Southeast gravel staple—100 miles, 10,000 feet of North Georgia mountains, technical descents, Dahlonega charm.",
+    "display_name": "The Bootlegger",
+    "tagline": "Wilson Creek Gorge, Maple Sally Road, and 7,250 feet of climbing across the official 85-mile North Carolina long course.",
     "vitals": {
-      "distance_mi": 100,
-      "elevation_ft": 10000,
-      "location": "Dahlonega, Georgia (North Georgia mountains)",
-      "location_badge": "DAHLONEGA, GEORGIA",
-      "county": "Lumpkin County",
-      "date": "Mid-April annually",
-      "date_specific": "Status: UNVERIFIED — three distinct events share this name (Pisgah Productions Lenoir NC Apr 18 2026; Flovilla GA loop trail race; this Dahlonega GA gravel profile has no live 2026 trace)",
+      "distance_km": 136.8,
+      "distance_mi": 85,
+      "elevation_m": 2210,
+      "elevation_ft": 7250,
+      "course_status": "verified",
+      "location": "Lenoir, North Carolina",
+      "location_badge": "LENOIR, NORTH CAROLINA",
+      "county": "Caldwell County",
+      "country": "United States",
+      "date": "April annually",
+      "date_specific": "2027: April 17 (Saturday)",
+      "last_confirmed_date": "2027-04-17",
       "terrain_types": [
-        "North Georgia mountains gravel (80%)",
-        "Dirt roads (20%)",
-        "Steep Appalachian climbs",
-        "Technical descents"
+        "Gravel and paved country roads",
+        "Wilson Creek Gorge",
+        "Grandfather Ranger District",
+        "Maple Sally Road",
+        "Long, technical mountain descents"
       ],
-      "field_size": "500-600 riders",
-      "start_time": "Morning",
-      "registration": "Online. Cost: $100-$150",
-      "prize_purse": "None",
-      "aid_stations": "Multiple on course",
-      "cutoff_time": "None",
-      "lat": 34.5328,
-      "lng": -83.9846,
-      "month": "April"
+      "field_size": "Not published for 2027",
+      "start_time": "8:00 AM",
+      "start_format": "Neutral police-led rollout from downtown Lenoir before open-road racing",
+      "registration": "Open on BikeReg; $105 for either distance when reviewed",
+      "entry_fee": "$105",
+      "prize_purse": "Overall and division awards; equal King of Pisgah series payouts for men and women",
+      "aid_stations": "Organizer-stocked rest areas with water and food; no drop-bag service",
+      "cutoff_time": "9:00 PM",
+      "lat": 35.914,
+      "lng": -81.539,
+      "month": "April",
+      "route_options": [
+        "85 miles with approximately 7,250 feet of climbing",
+        "58 miles with approximately 4,500 feet of climbing"
+      ]
     },
     "climate": {
-      "primary": "Georgia spring",
-      "description": "Mid-April: 55-75°F, 30% rain chance, spring conditions.",
+      "primary": "North Carolina mountain spring",
+      "description": "Mid-April mountain weather can shift during an all-day ride; use the final Lenoir and Wilson Creek Gorge forecast.",
       "challenges": [
-        "Temperature swings (55-75°F)",
-        "Rain risk (30%)",
+        "Cool morning start",
+        "Rain can make gravel descents slick",
         "Spring weather variability"
       ]
     },
     "terrain": {
-      "primary": "North Georgia mountains—steep climbs, technical descents",
-      "surface": "80% gravel, 20% dirt roads. North Georgia mountains. Steep Appalachian climbs, technical descents. Loose gravel on descents. 10,000 ft over 100 miles = steep. Technical rating: 4/5.",
+      "primary": "Western North Carolina mountain gravel with sustained climbing and technical descents",
+      "surface": "The current 85-mile course leaves downtown Lenoir on country roads, enters the Grandfather Ranger District, and uses Wilson Creek Gorge and Maple Sally Road. The organizer does not publish a current surface percentage.",
       "technical_rating": 4,
       "features": [
-        "North Georgia mountains",
-        "Steep Appalachian climbs",
-        "Technical descents (loose gravel)",
-        "10,000 ft elevation",
-        "Dahlonega mountain town",
-        "Southeast gravel staple"
+        "Wilson Creek Gorge",
+        "Grandfather Ranger District",
+        "Maple Sally Road",
+        "Approximately 7,250 feet of climbing",
+        "Technical gravel descents",
+        "Downtown Lenoir start and finish"
       ]
     },
     "gravel_god_rating": {
-      "overall_score": 70,
+      "overall_score": 71,
       "tier": 2,
       "tier_label": "TIER 2",
       "logistics": 3,
-      "length": 4,
+      "length": 3,
       "technicality": 4,
-      "elevation": 5,
+      "elevation": 4,
       "climate": 3,
       "altitude": 1,
       "adventure": 4,
@@ -68,84 +80,85 @@
       "field_depth": 3,
       "value": 4,
       "expenses": 3,
+      "cultural_impact": 3,
       "discipline": "gravel",
       "display_tier": 2
     },
     "biased_opinion": {
-      "verdict": "Southeast Mountain Gravel",
-      "summary": "Bootlegger 100 is Southeast gravel staple—100 miles, 10,000 ft of North Georgia mountains. Founded ~2013. 80% gravel, 20% dirt. Steep Appalachian climbs, technical descents (loose gravel). 500-600 riders. Dahlonega small mountain town. Mid-April spring conditions (55-75°F). If you want Southeast mountain gravel, this is it. If you want flat or beginner-friendly, skip it. Technical rating 4/5. 15-20% DNF.",
+      "verdict": "Western North Carolina Mountain Gravel",
+      "summary": "The Bootlegger is a timed, open-road gravel race from downtown Lenoir into Wilson Creek Gorge and the Grandfather Ranger District. The official 2027 long course is 85 miles with approximately 7,250 feet of climbing; the 58-mile course still carries about 4,500 feet. Maple Sally Road, long descents, self-supported race rules, and a 13-hour finish window make this a serious mountain day without pretending the retired 100-mile alignment is still current.",
       "strengths": [
-        "Southeast gravel staple (founded ~2013)",
-        "North Georgia mountain scenery",
+        "Wilson Creek Gorge and Grandfather Ranger District scenery",
         "Technical terrain rewards skills",
-        "Good airport access (ATL 70 miles)",
-        "Dahlonega mountain town charm",
-        "500-600 riders community"
+        "Long-running Pisgah Productions event",
+        "Free downtown vehicle camping",
+        "RFID timing and division awards",
+        "Two demanding distance options"
       ],
       "weaknesses": [
-        "Steep (10,000 ft / 100mi)",
+        "Approximately 7,250 feet of climbing in 85 miles",
         "Technical descents (loose gravel)",
-        "15-20% DNF",
-        "Not for beginners",
-        "Spring rain risk (30%)",
-        "Dahlonega limited lodging"
+        "No outside support or drop bags",
+        "Open roads require traffic-law discipline",
+        "Spring rain can change descent grip",
+        "No-refund registration policy"
       ],
-      "bottom_line": "Bootlegger 100 is Southeast mountain gravel. 100 miles, 10,000 ft, technical descents. If you want North Georgia mountains and technical terrain, this is it. If you want flat or beginner-friendly, skip it. Southeast staple. 15-20% DNF. Technical rating 4/5."
+      "bottom_line": "Choose the 85-mile Bootlegger if you want a hard, technically meaningful mountain-gravel race with real organizer history and modest production gloss. Choose the 58 only if 4,500 feet still sounds like the shorter option you actually want."
     },
     "logistics": {
-      "nearest_airport": "Atlanta (ATL) — 70 miles (1.5-hour drive)",
-      "alternate_airports": "None convenient",
-      "lodging_note": "Dahlonega small mountain town—limited lodging. Book early.",
-      "parking": "Check official website",
-      "packet_pickup": "Day-before. Check official website.",
-      "travel_summary": "Atlanta airport 70 miles. Rental car needed. Dahlonega small mountain town limited lodging—book early. Day-before packet pickup. Race mid-April.",
-      "food_options": "Aid stations on course. Post-race party in Dahlonega downtown.",
-      "camping": "camping in the downtown area! Just park in one of the many designated parking lots downtown!\" (https://runthequay",
-      "official_site": "https://www.bootlegger100.com"
+      "nearest_airport": "Charlotte Douglas International Airport (CLT)",
+      "alternate_airports": "Regional air options vary; a car is required for practical event access",
+      "lodging_note": "The organizer lists a Lenoir hotel and permits self-contained overnight vehicle camping in designated downtown lots.",
+      "parking": "Hundreds of downtown Lenoir spaces are available in the organizer-marked lots.",
+      "packet_pickup": "Friday 5:00-10:00 PM or Saturday 5:30-7:30 AM at 1016 Harper Avenue.",
+      "travel_summary": "Sign-in, start, and finish use separate downtown Lenoir addresses a few blocks apart. Arrive early enough to park, sign in, and attend the 7:45 AM racer meeting.",
+      "food_options": "Stocked rest areas are provided, followed by a post-race meal and refreshments.",
+      "camping": "Self-contained RV, van, and car camping is authorized in designated downtown lots; no hookups are provided.",
+      "official_site": "https://www.pisgahproductions.com/events/bootlegger-100/"
     },
     "course_description": {
-      "character": "100 miles, 10,000 ft. 80% gravel, 20% dirt. North Georgia mountains. Steep climbs, technical descents. Technical rating: 4/5.",
+      "character": "The official 85-mile route combines approximately 7,250 feet of climbing with country roads, Wilson Creek Gorge, Grandfather Ranger District gravel, Maple Sally Road, and long mountain descents.",
       "suffering_zones": [
         {
-          "name": "Throughout: North Georgia Steep Climbs",
-          "miles": "Throughout",
-          "description": "Steep Appalachian climbs. 10,000 ft cumulative. Relentless.",
-          "survival_strategy": "Low gears. Pace conservatively. Walk if needed. Steep."
+          "name": "Grandfather Ranger District and Maple Sally Road",
+          "miles": "Long-course middle and late sectors",
+          "description": "The 85-mile route keeps climbing after the distance split and reaches Maple Sally Road before returning to Lenoir.",
+          "survival_strategy": "Use low enough gearing to stay seated, keep early climbing below the red line, and preserve fueling discipline for Maple Sally."
         },
         {
-          "name": "Throughout: Technical Descents",
-          "miles": "Throughout",
-          "description": "Loose gravel descents. Steep. Technical rating 4/5. Brake early.",
-          "survival_strategy": "38-42mm tires. Pick lines. Brake early. Technical."
+          "name": "Mountain gravel descents",
+          "miles": "Repeated",
+          "description": "Historical rider reports describe loose, slick gravel and sustained braking; the official course remains open to traffic.",
+          "survival_strategy": "Brake before corners, leave sight-line margin, and choose tires and pressure for control rather than a clean-road speed test."
         }
       ],
-      "signature_challenge": "10,000 ft / 100mi steep North Georgia mountains + technical descents.",
-      "ridewithgps_id": "45519300",
-      "ridewithgps_name": "Bootlegger 100 - With Cues",
-      "surface_breakdown": {
-        "overall": {
-          "gravel": 80,
-          "dirt": 20
-        }
-      }
+      "signature_challenge": "Approximately 7,250 feet of climbing across 85 miles, with Maple Sally Road and technical descents late enough to punish poor pacing.",
+      "ridewithgps_id": "49391158",
+      "ridewithgps_name": "Bootlegger - 85 Mile"
     },
     "history": {
-      "founded": "~2013",
-      "founder": "Unknown",
-      "origin_story": "Bootlegger 100 founded ~2013. Southeast gravel staple. 100 miles, 500-600 riders. North Georgia mountains. Dahlonega Georgia. Steep climbs, technical descents.",
+      "founded": "At least 2017 under the current results archive",
+      "founder": "Pisgah Productions",
+      "origin_story": "Pisgah Productions operates Bootlegger as a timed road/gravel event and as part of the King and Queen of Pisgah points series. The official results archive reaches back to 2017.",
       "notable_moments": [
-        "2023: Warm, dry (60-75°F)",
-        "2024: Variable, some rain (55-70°F)"
+        "2023: the long course was still roughly 107 miles and 10,600 feet in a rider report",
+        "2026: the organizer recorded separate 85-mile and 58-mile results",
+        "2027: the 85-mile and 58-mile edition opened registration for April 17"
       ],
-      "reputation": "Southeast gravel staple. North Georgia mountains. 10,000 ft. 15-20% DNF."
+      "reputation": "A long-running Western North Carolina mountain-gravel race known for Wilson Creek Gorge, Maple Sally Road, sustained climbing, and difficult descents."
     },
     "research_metadata": {
-      "data_confidence": "researched",
-      "validation_status": "pending",
+      "data_confidence": "official 2027 date, registration, long-course distance, climbing, schedule, rules, and venue verified",
+      "validation_status": "source_ready_for_2027_plan",
+      "next_edition_status": "build_ready",
+      "known_gap": "The organizer links 2026-labeled GPX downloads from the 2027 page; final 2027 rider communications override any route-file or schedule change.",
       "sources": [
-        "cursor_web_search"
+        "https://www.pisgahproductions.com/events/bootlegger-100/",
+        "https://www.bikereg.com/bootlegger-2027",
+        "https://ridewithgps.com/routes/49391158",
+        "https://ridewithgps.com/routes/46261937"
       ],
-      "research_date": "2026-02-04",
+      "research_date": "2026-08-14",
       "research_strength": {
         "overall": 96.1,
         "grade": "A",
@@ -161,8 +174,18 @@
           "completeness": 94,
           "cross_reference": 100
         },
-        "scored_at": "2026-02-04"
+        "scored_at": "2026-08-14"
       }
+    },
+    "eligibility": {
+      "status": "active",
+      "race_plan_eligible": true,
+      "status_note": "Pisgah Productions confirms a timed 2027 gravel race with registration open, two scored distances, current course demands, rules, schedule, and results history. This is distinct from the unrelated Georgia trail-running event using the old bootlegger100.com domain."
+    },
+    "source_review": {
+      "reviewed_at": "2026-08-14",
+      "race_date": "2027-04-17",
+      "facts_scope": "The organizer confirms the April 17, 2027 timed cycling race, open registration, 85-mile / approximately 7,250-foot long course, 58-mile / approximately 4,500-foot short course, Lenoir venue, schedule, support rules, and Maple Sally Road identity. The organizer-linked GPX downloads remain labeled 2026, so final 2027 rider communications override route-file or schedule changes. Facts from the unrelated Georgia trail-running event must not be used."
     },
     "biased_opinion_ratings": {
       "logistics": {
@@ -170,20 +193,20 @@
         "explanation": "Jason Lopez notes \"the course was clearly marked with orange course making tape and big orange signs with arrows\" and praises well-stocked aid stations plus post-race burritos. Lenoir offers municipal parking lots where \"Car/Van/RV camping\" is allowed, with packet pickup Friday evening and Saturday morning. RFID timing and police-escorted neutral rollout show solid operational foundation."
       },
       "length": {
-        "score": 4,
-        "explanation": "107 miles with 10,604 feet of climbing creates the distance-elevation combination that defines mountain gravel suffering. Jason Lopez's 8 hours 18 minutes moving time reflects how the vertical gain transforms what looks manageable on paper into an all-day expedition. The 58-mile option at 4,500 feet provides a more digestible but still substantial alternative. Longer than Belgian Waffle Ride San Diego. As Jason Lopez puts it: \"It was a long journey of almost 107 miles and 10604 ft of elevation gain. Total moving time was 8 hrs and 18 mins. The day started out a bit rainy and chilly but warmed up to a nice 58 F.\""
+        "score": 3,
+        "explanation": "The official 2027 long course is 85 miles, with a 58-mile alternative. That is a substantial endurance day without the ultra-distance scale of the retired 100-plus-mile alignment. Approximately 7,250 feet of climbing keeps the 85 meaningfully harder than its mileage alone suggests."
       },
       "technicality": {
         "score": 4,
         "explanation": "K-Dogg describes descents with \"dump trucks of marbles strewn everywhere\" that caused hand cramps from \"desperately clutching the brakes.\" Maple Sally Road delivers \"17 miles of fiendish up and down\" with gradients reaching 21%, while Jason Lopez notes technical descents made \"slick in a lot of places\" after overnight rain create serious bike handling demands. More technical than most — comparable to Belgian Waffle Ride San Diego."
       },
       "elevation": {
-        "score": 5,
-        "explanation": "10,000 feet over 100 miles in North Georgia mountains - this is vertical punishment. The Appalachian terrain delivers relentless climbing through technical mountain roads that test every system. No fake elevation here; every foot climbed is earned through steep, sustained grades that expose fitness pretenders. Among the hilliest in gravel, comparable to Badlands. As Jason Lopez puts it: \"It was a long journey of almost 107 miles and 10604 ft of elevation gain. Total moving time was 8 hrs and 18 mins. The day started out a bit rainy and chilly but warmed up to a nice 58 F.\""
+        "score": 4,
+        "explanation": "The organizer publishes approximately 7,250 feet of climbing for the 85-mile course and 4,500 feet for the 58. The long route reaches the Grandfather Ranger District and Maple Sally Road, making sustained climbing and repeatable low-cadence power central rather than incidental."
       },
       "climate": {
         "score": 3,
-        "explanation": "Weather swings from the 2023 race starting \"rainy and chilly\" before warming to 58°F, to 2018's \"near perfect\" conditions, to unseasonable 90-degree heat causing high DNF rates in other years. Spring mountain weather in North Carolina creates unpredictable conditions that can shift dramatically during the 8+ hour suffer session, though rarely approaching true extremes. Similar climate challenges to SBT GRVL."
+        "explanation": "A 2023 cycling race report describes a rainy, chilly start followed by warmer conditions, and notes that overnight rain made descents slick. Mid-April weather in the North Carolina foothills can materially change traction and clothing needs without creating a dependable extreme-heat or cold protocol."
       },
       "altitude": {
         "score": 1,
@@ -191,7 +214,7 @@
       },
       "adventure": {
         "score": 4,
-        "explanation": "Wilson Creek Gorge puts you deep into North Georgia mountain isolation where cell service dies and self-reliance matters. The terrain creates adventure through challenging mountain roads far from suburban comfort. This isn't manufactured adventure - it's real mountain gravel that demands respect for the environment and your limitations."
+        "explanation": "Wilson Creek Gorge, the Grandfather Ranger District, and Maple Sally Road take the race well beyond a generic downtown fondo. The no-outside-support rule makes riders carry their own contingencies through long mountain sectors, while stocked organizer rest areas keep it short of expedition racing."
       },
       "prestige": {
         "score": 3,
@@ -199,11 +222,11 @@
       },
       "race_quality": {
         "score": 4,
-        "explanation": "Pisgah Productions knows how to put on events - they've built a series around this terrain for a reason. Wilson Creek Gorge delivers the goods with challenging, rugged gravel routes that separate pretenders from contenders. Course design leverages North Georgia's natural brutality effectively, though execution details remain frustratingly opaque. As Larry B. puts it: \"The ride/race itself you couldn't ask for a better organized ride. All the turns were marked either with an arrow and or orange flagging tapping hanging from the trees before the turns and on stakes o...\""
+        "explanation": "The official 2027 page publishes a full schedule, separate sign-in/start/finish locations, marked turns, police and sheriff traffic control, stocked rest areas, RFID timing, live results, awards, route links, and a post-race meal. That is a stronger operational record than the event's modest profile suggests."
       },
       "experience": {
         "score": 4,
-        "explanation": "10,000 feet of climbing over 100 miles through North Georgia mountains creates the kind of suffering that bonds riders for life. The Dahlonega setting puts you deep in Appalachian isolation where the terrain does the talking. This isn't a social ride - it's an examination of your relationship with pain. As Jason Lopez puts it: \"Epic! The best way to describe the whole experience is Epic. From the views, the course, and the Pisgah Productions hosting.\""
+        "explanation": "Downtown Lenoir gives way to Wilson Creek Gorge, Grandfather Ranger District gravel, and Maple Sally Road before a downhill finish back in town. The landscape, difficult descending, and mountain accumulation give the event a coherent identity instead of a collection of anonymous gravel miles."
       },
       "community": {
         "score": 4,
@@ -211,21 +234,21 @@
       },
       "field_depth": {
         "score": 3,
-        "explanation": "With a field of 500-600 riders, regional draw with solid Southeast representation but limited national pull. The terrain self-selects for experienced riders, so you won't deal with weekend warriors clogging singletrack. Field quality over quantity, though the absolute top tier typically saves legs for bigger paydays. Similar competitive depth to Rule of Three."
+        "explanation": "The organizer publishes extensive age, open, junior, singlespeed, and tandem categories with timed results, but does not publish a 2027 field cap or current entrant count. Historical results show a serious regional racing field; there is not enough current evidence to claim national-level depth."
       },
       "value": {
         "score": 4,
-        "explanation": "You're paying for 100 miles of North Georgia mountain punishment - that's substantial course for the money. Pisgah Productions delivers real terrain challenges without the inflated pricing of marquee events. The suffering-per-dollar ratio favors riders who value substance over spectacle."
+        "explanation": "BikeReg lists $105 for either the 85- or 58-mile race. That buys timing, stocked rest areas, course marking, traffic control, awards, and post-race food. The value is strongest on the 85; charging the same fee for the 58 is the obvious counterpoint."
       },
       "expenses": {
         "score": 3,
-        "explanation": "Registration runs $100-$150. Lenoir's mountain location requires driving for most participants, though the city allows free RV camping in municipal parking lots. Riders report equipment considerations like \"different gearing\" for the massive elevation gain and required front/rear lights. Mountain town lodging and food costs during event weekend add up, though Lenoir lacks resort-level pricing. Similar expense level to Belgian Waffle Ride San Diego."
+        "explanation": "The $105 entry is moderate, and designated downtown lots permit self-contained vehicle camping at no added lodging cost. Most riders will still need a car, and the course rewards suitable tires, brakes, and low gearing, but Lenoir avoids destination-resort pricing."
       }
     },
     "final_verdict": {
-      "score": "70 / 100",
+      "score": "71 / 100",
       "one_liner": "Wilson Creek Gorge will eat your lunch and serve it back with a side of North Carolina suffering.",
-      "should_you_race": "You need proper gravel legs and mechanical confidence before diving into Pisgah Productions' playground. The terrain doesn't negotiate, and being 100 miles deep in the NC mountains isn't the place to discover your limits. Show up undertrained and you'll spend more time walking than riding.",
+      "should_you_race": "Bring climbing durability, disciplined fueling, dependable brakes, and real gravel-descending confidence. The official long course is now 85 miles rather than 100-plus, but 7,250 feet and Maple Sally Road still expose anyone who treats the first half like a short race.",
       "alternatives": "Dirty Kanza offers similar distance with less technical punishment if you prefer power over bike handling. For the full Appalachian experience without quite this level of commitment, try Trans-Sylvania Epic's individual stages.",
       "alternative_slugs": [
         "trans-sylvania-epic",
@@ -234,69 +257,39 @@
     },
     "citations": [
       {
-        "url": "https://ridewithgps.com/routes/45519300",
-        "category": "route",
-        "label": "RideWithGPS: Bootlegger 100 - With Cues"
+        "url": "https://www.pisgahproductions.com/events/bootlegger-100/",
+        "category": "official",
+        "label": "Pisgah Productions — 2027 date, routes, climbing, schedule, rules, venue, support, and results"
       },
       {
-        "url": "https://endokimberly.wixsite.com/risingruncoaching/post/race-report-bootlegger-bananza",
-        "category": "other",
-        "label": "Endokimberly"
+        "url": "https://www.bikereg.com/bootlegger-2027",
+        "category": "registration",
+        "label": "BikeReg — 2027 registration, categories, distances, fee, and deadline"
+      },
+      {
+        "url": "https://ridewithgps.com/routes/49391158",
+        "category": "route",
+        "label": "Organizer-linked Ride with GPS — 85-mile route"
+      },
+      {
+        "url": "https://ridewithgps.com/routes/46261937",
+        "category": "route",
+        "label": "Organizer-linked Ride with GPS — 58-mile route"
       },
       {
         "url": "https://jaylocycling.com/2023-bootlegger-100-gravel-race-report/",
-        "category": "other",
-        "label": "Jaylocycling"
-      },
-      {
-        "url": "https://reddit.com/r/gravelcycling/comments/bootlegger-100",
-        "category": "community",
-        "label": "Reddit"
-      },
-      {
-        "url": "https://tennesseevalleyoutsider.com/tvo-roundup-bootlegger-100-savage-gulf-50k-and-new-notes/",
-        "category": "other",
-        "label": "Tennesseevalleyoutsider"
+        "category": "rider_report",
+        "label": "JayLo Cycling — historical long-course conditions, pacing, climbing, and descents"
       },
       {
         "url": "https://www.cxmagazine.com/bootlegger-100-gravel-race-recap-video-winner-interviews-reid-beloni-nina-laughlin-cyclocross-magazine",
         "category": "media",
-        "label": "CX Magazine"
-      },
-      {
-        "url": "https://www.granfondoguide.com/Events/Index/5352/the-bootlegger-100-proof-dirt-road-ride",
-        "category": "other",
-        "label": "Granfondoguide"
-      },
-      {
-        "url": "https://www.pisgahproductions.com/events/bootlegger-100/",
-        "category": "other",
-        "label": "Pisgahproductions"
-      },
-      {
-        "url": "https://www.reddit.com/r/bicycling/comments/7y2995/anyone_ridden_the_bootlegger_100/",
-        "category": "community",
-        "label": "Reddit"
+        "label": "Cyclocross Magazine — historical race conditions and winners"
       },
       {
         "url": "https://www.reddit.com/r/gravelcycling/comments/1bbq2k6/western_nc_bootlegger_100_tire_advice/",
-        "category": "community",
-        "label": "Reddit"
-      },
-      {
-        "url": "https://www.reddit.com/r/gravelcycling/comments/f2b4o3/registration_is_now_open_for_the_2020_bootlegger/",
-        "category": "community",
-        "label": "Reddit"
-      },
-      {
-        "url": "https://runthequay.itsyourrace.com/event.aspx?id=16622",
-        "category": "community",
-        "label": "runthequay.itsyourrace.com: Event.Aspx"
-      },
-      {
-        "url": "https://www.youtube.com/watch?v=Reewk_IYRtY",
-        "category": "community",
-        "label": "youtube.com: Watch"
+        "category": "forum",
+        "label": "Gravelcycling discussion — tire choice for Western North Carolina conditions"
       }
     ],
     "tire_recommendations": {
@@ -357,222 +350,11 @@
       }
     },
     "youtube_data": {
-      "researched_at": "2026-02-23",
-      "search_query": "Bootlegger 100 gravel race Dahlonega",
-      "videos": [
-        {
-          "video_id": "xSmOhfzpeo4",
-          "title": "9 Essential Tips for Riding your First Gravel Race (avoid my mistakes!)",
-          "channel": "David Arthur - Just Ride Bikes",
-          "view_count": 20576,
-          "upload_date": "20250521",
-          "duration_string": "9:41",
-          "description": "I took part in my first UCI level gravel event and learnt a few lessons along the way, and also spoke to some pro gravel riders about what advice, tips and wisdom they can share with people doing their first ever gravel race or event. \n\nContent\n00:00 My mistakes and lessons\n3:41 Pro advice to riding first gravel event\n\nRecommended products:\n\nGet the new Insta360 X4 here https://store.insta360.com/product/x4?utm_term=INRS1KM\nBuy Bikestow Stance stand here https://bit.ly/3LSZQXZ\nCastelli clothing  https://bit.ly/justridebikes\nSidi shoes https://bit.ly/3tjQ8UP\nHJC helmet https://bit.ly/3sRiB2Z\n\nJoin this channel to get access to perks:\nhttps://www.youtube.com/channel/UCybgi4WCjGaoEEVjB7tBfCg/join\n\nJOIN MY WEEKLY NEWSLETTER http://eepurl.com/inIvGk\n\nFollow me:\nInstagram: https://www.instagram.com/davidjarthur/\nTwitter: https://twitter.com/davearthur\nFacebook: https://www.facebook.com/justridebikesvideo",
-          "tags": [
-            "cycling",
-            "bikes",
-            "road bikes",
-            "gravel bikes",
-            "mountain bikes",
-            "tech",
-            "reviews",
-            "bike reviews",
-            "cycling reviews",
-            "bicycles",
-            "cycles",
-            "gravel",
-            "Tour de France",
-            "carbon bikes",
-            "aluminium bikes",
-            "steel bikes",
-            "what road bike",
-            "what gravel bike"
-          ],
-          "url": "https://www.youtube.com/watch?v=xSmOhfzpeo4",
-          "transcript": "Hello viewers. So I've just survived my\nfirst ever UCI gravel event just about\nit was a close call at times but I got\naround in mostly one piece and I\ndefinitely learned a few lessons and\nmade some mistakes along the way which\nI'll share in today's video. And also\nwe're here for some actual pros and more\nexperienced gravel cyclists about the\ntips and wisdom they can share with us\nall today which is especially important\nif you are doing your first ever gravel\nrace event or sportive. Better to learn\nfrom other people's mistakes than make\nthem yourself. So before we hear from\nthe pros, let me share my experience\nfrom riding the GRIC in Scotland at the\nweekend and the mistakes I made and the\ntips I would share with you based on my\nexperience. The first one is don't start\ntoo fast. I made the mistake of getting\ncaught up in the race for the first\ncorner, the first climb, and going way\nharder than I had planned. I'm a I'm a\nsucker for getting carried away at the\nstart of a race. And it was made\nespecially tough because we weren't able\nto warm up before the race. So going\nfrom standill to full gas in a matter of\nseconds was very tough on my old body.\nSo I would recommend a warm up before\nthe race or event if you can which\nwasn't available at the gratic because\nwe had to line up in our age pens about\n45 minutes before the start. So we stood\naround for ages with cold legs. So that\nmade it really tough. So given that cold\nstart, I would should have gone for a\nslightly more relaxed start. But I know\nthe importance of getting a good start,\nnot getting held up in traffic in the\nsort of pinch points through town and\ninto the first climb. And my aim was to\nget a good start and then provide some\nsliding space on the first climb, which\nI definitely did slide. I slid a long\nway back on that first climb as my my\nbody was screaming at me, my heart rate\nthrough the roof, and my glutes were\nshouting at me very loudly because of\nwhat I was asking from them from a cold\nstart. So unless you're racing to win,\nwhich I wasn't, and you are just racing\nto finish, maybe don't be so caught up\nin the start line pandemonium and ride\nto your own heart rate. Right to power\nif you have a power meter on your bike\nand try and pace yourself better than I\ndid on the first climb. I have a big\nmistake, the biggest one I regret is\ngoing higher on the tire pressures than\nI would normally do. I was freaked out\nby people punchering on the recon and my\nown experience of the recon and\nrealizing the gravel in Scotland in this\narea of Scotland is way tougher and way\nharder than anywhere I experienced in my\nlife. So to minimize the risk of\npunching even running tubeless because\neven with no inner tube to pinch with\ntubeless you can still pinch the tire\nsidewalls between a rock and a rim and\nit's also damaging the rims to be\nconscious about as well. So I went\nhigher on the tire pressures to minimize\nthe risk of a failure. But in doing so,\nI minimized the amount the tire can\ndeform on a rough ground and minimize\nhow much suspension I effectively had.\nAnd my arms just couldn't cope with the\nrelentless pounding over 4 hours of\nracing. So I should have stuck to my\nguns. as stuck to low pressures I know\nwork for me and relied on my faith in my\nequipment choices on the day and not be\ndeterred by what's happening around me\non the the day before the race. Those\nthen are the mistakes I made and the\ntips I take away from my first ever UCI\ngravel race. But now, let's hear from\nsome actual gravel pros who did much\nbetter in a race than I did and some\nmuch more experienced and seasoned\ngravel riders about the tips and wisdom\nthey can share with us in today's video.\nI would definitely say make sure to take\ncare of your equipment in this race\nespecially cuz it it's pretty rocky.\nIt's pretty chunky out there and a lot\nof people's races ended last year like\nmine last year ended just with like a a\nbig hit and I just was using wheels that\nweren't strong enough. Um so you broke\nyour wheels. I broke my front wheel.\nOkay. So, I kind of had to limp home the\nlast 15k or so and my race is done. Like\nI just stopped thinking I had a flat and\nI stopped and sealant was coming through\nthe rim. Uh so, so that was a pretty\nthat was pretty bad. But yeah, I would\nsay yeah, have your uh equipment dialed\nand when in doubt or there's a a classic\nsaying in Canada at least like it's\nbetter to be looking at it than looking\nfor it. So, it's better to have in this\nrace like a bit wider tires, having foam\ninserts, a little bit lower pressure\njust because yesterday if you're like\nwith road you're everyone's nickeling\nand dimming like oh I got I have to have\nthese aeros socks I have to have this\nhelmet's faster than this helmet where\ngravel it's like well we're going to\naverage 30 odd tomorrow and it's half up\nhalf down and like the aerodynamics on a\ndownhill are less important and uphill\nyou're going 20k an hour and it's it's\nbetter just to have maybe a couple more\nwatts here and there but have like a\nreally a bike you can trust\nI think is really key. And then for\nnutrition, it's just keep getting it in.\nI'm going to use the uh Castelli has\nlike a a hydro pack for the back. So\nlast year there was bottles being\njettisoned all over the course on some\nof the rockier downhills. So I just have\nthe hydro bag. So I'm like, \"Okay, got\nthe foam inserts. I got the wide tires.\nMy all the liquid I need is on my back.\nSo if I lose a bottle, it's like, okay,\nI have enough water, the bare minimum on\nmy back to get me through the whole\nrace.\" Um especially because Grow\nit's very nature conscious and they\ndon't want people driving all over in\nthe national park here.\nUm it's it's good to just make sure you\nhave the stuff you need at the start.\nHave a bike you can trust and not like\nnot risk it cuz it's a it's a long lot a\nlong way to come up here to Scotland and\nrun too narrow of tires or road pedals\nor something where it's like oh that\nbroke my race is done. My day is done.\nSo that would be my advice is\nplay it safe. for food and for\nequipment. We're here at the Grow. Yes.\nWhat one bit of advice would you give to\nsomebody doing their first gravel event,\nwhether racing or just riding for fun?\nIs there one bit of advice that you\nwould offer them or mistakes to avoid?\nUh bike setup or nutrition or casing?\nWhat's the thing? Can I give two? You\ncan give two. Yeah, of\ncourse. A lot of salt on board cuz you\nespecially like it's I mean it's\nprobably about 50° right now. You will\nlose so much salt. get salt tablets in\nyou. I think that's a thing that a lot\nof people just don't do correctly anyway\nwhen they're hydrating is like you need\nsalt as well as water to be able to\nhydrate. So take on salt. Uh and my\nsecond one would be put the biggest\ntires you can on your bike cuz like in\nterms of comfort makes a massive\ndifference. A third one use a tire\npressure calculator. Stra do one,\nWolftooth do one. They are really good\nat giving you an idea of what kind of\npressures you should be running and\nit'll probably come out a lot lower than\nyou think, especially if you're coming\nfrom more of a road background. Uh, but\ntrust the process. Take a little bit out\nevery time and the confidence it will\ngive you is unbelievable. I I I mean I I\ndid the\nthe Flanders Sport what a month or so\nago and I ran 32s\non a Argon 18 Krypton which is their\nlike all road bike and I ran 30 PSI.\nWow. Okay, that's low. Yeah, I had I had\na great time. And on this I'm running\n20. Please put your hands\ntogether to 54. I mean I just went that\nfeels about right. That'll do. I did\ncheck it. Yeah, about two days ago. But\nlower better generally. Lower is\ngenerally scared going low. Yeah,\nexactly. I think I think a lot of people\nare quite nervous about that, but it\nwill really change your experience a\nlot, I think. And it will give you a lot\nmore confidence, especially especially\ndescending some of the rough stuff. It\nreally does change that. Hi, I'm Toby\nPerry and I'm from Ashford, Kent. And\nwhat bit of advice would you give to\nsomebody doing gravel for the first\ntime? I'd say just be confident and\ntrust your bike because it can do a lot\nmore than you think. That simple. Yeah.\nYeah. do that. Everyone gets really\nnervous and twitchy and when you tense\nup is when you crash and have problems.\nSo, as long as you're calm, you end up\nbeing fine. What give you like bike\nsetup equipment choices, gearing, tires?\nUh, slightly wider tires is always just\nnice for extra bit of grip and that and\njust gives extra bit of comfort. So,\nyeah, it fits like biggest tires you can\nfit on your bike normally and see what\nsee what you enjoy. just checking\neverything's tight and the amount of\npeople I see with like just their shoe\ncleat that come loose after two hours of\ngravel and I have I've had it happen to\nme where my cleat and I've lost the\ncleat bolt. So just checking\neverything's at the right torque, the\nright settings and that's how I can only\nsay to people prepare your bike. Like\njust\ndon't just think, oh yeah, it's tires\nand everything else. It's it's\neverything. My biggest tip would be\nimproving your bike handling skills. And\nI think this is the problem that most\nriders have when they're doing their\nfirst gravel event. It's not like road\nwhere there's a you can just pick any\nline. You need to look through the\ncorners, pick your lines very carefully.\nUh basically hits the apex and then exit\nthe corners. And yeah, always looking\nahead of you if there's any obstacles\ncoming up such as large rocks. You don't\nwant to be hitting those. So yeah, just\nimproving your confidence on the bike as\nmuch as possible. I think that would be\njust a general really good tip that a\nlot of people can improve from. So there\nwe are. Hopefully some useful tips and\nadvice if you are doing your first\ngravel event. And if you are, let us\nknow what event you're doing by dropping\na comment down below. And if you are\nwatching this and you have done some\ngravel events and you feel there's some\nadvice and tips that were missed in\ntoday's video, then feel free to drop a\ncomment down below. But that is all for\ntoday. I'll see you again very soon.\nThank you so much for watching.",
-          "curated": false
-        },
-        {
-          "video_id": "Jbmzi7cecBM",
-          "title": "Southern Cross 2017",
-          "channel": "Tim Anderson",
-          "view_count": 1169,
-          "upload_date": "20170309",
-          "duration_string": "8:54",
-          "description": "55 Mile Gravel Race put on by Mountain Goat Adventures outside of Dahlonega, GA.",
-          "tags": [],
-          "url": "https://www.youtube.com/watch?v=Jbmzi7cecBM",
-          "curated": false
-        },
-        {
-          "video_id": "dgNg_lqXVMo",
-          "title": "2020 Southern Cross Gravel",
-          "channel": "PedalBomba",
-          "view_count": 224,
-          "upload_date": "20200313",
-          "duration_string": "3:26",
-          "description": "Created with the #GoPro App on my iPhone.",
-          "tags": [],
-          "url": "https://www.youtube.com/watch?v=dgNg_lqXVMo",
-          "curated": false
-        },
-        {
-          "video_id": "2H6oYgvdn5g",
-          "title": "North Georgia Gravel Riding | North GA Out & Back",
-          "channel": "theBidon",
-          "view_count": 1062,
-          "upload_date": "20181113",
-          "duration_string": "4:50",
-          "description": "Riding gravel near Suches in North Georgia. \n\nWhile staying in a cabin up in Suches, Georgia, I was able to sneak away for an out and back ride in the early morning on 11/4. It turned out to be a great morning for riding. The leaves were fantastic and the weather was cool (it hovered around 38 degrees the entire time).   #gravelriding #gravelbiking #northgeorgia #northgagravel\n\nLet me know if you have any questions about the area I was riding in. \n\nAnd.. be sure to check out my website: thebidon.com\n\n\nMy Gear:\nAction Camera: http://s.click.aliexpress.com/e/b6PKmmH2\nSpexcel Cycling Apparel: http://s.click.aliexpress.com/e/b83458Cs\nBell Overdrive Helmet: https://amzn.to/2DC0pVO\nProfile Aerobars: https://amzn.to/2OFCHsP\n\n\n-thebidon",
-          "tags": [
-            "north ga",
-            "north georgia",
-            "georgia gravel",
-            "thebidon",
-            "the bidon",
-            "neverbikealone",
-            "gravel riding",
-            "xcl 29er"
-          ],
-          "url": "https://www.youtube.com/watch?v=2H6oYgvdn5g",
-          "curated": false
-        }
-      ],
-      "quotes": [],
-      "rider_intel": {
-        "extracted_at": "2026-02-23",
-        "key_challenges": [],
-        "terrain_notes": [
-          {
-            "text": "The gravel is way tougher and way harder than most places, described as pretty rocky and chunky terrain that causes relentless pounding over hours of racing.",
-            "source_video_ids": [
-              "xSmOhfzpeo4"
-            ]
-          }
-        ],
-        "gear_mentions": [
-          {
-            "text": "Don't go higher on tire pressures than normal despite the rocky conditions - stick to lower pressures you know work for you to maintain suspension and comfort over 4+ hours.",
-            "source_video_ids": [
-              "xSmOhfzpeo4"
-            ]
-          },
-          {
-            "text": "Make sure to use strong enough wheels because many riders' races end from big hits breaking inadequate wheels on the chunky terrain.",
-            "source_video_ids": [
-              "xSmOhfzpeo4"
-            ]
-          }
-        ],
-        "race_day_tips": [
-          {
-            "text": "Don't start too fast or get caught up in the race for the first corner and climb - pace yourself and ride to your own heart rate or power instead of getting carried away.",
-            "source_video_ids": [
-              "xSmOhfzpeo4"
-            ]
-          },
-          {
-            "text": "Try to warm up before the race if possible, as going from standstill to full gas without warming up is very tough on the body.",
-            "source_video_ids": [
-              "xSmOhfzpeo4"
-            ]
-          },
-          {
-            "text": "Take care of your equipment especially because the rocky, chunky terrain causes many race-ending mechanical failures.",
-            "source_video_ids": [
-              "xSmOhfzpeo4"
-            ]
-          }
-        ],
-        "additional_quotes": [
-          {
-            "text": "We had to line up in our age pens about 45 minutes before the start. So we stood around for ages with cold legs.",
-            "source_video_id": "xSmOhfzpeo4",
-            "source_channel": "David Arthur - Just Ride Bikes",
-            "source_view_count": 20576,
-            "category": "logistics",
-            "curated": true
-          }
-        ],
-        "search_text": "Riders describe this as an extremely challenging race with gravel that is way tougher and harder than most places, featuring rocky and chunky terrain that delivers relentless pounding over 4+ hours. The course causes many race-ending mechanical failures, particularly wheel breakages from big hits on the harsh surface. Key challenges include managing pacing from a cold start, as riders must line up in age pens 45 minutes before the start with no warm-up opportunity. The rocky conditions tempt riders to increase tire pressures, but experienced riders recommend sticking to lower pressures for better suspension and comfort. Equipment durability is crucial, with strong wheels being essential to survive the chunky terrain that ends many riders' races through mechanical failures."
-      }
+      "researched_at": "2026-08-14",
+      "search_query": "The Bootlegger gravel race Lenoir North Carolina",
+      "videos": [],
+      "quotes": []
     },
-    "photos": [
-      {
-        "type": "video-1",
-        "file": "bootlegger-100-video-1.jpg",
-        "url": "/race-photos/bootlegger-100/bootlegger-100-video-1.jpg",
-        "alt": "Cyclists racing on paved road with yellow centerline through bare winter forest during gravel race - Bootlegger 100 - Dahlonega, Georgia (North Georgia mountains)",
-        "credit": "YouTube / Tim Anderson",
-        "primary": true,
-        "ai_relevance": 5,
-        "ai_quality": 3,
-        "ai_keywords": [
-          "gravel race",
-          "forest road",
-          "winter cycling",
-          "peloton",
-          "paved section"
-        ]
-      },
-      {
-        "type": "video-2",
-        "file": "bootlegger-100-video-2.jpg",
-        "url": "/race-photos/bootlegger-100/bootlegger-100-video-2.jpg",
-        "alt": "Dirt gravel road winding through bare deciduous forest with rocky embankment during cycling race - Bootlegger 100 - Dahlonega, Georgia (North Georgia mountains)",
-        "credit": "YouTube / Tim Anderson",
-        "primary": false,
-        "ai_relevance": 4,
-        "ai_quality": 4,
-        "ai_keywords": [
-          "gravel road",
-          "forest trail",
-          "dirt path",
-          "wooded terrain",
-          "cycling course"
-        ]
-      },
-      {
-        "type": "video-3",
-        "file": "bootlegger-100-video-3.jpg",
-        "url": "/race-photos/bootlegger-100/bootlegger-100-video-3.jpg",
-        "alt": "Gravel cyclists racing in organized event with barrier fencing and spectators on sunny day - Bootlegger 100 - Dahlonega, Georgia (North Georgia mountains)",
-        "credit": "YouTube / Tim Anderson",
-        "primary": false,
-        "ai_relevance": 5,
-        "ai_quality": 4,
-        "ai_keywords": [
-          "gravel race",
-          "cycling event",
-          "race barriers",
-          "sunny weather",
-          "competitive cycling"
-        ]
-      },
-      {
-        "type": "preview-gif",
-        "file": "bootlegger-100-preview.gif",
-        "url": "/race-photos/bootlegger-100/bootlegger-100-preview.gif",
-        "alt": "Course preview from Bootlegger 100 race footage",
-        "credit": "YouTube / Tim Anderson",
-        "gif": true
-      },
-      {
-        "type": "preview-gif",
-        "file": "bootlegger-100-preview-2.gif",
-        "url": "/race-photos/bootlegger-100/bootlegger-100-preview-2.gif",
-        "alt": "Course preview from Bootlegger 100 race footage",
-        "credit": "YouTube / Tim Anderson",
-        "gif": true
-      },
-      {
-        "type": "preview-gif",
-        "file": "bootlegger-100-preview-3.gif",
-        "url": "/race-photos/bootlegger-100/bootlegger-100-preview-3.gif",
-        "alt": "Course preview from Bootlegger 100 race footage",
-        "credit": "YouTube / Tim Anderson",
-        "gif": true
-      }
-    ]
+    "photos": []
   }
 }

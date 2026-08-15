@@ -84,14 +84,15 @@ jobs:
           set -euo pipefail
           expected="/tmp/gg-race-page/$RACE_SLUG.html"
           live="/tmp/$RACE_SLUG.live.html"
-          for attempt in 1 2 3 4 5; do
+          for attempt in 1 2 3 4 5 6 7 8; do
             if curl -L --fail --silent --show-error --compressed \
-              "https://gravelgodcycling.com/race/$RACE_SLUG/?v=${GITHUB_SHA}-${GITHUB_RUN_ATTEMPT}" \
+              "https://gravelgodcycling.com/race/$RACE_SLUG/?v=${GITHUB_SHA}-${GITHUB_RUN_ATTEMPT}-${attempt}" \
               -o "$live" && cmp -s "$expected" "$live"; then
               echo "Exact race page is live (attempt $attempt)"
               exit 0
             fi
             echo "Attempt $attempt: live bytes do not yet match the deployed page"
+            sha256sum "$expected" "$live" || true
             sleep 10
           done
           echo "::error::Live race page did not match the scoped deployment"

@@ -3,684 +3,180 @@
     "name": "The Divide",
     "slug": "the-divide",
     "display_name": "The Divide",
-    "tagline": "Manistee National Forest gravel and two-track through northern Michigan.",
+    "tagline": "A steep, sandy northern-Michigan gravel race built around the Manistee forest roads.",
     "vitals": {
-      "distance_mi": 50,
-      "elevation_ft": 2500,
-      "location": "Manton, Michigan",
+      "slug": "the-divide",
+      "name": "The Divide",
+      "location": "Manton, Michigan, United States",
       "location_badge": "MANTON, MI",
-      "county": "Wexford County",
-      "date": "Late July annually",
-      "date_specific": "2026: July 26",
-      "terrain_types": [
-        "Michigan rolling",
-        "Local event",
-        "Midwest gravel",
-        "Michigan"
-      ],
-      "field_size": "50-100 riders",
-      "start_time": "9:00 AM at",
-      "registration": "Online. Cost: ~$50-75",
-      "prize_purse": "Modest prizes",
-      "aid_stations": "Limited aid stations",
-      "cutoff_time": "Varies",
-      "lat": 44.4108,
-      "lng": -85.3989
-    },
-    "climate": {
-      "primary": "Michigan summer",
-      "description": "Variable conditions.",
-      "challenges": [
-        "Variable weather",
-        "Humidity possible",
-        "Rolling terrain",
-        "Summer conditions"
-      ]
-    },
-    "terrain": {
-      "primary": "Michigan rolling gravel",
-      "surface": "Gravel roads through Michigan countryside. Moderate elevation with rolling scenery.",
-      "technical_rating": 2,
-      "features": [
-        "Moderate rolling (2500 feet)",
-        "Michigan countryside scenery",
-        "Local community event",
-        "50-mile distance",
-        "Small field"
-      ]
+      "date": "2027: July 25",
+      "date_specific": "2027: July 25",
+      "distance_mi": 52,
+      "elevation_ft": 4500,
+      "discipline": "gravel",
+      "month": "July",
+      "prestige": 1,
+      "overall_score": 51,
+      "tier": 3,
+      "start_time": "11:00 AM (current published schedule; verify for 2027)"
     },
     "gravel_god_rating": {
-      "overall_score": 40,
-      "tier": 4,
-      "tier_label": "TIER 4",
-      "logistics": 2,
-      "length": 2,
-      "technicality": 2,
-      "elevation": 2,
-      "climate": 2,
-      "altitude": 1,
-      "adventure": 2,
-      "prestige": 1,
-      "race_quality": 2,
-      "experience": 2,
-      "community": 2,
-      "field_depth": 1,
-      "value": 4,
-      "expenses": 3,
-      "score_note": "Local Michigan event. Rolling terrain with moderate access, low costs, and small local field.",
       "discipline": "gravel",
-      "display_tier": 4
-    },
-    "biased_opinion": {
-      "verdict": "Michigan Local Gravel",
-      "summary": "The Divide is a local event in Michigan—rolling terrain with moderate elevation. The Michigan countryside is nice and it's good value, but the small local field and limited organization keep it in Tier 4.",
-      "strengths": [
-        "Michigan countryside scenery",
-        "Good value",
-        "Local community",
-        "Low costs",
-        "Moderate access"
-      ],
-      "weaknesses": [
-        "Small local field only",
-        "Limited organization",
-        "Moderate terrain",
-        "Variable weather",
-        "No national draw"
-      ],
-      "bottom_line": "A solid local Michigan gravel race. Worth it for Michigan/Midwest riders. Not worth traveling for."
-    },
-    "final_verdict": {
-      "score": "40 / 100",
-      "one_liner": "Michigan local gravel challenge.",
-      "should_you_race": "If you're local to Michigan—yes, it's good value. If you're traveling—skip it.",
-      "alternatives": "For better Michigan races: Barry-Roubaix, Iceman Cometh.",
-      "alternative_slugs": [
-        "barry-roubaix",
-        "iceman-cometh"
-      ]
-    },
-    "logistics": {
-      "airport": "Traverse City (TVC) 45 minutes",
-      "lodging_strategy": "Manton has limited lodging options. Plan ahead.",
-      "food": "Manton has limited dining options. Stock nutrition.",
-      "packet_pickup": "Day of typically",
-      "parking": "At start/finish",
-      "official_site": "Check The Divide website"
-    },
-    "history": {
-      "founded": null,
-      "founder": "Local Michigan organizers",
-      "origin_story": "Local Michigan gravel event.",
-      "notable_moments": [],
-      "reputation": "Local Michigan event."
-    },
-    "course_description": {
-      "character": "Michigan rolling gravel.",
-      "suffering_zones": [
-        {
-          "mile": 15,
-          "label": "Early Rolling",
-          "desc": "First rolling sections.",
-          "terrain_detail": "Rolling",
-          "named_section": "Early Rolling"
-        },
-        {
-          "mile": 25,
-          "label": "Midpoint",
-          "desc": "Halfway through the course.",
-          "terrain_detail": "Midpoint",
-          "named_section": "Halfway"
-        },
-        {
-          "mile": 40,
-          "label": "Late Rolling",
-          "desc": "Final rolling sections before finish.",
-          "terrain_detail": "Late rolling",
-          "named_section": "Final Push"
-        }
-      ],
-      "signature_challenge": "Michigan rolling terrain.",
-      "ridewithgps_id": "51916854",
-      "ridewithgps_name": "THE DIVIDE: 2025 NEW 41 Mile Route"
-    },
-    "guide_variables": {
-      "race_name": "The Divide",
-      "race_distance": "50 miles",
-      "race_elevation": "2,500 feet",
-      "race_date": "Summer",
-      "race_location": "Manton, Michigan",
-      "race_terrain": "Michigan rolling gravel",
-      "race_weather": "Michigan summer variable",
-      "race_challenges": [
-        "Rolling terrain",
-        "Small local field",
-        "Variable weather",
-        "Limited organization",
-        "Moderate elevation"
-      ],
-      "altitude_section": false,
-      "altitude_feet": null
-    },
-    "non_negotiables": [
-      {
-        "requirement": "Weather preparation",
-        "by_when": "Week 4-6",
-        "why": "Michigan summer weather is variable."
-      },
-      {
-        "requirement": "Rolling endurance",
-        "by_when": "Week 6-8",
-        "why": "Michigan rolling terrain requires sustained effort."
-      },
-      {
-        "requirement": "Self-sufficiency",
-        "by_when": "Week 4-6",
-        "why": "Limited organization requires self-sufficiency."
-      }
-    ],
-    "research_metadata": {
-      "data_confidence": "moderate",
-      "validation_status": "pending",
-      "sources": [
-        "michigan_cycling_community"
-      ],
-      "migration_notes": [
-        "Generated from regional information"
-      ],
-      "research_strength": {
-        "overall": 89.2,
-        "grade": "A",
-        "weakest": "cross_reference",
-        "has_research_dump": true,
-        "dimensions": {
-          "source_diversity": 100,
-          "citation_density": 100,
-          "temporal_depth": 100,
-          "specificity": 100,
-          "statistical_backing": 100,
-          "voice_authenticity": 70,
-          "completeness": 76,
-          "cross_reference": 15
-        },
-        "scored_at": "2026-02-04"
-      }
-    },
-    "training_config": {
-      "workout_modifications": {
-        "weather_training": {
-          "enabled": true,
-          "weeks": [
-            4,
-            5,
-            6
-          ]
-        },
-        "rolling_endurance": {
-          "enabled": true,
-          "weeks": [
-            6,
-            7,
-            8
-          ]
-        },
-        "dress_rehearsal": {
-          "enabled": true,
-          "week": 8,
-          "day": "Saturday",
-          "duration_hours": {
-            "ayahuasca": 2,
-            "finisher": 3,
-            "compete": 4,
-            "podium": 5
-          }
-        }
-      },
-      "masterclass_topics": {
-        "priority_order": [
-          "pacing",
-          "fueling",
-          "weather",
-          "rolling"
-        ],
-        "race_specific": true,
-        "topics": {
-          "pacing": "Rolling terrain pacing",
-          "fueling": "Nutrition for rolling riding",
-          "weather": "Riding in variable Michigan weather",
-          "rolling": "Sustained rolling strategy"
-        }
-      },
-      "tier_overrides": {},
-      "marketplace_variables": {
-        "race_name": "The Divide",
-        "race_hook": "Michigan local gravel challenge.",
-        "race_hook_detail": "Local event with rolling terrain.",
-        "distance": "50",
-        "dark_mile": "25",
-        "non_negotiable_1": "Weather preparation",
-        "non_negotiable_2": "Rolling endurance",
-        "non_negotiable_3": "Self-sufficiency",
-        "trainingpeaks_url": null
-      }
+      "adventure": 3,
+      "altitude": 1,
+      "climate": 2,
+      "community": 3,
+      "elevation": 3,
+      "expenses": 4,
+      "experience": 3,
+      "field_depth": 1,
+      "length": 2,
+      "logistics": 2,
+      "prestige": 1,
+      "race_quality": 3,
+      "technicality": 3,
+      "value": 5,
+      "cultural_impact": 0,
+      "overall_score": 51,
+      "tier": 3,
+      "tier_label": "TIER 3"
     },
     "biased_opinion_ratings": {
-      "logistics": {
-        "score": 2,
-        "explanation": "Registration opens at 9:00 AM at Railroad Park in downtown Manton, with starts between 9:00-2:00 PM depending on the year. Christina Vipond praised organizers Jeff and Don: 'volunteers were stationed throughout the course to make sure racers stayed on course.' However, no parking, lodging, or packet pickup details are documented anywhere."
-      },
-      "length": {
-        "score": 2,
-        "explanation": "The 50-mile distance delivers what Jared Dunham called 'probably the most memorable 50 mile race course I've done so far... very hilly with some sand thrown in.' Three distance options (19/34/50 miles) mean beginners get their shorter route while the full distance provides substantial challenge without epic 100+ mile suffering. More compact than Grinduro."
-      },
-      "technicality": {
-        "score": 2,
-        "explanation": "Lachlan Morton ran Vittoria Terreno Dry 38mm tires at Unbound, while Alex Howes opted for the same setup without aerobars, noting 'he had it a lot harder than the guys who had mounted extensions.' The sandy two-track through Gilbert Corners keeps riders guessing about equipment choices, though skill and high-volume tires make the course rideable at speed. Less technical than The Mid South."
-      },
-      "elevation": {
-        "score": 2,
-        "explanation": "Matthew Lee gained strategic advantage in 2009 by 'beginning his climb up Richmond Peak at 5am whereas the others did not start until 5:45am.' All routes are described as 'very hilly' with El Diablo on E. 35 Rd. being 'both steep and long.' The 2500 feet over 50 miles creates consistent climbing without massive single ascents. Less climbing than The Mid South."
-      },
-      "climate": {
-        "score": 2,
-        "explanation": "Weather volatility defines the divide experience. In 2009, 'quarter-inch sized hail was beginning to be a near-daily occurrence for race leaders,' while other years saw riders awakening to 'frost covered bikes. Brrr!' The July timing puts riders into peak summer heat, though recent races moved start times earlier to avoid the worst temperatures. More weather exposure than Belgian Waffle Ride San Diego. As Weather-related challenges puts it: \"Due to the weather, racers are likely wearing through their drivetrains much faster than previous years, which will likely cause many of them to have to pre-maturely replace them once they get into Co...\""
+      "adventure": {
+        "score": 3,
+        "explanation": "Seasonal and forest roads around the Manistee National Forest, sandy sectors, and the rough Redneck Roughneck descent make the long route more adventurous than a standard county-road gravel loop."
       },
       "altitude": {
         "score": 1,
-        "explanation": "Manton, Michigan sits firmly in the Midwest flatlands with no meaningful elevation above sea level. The hills are real, but you're not getting any altitude training benefits or respiratory challenges here. Lower altitude than Gravel Worlds — no thin-air concerns."
+        "explanation": "Manton is a low-altitude race; the challenge comes from accumulated climbing and surface changes rather than thin air."
       },
-      "adventure": {
+      "climate": {
         "score": 2,
-        "explanation": "Giorgio Dalla Costa described his divide experience as accepting 'Art expressing herself spontaneously, without any compromise, traveling, dreaming, feeling free.' The course through Manistee National Forest includes the named Redneck Roughneck downhill and Amish Sawmill area, creating memorable character beyond typical gravel racing."
-      },
-      "prestige": {
-        "score": 1,
-        "explanation": "Started in 2015 as a fundraiser for Manton Public School's cross country and track teams, The Divide remains a regional Michigan Gravel Race Series event. Elite riders like Matthew Lee and Lael Wilcox race the Tour Divide, not this small-town Michigan fundraiser. No pro field, prize purse, or notable winners documented."
-      },
-      "race_quality": {
-        "score": 2,
-        "explanation": "Three distance options and thoughtful course design with named features like El Diablo and Gilbert Corners show someone cares. Michael Hodges noted courses are 'marked to perfection, aid stations are well stocked' with 'that good ol' races with the old school ultra vibe.' The Outer Loop alternates direction annually, which most organizers wouldn't bother with."
-      },
-      "experience": {
-        "score": 2,
-        "explanation": "The mix of forest roads and sandy two-track through Amish territory creates memorable character. Bethany described divide terrain where 'the road was a little boggy but it was worth it, the views were some of the best of the entire Divide.' However, starting from a small Michigan railroad park limits the overall experience compared to destination events."
+        "explanation": "Late July in northern Michigan can be warm and humid, but the organizer does not present climate as the race's defining hazard."
       },
       "community": {
-        "score": 2,
-        "explanation": "Being part of the Michigan Gravel Race Series means there's a regional scene that shows up consistently. Flint and Scarlet Zeigler emphasized how divide experiences create lasting bonds: 'heartfelt bridges are built again' through shared challenges. The fundraiser nature and team discounts suggest they're trying to build something beyond just racing."
+        "score": 3,
+        "explanation": "The Divide is part of the Michigan Gravel Race Series, supports Manton school athletics, and offers returning-rider and team discounts, giving the small event a real regional community role."
+      },
+      "elevation": {
+        "score": 3,
+        "explanation": "The organizer publishes more than 4,500 feet of climbing for the 52-mile long course, a high climbing density for a race of this length."
+      },
+      "expenses": {
+        "score": 4,
+        "explanation": "A small-town Michigan venue and unusually low entry fees keep the total weekend cost below most destination gravel races."
+      },
+      "experience": {
+        "score": 3,
+        "explanation": "Downtown Manton, national-forest roads, substantial climbing, sandy sectors, and named course features give the race a distinct northern-Michigan identity even without a destination-scale festival."
       },
       "field_depth": {
         "score": 1,
-        "explanation": "Hunter Post won his age group with 4th overall, while Terry Ritter took 1st in 50+ class, indicating thin competitive depth across categories. Michael Hodges finished 13th 'just 1:40 behind 9th place' in a different divide race, suggesting modest field sizes where top-10 finishes are achievable for recreational racers. Thinner field than Ouray Gravel Grinder. As Weather-related challenges puts it: \"Due to the weather, racers are likely wearing through their drivetrains much faster than previous years, which will likely cause many of them to have to pre-maturely replace them once they get into Co...\""
+        "explanation": "Age groups and multiple equipment categories broaden participation, but the organizer publishes no evidence of a nationally deep elite field."
+      },
+      "length": {
+        "score": 2,
+        "explanation": "The long course is 52 miles, with 23- and roughly 32-mile alternatives for shorter categories."
+      },
+      "logistics": {
+        "score": 2,
+        "explanation": "The organizer gives a downtown start, packet-pickup window, start order, and pricing, but the final 2027 registration, route, aid, cutoff, and rider documents are not yet published."
+      },
+      "prestige": {
+        "score": 1,
+        "explanation": "The race has run since 2015 and belongs to the Michigan Gravel Race Series, but its reputation remains regional."
+      },
+      "race_quality": {
+        "score": 3,
+        "explanation": "Multiple distances, mass starts, age groups, timing, course marking, and more than a decade of production support a solid regional race, while the 2026 flood cancellation leaves the final return course unproven."
+      },
+      "technicality": {
+        "score": 3,
+        "explanation": "The organizer describes gravel, seasonal and forest roads, sandy spots, and a rougher downhill; skill and higher-volume tires matter even though the course is designed to remain rideable at speed."
       },
       "value": {
-        "score": 4,
-        "explanation": "Three distance options, team discounts, and a thoughtfully designed course through national forest territory without premium destination pricing. Alexandera Houchin's singlespeed record attempt shows divide racing rewards preparation over expensive equipment. The 50-mile option delivers real mileage for whatever they're charging while supporting local school athletics."
+        "score": 5,
+        "explanation": "Even the long-course entry combines a low base fee with a modest distance surcharge, delivering 52 timed miles and 4,500-plus feet of climbing for unusually little money."
       },
-      "expenses": {
-        "score": 3,
-        "explanation": "Registration runs $50-75. Manton, Michigan keeps lodging and food costs reasonable compared to tourist destinations. Equipment requirements stay modest - riders have suggested 'tires in the mid 32-38cc and up' without exotic gear needs. Entry fees aren't documented, but the fundraiser nature and regional scope likely keep costs accessible for Michigan riders. Similar expense level to Belgian Waffle Ride San Diego."
+      "cultural_impact": {
+        "score": 0,
+        "explanation": "The Divide is a durable piece of Michigan's regional gravel calendar rather than a race with broader national influence."
       }
+    },
+    "course_description": {
+      "character": "A compact but climbing-dense long course on hilly gravel, seasonal roads, forest roads, and sandy northern-Michigan terrain.",
+      "suffering_zones": [
+        {
+          "label": "Outer Loop climbs",
+          "description": "The organizer places the largest hills on the Outer Loop used by the medium and long courses."
+        },
+        {
+          "label": "Sandy forest roads",
+          "description": "Northern Michigan's sand base can interrupt momentum and punish poor line choice or overly narrow tires."
+        },
+        {
+          "label": "Redneck Roughneck",
+          "description": "The named rougher downhill requires controlled braking and attention after repeated climbing."
+        }
+      ],
+      "signature_challenge": "Manage more than 4,500 feet of climbing in 52 miles without losing speed or composure on sandy forest-road transitions."
+    },
+    "logistics": {
+      "overview": "The organizer plans to return in 2027 after flooding forced cancellation of the 2026 race. The published annual rule places the return on Sunday, July 25, 2027; final 2027 registration and rider documents remain pending.",
+      "official_site": "https://hardracingevents.com/events/the-divide/events/the-divide/",
+      "registration_url": "https://michianatiming.com/",
+      "accommodation": "Manton has limited lodging; Traverse City and Cadillac provide broader options.",
+      "getting_there": "The race starts in downtown Manton, about 45 minutes by road from Traverse City.",
+      "parking": "The organizer directs riders to Manton High School with overflow at the school's athletic complex.",
+      "spectator_info": "The start and finish are at Railroad Park in downtown Manton."
+    },
+    "climate": {
+      "overview": "Late-July northern Michigan weather can combine summer warmth, humidity, and changing conditions.",
+      "wind_conditions": "Forest cover limits sustained exposure, though open connectors can still be windy.",
+      "altitude_effects": "No altitude acclimatization is expected."
+    },
+    "terrain": {
+      "surface_breakdown": {
+        "paved": null,
+        "gravel": null,
+        "other": null
+      },
+      "terrain_overview": "The organizer describes gravel, seasonal, and forest roads with sandy spots and one rougher downhill.",
+      "key_features": "52 miles, more than 4,500 feet of climbing, the Outer Loop hills, sandy sectors, and the Redneck Roughneck descent."
+    },
+    "history": {
+      "overview": "The Divide began in 2015 as a regional gravel race in Manton and became part of the Michigan Gravel Race Series. Historic flooding closed enough back roads to force cancellation in 2026, and the organizer announced a planned 2027 return.",
+      "founded": 2015,
+      "notable_editions": "The 2026 edition was cancelled because flood-damaged back roads remained closed.",
+      "growth_trajectory": "The event remains a deliberately affordable regional race with three distances and multiple bike categories."
+    },
+    "final_verdict": {
+      "one_liner": "A short, steep, sandy Michigan race that delivers exceptional local value.",
+      "best_for": "Midwest riders who want a climbing-dense gravel race with forest-road texture and low entry cost.",
+      "not_ideal_for": "Riders seeking a large national field, a destination festival, or a long-course route already finalized for 2027.",
+      "pro_tip": "Train repeated short climbs and sand handling, then verify the repaired-road route before choosing tires or locking race-day pacing."
     },
     "citations": [
       {
-        "url": "https://ridewithgps.com/routes/51916854",
-        "category": "route",
-        "label": "RideWithGPS: THE DIVIDE: 2025 NEW 41 Mile Route"
+        "url": "https://hardracingevents.com/events/the-divide/events/the-divide/",
+        "title": "The Divide - Official Race Page",
+        "snippet": "The organizer defines the race as an annual last-Sunday-of-July event and publishes the 52-mile long course, 4,500-plus feet of climbing, 11:00 start, terrain, pricing, parking, and race format.",
+        "category": "official",
+        "label": "Official Race Page"
       },
       {
-        "url": "https://3t.bike/blogs/news/get-creative-my-bike-for-the-divide",
-        "category": "other",
-        "label": "3T"
+        "url": "https://hardracingevents.com/",
+        "title": "The Divide 2026 Cancellation and 2027 Return",
+        "snippet": "The organizer cancelled the 2026 race because historic flooding left back roads closed and states that it plans to return for the 2027 season.",
+        "category": "official",
+        "label": "Official 2027 Return Notice"
       },
       {
-        "url": "https://bikepacking.com/plog/just-to-be-with-you-great-divide/",
-        "category": "other",
-        "label": "Bikepacking"
-      },
-      {
-        "url": "https://bikingbethany.wordpress.com/2015/08/21/tour-divide-wide-open-space-in-wyoming/",
-        "category": "other",
-        "label": "Bikingbethany"
-      },
-      {
-        "url": "https://chumbausa.com/blog/2023/7/9/race-report-tour-divide-this-is-what-setting-a-womens-singlespeed-record-looks-like",
-        "category": "other",
-        "label": "Chumbausa"
-      },
-      {
-        "url": "https://michael-hodges.com/blog/devil-on-the-divide-50k-race-report/",
-        "category": "other",
-        "label": "Michael-Hodges"
-      },
-      {
-        "url": "https://michianatiming.com/results-the-divide-gravel-bike-race-7312022/",
-        "category": "other",
-        "label": "Michianatiming"
-      },
-      {
-        "url": "https://theradavist.com/tour-divide-race-part-4",
-        "category": "other",
-        "label": "Theradavist"
-      },
-      {
-        "url": "https://tourdivide.org/racer-2009-updates/race_report?page=1",
-        "category": "other",
-        "label": "Tourdivide"
-      },
-      {
-        "url": "https://www.halfwayanywhere.com/category/bikepacking/tour-divide/",
-        "category": "other",
-        "label": "Halfwayanywhere"
-      },
-      {
-        "url": "https://www.efprocycling.com/racing/alex-howes-and-lachlan-morton-are-ready-for-unbound/",
-        "category": "community",
-        "label": "efprocycling.com: Alex Howes And Lachlan Morton Are Ready For Unbound"
-      }
-    ],
-    "tire_recommendations": {
-      "generated_at": "2026-02-19",
-      "primary": [
-        {
-          "rank": 1,
-          "tire_id": "specialized-pathfinder-pro",
-          "name": "Specialized Pathfinder Pro",
-          "brand": "Specialized",
-          "recommended_width_mm": 38,
-          "msrp_usd": 54.99,
-          "weight_grams": 380,
-          "crr_watts": 32.0,
-          "why": "Fast center, grippy edges. The modern all-rounder benchmark."
-        },
-        {
-          "rank": 2,
-          "tire_id": "panaracer-gravelking-sk",
-          "name": "Panaracer GravelKing SK",
-          "brand": "Panaracer",
-          "recommended_width_mm": 40,
-          "msrp_usd": 64.9,
-          "weight_grams": 380,
-          "crr_watts": 32.5,
-          "why": "Affordable all-rounder. Light knobs add grip without killing speed."
-        },
-        {
-          "rank": 3,
-          "tire_id": "vittoria-terreno-mix",
-          "name": "Vittoria Terreno Mix",
-          "brand": "Vittoria",
-          "recommended_width_mm": 40,
-          "msrp_usd": 79.99,
-          "weight_grams": 420,
-          "crr_watts": 33.5,
-          "why": "Graphene versatility. Mixed-terrain grip with reasonable rolling speed."
-        }
-      ],
-      "front_rear_split": {
-        "applicable": true,
-        "front": {
-          "tire_id": "rene-herse-snoqualmie-pass",
-          "name": "Rene Herse Snoqualmie Pass",
-          "width_mm": 44
-        },
-        "rear": {
-          "tire_id": "specialized-pathfinder-pro",
-          "name": "Specialized Pathfinder Pro",
-          "width_mm": 38
-        },
-        "rationale": "Faster front for reduced rolling resistance on straights, grippier rear for traction on loose climbs and corners"
-      },
-      "race_surface_profile": "mixed",
-      "recommended_width_mm": 38,
-      "pressure_psi": {
-        "140_160lb_dry": "36-40",
-        "140_160lb_mixed": "33-37",
-        "140_160lb_wet": "31-35",
-        "160_180lb_dry": "39-43",
-        "160_180lb_mixed": "36-40",
-        "160_180lb_wet": "34-38",
-        "180_200lb_dry": "42-46",
-        "180_200lb_mixed": "39-43",
-        "180_200lb_wet": "37-41",
-        "200pluslb_dry": "45-49",
-        "200pluslb_mixed": "42-46",
-        "200pluslb_wet": "40-44"
-      }
-    },
-    "youtube_data": {
-      "researched_at": "2026-02-23",
-      "search_query": "The Divide gravel race Manton",
-      "videos": [
-        {
-          "video_id": "jMl5MKzy9ng",
-          "title": "The Divide Gravel Race, Manton Mi 2024",
-          "channel": "Team UFO ",
-          "view_count": 189,
-          "upload_date": "20240731",
-          "duration_string": "1:16:02",
-          "description": "The Divide, Manton Mi. MGRS. My first gravel race, I had a blast. Apologies for the shaky footage, next time i will wear a chest rig for the camera.\n\n(Songs have nothing to do with anyone other than TEAM UFO)\n\nMusic by Myself and Skippy",
-          "tags": [
-            "Gravel Racing",
-            "Gravel Bike",
-            "Cycling",
-            "Michigan Gravel Race Series",
-            "Salsa Cycles",
-            "The Divide",
-            "Fat bike",
-            "Mountain bike",
-            "19 mile",
-            "Race",
-            "Gravel"
-          ],
-          "url": "https://www.youtube.com/watch?v=jMl5MKzy9ng",
-          "curated": false
-        },
-        {
-          "video_id": "oSelZ5A_55A",
-          "title": "The Divide Gravel Bike Race - 2025 - Full Race",
-          "channel": "Greg's Michigan Bike Races",
-          "view_count": 264,
-          "upload_date": "20250729",
-          "duration_string": "52:46",
-          "description": "2nd place. Manton Michigan. 15 mile Mini route. Michigan Gravel Race Series.\n\n#fullsteamracing #MGRS #ilovegravelracing",
-          "tags": [],
-          "url": "https://www.youtube.com/watch?v=oSelZ5A_55A",
-          "curated": false
-        },
-        {
-          "video_id": "ZSofo41aahA",
-          "title": "The Divide - 50mi (Gravel Race) 2023",
-          "channel": "MI-XC",
-          "view_count": 7094,
-          "upload_date": "20230804",
-          "duration_string": "2:55:01",
-          "description": "👉 Hey! SUBSCRIBE for free WATTS 👉 https://www.youtube.com/channel/UCsr-SU_SAqjrzmu4kXIRfUQ?sub_confirmation=1\n\n* At 17:50 I realized I lost my bottle that had ALL of my nutrition and electrolytes for the entire race!\n* At 21:40 I had to remove my rear broken GoPro that was hanging on by one zip tie.\n\nThe number one goal of this race was to stay safe. This race was 2 weeks prior to a planned 7 day Colorado bike packing trip, so crashing and injuries were not an option. I had to play this safe and conservative. Which resulted in me basically doing a solo TT after the first 20 minutes. \n\nThis race was a bit a mess for me. After realizing I lost all my nutrition, but didn't know exactly when or where,  I was scrambling on how to resolve this. First I thought maybe I'll just try to finish the race without any fuel, ugh. Then, I thought surely my competition would have extra and willing to share.... they did not. Finally, at some point I remembered something about Aid Stations that was briefed at the start when I wasn't paying attention. So the goal was to find some of those and rely on whatever they had.   \n\nI found the first aid station at 42:05 and their was a bit of confusion as all they said they had was Coke, water and pickles, but no gels or fuel. I heard one of the guys call out Gatorade and realized they at least had that, so filled my bottle and chugged some Coke.  I stopped at 52:01 and topped off my bottle and again at 1:35:50. At 1:27:01 I nailed my my first ever drink hand-up from a volunteer handing out Gatorade.  Even though my nutrition plan was gone and the aid station mix was upsetting my stomach, I stayed positive and kept steady. I was able to pick off quite a few riders later in the race which was encouraging and placed 19th overall, my best gravel race finish to date.\n\nThe Divide is a gravel road bike race held in Manton, MI. The Divide is a part of the Michigan Gravel Race Series and there are three distances to choose from; 19, 34, & 50 miles.   All three routes are very hilly (4K+ elevation gain) and include a mixture of gravel, seasonal, and forest roads some of which have some very deep sandy spots, plenty that require forced hike-a-bike.\n\n👉 Hey! SUBSCRIBE for free WATTS 👉 https://www.youtube.com/channel/UCsr-SU_SAqjrzmu4kXIRfUQ?sub_confirmation=1",
-          "tags": [
-            "mixc",
-            "mi-xc",
-            "wim",
-            "wheels in motion",
-            "elite",
-            "race",
-            "gravel race",
-            "racing",
-            "pov",
-            "trek",
-            "checkpoint",
-            "michigan",
-            "mgrs",
-            "michigan gravel race series",
-            "mile",
-            "gravel",
-            "2023",
-            "mi/xc",
-            "road",
-            "100k",
-            "wave 1",
-            "bike",
-            "gravel bike racing",
-            "gravel road",
-            "blitz",
-            "50",
-            "The Divide",
-            "Divide",
-            "Manton",
-            "54",
-            "lowell classic",
-            "gravel race 2023",
-            "gravel bike",
-            "gravel bike race",
-            "gravel race bike setup",
-            "first gravel race",
-            "michigan gravel race",
-            "barry roubaix gravel road race",
-            "best gravel bike 2024",
-            "cyclocross race",
-            "extreme xc battle in the gravel"
-          ],
-          "url": "https://www.youtube.com/watch?v=ZSofo41aahA",
-          "curated": true,
-          "curation_reason": "Full 50-mile race experience with highest view count and detailed course challenges including nutrition loss and technical issues.",
-          "display_order": 1,
-          "thumbnail_url": "https://i.ytimg.com/vi/ZSofo41aahA/hqdefault.jpg",
-          "thumbnail_score": 60.0
-        },
-        {
-          "video_id": "BeTMkxKvOsg",
-          "title": "The Divide - 50mi (Gravel Race) 2024",
-          "channel": "MI-XC",
-          "view_count": 1060,
-          "upload_date": "20240801",
-          "duration_string": "2:46:07",
-          "description": "👉 Hey! SUBSCRIBE for free WATTS 👉 https://www.youtube.com/channel/UCsr-SU_SAqjrzmu4kXIRfUQ?sub_confirmation=1\n\nThe Divide is a gravel road race held in Manton, MI. The Divide is a part of the Michigan Gravel Race Series and there were three distances to choose from; 19, 34, & 50 miles.  I raced the 50 mile but all routes are hilly (50 mi has 4K+ elevation gain) and include a mixture of gravel, seasonal, and forest roads. There were also some very deep sandy spots that require forced hike-a-bike. The 50 mile was interesting as it was an out, 2 loops, then a back. The \"out\" and \"back\" were the really sandy sections but the \"loops\" were hilly but good gravel.\n\nIt's been a tough go of training over the past few weeks as I've had to travel a lot for work, work long hours and had many nights of poor sleep. Couple that with this week being the end of my \"recovery week\", left my legs feeling flat and heavy. I didn't have high expectations but hoped my previous months of training would carry me through.\n\nEarly on a breakaway of 2 went off the front never to be seen again with the eventual winner of the race. Then, there was a split between the 34 and 50 milers that juggled the group. Apparently a last minute change was all groups and all distances going off in one mass group start. After the split a lead group formed until we hit the deep sand sections where we split up. We all regrouped once, but then the group shattered again once we hit more deep sand. From there were only singles and small groups remaining. I didn't have the legs on the day to go with the few ahead, so I settled into a group of 3 (7th - 9th place). Early on we passed a rider and became 6th - 8th place but never saw anyone from our race and basically just settled into a sustainable pace.\n\nOn the way back after the loops into the sandy sections I lost my front wheel in some deep sand and toppled over. The topple over was slow and soft, but the guy running into me from behind was not. Our bikes got tangled and scratched up, but were ridable. I was able to quickly get going and eventually dropped the 2 guys I was riding with all race. Shorty after I caught 5th place and thought we could work together to the finish. Unfortunately he crashed and never caught up to me to work together.  Coming out of the sand I had a 40 second gap, but noticed the 3 I had dropped were all together. With 20+ minutes remaining in the race, I knew I wouldn't be able to hold them off if they worked together. So I slow pedaled and waited for them to catch up becoming a group of 4 (5th - 8th place).\n\nThe 4 of us stayed together until about the last mile where the wheel I was following got gapped on the last big hill. I gambled and thought one of the guys would close it, but they never did and 5th place got away. Ugh, I played that wrong. So, now I was sprinting for 6th place amongst the 3 of us and just waited to make my move. I was able secure 6th place , just 6 seconds behind 5th place and 20 seconds behind 4th place whom we never saw. \n\n👉 Hey! SUBSCRIBE for free WATTS 👉 https://www.youtube.com/channel/UCsr-SU_SAqjrzmu4kXIRfUQ?sub_confirmation=1",
-          "tags": [
-            "mixc",
-            "mi-xc",
-            "wim",
-            "wheels in motion",
-            "elite",
-            "race",
-            "gravel race",
-            "racing",
-            "pov",
-            "trek",
-            "checkpoint",
-            "michigan",
-            "mgrs",
-            "michigan gravel race series",
-            "mile",
-            "gravel",
-            "2023",
-            "mi/xc",
-            "road",
-            "100k",
-            "wave 1",
-            "bike",
-            "gravel bike racing",
-            "gravel road",
-            "blitz",
-            "50",
-            "The Divide",
-            "Divide",
-            "Manton",
-            "54",
-            "lowell classic",
-            "gravel race 2023",
-            "gravel bike",
-            "gravel bike race",
-            "gravel race bike setup",
-            "first gravel race",
-            "michigan gravel race",
-            "barry roubaix gravel road race",
-            "best gravel bike 2024",
-            "cyclocross race",
-            "extreme xc battle in the gravel"
-          ],
-          "url": "https://www.youtube.com/watch?v=BeTMkxKvOsg",
-          "curated": true,
-          "curation_reason": "Recent full-distance race coverage with specific details about 4K+ elevation gain and forced hike-a-bike sections through deep sand.",
-          "display_order": 3,
-          "thumbnail_url": "https://i.ytimg.com/vi/BeTMkxKvOsg/hqdefault.jpg",
-          "thumbnail_score": 86.67
-        },
-        {
-          "video_id": "p1RA5j7bwWw",
-          "title": "The Divide 34 Mile Gravel Race - 2023 - Odd Year Course",
-          "channel": "Justin Jewell",
-          "view_count": 1306,
-          "upload_date": "20230802",
-          "duration_string": "1:51:54",
-          "description": "The Divide Gravel Race in Manton, Michigan is part of the Michigan Gravel Race Series. There are 19, 34 and 50 mile distances. The 34 and 50 mile courses rotate direction each year. Lots of climbing, two track and gnarly sand. This is definitely the most difficult race in the MGRS, but so worth the challenge. Highly recommend if you haven't been to it!\n\nNo notable results for me, as I started too far back from the front group thinking I could catch up right away, but that wasn't the case. I thought for sure they'd settle and would be able to catch them, but I was dead wrong. Still had a great race with good group of riders.\n\nhttps://hardracingevents.com/events/the-divide/\nhttps://www.michigangravelraceseries.com/",
-          "tags": [],
-          "url": "https://www.youtube.com/watch?v=p1RA5j7bwWw",
-          "curated": true,
-          "curation_reason": "Complete race experience with valuable course description highlighting it as the most difficult race in the Michigan Gravel Race Series.",
-          "display_order": 2,
-          "thumbnail_url": "https://i.ytimg.com/vi/p1RA5j7bwWw/maxresdefault.jpg",
-          "thumbnail_score": 87.06
-        }
-      ],
-      "quotes": []
-    },
-    "photos": [
-      {
-        "type": "video-1",
-        "file": "the-divide-video-1.jpg",
-        "url": "/race-photos/the-divide/the-divide-video-1.jpg",
-        "alt": "First-person view of cyclist following another rider on tree-lined gravel road during gravel race with performance metrics displayed - The Divide - Manton, Michigan",
-        "credit": "YouTube / Greg's Michigan Bike Races",
-        "primary": true,
-        "ai_relevance": 5,
-        "ai_quality": 4,
-        "ai_keywords": [
-          "gravel road",
-          "first person view",
-          "tree lined",
-          "performance metrics",
-          "gravel racing"
-        ]
-      },
-      {
-        "type": "video-2",
-        "file": "the-divide-video-2.jpg",
-        "url": "/race-photos/the-divide/the-divide-video-2.jpg",
-        "alt": "Cyclist's handlebar view following multiple riders on gravel road through open countryside with rolling hills and scattered trees - The Divide - Manton, Michigan",
-        "credit": "YouTube / Greg's Michigan Bike Races",
-        "primary": false,
-        "ai_relevance": 5,
-        "ai_quality": 4,
-        "ai_keywords": [
-          "handlebar view",
-          "gravel road",
-          "rolling hills",
-          "countryside",
-          "multiple riders"
-        ]
-      },
-      {
-        "type": "video-3",
-        "file": "the-divide-video-3.jpg",
-        "url": "/race-photos/the-divide/the-divide-video-3.jpg",
-        "alt": "Ground-level perspective of gravel cyclists racing on paved road through dense forest canopy during organized gravel event - The Divide - Manton, Michigan",
-        "credit": "YouTube / Greg's Michigan Bike Races",
-        "primary": false,
-        "ai_relevance": 5,
-        "ai_quality": 4,
-        "ai_keywords": [
-          "ground level",
-          "gravel cyclists",
-          "forest canopy",
-          "paved section",
-          "racing peloton"
-        ]
-      },
-      {
-        "type": "preview-gif",
-        "file": "the-divide-preview.gif",
-        "url": "/race-photos/the-divide/the-divide-preview.gif",
-        "alt": "Course preview from The Divide race footage",
-        "credit": "YouTube / Greg's Michigan Bike Races",
-        "gif": true
+        "url": "https://hardracingevents.com/the-divide-bike-race-results/",
+        "title": "The Divide Bike Race Results",
+        "snippet": "The organizer links results for editions from 2015 through 2024, supporting the event's continuing history.",
+        "category": "official",
+        "label": "Official Results Archive"
       }
     ]
   }

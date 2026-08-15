@@ -3,10 +3,10 @@
     "name": "Flanders Legacy Gravel",
     "slug": "flanders-legacy-gravel",
     "display_name": "Leuven Legacy Gravel",
-    "tagline": "Leuven's UCI World Series race on the 2024 Worlds course — first qualifier for 2027.",
+    "tagline": "The first qualifier for the 2027 Gravel Worlds, through Leuven's rolling Brabantse Wouden.",
     "vitals": {
       "distance_mi": 82,
-      "elevation_ft": 3117,
+      "elevation_ft": 2887,
       "location": "Leuven / Heverlee, Flemish Brabant, Belgium",
       "location_badge": "LEUVEN, BELGIUM",
       "county": "Flemish Brabant",
@@ -15,20 +15,20 @@
       "terrain_types": [
         "Brabantse Wouden forest gravel",
         "UCI Gravel World Series",
-        "2024 Worlds Leuven course",
+        "Leuven's 2024 Worlds setting",
         "Rolling Flemish Brabant"
       ],
-      "field_size": "200-400 riders",
+      "field_size": "Up to 2,000 riders (2026 participation cap)",
       "start_time": "9:30 AM",
-      "registration": "Online. Organizer: Golazo (Bolero Gravel Series)",
-      "prize_purse": "Modest prizes",
-      "aid_stations": "Multiple aid stations",
+      "registration": "Online pre-registration: €67; no event-day registration; 2,000-rider cap",
+      "prize_purse": "Not published",
+      "aid_stations": "Organizer-supported food and drink stations; final locations depend on the published route",
       "cutoff_time": "Varies",
       "lat": 51.0378,
       "lng": 4.2406,
       "start_elevation_asl_ft": 200,
-      "gain_display": "Varies",
-      "date_note_2026": "Course per UCI legacy-gravel-2026 page: 86-132 km lap-based by age group (2025 ran 97-147 km — prior-edition figures retired 2026-07-16)"
+      "gain_display": "2,887 ft (880 m) for the 132 km course; 1,837 ft (560 m) for the 86 km course",
+      "date_note_2026": "Official 2026 qualifying courses: 132 km / approximately 880 m for elite riders, men 19-59, and women 19-49; 86 km / approximately 560 m for men 60+ and women 50+. The organizer says minor changes remain possible and will email the GPX shortly before race day."
     },
     "climate": {
       "primary": "Belgian mid-October shoulder season",
@@ -41,14 +41,15 @@
       ]
     },
     "terrain": {
-      "primary": "Brabantse Wouden rolling forest gravel (2024 Worlds Leuven course)",
-      "surface": "Fast, rolling forest-gravel laps through the Brabantse Wouden outside Leuven. Moderate distributed climbing, no single decisive climb.",
+      "primary": "Rolling Brabantse Wouden gravel outside Leuven",
+      "surface": "A fast, varied course through the Brabantse Wouden with rolling terrain, punchy climbs, and gravel sectors in quick succession. The final route map and GPX are not yet public.",
       "technical_rating": 2,
       "features": [
-        "Moderate rolling (~3,117 feet / 950m)",
+        "132 km with approximately 2,887 feet / 880 m for most qualifying categories",
+        "86 km with approximately 1,837 feet / 560 m for men 60+ and women 50+",
         "Brabantse Wouden forest gravel scenery",
-        "2024 UCI Gravel Worlds Leuven course",
-        "3x48km laps (147km) + 2-lap 92km option",
+        "Leuven region that hosted the 2024 UCI Gravel World Championships",
+        "Final route and GPX pending",
         "UCI Gravel World Series qualifier"
       ]
     },
@@ -78,7 +79,7 @@
       "verdict": "Flanders Rolling Gravel",
       "summary": "Flanders Legacy Gravel is a regional event in Belgium—rolling Flanders terrain with moderate elevation. The Flanders countryside is scenic and organization is solid, but the moderate access and regional field keep it firmly in Tier 3.",
       "strengths": [
-        "2024 Worlds Leuven course pedigree",
+        "Leuven's 2024 Worlds setting and cycling heritage",
         "Good organization (Golazo)",
         "Mid-October Belgian shoulder-season weather",
         "Belgian cycling community",
@@ -118,7 +119,7 @@
       "reputation": "Regional Belgian event."
     },
     "course_description": {
-      "character": "RENAMED for 2026: 'Flanders Legacy Gravel' -> 'LEUVEN LEGACY GRAVEL' (old domain 301s to leuvenlegacygravel.be). Golazo's UCI GWS round from Leuven/Heverlee — first official qualifier for the 2027 Gravel Worlds in France: 132km (3 laps of a 48km Brabantse Wouden circuit, ~950m) for elite + younger cats; 86km (2 laps, ~600-610m) = official course for men 60+/women 50+. Rolling forest gravel reusing the 2024 UCI Gravel Worlds Leuven course — NOT Flemish Ardennes bergs/kasseien (prior profile's framing was wrong). RACE DAY IS SUNDAY. PRIOR 75mi/4,000ft matched nothing — corrected 2026-07-14. NOTE FOR MATTI: site page slug flanders-legacy-gravel needs a rename/redirect decision (F-class naming item).",
+      "character": "Renamed for 2026 from Flanders Legacy Gravel to Leuven Legacy Gravel. Golazo's UCI Gravel World Series round starts in Heverlee, finishes at the Philipssite in Leuven, and is the first official qualifier for the 2027 Gravel Worlds in France. The organizer confirms 132 km / approximately 880 m for elite riders, men 19-59, and women 19-49, plus 86 km / approximately 560 m for men 60+ and women 50+. It describes rolling Brabantse Wouden terrain, punchy climbs, and iconic gravel sectors in quick succession. The final route map is pending and the GPX will be emailed shortly before the event, so no lap format or exact reuse of the 2024 Worlds course is claimed. Race day is Sunday, October 18, 2026.",
       "suffering_zones": [
         {
           "mile": 25,
@@ -142,7 +143,7 @@
           "named_section": "Final Push"
         }
       ],
-      "signature_challenge": "Flanders rolling terrain.",
+      "signature_challenge": "Holding group speed across repeated Brabantse Wouden rollers and punchy climbs while staying ready for variable October weather.",
       "ridewithgps_id": "53068383",
       "ridewithgps_name": "Flanders Legacy Gravel 2025 147 km",
       "surface_breakdown": {
@@ -154,16 +155,16 @@
     },
     "guide_variables": {
       "race_name": "Leuven Legacy Gravel",
-      "race_distance": "91 miles (147km)",
-      "race_elevation": "3,117 feet (950m)",
+      "race_distance": "82 miles (132km) for most categories; 53 miles (86km) for men 60+ and women 50+",
+      "race_elevation": "Approximately 2,887 feet (880m) on the 132km course; 1,837 feet (560m) on the 86km course",
       "race_date": "Mid-October",
       "race_location": "Leuven / Heverlee, Belgium",
-      "race_terrain": "Brabantse Wouden rolling forest gravel (2024 Worlds Leuven course)",
+      "race_terrain": "Rolling Brabantse Wouden gravel with punchy climbs and fast sectors; final route pending",
       "race_weather": "Belgian mid-October shoulder season",
       "race_challenges": [
-        "Rolling forest terrain, repeated three times",
+        "Fast rolling terrain with punchy climbs in quick succession",
         "UCI Gravel World Series qualifier field",
-        "Lap traffic",
+        "Final route and GPX released close to race day",
         "Variable October weather",
         "Distributed climbing, no single decisive climb"
       ],
@@ -174,7 +175,7 @@
       {
         "requirement": "Rolling endurance",
         "by_when": "Week 8-10",
-        "why": "Three repeated 48km laps of Brabantse Wouden rollers require sustained group-speed effort."
+        "why": "The organizer describes 132 kilometres of rolling terrain, punchy climbs, and gravel sectors in quick succession, which rewards sustained group-speed effort."
       },
       {
         "requirement": "Weather preparation",
@@ -262,10 +263,10 @@
       "tier_overrides": {},
       "marketplace_variables": {
         "race_name": "Leuven Legacy Gravel",
-        "race_hook": "First official qualifier for the 2027 Gravel Worlds, on the 2024 Worlds course.",
-        "race_hook_detail": "147km / 3x48km Brabantse Wouden laps, UCI Gravel World Series.",
-        "distance": "91",
-        "dark_mile": "38",
+        "race_hook": "First official qualifier for the 2027 Gravel Worlds in Leuven's Brabantse Wouden.",
+        "race_hook_detail": "132km / approximately 880m for most qualifying categories; 86km / approximately 560m for older categories.",
+        "distance": "82",
+        "dark_mile": "60",
         "non_negotiable_1": "Rolling endurance",
         "non_negotiable_2": "Weather preparation",
         "non_negotiable_3": "Budget planning",
@@ -279,15 +280,15 @@
       },
       "length": {
         "score": 3,
-        "explanation": "147km hits the endurance sweet spot without overreach—Aaron Van der Beken's winning time of 4:02:12 shows serious but not death-march pacing. The 96km option for older categories keeps it challenging without the full suffer-fest. Similar distance to Crusher in the Tushar."
+        "explanation": "The main 132km course sits squarely in the rubric's 60-100 mile band, while the 86km course gives the older qualifying categories a shorter but still substantial race."
       },
       "technicality": {
         "score": 2,
-        "explanation": "Course description emphasizes 'rolling short steep hills or moderate, sustained climbs' rather than technical bike handling challenges. The 48km loop format uses established roads from Worlds courses, prioritizing power over precision. Less technical than The Mid South."
+        "explanation": "The organizer emphasizes rolling landscapes, punchy climbs, and gravel sectors rather than technical descents or singletrack. The final route and GPX are still pending, so a higher technicality score is not justified."
       },
       "elevation": {
         "score": 2,
-        "explanation": "950m of climbing across 147km averages just 6.5m per kilometer with 'inclines never very steep.' The distributed elevation profile creates sustained grinding rather than punchy Alpine suffering in famously flat Belgium. Less climbing than The Mid South."
+        "explanation": "The organizer publishes approximately 880m of gain for 132km and 560m for 86km. That is moderate, distributed climbing in the rubric's 2,000-4,000 foot band rather than mountainous elevation."
       },
       "climate": {
         "score": 3,
@@ -299,7 +300,7 @@
       },
       "adventure": {
         "score": 3,
-        "explanation": "Racing 'the most beautiful gravel sectors in and around Leuven' through the same terrain that hosted both Road and Gravel World Championships delivers cycling heartland authenticity. The 60% Worlds course overlap provides proven adventure pedigree."
+        "explanation": "The course runs through the Brabantse Wouden and finishes in Leuven, a region with Road and Gravel World Championship heritage. The organizer has not yet published the final route, so the score reflects the setting without claiming exact Worlds-course overlap."
       },
       "prestige": {
         "score": 2,
@@ -311,7 +312,7 @@
       },
       "experience": {
         "score": 3,
-        "explanation": "The promise to 'relive the atmosphere, challenge, and scenery that the pros faced during the 2024 Gravel World Championships' delivered with authentic Flemish gravel character. Multi-lap format through Heverlee to Leuven provides tactical progression."
+        "explanation": "The Heverlee start, Leuven finish, Brabantse Wouden terrain, and first-qualifier stakes create a memorable Flemish race setting. The final 2026 route remains unpublished, so the experience score stays measured."
       },
       "community": {
         "score": 3,
@@ -323,7 +324,7 @@
       },
       "value": {
         "score": 3,
-        "explanation": "€57-67 entry fees provide reasonable European pricing for UCI qualifier status and Worlds-proven course access. The 147km distance and established terrain quality justify the cost without reaching the €100+ territory of premium European events."
+        "explanation": "The published €67 entry is fair for a timed UCI qualifier with course signage, feed support, technical assistance, and medical support, without reaching the €100+ range of premium European events."
       },
       "expenses": {
         "score": 2,
@@ -331,6 +332,26 @@
       }
     },
     "citations": [
+      {
+        "url": "https://leuvenlegacygravel.be/en/",
+        "category": "official",
+        "label": "Leuven Legacy Gravel: 2026 event and course summary"
+      },
+      {
+        "url": "https://leuvenlegacygravel.be/en/course/",
+        "category": "official",
+        "label": "Leuven Legacy Gravel: official 2026 distances and elevation"
+      },
+      {
+        "url": "https://leuvenlegacygravel.be/en/register/",
+        "category": "official",
+        "label": "Leuven Legacy Gravel: 2026 registration and participation cap"
+      },
+      {
+        "url": "https://ucigravelworldseries.com/en/calendar/",
+        "category": "official",
+        "label": "UCI Gravel World Series: 2027 qualifier calendar"
+      },
       {
         "url": "https://ridewithgps.com/routes/53068383",
         "category": "route",

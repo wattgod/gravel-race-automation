@@ -3,195 +3,188 @@
     "name": "CIRREM",
     "slug": "cirrem",
     "display_name": "CIRREM",
-    "tagline": "Rolling Illinois farmland gravel in rural Roubaix.",
+    "tagline": "Late-winter gravel through the cold, hilly roads of Madison County, Iowa.",
     "vitals": {
-      "distance_mi": 75,
-      "elevation_ft": 3000,
-      "location": "Roubaix, Illinois",
-      "location_badge": "ROUBAIX, IL",
-      "county": "Bureau County",
-      "date": "Late February annually",
+      "distance_mi": 62,
+      "elevation_ft": null,
+      "location": "Cumming, Iowa",
+      "location_badge": "CUMMING, IOWA",
+      "county": "Madison County",
+      "date": "No 2027 date announced; last held February 28, 2026",
       "date_specific": "2026: February 28",
+      "course_status": "source_blocked",
+      "course_status_label": "NEXT DATE NOT ANNOUNCED",
+      "course_status_reason": "The organizer has not published a 2027 date, registration cycle, or edition-specific route.",
       "terrain_types": [
-        "Illinois farmland",
-        "Rolling gravel",
-        "Regional event",
-        "Northern Illinois"
+        "Hilly gravel roads",
+        "Open rural roads",
+        "Winter conditions",
+        "Madison County"
       ],
-      "field_size": "100-300 riders",
-      "start_time": "Morning start",
-      "registration": "Online. Cost: ~$60-100",
-      "prize_purse": "Modest prizes",
-      "aid_stations": "Multiple aid stations",
-      "cutoff_time": "Varies",
-      "lat": 40.0797,
-      "lng": -89.4337
+      "field_size": "Not published for the next edition",
+      "start_time": "2026: 10:00 AM",
+      "registration": "No 2027 registration cycle has been announced",
+      "prize_purse": "Category awards; no cash purse published",
+      "aid_stations": "A checkpoint roughly halfway; otherwise self-supported",
+      "cutoff_time": "No official cutoff published; riders who abandon must arrange their own transport",
+      "lat": 41.4836,
+      "lng": -93.7626
     },
     "climate": {
-      "primary": "Illinois spring/fall",
-      "description": "Variable conditions with heat, wind, and humidity possible.",
+      "primary": "Iowa winter",
+      "description": "Late-February conditions have ranged from dry gravel in the 50s to snow, freezing rain, ice, mud, and strong wind.",
       "challenges": [
-        "Heat possible (spring)",
-        "Cool possible (fall)",
-        "Wind exposure",
-        "Humidity",
-        "Variable weather"
+        "Freezing temperatures",
+        "Snow, sleet, or freezing rain",
+        "Thawing gravel and mud",
+        "Exposed wind",
+        "Rapidly changing road conditions"
       ]
     },
     "terrain": {
-      "primary": "Illinois rolling farmland gravel",
-      "surface": "Gravel roads through rolling northern Illinois farmland. Moderate elevation with farmland scenery.",
+      "primary": "Hilly Madison County gravel",
+      "surface": "Open rural gravel roads around Cumming, Iowa, with loose, slippery, frozen, or thawing surfaces depending on late-winter weather.",
       "technical_rating": 2,
       "features": [
-        "Moderate rolling (3000 feet)",
-        "Farmland scenery",
-        "Northern Illinois setting",
-        "Multiple distances",
-        "Regional event"
+        "One 100-kilometer race",
+        "Persistent rolling hills",
+        "Loose and weather-affected gravel",
+        "Open roads with vehicle traffic",
+        "Wood-deck bridges with wheel-catching gaps"
       ]
     },
     "gravel_god_rating": {
-      "overall_score": 46,
+      "overall_score": 56,
       "tier": 3,
       "tier_label": "TIER 3",
-      "logistics": 2,
+      "logistics": 1,
       "length": 3,
       "technicality": 2,
       "elevation": 2,
-      "climate": 2,
+      "climate": 5,
       "altitude": 1,
-      "adventure": 2,
-      "prestige": 2,
+      "adventure": 3,
+      "prestige": 3,
       "race_quality": 2,
-      "experience": 3,
-      "community": 3,
+      "experience": 4,
+      "community": 4,
       "field_depth": 2,
       "value": 3,
-      "expenses": 3,
-      "score_note": "Regional Illinois event. Rolling farmland terrain with rural location and limited organization.",
+      "expenses": 4,
+      "score_note": "An 18-edition Iowa winter race whose difficulty comes from hilly gravel, self-support, and volatile late-February conditions rather than altitude or technical trail.",
       "discipline": "gravel",
       "display_tier": 3
     },
     "biased_opinion": {
-      "verdict": "Rural Illinois Farmland Gravel",
-      "summary": "CIRREM is a regional event in rural Roubaix, northern Illinois. The rolling farmland terrain offers moderate climbing with farmland scenery, but the rural location, limited amenities, and moderate organization keep it firmly in Tier 3. Roubaix is a small town with limited lodging and dining. It's a solid regional event for Illinois cyclists.",
+      "verdict": "Iowa Winter Gravel With Teeth",
+      "summary": "CIRREM is a 100-kilometer, self-supported race from the Cumming Tap through the hilly gravel roads of Madison County, Iowa. Its late-February date is the point: riders have seen dry gravel, snow, freezing rain, ice, thawing mud, and hard wind across an 18-edition history. The infrastructure is intentionally spare, but the event has real Midwest winter-gravel identity.",
       "strengths": [
-        "Rolling Illinois terrain",
-        "Northern Illinois location",
-        "Moderate climbing",
-        "Farmland scenery",
-        "Illinois cycling community"
+        "Eighteen editions of event history",
+        "Distinct late-winter challenge",
+        "Hilly Madison County gravel",
+        "Strong grassroots culture",
+        "Simple start and finish at Cumming Tap"
       ],
       "weaknesses": [
-        "Rural location (limited access)",
-        "Limited amenities",
-        "Moderate organization",
-        "Regional field only",
-        "Limited national recognition"
+        "No 2027 date or registration cycle yet",
+        "Self-supported format",
+        "Roads remain open to traffic",
+        "Weather can make the surface hazardous",
+        "No organizer-published elevation total"
       ],
-      "bottom_line": "A solid regional Illinois gravel race with rolling farmland terrain. Worth it for Illinois cyclists seeking a local event. Not a destination race for out-of-state travelers."
+      "bottom_line": "CIRREM is worth targeting if you want an old-school winter race where preparation for cold, mud, wind, and self-support matters as much as fitness. Wait for the organizer to announce the next edition before building a calendar around it."
     },
     "final_verdict": {
-      "score": "46 / 100",
-      "one_liner": "Rural rolling Illinois farmland gravel in Roubaix.",
-      "should_you_race": "If you're in Illinois and want a local rolling gravel event—yes, it's a solid regional race. If you're from out of state—there are better options.",
-      "alternatives": "For better Midwest events: Gravel Worlds, Almanzo 100, Dirty Kanza. For similar regional events: other Illinois gravel races.",
+      "score": "56 / 100",
+      "one_liner": "A hilly, self-supported Iowa 100K where late-winter weather writes the hardest part of the course.",
+      "should_you_race": "Yes, if cold-weather uncertainty and grassroots Iowa gravel are the appeal. Do not commit travel or training dates until CIRREM publishes its next edition.",
+      "alternatives": "For other Midwest gravel challenges: Rule of Three, Glenwood Gravel, or Garmin Gravel Worlds.",
       "alternative_slugs": [
-        "almanzo-100",
+        "rule-of-three",
+        "glenwood-gravel",
         "garmin-gravel-worlds",
         "unbound-200"
       ]
     },
     "logistics": {
-      "airport": "Chicago (ORD/MDW) 2 hours or Peoria (PIA) 1 hour",
-      "lodging_strategy": "Roubaix has very limited lodging. Princeton or Peru have more options.",
-      "food": "Small town with limited dining. Stock nutrition.",
-      "packet_pickup": "Day before typically",
-      "parking": "At start/finish",
-      "official_site": "Check Illinois cycling calendars"
+      "airport": "Des Moines International Airport is the practical gateway",
+      "lodging_strategy": "Stay in the Des Moines metro and drive to Cumming for race morning.",
+      "food": "Breakfast and check-in were scheduled from 8:00 AM at Cumming Tap for the 2026 edition; carry everything needed to finish.",
+      "packet_pickup": "2026 rider check-in ran from 8:00 to 9:45 AM on race morning",
+      "parking": "Follow the organizer's next-edition instructions for Cumming Tap",
+      "official_site": "https://cirrem.com/"
     },
     "history": {
-      "founded": null,
-      "founder": "Illinois organizers",
-      "origin_story": "Regional Illinois gravel event.",
-      "notable_moments": [],
-      "reputation": "Regional Illinois event."
+      "founded": 2009,
+      "founder": "CIRREM organizers",
+      "origin_story": "CIRREM began in 2009 as a late-winter 100-kilometer test on the gravel roads around Cumming, Iowa.",
+      "notable_moments": [
+        "The organizer's results archive records every edition from 2009 through 2026.",
+        "Race-day conditions have included snow, sleet, freezing rain, ice, thawing gravel, and unexpectedly warm dry years."
+      ],
+      "reputation": "An established grassroots Iowa winter gravel race known for weather uncertainty and a finish at Cumming Tap."
     },
     "course_description": {
-      "character": "Rolling Illinois farmland gravel with moderate climbing.",
-      "suffering_zones": [
-        {
-          "mile": 20,
-          "label": "Early Rollers",
-          "desc": "First rolling sections.",
-          "terrain_detail": "Rolling",
-          "named_section": "Early Rollers"
-        },
-        {
-          "mile": 40,
-          "label": "Midpoint",
-          "desc": "Halfway through the course.",
-          "terrain_detail": "Midpoint",
-          "named_section": "Halfway"
-        },
-        {
-          "mile": 60,
-          "label": "Late Rollers",
-          "desc": "Final rolling sections before finish.",
-          "terrain_detail": "Late rolling",
-          "named_section": "Final Push"
-        }
-      ],
-      "signature_challenge": "Rolling Illinois farmland gravel in rural Roubaix.",
-      "ridewithgps_id": "53919197",
-      "ridewithgps_name": "CIRREM Short"
+      "character": "A roughly 100-kilometer loop on hilly, open gravel roads in Madison County, with a checkpoint near halfway and surface difficulty dictated by freeze, thaw, precipitation, and wind.",
+      "suffering_zones": [],
+      "signature_challenge": "Managing winter clothing, traction, pacing, and self-support as road conditions change across the day.",
+      "ridewithgps_id": null,
+      "ridewithgps_name": null
     },
     "guide_variables": {
       "race_name": "CIRREM",
-      "race_distance": "75 miles",
-      "race_elevation": "3,000 feet",
-      "race_date": "Spring or Fall",
-      "race_location": "Roubaix, Illinois",
-      "race_terrain": "Illinois rolling farmland gravel",
-      "race_weather": "Illinois variability",
+      "race_distance": "100 kilometers (about 62 miles)",
+      "race_elevation": "Varies; the organizer does not publish an elevation total",
+      "race_date": "No 2027 date announced; last held February 28, 2026",
+      "race_location": "Cumming, Iowa",
+      "race_terrain": "Hilly Madison County gravel on open rural roads",
+      "race_weather": "Late-winter cold, wind, snow, ice, rain, or thawing mud",
       "race_challenges": [
-        "Rolling terrain",
-        "Rural location",
-        "Heat or cool possible",
-        "Wind exposure",
-        "Limited amenities"
+        "Hilly gravel",
+        "Freezing or thawing surfaces",
+        "Cold and wind exposure",
+        "Self-supported pacing and fueling",
+        "Open roads and bridge gaps"
       ],
       "altitude_section": false,
       "altitude_feet": null
     },
     "non_negotiables": [
       {
-        "requirement": "Rolling endurance",
+        "requirement": "Durability on repeated gravel hills",
         "by_when": "Week 8-10",
-        "why": "Rolling Illinois terrain requires sustained effort."
+        "why": "The organizer describes a hilly 100-kilometer course where steady pacing matters for four to six or more hours."
       },
       {
-        "requirement": "Heat and wind preparation",
+        "requirement": "Cold, wet, and wind systems tested on the bike",
         "by_when": "Week 4-6",
-        "why": "Illinois spring/fall means heat and wind are possible."
+        "why": "Past editions have brought snow, sleet, freezing rain, ice, mud, and strong wind."
       },
       {
-        "requirement": "Rural self-sufficiency",
+        "requirement": "Self-supported fueling, repair, and drop plan",
         "by_when": "Week 2-4",
-        "why": "Rural location requires self-sufficiency and preparation."
+        "why": "The organizer requires riders to carry what they need and arrange their own transport if they abandon."
       }
     ],
+    "eligibility": {
+      "status": "active",
+      "verified": "2026-08-15",
+      "source": "https://cirrem.com/",
+      "status_note": "CIRREM held its 18th edition on February 28, 2026 and publishes official 2026 results. The organizer has not announced a 2027 date or registration cycle, so the race remains active in the database but is not ready for a date-specific training-plan ladder."
+    },
     "research_metadata": {
-      "data_confidence": "moderate",
-      "validation_status": "pending",
+      "data_confidence": "high",
+      "validation_status": "verified",
       "sources": [
-        "illinois_cycling_community"
+        "official_event_site",
+        "official_race_information",
+        "official_results_archive"
       ],
       "migration_notes": [
-        "Generated from regional information"
+        "Corrected 2026-08-15 from a fabricated Roubaix, Illinois identity to the official Cumming, Iowa event. Removed unsupported distance, elevation, logistics, course, and video claims."
       ],
       "research_strength": {
-        "overall": 91.0,
+        "overall": 91.8,
         "grade": "A",
         "weakest": "cross_reference",
         "has_research_dump": true,
@@ -202,10 +195,10 @@
           "specificity": 100,
           "statistical_backing": 100,
           "voice_authenticity": 70,
-          "completeness": 88,
-          "cross_reference": 15
+          "completeness": 82,
+          "cross_reference": 50
         },
-        "scored_at": "2026-02-04"
+        "scored_at": "2026-08-15"
       }
     },
     "training_config": {
@@ -218,7 +211,7 @@
             10
           ]
         },
-        "heat_training": {
+        "cold_training": {
           "enabled": true,
           "weeks": [
             4,
@@ -242,74 +235,74 @@
         "priority_order": [
           "pacing",
           "fueling",
-          "heat",
-          "wind"
+          "cold",
+          "self_sufficiency"
         ],
         "race_specific": true,
         "topics": {
-          "pacing": "Rolling terrain pacing",
-          "fueling": "Nutrition for moderate rolling",
-          "heat": "Racing in Illinois heat and humidity",
-          "wind": "Riding in farmland wind"
+          "pacing": "Pacing hilly winter gravel without overheating in layers",
+          "fueling": "Fueling a four-to-six-plus-hour cold-weather race",
+          "cold": "Clothing, hands, feet, and hydration in freezing or wet conditions",
+          "self_sufficiency": "Carrying repair, nutrition, and bailout systems on open roads"
         }
       },
       "tier_overrides": {},
       "marketplace_variables": {
         "race_name": "CIRREM",
-        "race_hook": "Rolling Illinois farmland gravel in rural Roubaix.",
-        "race_hook_detail": "Regional event with moderate climbing.",
-        "distance": "75",
-        "dark_mile": "40",
-        "non_negotiable_1": "Rolling endurance",
-        "non_negotiable_2": "Heat and wind preparation",
-        "non_negotiable_3": "Rural self-sufficiency",
+        "race_hook": "Late-winter Iowa gravel where weather and self-support are part of the course.",
+        "race_hook_detail": "A hilly 100-kilometer race through Madison County from Cumming Tap.",
+        "distance": "62",
+        "dark_mile": "45",
+        "non_negotiable_1": "Durability on repeated gravel hills",
+        "non_negotiable_2": "Cold, wet, and wind systems tested on the bike",
+        "non_negotiable_3": "Self-supported fueling, repair, and drop plan",
         "trainingpeaks_url": null
       }
     },
     "biased_opinion_ratings": {
       "logistics": {
-        "score": 2,
-        "explanation": "Registration opens 9pm November 27th and \"will fill up in a few minutes\" for 500 spots maximum. Race day runs breakfast at 8AM, check-in until 9:45AM, 10AM start at Cumming Tap. The self-supported format means minimal race infrastructure beyond the halfway checkpoint with food and drink."
+        "score": 1,
+        "explanation": "The race starts and finishes in Cumming near the Des Moines metro. The official 2026 schedule put breakfast and check-in at Cumming Tap before the 10:00 AM start, making access straightforward even though the course itself is self-supported."
       },
       "length": {
         "score": 3,
-        "explanation": "The 100k distance produces finish times from Dillon McNeill's 3:06:38 record down to 6+ hour survivors. Recent Masters winner Ross Eoriatti finished in 4:14:50 with tight gaps behind him. In 2025's thawing gravel conditions, that translates to plenty of suffering without excessive dark-hours grinding. Similar distance to Crusher in the Tushar. As Post-race scene puts it: \"Please stay around afterwards and have a good time at the Tap as long as you like. The Tap is pretty awesome, and it's in Cumming, for crying out loud.\""
+        "explanation": "The organizer defines CIRREM as a 100-kilometer race, about 62 miles. The site says winners generally finish around four hours while other riders spend more than six hours on course, placing it squarely in the rubric's 60-to-100-mile band."
       },
       "technicality": {
         "score": 2,
-        "explanation": "Madison County's winding hills include bridges with \"spaces between the boards that eat wheels for lunch—seriously, a friend separated his shoulder last weekend on it.\" The 5000+ feet of climbing comes via grinding rollers rather than technical descents, though conditions create handling challenges when gravel turns to \"peanut-buttery build up.\" Less technical than The Mid South."
+        "explanation": "The course uses gravel roads rather than technical trail, but the organizer warns about loose and slippery surfaces, high speeds, open traffic, and wood-deck bridges with wheel-catching gaps. Freeze-thaw mud and ice can raise the handling demand."
       },
       "elevation": {
         "score": 2,
-        "explanation": "Over 5000 feet of climbing across 63 miles through Madison County's rolling terrain. The race organizers describe it as \"winding hills\" that test persistence rather than explosive power. It's Iowa elevation—death by a thousand papercuts rather than mountain passes. Less climbing than The Mid South."
+        "explanation": "The organizer describes a hilly Madison County course but does not publish an authoritative elevation total for the next edition. The conservative 2/5 reflects persistent Iowa rollers without claiming unsupported mountain-scale climbing."
       },
       "climate": {
-        "score": 2,
-        "explanation": "Historical weather data shows average highs of 42°F and lows of 24°F, with a 41% chance of rain on any given day, and gusts reaching 26 mph. Late February timing delivers everything from 2019's \"foggy with periods of rain turning to snow late, low 30's\" to 2022's \"4 inches of snow two days prior.\" Race organizer remembers \"stopping several times to wring the water out of my mittens\" and riders with \"bright-red gloveless hands.\" It's winter warfare, not marketing copy. More weather exposure than Belgian Waffle Ride San Diego."
+        "score": 5,
+        "explanation": "The official results archive records snow, freezing rain, ice, sleet, wind, and thawing gravel across past late-February editions. The organizer's own history describes soaked gloves, red bare hands, fresh snow, and mud buildup, meeting the rubric's extreme cold-and-storm standard."
       },
       "altitude": {
         "score": 1,
         "explanation": "Cumming, Iowa sits at corn-growing elevation—essentially sea level for racing purposes. The thin air you'll experience comes from 30-degree temperatures hitting your lungs, not altitude. Any breathing difficulty stems from frozen February conditions, not oxygen deprivation. Lower altitude than Gravel Worlds — no thin-air concerns."
       },
       "adventure": {
-        "score": 2,
-        "explanation": "Frozen gravel through Madison County in February conditions offers adventure, but it's more 'survive the elements' than 'explore the unknown.' The self-supported format and open roads add real risk—organizers explicitly warn about slippery conditions and high speeds with car traffic. It's adventure through attrition rather than exotic terrain."
+        "score": 3,
+        "explanation": "A self-supported 100K on open Madison County gravel in February is memorable even without remote wilderness. Weather, surface changes, rural roads, and the Cumming Tap start-finish give CIRREM a distinct identity beyond a standard local race."
       },
       "prestige": {
-        "score": 2,
-        "explanation": "Sixteen years deep, CIRREM bills itself as \"the OG of winter gravel races\" with enough reputation to sell out in minutes. Dave Mable's singlespeed race report earned coverage in CX Magazine. But this remains Iowa grassroots racing where winners ride \"singlespeed mountain bikes, fender'ed cross bikes\" rather than pro pelotons."
+        "score": 3,
+        "explanation": "CIRREM's official archive runs continuously from 2009 through its 18th edition in 2026, giving it an established regional reputation. It remains a grassroots Iowa event rather than a national professional fixture."
       },
       "race_quality": {
         "score": 2,
         "explanation": "This is self-supported racing with open roads and a checkpoint roughly in the middle—bare bones organization that puts the burden on you. Winners finish around 4 hours while others suffer for 6+ hours on frozen gravel through Madison County's winding hills. The pile-up among leaders in slippery conditions shows what happens when winter racing meets minimal course management."
       },
       "experience": {
-        "score": 3,
-        "explanation": "Starts and finishes at Cumming Tap, which immediately tells you this isn't some sanitized corporate event. Two inches of overnight snow followed by race-day sleet in 20-degree temps—that's the authentic winter gravel experience most races only pretend to offer. You'll remember every frozen mile of those 64 miles through Madison County."
+        "score": 4,
+        "explanation": "The Cumming Tap start-finish, late-winter conditions, hilly roads, and self-supported format create a memorable race-day experience. The official record shows that no two editions deliver the same surface or weather."
       },
       "community": {
-        "score": 3,
-        "explanation": "The equipment list—\"mountain bikes, cross bikes, ss's, fenders, fixies, fat bikes and even road bikes\"—shows this crowd prioritizes showing up over showing off. Post-race hangs at Cumming Tap with awards \"a few hours after winners come in, but still before everyone is off course.\" The organizer's advice: \"ride with a buddy if you think you'll be out there a while.\""
+        "score": 4,
+        "explanation": "The organizer welcomes mountain bikes, cross bikes, singlespeeds, fat bikes, tandems, and road bikes, and centers breakfast, awards, and the post-race gathering at Cumming Tap. Eighteen editions support a strong, durable local culture."
       },
       "field_depth": {
         "score": 2,
@@ -317,28 +310,33 @@
       },
       "value": {
         "score": 3,
-        "explanation": "Registration includes 8AM breakfast, halfway checkpoint food, post-race lunch, and finishing at a tap house in Cumming, Iowa. The format strips away unnecessary support to focus spending on the experience itself. No prize purse data available, but you're paying for winter suffering and community, not payouts."
+        "explanation": "The next-edition price and inclusions are not published, so value stays neutral. The known format is intentionally spare: a self-supported course, one checkpoint around halfway, race timing, category awards, and the Cumming Tap gathering."
       },
       "expenses": {
-        "score": 3,
-        "explanation": "Registration runs $60-100. Cumming, Iowa doesn't command destination race pricing for lodging and meals. Nearest major airport likely Des Moines, about 40 miles out, keeping travel costs reasonable. The race's \"absolutely no transfers and no refunds\" policy and minute-long sellout suggest pricing hits the sweet spot for committed winter racers. Similar expense level to Belgian Waffle Ride San Diego."
+        "score": 4,
+        "explanation": "Cumming is close to the Des Moines metro, so lodging, airport access, and food do not require remote-event logistics. The next-edition entry fee is unpublished, preventing a stronger budget claim."
       }
     },
     "citations": [
       {
+        "url": "https://cirrem.com/",
+        "category": "official",
+        "label": "CIRREM official site — 2026 date, location, schedule, categories, and 100K format"
+      },
+      {
         "url": "https://ridewithgps.com/routes/53919197",
         "category": "route",
-        "label": "RideWithGPS: CIRREM Short"
+        "label": "Ride with GPS — independent CIRREM route trace; not treated as final next-edition course proof"
       },
       {
         "url": "https://cirrem.com/race-info/",
-        "category": "other",
-        "label": "Cirrem"
+        "category": "official",
+        "label": "CIRREM official race information — self-support, weather, course character, timing, and categories"
       },
       {
         "url": "https://cirrem.com/results/",
-        "category": "other",
-        "label": "Cirrem"
+        "category": "results",
+        "label": "CIRREM official results archive — 2009-2026 results and race-day conditions"
       },
       {
         "url": "https://www.cxmagazine.com/tag/cirrem",
@@ -351,14 +349,9 @@
         "label": "Granfondoguide"
       },
       {
-        "url": "https://www.tri2max.com/blog/2020/11/17/gloves-or-pogies-what-is-faster-for-me-on-a-gravel-race",
-        "category": "community",
-        "label": "tri2max.com: Gloves Or Pogies What Is Faster For Me On A Gravel Race"
-      },
-      {
         "url": "https://www.gravel-results.com/race/20280",
         "category": "community",
-        "label": "gravel-results.com: 20280"
+        "label": "Gravel Results — historical CIRREM results reference"
       }
     ],
     "tire_recommendations": {
@@ -430,144 +423,7 @@
       }
     },
     "youtube_data": {
-      "researched_at": "2026-02-23",
-      "search_query": "CIRREM gravel race Roubaix",
-      "videos": [
-        {
-          "video_id": "jrkU2qZaG0E",
-          "title": "Barry Roubaix Gravel Race - 62mi Wave 1 (2025)",
-          "channel": "MI-XC",
-          "view_count": 6578,
-          "upload_date": "20250415",
-          "duration_string": "3:05:01",
-          "description": "Threading the needle to avoid a massive crash to get to the finish line. Not the race I wanted, but considering the alternative I'll take it.\n\n👉 Hey! SUBSCRIBE for more race content! 👉 https://www.youtube.com/channel/UCsr-SU_SAqjrzmu4kXIRfUQ?sub_confirmation=1\n\nThe Barry Roubaix was held on April 12, 2025 in Hastings, MI. I raced the 62 mile version (actually almost 65 miles) which had around 4,800 ft of climbing. Temperature was decent, in the lower 50s with full sun and no wind. I saw the staging coral already starting to fill up 40 minutes before the start so I had to cut my warmup short and get in line around 50th. I tried to move up once the race started but kept getting shuffled back. The 3 sisters felt ok and I was trying to monitor my effort and not burn any unnecessary matches. However, that strategy left me further back in the pack then I wanted.\n\nJust after 4 miles in on a seemingly uneventful section of the course, all hell broke loose. At nearly 30 mph the group started to suddenly slow down. Little did I know there was a crash on the left that would cause a cascade of overreactions and eventual crashes everywhere. Applying my brakes I noticed I wasn't slowing down fast enough. I swerved out of the way of the first few riders attempting to stop then all I saw and heard was crashing all around me. Time slowed down and all I thought was to steer through it rather than attempting to stop. I remember running over something on my left and something hitting my arm/shoulder on my right. The next thing I knew is that I was through the chaos. Crash can be seen in more detail here:   https://youtu.be/DG557fyV0YY?si=i9C2Dw_EolsY95Yk\n\nI somehow made it through the crash unscathed but lost the front group of about 50+ riders. Not ideal but better than being in a nasty crash. A small group of us chased back for 6 miles (15 minutes) until we reached the front group just in time for Shaw road. Well, that was too much and I completely blew up. I struggled for the next hour until I latched onto a group after the Farm around mile 30. After mile 48 our group caught another group of about 20 and we swelled to nearly a 50 rider peloton. This massive group stayed together until the final mile into the finish. I didn't have much in legs at the end but was able to work myself into finishing 7th in the group sprint (though we were all together and got the same time). Somehow I got a Strava crown for 10th best ever sprint in that section which I will be taking as a moral victory, lol.  I ended up 73rd overall which was a PR but shy of my goal of top 50. \n\n👉 Hey! SUBSCRIBE for more race content! 👉 https://www.youtube.com/channel/UCsr-SU_SAqjrzmu4kXIRfUQ?sub_confirmation=1",
-          "tags": [
-            "mi",
-            "xc",
-            "mixc",
-            "mi-xc",
-            "mi_xc",
-            "wim",
-            "wheels in motion",
-            "elite",
-            "barry",
-            "roubaix",
-            "barry roubaix",
-            "pov",
-            "gravel",
-            "race",
-            "gravel race",
-            "hastings",
-            "crash",
-            "crashing",
-            "chaos",
-            "racing",
-            "michigan",
-            "mgrs",
-            "michigan gravel race series",
-            "mile",
-            "mi/xc",
-            "road",
-            "100k",
-            "wave 1",
-            "bike",
-            "gravel bike racing",
-            "gravel road",
-            "gravel race 2023",
-            "gravel bike",
-            "gravel bike race",
-            "gravel race bike setup",
-            "first gravel race",
-            "michigan gravel race",
-            "barry roubaix gravel road race",
-            "brx",
-            "2025"
-          ],
-          "url": "https://www.youtube.com/watch?v=jrkU2qZaG0E",
-          "curated": false
-        },
-        {
-          "video_id": "5YfRLOe9QzY",
-          "title": "Barry Roubaix Gravel Race 2025 - 65 Miles",
-          "channel": "Spoked Trails",
-          "view_count": 14388,
-          "upload_date": "20250414",
-          "duration_string": "57:58",
-          "description": "Over 4000 racers made it this year to Hastings, Michigan for one of the biggest gravel races in the world - Barry Roubaix. \nThis year we couldn't ask for a better weather (around 50F and plenty of sunshine).\nI finished 35th out of 116  in 45-49 age category and 310th out of 1034 overall in the 65 mile race with official time 03:31:39\n\n00:00 - Intro\n02:00 - Wave 2 start\n06:54 - 3 Sisters\n17:39 - Shaw Rd\n25:48 - Sager Rd\n37:36 - Head Lake Off Road\n47:03 - Chainsaw Massacre",
-          "tags": [],
-          "url": "https://www.youtube.com/watch?v=5YfRLOe9QzY",
-          "curated": false
-        },
-        {
-          "video_id": "hHoisf7mqjc",
-          "title": "CIRREM 2012",
-          "channel": "ziegman49",
-          "view_count": 590,
-          "upload_date": "20120227",
-          "duration_string": "10:50",
-          "description": "CIRREM.  100k gravel bike race in Cumming, IA.",
-          "tags": [
-            "CIRREM",
-            "2"
-          ],
-          "url": "https://www.youtube.com/watch?v=hHoisf7mqjc",
-          "curated": false
-        },
-        {
-          "video_id": "qQnmfWxv8Hw",
-          "title": "Cirrem 2013",
-          "channel": "Ken Sherman",
-          "view_count": 443,
-          "upload_date": "20130224",
-          "duration_string": "5:03",
-          "description": "2013 Edition of CIRREM. A 63 mile gravel road race with a little over 5000 ft of climbing. CIRREM occurs every February, where the weather won't keep 150 stoic iowans off their bikes. Starting and ending from the Cummings tap, in Cummings Iowa, start time temps hovered around 18F and it warmed up to balmy 31F with a south westerly wind of 5 to 10 miles per hour.",
-          "tags": [
-            "gravel",
-            "road race",
-            "cummings tap",
-            "cirrem",
-            "iowa",
-            "gravel goodness",
-            "february"
-          ],
-          "url": "https://www.youtube.com/watch?v=qQnmfWxv8Hw",
-          "transcript": "[Music]\n[Applause]\nHeat. Heat.\nHey.",
-          "curated": true,
-          "curation_reason": "Only video specifically about CIRREM race with course details including 63 miles, 5000ft climbing, and February weather conditions.",
-          "display_order": 1,
-          "thumbnail_url": "https://i.ytimg.com/vi/qQnmfWxv8Hw/maxresdefault.jpg",
-          "thumbnail_score": 56.96
-        },
-        {
-          "video_id": "1OMnxmVSCTw",
-          "title": "Unbound Gravel 200 - Pro Men, Full Race Onboard Footage",
-          "channel": "Justin McQuerry",
-          "view_count": 35140,
-          "upload_date": "20240604",
-          "duration_string": "9:55:17",
-          "description": "53rd Pro Men\n326km/200mi Gravel Race\n\nMy Patreon: http://patreon.com/justinmcquerry/\nRace Info: http://unboundgravel.com/\n\nBike - Ibis Hakka: http://ibiscycles.com/bikes/hakka-mx\nTools & Tubeless Plugs - Prestacycle: https://prestacycle.com\nFrame Bags - MoosePacks: http://moosepacks.com/\nTi Bolts and Axles: http://metireggioemilia.it/\nWheels - BERD: http://berdspokes.com/\nTires - Maxxis: https://www.maxxis.com/us/tires/bicycle/\n\nUnbound, the biggest gravel race of them all. The start list at the 2024 edition of Unbound Gravel was the highest caliber field ever seen at this race, including the current UCI Gravel World Champion, several current UCI World Tour athletes, a majority of the LifeTime Grand Prix Athletes, former Paris-Roubaix winners and a whole lot of properly fast folks.\n\nMy goal for this race was to have a clean race, and conserve as much energy in the first 100 miles so that I could stay on the power for the latter half of the race, when other athletes would start to fall apart with the duration and rising temps. The race started insanely fast, more reminiscent of a 100 mile road race than a 9+ hour gravel race. I was very cautious in the first few hours, and unfortunately found myself chasing back on to the lead group several times as riders were flatting, crashing and cracking just a few wheels ahead of me in the first few decisive sections.\n\nThe lead group came into Aid Station 1 with ~60 riders, and unfortunately I panicked a bit coming out of the first Aid stop and burnt a match too many - I came off of the lead group here, but sat up for a few minutes to regather myself and get ready for the next 5+ hours of steady chasing. I quickly fell in with a chase group after Aid 1, and we were picking off riders almost immediately. Not long after the notorious Little Egypt, Andrew Dillman and I were able to pick up Truman Glasgow and Konny Looser, and the 4 of us were able to catch a group including Niki Terpstra, Laurens ten Dam, Thomas Dekker, Tobin Ortinblad, Rob Britton and several other fast folks. This new chase group of ~12 riders rotated well and smooth, and we were picking off riders through the latter part of the race that is mostly tame gravel with a few climbs.\n\nUnfortunately, with around 40km of racing left on a descent, the two riders in front of me hit a rock, and was unable to avoid hitting this rock at ~45kph, causing a flat for all three of us. I was able to ride for a short while before I had to inflate the tire again, but I didn't jostle the sealant around and had to stop to inflate the tire two more times. The third time I had to stop, with around 30km of racing left, I was unable to regain contact with this chase group and rode solo until the last 3km.\n\nThe next chase group on the road caught me right before the final few turns and final climb (a hill on a normal day, but a brutal punch after nearly 325km of racing). The original chase group I was in raced for 40th, and this second chase I finished in sprinted for 52nd. I was second in this sprint, finishing 53rd on the day.\n\nOverall, I am happy to see that I have the strength and race acumen to be racing with the big dawgs, but I am quite a bit bummed to miss out on finishing with the group racing for 40th due to a relatively silly mechanical. Unbound is a beast, and I will definitely be back for a shot at redemption!\n\nFollow me at\n:http://youtube.com/justinmcquerryhttp\n://instagram.com/j_mcquerry/http\n://strava.com/athletes/justinmcquerryhttp\n://facebook.com/justin.mcquerry/\n\n0:00 Start\n4:28 Gravel\n1:13:00 Gun Barrel Hill\n1:47:37 Eskridge To Alma\n3:14:42 Aid Station 1\n3:17:01 Chase After Alma\n3:47:05 Chase Group 1\n4:47:00 Dillman & McQuerry\n5:30:55 Water Oasis 1\n6:41:00 Chase Group 2\n7:16:08 Aid Station 2\n7:26:35 Chase After Council Grove\n8:26:48 Flat\n9:03:39 Solo\n9:38:58 Finish",
-          "tags": [
-            "unbound",
-            "unbound gravel",
-            "unbound pro",
-            "unbound pro men",
-            "uci gravel",
-            "uci gravel world champ",
-            "uci gravel world championship",
-            "unbound gravel race",
-            "dirty kanza",
-            "emporia gravel",
-            "unbound race",
-            "pro men gravel race",
-            "professional gravel race",
-            "justin mcquery",
-            "justin mcquerry",
-            "mcquerry"
-          ],
-          "url": "https://www.youtube.com/watch?v=1OMnxmVSCTw",
-          "curated": false
-        }
-      ],
+      "videos": [],
       "quotes": []
     }
   }

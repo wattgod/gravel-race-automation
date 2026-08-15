@@ -437,7 +437,14 @@ def generate_jsonld(entry: dict, profile_data: dict = None) -> dict:
     vitals = race.get("vitals", {})
 
     # Parse date for structured data
-    date_specific = vitals.get("date_specific", "")
+    # Source-blocked profiles retain the last confirmed date as research
+    # evidence. It is historical, not a scheduled next edition, so never
+    # publish it as the structured event date.
+    date_specific = (
+        ""
+        if vitals.get("course_status") == "source_blocked"
+        else vitals.get("date_specific", "")
+    )
     # Only accept the canonical year-first date form.  Status prose can contain
     # several years and unrelated numbers (for example, "Cancelled for 2026 ...
     # no 2027 date") and must never be promoted to a fabricated event date.

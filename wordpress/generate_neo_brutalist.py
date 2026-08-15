@@ -436,13 +436,20 @@ def normalize_race_data(data: dict) -> dict:
         }
 
     # Extract date with year from date_specific like "2026: June 6" -> "June 6, 2026"
-    date_specific = vitals.get('date_specific', '')
+    raw_date_specific = vitals.get('date_specific', '')
+    source_blocked = vitals.get('course_status') == 'source_blocked'
+    # A source-blocked profile may retain the last held edition for research,
+    # but that historical date must not become a scheduled event, calendar
+    # export, countdown, or plan-start prompt on the public page.
+    date_specific = '' if source_blocked else raw_date_specific
     short_date = date_specific
     date_match = re.search(r'(\d{4}):\s*(.+)', date_specific)
     if date_match:
         year = date_match.group(1)
         date_part = date_match.group(2).strip()
         short_date = f"{date_part}, {year}"
+    elif source_blocked:
+        short_date = vitals.get('date', '')
 
     # Parse entry cost from registration string, then fallback to rating explanations
     reg = vitals.get('registration', '')

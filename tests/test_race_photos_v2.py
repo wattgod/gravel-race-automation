@@ -522,4 +522,7 @@ class TestRealRaceData:
         # Floor re-pinned 186->185 (Aug 15 2026): Red Granite's inherited
         # route ID was removed because the organizer has not published a
         # current route. Toppling Goliath likewise has no current route file.
-        assert rwgps_count >= 185, f"Expected >=185 current RWGPS routes, got {rwgps_count}"
+        # Floor re-pinned 185->184 (Aug 15 2026): CIRREM's profile had the
+        # independently uploaded "CIRREM Short" trace, but the organizer has
+        # not published an authoritative next-edition route.
+        assert rwgps_count >= 184, f"Expected >=184 current RWGPS routes, got {rwgps_count}"

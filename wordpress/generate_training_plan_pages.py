@@ -57,7 +57,7 @@ DIM_LABELS = {
     "vo2_power": "VO2 Power",
     "threshold": "Threshold",
     "technical": "Technical",
-    "heat_resilience": "Heat",
+    "heat_resilience": "Heat Acclimation",
     "altitude": "Altitude",
     "race_specificity": "Race Specificity",
 }
@@ -90,6 +90,10 @@ def esc(text) -> str:
         return ""
     return (str(text).replace("&", "&amp;").replace("<", "&lt;")
             .replace(">", "&gt;").replace('"', "&quot;"))
+
+
+def is_source_blocked(rd: dict) -> bool:
+    return (rd.get("vitals") or {}).get("course_status") == "source_blocked"
 
 
 def load_race(path: Path) -> dict:
@@ -152,6 +156,7 @@ def build_hero(rd: dict, pack: dict) -> str:
     rating = rd.get("gravel_god_rating", {})
     tier = rating.get("tier", "")
     score = rating.get("overall_score", "")
+    source_blocked = is_source_blocked(rd)
 
     facts = []
     if vitals.get("distance_mi"):
@@ -161,27 +166,55 @@ def build_hero(rd: dict, pack: dict) -> str:
             facts.append(f"{int(float(vitals['elevation_ft'])):,} ft of climbing")
         except (TypeError, ValueError):
             pass
-    if vitals.get("date_specific"):
+    if vitals.get("date_specific") and not source_blocked:
         facts.append(esc(vitals["date_specific"]))
     if tier and score:
         facts.append(f"Tier {tier} &middot; GG Score {score}")
     facts_line = " &middot; ".join(facts)
 
-    cd_start, _ = parse_event_dates(vitals.get("date_specific", ""))
+    cd_start, _ = parse_event_dates(
+        "" if source_blocked else vitals.get("date_specific", "")
+    )
     date_attr = f' data-race-date="{esc(cd_start)}"' if cd_start else ""
+
+    if source_blocked:
+        status_label = esc(vitals.get("course_status_label") or "NEXT DATE NOT ANNOUNCED")
+        status_reason = esc(
+            vitals.get("course_status_reason")
+            or "The organizer has not published the next edition."
+        )
+        lede = (
+            f"This guide explains what the last confirmed {esc(name)} course "
+            "demanded. It is not a date-specific prescription for an unannounced "
+            "edition."
+        )
+        action = f'''<div class="gg-tpp-hero-cta">
+    <a href="/race/{esc(slug)}/" class="gg-btn" data-cta="tpp_hero_race">CHECK RACE STATUS</a>
+  </div>'''
+        status_html = (
+            f'<p class="gg-tpp-status"><strong>{status_label}</strong> &mdash; '
+            f'{status_reason}</p>'
+        )
+    else:
+        lede = (
+            f"This is what {esc(name)} actually asks of you &mdash; from the same "
+            "data behind our rating. The whole preparation picture is on this "
+            "page, free. If you want it built around your hours, your schedule, "
+            "and your fitness, that&rsquo;s what the custom plan is for."
+        )
+        action = f'''<div class="gg-tpp-hero-cta">
+    <a href="{QUESTIONNAIRE_URL}?race={esc(slug)}" class="gg-btn" data-cta="tpp_hero_build" id="gg-tpp-hero-cta">BUILD MY PLAN &mdash; $15/WK</a>
+    <span class="gg-tpp-countdown" id="gg-tpp-countdown"></span>
+  </div>'''
+        status_html = ""
 
     return f'''<section class="gg-tpp-hero"{date_attr} id="tpp-hero">
   <p class="gg-tpp-kicker">TRAINING PLAN</p>
   <h1>How to Train for {esc(name)}</h1>
   <p class="gg-tpp-facts">{facts_line}</p>
-  <p class="gg-tpp-lede">This is what {esc(name)} actually asks of you &mdash;
-  from the same data behind our rating. The whole preparation picture is on
-  this page, free. If you want it built around your hours, your schedule,
-  and your fitness, that&rsquo;s what the custom plan is for.</p>
-  <div class="gg-tpp-hero-cta">
-    <a href="{QUESTIONNAIRE_URL}?race={esc(slug)}" class="gg-btn" data-cta="tpp_hero_build" id="gg-tpp-hero-cta">BUILD MY PLAN &mdash; $15/WK</a>
-    <span class="gg-tpp-countdown" id="gg-tpp-countdown"></span>
-  </div>
+  {status_html}
+  <p class="gg-tpp-lede">{lede}</p>
+  {action}
 </section>'''
 
 
@@ -287,7 +320,7 @@ def build_fueling(rd: dict) -> str:
   <ul class="gg-tpp-fueling">
     <li><strong>{f["carbs_low"]}&ndash;{f["carbs_high"]}g of carbohydrate</strong> during the race (60&ndash;90g/hr)</li>
     <li><strong>~{f["cals"]:,} calories</strong> burned &mdash; you cannot eat it all back; you can only stay ahead of the bonk</li>
-    <li><strong>{f["bottles"]}+ bottles</strong> minimum, more in heat</li>
+    <li><strong>{f["bottles"]}+ bottles</strong> minimum; adjust for conditions and sweat rate</li>
   </ul>
   <p>Gut training starts 6+ weeks out &mdash; race-day fueling at race
   intensity is a trained skill, not a plan you read once. The free
@@ -489,6 +522,16 @@ def build_faq(rd: dict, pack: dict) -> tuple[str, list]:
 def build_cta(rd: dict) -> str:
     name = esc(rd["name"])
     slug = esc(rd["slug"])
+    if is_source_blocked(rd):
+        return f'''<section class="gg-tpp-section gg-tpp-cta-section" id="get-plan">
+  <h2>Wait for the next edition.</h2>
+  <p>The organizer has not published the next {name} date or edition-specific
+  route. We will update this guide and release the relevant plan ladder after
+  those facts are official.</p>
+  <div class="gg-tpp-cta-row">
+    <a href="/race/{slug}/" class="gg-btn" data-cta="tpp_race_page">CHECK {name.upper()} STATUS</a>
+  </div>
+</section>'''
     return f'''<section class="gg-tpp-section gg-tpp-cta-section" id="get-plan">
   <h2>Everything above, built around your life.</h2>
   <p>The free version of preparing for {name} is this page plus the
@@ -645,9 +688,14 @@ def generate_page(rd: dict, pack: dict) -> str:
     jsonld = build_json_ld(rd, qa, canonical)
 
     title = f"{name} Training Plan: How to Train for {name} | Gravel God"
-    meta = (f"How to train for {name}: demand profile, key workouts, "
-            f"12-16 week timeline, and fueling math — from the race data "
-            f"behind our rating. Custom plans from $15/week.")
+    if is_source_blocked(rd):
+        meta = (f"How to train for {name}: the last confirmed course demand, "
+                "key workouts, timeline, and fueling math. The next edition "
+                "has not been announced.")
+    else:
+        meta = (f"How to train for {name}: demand profile, key workouts, "
+                f"12-16 week timeline, and fueling math — from the race data "
+                f"behind our rating. Custom plans from $15/week.")
 
     return f'''<!DOCTYPE html>
 <html lang="en">

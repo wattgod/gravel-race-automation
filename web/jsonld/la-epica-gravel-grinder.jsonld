@@ -1,0 +1,36 @@
+{
+  "@context": "https://schema.org",
+  "@type": "SportsEvent",
+  "name": "La \u00c9pica Gravel Grinder",
+  "description": "Two scored gravel stages and an optional criterium on Puerto Rico's hot southern coast.",
+  "sport": "Gravel Cycling",
+  "startDate": "2027-03-26",
+  "location": {
+    "@type": "Place",
+    "name": "Ponce, Puerto Rico",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Ponce",
+      "addressRegion": "Puerto Rico"
+    }
+  },
+  "offers": {
+    "@type": "Offer",
+    "price": "165",
+    "priceCurrency": "USD",
+    "availability": "https://schema.org/LimitedAvailability"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "59",
+    "bestRating": "100",
+    "ratingCount": "14",
+    "name": "Gravel God Rating"
+  },
+  "url": "https://laepica.org/",
+  "organizer": {
+    "@type": "Person",
+    "name": "Caribbean Sports Organization",
+    "url": "https://laepica.org/"
+  }
+}

@@ -527,4 +527,6 @@ class TestRealRaceData:
         # not published an authoritative next-edition route.
         # Floor re-pinned 184->183 (Aug 15 2026): The Divide's inherited
         # route ID belonged to the Tour Divide rather than the Manton event.
-        assert rwgps_count >= 183, f"Expected >=183 current RWGPS routes, got {rwgps_count}"
+        # Floor re-pinned 183->182 (Aug 15 2026): Leuven's 2026 final route
+        # is pending; the removed RWGPS trace described the 147 km 2025 race.
+        assert rwgps_count >= 182, f"Expected >=182 current RWGPS routes, got {rwgps_count}"

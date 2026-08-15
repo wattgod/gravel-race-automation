@@ -4,11 +4,11 @@
       "slug": "birkebeinerrittet-road",
       "name": "Birkebeinerrittet Sykkel",
       "location": "Rena to Lillehammer, Norway",
-      "date": "2026: August 29",
-      "date_specific": "2026: August 29",
+      "date": "2027: August 28",
+      "date_specific": "2027: August 28",
       "distance_mi": 52.2,
       "elevation_ft": 3986,
-      "discipline": "road",
+      "discipline": "mtb",
       "month": "August",
       "prestige": 3,
       "overall_score": 73,
@@ -37,7 +37,7 @@
     "biased_opinion_ratings": {
       "adventure": {
         "score": 3,
-        "explanation": "The Birkebeinerrittet covers an 82-92 km route from Rena to Lillehammer through mountainous terrain, offering participants a journey that retraces the legendary 1206 Birkebeiner rescue mission across Norway's mountains."
+        "explanation": "The Birkebeinerrittet covers an 84 km route from Rena to Lillehammer through mountainous terrain, offering participants a journey that retraces the legendary 1206 Birkebeiner rescue mission across Norway's mountains."
       },
       "altitude": {
         "score": 3,
@@ -45,7 +45,7 @@
       },
       "climate": {
         "score": 4,
-        "explanation": "The race typically occurs in September when mountain weather in Norway can be unpredictable, with participants experiencing variable conditions across the 82-92 km course from valley to mountain passes."
+        "explanation": "The race takes place in late August when mountain weather in Norway can be unpredictable, with participants experiencing variable conditions across the 84 km course from valley to mountain passes."
       },
       "community": {
         "score": 4,
@@ -61,7 +61,7 @@
       },
       "experience": {
         "score": 4,
-        "explanation": "Participants pedal the same 82 km route that the Birkebeiners traveled in 1206, creating a historically immersive experience that connects modern cyclists to Norway's legendary mountain crossing."
+        "explanation": "Participants pedal an 84 km crossing inspired by the Birkebeiners' 1206 rescue, creating a historically immersive experience that connects modern cyclists to Norway's legendary mountain crossing."
       },
       "field_depth": {
         "score": 3,
@@ -69,7 +69,7 @@
       },
       "length": {
         "score": 3,
-        "explanation": "At 82-92 km depending on the year, the Birkebeinerrittet represents a substantial but not extreme distance, comparable to a full marathon mountain bike event rather than an ultra-endurance race."
+        "explanation": "At 84 km, the Birkebeinerrittet represents a substantial but not extreme distance, comparable to a full marathon mountain bike event rather than an ultra-endurance race."
       },
       "logistics": {
         "score": 4,
@@ -97,7 +97,7 @@
       }
     },
     "course_description": {
-      "character": "A historic point-to-point journey through forests, mountains, and valleys, blending fire roads, gravel, and paved sections while carrying a 3.5kg backpack to commemorate medieval warriors.",
+      "character": "A historic point-to-point journey through forests, mountains, and valleys, blending fire roads, gravel, and paved sections while carrying a mandatory safety backpack.",
       "suffering_zones": [
         {
           "label": "Raudfjellet Climb",
@@ -112,7 +112,7 @@
           "description": "Technical drop into Olympic stadium demanding control after fatigue."
         }
       ],
-      "signature_challenge": "Mandatory 3.5kg backpack throughout, symbolizing the weight of infant heir Håkon Håkonsson carried to safety in 1206."
+      "signature_challenge": "A mandatory backpack weighing at least 2 kg throughout the race, symbolizing infant heir Håkon Håkonsson, who was carried to safety in 1206."
     },
     "logistics": {
       "overview": "Start bib pickup in Rena on race morning; buses from Oslo/Lillehammer to Rena; finish at Håkons Hall with shuttles back.",
@@ -149,15 +149,22 @@
       "one_liner": "Norway's backpacked MTB legend: history, mountains, and massive community.",
       "best_for": "History buffs, adventure seekers, and social riders seeking epic Norwegian vibes.",
       "not_ideal_for": "Pure road racers avoiding gravel or those hating mandatory packs.",
-      "pro_tip": "Train with 3.5kg pack; book buses early and stay in Lillehammer for easy finish access."
+      "pro_tip": "Train with the required 2 kg backpack; book buses early and stay in Lillehammer for easy finish access."
     },
     "citations": [
       {
         "url": "https://birken.no/en/cycling/birkebeinerrittet-84-km",
         "title": "Birkebeinerrittet 84 km - Birken",
-        "snippet": "The race starts in the center of Rena and finishes at Håkons Hall in Lillehammer. The course is 84 km long with a total elevation gain of approximately 1,200–1,215 hm.",
+        "snippet": "The race starts in central Rena and finishes at Håkons Hall in Lillehammer. The course is 84 km with approximately 1,200–1,300 m of climbing, and riders must carry a backpack weighing at least 2 kg.",
         "category": "official",
         "label": "Official Website"
+      },
+      {
+        "url": "https://birken.no/en/all-races",
+        "title": "All races - Birken",
+        "snippet": "Birken lists Birkebeinerrittet for August 28, 2027 in its official 2027 race calendar.",
+        "category": "official",
+        "label": "Official 2027 Date"
       },
       {
         "url": "https://en.wikipedia.org/wiki/Birkebeinerrittet",

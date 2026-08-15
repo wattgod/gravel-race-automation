@@ -1,0 +1,182 @@
+{
+  "race": {
+    "name": "HYSK Gravel Classic Yakurai",
+    "slug": "hysk-gravel-classic-yakurai",
+    "display_name": "HYSK Gravel Classic Yakurai",
+    "tagline": "Deep Tohoku gravel with 8,563 feet of climbing packed into 66 miles.",
+    "vitals": {
+      "slug": "hysk-gravel-classic-yakurai",
+      "name": "HYSK Gravel Classic Yakurai",
+      "location": "Kami Town, Miyagi Prefecture, Japan",
+      "location_badge": "KAMI TOWN, JAPAN",
+      "date": "2026: August 22",
+      "date_specific": "2026: August 22",
+      "distance_mi": 66.5,
+      "elevation_ft": 8563,
+      "discipline": "gravel",
+      "month": "August",
+      "prestige": 3,
+      "overall_score": 64,
+      "tier": 2
+    },
+    "gravel_god_rating": {
+      "discipline": "gravel",
+      "adventure": 4,
+      "altitude": 2,
+      "climate": 3,
+      "community": 3,
+      "elevation": 4,
+      "expenses": 2,
+      "experience": 4,
+      "field_depth": 3,
+      "length": 3,
+      "logistics": 3,
+      "prestige": 3,
+      "race_quality": 4,
+      "technicality": 3,
+      "value": 3,
+      "cultural_impact": 1,
+      "overall_score": 64,
+      "tier": 2,
+      "tier_label": "TIER 2"
+    },
+    "biased_opinion_ratings": {
+      "adventure": {
+        "score": 4,
+        "explanation": "The long course loops through the mountain and agricultural landscape around Mount Yakurai, combining a high climbing load with rural Deep Tohoku scenery."
+      },
+      "altitude": {
+        "score": 2,
+        "explanation": "The challenge comes from repeated climbing rather than sustained high-altitude exposure."
+      },
+      "climate": {
+        "score": 3,
+        "explanation": "A late-August race in Miyagi adds summer heat, humidity, and changeable mountain weather without making climate the defining difficulty."
+      },
+      "community": {
+        "score": 3,
+        "explanation": "Kami Town, Hayasaka Cycle, and Panaracer jointly organize a three-day weekend with an expo, group ride, and welcome party, but the event is still building its international following."
+      },
+      "elevation": {
+        "score": 4,
+        "explanation": "The organizer lists 2,610 meters of climbing across 107 kilometers, an unusually dense 8,563-foot climbing day."
+      },
+      "expenses": {
+        "score": 2,
+        "explanation": "International travel to Japan plus the final transfer into rural Miyagi makes this an expensive destination race for most overseas riders."
+      },
+      "experience": {
+        "score": 4,
+        "explanation": "A hard race beneath Mount Yakurai, local food and culture, an expo, and nearby hot springs create a weekend that is more distinctive than a standard qualifier."
+      },
+      "field_depth": {
+        "score": 3,
+        "explanation": "UCI World Series status and qualification slots strengthen the field, though 2026 is the event's first World Series edition."
+      },
+      "length": {
+        "score": 3,
+        "explanation": "The official long course is 107 kilometers, or 66.5 miles."
+      },
+      "logistics": {
+        "score": 3,
+        "explanation": "The organizer gives clear venue and access guidance, but Kami Town still requires a car transfer of roughly 40 minutes from Furukawa Station or 70 minutes from Sendai Airport."
+      },
+      "prestige": {
+        "score": 3,
+        "explanation": "The race has national recognition and joins the UCI Gravel World Series in 2026, but it has not yet accumulated an international competitive legacy."
+      },
+      "race_quality": {
+        "score": 4,
+        "explanation": "A detailed schedule, seven checkpoints on the long route, a 700-rider cap, industry partners, and UCI sanction point to professional production."
+      },
+      "technicality": {
+        "score": 3,
+        "explanation": "Seventy percent of the long course is gravel and five categorized climbs per lap include pitches above 16 percent, but the organizer does not describe extreme singletrack or mandatory hike-a-bike terrain."
+      },
+      "value": {
+        "score": 3,
+        "explanation": "The 29,000-yen long-course entry is substantial, but it buys a full UCI race weekend rather than a bare local start line."
+      },
+      "cultural_impact": {
+        "score": 1,
+        "explanation": "The event is an emerging attempt to establish Kami Town as a Japanese gravel destination."
+      }
+    },
+    "course_description": {
+      "character": "A two-lap mountain gravel race around Kami Town with 70 percent gravel and climbing that accumulates almost continuously.",
+      "suffering_zones": [
+        {
+          "label": "Opening climb",
+          "description": "The first categorized climb begins 1.9 kilometers into each lap and reaches an official maximum gradient of 18.2 percent."
+        },
+        {
+          "label": "Mid-lap six-kilometer climb",
+          "description": "A 6.2-kilometer ascent beginning near kilometer 12.3 adds 272 meters before the course is halfway through a lap."
+        },
+        {
+          "label": "Second lap",
+          "description": "The long-course categories repeat the full climbing sequence on the way to 2,610 meters of total gain."
+        }
+      ],
+      "signature_challenge": "Fit 2,610 meters of climbing into a 107-kilometer race while preserving traction and pacing on the gravel sectors."
+    },
+    "logistics": {
+      "overview": "The gravel race starts at 06:30 Saturday from Togei no Sato Sports Park, with registration Friday afternoon or early Saturday morning.",
+      "official_site": "https://gravelclassic.com/main_en/",
+      "registration_url": "https://gravelclassic.com/",
+      "accommodation": "The organizer links lodging options in Kami Town, Furukawa, Sambongi, Naruko Onsen, and Ginzan Onsen.",
+      "getting_there": "The venue is about 40 minutes by car from Furukawa Station and about 70 minutes from Sendai Airport.",
+      "parking": "The main venue is Togei no Sato Sports Park in Kami Town.",
+      "spectator_info": "The weekend includes an expo, awards, a welcome party, and a separate Sunday group ride."
+    },
+    "climate": {
+      "overview": "Late-August mountain and agricultural terrain in Miyagi can combine summer warmth and humidity with variable weather.",
+      "wind_conditions": "Exposed agricultural sections can make wind relevant even though climbing dominates the profile.",
+      "altitude_effects": "No high-altitude acclimatization is expected; repeated vertical gain is the physiological constraint."
+    },
+    "terrain": {
+      "surface_breakdown": {
+        "paved": 30,
+        "gravel": 70,
+        "other": 0
+      },
+      "terrain_overview": "The organizer lists 74.4 gravel kilometers on the 107-kilometer long course through the hilly landscape around Mount Yakurai.",
+      "key_features": "Two laps, five categorized climbs per lap, gradients up to 18.2 percent, and 2,610 meters of total climbing."
+    },
+    "history": {
+      "overview": "Gravel events have run around Yakurai since 2021, with Hayasaka Cycle organizing Gravel Classic Yakurai from 2023 and the race joining the UCI Gravel World Series in 2026.",
+      "founded": 2021,
+      "notable_editions": "2026 is the first UCI Gravel World Series edition.",
+      "growth_trajectory": "A local gravel weekend has expanded into a 700-rider UCI qualifier backed by Kami Town, Panaracer, and Hayasaka Cycle."
+    },
+    "final_verdict": {
+      "one_liner": "A real mountain-gravel test whose climbing density matters more than its 66-mile headline.",
+      "best_for": "Strong climbers seeking an internationally sanctioned gravel race in a distinctive Japanese destination.",
+      "not_ideal_for": "Riders looking for flat, fast gravel or an inexpensive international weekend.",
+      "pro_tip": "Train for repeated low-cadence climbing, not just one long summit effort, and plan the final transfer into Kami Town before booking flights."
+    },
+    "citations": [
+      {
+        "url": "https://gravelclassic.com/course/",
+        "title": "HYSK Gravel Classic Yakurai 2026 - Course Overview",
+        "snippet": "The organizer lists a 107 km long course with 2,610 m of climbing, 74.4 km of gravel, seven checkpoints, and a 700-rider cap.",
+        "category": "official",
+        "label": "Official Course"
+      },
+      {
+        "url": "https://gravelclassic.com/main_en/",
+        "title": "HYSK Gravel Classic Yakurai 2026 - Event Overview",
+        "snippet": "The official schedule places the gravel race at 06:30 on Saturday, August 22, 2026 at Togei no Sato Sports Park in Kami Town.",
+        "category": "official",
+        "label": "Official Event Site"
+      },
+      {
+        "url": "https://ucigravelworldseries.com/en/yakurai/",
+        "title": "Yakurai - UCI Gravel World Series",
+        "snippet": "The UCI series confirms the August 22 date, Kami Town venue, World Series status, and repeated categorized climbs.",
+        "category": "official",
+        "label": "UCI World Series"
+      }
+    ]
+  }
+}

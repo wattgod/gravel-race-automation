@@ -1,0 +1,181 @@
+{
+  "race": {
+    "name": "Graean Cymru",
+    "slug": "graean-cymru",
+    "display_name": "Graean Cymru",
+    "tagline": "North Wales forest racing: 113 kilometers, 99 percent off road, and almost nowhere flat.",
+    "vitals": {
+      "slug": "graean-cymru",
+      "name": "Graean Cymru",
+      "location": "Llyn Brenig, North Wales, United Kingdom",
+      "location_badge": "LLYN BRENIG, WALES",
+      "date": "2026: September 5-6",
+      "date_specific": "2026: September 5-6",
+      "distance_mi": 70.2,
+      "elevation_ft": 6795,
+      "discipline": "gravel",
+      "month": "September",
+      "prestige": 3,
+      "overall_score": 76,
+      "tier": 2
+    },
+    "gravel_god_rating": {
+      "discipline": "gravel",
+      "adventure": 4,
+      "altitude": 2,
+      "climate": 4,
+      "community": 4,
+      "elevation": 4,
+      "expenses": 3,
+      "experience": 4,
+      "field_depth": 4,
+      "length": 3,
+      "logistics": 4,
+      "prestige": 3,
+      "race_quality": 4,
+      "technicality": 4,
+      "value": 3,
+      "cultural_impact": 3,
+      "overall_score": 76,
+      "tier": 2,
+      "tier_label": "TIER 2"
+    },
+    "biased_opinion_ratings": {
+      "adventure": {
+        "score": 4,
+        "explanation": "Two laps around Llyn Brenig and through the remote Clocaenog Forest combine Welsh scenery, closed trails, limited phone service, and an isolated race environment."
+      },
+      "altitude": {
+        "score": 2,
+        "explanation": "The organizer places the route between roughly 300 and 470 meters above sea level, so altitude is secondary to gradient and weather."
+      },
+      "climate": {
+        "score": 4,
+        "explanation": "The organizer explicitly warns that September can be fresh and that wet conditions turn sections muddy, making clothing and tire choice meaningful performance decisions."
+      },
+      "community": {
+        "score": 4,
+        "explanation": "The previous edition drew roughly 1,000 riders from 30 countries, while the current weekend adds a race village, food, beer, swimming, sauna, and separate category days."
+      },
+      "elevation": {
+        "score": 4,
+        "explanation": "The current organizer route lists 2,071 meters, or 6,795 feet, across 113 kilometers."
+      },
+      "expenses": {
+        "score": 3,
+        "explanation": "North Wales is reachable from the wider UK, but limited nearby lodging, paid scarce parking, and remote transport increase the total cost and planning burden."
+      },
+      "experience": {
+        "score": 4,
+        "explanation": "A reservoir start and finish, closed forest roads, a one-kilometer finishing straight, and a full Welsh race weekend deliver a memorable setting."
+      },
+      "field_depth": {
+        "score": 4,
+        "explanation": "The UCI qualifier uses separate elite race days and has drawn international riders and professional-level names."
+      },
+      "length": {
+        "score": 3,
+        "explanation": "The organizer's current detailed course lists 113 kilometers, or 70.2 miles."
+      },
+      "logistics": {
+        "score": 4,
+        "explanation": "Llyn Brenig is remote, parking is limited and must be purchased, phone service is poor on large parts of the course, and final GPX files arrive only shortly before race day."
+      },
+      "prestige": {
+        "score": 3,
+        "explanation": "It is Wales' only UCI Gravel World Series race and already draws internationally, but its history is still short."
+      },
+      "race_quality": {
+        "score": 4,
+        "explanation": "Closed roads and trails, separate elite days, live results, mechanics, paramedics, signed courses, feed support, and a structured race village point to professional execution."
+      },
+      "technicality": {
+        "score": 4,
+        "explanation": "The route is listed as 99 percent off road and mixes forest fire roads, singletrack, muddy sections, a 28-percent ramp, and repeated punchy climbs."
+      },
+      "value": {
+        "score": 3,
+        "explanation": "The event provides unusually complete support and closed-course racing, balanced against the extra parking and remote-weekend costs."
+      },
+      "cultural_impact": {
+        "score": 3,
+        "explanation": "A thousand-rider international field and status as the only Welsh UCI gravel qualifier give it notable national relevance."
+      }
+    },
+    "course_description": {
+      "character": "A two-lap reservoir-and-forest course that is almost entirely off road, with short singletrack, long rolling forest sectors, and repeated steep interruptions.",
+      "suffering_zones": [
+        {
+          "label": "Reservoir departure",
+          "description": "A short neutral start gives way to early singletrack and the first climb before the course reaches Clocaenog Forest."
+        },
+        {
+          "label": "Clocaenog Forest",
+          "description": "Forty-two kilometers of each lap repeatedly rise and fall on remote forest roads with little signal and limited recovery."
+        },
+        {
+          "label": "Second-lap finish straight",
+          "description": "The course returns across the dam for a one-kilometer finishing straight after 2,071 meters of total climbing."
+        }
+      ],
+      "signature_challenge": "Stay efficient on 99-percent off-road terrain while repeating the same punchy forest climbs and preserving speed for the exposed reservoir finish."
+    },
+    "logistics": {
+      "overview": "Elite women, all women, and men 50+ race Saturday; elite men and men 19-49 race Sunday from Llyn Brenig Visitor Centre.",
+      "official_site": "https://gloriousgravel.com/product/gravel-race/graean-cymru/",
+      "registration_url": "https://gloriousgravel.com/product/gravel-race/graean-cymru/",
+      "accommodation": "The organizer offers a nearby official campsite and lists hotels and campsites around Ruthin.",
+      "getting_there": "Llyn Brenig is approximately 20 minutes from Denbigh and 30 minutes from Ruthin by road.",
+      "parking": "Parking is limited and must be purchased with entry; car sharing, drop-off, or riding to the start is encouraged.",
+      "spectator_info": "The visitor center sees the start, lap passage, and finish; forest viewing is limited while trails are closed."
+    },
+    "climate": {
+      "overview": "Early September in exposed North Wales can be cool and wet, with muddy forest sectors when rain arrives.",
+      "wind_conditions": "The reservoir sections and dam finish are more exposed than the forest interior.",
+      "altitude_effects": "Elevation ranges roughly from 300 to 470 meters, too low for acclimatization to be a primary concern."
+    },
+    "terrain": {
+      "surface_breakdown": {
+        "paved": 1,
+        "gravel": 94,
+        "other": 5
+      },
+      "terrain_overview": "Smooth gravel roads dominate, but the organizer also identifies singletrack and muddy sections within a route that is 99 percent off road.",
+      "key_features": "Two laps, 113 kilometers, 2,071 meters of climbing, remote forest roads, punchy climbs, and a one-kilometer dam finish."
+    },
+    "history": {
+      "overview": "Graean Cymru is the UCI Gravel World Series event at Llyn Brenig run by the Glorious Gravel team.",
+      "notable_editions": "The 2025 edition drew approximately 1,000 riders from 30 countries; the 2026 race returns with separate Saturday and Sunday fields.",
+      "growth_trajectory": "The event has quickly become an international Welsh qualifier while retaining a remote forest-race identity."
+    },
+    "final_verdict": {
+      "one_liner": "A polished UCI race on remote Welsh forest gravel, with enough singletrack and weather risk to punish lazy setup choices.",
+      "best_for": "Riders who want competitive depth, high off-road percentage, and a destination weekend without an ultra-distance commitment.",
+      "not_ideal_for": "Anyone wanting easy parking, constant phone coverage, or a smooth-road gran fondo experience.",
+      "pro_tip": "Bring a wet-course tire option and solve parking before arrival; the organizer's final conditions update should decide the last setup change."
+    },
+    "citations": [
+      {
+        "url": "https://gloriousgravel.com/product/gravel-race/graean-cymru/",
+        "title": "Graean Cymru - Official Organizer Page",
+        "snippet": "The organizer confirms September 5-6, category-specific race days, a current 113 km and 2,071 m course, 99% off-road terrain, limited parking, and remote sections without phone signal.",
+        "category": "official",
+        "label": "Official Event Site"
+      },
+      {
+        "url": "https://ucigravelworldseries.com/en/ruthin/",
+        "title": "Ruthin - UCI Gravel World Series",
+        "snippet": "The UCI series confirms Graean Cymru at Llyn Brenig, its two-lap Clocaenog Forest format, and UCI qualifier status.",
+        "category": "official",
+        "label": "UCI World Series"
+      },
+      {
+        "url": "https://ucigravelworldseries.com/en/graean-cymru-with-women-and-men-racing-on-separate-days/",
+        "title": "Graean Cymru with women and men racing on separate days",
+        "snippet": "The UCI reports 1,000 riders from 30 countries and separate elite fields at the 2025 edition.",
+        "category": "official",
+        "label": "UCI Event Report"
+      }
+    ]
+  }
+}

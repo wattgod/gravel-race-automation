@@ -1,0 +1,181 @@
+{
+  "race": {
+    "name": "Khomas100",
+    "slug": "khomas100",
+    "display_name": "Khomas100",
+    "tagline": "Windhoek to Gross Barmen on 143 kilometers of fast, rugged Namibian gravel.",
+    "vitals": {
+      "slug": "khomas100",
+      "name": "Khomas100",
+      "location": "Windhoek to Gross Barmen, Namibia",
+      "location_badge": "WINDHOEK, NAMIBIA",
+      "date": "2026: August 22",
+      "date_specific": "2026: August 22",
+      "distance_mi": 88.9,
+      "elevation_ft": 7546,
+      "discipline": "gravel",
+      "month": "August",
+      "prestige": 3,
+      "overall_score": 71,
+      "tier": 2
+    },
+    "gravel_god_rating": {
+      "discipline": "gravel",
+      "adventure": 5,
+      "altitude": 3,
+      "climate": 4,
+      "community": 2,
+      "elevation": 4,
+      "expenses": 2,
+      "experience": 4,
+      "field_depth": 3,
+      "length": 3,
+      "logistics": 4,
+      "prestige": 3,
+      "race_quality": 4,
+      "technicality": 3,
+      "value": 4,
+      "cultural_impact": 2,
+      "overall_score": 71,
+      "tier": 2,
+      "tier_label": "TIER 2"
+    },
+    "biased_opinion_ratings": {
+      "adventure": {
+        "score": 5,
+        "explanation": "A point-to-point crossing from Windhoek to Gross Barmen through Namibia's open Khomas landscape is the rare qualifier with the character of a destination expedition."
+      },
+      "altitude": {
+        "score": 3,
+        "explanation": "Windhoek sits high enough for thinner air to be noticeable to sea-level visitors, although this is not an extreme-altitude race."
+      },
+      "climate": {
+        "score": 4,
+        "explanation": "Dry air, sun exposure, dust, wind, and long gaps across open Namibian terrain make environmental management part of the race rather than background scenery."
+      },
+      "community": {
+        "score": 2,
+        "explanation": "The event has a meaningful Namibian identity and continental-championship role, but its broader gravel culture remains small compared with established global festivals."
+      },
+      "elevation": {
+        "score": 4,
+        "explanation": "The organizer lists approximately 2,300 meters, or 7,546 feet, of climbing on the 143-kilometer full route."
+      },
+      "expenses": {
+        "score": 2,
+        "explanation": "The entry itself is affordable, but flights to Namibia and point-to-point travel logistics make the total trip expensive for most international riders."
+      },
+      "experience": {
+        "score": 4,
+        "explanation": "The remote landscape, point-to-point format, and finish at Gross Barmen give the race a strong sense of place beyond its championship labels."
+      },
+      "field_depth": {
+        "score": 3,
+        "explanation": "UCI qualification and African Continental Championship titles attract serious racers, though the international field is not yet proven at top global depth."
+      },
+      "length": {
+        "score": 3,
+        "explanation": "The full championship route is 143 kilometers, or 88.9 miles."
+      },
+      "logistics": {
+        "score": 4,
+        "explanation": "This is a point-to-point race from Tony Rust Race Track to Gross Barmen Resort, with mandatory GPS navigation and remote-course planning layered onto international travel."
+      },
+      "prestige": {
+        "score": 3,
+        "explanation": "The combination of UCI Gravel World Series status and the CAC African Continental Gravel Championship gives real significance without an iconic multi-decade legacy."
+      },
+      "race_quality": {
+        "score": 4,
+        "explanation": "Published routes, six water points, category-specific starts, cutoffs, prize money, age-group podiums, and championship sanction indicate a professionally structured event."
+      },
+      "technicality": {
+        "score": 3,
+        "explanation": "The route is mostly unsurfaced and requires 40-50 mm tires plus mandatory GPS, but the organizer frames it as fast gravel and rolling terrain rather than extreme trail riding."
+      },
+      "value": {
+        "score": 4,
+        "explanation": "A full-distance entry of N$1,200 before the late period is strong local value for both UCI and continental-championship racing."
+      },
+      "cultural_impact": {
+        "score": 2,
+        "explanation": "Serving as an African Continental Gravel Championship gives the race regional importance beyond its participant count."
+      }
+    },
+    "course_description": {
+      "character": "A point-to-point route that leaves Windhoek on pavement before committing to long, exposed stretches of mostly unsurfaced road toward Gross Barmen.",
+      "suffering_zones": [
+        {
+          "label": "Windhoek opener",
+          "description": "The full-distance field starts at Tony Rust Race Track and must avoid over-racing the early paved and climbing-heavy section."
+        },
+        {
+          "label": "Khomas gravel",
+          "description": "Long unsurfaced sectors, dust, wind, and mandatory GPS navigation make attention and self-management as important as raw fitness."
+        },
+        {
+          "label": "Water Point 5 cutoff",
+          "description": "Riders must reach the fifth water point by 15:00 and maintain at least a 16 km/h average to remain on course."
+        }
+      ],
+      "signature_challenge": "Carry speed across exposed Namibian gravel without losing hydration, navigation, or pacing control before the Gross Barmen finish."
+    },
+    "logistics": {
+      "overview": "The full route starts at 07:00 from Tony Rust Race Track in Windhoek and finishes at NWR Gross Barmen Resort near Okahandja.",
+      "official_site": "https://khomas100.com.na/",
+      "registration_url": "https://khomas100.com.na/enter/",
+      "accommodation": "The point-to-point finish at Gross Barmen Resort makes lodging and return transport part of the race plan.",
+      "getting_there": "International riders fly into Windhoek and must coordinate start access plus post-finish transport from Gross Barmen.",
+      "parking": "Start and finish are in different locations; confirm vehicle and shuttle arrangements in the rider guide.",
+      "spectator_info": "Prize ceremonies at Gross Barmen are scheduled separately for elite and age-group fields."
+    },
+    "climate": {
+      "overview": "The exposed Namibian course demands a conservative hydration and sun-management plan even during the dry-season race window.",
+      "wind_conditions": "Open plains offer little shelter from crosswinds or headwinds.",
+      "altitude_effects": "Windhoek's elevation can be noticeable to sea-level riders, especially before the course begins trending toward the finish."
+    },
+    "terrain": {
+      "surface_breakdown": {
+        "paved": 15,
+        "gravel": 85,
+        "other": 0
+      },
+      "terrain_overview": "Mostly unsurfaced Namibian roads connect rolling hills, faster plains, sustained climbs, and exposed descents.",
+      "key_features": "143 kilometers, approximately 2,300 meters of climbing, mandatory GPS, six water points, and a point-to-point finish."
+    },
+    "history": {
+      "overview": "Khomas100 is a Namibian gravel fixture that adds both UCI Gravel World Series and CAC African Continental Gravel Championship status in 2026.",
+      "notable_editions": "2026 combines the Khomas100 title, African Continental Championship, and UCI World Series qualification in one race.",
+      "growth_trajectory": "A national endurance event is developing into one of Africa's internationally sanctioned gravel races."
+    },
+    "final_verdict": {
+      "one_liner": "A fast-looking course whose remoteness, climbing, and Namibian exposure make it anything but easy.",
+      "best_for": "Self-sufficient riders who want championship stakes and an uncommon gravel destination.",
+      "not_ideal_for": "Anyone uncomfortable with remote navigation, point-to-point logistics, dust, or sustained sun exposure.",
+      "pro_tip": "Treat the mandatory GPS and six-water-point plan as race equipment, not administrative details, and organize finish transport before arrival."
+    },
+    "citations": [
+      {
+        "url": "https://khomas100.com.na/",
+        "title": "Khomas100 - Official Event Site",
+        "snippet": "The organizer confirms August 22, 2026, a 143 km full-distance race, African Continental Championship and UCI qualifier status, entry fees, water points, and cutoffs.",
+        "category": "official",
+        "label": "Official Event Site"
+      },
+      {
+        "url": "https://khomas100.com.na/routes/",
+        "title": "Khomas100 Routes",
+        "snippet": "The official route page lists the Tony Rust Race Track start, Gross Barmen finish, 143 km distance, approximately 2,300 m of climbing, and mostly unsurfaced roads.",
+        "category": "official",
+        "label": "Official Route"
+      },
+      {
+        "url": "https://ucigravelworldseries.com/en/windhoek/",
+        "title": "Windhoek - UCI Gravel World Series",
+        "snippet": "The UCI series confirms the Windhoek event, category-specific distances, point-to-point format, and predominantly unpaved course.",
+        "category": "official",
+        "label": "UCI World Series"
+      }
+    ]
+  }
+}

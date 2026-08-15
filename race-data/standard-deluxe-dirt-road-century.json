@@ -3,33 +3,34 @@
     "name": "Dirty Deluxe Dirt Road Century",
     "slug": "standard-deluxe-dirt-road-century",
     "display_name": "Dirty Deluxe Dirt Road Century",
-    "tagline": "Alabama dirt roads from a new home in Opelika.",
+    "tagline": "A 100-mile Alabama dirt-road race from a new downtown Opelika home.",
     "vitals": {
       "distance_mi": 100,
-      "elevation_ft": 4000,
+      "elevation_ft": null,
+      "gain_display": "Not published",
       "location": "Opelika, Alabama",
       "location_badge": "OPELIKA, AL",
       "county": "Lee County",
       "date": "May 22, 2027",
-      "date_specific": "2027: May 22. The organizer confirms the renamed event and move to downtown Opelika, but registration and final route details are still pending.",
+      "date_specific": "2027: May 22",
       "terrain_types": [
         "Alabama dirt roads",
-        "Rolling hills",
-        "100-mile distance",
-        "Regional event"
+        "100-mile flagship race",
+        "60-mile race",
+        "30-mile race"
       ],
-      "field_size": "200-400 riders",
-      "start_time": "12:00am PST",
-      "registration": "Online. Cost: ~$60-100",
-      "prize_purse": "Modest prizes",
-      "aid_stations": "Multiple aid stations",
-      "cutoff_time": "Varies (typically 10-12 hours)",
-      "lat": 32.7354,
-      "lng": -85.5791
+      "field_size": "350 riders total across all distances",
+      "start_time": "7:00 AM for the 100-mile race; 8:00 AM for 60 miles; 9:30 AM for 30 miles",
+      "registration": "Online via BikeReg. $85 before processing fees; closes May 12, 2027 at 11:59 PM CT unless the 350-rider event cap fills first.",
+      "prize_purse": "BikeReg lists prizes for race categories without publishing a cash value.",
+      "aid_stations": "Not yet published for the redesigned 2027 routes.",
+      "cutoff_time": "Not yet published for 2027.",
+      "lat": 32.6494032,
+      "lng": -85.3788678
     },
     "climate": {
-      "primary": "Alabama spring/fall",
-      "description": "Variable conditions with heat and humidity possible.",
+      "primary": "Late-May Alabama",
+      "description": "Heat, humidity, and thunderstorms are plausible late-May conditions; use the race-week forecast for execution decisions.",
       "challenges": [
         "Heat possible",
         "Humidity",
@@ -38,15 +39,15 @@
       ]
     },
     "terrain": {
-      "primary": "Alabama rolling hills dirt roads",
-      "surface": "Dirt roads through rolling Alabama hills. 100-mile distance with moderate elevation.",
+      "primary": "Alabama dirt roads from downtown Opelika",
+      "surface": "The organizer confirms dirt-road racing from downtown Opelika but has not published the redesigned 2027 routes, surface split, elevation, or named sectors.",
       "technical_rating": 2,
       "features": [
-        "Moderate rolling (4000 feet)",
-        "Rural scenery",
-        "100-mile distance",
-        "Northeast Alabama setting",
-        "Regional event"
+        "100-mile flagship race",
+        "60-mile race",
+        "30-mile race",
+        "Downtown Opelika start and finish",
+        "Final 2027 route details pending"
       ]
     },
     "gravel_god_rating": {
@@ -73,98 +74,71 @@
     },
     "biased_opinion": {
       "verdict": "Alabama Dirt Roads Century Challenge",
-      "summary": "Standard Deluxe Dirt Road Century is a 100-mile gravel race in Waverly, Alabama—rolling hills dirt roads with moderate elevation. The 100-mile distance is the main challenge, but it's rolling dirt roads terrain with a regional field, keeping it in Tier 3. Waverly provides moderate access. Spring/fall weather brings heat and humidity challenges.",
+      "summary": "Dirty Deluxe carries the old Standard Deluxe century into downtown Opelika with a confirmed 100-mile flagship plus 60- and 30-mile races. The organizer has upgraded the venue and finish-festival concept, while the redesigned route and climbing total remain intentionally unscored until published. It stays Tier 3: a credible regional endurance race with a clear identity, modest national prestige, and a much better logistics base than Waverly.",
       "strengths": [
-        "100-mile distance (significant challenge)",
-        "Moderate organization",
-        "AL cycling community",
-        "Century challenge",
-        "Regional pricing"
+        "Confirmed 100-mile flagship",
+        "Downtown Opelika start and finish",
+        "Three race distances with staggered starts",
+        "Grassroots Alabama cycling identity",
+        "350-rider event cap"
       ],
       "weaknesses": [
-        "Northeast AL access (moderate)",
-        "Rolling dirt roads (minimal climbing)",
-        "Regional field only",
-        "Heat/humidity concerns",
-        "Repetitive scenery"
+        "Final 2027 routes and elevation are not published",
+        "Course-specific technical demands remain provisional",
+        "Regional rather than national field depth",
+        "Late-May heat and humidity are plausible",
+        "Aid, cutoff, packet, and parking details remain unpublished"
       ],
-      "bottom_line": "A solid 100-mile dirt roads challenge with rolling hills. Worth it for the distance challenge. Not a destination race for terrain variety or field depth."
+      "bottom_line": "A legitimate 100-mile Alabama dirt-road target with a stronger downtown finish, but wait for the final route before treating its climbing or technical character as settled."
     },
     "final_verdict": {
       "score": "49 / 100",
-      "one_liner": "100-mile Alabama dirt roads in Waverly.",
-      "should_you_race": "If you want a 100-mile challenge—yes, it's a solid distance test. If you want terrain variety or pro field depth—look elsewhere.",
-      "alternatives": "For better century events: Land Run 100, Barry-Roubaix. For similar regional events: other AL gravel races.",
+      "one_liner": "100 miles of Alabama dirt roads from downtown Opelika.",
+      "should_you_race": "If a grassroots 100-mile dirt-road race with a downtown finish appeals, yes. If your decision depends on exact climbing or technical sectors, wait for the final 2027 route.",
+      "alternatives": "For a larger national 100-mile gravel field, compare The Mid South. For another established eastern dirt-road race, compare Barry-Roubaix.",
       "alternative_slugs": [
         "barry-roubaix",
         "mid-south"
       ]
     },
     "logistics": {
-      "airport": "Birmingham (BHM) 1.5 hours or Atlanta (ATL) 2 hours",
-      "lodging_strategy": "Waverly has limited lodging. Auburn has more options.",
-      "food": "Small town with limited dining. Stock nutrition for 100 miles.",
-      "packet_pickup": "Day before",
-      "parking": "At start/finish",
+      "airport": "Atlanta (ATL), about 100 miles from Opelika, or Birmingham (BHM), about 115 miles away; verify drive time for race weekend.",
+      "lodging_strategy": "Base in Opelika or neighboring Auburn; the organizer has not yet published a 2027 lodging block.",
+      "food": "The organizer promises a downtown finish festival with local breweries, distilleries, food trucks, and live music; race-course nutrition details are not yet published.",
+      "packet_pickup": "Not yet published for 2027.",
+      "parking": "Not yet published for the downtown Opelika venue.",
       "official_site": "https://www.dirtroadcentury.com/",
-      "camping": "camping at Standard Deluxe, Live music at the Little House (located at Standard Deluxe), A clearly marked course (last year's route"
+      "camping": "Not yet published for the 2027 downtown venue."
     },
     "history": {
       "founded": null,
-      "founder": "Alabama organizers",
-      "origin_story": "Alabama dirt roads century event.",
-      "notable_moments": [],
-      "reputation": "Regional AL event."
+      "founder": "Alabama race organizers",
+      "origin_story": "The event was long known as the Standard Deluxe Dirt Road Century in Waverly. For 2027 it becomes Dirty Deluxe and moves its start, finish, and festival to downtown Opelika.",
+      "notable_moments": [
+        "Renamed Dirty Deluxe and relocated to downtown Opelika for 2027"
+      ],
+      "reputation": "A grassroots Alabama dirt-road century entering a new downtown chapter."
     },
     "course_description": {
-      "character": "Rolling dirt roads for 100 miles.",
-      "suffering_zones": [
-        {
-          "mile": 30,
-          "label": "First Third",
-          "desc": "30 miles in, settling into pace.",
-          "terrain_detail": "Dirt roads",
-          "named_section": "Early Miles"
-        },
-        {
-          "mile": 50,
-          "label": "Halfway",
-          "desc": "Halfway point, 50 miles to go.",
-          "terrain_detail": "Midpoint",
-          "named_section": "Halfway"
-        },
-        {
-          "mile": 75,
-          "label": "The Grind",
-          "desc": "75 miles in, mental game begins.",
-          "terrain_detail": "Late miles",
-          "named_section": "The Grind"
-        },
-        {
-          "mile": 90,
-          "label": "Final Push",
-          "desc": "Last 10 miles to finish.",
-          "terrain_detail": "Final miles",
-          "named_section": "Homestretch"
-        }
-      ],
-      "signature_challenge": "100-mile distance through Alabama dirt roads with heat and humidity.",
+      "character": "A 100-mile dirt-road flagship from downtown Opelika. The final 2027 route, climbing, surface split, and named sectors are not yet published.",
+      "suffering_zones": [],
+      "signature_challenge": "Sustain a century of dirt-road racing while keeping exact 2027 climbing and technical execution provisional until the organizer releases the route.",
       "ridewithgps_id": null,
       "ridewithgps_name": null
     },
     "guide_variables": {
-      "race_name": "Standard Deluxe Dirt Road Century",
+      "race_name": "Dirty Deluxe Dirt Road Century",
       "race_distance": "100 miles",
-      "race_elevation": "4,000 feet",
-      "race_date": "Spring or Fall",
-      "race_location": "Waverly, Alabama",
-      "race_terrain": "Alabama rolling hills dirt roads",
-      "race_weather": "AL spring/fall variability",
+      "race_elevation": "Not yet published",
+      "race_date": "May 22, 2027",
+      "race_location": "Downtown Opelika, Alabama",
+      "race_terrain": "Alabama dirt roads; final 2027 route pending",
+      "race_weather": "Late-May Alabama heat, humidity, and storms are climate context, not a race-day forecast",
       "race_challenges": [
         "100-mile distance",
         "Heat/humidity possible",
-        "Rolling terrain endurance",
-        "Regional field",
+        "Dirt-road durability",
+        "Unknown final climbing profile",
         "Century pacing"
       ],
       "altitude_section": false,
@@ -179,7 +153,7 @@
       {
         "requirement": "Heat and humidity preparation",
         "by_when": "Week 4-6",
-        "why": "AL spring/fall means heat and humidity are likely."
+        "why": "Late May in Alabama can bring heat and humidity; use heat acclimation only when conditions and athlete health allow."
       },
       {
         "requirement": "Pacing discipline",
@@ -188,13 +162,16 @@
       }
     ],
     "research_metadata": {
-      "data_confidence": "moderate",
-      "validation_status": "pending",
+      "data_confidence": "high for date, distances, starts, entry, cap, and venue; provisional for course demands",
+      "validation_status": "verified_with_guard",
       "sources": [
-        "alabama_cycling_community"
+        "https://www.dirtroadcentury.com/",
+        "https://www.bikereg.com/77006",
+        "https://static1.squarespace.com/static/6009b7229559ca20d1706496/t/690fcbee1d51bd3124ce84cf/1762642926347/25StandardDeluxeResults.pdf"
       ],
       "migration_notes": [
-        "Generated from regional information"
+        "2027 organizer and organizer-linked registration facts replace the former Waverly venue and provisional event data.",
+        "Historical Waverly course reporting remains rider context only and must not be represented as the redesigned 2027 Opelika route."
       ],
       "research_strength": {
         "overall": 85.8,
@@ -261,9 +238,9 @@
       },
       "tier_overrides": {},
       "marketplace_variables": {
-        "race_name": "Standard Deluxe Dirt Road Century",
-        "race_hook": "100 miles of Alabama dirt roads.",
-        "race_hook_detail": "Century challenge in Waverly.",
+        "race_name": "Dirty Deluxe Dirt Road Century",
+        "race_hook": "100 miles of Alabama dirt roads from downtown Opelika.",
+        "race_hook_detail": "The flagship century is confirmed; the redesigned 2027 route and elevation are still pending.",
         "distance": "100",
         "dark_mile": "75",
         "non_negotiable_1": "Century endurance",
@@ -275,71 +252,91 @@
     "biased_opinion_ratings": {
       "logistics": {
         "score": 2,
-        "explanation": "JOM noted early mechanical issues when \"tyre punctures were a problem, ending the chances for several riders early\" within the first 20 miles. K-Dogg's navigation struggles - \"I pulled out the emergency cue sheet but most of the marked roads weren't actually marked on the actual road\" - highlight course marking issues that improved by 2017 according to EmperorSnu."
+        "explanation": "The downtown Opelika venue is materially easier to support than the former Waverly start, with lodging and dining in Opelika and Auburn. The organizer has not yet published 2027 parking, packet pickup, or a lodging block, so logistics remain incompletely specified."
       },
       "length": {
         "score": 4,
-        "explanation": "The full century delivers proper gravel suffering, with JOM describing the \"fat man fade\" - moving toward the front on hills only to \"drift slowly to the rear as the hill begins to bite.\" Elite riders like K-Dogg noted the relentless nature: \"Up and down, left and right. Virtually no flat or straight sections\" over the full 100-mile distance. Longer than Belgian Waffle Ride San Diego."
+        "explanation": "The organizer-linked registration confirms a full 100-mile race, enough distance to demand serious endurance, pacing, fueling, and durability even while the exact 2027 route remains unpublished."
       },
       "technicality": {
         "score": 2,
-        "explanation": "JOM discovered \"Alabama gravel is the real deal. Not pea-sized gravel, but more like chunky rocks in the trickier spots.\" The course mixes red-clay Alabama dirt with \"some chunk, some smooth, and some unmaintained county pavement\" according to organizers, but avoids technical mountain bike features in favor of sustained gravel grinding. Less technical than The Mid South."
+        "explanation": "The organizer confirms a dirt-road race but has not published the 2027 surface split or named sectors. Historical Waverly editions included chunky gravel and rough county roads; those reports inform a conservative rating but do not define the redesigned Opelika route."
       },
       "elevation": {
         "score": 2,
-        "explanation": "K-Dogg described \"one excessively hilly section\" where single speed riders had to \"attack over and over again\" to maintain momentum with their fixed gearing. The 4000 feet comes as rolling Alabama terrain rather than sustained climbs, with organizers noting \"rolling hills\" throughout Chambers County's rural roads. Less climbing than The Mid South."
+        "explanation": "Historical Waverly editions were described as punchy rather than mountainous, but the organizer has moved the 2027 race to Opelika and has not published an elevation total or final route. The conservative score stays low until the redesigned course can be graded from official data."
       },
       "climate": {
         "score": 2,
-        "explanation": "Early November timing avoids Alabama's brutal summer heat, but dust becomes a major factor. K-Dogg observed that \"everybody's faces were smeared with so much red dust they looked like irradiated Native Americans.\" JOM noted the \"fine red dust\" during pre-ride reconnaissance, and organizers warn that \"if it rains, it will be muddy.\" More weather exposure than Belgian Waffle Ride San Diego."
+        "explanation": "The move from November to late May raises the background likelihood of Alabama heat, humidity, and thunderstorms. That is climate context only: race-week forecasts and final course exposure will decide the actual weather demand."
       },
       "altitude": {
         "score": 1,
-        "explanation": "Waverly sits at typical Alabama elevations around 600-800 feet above sea level, making altitude a complete non-factor. The rural Chambers County terrain stays consistently low throughout the route, so sea level riders face no respiratory challenges and mountain dwellers get no meaningful advantage from thinner air. Lower altitude than Gravel Worlds — no thin-air concerns."
+        "explanation": "Downtown Opelika is a low-altitude venue, so hypoxia is not a meaningful preparation demand. The organizer has not published the 2027 course high point, but nothing in the confirmed venue suggests altitude exposure."
       },
       "adventure": {
         "score": 3,
-        "explanation": "JOM described riding \"through a cemetery\" and encountering \"a horribly washboarded dirt and gravel road\" on course. The race explores Chambers County's remote red-clay roads ending at the actual Standard Deluxe roadhouse in tiny Waverly (population 100), offering authentic rural Alabama gravel culture most riders will never otherwise experience."
+        "explanation": "Historical editions explored red-clay Alabama backroads; 2027 adds a downtown Opelika start and finish. The final route is unpublished, so prior named or visual course details cannot be carried into the new edition."
       },
       "prestige": {
         "score": 2,
-        "explanation": "Growing from 75 riders in 2016 to a 225-rider cap by 2025, the Standard Deluxe remains regionally focused without national recognition. Elite riders like JOM and K-Dogg provide race reports, but the event stays true to organizers' philosophy: \"We designed this for fun, not for profit\" with no prize purse or pro field development."
+        "explanation": "The organizer-linked 2027 registration caps the full event at 350 riders across three distances. That is meaningful regional scale, but the race still has limited national field depth and no published cash purse."
       },
       "race_quality": {
         "score": 2,
-        "explanation": "The organizers clearly care - they cap registration for 'best experience' and throw an afterparty at the actual Standard Deluxe. But the complete absence of course details, aid station info, or even a proper start time on their materials suggests this runs more on Southern charm than race-day precision. When your course description is just 'endless miles of quiet dirt roads,' you're not selling tactical sophistication."
+        "explanation": "The 2027 registration now provides exact race distances, start times, fees, categories, and a 350-rider cap, while the organizer has secured a downtown festival venue. Route, aid, cutoff, and packet details are still pending, which limits the current course-quality grade."
       },
       "experience": {
         "score": 3,
-        "explanation": "Elite groups showed unique race dynamics - K-Dogg described pace dropping to \"10 mph! Snacks were opened. Drinks were drunk. Conversation began\" on pavement sections before returning to race speed. JOM noted that at aid stations \"everyone stopped, nobody kept rolling\" creating a distinctly social gravel experience ending with Good People Brewing Company beer."
+        "explanation": "The organizer is building the 2027 event around a downtown start and finish festival with local drinks, food trucks, and live music. Historical Waverly editions were notably social, but the new venue and route make this a refreshed rather than identical experience."
       },
       "community": {
         "score": 3,
-        "explanation": "Founded to honor late bikepacker John Little, the race maintains grassroots character with \"homegrown, lighthearted, and fun\" vibes according to organizers. K-Dogg appreciated the civilized group dynamics and \"1,000 thanks for the promoters, volunteers and riders for a wonderful day of playing with our bikes in the dirt\" captures the authentic community atmosphere."
+        "explanation": "The event retains a grassroots Alabama identity while its 2027 proceeds support the Chattahoochee Humane Society. A downtown festival and three race distances broaden the community footprint without turning it into a national-scale production."
       },
       "field_depth": {
         "score": 2,
-        "explanation": "The 2023 sixty-mile race saw tight elite competition with Alex McClellan and Jeffrey Tanski separated by just 0.4 seconds after 3+ hours. However, K-Dogg noted significant attrition as \"the pack whittled down to 15 due to fatigue and flats\" then to \"eight or nine grim and grimy racers,\" limiting competitive depth throughout the field. Less competitive depth than Almanzo 100."
+        "explanation": "The 350-rider cap covers all three distances, so the confirmed event scale is meaningful but does not imply a deep national 100-mile field. Historical results show real racing at the front; the 2027 entrant mix is not yet known."
       },
       "value": {
         "score": 3,
-        "explanation": "Organizers designed the race \"for fun, not for profit\" with entry including \"two beers at the Red Clay Brewing Company\" for packet pickup and post-race festivities. The charitable mission supporting Alabama Animal Rescue Resource Foundation adds purpose, while the intimate 225-rider cap and afterparty at the actual Standard Deluxe deliver authentic value."
+        "explanation": "Entry is $85 before processing fees for all three 2027 distances, with proceeds supporting the Chattahoochee Humane Society and a promised downtown finish festival. Final inclusions, aid, and packet details remain unpublished."
       },
       "expenses": {
         "score": 3,
-        "explanation": "Registration runs $60-100. Race organizers recommend \"at least 700x38c gravel tires\" and warn against showing up \"on 700x25c and get a double flat in the first mile.\" Waverly's tiny size (population 100) limits lodging options but keeps costs low, and the rural Alabama location about 15 minutes from Auburn provides affordable access without destination resort pricing. Similar expense level to Belgian Waffle Ride San Diego."
+        "explanation": "Registration is $85 before processing fees. Opelika and neighboring Auburn offer a broader lodging and dining base than the former Waverly venue, while air travelers still need a drive from Atlanta or Birmingham."
       }
     },
     "eligibility": {
       "status": "active",
-      "verified": "2026-08-04",
-      "source": "https://www.dirtroadcentury.com/"
+      "verified": "2026-08-15",
+      "source": "https://www.bikereg.com/77006",
+      "note": "Organizer-linked registration is live for Saturday, May 22, 2027 with competitive 100-, 60-, and 30-mile fields from downtown Opelika."
+    },
+    "source_review": {
+      "reviewed_at": "2026-08-15",
+      "race_date": "2027-05-22",
+      "facts_scope": "The organizer and its linked BikeReg event confirm the Dirty Deluxe identity, Saturday May 22, 2027, downtown Opelika venue, 100/60/30-mile races, 7:00/8:00/9:30 AM starts, $85 entry, May 12 registration deadline, and a 350-rider total cap. Final 2027 routes, elevation, aid, cutoff, packet, and parking details remain unpublished.",
+      "plan_status": "BUILD READY WITH FINAL-ROUTE GUARD"
+    },
+    "training_plan_clearance": {
+      "status": "build_ready",
+      "race_date": "2027-05-22",
+      "ladder": "FULL-7",
+      "variation": "All-Rounder",
+      "blockers": [],
+      "guard": "Build the flagship plan around the confirmed 100-mile dirt-road race from downtown Opelika. Do not claim an elevation total, surface percentage, named sector, aid plan, cutoff, or final route until the organizer publishes the redesigned 2027 course. Historical Waverly reports are context only."
     },
     "citations": [
       {
         "url": "https://www.dirtroadcentury.com/",
         "category": "official",
-        "label": "Official Dirty Deluxe site — 2027 date, relocation, and pending registration details"
+        "label": "Official Dirty Deluxe site — 2027 date, Opelika relocation, and dirt-road identity"
+      },
+      {
+        "url": "https://www.bikereg.com/77006",
+        "category": "official",
+        "label": "Organizer-linked 2027 registration — exact date, venue, distances, start times, fee, deadline, and event cap"
       },
       {
         "url": "https://www.bikeforums.net/southeast-regional-rides-events/1115197-alabama-standard-deluxe-dirt-road-century-october-21st-2017-a.html",
@@ -468,7 +465,7 @@
           ],
           "url": "https://www.youtube.com/watch?v=oePV6qERmDE",
           "transcript": "[Music]\ngood day TR Setters and welcome to the\n2018 standard Deluxe dirt road Century\nthe 60m version held on October 20 in\nWaverly\nAlabama in the morning there is peace\nand Tranquility but that would soon\nchange as Riders begin to roll in for\nthe start of this\nrace the organizing crew of terrafirma\ncycling also have a 100m version of this\nrace but your cameraman in this video is\nnone other than K Dog of reavel cyclist\nwho's at least 63 years of age he's just\na we spritely\nlad a nice and relaxed neutral roll out\nis in effect before the fun of the day\nbegins ahead of K dog is ktie Bolton\nowner and manager of procycle and\nTriathlon in downtown Fair Hope Alabama\nshe also sells these sweet water bottles\nthat I personally Ed all of the time so\ncheck out her website if you like some\nof your\nown moving on K Dog isn't the fastest\ndescender in the world and he plays it\nsafe during the early miles his\nspecialty is going up hills particularly\nlong climbs which don't exactly feature\nin Alabama rather they're short and\nPunchy regardless he's hiding out and\nlikely milking the age card whilst\ntrying not to get\ndropped as you can see from some of the\nbicycles in this video anything goes in\ngravel cycling and racing there's no\nrules or any organizational overlords so\nlet's hope it stays that\nway this part of Alabama is hardly flat\nand The Punchy Hills are wreaking havoc\nin the group K Dog watches momentarily\nas a small group of riders sneaks away\nbut he's likely not to let that happen\nso he busts his ass to bridge up to the\nleaders solo which definitely\nhurt now it's a matter of working with\nthe leading Lads when he can in and\ndropped in this scene The Lads are\ntaking a bit easier and getting\nthemselves on\ncamera the Tom fery didn't last long and\nnot long after the rain started to fall\nthis means everyone's bike and ass got\ncovered in crap you could use a fender\nbut nah not at this race\nthe leaders are launching attacks\nagainst each other whilst K Dog hangs\naround the back mostly as collateral\ndamage as you can see from the change in\nthe number of riders ahead of K Dog\nthese Lads aren't exactly taking it easy\ninto the Last Mile and K dog rolls in\nSolo to take fifth place overall in the\n60 mile\nrace kogg sends along his Kudos to the\nother Lads namely Todd Pete Scott and\nLena\nthank you for watching if you haven't\nalready please subscribe to the gravel\ncyclist YouTube channel and don't forget\nto press the Bell button for updates\nI'll see you in the next video",
-          "curated": true,
+          "curated": false,
           "curation_reason": "First-person race recap with detailed course conditions, race dynamics, and specific terrain challenges from a well-known gravel cycling channel.",
           "display_order": 1,
           "thumbnail_url": "https://i.ytimg.com/vi/oePV6qERmDE/maxresdefault.jpg",
@@ -564,7 +561,7 @@
           "source_channel": "Gravel Cyclist",
           "source_view_count": 3837,
           "category": "course_difficulty",
-          "curated": true
+          "curated": false
         },
         {
           "text": "Are you ready for 60 or 100 miles of chunky, flowing, red, dirt roads? Waverly, Alabama is home to some of the most highly concentrated dirt roads in Alabama.",
@@ -572,75 +569,17 @@
           "source_channel": "Gravel Cyclist",
           "source_view_count": 3837,
           "category": "course_difficulty",
-          "curated": true
+          "curated": false
         }
       ],
       "rider_intel": {
-        "extracted_at": "2026-02-23",
-        "key_challenges": [
-          {
-            "name": "Punchy Hills",
-            "description": "Short, punchy climbs that wreak havoc in the group and cause separations rather than long sustained climbs.",
-            "source_video_ids": [
-              "oePV6qERmDE"
-            ]
-          }
-        ],
-        "terrain_notes": [
-          {
-            "text": "When rain starts, everyone's bike and ass get covered in crap from the muddy conditions.",
-            "source_video_ids": [
-              "oePV6qERmDE"
-            ]
-          },
-          {
-            "text": "This part of Alabama is hardly flat with punchy hills throughout the course.",
-            "source_video_ids": [
-              "oePV6qERmDE"
-            ]
-          }
-        ],
-        "gear_mentions": [
-          {
-            "text": "You could use a fender but nah not at this race, even though riders get covered in mud when it rains.",
-            "source_video_ids": [
-              "oePV6qERmDE"
-            ]
-          }
-        ],
-        "race_day_tips": [
-          {
-            "text": "Nice and relaxed neutral roll out is in effect before the fun of the day begins.",
-            "source_video_ids": [
-              "oePV6qERmDE"
-            ]
-          },
-          {
-            "text": "The leaders launch attacks against each other in the final miles, so expect aggressive racing toward the finish.",
-            "source_video_ids": [
-              "oePV6qERmDE"
-            ]
-          }
-        ],
-        "additional_quotes": [
-          {
-            "text": "There's no rules or any organizational overlords in gravel cycling and racing, so let's hope it stays that way.",
-            "source_video_id": "oePV6qERmDE",
-            "source_channel": "Gravel Cyclist",
-            "source_view_count": 3837,
-            "category": "community",
-            "curated": true
-          },
-          {
-            "text": "Anything goes in gravel cycling and racing as you can see from some of the bicycles in this video.",
-            "source_video_id": "oePV6qERmDE",
-            "source_channel": "Gravel Cyclist",
-            "source_view_count": 3837,
-            "category": "community",
-            "curated": true
-          }
-        ],
-        "search_text": "The Standard Deluxe Dirt Road Century in Waverly, Alabama features punchy, short climbs rather than long sustained efforts that wreak havoc on the peloton and cause group separations. The terrain is hardly flat throughout this part of Alabama. When rain falls during the race, muddy conditions coat riders and bikes, though fenders aren't typically used. The race begins with a relaxed neutral rollout before aggressive racing develops, with leaders launching attacks in the final miles. The event allows any type of bicycle and maintains an informal, rule-free atmosphere typical of gravel racing. Organized by Terrafirma Cycling, the race offers both 60-mile and 100-mile distance options, attracting riders of various ages and abilities to Alabama's challenging gravel roads."
+        "extracted_at": "2026-08-15",
+        "key_challenges": [],
+        "terrain_notes": [],
+        "gear_mentions": [],
+        "race_day_tips": [],
+        "additional_quotes": [],
+        "search_text": "Historical Waverly rider intelligence is archived and must not be used as current-course guidance for the redesigned 2027 Opelika race."
       }
     },
     "photos": [
@@ -649,7 +588,7 @@
         "file": "standard-deluxe-dirt-road-century-video-1.jpg",
         "url": "/race-photos/standard-deluxe-dirt-road-century/standard-deluxe-dirt-road-century-video-1.jpg",
         "alt": "Gravel cyclists riding on paved rural road through tree-lined countryside with green fields - Standard Deluxe Dirt Road Century - Waverly, Alabama",
-        "credit": "YouTube / Gravel Cyclist",
+        "credit": "Historical Waverly edition — YouTube / Gravel Cyclist",
         "primary": true,
         "ai_relevance": 4,
         "ai_quality": 3,
@@ -666,7 +605,7 @@
         "file": "standard-deluxe-dirt-road-century-video-2.jpg",
         "url": "/race-photos/standard-deluxe-dirt-road-century/standard-deluxe-dirt-road-century-video-2.jpg",
         "alt": "Hardwick Gregg riding gravel bike on dusty dirt road through wooded terrain with blue sky overhead - Standard Deluxe Dirt Road Century - Waverly, Alabama",
-        "credit": "YouTube / Gravel Cyclist",
+        "credit": "Historical Waverly edition — YouTube / Gravel Cyclist",
         "primary": false,
         "ai_relevance": 5,
         "ai_quality": 4,
@@ -683,7 +622,7 @@
         "file": "standard-deluxe-dirt-road-century-video-3.jpg",
         "url": "/race-photos/standard-deluxe-dirt-road-century/standard-deluxe-dirt-road-century-video-3.jpg",
         "alt": "Group of gravel cyclists racing on dirt road through forested area with dappled sunlight - Standard Deluxe Dirt Road Century - Waverly, Alabama",
-        "credit": "YouTube / Gravel Cyclist",
+        "credit": "Historical Waverly edition — YouTube / Gravel Cyclist",
         "primary": false,
         "ai_relevance": 5,
         "ai_quality": 4,
@@ -700,7 +639,7 @@
         "file": "standard-deluxe-dirt-road-century-preview.gif",
         "url": "/race-photos/standard-deluxe-dirt-road-century/standard-deluxe-dirt-road-century-preview.gif",
         "alt": "Course preview from Standard Deluxe Dirt Road Century race footage",
-        "credit": "YouTube / Gravel Cyclist",
+        "credit": "Historical Waverly edition — YouTube / Gravel Cyclist",
         "gif": true
       }
     ]

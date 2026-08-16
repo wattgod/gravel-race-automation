@@ -3,336 +3,381 @@
     "name": "Bend Dirt Fest",
     "slug": "bend-dirt-fest",
     "display_name": "Bend Dirt Fest",
-    "tagline": "Multi-discipline high desert festival in Bend\u2014gravel, MTB, and trail run in one weekend.",
+    "tagline": "Central Oregon forest-road climbing with a three-discipline festival waiting at the finish.",
+    "seo": {
+      "title": "Bend Dirt Fest 2027 Guide | Gravel God"
+    },
     "vitals": {
-      "distance_mi": 54.68,
-      "elevation_ft": 4015,
+      "distance_mi": 54.7,
+      "elevation_ft": 4016,
+      "gain_display": "4,016 feet",
       "location": "Bend, Oregon",
-      "location_badge": "BEND, OREGON",
+      "location_badge": "BEND, OR",
       "county": "Deschutes County",
-      "date": "July annually",
-      "date_specific": "2027: July 10 (Saturday, confirmed by the organizer)",
+      "date": "July",
+      "date_specific": "2027: July 10",
+      "course_status": "verified",
+      "course_status_label": "2027 COURSE VERIFIED",
+      "course_status_reason": "The organizer's 2027 technical guide and organizer-linked RideWithGPS route agree on the long-course distance, climbing, surface, route geometry, aid plan, and course hazards.",
       "terrain_types": [
-        "High desert gravel roads",
-        "Volcanic cinder/dirt surface",
-        "Oregon volcanic landscape",
-        "Multi-discipline festival (concurrent MTB + trail run)"
+        "Central Oregon forest roads",
+        "High-desert gravel",
+        "Sustained climbing",
+        "Loose descents",
+        "Paved rollout and return"
       ],
-      "field_size": "500 riders (across all disciplines)",
-      "start_time": "8:00 AM mass",
-      "registration": "Online. Cost: $75-$100",
-      "prize_purse": "None",
-      "aid_stations": "Multiple on course",
-      "cutoff_time": "None",
-      "lat": 44.0582,
-      "lng": -121.3153,
-      "gain_display": "4,015 ft"
+      "field_size": "2026 OBRA results list 121 gravel entries; the 2027 solo-gravel cap is 300 and total festival cap is 500",
+      "start_time": "8:15 AM gravel and MTB mass start with a neutral, flagger-controlled rollout",
+      "registration": "Online through BikeReg. Gravel pricing starts at $109; online registration closes July 8, 2027 at noon PT unless capacity is reached",
+      "prize_purse": "Age-group, finisher, team, and Oregon Triple Crown Series awards; no cash purse advertised",
+      "aid_stations": "Hydration-only stop near mile 21.5 and full aid near mile 27.7 with Hammer HEED, gels, food, fruit, and bakery items",
+      "cutoff_time": "Published gravel checkpoints: mile 23 by 11:00 AM and mile 28 by 11:30 AM; minimum pace 8.6 mph",
+      "lat": 44.03752,
+      "lng": -121.33342,
+      "route_options": [
+        "Long gravel: 54.7 miles, 4,016 feet, 62% unpaved",
+        "Short gravel: 38.7 miles, 2,880 feet, 45% unpaved",
+        "Long gravel is eligible for solo and Team of 3 competition",
+        "Short gravel is solo-only"
+      ]
     },
     "climate": {
-      "primary": "July high desert summer",
-      "description": "Warm days (45-85\u00b0F), dry conditions, intense sun exposure.",
+      "primary": "Dry Central Oregon summer",
+      "description": "NOAA's 1991-2020 Bend normals give July an 83.8°F average daily maximum and 48.6°F average daily minimum. The organizer warns about full sun, heat, dehydration, and fine dust.",
       "challenges": [
-        "High desert sun\u2014shade rare",
-        "Temperature swings (cool mornings, hot afternoons)",
-        "Dry air dehydration risk",
-        "Elevation (Bend ~3,600 ft)"
+        "Warm afternoon temperatures",
+        "Large morning-to-afternoon temperature swing",
+        "Full-sun exposure",
+        "Fine dust",
+        "Dehydration risk"
       ]
     },
     "terrain": {
-      "primary": "High desert gravel",
-      "surface": "Gravel roads over Oregon volcanic soil and cinder. High desert terrain\u2014exposed, dry, fast when conditions allow. (Singletrack is part of the separate 39-mile MTB course, not the gravel race.)",
+      "primary": "Climbing-oriented Central Oregon forest gravel",
+      "surface": "The 2027 long route is 62% unpaved and uses paved roads, National Forest Road 41, Telephone Road, Wanoga Lookout Road, and smaller forest roads. Organizer route warnings identify loose descending, chucker holes, pavement-to-gravel transitions, traffic-control interactions, and a slow dismount crossing on the return.",
       "technical_rating": 3,
       "features": [
-        "High desert gravel roads",
-        "Volcanic cinder/dirt surface",
-        "Front-loaded climbing (first 30mi)",
-        "Exposed ridges",
-        "Multi-discipline course options"
+        "54.7 miles with 4,016 feet of climbing",
+        "High point near 5,608 feet around mile 24",
+        "Sustained first-half climb",
+        "Loose descent near mile 35",
+        "Chucker holes and loose hazards near mile 40",
+        "Neutral rollout and controlled return crossings"
       ]
     },
     "gravel_god_rating": {
-      "overall_score": 63,
-      "tier": 2,
-      "tier_label": "TIER 2",
-      "logistics": 4,
-      "length": 1,
+      "overall_score": 59,
+      "tier": 3,
+      "tier_label": "TIER 3",
+      "logistics": 3,
+      "length": 2,
       "technicality": 3,
       "elevation": 3,
-      "climate": 2,
-      "altitude": 2,
-      "adventure": 4,
+      "climate": 3,
+      "altitude": 3,
+      "adventure": 3,
       "prestige": 3,
-      "race_quality": 4,
-      "experience": 4,
-      "community": 4,
+      "race_quality": 3,
+      "experience": 3,
+      "community": 3,
       "field_depth": 2,
-      "value": 4,
-      "expenses": 4,
+      "value": 3,
+      "expenses": 3,
+      "cultural_impact": 1,
+      "score_note": "A credible, climbing-heavy regional festival and Oregon Triple Crown final. The event is only in its third edition, so field depth, history, and broader cultural reach keep it just below Tier 2.",
       "discipline": "gravel",
-      "display_tier": 2
+      "display_tier": 3
     },
     "biased_opinion": {
-      "verdict": "Multi-Sport High Desert Party",
-      "summary": "Bend Dirt Fest is a new Mudslinger Events multi-discipline festival\u2014gravel, MTB, trail run, all in one weekend. This isn't a pure gravel race; it's a celebration of Bend's outdoor culture, in its second year as of 2026. The gravel course runs high desert gravel roads and volcanic cinder. Field is small (~500 across all events), vibe is community-focused. If you're looking for a competitive gravel race, look elsewhere. If you want a fun weekend in Bend with friends, beer, and dirt, this is it.",
+      "verdict": "The High-Desert Festival Climber",
+      "summary": "Bend Dirt Fest earns its place through a real course and a better finish-line idea than another parking-lot gran fondo. You climb from Bend toward 5,600 feet, manage loose forest-road descents, and return to a trail-run-and-MTB festival. It is not a national monument yet: the race launched in 2025 and the 2026 gravel field was 121 riders.",
       "strengths": [
-        "Bend, Oregon\u2014outdoor mecca, great post-race scene",
-        "Multi-discipline options (gravel/MTB/trail run)",
-        "New Mudslinger Events production\u2014strong debut, growing fast",
-        "July weather usually dry and warm",
-        "High desert scenery"
+        "Verified 2027 route with 4,016 feet of climbing",
+        "Oregon Triple Crown Series final",
+        "Detailed technical guide and organizer-linked route",
+        "Strong Bend destination and local trail culture",
+        "Live music, vendors, awards, and three-discipline team competition",
+        "Good aid, timing, flagging, and medical support"
       ],
       "weaknesses": [
-        "Small field\u2014not competitive",
-        "Multi-discipline format dilutes gravel focus",
-        "Course details sparse online",
-        "Not a destination gravel race",
-        "Bend lodging expensive in summer"
+        "Only the third edition",
+        "Regional rather than national field depth",
+        "Loose descent and road-control zones interrupt pure racing flow",
+        "No participant parking at the venue",
+        "Bend lodging can be expensive in July",
+        "Organizer page still contains a few stale distance and start-time fragments"
       ],
-      "bottom_line": "This is a regional festival, not a bucket-list gravel race. If you live in the Pacific Northwest or want an excuse to visit Bend, it's fun. If you're traveling from afar specifically for gravel, there are better options. Think of it as a weekend party with bikes, not a race with a party."
+      "bottom_line": "Race it for the Bend weekend, sustained forest-road climbing, and a finish that feels like a festival. Do not mistake a well-produced young regional race for a national bucket-list institution."
+    },
+    "final_verdict": {
+      "score": "59 / 100",
+      "one_liner": "A 55-mile Central Oregon climber with loose forest roads and an actual party at the finish.",
+      "should_you_race": "Yes if you want a hard but manageable climbing race in Bend and value atmosphere as much as a giant field. Travelers chasing prestige alone have stronger national targets.",
+      "alternatives": "For a longer Oregon mountain-gravel day, compare Sasquatch Duro. For a multi-day destination race around Bend, compare Oregon Trail Gravel Grinder.",
+      "alternative_slugs": [
+        "sasquatch-duro",
+        "oregon-trail-gravel"
+      ]
     },
     "logistics": {
-      "nearest_airport": "Redmond Municipal Airport (RDM) \u2014 20 miles north",
-      "alternate_airports": "Portland (PDX) \u2014 160 miles northwest, Eugene (EUG) \u2014 130 miles west",
-      "lodging_note": "Bend has ample lodging but prices spike in summer. Book early.",
-      "parking": "Free at event site",
-      "packet_pickup": "Friday and Saturday morning",
-      "travel_summary": "Redmond airport is close. Portland is 3-hour drive (scenic). Bend is outdoor hub\u2014crowded in summer. Rental car needed.",
-      "food_options": "Bend has excellent food scene. Aid stations on course.",
-      "camping": "Multiple campgrounds nearby",
-      "official_site": "https://www.benddirtfest.com"
+      "airport": "Redmond Municipal Airport (RDM) is 15 miles north of Bend; the organizer lists Portland at roughly three hours by car",
+      "lodging_strategy": "Book west-side Bend lodging early. The organizer recommends the Peppertree Inn across from the venue; staying nearby avoids race-morning cross-town traffic.",
+      "food": "Bend has full grocery and restaurant options. Carry enough fluid for a dry first half and use the hydration and full-aid stops rather than relying on outside support, which is prohibited.",
+      "packet_pickup": "Friday 2:00-6:00 PM at Pine Mountain Sports, or Saturday at the Athletic Club of Bend from 6:00 AM until 30 minutes before the start",
+      "parking": "Participant parking is at OSU-Cascades, 1500 SW Chandler Avenue; no participant parking at the Athletic Club of Bend",
+      "official_site": "https://www.mudslingerevents.com/bend-dirt-fest",
+      "camping": "The organizer identifies Meissner, Wanoga, and Swampy Lakes snow parks; required forest passes and current restrictions remain the camper's responsibility"
     },
-    "course_description": {
-      "character": "High desert gravel and volcanic cinder roads through Oregon's Deschutes National Forest landscape. The organizer's 2027 long-course Ride with GPS route measures 54.68 miles with 4,015 feet of climbing. The multi-discipline festival also offers a 38.68-mile short gravel course with 2,880 feet of climbing.",
-      "suffering_zones": [
-        {
-          "name": "High Desert Sun Exposure",
-          "miles": "Throughout",
-          "description": "July high desert sun. Shade rare. Dehydration risk.",
-          "survival_strategy": "Hydrate aggressively. Sunscreen. Light colors."
-        },
-        {
-          "name": "Front-Loaded Climbing",
-          "miles": "First 30",
-          "description": "Nearly all the course's climbing lands in the first 30 miles before a mostly-downhill final 24 (per organizer course description).",
-          "survival_strategy": "Pace conservatively early \u2014 the back half rewards riders who didn't blow up on the climbing."
-        }
-      ],
-      "signature_challenge": "High desert heat and sun exposure. Front-loaded climbing in the first 30 miles, descending the final 24."
+    "eligibility": {
+      "status": "active",
+      "verified": "2026-08-15",
+      "source": "https://www.mudslingerevents.com/bend-dirt-fest",
+      "race_plan_eligible": true,
+      "status_note": "Organizer, technical guide, registration, route files, and prior results confirm a timed and ranked Saturday gravel race on July 10, 2027."
+    },
+    "source_review": {
+      "reviewed_at": "2026-08-15",
+      "official_url": "https://www.mudslingerevents.com/bend-dirt-fest",
+      "registration_url": "https://www.bikereg.com/bend-dirt-fest",
+      "race_date": "2027-07-10",
+      "facts_scope": "The 2027 date, venue, 8:15 AM bike start, 54.7-mile and 38.7-mile courses, climbing, surface, route geometry, aid plan, cutoffs, registration, and field caps are source-confirmed.",
+      "discovery_note": "The August 2026 final-fleet source audit found an existing Gravel God profile, page, and seven published TrainingPeaks plans (659261-659267). The plans use the older Punchy fact base and require receipt-backed repair to the verified 2027 Climber facts. This refresh corrects the source record and clears that repair under the standing discover-grade-database-page rule."
+    },
+    "training_plan_clearance": {
+      "status": "build_ready",
+      "race_date": "2027-07-10",
+      "event_window": "2027-07-10/2027-07-10",
+      "ladder": "FULL-7",
+      "variation": "Climber",
+      "blockers": [],
+      "guard": "Use the 54.7-mile long course, 4,016 feet of climbing, 62% unpaved surface, Saturday 8:15 AM start, and official no-racing/control zones. Do not repeat the stale 49-mile organizer fragment, BikeReg's stale 8:00 AM display, or the volunteer pages' 2026 weekday labels."
     },
     "history": {
-      "founded": "2025 (inaugural year)",
-      "founder": "Mike Ripley / Mudslinger Events (22-year Central Oregon race producer)",
-      "origin_story": "Bend Dirt Fest launched in July 2025 as a new Mudslinger Events production, replacing the cancelled Oregon 24 MTB event on the calendar. Multi-discipline festival\u2014gravel, MTB, trail run\u2014celebrating Bend's outdoor culture. Grew ~120% into its second year (2026).",
-      "notable_moments": [],
-      "reputation": "New (2025-founded) regional festival. Multi-discipline community event."
+      "founded": 2025,
+      "founder": "Mike Ripley and Mudslinger Events",
+      "origin_story": "Source Weekly reported that Bend Dirt Fest launched in 2025 as a successor to the Oregon 24 relay, combining trail running, gravel, and mountain biking to preserve that event's community-focused dirt festival atmosphere.",
+      "notable_moments": [
+        "The inaugural 2025 edition combined three dirt disciplines at the Athletic Club of Bend",
+        "The 2026 OBRA results list 121 gravel entries across long and short categories",
+        "The 2027 edition serves as the Oregon Triple Crown Gravel Series final"
+      ],
+      "reputation": "A young but quickly growing Central Oregon regional race backed by an experienced local endurance-event organizer."
     },
+    "course_description": {
+      "character": "A paved rollout from Bend feeds a long forest-road climb toward Wanoga, followed by a fast and sometimes very loose descent, smaller rough-road hazards, and a controlled return to the Athletic Club of Bend.",
+      "suffering_zones": [
+        {
+          "mile": 5,
+          "label": "Forest Road Commitment",
+          "desc": "The route leaves the paved rollout for Forest Road 41 and begins the long gain toward Wanoga; starting too hard turns the high point into a debt collection.",
+          "terrain_detail": "Sustained climbing on forest gravel",
+          "named_section": "Forest Road 41"
+        },
+        {
+          "mile": 24,
+          "label": "Wanoga High Point",
+          "desc": "The course reaches roughly 5,608 feet after climbing almost 1,900 vertical feet from Bend, with hydration and cutoff execution already in play.",
+          "terrain_detail": "High-elevation forest roads near Wanoga",
+          "named_section": "Wanoga Lookout"
+        },
+        {
+          "mile": 35,
+          "label": "Loose Return",
+          "desc": "The organizer warns that the descent is very loose in places; chucker holes and other gotcha moments continue near mile 40.",
+          "terrain_detail": "Loose descending and rough forest-road hazards",
+          "named_section": "The Loose Descent"
+        }
+      ],
+      "signature_challenge": "Climbing from roughly 3,700 feet to 5,608 feet, then preserving speed and judgment through a loose second-half descent.",
+      "ridewithgps_id": "54816842",
+      "ridewithgps_name": "Bend Dirt Fest Gravel Loop 2027"
+    },
+    "guide_variables": {
+      "race_name": "Bend Dirt Fest",
+      "race_distance": "54.7 miles",
+      "race_elevation": "4,016 feet",
+      "race_date": "July 10, 2027",
+      "race_location": "Bend, Oregon",
+      "race_terrain": "62% unpaved Central Oregon forest roads with sustained climbing and loose descents",
+      "race_weather": "Dry July conditions with an 83.8°F average daily maximum, cool mornings, full sun, dust, and dehydration risk",
+      "race_challenges": [
+        "First-half climb to 5,608 feet",
+        "Loose descending near mile 35",
+        "4,016 feet of climbing in 54.7 miles",
+        "Dry-heat hydration",
+        "Cutoffs and controlled no-racing zones"
+      ],
+      "altitude_section": true,
+      "altitude_feet": 5608
+    },
+    "non_negotiables": [
+      {
+        "requirement": "Sustained climbing durability",
+        "by_when": "Week 8-10",
+        "why": "The first half gains almost 1,900 net feet before the route's high point and the day totals 4,016 feet."
+      },
+      {
+        "requirement": "Loose-descent handling",
+        "by_when": "Week 6-8",
+        "why": "The organizer route explicitly flags very loose descending, chucker holes, and fast surface transitions."
+      },
+      {
+        "requirement": "Dry-heat hydration execution",
+        "by_when": "Week 6",
+        "why": "July in Bend averages an 83.8°F daily maximum, and outside support is not allowed."
+      }
+    ],
     "research_metadata": {
-      "data_confidence": "researched",
-      "validation_status": "pending",
+      "data_confidence": "high for 2027 date, venue, course distance, climbing, surface, route geometry, start, aid plan, cutoffs, registration, and field caps",
+      "validation_status": "2027 verified",
       "sources": [
         "https://www.mudslingerevents.com/bend-dirt-fest",
+        "https://irp.cdn-website.com/26edc316/files/uploaded/Bend-Dirt-Fest+Tech+Guide+20278426.pdf",
         "https://ridewithgps.com/routes/54816842",
-        "https://ridewithgps.com/routes/54816980"
+        "https://ridewithgps.com/routes/54816980",
+        "https://www.bikereg.com/bend-dirt-fest",
+        "https://obra.org/events/29106/results",
+        "https://www.bendsource.com/outside/bend-dirt-fest-23417628/",
+        "https://www.ncei.noaa.gov/access/services/data/v1?dataset=normals-monthly-1991-2020&format=pdf&stations=USC00350694",
+        "https://flyrdm.com/airfield-services/airfield-information/"
       ],
-      "research_date": "2026-08-05",
-      "research_strength": {
-        "overall": 87.7,
-        "grade": "A",
-        "weakest": "temporal_depth",
-        "has_research_dump": true,
-        "dimensions": {
-          "source_diversity": 100,
-          "citation_density": 100,
-          "temporal_depth": 50,
-          "specificity": 100,
-          "statistical_backing": 100,
-          "voice_authenticity": 70,
-          "completeness": 88,
-          "cross_reference": 50
-        },
-        "scored_at": "2026-02-04"
-      }
+      "migration_notes": [
+        "Materially refreshed the existing Gravel God profile on 2026-08-15 after the final-fleet audit found the 2027 race absent from the TrainingPeaks catalog.",
+        "The 2027 technical guide and organizer-linked RideWithGPS route supersede the organizer page's stale 49-mile fragment and BikeReg's stale 8:00 AM start display.",
+        "The technical guide's volunteer pages retain Friday July 10 and Saturday July 11 labels from 2026; those labels are excluded from the 2027 facts."
+      ]
     },
     "biased_opinion_ratings": {
       "logistics": {
-        "score": 4,
-        "explanation": "Athletic Club of Bend for start/finish with designated parking at OSU-Cascades shows solid planning from Mudslinger Events. Grace Perkins notes \"I'm surprised (Bend) doesn't have more events like this because everyone does so many different activities. It is fun to have a multisport event where you can have a team and get all the activities going.\" Mass starts at 8:00 AM cycling, 8:45 AM trail running with established cut-off times demonstrate thoughtful scheduling."
+        "score": 3,
+        "explanation": "Bend has a regional airport 15 miles away, abundant lodging, one start venue, and organized OSU-Cascades parking. Destination travel and the lack of participant parking at the venue still require moderate planning."
       },
       "length": {
-        "score": 1,
-        "explanation": "Matthew Bird used the 54-mile gravel race as a \"leg-stretcher\" before competing in the High Cascades 100-mile mountain bike race the following weekend, describing it as \"good, hard racing for three hours.\" Multi-discipline format with gravel cycling, MTB, and half marathon options creates variety beyond typical single-distance events. Similar distance to Crusher in the Tushar."
+        "score": 2,
+        "explanation": "The verified 54.7-mile long course sits inside the rubric's 40-60-mile band."
       },
       "technicality": {
         "score": 3,
-        "explanation": "Gravel course features nearly 4,000 feet of elevation gain over the first 30 miles, then mostly downhill over the final 24 miles. Mountain bike course delivers more than 3,000 feet of climbing in the first 22 miles using singletrack trails in Deschutes National Forest west of Bend. Mike Ripley describes conditions: \"It's dusty and loose. Gravel in Central Oregon is not your typical gravel, it's dirt combined with cinder. It's definitely spicy.\" Similar technical demands to Gravel Worlds."
+        "explanation": "The 62% unpaved route includes loose descending, chucker holes, fast surface transitions, traffic-control zones, and a dismount crossing: mixed terrain, not MTB singletrack."
       },
       "elevation": {
         "score": 3,
-        "explanation": "Mountain bike course climbs more than 3,000 feet in the first 22 miles, followed by downhill riding over the final 14 miles. Gravel riders face nearly 4,000 feet of elevation gain over the first 30 miles before descending the final 24 miles. The front-loaded climbing profile creates sustained suffering through volcanic terrain before rewarding descents. Similar elevation profile to Gravel Worlds."
+        "explanation": "The organizer-linked route reports 4,016 feet, just inside the 4,000-6,000-foot scoring band."
       },
       "climate": {
-        "score": 2,
-        "explanation": "Historical weather data shows average highs of 87\u00b0F and lows of 56\u00b0F, with a 8% chance of rain on any given day. July courses receive \"full sun\" with official warnings to \"dress for conditions, heat and potential dehydration.\" Terrain varies between \"red hero cinder dirt or fine moon dust\" depending on conditions. The high desert sun combined with exposed volcanic terrain demands serious hydration planning and UV protection throughout the day. More weather exposure than Belgian Waffle Ride San Diego."
+        "score": 3,
+        "explanation": "NOAA's July normal is an 83.8°F daily maximum, while the guide warns about full sun, heat, dehydration, and fine dust. That is a moderate race-day challenge rather than an automatic extreme."
       },
       "altitude": {
-        "score": 2,
-        "explanation": "Bend sits around 3600 feet base elevation with gravel and MTB courses climbing into Deschutes National Forest west of town. Both courses share the Wanoga area at higher elevations. The combination of starting altitude plus significant climbing gains will remind sea-level riders their lungs are working harder than usual. Modest altitude compared to Belgian Waffle Ride San Diego."
+        "score": 3,
+        "explanation": "The route starts near 3,700 feet and reaches roughly 5,608 feet, putting the course squarely in the 3,000-6,000-foot band."
       },
       "adventure": {
-        "score": 4,
-        "explanation": "Singletrack trails through Deschutes National Forest deliver authentic high desert adventure with volcanic terrain. Mike Ripley designed courses \"to create an event that embraced the adventure of Bend, Oregon. Where someone could roll out of bed, go run a half, head over to the Athletic Club, grab their bike \u2014 gravel or mountain \u2014 and have a great day.\""
+        "score": 3,
+        "explanation": "Forest roads, a sustained climb toward Wanoga, a loose return, and three dirt disciplines sharing one venue make the day memorable without turning a regional race into a bucket-list expedition."
       },
       "prestige": {
         "score": 3,
-        "explanation": "Inaugural 2025 event drew Matthew Bird from Adelaide, Australia, who called it \"a really good course, with a nice vibe around the event.\" More than 120 competitors participated in the first year across all disciplines. Organizer Mike Ripley declared \"The foundation has been laid for a monster event in 2026\" after the successful debut."
+        "explanation": "Oregon Triple Crown final status creates meaningful regional significance, but a race founded in 2025 has not established national stature."
       },
       "race_quality": {
-        "score": 4,
-        "explanation": "Mudslinger Events' experience shows in the established infrastructure and safety protocols including certified flaggers for neutral rollouts. Matthew Bird praised both course design and execution: \"It was a really good course, with a nice vibe around the event and it was good, hard racing for three hours.\" Aid stations provide Hammer Nutrition products and local bakery items."
+        "score": 3,
+        "explanation": "Mudslinger Events publishes a detailed technical guide and provides a neutral flagger-controlled rollout, timing points, live results, medical support, stocked aid, sweep riders, and structured awards."
       },
       "experience": {
-        "score": 4,
-        "explanation": "Post-race festivities include finisher awards, live music, and cold brews from 10 Barrel Brewing, ending \"with a party worthy of Bend's outdoor spirit.\" Grace Perkins highlights the unique multisport format: \"It is fun to have a multisport event where you can have a team and get all the activities going.\" The Athletic Club venue provides proper facilities."
+        "score": 3,
+        "explanation": "The combined trail-run, MTB, and gravel venue adds live music, vendors, beer, team scoring, and age-group awards to a solid race day."
       },
       "community": {
-        "score": 4,
-        "explanation": "Oregon Triple Crown Series emphasizes 'Whether you are new to the sport or an experienced racer, we welcome you to our OTC family!' Multiple riders in Girls Gone Gravel survey cited Oregon Triple Crown events among top gravel destinations, showing community appeal."
+        "score": 3,
+        "explanation": "The Athletic Club venue, volunteer credits, COTA support, local businesses, inclusive categories, and Team of 3 format create a credible community event, though its history is still short."
       },
       "field_depth": {
         "score": 2,
-        "explanation": "Inaugural 2025 event means no established field hierarchy or proven ability to attract top talent. Regional series finals status within Oregon pulls local racers, but that remains a limited talent pool for a first-year event. Less competitive depth than Almanzo 100."
+        "explanation": "Official 2026 results list 121 gravel entries, including 83 on the long course. The available results and reporting show a competitive regional field rather than sustained national professional depth."
       },
       "value": {
-        "score": 4,
-        "explanation": "Early pricing at $97.75 per person for team entry provides access to quality Bend terrain without premium pricing of established events. Multi-discipline format delivers more race day entertainment value, with Oregon Triple Crown Series' 13-year track record backing the experience."
+        "score": 3,
+        "explanation": "The $109 starting price is fair for timing, course control, aid, medical support, participant gear, awards, and a finish festival; it is not unusually cheap."
       },
       "expenses": {
-        "score": 4,
-        "explanation": "Registration runs $75-$100. Designated parking at OSU-Cascades eliminates race-day parking fees and stress. Peppertree Inn sits directly across from the Athletic Club venue allowing walk/ride to start line. Event directs participants to local shops like Sagebrush Cycles for bike services and Footzone for trail running expertise, supporting established Bend outdoor infrastructure. More affordable than Crusher in the Tushar."
+        "score": 3,
+        "explanation": "A drive or regional flight, July lodging in Bend, meals, and bike transport generally put a destination weekend in the rubric's moderate $500-$1,000 band."
+      },
+      "cultural_impact": {
+        "score": 1,
+        "explanation": "The race is an emerging Oregon Triple Crown final with growing local participation but minimal media reach beyond the Pacific Northwest cycling community."
       }
     },
-    "final_verdict": {
-      "score": "66 / 100",
-      "one_liner": "A solid debut that prioritizes good vibes over gravel glory\u2014a legit test of Central Oregon's volcanic dirt.",
-      "should_you_race": "This works if you want a legitimate 54-mile dirt challenge without the circus atmosphere of bigger events. The front-loaded early climbing won't break anyone, but it'll remind you why base fitness matters. Skip it if you need competition depth or a longer race history\u2014this is only its second year.",
-      "alternatives": "Gravel Worlds Oregon gives you proven course management and deeper fields if you want actual competition. For similar mileage with better established logistics, Dirty Kanza 100 delivers twice the suffering with half the organizational uncertainty.",
-      "alternative_slugs": [
-        "garmin-gravel-worlds",
-        "unbound-200"
-      ]
-    },
-    "citations": [
-      {
-        "url": "https://bendbulletin.com/2025/07/12/bend-dirt-fest-super-successful-in-its-first-year/",
-        "category": "other",
-        "label": "Bendbulletin"
-      },
-      {
-        "url": "https://thegravelriders.com/bend-dirt-fest-a-triumphant-debut-in-outdoor-endurance-racing/",
-        "category": "other",
-        "label": "Thegravelriders"
-      },
-      {
-        "url": "https://www.bendbulletin.com/2025/07/10/inaugural-bend-dirt-fest-includes-a-half-marathon-mountain-biking-gravel-riding/",
-        "category": "other",
-        "label": "Bendbulletin"
-      },
-      {
-        "url": "https://www.bendbulletin.com/2025/07/12/bend-dirt-fest-super-successful-in-its-first-year/",
-        "category": "other",
-        "label": "Bendbulletin"
-      },
-      {
-        "url": "https://www.granfondoguide.com/Contents/Index/8624/inaugural-bend-dirt-fest-a-big-success",
-        "category": "other",
-        "label": "Granfondoguide"
-      },
-      {
-        "url": "https://www.granfondoguide.com/Contents/PopUp/8624/inaugural-bend-dirt-fest-a-big-success",
-        "category": "other",
-        "label": "Granfondoguide"
-      },
-      {
-        "url": "https://www.granfondoguide.com/RaceDashboard/OregonTripleCrownSeries/1/8624/inaugural-bend-dirt-fest-a-big-success",
-        "category": "other",
-        "label": "Granfondoguide"
-      },
-      {
-        "url": "https://www.mudslingerevents.com/bend-dirt-fest",
-        "category": "other",
-        "label": "Mudslingerevents"
-      }
-    ],
-    "tire_recommendations": {
-      "generated_at": "2026-02-19",
-      "primary": [
-        {
-          "rank": 1,
-          "tire_id": "schwalbe-g-one-bite",
-          "name": "Schwalbe G-One Bite",
-          "brand": "Schwalbe",
-          "recommended_width_mm": 40,
-          "msrp_usd": 69.9,
-          "weight_grams": 480,
-          "crr_watts": 38.0,
-          "why": "excellent wet grip"
+    "training_config": {
+      "workout_modifications": {
+        "sustained_climbing": {
+          "enabled": true,
+          "weeks": [
+            6,
+            7,
+            8,
+            9
+          ]
         },
-        {
-          "rank": 2,
-          "tire_id": "maxxis-reaver",
-          "name": "Maxxis Reaver",
-          "brand": "Maxxis",
-          "recommended_width_mm": 40,
-          "msrp_usd": 79.99,
-          "weight_grams": 460,
-          "crr_watts": 35.0,
-          "why": "Technical all-rounder. EXO+ casing shrugs off rocks and roots."
+        "loose_descent_skills": {
+          "enabled": true,
+          "weeks": [
+            5,
+            7,
+            9
+          ]
         },
-        {
-          "rank": 3,
-          "tire_id": "pirelli-cinturato-gravel-s",
-          "name": "Pirelli Cinturato Gravel S",
-          "brand": "Pirelli",
-          "recommended_width_mm": 40,
-          "msrp_usd": 73.99,
-          "weight_grams": 430,
-          "crr_watts": null,
-          "why": "excellent wet grip"
+        "dry_heat_hydration": {
+          "enabled": true,
+          "weeks": [
+            6,
+            8,
+            10
+          ]
+        },
+        "dress_rehearsal": {
+          "enabled": true,
+          "week": 10,
+          "day": "Saturday",
+          "duration_hours": {
+            "ayahuasca": 3,
+            "finisher": 4,
+            "compete": 4.5,
+            "podium": 5
+          }
         }
-      ],
-      "front_rear_split": {
-        "applicable": true,
-        "front": {
-          "tire_id": "rene-herse-snoqualmie-pass",
-          "name": "Rene Herse Snoqualmie Pass",
-          "width_mm": 44
-        },
-        "rear": {
-          "tire_id": "schwalbe-g-one-bite",
-          "name": "Schwalbe G-One Bite",
-          "width_mm": 40
-        },
-        "rationale": "Faster front for reduced rolling resistance on straights, grippier rear for traction on loose climbs and corners"
       },
-      "race_surface_profile": "technical",
-      "recommended_width_mm": 40,
-      "pressure_psi": {
-        "140_160lb_dry": "34-38",
-        "140_160lb_mixed": "30-34",
-        "140_160lb_wet": "28-32",
-        "160_180lb_dry": "36-40",
-        "160_180lb_mixed": "34-38",
-        "160_180lb_wet": "32-36",
-        "180_200lb_dry": "40-44",
-        "180_200lb_mixed": "36-40",
-        "180_200lb_wet": "34-38",
-        "200pluslb_dry": "42-46",
-        "200pluslb_mixed": "40-44",
-        "200pluslb_wet": "38-42"
+      "masterclass_topics": {
+        "priority_order": [
+          "climbing",
+          "handling",
+          "hydration",
+          "pacing"
+        ],
+        "race_specific": true,
+        "topics": {
+          "climbing": "Reaching Wanoga without spending the descent's concentration budget",
+          "handling": "Loose forest-road descending and controlled crossings",
+          "hydration": "Fueling a cool-morning, warm-afternoon Bend race",
+          "pacing": "Using the first-half climb without racing the neutral and no-racing zones"
+        }
+      },
+      "tier_overrides": {},
+      "marketplace_variables": {
+        "race_name": "Bend Dirt Fest",
+        "race_hook": "55 miles and 4,016 feet through Bend's high-desert forest roads",
+        "race_hook_detail": "A first-half climb to 5,608 feet, loose second-half descending, and a three-discipline festival at the finish.",
+        "distance": "54.7",
+        "dark_mile": "35",
+        "non_negotiable_1": "Sustained climbing durability",
+        "non_negotiable_2": "Loose-descent handling",
+        "non_negotiable_3": "Dry-heat hydration execution",
+        "trainingpeaks_url": null
       }
     },
     "youtube_data": {
-      "researched_at": "2026-02-23",
+      "researched_at": "2026-08-15",
       "search_query": "Bend Dirt Fest gravel race Bend",
       "videos": [
         {
@@ -342,244 +387,76 @@
           "view_count": 468,
           "upload_date": "20250701",
           "duration_string": "2:08",
-          "description": "Scarborough Bicycle Accident Law presents the 1st Annual Bend Dirt Fest \u2013 Saturday, July 12th.\n\nBend Dirt Fest is the multi-discipline race for everyone. Riders and Runners choose one of three options: a half marathon trail run, a 54 mile gravel grinder, or a 36 mile mountain bike course. Solo participants complete simultaneously and are scored based on their own times. You can also be a part of a 2 or 3 person team, add your times together, and complete against other teams! There\u2019ll be live music, ice cold beer from 10 Barrel, plus vendors showing off the latest in gear, apparel, and crafts. So bring the family and friends to Bend Dirt Fest and enjoy everything that makes Bend and Central Oregon special! Visit benddirtfest.com for more information and to register.\n\n\n\n\n\n\n\n\n\nCheck out some of our other videos!\n\nPristine MTB Conditions on Bend\u2019s Legendary Whoops\nhttps://youtu.be/ty4Ay8HLvrs\n\nWater is Everything (Part One)\nhttps://youtu.be/PlsJO3jhWXU\n\nWater is Everything (Part Two)\nhttps://youtu.be/1UAC7TA5CsM\n\nTree Well Rescue - Mt. Baker\nhttps://youtu.be/hfbWsGiPsBk\n\nWing Foiling with Bend Local Dennis Oliphant \nhttps://youtu.be/G01bn_9_jLg\n\n2022 Natural Selection Proving Grounds - Prineville, Oregon\nhttps://youtu.be/2AvlCbZ95IE\n\nSkiing the West Bowls at Mt. Bachelor\nhttps://youtu.be/ik6dJ-IQYpE\n\nUltra Marathoner Max King and the Bend Marathon and Half\nhttps://youtu.be/3_K33EN-bsk\n\nBecome a Street Dog Hero\nhttps://youtu.be/OimkxdIbuU4\n\nBend Oregon in Winter\nhttps://youtu.be/oKzAQdsC6OE\n\nSide Country skiing in Bend, Oregon\nhttps://youtu.be/kr0OImFiLSE\n\nWhat\u2019s in your Backcountry Backpack with Bend, Oregon Local and Renowned Back Country Guide, David Marchi\nhttps://youtu.be/ZgpvRzMFpVU\n\nTime to Climb - Spring Climbing at Smith Rock\n https://youtu.be/LgoC8GRIl8Y\n\nWarm Springs Horse Network and Safe Acres Sanctuary - Making a Difference One Wild Horse at a Time\nhttps://youtu.be/iH1rIEy-Jdc\n\n#bendoregon, #bendoregonweather, #bendoregonhotels, #bendoregonairport, #gateway, #travel, #traveloregon, #haydenhomesamphitheater, #mtbachelor,",
-          "tags": [],
+          "description": "Organizer preview of the inaugural Bend Dirt Fest and its trail-run, gravel, and mountain-bike format.",
           "url": "https://www.youtube.com/watch?v=s9bQS_aXehc",
-          "transcript": "[Music]\nHey everyone, this is Trevor with\nRecreation Leader. I just want to tell\nyou about this awesome event coming up\non July 12th. It is Dirtfest and we\nwould love to see you out there because\nthis is what makes Bend Ben.\nMy name is Mike Ripley, owner of\nMudslinger Events, and uh this is Ben\nDirtfest, our first year operating this\nmulti-port festival. uh in Bend, Oregon.\nSecond weekend of July on a Saturday.\nWe've always wanted to have an event\nthat incorporates trail running and\ngravel cycling and mountain biking.\nSomething that builds on the community's\nadventure and the fact that people in\nBen, they do everything. Somebody always\nhas a jam. And we want to be that\nlowhanging fruit for a really good day\noutdoors. At the Ben Dirtfest, we have a\nhalf marathon trail run. Uh it's about\n60/40 trail to road. the cycling events,\nthe gravel 55 miles, uh, and the\nmountain bike 39 filled with single\ntrack gravel, hard climbs, all the\ncycling events will take off at 8:15,\nuh, after the trail run takes off from\nthe athletic club at 8:00. We'll ride\nout Century and get over to Road 41\nwhere there'll be a course split, but\nthe running is going to be active all\nday, running by Rimrock for an aid\nstation uh, out and back and hit some\nreally good Ben single track uh, to come\nback for your friends. The key thing on\nthis event though is you can do it solo,\nbut if you find another person that is\none of those other disciplines, you\ncould do a twoerson or a threeperson to\ncollaborate and have your times all sync\nup for overall awards. We're just really\nreally excited about bringing a new\nevent to Ben that can involve anybody of\nany level. It's going to be just a\nwonderful time with a band, a DJ, food\ntrucks. If anybody wants more\ninformation, check out\nmudslingervents.com in our events tab or\nbenthurtfest.com and you get all the\ninformation including the tech guide and\nwhat to know for a great day on the\nsecond Saturday in July.",
           "curated": true,
-          "curation_reason": "Official preview video for the 2025 Bend Dirt Fest featuring race organizer details about the multi-discipline format and course specifics.",
+          "curation_reason": "The organizer appears on camera and directly describes the race format, gravel distance, climbing character, start sequence, and festival intent.",
           "display_order": 1,
           "thumbnail_url": "https://i.ytimg.com/vi/s9bQS_aXehc/hqdefault.jpg",
           "thumbnail_score": 79.97
-        },
-        {
-          "video_id": "iApiAZvi4c0",
-          "title": "THE BEST FALL GRAVEL RIDE IN BEND - Ride Vlog",
-          "channel": "TTL MultiSport",
-          "view_count": 28454,
-          "upload_date": "20211121",
-          "duration_string": "12:37",
-          "description": "https://thattriathlonlife.com/\n\nThis is our new favorite gravel ride in Bend, Oregon. We'd recommend doing this one in the fall or spring, as it'll have snow in the winter and be super sandy in the summer.\nhttps://dirtyfreehub.com/adventure/oregon-x/railbed-spurs/\n\n0:00 Route Details\n1:35 Gravel Bike Setup\n2:45 Ride Start!\n6:03 Riding An Old Rail Bed\n9:05 The Descent back home\n\nHey everyone! We're Eric Lagerstrom and Paula Findlay. We're both professional triathletes; we train for and race triathlon for a living. Thanks so much for subscribing and helping us keep triathlon fun.\n#thattriathlonlife #gravelcycling #bendoregon\n\n\nFollow our adventures daily on Instagram:\nhttps://www.instagram.com/that.triathlonlife\nhttps://www.instagram.com/eric_lagerstrom\nhttps://www.instagram.com/paula_findlay\n\nTransition Four is my video creation company:\nhttps://www.instagram.com/transition.four\n\nOUR GEAR:\nOura Ring: https://oura.link/PXPDPYX-\nDrone: https://click.dji.com/AJ4CLLHkuqgWqYMvR9ggBg?pm=link\nOur main camera: https://www.bhphotovideo.com/c/product/1577838-REG/sony_ilce7sm3_b_alpha_a7s_iii_mirrorless.html\nOld Gopro: https://amzn.to/33e2VK0\nNew Gopro: https://amzn.to/2sMSUY0\nDome: https://amzn.to/34gufZA\n\nMusic by G Voz  - Plains - https://thmatc.co/?l=C503C3B4\nMusic by Commoninterest - Sometimes I Feel Lost - https://thmatc.co/?l=E289805C\nMusic by Helkimer - Someday [Thematic Exclusive] - https://thmatc.co/?l=AC7440C2",
-          "tags": [],
-          "url": "https://www.youtube.com/watch?v=iApiAZvi4c0",
-          "transcript": "do you want another reason i'm doing\nthis\nit's not because it's cold it's because\ni want to protect my white shoes\nand eric hasn't gotten me any mountain\nbike cleats yet so i can use my mountain\nbike gravel shoes that i have\nso i have to wear my road shoes\ngraveling which is super embarrassing\ncovering them up with shoe covers\nall right we're getting ready to head\nout on a all-new gravel loop it starts\nthe same as the gravel loop we've been\ndoing but then goes to a new zone\na little bit of an adventure a little\nbit of unknown\ni'm not in a super exploratory mode\nwell you know what it's a good thing\nthat we got the route on our wahoos\ndetails are 22.8 miles\ngains 1400 feet 400 meters peak gradient\nnine percent\nmaximum elevation\nfour point six thousand feet so yeah i\ndon't think we're gonna hit snow\nnot concerned it goes lower than the\nother route that we were doing uh we got\nthis route from dirtyfreehub.com i will\nleave a link\nin the description below so check that\nout\ni'm going all out on the filming of this\nwhich probably means it'll be a\ndisaster that's usually how it works\nsomething here will break and be dead\nearly in the ride but uh\nworth a shot\nwanna do a bike check\nwhat's your setup\ni have a\nspecialized\ndiverge road bike with\nzip 303s\nwheels\nzip tires is it water bottle cage\nreal nerdy road cleats\nzip service course stem\nzip\nhandlebar\noahu\nroam sram\ncomponents\n[Laughter]\ni believe this is an evil rear\nderailleur yeah it's an eagle\neagle there we go eagle access\nelectric\nall right i am running the argon 18 dark\nmatter i have ralph prima highlight\nrims the aluminum version and i've got\n40c\nschwalbe g1r tires which\nso far i'm pretty into mono grx di2\nwahoo element roam got a flat kit with\nsome stands darts got an actual hand\npump for emergency situations\nand uh\na spare tube all of the things\n[Music]\nuh\nmy eyes\ni feel closer\nso this is basically the warm-up\nthis is how we start\npretty much all our gravel rides\nuh we live close to shevlin park and we\nkind of we roll up through shoveling\nupper shoveling area\nuh to get to the bs logging road\nand uh that's kind of where we'll\nhook up with\nthe beginning of the route it's not the\nbest warm up it's\npretty much uphill the whole way\nbut so beautiful\nso\nso there's the beginning we had like\nthat one little steep part\ni was just saying like at the beginning\nwe had this\nlike a kind of a steep part but the rest\nof us i was reading on the route notice\nthat it's like\nbasically an old\nrailroad\nnot like a major one obviously but\nthat's why this whole thing\nis like basically\nnever goes over two percent grade\nand it's so even probably like a bogging\nrailroad basically to carry trees\nthat's uh\none of the really cool parts about\noregon is like\nyou know unfortunately unfortunately\nwhatever like back in the day\na lot of logging was done\nand as a result\nthere is a ton of logging roads that are\npublic lands\nand that's what makes like gravel riding\nso good\n[Applause]\nlosing control\ni\ncan you bring it back to\nbring it back\nit's\nis\nit's making me feel so weak\nwonder what my aura ring square is going\nto be today so much activity\nit's going to say that your aura is\ngoing to say\nhow would you rate the route so far\nwell i'm a bit grumpy because i didn't\nknow this was going to be a video\nokay the root is fine\nthe root is fine\nyou're doing amazingly well yeah i'm\ngood at gravel now that was a steep hill\nwe just came down\nsomeday\nas of right now this is\nthe coolest\ngravel ride we've ever been on here\ni mean it's actually like 100 at sunset\nonly way to go\nso beautiful\ngotta get the\ninstagram\nyeah i know\nsee\nyou can\nokay we're almost back to\nmaine gravel road you start on yeah i\nthink left will be\nthat's at least mostly downhill\nokay\nyou",
-          "curated": false
-        },
-        {
-          "video_id": "2eOoo580GGE",
-          "title": "Molly Cameron's America - Cascade Gravel Grinder 2022",
-          "channel": "Molly Cameron",
-          "view_count": 1173,
-          "upload_date": "20220728",
-          "duration_string": "7:58",
-          "description": "Three days of racing in Bend and Sisters, Oregon at the Cascade Gravel Grinder stage race!\n\nYou can also keep up with me at:\nWebsite - https://mollycameron.com/ \nInstagram - https://www.instagram.com/themollycameron/ - @themollycameron \nTwitter -https://twitter.com/themollycameron - @themollycameron\nFacebook -https://www.facebook.com/mollycameronpage/ - @mollycameronpage",
-          "tags": [
-            "Vegan athelete",
-            "Trans athlete",
-            "plantbased",
-            "transgender",
-            "vegan",
-            "trans cyclist",
-            "#TransRightsAreHumanRights",
-            "#NewAmericanBikeRacing"
-          ],
-          "url": "https://www.youtube.com/watch?v=2eOoo580GGE",
-          "transcript": "this is molly cameron and in this\nepisode of molly cameron's america i'm\ngoing to be driving from portland oregon\nto\ni guess mount bachelor i guess ben i'm\ndriving right to my race start which is\nat 5 00 pm there's a little time trial\na little time trial because it's only 5\nmiles\nto start the cascade gravel grinder\nit's gonna be a lovely sunny beautiful\nday but i spent the last two days\ngetting\nthis thing built\ni'm really excited i'm really excited i\nyou know i've been riding my own brand\nof bikes for a while\nand\ni'm pretty hyped about the niner\nthe cat's gonna miss me\ngets a little fussy whenever i take off\ni may have made a great mistake hopping\non i-5 south at 3 p.m on a friday in\nportland oregon because we now have la\ntraffic\ni don't really get stressed out about\ntraffic i don't do road rage because\nwhen i'm in the van you're just driving\nand if everything sucks i'll just stop\nand take a nap\namazing well here we go\ncascade gravel grinder stage race let's\ndo it\nokay\noh sweet all three bikes are still\non the van\nyou notice it's\nraining and we're at altitude so this\nrain is basically going to be it's\nbasically hail it's cold as [&nbsp;__&nbsp;] i have\na skin suit on\nanyways um\ni remember my 40 mil\nchallenge getaways on nvg23\ngravel wheels\nthis is new for me normally i run the 46\n30 and i'm running\nthe 4831\ngrx 2 buy\nsetup i got a stages\npower meter\none bottle of water and this is my new\nniner rlt9 so this is literally my first\nbike ride on it i mean i rode it down my\ndriveway and made sure the brakes were\nsquealing as this breaks or want to do\noh\n[Music]\n[Applause]\nso\nah riding the snow is actually really\nhard that's really fun that's hard as\nhell\ndo you want to talk about everything\nthat went into making this event happen\noh wow you know some events go pretty\nsmoothly others just go kicking and\nscreaming this was absolutely pummeling\nus for these last two weeks in march\nwe're thinking we're going to get up\nthere so early we're going to have\nleisure amounts of time to clear all the\ntrees and there's not going to be any\nsnow this year no problem and then april\nhit and it just kept coming and then may\nthe weekend before\nour event here mal batcher received\nalmost two feet over the weekend of new\nsnow so it made it just an undaunting\ntask i mean we like to to to walk that\nfine line between the suffer factor but\nthen also add in the aesthetics and the\nbeauty and the challenge so that people\ndon't get done just say well that just\nsucked well yeah it sucked but man there\nwas also spectacular this is my first\nbig training block actually three days\nof uh racing that'll get you started\nyeah thanks chad thank you yeah i'll see\nyou man i feel like time trials are that\nthing where like you always went as hard\nas you could and you think you did\nreally good and then like no you get\nlike 28th place you're like oh i thought\ni thought i got all the podiums\npre-erased pasta free rice coffee\nnutrition for the ride\nhere we are at stage two of the\ncascade gravel grinder it was windy af\nall night long\nmy bikes are still racked up my q at\nit's\nit's cool\nit's day three at the cascade gravel\ngrinder we're in sisters lovely\nbeautiful sisters oregon and we're gonna\nget to\nride some roads\nthat folks don't really ever get to ride\nmainly because\nchad sperry of breakaway promotions and\nhis crew my buddy tony kick a bunch of\nother dudes and ladies they went snow\nblowed and plowed all these roads so\ntypically these roads are just covered\nin snow and you can't access them so\nthese aren't roads that like you can\nnever really ride around beds and\nsisters except for in the summer but in\nthe summer they're all dusty and hot as\n[&nbsp;__&nbsp;] and blown out so this is actually\npretty special\nthat was some epic weather i appreciate\neverybody who suffered through friday\nand saturday to get to here you guys are\nheroes in my book big hand to you folks\nphase three big grinder\ni've never owned an actual gravel bike\num\nwith a lower bottom bracket it's it's\nlonger you know the front end is a\nlittle slacker than most so the bikes\nthat i've been racing for the last\n20 years have been cycle cross bikes\nwith a cyclocross bike i shift my weight\nforwards and back a lot more the bike's\na little more compact it's higher off\nthe ground and i was really noticing\nthat like i can't put my weight too much\nover the front wheel with the way the\nbike's designed it's really really\nreally stable and\nwith the front end being a little more\nout front it's super stable in turns and\nin a straight line and i mean it was\nperfect for what we're doing i mean it's\nperfect for gravel whereas i've\nbasically been riding cross spikes which\nare a hell of a lot twitchier and kind\nof quicker to respond and so i have to\nput my weight over the front wheel just\nto keep that wheel like planted on the\nground when i'm making these kind of\nlike you know\ntwitchier turns and this thing i kind of\ngot to a point yesterday was like oh i\njust kind of need to like\nback off and let the bike do its job",
-          "curated": false
-        },
-        {
-          "video_id": "6-R8y1lyW5o",
-          "title": "Bike Film Festival 2022",
-          "channel": "Dirty Freehub",
-          "view_count": 449,
-          "upload_date": "20220326",
-          "duration_string": "56",
-          "description": "A short video produced by Dirty Freehub shown at the May 2022 Bicycle Film Festival - Bend.\n\nDirty Freehub is a 501(c)3 non-profit dedicated to the mission of connecting gravel cyclists to where they ride. Connecting them to ... culture, history, people, places and lands. We are fueled by your generous donations.\nhttps://dirtyfreehub.org",
-          "tags": [],
-          "url": "https://www.youtube.com/watch?v=6-R8y1lyW5o",
-          "transcript": "[Music]\n[Applause]\nwoohoo",
-          "curated": false
-        },
-        {
-          "video_id": "jQm2qI0Y_wQ",
-          "title": "Mountain Biking Trails on the Oregon Coast - Coos Bay, North Bend, & Charleston, Oregon",
-          "channel": "Oregon's Adventure Coast",
-          "view_count": 8471,
-          "upload_date": "20210302",
-          "duration_string": "46",
-          "description": "Explore the Whisky Run Mountain Bike trails in Coos County. Enjoy sweeping views, tranquil streams, and fern-covered forest floors by mountain bike.\n\nLearn more about the Whisky Run Mountain Bike Trail: https://www.oregonsadventurecoast.com/blog/adventure-spotlight-whiskey-run-mountain-bike-trails-on-oregon-s-south-coast\nDiscover More Coastal Cycling Resources: https://www.oregonsadventurecoast.com/cycling",
-          "tags": [
-            "Oregon Coast",
-            "Travel",
-            "Oregon",
-            "Travel Oregon",
-            "Vacation",
-            "West Coast Travel",
-            "mountain biking",
-            "Oregon coast cycling",
-            "Oregon coast mountain biking",
-            "whiskey run mountain biking trail",
-            "coos bay mountain biking"
-          ],
-          "url": "https://www.youtube.com/watch?v=jQm2qI0Y_wQ",
-          "transcript": "ready set adventure whiskey run a\nheart-pounding mountain biking adventure\nin the coos bay north bend charleston\narea\nbike miles of groomed and managed trails\nthrough our scenic coastal forest\n[Music]\n[Applause]\nchoose your challenge from nine\nprofessionally planned and built trail\noptions for beginners\nintermediates and advanced riders\ncoos bay north bend charleston we are\noregon's adventure coast",
-          "curated": false
         }
       ],
       "quotes": [
         {
-          "text": "The gravel 55 miles, and the mountain bike 39 filled with single track gravel, hard climbs, all the cycling events will take off at 8:15, after the trail run takes off from the athletic club at 8:00.",
+          "text": "The gravel 55 miles ... all the cycling events will take off at 8:15.",
           "source_video_id": "s9bQS_aXehc",
           "source_channel": "BackyardBend",
           "source_view_count": 468,
           "category": "logistics",
           "curated": true
-        },
-        {
-          "text": "We've always wanted to have an event that incorporates trail running and gravel cycling and mountain biking. Something that builds on the community's adventure and the fact that people in Bend, they do everything.",
-          "source_video_id": "s9bQS_aXehc",
-          "source_channel": "BackyardBend",
-          "source_view_count": 468,
-          "category": "race_atmosphere",
-          "curated": true
         }
-      ],
-      "rider_intel": {
-        "extracted_at": "2026-02-23",
-        "key_challenges": [
-          {
-            "name": "BS logging road climb",
-            "description": "Pretty much uphill the whole way for the warm-up section. Includes one steep part at the beginning before connecting to the main route.",
-            "source_video_ids": [
-              "iApiAZvi4c0"
-            ]
-          },
-          {
-            "name": "Steep hill descent",
-            "description": "One steep downhill section that riders specifically mention during the route.",
-            "source_video_ids": [
-              "iApiAZvi4c0"
-            ]
-          }
-        ],
-        "terrain_notes": [
-          {
-            "text": "Built on old logging railroad grade, so basically never goes over 2 percent grade and stays very even throughout most of the route.",
-            "source_video_ids": [
-              "iApiAZvi4c0"
-            ]
-          },
-          {
-            "text": "Utilizes tons of logging roads on public lands, which makes gravel riding so good in this area.",
-            "source_video_ids": [
-              "iApiAZvi4c0"
-            ]
-          }
-        ],
-        "gear_mentions": [
-          {
-            "text": "40c Schwalbe G1R tires worked well for the conditions.",
-            "source_video_ids": [
-              "iApiAZvi4c0"
-            ]
-          }
-        ],
-        "race_day_tips": [
-          {
-            "text": "The warm-up from Shevlin Park area up through upper Shevlin to BS logging road is pretty much uphill the whole way, so plan accordingly.",
-            "source_video_ids": [
-              "iApiAZvi4c0"
-            ]
-          }
-        ],
-        "additional_quotes": [
-          {
-            "text": "We live close to Shevlin Park and we kind of roll up through shoveling upper shoveling area to get to the BS logging road and that's kind of where we'll hook up with the beginning of the route.",
-            "source_video_id": "iApiAZvi4c0",
-            "source_channel": "TTL MultiSport",
-            "source_view_count": 28454,
-            "category": "logistics",
-            "curated": true
-          }
-        ],
-        "search_text": "Riders describe Bend area gravel routes that utilize old logging railroad grades, maintaining gentle gradients that rarely exceed 2 percent. The terrain takes advantage of extensive logging roads on public lands throughout Oregon. A typical route starts from Shevlin Park area, climbing through upper Shevlin to connect with BS logging road. The warm-up section is described as uphill the whole way with one steep section at the beginning. Riders mention a steep downhill portion during the main route. The logging railroad foundation makes for very even terrain throughout most of the ride. One rider successfully used 40c Schwalbe G1R tires for the conditions. The area offers scenic riding with sunset views, and riders note this type of terrain showcases why Oregon's logging road network creates excellent gravel riding opportunities on public lands."
-      }
+      ]
     },
-    "photos": [
+    "citations": [
       {
-        "type": "video-1",
-        "file": "bend-dirt-fest-video-1.jpg",
-        "url": "/race-photos/bend-dirt-fest/bend-dirt-fest-video-1.jpg",
-        "alt": "Professional gravel racing bikes with disc brakes mounted on team support vehicle in snowy forest setting at Bend Dirt Fest - Bend, Oregon",
-        "credit": "YouTube / Molly Cameron",
-        "primary": true,
-        "ai_relevance": 3,
-        "ai_quality": 3,
-        "ai_keywords": [
-          "team support",
-          "gravel bikes",
-          "Bend forest",
-          "disc brakes",
-          "snow"
-        ]
+        "url": "https://www.mudslingerevents.com/bend-dirt-fest",
+        "category": "official",
+        "label": "Organizer-confirmed 2027 date, venue, schedule, long-course summary, festival format, awards, aid, cutoffs, and rules"
       },
       {
-        "type": "video-2",
-        "file": "bend-dirt-fest-video-2.jpg",
-        "url": "/race-photos/bend-dirt-fest/bend-dirt-fest-video-2.jpg",
-        "alt": "Post-race interview with gravel cyclist in yellow team kit at Bend Dirt Fest finish area with forest backdrop - Bend, Oregon",
-        "credit": "YouTube / Molly Cameron",
-        "primary": false,
-        "ai_relevance": 2,
-        "ai_quality": 4,
-        "ai_keywords": [
-          "race interview",
-          "team kit",
-          "Bend forest",
-          "finish area",
-          "gravel racing"
-        ]
+        "url": "https://irp.cdn-website.com/26edc316/files/uploaded/Bend-Dirt-Fest+Tech+Guide+20278426.pdf",
+        "category": "official",
+        "label": "2027 technical guide controlling distance, elevation, surface, start time, parking, support, safety, and route links"
       },
       {
-        "type": "video-3",
-        "file": "bend-dirt-fest-video-3.jpg",
-        "url": "/race-photos/bend-dirt-fest/bend-dirt-fest-video-3.jpg",
-        "alt": "Gravel cyclist riding paved path through high desert landscape with modern buildings and golden grassland near Bend Oregon - Bend Dirt Fest - Bend, Oregon",
-        "credit": "YouTube / Molly Cameron",
-        "primary": false,
-        "ai_relevance": 5,
-        "ai_quality": 4,
-        "ai_keywords": [
-          "high desert",
-          "Bend Oregon",
-          "golden grassland",
-          "gravel racing",
-          "desert terrain"
-        ]
+        "url": "https://ridewithgps.com/routes/54816842",
+        "category": "route",
+        "label": "Organizer-linked 2027 long route: 54.68 miles, 4,014.7 feet, 62% unpaved, high point, aid, and course hazards"
       },
       {
-        "type": "preview-gif",
-        "file": "bend-dirt-fest-preview.gif",
-        "url": "/race-photos/bend-dirt-fest/bend-dirt-fest-preview.gif",
-        "alt": "Course preview from Bend Dirt Fest race footage",
-        "credit": "YouTube / Molly Cameron",
-        "gif": true
+        "url": "https://ridewithgps.com/routes/54816980",
+        "category": "route",
+        "label": "Organizer-linked short route: 38.7 miles, 2,880 feet, 45% unpaved"
       },
       {
-        "type": "preview-gif",
-        "file": "bend-dirt-fest-preview-2.gif",
-        "url": "/race-photos/bend-dirt-fest/bend-dirt-fest-preview-2.gif",
-        "alt": "Course preview from Bend Dirt Fest race footage",
-        "credit": "YouTube / Molly Cameron",
-        "gif": true
+        "url": "https://www.bikereg.com/bend-dirt-fest",
+        "category": "official",
+        "label": "Organizer-linked 2027 registration, starting price, deadline, categories, and field caps"
       },
       {
-        "type": "preview-gif",
-        "file": "bend-dirt-fest-preview-3.gif",
-        "url": "/race-photos/bend-dirt-fest/bend-dirt-fest-preview-3.gif",
-        "alt": "Course preview from Bend Dirt Fest race footage",
-        "credit": "YouTube / Molly Cameron",
-        "gif": true
+        "url": "https://obra.org/events/29106/results",
+        "category": "results",
+        "label": "Official 2026 OBRA results used for the 121-rider gravel field and category depth"
+      },
+      {
+        "url": "https://www.bendsource.com/outside/bend-dirt-fest-23417628/",
+        "category": "media",
+        "label": "Local reporting on the inaugural 2025 race, Oregon 24 lineage, organizer history, and community intent"
+      },
+      {
+        "url": "https://www.youtube.com/watch?v=s9bQS_aXehc",
+        "category": "video",
+        "label": "Organizer interview confirming the inaugural format, 55-mile gravel target, hard climbing, 8:15 bike start, and community intent"
+      },
+      {
+        "url": "https://www.ncei.noaa.gov/access/services/data/v1?dataset=normals-monthly-1991-2020&format=pdf&stations=USC00350694",
+        "category": "weather",
+        "label": "NOAA 1991-2020 Bend July temperature normals and station elevation"
+      },
+      {
+        "url": "https://flyrdm.com/airfield-services/airfield-information/",
+        "category": "official",
+        "label": "Redmond Airport's official 15-mile distance from Bend"
       }
     ]
   }

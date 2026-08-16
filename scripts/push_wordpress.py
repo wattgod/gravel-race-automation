@@ -1699,6 +1699,10 @@ RewriteRule ^race/3rides-aachen/(.*)$ /race/3rides-gravel-winterberg/$1 [R=301,L
 # The retired page mixed unsupported facts with the old Flanders Gravel Series.
 RewriteRule ^race/gravel-des-flandres/?$ /race/calendar/2026/ [R=301,L]
 RewriteRule ^race/gravel-des-flandres/(.*)$ /race/calendar/2026/ [R=301,L]
+# 66 South Pyrénées was an alternate name for the same Font-Romeu UCI race
+# now tracked from current organizer facts as Pyrénées Catalanes Gravel Tour.
+RewriteRule ^race/66-south-pyrenees/?$ /race/pyrenees-catalanes-gravel-tour/ [R=301,L]
+RewriteRule ^race/66-south-pyrenees/(.*)$ /race/pyrenees-catalanes-gravel-tour/$1 [R=301,L]
 RewriteRule ^race/dreilaendergiro/?$ https://roadielabs.com/race/dreilander-giro/ [R=301,L]
 RewriteRule ^race/dreilaendergiro/(.*)$ https://roadielabs.com/race/dreilander-giro/$1 [R=301,L]
 RewriteRule ^race/gran-fondo-felice-gimondi/?$ https://roadielabs.com/race/granfondo-felice-gimondi/ [R=301,L]

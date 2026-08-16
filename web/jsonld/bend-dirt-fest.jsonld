@@ -2,7 +2,7 @@
   "@context": "https://schema.org",
   "@type": "SportsEvent",
   "name": "Bend Dirt Fest",
-  "description": "Multi-discipline high desert festival in Bend\u2014gravel, MTB, and trail run in one weekend.",
+  "description": "Central Oregon forest-road climbing with a three-discipline festival waiting at the finish.",
   "sport": "Gravel Cycling",
   "startDate": "2027-07-10",
   "location": {
@@ -16,21 +16,21 @@
   },
   "offers": {
     "@type": "Offer",
-    "price": "75",
+    "price": "109",
     "priceCurrency": "USD",
     "availability": "https://schema.org/LimitedAvailability"
   },
   "aggregateRating": {
     "@type": "AggregateRating",
-    "ratingValue": "63",
+    "ratingValue": "59",
     "bestRating": "100",
     "ratingCount": "14",
     "name": "Gravel God Rating"
   },
-  "url": "https://www.benddirtfest.com",
+  "url": "https://www.mudslingerevents.com/bend-dirt-fest",
   "organizer": {
     "@type": "Person",
-    "name": "Mike Ripley / Mudslinger Events (22-year Central Oregon race producer)",
-    "url": "https://www.benddirtfest.com"
+    "name": "Mike Ripley and Mudslinger Events",
+    "url": "https://www.mudslingerevents.com/bend-dirt-fest"
   }
 }

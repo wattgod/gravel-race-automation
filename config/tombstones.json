@@ -130,6 +130,11 @@
       "slug": "gravel-des-flandres",
       "reason": "invalid generic identity: no organizer or official event exists under this name; the profile mixed unsupported 2025 facts with media from the distinct Flanders Gravel Series, which last appeared on the organizer calendar in 2023",
       "redirect": "/race/calendar/2026/"
+    },
+    {
+      "slug": "66-south-pyrenees",
+      "reason": "duplicate identity for the same September 26, 2026 Font-Romeu UCI Gravel World Series race tracked canonically as pyrenees-catalanes-gravel-tour; the retired profile also carried a lower stale grade and unrelated Pyrenees-crossing rider intel",
+      "redirect": "/race/pyrenees-catalanes-gravel-tour/"
     }
   ]
 }

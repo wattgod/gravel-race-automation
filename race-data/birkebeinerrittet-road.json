@@ -11,7 +11,7 @@
       "discipline": "mtb",
       "month": "August",
       "prestige": 3,
-      "overall_score": 73,
+      "overall_score": 66,
       "tier": 2
     },
     "gravel_god_rating": {
@@ -20,17 +20,17 @@
       "climate": 4,
       "community": 4,
       "elevation": 3,
-      "expenses": 4,
+      "expenses": 2,
       "experience": 4,
       "field_depth": 3,
-      "length": 3,
-      "logistics": 4,
+      "length": 2,
+      "logistics": 3,
       "prestige": 3,
       "race_quality": 4,
       "technicality": 3,
-      "value": 4,
+      "value": 3,
       "cultural_impact": 2,
-      "overall_score": 73,
+      "overall_score": 66,
       "tier": 2,
       "tier_label": "TIER 2"
     },
@@ -53,11 +53,11 @@
       },
       "elevation": {
         "score": 3,
-        "explanation": "The course includes long climbs up to the mountains with approximately 3,986 feet of elevation gain over the 82-92 km distance, providing moderate but sustained climbing rather than extreme vertical challenge."
+        "explanation": "Birken publishes approximately 1,200–1,300 meters of climbing on the current 84-kilometer route. That is roughly 4,000 feet and sits on the boundary of the 4,000–6,000-foot scoring band."
       },
       "expenses": {
-        "score": 4,
-        "explanation": "As one of the world's largest mountain bike races with organized logistics from Rena to Lillehammer, the Birkebeinerrittet offers competitive pricing relative to its scale, though specific entry fees reflect the professional event organization."
+        "score": 2,
+        "explanation": "For a destination rider, travel to Norway, lodging, and point-to-point transport can put the trip in the high-expense band. Birken has not yet published 2027-specific operating prices, so this does not reuse the 2026 fee table."
       },
       "experience": {
         "score": 4,
@@ -68,12 +68,12 @@
         "explanation": "The race draws international competitors including winners from Switzerland, Germany, Italy, Sweden, and Finland alongside Norwegian dominance, though the field is primarily composed of recreational participants rather than elite-only competition."
       },
       "length": {
-        "score": 3,
-        "explanation": "At 84 km, the Birkebeinerrittet represents a substantial but not extreme distance, comparable to a full marathon mountain bike event rather than an ultra-endurance race."
+        "score": 2,
+        "explanation": "The official 84-kilometer course converts to 52.2 miles, which belongs in the rubric's 40–60-mile band."
       },
       "logistics": {
-        "score": 4,
-        "explanation": "The event efficiently manages up to 17,000 participants annually across multiple race categories (main Birkebeinerrittet, HalvBirken, UltraBirken, UngdomsBirken, and BarneBirken) with a single organized route from Rena to Lillehammer."
+        "score": 3,
+        "explanation": "The point-to-point start in Rena and finish at Håkons Hall require deliberate transport and lodging plans, but organizer buses from Oslo and Lillehammer keep the trip in the moderate-planning band rather than true remoteness."
       },
       "race_quality": {
         "score": 4,
@@ -84,8 +84,8 @@
         "explanation": "The course from Rena to Lillehammer features mountain terrain with climbing sections and varied trail conditions, but is designed to accommodate participants ranging from teenagers to seventy-year-olds rather than requiring elite technical skills."
       },
       "value": {
-        "score": 4,
-        "explanation": "With participation capped and the race selling out every year until 2015, the Birkebeinerrittet offers exceptional value as one of the world's largest organized mountain bike events covering 82-92 km of historic Norwegian mountain terrain."
+        "score": 3,
+        "explanation": "The race offers timing, staffed food stations, luggage transfer, and a historic point-to-point course, but a 2027 entry price and inclusions have not been published. Value stays neutral until the current fee is known."
       },
       "cultural_impact": {
         "score": 2,
@@ -97,59 +97,51 @@
       }
     },
     "course_description": {
-      "character": "A historic point-to-point journey through forests, mountains, and valleys, blending fire roads, gravel, and paved sections while carrying a mandatory safety backpack.",
+      "character": "Birken's 2027 calendar confirms August 28, while the detailed race page still carries 2026 operations. Its current 84-kilometer route starts in central Rena, uses about 10 kilometers of paved road before broad gravel, reaches the Djuposet hike-a-bike, and then crosses forest and mountain roads before the varied descent to Håkons Hall in Lillehammer. The final 2027 rider document controls if the route changes.",
       "suffering_zones": [
         {
-          "label": "Raudfjellet Climb",
-          "description": "Iconic early mountain ascent testing legs after forest start."
+          "label": "Djuposet",
+          "description": "The organizer identifies a hike-a-bike after the opening road and gravel run through Vivelstadsvea and Åstadalen. Rehearse the dismount, carry or push, remount, and return to pace."
         },
         {
-          "label": "Midtfjellet",
-          "description": "Mid-race high point with steep gradients and exposure."
+          "label": "Rosinbakkene to Storåsen",
+          "description": "After Kvarstad, the route climbs Rosinbakkene and continues through Aksjøen and Elgåsen to the course high point at approximately 955 meters."
         },
         {
           "label": "Final Descent to Lillehammer",
-          "description": "Technical drop into Olympic stadium demanding control after fatigue."
+          "description": "The last 21 kilometers mix gravel, trail, fast paved descending, sharp turns, and Ballettbakken before the finish at Håkons Hall."
         }
       ],
       "signature_challenge": "A mandatory backpack weighing at least 2 kg throughout the race, symbolizing infant heir Håkon Håkonsson, who was carried to safety in 1206."
     },
     "logistics": {
-      "overview": "Start bib pickup in Rena on race morning; buses from Oslo/Lillehammer to Rena; finish at Håkons Hall with shuttles back.",
+      "overview": "This is a point-to-point race from central Rena to Håkons Hall in Lillehammer. Birken's current operating page offers participant-and-bike buses from Oslo and Lillehammer to Rena plus luggage transport from start to finish; confirm the 2027 timetable when it is released.",
       "official_site": "https://birken.no/en/cycling/birkebeinerrittet-84-km",
       "registration_url": "https://birken.no/en/cycling",
-      "accommodation": "Hotels and mattress accommodations in Rena, Lillehammer, or Hamar; book via My Page post-registration.",
-      "getting_there": "Buses/trains from Oslo Airport to Rena/Lillehammer; VY.no for schedules.",
-      "parking": "Free parking in Hamar at Viking Ship arena with shuttle buses; no parking at start.",
-      "spectator_info": "View finishes at Håkons Hall or Birkebeineren Ski Stadium; shuttles available."
+      "accommodation": "The organizer lists mattress accommodation in Rena plus hotels and camping around Rena and Lillehammer. Book only against the published 2027 terms.",
+      "getting_there": "The current organizer plan uses buses from Oslo and Lillehammer to Rena, with train service available separately. The nearest major airport is Oslo Gardermoen.",
+      "parking": "The current race page provides controlled parking in both Rena and Lillehammer. The posted fee and traffic plan are for 2026 and must not be projected onto 2027.",
+      "spectator_info": "The finish is at Håkons Hall in Lillehammer. Spectators should use Birken's final 2027 access and traffic instructions."
     },
     "climate": {
-      "overview": "Late August in eastern Norway offers mild summer weather with long daylight.",
-      "avg_temp_f": 59,
-      "precipitation_chance": "Low (20-30%)",
-      "wind_conditions": "Variable, sheltered in valleys, exposed on ridges.",
-      "altitude_effects": "Moderate at 300-1000m; cooler temps on climbs reduce overheating risk."
+      "overview": "Birken requires every rider to carry specified safety clothing and equipment throughout the mountain crossing. The organizer has not yet published a 2027 forecast or rider document, so prepare for changeable conditions and make final clothing choices from the current race briefing.",
+      "altitude_effects": "The current route tops out near Storåsen at approximately 955 meters; this is mountain exposure, not a high-altitude event."
     },
     "terrain": {
-      "surface_breakdown": {
-        "paved": 20,
-        "gravel": 70,
-        "other": 10
-      },
-      "terrain_overview": "Fire roads dominate with mountain passes, forest trails, and valley descents from Rena (300m) to Lillehammer (490m).",
-      "key_features": "Three major climbs, single/dual-track segments, Olympic finish venue."
+      "terrain_overview": "The current organizer route opens with about 10 kilometers of paved road, continues on broad gravel toward Djuposet, includes a forest hike-a-bike and more forest and gravel roads, then finishes through a mix of gravel, trail, fast pavement, and sharp descending turns into Lillehammer.",
+      "key_features": "Djuposet hike-a-bike; Rosinbakkene climb; the 955-meter Storåsen high point; narrow pebbled descent near Nybu; Avskåkalia's sharp turn; and Ballettbakken before Håkons Hall."
     },
     "history": {
-      "overview": "Annual MTB classic since 1993 commemorating Birkebeiner warriors' 1206 ski rescue of heir Håkon Håkonsson; world's largest by entrants.",
+      "overview": "Founded in 1993, Birkebeinerrittet uses the Birkebeiner story of the 1206 rescue of the infant heir Håkon Håkonsson. Birken describes it as one of the world's largest mountain-bike races, with participation reaching roughly 17,000 at its peak.",
       "founded": 1993,
-      "notable_editions": "2009: 17,164 starters; 2023: 30th edition; 2024: 32nd running.",
-      "growth_trajectory": "Steady increase to 15,000+ finishers, expanding recreational and elite fields."
+      "notable_editions": "The inaugural 1993 race drew 1,327 participants. The current event page identifies the 2026 race as the 33rd edition.",
+      "growth_trajectory": "The race grew into a mass-participation MTB institution and sold out annually through 2015; current official copy says elite, recreational, and touring riders share the event."
     },
     "final_verdict": {
       "one_liner": "Norway's backpacked MTB legend: history, mountains, and massive community.",
       "best_for": "History buffs, adventure seekers, and social riders seeking epic Norwegian vibes.",
       "not_ideal_for": "Pure road racers avoiding gravel or those hating mandatory packs.",
-      "pro_tip": "Train with the required 2 kg backpack; book buses early and stay in Lillehammer for easy finish access."
+      "pro_tip": "Train with the required 2 kg backpack, rehearse Djuposet and late descending under fatigue, and reconcile every transport, aid, cutoff, and equipment detail against Birken's final 2027 rider document."
     },
     "citations": [
       {
@@ -167,27 +159,44 @@
         "label": "Official 2027 Date"
       },
       {
-        "url": "https://en.wikipedia.org/wiki/Birkebeinerrittet",
-        "title": "Birkebeinerrittet",
-        "snippet": "84km long along fire roads, with some paved and some single/dual-track segments. Held since 1993.",
-        "category": "reference",
-        "label": "Wikipedia"
-      },
-      {
-        "url": "https://birken.srv2.modulez.no/en/cycling",
-        "title": "Bike Race - Birken",
-        "snippet": "The track is 86 km long... from the village of Rena to Håkons hall at the Olympic city of Lillehammer.",
-        "category": "other",
-        "label": "Birken"
-      },
-      {
-        "url": "https://birken.no/en/cycling",
-        "title": "Birken Bike Race",
-        "snippet": "Norway's largest cycling race... all participants carry a backpack during the race.",
+        "url": "https://birken.no/en/undersider-sykkel/track-description-birkebeinerrittet",
+        "title": "Track description Birkebeinerrittet - Birken",
+        "snippet": "The official segment guide describes Djuposet, Rosinbakkene, Storåsen, the late mixed-surface descents, and the finish at Håkons Hall.",
         "category": "official",
-        "label": "Official Website"
+        "label": "Official Course Segments"
+      },
+      {
+        "url": "https://birken.no/en/about-birken/the-birkebeiner-history/history-birkebeinerrittet",
+        "title": "The history about Birkebeinerrittet - Birken",
+        "snippet": "Birken documents the 1993 inaugural race, the route's historical identity, the mandatory backpack symbolism, and peak participation.",
+        "category": "official",
+        "label": "Official History"
       }
     ],
+    "eligibility": {
+      "status": "active",
+      "verified": "2026-08-15",
+      "source": "https://birken.no/en/all-races",
+      "race_plan_eligible": true,
+      "status_note": "Birken's official calendar confirms Birkebeinerrittet on Saturday, August 28, 2027. The event is a timed and ranked mountain-bike race from Rena to Lillehammer."
+    },
+    "source_review": {
+      "reviewed_at": "2026-08-15",
+      "official_url": "https://birken.no/en/cycling/birkebeinerrittet-84-km",
+      "registration_url": "https://birken.no/en/cycling",
+      "race_date": "2027-08-28",
+      "facts_scope": "The 2027 date is official. The organizer's detailed page still publishes 2026 operations but supports the current 84-kilometer Rena-to-Lillehammer route, approximately 1,200–1,300 meters of climbing, Djuposet hike-a-bike, staffed aid, point-to-point transport model, and mandatory two-kilogram backpack. Exact 2027 waves, aid service, cutoffs, fees, transport times, rules, and route revision remain unpublished.",
+      "discovery_note": "The final-fleet audit found an existing source profile, race page, seven public TrainingPeaks plans, and a complete authenticated receipt chain. This correction removes stale course landmarks and unsupported logistics before receipt reconciliation."
+    },
+    "training_plan_clearance": {
+      "status": "build_ready",
+      "race_date": "2027-08-28",
+      "event_window": "2027-08-28/2027-08-28",
+      "ladder": "FULL-7",
+      "variation": "All-Rounder",
+      "blockers": [],
+      "guard": "Use the official 2027 date and the organizer's current 84-kilometer, approximately 1,200–1,300-meter route as the training base. Preserve the Djuposet hike-a-bike, late mixed-surface descending, point-to-point logistics, and mandatory backpack of at least 2 kilograms. Birken's final 2027 route, schedule, aid, cutoff, fee, transport, and equipment documents override every current operational detail."
+    },
     "slug": "birkebeinerrittet-road",
     "name": "Birkebeinerrittet Sykkel"
   }

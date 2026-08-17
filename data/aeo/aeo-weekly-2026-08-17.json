@@ -1,0 +1,126 @@
+{
+  "brands": {
+    "gravelgod": {
+      "ga4": {
+        "current_window": {
+          "chatgpt.com": 4,
+          "claude.ai": 2,
+          "kagi.com": 1
+        },
+        "prior_window": {
+          "chatgpt.com": 1,
+          "copilot.com": 2
+        },
+        "referral_regex": "(?i)(chatgpt|openai|perplexity|claude|anthropic|copilot|gemini|bard|poe\\.com|you\\.com|phind|kagi)",
+        "referral_regex_version": 1,
+        "status": "ok"
+      },
+      "llms_serving": {
+        "error": "URLError: <urlopen error timed out>",
+        "status": "error"
+      },
+      "logs": {
+        "compressed_bytes": null,
+        "days": {},
+        "error": "SSH log collector exited 255",
+        "missing_log_dates": [
+          "2026-08-10",
+          "2026-08-11",
+          "2026-08-12",
+          "2026-08-13",
+          "2026-08-14",
+          "2026-08-15",
+          "2026-08-16"
+        ],
+        "status": "error",
+        "status_buckets": {
+          "2xx": 0,
+          "3xx": 0,
+          "4xx": 0,
+          "5xx": 0
+        }
+      },
+      "top_user_fetch_paths": []
+    },
+    "roadie": {
+      "ga4": {
+        "current_window": {
+          "chatgpt.com": 1
+        },
+        "prior_window": {},
+        "referral_regex": "(?i)(chatgpt|openai|perplexity|claude|anthropic|copilot|gemini|bard|poe\\.com|you\\.com|phind|kagi)",
+        "referral_regex_version": 1,
+        "status": "ok"
+      },
+      "llms_serving": {
+        "error": "URLError: <urlopen error timed out>",
+        "status": "error"
+      },
+      "logs": {
+        "compressed_bytes": null,
+        "days": {},
+        "error": "SSH log collector exited 255",
+        "missing_log_dates": [
+          "2026-08-10",
+          "2026-08-11",
+          "2026-08-12",
+          "2026-08-13",
+          "2026-08-14",
+          "2026-08-15",
+          "2026-08-16"
+        ],
+        "status": "error",
+        "status_buckets": {
+          "2xx": 0,
+          "3xx": 0,
+          "4xx": 0,
+          "5xx": 0
+        }
+      },
+      "top_user_fetch_paths": []
+    },
+    "xcski": {
+      "ga4": {
+        "status": "not_configured"
+      },
+      "llms_serving": {
+        "error": "URLError: <urlopen error timed out>",
+        "status": "error"
+      },
+      "logs": {
+        "compressed_bytes": null,
+        "days": {},
+        "error": "SSH log collector exited 255",
+        "missing_log_dates": [
+          "2026-08-10",
+          "2026-08-11",
+          "2026-08-12",
+          "2026-08-13",
+          "2026-08-14",
+          "2026-08-15",
+          "2026-08-16"
+        ],
+        "status": "error",
+        "status_buckets": {
+          "2xx": 0,
+          "3xx": 0,
+          "4xx": 0,
+          "5xx": 0
+        }
+      },
+      "top_user_fetch_paths": []
+    }
+  },
+  "current_window": {
+    "end": "2026-08-16",
+    "start": "2026-08-10"
+  },
+  "generated_at_utc": "2026-08-17T10:42:56.777731Z",
+  "prior_window": {
+    "end": "2026-08-09",
+    "start": "2026-08-03"
+  },
+  "schema_version": 1,
+  "taxonomy_version": 1,
+  "unknown_agent_candidates": []
+}

@@ -1009,6 +1009,83 @@ def sync_consulting(consulting_file: str):
     return f"{wp_url}/consulting/"
 
 
+def sync_consult_intake(consult_intake_file: str):
+    """Upload consult-intake.html to /consulting/intake/index.html on SiteGround via SSH+SCP."""
+    ssh = get_ssh_credentials()
+    if not ssh:
+        return None
+    host, user, port = ssh
+
+    html_path = Path(consult_intake_file)
+    if not html_path.exists():
+        print(f"✗ Consult intake page HTML not found: {html_path}")
+        print("  Run: python3 wordpress/generate_consult_intake.py first")
+        return None
+
+    remote_base = "~/www/gravelgodcycling.com/public_html/consulting/intake"
+
+    # Create remote directory
+    try:
+        subprocess.run(
+            [
+                "ssh", "-i", str(SSH_KEY), "-p", port,
+                f"{user}@{host}",
+                f"mkdir -p {remote_base}",
+            ],
+            check=True,
+            capture_output=True,
+            text=True,
+            timeout=15,
+        )
+    except subprocess.CalledProcessError as e:
+        print(f"✗ Failed to create remote directory: {e.stderr.strip()}")
+        return None
+
+    # Upload consult-intake.html as index.html
+    try:
+        subprocess.run(
+            [
+                "scp", "-i", str(SSH_KEY), "-P", port,
+                str(html_path),
+                f"{user}@{host}:{remote_base}/index.html",
+            ],
+            check=True,
+            capture_output=True,
+            text=True,
+            timeout=30,
+        )
+    except subprocess.CalledProcessError as e:
+        print(f"✗ SCP failed for consult intake page: {e.stderr.strip()}")
+        return None
+    except Exception as e:
+        print(f"✗ Error uploading consult intake page: {e}")
+        return None
+
+    # Upload shared CSS/JS assets (intake page references them via /race/assets/)
+    assets_dir = html_path.parent / "assets"
+    remote_assets = "~/www/gravelgodcycling.com/public_html/race/assets"
+    for pattern in ("gg-styles.*.css", "gg-scripts.*.js"):
+        for asset in assets_dir.glob(pattern):
+            try:
+                subprocess.run(
+                    [
+                        "scp", "-i", str(SSH_KEY), "-P", port,
+                        str(asset),
+                        f"{user}@{host}:{remote_assets}/{asset.name}",
+                    ],
+                    check=True,
+                    capture_output=True,
+                    text=True,
+                    timeout=30,
+                )
+            except subprocess.CalledProcessError:
+                print(f"  ⚠ Could not upload {asset.name} (non-fatal)")
+
+    wp_url = os.environ.get("WP_URL", "https://gravelgodcycling.com")
+    print(f"✓ Uploaded consult intake page: {wp_url}/consulting/intake/")
+    return f"{wp_url}/consulting/intake/"
+
+
 def sync_legal(output_dir: str):
     """Upload privacy.html, terms.html, cookies.html to /privacy/, /terms/, /cookies/ on SiteGround."""
     ssh = get_ssh_credentials()
@@ -3840,6 +3917,14 @@ if __name__ == "__main__":
         help="Path to consulting page HTML (default: wordpress/output/consulting.html)"
     )
     parser.add_argument(
+        "--sync-consult-intake", action="store_true",
+        help="Upload consulting intake page to /consulting/intake/ via SCP"
+    )
+    parser.add_argument(
+        "--consult-intake-file", default="wordpress/output/consult-intake.html",
+        help="Path to consulting intake HTML (default: wordpress/output/consult-intake.html)"
+    )
+    parser.add_argument(
         "--sync-legal", action="store_true",
         help="Upload legal pages (privacy, terms, cookies) via SCP"
     )
@@ -4072,6 +4157,7 @@ if __name__ == "__main__":
         args.sync_coaching = True
         args.sync_coaching_apply = True
         args.sync_consulting = True
+        args.sync_consult_intake = True
         args.sync_training_plans = True
         args.sync_success = True
         args.sync_sitemap = True
@@ -4104,6 +4190,7 @@ if __name__ == "__main__":
     has_action = any([args.json, args.sync_index, args.sync_widget, args.sync_training,
                       args.sync_guide, args.sync_guide_cluster, args.sync_og, args.sync_tp, args.sync_homepage, args.sync_gravel_tv, args.sync_about,
                       args.sync_coaching, args.sync_coaching_apply, args.sync_consulting,
+                      args.sync_consult_intake,
                       args.sync_training_plans, args.sync_success, args.sync_pages,
                       args.sync_sitemap, args.sync_redirects,
                       args.sync_noindex, args.sync_ctas, args.sync_training_form, args.sync_ga4, args.sync_header, args.sync_prep_kits, args.sync_plan_pages, args.sync_tire_guides,
@@ -4156,6 +4243,8 @@ if __name__ == "__main__":
         _run("sync-coaching-apply", sync_coaching_apply, args.coaching_apply_file)
     if args.sync_consulting:
         _run("sync-consulting", sync_consulting, args.consulting_file)
+    if args.sync_consult_intake:
+        _run("sync-consult-intake", sync_consult_intake, args.consult_intake_file)
     if args.sync_legal:
         _run("sync-legal", sync_legal, "wordpress/output")
     if args.sync_consent:

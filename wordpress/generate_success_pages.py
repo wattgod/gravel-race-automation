@@ -217,6 +217,14 @@ def build_success_js() -> str:
     sessionStorage.setItem('gg_converted_' + sessionId, '1');
   }
 
+  // Consulting: pass the checkout session_id to the intake page as a
+  // fragment ref so the intake submission can be tied back to the order.
+  // The intake AUTH token itself only ever arrives via the welcome email.
+  var intakeLink = document.getElementById('consult-intake-link');
+  if (intakeLink && sessionId) {
+    intakeLink.href = '/consulting/intake/#ref=' + encodeURIComponent(sessionId);
+  }
+
   // Cross-sell CTA tracking
   var ctas = document.querySelectorAll('a[href*="/coaching/"]');
   ctas.forEach(function(cta) {
@@ -368,13 +376,16 @@ def build_coaching_success() -> str:
 # ── Consulting Success ────────────────────────────────────────
 
 
+TRAININGPEAKS_ATTACH_URL = "https://home.trainingpeaks.com/attachtocoach?sharedKey=2OTEPC6BXNVQU"
+
+
 def build_consulting_success() -> str:
-    """Content sections for consulting confirmation page."""
+    """Content sections for consulting confirmation page (Sultanic copy v2)."""
     hero = f"""
   <div class="gg-success-hero" data-product-type="consulting">
     <div class="gg-success-check">&check;</div>
-    <h1>Consulting Session Confirmed</h1>
-    <p>Payment received. <strong>Schedule your session now.</strong></p>
+    <h1>Booked. Three things, then I get to work.</h1>
+    <p>Do all three and your read will be done before we talk.</p>
   </div>"""
 
     steps = f"""
@@ -383,37 +394,41 @@ def build_consulting_success() -> str:
     <div class="gg-success-step">
       <div class="gg-success-step-num">1</div>
       <div class="gg-success-step-text">
-        <h3>Schedule Your Session</h3>
+        <h3>Pick Your Time</h3>
         <p><a href="{GOOGLE_CALENDAR_URL}" class="gg-success-cta" target="_blank" rel="noopener" data-cta="schedule_session">Pick a Time</a></p>
-        <p>Choose a time that works. I'll confirm within 24 hours.</p>
       </div>
     </div>
     <div class="gg-success-step">
       <div class="gg-success-step-num">2</div>
       <div class="gg-success-step-text">
-        <h3>Prepare Your Questions</h3>
-        <p>Think about what you want to cover. Race strategy, training
-        philosophy, equipment choices, nutrition &mdash; everything is
-        on the table.</p>
+        <h3>Start the Intake</h3>
+        <p><a href="/consulting/intake/" id="consult-intake-link" class="gg-success-cta" data-cta="start_intake">Start the Intake</a></p>
+        <p>Five minutes; you can save and come back. If this page can't
+        open it, use the link in your welcome email instead.</p>
       </div>
     </div>
     <div class="gg-success-step">
       <div class="gg-success-step-num">3</div>
       <div class="gg-success-step-text">
-        <h3>We Talk</h3>
-        <p>Live session, no scripts, no fluff. You'll walk away with
-        concrete action items tailored to your situation.</p>
+        <h3>Connect Your TrainingPeaks</h3>
+        <p><a href="{TRAININGPEAKS_ATTACH_URL}" class="gg-success-cta" target="_blank" rel="noopener" data-cta="connect_trainingpeaks">Connect</a></p>
+        <p>One click, sign in, tap Accept &mdash; or reply to the welcome
+        email with a Strava link or ride files.</p>
       </div>
     </div>
   </div>"""
 
     crosssell = f"""
   <div class="gg-success-crosssell">
-    <h2>Want Ongoing Support?</h2>
-    <p>If you like what you hear in the consult, coaching picks up where
-    the conversation leaves off. Weekly plan adjustments, daily feedback,
-    and race-day strategy.</p>
-    <a href="{SITE_BASE_URL}/coaching/" class="gg-success-cta">EXPLORE COACHING</a>
+    <h2>Want the Plan Built Too?</h2>
+    <p>A twelve-week plan from your consult, on your calendar within a
+    week of the call &mdash; $100, available for seven days after we speak.
+    Reply to your welcome email to add it.</p>
+  </div>
+
+  <div class="gg-success-crosssell">
+    <p>If the consult turns into &ldquo;I want this every week&rdquo;
+    &mdash; that's <a href="{SITE_BASE_URL}/coaching/">coaching</a>.</p>
   </div>"""
 
     support = f"""

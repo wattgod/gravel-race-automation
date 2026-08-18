@@ -3,8 +3,8 @@
 Generate the Gravel God Consulting landing page in neo-brutalist style.
 
 A brief, conversion-focused page for one-time 60-minute consulting calls.
-Covers race selection, training periodization, nutrition, gear, and season
-planning. No comparison to other products — this is a standalone service.
+Sultanic 8-beat copy (v2, docs/consulting-copy-v2.md): the read you can't
+give yourself, delivered before the call — not a race-selection grab bag.
 
 Uses brand tokens exclusively — zero hardcoded hex, no border-radius, no
 box-shadow, no bounce easing, no entrance animations.
@@ -37,7 +37,20 @@ OUTPUT_DIR = Path(__file__).parent / "output"
 CONSULTING_PRICE_INT = 150
 CONSULTING_PRICE = f"${CONSULTING_PRICE_INT}"
 CONSULTING_DURATION = "60 minutes"
+ADDON_PRICE_INT = 100
+ADDON_PRICE = f"${ADDON_PRICE_INT}"
 BOOKING_URL = "https://calendar.app.google/E282ZtBJAFBXYdYJ6"
+RACE_COUNT = "750+"
+PRIVACY_SENTENCE = (
+    "Your answers and training data are used only to prepare your consult "
+    "and any plan you buy; they aren&rsquo;t shared or sold and are deleted "
+    "on request."
+)
+COACHING_URL = f"{SITE_BASE_URL}/coaching/"
+QUIET_CLAUSE = (
+    f'If the consult turns into &ldquo;I want this every week&rdquo; '
+    f'&mdash; that&rsquo;s <a href="{COACHING_URL}">coaching</a>.'
+)
 
 
 def esc(text) -> str:
@@ -60,11 +73,11 @@ def build_nav() -> str:
 def build_hero() -> str:
     return f'''<section class="gg-consult-hero" id="hero">
   <div class="gg-consult-hero-inner">
-    <h1 class="gg-consult-hero-title">One Call. Clear Answers.</h1>
-    <p class="gg-consult-hero-subtitle">A focused {CONSULTING_DURATION} session to cut through the noise on race selection, training structure, nutrition, or season planning. You bring the questions &mdash; I bring the data. One call replaces weeks of forum threads and YouTube rabbit holes.</p>
+    <h1 class="gg-consult-hero-title">The read you can&rsquo;t give yourself.</h1>
+    <p class="gg-consult-hero-subtitle">Sixty minutes with a coach who has already been through your last six months of riding &mdash; the files, not the summary &mdash; and a written plan of action within 48 hours.</p>
     <div class="gg-consult-hero-price">
       <span class="gg-consult-price-tag">{CONSULTING_PRICE}</span>
-      <span class="gg-consult-price-detail">{CONSULTING_DURATION} &middot; 1-on-1 video call</span>
+      <span class="gg-consult-price-detail">{CONSULTING_DURATION} &middot; your training reviewed before we talk</span>
     </div>
     <form id="checkout" class="gg-consult-form" novalidate>
       <div class="gg-consult-form-row">
@@ -75,128 +88,170 @@ def build_hero() -> str:
         <label class="gg-consult-form-label" for="consult-email">Email</label>
         <input type="email" id="consult-email" name="email" required aria-required="true" placeholder="you@example.com" autocomplete="email">
       </div>
+      <div class="gg-consult-form-row gg-consult-form-checkbox-row">
+        <label class="gg-consult-checkbox-label" for="consult-addon">
+          <input type="checkbox" id="consult-addon" name="plan_addon">
+          <span>Add a custom 12-week plan built from the consult (+{ADDON_PRICE})</span>
+        </label>
+      </div>
       <input type="text" name="_honeypot" style="display:none" tabindex="-1" autocomplete="off">
-      <button type="submit" class="gg-consult-form-submit gg-consult-btn-gold" data-cta="hero_book">Pay &amp; Book &mdash; {CONSULTING_PRICE}</button>
+      <button type="submit" class="gg-consult-form-submit gg-consult-btn-gold" data-cta="hero_book">Book the consult &mdash; {CONSULTING_PRICE}</button>
       <div class="gg-consult-form-message" role="alert" aria-live="polite" style="display:none"></div>
     </form>
   </div>
 </section>'''
 
 
-def build_what_you_get() -> str:
-    items = [
-        (
-            "Pre-Call Prep",
-            "Fill out a short intake so I review your background, goals, and questions before we talk. No time wasted on basics. You show up, we go deep immediately.",
-        ),
-        (
-            "60-Minute Deep Dive",
-            "Live video call covering whatever you need: race selection, periodization, fueling strategy, gear decisions, race-day execution.",
-        ),
-        (
-            "Written Action Plan",
-            "Within 48 hours you get a summary email with specific recommendations, resources, and next steps you can act on immediately.",
-        ),
-    ]
-    cards = ""
-    for title, desc in items:
-        cards += f'''<div class="gg-consult-card">
-      <h3 class="gg-consult-card-title">{esc(title)}</h3>
-      <p class="gg-consult-card-desc">{esc(desc)}</p>
-    </div>
-'''
-    return f'''<section class="gg-consult-section" id="what-you-get">
-  <h2 class="gg-consult-section-title">What You Get</h2>
-  <div class="gg-consult-cards">
-    {cards}
+def build_two_futures() -> str:
+    return f'''<section class="gg-consult-section gg-consult-section--alt" id="two-futures">
+  <h2 class="gg-consult-section-title">Two futures</h2>
+  <div class="gg-consult-prose">
+    <p>Two ways to spend the next twelve weeks.</p>
+    <p>In one, you keep doing what got you here &mdash; the plan off a forum, the intervals you like, the long ride you always do &mdash; and hope it adds up by race day.</p>
+    <p>In the other, someone who reads training files for a living has already seen what your last six months actually were, and tells you the one thing that would change the most.</p>
+    <p class="gg-consult-prose-emphasis">Same bike. Same hours. Different twelve weeks.</p>
   </div>
 </section>'''
+
+
+def _strip_glyph(kind: str) -> str:
+    """Return the inline SVG markup for one how-it-works frame glyph.
+    Decorative only — styled entirely via CSS classes (no var() in SVG attrs)."""
+    if kind == "calendar":
+        return '''<rect class="gg-consult-strip-glyph-shape" x="-16" y="-14" width="32" height="26"></rect>
+      <line class="gg-consult-strip-glyph-shape" x1="-16" y1="-6" x2="16" y2="-6"></line>
+      <line class="gg-consult-strip-glyph-shape" x1="-9" y1="-18" x2="-9" y2="-10"></line>
+      <line class="gg-consult-strip-glyph-shape" x1="9" y1="-18" x2="9" y2="-10"></line>'''
+    if kind == "link":
+        return '''<circle class="gg-consult-strip-glyph-shape" cx="-7" cy="-7" r="10"></circle>
+      <circle class="gg-consult-strip-glyph-shape" cx="7" cy="7" r="10"></circle>'''
+    if kind == "form":
+        return '''<rect class="gg-consult-strip-glyph-shape" x="-14" y="-18" width="28" height="36"></rect>
+      <line class="gg-consult-strip-glyph-shape" x1="-8" y1="-9" x2="8" y2="-9"></line>
+      <line class="gg-consult-strip-glyph-shape" x1="-8" y1="1" x2="8" y2="1"></line>
+      <line class="gg-consult-strip-glyph-shape" x1="-8" y1="11" x2="3" y2="11"></line>'''
+    if kind == "magnifier":
+        return '''<polyline class="gg-consult-strip-glyph-shape" points="-18,10 -8,-6 2,6 12,-10 18,2"></polyline>
+      <circle class="gg-consult-strip-glyph-shape gg-consult-strip-glyph-lens" cx="4" cy="-4" r="11"></circle>
+      <line class="gg-consult-strip-glyph-shape" x1="12" y1="4" x2="20" y2="12"></line>'''
+    if kind == "document":
+        return '''<path class="gg-consult-strip-glyph-shape" d="M -12 -18 H 6 L 14 -10 V 18 H -12 Z"></path>
+      <path class="gg-consult-strip-glyph-shape" d="M 6 -18 V -10 H 14"></path>
+      <line class="gg-consult-strip-glyph-shape" x1="-6" y1="-2" x2="8" y2="-2"></line>
+      <line class="gg-consult-strip-glyph-shape" x1="-6" y1="6" x2="8" y2="6"></line>'''
+    return ""
 
 
 def build_how_it_works() -> str:
-    steps = [
-        ("1", "Pay &amp; Schedule", f'Checkout takes 30 seconds. After payment, <a href="{BOOKING_URL}" target="_blank" rel="noopener">pick a time on the calendar</a>. A short intake form captures your background so we hit the ground running.'),
-        ("2", "We Talk", "60 minutes, video call, no fluff. Bring your training files, race shortlist, or whatever needs sorting out."),
-        ("3", "Get Your Plan", "Within 48 hours, a written action plan lands in your inbox. Specific, actionable, referenced to data."),
+    frames = [
+        ("calendar", "Book.", "Thirty seconds. You get a welcome email with three links.", False),
+        ("link", "Connect your TrainingPeaks.", "One click, sign in, tap Accept &mdash; I can now see your rides. No TrainingPeaks? Send me your files or a Strava link instead.", False),
+        ("form", "Answer twelve questions.", "Your goal event, your hours, the one thing you most want answered. Five minutes.", False),
+        ("magnifier", "Your read arrives &mdash; before we talk.", "I go through how you have actually been riding, not how you meant to. Then we get on a call and skip the basics.", True),
+        ("document", "Sixty minutes, then a written plan of action within 48 hours.", "Specific. Referenced to your own data. Yours to keep.", False),
     ]
-    html_steps = ""
-    for num, title, desc in steps:
-        html_steps += f'''<div class="gg-consult-step">
-      <span class="gg-consult-step-num">{num}</span>
-      <div class="gg-consult-step-body">
-        <h3 class="gg-consult-step-title">{title}</h3>
-        <p class="gg-consult-step-desc">{desc}</p>
-      </div>
+    xs = [90, 270, 450, 630, 810]
+
+    svg_frames = ""
+    for (kind, _title, _desc, emphasis), x in zip(frames, xs):
+        frame_class = "gg-consult-strip-frame gg-consult-strip-frame--emphasis" if emphasis else "gg-consult-strip-frame"
+        svg_frames += f'''<g class="{frame_class}" transform="translate({x},50)">
+      <circle class="gg-consult-strip-disc" r="26"></circle>
+      {_strip_glyph(kind)}
+    </g>
+    '''
+
+    captions = ""
+    for _kind, title, desc, emphasis in frames:
+        cap_class = "gg-consult-strip-caption gg-consult-strip-caption--emphasis" if emphasis else "gg-consult-strip-caption"
+        captions += f'''<div class="{cap_class}">
+      <strong>{title}</strong> {desc}
     </div>
-'''
-    return f'''<section class="gg-consult-section gg-consult-section--alt" id="how-it-works">
-  <h2 class="gg-consult-section-title">How It Works</h2>
-  <div class="gg-consult-steps">
-    {html_steps}
+    '''
+
+    return f'''<section class="gg-consult-section" id="how-it-works">
+  <h2 class="gg-consult-section-title">How it works</h2>
+  <div class="gg-consult-strip">
+    <svg class="gg-consult-strip-svg" viewBox="0 0 900 100" aria-hidden="true" focusable="false">
+      <line class="gg-consult-strip-rail" x1="50" y1="50" x2="850" y2="50"></line>
+      {svg_frames}
+    </svg>
+    <div class="gg-consult-strip-captions">
+      {captions}
+    </div>
   </div>
 </section>'''
 
 
-def build_topics() -> str:
-    topics = [
-        "Race selection &mdash; which events match your fitness, goals, and schedule",
-        "Season planning &mdash; building a race calendar that makes sense",
-        "Training structure &mdash; periodization, volume, intensity distribution",
-        "Nutrition &amp; fueling &mdash; race-day strategy and daily habits",
-        "Gear &amp; setup &mdash; tire selection, bike fit considerations, kit choices",
-        "Race-day execution &mdash; pacing, logistics, contingency planning",
+def build_what_i_look_at() -> str:
+    items = [
+        "<strong>How much of your hard riding was actually hard.</strong> Long sustained efforts and short surges look the same in a weekly total. They train very different things. I separate them.",
+        "<strong>Whether your fitness is climbing, flat, or quietly sliding</strong> &mdash; and how the last three months compare to the same stretch last year.",
+        "<strong>Whether your long rides are getting easier deep in</strong>, or whether the last hour still costs you more than the first.",
+        "<strong>When you last tested yourself, and whether the numbers your zones are built on are still true.</strong> Most people&rsquo;s aren&rsquo;t.",
+        "<strong>Where your training doesn&rsquo;t match the event you&rsquo;re training for.</strong>",
     ]
-    items = "\n".join(f'      <li>{t}</li>' for t in topics)
-    return f'''<section class="gg-consult-section" id="topics">
-  <h2 class="gg-consult-section-title">What We Can Cover</h2>
-  <ul class="gg-consult-topics">
-{items}
+    list_items = "\n".join(f'      <li>{item}</li>' for item in items)
+    return f'''<section class="gg-consult-section gg-consult-section--alt" id="look">
+  <h2 class="gg-consult-section-title">What I actually look at</h2>
+  <ul class="gg-consult-look-list">
+{list_items}
   </ul>
-  <p class="gg-consult-topics-note">Not sure if your question fits? It probably does. Book it and ask.</p>
+  <p class="gg-consult-look-note">You&rsquo;ll get the answers in plain English, with the numbers behind them if you want them.</p>
 </section>'''
 
 
-def build_bio() -> str:
-    return f'''<section class="gg-consult-section" id="who">
-  <h2 class="gg-consult-section-title">Who You&rsquo;ll Talk To</h2>
-  <div class="gg-consult-bio">
-    <div class="gg-consult-bio-text">
-      <p>I&rsquo;m Matti. 12 years at TrainingPeaks, 100+ athletes coached, 1,000+ training plans sold. I&rsquo;ve raced at the national level and I&rsquo;ve blown up at mile 80 enough times to know what bad pacing actually costs you.</p>
-      <p>I built a database of 328 gravel races &mdash; terrain breakdowns, suffering zones, altitude profiles, segment-by-segment pacing data. When you ask &ldquo;which race should I do?&rdquo; or &ldquo;how do I fuel for this course?,&rdquo; the answer comes from data, not vibes.</p>
-    </div>
+def build_what_we_cover() -> str:
+    topics = [
+        "Race selection",
+        "Season planning",
+        "How your week should be built",
+        "Fuelling",
+        "Bike and gear choices",
+        "Race-day execution",
+        "What to do about the thing that keeps going wrong",
+    ]
+    items = " &middot; ".join(topics)
+    return f'''<section class="gg-consult-section" id="cover">
+  <h2 class="gg-consult-section-title">What we can cover</h2>
+  <p class="gg-consult-cover-list">{items}</p>
+  <p class="gg-consult-cover-note">Not sure your question fits? It probably does. Book it and ask.</p>
+</section>'''
+
+
+def build_plan_addon() -> str:
+    return f'''<section class="gg-consult-section gg-consult-section--alt" id="plan">
+  <h2 class="gg-consult-section-title">The plan, if you want it (+{ADDON_PRICE})</h2>
+  <div class="gg-consult-prose">
+    <p>Most people leave the call knowing what to change. Some want it built.</p>
+    <p><strong>Custom plan add-on &mdash; {ADDON_PRICE}.</strong> A twelve-week plan built from your consult and your data &mdash; not a template with your name on it &mdash; loaded onto your TrainingPeaks calendar within a week of the call, with one round of adjustments in the first fortnight.</p>
+    <p>The honest limits: one goal event, up to twelve weeks. If your race is further out, we build the last twelve before it (or the next twelve &mdash; your call). Longer than that is coaching, and I&rsquo;ll say so. Available for seven days after the call; after that it&rsquo;s the store price.</p>
   </div>
 </section>'''
 
 
-def build_testimonials() -> str:
-    testimonials = [
-        (
-            "Andrew T.",
-            "One call. That&rsquo;s all it took to completely change my race calendar. Matti walked me through why Gravel Locos was a better fit than Unbound for my first 150-miler. Best decision I made all year.",
-            "Gravel Locos finisher &middot; First 150-miler",
-        ),
-        (
-            "Jen H.",
-            "I booked a consult because I was cramping at mile 80 in every single race. Matti broke down my sodium math in about ten minutes and I haven&rsquo;t cramped once since. That&rsquo;s $150 well spent.",
-            "Unbound 200 finisher &middot; 8 hrs/week",
-        ),
-        (
-            "Katie B.",
-            "Everyone told me I needed more volume for Crusher. Matti looked at my numbers and said I needed better pacing, not more hours. He was right. Finished on 8 hours a week.",
-            "Crusher in the Tushar &middot; Marketing director",
-        ),
-    ]
-    cards = ""
-    for name, quote, meta in testimonials:
-        cards += f'''<blockquote class="gg-consult-testimonial">
-      <p>{quote}</p>
-      <footer><strong>{esc(name)}</strong><span class="gg-consult-testimonial-meta">{meta}</span></footer>
-    </blockquote>
-'''
-    return f'''<section class="gg-consult-section gg-consult-section--alt" id="testimonials">
-  <h2 class="gg-consult-section-title">What Athletes Say</h2>
-  <div class="gg-consult-testimonials">
-    {cards}
+def build_who() -> str:
+    return f'''<section class="gg-consult-section" id="who">
+  <h2 class="gg-consult-section-title">Who you&rsquo;ll talk to</h2>
+  <div class="gg-consult-bio-text">
+    <p>I&rsquo;m Matti. Twelve years at TrainingPeaks, 100+ athletes coached, 1,000+ training plans sold. I&rsquo;ve raced at the national level and blown up at mile 80 enough times to know what bad pacing actually costs.</p>
+    <p>I built a database of {RACE_COUNT} gravel races &mdash; terrain, climbing, altitude, how they tend to be won and lost. When you ask &ldquo;which race should I do?&rdquo; or &ldquo;how do I fuel for this one?&rdquo;, the answer comes from that, not from vibes.</p>
+  </div>
+</section>'''
+
+
+def build_fit() -> str:
+    return f'''<section class="gg-consult-section gg-consult-section--alt" id="fit">
+  <h2 class="gg-consult-section-title">Is this for you?</h2>
+  <div class="gg-consult-fit-grid">
+    <div class="gg-consult-fit-col gg-consult-fit-for">
+      <h3 class="gg-consult-fit-title">For you if</h3>
+      <p>you have a goal event and real questions &middot; you&rsquo;ll connect your TrainingPeaks or send files &middot; you want an answer, not reassurance.</p>
+    </div>
+    <div class="gg-consult-fit-col gg-consult-fit-not">
+      <h3 class="gg-consult-fit-title">Not for you if</h3>
+      <p>you want a pep talk &middot; you want to be told the plan you&rsquo;re on is fine. (It might be. I&rsquo;ll say so &mdash; and I&rsquo;ll say what isn&rsquo;t.)</p>
+    </div>
   </div>
 </section>'''
 
@@ -204,44 +259,53 @@ def build_testimonials() -> str:
 def build_faq() -> str:
     faqs = [
         (
-            "Who is this for?",
-            "Anyone racing or considering gravel events who wants focused, data-informed guidance without committing to ongoing coaching. Works for first-timers and experienced riders alike.",
-        ),
-        (
             "What happens after I pay?",
-            "You land on a confirmation page with a link to pick your session time. You also get a confirmation email with a short intake form. Fill it out before the call so I can review your situation in advance.",
+            "A welcome email with three links: pick your time, answer the twelve questions, connect your TrainingPeaks. Do all three and I&rsquo;ll have your read done before we talk.",
         ),
         (
-            "Can I record the call?",
-            "Yes. You are welcome to record for personal reference.",
+            "I don&rsquo;t use TrainingPeaks.",
+            "Reply to the welcome email with a Strava link or your last three months of ride files. Same read, one extra step.",
+        ),
+        (
+            "Do I have to share data?",
+            "No &mdash; the call is still worth it. But the read is what makes this different from every other hour you could buy.",
         ),
         (
             "What if I need more than one session?",
-            "Book another one. Each session is standalone &mdash; no packages, no subscriptions, no pressure.",
+            "Book another. Each one stands alone &mdash; no packages, no subscriptions.",
+        ),
+        (
+            "Can I add the plan later?",
+            f"Yes, for seven days after the call. The offer is in your plan-of-action email.",
+        ),
+        (
+            "What happens to my data?",
+            PRIVACY_SENTENCE,
         ),
     ]
     faq_html = ""
     for q, a in faqs:
         faq_html += f'''<div class="gg-consult-faq-item">
-      <button class="gg-consult-faq-q" aria-expanded="false">{esc(q)}</button>
-      <div class="gg-consult-faq-a">{esc(a)}</div>
+      <button class="gg-consult-faq-q" aria-expanded="false">{q}</button>
+      <div class="gg-consult-faq-a">{a}</div>
     </div>
 '''
-    return f'''<section class="gg-consult-section gg-consult-section--alt" id="faq">
-  <h2 class="gg-consult-section-title">FAQ</h2>
+    return f'''<section class="gg-consult-section" id="faq">
+  <h2 class="gg-consult-section-title">Questions</h2>
   <div class="gg-consult-faqs">
     {faq_html}
   </div>
 </section>'''
 
 
-def build_final_cta() -> str:
-    return f'''<section class="gg-consult-cta" id="final-cta">
+def build_close() -> str:
+    return f'''<section class="gg-consult-cta" id="close">
   <div class="gg-consult-cta-inner">
-    <h2 class="gg-consult-cta-title">Stop Guessing. Start Racing Smarter.</h2>
-    <p class="gg-consult-cta-desc">{CONSULTING_PRICE} &middot; {CONSULTING_DURATION} &middot; Action plan included</p>
-    <p class="gg-consult-cta-context">Less than a race entry fee. More useful than 40 hours of forum threads.</p>
-    <a href="#checkout" class="gg-consult-btn-gold" data-cta="final_book">Book Your Consult</a>
+    <h2 class="gg-consult-cta-title">Less than a race entry. More useful than the forum.</h2>
+    <p class="gg-consult-cta-context">You already know what it feels like to start a race unsure the training was right. Sixty minutes to trade that for knowing.</p>
+    <p class="gg-consult-cta-desc">{CONSULTING_PRICE} &middot; {CONSULTING_DURATION} &middot; written plan of action included</p>
+    <a href="#checkout" class="gg-consult-btn-gold" data-cta="final_book">Book the consult &mdash; {CONSULTING_PRICE}</a>
+    <p class="gg-consult-cta-quiet">{QUIET_CLAUSE}</p>
   </div>
 </section>'''
 
@@ -348,86 +412,88 @@ def build_consulting_css() -> str:
   text-align: center;
 }}
 
-/* ── Cards (What You Get) ── */
-.gg-consult-cards {{
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: var(--gg-spacing-md);
-}}
-.gg-consult-card {{
-  padding: var(--gg-spacing-lg);
-  background: var(--gg-color-warm-paper);
-  border: 2px solid var(--gg-color-dark-brown);
-}}
-.gg-consult-card-title {{
-  font-family: var(--gg-font-data);
-  font-size: var(--gg-font-size-sm);
-  font-weight: var(--gg-font-weight-bold);
-  letter-spacing: var(--gg-letter-spacing-wide);
-  color: var(--gg-color-dark-brown);
-  text-transform: uppercase;
-  margin: 0 0 var(--gg-spacing-sm) 0;
-}}
-.gg-consult-card-desc {{
+/* ── Prose (Two futures / Plan add-on) ── */
+.gg-consult-prose p {{
   font-family: var(--gg-font-editorial);
   font-size: var(--gg-font-size-sm);
   line-height: var(--gg-line-height-prose);
   color: var(--gg-color-primary-brown);
-  margin: 0;
+  margin: 0 0 var(--gg-spacing-md) 0;
+}}
+.gg-consult-prose p:last-child {{ margin-bottom: 0; }}
+.gg-consult-prose-emphasis {{
+  font-weight: var(--gg-font-weight-bold);
+  color: var(--gg-color-dark-brown) !important;
 }}
 
-/* ── Steps (How It Works) ── */
-.gg-consult-steps {{
+/* ── How It Works strip ── */
+.gg-consult-strip {{
   display: flex;
   flex-direction: column;
   gap: var(--gg-spacing-lg);
 }}
-.gg-consult-step {{
-  display: flex;
-  gap: var(--gg-spacing-md);
-  align-items: flex-start;
+.gg-consult-strip-svg {{
+  width: 100%;
+  height: auto;
+  display: block;
 }}
-.gg-consult-step-num {{
-  flex-shrink: 0;
-  width: 48px;
-  height: 48px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: var(--gg-font-data);
-  font-size: 20px;
-  font-weight: var(--gg-font-weight-bold);
-  color: var(--gg-color-dark-brown);
-  background: var(--gg-color-light-gold);
-  border: 2px solid var(--gg-color-dark-brown);
+.gg-consult-strip-rail {{
+  stroke: var(--gg-color-secondary-brown);
+  stroke-width: 2;
 }}
-.gg-consult-step-title {{
-  font-family: var(--gg-font-data);
-  font-size: var(--gg-font-size-sm);
-  font-weight: var(--gg-font-weight-bold);
-  letter-spacing: var(--gg-letter-spacing-wide);
-  color: var(--gg-color-dark-brown);
-  text-transform: uppercase;
-  margin: 0 0 var(--gg-spacing-xs) 0;
+.gg-consult-strip-disc {{
+  fill: var(--gg-color-warm-paper);
+  stroke: var(--gg-color-dark-brown);
+  stroke-width: 2;
 }}
-.gg-consult-step-desc {{
-  font-family: var(--gg-font-editorial);
-  font-size: var(--gg-font-size-sm);
-  line-height: var(--gg-line-height-prose);
-  color: var(--gg-color-primary-brown);
-  margin: 0;
+.gg-consult-strip-glyph-shape {{
+  fill: none;
+  stroke: var(--gg-color-dark-brown);
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
 }}
-
-/* ── Topics ── */
-.gg-consult-topics {{
-  list-style: none;
-  padding: 0;
-  margin: 0 0 var(--gg-spacing-md) 0;
+.gg-consult-strip-glyph-lens {{
+  fill: var(--gg-color-warm-paper);
+}}
+.gg-consult-strip-frame--emphasis .gg-consult-strip-disc {{
+  fill: var(--gg-color-light-gold);
+  stroke-width: 3;
+}}
+.gg-consult-strip-frame--emphasis .gg-consult-strip-glyph-shape {{
+  stroke-width: 3;
+}}
+.gg-consult-strip-captions {{
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(5, 1fr);
   gap: var(--gg-spacing-sm);
 }}
-.gg-consult-topics li {{
+.gg-consult-strip-caption {{
+  font-family: var(--gg-font-editorial);
+  font-size: var(--gg-font-size-xs);
+  line-height: var(--gg-line-height-prose);
+  color: var(--gg-color-primary-brown);
+  text-align: center;
+}}
+.gg-consult-strip-caption strong {{
+  display: block;
+  color: var(--gg-color-dark-brown);
+  margin-bottom: var(--gg-spacing-2xs);
+}}
+.gg-consult-strip-caption--emphasis strong {{
+  color: var(--gg-color-gold);
+}}
+
+/* ── What I Actually Look At ── */
+.gg-consult-look-list {{
+  list-style: none;
+  padding: 0;
+  margin: 0 0 var(--gg-spacing-lg) 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--gg-spacing-md);
+}}
+.gg-consult-look-list li {{
   font-family: var(--gg-font-editorial);
   font-size: var(--gg-font-size-sm);
   line-height: var(--gg-line-height-prose);
@@ -435,7 +501,25 @@ def build_consulting_css() -> str:
   padding-left: var(--gg-spacing-md);
   border-left: 3px solid var(--gg-color-gold);
 }}
-.gg-consult-topics-note {{
+.gg-consult-look-note {{
+  font-family: var(--gg-font-data);
+  font-size: var(--gg-font-size-xs);
+  color: var(--gg-color-secondary-brown);
+  text-align: center;
+  letter-spacing: var(--gg-letter-spacing-wide);
+  margin: 0;
+}}
+
+/* ── What We Cover ── */
+.gg-consult-cover-list {{
+  font-family: var(--gg-font-editorial);
+  font-size: var(--gg-font-size-sm);
+  line-height: var(--gg-line-height-prose);
+  color: var(--gg-color-dark-brown);
+  text-align: center;
+  margin: 0 0 var(--gg-spacing-md) 0;
+}}
+.gg-consult-cover-note {{
   font-family: var(--gg-font-data);
   font-size: var(--gg-font-size-xs);
   color: var(--gg-color-secondary-brown);
@@ -483,7 +567,41 @@ def build_consulting_css() -> str:
   padding-bottom: var(--gg-spacing-md);
 }}
 
-/* ── Final CTA ── */
+/* ── Is This For You ── */
+.gg-consult-fit-grid {{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--gg-spacing-md);
+}}
+.gg-consult-fit-col {{
+  padding: var(--gg-spacing-lg);
+  background: var(--gg-color-warm-paper);
+  border-left: 3px solid var(--gg-color-secondary-brown);
+}}
+.gg-consult-fit-for {{
+  border-left-color: var(--gg-color-teal);
+}}
+.gg-consult-fit-not {{
+  border-left-color: var(--gg-color-warm-brown);
+}}
+.gg-consult-fit-title {{
+  font-family: var(--gg-font-data);
+  font-size: var(--gg-font-size-sm);
+  font-weight: var(--gg-font-weight-bold);
+  letter-spacing: var(--gg-letter-spacing-wide);
+  color: var(--gg-color-dark-brown);
+  text-transform: uppercase;
+  margin: 0 0 var(--gg-spacing-sm) 0;
+}}
+.gg-consult-fit-col p {{
+  font-family: var(--gg-font-editorial);
+  font-size: var(--gg-font-size-sm);
+  line-height: var(--gg-line-height-prose);
+  color: var(--gg-color-primary-brown);
+  margin: 0;
+}}
+
+/* ── Close ── */
 .gg-consult-cta {{
   padding: var(--gg-spacing-2xl) var(--gg-spacing-xl);
   text-align: center;
@@ -500,6 +618,12 @@ def build_consulting_css() -> str:
   color: var(--gg-color-white);
   margin: 0 0 var(--gg-spacing-sm) 0;
 }}
+.gg-consult-cta-context {{
+  font-family: var(--gg-font-editorial);
+  font-size: var(--gg-font-size-sm);
+  color: var(--gg-color-tan);
+  margin: 0 0 var(--gg-spacing-md) 0;
+}}
 .gg-consult-cta-desc {{
   font-family: var(--gg-font-data);
   font-size: var(--gg-font-size-xs);
@@ -508,13 +632,18 @@ def build_consulting_css() -> str:
   text-transform: uppercase;
   margin: 0 0 var(--gg-spacing-lg) 0;
 }}
-
-.gg-consult-cta-context {{
-  font-family: var(--gg-font-editorial);
-  font-size: var(--gg-font-size-sm);
-  font-style: italic;
+.gg-consult-cta-quiet {{
+  font-family: var(--gg-font-data);
+  font-size: var(--gg-font-size-2xs);
   color: var(--gg-color-tan);
-  margin: 0 0 var(--gg-spacing-lg) 0;
+  margin: var(--gg-spacing-lg) 0 0 0;
+}}
+.gg-consult-cta-quiet a {{
+  color: var(--gg-color-light-gold);
+  transition: color var(--gg-transition-hover);
+}}
+.gg-consult-cta-quiet a:hover {{
+  color: var(--gg-color-white);
 }}
 
 /* ── Breadcrumb (shared pattern) ── */
@@ -571,6 +700,22 @@ def build_consulting_css() -> str:
   outline: none;
   border-color: var(--gg-color-gold);
 }}
+.gg-consult-form-checkbox-row {{
+  display: flex;
+}}
+.gg-consult-checkbox-label {{
+  display: flex;
+  align-items: flex-start;
+  gap: var(--gg-spacing-xs);
+  font-family: var(--gg-font-data);
+  font-size: var(--gg-font-size-xs);
+  color: var(--gg-color-primary-brown);
+  cursor: pointer;
+}}
+.gg-consult-checkbox-label input[type="checkbox"] {{
+  margin-top: 2px;
+  flex-shrink: 0;
+}}
 .gg-consult-form-submit {{
   width: 100%;
   cursor: pointer;
@@ -610,49 +755,10 @@ def build_consulting_css() -> str:
   margin-bottom: 0;
 }}
 
-/* ── Testimonials ── */
-.gg-consult-testimonials {{
-  display: flex;
-  flex-direction: column;
-  gap: var(--gg-spacing-md);
-  max-width: 640px;
-  margin: 0 auto;
-}}
-.gg-consult-testimonial {{
-  padding: var(--gg-spacing-lg);
-  background: var(--gg-color-warm-paper);
-  border: 2px solid var(--gg-color-dark-brown);
-  margin: 0;
-}}
-.gg-consult-testimonial p {{
-  font-family: var(--gg-font-editorial);
-  font-size: var(--gg-font-size-sm);
-  line-height: var(--gg-line-height-prose);
-  color: var(--gg-color-dark-brown);
-  margin: 0 0 var(--gg-spacing-sm) 0;
-  font-style: italic;
-}}
-.gg-consult-testimonial footer {{
-  font-family: var(--gg-font-data);
-  font-size: var(--gg-font-size-xs);
-  color: var(--gg-color-dark-brown);
-  letter-spacing: var(--gg-letter-spacing-wide);
-}}
-.gg-consult-testimonial footer strong {{
-  display: block;
-  text-transform: uppercase;
-  margin-bottom: var(--gg-spacing-2xs);
-}}
-.gg-consult-testimonial-meta {{
-  display: block;
-  color: var(--gg-color-secondary-brown);
-  font-size: var(--gg-font-size-2xs);
-}}
-
 /* ── Responsive ── */
 @media (max-width: 768px) {{
-  .gg-consult-cards {{ grid-template-columns: 1fr; }}
-  .gg-consult-topics {{ grid-template-columns: 1fr; }}
+  .gg-consult-fit-grid {{ grid-template-columns: 1fr; }}
+  .gg-consult-strip-captions {{ grid-template-columns: 1fr; }}
   .gg-consult-hero {{ padding: var(--gg-spacing-xl) var(--gg-spacing-md); }}
   .gg-consult-section {{ padding: var(--gg-spacing-lg) var(--gg-spacing-md); }}
   .gg-consult-cta {{ padding: var(--gg-spacing-xl) var(--gg-spacing-md); }}
@@ -682,7 +788,7 @@ def build_consulting_js() -> str:
   /* Scroll depth */
   if('IntersectionObserver' in window){{
     var fired={{}};
-    var map={{'hero':'0_hero','what-you-get':'14_what_you_get','who':'28_who','topics':'42_topics','how-it-works':'57_how_it_works','testimonials':'71_testimonials','faq':'85_faq','final-cta':'100_final_cta'}};
+    var map={{'hero':'0_hero','two-futures':'12_two_futures','how-it-works':'25_how_it_works','look':'37_look','cover':'50_cover','plan':'62_plan','who':'75_who','fit':'87_fit','faq':'93_faq','close':'100_close'}};
     var obs=new IntersectionObserver(function(entries){{
       entries.forEach(function(e){{
         if(e.isIntersecting&&!fired[e.target.id]){{
@@ -699,7 +805,7 @@ def build_consulting_js() -> str:
   /* ── Checkout form ── */
   var CHECKOUT_API='https://athlete-custom-training-plan-pipeline-production.up.railway.app/api/create-consulting-checkout';
   var CHECKOUT_PRICE={CONSULTING_PRICE_INT};
-  var CHECKOUT_BTN_LABEL='Pay & Book \u2014 ${CONSULTING_PRICE_INT}';
+  var CHECKOUT_BTN_LABEL='Book the consult — ${CONSULTING_PRICE_INT}';
   var checkoutForm=document.getElementById('checkout');
   var checkoutMsg=checkoutForm?checkoutForm.querySelector('.gg-consult-form-message'):null;
   var checkoutBtn=checkoutForm?checkoutForm.querySelector('.gg-consult-form-submit'):null;
@@ -722,6 +828,8 @@ def build_consulting_js() -> str:
       var nameVal=checkoutForm.querySelector('input[name="name"]').value.trim();
       var emailVal=checkoutForm.querySelector('input[name="email"]').value.trim();
       var honeypot=checkoutForm.querySelector('input[name="_honeypot"]').value;
+      var addonInput=checkoutForm.querySelector('input[name="plan_addon"]');
+      var planAddon=addonInput?addonInput.checked:false;
       if(honeypot)return;
       if(!nameVal||!emailVal){{
         showCheckoutError('Please fill in your name and email.');
@@ -736,12 +844,12 @@ def build_consulting_js() -> str:
       checkoutBtn.textContent='Preparing checkout...';
       checkoutMsg.style.display='none';
 
-      if(typeof gtag==='function'){{gtag('event','begin_checkout',{{currency:'USD',value:CHECKOUT_PRICE,items:[{{item_name:'Consulting Session'}}]}})}}
+      if(typeof gtag==='function'){{gtag('event','begin_checkout',{{currency:'USD',value:planAddon?CHECKOUT_PRICE+{ADDON_PRICE_INT}:CHECKOUT_PRICE,items:[{{item_name:'Consulting Session'}}],plan_addon:planAddon}})}}
 
       fetch(CHECKOUT_API,{{
         method:'POST',
         headers:{{'Content-Type':'application/json'}},
-        body:JSON.stringify({{name:nameVal,email:emailVal,hours:1}})
+        body:JSON.stringify({{name:nameVal,email:emailVal,hours:1,plan_addon:planAddon}})
       }})
       .then(function(r){{
         if(!r.ok)throw new Error('Server error ('+r.status+'). Please try again.');
@@ -783,12 +891,12 @@ def build_jsonld() -> str:
     "name": "Gravel God Cycling",
     "url": "{SITE_BASE_URL}"
   }},
-  "description": "One-on-one consulting for gravel race selection, training structure, nutrition, and season planning.",
+  "description": "One-on-one gravel training consulting: a coach's read of your last six months of riding, plus a written plan of action.",
   "offers": {{
     "@type": "Offer",
     "price": "{CONSULTING_PRICE_INT}",
     "priceCurrency": "USD",
-    "description": "60-minute 1-on-1 video consultation with written action plan"
+    "description": "60-minute 1-on-1 video consultation with written plan of action"
   }},
   "url": "{SITE_BASE_URL}/consulting/"
 }}
@@ -800,13 +908,15 @@ def generate_consulting_page(external_assets: dict = None) -> str:
 
     nav = build_nav()
     hero = build_hero()
-    what = build_what_you_get()
-    bio = build_bio()
-    topics = build_topics()
+    two_futures = build_two_futures()
     how = build_how_it_works()
-    testimonials = build_testimonials()
+    look = build_what_i_look_at()
+    cover = build_what_we_cover()
+    plan = build_plan_addon()
+    who = build_who()
+    fit = build_fit()
     faq = build_faq()
-    final_cta = build_final_cta()
+    close = build_close()
     footer = build_footer()
     consulting_css = build_consulting_css()
     consulting_js = build_consulting_js()
@@ -819,10 +929,10 @@ def generate_consulting_page(external_assets: dict = None) -> str:
         page_css = get_page_css()
         inline_js = build_inline_js()
 
-    meta_desc = f"60-minute gravel race consulting call. Race selection, training structure, nutrition, and season planning. {CONSULTING_PRICE} with written action plan included."
+    meta_desc = f"Sixty minutes with a coach who has already read your last six months of training. {CONSULTING_PRICE} with a written plan of action within 48 hours."
 
     og_tags = f'''<meta property="og:title" content="Consulting | Gravel God">
-  <meta property="og:description" content="60-minute gravel race consulting. Race selection, training, nutrition, and season planning.">
+  <meta property="og:description" content="The read you can't give yourself. Sixty minutes, your training reviewed before we talk, a written plan of action after.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="{esc(canonical_url)}">
   <meta property="og:image" content="{SITE_BASE_URL}/og/homepage.jpg">
@@ -831,7 +941,7 @@ def generate_consulting_page(external_assets: dict = None) -> str:
   <meta property="og:site_name" content="Gravel God Cycling">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Consulting | Gravel God">
-  <meta name="twitter:description" content="60-minute gravel race consulting. Race selection, training, nutrition, and season planning.">
+  <meta name="twitter:description" content="The read you can't give yourself. Sixty minutes, your training reviewed before we talk, a written plan of action after.">
   <meta name="twitter:image" content="{SITE_BASE_URL}/og/homepage.jpg">'''
 
     preload = get_preload_hints()
@@ -861,19 +971,23 @@ def generate_consulting_page(external_assets: dict = None) -> str:
 
   {hero}
 
-  {what}
-
-  {bio}
-
-  {topics}
+  {two_futures}
 
   {how}
 
-  {testimonials}
+  {look}
+
+  {cover}
+
+  {plan}
+
+  {who}
+
+  {fit}
 
   {faq}
 
-  {final_cta}
+  {close}
 
   {footer}
 </div>

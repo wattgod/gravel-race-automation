@@ -121,6 +121,12 @@ class TestGA4Tracking:
     def test_consulting_product_type(self, all_pages):
         assert 'data-product-type="consulting"' in all_pages["consulting-confirmed"]
 
+    def test_consulting_intake_ref_rewrite(self, success_js):
+        """session_id from Stripe is passed through to the intake page as a
+        #ref= fragment so the intake submission can be tied to the order."""
+        assert "consult-intake-link" in success_js
+        assert "/consulting/intake/#ref=" in success_js
+
 
 # ── Brand Compliance ─────────────────────────────────────────
 
@@ -267,25 +273,46 @@ class TestConsultingSuccess:
     def test_has_hero(self):
         html = build_consulting_success()
         assert "gg-success-hero" in html
-        assert "Consulting Session Confirmed" in html
-
-    def test_hero_mentions_scheduling(self):
-        html = build_consulting_success()
-        assert "Schedule your session now" in html
+        assert "Booked. Three things, then I get to work." in html
 
     def test_has_next_steps(self):
         html = build_consulting_success()
-        assert "Schedule Your Session" in html
-        assert "Prepare Your Questions" in html
-        assert "We Talk" in html
+        assert "Pick Your Time" in html
+        assert "Start the Intake" in html
+        assert "Connect Your TrainingPeaks" in html
 
-    def test_consulting_has_scheduling_link(self):
+    def test_three_links(self):
+        """Pick a time, start the intake, connect TrainingPeaks — the three
+        things promised in the H1."""
         html = build_consulting_success()
         assert "calendar.app.google/E282ZtBJAFBXYdYJ6" in html
+        assert 'href="/consulting/intake/"' in html
+        assert "home.trainingpeaks.com/attachtocoach?sharedKey=2OTEPC6BXNVQU" in html
 
     def test_consulting_scheduling_cta(self):
         html = build_consulting_success()
         assert "Pick a Time" in html
+
+    def test_intake_link_has_id_for_js_ref_rewrite(self):
+        html = build_consulting_success()
+        assert 'id="consult-intake-link"' in html
+
+    def test_intake_missing_token_instruction(self):
+        """Success page can't know the intake auth token (welcome-email only) —
+        must tell the athlete to use the emailed link if this page can't open it."""
+        html = build_consulting_success()
+        assert "welcome email" in html.lower()
+
+    def test_addon_clause_only_if_not_bought(self):
+        html = build_consulting_success()
+        assert "$100" in html
+        assert "seven days after we speak" in html
+        assert "reply to your welcome email" in html.lower()
+
+    def test_quiet_coaching_clause(self):
+        html = build_consulting_success()
+        assert "every week" in html
+        assert '/coaching/' in html
 
     def test_cross_sells_coaching(self):
         html = build_consulting_success()

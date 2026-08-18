@@ -176,6 +176,7 @@ def collect_content_pipeline() -> dict:
             "coaching": ("coaching.html", "Coaching page"),
             "coaching_apply": ("coaching-apply.html", "Coaching apply"),
             "consulting": ("consulting.html", "Consulting page"),
+            "consult_intake": ("consult-intake.html", "Consult intake"),
             "methodology": ("methodology.html", "Methodology page"),
             "guide": ("guide/index.html", "Training guide"),
             "success_pages": ("*-success.html", "Success pages"),

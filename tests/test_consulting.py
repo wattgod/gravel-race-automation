@@ -1,4 +1,4 @@
-"""Tests for the Gravel God consulting page generator."""
+"""Tests for the Gravel God consulting page generator (Sultanic copy v2)."""
 from __future__ import annotations
 
 import re
@@ -15,21 +15,41 @@ from generate_consulting import (
     CONSULTING_PRICE,
     CONSULTING_PRICE_INT,
     CONSULTING_DURATION,
+    ADDON_PRICE,
+    ADDON_PRICE_INT,
     build_nav,
     build_hero,
-    build_what_you_get,
-    build_bio,
-    build_testimonials,
+    build_two_futures,
     build_how_it_works,
-    build_topics,
+    build_what_i_look_at,
+    build_what_we_cover,
+    build_plan_addon,
+    build_who,
+    build_fit,
     build_faq,
-    build_final_cta,
+    build_close,
     build_footer,
     build_consulting_css,
     build_consulting_js,
     build_jsonld,
     generate_consulting_page,
 )
+
+# Section builders whose output is human-readable copy — the Normie Test and
+# other content guards should be checked against these, not the full page
+# (which also embeds JS option names like IntersectionObserver's `threshold`).
+COPY_SECTION_BUILDERS = [
+    build_hero,
+    build_two_futures,
+    build_how_it_works,
+    build_what_i_look_at,
+    build_what_we_cover,
+    build_plan_addon,
+    build_who,
+    build_fit,
+    build_faq,
+    build_close,
+]
 
 
 # ── Fixtures ─────────────────────────────────────────────────
@@ -48,6 +68,11 @@ def consulting_css():
 @pytest.fixture(scope="module")
 def consulting_js():
     return build_consulting_js()
+
+
+@pytest.fixture(scope="module")
+def all_copy():
+    return "\n".join(fn() for fn in COPY_SECTION_BUILDERS)
 
 
 # ── Page Generation ──────────────────────────────────────────
@@ -91,6 +116,9 @@ class TestPageGeneration:
     def test_duration_in_page(self, consulting_html):
         assert "60 minutes" in consulting_html
 
+    def test_addon_price_in_page(self, consulting_html):
+        assert ADDON_PRICE in consulting_html
+
 
 # ── Nav ──────────────────────────────────────────────────────
 
@@ -126,7 +154,7 @@ class TestNav:
 class TestHero:
     def test_headline(self):
         hero = build_hero()
-        assert "One Call" in hero
+        assert "read you can" in hero
 
     def test_price_displayed(self):
         hero = build_hero()
@@ -158,160 +186,242 @@ class TestHero:
         assert 'name="_honeypot"' in hero
         assert 'display:none' in hero
 
+    def test_checkout_form_has_addon_checkbox(self):
+        hero = build_hero()
+        assert 'name="plan_addon"' in hero
+        assert 'type="checkbox"' in hero
+        assert "custom 12-week plan" in hero
+        assert ADDON_PRICE in hero
 
-# ── What You Get ─────────────────────────────────────────────
+    def test_button_copy(self):
+        hero = build_hero()
+        assert "Book the consult" in hero
 
 
-class TestWhatYouGet:
-    def test_three_cards(self):
-        section = build_what_you_get()
-        assert section.count("gg-consult-card") >= 3
+# ── Two Futures ───────────────────────────────────────────────
 
-    def test_card_titles(self):
-        section = build_what_you_get()
-        assert "Pre-Call Prep" in section
-        assert "60-Minute Deep Dive" in section
-        assert "Written Action Plan" in section
 
-    def test_mentions_48_hours(self):
-        section = build_what_you_get()
-        assert "48 hours" in section
+class TestTwoFutures:
+    def test_section_present(self):
+        section = build_two_futures()
+        assert 'id="two-futures"' in section
+        assert "Two futures" in section
+
+    def test_comparison_ignition(self):
+        section = build_two_futures()
+        assert "forum" in section.lower()
+        assert "Same bike. Same hours." in section
 
 
 # ── How It Works ─────────────────────────────────────────────
 
 
 class TestHowItWorks:
-    def test_three_steps(self):
+    def test_five_frames(self):
         section = build_how_it_works()
-        assert section.count("gg-consult-step") >= 3
+        assert section.count("gg-consult-strip-frame") >= 5
 
-    def test_step_titles(self):
+    def test_svg_present(self):
         section = build_how_it_works()
-        assert "Pay" in section
-        assert "Schedule" in section
-        assert "We Talk" in section
-        assert "Get Your Plan" in section
+        assert "<svg" in section
+        assert "gg-consult-strip-svg" in section
+
+    def test_hairline_rail(self):
+        section = build_how_it_works()
+        assert "gg-consult-strip-rail" in section
+
+    def test_frame_four_emphasised(self):
+        section = build_how_it_works()
+        assert "gg-consult-strip-frame--emphasis" in section
+
+    def test_captions_present(self):
+        section = build_how_it_works()
+        assert "Book." in section
+        assert "Connect your TrainingPeaks." in section
+        assert "Answer twelve questions." in section
+        assert "Your read arrives" in section
+        assert "written plan of action within 48 hours" in section
+
+    def test_no_var_in_svg_attrs(self):
+        """SVG attributes can't resolve var() — must be styled via CSS classes only."""
+        section = build_how_it_works()
+        svg_match = re.search(r'<svg.*?</svg>', section, re.DOTALL)
+        assert svg_match
+        assert "var(--" not in svg_match.group(0)
 
 
-# ── Topics ───────────────────────────────────────────────────
+# ── What I Actually Look At ──────────────────────────────────
 
 
-class TestTopics:
-    def test_six_topics(self):
-        section = build_topics()
-        assert section.count("<li>") == 6
+class TestWhatILookAt:
+    def test_section_present(self):
+        section = build_what_i_look_at()
+        assert 'id="look"' in section
+        assert "What I actually look at" in section
 
-    def test_key_topics(self):
-        section = build_topics()
-        assert "Race selection" in section
-        assert "Training structure" in section
-        assert "Nutrition" in section
+    def test_five_bullets(self):
+        section = build_what_i_look_at()
+        assert section.count("<li>") == 5
+
+    def test_key_points(self):
+        section = build_what_i_look_at()
+        assert "hard riding was actually hard" in section
+        assert "climbing, flat, or quietly sliding" in section
+        assert "easier deep in" in section
+        assert "zones are built on are still true" in section
 
 
-# ── Bio ─────────────────────────────────────────────────────
+# ── What We Can Cover ────────────────────────────────────────
 
 
-class TestBio:
+class TestWhatWeCover:
+    def test_section_present(self):
+        section = build_what_we_cover()
+        assert 'id="cover"' in section
+        assert "What we can cover" in section
+
+    def test_topics(self):
+        section = build_what_we_cover()
+        for topic in ["Race selection", "Season planning", "Fuelling", "Race-day execution"]:
+            assert topic in section
+
+    def test_open_invite(self):
+        section = build_what_we_cover()
+        assert "It probably does" in section
+
+
+# ── Plan Add-on ───────────────────────────────────────────────
+
+
+class TestPlanAddon:
+    def test_section_present(self):
+        section = build_plan_addon()
+        assert 'id="plan"' in section
+        assert ADDON_PRICE in section
+
+    def test_honest_limits(self):
+        section = build_plan_addon()
+        assert "one goal event" in section
+        assert "twelve weeks" in section
+        assert "seven days after the call" in section
+
+    def test_no_jargon(self):
+        section = build_plan_addon()
+        for bad in ["TSS", "FTP", "CTL", "VO2", "periodization"]:
+            assert bad not in section
+
+
+# ── Who You'll Talk To ───────────────────────────────────────
+
+
+class TestWho:
     def test_bio_section_present(self):
-        bio = build_bio()
+        bio = build_who()
         assert 'id="who"' in bio
 
     def test_bio_has_name(self):
-        bio = build_bio()
+        bio = build_who()
         assert "Matti" in bio
 
     def test_bio_has_credentials(self):
-        bio = build_bio()
+        bio = build_who()
         assert "TrainingPeaks" in bio
-        assert "100+" in bio or "100" in bio
+        assert "100+" in bio
 
     def test_bio_has_database_reference(self):
-        bio = build_bio()
-        assert "328" in bio
+        bio = build_who()
+        assert "750+" in bio
 
     def test_bio_section_title(self):
-        bio = build_bio()
-        assert "Who You" in bio
-        assert "Talk To" in bio
+        bio = build_who()
+        assert "Who you" in bio
+        assert "talk to" in bio
 
     def test_bio_in_full_page(self, consulting_html):
         assert 'id="who"' in consulting_html
         assert "Matti" in consulting_html
 
 
-# ── Testimonials ────────────────────────────────────────────
+# ── Is This For You ──────────────────────────────────────────
 
 
-class TestTestimonials:
-    def test_three_testimonials(self):
-        section = build_testimonials()
-        assert section.count("gg-consult-testimonial") >= 3
+class TestFit:
+    def test_section_present(self):
+        section = build_fit()
+        assert 'id="fit"' in section
+        assert "Is this for you?" in section
 
-    def test_section_id(self):
-        section = build_testimonials()
-        assert 'id="testimonials"' in section
-
-    def test_section_title(self):
-        section = build_testimonials()
-        assert "What Athletes Say" in section
-
-    def test_has_names(self):
-        section = build_testimonials()
-        assert "Andrew T." in section
-        assert "Jen H." in section
-        assert "Katie B." in section
-
-    def test_has_meta_lines(self):
-        section = build_testimonials()
-        assert "gg-consult-testimonial-meta" in section
-
-    def test_testimonials_in_full_page(self, consulting_html):
-        assert 'id="testimonials"' in consulting_html
-        assert "What Athletes Say" in consulting_html
-
-    def test_no_coaching_language(self):
-        """Testimonials should sound like single-session outcomes."""
-        section = build_testimonials()
-        assert "weekly" not in section.lower()
-        assert "training plan" not in section.lower()
-        assert "subscription" not in section.lower()
+    def test_for_and_not_for(self):
+        section = build_fit()
+        assert "For you if" in section
+        assert "Not for you if" in section
+        assert "goal event and real questions" in section
+        assert "pep talk" in section
 
 
 # ── FAQ ──────────────────────────────────────────────────────
 
 
 class TestFAQ:
-    def test_four_questions(self):
+    def test_six_questions(self):
         faq = build_faq()
-        assert faq.count("gg-consult-faq-item") == 4
+        assert faq.count("gg-consult-faq-item") == 6
 
     def test_accordion_buttons(self):
         faq = build_faq()
-        assert faq.count('aria-expanded="false"') == 4
+        assert faq.count('aria-expanded="false"') == 6
 
     def test_key_questions(self):
         faq = build_faq()
-        assert "Who is this for?" in faq
         assert "What happens after I pay?" in faq
+        assert "I don" in faq and "TrainingPeaks" in faq
+        assert "Do I have to share data?" in faq
+        assert "Can I add the plan later?" in faq
+
+    def test_privacy_sentence(self):
+        faq = build_faq()
+        assert "What happens to my data?" in faq
+        assert "deleted on request" in faq
+        assert "aren" in faq and "shared or sold" in faq
 
 
-# ── Final CTA ────────────────────────────────────────────────
+# ── Close ────────────────────────────────────────────────────
 
 
-class TestFinalCTA:
+class TestClose:
     def test_cta_present(self):
-        cta = build_final_cta()
-        assert "Book Your Consult" in cta
+        cta = build_close()
+        assert "Less than a race entry" in cta
         assert 'data-cta="final_book"' in cta
 
     def test_final_cta_scrolls_to_form(self):
-        cta = build_final_cta()
+        cta = build_close()
         assert 'href="#checkout"' in cta
 
     def test_price_summary(self):
-        cta = build_final_cta()
+        cta = build_close()
         assert CONSULTING_PRICE in cta
+
+    def test_no_dns_reference(self):
+        """DNS reference excludes first-time prospects."""
+        cta = build_close()
+        assert "DNS" not in cta
+
+    def test_no_coffee_cliche(self):
+        cta = build_close()
+        lower = cta.lower()
+        assert "coffee" not in lower
+        assert "latte" not in lower
+
+    def test_quiet_clause(self):
+        cta = build_close()
+        assert "every week" in cta
+        assert 'href="https://gravelgodcycling.com/coaching/"' in cta
+
+    def test_quiet_clause_no_credit_claim(self):
+        """No coaching-credit claim — that decision was explicitly deferred."""
+        cta = build_close()
+        assert "credit" not in cta.lower()
 
 
 # ── Footer ───────────────────────────────────────────────────
@@ -324,13 +434,25 @@ class TestFooter:
         assert "GRAVEL GOD CYCLING" in footer
 
 
+# ── No Testimonials (unverified — removed per copy v2) ───────
+
+
+class TestNoTestimonials:
+    def test_no_testimonial_section(self, consulting_html):
+        assert "testimonial" not in consulting_html.lower()
+        assert "What Athletes Say" not in consulting_html
+
+    def test_no_removed_names(self, consulting_html):
+        for name in ["Andrew T.", "Jen H.", "Katie B."]:
+            assert name not in consulting_html
+
+
 # ── CSS Quality ──────────────────────────────────────────────
 
 
 class TestCSSQuality:
     def test_no_hardcoded_hex(self, consulting_css):
         """No raw hex colors — must use var(--gg-color-*)."""
-        # Strip out the style tags and check CSS content
         css_content = consulting_css.replace("<style>", "").replace("</style>", "")
         hex_pattern = re.compile(r'(?<![\w-])#[0-9a-fA-F]{3,8}\b')
         matches = hex_pattern.findall(css_content)
@@ -356,6 +478,29 @@ class TestCSSQuality:
         assert "transition: opacity" not in consulting_css
         assert "transition:opacity" not in consulting_css
 
+    def test_no_bounce_easing(self, consulting_css):
+        assert "bounce" not in consulting_css.lower()
+        assert "spring" not in consulting_css.lower()
+
+    def test_no_entrance_animations(self, consulting_css):
+        assert "@keyframes" not in consulting_css
+
+
+# ── Brand Tokens Are Real (mirrors coaching's pattern) ────────
+
+
+class TestCssTokenValidation:
+    def test_all_var_refs_defined(self, consulting_css):
+        """Every var(--gg-*) used in the consulting CSS must exist in tokens.css."""
+        tokens_path = Path(__file__).parent.parent.parent / "gravel-god-brand" / "tokens" / "tokens.css"
+        if not tokens_path.exists():
+            pytest.skip("Brand tokens not found")
+        tokens_css = tokens_path.read_text()
+        var_refs = set(re.findall(r'var\((--gg-[a-z0-9-]+)\)', consulting_css))
+        assert var_refs, "No var(--gg-*) references found — did the generator change?"
+        for var_name in var_refs:
+            assert var_name in tokens_css, f"Undefined token: {var_name}"
+
 
 # ── JS Quality ───────────────────────────────────────────────
 
@@ -373,14 +518,18 @@ class TestJSQuality:
     def test_scroll_depth(self, consulting_js):
         assert "consulting_scroll_depth" in consulting_js
         assert "IntersectionObserver" in consulting_js
-        assert "testimonials" in consulting_js
-        assert "who" in consulting_js
+        assert "'who'" in consulting_js
+        assert "'faq'" in consulting_js
 
     def test_page_view_event(self, consulting_js):
         assert "consulting_page_view" in consulting_js
 
     def test_checkout_js_has_api_url(self, consulting_js):
         assert "create-consulting-checkout" in consulting_js
+
+    def test_checkout_js_sends_plan_addon(self, consulting_js):
+        assert "plan_addon" in consulting_js
+        assert "planAddon" in consulting_js
 
     def test_checkout_js_has_begin_checkout_event(self, consulting_js):
         assert "begin_checkout" in consulting_js
@@ -396,7 +545,6 @@ class TestJSQuality:
 
     def test_js_syntax_valid(self, consulting_js):
         """Validate JS syntax via Node.js."""
-        # Extract JS from script tags
         js = consulting_js.replace("<script>", "").replace("</script>", "")
         result = subprocess.run(
             ["node", "-e", f"new Function({repr(js)})"],
@@ -414,57 +562,33 @@ class TestNoComparisons:
     """The consulting page body content should NOT compare itself to other products.
     Nav/footer links to other products are fine — we only check the page sections."""
 
-    def test_no_coaching_price_comparison(self, consulting_html):
+    def test_no_coaching_price_comparison(self, all_copy):
         """No coaching pricing mentioned in page content."""
-        assert "$199" not in consulting_html
-        assert "$299" not in consulting_html
-        assert "$1,200" not in consulting_html
+        assert "$199" not in all_copy
+        assert "$299" not in all_copy
+        assert "$1,200" not in all_copy
 
-    def test_no_training_plan_price_comparison(self, consulting_html):
+    def test_no_training_plan_price_comparison(self, all_copy):
         """No training plan pricing mentioned."""
-        assert "$15/w" not in consulting_html
+        assert "$15/w" not in all_copy
 
 
-# ── Sultanic Copy Guard ────────────────────────────────────────
+# ── Normie Test (banned jargon guard) ────────────────────────
 
 
-class TestSultanicCopyGuard:
-    """Verify psychological upgrade copy is present and brand-compliant."""
+class TestNormieTest:
+    """No TSS/FTP/CTL/VO2max/threshold/periodization anywhere in the copy.
+    Checked against section-builder output, not the full page — the full page
+    also contains legitimate non-copy uses like the IntersectionObserver
+    `threshold` option in inline JS."""
 
-    def test_hero_comparison_ignition(self):
-        """Hero should contrast the call vs. forum/YouTube research."""
-        hero = build_hero()
-        assert "forum threads" in hero or "YouTube" in hero, \
-            "Missing comparison ignition in hero subtitle"
+    BANNED_TERMS = ["TSS", "FTP", "CTL", "VO2max", "VO2", "periodization", "power curve"]
 
-    def test_hero_no_dns_presumption(self):
-        """Hero must NOT assume the prospect has DNS'd."""
-        hero = build_hero()
-        assert "DNS" not in hero, "DNS presumption in hero — not all prospects have DNS'd"
+    def test_no_banned_jargon(self, all_copy):
+        for term in self.BANNED_TERMS:
+            assert term not in all_copy, f"Banned jargon '{term}' found in copy"
 
-    def test_pre_call_efficiency_framing(self):
-        """Pre-Call Prep should emphasize going deep immediately."""
-        wyg = build_what_you_get()
-        assert "go deep immediately" in wyg, "Missing efficiency framing in pre-call prep"
-
-    def test_final_cta_functionally_free(self):
-        """Final CTA should contain value comparison (race entry fee)."""
-        cta = build_final_cta()
-        assert "race entry fee" in cta, "Missing Functionally Free comparison"
-
-    def test_final_cta_no_dns_reference(self):
-        """Final CTA should NOT reference DNS (excludes first-timers)."""
-        cta = build_final_cta()
-        assert "DNS" not in cta, "DNS reference excludes first-time prospects"
-
-    def test_cta_context_css_exists(self):
-        """CTA context element must have CSS styling."""
-        css = build_consulting_css()
-        assert "gg-consult-cta-context" in css, "Missing CSS for CTA context"
-
-    def test_cta_context_no_coffee_cliche(self):
-        """CTA context must not use generic SaaS comparisons."""
-        cta = build_final_cta()
-        lower = cta.lower()
-        assert "coffee" not in lower, "Coffee cliché violates brand voice"
-        assert "latte" not in lower, "Latte cliché violates brand voice"
+    def test_no_bare_threshold_word(self, all_copy):
+        """'threshold' as training jargon is banned; this is copy-only text
+        so there's no legitimate JS option name to collide with."""
+        assert "threshold" not in all_copy.lower()

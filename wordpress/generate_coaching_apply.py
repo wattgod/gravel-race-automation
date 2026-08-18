@@ -1857,8 +1857,7 @@ def generate_apply_page(external_assets=None):
   {build_footer()}
   {build_jsonld()}
   {build_apply_js()}
-''' + '<script>' + get_site_header_js() + '</script>' + '''
-{get_consent_banner_html()}
+''' + '<script>' + get_site_header_js() + '</script>' + get_consent_banner_html() + '''
 </body>
 </html>'''
 

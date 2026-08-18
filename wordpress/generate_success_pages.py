@@ -536,8 +536,7 @@ def generate_success_page(page_key: str,
 </div>
 {inline_js}
 {success_js}
-''' + '<script>' + get_site_header_js() + '</script>' + '''
-{get_consent_banner_html()}
+''' + '<script>' + get_site_header_js() + '</script>' + get_consent_banner_html() + '''
 </body>
 </html>'''
 

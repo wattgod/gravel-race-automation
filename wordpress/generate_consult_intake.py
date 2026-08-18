@@ -99,11 +99,11 @@ def build_fields() -> str:
     </div>
     <div class="gg-intake-inline">
       <div class="gg-intake-group">
-        <label class="gg-intake-label" for="ftp">FTP</label>
+        <label class="gg-intake-label" for="ftp">Your threshold power (FTP), if you know it</label>
         <input type="text" id="ftp" name="ftp" placeholder="Watts, or &quot;don't know&quot;">
       </div>
       <div class="gg-intake-group">
-        <label class="gg-intake-label" for="lthr">LTHR</label>
+        <label class="gg-intake-label" for="lthr">Your threshold heart rate (LTHR), if you know it</label>
         <input type="text" id="lthr" name="lthr" placeholder="BPM, or &quot;don't know&quot;">
       </div>
     </div>
@@ -120,7 +120,7 @@ def build_fields() -> str:
       <textarea id="injuries_limits" name="injuries_limits" rows="2"></textarea>
     </div>
     <div class="gg-intake-group">
-      <label class="gg-intake-label" for="tp_email">TrainingPeaks login email</label>
+      <label class="gg-intake-label" for="tp_email">The email you sign in to TrainingPeaks with (or &quot;no TP&quot;)</label>
       <input type="text" id="tp_email" name="tp_email" placeholder="you@example.com, or &quot;no TP&quot;">
     </div>
     <div class="gg-intake-inline">

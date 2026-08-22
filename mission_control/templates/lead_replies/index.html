@@ -1,0 +1,148 @@
+{% extends "base.html" %}
+
+{% block title %}Lead Replies{% endblock %}
+
+{% block head_extra %}
+<style>
+.lead-reply-grid { display:grid; grid-template-columns:minmax(0, 1.7fr) minmax(260px, .8fr); gap:var(--gg-spacing-lg); }
+.lead-reply-card { border-left:3px solid var(--gg-color-gold); }
+.lead-reply-source { white-space:pre-wrap; font-family:var(--gg-font-data); font-size:var(--gg-font-size-xs); line-height:1.55; padding:var(--gg-spacing-md); border:1px dotted var(--gg-border-color-default); background:var(--gg-color-sand); }
+.lead-reply-editor { width:100%; min-height:170px; resize:vertical; }
+.lead-reply-actions { display:flex; gap:var(--gg-spacing-sm); flex-wrap:wrap; margin-top:var(--gg-spacing-md); }
+.lead-reply-meta { display:flex; flex-wrap:wrap; gap:var(--gg-spacing-xs); margin-bottom:var(--gg-spacing-md); }
+@media (max-width: 860px) {
+  .lead-reply-grid { grid-template-columns:1fr; }
+  .mc-main { padding:var(--gg-spacing-md); }
+  .lead-reply-editor { min-height:210px; font-size:16px; }
+}
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="mc-page-header">
+    <span class="mc-page-header__kicker">Conversion / Editor Queue</span>
+    <h1 class="mc-page-header__title">Lead Replies</h1>
+    <p class="mc-page-header__desc">Reflect one detail. Give one useful thing when grounded. Ask one easy question. Approval creates a Gmail draft; it never sends.</p>
+</div>
+
+<div class="gg-stat-grid mc-mb-lg">
+    <div class="gg-stat-card"><div class="gg-stat-card__label">90d replies</div><div class="gg-stat-card__value">{{ metrics.replies }}</div></div>
+    <div class="gg-stat-card"><div class="gg-stat-card__label">Reply rate</div><div class="gg-stat-card__value">{{ metrics.reply_rate }}%</div></div>
+    <div class="gg-stat-card"><div class="gg-stat-card__label">Substantive</div><div class="gg-stat-card__value">{{ metrics.substantive_replies }}</div></div>
+    <div class="gg-stat-card"><div class="gg-stat-card__label">Second replies</div><div class="gg-stat-card__value">{{ metrics.second_reply_conversations }}</div></div>
+    <div class="gg-stat-card"><div class="gg-stat-card__label">Assisted wins</div><div class="gg-stat-card__value">{{ metrics.assisted_wins }}</div></div>
+    <div class="gg-stat-card"><div class="gg-stat-card__label">Coach response</div><div class="gg-stat-card__value">{{ metrics.median_coach_response_hours if metrics.median_coach_response_hours is not none else '—' }}h</div></div>
+    <div class="gg-stat-card"><div class="gg-stat-card__label">Draft acceptance</div><div class="gg-stat-card__value">{{ metrics.suggestion_acceptance_rate if metrics.suggestion_acceptance_rate is not none else '—' }}{% if metrics.suggestion_acceptance_rate is not none %}%{% endif %}</div></div>
+</div>
+
+<div class="lead-reply-grid">
+    <section>
+        {% if queue %}
+        {% for item in queue %}
+        <article class="mc-card mc-mb-lg lead-reply-card" id="reply-{{ item.id }}">
+            <div class="mc-card__header">
+                <h3 class="mc-card__title">{{ item.contact_name or item.contact_email }}</h3>
+                <span class="gg-badge gg-badge--outline">{{ item.status|replace('_', ' ') }}</span>
+            </div>
+            <div class="mc-card__body">
+                <div class="lead-reply-meta">
+                    <span class="gg-badge gg-badge--default">{{ item.brand }}</span>
+                    <span class="gg-badge gg-badge--default">{{ item.intent|replace('_', ' ') }}</span>
+                    <span class="gg-badge gg-badge--default">{{ item.question_type|replace('_', ' ') }}</span>
+                    {% if item.needs_coach_answer %}<span class="gg-badge gg-badge--gold">answer needed</span>{% endif %}
+                </div>
+                <p class="mc-text-muted">{{ item.subject or '(no subject)' }} · {{ item.message_at[:16]|replace('T', ' ') if item.message_at else '—' }}</p>
+                <div class="lead-reply-source">{{ item.inbound_body }}</div>
+                {% if item.thread_context|length > 1 %}
+                <details class="mc-mt-md mc-mb-md">
+                    <summary>Thread context · {{ item.thread_context|length }} recent messages</summary>
+                    {% for message in item.thread_context %}
+                    <div class="lead-reply-source mc-mt-sm">
+                        <strong>{{ 'Lead' if message.direction == 'inbound' else ('Draft' if message.direction == 'draft' else 'Matti') }}</strong>
+                        · {{ message.message_at[:16]|replace('T', ' ') if message.message_at else '—' }}
+                        <br>{{ message.body_text }}
+                    </div>
+                    {% endfor %}
+                </details>
+                {% endif %}
+                <p><strong>Why this question:</strong> {{ item.rationale }}</p>
+                {% if item.needs_coach_answer %}
+                <div class="gg-alert gg-alert--warning">
+                    <span class="gg-alert__label">Answer first</span>
+                    <span class="gg-alert__message">Replace the bracketed line with the direct answer or concrete next action. The unchanged draft cannot be approved.</span>
+                </div>
+                {% endif %}
+                {% if item.status == 'draft_conflict' %}
+                <div class="gg-alert gg-alert--warning mc-mt-md">
+                    <span class="gg-alert__label">Existing Gmail draft</span>
+                    <span class="gg-alert__message">Open this thread in Gmail and decide whether to send, update, or delete that draft. Mission Control will not create a duplicate.</span>
+                </div>
+                <div class="lead-reply-actions">
+                    <button type="button" class="gg-btn gg-btn--ghost"
+                            hx-post="/lead-replies/{{ item.id }}/dismiss"
+                            hx-target="#reply-{{ item.id }}" hx-swap="outerHTML"
+                            hx-confirm="Only continue if you already resolved this draft in Gmail. Mark resolved?">I resolved it in Gmail</button>
+                </div>
+                {% else %}
+                <form hx-post="/lead-replies/{{ item.id }}/approve" hx-target="#result-{{ item.id }}" hx-swap="innerHTML">
+                    <textarea class="mc-textarea lead-reply-editor" name="draft_text">{{ item.draft_text }}</textarea>
+                    <div class="lead-reply-actions">
+                        <button type="submit" class="gg-btn gg-btn--primary">Approve Gmail Draft</button>
+                        <button type="button" class="gg-btn gg-btn--ghost"
+                                hx-post="/lead-replies/{{ item.id }}/dismiss"
+                                hx-target="#reply-{{ item.id }}" hx-swap="outerHTML"
+                                hx-confirm="Dismiss this suggestion without sending?">Dismiss</button>
+                    </div>
+                </form>
+                {% endif %}
+                <div id="result-{{ item.id }}" class="mc-mt-md"></div>
+            </div>
+        </article>
+        {% endfor %}
+        {% else %}
+        <div class="gg-empty-state">
+            <h3 class="gg-empty-state__title">No lead replies need editing</h3>
+            <p class="gg-empty-state__text">New replies appear after the Gmail relay syncs them.</p>
+        </div>
+        {% endif %}
+    </section>
+
+    <aside>
+        <div class="mc-card mc-mb-lg">
+            <div class="mc-card__header"><h3 class="mc-card__title">Question Learning</h3></div>
+            <div class="mc-card__body">
+                <p class="mc-text-muted">{{ metrics.measurement_note }}</p>
+                <table class="gg-table gg-table--compact">
+                    <thead><tr><th>Question</th><th>Sends</th><th>Replies</th><th>Rate</th></tr></thead>
+                    <tbody>
+                    {% for row in metrics.question_rows %}
+                    <tr>
+                        <td>{{ row.question_type|replace('_', ' ') }}</td>
+                        <td>{{ row.sends }}</td>
+                        <td>{{ row.replies }}</td>
+                        <td>{{ row.reply_rate }}%</td>
+                    </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="mc-card mc-mb-lg">
+            <div class="mc-card__header"><h3 class="mc-card__title">What to Improve</h3></div>
+            <div class="mc-card__body">
+                {% for recommendation in metrics.recommendations %}<p>{{ recommendation }}</p>{% endfor %}
+                <p class="mc-text-muted">Trust guardrails: {{ metrics.unsubscribes }} unsubscribes · {{ metrics.spam_complaints }} spam complaints · {{ metrics.active_after_reply }} active sequences after a reply · {{ metrics.draft_conflicts }} draft conflicts.</p>
+            </div>
+        </div>
+        <div class="mc-card">
+            <div class="mc-card__header"><h3 class="mc-card__title">Matti Register</h3></div>
+            <div class="mc-card__body">
+                <p>One specific acknowledgment.</p>
+                <p>One useful answer or connection, only when grounded.</p>
+                <p>One easy question.</p>
+                <p class="mc-text-muted">No pitch unless they ask. No three-question stack. No clever metaphor that competes with the person.</p>
+            </div>
+        </div>
+    </aside>
+</div>
+{% endblock %}

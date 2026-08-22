@@ -14,6 +14,7 @@ from mission_control.routers import (
 from mission_control.routers import sequences, deals_router, analytics, unsubscribe
 from mission_control.routers import races_api, nutrition_api
 from mission_control.routers import auth_routes
+from mission_control.routers import lead_replies
 
 logger = logging.getLogger(__name__)
 
@@ -93,7 +94,7 @@ def create_app() -> FastAPI:
     app.include_router(webhooks.router, include_in_schema=False)
 
     # Routers — v2 admin-protected (internal — hidden from API docs)
-    for r in [sequences, deals_router, analytics]:
+    for r in [sequences, deals_router, analytics, lead_replies]:
         app.include_router(r.router, include_in_schema=False, dependencies=_admin)
 
     # Unsubscribe — public, no auth (CAN-SPAM compliance)

@@ -8,9 +8,11 @@ import hmac
 import logging
 import random
 import re
+import secrets
 import urllib.parse
 from html import escape as html_escape
 from datetime import datetime, timedelta, timezone
+from email.utils import formataddr, parseaddr
 
 from mission_control import supabase_client as db
 from mission_control.config import (
@@ -299,12 +301,14 @@ async def _send_next_step(enrollment: dict) -> bool:
         return False
 
     try:
+        reply_token = secrets.token_hex(16)
         resend_id = await asyncio.to_thread(
             _send_email_sync,
             enrollment["contact_email"],
             subject,
             html,
             brand,
+            reply_token,
         )
     except Exception as e:
         db.log_action(
@@ -316,6 +320,8 @@ async def _send_next_step(enrollment: dict) -> bool:
         return False
 
     # Record send
+    from mission_control.services.lead_nurture import classify_question
+
     db.insert("gg_sequence_sends", {
         "enrollment_id": enrollment["id"],
         "step_index": step_index,
@@ -323,6 +329,8 @@ async def _send_next_step(enrollment: dict) -> bool:
         "subject": subject,
         "resend_id": resend_id,
         "status": "sent",
+        "reply_token": reply_token,
+        "question_type": step.get("question_type") or classify_question(html),
     })
 
     # Advance to next step
@@ -476,6 +484,7 @@ def _inject_utm_params(
 
 def _send_email_sync(
     to_email: str, subject: str, html: str, brand: str = "gravelgod",
+    reply_token: str = "",
 ) -> str:
     """Send an email via Resend. Runs in a thread (called via asyncio.to_thread)."""
     import resend
@@ -487,12 +496,28 @@ def _send_email_sync(
     sender = BRAND_SEQUENCE_SENDERS.get(brand, BRAND_SEQUENCE_SENDERS["gravelgod"])
     result = resend.Emails.send({
         "from": f"{sender['from_name']} <{sender['from_email']}>",
-        "reply_to": sender["reply_to"],
+        "reply_to": _tagged_reply_to(sender["reply_to"], reply_token),
         "to": [to_email],
         "subject": subject,
         "html": html,
     })
     return result.get("id", "")
+
+
+def _tagged_reply_to(reply_to: str, token: str) -> str:
+    """Add a Gmail plus-token for exact reply-to-send attribution."""
+    if not token:
+        return reply_to
+    display_name, address = parseaddr(reply_to)
+    if "@" not in address:
+        return reply_to
+    local, domain = address.rsplit("@", 1)
+    if domain.casefold() not in {"gmail.com", "googlemail.com"}:
+        return reply_to
+    # Preserve any existing plus alias while adding our stable lead token.
+    local = local.split("+", 1)[0]
+    tagged = f"{local}+lead.{token}@{domain}"
+    return formataddr((display_name, tagged)) if display_name else tagged
 
 
 def _inject_unsubscribe(html: str, email: str) -> str:
@@ -539,6 +564,18 @@ def record_event(resend_id: str, event_type: str) -> bool:
         )
         if enrollment:
             db.update("gg_sequence_enrollments", {"status": "paused"}, {"id": enrollment["id"]})
+    elif event_type == "email.complained":
+        updates["status"] = "complained"
+        updates["complained_at"] = now
+        enrollment = db.select_one(
+            "gg_sequence_enrollments", match={"id": send["enrollment_id"]}
+        )
+        if enrollment:
+            db.update(
+                "gg_sequence_enrollments",
+                {"status": "unsubscribed"},
+                {"id": enrollment["id"]},
+            )
 
     if updates:
         db.update("gg_sequence_sends", updates, {"id": send["id"]})

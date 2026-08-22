@@ -25,6 +25,11 @@ is offered inside Matti's reply when it fits).
    site, the database, or the emails themselves. No meta, ever.
 3. **Interested?** End on a real question we genuinely want answered.
 
+Replies continue the actual thread: professional, human, sometimes lightly
+deadpan, never a performance of “brand voice.” Do not ask a person to repeat
+context they already gave. By the third lead turn, give a useful observation or
+practical suggestion before asking for more.
+
 ## Hard constraints (non-negotiable)
 
 - **Product facts only** (when facts appear at all — mostly in replies):
@@ -76,3 +81,14 @@ is offered inside Matti's reply when it fits).
 Replies (primary KPI) + GA4 purchase events + unsub/spam rates.
 `sequence_report.py` purchase numbers are broken (gg_athletes is never
 written by the purchase path) — do not cite them.
+
+For the Gmail/Mission Control reply loop, use
+`scripts/lead_nurture_report.py`: it joins attributed replies to `gg_deals`,
+tracks substantive and second replies, reply latency, active-after-reply leaks,
+coach response time, draft acceptance/edit rate, draft conflicts, unsubscribes,
+and spam complaints. It measures Matti's actual sent questions as well as
+sequence questions and avoids double-crediting a lead reply after a manual
+follow-up. Require at least 30
+attributed sends per question type before reviewing a copy direction. Reports
+may recommend an approval-gated test; they never rewrite live copy or change
+variant weights automatically.

@@ -25,6 +25,11 @@ is offered inside Matti's reply when it fits).
    site, the database, or the emails themselves. No meta, ever.
 3. **Interested?** End on a real question we genuinely want answered.
 
+Replies continue the actual thread: professional, human, sometimes lightly
+deadpan, never a performance of “brand voice.” Do not ask a person to repeat
+context they already gave. By the third lead turn, give a useful observation or
+practical suggestion before asking for more.
+
 ## Hard constraints (non-negotiable)
 
 - **Product facts only** (when facts appear at all — mostly in replies):

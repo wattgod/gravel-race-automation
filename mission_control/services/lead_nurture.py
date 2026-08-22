@@ -58,7 +58,7 @@ _RACE_DECISION_TERMS = (
 )
 _POSITIVE_TRAINING_TERMS = (
     "training is going well", "training was great", "feeling good",
-    "going well", "back training", "back!", "on track",
+    "going well", "going pretty well", "back training", "back!", "on track",
 )
 _DEFERRED_TERMS = ("deferred", "defer", "dns", "didn't race", "did not race")
 
@@ -70,6 +70,7 @@ _QUESTION_RULES = (
     ("frustration", ("frustrat", "most annoying", "bothering you")),
     ("challenge", ("challenge", "hardest", "get right", "holding you back")),
     ("race_decision", ("which race", "still deciding", "what matters most", "registered")),
+    ("race_goal", ("training toward", "training for", "main goal", "a race")),
     ("race_outcome", ("how did it go", "how'd it go", "what went well", "what went badly")),
     ("training_status", ("how's training", "how is training", "where is the training")),
     ("schedule", ("weekly hours", "schedule", "your week", "time do you have")),
@@ -138,8 +139,57 @@ def _stable_choice(seed: str, choices: tuple[tuple[str, str], ...]) -> tuple[str
     return choices[index]
 
 
+def _conversation_next_move(
+    text: str, *, prior_question_type: str = "", seed: str = "",
+) -> tuple[str, str, str]:
+    """Choose a grounded next move without trying to perform a persona."""
+    folded = (text or "").casefold()
+    hours = re.search(r"\b(\d+(?:\.\d+)?)\s*(?:hours?|hrs?)\b", folded)
+    mentions_climbing = any(term in folded for term in ("climb", "climbing", "uphill"))
+    mentions_fueling = any(term in folded for term in ("fuel", "carb", "eat", "nutrition"))
+
+    if mentions_climbing and mentions_fueling:
+        return (
+            "That makes sense. Long climbs are pretty honest about late fueling.",
+            "fueling",
+            "When the climbs come apart, what goes first — legs, breathing, or fueling?",
+        )
+    if mentions_fueling:
+        return (
+            "Yep. Fueling can turn a good day sideways pretty quietly.",
+            "fueling",
+            "Where does fueling usually start to get away from you?",
+        )
+    if mentions_climbing:
+        return (
+            "Got it. Climbs are not especially subtle about the weak link.",
+            "challenge",
+            "When a climb goes bad, what goes first — legs, breathing, or pacing?",
+        )
+
+    acknowledgement = "Good to hear."
+    if hours:
+        acknowledgement = f"Good to hear. {hours.group(1)} hours is a real week."
+    ladder = {
+        "challenge": ("favorite_workout", "What kind of workout do you actually look forward to?"),
+        "frustration": ("favorite_workout", "What kind of workout has been feeling best lately?"),
+        "favorite_workout": ("race_goal", "What are you training toward right now?"),
+        "race_goal": ("schedule", "How much training time can you actually protect most weeks?"),
+        "schedule": ("workout_feedback", "What kind of session has been clicking lately?"),
+    }
+    question_type, question = ladder.get(
+        prior_question_type,
+        _stable_choice(seed or text, (
+            ("challenge", "What part of training feels hardest to get right right now?"),
+            ("favorite_workout", "What kind of workout do you actually look forward to?"),
+        )),
+    )
+    return acknowledgement, question_type, question
+
+
 def build_reply_suggestion(
     *, text: str, first_name: str = "", seed: str = "",
+    prior_question_type: str = "", lead_turn: int = 1,
 ) -> dict:
     """Build a deliberately plain Reflect → Ask starting point.
 
@@ -173,18 +223,29 @@ def build_reply_suggestion(
         question_type = "challenge"
         question = "What ended up getting in the way?"
     elif intent == "training_positive":
-        acknowledgement = "Good to hear."
-        question_type, question = _stable_choice(seed or text, (
-            ("challenge", "What part of training feels hardest to get right right now?"),
-            ("favorite_workout", "What kind of workout do you actually look forward to doing?"),
-        ))
+        acknowledgement, question_type, question = _conversation_next_move(
+            text, prior_question_type=prior_question_type, seed=seed,
+        )
     else:
         acknowledgement = "Got it."
-        question_type = "challenge"
-        question = "What's the biggest training challenge you're trying to sort out right now?"
+        ladder = {
+            "challenge": ("favorite_workout", "What kind of workout has been feeling best lately?"),
+            "favorite_workout": ("race_goal", "What are you training toward right now?"),
+            "race_goal": ("schedule", "How much training time can you actually protect most weeks?"),
+            "schedule": ("challenge", "What keeps getting in the way most often?"),
+        }
+        question_type, question = ladder.get(
+            prior_question_type,
+            ("challenge", "What's the biggest training challenge you're trying to sort out right now?"),
+        )
 
     if needs_answer and not answer_placeholder:
         answer_placeholder = "[Answer their question directly first.]"
+    elif lead_turn >= 3 and not answer_placeholder:
+        # Do not turn the relationship into an intake form. By the third lead
+        # turn, Matti should add value before asking for more context.
+        answer_placeholder = "[Add one useful observation or practical suggestion from this thread.]"
+        needs_answer = True
 
     greeting = f"{first_name}," if first_name else "Hey —"
     parts = [greeting, acknowledgement]
@@ -350,11 +411,34 @@ def _record_suggestion(conversation: dict, message: dict, body: str) -> dict:
     )
     if existing:
         return existing
+    prior_messages = db.select(
+        "gg_lead_messages", match={"conversation_id": conversation["id"]},
+        order="message_at", order_desc=True, limit=12,
+    )
+    prior_outbound = next((
+        row for row in prior_messages
+        if row.get("direction") == "outbound"
+        and row.get("gmail_message_id") != message["id"]
+    ), {})
+    lead_turn = sum(1 for row in prior_messages if row.get("direction") == "inbound")
+
+    # Consecutive inbound messages are one editor job. Approved or drafted work
+    # remains visible, but older unapproved alternatives leave the queue.
+    now = datetime.now(timezone.utc).isoformat()
+    for pending in db.select(
+        "gg_lead_reply_suggestions", match={"conversation_id": conversation["id"]},
+    ):
+        if pending.get("status") in {"suggested", "needs_coach_answer"}:
+            db.update("gg_lead_reply_suggestions", {
+                "status": "superseded", "updated_at": now,
+            }, {"id": pending["id"]})
     first_name = (conversation.get("contact_name") or "").split(" ", 1)[0]
     suggestion = build_reply_suggestion(
         text=body,
         first_name=first_name,
         seed=f"{conversation.get('contact_email')}:{message['id']}",
+        prior_question_type=prior_outbound.get("question_type") or "",
+        lead_turn=lead_turn,
     )
     status = "needs_coach_answer" if suggestion["needs_coach_answer"] else "suggested"
     return db.insert("gg_lead_reply_suggestions", {
@@ -579,6 +663,18 @@ def get_approved_drafts(limit: int = 25) -> list[dict]:
         conversation = db.select_one("gg_lead_conversations", match={"id": row["conversation_id"]})
         if not inbound or not conversation:
             continue
+        newer_inbound = next((
+            message for message in db.select(
+                "gg_lead_messages", match={"conversation_id": row["conversation_id"]},
+            )
+            if message.get("direction") == "inbound"
+            and (message.get("message_at") or "") > (inbound.get("message_at") or "")
+        ), None)
+        if newer_inbound:
+            db.update("gg_lead_reply_suggestions", {
+                "status": "superseded", "updated_at": datetime.now(timezone.utc).isoformat(),
+            }, {"id": row["id"]})
+            continue
         output.append({
             "suggestion_id": row["id"],
             "gmail_thread_id": conversation["gmail_thread_id"],
@@ -638,6 +734,10 @@ def get_reply_queue(limit: int = 100) -> list[dict]:
         )
         if not inbound or not conversation:
             continue
+        thread_messages = db.select(
+            "gg_lead_messages", match={"conversation_id": row["conversation_id"]},
+            order="message_at", order_desc=True, limit=8,
+        )
         output.append({
             **row,
             "contact_email": conversation.get("contact_email", ""),
@@ -647,6 +747,7 @@ def get_reply_queue(limit: int = 100) -> list[dict]:
             "subject": inbound.get("subject", ""),
             "inbound_body": inbound.get("body_text", ""),
             "message_at": inbound.get("message_at"),
+            "thread_context": list(reversed(thread_messages)),
         })
     return output
 
@@ -660,7 +761,12 @@ def approve_reply_suggestion(suggestion_id: str, draft_text: str) -> dict | None
         return None
     if suggestion.get("needs_coach_answer"):
         initial = (suggestion.get("initial_draft_text") or "").strip()
-        if draft_text == initial or "[Answer " in draft_text or "[Say exactly " in draft_text:
+        if (
+            draft_text == initial
+            or "[Answer " in draft_text
+            or "[Say exactly " in draft_text
+            or "[Add one useful " in draft_text
+        ):
             return None
     now = datetime.now(timezone.utc).isoformat()
     updated = db.update("gg_lead_reply_suggestions", {

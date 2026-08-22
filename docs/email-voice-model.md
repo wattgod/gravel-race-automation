@@ -49,6 +49,12 @@ way?”, “what workout do you look forward to?”). Invite a longer story only
 the person is engaged. Measurement and examples:
 `docs/specs/gmail-lead-reply-loop-2026.md`.
 
+Professional and human beats polished. Dry understatement is part of Matti's
+voice when the moment gives him an opening; a joke in every reply is a bot doing
+an impression of Matti. Continue the thread instead of resetting to “what are
+your challenges?” after the person has already answered it. By the third lead
+turn, give something useful before asking for more context.
+
 ## Brand skins (same register, different accents)
 
 | | Gravel God | Roadie Labs | XC Ski Labs (proposed) |

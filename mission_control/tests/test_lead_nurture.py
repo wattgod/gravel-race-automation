@@ -56,6 +56,45 @@ class TestPlainMattiSuggestions:
         assert "resend" not in result["draft_text"].lower()
         assert result["draft_text"].count("?") == 0
 
+    def test_specific_training_detail_gets_a_grounded_deadpan_move(self):
+        from mission_control.services.lead_nurture import build_reply_suggestion
+
+        result = build_reply_suggestion(
+            text=(
+                "Training is going pretty well. Long climbs still fall apart, "
+                "and I am usually behind on fueling by hour three."
+            ),
+            first_name="Jane",
+            seed="stable",
+        )
+        assert result["question_type"] == "fueling"
+        assert "Long climbs are pretty honest" in result["draft_text"]
+        assert "legs, breathing, or fueling" in result["draft_text"]
+        assert result["draft_text"].count("?") == 1
+
+    def test_question_ladder_continues_instead_of_restarting(self):
+        from mission_control.services.lead_nurture import build_reply_suggestion
+
+        result = build_reply_suggestion(
+            text="Training is going well.",
+            first_name="Jane",
+            prior_question_type="challenge",
+        )
+        assert result["question_type"] == "favorite_workout"
+        assert "look forward to" in result["draft_text"]
+
+    def test_third_lead_turn_requires_value_before_more_questions(self):
+        from mission_control.services.lead_nurture import build_reply_suggestion
+
+        result = build_reply_suggestion(
+            text="Tuesday is usually the hard day.",
+            first_name="Jane",
+            prior_question_type="schedule",
+            lead_turn=3,
+        )
+        assert result["needs_coach_answer"] is True
+        assert "[Add one useful observation" in result["draft_text"]
+
 
 class TestGmailIngestion:
     def test_closed_won_contact_is_not_offered_to_lead_bridge(self, fake_db):
@@ -176,6 +215,27 @@ class TestGmailIngestion:
         assert len(fake_db.store["gg_lead_reply_suggestions"]) == 1
         assert conversation["status"] == "gmail_drafted"
 
+    def test_consecutive_inbound_messages_supersede_older_unapproved_draft(self, fake_db):
+        from mission_control.services.lead_nurture import ingest_gmail_sync
+
+        fake_db.store["gg_sequence_enrollments"].append(
+            make_enrollment(contact_email="lead@example.com"),
+        )
+        now = datetime.now(timezone.utc)
+        payload = {"threads": [{"id": "thread-consecutive", "messages": [
+            _message(
+                message_id="in-first", body="Training is going well.",
+                date=(now - timedelta(minutes=2)).isoformat(),
+            ),
+            _message(
+                message_id="in-second", body="The climbs are the hard part.",
+                date=now.isoformat(),
+            ),
+        ]}]}
+        ingest_gmail_sync(payload)
+        suggestions = fake_db.store["gg_lead_reply_suggestions"]
+        assert [row["status"] for row in suggestions] == ["superseded", "suggested"]
+
 
 class TestDraftApproval:
     def _seed(self, fake_db):
@@ -233,6 +293,34 @@ class TestDraftApproval:
             "I’ll give you the current rate and the exact checkout link below.",
         )
         assert approve_reply_suggestion(suggestion["id"], edited)["status"] == "approved_for_gmail"
+
+    def test_newer_inbound_supersedes_approved_but_not_yet_created_draft(self, fake_db):
+        from mission_control.services.lead_nurture import get_approved_drafts
+
+        conversation_id = "conv-newer"
+        now = datetime.now(timezone.utc)
+        fake_db.store["gg_lead_conversations"].append({
+            "id": conversation_id, "gmail_thread_id": "thread-newer",
+            "contact_email": "lead@example.com",
+        })
+        fake_db.store["gg_lead_messages"].extend([
+            {
+                "gmail_message_id": "in-old", "conversation_id": conversation_id,
+                "direction": "inbound", "message_at": (now - timedelta(minutes=2)).isoformat(),
+            },
+            {
+                "gmail_message_id": "in-new", "conversation_id": conversation_id,
+                "direction": "inbound", "message_at": now.isoformat(),
+            },
+        ])
+        suggestion = {
+            "id": "suggestion-newer", "conversation_id": conversation_id,
+            "inbound_message_id": "in-old", "status": "approved_for_gmail",
+            "approved_at": now.isoformat(), "draft_text": "Old approved text",
+        }
+        fake_db.store["gg_lead_reply_suggestions"].append(suggestion)
+        assert get_approved_drafts() == []
+        assert suggestion["status"] == "superseded"
 
 
 class TestReplyToken:

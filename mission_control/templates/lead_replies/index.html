@@ -53,6 +53,18 @@
                 </div>
                 <p class="mc-text-muted">{{ item.subject or '(no subject)' }} · {{ item.message_at[:16]|replace('T', ' ') if item.message_at else '—' }}</p>
                 <div class="lead-reply-source">{{ item.inbound_body }}</div>
+                {% if item.thread_context|length > 1 %}
+                <details class="mc-mt-md mc-mb-md">
+                    <summary>Thread context · {{ item.thread_context|length }} recent messages</summary>
+                    {% for message in item.thread_context %}
+                    <div class="lead-reply-source mc-mt-sm">
+                        <strong>{{ 'Lead' if message.direction == 'inbound' else ('Draft' if message.direction == 'draft' else 'Matti') }}</strong>
+                        · {{ message.message_at[:16]|replace('T', ' ') if message.message_at else '—' }}
+                        <br>{{ message.body_text }}
+                    </div>
+                    {% endfor %}
+                </details>
+                {% endif %}
                 <p><strong>Why this question:</strong> {{ item.rationale }}</p>
                 {% if item.needs_coach_answer %}
                 <div class="gg-alert gg-alert--warning">
@@ -108,7 +120,7 @@
                         <td>{{ row.question_type|replace('_', ' ') }}</td>
                         <td>{{ row.sends }}</td>
                         <td>{{ row.replies }}</td>
-                        <td>{{ row.reply_rate }}%{% if row.sample_state == 'keep_collecting' %} · wait{% endif %}</td>
+                        <td>{{ row.reply_rate }}%</td>
                     </tr>
                     {% endfor %}
                     </tbody>

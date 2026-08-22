@@ -8,13 +8,14 @@ from mission_control.tests.conftest import make_deal, make_enrollment, make_sequ
 def _message(
     *, message_id="gmail-in-1", sender="Jane Lead <lead@example.com>",
     recipients=None, body="Training is going well.", is_draft=False,
-    date=None,
+    date=None, reply_to="",
 ):
     return {
         "id": message_id,
         "from": sender,
         "to": recipients or ["gravelgodcoaching+lead.0123456789abcdef0123456789abcdef@gmail.com"],
         "cc": [],
+        "reply_to": reply_to,
         "subject": "Re: how's training going?",
         "date": date or datetime.now(timezone.utc).isoformat(),
         "body": body,
@@ -236,6 +237,34 @@ class TestGmailIngestion:
         suggestions = fake_db.store["gg_lead_reply_suggestions"]
         assert [row["status"] for row in suggestions] == ["superseded", "suggested"]
 
+    def test_sequence_outbound_reply_to_token_is_preserved_as_automation(self, fake_db):
+        from mission_control.services.lead_nurture import ingest_gmail_sync
+
+        enrollment = make_enrollment(contact_email="lead@example.com")
+        send = make_sequence_send(
+            enrollment_id=enrollment["id"],
+            reply_token="0123456789abcdef0123456789abcdef",
+            question_type="training_status",
+        )
+        fake_db.store["gg_sequence_enrollments"].append(enrollment)
+        fake_db.store["gg_sequence_sends"].append(send)
+        outbound = _message(
+            message_id="gmail-sequence-out",
+            sender="Matti <matti@gravelgodcycling.com>",
+            recipients=["lead@example.com"],
+            reply_to=(
+                "Gravel God <gravelgodcoaching+lead."
+                "0123456789abcdef0123456789abcdef@gmail.com>"
+            ),
+        )
+
+        ingest_gmail_sync({"threads": [{"id": "thread-sequence", "messages": [outbound]}]})
+
+        stored = fake_db.store["gg_lead_messages"][0]
+        assert stored["direction"] == "outbound"
+        assert stored["sequence_send_id"] == send["id"]
+        assert stored["attribution_confidence"] == "exact"
+
 
 class TestDraftApproval:
     def _seed(self, fake_db):
@@ -393,6 +422,35 @@ class TestLearningMetrics:
         assert row["replies"] == 1
         assert row["substantive_replies"] == 1
         assert row["median_reply_hours"] == 2.0
+
+    def test_gmail_mirror_of_sequence_send_is_not_double_counted(self, fake_db):
+        from mission_control.services.lead_nurture import get_learning_metrics
+
+        now = datetime.now(timezone.utc)
+        send = make_sequence_send(
+            question_type="training_status", sent_at=(now - timedelta(hours=3)).isoformat(),
+        )
+        fake_db.store["gg_sequence_sends"].append(send)
+        fake_db.store["gg_lead_conversations"].append({"id": "conv-seq", "deal_id": None})
+        fake_db.store["gg_lead_messages"].extend([
+            {
+                "gmail_message_id": "out-seq", "conversation_id": "conv-seq",
+                "direction": "outbound", "question_type": "training_status",
+                "sequence_send_id": send["id"],
+                "message_at": (now - timedelta(hours=3)).isoformat(),
+            },
+            {
+                "gmail_message_id": "in-seq", "conversation_id": "conv-seq",
+                "direction": "inbound", "question_type": "other",
+                "sequence_send_id": send["id"], "reply_quality": "brief",
+                "message_at": (now - timedelta(hours=1)).isoformat(),
+            },
+        ])
+
+        report = get_learning_metrics()
+        row = next(row for row in report["question_rows"] if row["question_type"] == "training_status")
+        assert row["sends"] == 1
+        assert row["replies"] == 1
 
     def test_only_latest_manual_question_gets_reply_credit(self, fake_db):
         from mission_control.services.lead_nurture import get_learning_metrics

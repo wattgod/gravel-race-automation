@@ -152,6 +152,7 @@ function messagePayload_(message) {
     from: message.getFrom(),
     to: splitAddresses_(message.getTo()),
     cc: splitAddresses_(message.getCc()),
+    reply_to: message.getReplyTo(),
     subject: message.getSubject(),
     date: message.getDate().toISOString(),
     body: String(message.getPlainBody() || '').slice(0, MAX_MESSAGE_BODY_CHARS),

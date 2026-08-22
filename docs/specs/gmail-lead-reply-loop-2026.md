@@ -132,6 +132,9 @@ sound like engagement bait.
 ## Improvement loop
 
 - Compare actual sent questions, not merely suggested questions.
+- Use the tagged Reply-To to recognize Gmail's copy of an automated sequence
+  send. Count the sequence ledger once; do not count that mirrored message as
+  a second send or as a manual Matti question.
 - Attribute a lead's next reply to Matti's manual question when he has replied
   since the sequence email; do not double-credit the older automation.
 - Require at least 30 attributed sends per question type before review. Larger

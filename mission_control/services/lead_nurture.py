@@ -350,19 +350,32 @@ def _parse_message_at(value: str) -> datetime:
 
 
 def _reply_token(message: dict) -> str:
-    for value in (message.get("to", []) or []) + (message.get("cc", []) or []):
+    values = (message.get("to", []) or []) + (message.get("cc", []) or [])
+    # Inbound replies carry the tagged address in To. The original sequence
+    # send carries it in Reply-To. Reading both lets a Gmail backfill identify
+    # the automated outbound copy instead of misclassifying it as a manual
+    # Matti reply in the learning report.
+    values.append(message.get("reply_to", ""))
+    for value in values:
         match = _REPLY_TOKEN_RE.search(value or "")
         if match:
             return match.group(1).lower()
     return ""
 
 
-def _sequence_attribution(contact: dict, message: dict) -> tuple[dict | None, str]:
+def _exact_sequence_attribution(message: dict) -> tuple[dict | None, str]:
     token = _reply_token(message)
     if token:
         exact = db.select_one("gg_sequence_sends", match={"reply_token": token})
         if exact:
             return exact, "exact"
+    return None, "none"
+
+
+def _sequence_attribution(contact: dict, message: dict) -> tuple[dict | None, str]:
+    exact, confidence = _exact_sequence_attribution(message)
+    if exact:
+        return exact, confidence
 
     inbound_at = _parse_message_at(message.get("date", "")).isoformat()
     candidates: list[dict] = []
@@ -536,6 +549,11 @@ def _ingest_thread(thread: dict, candidate_map: dict[str, dict]) -> dict:
             # must never leave the marketing sequence free to send again.
             paused += _pause_marketing_sequences(contact)
             sequence_send, confidence = _sequence_attribution(contact, message)
+        elif direction == "outbound":
+            # Only exact Reply-To token attribution is safe for an outbound
+            # Gmail message. A nearest-send guess could mistake Matti's real
+            # reply for automation and erase it from the learning loop.
+            sequence_send, confidence = _exact_sequence_attribution(message)
         question_type = classify_question(body) if direction in {"outbound", "draft"} else "other"
 
         db.insert("gg_lead_messages", {
@@ -882,6 +900,11 @@ def get_learning_metrics(days: int = 90) -> dict:
     for conversation_messages in messages_by_conversation.values():
         for index, message in enumerate(conversation_messages):
             if message.get("direction") != "outbound":
+                continue
+            # The sequence ledger already counted this automated send. Gmail
+            # mirrors it for thread context, but it is not a second experiment
+            # and it is not a manual Matti question.
+            if message.get("sequence_send_id"):
                 continue
             question_type = message.get("question_type") or "other"
             bucket = bucket_for(question_type)

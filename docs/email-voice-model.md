@@ -32,6 +32,23 @@ voice is not a device kit, it is a register. Canonical copy:
 - **No links unless the link serves them concretely.** The reply is the click.
 - Sign-off: — Matti. Lowercase subjects, tiny, about them.
 
+## Reply register — Reflect → Give → Ask
+
+Broadcasts open the conversation; replies prove the relationship. A Matti reply
+uses the lightest structure that is still useful:
+
+1. Reflect one specific detail so the person knows they were read.
+2. Give one answer, connection, or practical implication when it is grounded.
+3. Ask one easy question. One question mark is the default.
+
+Do not stack three questions, turn a short answer into a coaching monologue, or
+add a pitch when the person did not ask about help. Clever metaphors are rare:
+if the line draws more attention than the person, cut it. Early questions should
+be easy to answer (“still deciding or registered?”, “what keeps getting in the
+way?”, “what workout do you look forward to?”). Invite a longer story only after
+the person is engaged. Measurement and examples:
+`docs/specs/gmail-lead-reply-loop-2026.md`.
+
 ## Brand skins (same register, different accents)
 
 | | Gravel God | Roadie Labs | XC Ski Labs (proposed) |

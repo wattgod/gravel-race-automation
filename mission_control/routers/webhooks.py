@@ -22,6 +22,10 @@ _EMAIL_RE = re.compile(r"^[^@\s]{1,64}@[^@\s]{1,255}$")
 _SLUG_RE = re.compile(r"^[a-z0-9][a-z0-9-]{0,80}$")
 _MAX_NAME_LEN = 200
 _MAX_SOURCE_LEN = 100
+_UUID_RE = re.compile(
+    r"^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$",
+    re.IGNORECASE,
+)
 
 # Gravel guide chapter title -> URL slug. Mirrors the "id" field of each chapter
 # in guide/gravel-guide-content.json, which generate_guide_cluster.py uses as the
@@ -69,6 +73,11 @@ def _validate_email(email: str) -> str:
 def _truncate(value: str, max_len: int) -> str:
     """Truncate string to max length."""
     return value[:max_len] if value else ""
+
+
+def _require_webhook_secret(authorization: str) -> None:
+    if not WEBHOOK_SECRET or authorization != f"Bearer {WEBHOOK_SECRET}":
+        raise HTTPException(status_code=401, detail="Invalid webhook secret")
 
 
 @router.post("/intake")
@@ -388,7 +397,7 @@ async def resend_webhook(
     if not resend_id:
         return {"status": "ignored", "reason": "no email_id"}
 
-    if event_type in ("email.opened", "email.clicked", "email.bounced"):
+    if event_type in ("email.opened", "email.clicked", "email.bounced", "email.complained"):
         success = record_event(resend_id, event_type)
         return {"status": "recorded" if success else "not_found"}
 
@@ -437,3 +446,65 @@ async def resend_inbound_webhook(
     # Log even if no matching athlete
     db.log_action("inbound_email", "contact", from_email, f"Reply (no athlete match): {subject}")
     return {"status": "recorded", "athlete_slug": None}
+
+
+# ---------------------------------------------------------------------------
+# Gmail lead bridge — Apps Script relay, approval-only drafts, never sends
+# ---------------------------------------------------------------------------
+
+@router.get("/gmail-sync/candidates")
+async def gmail_sync_candidates(
+    request: Request,
+    authorization: str = Header(""),
+):
+    _check_rate_limit(request)
+    _require_webhook_secret(authorization)
+    from mission_control.services.lead_nurture import get_sync_candidates
+
+    return {"candidates": get_sync_candidates()}
+
+
+@router.post("/gmail-sync")
+async def gmail_sync(
+    request: Request,
+    authorization: str = Header(""),
+):
+    _check_rate_limit(request)
+    _require_webhook_secret(authorization)
+    payload = await request.json()
+    if not isinstance(payload, dict) or not isinstance(payload.get("threads", []), list):
+        raise HTTPException(status_code=400, detail="threads must be a list")
+    from mission_control.services.lead_nurture import ingest_gmail_sync
+
+    return ingest_gmail_sync(payload)
+
+
+@router.get("/gmail-sync/drafts/ready")
+async def gmail_sync_ready_drafts(
+    request: Request,
+    authorization: str = Header(""),
+):
+    _check_rate_limit(request)
+    _require_webhook_secret(authorization)
+    from mission_control.services.lead_nurture import get_approved_drafts
+
+    return {"drafts": get_approved_drafts()}
+
+
+@router.post("/gmail-sync/drafts/{suggestion_id}/receipt")
+async def gmail_sync_draft_receipt(
+    suggestion_id: str,
+    request: Request,
+    authorization: str = Header(""),
+):
+    _check_rate_limit(request)
+    _require_webhook_secret(authorization)
+    if not _UUID_RE.match(suggestion_id):
+        raise HTTPException(status_code=400, detail="Invalid suggestion ID")
+    payload = await request.json()
+    from mission_control.services.lead_nurture import record_draft_receipt
+
+    result = record_draft_receipt(suggestion_id, payload if isinstance(payload, dict) else {})
+    if not result:
+        raise HTTPException(status_code=409, detail="Suggestion is not ready for a Gmail draft")
+    return result

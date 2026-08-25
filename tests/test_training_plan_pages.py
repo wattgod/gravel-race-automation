@@ -134,6 +134,7 @@ class TestCustomPlanPreview:
     def test_debounces_manual_changes_and_aborts_stale_request(self, html):
         assert "setTimeout(load,immediate?0:350)" in html
         assert "new AbortController()" in html
+        assert "Stale preview contract" in html
 
     def test_tracks_interaction_without_auto_firing(self, html):
         assert "plan_preview_update" in html

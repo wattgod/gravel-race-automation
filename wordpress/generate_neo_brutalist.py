@@ -39,6 +39,7 @@ from brand_tokens import (
     get_font_face_css,
     get_preload_hints,
     get_tokens_css,
+    get_ab_head_snippet,
     get_ga4_head_snippet,
 )
 from cookie_consent import get_consent_banner_html
@@ -129,6 +130,13 @@ def parse_event_dates(date_str: str) -> tuple[str | None, str | None]:
         logger.debug("Empty date string — skipping")
         return None, None
 
+    def valid_iso(year: str, month: str, day: str) -> str | None:
+        """Return a real ISO date, never a plausible-looking invalid one."""
+        try:
+            return date(int(year), int(month), int(day)).isoformat()
+        except (TypeError, ValueError):
+            return None
+
     # Strip day-of-week and ordinal suffixes
     clean = re.sub(
         r'(?:Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday),?\s*',
@@ -145,10 +153,10 @@ def parse_event_dates(date_str: str) -> tuple[str | None, str | None]:
         end_month = MONTH_NUMBERS.get(cross.group(4).lower())
         end_day = cross.group(5)
         if start_month and end_month:
-            return (
-                f"{year}-{start_month}-{int(start_day):02d}",
-                f"{year}-{end_month}-{int(end_day):02d}",
-            )
+            start = valid_iso(year, start_month, start_day)
+            end = valid_iso(year, end_month, end_day)
+            if start and end:
+                return start, end
 
     # Fall back to same-month: "2026: June 15" or "2026: August 19-23"
     same = re.search(r'(\d{4}).*?(\w+)\s+(\d+)(?:\s*-\s*(\d+))?', clean)
@@ -158,9 +166,25 @@ def parse_event_dates(date_str: str) -> tuple[str | None, str | None]:
         if month:
             start_day = same.group(3)
             end_day = same.group(4)
-            start = f"{year}-{month}-{int(start_day):02d}"
-            end = f"{year}-{month}-{int(end_day):02d}" if end_day else start
-            return start, end
+            start = valid_iso(year, month, start_day)
+            end = valid_iso(year, month, end_day) if end_day else start
+            if start and end:
+                return start, end
+
+    # Common profile form: "July 5, 2026" (optionally with notes/time).
+    month_first = re.search(r'\b([A-Za-z]+)\s+(\d{1,2}),\s*(\d{4})\b', clean)
+    if month_first:
+        month_name, day, year = month_first.groups()
+        month = MONTH_NUMBERS.get(month_name.lower())
+        if month is None:
+            try:
+                month = datetime.strptime(month_name[:3], '%b').strftime('%m')
+            except ValueError:
+                month = None
+        if month:
+            parsed = valid_iso(year, month, day)
+            if parsed:
+                return parsed, parsed
 
     # If the string contains a year but we still couldn't parse it, warn
     if re.search(r'\d{4}', date_str):
@@ -394,6 +418,26 @@ def _merge_youtube_quotes(youtube_data: dict) -> list:
     return merged[:4]
 
 
+def _normalize_surface_breakdown(raw: Any) -> dict:
+    """Normalize historical flat and route-keyed surface composition shapes.
+
+    Newer profiles use ``{"100 mi": {"gravel": 90}}`` while many legacy
+    road/gran-fondo profiles use ``{"paved": 100, "gravel": 0}``. Invalid
+    scalar values mean no chart data and must not break full-catalog renders.
+    """
+    if not isinstance(raw, dict) or not raw:
+        return {}
+
+    if all(not isinstance(value, dict) for value in raw.values()):
+        return {'Course': raw}
+
+    return {
+        str(label): surfaces
+        for label, surfaces in raw.items()
+        if isinstance(surfaces, dict) and surfaces
+    }
+
+
 def normalize_race_data(data: dict) -> dict:
     """Normalize race data from new-format JSON into a consistent shape
     with all fields the generator expects. Computes derived fields if missing."""
@@ -406,6 +450,7 @@ def normalize_race_data(data: dict) -> dict:
     bo = {'summary': bo_raw} if isinstance(bo_raw, str) else bo_raw
     vitals = race.get('vitals', {})
     course = race.get('course_description', {})
+    terrain = race.get('terrain', {})
     history = race.get('history', {})
     logistics = race.get('logistics', {})
     final_verdict = race.get('final_verdict', {})
@@ -524,7 +569,10 @@ def normalize_race_data(data: dict) -> dict:
         },
         'biased_opinion': {
             'verdict': bo.get('verdict', ''),
-            'summary': bo.get('summary', ''),
+            # Historical profiles use either ``summary`` or ``overview`` for
+            # the same editor-written judgment. Preserve both instead of
+            # silently dropping the verdict on older profiles.
+            'summary': bo.get('summary', '') or bo.get('overview', ''),
             'strengths': bo.get('strengths', []),
             'weaknesses': bo.get('weaknesses', []),
             'bottom_line': bo.get('bottom_line', ''),
@@ -532,7 +580,10 @@ def normalize_race_data(data: dict) -> dict:
         'final_verdict': {
             'score': final_verdict.get('score', ''),
             'one_liner': final_verdict.get('one_liner', ''),
-            'should_you_race': final_verdict.get('should_you_race', ''),
+            'should_you_race': (
+                final_verdict.get('should_you_race', '')
+                or final_verdict.get('full_verdict', '')
+            ),
             'alternatives': final_verdict.get('alternatives', ''),
         },
         'course': {
@@ -542,6 +593,13 @@ def normalize_race_data(data: dict) -> dict:
             'ridewithgps_id': course.get('ridewithgps_id'),
             'ridewithgps_name': course.get('ridewithgps_name', ''),
             'map_url': course.get('map_url', ''),
+            # Historical data has used both locations. Terrain is canonical;
+            # course_description remains a compatibility fallback.
+            'surface_breakdown': _normalize_surface_breakdown(
+                terrain.get('surface_breakdown')
+                or course.get('surface_breakdown')
+                or {}
+            ),
         },
         'history': {
             'founded': history.get('founded'),
@@ -565,7 +623,7 @@ def normalize_race_data(data: dict) -> dict:
         'youtube_quotes': _merge_youtube_quotes(youtube_data),
         'rider_intel': youtube_data.get('rider_intel', {}),
         'series': race.get('series', {}),
-        'terrain': race.get('terrain', {}),
+        'terrain': terrain,
         'climate_data': race.get('climate', {}),
         'citations': race.get('citations', []),
         'racer_rating': {
@@ -600,6 +658,16 @@ def _safe_json_for_script(obj, **kwargs) -> str:
     return raw.replace("</", "<\\/")
 
 
+def _parse_score(raw: Any, default: float = 0) -> float:
+    """Parse numeric score fields without crashing on None/empty/string data."""
+    if raw is None or raw == '' or isinstance(raw, bool):
+        return default
+    try:
+        return float(raw)
+    except (TypeError, ValueError):
+        return default
+
+
 
 def score_bar_color(score: int) -> str:
     """Return brand-consistent bar color based on score (1-5).
@@ -632,7 +700,7 @@ RADAR_LABELS = {
 
 
 def _radar_svg(dims: list, explanations: dict, color_fill: str, color_stroke: str,
-               label: str, total: int, max_total: int, idx_offset: int = 0) -> str:
+               label: str, total: int, max_total: int, group_id: str) -> str:
     """Generate an SVG radar chart for a set of dimensions."""
     n = len(dims)
     w, h = 440, 380
@@ -658,13 +726,17 @@ def _radar_svg(dims: list, explanations: dict, color_fill: str, color_stroke: st
     for i in range(n):
         angle = angle_offset + i * 2 * math.pi / n
         x2, y2 = point(angle, r)
-        axis_lines.append(f'<line x1="{cx}" y1="{cy}" x2="{x2:.1f}" y2="{y2:.1f}" stroke="{COLORS["tan"]}" stroke-width="0.5"/>')
+        axis_lines.append(
+            f'<line x1="{cx}" y1="{cy}" x2="{x2:.1f}" y2="{y2:.1f}" '
+            f'stroke="{COLORS["tan"]}" stroke-width="0.5" class="gg-radar-spoke" '
+            f'data-rating-group="{group_id}" data-rating-key="{esc(dims[i])}"/>'
+        )
 
     # Data polygon
     scores = []
     for dim in dims:
         entry = explanations.get(dim, {})
-        scores.append(entry.get('score', 0))
+        scores.append(max(0, min(5, _parse_score(entry.get('score', 0)))))
 
     data_pts = ' '.join(
         f'{point(angle_offset + i * 2 * math.pi / n, r * s / 5)[0]:.1f},'
@@ -678,13 +750,15 @@ def _radar_svg(dims: list, explanations: dict, color_fill: str, color_stroke: st
         angle = angle_offset + i * 2 * math.pi / n
         dx, dy = point(angle, r * s / 5)
         dim_label = RADAR_LABELS.get(dims[i], dims[i].replace('_', ' ').title())
+        score_label = f'{s:g}'
         # Invisible larger hit area + visible dot + hover ring
         dots.append(
             f'<circle cx="{dx:.1f}" cy="{dy:.1f}" r="12" fill="transparent" '
-            f'class="gg-radar-hit" data-accordion-idx="{idx_offset + i}" '
-            f'data-label="{esc(dim_label)}" data-score="{s}" style="cursor:pointer"/>'
+            f'class="gg-radar-hit" data-rating-group="{group_id}" data-rating-key="{esc(dims[i])}" '
+            f'data-label="{esc(dim_label)}" data-score="{score_label}" tabindex="0" role="button" '
+            f'aria-label="Explain {esc(dim_label)}, scored {score_label} out of 5"/>'
             f'<circle cx="{dx:.1f}" cy="{dy:.1f}" r="5" fill="{color_stroke}" '
-            f'stroke="{COLORS["dark_brown"]}" stroke-width="1.5" class="gg-radar-dot" pointer-events="none" opacity="0"/>'
+            f'stroke="{COLORS["dark_brown"]}" stroke-width="1.5" class="gg-radar-dot" pointer-events="none"/>'
             f'<circle cx="{dx:.1f}" cy="{dy:.1f}" r="10" fill="none" '
             f'stroke="{color_stroke}" stroke-width="1.5" opacity="0" '
             f'class="gg-radar-ring" pointer-events="none"/>'
@@ -697,6 +771,7 @@ def _radar_svg(dims: list, explanations: dict, color_fill: str, color_stroke: st
         lx, ly = point(angle, label_r)
         dim_label = RADAR_LABELS.get(dim, dim.replace('_', ' ').title())
         s = scores[i]
+        score_label = f'{s:g}'
         anchor = 'middle'
         if lx < cx - 15:
             anchor = 'end'
@@ -710,77 +785,94 @@ def _radar_svg(dims: list, explanations: dict, color_fill: str, color_stroke: st
             f'<text x="{lx:.1f}" y="{ly + 7:.1f}" text-anchor="{anchor}" '
             f'dominant-baseline="central" font-size="10" font-weight="700" '
             f'fill="{color_stroke}" font-family="Sometype Mono, monospace">'
-            f'{s}/5</text>'
+            f'{score_label}/5</text>'
         )
 
     # Total in center
     center_label = (
         f'<text x="{cx}" y="{cy - 6}" text-anchor="middle" dominant-baseline="central" '
         f'font-size="22" font-weight="700" fill="{color_stroke}" font-family="Sometype Mono, monospace">'
-        f'{total}</text>'
+        f'{esc(total)}</text>'
         f'<text x="{cx}" y="{cy + 10}" text-anchor="middle" dominant-baseline="central" '
         f'font-size="9" fill="{COLORS["secondary_brown"]}" font-family="Sometype Mono, monospace" letter-spacing="1">'
         f'/{max_total}</text>'
     )
 
-    return f'''<div class="gg-radar-chart" data-color="{color_stroke}">
-    <svg viewBox="0 0 {w} {h}" xmlns="http://www.w3.org/2000/svg" class="gg-radar-svg">
+    title_id = f'gg-radar-{group_id}-title'
+    return f'''<div class="gg-radar-chart" data-rating-group="{group_id}" data-color="{color_stroke}">
+    <svg viewBox="0 0 {w} {h}" xmlns="http://www.w3.org/2000/svg" class="gg-radar-svg" role="img" aria-labelledby="{title_id}">
+      <title id="{title_id}">{esc(label)} ratings for this race. Select a point for its explanation.</title>
       {''.join(grid_lines)}
       {''.join(axis_lines)}
-      <polygon points="{data_pts}" fill="{color_fill}" class="gg-radar-polygon" fill-opacity="0" stroke="{color_stroke}" stroke-width="2.5" stroke-dasharray="1000" stroke-dashoffset="1000"/>
+      <polygon points="{data_pts}" fill="{color_fill}" class="gg-radar-polygon" fill-opacity="0.2" stroke="{color_stroke}" stroke-width="2.5"/>
       {''.join(dots)}
       {''.join(labels)}
       {center_label}
       <rect class="gg-radar-tooltip-bg" x="0" y="0" width="0" height="0" fill="{COLORS['near_black']}" rx="0" opacity="0"/>
-      <text class="gg-radar-tooltip-text" x="0" y="0" fill="#fff" font-size="10" font-weight="700" font-family="Sometype Mono, monospace" opacity="0"></text>
+      <text class="gg-radar-tooltip-text" x="0" y="0" fill="{COLORS['white']}" font-size="10" font-weight="700" font-family="Sometype Mono, monospace" opacity="0"></text>
     </svg>
     <div class="gg-radar-label">{esc(label)}</div>
   </div>'''
 
 
-def build_radar_charts(explanations: dict, course_total: int, opinion_total: int) -> str:
-    """Build side-by-side radar charts for Course Profile and Editorial dimensions."""
-    course_chart = _radar_svg(COURSE_DIMS, explanations,
-                              COLORS['teal'], COLORS['teal'],
-                              'Course Profile', course_total, 35, idx_offset=0)
-    editorial_chart = _radar_svg(OPINION_DIMS, explanations,
-                                 COLORS['gold'], COLORS['gold'],
-                                 'Editorial', opinion_total, 35, idx_offset=7)
-    return f'<div class="gg-radar-pair">\n{course_chart}\n{editorial_chart}\n</div>'
-
-
-def build_accordion_html(dims: list, explanations: dict, idx_offset: int = 0) -> str:
-    """Build accordion HTML for a list of dimension keys.
-    idx_offset shifts data-idx for tile click targeting (0 for course, 7 for editorial)."""
-    items = []
+def _build_rating_tiles(dims: list, explanations: dict, group_id: str) -> str:
+    """Build keyboard-operable score tiles and one shared explanation region."""
+    tiles = []
+    first_label = ''
+    first_score = 0
+    first_explanation = ''
     for i, dim in enumerate(dims):
         entry = explanations.get(dim, {})
-        score = entry.get('score', 0)
-        explanation = entry.get('explanation', '')
         label = DIM_LABELS.get(dim, dim.replace('_', ' ').title())
-        pct = int((score / 5) * 100) if score else 0
-        has_content = bool(explanation.strip())
-        bar_color = score_bar_color(score)
+        score = max(0, min(5, _parse_score(entry.get('score', 0))))
+        score_label = f'{score:g}'
+        explanation = entry.get('explanation', '').strip() or 'No written explanation is available yet.'
+        if i == 0:
+            first_label, first_score, first_explanation = label, score, explanation
+        pressed = 'true' if i == 0 else 'false'
+        tiles.append(f'''<button type="button" class="gg-rating-tile" data-rating-group="{group_id}" data-rating-key="{esc(dim)}" aria-pressed="{pressed}">
+          <span class="gg-rating-tile-label">{esc(label)}</span>
+          <span class="gg-rating-tile-score">{score_label}<span>/5</span></span>
+          <span class="gg-rating-source" hidden>{esc(explanation)}</span>
+        </button>''')
 
-        trigger_class = 'gg-accordion-trigger'
-        arrow = '&#x25B6;' if has_content else ''
+    return f'''<div class="gg-rating-breakdown" aria-label="{esc(group_id.title())} score breakdown">
+        {''.join(tiles)}
+      </div>
+      <div class="gg-rating-explanation" id="gg-rating-detail-{group_id}" role="status" aria-live="polite">
+        <div class="gg-rating-explanation-head">
+          <span class="gg-rating-explanation-label">{esc(first_label)}</span>
+          <span class="gg-rating-explanation-score">{first_score:g}/5</span>
+        </div>
+        <p>{esc(first_explanation)}</p>
+      </div>'''
 
-        item = f'''<div class="gg-accordion-item" data-accordion-idx="{idx_offset + i}">
-  <button class="{trigger_class}" aria-expanded="false"{' data-no-content="true"' if not has_content else ''}>
-    <span class="gg-accordion-label">{esc(label)}</span>
-    <span class="gg-accordion-bar-track"><span class="gg-accordion-bar-fill" style="width:{pct}%;background:{bar_color}"></span></span>
-    <span class="gg-accordion-score">{score}/5</span>
-    <span class="gg-accordion-arrow">{arrow}</span>
-  </button>'''
-        if has_content:
-            item += f'''
-  <div class="gg-accordion-panel">
-    <div class="gg-accordion-content">{esc(explanation)}</div>
-  </div>'''
-        item += '\n</div>'
-        items.append(item)
 
-    return '<div class="gg-accordion">\n' + '\n'.join(items) + '\n</div>'
+def build_radar_charts(explanations: dict, course_total: int, opinion_total: int) -> str:
+    """Build tabbed, click-to-explain Course and Editorial radar charts."""
+    course_chart = _radar_svg(COURSE_DIMS, explanations,
+                              COLORS['teal'], COLORS['teal'],
+                              'Course Profile', course_total, 35, group_id='course')
+    editorial_chart = _radar_svg(OPINION_DIMS, explanations,
+                                 COLORS['gold'], COLORS['gold'],
+                                 'Editorial', opinion_total, 35, group_id='editorial')
+    course_tiles = _build_rating_tiles(COURSE_DIMS, explanations, 'course')
+    editorial_tiles = _build_rating_tiles(OPINION_DIMS, explanations, 'editorial')
+    return f'''<div class="gg-rating-tabs">
+      <div class="gg-rating-tablist" role="tablist" aria-label="Rating categories">
+        <button type="button" id="gg-rating-tab-course" role="tab" aria-selected="true" aria-controls="gg-rating-panel-course" tabindex="0">Course <span>{esc(course_total)}/35</span></button>
+        <button type="button" id="gg-rating-tab-editorial" role="tab" aria-selected="false" aria-controls="gg-rating-panel-editorial" tabindex="-1">Editorial <span>{esc(opinion_total)}/35</span></button>
+      </div>
+      <div id="gg-rating-panel-course" class="gg-rating-panel" role="tabpanel" aria-labelledby="gg-rating-tab-course" data-rating-group="course">
+        {course_chart}
+        {course_tiles}
+      </div>
+      <div id="gg-rating-panel-editorial" class="gg-rating-panel" role="tabpanel" aria-labelledby="gg-rating-tab-editorial" data-rating-group="editorial" hidden>
+        {editorial_chart}
+        {editorial_tiles}
+      </div>
+      <a class="gg-rating-methodology" href="/race/methodology/">How the scoring works &rarr;</a>
+    </div>'''
 
 
 def build_sticky_cta(race_name: str, slug: str = "") -> str:
@@ -790,7 +882,7 @@ def build_sticky_cta(race_name: str, slug: str = "") -> str:
   <div class="gg-sticky-cta-inner">
     <span class="gg-sticky-cta-name">{esc(race_name)}</span>
     <div style="display:flex;align-items:center;gap:12px">
-      <a href="{plan_href}" class="gg-btn" id="gg-sticky-cta-link"><span id="gg-sticky-cta-text" data-ab="race_sticky_cta">BUILD MY PLAN &mdash; $15/WK</span></a>
+      <a href="{plan_href}" class="gg-btn" id="gg-sticky-cta-link" data-cta="build_plan"><span id="gg-sticky-cta-text" data-ab="race_sticky_cta">BUILD MY PLAN &mdash; $15/WK</span></a>
       <button class="gg-sticky-dismiss" id="gg-sticky-dismiss" aria-label="Dismiss">&times;</button>
     </div>
   </div>
@@ -801,16 +893,6 @@ def build_inline_js() -> str:
     """Build the inline JavaScript for all interactive features."""
     header_js = get_site_header_js()
     return '<script>\n' + header_js + r'''
-// Accordion toggle (independent mode — multiple can be open)
-document.querySelectorAll('.gg-accordion-trigger').forEach(function(trigger) {
-  if (trigger.dataset.noContent) return;
-  trigger.addEventListener('click', function() {
-    var item = trigger.closest('.gg-accordion-item');
-    var expanded = item.classList.toggle('is-open');
-    trigger.setAttribute('aria-expanded', expanded);
-  });
-});
-
 // Race day countdown (HTML shows date for crawlers; JS replaces with day count)
 (function() {
   var cd = document.querySelector('.gg-countdown');
@@ -836,46 +918,82 @@ document.querySelectorAll('.gg-accordion-trigger').forEach(function(trigger) {
   }
 })();
 
-// Hero score counter animation (starts from 0, real score is in HTML for crawlers)
+// Tabbed radar chart interactions — every GA4 event below follows a real click
+// or keyboard activation. Data-derived explanation copy moves via textContent.
 (function() {
-  var el = document.querySelector('.gg-hero-score-number');
-  if (!el) return;
-  var target = parseInt(el.getAttribute('data-target'), 10);
-  if (!target) return;
-  el.textContent = '0';
-  var duration = 1500;
-  var start = null;
-  function step(ts) {
-    if (!start) start = ts;
-    var progress = Math.min((ts - start) / duration, 1);
-    var ease = 1 - Math.pow(1 - progress, 3);
-    el.textContent = Math.round(ease * target);
-    if (progress < 1) requestAnimationFrame(step);
-  }
-  requestAnimationFrame(step);
-})();
-
-// Radar chart interactions
-(function() {
-  // Draw-in animation on scroll
-  if ('IntersectionObserver' in window) {
-    var radarObs = new IntersectionObserver(function(entries) {
-      entries.forEach(function(entry) {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('is-drawn');
-          // Stagger dot reveal
-          var dots = entry.target.querySelectorAll('.gg-radar-dot');
-          dots.forEach(function(dot, i) {
-            dot.style.transitionDelay = (0.8 + i * 0.08) + 's';
-          });
-          radarObs.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.3 });
-    document.querySelectorAll('.gg-radar-chart').forEach(function(chart) {
-      radarObs.observe(chart);
+  var tabs = Array.prototype.slice.call(document.querySelectorAll('.gg-rating-tablist [role="tab"]'));
+  function setTab(tab, shouldTrack) {
+    tabs.forEach(function(candidate) {
+      var selected = candidate === tab;
+      candidate.setAttribute('aria-selected', selected ? 'true' : 'false');
+      candidate.setAttribute('tabindex', selected ? '0' : '-1');
+      var panel = document.getElementById(candidate.getAttribute('aria-controls'));
+      if (panel) panel.hidden = !selected;
     });
+    var activePanel = document.getElementById(tab.getAttribute('aria-controls'));
+    if (shouldTrack && typeof gtag === 'function') {
+      gtag('event', 'rating_tab_click', {rating_group: activePanel ? activePanel.getAttribute('data-rating-group') : ''});
+    }
   }
+  tabs.forEach(function(tab, index) {
+    tab.addEventListener('click', function() { setTab(tab, true); });
+    tab.addEventListener('keydown', function(event) {
+      var next = index;
+      if (event.key === 'ArrowRight') next = (index + 1) % tabs.length;
+      else if (event.key === 'ArrowLeft') next = (index - 1 + tabs.length) % tabs.length;
+      else if (event.key === 'Home') next = 0;
+      else if (event.key === 'End') next = tabs.length - 1;
+      else return;
+      event.preventDefault();
+      tabs[next].focus();
+      setTab(tabs[next], true);
+    });
+  });
+
+  function findTile(panel, key) {
+    var tiles = panel.querySelectorAll('.gg-rating-tile');
+    for (var i = 0; i < tiles.length; i++) {
+      if (tiles[i].getAttribute('data-rating-key') === key) return tiles[i];
+    }
+    return null;
+  }
+  function selectDimension(group, key, shouldTrack) {
+    var panel = document.getElementById('gg-rating-panel-' + group);
+    if (!panel) return;
+    var tile = findTile(panel, key);
+    if (!tile) return;
+    panel.querySelectorAll('.gg-rating-tile').forEach(function(candidate) {
+      candidate.setAttribute('aria-pressed', candidate === tile ? 'true' : 'false');
+    });
+    panel.querySelectorAll('.gg-radar-hit').forEach(function(hit) {
+      var active = hit.getAttribute('data-rating-key') === key;
+      hit.classList.toggle('is-active', active);
+      var ring = hit.nextElementSibling ? hit.nextElementSibling.nextElementSibling : null;
+      if (ring) ring.style.opacity = active ? '1' : '0';
+    });
+    panel.querySelectorAll('.gg-radar-spoke').forEach(function(spoke) {
+      spoke.classList.toggle('is-active', spoke.getAttribute('data-rating-key') === key);
+    });
+    var detail = document.getElementById('gg-rating-detail-' + group);
+    var source = tile.querySelector('.gg-rating-source');
+    if (detail && source) {
+      detail.querySelector('.gg-rating-explanation-label').textContent = tile.querySelector('.gg-rating-tile-label').textContent;
+      detail.querySelector('.gg-rating-explanation-score').textContent = tile.querySelector('.gg-rating-tile-score').textContent;
+      detail.querySelector('p').textContent = source.textContent;
+    }
+    if (shouldTrack && typeof gtag === 'function') {
+      gtag('event', 'rating_criterion_click', {rating_group: group, rating_criterion: key});
+    }
+  }
+  document.querySelectorAll('.gg-rating-tile').forEach(function(tile) {
+    tile.addEventListener('click', function() {
+      selectDimension(tile.getAttribute('data-rating-group'), tile.getAttribute('data-rating-key'), true);
+    });
+  });
+  document.querySelectorAll('.gg-rating-panel').forEach(function(panel) {
+    var initial = panel.querySelector('.gg-rating-tile[aria-pressed="true"]');
+    if (initial) selectDimension(initial.getAttribute('data-rating-group'), initial.getAttribute('data-rating-key'), false);
+  });
 
   // Click + hover on data points
   document.querySelectorAll('.gg-radar-hit').forEach(function(hit) {
@@ -884,7 +1002,7 @@ document.querySelectorAll('.gg-accordion-trigger').forEach(function(trigger) {
     var tooltipBg = svg.querySelector('.gg-radar-tooltip-bg');
     var tooltipText = svg.querySelector('.gg-radar-tooltip-text');
 
-    hit.addEventListener('mouseenter', function() {
+    function showTip() {
       if (ring) ring.style.opacity = '1';
       // Show tooltip
       var label = hit.getAttribute('data-label');
@@ -903,28 +1021,27 @@ document.querySelectorAll('.gg-accordion-trigger').forEach(function(trigger) {
       tooltipBg.setAttribute('width', tLen);
       tooltipBg.setAttribute('height', 22);
       tooltipBg.style.opacity = '0.9';
-    });
+    }
 
-    hit.addEventListener('mouseleave', function() {
-      if (ring) ring.style.opacity = '0';
+    function hideTip() {
+      if (ring && !hit.classList.contains('is-active')) ring.style.opacity = '0';
       tooltipText.style.opacity = '0';
       tooltipBg.style.opacity = '0';
-    });
+    }
+    hit.addEventListener('mouseenter', showTip);
+    hit.addEventListener('focus', showTip);
+    hit.addEventListener('mouseleave', hideTip);
+    hit.addEventListener('blur', hideTip);
 
-    // Click → open accordion and scroll
-    hit.addEventListener('click', function() {
-      var idx = hit.getAttribute('data-accordion-idx');
-      var target = document.querySelector('.gg-accordion-item[data-accordion-idx="' + idx + '"]');
-      if (!target) return;
-      if (!target.classList.contains('is-open')) {
-        target.classList.add('is-open');
-        var trigger = target.querySelector('.gg-accordion-trigger');
-        if (trigger) trigger.setAttribute('aria-expanded', 'true');
+    function activate() {
+      selectDimension(hit.getAttribute('data-rating-group'), hit.getAttribute('data-rating-key'), true);
+    }
+    hit.addEventListener('click', activate);
+    hit.addEventListener('keydown', function(event) {
+      if (event.key === 'Enter' || event.key === ' ') {
+        event.preventDefault();
+        activate();
       }
-      // Brief highlight
-      target.classList.add('is-highlighted');
-      setTimeout(function() { target.classList.remove('is-highlighted'); }, 1500);
-      target.scrollIntoView({ behavior: 'smooth', block: 'center' });
     });
   });
 })();
@@ -959,19 +1076,6 @@ document.querySelectorAll('.gg-accordion-trigger').forEach(function(trigger) {
   }, { threshold: 0.5 });
   document.querySelectorAll('.gg-stat-countable').forEach(function(el) {
     statObs.observe(el);
-  });
-})();
-
-// Difficulty gauge fill animation
-(function() {
-  if (!('IntersectionObserver' in window)) return;
-  document.querySelectorAll('.gg-difficulty-fill').forEach(function(el) {
-    new IntersectionObserver(function(entries, obs) {
-      if (entries[0].isIntersecting) {
-        el.style.width = el.getAttribute('data-width') + '%';
-        obs.unobserve(el);
-      }
-    }, { threshold: 0.5 }).observe(el);
   });
 })();
 
@@ -1265,38 +1369,20 @@ document.querySelectorAll('.gg-faq-question').forEach(function(q) {
   });
 });
 
-// CTA click tracking — GA4
-// Preparation strip — weeks-to-race countdown + live plan price.
-// Server renders generic copy; only a valid FUTURE date upgrades it, so the
-// stale-date profiles degrade gracefully instead of showing a wrong price.
-// Pricing constants mirror webhook/app.py compute_plan_price.
-(function() {
-  var strip = document.getElementById('prep-strip');
-  if (!strip) return;
-  var dateStr = strip.getAttribute('data-race-date');
-  if (!dateStr) return;
-  var race = new Date(dateStr + 'T00:00:00');
-  if (isNaN(race.getTime())) return;
-  var today = new Date(); today.setHours(0, 0, 0, 0);
-  var days = Math.ceil((race - today) / 86400000);
-  if (days <= 7) return;
-  var weeks = Math.max(4, Math.ceil(days / 7));
-  var price = Math.min(weeks * 15, 249);
-  var cd = document.getElementById('gg-prep-countdown');
-  if (cd) cd.textContent = weeks + ' WEEKS OUT';
-  var cta = document.getElementById('gg-prep-cta');
-  if (cta) cta.textContent = 'BUILD MY ' + weeks + '-WEEK PLAN — $' + price;
-})();
-
+// CTA click tracking — GA4. Explicit data-cta values keep copy tests from
+// silently changing event classification.
 (function() {
   if (typeof gtag !== 'function') return;
-  document.querySelectorAll('a.gg-btn, a.gg-btn--outline, a.gg-prep-kit-link, a.gg-email-capture-link').forEach(function(link) {
+  var page = document.querySelector('.gg-neo-brutalist-page');
+  var raceSlug = page ? (page.getAttribute('data-race-slug') || '') : '';
+  var pageFormat = page ? (page.getAttribute('data-page-format') || '') : '';
+  document.querySelectorAll('a[data-cta], a.gg-btn, a.gg-btn--outline, a.gg-prep-kit-link, a.gg-email-capture-link').forEach(function(link) {
     link.addEventListener('click', function() {
       var text = this.textContent.trim().replace(/\s+/g, ' ');
       var href = this.getAttribute('href') || '';
       var T = text.toUpperCase();
-      var cta_type = 'other';
-      if (T.indexOf('BUILD MY') !== -1) cta_type = 'build_plan';
+      var cta_type = this.getAttribute('data-cta') || 'other';
+      if (cta_type === 'other' && T.indexOf('BUILD MY') !== -1) cta_type = 'build_plan';
       else if (T.indexOf('PREP KIT') !== -1) cta_type = 'prep_kit';
       else if (T.indexOf('COACHING') !== -1) cta_type = 'coaching';
       var section = this.closest('.gg-section, .gg-sticky-cta');
@@ -1307,11 +1393,82 @@ document.querySelectorAll('.gg-faq-question').forEach(function(q) {
         cta_type: cta_type,
         cta_text: text.substring(0, 50),
         cta_section: section_id,
-        cta_href: href
+        cta_href: href,
+        race_slug: raceSlug,
+        page_format: pageFormat
       });
     });
   });
 })();
+
+// Section exposure — one event per measured section after it becomes visible.
+// This records real scrolling/viewport behavior without synthetic page-load hits.
+(function() {
+  var crumb = document.getElementById('gg-races-crumb');
+  if (!crumb || !document.referrer) return;
+  try {
+    var referrer = new URL(document.referrer);
+    var path = referrer.pathname;
+    var isDiscovery = referrer.origin === window.location.origin && (
+      path.indexOf('/gravel-races/') === 0 ||
+      path.indexOf('/race/calendar/') === 0 ||
+      path.indexOf('/race/best-') === 0 ||
+      path.indexOf('/race/tier-') === 0 ||
+      path.indexOf('/race/series/') === 0
+    );
+    if (isDiscovery) {
+      crumb.href = path + referrer.search;
+      crumb.textContent = 'Back to results';
+    }
+  } catch(e) {}
+})();
+
+(function() {
+  if (typeof gtag !== 'function' || !('IntersectionObserver' in window)) return;
+  var page = document.querySelector('.gg-neo-brutalist-page');
+  var raceSlug = page ? (page.getAttribute('data-race-slug') || '') : '';
+  var pageFormat = page ? (page.getAttribute('data-page-format') || '') : '';
+  var seen = {};
+  var observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (!entry.isIntersecting) return;
+      var section = entry.target.getAttribute('data-measure-section') || ('deep_' + (entry.target.id || 'section'));
+      if (!section || seen[section]) return;
+      seen[section] = true;
+      gtag('event', 'race_section_view', {race_slug: raceSlug, page_format: pageFormat, section: section, section_name: section});
+      observer.unobserve(entry.target);
+    });
+  }, {threshold: 0.25});
+  document.querySelectorAll('[data-measure-section], .gg-deep-dive > section[id]').forEach(function(el) { observer.observe(el); });
+})();
+
+document.querySelectorAll('a[data-related-race]').forEach(function(link) {
+  link.addEventListener('click', function() {
+    if (typeof gtag !== 'function') return;
+    var page = document.querySelector('.gg-neo-brutalist-page');
+    gtag('event', 'related_race_click', {
+      race_slug: page ? (page.getAttribute('data-race-slug') || '') : '',
+      page_format: page ? (page.getAttribute('data-page-format') || '') : '',
+      related_race_slug: link.getAttribute('data-related-race') || ''
+    });
+  });
+});
+
+// Calendar download — avoids executable data in inline event attributes.
+document.querySelectorAll('.gg-cal-btn--ics').forEach(function(link) {
+  link.addEventListener('click', function(event) {
+    event.preventDefault();
+    var content = (link.getAttribute('data-ics-content') || '').replace(/\\n/g, '\n');
+    if (!content) return;
+    var blob = new Blob([content], {type: 'text/calendar'});
+    var download = document.createElement('a');
+    var objectUrl = URL.createObjectURL(blob);
+    download.href = objectUrl;
+    download.download = link.getAttribute('data-ics-filename') || 'race.ics';
+    download.click();
+    URL.revokeObjectURL(objectUrl);
+  });
+});
 
 // Shared inline-form error display — never show a success state without a
 // confirmed 2xx response from the worker (CLAUDE.md: "never show a success
@@ -1322,7 +1479,7 @@ function ggShowFormError(form, msg) {
     err = document.createElement('p');
     err.className = 'gg-form-error';
     err.setAttribute('role', 'alert');
-    err.style.cssText = 'font-family:var(--gg-font-data);font-size:12px;color:var(--gg-color-error,#c0392b);font-weight:700;margin-top:8px';
+    err.style.cssText = 'font-family:var(--gg-font-data);font-size:12px;color:var(--gg-color-error);font-weight:700;margin-top:8px';
     form.appendChild(err);
   }
   err.textContent = msg;
@@ -1916,25 +2073,24 @@ document.querySelectorAll('.gg-pack-workout').forEach(function(card) {
 // Date reminder handler
 (function() {
   var WORKER_URL='https://fueling-lead-intake.gravelgodcoaching.workers.dev';
-  var form=document.getElementById('gg-date-reminder-form');
-  if(!form) return;
-  form.addEventListener('submit',function(e) {
+  var button=document.getElementById('gg-date-reminder-opt-in');
+  if(!button) return;
+  button.addEventListener('click',function(e) {
     e.preventDefault();
-    var email=form.email.value.trim();
-    if(!email||!/^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/.test(email)) {
-      alert('Please enter a valid email address.');return;
-    }
-    var hp=form.querySelector('input[name=hp]');
-    if(hp&&hp.value) return;
-    var slug=form.race_slug.value;
-    var raceDate=form.race_date.value;
-    ggClearFormError(form);
+    var cached=null;
+    try { cached=JSON.parse(localStorage.getItem('gg-pk-fueling')||'null'); } catch(ex) {}
+    var email=cached&&cached.email ? cached.email : '';
+    if(!email) return;
+    var slug=button.getAttribute('data-race-slug')||'';
+    var raceDate=button.getAttribute('data-race-date')||'';
+    var container=document.getElementById('gg-email-capture-success')||button.parentElement;
+    ggClearFormError(container);
     var payload={
       email:email,
       source:'date_reminder',
       race_slug:slug,
       race_date:raceDate,
-      website:hp?hp.value:''
+      website:''
     };
     var trail=ggReadTrail();
     if(trail.viewed_races) payload.viewed_races=trail.viewed_races;
@@ -1945,55 +2101,61 @@ document.querySelectorAll('.gg-pack-workout').forEach(function(card) {
         if(typeof gtag==='function') {
           gtag('event','email_capture',{source:'date_reminder',race_slug:slug});
         }
-        while(form.firstChild) form.removeChild(form.firstChild);
-        var msg=document.createElement('p');
-        msg.style.cssText='font-family:var(--gg-font-data);font-size:12px;color:var(--gg-color-teal);font-weight:700';
-        msg.textContent='\u2713 We will remind you 12 weeks out.';
-        form.appendChild(msg);
+        button.textContent='\u2713 We will remind you 12 weeks out.';
+        button.disabled=true;
       })
       .catch(function(){
-        ggShowFormError(form, GG_FORM_ERROR_MSG);
+        ggShowFormError(container, GG_FORM_ERROR_MSG);
       });
   });
 })();
 
-// Mobile collapsible sections — collapse long sections on narrow screens
+// Deep-dive disclosures — keep trust/SEO content server-rendered while reducing
+// the first visual pass. Hash targets automatically open their owning section.
 (function() {
-  if (window.innerWidth > 768) return;
-  var collapsibleIds = ['history', 'logistics', 'training', 'news', 'citations', 'similar'];
   var hash = window.location.hash ? window.location.hash.substring(1) : '';
-  collapsibleIds.forEach(function(id) {
-    var section = document.getElementById(id);
-    if (!section) return;
+  var sections = document.querySelectorAll('.gg-deep-dive > .gg-section, .gg-deep-dive > .gg-racer-reviews');
+  function setExpanded(section, expanded) {
     var header = section.querySelector('.gg-section-header');
     var body = section.querySelector('.gg-section-body');
     if (!header || !body) return;
-    // If URL hash targets this section, keep it expanded
-    var startExpanded = (hash === id);
+    section.classList.toggle('gg-section-collapsed', !expanded);
+    body.hidden = !expanded;
+    header.setAttribute('aria-expanded', expanded ? 'true' : 'false');
+    var chevron = header.querySelector('.gg-section-chevron');
+    if (chevron) chevron.textContent = expanded ? '\u25B4' : '\u25BE';
+  }
+  sections.forEach(function(section) {
+    var target = hash ? document.getElementById(hash) : null;
+    var startExpanded = Boolean(target && (target === section || section.contains(target)));
+    if (startExpanded && target && target.tagName === 'DETAILS') target.open = true;
     section.classList.add('gg-section-collapsible');
-    if (!startExpanded) {
-      section.classList.add('gg-section-collapsed');
-      body.style.display = 'none';
-    }
+    var header = section.querySelector('.gg-section-header');
+    var body = section.querySelector('.gg-section-body');
+    if (!header || !body) return;
     header.setAttribute('role', 'button');
-    header.setAttribute('aria-expanded', startExpanded ? 'true' : 'false');
     header.setAttribute('tabindex', '0');
     header.style.cursor = 'pointer';
-    // Add chevron indicator
     var chevron = document.createElement('span');
     chevron.className = 'gg-section-chevron';
-    chevron.textContent = startExpanded ? '\u25B4' : '\u25BE';
     chevron.setAttribute('aria-hidden', 'true');
     header.appendChild(chevron);
     function toggle() {
-      var collapsed = section.classList.toggle('gg-section-collapsed');
-      body.style.display = collapsed ? 'none' : '';
-      header.setAttribute('aria-expanded', !collapsed);
-      chevron.textContent = collapsed ? '\u25BE' : '\u25B4';
+      setExpanded(section, section.classList.contains('gg-section-collapsed'));
     }
     header.addEventListener('click', toggle);
     header.addEventListener('keydown', function(e) {
       if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggle(); }
+    });
+    setExpanded(section, startExpanded);
+  });
+  document.querySelectorAll('.gg-breakdown-tile, .gg-toc a').forEach(function(link) {
+    link.addEventListener('click', function() {
+      var id = (link.getAttribute('href') || '').replace(/^#/, '');
+      var target = id ? document.getElementById(id) : null;
+      var section = target ? target.closest('.gg-deep-dive > .gg-section, .gg-deep-dive > .gg-racer-reviews') : null;
+      if (target && target.tagName === 'DETAILS') target.open = true;
+      if (section) setExpanded(section, true);
     });
   });
 })();
@@ -2191,7 +2353,8 @@ def build_hero(rd: dict) -> str:
             f'{DISCIPLINE_LABELS.get(discipline, discipline.upper())}</span>'
         )
 
-    # Build vitals line: Location · Month · Distance · Elevation
+    # Build vitals line: location + date only. Distance/elevation live in the
+    # canonical breakdown tiles immediately below the rating spine.
     vitals = rd.get('vitals', {})
     parts = []
     location = vitals.get('location', '')
@@ -2203,16 +2366,20 @@ def build_hero(rd: dict) -> str:
         parts.append(esc(date_specific))
     elif month:
         parts.append(esc(month))
-    dist = vitals.get('distance_mi')
-    if dist:
-        parts.append(f"{dist} mi")
-    elev = vitals.get('elevation_ft')
-    if elev:
-        try:
-            parts.append(f"{int(elev):,} ft")
-        except (ValueError, TypeError):
-            parts.append(f"{elev} ft")
     vitals_line = " &middot; ".join(parts)
+
+    # Editorial verdict stays in the critic's register. It is intentionally
+    # separate from every training CTA: the rating earns trust; it does not sell.
+    verdict_text = (
+        rd.get('final_verdict', {}).get('one_liner', '').strip()
+        or rd.get('biased_opinion', {}).get('summary', '').strip()
+        or rd.get('biased_opinion', {}).get('bottom_line', '').strip()
+        or rd.get('final_verdict', {}).get('should_you_race', '').strip()
+    )
+    verdict_html = (
+        f'<p class="gg-hero-verdict"><span>VERDICT</span> {esc(verdict_text)}</p>'
+        if verdict_text else ''
+    )
 
     # Rider Score — the RottenTomatoes audience-score mechanic (northstar
     # P1.4). Only real, threshold-gated submitted ratings ever display a
@@ -2252,43 +2419,19 @@ def build_hero(rd: dict) -> str:
   <div class="gg-hero-content">
     <span class="gg-hero-tier">{esc(rd['tier_label'])}</span>{discipline_badge}{series_badge}
     <h1>{esc(rd['name'])}</h1>
-    <div class="gg-hero-vitals">{vitals_line}</div>{break_html}
+    <div class="gg-hero-vitals">{vitals_line}</div>
+    {verdict_html}
+    {break_html}
   </div>
   <div class="gg-hero-scores">
   <div class="gg-hero-score">
-    <div class="gg-hero-score-number" data-target="{score}">{score}</div>
-    <div class="gg-hero-score-label">GG SCORE</div>
+    <div class="gg-hero-score-number" data-target="{esc(score)}">{esc(score)}</div>
+    <div class="gg-hero-score-label">LAB SCORE</div>
   </div>
   <div class="gg-hero-score gg-hero-score--rider">
     {rider_cell}
   </div>
   </div>
-</section>'''
-
-
-def build_photos_section(rd: dict) -> str:
-    """Build photo gallery section if race has photos."""
-    photos = rd.get('photos', [])
-    if not photos:
-        return ''
-    # Exclude primary (already used in hero) and GIFs (shown in Course section)
-    gallery = [p for p in photos if not p.get('primary') and not p.get('gif')][:4]
-    if not gallery:
-        return ''
-    items = []
-    for p in gallery:
-        alt = esc(p.get('alt', rd['name']))
-        credit = p.get('credit', '')
-        credit_html = f'<span class="gg-photo-credit">Photo: {esc(credit)}</span>' if credit else ''
-        items.append(
-            f'<figure class="gg-photo-item">'
-            f'<img src="{esc(p["url"])}" alt="{alt}" loading="lazy" width="600" height="400">'
-            f'{credit_html}'
-            f'</figure>'
-        )
-    return f'''<section class="gg-photos" id="photos">
-  <h2 class="gg-section-title">Photos</h2>
-  <div class="gg-photo-grid">{"".join(items)}</div>
 </section>'''
 
 
@@ -2411,19 +2554,6 @@ def build_course_overview(rd: dict, race_index: list = None) -> str:
         for val, label, countable in stats
     )
 
-    # Difficulty gauge — based on course profile (technicality + elevation + climate + adventure)
-    hard_dims = ['technicality', 'elevation', 'climate', 'adventure']
-    hard_score = sum(rd['explanations'].get(d, {}).get('score', 0) for d in hard_dims)
-    hard_pct = int((hard_score / 20) * 100)
-    if hard_pct >= 80:
-        hard_label, hard_color = 'BRUTAL', COLORS['near_black']
-    elif hard_pct >= 60:
-        hard_label, hard_color = 'HARD', COLORS['primary_brown']
-    elif hard_pct >= 40:
-        hard_label, hard_color = 'MODERATE', COLORS['gold']
-    else:
-        hard_label, hard_color = 'ACCESSIBLE', COLORS['teal']
-
     # Calendar export — Google Calendar link + .ics download
     cal_html = ''
     date_specific = v.get('date_specific', '')
@@ -2457,20 +2587,7 @@ def build_course_overview(rd: dict, race_index: list = None) -> str:
         )
         cal_html = f'''<div class="gg-calendar-export">
         <a href="{esc(gcal_url)}" target="_blank" rel="noopener" class="gg-cal-btn gg-cal-btn--google">+ Google Calendar</a>
-        <a href="#" class="gg-cal-btn gg-cal-btn--ics" onclick="var b=new Blob(['{ics_data}'.replace(/\\\\n/g,'\\n')],{{type:'text/calendar'}});var a=document.createElement('a');a.href=URL.createObjectURL(b);a.download='{esc(rd["slug"])}.ics';a.click();return false;">Download .ics</a>
-      </div>'''
-
-    gauge_html = f'''<div class="gg-difficulty-gauge">
-        <div class="gg-difficulty-header">
-          <span class="gg-difficulty-title">DIFFICULTY</span>
-          <span class="gg-difficulty-label">{hard_label}</span>
-        </div>
-        <div class="gg-difficulty-track">
-          <div class="gg-difficulty-fill" data-width="{hard_pct}" style="width:0%;background:{hard_color}"></div>
-        </div>
-        <div class="gg-difficulty-scale">
-          <span>ACCESSIBLE</span><span>MODERATE</span><span>HARD</span><span>BRUTAL</span>
-        </div>
+        <a href="#" class="gg-cal-btn gg-cal-btn--ics" data-ics-content="{esc(ics_data)}" data-ics-filename="{esc(rd['slug'])}.ics">Download .ics</a>
       </div>'''
 
     nearby_html = _build_nearby_races(rd, race_index or [])
@@ -2487,14 +2604,13 @@ def build_course_overview(rd: dict, race_index: list = None) -> str:
       {cards}
       </div>
       {cal_html}
-      {gauge_html}
       {nearby_html}
     </div>
   </section>'''
 
 
 def build_history(rd: dict) -> str:
-    """Build [02] Facts & History section."""
+    """Build a server-rendered Facts & History disclosure for the Course area."""
     h = rd['history']
 
     # Skip entirely if no meaningful content
@@ -2533,15 +2649,10 @@ def build_history(rd: dict) -> str:
 
     body = '\n      '.join(body_parts)
 
-    return f'''<section id="history" class="gg-section gg-section--dark gg-fade-section">
-    <div class="gg-section-header gg-section-header--teal">
-      <span class="gg-section-kicker">[02]</span>
-      <h2 class="gg-section-title">Facts &amp; History</h2>
-    </div>
-    <div class="gg-section-body">
-      {body}
-    </div>
-  </section>'''
+    return f'''<details id="history" class="gg-history-disclosure">
+      <summary>Facts &amp; History</summary>
+      <div class="gg-history-body">{body}</div>
+    </details>'''
 
 
 def _build_riders_report(groups: list[tuple[list[dict], str]]) -> str:
@@ -2586,19 +2697,31 @@ def _build_riders_report(groups: list[tuple[list[dict], str]]) -> str:
     return '\n      '.join(parts)
 
 
-def build_course_route(rd: dict) -> str:
+def build_course_route(rd: dict, history_html: str = '') -> str:
     """Build [03] The Course section — suffering zones."""
     c = rd['course']
     zones = c.get('suffering_zones', [])
 
-    if not zones and not c.get('character') and not c.get('signature_challenge'):
-        return ''
-
     body_parts = []
 
-    # Photo gallery (video stills) — top of Course section
-    gallery = [p for p in rd.get('photos', [])
-               if not p.get('primary') and not p.get('gif')][:4]
+    # YouTube-derived stills render only after relevance QC. Trusted non-video
+    # imagery is left alone because it follows a different provenance path.
+    gallery = []
+    video_stills = 0
+    for photo in rd.get('photos', []):
+        photo_type = str(photo.get('type') or '')
+        photo_url = str(photo.get('url') or '')
+        if (photo.get('gif') or photo_type == 'preview-gif'
+                or photo_url.lower().split('?', 1)[0].endswith('.gif')
+                or not photo_url):
+            continue
+        if photo_type.startswith('video-'):
+            if _parse_score(photo.get('ai_relevance')) < 4 or video_stills >= 2:
+                continue
+            video_stills += 1
+        gallery.append(photo)
+        if len(gallery) >= 4:
+            break
     if gallery:
         items = []
         for p in gallery:
@@ -2641,18 +2764,29 @@ def build_course_route(rd: dict) -> str:
         bars_html = []
         for dist_label, surfaces in surface.items():
             segs = []
-            for stype, pct in sorted(surfaces.items(), key=lambda x: -x[1]):
+            normalized_surfaces = [
+                (
+                    stype,
+                    max(0, min(100, _parse_score(
+                        pct[:-1] if isinstance(pct, str) and pct.endswith('%') else pct
+                    ))),
+                )
+                for stype, pct in surfaces.items()
+            ]
+            normalized_surfaces.sort(key=lambda x: -x[1])
+            for stype, pct in normalized_surfaces:
                 color = surface_colors.get(stype, 'var(--gg-color-tan)')
-                label_text = f'{esc(stype)} {pct}%' if pct >= 10 else ''
+                pct_label = f'{pct:g}'
+                label_text = f'{esc(stype)} {pct_label}%' if pct >= 10 else ''
                 segs.append(
-                    f'<div class="gg-surface-seg" style="width:{pct}%;background:{color}" '
-                    f'title="{esc(stype)} {pct}%">{label_text}</div>'
+                    f'<div class="gg-surface-seg" style="width:{pct_label}%;background:{color}" '
+                    f'title="{esc(stype)} {pct_label}%">{label_text}</div>'
                 )
             legend_items = [
                 f'<span class="gg-surface-legend-item">'
                 f'<span class="gg-surface-legend-dot" style="background:{surface_colors.get(s, "var(--gg-color-tan)")}">'
-                f'</span>{esc(s)} {p}%</span>'
-                for s, p in sorted(surfaces.items(), key=lambda x: -x[1])
+                f'</span>{esc(s)} {p:g}%</span>'
+                for s, p in normalized_surfaces
             ]
             bars_html.append(f'''<div class="gg-surface-row">
               <div class="gg-surface-dist">{esc(dist_label)}</div>
@@ -2679,29 +2813,8 @@ def build_course_route(rd: dict) -> str:
         </div>''')
         body_parts.append('\n      '.join(zone_html))
 
-    # Course preview GIF gallery (from YouTube screenshots)
-    preview_gifs = [p for p in rd.get('photos', []) if p.get('gif')]
-    if preview_gifs:
-        gif_items = []
-        for pg in preview_gifs:
-            gif_credit = esc(pg.get('credit', ''))
-            credit_html = (
-                f'<span class="gg-photo-credit">{gif_credit}</span>'
-                if gif_credit else ''
-            )
-            gif_items.append(
-                f'<div class="gg-course-preview">'
-                f'<img src="{esc(pg["url"])}" alt="{esc(pg.get("alt", "Course preview"))}"'
-                f' loading="lazy" width="400" height="225" class="gg-preview-gif">'
-                f'{credit_html}'
-                f'</div>'
-            )
-        if len(gif_items) == 1:
-            body_parts.append(gif_items[0])
-        else:
-            body_parts.append(
-                f'<div class="gg-gif-gallery">{"".join(gif_items)}</div>'
-            )
+    if history_html:
+        body_parts.append(history_html)
 
     # Riders Report: key challenges + terrain notes (single combined callout)
     intel = rd.get('rider_intel', {})
@@ -2712,6 +2825,8 @@ def build_course_route(rd: dict) -> str:
     if course_report:
         body_parts.append(course_report)
 
+    if not body_parts:
+        return ''
     body = '\n      '.join(body_parts)
 
     return f'''<section id="route" class="gg-section gg-section--accent gg-fade-section">
@@ -2819,35 +2934,16 @@ def build_from_the_field(rd: dict) -> str:
 
 
 def build_ratings(rd: dict) -> str:
-    """Build [05] The Ratings section — merged course + editorial with accordions."""
-    # Summary row
-    summary = f'''<div class="gg-ratings-summary">
-        <div class="gg-ratings-summary-card">
-          <div class="gg-ratings-summary-score">{rd['course_profile']}<span class="gg-ratings-summary-max">/35</span></div>
-          <div class="gg-ratings-summary-label">Course Profile</div>
-        </div>
-        <div class="gg-ratings-summary-card">
-          <div class="gg-ratings-summary-score">{rd['opinion_total']}<span class="gg-ratings-summary-max">/35</span></div>
-          <div class="gg-ratings-summary-label">Editorial</div>
-        </div>
-      </div>'''
-
+    """Build the centerpiece tabbed Course/Opinion rating component."""
     radar = build_radar_charts(rd['explanations'], rd['course_profile'], rd['opinion_total'])
-    course_accordion = build_accordion_html(COURSE_DIMS, rd['explanations'], idx_offset=0)
-    opinion_accordion = build_accordion_html(OPINION_DIMS, rd['explanations'], idx_offset=7)
 
-    return f'''<section id="ratings" class="gg-section gg-section--teal-accent gg-fade-section">
+    return f'''<section id="ratings" class="gg-section gg-section--teal-accent gg-fade-section" data-measure-section="rating">
     <div class="gg-section-header gg-section-header--dark">
       <span class="gg-section-kicker">[05]</span>
       <h2 class="gg-section-title">The Ratings</h2>
     </div>
     <div class="gg-section-body">
-      {summary}
       {radar}
-      <h3 class="gg-accordion-group-title">Course Profile</h3>
-      {course_accordion}
-      <h3 class="gg-accordion-group-title gg-mt-md">Editorial Assessment</h3>
-      {opinion_accordion}
     </div>
   </section>'''
 
@@ -2860,16 +2956,23 @@ def build_verdict(rd: dict, race_index: list = None) -> str:
     strengths = bo.get('strengths', [])
     weaknesses = bo.get('weaknesses', [])
 
-    if not strengths and not weaknesses and not fv.get('should_you_race'):
-        # Fallback: show summary if available
-        if bo.get('summary'):
-            return f'''<section id="verdict" class="gg-section gg-section--dark gg-fade-section">
+    if not strengths and not weaknesses:
+        # Thin/legacy profiles often have a sourced one-line editorial verdict
+        # but no Race/Skip lists. Show that real copy rather than omitting the
+        # decision from the spine or padding it with generic list items.
+        verdict_text = (
+            bo.get('summary')
+            or fv.get('should_you_race')
+            or fv.get('one_liner')
+        )
+        if verdict_text:
+            return f'''<section id="verdict" class="gg-section gg-section--dark gg-fade-section" data-measure-section="verdict">
     <div class="gg-section-header gg-section-header--gold">
       <span class="gg-section-kicker">[06]</span>
       <h2 class="gg-section-title">Final Verdict</h2>
     </div>
     <div class="gg-section-body">
-      <div class="gg-prose"><p>{esc(bo["summary"])}</p></div>
+      <div class="gg-prose"><p>{esc(verdict_text)}</p></div>
     </div>
   </section>'''
         return ''
@@ -2907,7 +3010,7 @@ def build_verdict(rd: dict, race_index: list = None) -> str:
         linked = linkify_alternatives(fv['alternatives'], race_index or [])
         alt_html = f'''<div class="gg-prose gg-mt-md"><p><strong>Alternatives:</strong> {linked}</p></div>'''
 
-    return f'''<section id="verdict" class="gg-section gg-section--dark gg-fade-section">
+    return f'''<section id="verdict" class="gg-section gg-section--dark gg-fade-section" data-measure-section="verdict">
     <div class="gg-section-header gg-section-header--gold">
       <span class="gg-section-kicker">[06]</span>
       <h2 class="gg-section-title">Final Verdict</h2>
@@ -2918,6 +3021,45 @@ def build_verdict(rd: dict, race_index: list = None) -> str:
       {alt_html}
     </div>
   </section>'''
+
+
+def build_breakdown_tiles(active_sections: set[str]) -> str:
+    """Build compact jump tiles into the retained trust/SEO deep dive."""
+    candidates = [
+        ('route', 'Course & Route', 'Surface, signature challenge, and hard parts.'),
+        ('course', 'Elevation', 'Distance, climbing, map, date, and field size.'),
+        ('ratings', 'Altitude / Weather', 'Open the scored climate and altitude criteria.'),
+        ('tires', 'Tires', 'Width, pressure, and three race-specific picks.'),
+        ('history', 'History', 'Origins, reputation, and notable moments.'),
+        ('logistics', 'Logistics', 'Travel, lodging, packet pickup, and parking.'),
+        ('racer-reviews', 'Racer Reviews', 'Real rider scores, reviews, and your rating.'),
+    ]
+    tiles = []
+    for target, label, description in candidates:
+        if target not in active_sections:
+            continue
+        tiles.append(
+            f'<a class="gg-breakdown-tile" href="#{target}">'
+            f'<span>{esc(label)}</span><small>{esc(description)}</small></a>'
+        )
+    media_target = 'from-the-field' if 'from-the-field' in active_sections else 'news'
+    if media_target in active_sections:
+        tiles.append(
+            f'<a class="gg-breakdown-tile" href="#{media_target}">'
+            f'<span>Photos / News</span><small>See the race through sourced field media.</small></a>'
+        )
+    return f'''<nav id="breakdown" class="gg-breakdown" aria-label="Full race breakdown" data-measure-section="breakdown">
+      <div class="gg-breakdown-head"><span>FULL BREAKDOWN</span><p>Jump to the detail you need.</p></div>
+      <div class="gg-breakdown-grid">{''.join(tiles)}</div>
+    </nav>'''
+
+
+def build_training_transition(race_name: str) -> str:
+    """Build the quiet editorial-to-offer hinge without sales language."""
+    return f'''<div class="gg-training-transition" data-measure-section="transition">
+      <span>GET READY FOR {esc(race_name.upper())}</span>
+      <p>You&rsquo;ve seen what it asks. Here&rsquo;s how you answer it.</p>
+    </div>'''
 
 
 def _build_inline_review_form(slug: str, name: str) -> str:
@@ -3004,11 +3146,17 @@ def build_racer_reviews(rd: dict) -> str:
     # No ratings at all — compact empty state with collapsible form
     if total_ratings == 0:
         return f'''<section class="gg-racer-reviews gg-fade-section" id="racer-reviews">
-    <div class="gg-racer-empty">
-      <div class="gg-racer-empty-text">Raced {esc(name)}? Be the first to rate it.</div>
-      <button class="gg-btn gg-btn--outline gg-review-expand-btn">RATE THIS RACE</button>
-      <div class="gg-review-expandable" style="display:none">
-        {review_form}
+    <div class="gg-section-header gg-section-header--teal">
+      <span class="gg-section-kicker">RACER</span>
+      <h2 class="gg-section-title">Racer Reviews</h2>
+    </div>
+    <div class="gg-section-body">
+      <div class="gg-racer-empty">
+        <div class="gg-racer-empty-text">Raced {esc(name)}? Be the first to rate it.</div>
+        <button class="gg-btn gg-btn--outline gg-review-expand-btn">RATE THIS RACE</button>
+        <div class="gg-review-expandable" style="display:none">
+          {review_form}
+        </div>
       </div>
     </div>
   </section>'''
@@ -3017,9 +3165,15 @@ def build_racer_reviews(rd: dict) -> str:
     if total_ratings < RACER_RATING_THRESHOLD:
         needed = RACER_RATING_THRESHOLD - total_ratings
         return f'''<section class="gg-racer-reviews gg-fade-section" id="racer-reviews">
-    <div class="gg-racer-pending">
-      <div class="gg-racer-pending-text">{total_ratings} rating{"s" if total_ratings != 1 else ""} so far &mdash; {needed} more needed to display the Racer Rating.</div>
-      {review_form}
+    <div class="gg-section-header gg-section-header--teal">
+      <span class="gg-section-kicker">RACER</span>
+      <h2 class="gg-section-title">Racer Reviews</h2>
+    </div>
+    <div class="gg-section-body">
+      <div class="gg-racer-pending">
+        <div class="gg-racer-pending-text">{total_ratings} rating{"s" if total_ratings != 1 else ""} so far &mdash; {needed} more needed to display the Racer Rating.</div>
+        {review_form}
+      </div>
     </div>
   </section>'''
 
@@ -3077,7 +3231,7 @@ def build_racer_reviews(rd: dict) -> str:
 
 
 def build_training(rd: dict) -> str:
-    """Build [06] Training section — two distinct paths, countdown, clear differentiation."""
+    """Build the custom-plan-first offer with coaching as the clear up-tier."""
     race_name = rd['name']
 
     # Race date countdown — parsed from date_specific
@@ -3092,7 +3246,7 @@ def build_training(rd: dict) -> str:
         display_date = f"{display_month} {int(parts[2])}, {parts[0]}"
         countdown_html = f'<div class="gg-countdown" data-date="{cd_start}"><span class="gg-countdown-num" id="gg-days-left">{esc(display_date)}</span> {esc(race_name.upper())}</div>'
 
-    # Riders Report: gear mentions before training plan CTA
+    # Gear intel stays as distinct sourced rider evidence, after the offer.
     gear_html = _build_riders_report([
         (rd.get('rider_intel', {}).get('gear_mentions', []), "text"),
     ])
@@ -3135,44 +3289,104 @@ def build_training(rd: dict) -> str:
     </div>
   </section>'''
 
+    return f'''<section id="training" class="gg-section gg-training-offer gg-fade-section" data-measure-section="offer">
+    <div class="gg-section-header">
+      <span class="gg-section-kicker">BUILT FOR THIS</span>
+      <h2 class="gg-section-title">A plan for {esc(race_name)}</h2>
+    </div>
+    <div class="gg-section-body">
+      {countdown_html}
+      <div class="gg-training-primary">
+        <h3>Custom Training Plan</h3>
+        <p class="gg-training-subtitle" data-ab="race_offer_price">$15/week. Less than one gel per ride. Capped at $249.</p>
+        <p class="gg-training-built-for">Your race date, your available hours, and the demands above determine the build. Start with a short questionnaire; the plan follows from your answers.</p>
+        <ul class="gg-training-bullets">
+          <li>Race-specific workouts pushed to your device</li>
+          <li>Fueling, heat, altitude, and strength protocols where this race calls for them</li>
+          <li>Built around the weeks and training time you actually have</li>
+        </ul>
+        <a href="{esc(TRAINING_PLANS_URL)}?race={esc(rd['slug'])}" class="gg-btn" data-cta="custom_plan"><span data-ab="race_offer_cta">BUILD MY PLAN</span></a>
+      </div>
+      <div class="gg-training-secondary">
+        <div class="gg-training-secondary-text">
+          <h4>Really want to find out what you can do?</h4>
+          <p class="gg-training-subtitle">Get a coach. From $199 / 4 weeks.</p>
+          <p>The plan adapts week to week when work, weather, fatigue, or life moves the target.</p>
+        </div>
+        <a href="{esc(COACHING_URL)}" class="gg-btn" data-cta="coaching">GET A COACH</a>
+      </div>
+      {gear_html}
+    </div>
+  </section>'''
+
+
+def build_custom_plan_offer(rd: dict) -> str:
+    """Build the owner-approved custom-plan offer used in the short spine."""
+    race_name = rd['name']
+    if rd.get('slug') == 'unbound-200':
+        copy = (
+            "A training plan for Unbound's 200 miles of heat, wind, and rough "
+            "flint—shaped to your fitness and the hours you have."
+        )
+    else:
+        copy = (
+            f"A training plan for {race_name}—shaped to your fitness and the "
+            "hours you have."
+        )
+    href = f"{TRAINING_PLANS_URL}?race={rd['slug']}"
+    return f'''<section class="gg-approved-section gg-offer" data-measure-section="custom-plan">
+  <div class="gg-approved-inner">
+    <span class="gg-approved-kicker">Custom plan</span>
+    <h2>Train for {esc(race_name)}</h2>
+    <p>{esc(copy)}</p>
+  </div>
+  <div class="gg-approved-inner gg-offer-action">
+    <a class="gg-plan-cta" href="{esc(href)}" data-cta="approved_custom_plan">START MY CUSTOM PLAN &rarr;</a>
+    <span class="gg-offer-price">$15 / WEEK</span>
+  </div>
+</section>'''
+
+
+def build_coaching_footnote(rd: dict) -> str:
+    """Build the approved coaching footnote beneath the custom-plan offer."""
+    href = f"{COACHING_URL}?race={rd['slug']}"
+    return f'''<aside class="gg-coaching-note" data-measure-section="coaching">
+  <div>
+    <h2>Really want to see what you can do?</h2>
+    <p>Hire a coach. You&rsquo;ll never become what you could be alone. (And no, AI isn&rsquo;t a person.)</p>
+  </div>
+  <a class="gg-coaching-link" href="{esc(href)}" data-cta="approved_coaching">GET ME IN YOUR CORNER &rarr;</a>
+</aside>'''
+
+
+def build_training_intelligence(rd: dict) -> str:
+    """Restore [07] Training as editorial rider intelligence, without sales."""
+    race_name = rd['name']
+    countdown_html = ''
+    date_specific = rd['vitals'].get('date_specific', '')
+    cd_start, _cd_end = parse_event_dates(date_specific)
+    if cd_start:
+        parts = cd_start.split('-')
+        month_names = {v: k.capitalize() for k, v in MONTH_NUMBERS.items()}
+        display_month = month_names.get(parts[1], parts[1])
+        display_date = f"{display_month} {int(parts[2])}, {parts[0]}"
+        countdown_html = (
+            f'<div class="gg-countdown" data-date="{cd_start}">'
+            f'<span class="gg-countdown-num" id="gg-days-left">'
+            f'{esc(display_date)}</span> {esc(race_name.upper())}</div>'
+        )
+    gear_html = _build_riders_report([
+        (rd.get('rider_intel', {}).get('gear_mentions', []), 'text'),
+    ])
+    body = countdown_html + gear_html
+    if not body:
+        body = '<p class="gg-prose">Race-specific preparation details are included in the demand profile below.</p>'
     return f'''<section id="training" class="gg-section gg-fade-section">
     <div class="gg-section-header">
       <span class="gg-section-kicker">[07]</span>
       <h2 class="gg-section-title">Training</h2>
     </div>
-    <div class="gg-section-body">
-      {countdown_html}
-      {gear_html}
-      <div class="gg-training-free">
-        <a href="/race/{esc(rd['slug'])}/prep-kit/" class="gg-btn gg-btn--outline">GET FREE RACE PREP KIT</a>
-        <p class="gg-training-free-desc">12-week timeline + race-day checklist + packing list. Free.</p>
-      </div>
-      <div class="gg-training-primary">
-        <h3>Custom Training Plan</h3>
-        <p class="gg-training-subtitle">Race-specific. Built for {esc(race_name)}. $15/week, capped at $249.</p>
-        <ul class="gg-training-bullets">
-          <li>Structured workouts pushed to your device</li>
-          <li>30+ page custom training guide</li>
-          <li>Heat &amp; altitude protocols</li>
-          <li>Nutrition plan</li>
-          <li>Strength training</li>
-        </ul>
-        <a href="{esc(TRAINING_PLANS_URL)}?race={esc(rd['slug'])}" class="gg-btn">BUILD MY PLAN &mdash; $15/WK</a>
-      </div>
-      <div class="gg-training-divider">
-        <span class="gg-training-divider-line"></span>
-        <span class="gg-training-divider-text">OR</span>
-        <span class="gg-training-divider-line"></span>
-      </div>
-      <div class="gg-training-secondary">
-        <div class="gg-training-secondary-text">
-          <h4>1:1 Coaching</h4>
-          <p class="gg-training-subtitle">A human in your corner. Adapts week to week.</p>
-          <p>Your coach reviews every session, adjusts when life happens, and builds race-day strategy with you. Not a plan &mdash; a partnership.</p>
-        </div>
-        <a href="{esc(COACHING_URL)}" class="gg-btn">APPLY FOR 1:1 COACHING</a>
-      </div>
-    </div>
+    <div class="gg-section-body">{body}</div>
   </section>'''
 
 
@@ -4310,8 +4524,13 @@ def build_prep_strip(rd: dict) -> str:
   </section>'''
 
 
-def build_train_for_race(rd: dict) -> str:
-    """Build [08] Train for This Race section with showcase workouts."""
+def build_train_for_race(
+        rd: dict, prep_kit_html: str = '', include_commerce: bool = True) -> str:
+    """Build the deep-dive demand profile and capped workout previews.
+
+    ``include_commerce=False`` retains the useful training intelligence while
+    removing the configurator, plan links, and all other purchase paths.
+    """
     slug = rd['slug']
     race_name = rd['name']
 
@@ -4362,12 +4581,13 @@ def build_train_for_race(rd: dict) -> str:
         )
     demands_html = '\n      '.join(demand_bars)
 
-    # Build 5 showcase workout cards — walk the full ranked list,
+    # Build at most 3 showcase workout cards — the indexed training guide
+    # carries the full protocol library without turning this page into a manual.
     # skip categories where no workout passes eligibility.
     workout_cards = []
     card_idx = 0
     for tc in top_categories:
-        if card_idx >= 5:
+        if card_idx >= 3:
             break
         cat_name = tc['category'].replace('_', ' ')
         workouts_list = tc.get('workouts', [])
@@ -4508,6 +4728,11 @@ def build_train_for_race(rd: dict) -> str:
     # Workout toggle + panel — only render if we have workouts
     workouts_section = ''
     if num_workouts > 0:
+        guide_link = (
+            f'        <p class="gg-pack-workouts-more"><a href="/race/{esc(slug)}/training-plan/" '
+            f'data-cta="pack_plan_guide">Read the full {esc(race_name)} training guide &rarr;</a></p>\n'
+            if include_commerce else ''
+        )
         workouts_section = (
             f'<div class="gg-pack-workouts-toggle" id="gg-pack-workouts-toggle">\n'
             f'        <button type="button" class="gg-pack-toggle-btn" id="gg-pack-toggle-btn" '
@@ -4523,22 +4748,14 @@ def build_train_for_race(rd: dict) -> str:
             f'archetype library based on {esc(race_name)}&rsquo;s specific demands. '
             f'Click any workout to see the full execution protocol.</p>\n'
             f'        {workouts_html}\n'
+            f'{guide_link}'
             f'      </div>'
         )
 
-    return f'''<section id="train-for-race" class="gg-section gg-fade-section">
-    <div class="gg-section-header">
-      <span class="gg-section-kicker">[08]</span>
-      <h2 class="gg-section-title">Train for {esc(race_name)}</h2>
-    </div>
-    <div class="gg-section-body">
-      <div class="gg-pack-demands">
-        <h3 class="gg-pack-subtitle">RACE DEMAND PROFILE</h3>
-        <div class="gg-pack-demands-inline">
-          {demands_html}
-        </div>
-      </div>
-      <div class="gg-cfg-bar">
+    commerce_html = ''
+    race_data_script = ''
+    if include_commerce:
+        commerce_html = f'''<div class="gg-cfg-bar">
         <h3 class="gg-cfg-title">PREVIEW YOUR TRAINING PLAN</h3>
         <div class="gg-cfg-inputs">
           <div class="gg-cfg-field">
@@ -4580,10 +4797,26 @@ def build_train_for_race(rd: dict) -> str:
       <div class="gg-pack-cta gg-cfg-cta" id="gg-cfg-cta" style="display:none;" aria-hidden="true">
         <a href="{plan_url}" class="gg-btn gg-cfg-cta-btn" id="gg-cfg-cta-link" tabindex="-1">BUILD MY PLAN</a>
         <p class="gg-pack-cta-detail" id="gg-cfg-cta-detail"></p>
-      </div>
-      {workouts_section}
+      </div>'''
+        race_data_script = f'<script>window.__GG_RACE_DATA__={race_data_json};</script>'
+
+    return f'''<section id="train-for-race" class="gg-section gg-fade-section">
+    <div class="gg-section-header">
+      <span class="gg-section-kicker">[08]</span>
+      <h2 class="gg-section-title">Train for {esc(race_name)}</h2>
     </div>
-    <script>window.__GG_RACE_DATA__={race_data_json};</script>
+    <div class="gg-section-body">
+      <div class="gg-pack-demands">
+        <h3 class="gg-pack-subtitle">RACE DEMAND PROFILE</h3>
+        <div class="gg-pack-demands-inline">
+          {demands_html}
+        </div>
+      </div>
+      {commerce_html}
+      {workouts_section}
+      {prep_kit_html}
+    </div>
+    {race_data_script}
   </section>'''
 
 
@@ -4830,12 +5063,20 @@ def build_news_section(rd: dict) -> str:
     name = rd['name']
     search_query = name.replace(' ', '+')
 
-    return f'''<div class="gg-news-ticker gg-fade-section" id="gg-news-ticker" role="region" aria-label="Latest news" data-query="{esc(search_query)}" style="display:none">
-    <div class="gg-news-ticker-label" aria-hidden="true">LATEST NEWS</div>
-    <div class="gg-news-ticker-track">
-      <div class="gg-news-ticker-content" id="gg-news-feed" aria-live="polite" aria-atomic="true"></div>
+    return f'''<section id="news" class="gg-section gg-fade-section">
+    <div class="gg-section-header">
+      <span class="gg-section-kicker">NEWS</span>
+      <h2 class="gg-section-title">Latest Coverage</h2>
     </div>
-  </div>'''
+    <div class="gg-section-body">
+      <div class="gg-news-ticker" id="gg-news-ticker" role="region" aria-label="Latest news" data-query="{esc(search_query)}" style="display:none">
+        <div class="gg-news-ticker-label" aria-hidden="true">LATEST NEWS</div>
+        <div class="gg-news-ticker-track">
+          <div class="gg-news-ticker-content" id="gg-news-feed" aria-live="polite" aria-atomic="true"></div>
+        </div>
+      </div>
+    </div>
+  </section>'''
 
 
 def load_race_intel(path: Path = RACE_INTEL_PATH) -> dict:
@@ -4965,6 +5206,11 @@ def build_email_capture(rd: dict) -> str:
     """Build email capture section — prep kit CTA + Substack subscribe."""
     slug = esc(rd["slug"])
     name = esc(rd["name"])
+    race_date, _ = parse_event_dates(rd['vitals'].get('date_specific', ''))
+    reminder_opt_in = ''
+    if race_date:
+        reminder_opt_in = f'''<button type="button" class="gg-date-reminder-opt-in" id="gg-date-reminder-opt-in"
+          data-race-slug="{slug}" data-race-date="{esc(race_date)}">ALSO REMIND ME 12 WEEKS OUT</button>'''
     return f'''<div class="gg-email-capture gg-fade-section" id="prep-kit-capture">
     <div class="gg-email-capture-inner">
       <div class="gg-email-capture-badge">FREE</div>
@@ -4983,6 +5229,7 @@ def build_email_capture(rd: dict) -> str:
       <div class="gg-email-capture-success" id="gg-email-capture-success" style="display:none">
         <p class="gg-email-capture-check">\u2713 Prep kit unlocked!</p>
         <a href="/race/{slug}/prep-kit/" class="gg-email-capture-link">Open Your {name} Prep Kit \u2192</a>
+        {reminder_opt_in}
       </div>
       <p class="gg-email-capture-fine">No spam. Unsubscribe anytime.</p>
     </div>
@@ -5275,13 +5522,13 @@ def build_similar_races(rd: dict, race_index: list) -> str:
         tier_num = r.get('tier', 4)
         dist = r.get('distance_mi', '')
         dist_str = f" &middot; {dist} mi" if dist else ''
-        cards.append(f'''<a href="/race/{esc(r['slug'])}/" class="gg-similar-card">
+        cards.append(f'''<a href="/race/{esc(r['slug'])}/" class="gg-similar-card" data-related-race="{esc(r['slug'])}">
         <span class="gg-similar-tier">T{tier_num}</span>
         <span class="gg-similar-name">{esc(r['name'])}</span>
         <span class="gg-similar-meta">{esc(r.get('location', ''))}{dist_str} &middot; {r.get('overall_score', 0)}/100</span>
       </a>''')
 
-    return f'''<section class="gg-section gg-fade-section">
+    return f'''<section class="gg-section gg-fade-section" id="similar-races">
     <div class="gg-section-header gg-section-header--dark">
       <span class="gg-section-kicker">[&mdash;]</span>
       <h2 class="gg-section-title">Similar Races</h2>
@@ -5421,14 +5668,14 @@ def build_nav_header(rd: dict, race_index: list) -> str:
     """Build visible navigation header with breadcrumb trail."""
     return get_site_header_html(active="races") + '''
   <div class="gg-reading-progress" id="gg-reading-progress"><div class="gg-reading-progress-bar" id="gg-reading-progress-bar"></div></div>
-''' + f'''  <div class="gg-breadcrumb">
+''' + f'''  <nav class="gg-breadcrumb" aria-label="Breadcrumb">
     <a href="{SITE_BASE_URL}/">Home</a>
     <span class="gg-breadcrumb-sep">&rsaquo;</span>
-    <a href="{SITE_BASE_URL}/gravel-races/">Gravel Races</a>
+    <a href="{SITE_BASE_URL}/gravel-races/" id="gg-races-crumb">Gravel Races</a>
     <span class="gg-breadcrumb-sep">&rsaquo;</span>
     {_build_breadcrumb_series_segment(rd)}
     <span class="gg-breadcrumb-current">{esc(rd['name'])}</span>
-  </div>'''
+  </nav>'''
 
 
 def build_footer(rd: dict = None) -> str:
@@ -5476,7 +5723,7 @@ def get_page_css() -> str:
 /* Active/pressed states — mobile-only tap feedback (no transform on desktop) */
 @media (max-width: 768px) {{
   .gg-neo-brutalist-page .gg-btn:active {{ opacity: 0.85; }}
-  .gg-neo-brutalist-page .gg-accordion-trigger:active {{ background: var(--gg-color-sand); }}
+  .gg-neo-brutalist-page .gg-rating-tile:active {{ background: var(--gg-color-sand); }}
   .gg-neo-brutalist-page .gg-faq-question:active {{ background: var(--gg-color-sand); }}
   .gg-neo-brutalist-page .gg-toc a:active {{ color: var(--gg-color-gold); }}
   .gg-neo-brutalist-page .gg-similar-card:active {{ border-color: var(--gg-color-gold); background: var(--gg-color-sand); }}
@@ -5550,6 +5797,8 @@ body {{ margin: 0; background: var(--gg-color-warm-paper); }}
 .gg-neo-brutalist-page .gg-series-badge:hover {{ color: var(--gg-color-dark-teal); }}
 .gg-neo-brutalist-page .gg-hero h1 {{ font-family: var(--gg-font-editorial); font-size: 42px; font-weight: var(--gg-font-weight-bold); line-height: 1.05; letter-spacing: var(--gg-letter-spacing-tight); margin: 0; color: var(--gg-color-dark-brown); }}
 .gg-neo-brutalist-page .gg-hero-vitals {{ font-family: var(--gg-font-data); font-size: 11px; color: var(--gg-color-secondary-brown); letter-spacing: 1px; text-transform: uppercase; margin-top: 14px; }}
+.gg-neo-brutalist-page .gg-hero-verdict {{ max-width: 620px; margin: 18px 0 0; font-family: var(--gg-font-editorial); font-size: var(--gg-font-size-base); line-height: var(--gg-line-height-relaxed); color: var(--gg-color-primary-brown); }}
+.gg-neo-brutalist-page .gg-hero-verdict span {{ display: block; margin-bottom: 4px; font-family: var(--gg-font-data); font-size: 10px; font-weight: 700; letter-spacing: var(--gg-letter-spacing-ultra-wide); color: var(--gg-color-gold); }}
 .gg-neo-brutalist-page .gg-hero-scores {{ display: flex; gap: 28px; flex-shrink: 0; align-items: flex-start; }}
 .gg-neo-brutalist-page .gg-hero-score {{ text-align: center; flex-shrink: 0; }}
 .gg-neo-brutalist-page .gg-hero-score--rider {{ padding-left: 28px; border-left: 2px solid var(--gg-color-cream); max-width: 130px; }}
@@ -5559,6 +5808,26 @@ body {{ margin: 0; background: var(--gg-color-warm-paper); }}
 @media (max-width: 700px) {{ .gg-neo-brutalist-page .gg-hero-scores {{ gap: 18px; }} .gg-neo-brutalist-page .gg-hero-score--rider {{ padding-left: 18px; }} }}
 .gg-neo-brutalist-page .gg-hero-score-number {{ font-family: var(--gg-font-editorial); font-size: 72px; font-weight: var(--gg-font-weight-bold); line-height: 1; color: var(--gg-color-gold); }}
 .gg-neo-brutalist-page .gg-hero-score-label {{ font-family: var(--gg-font-data); font-size: 10px; font-weight: var(--gg-font-weight-bold); letter-spacing: 3px; text-transform: uppercase; color: var(--gg-color-secondary-brown); margin-top: 4px; }}
+
+/* Spine: compact evidence navigation and the editorial-to-training hinge */
+.gg-neo-brutalist-page .gg-breakdown {{ margin: 0 0 32px; border: 1px solid var(--gg-color-tan); background: var(--gg-color-warm-paper); }}
+.gg-neo-brutalist-page .gg-breakdown-head {{ display: flex; align-items: baseline; justify-content: space-between; gap: 16px; padding: 14px 18px; border-bottom: 1px solid var(--gg-color-gold); }}
+.gg-neo-brutalist-page .gg-breakdown-head span {{ font-size: 11px; font-weight: 700; letter-spacing: var(--gg-letter-spacing-ultra-wide); color: var(--gg-color-dark-brown); }}
+.gg-neo-brutalist-page .gg-breakdown-head p {{ margin: 0; font-family: var(--gg-font-editorial); font-size: 12px; color: var(--gg-color-secondary-brown); }}
+.gg-neo-brutalist-page .gg-breakdown-grid {{ display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); }}
+.gg-neo-brutalist-page .gg-breakdown-tile {{ min-height: 104px; padding: 16px; border-right: 1px solid var(--gg-color-tan); border-bottom: 1px solid var(--gg-color-tan); color: var(--gg-color-dark-brown); text-decoration: none; }}
+.gg-neo-brutalist-page .gg-breakdown-tile:nth-child(4n) {{ border-right: none; }}
+.gg-neo-brutalist-page .gg-breakdown-tile span {{ display: block; font-size: 11px; font-weight: 700; letter-spacing: var(--gg-letter-spacing-wider); text-transform: uppercase; color: var(--gg-color-teal); }}
+.gg-neo-brutalist-page .gg-breakdown-tile small {{ display: block; margin-top: 8px; font-family: var(--gg-font-editorial); font-size: 11px; line-height: 1.45; color: var(--gg-color-secondary-brown); }}
+.gg-neo-brutalist-page .gg-breakdown-tile:hover, .gg-neo-brutalist-page .gg-breakdown-tile:focus-visible {{ background: var(--gg-color-sand); outline: 2px solid var(--gg-color-gold); outline-offset: -2px; }}
+.gg-neo-brutalist-page .gg-training-transition {{ margin: 44px 0 16px; padding: 26px 28px; border: 2px solid var(--gg-color-gold); text-align: center; background: var(--gg-color-warm-paper); }}
+.gg-neo-brutalist-page .gg-training-transition span {{ display: block; font-size: 11px; font-weight: 700; letter-spacing: var(--gg-letter-spacing-ultra-wide); color: var(--gg-color-gold); }}
+.gg-neo-brutalist-page .gg-training-transition p {{ margin: 8px 0 0; font-family: var(--gg-font-editorial); font-size: var(--gg-font-size-md); color: var(--gg-color-dark-brown); }}
+.gg-neo-brutalist-page .gg-deep-dive {{ margin-top: 32px; }}
+.gg-neo-brutalist-page .gg-deep-dive::before {{ content: 'DEEP DIVE'; display: block; margin-bottom: 12px; font-size: 11px; font-weight: 700; letter-spacing: var(--gg-letter-spacing-ultra-wide); color: var(--gg-color-secondary-brown); }}
+.gg-neo-brutalist-page .gg-history-disclosure {{ margin-top: 24px; border-top: 1px solid var(--gg-color-gold); }}
+.gg-neo-brutalist-page .gg-history-disclosure summary {{ padding: 12px 0; cursor: pointer; font-family: var(--gg-font-data); font-size: 11px; font-weight: 700; letter-spacing: var(--gg-letter-spacing-wider); text-transform: uppercase; color: var(--gg-color-teal); }}
+.gg-neo-brutalist-page .gg-history-body {{ padding: 4px 0 8px; }}
 
 /* TOC — sticky with scroll-spy */
 .gg-neo-brutalist-page .gg-toc {{
@@ -5687,13 +5956,6 @@ body {{ margin: 0; background: var(--gg-color-warm-paper); }}
 .gg-neo-brutalist-page .gg-cal-btn--ics:hover {{ background: var(--gg-color-gold); color: var(--gg-color-dark-brown); }}
 
 /* Difficulty gauge */
-.gg-neo-brutalist-page .gg-difficulty-gauge {{ margin-top: 20px; border: var(--gg-border-standard); padding: 16px; background: var(--gg-color-warm-paper); }}
-.gg-neo-brutalist-page .gg-difficulty-header {{ display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }}
-.gg-neo-brutalist-page .gg-difficulty-title {{ font-family: var(--gg-font-data); font-size: var(--gg-font-size-2xs); font-weight: 700; letter-spacing: var(--gg-letter-spacing-wider); color: var(--gg-color-secondary-brown); }}
-.gg-neo-brutalist-page .gg-difficulty-label {{ font-family: var(--gg-font-data); font-size: 12px; font-weight: 700; letter-spacing: var(--gg-letter-spacing-wider); color: var(--gg-color-dark-brown); }}
-.gg-neo-brutalist-page .gg-difficulty-track {{ height: 12px; background: var(--gg-color-sand); border: 1px solid var(--gg-color-dark-brown); position: relative; overflow: hidden; }}
-.gg-neo-brutalist-page .gg-difficulty-fill {{ height: 100%; transition: width 1.5s cubic-bezier(0.22,1,0.36,1); }}
-.gg-neo-brutalist-page .gg-difficulty-scale {{ display: flex; justify-content: space-between; margin-top: 6px; font-family: var(--gg-font-data); font-size: 10px; font-weight: 700; letter-spacing: 1px; color: var(--gg-color-warm-brown); text-transform: uppercase; }}
 
 /* Nearby races — in-content cross-links */
 .gg-neo-brutalist-page .gg-nearby-races {{ margin-top: 16px; padding: 10px 16px; background: var(--gg-color-sand); border: 1px solid var(--gg-color-tan); font-family: var(--gg-font-data); font-size: 11px; }}
@@ -5784,48 +6046,39 @@ body {{ margin: 0; background: var(--gg-color-warm-paper); }}
 .gg-neo-brutalist-page .gg-preview-gif {{ display: block; width: 100%; aspect-ratio: 16/9; object-fit: cover; }}
 .gg-neo-brutalist-page .gg-course-preview .gg-photo-credit {{ display: block; font-family: var(--gg-font-data); font-size: 9px; letter-spacing: var(--gg-letter-spacing-wider); text-transform: uppercase; color: var(--gg-color-secondary-brown); padding: 4px 8px; background: var(--gg-color-warm-paper); }}
 
-/* Accordion */
-.gg-neo-brutalist-page .gg-accordion {{ border-top: var(--gg-border-standard); }}
-.gg-neo-brutalist-page .gg-accordion-group-title {{ font-family: var(--gg-font-data); font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: var(--gg-letter-spacing-wider); color: var(--gg-color-secondary-brown); padding: var(--gg-spacing-md) 0 var(--gg-spacing-xs) 0; }}
-.gg-neo-brutalist-page .gg-accordion-item {{ border-bottom: 2px solid var(--gg-color-dark-brown); }}
-.gg-neo-brutalist-page .gg-accordion-trigger {{ display: flex; align-items: center; width: 100%; padding: 10px 0; cursor: pointer; background: none; border: none; font-family: var(--gg-font-data); font-size: 12px; text-align: left; gap: 8px; }}
-.gg-neo-brutalist-page .gg-accordion-trigger:hover {{ background: var(--gg-color-warm-paper); }}
-.gg-neo-brutalist-page .gg-accordion-label {{ font-family: var(--gg-font-data); width: clamp(65px, 18vw, 110px); min-width: 65px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; font-size: 11px; color: var(--gg-color-dark-brown); }}
-.gg-neo-brutalist-page .gg-accordion-bar-track {{ flex: 1; height: 8px; background: var(--gg-color-sand); position: relative; border: 1px solid var(--gg-color-dark-brown); }}
-.gg-neo-brutalist-page .gg-accordion-bar-fill {{ height: 100%; transition: width 0.3s; }}
-.gg-neo-brutalist-page .gg-accordion-score {{ font-family: var(--gg-font-editorial); width: 40px; min-width: 40px; text-align: center; font-weight: var(--gg-font-weight-bold); font-size: var(--gg-font-size-sm); color: var(--gg-color-gold); }}
-.gg-neo-brutalist-page .gg-accordion-arrow {{ width: 20px; min-width: 20px; text-align: center; font-size: var(--gg-font-size-2xs); color: var(--gg-color-warm-brown); transition: transform 0.2s; }}
-.gg-neo-brutalist-page .gg-accordion-item.is-open .gg-accordion-arrow {{ transform: rotate(90deg); color: var(--gg-color-gold); }}
-.gg-neo-brutalist-page .gg-accordion-panel {{ max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out; }}
-.gg-neo-brutalist-page .gg-accordion-item.is-open .gg-accordion-panel {{ max-height: 500px; }}
-.gg-neo-brutalist-page .gg-accordion-content {{ font-family: var(--gg-font-editorial); padding: 0 0 14px calc(clamp(65px, 18vw, 110px) + 12px); font-size: var(--gg-font-size-sm); line-height: var(--gg-line-height-relaxed); color: var(--gg-color-primary-brown); }}
-
-/* Radar charts */
-.gg-neo-brutalist-page .gg-radar-pair {{ display: flex; gap: 16px; margin-bottom: 24px; }}
-.gg-neo-brutalist-page .gg-radar-chart {{ flex: 1; border: var(--gg-border-subtle); background: var(--gg-color-warm-paper); padding: 12px 8px 12px; text-align: center; }}
+/* Interactive rating: one radar at a time with criterion-level explanations */
+.gg-neo-brutalist-page .gg-rating-tablist {{ display: grid; grid-template-columns: 1fr 1fr; border: 1px solid var(--gg-color-tan); border-bottom-color: var(--gg-color-gold); }}
+.gg-neo-brutalist-page .gg-rating-tablist button {{ padding: 14px 16px; border: 0; border-right: 1px solid var(--gg-color-tan); background: var(--gg-color-warm-paper); cursor: pointer; font-family: var(--gg-font-data); font-size: 11px; font-weight: 700; letter-spacing: var(--gg-letter-spacing-wider); text-transform: uppercase; color: var(--gg-color-secondary-brown); }}
+.gg-neo-brutalist-page .gg-rating-tablist button:last-child {{ border-right: 0; }}
+.gg-neo-brutalist-page .gg-rating-tablist button[aria-selected="true"] {{ background: var(--gg-color-sand); color: var(--gg-color-dark-brown); border-bottom: 3px solid var(--gg-color-gold); }}
+.gg-neo-brutalist-page .gg-rating-tablist button span {{ color: var(--gg-color-teal); }}
+.gg-neo-brutalist-page .gg-rating-panel {{ display: grid; grid-template-columns: minmax(300px, 1.1fr) minmax(260px, .9fr); grid-template-areas: 'radar tiles' 'radar detail'; gap: 16px; padding-top: 20px; }}
+.gg-neo-brutalist-page .gg-rating-panel[hidden] {{ display: none; }}
+.gg-neo-brutalist-page .gg-radar-chart {{ grid-area: radar; border: var(--gg-border-subtle); background: var(--gg-color-warm-paper); padding: 12px 8px; text-align: center; }}
 .gg-neo-brutalist-page .gg-radar-svg {{ width: 100%; height: auto; display: block; margin: 0 auto; }}
 .gg-neo-brutalist-page .gg-radar-label {{ font-family: var(--gg-font-data); font-size: var(--gg-font-size-2xs); font-weight: 700; text-transform: uppercase; letter-spacing: var(--gg-letter-spacing-wider); color: var(--gg-color-secondary-brown); margin-top: var(--gg-spacing-2xs); }}
-.gg-neo-brutalist-page .gg-radar-chart.is-drawn .gg-radar-polygon {{ stroke-dashoffset: 0 !important; fill-opacity: 0.2; transition: stroke-dashoffset 1.2s ease-out, fill-opacity 0.8s ease-out 0.6s; }}
-.gg-neo-brutalist-page .gg-radar-chart.is-drawn .gg-radar-dot {{ opacity: 1; transition: opacity 0.3s ease-out; }}
-.gg-neo-brutalist-page .gg-radar-hit:hover ~ .gg-radar-ring {{ opacity: 0; }}
+.gg-neo-brutalist-page .gg-radar-polygon {{ fill-opacity: 0.2; }}
+.gg-neo-brutalist-page .gg-radar-dot {{ opacity: 1; }}
+.gg-neo-brutalist-page .gg-radar-hit:focus {{ outline: none; }}
 .gg-neo-brutalist-page .gg-radar-chart .gg-radar-ring {{ transition: opacity 0.2s; }}
+.gg-neo-brutalist-page [data-rating-group="course"] .gg-radar-spoke.is-active {{ stroke: var(--gg-color-teal); stroke-width: 2; }}
+.gg-neo-brutalist-page [data-rating-group="editorial"] .gg-radar-spoke.is-active {{ stroke: var(--gg-color-gold); stroke-width: 2; }}
+.gg-neo-brutalist-page .gg-rating-breakdown {{ grid-area: tiles; display: grid; grid-template-columns: 1fr 1fr; align-content: start; border-top: 1px solid var(--gg-color-tan); border-left: 1px solid var(--gg-color-tan); }}
+.gg-neo-brutalist-page .gg-rating-tile {{ min-height: 66px; padding: 10px 12px; border: 0; border-right: 1px solid var(--gg-color-tan); border-bottom: 1px solid var(--gg-color-tan); background: var(--gg-color-warm-paper); text-align: left; cursor: pointer; }}
+.gg-neo-brutalist-page .gg-rating-tile[aria-pressed="true"] {{ background: var(--gg-color-sand); border-left: 3px solid var(--gg-color-teal); }}
+.gg-neo-brutalist-page .gg-rating-tile-label {{ display: block; font-family: var(--gg-font-data); font-size: 10px; font-weight: 700; letter-spacing: var(--gg-letter-spacing-wider); text-transform: uppercase; color: var(--gg-color-secondary-brown); }}
+.gg-neo-brutalist-page .gg-rating-tile-score {{ display: block; margin-top: 3px; font-family: var(--gg-font-editorial); font-size: var(--gg-font-size-md); font-weight: 700; color: var(--gg-color-dark-brown); }}
+.gg-neo-brutalist-page .gg-rating-tile-score span {{ font-size: 11px; color: var(--gg-color-secondary-brown); }}
+.gg-neo-brutalist-page .gg-rating-explanation {{ grid-area: detail; align-self: stretch; padding: 16px; border: 1px solid var(--gg-color-gold); background: var(--gg-color-warm-paper); }}
+.gg-neo-brutalist-page .gg-rating-explanation-head {{ display: flex; justify-content: space-between; gap: 16px; }}
+.gg-neo-brutalist-page .gg-rating-explanation-label, .gg-neo-brutalist-page .gg-rating-explanation-score {{ font-family: var(--gg-font-data); font-size: 11px; font-weight: 700; letter-spacing: var(--gg-letter-spacing-wider); text-transform: uppercase; }}
+.gg-neo-brutalist-page .gg-rating-explanation-score {{ color: var(--gg-color-teal); }}
+.gg-neo-brutalist-page .gg-rating-explanation p {{ margin: 10px 0 0; font-family: var(--gg-font-editorial); font-size: 13px; line-height: 1.6; color: var(--gg-color-primary-brown); }}
+.gg-neo-brutalist-page .gg-rating-methodology {{ display: inline-block; margin-top: 16px; font-family: var(--gg-font-data); font-size: 10px; font-weight: 700; letter-spacing: var(--gg-letter-spacing-wider); text-transform: uppercase; color: var(--gg-color-teal); }}
 
 /* Verdict box hover */
 .gg-neo-brutalist-page .gg-verdict-box {{ transition: border-color var(--gg-transition-hover); }}
 .gg-neo-brutalist-page .gg-verdict-box:hover {{ border-color: var(--gg-color-gold); }}
-
-/* Accordion item hover highlight */
-.gg-neo-brutalist-page .gg-accordion-item {{ transition: background 0.15s; }}
-.gg-neo-brutalist-page .gg-accordion-item.is-highlighted {{ background: var(--gg-color-sand); }}
-
-/* Ratings summary */
-.gg-neo-brutalist-page .gg-ratings-summary {{ display: flex; gap: 16px; margin-bottom: 20px; }}
-.gg-neo-brutalist-page .gg-ratings-summary-card {{ flex: 1; border: var(--gg-border-subtle); padding: 16px; text-align: center; background: var(--gg-color-warm-paper); }}
-.gg-neo-brutalist-page .gg-ratings-summary-card:first-child {{ border-left: 4px solid var(--gg-color-gold); }}
-.gg-neo-brutalist-page .gg-ratings-summary-card:last-child {{ border-left: 4px solid var(--gg-color-teal); }}
-.gg-neo-brutalist-page .gg-ratings-summary-score {{ font-family: var(--gg-font-data); font-size: 32px; font-weight: 700; color: var(--gg-color-primary-brown); line-height: 1; }}
-.gg-neo-brutalist-page .gg-ratings-summary-max {{ font-size: 14px; color: var(--gg-color-tier-3); }}
-.gg-neo-brutalist-page .gg-ratings-summary-label {{ font-family: var(--gg-font-data); font-size: var(--gg-font-size-2xs); font-weight: 700; letter-spacing: var(--gg-letter-spacing-wider); text-transform: uppercase; color: var(--gg-color-secondary-brown); margin-top: var(--gg-spacing-2xs); }}
 
 /* Verdict */
 .gg-neo-brutalist-page .gg-verdict-grid {{ display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }}
@@ -5850,7 +6103,7 @@ body {{ margin: 0; background: var(--gg-color-warm-paper); }}
 
 /* Alternative links */
 .gg-neo-brutalist-page .gg-alt-link {{ color: var(--gg-color-teal); text-decoration: underline; text-underline-offset: 2px; }}
-.gg-neo-brutalist-page .gg-alt-link:hover {{ color: #14695F; }}
+.gg-neo-brutalist-page .gg-alt-link:hover {{ color: var(--gg-color-dark-teal); }}
 
 /* Buttons */
 .gg-neo-brutalist-page .gg-btn {{ display: inline-block; padding: 10px 24px; font-family: var(--gg-font-data); font-size: var(--gg-font-size-xs); font-weight: 700; text-transform: uppercase; letter-spacing: var(--gg-letter-spacing-wider); text-decoration: none; cursor: pointer; border: var(--gg-border-standard); transition: background 0.15s, color 0.15s; }}
@@ -6027,7 +6280,7 @@ body {{ margin: 0; background: var(--gg-color-warm-paper); }}
 .gg-sticky-cta-inner {{ max-width: 960px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 16px; }}
 .gg-sticky-cta-name {{ font-family: var(--gg-font-data); font-size: 13px; font-weight: 700; color: var(--gg-color-white); text-transform: uppercase; letter-spacing: 1px; }}
 .gg-sticky-cta .gg-btn {{ font-family: var(--gg-font-data); background: var(--gg-color-teal); color: var(--gg-color-white); border: var(--gg-border-width-subtle) solid var(--gg-color-teal); padding: var(--gg-spacing-xs) 20px; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: var(--gg-letter-spacing-wider); text-decoration: none; cursor: pointer; }}
-.gg-sticky-cta .gg-btn:hover {{ background: #14695F; border-color: #14695F; }}
+.gg-sticky-cta .gg-btn:hover {{ background: var(--gg-color-dark-teal); border-color: var(--gg-color-dark-teal); }}
 .gg-sticky-dismiss {{ background: none; border: none; color: var(--gg-color-white); font-size: 22px; cursor: pointer; opacity: 0.6; padding: 0 4px; line-height: 1; }}
 .gg-sticky-dismiss:hover {{ opacity: 1; }}
 
@@ -6059,6 +6312,8 @@ body {{ margin: 0; background: var(--gg-color-warm-paper); }}
 .gg-neo-brutalist-page .gg-email-capture-check {{ font-family: var(--gg-font-data); font-size: 14px; font-weight: 700; color: var(--gg-color-light-teal); margin: 0 0 var(--gg-spacing-xs); }}
 .gg-neo-brutalist-page .gg-email-capture-link {{ display: inline-block; font-family: var(--gg-font-data); font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: var(--gg-color-white); background: var(--gg-color-teal); padding: 10px 20px; text-decoration: none; border: 2px solid var(--gg-color-teal); transition: background 0.2s; }}
 .gg-neo-brutalist-page .gg-email-capture-link:hover {{ background: var(--gg-color-light-teal); }}
+.gg-neo-brutalist-page .gg-date-reminder-opt-in {{ display: block; margin: 12px auto 0; padding: 8px 12px; border: 1px solid var(--gg-color-gold); background: transparent; color: var(--gg-color-dark-brown); cursor: pointer; font-family: var(--gg-font-data); font-size: 10px; font-weight: 700; letter-spacing: var(--gg-letter-spacing-wider); }}
+.gg-neo-brutalist-page .gg-date-reminder-opt-in:disabled {{ border-color: var(--gg-color-tan); color: var(--gg-color-teal); cursor: default; }}
 
 /* Date reminder */
 .gg-neo-brutalist-page .gg-date-reminder {{ padding: 16px 20px; border: 1px solid var(--gg-color-muted-tan); margin: 16px 0; }}
@@ -6188,7 +6443,9 @@ body {{ margin: 0; background: var(--gg-color-warm-paper); }}
 
 /* Responsive — tablet */
 @media (max-width: 1024px) {{
-  .gg-neo-brutalist-page .gg-radar-pair {{ gap: 8px; }}
+  .gg-neo-brutalist-page .gg-breakdown-grid {{ grid-template-columns: repeat(2, minmax(0, 1fr)); }}
+  .gg-neo-brutalist-page .gg-breakdown-tile:nth-child(4n) {{ border-right: 1px solid var(--gg-color-tan); }}
+  .gg-neo-brutalist-page .gg-breakdown-tile:nth-child(2n) {{ border-right: none; }}
   .gg-neo-brutalist-page .gg-similar-grid {{ grid-template-columns: 1fr 1fr; }}  /* 2-col on tablet */
   .gg-neo-brutalist-page .gg-stat-grid {{ grid-template-columns: repeat(3, 1fr); gap: 10px; }}
   .gg-neo-brutalist-page .gg-news-ticker {{ display: none; }}
@@ -6204,9 +6461,7 @@ body {{ margin: 0; background: var(--gg-color-warm-paper); }}
   .gg-neo-brutalist-page .gg-stat-grid {{ grid-template-columns: repeat(2, 1fr); }}
   .gg-neo-brutalist-page .gg-verdict-grid {{ grid-template-columns: 1fr; }}
   .gg-neo-brutalist-page .gg-logistics-grid {{ grid-template-columns: 1fr; }}
-  .gg-neo-brutalist-page .gg-ratings-summary {{ flex-direction: column; }}
-  .gg-neo-brutalist-page .gg-radar-pair {{ flex-direction: column; }}
-  .gg-neo-brutalist-page .gg-accordion-content {{ padding-left: 0; }}
+  .gg-neo-brutalist-page .gg-rating-panel {{ grid-template-columns: 1fr; grid-template-areas: 'radar' 'tiles' 'detail'; }}
   .gg-neo-brutalist-page .gg-training-secondary {{ flex-direction: column; text-align: center; }}
   .gg-neo-brutalist-page .gg-pack-demand-label {{ font-size: 11px; }}
   .gg-neo-brutalist-page .gg-pack-workout-header {{ flex-wrap: wrap; }}
@@ -6234,7 +6489,7 @@ body {{ margin: 0; background: var(--gg-color-warm-paper); }}
   .gg-neo-brutalist-page .gg-countdown-num {{ font-size: 24px; }}
   /* 44px minimum touch targets on mobile */
   .gg-neo-brutalist-page .gg-btn {{ min-height: 44px; padding-top: 12px; padding-bottom: 12px; }}
-  .gg-neo-brutalist-page .gg-accordion-trigger {{ min-height: 44px; }}
+  .gg-neo-brutalist-page .gg-rating-tablist button, .gg-neo-brutalist-page .gg-rating-tile {{ min-height: 44px; }}
   .gg-neo-brutalist-page .gg-faq-question {{ min-height: 44px; }}
   .gg-neo-brutalist-page .gg-toc-toggle {{ min-height: 44px; }}
   .gg-neo-brutalist-page .gg-toc a {{ min-height: 44px; display: flex; align-items: center; }}
@@ -6258,7 +6513,10 @@ body {{ margin: 0; background: var(--gg-color-warm-paper); }}
   .gg-neo-brutalist-page .gg-hero-score-number {{ font-size: 40px; }}
   .gg-neo-brutalist-page .gg-hero-vitals {{ font-size: 11px; }}
   .gg-neo-brutalist-page .gg-stat-grid {{ grid-template-columns: 1fr; }}
-  .gg-neo-brutalist-page .gg-ratings-summary-score {{ font-size: 26px; }}
+  .gg-neo-brutalist-page .gg-breakdown-grid {{ grid-template-columns: 1fr; }}
+  .gg-neo-brutalist-page .gg-breakdown-tile, .gg-neo-brutalist-page .gg-breakdown-tile:nth-child(2n), .gg-neo-brutalist-page .gg-breakdown-tile:nth-child(4n) {{ border-right: none; }}
+  .gg-neo-brutalist-page .gg-breakdown-head {{ align-items: flex-start; flex-direction: column; gap: 4px; }}
+  .gg-neo-brutalist-page .gg-rating-breakdown {{ grid-template-columns: 1fr; }}
   .gg-neo-brutalist-page .gg-training-primary {{ padding: 20px; }}
   .gg-neo-brutalist-page .gg-training-secondary {{ padding: 16px; }}
   .gg-neo-brutalist-page .gg-photo-grid {{ grid-template-columns: 1fr; }}
@@ -6282,7 +6540,6 @@ body {{ margin: 0; background: var(--gg-color-warm-paper); }}
   .gg-neo-brutalist-page .gg-suffering-mile {{ min-width: 60px; padding: 8px; }}
   .gg-neo-brutalist-page .gg-suffering-mile-num {{ font-size: var(--gg-font-size-md); }}
   .gg-neo-brutalist-page .gg-suffering-content {{ padding: 8px 12px; }}
-  .gg-neo-brutalist-page .gg-accordion-score {{ width: 32px; min-width: 32px; font-size: 12px; }}
   .gg-neo-brutalist-page .gg-breadcrumb {{ font-size: 10px; }}
   .gg-sticky-cta {{ padding: 10px 12px; }}
   .gg-back-to-top {{ bottom: 60px; right: 12px; width: 36px; height: 36px; }}
@@ -6293,10 +6550,33 @@ body {{ margin: 0; background: var(--gg-color-warm-paper); }}
 
 # ── Shared Assets ─────────────────────────────────────────────
 
+APPROVED_TOP_CSS = '''<style>
+.gg-neo-brutalist-page .gg-approved-section { max-width: var(--gg-max-width); margin: 0 auto var(--gg-spacing-xl); background: var(--gg-color-warm-paper); }
+.gg-neo-brutalist-page .gg-approved-inner { padding: clamp(24px, 3vw, 44px); }
+.gg-neo-brutalist-page .gg-approved-kicker { display: block; margin-bottom: var(--gg-spacing-sm); font-family: var(--gg-font-data); font-size: var(--gg-font-size-2xs); font-weight: 800; letter-spacing: var(--gg-letter-spacing-wider); text-transform: uppercase; color: var(--gg-color-teal); }
+.gg-neo-brutalist-page .gg-approved-section h2 { font-family: var(--gg-font-editorial); color: var(--gg-color-dark-brown); }
+.gg-neo-brutalist-page .gg-offer { display: grid; grid-template-columns: minmax(0, 1fr) minmax(250px, 390px); gap: clamp(24px, 5vw, 72px); align-items: center; border: var(--gg-border-standard); border-top: 5px solid var(--gg-color-teal); }
+.gg-neo-brutalist-page .gg-offer h2 { margin: 0 0 var(--gg-spacing-sm); font-size: clamp(1.8rem, 3vw, 3rem); line-height: 1.05; }
+.gg-neo-brutalist-page .gg-offer p { max-width: 780px; margin: 0; font-family: var(--gg-font-editorial); font-size: clamp(1.05rem, 1.55vw, 1.3rem); line-height: 1.55; color: var(--gg-color-secondary-brown); }
+.gg-neo-brutalist-page .gg-offer-action { display: grid; min-width: min(100%, 290px); gap: var(--gg-spacing-xs); }
+.gg-neo-brutalist-page .gg-offer-price { font-family: var(--gg-font-data); font-size: var(--gg-font-size-xs); font-weight: 800; letter-spacing: var(--gg-letter-spacing-wide); text-align: center; color: var(--gg-color-secondary-brown); }
+.gg-neo-brutalist-page .gg-plan-cta { display: block; padding: 18px 22px; border: 3px solid var(--gg-color-dark-brown); background: var(--gg-color-gold); color: var(--gg-color-dark-brown); font-family: var(--gg-font-data); font-size: clamp(.82rem, 1.2vw, 1rem); font-weight: 900; letter-spacing: var(--gg-letter-spacing-wide); text-align: center; text-decoration: none; text-transform: uppercase; }
+.gg-neo-brutalist-page .gg-plan-cta:hover, .gg-neo-brutalist-page .gg-plan-cta:focus-visible { background: var(--gg-color-dark-brown); color: var(--gg-color-warm-paper); }
+.gg-neo-brutalist-page .gg-coaching-note { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: var(--gg-spacing-lg); align-items: center; max-width: var(--gg-max-width); margin: calc(var(--gg-spacing-xl) * -0.35) auto var(--gg-spacing-2xl); padding: clamp(20px, 3vw, 30px); border: 1px solid var(--gg-color-tan); border-left: 5px solid var(--gg-color-teal); background: var(--gg-color-sand); }
+.gg-neo-brutalist-page .gg-coaching-note h2 { margin: 0 0 5px; font-family: var(--gg-font-editorial); font-size: clamp(1.25rem, 2vw, 1.75rem); line-height: 1.15; }
+.gg-neo-brutalist-page .gg-coaching-note p { margin: 0; font-family: var(--gg-font-editorial); font-size: 1rem; line-height: 1.45; color: var(--gg-color-secondary-brown); }
+.gg-neo-brutalist-page .gg-coaching-link { font-family: var(--gg-font-data); font-size: .78rem; font-weight: 900; letter-spacing: var(--gg-letter-spacing-wide); color: var(--gg-color-teal); text-transform: uppercase; white-space: nowrap; }
+@media (max-width: 820px) {
+  .gg-neo-brutalist-page .gg-offer { grid-template-columns: 1fr; }
+  .gg-neo-brutalist-page .gg-offer-action { min-width: 0; }
+  .gg-neo-brutalist-page .gg-coaching-note { grid-template-columns: 1fr; }
+}
+</style>'''
+
 
 def _extract_css_content() -> str:
     """Extract raw CSS from get_page_css() (strip <style> tags)."""
-    raw = get_page_css()
+    raw = get_page_css() + APPROVED_TOP_CSS
     return raw.replace('<style>', '').replace('</style>', '').strip()
 
 
@@ -6318,14 +6598,19 @@ def write_shared_assets(output_dir: Path) -> dict:
     for old in fonts_dir.glob("*.woff2"):
         if old.name not in wanted:
             old.unlink()
+    local_fonts_dir = Path(__file__).resolve().parent.parent / 'mission_control' / 'static' / 'fonts'
+    copied_fonts = 0
     for font_file in FONT_FILES:
-        src = BRAND_FONTS_DIR / font_file
+        brand_src = BRAND_FONTS_DIR / font_file
+        local_src = local_fonts_dir / font_file
+        src = brand_src if brand_src.exists() else local_src
         dst = fonts_dir / font_file
         if src.exists():
             shutil.copy2(src, dst)
+            copied_fonts += 1
         else:
-            print(f"  WARNING: Font file not found: {src}")
-    print(f"  Copied {len(FONT_FILES)} font files to {fonts_dir}/")
+            print(f"  WARNING: Font file not found in brand or local bundle: {font_file}")
+    print(f"  Copied {copied_fonts}/{len(FONT_FILES)} font files to {fonts_dir}/")
 
     css_content = _extract_css_content()
     js_content = _extract_js_content()
@@ -6392,11 +6677,9 @@ def generate_page(rd: dict, race_index: list = None, external_assets: dict = Non
     hero = build_hero(rd)
     course_overview = build_course_overview(rd, race_index)
     history = build_history(rd)
-    pullquote = build_pullquote(rd)
     course_route = build_course_route(rd)
     from_the_field = build_from_the_field(rd)
     ratings = build_ratings(rd)
-    verdict = build_verdict(rd, race_index)
     race_plan_eligible = rd.get('race_plan_eligible', True)
     racer_reviews = build_racer_reviews(rd) if race_plan_eligible else ''
     source_blocked = rd['vitals'].get('course_status') == 'source_blocked'
@@ -6406,20 +6689,17 @@ def generate_page(rd: dict, race_index: list = None, external_assets: dict = Non
     email_capture = '' if suppress_plan_marketing else build_email_capture(rd)
     visible_faq = build_visible_faq(rd)
     news = build_news_section(rd)
-    training = build_training(rd) if race_plan_eligible else ''
-    plan_ladder = '' if suppress_plan_marketing else build_plan_ladder(rd)
-    train_for_race = '' if suppress_plan_marketing else build_train_for_race(rd)
-    # Strip only renders when [08] exists — its anchor target must be present
-    prep_strip = build_prep_strip(rd) if train_for_race else ''
+    custom_plan = '' if suppress_plan_marketing else build_custom_plan_offer(rd)
+    coaching = '' if suppress_plan_marketing else build_coaching_footnote(rd)
+    training = build_training_intelligence(rd)
+    train_for_race = '' if suppress_plan_marketing else build_train_for_race(
+        rd, email_capture, include_commerce=False)
     logistics_sec = build_logistics_section(rd)
     tire_picks = build_tire_picks(rd)
-    tire_callout = build_tire_guide_callout(rd)
-    coaching_teaser = build_coaching_teaser(rd) if race_plan_eligible else ''
-    date_reminder = '' if suppress_plan_marketing else build_date_reminder(rd)
     similar = build_similar_races(rd, race_index)
     citations_sec = build_citations_section(rd)
     footer = build_footer(rd)
-    sticky_cta = '' if suppress_plan_marketing else build_sticky_cta(rd['name'], rd['slug'])
+    sticky_cta = ''
     latest = build_latest_sidebar(rd, (race_intel or {}).get(rd['slug'], []))
 
     # Dynamic TOC — only link to sections that have content
@@ -6432,17 +6712,20 @@ def generate_page(rd: dict, race_index: list = None, external_assets: dict = Non
         active.add('route')
     if from_the_field:
         active.add('from-the-field')
-    if verdict:
-        active.add('verdict')
     if logistics_sec:
         active.add('logistics')
     if tire_picks:
         active.add('tires')
+    if racer_reviews:
+        active.add('racer-reviews')
+    if news:
+        active.add('news')
     if train_for_race:
         active.add('train-for-race')
     if citations_sec:
         active.add('citations')
     toc = build_toc(active)
+    breakdown = build_breakdown_tiles(active)
 
     # Use external assets if provided, otherwise inline
     if external_assets:
@@ -6454,34 +6737,37 @@ def generate_page(rd: dict, race_index: list = None, external_assets: dict = Non
         css = critical_css + '\n  ' + external_assets['css_tag']
         inline_js = external_assets['js_tag']
     else:
-        css = get_page_css()
+        css = get_page_css() + APPROVED_TOP_CSS
         inline_js = build_inline_js()
 
-    # Section order
-    content_sections = []
-    for section in [course_overview, history, pullquote,
-                    course_route, tire_callout, from_the_field, ratings, verdict,
-                    racer_reviews, email_capture, date_reminder, news, training,
-                    plan_ladder, coaching_teaser, train_for_race,
-                    logistics_sec, tire_picks, similar, visible_faq,
-                    citations_sec]:
-        if section:
-            content_sections.append(section)
+    # The approved first pass is locked: ratings, custom plan, coaching
+    # footnote, then the original Full Breakdown navigation.
+    spine_sections = [ratings, custom_plan, coaching, breakdown]
+    spine = '\n\n  '.join(section for section in spine_sections if section)
 
-    content = '\n\n  '.join(content_sections)
+    deep_sections = []
+    for section in [course_overview, history, course_route, from_the_field,
+                    racer_reviews, training, train_for_race, logistics_sec,
+                    tire_picks, news, similar, visible_faq, citations_sec]:
+        if section:
+            deep_sections.append(section)
+
+    deep_content = '\n\n  '.join(deep_sections)
     if latest:
-        page_body = f'''<div class="gg-page-body-with-latest">
+        deep_body = f'''<div class="gg-page-body-with-latest">
     <main class="gg-page-main">
       {toc}
-
-      {content}
+      <div class="gg-deep-dive" id="deep-dive" data-measure-section="deep-dive">
+      {deep_content}
+      </div>
     </main>
     {latest}
   </div>'''
     else:
-        page_body = f'''{toc}
-
-  {content}'''
+        deep_body = f'''{toc}
+  <div class="gg-deep-dive" id="deep-dive" data-measure-section="deep-dive">
+  {deep_content}
+  </div>'''
 
     # SEO-optimized title and description
     seo_title = build_seo_title(rd)
@@ -6524,18 +6810,19 @@ def generate_page(rd: dict, race_index: list = None, external_assets: dict = Non
   {jsonld_html}
   {css}
   {get_ga4_head_snippet()}
+  {get_ab_head_snippet()}
 </head>
 <body>
 
-<a href="#course" class="gg-skip-link">Skip to content</a>
-<div class="gg-neo-brutalist-page">
+<a href="#ratings" class="gg-skip-link">Skip to content</a>
+<div class="gg-neo-brutalist-page" data-race-slug="{esc(rd['slug'])}" data-page-format="spine-v2-approved" data-plan-marketing="{'suppressed' if suppress_plan_marketing else 'enabled'}">
   {nav_header}
 
   {hero}
 
-  {prep_strip}
+  {spine}
 
-  {page_body}
+  {deep_body}
 
   {footer}
 </div>

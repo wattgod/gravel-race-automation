@@ -96,6 +96,28 @@ class TestAntiShillStructure:
         assert 'href="/race/unbound-200/"' in html
 
 
+class TestCustomPlanPreview:
+    def test_collects_requested_constraints(self, html):
+        assert 'id="gg-tpp-preview-hours"' in html
+        assert "Preferred training days" in html
+        assert 'id="gg-tpp-preview-level"' in html
+
+    def test_renders_a_week_before_javascript(self, html):
+        assert html.count('data-preview-day="') == 7
+        assert "Race-specific intervals" in html
+        assert "Long race-prep ride" in html
+
+    def test_hands_preferences_to_questionnaire(self, html):
+        assert 'data-cta="tpp_preview_build"' in html
+        assert "url.searchParams.set('hours'" in html
+        assert "url.searchParams.set('days'" in html
+        assert "url.searchParams.set('experience'" in html
+
+    def test_tracks_interaction_without_auto_firing(self, html):
+        assert "plan_preview_update" in html
+        assert "if (touched && typeof gtag === 'function')" in html
+
+
 class TestSafety:
     def test_no_inline_handlers(self, html):
         assert "onclick=" not in html

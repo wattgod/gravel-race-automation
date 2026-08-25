@@ -1,5 +1,6 @@
 """Tests for wordpress/generate_neo_brutalist.py — race page generator."""
 
+import copy
 import json
 import logging
 import re
@@ -25,13 +26,13 @@ from generate_neo_brutalist import (
     US_STATES,
     _build_race_name_map,
     _safe_json_for_script,
-    build_accordion_html,
     build_course_overview,
     build_course_route,
     build_email_capture,
     build_footer,
     build_hero,
     build_history,
+    build_inline_js,
     build_logistics_section,
     build_nav_header,
     build_news_section,
@@ -58,6 +59,7 @@ from generate_neo_brutalist import (
     load_race_data,
     normalize_race_data,
     score_bar_color,
+    write_shared_assets,
 )
 
 
@@ -774,6 +776,9 @@ class TestParseEventDates:
     def test_single_day(self):
         assert parse_event_dates("2026: June 15") == ("2026-06-15", "2026-06-15")
 
+    def test_month_first_date(self):
+        assert parse_event_dates("May 1, 2026") == ("2026-05-01", "2026-05-01")
+
     def test_same_month_range(self):
         assert parse_event_dates("2026: August 19-23") == ("2026-08-19", "2026-08-23")
 
@@ -804,6 +809,14 @@ class TestParseEventDates:
 
     def test_seasonal_tbd(self):
         assert parse_event_dates("2026: Spring/Fall TBD") == (None, None)
+
+    @pytest.mark.parametrize("value", [
+        "2026: May 2026",
+        "Status: no edition confirmed; last ran June 2024",
+        "Paused for 2026 — returning May 2027",
+    ])
+    def test_year_text_is_not_mistaken_for_day_of_month(self, value):
+        assert parse_event_dates(value) == (None, None)
 
 
 # ── Sections ──────────────────────────────────────────────────
@@ -836,9 +849,9 @@ class TestSections:
         html = build_course_overview(normalized_data)
         assert "gg-stat-card" in html
 
-    def test_course_overview_has_difficulty(self, normalized_data):
+    def test_course_overview_does_not_duplicate_rating_as_difficulty_gauge(self, normalized_data):
         html = build_course_overview(normalized_data)
-        assert "gg-difficulty-gauge" in html
+        assert "gg-difficulty-gauge" not in html
 
     def test_history_renders_real_content(self, normalized_data):
         html = build_history(normalized_data)
@@ -860,13 +873,18 @@ class TestSections:
         assert "gg-suffering-zone" in html
         assert "The Wall" in html
 
-    def test_ratings_has_accordions(self, normalized_data):
+    def test_ratings_has_click_to_explain_tiles(self, normalized_data):
         html = build_ratings(normalized_data)
-        assert "gg-accordion" in html
+        assert html.count('class="gg-rating-tile"') == 14
+        assert "gg-rating-explanation" in html
+        assert "gg-accordion" not in html
 
-    def test_ratings_has_radar_charts(self, normalized_data):
+    def test_ratings_has_tabbed_radar_charts(self, normalized_data):
         html = build_ratings(normalized_data)
-        assert "gg-radar-pair" in html
+        assert 'role="tablist"' in html
+        assert html.count("<svg") == 2
+        assert "gg-rating-panel-course" in html
+        assert "gg-rating-panel-editorial" in html
 
     def test_verdict_has_race_skip(self, normalized_data):
         html = build_verdict(normalized_data)
@@ -950,9 +968,10 @@ class TestSections:
 
         html = generate_page(rd, [])
 
-        assert "2026 Cancelled" in html
-        assert "No race-specific plan is for sale yet" in html
+        assert "2026 CANCELLED" in html
         assert "Funding ended and no replacement host is announced." in html
+        assert 'data-measure-section="custom-plan"' not in html
+        assert 'data-measure-section="coaching"' not in html
         assert 'id="gg-sticky-cta"' not in html
         assert 'id="prep-kit-capture"' not in html
         assert 'id="gg-date-reminder-form"' not in html
@@ -971,13 +990,15 @@ class TestSections:
         html = generate_page(rd, [])
 
         assert rd["race_plan_eligible"] is False
-        assert "Ride This If" in html
+        assert 'data-measure-section="custom-plan"' not in html
+        assert 'data-measure-section="coaching"' not in html
+        assert 'id="verdict"' not in html
         assert "Is Test Gravel 100 a race?" in html
         assert "Gravel event" in html
         assert 'id="gg-sticky-cta"' not in html
         assert 'id="prep-kit-capture"' not in html
         assert 'id="gg-date-reminder-form"' not in html
-        assert 'id="training"' not in html
+        assert 'id="training"' in html
         assert 'id="train-for-race"' not in html
         assert 'id="gg-racer-reviews"' not in html
         assert ">BUILD MY PLAN" not in html
@@ -996,10 +1017,70 @@ class TestSections:
     def test_similar_races(self, normalized_data, sample_race_index):
         html = build_similar_races(normalized_data, sample_race_index)
         assert "gg-similar-card" in html
+        assert 'data-related-race=' in html
+        assert 'id="similar-races"' in html
 
     def test_news_section_has_ticker(self, normalized_data):
         html = build_news_section(normalized_data)
         assert "gg-news-ticker" in html
+        assert 'id="news" class="gg-section' in html
+
+    def test_video_stills_require_relevance_and_cap_at_two(self, normalized_data):
+        rd = copy.deepcopy(normalized_data)
+        rd["photos"] = [
+            {"type": "video-1", "url": "/missing.jpg", "ai_relevance": None},
+            {"type": "video-2", "url": "/low.jpg", "ai_relevance": "3"},
+            {"type": "video-3", "url": "/pass-a.jpg", "ai_relevance": "4"},
+            {"type": "video-4", "url": "/pass-b.jpg", "ai_relevance": 5},
+            {"type": "video-5", "url": "/capped.jpg", "ai_relevance": 5},
+        ]
+        html = build_course_route(rd)
+        assert "/missing.jpg" not in html
+        assert "/low.jpg" not in html
+        assert "/pass-a.jpg" in html
+        assert "/pass-b.jpg" in html
+        assert "/capped.jpg" not in html
+
+    def test_trusted_non_video_images_bypass_video_gate_and_gifs_never_render(self, normalized_data):
+        rd = copy.deepcopy(normalized_data)
+        rd["photos"] = [
+            {"type": "landscape", "url": "/trusted.jpg"},
+            {"type": "preview-gif", "url": "/preview.gif"},
+            {"type": "street-1", "url": "/also-gif.gif"},
+        ]
+        html = build_course_route(rd)
+        assert "/trusted.jpg" in html
+        assert "/preview.gif" not in html
+        assert "/also-gif.gif" not in html
+
+
+class TestSurfaceBreakdownNormalization:
+    def test_terrain_surface_breakdown_is_canonical(self, sample_race_data):
+        data = copy.deepcopy(sample_race_data)
+        data["race"]["terrain"]["surface_breakdown"] = {"100 mi": {"gravel": 90}}
+        data["race"]["course_description"]["surface_breakdown"] = {"100 mi": {"pavement": 90}}
+        assert normalize_race_data(data)["course"]["surface_breakdown"] == {"100 mi": {"gravel": 90}}
+
+    def test_course_description_surface_breakdown_is_fallback(self, sample_race_data):
+        data = copy.deepcopy(sample_race_data)
+        data["race"].setdefault("terrain", {}).pop("surface_breakdown", None)
+        data["race"]["course_description"]["surface_breakdown"] = {"100 mi": {"dirt": 70}}
+        assert normalize_race_data(data)["course"]["surface_breakdown"] == {"100 mi": {"dirt": 70}}
+
+    def test_legacy_flat_surface_breakdown_gets_course_label(self, sample_race_data):
+        data = copy.deepcopy(sample_race_data)
+        data["race"]["terrain"]["surface_breakdown"] = {"paved": "100%", "gravel": 0}
+        rd = normalize_race_data(data)
+        assert rd["course"]["surface_breakdown"] == {
+            "Course": {"paved": "100%", "gravel": 0}
+        }
+        html = build_course_route(rd)
+        assert "paved 100%" in html
+
+    def test_invalid_scalar_surface_breakdown_is_ignored(self, sample_race_data):
+        data = copy.deepcopy(sample_race_data)
+        data["race"]["terrain"]["surface_breakdown"] = 100
+        assert normalize_race_data(data)["course"]["surface_breakdown"] == {}
 
 
 # ── Logistics Placeholder Suppression ─────────────────────────
@@ -1137,10 +1218,11 @@ class TestNav:
 
     def test_breadcrumb_outside_header(self, normalized_data):
         html = build_nav_header(normalized_data, [])
-        # Breadcrumb should be a separate div, not inside <header>
+        # Breadcrumb should be a separate landmark, not inside <header>.
         header_end = html.index("</header>")
         breadcrumb_start = html.index('class="gg-breadcrumb"')
         assert breadcrumb_start > header_end
+        assert '<nav class="gg-breadcrumb" aria-label="Breadcrumb">' in html
 
     def test_breadcrumb_has_race_name_and_tier(self, normalized_data):
         html = build_nav_header(normalized_data, [])
@@ -1193,23 +1275,40 @@ class TestNavCrossGenerator:
 
 # ── Accordion & Radar ─────────────────────────────────────────
 
-class TestAccordion:
-    def test_accordion_14_items(self, normalized_data):
-        course = build_accordion_html(COURSE_DIMS, normalized_data["explanations"])
-        opinion = build_accordion_html(OPINION_DIMS, normalized_data["explanations"], idx_offset=7)
-        assert course.count("gg-accordion-item") == 7
-        assert opinion.count("gg-accordion-item") == 7
-
-    def test_accordion_has_scores(self, normalized_data):
-        html = build_accordion_html(COURSE_DIMS, normalized_data["explanations"])
-        assert "3/5" in html
+class TestInteractiveRating:
+    def test_rating_has_14_criteria(self, normalized_data):
+        html = build_radar_charts(normalized_data["explanations"],
+                                  normalized_data["course_profile"],
+                                  normalized_data["opinion_total"])
+        assert html.count('class="gg-rating-tile"') == 14
+        assert html.count("gg-radar-hit") == 14
 
     def test_radar_charts_render(self, normalized_data):
         html = build_radar_charts(normalized_data["explanations"],
                                   normalized_data["course_profile"],
                                   normalized_data["opinion_total"])
-        assert "gg-radar-pair" in html
-        assert "<svg" in html
+        assert html.count("<svg") == 2
+        assert 'role="tab"' in html
+        assert 'role="tabpanel"' in html
+
+    def test_radar_data_is_visible_without_javascript(self, normalized_data):
+        html = build_radar_charts(normalized_data["explanations"],
+                                  normalized_data["course_profile"],
+                                  normalized_data["opinion_total"])
+        assert html.count('class="gg-radar-polygon" fill-opacity="0.2"') == 2
+        assert 'stroke-dashoffset="1000"' not in html
+        assert 'class="gg-radar-dot" pointer-events="none" opacity="0"' not in html
+        js = build_inline_js()
+        assert "radarObs" not in js
+        assert "is-drawn" not in js
+
+
+class TestSharedAssets:
+    def test_local_font_bundle_fills_missing_sibling_brand_repo(self, tmp_path):
+        write_shared_assets(tmp_path)
+        fonts_dir = tmp_path / "assets" / "fonts"
+        assert (fonts_dir / "SometypeMono-normal-latin.woff2").stat().st_size > 0
+        assert (fonts_dir / "SourceSerif4-normal-latin.woff2").stat().st_size > 0
 
 
 # ── Full Page Assembly ────────────────────────────────────────
@@ -1281,17 +1380,73 @@ class TestFullPage:
         assert 'id="history"' in html
         assert 'id="route"' in html
         assert 'id="ratings"' in html
-        assert 'id="verdict"' in html
         assert 'id="training"' in html
         assert 'id="logistics"' in html
+        assert 'id="verdict"' not in html
+
+    def test_spine_order_and_deep_dive_demote(self, normalized_data):
+        html = generate_page(normalized_data)
+        ordered_markers = [
+            'class="gg-hero"',
+            'id="ratings"',
+            'data-measure-section="custom-plan"',
+            'data-measure-section="coaching"',
+            'id="breakdown"',
+            'id="deep-dive"',
+            'id="course"',
+            'id="training"',
+        ]
+        positions = [html.index(marker) for marker in ordered_markers]
+        assert positions == sorted(positions)
+        assert 'id="breakdown" class="gg-breakdown" aria-label="Full race breakdown" data-measure-section="breakdown"' in html
+        assert ".gg-deep-dive > section[id]" in html
+        assert "related_race_click" in html
+
+    def test_old_sales_surfaces_are_not_assembled(self, normalized_data):
+        html = generate_page(normalized_data)
+        assert 'id="prep-strip"' not in html
+        assert 'id="plan-ladder"' not in html
+        assert 'class="gg-coaching-teaser"' not in html
+        assert 'class="gg-tire-callout"' not in html
+        assert 'id="gg-date-reminder-form"' not in html
+        assert 'class="gg-sticky-cta"' not in html
+
+    def test_approved_offer_is_not_rewritten_by_old_ab_experiments(self, normalized_data):
+        html = generate_page(normalized_data)
+        assert "gg-ab-tests" in html
+        assert 'data-ab="race_offer_price"' not in html
+        assert 'data-ab="race_offer_cta"' not in html
+        assert 'data-cta="approved_custom_plan"' in html
+        assert 'data-cta="approved_coaching"' in html
+
+    def test_deep_dive_keeps_training_intelligence_without_commerce(self, normalized_data):
+        html = generate_page(normalized_data)
+        deep = html.split('<div class="gg-deep-dive" id="deep-dive"', 1)[1].split('<footer', 1)[0]
+        assert 'id="training"' in deep
+        for forbidden in [
+            '/questionnaire/', '/coaching/', 'BUILD MY PLAN',
+            'PREVIEW MY PLAN', '/training-plan/', 'gg-pack-cta',
+            'gg-cfg-bar', 'data-cta="coaching"',
+        ]:
+            assert forbidden not in deep
+
+    def test_no_inline_event_handlers(self, normalized_data):
+        html = generate_page(normalized_data)
+        assert "onclick=" not in html
+
+    def test_history_tile_opens_owning_section_and_details(self):
+        js = build_inline_js()
+        assert "target.tagName === 'DETAILS'" in js
+        assert "section.contains(target)" in js
 
     def test_js_has_fetch_timeout(self, normalized_data):
         html = generate_page(normalized_data)
         assert "fetchWithTimeout" in html
 
-    def test_js_score_animation_starts_from_zero(self, normalized_data):
+    def test_js_does_not_temporarily_show_a_false_score(self, normalized_data):
         html = generate_page(normalized_data)
-        assert "el.textContent = '0'" in html
+        assert "el.textContent = '0'" not in html
+        assert 'data-target="72">72</div>' in html
 
     def test_no_inline_margin_styles(self, normalized_data):
         index = [
@@ -1378,7 +1533,7 @@ class TestRacerRating:
         rd = normalize_race_data(race_with_ratings)
         html = build_hero(rd)
         assert "gg-hero-score" in html
-        assert "GG SCORE" in html
+        assert "LAB SCORE" in html
         assert "gg-hero-score-number" in html
 
     def test_hero_has_vitals_line(self, sample_race_data):

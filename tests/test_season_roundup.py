@@ -285,6 +285,14 @@ def test_roundup_has_category_tag(sample_races):
     assert "Monthly Calendar" in html
 
 
+def test_roundup_tracks_plan_intent_with_canonical_event(sample_races):
+    html = generate_roundup_html(
+        "Test", "Sub", "Intro.", sample_races, "roundup-test", "Monthly Calendar"
+    )
+    assert "gtag('event', 'cta_click'" in html
+    assert "source: 'editorial'" in html
+
+
 def test_roundup_escapes_html():
     """Verify HTML special chars are escaped."""
     races = [{"slug": "x", "name": "Race <script>", "tier": 1, "overall_score": 50,

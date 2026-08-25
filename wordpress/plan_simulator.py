@@ -24,6 +24,33 @@ def _safe_json(value: Any) -> str:
         "</", "<\\/")
 
 
+def _plan_modules(brand: str) -> list[dict[str, Any]]:
+    """Public module catalog; paid add-ons can join without changing markup."""
+    modules = [
+        {
+            "id": "strength",
+            "name": "Race-specific strength",
+            "status": "Included",
+            "description": "Sets, reps, rest, and movement cues placed around your key sessions.",
+        },
+        {
+            "id": "fueling",
+            "name": "Fueling practice",
+            "status": "Included",
+            "description": "Session-level targets that turn race nutrition into something you rehearse.",
+        },
+    ]
+    if brand in {"gravel_god", "gravelgod"}:
+        modules.insert(0, {
+            "id": "gravel_grit",
+            "addon_id": "gravel_grit",
+            "name": "Gravel Grit",
+            "status": "Included",
+            "description": "Four mental-skills notes built into the plan. It stays included—not an extra charge.",
+        })
+    return modules
+
+
 def render_plan_simulator(*, brand: str, race: Mapping[str, Any],
                           demands: Mapping[str, Any], questionnaire_url: str,
                           heading: str, lede: str,
@@ -51,6 +78,7 @@ def render_plan_simulator(*, brand: str, race: Mapping[str, Any],
             "discipline": str(discipline),
             "demands": normalized_demands,
         },
+        "plan_modules": _plan_modules(brand),
     }
     normalized_options = []
     for option in race_options or []:
@@ -96,6 +124,13 @@ def render_plan_simulator(*, brand: str, race: Mapping[str, Any],
             for option in normalized_options
         )
         race_select = f'''<label class="tp-sim-field tp-sim-race" for="tp-sim-race-{_esc(slug)}"><span>Goal race</span><select id="tp-sim-race-{_esc(slug)}" data-role="race">{choices}</select></label>'''
+    module_cards = "".join(
+        f'''<article class="tp-sim-module" data-plan-module="{_esc(module["id"])}"'''
+        f'''{f' data-plan-addon="{_esc(module["addon_id"])}"' if module.get("addon_id") else ""}>'''
+        f'''<span>{_esc(module["status"])}</span><strong>{_esc(module["name"])}</strong>'''
+        f'''<p>{_esc(module["description"])}</p></article>'''
+        for module in config["plan_modules"]
+    )
     return f'''<section class="tp-sim" id="custom-plan-preview" data-training-preview data-config-id="{_esc(config_id)}">
   <p class="tp-sim-kicker">YOUR WEEK, INSIDE TRAININGPEAKS</p>
   <h2>{_esc(heading)}</h2>
@@ -137,6 +172,7 @@ def render_plan_simulator(*, brand: str, race: Mapping[str, Any],
       <footer class="tp-sim-appfoot"><span data-role="versions">Waiting for engine…</span><span>Preview only · full progression unlocks after intake</span></footer>
     </div>
   </div>
+  <section class="tp-sim-modules"><button type="button" data-role="modules-toggle" aria-expanded="false">SHOW PLAN MODULES +</button><div data-role="modules-panel" hidden>{module_cards}</div></section>
   <div class="tp-sim-conversion"><p><strong>This week changes when your inputs change.</strong> The purchased plan carries that logic through every build, recovery, taper, and race week.</p><a class="tp-sim-cta" data-role="cta" data-cta="tpp_preview_build" href="{_esc(questionnaire_url)}">BUILD MY FULL PLAN →</a></div>
   <script type="application/json" id="{_esc(config_id)}">{_safe_json(config)}</script>
 </section>'''
@@ -180,9 +216,10 @@ def get_plan_simulator_css(*, ink: str, paper: str, panel: str,
 .tp-sim-detail {{ position:absolute; inset:54px 0 0; z-index:4; padding:20px; overflow:auto; background:var(--sim-panel); }} .tp-sim-detail>[data-role=detail-close] {{ position:absolute; top:10px; right:10px; width:44px; height:44px; border:2px solid var(--sim-ink); background:var(--sim-paper); color:var(--sim-ink); font:28px/1 var(--sim-data); cursor:pointer; }} .tp-sim-detail>[data-role=detail-type] {{ margin:0 52px 5px 0; font:700 9px/1 var(--sim-data); letter-spacing:1.5px; color:var(--sim-accent); }} .tp-sim-detail h3 {{ margin:0 52px 6px 0; font:700 21px/1.15 var(--sim-data); }} .tp-sim-detail-meta {{ margin:0 0 15px; font:700 10px/1.3 var(--sim-data); text-transform:uppercase; }} .tp-sim-purpose {{ margin:0 0 14px; padding:11px 12px; border-left:5px solid var(--sim-accent); background:var(--sim-paper); }} .tp-sim-purpose span,.tp-sim-strength>span {{ font:700 8px/1 var(--sim-data); letter-spacing:1.2px; }} .tp-sim-purpose p {{ margin:5px 0 0; font:15px/1.45 var(--sim-body); }} .tp-sim-detail-graph svg {{ width:100%; height:110px; border:1px solid var(--sim-line); }} .tp-sim-detail-graph polyline {{ fill:none; stroke:var(--sim-accent); stroke-width:4; vector-effect:non-scaling-stroke; }} .tp-sim-detail-graph .tp-sim-strength-bar {{ fill:#c75b23; opacity:.82; }} .tp-sim-detail-copy {{ display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-top:14px; }} .tp-sim-detail-copy>div {{ border-top:3px solid var(--sim-ink); padding-top:8px; }} .tp-sim-detail-copy span,.tp-sim-notes span {{ font:700 8px/1 var(--sim-data); letter-spacing:1.2px; }} .tp-sim-detail-copy p,.tp-sim-notes p {{ margin:5px 0 0; font:14px/1.45 var(--sim-body); }} .tp-sim-steps {{ margin:16px 0 0; padding-left:22px; font:11px/1.5 var(--sim-data); }} .tp-sim-strength {{ margin-top:16px; border-top:3px solid var(--sim-ink); padding-top:10px; }} .tp-sim-strength>strong {{ display:block; margin:6px 0 10px; font:700 13px/1.3 var(--sim-data); }} .tp-sim-strength ol {{ display:grid; gap:7px; margin:0; padding:0; list-style:none; }} .tp-sim-strength li {{ display:grid; grid-template-columns:minmax(130px,1fr) auto; gap:3px 12px; padding:9px; border:1px solid var(--sim-line); background:var(--sim-paper); }} .tp-sim-strength li strong {{ font:700 11px/1.25 var(--sim-data); }} .tp-sim-strength li span {{ font:700 9px/1.25 var(--sim-data); }} .tp-sim-strength li p {{ grid-column:1/-1; margin:0; font:13px/1.35 var(--sim-body); }}
 .tp-sim-notes {{ grid-template-columns:repeat(3,1fr); border-top:1px solid var(--sim-line); }} .tp-sim-notes article {{ padding:12px; border-right:1px solid var(--sim-line); }} .tp-sim-notes article:last-child {{ border-right:0; }}
 .tp-sim-appfoot {{ display:flex; justify-content:space-between; gap:12px; padding:8px 12px; border-top:1px solid var(--sim-line); font:8px/1.3 var(--sim-data); letter-spacing:.5px; text-transform:uppercase; }}
+.tp-sim-modules {{ margin-top:22px; }} .tp-sim-modules>button {{ width:100%; min-height:48px; border:2px solid var(--sim-ink); background:var(--sim-panel); color:var(--sim-ink); font:700 11px/1.2 var(--sim-data); letter-spacing:1px; cursor:pointer; }} .tp-sim-modules>button:hover,.tp-sim-modules>button:focus-visible {{ background:var(--sim-ink); color:var(--sim-paper); }} .tp-sim-modules>div {{ grid-template-columns:repeat(3,1fr); gap:8px; margin-top:8px; }} .tp-sim-module {{ min-width:0; padding:14px; border:2px solid var(--sim-line); background:var(--sim-panel); }} .tp-sim-module>span {{ display:block; margin-bottom:7px; font:700 8px/1 var(--sim-data); letter-spacing:1.2px; color:var(--sim-accent); text-transform:uppercase; }} .tp-sim-module>strong {{ display:block; font:700 13px/1.25 var(--sim-data); text-transform:uppercase; }} .tp-sim-module>p {{ margin:7px 0 0; font:13px/1.4 var(--sim-body); }}
 .tp-sim-conversion {{ display:flex; align-items:center; justify-content:space-between; gap:20px; margin-top:22px; padding-top:20px; border-top:3px solid var(--sim-ink); }} .tp-sim-conversion p {{ max-width:640px; margin:0; font:15px/1.5 var(--sim-body); }} .tp-sim-cta {{ flex:none; display:inline-block; padding:13px 20px; border:3px solid var(--sim-ink); background:var(--sim-ink); color:var(--sim-paper); font:700 12px/1.2 var(--sim-data); letter-spacing:.8px; text-decoration:none; }} .tp-sim-cta:hover,.tp-sim-cta:focus-visible {{ background:var(--sim-accent); }}
 @media(max-width:900px){{.tp-sim-shell{{grid-template-columns:1fr}}.tp-sim-presets>div{{grid-template-columns:repeat(3,1fr)}}.tp-sim-presets button{{grid-template-columns:1fr;text-align:center}}}}
-@media(max-width:640px){{.tp-sim{{padding:20px 14px}}.tp-sim-presets>div{{grid-template-columns:1fr}}.tp-sim-presets button{{grid-template-columns:48px 1fr;text-align:left}}.tp-sim-calendar{{grid-template-columns:repeat(7,118px)}}.tp-sim-appbar{{align-items:flex-start}}.tp-sim-appbar p{{max-width:48%}}.tp-sim-notes{{grid-template-columns:1fr}}.tp-sim-notes article{{border-right:0;border-bottom:1px solid var(--sim-line)}}.tp-sim-detail-copy{{grid-template-columns:1fr}}.tp-sim-conversion{{align-items:stretch;flex-direction:column}}.tp-sim-cta{{text-align:center}}}}
+@media(max-width:640px){{.tp-sim{{padding:20px 14px}}.tp-sim-presets>div{{grid-template-columns:1fr}}.tp-sim-presets button{{grid-template-columns:48px 1fr;text-align:left}}.tp-sim-calendar{{grid-template-columns:repeat(7,118px)}}.tp-sim-appbar{{align-items:flex-start}}.tp-sim-appbar p{{max-width:48%}}.tp-sim-notes{{grid-template-columns:1fr}}.tp-sim-notes article{{border-right:0;border-bottom:1px solid var(--sim-line)}}.tp-sim-detail-copy{{grid-template-columns:1fr}}.tp-sim-modules>div{{grid-template-columns:1fr}}.tp-sim-conversion{{align-items:stretch;flex-direction:column}}.tp-sim-cta{{text-align:center}}}}
 @media(prefers-reduced-motion:reduce){{.tp-sim *{{scroll-behavior:auto!important}}}}
 '''
 
@@ -221,7 +258,7 @@ def get_plan_simulator_js() -> str:
     function schedule(immediate){clearTimeout(timer);updateCta();if(selectedDays().length<3)return;timer=setTimeout(load,immediate?0:350);if(touched&&typeof gtag==='function'){gtag('event','plan_preview_update',{source:'training_plan_simulator',race_slug:config.race.slug,hours_per_week:Number(hours.value),preferred_days_count:selectedDays().length,experience_level:experience.value,preset_id:presetId||'manual'});}}
     presets.forEach(function(button){button.setAttribute('aria-pressed',button.classList.contains('is-active')?'true':'false');button.addEventListener('click',function(){touched=true;presetId=button.getAttribute('data-preset');hours.value=button.getAttribute('data-hours');experience.value=button.getAttribute('data-experience');var wanted=button.getAttribute('data-days').split(',');dayInputs.forEach(function(input){input.checked=wanted.indexOf(input.value)!==-1;});presets.forEach(function(item){var active=item===button;item.classList.toggle('is-active',active);item.setAttribute('aria-pressed',active?'true':'false');});hoursValue.textContent=hours.value+' hours';dayHelp.classList.remove('tp-sim-day-error');schedule(true);});});
     controls.addEventListener('input',function(event){if(event.target===raceSelect&&Array.isArray(config.race_options)){var next=config.race_options.find(function(item){return item.slug===raceSelect.value;});if(next)config.race=next;}if(event.target.matches('.tp-sim-day-toggle input')&&selectedDays().length<3){event.target.checked=true;dayHelp.textContent='A useful preview needs at least three available days.';dayHelp.classList.add('tp-sim-day-error');return;}touched=true;presetId='';presets.forEach(function(item){item.classList.remove('is-active');item.setAttribute('aria-pressed','false');});hoursValue.textContent=hours.value+' hours';dayHelp.textContent='Choose at least three days.';dayHelp.classList.remove('tp-sim-day-error');schedule(false);});
-    root.querySelector('[data-role=detail-close]').addEventListener('click',function(){root.querySelector('[data-role=detail]').hidden=true;});updateCta();schedule(true);
+    root.querySelector('[data-role=detail-close]').addEventListener('click',function(){root.querySelector('[data-role=detail]').hidden=true;});var moduleToggle=root.querySelector('[data-role=modules-toggle]');var modulePanel=root.querySelector('[data-role=modules-panel]');moduleToggle.addEventListener('click',function(){var open=moduleToggle.getAttribute('aria-expanded')!=='true';moduleToggle.setAttribute('aria-expanded',open?'true':'false');moduleToggle.textContent=open?'HIDE PLAN MODULES −':'SHOW PLAN MODULES +';modulePanel.hidden=!open;if(open&&typeof gtag==='function')gtag('event','plan_modules_open',{source:'training_plan_simulator',race_slug:config.race.slug});});updateCta();schedule(true);
   }
   all(document,'[data-training-preview]').forEach(init);
 })();

@@ -524,5 +524,7 @@ def test_recap_has_hero_image(tmp_path):
         assert "gg-blog-hero-img" in html_content
         assert "/og/test-race.jpg" in html_content
         assert 'alt="' in html_content
+        assert "gtag('event', 'cta_click'" in html_content
+        assert "source: 'editorial'" in html_content
     finally:
         recap_mod.RACE_DATA_DIR = orig_dir

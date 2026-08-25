@@ -160,10 +160,10 @@ def test_generate_preview_escapes_html():
     """Verify HTML entities are escaped in output."""
     html = generate_preview_html("unbound-200")
     assert html is not None
-    # The only body script is the static shared consent controller; race data
-    # must never create an additional script block.
+    # Body scripts are the static shared consent controller and canonical CTA
+    # tracker; race data must never create an additional script block.
     body = html.split("</head>", 1)[1].split("</body>", 1)[0]
-    assert body.count("<script>") == 1
+    assert body.count("<script>") == 2
     assert "document.getElementById('gg-consent-banner')" in body
 
 
@@ -897,3 +897,9 @@ def test_blog_index_generator_excludes_previews_and_recaps(tmp_path):
     assert [e["slug"] for e in entries] == ["roundup-march-2026"]
     written = json.loads((tmp_path / "blog-index.json").read_text())
     assert {e["category"] for e in written} == {"roundup"}
+
+
+def test_preview_tracks_plan_intent_with_canonical_event():
+    html = generate_preview_html("unbound-200")
+    assert "gtag('event', 'cta_click'" in html
+    assert "source: 'editorial'" in html

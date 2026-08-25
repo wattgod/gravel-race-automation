@@ -108,6 +108,13 @@ class TestCustomPlanPreview:
         assert html.count('class="tp-sim-day"') == 7
         assert "TRAININGPEAKS" in html
 
+    def test_plan_modules_keep_gravel_grit_included(self, html):
+        assert 'data-role="modules-toggle"' in html
+        assert 'data-plan-addon="gravel_grit"' in html
+        assert "Gravel Grit" in html
+        assert "It stays included—not an extra charge." in html
+        assert "plan_modules_open" in html
+
     def test_hands_preferences_to_questionnaire(self, html):
         assert 'data-cta="tpp_preview_build"' in html
         assert "url.searchParams.set('hours'" in html

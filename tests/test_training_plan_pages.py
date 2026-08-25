@@ -125,8 +125,14 @@ class TestCustomPlanPreview:
     def test_renders_native_workout_projection_without_innerhtml(self, html):
         assert "session.structure" in html
         assert "structure.polyline" in html
+        assert "session.purpose" in html
         assert "session.fueling_guidance" in html
         assert "session.coach_note" in html
+        assert "strengthGraph(session.strength" in html
+        assert "STRUCTURED STRENGTH" in html
+        assert 'data-role="strength-exercises"' in html
+        assert "exercise.sets+' × '+exercise.reps" in html
+        assert "step.label||step.type" in html
         assert "response.week.weekly_self_review" in html
         assert "response.week.comment_protocol" in html
         assert ".innerHTML" not in html

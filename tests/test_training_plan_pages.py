@@ -98,14 +98,15 @@ class TestAntiShillStructure:
 
 class TestCustomPlanPreview:
     def test_collects_requested_constraints(self, html):
-        assert 'id="gg-tpp-preview-hours"' in html
+        assert 'data-role="hours"' in html
         assert "Preferred training days" in html
-        assert 'id="gg-tpp-preview-level"' in html
+        assert 'data-role="experience"' in html
 
-    def test_renders_a_week_before_javascript(self, html):
-        assert html.count('data-preview-day="') == 7
-        assert "Race-specific intervals" in html
-        assert "Long race-prep ride" in html
+    def test_has_one_touch_defaults_and_calendar_shell(self, html):
+        assert html.count('data-preset="') == 3
+        assert 'data-preset="committed-8"' in html
+        assert html.count('class="tp-sim-day"') == 7
+        assert "TRAININGPEAKS" in html
 
     def test_hands_preferences_to_questionnaire(self, html):
         assert 'data-cta="tpp_preview_build"' in html
@@ -113,9 +114,30 @@ class TestCustomPlanPreview:
         assert "url.searchParams.set('days'" in html
         assert "url.searchParams.set('experience'" in html
 
+    def test_uses_versioned_engine_contract_and_race_demands(self, html):
+        assert "training-plan-preview-request/v1" in html
+        assert "training-plan-preview/v1" in html
+        assert "/api/training-plan-preview" in html
+        assert '"durability":10' in html
+        assert "response.engine_version" in html
+        assert "response.voice_version" in html
+
+    def test_renders_native_workout_projection_without_innerhtml(self, html):
+        assert "session.structure" in html
+        assert "structure.polyline" in html
+        assert "session.fueling_guidance" in html
+        assert "session.coach_note" in html
+        assert "response.week.weekly_self_review" in html
+        assert "response.week.comment_protocol" in html
+        assert ".innerHTML" not in html
+
+    def test_debounces_manual_changes_and_aborts_stale_request(self, html):
+        assert "setTimeout(load,immediate?0:350)" in html
+        assert "new AbortController()" in html
+
     def test_tracks_interaction_without_auto_firing(self, html):
         assert "plan_preview_update" in html
-        assert "if (touched && typeof gtag === 'function')" in html
+        assert "if(touched&&typeof gtag==='function')" in html
 
 
 class TestSafety:

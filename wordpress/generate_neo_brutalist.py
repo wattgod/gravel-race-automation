@@ -2113,6 +2113,7 @@ document.querySelectorAll('.gg-pack-workout').forEach(function(card) {
 // Deep-dive disclosures — keep trust/SEO content server-rendered while reducing
 // the first visual pass. Hash targets automatically open their owning section.
 (function() {
+  if (!window.matchMedia('(max-width: 768px)').matches) return;
   var hash = window.location.hash ? window.location.hash.substring(1) : '';
   var sections = document.querySelectorAll('.gg-deep-dive > .gg-section, .gg-deep-dive > .gg-racer-reviews');
   function setExpanded(section, expanded) {

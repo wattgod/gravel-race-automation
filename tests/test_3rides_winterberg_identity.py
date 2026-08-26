@@ -24,7 +24,7 @@ def test_winterberg_is_canonical_and_aachen_is_retired():
         (ROOT / "race-data" / "3rides-gravel-winterberg.json").read_text()
     )["race"]
     assert race["vitals"]["date_specific"] == "2027: TBD"
-    assert race["gravel_god_rating"]["overall_score"] == 70
+    assert race["gravel_god_rating"]["overall_score"] == 66
     assert race["gravel_god_rating"]["tier"] == 2
     assert race["research_metadata"]["validation_status"].startswith("source_blocked")
 

@@ -25,6 +25,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent))
 from brand_tokens import TIER_NAMES, get_ga4_head_snippet
+from blog_tracking import get_plan_intent_tracking_script
 from cookie_consent import get_consent_banner_html
 
 # Roundups indexable only via the owner-approved allowlist (WS5 Option A).
@@ -464,6 +465,7 @@ def generate_roundup_html(title, subtitle, intro, races, slug, category_tag,
     </div>
   </div>
 {get_consent_banner_html()}
+{get_plan_intent_tracking_script()}
 </body>
 </html>"""
 

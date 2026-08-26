@@ -154,10 +154,10 @@ class TestCourseOverviewV2Injection:
         assert "gg-map-embed" in html
         assert "ridewithgps.com/embeds" in html
 
-    def test_stat_cards_and_gauge_preserved(self, steamboat_rd):
+    def test_stat_cards_preserved_without_retired_gauge(self, steamboat_rd):
         html = build_course_overview_v2(steamboat_rd, [])
         assert "gg-stat-grid" in html
-        assert "gg-difficulty-gauge" in html
+        assert "gg-difficulty-gauge" not in html
 
 
 class TestFullPageAssembly:

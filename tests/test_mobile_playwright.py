@@ -70,6 +70,22 @@ def _build_test_page() -> str:
     </div>
   </div>
 
+  <section id="ratings" class="gg-section gg-fade-section">
+    <div class="gg-section-header">
+      <span class="gg-section-kicker">[05]</span>
+      <h2 class="gg-section-title">Ratings</h2>
+    </div>
+    <div class="gg-section-body">
+      <div class="gg-rating-breakdown">
+        <button type="button" class="gg-rating-tile" aria-pressed="true">
+          <span class="gg-rating-tile-label">DISTANCE</span>
+          <span class="gg-rating-tile-score">5<span>/5</span></span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <div class="gg-deep-dive" id="deep-dive">
   <section id="course" class="gg-section gg-fade-section">
     <div class="gg-section-header">
       <span class="gg-section-kicker">[01]</span>
@@ -92,28 +108,6 @@ def _build_test_page() -> str:
     </div>
     <div class="gg-section-body">
       <p>Founded in 2006 as the Dirty Kanza.</p>
-    </div>
-  </section>
-
-  <section id="ratings" class="gg-section gg-fade-section">
-    <div class="gg-section-header">
-      <span class="gg-section-kicker">[05]</span>
-      <h2 class="gg-section-title">Ratings</h2>
-    </div>
-    <div class="gg-section-body">
-      <div class="gg-accordion">
-        <div class="gg-accordion-item">
-          <button class="gg-accordion-trigger" aria-expanded="false">
-            <span class="gg-accordion-label">DISTANCE</span>
-            <div class="gg-accordion-bar-track"><div class="gg-accordion-bar-fill" style="width:100%;background:var(--gg-color-gold)"></div></div>
-            <span class="gg-accordion-score">5</span>
-            <span class="gg-accordion-arrow">&#9656;</span>
-          </button>
-          <div class="gg-accordion-panel">
-            <div class="gg-accordion-content">200 miles of relentless flint hills.</div>
-          </div>
-        </div>
-      </div>
     </div>
   </section>
 
@@ -167,6 +161,7 @@ def _build_test_page() -> str:
       </div>
     </div>
   </section>
+  </div>
 
   <div class="gg-email-capture">
     <div class="gg-email-capture-inner">
@@ -237,7 +232,7 @@ class TestTouchTargets44px:
     SELECTORS = [
         (".gg-btn.gg-cfg-preview-btn", "Preview button"),
         (".gg-email-capture-btn", "Email capture button"),
-        (".gg-accordion-trigger", "Accordion trigger"),
+        (".gg-rating-tile", "Rating tile"),
         (".gg-faq-question", "FAQ question"),
         (".gg-toc-toggle", "TOC toggle"),
         (".gg-sticky-dismiss", "Sticky CTA dismiss"),
@@ -253,7 +248,10 @@ class TestTouchTargets44px:
             document.querySelectorAll('.gg-section-collapsed').forEach(s => {
                 s.classList.remove('gg-section-collapsed');
                 var body = s.querySelector('.gg-section-body');
-                if (body) body.style.display = '';
+                if (body) {
+                    body.hidden = false;
+                    body.style.display = '';
+                }
             });
         """)
         yield
@@ -309,7 +307,7 @@ class TestNoHorizontalOverflow:
 
 
 class TestFluidSizingRendered:
-    """Accordion labels must scale fluidly — smaller at 375px than at 768px."""
+    """Responsive labels must have more room at 768px than at 375px."""
 
     @pytest.fixture(autouse=True)
     def _pages(self, browser, test_html):
@@ -321,22 +319,25 @@ class TestFluidSizingRendered:
                 document.querySelectorAll('.gg-section-collapsed').forEach(s => {
                     s.classList.remove('gg-section-collapsed');
                     var body = s.querySelector('.gg-section-body');
-                    if (body) body.style.display = '';
+                    if (body) {
+                        body.hidden = false;
+                        body.style.display = '';
+                    }
                 });
             """)
         yield
         self.page_375.close()
         self.page_768.close()
 
-    def test_accordion_label_scales(self):
-        label_375 = self.page_375.query_selector(".gg-accordion-label")
-        label_768 = self.page_768.query_selector(".gg-accordion-label")
+    def test_rating_label_scales(self):
+        label_375 = self.page_375.query_selector(".gg-rating-tile-label")
+        label_768 = self.page_768.query_selector(".gg-rating-tile-label")
         if not label_375 or not label_768:
-            pytest.skip("Accordion label not found")
+            pytest.skip("Rating label not found")
         w_375 = label_375.bounding_box()["width"]
         w_768 = label_768.bounding_box()["width"]
         assert w_375 < w_768, (
-            f"Accordion label should be narrower at 375px ({w_375:.0f}px) "
+            f"Rating label should be narrower at 375px ({w_375:.0f}px) "
             f"than at 768px ({w_768:.0f}px)"
         )
 
@@ -381,8 +382,8 @@ class TestCollapsibleSectionsRendered:
         page.close()
         assert visible, "History section body should be visible at 1024px"
 
-    def test_course_not_collapsed_at_375(self, browser, test_html):
-        """Course overview must never be collapsed."""
+    def test_course_collapsed_at_375(self, browser, test_html):
+        """Course overview is part of the mobile deep-dive disclosures."""
         page = _page_at_width(browser, test_html, 375)
         body = page.query_selector("#course .gg-section-body")
         assert body is not None
@@ -391,7 +392,7 @@ class TestCollapsibleSectionsRendered:
             body,
         )
         page.close()
-        assert visible, "Course overview must never be collapsed"
+        assert not visible, "Course overview should be collapsed in the mobile deep dive"
 
     def test_ratings_not_collapsed_at_375(self, browser, test_html):
         """Ratings must never be collapsed."""
@@ -474,7 +475,7 @@ class TestFontSizeFloor:
         ".gg-series-badge",
         ".gg-hero-vitals",
         ".gg-section-kicker",
-        ".gg-accordion-label",
+        ".gg-rating-tile-label",
         ".gg-pack-demand-label",
         ".gg-pack-demand-score",
         ".gg-similar-tier",

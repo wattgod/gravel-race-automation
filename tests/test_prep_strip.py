@@ -54,9 +54,8 @@ class TestRenderConditions:
         assert html.count('class="gg-prep-chip"') <= 3
 
 
-class TestJsContract:
-    """IDs/attributes the countdown+price JS reads. Renaming any of these
-    silently kills the dynamic pricing."""
+class TestRetiredJsContract:
+    """The approved spine no longer mounts the prep strip or its pricing JS."""
 
     def test_contract_ids_present(self, packed_slug):
         html = build_prep_strip(_rd(slug=packed_slug))
@@ -66,17 +65,9 @@ class TestJsContract:
 
     def test_inline_js_targets_contract(self):
         js = build_inline_js()
-        assert "getElementById('prep-strip')" in js
-        assert "data-race-date" in js
-        assert "getElementById('gg-prep-countdown')" in js
-        assert "getElementById('gg-prep-cta')" in js
-
-    def test_js_pricing_matches_server(self):
-        """$15/wk, min 4 weeks, $249 cap — must mirror webhook pricing."""
-        js = build_inline_js()
-        assert "weeks * 15" in js
-        assert "Math.max(4," in js
-        assert "249" in js
+        assert "getElementById('prep-strip')" not in js
+        assert "getElementById('gg-prep-countdown')" not in js
+        assert "getElementById('gg-prep-cta')" not in js
 
     def test_css_present(self):
         css = get_page_css()
@@ -99,13 +90,6 @@ class TestDateDegradation:
         """Server-rendered CTA must be safe even if JS never runs."""
         html = build_prep_strip(_rd(slug=packed_slug))
         assert "$15/WK" in html
-
-    def test_past_date_guard_in_js(self):
-        """JS must bail (keep generic copy) for past/imminent dates —
-        48 profiles have known-stale dates."""
-        js = build_inline_js()
-        assert "days <= 7" in js
-
 
 class TestSafety:
     def test_no_inline_handlers(self, packed_slug):

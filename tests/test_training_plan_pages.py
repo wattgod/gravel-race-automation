@@ -96,6 +96,68 @@ class TestAntiShillStructure:
         assert 'href="/race/unbound-200/"' in html
 
 
+class TestCustomPlanPreview:
+    def test_collects_requested_constraints(self, html):
+        assert 'data-role="hours"' in html
+        assert "Preferred training days" in html
+        assert 'data-role="experience"' in html
+
+    def test_has_one_touch_defaults_and_calendar_shell(self, html):
+        assert html.count('data-preset="') == 3
+        assert 'data-preset="committed-8"' in html
+        assert html.count('class="tp-sim-day"') == 7
+        assert "TRAININGPEAKS" in html
+
+    def test_plan_modules_keep_gravel_grit_included(self, html):
+        assert 'data-role="modules-toggle"' in html
+        assert 'data-plan-addon="gravel_grit"' in html
+        assert "Gravel Grit" in html
+        assert "It stays included—not an extra charge." in html
+        assert "plan_modules_open" in html
+
+    def test_hands_preferences_to_questionnaire(self, html):
+        assert 'data-cta="tpp_preview_build"' in html
+        assert "url.searchParams.set('hours'" in html
+        assert "url.searchParams.set('days'" in html
+        assert "url.searchParams.set('experience'" in html
+
+    def test_uses_versioned_engine_contract_and_race_demands(self, html):
+        assert "training-plan-preview-request/v2" in html
+        assert "training-plan-preview/v2" in html
+        assert "TRAINING LOAD BY WEEK" in html
+        assert "data-role=\"goal\"" in html
+        assert "data-role=\"control\"" in html
+        assert "sample_week_number" in html
+        assert "/api/training-plan-preview" in html
+        assert '"durability":10' in html
+        assert "response.engine_version" in html
+        assert "response.voice_version" in html
+
+    def test_renders_native_workout_projection_without_innerhtml(self, html):
+        assert "session.structure" in html
+        assert "structure.polyline" in html
+        assert "session.purpose" in html
+        assert "session.fueling_guidance" in html
+        assert "session.coach_note" in html
+        assert "strengthGraph(session.strength" in html
+        assert "STRUCTURED STRENGTH" in html
+        assert 'data-role="strength-exercises"' in html
+        assert "exercise.sets+' × '+exercise.reps" in html
+        assert "step.label||step.type" in html
+        assert "week.weekly_self_review" in html
+        assert "week.comment_protocol" in html
+        assert ".innerHTML" not in html
+
+    def test_debounces_manual_changes_and_aborts_stale_request(self, html):
+        assert "setTimeout(load,immediate?0:350)" in html
+        assert "new AbortController()" in html
+        assert "Stale preview contract" in html
+
+    def test_tracks_interaction_without_auto_firing(self, html):
+        assert "plan_preview_update" in html
+        assert "if(touched&&typeof gtag==='function')" in html
+
+
 class TestSafety:
     def test_no_inline_handlers(self, html):
         assert "onclick=" not in html

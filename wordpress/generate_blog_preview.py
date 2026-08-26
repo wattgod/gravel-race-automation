@@ -21,6 +21,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent))
 from brand_tokens import TIER_NAMES, get_ga4_head_snippet
+from blog_tracking import get_plan_intent_tracking_script
 from cookie_consent import get_consent_banner_html
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
@@ -548,6 +549,7 @@ def generate_preview_html(slug):
     </div>
   </div>
 {get_consent_banner_html()}
+{get_plan_intent_tracking_script()}
 </body>
 </html>"""
 

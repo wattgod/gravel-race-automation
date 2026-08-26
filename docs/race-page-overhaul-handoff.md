@@ -1,5 +1,12 @@
 # Race-Page Overhaul — Execution Handoff
 
+> **Canonical update — 2026-07-17:** The final owner-approved and implemented
+> contract is now [`race-page-spine-v2-canonical.md`](race-page-spine-v2-canonical.md).
+> Where this earlier handoff conflicts with that document—especially the standalone
+> verdict, transition strip, `BUILT FOR THIS`, “less than one gel” framing, offer copy,
+> CTA placement, or Deep Dive commerce—the canonical document wins. This file remains
+> the evidence and original design-history record.
+
 **For:** the agent(s) driving the gravelgodcycling.com race-page redesign. **Author:** Fable, 2026-07-14. **Status:** design approved by Matti, ready to build. **You need no prior context — this is self-contained**, but the linked artifacts hold the detail.
 
 ## 0. The one-sentence goal
@@ -75,5 +82,24 @@ Build: a labeled radar (each axis shows name + `n/5`, total in center) beside/ab
 - Exact custom-plan price/framing on the page ($15/wk confirmed as the number).
 - Whether the difficulty-gauge is cut (visual simplification; it breaks a test + a live A/B experiment — close/relocate the experiment first).
 - Final verdict/hero copy voice per race.
+
+### Execution decisions recorded 2026-07-14
+
+- **Price framing:** stage `$15/week. Less than one gel per ride. Capped at $249.` as
+  control, with two explicit price-frame variants in `ab_experiments.py`; do not guess
+  the winner before measurement.
+- **Difficulty gauge:** cut it. It compresses and duplicates the published 14-axis
+  rating without adding a distinct decision signal. The rating remains the source of
+  truth and its regression test is updated accordingly.
+- **Verdict voice:** preserve each race's existing editorial verdict data in the hero;
+  do not generate sales copy from it or join it to the offer.
+- **Additional safeguards discovered during implementation:** race pages now load the
+  existing A/B client (the generator previously omitted the head snippet), explicit
+  CTA identifiers keep copy variants from corrupting GA4 classification, section-view
+  events quantify the original ~18% scroll leak, calendar download uses listeners
+  instead of inline executable attributes, the Lab Score no longer animates through
+  false intermediate values, nested History jumps open both disclosure layers, and
+  `scripts/check_photo_relevance_coverage.py` makes the video-still gate's catalog
+  impact inspectable before sync.
 
 **Start here:** read the prototype (§2) and `docs/race-page-simplification-spec.md`, then WS-A + WS-B in parallel (structure + rating), WS-C close behind (offer), WS-D independently (images), WS-E throughout (measure).

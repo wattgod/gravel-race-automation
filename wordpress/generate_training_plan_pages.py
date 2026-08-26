@@ -35,6 +35,8 @@ from brand_tokens import (
 from shared_header import get_site_header_html, get_site_header_css, get_site_header_js
 from shared_footer import get_mega_footer_html
 from cookie_consent import get_consent_banner_html
+from plan_simulator import (get_plan_simulator_css, get_plan_simulator_js,
+                            render_plan_simulator)
 from generate_neo_brutalist import (
     parse_event_dates,
     _safe_json_for_script,
@@ -532,6 +534,7 @@ def build_cta(rd: dict) -> str:
     <a href="/race/{slug}/" class="gg-btn" data-cta="tpp_race_page">CHECK {name.upper()} STATUS</a>
   </div>
 </section>'''
+
     return f'''<section class="gg-tpp-section gg-tpp-cta-section" id="get-plan">
   <h2>Everything above, built around your life.</h2>
   <p>The free version of preparing for {name} is this page plus the
@@ -545,6 +548,23 @@ def build_cta(rd: dict) -> str:
   </div>
   <p class="gg-tpp-guarantee">7-day full refund. Same-day delivery. $249 cap.</p>
 </section>'''
+
+
+def build_custom_plan_preview(rd: dict, pack: dict) -> str:
+    """Render the contract-backed TrainingPeaks calendar simulator."""
+    if is_source_blocked(rd):
+        return ""
+
+    return render_plan_simulator(
+        brand="gravel_god",
+        race=rd,
+        demands=pack.get("demands") or {},
+        questionnaire_url=f"{QUESTIONNAIRE_URL}?race={esc(rd['slug'])}",
+        heading=f"See your {rd['name']} week before you buy.",
+        lede=("Choose the week you actually have. The current plan engine "
+              "uses those constraints and this race's demand profile to "
+              "build a real calendar preview beside them."),
+    )
 
 
 def build_json_ld(rd: dict, qa: list, canonical: str) -> str:
@@ -582,7 +602,7 @@ def build_json_ld(rd: dict, qa: list, canonical: str) -> str:
 
 def build_css() -> str:
     return '''
-.gg-tpp-page { max-width: 860px; margin: 0 auto; padding: 0 20px 60px; font-family: var(--gg-font-editorial); color: var(--gg-color-primary-brown); }
+.gg-tpp-page { max-width: 1120px; margin: 0 auto; padding: 0 20px 60px; font-family: var(--gg-font-editorial); color: var(--gg-color-primary-brown); }
 .gg-tpp-kicker { font-family: var(--gg-font-data); font-size: 11px; font-weight: 700; letter-spacing: 3px; color: var(--gg-color-secondary-brown); margin: 28px 0 8px; }
 .gg-tpp-hero h1 { font-family: var(--gg-font-data); font-size: clamp(26px, 5vw, 40px); text-transform: uppercase; letter-spacing: 0.03em; line-height: 1.15; margin: 0 0 10px; color: #000; }
 .gg-tpp-facts { font-family: var(--gg-font-data); font-size: 12px; letter-spacing: 1px; text-transform: uppercase; color: var(--gg-color-secondary-brown); margin: 0 0 16px; }
@@ -628,7 +648,15 @@ def build_css() -> str:
 .gg-tpp-guarantee { font-family: var(--gg-font-data); font-size: 11px; letter-spacing: 1px; text-transform: uppercase; color: var(--gg-color-secondary-brown); margin: 0; }
 a { color: var(--gg-color-teal); }
 @media (max-width: 640px) { .gg-tpp-demand-grid { grid-template-columns: 1fr; } .gg-tpp-cta-row { flex-direction: column; } .gg-tpp-cta-row .gg-btn { text-align: center; } }
-'''
+''' + get_plan_simulator_css(
+        ink="var(--gg-color-primary-brown)",
+        paper="var(--gg-color-warm-paper)",
+        panel="var(--gg-color-white)",
+        line="var(--gg-color-tan)",
+        accent="var(--gg-color-teal)",
+        data_font="var(--gg-font-data)",
+        body_font="var(--gg-font-editorial)",
+    )
 
 
 def build_js() -> str:
@@ -668,7 +696,7 @@ def build_js() -> str:
     });
   });
 })();
-'''
+''' + get_plan_simulator_js()
 
 
 def generate_page(rd: dict, pack: dict) -> str:
@@ -677,6 +705,7 @@ def generate_page(rd: dict, pack: dict) -> str:
     canonical = f"{SITE_BASE_URL}/race/{slug}/training-plan/"
 
     hero = build_hero(rd, pack)
+    preview = build_custom_plan_preview(rd, pack)
     demands = build_demands(rd, pack)
     workouts = build_workouts(rd, pack)
     timeline = build_timeline(rd)
@@ -726,6 +755,7 @@ def generate_page(rd: dict, pack: dict) -> str:
 {get_site_header_html()}
 <div class="gg-tpp-page">
 {hero}
+{preview}
 {demands}
 {workouts}
 {timeline}

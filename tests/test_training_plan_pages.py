@@ -122,8 +122,12 @@ class TestCustomPlanPreview:
         assert "url.searchParams.set('experience'" in html
 
     def test_uses_versioned_engine_contract_and_race_demands(self, html):
-        assert "training-plan-preview-request/v1" in html
-        assert "training-plan-preview/v1" in html
+        assert "training-plan-preview-request/v2" in html
+        assert "training-plan-preview/v2" in html
+        assert "TRAINING LOAD BY WEEK" in html
+        assert "data-role=\"goal\"" in html
+        assert "data-role=\"control\"" in html
+        assert "sample_week_number" in html
         assert "/api/training-plan-preview" in html
         assert '"durability":10' in html
         assert "response.engine_version" in html
@@ -140,8 +144,8 @@ class TestCustomPlanPreview:
         assert 'data-role="strength-exercises"' in html
         assert "exercise.sets+' × '+exercise.reps" in html
         assert "step.label||step.type" in html
-        assert "response.week.weekly_self_review" in html
-        assert "response.week.comment_protocol" in html
+        assert "week.weekly_self_review" in html
+        assert "week.comment_protocol" in html
         assert ".innerHTML" not in html
 
     def test_debounces_manual_changes_and_aborts_stale_request(self, html):

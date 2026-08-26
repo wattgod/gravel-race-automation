@@ -253,9 +253,9 @@ class TestCoachingSuccess:
         assert "gg-success-hero" in html
         assert "Welcome to Coaching" in html
 
-    def test_has_intake_link(self):
+    def test_does_not_reopen_completed_intake(self):
         html = build_coaching_success()
-        assert "/coaching/apply/" in html
+        assert "/coaching/apply/" not in html
 
     def test_cross_sells_races(self):
         html = build_coaching_success()
@@ -264,9 +264,11 @@ class TestCoachingSuccess:
 
     def test_has_next_steps(self):
         html = build_coaching_success()
-        assert "Fill Out the Intake Form" in html
-        assert "Expect an Email" in html
-        assert "We Train Together" in html
+        assert "Check Your Email" in html
+        assert "Connect TrainingPeaks" in html
+        assert "Run the First Block" in html
+        assert "do not stack it onto the next day" in html
+        assert "Within 24 Hours" not in html
 
 
 class TestConsultingSuccess:

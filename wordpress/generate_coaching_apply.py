@@ -39,9 +39,11 @@ from cookie_consent import get_consent_banner_html
 
 OUTPUT_DIR = Path(__file__).parent / "output"
 
-# Formsubmit.co endpoint — sends email to this address on submission
-FORMSUBMIT_EMAIL = "gravelgodcoaching@gmail.com"
-FORMSUBMIT_URL = f"https://formsubmit.co/{FORMSUBMIT_EMAIL}"
+# Shared brand-aware intake edge. The Worker authenticates to the onboarding
+# backend; the browser never receives the backend secret.
+COACHING_INTAKE_WORKER_URL = (
+    "https://coaching-intake.gravelgodcoaching.workers.dev"
+)
 
 
 def esc(text) -> str:
@@ -95,6 +97,47 @@ def build_section_1_basic_info() -> str:
         </div>
       </div>
 
+      <div class="gg-apply-inline">
+        <div class="gg-apply-group">
+          <label class="gg-apply-label" for="date_of_birth">Date of Birth</label>
+          <input type="date" id="date_of_birth" name="date_of_birth">
+          <div class="gg-apply-help">Optional. Used for age-group context and birthday reminders.</div>
+        </div>
+        <div class="gg-apply-group">
+          <label class="gg-apply-label" for="home_location">Home Location</label>
+          <input type="text" id="home_location" name="home_location" placeholder="City, state/province, country">
+          <div class="gg-apply-help">Used for climate, altitude, daylight, and travel context.</div>
+        </div>
+      </div>
+
+      <div class="gg-apply-inline">
+        <div class="gg-apply-group">
+          <label class="gg-apply-label" for="desired_start_date">When do you want coaching to start?</label>
+          <input type="date" id="desired_start_date" name="desired_start_date">
+        </div>
+        <div class="gg-apply-group">
+          <label class="gg-apply-label" for="preferred_contact_channel">Best place for time-sensitive coaching messages</label>
+          <select id="preferred_contact_channel" name="preferred_contact_channel">
+            <option value="">Select...</option>
+            <option value="email">Email</option>
+            <option value="trainingpeaks">TrainingPeaks</option>
+            <option value="text">Text / Messages</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="gg-apply-group">
+        <label class="gg-apply-label" for="trainingpeaks_connection_status">Are you already attached to my TrainingPeaks coaching account?</label>
+        <select id="trainingpeaks_connection_status" name="trainingpeaks_connection_status">
+          <option value="">Select...</option>
+          <option value="attached">Yes</option>
+          <option value="not_attached">No</option>
+          <option value="not_sure">Not sure</option>
+          <option value="no_account">I do not have a TrainingPeaks account yet</option>
+        </select>
+        <div class="gg-apply-help">This prevents duplicate setup instructions; I still verify the connection before releasing your plan.</div>
+      </div>
+
       <div class="gg-apply-inline-4">
         <div class="gg-apply-group">
           <label class="gg-apply-label" for="sex">Sex <span class="gg-apply-required">*</span></label>
@@ -106,7 +149,7 @@ def build_section_1_basic_info() -> str:
         </div>
         <div class="gg-apply-group">
           <label class="gg-apply-label" for="age">Age <span class="gg-apply-required">*</span></label>
-          <input type="number" id="age" name="age" required placeholder="35" min="16" max="90">
+          <input type="number" id="age" name="age" required placeholder="35" min="13" max="90">
         </div>
         <div class="gg-apply-group">
           <label class="gg-apply-label" for="weight">Weight <span class="gg-apply-required">*</span></label>
@@ -123,6 +166,31 @@ def build_section_1_basic_info() -> str:
             <input type="number" id="height_in" name="height_in" required placeholder="10" min="0" max="11" style="width:50px">
             <span class="gg-apply-unit">&#34;</span>
           </div>
+        </div>
+      </div>
+
+      <div id="guardian-details" class="gg-apply-conditional">
+        <div class="gg-apply-group">
+          <strong>For athletes under 18</strong>
+          <div class="gg-apply-help">A parent or legal guardian must complete the separate consent step before coaching can start.</div>
+        </div>
+        <div class="gg-apply-inline">
+          <div class="gg-apply-group">
+            <label class="gg-apply-label" for="guardian_name">Parent / Guardian Full Name</label>
+            <input type="text" id="guardian_name" name="guardian_name">
+          </div>
+          <div class="gg-apply-group">
+            <label class="gg-apply-label" for="guardian_email">Parent / Guardian Email</label>
+            <input type="email" id="guardian_email" name="guardian_email">
+          </div>
+        </div>
+        <div class="gg-apply-group">
+          <label class="gg-apply-label" for="guardian_relationship">Relationship to Athlete</label>
+          <select id="guardian_relationship" name="guardian_relationship">
+            <option value="">Select...</option>
+            <option value="parent">Parent</option>
+            <option value="legal_guardian">Legal guardian</option>
+          </select>
         </div>
       </div>'''
 
@@ -816,6 +884,19 @@ def build_submit_buttons() -> str:
       </div>'''
 
 
+def build_tier_selector() -> str:
+    return '''<div class="gg-apply-group gg-apply-tier-group">
+        <label class="gg-apply-label" for="coaching_tier">Coaching Tier <span class="gg-apply-required">*</span></label>
+        <select id="coaching_tier" name="tier" required>
+          <option value="">Select...</option>
+          <option value="min">Min</option>
+          <option value="mid">Mid</option>
+          <option value="max">Max</option>
+        </select>
+        <div class="gg-apply-help">TrainingPeaks Premium is included with coaching; it is not the name of a coaching tier.</div>
+      </div>'''
+
+
 def build_footer() -> str:
     return f'''<div class="gg-apply-confidential-wrap">
     <p class="gg-apply-confidential">Your information is kept confidential and used only for coaching purposes. Questions? Email gravelgodcoaching@gmail.com</p>
@@ -1346,6 +1427,48 @@ def build_apply_js() -> str:
     }
   }
 
+  var applyStartedTracked = false;
+  function trackApplyStarted() {
+    if (applyStartedTracked) { return; }
+    applyStartedTracked = true;
+    ga4("coaching_apply_started", {
+      tier: document.getElementById("coaching_tier").value || "unknown"
+    });
+  }
+
+  /* ── Preserve the tier selected on the coaching page ─────── */
+  function initializeTier() {
+    var tier = new URLSearchParams(window.location.search).get("tier");
+    if (["min", "mid", "max"].indexOf(tier) !== -1) {
+      document.getElementById("coaching_tier").value = tier;
+    }
+  }
+
+  function initializeTimezone() {
+    var field = document.getElementById("home_timezone");
+    if (!field || field.value) { return; }
+    try {
+      field.value = Intl.DateTimeFormat().resolvedOptions().timeZone || "";
+    } catch (e) {
+      field.value = "";
+    }
+  }
+
+  function getSubmissionId() {
+    var existing = localStorage.getItem("coaching_intake_submission_id");
+    if (existing) { return existing; }
+    var id;
+    if (window.crypto && typeof window.crypto.randomUUID === "function") {
+      id = window.crypto.randomUUID();
+    } else {
+      id = "10000000-1000-4000-8000-100000000000".replace(/[018]/g, function(c) {
+        return (c ^ window.crypto.getRandomValues(new Uint8Array(1))[0] & 15 >> c / 4).toString(16);
+      });
+    }
+    localStorage.setItem("coaching_intake_submission_id", id);
+    return id;
+  }
+
   /* ── Progress tracking ───────────────────────────── */
   function updateProgress() {
     var form = document.getElementById("intake-form");
@@ -1468,6 +1591,14 @@ def build_apply_js() -> str:
     } else {
       intervalsGroup.classList.remove("show");
     }
+
+    var age = parseInt(document.getElementById("age").value, 10);
+    var guardian = document.getElementById("guardian-details");
+    var isMinor = age >= 13 && age < 18;
+    guardian.classList.toggle("show", isMinor);
+    guardian.querySelectorAll("input, select").forEach(function(field) {
+      field.required = isMinor;
+    });
   }
 
   /* ── Radio option selection styling ──────────────── */
@@ -1523,10 +1654,12 @@ def build_apply_js() -> str:
   document.getElementById("weight").addEventListener("input", calculateMetrics);
   document.getElementById("sex").addEventListener("change", calculateMetrics);
   document.getElementById("training_platform").addEventListener("change", handleConditionals);
+  document.getElementById("age").addEventListener("input", handleConditionals);
 
   document.querySelectorAll("input, select, textarea").forEach(function(el) {
     el.addEventListener("change", updateProgress);
     el.addEventListener("input", updateProgress);
+    el.addEventListener("input", trackApplyStarted);
   });
 
   /* ── Save progress to localStorage ───────────────── */
@@ -1589,6 +1722,7 @@ def build_apply_js() -> str:
     var lines = [];
     lines.push("# Athlete Intake: " + data.name);
     lines.push("Email: " + data.email);
+    lines.push("Coaching Tier: " + data.tier);
     lines.push("Submitted: " + new Date().toISOString());
     lines.push("");
     lines.push("## Basic Info");
@@ -1679,7 +1813,7 @@ def build_apply_js() -> str:
     return lines.join("\\n");
   }
 
-  /* ── Form submission — Formsubmit.co ──────────────── */
+  /* ── Form submission — shared coaching intake Worker ─ */
   document.getElementById("intake-form").addEventListener("submit", function(e) {
     e.preventDefault();
     var submitBtn = document.getElementById("submit-btn");
@@ -1694,6 +1828,15 @@ def build_apply_js() -> str:
     data.long_ride_days = formData.getAll("long_ride_days");
     data.interval_days = formData.getAll("interval_days");
     data.off_days = formData.getAll("off_days");
+    data.submission_id = getSubmissionId();
+
+    var submittedAge = parseInt(data.age, 10);
+    if (submittedAge < 18 && (!data.guardian_name || !data.guardian_email || !data.guardian_relationship)) {
+      showMessage("error", "Please add your parent or legal guardian details.");
+      submitBtn.disabled = false;
+      submitBtn.textContent = "Submit Questionnaire";
+      return;
+    }
 
     /* Honeypot check */
     if (data.website) {
@@ -1717,43 +1860,43 @@ def build_apply_js() -> str:
       return;
     }
 
-    var output = formatSubmission(data);
-
-    /* Submit via Formsubmit.co — sends email to gravelgodcoaching@gmail.com */
-    var FORMSUBMIT_URL = "''' + FORMSUBMIT_URL + '''";
-    var payload = new FormData();
-    payload.append("_subject", "Coaching Application: " + data.name);
-    payload.append("_replyto", data.email);
-    payload.append("_captcha", "false");
-    payload.append("_template", "box");
-    payload.append("name", data.name);
-    payload.append("email", data.email);
-    payload.append("message", output);
-    payload.append("_honey", "");
-
-    fetch(FORMSUBMIT_URL, {
+    var COACHING_INTAKE_URL = "''' + COACHING_INTAKE_WORKER_URL + '''";
+    fetch(COACHING_INTAKE_URL, {
       method: "POST",
-      body: payload,
-      headers: { "Accept": "application/json" }
-    }).then(function(response) {
-      if (response.ok) {
-        localStorage.removeItem("athlete_questionnaire_progress");
-        ga4("apply_form_submitted", {
-          blindspot_count: (data.blindspots || "").split(",").filter(function(b) { return b; }).length,
-          has_ftp: data.ftp ? "yes" : "no",
-          primary_goal: data.primary_goal
-        });
-        showMessage("success", "Application submitted! I&#39;ll review your questionnaire and get back to you within 24 hours.");
-        submitBtn.textContent = "Submitted";
-      } else {
-        throw new Error("Server returned " + response.status);
+      body: JSON.stringify(data),
+      headers: {
+        "Accept": "application/json",
+        "Content-Type": "application/json"
       }
+    }).then(function(response) {
+      return response.json().catch(function() { return {}; }).then(function(result) {
+        if (!response.ok || !result.success) {
+          throw new Error(result.error || "Server returned " + response.status);
+        }
+        return result;
+      });
+    }).then(function() {
+      localStorage.removeItem("athlete_questionnaire_progress");
+      localStorage.removeItem("coaching_intake_submission_id");
+      ga4("apply_form_submitted", {
+        blindspot_count: (data.blindspots || "").split(",").filter(function(b) { return b; }).length,
+        has_ftp: data.ftp ? "yes" : "no",
+        primary_goal: data.primary_goal,
+        tier: data.tier
+      });
+      ga4("coaching_apply_submitted", {
+        tier: data.tier,
+        primary_goal: data.primary_goal,
+        transport_type: "beacon"
+      });
+      showMessage("success", "Application submitted. Check your email for confirmation; I&#39;ll review your intake and send the next steps from there.");
+      submitBtn.textContent = "Submitted";
     }).catch(function(err) {
-      /* Fallback: open email client with formatted body */
-      var subject = encodeURIComponent("Coaching Application: " + data.name);
-      var body = encodeURIComponent(output);
-      window.location.href = "mailto:gravelgodcoaching@gmail.com?subject=" + subject + "&body=" + body;
-      ga4("apply_form_fallback", { method: "mailto" });
+      showMessage("error", "I couldn&#39;t submit that. Your answers are still saved in this browser—please try again.");
+      submitBtn.disabled = false;
+      submitBtn.textContent = "Submit Questionnaire";
+      ga4("apply_form_error", { message: String(err.message || "unknown").slice(0, 80) });
+      ga4("coaching_apply_error", { stage: "submit" });
     });
   });
 
@@ -1783,6 +1926,8 @@ def build_apply_js() -> str:
 
   /* ── Initialize ──────────────────────────────────── */
   restoreProgress();
+  initializeTimezone();
+  initializeTier();
   updateProgress();
   handleConditionals();
 })();
@@ -1839,6 +1984,8 @@ def generate_apply_page(external_assets=None):
       <input type="hidden" name="estimated_category" id="estimated_category" value="">
       <input type="hidden" name="blindspots" id="blindspots" value="">
       <input type="hidden" name="inferred_traits" id="inferred_traits" value="">
+      <input type="hidden" name="home_timezone" id="home_timezone" value="">
+      {build_tier_selector()}
       {build_section_1_basic_info()}
       {build_section_2_goals()}
       {build_section_3_fitness()}

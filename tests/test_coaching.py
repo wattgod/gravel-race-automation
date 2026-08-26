@@ -275,11 +275,14 @@ class TestServiceTiers:
     def test_setup_fee(self):
         tiers = build_tiers()
         assert "$99 setup fee" in tiers
+        assert "TrainingPeaks Premium is included" in tiers
+        assert "NOSETUP" not in tiers
+        assert "privately, case by case" in tiers
 
     def test_disclaimer(self):
         tiers = build_tiers()
         assert "skipped workouts" in tiers
-        assert "24 hours" in tiers
+        assert "two business days" in tiers
 
     def test_feature_lists_verbatim(self):
         tiers = build_tiers()
@@ -369,7 +372,7 @@ class TestApplicationClose:
     def test_line_copy(self):
         c = build_application_close()
         assert "Ten minutes of honest answers. I read every one myself." in c
-        assert "You&#39;ll hear from me within 48 hours &mdash; including if I don&#39;t think coaching is what you need." in c
+        assert "usually hear from me within two business days" in c
 
     def test_cta_link(self):
         c = build_application_close()
@@ -695,6 +698,8 @@ class TestRequiredContent:
     def test_disclaimer_and_setup_fee(self, coaching_html):
         assert "skipped workouts" in coaching_html
         assert "$99 setup fee" in coaching_html
+        assert "TrainingPeaks Premium is included" in coaching_html
+        assert "NOSETUP" not in coaching_html
 
     def test_hero_h1(self, coaching_html):
         assert "You could be better than you think." in coaching_html

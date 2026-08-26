@@ -248,7 +248,10 @@ class TestTouchTargets44px:
             document.querySelectorAll('.gg-section-collapsed').forEach(s => {
                 s.classList.remove('gg-section-collapsed');
                 var body = s.querySelector('.gg-section-body');
-                if (body) body.style.display = '';
+                if (body) {
+                    body.hidden = false;
+                    body.style.display = '';
+                }
             });
         """)
         yield
@@ -316,7 +319,10 @@ class TestFluidSizingRendered:
                 document.querySelectorAll('.gg-section-collapsed').forEach(s => {
                     s.classList.remove('gg-section-collapsed');
                     var body = s.querySelector('.gg-section-body');
-                    if (body) body.style.display = '';
+                    if (body) {
+                        body.hidden = false;
+                        body.style.display = '';
+                    }
                 });
             """)
         yield

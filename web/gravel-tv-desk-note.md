@@ -1,9 +1,9 @@
-# Desk Note — week of 2026-08-19
+# Desk Note — week of 2026-08-26
 
-**Week of 19 August 2026**
+**Week of 26 August 2026**
 
-Nebraska opens the account Wednesday with Garmin Gravel Worlds and its amateur counterpart running simultaneously in Lincoln — the rare event where the pro and civilian fields share the same date and same dirt, which either tells you something good about the culture or something awkward about the logistics, depending on your patience. TransRockies Gravel Royale starts Friday in British Columbia, same day Clarkes Gambit goes in Nelligen, New South Wales. Saturday adds Yakurai in Miyagi Prefecture, the Khomas100 from Windhoek to Gross Barmen in Namibia, Transiberica running Oudenaarde to Bilbao, and D2R2 out of Greenfield, Massachusetts. That's four continents on one Saturday.
+Two Tier 1 races on consecutive days is as loaded as the calendar gets. Torino-Nice Rally rolls out of Turin on the 29th — point-to-point, Alps-to-coast, the kind of format that tends to expose anyone who went out too hard on day one. Then Badlands starts from Granada on the 30th, which is a different animal entirely: Andalusia in late August means heat and dust before the sun is even fully up. Riders splitting their late-season between those two events are not having an easy week.
 
-The back half of the month is where the tier-one races land. Torino Nice Rally kicks off the 29th, Turin to Nice. BADLANDS starts the 30th out of Granada. Two very different definitions of what gravel racing can be, separated by a day.
+Elsewhere on the 29th, Wasatch All-Road lines up in Heber City (Tier 2) and the Haute Route Gravel scatter-plots across Europe at Tier 3. The Belgian double — Houffa Gravel and Turnhout Gravel, both on the 30th — is worth noting if you follow the continental amateur scene.
 
-Seventeen races across the fortnight, two at tier one. Mark BADLANDS and TNR on your calendar if you haven't already — both are multi-day, both demand actual planning.
+Next weekend thins out at the top: no Tier 1 action, with Graean Cymru in North Wales and The Wolf in North Jutland leading the Tier 2 card on September 5th. Iowa State Gravel TT Championship runs a day later in Amana.

@@ -52,18 +52,32 @@ jobs:
           import os
           from pathlib import Path
           from scripts.validate_gravel_weekly import validate_issue
+          from scripts.validate_gravel_weekly_decisions import validate_decision_receipt
 
           issue_date = os.environ["ISSUE_DATE"]
           path = Path("data/gravel-weekly/issues") / f"{issue_date}.json"
+          decision_path = Path("data/gravel-weekly/decisions") / f"{issue_date}.json"
           if not path.exists():
               raise SystemExit(f"Approved issue not found: {path}")
+          if not decision_path.exists():
+              raise SystemExit(f"Editorial decision receipt not found: {decision_path}")
           issue = validate_issue(json.loads(path.read_text()))
           if issue["status"] != "published":
               raise SystemExit("Workflow requires status=published; model drafts and prepared issues cannot deploy")
+          validate_decision_receipt(json.loads(decision_path.read_text()), issue)
           with open(os.environ["GITHUB_OUTPUT"], "a") as output:
               output.write(f"hash={issue['contentHash']}\n")
               output.write(f"number={issue['issueNumber']}\n")
           PY
+
+      - name: Record human editorial decisions and approved-copy feedback
+        env:
+          ISSUE_DATE: ${{ inputs.issue_date }}
+          CONTROL_PLANE_INGEST_SECRET: ${{ secrets.CONTROL_PLANE_INGEST_SECRET }}
+        run: |
+          python scripts/record_gravel_weekly_decisions.py \
+            "data/gravel-weekly/decisions/$ISSUE_DATE.json" \
+            "data/gravel-weekly/issues/$ISSUE_DATE.json"
 
       - name: Generate publication and homepage
         run: |

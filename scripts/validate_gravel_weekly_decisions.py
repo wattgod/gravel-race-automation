@@ -1,0 +1,141 @@
+#!/usr/bin/env python3
+"""Validate the durable human-decision receipt paired with a Gravel Weekly issue."""
+
+from __future__ import annotations
+
+import re
+from datetime import datetime
+from typing import Any
+
+try:
+    from validate_gravel_weekly import validate_issue
+except ModuleNotFoundError:  # Imported as scripts.validate_gravel_weekly_decisions.
+    from scripts.validate_gravel_weekly import validate_issue
+
+RECEIPT_SCHEMA = "gravel-weekly-decision-receipt/v1"
+DECISION_SCHEMA = "editorial-decision/v1"
+OUTER_KEYS = {
+    "schemaVersion", "issueId", "publicationDate", "reviewedDraftContentHash",
+    "decidedBy", "decidedAt", "decisions",
+}
+DECISION_KEYS = {
+    "schemaVersion", "issueId", "candidateId", "decision", "reason",
+    "decidedBy", "decidedAt", "suggestedCopy", "approvedCopy", "editSummary",
+}
+
+
+def _record(value: Any, name: str) -> dict[str, Any]:
+    if not isinstance(value, dict):
+        raise ValueError(f"{name} must be an object")
+    return value
+
+
+def _text(value: Any, name: str, maximum: int) -> str:
+    if not isinstance(value, str) or not value.strip():
+        raise ValueError(f"{name} is required")
+    if len(value) > maximum:
+        raise ValueError(f"{name} exceeds {maximum} characters")
+    return value.strip()
+
+
+def _iso(value: Any, name: str) -> str:
+    text = _text(value, name, 100)
+    try:
+        parsed = datetime.fromisoformat(text.replace("Z", "+00:00"))
+    except ValueError as exc:
+        raise ValueError(f"{name} must be an ISO timestamp") from exc
+    if parsed.tzinfo is None:
+        raise ValueError(f"{name} must include a timezone")
+    return text
+
+
+def validate_decision_receipt(value: Any, issue_value: Any) -> dict[str, Any]:
+    """Fail closed unless the receipt exactly describes the approved issue copy."""
+    issue = validate_issue(issue_value)
+    if issue["status"] not in {"approved", "published"}:
+        raise ValueError("decision receipts require an approved or published issue")
+    receipt = _record(value, "decision receipt")
+    unknown = set(receipt) - OUTER_KEYS
+    if unknown:
+        raise ValueError(f"decision receipt has unsupported fields: {sorted(unknown)}")
+    if receipt.get("schemaVersion") != RECEIPT_SCHEMA:
+        raise ValueError("unsupported Gravel Weekly decision receipt schema")
+    if receipt.get("issueId") != issue["issueId"]:
+        raise ValueError("decision receipt issueId does not match issue")
+    if receipt.get("publicationDate") != issue["publicationDate"]:
+        raise ValueError("decision receipt publicationDate does not match issue")
+    draft_hash = _text(receipt.get("reviewedDraftContentHash"), "reviewedDraftContentHash", 64)
+    if not re.fullmatch(r"[0-9a-f]{64}", draft_hash):
+        raise ValueError("reviewedDraftContentHash must be a lowercase SHA-256 hash")
+    decided_by = _text(receipt.get("decidedBy"), "decidedBy", 300)
+    decided_at = _iso(receipt.get("decidedAt"), "decidedAt")
+    approval = issue["editorialApproval"]
+    if decided_by != approval["approver"] or decided_at != approval["approvedAt"]:
+        raise ValueError("decision receipt identity and time must match editorial approval")
+
+    raw_decisions = receipt.get("decisions")
+    if not isinstance(raw_decisions, list) or not raw_decisions:
+        raise ValueError("decision receipt decisions must be a non-empty list")
+    decisions: list[dict[str, Any]] = []
+    seen: set[str] = set()
+    for index, raw_value in enumerate(raw_decisions):
+        raw = _record(raw_value, f"decisions[{index}]")
+        extra = set(raw) - DECISION_KEYS
+        if extra:
+            raise ValueError(f"decisions[{index}] has unsupported fields: {sorted(extra)}")
+        if raw.get("schemaVersion") != DECISION_SCHEMA:
+            raise ValueError(f"decisions[{index}] has unsupported schema")
+        if raw.get("issueId") != issue["issueId"]:
+            raise ValueError(f"decisions[{index}].issueId does not match issue")
+        candidate_id = _text(raw.get("candidateId"), f"decisions[{index}].candidateId", 500)
+        if candidate_id in seen:
+            raise ValueError("decision receipt candidate IDs must be unique")
+        seen.add(candidate_id)
+        decision = raw.get("decision")
+        if decision not in {"approve", "reject"}:
+            raise ValueError(f"decisions[{index}].decision must be approve or reject")
+        reason = _text(raw.get("reason"), f"decisions[{index}].reason", 2_000)
+        if raw.get("decidedBy") != decided_by or raw.get("decidedAt") != decided_at:
+            raise ValueError(f"decisions[{index}] identity and time must match receipt")
+        approved_copy = raw.get("approvedCopy")
+        suggested_copy = raw.get("suggestedCopy")
+        edit_summary = raw.get("editSummary")
+        if decision == "approve":
+            suggested_copy = _text(suggested_copy, f"decisions[{index}].suggestedCopy", 8_000)
+            approved_copy = _text(approved_copy, f"decisions[{index}].approvedCopy", 8_000)
+            edit_summary = _text(edit_summary, f"decisions[{index}].editSummary", 2_000)
+        elif suggested_copy is not None or approved_copy is not None or edit_summary is not None:
+            raise ValueError(f"decisions[{index}] rejected decisions cannot carry approved copy")
+        decisions.append({
+            "schemaVersion": DECISION_SCHEMA,
+            "issueId": issue["issueId"],
+            "candidateId": candidate_id,
+            "decision": decision,
+            "reason": reason,
+            "decidedBy": decided_by,
+            "decidedAt": decided_at,
+            "suggestedCopy": suggested_copy,
+            "approvedCopy": approved_copy,
+            "editSummary": edit_summary,
+        })
+
+    approved_by_id = {
+        decision["candidateId"]: decision
+        for decision in decisions if decision["decision"] == "approve"
+    }
+    issue_stories = {story["candidateId"]: story for story in issue["stories"]}
+    if set(approved_by_id) != set(issue_stories):
+        raise ValueError("approved receipt decisions must exactly match issue stories")
+    for candidate_id, story in issue_stories.items():
+        if approved_by_id[candidate_id]["approvedCopy"] != story["take"]:
+            raise ValueError(f"approved copy does not match issue story {candidate_id}")
+
+    return {
+        "schemaVersion": RECEIPT_SCHEMA,
+        "issueId": issue["issueId"],
+        "publicationDate": issue["publicationDate"],
+        "reviewedDraftContentHash": draft_hash,
+        "decidedBy": decided_by,
+        "decidedAt": decided_at,
+        "decisions": decisions,
+    }

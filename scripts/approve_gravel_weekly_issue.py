@@ -14,6 +14,7 @@ from pathlib import Path
 from typing import Any
 
 from validate_gravel_weekly import compute_content_hash, validate_issue
+from validate_gravel_weekly_decisions import DECISION_SCHEMA, RECEIPT_SCHEMA, validate_decision_receipt
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 APPROVED_DIR = PROJECT_ROOT / "data" / "gravel-weekly" / "approved"
@@ -50,8 +51,8 @@ def _approval_story(value: Any, index: int) -> dict[str, Any]:
     if decision not in {"approve", "reject"}:
         raise ValueError(f"approval.stories[{index}].decision must be approve or reject")
     if decision == "reject":
-        _text(item.get("reason"), f"approval.stories[{index}].reason", 2_000)
-        return {"candidateId": candidate_id, "decision": decision}
+        reason = _text(item.get("reason"), f"approval.stories[{index}].reason", 2_000)
+        return {"candidateId": candidate_id, "decision": decision, "reason": reason}
     return {
         "candidateId": candidate_id,
         "decision": decision,
@@ -148,19 +149,66 @@ def approve_issue(draft_value: Any, approval_value: Any) -> dict[str, Any]:
     return validate_issue(approved)
 
 
+def build_decision_receipt(draft_value: Any, approval_value: Any, approved_value: Any) -> dict[str, Any]:
+    """Bind every human story decision to the exact reviewed draft and approved copy."""
+    draft = validate_issue(draft_value)
+    approved = validate_issue(approved_value)
+    expected = approve_issue(draft, approval_value)
+    if approved != expected:
+        raise ValueError("approved issue does not match the supplied draft and approval packet")
+    approval = _record(approval_value, "approval")
+    decisions = [_approval_story(value, index) for index, value in enumerate(approval["stories"])]
+    approved_by_id = {story["candidateId"]: story for story in approved["stories"]}
+    draft_by_id = {story["candidateId"]: story for story in draft["stories"]}
+    records: list[dict[str, Any]] = []
+    for decision in decisions:
+        is_approved = decision["decision"] == "approve"
+        records.append({
+            "schemaVersion": DECISION_SCHEMA,
+            "issueId": approved["issueId"],
+            "candidateId": decision["candidateId"],
+            "decision": decision["decision"],
+            "reason": (
+                f"Approved for Gravel Weekly #{approved['issueNumber']:03d}."
+                if is_approved else decision["reason"]
+            ),
+            "decidedBy": approval["approver"],
+            "decidedAt": approval["approvedAt"],
+            "suggestedCopy": draft_by_id[decision["candidateId"]]["take"] if is_approved else None,
+            "approvedCopy": approved_by_id[decision["candidateId"]]["take"] if is_approved else None,
+            "editSummary": decision["editSummary"] if is_approved else None,
+        })
+    receipt = {
+        "schemaVersion": RECEIPT_SCHEMA,
+        "issueId": approved["issueId"],
+        "publicationDate": approved["publicationDate"],
+        "reviewedDraftContentHash": draft["contentHash"],
+        "decidedBy": approval["approver"],
+        "decidedAt": approval["approvedAt"],
+        "decisions": records,
+    }
+    return validate_decision_receipt(receipt, approved)
+
+
 def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("draft", type=Path)
     parser.add_argument("approval", type=Path)
     parser.add_argument("--output", type=Path)
+    parser.add_argument("--decision-receipt-output", type=Path)
     args = parser.parse_args()
     draft = json.loads(args.draft.read_text(encoding="utf-8"))
     approval = json.loads(args.approval.read_text(encoding="utf-8"))
     issue = approve_issue(draft, approval)
     output = args.output or APPROVED_DIR / f"{issue['publicationDate']}.json"
+    receipt = build_decision_receipt(draft, approval, issue)
+    receipt_output = args.decision_receipt_output or APPROVED_DIR / f"{issue['publicationDate']}.decisions.json"
     output.parent.mkdir(parents=True, exist_ok=True)
+    receipt_output.parent.mkdir(parents=True, exist_ok=True)
     output.write_text(f"{json.dumps(issue, indent=2, ensure_ascii=False)}\n", encoding="utf-8")
+    receipt_output.write_text(f"{json.dumps(receipt, indent=2, ensure_ascii=False)}\n", encoding="utf-8")
     print(f"Approved but not published: {output}")
+    print(f"Durable decision receipt staged: {receipt_output}")
     return 0
 
 

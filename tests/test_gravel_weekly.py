@@ -20,9 +20,10 @@ from validate_gravel_weekly import (  # noqa: E402
 )
 from send_gravel_weekly import SUBSCRIBER_SOURCES, build_email_html  # noqa: E402
 from prepare_gravel_weekly_issue import prepare_issue  # noqa: E402
-from approve_gravel_weekly_issue import approve_issue  # noqa: E402
-from seal_gravel_weekly_issue import seal_issue  # noqa: E402
+from approve_gravel_weekly_issue import approve_issue, build_decision_receipt  # noqa: E402
+from seal_gravel_weekly_issue import main as seal_issue_main, seal_issue  # noqa: E402
 from render_gravel_weekly_race_impact_review import render_review  # noqa: E402
+from validate_gravel_weekly_decisions import validate_decision_receipt  # noqa: E402
 
 
 def sample_issue():
@@ -229,6 +230,35 @@ def test_human_approval_bridge_changes_only_editorial_copy_and_stays_non_deploya
         render_review(approved)
 
 
+def test_human_approval_produces_a_durable_control_plane_decision_receipt():
+    draft = sample_draft()
+    approval = sample_approval()
+    approved = approve_issue(draft, approval)
+    receipt = build_decision_receipt(draft, approval, approved)
+
+    assert receipt["reviewedDraftContentHash"] == draft["contentHash"]
+    assert receipt["decidedBy"] == "Matti Rowe"
+    assert receipt["decisions"] == [{
+        "schemaVersion": "editorial-decision/v1",
+        "issueId": "gravel-weekly-001",
+        "candidateId": "story_1",
+        "decision": "approve",
+        "reason": "Approved for Gravel Weekly #001.",
+        "decidedBy": "Matti Rowe",
+        "decidedAt": "2026-08-28T16:00:00Z",
+        "suggestedCopy": "Editable model draft, not Matti's approved view.",
+        "approvedCopy": "The approved take makes a concrete judgment.",
+        "editSummary": "Removed throat-clearing and sharpened the consequence.",
+    }]
+    assert validate_decision_receipt(receipt, approved) == receipt
+    assert validate_decision_receipt(receipt, seal_issue(approved, "2026-08-28T16:05:00Z")) == receipt
+
+    forged = copy.deepcopy(receipt)
+    forged["decisions"][0]["approvedCopy"] = "Different copy after approval."
+    with pytest.raises(ValueError, match="approved copy does not match"):
+        validate_decision_receipt(forged, approved)
+
+
 def test_approval_bridge_requires_an_exact_human_decision_for_every_reviewed_story():
     draft = sample_draft()
     missing = sample_approval()
@@ -285,6 +315,43 @@ def test_sealing_is_a_separate_copy_preserving_step_after_approval():
         seal_issue(approved, "2026-08-28T15:59:59Z")
     with pytest.raises(ValueError, match="include a timezone"):
         seal_issue(approved, "2026-08-28T16:05:00")
+
+
+def test_sealing_writes_the_issue_and_its_canonical_decision_receipt_together(tmp_path, monkeypatch):
+    draft = sample_draft()
+    approval = sample_approval()
+    approved = approve_issue(draft, approval)
+    receipt = build_decision_receipt(draft, approval, approved)
+    approved_path = tmp_path / "approved.json"
+    receipt_path = tmp_path / "receipt.json"
+    issue_output = tmp_path / "issues" / "2026-08-28.json"
+    decision_output = tmp_path / "decisions" / "2026-08-28.json"
+    approved_path.write_text(json.dumps(approved))
+    receipt_path.write_text(json.dumps(receipt))
+    monkeypatch.setattr(sys, "argv", [
+        "seal_gravel_weekly_issue.py", str(approved_path),
+        "--published-at", "2026-08-28T16:05:00Z",
+        "--decision-receipt", str(receipt_path),
+        "--output", str(issue_output),
+        "--decision-output", str(decision_output),
+    ])
+
+    assert seal_issue_main() == 0
+    sealed = json.loads(issue_output.read_text())
+    canonical_receipt = json.loads(decision_output.read_text())
+    assert sealed["status"] == "published"
+    assert validate_decision_receipt(canonical_receipt, sealed) == receipt
+
+    orphan_output = tmp_path / "orphan.json"
+    monkeypatch.setattr(sys, "argv", [
+        "seal_gravel_weekly_issue.py", str(approved_path),
+        "--published-at", "2026-08-28T16:05:00Z",
+        "--decision-receipt", str(tmp_path / "missing.json"),
+        "--output", str(orphan_output),
+    ])
+    with pytest.raises(SystemExit, match="Decision receipt not found"):
+        seal_issue_main()
+    assert not orphan_output.exists()
 
 
 @pytest.mark.parametrize("gate_mutation", ["missing", "hold", "party_hold", "no_point", "friend_fail", "friend_kill", "no_mechanics"])
@@ -461,6 +528,9 @@ def test_deploy_path_and_legacy_redirect_are_wired():
     assert "issues: write" in workflow
     assert "render_gravel_weekly_race_impact_review.py" in workflow
     assert "meaningful-race-impact-count: 0" in workflow
+    assert "validate_decision_receipt" in workflow
+    assert "record_gravel_weekly_decisions.py" in workflow
+    assert "CONTROL_PLANE_INGEST_SECRET" in workflow
 
 
 def test_email_preserves_legacy_subscribers_and_uses_approved_issue():

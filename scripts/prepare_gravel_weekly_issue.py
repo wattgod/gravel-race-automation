@@ -41,20 +41,27 @@ def _dedupe_records(records: list[dict[str, Any]]) -> list[dict[str, Any]]:
 
 
 def _passes_editorial_gate(packet: dict[str, Any]) -> bool:
-    """Fail closed unless party, point, and story/comedy craft gates are explicit."""
+    """Fail closed unless party, point, friend, and story/comedy gates are explicit."""
     gate = packet.get("editorialGate")
     if not isinstance(gate, dict) or gate.get("decision") != "pass":
         return False
     party = gate.get("partyTest")
     point = gate.get("pointTest")
+    friend = gate.get("friendTest")
     arc = gate.get("storyArc")
     comedy = gate.get("comedy")
-    if not all(isinstance(item, dict) for item in (party, point, arc, comedy)):
+    if not all(isinstance(item, dict) for item in (party, point, friend, arc, comedy)):
         return False
-    if party.get("verdict") != "pass" or point.get("verdict") != "pass":
+    if (
+        party.get("verdict") != "pass"
+        or point.get("verdict") != "pass"
+        or friend.get("verdict") != "pass"
+        or friend.get("killReason") != "none"
+    ):
         return False
     required_text = (
         party.get("rationale"), point.get("point"),
+        *(friend.get(key) for key in ("repeatableLine", "nonObviousPayoff", "changedUnderstanding", "socialCost")),
         *(arc.get(key) for key in ("hook", "stakes", "tension", "turn", "landing")),
         *(comedy.get(key) for key in ("setup", "turn", "tag", "rhetoricalLicense", "factualBoundary")),
     )

@@ -86,6 +86,14 @@ def passing_editorial_gate():
             "verdict": "pass",
             "point": "A small route revision exposes the weakness of preparing for a brand instead of terrain.",
         },
+        "friendTest": {
+            "verdict": "pass",
+            "repeatableLine": "Train for the ground, not the logo.",
+            "nonObviousPayoff": "The branded number is distorting preparation decisions.",
+            "changedUnderstanding": "The reader stops treating the advertised distance as the preparation model.",
+            "socialCost": "Low because this supplies a usable judgment, not a semantic observation.",
+            "killReason": "none",
+        },
         "storyArc": {
             "hook": "The 200-mile race is no longer 200 miles.",
             "stakes": "Preparation and the public record change.",
@@ -162,7 +170,7 @@ def test_review_prepares_a_draft_but_cannot_imply_approval():
     assert "application/ld+json" not in preview
 
 
-@pytest.mark.parametrize("gate_mutation", ["missing", "hold", "party_hold", "no_point", "no_mechanics"])
+@pytest.mark.parametrize("gate_mutation", ["missing", "hold", "party_hold", "no_point", "friend_fail", "friend_kill", "no_mechanics"])
 def test_review_excludes_stories_that_do_not_clear_every_editorial_gate(gate_mutation):
     gate = passing_editorial_gate()
     if gate_mutation == "hold":
@@ -171,6 +179,11 @@ def test_review_excludes_stories_that_do_not_clear_every_editorial_gate(gate_mut
         gate["partyTest"]["verdict"] = "hold"
     elif gate_mutation == "no_point":
         gate["pointTest"]["point"] = ""
+    elif gate_mutation == "friend_fail":
+        gate["friendTest"]["verdict"] = "fail"
+        gate["friendTest"]["killReason"] = "obvious_truism"
+    elif gate_mutation == "friend_kill":
+        gate["friendTest"]["killReason"] = "cringe_overframing"
     elif gate_mutation == "no_mechanics":
         gate["comedy"]["mechanics"] = []
     packet = {

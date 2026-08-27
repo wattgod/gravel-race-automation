@@ -51,6 +51,30 @@ def upsert(table: str, data: dict, on_conflict: str = "") -> dict:
     return result.data[0] if result.data else {}
 
 
+def upsert_many(
+    table: str,
+    rows: list[dict],
+    on_conflict: str = "",
+    batch_size: int = 500,
+) -> list[dict]:
+    """Upsert rows in bounded batches and return all rows reported by Supabase."""
+    if batch_size < 1:
+        raise ValueError("batch_size must be at least 1")
+    if not rows:
+        return []
+
+    stored: list[dict] = []
+    for start in range(0, len(rows), batch_size):
+        batch = rows[start:start + batch_size]
+        if on_conflict:
+            q = _table(table).upsert(batch, on_conflict=on_conflict)
+        else:
+            q = _table(table).upsert(batch)
+        result = q.execute()
+        stored.extend(result.data or [])
+    return stored
+
+
 def update(table: str, data: dict, match: dict) -> dict:
     """Update rows matching conditions."""
     q = _table(table).update(data)

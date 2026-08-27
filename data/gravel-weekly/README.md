@@ -25,6 +25,33 @@ python3 scripts/prepare_gravel_weekly_issue.py REVIEW.json \
   --publication-date 2026-08-28 --issue-number 1
 ```
 
+Apply Matti's explicit approval packet without making anything deployable:
+
+```bash
+python3 scripts/approve_gravel_weekly_issue.py \
+  data/gravel-weekly/drafts/2026-08-28.json APPROVAL.json
+```
+
+The approval packet must use `gravel-weekly-approval/v1`, decide every reviewed
+story exactly once, and supply the final headline, deck, Take, and edit summary
+for every approved story. The bridge preserves the reviewed facts, scores,
+receipts, and race impacts verbatim. It emits `status=approved` under the
+ignored `data/gravel-weekly/approved/` directory, which the deploy workflow
+refuses.
+
+After a separate explicit publication instruction, seal the approved file:
+
+```bash
+python3 scripts/seal_gravel_weekly_issue.py \
+  data/gravel-weekly/approved/2026-08-28.json \
+  --published-at 2026-08-28T16:05:00Z
+```
+
+Sealing changes only publication state and timestamps, refuses to overwrite an
+existing historical snapshot by default, and writes the deployable immutable
+file under `data/gravel-weekly/issues/`. Deployment remains a separate manual
+workflow dispatch.
+
 Validate files and content hashes:
 
 ```bash

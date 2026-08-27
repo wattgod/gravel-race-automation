@@ -29,6 +29,9 @@ push_results.json
 dry_run_results.json
 *.log
 
+# Gravel Weekly model drafts remain local until Matti approves the take.
+data/gravel-weekly/drafts/
+
 # Database backups
 *.json.bak
 *.csv.bak

@@ -1,0 +1,259 @@
+#!/usr/bin/env python3
+"""Fail-closed validation for approved Gravel Weekly issue snapshots."""
+
+from __future__ import annotations
+
+import argparse
+import hashlib
+import json
+import re
+from datetime import datetime
+from pathlib import Path
+from typing import Any
+from urllib.parse import urlparse
+
+PROJECT_ROOT = Path(__file__).resolve().parent.parent
+ISSUE_DIR = PROJECT_ROOT / "data" / "gravel-weekly" / "issues"
+
+STORY_KINDS = {
+    "safety", "event_status", "route", "registration", "results",
+    "governance", "business", "athlete", "culture", "product", "other",
+}
+IMPACT_KINDS = {
+    "no_change", "verify_field", "propose_fact", "editorial_review",
+    "new_race_candidate",
+}
+
+
+class IssueValidationError(ValueError):
+    """An issue violated the publication contract."""
+
+
+def _record(value: Any, name: str) -> dict[str, Any]:
+    if not isinstance(value, dict):
+        raise IssueValidationError(f"{name} must be an object")
+    return value
+
+
+def _text(value: Any, name: str, maximum: int = 8_000) -> str:
+    if not isinstance(value, str) or not value.strip():
+        raise IssueValidationError(f"{name} is required")
+    if len(value) > maximum:
+        raise IssueValidationError(f"{name} exceeds {maximum} characters")
+    return value.strip()
+
+
+def _iso(value: Any, name: str) -> str:
+    raw = _text(value, name, 100)
+    try:
+        datetime.fromisoformat(raw.replace("Z", "+00:00"))
+    except ValueError as exc:
+        raise IssueValidationError(f"{name} must be an ISO timestamp") from exc
+    return raw
+
+
+def _url(value: Any, name: str) -> str:
+    raw = _text(value, name, 2_000)
+    parsed = urlparse(raw)
+    if parsed.scheme not in {"http", "https"} or not parsed.netloc:
+        raise IssueValidationError(f"{name} must be a public HTTP(S) URL")
+    return raw
+
+
+def _list(value: Any, name: str, maximum: int = 200) -> list[Any]:
+    if not isinstance(value, list) or len(value) > maximum:
+        raise IssueValidationError(f"{name} must be a list with at most {maximum} items")
+    return value
+
+
+def _race_id(value: Any, name: str) -> str:
+    raw = _text(value, name, 500)
+    if not re.fullmatch(r"(?:gravel|road|nordic):[a-z0-9][a-z0-9-]*", raw):
+        raise IssueValidationError(f"{name} must be a vertical-qualified race id")
+    return raw
+
+
+def _receipt(value: Any, name: str) -> dict[str, Any]:
+    item = _record(value, name)
+    _text(item.get("claimId"), f"{name}.claimId", 500)
+    _url(item.get("canonicalUrl"), f"{name}.canonicalUrl")
+    _text(item.get("publisher"), f"{name}.publisher", 300)
+    if item.get("publishedAt") is not None:
+        _iso(item["publishedAt"], f"{name}.publishedAt")
+    quote = item.get("quoteExcerpt")
+    if quote is not None:
+        _text(quote, f"{name}.quoteExcerpt", 1_000)
+    start = item.get("transcriptStartSeconds")
+    end = item.get("transcriptEndSeconds")
+    if (start is None) != (end is None):
+        raise IssueValidationError(f"{name} transcript timestamps must be paired")
+    if start is not None:
+        if not isinstance(start, int) or not isinstance(end, int) or start < 0 or end < start:
+            raise IssueValidationError(f"{name} transcript timestamps are invalid")
+    return item
+
+
+def _impact(value: Any, name: str) -> dict[str, Any]:
+    item = _record(value, name)
+    kind = item.get("impactKind")
+    if kind not in IMPACT_KINDS:
+        raise IssueValidationError(f"{name}.impactKind is invalid")
+    _race_id(item.get("raceId"), f"{name}.raceId")
+    field_path = item.get("fieldPath")
+    if field_path is not None:
+        _text(field_path, f"{name}.fieldPath", 500)
+    if kind not in {"no_change", "new_race_candidate"} and not field_path:
+        raise IssueValidationError(f"{name}.fieldPath is required for {kind}")
+    claim_ids = _list(item.get("claimIds"), f"{name}.claimIds")
+    if kind != "no_change" and not claim_ids:
+        raise IssueValidationError(f"{name}.claimIds are required for {kind}")
+    for index, claim_id in enumerate(claim_ids):
+        _text(claim_id, f"{name}.claimIds[{index}]", 500)
+    confidence = item.get("confidence")
+    if not isinstance(confidence, (int, float)) or isinstance(confidence, bool) or not 0 <= confidence <= 1:
+        raise IssueValidationError(f"{name}.confidence must be between 0 and 1")
+    _text(item.get("owner"), f"{name}.owner", 300)
+    if item.get("autoFixAllowed") is not False:
+        raise IssueValidationError(f"{name}.autoFixAllowed must be false")
+    return item
+
+
+def canonical_issue_json(issue: dict[str, Any]) -> str:
+    payload = dict(issue)
+    payload.pop("contentHash", None)
+    return json.dumps(payload, ensure_ascii=False, separators=(",", ":"), sort_keys=True)
+
+
+def compute_content_hash(issue: dict[str, Any]) -> str:
+    return hashlib.sha256(canonical_issue_json(issue).encode("utf-8")).hexdigest()
+
+
+def validate_issue(value: Any, *, verify_hash: bool = True) -> dict[str, Any]:
+    issue = _record(value, "issue")
+    if issue.get("schemaVersion") != "gravel-weekly-issue/v1":
+        raise IssueValidationError("unsupported Gravel Weekly issue schema")
+    _text(issue.get("issueId"), "issueId", 500)
+    issue_number = issue.get("issueNumber")
+    if not isinstance(issue_number, int) or isinstance(issue_number, bool) or issue_number < 1:
+        raise IssueValidationError("issueNumber must be a positive integer")
+    publication_date = _text(issue.get("publicationDate"), "publicationDate", 10)
+    if not re.fullmatch(r"\d{4}-\d{2}-\d{2}", publication_date):
+        raise IssueValidationError("publicationDate must be YYYY-MM-DD")
+    try:
+        datetime.strptime(publication_date, "%Y-%m-%d")
+    except ValueError as exc:
+        raise IssueValidationError("publicationDate is invalid") from exc
+    if issue.get("slug") != publication_date:
+        raise IssueValidationError("slug must equal publicationDate")
+    status = issue.get("status")
+    if status not in {"draft", "approved", "published"}:
+        raise IssueValidationError("status is invalid")
+    _text(issue.get("title"), "title", 300)
+    _text(issue.get("mastheadDeck"), "mastheadDeck", 500)
+
+    stories = _list(issue.get("stories"), "stories", 30)
+    story_ids: list[str] = []
+    for index, raw_story in enumerate(stories):
+        story = _record(raw_story, f"stories[{index}]")
+        story_id = _text(story.get("candidateId"), f"stories[{index}].candidateId", 500)
+        story_ids.append(story_id)
+        _text(story.get("headline"), f"stories[{index}].headline", 300)
+        _text(story.get("dek"), f"stories[{index}].dek", 600)
+        if story.get("storyKind") not in STORY_KINDS:
+            raise IssueValidationError(f"stories[{index}].storyKind is invalid")
+        score = story.get("score")
+        if not isinstance(score, int) or isinstance(score, bool) or not 70 <= score <= 100:
+            raise IssueValidationError(f"stories[{index}].score must be 70 to 100")
+        _text(story.get("whatHappened"), f"stories[{index}].whatHappened", 2_000)
+        take = _text(story.get("take"), f"stories[{index}].take", 8_000)
+        provenance = story.get("takeProvenance")
+        if provenance not in {"model_draft", "human_approved"}:
+            raise IssueValidationError(f"stories[{index}].takeProvenance is invalid")
+        if status != "draft" and provenance != "human_approved":
+            raise IssueValidationError(f"stories[{index}].take requires human-approved provenance")
+        if status != "draft" and re.search(r"model draft|not matti(?:’|')s approved", take, re.IGNORECASE):
+            raise IssueValidationError(f"stories[{index}].take still contains model-draft language")
+        receipts = _list(story.get("receipts"), f"stories[{index}].receipts", 100)
+        if not receipts:
+            raise IssueValidationError(f"stories[{index}].receipts must not be empty")
+        for receipt_index, receipt in enumerate(receipts):
+            _receipt(receipt, f"stories[{index}].receipts[{receipt_index}]")
+        for impact_index, impact in enumerate(_list(story.get("raceImpacts"), f"stories[{index}].raceImpacts")):
+            _impact(impact, f"stories[{index}].raceImpacts[{impact_index}]")
+    if len(story_ids) != len(set(story_ids)):
+        raise IssueValidationError("story candidate IDs must be unique")
+
+    current_id = issue.get("currentThingStoryId")
+    if current_id is not None:
+        _text(current_id, "currentThingStoryId", 500)
+        current = next((story for story in stories if story.get("candidateId") == current_id), None)
+        if current is None:
+            raise IssueValidationError("currentThingStoryId must reference an issue story")
+        if current.get("score", 0) < 85:
+            raise IssueValidationError("The Current Thing requires a score of at least 85")
+
+    for index, item in enumerate(_list(issue.get("calendarWatch"), "calendarWatch", 100)):
+        _text(item, f"calendarWatch[{index}]", 500)
+    for index, impact in enumerate(_list(issue.get("raceImpacts"), "raceImpacts")):
+        _impact(impact, f"raceImpacts[{index}]")
+    for index, correction_value in enumerate(_list(issue.get("corrections"), "corrections", 100)):
+        correction = _record(correction_value, f"corrections[{index}]")
+        _iso(correction.get("publishedAt"), f"corrections[{index}].publishedAt")
+        _text(correction.get("text"), f"corrections[{index}].text", 2_000)
+        if correction.get("storyId") is not None and correction.get("storyId") not in story_ids:
+            raise IssueValidationError(f"corrections[{index}].storyId must reference an issue story")
+    source_index = [_url(item, f"sourceIndex[{index}]") for index, item in enumerate(_list(issue.get("sourceIndex"), "sourceIndex", 200))]
+    if len(source_index) != len(set(source_index)):
+        raise IssueValidationError("sourceIndex must not contain duplicates")
+
+    approval = issue.get("editorialApproval")
+    if status != "draft" and not isinstance(approval, dict):
+        raise IssueValidationError(f"{status} issues require editorial approval")
+    if isinstance(approval, dict):
+        _text(approval.get("approver"), "editorialApproval.approver", 300)
+        _iso(approval.get("approvedAt"), "editorialApproval.approvedAt")
+    if status == "published" and issue.get("publishedAt") is None:
+        raise IssueValidationError("published issues require publishedAt")
+    if issue.get("publishedAt") is not None:
+        _iso(issue["publishedAt"], "publishedAt")
+    _iso(issue.get("updatedAt"), "updatedAt")
+    content_hash = _text(issue.get("contentHash"), "contentHash", 64)
+    expected = compute_content_hash(issue)
+    if verify_hash and content_hash != expected:
+        raise IssueValidationError(f"contentHash mismatch: expected {expected}")
+    return issue
+
+
+def load_issues(issue_dir: Path = ISSUE_DIR) -> list[dict[str, Any]]:
+    issues: list[dict[str, Any]] = []
+    if not issue_dir.exists():
+        return issues
+    for path in sorted(issue_dir.glob("*.json")):
+        try:
+            issue = validate_issue(json.loads(path.read_text(encoding="utf-8")))
+        except (json.JSONDecodeError, IssueValidationError) as exc:
+            raise IssueValidationError(f"{path}: {exc}") from exc
+        issues.append(issue)
+    issue_numbers = [issue["issueNumber"] for issue in issues]
+    dates = [issue["publicationDate"] for issue in issues]
+    if len(issue_numbers) != len(set(issue_numbers)):
+        raise IssueValidationError("issue numbers must be unique")
+    if len(dates) != len(set(dates)):
+        raise IssueValidationError("publication dates must be unique")
+    return sorted(issues, key=lambda issue: issue["publicationDate"], reverse=True)
+
+
+def main() -> int:
+    parser = argparse.ArgumentParser()
+    parser.add_argument("paths", nargs="*", type=Path)
+    args = parser.parse_args()
+    paths = args.paths or sorted(ISSUE_DIR.glob("*.json"))
+    for path in paths:
+        validate_issue(json.loads(path.read_text(encoding="utf-8")))
+        print(f"OK {path}")
+    print(f"Validated {len(paths)} Gravel Weekly issue(s)")
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())

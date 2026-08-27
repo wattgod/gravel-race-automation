@@ -7,7 +7,7 @@
  * payload, and the notification email subject/sender so road leads are
  * distinguishable in the shared list/inbox.
  *
- * Handles 12 capture sources:
+ * Handles 14 capture sources:
  *   - exit_intent:        email only (race profile exit popup)
  *   - race_profile:       email + race context (prep kit CTA)
  *   - prep_kit_gate:      email + race context (content unlock)
@@ -20,6 +20,8 @@
  *   - race_plan_ladder:   email + race context + tier (plan-ladder "notify me" form)
  *   - training_guide:     email + optional guide_chapter (guide end-of-chapter capture)
  *   - bikepacking_guide:  email + optional guide_chapter (bikepacking guide capture)
+ *   - gravel_tv_subscribe: legacy Gravel TV subscriber source (retained during migration)
+ *   - gravel_weekly_subscribe: Gravel Weekly publication signup
  *   - fueling_calculator: email + weight + race + fueling data (detected by weight_lbs, no source field)
  *
  * Every valid submission upserts the contact into SendGrid Marketing Contacts.
@@ -32,7 +34,7 @@ const DISPOSABLE_DOMAINS = [
   'yopmail.com', 'temp-mail.org', 'getnada.com', 'mohmal.com'
 ];
 
-const KNOWN_SOURCES = ['exit_intent', 'race_profile', 'prep_kit_gate', 'race_quiz', 'quiz_shared', 'tire_guide', 'race_review', 'state_hub', 'date_reminder', 'race_plan_ladder', 'training_guide', 'bikepacking_guide'];
+const KNOWN_SOURCES = ['exit_intent', 'race_profile', 'prep_kit_gate', 'race_quiz', 'quiz_shared', 'tire_guide', 'race_review', 'state_hub', 'date_reminder', 'race_plan_ladder', 'training_guide', 'bikepacking_guide', 'gravel_tv_subscribe', 'gravel_weekly_subscribe'];
 
 export default {
   async fetch(request, env) {

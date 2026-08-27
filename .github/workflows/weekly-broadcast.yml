@@ -1,117 +1,126 @@
-name: "Weekly Gravel TV Broadcast"
+name: "Gravel Weekly Publish"
 
-# The fully automated weekly ritual — nothing depends on anyone remembering:
-#   1. Draft the desk note (Claude, fact-grounded, slop-gated; data-only
-#      fallback on any failure). A manual edit committed to
-#      web/gravel-tv-desk-note.md after Wednesday simply wins next run.
-#   2. Regenerate /gravel-tv/ + homepage (fresh race calendar)
-#   3. Deploy both to SiteGround + purge cache
-#   4. Commit the desk note for history
-#   5. Open a GitHub issue with the note (coach visibility, after-the-fact)
-#   6. If SENDGRID_API_KEY is set: send the issue to subscribers (fail-soft)
-#
-# Runs Wednesday 13:00 UTC — the day after the Tuesday fact-refresh, so
-# corrected dates ride into the broadcast.
+# Evidence collection and editorial preparation happen in the separate
+# race-intelligence control plane every Friday. This workflow is deliberately
+# manual: a model draft cannot become Matti's published opinion because a cron
+# fired. Commit a schema-valid, status=published issue snapshot, then dispatch
+# this workflow with that issue date.
 
 on:
-  schedule:
-    - cron: '0 13 * * 3'
   workflow_dispatch:
+    inputs:
+      issue_date:
+        description: "Approved issue date (YYYY-MM-DD)"
+        required: true
+        type: string
+      send_email:
+        description: "Send this issue to the existing Gravel TV/Weekly audience"
+        required: true
+        default: false
+        type: boolean
 
 permissions:
-  contents: write
-  issues: write
+  contents: read
+
+concurrency:
+  group: gravel-weekly-publish
+  cancel-in-progress: false
 
 jobs:
-  broadcast:
+  publish:
     runs-on: ubuntu-latest
-    timeout-minutes: 20
-
+    timeout-minutes: 30
     steps:
       - uses: actions/checkout@v4
 
-      - name: Setup Python
-        uses: actions/setup-python@v5
+      - uses: actions/setup-python@v5
         with:
-          python-version: '3.11'
-          cache: 'pip'
+          python-version: "3.11"
+          cache: pip
 
       - name: Install dependencies
-        run: pip install anthropic pyyaml requests python-dotenv
+        run: pip install -r requirements.txt
 
-      - name: Draft desk note
+      - name: Verify selected issue is approved for publication
+        id: issue
         env:
-          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
-        run: python scripts/draft_desk_note.py
-
-      - name: Regenerate Gravel TV + homepage
+          ISSUE_DATE: ${{ inputs.issue_date }}
         run: |
-          python wordpress/generate_gravel_tv.py
+          python - <<'PY'
+          import json
+          import os
+          from pathlib import Path
+          from scripts.validate_gravel_weekly import validate_issue
+
+          issue_date = os.environ["ISSUE_DATE"]
+          path = Path("data/gravel-weekly/issues") / f"{issue_date}.json"
+          if not path.exists():
+              raise SystemExit(f"Approved issue not found: {path}")
+          issue = validate_issue(json.loads(path.read_text()))
+          if issue["status"] != "published":
+              raise SystemExit("Workflow requires status=published; model drafts and prepared issues cannot deploy")
+          with open(os.environ["GITHUB_OUTPUT"], "a") as output:
+              output.write(f"hash={issue['contentHash']}\n")
+              output.write(f"number={issue['issueNumber']}\n")
+          PY
+
+      - name: Generate publication and homepage
+        run: |
+          python wordpress/generate_gravel_weekly.py
           python wordpress/generate_homepage.py
 
-      - name: Verify GA4 + structure
+      - name: Verify publication infrastructure
+        env:
+          ISSUE_DATE: ${{ inputs.issue_date }}
+          ISSUE_HASH: ${{ steps.issue.outputs.hash }}
         run: |
-          for f in wordpress/output/gravel-tv.html wordpress/output/homepage.html; do
-            grep -q "G-EJJZ9T6M52" "$f" || { echo "::error::GA4 missing in $f"; exit 1; }
-          done
-          grep -q "gtv-logo" wordpress/output/gravel-tv.html
+          python -m pytest tests/test_gravel_weekly.py -q
+          grep -q "G-EJJZ9T6M52" wordpress/output/gravel-weekly.html
+          grep -q "gravel-weekly-content-hash: $ISSUE_HASH" wordpress/output/gravel-weekly.html
+          grep -q "gravel-weekly-content-hash: $ISSUE_HASH" "wordpress/output/gravel-weekly/$ISSUE_DATE/index.html"
+          python scripts/preflight_quality.py
 
       - name: Setup SSH
         run: |
           mkdir -p ~/.ssh
-          # printf '%s\n' — OpenSSH requires a trailing newline; without it
-          # key load fails with "error in libcrypto" (broke run 27303536329)
           printf '%s\n' "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/siteground_key
           chmod 600 ~/.ssh/siteground_key
           ssh-keyscan -p "${{ secrets.SSH_PORT }}" "${{ secrets.SSH_HOST }}" >> ~/.ssh/known_hosts 2>/dev/null
 
-      - name: Deploy + purge cache
+      - name: Deploy publication, homepage, redirect, and purge cache
         env:
           SSH_HOST: ${{ secrets.SSH_HOST }}
           SSH_USER: ${{ secrets.SSH_USER }}
           SSH_PORT: ${{ secrets.SSH_PORT }}
-        run: python scripts/push_wordpress.py --sync-gravel-tv --sync-homepage --purge-cache
+        run: python scripts/push_wordpress.py --sync-gravel-weekly --sync-homepage --sync-redirects --purge-cache
 
-      - name: Verify live
-        run: |
-          # Verify THIS WEEK'S content is live, not just any page — the
-          # masthead-only check passed on a stale page after a silent
-          # upload failure (run 27303536329). The generator embeds the
-          # desk note's md5 as <!-- gtv-note-hash: ... -->.
-          HASH=$(python -c "import hashlib,pathlib; print(hashlib.md5(pathlib.Path('web/gravel-tv-desk-note.md').read_text().strip().encode()).hexdigest())")
-          echo "Expecting note hash $HASH"
-          for i in 1 2 3 4 5; do
-            sleep 10
-            if curl -s -L "https://gravelgodcycling.com/gravel-tv/?v=$HASH" | grep -q "gtv-note-hash: $HASH"; then
-              echo "Fresh content live (attempt $i)"
-              exit 0
-            fi
-            echo "Attempt $i: this week's note not live yet"
-          done
-          echo "::error::Live page does not contain this week's desk note (5 attempts over 50s)"
-          exit 1
-
-      - name: Commit desk note
-        run: |
-          git config user.name "gravel-tv-bot"
-          git config user.email "broadcast@gravelgodcycling.com"
-          git add web/gravel-tv-desk-note.md
-          git diff --cached --quiet || {
-            git commit -m "gravel-tv: desk note $(date +%Y-%m-%d)"
-            git push
-          }
-
-      - name: Open issue with this week's note
+      - name: Verify exact issue is live
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          ISSUE_DATE: ${{ inputs.issue_date }}
+          ISSUE_HASH: ${{ steps.issue.outputs.hash }}
         run: |
-          gh issue create \
-            --title "Gravel TV broadcast live — $(date +%Y-%m-%d)" \
-            --body "$(printf 'This week'"'"'s broadcast deployed to https://gravelgodcycling.com/gravel-tv/\n\nDesk note as published (edit web/gravel-tv-desk-note.md + rerun the workflow to change it):\n\n---\n\n%s' "$(cat web/gravel-tv-desk-note.md)")"
+          for url in \
+            "https://gravelgodcycling.com/gravel-weekly/" \
+            "https://gravelgodcycling.com/gravel-weekly/$ISSUE_DATE/"; do
+            found=false
+            for attempt in 1 2 3 4 5; do
+              if curl -fsSL "$url?v=$ISSUE_HASH" | grep -q "gravel-weekly-content-hash: $ISSUE_HASH"; then
+                found=true
+                break
+              fi
+              sleep 10
+            done
+            if [[ "$found" != true ]]; then
+              echo "::error::Expected issue hash is not live at $url"
+              exit 1
+            fi
+          done
+          test "$(curl -sIL -o /dev/null -w '%{url_effective}' https://gravelgodcycling.com/gravel-tv/)" = "https://gravelgodcycling.com/gravel-weekly/"
 
-      - name: Send to subscribers (Resend; skips if keys missing)
+      - name: Send approved issue
+        if: ${{ inputs.send_email }}
         env:
           RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
           SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
           SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
-        run: python scripts/send_broadcast_email.py
+        run: python scripts/send_gravel_weekly.py

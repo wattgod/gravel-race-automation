@@ -20,6 +20,7 @@ from validate_gravel_weekly import (  # noqa: E402
 )
 from send_gravel_weekly import SUBSCRIBER_SOURCES, build_email_html  # noqa: E402
 from prepare_gravel_weekly_issue import prepare_issue  # noqa: E402
+from render_gravel_weekly_race_impact_review import render_review  # noqa: E402
 
 
 def sample_issue():
@@ -217,6 +218,38 @@ def test_current_thing_requires_editorial_score_of_85():
         validate_issue(issue, verify_hash=False)
 
 
+def test_issue_race_impacts_exactly_preserve_story_impacts_and_receipts():
+    issue = sample_issue()
+    issue["raceImpacts"] = []
+    with pytest.raises(IssueValidationError, match="exactly preserve"):
+        validate_issue(issue, verify_hash=False)
+
+    missing_receipt = sample_issue()
+    missing_receipt["stories"][0]["raceImpacts"][0]["claimIds"] = ["claim_missing"]
+    missing_receipt["raceImpacts"][0]["claimIds"] = ["claim_missing"]
+    with pytest.raises(IssueValidationError, match="without story receipts"):
+        validate_issue(missing_receipt, verify_hash=False)
+
+
+def test_published_issue_renders_immutable_race_impact_review():
+    review, count = render_review(sample_issue())
+    assert count == 1
+    assert "meaningful-race-impact-count: 1" in review
+    assert "Gravel Weekly #001 race-impact review" in review
+    assert "gravel:unbound-gravel" in review
+    assert "claim_1" in review
+    assert "content hash" in review
+    assert "does not authorize or perform" in review
+
+    draft = sample_issue()
+    draft["status"] = "draft"
+    draft["editorialApproval"] = None
+    draft["publishedAt"] = None
+    draft["contentHash"] = compute_content_hash(draft)
+    with pytest.raises(ValueError, match="published issue"):
+        render_review(draft)
+
+
 def test_rendered_issue_preserves_site_infrastructure_and_honest_form():
     issue = sample_issue()
     page = build_page(issue, [issue], latest=True)
@@ -311,6 +344,10 @@ def test_deploy_path_and_legacy_redirect_are_wired():
     assert '"--sync-gravel-weekly"' in deploy
     assert "^gravel-tv/?$ /gravel-weekly/" in deploy
     assert '"gravel-weekly"' in deploy
+    workflow = (ROOT / ".github" / "workflows" / "weekly-broadcast.yml").read_text()
+    assert "issues: write" in workflow
+    assert "render_gravel_weekly_race_impact_review.py" in workflow
+    assert "meaningful-race-impact-count: 0" in workflow
 
 
 def test_email_preserves_legacy_subscribers_and_uses_approved_issue():

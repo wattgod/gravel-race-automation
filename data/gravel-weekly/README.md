@@ -1,9 +1,11 @@
 # Gravel Weekly issue store
 
 Prepared review drafts live locally in ignored `drafts/YYYY-MM-DD.json`.
-Approved issue
-snapshots live in `issues/YYYY-MM-DD.json` and use
+Approved issue snapshots live in `issues/YYYY-MM-DD.json` and use
 `gravel-weekly-issue/v1` from the race-intelligence control plane.
+Each snapshot has a paired `decisions/YYYY-MM-DD.json` receipt containing every
+explicit approve/reject verdict, the exact model Take that Matti reviewed, the
+approved Take, and the human edit summary.
 
 The intelligence service may prepare candidates and reaction packets, but it
 does not write to `issues/`. An issue enters that directory only after Matti
@@ -35,9 +37,9 @@ python3 scripts/approve_gravel_weekly_issue.py \
 The approval packet must use `gravel-weekly-approval/v1`, decide every reviewed
 story exactly once, and supply the final headline, deck, Take, and edit summary
 for every approved story. The bridge preserves the reviewed facts, scores,
-receipts, and race impacts verbatim. It emits `status=approved` under the
-ignored `data/gravel-weekly/approved/` directory, which the deploy workflow
-refuses.
+receipts, and race impacts verbatim. It emits both a `status=approved` issue and
+a decision receipt under the ignored `data/gravel-weekly/approved/` directory,
+which the deploy workflow refuses.
 
 After a separate explicit publication instruction, seal the approved file:
 
@@ -49,8 +51,11 @@ python3 scripts/seal_gravel_weekly_issue.py \
 
 Sealing changes only publication state and timestamps, refuses to overwrite an
 existing historical snapshot by default, and writes the deployable immutable
-file under `data/gravel-weekly/issues/`. Deployment remains a separate manual
-workflow dispatch.
+issue under `data/gravel-weekly/issues/` plus its canonical receipt under
+`data/gravel-weekly/decisions/`. The publish workflow validates the pair and
+mirrors each idempotent decision into the control plane before deployment, so
+gate outcomes and approved-copy edits cannot silently fall out of the learning
+history. Deployment remains a separate manual workflow dispatch.
 
 Validate files and content hashes:
 

@@ -3,6 +3,7 @@ rules, SSH inventory parsing, and orphan/undeployed comparison."""
 
 from __future__ import annotations
 
+import ast
 import sys
 from pathlib import Path
 
@@ -16,6 +17,33 @@ import immune_check as immune
 
 
 ROOT = "/home/u/www/gravelgodcycling.com/public_html"
+
+
+class TestDeployCliParity:
+    def test_every_args_attribute_has_a_parser_argument(self):
+        """Prevent orphaned args references from crashing every deploy."""
+        source = (PROJECT_ROOT / "scripts" / "push_wordpress.py").read_text()
+        tree = ast.parse(source)
+        referenced = {
+            node.attr
+            for node in ast.walk(tree)
+            if isinstance(node, ast.Attribute)
+            and isinstance(node.value, ast.Name)
+            and node.value.id == "args"
+        }
+        parsed = {
+            arg.value[2:].replace("-", "_")
+            for node in ast.walk(tree)
+            if isinstance(node, ast.Call)
+            and isinstance(node.func, ast.Attribute)
+            and node.func.attr == "add_argument"
+            for arg in node.args
+            if isinstance(arg, ast.Constant)
+            and isinstance(arg.value, str)
+            and arg.value.startswith("--")
+        }
+
+        assert referenced <= parsed, f"args attributes missing parser options: {sorted(referenced - parsed)}"
 
 
 class TestImmuneWrapper:

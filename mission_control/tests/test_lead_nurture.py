@@ -508,7 +508,10 @@ class TestGmailSyncEndpoints:
 
 class TestLeadReplyEditor:
     def test_editor_is_admin_protected_and_renders_when_authorized(self, client):
-        assert client.get("/lead-replies").status_code == 401
+        assert client.get(
+            "/lead-replies",
+            headers={"Authorization": ""},
+        ).status_code == 401
         response = client.get(
             "/lead-replies",
             headers={"Authorization": "Bearer test-secret-for-tests"},

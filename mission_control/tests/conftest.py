@@ -280,7 +280,10 @@ def client(fake_db):
         app = app_mod.create_app()
         app.router.lifespan_context = noop_lifespan
 
-        with TestClient(app) as c:
+        with TestClient(
+            app,
+            headers={"Authorization": "Bearer test-secret-for-tests"},
+        ) as c:
             yield c
     finally:
         app_mod.lifespan = original_lifespan

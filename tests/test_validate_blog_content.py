@@ -16,6 +16,7 @@ from validate_blog_content import (
     PYTHON_REPR_PATTERNS,
     TAKEAWAY_BAD_PATTERNS,
     Validator,
+    body_scripts_are_expected,
     check_hero_images,
     check_no_python_repr,
     check_t4_content_quality,
@@ -32,6 +33,24 @@ def _any_pattern_matches(text):
         if pattern.search(text):
             return True
     return False
+
+
+class TestExpectedBodyScripts:
+    def test_centralized_consent_and_editorial_tracking_are_allowed(self):
+        content = """<html><head></head><body>
+        <script>document.getElementById('gg-consent-banner')</script>
+        <script>gtag('event', 'cta_click', {source: 'editorial'})</script>
+        </body></html>"""
+        assert body_scripts_are_expected(content)
+
+    def test_arbitrary_or_duplicate_body_scripts_fail(self):
+        arbitrary = "<html><head></head><body><script>alert(1)</script></body></html>"
+        duplicate = """<html><head></head><body>
+        <script>document.getElementById('gg-consent-banner')</script>
+        <script>document.getElementById('gg-consent-banner')</script>
+        </body></html>"""
+        assert not body_scripts_are_expected(arbitrary)
+        assert not body_scripts_are_expected(duplicate)
 
 
 # ── True positives: these MUST be caught ──

@@ -57,6 +57,26 @@ PYTHON_REPR_PATTERNS = [
     (re.compile(r"\[\{['\"]"), "list-of-dicts ([{'...} or [{\"...}])"),
 ]
 
+EXPECTED_BODY_SCRIPT_MARKERS = (
+    "gg-consent-banner",
+    "source: 'editorial'",
+)
+
+
+def body_scripts_are_expected(content: str) -> bool:
+    """Allow only the centralized consent and editorial CTA scripts in body."""
+    if "</head>" not in content or "</body>" not in content:
+        return False
+    body = content.split("</head>", 1)[1].split("</body>", 1)[0]
+    scripts = re.findall(r"<script[^>]*>(.*?)</script>", body, flags=re.DOTALL | re.IGNORECASE)
+    matched: list[str] = []
+    for script in scripts:
+        marker = next((value for value in EXPECTED_BODY_SCRIPT_MARKERS if value in script), None)
+        if marker is None or marker in matched:
+            return False
+        matched.append(marker)
+    return True
+
 
 class Validator:
     def __init__(self):
@@ -243,13 +263,11 @@ def check_html_quality(v):
             f"{label}: has CTA section",
         )
 
-        # No unescaped script tags in body
+        # Only centralized consent and editorial CTA tracking may execute in body.
         if "</head>" in content and "</body>" in content:
-            body = content.split("</head>")[1].split("</body>")[0]
-            script_count = body.count("<script")
             v.check(
-                script_count <= 1,  # Only JSON-LD allowed
-                f"{label}: no unexpected <script> in body ({script_count} found)",
+                body_scripts_are_expected(content),
+                f"{label}: body scripts are centralized and expected",
             )
 
 

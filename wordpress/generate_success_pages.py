@@ -8,7 +8,8 @@ Pages:
   /consulting/confirmed/    — after consulting payment
 
 Each page:
-  - Fires GA4 `purchase` event with session_id from URL
+  - Fires a non-commerce GA4 `success_page_view` event
+  - Leaves `purchase` reporting to the verified Stripe webhook
   - Shows next-steps specific to the product
   - Cross-sells other products
   - Uses shared header/footer + brand tokens
@@ -193,7 +194,12 @@ def build_success_css() -> str:
 
 
 def build_success_js() -> str:
-    """JS for GA4 purchase event + session_id extraction."""
+    """JS for success-page analytics + session_id extraction.
+
+    A redirect URL is not payment authority: it can be refreshed, shared, or
+    opened with a fabricated ``session_id``.  The Stripe webhook is the sole
+    source of GA4 ``purchase`` events.
+    """
     return """<script>
 (function() {
   var params = new URLSearchParams(window.location.search);
@@ -202,19 +208,10 @@ def build_success_js() -> str:
   var ptype = productType ? productType.getAttribute('data-product-type') : 'unknown';
 
   if (typeof gtag === 'function') {
-    gtag('event', 'purchase', {
-      transaction_id: sessionId,
-      product_type: ptype,
-    });
     gtag('event', 'success_page_view', {
       product_type: ptype,
       session_id: sessionId,
     });
-  }
-
-  // Dedup: mark this session as converted so the funnel doesn't double-count
-  if (sessionId && typeof sessionStorage !== 'undefined') {
-    sessionStorage.setItem('gg_converted_' + sessionId, '1');
   }
 
   // Consulting: pass the checkout session_id to the intake page as a

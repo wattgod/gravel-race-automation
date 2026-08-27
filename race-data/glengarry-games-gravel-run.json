@@ -5,7 +5,7 @@
     "display_name": "Glengarry Games Gravel Run",
     "tagline": "A one-edition Highland Games gravel race whose grandstand finish was real—and whose 2026 date was not.",
     "vitals": {
-      "distance_mi": 70.8,
+      "distance_mi": 50,
       "elevation_ft": null,
       "location": "Maxville, Ontario, Canada",
       "location_badge": "MAXVILLE, ON",
@@ -57,11 +57,11 @@
       ]
     },
     "gravel_god_rating": {
-      "overall_score": 53,
+      "overall_score": 51,
       "tier": 3,
       "tier_label": "TIER 3",
       "logistics": 3,
-      "length": 3,
+      "length": 2,
       "technicality": 2,
       "elevation": 1,
       "climate": 3,
@@ -130,9 +130,27 @@
     "course_description": {
       "character": "A 114 km archived Epic course on rolling eastern-Ontario gravel, ending with an oval-track lap inside the Highland Games venue.",
       "suffering_zones": [
-        {"mile": 0, "label": "Maxville Rollout", "desc": "The event left the Highland Games venue for the county gravel network.", "terrain_detail": "Town and county roads", "named_section": "Maxville"},
-        {"mile": 45, "label": "Open County Roads", "desc": "Heat, wind, and rolling gravel created the main late-race load on the archived Epic route.", "terrain_detail": "Rolling gravel", "named_section": "Stormont, Dundas and Glengarry"},
-        {"mile": 70, "label": "Highland Games Oval", "desc": "The final three-quarter lap put the finish in front of the covered grandstands.", "terrain_detail": "Oval track", "named_section": "Glengarry Highland Games"}
+        {
+          "mile": 0,
+          "label": "Maxville Rollout",
+          "desc": "The event left the Highland Games venue for the county gravel network.",
+          "terrain_detail": "Town and county roads",
+          "named_section": "Maxville"
+        },
+        {
+          "mile": 45,
+          "label": "Open County Roads",
+          "desc": "Heat, wind, and rolling gravel created the main late-race load on the archived Epic route.",
+          "terrain_detail": "Rolling gravel",
+          "named_section": "Stormont, Dundas and Glengarry"
+        },
+        {
+          "mile": 70,
+          "label": "Highland Games Oval",
+          "desc": "The final three-quarter lap put the finish in front of the covered grandstands.",
+          "terrain_detail": "Oval track",
+          "named_section": "Glengarry Highland Games"
+        }
       ],
       "signature_challenge": "Arriving at the oval with enough speed left to race the most public kilometre of the day.",
       "ridewithgps_id": null,
@@ -156,9 +174,21 @@
       "altitude_feet": null
     },
     "non_negotiables": [
-      {"requirement": "Official next-edition date", "by_when": "Before building plans", "why": "The only official listing is for August 3, 2025."},
-      {"requirement": "Current course file", "by_when": "Before race-specific customization", "why": "A future edition could change the archived 114/83/42 km routes."},
-      {"requirement": "Current registration and support details", "by_when": "Before publishing a saleable fleet", "why": "Gravel Cup publishes no future Glengarry operation."}
+      {
+        "requirement": "Official next-edition date",
+        "by_when": "Before building plans",
+        "why": "The only official listing is for August 3, 2025."
+      },
+      {
+        "requirement": "Current course file",
+        "by_when": "Before race-specific customization",
+        "why": "A future edition could change the archived 114/83/42 km routes."
+      },
+      {
+        "requirement": "Current registration and support details",
+        "by_when": "Before publishing a saleable fleet",
+        "why": "Gravel Cup publishes no future Glengarry operation."
+      }
     ],
     "research_metadata": {
       "data_confidence": "high",
@@ -175,29 +205,101 @@
       ]
     },
     "biased_opinion_ratings": {
-      "logistics": {"score": 3, "explanation": "Maxville is reachable from Ottawa or Montréal, but Highland Games demand and the lack of a current edition complicate planning."},
-      "length": {"score": 3, "explanation": "The archived official Epic route was 114 km, or 70.8 miles, inside the 60-100-mile rubric band."},
-      "technicality": {"score": 2, "explanation": "The official 114 km Epic description emphasizes rolling Glengarry County gravel roads, not extreme technical terrain."},
-      "elevation": {"score": 1, "explanation": "No organizer gain figure is published; the former 2,000-foot claim was unsupported, so the grade stays conservative."},
-      "climate": {"score": 3, "explanation": "An early-August Ontario race can impose meaningful heat and humidity across exposed county roads."},
-      "altitude": {"score": 1, "explanation": "The Maxville, Ontario course does not create an altitude-training requirement."},
-      "adventure": {"score": 3, "explanation": "The county-road course is standard gravel, but finishing inside the Highland Games gives the event memorable character."},
-      "prestige": {"score": 2, "explanation": "The Highland Games partnership gave local recognition, but one edition is not an established national race."},
-      "race_quality": {"score": 3, "explanation": "Gravel Cup Canada published routes, staggered starts, timing, and a technical guide; the event lacks a current edition to prove durability."},
-      "experience": {"score": 4, "explanation": "The Highland Games oval finish in front of covered grandstands gives the 114 km Epic a defined finale."},
-      "community": {"score": 4, "explanation": "Embedding the race in the Glengarry Highland Games created actual spectators and a broader regional gathering."},
-      "field_depth": {"score": 2, "explanation": "The organizer does not publish field size or evidence of elite depth for the 2025 edition."},
-      "value": {"score": 3, "explanation": "The 2025 event included 3 routes and timing, but the archived official page does not preserve a verifiable price."},
-      "expenses": {"score": 3, "explanation": "Regional access to Maxville is moderate, while Glengarry Highland Games lodging demand can add cost."}
+      "logistics": {
+        "score": 3,
+        "explanation": "Maxville is reachable from Ottawa or Montréal, but Highland Games demand and the lack of a current edition complicate planning."
+      },
+      "length": {
+        "score": 2,
+        "explanation": "The archived official Epic route was 114 km, or 70.8 miles, inside the 60-100-mile rubric band."
+      },
+      "technicality": {
+        "score": 2,
+        "explanation": "The official 114 km Epic description emphasizes rolling Glengarry County gravel roads, not extreme technical terrain."
+      },
+      "elevation": {
+        "score": 1,
+        "explanation": "No organizer gain figure is published; the former 2,000-foot claim was unsupported, so the grade stays conservative."
+      },
+      "climate": {
+        "score": 3,
+        "explanation": "An early-August Ontario race can impose meaningful heat and humidity across exposed county roads."
+      },
+      "altitude": {
+        "score": 1,
+        "explanation": "The Maxville, Ontario course does not create an altitude-training requirement."
+      },
+      "adventure": {
+        "score": 3,
+        "explanation": "The county-road course is standard gravel, but finishing inside the Highland Games gives the event memorable character."
+      },
+      "prestige": {
+        "score": 2,
+        "explanation": "The Highland Games partnership gave local recognition, but one edition is not an established national race."
+      },
+      "race_quality": {
+        "score": 3,
+        "explanation": "Gravel Cup Canada published routes, staggered starts, timing, and a technical guide; the event lacks a current edition to prove durability."
+      },
+      "experience": {
+        "score": 4,
+        "explanation": "The Highland Games oval finish in front of covered grandstands gives the 114 km Epic a defined finale."
+      },
+      "community": {
+        "score": 4,
+        "explanation": "Embedding the race in the Glengarry Highland Games created actual spectators and a broader regional gathering."
+      },
+      "field_depth": {
+        "score": 2,
+        "explanation": "The organizer does not publish field size or evidence of elite depth for the 2025 edition."
+      },
+      "value": {
+        "score": 3,
+        "explanation": "The 2025 event included 3 routes and timing, but the archived official page does not preserve a verifiable price."
+      },
+      "expenses": {
+        "score": 3,
+        "explanation": "Regional access to Maxville is moderate, while Glengarry Highland Games lodging demand can add cost."
+      }
     },
     "training_config": {
       "workout_modifications": {
-        "rolling_endurance": {"enabled": true, "weeks": [8, 9, 10]},
-        "heat_preparation": {"enabled": true, "weeks": [7, 8, 9, 10]},
-        "dress_rehearsal": {"enabled": true, "week": 10, "day": "Sunday", "duration_hours": {"ayahuasca": 3, "finisher": 4, "compete": 5, "podium": 6}}
+        "rolling_endurance": {
+          "enabled": true,
+          "weeks": [
+            8,
+            9,
+            10
+          ]
+        },
+        "heat_preparation": {
+          "enabled": true,
+          "weeks": [
+            7,
+            8,
+            9,
+            10
+          ]
+        },
+        "dress_rehearsal": {
+          "enabled": true,
+          "week": 10,
+          "day": "Sunday",
+          "duration_hours": {
+            "ayahuasca": 3,
+            "finisher": 4,
+            "compete": 5,
+            "podium": 6
+          }
+        }
       },
       "masterclass_topics": {
-        "priority_order": ["pacing", "heat", "fueling", "finish"],
+        "priority_order": [
+          "pacing",
+          "heat",
+          "fueling",
+          "finish"
+        ],
         "race_specific": true,
         "topics": {
           "pacing": "Rolling 114 km pacing",
@@ -220,9 +322,21 @@
       }
     },
     "citations": [
-      {"url": "https://gravelcup.com/gravel-cup-events/glengarry-gravel-run", "category": "official", "label": "Official archived 2025 event page"},
-      {"url": "https://gravelcup.com/gravel-cup-events", "category": "official", "label": "Official 2026 Gravel Cup schedule"},
-      {"url": "https://gravelcup.com/contact", "category": "official", "label": "Official 2026 one-event statement"}
+      {
+        "url": "https://gravelcup.com/gravel-cup-events/glengarry-gravel-run",
+        "category": "official",
+        "label": "Official archived 2025 event page"
+      },
+      {
+        "url": "https://gravelcup.com/gravel-cup-events",
+        "category": "official",
+        "label": "Official 2026 Gravel Cup schedule"
+      },
+      {
+        "url": "https://gravelcup.com/contact",
+        "category": "official",
+        "label": "Official 2026 one-event statement"
+      }
     ]
   }
 }

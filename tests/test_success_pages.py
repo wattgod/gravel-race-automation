@@ -94,8 +94,9 @@ class TestSEO:
 
 class TestGA4Tracking:
     def test_success_page_never_claims_a_purchase(self, success_js):
+        """Only the verified Stripe webhook may emit GA4 purchase."""
         assert "gtag('event', 'purchase'" not in success_js
-        assert "gg_converted_" not in success_js
+        assert 'gg_converted_' not in success_js
 
     def test_success_page_view_event(self, success_js):
         assert "gtag('event', 'success_page_view'" in success_js

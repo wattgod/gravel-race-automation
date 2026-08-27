@@ -535,6 +535,14 @@ class TestJSQuality:
         assert "begin_checkout" in consulting_js
         assert "Consulting Session" in consulting_js
 
+    def test_checkout_carries_consent_gated_ga4_attribution(self, consulting_js):
+        assert "analyticsConsentGranted" in consulting_js
+        assert "gtag('get',measurementId,field" in consulting_js
+        assert "checkoutPayload.analytics_consent" in consulting_js
+        assert "checkoutPayload.ga4_client_id" in consulting_js
+        assert "checkoutPayload.ga4_session_id" in consulting_js
+        assert "GA_ATTRIBUTION_TIMEOUT_MS=500" in consulting_js
+
     def test_checkout_js_has_error_handling(self, consulting_js):
         assert "consulting_checkout_error" in consulting_js
         assert "gg-consult-form-message" in consulting_js

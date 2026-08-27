@@ -31,6 +31,9 @@ dry_run_results.json
 
 # Gravel Weekly model drafts remain local until Matti approves the take.
 data/gravel-weekly/drafts/
+# Human-approved snapshots remain local until an explicit sealing action moves
+# an immutable copy into data/gravel-weekly/issues/.
+data/gravel-weekly/approved/
 
 # Database backups
 *.json.bak

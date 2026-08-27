@@ -20,6 +20,8 @@ from validate_gravel_weekly import (  # noqa: E402
 )
 from send_gravel_weekly import SUBSCRIBER_SOURCES, build_email_html  # noqa: E402
 from prepare_gravel_weekly_issue import prepare_issue  # noqa: E402
+from approve_gravel_weekly_issue import approve_issue  # noqa: E402
+from seal_gravel_weekly_issue import seal_issue  # noqa: E402
 from render_gravel_weekly_race_impact_review import render_review  # noqa: E402
 
 
@@ -117,6 +119,40 @@ def passing_editorial_gate():
     }
 
 
+def sample_draft():
+    issue = sample_issue()
+    issue.update({
+        "status": "draft",
+        "editorialApproval": None,
+        "publishedAt": None,
+        "updatedAt": "2026-08-27T17:00:00Z",
+    })
+    issue["stories"][0]["headline"] = "MODEL DRAFT headline"
+    issue["stories"][0]["dek"] = "MODEL DRAFT deck"
+    issue["stories"][0]["take"] = "Editable model draft, not Matti's approved view."
+    issue["stories"][0]["takeProvenance"] = "model_draft"
+    issue["contentHash"] = compute_content_hash(issue)
+    return issue
+
+
+def sample_approval():
+    return {
+        "schemaVersion": "gravel-weekly-approval/v1",
+        "issueId": "gravel-weekly-001",
+        "approver": "Matti Rowe",
+        "approvedAt": "2026-08-28T16:00:00Z",
+        "currentThingStoryId": "story_1",
+        "stories": [{
+            "candidateId": "story_1",
+            "decision": "approve",
+            "headline": "The approved headline",
+            "dek": "The approved deck.",
+            "take": "The approved take makes a concrete judgment.",
+            "editSummary": "Removed throat-clearing and sharpened the consequence.",
+        }],
+    }
+
+
 def test_issue_contract_requires_receipts_approval_and_hash():
     issue = sample_issue()
     assert validate_issue(issue)["issueId"] == "gravel-weekly-001"
@@ -172,6 +208,83 @@ def test_review_prepares_a_draft_but_cannot_imply_approval():
     assert "DRAFT — NOT PUBLISHED" in preview
     assert "THE TAKE — MODEL DRAFT" in preview
     assert "application/ld+json" not in preview
+
+
+def test_human_approval_bridge_changes_only_editorial_copy_and_stays_non_deployable():
+    draft = sample_draft()
+    approved = approve_issue(draft, sample_approval())
+
+    assert approved["status"] == "approved"
+    assert approved["publishedAt"] is None
+    assert approved["editorialApproval"] == {
+        "approver": "Matti Rowe", "approvedAt": "2026-08-28T16:00:00Z",
+    }
+    assert approved["stories"][0]["headline"] == "The approved headline"
+    assert approved["stories"][0]["take"] == "The approved take makes a concrete judgment."
+    assert approved["stories"][0]["takeProvenance"] == "human_approved"
+    for field in ("score", "storyKind", "whatHappened", "receipts", "raceImpacts"):
+        assert approved["stories"][0][field] == draft["stories"][0][field]
+    assert approved["contentHash"] == compute_content_hash(approved)
+    with pytest.raises(ValueError, match="published issue"):
+        render_review(approved)
+
+
+def test_approval_bridge_requires_an_exact_human_decision_for_every_reviewed_story():
+    draft = sample_draft()
+    missing = sample_approval()
+    missing["stories"] = []
+    with pytest.raises(ValueError, match="decide every reviewed story"):
+        approve_issue(draft, missing)
+
+    extra = sample_approval()
+    extra["stories"].append({
+        "candidateId": "story_unreviewed", "decision": "reject", "reason": "Not reviewed.",
+    })
+    with pytest.raises(ValueError, match=r"extra=\['story_unreviewed'\]"):
+        approve_issue(draft, extra)
+
+    duplicate = sample_approval()
+    duplicate["stories"].append(copy.deepcopy(duplicate["stories"][0]))
+    with pytest.raises(ValueError, match="must be unique"):
+        approve_issue(draft, duplicate)
+
+    rejected = sample_approval()
+    rejected["stories"] = [{
+        "candidateId": "story_1", "decision": "reject", "reason": "The premise is still slop.",
+    }]
+    rejected["currentThingStoryId"] = None
+    with pytest.raises(ValueError, match="at least one approved story"):
+        approve_issue(draft, rejected)
+
+    misleading = sample_approval()
+    misleading["whatHappened"] = "Quietly replace the reviewed facts."
+    with pytest.raises(ValueError, match="unsupported fields"):
+        approve_issue(draft, misleading)
+
+
+def test_approval_bridge_rejects_copy_that_still_claims_to_be_a_model_draft():
+    approval = sample_approval()
+    approval["stories"][0]["take"] = "Editable model draft, not Matti's approved view."
+    with pytest.raises(IssueValidationError, match="model-draft"):
+        approve_issue(sample_draft(), approval)
+
+
+def test_sealing_is_a_separate_copy_preserving_step_after_approval():
+    approved = approve_issue(sample_draft(), sample_approval())
+    sealed = seal_issue(approved, "2026-08-28T16:05:00Z")
+
+    assert sealed["status"] == "published"
+    assert sealed["publishedAt"] == "2026-08-28T16:05:00Z"
+    assert sealed["stories"] == approved["stories"]
+    assert sealed["raceImpacts"] == approved["raceImpacts"]
+    assert sealed["contentHash"] == compute_content_hash(sealed)
+
+    with pytest.raises(ValueError, match="status=approved"):
+        seal_issue(sample_draft(), "2026-08-28T16:05:00Z")
+    with pytest.raises(ValueError, match="cannot precede"):
+        seal_issue(approved, "2026-08-28T15:59:59Z")
+    with pytest.raises(ValueError, match="include a timezone"):
+        seal_issue(approved, "2026-08-28T16:05:00")
 
 
 @pytest.mark.parametrize("gate_mutation", ["missing", "hold", "party_hold", "no_point", "friend_fail", "friend_kill", "no_mechanics"])

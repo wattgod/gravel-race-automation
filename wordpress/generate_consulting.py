@@ -25,7 +25,12 @@ from generate_neo_brutalist import (
     build_inline_js,
     write_shared_assets,
 )
-from brand_tokens import get_ab_head_snippet, get_ga4_head_snippet, get_preload_hints
+from brand_tokens import (
+    GA_MEASUREMENT_ID,
+    get_ab_head_snippet,
+    get_ga4_head_snippet,
+    get_preload_hints,
+)
 from shared_footer import get_mega_footer_html
 from shared_header import get_site_header_html, get_site_header_css
 from cookie_consent import get_consent_banner_html
@@ -810,14 +815,7 @@ def build_consulting_js() -> str:
     return window.ggConsentRequiresOptIn===false;
   }}
   function findGaMeasurementId(){{
-    var scripts=document.querySelectorAll('script[src*="googletagmanager.com/gtag/js"]');
-    for(var i=0;i<scripts.length;i++){{
-      try{{
-        var id=new URL(scripts[i].src,window.location.href).searchParams.get('id')||'';
-        if(/^G-[A-Z0-9]+$/i.test(id))return id;
-      }}catch(error){{}}
-    }}
-    return '';
+    return '{GA_MEASUREMENT_ID}';
   }}
   function readGtagValue(measurementId,field){{
     return new Promise(function(resolve){{

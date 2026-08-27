@@ -1,9 +1,9 @@
 {
- "run_at": "2026-08-20T14:11:41.524006+00:00",
+ "run_at": "2026-08-27T17:44:52.974205+00:00",
  "model": "claude-haiku-4-5",
  "races": [
   {
-   "slug": "3rides-gravel-winterberg",
+   "slug": "dusty-gravel-series-andenne",
    "verdicts": {
     "distance_mi": "mismatch",
     "elevation_ft": "mismatch",
@@ -16,203 +16,152 @@
     {
      "field": "distance_mi",
      "verdict": "mismatch",
-     "web_value": "80.1",
+     "web_value": "62.1",
      "confidence": "high",
-     "source_url": "https://3rides.de/en/winterberg/gravel-winterberg-announcement/",
-     "note": "Official website states elite distance stage 3: 129 km = 80.1 miles. Database claims 154 miles, which exceeds the longest stage race total (14+105+129 km = 248 km full stage race = 154.1 miles). For a 'full stage race' distance, web shows 80 miles for stage 3 race distance, not 154 miles as a single race profile."
+     "source_url": "https://www.cycloworld.cc/en/gran-fondo/belgium/dusty-gravel-andenne/38144",
+     "note": "Web sources consistently report 100km (62.1 miles) for the main XL distance, not 50 miles as in database. The 50km distance exists but is listed as a separate M format for 'rando' (leisure ride), not the primary race distance."
     },
     {
      "field": "elevation_ft",
      "verdict": "mismatch",
-     "web_value": "9843",
+     "web_value": "4826",
      "confidence": "high",
-     "source_url": "https://3rides.de/en/winterberg/gravel-winterberg-announcement/",
-     "note": "Official website states elite stage 3 elevation: 3,000 m = 9,843 ft. Database claims 19,193 ft (5,850m), which is roughly double. This may reflect the full 3-day stage race total (14+105+129 km with 300+2550+3000 m = 5,850m), but the database appears to list stage 3 as a single race, not total series."
+     "source_url": "https://www.cycloworld.cc/en/gran-fondo/belgium/dusty-gravel-andenne/38144",
+     "note": "Web sources report 1471m elevation (4826 ft) for the 100km route, significantly higher than the 2500 ft in database. The 75km distance has 1002m (3287 ft) elevation."
     }
    ],
    "changes": [
     {
      "field": "vitals.distance_mi",
-     "old": 154.0,
-     "new": 80.1,
-     "source": "https://3rides.de/en/winterberg/gravel-winterberg-announcement/"
+     "old": 50.0,
+     "new": 62.1,
+     "source": "https://www.cycloworld.cc/en/gran-fondo/belgium/dusty-gravel-andenne/38144"
     },
     {
      "field": "vitals.elevation_ft",
-     "old": 19193.0,
-     "new": 9843.0,
-     "source": "https://3rides.de/en/winterberg/gravel-winterberg-announcement/"
+     "old": 2500.0,
+     "new": 4826.0,
+     "source": "https://www.cycloworld.cc/en/gran-fondo/belgium/dusty-gravel-andenne/38144",
+     "flag_only": true
     },
     {
      "field": "rating.length",
-     "old": 5,
+     "old": 2,
      "new": 3,
      "source": "rubric recompute"
     },
     {
      "field": "biased_opinion_ratings.length.score",
-     "old": 5,
+     "old": 2,
      "new": 3,
-     "source": "rubric recompute (sync)"
-    },
-    {
-     "field": "rating.elevation",
-     "old": 5,
-     "new": 4,
-     "source": "rubric recompute"
-    },
-    {
-     "field": "biased_opinion_ratings.elevation.score",
-     "old": 5,
-     "new": 4,
      "source": "rubric recompute (sync)"
     },
     {
      "field": "rating.overall_score",
-     "old": 70,
-     "new": 66,
+     "old": 39,
+     "new": 40,
      "source": "rubric recompute"
     }
    ],
    "usage": {
-    "input_tokens": 25692,
-    "output_tokens": 903
+    "input_tokens": 46219,
+    "output_tokens": 860
    }
   },
   {
-   "slug": "dunoon-dirt-dash",
+   "slug": "gfny-nyc",
    "verdicts": {
-    "distance_mi": "mismatch",
-    "elevation_ft": "mismatch",
+    "distance_mi": "confirmed",
+    "elevation_ft": "confirmed",
     "field_size": "unverifiable",
     "prize_purse": "unverifiable",
-    "registration_cost": "mismatch",
+    "registration_cost": "unverifiable",
     "status": "confirmed"
    },
-   "mismatches": [
-    {
-     "field": "distance_mi",
-     "verdict": "mismatch",
-     "web_value": "83-84",
-     "confidence": "high",
-     "source_url": "https://dirtdash.cc/dunoon/",
-     "note": "Official site and multiple sources (Gran Fondo Guide, Official Dirt Dash site) list approximately 83-84 miles (135 km total: 65km + 70km). Database lists 45 miles, which is significantly lower."
-    },
-    {
-     "field": "elevation_ft",
-     "verdict": "mismatch",
-     "web_value": "7545",
-     "confidence": "high",
-     "source_url": "https://dirtdash.cc/dunoon/",
-     "note": "Official site confirms approximately 2,300m total elevation (1,300m Day 1 + 1,000m Day 2) = ~7,545 feet. Database lists 3,000 feet, which is substantially lower than actual elevation gain."
-    },
-    {
-     "field": "registration_cost",
-     "verdict": "mismatch",
-     "web_value": "£99",
-     "confidence": "high",
-     "source_url": "https://dirtdash.cc/dunoon/",
-     "note": "Official Dirt Dash site and multiple sources confirm registration cost is £99 (with optional Cycling UK member discount of £5). Database states ~£60-80, which falls below the actual £99 entry fee."
-    }
-   ],
-   "changes": [
-    {
-     "field": "vitals.distance_mi",
-     "old": 45.0,
-     "new": 83.0,
-     "source": "https://dirtdash.cc/dunoon/",
-     "flag_only": true
-    },
-    {
-     "field": "vitals.elevation_ft",
-     "old": 3000.0,
-     "new": 7545.0,
-     "source": "https://dirtdash.cc/dunoon/",
-     "flag_only": true
-    }
-   ],
+   "mismatches": [],
+   "changes": [],
    "usage": {
-    "input_tokens": 53419,
-    "output_tokens": 805
+    "input_tokens": 52355,
+    "output_tokens": 901
    }
   },
   {
-   "slug": "dusty-bandita",
+   "slug": "gfny-philippines",
+   "verdicts": {
+    "distance_mi": "confirmed",
+    "elevation_ft": "confirmed",
+    "field_size": "unverifiable",
+    "prize_purse": "unverifiable",
+    "registration_cost": "unverifiable",
+    "status": "confirmed"
+   },
+   "mismatches": [],
+   "changes": [],
+   "usage": {
+    "input_tokens": 23194,
+    "output_tokens": 667
+   }
+  },
+  {
+   "slug": "gfny-san-juan",
+   "verdicts": {
+    "distance_mi": "confirmed",
+    "elevation_ft": "confirmed",
+    "field_size": "unverifiable",
+    "prize_purse": "unverifiable",
+    "registration_cost": "unverifiable",
+    "status": "confirmed"
+   },
+   "mismatches": [],
+   "changes": [],
+   "usage": {
+    "input_tokens": 50257,
+    "output_tokens": 723
+   }
+  },
+  {
+   "slug": "ghost-of-the-gravel",
    "verdicts": {
     "distance_mi": "mismatch",
-    "elevation_ft": "mismatch",
-    "field_size": "mismatch",
-    "prize_purse": "confirmed",
-    "registration_cost": "confirmed",
+    "elevation_ft": "confirmed",
+    "field_size": "unverifiable",
+    "prize_purse": "unverifiable",
+    "registration_cost": "unverifiable",
     "status": "confirmed"
    },
    "mismatches": [
     {
      "field": "distance_mi",
      "verdict": "mismatch",
-     "web_value": "45 or 85",
+     "web_value": "73.3",
      "confidence": "high",
-     "source_url": "https://www.thedustybandita.com/",
-     "note": "The Dusty Bandita is a multi-distance event with two options: 45-ish miles and 85-ish miles (not 80-ish as in earlier editions). The database entry claims 65 miles, which does not match either official distance. The race is structured as two separate courses."
-    },
-    {
-     "field": "elevation_ft",
-     "verdict": "mismatch",
-     "web_value": "3000 (45-mi) / 6500 (85-mi)",
-     "confidence": "high",
-     "source_url": "https://www.thedustybandita.com/",
-     "note": "Official site confirms 45-mile course has ~3,000 feet of climbing and 85-mile course has ~6,500 feet. Database value of 4500 feet does not match either distance. For the 65-mile database distance (which doesn't exist), elevation is unverifiable."
-    },
-    {
-     "field": "field_size",
-     "verdict": "mismatch",
-     "web_value": "31-50 riders",
-     "confidence": "medium",
-     "source_url": "https://gravelgodcycling.com/race/dusty-bandita/",
-     "note": "Gravel God review (Feb 2026) reports 31 riders in 45-mile course based on a finisher placement. Database claims 50-100 riders, which significantly overstates actual field size. Event sells out quickly but capacity is smaller than database suggests."
+     "source_url": "https://ucigravelworldseries.com/en/ghost-of-gravel/",
+     "note": "Official UCI Gravel World Series and official race website (deadgoat.ca) state 118 km, which converts to 73.3 miles, not 100 miles. Multiple sources including Canadian Cycling Magazine and Cycling Canada confirm 118km. Gravel God website lists 100 mi but this appears to be an outlier and lacks official source backing."
     }
    ],
    "changes": [
     {
      "field": "vitals.distance_mi",
-     "old": 65.0,
-     "new": 45.0,
-     "source": "https://www.thedustybandita.com/"
-    },
-    {
-     "field": "vitals.elevation_ft",
-     "old": 4500.0,
-     "new": 3000.0,
-     "source": "https://www.thedustybandita.com/"
+     "old": 100.0,
+     "new": 73.3,
+     "source": "https://ucigravelworldseries.com/en/ghost-of-gravel/"
     },
     {
      "field": "rating.length",
-     "old": 3,
-     "new": 2,
+     "old": 4,
+     "new": 3,
      "source": "rubric recompute"
     },
     {
      "field": "biased_opinion_ratings.length.score",
-     "old": 3,
-     "new": 2,
-     "source": "rubric recompute (sync)"
-    },
-    {
-     "field": "rating.elevation",
-     "old": 3,
-     "new": 2,
-     "source": "rubric recompute"
-    },
-    {
-     "field": "biased_opinion_ratings.elevation.score",
-     "old": 3,
-     "new": 2,
+     "old": 4,
+     "new": 3,
      "source": "rubric recompute (sync)"
     },
     {
      "field": "rating.overall_score",
      "old": 46,
-     "new": 43,
+     "new": 44,
      "source": "rubric recompute"
     },
     {
@@ -224,12 +173,54 @@
     }
    ],
    "usage": {
-    "input_tokens": 51070,
-    "output_tokens": 1031
+    "input_tokens": 16447,
+    "output_tokens": 746
    }
   },
   {
-   "slug": "dusty-gravel-lacs-de-leau-dheure",
+   "slug": "giro-sardegna-gravel",
+   "verdicts": {
+    "distance_mi": "mismatch",
+    "elevation_ft": "mismatch",
+    "field_size": "confirmed",
+    "prize_purse": "confirmed",
+    "registration_cost": "mismatch",
+    "status": "confirmed"
+   },
+   "mismatches": [
+    {
+     "field": "distance_mi",
+     "verdict": "mismatch",
+     "web_value": "66.8",
+     "confidence": "high",
+     "source_url": "https://www.girosardegna.com/girosardegnagravel-uci-gravel-world-tour/",
+     "note": "Official site states long distance 107.54 km = 66.8 mi (not 66.5 mi as in database). Database value is very close but slightly understated."
+    },
+    {
+     "field": "elevation_ft",
+     "verdict": "mismatch",
+     "web_value": "4237",
+     "confidence": "high",
+     "source_url": "https://www.girosardegna.com/girosardegnagravel-uci-gravel-world-tour/",
+     "note": "Official site: 1,291 m elevation gain = 4,237 ft (database lists 4,100 ft, which is understated by ~137 ft)"
+    },
+    {
+     "field": "registration_cost",
+     "verdict": "mismatch",
+     "web_value": "€30 (2025)",
+     "confidence": "medium",
+     "source_url": "https://www.granfondoguide.com/Events/Index/11722/giro-sardegna-gravel",
+     "note": "GranFondoGuide cites €30 for 2025 Gravel-only entry. Database lists €90-€130; cannot verify 2026 pricing exactly, but 2025 data shows €30 was the gravel-only registration fee (separate from bundled packages)"
+    }
+   ],
+   "changes": [],
+   "usage": {
+    "input_tokens": 23828,
+    "output_tokens": 773
+   }
+  },
+  {
+   "slug": "glengarry-games-gravel-run",
    "verdicts": {
     "distance_mi": "mismatch",
     "elevation_ft": "mismatch",
@@ -242,40 +233,92 @@
     {
      "field": "distance_mi",
      "verdict": "mismatch",
-     "web_value": "43.5",
+     "web_value": "50",
      "confidence": "high",
-     "source_url": "https://www.granfondoguide.com/Events/Index/12775/dusty-gravel-lacs-de-l%C2%B4eau-d%C2%B4heure",
-     "note": "Multiple sources consistently report two distances: 110 km (68.3 mi) and 70 km (43.5 mi) for this event. The 50 mi database entry does not match either official distance. The 50 mi figure appears in Gravel God's 2026 calendar but conflicts with all official race sources showing 70/110 km."
+     "source_url": "https://gravelgodcycling.com/race/calendar/2026/",
+     "note": "Gravel God lists the race at 50 mi; database states 70.8 mi. CycloWorld mentions multiple distances (112km, 83km, 42km ≈71.6, 51.6, 26.1 mi) but database distance of 70.8 mi aligns with the longest/main distance (112km)."
     },
     {
      "field": "elevation_ft",
      "verdict": "mismatch",
-     "web_value": "3281",
+     "web_value": "2000",
      "confidence": "high",
-     "source_url": "https://www.cycloworld.cc/en/gran-fondo/belgium/dusty-gravel-lacs-de-leau-dheure/37303",
-     "note": "Official sources report 1500m elevation for the long distance (4921 ft), not 3000 ft. Cycloworld lists 2700m/1000m (8858 ft/3281 ft). CycloWorld's 2700m aligns more with the long 110km course elevation."
+     "source_url": "https://gravelgodcycling.com/race/calendar/2026/",
+     "note": "Gravel God lists 2,000 ft elevation. Database states None. RideWithGPS shows 83km distance at +376m (~1,234 ft), but Gravel God specifies 2,000 ft for the full race."
     }
    ],
    "changes": [
     {
      "field": "vitals.distance_mi",
-     "old": 50.0,
-     "new": 43.5,
-     "source": "https://www.granfondoguide.com/Events/Index/12775/dusty-gravel-lacs-de-l%C2%B4eau-d%C2%B4heure"
+     "old": 70.8,
+     "new": 50.0,
+     "source": "https://gravelgodcycling.com/race/calendar/2026/"
+    },
+    {
+     "field": "rating.length",
+     "old": 3,
+     "new": 2,
+     "source": "rubric recompute"
+    },
+    {
+     "field": "biased_opinion_ratings.length.score",
+     "old": 3,
+     "new": 2,
+     "source": "rubric recompute (sync)"
+    },
+    {
+     "field": "rating.overall_score",
+     "old": 53,
+     "new": 51,
+     "source": "rubric recompute"
     }
    ],
    "usage": {
-    "input_tokens": 17186,
-    "output_tokens": 698
+    "input_tokens": 19908,
+    "output_tokens": 662
    }
   },
   {
-   "slug": "edition-zero",
+   "slug": "glenwood-gravel",
    "verdicts": {
     "distance_mi": "mismatch",
-    "elevation_ft": "confirmed",
-    "field_size": "confirmed",
-    "prize_purse": "confirmed",
+    "elevation_ft": "unverifiable",
+    "field_size": "unverifiable",
+    "prize_purse": "unverifiable",
+    "registration_cost": "unverifiable",
+    "status": "confirmed"
+   },
+   "mismatches": [
+    {
+     "field": "distance_mi",
+     "verdict": "mismatch",
+     "web_value": "100-50",
+     "confidence": "high",
+     "source_url": "https://iowagravelseries.com/glenwood/",
+     "note": "Official website shows 100km (~62 mi) and 50km (~31 mi) distance options, not 60 miles as stated in database."
+    }
+   ],
+   "changes": [
+    {
+     "field": "vitals.distance_mi",
+     "old": 60.0,
+     "new": 100.0,
+     "source": "https://iowagravelseries.com/glenwood/",
+     "flag_only": true
+    }
+   ],
+   "usage": {
+    "input_tokens": 17102,
+    "output_tokens": 526
+   }
+  },
+  {
+   "slug": "graean-cymru",
+   "verdicts": {
+    "distance_mi": "mismatch",
+    "elevation_ft": "mismatch",
+    "field_size": "unverifiable",
+    "prize_purse": "unverifiable",
     "registration_cost": "confirmed",
     "status": "confirmed"
    },
@@ -283,23 +326,97 @@
     {
      "field": "distance_mi",
      "verdict": "mismatch",
-     "web_value": "155",
+     "web_value": "65.3",
      "confidence": "high",
-     "source_url": "https://www.climbbikeski.com/2025/12/12/edition-zero-gravel-2025/",
-     "note": "Mains distance is 248km (154 mi), not 250km. The 250km reference appears in some social media posts but official sources (Battistrada, South Canterbury, Waimate tourism, official site) confirm 248km. 248km = 154.1 miles."
+     "source_url": "https://ucigravelworldseries.com/en/ruthin/",
+     "note": "Official UCI Gravel World Series site states course is 57.67km done twice = 115.34km total, which converts to 71.7 miles, not 70.2. Alternatively, one lap of 57.67km = 35.8 miles (not matching 70.2). Cycloworld.cc lists 111km. Most consistent source: 105km (65.3 miles) appears in official GloriousGravel.com and Battistrada listings for 2026 race."
+    },
+    {
+     "field": "elevation_ft",
+     "verdict": "mismatch",
+     "web_value": "7000",
+     "confidence": "high",
+     "source_url": "https://ucigravelworldseries.com/en/ruthin/",
+     "note": "UCI official site states: 'With a cumulative elevation gain exceeding 2000 meters (7000 feet), this course presents a formidable challenge.' 2000m = ~6,562 ft, but they round to 7000 ft. Database shows 6,795 ft, which is within the margin but official source says over/exceeding 2000m (7000+ ft)."
     }
    ],
-   "changes": [],
+   "changes": [
+    {
+     "field": "vitals.distance_mi",
+     "old": 70.2,
+     "new": 65.3,
+     "source": "https://ucigravelworldseries.com/en/ruthin/"
+    }
+   ],
    "usage": {
-    "input_tokens": 46151,
-    "output_tokens": 959
+    "input_tokens": 67602,
+    "output_tokens": 955
    }
   },
   {
-   "slug": "eislek-gravel",
+   "slug": "gran-fondo-argentina",
    "verdicts": {
     "distance_mi": "mismatch",
+    "elevation_ft": "mismatch",
+    "field_size": "unverifiable",
+    "prize_purse": "unverifiable",
+    "registration_cost": "confirmed",
+    "status": "confirmed"
+   },
+   "mismatches": [
+    {
+     "field": "distance_mi",
+     "verdict": "mismatch",
+     "web_value": "75",
+     "confidence": "high",
+     "source_url": "https://www.granfondoguide.com/Events/Index/11976/gran-fondo-argentina",
+     "note": "The database lists 77 miles, but the official race website lists 124 km / 46 km distances. The 124 km long distance converts to ~77.1 miles, which matches the database. However, the GranFondoGuide source lists 75 miles for the long distance and the official site (granfondoargentina.com) confirms it offers 122K and 46K. The 46K short distance is approximately 28.6 miles; the 124K long distance is approximately 77.1 miles. If the database refers to the 124K distance, 77 miles is a reasonable approximation (124 km = 77.1 mi), so this is within normal variance. However, GranFondoGuide explicitly states 75 miles, creating a small mismatch."
+    },
+    {
+     "field": "elevation_ft",
+     "verdict": "mismatch",
+     "web_value": "1060",
+     "confidence": "high",
+     "source_url": "https://granfondoargentina.com/en/store/races/long-distance/",
+     "note": "Official website states elevation for 124K distance as 233 m / 1,060 ft. Database claims 300 ft, which is significantly lower than the official 1,060 ft."
+    }
+   ],
+   "changes": [
+    {
+     "field": "vitals.elevation_ft",
+     "old": 300.0,
+     "new": 1060.0,
+     "source": "https://granfondoargentina.com/en/store/races/long-distance/",
+     "flag_only": true
+    }
+   ],
+   "usage": {
+    "input_tokens": 63257,
+    "output_tokens": 984
+   }
+  },
+  {
+   "slug": "gran-fondo-badlands",
+   "verdicts": {
+    "distance_mi": "confirmed",
     "elevation_ft": "confirmed",
+    "field_size": "unverifiable",
+    "prize_purse": "unverifiable",
+    "registration_cost": "unverifiable",
+    "status": "confirmed"
+   },
+   "mismatches": [],
+   "changes": [],
+   "usage": {
+    "input_tokens": 21401,
+    "output_tokens": 680
+   }
+  },
+  {
+   "slug": "gran-fondo-coimbra",
+   "verdicts": {
+    "distance_mi": "mismatch",
+    "elevation_ft": "mismatch",
     "field_size": "unverifiable",
     "prize_purse": "unverifiable",
     "registration_cost": "unverifiable",
@@ -309,76 +426,43 @@
     {
      "field": "distance_mi",
      "verdict": "mismatch",
-     "web_value": "69.2",
+     "web_value": "91.9",
      "confidence": "high",
-     "source_url": "https://ucigravelworldseries.com/en/vianden/",
-     "note": "UCI Gravel World Series official page states a 36.6 km loop done 3 times for most elite categories = 109.8 km (68.2 mi). CycloWorld lists 70km distance. Battistrada mentions 2026 race was on June 20 (not 21) with route options of 120km and 72km. Database value of 68 mi is close but sources show variation by category and year."
-    }
-   ],
-   "changes": [],
-   "usage": {
-    "input_tokens": 49306,
-    "output_tokens": 977
-   }
-  },
-  {
-   "slug": "epic-gran-canaria",
-   "verdicts": {
-    "distance_mi": "mismatch",
-    "elevation_ft": "mismatch",
-    "field_size": "confirmed",
-    "prize_purse": "unverifiable",
-    "registration_cost": "unverifiable",
-    "status": "confirmed"
-   },
-   "mismatches": [
-    {
-     "field": "distance_mi",
-     "verdict": "mismatch",
-     "web_value": "118",
-     "confidence": "high",
-     "source_url": "https://www.cycloworld.cc/en/gran-fondo/spain/epic-gran-canaria/37456",
-     "note": "Epic Gran Canaria is a multi-stage event with two routes: 115 km (71.5 mi) and 75 km (46.6 mi), totaling 190 km (118 mi). Database lists 100 mi for a single distance profile; web shows total combined distance is 190 km / 118 mi across both stages."
+     "source_url": "https://ucigranfondoworldseries.com/en/granfondo-coimbra-region/",
+     "note": "Official UCI site states Gran Fondo distance is 148 km (approximately 91.9 miles), not 100 miles. The shorter Mediofondo is 106 km (65.9 mi)."
     },
     {
      "field": "elevation_ft",
      "verdict": "mismatch",
-     "web_value": "11482",
+     "web_value": "5997",
      "confidence": "high",
-     "source_url": "https://www.cycloworld.cc/en/gran-fondo/spain/epic-gran-canaria/37456",
-     "note": "Web source (CycloWorld) lists 3500m elevation gain for the multi-stage event. Stage 1 (115km): ~1,774m; Stage 2 (75km): ~825m; Total ≈2,599m (~8,527 ft). However, CycloWorld lists combined 3500m (11,482 ft). Database value of 7,500 ft is lower than web data."
+     "source_url": "https://ucigranfondoworldseries.com/en/granfondo-coimbra-region/",
+     "note": "Official UCI site states 1,828 meters of elevation for 148km Gran Fondo (approximately 5,997 feet), varying by source between 1,548-1,835 meters. Database value of 6,500 ft is approximately 1,981 meters."
     }
    ],
    "changes": [
     {
      "field": "vitals.distance_mi",
      "old": 100.0,
-     "new": 118.0,
-     "source": "https://www.cycloworld.cc/en/gran-fondo/spain/epic-gran-canaria/37456"
-    },
-    {
-     "field": "vitals.elevation_ft",
-     "old": 7500.0,
-     "new": 11482.0,
-     "source": "https://www.cycloworld.cc/en/gran-fondo/spain/epic-gran-canaria/37456",
-     "flag_only": true
+     "new": 91.9,
+     "source": "https://ucigranfondoworldseries.com/en/granfondo-coimbra-region/"
     },
     {
      "field": "rating.length",
-     "old": 3,
-     "new": 4,
+     "old": 4,
+     "new": 3,
      "source": "rubric recompute"
     },
     {
      "field": "biased_opinion_ratings.length.score",
-     "old": 3,
-     "new": 4,
+     "old": 4,
+     "new": 3,
      "source": "rubric recompute (sync)"
     },
     {
      "field": "rating.overall_score",
-     "old": 71,
-     "new": 73,
+     "old": 70,
+     "new": 69,
      "source": "rubric recompute"
     },
     {
@@ -390,251 +474,110 @@
     }
    ],
    "usage": {
-    "input_tokens": 48834,
-    "output_tokens": 871
+    "input_tokens": 22907,
+    "output_tokens": 688
    }
   },
   {
-   "slug": "essential-gravel",
-   "verdicts": {
-    "distance_mi": "confirmed",
-    "elevation_ft": "confirmed",
-    "field_size": "unverifiable",
-    "prize_purse": "mismatch",
-    "registration_cost": "mismatch",
-    "status": "confirmed"
-   },
-   "mismatches": [
-    {
-     "field": "prize_purse",
-     "verdict": "mismatch",
-     "web_value": "Free entry event with modest raffle prizes",
-     "confidence": "high",
-     "source_url": "https://www.ironbull.org/essential-gravel-ride-details",
-     "note": "Official IRONBULL site states \"This free bike ride is returning in 2026\" - not paid entry with prize purse, but a free community event with random prize drawings from entry rewards."
-    },
-    {
-     "field": "registration_cost",
-     "verdict": "mismatch",
-     "web_value": "Free",
-     "confidence": "high",
-     "source_url": "https://www.ironbull.org/essential-gravel-ride-details",
-     "note": "Official IRONBULL site and multiple sources confirm event is free. Database lists ~$50-75 cost, but Gravel God prep kit mentions only $50 entry fee as an estimate, while official source clearly states it is free."
-    }
-   ],
-   "changes": [
-    {
-     "field": "vitals.prize_purse",
-     "old": "Modest prizes",
-     "new": "Free entry event with modest raffle prizes",
-     "source": "https://www.ironbull.org/essential-gravel-ride-details"
-    }
-   ],
-   "usage": {
-    "input_tokens": 19870,
-    "output_tokens": 622
-   }
-  },
-  {
-   "slug": "etape-du-dales",
+   "slug": "gran-fondo-curacavi",
    "verdicts": {
     "distance_mi": "mismatch",
-    "elevation_ft": "confirmed",
-    "field_size": "unverifiable",
-    "prize_purse": "unverifiable",
-    "registration_cost": "unverifiable",
-    "status": "confirmed"
-   },
-   "mismatches": [
-    {
-     "field": "distance_mi",
-     "verdict": "mismatch",
-     "web_value": "104",
-     "confidence": "high",
-     "source_url": "https://www.etapedudales.org/",
-     "note": "Official website states 167km (104 miles) for the main long route 2026. Database lists 106 miles but multiple official sources confirm 104 miles."
-    }
-   ],
-   "changes": [],
-   "usage": {
-    "input_tokens": 24932,
-    "output_tokens": 633
-   }
-  },
-  {
-   "slug": "fairfield-harvest-rush",
-   "verdicts": {
-    "distance_mi": "mismatch",
-    "elevation_ft": "unverifiable",
-    "field_size": "confirmed",
-    "prize_purse": "confirmed",
-    "registration_cost": "unverifiable",
-    "status": "confirmed"
-   },
-   "mismatches": [
-    {
-     "field": "distance_mi",
-     "verdict": "mismatch",
-     "web_value": "62 km (approximately 38.5 miles)",
-     "confidence": "high",
-     "source_url": "https://iowagravelseries.com/fairfield/",
-     "note": "Official Iowa Gravel Series website shows the 100KM race as starting at 7:30AM, with 50KM ride starting at 8:00AM. The database lists 62 miles (~100 km), but sources show the primary race distances are 100KM and 50KM, not 62 miles (100 km). The event includes multiple distance options; 62 miles is not the featured distance."
-    }
-   ],
-   "changes": [],
-   "usage": {
-    "input_tokens": 14929,
-    "output_tokens": 740
-   }
-  },
-  {
-   "slug": "falling-leaves-lahti",
-   "verdicts": {
-    "distance_mi": "mismatch",
-    "elevation_ft": "unverifiable",
-    "field_size": "mismatch",
-    "prize_purse": "unverifiable",
-    "registration_cost": "unverifiable",
-    "status": "confirmed"
-   },
-   "mismatches": [
-    {
-     "field": "distance_mi",
-     "verdict": "mismatch",
-     "web_value": "111.18",
-     "confidence": "high",
-     "source_url": "https://nordicgravel.com/collections/falling-leaves-lahti-2026",
-     "note": "Official Nordic Gravel Series site lists 180km distance for 2026, which converts to 111.84 miles, not 108.7 miles. The 2026 event offers multiple distances (50, 100, 145, 175, 275 km per Visit Finland and HotWay.life), but the primary/long distance appears to be 180km or 175km."
-    },
-    {
-     "field": "field_size",
-     "verdict": "mismatch",
-     "web_value": "500",
-     "confidence": "medium",
-     "source_url": "https://www.granfondoguide.com/Events/Index/9321/falling-leaves-lahti",
-     "note": "GranFondoGuide lists participant limit as 500 for 2026. Your database states 'Not published' but this independent source indicates a limit exists."
-    }
-   ],
-   "changes": [],
-   "usage": {
-    "input_tokens": 18434,
-    "output_tokens": 795
-   }
-  },
-  {
-   "slug": "farmers-daughter",
-   "verdicts": {
-    "distance_mi": "confirmed",
     "elevation_ft": "mismatch",
-    "field_size": "mismatch",
+    "field_size": "confirmed",
     "prize_purse": "unverifiable",
-    "registration_cost": "mismatch",
+    "registration_cost": "unverifiable",
     "status": "confirmed"
    },
    "mismatches": [
+    {
+     "field": "distance_mi",
+     "verdict": "mismatch",
+     "web_value": "74.57",
+     "confidence": "high",
+     "source_url": "https://www.granfondocuracavi.cl/",
+     "note": "Official website and multiple recent sources (ridechile.cl, 2026 edition coverage) state 130 km distance. However, there is significant variability: some sources cite 120 km (Welcu, Tusdesafios), while the official site granfondocuracavi.cl and ridechile.cl 2026 coverage document 130 km. The 2026 edition completed on April 19, 2026 was confirmed as 130K. The database value of 75 mi is closest to 120 km (74.57 mi), but web shows primary recent distance is 130 km (80.78 mi)."
+    },
     {
      "field": "elevation_ft",
      "verdict": "mismatch",
-     "web_value": "6400",
+     "web_value": "3937",
      "confidence": "high",
-     "source_url": "https://battistrada.com/en/cycling-calendar/edition/the-farmers-daughter-gravel-grinder-2026/48550/",
-     "note": "Database claims 3500 ft elevation, but multiple authoritative sources state 6,400 feet of climbing, nearly double the database value."
+     "source_url": "https://www.ridechile.cl/2026/04/extraordinaria-5a-edicion-del-gran-fondo-curacavi/",
+     "note": "Most recent 2026 coverage (ridechile.cl, April 19, 2026) does not specify elevation gain in feet. Earlier editions show variation: 2022=1400m, 2023-2024=1300m, 2025-2026=1200m. Largest recent years (2023-2026) cite 1200m desnivel = 3937 ft. Database value 4500 ft = ~1372 m, closer to 2022 data but conflicts with recent 2025-2026 standard of 1200 m / 3937 ft."
+    }
+   ],
+   "changes": [],
+   "usage": {
+    "input_tokens": 72519,
+    "output_tokens": 1071
+   }
+  },
+  {
+   "slug": "gran-fondo-hainan",
+   "verdicts": {
+    "distance_mi": "mismatch",
+    "elevation_ft": "mismatch",
+    "field_size": "unverifiable",
+    "prize_purse": "confirmed",
+    "registration_cost": "confirmed",
+    "status": "confirmed"
+   },
+   "mismatches": [
+    {
+     "field": "distance_mi",
+     "verdict": "mismatch",
+     "web_value": "68.4",
+     "confidence": "high",
+     "source_url": "https://ucigranfondoworldseries.com/en/hainan/",
+     "note": "Official UCI Gran Fondo World Series website states the main road course is 110 km (68.4 miles), not 68 miles. This represents the 110km stage 1 course."
     },
     {
-     "field": "field_size",
+     "field": "elevation_ft",
      "verdict": "mismatch",
-     "web_value": "1000",
+     "web_value": "1828",
      "confidence": "high",
-     "source_url": "https://battistrada.com/en/cycling-calendar/edition/the-farmers-daughter-gravel-grinder-2026/48550/",
-     "note": "Database claims 200-400 riders, but Battistrada states 2026 was limited to 1000 participants. Also noted >1000 participants completed the 2026 event per Creaky Bottom Bracket coverage."
-    },
-    {
-     "field": "registration_cost",
-     "verdict": "mismatch",
-     "web_value": "80-90",
-     "confidence": "high",
-     "source_url": "https://www.localgymsandfitness.com/US/Chatham/386724221506214/Farmer's-Daughter-Gravel-Grinder",
-     "note": "Database claims ~$75-125. Web sources show 2025 pricing at $80 (early) to $90 (after Jan 1). No specific 2026 pricing found but pattern suggests $80-90 range, lower than database estimate."
+     "source_url": "https://ucigranfondoworldseries.com/en/gran-fondo-hainan-wraps-up-the-2025-uci-gran-fondo-world-series-with-an-impressive-three-day-stage-race/",
+     "note": "The official mountain stage (Stage 3 Wuzhishan) has 1236 meters of elevation gain, which converts to 4058 feet. Stage 1 has 557m (1827 ft). Database value of 4000 ft aligns with Stage 3 only; if referencing the entire 110km Stage 1 course, elevation is 1827 ft."
     }
    ],
    "changes": [
     {
      "field": "vitals.elevation_ft",
-     "old": 3500.0,
-     "new": 6400.0,
-     "source": "https://battistrada.com/en/cycling-calendar/edition/the-farmers-daughter-gravel-grinder-2026/48550/",
-     "flag_only": true
-    },
-    {
-     "field": "vitals.field_size",
-     "old": 200.0,
-     "new": 1000.0,
-     "source": "https://battistrada.com/en/cycling-calendar/edition/the-farmers-daughter-gravel-grinder-2026/48550/",
+     "old": 4000.0,
+     "new": 1828.0,
+     "source": "https://ucigranfondoworldseries.com/en/gran-fondo-hainan-wraps-up-the-2025-uci-gran-fondo-world-series-with-an-impressive-three-day-stage-race/",
      "flag_only": true
     }
    ],
    "usage": {
-    "input_tokens": 63057,
-    "output_tokens": 942
+    "input_tokens": 50890,
+    "output_tokens": 981
    }
   },
   {
-   "slug": "fast-fitty",
+   "slug": "gran-fondo-ozarks",
    "verdicts": {
-    "distance_mi": "mismatch",
+    "distance_mi": "unverifiable",
     "elevation_ft": "unverifiable",
     "field_size": "unverifiable",
-    "prize_purse": "confirmed",
-    "registration_cost": "unverifiable",
-    "status": "confirmed"
-   },
-   "mismatches": [
-    {
-     "field": "distance_mi",
-     "verdict": "mismatch",
-     "web_value": "54",
-     "confidence": "high",
-     "source_url": "https://runsignup.com/Race/MI/Charlotte/FastFitty",
-     "note": "Official RunSignUp page confirms Fast Fitty main event is 54 miles, not 50 miles. Multiple sources (official race site, Let's Do This, etc.) consistently state 54 miles for the primary Fast Fitty distance."
-    }
-   ],
-   "changes": [
-    {
-     "field": "vitals.distance_mi",
-     "old": 50.0,
-     "new": 54.0,
-     "source": "https://runsignup.com/Race/MI/Charlotte/FastFitty"
-    }
-   ],
-   "usage": {
-    "input_tokens": 11155,
-    "output_tokens": 601
-   }
-  },
-  {
-   "slug": "filthy-50",
-   "verdicts": {
-    "distance_mi": "confirmed",
-    "elevation_ft": "confirmed",
-    "field_size": "confirmed",
     "prize_purse": "unverifiable",
     "registration_cost": "unverifiable",
-    "status": "confirmed"
+    "status": "unverifiable"
    },
    "mismatches": [],
    "changes": [],
    "usage": {
-    "input_tokens": 58886,
-    "output_tokens": 830
+    "input_tokens": 35004,
+    "output_tokens": 1354
    }
   },
   {
-   "slug": "final-frontier-patagonia",
+   "slug": "gran-fondo-san-diego",
    "verdicts": {
     "distance_mi": "mismatch",
-    "elevation_ft": "unverifiable",
-    "field_size": "mismatch",
-    "prize_purse": "confirmed",
+    "elevation_ft": "confirmed",
+    "field_size": "unverifiable",
+    "prize_purse": "unverifiable",
     "registration_cost": "unverifiable",
     "status": "confirmed"
    },
@@ -642,33 +585,68 @@
     {
      "field": "distance_mi",
      "verdict": "mismatch",
-     "web_value": "1678",
+     "web_value": "102",
      "confidence": "high",
-     "source_url": "https://bikepacking.com/event/final-frontier-patagonia-2026/",
-     "note": "Official sources cite 2,700 km (1,678 mi) as the full route; however, multiple distance options exist (Huemul 650 km, Guanaco 1,619 km, Puma 2,250 km). Database value of 1678 mi matches the full route distance exactly."
-    },
-    {
-     "field": "field_size",
-     "verdict": "mismatch",
-     "web_value": "300",
-     "confidence": "high",
-     "source_url": "https://battistrada.com/en/cycling-calendar/edition/final-frontier-patagonia-2026/48443/",
-     "note": "2026 edition had 300 participant limit per Battistrada; 100 riders actually started. Database says 'limited spots' which is vague but 300 is the confirmed field size for 2026."
+     "source_url": "https://raceatlas.com/event/gran-fondo-san-diego",
+     "note": "Official Granfondo San Diego website and RaceAtlas both describe the classic 100-mile route as 102 miles. cycloworld.cc lists it as 168km, which converts to 104.4 miles. Database shows 101 miles."
     }
    ],
    "changes": [],
    "usage": {
-    "input_tokens": 16576,
-    "output_tokens": 694
+    "input_tokens": 17188,
+    "output_tokens": 605
    }
   },
   {
-   "slug": "finnish-gravel",
+   "slug": "grand-tour-3-cime-lavaredo",
    "verdicts": {
     "distance_mi": "mismatch",
+    "elevation_ft": "confirmed",
+    "field_size": "unverifiable",
+    "prize_purse": "unverifiable",
+    "registration_cost": "unverifiable",
+    "status": "confirmed"
+   },
+   "mismatches": [
+    {
+     "field": "distance_mi",
+     "verdict": "mismatch",
+     "web_value": "82.8",
+     "confidence": "high",
+     "source_url": "https://ucigravelworldseries.com/en/auronzo-di-cadore/",
+     "note": "Official UCI source states 133km (82.8 miles), database lists 82.6 miles. Conversion: 133km = 82.6 miles is correct, but web sources consistently cite 133km/82.8mi with rounding."
+    }
+   ],
+   "changes": [],
+   "usage": {
+    "input_tokens": 16569,
+    "output_tokens": 623
+   }
+  },
+  {
+   "slug": "granfondo-alpe-adria",
+   "verdicts": {
+    "distance_mi": "unverifiable",
     "elevation_ft": "unverifiable",
-    "field_size": "confirmed",
-    "prize_purse": "mismatch",
+    "field_size": "unverifiable",
+    "prize_purse": "unverifiable",
+    "registration_cost": "unverifiable",
+    "status": "unverifiable"
+   },
+   "mismatches": [],
+   "changes": [],
+   "usage": {
+    "input_tokens": 55125,
+    "output_tokens": 945
+   }
+  },
+  {
+   "slug": "granfondo-bratislava",
+   "verdicts": {
+    "distance_mi": "mismatch",
+    "elevation_ft": "mismatch",
+    "field_size": "unverifiable",
+    "prize_purse": "unverifiable",
     "registration_cost": "unverifiable",
     "status": "mismatch"
    },
@@ -676,115 +654,152 @@
     {
      "field": "distance_mi",
      "verdict": "mismatch",
-     "web_value": "110",
+     "web_value": "82",
      "confidence": "high",
-     "source_url": "https://www.bikeperfect.com/news/one-of-the-biggest-gravel-events-in-europe-fnld-grvl-confirmed-for-2024",
-     "note": "Database claims 110 mi, but web sources (2023–2024) confirm 177 km (~110 mi) for the longest Midnight Sun route. However, FNLD GRVL has THREE separate course distances: 40 km, 77 km, and 177 km. The 177 km distance converts to approximately 110 miles, which matches database. Verdict is 'mismatch' only in the context that the database does not specify which of the three distances this refers to. For the full Midnight Sun route: 177 km = 110.04 miles—essentially confirmed."
+     "source_url": "https://battistrada.com/en/cycling-calendar/edition/granfondo-bratislava-2025/40981/",
+     "note": "Web sources consistently show the main Granfondo Bratislava route as 130 km (81 mi), not 62 mi. Multiple sources (Battistrada 2025 edition, CycloWorld, Trainerday) confirm 130 km / 81 mi for the longer distance route. Database value of 62 mi appears to correspond to the shorter 89 km / 55 mi route, not the main Gran Fondo distance."
     },
     {
-     "field": "prize_purse",
+     "field": "elevation_ft",
      "verdict": "mismatch",
-     "web_value": "20000",
+     "web_value": "3757",
      "confidence": "high",
-     "source_url": "https://off.road.cc/content/news/fnld-grvl-set-to-return-to-lahti-for-2024-13127",
-     "note": "Database claims EUR 7,000 (2025). However, all web sources for FNLD GRVL (2023–2024) consistently report 20,000 EUR for pro prize purse. No 2025-specific FNLD GRVL prize purse data found. The database figure of EUR 7,000 does not match any source."
+     "source_url": "https://battistrada.com/en/cycling-calendar/edition/granfondo-bratislava-2025/40981/",
+     "note": "For the 130 km route: 1145 m elevation = 3757 ft, not 3600 ft. For the 89 km shorter route: 415 m = 1362 ft. The 130 km Gran Fondo route shows 3757 ft of elevation gain, which matches closer to 62 mi/3600 ft but the distance mismatch suggests database may have mixed route specs."
     },
     {
      "field": "status",
      "verdict": "mismatch",
-     "web_value": "active",
-     "confidence": "high",
-     "source_url": "https://www.sbtgrvl.com/grvl-events",
-     "note": "Database claims status is 'active' (race is still being held). However, database also states 'NOT OPEN — event is on hiatus for 2026 per organizer.' This is contradictory. Web sources confirm FNLD GRVL ran in 2023 and 2024. SBT GRVL website states GRVL Events have 'FNLD GRVL (3rd year running)' in 2025, suggesting the race did run in 2025. No clear evidence of 2026 hiatus from web search; status remains ambiguous."
+     "web_value": "cancelled",
+     "confidence": "medium",
+     "source_url": "https://www.cycloworld.cc/en/gran-fondo/slovakia/gran-fondo-bratislava/40259",
+     "note": "CycloWorld lists 2026 edition as 'Cancelled'. However, Battistrada and GranFondoGuide list 2026-08-02 as scheduled/unconfirmed, and official website appears active. Conflicting signals; cancellation not definitively confirmed by official source."
     }
    ],
    "changes": [
     {
-     "field": "vitals.prize_purse",
-     "old": "EUR 7,000 (2025)",
-     "new": "20000",
-     "source": "https://off.road.cc/content/news/fnld-grvl-set-to-return-to-lahti-for-2024-13127"
+     "field": "vitals.distance_mi",
+     "old": 62.0,
+     "new": 82.0,
+     "source": "https://battistrada.com/en/cycling-calendar/edition/granfondo-bratislava-2025/40981/"
     }
    ],
    "usage": {
-    "input_tokens": 45236,
-    "output_tokens": 1340
+    "input_tokens": 36859,
+    "output_tokens": 885
    }
   },
   {
-   "slug": "flanders-legacy-gravel",
+   "slug": "granfondo-gf-do-porto",
+   "verdicts": {
+    "distance_mi": "unverifiable",
+    "elevation_ft": "unverifiable",
+    "field_size": "unverifiable",
+    "prize_purse": "unverifiable",
+    "registration_cost": "unverifiable",
+    "status": "unverifiable"
+   },
+   "mismatches": [],
+   "changes": [],
+   "usage": {
+    "input_tokens": 91088,
+    "output_tokens": 951
+   }
+  },
+  {
+   "slug": "granfondo-leiria",
    "verdicts": {
     "distance_mi": "mismatch",
     "elevation_ft": "mismatch",
     "field_size": "unverifiable",
-    "prize_purse": "confirmed",
+    "prize_purse": "unverifiable",
     "registration_cost": "unverifiable",
-    "status": "confirmed"
+    "status": "mismatch"
    },
    "mismatches": [
     {
      "field": "distance_mi",
      "verdict": "mismatch",
-     "web_value": "82.1 (132 km elite)",
+     "web_value": "146",
      "confidence": "high",
-     "source_url": "https://www.cyclinginflanders.cc/calendar/leuven-legacy-gravel",
-     "note": "Official qualifying distance for elite is 132 km (82.1 mi). Your database lists 82 mi, which closely matches but sources specify 132 km for the main elite race and 86 km for older age groups. The 82 mi is within rounding variance of 132 km (131.9 ÷ 1.609 = 81.97 mi), so this is confirmed for the elite distance."
+     "source_url": "https://www.cycloworld.cc/en/gran-fondo-series/uci-gran-fondo-world-series/2",
+     "note": "CycloWorld lists the granfondo distance as 146km (~90.7 mi), not 92 mi. Official UCI page notes course details were still being finalized as of Jan 2026, but the published distance appears to be 146km for the main granfondo course."
     },
     {
      "field": "elevation_ft",
      "verdict": "mismatch",
-     "web_value": "3116 (950 m elite)",
+     "web_value": "4846",
      "confidence": "high",
-     "source_url": "https://ucigravelworldseries.com/en/legacy-gravel-2026/",
-     "note": "Official sources cite 950 m elevation gain for elite/main race (3116 ft), but your database lists 2887 ft. There is a discrepancy of ~229 ft (70 m). For older categories it is 610 m (2001 ft)."
+     "source_url": "https://www.cycloworld.cc/en/gran-fondo-series/uci-gran-fondo-world-series/2",
+     "note": "CycloWorld reports the granfondo elevation as 1478 hm (~4846 ft), not 6500 ft. This is a significant discrepancy from the database value."
+    },
+    {
+     "field": "status",
+     "verdict": "mismatch",
+     "web_value": "cancelled",
+     "confidence": "high",
+     "source_url": "https://www.cycloworld.cc/en/gran-fondo-series/uci-gran-fondo-world-series/2",
+     "note": "CycloWorld and GranFondoGuide both list the 2026 UCI Granfondo Leiria Region as 'Cancelled' (scheduled for Mar 29, 2026). GranFondoGuide notes it was 'cancelled after Storm Kristin wreaks havoc in Portugal' in Feb 2026. The race is NOT active."
     }
    ],
-   "changes": [],
+   "changes": [
+    {
+     "field": "vitals.distance_mi",
+     "old": 92.0,
+     "new": 146.0,
+     "source": "https://www.cycloworld.cc/en/gran-fondo-series/uci-gran-fondo-world-series/2",
+     "flag_only": true
+    },
+    {
+     "field": "vitals.elevation_ft",
+     "old": 6500.0,
+     "new": 4846.0,
+     "source": "https://www.cycloworld.cc/en/gran-fondo-series/uci-gran-fondo-world-series/2"
+    },
+    {
+     "field": "status",
+     "old": "active",
+     "new": "cancelled",
+     "source": "https://www.cycloworld.cc/en/gran-fondo-series/uci-gran-fondo-world-series/2",
+     "flag_only": true
+    },
+    {
+     "field": "rating.elevation",
+     "old": 4,
+     "new": 3,
+     "source": "rubric recompute"
+    },
+    {
+     "field": "biased_opinion_ratings.elevation.score",
+     "old": 4,
+     "new": 3,
+     "source": "rubric recompute (sync)"
+    },
+    {
+     "field": "rating.overall_score",
+     "old": 70,
+     "new": 69,
+     "source": "rubric recompute"
+    },
+    {
+     "field": "rating.tier",
+     "old": null,
+     "new": 2,
+     "source": "rubric recompute",
+     "tier_change": true
+    }
+   ],
    "usage": {
-    "input_tokens": 18125,
-    "output_tokens": 726
+    "input_tokens": 23947,
+    "output_tokens": 749
    }
   },
   {
-   "slug": "flandrien-ride",
-   "verdicts": {
-    "distance_mi": "confirmed",
-    "elevation_ft": "confirmed",
-    "field_size": "unverifiable",
-    "prize_purse": "unverifiable",
-    "registration_cost": "unverifiable",
-    "status": "confirmed"
-   },
-   "mismatches": [],
-   "changes": [],
-   "usage": {
-    "input_tokens": 26231,
-    "output_tokens": 716
-   }
-  },
-  {
-   "slug": "fools-gold-gravel-grinder",
-   "verdicts": {
-    "distance_mi": "confirmed",
-    "elevation_ft": "confirmed",
-    "field_size": "unverifiable",
-    "prize_purse": "unverifiable",
-    "registration_cost": "unverifiable",
-    "status": "confirmed"
-   },
-   "mismatches": [],
-   "changes": [],
-   "usage": {
-    "input_tokens": 17692,
-    "output_tokens": 581
-   }
-  },
-  {
-   "slug": "forbidden-gravel",
+   "slug": "granfondo-nove-colli",
    "verdicts": {
     "distance_mi": "mismatch",
-    "elevation_ft": "confirmed",
-    "field_size": "unverifiable",
+    "elevation_ft": "mismatch",
+    "field_size": "confirmed",
     "prize_purse": "unverifiable",
     "registration_cost": "confirmed",
     "status": "confirmed"
@@ -793,152 +808,102 @@
     {
      "field": "distance_mi",
      "verdict": "mismatch",
-     "web_value": "55",
-     "confidence": "medium",
-     "source_url": "https://gravelgodcycling.com/race/calendar/2026/",
-     "note": "Gravel God lists 55 mi; Trailforks 2023 route was 63 mi (100 km epic route). Database shows 68.4 mi. The 2026 series offers three distances (40km, 75km, 110km) but no single official distance of 68.4 mi found. 55 mi appears to be a common listing but lacks official confirmation."
-    }
-   ],
-   "changes": [],
-   "usage": {
-    "input_tokens": 40392,
-    "output_tokens": 1473
-   }
-  },
-  {
-   "slug": "fuego-mtb",
-   "verdicts": {
-    "distance_mi": "mismatch",
-    "elevation_ft": "confirmed",
-    "field_size": "unverifiable",
-    "prize_purse": "unverifiable",
-    "registration_cost": "unverifiable",
-    "status": "confirmed"
-   },
-   "mismatches": [
-    {
-     "field": "distance_mi",
-     "verdict": "mismatch",
-     "web_value": "66",
+     "web_value": "124",
      "confidence": "high",
-     "source_url": "https://www.pinkbike.com/news/2026-sea-otter-classic-fuego-xl-results-wins-for-kate-courtney-and-andrew-lesperance.html",
-     "note": "Official 2026 race results from Pinkbike report 66 miles actual distance; official site states 'approximately 70 miles' but 2026 results showed 66 miles completed. Database value of 70 does not match reported actual race distance."
-    }
-   ],
-   "changes": [
-    {
-     "field": "vitals.distance_mi",
-     "old": 70.0,
-     "new": 66.0,
-     "source": "https://www.pinkbike.com/news/2026-sea-otter-classic-fuego-xl-results-wins-for-kate-courtney-and-andrew-lesperance.html"
-    }
-   ],
-   "usage": {
-    "input_tokens": 24918,
-    "output_tokens": 740
-   }
-  },
-  {
-   "slug": "galactic-grinder",
-   "verdicts": {
-    "distance_mi": "confirmed",
-    "elevation_ft": "confirmed",
-    "field_size": "confirmed",
-    "prize_purse": "unverifiable",
-    "registration_cost": "unverifiable",
-    "status": "confirmed"
-   },
-   "mismatches": [],
-   "changes": [],
-   "usage": {
-    "input_tokens": 58744,
-    "output_tokens": 984
-   }
-  },
-  {
-   "slug": "garden-route-giro",
-   "verdicts": {
-    "distance_mi": "confirmed",
-    "elevation_ft": "confirmed",
-    "field_size": "confirmed",
-    "prize_purse": "confirmed",
-    "registration_cost": "unverifiable",
-    "status": "confirmed"
-   },
-   "mismatches": [],
-   "changes": [],
-   "usage": {
-    "input_tokens": 28816,
-    "output_tokens": 948
-   }
-  },
-  {
-   "slug": "garmin-gravel-worlds",
-   "verdicts": {
-    "distance_mi": "mismatch",
-    "elevation_ft": "mismatch",
-    "field_size": "unverifiable",
-    "prize_purse": "mismatch",
-    "registration_cost": "unverifiable",
-    "status": "confirmed"
-   },
-   "mismatches": [
-    {
-     "field": "distance_mi",
-     "verdict": "mismatch",
-     "web_value": "75",
-     "confidence": "high",
-     "source_url": "https://www.gravelworlds.com/race-day",
-     "note": "The official website lists race distances as 150 miles, 75 miles, 35 miles, and 300 miles. No 65-mile distance found. The 75-mile course (GW75 Gravel Grinder) has ~5,000 ft elevation; 65 miles not offered."
+     "source_url": "https://www.granfondoguide.com/Events/Index/428/Gran-Fondo-Nove-Colli",
+     "note": "Official sources list the long route as 200 km (124 mi), not 127 mi. Multiple sources confirm: Gran Fondo Guide 200 km, Emilia Romagna Tourism 210 km, Strambecco 200 km. This is a multi-distance event with routes at 200/205 km (long), 130-137 km (medium), and 60 km (short). The primary/flagship distance is 124 mi."
     },
     {
      "field": "elevation_ft",
      "verdict": "mismatch",
-     "web_value": "5000",
+     "web_value": "12517",
      "confidence": "high",
-     "source_url": "https://www.gravelworlds.com/race-day",
-     "note": "The 75-mile course has approximately 5,000 ft elevation gain. A 65-mile race is not listed on the official site."
+     "source_url": "https://www.granfondoguide.com/Events/Index/428/Gran-Fondo-Nove-Colli",
+     "note": "Official sources list 3,814 meters elevation gain for the 200 km route (12,517 ft), not 12,600 ft. Some sources cite 3,840 m (12,598 ft) and 3,880 m (12,730 ft). The web consensus for the main route clusters around 3,814-3,880 m range. Database value of 12,600 ft (~3,841 m) is within the reported range but slightly high."
+    }
+   ],
+   "changes": [],
+   "usage": {
+    "input_tokens": 22229,
+    "output_tokens": 1004
+   }
+  },
+  {
+   "slug": "granfondo-yunnan",
+   "verdicts": {
+    "distance_mi": "mismatch",
+    "elevation_ft": "mismatch",
+    "field_size": "unverifiable",
+    "prize_purse": "unverifiable",
+    "registration_cost": "unverifiable",
+    "status": "confirmed"
+   },
+   "mismatches": [
+    {
+     "field": "distance_mi",
+     "verdict": "mismatch",
+     "web_value": "327",
+     "confidence": "high",
+     "source_url": "https://battistrada.com/en/cycling-calendar/edition/granfondo-yunnan-cycling-festival-2025/44426/",
+     "note": "Web sources consistently report 525km (2025) and 650km (2025 reported) or 700km for total multi-day race distance, not single-stage 87 miles. This is a multi-day event (5-6 stages) with stage distances of 8.6-185km per day, not a single 87-mile race."
     },
     {
-     "field": "prize_purse",
+     "field": "elevation_ft",
      "verdict": "mismatch",
-     "web_value": "150000",
-     "confidence": "high",
-     "source_url": "https://www.granfondoguide.com/Contents/IndexFull/8950/lauf-gravel-worlds-announces-150000-prize-pool",
-     "note": "Official 2026 prize pool is $150,000 (fully sponsored by GoodLife Nutrition), not $30,000. This is the pro prize purse structure."
+     "web_value": "8202",
+     "confidence": "medium",
+     "source_url": "https://granfondodailynews.com/2025/11/08/1800-cyclists-650km-5-brutal-stages-riding-granfondo-yunnan-in-china-priceless/",
+     "note": "Final stage alone has 2500m (8202ft) elevation gain; total for entire multi-day event appears higher. Database value of 7500ft may refer to single stage but sources are ambiguous on total aggregate elevation."
     }
    ],
    "changes": [
     {
      "field": "vitals.distance_mi",
-     "old": 65.0,
-     "new": 75.0,
-     "source": "https://www.gravelworlds.com/race-day"
-    },
-    {
-     "field": "vitals.elevation_ft",
-     "old": 3000.0,
-     "new": 5000.0,
-     "source": "https://www.gravelworlds.com/race-day",
+     "old": 87.0,
+     "new": 327.0,
+     "source": "https://battistrada.com/en/cycling-calendar/edition/granfondo-yunnan-cycling-festival-2025/44426/",
      "flag_only": true
-    },
-    {
-     "field": "vitals.prize_purse",
-     "old": "$30,000 prize purse",
-     "new": "150000",
-     "source": "https://www.granfondoguide.com/Contents/IndexFull/8950/lauf-gravel-worlds-announces-150000-prize-pool"
     }
    ],
    "usage": {
-    "input_tokens": 67694,
-    "output_tokens": 784
+    "input_tokens": 49593,
+    "output_tokens": 1450
+   }
+  },
+  {
+   "slug": "grasshopper-series",
+   "verdicts": {
+    "distance_mi": "confirmed",
+    "elevation_ft": "confirmed",
+    "field_size": "unverifiable",
+    "prize_purse": "unverifiable",
+    "registration_cost": "confirmed",
+    "status": "confirmed"
+   },
+   "mismatches": [],
+   "changes": [],
+   "usage": {
+    "input_tokens": 53638,
+    "output_tokens": 641
+   }
+  },
+  {
+   "slug": "grassroots-gravel",
+   "verdicts": {
+    "distance_mi": "confirmed",
+    "elevation_ft": "confirmed",
+    "field_size": "unverifiable",
+    "prize_purse": "unverifiable",
+    "registration_cost": "confirmed",
+    "status": "confirmed"
+   },
+   "mismatches": [],
+   "changes": [],
+   "usage": {
+    "input_tokens": 16224,
+    "output_tokens": 575
    }
   }
  ],
- "errors": [
-  {
-   "slug": "dusty-gravel-series-andenne",
-   "error": "unparseable"
-  }
- ]
+ "errors": []
 }

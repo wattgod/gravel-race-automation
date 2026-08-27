@@ -101,6 +101,37 @@ def render_impacts(impacts: list[dict[str, Any]]) -> str:
     return f'<ul class="gw-impacts">{"".join(items)}</ul>'
 
 
+def render_retrospectives(retrospectives: list[dict[str, Any]], issues: list[dict[str, Any]], *, draft: bool) -> str:
+    if not retrospectives:
+        return ""
+    issue_by_id = {issue["issueId"]: issue for issue in issues}
+    verdict_labels = {
+        "aged_well": "THIS AGED WELL",
+        "aged_poorly": "THIS AGED POORLY",
+        "still_developing": "STILL DEVELOPING",
+    }
+    cards = []
+    for item in retrospectives:
+        prior = issue_by_id.get(item["priorIssueId"])
+        label = verdict_labels[item["verdict"]]
+        prior_label = f"Earlier take · {item['priorIssueId']}"
+        if prior:
+            prior_label = f"Issue #{prior['issueNumber']:03d} · {display_date(prior['publicationDate'])}"
+            prior_link = f'<a href="/gravel-weekly/{esc(prior["slug"])}/#{esc(item["priorStoryId"])}">{esc(prior_label)}</a>'
+        else:
+            prior_link = f"<span>{esc(prior_label)}</span>"
+        assessment_label = "THE REASSESSMENT — MODEL DRAFT" if draft else "THE REASSESSMENT"
+        cards.append(f'''<article class="gw-memory gw-memory--{esc(item['verdict'])}">
+          <header><span class="gw-memory-verdict">{esc(label)}</span>{prior_link}<h3>{esc(item['headline'])}</h3></header>
+          <div class="gw-memory-grid">
+            <section><h4>WHAT CHANGED</h4>{prose(item['whatChanged'])}</section>
+            <section><h4>{assessment_label}</h4>{prose(item['assessment'])}</section>
+          </div>
+          <details class="gw-details"><summary>RECEIPTS · {len(item['receipts'])}</summary>{render_receipts(item['receipts'])}</details>
+        </article>''')
+    return f'<section class="gw-retrospectives"><h2>THE RECEIPTS ON US</h2><p class="gw-retro-dek">Old takes do not disappear when the timeline moves on.</p>{"".join(cards)}</section>'
+
+
 def render_story(story: dict[str, Any], *, current: bool = False, draft: bool = False) -> str:
     label = "THE CURRENT THING" if current else story["storyKind"].replace("_", " ").upper()
     take_label = "THE TAKE — MODEL DRAFT" if draft else "THE TAKE"
@@ -137,11 +168,21 @@ def render_archive(issues: list[dict[str, Any]], active_issue_id: str) -> str:
     for issue in issues:
         current = story_by_id(issue, issue.get("currentThingStoryId"))
         label = current["headline"] if current else issue["title"]
+        deck = current["dek"] if current else "No manufactured Current Thing cleared the gate."
+        take = ""
+        if current:
+            compact_take = " ".join(current["take"].split())
+            excerpt = compact_take[:240].rstrip()
+            if len(compact_take) > 240:
+                excerpt += "…"
+            take = f'<p class="gw-archive-take"><b>THE TAKE:</b> {esc(excerpt)}</p>'
         active = ' aria-current="page"' if issue["issueId"] == active_issue_id else ""
         items.append(f'''<li>
           <a href="/gravel-weekly/{esc(issue['slug'])}/"{active}>
             <span>ISSUE #{issue['issueNumber']:03d} · {esc(display_date(issue['publicationDate']).upper())}</span>
             <strong>{esc(label)}</strong>
+            <p>{esc(deck)}</p>
+            {take}
           </a>
         </li>''')
     return f'<ol class="gw-archive">{"".join(items)}</ol>' if items else '<p class="gw-empty">The archive starts with Issue #001.</p>'
@@ -262,6 +303,22 @@ def page_css() -> str:
   .gw-archive a { display: grid; gap: var(--gg-spacing-xs); padding: var(--gg-spacing-md); color: var(--gg-color-near-black); text-decoration: none; }
   .gw-archive span { font-size: var(--gg-font-size-xs); letter-spacing: var(--gg-letter-spacing-wide); }
   .gw-archive strong { font-family: var(--gg-font-editorial); font-size: var(--gg-font-size-md); }
+  .gw-archive p { margin: 0; max-width: 760px; font-family: var(--gg-font-editorial); line-height: var(--gg-line-height-normal); }
+  .gw-archive .gw-archive-take { font-size: var(--gg-font-size-sm); color: var(--gg-color-secondary-brown); }
+  .gw-retrospectives { margin-top: var(--gg-spacing-xl); padding: var(--gg-spacing-lg); border: var(--gg-border-heavy); background: var(--gg-color-near-black); color: var(--gg-color-warm-paper); }
+  .gw-retrospectives > h2 { margin: 0; font-size: clamp(2rem, 6vw, 4rem); }
+  .gw-retro-dek { margin: var(--gg-spacing-xs) 0 var(--gg-spacing-lg); font-family: var(--gg-font-editorial); font-size: var(--gg-font-size-md); }
+  .gw-memory { margin-top: var(--gg-spacing-md); border: var(--gg-border-heavy); background: var(--gg-color-white); color: var(--gg-color-near-black); }
+  .gw-memory > header { padding: var(--gg-spacing-md); border-bottom: var(--gg-border-standard); }
+  .gw-memory > header > a, .gw-memory > header > span:not(.gw-memory-verdict) { display: inline-block; color: var(--gg-color-primary-brown); font-size: var(--gg-font-size-xs); font-weight: var(--gg-font-weight-bold); }
+  .gw-memory-verdict { display: inline-block; margin-right: var(--gg-spacing-xs); padding: var(--gg-spacing-2xs) var(--gg-spacing-xs); border: var(--gg-border-subtle); background: var(--gg-color-gold); font-size: var(--gg-font-size-xs); font-weight: var(--gg-font-weight-black); }
+  .gw-memory--aged_poorly .gw-memory-verdict { background: var(--gg-color-teal); color: var(--gg-color-white); }
+  .gw-memory > header h3 { margin: var(--gg-spacing-sm) 0 0; font-family: var(--gg-font-editorial); font-size: var(--gg-font-size-xl); }
+  .gw-memory-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .gw-memory-grid section { padding: var(--gg-spacing-md); }
+  .gw-memory-grid section + section { border-left: var(--gg-border-standard); background: var(--gg-color-sand); }
+  .gw-memory-grid h4 { margin: 0 0 var(--gg-spacing-xs); font-size: var(--gg-font-size-xs); letter-spacing: var(--gg-letter-spacing-wide); }
+  .gw-memory-grid p { font-family: var(--gg-font-editorial); line-height: var(--gg-line-height-relaxed); }
   .gw-corrections { border: var(--gg-border-heavy); background: var(--gg-color-gold); margin-top: var(--gg-spacing-xl); padding: var(--gg-spacing-lg); }
   .gw-corrections h2 { margin-top: 0; }
   .gw-sub { margin-top: var(--gg-spacing-2xl); padding: var(--gg-spacing-xl); border: var(--gg-border-heavy); background: var(--gg-color-near-black); color: var(--gg-color-warm-paper); }
@@ -275,10 +332,11 @@ def page_css() -> str:
   .gw-empty { font-family: var(--gg-font-editorial); font-style: italic; color: var(--gg-color-secondary-brown); }
   code { font-family: var(--gg-font-data); overflow-wrap: anywhere; }
   @media (max-width: 720px) {
-    .gw-cover-lines, .gw-story-grid, .gw-utility-grid { grid-template-columns: 1fr; }
+    .gw-cover-lines, .gw-story-grid, .gw-utility-grid, .gw-memory-grid { grid-template-columns: 1fr; }
     .gw-cover-lines span { border-right: 0; border-bottom: var(--gg-border-subtle); }
     .gw-cover-lines span:last-child { border-bottom: 0; }
     .gw-take { border-left: 0; border-top: var(--gg-border-standard); }
+    .gw-memory-grid section + section { border-left: 0; border-top: var(--gg-border-standard); }
     .gw-story-head, .gw-story-grid section, .gw-utility, .gw-sub { padding: var(--gg-spacing-md); }
   }
 '''
@@ -305,6 +363,7 @@ def build_page(issue: dict[str, Any] | None, issues: list[dict[str, Any]], *, la
           <section class="gw-utility"><h2>CALENDAR WATCH</h2><ul class="gw-watch">{watch}</ul></section>
           <section class="gw-utility"><h2>RACE INTELLIGENCE</h2>{render_impacts(issue['raceImpacts'])}</section>
         </div>
+        {render_retrospectives(issue['retrospectives'], issues, draft=is_draft)}
         {corrections}'''
         schema = "" if is_draft else f'<script type="application/ld+json">{json_ld(issue, canonical_url)}</script>'
         issue_number = issue["issueNumber"]

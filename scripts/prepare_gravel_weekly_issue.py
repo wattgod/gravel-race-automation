@@ -146,6 +146,7 @@ def prepare_issue(review_value: Any, publication_date: str, issue_number: int, *
         "stories": stories,
         "calendarWatch": [],
         "raceImpacts": _dedupe_records(all_impacts),
+        "retrospectives": [],
         "corrections": [],
         "sourceIndex": sorted(set(source_urls)),
         "editorialApproval": None,

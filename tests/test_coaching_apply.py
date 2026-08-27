@@ -13,7 +13,7 @@ import pytest
 sys.path.insert(0, str(Path(__file__).parent.parent / "wordpress"))
 
 from generate_coaching_apply import (
-    FORMSUBMIT_URL,
+    COACHING_INTAKE_WORKER_URL,
     build_nav,
     build_header,
     build_progress_bar,
@@ -30,6 +30,7 @@ from generate_coaching_apply import (
     build_section_11_mental_game,
     build_section_12_other,
     build_submit_buttons,
+    build_tier_selector,
     build_footer,
     build_jsonld,
     build_apply_css,
@@ -176,6 +177,21 @@ class TestSectionContent:
         assert 'name="sex"' in s
         assert 'name="age"' in s
         assert 'name="weight"' in s
+        for field in (
+                'preferred_name', 'date_of_birth', 'home_location', 'desired_start_date',
+                'preferred_contact_channel', 'trainingpeaks_connection_status',
+                'guardian_name', 'guardian_email', 'guardian_relationship'):
+            assert f'name="{field}"' in s
+        assert s.count('id="date_of_birth"') == 1
+        assert 'id="date_of_birth" name="date_of_birth" required' in s
+        assert 'type="hidden" id="age" name="age"' in s
+        assert 'Legal Full Name' in s
+        assert 'separate consent step' in s
+
+    def test_timezone_is_captured_without_becoming_required(self, apply_html, apply_js):
+        assert 'name="home_timezone"' in apply_html
+        assert 'Intl.DateTimeFormat().resolvedOptions().timeZone' in apply_js
+        assert 'id="home_timezone" required' not in apply_html
 
     def test_goals_radio(self):
         s = build_section_2_goals()
@@ -277,6 +293,15 @@ class TestButtons:
         assert "gg-apply-save-btn" in b
         assert "Save Progress" in b
 
+    def test_tier_selector_uses_min_mid_max_names(self):
+        selector = build_tier_selector()
+        assert 'name="tier"' in selector
+        assert '>Min<' in selector
+        assert '>Mid<' in selector
+        assert '>Max<' in selector
+        assert 'TrainingPeaks Premium is included' in selector
+        assert '>Premium<' not in selector
+
 
 # ── Brand Compliance ─────────────────────────────────────────
 
@@ -338,12 +363,30 @@ class TestGA4Events:
 
     def test_form_submitted_event(self, apply_js):
         assert "apply_form_submitted" in apply_js
+        assert "coaching_apply_started" in apply_js
+        assert "coaching_apply_submitted" in apply_js
+        assert "coaching_apply_error" in apply_js
 
     def test_progress_saved_event(self, apply_js):
         assert "apply_progress_saved" in apply_js
 
     def test_wpkg_calculated_event(self, apply_js):
         assert "apply_wpkg_calculated" in apply_js
+
+    def test_consent_gated_ga4_attribution_is_sent_with_intake(self, apply_js):
+        assert "analyticsConsentGranted" in apply_js
+        assert 'gtag("get", measurementId, field' in apply_js
+        assert "data.analytics_consent" in apply_js
+        assert "data.ga4_client_id" in apply_js
+        assert "data.ga4_session_id" in apply_js
+        assert "GA_ATTRIBUTION_TIMEOUT_MS = 500" in apply_js
+
+    def test_date_of_birth_drives_age_and_guardian_routing(self, apply_js):
+        assert "ageFromDateOfBirth" in apply_js
+        assert "syncAgeFromDateOfBirth" in apply_js
+        assert 'calculatedAge < 13 || calculatedAge > 100' in apply_js
+        assert 'document.getElementById("age").value' in apply_js
+        assert 'document.getElementById("date_of_birth").addEventListener' in apply_js
 
 
 # ── JavaScript Features ──────────────────────────────────────
@@ -381,12 +424,25 @@ class TestJSFeatures:
     def test_flexible_checkbox_logic(self, apply_js):
         assert "flexible" in apply_js
 
-    def test_formsubmit_submission(self, apply_js):
-        assert FORMSUBMIT_URL in apply_js
-        assert "formsubmit.co" in apply_js
+    def test_worker_submission(self, apply_js):
+        assert COACHING_INTAKE_WORKER_URL in apply_js
+        assert "formsubmit.co" not in apply_js
+        assert '"Content-Type": "application/json"' in apply_js
 
-    def test_mailto_fallback(self, apply_js):
-        assert "mailto:gravelgodcoaching@gmail.com" in apply_js
+    def test_failed_submission_keeps_answers_and_allows_retry(self, apply_js):
+        assert "Your answers are still saved" in apply_js
+        assert 'submitBtn.disabled = false' in apply_js
+        assert "mailto:" not in apply_js
+
+    def test_query_tier_is_preserved(self, apply_js):
+        assert "new URLSearchParams(window.location.search)" in apply_js
+        assert '["min", "mid", "max"]' in apply_js
+        assert 'tier: data.tier' in apply_js
+
+    def test_submission_id_survives_retry_but_clears_on_success(self, apply_js):
+        assert 'getSubmissionId' in apply_js
+        assert 'coaching_intake_submission_id' in apply_js
+        assert 'data.submission_id = getSubmissionId()' in apply_js
 
     def test_format_submission(self, apply_js):
         assert "formatSubmission" in apply_js
@@ -451,3 +507,5 @@ class TestFooter:
     def test_confidential_notice(self, apply_html):
         assert "confidential" in apply_html.lower()
         assert "gravelgodcoaching@gmail.com" in apply_html
+        assert 'href="/privacy/"' in apply_html
+        assert "health information" in apply_html

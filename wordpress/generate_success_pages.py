@@ -197,7 +197,7 @@ def build_success_js() -> str:
     """JS for success-page analytics + session_id extraction.
 
     A redirect URL is not payment authority: it can be refreshed, shared, or
-    opened with a fabricated ``session_id``.  The Stripe webhook is the sole
+    opened with a fabricated ``session_id``. The Stripe webhook is the sole
     source of GA4 ``purchase`` events.
     """
     return """<script>
@@ -327,28 +327,26 @@ def build_coaching_success() -> str:
     <div class="gg-success-step">
       <div class="gg-success-step-num">1</div>
       <div class="gg-success-step-text">
-        <h3>Fill Out the Intake Form</h3>
-        <p>If you haven't already, complete the athlete intake so I have
-        everything I need to build your plan.
-        <a href="{SITE_BASE_URL}/coaching/apply/">Complete intake &rarr;</a></p>
+        <h3>Check Your Email</h3>
+        <p>Your private onboarding guide includes your kickoff-call booking
+        link, what your tier includes, and exactly how we communicate.</p>
       </div>
     </div>
     <div class="gg-success-step">
       <div class="gg-success-step-num">2</div>
       <div class="gg-success-step-text">
-        <h3>Expect an Email Within 24 Hours</h3>
-        <p>I'll review your intake and reach out with initial questions,
-        your training philosophy alignment, and a timeline for your
-        first structured week.</p>
+        <h3>Connect TrainingPeaks</h3>
+        <p>If you are not already attached, <a href="{TRAININGPEAKS_ATTACH_URL}" target="_blank" rel="noopener">connect your account &rarr;</a>
+        TrainingPeaks Premium is included; do not purchase it separately.</p>
       </div>
     </div>
     <div class="gg-success-step">
       <div class="gg-success-step-num">3</div>
       <div class="gg-success-step-text">
-        <h3>We Train Together</h3>
-        <p>Your plan lands in your calendar. I review every session,
-        adjust the plan when life happens, and keep you accountable
-        through race day.</p>
+        <h3>Run the First Block</h3>
+        <p>Your TrainingPeaks calendar is the source of truth. Comment after
+        each workout; if you miss one, do not stack it onto the next day.
+        Tell me what happened and I will adjust it.</p>
       </div>
     </div>
   </div>"""

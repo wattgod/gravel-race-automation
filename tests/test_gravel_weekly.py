@@ -76,6 +76,35 @@ def sample_issue():
     return issue
 
 
+def passing_editorial_gate():
+    return {
+        "partyTest": {
+            "verdict": "pass",
+            "rationale": "The premise is legible, consequential, and has a clean escalation.",
+        },
+        "pointTest": {
+            "verdict": "pass",
+            "point": "A small route revision exposes the weakness of preparing for a brand instead of terrain.",
+        },
+        "storyArc": {
+            "hook": "The 200-mile race is no longer 200 miles.",
+            "stakes": "Preparation and the public record change.",
+            "tension": "The mythology depends on a number the course no longer respects.",
+            "turn": "The minor revision exposes misplaced certainty.",
+            "landing": "Train for the ground, not the logo.",
+        },
+        "comedy": {
+            "mechanics": ["incongruity", "specificity"],
+            "setup": "The race sells a tidy number.",
+            "turn": "The course file declined the assignment.",
+            "tag": "Two hundred was apparently too tidy.",
+            "rhetoricalLicense": "Personification is confined to the clearly rhetorical take.",
+            "factualBoundary": "Distance, chronology, motives, safety, and results remain literal and sourced.",
+        },
+        "decision": "pass",
+    }
+
+
 def test_issue_contract_requires_receipts_approval_and_hash():
     issue = sample_issue()
     assert validate_issue(issue)["issueId"] == "gravel-weekly-001"
@@ -104,6 +133,7 @@ def test_issue_contract_requires_receipts_approval_and_hash():
 def test_review_prepares_a_draft_but_cannot_imply_approval():
     packet = {
         "candidateId": "story_1",
+        "editorialGate": passing_editorial_gate(),
         "suggestedTake": {"label": "model_draft", "copy": "Editable model draft, not Matti's approved view: A sharp take."},
         "suggestedHeadline": "The course moved",
         "suggestedDek": "A small mileage change hides a larger terrain question.",
@@ -130,6 +160,38 @@ def test_review_prepares_a_draft_but_cannot_imply_approval():
     assert "DRAFT — NOT PUBLISHED" in preview
     assert "THE TAKE — MODEL DRAFT" in preview
     assert "application/ld+json" not in preview
+
+
+@pytest.mark.parametrize("gate_mutation", ["missing", "hold", "party_hold", "no_point", "no_mechanics"])
+def test_review_excludes_stories_that_do_not_clear_every_editorial_gate(gate_mutation):
+    gate = passing_editorial_gate()
+    if gate_mutation == "hold":
+        gate["decision"] = "hold"
+    elif gate_mutation == "party_hold":
+        gate["partyTest"]["verdict"] = "hold"
+    elif gate_mutation == "no_point":
+        gate["pointTest"]["point"] = ""
+    elif gate_mutation == "no_mechanics":
+        gate["comedy"]["mechanics"] = []
+    packet = {
+        "candidateId": "story_1",
+        "suggestedTake": {"label": "model_draft", "copy": "A sharp take."},
+        "suggestedHeadline": "The course moved",
+        "suggestedDek": "A small mileage change hides a larger terrain question.",
+        "whatHappened": "The organizer published a revised distance.",
+        "receipts": [sample_issue()["stories"][0]["receipts"][0]],
+        "raceImpacts": sample_issue()["stories"][0]["raceImpacts"],
+    }
+    if gate_mutation != "missing":
+        packet["editorialGate"] = gate
+    review = {
+        "schemaVersion": "gravel-weekly-review/v1",
+        "candidates": [{"id": "story_1", "score": 93, "headline": "Unbound changed the course", "storyKind": "route"}],
+        "packets": [packet],
+    }
+    issue = prepare_issue(review, "2026-08-28", 1, now="2026-08-27T17:00:00Z")
+    assert issue["stories"] == []
+    assert issue["currentThingStoryId"] is None
 
 
 def test_current_thing_requires_editorial_score_of_85():

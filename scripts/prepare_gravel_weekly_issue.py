@@ -13,6 +13,10 @@ from validate_gravel_weekly import compute_content_hash, validate_issue
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 DRAFT_DIR = PROJECT_ROOT / "data" / "gravel-weekly" / "drafts"
+COMEDY_MECHANICS = {
+    "incongruity", "misdirection", "escalation", "specificity", "rule_of_three",
+    "self_deprecation", "analogy", "callback", "straight_for_sensitivity",
+}
 
 
 def _record(value: Any, name: str) -> dict[str, Any]:
@@ -36,6 +40,35 @@ def _dedupe_records(records: list[dict[str, Any]]) -> list[dict[str, Any]]:
     return list(unique.values())
 
 
+def _passes_editorial_gate(packet: dict[str, Any]) -> bool:
+    """Fail closed unless party, point, and story/comedy craft gates are explicit."""
+    gate = packet.get("editorialGate")
+    if not isinstance(gate, dict) or gate.get("decision") != "pass":
+        return False
+    party = gate.get("partyTest")
+    point = gate.get("pointTest")
+    arc = gate.get("storyArc")
+    comedy = gate.get("comedy")
+    if not all(isinstance(item, dict) for item in (party, point, arc, comedy)):
+        return False
+    if party.get("verdict") != "pass" or point.get("verdict") != "pass":
+        return False
+    required_text = (
+        party.get("rationale"), point.get("point"),
+        *(arc.get(key) for key in ("hook", "stakes", "tension", "turn", "landing")),
+        *(comedy.get(key) for key in ("setup", "turn", "tag", "rhetoricalLicense", "factualBoundary")),
+    )
+    if not all(isinstance(value, str) and value.strip() for value in required_text):
+        return False
+    mechanics = comedy.get("mechanics")
+    return (
+        isinstance(mechanics, list)
+        and 1 <= len(mechanics) <= 3
+        and len(set(mechanics)) == len(mechanics)
+        and all(mechanic in COMEDY_MECHANICS for mechanic in mechanics)
+    )
+
+
 def prepare_issue(review_value: Any, publication_date: str, issue_number: int, *, now: str | None = None) -> dict[str, Any]:
     review = _record(review_value, "review")
     if review.get("schemaVersion") != "gravel-weekly-review/v1":
@@ -56,7 +89,12 @@ def prepare_issue(review_value: Any, publication_date: str, issue_number: int, *
         if isinstance(item, dict) and isinstance(item.get("candidateId"), str)
     }
     ranked = sorted(
-        (candidate for candidate in candidates.values() if candidate.get("score", 0) >= 70 and candidate.get("id") in packets),
+        (
+            candidate for candidate in candidates.values()
+            if candidate.get("score", 0) >= 70
+            and candidate.get("id") in packets
+            and _passes_editorial_gate(packets[candidate["id"]])
+        ),
         key=lambda candidate: (-candidate["score"], candidate["id"]),
     )
     stories: list[dict[str, Any]] = []

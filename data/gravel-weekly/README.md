@@ -37,6 +37,20 @@ Generate the latest page and dated archive:
 python3 wordpress/generate_gravel_weekly.py
 ```
 
+Render the controlled race-profile review for a published issue:
+
+```bash
+python3 scripts/render_gravel_weekly_race_impact_review.py \
+  data/gravel-weekly/issues/2026-08-28.json \
+  --output artifacts/gravel-weekly-race-impact-review.md
+```
+
+The publication validator requires the issue-level `raceImpacts` collection to
+exactly preserve the deduplicated union of story impacts, and every impact claim
+must resolve to a receipt on that story. The publish workflow uploads the
+immutable artifact and opens one idempotent GitHub review issue when actionable
+impacts exist. It never edits a race profile.
+
 Render a local draft for review without making it public:
 
 ```bash

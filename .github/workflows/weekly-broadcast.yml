@@ -21,6 +21,7 @@ on:
 
 permissions:
   contents: read
+  issues: write
 
 concurrency:
   group: gravel-weekly-publish
@@ -79,6 +80,39 @@ jobs:
           grep -q "gravel-weekly-content-hash: $ISSUE_HASH" wordpress/output/gravel-weekly.html
           grep -q "gravel-weekly-content-hash: $ISSUE_HASH" "wordpress/output/gravel-weekly/$ISSUE_DATE/index.html"
           python scripts/preflight_quality.py
+
+      - name: Build issue-specific race-impact review
+        env:
+          ISSUE_DATE: ${{ inputs.issue_date }}
+        run: |
+          python scripts/render_gravel_weekly_race_impact_review.py \
+            "data/gravel-weekly/issues/$ISSUE_DATE.json" \
+            --output artifacts/gravel-weekly-race-impact-review.md
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: gravel-weekly-${{ inputs.issue_date }}-race-impact-review
+          path: artifacts/gravel-weekly-race-impact-review.md
+          retention-days: 90
+
+      - name: Open immutable race-impact review queue
+        env:
+          GH_TOKEN: ${{ github.token }}
+          ISSUE_DATE: ${{ inputs.issue_date }}
+          ISSUE_NUMBER: ${{ steps.issue.outputs.number }}
+        run: |
+          if grep -q '<!-- meaningful-race-impact-count: 0 -->' artifacts/gravel-weekly-race-impact-review.md; then
+            echo "No actionable race impact; no review issue needed."
+            exit 0
+          fi
+          title="Gravel Weekly #$(printf '%03d' "$ISSUE_NUMBER") race-impact review"
+          gh label create gravel-weekly-race-impact --color 0e8a16 --description "Approved Gravel Weekly evidence awaiting controlled race-profile review" --force
+          existing="$(gh issue list --label gravel-weekly-race-impact --state all --limit 200 --json number,title --jq ".[] | select(.title == \"$title\") | .number" | head -1)"
+          if [[ -n "$existing" ]]; then
+            echo "Review issue #$existing already exists; preserving its history."
+          else
+            gh issue create --title "$title" --label gravel-weekly-race-impact --body-file artifacts/gravel-weekly-race-impact-review.md
+          fi
 
       - name: Setup SSH
         run: |

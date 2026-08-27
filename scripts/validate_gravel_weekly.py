@@ -178,6 +178,7 @@ def validate_issue(value: Any, *, verify_hash: bool = True) -> dict[str, Any]:
 
     stories = _list(issue.get("stories"), "stories", 30)
     story_ids: list[str] = []
+    story_impacts: list[dict[str, Any]] = []
     for index, raw_story in enumerate(stories):
         story = _record(raw_story, f"stories[{index}]")
         story_id = _text(story.get("candidateId"), f"stories[{index}].candidateId", 500)
@@ -201,10 +202,18 @@ def validate_issue(value: Any, *, verify_hash: bool = True) -> dict[str, Any]:
         receipts = _list(story.get("receipts"), f"stories[{index}].receipts", 100)
         if not receipts:
             raise IssueValidationError(f"stories[{index}].receipts must not be empty")
+        receipt_claim_ids: set[str] = set()
         for receipt_index, receipt in enumerate(receipts):
-            _receipt(receipt, f"stories[{index}].receipts[{receipt_index}]")
+            validated_receipt = _receipt(receipt, f"stories[{index}].receipts[{receipt_index}]")
+            receipt_claim_ids.add(validated_receipt["claimId"])
         for impact_index, impact in enumerate(_list(story.get("raceImpacts"), f"stories[{index}].raceImpacts")):
-            _impact(impact, f"stories[{index}].raceImpacts[{impact_index}]")
+            validated_impact = _impact(impact, f"stories[{index}].raceImpacts[{impact_index}]")
+            missing_claims = set(validated_impact["claimIds"]) - receipt_claim_ids
+            if missing_claims:
+                raise IssueValidationError(
+                    f"stories[{index}].raceImpacts[{impact_index}] references claims without story receipts: {sorted(missing_claims)}"
+                )
+            story_impacts.append(validated_impact)
     if len(story_ids) != len(set(story_ids)):
         raise IssueValidationError("story candidate IDs must be unique")
 
@@ -219,8 +228,16 @@ def validate_issue(value: Any, *, verify_hash: bool = True) -> dict[str, Any]:
 
     for index, item in enumerate(_list(issue.get("calendarWatch"), "calendarWatch", 100)):
         _text(item, f"calendarWatch[{index}]", 500)
-    for index, impact in enumerate(_list(issue.get("raceImpacts"), "raceImpacts")):
+    issue_impacts = [
         _impact(impact, f"raceImpacts[{index}]")
+        for index, impact in enumerate(_list(issue.get("raceImpacts"), "raceImpacts"))
+    ]
+    impact_key = lambda impact: json.dumps(impact, ensure_ascii=False, separators=(",", ":"), sort_keys=True)
+    issue_impact_keys = [impact_key(impact) for impact in issue_impacts]
+    if len(issue_impact_keys) != len(set(issue_impact_keys)):
+        raise IssueValidationError("raceImpacts must not contain duplicates")
+    if set(issue_impact_keys) != {impact_key(impact) for impact in story_impacts}:
+        raise IssueValidationError("raceImpacts must exactly preserve the deduplicated union of story raceImpacts")
     retrospective_refs: list[tuple[str, str]] = []
     for index, retrospective in enumerate(_list(issue.get("retrospectives"), "retrospectives", 30)):
         item = _retrospective(retrospective, f"retrospectives[{index}]", status=status)

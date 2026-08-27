@@ -20,7 +20,7 @@ SLUGS = {
     },
     "graean-cymru": {
         "date": "2026: September 5-6",
-        "distance_mi": 70.2,
+        "distance_mi": 65,
         "elevation_ft": 6795,
         "score": 76,
         "official": "https://gloriousgravel.com/product/gravel-race/graean-cymru/",

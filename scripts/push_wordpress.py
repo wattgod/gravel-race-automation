@@ -658,6 +658,55 @@ def sync_gravel_tv(gtv_file: str):
         return None
 
 
+def sync_gravel_weekly(latest_file: str, archive_dir: str):
+    """Upload Gravel Weekly latest page and immutable dated issue archive."""
+    ssh = get_ssh_credentials()
+    if not ssh:
+        return None
+    host, user, port = ssh
+    latest_path = Path(latest_file)
+    archive_path = Path(archive_dir)
+    if not latest_path.exists():
+        print(f"✗ Gravel Weekly HTML not found: {latest_path}")
+        print("  Run: python3 wordpress/generate_gravel_weekly.py first")
+        return None
+    remote_base = "~/www/gravelgodcycling.com/public_html/gravel-weekly"
+    try:
+        subprocess.run(
+            ["ssh", "-i", str(SSH_KEY), "-p", port, f"{user}@{host}",
+             f"mkdir -p {remote_base}"],
+            check=True, capture_output=True, text=True, timeout=15,
+        )
+        subprocess.run(
+            ["scp", "-i", str(SSH_KEY), "-P", port, str(latest_path),
+             f"{user}@{host}:{remote_base}/index.html"],
+            check=True, capture_output=True, text=True, timeout=30,
+        )
+        dated_pages = sorted(archive_path.glob("*/index.html")) if archive_path.exists() else []
+        for dated_page in dated_pages:
+            issue_slug = dated_page.parent.name
+            remote_issue = f"{remote_base}/{issue_slug}"
+            subprocess.run(
+                ["ssh", "-i", str(SSH_KEY), "-p", port, f"{user}@{host}",
+                 f"mkdir -p {remote_issue}"],
+                check=True, capture_output=True, text=True, timeout=15,
+            )
+            subprocess.run(
+                ["scp", "-i", str(SSH_KEY), "-P", port, str(dated_page),
+                 f"{user}@{host}:{remote_issue}/index.html"],
+                check=True, capture_output=True, text=True, timeout=30,
+            )
+        wp_url = os.environ.get("WP_URL", "https://gravelgodcycling.com")
+        print(f"✓ Uploaded Gravel Weekly + {len(dated_pages)} issue(s): {wp_url}/gravel-weekly/")
+        return f"{wp_url}/gravel-weekly/"
+    except subprocess.CalledProcessError as e:
+        print(f"✗ SCP failed for Gravel Weekly: {e.stderr.strip()}")
+        return None
+    except Exception as e:
+        print(f"✗ Error uploading Gravel Weekly: {e}")
+        return None
+
+
 def sync_about(about_file: str):
     """Upload about.html to /about/index.html on SiteGround via SSH+SCP."""
     ssh = get_ssh_credentials()
@@ -1457,7 +1506,7 @@ def sync_tp(tp_dir: str):
 # ship them under /race/ (duplicate content; removed + 301'd 2026-07-23).
 ROOT_CANONICAL_SLUGS = frozenset({
     "about", "articles", "coaching", "consulting", "cookies", "course",
-    "gravel-tv", "guide", "homepage", "insights", "privacy", "terms",
+    "gravel-tv", "gravel-weekly", "guide", "homepage", "insights", "privacy", "terms",
     "training-plans",
 })
 
@@ -1812,7 +1861,9 @@ RewriteRule ^race/best-gravel-races-greece/?$ /gravel-races/ [R=301,L]
 # /race/{utility} duplicate copies removed 2026-07-23 (deploy-parity review:
 # sync_pages ships every flat output/*.html under /race/, duplicating pages
 # whose canonical is the site root). 301 to the root originals.
-RewriteRule ^race/(about|articles|coaching|consulting|cookies|course|gravel-tv|guide|insights|privacy|terms|training-plans)/?$ /$1/ [R=301,L]
+RewriteRule ^gravel-tv/?$ /gravel-weekly/ [R=301,L]
+RewriteRule ^race/gravel-tv/?$ /gravel-weekly/ [R=301,L]
+RewriteRule ^race/(about|articles|coaching|consulting|cookies|course|gravel-weekly|guide|insights|privacy|terms|training-plans)/?$ /$1/ [R=301,L]
 RewriteRule ^race/homepage/?$ / [R=301,L]
 
 # Dead-reference self-healing (2026-07-22 link audit: 215 stale /tires/ +
@@ -3877,6 +3928,18 @@ if __name__ == "__main__":
         help="Upload gravel-tv.html to /gravel-tv/ via SCP"
     )
     parser.add_argument(
+        "--sync-gravel-weekly", action="store_true",
+        help="Upload Gravel Weekly latest page and dated issue archive"
+    )
+    parser.add_argument(
+        "--gravel-weekly-file", default="wordpress/output/gravel-weekly.html",
+        help="Path to Gravel Weekly latest HTML"
+    )
+    parser.add_argument(
+        "--gravel-weekly-archive-dir", default="wordpress/output/gravel-weekly",
+        help="Path to Gravel Weekly dated issue output"
+    )
+    parser.add_argument(
         "--sync-homepage", action="store_true",
         help="Upload homepage to /homepage/ via SCP"
     )
@@ -4153,6 +4216,7 @@ if __name__ == "__main__":
         args.sync_og = True
         args.sync_tp = True
         args.sync_homepage = True
+        args.sync_gravel_weekly = True
         args.sync_about = True
         args.sync_coaching = True
         args.sync_coaching_apply = True
@@ -4188,7 +4252,8 @@ if __name__ == "__main__":
         args.purge_cache = True
 
     has_action = any([args.json, args.sync_index, args.sync_widget, args.sync_training,
-                      args.sync_guide, args.sync_guide_cluster, args.sync_og, args.sync_tp, args.sync_homepage, args.sync_gravel_tv, args.sync_about,
+                      args.sync_guide, args.sync_guide_cluster, args.sync_bikepacking_guide,
+                      args.sync_og, args.sync_tp, args.sync_homepage, args.sync_gravel_tv, args.sync_gravel_weekly, args.sync_about,
                       args.sync_coaching, args.sync_coaching_apply, args.sync_consulting,
                       args.sync_consult_intake,
                       args.sync_training_plans, args.sync_success, args.sync_pages,
@@ -4235,6 +4300,8 @@ if __name__ == "__main__":
         _run("sync-homepage", sync_homepage, args.homepage_file)
     if args.sync_gravel_tv:
         _run("sync-gravel-tv", sync_gravel_tv, "wordpress/output/gravel-tv.html")
+    if args.sync_gravel_weekly:
+        _run("sync-gravel-weekly", sync_gravel_weekly, args.gravel_weekly_file, args.gravel_weekly_archive_dir)
     if args.sync_about:
         _run("sync-about", sync_about, args.about_file)
     if args.sync_coaching:

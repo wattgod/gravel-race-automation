@@ -19,6 +19,7 @@ import random
 import re
 import urllib.request
 import xml.etree.ElementTree as ET
+import sys
 from datetime import date, datetime
 from pathlib import Path
 
@@ -42,6 +43,9 @@ from cookie_consent import get_consent_banner_html
 from shared_footer import get_mega_footer_css, get_mega_footer_html
 from shared_header import get_site_header_css, get_site_header_html, get_site_header_js
 from scroll_animations import get_scroll_animation_css, get_scroll_animation_js
+
+sys.path.insert(0, str(Path(__file__).parent.parent / "scripts"))
+from validate_gravel_weekly import load_issues  # noqa: E402
 
 OUTPUT_DIR = Path(__file__).parent / "output"
 RACE_INDEX_PATH = Path(__file__).parent.parent / "web" / "race-index.json"
@@ -533,22 +537,25 @@ def build_guide_preview(chapters: list) -> str:
   </section>'''
 
 
-def build_gravel_tv_band(upcoming: list) -> str:
-    """Compact GRAVEL TV broadcast band — teases the weekly digest page.
-
-    Deliberately a TEASER, not a section: the homepage's job is search
-    (the hero); Gravel TV's job is the weekly ritual at /gravel-tv/.
-    """
-    n_upcoming = len(upcoming) if upcoming else 0
-    count_line = (f"{n_upcoming} races on air in the next two weeks"
-                  if n_upcoming else "This week's broadcast is live")
-    return f'''<section class="gg-hp-gtv" id="gravel-tv">
-    <a class="gg-hp-gtv-inner" href="/gravel-tv/">
-      <span class="gg-hp-gtv-logo">GRAVEL<span class="gg-hp-gtv-tv">TV</span></span>
-      <span class="gg-hp-gtv-copy">
-        <strong>The weekly gravel broadcast.</strong> The desk note, {esc(count_line)}, fresh race tape.
+def build_gravel_weekly_band() -> str:
+    """Compact teaser for the latest approved Gravel Weekly issue."""
+    issues = [issue for issue in load_issues()
+              if issue["status"] in {"approved", "published"}]
+    latest = issues[0] if issues else None
+    current = None
+    if latest and latest.get("currentThingStoryId"):
+        current = next((story for story in latest["stories"]
+                        if story["candidateId"] == latest["currentThingStoryId"]), None)
+    issue_line = (f"Issue #{latest['issueNumber']:03d}: {current['headline']}"
+                  if latest and current else
+                  "The first issue is being assembled. The evidence is ready; the opinion still requires a person.")
+    return f'''<section class="gg-hp-gw" id="gravel-weekly">
+    <a class="gg-hp-gw-inner" href="/gravel-weekly/">
+      <span class="gg-hp-gw-logo">GRAVEL <em>WEEKLY</em></span>
+      <span class="gg-hp-gw-copy">
+        <strong>The people, races, money &amp; bad ideas moving gravel.</strong> {esc(issue_line)}
       </span>
-      <span class="gg-hp-gtv-cta">WATCH THIS WEEK&rsquo;S&nbsp;&rarr;</span>
+      <span class="gg-hp-gw-cta">READ THE ISSUE&nbsp;&rarr;</span>
     </a>
   </section>'''
 
@@ -1254,23 +1261,23 @@ def build_homepage_css() -> str:
     font_face = get_font_face_css()
     tokens = get_tokens_css()
     mega_footer_css = get_mega_footer_css()
-    return '<style>\n/* ── Self-hosted fonts ──────────────────────────────────── */\n' + font_face + '\n\n' + tokens + '\n\n' + '''/* ── GRAVEL TV band ──────────────────────────────────────── */
-.gg-hp-gtv { margin: 0; }
-.gg-hp-gtv-inner { display: flex; align-items: center; gap: 20px;
-  flex-wrap: wrap; background: var(--gg-color-teal); border-top: 4px solid #000;
-  border-bottom: 4px solid #000; padding: 18px 24px; text-decoration: none; }
-.gg-hp-gtv-logo { font-family: 'Sometype Mono', monospace; font-weight: 700;
-  font-size: 1.6rem; letter-spacing: -0.02em; color: var(--gg-color-warm-paper);
-  text-shadow: 2px 2px 0 #000, 4px 4px 0 var(--gg-color-gold); white-space: nowrap; }
-.gg-hp-gtv-tv { display: inline-block; background: #000; color: var(--gg-color-gold);
-  padding: 0 0.15em; margin-left: 0.1em; transform: rotate(-2deg); }
-.gg-hp-gtv-copy { flex: 1; min-width: 240px; color: var(--gg-color-warm-paper);
-  font-family: 'Sometype Mono', monospace; font-size: 0.85rem; line-height: 1.5; }
-.gg-hp-gtv-copy strong { color: var(--gg-color-warm-paper); }
-.gg-hp-gtv-cta { font-family: 'Sometype Mono', monospace; font-weight: 700;
-  font-size: 0.8rem; letter-spacing: 0.08em; background: var(--gg-color-gold);
-  color: #000; border: 3px solid #000; padding: 10px 16px; white-space: nowrap; }
-.gg-hp-gtv-inner:hover .gg-hp-gtv-cta { transform: translate(-2px, -2px); }
+    return '<style>\n/* ── Self-hosted fonts ──────────────────────────────────── */\n' + font_face + '\n\n' + tokens + '\n\n' + '''/* ── GRAVEL WEEKLY band ──────────────────────────────────── */
+.gg-hp-gw { margin: 0; }
+.gg-hp-gw-inner { display: flex; align-items: center; gap: var(--gg-spacing-lg);
+  flex-wrap: wrap; background: var(--gg-color-teal); border-top: var(--gg-border-heavy);
+  border-bottom: var(--gg-border-heavy); padding: var(--gg-spacing-md) var(--gg-spacing-lg); text-decoration: none; }
+.gg-hp-gw-logo { font-family: var(--gg-font-data); font-weight: var(--gg-font-weight-black);
+  font-size: var(--gg-font-size-xl); letter-spacing: var(--gg-letter-spacing-tight); color: var(--gg-color-warm-paper);
+  white-space: nowrap; }
+.gg-hp-gw-logo em { display: inline-block; background: var(--gg-color-gold); color: var(--gg-color-near-black);
+  border: var(--gg-border-standard); padding: 0 var(--gg-spacing-2xs); font-style: normal; transform: rotate(-2deg); }
+.gg-hp-gw-copy { flex: 1; min-width: 240px; color: var(--gg-color-warm-paper);
+  font-family: var(--gg-font-data); font-size: var(--gg-font-size-xs); line-height: var(--gg-line-height-normal); }
+.gg-hp-gw-copy strong { color: var(--gg-color-warm-paper); }
+.gg-hp-gw-cta { font-family: var(--gg-font-data); font-weight: var(--gg-font-weight-bold);
+  font-size: var(--gg-font-size-xs); letter-spacing: var(--gg-letter-spacing-wide); background: var(--gg-color-gold);
+  color: var(--gg-color-near-black); border: var(--gg-border-standard); padding: var(--gg-spacing-xs) var(--gg-spacing-md); white-space: nowrap; }
+.gg-hp-gw-inner:hover .gg-hp-gw-cta { transform: translate(-2px, -2px); }
 
 /* ── Ticker (functional animation) ───────────────────────── */
 @keyframes gg-ticker-scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
@@ -2089,7 +2096,7 @@ def generate_homepage(race_index: list, race_data_dir: Path = None,
     ticker = build_ticker(one_liners, substack_posts, upcoming)
     content_grid = build_content_grid(race_index, stats, upcoming)
     latest_takes = build_latest_takes()
-    gravel_tv_band = build_gravel_tv_band(upcoming)
+    gravel_weekly_band = build_gravel_weekly_band()
     how_it_works = build_how_it_works(stats)
     training_cta = build_training_cta()
     guide_preview = build_guide_preview(chapters)
@@ -2153,7 +2160,7 @@ def generate_homepage(race_index: list, race_data_dir: Path = None,
 
   {content_grid}
 
-  {gravel_tv_band}
+  {gravel_weekly_band}
 
   {latest_takes}
 

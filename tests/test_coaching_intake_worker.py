@@ -47,6 +47,17 @@ def test_worker_preserves_client_submission_receipt_for_safe_retry():
     assert "backend.status === 200 ? 200 : 201" in source
 
 
+def test_worker_forwards_only_consent_gated_valid_ga4_attribution():
+    source = WORKER.read_text()
+    assert "data.analytics_consent === 'granted'" in source
+    assert "GA4_CLIENT_ID_RE.test(requestedGa4ClientId)" in source
+    assert "GA4_SESSION_ID_RE.test(requestedGa4SessionId)" in source
+    assert "ga4_client_id: ga4ClientId" in source
+    assert "ga4_session_id: ga4SessionId" in source
+    assert "delete questionnaire.ga4_client_id" in source
+    assert "delete questionnaire.ga4_session_id" in source
+
+
 def test_worker_does_not_reflect_cors_for_unknown_origins():
     source = WORKER.read_text()
     assert "if (brandFromOrigin(origin)) Object.assign(headers, corsHeaders(origin));" in source

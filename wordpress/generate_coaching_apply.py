@@ -88,20 +88,21 @@ def build_section_1_basic_info() -> str:
 
       <div class="gg-apply-inline">
         <div class="gg-apply-group">
-          <label class="gg-apply-label" for="name">Full Name <span class="gg-apply-required">*</span></label>
-          <input type="text" id="name" name="name" required placeholder="First Last">
+          <label class="gg-apply-label" for="name">Legal Full Name <span class="gg-apply-required">*</span></label>
+          <input type="text" id="name" name="name" required autocomplete="name" placeholder="First Last">
+          <div class="gg-apply-field-hint">Use the name that should appear on your coaching agreement.</div>
         </div>
         <div class="gg-apply-group">
-          <label class="gg-apply-label" for="email">Email <span class="gg-apply-required">*</span></label>
-          <input type="email" id="email" name="email" required placeholder="you@email.com">
+          <label class="gg-apply-label" for="preferred_name">What should I call you?</label>
+          <input type="text" id="preferred_name" name="preferred_name" autocomplete="nickname" placeholder="First name or nickname">
+          <div class="gg-apply-field-hint">Optional. This is used in coaching messages and your onboarding course.</div>
         </div>
       </div>
 
       <div class="gg-apply-inline">
         <div class="gg-apply-group">
-          <label class="gg-apply-label" for="date_of_birth">Date of Birth</label>
-          <input type="date" id="date_of_birth" name="date_of_birth">
-          <div class="gg-apply-help">Optional. Used for age-group context and birthday reminders.</div>
+          <label class="gg-apply-label" for="email">Email <span class="gg-apply-required">*</span></label>
+          <input type="email" id="email" name="email" required placeholder="you@email.com">
         </div>
         <div class="gg-apply-group">
           <label class="gg-apply-label" for="home_location">Home Location</label>
@@ -148,8 +149,10 @@ def build_section_1_basic_info() -> str:
           </select>
         </div>
         <div class="gg-apply-group">
-          <label class="gg-apply-label" for="age">Age <span class="gg-apply-required">*</span></label>
-          <input type="number" id="age" name="age" required placeholder="35" min="13" max="90">
+          <label class="gg-apply-label" for="date_of_birth">Date of Birth <span class="gg-apply-required">*</span></label>
+          <input type="date" id="date_of_birth" name="date_of_birth" required autocomplete="bday">
+          <input type="hidden" id="age" name="age">
+          <div class="gg-apply-field-hint">Used for age-group planning, guardian routing, and birthday reminders.</div>
         </div>
         <div class="gg-apply-group">
           <label class="gg-apply-label" for="weight">Weight <span class="gg-apply-required">*</span></label>
@@ -899,7 +902,7 @@ def build_tier_selector() -> str:
 
 def build_footer() -> str:
     return f'''<div class="gg-apply-confidential-wrap">
-    <p class="gg-apply-confidential">Your information is kept confidential and used only for coaching purposes. Questions? Email gravelgodcoaching@gmail.com</p>
+    <p class="gg-apply-confidential">Your answers, including health information you choose to provide, are processed to review and deliver coaching as described in the <a href="/privacy/">Privacy Policy</a>. Analytics is separately controlled by your privacy choice. Questions? Email gravelgodcoaching@gmail.com</p>
   </div>
   ''' + get_mega_footer_html()
 
@@ -1427,6 +1430,86 @@ def build_apply_js() -> str:
     }
   }
 
+  function analyticsConsentGranted() {
+    if (/(^|; )gg_consent=declined/.test(document.cookie)) { return false; }
+    if (/(^|; )gg_consent=accepted/.test(document.cookie)) { return true; }
+    return window.ggConsentRequiresOptIn === false;
+  }
+
+  var GA_ATTRIBUTION_TIMEOUT_MS = 500;
+  function findGaMeasurementId() {
+    var scripts = document.querySelectorAll('script[src*="googletagmanager.com/gtag/js"]');
+    for (var i = 0; i < scripts.length; i++) {
+      try {
+        var id = new URL(scripts[i].src, window.location.href).searchParams.get("id") || "";
+        if (/^G-[A-Z0-9]+$/i.test(id)) { return id; }
+      } catch (error) {}
+    }
+    return "";
+  }
+
+  function readGtagValue(measurementId, field) {
+    return new Promise(function(resolve) {
+      var settled = false;
+      var timer = setTimeout(function() {
+        if (!settled) { settled = true; resolve(""); }
+      }, GA_ATTRIBUTION_TIMEOUT_MS);
+      try {
+        gtag("get", measurementId, field, function(value) {
+          if (settled) { return; }
+          settled = true;
+          clearTimeout(timer);
+          resolve(String(value || ""));
+        });
+      } catch (error) {
+        clearTimeout(timer);
+        settled = true;
+        resolve("");
+      }
+    });
+  }
+
+  function getGa4Attribution() {
+    if (!analyticsConsentGranted() || typeof gtag !== "function") {
+      return Promise.resolve({ analytics_consent: "denied" });
+    }
+    var measurementId = findGaMeasurementId();
+    if (!measurementId) { return Promise.resolve({ analytics_consent: "granted" }); }
+    return Promise.all([
+      readGtagValue(measurementId, "client_id"),
+      readGtagValue(measurementId, "session_id")
+    ]).then(function(values) {
+      var attribution = { analytics_consent: "granted" };
+      if (/^\\d+\\.\\d+$/.test(values[0])) { attribution.ga4_client_id = values[0]; }
+      if (/^\\d+$/.test(values[1])) { attribution.ga4_session_id = values[1]; }
+      return attribution;
+    });
+  }
+
+  function ageFromDateOfBirth(value) {
+    var match = /^(\\d{4})-(\\d{2})-(\\d{2})$/.exec(String(value || ""));
+    if (!match) { return NaN; }
+    var year = Number(match[1]);
+    var month = Number(match[2]);
+    var day = Number(match[3]);
+    var birthDate = new Date(Date.UTC(year, month - 1, day, 12));
+    if (birthDate.getUTCFullYear() !== year ||
+        birthDate.getUTCMonth() !== month - 1 ||
+        birthDate.getUTCDate() !== day) { return NaN; }
+    var today = new Date();
+    var calculatedAge = today.getUTCFullYear() - year;
+    var birthdayPending = (today.getUTCMonth() < month - 1) ||
+      (today.getUTCMonth() === month - 1 && today.getUTCDate() < day);
+    return birthdayPending ? calculatedAge - 1 : calculatedAge;
+  }
+
+  function syncAgeFromDateOfBirth() {
+    var age = ageFromDateOfBirth(document.getElementById("date_of_birth").value);
+    document.getElementById("age").value = Number.isFinite(age) ? String(age) : "";
+    handleConditionals();
+    return age;
+  }
+
   var applyStartedTracked = false;
   function trackApplyStarted() {
     if (applyStartedTracked) { return; }
@@ -1654,7 +1737,7 @@ def build_apply_js() -> str:
   document.getElementById("weight").addEventListener("input", calculateMetrics);
   document.getElementById("sex").addEventListener("change", calculateMetrics);
   document.getElementById("training_platform").addEventListener("change", handleConditionals);
-  document.getElementById("age").addEventListener("input", handleConditionals);
+  document.getElementById("date_of_birth").addEventListener("input", syncAgeFromDateOfBirth);
 
   document.querySelectorAll("input, select, textarea").forEach(function(el) {
     el.addEventListener("change", updateProgress);
@@ -1817,9 +1900,17 @@ def build_apply_js() -> str:
   document.getElementById("intake-form").addEventListener("submit", function(e) {
     e.preventDefault();
     var submitBtn = document.getElementById("submit-btn");
-    inferTraits();
     submitBtn.disabled = true;
     submitBtn.textContent = "Submitting...";
+
+    var calculatedAge = syncAgeFromDateOfBirth();
+    if (!Number.isFinite(calculatedAge) || calculatedAge < 13 || calculatedAge > 100) {
+      showMessage("error", "Please enter a valid date of birth. This intake supports athletes age 13 and older.");
+      submitBtn.disabled = false;
+      submitBtn.textContent = "Submit Questionnaire";
+      return;
+    }
+    inferTraits();
 
     var formData = new FormData(this);
     var data = {};
@@ -1861,13 +1952,18 @@ def build_apply_js() -> str:
     }
 
     var COACHING_INTAKE_URL = "''' + COACHING_INTAKE_WORKER_URL + '''";
-    fetch(COACHING_INTAKE_URL, {
-      method: "POST",
-      body: JSON.stringify(data),
-      headers: {
-        "Accept": "application/json",
-        "Content-Type": "application/json"
-      }
+    getGa4Attribution().then(function(attribution) {
+      data.analytics_consent = attribution.analytics_consent || "denied";
+      if (attribution.ga4_client_id) { data.ga4_client_id = attribution.ga4_client_id; }
+      if (attribution.ga4_session_id) { data.ga4_session_id = attribution.ga4_session_id; }
+      return fetch(COACHING_INTAKE_URL, {
+        method: "POST",
+        body: JSON.stringify(data),
+        headers: {
+          "Accept": "application/json",
+          "Content-Type": "application/json"
+        }
+      });
     }).then(function(response) {
       return response.json().catch(function() { return {}; }).then(function(result) {
         if (!response.ok || !result.success) {
@@ -1926,6 +2022,7 @@ def build_apply_js() -> str:
 
   /* ── Initialize ──────────────────────────────────── */
   restoreProgress();
+  syncAgeFromDateOfBirth();
   initializeTimezone();
   initializeTier();
   updateProgress();

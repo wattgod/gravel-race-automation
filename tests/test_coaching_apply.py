@@ -178,11 +178,14 @@ class TestSectionContent:
         assert 'name="age"' in s
         assert 'name="weight"' in s
         for field in (
-                'date_of_birth', 'home_location', 'desired_start_date',
+                'preferred_name', 'date_of_birth', 'home_location', 'desired_start_date',
                 'preferred_contact_channel', 'trainingpeaks_connection_status',
                 'guardian_name', 'guardian_email', 'guardian_relationship'):
             assert f'name="{field}"' in s
-        assert 'min="13"' in s
+        assert s.count('id="date_of_birth"') == 1
+        assert 'id="date_of_birth" name="date_of_birth" required' in s
+        assert 'type="hidden" id="age" name="age"' in s
+        assert 'Legal Full Name' in s
         assert 'separate consent step' in s
 
     def test_timezone_is_captured_without_becoming_required(self, apply_html, apply_js):
@@ -370,6 +373,21 @@ class TestGA4Events:
     def test_wpkg_calculated_event(self, apply_js):
         assert "apply_wpkg_calculated" in apply_js
 
+    def test_consent_gated_ga4_attribution_is_sent_with_intake(self, apply_js):
+        assert "analyticsConsentGranted" in apply_js
+        assert 'gtag("get", measurementId, field' in apply_js
+        assert "data.analytics_consent" in apply_js
+        assert "data.ga4_client_id" in apply_js
+        assert "data.ga4_session_id" in apply_js
+        assert "GA_ATTRIBUTION_TIMEOUT_MS = 500" in apply_js
+
+    def test_date_of_birth_drives_age_and_guardian_routing(self, apply_js):
+        assert "ageFromDateOfBirth" in apply_js
+        assert "syncAgeFromDateOfBirth" in apply_js
+        assert 'calculatedAge < 13 || calculatedAge > 100' in apply_js
+        assert 'document.getElementById("age").value' in apply_js
+        assert 'document.getElementById("date_of_birth").addEventListener' in apply_js
+
 
 # ── JavaScript Features ──────────────────────────────────────
 
@@ -489,3 +507,5 @@ class TestFooter:
     def test_confidential_notice(self, apply_html):
         assert "confidential" in apply_html.lower()
         assert "gravelgodcoaching@gmail.com" in apply_html
+        assert 'href="/privacy/"' in apply_html
+        assert "health information" in apply_html

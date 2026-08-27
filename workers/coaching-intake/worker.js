@@ -19,6 +19,8 @@ const BRAND_BY_HOST = {
 const VALID_TIERS = new Set(['min', 'mid', 'max']);
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const UUID_RE = /^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i;
+const GA4_CLIENT_ID_RE = /^\d+\.\d+$/;
+const GA4_SESSION_ID_RE = /^\d+$/;
 
 export default {
   async fetch(request, env) {
@@ -70,9 +72,21 @@ export default {
     const submissionId = UUID_RE.test(requestedSubmissionId)
       ? requestedSubmissionId
       : crypto.randomUUID();
+    const analyticsConsent = data.analytics_consent === 'granted'
+      ? 'granted'
+      : 'denied';
+    const requestedGa4ClientId = String(data.ga4_client_id || '').trim();
+    const requestedGa4SessionId = String(data.ga4_session_id || '').trim();
+    const ga4ClientId = analyticsConsent === 'granted' &&
+      GA4_CLIENT_ID_RE.test(requestedGa4ClientId) ? requestedGa4ClientId : '';
+    const ga4SessionId = analyticsConsent === 'granted' &&
+      GA4_SESSION_ID_RE.test(requestedGa4SessionId) ? requestedGa4SessionId : '';
     const questionnaire = { ...data };
     delete questionnaire.website;
     delete questionnaire.submission_id;
+    delete questionnaire.analytics_consent;
+    delete questionnaire.ga4_client_id;
+    delete questionnaire.ga4_session_id;
 
     let backend;
     try {
@@ -88,6 +102,9 @@ export default {
           tier,
           name,
           email,
+          analytics_consent: analyticsConsent,
+          ga4_client_id: ga4ClientId,
+          ga4_session_id: ga4SessionId,
           questionnaire,
         }),
       });

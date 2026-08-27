@@ -3,7 +3,7 @@
     "name": "Gravel Worlds",
     "slug": "gravel-worlds",
     "display_name": "Gravel Worlds",
-    "tagline": "150 miles of relentless Nebraska rollers. $100K purse. Pirate swords for winners. The grassroots championship.",
+    "tagline": "150 miles of relentless Nebraska rollers. $150K purse. Pirate swords for winners. The grassroots championship.",
     "vitals": {
       "distance_mi": 150,
       "elevation_ft": 10000,
@@ -21,7 +21,7 @@
       "field_size": "1,500+ riders across all distances",
       "start_time": "Saturday 6:00 AM",
       "registration": "Opens early in year. Cost: ~$150",
-      "prize_purse": "$100,000 (World Championship jerseys + Sword Trophy for 'Captain of the Gravel Seas')",
+      "prize_purse": "$150,000 total pro/elite pool ($75,000 women, $75,000 men; paid through 10th place)",
       "aid_stations": "Multiple aid stations at key points",
       "cutoff_time": "Varies by distance",
       "lat": 40.8089,
@@ -66,7 +66,7 @@
       "field_depth": 4,
       "value": 4,
       "expenses": 4,
-      "score_note": "The OG grassroots race since 2010. 'World Championship' title, $100K purse, Pirate ethos. Overall +6 for cultural significance.",
+      "score_note": "The OG grassroots race since 2010. 'World Championship' title, $150K purse, Pirate ethos. Overall +6 for cultural significance.",
       "editorial_tier": 1,
       "editorial_tier_label": "TIER 1",
       "business_tier": 1,
@@ -107,7 +107,7 @@
       },
       "prestige": {
         "score": 5,
-        "explanation": "16-year history from grassroots to $100K prize purse elevates this beyond regional status. Elite riders like Matt Beers strategize: \"It was really fun to go to the line with one of my best mates. We played our cards and attacked in the right spots.\" The 'World Championship' branding is backed by international field depth and gravel community recognition."
+        "explanation": "A history stretching back to 2010 and a current $150K pro/elite prize pool elevate this beyond regional status. Elite riders like Matt Beers strategize: \"It was really fun to go to the line with one of my best mates. We played our cards and attacked in the right spots.\" The 'World Championship' branding is backed by international field depth and gravel community recognition."
       },
       "race_quality": {
         "score": 4,
@@ -123,7 +123,7 @@
       },
       "field_depth": {
         "score": 4,
-        "explanation": "The $100K purse draws serious professionals including Rosa Klöser, Geerike Schreurs, and international elites. Age-group competition runs deep with Midwest cycling clubs well-represented. Elite racing strategy involves tactical moves: \"We played our cards and attacked in the right spots,\" showing the competitive depth that has developed over 16 years."
+        "explanation": "The $150K purse draws serious professionals including Rosa Klöser, Geerike Schreurs, and international elites. Age-group competition runs deep with Midwest cycling clubs well-represented. Elite racing strategy involves tactical moves: \"We played our cards and attacked in the right spots,\" showing the competitive depth that has developed since 2010."
       },
       "value": {
         "score": 4,
@@ -169,17 +169,18 @@
     "history": {
       "founded": 2010,
       "founder": "Corey Godfrey / Gravel Cycling Hall of Fame",
-      "origin_story": "'Exploring together since 2010.' Started as a tongue-in-cheek 'World Championship' for a sport that didn't have one. 15+ years later, it's a legitimate bucket-list event with $100K prize purse. Winners earn 'Captain of the Gravel Seas' title and a Sword Trophy. Now includes running series (16mi) and gravel triathlon.",
+      "origin_story": "'Exploring together since 2010.' Started as a tongue-in-cheek 'World Championship' for a sport that didn't have one. 15+ years later, it's a legitimate bucket-list event with a $150K pro/elite prize pool. Winners earn 'Captain of the Gravel Seas' title and a Sword Trophy. Now includes running and gravel-triathlon events.",
       "notable_moments": [
         "One of the original grassroots gravel races",
         "Created the 'Pirate' ethos in gravel culture",
         "Gravel Cycling Hall of Fame is based here",
-        "Self-proclaimed but now recognized 'World Championship'"
+        "Self-proclaimed but now recognized 'World Championship'",
+        "2026: Overnight storms forced use of the wet course; the planned 151.7-mile route was raced at 148 miles with several minimum-maintenance-road sections removed"
       ],
       "reputation": "The OG grassroots race. Where the gravel movement's spirit lives on."
     },
     "course_description": {
-      "character": "Long, hot, and humbling. NOT flat—'hill after hill after hill' averaging 4-5% grade either up or down the entire 150 miles through iconic cornfields. 10K+ feet of climbing with no single killer climb, just relentless rolling. Mud possible in wet years. Organizer does not publish the exact route until 7-14 days before race day, so specific course features can't be confirmed this far out — the suffering zones below describe the heat/fatigue progression riders consistently report, not fixed course landmarks.",
+      "character": "Long, hot, and humbling. NOT flat—'hill after hill after hill' averaging 4-5% grade either up or down for roughly 150 miles through iconic cornfields. The official 2026 route measured 151.7 miles with 10,100+ feet of climbing, but overnight storms forced organizers onto a 148-mile wet course with fewer minimum-maintenance-road sections. The suffering zones below describe the heat/fatigue progression riders consistently report, not fixed annual landmarks.",
       "suffering_zones": [
         {
           "mile": 50,
@@ -203,9 +204,10 @@
           "named_section": "Mind Games"
         }
       ],
-      "signature_challenge": "The heat and the relentless rolling terrain (no flats, per rider accounts). Heat adaptation isn't optional—it's survival. Exact route is announced 7-14 days before race day, so specific landmarks aren't confirmable this far out.",
-      "map_url": "https://ridewithgps.com/routes/51659517",
-      "ridewithgps_id": "51659517"
+      "signature_challenge": "The heat and relentless rolling terrain (no flats, per rider accounts). Heat adaptation is essential, while late route changes can remove or retain race-defining minimum-maintenance roads depending on weather.",
+      "historical_route_note": "The official 2026 route was 151.7 miles, but overnight storms triggered a 148-mile wet-course reroute with several MMR sections removed. Preserve 150 miles as the event's canonical distance; do not present 148 miles as the standard course.",
+      "map_url": "https://ridewithgps.com/routes/56480365",
+      "ridewithgps_id": "56480365"
     },
     "research_metadata": {
       "data_confidence": "migrated",
@@ -235,9 +237,39 @@
     },
     "citations": [
       {
+        "url": "https://www.gravelworlds.com/routes",
+        "category": "route",
+        "label": "Gravel Worlds official 2026 routes — 151.7 miles, 10,100+ ft"
+      },
+      {
+        "url": "https://ridewithgps.com/routes/56480365",
+        "category": "route",
+        "label": "Official 2026 GW150 RideWithGPS route"
+      },
+      {
+        "url": "https://www.gravelworlds.com/pro-race",
+        "category": "other",
+        "label": "Gravel Worlds official pro-race purse and payout schedule"
+      },
+      {
+        "url": "https://www.cyclingnews.com/pro-cycling/racing/lauf-gravel-worlds-geerike-schreurs-beats-rosa-kloser-in-photo-finish-as-torbjorn-roed-wins-three-way-sprint-after-storms-cause-course-rejig/",
+        "category": "media",
+        "label": "Cyclingnews 2026 results and wet-course reroute report"
+      },
+      {
+        "url": "https://slowtwitch.com/gravel/photo-finish-geerike-schreurs-snatches-gravel-worlds-2026-win/",
+        "category": "media",
+        "label": "Slowtwitch 2026 women's results and wet-course corroboration"
+      },
+      {
+        "url": "https://slowtwitch.com/gravel/a-record-setting-day-at-gravel-worlds-sees-torbjorn-roed-sprint-to-the-win-ahead-of-keegan-swenson/",
+        "category": "media",
+        "label": "Slowtwitch 2026 men's results and wet-course corroboration"
+      },
+      {
         "url": "https://ridewithgps.com/routes/51659517",
         "category": "route",
-        "label": "RideWithGPS Route"
+        "label": "Prior-edition RideWithGPS route (historical)"
       },
       {
         "url": "https://careylowery.blogspot.com/2023/08/gravel-worlds-race-report.html",
@@ -312,6 +344,20 @@
     ],
     "results": {
       "years": {
+        "2026": {
+          "winner_male": "Torbjørn Røed",
+          "winner_female": "Geerike Schreurs",
+          "winning_time_male": "6:05:22",
+          "winning_time_female": "7:19:37",
+          "conditions": "Overnight storms forced organizers to use a 148-mile wet course instead of the planned 151.7-mile route, removing several boggy minimum-maintenance-road sections.",
+          "field_size_actual": null,
+          "dnf_rate_pct": null,
+          "key_takeaways": [
+            "Both elite winning times beat prior event records on the modified course, so they should not be compared without the 2026 reroute context.",
+            "The revised route retained one late MMR section while removing several planned technical sections.",
+            "The official $150,000 pro/elite prize pool was split evenly between women and men and paid through 10th place."
+          ]
+        },
         "2024": {
           "winning_time_male": "6:48:46",
           "winning_time_female": "6:48:46",
@@ -327,7 +373,7 @@
           ]
         }
       },
-      "latest_year": "2024"
+      "latest_year": "2026"
     },
     "tire_recommendations": {
       "generated_at": "2026-02-19",

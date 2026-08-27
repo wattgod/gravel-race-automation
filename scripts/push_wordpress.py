@@ -4252,7 +4252,7 @@ if __name__ == "__main__":
         args.purge_cache = True
 
     has_action = any([args.json, args.sync_index, args.sync_widget, args.sync_training,
-                      args.sync_guide, args.sync_guide_cluster, args.sync_bikepacking_guide,
+                      args.sync_guide, args.sync_guide_cluster,
                       args.sync_og, args.sync_tp, args.sync_homepage, args.sync_gravel_tv, args.sync_gravel_weekly, args.sync_about,
                       args.sync_coaching, args.sync_coaching_apply, args.sync_consulting,
                       args.sync_consult_intake,

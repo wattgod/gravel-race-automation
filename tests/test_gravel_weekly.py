@@ -225,6 +225,8 @@ def test_rendered_issue_preserves_site_infrastructure_and_honest_form():
     assert "textContent" in page
     assert "innerHTML" not in page
     assert "get_site_header_js" not in page
+    assert "</main>\n<script>\n// ── Hamburger mobile menu" in page
+    assert page.count("Hamburger mobile menu") == 1
     assert "/gravel-weekly/2026-08-28/" in page
     assert "rounded" not in page.lower()
 

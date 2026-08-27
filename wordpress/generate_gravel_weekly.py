@@ -353,7 +353,7 @@ def build_page(issue: dict[str, Any] | None, issues: list[dict[str, Any]], *, la
   <section class="gw-utility" id="past-issues"><h2>PAST ISSUES</h2>{render_archive(issues, issue_id)}</section>
   {subscribe_block()}
 </main>
-{get_site_header_js()}
+<script>{get_site_header_js()}</script>
 {get_consent_banner_html()}
 </body>
 </html>'''

@@ -1199,7 +1199,7 @@ def build_training_cta() -> str:
         <h2>Train for the course, not just the distance</h2>
         <p>Every generic plan treats gravel like a road race with dirt. This isn&rsquo;t that. Training plans matched to your target race&rsquo;s exact terrain, elevation profile, and typical conditions. Built around your schedule, your fitness, and your goal.</p>
         <p class="gg-hp-cta-price" data-ab="training_price">Custom-built for your target event &mdash; $15 a week.</p>
-      <a href="{esc(TRAINING_PLANS_URL)}" class="gg-hp-cta-btn" data-ga="cta_click" data-ga-label="training_plan">Get Your Plan &rarr;</a>
+      <a href="{esc(TRAINING_PLANS_URL)}" class="gg-hp-cta-btn" data-ab="training_cta_btn" data-ga="cta_click" data-ga-label="training_plan">Get Your Plan &rarr;</a>
       </div>
       <div class="gg-hp-cta-right" role="img" aria-label="Training plan preview"></div>
     </div>

@@ -23,6 +23,7 @@ IMPACT_KINDS = {
     "no_change", "verify_field", "propose_fact", "editorial_review",
     "new_race_candidate",
 }
+RETROSPECTIVE_VERDICTS = {"aged_well", "aged_poorly", "still_developing"}
 
 
 class IssueValidationError(ValueError):
@@ -118,6 +119,30 @@ def _impact(value: Any, name: str) -> dict[str, Any]:
     return item
 
 
+def _retrospective(value: Any, name: str, *, status: str) -> dict[str, Any]:
+    item = _record(value, name)
+    if item.get("verdict") not in RETROSPECTIVE_VERDICTS:
+        raise IssueValidationError(f"{name}.verdict is invalid")
+    _text(item.get("priorIssueId"), f"{name}.priorIssueId", 500)
+    _text(item.get("priorStoryId"), f"{name}.priorStoryId", 500)
+    _text(item.get("headline"), f"{name}.headline", 300)
+    _text(item.get("whatChanged"), f"{name}.whatChanged", 2_000)
+    assessment = _text(item.get("assessment"), f"{name}.assessment", 4_000)
+    provenance = item.get("assessmentProvenance")
+    if provenance not in {"model_draft", "human_approved"}:
+        raise IssueValidationError(f"{name}.assessmentProvenance is invalid")
+    if status != "draft" and provenance != "human_approved":
+        raise IssueValidationError(f"{name}.assessment requires human-approved provenance")
+    if status != "draft" and re.search(r"model draft|not matti(?:’|')s approved", assessment, re.IGNORECASE):
+        raise IssueValidationError(f"{name}.assessment still contains model-draft language")
+    receipts = _list(item.get("receipts"), f"{name}.receipts", 100)
+    if not receipts:
+        raise IssueValidationError(f"{name}.receipts must not be empty")
+    for index, receipt in enumerate(receipts):
+        _receipt(receipt, f"{name}.receipts[{index}]")
+    return item
+
+
 def canonical_issue_json(issue: dict[str, Any]) -> str:
     payload = dict(issue)
     payload.pop("contentHash", None)
@@ -196,6 +221,12 @@ def validate_issue(value: Any, *, verify_hash: bool = True) -> dict[str, Any]:
         _text(item, f"calendarWatch[{index}]", 500)
     for index, impact in enumerate(_list(issue.get("raceImpacts"), "raceImpacts")):
         _impact(impact, f"raceImpacts[{index}]")
+    retrospective_refs: list[tuple[str, str]] = []
+    for index, retrospective in enumerate(_list(issue.get("retrospectives"), "retrospectives", 30)):
+        item = _retrospective(retrospective, f"retrospectives[{index}]", status=status)
+        retrospective_refs.append((item["priorIssueId"], item["priorStoryId"]))
+    if len(retrospective_refs) != len(set(retrospective_refs)):
+        raise IssueValidationError("retrospectives must not revisit the same prior story twice")
     for index, correction_value in enumerate(_list(issue.get("corrections"), "corrections", 100)):
         correction = _record(correction_value, f"corrections[{index}]")
         _iso(correction.get("publishedAt"), f"corrections[{index}].publishedAt")
@@ -240,6 +271,17 @@ def load_issues(issue_dir: Path = ISSUE_DIR) -> list[dict[str, Any]]:
         raise IssueValidationError("issue numbers must be unique")
     if len(dates) != len(set(dates)):
         raise IssueValidationError("publication dates must be unique")
+    by_id = {issue["issueId"]: issue for issue in issues}
+    for issue in issues:
+        for index, retrospective in enumerate(issue["retrospectives"]):
+            prior = by_id.get(retrospective["priorIssueId"])
+            name = f"{issue['issueId']}.retrospectives[{index}]"
+            if prior is None:
+                raise IssueValidationError(f"{name}.priorIssueId must reference an archived issue")
+            if prior["publicationDate"] >= issue["publicationDate"]:
+                raise IssueValidationError(f"{name} must reference an earlier issue")
+            if not any(story["candidateId"] == retrospective["priorStoryId"] for story in prior["stories"]):
+                raise IssueValidationError(f"{name}.priorStoryId must reference a story in the prior issue")
     return sorted(issues, key=lambda issue: issue["publicationDate"], reverse=True)
 
 

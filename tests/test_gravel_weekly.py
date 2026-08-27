@@ -1,6 +1,7 @@
 """Contract and infrastructure tests for Gravel Weekly."""
 
 import copy
+import json
 import sys
 from pathlib import Path
 
@@ -14,6 +15,7 @@ from generate_gravel_weekly import build_page  # noqa: E402
 from validate_gravel_weekly import (  # noqa: E402
     IssueValidationError,
     compute_content_hash,
+    load_issues,
     validate_issue,
 )
 from send_gravel_weekly import SUBSCRIBER_SOURCES, build_email_html  # noqa: E402
@@ -65,6 +67,7 @@ def sample_issue():
         }],
         "calendarWatch": ["Registration closes Friday."],
         "raceImpacts": [impact],
+        "retrospectives": [],
         "corrections": [],
         "sourceIndex": ["https://www.cyclingnews.com/example/"],
         "editorialApproval": {"approver": "Matti Rowe", "approvedAt": "2026-08-28T16:00:00Z"},
@@ -229,6 +232,71 @@ def test_rendered_issue_preserves_site_infrastructure_and_honest_form():
     assert page.count("Hamburger mobile menu") == 1
     assert "/gravel-weekly/2026-08-28/" in page
     assert "rounded" not in page.lower()
+
+
+def test_retrospective_requires_receipts_and_human_approval_then_renders_memory_timeline(tmp_path):
+    prior = sample_issue()
+    current = copy.deepcopy(prior)
+    current.update({
+        "issueId": "gravel-weekly-002",
+        "issueNumber": 2,
+        "publicationDate": "2026-09-04",
+        "slug": "2026-09-04",
+        "title": "Gravel Weekly — September 4, 2026",
+        "publishedAt": "2026-09-04T16:05:00Z",
+        "updatedAt": "2026-09-04T16:05:00Z",
+        "retrospectives": [{
+            "verdict": "aged_poorly",
+            "priorIssueId": prior["issueId"],
+            "priorStoryId": "story_1",
+            "headline": "The tidy explanation did not survive the next week",
+            "whatChanged": "The organizer published a second revision that contradicted the original rationale.",
+            "assessment": "We treated a moving target like a settled argument. That was too confident.",
+            "assessmentProvenance": "human_approved",
+            "receipts": [prior["stories"][0]["receipts"][0]],
+        }],
+    })
+    current["contentHash"] = compute_content_hash(current)
+    prior_path = tmp_path / "2026-08-28.json"
+    current_path = tmp_path / "2026-09-04.json"
+    prior_path.write_text(json.dumps(prior))
+    current_path.write_text(json.dumps(current))
+
+    issues = load_issues(tmp_path)
+    page = build_page(current, issues, latest=True)
+    assert "THE RECEIPTS ON US" in page
+    assert "THIS AGED POORLY" in page
+    assert "/gravel-weekly/2026-08-28/#story_1" in page
+    assert "We treated a moving target" in page
+    assert "THE TAKE:" in page
+
+    model_assessment = copy.deepcopy(current)
+    model_assessment["retrospectives"][0]["assessmentProvenance"] = "model_draft"
+    with pytest.raises(IssueValidationError, match="human-approved provenance"):
+        validate_issue(model_assessment, verify_hash=False)
+
+    missing_receipts = copy.deepcopy(current)
+    missing_receipts["retrospectives"][0]["receipts"] = []
+    with pytest.raises(IssueValidationError, match="receipts"):
+        validate_issue(missing_receipts, verify_hash=False)
+
+
+def test_retrospective_must_reference_an_earlier_archived_story(tmp_path):
+    issue = sample_issue()
+    issue["retrospectives"] = [{
+        "verdict": "still_developing",
+        "priorIssueId": "missing-issue",
+        "priorStoryId": "story_1",
+        "headline": "The prediction is still moving",
+        "whatChanged": "New evidence arrived without resolving the original question.",
+        "assessment": "Keep the take open until the organizer publishes the final course.",
+        "assessmentProvenance": "human_approved",
+        "receipts": [issue["stories"][0]["receipts"][0]],
+    }]
+    issue["contentHash"] = compute_content_hash(issue)
+    (tmp_path / "2026-08-28.json").write_text(json.dumps(issue))
+    with pytest.raises(IssueValidationError, match="archived issue"):
+        load_issues(tmp_path)
 
 
 def test_worker_accepts_new_and_legacy_publication_sources():

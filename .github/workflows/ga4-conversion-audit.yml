@@ -1,0 +1,80 @@
+name: GA4 Conversion Authority Audit
+
+on:
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: "Audit only, or remove cta_click from GA4 key events"
+        required: true
+        default: audit
+        type: choice
+        options:
+          - audit
+          - demote_cta_click
+      start_date:
+        description: "Report start date (YYYY-MM-DD)"
+        required: true
+        default: "2026-07-30"
+      end_date:
+        description: "Report end date (YYYY-MM-DD)"
+        required: true
+        default: "2026-08-26"
+
+permissions:
+  contents: read
+
+jobs:
+  audit:
+    name: Audit live GA4 conversion authority
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+      - name: Install GA4 client dependencies
+        run: pip install --quiet google-auth requests
+      - name: Validate and write service-account credentials
+        env:
+          GA4_CREDENTIALS_JSON: ${{ secrets.GA4_CREDENTIALS_JSON }}
+        run: |
+          python3 - <<'PY'
+          import json, os, pathlib
+          raw = os.environ.get("GA4_CREDENTIALS_JSON", "")
+          if not raw:
+              raise SystemExit("GA4_CREDENTIALS_JSON is not configured")
+          parsed = json.loads(raw)
+          required = {"client_email", "private_key", "token_uri"}
+          if not required.issubset(parsed):
+              raise SystemExit("GA4_CREDENTIALS_JSON has an invalid shape")
+          path = pathlib.Path(os.environ["RUNNER_TEMP"]) / "ga4-credentials.json"
+          path.write_text(json.dumps(parsed))
+          path.chmod(0o600)
+          PY
+      - name: Audit conversion authority
+        env:
+          GA4_PROPERTY_ID: ${{ secrets.GG_GA4_PROPERTY_ID }}
+          MODE: ${{ inputs.mode }}
+          START_DATE: ${{ inputs.start_date }}
+          END_DATE: ${{ inputs.end_date }}
+        run: |
+          if [ -z "$GA4_PROPERTY_ID" ]; then
+            echo "::error::GG_GA4_PROPERTY_ID is not configured"
+            exit 1
+          fi
+          python3 scripts/ga4_conversion_audit.py \
+            --property "$GA4_PROPERTY_ID" \
+            --credentials "${RUNNER_TEMP}/ga4-credentials.json" \
+            --start-date "$START_DATE" \
+            --end-date "$END_DATE" \
+            --mode "$MODE" \
+            --output "${RUNNER_TEMP}/ga4-conversion-audit.json"
+      - name: Upload audit receipt
+        uses: actions/upload-artifact@v4
+        with:
+          name: ga4-conversion-audit-${{ github.run_id }}
+          path: ${{ runner.temp }}/ga4-conversion-audit.json
+          if-no-files-found: error
+          retention-days: 30

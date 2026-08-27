@@ -1344,7 +1344,7 @@
                 [
                   "CTL",
                   "Chronic Training Load (42-day average TSS) — your fitness",
-                  "Higher CTL = more fitness. Builds slowly (+3-5 pts/week)"
+                  "Higher CTL = more fitness. Builds slowly (up to +5-8 pts/week inside a loading block, netting about +10/month once recovery weeks are counted)"
                 ],
                 [
                   "ATL",
@@ -1381,7 +1381,7 @@
               "steps": [
                 {
                   "label": "Base (Weeks 1-4)",
-                  "content": "Establish aerobic foundation. 70-85% volume in Z1-{{Z2}}. {{CTL}} rising steadily (+3-5/wk). {{TSB}} slightly negative (-5 to -15). Week 4 = recovery week (60% volume). Feels boring but doable—you should finish most rides feeling like you could do more."
+                  "content": "Establish aerobic foundation. 70-85% volume in Z1-{{Z2}}. {{CTL}} rising steadily (+5-8/wk in loading weeks, netting about +10/month after recovery weeks). {{TSB}} slightly negative (-5 to -15). Week 4 = recovery week (60% volume). Feels boring but doable—you should finish most rides feeling like you could do more."
                 },
                 {
                   "label": "Build (Weeks 5-10)",
@@ -2851,7 +2851,7 @@
           "blocks": [
             {
               "type": "prose",
-              "content": "You've trained for 11 weeks. You're fit. Your {{CTL}} is peaked. Your {{TSB}} is climbing toward positive freshness.\n\nThis is not the time to experiment, panic, or make decisions based on anxiety.\n\nRace week is about execution, not improvement. You can't get fitter in seven days. You can only show up fresh and ready, or you can sabotage yourself with bad choices."
+              "content": "You've trained for 11 weeks. You're fit. Your fitness is banked -- {{CTL}} did its climbing weeks ago, and the taper is converting it into form. Your {{TSB}} is climbing toward positive freshness.\n\nThis is not the time to experiment, panic, or make decisions based on anxiety.\n\nRace week is about execution, not improvement. You can't get fitter in seven days. You can only show up fresh and ready, or you can sabotage yourself with bad choices."
             },
             {
               "type": "callout",
@@ -2927,7 +2927,7 @@
                   "content": "7-day taper: reduce volume by 40% but keep one short, sharp effort (10 minutes at race pace) 3 days out. This keeps your legs responsive without adding fatigue. Rest day before race day."
                 },
                 "competitor": {
-                  "content": "10-day taper: drop volume 50%, maintain intensity in two short opener sessions (5 days and 2 days out). Each opener: 3x5 minutes at threshold with full recovery. Keep your routine otherwise normal."
+                  "content": "10-day taper: drop volume 50%, maintain intensity in two short opener sessions (5 days and 2 days out). Each opener: 3-4x30 seconds hard (well above race pace) with full recovery, plus a few minutes of race-pace touches and some high-cadence spin-ups. Short bursts wake the legs without digging a hole -- no long threshold blocks inside race week. Keep your routine otherwise normal."
                 },
                 "podium": {
                   "content": "12-14 day structured taper: gradual volume reduction (40% week 1, 60% week 2) with strategic openers. Include one race-simulation effort 5 days out (20 min at race pace on similar terrain). Two full rest days before race day."

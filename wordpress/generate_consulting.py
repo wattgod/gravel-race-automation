@@ -802,6 +802,49 @@ def build_consulting_js() -> str:
   /* Page view */
   if(typeof gtag==='function'){{gtag('event','consulting_page_view')}}
 
+  /* Consent-aware GA4 identity handoff for the verified webhook purchase. */
+  var GA_ATTRIBUTION_TIMEOUT_MS=500;
+  function analyticsConsentGranted(){{
+    if(/(^|; )gg_consent=declined/.test(document.cookie))return false;
+    if(/(^|; )gg_consent=accepted/.test(document.cookie))return true;
+    return window.ggConsentRequiresOptIn===false;
+  }}
+  function findGaMeasurementId(){{
+    var scripts=document.querySelectorAll('script[src*="googletagmanager.com/gtag/js"]');
+    for(var i=0;i<scripts.length;i++){{
+      try{{
+        var id=new URL(scripts[i].src,window.location.href).searchParams.get('id')||'';
+        if(/^G-[A-Z0-9]+$/i.test(id))return id;
+      }}catch(error){{}}
+    }}
+    return '';
+  }}
+  function readGtagValue(measurementId,field){{
+    return new Promise(function(resolve){{
+      var settled=false;
+      var timer=setTimeout(function(){{if(!settled){{settled=true;resolve('')}}}},GA_ATTRIBUTION_TIMEOUT_MS);
+      try{{
+        gtag('get',measurementId,field,function(value){{
+          if(settled)return;settled=true;clearTimeout(timer);resolve(String(value||''));
+        }});
+      }}catch(error){{clearTimeout(timer);settled=true;resolve('')}}
+    }});
+  }}
+  function getGa4Attribution(){{
+    if(!analyticsConsentGranted()||typeof gtag!=='function')return Promise.resolve({{analytics_consent:'denied'}});
+    var measurementId=findGaMeasurementId();
+    if(!measurementId)return Promise.resolve({{analytics_consent:'granted'}});
+    return Promise.all([
+      readGtagValue(measurementId,'client_id'),
+      readGtagValue(measurementId,'session_id')
+    ]).then(function(values){{
+      var attribution={{analytics_consent:'granted'}};
+      if(/^\\d+\\.\\d+$/.test(values[0]))attribution.ga4_client_id=values[0];
+      if(/^\\d+$/.test(values[1]))attribution.ga4_session_id=values[1];
+      return attribution;
+    }});
+  }}
+
   /* ── Checkout form ── */
   var CHECKOUT_API='https://athlete-custom-training-plan-pipeline-production.up.railway.app/api/create-consulting-checkout';
   var CHECKOUT_PRICE={CONSULTING_PRICE_INT};
@@ -835,7 +878,7 @@ def build_consulting_js() -> str:
         showCheckoutError('Please fill in your name and email.');
         return;
       }}
-      if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailVal)){{
+      if(!/^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/.test(emailVal)){{
         showCheckoutError('Please enter a valid email address.');
         return;
       }}
@@ -846,10 +889,16 @@ def build_consulting_js() -> str:
 
       if(typeof gtag==='function'){{gtag('event','begin_checkout',{{currency:'USD',value:planAddon?CHECKOUT_PRICE+{ADDON_PRICE_INT}:CHECKOUT_PRICE,items:[{{item_name:'Consulting Session'}}],plan_addon:planAddon}})}}
 
-      fetch(CHECKOUT_API,{{
-        method:'POST',
-        headers:{{'Content-Type':'application/json'}},
-        body:JSON.stringify({{name:nameVal,email:emailVal,hours:1,plan_addon:planAddon}})
+      var checkoutPayload={{name:nameVal,email:emailVal,hours:1,plan_addon:planAddon}};
+      getGa4Attribution().then(function(attribution){{
+        checkoutPayload.analytics_consent=attribution.analytics_consent||'denied';
+        if(attribution.ga4_client_id)checkoutPayload.ga4_client_id=attribution.ga4_client_id;
+        if(attribution.ga4_session_id)checkoutPayload.ga4_session_id=attribution.ga4_session_id;
+        return fetch(CHECKOUT_API,{{
+          method:'POST',
+          headers:{{'Content-Type':'application/json'}},
+          body:JSON.stringify(checkoutPayload)
+        }});
       }})
       .then(function(r){{
         if(!r.ok)throw new Error('Server error ('+r.status+'). Please try again.');

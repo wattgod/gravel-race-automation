@@ -8,6 +8,7 @@
   var BRAND_CFG = window.__TP_FORM_CONFIG || {};
   var RACE_PLACEHOLDER = BRAND_CFG.racePlaceholder || 'e.g., Unbound 200';
   var FORM_SOURCE = BRAND_CFG.source || 'gravelgodcycling.com/training-plans/questionnaire';
+  var GA_ATTRIBUTION_TIMEOUT_MS = 500;
 
   var API_BASE = 'https://athlete-custom-training-plan-pipeline-production.up.railway.app/api';
   var API_URL = API_BASE + '/create-checkout';
@@ -71,6 +72,73 @@
       if (params) { for (var k in params) obj[k] = params[k]; }
       window.dataLayer.push(obj);
     }
+  }
+
+  function analyticsConsentGranted() {
+    if (/(^|; )gg_consent=declined/.test(document.cookie)) return false;
+    if (/(^|; )gg_consent=accepted/.test(document.cookie)) return true;
+    return window.ggConsentRequiresOptIn === false;
+  }
+
+  function findGaMeasurementId() {
+    var configured = BRAND_CFG.gaMeasurementId || '';
+    if (/^G-[A-Z0-9]+$/i.test(configured)) return configured;
+
+    var scripts = document.querySelectorAll(
+      'script[src*="googletagmanager.com/gtag/js"]'
+    );
+    for (var i = 0; i < scripts.length; i++) {
+      try {
+        var id = new URL(scripts[i].src, window.location.href).searchParams.get('id') || '';
+        if (/^G-[A-Z0-9]+$/i.test(id)) return id;
+      } catch (error) {
+        // A malformed unrelated script URL must never block checkout.
+      }
+    }
+    return '';
+  }
+
+  function readGtagValue(measurementId, field) {
+    return new Promise(function(resolve) {
+      var settled = false;
+      var timer = setTimeout(function() {
+        if (!settled) {
+          settled = true;
+          resolve('');
+        }
+      }, GA_ATTRIBUTION_TIMEOUT_MS);
+
+      try {
+        gtag('get', measurementId, field, function(value) {
+          if (settled) return;
+          settled = true;
+          clearTimeout(timer);
+          resolve(String(value || ''));
+        });
+      } catch (error) {
+        clearTimeout(timer);
+        settled = true;
+        resolve('');
+      }
+    });
+  }
+
+  function getGa4Attribution() {
+    if (!analyticsConsentGranted() || typeof gtag !== 'function') {
+      return Promise.resolve({});
+    }
+    var measurementId = findGaMeasurementId();
+    if (!measurementId) return Promise.resolve({});
+
+    return Promise.all([
+      readGtagValue(measurementId, 'client_id'),
+      readGtagValue(measurementId, 'session_id')
+    ]).then(function(values) {
+      var attribution = { analytics_consent: 'granted' };
+      if (/^\d+\.\d+$/.test(values[0])) attribution.ga4_client_id = values[0];
+      if (/^\d+$/.test(values[1])) attribution.ga4_session_id = values[1];
+      return attribution;
+    });
   }
 
   track('tp_page_view', { page: 'questionnaire' });
@@ -555,6 +623,7 @@
       value: checkoutPricing ? checkoutPricing.price : 0,
       items: [{ item_name: 'Custom Training Plan', item_category: 'training_plan', price: checkoutPricing ? checkoutPricing.price : 0 }]
     });
+    var ga4AttributionPromise = getGa4Attribution();
 
     // Build data object with camelCase field names
     var formData = new FormData(form);
@@ -581,6 +650,14 @@
 
     // Map to worker format (camelCase → snake_case)
     var workerData = mapToWorkerFormat(data);
+    var ga4Attribution = await ga4AttributionPromise;
+    workerData.analytics_consent = ga4Attribution.analytics_consent || 'denied';
+    if (ga4Attribution.ga4_client_id) {
+      workerData.ga4_client_id = ga4Attribution.ga4_client_id;
+    }
+    if (ga4Attribution.ga4_session_id) {
+      workerData.ga4_session_id = ga4Attribution.ga4_session_id;
+    }
 
     try {
       var response = await fetch(API_URL, {

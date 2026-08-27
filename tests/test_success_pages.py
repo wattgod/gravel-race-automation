@@ -93,8 +93,13 @@ class TestSEO:
 
 
 class TestGA4Tracking:
-    def test_purchase_event(self, success_js):
-        assert "purchase" in success_js
+    def test_success_page_never_claims_a_purchase(self, success_js):
+        """Only the verified Stripe webhook may emit GA4 purchase."""
+        assert "gtag('event', 'purchase'" not in success_js
+        assert 'gg_converted_' not in success_js
+
+    def test_success_page_view_event(self, success_js):
+        assert "gtag('event', 'success_page_view'" in success_js
 
     def test_session_id_extraction(self, success_js):
         assert "session_id" in success_js
@@ -102,10 +107,6 @@ class TestGA4Tracking:
     def test_crosssell_click_tracking(self, success_js):
         assert "'cta_click'" in success_js
         assert "source: 'coaching'" in success_js
-
-    def test_conversion_dedup(self, success_js):
-        assert "gg_converted_" in success_js
-        assert "sessionStorage" in success_js
 
     @pytest.mark.parametrize("key", list(PAGES.keys()))
     def test_page_has_product_type_attr(self, all_pages, key):
@@ -348,7 +349,8 @@ class TestSharedStructure:
     @pytest.mark.parametrize("key", list(PAGES.keys()))
     def test_has_success_js(self, all_pages, key):
         assert "session_id" in all_pages[key]
-        assert "purchase" in all_pages[key]
+        assert "success_page_view" in all_pages[key]
+        assert "gtag('event', 'purchase'" not in all_pages[key]
 
 
 # ── PAGES Config ─────────────────────────────────────────────

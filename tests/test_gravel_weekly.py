@@ -671,8 +671,8 @@ def test_2021_backfill_ledger_starts_from_the_complete_source_census():
     assert len(validated["weeks"]) == 53
     assert sum(week["sourceCardCount"] for week in validated["weeks"]) == 130
     assert sum(week["disposition"] == "explicit_gap" for week in validated["weeks"]) == 11
-    assert sum(week["disposition"] == "covered_by_draft" for week in validated["weeks"]) == 2
-    assert sum(week["disposition"] == "pending_review" for week in validated["weeks"]) == 40
+    assert sum(week["disposition"] == "covered_by_draft" for week in validated["weeks"]) == 4
+    assert sum(week["disposition"] == "pending_review" for week in validated["weeks"]) == 38
     assert validated["complete"] is False
 
 

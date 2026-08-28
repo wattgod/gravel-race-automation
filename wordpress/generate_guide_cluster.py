@@ -332,7 +332,7 @@ def build_chapter_hero(chapter: dict) -> str:
       {plate}
       <div class="gg-guide-chapter-title-block">
         <span class="gg-guide-chapter-num">CHAPTER {num:02d}</span>
-        <h2 class="gg-guide-chapter-title">{title}</h2>
+        <h1 class="gg-guide-chapter-title">{title}</h1>
         {subtitle_html}
       </div>
     </div>'''

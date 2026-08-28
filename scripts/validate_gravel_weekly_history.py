@@ -162,6 +162,11 @@ def load_history_entries(history_dir: Path = HISTORY_DIR) -> list[dict[str, Any]
     return sorted(entries, key=lambda entry: (entry["activeThrough"], entry["activeFrom"]), reverse=True)
 
 
+def load_public_history_entries(history_dir: Path = HISTORY_DIR) -> list[dict[str, Any]]:
+    """Load only history entries that have cleared the editorial publication boundary."""
+    return [entry for entry in load_history_entries(history_dir) if entry["status"] in {"approved", "published"}]
+
+
 def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("paths", nargs="*", type=Path)

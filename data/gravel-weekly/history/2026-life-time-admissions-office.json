@@ -1,0 +1,108 @@
+{
+  "schemaVersion": "gravel-weekly-history-entry/v1",
+  "entryId": "history-life-time-admissions-office-2026",
+  "activeFrom": "2026-03-19",
+  "activeThrough": "2026-08-12",
+  "status": "draft",
+  "headline": "Gravel Built a Governing Body by Accident",
+  "point": "Once one private series decides who receives roster access, compensation, pregnancy protection, development support, visibility, and a path into the following season, it is no longer merely awarding points; it is governing careers.",
+  "priorJudgment": "The Life Time Grand Prix was a valuable invitation-only race series layered over a broader gravel calendar.",
+  "changedJudgment": "By 2026, its selection and continuity policies had consequences that increasingly resembled those of a career institution, even though Life Time remained a private event company rather than a federation or employer.",
+  "stakes": "A roster decision can determine whether a privateer receives entries, compensation eligibility, sponsor visibility, a development pathway, pregnancy continuity, and a coherent season in the most commercially important domestic off-road series.",
+  "credibleOpposition": "Life Time is a private promoter funding opportunities rather than monopolizing the sport; athletes remain free to race elsewhere, performance pathways became clearer in 2026, and institutional responsibility should not be inferred merely because one series became desirable.",
+  "whatHappened": "Life Time described the 2026 Grand Prix as the professional home of off-road racing, selected a fixed elite roster, added conditional finisher compensation and pregnancy protection, expanded and funded its U23 pathway, made midseason wildcard replacements, and announced a new performance qualifier that would determine most remaining 2027 roster positions.",
+  "take": "Model draft, not Matti's approved view: Gravel hates governing bodies so much it accidentally built one out of race entries. Life Time now decides who gets access, protection, money, visibility, and a path back. Much of this is good: pregnancy protection is overdue, U23 support matters, and a performance qualifier beats a velvet-rope mystery. But good power is still power. When a single series can rescue or derail a privateer's year with one roster decision, it deserves scrutiny closer to a federation than applause for merely putting on six very good bike races.",
+  "takeProvenance": "model_draft",
+  "uncertainty": "The available record does not establish that Life Time is an employer or governing federation, does not fully explain the discretion used in initial 2026 selections, and predates the promised detailed 2027 qualifier scoring, tie-break, and eligibility rules. Source pages supply day-level publication dates normalized here to midnight UTC.",
+  "editorialScore": 89,
+  "editorialGates": {
+    "party": "pass",
+    "point": "pass",
+    "friend": "pass",
+    "craft": "pass",
+    "hostileEditor": "hold"
+  },
+  "contemporaryReceipts": [
+    {
+      "claimId": "claim_ltgp_professional_home_2026",
+      "canonicalUrl": "https://www.lifetimegrandprix.com/2026/03/19/new-for-2026/",
+      "publisher": "Life Time Grand Prix",
+      "publishedAt": "2026-03-19T00:00:00Z",
+      "quoteExcerpt": "Entering Year 5, the Life Time Grand Prix continues its evolution as the professional home for off-road racing.",
+      "transcriptStartSeconds": null,
+      "transcriptEndSeconds": null
+    },
+    {
+      "claimId": "claim_ltgp_selection_consequences_2025",
+      "canonicalUrl": "https://www.cyclingnews.com/news/from-homecoming-happiness-to-shoe-kick-in-the-kidneys-riders-react-to-life-time-grand-prix-selections-for-2026-off-road-series/",
+      "publisher": "Cyclingnews",
+      "publishedAt": "2025-11-12T00:00:00Z",
+      "quoteExcerpt": "There were still six spots to be earned by wildcard selections after Unbound Gravel 200.",
+      "transcriptStartSeconds": null,
+      "transcriptEndSeconds": null
+    },
+    {
+      "claimId": "claim_ltgp_pregnancy_protection_2026",
+      "canonicalUrl": "https://www.lifetimegrandprix.com/2026/04/02/the-countdown-is-on-to-the-first-round-of-the-2026-life-time-grand-prix/",
+      "publisher": "Life Time Grand Prix",
+      "publishedAt": "2026-04-02T00:00:00Z",
+      "quoteExcerpt": "The policy allows selected athletes to withdraw from the series without penalty and guarantees them a protected roster spot for the following season.",
+      "transcriptStartSeconds": null,
+      "transcriptEndSeconds": null
+    },
+    {
+      "claimId": "claim_ltgp_u23_pathway_2026",
+      "canonicalUrl": "https://www.lifetimegrandprix.com/2026/06/11/life-time-expands-u23-program-increasing-athlete-roster-and-introducing-race-entry-support/",
+      "publisher": "Life Time Grand Prix",
+      "publishedAt": "2026-06-11T00:00:00Z",
+      "quoteExcerpt": "By both expanding the size of the U23 roster and covering race entry fees, Life Time is addressing two of the most significant barriers.",
+      "transcriptStartSeconds": null,
+      "transcriptEndSeconds": null
+    },
+    {
+      "claimId": "claim_ltgp_midseason_replacement_2026",
+      "canonicalUrl": "https://www.lifetimegrandprix.com/2026/07/01/roster-update-two-new-wild-cards/",
+      "publisher": "Life Time Grand Prix",
+      "publishedAt": "2026-07-01T00:00:00Z",
+      "quoteExcerpt": "Following the withdrawal of two male athletes, two new Wild Cards have been added to the field.",
+      "transcriptStartSeconds": null,
+      "transcriptEndSeconds": null
+    },
+    {
+      "claimId": "claim_ltgp_2027_qualifier_2026",
+      "canonicalUrl": "https://www.lifetimegrandprix.com/2026/08/12/life-time-announces-2027-life-time-grand-prix-structure/",
+      "publisher": "Life Time Grand Prix",
+      "publishedAt": "2026-08-12T00:00:00Z",
+      "quoteExcerpt": "Beginning in 2027, entry into the 25-woman and 25-man Life Time Grand Prix fields will be determined primarily through performance.",
+      "transcriptStartSeconds": null,
+      "transcriptEndSeconds": null
+    }
+  ],
+  "laterEvidence": [],
+  "raceImpacts": [
+    {
+      "impactKind": "no_change",
+      "raceId": "gravel:unbound-gravel-200",
+      "fieldPath": null,
+      "claimIds": [],
+      "confidence": 0.95,
+      "owner": "Gravel God historical editorial review",
+      "autoFixAllowed": false
+    },
+    {
+      "impactKind": "no_change",
+      "raceId": "gravel:rad-dirt-fest",
+      "fieldPath": null,
+      "claimIds": [],
+      "confidence": 0.9,
+      "owner": "Gravel God historical editorial review",
+      "autoFixAllowed": false
+    }
+  ],
+  "humanApprovalRequired": true,
+  "autoPublishAllowed": false,
+  "editorialApproval": null,
+  "publishedAt": null,
+  "updatedAt": "2026-08-28T02:18:00Z",
+  "contentHash": "a8603990e375f2dd917e082e3f33a71beea9638a7e12c2762f64ac0d3528da5c"
+}

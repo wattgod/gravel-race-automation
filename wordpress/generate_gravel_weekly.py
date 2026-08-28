@@ -19,7 +19,7 @@ from brand_tokens import get_font_face_css, get_ga4_head_snippet, get_tokens_css
 from cookie_consent import get_consent_banner_html  # noqa: E402
 from shared_header import get_site_header_css, get_site_header_html, get_site_header_js  # noqa: E402
 from validate_gravel_weekly import load_issues, validate_issue  # noqa: E402
-from validate_gravel_weekly_history import HISTORY_DIR, load_history_entries  # noqa: E402
+from validate_gravel_weekly_history import HISTORY_DIR, load_public_history_entries  # noqa: E402
 
 ISSUE_DIR = PROJECT_ROOT / "data" / "gravel-weekly" / "issues"
 OUTPUT = PROJECT_ROOT / "wordpress" / "output" / "gravel-weekly.html"
@@ -488,8 +488,7 @@ def main() -> int:
         print(f"Generated draft-only preview: {args.preview_output}")
         return 0
     all_issues = load_issues(ISSUE_DIR)
-    all_history_entries = load_history_entries(HISTORY_DIR)
-    public_history_entries = [entry for entry in all_history_entries if entry["status"] in {"approved", "published"}]
+    public_history_entries = load_public_history_entries(HISTORY_DIR)
     public_issues = [issue for issue in all_issues if issue["status"] in {"approved", "published"}]
     latest_issue = public_issues[0] if public_issues else None
     OUTPUT.parent.mkdir(parents=True, exist_ok=True)

@@ -16,6 +16,7 @@ PROJECT_ROOT = Path(__file__).resolve().parent.parent
 BACKFILL_DIR = PROJECT_ROOT / "data" / "gravel-weekly" / "backfill"
 DISPOSITIONS = {
     "explicit_gap",
+    "unresearched",
     "pending_review",
     "covered_by_draft",
     "held_for_evidence",
@@ -49,6 +50,9 @@ def validate_backfill_ledger(value: Any, history_entries: list[dict[str, Any]]) 
         raise IssueValidationError("sourceCardCount is invalid")
     if ledger.get("humanApprovalRequired") is not True or ledger.get("autoPublishAllowed") is not False:
         raise IssueValidationError("backfill publication safety flags are invalid")
+    source_archive_coverage = ledger.get("sourceArchiveCoverage")
+    if source_archive_coverage is not None and source_archive_coverage not in {"complete", "partial", "unavailable"}:
+        raise IssueValidationError("sourceArchiveCoverage is invalid")
 
     histories = {entry["entryId"]: entry for entry in history_entries}
     weeks = _list(ledger.get("weeks"), "weeks", 54)
@@ -56,7 +60,7 @@ def validate_backfill_ledger(value: Any, history_entries: list[dict[str, Any]]) 
         raise IssueValidationError("backfill ledger requires weekly accounting")
     previous_end: datetime | None = None
     counted_sources = 0
-    pending = 0
+    unresolved = 0
     for index, week_value in enumerate(weeks):
         name = f"weeks[{index}]"
         week = _record(week_value, name)
@@ -89,6 +93,8 @@ def validate_backfill_ledger(value: Any, history_entries: list[dict[str, Any]]) 
         reason = _text(week.get("reason"), f"{name}.reason", 1_000)
         if disposition == "explicit_gap" and (count != 0 or entry_ids):
             raise IssueValidationError("explicit gaps require zero source cards and no entries")
+        if disposition == "unresearched" and (count != 0 or entry_ids):
+            raise IssueValidationError("unresearched windows require zero source cards and no entries")
         if disposition == "pending_review" and (count == 0 or entry_ids):
             raise IssueValidationError("pending windows require source cards and no linked entries")
         if disposition in {"covered_by_draft", "approved"} and not entry_ids:
@@ -97,15 +103,15 @@ def validate_backfill_ledger(value: Any, history_entries: list[dict[str, Any]]) 
             raise IssueValidationError("covered_by_draft windows must link only draft entries")
         if disposition == "approved" and any(histories[entry_id]["status"] not in {"approved", "published"} for entry_id in entry_ids):
             raise IssueValidationError("approved windows require approved or published entries")
-        if disposition == "pending_review":
-            pending += 1
+        if disposition in {"pending_review", "unresearched"}:
+            unresolved += 1
         if not reason:
             raise IssueValidationError(f"{name}.reason is required")
     if counted_sources != source_total:
         raise IssueValidationError(f"weekly source-card sum {counted_sources} does not match {source_total}")
     complete = ledger.get("complete")
-    if not isinstance(complete, bool) or complete != (pending == 0):
-        raise IssueValidationError("complete must be true exactly when no weekly window remains pending")
+    if not isinstance(complete, bool) or complete != (unresolved == 0):
+        raise IssueValidationError("complete must be true exactly when no weekly window remains pending or unresearched")
     _iso(ledger.get("updatedAt"), "updatedAt")
     return ledger
 

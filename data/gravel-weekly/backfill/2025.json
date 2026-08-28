@@ -78,9 +78,11 @@
       "periodStartedAt": "2025-02-22",
       "periodEndedAt": "2025-02-28",
       "sourceCardCount": 3,
-      "disposition": "pending_review",
-      "entryIds": [],
-      "reason": "Source census complete; assigning-desk research and disposition remain pending."
+      "disposition": "covered_by_draft",
+      "entryIds": [
+        "history-worlds-host-rescue-2025"
+      ],
+      "reason": "Nice's withdrawal eight months before race day opened the host-collapse arc and made the championship's organizer, venue, and date unsettled."
     },
     {
       "periodStartedAt": "2025-03-01",
@@ -114,9 +116,11 @@
       "periodStartedAt": "2025-03-22",
       "periodEndedAt": "2025-03-28",
       "sourceCardCount": 4,
-      "disposition": "pending_review",
-      "entryIds": [],
-      "reason": "Source census complete; assigning-desk research and disposition remain pending."
+      "disposition": "covered_by_draft",
+      "entryIds": [
+        "history-worlds-host-rescue-2025"
+      ],
+      "reason": "Carinthia's public bid and the leaked Limburg account exposed the compressed replacement contest one month after Nice withdrew."
     },
     {
       "periodStartedAt": "2025-03-29",
@@ -134,9 +138,10 @@
       "sourceCardCount": 8,
       "disposition": "covered_by_draft",
       "entryIds": [
-        "history-life-time-cross-category-drafting-2025"
+        "history-life-time-cross-category-drafting-2025",
+        "history-worlds-host-rescue-2025"
       ],
-      "reason": "Sea Otter's separate-day soft launch exposed the central tradeoff: geometry could prevent the interference more reliably than policing it after the fields mixed."
+      "reason": "Sea Otter exposed the drafting-rule tradeoff, while the April 11 Limburg award completed the Worlds rescue and revealed Golazo as the championship's portable institutional core."
     },
     {
       "periodStartedAt": "2025-04-12",

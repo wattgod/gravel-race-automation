@@ -322,9 +322,11 @@
       "periodStartedAt": "2021-09-18",
       "periodEndedAt": "2021-09-24",
       "sourceCardCount": 2,
-      "disposition": "pending_review",
-      "entryIds": [],
-      "reason": "Source census complete; assigning-desk research and disposition remain pending."
+      "disposition": "covered_by_draft",
+      "entryIds": [
+        "history-uci-world-title-before-rules-2021"
+      ],
+      "reason": "The UCI created a mass-participation qualification lane and official world title before revealing its rules or events; the shoe review in the same window does not survive the story gate."
     },
     {
       "periodStartedAt": "2021-09-25",
@@ -443,5 +445,5 @@
       "reason": "Cyclingnews exposed no matching source card; preserve the quiet window."
     }
   ],
-  "updatedAt": "2026-08-28T10:12:52Z"
+  "updatedAt": "2026-08-28T10:20:04Z"
 }

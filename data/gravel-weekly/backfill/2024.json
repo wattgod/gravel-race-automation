@@ -24,9 +24,11 @@
       "periodStartedAt": "2024-01-06",
       "periodEndedAt": "2024-01-12",
       "sourceCardCount": 2,
-      "disposition": "pending_review",
-      "entryIds": [],
-      "reason": "Source census complete; assigning-desk research and disposition remain pending."
+      "disposition": "covered_by_draft",
+      "entryIds": [
+        "history-gravel-career-market-2024"
+      ],
+      "reason": "Naesen's sponsor-built privateer program showed gravel absorbing a WorldTour rider whom the road market had left without a contract."
     },
     {
       "periodStartedAt": "2024-01-13",
@@ -50,9 +52,11 @@
       "periodStartedAt": "2024-01-27",
       "periodEndedAt": "2024-02-02",
       "sourceCardCount": 2,
-      "disposition": "pending_review",
-      "entryIds": [],
-      "reason": "Source census complete; assigning-desk research and disposition remain pending."
+      "disposition": "covered_by_draft",
+      "entryIds": [
+        "history-gravel-career-market-2024"
+      ],
+      "reason": "Lydic described gravel as a platform toward professional road racing, establishing that career traffic could move out as well as in."
     },
     {
       "periodStartedAt": "2024-02-03",
@@ -217,17 +221,20 @@
       "sourceCardCount": 3,
       "disposition": "covered_by_draft",
       "entryIds": [
-        "history-unbound-qualifier-access-2024"
+        "history-unbound-qualifier-access-2024",
+        "history-gravel-career-market-2024"
       ],
-      "reason": "Rad Dirt's 100 coins completed a 150-entry qualifier lane whose slots were split evenly between performance and random selection."
+      "reason": "Rad Dirt completed the qualifier lane, while Haga's Unbound result and insistence that gravel was a new career supplied the labor-market proof point."
     },
     {
       "periodStartedAt": "2024-06-15",
       "periodEndedAt": "2024-06-21",
       "sourceCardCount": 6,
-      "disposition": "pending_review",
-      "entryIds": [],
-      "reason": "Source census complete; assigning-desk research and disposition remain pending."
+      "disposition": "covered_by_draft",
+      "entryIds": [
+        "history-gravel-career-market-2024"
+      ],
+      "reason": "Bardet's planned post-road gravel campaign made the discipline a deliberate competitive destination rather than an improvised retirement fallback."
     },
     {
       "periodStartedAt": "2024-06-22",
@@ -466,5 +473,5 @@
       "reason": "Cyclingnews exposed no matching source card; preserve the quiet window."
     }
   ],
-  "updatedAt": "2026-08-28T10:05:00Z"
+  "updatedAt": "2026-08-28T10:45:00Z"
 }

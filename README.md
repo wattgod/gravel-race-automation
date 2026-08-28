@@ -73,6 +73,7 @@ python3 scripts/push_wordpress.py --sync-pages --sync-widget --sync-index --purg
 | `--sync-photos` | Race photos (curated) |
 | `--sync-redirects` | .htaccess redirect rules (33) |
 | `--sync-noindex` | Noindex mu-plugin |
+| `--sync-headings` | Server-rendered H1 normalizer mu-plugin |
 | `--sync-sitemap` | Sitemap index + race sitemap |
 | `--purge-cache` | SiteGround cache purge |
 | `--deploy-content` | Pages + index + widget + cache |

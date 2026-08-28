@@ -2175,6 +2175,36 @@ def sync_noindex():
         return False
 
 
+def sync_headings():
+    """Deploy the server-rendered H1 normalizer mu-plugin to WordPress."""
+    ssh = get_ssh_credentials()
+    if not ssh:
+        return False
+    host, user, port = ssh
+
+    project_root = Path(__file__).resolve().parent.parent
+    plugin_file = project_root / "wordpress" / "mu-plugins" / "gg-heading-normalizer.php"
+    if not plugin_file.exists():
+        print(f"✗ mu-plugin not found: {plugin_file}")
+        return False
+
+    remote_path = "~/www/gravelgodcycling.com/public_html/wp-content/mu-plugins"
+    try:
+        subprocess.run(
+            [
+                "scp", "-i", str(SSH_KEY), "-P", port,
+                str(plugin_file),
+                f"{user}@{host}:{remote_path}/gg-heading-normalizer.php",
+            ],
+            capture_output=True, text=True, timeout=15, check=True,
+        )
+        print("✓ Deployed gg-heading-normalizer.php mu-plugin")
+        return True
+    except Exception as e:
+        print(f"✗ Failed to deploy heading normalizer mu-plugin: {e}")
+        return False
+
+
 def sync_meta_descriptions():
     """Deploy meta description mu-plugin + JSON data to WordPress.
 
@@ -4051,6 +4081,10 @@ if __name__ == "__main__":
         help="Deploy noindex mu-plugin to wp-content/mu-plugins/"
     )
     parser.add_argument(
+        "--sync-headings", action="store_true",
+        help="Deploy H1 normalizer mu-plugin to wp-content/mu-plugins/"
+    )
+    parser.add_argument(
         "--sync-ctas", action="store_true",
         help="Deploy race CTA mu-plugin to wp-content/mu-plugins/"
     )
@@ -4222,6 +4256,7 @@ if __name__ == "__main__":
         args.sync_sitemap = True
         args.sync_redirects = True
         args.sync_noindex = True
+        args.sync_headings = True
         args.sync_ctas = True
         args.sync_training_form = True
         args.sync_ga4 = True
@@ -4253,7 +4288,7 @@ if __name__ == "__main__":
                       args.sync_consult_intake,
                       args.sync_training_plans, args.sync_success, args.sync_pages,
                       args.sync_sitemap, args.sync_redirects,
-                      args.sync_noindex, args.sync_ctas, args.sync_training_form, args.sync_ga4, args.sync_header, args.sync_prep_kits, args.sync_plan_pages, args.sync_tire_guides,
+                      args.sync_noindex, args.sync_headings, args.sync_ctas, args.sync_training_form, args.sync_ga4, args.sync_header, args.sync_prep_kits, args.sync_plan_pages, args.sync_tire_guides,
                       args.sync_series, args.sync_blog,
                       args.sync_blog_index, args.sync_photos, args.sync_ab, args.sync_courses,
                       args.sync_meta_descriptions, args.sync_mission_control,
@@ -4323,6 +4358,8 @@ if __name__ == "__main__":
         _run("sync-redirects", sync_redirects)
     if args.sync_noindex:
         _run("sync-noindex", sync_noindex)
+    if args.sync_headings:
+        _run("sync-headings", sync_headings)
     if args.sync_ctas:
         _run("sync-ctas", sync_ctas)
     if args.sync_training_form:

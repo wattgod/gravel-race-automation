@@ -110,6 +110,20 @@ def all_htmls(pillar_html, chapter_htmls, configurator_html):
 
 
 class TestOutputStructure:
+    def test_chapter_hero_has_one_page_h1(self):
+        chapter = {
+            "number": 1,
+            "id": "test-chapter",
+            "title": "Test Chapter",
+            "subtitle": "Test subtitle",
+            "gated": False,
+            "sections": [],
+        }
+        html = ggc.build_chapter_hero(chapter)
+        assert html.count("<h1") == 1
+        assert '<h1 class="gg-guide-chapter-title">Test Chapter</h1>' in html
+        assert '<h2 class="gg-guide-chapter-title">' not in html
+
     def test_pillar_page_exists(self, output_dir):
         assert (output_dir / "index.html").exists(), "Pillar page not generated"
 

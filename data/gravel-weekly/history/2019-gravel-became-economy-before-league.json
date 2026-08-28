@@ -1,0 +1,86 @@
+{
+  "schemaVersion": "gravel-weekly-history-entry/v1",
+  "entryId": "history-gravel-became-economy-before-league-2019",
+  "activeFrom": "2019-08-15",
+  "activeThrough": "2019-11-07",
+  "status": "draft",
+  "headline": "Gravel Became an Economy Before It Became a League",
+  "point": "By late 2019, gravel could support three different professional bets without a coherent league: Svein Tuft planned a guiding business after road retirement, Peter Stetina left the WorldTour to remain a sponsor-backed racer, and Life Time used Dirty Kanza's model to launch Big Sugar in Bentonville. The sport's economic structure arrived as tours, privateering, and event expansion before rules, teams, rankings, or a governing calendar caught up.",
+  "priorJudgment": "Gravel was a participatory side scene and post-career hobby: riders might visit it for adventure, but serious professional work still meant a road contract or an established cycling institution.",
+  "changedJudgment": "Gravel did not need to become a conventional league before people could build work around it. Its commercial unit could be an experience, an individual athlete, or an event property. That flexibility created opportunity, while concentrating early access among famous riders, established promoters, sponsors, and cycling destinations.",
+  "stakes": "The emerging economy determined who could call gravel a job, which towns and promoters captured event growth, what sponsors purchased from athletes, and whether the discipline would professionalize through teams or through a patchwork of personal brands and experiences. It also created the incentives that later forced gravel to confront labor standards, competitive equity, consolidation, and governance.",
+  "credibleOpposition": "Tuft's guiding company was still a plan, Stetina entered with a decade of WorldTour reputation and sponsor access, and Big Sugar had not yet staged its first edition. Three prominent announcements do not prove that gravel offered durable employment or broad opportunity. The lack of salaries, benefits, contracts, and shared rules could be described as precarity rather than freedom, and the 2020 pandemic would immediately disrupt both tourism and events.",
+  "whatHappened": "On August 15, 42-year-old Svein Tuft said he would end a professional career begun in 2002 and hoped to run adventure gravel tours in the Pyrenees, Canada, and eventually elsewhere. He described gravel as a way to move away from traffic and combine riding with exploration. On November 6, Peter Stetina announced that he would leave Trek-Segafredo and the WorldTour for gravel and ultra-endurance mountain-bike racing after mixing those events with a full road season. He explicitly rejected retirement, described the move as freshness, joy, progression, and longevity, and said he would represent brands that valued the scene. One day later, Life Time announced Big Sugar in Bentonville: 171.2- and 78.8-kilometre routes, an 800-rider cap, and a plan to reproduce the event-making capacity it had applied to Dirty Kanza and Leadville. Gravel now had a guide, a privateer, and an expanding event company, but no single institution employing or governing all three.",
+  "take": "Model draft, not Matti's approved view: Gravel professionalized like a strip mall thrown up before the city finished zoning. Svein Tuft opened the adventure-tour storefront. Peter Stetina quit the WorldTour and opened a one-man race team next door. Life Time arrived with an anchor tenant and announced Big Sugar in Bentonville. Nobody had built the league, the labor agreement, the rankings, or even a shared definition of professional gravel, but the economy was already taking deposits. This was the category's great freedom and its original loophole. Work could mean guiding regular people through the Pyrenees, selling a sponsor your own race calendar, or turning one famous event into a second event property. It also meant every worker brought his own safety net, reputation, insurance, audience, and bargaining power. Gravel escaped the team bus and discovered the gig economy waiting beside a Subaru. By the time governance arrived, the businesses were already open.",
+  "takeProvenance": "model_draft",
+  "uncertainty": "The contemporary sources establish the announced plans, Stetina's stated transition, and Big Sugar's proposed format. They do not disclose compensation, sponsor contracts, business revenue, insurance, employment status, profitability, or how many livelihoods gravel supported in 2019. Tuft's and Big Sugar's plans were later disrupted by the pandemic, and none of the three cases represents ordinary access. Describing an emerging economy is an interpretation of distinct commercial roles, not a claim that gravel already had a stable labor market.",
+  "editorialScore": 96,
+  "editorialGates": {
+    "party": "pass",
+    "point": "pass",
+    "friend": "pass",
+    "craft": "pass",
+    "hostileEditor": "pass"
+  },
+  "contemporaryReceipts": [
+    {
+      "claimId": "claim_tuft_planned_gravel_guiding_2019",
+      "canonicalUrl": "https://www.cyclingnews.com/news/tuft-to-retire-at-end-of-2019-and-take-up-gravel-bike-guiding/",
+      "publisher": "Cyclingnews",
+      "publishedAt": "2019-08-15T18:32:00Z",
+      "quoteExcerpt": "run some crazy adventure gravel tours",
+      "transcriptStartSeconds": null,
+      "transcriptEndSeconds": null
+    },
+    {
+      "claimId": "claim_stetina_left_worldtour_for_gravel_2019",
+      "canonicalUrl": "https://www.cyclingnews.com/news/stetina-abandons-worldtour-for-gravel-racing/",
+      "publisher": "Cyclingnews",
+      "publishedAt": "2019-11-06T17:14:36Z",
+      "quoteExcerpt": "This IS NOT a retirement",
+      "transcriptStartSeconds": null,
+      "transcriptEndSeconds": null
+    },
+    {
+      "claimId": "claim_life_time_launched_big_sugar_2019",
+      "canonicalUrl": "https://www.cyclingnews.com/news/dirty-kanza-organisers-launch-all-new-gravel-race-in-2020/",
+      "publisher": "Cyclingnews",
+      "publishedAt": "2019-11-07T17:23:51Z",
+      "quoteExcerpt": "launched a new event call the Big Sugar-NWA Gravel",
+      "transcriptStartSeconds": null,
+      "transcriptEndSeconds": null
+    }
+  ],
+  "laterEvidence": [],
+  "raceImpacts": [
+    {
+      "impactKind": "editorial_review",
+      "raceId": "gravel:unbound-gravel",
+      "fieldPath": "race.biased_opinion",
+      "claimIds": [
+        "claim_stetina_left_worldtour_for_gravel_2019",
+        "claim_life_time_launched_big_sugar_2019"
+      ],
+      "confidence": 0.96,
+      "owner": "Gravel God race editorial review",
+      "autoFixAllowed": false
+    },
+    {
+      "impactKind": "editorial_review",
+      "raceId": "gravel:big-sugar-gravel",
+      "fieldPath": "race.biased_opinion",
+      "claimIds": [
+        "claim_life_time_launched_big_sugar_2019"
+      ],
+      "confidence": 0.99,
+      "owner": "Gravel God race editorial review",
+      "autoFixAllowed": false
+    }
+  ],
+  "humanApprovalRequired": true,
+  "autoPublishAllowed": false,
+  "editorialApproval": null,
+  "publishedAt": null,
+  "updatedAt": "2026-08-28T12:15:00Z",
+  "contentHash": "a2f9a3f5b42cd415858c779f4e7f39387d2284164523c90fac845bf431af760d"
+}

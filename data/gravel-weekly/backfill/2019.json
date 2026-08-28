@@ -6,7 +6,7 @@
   "sourceLedgerRun": "https://github.com/wattgod/race-intelligence-control-plane/actions/runs/33168713397",
   "programIssue": "https://github.com/wattgod/race-intelligence-control-plane/issues/47",
   "sourceCardCount": 16,
-  "complete": false,
+  "complete": true,
   "humanApprovalRequired": true,
   "autoPublishAllowed": false,
   "weeks": [
@@ -38,17 +38,17 @@
       "periodStartedAt": "2019-01-19",
       "periodEndedAt": "2019-01-25",
       "sourceCardCount": 2,
-      "disposition": "pending_review",
+      "disposition": "rejected",
       "entryIds": [],
-      "reason": "Source census complete; assigning-desk research and disposition remain pending."
+      "reason": "Two bare Gravel and Tar result pages record winners but provide no independent conflict, changed judgment, or cultural consequence."
     },
     {
       "periodStartedAt": "2019-01-26",
       "periodEndedAt": "2019-02-01",
       "sourceCardCount": 1,
-      "disposition": "pending_review",
+      "disposition": "rejected",
       "entryIds": [],
-      "reason": "Source census complete; assigning-desk research and disposition remain pending."
+      "reason": "A single Herald Sun Tour gravel-stage report shows a selective road surface but does not establish a durable 2019 gravel narrative."
     },
     {
       "periodStartedAt": "2019-02-02",
@@ -158,9 +158,11 @@
       "periodStartedAt": "2019-05-04",
       "periodEndedAt": "2019-05-10",
       "sourceCardCount": 1,
-      "disposition": "pending_review",
-      "entryIds": [],
-      "reason": "Source census complete; assigning-desk research and disposition remain pending."
+      "disposition": "covered_by_draft",
+      "entryIds": [
+        "history-gravel-got-own-department-2019"
+      ],
+      "reason": "Shimano's GRX launch begins the draft chapter about a rider-built equipment category receiving a complete mainstream product platform."
     },
     {
       "periodStartedAt": "2019-05-11",
@@ -190,9 +192,11 @@
       "periodStartedAt": "2019-06-01",
       "periodEndedAt": "2019-06-07",
       "sourceCardCount": 1,
-      "disposition": "pending_review",
-      "entryIds": [],
-      "reason": "Source census complete; assigning-desk research and disposition remain pending."
+      "disposition": "covered_by_draft",
+      "entryIds": [
+        "history-gravel-got-own-department-2019"
+      ],
+      "reason": "Dirty Kanza's mixed equipment gallery shows newly released GRX entering a field that still rewarded creative, non-uniform solutions."
     },
     {
       "periodStartedAt": "2019-06-08",
@@ -270,9 +274,11 @@
       "periodStartedAt": "2019-08-10",
       "periodEndedAt": "2019-08-16",
       "sourceCardCount": 1,
-      "disposition": "pending_review",
-      "entryIds": [],
-      "reason": "Source census complete; assigning-desk research and disposition remain pending."
+      "disposition": "covered_by_draft",
+      "entryIds": [
+        "history-gravel-became-economy-before-league-2019"
+      ],
+      "reason": "Tuft's planned adventure-guiding business supplies the first role in the draft chapter about gravel work emerging outside a conventional league."
     },
     {
       "periodStartedAt": "2019-08-17",
@@ -294,9 +300,9 @@
       "periodStartedAt": "2019-08-31",
       "periodEndedAt": "2019-09-06",
       "sourceCardCount": 1,
-      "disposition": "pending_review",
+      "disposition": "rejected",
       "entryIds": [],
-      "reason": "Source census complete; assigning-desk research and disposition remain pending."
+      "reason": "Lopez's Vuelta crash on one gravel sector is a road-race incident without enough evidence for a distinct gravel-season change point."
     },
     {
       "periodStartedAt": "2019-09-07",
@@ -366,17 +372,19 @@
       "periodStartedAt": "2019-11-02",
       "periodEndedAt": "2019-11-08",
       "sourceCardCount": 3,
-      "disposition": "pending_review",
-      "entryIds": [],
-      "reason": "Source census complete; assigning-desk research and disposition remain pending."
+      "disposition": "covered_by_draft",
+      "entryIds": [
+        "history-gravel-became-economy-before-league-2019"
+      ],
+      "reason": "Stetina's WorldTour exit and Life Time's Big Sugar launch complete the draft chapter's athlete and event-business cases; the bike-category explainer is supporting context only."
     },
     {
       "periodStartedAt": "2019-11-09",
       "periodEndedAt": "2019-11-15",
       "sourceCardCount": 1,
-      "disposition": "pending_review",
+      "disposition": "rejected",
       "entryIds": [],
-      "reason": "Source census complete; assigning-desk research and disposition remain pending."
+      "reason": "A single Colnago gravel-bike launch confirms manufacturer interest but supplies no independent story beyond the product."
     },
     {
       "periodStartedAt": "2019-11-16",
@@ -398,25 +406,25 @@
       "periodStartedAt": "2019-11-30",
       "periodEndedAt": "2019-12-06",
       "sourceCardCount": 1,
-      "disposition": "pending_review",
+      "disposition": "rejected",
       "entryIds": [],
-      "reason": "Source census complete; assigning-desk research and disposition remain pending."
+      "reason": "A carbon-frame buying argument is commercial service content without a historical conflict or demonstrated consequence."
     },
     {
       "periodStartedAt": "2019-12-07",
       "periodEndedAt": "2019-12-13",
       "sourceCardCount": 2,
-      "disposition": "pending_review",
+      "disposition": "rejected",
       "entryIds": [],
-      "reason": "Source census complete; assigning-desk research and disposition remain pending."
+      "reason": "A bike review and tyre-insert launch are product evaluation and inventory, not a Current Thing."
     },
     {
       "periodStartedAt": "2019-12-14",
       "periodEndedAt": "2019-12-20",
       "sourceCardCount": 2,
-      "disposition": "pending_review",
+      "disposition": "rejected",
       "entryIds": [],
-      "reason": "Source census complete; assigning-desk research and disposition remain pending."
+      "reason": "Steel-bike and e-gravel-bike announcements show category breadth but neither establishes a separate season-level argument."
     },
     {
       "periodStartedAt": "2019-12-21",
@@ -435,5 +443,5 @@
       "reason": "Cyclingnews exposed no matching source card; preserve the quiet window."
     }
   ],
-  "updatedAt": "2026-08-28T11:52:00Z"
+  "updatedAt": "2026-08-28T12:15:00Z"
 }

@@ -1,5 +1,11 @@
 # AGENTS.md — entry point for any coding agent
 
+## AI writing as Matti
+
+Before drafting, rewriting, or approving copy presented as Matti Rowe or one of
+his brands, read `docs/AI_WRITING_POLICY.md`. Its source-retrieval,
+provenance, privacy, and anti-slop requirements are binding.
+
 Binding instructions live in `CLAUDE.md` — read it first; it is written for
 all agents, not just Claude. `docs/GRAVEL_GOD_SCORING_SYSTEM.md` is the
 scoring bible; `gravel-god-cycling/NORTHSTAR.md` (sibling repo) is the

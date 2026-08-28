@@ -1,0 +1,173 @@
+name: "Gravel Weekly History Publish"
+
+# Historical narrative entries have their own approval and sealing boundary.
+# This manual workflow deploys already-published snapshots without inventing or
+# requiring a weekly issue. It cannot approve or seal history.
+on:
+  workflow_dispatch:
+    inputs:
+      year:
+        description: "Published historical year to verify and deploy"
+        required: true
+        type: string
+
+permissions:
+  contents: read
+  issues: write
+
+concurrency:
+  group: gravel-weekly-publish
+  cancel-in-progress: false
+
+jobs:
+  publish-history:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Require the canonical main branch
+        env:
+          DEPLOY_REF: ${{ github.ref }}
+        run: |
+          if [[ "$DEPLOY_REF" != "refs/heads/main" ]]; then
+            echo "::error::Historical publication must run from main, not $DEPLOY_REF"
+            exit 1
+          fi
+
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Verify every public history snapshot has an immutable decision
+        id: history
+        env:
+          HISTORY_YEAR: ${{ inputs.year }}
+        run: |
+          python - <<'PY'
+          import hashlib
+          import json
+          import os
+          from pathlib import Path
+          from scripts.validate_gravel_weekly_history import load_public_history_entries
+          from scripts.validate_gravel_weekly_history_decisions import validate_history_decision
+
+          year = int(os.environ["HISTORY_YEAR"])
+          entries = load_public_history_entries()
+          selected = [
+              entry for entry in entries
+              if entry["activeFrom"] <= f"{year}-12-31"
+              and entry["activeThrough"] >= f"{year}-01-01"
+          ]
+          if not selected:
+              raise SystemExit(f"No status=published historical entries overlap {year}")
+          decision_dir = Path("data/gravel-weekly/history-decisions")
+          for entry in entries:
+              decision_path = decision_dir / f"{entry['entryId']}.json"
+              if not decision_path.exists():
+                  raise SystemExit(f"Immutable historical decision not found: {decision_path}")
+              validate_history_decision(json.loads(decision_path.read_text()), entry)
+          selected = sorted(selected, key=lambda entry: entry["entryId"])
+          payload = "\n".join(f"{entry['entryId']}:{entry['contentHash']}" for entry in selected)
+          set_hash = hashlib.sha256(payload.encode()).hexdigest()
+          Path("artifacts").mkdir(exist_ok=True)
+          Path("artifacts/history-hashes.txt").write_text(
+              "\n".join(entry["contentHash"] for entry in selected) + "\n"
+          )
+          with open(os.environ["GITHUB_OUTPUT"], "a") as output:
+              output.write(f"set_hash={set_hash}\n")
+              output.write(f"entry_count={len(selected)}\n")
+          print(f"Verified {len(selected)} published {year} entries; set hash {set_hash}")
+          PY
+
+      - name: Generate the historical timeline and homepage
+        run: |
+          python wordpress/generate_gravel_weekly.py
+          python wordpress/generate_homepage.py
+
+      - name: Verify publication infrastructure
+        run: |
+          python -m pytest tests/test_gravel_weekly.py -q
+          grep -q "G-EJJZ9T6M52" wordpress/output/gravel-weekly.html
+          while IFS= read -r history_hash; do
+            grep -q "gravel-weekly-history-hash: $history_hash" wordpress/output/gravel-weekly.html
+          done < artifacts/history-hashes.txt
+          python scripts/preflight_quality.py
+
+      - name: Build controlled historical race-impact review
+        env:
+          HISTORY_YEAR: ${{ inputs.year }}
+        run: |
+          python scripts/render_gravel_weekly_history_race_impact_review.py \
+            --year "$HISTORY_YEAR" \
+            --output artifacts/gravel-weekly-history-race-impact-review.md
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: gravel-weekly-history-${{ inputs.year }}-${{ steps.history.outputs.set_hash }}
+          path: artifacts/gravel-weekly-history-race-impact-review.md
+          retention-days: 90
+
+      - name: Open immutable historical race-impact review queue
+        env:
+          GH_TOKEN: ${{ github.token }}
+          HISTORY_YEAR: ${{ inputs.year }}
+          HISTORY_SET_HASH: ${{ steps.history.outputs.set_hash }}
+        run: |
+          if grep -q '<!-- meaningful-history-race-impact-count: 0 -->' artifacts/gravel-weekly-history-race-impact-review.md; then
+            echo "No historical race impact; no review issue needed."
+            exit 0
+          fi
+          short_hash="${HISTORY_SET_HASH:0:12}"
+          title="Gravel Weekly $HISTORY_YEAR historical race-impact review · $short_hash"
+          gh label create gravel-weekly-history-impact --color 5319e7 --description "Published historical evidence awaiting controlled race-profile review" --force
+          existing="$(gh issue list --label gravel-weekly-history-impact --state all --limit 200 --json number,title --jq ".[] | select(.title == \"$title\") | .number" | head -1)"
+          if [[ -n "$existing" ]]; then
+            echo "Review issue #$existing already exists; preserving its history."
+          else
+            gh issue create --title "$title" --label gravel-weekly-history-impact --body-file artifacts/gravel-weekly-history-race-impact-review.md
+          fi
+
+      - name: Setup SSH
+        run: |
+          mkdir -p ~/.ssh
+          printf '%s\n' "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/siteground_key
+          chmod 600 ~/.ssh/siteground_key
+          ssh-keyscan -p "${{ secrets.SSH_PORT }}" "${{ secrets.SSH_HOST }}" >> ~/.ssh/known_hosts 2>/dev/null
+
+      - name: Deploy timeline, homepage, redirect, and purge cache
+        env:
+          SSH_HOST: ${{ secrets.SSH_HOST }}
+          SSH_USER: ${{ secrets.SSH_USER }}
+          SSH_PORT: ${{ secrets.SSH_PORT }}
+        run: python scripts/push_wordpress.py --sync-gravel-weekly --sync-homepage --sync-redirects --purge-cache
+
+      - name: Verify the exact historical set is live
+        env:
+          HISTORY_SET_HASH: ${{ steps.history.outputs.set_hash }}
+        run: |
+          found=false
+          for attempt in 1 2 3 4 5; do
+            if page="$(curl -fsSL "https://gravelgodcycling.com/gravel-weekly/?v=$HISTORY_SET_HASH")"; then
+              missing=false
+              while IFS= read -r history_hash; do
+                if ! grep -q "gravel-weekly-history-hash: $history_hash" <<< "$page"; then
+                  missing=true
+                fi
+              done < artifacts/history-hashes.txt
+              if [[ "$missing" == false ]]; then
+                found=true
+                break
+              fi
+            fi
+            sleep 10
+          done
+          if [[ "$found" != true ]]; then
+            echo "::error::Expected historical set is not live at /gravel-weekly/"
+            exit 1
+          fi
+          test "$(curl -sIL -o /dev/null -w '%{url_effective}' https://gravelgodcycling.com/gravel-tv/)" = "https://gravelgodcycling.com/gravel-weekly/"

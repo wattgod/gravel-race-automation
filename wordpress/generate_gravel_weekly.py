@@ -205,7 +205,8 @@ def render_history_timeline(entries: list[dict[str, Any]]) -> str:
               <summary>LATER EVIDENCE — NOT AVAILABLE THEN · {len(entry['laterEvidence'])}</summary>
               {render_receipts(entry['laterEvidence'])}
             </details>'''
-        cards.append(f'''<article class="gw-history-entry" id="{esc(entry['entryId'])}">
+        cards.append(f'''<!-- gravel-weekly-history-hash: {esc(entry['contentHash'])} -->
+        <article class="gw-history-entry" id="{esc(entry['entryId'])}">
           <header><span class="gw-history-date">{esc(active_label.upper())}</span><span class="gw-score">EDITORIAL SCORE {entry['editorialScore']}/100</span><h3>{esc(entry['headline'])}</h3></header>
           <div class="gw-history-grid">
             <section><h4>THE POINT</h4>{prose(entry['point'])}<h4>WHAT HAPPENED</h4>{prose(entry['whatHappened'])}<h4>WHY IT MATTERED</h4>{prose(entry['stakes'])}<h4>THE FAIR OBJECTION</h4>{prose(entry['credibleOpposition'])}</section>

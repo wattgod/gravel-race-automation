@@ -188,7 +188,7 @@ def load_history_entries(history_dir: Path = HISTORY_DIR) -> list[dict[str, Any]
 
 def load_public_history_entries(history_dir: Path = HISTORY_DIR) -> list[dict[str, Any]]:
     """Load only history entries that have cleared the editorial publication boundary."""
-    return [entry for entry in load_history_entries(history_dir) if entry["status"] in {"approved", "published"}]
+    return [entry for entry in load_history_entries(history_dir) if entry["status"] == "published"]
 
 
 def main() -> int:

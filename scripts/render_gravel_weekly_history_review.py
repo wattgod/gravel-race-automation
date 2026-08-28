@@ -155,8 +155,29 @@ def render_history_review(entries: list[dict[str, Any]], year: int) -> str:
         if entry["activeFrom"] <= f"{year}-12-31" and entry["activeThrough"] >= f"{year}-01-01"
     ]
     drafts = [entry for entry in selected if entry["status"] == "draft"]
-    ready = sum(not approval_holds(entry) for entry in drafts)
-    held = len(drafts) - ready
+    ready_entries = [entry for entry in drafts if not approval_holds(entry)]
+    held_entries = [entry for entry in drafts if approval_holds(entry)]
+    ready_entry_ids = {entry["entryId"] for entry in ready_entries}
+    ready = len(ready_entries)
+    held = len(held_entries)
+    queue = "".join(
+        '<li><a href="#{entry_id}"><span>{status}</span><b>{headline}</b>'
+        '<code>{content_hash}</code></a></li>'.format(
+            entry_id=esc(entry["entryId"]),
+            status="READY" if entry["entryId"] in ready_entry_ids else "HOLD",
+            headline=esc(entry["headline"]),
+            content_hash=esc(entry["contentHash"][:12]),
+        )
+        for entry in drafts
+    )
+    ready_ids = ", ".join(entry["entryId"] for entry in ready_entries)
+    bulk_instruction = (
+        f'<p class="bulk"><b>ONE-LINE APPROVAL:</b> If—and only if—you agree with every READY headline and Take, reply '
+        f'<q>approve all READY {year} entries as written</q>. That instruction is limited to: <code>{esc(ready_ids)}</code>. '
+        "HOLD entries remain excluded and cannot be rescued by bulk approval.</p>"
+        if ready_entries
+        else '<p class="bulk"><b>NO BULK APPROVAL AVAILABLE.</b> Every draft is held.</p>'
+    )
     cards = "".join(_card(entry) for entry in drafts)
     return f'''<!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
@@ -172,6 +193,15 @@ main {{ width: min(1120px, calc(100% - 32px)); margin: 32px auto 80px; }}
 .summary {{ display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }}
 .summary b, .ready, .hold {{ border: var(--gg-border-standard); padding: 6px 10px; background: var(--gg-color-warm-paper); }}
 .hold {{ background: var(--gg-color-near-black); color: var(--gg-color-warm-paper); }}
+.bulk {{ max-width: none !important; margin: 20px 0 0; border: var(--gg-border-standard); background: var(--gg-color-warm-paper); padding: var(--gg-spacing-md); }}
+.bulk q {{ font-weight: var(--gg-font-weight-black); }}
+.decision-queue {{ margin-top: 20px; border: var(--gg-border-standard); background: var(--gg-color-white); }}
+.decision-queue h2 {{ margin: 0; padding: 10px 12px; border-bottom: var(--gg-border-standard); }}
+.decision-queue ol {{ margin: 0; padding: 0; list-style: none; }}
+.decision-queue li + li {{ border-top: var(--gg-border-subtle); }}
+.decision-queue a {{ display: grid; grid-template-columns: 64px minmax(0, 1fr) auto; gap: 12px; align-items: center; padding: 10px 12px; color: inherit; text-decoration: none; }}
+.decision-queue a:hover, .decision-queue a:focus-visible {{ background: var(--gg-color-sand); }}
+.decision-queue span {{ font-weight: var(--gg-font-weight-black); }}
 .story {{ margin-top: 32px; border: var(--gg-border-heavy); background: var(--gg-color-warm-paper); }}
 .story > header, .story > section, .story > div, .story > details, .story > footer {{ padding: var(--gg-spacing-lg); border-top: var(--gg-border-standard); }}
 .story > header {{ border-top: 0; background: var(--gg-color-white); }}
@@ -186,11 +216,13 @@ summary {{ cursor: pointer; font-weight: var(--gg-font-weight-black); }}
 .receipts li {{ margin: 16px 0; }} blockquote {{ margin: 8px 0; font-family: var(--gg-font-editorial); }}
 .gates {{ max-width: 520px; padding: 0; list-style: none; }} .gates li {{ display: flex; justify-content: space-between; border-bottom: var(--gg-border-subtle); padding: 8px 0; }}
 code {{ overflow-wrap: anywhere; }} footer {{ background: var(--gg-color-near-black); color: var(--gg-color-warm-paper); }} footer code {{ color: var(--gg-color-light-gold); }}
-@media (max-width: 700px) {{ .judgment {{ grid-template-columns: 1fr; }} .judgment section + section {{ border-left: 0; border-top: var(--gg-border-standard); }} main {{ width: min(100% - 16px, 1120px); margin-top: 8px; }} }}
+@media (max-width: 700px) {{ .judgment {{ grid-template-columns: 1fr; }} .judgment section + section {{ border-left: 0; border-top: var(--gg-border-standard); }} .decision-queue a {{ grid-template-columns: 56px minmax(0, 1fr); }} .decision-queue code {{ grid-column: 2; }} main {{ width: min(100% - 16px, 1120px); margin-top: 8px; }} }}
 </style></head><body><main>
   <header class="desk-head"><div class="eyebrow">PRIVATE EDITORIAL DESK · NOT PUBLIC</div><h1>{year}<br>THE SEASON<br>AS A STORY</h1>
   <p>This queue contains narrative change-points, not one required story per week. Review the point first, then the Take. Receipts from the active period are separated from evidence learned later.</p>
-  <div class="summary"><b>{len(drafts)} DRAFTS</b><b>{ready} READY FOR HUMAN DECISION</b><b>{held} HELD BY EVIDENCE, EDITORIAL, OR PROSE GATES</b></div></header>
+  <div class="summary"><b>{len(drafts)} DRAFTS</b><b>{ready} READY FOR HUMAN DECISION</b><b>{held} HELD BY EVIDENCE, EDITORIAL, OR PROSE GATES</b></div>
+  {bulk_instruction}
+  <nav class="decision-queue" aria-label="Historical story decision queue"><h2>DECISION QUEUE</h2><ol>{queue}</ol></nav></header>
   {cards or '<section class="story"><header><h2>No draft historical entries for this year.</h2></header></section>'}
 </main></body></html>'''
 

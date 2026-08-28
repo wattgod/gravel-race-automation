@@ -1,0 +1,66 @@
+{
+  "schemaVersion": "gravel-weekly-history-entry/v1",
+  "entryId": "history-gravel-got-own-department-2019",
+  "activeFrom": "2019-05-07",
+  "activeThrough": "2019-06-03",
+  "status": "draft",
+  "headline": "Shimano Gave Gravel Its Own Department",
+  "point": "GRX mattered less because Shimano invented every component than because the world's dominant drivetrain company stopped treating gravel as an improvised overlap between road, cyclocross, and mountain bikes. A named family across three tiers, mechanical and electronic shifting, one- and two-chainring options, gravel ergonomics, wheels, and dropper control made the category legible to manufacturers and ordinary buyers. Dirty Kanza showed the transition in public a month later: the new group sat among custom race bikes, road electronics, suspension stems, extreme chainrings, and home-brewed solutions rather than instantly replacing them.",
+  "priorJudgment": "A gravel bike was whatever riders assembled from road, cyclocross, and mountain-bike parts; dedicated component families were unnecessary marketing for problems that existing equipment already solved.",
+  "changedJudgment": "The parts-bin approach still worked, but gravel had accumulated enough distinct demand for Shimano to build and name a complete platform around rough-surface braking, chain retention, gearing, clearance, wheel size, and cockpit control. That institutional recognition did not create gravel, but it made the category easier to standardize, sell, and scale.",
+  "stakes": "Component categories shape which bikes manufacturers can spec, what shops can explain, which price levels buyers can enter, and which equipment choices become normal at races. The same standardization that improves availability can also narrow a creative culture into a purchasable checklist and let marketing claim ownership of solutions riders developed themselves.",
+  "credibleOpposition": "GRX recombined technologies that already existed in Shimano's road and mountain-bike systems, relied on existing cassettes and chains, and arrived after riders and small brands had established the category. Dirty Kanza's equipment remained radically mixed, proving there was no single required gravel setup. The launch was strong evidence of commercial recognition, not proof that a new groupset caused participation growth or made older bikes obsolete.",
+  "whatHappened": "On May 7, Shimano announced GRX as what it called the world's first dedicated gravel and adventure component series. The family included RX400, RX600, and RX800 levels; 10- and 11-speed mechanical options; Di2 electronic shifting; one- and two-chainring configurations; hydraulic brakes; 700c and 650b tubeless wheels; rough-surface lever shapes; clutch derailleurs; wider chainlines and gearing; and an option to control a dropper post from the left shift lever. Shimano still specified road or mountain-bike cassettes and chains, making GRX a curated bridge rather than a clean-sheet invention. On June 3, Cyclingnews's Dirty Kanza gallery showed that bridge operating inside a deliberately unruly field: Jake Wells used newly released GRX for the XL, while elite bikes also carried SRAM road electronics, custom frames, aero chainrings, suspension stems, 35mm tyres, and enough equipment to push one bike beyond 30 pounds.",
+  "take": "Model draft, not Matti's approved view: Before GRX, a gravel drivetrain was a custody dispute between the road and mountain-bike departments. You took the shifters from one parent, the cassette from the other, added a clutch derailleur, and hoped everybody behaved during the washboard. Shimano did not invent that family. It gave the family matching shirts and a product code. That sounds like marketing because it was marketing, but category names are infrastructure. Three price levels, one-by, two-by, Di2, wide gearing, textured levers, little wheels, big wheels, and even a dropper switch told bike companies and shop employees that gravel was no longer a weird customer request assembled behind the counter. Dirty Kanza immediately kept the story honest. The new GRX group shared a gallery with road electronics, a suspension stem, a leather saddle, a 56-tooth chainring, skinny tyres, custom frames, and a 30-pound expedition bike. Gravel got its own department. It did not accept a uniform.",
+  "takeProvenance": "model_draft",
+  "uncertainty": "The sources establish Shimano's launch claims, configurations, shared compatibility, and the equipment photographed at Dirty Kanza. They do not provide GRX sales, market share, pricing at launch in every territory, adoption rates, causal effects on bike sales, or a representative census of race equipment. 'World's first' is Shimano's positioning and should not erase earlier gravel-specific components from smaller brands. The category interpretation is editorial and does not claim that GRX created gravel riding.",
+  "editorialScore": 94,
+  "editorialGates": {
+    "party": "pass",
+    "point": "pass",
+    "friend": "pass",
+    "craft": "pass",
+    "hostileEditor": "pass"
+  },
+  "contemporaryReceipts": [
+    {
+      "claimId": "claim_shimano_launched_dedicated_grx_2019",
+      "canonicalUrl": "https://www.cyclingnews.com/news/shimano-grx-gravel-specific-groupset-launched/",
+      "publisher": "Cyclingnews",
+      "publishedAt": "2019-05-07T15:00:00Z",
+      "quoteExcerpt": "world's first dedicated gravel/adventure component series",
+      "transcriptStartSeconds": null,
+      "transcriptEndSeconds": null
+    },
+    {
+      "claimId": "claim_dirty_kanza_mixed_equipment_lab_2019",
+      "canonicalUrl": "https://www.cyclingnews.com/features/dirty-kanza-2019-gravel-race-tech-gallery/",
+      "publisher": "Cyclingnews",
+      "publishedAt": "2019-06-03T23:15:00Z",
+      "quoteExcerpt": "equipped with the recently-released Shimano GRX group",
+      "transcriptStartSeconds": null,
+      "transcriptEndSeconds": null
+    }
+  ],
+  "laterEvidence": [],
+  "raceImpacts": [
+    {
+      "impactKind": "editorial_review",
+      "raceId": "gravel:unbound-gravel",
+      "fieldPath": "race.biased_opinion",
+      "claimIds": [
+        "claim_shimano_launched_dedicated_grx_2019",
+        "claim_dirty_kanza_mixed_equipment_lab_2019"
+      ],
+      "confidence": 0.96,
+      "owner": "Gravel God race editorial review",
+      "autoFixAllowed": false
+    }
+  ],
+  "humanApprovalRequired": true,
+  "autoPublishAllowed": false,
+  "editorialApproval": null,
+  "publishedAt": null,
+  "updatedAt": "2026-08-28T12:15:00Z",
+  "contentHash": "0b0621fbb2b073dd05c3e81abb9a1a345f17dd94d4abc033c4b86d3a98e096e7"
+}

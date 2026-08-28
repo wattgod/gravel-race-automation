@@ -12,6 +12,13 @@ sys.path.insert(0, str(ROOT / "scripts"))
 sys.path.insert(0, str(ROOT / "wordpress"))
 
 from generate_gravel_weekly import build_page, render_history_timeline  # noqa: E402
+from gravel_weekly_visuals import (  # noqa: E402
+    classify_theme,
+    render_story_visual,
+    timestamped_youtube_receipt,
+    visual_css,
+    youtube_video_id,
+)
 from generate_homepage import build_gravel_weekly_band  # noqa: E402
 from validate_gravel_weekly import (  # noqa: E402
     IssueValidationError,
@@ -178,6 +185,90 @@ def sample_history_approval(draft=None):
         "editSummary": "Removed the model label and tightened the judgment.",
         "reason": None,
     }
+
+
+def test_visual_theme_classification_is_deterministic_and_story_aware():
+    assert classify_theme("A flat tire made gravel admit teams exist") == ("teams", "TEAMWORK")
+    assert classify_theme("Leadville banned the bike its course wanted") == ("category", "CATEGORY")
+    assert classify_theme("The host community paid for the wildfire") == ("community", "HOST COMMUNITY")
+    assert classify_theme(
+        "Gravel built a governing body by accident",
+        "A team roster and a series selection policy changed.",
+    ) == ("governance", "GOVERNANCE")
+    assert classify_theme(
+        "The women had to race everybody else",
+        "Many categories and bikes shared the course.",
+    ) == ("equity", "COST TRANSFER")
+    assert classify_theme("A story with no matching vocabulary") == ("pulse", "THE CURRENT THING")
+
+
+@pytest.mark.parametrize(("url", "expected"), [
+    ("https://www.youtube.com/watch?v=abcdefghijk", "abcdefghijk"),
+    ("https://youtu.be/abcdefghijk", "abcdefghijk"),
+    ("https://www.youtube.com/shorts/abcdefghijk", "abcdefghijk"),
+    ("https://example.com/watch?v=abcdefghijk", None),
+    ("https://www.youtube.com/watch?v=too-short", None),
+])
+def test_youtube_video_id_fails_closed(url, expected):
+    assert youtube_video_id(url) == expected
+
+
+def test_only_timestamped_youtube_receipts_can_become_video_visuals():
+    untimestamped = [{"canonicalUrl": "https://youtu.be/abcdefghijk", "transcriptStartSeconds": None}]
+    wrong_host = [{"canonicalUrl": "https://example.com/abcdefghijk", "transcriptStartSeconds": 42}]
+    invalid_timestamp = [{"canonicalUrl": "https://youtu.be/abcdefghijk", "transcriptStartSeconds": -1}]
+    valid = [{"canonicalUrl": "https://youtu.be/abcdefghijk", "transcriptStartSeconds": 42, "publisher": "Race channel"}]
+    assert timestamped_youtube_receipt(untimestamped) is None
+    assert timestamped_youtube_receipt(wrong_host) is None
+    assert timestamped_youtube_receipt(invalid_timestamp) is None
+    assert timestamped_youtube_receipt(valid)["videoId"] == "abcdefghijk"
+
+
+def test_procedural_visual_is_stable_labeled_and_not_documentary():
+    kwargs = {
+        "item_id": "story_1",
+        "headline": "A flat tire made gravel admit teams exist",
+        "body_text": "The team worked together.",
+        "receipts": [],
+        "date_label": "May 2026",
+        "stable_hash": "abc123",
+    }
+    first = render_story_visual(**kwargs)
+    second = render_story_visual(**kwargs)
+    assert first == second
+    assert 'data-visual-system="gravel-weekly-visual/v1"' in first
+    assert "GW ART DEPT. // AUTO" in first
+    assert "not a news photo" in first.casefold()
+    assert "TEAMWORK" in first
+    assert "<iframe" not in first
+    assert "<img" not in first
+
+
+def test_timestamped_video_visual_links_exact_claim_without_autoplay_or_embed():
+    visual = render_story_visual(
+        item_id="story_video",
+        headline="A race changed",
+        body_text="A timestamped rider account.",
+        receipts=[{
+            "canonicalUrl": "https://www.youtube.com/watch?v=abcdefghijk",
+            "transcriptStartSeconds": 125,
+            "publisher": "Rider channel",
+        }],
+        date_label="August 2026",
+    )
+    assert "VERIFIED SOURCE VIDEO" in visual
+    assert "WATCH @ 2:05" in visual
+    assert "https://www.youtube.com/watch?v=abcdefghijk&amp;t=125s" in visual
+    assert "autoplay" not in visual.casefold()
+    assert "<iframe" not in visual
+
+
+def test_visual_css_uses_brand_tokens_and_respects_reduced_motion():
+    css = visual_css()
+    assert "var(--gg-color-" in css
+    assert "@media (prefers-reduced-motion: no-preference)" in css
+    assert "@media (max-width: 620px)" in css
+    assert "#" not in css
 
 
 def passing_editorial_gate():

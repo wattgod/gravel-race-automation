@@ -1,0 +1,96 @@
+{
+  "schemaVersion": "gravel-weekly-history-entry/v1",
+  "entryId": "history-crusher-host-community-2026",
+  "activeFrom": "2026-06-29",
+  "activeThrough": "2026-08-17",
+  "status": "draft",
+  "headline": "Crusher Was Canceled. Beaver Could Not Cancel the Disaster.",
+  "point": "A host community is not the scenery surrounding a race. When the Cottonwood Fire canceled Crusher, damaged Eagle Point, emptied hotel rooms, hurt local businesses, and closed the event's defining road into a $50 million reconstruction, the race's relationship with Beaver became a recovery obligation rather than a venue arrangement.",
+  "priorJudgment": "Canceling an unsafe race, giving registered riders their options, and returning when the road and resort recover is a sufficient event response to a natural disaster beyond the organizer's control.",
+  "changedJudgment": "Cancellation handles the athlete transaction. It does not settle what a race owner owes the town, businesses, volunteers, roads, and identity from which the event built its product—especially when infrastructure funding cannot directly replace local business losses.",
+  "stakes": "If host communities are operating partners rather than interchangeable backdrops, disaster planning cannot end with refunds, deferrals, and a future reopening date. Event owners need a legible standard for direct recovery support, fundraising, promotion of surviving businesses, and transparent return conditions; riders need to understand that preserving a race may mean spending in and supporting the place long before another start gun.",
+  "credibleOpposition": "The wildfire and flooding were not caused by Life Time, cancellation was plainly necessary, the event page directs visitors to a local relief fund, and the available record does not establish what Life Time or its partners donated privately. Public infrastructure programs may be legally unable to pay private losses, Crusher is only one piece of Beaver's tourism economy, and an event organizer cannot repair a resort or state highway by itself.",
+  "whatHappened": "Life Time canceled the July 11 Crusher in the Tushar on June 29 because the Cottonwood Fire was affecting Beaver, Eagle Point, emergency resources, and the surrounding community; its event page linked to a fire-relief fund. FOX 13 then reported that Tucker High Adventure Tours had lost five of nine condos, canceled trips amid local event cancellations including Crusher, and expected $30,000 to $50,000 in lost revenue. Deseret News reported that tourism-dependent Beaver hotels, restaurants, and the grocery store were losing business, with travelers canceling hotel reservations and Crusher among the canceled events. On August 11, Beaver County explained that an $18 million public recovery fund would stabilize hillsides, watershed, roads, and infrastructure but would not provide direct assistance to residents, businesses, private property, or Eagle Point; a separate chamber fund would distribute money directly to affected locals and businesses. UDOT's August 17 project page said SR-153 remained closed to general traffic, recorded $50 million in initial reconstruction funding, and anticipated major permanent work beginning in spring 2027.",
+  "take": "Model draft, not Matti's approved view: Crusher riders lost a race. Beaver could not defer the disaster to 2027. The cancellation was obviously right, and Life Time's page points people to relief. But the public record makes the scale mismatch impossible to ignore: one local operator estimated $30,000 to $50,000 in lost revenue, hotels lost reservations, $18 million in public recovery specifically does not go directly to businesses or Eagle Point, and SR-153 entered a $50 million initial reconstruction with major work extending into 2027. Gravel loves to call places like Beaver the host community, which sounds warmer than scenery with a hotel block. This is when the phrase acquires a price. A race that builds its product from a town's roads, volunteers, lodging, and identity has an obligation to make the town's recovery part of the event—not merely the explanation for why registration stopped. What that obligation costs is open. That it exists is not.",
+  "takeProvenance": "model_draft",
+  "uncertainty": "The sources do not isolate how much of any local loss came specifically from Crusher rather than the fire, road closure, resort damage, other canceled events, or travelers' broader fears. They do not quantify Crusher's normal economic contribution, disclose any private Life Time or sponsor donations beyond the public relief link, establish a contractual duty to fund recovery, or show whether the event can return in 2027. The UDOT funding and construction schedule remain mutable. Day-level publication dates without source timestamps are normalized to midnight UTC; UDOT's page timestamp comes from its public project metadata.",
+  "editorialScore": 92,
+  "editorialGates": {
+    "party": "pass",
+    "point": "pass",
+    "friend": "pass",
+    "craft": "pass",
+    "hostileEditor": "pass"
+  },
+  "contemporaryReceipts": [
+    {
+      "claimId": "claim_3b883c0cbf82862e5564e5d5",
+      "canonicalUrl": "https://tusharcrusher.com/",
+      "publisher": "Life Time Crusher in the Tushar",
+      "publishedAt": "2026-06-29T00:00:00Z",
+      "quoteExcerpt": "Crusher in the Tushar will not take place as planned this year.",
+      "transcriptStartSeconds": null,
+      "transcriptEndSeconds": null
+    },
+    {
+      "claimId": "claim_5c393512576aba502b8f1b14",
+      "canonicalUrl": "https://www.fox13now.com/news/local-news/central-utah/how-will-local-businesses-recover-after-the-cottonwood-fire",
+      "publisher": "FOX 13 News Utah",
+      "publishedAt": "2026-07-03T04:54:24Z",
+      "quoteExcerpt": "He estimates they'll lose between $30,000 and $50,000 in revenue.",
+      "transcriptStartSeconds": null,
+      "transcriptEndSeconds": null
+    },
+    {
+      "claimId": "claim_a7c0f7b65ff7ffec42376884",
+      "canonicalUrl": "https://www.deseret.com/utah/2026/07/10/beaver-community-supports-those-affected-by-cottonwood-fire/",
+      "publisher": "Deseret News",
+      "publishedAt": "2026-07-10T00:00:00Z",
+      "quoteExcerpt": "We're concerned about our hotels and the restaurants and, you know, the grocery store.",
+      "transcriptStartSeconds": null,
+      "transcriptEndSeconds": null
+    },
+    {
+      "claimId": "claim_47a247652b56d59e919ba954",
+      "canonicalUrl": "https://visitbeavercountyut.com/cottonwood-fire-information/",
+      "publisher": "Beaver County, Utah",
+      "publishedAt": "2026-08-11T00:00:00Z",
+      "quoteExcerpt": "will not provide direct financial assistance to individual residents or businesses",
+      "transcriptStartSeconds": null,
+      "transcriptEndSeconds": null
+    },
+    {
+      "claimId": "claim_698b4800e4d5f7e3001d3616",
+      "canonicalUrl": "https://udotinput.utah.gov/v42122",
+      "publisher": "Utah Department of Transportation",
+      "publishedAt": "2026-08-17T21:03:47Z",
+      "quoteExcerpt": "will not reopen SR-153 to general public traffic at this time",
+      "transcriptStartSeconds": null,
+      "transcriptEndSeconds": null
+    }
+  ],
+  "laterEvidence": [],
+  "raceImpacts": [
+    {
+      "impactKind": "editorial_review",
+      "raceId": "gravel:crusher-in-the-tushar",
+      "fieldPath": "race.biased_opinion",
+      "claimIds": [
+        "claim_3b883c0cbf82862e5564e5d5",
+        "claim_5c393512576aba502b8f1b14",
+        "claim_a7c0f7b65ff7ffec42376884",
+        "claim_47a247652b56d59e919ba954",
+        "claim_698b4800e4d5f7e3001d3616"
+      ],
+      "confidence": 0.95,
+      "owner": "Gravel God historical editorial review",
+      "autoFixAllowed": false
+    }
+  ],
+  "humanApprovalRequired": true,
+  "autoPublishAllowed": false,
+  "editorialApproval": null,
+  "publishedAt": null,
+  "updatedAt": "2026-08-28T16:20:00Z",
+  "contentHash": "44382cb1ec84929fbbefd40b98b427718e584fabb63e142b67858ef4e14d9da0"
+}

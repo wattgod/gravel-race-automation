@@ -1,0 +1,445 @@
+{
+  "schemaVersion": "gravel-weekly-backfill-ledger/v1",
+  "year": 1992,
+  "asOf": "1992-12-31T23:59:59.000Z",
+  "sourceLedgerIssue": "https://github.com/wattgod/race-intelligence-control-plane/issues/89",
+  "sourceLedgerRun": "https://github.com/wattgod/race-intelligence-control-plane/actions/runs/33186302385",
+  "programIssue": "https://github.com/wattgod/race-intelligence-control-plane/issues/47",
+  "sourceArchiveCoverage": "unavailable",
+  "sourceArchiveErrors": [
+    "Automated Cyclingnews monthly archive coverage begins in 2000; manual archival source recovery is required."
+  ],
+  "sourceCardCount": 0,
+  "complete": false,
+  "humanApprovalRequired": true,
+  "autoPublishAllowed": false,
+  "weeks": [
+    {
+      "periodStartedAt": "1991-12-28",
+      "periodEndedAt": "1992-01-03",
+      "sourceCardCount": 0,
+      "disposition": "unresearched",
+      "entryIds": [],
+      "reason": "Archive connector coverage is unavailable for this window. Broader source recovery is required; do not infer quiet."
+    },
+    {
+      "periodStartedAt": "1992-01-04",
+      "periodEndedAt": "1992-01-10",
+      "sourceCardCount": 0,
+      "disposition": "unresearched",
+      "entryIds": [],
+      "reason": "Archive connector coverage is unavailable for this window. Broader source recovery is required; do not infer quiet."
+    },
+    {
+      "periodStartedAt": "1992-01-11",
+      "periodEndedAt": "1992-01-17",
+      "sourceCardCount": 0,
+      "disposition": "unresearched",
+      "entryIds": [],
+      "reason": "Archive connector coverage is unavailable for this window. Broader source recovery is required; do not infer quiet."
+    },
+    {
+      "periodStartedAt": "1992-01-18",
+      "periodEndedAt": "1992-01-24",
+      "sourceCardCount": 0,
+      "disposition": "unresearched",
+      "entryIds": [],
+      "reason": "Archive connector coverage is unavailable for this window. Broader source recovery is required; do not infer quiet."
+    },
+    {
+      "periodStartedAt": "1992-01-25",
+      "periodEndedAt": "1992-01-31",
+      "sourceCardCount": 0,
+      "disposition": "unresearched",
+      "entryIds": [],
+      "reason": "Archive connector coverage is unavailable for this window. Broader source recovery is required; do not infer quiet."
+    },
+    {
+      "periodStartedAt": "1992-02-01",
+      "periodEndedAt": "1992-02-07",
+      "sourceCardCount": 0,
+      "disposition": "unresearched",
+      "entryIds": [],
+      "reason": "Archive connector coverage is unavailable for this window. Broader source recovery is required; do not infer quiet."
+    },
+    {
+      "periodStartedAt": "1992-02-08",
+      "periodEndedAt": "1992-02-14",
+      "sourceCardCount": 0,
+      "disposition": "unresearched",
+      "entryIds": [],
+      "reason": "Archive connector coverage is unavailable for this window. Broader source recovery is required; do not infer quiet."
+    },
+    {
+      "periodStartedAt": "1992-02-15",
+      "periodEndedAt": "1992-02-21",
+      "sourceCardCount": 0,
+      "disposition": "unresearched",
+      "entryIds": [],
+      "reason": "Archive connector coverage is unavailable for this window. Broader source recovery is required; do not infer quiet."
+    },
+    {
+      "periodStartedAt": "1992-02-22",
+      "periodEndedAt": "1992-02-28",
+      "sourceCardCount": 0,
+      "disposition": "unresearched",
+      "entryIds": [],
+      "reason": "Archive connector coverage is unavailable for this window. Broader source recovery is required; do not infer quiet."
+    },
+    {
+      "periodStartedAt": "1992-02-29",
+      "periodEndedAt": "1992-03-06",
+      "sourceCardCount": 0,
+      "disposition": "unresearched",
+      "entryIds": [],
+      "reason": "Archive connector coverage is unavailable for this window. Broader source recovery is required; do not infer quiet."
+    },
+    {
+      "periodStartedAt": "1992-03-07",
+      "periodEndedAt": "1992-03-13",
+      "sourceCardCount": 0,
+      "disposition": "unresearched",
+      "entryIds": [],
+      "reason": "Archive connector coverage is unavailable for this window. Broader source recovery is required; do not infer quiet."
+    },
+    {
+      "periodStartedAt": "1992-03-14",
+      "periodEndedAt": "1992-03-20",
+      "sourceCardCount": 0,
+      "disposition": "covered_by_draft",
+      "entryIds": [
+        "history-stamstad-did-not-do-it-alone-1992"
+      ],
+      "reason": "A recovered contemporary report supports a distinct draft about the social infrastructure behind an apparently solitary ultra-endurance performance. Human editorial approval remains required."
+    },
+    {
+      "periodStartedAt": "1992-03-21",
+      "periodEndedAt": "1992-03-27",
+      "sourceCardCount": 0,
+      "disposition": "unresearched",
+      "entryIds": [],
+      "reason": "Archive connector coverage is unavailable for this window. Broader source recovery is required; do not infer quiet."
+    },
+    {
+      "periodStartedAt": "1992-03-28",
+      "periodEndedAt": "1992-04-03",
+      "sourceCardCount": 0,
+      "disposition": "unresearched",
+      "entryIds": [],
+      "reason": "Archive connector coverage is unavailable for this window. Broader source recovery is required; do not infer quiet."
+    },
+    {
+      "periodStartedAt": "1992-04-04",
+      "periodEndedAt": "1992-04-10",
+      "sourceCardCount": 0,
+      "disposition": "unresearched",
+      "entryIds": [],
+      "reason": "Archive connector coverage is unavailable for this window. Broader source recovery is required; do not infer quiet."
+    },
+    {
+      "periodStartedAt": "1992-04-11",
+      "periodEndedAt": "1992-04-17",
+      "sourceCardCount": 0,
+      "disposition": "unresearched",
+      "entryIds": [],
+      "reason": "Archive connector coverage is unavailable for this window. Broader source recovery is required; do not infer quiet."
+    },
+    {
+      "periodStartedAt": "1992-04-18",
+      "periodEndedAt": "1992-04-24",
+      "sourceCardCount": 0,
+      "disposition": "unresearched",
+      "entryIds": [],
+      "reason": "Archive connector coverage is unavailable for this window. Broader source recovery is required; do not infer quiet."
+    },
+    {
+      "periodStartedAt": "1992-04-25",
+      "periodEndedAt": "1992-05-01",
+      "sourceCardCount": 0,
+      "disposition": "unresearched",
+      "entryIds": [],
+      "reason": "Archive connector coverage is unavailable for this window. Broader source recovery is required; do not infer quiet."
+    },
+    {
+      "periodStartedAt": "1992-05-02",
+      "periodEndedAt": "1992-05-08",
+      "sourceCardCount": 0,
+      "disposition": "unresearched",
+      "entryIds": [],
+      "reason": "Archive connector coverage is unavailable for this window. Broader source recovery is required; do not infer quiet."
+    },
+    {
+      "periodStartedAt": "1992-05-09",
+      "periodEndedAt": "1992-05-15",
+      "sourceCardCount": 0,
+      "disposition": "unresearched",
+      "entryIds": [],
+      "reason": "Archive connector coverage is unavailable for this window. Broader source recovery is required; do not infer quiet."
+    },
+    {
+      "periodStartedAt": "1992-05-16",
+      "periodEndedAt": "1992-05-22",
+      "sourceCardCount": 0,
+      "disposition": "unresearched",
+      "entryIds": [],
+      "reason": "Archive connector coverage is unavailable for this window. Broader source recovery is required; do not infer quiet."
+    },
+    {
+      "periodStartedAt": "1992-05-23",
+      "periodEndedAt": "1992-05-29",
+      "sourceCardCount": 0,
+      "disposition": "unresearched",
+      "entryIds": [],
+      "reason": "Archive connector coverage is unavailable for this window. Broader source recovery is required; do not infer quiet."
+    },
+    {
+      "periodStartedAt": "1992-05-30",
+      "periodEndedAt": "1992-06-05",
+      "sourceCardCount": 0,
+      "disposition": "unresearched",
+      "entryIds": [],
+      "reason": "Archive connector coverage is unavailable for this window. Broader source recovery is required; do not infer quiet."
+    },
+    {
+      "periodStartedAt": "1992-06-06",
+      "periodEndedAt": "1992-06-12",
+      "sourceCardCount": 0,
+      "disposition": "unresearched",
+      "entryIds": [],
+      "reason": "Archive connector coverage is unavailable for this window. Broader source recovery is required; do not infer quiet."
+    },
+    {
+      "periodStartedAt": "1992-06-13",
+      "periodEndedAt": "1992-06-19",
+      "sourceCardCount": 0,
+      "disposition": "unresearched",
+      "entryIds": [],
+      "reason": "Archive connector coverage is unavailable for this window. Broader source recovery is required; do not infer quiet."
+    },
+    {
+      "periodStartedAt": "1992-06-20",
+      "periodEndedAt": "1992-06-26",
+      "sourceCardCount": 0,
+      "disposition": "unresearched",
+      "entryIds": [],
+      "reason": "Archive connector coverage is unavailable for this window. Broader source recovery is required; do not infer quiet."
+    },
+    {
+      "periodStartedAt": "1992-06-27",
+      "periodEndedAt": "1992-07-03",
+      "sourceCardCount": 0,
+      "disposition": "unresearched",
+      "entryIds": [],
+      "reason": "Archive connector coverage is unavailable for this window. Broader source recovery is required; do not infer quiet."
+    },
+    {
+      "periodStartedAt": "1992-07-04",
+      "periodEndedAt": "1992-07-10",
+      "sourceCardCount": 0,
+      "disposition": "unresearched",
+      "entryIds": [],
+      "reason": "Archive connector coverage is unavailable for this window. Broader source recovery is required; do not infer quiet."
+    },
+    {
+      "periodStartedAt": "1992-07-11",
+      "periodEndedAt": "1992-07-17",
+      "sourceCardCount": 0,
+      "disposition": "unresearched",
+      "entryIds": [],
+      "reason": "Archive connector coverage is unavailable for this window. Broader source recovery is required; do not infer quiet."
+    },
+    {
+      "periodStartedAt": "1992-07-18",
+      "periodEndedAt": "1992-07-24",
+      "sourceCardCount": 0,
+      "disposition": "unresearched",
+      "entryIds": [],
+      "reason": "Archive connector coverage is unavailable for this window. Broader source recovery is required; do not infer quiet."
+    },
+    {
+      "periodStartedAt": "1992-07-25",
+      "periodEndedAt": "1992-07-31",
+      "sourceCardCount": 0,
+      "disposition": "unresearched",
+      "entryIds": [],
+      "reason": "Archive connector coverage is unavailable for this window. Broader source recovery is required; do not infer quiet."
+    },
+    {
+      "periodStartedAt": "1992-08-01",
+      "periodEndedAt": "1992-08-07",
+      "sourceCardCount": 0,
+      "disposition": "unresearched",
+      "entryIds": [],
+      "reason": "Archive connector coverage is unavailable for this window. Broader source recovery is required; do not infer quiet."
+    },
+    {
+      "periodStartedAt": "1992-08-08",
+      "periodEndedAt": "1992-08-14",
+      "sourceCardCount": 0,
+      "disposition": "unresearched",
+      "entryIds": [],
+      "reason": "Archive connector coverage is unavailable for this window. Broader source recovery is required; do not infer quiet."
+    },
+    {
+      "periodStartedAt": "1992-08-15",
+      "periodEndedAt": "1992-08-21",
+      "sourceCardCount": 0,
+      "disposition": "unresearched",
+      "entryIds": [],
+      "reason": "Archive connector coverage is unavailable for this window. Broader source recovery is required; do not infer quiet."
+    },
+    {
+      "periodStartedAt": "1992-08-22",
+      "periodEndedAt": "1992-08-28",
+      "sourceCardCount": 0,
+      "disposition": "unresearched",
+      "entryIds": [],
+      "reason": "Archive connector coverage is unavailable for this window. Broader source recovery is required; do not infer quiet."
+    },
+    {
+      "periodStartedAt": "1992-08-29",
+      "periodEndedAt": "1992-09-04",
+      "sourceCardCount": 0,
+      "disposition": "unresearched",
+      "entryIds": [],
+      "reason": "Archive connector coverage is unavailable for this window. Broader source recovery is required; do not infer quiet."
+    },
+    {
+      "periodStartedAt": "1992-09-05",
+      "periodEndedAt": "1992-09-11",
+      "sourceCardCount": 0,
+      "disposition": "unresearched",
+      "entryIds": [],
+      "reason": "Archive connector coverage is unavailable for this window. Broader source recovery is required; do not infer quiet."
+    },
+    {
+      "periodStartedAt": "1992-09-12",
+      "periodEndedAt": "1992-09-18",
+      "sourceCardCount": 0,
+      "disposition": "unresearched",
+      "entryIds": [],
+      "reason": "Archive connector coverage is unavailable for this window. Broader source recovery is required; do not infer quiet."
+    },
+    {
+      "periodStartedAt": "1992-09-19",
+      "periodEndedAt": "1992-09-25",
+      "sourceCardCount": 0,
+      "disposition": "unresearched",
+      "entryIds": [],
+      "reason": "Archive connector coverage is unavailable for this window. Broader source recovery is required; do not infer quiet."
+    },
+    {
+      "periodStartedAt": "1992-09-26",
+      "periodEndedAt": "1992-10-02",
+      "sourceCardCount": 0,
+      "disposition": "unresearched",
+      "entryIds": [],
+      "reason": "Archive connector coverage is unavailable for this window. Broader source recovery is required; do not infer quiet."
+    },
+    {
+      "periodStartedAt": "1992-10-03",
+      "periodEndedAt": "1992-10-09",
+      "sourceCardCount": 0,
+      "disposition": "unresearched",
+      "entryIds": [],
+      "reason": "Archive connector coverage is unavailable for this window. Broader source recovery is required; do not infer quiet."
+    },
+    {
+      "periodStartedAt": "1992-10-10",
+      "periodEndedAt": "1992-10-16",
+      "sourceCardCount": 0,
+      "disposition": "unresearched",
+      "entryIds": [],
+      "reason": "Archive connector coverage is unavailable for this window. Broader source recovery is required; do not infer quiet."
+    },
+    {
+      "periodStartedAt": "1992-10-17",
+      "periodEndedAt": "1992-10-23",
+      "sourceCardCount": 0,
+      "disposition": "unresearched",
+      "entryIds": [],
+      "reason": "Archive connector coverage is unavailable for this window. Broader source recovery is required; do not infer quiet."
+    },
+    {
+      "periodStartedAt": "1992-10-24",
+      "periodEndedAt": "1992-10-30",
+      "sourceCardCount": 0,
+      "disposition": "unresearched",
+      "entryIds": [],
+      "reason": "Archive connector coverage is unavailable for this window. Broader source recovery is required; do not infer quiet."
+    },
+    {
+      "periodStartedAt": "1992-10-31",
+      "periodEndedAt": "1992-11-06",
+      "sourceCardCount": 0,
+      "disposition": "unresearched",
+      "entryIds": [],
+      "reason": "Archive connector coverage is unavailable for this window. Broader source recovery is required; do not infer quiet."
+    },
+    {
+      "periodStartedAt": "1992-11-07",
+      "periodEndedAt": "1992-11-13",
+      "sourceCardCount": 0,
+      "disposition": "unresearched",
+      "entryIds": [],
+      "reason": "Archive connector coverage is unavailable for this window. Broader source recovery is required; do not infer quiet."
+    },
+    {
+      "periodStartedAt": "1992-11-14",
+      "periodEndedAt": "1992-11-20",
+      "sourceCardCount": 0,
+      "disposition": "unresearched",
+      "entryIds": [],
+      "reason": "Archive connector coverage is unavailable for this window. Broader source recovery is required; do not infer quiet."
+    },
+    {
+      "periodStartedAt": "1992-11-21",
+      "periodEndedAt": "1992-11-27",
+      "sourceCardCount": 0,
+      "disposition": "unresearched",
+      "entryIds": [],
+      "reason": "Archive connector coverage is unavailable for this window. Broader source recovery is required; do not infer quiet."
+    },
+    {
+      "periodStartedAt": "1992-11-28",
+      "periodEndedAt": "1992-12-04",
+      "sourceCardCount": 0,
+      "disposition": "unresearched",
+      "entryIds": [],
+      "reason": "Archive connector coverage is unavailable for this window. Broader source recovery is required; do not infer quiet."
+    },
+    {
+      "periodStartedAt": "1992-12-05",
+      "periodEndedAt": "1992-12-11",
+      "sourceCardCount": 0,
+      "disposition": "unresearched",
+      "entryIds": [],
+      "reason": "Archive connector coverage is unavailable for this window. Broader source recovery is required; do not infer quiet."
+    },
+    {
+      "periodStartedAt": "1992-12-12",
+      "periodEndedAt": "1992-12-18",
+      "sourceCardCount": 0,
+      "disposition": "unresearched",
+      "entryIds": [],
+      "reason": "Archive connector coverage is unavailable for this window. Broader source recovery is required; do not infer quiet."
+    },
+    {
+      "periodStartedAt": "1992-12-19",
+      "periodEndedAt": "1992-12-25",
+      "sourceCardCount": 0,
+      "disposition": "unresearched",
+      "entryIds": [],
+      "reason": "Archive connector coverage is unavailable for this window. Broader source recovery is required; do not infer quiet."
+    },
+    {
+      "periodStartedAt": "1992-12-26",
+      "periodEndedAt": "1993-01-01",
+      "sourceCardCount": 0,
+      "disposition": "unresearched",
+      "entryIds": [],
+      "reason": "Archive connector coverage is unavailable for this window. Broader source recovery is required; do not infer quiet."
+    }
+  ],
+  "updatedAt": "2026-08-28T15:40:49.000Z"
+}

@@ -1,7 +1,7 @@
 {
   "schemaVersion": "gravel-weekly-history-entry/v1",
   "entryId": "history-life-time-admissions-office-2026",
-  "activeFrom": "2026-03-19",
+  "activeFrom": "2026-02-19",
   "activeThrough": "2026-08-12",
   "status": "draft",
   "headline": "Gravel Built a Governing Body by Accident",
@@ -10,10 +10,10 @@
   "changedJudgment": "By 2026, its selection and continuity policies had consequences that increasingly resembled those of a career institution, even though Life Time remained a private event company rather than a federation or employer.",
   "stakes": "A roster decision can determine whether a privateer receives entries, compensation eligibility, sponsor visibility, a development pathway, pregnancy continuity, and a coherent season in the most commercially important domestic off-road series.",
   "credibleOpposition": "Life Time is a private promoter funding opportunities rather than monopolizing the sport; athletes remain free to race elsewhere, performance pathways became clearer in 2026, and institutional responsibility should not be inferred merely because one series became desirable.",
-  "whatHappened": "Life Time described the 2026 Grand Prix as the professional home of off-road racing, selected a fixed elite roster, added conditional finisher compensation and pregnancy protection, expanded and funded its U23 pathway, made midseason wildcard replacements, and announced a new performance qualifier that would determine most remaining 2027 roster positions.",
+  "whatHappened": "Life Time put 86 wildcard contenders through two opening races for six main-field positions, described the 2026 Grand Prix as the professional home of off-road racing, selected a fixed elite roster, added conditional finisher compensation and pregnancy protection, expanded and funded its U23 pathway, made midseason wildcard replacements, and announced a new performance qualifier that would determine most remaining 2027 roster positions. The U23 pathway then produced a visible leader in Kylee Hanel after her Unbound Gravel 100 win.",
   "take": "Model draft, not Matti's approved view: Gravel hates governing bodies so much it accidentally built one out of race entries. Life Time now decides who gets access, protection, money, visibility, and a path back. Much of this is good: pregnancy protection is overdue, U23 support matters, and a performance qualifier beats a velvet-rope mystery. But good power is still power. When a single series can rescue or derail a privateer's year with one roster decision, it deserves scrutiny closer to a federation than applause for merely putting on six very good bike races.",
   "takeProvenance": "model_draft",
-  "uncertainty": "The available record does not establish that Life Time is an employer or governing federation, does not fully explain the discretion used in initial 2026 selections, and predates the promised detailed 2027 qualifier scoring, tie-break, and eligibility rules. Source pages supply day-level publication dates normalized here to midnight UTC.",
+  "uncertainty": "The available record does not establish that Life Time is an employer or governing federation, does not fully explain the discretion used in initial 2026 selections, and predates the promised detailed 2027 qualifier scoring, tie-break, and eligibility rules. One strong U23 season also does not establish that the pathway will produce sustainable professional careers. Source pages without precise timestamps supply day-level publication dates normalized here to midnight UTC.",
   "editorialScore": 89,
   "editorialGates": {
     "party": "pass",
@@ -23,6 +23,15 @@
     "hostileEditor": "hold"
   },
   "contemporaryReceipts": [
+    {
+      "claimId": "claim_ltgp_wildcard_audition_pool_2026",
+      "canonicalUrl": "https://www.cyclingnews.com/pro-cycling/teams-riders/talent-pool-is-deep-on-wildcard-roster-revealed-for-2026-life-time-grand-prix-which-includes-former-champion-haley-smith-and-dutch-veteran-piotr-havik/",
+      "publisher": "Cyclingnews",
+      "publishedAt": "2026-02-19T19:07:19Z",
+      "quoteExcerpt": "27 women and 59 men ... to capture six spots",
+      "transcriptStartSeconds": null,
+      "transcriptEndSeconds": null
+    },
     {
       "claimId": "claim_ltgp_professional_home_2026",
       "canonicalUrl": "https://www.lifetimegrandprix.com/2026/03/19/new-for-2026/",
@@ -69,6 +78,15 @@
       "transcriptEndSeconds": null
     },
     {
+      "claimId": "claim_ltgp_u23_pathway_visible_result_2026",
+      "canonicalUrl": "https://www.cyclingnews.com/pro-cycling/teams-riders/despite-being-10-years-younger-than-the-big-kids-multi-discipline-u23-talent-kylee-hanel-thriving-in-long-grueling-races-of-gravel-with-leadville-looming/",
+      "publisher": "Cyclingnews",
+      "publishedAt": "2026-08-04T00:00:00Z",
+      "quoteExcerpt": "leads Life Time Grand Prix U23 competition after win at Unbound Gravel 100",
+      "transcriptStartSeconds": null,
+      "transcriptEndSeconds": null
+    },
+    {
       "claimId": "claim_ltgp_2027_qualifier_2026",
       "canonicalUrl": "https://www.lifetimegrandprix.com/2026/08/12/life-time-announces-2027-life-time-grand-prix-structure/",
       "publisher": "Life Time Grand Prix",
@@ -103,6 +121,6 @@
   "autoPublishAllowed": false,
   "editorialApproval": null,
   "publishedAt": null,
-  "updatedAt": "2026-08-28T02:18:00Z",
-  "contentHash": "a8603990e375f2dd917e082e3f33a71beea9638a7e12c2762f64ac0d3528da5c"
+  "updatedAt": "2026-08-28T03:25:00Z",
+  "contentHash": "aeaca309dcf601dd4aa212bd4caec421961229809e9c980d6c8d435ce6e3aed9"
 }

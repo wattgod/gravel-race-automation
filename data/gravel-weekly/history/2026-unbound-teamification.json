@@ -1,7 +1,7 @@
 {
   "schemaVersion": "gravel-weekly-history-entry/v1",
   "entryId": "history-unbound-teamification-2026",
-  "activeFrom": "2026-02-10",
+  "activeFrom": "2026-01-15",
   "activeThrough": "2026-06-02",
   "status": "draft",
   "headline": "A Flat Tire Made Gravel Admit Teams Exist",
@@ -10,10 +10,10 @@
   "changedJudgment": "At the sharp end of Unbound, integrated tactics, interchangeable labor, course reconnaissance, engineering, and support could now compound into an advantage no individual privateer could reproduce alone.",
   "stakes": "If the organization rather than the rider is becoming the competitive unit, privateers face a different labor market and a different race. Organizers, sponsors, and media must decide whether to regulate team behavior, create viable independent pathways, or at least stop selling a corporate contest as frontier individualism.",
   "credibleOpposition": "Mads Würtz Schmidt appeared to be the strongest rider, the wheel exchange was a rational response to an emergency rather than proof of a scripted plan, cooperation has always existed in gravel, and a single dominant result cannot establish that privateers are obsolete or that team tactics should be restricted.",
-  "whatHappened": "In February, Cyclingnews framed 2026 as a turning point from the privateer default toward professional teams. Days before Unbound, another report found that traditional in-race team tactics still seemed difficult in gravel. During the men's race, Specialized teammates Würtz Schmidt and Swenson escaped together; when Würtz Schmidt punctured, Swenson gave him a wheel and sacrificed his own race because the team's best chance was Würtz Schmidt. Beers did not help chase his teammates and finished second, while Swenson recovered to fifth. Afterward, Beers described two years of Specialized testing, including sensor-equipped reconnaissance and racing, feeding an in-house simulation model used to develop the bike ridden to the leading results.",
+  "whatHappened": "Starting in January, new and expanded squads made the shift visible: Specialized assembled an off-road superteam with unified support and equipment, Trek Driftless expanded, Q36.5 launched a women's off-road team, and Aegis created a cross-disciplinary collective. By March, Cyclingnews could document a full landscape of teams, collectives, and privateers while riders still disagreed about whether those structures would produce road-style tactics. Days before Unbound, another report found that traditional in-race team tactics still seemed difficult in gravel. During the men's race, Specialized teammates Würtz Schmidt and Swenson escaped together; when Würtz Schmidt punctured, Swenson gave him a wheel and sacrificed his own race because the team's best chance was Würtz Schmidt. Beers did not help chase his teammates and finished second, while Swenson recovered to fifth. Afterward, Beers described two years of Specialized testing, including sensor-equipped reconnaissance and racing, feeding an in-house simulation model used to develop the bike ridden to the leading results.",
   "take": "Model draft, not Matti's approved view: Gravel spent years pretending matching jerseys were just friends at the same sleepover. Then Keegan Swenson handed the strongest rider his wheel and his shot at Unbound, Matt Beers declined to chase, and Specialized went 1-2-5 on a bike informed by two years of black-box data. The privateer myth did not die because teams are evil. It died because pretending they are not teams became stupid. Stop asking riders to cosplay as rugged individualists while brands build Formula 1 programs around them. The honest argument now is what independent riders are owed in a race increasingly contested by organizations.",
   "takeProvenance": "model_draft",
-  "uncertainty": "The record does not disclose Specialized's budget, establish every pre-race instruction, quantify the bike-development advantage, prove that Würtz Schmidt would have lost without the wheel exchange, or show that comparable tactics will determine most future races. The official event page links the 2026 timing portal, but the result chronology here relies on two established publications because the portal does not expose readable result rows to this archive. Source pages provide day-level publication dates normalized here to midnight UTC.",
+  "uncertainty": "The new structures differ substantially in salary, shared equipment, staff support, and expected tactics; a roster announcement alone does not prove road-style cooperation. The record does not disclose Specialized's budget, establish every pre-race instruction, quantify the bike-development advantage, prove that Würtz Schmidt would have lost without the wheel exchange, or show that comparable tactics will determine most future races. The official event page links the 2026 timing portal, but the result chronology here relies on two established publications because the portal does not expose readable result rows to this archive. Source pages provide day-level publication dates normalized here to midnight UTC.",
   "editorialScore": 94,
   "editorialGates": {
     "party": "pass",
@@ -24,11 +24,56 @@
   },
   "contemporaryReceipts": [
     {
+      "claimId": "claim_specialized_offroad_superteam_2026",
+      "canonicalUrl": "https://www.cyclingnews.com/pro-cycling/womens-cycling/specialized-is-really-stepping-things-up-this-year-geerike-schreurs-joins-former-unbound-gravel-adversaries-villafane-and-langvad-on-off-road-super-team/",
+      "publisher": "Cyclingnews",
+      "publishedAt": "2026-01-15T00:00:00Z",
+      "quoteExcerpt": "one of the first superteams for women in off-road racing",
+      "transcriptStartSeconds": null,
+      "transcriptEndSeconds": null
+    },
+    {
+      "claimId": "claim_trek_driftless_expands_2026",
+      "canonicalUrl": "https://www.cyclingnews.com/pro-cycling/teams-riders/a-team-that-can-thrive-together-paige-onweller-and-toby-roed-anchor-trek-driftless-off-road-team-with-three-new-teammates-and-a-focus-on-us-gravel-races/",
+      "publisher": "Cyclingnews",
+      "publishedAt": "2026-01-29T00:00:00Z",
+      "quoteExcerpt": "A trio of versatile riders were added to the roster",
+      "transcriptStartSeconds": null,
+      "transcriptEndSeconds": null
+    },
+    {
+      "claimId": "claim_q365_womens_offroad_team_2026",
+      "canonicalUrl": "https://www.cyclingnews.com/pro-cycling/teams-riders/alexis-skarda-and-maddy-nutt-anchor-new-q36-5-womens-off-road-racing-expedition-with-early-2026-objectives-at-the-traka-and-unbound-gravel/",
+      "publisher": "Cyclingnews",
+      "publishedAt": "2026-02-04T00:00:00Z",
+      "quoteExcerpt": "announced a four-rider women's gravel racing team for 2026",
+      "transcriptStartSeconds": null,
+      "transcriptEndSeconds": null
+    },
+    {
       "claimId": "claim_gravel_privateer_default_challenged_2026",
       "canonicalUrl": "https://www.cyclingnews.com/pro-cycling/riders-making-six-figures-race-against-some-who-arent-making-a-cent-are-pro-gravel-teams-about-to-be-the-end-of-the-privateer/",
       "publisher": "Cyclingnews",
       "publishedAt": "2026-02-10T00:00:00Z",
       "quoteExcerpt": "The privateer model will still exist and thrive, but it won't be the dominant pathway anymore.",
+      "transcriptStartSeconds": null,
+      "transcriptEndSeconds": null
+    },
+    {
+      "claimId": "claim_aegis_offroad_collective_2026",
+      "canonicalUrl": "https://www.cyclingnews.com/pro-cycling/womens-cycling/get-the-grit-still-be-friends-and-race-together-lauren-stephens-emma-langley-and-u23-rider-kylee-hanel-form-off-road-partnership-to-pursue-life-time-grand-prix-rewards/",
+      "publisher": "Cyclingnews",
+      "publishedAt": "2026-02-25T00:00:00Z",
+      "quoteExcerpt": "will have teammates for the first time at Life Time Grand Prix races",
+      "transcriptStartSeconds": null,
+      "transcriptEndSeconds": null
+    },
+    {
+      "claimId": "claim_teams_roster_landscape_2026",
+      "canonicalUrl": "https://www.cyclingnews.com/pro-cycling/teams-riders/for-better-or-worse-teams-are-here-the-rosters-in-2026-as-riders-join-forces-for-off-road-alliances-as-the-next-evolution-of-gravel-and-endurance-mtb-racing-takes-shape/",
+      "publisher": "Cyclingnews",
+      "publishedAt": "2026-03-12T00:00:00Z",
+      "quoteExcerpt": "teams are coming to gravel racing with a rush in 2026",
       "transcriptStartSeconds": null,
       "transcriptEndSeconds": null
     },
@@ -99,6 +144,6 @@
   "autoPublishAllowed": false,
   "editorialApproval": null,
   "publishedAt": null,
-  "updatedAt": "2026-08-28T03:05:00Z",
-  "contentHash": "7514279d3334eeedd219975fefb6f3f278ebaf6d5820c09cd7a2046a2abcfbc5"
+  "updatedAt": "2026-08-28T03:25:00Z",
+  "contentHash": "6b42baedb9568ba738b17aca8475d1e95debc9b62159dae17d5a85e03113c511"
 }

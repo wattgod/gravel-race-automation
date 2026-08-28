@@ -14,9 +14,11 @@
       "periodStartedAt": "2022-12-31",
       "periodEndedAt": "2023-01-06",
       "sourceCardCount": 1,
-      "disposition": "pending_review",
-      "entryIds": [],
-      "reason": "Source census complete; assigning-desk research and disposition remain pending."
+      "disposition": "covered_by_draft",
+      "entryIds": [
+        "history-unbound-aerobar-workaround-2023"
+      ],
+      "reason": "Unbound's announced elite aerobar ban and safety rationale opened the component-rule story that riders tested with forearm-rest adaptations at race week."
     },
     {
       "periodStartedAt": "2023-01-07",
@@ -182,17 +184,21 @@
       "periodStartedAt": "2023-05-27",
       "periodEndedAt": "2023-06-02",
       "sourceCardCount": 16,
-      "disposition": "pending_review",
-      "entryIds": [],
-      "reason": "Source census complete; assigning-desk research and disposition remain pending."
+      "disposition": "covered_by_draft",
+      "entryIds": [
+        "history-unbound-aerobar-workaround-2023"
+      ],
+      "reason": "Rider support, explicit opposition, and multiple padded forearm setups exposed the difference between removing extensions and regulating the rewarded posture."
     },
     {
       "periodStartedAt": "2023-06-03",
       "periodEndedAt": "2023-06-09",
       "sourceCardCount": 23,
-      "disposition": "pending_review",
-      "entryIds": [],
-      "reason": "Source census complete; assigning-desk research and disposition remain pending."
+      "disposition": "covered_by_draft",
+      "entryIds": [
+        "history-unbound-aerobar-workaround-2023"
+      ],
+      "reason": "The post-race cockpit gallery preserved a compliant forearm-rest workaround without evidence of a penalty, performance effect, or safety incident."
     },
     {
       "periodStartedAt": "2023-06-10",
@@ -437,5 +443,5 @@
       "reason": "Cyclingnews exposed no matching source card; preserve the quiet window."
     }
   ],
-  "updatedAt": "2026-08-28T07:10:00Z"
+  "updatedAt": "2026-08-28T07:25:00Z"
 }

@@ -580,6 +580,30 @@ def test_historical_current_thing_requires_contemporary_corroboration_and_human_
         validate_history_entry(model_take, verify_hash=False)
 
 
+def test_historical_race_impacts_are_review_only_and_use_canonical_race_ids():
+    entry = sample_history_entry()
+    entry["raceImpacts"] = [{
+        "impactKind": "no_change",
+        "raceId": "gravel:unbound-200",
+        "fieldPath": None,
+        "claimIds": [],
+        "confidence": 0.9,
+        "owner": "Gravel God historical editorial review",
+        "autoFixAllowed": False,
+    }]
+    with pytest.raises(IssueValidationError, match="must be editorial_review"):
+        validate_history_entry(entry, verify_hash=False)
+
+    entry["raceImpacts"][0].update({
+        "impactKind": "editorial_review",
+        "raceId": "gravel:unbound-gravel-200",
+        "fieldPath": "race.history",
+        "claimIds": ["claim_team_1"],
+    })
+    with pytest.raises(IssueValidationError, match="deprecated; use gravel:unbound-200"):
+        validate_history_entry(entry, verify_hash=False)
+
+
 def test_historical_drafts_never_cross_the_public_loader(tmp_path):
     approved = sample_history_entry()
     draft = copy.deepcopy(approved)

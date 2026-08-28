@@ -99,20 +99,16 @@
   "laterEvidence": [],
   "raceImpacts": [
     {
-      "impactKind": "no_change",
-      "raceId": "gravel:unbound-gravel-200",
-      "fieldPath": null,
-      "claimIds": [],
+      "impactKind": "editorial_review",
+      "raceId": "gravel:unbound-200",
+      "fieldPath": "race.history",
+      "claimIds": [
+        "claim_ltgp_wildcard_audition_pool_2026",
+        "claim_ltgp_selection_consequences_2025",
+        "claim_ltgp_u23_pathway_visible_result_2026",
+        "claim_ltgp_2027_qualifier_2026"
+      ],
       "confidence": 0.95,
-      "owner": "Gravel God historical editorial review",
-      "autoFixAllowed": false
-    },
-    {
-      "impactKind": "no_change",
-      "raceId": "gravel:rad-dirt-fest",
-      "fieldPath": null,
-      "claimIds": [],
-      "confidence": 0.9,
       "owner": "Gravel God historical editorial review",
       "autoFixAllowed": false
     }
@@ -122,5 +118,5 @@
   "editorialApproval": null,
   "publishedAt": null,
   "updatedAt": "2026-08-28T03:25:00Z",
-  "contentHash": "aeaca309dcf601dd4aa212bd4caec421961229809e9c980d6c8d435ce6e3aed9"
+  "contentHash": "500befbc6801a56d2c3ce995dc3f0f6519a29d72cef4c03a41ced64fab834669"
 }

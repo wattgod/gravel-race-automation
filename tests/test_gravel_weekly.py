@@ -1140,7 +1140,7 @@ def test_2003_backfill_ledger_reconciles_the_complete_legacy_archive_census():
     assert validated["complete"] is True
 
 
-def test_2002_backfill_ledger_preserves_partial_legacy_archive_research_debt():
+def test_2002_backfill_ledger_preserves_partial_archive_limits_without_open_research_debt():
     histories = load_history_entries(ROOT / "data" / "gravel-weekly" / "history")
     ledger = json.loads((ROOT / "data" / "gravel-weekly" / "backfill" / "2002.json").read_text())
     validated = validate_backfill_ledger(ledger, histories)
@@ -1149,10 +1149,10 @@ def test_2002_backfill_ledger_preserves_partial_legacy_archive_research_debt():
     assert validated["sourceArchiveCoverage"] == "partial"
     assert len(validated["sourceArchiveErrors"]) == 4
     assert sum(week["sourceCardCount"] for week in validated["weeks"]) == 0
-    assert sum(week["disposition"] == "explicit_gap" for week in validated["weeks"]) == 33
+    assert sum(week["disposition"] == "explicit_gap" for week in validated["weeks"]) == 51
     assert sum(week["disposition"] == "covered_by_draft" for week in validated["weeks"]) == 2
-    assert sum(week["disposition"] == "unresearched" for week in validated["weeks"]) == 18
-    assert validated["complete"] is False
+    assert sum(week["disposition"] == "unresearched" for week in validated["weeks"]) == 0
+    assert validated["complete"] is True
 
 
 def test_2001_backfill_ledger_rejects_a_redundant_story_without_claiming_archive_coverage():

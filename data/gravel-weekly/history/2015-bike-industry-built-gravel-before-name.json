@@ -1,0 +1,72 @@
+{
+  "schemaVersion": "gravel-weekly-history-entry/v1",
+  "entryId": "history-bike-industry-built-gravel-before-name-2015",
+  "activeFrom": "2015-08-04",
+  "activeThrough": "2015-11-16",
+  "status": "draft",
+  "headline": "The Bike Industry Built Gravel Before It Could Name It",
+  "point": "By late 2015, Cannondale and Open had built radically different purpose-designed answers to the same appetite for fast riding beyond pavement, while the industry was still juggling adventure, all-road, road-plus, gnarmac, GravelPlus, cyclocross, and drop-bar mountain bike. Gravel became a product category through shared capability before it became a discipline with shared language or rules.",
+  "priorJudgment": "Mixed-surface riders could improvise with cyclocross, touring, mountain, or endurance-road bikes; a dedicated gravel category was either unnecessary marketing or too incoherent to design around.",
+  "changedJudgment": "The category did not require one canonical bike. It required designers to protect road-like speed while creating room for larger tires, lower pressure, rough-surface control, and multiple wheel formats. The disagreement over names and implementations was evidence that gravel was a design problem worth competing to solve, not evidence that the category was fake.",
+  "stakes": "Modern arguments about the correct gravel bike often pretend the category began with a stable rulebook. Its commercial origin was the opposite: Cannondale added a one-sided suspension fork and fixed 650b format, while Open emphasized wheel and tire interchangeability. Remembering that productive disagreement helps separate useful experimentation from equipment orthodoxy and keeps race recommendations tied to terrain rather than fashion.",
+  "credibleOpposition": "Bike companies are skilled at creating categories to sell another bicycle, and the 2015 machines were expensive, proprietary, and imperfect. The Slate used a distinctive fork and a narrow intended tire choice; the Open frameset cost $2,900 before components. Existing cyclocross, mountain, touring, and road bikes already crossed unpaved ground. A new label did not make the riding new, and early product excitement did not establish what most riders needed or could afford.",
+  "whatHappened": "In August 2015, road.cc examined Cannondale’s near-production Slate: an aluminum road-oriented bike with 650b x 42mm tires and a 30mm single-sided Lefty Oliver suspension fork. The report said American gravel racing may have sparked a new category whose competing names included adventure, all-road, road-plus, and Cannondale’s preferred gnarmac; it called the Slate the boldest interpretation of a genre without defined rules. Later that month, Open unveiled the U.P. at Eurobike as a GravelPlus bike for cyclocross, gravel racing, and adventure. Its dropped chainstay allowed configurations from 700c road tires to 650b x 2.25-inch mountain-bike tires. A November Gear Patrol assessment called gravel cycling the most-hyped segment, said most major manufacturers already offered gravel-labeled bikes, and presented the U.P. as a ground-up design for the growing sport rather than a road frame with wider tires.",
+  "take": "Model draft, not Matti's approved view: If a product needs seven category names, it is normally trapped in a conference room with a whiteboard and no adult supervision. In 2015, it meant bike designers had finally noticed that riders wanted to go fast after the pavement ended. Cannondale answered with the Slate, a road bike wearing 42-millimeter tires and a one-legged suspension fork, then suggested “gnarmac” with a straight face. Open answered with the U.P., called it GravelPlus, and built enough tire clearance to make three existing bike categories nervous. Reviewers reached for adventure, all-road, road-plus, cyclocross, and drop-bar mountain bike because no single noun could contain the useful mess. That mess is the point. Gravel was not born as one correct machine. It was born as permission to steal whatever worked. Every modern equipment purity test should have to explain why the founding documents look like two engineers independently breaking different rules.",
+  "takeProvenance": "model_draft",
+  "uncertainty": "The sources document two influential 2015 launches and contemporary category language, not the first gravel bicycle or a complete global product census. Riders and small builders had combined similar capabilities long before major-brand labeling. Gear Patrol’s claim that almost every major manufacturer offered a gravel-labeled bike is a period assessment rather than audited market data. The entry treats the Slate and U.P. as visible category signals, not sole inventions of gravel riding or technology.",
+  "editorialScore": 98,
+  "editorialGates": {
+    "party": "pass",
+    "point": "pass",
+    "friend": "pass",
+    "craft": "pass",
+    "hostileEditor": "pass"
+  },
+  "contemporaryReceipts": [
+    {
+      "claimId": "claim_slate_category_names_and_design_2015",
+      "canonicalUrl": "https://road.cc/content/news/159616-cannondale-s-slate-nears-production",
+      "publisher": "road.cc",
+      "publishedAt": "2015-08-04T10:23:00Z",
+      "quoteExcerpt": "a genre that has no clearly defined rules",
+      "transcriptStartSeconds": null,
+      "transcriptEndSeconds": null
+    },
+    {
+      "claimId": "claim_open_up_gravelplus_multiformat_2015",
+      "canonicalUrl": "https://road.cc/content/news/162396-open-eurobike-first-ride-review",
+      "publisher": "road.cc",
+      "publishedAt": "2015-08-27T14:30:00Z",
+      "quoteExcerpt": "proper genre fuzzying bike",
+      "transcriptStartSeconds": null,
+      "transcriptEndSeconds": null
+    },
+    {
+      "claimId": "claim_gravel_dedicated_category_hype_2015",
+      "canonicalUrl": "https://www.gearpatrol.com/archive/a175118/open-cycle-up-gp100/",
+      "publisher": "Gear Patrol",
+      "publishedAt": "2015-11-16T12:00:00Z",
+      "quoteExcerpt": "the most hyped segment in cycling",
+      "transcriptStartSeconds": null,
+      "transcriptEndSeconds": null
+    }
+  ],
+  "laterEvidence": [
+    {
+      "claimId": "claim_open_up_shook_category_2018",
+      "canonicalUrl": "https://www.bikeradar.com/news/fit-and-trim-the-open-up-gets-a-refresh-for-2018",
+      "publisher": "BikeRadar",
+      "publishedAt": "2018-06-28T12:00:00Z",
+      "quoteExcerpt": "shook up the gravel bike category",
+      "transcriptStartSeconds": null,
+      "transcriptEndSeconds": null
+    }
+  ],
+  "raceImpacts": [],
+  "humanApprovalRequired": true,
+  "autoPublishAllowed": false,
+  "editorialApproval": null,
+  "publishedAt": null,
+  "updatedAt": "2026-08-28T13:05:00Z",
+  "contentHash": "1a8b608e367112e63210ec650d1687b93384786bde7604b453e91a5127823bc3"
+}

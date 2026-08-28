@@ -32,6 +32,7 @@ from seal_gravel_weekly_history import (  # noqa: E402
 )
 from validate_gravel_weekly_history_decisions import validate_history_decision  # noqa: E402
 from validate_gravel_weekly_backfill import validate_backfill_ledger  # noqa: E402
+from no_ai_slop import audit_no_ai_slop  # noqa: E402
 from prepare_gravel_weekly_backfill_ledger import build_initial_backfill_ledger  # noqa: E402
 from send_gravel_weekly import SUBSCRIBER_SOURCES, build_email_html  # noqa: E402
 from prepare_gravel_weekly_issue import prepare_issue  # noqa: E402
@@ -261,6 +262,35 @@ def test_issue_contract_requires_receipts_approval_and_hash():
     model_copy["stories"][0]["take"] = "Editable model draft, not Matti's approved view."
     with pytest.raises(IssueValidationError, match="model-draft"):
         validate_issue(model_copy, verify_hash=False)
+
+    slopped = copy.deepcopy(issue)
+    slopped["stories"][0]["take"] = "The future isn't coming. It's already here."
+    with pytest.raises(IssueValidationError, match="no-ai-slop gate.*fake_profound_kicker"):
+        validate_issue(slopped, verify_hash=False)
+
+
+def test_no_ai_slop_audit_names_patterns_without_guessing_authorship():
+    clean = audit_no_ai_slop({
+        "headline": "Gravel Worlds Moved Lunch Forty Miles",
+        "take": "Bring another bottle and stop pretending total mileage is the useful number.",
+    })
+    assert clean["verdict"] == "pass"
+    assert clean["findings"] == []
+    assert clean["humanApprovalRequired"] is True
+    assert clean["autoPublishAllowed"] is False
+
+    failed = audit_no_ai_slop({
+        "headline": "This Changes Everything",
+        "take": "Here's the thing: it's not a race update. It's a transformative paradigm shift.",
+    })
+    assert failed["verdict"] == "fail"
+    assert {finding["pattern"] for finding in failed["findings"]} >= {
+        "banned_word", "empty_opener", "binary_contrast",
+    }
+    assert len(failed["checkedTextHash"]) == 64
+
+    factual_pair = audit_no_ai_slop({"what_happened": "Selection considered not only results but also interest in the series."})
+    assert factual_pair["verdict"] == "pass"
 
 
 def test_review_prepares_a_draft_but_cannot_imply_approval():
@@ -616,6 +646,11 @@ def test_historical_current_thing_requires_contemporary_corroboration_and_human_
     model_take["takeProvenance"] = "model_draft"
     with pytest.raises(IssueValidationError, match="human-approved provenance"):
         validate_history_entry(model_take, verify_hash=False)
+
+    slopped = copy.deepcopy(entry)
+    slopped["take"] = "Here's what nobody tells you: this changes everything."
+    with pytest.raises(IssueValidationError, match="no-ai-slop gate"):
+        validate_history_entry(slopped, verify_hash=False)
 
 
 def test_historical_approval_is_hash_bound_copy_limited_and_non_public(tmp_path):

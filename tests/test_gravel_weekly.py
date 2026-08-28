@@ -992,7 +992,7 @@ def test_2000_backfill_ledger_preserves_unavailable_legacy_archive_research_debt
     assert validated["complete"] is False
 
 
-@pytest.mark.parametrize("year", [1999, 1997, 1996])
+@pytest.mark.parametrize("year", [1999, 1997, 1996, 1993])
 def test_pre_web_backfill_ledgers_preserve_unresolved_research_debt(year):
     histories = load_history_entries(ROOT / "data" / "gravel-weekly" / "history")
     ledger = json.loads((ROOT / "data" / "gravel-weekly" / "backfill" / f"{year}.json").read_text())

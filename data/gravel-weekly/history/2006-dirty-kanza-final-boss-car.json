@@ -1,0 +1,97 @@
+{
+  "schemaVersion": "gravel-weekly-history-entry/v1",
+  "entryId": "history-dirty-kanza-final-boss-car-2006",
+  "activeFrom": "2006-05-18",
+  "activeThrough": "2006-05-24",
+  "status": "draft",
+  "headline": "The First Dirty Kanza’s Final Boss Was a Car Three Blocks From the Finish",
+  "point": "The first Dirty Kanza advertised the Flint Hills as the danger: about 200 miles of gravel, low-water crossings, heat, cattle, isolation, and finally a thunderstorm. David Pals survived that chosen difficulty, then a turning driver hit him three blocks from the finish. He remounted and finished. The incident draws a line gravel still blurs: terrain risk is the contest; routine traffic danger does not become part of the romance merely because it happened during a race.",
+  "priorJudgment": "Any danger endured on the way to a gravel finish belongs to the event’s epic mythology, and surviving it makes the story better.",
+  "changedJudgment": "The inaugural Dirty Kanza separated chosen sporting difficulty from ordinary road violence. Pals finishing after the collision was brave; the driver striking him was not an extra feature of the course.",
+  "stakes": "Gravel’s appetite for hardship can flatten every hazard into the same marketable legend. That makes it easier to celebrate preventable traffic exposure instead of distinguishing what riders intentionally entered from what organizers, towns, and drivers should work to reduce.",
+  "credibleOpposition": "The collision is documented by a contemporary participant who was traveling with Pals, not by a police report or medical record. He wrote that Pals and the bike suffered little damage and did not allege organizer negligence. An open-road race cannot eliminate every third-party driving error, and the record here does not establish that this collision was preventable by the organizers.",
+  "whatHappened": "In May 2006, the inaugural Dirty Kanza sent riders onto an unmarked route of about 200 miles through the Flint Hills. Pre-race reporting warned of 11 low-water crossings, sharp gravel, open-range cattle, and long remote stretches. A participant described heat, scarce water, and a relaxed finish in Emporia. Late that night, a severe thunderstorm arrived while David Pals was the only rider still expected. Contemporary organizer Guitar Ted wrote that, three blocks from the finish, a young driver turned into Pals and knocked him onto the wet pavement. Pals and the bike sustained little damage; he remounted and finished to applause around 12:30 a.m. Later accounts disagree on the exact number of starters and finishers, so this entry does not use either count as a settled fact.",
+  "take": "Model draft, not Matti's approved view: The first Dirty Kanza spent all day advertising Kansas as the threat: 11 low-water crossings, sharp gravel, heat, open-range cattle, and then a thunderstorm. David Pals survived all of it. Three blocks from the finish, a driver turned into him and knocked him onto the wet pavement. Pals got up, remounted, and finished around 12:30 in the morning because early gravel had not yet invented the concept of ending a story normally. It is a perfect origin myth for the wrong reason. Gravel likes to call every danger epic because suffering sells. But course risk and traffic risk are not morally interchangeable. Choosing 200 miles of Flint Hills is the sport. Being hit by a driver inside town is traffic danger wearing a race anecdote. The brave part is that Pals finished. The useful part is refusing to call the car part of the adventure.",
+  "takeProvenance": "model_draft",
+  "uncertainty": "Guitar Ted’s May 24 account is contemporary and first-hand as a race participant and Pals’s travel companion, but the collision lacks an independent police, medical, or local-news receipt in the recovered evidence. The exact finish time varies between about 12:30 a.m. and 1:00 a.m. Later sources also conflict on starter and finisher counts. The entry preserves the approximate time, omits the disputed field totals, and makes no claim of organizer fault.",
+  "editorialScore": 99,
+  "editorialGates": {
+    "party": "pass",
+    "point": "pass",
+    "friend": "pass",
+    "craft": "pass",
+    "hostileEditor": "pass"
+  },
+  "contemporaryReceipts": [
+    {
+      "claimId": "claim_dirty_kanza_remote_hazards_2006",
+      "canonicalUrl": "https://g-tedproductions.blogspot.com/2006/05/off-to-dirty-kanza.html",
+      "publisher": "Guitar Ted Productions",
+      "publishedAt": "2006-05-18T06:15:00-05:00",
+      "quoteExcerpt": "There will be 11 of these low water crossings on course!",
+      "transcriptStartSeconds": null,
+      "transcriptEndSeconds": null
+    },
+    {
+      "claimId": "claim_dirty_kanza_heat_finish_2006",
+      "canonicalUrl": "https://partridgeracing.blogspot.com/2006/05/super-long-dirty-kanza-post.html",
+      "publisher": "Partridge Racing",
+      "publishedAt": "2006-05-22T17:51:00-07:00",
+      "quoteExcerpt": "We rolled into Emporia a few minutes after 10 PM.",
+      "transcriptStartSeconds": null,
+      "transcriptEndSeconds": null
+    },
+    {
+      "claimId": "claim_dirty_kanza_pals_collision_finish_2006",
+      "canonicalUrl": "https://g-tedproductions.blogspot.com/2006/05/rocks-dust-and-fun-part-iv.html",
+      "publisher": "Guitar Ted Productions",
+      "publishedAt": "2006-05-24T04:55:00-05:00",
+      "quoteExcerpt": "David had been struck by a car only three blocks from the finish!",
+      "transcriptStartSeconds": null,
+      "transcriptEndSeconds": null
+    }
+  ],
+  "laterEvidence": [
+    {
+      "claimId": "claim_dirty_kanza_pals_retrospective_2016",
+      "canonicalUrl": "https://g-tedproductions.blogspot.com/2016/05/minus-ten-review-20.html",
+      "publisher": "Guitar Ted Productions",
+      "publishedAt": "2016-05-21T01:30:00-05:00",
+      "quoteExcerpt": "David was hit by a car just three blocks from the finish",
+      "transcriptStartSeconds": null,
+      "transcriptEndSeconds": null
+    },
+    {
+      "claimId": "claim_dirty_kanza_first_race_context_2020",
+      "canonicalUrl": "https://velo.outsideonline.com/gravel/monuments-of-gravel-dirty-kanza-200/",
+      "publisher": "Velo / Outside",
+      "publishedAt": "2020-03-02T08:08:46Z",
+      "quoteExcerpt": "an unmarked 200-mile course through the Flint Hills",
+      "transcriptStartSeconds": null,
+      "transcriptEndSeconds": null
+    }
+  ],
+  "raceImpacts": [
+    {
+      "impactKind": "editorial_review",
+      "raceId": "gravel:unbound-200",
+      "fieldPath": "race.biased_opinion",
+      "claimIds": [
+        "claim_dirty_kanza_remote_hazards_2006",
+        "claim_dirty_kanza_heat_finish_2006",
+        "claim_dirty_kanza_pals_collision_finish_2006",
+        "claim_dirty_kanza_pals_retrospective_2016",
+        "claim_dirty_kanza_first_race_context_2020"
+      ],
+      "confidence": 0.94,
+      "owner": "Gravel God race editorial review",
+      "autoFixAllowed": false
+    }
+  ],
+  "humanApprovalRequired": true,
+  "autoPublishAllowed": false,
+  "editorialApproval": null,
+  "publishedAt": null,
+  "updatedAt": "2026-08-28T18:30:00Z",
+  "contentHash": "d562e624350e9b2840eaad1570f09d87d1652da0b72b2d2f20f1767298621653"
+}

@@ -12,6 +12,7 @@ from pathlib import Path
 from typing import Any
 
 from validate_gravel_weekly import IssueValidationError, _impact, _iso, _list, _receipt, _record, _text
+from no_ai_slop import audit_no_ai_slop
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 HISTORY_DIR = PROJECT_ROOT / "data" / "gravel-weekly" / "history"
@@ -81,7 +82,7 @@ def validate_history_entry(value: Any, *, verify_hash: bool = True) -> dict[str,
     _text(entry.get("changedJudgment"), "changedJudgment", 1_000)
     _text(entry.get("stakes"), "stakes", 1_500)
     _text(entry.get("credibleOpposition"), "credibleOpposition", 1_000)
-    _text(entry.get("whatHappened"), "whatHappened", 3_000)
+    what_happened = _text(entry.get("whatHappened"), "whatHappened", 3_000)
     take = _text(entry.get("take"), "take", 8_000)
     _text(entry.get("uncertainty"), "uncertainty", 2_000)
     score = entry.get("editorialScore")
@@ -96,6 +97,11 @@ def validate_history_entry(value: Any, *, verify_hash: bool = True) -> dict[str,
         raise IssueValidationError("historical take still contains model-draft language")
     if status != "draft" and re.search(r"model draft|not matti(?:’|')s approved", headline, re.IGNORECASE):
         raise IssueValidationError("historical headline still contains model-draft language")
+    if status != "draft":
+        prose_gate = audit_no_ai_slop({"headline": headline, "what_happened": what_happened, "take": take})
+        if prose_gate["verdict"] != "pass":
+            findings = ", ".join(f"{finding['field']}:{finding['pattern']}" for finding in prose_gate["findings"])
+            raise IssueValidationError(f"historical entry fails the no-ai-slop gate: {findings}")
     gates = _record(entry.get("editorialGates"), "editorialGates")
     if set(gates) != PASSING_GATES:
         raise IssueValidationError("editorialGates must contain the five historical gates")

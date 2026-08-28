@@ -12,6 +12,8 @@ from pathlib import Path
 from typing import Any
 from urllib.parse import urlparse
 
+from no_ai_slop import audit_no_ai_slop
+
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 ISSUE_DIR = PROJECT_ROOT / "data" / "gravel-weekly" / "issues"
 
@@ -135,6 +137,11 @@ def _retrospective(value: Any, name: str, *, status: str) -> dict[str, Any]:
         raise IssueValidationError(f"{name}.assessment requires human-approved provenance")
     if status != "draft" and re.search(r"model draft|not matti(?:’|')s approved", assessment, re.IGNORECASE):
         raise IssueValidationError(f"{name}.assessment still contains model-draft language")
+    if status != "draft":
+        prose_gate = audit_no_ai_slop({"retrospective": f"{item['headline']}\n{item['whatChanged']}\n{assessment}"})
+        if prose_gate["verdict"] != "pass":
+            patterns = ", ".join(finding["pattern"] for finding in prose_gate["findings"])
+            raise IssueValidationError(f"{name} fails the no-ai-slop gate: {patterns}")
     receipts = _list(item.get("receipts"), f"{name}.receipts", 100)
     if not receipts:
         raise IssueValidationError(f"{name}.receipts must not be empty")
@@ -183,14 +190,14 @@ def validate_issue(value: Any, *, verify_hash: bool = True) -> dict[str, Any]:
         story = _record(raw_story, f"stories[{index}]")
         story_id = _text(story.get("candidateId"), f"stories[{index}].candidateId", 500)
         story_ids.append(story_id)
-        _text(story.get("headline"), f"stories[{index}].headline", 300)
-        _text(story.get("dek"), f"stories[{index}].dek", 600)
+        headline = _text(story.get("headline"), f"stories[{index}].headline", 300)
+        dek = _text(story.get("dek"), f"stories[{index}].dek", 600)
         if story.get("storyKind") not in STORY_KINDS:
             raise IssueValidationError(f"stories[{index}].storyKind is invalid")
         score = story.get("score")
         if not isinstance(score, int) or isinstance(score, bool) or not 70 <= score <= 100:
             raise IssueValidationError(f"stories[{index}].score must be 70 to 100")
-        _text(story.get("whatHappened"), f"stories[{index}].whatHappened", 2_000)
+        what_happened = _text(story.get("whatHappened"), f"stories[{index}].whatHappened", 2_000)
         take = _text(story.get("take"), f"stories[{index}].take", 8_000)
         provenance = story.get("takeProvenance")
         if provenance not in {"model_draft", "human_approved"}:
@@ -199,6 +206,11 @@ def validate_issue(value: Any, *, verify_hash: bool = True) -> dict[str, Any]:
             raise IssueValidationError(f"stories[{index}].take requires human-approved provenance")
         if status != "draft" and re.search(r"model draft|not matti(?:’|')s approved", take, re.IGNORECASE):
             raise IssueValidationError(f"stories[{index}].take still contains model-draft language")
+        if status != "draft":
+            prose_gate = audit_no_ai_slop({"headline": headline, "dek": dek, "what_happened": what_happened, "take": take})
+            if prose_gate["verdict"] != "pass":
+                findings = ", ".join(f"{finding['field']}:{finding['pattern']}" for finding in prose_gate["findings"])
+                raise IssueValidationError(f"stories[{index}] fails the no-ai-slop gate: {findings}")
         receipts = _list(story.get("receipts"), f"stories[{index}].receipts", 100)
         if not receipts:
             raise IssueValidationError(f"stories[{index}].receipts must not be empty")

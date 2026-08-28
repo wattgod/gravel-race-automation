@@ -1333,7 +1333,7 @@ def test_initial_backfill_ledger_preserves_partial_archive_research_debt_and_rej
         )
 
 
-def test_2026_backfill_ledger_accounts_for_every_window_without_claiming_completion():
+def test_2026_backfill_ledger_accounts_for_every_window_and_closes_research_review():
     histories = load_history_entries(ROOT / "data" / "gravel-weekly" / "history")
     ledger = json.loads((ROOT / "data" / "gravel-weekly" / "backfill" / "2026.json").read_text())
     validated = validate_backfill_ledger(ledger, histories)
@@ -1341,11 +1341,11 @@ def test_2026_backfill_ledger_accounts_for_every_window_without_claiming_complet
     assert len(validated["weeks"]) == 35
     assert sum(week["sourceCardCount"] for week in validated["weeks"]) == 230
     assert sum(week["disposition"] == "covered_by_draft" for week in validated["weeks"]) == 23
-    assert sum(week["disposition"] == "held_for_evidence" for week in validated["weeks"]) == 7
-    assert sum(week["disposition"] == "rejected" for week in validated["weeks"]) == 3
-    assert sum(week["disposition"] == "pending_review" for week in validated["weeks"]) == 1
+    assert sum(week["disposition"] == "held_for_evidence" for week in validated["weeks"]) == 0
+    assert sum(week["disposition"] == "rejected" for week in validated["weeks"]) == 11
+    assert sum(week["disposition"] == "pending_review" for week in validated["weeks"]) == 0
     assert sum(week["disposition"] == "explicit_gap" for week in validated["weeks"]) == 1
-    assert validated["complete"] is False
+    assert validated["complete"] is True
 
     missing_window = copy.deepcopy(ledger)
     missing_window["weeks"].pop(10)
@@ -1358,7 +1358,7 @@ def test_2026_backfill_ledger_accounts_for_every_window_without_claiming_complet
         validate_backfill_ledger(dishonest_gap, histories)
 
     premature_completion = copy.deepcopy(ledger)
-    premature_completion["complete"] = True
+    premature_completion["weeks"][-1]["disposition"] = "pending_review"
     with pytest.raises(IssueValidationError, match="no weekly window remains pending"):
         validate_backfill_ledger(premature_completion, histories)
 

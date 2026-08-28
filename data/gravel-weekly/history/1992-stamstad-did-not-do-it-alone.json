@@ -1,0 +1,53 @@
+{
+  "schemaVersion": "gravel-weekly-history-entry/v1",
+  "entryId": "history-stamstad-did-not-do-it-alone-1992",
+  "activeFrom": "1992-03-18",
+  "activeThrough": "1992-03-31",
+  "status": "draft",
+  "headline": "John Stamstad Rode Three Hours on a Flat. He Still Did Not Do It Alone.",
+  "point": "In February 1992, John Stamstad finished third in a 190-mile Iditasport after five flat tires, including three hours riding on a dead one in temperatures reported as low as 35 below zero. The feat helped make him an ultra-endurance archetype. It was also possible because rival Carl Tobin gave him his last tube and a checkpoint mechanic glued the replacement tire to the rim. The useful origin story is not that one superhuman conquered Alaska alone. It is that off-road endurance was extreme from the start and interdependent from the start.",
+  "priorJudgment": "The foundational off-road ultra story is the lone rider proving that enough toughness can overcome distance, weather, mechanical failure, and isolation without help.",
+  "changedJudgment": "Stamstad supplied absurd physical commitment, but another competitor and a checkpoint mechanic kept his race alive. The heroism is real; the self-sufficiency is mythology added by selective memory.",
+  "stakes": "Modern gravel and bikepacking rules need hard boundaries around outside assistance, but the culture becomes dumber when unsupported is treated as a personality and accepting help as moral failure. A race can test individual agency while still depending on competitors, volunteers, mechanics, trail builders, and the people willing to rescue a bad decision.",
+  "credibleOpposition": "Iditasport was a winter mountain-bike event rather than a gravel race, and Tobin's tube did not pedal Stamstad's bike for him. The contemporary account still describes an extraordinary individual performance. One dramatic exchange cannot establish the complete assistance norms of early ultra racing, and later retellings may have elevated Stamstad's ride because his subsequent career made it look prophetic.",
+  "whatHappened": "On March 18, 1992, the Los Angeles Times reported on John Stamstad's February Iditasport, described as a 190-mile mountain-bike race across Alaskan winter terrain. Stamstad brought three tubes and suffered five flats. After the fourth, rival Carl Tobin gave him his last spare. That tube also failed, so Stamstad rode the flat wheel for more than three hours to the next checkpoint, where a mechanic glued the tire to the rim. He finished third after roughly twenty-four hours, with temperatures reported between zero and 35 below. The ride was his first major test after a September assault during training left him with a compound skull fracture and disrupted his balance, vision, endurance, and confidence for more than two months.",
+  "take": "Model draft, not Matti's approved view: Gravel likes the lonely hardman because he makes a clean poster. One rider. One wilderness. No excuses. Unfortunately, another human keeps wandering into the frame. John Stamstad arrived at the 1992 Iditasport with three tubes and somehow collected five flats. After the fourth, Carl Tobin gave the man trying to beat him his last spare. When that one failed too, Stamstad rode the flat for more than three hours until a checkpoint mechanic glued the tire to the rim. Then he finished third after roughly twenty-four hours in temperatures that reached 35 below. That is an incredible hardman story. It is also a story about receiving help. Unsupported racing needs rules or it becomes a group project with secret cars. Fine. But unsupported is a competition format, not proof that you have transcended needing other people. The original freaks were already tougher than us. They were not alone either.",
+  "takeProvenance": "model_draft",
+  "uncertainty": "The Los Angeles Times is the only recovered contemporary publisher, so this entry cannot advance beyond draft without a second contemporaneous source. Its report calls the course 190 miles; later institutional accounts describe early Iditasport distances as 170 or 160 miles, so the 190-mile figure is attributed only to the 1992 report. The story supports a judgment about this episode, not a universal claim about every early ultra's assistance rules. No canonical Iditasport race record exists in the current database, so no race mutation is proposed.",
+  "editorialScore": 98,
+  "editorialGates": {
+    "party": "pass",
+    "point": "pass",
+    "friend": "pass",
+    "craft": "pass",
+    "hostileEditor": "pass"
+  },
+  "contemporaryReceipts": [
+    {
+      "claimId": "claim_stamstad_five_flats_1992",
+      "canonicalUrl": "https://www.latimes.com/archives/la-xpm-1992-03-18-sp-3791-story.html",
+      "publisher": "Los Angeles Times",
+      "publishedAt": "1992-03-18T00:00:00-08:00",
+      "quoteExcerpt": "He carried three spare inner tubes, but had five flat tires.",
+      "transcriptStartSeconds": null,
+      "transcriptEndSeconds": null
+    },
+    {
+      "claimId": "claim_tobin_last_spare_1992",
+      "canonicalUrl": "https://www.latimes.com/archives/la-xpm-1992-03-18-sp-3791-story.html",
+      "publisher": "Los Angeles Times",
+      "publishedAt": "1992-03-18T00:00:00-08:00",
+      "quoteExcerpt": "Tobin gave him his last spare and sped off.",
+      "transcriptStartSeconds": null,
+      "transcriptEndSeconds": null
+    }
+  ],
+  "laterEvidence": [],
+  "raceImpacts": [],
+  "humanApprovalRequired": true,
+  "autoPublishAllowed": false,
+  "editorialApproval": null,
+  "publishedAt": null,
+  "updatedAt": "2026-08-28T15:45:00Z",
+  "contentHash": "d490f535dd50593cfa7bcc8d0d4ab74135711d8721ab9c98dad28abcfa8e9853"
+}

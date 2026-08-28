@@ -1031,6 +1031,21 @@ def test_pre_web_backfill_ledgers_preserve_unresolved_research_debt(year):
     assert validated["complete"] is False
 
 
+def test_1992_backfill_ledger_preserves_research_debt_around_the_recovered_stamstad_story():
+    histories = load_history_entries(ROOT / "data" / "gravel-weekly" / "history")
+    ledger = json.loads((ROOT / "data" / "gravel-weekly" / "backfill" / "1992.json").read_text())
+    validated = validate_backfill_ledger(ledger, histories)
+
+    assert len(validated["weeks"]) == 53
+    assert validated["sourceArchiveCoverage"] == "unavailable"
+    assert len(validated["sourceArchiveErrors"]) == 1
+    assert sum(week["sourceCardCount"] for week in validated["weeks"]) == 0
+    assert sum(week["disposition"] == "unresearched" for week in validated["weeks"]) == 52
+    assert sum(week["disposition"] == "covered_by_draft" for week in validated["weeks"]) == 1
+    assert sum(week["disposition"] == "explicit_gap" for week in validated["weeks"]) == 0
+    assert validated["complete"] is False
+
+
 def test_1995_backfill_ledger_opens_pre_web_research_debt_without_hiding_the_recovered_story():
     histories = load_history_entries(ROOT / "data" / "gravel-weekly" / "history")
     ledger = json.loads((ROOT / "data" / "gravel-weekly" / "backfill" / "1995.json").read_text())

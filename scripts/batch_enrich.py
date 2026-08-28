@@ -285,6 +285,10 @@ Rules:
 - Keep the existing scores — don't change them
 - Each explanation: 2-4 sentences, specific, Matti voice
 - Reference specific course features, weather data, logistics details from research
+- Lead with Gravel God's judgment. Never narrate the research process with "according to",
+  "X notes/reports/describes/captures", "X's assessment rings true", or "As X puts it"
+- Keep memorable source language in quotation marks; the profile's citation section owns
+  source provenance, so the explanation should not read like a research handoff
 - No generic filler ("amazing experience", "world-class")
 - If research lacks detail for a criterion, say what you know honestly
 - Output ONLY the JSON object, no markdown, no code blocks"""
@@ -384,9 +388,12 @@ VOICE AND TONE:
 
 QUOTE RULES:
 - Prefer direct rider quotes over your own paraphrasing. A quote in their words beats your summary.
-- Every rider name you mention MUST be paired with something specific they said or did.
-  GOOD: "Bobby Kennedy describes 'riding on the moon' through volcanic moondust terrain."
-  BAD: "Riders like Josh Spector and Coach Dandelion gather annually in tiny Laona." (name-stuffing — names without substance)
+- Lead with the Gravel God judgment, then use the quote. Do not make the source the
+  grammatical subject of the explanation or narrate how the quote was found.
+  GOOD: "Volcanic moondust makes this feel like 'riding on the moon.'"
+  BAD: "Bobby Kennedy describes 'riding on the moon' through volcanic moondust terrain."
+- Never use "according to", "X notes/reports/describes/captures", "X's assessment rings
+  true", or "As X puts it". Citations and source labels already appear below the profile.
 - If a rider said something vivid, use their exact words in quotes. That's the whole point.
 - Prioritize quotes with sensory detail, concrete specifics, or surprise. A quote about 'chains chewed,
   derailleurs gargled and spat' is worth ten quotes about 'great event, well organized.'
@@ -422,8 +429,8 @@ Output ONLY valid JSON:
 Rules:
 - Keep the existing scores — don't change them
 - Beat the previous explanation on every criterion — more specific, more community-sourced
-- You MUST use rider names and terrain features from the COMMUNITY FACT SHEET
-- Reference specific rider names, course features, weather data from the research
+- You MUST use distinct rider evidence and terrain features from the COMMUNITY FACT SHEET
+- Reference specific course features, weather data, and direct quoted language from the research
 - No generic filler ("amazing experience", "world-class", "the fact that")
 - No fake uncertainty ("zero rider reports") when the FACT SHEET lists real riders
 - Output ONLY the JSON object, no markdown, no code blocks"""
@@ -474,6 +481,9 @@ Rules:
 - Keep the existing scores — don't change them
 - Each explanation: 2-4 sentences, specific, Matti voice
 - Reference specific course features, weather data, logistics details from research
+- Lead with Gravel God's judgment. Never narrate the research process with "according to",
+  "X notes/reports/describes/captures", "X's assessment rings true", or "As X puts it"
+- Keep memorable source language in quotation marks; citations stay in the dedicated source list
 - No generic filler ("amazing experience", "world-class")
 - If research lacks detail for a criterion, say what you know honestly
 - Output ONLY the JSON object, no markdown, no code blocks"""

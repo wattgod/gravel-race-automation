@@ -25,6 +25,8 @@ from generate_neo_brutalist import (
     TRAINING_PLANS_URL,
     US_STATES,
     _build_race_name_map,
+    _editorialize_rating_explanation,
+    _rating_bumper,
     _safe_json_for_script,
     build_course_overview,
     build_course_route,
@@ -878,6 +880,55 @@ class TestSections:
         assert html.count('class="gg-rating-tile"') == 14
         assert "gg-rating-explanation" in html
         assert "gg-accordion" not in html
+
+    def test_ratings_lead_with_group_verdicts_not_first_criterion(self, normalized_data):
+        html = build_ratings(normalized_data)
+        assert "Course verdict" in html
+        assert "Rolling Kansas gravel through the Flint Hills." in html
+        assert "Editorial verdict" in html
+        assert "A solid Kansas gravel event." in html
+        assert 'aria-pressed="true"' not in html
+        assert html.count('class="gg-rating-explanation"') == 2
+        assert html.count('aria-live="polite" hidden') == 2
+
+    def test_rating_bumper_keeps_short_opening_with_followup(self):
+        assert _rating_bumper(
+            "Relentless. Not one killer climb, but 200 miles of attrition. Extra detail."
+        ) == "Relentless. Not one killer climb, but 200 miles of attrition."
+
+    def test_rating_copy_removes_research_voice_but_keeps_quotes(self):
+        copy = (
+            'At $345 entry, Richard at SILCA\'s assessment rings true: '
+            '"the best riding on earth" through the "rugged, vast" Flint Hills. '
+            'As Jane Rider puts it: "I would race it again." [1][2]'
+        )
+        cleaned = _editorialize_rating_explanation(copy)
+        assert "Richard at SILCA" not in cleaned
+        assert "assessment rings true" not in cleaned
+        assert "As Jane Rider puts it" not in cleaned
+        assert "the best riding on earth" in cleaned
+        assert "I would race it again" in cleaned
+        assert "[1]" not in cleaned
+
+    def test_catalog_rating_copy_contract(self):
+        banned = re.compile(
+            r"according to|assessment rings true|"
+            r"\bAs\s+[^,:]{1,100}\s+(?:puts it|notes?|reports?|describes?|captures?)[,:]",
+            re.IGNORECASE,
+        )
+        violations = []
+        root = Path(__file__).resolve().parents[1] / "race-data"
+        for path in root.glob("*.json"):
+            rd = normalize_race_data(json.loads(path.read_text()))
+            for group, summary in rd["rating_summaries"].items():
+                if not summary or len(summary) > 220:
+                    violations.append(f"{path.stem}.{group} summary length={len(summary)}")
+                if banned.search(summary):
+                    violations.append(f"{path.stem}.{group} summary narrates source process")
+            for dim, entry in rd["explanations"].items():
+                if banned.search(entry["explanation"]):
+                    violations.append(f"{path.stem}.{dim} narrates source process")
+        assert not violations, "\n".join(violations[:30])
 
     def test_ratings_has_tabbed_radar_charts(self, normalized_data):
         html = build_ratings(normalized_data)

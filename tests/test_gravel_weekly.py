@@ -1170,9 +1170,9 @@ def test_2026_backfill_ledger_accounts_for_every_window_without_claiming_complet
 
     assert len(validated["weeks"]) == 35
     assert sum(week["sourceCardCount"] for week in validated["weeks"]) == 230
-    assert sum(week["disposition"] == "covered_by_draft" for week in validated["weeks"]) == 22
+    assert sum(week["disposition"] == "covered_by_draft" for week in validated["weeks"]) == 23
     assert sum(week["disposition"] == "held_for_evidence" for week in validated["weeks"]) == 7
-    assert sum(week["disposition"] == "rejected" for week in validated["weeks"]) == 4
+    assert sum(week["disposition"] == "rejected" for week in validated["weeks"]) == 3
     assert sum(week["disposition"] == "pending_review" for week in validated["weeks"]) == 1
     assert sum(week["disposition"] == "explicit_gap" for week in validated["weeks"]) == 1
     assert validated["complete"] is False

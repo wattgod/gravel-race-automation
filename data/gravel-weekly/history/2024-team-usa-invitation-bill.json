@@ -1,7 +1,7 @@
 {
   "schemaVersion": "gravel-weekly-history-entry/v1",
   "entryId": "history-team-usa-invitation-bill-2024",
-  "activeFrom": "2024-09-25",
+  "activeFrom": "2024-07-25",
   "activeThrough": "2024-10-03",
   "status": "draft",
   "headline": "Team USA Sent Gravel Riders an Invitation and a Bill",
@@ -10,7 +10,7 @@
   "changedJudgment": "For a privateer, selection without funding is permission rather than support. Prestige can lose rationally to course fit, sponsor exposure, recovery, and races that keep the career solvent, even when the athlete genuinely values the national jersey.",
   "stakes": "The funding model affected which athletes represented the United States, whether Gravel Worlds could claim the strongest specialist field, which careers benefited from federation selection, and whether personal wealth or sponsor backing became an unofficial final selection criterion.",
   "credibleOpposition": "USA Cycling disclosed the financial terms, faced exceptional Olympic-year costs without government funding, and could not fund every athlete qualifying through gravel's unusually open pathways. Some riders considered self-funding a worthwhile career investment or national-team duty, while course suitability and the crowded calendar—not money alone—also drove withdrawals.",
-  "whatHappened": "USA Cycling's 2024 elite selection criteria said its primary objective was a cohesive, medal-capable team, then stated that automatically invited and discretionary athletes were responsible for the event's full expense and that the federation would assume no financial responsibility. Keegan Swenson, Paige Onweller, Russell Finsterwald, Lauren De Crescenzo, Alexis Skarda, and Argentina's US-based Sofia Gomez Villafañe were among prominent North American specialists reported as skipping Belgium. Worlds offered no prize money; riders faced airfare, lodging, bike transport, national kit, ground logistics, and limited on-site support. The timing put Worlds one week after The Rad Dirt Fest and two weeks before Big Sugar, the final events deciding a $300,000 Life Time Grand Prix purse. Onweller, second in the series, said a 20th at Worlds would do little for her or her sponsors compared with winning the Grand Prix. De Crescenzo wrote that the unsupported point-to-point trip did not make financial or competitive sense and chose domestic series points instead. USA Cycling said Olympic-year costs and insufficient offsetting revenue constrained support. John Borstelmann and Andy Lydic made the opposite choice, treating the trip as duty, content, or an investment and setting aside or redirecting money to attend.",
+  "whatHappened": "USA Cycling's 2024 elite selection criteria said its primary objective was a cohesive, medal-capable team, then stated that automatically invited and discretionary athletes were responsible for the event's full expense and that the federation would assume no financial responsibility. In July, the federation expanded automatic Worlds qualification at the national championship from the top three elite men and women to the top five, creating ten direct places before the September race. That wider front door did not pay for the trip behind it. Keegan Swenson, Paige Onweller, Russell Finsterwald, Lauren De Crescenzo, Alexis Skarda, and Argentina's US-based Sofia Gomez Villafañe were among prominent North American specialists reported as skipping Belgium. Worlds offered no prize money; riders faced airfare, lodging, bike transport, national kit, ground logistics, and limited on-site support. The timing put Worlds one week after The Rad Dirt Fest and two weeks before Big Sugar, the final events deciding a $300,000 Life Time Grand Prix purse. Onweller, second in the series, said a 20th at Worlds would do little for her or her sponsors compared with winning the Grand Prix. De Crescenzo wrote that the unsupported point-to-point trip did not make financial or competitive sense and chose domestic series points instead. USA Cycling said Olympic-year costs and insufficient offsetting revenue constrained support. John Borstelmann and Andy Lydic made the opposite choice, treating the trip as duty, content, or an investment and setting aside or redirecting money to attend.",
   "take": "Model draft, not Matti's approved view: Team USA picked a gravel team and then slid the dinner check across the table. Congratulations on being medal-capable. Airfare is over there. Your bike is enormous luggage. You may need to buy the national kit. Also, Worlds pays nothing, Life Time has $300,000 across the ocean, and your sponsors know where the cameras are. The privateers who stayed home did not disrespect the rainbow jersey; they respected arithmetic. USA Cycling's Olympic-year constraints were real and disclosed, but transparency does not make the sporting filter disappear. A self-funded World Championship does not assemble only the best riders. It assembles the best riders who can afford to treat international uncertainty as a career investment—and then acts surprised when a domestic paycheck wins the sprint.",
   "takeProvenance": "model_draft",
   "uncertainty": "The reviewed sources do not provide itemized budgets for each rider, and no athlete described cost as the sole reason for declining. Course fit, UCI starting position, recovery, existing sponsor obligations, and the Life Time calendar were material. Some athletes reached Worlds through UCI automatic qualification rather than federation discretion, although the published USA Cycling criteria assigned both groups full financial responsibility. The evidence cannot establish how the absent riders would have performed or whether additional funding would have changed every decision. Later 2025 evidence shows recurrence, not that the 2024 controversy caused subsequent choices.",
@@ -29,6 +29,15 @@
       "publisher": "USA Cycling",
       "publishedAt": "2024-04-03T14:03:11Z",
       "quoteExcerpt": "USA Cycling will not assume any financial responsibility for athletes",
+      "transcriptStartSeconds": null,
+      "transcriptEndSeconds": null
+    },
+    {
+      "claimId": "claim_us_nationals_ten_worlds_spots_2024",
+      "canonicalUrl": "https://www.cyclingnews.com/news/us-gravel-nationals-add-enticement-of-10-elite-spots-for-uci-world-championships-to-hefty-prize-purse/",
+      "publisher": "Cyclingnews",
+      "publishedAt": "2024-07-25T00:00:00Z",
+      "quoteExcerpt": "automatic qualifications for the UCI Gravel World Championships will be expanded to the top five",
       "transcriptStartSeconds": null,
       "transcriptEndSeconds": null
     },
@@ -114,6 +123,7 @@
       "fieldPath": "race.biased_opinion",
       "claimIds": [
         "claim_usac_worlds_full_financial_responsibility_2024",
+        "claim_us_nationals_ten_worlds_spots_2024",
         "claim_us_specialists_declined_worlds_2024",
         "claim_worlds_no_prize_or_us_travel_support_2024",
         "claim_onweller_sponsor_series_tradeoff_2024",
@@ -129,6 +139,6 @@
   "autoPublishAllowed": false,
   "editorialApproval": null,
   "publishedAt": null,
-  "updatedAt": "2026-08-28T08:05:00Z",
-  "contentHash": "f8e2071d31e83302a0a8d72c3046f8d7ee3c5b096e5662333a6e3f2fe2e0dfe3"
+  "updatedAt": "2026-08-28T17:25:12Z",
+  "contentHash": "9bcf00aae40bf60dc989afe4c76047b6f2c6012f653d9a9385289e3472a49926"
 }

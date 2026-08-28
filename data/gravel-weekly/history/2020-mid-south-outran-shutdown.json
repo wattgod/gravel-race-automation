@@ -1,0 +1,106 @@
+{
+  "schemaVersion": "gravel-weekly-history-entry/v1",
+  "entryId": "history-mid-south-outran-shutdown-2020",
+  "activeFrom": "2020-03-07",
+  "activeThrough": "2020-03-15",
+  "status": "draft",
+  "headline": "The Mid South Outran the Shutdown by One Day",
+  "point": "The Mid South's 2020 decision shows how quickly a reasonable-looking event plan could become obsolete during the first pandemic week. Organizers proceeded on March 7 using a local snapshot with no confirmed Oklahoma cases; WHO characterized COVID-19 as a pandemic four days later; the race ran March 14; and USA Cycling called for immediate event cancellation on March 15. The lesson is not that one gravel promoter uniquely failed. It is that a mass event cannot manage accelerating risk with a one-time go/no-go decision.",
+  "priorJudgment": "Because gravel events were outdoors, dispersed over rural roads, and governed locally, organizers could assess regional case counts and make practical independent decisions while more concentrated sports shut down elsewhere.",
+  "changedJudgment": "The outdoor course was only one part of a mass-participation system that also included travel, a crowded start, aid stations, volunteers, finish activity, and community contact. During a fast-moving public-health emergency, local case confirmation and a decision made seven days before the start could not remain a sufficient risk model without explicit re-evaluation triggers.",
+  "stakes": "The decision affected participants, volunteers, residents, travel, event finances, and trust in organizer judgment. Its timing also exposed a durable operational requirement for gravel: cancellation protocols need authoritative thresholds, repeated pre-event review, clear participant communication, and plans that account for the gathering around the ride rather than treating open roads as the whole event.",
+  "credibleOpposition": "On March 7, organizers cited then-current CDC risk language and the absence of confirmed cases in Oklahoma or surrounding states, allowed participants to stay home, and faced substantial financial and logistical consequences from cancellation. The national guidance and case picture were changing extremely quickly, and USA Cycling's immediate-cancellation language was updated only after the race. The record does not show that The Mid South caused a transmission cluster, so retrospective certainty would be unfair.",
+  "whatHappened": "On March 7, The Mid South said its March 14 event would proceed despite growing COVID-19 concern and other race postponements. Organizers wrote that the United States was categorized as having limited community transmission and that Oklahoma and surrounding states had no confirmed or reported cases, while respecting each participant's choice to attend or stay home. On March 11, WHO said COVID-19 could be characterized as a pandemic and called for urgent, aggressive action. A March 12 race preview still expected 2,700 participants and framed Oklahoma's red mud as the principal adversary. The race ran on March 14, producing elite results and the expected mud. On March 15, USA Cycling updated its national statement to recommend immediate cancellation of all sanctioned races, group rides, and other gatherings and suspended permits through April 5. The UCI simultaneously suspended international classifications and reported more than one hundred postponement or cancellation requests. The event landed on the last available square of the old calendar.",
+  "take": "Model draft, not Matti's approved view: On March 7, The Mid South checked the dashboard and found no confirmed Oklahoma cases. On March 12, the preview was still worried about peanut-butter mud swallowing shoes. On March 14, 100 miles of Oklahoma happened. On March 15, USA Cycling told everybody to stop gathering. That is not a morality play with one idiot promoter and three thousand epidemiologists. It is a photo finish between event machinery and reality. The decision was made from a snapshot while the risk was moving as a time-lapse. Gravel's comforting story was that outdoor, rural, self-supported meant safely independent from the systems closing around it. The start line, travel, volunteers, aid, and finish line were still a mass event. The Mid South did not prove that the race caused an outbreak; the record does not say that. It proved something more operationally useful: in an accelerating emergency, a go decision has a shelf life. The mud forecast could wait a week. The public-health forecast could not.",
+  "takeProvenance": "model_draft",
+  "uncertainty": "The chronology, organizer rationale, WHO declaration, race results, expected participation, and March 15 federation actions are documented. The available sources do not establish final attendance, participant travel patterns, infections attributable to the event, private discussions with health authorities, or whether cancellation on any particular earlier date would have changed health outcomes. The phrase 'outran the shutdown by one day' refers to the race's March 14 completion followed by national and international cycling restrictions on March 15; The Mid South was an independent event and may not have required a USA Cycling permit.",
+  "editorialScore": 99,
+  "editorialGates": {
+    "party": "pass",
+    "point": "pass",
+    "friend": "pass",
+    "craft": "pass",
+    "hostileEditor": "pass"
+  },
+  "contemporaryReceipts": [
+    {
+      "claimId": "claim_mid_south_proceeds_local_snapshot_2020",
+      "canonicalUrl": "https://www.cyclingnews.com/news/the-mid-south-gravel-race-will-go-ahead-as-scheduled/",
+      "publisher": "Cyclingnews",
+      "publishedAt": "2020-03-07T18:32:53Z",
+      "quoteExcerpt": "no confirmed or reported cases in Oklahoma or the surrounding states",
+      "transcriptStartSeconds": null,
+      "transcriptEndSeconds": null
+    },
+    {
+      "claimId": "claim_who_characterizes_covid_pandemic_2020",
+      "canonicalUrl": "https://www.who.int/news-room/speeches/item/who-director-general-s-opening-remarks-at-the-media-briefing-on-covid-19---11-march-2020",
+      "publisher": "World Health Organization",
+      "publishedAt": "2020-03-11T00:00:00Z",
+      "quoteExcerpt": "COVID-19 can be characterized as a pandemic",
+      "transcriptStartSeconds": null,
+      "transcriptEndSeconds": null
+    },
+    {
+      "claimId": "claim_mid_south_expected_2700_2020",
+      "canonicalUrl": "https://www.cyclingnews.com/races/the-mid-south-2020/preview/",
+      "publisher": "Cyclingnews",
+      "publishedAt": "2020-03-12T20:53:21Z",
+      "quoteExcerpt": "an expected crop of 2,700 hardy souls",
+      "transcriptStartSeconds": null,
+      "transcriptEndSeconds": null
+    },
+    {
+      "claimId": "claim_mid_south_race_completed_2020",
+      "canonicalUrl": "https://www.cyclingnews.com/races/the-mid-south-2020/elite-men/results/",
+      "publisher": "Cyclingnews",
+      "publishedAt": "2020-03-14T20:57:31Z",
+      "quoteExcerpt": "Payson McElveen defends his title in the mud",
+      "transcriptStartSeconds": null,
+      "transcriptEndSeconds": null
+    },
+    {
+      "claimId": "claim_usacycling_calls_immediate_cancellation_2020",
+      "canonicalUrl": "https://usacycling.org/article/usa-cycling-statement-on-covid-19",
+      "publisher": "USA Cycling",
+      "publishedAt": "2020-03-15T00:00:00Z",
+      "quoteExcerpt": "postpone or cancel all scheduled races and events immediately",
+      "transcriptStartSeconds": null,
+      "transcriptEndSeconds": null
+    },
+    {
+      "claimId": "claim_uci_suspends_classifications_2020",
+      "canonicalUrl": "https://www.uci.org/article/the-uci-takes-strong-measures-faced-with-the-development-of-the-coronavirus/1tytNuYygPSSttPvYTSSr8",
+      "publisher": "UCI",
+      "publishedAt": "2020-03-15T00:00:00Z",
+      "quoteExcerpt": "Suspension of all classifications for all events on the UCI International Calendar",
+      "transcriptStartSeconds": null,
+      "transcriptEndSeconds": null
+    }
+  ],
+  "laterEvidence": [],
+  "raceImpacts": [
+    {
+      "impactKind": "editorial_review",
+      "raceId": "gravel:mid-south",
+      "fieldPath": "race.biased_opinion",
+      "claimIds": [
+        "claim_mid_south_proceeds_local_snapshot_2020",
+        "claim_who_characterizes_covid_pandemic_2020",
+        "claim_mid_south_expected_2700_2020",
+        "claim_mid_south_race_completed_2020",
+        "claim_usacycling_calls_immediate_cancellation_2020",
+        "claim_uci_suspends_classifications_2020"
+      ],
+      "confidence": 0.99,
+      "owner": "Gravel God race editorial review",
+      "autoFixAllowed": false
+    }
+  ],
+  "humanApprovalRequired": true,
+  "autoPublishAllowed": false,
+  "editorialApproval": null,
+  "publishedAt": null,
+  "updatedAt": "2026-08-28T20:00:00Z",
+  "contentHash": "798d60c840d2a3d42a692a974a528463943c1b5f19627bbc152481efc82c765c"
+}

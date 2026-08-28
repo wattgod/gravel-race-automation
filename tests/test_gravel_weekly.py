@@ -11,12 +11,17 @@ ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "scripts"))
 sys.path.insert(0, str(ROOT / "wordpress"))
 
-from generate_gravel_weekly import build_page  # noqa: E402
+from generate_gravel_weekly import build_page, render_history_timeline  # noqa: E402
 from validate_gravel_weekly import (  # noqa: E402
     IssueValidationError,
     compute_content_hash,
     load_issues,
     validate_issue,
+)
+from validate_gravel_weekly_history import (  # noqa: E402
+    compute_history_content_hash,
+    load_history_entries,
+    validate_history_entry,
 )
 from send_gravel_weekly import SUBSCRIBER_SOURCES, build_email_html  # noqa: E402
 from prepare_gravel_weekly_issue import prepare_issue  # noqa: E402
@@ -81,6 +86,44 @@ def sample_issue():
     }
     issue["contentHash"] = compute_content_hash(issue)
     return issue
+
+
+def sample_history_entry():
+    entry = {
+        "schemaVersion": "gravel-weekly-history-entry/v1",
+        "entryId": "history-teamification-2026",
+        "activeFrom": "2026-02-10",
+        "activeThrough": "2026-05-26",
+        "status": "published",
+        "headline": "The privateer became gravel's unpaid control group",
+        "point": "Open registration survived while access to race-deciding support became less open.",
+        "priorJudgment": "Top-level gravel remained unusually accessible to independent riders.",
+        "changedJudgment": "The start stayed open while the competitive infrastructure became increasingly gated.",
+        "stakes": "Independent riders face a different path to competitive relevance.",
+        "credibleOpposition": "Teams can fund opportunity, and privateers can still win.",
+        "whatHappened": "Contemporary reporting documented the arrival of larger teams and later examined financial and tactical consequences.",
+        "take": "Gravel did not close the door. It installed a backstage entrance.",
+        "takeProvenance": "human_approved",
+        "uncertainty": "Team budgets and support access were not comprehensively public.",
+        "editorialScore": 91,
+        "editorialGates": {"party": "pass", "point": "pass", "friend": "pass", "craft": "pass", "hostileEditor": "pass"},
+        "contemporaryReceipts": [
+            {"claimId": "claim_team_1", "canonicalUrl": "https://www.cyclingnews.com/team-story/", "publisher": "Cyclingnews", "publishedAt": "2026-02-10T12:00:00Z", "quoteExcerpt": "A bounded contemporary excerpt.", "transcriptStartSeconds": None, "transcriptEndSeconds": None},
+            {"claimId": "claim_team_2", "canonicalUrl": "https://velo.outsideonline.com/team-story/", "publisher": "Velo", "publishedAt": "2026-05-26T12:00:00Z", "quoteExcerpt": "A second bounded contemporary excerpt.", "transcriptStartSeconds": None, "transcriptEndSeconds": None},
+        ],
+        "laterEvidence": [
+            {"claimId": "claim_team_later", "canonicalUrl": "https://example.com/later-analysis/", "publisher": "Official series", "publishedAt": "2026-06-10T12:00:00Z", "quoteExcerpt": "A later update.", "transcriptStartSeconds": None, "transcriptEndSeconds": None},
+        ],
+        "raceImpacts": [],
+        "humanApprovalRequired": True,
+        "autoPublishAllowed": False,
+        "editorialApproval": {"approver": "Matti Rowe", "approvedAt": "2026-08-28T16:00:00Z"},
+        "publishedAt": "2026-08-28T16:05:00Z",
+        "updatedAt": "2026-08-28T16:05:00Z",
+        "contentHash": "pending",
+    }
+    entry["contentHash"] = compute_history_content_hash(entry)
+    return entry
 
 
 def passing_editorial_gate():
@@ -510,6 +553,55 @@ def test_retrospective_must_reference_an_earlier_archived_story(tmp_path):
     (tmp_path / "2026-08-28.json").write_text(json.dumps(issue))
     with pytest.raises(IssueValidationError, match="archived issue"):
         load_issues(tmp_path)
+
+
+def test_historical_current_thing_requires_contemporary_corroboration_and_human_gates(tmp_path):
+    entry = sample_history_entry()
+    assert validate_history_entry(entry)["entryId"] == "history-teamification-2026"
+    (tmp_path / "2026-teamification.json").write_text(json.dumps(entry))
+    assert load_history_entries(tmp_path)[0]["entryId"] == entry["entryId"]
+
+    one_publisher = copy.deepcopy(entry)
+    one_publisher["contemporaryReceipts"][1]["publisher"] = "Cyclingnews"
+    with pytest.raises(IssueValidationError, match="two contemporary publishers"):
+        validate_history_entry(one_publisher, verify_hash=False)
+
+    held_gate = copy.deepcopy(entry)
+    held_gate["editorialGates"]["friend"] = "hold"
+    with pytest.raises(IssueValidationError, match="every editorial gate"):
+        validate_history_entry(held_gate, verify_hash=False)
+
+    model_take = copy.deepcopy(entry)
+    model_take["takeProvenance"] = "model_draft"
+    with pytest.raises(IssueValidationError, match="human-approved provenance"):
+        validate_history_entry(model_take, verify_hash=False)
+
+
+def test_historical_timeline_visually_separates_later_evidence_from_contemporary_receipts():
+    entry = sample_history_entry()
+    html = render_history_timeline([entry])
+    assert "THE SEASON AS A STORY" in html
+    assert "WHAT WAS KNOWABLE THEN" in html
+    assert "LATER EVIDENCE — NOT AVAILABLE THEN" in html
+    assert "WHY IT MATTERED" in html
+    assert "THE FAIR OBJECTION" in html
+    assert "The privateer became gravel" in html
+    assert "innerHTML" not in html
+    page = build_page(sample_issue(), [sample_issue()], latest=True, history_entries=[entry])
+    assert 'id="season-story"' in page
+    assert page.index("THE CURRENT THING") < page.index("THE SEASON AS A STORY") < page.index("PAST ISSUES")
+
+
+def test_historical_chronology_rejects_hindsight_in_contemporary_receipts_and_preexisting_later_evidence():
+    future_contemporary = sample_history_entry()
+    future_contemporary["contemporaryReceipts"][1]["publishedAt"] = "2026-06-01T12:00:00Z"
+    with pytest.raises(IssueValidationError, match="later evidence"):
+        validate_history_entry(future_contemporary, verify_hash=False)
+
+    early_later = sample_history_entry()
+    early_later["laterEvidence"][0]["publishedAt"] = "2026-05-20T12:00:00Z"
+    with pytest.raises(IssueValidationError, match="must postdate"):
+        validate_history_entry(early_later, verify_hash=False)
 
 
 def test_worker_accepts_new_and_legacy_publication_sources():

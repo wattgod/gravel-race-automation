@@ -39,6 +39,9 @@ from seal_gravel_weekly_history import (  # noqa: E402
     main as seal_history_main,
     seal_history_entry,
 )
+from render_gravel_weekly_history_race_impact_review import (  # noqa: E402
+    render_history_race_impact_review,
+)
 from validate_gravel_weekly_history_decisions import validate_history_decision  # noqa: E402
 from validate_gravel_weekly_backfill import validate_backfill_ledger  # noqa: E402
 from no_ai_slop import audit_no_ai_slop  # noqa: E402
@@ -953,9 +956,15 @@ def test_historical_race_impacts_are_review_only_and_use_canonical_race_ids():
         validate_history_entry(entry, verify_hash=False)
 
 
-def test_historical_drafts_never_cross_the_public_loader(tmp_path):
-    approved = sample_history_entry()
-    draft = copy.deepcopy(approved)
+def test_only_sealed_historical_snapshots_cross_the_public_loader(tmp_path):
+    published = sample_history_entry()
+    approved = copy.deepcopy(published)
+    approved.update({
+        "entryId": "history-approved-but-unpublished-2026",
+        "status": "approved",
+        "publishedAt": None,
+    })
+    draft = copy.deepcopy(published)
     draft.update({
         "entryId": "history-held-model-draft-2026",
         "status": "draft",
@@ -964,16 +973,19 @@ def test_historical_drafts_never_cross_the_public_loader(tmp_path):
         "editorialApproval": None,
     })
     draft["editorialGates"]["hostileEditor"] = "hold"
+    published["contentHash"] = compute_history_content_hash(published)
     approved["contentHash"] = compute_history_content_hash(approved)
     draft["contentHash"] = compute_history_content_hash(draft)
+    (tmp_path / "published.json").write_text(json.dumps(published))
     (tmp_path / "approved.json").write_text(json.dumps(approved))
     (tmp_path / "draft.json").write_text(json.dumps(draft))
 
     assert {entry["entryId"] for entry in load_history_entries(tmp_path)} == {
+        published["entryId"],
         approved["entryId"],
         draft["entryId"],
     }
-    assert [entry["entryId"] for entry in load_public_history_entries(tmp_path)] == [approved["entryId"]]
+    assert [entry["entryId"] for entry in load_public_history_entries(tmp_path)] == [published["entryId"]]
 
 
 def test_2025_backfill_ledger_preserves_the_complete_assigning_desk_review():
@@ -1518,6 +1530,7 @@ def test_2026_backfill_ledger_accounts_for_every_window_and_closes_research_revi
 def test_historical_timeline_visually_separates_later_evidence_from_contemporary_receipts():
     entry = sample_history_entry()
     html = render_history_timeline([entry])
+    assert f"gravel-weekly-history-hash: {entry['contentHash']}" in html
     assert "THE SEASON AS A STORY" in html
     assert "WHAT WAS KNOWABLE THEN" in html
     assert "LATER EVIDENCE — NOT AVAILABLE THEN" in html
@@ -1528,6 +1541,39 @@ def test_historical_timeline_visually_separates_later_evidence_from_contemporary
     page = build_page(sample_issue(), [sample_issue()], latest=True, history_entries=[entry])
     assert 'id="season-story"' in page
     assert page.index("THE CURRENT THING") < page.index("THE SEASON AS A STORY") < page.index("PAST ISSUES")
+
+
+def test_published_history_creates_a_controlled_hash_bound_race_impact_queue():
+    draft = sample_history_draft()
+    draft["raceImpacts"] = [{
+        "impactKind": "editorial_review",
+        "raceId": "gravel:unbound-200",
+        "fieldPath": "race.history",
+        "claimIds": ["claim_team_1"],
+        "confidence": 0.91,
+        "owner": "Gravel God historical editorial review",
+        "autoFixAllowed": False,
+    }]
+    draft["contentHash"] = compute_history_content_hash(draft)
+    approval = sample_history_approval(draft)
+    approved, decision = apply_history_decision(draft, approval)
+    assert approved is not None
+    published = seal_history_entry(approved, "2026-08-28T16:05:00Z")
+
+    review, count, set_hash = render_history_race_impact_review(
+        [published], {published["entryId"]: decision}, year=2026
+    )
+
+    assert count == 1
+    assert len(set_hash) == 64
+    assert f"gravel-weekly-history-set-hash: {set_hash}" in review
+    assert published["contentHash"] in review
+    assert "Controlled review only" in review
+    assert "does not authorize or perform a race-profile edit" in review
+    assert "claim_team_1" in review
+    assert "https://www.cyclingnews.com/team-story/" in review
+    with pytest.raises(ValueError, match="historical decision missing"):
+        render_history_race_impact_review([published], {}, year=2026)
 
 
 def test_historical_chronology_rejects_hindsight_in_contemporary_receipts_and_preexisting_later_evidence():
@@ -1566,6 +1612,17 @@ def test_deploy_path_and_legacy_redirect_are_wired():
     assert "validate_decision_receipt" in workflow
     assert "record_gravel_weekly_decisions.py" in workflow
     assert "CONTROL_PLANE_INGEST_SECRET" in workflow
+    history_workflow = (ROOT / ".github" / "workflows" / "gravel-weekly-history-publish.yml").read_text()
+    assert "workflow_dispatch:" in history_workflow
+    assert 'group: gravel-weekly-publish' in history_workflow
+    assert 'refs/heads/main' in history_workflow
+    assert "load_public_history_entries" in history_workflow
+    assert "validate_history_decision" in history_workflow
+    assert "render_gravel_weekly_history_race_impact_review.py" in history_workflow
+    assert "meaningful-history-race-impact-count: 0" in history_workflow
+    assert "gravel-weekly-history-hash:" in history_workflow
+    assert "--sync-gravel-weekly --sync-homepage --sync-redirects --purge-cache" in history_workflow
+    assert "send_gravel_weekly.py" not in history_workflow
 
 
 def test_homepage_surfaces_gravel_weekly_without_a_gravel_tv_content_path():

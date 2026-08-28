@@ -155,3 +155,12 @@ Sealing verifies the decision against the unchanged canonical draft, replaces
 that draft with the published immutable snapshot, and writes its durable
 decision under `history-decisions/`. It does not deploy the site, and race
 impacts remain editorial-review proposals with `autoFixAllowed: false`.
+
+After the sealed snapshots and decisions merge to `main`, dispatch
+`Gravel Weekly History Publish` with the reviewed year. This route is separate
+from weekly issue publication: it requires no Issue #001, validates every
+public snapshot against its immutable decision, generates entry-level hash
+markers, opens an idempotent controlled race-impact review when needed, deploys
+the timeline and homepage, purges SiteGround cache, and verifies every selected
+hash plus the legacy Gravel TV redirect on the live site. Approved-but-unsealed
+entries remain private and are excluded from the public loader.

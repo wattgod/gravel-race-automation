@@ -1,7 +1,7 @@
 {
   "schemaVersion": "gravel-weekly-history-entry/v1",
   "entryId": "history-unbound-pit-crews-2025",
-  "activeFrom": "2025-06-01",
+  "activeFrom": "2025-05-08",
   "activeThrough": "2025-06-11",
   "status": "draft",
   "headline": "Unbound Was Self-Supported, Provided Your Self Had a Pit Crew",
@@ -10,7 +10,7 @@
   "changedJudgment": "Once a safe feed requires several people handing bottles, packs, food, and ice to riders moving through mixed crowds at race speed, the checkpoint is competitive infrastructure. The organizer must design it for predictable access and equal safety rather than treating every failure as private gravel incompetence.",
   "stakes": "A missed handoff could mean severe dehydration, a ten-mile chase, lost prize money, Grand Prix points, or a crash among riders, volunteers, crews, and age-group participants. At the same time, requiring elaborate private support favored funded teams over independent professionals and strained the event's claim to a shared self-supported experience.",
   "credibleOpposition": "Unbound's 2025 guide clearly limited outside support to official checkpoints, and riders knew that crew planning was part of the race. Cecily Decker called her first-feed problem a critical mistake and still finished second; the evidence does not show that checkpoint design cost her the win. Meticulous logistics are a legitimate endurance skill, drop bags and crew-for-hire reduce some access differences, and separating elites can create a two-tier event that pushes the professional race farther from Unbound's mass-participation identity.",
-  "whatHappened": "The 2025 elite rules allowed outside support only at official checkpoints. At Unbound 200, the front fields treated the two locations like moving pit lanes because stopping for ten or fifteen seconds could require a hard chase. Cecily Decker missed critical supplies at the first feed and rode a long exposed section with two bottles; teammate Karolina Migoń shared water, but Decker said she became horribly dehydrated, hallucinated, and survived to second. Lauren De Crescenzo described tents, volunteers, teams, and riders searching for crews while the 100-mile field merged onto the same route; she argued for marked elite handoff lanes or separate zones. Peter Stetina contrasted the old sandwich-and-stop culture with choreographed feeds, and podium finisher Torbjørn Røed described four crew interactions at one checkpoint. In April 2026, Life Time announced controlled, separate elite feed zones at Unbound and Leadville after feedback from athletes, crews, media, and local partners, explicitly citing safety, congestion, and competitive integrity.",
+  "whatHappened": "On May 8, Unbound confirmed that the 200- and 100-mile routes would overlap near the shared Council Grove checkpoint; the race director expected only a tight window before their fields converged. The 2025 elite rules allowed outside support only at official checkpoints. At Unbound 200, the front fields treated the two locations like moving pit lanes because stopping for ten or fifteen seconds could require a hard chase. Cecily Decker missed critical supplies at the first feed and rode a long exposed section with two bottles; teammate Karolina Migoń shared water, but Decker said she became horribly dehydrated, hallucinated, and survived to second. Lauren De Crescenzo described tents, volunteers, teams, and riders searching for crews while the 100-mile field merged onto the same route; she argued for marked elite handoff lanes or separate zones. Peter Stetina contrasted the old sandwich-and-stop culture with choreographed feeds, and podium finisher Torbjørn Røed described four crew interactions at one checkpoint. In April 2026, Life Time announced controlled, separate elite feed zones at Unbound and Leadville after feedback from athletes, crews, media, and local partners, explicitly citing safety, congestion, and competitive integrity.",
   "take": "Model draft, not Matti's approved view: Unbound remained self-supported in 2025, provided your self included four adults spread across a Kansas checkpoint holding a hydration pack, bottles, gels, an ice sock, and the emotional stability to perform NASCAR choreography in a farmers-market crowd. Miss once and the punishment was not quaint gravel character-building. Cecily Decker spent the next section dehydrated enough to hallucinate and still finished second. This is where the romance has to stop lying about the product. When a ten-second feed can decide a professional race, the feed zone is part of the course. Mark lanes, control access, separate speeds, and let the athletes lose Unbound on the rocks—not because their spouse was hidden behind the wrong pop-up tent.",
   "takeProvenance": "model_draft",
   "uncertainty": "The evidence relies heavily on firsthand rider accounts published by one outlet and does not provide a complete incident log, checkpoint video audit, comparative crew budgets, or proof that support access differed systematically by team. Decker identified her own mistake, and the counterfactual result with a clean feed is unknowable. Life Time's 2026 changes addressed both Unbound and Leadville and should not be read as a formal admission of negligence in 2025. The later rules show that the concern produced an operational response, not that every proposed criticism was accepted.",
@@ -23,6 +23,15 @@
     "hostileEditor": "pass"
   },
   "contemporaryReceipts": [
+    {
+      "claimId": "claim_unbound_routes_shared_checkpoint_2025",
+      "canonicalUrl": "https://www.cyclingnews.com/news/everything-worked-unbound-gravel-200-north-course-remains-unchanged-with-100-milers-sharing-route-for-final-70-miles/",
+      "publisher": "Cyclingnews",
+      "publishedAt": "2025-05-08T00:00:00Z",
+      "quoteExcerpt": "the overlap of fields will take place a few miles later, closer to the shared checkpoint",
+      "transcriptStartSeconds": null,
+      "transcriptEndSeconds": null
+    },
     {
       "claimId": "claim_unbound_outside_support_checkpoint_only_2025",
       "canonicalUrl": "https://www.unboundgravel.com/wp-content/uploads/2025/05/2025LTGPTechGuideUNBOUNDGravel_FINAL.pdf",
@@ -113,6 +122,7 @@
       "raceId": "gravel:unbound-gravel-200",
       "fieldPath": "race.biased_opinion",
       "claimIds": [
+        "claim_unbound_routes_shared_checkpoint_2025",
         "claim_unbound_outside_support_checkpoint_only_2025",
         "claim_decker_botched_feed_dehydration_2025",
         "claim_decker_hallucinated_and_finished_second_2025",
@@ -132,6 +142,6 @@
   "autoPublishAllowed": false,
   "editorialApproval": null,
   "publishedAt": null,
-  "updatedAt": "2026-08-28T05:30:00Z",
-  "contentHash": "ce78d32f29ac3dac797756979a9e1c8bf68adc3fff81ce512eaa77f49cab6d63"
+  "updatedAt": "2026-08-28T06:15:00Z",
+  "contentHash": "b0c3d9d6b3da6da55a47f8c9ae706132c65aa5968346d2e4936cf34d428325ee"
 }

@@ -24,6 +24,30 @@ SITE_BASE_URL = "https://gravelgodcycling.com"
 # recaps/previews pulled 2026-07-22 (WS5 Option A); roundups indexable only
 # via the owner-approved allowlist in config/indexable-roundups.json.
 INDEXABLE_BLOG_CATEGORIES = frozenset({"roundup", "article"})
+INDEXABLE_WORDPRESS_PAGES = (
+    "/coaching/",
+    "/the-assessment-aerobic-6/",
+    "/the-anaerobic-assessment-2/",
+    "/articles/",
+    "/resources/",
+    "/trainingpeaks-athlete-user-guide/",
+    "/trainingpeaks-athlete-user-guide-2/",
+    "/training-plans-faq/",
+    "/is-coaching-worth-it/",
+    "/custom-training-plans/",
+    "/how-much-faster-could-you-be/",
+    "/how-and-why-to-set-your-training-zones-in-trainingpeaks/",
+    "/the-big-three-frequency-duration-and-intensity/",
+    "/how-to-improve-at-anything/",
+    "/the-aerobic-endurance-test/",
+    "/how-to-make-sure-training-doesnt-destroy-your-relationship/",
+    "/popular-training-plans/",
+    "/gravel-god-cycling-values/",
+    "/articles-2/",
+    "/products/training-plans/",
+    "/the-ultimate-gravel-guide/",
+    "/contact/",
+)
 INDEXABLE_ROUNDUPS = frozenset(
     __import__("json").loads(
         (Path(__file__).resolve().parent.parent / "config" / "indexable-roundups.json")
@@ -210,6 +234,16 @@ def generate_sitemap(race_index: list, output_path: Path, data_dir: Path = None,
     SubElement(url, 'lastmod').text = today
     SubElement(url, 'changefreq').text = 'monthly'
     SubElement(url, 'priority').text = '0.8'
+
+    # Indexable WordPress pages previously came from AIOSEO's page sitemap,
+    # which also advertised intentionally noindex account and checkout pages.
+    # Keep the public routes explicit and source-controlled instead.
+    for path in INDEXABLE_WORDPRESS_PAGES:
+        url = SubElement(urlset, 'url')
+        SubElement(url, 'loc').text = f"{SITE_BASE_URL}{path}"
+        SubElement(url, 'lastmod').text = today
+        SubElement(url, 'changefreq').text = 'monthly'
+        SubElement(url, 'priority').text = '0.6'
 
     # Tier hub pages
     for t in [1, 2, 3, 4]:
@@ -482,7 +516,7 @@ def main():
     course_slugs = load_course_slugs(project_root)
     course_url_count = (1 + len(course_slugs)) if course_slugs else 0
     guide_cluster_count = 10  # pillar + 8 chapters + configurator
-    total_urls = (7 + guide_cluster_count + len(series_slugs) + len(vs_slugs) + len(state_slugs)
+    total_urls = (7 + len(INDEXABLE_WORDPRESS_PAGES) + guide_cluster_count + len(series_slugs) + len(vs_slugs) + len(state_slugs)
                   + len(special_slugs) + len(plan_slugs) + len(tire_slugs)
                   + len(tire_page_slugs) + len(tire_vs_slugs) + course_url_count + len(race_index))
     print(f"Generated sitemap: {output_path} ({total_urls} URLs)")

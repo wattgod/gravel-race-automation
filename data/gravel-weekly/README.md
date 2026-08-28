@@ -89,3 +89,45 @@ Render a local draft for review without making it public:
 python3 wordpress/generate_gravel_weekly.py \
   --preview-draft data/gravel-weekly/drafts/2026-08-28.json
 ```
+
+## Historical narrative review
+
+Historical Current Thing entries are narrative reconstructions, not fabricated
+old weekly issues. Drafts live in `history/`, but the public loader excludes
+them. Build a private, read-only desk for one year:
+
+```bash
+python3 scripts/render_gravel_weekly_history_review.py --year 2026
+```
+
+The desk puts the point, prior and changed judgments, model Take, uncertainty,
+contemporary receipts, later evidence, gates, and review-only race implications
+in one place. A story is marked ready only when all five editorial gates pass
+and at least two contemporary publishers corroborate it.
+
+Apply one explicit decision using `gravel-weekly-history-approval/v1`:
+
+```bash
+python3 scripts/approve_gravel_weekly_history.py \
+  data/gravel-weekly/history/2026-example.json APPROVAL.json
+```
+
+The packet must identify the exact reviewed `contentHash`. Approval may change
+only the headline and Take, records the edit summary, and stages the result and
+decision under ignored `history-staged/`. Rejection records a reason but creates
+no approved entry. A stale hash, held gate, single-publisher premise, factual
+edit, or copy that still claims to be a model draft fails closed.
+
+Only after a separate explicit publication instruction may the staged entry be
+sealed:
+
+```bash
+python3 scripts/seal_gravel_weekly_history.py \
+  data/gravel-weekly/history-staged/history-example.approved.json \
+  --published-at 2026-08-28T16:05:00Z
+```
+
+Sealing verifies the decision against the unchanged canonical draft, replaces
+that draft with the published immutable snapshot, and writes its durable
+decision under `history-decisions/`. It does not deploy the site, and race
+impacts remain editorial-review proposals with `autoFixAllowed: false`.

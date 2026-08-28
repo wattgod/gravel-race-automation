@@ -24,6 +24,13 @@ from validate_gravel_weekly_history import (  # noqa: E402
     load_public_history_entries,
     validate_history_entry,
 )
+from approve_gravel_weekly_history import apply_history_decision  # noqa: E402
+from render_gravel_weekly_history_review import render_history_review  # noqa: E402
+from seal_gravel_weekly_history import (  # noqa: E402
+    main as seal_history_main,
+    seal_history_entry,
+)
+from validate_gravel_weekly_history_decisions import validate_history_decision  # noqa: E402
 from validate_gravel_weekly_backfill import validate_backfill_ledger  # noqa: E402
 from prepare_gravel_weekly_backfill_ledger import build_initial_backfill_ledger  # noqa: E402
 from send_gravel_weekly import SUBSCRIBER_SOURCES, build_email_html  # noqa: E402
@@ -127,6 +134,37 @@ def sample_history_entry():
     }
     entry["contentHash"] = compute_history_content_hash(entry)
     return entry
+
+
+def sample_history_draft():
+    entry = sample_history_entry()
+    entry.update({
+        "status": "draft",
+        "headline": "MODEL DRAFT: The privateer became gravel's control group",
+        "take": "Model draft, not Matti's approved view: Gravel installed a backstage entrance.",
+        "takeProvenance": "model_draft",
+        "editorialApproval": None,
+        "publishedAt": None,
+        "updatedAt": "2026-08-27T17:00:00Z",
+    })
+    entry["contentHash"] = compute_history_content_hash(entry)
+    return entry
+
+
+def sample_history_approval(draft=None):
+    draft = draft or sample_history_draft()
+    return {
+        "schemaVersion": "gravel-weekly-history-approval/v1",
+        "entryId": draft["entryId"],
+        "reviewedDraftContentHash": draft["contentHash"],
+        "decision": "approve",
+        "approver": "Matti Rowe",
+        "decidedAt": "2026-08-28T16:00:00Z",
+        "headline": "The privateer became gravel's control group",
+        "take": "Gravel kept the front door open and installed a backstage entrance.",
+        "editSummary": "Removed the model label and tightened the judgment.",
+        "reason": None,
+    }
 
 
 def passing_editorial_gate():
@@ -578,6 +616,138 @@ def test_historical_current_thing_requires_contemporary_corroboration_and_human_
     model_take["takeProvenance"] = "model_draft"
     with pytest.raises(IssueValidationError, match="human-approved provenance"):
         validate_history_entry(model_take, verify_hash=False)
+
+
+def test_historical_approval_is_hash_bound_copy_limited_and_non_public(tmp_path):
+    draft = sample_history_draft()
+    approved, decision = apply_history_decision(draft, sample_history_approval(draft))
+
+    assert approved is not None
+    assert approved["status"] == "approved"
+    assert approved["publishedAt"] is None
+    assert approved["headline"] == "The privateer became gravel's control group"
+    assert approved["take"] == "Gravel kept the front door open and installed a backstage entrance."
+    assert approved["takeProvenance"] == "human_approved"
+    assert approved["editorialApproval"] == {
+        "approver": "Matti Rowe", "approvedAt": "2026-08-28T16:00:00Z",
+    }
+    for field in (
+        "point", "priorJudgment", "changedJudgment", "stakes", "credibleOpposition",
+        "whatHappened", "uncertainty", "editorialScore", "editorialGates",
+        "contemporaryReceipts", "laterEvidence", "raceImpacts",
+    ):
+        assert approved[field] == draft[field]
+    assert decision["reviewedDraftContentHash"] == draft["contentHash"]
+    assert validate_history_decision(decision, approved) == decision
+
+    (tmp_path / "draft.json").write_text(json.dumps(draft))
+    assert load_public_history_entries(tmp_path) == []
+
+    stale = sample_history_approval(draft)
+    stale["reviewedDraftContentHash"] = "0" * 64
+    with pytest.raises(ValueError, match="exact reviewed draft"):
+        apply_history_decision(draft, stale)
+
+    factual_edit = sample_history_approval(draft)
+    factual_edit["whatHappened"] = "Silently replace the sourced account."
+    with pytest.raises(ValueError, match="unsupported fields"):
+        apply_history_decision(draft, factual_edit)
+
+
+def test_historical_rejection_records_the_reason_without_approved_copy():
+    draft = sample_history_draft()
+    rejection = sample_history_approval(draft)
+    rejection.update({
+        "decision": "reject",
+        "headline": None,
+        "take": None,
+        "editSummary": None,
+        "reason": "The changed judgment is still too obvious to publish.",
+    })
+    approved, decision = apply_history_decision(draft, rejection)
+
+    assert approved is None
+    assert decision["decision"] == "reject"
+    assert decision["reason"] == "The changed judgment is still too obvious to publish."
+    assert decision["approvedHeadline"] is None
+    assert decision["approvedTake"] is None
+    assert validate_history_decision(decision) == decision
+
+
+def test_historical_approval_cannot_rescue_a_held_editorial_gate():
+    draft = sample_history_draft()
+    draft["editorialGates"]["hostileEditor"] = "hold"
+    draft["contentHash"] = compute_history_content_hash(draft)
+    with pytest.raises(IssueValidationError, match="every editorial gate"):
+        apply_history_decision(draft, sample_history_approval(draft))
+
+
+def test_historical_sealing_is_separate_and_preserves_approved_copy():
+    draft = sample_history_draft()
+    approved, decision = apply_history_decision(draft, sample_history_approval(draft))
+    assert approved is not None
+    sealed = seal_history_entry(approved, "2026-08-28T16:05:00Z")
+
+    assert sealed["status"] == "published"
+    assert sealed["publishedAt"] == "2026-08-28T16:05:00Z"
+    assert sealed["headline"] == approved["headline"]
+    assert sealed["take"] == approved["take"]
+    assert validate_history_decision(decision, sealed) == decision
+
+    with pytest.raises(ValueError, match="status=approved"):
+        seal_history_entry(draft, "2026-08-28T16:05:00Z")
+    with pytest.raises(ValueError, match="cannot precede"):
+        seal_history_entry(approved, "2026-08-28T15:59:59Z")
+
+
+def test_historical_seal_refuses_a_canonical_draft_changed_after_review(tmp_path, monkeypatch):
+    draft = sample_history_draft()
+    approved, decision = apply_history_decision(draft, sample_history_approval(draft))
+    assert approved is not None
+    changed = copy.deepcopy(draft)
+    changed["point"] = "A newly revised point after Matti reviewed the earlier draft."
+    changed["contentHash"] = compute_history_content_hash(changed)
+    approved_path = tmp_path / "approved.json"
+    decision_path = tmp_path / "decision.json"
+    canonical_path = tmp_path / "canonical.json"
+    decision_output = tmp_path / "canonical-decision.json"
+    approved_path.write_text(json.dumps(approved))
+    decision_path.write_text(json.dumps(decision))
+    canonical_path.write_text(json.dumps(changed))
+    monkeypatch.setattr(sys, "argv", [
+        "seal_gravel_weekly_history.py", str(approved_path),
+        "--published-at", "2026-08-28T16:05:00Z",
+        "--decision", str(decision_path),
+        "--output", str(canonical_path),
+        "--decision-output", str(decision_output),
+    ])
+
+    with pytest.raises(SystemExit, match="approval is stale"):
+        seal_history_main()
+    assert json.loads(canonical_path.read_text())["contentHash"] == changed["contentHash"]
+    assert not decision_output.exists()
+
+
+def test_private_historical_review_desk_separates_evidence_and_approval_state():
+    draft = sample_history_draft()
+    held = copy.deepcopy(draft)
+    held["entryId"] = "history-held-2026"
+    held["headline"] = "A held premise"
+    held["editorialGates"]["friend"] = "hold"
+    held["contentHash"] = compute_history_content_hash(held)
+    page = render_history_review([draft, held], 2026)
+
+    assert "PRIVATE EDITORIAL DESK · NOT PUBLIC" in page
+    assert "2 DRAFTS" in page
+    assert "1 READY FOR HUMAN DECISION" in page
+    assert "1 HELD BY EVIDENCE OR EDITORIAL GATES" in page
+    assert "THE TAKE · MODEL DRAFT" in page
+    assert "CONTEMPORARY RECEIPTS (2)" in page
+    assert "LATER EVIDENCE (1)" in page
+    assert "any decision binds to this exact draft hash" in page.lower()
+    assert "approval fails closed while any hold remains" in page.lower()
+    assert draft["contentHash"] in page
+    assert "noindex,nofollow" in page
 
 
 def test_historical_race_impacts_are_review_only_and_use_canonical_race_ids():

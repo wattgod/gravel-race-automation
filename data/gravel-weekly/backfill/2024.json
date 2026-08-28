@@ -318,9 +318,11 @@
       "periodStartedAt": "2024-09-14",
       "periodEndedAt": "2024-09-20",
       "sourceCardCount": 4,
-      "disposition": "pending_review",
-      "entryIds": [],
-      "reason": "Source census complete; assigning-desk research and disposition remain pending."
+      "disposition": "covered_by_draft",
+      "entryIds": [
+        "history-gravel-worlds-road-skill-test-2024"
+      ],
+      "reason": "Mohorič's description of the Worlds route as essentially a one-day Classic opened the format question before the championship field assembled."
     },
     {
       "periodStartedAt": "2024-09-21",
@@ -338,9 +340,10 @@
       "sourceCardCount": 18,
       "disposition": "covered_by_draft",
       "entryIds": [
-        "history-team-usa-invitation-bill-2024"
+        "history-team-usa-invitation-bill-2024",
+        "history-gravel-worlds-road-skill-test-2024"
       ],
-      "reason": "De Crescenzo's first-person privateer accounting and the pre-race funding analysis established the systemic filter before Worlds began."
+      "reason": "De Crescenzo's privateer accounting established the funding filter, while Stephens and Nutt made the cross-discipline seeding and Classics-shaped course advantages explicit before Worlds began."
     },
     {
       "periodStartedAt": "2024-10-05",
@@ -348,9 +351,10 @@
       "sourceCardCount": 17,
       "disposition": "covered_by_draft",
       "entryIds": [
-        "history-vos-gravaa-proof-market-2024"
+        "history-vos-gravaa-proof-market-2024",
+        "history-gravel-worlds-road-skill-test-2024"
       ],
-      "reason": "Vos's Gravel Worlds win converted Gravaa from a returned experiment into a race-proven technology story while leaving causality and consumer value unproved."
+      "reason": "Vos's win validated Gravaa as race-ready without proving causality, while the Dutch multidiscipline sweep and Van der Poel's sole men's wildcard completed the format story."
     },
     {
       "periodStartedAt": "2024-10-12",
@@ -451,5 +455,5 @@
       "reason": "Cyclingnews exposed no matching source card; preserve the quiet window."
     }
   ],
-  "updatedAt": "2026-08-28T08:05:00Z"
+  "updatedAt": "2026-08-28T09:10:00Z"
 }

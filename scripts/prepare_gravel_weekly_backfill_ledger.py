@@ -54,13 +54,22 @@ def build_initial_backfill_ledger(
     if not isinstance(year, int) or isinstance(year, bool):
         raise IssueValidationError("historical discovery year is invalid")
 
+    coverage = discovery.get("archiveCoverage")
+    if coverage not in {"complete", "partial", "unavailable"}:
+        raise IssueValidationError("historical archiveCoverage is invalid")
     requested = discovery.get("archiveMonthsRequested")
     succeeded = discovery.get("archiveMonthsSucceeded")
     errors = _list(discovery.get("archiveMonthErrors"), "archiveMonthErrors")
-    if not isinstance(requested, int) or requested <= 0:
+    if not isinstance(requested, int) or requested < 0:
         raise IssueValidationError("archiveMonthsRequested is invalid")
-    if succeeded != requested or errors:
-        raise IssueValidationError("historical discovery ledger is incomplete")
+    if not isinstance(succeeded, int) or succeeded < 0 or succeeded > requested:
+        raise IssueValidationError("archiveMonthsSucceeded is invalid")
+    if coverage == "complete" and (requested == 0 or succeeded != requested or errors):
+        raise IssueValidationError("complete historical discovery coverage is inconsistent")
+    if coverage == "partial" and (succeeded == 0 or succeeded == requested or not errors):
+        raise IssueValidationError("partial historical discovery coverage is inconsistent")
+    if coverage == "unavailable" and (succeeded != 0 or not errors):
+        raise IssueValidationError("unavailable historical discovery coverage is inconsistent")
 
     cards = [_record(card, f"sourceCards[{index}]") for index, card in enumerate(_list(discovery.get("sourceCards"), "sourceCards"))]
     card_ids: list[str] = []
@@ -85,16 +94,26 @@ def build_initial_backfill_ledger(
                 raise IssueValidationError(f"weeks[{index}].sourceCardIds[{source_index}] is invalid")
             assigned_ids.append(source_id)
         count = len(source_ids)
+        status = week.get("status")
+        if status not in {"source_census_ready", "explicit_gap", "unresearched"}:
+            raise IssueValidationError(f"weeks[{index}].status is invalid")
+        if count and status != "source_census_ready":
+            raise IssueValidationError(f"weeks[{index}] has source cards without source_census_ready status")
+        if not count and status == "source_census_ready":
+            raise IssueValidationError(f"weeks[{index}] is source_census_ready without source cards")
+        disposition = "pending_review" if count else status
         weeks.append({
             "periodStartedAt": _timestamp_day(week.get("periodStartedAt"), f"weeks[{index}].periodStartedAt"),
             "periodEndedAt": _timestamp_day(week.get("periodEndedAt"), f"weeks[{index}].periodEndedAt"),
             "sourceCardCount": count,
-            "disposition": "explicit_gap" if count == 0 else "pending_review",
+            "disposition": disposition,
             "entryIds": [],
             "reason": (
-                "Cyclingnews exposed no matching source card; preserve the quiet window."
-                if count == 0
-                else "Source census complete; assigning-desk research and disposition remain pending."
+                "Source census found candidate metadata; assigning-desk research and disposition remain pending."
+                if count
+                else "Cyclingnews archive coverage is complete for this window and exposed no matching source card; preserve the quiet window."
+                if status == "explicit_gap"
+                else "Archive connector coverage is unavailable for this window. Broader source recovery is required; do not infer quiet."
             ),
         })
 
@@ -112,8 +131,9 @@ def build_initial_backfill_ledger(
         "sourceLedgerIssue": source_ledger_issue,
         "sourceLedgerRun": source_ledger_run,
         "programIssue": program_issue,
+        "sourceArchiveCoverage": coverage,
         "sourceCardCount": source_count,
-        "complete": not any(week["disposition"] == "pending_review" for week in weeks),
+        "complete": not any(week["disposition"] in {"pending_review", "unresearched"} for week in weeks),
         "humanApprovalRequired": True,
         "autoPublishAllowed": False,
         "weeks": weeks,

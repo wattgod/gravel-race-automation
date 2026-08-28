@@ -1,0 +1,87 @@
+{
+  "schemaVersion": "gravel-weekly-history-entry/v1",
+  "entryId": "history-iron-cross-gravel-before-name-2003",
+  "activeFrom": "2003-10-19",
+  "activeThrough": "2003-10-21",
+  "status": "draft",
+  "headline": "Gravel Arrived Disguised as a 58-Mile Cyclocross Race",
+  "point": "The inaugural Iron Cross had cyclocross laps at the start and finish, but the event between them was a 53-mile main loop through rocky Pennsylvania terrain with nearly 6,000 feet of climbing. Contemporary coverage allowed both mountain and cyclocross bikes; its founder later described the event as 100 kilometers and mostly gravel. The format existed before American cycling had settled on the category name.",
+  "priorJudgment": "American gravel history starts when promoters explicitly called their events gravel races and riders arrived on gravel bikes.",
+  "changedJudgment": "Iron Cross shows that the format preceded the vocabulary. In 2003, a long mixed-surface race could behave like gravel while borrowing cyclocross's name, bikes, and institutional filing cabinet.",
+  "stakes": "If the database follows labels instead of event design, it erases the experiments that made modern gravel possible. Iron Cross belongs in the origin story precisely because nobody yet knew which category owned it.",
+  "credibleOpposition": "Every contemporary source filed Iron Cross as cyclocross, the course included traditional cross laps, run-ups, trails, and barriers, and the strongest explicit description of it as mostly gravel comes from a 2019 retrospective interview. Treating it as a modern gravel race is therefore an interpretive classification, not a contemporaneous fact.",
+  "whatHappened": "On October 19, 2003, 73 riders started the inaugural Iron Cross in Michaux State Forest, Pennsylvania. BikeReg's preserved result record describes a traditional cyclocross layout at both ends of a 53-mile main loop with nearly 6,000 feet of climbing. Cyclingnews published a full report in its cyclocross results archive, and Mountain Bike Action described a 58-mile event mixing fire road, pavement, difficult climbs, run-ups, and descents while permitting mountain and cyclocross bikes. Chris Eatough won in 3:30:03; Andy Applegate finished second and was recorded as the first rider on a cyclocross bike. In a 2019 interview, founder Mike Kuhn described Iron Cross as 100 kilometers, mostly gravel, with pavement and singletrack mixed in to make bike choice deliberately ambiguous.",
+  "take": "Model draft, not Matti's approved view: Gravel did not wait for a gravel bike, a gravel category, or a tasteful earth-tone logo. It showed up in Pennsylvania wearing cyclocross's name, bolted a 53-mile main loop between two ceremonial laps, and made everyone argue with 6,000 feet of climbing. Mountain bikes were legal. Cross bikes were legal. The winner needed three and a half hours, which is a very long way of saying this was not cyclocross in any normal human sense. Iron Cross matters because categories are usually written after the weirdos have already built the thing. Gravel's prehistory was hiding in the cyclocross results.",
+  "takeProvenance": "model_draft",
+  "uncertainty": "The event date is consistently preserved as October 19, 2003, and Cyclingnews's October index lists the full report on October 21. The direct Cyclingnews report header says October 8, an impossible date before the event and likely an archival labeling error, so this entry uses the dated index for chronology and discloses the conflict. BikeReg's narrative begins 'October 18' despite its event header saying October 19. The description of Iron Cross as mostly gravel is from an automatically transcribed 2019 founder interview, not contemporary language. The classification remains an editorial interpretation requiring human review.",
+  "editorialScore": 97,
+  "editorialGates": {
+    "party": "pass",
+    "point": "pass",
+    "friend": "pass",
+    "craft": "pass",
+    "hostileEditor": "pass"
+  },
+  "contemporaryReceipts": [
+    {
+      "claimId": "claim_iron_cross_inaugural_2003",
+      "canonicalUrl": "https://www.bikereg.com/results/s/15745/iron-cross-americas-longest-cyclocross-race",
+      "publisher": "BikeReg",
+      "publishedAt": "2003-10-19T12:00:00-04:00",
+      "quoteExcerpt": "the inaugural edition of America's longest cyclocross race",
+      "transcriptStartSeconds": null,
+      "transcriptEndSeconds": null
+    },
+    {
+      "claimId": "claim_iron_cross_cyclingnews_report_2003",
+      "canonicalUrl": "https://autobus.cyclingnews.com/cross.php?id=cross/2003/oct03/oct08USAironcross",
+      "publisher": "Cyclingnews",
+      "publishedAt": "2003-10-21T12:00:00Z",
+      "quoteExcerpt": "a 53 mile main loop with nearly 6,000 feet of climbing",
+      "transcriptStartSeconds": null,
+      "transcriptEndSeconds": null
+    },
+    {
+      "claimId": "claim_iron_cross_mixed_bikes_2003",
+      "canonicalUrl": "https://mbaction.com/worlds-toughest-cyclocross-oct-21/",
+      "publisher": "Mountain Bike Action",
+      "publishedAt": "2003-10-21T12:00:00-04:00",
+      "quoteExcerpt": "Both mountain and cyclocross bikes were allowed.",
+      "transcriptStartSeconds": null,
+      "transcriptEndSeconds": null
+    }
+  ],
+  "laterEvidence": [
+    {
+      "claimId": "claim_iron_cross_mostly_gravel_2019",
+      "canonicalUrl": "https://www.gravelcyclist.com/training-rides/podcast-a-conversation-with-mike-kuhn-of-unpaved-founder-of-iron-cross-gunner-bregy-promoter-of-iron-cross-pennsylvania-gravel/",
+      "publisher": "Gravel Cyclist",
+      "publishedAt": "2019-08-07T12:00:00-04:00",
+      "quoteExcerpt": "iron cross is a hundred kilometers. It's mostly gravel.",
+      "transcriptStartSeconds": null,
+      "transcriptEndSeconds": null
+    }
+  ],
+  "raceImpacts": [
+    {
+      "impactKind": "editorial_review",
+      "raceId": "gravel:iron-cross",
+      "fieldPath": "race.history",
+      "claimIds": [
+        "claim_iron_cross_inaugural_2003",
+        "claim_iron_cross_cyclingnews_report_2003",
+        "claim_iron_cross_mixed_bikes_2003",
+        "claim_iron_cross_mostly_gravel_2019"
+      ],
+      "confidence": 0.92,
+      "owner": "Gravel God race editorial review",
+      "autoFixAllowed": false
+    }
+  ],
+  "humanApprovalRequired": true,
+  "autoPublishAllowed": false,
+  "editorialApproval": null,
+  "publishedAt": null,
+  "updatedAt": "2026-08-28T20:15:00Z",
+  "contentHash": "26a9b455fa7904cb8ef7b1b627fb451ad39bd889adf695a7ea15a7e88fd798cc"
+}

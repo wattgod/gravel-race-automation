@@ -1,0 +1,87 @@
+{
+  "schemaVersion": "gravel-weekly-history-entry/v1",
+  "entryId": "history-worlds-was-the-leadville-warmup-2023",
+  "activeFrom": "2023-08-11",
+  "activeThrough": "2023-08-12",
+  "status": "draft",
+  "headline": "A Private Race Series Made Worlds the Leadville Warm-Up",
+  "point": "The 2023 Life Time Grand Prix had become important enough that athletes treated a national-team World Championship and a 7,221-kilometre trip to Leadville as consecutive obligations. Haley Smith raced Marathon Worlds in Scotland, crossed the Atlantic, and finished fifth at Leadville six days later because one race carried federation prestige while the other carried private-series points. Gravel's new career calendar did not replace the old institutions; it made riders serve both on schedules nobody had coordinated.",
+  "priorJudgment": "A World Championship is the fixed point around which a serious athlete's calendar is built, while a privately owned domestic series yields when the two create an absurd travel and recovery problem.",
+  "changedJudgment": "Prestige and livelihood can create separate mandatory calendars. Once private-series standings matter to a rider's season, Worlds may keep the flag and rainbow jersey while becoming the inconvenient race immediately before the commercial one.",
+  "stakes": "Athletes absorb the airfare, jet lag, recovery loss, altitude compromise, and performance risk created by institutional calendars that each behave as if they are the only calendar. The conflict also reveals which events actually govern a privateer's season: not necessarily the event with the grandest title, but the one with cumulative points and money attached.",
+  "credibleOpposition": "Smith described representing Canada as an honour and the World Championship experience as invaluable, so the double was not evidence that Worlds had become meaningless. Elite endurance athletes also choose difficult doubles as part of the appeal, and Leadville's date was longstanding rather than a targeted slight. The evidence shows a costly collision and a consequential athlete choice, not that either organizer deliberately manufactured the conflict or that every rider viewed the Grand Prix as more important than Worlds.",
+  "whatHappened": "On August 6, Haley Smith finished 15th for Canada in the 100-kilometre UCI Marathon Mountain Bike World Championship in Scotland. She then traveled more than 7,221 kilometres to Colorado for the August 12 Leadville Trail 100 MTB, the fourth stop of the Life Time Grand Prix, where the start sits above 10,000 feet. Smith entered the week tied for second in the women's series and acknowledged that the trip had displaced her normal Leadville preparation and altitude camp. Three men—Matthew Beers, Andrew L'Esperance, and Alex Wild—were also reported as attempting the double after Worlds. Smith completed it and finished fifth at Leadville in 7:21:26; L'Esperance finished 19th. Smith ultimately placed third in the 2023 Grand Prix. The result did not prove the double was wise. It proved the private series had accumulated enough competitive consequence that crossing an ocean between two hundred-kilometre-class efforts could look like the rational schedule.",
+  "take": "Model draft, not Matti's approved view: Cycling used to have one obvious center of gravity. You wore the national jersey at Worlds, everybody bowed toward the rainbow bands, and the rest of the calendar moved around it. In 2023 Haley Smith raced Marathon Worlds in Scotland, flew 7,221 kilometres, and six days later started Leadville above 10,000 feet because Life Time points were waiting. Worlds became the altitude camp nobody would prescribe. She finished fifth anyway. That is not evidence that athletes have discovered teleportation; it is evidence that gravel built a second power structure before anyone built a shared calendar. The federation had the flag. Life Time had the season standings. The rider got the middle seat and the sauna protocol.",
+  "takeProvenance": "model_draft",
+  "uncertainty": "The reviewed evidence does not itemize Smith's travel cost, sleep, recovery metrics, sponsor obligations, or the counterfactual Leadville result with a conventional altitude block. Reporting confirmed four intended double attempts, but the available results establish the completed outcome only for Smith and L'Esperance; it should not imply that Beers or Wild started Leadville. The evidence also does not establish whether the UCI or Life Time considered changing dates in response.",
+  "editorialScore": 95,
+  "editorialGates": {
+    "party": "pass",
+    "point": "pass",
+    "friend": "pass",
+    "craft": "pass",
+    "hostileEditor": "pass"
+  },
+  "contemporaryReceipts": [
+    {
+      "claimId": "claim_worlds_leadville_7221km_double_2023",
+      "canonicalUrl": "https://www.cyclingnews.com/news/worlds-leadville-doubleheader-looms-for-life-time-grand-prix-champ-haley-smith/",
+      "publisher": "Cyclingnews",
+      "publishedAt": "2023-08-11T12:00:00Z",
+      "quoteExcerpt": "air travel distance of more than 7,221 kilometres",
+      "transcriptStartSeconds": null,
+      "transcriptEndSeconds": null
+    },
+    {
+      "claimId": "claim_smith_fifth_leadville_2023",
+      "canonicalUrl": "https://www.webscorer.com/racealldetails?groupid=300796&pid=1&raceid=300792",
+      "publisher": "Webscorer",
+      "publishedAt": "2023-08-12T13:30:00Z",
+      "quoteExcerpt": "5 Haley Smith 7:21:26",
+      "transcriptStartSeconds": null,
+      "transcriptEndSeconds": null
+    },
+    {
+      "claimId": "claim_lesperance_nineteenth_leadville_2023",
+      "canonicalUrl": "https://www.webscorer.com/racealldetails?groupid=300796&pid=1&raceid=300792",
+      "publisher": "Webscorer",
+      "publishedAt": "2023-08-12T13:30:00Z",
+      "quoteExcerpt": "19 Andrew L'esperance 6:40:34",
+      "transcriptStartSeconds": null,
+      "transcriptEndSeconds": null
+    }
+  ],
+  "laterEvidence": [
+    {
+      "claimId": "claim_smith_third_lifetime_grand_prix_2023",
+      "canonicalUrl": "https://www.lifetimegrandprix.com/wp-content/uploads/2023/10/LTGP2023FinalResults.pdf",
+      "publisher": "Life Time Grand Prix",
+      "publishedAt": "2023-10-22T12:00:00Z",
+      "quoteExcerpt": "3 Haley Smith 160",
+      "transcriptStartSeconds": null,
+      "transcriptEndSeconds": null
+    }
+  ],
+  "raceImpacts": [
+    {
+      "impactKind": "editorial_review",
+      "raceId": "gravel:leadville-100",
+      "fieldPath": "race.biased_opinion",
+      "claimIds": [
+        "claim_worlds_leadville_7221km_double_2023",
+        "claim_smith_fifth_leadville_2023",
+        "claim_lesperance_nineteenth_leadville_2023",
+        "claim_smith_third_lifetime_grand_prix_2023"
+      ],
+      "confidence": 0.98,
+      "owner": "Gravel God race editorial review",
+      "autoFixAllowed": false
+    }
+  ],
+  "humanApprovalRequired": true,
+  "autoPublishAllowed": false,
+  "editorialApproval": null,
+  "publishedAt": null,
+  "updatedAt": "2026-08-28T18:00:00Z",
+  "contentHash": "de557239b215575c4a46d3984d5181e5755a5a48c10bb06cbec64f5e8998003d"
+}

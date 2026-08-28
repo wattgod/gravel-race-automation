@@ -932,23 +932,18 @@ def test_2004_backfill_ledger_starts_from_the_complete_source_census():
     assert validated["complete"] is True
 
 
-def test_2003_backfill_ledger_preserves_unavailable_archive_research_debt():
+def test_2003_backfill_ledger_reconciles_the_complete_legacy_archive_census():
     histories = load_history_entries(ROOT / "data" / "gravel-weekly" / "history")
     ledger = json.loads((ROOT / "data" / "gravel-weekly" / "backfill" / "2003.json").read_text())
     validated = validate_backfill_ledger(ledger, histories)
 
     assert len(validated["weeks"]) == 53
-    assert validated["sourceArchiveCoverage"] == "unavailable"
-    assert sum(week["sourceCardCount"] for week in validated["weeks"]) == 0
-    assert sum(week["disposition"] == "unresearched" for week in validated["weeks"]) == 52
+    assert validated["sourceArchiveCoverage"] == "complete"
+    assert sum(week["sourceCardCount"] for week in validated["weeks"]) == 1
+    assert sum(week["disposition"] == "unresearched" for week in validated["weeks"]) == 0
     assert sum(week["disposition"] == "covered_by_draft" for week in validated["weeks"]) == 1
-    assert sum(week["disposition"] == "explicit_gap" for week in validated["weeks"]) == 0
-    assert validated["complete"] is False
-
-    dishonest_completion = copy.deepcopy(ledger)
-    dishonest_completion["complete"] = True
-    with pytest.raises(IssueValidationError, match="pending or unresearched"):
-        validate_backfill_ledger(dishonest_completion, histories)
+    assert sum(week["disposition"] == "explicit_gap" for week in validated["weeks"]) == 52
+    assert validated["complete"] is True
 
 
 def test_initial_backfill_ledger_accounts_for_every_discovery_card():

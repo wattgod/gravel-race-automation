@@ -1,0 +1,87 @@
+{
+  "schemaVersion": "gravel-weekly-history-entry/v1",
+  "entryId": "history-ted-king-prototyped-gravel-pro-2016",
+  "activeFrom": "2016-06-02",
+  "activeThrough": "2016-08-17",
+  "status": "draft",
+  "headline": "Ted King Retired and Accidentally Prototyped the Gravel Pro",
+  "point": "Ted King left the WorldTour, entered Dirty Kanza for the first time, won after fixing his own flats, and spent the rest of the summer describing a sponsor-supported calendar built around races he actually wanted to attend. Gravel had created the independent athlete-ambassador job before the sport had agreed that gravel professional was a job title.",
+  "priorJudgment": "A WorldTour rider retired from professional racing into ordinary life, occasional riding, or a conventional industry role; mass-participation off-road events were recreation rather than a credible second athletic career.",
+  "changedJudgment": "King showed that a rider could leave the road-team system without leaving performance, sponsors, audience, or relevance. The new career was less a salaried race program than a portable mixture of competition, personality, equipment testing, owned media, and sponsor relationships—the basic privateer formula before gravel named it.",
+  "stakes": "The modern gravel economy depends on athletes being racers, media outlets, product demonstrators, and small businesses at once. That independence can give riders freedom and a longer career, but it also transfers logistics, storytelling, sponsor service, and financial risk from a team onto the athlete. The origin story matters because the freedom and the unpaid overhead arrived together.",
+  "credibleOpposition": "King was not an ordinary retiree discovering an open market. He brought a decade of WorldTour credibility, existing sponsors, a bike-company relationship, technical support, industry contacts, and elite fitness to his first Dirty Kanza. His win did not prove that a sustainable gravel profession was broadly available, and contemporary reporting described fun, sponsor support, belt buckles, and bragging rights rather than a disclosed independent-athlete income statement.",
+  "whatHappened": "Before his first Dirty Kanza, King described the event as a mass-participation challenge, said he was less fit than during his WorldTour career, and emphasized unfamiliar self-support variables such as tires, gearing, food, and the absence of a follow car. On June 4 he won the 206-mile race after riding roughly 100 miles alone and repairing three flats himself. BikeRadar framed the recently retired WorldTour rider as having found a new calling and documented the highly specific Cannondale Slate, sponsor equipment, hydration, and nutrition setup around the win. By August, King wrote that retirement had replaced team-controlled austerity with a sponsor-supported calendar of Dirty Kanza, Leadville, and Grinduro; he valued managing his own logistics and racing for adventure, belt buckles, and bragging rights rather than because a team job depended on the result.",
+  "take": "Model draft, not Matti's approved view: Ted King retired from professional cycling and immediately found a better cycling job, except nobody had invented its title or payroll department. He arrived at Dirty Kanza on a Cannondale Slate—a road bike that appeared to have swallowed a tiny suspension fork—fixed three flats without a mechanic, rode alone for roughly 100 miles, and beat more than a thousand people to a belt buckle. Then he filled his calendar with events he actually wanted to race while his sponsors, products, blog, and personality traveled with him. This was the gravel-privateer prototype hiding inside a retirement tour. The freedom was real: no team director, no assigned race, no recovery-drink monastery. So was the new labor. King became rider, mechanic, logistics desk, media channel, product demo, and sponsor inventory in one maple-syrup-powered person. Gravel did not abolish the job. It compressed the whole company into the athlete and called the result fun.",
+  "takeProvenance": "model_draft",
+  "uncertainty": "The contemporary sources establish King’s first Dirty Kanza, win, WorldTour retirement, self-supported repairs, sponsor-backed equipment, and stated preference for an adventure-led calendar. They do not disclose his compensation, contract structure, operating costs, sponsor obligations, or whether he considered the arrangement a new profession in 2016. Calling it a prototype privateer career is an editorial inference informed by the later gravel model, not a period job classification.",
+  "editorialScore": 97,
+  "editorialGates": {
+    "party": "pass",
+    "point": "pass",
+    "friend": "pass",
+    "craft": "pass",
+    "hostileEditor": "pass"
+  },
+  "contemporaryReceipts": [
+    {
+      "claimId": "claim_king_first_dirty_kanza_self_support_2016",
+      "canonicalUrl": "https://www.iamtedking.com/blog/2016/06/toto-were-in-kansas-again",
+      "publisher": "Ted King",
+      "publishedAt": "2016-06-02T12:00:00Z",
+      "quoteExcerpt": "There is no follow car! You're entirely self-supported!",
+      "transcriptStartSeconds": null,
+      "transcriptEndSeconds": null
+    },
+    {
+      "claimId": "claim_king_won_dirty_kanza_new_calling_2016",
+      "canonicalUrl": "https://www.bikeradar.com/features/pro-bike/ted-kings-cannondale-slate-gravel-racer",
+      "publisher": "BikeRadar",
+      "publishedAt": "2016-06-07T19:00:00Z",
+      "quoteExcerpt": "may have found his next calling as a gravel racer",
+      "transcriptStartSeconds": null,
+      "transcriptEndSeconds": null
+    },
+    {
+      "claimId": "claim_king_sponsor_supported_adventure_calendar_2016",
+      "canonicalUrl": "https://www.outsideonline.com/outdoor-gear/bikes-and-biking/why-life-got-more-fun-after-i-retired-pro-cycling/",
+      "publisher": "Outside",
+      "publishedAt": "2016-08-17T06:00:00Z",
+      "quoteExcerpt": "I get to race for racing's sake",
+      "transcriptStartSeconds": null,
+      "transcriptEndSeconds": null
+    }
+  ],
+  "laterEvidence": [
+    {
+      "claimId": "claim_king_2016_win_expanded_gravel_reach_2017",
+      "canonicalUrl": "https://www.iamtedking.com/blog/2017/06/gravel-is-dead-long-live-gravel",
+      "publisher": "Ted King",
+      "publishedAt": "2017-06-01T12:00:00Z",
+      "quoteExcerpt": "bringing my European racing history to Kansas in 2016",
+      "transcriptStartSeconds": null,
+      "transcriptEndSeconds": null
+    }
+  ],
+  "raceImpacts": [
+    {
+      "impactKind": "editorial_review",
+      "raceId": "gravel:unbound-gravel",
+      "fieldPath": "race.biased_opinion",
+      "claimIds": [
+        "claim_king_first_dirty_kanza_self_support_2016",
+        "claim_king_won_dirty_kanza_new_calling_2016",
+        "claim_king_sponsor_supported_adventure_calendar_2016",
+        "claim_king_2016_win_expanded_gravel_reach_2017"
+      ],
+      "confidence": 0.97,
+      "owner": "Gravel God race editorial review",
+      "autoFixAllowed": false
+    }
+  ],
+  "humanApprovalRequired": true,
+  "autoPublishAllowed": false,
+  "editorialApproval": null,
+  "publishedAt": null,
+  "updatedAt": "2026-08-28T12:45:00Z",
+  "contentHash": "3df436ff5b5991598938aa48a4247a82e0e9b055fc510b48a036e63a0b4a9463"
+}

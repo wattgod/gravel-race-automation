@@ -92,9 +92,11 @@
       "periodStartedAt": "2022-03-05",
       "periodEndedAt": "2022-03-11",
       "sourceCardCount": 3,
-      "disposition": "pending_review",
-      "entryIds": [],
-      "reason": "Source census complete; assigning-desk research and disposition remain pending."
+      "disposition": "covered_by_draft",
+      "entryIds": [
+        "history-season-stops-for-mo-wilson-2022"
+      ],
+      "reason": "Wilson's third victory in three covered 2022 starts established the sporting trajectory that later memorial coverage must remember without turning it into a counterfactual résumé."
     },
     {
       "periodStartedAt": "2022-03-12",
@@ -178,25 +180,31 @@
       "periodStartedAt": "2022-05-14",
       "periodEndedAt": "2022-05-20",
       "sourceCardCount": 6,
-      "disposition": "pending_review",
-      "entryIds": [],
-      "reason": "Source census complete; assigning-desk research and disposition remain pending."
+      "disposition": "covered_by_draft",
+      "entryIds": [
+        "history-season-stops-for-mo-wilson-2022"
+      ],
+      "reason": "The report of Wilson's murder and the community's remembrance made the season stop being an ordinary sequence of competitive results."
     },
     {
       "periodStartedAt": "2022-05-21",
       "periodEndedAt": "2022-05-27",
       "sourceCardCount": 2,
-      "disposition": "pending_review",
-      "entryIds": [],
-      "reason": "Source census complete; assigning-desk research and disposition remain pending."
+      "disposition": "covered_by_draft",
+      "entryIds": [
+        "history-season-stops-for-mo-wilson-2022"
+      ],
+      "reason": "Wilson's family directed mourning toward youth access and joy, while a fellow racer redirected part of her prize money into that memorial work."
     },
     {
       "periodStartedAt": "2022-05-28",
       "periodEndedAt": "2022-06-03",
       "sourceCardCount": 12,
-      "disposition": "pending_review",
-      "entryIds": [],
-      "reason": "Source census complete; assigning-desk research and disposition remain pending."
+      "disposition": "covered_by_draft",
+      "entryIds": [
+        "history-season-stops-for-mo-wilson-2022"
+      ],
+      "reason": "Grief remained inside Unbound week, culminating in a pre-dawn tribute where elite and amateur riders listened to Wilson's words and stopped together."
     },
     {
       "periodStartedAt": "2022-06-04",
@@ -466,5 +474,5 @@
       "reason": "Cyclingnews exposed no matching source card; preserve the quiet window."
     }
   ],
-  "updatedAt": "2026-08-28T17:15:00Z"
+  "updatedAt": "2026-08-28T18:00:00Z"
 }

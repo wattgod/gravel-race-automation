@@ -22,9 +22,11 @@
       "periodStartedAt": "2022-01-08",
       "periodEndedAt": "2022-01-14",
       "sourceCardCount": 1,
-      "disposition": "held_for_evidence",
-      "entryIds": [],
-      "reason": "The Utah race announcement may mark a durable event origin, but a single launch story cannot establish the event's eventual identity, field, or consequence."
+      "disposition": "covered_by_draft",
+      "entryIds": [
+        "history-tour-of-utah-winner-built-gravel-race-2022"
+      ],
+      "reason": "Louder's move from a shrinking domestic road program into Wasatch All-Road revealed that gravel inherited road cycling's abandoned institutional expertise and converted it into an open participant event."
     },
     {
       "periodStartedAt": "2022-01-15",
@@ -46,9 +48,9 @@
       "periodStartedAt": "2022-01-29",
       "periodEndedAt": "2022-02-04",
       "sourceCardCount": 2,
-      "disposition": "held_for_evidence",
+      "disposition": "rejected",
       "entryIds": [],
-      "reason": "A new Spanish pro race and Haas's move from the WorldTour signal geographic and career migration, but launch announcements alone do not establish what either changed."
+      "reason": "Haas's career migration is already resolved in the dedicated 2022 and later career-market chapters, while Clásica Jaén repeats the road-race spectacle mechanism covered by the road-risk chapter without adding a distinct consequence."
     },
     {
       "periodStartedAt": "2022-02-05",
@@ -405,41 +407,43 @@
       "periodStartedAt": "2022-10-29",
       "periodEndedAt": "2022-11-04",
       "sourceCardCount": 2,
-      "disposition": "held_for_evidence",
+      "disposition": "rejected",
       "entryIds": [],
-      "reason": "Dirty Warrny's launch may support a race-origin and longevity story, but the announcement needs longitudinal evidence covering its interruptions and promised return."
+      "reason": "Dirty Warrny launched and delivered a race, then later entered a hiatus with a promised return; that event chronology does not establish a changed judgment or consequence distinct enough for a historical chapter."
     },
     {
       "periodStartedAt": "2022-11-05",
       "periodEndedAt": "2022-11-11",
       "sourceCardCount": 2,
-      "disposition": "held_for_evidence",
-      "entryIds": [],
-      "reason": "Fahringer's concussion recovery could support a careful health and career-transition chapter, but it needs primary corroboration; the Wilson legal update is not a standalone gravel story."
+      "disposition": "covered_by_draft",
+      "entryIds": [
+        "history-fahringer-new-finish-line-not-protocol-2022"
+      ],
+      "reason": "Fahringer's own account, contemporary race recap, and independent reporting support a careful chapter separating gravel's value as a new competitive path from the medical ambiguity of concussion return-to-play; the Wilson legal update remains contextual rather than standalone."
     },
     {
       "periodStartedAt": "2022-11-12",
       "periodEndedAt": "2022-11-18",
       "sourceCardCount": 1,
-      "disposition": "held_for_evidence",
+      "disposition": "rejected",
       "entryIds": [],
-      "reason": "The Grand Prix expansion from six to seven races and 60 to 70 riders is a useful scale marker, but not a story until linked to athlete access, media, or competitive outcomes."
+      "reason": "The Grand Prix's move from six to seven races and 60 to 70 riders is a scale marker for the selected-field mechanism already established in 2021 and expanded in later chapters, not an independent story."
     },
     {
       "periodStartedAt": "2022-11-19",
       "periodEndedAt": "2022-11-25",
       "sourceCardCount": 1,
-      "disposition": "held_for_evidence",
+      "disposition": "rejected",
       "entryIds": [],
-      "reason": "The early 2024 Worlds start-and-finish announcement is valuable longitudinal evidence for institutional lead time, but the update alone does not support another chapter."
+      "reason": "The early 2024 Worlds start-and-finish announcement remains useful longitudinal evidence of institutional lead time, but it does not contain a conflict, outcome, or changed judgment sufficient for another chapter."
     },
     {
       "periodStartedAt": "2022-11-26",
       "periodEndedAt": "2022-12-02",
       "sourceCardCount": 3,
-      "disposition": "held_for_evidence",
+      "disposition": "rejected",
       "entryIds": [],
-      "reason": "The Gravel Earth Series launch may mark an independent global counterweight, while Smith's recommitment may illuminate the Grand Prix labor market; both require outcome evidence."
+      "reason": "Gravel Earth's launch and Smith's Grand Prix recommitment are announcements whose eventual calendar and labor consequences are handled with delivered evidence in the 2023 global-calendar chapter."
     },
     {
       "periodStartedAt": "2022-12-03",
@@ -455,17 +459,17 @@
       "periodStartedAt": "2022-12-10",
       "periodEndedAt": "2022-12-16",
       "sourceCardCount": 2,
-      "disposition": "held_for_evidence",
+      "disposition": "rejected",
       "entryIds": [],
-      "reason": "Cyclocross survival and the 2023 Grand Prix roster suggest a cross-discipline calendar story, but the two announcements do not yet establish a consequence or changed judgment."
+      "reason": "Cyclocross survival and the 2023 Grand Prix roster show cross-discipline continuity but supply no independent consequence beyond the existing career and private-series chapters."
     },
     {
       "periodStartedAt": "2022-12-17",
       "periodEndedAt": "2022-12-23",
       "sourceCardCount": 1,
-      "disposition": "held_for_evidence",
+      "disposition": "rejected",
       "entryIds": [],
-      "reason": "Expansion to 17 World Series rounds is a meaningful scale marker retained for a later growth-versus-quality analysis, not a sufficient story by itself."
+      "reason": "Expansion to 17 World Series rounds is retained as a scale marker, while the delivered consequences of competing global calendars are covered in the 2023 chapter; the announcement alone is not a story."
     },
     {
       "periodStartedAt": "2022-12-24",
@@ -484,5 +488,5 @@
       "reason": "Cyclingnews exposed no matching source card; preserve the quiet window."
     }
   ],
-  "updatedAt": "2026-08-28T20:30:00Z"
+  "updatedAt": "2026-08-28T21:30:00Z"
 }

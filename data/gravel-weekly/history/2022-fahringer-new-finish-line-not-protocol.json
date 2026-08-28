@@ -1,0 +1,87 @@
+{
+  "schemaVersion": "gravel-weekly-history-entry/v1",
+  "entryId": "history-fahringer-new-finish-line-not-protocol-2022",
+  "activeFrom": "2022-10-17",
+  "activeThrough": "2022-11-08",
+  "status": "draft",
+  "headline": "Gravel Gave Fahringer a New Finish Line, Not a Concussion Protocol",
+  "point": "Rebecca Fahringer's 2022 move toward gravel is a recovery story with an institutional indictment inside it. After two concussions, persistent symptoms, and what she described as yellow and green signals but no red light on racing, gravel gave her room to change expectations, rediscover competition, and win again. It did not solve the medical ambiguity that allowed her to keep racing while symptomatic. A new discipline can preserve a career; it cannot substitute for a return-to-play system.",
+  "priorJudgment": "A successful switch from cyclocross to gravel after injury is evidence of athlete resilience and the career flexibility created by a growing discipline.",
+  "changedJudgment": "The flexibility mattered, but the more consequential fact was why Fahringer needed it. Her account separates an athlete's ability to construct a new competitive identity from a sport's responsibility to provide decisive, medically governed stop and return criteria after brain injury.",
+  "stakes": "Fahringer's long-term health and agency, how cycling describes comeback stories, whether athletes must interpret ambiguous medical signals while their identity and income reward continued racing, and whether gravel is credited for offering an alternative without being falsely presented as concussion treatment.",
+  "credibleOpposition": "Fahringer did see a concussion specialist, chose to enter the Life Time Grand Prix, adjusted her own expectations, and described genuine enjoyment and improvement in gravel. The evidence does not identify a single governing body, clinician, team, or race organizer as legally responsible for her decisions, nor does it establish that gravel was inherently safer than cyclocross. Her return should not be recast as either helplessness or proof that one universal protocol would have produced a simple recovery.",
+  "whatHappened": "Fahringer sustained a concussion in a November 2020 cyclocross crash, returned after missing two races, and finished that season with only two top tens in 22 starts. Early in the 2021–22 cyclocross season she crashed again and sustained another concussion. She later wrote that she received many yellow lights and some green lights but no red light on racing, then continued through ten more races with headaches and disorientation before stopping screens, driving, exercise, and social activity. In February 2022 she entered the invitation-only Life Time Grand Prix while still recovering and expected to contend for its prize payout. Her season instead included 23rd of 36 at Sea Otter, a COVID-related Unbound DNS, and mid-pack series results. She deliberately lowered the stakes she attached to results and began enjoying racing again. On October 16, she won Belgian Waffle Ride Kansas and wrote that the previous month was the first time her familiar racing sensations had returned since the September 2021 concussion. Cyclingnews reported on November 8 that she would not return to cyclocross that season and planned more gravel and mountain-bike racing. Later reporting showed that symptoms still shaped her discipline choices and that the economic precarity of racing remained unresolved.",
+  "take": "Model draft, not Matti's approved view: Rebecca Fahringer won BWR Kansas in October 2022, and the easy headline is that gravel saved her career. It is also the wrong headline. Gravel gave her someplace to race where a bad result did not have to confirm that the cyclocross version of her was gone. She could change the stakes, use the skills she still had, enjoy a bike race, and eventually feel the old sensations again. That matters. But her account also includes two concussions, lingering headaches and disorientation, ten more races, and a medical landscape she described as yellow lights and green lights with nobody willing to put up a red one. Gravel was a new finish line. It was not a neurologist, a protocol, or permission to turn brain injury into inspirational content. The good part of this story is not that she proved toughness. Professional cyclists arrive pre-overqualified in toughness. It is that she found another way to be an athlete while the sport around her failed to make stopping feel as clear as starting.",
+  "takeProvenance": "model_draft",
+  "uncertainty": "The record is based substantially on Fahringer's own retrospective account as reported by Cyclingnews, Velo, BWR, and Brown Alumni Magazine. It does not include medical records, clinician interviews, diagnostic imaging, contractual obligations, or a complete chronology of medical advice. The sources differ slightly in how they date or describe the crashes, and the chapter should preserve Fahringer's words rather than infer negligence or assign legal responsibility. Her later preference for gravel and mountain biking does not establish that either discipline is generally safer for concussion recovery.",
+  "editorialScore": 98,
+  "editorialGates": {
+    "party": "pass",
+    "point": "pass",
+    "friend": "pass",
+    "craft": "pass",
+    "hostileEditor": "pass"
+  },
+  "contemporaryReceipts": [
+    {
+      "claimId": "claim_fahringer_bwr_kansas_win_sensations_2022",
+      "canonicalUrl": "https://www.belgianwaffleride.bike/blogs/news/2022-bwr-kansas-results",
+      "publisher": "Belgian Waffle Ride",
+      "publishedAt": "2022-10-17T08:00:00Z",
+      "quoteExcerpt": "the first time 'ze sensations' have been there since I had my concussion",
+      "transcriptStartSeconds": null,
+      "transcriptEndSeconds": null
+    },
+    {
+      "claimId": "claim_fahringer_persistent_symptoms_grand_prix_2022",
+      "canonicalUrl": "https://velo.outsideonline.com/gravel/becca-fahringer-is-back-to-winning-races/",
+      "publisher": "Velo",
+      "publishedAt": "2022-10-18T08:10:50Z",
+      "quoteExcerpt": "persistent symptoms from a head injury she sustained in September of 2021",
+      "transcriptStartSeconds": null,
+      "transcriptEndSeconds": null
+    },
+    {
+      "claimId": "claim_fahringer_yellow_lights_no_red_light_2022",
+      "canonicalUrl": "https://www.cyclingnews.com/features/fahringer-crosses-to-gravel-after-two-years-of-concussion-setbacks/",
+      "publisher": "Cyclingnews",
+      "publishedAt": "2022-11-08T21:24:23Z",
+      "quoteExcerpt": "a lot of yellow lights and a few green lights, but no one put the red light on racing",
+      "transcriptStartSeconds": null,
+      "transcriptEndSeconds": null
+    }
+  ],
+  "laterEvidence": [
+    {
+      "claimId": "claim_fahringer_lingering_effects_and_career_2024",
+      "canonicalUrl": "https://www.brownalumnimagazine.com/articles/2024-08-22/true-grit-gravel-bike-racing-Rebecca-Fahringer",
+      "publisher": "Brown Alumni Magazine",
+      "publishedAt": "2024-08-22T12:00:00Z",
+      "quoteExcerpt": "Even now, Fahringer is still feeling the lingering effects",
+      "transcriptStartSeconds": null,
+      "transcriptEndSeconds": null
+    }
+  ],
+  "raceImpacts": [
+    {
+      "impactKind": "editorial_review",
+      "raceId": "gravel:belgian-waffle-ride-kansas",
+      "fieldPath": "race.biased_opinion",
+      "claimIds": [
+        "claim_fahringer_bwr_kansas_win_sensations_2022",
+        "claim_fahringer_persistent_symptoms_grand_prix_2022",
+        "claim_fahringer_yellow_lights_no_red_light_2022",
+        "claim_fahringer_lingering_effects_and_career_2024"
+      ],
+      "confidence": 0.94,
+      "owner": "Gravel God race editorial review",
+      "autoFixAllowed": false
+    }
+  ],
+  "humanApprovalRequired": true,
+  "autoPublishAllowed": false,
+  "editorialApproval": null,
+  "publishedAt": null,
+  "updatedAt": "2026-08-28T21:30:00Z",
+  "contentHash": "15dd9d9f6f888454102d865a784ee2696247ea0ba1c2b8706c13218acd225fe7"
+}

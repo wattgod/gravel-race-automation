@@ -19,6 +19,7 @@ def test_plugin_repairs_empty_and_placeholder_titles():
     source = PLUGIN.read_text()
     assert "heading_text === ''" in source
     assert "POST_TITLE" in source
+    assert "00A0" in source
     assert "esc_html( $title )" in source
 
 

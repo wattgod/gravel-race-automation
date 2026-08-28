@@ -41,11 +41,12 @@ function gg_h1_normalize_markup( $html, $title ) {
             $h1_pattern,
             function ( $match ) use ( &$seen, $title ) {
                 $seen++;
-                $heading_text = trim(
-                    wp_strip_all_tags(
-                        html_entity_decode( $match[2], ENT_QUOTES | ENT_HTML5, 'UTF-8' )
-                    )
+                $heading_text = wp_strip_all_tags(
+                    html_entity_decode( $match[2], ENT_QUOTES | ENT_HTML5, 'UTF-8' )
                 );
+                // PHP trim() does not remove non-breaking spaces, which appear
+                // in one legacy Elementor title as &nbsp;.
+                $heading_text = trim( preg_replace( '/[\s\x{00A0}]+/u', ' ', $heading_text ) );
 
                 if ( $seen === 1 ) {
                     if ( $heading_text === '' || preg_match( '/^\[POST_TITLE\]$/i', $heading_text ) ) {

@@ -34,9 +34,9 @@
       "periodStartedAt": "2024-01-13",
       "periodEndedAt": "2024-01-19",
       "sourceCardCount": 1,
-      "disposition": "held_for_evidence",
+      "disposition": "rejected",
       "entryIds": [],
-      "reason": "Classified and Ridley announced a factory gravel team, but the launch alone does not establish whether manufacturer-backed teams materially changed rider pay, race tactics, or privateer viability; hold for contracts, operating evidence, and season outcomes."
+      "reason": "Classified and Ridley's factory-team launch remained an isolated announcement: the reviewed 2024 evidence does not establish changed rider pay, race tactics, or privateer viability, and the later teamification mechanism is documented more directly in the 2026 chapter."
     },
     {
       "periodStartedAt": "2024-01-20",
@@ -62,9 +62,11 @@
       "periodStartedAt": "2024-02-03",
       "periodEndedAt": "2024-02-09",
       "sourceCardCount": 1,
-      "disposition": "held_for_evidence",
-      "entryIds": [],
-      "reason": "Phase II proposed a development path through Unbound and Big Sugar, but the announcement does not yet show who advanced, what support riders received, or whether the program changed access to professional racing; hold for participant and outcome evidence."
+      "disposition": "covered_by_draft",
+      "entryIds": [
+        "history-gravel-career-market-2024"
+      ],
+      "reason": "Phase II supplied an expenses-paid, sponsor-supported under-23 gravel pathway and independently corroborates the career-market chapter's argument that gravel had become a development route rather than only a road-racing exit."
     },
     {
       "periodStartedAt": "2024-02-10",
@@ -256,9 +258,11 @@
       "periodStartedAt": "2024-07-06",
       "periodEndedAt": "2024-07-12",
       "sourceCardCount": 14,
-      "disposition": "held_for_evidence",
-      "entryIds": [],
-      "reason": "The Tour gravel stage produced a strong route-trust hypothesis, but rider and team claims that raced sectors differed from reconnaissance still lack organizer-side documentation of what changed, when, and why."
+      "disposition": "covered_by_draft",
+      "entryIds": [
+        "history-amani-built-the-home-game-2024"
+      ],
+      "reason": "The Tour route-trust claim remains rejected for lack of organizer-side documentation, but contemporaneous East African reporting supports the stronger Team Amani chapter about home-road competition, rider support, and local development infrastructure."
     },
     {
       "periodStartedAt": "2024-07-13",
@@ -272,9 +276,11 @@
       "periodStartedAt": "2024-07-20",
       "periodEndedAt": "2024-07-26",
       "sourceCardCount": 4,
-      "disposition": "held_for_evidence",
-      "entryIds": [],
-      "reason": "USA Cycling's ten elite Worlds places could reveal how federation-controlled access reshaped a domestic championship, but the announcement lacks selection, participation, funding, and athlete-outcome evidence; hold rather than infer impact."
+      "disposition": "covered_by_draft",
+      "entryIds": [
+        "history-team-usa-invitation-bill-2024"
+      ],
+      "reason": "Expanding nationals qualification from three to five elite riders per gender created the wider invitation pathway whose later self-funding requirement became the Team USA chapter's decisive access filter."
     },
     {
       "periodStartedAt": "2024-07-27",
@@ -378,9 +384,9 @@
       "periodStartedAt": "2024-10-12",
       "periodEndedAt": "2024-10-18",
       "sourceCardCount": 7,
-      "disposition": "held_for_evidence",
+      "disposition": "rejected",
       "entryIds": [],
-      "reason": "Life Time moved money from the series purse to Unbound, Big Sugar, and Leadville, a potentially meaningful incentive redesign; hold until organizer rationale, athlete reaction, field effects, and later purse outcomes can establish the point rather than merely repeat the announcement."
+      "reason": "Life Time delivered the announced shift from a $300,000 series purse to a $200,000 series purse plus $30,000 at each race, but the reviewed evidence does not show a distinct field or athlete-decision consequence beyond the stronger 2025 wildcard chapter."
     },
     {
       "periodStartedAt": "2024-10-19",
@@ -394,17 +400,19 @@
       "periodStartedAt": "2024-10-26",
       "periodEndedAt": "2024-11-01",
       "sourceCardCount": 3,
-      "disposition": "held_for_evidence",
-      "entryIds": [],
-      "reason": "The announced five-race junior series could represent a real youth-access pathway, but the launch supplies no participant, cost, safeguarding, retention, or inaugural-season outcome evidence; hold for delivery rather than treating intent as impact."
+      "disposition": "covered_by_draft",
+      "entryIds": [
+        "history-junior-gravel-road-camp-2024"
+      ],
+      "reason": "The five-race junior series explicitly routed winners into road talent identification, then delivered the camp for four inaugural champions and expanded in 2026; that outcome clears the announcement-only hold."
     },
     {
       "periodStartedAt": "2024-11-02",
       "periodEndedAt": "2024-11-08",
       "sourceCardCount": 4,
-      "disposition": "held_for_evidence",
+      "disposition": "rejected",
       "entryIds": [],
-      "reason": "The Team Amani fundraiser may belong to a larger East African access and representation story, but the window otherwise contains career-market corroboration and series announcements; hold the Amani lead for participant voices, program economics, and observed outcomes."
+      "reason": "The fundraiser is a call for support rather than independent evidence of program delivery; the Amani infrastructure chapter is grounded instead in rider testimony, camp reporting, race evidence, and later outcomes."
     },
     {
       "periodStartedAt": "2024-11-09",
@@ -444,9 +452,11 @@
       "periodStartedAt": "2024-12-07",
       "periodEndedAt": "2024-12-13",
       "sourceCardCount": 1,
-      "disposition": "held_for_evidence",
-      "entryIds": [],
-      "reason": "The Team Amani feature suggests an important East African agency, access, and representation story, but one outsider-led feature cannot establish the program's economics, riders' own framing, or durable consequences; hold for first-party and longitudinal evidence."
+      "disposition": "covered_by_draft",
+      "entryIds": [
+        "history-amani-built-the-home-game-2024"
+      ],
+      "reason": "The Iten camp account now sits beside East African rider testimony, race evidence, and later Continental-team and Black Mambas outcomes, supporting a bounded infrastructure story without treating one outsider feature as sufficient."
     },
     {
       "periodStartedAt": "2024-12-14",

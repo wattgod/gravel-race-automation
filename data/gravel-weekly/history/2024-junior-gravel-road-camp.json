@@ -1,0 +1,101 @@
+{
+  "schemaVersion": "gravel-weekly-history-entry/v1",
+  "entryId": "history-junior-gravel-road-camp-2024",
+  "activeFrom": "2024-10-28",
+  "activeThrough": "2024-10-30",
+  "status": "draft",
+  "headline": "Gravel Built a Junior League. The Prize Was Road Camp.",
+  "point": "USA Cycling used five prominent gravel races to build a national junior series, then made its most valuable reward an invitation to a road-development camp. The program treated gravel as a talent-identification surface for American cycling rather than a self-contained discipline with its own professional destination.",
+  "priorJudgment": "Junior gravel was an event category attached to adult race weekends, while serious federation development still began in road, track, cyclocross, or mountain bike programs with established national-team pathways.",
+  "changedJudgment": "Gravel had become organized enough to operate as a national scouting system. Its major events could identify young riders across regions, but the pathway still pointed the winners toward an Olympic road program rather than toward a durable junior-to-professional gravel structure.",
+  "stakes": "The design affected who could afford three qualifying weekends, which races became youth-development institutions, whether gravel retained the riders it discovered, and whether a new discipline built its own career ladder or supplied talent to older ones.",
+  "credibleOpposition": "Road camp offered testing, coaching, mentorship, and an Olympic pathway that gravel could not provide. Cross-discipline development is useful for young athletes, and the inaugural winners actually attended the camp before the series expanded. The series also offered registration credits and used existing events rather than inventing a costly separate calendar. None of that establishes participation depth, geographic equity, retention, or professional outcomes.",
+  "whatHappened": "On October 28, USA Cycling announced a five-race Junior Gravel National Series for riders ages 15 through 18. Valley of Tears, Sea Otter, Unbound, SBT GRVL, and the national championship supplied the calendar; riders needed three starts, and their best three finishes set the standings. Top finishers received registration credits, while the four category leaders earned invitations to an October 2025 Junior Talent Identification Camp described by USA Cycling as a pathway into elite road racing and an Olympic discipline. An independent Cyclingnews report made the cross-discipline purpose explicit: the federation intended to discover talent for road and other Olympic cycling. The promise survived delivery. Four inaugural champions attended a week of testing, training, and mentorship in Colorado Springs in October 2025, and USA Cycling expanded the 2026 series to ten events.",
+  "take": "Model draft, not Matti's approved view: Gravel finally got a national junior league and immediately handed the winners directions to road camp. That is funny because it is also a useful confession. USA Cycling looked at five gravel weekends, recognized a functioning talent-identification system, and used it to find riders for an Olympic discipline. The kids still got a real series, real races, benchmark testing, coaching, and a week at the Olympic Training Center. Good. The inaugural winners actually attended, and the next calendar doubled to ten events. This was not brochure vapor. But the prize tells you where the institution thought a serious cycling career still lived. Gravel had become credible enough to scout the talent and not yet complete enough to keep it. That is a development pathway, but it is also a feeder road with excellent dust control.",
+  "takeProvenance": "model_draft",
+  "uncertainty": "The announcement and follow-up establish the five-race design, eligibility rules, promised road-development invitation, four inaugural winners' attendance, and the later ten-event expansion. They do not report total starters, category field sizes, family travel costs, socioeconomic or geographic representation, safeguarding operations, rider retention, or subsequent contracts. Camp attendance proves the pathway operated once; it does not establish that it produced elite road or gravel careers.",
+  "editorialScore": 96,
+  "editorialGates": {
+    "party": "pass",
+    "point": "pass",
+    "friend": "pass",
+    "craft": "pass",
+    "hostileEditor": "pass"
+  },
+  "contemporaryReceipts": [
+    {
+      "claimId": "claim_junior_gravel_road_talent_pathway_2024",
+      "canonicalUrl": "https://usacycling.org/article/usa-cycling-announces-new-junior-gravel-national-series-for-2025-2",
+      "publisher": "USA Cycling",
+      "publishedAt": "2024-10-28T14:24:00Z",
+      "quoteExcerpt": "a dedicated pathway into elite-level road racing and an Olympic discipline",
+      "transcriptStartSeconds": null,
+      "transcriptEndSeconds": null
+    },
+    {
+      "claimId": "claim_junior_gravel_five_race_series_2024",
+      "canonicalUrl": "https://www.cyclingnews.com/news/unbound-gravel-sbt-grvl-among-five-events-in-new-junior-gravel-series-in-us/",
+      "publisher": "Cyclingnews",
+      "publishedAt": "2024-10-30T00:00:00Z",
+      "quoteExcerpt": "receive invitations to a USA Cycling Junior Talent Identification Camp in October 2025",
+      "transcriptStartSeconds": null,
+      "transcriptEndSeconds": null
+    }
+  ],
+  "laterEvidence": [
+    {
+      "claimId": "claim_inaugural_junior_gravel_champions_attended_road_camp_2025",
+      "canonicalUrl": "https://usacycling.org/article/usa-cycling-announces-2025-junior-gravel-national-series-winners-and-2026-series-updates",
+      "publisher": "USA Cycling",
+      "publishedAt": "2025-11-03T07:00:00Z",
+      "quoteExcerpt": "All four racers gathered in Colorado Springs October 12-18 for a week of testing, training, and mentorship.",
+      "transcriptStartSeconds": null,
+      "transcriptEndSeconds": null
+    },
+    {
+      "claimId": "claim_junior_gravel_expanded_ten_events_2026",
+      "canonicalUrl": "https://usacycling.org/article/usa-cycling-announces-expanded-junior-gravel-national-series-schedule-for-2026",
+      "publisher": "USA Cycling",
+      "publishedAt": "2026-02-02T15:00:00Z",
+      "quoteExcerpt": "expanding to a 10-event series calendar",
+      "transcriptStartSeconds": null,
+      "transcriptEndSeconds": null
+    }
+  ],
+  "raceImpacts": [
+    {
+      "impactKind": "editorial_review",
+      "raceId": "gravel:unbound-200",
+      "fieldPath": "race.biased_opinion",
+      "claimIds": [
+        "claim_junior_gravel_road_talent_pathway_2024",
+        "claim_junior_gravel_five_race_series_2024",
+        "claim_inaugural_junior_gravel_champions_attended_road_camp_2025",
+        "claim_junior_gravel_expanded_ten_events_2026"
+      ],
+      "confidence": 0.96,
+      "owner": "Gravel God race editorial review",
+      "autoFixAllowed": false
+    },
+    {
+      "impactKind": "editorial_review",
+      "raceId": "gravel:steamboat-gravel",
+      "fieldPath": "race.biased_opinion",
+      "claimIds": [
+        "claim_junior_gravel_road_talent_pathway_2024",
+        "claim_junior_gravel_five_race_series_2024",
+        "claim_inaugural_junior_gravel_champions_attended_road_camp_2025",
+        "claim_junior_gravel_expanded_ten_events_2026"
+      ],
+      "confidence": 0.96,
+      "owner": "Gravel God race editorial review",
+      "autoFixAllowed": false
+    }
+  ],
+  "humanApprovalRequired": true,
+  "autoPublishAllowed": false,
+  "editorialApproval": null,
+  "publishedAt": null,
+  "updatedAt": "2026-08-28T17:25:12Z",
+  "contentHash": "e5f7279e3a317bb75c924066fab46cb3c1d855d30bad886ad3f319e2899cc698"
+}

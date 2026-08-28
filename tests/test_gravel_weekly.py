@@ -842,6 +842,15 @@ def test_private_historical_review_desk_separates_evidence_and_approval_state():
     assert "3 DRAFTS" in page
     assert "1 READY FOR HUMAN DECISION" in page
     assert "2 HELD BY EVIDENCE, EDITORIAL, OR PROSE GATES" in page
+    assert "DECISION QUEUE" in page
+    assert f'href="#{draft["entryId"]}"' in page
+    assert f'href="#{held["entryId"]}"' in page
+    assert "approve all READY 2026 entries as written" in page
+    assert draft["entryId"] in page.split("HOLD entries remain excluded", 1)[0]
+    bulk_scope = page.split("That instruction is limited to:", 1)[1].split(
+        "HOLD entries remain excluded", 1
+    )[0]
+    assert held["entryId"] not in bulk_scope
     assert "THE TAKE · MODEL DRAFT" in page
     assert "NO-AI-SLOP PROSE GATE · PASS" in page
     assert "NO-AI-SLOP PROSE GATE · FAIL" in page

@@ -1,0 +1,439 @@
+{
+  "schemaVersion": "gravel-weekly-backfill-ledger/v1",
+  "year": 2021,
+  "asOf": "2021-12-31T23:59:59.000Z",
+  "sourceLedgerIssue": "https://github.com/wattgod/race-intelligence-control-plane/issues/55",
+  "sourceLedgerRun": "https://github.com/wattgod/race-intelligence-control-plane/actions/runs/33161461936",
+  "programIssue": "https://github.com/wattgod/race-intelligence-control-plane/issues/47",
+  "sourceCardCount": 130,
+  "complete": false,
+  "humanApprovalRequired": true,
+  "autoPublishAllowed": false,
+  "weeks": [
+    {
+      "periodStartedAt": "2020-12-26",
+      "periodEndedAt": "2021-01-01",
+      "sourceCardCount": 0,
+      "disposition": "explicit_gap",
+      "entryIds": [],
+      "reason": "Cyclingnews exposed no matching source card; preserve the quiet window."
+    },
+    {
+      "periodStartedAt": "2021-01-02",
+      "periodEndedAt": "2021-01-08",
+      "sourceCardCount": 2,
+      "disposition": "pending_review",
+      "entryIds": [],
+      "reason": "Source census complete; assigning-desk research and disposition remain pending."
+    },
+    {
+      "periodStartedAt": "2021-01-09",
+      "periodEndedAt": "2021-01-15",
+      "sourceCardCount": 2,
+      "disposition": "pending_review",
+      "entryIds": [],
+      "reason": "Source census complete; assigning-desk research and disposition remain pending."
+    },
+    {
+      "periodStartedAt": "2021-01-16",
+      "periodEndedAt": "2021-01-22",
+      "sourceCardCount": 2,
+      "disposition": "pending_review",
+      "entryIds": [],
+      "reason": "Source census complete; assigning-desk research and disposition remain pending."
+    },
+    {
+      "periodStartedAt": "2021-01-23",
+      "periodEndedAt": "2021-01-29",
+      "sourceCardCount": 3,
+      "disposition": "pending_review",
+      "entryIds": [],
+      "reason": "Source census complete; assigning-desk research and disposition remain pending."
+    },
+    {
+      "periodStartedAt": "2021-01-30",
+      "periodEndedAt": "2021-02-05",
+      "sourceCardCount": 2,
+      "disposition": "pending_review",
+      "entryIds": [],
+      "reason": "Source census complete; assigning-desk research and disposition remain pending."
+    },
+    {
+      "periodStartedAt": "2021-02-06",
+      "periodEndedAt": "2021-02-12",
+      "sourceCardCount": 4,
+      "disposition": "pending_review",
+      "entryIds": [],
+      "reason": "Source census complete; assigning-desk research and disposition remain pending."
+    },
+    {
+      "periodStartedAt": "2021-02-13",
+      "periodEndedAt": "2021-02-19",
+      "sourceCardCount": 0,
+      "disposition": "explicit_gap",
+      "entryIds": [],
+      "reason": "Cyclingnews exposed no matching source card; preserve the quiet window."
+    },
+    {
+      "periodStartedAt": "2021-02-20",
+      "periodEndedAt": "2021-02-26",
+      "sourceCardCount": 0,
+      "disposition": "explicit_gap",
+      "entryIds": [],
+      "reason": "Cyclingnews exposed no matching source card; preserve the quiet window."
+    },
+    {
+      "periodStartedAt": "2021-02-27",
+      "periodEndedAt": "2021-03-05",
+      "sourceCardCount": 2,
+      "disposition": "pending_review",
+      "entryIds": [],
+      "reason": "Source census complete; assigning-desk research and disposition remain pending."
+    },
+    {
+      "periodStartedAt": "2021-03-06",
+      "periodEndedAt": "2021-03-12",
+      "sourceCardCount": 2,
+      "disposition": "pending_review",
+      "entryIds": [],
+      "reason": "Source census complete; assigning-desk research and disposition remain pending."
+    },
+    {
+      "periodStartedAt": "2021-03-13",
+      "periodEndedAt": "2021-03-19",
+      "sourceCardCount": 0,
+      "disposition": "explicit_gap",
+      "entryIds": [],
+      "reason": "Cyclingnews exposed no matching source card; preserve the quiet window."
+    },
+    {
+      "periodStartedAt": "2021-03-20",
+      "periodEndedAt": "2021-03-26",
+      "sourceCardCount": 1,
+      "disposition": "pending_review",
+      "entryIds": [],
+      "reason": "Source census complete; assigning-desk research and disposition remain pending."
+    },
+    {
+      "periodStartedAt": "2021-03-27",
+      "periodEndedAt": "2021-04-02",
+      "sourceCardCount": 2,
+      "disposition": "pending_review",
+      "entryIds": [],
+      "reason": "Source census complete; assigning-desk research and disposition remain pending."
+    },
+    {
+      "periodStartedAt": "2021-04-03",
+      "periodEndedAt": "2021-04-09",
+      "sourceCardCount": 1,
+      "disposition": "pending_review",
+      "entryIds": [],
+      "reason": "Source census complete; assigning-desk research and disposition remain pending."
+    },
+    {
+      "periodStartedAt": "2021-04-10",
+      "periodEndedAt": "2021-04-16",
+      "sourceCardCount": 2,
+      "disposition": "pending_review",
+      "entryIds": [],
+      "reason": "Source census complete; assigning-desk research and disposition remain pending."
+    },
+    {
+      "periodStartedAt": "2021-04-17",
+      "periodEndedAt": "2021-04-23",
+      "sourceCardCount": 1,
+      "disposition": "pending_review",
+      "entryIds": [],
+      "reason": "Source census complete; assigning-desk research and disposition remain pending."
+    },
+    {
+      "periodStartedAt": "2021-04-24",
+      "periodEndedAt": "2021-04-30",
+      "sourceCardCount": 0,
+      "disposition": "explicit_gap",
+      "entryIds": [],
+      "reason": "Cyclingnews exposed no matching source card; preserve the quiet window."
+    },
+    {
+      "periodStartedAt": "2021-05-01",
+      "periodEndedAt": "2021-05-07",
+      "sourceCardCount": 1,
+      "disposition": "pending_review",
+      "entryIds": [],
+      "reason": "Source census complete; assigning-desk research and disposition remain pending."
+    },
+    {
+      "periodStartedAt": "2021-05-08",
+      "periodEndedAt": "2021-05-14",
+      "sourceCardCount": 1,
+      "disposition": "pending_review",
+      "entryIds": [],
+      "reason": "Source census complete; assigning-desk research and disposition remain pending."
+    },
+    {
+      "periodStartedAt": "2021-05-15",
+      "periodEndedAt": "2021-05-21",
+      "sourceCardCount": 7,
+      "disposition": "pending_review",
+      "entryIds": [],
+      "reason": "Source census complete; assigning-desk research and disposition remain pending."
+    },
+    {
+      "periodStartedAt": "2021-05-22",
+      "periodEndedAt": "2021-05-28",
+      "sourceCardCount": 10,
+      "disposition": "pending_review",
+      "entryIds": [],
+      "reason": "Source census complete; assigning-desk research and disposition remain pending."
+    },
+    {
+      "periodStartedAt": "2021-05-29",
+      "periodEndedAt": "2021-06-04",
+      "sourceCardCount": 14,
+      "disposition": "pending_review",
+      "entryIds": [],
+      "reason": "Source census complete; assigning-desk research and disposition remain pending."
+    },
+    {
+      "periodStartedAt": "2021-06-05",
+      "periodEndedAt": "2021-06-11",
+      "sourceCardCount": 13,
+      "disposition": "pending_review",
+      "entryIds": [],
+      "reason": "Source census complete; assigning-desk research and disposition remain pending."
+    },
+    {
+      "periodStartedAt": "2021-06-12",
+      "periodEndedAt": "2021-06-18",
+      "sourceCardCount": 1,
+      "disposition": "pending_review",
+      "entryIds": [],
+      "reason": "Source census complete; assigning-desk research and disposition remain pending."
+    },
+    {
+      "periodStartedAt": "2021-06-19",
+      "periodEndedAt": "2021-06-25",
+      "sourceCardCount": 6,
+      "disposition": "pending_review",
+      "entryIds": [],
+      "reason": "Source census complete; assigning-desk research and disposition remain pending."
+    },
+    {
+      "periodStartedAt": "2021-06-26",
+      "periodEndedAt": "2021-07-02",
+      "sourceCardCount": 0,
+      "disposition": "explicit_gap",
+      "entryIds": [],
+      "reason": "Cyclingnews exposed no matching source card; preserve the quiet window."
+    },
+    {
+      "periodStartedAt": "2021-07-03",
+      "periodEndedAt": "2021-07-09",
+      "sourceCardCount": 1,
+      "disposition": "pending_review",
+      "entryIds": [],
+      "reason": "Source census complete; assigning-desk research and disposition remain pending."
+    },
+    {
+      "periodStartedAt": "2021-07-10",
+      "periodEndedAt": "2021-07-16",
+      "sourceCardCount": 1,
+      "disposition": "pending_review",
+      "entryIds": [],
+      "reason": "Source census complete; assigning-desk research and disposition remain pending."
+    },
+    {
+      "periodStartedAt": "2021-07-17",
+      "periodEndedAt": "2021-07-23",
+      "sourceCardCount": 0,
+      "disposition": "explicit_gap",
+      "entryIds": [],
+      "reason": "Cyclingnews exposed no matching source card; preserve the quiet window."
+    },
+    {
+      "periodStartedAt": "2021-07-24",
+      "periodEndedAt": "2021-07-30",
+      "sourceCardCount": 4,
+      "disposition": "pending_review",
+      "entryIds": [],
+      "reason": "Source census complete; assigning-desk research and disposition remain pending."
+    },
+    {
+      "periodStartedAt": "2021-07-31",
+      "periodEndedAt": "2021-08-06",
+      "sourceCardCount": 0,
+      "disposition": "explicit_gap",
+      "entryIds": [],
+      "reason": "Cyclingnews exposed no matching source card; preserve the quiet window."
+    },
+    {
+      "periodStartedAt": "2021-08-07",
+      "periodEndedAt": "2021-08-13",
+      "sourceCardCount": 7,
+      "disposition": "pending_review",
+      "entryIds": [],
+      "reason": "Source census complete; assigning-desk research and disposition remain pending."
+    },
+    {
+      "periodStartedAt": "2021-08-14",
+      "periodEndedAt": "2021-08-20",
+      "sourceCardCount": 2,
+      "disposition": "pending_review",
+      "entryIds": [],
+      "reason": "Source census complete; assigning-desk research and disposition remain pending."
+    },
+    {
+      "periodStartedAt": "2021-08-21",
+      "periodEndedAt": "2021-08-27",
+      "sourceCardCount": 3,
+      "disposition": "pending_review",
+      "entryIds": [],
+      "reason": "Source census complete; assigning-desk research and disposition remain pending."
+    },
+    {
+      "periodStartedAt": "2021-08-28",
+      "periodEndedAt": "2021-09-03",
+      "sourceCardCount": 3,
+      "disposition": "pending_review",
+      "entryIds": [],
+      "reason": "Source census complete; assigning-desk research and disposition remain pending."
+    },
+    {
+      "periodStartedAt": "2021-09-04",
+      "periodEndedAt": "2021-09-10",
+      "sourceCardCount": 1,
+      "disposition": "pending_review",
+      "entryIds": [],
+      "reason": "Source census complete; assigning-desk research and disposition remain pending."
+    },
+    {
+      "periodStartedAt": "2021-09-11",
+      "periodEndedAt": "2021-09-17",
+      "sourceCardCount": 4,
+      "disposition": "pending_review",
+      "entryIds": [],
+      "reason": "Source census complete; assigning-desk research and disposition remain pending."
+    },
+    {
+      "periodStartedAt": "2021-09-18",
+      "periodEndedAt": "2021-09-24",
+      "sourceCardCount": 2,
+      "disposition": "pending_review",
+      "entryIds": [],
+      "reason": "Source census complete; assigning-desk research and disposition remain pending."
+    },
+    {
+      "periodStartedAt": "2021-09-25",
+      "periodEndedAt": "2021-10-01",
+      "sourceCardCount": 2,
+      "disposition": "pending_review",
+      "entryIds": [],
+      "reason": "Source census complete; assigning-desk research and disposition remain pending."
+    },
+    {
+      "periodStartedAt": "2021-10-02",
+      "periodEndedAt": "2021-10-08",
+      "sourceCardCount": 3,
+      "disposition": "pending_review",
+      "entryIds": [],
+      "reason": "Source census complete; assigning-desk research and disposition remain pending."
+    },
+    {
+      "periodStartedAt": "2021-10-09",
+      "periodEndedAt": "2021-10-15",
+      "sourceCardCount": 3,
+      "disposition": "pending_review",
+      "entryIds": [],
+      "reason": "Source census complete; assigning-desk research and disposition remain pending."
+    },
+    {
+      "periodStartedAt": "2021-10-16",
+      "periodEndedAt": "2021-10-22",
+      "sourceCardCount": 4,
+      "disposition": "pending_review",
+      "entryIds": [],
+      "reason": "Source census complete; assigning-desk research and disposition remain pending."
+    },
+    {
+      "periodStartedAt": "2021-10-23",
+      "periodEndedAt": "2021-10-29",
+      "sourceCardCount": 2,
+      "disposition": "pending_review",
+      "entryIds": [],
+      "reason": "Source census complete; assigning-desk research and disposition remain pending."
+    },
+    {
+      "periodStartedAt": "2021-10-30",
+      "periodEndedAt": "2021-11-05",
+      "sourceCardCount": 2,
+      "disposition": "pending_review",
+      "entryIds": [],
+      "reason": "Source census complete; assigning-desk research and disposition remain pending."
+    },
+    {
+      "periodStartedAt": "2021-11-06",
+      "periodEndedAt": "2021-11-12",
+      "sourceCardCount": 0,
+      "disposition": "explicit_gap",
+      "entryIds": [],
+      "reason": "Cyclingnews exposed no matching source card; preserve the quiet window."
+    },
+    {
+      "periodStartedAt": "2021-11-13",
+      "periodEndedAt": "2021-11-19",
+      "sourceCardCount": 0,
+      "disposition": "explicit_gap",
+      "entryIds": [],
+      "reason": "Cyclingnews exposed no matching source card; preserve the quiet window."
+    },
+    {
+      "periodStartedAt": "2021-11-20",
+      "periodEndedAt": "2021-11-26",
+      "sourceCardCount": 1,
+      "disposition": "pending_review",
+      "entryIds": [],
+      "reason": "Source census complete; assigning-desk research and disposition remain pending."
+    },
+    {
+      "periodStartedAt": "2021-11-27",
+      "periodEndedAt": "2021-12-03",
+      "sourceCardCount": 1,
+      "disposition": "pending_review",
+      "entryIds": [],
+      "reason": "Source census complete; assigning-desk research and disposition remain pending."
+    },
+    {
+      "periodStartedAt": "2021-12-04",
+      "periodEndedAt": "2021-12-10",
+      "sourceCardCount": 2,
+      "disposition": "pending_review",
+      "entryIds": [],
+      "reason": "Source census complete; assigning-desk research and disposition remain pending."
+    },
+    {
+      "periodStartedAt": "2021-12-11",
+      "periodEndedAt": "2021-12-17",
+      "sourceCardCount": 1,
+      "disposition": "pending_review",
+      "entryIds": [],
+      "reason": "Source census complete; assigning-desk research and disposition remain pending."
+    },
+    {
+      "periodStartedAt": "2021-12-18",
+      "periodEndedAt": "2021-12-24",
+      "sourceCardCount": 2,
+      "disposition": "pending_review",
+      "entryIds": [],
+      "reason": "Source census complete; assigning-desk research and disposition remain pending."
+    },
+    {
+      "periodStartedAt": "2021-12-25",
+      "periodEndedAt": "2021-12-31",
+      "sourceCardCount": 0,
+      "disposition": "explicit_gap",
+      "entryIds": [],
+      "reason": "Cyclingnews exposed no matching source card; preserve the quiet window."
+    }
+  ],
+  "updatedAt": "2026-08-28T09:59:01Z"
+}

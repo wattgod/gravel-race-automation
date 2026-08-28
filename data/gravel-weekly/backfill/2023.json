@@ -96,9 +96,11 @@
       "periodStartedAt": "2023-03-11",
       "periodEndedAt": "2023-03-17",
       "sourceCardCount": 4,
-      "disposition": "pending_review",
-      "entryIds": [],
-      "reason": "Source census complete; assigning-desk research and disposition remain pending."
+      "disposition": "covered_by_draft",
+      "entryIds": [
+        "history-us-gravel-nationals-material-jersey-2023"
+      ],
+      "reason": "USA Cycling's launch attached a $60,000 equal elite purse and Worlds qualification to the first national title, opening the material-jersey story."
     },
     {
       "periodStartedAt": "2023-03-18",
@@ -300,17 +302,21 @@
       "periodStartedAt": "2023-09-02",
       "periodEndedAt": "2023-09-08",
       "sourceCardCount": 2,
-      "disposition": "pending_review",
-      "entryIds": [],
-      "reason": "Source census complete; assigning-desk research and disposition remain pending."
+      "disposition": "covered_by_draft",
+      "entryIds": [
+        "history-us-gravel-nationals-material-jersey-2023"
+      ],
+      "reason": "Race-week reporting confirmed equal course distance, equal field-level purse totals, automatic top-three qualification, and fully funded support for the winners."
     },
     {
       "periodStartedAt": "2023-09-09",
       "periodEndedAt": "2023-09-15",
       "sourceCardCount": 4,
-      "disposition": "pending_review",
-      "entryIds": [],
-      "reason": "Source census complete; assigning-desk research and disposition remain pending."
+      "disposition": "covered_by_draft",
+      "entryIds": [
+        "history-us-gravel-nationals-material-jersey-2023"
+      ],
+      "reason": "Swenson and Stephens won the inaugural titles, converting the announced purse and Worlds pathway into actual results rather than launch copy."
     },
     {
       "periodStartedAt": "2023-09-16",
@@ -443,5 +449,5 @@
       "reason": "Cyclingnews exposed no matching source card; preserve the quiet window."
     }
   ],
-  "updatedAt": "2026-08-28T07:25:00Z"
+  "updatedAt": "2026-08-28T07:40:00Z"
 }

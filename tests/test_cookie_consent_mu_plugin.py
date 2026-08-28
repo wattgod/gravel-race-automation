@@ -144,6 +144,12 @@ class TestConsentMode:
         """Banner in footer at high priority to be last element."""
         assert "gg_cookie_consent_banner', 99" in php_source
 
+    def test_footer_has_legal_links(self, php_source):
+        banner = _extract_php_banner(php_source)
+        assert '<footer class="gg-privacy-choices-footer"' in banner
+        assert 'href="/privacy/"' in banner
+        assert 'href="/terms/"' in banner
+
     def test_consent_defaults_has_all_types(self, php_source):
         defaults = _extract_php_consent_defaults(php_source)
         assert "'analytics_storage'" in defaults

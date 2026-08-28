@@ -114,6 +114,11 @@ class TestBannerStructure:
         assert 'id="gg-privacy-choices"' in banner
         assert ">Privacy choices<" in banner
 
+    def test_footer_has_legal_links(self, banner):
+        assert '<footer class="gg-privacy-choices-footer"' in banner
+        assert 'href="/privacy/"' in banner
+        assert 'href="/terms/"' in banner
+
     def test_no_border_radius(self, css):
         assert "border-radius" not in css
 

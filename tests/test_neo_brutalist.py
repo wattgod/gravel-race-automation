@@ -28,6 +28,7 @@ from generate_neo_brutalist import (
     _editorialize_rating_explanation,
     _rating_bumper,
     _safe_json_for_script,
+    build_citations_section,
     build_course_overview,
     build_course_route,
     build_email_capture,
@@ -902,13 +903,29 @@ class TestSections:
             '"the best riding on earth" through the "rugged, vast" Flint Hills. '
             'As Jane Rider puts it: "I would race it again." [1][2]'
         )
-        cleaned = _editorialize_rating_explanation(copy)
+        cleaned = _editorialize_rating_explanation(copy, citation_count=2)
         assert "Richard at SILCA" not in cleaned
         assert "assessment rings true" not in cleaned
         assert "As Jane Rider puts it" not in cleaned
         assert "the best riding on earth" in cleaned
         assert "I would race it again" in cleaned
-        assert "[1]" not in cleaned
+        assert "[1][2]" in cleaned
+
+    def test_rating_copy_drops_only_unresolved_citation_markers(self):
+        cleaned = _editorialize_rating_explanation(
+            "Supported claim.[1][3]", citation_count=2
+        )
+        assert cleaned == "Supported claim.[1]"
+
+    def test_citation_list_order_matches_inline_marker_numbers(self):
+        html = build_citations_section({
+            "citations": [
+                {"url": "https://example.com/first", "label": "First", "category": "other"},
+                {"url": "https://example.com/second", "label": "Second", "category": "official"},
+            ]
+        })
+        assert html.index('id="gg-citation-1"') < html.index('id="gg-citation-2"')
+        assert html.index(">First</a>") < html.index(">Second</a>")
 
     def test_catalog_rating_copy_contract(self):
         banned = re.compile(

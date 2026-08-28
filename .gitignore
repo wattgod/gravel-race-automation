@@ -34,6 +34,12 @@ data/gravel-weekly/drafts/
 # Human-approved snapshots remain local until an explicit sealing action moves
 # an immutable copy into data/gravel-weekly/issues/.
 data/gravel-weekly/approved/
+# Historical approval artifacts stay local until an explicit sealing action
+# replaces the reviewed draft with its immutable published snapshot.
+data/gravel-weekly/history-staged/
+# Generated private editorial desks are neither deployable site output nor
+# canonical publication data.
+data/gravel-weekly/history-review/
 
 # Database backups
 *.json.bak

@@ -75,7 +75,7 @@ def validate_history_entry(value: Any, *, verify_hash: bool = True) -> dict[str,
     status = entry.get("status")
     if status not in {"draft", "approved", "published"}:
         raise IssueValidationError("history status is invalid")
-    _text(entry.get("headline"), "headline", 300)
+    headline = _text(entry.get("headline"), "headline", 300)
     _text(entry.get("point"), "point", 1_000)
     _text(entry.get("priorJudgment"), "priorJudgment", 1_000)
     _text(entry.get("changedJudgment"), "changedJudgment", 1_000)
@@ -94,6 +94,8 @@ def validate_history_entry(value: Any, *, verify_hash: bool = True) -> dict[str,
         raise IssueValidationError("approved historical takes require human-approved provenance")
     if status != "draft" and re.search(r"model draft|not matti(?:’|')s approved", take, re.IGNORECASE):
         raise IssueValidationError("historical take still contains model-draft language")
+    if status != "draft" and re.search(r"model draft|not matti(?:’|')s approved", headline, re.IGNORECASE):
+        raise IssueValidationError("historical headline still contains model-draft language")
     gates = _record(entry.get("editorialGates"), "editorialGates")
     if set(gates) != PASSING_GATES:
         raise IssueValidationError("editorialGates must contain the five historical gates")

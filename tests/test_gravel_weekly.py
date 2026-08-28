@@ -610,8 +610,8 @@ def test_2025_backfill_ledger_preserves_the_complete_census_without_claiming_rev
     assert len(validated["weeks"]) == 53
     assert sum(week["sourceCardCount"] for week in validated["weeks"]) == 255
     assert sum(week["disposition"] == "explicit_gap" for week in validated["weeks"]) == 5
-    assert sum(week["disposition"] == "pending_review" for week in validated["weeks"]) == 37
-    assert sum(week["disposition"] == "covered_by_draft" for week in validated["weeks"]) == 11
+    assert sum(week["disposition"] == "pending_review" for week in validated["weeks"]) == 36
+    assert sum(week["disposition"] == "covered_by_draft" for week in validated["weeks"]) == 12
     assert validated["complete"] is False
 
 

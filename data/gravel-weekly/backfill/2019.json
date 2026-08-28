@@ -1,0 +1,439 @@
+{
+  "schemaVersion": "gravel-weekly-backfill-ledger/v1",
+  "year": 2019,
+  "asOf": "2019-12-31T23:59:59.000Z",
+  "sourceLedgerIssue": "https://github.com/wattgod/race-intelligence-control-plane/issues/58",
+  "sourceLedgerRun": "https://github.com/wattgod/race-intelligence-control-plane/actions/runs/33168713397",
+  "programIssue": "https://github.com/wattgod/race-intelligence-control-plane/issues/47",
+  "sourceCardCount": 16,
+  "complete": false,
+  "humanApprovalRequired": true,
+  "autoPublishAllowed": false,
+  "weeks": [
+    {
+      "periodStartedAt": "2018-12-29",
+      "periodEndedAt": "2019-01-04",
+      "sourceCardCount": 0,
+      "disposition": "explicit_gap",
+      "entryIds": [],
+      "reason": "Cyclingnews exposed no matching source card; preserve the quiet window."
+    },
+    {
+      "periodStartedAt": "2019-01-05",
+      "periodEndedAt": "2019-01-11",
+      "sourceCardCount": 0,
+      "disposition": "explicit_gap",
+      "entryIds": [],
+      "reason": "Cyclingnews exposed no matching source card; preserve the quiet window."
+    },
+    {
+      "periodStartedAt": "2019-01-12",
+      "periodEndedAt": "2019-01-18",
+      "sourceCardCount": 0,
+      "disposition": "explicit_gap",
+      "entryIds": [],
+      "reason": "Cyclingnews exposed no matching source card; preserve the quiet window."
+    },
+    {
+      "periodStartedAt": "2019-01-19",
+      "periodEndedAt": "2019-01-25",
+      "sourceCardCount": 2,
+      "disposition": "pending_review",
+      "entryIds": [],
+      "reason": "Source census complete; assigning-desk research and disposition remain pending."
+    },
+    {
+      "periodStartedAt": "2019-01-26",
+      "periodEndedAt": "2019-02-01",
+      "sourceCardCount": 1,
+      "disposition": "pending_review",
+      "entryIds": [],
+      "reason": "Source census complete; assigning-desk research and disposition remain pending."
+    },
+    {
+      "periodStartedAt": "2019-02-02",
+      "periodEndedAt": "2019-02-08",
+      "sourceCardCount": 0,
+      "disposition": "explicit_gap",
+      "entryIds": [],
+      "reason": "Cyclingnews exposed no matching source card; preserve the quiet window."
+    },
+    {
+      "periodStartedAt": "2019-02-09",
+      "periodEndedAt": "2019-02-15",
+      "sourceCardCount": 0,
+      "disposition": "explicit_gap",
+      "entryIds": [],
+      "reason": "Cyclingnews exposed no matching source card; preserve the quiet window."
+    },
+    {
+      "periodStartedAt": "2019-02-16",
+      "periodEndedAt": "2019-02-22",
+      "sourceCardCount": 0,
+      "disposition": "explicit_gap",
+      "entryIds": [],
+      "reason": "Cyclingnews exposed no matching source card; preserve the quiet window."
+    },
+    {
+      "periodStartedAt": "2019-02-23",
+      "periodEndedAt": "2019-03-01",
+      "sourceCardCount": 0,
+      "disposition": "explicit_gap",
+      "entryIds": [],
+      "reason": "Cyclingnews exposed no matching source card; preserve the quiet window."
+    },
+    {
+      "periodStartedAt": "2019-03-02",
+      "periodEndedAt": "2019-03-08",
+      "sourceCardCount": 0,
+      "disposition": "explicit_gap",
+      "entryIds": [],
+      "reason": "Cyclingnews exposed no matching source card; preserve the quiet window."
+    },
+    {
+      "periodStartedAt": "2019-03-09",
+      "periodEndedAt": "2019-03-15",
+      "sourceCardCount": 0,
+      "disposition": "explicit_gap",
+      "entryIds": [],
+      "reason": "Cyclingnews exposed no matching source card; preserve the quiet window."
+    },
+    {
+      "periodStartedAt": "2019-03-16",
+      "periodEndedAt": "2019-03-22",
+      "sourceCardCount": 0,
+      "disposition": "explicit_gap",
+      "entryIds": [],
+      "reason": "Cyclingnews exposed no matching source card; preserve the quiet window."
+    },
+    {
+      "periodStartedAt": "2019-03-23",
+      "periodEndedAt": "2019-03-29",
+      "sourceCardCount": 0,
+      "disposition": "explicit_gap",
+      "entryIds": [],
+      "reason": "Cyclingnews exposed no matching source card; preserve the quiet window."
+    },
+    {
+      "periodStartedAt": "2019-03-30",
+      "periodEndedAt": "2019-04-05",
+      "sourceCardCount": 0,
+      "disposition": "explicit_gap",
+      "entryIds": [],
+      "reason": "Cyclingnews exposed no matching source card; preserve the quiet window."
+    },
+    {
+      "periodStartedAt": "2019-04-06",
+      "periodEndedAt": "2019-04-12",
+      "sourceCardCount": 0,
+      "disposition": "explicit_gap",
+      "entryIds": [],
+      "reason": "Cyclingnews exposed no matching source card; preserve the quiet window."
+    },
+    {
+      "periodStartedAt": "2019-04-13",
+      "periodEndedAt": "2019-04-19",
+      "sourceCardCount": 0,
+      "disposition": "explicit_gap",
+      "entryIds": [],
+      "reason": "Cyclingnews exposed no matching source card; preserve the quiet window."
+    },
+    {
+      "periodStartedAt": "2019-04-20",
+      "periodEndedAt": "2019-04-26",
+      "sourceCardCount": 0,
+      "disposition": "explicit_gap",
+      "entryIds": [],
+      "reason": "Cyclingnews exposed no matching source card; preserve the quiet window."
+    },
+    {
+      "periodStartedAt": "2019-04-27",
+      "periodEndedAt": "2019-05-03",
+      "sourceCardCount": 0,
+      "disposition": "explicit_gap",
+      "entryIds": [],
+      "reason": "Cyclingnews exposed no matching source card; preserve the quiet window."
+    },
+    {
+      "periodStartedAt": "2019-05-04",
+      "periodEndedAt": "2019-05-10",
+      "sourceCardCount": 1,
+      "disposition": "pending_review",
+      "entryIds": [],
+      "reason": "Source census complete; assigning-desk research and disposition remain pending."
+    },
+    {
+      "periodStartedAt": "2019-05-11",
+      "periodEndedAt": "2019-05-17",
+      "sourceCardCount": 0,
+      "disposition": "explicit_gap",
+      "entryIds": [],
+      "reason": "Cyclingnews exposed no matching source card; preserve the quiet window."
+    },
+    {
+      "periodStartedAt": "2019-05-18",
+      "periodEndedAt": "2019-05-24",
+      "sourceCardCount": 0,
+      "disposition": "explicit_gap",
+      "entryIds": [],
+      "reason": "Cyclingnews exposed no matching source card; preserve the quiet window."
+    },
+    {
+      "periodStartedAt": "2019-05-25",
+      "periodEndedAt": "2019-05-31",
+      "sourceCardCount": 0,
+      "disposition": "explicit_gap",
+      "entryIds": [],
+      "reason": "Cyclingnews exposed no matching source card; preserve the quiet window."
+    },
+    {
+      "periodStartedAt": "2019-06-01",
+      "periodEndedAt": "2019-06-07",
+      "sourceCardCount": 1,
+      "disposition": "pending_review",
+      "entryIds": [],
+      "reason": "Source census complete; assigning-desk research and disposition remain pending."
+    },
+    {
+      "periodStartedAt": "2019-06-08",
+      "periodEndedAt": "2019-06-14",
+      "sourceCardCount": 0,
+      "disposition": "explicit_gap",
+      "entryIds": [],
+      "reason": "Cyclingnews exposed no matching source card; preserve the quiet window."
+    },
+    {
+      "periodStartedAt": "2019-06-15",
+      "periodEndedAt": "2019-06-21",
+      "sourceCardCount": 0,
+      "disposition": "explicit_gap",
+      "entryIds": [],
+      "reason": "Cyclingnews exposed no matching source card; preserve the quiet window."
+    },
+    {
+      "periodStartedAt": "2019-06-22",
+      "periodEndedAt": "2019-06-28",
+      "sourceCardCount": 0,
+      "disposition": "explicit_gap",
+      "entryIds": [],
+      "reason": "Cyclingnews exposed no matching source card; preserve the quiet window."
+    },
+    {
+      "periodStartedAt": "2019-06-29",
+      "periodEndedAt": "2019-07-05",
+      "sourceCardCount": 0,
+      "disposition": "explicit_gap",
+      "entryIds": [],
+      "reason": "Cyclingnews exposed no matching source card; preserve the quiet window."
+    },
+    {
+      "periodStartedAt": "2019-07-06",
+      "periodEndedAt": "2019-07-12",
+      "sourceCardCount": 0,
+      "disposition": "explicit_gap",
+      "entryIds": [],
+      "reason": "Cyclingnews exposed no matching source card; preserve the quiet window."
+    },
+    {
+      "periodStartedAt": "2019-07-13",
+      "periodEndedAt": "2019-07-19",
+      "sourceCardCount": 0,
+      "disposition": "explicit_gap",
+      "entryIds": [],
+      "reason": "Cyclingnews exposed no matching source card; preserve the quiet window."
+    },
+    {
+      "periodStartedAt": "2019-07-20",
+      "periodEndedAt": "2019-07-26",
+      "sourceCardCount": 0,
+      "disposition": "explicit_gap",
+      "entryIds": [],
+      "reason": "Cyclingnews exposed no matching source card; preserve the quiet window."
+    },
+    {
+      "periodStartedAt": "2019-07-27",
+      "periodEndedAt": "2019-08-02",
+      "sourceCardCount": 0,
+      "disposition": "explicit_gap",
+      "entryIds": [],
+      "reason": "Cyclingnews exposed no matching source card; preserve the quiet window."
+    },
+    {
+      "periodStartedAt": "2019-08-03",
+      "periodEndedAt": "2019-08-09",
+      "sourceCardCount": 0,
+      "disposition": "explicit_gap",
+      "entryIds": [],
+      "reason": "Cyclingnews exposed no matching source card; preserve the quiet window."
+    },
+    {
+      "periodStartedAt": "2019-08-10",
+      "periodEndedAt": "2019-08-16",
+      "sourceCardCount": 1,
+      "disposition": "pending_review",
+      "entryIds": [],
+      "reason": "Source census complete; assigning-desk research and disposition remain pending."
+    },
+    {
+      "periodStartedAt": "2019-08-17",
+      "periodEndedAt": "2019-08-23",
+      "sourceCardCount": 0,
+      "disposition": "explicit_gap",
+      "entryIds": [],
+      "reason": "Cyclingnews exposed no matching source card; preserve the quiet window."
+    },
+    {
+      "periodStartedAt": "2019-08-24",
+      "periodEndedAt": "2019-08-30",
+      "sourceCardCount": 0,
+      "disposition": "explicit_gap",
+      "entryIds": [],
+      "reason": "Cyclingnews exposed no matching source card; preserve the quiet window."
+    },
+    {
+      "periodStartedAt": "2019-08-31",
+      "periodEndedAt": "2019-09-06",
+      "sourceCardCount": 1,
+      "disposition": "pending_review",
+      "entryIds": [],
+      "reason": "Source census complete; assigning-desk research and disposition remain pending."
+    },
+    {
+      "periodStartedAt": "2019-09-07",
+      "periodEndedAt": "2019-09-13",
+      "sourceCardCount": 0,
+      "disposition": "explicit_gap",
+      "entryIds": [],
+      "reason": "Cyclingnews exposed no matching source card; preserve the quiet window."
+    },
+    {
+      "periodStartedAt": "2019-09-14",
+      "periodEndedAt": "2019-09-20",
+      "sourceCardCount": 0,
+      "disposition": "explicit_gap",
+      "entryIds": [],
+      "reason": "Cyclingnews exposed no matching source card; preserve the quiet window."
+    },
+    {
+      "periodStartedAt": "2019-09-21",
+      "periodEndedAt": "2019-09-27",
+      "sourceCardCount": 0,
+      "disposition": "explicit_gap",
+      "entryIds": [],
+      "reason": "Cyclingnews exposed no matching source card; preserve the quiet window."
+    },
+    {
+      "periodStartedAt": "2019-09-28",
+      "periodEndedAt": "2019-10-04",
+      "sourceCardCount": 0,
+      "disposition": "explicit_gap",
+      "entryIds": [],
+      "reason": "Cyclingnews exposed no matching source card; preserve the quiet window."
+    },
+    {
+      "periodStartedAt": "2019-10-05",
+      "periodEndedAt": "2019-10-11",
+      "sourceCardCount": 0,
+      "disposition": "explicit_gap",
+      "entryIds": [],
+      "reason": "Cyclingnews exposed no matching source card; preserve the quiet window."
+    },
+    {
+      "periodStartedAt": "2019-10-12",
+      "periodEndedAt": "2019-10-18",
+      "sourceCardCount": 0,
+      "disposition": "explicit_gap",
+      "entryIds": [],
+      "reason": "Cyclingnews exposed no matching source card; preserve the quiet window."
+    },
+    {
+      "periodStartedAt": "2019-10-19",
+      "periodEndedAt": "2019-10-25",
+      "sourceCardCount": 0,
+      "disposition": "explicit_gap",
+      "entryIds": [],
+      "reason": "Cyclingnews exposed no matching source card; preserve the quiet window."
+    },
+    {
+      "periodStartedAt": "2019-10-26",
+      "periodEndedAt": "2019-11-01",
+      "sourceCardCount": 0,
+      "disposition": "explicit_gap",
+      "entryIds": [],
+      "reason": "Cyclingnews exposed no matching source card; preserve the quiet window."
+    },
+    {
+      "periodStartedAt": "2019-11-02",
+      "periodEndedAt": "2019-11-08",
+      "sourceCardCount": 3,
+      "disposition": "pending_review",
+      "entryIds": [],
+      "reason": "Source census complete; assigning-desk research and disposition remain pending."
+    },
+    {
+      "periodStartedAt": "2019-11-09",
+      "periodEndedAt": "2019-11-15",
+      "sourceCardCount": 1,
+      "disposition": "pending_review",
+      "entryIds": [],
+      "reason": "Source census complete; assigning-desk research and disposition remain pending."
+    },
+    {
+      "periodStartedAt": "2019-11-16",
+      "periodEndedAt": "2019-11-22",
+      "sourceCardCount": 0,
+      "disposition": "explicit_gap",
+      "entryIds": [],
+      "reason": "Cyclingnews exposed no matching source card; preserve the quiet window."
+    },
+    {
+      "periodStartedAt": "2019-11-23",
+      "periodEndedAt": "2019-11-29",
+      "sourceCardCount": 0,
+      "disposition": "explicit_gap",
+      "entryIds": [],
+      "reason": "Cyclingnews exposed no matching source card; preserve the quiet window."
+    },
+    {
+      "periodStartedAt": "2019-11-30",
+      "periodEndedAt": "2019-12-06",
+      "sourceCardCount": 1,
+      "disposition": "pending_review",
+      "entryIds": [],
+      "reason": "Source census complete; assigning-desk research and disposition remain pending."
+    },
+    {
+      "periodStartedAt": "2019-12-07",
+      "periodEndedAt": "2019-12-13",
+      "sourceCardCount": 2,
+      "disposition": "pending_review",
+      "entryIds": [],
+      "reason": "Source census complete; assigning-desk research and disposition remain pending."
+    },
+    {
+      "periodStartedAt": "2019-12-14",
+      "periodEndedAt": "2019-12-20",
+      "sourceCardCount": 2,
+      "disposition": "pending_review",
+      "entryIds": [],
+      "reason": "Source census complete; assigning-desk research and disposition remain pending."
+    },
+    {
+      "periodStartedAt": "2019-12-21",
+      "periodEndedAt": "2019-12-27",
+      "sourceCardCount": 0,
+      "disposition": "explicit_gap",
+      "entryIds": [],
+      "reason": "Cyclingnews exposed no matching source card; preserve the quiet window."
+    },
+    {
+      "periodStartedAt": "2019-12-28",
+      "periodEndedAt": "2020-01-03",
+      "sourceCardCount": 0,
+      "disposition": "explicit_gap",
+      "entryIds": [],
+      "reason": "Cyclingnews exposed no matching source card; preserve the quiet window."
+    }
+  ],
+  "updatedAt": "2026-08-28T11:52:00Z"
+}

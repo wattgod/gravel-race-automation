@@ -946,7 +946,7 @@ def test_2003_backfill_ledger_reconciles_the_complete_legacy_archive_census():
     assert validated["complete"] is True
 
 
-def test_2002_backfill_ledger_accounts_for_the_partial_legacy_archive_census():
+def test_2002_backfill_ledger_preserves_partial_legacy_archive_research_debt():
     histories = load_history_entries(ROOT / "data" / "gravel-weekly" / "history")
     ledger = json.loads((ROOT / "data" / "gravel-weekly" / "backfill" / "2002.json").read_text())
     validated = validate_backfill_ledger(ledger, histories)
@@ -955,13 +955,13 @@ def test_2002_backfill_ledger_accounts_for_the_partial_legacy_archive_census():
     assert validated["sourceArchiveCoverage"] == "partial"
     assert len(validated["sourceArchiveErrors"]) == 4
     assert sum(week["sourceCardCount"] for week in validated["weeks"]) == 0
-    assert sum(week["disposition"] == "explicit_gap" for week in validated["weeks"]) == 51
+    assert sum(week["disposition"] == "explicit_gap" for week in validated["weeks"]) == 33
     assert sum(week["disposition"] == "covered_by_draft" for week in validated["weeks"]) == 2
-    assert sum(week["disposition"] == "unresearched" for week in validated["weeks"]) == 0
-    assert validated["complete"] is True
+    assert sum(week["disposition"] == "unresearched" for week in validated["weeks"]) == 18
+    assert validated["complete"] is False
 
 
-def test_2001_backfill_ledger_rejects_a_redundant_saturn_story():
+def test_2001_backfill_ledger_rejects_a_redundant_story_without_claiming_archive_coverage():
     histories = load_history_entries(ROOT / "data" / "gravel-weekly" / "history")
     ledger = json.loads((ROOT / "data" / "gravel-weekly" / "backfill" / "2001.json").read_text())
     validated = validate_backfill_ledger(ledger, histories)
@@ -970,13 +970,14 @@ def test_2001_backfill_ledger_rejects_a_redundant_saturn_story():
     assert validated["sourceArchiveCoverage"] == "unavailable"
     assert len(validated["sourceArchiveErrors"]) == 12
     assert sum(week["sourceCardCount"] for week in validated["weeks"]) == 0
-    assert sum(week["disposition"] == "explicit_gap" for week in validated["weeks"]) == 52
+    assert sum(week["disposition"] == "unresearched" for week in validated["weeks"]) == 52
+    assert sum(week["disposition"] == "explicit_gap" for week in validated["weeks"]) == 0
     assert sum(week["disposition"] == "rejected" for week in validated["weeks"]) == 1
     assert sum(week["disposition"] == "covered_by_draft" for week in validated["weeks"]) == 0
-    assert validated["complete"] is True
+    assert validated["complete"] is False
 
 
-def test_2000_backfill_ledger_accounts_for_the_unavailable_legacy_archive():
+def test_2000_backfill_ledger_preserves_unavailable_legacy_archive_research_debt():
     histories = load_history_entries(ROOT / "data" / "gravel-weekly" / "history")
     ledger = json.loads((ROOT / "data" / "gravel-weekly" / "backfill" / "2000.json").read_text())
     validated = validate_backfill_ledger(ledger, histories)
@@ -985,10 +986,10 @@ def test_2000_backfill_ledger_accounts_for_the_unavailable_legacy_archive():
     assert validated["sourceArchiveCoverage"] == "unavailable"
     assert len(validated["sourceArchiveErrors"]) == 12
     assert sum(week["sourceCardCount"] for week in validated["weeks"]) == 0
-    assert sum(week["disposition"] == "explicit_gap" for week in validated["weeks"]) == 51
+    assert sum(week["disposition"] == "unresearched" for week in validated["weeks"]) == 51
+    assert sum(week["disposition"] == "explicit_gap" for week in validated["weeks"]) == 0
     assert sum(week["disposition"] == "covered_by_draft" for week in validated["weeks"]) == 2
-    assert sum(week["disposition"] == "unresearched" for week in validated["weeks"]) == 0
-    assert validated["complete"] is True
+    assert validated["complete"] is False
 
 
 def test_1995_backfill_ledger_opens_pre_web_research_debt_without_hiding_the_recovered_story():
@@ -1004,6 +1005,18 @@ def test_1995_backfill_ledger_opens_pre_web_research_debt_without_hiding_the_rec
     assert sum(week["disposition"] == "covered_by_draft" for week in validated["weeks"]) == 1
     assert sum(week["disposition"] == "explicit_gap" for week in validated["weeks"]) == 0
     assert validated["complete"] is False
+
+
+def test_unavailable_archive_cannot_be_recorded_as_an_explicit_gap():
+    histories = load_history_entries(ROOT / "data" / "gravel-weekly" / "history")
+    ledger = json.loads((ROOT / "data" / "gravel-weekly" / "backfill" / "2000.json").read_text())
+    dishonest = copy.deepcopy(ledger)
+    week = next(week for week in dishonest["weeks"] if week["disposition"] == "unresearched")
+    week["disposition"] = "explicit_gap"
+    week["reason"] = "No matching source card was found."
+
+    with pytest.raises(IssueValidationError, match="source archive coverage is unavailable"):
+        validate_backfill_ledger(dishonest, histories)
 
 
 def test_initial_backfill_ledger_accounts_for_every_discovery_card():

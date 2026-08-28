@@ -122,9 +122,11 @@
       "periodStartedAt": "2022-04-02",
       "periodEndedAt": "2022-04-08",
       "sourceCardCount": 2,
-      "disposition": "pending_review",
-      "entryIds": [],
-      "reason": "Source census complete; assigning-desk research and disposition remain pending."
+      "disposition": "covered_by_draft",
+      "entryIds": [
+        "history-life-time-tv-series-2022"
+      ],
+      "reason": "The Grand Prix launch promised that all six events and its $250,000 season-long contest would be visible through live worldwide coverage."
     },
     {
       "periodStartedAt": "2022-04-09",
@@ -274,9 +276,11 @@
       "periodStartedAt": "2022-08-06",
       "periodEndedAt": "2022-08-12",
       "sourceCardCount": 2,
-      "disposition": "pending_review",
-      "entryIds": [],
-      "reason": "Source census complete; assigning-desk research and disposition remain pending."
+      "disposition": "covered_by_draft",
+      "entryIds": [
+        "history-life-time-tv-series-2022"
+      ],
+      "reason": "Ending live production before Leadville severed the media connective tissue halfway through the first season and exposed broadcasting as core series infrastructure."
     },
     {
       "periodStartedAt": "2022-08-13",
@@ -453,5 +457,5 @@
       "reason": "Cyclingnews exposed no matching source card; preserve the quiet window."
     }
   ],
-  "updatedAt": "2026-08-28T16:00:00Z"
+  "updatedAt": "2026-08-28T16:35:00Z"
 }

@@ -126,6 +126,22 @@ decision under ignored `history-staged/`. Rejection records a reason but creates
 no approved entry. A stale hash, held gate, single-publisher premise, factual
 edit, or copy that still claims to be a model draft fails closed.
 
+When the private desk offers a one-line bulk approval, apply that exact phrase
+to every READY entry—and no HOLD entry—with:
+
+```bash
+python3 scripts/approve_ready_gravel_weekly_history.py \
+  --year 2026 \
+  --approval-phrase "approve all READY 2026 entries as written" \
+  --approver "Matti Rowe" \
+  --decided-at 2026-08-28T16:00:00Z
+```
+
+The command preflights and stages hash-bound decisions, removes only the internal
+model-draft warning that the desk does not show as part of the Take, and refuses
+to overwrite prior staged decisions. It cannot seal, publish, deploy, or alter
+race data.
+
 Only after a separate explicit publication instruction may the staged entry be
 sealed:
 

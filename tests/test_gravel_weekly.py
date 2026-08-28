@@ -25,7 +25,15 @@ from validate_gravel_weekly_history import (  # noqa: E402
     load_public_history_entries,
     validate_history_entry,
 )
-from approve_gravel_weekly_history import apply_history_decision  # noqa: E402
+from approve_gravel_weekly_history import (  # noqa: E402
+    apply_history_decision,
+    reviewed_headline_copy,
+    reviewed_take_copy,
+)
+from approve_ready_gravel_weekly_history import (  # noqa: E402
+    prepare_ready_approvals,
+    stage_ready_approvals,
+)
 from render_gravel_weekly_history_review import render_history_review  # noqa: E402
 from seal_gravel_weekly_history import (  # noqa: E402
     main as seal_history_main,
@@ -852,6 +860,11 @@ def test_private_historical_review_desk_separates_evidence_and_approval_state():
     )[0]
     assert held["entryId"] not in bulk_scope
     assert "THE TAKE · MODEL DRAFT" in page
+    assert "MODEL DRAFT: The privateer" not in page
+    assert reviewed_headline_copy(draft) == "The privateer became gravel's control group"
+    assert "The privateer became gravel&#x27;s control group" in page
+    assert "Model draft, not Matti's approved view:" not in page
+    assert reviewed_take_copy(draft) in page
     assert "NO-AI-SLOP PROSE GATE · PASS" in page
     assert "NO-AI-SLOP PROSE GATE · FAIL" in page
     assert "no-AI-slop prose gate" in page
@@ -863,6 +876,43 @@ def test_private_historical_review_desk_separates_evidence_and_approval_state():
     assert "approval fails closed while any hold remains" in page.lower()
     assert draft["contentHash"] in page
     assert "noindex,nofollow" in page
+
+
+def test_bulk_history_approval_is_exact_ready_only_and_non_publishing(tmp_path):
+    ready = sample_history_draft()
+    held = copy.deepcopy(ready)
+    held["entryId"] = "history-held-2026"
+    held["editorialGates"]["hostileEditor"] = "hold"
+    held["contentHash"] = compute_history_content_hash(held)
+
+    prepared = prepare_ready_approvals(
+        [ready, held],
+        year=2026,
+        phrase="approve all READY 2026 entries as written",
+        approver="Matti Rowe",
+        decided_at="2026-08-28T16:00:00Z",
+    )
+
+    assert [item.entry_id for item in prepared] == [ready["entryId"]]
+    assert prepared[0].approved["headline"] == "The privateer became gravel's control group"
+    assert prepared[0].approved["take"] == "Gravel installed a backstage entrance."
+    assert prepared[0].approved["status"] == "approved"
+    assert prepared[0].approved["publishedAt"] is None
+    assert prepared[0].decision["reviewedDraftContentHash"] == ready["contentHash"]
+    targets = stage_ready_approvals(prepared, tmp_path)
+    assert len(targets) == 2
+    assert not any(held["entryId"] in path.name for path in targets)
+
+    with pytest.raises(ValueError, match="approval phrase must exactly equal"):
+        prepare_ready_approvals(
+            [ready],
+            year=2026,
+            phrase="approve the 2026 entries",
+            approver="Matti Rowe",
+            decided_at="2026-08-28T16:00:00Z",
+        )
+    with pytest.raises(FileExistsError, match="refusing to replace"):
+        stage_ready_approvals(prepared, tmp_path)
 
 
 def test_persisted_historical_draft_corpus_clears_the_no_ai_slop_gate():

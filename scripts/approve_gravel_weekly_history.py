@@ -10,6 +10,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import re
 from pathlib import Path
 from typing import Any
 
@@ -31,6 +32,31 @@ APPROVAL_KEYS = {
     "editSummary",
     "reason",
 }
+MODEL_DRAFT_PREFIX = re.compile(
+    r"^\s*Model draft, not Matti(?:’|')s approved view:\s*",
+    re.IGNORECASE,
+)
+MODEL_DRAFT_HEADLINE_PREFIX = re.compile(r"^\s*MODEL DRAFT:\s*", re.IGNORECASE)
+
+
+def reviewed_headline_copy(draft_value: Any) -> str:
+    """Return the headline shown to Matti, without an internal draft label."""
+    draft = _record(draft_value, "historical draft")
+    headline = _text(draft.get("headline"), "draft.headline", 300)
+    reviewed = MODEL_DRAFT_HEADLINE_PREFIX.sub("", headline, count=1).strip()
+    if not reviewed:
+        raise ValueError("draft.headline contains no reviewable copy after its draft label")
+    return reviewed
+
+
+def reviewed_take_copy(draft_value: Any) -> str:
+    """Return the Take shown to Matti, without an internal provenance warning."""
+    draft = _record(draft_value, "historical draft")
+    take = _text(draft.get("take"), "draft.take", 8_000)
+    reviewed = MODEL_DRAFT_PREFIX.sub("", take, count=1).strip()
+    if not reviewed:
+        raise ValueError("draft.take contains no reviewable copy after its provenance warning")
+    return reviewed
 
 
 def _record(value: Any, name: str) -> dict[str, Any]:

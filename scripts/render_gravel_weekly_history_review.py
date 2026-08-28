@@ -15,6 +15,10 @@ sys.path.insert(0, str(PROJECT_ROOT / "wordpress"))
 
 from brand_tokens import get_tokens_css  # noqa: E402
 from no_ai_slop import audit_no_ai_slop  # noqa: E402
+from approve_gravel_weekly_history import (  # noqa: E402
+    reviewed_headline_copy,
+    reviewed_take_copy,
+)
 from validate_gravel_weekly_history import HISTORY_DIR, load_history_entries  # noqa: E402
 
 
@@ -123,7 +127,7 @@ def _card(entry: dict[str, Any]) -> str:
     return f'''<article class="story" id="{esc(entry['entryId'])}">
       <header>
         <div class="eyebrow">{esc(entry['activeFrom'])} → {esc(entry['activeThrough'])} · SCORE {entry['editorialScore']}</div>
-        <h2>{esc(entry['headline'])}</h2>
+        <h2>{esc(reviewed_headline_copy(entry))}</h2>
         <div class="status">{readiness}<code>{esc(entry['entryId'])}</code></div>
       </header>
       <section class="point"><h3>THE POINT</h3>{paragraphs(entry['point'])}</section>
@@ -132,7 +136,7 @@ def _card(entry: dict[str, Any]) -> str:
         <section><h3>AFTER</h3>{paragraphs(entry['changedJudgment'])}</section>
       </div>
       <section><h3>WHAT HAPPENED</h3>{paragraphs(entry['whatHappened'])}</section>
-      <section class="take"><h3>THE TAKE · MODEL DRAFT</h3>{paragraphs(entry['take'])}</section>
+      <section class="take"><h3>THE TAKE · MODEL DRAFT</h3>{paragraphs(reviewed_take_copy(entry))}</section>
       <div class="judgment">
         <section><h3>STAKES</h3>{paragraphs(entry['stakes'])}</section>
         <section><h3>CREDIBLE OPPOSITION</h3>{paragraphs(entry['credibleOpposition'])}</section>
@@ -165,7 +169,7 @@ def render_history_review(entries: list[dict[str, Any]], year: int) -> str:
         '<code>{content_hash}</code></a></li>'.format(
             entry_id=esc(entry["entryId"]),
             status="READY" if entry["entryId"] in ready_entry_ids else "HOLD",
-            headline=esc(entry["headline"]),
+            headline=esc(reviewed_headline_copy(entry)),
             content_hash=esc(entry["contentHash"][:12]),
         )
         for entry in drafts

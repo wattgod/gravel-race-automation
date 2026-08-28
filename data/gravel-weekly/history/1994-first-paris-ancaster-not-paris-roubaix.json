@@ -1,0 +1,97 @@
+{
+  "schemaVersion": "gravel-weekly-history-entry/v1",
+  "entryId": "history-first-paris-ancaster-not-paris-roubaix-1994",
+  "activeFrom": "1994-04-10",
+  "activeThrough": "1994-06-30",
+  "status": "draft",
+  "headline": "The First Paris–Ancaster Was Called ‘Not the Paris-Roubaix’",
+  "point": "On April 10, 1994, 264 riders entered the first Paris–Ancaster over Ontario farm lanes, trails, gravel roads, and a freshly stripped rail bed. Its official results called the race ‘Not the Paris-Roubaix.’ The joke did real category work: organizers translated the mythology and mixed-surface mechanism of a European classic into local terrain before ‘gravel’ offered a ready-made identity.",
+  "priorJudgment": "North American gravel became a coherent race category when organizers recognized gravel roads as a distinct native format.",
+  "changedJudgment": "One of the earliest enduring gravel races made itself legible by borrowing another sport's name and emotional promise. Paris–Ancaster did not need a gravel manifesto; a town called Paris, an Ancaster finish, and terrain rough enough to justify the reference told riders what kind of day they were buying.",
+  "stakes": "Borrowing is not the opposite of authenticity. A race becomes culturally useful when it translates a familiar promise into terrain, participation, and consequences that belong to its place. That is a sharper standard for modern gravel branding than whether an event can claim a pure or singular origin.",
+  "credibleOpposition": "Paris–Ancaster was conceived as a Paris-Roubaix tribute and was not described as a gravel race in its first results. Similar rough-road and mixed-surface events already existed, so this is not a claim that three Ontario organizers invented gravel. The exact event date is reconstructed from later institutional evidence that the inaugural race ran the same day as the 1994 Paris-Roubaix; the preserved contemporary result sheets print the year but not the day.",
+  "whatHappened": "The preserved 1994 Paris–Ancaster result sheets list 264 entries across men's and women's age categories. Their title reads ‘Not the Paris-Roubaix, PARIS to ANCASTER.’ Later organizer accounts say Tim Farrar, John Thorpe, and Chris Kiriakopoulos wanted to fill a gap in their event-timing calendar with a Paris-Roubaix tribute. They chose Paris, Ontario, partly because the name made the premise work and described the event as a road race for mountain bikers or a mountain-bike race for road racers. The first course linked farm lanes, trails, dirt and gravel roads, and rail corridor from which the tracks had only recently been removed. Organizers later said the inaugural race ran on the same day as Paris-Roubaix, which dates it to April 10, 1994.",
+  "take": "Model draft, not Matti's approved view: Ontario did not wait for a gravel category manager. Three race timers found a town called Paris, pointed the course toward Ancaster, and titled the first result sheet ‘Not the Paris-Roubaix.’ That is basically a shitpost with timing chips, and it worked. Two hundred sixty-four people showed up to race farm lanes, gravel, trails, and rail bed so freshly stripped that riders got the crushed stone before anyone could soften it into a recreational path. The organizers called it a road race for mountain bikers or a mountain-bike race for road racers. Translation: bring the bicycle you own and discover which parts of Europe can be recreated with Ontario mud. Gravel did not become real when somebody defined it. It became real when the reference produced a race worth repeating.",
+  "takeProvenance": "model_draft",
+  "uncertainty": "The official 1994 results are contemporaneous event artifacts preserved on the organizer's site, but their current HTML wrapper was uploaded later and the scans show only the year. April 10 is inferred from later organizer material saying the first race occurred on the same day as Paris-Roubaix and the independently documented date of the 1994 French race. Later anniversary accounts are retrospective and promotional, so the entry limits the contemporary claims to the result-sheet title, field, categories, times, and place names visible in the scans.",
+  "editorialScore": 100,
+  "editorialGates": {
+    "party": "pass",
+    "point": "pass",
+    "friend": "pass",
+    "craft": "pass",
+    "hostileEditor": "pass"
+  },
+  "contemporaryReceipts": [
+    {
+      "claimId": "claim_paris_ancaster_not_paris_roubaix_1994",
+      "canonicalUrl": "https://www.parisancaster.com/Results/P2A1994RESULTS.html",
+      "publisher": "Paris to Ancaster / Ancaster Cycle",
+      "publishedAt": "1994-04-10T18:00:00-04:00",
+      "quoteExcerpt": "Race: Not the Paris-Roubaix, PARIS to ANCASTER",
+      "transcriptStartSeconds": null,
+      "transcriptEndSeconds": null
+    },
+    {
+      "claimId": "claim_paris_ancaster_264_entries_1994",
+      "canonicalUrl": "https://www.parisancaster.com/Results/P2A1994RESULTS.html",
+      "publisher": "Paris to Ancaster / Ancaster Cycle",
+      "publishedAt": "1994-04-10T18:00:00-04:00",
+      "quoteExcerpt": "total entries 264",
+      "transcriptStartSeconds": null,
+      "transcriptEndSeconds": null
+    }
+  ],
+  "laterEvidence": [
+    {
+      "claimId": "claim_paris_ancaster_name_rough_railbed_2013",
+      "canonicalUrl": "https://cyclingmagazine.ca/sections/news/paris-to-ancaster-turns-20/",
+      "publisher": "Canadian Cycling Magazine",
+      "publishedAt": "2013-04-12T12:00:00-04:00",
+      "quoteExcerpt": "They'd just taken the tracks off",
+      "transcriptStartSeconds": null,
+      "transcriptEndSeconds": null
+    },
+    {
+      "claimId": "claim_paris_ancaster_cross_category_premise_2018",
+      "canonicalUrl": "https://www.pedalmag.com/pdf/Pedal_Gear_2018_Flip.3_FQSC.pdf",
+      "publisher": "Pedal Magazine",
+      "publishedAt": "2018-04-05T09:00:24-06:00",
+      "quoteExcerpt": "road race for mountain bikers or a mountain-bike race for road racers",
+      "transcriptStartSeconds": null,
+      "transcriptEndSeconds": null
+    },
+    {
+      "claimId": "claim_paris_ancaster_same_day_namesake_later",
+      "canonicalUrl": "https://pub-brant.escribemeetings.com/filestream.ashx?DocumentId=6616",
+      "publisher": "Paris to Ancaster / County of Brant public record",
+      "publishedAt": "2011-02-01T09:38:35-07:00",
+      "quoteExcerpt": "it took place on the same day as its namesake race",
+      "transcriptStartSeconds": null,
+      "transcriptEndSeconds": null
+    }
+  ],
+  "raceImpacts": [
+    {
+      "impactKind": "editorial_review",
+      "raceId": "gravel:paris-to-ancaster",
+      "fieldPath": "race.history",
+      "claimIds": [
+        "claim_paris_ancaster_not_paris_roubaix_1994",
+        "claim_paris_ancaster_264_entries_1994",
+        "claim_paris_ancaster_name_rough_railbed_2013",
+        "claim_paris_ancaster_cross_category_premise_2018",
+        "claim_paris_ancaster_same_day_namesake_later"
+      ],
+      "confidence": 0.97,
+      "owner": "Gravel God race editorial review",
+      "autoFixAllowed": false
+    }
+  ],
+  "humanApprovalRequired": true,
+  "autoPublishAllowed": false,
+  "editorialApproval": null,
+  "publishedAt": null,
+  "updatedAt": "2026-08-28T18:45:00Z",
+  "contentHash": "a4e85d31574e6f916cbcd26a7774c035e566f8a42ff9f87d4a3015348cd5b652"
+}

@@ -1,0 +1,439 @@
+{
+  "schemaVersion": "gravel-weekly-backfill-ledger/v1",
+  "year": 2023,
+  "asOf": "2023-12-31T23:59:59.000Z",
+  "sourceLedgerIssue": "https://github.com/wattgod/race-intelligence-control-plane/issues/53",
+  "sourceLedgerRun": "https://github.com/wattgod/race-intelligence-control-plane/actions/runs/33149522994",
+  "programIssue": "https://github.com/wattgod/race-intelligence-control-plane/issues/47",
+  "sourceCardCount": 218,
+  "complete": false,
+  "humanApprovalRequired": true,
+  "autoPublishAllowed": false,
+  "weeks": [
+    {
+      "periodStartedAt": "2022-12-31",
+      "periodEndedAt": "2023-01-06",
+      "sourceCardCount": 1,
+      "disposition": "pending_review",
+      "entryIds": [],
+      "reason": "Source census complete; assigning-desk research and disposition remain pending."
+    },
+    {
+      "periodStartedAt": "2023-01-07",
+      "periodEndedAt": "2023-01-13",
+      "sourceCardCount": 3,
+      "disposition": "pending_review",
+      "entryIds": [],
+      "reason": "Source census complete; assigning-desk research and disposition remain pending."
+    },
+    {
+      "periodStartedAt": "2023-01-14",
+      "periodEndedAt": "2023-01-20",
+      "sourceCardCount": 2,
+      "disposition": "pending_review",
+      "entryIds": [],
+      "reason": "Source census complete; assigning-desk research and disposition remain pending."
+    },
+    {
+      "periodStartedAt": "2023-01-21",
+      "periodEndedAt": "2023-01-27",
+      "sourceCardCount": 1,
+      "disposition": "pending_review",
+      "entryIds": [],
+      "reason": "Source census complete; assigning-desk research and disposition remain pending."
+    },
+    {
+      "periodStartedAt": "2023-01-28",
+      "periodEndedAt": "2023-02-03",
+      "sourceCardCount": 3,
+      "disposition": "pending_review",
+      "entryIds": [],
+      "reason": "Source census complete; assigning-desk research and disposition remain pending."
+    },
+    {
+      "periodStartedAt": "2023-02-04",
+      "periodEndedAt": "2023-02-10",
+      "sourceCardCount": 2,
+      "disposition": "pending_review",
+      "entryIds": [],
+      "reason": "Source census complete; assigning-desk research and disposition remain pending."
+    },
+    {
+      "periodStartedAt": "2023-02-11",
+      "periodEndedAt": "2023-02-17",
+      "sourceCardCount": 2,
+      "disposition": "pending_review",
+      "entryIds": [],
+      "reason": "Source census complete; assigning-desk research and disposition remain pending."
+    },
+    {
+      "periodStartedAt": "2023-02-18",
+      "periodEndedAt": "2023-02-24",
+      "sourceCardCount": 5,
+      "disposition": "pending_review",
+      "entryIds": [],
+      "reason": "Source census complete; assigning-desk research and disposition remain pending."
+    },
+    {
+      "periodStartedAt": "2023-02-25",
+      "periodEndedAt": "2023-03-03",
+      "sourceCardCount": 4,
+      "disposition": "pending_review",
+      "entryIds": [],
+      "reason": "Source census complete; assigning-desk research and disposition remain pending."
+    },
+    {
+      "periodStartedAt": "2023-03-04",
+      "periodEndedAt": "2023-03-10",
+      "sourceCardCount": 2,
+      "disposition": "pending_review",
+      "entryIds": [],
+      "reason": "Source census complete; assigning-desk research and disposition remain pending."
+    },
+    {
+      "periodStartedAt": "2023-03-11",
+      "periodEndedAt": "2023-03-17",
+      "sourceCardCount": 4,
+      "disposition": "pending_review",
+      "entryIds": [],
+      "reason": "Source census complete; assigning-desk research and disposition remain pending."
+    },
+    {
+      "periodStartedAt": "2023-03-18",
+      "periodEndedAt": "2023-03-24",
+      "sourceCardCount": 3,
+      "disposition": "pending_review",
+      "entryIds": [],
+      "reason": "Source census complete; assigning-desk research and disposition remain pending."
+    },
+    {
+      "periodStartedAt": "2023-03-25",
+      "periodEndedAt": "2023-03-31",
+      "sourceCardCount": 0,
+      "disposition": "explicit_gap",
+      "entryIds": [],
+      "reason": "Cyclingnews exposed no matching source card; preserve the quiet window."
+    },
+    {
+      "periodStartedAt": "2023-04-01",
+      "periodEndedAt": "2023-04-07",
+      "sourceCardCount": 1,
+      "disposition": "pending_review",
+      "entryIds": [],
+      "reason": "Source census complete; assigning-desk research and disposition remain pending."
+    },
+    {
+      "periodStartedAt": "2023-04-08",
+      "periodEndedAt": "2023-04-14",
+      "sourceCardCount": 1,
+      "disposition": "pending_review",
+      "entryIds": [],
+      "reason": "Source census complete; assigning-desk research and disposition remain pending."
+    },
+    {
+      "periodStartedAt": "2023-04-15",
+      "periodEndedAt": "2023-04-21",
+      "sourceCardCount": 3,
+      "disposition": "pending_review",
+      "entryIds": [],
+      "reason": "Source census complete; assigning-desk research and disposition remain pending."
+    },
+    {
+      "periodStartedAt": "2023-04-22",
+      "periodEndedAt": "2023-04-28",
+      "sourceCardCount": 2,
+      "disposition": "pending_review",
+      "entryIds": [],
+      "reason": "Source census complete; assigning-desk research and disposition remain pending."
+    },
+    {
+      "periodStartedAt": "2023-04-29",
+      "periodEndedAt": "2023-05-05",
+      "sourceCardCount": 4,
+      "disposition": "pending_review",
+      "entryIds": [],
+      "reason": "Source census complete; assigning-desk research and disposition remain pending."
+    },
+    {
+      "periodStartedAt": "2023-05-06",
+      "periodEndedAt": "2023-05-12",
+      "sourceCardCount": 7,
+      "disposition": "pending_review",
+      "entryIds": [],
+      "reason": "Source census complete; assigning-desk research and disposition remain pending."
+    },
+    {
+      "periodStartedAt": "2023-05-13",
+      "periodEndedAt": "2023-05-19",
+      "sourceCardCount": 4,
+      "disposition": "pending_review",
+      "entryIds": [],
+      "reason": "Source census complete; assigning-desk research and disposition remain pending."
+    },
+    {
+      "periodStartedAt": "2023-05-20",
+      "periodEndedAt": "2023-05-26",
+      "sourceCardCount": 6,
+      "disposition": "pending_review",
+      "entryIds": [],
+      "reason": "Source census complete; assigning-desk research and disposition remain pending."
+    },
+    {
+      "periodStartedAt": "2023-05-27",
+      "periodEndedAt": "2023-06-02",
+      "sourceCardCount": 16,
+      "disposition": "pending_review",
+      "entryIds": [],
+      "reason": "Source census complete; assigning-desk research and disposition remain pending."
+    },
+    {
+      "periodStartedAt": "2023-06-03",
+      "periodEndedAt": "2023-06-09",
+      "sourceCardCount": 23,
+      "disposition": "pending_review",
+      "entryIds": [],
+      "reason": "Source census complete; assigning-desk research and disposition remain pending."
+    },
+    {
+      "periodStartedAt": "2023-06-10",
+      "periodEndedAt": "2023-06-16",
+      "sourceCardCount": 3,
+      "disposition": "pending_review",
+      "entryIds": [],
+      "reason": "Source census complete; assigning-desk research and disposition remain pending."
+    },
+    {
+      "periodStartedAt": "2023-06-17",
+      "periodEndedAt": "2023-06-23",
+      "sourceCardCount": 8,
+      "disposition": "pending_review",
+      "entryIds": [],
+      "reason": "Source census complete; assigning-desk research and disposition remain pending."
+    },
+    {
+      "periodStartedAt": "2023-06-24",
+      "periodEndedAt": "2023-06-30",
+      "sourceCardCount": 4,
+      "disposition": "pending_review",
+      "entryIds": [],
+      "reason": "Source census complete; assigning-desk research and disposition remain pending."
+    },
+    {
+      "periodStartedAt": "2023-07-01",
+      "periodEndedAt": "2023-07-07",
+      "sourceCardCount": 1,
+      "disposition": "pending_review",
+      "entryIds": [],
+      "reason": "Source census complete; assigning-desk research and disposition remain pending."
+    },
+    {
+      "periodStartedAt": "2023-07-08",
+      "periodEndedAt": "2023-07-14",
+      "sourceCardCount": 4,
+      "disposition": "pending_review",
+      "entryIds": [],
+      "reason": "Source census complete; assigning-desk research and disposition remain pending."
+    },
+    {
+      "periodStartedAt": "2023-07-15",
+      "periodEndedAt": "2023-07-21",
+      "sourceCardCount": 1,
+      "disposition": "pending_review",
+      "entryIds": [],
+      "reason": "Source census complete; assigning-desk research and disposition remain pending."
+    },
+    {
+      "periodStartedAt": "2023-07-22",
+      "periodEndedAt": "2023-07-28",
+      "sourceCardCount": 3,
+      "disposition": "pending_review",
+      "entryIds": [],
+      "reason": "Source census complete; assigning-desk research and disposition remain pending."
+    },
+    {
+      "periodStartedAt": "2023-07-29",
+      "periodEndedAt": "2023-08-04",
+      "sourceCardCount": 1,
+      "disposition": "pending_review",
+      "entryIds": [],
+      "reason": "Source census complete; assigning-desk research and disposition remain pending."
+    },
+    {
+      "periodStartedAt": "2023-08-05",
+      "periodEndedAt": "2023-08-11",
+      "sourceCardCount": 1,
+      "disposition": "pending_review",
+      "entryIds": [],
+      "reason": "Source census complete; assigning-desk research and disposition remain pending."
+    },
+    {
+      "periodStartedAt": "2023-08-12",
+      "periodEndedAt": "2023-08-18",
+      "sourceCardCount": 3,
+      "disposition": "pending_review",
+      "entryIds": [],
+      "reason": "Source census complete; assigning-desk research and disposition remain pending."
+    },
+    {
+      "periodStartedAt": "2023-08-19",
+      "periodEndedAt": "2023-08-25",
+      "sourceCardCount": 3,
+      "disposition": "pending_review",
+      "entryIds": [],
+      "reason": "Source census complete; assigning-desk research and disposition remain pending."
+    },
+    {
+      "periodStartedAt": "2023-08-26",
+      "periodEndedAt": "2023-09-01",
+      "sourceCardCount": 3,
+      "disposition": "pending_review",
+      "entryIds": [],
+      "reason": "Source census complete; assigning-desk research and disposition remain pending."
+    },
+    {
+      "periodStartedAt": "2023-09-02",
+      "periodEndedAt": "2023-09-08",
+      "sourceCardCount": 2,
+      "disposition": "pending_review",
+      "entryIds": [],
+      "reason": "Source census complete; assigning-desk research and disposition remain pending."
+    },
+    {
+      "periodStartedAt": "2023-09-09",
+      "periodEndedAt": "2023-09-15",
+      "sourceCardCount": 4,
+      "disposition": "pending_review",
+      "entryIds": [],
+      "reason": "Source census complete; assigning-desk research and disposition remain pending."
+    },
+    {
+      "periodStartedAt": "2023-09-16",
+      "periodEndedAt": "2023-09-22",
+      "sourceCardCount": 11,
+      "disposition": "pending_review",
+      "entryIds": [],
+      "reason": "Source census complete; assigning-desk research and disposition remain pending."
+    },
+    {
+      "periodStartedAt": "2023-09-23",
+      "periodEndedAt": "2023-09-29",
+      "sourceCardCount": 5,
+      "disposition": "pending_review",
+      "entryIds": [],
+      "reason": "Source census complete; assigning-desk research and disposition remain pending."
+    },
+    {
+      "periodStartedAt": "2023-09-30",
+      "periodEndedAt": "2023-10-06",
+      "sourceCardCount": 20,
+      "disposition": "pending_review",
+      "entryIds": [],
+      "reason": "Source census complete; assigning-desk research and disposition remain pending."
+    },
+    {
+      "periodStartedAt": "2023-10-07",
+      "periodEndedAt": "2023-10-13",
+      "sourceCardCount": 15,
+      "disposition": "pending_review",
+      "entryIds": [],
+      "reason": "Source census complete; assigning-desk research and disposition remain pending."
+    },
+    {
+      "periodStartedAt": "2023-10-14",
+      "periodEndedAt": "2023-10-20",
+      "sourceCardCount": 2,
+      "disposition": "pending_review",
+      "entryIds": [],
+      "reason": "Source census complete; assigning-desk research and disposition remain pending."
+    },
+    {
+      "periodStartedAt": "2023-10-21",
+      "periodEndedAt": "2023-10-27",
+      "sourceCardCount": 10,
+      "disposition": "pending_review",
+      "entryIds": [],
+      "reason": "Source census complete; assigning-desk research and disposition remain pending."
+    },
+    {
+      "periodStartedAt": "2023-10-28",
+      "periodEndedAt": "2023-11-03",
+      "sourceCardCount": 2,
+      "disposition": "pending_review",
+      "entryIds": [],
+      "reason": "Source census complete; assigning-desk research and disposition remain pending."
+    },
+    {
+      "periodStartedAt": "2023-11-04",
+      "periodEndedAt": "2023-11-10",
+      "sourceCardCount": 1,
+      "disposition": "pending_review",
+      "entryIds": [],
+      "reason": "Source census complete; assigning-desk research and disposition remain pending."
+    },
+    {
+      "periodStartedAt": "2023-11-11",
+      "periodEndedAt": "2023-11-17",
+      "sourceCardCount": 1,
+      "disposition": "pending_review",
+      "entryIds": [],
+      "reason": "Source census complete; assigning-desk research and disposition remain pending."
+    },
+    {
+      "periodStartedAt": "2023-11-18",
+      "periodEndedAt": "2023-11-24",
+      "sourceCardCount": 3,
+      "disposition": "pending_review",
+      "entryIds": [],
+      "reason": "Source census complete; assigning-desk research and disposition remain pending."
+    },
+    {
+      "periodStartedAt": "2023-11-25",
+      "periodEndedAt": "2023-12-01",
+      "sourceCardCount": 5,
+      "disposition": "pending_review",
+      "entryIds": [],
+      "reason": "Source census complete; assigning-desk research and disposition remain pending."
+    },
+    {
+      "periodStartedAt": "2023-12-02",
+      "periodEndedAt": "2023-12-08",
+      "sourceCardCount": 2,
+      "disposition": "pending_review",
+      "entryIds": [],
+      "reason": "Source census complete; assigning-desk research and disposition remain pending."
+    },
+    {
+      "periodStartedAt": "2023-12-09",
+      "periodEndedAt": "2023-12-15",
+      "sourceCardCount": 1,
+      "disposition": "pending_review",
+      "entryIds": [],
+      "reason": "Source census complete; assigning-desk research and disposition remain pending."
+    },
+    {
+      "periodStartedAt": "2023-12-16",
+      "periodEndedAt": "2023-12-22",
+      "sourceCardCount": 0,
+      "disposition": "explicit_gap",
+      "entryIds": [],
+      "reason": "Cyclingnews exposed no matching source card; preserve the quiet window."
+    },
+    {
+      "periodStartedAt": "2023-12-23",
+      "periodEndedAt": "2023-12-29",
+      "sourceCardCount": 0,
+      "disposition": "explicit_gap",
+      "entryIds": [],
+      "reason": "Cyclingnews exposed no matching source card; preserve the quiet window."
+    },
+    {
+      "periodStartedAt": "2023-12-30",
+      "periodEndedAt": "2024-01-05",
+      "sourceCardCount": 0,
+      "disposition": "explicit_gap",
+      "entryIds": [],
+      "reason": "Cyclingnews exposed no matching source card; preserve the quiet window."
+    }
+  ],
+  "updatedAt": "2026-08-28T06:55:00Z"
+}

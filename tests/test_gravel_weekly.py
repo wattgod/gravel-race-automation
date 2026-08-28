@@ -946,6 +946,20 @@ def test_2003_backfill_ledger_reconciles_the_complete_legacy_archive_census():
     assert validated["complete"] is True
 
 
+def test_2002_backfill_ledger_accounts_for_the_complete_legacy_archive_census():
+    histories = load_history_entries(ROOT / "data" / "gravel-weekly" / "history")
+    ledger = json.loads((ROOT / "data" / "gravel-weekly" / "backfill" / "2002.json").read_text())
+    validated = validate_backfill_ledger(ledger, histories)
+
+    assert len(validated["weeks"]) == 53
+    assert validated["sourceArchiveCoverage"] == "complete"
+    assert sum(week["sourceCardCount"] for week in validated["weeks"]) == 0
+    assert sum(week["disposition"] == "explicit_gap" for week in validated["weeks"]) == 51
+    assert sum(week["disposition"] == "covered_by_draft" for week in validated["weeks"]) == 2
+    assert sum(week["disposition"] == "unresearched" for week in validated["weeks"]) == 0
+    assert validated["complete"] is True
+
+
 def test_initial_backfill_ledger_accounts_for_every_discovery_card():
     discovery = {
         "schemaVersion": "gravel-weekly-historical-ledger/v1",

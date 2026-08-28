@@ -1,0 +1,87 @@
+{
+  "schemaVersion": "gravel-weekly-history-entry/v1",
+  "entryId": "history-saturn-classic-team-car-gravel-2002",
+  "activeFrom": "2002-05-07",
+  "activeThrough": "2002-08-10",
+  "status": "draft",
+  "headline": "Before Gravel Bikes, Colorado Solved Gravel With a Team Car",
+  "point": "The 2002 Saturn Cycling Classic sent elite road and mountain-bike racers across 140 Colorado miles, more than 14,000 feet of climbing, and dirt passes rough enough that leaders switched from road bikes to mountain bikes and back. The rules restricted replacement bikes to team vehicles, and Cyclingnews noted that only front riders could reliably receive the advantage. Modern gravel's one-bike and self-support norms were not merely aesthetic rebellion; they made mixed-surface racing possible without a moving equipment warehouse.",
+  "priorJudgment": "Gravel bikes and self-support rules were lifestyle packaging applied to terrain that road racing could already handle.",
+  "changedJudgment": "The Saturn Classic shows the opposite. Pro road racing could traverse extreme mixed surfaces, but its solution depended on multiple bikes, team cars, caravan position, and unequal access. The later gravel format simplified a logistics problem as much as it created a new discipline.",
+  "stakes": "The origin story should distinguish riding gravel from building a repeatable gravel sport. That distinction explains why equipment convergence and equal support rules mattered: they let the route select the rider without first selecting who had a team vehicle.",
+  "credibleOpposition": "The Saturn Classic was explicitly a professional road race, not a gravel event, and bike changes were a race-specific response to an unusually rough descent rather than proof that a new discipline existed. Its sponsor's 2003 withdrawal was attributed to marketing priorities and a difficult economy, not the equipment model. The connection to modern gravel is an editorial interpretation of format and access.",
+  "whatHappened": "Saturn announced its August 10, 2002 Cycling Classic as a 140-mile Boulder-to-Breckenridge race with more than 14,000 feet of climbing on paved and dirt roads. Cyclingnews reported that Oh My God Road mixed rough pavement, dirt, and gravel before the race reached 11,671-foot Guanella Pass. The climb deteriorated into rough dirt, followed by a 3,000-foot dirt descent. Many leaders changed to mountain bikes, but rules required replacement bikes to come from a team vehicle in the race caravan; only riders near the front could count on the car getting ahead in time to provide another road bike at the pavement. Velo's live report recorded the leaders switching to mountain bikes at the summit and Jonathan Vaughters waiting at the bottom because his team car had not arrived. Chris Wherry won in 7:09:28. In March 2003, Saturn withdrew title sponsorship and the organizer said the event's future was uncertain.",
+  "take": "Model draft, not Matti's approved view: Before gravel bikes, Colorado solved gravel with a convoy. The leaders climbed Guanella Pass on road bikes, changed into mountain bikes at 11,671 feet, dropped 3,000 feet down a dirt road, then asked the team car to please return their road bikes before the race resumed. Everyone behind them received the traditional privateer package: worse equipment and no menu. This is the missing link between mixed-surface road racing and gravel. The terrain was already magnificent. The delivery system was absurd. Gravel's breakthrough was not discovering dirt; it was deciding one bike and the same support rules should be enough for everybody.",
+  "takeProvenance": "model_draft",
+  "uncertainty": "The route, elevation, terrain, bike changes, caravan restriction, and finishing result are documented by contemporary sources. The AutoChannel page republishes a Saturn press release rather than independent reporting. Contemporary sources classify the event as road racing, and no source claims that its equipment logistics caused its disappearance. The argument that one-bike and self-support norms made later gravel more scalable is editorial analysis requiring human review.",
+  "editorialScore": 99,
+  "editorialGates": {
+    "party": "pass",
+    "point": "pass",
+    "friend": "pass",
+    "craft": "pass",
+    "hostileEditor": "pass"
+  },
+  "contemporaryReceipts": [
+    {
+      "claimId": "claim_saturn_classic_route_2002",
+      "canonicalUrl": "https://www.theautochannel.com/news/2002/05/07/139989.html",
+      "publisher": "The Auto Channel / Saturn press release",
+      "publishedAt": "2002-05-07T12:00:00-04:00",
+      "quoteExcerpt": "140-mile adventure across the Continental Divide from Boulder to Breckenridge",
+      "transcriptStartSeconds": null,
+      "transcriptEndSeconds": null
+    },
+    {
+      "claimId": "claim_saturn_classic_caravan_access_2002",
+      "canonicalUrl": "https://autobus.cyclingnews.com/road/2002/aug02/saturnclassic02/?id=results",
+      "publisher": "Cyclingnews",
+      "publishedAt": "2002-08-10T12:00:00-06:00",
+      "quoteExcerpt": "only the very front riders from each team can have this advantage",
+      "transcriptStartSeconds": null,
+      "transcriptEndSeconds": null
+    },
+    {
+      "claimId": "claim_saturn_classic_bike_switch_2002",
+      "canonicalUrl": "https://velo.outsideonline.com/road/road-racing/wherry-takes-emotional-win-at-saturn-classic/?scope=anon",
+      "publisher": "VeloNews",
+      "publishedAt": "2002-08-10T01:00:00-06:00",
+      "quoteExcerpt": "All switched to mountain bikes for the descent.",
+      "transcriptStartSeconds": null,
+      "transcriptEndSeconds": null
+    }
+  ],
+  "laterEvidence": [
+    {
+      "claimId": "claim_saturn_classic_sponsor_withdrawal_2003",
+      "canonicalUrl": "https://velo.outsideonline.com/news/saturn-withdraws-support-from-classic/?scope=anon",
+      "publisher": "VeloNews",
+      "publishedAt": "2003-03-18T01:00:00-07:00",
+      "quoteExcerpt": "we have decided to focus on long-standing components of the Saturn Cycling program",
+      "transcriptStartSeconds": null,
+      "transcriptEndSeconds": null
+    }
+  ],
+  "raceImpacts": [
+    {
+      "impactKind": "editorial_review",
+      "raceId": "gravel:saturn-cycling-classic",
+      "fieldPath": "race.history",
+      "claimIds": [
+        "claim_saturn_classic_route_2002",
+        "claim_saturn_classic_caravan_access_2002",
+        "claim_saturn_classic_bike_switch_2002",
+        "claim_saturn_classic_sponsor_withdrawal_2003"
+      ],
+      "confidence": 0.95,
+      "owner": "Gravel God race editorial review",
+      "autoFixAllowed": false
+    }
+  ],
+  "humanApprovalRequired": true,
+  "autoPublishAllowed": false,
+  "editorialApproval": null,
+  "publishedAt": null,
+  "updatedAt": "2026-08-28T20:45:00Z",
+  "contentHash": "eb22ffeea50a11740a62fadc5748eb1fc2e053c0481f247de74209cc7a19be16"
+}

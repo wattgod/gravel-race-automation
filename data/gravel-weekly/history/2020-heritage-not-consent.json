@@ -1,0 +1,76 @@
+{
+  "schemaVersion": "gravel-weekly-history-entry/v1",
+  "entryId": "history-heritage-not-consent-2020",
+  "activeFrom": "2020-08-18",
+  "activeThrough": "2020-10-29",
+  "status": "draft",
+  "headline": "Gravel's Biggest Name Learned That Heritage Is Not Consent",
+  "point": "Dirty Kanza's 2020 renaming was not a cosmetic response to generic internet pressure. After the Kaw Nation asked organizers to dissolve the race name's connection to its people, the event reversed its own April defense and became Unbound Gravel. Long use, regional pride, and good intent did not create permanent permission to turn another community's identity into a commercial race brand.",
+  "priorJudgment": "The name honored the Flint Hills and the Kaw people, fifteen years of use had made it inseparable from gravel history, and earlier cooperation with tribal representatives was enough to establish legitimacy despite objections.",
+  "changedJudgment": "A relationship could change when the people being invoked changed or clarified their position. The relevant evidence was not what organizers had intended or previously heard; it was the Kaw Nation's current request that the connection end. Preserving gravel history therefore required changing the brand, not freezing it.",
+  "stakes": "The episode set a governance test for gravel events built from local land, history, and borrowed identity: who gets to define respect, whether consultation is ongoing, and whether an organizer can distinguish attachment to its brand from entitlement to somebody else's name. Unbound's scale made the answer visible across the sport.",
+  "credibleOpposition": "The original name was presented as regional homage rather than deliberate insult, an April statement had defended the relationship, and fifteen years of recognition created real local, participant, and commercial attachment. Renaming a major event carries confusion and cost, and not every critic agreed on the term's history or meaning. None of that, however, overrides the Kaw Nation's explicit request to end the association with its people.",
+  "whatHappened": "In April 2020, organizers had co-signed a statement defending the Dirty Kanza name and its relationship to the Kaw Nation. As criticism grew, an event delegation met the Tribal Council on July 22. On August 18, the organizer acknowledged that more Kaw members wanted the name changed, that the council had asked the race to move forward without a connection to the tribe, and that this represented a change from the April rhetoric. Kaw Nation Chairwoman Lynn Williams stated that elders and members had discussed the issue and respectfully asked for the name change to dissolve the connection to the Kanza. On October 29, Life Time announced Unbound Gravel, a new logo, and a task-force process involving Emporia leaders, athletes, cycling representatives, partners, and the Kaw Nation Tribal Council. The race did not erase its history; it stopped treating that history as perpetual authorization.",
+  "take": "Model draft, not Matti's approved view: Gravel spent fifteen years treating a race name like a belt buckle: earn it once, display it forever. Then the people inside the name asked to be taken out. This should have made the decision simple. Instead, organizers first defended the brand, met with the Kaw Nation, admitted the conversation had changed, and finally arrived at Unbound. That sequence matters because heritage is not a lifetime software license. You do not get permanent naming rights to somebody else's identity because your intentions were wholesome in 2006, your logo sells hats, or everybody in Emporia knows what race weekend means. The Kaw Nation did not ask cyclists to litigate the race on its behalf. It asked that the connection end. Unbound was therefore more than reputation management. It was a useful institutional lesson: if your celebration depends on a community's name, that community retains the right to stop celebrating with you.",
+  "takeProvenance": "model_draft",
+  "uncertainty": "The primary statements and contemporary reporting establish the Kaw Nation's request, the organizer's acknowledged reversal from April, the consultation process, and the October 29 rebrand. They do not establish the views of every Kaw citizen, every local resident, or every participant, nor do they quantify financial cost, registration effects, or later inclusion outcomes. This entry distinguishes intent from permission but does not purport to settle every historical or linguistic claim made during the controversy.",
+  "editorialScore": 97,
+  "editorialGates": {
+    "party": "pass",
+    "point": "pass",
+    "friend": "pass",
+    "craft": "pass",
+    "hostileEditor": "pass"
+  },
+  "contemporaryReceipts": [
+    {
+      "claimId": "claim_kaw_nation_requested_name_connection_end_2020",
+      "canonicalUrl": "https://www.unboundgravel.com/statement-from-kaw-nation-chairwoman-lynn-williams/",
+      "publisher": "Kaw Nation statement via Unbound Gravel",
+      "publishedAt": "2020-08-18T16:43:10Z",
+      "quoteExcerpt": "asked that the name be changed to dissolve the connection to our people",
+      "transcriptStartSeconds": null,
+      "transcriptEndSeconds": null
+    },
+    {
+      "claimId": "claim_organizer_acknowledged_april_reversal_2020",
+      "canonicalUrl": "https://www.unboundgravel.com/an-update-from-hq-in-emporia/",
+      "publisher": "Unbound Gravel",
+      "publishedAt": "2020-08-18T13:43:12Z",
+      "quoteExcerpt": "We acknowledge this is a change in rhetoric from our April co-signed statement",
+      "transcriptStartSeconds": null,
+      "transcriptEndSeconds": null
+    },
+    {
+      "claimId": "claim_dirty_kanza_became_unbound_2020",
+      "canonicalUrl": "https://www.cyclingnews.com/news/dirty-kanza-renamed-unbound-gravel-after-complaints-term-insulted-native-americans/",
+      "publisher": "Cyclingnews",
+      "publishedAt": "2020-10-29T19:46:33Z",
+      "quoteExcerpt": "renaming it 'UNBOUND Gravel'",
+      "transcriptStartSeconds": null,
+      "transcriptEndSeconds": null
+    }
+  ],
+  "laterEvidence": [],
+  "raceImpacts": [
+    {
+      "impactKind": "editorial_review",
+      "raceId": "gravel:unbound-gravel",
+      "fieldPath": "race.biased_opinion",
+      "claimIds": [
+        "claim_kaw_nation_requested_name_connection_end_2020",
+        "claim_organizer_acknowledged_april_reversal_2020",
+        "claim_dirty_kanza_became_unbound_2020"
+      ],
+      "confidence": 0.99,
+      "owner": "Gravel God race editorial review",
+      "autoFixAllowed": false
+    }
+  ],
+  "humanApprovalRequired": true,
+  "autoPublishAllowed": false,
+  "editorialApproval": null,
+  "publishedAt": null,
+  "updatedAt": "2026-08-28T20:15:00Z",
+  "contentHash": "7fd9e6bad741171db1921e3100db902645a497fafffe1e3cb947e819822f1cb7"
+}

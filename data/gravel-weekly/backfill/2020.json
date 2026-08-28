@@ -6,7 +6,7 @@
   "sourceLedgerRun": "https://github.com/wattgod/race-intelligence-control-plane/actions/runs/33165794431",
   "programIssue": "https://github.com/wattgod/race-intelligence-control-plane/issues/47",
   "sourceCardCount": 88,
-  "complete": false,
+  "complete": true,
   "humanApprovalRequired": true,
   "autoPublishAllowed": false,
   "weeks": [
@@ -82,9 +82,9 @@
       "periodStartedAt": "2020-02-15",
       "periodEndedAt": "2020-02-21",
       "sourceCardCount": 1,
-      "disposition": "pending_review",
+      "disposition": "rejected",
       "entryIds": [],
-      "reason": "Source census complete; assigning-desk research and disposition remain pending."
+      "reason": "A single deep-gravel-corner crash during a road stage was unexpected but did not establish a durable gravel-season argument beyond the incident itself."
     },
     {
       "periodStartedAt": "2020-02-22",
@@ -182,33 +182,41 @@
       "periodStartedAt": "2020-05-09",
       "periodEndedAt": "2020-05-15",
       "sourceCardCount": 3,
-      "disposition": "pending_review",
-      "entryIds": [],
-      "reason": "Source census complete; assigning-desk research and disposition remain pending."
+      "disposition": "covered_by_draft",
+      "entryIds": [
+        "history-race-cancelled-gravel-everywhere-2020"
+      ],
+      "reason": "SBT GRVL's cancellation and free distributed substitute begin the draft chapter about gravel becoming a portable ritual when its physical gatherings disappeared."
     },
     {
       "periodStartedAt": "2020-05-16",
       "periodEndedAt": "2020-05-22",
       "sourceCardCount": 1,
-      "disposition": "pending_review",
-      "entryIds": [],
-      "reason": "Source census complete; assigning-desk research and disposition remain pending."
+      "disposition": "covered_by_draft",
+      "entryIds": [
+        "history-race-cancelled-gravel-everywhere-2020"
+      ],
+      "reason": "Dirty Kanzelled reduced the cancelled event to distance, date, local route, and public proof, supplying the draft chapter's minimum viable gravel ritual."
     },
     {
       "periodStartedAt": "2020-05-23",
       "periodEndedAt": "2020-05-29",
       "sourceCardCount": 1,
-      "disposition": "pending_review",
-      "entryIds": [],
-      "reason": "Source census complete; assigning-desk research and disposition remain pending."
+      "disposition": "covered_by_draft",
+      "entryIds": [
+        "history-race-cancelled-gravel-everywhere-2020"
+      ],
+      "reason": "Van Aert's announced participation shows elite visibility moving into the distributed substitute before the rides occurred."
     },
     {
       "periodStartedAt": "2020-05-30",
       "periodEndedAt": "2020-06-05",
       "sourceCardCount": 4,
-      "disposition": "pending_review",
-      "entryIds": [],
-      "reason": "Source census complete; assigning-desk research and disposition remain pending."
+      "disposition": "covered_by_draft",
+      "entryIds": [
+        "history-race-cancelled-gravel-everywhere-2020"
+      ],
+      "reason": "Van Aert's 320-kilometre completion and King's 310-mile ride turned a decentralized substitute into visible gravel spectacle."
     },
     {
       "periodStartedAt": "2020-06-06",
@@ -222,9 +230,11 @@
       "periodStartedAt": "2020-06-13",
       "periodEndedAt": "2020-06-19",
       "sourceCardCount": 16,
-      "disposition": "pending_review",
-      "entryIds": [],
-      "reason": "Source census complete; assigning-desk research and disposition remain pending."
+      "disposition": "covered_by_draft",
+      "entryIds": [
+        "history-race-cancelled-gravel-everywhere-2020"
+      ],
+      "reason": "Cyclingnews's concentrated Gravel Week package shows the cancelled-event season becoming a coherent media, instruction, personality, and product category."
     },
     {
       "periodStartedAt": "2020-06-20",
@@ -270,9 +280,11 @@
       "periodStartedAt": "2020-07-25",
       "periodEndedAt": "2020-07-31",
       "sourceCardCount": 1,
-      "disposition": "pending_review",
-      "entryIds": [],
-      "reason": "Source census complete; assigning-desk research and disposition remain pending."
+      "disposition": "covered_by_draft",
+      "entryIds": [
+        "history-road-racing-borrowed-gravel-drama-2020"
+      ],
+      "reason": "Kwiatkowski's August Strade Bianche warning begins the draft chapter about road promoters inheriting gravel-specific risk and equipment responsibilities."
     },
     {
       "periodStartedAt": "2020-08-01",
@@ -326,9 +338,11 @@
       "periodStartedAt": "2020-09-12",
       "periodEndedAt": "2020-09-18",
       "sourceCardCount": 3,
-      "disposition": "pending_review",
-      "entryIds": [],
-      "reason": "Source census complete; assigning-desk research and disposition remain pending."
+      "disposition": "covered_by_draft",
+      "entryIds": [
+        "history-road-racing-borrowed-gravel-drama-2020"
+      ],
+      "reason": "The Giro Rosa gravel stage changed the race lead, forced Van Vleuten to run after a mechanical, and produced her explicit objection to gravel inside stage races."
     },
     {
       "periodStartedAt": "2020-09-19",
@@ -374,9 +388,11 @@
       "periodStartedAt": "2020-10-24",
       "periodEndedAt": "2020-10-30",
       "sourceCardCount": 3,
-      "disposition": "pending_review",
-      "entryIds": [],
-      "reason": "Source census complete; assigning-desk research and disposition remain pending."
+      "disposition": "covered_by_draft",
+      "entryIds": [
+        "history-heritage-not-consent-2020"
+      ],
+      "reason": "The October 29 Unbound announcement completes the draft chapter about the Kaw Nation's request, the organizer's reversal, and consent to a borrowed identity."
     },
     {
       "periodStartedAt": "2020-10-31",
@@ -451,5 +467,5 @@
       "reason": "A standalone bike review closes the archive as product evaluation, not a season-level story."
     }
   ],
-  "updatedAt": "2026-08-28T15:30:00Z"
+  "updatedAt": "2026-08-28T20:15:00Z"
 }

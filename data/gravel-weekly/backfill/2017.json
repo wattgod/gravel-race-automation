@@ -1,0 +1,447 @@
+{
+  "schemaVersion": "gravel-weekly-backfill-ledger/v1",
+  "year": 2017,
+  "asOf": "2017-12-31T23:59:59.000Z",
+  "sourceLedgerIssue": "https://github.com/wattgod/race-intelligence-control-plane/issues/60",
+  "sourceLedgerRun": "https://github.com/wattgod/race-intelligence-control-plane/actions/runs/33170054490",
+  "programIssue": "https://github.com/wattgod/race-intelligence-control-plane/issues/47",
+  "sourceCardCount": 2,
+  "complete": true,
+  "humanApprovalRequired": true,
+  "autoPublishAllowed": false,
+  "weeks": [
+    {
+      "periodStartedAt": "2016-12-31",
+      "periodEndedAt": "2017-01-06",
+      "sourceCardCount": 0,
+      "disposition": "explicit_gap",
+      "entryIds": [],
+      "reason": "Cyclingnews exposed no matching source card; preserve the quiet window."
+    },
+    {
+      "periodStartedAt": "2017-01-07",
+      "periodEndedAt": "2017-01-13",
+      "sourceCardCount": 0,
+      "disposition": "explicit_gap",
+      "entryIds": [],
+      "reason": "Cyclingnews exposed no matching source card; preserve the quiet window."
+    },
+    {
+      "periodStartedAt": "2017-01-14",
+      "periodEndedAt": "2017-01-20",
+      "sourceCardCount": 0,
+      "disposition": "explicit_gap",
+      "entryIds": [],
+      "reason": "Cyclingnews exposed no matching source card; preserve the quiet window."
+    },
+    {
+      "periodStartedAt": "2017-01-21",
+      "periodEndedAt": "2017-01-27",
+      "sourceCardCount": 0,
+      "disposition": "explicit_gap",
+      "entryIds": [],
+      "reason": "Cyclingnews exposed no matching source card; preserve the quiet window."
+    },
+    {
+      "periodStartedAt": "2017-01-28",
+      "periodEndedAt": "2017-02-03",
+      "sourceCardCount": 0,
+      "disposition": "explicit_gap",
+      "entryIds": [],
+      "reason": "Cyclingnews exposed no matching source card; preserve the quiet window."
+    },
+    {
+      "periodStartedAt": "2017-02-04",
+      "periodEndedAt": "2017-02-10",
+      "sourceCardCount": 0,
+      "disposition": "explicit_gap",
+      "entryIds": [],
+      "reason": "Cyclingnews exposed no matching source card; preserve the quiet window."
+    },
+    {
+      "periodStartedAt": "2017-02-11",
+      "periodEndedAt": "2017-02-17",
+      "sourceCardCount": 0,
+      "disposition": "explicit_gap",
+      "entryIds": [],
+      "reason": "Cyclingnews exposed no matching source card; preserve the quiet window."
+    },
+    {
+      "periodStartedAt": "2017-02-18",
+      "periodEndedAt": "2017-02-24",
+      "sourceCardCount": 0,
+      "disposition": "explicit_gap",
+      "entryIds": [],
+      "reason": "Cyclingnews exposed no matching source card; preserve the quiet window."
+    },
+    {
+      "periodStartedAt": "2017-02-25",
+      "periodEndedAt": "2017-03-03",
+      "sourceCardCount": 0,
+      "disposition": "explicit_gap",
+      "entryIds": [],
+      "reason": "Cyclingnews exposed no matching source card; preserve the quiet window."
+    },
+    {
+      "periodStartedAt": "2017-03-04",
+      "periodEndedAt": "2017-03-10",
+      "sourceCardCount": 0,
+      "disposition": "explicit_gap",
+      "entryIds": [],
+      "reason": "Cyclingnews exposed no matching source card; preserve the quiet window."
+    },
+    {
+      "periodStartedAt": "2017-03-11",
+      "periodEndedAt": "2017-03-17",
+      "sourceCardCount": 0,
+      "disposition": "explicit_gap",
+      "entryIds": [],
+      "reason": "Cyclingnews exposed no matching source card; preserve the quiet window."
+    },
+    {
+      "periodStartedAt": "2017-03-18",
+      "periodEndedAt": "2017-03-24",
+      "sourceCardCount": 0,
+      "disposition": "explicit_gap",
+      "entryIds": [],
+      "reason": "Cyclingnews exposed no matching source card; preserve the quiet window."
+    },
+    {
+      "periodStartedAt": "2017-03-25",
+      "periodEndedAt": "2017-03-31",
+      "sourceCardCount": 1,
+      "disposition": "rejected",
+      "entryIds": [],
+      "reason": "The new gravel Plugstreets preview for Gent-Wevelgem is an interesting road-course experiment, but one speculative impact article does not establish a distinct season consequence beyond the better-supported 2018 Paris-Tours argument."
+    },
+    {
+      "periodStartedAt": "2017-04-01",
+      "periodEndedAt": "2017-04-07",
+      "sourceCardCount": 0,
+      "disposition": "explicit_gap",
+      "entryIds": [],
+      "reason": "Cyclingnews exposed no matching source card; preserve the quiet window."
+    },
+    {
+      "periodStartedAt": "2017-04-08",
+      "periodEndedAt": "2017-04-14",
+      "sourceCardCount": 0,
+      "disposition": "explicit_gap",
+      "entryIds": [],
+      "reason": "Cyclingnews exposed no matching source card; preserve the quiet window."
+    },
+    {
+      "periodStartedAt": "2017-04-15",
+      "periodEndedAt": "2017-04-21",
+      "sourceCardCount": 0,
+      "disposition": "explicit_gap",
+      "entryIds": [],
+      "reason": "Cyclingnews exposed no matching source card; preserve the quiet window."
+    },
+    {
+      "periodStartedAt": "2017-04-22",
+      "periodEndedAt": "2017-04-28",
+      "sourceCardCount": 0,
+      "disposition": "explicit_gap",
+      "entryIds": [],
+      "reason": "Cyclingnews exposed no matching source card; preserve the quiet window."
+    },
+    {
+      "periodStartedAt": "2017-04-29",
+      "periodEndedAt": "2017-05-05",
+      "sourceCardCount": 0,
+      "disposition": "explicit_gap",
+      "entryIds": [],
+      "reason": "Cyclingnews exposed no matching source card; preserve the quiet window."
+    },
+    {
+      "periodStartedAt": "2017-05-06",
+      "periodEndedAt": "2017-05-12",
+      "sourceCardCount": 0,
+      "disposition": "explicit_gap",
+      "entryIds": [],
+      "reason": "Cyclingnews exposed no matching source card; preserve the quiet window."
+    },
+    {
+      "periodStartedAt": "2017-05-13",
+      "periodEndedAt": "2017-05-19",
+      "sourceCardCount": 0,
+      "disposition": "explicit_gap",
+      "entryIds": [],
+      "reason": "Cyclingnews exposed no matching source card; preserve the quiet window."
+    },
+    {
+      "periodStartedAt": "2017-05-20",
+      "periodEndedAt": "2017-05-26",
+      "sourceCardCount": 1,
+      "disposition": "rejected",
+      "entryIds": [],
+      "reason": "The Tour of Utah route announcement treats ten kilometres of gravel as one course feature and provides no independent changed judgment worth a Gravel Weekly chapter."
+    },
+    {
+      "periodStartedAt": "2017-05-27",
+      "periodEndedAt": "2017-06-02",
+      "sourceCardCount": 0,
+      "disposition": "covered_by_draft",
+      "entryIds": [
+        "history-gravel-got-huge-before-important-2017"
+      ],
+      "reason": "Contemporary Kansas reporting establishes Dirty Kanza as a major local economy before the race, opening the draft chapter on gravel scaling without a formal league."
+    },
+    {
+      "periodStartedAt": "2017-06-03",
+      "periodEndedAt": "2017-06-09",
+      "sourceCardCount": 0,
+      "disposition": "covered_by_draft",
+      "entryIds": [
+        "history-gravel-got-huge-before-important-2017"
+      ],
+      "reason": "Bicycling records Alison Tetrick breaking the women’s course record during the mass-participation growth of Dirty Kanza."
+    },
+    {
+      "periodStartedAt": "2017-06-10",
+      "periodEndedAt": "2017-06-16",
+      "sourceCardCount": 0,
+      "disposition": "covered_by_draft",
+      "entryIds": [
+        "history-gravel-got-huge-before-important-2017"
+      ],
+      "reason": "A contemporary Tetrick interview supplies the five-second finish, road-pro crossover, and first-gravel-race evidence for the draft."
+    },
+    {
+      "periodStartedAt": "2017-06-17",
+      "periodEndedAt": "2017-06-23",
+      "sourceCardCount": 0,
+      "disposition": "covered_by_draft",
+      "entryIds": [
+        "history-gravel-got-huge-before-important-2017"
+      ],
+      "reason": "A participant report supplies the 2,200-rider scale, registration demand, and evidence that the event still felt personal at that size."
+    },
+    {
+      "periodStartedAt": "2017-06-24",
+      "periodEndedAt": "2017-06-30",
+      "sourceCardCount": 0,
+      "disposition": "explicit_gap",
+      "entryIds": [],
+      "reason": "Cyclingnews exposed no matching source card; preserve the quiet window."
+    },
+    {
+      "periodStartedAt": "2017-07-01",
+      "periodEndedAt": "2017-07-07",
+      "sourceCardCount": 0,
+      "disposition": "explicit_gap",
+      "entryIds": [],
+      "reason": "Cyclingnews exposed no matching source card; preserve the quiet window."
+    },
+    {
+      "periodStartedAt": "2017-07-08",
+      "periodEndedAt": "2017-07-14",
+      "sourceCardCount": 0,
+      "disposition": "explicit_gap",
+      "entryIds": [],
+      "reason": "Cyclingnews exposed no matching source card; preserve the quiet window."
+    },
+    {
+      "periodStartedAt": "2017-07-15",
+      "periodEndedAt": "2017-07-21",
+      "sourceCardCount": 0,
+      "disposition": "explicit_gap",
+      "entryIds": [],
+      "reason": "Cyclingnews exposed no matching source card; preserve the quiet window."
+    },
+    {
+      "periodStartedAt": "2017-07-22",
+      "periodEndedAt": "2017-07-28",
+      "sourceCardCount": 0,
+      "disposition": "explicit_gap",
+      "entryIds": [],
+      "reason": "Cyclingnews exposed no matching source card; preserve the quiet window."
+    },
+    {
+      "periodStartedAt": "2017-07-29",
+      "periodEndedAt": "2017-08-04",
+      "sourceCardCount": 0,
+      "disposition": "explicit_gap",
+      "entryIds": [],
+      "reason": "Cyclingnews exposed no matching source card; preserve the quiet window."
+    },
+    {
+      "periodStartedAt": "2017-08-05",
+      "periodEndedAt": "2017-08-11",
+      "sourceCardCount": 0,
+      "disposition": "explicit_gap",
+      "entryIds": [],
+      "reason": "Cyclingnews exposed no matching source card; preserve the quiet window."
+    },
+    {
+      "periodStartedAt": "2017-08-12",
+      "periodEndedAt": "2017-08-18",
+      "sourceCardCount": 0,
+      "disposition": "explicit_gap",
+      "entryIds": [],
+      "reason": "Cyclingnews exposed no matching source card; preserve the quiet window."
+    },
+    {
+      "periodStartedAt": "2017-08-19",
+      "periodEndedAt": "2017-08-25",
+      "sourceCardCount": 0,
+      "disposition": "explicit_gap",
+      "entryIds": [],
+      "reason": "Cyclingnews exposed no matching source card; preserve the quiet window."
+    },
+    {
+      "periodStartedAt": "2017-08-26",
+      "periodEndedAt": "2017-09-01",
+      "sourceCardCount": 0,
+      "disposition": "explicit_gap",
+      "entryIds": [],
+      "reason": "Cyclingnews exposed no matching source card; preserve the quiet window."
+    },
+    {
+      "periodStartedAt": "2017-09-02",
+      "periodEndedAt": "2017-09-08",
+      "sourceCardCount": 0,
+      "disposition": "explicit_gap",
+      "entryIds": [],
+      "reason": "Cyclingnews exposed no matching source card; preserve the quiet window."
+    },
+    {
+      "periodStartedAt": "2017-09-09",
+      "periodEndedAt": "2017-09-15",
+      "sourceCardCount": 0,
+      "disposition": "explicit_gap",
+      "entryIds": [],
+      "reason": "Cyclingnews exposed no matching source card; preserve the quiet window."
+    },
+    {
+      "periodStartedAt": "2017-09-16",
+      "periodEndedAt": "2017-09-22",
+      "sourceCardCount": 0,
+      "disposition": "explicit_gap",
+      "entryIds": [],
+      "reason": "Cyclingnews exposed no matching source card; preserve the quiet window."
+    },
+    {
+      "periodStartedAt": "2017-09-23",
+      "periodEndedAt": "2017-09-29",
+      "sourceCardCount": 0,
+      "disposition": "explicit_gap",
+      "entryIds": [],
+      "reason": "Cyclingnews exposed no matching source card; preserve the quiet window."
+    },
+    {
+      "periodStartedAt": "2017-09-30",
+      "periodEndedAt": "2017-10-06",
+      "sourceCardCount": 0,
+      "disposition": "explicit_gap",
+      "entryIds": [],
+      "reason": "Cyclingnews exposed no matching source card; preserve the quiet window."
+    },
+    {
+      "periodStartedAt": "2017-10-07",
+      "periodEndedAt": "2017-10-13",
+      "sourceCardCount": 0,
+      "disposition": "explicit_gap",
+      "entryIds": [],
+      "reason": "Cyclingnews exposed no matching source card; preserve the quiet window."
+    },
+    {
+      "periodStartedAt": "2017-10-14",
+      "periodEndedAt": "2017-10-20",
+      "sourceCardCount": 0,
+      "disposition": "explicit_gap",
+      "entryIds": [],
+      "reason": "Cyclingnews exposed no matching source card; preserve the quiet window."
+    },
+    {
+      "periodStartedAt": "2017-10-21",
+      "periodEndedAt": "2017-10-27",
+      "sourceCardCount": 0,
+      "disposition": "explicit_gap",
+      "entryIds": [],
+      "reason": "Cyclingnews exposed no matching source card; preserve the quiet window."
+    },
+    {
+      "periodStartedAt": "2017-10-28",
+      "periodEndedAt": "2017-11-03",
+      "sourceCardCount": 0,
+      "disposition": "explicit_gap",
+      "entryIds": [],
+      "reason": "Cyclingnews exposed no matching source card; preserve the quiet window."
+    },
+    {
+      "periodStartedAt": "2017-11-04",
+      "periodEndedAt": "2017-11-10",
+      "sourceCardCount": 0,
+      "disposition": "explicit_gap",
+      "entryIds": [],
+      "reason": "Cyclingnews exposed no matching source card; preserve the quiet window."
+    },
+    {
+      "periodStartedAt": "2017-11-11",
+      "periodEndedAt": "2017-11-17",
+      "sourceCardCount": 0,
+      "disposition": "explicit_gap",
+      "entryIds": [],
+      "reason": "Cyclingnews exposed no matching source card; preserve the quiet window."
+    },
+    {
+      "periodStartedAt": "2017-11-18",
+      "periodEndedAt": "2017-11-24",
+      "sourceCardCount": 0,
+      "disposition": "explicit_gap",
+      "entryIds": [],
+      "reason": "Cyclingnews exposed no matching source card; preserve the quiet window."
+    },
+    {
+      "periodStartedAt": "2017-11-25",
+      "periodEndedAt": "2017-12-01",
+      "sourceCardCount": 0,
+      "disposition": "explicit_gap",
+      "entryIds": [],
+      "reason": "Cyclingnews exposed no matching source card; preserve the quiet window."
+    },
+    {
+      "periodStartedAt": "2017-12-02",
+      "periodEndedAt": "2017-12-08",
+      "sourceCardCount": 0,
+      "disposition": "explicit_gap",
+      "entryIds": [],
+      "reason": "Cyclingnews exposed no matching source card; preserve the quiet window."
+    },
+    {
+      "periodStartedAt": "2017-12-09",
+      "periodEndedAt": "2017-12-15",
+      "sourceCardCount": 0,
+      "disposition": "explicit_gap",
+      "entryIds": [],
+      "reason": "Cyclingnews exposed no matching source card; preserve the quiet window."
+    },
+    {
+      "periodStartedAt": "2017-12-16",
+      "periodEndedAt": "2017-12-22",
+      "sourceCardCount": 0,
+      "disposition": "explicit_gap",
+      "entryIds": [],
+      "reason": "Cyclingnews exposed no matching source card; preserve the quiet window."
+    },
+    {
+      "periodStartedAt": "2017-12-23",
+      "periodEndedAt": "2017-12-29",
+      "sourceCardCount": 0,
+      "disposition": "explicit_gap",
+      "entryIds": [],
+      "reason": "Cyclingnews exposed no matching source card; preserve the quiet window."
+    },
+    {
+      "periodStartedAt": "2017-12-30",
+      "periodEndedAt": "2018-01-05",
+      "sourceCardCount": 0,
+      "disposition": "explicit_gap",
+      "entryIds": [],
+      "reason": "Cyclingnews exposed no matching source card; preserve the quiet window."
+    }
+  ],
+  "updatedAt": "2026-08-28T12:30:00Z"
+}

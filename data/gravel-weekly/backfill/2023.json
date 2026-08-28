@@ -334,9 +334,11 @@
       "periodStartedAt": "2023-10-07",
       "periodEndedAt": "2023-10-13",
       "sourceCardCount": 15,
-      "disposition": "pending_review",
-      "entryIds": [],
-      "reason": "Source census complete; assigning-desk research and disposition remain pending."
+      "disposition": "covered_by_draft",
+      "entryIds": [
+        "history-womens-worlds-off-camera-2023"
+      ],
+      "reason": "The missing women's live production, unequal men's broadcast, rider reaction, Niewiadoma's unseen title, and the UCI's same-day mandatory-coverage remedy form one documented visibility-governance chapter."
     },
     {
       "periodStartedAt": "2023-10-14",
@@ -435,5 +437,5 @@
       "reason": "Cyclingnews exposed no matching source card; preserve the quiet window."
     }
   ],
-  "updatedAt": "2026-08-28T06:55:00Z"
+  "updatedAt": "2026-08-28T07:10:00Z"
 }

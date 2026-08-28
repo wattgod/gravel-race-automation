@@ -1,0 +1,117 @@
+{
+  "schemaVersion": "gravel-weekly-history-entry/v1",
+  "entryId": "history-womens-worlds-off-camera-2023",
+  "activeFrom": "2023-10-07",
+  "activeThrough": "2023-10-09",
+  "status": "draft",
+  "headline": "The UCI Crowned Kasia Niewiadoma Off Camera",
+  "point": "Gravel's reputation for equal distances and prize money did not make equality operational at its world championship. In 2023 the elite women raced without any live television production while the elite men received a 90-minute broadcast. Only after the women's race had begun did the UCI turn equal coverage from an assumed value into a mandatory hosting requirement. Visibility was not decoration around the sport; it was infrastructure the rules had failed to require.",
+  "priorJudgment": "A separate elite women's world championship, staged by a discipline that described equality as foundational, would naturally receive the same basic broadcast platform as the elite men's race.",
+  "changedJudgment": "Cultural consensus does not survive a production contract by osmosis. Equal coverage exists only when the rights-holder requires it, budgets for it, and makes an organizer's failure visible before race day.",
+  "stakes": "Live coverage determines whether athletes can deliver sponsor value, whether fans can understand tactics and personalities, whether a world title enters the sport's shared memory, and whether one field is treated as the actual product while the other becomes a result sheet.",
+  "credibleOpposition": "The Veneto event changed location and organizer only seven weeks before the championship, and the first two Gravel Worlds were improvised test events with real funding and production constraints. The local organizer delivered both races under pressure, and a poor or unreliable stream would not necessarily have served athletes well. Those constraints explain the failure better than deliberate exclusion, but they also show why equal production had to be a bid requirement rather than a late aspiration.",
+  "whatHappened": "On October 6, viewers learned that GCN+ would carry 90 minutes of Sunday's elite men's Gravel Worlds but had no women's footage to distribute. The 110-rider elite women's race started the next morning with riders describing the omission as shocking and commercially damaging. Roughly an hour after the start, the UCI said the local organizer had no television production, directed fans to social posts and lap times, and promised highlights during the men's show. In the same statement it made television production for both elite races mandatory beginning in 2024. Kasia Niewiadoma then won her first gravel race with a solo attack, earning her first victory since 2019 and a rainbow jersey that viewers could not watch live. Post-event reporting said coverage had not been mandatory when the event was awarded and quoted a later UCI bid guide in which television production remained non-compulsory. The 2024 championship subsequently carried an official live stream of the elite women's race.",
+  "take": "Model draft, not Matti's approved view: Gravel spent years advertising equal distance and equal prize money as proof it had escaped road cycling's old bullshit. Then its world championship assembled 110 women, including Kasia Niewiadoma at her first gravel race, and televised none of it. The men got 90 minutes the next day. Fans were invited to watch lap times and social posts, which is roughly how you cover a world title if your broadcast truck is a spreadsheet. The UCI's apology arrived after the race had started; its useful sentence arrived with it: both elite races would be mandatory television from 2024. That's the whole lesson. A value is not operational because everybody nods when you say it. Put it in the hosting contract, fund it, and make failure impossible—or admit it was branding.",
+  "takeProvenance": "model_draft",
+  "uncertainty": "The reviewed evidence does not disclose the organizer's production budget, contractual negotiations, why the UCI learned or acted when it did, or which party could have funded emergency coverage. Contemporary reporting says the location and organizer changed seven weeks before the event, which materially constrained delivery. No audience, sponsorship, or athlete-income data isolates the damage caused by this one missing broadcast. The evidence supports unequal production and a reactive policy change, not a claim that organizers intentionally suppressed the women's race.",
+  "editorialScore": 98,
+  "editorialGates": {
+    "party": "pass",
+    "point": "pass",
+    "friend": "pass",
+    "craft": "pass",
+    "hostileEditor": "pass"
+  },
+  "contemporaryReceipts": [
+    {
+      "claimId": "claim_worlds_women_no_broadcast_men_90_minutes_2023",
+      "canonicalUrl": "https://www.cyclingweekly.com/news/no-live-coverage-of-2023-uci-gravel-world-championships-womens-race",
+      "publisher": "Cycling Weekly",
+      "publishedAt": "2023-10-07T00:00:00Z",
+      "quoteExcerpt": "90 minutes of footage from the men's race on GCN+ but nothing from the women's",
+      "transcriptStartSeconds": null,
+      "transcriptEndSeconds": null
+    },
+    {
+      "claimId": "claim_worlds_rider_reaction_and_statement_timing_2023",
+      "canonicalUrl": "https://velo.outsideonline.com/gravel/gravel-racing/riders-react-to-lack-of-tv-coverage-at-uci-gravel-world-championships-its-so-disappointing/",
+      "publisher": "Velo",
+      "publishedAt": "2023-10-07T06:27:00Z",
+      "quoteExcerpt": "The announcement came one hour after the elite women's race had started",
+      "transcriptStartSeconds": null,
+      "transcriptEndSeconds": null
+    },
+    {
+      "claimId": "claim_uci_acknowledged_no_production_2023",
+      "canonicalUrl": "https://www.uci.org/pressrelease/uci-statement-on-the-uci-gravel-world-championships/1kzrA9bjRqOjW2vofdK8s1",
+      "publisher": "UCI",
+      "publishedAt": "2023-10-07T08:00:00Z",
+      "quoteExcerpt": "today's Women Elite race will not be broadcasted live due to no TV production",
+      "transcriptStartSeconds": null,
+      "transcriptEndSeconds": null
+    },
+    {
+      "claimId": "claim_uci_mandated_equal_production_from_2024",
+      "canonicalUrl": "https://www.uci.org/pressrelease/uci-statement-on-the-uci-gravel-world-championships/1kzrA9bjRqOjW2vofdK8s1",
+      "publisher": "UCI",
+      "publishedAt": "2023-10-07T08:00:00Z",
+      "quoteExcerpt": "mandatory for event organisers to provide TV production for both the Men Elite and the Women Elite races",
+      "transcriptStartSeconds": null,
+      "transcriptEndSeconds": null
+    },
+    {
+      "claimId": "claim_niewiadoma_first_gravel_race_world_title_2023",
+      "canonicalUrl": "https://www.cyclingnews.com/news/a-victory-that-repays-an-entire-season-niewiadoma-claims-world-title-at-first-gravel-race/",
+      "publisher": "Cyclingnews",
+      "publishedAt": "2023-10-07T18:00:00Z",
+      "quoteExcerpt": "claims world title at first gravel race",
+      "transcriptStartSeconds": null,
+      "transcriptEndSeconds": null
+    },
+    {
+      "claimId": "claim_worlds_tv_not_compulsory_in_bid_materials_2023",
+      "canonicalUrl": "https://www.cyclingnews.com/features/2023-uci-gravel-world-championships-conclusions/",
+      "publisher": "Cyclingnews",
+      "publishedAt": "2023-10-09T12:00:00Z",
+      "quoteExcerpt": "television production is not compulsory",
+      "transcriptStartSeconds": null,
+      "transcriptEndSeconds": null
+    }
+  ],
+  "laterEvidence": [
+    {
+      "claimId": "claim_uci_streamed_womens_gravel_worlds_2024",
+      "canonicalUrl": "https://www.youtube.com/live/dbx8AJEbKEM",
+      "publisher": "UCI",
+      "publishedAt": "2024-10-05T10:00:00Z",
+      "quoteExcerpt": "LIVE - Women Elite Race | 2024 UCI Gravel World Championships",
+      "transcriptStartSeconds": null,
+      "transcriptEndSeconds": null
+    }
+  ],
+  "raceImpacts": [
+    {
+      "impactKind": "editorial_review",
+      "raceId": "gravel:uci-gravel-world-championships",
+      "fieldPath": "race.biased_opinion",
+      "claimIds": [
+        "claim_worlds_women_no_broadcast_men_90_minutes_2023",
+        "claim_worlds_rider_reaction_and_statement_timing_2023",
+        "claim_uci_acknowledged_no_production_2023",
+        "claim_uci_mandated_equal_production_from_2024",
+        "claim_niewiadoma_first_gravel_race_world_title_2023",
+        "claim_worlds_tv_not_compulsory_in_bid_materials_2023",
+        "claim_uci_streamed_womens_gravel_worlds_2024"
+      ],
+      "confidence": 0.99,
+      "owner": "Gravel God race editorial review",
+      "autoFixAllowed": false
+    }
+  ],
+  "humanApprovalRequired": true,
+  "autoPublishAllowed": false,
+  "editorialApproval": null,
+  "publishedAt": null,
+  "updatedAt": "2026-08-28T07:10:00Z",
+  "contentHash": "7dadbd84e1cfd8d085be8307270b1be19926475269756171fb44e01db388cee9"
+}

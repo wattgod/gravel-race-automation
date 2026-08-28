@@ -602,7 +602,7 @@ def test_historical_drafts_never_cross_the_public_loader(tmp_path):
     assert [entry["entryId"] for entry in load_public_history_entries(tmp_path)] == [approved["entryId"]]
 
 
-def test_2025_backfill_ledger_preserves_the_complete_census_without_claiming_review():
+def test_2025_backfill_ledger_preserves_the_complete_assigning_desk_review():
     histories = load_history_entries(ROOT / "data" / "gravel-weekly" / "history")
     ledger = json.loads((ROOT / "data" / "gravel-weekly" / "backfill" / "2025.json").read_text())
     validated = validate_backfill_ledger(ledger, histories)
@@ -610,9 +610,11 @@ def test_2025_backfill_ledger_preserves_the_complete_census_without_claiming_rev
     assert len(validated["weeks"]) == 53
     assert sum(week["sourceCardCount"] for week in validated["weeks"]) == 255
     assert sum(week["disposition"] == "explicit_gap" for week in validated["weeks"]) == 5
-    assert sum(week["disposition"] == "pending_review" for week in validated["weeks"]) == 34
-    assert sum(week["disposition"] == "covered_by_draft" for week in validated["weeks"]) == 14
-    assert validated["complete"] is False
+    assert sum(week["disposition"] == "pending_review" for week in validated["weeks"]) == 0
+    assert sum(week["disposition"] == "covered_by_draft" for week in validated["weeks"]) == 15
+    assert sum(week["disposition"] == "held_for_evidence" for week in validated["weeks"]) == 13
+    assert sum(week["disposition"] == "rejected" for week in validated["weeks"]) == 20
+    assert validated["complete"] is True
 
 
 def test_2026_backfill_ledger_accounts_for_every_window_without_claiming_completion():

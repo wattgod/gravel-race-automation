@@ -91,7 +91,7 @@
   "raceImpacts": [
     {
       "impactKind": "editorial_review",
-      "raceId": "gravel:unbound-gravel-200",
+      "raceId": "gravel:unbound-200",
       "fieldPath": "race.biased_opinion",
       "claimIds": [
         "claim_lifetime_2025_wildcard_structure_announced",
@@ -105,7 +105,7 @@
     },
     {
       "impactKind": "editorial_review",
-      "raceId": "gravel:big-sugar-gravel",
+      "raceId": "gravel:big-sugar",
       "fieldPath": "race.biased_opinion",
       "claimIds": [
         "claim_jones_little_sugar_moved_within_one_point_2025",
@@ -122,5 +122,5 @@
   "editorialApproval": null,
   "publishedAt": null,
   "updatedAt": "2026-08-28T04:50:00Z",
-  "contentHash": "8cdd9f93d3bdcc5a12969723b3f4b858646a5d4f686a1e8bc15ebf72b14057ab"
+  "contentHash": "977170b6f07d011e57577d46f56174e966548b9db850091fcc4fac60af88f44e"
 }

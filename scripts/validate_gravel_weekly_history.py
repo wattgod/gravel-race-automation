@@ -16,6 +16,16 @@ from validate_gravel_weekly import IssueValidationError, _impact, _iso, _list, _
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 HISTORY_DIR = PROJECT_ROOT / "data" / "gravel-weekly" / "history"
 PASSING_GATES = {"party", "point", "friend", "craft", "hostileEditor"}
+DEPRECATED_HISTORICAL_RACE_IDS = {
+    "gravel:big-sugar-gravel": "gravel:big-sugar",
+    "gravel:gravel-locos-150": "gravel:gravel-locos",
+    "gravel:rad-dirt-fest": "gravel:the-rad",
+    "gravel:sbt-grvl": "gravel:steamboat-gravel",
+    "gravel:uci-gravel-world-championships": "gravel:uci-gravel-worlds",
+    "gravel:unbound-gravel": "gravel:unbound-200",
+    "gravel:unbound-gravel-200": "gravel:unbound-200",
+    "gravel:usa-cycling-gravel-national-championships": "gravel:usa-cycling-gravel-nationals",
+}
 
 
 def _day(value: Any, name: str) -> str:
@@ -125,6 +135,13 @@ def validate_history_entry(value: Any, *, verify_hash: bool = True) -> dict[str,
 
     for index, impact_value in enumerate(_list(entry.get("raceImpacts"), "raceImpacts", 100)):
         impact = _impact(impact_value, f"raceImpacts[{index}]")
+        if impact["impactKind"] != "editorial_review":
+            raise IssueValidationError("historical race impacts must be editorial_review")
+        replacement = DEPRECATED_HISTORICAL_RACE_IDS.get(impact["raceId"])
+        if replacement:
+            raise IssueValidationError(
+                f"raceImpacts[{index}].raceId is deprecated; use {replacement}"
+            )
         missing = set(impact["claimIds"]) - claim_ids
         if missing:
             raise IssueValidationError(f"raceImpacts[{index}] references claims without historical receipts: {sorted(missing)}")

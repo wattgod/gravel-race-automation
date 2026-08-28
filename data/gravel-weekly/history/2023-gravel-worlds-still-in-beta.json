@@ -15,26 +15,122 @@
   "takeProvenance": "model_draft",
   "uncertainty": "The reviewed evidence does not disclose the complete contractual dispute, the UCI's internal timeline, the organizers' budget, or the exact date every route file reached athletes. Contemporary reporting describes the venue and organizer change as occurring seven weeks out, while the first public report reviewed here appeared a little more than six weeks before racing. Road content was disputed, but no independently audited surface breakdown is available here, and the UCI described substantial gravel and technical climbing. The evidence supports late organizational and route certainty plus first-race winners; it does not prove that planning instability caused the results or that road riders were structurally guaranteed to win.",
   "editorialScore": 98,
-  "editorialGates": {"party": "pass", "point": "pass", "friend": "pass", "craft": "pass", "hostileEditor": "pass"},
+  "editorialGates": {
+    "party": "pass",
+    "point": "pass",
+    "friend": "pass",
+    "craft": "pass",
+    "hostileEditor": "pass"
+  },
   "contemporaryReceipts": [
-    {"claimId": "claim_gravel_worlds_organizer_changed_six_weeks_out_2023", "canonicalUrl": "https://www.cyclingnews.com/news/late-changes-afoot-for-2023-uci-gravel-world-championships/", "publisher": "Cyclingnews", "publishedAt": "2023-08-24T00:00:00Z", "quoteExcerpt": "change to the organiser of the rainbow jersey event", "transcriptStartSeconds": null, "transcriptEndSeconds": null},
-    {"claimId": "claim_gravel_worlds_locations_before_full_route_2023", "canonicalUrl": "https://www.cyclingnews.com/news/uci-gravel-world-championships-moved-to-treviso-wait-for-full-route-detail-continues/", "publisher": "Cyclingnews", "publishedAt": "2023-09-10T00:00:00Z", "quoteExcerpt": "Race distances and full race routes have still to be revealed", "transcriptStartSeconds": null, "transcriptEndSeconds": null},
-    {"claimId": "claim_uci_gravel_worlds_full_course_released_2023", "canonicalUrl": "https://www.uci.org/pressrelease/2023-uci-gravel-world-championships-course-details-revealed/59DmS6oxuW2ygkGKhnrfth", "publisher": "UCI", "publishedAt": "2023-09-20T00:00:00Z", "quoteExcerpt": "Men Elite race covers 169km, while the Women Elite race spans 140km", "transcriptStartSeconds": null, "transcriptEndSeconds": null},
-    {"claimId": "claim_gravel_worlds_elevation_and_course_identity_debate_2023", "canonicalUrl": "https://www.cyclingnews.com/news/elevation-gain-doubled-in-uci-gravel-world-championships-routes-in-2023/", "publisher": "Cyclingnews", "publishedAt": "2023-09-20T18:09:46Z", "quoteExcerpt": "Elevation gain doubled in UCI Gravel World Championships routes in 2023", "transcriptStartSeconds": null, "transcriptEndSeconds": null},
-    {"claimId": "claim_gravel_worlds_grid_and_late_course_effects_2023", "canonicalUrl": "https://www.cyclingnews.com/news/start-grid-slots-key-as-team-usa-shapes-gravel-world-championships-strategies/", "publisher": "Cyclingnews", "publishedAt": "2023-10-05T00:00:00Z", "quoteExcerpt": "they just released the course a couple of weeks ago", "transcriptStartSeconds": null, "transcriptEndSeconds": null},
-    {"claimId": "claim_niewiadoma_mohoric_gravel_world_titles_2023", "canonicalUrl": "https://www.uci.org/article/uci-gravel-world-championships-niewiadoma-and-mohoric-claim-the-rainbow/2GcrMNspMDxwpRTcsOTG1y", "publisher": "UCI", "publishedAt": "2023-10-08T18:00:00Z", "quoteExcerpt": "crowned Kasia Niewiadoma and Matej Mohorič", "transcriptStartSeconds": null, "transcriptEndSeconds": null},
-    {"claimId": "claim_gravel_worlds_first_race_winners_2023", "canonicalUrl": "https://www.uci.org/article/uci-gravel-world-championships-road-stars-tamemaster-the-gravel-races/5FZrEskGPZkxMJCAQ01V1x", "publisher": "UCI", "publishedAt": "2023-10-10T00:00:00Z", "quoteExcerpt": "It was my first gravel race", "transcriptStartSeconds": null, "transcriptEndSeconds": null},
-    {"claimId": "claim_gravel_worlds_test_event_and_support_imbalance_2023", "canonicalUrl": "https://www.cyclingnews.com/features/2023-uci-gravel-world-championships-conclusions/", "publisher": "Cyclingnews", "publishedAt": "2023-10-09T12:00:00Z", "quoteExcerpt": "arguably improvised test events for the years to come", "transcriptStartSeconds": null, "transcriptEndSeconds": null},
-    {"claimId": "claim_gravel_worlds_2024_course_known_earlier_2023", "canonicalUrl": "https://www.cyclingnews.com/features/2023-uci-gravel-world-championships-conclusions/", "publisher": "Cyclingnews", "publishedAt": "2023-10-09T12:00:00Z", "quoteExcerpt": "far more is known about the course for 2024", "transcriptStartSeconds": null, "transcriptEndSeconds": null}
+    {
+      "claimId": "claim_gravel_worlds_organizer_changed_six_weeks_out_2023",
+      "canonicalUrl": "https://www.cyclingnews.com/news/late-changes-afoot-for-2023-uci-gravel-world-championships/",
+      "publisher": "Cyclingnews",
+      "publishedAt": "2023-08-24T00:00:00Z",
+      "quoteExcerpt": "change to the organiser of the rainbow jersey event",
+      "transcriptStartSeconds": null,
+      "transcriptEndSeconds": null
+    },
+    {
+      "claimId": "claim_gravel_worlds_locations_before_full_route_2023",
+      "canonicalUrl": "https://www.cyclingnews.com/news/uci-gravel-world-championships-moved-to-treviso-wait-for-full-route-detail-continues/",
+      "publisher": "Cyclingnews",
+      "publishedAt": "2023-09-10T00:00:00Z",
+      "quoteExcerpt": "Race distances and full race routes have still to be revealed",
+      "transcriptStartSeconds": null,
+      "transcriptEndSeconds": null
+    },
+    {
+      "claimId": "claim_uci_gravel_worlds_full_course_released_2023",
+      "canonicalUrl": "https://www.uci.org/pressrelease/2023-uci-gravel-world-championships-course-details-revealed/59DmS6oxuW2ygkGKhnrfth",
+      "publisher": "UCI",
+      "publishedAt": "2023-09-20T00:00:00Z",
+      "quoteExcerpt": "Men Elite race covers 169km, while the Women Elite race spans 140km",
+      "transcriptStartSeconds": null,
+      "transcriptEndSeconds": null
+    },
+    {
+      "claimId": "claim_gravel_worlds_elevation_and_course_identity_debate_2023",
+      "canonicalUrl": "https://www.cyclingnews.com/news/elevation-gain-doubled-in-uci-gravel-world-championships-routes-in-2023/",
+      "publisher": "Cyclingnews",
+      "publishedAt": "2023-09-20T18:09:46Z",
+      "quoteExcerpt": "Elevation gain doubled in UCI Gravel World Championships routes in 2023",
+      "transcriptStartSeconds": null,
+      "transcriptEndSeconds": null
+    },
+    {
+      "claimId": "claim_gravel_worlds_grid_and_late_course_effects_2023",
+      "canonicalUrl": "https://www.cyclingnews.com/news/start-grid-slots-key-as-team-usa-shapes-gravel-world-championships-strategies/",
+      "publisher": "Cyclingnews",
+      "publishedAt": "2023-10-05T00:00:00Z",
+      "quoteExcerpt": "they just released the course a couple of weeks ago",
+      "transcriptStartSeconds": null,
+      "transcriptEndSeconds": null
+    },
+    {
+      "claimId": "claim_niewiadoma_mohoric_gravel_world_titles_2023",
+      "canonicalUrl": "https://www.uci.org/article/uci-gravel-world-championships-niewiadoma-and-mohoric-claim-the-rainbow/2GcrMNspMDxwpRTcsOTG1y",
+      "publisher": "UCI",
+      "publishedAt": "2023-10-08T18:00:00Z",
+      "quoteExcerpt": "crowned Kasia Niewiadoma and Matej Mohorič",
+      "transcriptStartSeconds": null,
+      "transcriptEndSeconds": null
+    },
+    {
+      "claimId": "claim_gravel_worlds_first_race_winners_2023",
+      "canonicalUrl": "https://www.uci.org/article/uci-gravel-world-championships-road-stars-tamemaster-the-gravel-races/5FZrEskGPZkxMJCAQ01V1x",
+      "publisher": "UCI",
+      "publishedAt": "2023-10-10T00:00:00Z",
+      "quoteExcerpt": "It was my first gravel race",
+      "transcriptStartSeconds": null,
+      "transcriptEndSeconds": null
+    },
+    {
+      "claimId": "claim_gravel_worlds_test_event_and_support_imbalance_2023",
+      "canonicalUrl": "https://www.cyclingnews.com/features/2023-uci-gravel-world-championships-conclusions/",
+      "publisher": "Cyclingnews",
+      "publishedAt": "2023-10-09T12:00:00Z",
+      "quoteExcerpt": "arguably improvised test events for the years to come",
+      "transcriptStartSeconds": null,
+      "transcriptEndSeconds": null
+    },
+    {
+      "claimId": "claim_gravel_worlds_2024_course_known_earlier_2023",
+      "canonicalUrl": "https://www.cyclingnews.com/features/2023-uci-gravel-world-championships-conclusions/",
+      "publisher": "Cyclingnews",
+      "publishedAt": "2023-10-09T12:00:00Z",
+      "quoteExcerpt": "far more is known about the course for 2024",
+      "transcriptStartSeconds": null,
+      "transcriptEndSeconds": null
+    }
   ],
   "laterEvidence": [],
   "raceImpacts": [
-    {"impactKind": "editorial_review", "raceId": "gravel:uci-gravel-world-championships", "fieldPath": "race.biased_opinion", "claimIds": ["claim_gravel_worlds_organizer_changed_six_weeks_out_2023", "claim_gravel_worlds_locations_before_full_route_2023", "claim_uci_gravel_worlds_full_course_released_2023", "claim_gravel_worlds_elevation_and_course_identity_debate_2023", "claim_gravel_worlds_grid_and_late_course_effects_2023", "claim_niewiadoma_mohoric_gravel_world_titles_2023", "claim_gravel_worlds_first_race_winners_2023", "claim_gravel_worlds_test_event_and_support_imbalance_2023", "claim_gravel_worlds_2024_course_known_earlier_2023"], "confidence": 0.97, "owner": "Gravel God race editorial review", "autoFixAllowed": false}
+    {
+      "impactKind": "editorial_review",
+      "raceId": "gravel:uci-gravel-worlds",
+      "fieldPath": "race.biased_opinion",
+      "claimIds": [
+        "claim_gravel_worlds_organizer_changed_six_weeks_out_2023",
+        "claim_gravel_worlds_locations_before_full_route_2023",
+        "claim_uci_gravel_worlds_full_course_released_2023",
+        "claim_gravel_worlds_elevation_and_course_identity_debate_2023",
+        "claim_gravel_worlds_grid_and_late_course_effects_2023",
+        "claim_niewiadoma_mohoric_gravel_world_titles_2023",
+        "claim_gravel_worlds_first_race_winners_2023",
+        "claim_gravel_worlds_test_event_and_support_imbalance_2023",
+        "claim_gravel_worlds_2024_course_known_earlier_2023"
+      ],
+      "confidence": 0.97,
+      "owner": "Gravel God race editorial review",
+      "autoFixAllowed": false
+    }
   ],
   "humanApprovalRequired": true,
   "autoPublishAllowed": false,
   "editorialApproval": null,
   "publishedAt": null,
   "updatedAt": "2026-08-28T08:10:00Z",
-  "contentHash": "951e4bdd8f792036539600eb5881bd82fc5e311062c993a8e2503cf60c057537"
+  "contentHash": "536c19964aec6a113df61eb62bfa4c1f324190cde31e5a3da5aabee42b7855c9"
 }

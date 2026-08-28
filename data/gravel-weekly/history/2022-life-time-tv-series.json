@@ -92,7 +92,7 @@
   "raceImpacts": [
     {
       "impactKind": "editorial_review",
-      "raceId": "gravel:unbound-gravel-200",
+      "raceId": "gravel:unbound-200",
       "fieldPath": "race.biased_opinion",
       "claimIds": [
         "claim_lifetime_grand_prix_launch_and_broadcast_promise_2022",
@@ -119,7 +119,7 @@
     },
     {
       "impactKind": "editorial_review",
-      "raceId": "gravel:big-sugar-gravel",
+      "raceId": "gravel:big-sugar",
       "fieldPath": "race.biased_opinion",
       "claimIds": [
         "claim_lifetime_broadcasts_ended_midseason_2022",
@@ -135,5 +135,5 @@
   "editorialApproval": null,
   "publishedAt": null,
   "updatedAt": "2026-08-28T16:35:00Z",
-  "contentHash": "52c6a4ee3f2de5f3d538d36b0d0d8c645a5ab603fbfca8db2896ba8a5227df8e"
+  "contentHash": "30da896ea73ec35e905fbbb3697868aff2654861ba5affbb840dc7df7366265b"
 }

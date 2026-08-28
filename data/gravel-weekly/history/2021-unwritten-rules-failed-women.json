@@ -101,7 +101,7 @@
   "raceImpacts": [
     {
       "impactKind": "editorial_review",
-      "raceId": "gravel:unbound-gravel",
+      "raceId": "gravel:unbound-200",
       "fieldPath": "race.biased_opinion",
       "claimIds": [
         "claim_allison_says_rules_allowed_unequal_male_support_2021",
@@ -118,7 +118,7 @@
     },
     {
       "impactKind": "editorial_review",
-      "raceId": "gravel:sbt-grvl",
+      "raceId": "gravel:steamboat-gravel",
       "fieldPath": "race.biased_opinion",
       "claimIds": [
         "claim_cinch_tactics_legal_and_changed_sbt_field_2021",
@@ -137,5 +137,5 @@
   "editorialApproval": null,
   "publishedAt": null,
   "updatedAt": "2026-08-28T10:12:52Z",
-  "contentHash": "ff9b3cc1fa82075a40b1342fa2cf5325559622d51f1737a3ffe7004fa6744d77"
+  "contentHash": "d87bec48c2cc521980ef300c951e2f034ce1c065850bd0f68afbb664a391e271"
 }

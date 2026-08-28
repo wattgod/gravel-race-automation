@@ -82,7 +82,7 @@
   "raceImpacts": [
     {
       "impactKind": "editorial_review",
-      "raceId": "gravel:sbt-grvl",
+      "raceId": "gravel:steamboat-gravel",
       "fieldPath": "race.biased_opinion",
       "claimIds": [
         "claim_sbt_cancelled_and_launched_vrtl_2020"
@@ -93,7 +93,7 @@
     },
     {
       "impactKind": "editorial_review",
-      "raceId": "gravel:unbound-gravel",
+      "raceId": "gravel:unbound-200",
       "fieldPath": "race.biased_opinion",
       "claimIds": [
         "claim_dirty_kanzelled_distributed_substitute_2020",
@@ -111,5 +111,5 @@
   "editorialApproval": null,
   "publishedAt": null,
   "updatedAt": "2026-08-28T20:15:00Z",
-  "contentHash": "42553fc4ab0b7d9b76c907f1d898167745e188414dc54686c1c0c60b49ef7088"
+  "contentHash": "f7f8df73f2799717550fdc2aba42644403eb49d3fbc54f251495a7c8e6d1d8c6"
 }

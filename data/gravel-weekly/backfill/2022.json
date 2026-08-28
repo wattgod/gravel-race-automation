@@ -283,9 +283,11 @@
       "periodStartedAt": "2022-07-30",
       "periodEndedAt": "2022-08-05",
       "sourceCardCount": 1,
-      "disposition": "pending_review",
-      "entryIds": [],
-      "reason": "Source census complete; assigning-desk research and disposition remain pending."
+      "disposition": "covered_by_draft",
+      "entryIds": [
+        "history-worlds-qualifying-before-address-2022"
+      ],
+      "reason": "Jingle GX supplied the concrete downstream consequence: a planned U.S. qualifier canceled after organizers cited the compressed timeline and championship uncertainty."
     },
     {
       "periodStartedAt": "2022-08-06",
@@ -474,5 +476,5 @@
       "reason": "Cyclingnews exposed no matching source card; preserve the quiet window."
     }
   ],
-  "updatedAt": "2026-08-28T18:00:00Z"
+  "updatedAt": "2026-08-28T18:30:00Z"
 }

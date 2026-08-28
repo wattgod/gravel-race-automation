@@ -1,0 +1,316 @@
+{
+  "schemaVersion": "gravel-weekly-backfill-ledger/v1",
+  "year": 2026,
+  "asOf": "2026-08-27T23:59:59.000Z",
+  "sourceLedgerIssue": "https://github.com/wattgod/race-intelligence-control-plane/issues/36",
+  "sourceLedgerRun": "https://github.com/wattgod/race-intelligence-control-plane/actions/runs/33133357634",
+  "programIssue": "https://github.com/wattgod/race-intelligence-control-plane/issues/47",
+  "sourceCardCount": 230,
+  "complete": false,
+  "humanApprovalRequired": true,
+  "autoPublishAllowed": false,
+  "weeks": [
+    {
+      "periodStartedAt": "2025-12-27",
+      "periodEndedAt": "2026-01-02",
+      "sourceCardCount": 0,
+      "disposition": "explicit_gap",
+      "entryIds": [],
+      "reason": "Cyclingnews exposed no matching source card; preserve the quiet window."
+    },
+    {
+      "periodStartedAt": "2026-01-03",
+      "periodEndedAt": "2026-01-09",
+      "sourceCardCount": 1,
+      "disposition": "pending_review",
+      "entryIds": [],
+      "reason": "Census complete; no assigning-desk disposition recorded yet."
+    },
+    {
+      "periodStartedAt": "2026-01-10",
+      "periodEndedAt": "2026-01-16",
+      "sourceCardCount": 3,
+      "disposition": "pending_review",
+      "entryIds": [],
+      "reason": "Census complete; no assigning-desk disposition recorded yet."
+    },
+    {
+      "periodStartedAt": "2026-01-17",
+      "periodEndedAt": "2026-01-23",
+      "sourceCardCount": 3,
+      "disposition": "pending_review",
+      "entryIds": [],
+      "reason": "Leadville equipment-boundary lead remains held; this window still needs a final disposition."
+    },
+    {
+      "periodStartedAt": "2026-01-24",
+      "periodEndedAt": "2026-01-30",
+      "sourceCardCount": 2,
+      "disposition": "pending_review",
+      "entryIds": [],
+      "reason": "Census complete; no assigning-desk disposition recorded yet."
+    },
+    {
+      "periodStartedAt": "2026-01-31",
+      "periodEndedAt": "2026-02-06",
+      "sourceCardCount": 2,
+      "disposition": "pending_review",
+      "entryIds": [],
+      "reason": "Census complete; no assigning-desk disposition recorded yet."
+    },
+    {
+      "periodStartedAt": "2026-02-07",
+      "periodEndedAt": "2026-02-13",
+      "sourceCardCount": 8,
+      "disposition": "covered_by_draft",
+      "entryIds": [
+        "history-unbound-teamification-2026"
+      ],
+      "reason": "The pre-season privateer-versus-team thesis is preserved in the Unbound teamification draft."
+    },
+    {
+      "periodStartedAt": "2026-02-14",
+      "periodEndedAt": "2026-02-20",
+      "sourceCardCount": 4,
+      "disposition": "pending_review",
+      "entryIds": [],
+      "reason": "Census complete; no assigning-desk disposition recorded yet."
+    },
+    {
+      "periodStartedAt": "2026-02-21",
+      "periodEndedAt": "2026-02-27",
+      "sourceCardCount": 5,
+      "disposition": "pending_review",
+      "entryIds": [],
+      "reason": "Census complete; no assigning-desk disposition recorded yet."
+    },
+    {
+      "periodStartedAt": "2026-02-28",
+      "periodEndedAt": "2026-03-06",
+      "sourceCardCount": 7,
+      "disposition": "pending_review",
+      "entryIds": [],
+      "reason": "Census complete; no assigning-desk disposition recorded yet."
+    },
+    {
+      "periodStartedAt": "2026-03-07",
+      "periodEndedAt": "2026-03-13",
+      "sourceCardCount": 13,
+      "disposition": "pending_review",
+      "entryIds": [],
+      "reason": "Census complete; no assigning-desk disposition recorded yet."
+    },
+    {
+      "periodStartedAt": "2026-03-14",
+      "periodEndedAt": "2026-03-20",
+      "sourceCardCount": 4,
+      "disposition": "covered_by_draft",
+      "entryIds": [
+        "history-life-time-admissions-office-2026",
+        "history-organizer-controlled-safety-2026"
+      ],
+      "reason": "The Life Time institutional-policy and Mid South media-vehicle change-points both have dated receipts in this window."
+    },
+    {
+      "periodStartedAt": "2026-03-21",
+      "periodEndedAt": "2026-03-27",
+      "sourceCardCount": 5,
+      "disposition": "pending_review",
+      "entryIds": [],
+      "reason": "Census complete; no assigning-desk disposition recorded yet."
+    },
+    {
+      "periodStartedAt": "2026-03-28",
+      "periodEndedAt": "2026-04-03",
+      "sourceCardCount": 7,
+      "disposition": "covered_by_draft",
+      "entryIds": [
+        "history-life-time-admissions-office-2026"
+      ],
+      "reason": "Life Time's pregnancy-protection announcement advances the career-institution draft."
+    },
+    {
+      "periodStartedAt": "2026-04-04",
+      "periodEndedAt": "2026-04-10",
+      "sourceCardCount": 3,
+      "disposition": "pending_review",
+      "entryIds": [],
+      "reason": "Census complete; no assigning-desk disposition recorded yet."
+    },
+    {
+      "periodStartedAt": "2026-04-11",
+      "periodEndedAt": "2026-04-17",
+      "sourceCardCount": 9,
+      "disposition": "pending_review",
+      "entryIds": [],
+      "reason": "Census complete; no assigning-desk disposition recorded yet."
+    },
+    {
+      "periodStartedAt": "2026-04-18",
+      "periodEndedAt": "2026-04-24",
+      "sourceCardCount": 6,
+      "disposition": "pending_review",
+      "entryIds": [],
+      "reason": "Census complete; no assigning-desk disposition recorded yet."
+    },
+    {
+      "periodStartedAt": "2026-04-25",
+      "periodEndedAt": "2026-05-01",
+      "sourceCardCount": 11,
+      "disposition": "pending_review",
+      "entryIds": [],
+      "reason": "Census complete; no assigning-desk disposition recorded yet."
+    },
+    {
+      "periodStartedAt": "2026-05-02",
+      "periodEndedAt": "2026-05-08",
+      "sourceCardCount": 11,
+      "disposition": "pending_review",
+      "entryIds": [],
+      "reason": "The Traka women's-race traffic lead still requires measured GPS, wave, and rider evidence."
+    },
+    {
+      "periodStartedAt": "2026-05-09",
+      "periodEndedAt": "2026-05-15",
+      "sourceCardCount": 6,
+      "disposition": "pending_review",
+      "entryIds": [],
+      "reason": "Census complete; no assigning-desk disposition recorded yet."
+    },
+    {
+      "periodStartedAt": "2026-05-16",
+      "periodEndedAt": "2026-05-22",
+      "sourceCardCount": 6,
+      "disposition": "covered_by_draft",
+      "entryIds": [
+        "history-organizer-controlled-safety-2026"
+      ],
+      "reason": "The verified 2025-to-2026 UNBOUND feed-rule delta advances the organizer-controlled safety draft."
+    },
+    {
+      "periodStartedAt": "2026-05-23",
+      "periodEndedAt": "2026-05-29",
+      "sourceCardCount": 20,
+      "disposition": "covered_by_draft",
+      "entryIds": [
+        "history-unbound-teamification-2026"
+      ],
+      "reason": "Pre-Unbound reporting establishes the live uncertainty over whether in-race team tactics could matter."
+    },
+    {
+      "periodStartedAt": "2026-05-30",
+      "periodEndedAt": "2026-06-05",
+      "sourceCardCount": 27,
+      "disposition": "covered_by_draft",
+      "entryIds": [
+        "history-unbound-teamification-2026"
+      ],
+      "reason": "Race chronology, the wheel sacrifice, the 1-2-5 result, and instrumented bike development complete the Unbound teamification mechanism."
+    },
+    {
+      "periodStartedAt": "2026-06-06",
+      "periodEndedAt": "2026-06-12",
+      "sourceCardCount": 6,
+      "disposition": "covered_by_draft",
+      "entryIds": [
+        "history-life-time-admissions-office-2026"
+      ],
+      "reason": "Life Time's expanded and funded U23 pathway advances the career-institution draft."
+    },
+    {
+      "periodStartedAt": "2026-06-13",
+      "periodEndedAt": "2026-06-19",
+      "sourceCardCount": 5,
+      "disposition": "covered_by_draft",
+      "entryIds": [
+        "history-organizer-controlled-safety-2026"
+      ],
+      "reason": "Multi-rider reporting connects media, intersection, and feed risks while documenting the benefits and resource costs of UNBOUND's changes."
+    },
+    {
+      "periodStartedAt": "2026-06-20",
+      "periodEndedAt": "2026-06-26",
+      "sourceCardCount": 6,
+      "disposition": "pending_review",
+      "entryIds": [],
+      "reason": "Census complete; no assigning-desk disposition recorded yet."
+    },
+    {
+      "periodStartedAt": "2026-06-27",
+      "periodEndedAt": "2026-07-03",
+      "sourceCardCount": 4,
+      "disposition": "covered_by_draft",
+      "entryIds": [
+        "history-life-time-admissions-office-2026"
+      ],
+      "reason": "Life Time's midseason wildcard replacements advance the career-institution draft."
+    },
+    {
+      "periodStartedAt": "2026-07-04",
+      "periodEndedAt": "2026-07-10",
+      "sourceCardCount": 1,
+      "disposition": "pending_review",
+      "entryIds": [],
+      "reason": "Census complete; no assigning-desk disposition recorded yet."
+    },
+    {
+      "periodStartedAt": "2026-07-11",
+      "periodEndedAt": "2026-07-17",
+      "sourceCardCount": 5,
+      "disposition": "pending_review",
+      "entryIds": [],
+      "reason": "Census complete; no assigning-desk disposition recorded yet."
+    },
+    {
+      "periodStartedAt": "2026-07-18",
+      "periodEndedAt": "2026-07-24",
+      "sourceCardCount": 4,
+      "disposition": "pending_review",
+      "entryIds": [],
+      "reason": "Census complete; no assigning-desk disposition recorded yet."
+    },
+    {
+      "periodStartedAt": "2026-07-25",
+      "periodEndedAt": "2026-07-31",
+      "sourceCardCount": 1,
+      "disposition": "pending_review",
+      "entryIds": [],
+      "reason": "Census complete; no assigning-desk disposition recorded yet."
+    },
+    {
+      "periodStartedAt": "2026-08-01",
+      "periodEndedAt": "2026-08-07",
+      "sourceCardCount": 7,
+      "disposition": "pending_review",
+      "entryIds": [],
+      "reason": "Census complete; no assigning-desk disposition recorded yet."
+    },
+    {
+      "periodStartedAt": "2026-08-08",
+      "periodEndedAt": "2026-08-14",
+      "sourceCardCount": 10,
+      "disposition": "covered_by_draft",
+      "entryIds": [
+        "history-life-time-admissions-office-2026"
+      ],
+      "reason": "Life Time's performance-based 2027 qualifier advances the career-institution draft."
+    },
+    {
+      "periodStartedAt": "2026-08-15",
+      "periodEndedAt": "2026-08-21",
+      "sourceCardCount": 5,
+      "disposition": "pending_review",
+      "entryIds": [],
+      "reason": "Census complete; no assigning-desk disposition recorded yet."
+    },
+    {
+      "periodStartedAt": "2026-08-22",
+      "periodEndedAt": "2026-08-28",
+      "sourceCardCount": 13,
+      "disposition": "pending_review",
+      "entryIds": [],
+      "reason": "The Bonk Bros pass produced research leads, but no lead has yet cleared verification and editorial disposition."
+    }
+  ],
+  "updatedAt": "2026-08-28T03:05:00Z"
+}

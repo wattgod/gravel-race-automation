@@ -1,0 +1,125 @@
+{
+  "schemaVersion": "gravel-weekly-history-entry/v1",
+  "entryId": "history-organizer-controlled-safety-2026",
+  "activeFrom": "2026-03-13",
+  "activeThrough": "2026-06-17",
+  "status": "draft",
+  "headline": "Professional Gravel Built the Camera Car Before the Safety System",
+  "point": "Gravel's terrain is supposed to be dangerous; an accredited media vehicle, an unmanaged intersection, or a feed zone designed by the organizer is not terrain. In 2026 riders increasingly treated those controllable hazards as operational failures, and organizers began changing rules in response.",
+  "priorJudgment": "Open roads, chaotic feeds, mixed fields, and moving media were unpleasant but largely inseparable from the self-reliance and enormous footprint of mass-participation gravel racing.",
+  "changedJudgment": "Once the danger is created by the professional apparatus surrounding the race, self-reliance is no defense. Media operations, traffic control, and support-zone design require explicit standards, trained operators, and accountable review.",
+  "stakes": "The distinction determines whether riders must simply accept preventable injury risk, whether organizers learn across events, whether media access outranks athlete safety, and whether a safety improvement protects everyone or merely shifts cost onto riders with enough crew and money.",
+  "credibleOpposition": "A six-to-twelve-hour gravel race cannot be closed like a road circuit, natural and rider-created risk cannot be eliminated, the Mid South incident caused no injury, and early rider feedback indicates UNBOUND's longer elite-only feeds substantially improved safety despite logistical tradeoffs.",
+  "whatHappened": "At The Mid South, a media buggy carrying race coverage personnel drove into the line of the two leading women, forcing Sofía Gómez Villafañe and Paige Onweller to brake and swerve; the organizer called it an operational failure. UNBOUND's 2026 elite guide then replaced the prior two-checkpoint support model with three elite-only feed zones, prohibited elite support at amateur checkpoints, and introduced right-side feeding. After the race, riders said the separation and added space improved safety, while also warning that the three-zone logistics split scarce crew resources. By June, riders were publicly connecting media vehicles, intersections, and feeds as recurring organizer-controlled risks rather than isolated gravel chaos.",
+  "take": "Model draft, not Matti's approved view: Rocks are part of the product. Weather is part of the product. A camera buggy arriving in the leaders' line like a drunk mall cop is not part of the product. Gravel found money for livestreams, prize purses, and Formula 1 bike programs before it found a shared operating standard for the machines filming the race. That is not the spirit of gravel; it is unfinished event production. UNBOUND's new feeds show organizers can respond, but a safety fix that quietly requires three crews and endless resources is not finished either. Control the controllables, then publish what worked and what did not so the next promoter does not have to learn with somebody else's collarbone.",
+  "takeProvenance": "model_draft",
+  "uncertainty": "The available record does not quantify incident rates across races, prove that the UNBOUND changes were caused by the Mid South incident, establish whether the new feed design reduced risk under normal rather than mud-split field conditions, or supply a common organizer standard for media and intersection operations. The official guide dates are taken from verified PDF metadata; other source pages provide day-level publication dates normalized here to midnight UTC.",
+  "editorialScore": 96,
+  "editorialGates": {
+    "party": "pass",
+    "point": "pass",
+    "friend": "pass",
+    "craft": "pass",
+    "hostileEditor": "pass"
+  },
+  "contemporaryReceipts": [
+    {
+      "claimId": "claim_unbound_2025_two_checkpoint_support",
+      "canonicalUrl": "https://www.unboundgravel.com/wp-content/uploads/2025/05/2025LTGPTechGuideUNBOUNDGravel_FINAL.pdf",
+      "publisher": "UNBOUND Gravel",
+      "publishedAt": "2025-05-22T00:00:00Z",
+      "quoteExcerpt": "All elite athletes will be required to check in at Checkpoint 1 and Checkpoint 2.",
+      "transcriptStartSeconds": null,
+      "transcriptEndSeconds": null
+    },
+    {
+      "claimId": "claim_mid_south_media_vehicle_failure_2026",
+      "canonicalUrl": "https://www.cyclingnews.com/pro-cycling/racing/its-unacceptable-that-our-safety-keeps-being-compromised-for-the-shot-two-riders-almost-run-over-by-driver-of-media-vehicle-at-mid-south-gravel/",
+      "publisher": "Cyclingnews",
+      "publishedAt": "2026-03-16T00:00:00Z",
+      "quoteExcerpt": "This was an operational failure, and we own it",
+      "transcriptStartSeconds": null,
+      "transcriptEndSeconds": null
+    },
+    {
+      "claimId": "claim_unbound_2026_right_side_feeding",
+      "canonicalUrl": "https://www.unboundgravel.com/wp-content/uploads/2026/05/2026LTGPTechGuideUNBOUNDGravel.pdf",
+      "publisher": "UNBOUND Gravel",
+      "publishedAt": "2026-05-22T00:00:00Z",
+      "quoteExcerpt": "New in 2026 – All feeds must occur from the RIGHT side of the road.",
+      "transcriptStartSeconds": null,
+      "transcriptEndSeconds": null
+    },
+    {
+      "claimId": "claim_unbound_2026_elite_only_feeds",
+      "canonicalUrl": "https://www.unboundgravel.com/wp-content/uploads/2026/05/2026LTGPTechGuideUNBOUNDGravel.pdf",
+      "publisher": "UNBOUND Gravel",
+      "publishedAt": "2026-05-22T00:00:00Z",
+      "quoteExcerpt": "Elite athletes may NOT receive feeding, mechanical or any other support at the Amateur Checkpoints.",
+      "transcriptStartSeconds": null,
+      "transcriptEndSeconds": null
+    },
+    {
+      "claimId": "claim_riders_safety_priority_2026",
+      "canonicalUrl": "https://www.cyclingnews.com/pro-cycling/racing/i-would-trade-all-the-prize-money-for-safety-top-gravel-pros-voice-concerns-about-mayhem-with-media-vehicles-intersections-and-feed-zones/",
+      "publisher": "Cyclingnews",
+      "publishedAt": "2026-06-17T00:00:00Z",
+      "quoteExcerpt": "Safety should be number one. I would trade all the prize money for safety.",
+      "transcriptStartSeconds": null,
+      "transcriptEndSeconds": null
+    },
+    {
+      "claimId": "claim_unbound_separate_feeds_improved_safety_2026",
+      "canonicalUrl": "https://www.cyclingnews.com/pro-cycling/racing/i-would-trade-all-the-prize-money-for-safety-top-gravel-pros-voice-concerns-about-mayhem-with-media-vehicles-intersections-and-feed-zones/",
+      "publisher": "Cyclingnews",
+      "publishedAt": "2026-06-17T00:00:00Z",
+      "quoteExcerpt": "the elite feeds were separate so that improved safety",
+      "transcriptStartSeconds": null,
+      "transcriptEndSeconds": null
+    },
+    {
+      "claimId": "claim_unbound_feed_resource_tradeoff_2026",
+      "canonicalUrl": "https://www.cyclingnews.com/pro-cycling/racing/i-would-trade-all-the-prize-money-for-safety-top-gravel-pros-voice-concerns-about-mayhem-with-media-vehicles-intersections-and-feed-zones/",
+      "publisher": "Cyclingnews",
+      "publishedAt": "2026-06-17T00:00:00Z",
+      "quoteExcerpt": "Unless you have endless resources in this industry, which is pretty rare, I think it stressed a lot of people.",
+      "transcriptStartSeconds": null,
+      "transcriptEndSeconds": null
+    }
+  ],
+  "laterEvidence": [],
+  "raceImpacts": [
+    {
+      "impactKind": "editorial_review",
+      "raceId": "gravel:mid-south",
+      "fieldPath": "race.biased_opinion",
+      "claimIds": [
+        "claim_mid_south_media_vehicle_failure_2026"
+      ],
+      "confidence": 0.98,
+      "owner": "Gravel God race editorial review",
+      "autoFixAllowed": false
+    },
+    {
+      "impactKind": "editorial_review",
+      "raceId": "gravel:unbound-200",
+      "fieldPath": "race.biased_opinion",
+      "claimIds": [
+        "claim_unbound_2025_two_checkpoint_support",
+        "claim_unbound_2026_right_side_feeding",
+        "claim_unbound_2026_elite_only_feeds",
+        "claim_unbound_separate_feeds_improved_safety_2026",
+        "claim_unbound_feed_resource_tradeoff_2026"
+      ],
+      "confidence": 0.95,
+      "owner": "Gravel God race editorial review",
+      "autoFixAllowed": false
+    }
+  ],
+  "humanApprovalRequired": true,
+  "autoPublishAllowed": false,
+  "editorialApproval": null,
+  "publishedAt": null,
+  "updatedAt": "2026-08-28T03:05:00Z",
+  "contentHash": "b96ec00b4732e01f295da6f41c9fb5751da40cff3cd7c4fec955bced5c10458f"
+}

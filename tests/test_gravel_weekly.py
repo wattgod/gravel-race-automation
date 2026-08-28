@@ -24,6 +24,7 @@ from validate_gravel_weekly_history import (  # noqa: E402
     load_public_history_entries,
     validate_history_entry,
 )
+from validate_gravel_weekly_backfill import validate_backfill_ledger  # noqa: E402
 from send_gravel_weekly import SUBSCRIBER_SOURCES, build_email_html  # noqa: E402
 from prepare_gravel_weekly_issue import prepare_issue  # noqa: E402
 from approve_gravel_weekly_issue import approve_issue, build_decision_receipt  # noqa: E402
@@ -599,6 +600,33 @@ def test_historical_drafts_never_cross_the_public_loader(tmp_path):
         draft["entryId"],
     }
     assert [entry["entryId"] for entry in load_public_history_entries(tmp_path)] == [approved["entryId"]]
+
+
+def test_2026_backfill_ledger_accounts_for_every_window_without_claiming_completion():
+    histories = load_history_entries(ROOT / "data" / "gravel-weekly" / "history")
+    ledger = json.loads((ROOT / "data" / "gravel-weekly" / "backfill" / "2026.json").read_text())
+    validated = validate_backfill_ledger(ledger, histories)
+
+    assert len(validated["weeks"]) == 35
+    assert sum(week["sourceCardCount"] for week in validated["weeks"]) == 230
+    assert sum(week["disposition"] == "covered_by_draft" for week in validated["weeks"]) == 10
+    assert sum(week["disposition"] == "pending_review" for week in validated["weeks"]) == 24
+    assert validated["complete"] is False
+
+    missing_window = copy.deepcopy(ledger)
+    missing_window["weeks"].pop(10)
+    with pytest.raises(IssueValidationError, match="contiguous"):
+        validate_backfill_ledger(missing_window, histories)
+
+    dishonest_gap = copy.deepcopy(ledger)
+    dishonest_gap["weeks"][1]["disposition"] = "explicit_gap"
+    with pytest.raises(IssueValidationError, match="explicit gaps"):
+        validate_backfill_ledger(dishonest_gap, histories)
+
+    premature_completion = copy.deepcopy(ledger)
+    premature_completion["complete"] = True
+    with pytest.raises(IssueValidationError, match="no weekly window remains pending"):
+        validate_backfill_ledger(premature_completion, histories)
 
 
 def test_historical_timeline_visually_separates_later_evidence_from_contemporary_receipts():

@@ -609,8 +609,8 @@ def test_2026_backfill_ledger_accounts_for_every_window_without_claiming_complet
 
     assert len(validated["weeks"]) == 35
     assert sum(week["sourceCardCount"] for week in validated["weeks"]) == 230
-    assert sum(week["disposition"] == "covered_by_draft" for week in validated["weeks"]) == 10
-    assert sum(week["disposition"] == "pending_review" for week in validated["weeks"]) == 24
+    assert sum(week["disposition"] == "covered_by_draft" for week in validated["weeks"]) == 13
+    assert sum(week["disposition"] == "pending_review" for week in validated["weeks"]) == 21
     assert validated["complete"] is False
 
     missing_window = copy.deepcopy(ledger)

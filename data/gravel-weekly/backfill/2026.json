@@ -38,9 +38,11 @@
       "periodStartedAt": "2026-01-17",
       "periodEndedAt": "2026-01-23",
       "sourceCardCount": 3,
-      "disposition": "pending_review",
-      "entryIds": [],
-      "reason": "Leadville equipment-boundary lead remains held; this window still needs a final disposition."
+      "disposition": "covered_by_draft",
+      "entryIds": [
+        "history-leadville-category-border-2026"
+      ],
+      "reason": "Life Time's drop-bar prohibition establishes the opening category-boundary judgment later tested by Leadville's emergency course change."
     },
     {
       "periodStartedAt": "2026-01-24",
@@ -165,9 +167,11 @@
       "periodStartedAt": "2026-05-02",
       "periodEndedAt": "2026-05-08",
       "sourceCardCount": 11,
-      "disposition": "pending_review",
-      "entryIds": [],
-      "reason": "The Traka women's-race traffic lead still requires measured GPS, wave, and rider evidence."
+      "disposition": "covered_by_draft",
+      "entryIds": [
+        "history-traka-womens-traffic-tax-2026"
+      ],
+      "reason": "The Traka rules, two independent rider accounts, and the documented start-control failure support a narrow draft without claiming a result change."
     },
     {
       "periodStartedAt": "2026-05-09",
@@ -291,17 +295,20 @@
       "sourceCardCount": 10,
       "disposition": "covered_by_draft",
       "entryIds": [
+        "history-leadville-category-border-2026",
         "history-life-time-admissions-office-2026"
       ],
-      "reason": "Life Time's performance-based 2027 qualifier advances the career-institution draft."
+      "reason": "Life Time's performance-based 2027 qualifier advances the career-institution draft, while the verified Leadville reroute advances the equipment-category draft."
     },
     {
       "periodStartedAt": "2026-08-15",
       "periodEndedAt": "2026-08-21",
       "sourceCardCount": 5,
-      "disposition": "pending_review",
-      "entryIds": [],
-      "reason": "Census complete; no assigning-desk disposition recorded yet."
+      "disposition": "covered_by_draft",
+      "entryIds": [
+        "history-leadville-category-border-2026"
+      ],
+      "reason": "Post-race reporting tests the handlebar rule against the smoother wildfire-rerouted course while preserving the two-way-descent safety counterargument."
     },
     {
       "periodStartedAt": "2026-08-22",
@@ -312,5 +319,5 @@
       "reason": "The Bonk Bros pass produced research leads, but no lead has yet cleared verification and editorial disposition."
     }
   ],
-  "updatedAt": "2026-08-28T03:05:00Z"
+  "updatedAt": "2026-08-28T03:06:00Z"
 }

@@ -74,9 +74,11 @@
       "periodStartedAt": "2022-02-19",
       "periodEndedAt": "2022-02-25",
       "sourceCardCount": 2,
-      "disposition": "pending_review",
-      "entryIds": [],
-      "reason": "Source census complete; assigning-desk research and disposition remain pending."
+      "disposition": "covered_by_draft",
+      "entryIds": [
+        "history-worlds-qualifying-before-address-2022"
+      ],
+      "reason": "The leaked World Series calendar and premature Tuscany report opened the gap between the qualification product and the still-unsettled championship."
     },
     {
       "periodStartedAt": "2022-02-26",
@@ -106,17 +108,21 @@
       "periodStartedAt": "2022-03-19",
       "periodEndedAt": "2022-03-25",
       "sourceCardCount": 5,
-      "disposition": "pending_review",
-      "entryIds": [],
-      "reason": "Source census complete; assigning-desk research and disposition remain pending."
+      "disposition": "covered_by_draft",
+      "entryIds": [
+        "history-worlds-qualifying-before-address-2022"
+      ],
+      "reason": "The official 12-event series promised access to a World Championship whose venue was still deferred to a later announcement."
     },
     {
       "periodStartedAt": "2022-03-26",
       "periodEndedAt": "2022-04-01",
       "sourceCardCount": 3,
-      "disposition": "pending_review",
-      "entryIds": [],
-      "reason": "Source census complete; assigning-desk research and disposition remain pending."
+      "disposition": "covered_by_draft",
+      "entryIds": [
+        "history-worlds-qualifying-before-address-2022"
+      ],
+      "reason": "The UCI's opening-weekend preview confirmed that qualifying would begin with the championship date and location still unannounced."
     },
     {
       "periodStartedAt": "2022-04-02",
@@ -208,9 +214,10 @@
       "sourceCardCount": 12,
       "disposition": "covered_by_draft",
       "entryIds": [
-        "history-gravel-spirit-hr-job-2022"
+        "history-gravel-spirit-hr-job-2022",
+        "history-worlds-qualifying-before-address-2022"
       ],
-      "reason": "Women riders turned the equipment argument into the larger governance point: safety, drafting, and a separate race require organizer rules, not a men's agreement."
+      "reason": "Women riders showed why professional gravel needed organizer rules, while the official Veneto award showed that World Championship qualifiers had already begun before the destination was settled."
     },
     {
       "periodStartedAt": "2022-06-18",
@@ -310,9 +317,11 @@
       "periodStartedAt": "2022-09-03",
       "periodEndedAt": "2022-09-09",
       "sourceCardCount": 5,
-      "disposition": "pending_review",
-      "entryIds": [],
-      "reason": "Source census complete; assigning-desk research and disposition remain pending."
+      "disposition": "covered_by_draft",
+      "entryIds": [
+        "history-worlds-qualifying-before-address-2022"
+      ],
+      "reason": "The September 6 route release finally defined the championship test 32 days before the first race."
     },
     {
       "periodStartedAt": "2022-09-10",
@@ -457,5 +466,5 @@
       "reason": "Cyclingnews exposed no matching source card; preserve the quiet window."
     }
   ],
-  "updatedAt": "2026-08-28T16:35:00Z"
+  "updatedAt": "2026-08-28T17:15:00Z"
 }

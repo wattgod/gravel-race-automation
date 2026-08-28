@@ -88,6 +88,10 @@ def validate_backfill_ledger(value: Any, history_entries: list[dict[str, Any]]) 
         disposition = week.get("disposition")
         if disposition not in DISPOSITIONS:
             raise IssueValidationError(f"{name}.disposition is invalid")
+        if source_archive_coverage == "unavailable" and disposition == "explicit_gap":
+            raise IssueValidationError(
+                f"{name} cannot claim an explicit gap when source archive coverage is unavailable"
+            )
         entry_ids = [
             _text(entry_id_value, f"{name}.entryIds[{entry_index}]", 500)
             for entry_index, entry_id_value in enumerate(_list(week.get("entryIds"), f"{name}.entryIds", 20))

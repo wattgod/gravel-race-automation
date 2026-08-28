@@ -1,0 +1,110 @@
+{
+  "schemaVersion": "gravel-weekly-history-entry/v1",
+  "entryId": "history-almanzo-open-sourced-gravel-2009",
+  "activeFrom": "2009-05-16",
+  "activeThrough": "2009-10-31",
+  "status": "draft",
+  "headline": "Almanzo’s Most Important 2009 Result Was Another Race",
+  "point": "In 2009, the Almanzo 100 did more than stage a free, self-supported gravel race. Jeremy Kershaw rode it, drove home wanting to create something similar near Duluth, and built the inaugural Heck of the North. By October, Heck and Almanzo were listed together in a five-event series. Early gravel scaled because a good event gave riders a format they could copy, not a brand they had to license.",
+  "priorJudgment": "A sport grows when an established promoter expands, a governing body sanctions more events, or a commercial series places new races on a calendar.",
+  "changedJudgment": "The early gravel scene expanded through permissionless imitation. Riders experienced a compelling event, carried its operating ideas home, adapted them to different roads and communities, and then linked the resulting races together without waiting for a central owner.",
+  "stakes": "Gravel now talks constantly about protecting community while entry fees, media rights, ownership, and series consolidation pull events toward uniformity. The 2009 record supplies a harder standard: community was not decoration around the product. It was how the product reproduced.",
+  "credibleOpposition": "The causal link rests mainly on Kershaw's 2022 recollection and Chris Skogen's 2011 account, not a contemporaneous announcement that Almanzo directly caused Heck of the North. Kershaw also credits an earlier Red Wing race, and the Almanzo series had sponsors, points, and prizes, so this is not evidence that early gravel was purely noncommercial or allergic to structure.",
+  "whatHappened": "The 2009 Almanzo 100 ran in southern Minnesota on May 16. Organizer Chris Skogen later described the event as free, self-supported, and navigated by rider-held directions. An unedited 16mm sample uploaded by Skogen in July identifies footage from that year's race. Jeremy Kershaw later said he raced gravel events in Red Wing and Rochester that spring, was struck by their creativity, hospitality, and challenge, and began thinking on the drive home from Almanzo about creating something similar around Duluth. He spent months building a route and launched Heck of the North in 2009. On October 31, Guitar Ted reported that Almanzo, Ragnarok 105, the Gentleman's Ride, Heck of the North, and CIRREM had banded together as the Almanzo Gravel Road Series.",
+  "take": "Model draft, not Matti's approved view: In 2009, the most consequential thing to leave Almanzo was not a winner. It was Jeremy Kershaw driving north with the extremely inconvenient conviction that Duluth needed its own version. He had raced Almanzo, been flattened by its creativity, hospitality, and challenge, and started imagining Heck of the North on the ride home. By October, Heck was listed beside Almanzo and several other events in an actual series. This was gravel's primitive replication protocol: ride somebody else's free race, copy the emotional architecture, spend months squinting at paper maps, and invite everyone over. No franchise agreement. No territorial exclusivity. No licensing deck explaining how to preserve brand consistency. The early scene grew because its best product was not a race entry. It was the dangerous idea that you and your friends could make one too. Modern gravel loves to tell itself that community is the differentiator. In 2009, community was the distribution model.",
+  "takeProvenance": "model_draft",
+  "uncertainty": "The event date comes from a contemporary participant's 2009 calendar, while Vimeo establishes that the footage was captured during the 2009 Almanzo. The October series announcement is contemporary. Kershaw's account of conceiving Heck on the drive home and Skogen's account that Kershaw returned north and started it are retrospective but first-person. The evidence does not isolate Almanzo from the Red Wing event as Kershaw's sole inspiration, establish that every series event used identical rules, or show that copying was formally encouraged.",
+  "editorialScore": 98,
+  "editorialGates": {
+    "party": "pass",
+    "point": "pass",
+    "friend": "pass",
+    "craft": "pass",
+    "hostileEditor": "pass"
+  },
+  "contemporaryReceipts": [
+    {
+      "claimId": "claim_almanzo_date_2009",
+      "canonicalUrl": "https://cpfarrow.blogspot.com/",
+      "publisher": "Charlie Farrow's Amateur Bike Racing Website",
+      "publishedAt": "2009-03-08T12:00:00-06:00",
+      "quoteExcerpt": "May 16th Almanzo 100-- near Rochester",
+      "transcriptStartSeconds": null,
+      "transcriptEndSeconds": null
+    },
+    {
+      "claimId": "claim_almanzo_2009_film",
+      "canonicalUrl": "https://vimeo.com/5420419",
+      "publisher": "Chris Skogen on Vimeo",
+      "publishedAt": "2009-07-02T03:31:19Z",
+      "quoteExcerpt": "captured during the 2009 Almanzo 100",
+      "transcriptStartSeconds": null,
+      "transcriptEndSeconds": null
+    },
+    {
+      "claimId": "claim_almanzo_gravel_series_2009",
+      "canonicalUrl": "https://g-tedproductions.blogspot.com/2009/10/",
+      "publisher": "Guitar Ted Productions",
+      "publishedAt": "2009-10-31T01:00:00-05:00",
+      "quoteExcerpt": "under the radar classics are banding together",
+      "transcriptStartSeconds": null,
+      "transcriptEndSeconds": null
+    }
+  ],
+  "laterEvidence": [
+    {
+      "claimId": "claim_almanzo_inspired_heck_2022",
+      "canonicalUrl": "https://www.boreal.org/2022/05/12/399906/getting-to-know-jeremy-kershaw-gravel-cycling-and-hosting-cycling-events-around-cook-county",
+      "publisher": "Boreal Community Media",
+      "publishedAt": "2022-05-12T08:29:00-05:00",
+      "quoteExcerpt": "On the drive home from the Rochester race",
+      "transcriptStartSeconds": null,
+      "transcriptEndSeconds": null
+    },
+    {
+      "claimId": "claim_almanzo_free_replication_2011",
+      "canonicalUrl": "https://urbanvelo.org/issue26/urbanvelo26.pdf",
+      "publisher": "Urban Velo",
+      "publishedAt": "2011-07-01T12:00:00Z",
+      "quoteExcerpt": "They're happening in the same way",
+      "transcriptStartSeconds": null,
+      "transcriptEndSeconds": null
+    }
+  ],
+  "raceImpacts": [
+    {
+      "impactKind": "editorial_review",
+      "raceId": "gravel:spring-valley-100",
+      "fieldPath": "race.biased_opinion",
+      "claimIds": [
+        "claim_almanzo_date_2009",
+        "claim_almanzo_2009_film",
+        "claim_almanzo_gravel_series_2009",
+        "claim_almanzo_inspired_heck_2022",
+        "claim_almanzo_free_replication_2011"
+      ],
+      "confidence": 0.94,
+      "owner": "Gravel God race editorial review",
+      "autoFixAllowed": false
+    },
+    {
+      "impactKind": "editorial_review",
+      "raceId": "gravel:heck-of-the-north",
+      "fieldPath": "race.biased_opinion",
+      "claimIds": [
+        "claim_almanzo_gravel_series_2009",
+        "claim_almanzo_inspired_heck_2022",
+        "claim_almanzo_free_replication_2011"
+      ],
+      "confidence": 0.96,
+      "owner": "Gravel God race editorial review",
+      "autoFixAllowed": false
+    }
+  ],
+  "humanApprovalRequired": true,
+  "autoPublishAllowed": false,
+  "editorialApproval": null,
+  "publishedAt": null,
+  "updatedAt": "2026-08-28T17:00:00Z",
+  "contentHash": "f19fe9b44fef21031ef96cbf4679bc6f931e076a3c2079679d7757f3ca85aa84"
+}

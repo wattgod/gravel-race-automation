@@ -94,17 +94,21 @@
       "periodStartedAt": "2025-03-08",
       "periodEndedAt": "2025-03-14",
       "sourceCardCount": 6,
-      "disposition": "pending_review",
-      "entryIds": [],
-      "reason": "Source census complete; assigning-desk research and disposition remain pending."
+      "disposition": "covered_by_draft",
+      "entryIds": [
+        "history-mid-south-host-community-2025"
+      ],
+      "reason": "Oklahoma's March 14 emergency record establishes the public-resource crisis that forced the Mid South to treat its host community, not only its course, as part of event safety."
     },
     {
       "periodStartedAt": "2025-03-15",
       "periodEndedAt": "2025-03-21",
       "sourceCardCount": 3,
-      "disposition": "pending_review",
-      "entryIds": [],
-      "reason": "Source census complete; assigning-desk research and disposition remain pending."
+      "disposition": "covered_by_draft",
+      "entryIds": [
+        "history-mid-south-host-community-2025"
+      ],
+      "reason": "The cancellation statement, independent timing critique, official loss assessment, and defending champion's firsthand account support the host-community duty draft."
     },
     {
       "periodStartedAt": "2025-03-22",
@@ -435,5 +439,5 @@
       "reason": "Source census complete; assigning-desk research and disposition remain pending."
     }
   ],
-  "updatedAt": "2026-08-28T03:38:00Z"
+  "updatedAt": "2026-08-28T03:55:00Z"
 }

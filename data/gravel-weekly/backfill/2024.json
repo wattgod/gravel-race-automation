@@ -342,9 +342,11 @@
       "periodStartedAt": "2024-10-05",
       "periodEndedAt": "2024-10-11",
       "sourceCardCount": 17,
-      "disposition": "pending_review",
-      "entryIds": [],
-      "reason": "Source census complete; assigning-desk research and disposition remain pending."
+      "disposition": "covered_by_draft",
+      "entryIds": [
+        "history-vos-gravaa-proof-market-2024"
+      ],
+      "reason": "Vos's Gravel Worlds win converted Gravaa from a returned experiment into a race-proven technology story while leaving causality and consumer value unproved."
     },
     {
       "periodStartedAt": "2024-10-12",
@@ -398,9 +400,11 @@
       "periodStartedAt": "2024-11-23",
       "periodEndedAt": "2024-11-29",
       "sourceCardCount": 2,
-      "disposition": "pending_review",
-      "entryIds": [],
-      "reason": "Source census complete; assigning-desk research and disposition remain pending."
+      "disposition": "covered_by_draft",
+      "entryIds": [
+        "history-vos-gravaa-proof-market-2024"
+      ],
+      "reason": "Visma's post-title testing expanded a successful one-race demonstration into a Classics arms-race question that later commercial evidence sharply qualified."
     },
     {
       "periodStartedAt": "2024-11-30",
@@ -443,5 +447,5 @@
       "reason": "Cyclingnews exposed no matching source card; preserve the quiet window."
     }
   ],
-  "updatedAt": "2026-08-28T07:00:00Z"
+  "updatedAt": "2026-08-28T07:35:00Z"
 }

@@ -1,0 +1,107 @@
+{
+  "schemaVersion": "gravel-weekly-history-entry/v1",
+  "entryId": "history-first-divide-race-not-race-1999",
+  "activeFrom": "1999-08-01",
+  "activeThrough": "1999-10-31",
+  "status": "draft",
+  "headline": "The First Divide Race Insisted It Wasn't a Race",
+  "point": "In August 1999, John Stamstad rode the 2,465-mile U.S. Great Divide route in 18 days and five hours. The contemporary account called it a record attempt, while Stamstad distinguished his self-supported expedition from an organized race and then said he was interested in promoting a race on the course. That contradiction was the invention: a published route, a clock, and a repeatable support constraint created competition before an organizer, entry list, or common start did.",
+  "priorJudgment": "Tour Divide began when riders assembled for an organized race on the Great Divide Mountain Bike Route.",
+  "changedJudgment": "Divide racing began as a standing challenge. Stamstad's solo, self-supported time made the touring route competitively legible, and later riders could race the benchmark whenever conditions allowed without waiting for an event to exist.",
+  "stakes": "This is the operating system beneath modern bikepacking races. The organizer can be nearly absent because the route publisher, support rules, public record, and riders' willingness to recognize one another's efforts do the institutional work. It also explains why arguments over route fidelity and outside assistance are not side issues; they define whether two rides belong to the same competition.",
+  "credibleOpposition": "Stamstad himself resisted calling the ride an organized race, and the contemporary report described a self-supported expedition rather than a formal rulebook. Film crews leapfrogged him along the route, and he acknowledged recent sponsor support, so self-supported must not be misrepresented as financially unsupported or entirely unobserved. The formal Great Divide Race and Tour Divide came later.",
+  "whatHappened": "A MountainZone report dated August 1999 followed John Stamstad from Roosville, Montana, toward Antelope Wells, New Mexico, on Adventure Cycling's newly published Great Divide Mountain Bike Route. The report described the trip as a record-setting attempt and said Stamstad was quick to distinguish an organized race from a self-supported expedition. He rode 2,465 miles in 18 days and five hours, averaged about 135 miles a day, and stopped in towns for food and sleep. After finishing, he said he was interested in promoting a race on the course. Later Tour Divide history identified the performance as the first self-supported individual time trial on the route and described Divide racing as an open standing challenge with no on-the-ground administration. Cyclingnews reported in 2008 that the 1999 ride established the precedent and core self-support principle that later riders inherited.",
+  "take": "Model draft, not Matti's approved view: The first Divide race was a man insisting he was not racing. John Stamstad rode 2,465 miles from the Canadian border to Mexico in 18 days and five hours, called it a self-supported expedition, and then said he might promote a race on the course. Perfect. Gravel's cleanest institutions tend to appear before anybody has built a registration portal for them. Adventure Cycling supplied the route. Stamstad supplied a time worth chasing. Everyone after him supplied the agreement that getting food, finding sleep, fixing the bike, and staying on course were part of the result. The event came later. The race already existed because somebody had made the argument measurable.",
+  "takeProvenance": "model_draft",
+  "uncertainty": "MountainZone labels the report only as August 1999, so its receipts are conservatively indexed at August 31 rather than presented as a known publication day. The article says film crews documented the attempt but does not report that they assisted Stamstad. Later institutional sources call the ride the inaugural self-supported individual time trial and describe the standing challenge; those are retrospective classifications, not terminology imposed on Stamstad's own contemporary description.",
+  "editorialScore": 100,
+  "editorialGates": {
+    "party": "pass",
+    "point": "pass",
+    "friend": "pass",
+    "craft": "pass",
+    "hostileEditor": "pass"
+  },
+  "contemporaryReceipts": [
+    {
+      "claimId": "claim_stamstad_self_supported_distinction_1999",
+      "canonicalUrl": "https://www.mountainzone.com/mtbiking/99/features/stamstad/",
+      "publisher": "MountainZone",
+      "publishedAt": "1999-08-31T12:00:00-06:00",
+      "quoteExcerpt": "self-supported expedition like the Great Divide Mountain Bike Trail",
+      "transcriptStartSeconds": null,
+      "transcriptEndSeconds": null
+    },
+    {
+      "claimId": "claim_stamstad_divide_time_1999",
+      "canonicalUrl": "https://www.mountainzone.com/mtbiking/99/features/stamstad/",
+      "publisher": "MountainZone",
+      "publishedAt": "1999-08-31T12:00:00-06:00",
+      "quoteExcerpt": "18 days and five hours",
+      "transcriptStartSeconds": null,
+      "transcriptEndSeconds": null
+    },
+    {
+      "claimId": "claim_stamstad_considered_divide_race_1999",
+      "canonicalUrl": "https://www.mountainzone.com/mtbiking/99/features/stamstad/",
+      "publisher": "MountainZone",
+      "publishedAt": "1999-08-31T12:00:00-06:00",
+      "quoteExcerpt": "interested in promoting a race on that course",
+      "transcriptStartSeconds": null,
+      "transcriptEndSeconds": null
+    }
+  ],
+  "laterEvidence": [
+    {
+      "claimId": "claim_divide_open_standing_challenge_later",
+      "canonicalUrl": "https://tourdivide.org/caveat",
+      "publisher": "Tour Divide",
+      "publishedAt": "2011-12-31T12:00:00-07:00",
+      "quoteExcerpt": "an open, standing challenge (circa 1999)",
+      "transcriptStartSeconds": null,
+      "transcriptEndSeconds": null
+    },
+    {
+      "claimId": "claim_divide_precedent_self_support_2008",
+      "canonicalUrl": "https://www.cyclingnews.com/features/divide-racers-get-second-option/",
+      "publisher": "Cyclingnews",
+      "publishedAt": "2008-06-14T12:00:00-04:00",
+      "quoteExcerpt": "The precedent for Divide racing was established by John Stamstad in 1999",
+      "transcriptStartSeconds": null,
+      "transcriptEndSeconds": null
+    },
+    {
+      "claimId": "claim_stamstad_first_route_time_2019",
+      "canonicalUrl": "https://www.adventurecycling.org/blog/a-long-meditation/",
+      "publisher": "Adventure Cycling Association",
+      "publishedAt": "2019-06-25T12:00:00-06:00",
+      "quoteExcerpt": "the first to establish a time for the route",
+      "transcriptStartSeconds": null,
+      "transcriptEndSeconds": null
+    }
+  ],
+  "raceImpacts": [
+    {
+      "impactKind": "editorial_review",
+      "raceId": "gravel:tour-divide",
+      "fieldPath": "race.history",
+      "claimIds": [
+        "claim_stamstad_self_supported_distinction_1999",
+        "claim_stamstad_divide_time_1999",
+        "claim_stamstad_considered_divide_race_1999",
+        "claim_divide_open_standing_challenge_later",
+        "claim_divide_precedent_self_support_2008",
+        "claim_stamstad_first_route_time_2019"
+      ],
+      "confidence": 0.98,
+      "owner": "Gravel God race editorial review",
+      "autoFixAllowed": false
+    }
+  ],
+  "humanApprovalRequired": true,
+  "autoPublishAllowed": false,
+  "editorialApproval": null,
+  "publishedAt": null,
+  "updatedAt": "2026-08-28T18:45:00Z",
+  "contentHash": "1972a93fe393f6889b39394169c54606738ae258b1054e4a63f168c90499557e"
+}

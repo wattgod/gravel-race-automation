@@ -287,8 +287,9 @@ Rules:
 - Reference specific course features, weather data, logistics details from research
 - Lead with Gravel God's judgment. Never narrate the research process with "according to",
   "X notes/reports/describes/captures", "X's assessment rings true", or "As X puts it"
-- Keep memorable source language in quotation marks; the profile's citation section owns
-  source provenance, so the explanation should not read like a research handoff
+- Keep memorable source language in quotation marks; preserve numbered inline citation
+  markers like [1] on factual claims so they map to the profile's citation list. Never
+  invent a citation number. The explanation should not read like a research handoff
 - No generic filler ("amazing experience", "world-class")
 - If research lacks detail for a criterion, say what you know honestly
 - Output ONLY the JSON object, no markdown, no code blocks"""
@@ -483,7 +484,8 @@ Rules:
 - Reference specific course features, weather data, logistics details from research
 - Lead with Gravel God's judgment. Never narrate the research process with "according to",
   "X notes/reports/describes/captures", "X's assessment rings true", or "As X puts it"
-- Keep memorable source language in quotation marks; citations stay in the dedicated source list
+- Keep memorable source language in quotation marks; preserve numbered inline citation markers
+  like [1] on factual claims so they map to the dedicated source list. Never invent a number
 - No generic filler ("amazing experience", "world-class")
 - If research lacks detail for a criterion, say what you know honestly
 - Output ONLY the JSON object, no markdown, no code blocks"""

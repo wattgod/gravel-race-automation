@@ -17,6 +17,7 @@ sys.path.insert(0, str(PROJECT_ROOT / "scripts"))
 
 from brand_tokens import get_font_face_css, get_ga4_head_snippet, get_tokens_css  # noqa: E402
 from cookie_consent import get_consent_banner_html  # noqa: E402
+from gravel_weekly_visuals import render_story_visual, visual_css  # noqa: E402
 from shared_header import get_site_header_css, get_site_header_html, get_site_header_js  # noqa: E402
 from validate_gravel_weekly import load_issues, validate_issue  # noqa: E402
 from validate_gravel_weekly_history import HISTORY_DIR, load_public_history_entries  # noqa: E402
@@ -136,6 +137,13 @@ def render_retrospectives(retrospectives: list[dict[str, Any]], issues: list[dic
 def render_story(story: dict[str, Any], *, current: bool = False, draft: bool = False) -> str:
     label = "THE CURRENT THING" if current else story["storyKind"].replace("_", " ").upper()
     take_label = "THE TAKE — MODEL DRAFT" if draft else "THE TAKE"
+    visual = render_story_visual(
+        item_id=story["candidateId"],
+        headline=story["headline"],
+        body_text=" ".join([story["dek"], story["whatHappened"], story["take"]]),
+        receipts=story["receipts"],
+        date_label=story["storyKind"].replace("_", " "),
+    )
     return f'''<article class="gw-story{' gw-story--cover' if current else ''}" id="{esc(story['candidateId'])}">
       <header class="gw-story-head">
         <span class="gw-cover-line">{esc(label)}</span>
@@ -143,6 +151,7 @@ def render_story(story: dict[str, Any], *, current: bool = False, draft: bool = 
         <h2>{esc(story['headline'])}</h2>
         <p class="gw-dek">{esc(story['dek'])}</p>
       </header>
+      {visual}
       <div class="gw-story-grid">
         <section class="gw-facts" aria-labelledby="facts-{esc(story['candidateId'])}">
           <h3 id="facts-{esc(story['candidateId'])}">WHAT HAPPENED</h3>
@@ -205,9 +214,23 @@ def render_history_timeline(entries: list[dict[str, Any]]) -> str:
               <summary>LATER EVIDENCE — NOT AVAILABLE THEN · {len(entry['laterEvidence'])}</summary>
               {render_receipts(entry['laterEvidence'])}
             </details>'''
+        visual = render_story_visual(
+            item_id=entry["entryId"],
+            headline=entry["headline"],
+            body_text=" ".join([
+                entry["point"],
+                entry["whatHappened"],
+                entry["stakes"],
+                entry["take"],
+            ]),
+            receipts=entry["contemporaryReceipts"],
+            date_label=active_label,
+            stable_hash=entry["contentHash"],
+        )
         cards.append(f'''<!-- gravel-weekly-history-hash: {esc(entry['contentHash'])} -->
         <article class="gw-history-entry" id="{esc(entry['entryId'])}">
           <header><span class="gw-history-date">{esc(active_label.upper())}</span><span class="gw-score">EDITORIAL SCORE {entry['editorialScore']}/100</span><h3>{esc(entry['headline'])}</h3></header>
+          {visual}
           <div class="gw-history-grid">
             <section><h4>THE POINT</h4>{prose(entry['point'])}<h4>WHAT HAPPENED</h4>{prose(entry['whatHappened'])}<h4>WHY IT MATTERED</h4>{prose(entry['stakes'])}<h4>THE FAIR OBJECTION</h4>{prose(entry['credibleOpposition'])}</section>
             <section class="gw-history-take"><h4>THE TAKE</h4>{prose(entry['take'])}</section>
@@ -453,6 +476,7 @@ def build_page(issue: dict[str, Any] | None, issues: list[dict[str, Any]], *, la
 {get_font_face_css()}
 {get_site_header_css()}
 {page_css()}
+{visual_css()}
   </style>
 </head>
 <body>

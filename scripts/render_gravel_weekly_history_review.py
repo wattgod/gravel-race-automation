@@ -14,6 +14,7 @@ PROJECT_ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(PROJECT_ROOT / "wordpress"))
 
 from brand_tokens import get_tokens_css  # noqa: E402
+from gravel_weekly_visuals import render_story_visual, visual_css  # noqa: E402
 from no_ai_slop import audit_no_ai_slop  # noqa: E402
 from approve_gravel_weekly_history import (  # noqa: E402
     reviewed_headline_copy,
@@ -124,12 +125,26 @@ def _card(entry: dict[str, Any]) -> str:
         if not holds
         else "Resolve the named hold or reject this premise. Approval fails closed while any hold remains."
     )
+    visual = render_story_visual(
+        item_id=entry["entryId"],
+        headline=reviewed_headline_copy(entry),
+        body_text=" ".join([
+            entry["point"],
+            entry["whatHappened"],
+            entry["stakes"],
+            reviewed_take_copy(entry),
+        ]),
+        receipts=entry["contemporaryReceipts"],
+        date_label=f"{entry['activeFrom']} → {entry['activeThrough']}",
+        stable_hash=entry["contentHash"],
+    )
     return f'''<article class="story" id="{esc(entry['entryId'])}">
       <header>
         <div class="eyebrow">{esc(entry['activeFrom'])} → {esc(entry['activeThrough'])} · SCORE {entry['editorialScore']}</div>
         <h2>{esc(reviewed_headline_copy(entry))}</h2>
         <div class="status">{readiness}<code>{esc(entry['entryId'])}</code></div>
       </header>
+      {visual}
       <section class="point"><h3>THE POINT</h3>{paragraphs(entry['point'])}</section>
       <div class="judgment">
         <section><h3>BEFORE</h3>{paragraphs(entry['priorJudgment'])}</section>
@@ -188,6 +203,7 @@ def render_history_review(entries: list[dict[str, Any]], year: int) -> str:
 <meta name="robots" content="noindex,nofollow"><title>Gravel Weekly {year} Historical Review</title>
 <style>
 {get_tokens_css()}
+{visual_css()}
 * {{ box-sizing: border-box; }}
 body {{ margin: 0; background: var(--gg-color-sand); color: var(--gg-color-near-black); font-family: var(--gg-font-data); }}
 main {{ width: min(1120px, calc(100% - 32px)); margin: 32px auto 80px; }}

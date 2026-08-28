@@ -39,7 +39,7 @@ def validate_backfill_ledger(value: Any, history_entries: list[dict[str, Any]]) 
     if ledger.get("schemaVersion") != "gravel-weekly-backfill-ledger/v1":
         raise IssueValidationError("unsupported Gravel Weekly backfill ledger schema")
     year = ledger.get("year")
-    if not isinstance(year, int) or isinstance(year, bool) or not 2000 <= year <= 2100:
+    if not isinstance(year, int) or isinstance(year, bool) or not 1980 <= year <= 2100:
         raise IssueValidationError("backfill year is invalid")
     _iso(ledger.get("asOf"), "asOf")
     _url(ledger.get("sourceLedgerIssue"), "sourceLedgerIssue")

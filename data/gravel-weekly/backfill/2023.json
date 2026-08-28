@@ -178,9 +178,11 @@
       "periodStartedAt": "2023-05-20",
       "periodEndedAt": "2023-05-26",
       "sourceCardCount": 6,
-      "disposition": "pending_review",
-      "entryIds": [],
-      "reason": "Source census complete; assigning-desk research and disposition remain pending."
+      "disposition": "covered_by_draft",
+      "entryIds": [
+        "history-gravel-locos-spirit-of-racing-2023"
+      ],
+      "reason": "Roberge's late Gravel Locos win and public defense of ordinary mass-start tactics exposed the conflict between professional stakes and unwritten spirit-of-gravel obligations."
     },
     {
       "periodStartedAt": "2023-05-27",
@@ -449,5 +451,5 @@
       "reason": "Cyclingnews exposed no matching source card; preserve the quiet window."
     }
   ],
-  "updatedAt": "2026-08-28T07:40:00Z"
+  "updatedAt": "2026-08-28T07:55:00Z"
 }

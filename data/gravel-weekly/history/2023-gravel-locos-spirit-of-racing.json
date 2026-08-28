@@ -1,0 +1,86 @@
+{
+  "schemaVersion": "gravel-weekly-history-entry/v1",
+  "entryId": "history-gravel-locos-spirit-of-racing-2023",
+  "activeFrom": "2023-05-20",
+  "activeThrough": "2023-05-24",
+  "status": "draft",
+  "headline": "Gravel Asked for a Race, Then Complained About Racing",
+  "point": "The argument after Adam Roberge won Gravel Locos exposed a contradiction at the center of professional gravel: the sport wanted prize-winning competition but still tried to regulate ordinary mass-start tactics through an unwritten personality test called the spirit of gravel. Roberge conserved in a large group, attacked late, and broke no reported rule. Community values can govern how an event treats people; they cannot substitute for written competition rules whenever somebody dislikes how the winner raced.",
+  "priorJudgment": "Gravel's front group could remain meaningfully different from road racing because its shared ethic would keep riders pulling, cooperating, and rewarding the strongest performance rather than the most calculating one.",
+  "changedJudgment": "Once an event offers a mass start, elite results, sponsors, and a winner, tactical labor becomes part of the contest. If organizers want mandatory pull-sharing, coordinated stops, or some other gentleman's agreement, they must define and enforce it rather than prosecuting the winner through vibes afterward.",
+  "stakes": "Race legitimacy, tactical literacy, athlete reputations, the difference between community norms and competition rules, spectator interest, and whether gravel can professionalize without turning every unpopular move into a moral scandal.",
+  "credibleOpposition": "Refusing work while others drive a 150-mile group can produce negative racing and consume the trust that makes long gravel events possible. Informal cooperation, mutual aid, and negotiated stops were part of the scene before large purses and deeper fields arrived, and a legal move can still make somebody a bad collaborator. The reviewed reporting does not reconstruct every pull, private agreement, or earlier dispute among the riders, so it cannot establish that all criticism was merely sour grapes. The point is narrower: a disputed social obligation was being asked to do the job of a rule.",
+  "whatHappened": "At the May 20 Gravel Locos 150 in Hico, Texas, roughly 25 men remained in the lead group with 100 miles left. A large pack survived deep into the 157-mile race; a crash disrupted the final five miles, and Adam Roberge attacked to win solo in 7:12:11. Paul Voss led a group of ten home a little more than 30 seconds later. Four days later Cyclingnews reported that Roberge had been criticized for road-like tactics and quoted his response that he felt unfairly singled out for tactics all cyclists use. He argued that mass-start gravel necessarily combines physical, technical, and tactical skill and said that valuing only the first two would mean organizing gravel time trials. Contemporaneous forum discussion did not prove a field-wide consensus, but it preserved the actual cultural split: some riders and fans defended conserving energy as normal racing, while others said serious tactics made gravel feel less inclusive or required behavior that felt antisocial.",
+  "take": "Model draft, not Matti's approved view: Gravel wanted prize money, sponsors, elite results, and a winner, but it also wanted the winner selected by a co-op board. Adam Roberge sat in a large group, attacked with five miles left, and won. The scandal was that he had not completed enough communal chores first. If the object is to identify the rider with the noblest pull rotation, issue scorecards and little wooden paddles. If the object is to identify the strongest average watts, run a lab test. But if you hold a mass-start bike race, somebody is going to conserve energy, lie with their legs, and attack while everyone else is preparing a strongly worded Instagram story. The Spirit of Gravel is not an invisible HOA. Write the rule or race the race.",
+  "takeProvenance": "model_draft",
+  "uncertainty": "No reviewed source provides complete race video, power data, a pull-by-pull reconstruction, or the full statements and private agreements of every rider involved. Cyclingnews reported criticism and quoted Roberge's response but did not identify or reproduce every accusation. Forum comments demonstrate live disagreement, not representative public opinion. The evidence supports a late solo attack, a large finishing chase group, reported criticism of Roberge's tactics, and his mass-start-racing defense; it does not prove bad faith by critics, collusion by Roberge, or that tactics alone caused the result.",
+  "editorialScore": 97,
+  "editorialGates": {
+    "party": "pass",
+    "point": "pass",
+    "friend": "pass",
+    "craft": "pass",
+    "hostileEditor": "pass"
+  },
+  "contemporaryReceipts": [
+    {
+      "claimId": "claim_gravel_locos_roberge_result_2023",
+      "canonicalUrl": "https://www.cyclingnews.com/news/schiff-and-roberge-win-gravel-locos-150/",
+      "publisher": "Cyclingnews",
+      "publishedAt": "2023-05-24T20:35:46Z",
+      "quoteExcerpt": "Roberge broke away for a solo win in 7:12:11",
+      "transcriptStartSeconds": null,
+      "transcriptEndSeconds": null
+    },
+    {
+      "claimId": "claim_roberge_defended_mass_start_tactics_2023",
+      "canonicalUrl": "https://www.cyclingnews.com/news/adam-roberge-defends-pack-tactics-as-part-of-spirit-of-gravel-after-gravel-locos/",
+      "publisher": "Cyclingnews",
+      "publishedAt": "2023-05-24T19:51:25Z",
+      "quoteExcerpt": "we can organize gravel time trials",
+      "transcriptStartSeconds": null,
+      "transcriptEndSeconds": null
+    },
+    {
+      "claimId": "claim_gravel_locos_public_tactics_disagreement_2023",
+      "canonicalUrl": "https://www.reddit.com/r/gravelcycling/comments/13qywqs/adam_roberge_defends_pack_tactics_as_part_of/",
+      "publisher": "r/gravelcycling",
+      "publishedAt": "2023-05-24T00:00:00Z",
+      "quoteExcerpt": "The tactics that Adam used to win are not only not illegal, they are also very standard",
+      "transcriptStartSeconds": null,
+      "transcriptEndSeconds": null
+    },
+    {
+      "claimId": "claim_gravel_locos_participant_tactics_discussion_2023",
+      "canonicalUrl": "https://www.trainerroad.com/forum/t/gravel-race-controversy/84013",
+      "publisher": "TrainerRoad Forum",
+      "publishedAt": "2023-05-24T00:00:00Z",
+      "quoteExcerpt": "It’s mass start racing where drafting is core to success",
+      "transcriptStartSeconds": null,
+      "transcriptEndSeconds": null
+    }
+  ],
+  "laterEvidence": [],
+  "raceImpacts": [
+    {
+      "impactKind": "editorial_review",
+      "raceId": "gravel:gravel-locos-150",
+      "fieldPath": "race.biased_opinion",
+      "claimIds": [
+        "claim_gravel_locos_roberge_result_2023",
+        "claim_roberge_defended_mass_start_tactics_2023",
+        "claim_gravel_locos_public_tactics_disagreement_2023",
+        "claim_gravel_locos_participant_tactics_discussion_2023"
+      ],
+      "confidence": 0.94,
+      "owner": "Gravel God race editorial review",
+      "autoFixAllowed": false
+    }
+  ],
+  "humanApprovalRequired": true,
+  "autoPublishAllowed": false,
+  "editorialApproval": null,
+  "publishedAt": null,
+  "updatedAt": "2026-08-28T07:55:00Z",
+  "contentHash": "18d2d576531e282cd7953711679f38774857bd4df9612f4e0cb93be92e9a544d"
+}

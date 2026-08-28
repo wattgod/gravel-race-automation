@@ -1,0 +1,97 @@
+{
+  "schemaVersion": "gravel-weekly-history-entry/v1",
+  "entryId": "history-rusch-built-gravel-home-game-2014",
+  "activeFrom": "2014-06-01",
+  "activeThrough": "2014-08-25",
+  "status": "draft",
+  "headline": "Rebecca Rusch Built Gravel a Home Game Before It Had a League",
+  "point": "In 2014, Rebecca Rusch won Dirty Kanza for a third consecutive time and then returned to Idaho to host the second edition of her own participant-first gravel event. Before gravel supplied athletes with a formal series, stable profession, or promoter-controlled calendar, one of its defining racers used competitive authority to become the promoter, choose the place, widen the invitation, and connect the event to local identity and charity.",
+  "priorJudgment": "An elite endurance athlete proved value by winning the established events sponsors sent her to; creating and hosting a mass-participation ride was a separate promoter’s job or a ceremonial retirement project.",
+  "changedJudgment": "Rusch treated sporting credibility as the seed for event ownership while she was still winning the discipline’s premier test. Rebecca’s Private Idaho made the athlete’s home terrain, personality, and values the product, giving gravel an early model in which a racer could shape the calendar instead of merely supplying results to it.",
+  "stakes": "Athlete-owned events can preserve place, community, and a recognizable point of view better than interchangeable series stops. They can also concentrate brand, labor, and authority around one personality. Gravel’s later creator-athlete economy owes something to this model, so race intelligence should distinguish athlete authorship and local purpose from a name attached only for marketing.",
+  "credibleOpposition": "Rebecca’s Private Idaho was not created alone or outside commerce. The 2014 event relied on tourism promotion, production partners, sponsors, volunteers, public roads, and a press release making explicit marketing claims. A namesake event can amplify personality as readily as community, and one successful second edition did not prove a durable business. Rusch also followed an existing gran fondo and namesake-event tradition rather than inventing athlete promotion from nothing.",
+  "whatHappened": "On May 31, 2014, Rusch won the Dirty Kanza women’s race in 12:11:15 and placed 19th overall. Contemporary reports described Dirty Kanza as one of the earliest and most popular gravel races and noted nearly 1,500 registered riders. It was Rusch’s third consecutive women’s victory there. On August 25, Visit Sun Valley announced the second Rebecca’s Private Idaho, hosted and organized by Rusch for August 31 around Ketchum and the Pioneer Mountains. The event mixed ride and race, offered 95-mile Big Potato, 50-mile Small Fry, and new 25-mile Tater Tot routes, and raised money for World Bicycle Relief, PeopleForBikes, and the Wood River Bike Coalition alongside the town’s Labor Day festivities.",
+  "take": "Model draft, not Matti's approved view: Rebecca Rusch did not wait for gravel to build a respectable calendar around her. She won Dirty Kanza for the third straight year, went home to Idaho, and built the home game herself. The long route was the Big Potato. The middle route was the Small Fry. The new short route was the Tater Tot. This is already more editorial discipline than several modern race series have managed with a branding agency. The serious point is that Rusch understood the athlete could be more than the fast person rented for a sponsor photo. She could choose the roads, set the tone, invite people who were not racing for first, attach the weekend to a town, and decide where some of the money and attention went. Gravel’s creator economy did not begin when riders learned to film vertical video. It began when athletes realized the calendar was another thing they could stop waiting for somebody else to make.",
+  "takeProvenance": "model_draft",
+  "uncertainty": "The sources establish the 2014 Dirty Kanza result, approximate registration scale, and the announced structure, partners, sponsors, and charitable aims of the second Rebecca’s Private Idaho. The RPI evidence is a tourism press release, not independent attendance, financial, or beneficiary reporting. The entry does not quantify Rusch’s ownership, compensation, production labor, or decision authority, and its connection to the later creator-athlete economy is an editorial inference.",
+  "editorialScore": 98,
+  "editorialGates": {
+    "party": "pass",
+    "point": "pass",
+    "friend": "pass",
+    "craft": "pass",
+    "hostileEditor": "pass"
+  },
+  "contemporaryReceipts": [
+    {
+      "claimId": "claim_dirty_kanza_scale_rusch_overall_2014",
+      "canonicalUrl": "https://stevetilford.com/2014/06/01/dk-200-race-results/",
+      "publisher": "Steve Tilford",
+      "publishedAt": "2014-06-01T12:00:00Z",
+      "quoteExcerpt": "finished 19th overall",
+      "transcriptStartSeconds": null,
+      "transcriptEndSeconds": null
+    },
+    {
+      "claimId": "claim_rusch_dirty_kanza_win_2014",
+      "canonicalUrl": "https://www.cxmagazine.com/jensen-rusch-dirty-kanza-200-mile-results-2014",
+      "publisher": "Cyclocross Magazine",
+      "publishedAt": "2014-06-01T13:00:00Z",
+      "quoteExcerpt": "Rebecca Rusch took the win",
+      "transcriptStartSeconds": null,
+      "transcriptEndSeconds": null
+    },
+    {
+      "claimId": "claim_rusch_hosted_second_rpi_2014",
+      "canonicalUrl": "https://www.prweb.com/releases/visit_sun_valley_welcomes_rebecca_s_private_idaho_gravel_road_race_and_charity_ride_to_labor_day_celebrations/prweb12119801.htm",
+      "publisher": "Visit Sun Valley",
+      "publishedAt": "2014-08-25T22:45:00Z",
+      "quoteExcerpt": "one part fun group ride and one part race",
+      "transcriptStartSeconds": null,
+      "transcriptEndSeconds": null
+    }
+  ],
+  "laterEvidence": [
+    {
+      "claimId": "claim_rpi_persona_and_place_2020",
+      "canonicalUrl": "https://velo.outsideonline.com/road/road-racing/monuments-of-gravel-rebeccas-private-idaho/",
+      "publisher": "Velo",
+      "publishedAt": "2020-03-06T15:57:00Z",
+      "quoteExcerpt": "larger-than-life persona helped boost",
+      "transcriptStartSeconds": null,
+      "transcriptEndSeconds": null
+    }
+  ],
+  "raceImpacts": [
+    {
+      "impactKind": "editorial_review",
+      "raceId": "gravel:unbound-gravel",
+      "fieldPath": "race.biased_opinion",
+      "claimIds": [
+        "claim_dirty_kanza_scale_rusch_overall_2014",
+        "claim_rusch_dirty_kanza_win_2014"
+      ],
+      "confidence": 0.97,
+      "owner": "Gravel God race editorial review",
+      "autoFixAllowed": false
+    },
+    {
+      "impactKind": "editorial_review",
+      "raceId": "gravel:rebeccas-private-idaho",
+      "fieldPath": "race.biased_opinion",
+      "claimIds": [
+        "claim_rusch_hosted_second_rpi_2014",
+        "claim_rpi_persona_and_place_2020"
+      ],
+      "confidence": 0.96,
+      "owner": "Gravel God race editorial review",
+      "autoFixAllowed": false
+    }
+  ],
+  "humanApprovalRequired": true,
+  "autoPublishAllowed": false,
+  "editorialApproval": null,
+  "publishedAt": null,
+  "updatedAt": "2026-08-28T13:25:00Z",
+  "contentHash": "415a91523fb298753dff2ec3dd641d7df8e3b77752e5ec7386deb5ca3a7ac65b"
+}

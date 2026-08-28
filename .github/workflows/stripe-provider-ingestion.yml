@@ -1,0 +1,119 @@
+name: Stripe Provider Truth Ingestion
+
+on:
+  workflow_dispatch:
+    inputs:
+      source_run_id:
+        description: Successful athlete-pipeline Stripe reconciliation run ID
+        required: true
+        type: string
+      confirm:
+        description: Type APPLY_STRIPE_PROVIDER_TRUTH
+        required: true
+        type: string
+  repository_dispatch:
+    types: [stripe_provider_receipt_ready]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: stripe-provider-truth
+  cancel-in-progress: false
+
+jobs:
+  ingest:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      SOURCE_REPOSITORY: wattgod/athlete-custom-training-plan-pipeline
+      SOURCE_RUN_ID: ${{ github.event_name == 'repository_dispatch' && github.event.client_payload.source_run_id || inputs.source_run_id }}
+      SOURCE_ARTIFACT: ${{ github.event_name == 'repository_dispatch' && github.event.client_payload.artifact_name || format('stripe-reconciliation-{0}', inputs.source_run_id) }}
+      APPLY_CONFIRM: ${{ github.event_name == 'repository_dispatch' && github.event.client_payload.confirm || inputs.confirm }}
+      GH_TOKEN: ${{ secrets.GH_PAT }}
+      SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+      SUPABASE_SERVICE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+    steps:
+      - name: Validate dispatch authority
+        env:
+          DISPATCH_SOURCE_REPOSITORY: ${{ github.event.client_payload.source_repository }}
+        run: |
+          if ! [[ "$SOURCE_RUN_ID" =~ ^[0-9]+$ ]]; then
+            echo "::error::source_run_id must be a GitHub Actions run ID"
+            exit 1
+          fi
+          if [ "$APPLY_CONFIRM" != "APPLY_STRIPE_PROVIDER_TRUTH" ]; then
+            echo "::error::Explicit provider-truth confirmation is missing"
+            exit 1
+          fi
+          if [ "${{ github.event_name }}" = "repository_dispatch" ] && \
+             [ "$DISPATCH_SOURCE_REPOSITORY" != "$SOURCE_REPOSITORY" ]; then
+            echo "::error::Untrusted source repository"
+            exit 1
+          fi
+          if [ -z "$GH_TOKEN" ] || [ -z "$SUPABASE_URL" ] || [ -z "$SUPABASE_SERVICE_KEY" ]; then
+            echo "::error::GH_PAT and Mission Control Supabase secrets are required"
+            exit 1
+          fi
+
+      - name: Verify source workflow run
+        run: |
+          gh api "repos/$SOURCE_REPOSITORY/actions/runs/$SOURCE_RUN_ID" > "$RUNNER_TEMP/source-run.json"
+          python3 - <<'PY'
+          import json, os, pathlib
+          run = json.loads((pathlib.Path(os.environ["RUNNER_TEMP"]) / "source-run.json").read_text())
+          expected = {
+              "name": "Stripe Revenue Reconciliation",
+              "head_branch": "main",
+              "event": "workflow_dispatch",
+              "conclusion": "success",
+          }
+          failures = {key: run.get(key) for key, value in expected.items() if run.get(key) != value}
+          if failures:
+              raise SystemExit(f"source workflow is not an accepted successful main run: {failures}")
+          print({"run_id": run["id"], "head_sha": run["head_sha"], "conclusion": run["conclusion"]})
+          PY
+
+      - name: Download sanitized source receipt
+        run: |
+          mkdir -p "$RUNNER_TEMP/source"
+          gh run download "$SOURCE_RUN_ID" \
+            --repo "$SOURCE_REPOSITORY" \
+            --name "$SOURCE_ARTIFACT" \
+            --dir "$RUNNER_TEMP/source"
+          test -s "$RUNNER_TEMP/source/stripe-reconciliation.json"
+
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+
+      - name: Install canonical runtime
+        run: pip install -r requirements.txt
+
+      - name: Fail-closed dry run
+        run: |
+          python scripts/import_stripe_provider_revenue.py \
+            --receipt-file "$RUNNER_TEMP/source/stripe-reconciliation.json" \
+            --output-receipt "$RUNNER_TEMP/stripe-provider-dry-run.json"
+
+      - name: Apply and verify direct readback
+        run: |
+          python scripts/import_stripe_provider_revenue.py \
+            --receipt-file "$RUNNER_TEMP/source/stripe-reconciliation.json" \
+            --apply --confirm APPLY_STRIPE_PROVIDER_TRUTH \
+            --output-receipt "$RUNNER_TEMP/stripe-provider-apply.json"
+
+      - name: Upload ingestion receipts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: stripe-provider-ingestion-${{ github.run_id }}
+          path: |
+            ${{ runner.temp }}/source-run.json
+            ${{ runner.temp }}/stripe-provider-dry-run.json
+            ${{ runner.temp }}/stripe-provider-apply.json
+          if-no-files-found: warn
+          retention-days: 30

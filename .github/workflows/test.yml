@@ -50,6 +50,10 @@ jobs:
       - name: Run tests
         run: |
           pytest tests/ -q --tb=short
+          pytest \
+            mission_control/tests/test_provider_ingestion.py \
+            mission_control/tests/test_stripe_provider_ingestion.py \
+            -q --tb=short
 
       - name: Validate citations
         run: |
@@ -58,4 +62,3 @@ jobs:
       - name: Check citation quality
         run: |
           python scripts/audit_citation_quality.py 2>&1 | tail -20
-

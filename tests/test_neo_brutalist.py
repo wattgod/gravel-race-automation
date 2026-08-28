@@ -913,7 +913,7 @@ class TestSections:
 
     def test_rating_copy_drops_only_unresolved_citation_markers(self):
         cleaned = _editorialize_rating_explanation(
-            "Supported claim.[1][3]", citation_count=2
+            "Supported claim[3].[1]", citation_count=2
         )
         assert cleaned == "Supported claim.[1]"
 
@@ -927,24 +927,63 @@ class TestSections:
         assert html.index('id="gg-citation-1"') < html.index('id="gg-citation-2"')
         assert html.index(">First</a>") < html.index(">Second</a>")
 
+    def test_normalizer_backfills_rating_markers_from_profile_sources(self, sample_race_data):
+        sample_race_data["race"]["citations"] = [
+            {
+                "url": "https://testgravel100.com/course",
+                "label": "Official course map and elevation profile",
+                "category": "official",
+            },
+            {
+                "url": "https://testgravel100.com/register",
+                "label": "Registration and entry fees",
+                "category": "registration",
+            },
+        ]
+        sample_race_data["race"]["biased_opinion_ratings"]["value"]["citation_refs"] = [2]
+
+        rd = normalize_race_data(sample_race_data)
+
+        assert rd["explanations"]["elevation"]["explanation"].endswith("[1]")
+        assert rd["explanations"]["value"]["explanation"].endswith("[2]")
+        assert re.search(r"\[\d+\]$", rd["rating_summaries"]["course"])
+        assert re.search(r"\[\d+\]$", rd["rating_summaries"]["editorial"])
+
     def test_catalog_rating_copy_contract(self):
         banned = re.compile(
-            r"according to|assessment rings true|"
+            r"according to|assessment rings true|Gravel God scores|"
+            r"experts agree|studies show|many argue|widely regarded as|"
+            r"stands as a testament|marks a pivotal moment|plays a vital role|"
+            r"solidifies its position|underscores its significance|"
             r"\bAs\s+[^,:]{1,100}\s+(?:puts it|notes?|reports?|describes?|captures?)[,:]",
             re.IGNORECASE,
         )
         violations = []
         root = Path(__file__).resolve().parents[1] / "race-data"
         for path in root.glob("*.json"):
-            rd = normalize_race_data(json.loads(path.read_text()))
+            raw = json.loads(path.read_text())
+            race = raw.get("race", raw)
+            citation_count = len(race.get("citations", []))
+            rd = normalize_race_data(raw)
             for group, summary in rd["rating_summaries"].items():
                 if not summary or len(summary) > 220:
                     violations.append(f"{path.stem}.{group} summary length={len(summary)}")
                 if banned.search(summary):
                     violations.append(f"{path.stem}.{group} summary narrates source process")
+                refs = [int(value) for value in re.findall(r"\[(\d+)\]", summary)]
+                if not refs:
+                    violations.append(f"{path.stem}.{group} summary lacks citation marker")
+                elif any(ref > citation_count for ref in refs):
+                    violations.append(f"{path.stem}.{group} has unresolved marker {refs}")
             for dim, entry in rd["explanations"].items():
                 if banned.search(entry["explanation"]):
                     violations.append(f"{path.stem}.{dim} narrates source process")
+                if entry["explanation"]:
+                    refs = [int(value) for value in re.findall(r"\[(\d+)\]", entry["explanation"])]
+                    if not refs:
+                        violations.append(f"{path.stem}.{dim} lacks citation marker")
+                    elif any(ref > citation_count for ref in refs):
+                        violations.append(f"{path.stem}.{dim} has unresolved marker {refs}")
         assert not violations, "\n".join(violations[:30])
 
     def test_ratings_has_tabbed_radar_charts(self, normalized_data):
@@ -1696,6 +1735,7 @@ class TestNormalizeSilentFailures:
         assert rd['explanations']['logistics']['score'] == 3
         assert rd['explanations']['length']['score'] == 4
         assert rd['explanations']['prestige']['score'] == 2
+        assert rd['explanations']['logistics']['explanation'].startswith("Logistics lands in the middle of the scale.")
 
     def test_field_size_none_does_not_crash(self):
         """field_size=None should not throw regex error."""

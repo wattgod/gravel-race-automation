@@ -81,6 +81,35 @@ DIM_LABELS = {
     'expenses': 'Expenses',
 }
 
+# Rating prose is editorial, but the factual evidence underneath it is not.
+# These terms choose the most relevant numbered source from each profile's
+# existing bibliography when a legacy explanation has no explicit marker.
+RATING_CITATION_TERMS = {
+    'course': {'course', 'route', 'map', 'distance', 'climb', 'elevation', 'terrain'},
+    'editorial': {'history', 'results', 'registration', 'rider', 'review', 'community'},
+    'logistics': {'logistics', 'travel', 'parking', 'lodging', 'airport', 'start', 'registration', 'guide'},
+    'length': {'distance', 'course', 'route', 'miles', 'kilometers', 'km'},
+    'technicality': {'technical', 'terrain', 'surface', 'gravel', 'singletrack', 'route', 'course'},
+    'elevation': {'elevation', 'climb', 'climbing', 'feet', 'meters', 'profile', 'route'},
+    'climate': {'weather', 'climate', 'temperature', 'heat', 'rain', 'wind', 'snow'},
+    'altitude': {'altitude', 'elevation', 'mountain', 'summit', 'course', 'route'},
+    'adventure': {'route', 'course', 'terrain', 'bikepacking', 'unsupported', 'rider', 'report'},
+    'prestige': {'history', 'results', 'winners', 'champions', 'series', 'uci', 'founded'},
+    'race_quality': {'organizer', 'rules', 'guide', 'results', 'operations', 'course'},
+    'experience': {'rider', 'review', 'report', 'recap', 'course', 'event'},
+    'community': {'community', 'rider', 'review', 'report', 'festival', 'volunteer'},
+    'field_depth': {'results', 'field', 'start list', 'winners', 'elite', 'champions'},
+    'value': {'registration', 'entry', 'price', 'fee', 'cost', 'included'},
+    'expenses': {'registration', 'entry', 'price', 'fee', 'cost', 'travel', 'lodging'},
+}
+
+_CITATION_STOPWORDS = {
+    'about', 'after', 'again', 'against', 'also', 'because', 'before', 'between',
+    'course', 'does', 'event', 'from', 'have', 'into', 'more', 'most', 'only',
+    'race', 'riders', 'that', 'their', 'there', 'these', 'this', 'through',
+    'under', 'very', 'what', 'when', 'where', 'which', 'while', 'with', 'without',
+}
+
 # FAQ question templates per dimension
 FAQ_TEMPLATES = {
     'climate': 'What is the climate like at {name}?',
@@ -481,7 +510,7 @@ def _editorialize_rating_explanation(text: str, citation_count: int | None = Non
     # citation context (for example, unit tests), preserve every marker.
     if citation_count is not None:
         clean = re.sub(
-            r'(?<!\w)\[(\d+)\]',
+            r'\[(\d+)\]',
             lambda match: match.group(0)
             if 1 <= int(match.group(1)) <= citation_count else '',
             clean,
@@ -563,6 +592,210 @@ def _editorialize_rating_explanation(text: str, citation_count: int | None = Non
     return clean
 
 
+def _citation_search_tokens(text: str) -> set[str]:
+    """Return useful matching tokens without treating generic race prose as evidence."""
+    return {
+        token for token in re.findall(r"[a-z0-9]+", str(text or '').lower())
+        if len(token) >= 4 and token not in _CITATION_STOPWORDS
+    }
+
+
+def _rating_citation_refs(
+    race: dict,
+    dimension: str,
+    explanation: str,
+    explicit_refs: Any = None,
+) -> list[int]:
+    """Resolve a rating claim to valid, numbered sources already on the profile.
+
+    New data can provide ``citation_refs`` explicitly. Legacy profiles fall back
+    to a deterministic label/title/snippet match, with dimension-specific source
+    terms and official sources as the final backstop. This never creates a source
+    or a number that is absent from the page bibliography.
+    """
+    citations = race.get('citations', [])
+    if not isinstance(citations, list) or not citations:
+        return []
+    citation_count = len(citations)
+
+    def valid_refs(values: Any) -> list[int]:
+        if not isinstance(values, (list, tuple)):
+            return []
+        refs = []
+        for value in values:
+            try:
+                ref = int(value)
+            except (TypeError, ValueError):
+                continue
+            if 1 <= ref <= citation_count and ref not in refs:
+                refs.append(ref)
+        return refs
+
+    explicit = valid_refs(explicit_refs)
+    if explicit:
+        return explicit
+
+    inline = valid_refs(re.findall(r'\[(\d+)\]', explanation or ''))
+    if inline:
+        return inline
+
+    dimension_terms = RATING_CITATION_TERMS.get(dimension, {dimension.replace('_', ' ')})
+    query_tokens = _citation_search_tokens(explanation)
+    quoted_phrases = [
+        match.strip().lower()
+        for match in re.findall(r'["“]([^"”]{8,})["”]', explanation or '')
+    ]
+    preferred_categories = {
+        'logistics': {'official', 'registration', 'reference'},
+        'length': {'official', 'route'},
+        'technicality': {'official', 'route', 'community'},
+        'elevation': {'official', 'route'},
+        'climate': {'official', 'weather', 'reference'},
+        'altitude': {'official', 'route', 'reference'},
+        'adventure': {'community', 'media', 'route'},
+        'prestige': {'official', 'results', 'media'},
+        'race_quality': {'official', 'results', 'reference'},
+        'experience': {'community', 'media', 'video'},
+        'community': {'community', 'media', 'video'},
+        'field_depth': {'results', 'official', 'media'},
+        'value': {'registration', 'official', 'reference'},
+        'expenses': {'registration', 'official', 'reference'},
+    }.get(dimension, {'official', 'reference'})
+
+    ranked = []
+    for index, citation in enumerate(citations, start=1):
+        if not isinstance(citation, dict):
+            continue
+        source_text = ' '.join(str(citation.get(key, '')) for key in (
+            'label', 'title', 'snippet', 'url', 'category'
+        )).lower()
+        source_tokens = _citation_search_tokens(source_text)
+        overlap = len(query_tokens & source_tokens)
+        term_hits = sum(1 for term in dimension_terms if term in source_text)
+        quote_hit = any(phrase in source_text for phrase in quoted_phrases)
+        category = str(citation.get('category', '')).lower()
+        category_bonus = 3 if category in preferred_categories else 0
+        official_bonus = 1 if category == 'official' else 0
+        ranked.append((
+            40 * int(quote_hit) + 4 * overlap + 3 * term_hits + category_bonus + official_bonus,
+            -index,
+            index,
+        ))
+
+    if not ranked:
+        return []
+    ranked.sort(reverse=True)
+    return [ranked[0][2]]
+
+
+def _append_rating_citations(text: str, refs: list[int]) -> str:
+    """Append compact numbered markers unless the prose already carries them."""
+    clean = str(text or '').strip()
+    if not clean or re.search(r'\[\d+\]', clean):
+        return clean
+    return clean + ''.join(f'[{ref}]' for ref in refs)
+
+
+def _rating_score_judgment(label: str, score: Any) -> str:
+    """Turn the stored score into direct editorial copy without brand narration."""
+    numeric = _parse_score(score)
+    if numeric >= 4.5:
+        verdict = "sits at the top of the scale"
+    elif numeric >= 3.5:
+        verdict = "lands high on the scale"
+    elif numeric >= 2.5:
+        verdict = "lands in the middle of the scale"
+    elif numeric >= 1.5:
+        verdict = "lands low on the scale"
+    elif numeric > 0:
+        verdict = "sits at the bottom of the scale"
+    else:
+        verdict = "is unrated"
+    return f"{label} {verdict}."
+
+
+def _rating_group_fallback(total: int, group_id: str) -> str:
+    """Write a verdict-first bumper when a legacy profile has no usable summary."""
+    if group_id == 'course':
+        if total >= 31:
+            return "The course is a full-spectrum problem."
+        if total >= 26:
+            return "A demanding course leaves little room for lazy preparation."
+        if total >= 21:
+            return "The course is hard enough to punish weak execution."
+        if total >= 16:
+            return "The course is manageable with ordinary endurance preparation."
+        return "The course keeps the physical bill relatively low."
+
+    if total >= 31:
+        return "This race earns its reputation and the trip."
+    if total >= 26:
+        return "A strong event justifies a serious calendar slot."
+    if total >= 21:
+        return "The event is solid, with a few obvious compromises."
+    if total >= 16:
+        return "The event works best for riders already nearby."
+    return "Treat this as a local option."
+
+
+def _fallback_rating_explanation(race: dict, dimension: str, score: Any) -> str:
+    """Give source-thin profiles restrained score copy plus one stored fact."""
+    label = DIM_LABELS.get(dimension, dimension.replace('_', ' ').title())
+    vitals = race.get('vitals', {})
+    terrain = race.get('terrain', {})
+    climate = race.get('climate', {})
+    course = race.get('course_description', {})
+    history = race.get('history', {})
+
+    def fact(value: Any) -> str:
+        if not isinstance(value, (str, int, float)):
+            return ''
+        clean = re.sub(r'\s+', ' ', str(value)).strip(' .')
+        if clean.lower() in {'', 'unknown', 'tbd', 'n/a', 'none'}:
+            return ''
+        return clean
+
+    context = ''
+    if dimension == 'logistics':
+        if value := fact(vitals.get('location_badge') or vitals.get('location')):
+            context = f" The race is based in {value}."
+    elif dimension == 'length':
+        if value := fact(vitals.get('distance_mi')):
+            suffix = '' if re.search(r'\b(?:mi|mile)', value, re.IGNORECASE) else ' miles'
+            context = f" The primary distance is {value}{suffix}."
+    elif dimension == 'technicality':
+        if value := fact(terrain.get('primary') or terrain.get('surface')):
+            context = f" The primary terrain is {value}."
+    elif dimension == 'elevation':
+        if value := fact(vitals.get('elevation_ft')):
+            suffix = '' if re.search(r'\b(?:ft|feet|foot)', value, re.IGNORECASE) else ' feet'
+            context = f" The course carries {value}{suffix} of climbing."
+    elif dimension == 'climate':
+        if value := fact(climate.get('primary') or climate.get('description')):
+            context = f" Climate note: {value}."
+    elif dimension == 'altitude':
+        if value := fact(vitals.get('altitude_ft') or vitals.get('max_altitude_ft')):
+            suffix = '' if re.search(r'\b(?:ft|feet|foot)', value, re.IGNORECASE) else ' feet'
+            context = f" Altitude reaches {value}{suffix}."
+    elif dimension == 'adventure':
+        if value := fact(course.get('character') or terrain.get('primary')):
+            context = f" Course character: {value}."
+    elif dimension == 'prestige':
+        if value := fact(history.get('founded')):
+            context = f" The event dates to {value}."
+    elif dimension in {'community', 'field_depth'}:
+        if value := fact(vitals.get('field_size')):
+            context = f" The field is listed at {value}."
+    elif dimension in {'value', 'expenses'}:
+        if value := fact(vitals.get('registration') or vitals.get('entry_fee')):
+            context = f" Registration note: {value}."
+    elif dimension == 'experience':
+        if value := fact(race.get('tagline')):
+            context = f" {_rating_bumper(value, min_chars=1, max_chars=150)}"
+
+    return f"{_rating_score_judgment(label, score)}{context}"
+
+
 def normalize_race_data(data: dict) -> dict:
     """Normalize race data from new-format JSON into a consistent shape
     with all fields the generator expects. Computes derived fields if missing."""
@@ -602,11 +835,21 @@ def normalize_race_data(data: dict) -> dict:
     explanations = {}
     for dim in ALL_DIMS:
         entry = bor.get(dim, {})
+        score = entry.get('score', rating.get(dim, 0))
+        explanation = _editorialize_rating_explanation(
+            entry.get('explanation', ''), citation_count
+        )
+        if not explanation:
+            explanation = _editorialize_rating_explanation(
+                _fallback_rating_explanation(race, dim, score), citation_count
+            )
+        refs = _rating_citation_refs(
+            race, dim, explanation, entry.get('citation_refs')
+        )
         explanations[dim] = {
-            'score': entry.get('score', rating.get(dim, 0)),
-            'explanation': _editorialize_rating_explanation(
-                entry.get('explanation', ''), citation_count
-            ),
+            'score': score,
+            'explanation': _append_rating_citations(explanation, refs),
+            'citation_refs': refs,
         }
 
     explicit_summaries = race.get('rating_summaries', {})
@@ -618,7 +861,7 @@ def normalize_race_data(data: dict) -> dict:
             course.get('overview'),
             race.get('tagline', ''),
         ) if (summary := _rating_bumper(
-            _editorialize_rating_explanation(source, citation_count)
+            _editorialize_rating_explanation(source, citation_count), max_chars=214
         ))
     ), '')
     editorial_summary = next((
@@ -629,14 +872,21 @@ def normalize_race_data(data: dict) -> dict:
             bo.get('summary'),
             race.get('tagline', ''),
         ) if (summary := _rating_bumper(
-            _editorialize_rating_explanation(source, citation_count)
+            _editorialize_rating_explanation(source, citation_count), max_chars=214
         ))
     ), '')
-    race_name = race.get('display_name') or race.get('name', 'This race')
     if not course_summary:
-        course_summary = f"{race_name} scores {course_profile}/35 for course demands."
+        course_summary = _rating_group_fallback(course_profile, 'course')
     if not editorial_summary:
-        editorial_summary = f"{race_name} scores {opinion_total}/35 on the editorial card."
+        editorial_summary = _rating_group_fallback(opinion_total, 'editorial')
+    course_summary = _append_rating_citations(
+        course_summary,
+        _rating_citation_refs(race, 'course', course_summary),
+    )
+    editorial_summary = _append_rating_citations(
+        editorial_summary,
+        _rating_citation_refs(race, 'editorial', editorial_summary),
+    )
 
     # Extract date with year from date_specific like "2026: June 6" -> "June 6, 2026"
     raw_date_specific = vitals.get('date_specific', '')

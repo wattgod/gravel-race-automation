@@ -1,5 +1,11 @@
 # Gravel Race Automation — Claude Instructions
 
+## AI writing as Matti
+
+Before drafting, rewriting, or approving copy presented as Matti Rowe or one of
+his brands, read `docs/AI_WRITING_POLICY.md`. Its source-retrieval,
+provenance, privacy, and anti-slop requirements are binding.
+
 ## Northstar
 This repo serves the ecosystem master plan: **rated race databases (gravel/road/ski)
 earn trust as honest race critics → convert to a plan/course/coaching ladder →

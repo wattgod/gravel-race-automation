@@ -2000,13 +2000,35 @@ def sync_redirects():
         return False
 
 
+def build_sitemap_index(today: str, has_blog_sitemap: bool) -> str:
+    """Build the root index from known-indexable sitemap files only."""
+    entries = ["race-sitemap.xml"]
+    if has_blog_sitemap:
+        entries.append("blog-sitemap.xml")
+    entries.append("post-sitemap.xml")
+
+    sitemap_entries = "".join(
+        f"""  <sitemap>
+    <loc>https://gravelgodcycling.com/{filename}</loc>
+    <lastmod>{today}</lastmod>
+  </sitemap>
+"""
+        for filename in entries
+    )
+    return f"""<?xml version="1.0" encoding="UTF-8"?>
+<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+{sitemap_entries}</sitemapindex>
+"""
+
+
 def sync_sitemap():
     """Deploy race-sitemap.xml and a sitemap index to the server.
 
     Uploads the generated race sitemap as race-sitemap.xml, then creates a
-    sitemap index at sitemap.xml that references race-sitemap.xml plus
-    AIOSEO-generated sitemaps (post-sitemap.xml, page-sitemap.xml,
-    category-sitemap.xml).
+    sitemap index at sitemap.xml that references the generated race/blog
+    sitemaps plus the live indexable post sitemap. Indexable WordPress pages
+    are emitted by the generated race sitemap; noindex page and category
+    sitemaps are deliberately excluded.
     """
     ssh = get_ssh_credentials()
     if not ssh:
@@ -2062,34 +2084,9 @@ def sync_sitemap():
             print(f"  WARN: Failed to upload blog-sitemap.xml: {e}")
             has_blog_sitemap = False
 
-    # 2. Create sitemap index referencing all sub-sitemaps
-    blog_sitemap_entry = ""
-    if has_blog_sitemap:
-        blog_sitemap_entry = f"""  <sitemap>
-    <loc>https://gravelgodcycling.com/blog-sitemap.xml</loc>
-    <lastmod>{today}</lastmod>
-  </sitemap>
-"""
-    sitemap_index = f"""<?xml version="1.0" encoding="UTF-8"?>
-<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <sitemap>
-    <loc>https://gravelgodcycling.com/race-sitemap.xml</loc>
-    <lastmod>{today}</lastmod>
-  </sitemap>
-{blog_sitemap_entry}  <sitemap>
-    <loc>https://gravelgodcycling.com/post-sitemap.xml</loc>
-    <lastmod>{today}</lastmod>
-  </sitemap>
-  <sitemap>
-    <loc>https://gravelgodcycling.com/page-sitemap.xml</loc>
-    <lastmod>{today}</lastmod>
-  </sitemap>
-  <sitemap>
-    <loc>https://gravelgodcycling.com/category-sitemap.xml</loc>
-    <lastmod>{today}</lastmod>
-  </sitemap>
-</sitemapindex>
-"""
+    # 2. Create an index without the AIOSEO page/category sitemaps. Those
+    # advertise pages carrying noindex, which violates sitemap parity.
+    sitemap_index = build_sitemap_index(today, has_blog_sitemap)
 
     # 3. Upload sitemap index as sitemap.xml
     try:
@@ -2120,8 +2117,6 @@ def sync_sitemap():
         if has_blog_sitemap:
             print("  → blog-sitemap.xml (blog content)")
         print("  → post-sitemap.xml (AIOSEO blog posts)")
-        print("  → page-sitemap.xml (AIOSEO WP pages)")
-        print("  → category-sitemap.xml (AIOSEO categories)")
         return True
     except Exception as e:
         print(f"✗ Failed to upload sitemap.xml: {e}")

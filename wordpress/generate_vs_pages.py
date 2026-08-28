@@ -1008,7 +1008,9 @@ body {{ margin: 0; background: var(--gg-color-warm-paper); }}
   <footer class="gg-vs-footer">
     <a href="/">Gravel God</a> &middot;
     <a href="/gravel-races/">Search All Races</a> &middot;
-    <a href="/race/methodology/">Methodology</a>
+    <a href="/race/methodology/">Methodology</a> &middot;
+    <a href="/privacy/">Privacy</a> &middot;
+    <a href="/terms/">Terms</a>
   </footer>
 
 </div>

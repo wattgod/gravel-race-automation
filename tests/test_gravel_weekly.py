@@ -25,6 +25,7 @@ from validate_gravel_weekly_history import (  # noqa: E402
     validate_history_entry,
 )
 from validate_gravel_weekly_backfill import validate_backfill_ledger  # noqa: E402
+from prepare_gravel_weekly_backfill_ledger import build_initial_backfill_ledger  # noqa: E402
 from send_gravel_weekly import SUBSCRIBER_SOURCES, build_email_html  # noqa: E402
 from prepare_gravel_weekly_issue import prepare_issue  # noqa: E402
 from approve_gravel_weekly_issue import approve_issue, build_decision_receipt  # noqa: E402
@@ -615,6 +616,92 @@ def test_2025_backfill_ledger_preserves_the_complete_assigning_desk_review():
     assert sum(week["disposition"] == "held_for_evidence" for week in validated["weeks"]) == 13
     assert sum(week["disposition"] == "rejected" for week in validated["weeks"]) == 20
     assert validated["complete"] is True
+
+
+def test_2024_backfill_ledger_accounts_for_the_complete_source_census():
+    histories = load_history_entries(ROOT / "data" / "gravel-weekly" / "history")
+    ledger = json.loads((ROOT / "data" / "gravel-weekly" / "backfill" / "2024.json").read_text())
+    validated = validate_backfill_ledger(ledger, histories)
+
+    assert len(validated["weeks"]) == 53
+    assert sum(week["sourceCardCount"] for week in validated["weeks"]) == 239
+    assert sum(week["disposition"] == "explicit_gap" for week in validated["weeks"]) == 2
+    assert sum(week["disposition"] == "pending_review" for week in validated["weeks"]) == 51
+    assert validated["complete"] is False
+
+
+def test_initial_backfill_ledger_accounts_for_every_discovery_card():
+    discovery = {
+        "schemaVersion": "gravel-weekly-historical-ledger/v1",
+        "year": 2024,
+        "asOf": "2024-12-31T23:59:59Z",
+        "archiveMonthsRequested": 12,
+        "archiveMonthsSucceeded": 12,
+        "archiveMonthErrors": [],
+        "sourceCardCount": 1,
+        "sourceCards": [{"id": "source-1"}],
+        "weeks": [
+            {
+                "periodStartedAt": "2023-12-30T00:00:00Z",
+                "periodEndedAt": "2024-01-05T23:59:59Z",
+                "sourceCardIds": ["source-1"],
+            },
+            {
+                "periodStartedAt": "2024-01-06T00:00:00Z",
+                "periodEndedAt": "2024-01-12T23:59:59Z",
+                "sourceCardIds": [],
+            },
+        ],
+    }
+    ledger = build_initial_backfill_ledger(
+        discovery,
+        source_ledger_issue="https://github.com/example/project/issues/1",
+        source_ledger_run="https://github.com/example/project/actions/runs/2",
+        program_issue="https://github.com/example/project/issues/3",
+        updated_at="2026-08-28T06:30:00Z",
+    )
+
+    assert ledger["complete"] is False
+    assert [week["disposition"] for week in ledger["weeks"]] == ["pending_review", "explicit_gap"]
+    assert sum(week["sourceCardCount"] for week in ledger["weeks"]) == 1
+
+
+def test_initial_backfill_ledger_rejects_partial_archive_and_bad_card_accounting():
+    discovery = {
+        "schemaVersion": "gravel-weekly-historical-ledger/v1",
+        "year": 2024,
+        "asOf": "2024-12-31T23:59:59Z",
+        "archiveMonthsRequested": 12,
+        "archiveMonthsSucceeded": 11,
+        "archiveMonthErrors": ["December failed"],
+        "sourceCardCount": 1,
+        "sourceCards": [{"id": "source-1"}],
+        "weeks": [{
+            "periodStartedAt": "2023-12-30T00:00:00Z",
+            "periodEndedAt": "2024-01-05T23:59:59Z",
+            "sourceCardIds": ["source-1"],
+        }],
+    }
+    with pytest.raises(IssueValidationError, match="incomplete"):
+        build_initial_backfill_ledger(
+            discovery,
+            source_ledger_issue="https://github.com/example/project/issues/1",
+            source_ledger_run="https://github.com/example/project/actions/runs/2",
+            program_issue="https://github.com/example/project/issues/3",
+            updated_at="2026-08-28T06:30:00Z",
+        )
+
+    discovery["archiveMonthsSucceeded"] = 12
+    discovery["archiveMonthErrors"] = []
+    discovery["weeks"][0]["sourceCardIds"] = ["unknown-source"]
+    with pytest.raises(IssueValidationError, match="accounting mismatch"):
+        build_initial_backfill_ledger(
+            discovery,
+            source_ledger_issue="https://github.com/example/project/issues/1",
+            source_ledger_run="https://github.com/example/project/actions/runs/2",
+            program_issue="https://github.com/example/project/issues/3",
+            updated_at="2026-08-28T06:30:00Z",
+        )
 
 
 def test_2026_backfill_ledger_accounts_for_every_window_without_claiming_completion():

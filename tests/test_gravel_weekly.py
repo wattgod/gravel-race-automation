@@ -12,6 +12,7 @@ sys.path.insert(0, str(ROOT / "scripts"))
 sys.path.insert(0, str(ROOT / "wordpress"))
 
 from generate_gravel_weekly import build_page, render_history_timeline  # noqa: E402
+from generate_homepage import build_gravel_weekly_band  # noqa: E402
 from validate_gravel_weekly import (  # noqa: E402
     IssueValidationError,
     compute_content_hash,
@@ -1492,8 +1493,13 @@ def test_deploy_path_and_legacy_redirect_are_wired():
     deploy = (ROOT / "scripts" / "push_wordpress.py").read_text()
     assert "def sync_gravel_weekly(" in deploy
     assert '"--sync-gravel-weekly"' in deploy
+    assert "def sync_gravel_tv(" not in deploy
+    assert '"--sync-gravel-tv"' not in deploy
     assert "^gravel-tv/?$ /gravel-weekly/" in deploy
     assert '"gravel-weekly"' in deploy
+    assert not (ROOT / "wordpress" / "generate_gravel_tv.py").exists()
+    assert not (ROOT / "scripts" / "draft_desk_note.py").exists()
+    assert not (ROOT / "scripts" / "send_broadcast_email.py").exists()
     workflow = (ROOT / ".github" / "workflows" / "weekly-broadcast.yml").read_text()
     assert "issues: write" in workflow
     assert "render_gravel_weekly_race_impact_review.py" in workflow
@@ -1501,6 +1507,14 @@ def test_deploy_path_and_legacy_redirect_are_wired():
     assert "validate_decision_receipt" in workflow
     assert "record_gravel_weekly_decisions.py" in workflow
     assert "CONTROL_PLANE_INGEST_SECRET" in workflow
+
+
+def test_homepage_surfaces_gravel_weekly_without_a_gravel_tv_content_path():
+    band = build_gravel_weekly_band()
+    assert 'id="gravel-weekly"' in band
+    assert 'href="/gravel-weekly/"' in band
+    assert "GRAVEL <em>WEEKLY</em>" in band
+    assert "Gravel TV" not in band
 
 
 def test_email_preserves_legacy_subscribers_and_uses_approved_issue():

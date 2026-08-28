@@ -621,43 +621,6 @@ def sync_homepage(homepage_file: str):
         return None
 
 
-def sync_gravel_tv(gtv_file: str):
-    """Upload gravel-tv.html to /gravel-tv/index.html on SiteGround via SSH+SCP."""
-    ssh = get_ssh_credentials()
-    if not ssh:
-        return None
-    host, user, port = ssh
-
-    html_path = Path(gtv_file)
-    if not html_path.exists():
-        print(f"✗ Gravel TV HTML not found: {html_path}")
-        print("  Run: python3 wordpress/generate_gravel_tv.py first")
-        return None
-
-    remote_base = "~/www/gravelgodcycling.com/public_html/gravel-tv"
-
-    try:
-        subprocess.run(
-            ["ssh", "-i", str(SSH_KEY), "-p", port, f"{user}@{host}",
-             f"mkdir -p {remote_base}"],
-            check=True, capture_output=True, text=True, timeout=15,
-        )
-        subprocess.run(
-            ["scp", "-i", str(SSH_KEY), "-P", port, str(html_path),
-             f"{user}@{host}:{remote_base}/index.html"],
-            check=True, capture_output=True, text=True, timeout=30,
-        )
-        wp_url = os.environ.get("WP_URL", "https://gravelgodcycling.com")
-        print(f"✓ Uploaded Gravel TV: {wp_url}/gravel-tv/")
-        return f"{wp_url}/gravel-tv/"
-    except subprocess.CalledProcessError as e:
-        print(f"✗ SCP failed for Gravel TV: {e.stderr.strip()}")
-        return None
-    except Exception as e:
-        print(f"✗ Error uploading Gravel TV: {e}")
-        return None
-
-
 def sync_gravel_weekly(latest_file: str, archive_dir: str):
     """Upload Gravel Weekly latest page and immutable dated issue archive."""
     ssh = get_ssh_credentials()
@@ -3949,10 +3912,6 @@ if __name__ == "__main__":
         help="Path to TP-listing image directory (default: wordpress/output/tp)"
     )
     parser.add_argument(
-        "--sync-gravel-tv", action="store_true",
-        help="Upload gravel-tv.html to /gravel-tv/ via SCP"
-    )
-    parser.add_argument(
         "--sync-gravel-weekly", action="store_true",
         help="Upload Gravel Weekly latest page and dated issue archive"
     )
@@ -4283,7 +4242,7 @@ if __name__ == "__main__":
 
     has_action = any([args.json, args.sync_index, args.sync_widget, args.sync_training,
                       args.sync_guide, args.sync_guide_cluster,
-                      args.sync_og, args.sync_tp, args.sync_homepage, args.sync_gravel_tv, args.sync_gravel_weekly, args.sync_about,
+                      args.sync_og, args.sync_tp, args.sync_homepage, args.sync_gravel_weekly, args.sync_about,
                       args.sync_coaching, args.sync_coaching_apply, args.sync_consulting,
                       args.sync_consult_intake,
                       args.sync_training_plans, args.sync_success, args.sync_pages,
@@ -4328,8 +4287,6 @@ if __name__ == "__main__":
         _run("sync-tp", sync_tp, args.tp_dir)
     if args.sync_homepage:
         _run("sync-homepage", sync_homepage, args.homepage_file)
-    if args.sync_gravel_tv:
-        _run("sync-gravel-tv", sync_gravel_tv, "wordpress/output/gravel-tv.html")
     if args.sync_gravel_weekly:
         _run("sync-gravel-weekly", sync_gravel_weekly, args.gravel_weekly_file, args.gravel_weekly_archive_dir)
     if args.sync_about:

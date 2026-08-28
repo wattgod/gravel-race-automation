@@ -21,6 +21,7 @@ from validate_gravel_weekly import (  # noqa: E402
 from validate_gravel_weekly_history import (  # noqa: E402
     compute_history_content_hash,
     load_history_entries,
+    load_public_history_entries,
     validate_history_entry,
 )
 from send_gravel_weekly import SUBSCRIBER_SOURCES, build_email_html  # noqa: E402
@@ -575,6 +576,29 @@ def test_historical_current_thing_requires_contemporary_corroboration_and_human_
     model_take["takeProvenance"] = "model_draft"
     with pytest.raises(IssueValidationError, match="human-approved provenance"):
         validate_history_entry(model_take, verify_hash=False)
+
+
+def test_historical_drafts_never_cross_the_public_loader(tmp_path):
+    approved = sample_history_entry()
+    draft = copy.deepcopy(approved)
+    draft.update({
+        "entryId": "history-held-model-draft-2026",
+        "status": "draft",
+        "take": "Model draft, not Matti's approved view: this stays backstage.",
+        "takeProvenance": "model_draft",
+        "editorialApproval": None,
+    })
+    draft["editorialGates"]["hostileEditor"] = "hold"
+    approved["contentHash"] = compute_history_content_hash(approved)
+    draft["contentHash"] = compute_history_content_hash(draft)
+    (tmp_path / "approved.json").write_text(json.dumps(approved))
+    (tmp_path / "draft.json").write_text(json.dumps(draft))
+
+    assert {entry["entryId"] for entry in load_history_entries(tmp_path)} == {
+        approved["entryId"],
+        draft["entryId"],
+    }
+    assert [entry["entryId"] for entry in load_public_history_entries(tmp_path)] == [approved["entryId"]]
 
 
 def test_historical_timeline_visually_separates_later_evidence_from_contemporary_receipts():

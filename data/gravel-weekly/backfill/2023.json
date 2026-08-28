@@ -288,9 +288,11 @@
       "periodStartedAt": "2023-08-19",
       "periodEndedAt": "2023-08-25",
       "sourceCardCount": 3,
-      "disposition": "pending_review",
-      "entryIds": [],
-      "reason": "Source census complete; assigning-desk research and disposition remain pending."
+      "disposition": "covered_by_draft",
+      "entryIds": [
+        "history-gravel-worlds-still-in-beta-2023"
+      ],
+      "reason": "The first public report of a late organizer and venue change, with no course yet available little more than six weeks out, opened the championship-in-beta story."
     },
     {
       "periodStartedAt": "2023-08-26",
@@ -324,9 +326,11 @@
       "periodStartedAt": "2023-09-16",
       "periodEndedAt": "2023-09-22",
       "sourceCardCount": 11,
-      "disposition": "pending_review",
-      "entryIds": [],
-      "reason": "Source census complete; assigning-desk research and disposition remain pending."
+      "disposition": "covered_by_draft",
+      "entryIds": [
+        "history-gravel-worlds-still-in-beta-2023"
+      ],
+      "reason": "The full route arrived seventeen days before the women's race, with doubled elevation and renewed criticism about what the championship was designed to test."
     },
     {
       "periodStartedAt": "2023-09-23",
@@ -340,9 +344,11 @@
       "periodStartedAt": "2023-09-30",
       "periodEndedAt": "2023-10-06",
       "sourceCardCount": 20,
-      "disposition": "pending_review",
-      "entryIds": [],
-      "reason": "Source census complete; assigning-desk research and disposition remain pending."
+      "disposition": "covered_by_draft",
+      "entryIds": [
+        "history-gravel-worlds-still-in-beta-2023"
+      ],
+      "reason": "Final route reactions, start-grid strategy, first-time entrants, and a road-star-heavy field made the unresolved competitive identity concrete before race weekend."
     },
     {
       "periodStartedAt": "2023-10-07",
@@ -350,9 +356,10 @@
       "sourceCardCount": 15,
       "disposition": "covered_by_draft",
       "entryIds": [
-        "history-womens-worlds-off-camera-2023"
+        "history-womens-worlds-off-camera-2023",
+        "history-gravel-worlds-still-in-beta-2023"
       ],
-      "reason": "The missing women's live production, unequal men's broadcast, rider reaction, Niewiadoma's unseen title, and the UCI's same-day mandatory-coverage remedy form one documented visibility-governance chapter."
+      "reason": "The week contains two distinct consequences: the absent women's broadcast forced an operational-equality reckoning, while first-race winners and post-event analysis completed the championship-in-beta identity story."
     },
     {
       "periodStartedAt": "2023-10-14",
@@ -451,5 +458,5 @@
       "reason": "Cyclingnews exposed no matching source card; preserve the quiet window."
     }
   ],
-  "updatedAt": "2026-08-28T07:55:00Z"
+  "updatedAt": "2026-08-28T08:10:00Z"
 }

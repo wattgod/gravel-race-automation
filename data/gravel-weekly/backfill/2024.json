@@ -14,9 +14,11 @@
       "periodStartedAt": "2023-12-30",
       "periodEndedAt": "2024-01-05",
       "sourceCardCount": 2,
-      "disposition": "pending_review",
-      "entryIds": [],
-      "reason": "Source census complete; assigning-desk research and disposition remain pending."
+      "disposition": "covered_by_draft",
+      "entryIds": [
+        "history-unbound-qualifier-access-2024"
+      ],
+      "reason": "The ordinary random-entry process and accepted-rider fees establish the access system that the first qualifier announcements subsequently changed."
     },
     {
       "periodStartedAt": "2024-01-06",
@@ -64,9 +66,11 @@
       "periodStartedAt": "2024-02-10",
       "periodEndedAt": "2024-02-16",
       "sourceCardCount": 1,
-      "disposition": "pending_review",
-      "entryIds": [],
-      "reason": "Source census complete; assigning-desk research and disposition remain pending."
+      "disposition": "covered_by_draft",
+      "entryIds": [
+        "history-unbound-qualifier-access-2024"
+      ],
+      "reason": "The first Belgian qualifier created 50 early entries divided between performance and a post-finish random draw."
     },
     {
       "periodStartedAt": "2024-02-17",
@@ -136,9 +140,11 @@
       "periodStartedAt": "2024-04-13",
       "periodEndedAt": "2024-04-19",
       "sourceCardCount": 2,
-      "disposition": "pending_review",
-      "entryIds": [],
-      "reason": "Source census complete; assigning-desk research and disposition remain pending."
+      "disposition": "covered_by_draft",
+      "entryIds": [
+        "history-unbound-womens-start-gap-2024"
+      ],
+      "reason": "Life Time's separate-start commitment and De Crescenzo's athlete-advisory account establish that the later Unbound buffer was deliberate competitive governance, not incidental scheduling."
     },
     {
       "periodStartedAt": "2024-04-20",
@@ -160,9 +166,11 @@
       "periodStartedAt": "2024-05-04",
       "periodEndedAt": "2024-05-10",
       "sourceCardCount": 13,
-      "disposition": "pending_review",
-      "entryIds": [],
-      "reason": "Source census complete; assigning-desk research and disposition remain pending."
+      "disposition": "covered_by_draft",
+      "entryIds": [
+        "history-unbound-qualifier-access-2024"
+      ],
+      "reason": "Unbound's own athlete guide preserved the random-selection mechanics against which the emerging qualifier lane offered an alternate route."
     },
     {
       "periodStartedAt": "2024-05-11",
@@ -188,9 +196,10 @@
       "sourceCardCount": 14,
       "disposition": "covered_by_draft",
       "entryIds": [
-        "history-unbound-womens-start-gap-2024"
+        "history-unbound-womens-start-gap-2024",
+        "history-unbound-qualifier-access-2024"
       ],
-      "reason": "The official 15-minute men-to-women and 25-minute women-to-amateur start sequence made the proposed intervention concrete before race day."
+      "reason": "The official start sequence made the women's-race intervention concrete, while the European qualifier partnership framed scarce Unbound entry as an exportable access product."
     },
     {
       "periodStartedAt": "2024-06-01",
@@ -206,9 +215,11 @@
       "periodStartedAt": "2024-06-08",
       "periodEndedAt": "2024-06-14",
       "sourceCardCount": 3,
-      "disposition": "pending_review",
-      "entryIds": [],
-      "reason": "Source census complete; assigning-desk research and disposition remain pending."
+      "disposition": "covered_by_draft",
+      "entryIds": [
+        "history-unbound-qualifier-access-2024"
+      ],
+      "reason": "Rad Dirt's 100 coins completed a 150-entry qualifier lane whose slots were split evenly between performance and random selection."
     },
     {
       "periodStartedAt": "2024-06-15",
@@ -238,9 +249,9 @@
       "periodStartedAt": "2024-07-06",
       "periodEndedAt": "2024-07-12",
       "sourceCardCount": 14,
-      "disposition": "pending_review",
+      "disposition": "held_for_evidence",
       "entryIds": [],
-      "reason": "Source census complete; assigning-desk research and disposition remain pending."
+      "reason": "The Tour gravel stage produced a strong route-trust hypothesis, but rider and team claims that raced sectors differed from reconnaissance still lack organizer-side documentation of what changed, when, and why."
     },
     {
       "periodStartedAt": "2024-07-13",
@@ -455,5 +466,5 @@
       "reason": "Cyclingnews exposed no matching source card; preserve the quiet window."
     }
   ],
-  "updatedAt": "2026-08-28T09:10:00Z"
+  "updatedAt": "2026-08-28T10:05:00Z"
 }

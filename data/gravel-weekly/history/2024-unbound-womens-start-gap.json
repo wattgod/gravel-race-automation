@@ -10,7 +10,7 @@
   "changedJudgment": "Start design is competitive governance. A sufficiently large buffer can preserve tactical agency for the decisive part of an elite women's race even when a complete drafting ban is impractical, but organizers still own the interference their field geometry creates behind the leaders.",
   "stakes": "The start sequence affected who could shape the race, whether a mechanical or attack was answered by women or by unrelated men, whether viewers could understand a coherent competition, and whether elite women's results and Grand Prix points reflected a distinct sporting contest.",
   "credibleOpposition": "The dry 2024 conditions helped the gaps survive; the 2023 mud walk had erased smaller intervals almost immediately. A nine-rider sprint is not inherently fairer than a solo win, and the deeper women's groups still mixed with elite and amateur men. Separate race days would protect the field more completely but impose major daylight, permit, staffing, broadcast, and participant-experience costs on a mass event.",
-  "whatHappened": "In January, leading women told Life Time that Unbound's 2023 experiment had stopped feeling like a separate race after roughly 90 minutes. That year the women had started two minutes behind the elite men and eight minutes before amateurs; mud and a hike-a-bike erased the geometry. Life Time explored a cross-category drafting prohibition for 2024 but declined to impose a one-hour penalty without a precise definition, video proof, and an appeal mechanism. Instead, the final technical guide scheduled elite men at 5:50, elite women at 6:05, and amateurs at 6:30: a 15-minute rear gap and 25 minutes of clear road ahead. On dry roads, the lead women remained separate from men, raced attacks and counters among themselves, and finished with the first women's bunch sprint in Unbound 200 history. Rosa Klöser won from nine. The fix was incomplete: Lauren De Crescenzo encountered elite men during her solo move, and riders farther back reported amateur men disrupting and accelerating chase groups.",
+  "whatHappened": "In January, leading women told Life Time that Unbound's 2023 experiment had stopped feeling like a separate race after roughly 90 minutes. That year the women had started two minutes behind the elite men and eight minutes before amateurs; mud and a hike-a-bike erased the geometry. An athlete advisory group pushed Life Time on start protocols and cross-category drafting, and in April the organizer committed to separate elite starts with larger buffers across all seven Grand Prix events. Life Time explored a cross-category drafting prohibition for Unbound but declined to impose a one-hour penalty without a precise definition, video proof, and an appeal mechanism. Instead, the final technical guide scheduled elite men at 5:50, elite women at 6:05, and amateurs at 6:30: a 15-minute rear gap and 25 minutes of clear road ahead. On dry roads, the lead women remained separate from men, raced attacks and counters among themselves, and finished with the first women's bunch sprint in Unbound 200 history. Rosa Klöser won from nine. The fix was incomplete: Lauren De Crescenzo encountered elite men during her solo move, and riders farther back reported amateur men disrupting and accelerating chase groups.",
   "take": "Model draft, not Matti's approved view: Gravel spent months asking whether drafting violated the spirit of gravel, as though the spirit were going to descend from the Flint Hills with a clipboard. Life Time tried something much less spiritual: it moved the clocks. Eight minutes of air in 2023 became 25 in 2024, and suddenly the front of the women's race was recognizably a race—attacks, counters, a nine-up sprint, and no random aerobars deciding who got dragged home. That is the useful lesson. Race design is governance even when organizers call it logistics. The caveat matters too: women farther back still got blended into the customer base, so this was not equality achieved. It was proof of concept with a very long tail. Give the women empty road first; then stop pretending the remaining interference is gravel magic.",
   "takeProvenance": "model_draft",
   "uncertainty": "The evidence supports a protected lead contest, not a completely independent women's field. Weather and course conditions differed radically between 2023 and 2024, so the larger buffer cannot be isolated as the sole cause of the sprint or presumed to work in mud. Rider accounts establish incidents behind the lead group but do not reconstruct every cross-category interaction or quantify its effect on final placings. Contemporary descriptions sometimes call the finish a nine-woman or nine-rider sprint while Lauren De Crescenzo, who attacked earlier, described sprinting with nine other women; the official and race-report result is treated here as a nine-rider lead finish.",
@@ -38,6 +38,24 @@
       "publisher": "Cyclingnews",
       "publishedAt": "2024-05-11T23:22:02Z",
       "quoteExcerpt": "lack of drafting rule change for Unbound Gravel",
+      "transcriptStartSeconds": null,
+      "transcriptEndSeconds": null
+    },
+    {
+      "claimId": "claim_lifetime_2024_separate_elite_starts",
+      "canonicalUrl": "https://www.cyclingnews.com/news/decluttering-mass-starts-rewarding-podium-riders-top-changes-to-2024-life-time-grand-prix/",
+      "publisher": "Cyclingnews",
+      "publishedAt": "2024-04-17T00:00:00Z",
+      "quoteExcerpt": "For all of our events, the elite men and women will have separate starts",
+      "transcriptStartSeconds": null,
+      "transcriptEndSeconds": null
+    },
+    {
+      "claimId": "claim_athlete_advisory_start_protocol_work_2024",
+      "canonicalUrl": "https://www.cyclingnews.com/blogs/lauren-de-crescenzo/road-prep-and-adapting-to-new-rules-as-life-time-grand-prix-begins-at-fuego-xl-mountain-bike-event/",
+      "publisher": "Cyclingnews",
+      "publishedAt": "2024-04-19T00:00:00Z",
+      "quoteExcerpt": "Our focus is refining the start protocols and drafting rules for the Life Time series",
       "transcriptStartSeconds": null,
       "transcriptEndSeconds": null
     },
@@ -123,6 +141,8 @@
       "fieldPath": "race.biased_opinion",
       "claimIds": [
         "claim_unbound_2023_gap_failed_2024",
+        "claim_lifetime_2024_separate_elite_starts",
+        "claim_athlete_advisory_start_protocol_work_2024",
         "claim_unbound_2024_declined_drafting_rule",
         "claim_unbound_2024_official_start_times",
         "claim_unbound_2024_first_womens_sprint",
@@ -137,6 +157,6 @@
   "autoPublishAllowed": false,
   "editorialApproval": null,
   "publishedAt": null,
-  "updatedAt": "2026-08-28T07:00:00Z",
-  "contentHash": "77233102cec8f43d4f86811393f4e0d9ca93fc945c7aa99da0a2ba217f81f5fe"
+  "updatedAt": "2026-08-28T10:05:00Z",
+  "contentHash": "dee9c20190f62fb82d618fa4a83c65930e5eee9a7979e88edaa54a4601f1583a"
 }

@@ -1,0 +1,87 @@
+{
+  "schemaVersion": "gravel-weekly-history-entry/v1",
+  "entryId": "history-gravel-worlds-powerball-governance-2010",
+  "activeFrom": "2010-08-21",
+  "activeThrough": "2010-08-23",
+  "status": "draft",
+  "headline": "Gravel Declared a World Championship With Powerball Tickets",
+  "point": "In 2010, a Nebraska ride became Gravel Worlds without waiting for a federation to recognize gravel, much less award it a championship. Riders followed cue sheets, used small-town lottery tickets as checkpoint proof, and crowned champions inside a free event run with the Pirate Cycling League. The joke became an institution because the ritual, labor, and community were real before the title was official.",
+  "priorJudgment": "A world championship is granted from the top down: a governing body defines the discipline, sanctions the contest, supplies officials, and authorizes the jersey.",
+  "changedJudgment": "Gravel Worlds demonstrated the opposite path. A local community could invent a credible title from the bottom up by building a hard course, recognizable rituals, peer accountability, and enough continuity that people chose to treat the title as meaningful.",
+  "stakes": "Gravel's culture was shaped by institutions that began as shared jokes but survived through volunteer labor and repetition. That history matters when later owners, sponsors, and governing bodies claim authority over names, formats, and championships. The useful question is not only who has legal sanction, but who created the ritual people kept showing up to perform.",
+  "credibleOpposition": "The 2010 'world' title was knowingly unofficial, geographically narrow, and not drawn from a representative global field. The strongest contemporary source is one participant's account; the Powerball-ticket and cue-sheet system is described more completely in a later first-hand history by another early gravel organizer. The event's eventual trademark and prominence do not retroactively make its first champions equivalent to federation-recognized world champions.",
+  "whatHappened": "On August 21, 2010, the event previously called the Good Life Gravel Adventure became the inaugural Gravel Worlds around Lincoln, Nebraska. A contemporary participant described a free race of about 149 miles in 97-degree heat, organized by Corey Godfrey with the Pirate Cycling League and local sponsors. Riders passed mandatory checkpoints, collected tickets, navigated the course themselves, and raced for a Gravel Worlds jersey. Mike Marchand won the open men's race in 8:51. A 2024 history by Guitar Ted describes the title as deliberately tongue-in-cheek and says riders followed printed cue sheets, bought Nebraska Powerball tickets at four required business stops to prove passage, and earned category rainbow jerseys that were not sold to non-winners.",
+  "take": "Model draft, not Matti's approved view: Before the UCI discovered gravel, people in Nebraska declared a world championship, handed everybody cue sheets, and used Powerball tickets as anti-cheating technology. This remains a more coherent governance system than several things cycling has tried since. There were no officials hiding behind a hedge with a tablet. There was the Pirate Cycling League, roughly 150 miles of roads, 97-degree heat, a gas-station timestamp, and the basic threat that your friends would know if you cheated at their free bike race. Mike Marchand got the Gravel Worlds jersey because he finished first, not because anyone in Switzerland had opened the correct attachment. Of course the title was a joke. The part people miss is that jokes become institutions when somebody does the work every year and everyone keeps agreeing to the bit. Gravel did not wait for recognition before creating history. It created rituals ridiculous and durable enough that authority eventually had to catch up.",
+  "takeProvenance": "model_draft",
+  "uncertainty": "The contemporary account establishes the event name, free entry, organizer and sponsor network, approximate distance, heat, checkpoint tickets, men's winner, and jersey. A later first-hand history supplies the four-stop Powerball-verification and cue-sheet details retrospectively. The field size, women's result, complete route, and exact relationship among registrations, starters, and finishers are not established here, and the entry treats 'world championship' as the event's intentionally unofficial claim rather than an internationally representative sporting title.",
+  "editorialScore": 99,
+  "editorialGates": {
+    "party": "pass",
+    "point": "pass",
+    "friend": "pass",
+    "craft": "pass",
+    "hostileEditor": "pass"
+  },
+  "contemporaryReceipts": [
+    {
+      "claimId": "claim_gravel_worlds_free_pirate_event_2010",
+      "canonicalUrl": "https://savedbythebike.blogspot.com/?m=0",
+      "publisher": "Saved By The Bike",
+      "publishedAt": "2010-08-22T21:23:00-05:00",
+      "quoteExcerpt": "all his sponsors who helped make it FREE",
+      "transcriptStartSeconds": null,
+      "transcriptEndSeconds": null
+    },
+    {
+      "claimId": "claim_gravel_worlds_checkpoint_ticket_jersey_2010",
+      "canonicalUrl": "https://savedbythebike.blogspot.com/?m=0",
+      "publisher": "Saved By The Bike",
+      "publishedAt": "2010-08-22T21:23:00-05:00",
+      "quoteExcerpt": "now has the Gravel Worlds Jersey",
+      "transcriptStartSeconds": null,
+      "transcriptEndSeconds": null
+    }
+  ],
+  "laterEvidence": [
+    {
+      "claimId": "claim_gravel_worlds_2010_powerball_history",
+      "canonicalUrl": "https://g-tedproductions.blogspot.com/2024/04/gravel-grinder-news-changes-at-gravel.html",
+      "publisher": "Guitar Ted Productions",
+      "publishedAt": "2024-04-16T08:00:00-05:00",
+      "quoteExcerpt": "four required stops at businesses",
+      "transcriptStartSeconds": null,
+      "transcriptEndSeconds": null
+    },
+    {
+      "claimId": "claim_gravel_worlds_unofficial_official_2022",
+      "canonicalUrl": "https://www.cyclingnews.com/features/gravel-worlds-vs-gravel-world-championships-whats-in-a-name/",
+      "publisher": "Cyclingnews",
+      "publishedAt": "2022-06-16T12:00:00Z",
+      "quoteExcerpt": "first unofficial, official Gravel Worlds",
+      "transcriptStartSeconds": null,
+      "transcriptEndSeconds": null
+    }
+  ],
+  "raceImpacts": [
+    {
+      "impactKind": "editorial_review",
+      "raceId": "gravel:gravel-worlds",
+      "fieldPath": "race.biased_opinion",
+      "claimIds": [
+        "claim_gravel_worlds_free_pirate_event_2010",
+        "claim_gravel_worlds_checkpoint_ticket_jersey_2010",
+        "claim_gravel_worlds_2010_powerball_history",
+        "claim_gravel_worlds_unofficial_official_2022"
+      ],
+      "confidence": 0.95,
+      "owner": "Gravel God race editorial review",
+      "autoFixAllowed": false
+    }
+  ],
+  "humanApprovalRequired": true,
+  "autoPublishAllowed": false,
+  "editorialApproval": null,
+  "publishedAt": null,
+  "updatedAt": "2026-08-28T16:00:00Z",
+  "contentHash": "297c2b0ca6743fca8e11ad9d195cd6f0b6a24b8f90ad7ed19de6254b055ae157"
+}

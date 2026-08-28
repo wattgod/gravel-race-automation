@@ -1,0 +1,87 @@
+{
+  "schemaVersion": "gravel-weekly-history-entry/v1",
+  "entryId": "history-trans-iowa-tire-revolt-2004",
+  "activeFrom": "2004-11-29",
+  "activeThrough": "2004-11-29",
+  "status": "draft",
+  "headline": "Gravel’s First Bike Rule Did Not Survive Gravel Riders",
+  "point": "Trans Iowa began as a mountain-bike race and, according to its organizer’s later reconstruction, initially required tires at least two inches wide. Cyclocross riders challenged the restriction before the first event. The surviving official rules page allows mountain bikes, cyclocross bikes, 29ers, and even road bikes while merely warning that Iowa gravel might make skinny tires hurt. Gravel’s equipment category began with a failed attempt to close it.",
+  "priorJudgment": "A new cycling discipline needs organizers to define the correct bicycle before riders can compete fairly or safely.",
+  "changedJudgment": "Trans Iowa’s first equipment fight showed that the route could arbitrate bike choice better than a promoter’s category rule. Rider dissent widened the experiment before the event had produced a single finisher.",
+  "stakes": "Gravel still mistakes equipment boundaries for sporting principles. This origin suggests a better test: prohibit actual competitive distortions, publish the terrain honestly, and let riders choose how much speed, comfort, and regret to carry.",
+  "credibleOpposition": "The two-inch minimum and the online revolt are documented in a 2019 organizer retrospective, not a recovered 2004 forum thread. The official rules post retains its November 2004 publication date but is visibly a living document with later additions, so its current wording cannot prove the exact date when the rule changed. A minimum tire width can also be a defensible safety measure when route hazards are poorly understood.",
+  "whatHappened": "On November 29, 2004, Trans Iowa’s official site published rules for a non-stop, self-supported competition on rural Iowa gravel. The surviving page calls it the Trans-Iowa Mountain Bike Race but permits mountain bikes, cyclocross bikes, 29ers, and road bikes, adding that a rider on the latter might be stupid and suggesting at least a 1.95-inch tire according to how much the rider wants to hurt. Mark Stevenson later wrote that co-founder Jeff Kerkove had originally required tires two inches or wider because mountain bikes seemed safer and more comfortable. Cyclocross riders objected in the MTBR endurance forum, and Stevenson was assigned to deal with the argument. Most riders in the inaugural 2005 field still used mountain bikes, but the exclusion did not survive to govern the experiment.",
+  "take": "Model draft, not Matti's approved view: Gravel had tire discourse before it had a finish line. In 2004, Trans Iowa was still called a mountain-bike race and initially wanted two-inch tires. Cyclocross riders entered the forum like public defenders for 33-millimeter rubber, and the restriction cracked before anybody had crossed Iowa. The surviving rules page allows mountain bikes, cyclocross bikes, 29ers, and road bikes 'if you really want to be stupid,' then recommends 1.95 inches according to how much you want to hurt. This may be the cleanest founding document gravel could have produced: no consensus, four bike categories, and a tire argument resolved by letting the roads humiliate everyone equally. The category did not begin with a gravel bike. It began when the category police lost.",
+  "takeProvenance": "model_draft",
+  "uncertainty": "The official rules URL is a mutable Blogger post: it retains a 2004 publication timestamp but includes obvious later edits, including the event’s closure and an electric-assist rule. This entry uses it as evidence that a rules surface originated in 2004, not as proof that every surviving sentence appeared that day. The original two-inch requirement, forum dissent, and rule reversal rely on Stevenson’s 2019 first-person retrospective. No preserved 2004 MTBR thread or contemporaneous independent account has yet been recovered, so the entry remains a human-review draft.",
+  "editorialScore": 98,
+  "editorialGates": {
+    "party": "pass",
+    "point": "pass",
+    "friend": "pass",
+    "craft": "pass",
+    "hostileEditor": "pass"
+  },
+  "contemporaryReceipts": [
+    {
+      "claimId": "claim_trans_iowa_rules_surface_2004",
+      "canonicalUrl": "https://transiowa.blogspot.com/2004/11/race-rules.html",
+      "publisher": "The Trans Iowa Race",
+      "publishedAt": "2004-11-29T14:20:00-06:00",
+      "quoteExcerpt": "Bike choice is up to you! We are allowing mnt bikes, cyclocross bikes, 29\"ers, and road bikes",
+      "transcriptStartSeconds": null,
+      "transcriptEndSeconds": null
+    }
+  ],
+  "laterEvidence": [
+    {
+      "claimId": "claim_trans_iowa_self_support_rule_2014",
+      "canonicalUrl": "https://g-tedproductions.blogspot.com/2014/09/trans-iowa-v11-look-at-rules-part-3.html",
+      "publisher": "Guitar Ted Productions",
+      "publishedAt": "2014-09-28T01:30:00-05:00",
+      "quoteExcerpt": "Competitors must carry with them ALL necessary equipment.",
+      "transcriptStartSeconds": null,
+      "transcriptEndSeconds": null
+    },
+    {
+      "claimId": "claim_trans_iowa_mountain_bike_intent_2014",
+      "canonicalUrl": "https://g-tedproductions.blogspot.com/2014/11/trans-iowa-v11-look-at-rules-part-8.html",
+      "publisher": "Guitar Ted Productions",
+      "publishedAt": "2014-11-05T01:30:00-05:00",
+      "quoteExcerpt": "That's why initially it was called the \"Trans Iowa Mountain Bike Race\".",
+      "transcriptStartSeconds": null,
+      "transcriptEndSeconds": null
+    },
+    {
+      "claimId": "claim_trans_iowa_two_inch_dissent_2019",
+      "canonicalUrl": "https://g-tedproductions.blogspot.com/2019/07/trans-iowa-stories-dissenters.html",
+      "publisher": "Guitar Ted Productions",
+      "publishedAt": "2019-07-14T01:30:00-05:00",
+      "quoteExcerpt": "all riders had to be on 2 inch or wider tires",
+      "transcriptStartSeconds": null,
+      "transcriptEndSeconds": null
+    }
+  ],
+  "raceImpacts": [
+    {
+      "impactKind": "editorial_review",
+      "raceId": "gravel:trans-iowa",
+      "fieldPath": "race.biased_opinion",
+      "claimIds": [
+        "claim_trans_iowa_rules_surface_2004",
+        "claim_trans_iowa_self_support_rule_2014",
+        "claim_trans_iowa_mountain_bike_intent_2014",
+        "claim_trans_iowa_two_inch_dissent_2019"
+      ],
+      "confidence": 0.86,
+      "owner": "Gravel God race editorial review",
+      "autoFixAllowed": false
+    }
+  ],
+  "humanApprovalRequired": true,
+  "autoPublishAllowed": false,
+  "editorialApproval": null,
+  "publishedAt": null,
+  "updatedAt": "2026-08-28T19:15:00Z",
+  "contentHash": "70ff6cbb48c376416d2cc1804d8761a5a2756b85eb94d14dcfeddeacaee5a640"
+}

@@ -137,11 +137,10 @@ def _retrospective(value: Any, name: str, *, status: str) -> dict[str, Any]:
         raise IssueValidationError(f"{name}.assessment requires human-approved provenance")
     if status != "draft" and re.search(r"model draft|not matti(?:’|')s approved", assessment, re.IGNORECASE):
         raise IssueValidationError(f"{name}.assessment still contains model-draft language")
-    if status != "draft":
-        prose_gate = audit_no_ai_slop({"retrospective": f"{item['headline']}\n{item['whatChanged']}\n{assessment}"})
-        if prose_gate["verdict"] != "pass":
-            patterns = ", ".join(finding["pattern"] for finding in prose_gate["findings"])
-            raise IssueValidationError(f"{name} fails the no-ai-slop gate: {patterns}")
+    prose_gate = audit_no_ai_slop({"retrospective": f"{item['headline']}\n{item['whatChanged']}\n{assessment}"})
+    if prose_gate["verdict"] != "pass":
+        patterns = ", ".join(finding["pattern"] for finding in prose_gate["findings"])
+        raise IssueValidationError(f"{name} fails the no-ai-slop gate: {patterns}")
     receipts = _list(item.get("receipts"), f"{name}.receipts", 100)
     if not receipts:
         raise IssueValidationError(f"{name}.receipts must not be empty")
@@ -206,11 +205,10 @@ def validate_issue(value: Any, *, verify_hash: bool = True) -> dict[str, Any]:
             raise IssueValidationError(f"stories[{index}].take requires human-approved provenance")
         if status != "draft" and re.search(r"model draft|not matti(?:’|')s approved", take, re.IGNORECASE):
             raise IssueValidationError(f"stories[{index}].take still contains model-draft language")
-        if status != "draft":
-            prose_gate = audit_no_ai_slop({"headline": headline, "dek": dek, "what_happened": what_happened, "take": take})
-            if prose_gate["verdict"] != "pass":
-                findings = ", ".join(f"{finding['field']}:{finding['pattern']}" for finding in prose_gate["findings"])
-                raise IssueValidationError(f"stories[{index}] fails the no-ai-slop gate: {findings}")
+        prose_gate = audit_no_ai_slop({"headline": headline, "dek": dek, "what_happened": what_happened, "take": take})
+        if prose_gate["verdict"] != "pass":
+            findings = ", ".join(f"{finding['field']}:{finding['pattern']}" for finding in prose_gate["findings"])
+            raise IssueValidationError(f"stories[{index}] fails the no-ai-slop gate: {findings}")
         receipts = _list(story.get("receipts"), f"stories[{index}].receipts", 100)
         if not receipts:
             raise IssueValidationError(f"stories[{index}].receipts must not be empty")

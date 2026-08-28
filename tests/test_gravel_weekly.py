@@ -205,6 +205,18 @@ def passing_editorial_gate():
     }
 
 
+def with_passing_prose_gate(packet):
+    suggested = packet["suggestedTake"]
+    packet["proseGate"] = audit_no_ai_slop({
+        "headline": packet["suggestedHeadline"],
+        "dek": packet["suggestedDek"],
+        "what_happened": packet["whatHappened"],
+        "take": suggested["copy"],
+    })
+    assert packet["proseGate"]["verdict"] == "pass"
+    return packet
+
+
 def sample_draft():
     issue = sample_issue()
     issue.update({
@@ -268,6 +280,11 @@ def test_issue_contract_requires_receipts_approval_and_hash():
     with pytest.raises(IssueValidationError, match="no-ai-slop gate.*fake_profound_kicker"):
         validate_issue(slopped, verify_hash=False)
 
+    slopped_draft = sample_draft()
+    slopped_draft["stories"][0]["take"] = "The future isn't coming. It's already here."
+    with pytest.raises(IssueValidationError, match="no-ai-slop gate.*fake_profound_kicker"):
+        validate_issue(slopped_draft, verify_hash=False)
+
 
 def test_no_ai_slop_audit_names_patterns_without_guessing_authorship():
     clean = audit_no_ai_slop({
@@ -294,7 +311,7 @@ def test_no_ai_slop_audit_names_patterns_without_guessing_authorship():
 
 
 def test_review_prepares_a_draft_but_cannot_imply_approval():
-    packet = {
+    packet = with_passing_prose_gate({
         "candidateId": "story_1",
         "editorialGate": passing_editorial_gate(),
         "suggestedTake": {"label": "model_draft", "copy": "Editable model draft, not Matti's approved view: A sharp take."},
@@ -303,7 +320,7 @@ def test_review_prepares_a_draft_but_cannot_imply_approval():
         "whatHappened": "The organizer published a revised distance. It affects preparation.",
         "receipts": [sample_issue()["stories"][0]["receipts"][0]],
         "raceImpacts": sample_issue()["stories"][0]["raceImpacts"],
-    }
+    })
     review = {
         "schemaVersion": "gravel-weekly-review/v1",
         "candidates": [{
@@ -484,7 +501,7 @@ def test_review_excludes_stories_that_do_not_clear_every_editorial_gate(gate_mut
         gate["friendTest"]["killReason"] = "cringe_overframing"
     elif gate_mutation == "no_mechanics":
         gate["comedy"]["mechanics"] = []
-    packet = {
+    packet = with_passing_prose_gate({
         "candidateId": "story_1",
         "suggestedTake": {"label": "model_draft", "copy": "A sharp take."},
         "suggestedHeadline": "The course moved",
@@ -492,12 +509,50 @@ def test_review_excludes_stories_that_do_not_clear_every_editorial_gate(gate_mut
         "whatHappened": "The organizer published a revised distance.",
         "receipts": [sample_issue()["stories"][0]["receipts"][0]],
         "raceImpacts": sample_issue()["stories"][0]["raceImpacts"],
-    }
+    })
     if gate_mutation != "missing":
         packet["editorialGate"] = gate
     review = {
         "schemaVersion": "gravel-weekly-review/v1",
         "candidates": [{"id": "story_1", "score": 93, "headline": "Unbound changed the course", "storyKind": "route"}],
+        "packets": [packet],
+    }
+    issue = prepare_issue(review, "2026-08-28", 1, now="2026-08-27T17:00:00Z")
+    assert issue["stories"] == []
+    assert issue["currentThingStoryId"] is None
+
+
+@pytest.mark.parametrize("prose_mutation", ["missing", "failed", "stale"])
+def test_review_excludes_missing_failed_or_stale_prose_gates(prose_mutation):
+    packet = with_passing_prose_gate({
+        "candidateId": "story_1",
+        "editorialGate": passing_editorial_gate(),
+        "suggestedTake": {"label": "model_draft", "copy": "A sharp take."},
+        "suggestedHeadline": "The course moved",
+        "suggestedDek": "A small mileage change hides a larger terrain question.",
+        "whatHappened": "The organizer published a revised distance.",
+        "receipts": [sample_issue()["stories"][0]["receipts"][0]],
+        "raceImpacts": sample_issue()["stories"][0]["raceImpacts"],
+    })
+    if prose_mutation == "missing":
+        del packet["proseGate"]
+    elif prose_mutation == "failed":
+        packet["suggestedTake"]["copy"] = "The future isn't coming. It's already here."
+        packet["proseGate"] = audit_no_ai_slop({
+            "headline": packet["suggestedHeadline"],
+            "dek": packet["suggestedDek"],
+            "what_happened": packet["whatHappened"],
+            "take": packet["suggestedTake"]["copy"],
+        })
+        assert packet["proseGate"]["verdict"] == "fail"
+    else:
+        packet["suggestedHeadline"] = "The course moved again"
+    review = {
+        "schemaVersion": "gravel-weekly-review/v1",
+        "candidates": [{
+            "id": "story_1", "score": 93,
+            "headline": "Unbound changed the course", "storyKind": "route",
+        }],
         "packets": [packet],
     }
     issue = prepare_issue(review, "2026-08-28", 1, now="2026-08-27T17:00:00Z")
@@ -652,6 +707,11 @@ def test_historical_current_thing_requires_contemporary_corroboration_and_human_
     with pytest.raises(IssueValidationError, match="no-ai-slop gate"):
         validate_history_entry(slopped, verify_hash=False)
 
+    slopped_draft = sample_history_draft()
+    slopped_draft["take"] = "Here's what nobody tells you: this changes everything."
+    with pytest.raises(IssueValidationError, match="no-ai-slop gate"):
+        validate_history_entry(slopped_draft, verify_hash=False)
+
 
 def test_historical_approval_is_hash_bound_copy_limited_and_non_public(tmp_path):
     draft = sample_history_draft()
@@ -770,19 +830,43 @@ def test_private_historical_review_desk_separates_evidence_and_approval_state():
     held["headline"] = "A held premise"
     held["editorialGates"]["friend"] = "hold"
     held["contentHash"] = compute_history_content_hash(held)
-    page = render_history_review([draft, held], 2026)
+    slopped = copy.deepcopy(draft)
+    slopped["entryId"] = "history-slopped-2026"
+    slopped["headline"] = "A prose-held premise"
+    slopped["take"] = "The future isn't coming. It's already here."
+    slopped["contentHash"] = compute_history_content_hash(slopped)
+    page = render_history_review([draft, held, slopped], 2026)
 
     assert "PRIVATE EDITORIAL DESK · NOT PUBLIC" in page
-    assert "2 DRAFTS" in page
+    assert "3 DRAFTS" in page
     assert "1 READY FOR HUMAN DECISION" in page
-    assert "1 HELD BY EVIDENCE OR EDITORIAL GATES" in page
+    assert "2 HELD BY EVIDENCE, EDITORIAL, OR PROSE GATES" in page
     assert "THE TAKE · MODEL DRAFT" in page
+    assert "NO-AI-SLOP PROSE GATE · PASS" in page
+    assert "NO-AI-SLOP PROSE GATE · FAIL" in page
+    assert "no-AI-slop prose gate" in page
+    assert "fake_profound_kicker" in page
+    assert "not an AI-authorship detector" in page
     assert "CONTEMPORARY RECEIPTS (2)" in page
     assert "LATER EVIDENCE (1)" in page
     assert "any decision binds to this exact draft hash" in page.lower()
     assert "approval fails closed while any hold remains" in page.lower()
     assert draft["contentHash"] in page
     assert "noindex,nofollow" in page
+
+
+def test_persisted_historical_draft_corpus_clears_the_no_ai_slop_gate():
+    entries = load_history_entries(ROOT / "data" / "gravel-weekly" / "history")
+    failures = {}
+    for entry in entries:
+        gate = audit_no_ai_slop({
+            "headline": entry["headline"],
+            "what_happened": entry["whatHappened"],
+            "take": entry["take"],
+        })
+        if gate["verdict"] != "pass":
+            failures[entry["entryId"]] = gate["findings"]
+    assert failures == {}
 
 
 def test_historical_race_impacts_are_review_only_and_use_canonical_race_ids():

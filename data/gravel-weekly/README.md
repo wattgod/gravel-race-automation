@@ -27,6 +27,12 @@ python3 scripts/prepare_gravel_weekly_issue.py REVIEW.json \
   --publication-date 2026-08-28 --issue-number 1
 ```
 
+The bridge independently recomputes the pinned `petergyang/no-ai-slop` audit
+over the exact headline, deck, `whatHappened`, and Take. A missing, failed, or
+stale content-hashed prose verdict excludes the packet even when every story
+gate passes. Draft, approved, and published issue files are all re-audited by
+the publication validator; human approval remains a separate requirement.
+
 Apply Matti's explicit approval packet without making anything deployable:
 
 ```bash
@@ -102,8 +108,10 @@ python3 scripts/render_gravel_weekly_history_review.py --year 2026
 
 The desk puts the point, prior and changed judgments, model Take, uncertainty,
 contemporary receipts, later evidence, gates, and review-only race implications
-in one place. A story is marked ready only when all five editorial gates pass
-and at least two contemporary publishers corroborate it.
+in one place. It also displays the pinned no-AI-slop verdict and named findings.
+A story is marked ready only when all five editorial gates and the prose gate
+pass and at least two contemporary publishers corroborate it. Historical drafts
+that fail the prose gate cannot enter the repository validator at all.
 
 Apply one explicit decision using `gravel-weekly-history-approval/v1`:
 

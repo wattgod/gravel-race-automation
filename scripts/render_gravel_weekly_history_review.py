@@ -14,6 +14,7 @@ PROJECT_ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(PROJECT_ROOT / "wordpress"))
 
 from brand_tokens import get_tokens_css  # noqa: E402
+from no_ai_slop import audit_no_ai_slop  # noqa: E402
 from validate_gravel_weekly_history import HISTORY_DIR, load_history_entries  # noqa: E402
 
 
@@ -29,7 +30,17 @@ def paragraphs(value: str) -> str:
     )
 
 
-def approval_holds(entry: dict[str, Any]) -> list[str]:
+def prose_gate(entry: dict[str, Any]) -> dict[str, object]:
+    return audit_no_ai_slop({
+        "headline": entry["headline"],
+        "what_happened": entry["whatHappened"],
+        "take": entry["take"],
+    })
+
+
+def approval_holds(
+    entry: dict[str, Any], gate: dict[str, object] | None = None
+) -> list[str]:
     holds = [name for name, verdict in entry["editorialGates"].items() if verdict != "pass"]
     publishers = {
         receipt["publisher"].strip().casefold()
@@ -37,6 +48,8 @@ def approval_holds(entry: dict[str, Any]) -> list[str]:
     }
     if len(publishers) < 2:
         holds.append("two-publisher corroboration")
+    if (gate or prose_gate(entry))["verdict"] != "pass":
+        holds.append("no-AI-slop prose gate")
     return holds
 
 
@@ -74,7 +87,8 @@ def _impact_list(impacts: list[dict[str, Any]]) -> str:
 
 
 def _card(entry: dict[str, Any]) -> str:
-    holds = approval_holds(entry)
+    gate = prose_gate(entry)
+    holds = approval_holds(entry, gate)
     readiness = (
         '<span class="ready">READY FOR MATTI</span>'
         if not holds
@@ -83,6 +97,22 @@ def _card(entry: dict[str, Any]) -> str:
     gate_rows = "".join(
         f"<li><b>{esc(name)}</b><span>{esc(verdict.upper())}</span></li>"
         for name, verdict in entry["editorialGates"].items()
+    )
+    prose_findings = gate["findings"]
+    prose_finding_rows = (
+        "".join(
+            "<li><b>{field} · {pattern}</b><span>{excerpt}</span></li>".format(
+                field=esc(finding["field"]),
+                pattern=esc(finding["pattern"]),
+                excerpt=esc(finding["excerpt"]),
+            )
+            for finding in prose_findings
+        )
+        if prose_findings
+        else '<li><b>PASS</b><span>No deterministic findings.</span></li>'
+    )
+    prose_summary = (
+        f'NO-AI-SLOP PROSE GATE · {esc(str(gate["verdict"]).upper())}'
     )
     decision_instruction = (
         f'Tell Codex <q>approve {esc(entry["entryId"])}</q>, '
@@ -110,6 +140,7 @@ def _card(entry: dict[str, Any]) -> str:
       <section><h3>UNCERTAINTY</h3>{paragraphs(entry['uncertainty'])}</section>
       <details open><summary>CONTEMPORARY RECEIPTS ({len(entry['contemporaryReceipts'])})</summary>{_receipt_list(entry['contemporaryReceipts'])}</details>
       <details><summary>LATER EVIDENCE ({len(entry['laterEvidence'])})</summary>{_receipt_list(entry['laterEvidence'])}</details>
+      <details open><summary>{prose_summary}</summary><p>Checked against <a href="{esc(gate['sourceUrl'])}" rel="noopener" target="_blank">petergyang/no-ai-slop</a> at <code>{esc(str(gate['sourceRevision'])[:8])}</code>. This is a prose-pattern gate, not an AI-authorship detector.</p><ul class="prose-findings">{prose_finding_rows}</ul></details>
       <details><summary>GATES &amp; RACE INTELLIGENCE</summary><ul class="gates">{gate_rows}</ul>{_impact_list(entry['raceImpacts'])}</details>
       <footer>
         <p><b>DECIDE:</b> {decision_instruction} Any decision binds to this exact draft hash and still does not publish.</p>
@@ -159,7 +190,7 @@ code {{ overflow-wrap: anywhere; }} footer {{ background: var(--gg-color-near-bl
 </style></head><body><main>
   <header class="desk-head"><div class="eyebrow">PRIVATE EDITORIAL DESK · NOT PUBLIC</div><h1>{year}<br>THE SEASON<br>AS A STORY</h1>
   <p>This queue contains narrative change-points, not one required story per week. Review the point first, then the Take. Receipts from the active period are separated from evidence learned later.</p>
-  <div class="summary"><b>{len(drafts)} DRAFTS</b><b>{ready} READY FOR HUMAN DECISION</b><b>{held} HELD BY EVIDENCE OR EDITORIAL GATES</b></div></header>
+  <div class="summary"><b>{len(drafts)} DRAFTS</b><b>{ready} READY FOR HUMAN DECISION</b><b>{held} HELD BY EVIDENCE, EDITORIAL, OR PROSE GATES</b></div></header>
   {cards or '<section class="story"><header><h2>No draft historical entries for this year.</h2></header></section>'}
 </main></body></html>'''
 

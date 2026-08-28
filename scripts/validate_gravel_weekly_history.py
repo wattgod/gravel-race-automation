@@ -97,11 +97,10 @@ def validate_history_entry(value: Any, *, verify_hash: bool = True) -> dict[str,
         raise IssueValidationError("historical take still contains model-draft language")
     if status != "draft" and re.search(r"model draft|not matti(?:’|')s approved", headline, re.IGNORECASE):
         raise IssueValidationError("historical headline still contains model-draft language")
-    if status != "draft":
-        prose_gate = audit_no_ai_slop({"headline": headline, "what_happened": what_happened, "take": take})
-        if prose_gate["verdict"] != "pass":
-            findings = ", ".join(f"{finding['field']}:{finding['pattern']}" for finding in prose_gate["findings"])
-            raise IssueValidationError(f"historical entry fails the no-ai-slop gate: {findings}")
+    prose_gate = audit_no_ai_slop({"headline": headline, "what_happened": what_happened, "take": take})
+    if prose_gate["verdict"] != "pass":
+        findings = ", ".join(f"{finding['field']}:{finding['pattern']}" for finding in prose_gate["findings"])
+        raise IssueValidationError(f"historical entry fails the no-ai-slop gate: {findings}")
     gates = _record(entry.get("editorialGates"), "editorialGates")
     if set(gates) != PASSING_GATES:
         raise IssueValidationError("editorialGates must contain the five historical gates")

@@ -9,6 +9,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
+from no_ai_slop import audit_no_ai_slop
 from validate_gravel_weekly import compute_content_hash, validate_issue
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
@@ -76,6 +77,35 @@ def _passes_editorial_gate(packet: dict[str, Any]) -> bool:
     )
 
 
+def _passes_prose_gate(packet: dict[str, Any]) -> bool:
+    """Recompute the exact publishable copy and reject missing, failed, or stale gates."""
+    suggested = packet.get("suggestedTake")
+    if not isinstance(suggested, dict) or suggested.get("label") != "model_draft":
+        return False
+    fields = {
+        "headline": packet.get("suggestedHeadline"),
+        "dek": packet.get("suggestedDek"),
+        "what_happened": packet.get("whatHappened"),
+        "take": suggested.get("copy"),
+    }
+    if not all(isinstance(value, str) and value.strip() for value in fields.values()):
+        return False
+    expected = audit_no_ai_slop(fields)
+    supplied = packet.get("proseGate")
+    return bool(
+        isinstance(supplied, dict)
+        and supplied.get("schemaVersion") == expected["schemaVersion"]
+        and supplied.get("sourceUrl") == expected["sourceUrl"]
+        and supplied.get("sourceRevision") == expected["sourceRevision"]
+        and supplied.get("checkedTextHash") == expected["checkedTextHash"]
+        and supplied.get("verdict") == "pass"
+        and supplied.get("findings") == []
+        and supplied.get("humanApprovalRequired") is True
+        and supplied.get("autoPublishAllowed") is False
+        and expected["verdict"] == "pass"
+    )
+
+
 def prepare_issue(review_value: Any, publication_date: str, issue_number: int, *, now: str | None = None) -> dict[str, Any]:
     review = _record(review_value, "review")
     if review.get("schemaVersion") != "gravel-weekly-review/v1":
@@ -101,6 +131,7 @@ def prepare_issue(review_value: Any, publication_date: str, issue_number: int, *
             if candidate.get("score", 0) >= 70
             and candidate.get("id") in packets
             and _passes_editorial_gate(packets[candidate["id"]])
+            and _passes_prose_gate(packets[candidate["id"]])
         ),
         key=lambda candidate: (-candidate["score"], candidate["id"]),
     )

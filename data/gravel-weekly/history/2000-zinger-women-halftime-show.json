@@ -1,0 +1,87 @@
+{
+  "schemaVersion": "gravel-weekly-history-entry/v1",
+  "entryId": "history-zinger-women-halftime-show-2000",
+  "activeFrom": "2000-07-15",
+  "activeThrough": "2000-07-23",
+  "status": "draft",
+  "headline": "Colorado Built a Gravel Epic, Then Made Women the Halftime Show",
+  "point": "The inaugural Zinger Cycling Challenge supplied nearly every ingredient of a modern Colorado gravel spectacle: 138 to 140 miles, 14,000 feet of climbing, dirt mountain passes, road racers mixing with mountain bikers, and only 20 finishers. It reserved that epic for men. Women received a 45-minute elimination criterium in Breckenridge; one team boycotted, and Vicky Sama rode onto the men's course wearing a 'Women Can Climb Too!' sign until police threatened arrest. Gravel's later equal-distance ideal did not grow automatically from adventurous terrain. Riders had to contest who was allowed to be adventurous.",
+  "priorJudgment": "Gravel's inclusive reputation was a natural consequence of escaping traditional road-racing institutions and putting everyone on the same dirt roads.",
+  "changedJudgment": "The Zinger shows that terrain does not create equality. A race can look uncannily like modern gravel while reproducing the old hierarchy in its start list, distance, presentation, and support. Inclusion arrived through argument, boycott, protest, and changed expectations—not through dirt alone.",
+  "stakes": "Modern gravel routinely sells participation, equal distance, and equal recognition as part of its identity. Remembering the Zinger's launch prevents that progress from being mistaken for an original setting. It also gives current disputes about field access, coverage, safety, and prize money a specific historical baseline instead of a vague morality tale.",
+  "credibleOpposition": "Race director Len Pettyjohn said the event lacked enough state patrol, moto marshals, experienced drivers, and other personnel to operate two safe race caravans. Women did have a separate criterium, and the Zinger was sanctioned and described as road racing rather than gravel. The connection to modern gravel is therefore an editorial comparison of terrain, format, and values—not a claim that the Zinger belonged to a category that did not yet exist.",
+  "whatHappened": "On July 15, 2000, the first Zinger Cycling Challenge ran from Boulder to Breckenridge across roughly 140 miles, multiple high-altitude climbs, and dirt sections including Oh My God Road and Guanella Pass. Cyclingnews reported that three of the first five finishers were mountain bikers and that only 20 men finished. The women's event was a 45-minute miss-and-out criterium on the Breckenridge finishing circuit. Charles Schwab's women's team declined to attend, citing disparities in distance, prize money, and promotion. Local racer Vicky Sama said the organizer had told her women could not compete in such a race. She rode ahead of the men's field with a 'Women Can Climb Too!' sign, completed a pass with the race, rejoined after an initial police stop, and was then held under threat of arrest until the caravan passed. Pettyjohn answered that the staffing and public-safety resources required for a concurrent women's road race did not exist. In 2023, USA Cycling introduced its gravel national championship with equal elite distance and prize money and publicly described those terms as representative of a true American gravel race.",
+  "take": "Model draft, not Matti's approved view: The inaugural Zinger invented half of modern gravel in one afternoon: enormous distance, dirt mountain passes, roadies getting mugged by mountain bikers, and a finish list that looked like a casualty report. Then it put the women in a 45-minute elimination crit and called that the program. Vicky Sama supplied the only sensible editorial note. She rode onto the men's route wearing 'Women Can Climb Too!' and stayed with the race until police threatened arrest. That is not a quirky footnote. Gravel did not inherit equality from dirt; people had to drag it there while organizers explained that logistics, staffing, and apparently female physiology made the obvious impossible. Twenty-three years later, USA Cycling called equal distance and equal money the definition of a true American gravel race. The dirt was never the radical part. Letting everyone race it was.",
+  "takeProvenance": "model_draft",
+  "uncertainty": "The contemporary record conflicts slightly on route length and climbing count: the race report and rider diary use 140 miles and six climbs, while the post-race account uses 138 miles and seven mountain passes. Vicky Sama's protest narrative, the Charles Schwab boycott letter, and the organizer's response are preserved as first-person statements within one Cyclingnews page; an independent contemporary publication has not yet been recovered. No source calls the event gravel in 2000, and the comparison to later gravel equality is editorial analysis requiring human review.",
+  "editorialScore": 100,
+  "editorialGates": {
+    "party": "pass",
+    "point": "pass",
+    "friend": "pass",
+    "craft": "pass",
+    "hostileEditor": "pass"
+  },
+  "contemporaryReceipts": [
+    {
+      "claimId": "claim_zinger_mixed_surface_results_2000",
+      "canonicalUrl": "https://autobus.cyclingnews.com/results/2000/jul00/zinger00.shtml",
+      "publisher": "Cyclingnews",
+      "publishedAt": "2000-07-15T12:00:00-06:00",
+      "quoteExcerpt": "three of those five would be mountain bikers",
+      "transcriptStartSeconds": null,
+      "transcriptEndSeconds": null
+    },
+    {
+      "claimId": "claim_zinger_rider_diary_2000",
+      "canonicalUrl": "https://autobus.cyclingnews.com/results/2000/diary00/lieswyn007.shtml",
+      "publisher": "John Lieswyn diary / Cyclingnews",
+      "publishedAt": "2000-07-15T18:00:00-06:00",
+      "quoteExcerpt": "140 miles, 6 climbs, several above 11,000 feet altitude",
+      "transcriptStartSeconds": null,
+      "transcriptEndSeconds": null
+    },
+    {
+      "claimId": "claim_zinger_women_protest_2000",
+      "canonicalUrl": "https://autobus.cyclingnews.com/results/2000/jul00/jul23news.shtml",
+      "publisher": "Cyclingnews",
+      "publishedAt": "2000-07-23T12:00:00-06:00",
+      "quoteExcerpt": "I had a sign on my back that read 'Women Can Climb Too!'",
+      "transcriptStartSeconds": null,
+      "transcriptEndSeconds": null
+    }
+  ],
+  "laterEvidence": [
+    {
+      "claimId": "claim_gravel_nationals_equal_distance_pay_2023",
+      "canonicalUrl": "https://usacycling.org/article/inaugural-usa-cycling-gravel-national-championship-heads-to-nebraska",
+      "publisher": "USA Cycling",
+      "publishedAt": "2023-03-16T09:55:00-06:00",
+      "quoteExcerpt": "The course has equal distance and prize money",
+      "transcriptStartSeconds": null,
+      "transcriptEndSeconds": null
+    }
+  ],
+  "raceImpacts": [
+    {
+      "impactKind": "editorial_review",
+      "raceId": "gravel:zinger-cycling-challenge",
+      "fieldPath": "race.history",
+      "claimIds": [
+        "claim_zinger_mixed_surface_results_2000",
+        "claim_zinger_rider_diary_2000",
+        "claim_zinger_women_protest_2000",
+        "claim_gravel_nationals_equal_distance_pay_2023"
+      ],
+      "confidence": 0.96,
+      "owner": "Gravel God race editorial review",
+      "autoFixAllowed": false
+    }
+  ],
+  "humanApprovalRequired": true,
+  "autoPublishAllowed": false,
+  "editorialApproval": null,
+  "publishedAt": null,
+  "updatedAt": "2026-08-28T14:39:13Z",
+  "contentHash": "8c349be7b5ddf2feeb69d65bba415eda3602423449843fd880810ffae7ec7683"
+}

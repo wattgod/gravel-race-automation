@@ -53,6 +53,16 @@ def validate_backfill_ledger(value: Any, history_entries: list[dict[str, Any]]) 
     source_archive_coverage = ledger.get("sourceArchiveCoverage")
     if source_archive_coverage is not None and source_archive_coverage not in {"complete", "partial", "unavailable"}:
         raise IssueValidationError("sourceArchiveCoverage is invalid")
+    source_archive_errors_value = ledger.get("sourceArchiveErrors")
+    if source_archive_errors_value is not None:
+        source_archive_errors = [
+            _text(error, f"sourceArchiveErrors[{index}]", 2_000)
+            for index, error in enumerate(_list(source_archive_errors_value, "sourceArchiveErrors", 12))
+        ]
+        if source_archive_coverage == "complete" and source_archive_errors:
+            raise IssueValidationError("complete sourceArchiveCoverage cannot contain sourceArchiveErrors")
+        if source_archive_coverage in {"partial", "unavailable"} and not source_archive_errors:
+            raise IssueValidationError(f"{source_archive_coverage} sourceArchiveCoverage requires sourceArchiveErrors")
 
     histories = {entry["entryId"]: entry for entry in history_entries}
     weeks = _list(ledger.get("weeks"), "weeks", 54)

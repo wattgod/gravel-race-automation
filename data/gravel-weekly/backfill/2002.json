@@ -3,10 +3,15 @@
   "year": 2002,
   "asOf": "2002-12-31T23:59:59.000Z",
   "sourceLedgerIssue": "https://github.com/wattgod/race-intelligence-control-plane/issues/77",
-  "sourceLedgerRun": "https://github.com/wattgod/race-intelligence-control-plane/actions/runs/33179818962",
+  "sourceLedgerRun": "https://github.com/wattgod/race-intelligence-control-plane/actions/runs/33181999249",
   "programIssue": "https://github.com/wattgod/race-intelligence-control-plane/issues/47",
-  "sourceArchiveCoverage": "complete",
-  "sourceArchiveErrors": [],
+  "sourceArchiveCoverage": "partial",
+  "sourceArchiveErrors": [
+    "https://autobus.cyclingnews.com/results/?id=2002/jan02: legacy Cyclingnews archive is unavailable",
+    "https://autobus.cyclingnews.com/results/?id=2002/feb02: legacy Cyclingnews archive is unavailable",
+    "https://autobus.cyclingnews.com/results/?id=2002/mar02: legacy Cyclingnews archive is unavailable",
+    "https://autobus.cyclingnews.com/results/?id=2002/apr02: legacy Cyclingnews archive is unavailable"
+  ],
   "sourceCardCount": 0,
   "complete": true,
   "humanApprovalRequired": true,
@@ -18,7 +23,7 @@
       "sourceCardCount": 0,
       "disposition": "explicit_gap",
       "entryIds": [],
-      "reason": "The complete legacy Cyclingnews archive census found no matching source card; broader contemporary-source recovery found no story that cleared the editorial gates."
+      "reason": "The partial legacy Cyclingnews archive census found no matching source card; broader contemporary-source recovery found no story that cleared the editorial gates."
     },
     {
       "periodStartedAt": "2002-01-05",
@@ -26,7 +31,7 @@
       "sourceCardCount": 0,
       "disposition": "explicit_gap",
       "entryIds": [],
-      "reason": "The complete legacy Cyclingnews archive census found no matching source card; broader contemporary-source recovery found no story that cleared the editorial gates."
+      "reason": "The partial legacy Cyclingnews archive census found no matching source card; broader contemporary-source recovery found no story that cleared the editorial gates."
     },
     {
       "periodStartedAt": "2002-01-12",
@@ -34,7 +39,7 @@
       "sourceCardCount": 0,
       "disposition": "explicit_gap",
       "entryIds": [],
-      "reason": "The complete legacy Cyclingnews archive census found no matching source card; broader contemporary-source recovery found no story that cleared the editorial gates."
+      "reason": "The partial legacy Cyclingnews archive census found no matching source card; broader contemporary-source recovery found no story that cleared the editorial gates."
     },
     {
       "periodStartedAt": "2002-01-19",
@@ -42,7 +47,7 @@
       "sourceCardCount": 0,
       "disposition": "explicit_gap",
       "entryIds": [],
-      "reason": "The complete legacy Cyclingnews archive census found no matching source card; broader contemporary-source recovery found no story that cleared the editorial gates."
+      "reason": "The partial legacy Cyclingnews archive census found no matching source card; broader contemporary-source recovery found no story that cleared the editorial gates."
     },
     {
       "periodStartedAt": "2002-01-26",
@@ -50,7 +55,7 @@
       "sourceCardCount": 0,
       "disposition": "explicit_gap",
       "entryIds": [],
-      "reason": "The complete legacy Cyclingnews archive census found no matching source card; broader contemporary-source recovery found no story that cleared the editorial gates."
+      "reason": "The partial legacy Cyclingnews archive census found no matching source card; broader contemporary-source recovery found no story that cleared the editorial gates."
     },
     {
       "periodStartedAt": "2002-02-02",
@@ -58,7 +63,7 @@
       "sourceCardCount": 0,
       "disposition": "explicit_gap",
       "entryIds": [],
-      "reason": "The complete legacy Cyclingnews archive census found no matching source card; broader contemporary-source recovery found no story that cleared the editorial gates."
+      "reason": "The partial legacy Cyclingnews archive census found no matching source card; broader contemporary-source recovery found no story that cleared the editorial gates."
     },
     {
       "periodStartedAt": "2002-02-09",
@@ -66,7 +71,7 @@
       "sourceCardCount": 0,
       "disposition": "explicit_gap",
       "entryIds": [],
-      "reason": "The complete legacy Cyclingnews archive census found no matching source card; broader contemporary-source recovery found no story that cleared the editorial gates."
+      "reason": "The partial legacy Cyclingnews archive census found no matching source card; broader contemporary-source recovery found no story that cleared the editorial gates."
     },
     {
       "periodStartedAt": "2002-02-16",
@@ -74,7 +79,7 @@
       "sourceCardCount": 0,
       "disposition": "explicit_gap",
       "entryIds": [],
-      "reason": "The complete legacy Cyclingnews archive census found no matching source card; broader contemporary-source recovery found no story that cleared the editorial gates."
+      "reason": "The partial legacy Cyclingnews archive census found no matching source card; broader contemporary-source recovery found no story that cleared the editorial gates."
     },
     {
       "periodStartedAt": "2002-02-23",
@@ -82,7 +87,7 @@
       "sourceCardCount": 0,
       "disposition": "explicit_gap",
       "entryIds": [],
-      "reason": "The complete legacy Cyclingnews archive census found no matching source card; broader contemporary-source recovery found no story that cleared the editorial gates."
+      "reason": "The partial legacy Cyclingnews archive census found no matching source card; broader contemporary-source recovery found no story that cleared the editorial gates."
     },
     {
       "periodStartedAt": "2002-03-02",
@@ -90,7 +95,7 @@
       "sourceCardCount": 0,
       "disposition": "explicit_gap",
       "entryIds": [],
-      "reason": "The complete legacy Cyclingnews archive census found no matching source card; broader contemporary-source recovery found no story that cleared the editorial gates."
+      "reason": "The partial legacy Cyclingnews archive census found no matching source card; broader contemporary-source recovery found no story that cleared the editorial gates."
     },
     {
       "periodStartedAt": "2002-03-09",
@@ -98,7 +103,7 @@
       "sourceCardCount": 0,
       "disposition": "explicit_gap",
       "entryIds": [],
-      "reason": "The complete legacy Cyclingnews archive census found no matching source card; broader contemporary-source recovery found no story that cleared the editorial gates."
+      "reason": "The partial legacy Cyclingnews archive census found no matching source card; broader contemporary-source recovery found no story that cleared the editorial gates."
     },
     {
       "periodStartedAt": "2002-03-16",
@@ -106,7 +111,7 @@
       "sourceCardCount": 0,
       "disposition": "explicit_gap",
       "entryIds": [],
-      "reason": "The complete legacy Cyclingnews archive census found no matching source card; broader contemporary-source recovery found no story that cleared the editorial gates."
+      "reason": "The partial legacy Cyclingnews archive census found no matching source card; broader contemporary-source recovery found no story that cleared the editorial gates."
     },
     {
       "periodStartedAt": "2002-03-23",
@@ -114,7 +119,7 @@
       "sourceCardCount": 0,
       "disposition": "explicit_gap",
       "entryIds": [],
-      "reason": "The complete legacy Cyclingnews archive census found no matching source card; broader contemporary-source recovery found no story that cleared the editorial gates."
+      "reason": "The partial legacy Cyclingnews archive census found no matching source card; broader contemporary-source recovery found no story that cleared the editorial gates."
     },
     {
       "periodStartedAt": "2002-03-30",
@@ -122,7 +127,7 @@
       "sourceCardCount": 0,
       "disposition": "explicit_gap",
       "entryIds": [],
-      "reason": "The complete legacy Cyclingnews archive census found no matching source card; broader contemporary-source recovery found no story that cleared the editorial gates."
+      "reason": "The partial legacy Cyclingnews archive census found no matching source card; broader contemporary-source recovery found no story that cleared the editorial gates."
     },
     {
       "periodStartedAt": "2002-04-06",
@@ -130,7 +135,7 @@
       "sourceCardCount": 0,
       "disposition": "explicit_gap",
       "entryIds": [],
-      "reason": "The complete legacy Cyclingnews archive census found no matching source card; broader contemporary-source recovery found no story that cleared the editorial gates."
+      "reason": "The partial legacy Cyclingnews archive census found no matching source card; broader contemporary-source recovery found no story that cleared the editorial gates."
     },
     {
       "periodStartedAt": "2002-04-13",
@@ -138,7 +143,7 @@
       "sourceCardCount": 0,
       "disposition": "explicit_gap",
       "entryIds": [],
-      "reason": "The complete legacy Cyclingnews archive census found no matching source card; broader contemporary-source recovery found no story that cleared the editorial gates."
+      "reason": "The partial legacy Cyclingnews archive census found no matching source card; broader contemporary-source recovery found no story that cleared the editorial gates."
     },
     {
       "periodStartedAt": "2002-04-20",
@@ -146,7 +151,7 @@
       "sourceCardCount": 0,
       "disposition": "explicit_gap",
       "entryIds": [],
-      "reason": "The complete legacy Cyclingnews archive census found no matching source card; broader contemporary-source recovery found no story that cleared the editorial gates."
+      "reason": "The partial legacy Cyclingnews archive census found no matching source card; broader contemporary-source recovery found no story that cleared the editorial gates."
     },
     {
       "periodStartedAt": "2002-04-27",
@@ -154,7 +159,7 @@
       "sourceCardCount": 0,
       "disposition": "explicit_gap",
       "entryIds": [],
-      "reason": "The complete legacy Cyclingnews archive census found no matching source card; broader contemporary-source recovery found no story that cleared the editorial gates."
+      "reason": "The partial legacy Cyclingnews archive census found no matching source card; broader contemporary-source recovery found no story that cleared the editorial gates."
     },
     {
       "periodStartedAt": "2002-05-04",
@@ -172,7 +177,7 @@
       "sourceCardCount": 0,
       "disposition": "explicit_gap",
       "entryIds": [],
-      "reason": "The complete legacy Cyclingnews archive census found no matching source card; broader contemporary-source recovery found no story that cleared the editorial gates."
+      "reason": "The partial legacy Cyclingnews archive census found no matching source card; broader contemporary-source recovery found no story that cleared the editorial gates."
     },
     {
       "periodStartedAt": "2002-05-18",
@@ -180,7 +185,7 @@
       "sourceCardCount": 0,
       "disposition": "explicit_gap",
       "entryIds": [],
-      "reason": "The complete legacy Cyclingnews archive census found no matching source card; broader contemporary-source recovery found no story that cleared the editorial gates."
+      "reason": "The partial legacy Cyclingnews archive census found no matching source card; broader contemporary-source recovery found no story that cleared the editorial gates."
     },
     {
       "periodStartedAt": "2002-05-25",
@@ -188,7 +193,7 @@
       "sourceCardCount": 0,
       "disposition": "explicit_gap",
       "entryIds": [],
-      "reason": "The complete legacy Cyclingnews archive census found no matching source card; broader contemporary-source recovery found no story that cleared the editorial gates."
+      "reason": "The partial legacy Cyclingnews archive census found no matching source card; broader contemporary-source recovery found no story that cleared the editorial gates."
     },
     {
       "periodStartedAt": "2002-06-01",
@@ -196,7 +201,7 @@
       "sourceCardCount": 0,
       "disposition": "explicit_gap",
       "entryIds": [],
-      "reason": "The complete legacy Cyclingnews archive census found no matching source card; broader contemporary-source recovery found no story that cleared the editorial gates."
+      "reason": "The partial legacy Cyclingnews archive census found no matching source card; broader contemporary-source recovery found no story that cleared the editorial gates."
     },
     {
       "periodStartedAt": "2002-06-08",
@@ -204,7 +209,7 @@
       "sourceCardCount": 0,
       "disposition": "explicit_gap",
       "entryIds": [],
-      "reason": "The complete legacy Cyclingnews archive census found no matching source card; broader contemporary-source recovery found no story that cleared the editorial gates."
+      "reason": "The partial legacy Cyclingnews archive census found no matching source card; broader contemporary-source recovery found no story that cleared the editorial gates."
     },
     {
       "periodStartedAt": "2002-06-15",
@@ -212,7 +217,7 @@
       "sourceCardCount": 0,
       "disposition": "explicit_gap",
       "entryIds": [],
-      "reason": "The complete legacy Cyclingnews archive census found no matching source card; broader contemporary-source recovery found no story that cleared the editorial gates."
+      "reason": "The partial legacy Cyclingnews archive census found no matching source card; broader contemporary-source recovery found no story that cleared the editorial gates."
     },
     {
       "periodStartedAt": "2002-06-22",
@@ -220,7 +225,7 @@
       "sourceCardCount": 0,
       "disposition": "explicit_gap",
       "entryIds": [],
-      "reason": "The complete legacy Cyclingnews archive census found no matching source card; broader contemporary-source recovery found no story that cleared the editorial gates."
+      "reason": "The partial legacy Cyclingnews archive census found no matching source card; broader contemporary-source recovery found no story that cleared the editorial gates."
     },
     {
       "periodStartedAt": "2002-06-29",
@@ -228,7 +233,7 @@
       "sourceCardCount": 0,
       "disposition": "explicit_gap",
       "entryIds": [],
-      "reason": "The complete legacy Cyclingnews archive census found no matching source card; broader contemporary-source recovery found no story that cleared the editorial gates."
+      "reason": "The partial legacy Cyclingnews archive census found no matching source card; broader contemporary-source recovery found no story that cleared the editorial gates."
     },
     {
       "periodStartedAt": "2002-07-06",
@@ -236,7 +241,7 @@
       "sourceCardCount": 0,
       "disposition": "explicit_gap",
       "entryIds": [],
-      "reason": "The complete legacy Cyclingnews archive census found no matching source card; broader contemporary-source recovery found no story that cleared the editorial gates."
+      "reason": "The partial legacy Cyclingnews archive census found no matching source card; broader contemporary-source recovery found no story that cleared the editorial gates."
     },
     {
       "periodStartedAt": "2002-07-13",
@@ -244,7 +249,7 @@
       "sourceCardCount": 0,
       "disposition": "explicit_gap",
       "entryIds": [],
-      "reason": "The complete legacy Cyclingnews archive census found no matching source card; broader contemporary-source recovery found no story that cleared the editorial gates."
+      "reason": "The partial legacy Cyclingnews archive census found no matching source card; broader contemporary-source recovery found no story that cleared the editorial gates."
     },
     {
       "periodStartedAt": "2002-07-20",
@@ -252,7 +257,7 @@
       "sourceCardCount": 0,
       "disposition": "explicit_gap",
       "entryIds": [],
-      "reason": "The complete legacy Cyclingnews archive census found no matching source card; broader contemporary-source recovery found no story that cleared the editorial gates."
+      "reason": "The partial legacy Cyclingnews archive census found no matching source card; broader contemporary-source recovery found no story that cleared the editorial gates."
     },
     {
       "periodStartedAt": "2002-07-27",
@@ -260,7 +265,7 @@
       "sourceCardCount": 0,
       "disposition": "explicit_gap",
       "entryIds": [],
-      "reason": "The complete legacy Cyclingnews archive census found no matching source card; broader contemporary-source recovery found no story that cleared the editorial gates."
+      "reason": "The partial legacy Cyclingnews archive census found no matching source card; broader contemporary-source recovery found no story that cleared the editorial gates."
     },
     {
       "periodStartedAt": "2002-08-03",
@@ -268,7 +273,7 @@
       "sourceCardCount": 0,
       "disposition": "explicit_gap",
       "entryIds": [],
-      "reason": "The complete legacy Cyclingnews archive census found no matching source card; broader contemporary-source recovery found no story that cleared the editorial gates."
+      "reason": "The partial legacy Cyclingnews archive census found no matching source card; broader contemporary-source recovery found no story that cleared the editorial gates."
     },
     {
       "periodStartedAt": "2002-08-10",
@@ -286,7 +291,7 @@
       "sourceCardCount": 0,
       "disposition": "explicit_gap",
       "entryIds": [],
-      "reason": "The complete legacy Cyclingnews archive census found no matching source card; broader contemporary-source recovery found no story that cleared the editorial gates."
+      "reason": "The partial legacy Cyclingnews archive census found no matching source card; broader contemporary-source recovery found no story that cleared the editorial gates."
     },
     {
       "periodStartedAt": "2002-08-24",
@@ -294,7 +299,7 @@
       "sourceCardCount": 0,
       "disposition": "explicit_gap",
       "entryIds": [],
-      "reason": "The complete legacy Cyclingnews archive census found no matching source card; broader contemporary-source recovery found no story that cleared the editorial gates."
+      "reason": "The partial legacy Cyclingnews archive census found no matching source card; broader contemporary-source recovery found no story that cleared the editorial gates."
     },
     {
       "periodStartedAt": "2002-08-31",
@@ -302,7 +307,7 @@
       "sourceCardCount": 0,
       "disposition": "explicit_gap",
       "entryIds": [],
-      "reason": "The complete legacy Cyclingnews archive census found no matching source card; broader contemporary-source recovery found no story that cleared the editorial gates."
+      "reason": "The partial legacy Cyclingnews archive census found no matching source card; broader contemporary-source recovery found no story that cleared the editorial gates."
     },
     {
       "periodStartedAt": "2002-09-07",
@@ -310,7 +315,7 @@
       "sourceCardCount": 0,
       "disposition": "explicit_gap",
       "entryIds": [],
-      "reason": "The complete legacy Cyclingnews archive census found no matching source card; broader contemporary-source recovery found no story that cleared the editorial gates."
+      "reason": "The partial legacy Cyclingnews archive census found no matching source card; broader contemporary-source recovery found no story that cleared the editorial gates."
     },
     {
       "periodStartedAt": "2002-09-14",
@@ -318,7 +323,7 @@
       "sourceCardCount": 0,
       "disposition": "explicit_gap",
       "entryIds": [],
-      "reason": "The complete legacy Cyclingnews archive census found no matching source card; broader contemporary-source recovery found no story that cleared the editorial gates."
+      "reason": "The partial legacy Cyclingnews archive census found no matching source card; broader contemporary-source recovery found no story that cleared the editorial gates."
     },
     {
       "periodStartedAt": "2002-09-21",
@@ -326,7 +331,7 @@
       "sourceCardCount": 0,
       "disposition": "explicit_gap",
       "entryIds": [],
-      "reason": "The complete legacy Cyclingnews archive census found no matching source card; broader contemporary-source recovery found no story that cleared the editorial gates."
+      "reason": "The partial legacy Cyclingnews archive census found no matching source card; broader contemporary-source recovery found no story that cleared the editorial gates."
     },
     {
       "periodStartedAt": "2002-09-28",
@@ -334,7 +339,7 @@
       "sourceCardCount": 0,
       "disposition": "explicit_gap",
       "entryIds": [],
-      "reason": "The complete legacy Cyclingnews archive census found no matching source card; broader contemporary-source recovery found no story that cleared the editorial gates."
+      "reason": "The partial legacy Cyclingnews archive census found no matching source card; broader contemporary-source recovery found no story that cleared the editorial gates."
     },
     {
       "periodStartedAt": "2002-10-05",
@@ -342,7 +347,7 @@
       "sourceCardCount": 0,
       "disposition": "explicit_gap",
       "entryIds": [],
-      "reason": "The complete legacy Cyclingnews archive census found no matching source card; broader contemporary-source recovery found no story that cleared the editorial gates."
+      "reason": "The partial legacy Cyclingnews archive census found no matching source card; broader contemporary-source recovery found no story that cleared the editorial gates."
     },
     {
       "periodStartedAt": "2002-10-12",
@@ -350,7 +355,7 @@
       "sourceCardCount": 0,
       "disposition": "explicit_gap",
       "entryIds": [],
-      "reason": "The complete legacy Cyclingnews archive census found no matching source card; broader contemporary-source recovery found no story that cleared the editorial gates."
+      "reason": "The partial legacy Cyclingnews archive census found no matching source card; broader contemporary-source recovery found no story that cleared the editorial gates."
     },
     {
       "periodStartedAt": "2002-10-19",
@@ -358,7 +363,7 @@
       "sourceCardCount": 0,
       "disposition": "explicit_gap",
       "entryIds": [],
-      "reason": "The complete legacy Cyclingnews archive census found no matching source card; broader contemporary-source recovery found no story that cleared the editorial gates."
+      "reason": "The partial legacy Cyclingnews archive census found no matching source card; broader contemporary-source recovery found no story that cleared the editorial gates."
     },
     {
       "periodStartedAt": "2002-10-26",
@@ -366,7 +371,7 @@
       "sourceCardCount": 0,
       "disposition": "explicit_gap",
       "entryIds": [],
-      "reason": "The complete legacy Cyclingnews archive census found no matching source card; broader contemporary-source recovery found no story that cleared the editorial gates."
+      "reason": "The partial legacy Cyclingnews archive census found no matching source card; broader contemporary-source recovery found no story that cleared the editorial gates."
     },
     {
       "periodStartedAt": "2002-11-02",
@@ -374,7 +379,7 @@
       "sourceCardCount": 0,
       "disposition": "explicit_gap",
       "entryIds": [],
-      "reason": "The complete legacy Cyclingnews archive census found no matching source card; broader contemporary-source recovery found no story that cleared the editorial gates."
+      "reason": "The partial legacy Cyclingnews archive census found no matching source card; broader contemporary-source recovery found no story that cleared the editorial gates."
     },
     {
       "periodStartedAt": "2002-11-09",
@@ -382,7 +387,7 @@
       "sourceCardCount": 0,
       "disposition": "explicit_gap",
       "entryIds": [],
-      "reason": "The complete legacy Cyclingnews archive census found no matching source card; broader contemporary-source recovery found no story that cleared the editorial gates."
+      "reason": "The partial legacy Cyclingnews archive census found no matching source card; broader contemporary-source recovery found no story that cleared the editorial gates."
     },
     {
       "periodStartedAt": "2002-11-16",
@@ -390,7 +395,7 @@
       "sourceCardCount": 0,
       "disposition": "explicit_gap",
       "entryIds": [],
-      "reason": "The complete legacy Cyclingnews archive census found no matching source card; broader contemporary-source recovery found no story that cleared the editorial gates."
+      "reason": "The partial legacy Cyclingnews archive census found no matching source card; broader contemporary-source recovery found no story that cleared the editorial gates."
     },
     {
       "periodStartedAt": "2002-11-23",
@@ -398,7 +403,7 @@
       "sourceCardCount": 0,
       "disposition": "explicit_gap",
       "entryIds": [],
-      "reason": "The complete legacy Cyclingnews archive census found no matching source card; broader contemporary-source recovery found no story that cleared the editorial gates."
+      "reason": "The partial legacy Cyclingnews archive census found no matching source card; broader contemporary-source recovery found no story that cleared the editorial gates."
     },
     {
       "periodStartedAt": "2002-11-30",
@@ -406,7 +411,7 @@
       "sourceCardCount": 0,
       "disposition": "explicit_gap",
       "entryIds": [],
-      "reason": "The complete legacy Cyclingnews archive census found no matching source card; broader contemporary-source recovery found no story that cleared the editorial gates."
+      "reason": "The partial legacy Cyclingnews archive census found no matching source card; broader contemporary-source recovery found no story that cleared the editorial gates."
     },
     {
       "periodStartedAt": "2002-12-07",
@@ -414,7 +419,7 @@
       "sourceCardCount": 0,
       "disposition": "explicit_gap",
       "entryIds": [],
-      "reason": "The complete legacy Cyclingnews archive census found no matching source card; broader contemporary-source recovery found no story that cleared the editorial gates."
+      "reason": "The partial legacy Cyclingnews archive census found no matching source card; broader contemporary-source recovery found no story that cleared the editorial gates."
     },
     {
       "periodStartedAt": "2002-12-14",
@@ -422,7 +427,7 @@
       "sourceCardCount": 0,
       "disposition": "explicit_gap",
       "entryIds": [],
-      "reason": "The complete legacy Cyclingnews archive census found no matching source card; broader contemporary-source recovery found no story that cleared the editorial gates."
+      "reason": "The partial legacy Cyclingnews archive census found no matching source card; broader contemporary-source recovery found no story that cleared the editorial gates."
     },
     {
       "periodStartedAt": "2002-12-21",
@@ -430,7 +435,7 @@
       "sourceCardCount": 0,
       "disposition": "explicit_gap",
       "entryIds": [],
-      "reason": "The complete legacy Cyclingnews archive census found no matching source card; broader contemporary-source recovery found no story that cleared the editorial gates."
+      "reason": "The partial legacy Cyclingnews archive census found no matching source card; broader contemporary-source recovery found no story that cleared the editorial gates."
     },
     {
       "periodStartedAt": "2002-12-28",
@@ -438,7 +443,7 @@
       "sourceCardCount": 0,
       "disposition": "explicit_gap",
       "entryIds": [],
-      "reason": "The complete legacy Cyclingnews archive census found no matching source card; broader contemporary-source recovery found no story that cleared the editorial gates."
+      "reason": "The partial legacy Cyclingnews archive census found no matching source card; broader contemporary-source recovery found no story that cleared the editorial gates."
     }
   ],
   "updatedAt": "2026-08-28T20:45:00Z"

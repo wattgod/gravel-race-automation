@@ -57,7 +57,7 @@ function gg_cookie_consent_banner() {
     if ( current_user_can( 'edit_posts' ) ) return;
     ?>
 <style>
-.gg-privacy-choices-footer{padding:8px 16px;text-align:center;background:#59473c;font-family:'Sometype Mono',monospace}
+.gg-privacy-choices-footer{padding:8px 16px;background:#59473c;font-family:'Sometype Mono',monospace;display:flex;justify-content:center;gap:12px;flex-wrap:wrap}
 .gg-privacy-choices{color:#d4c5b9;font-size:10px;letter-spacing:1px;text-transform:uppercase;text-decoration:underline;text-underline-offset:3px}
 .gg-privacy-choices:hover{color:#ffffff}
 .gg-privacy-choices:focus-visible{outline:2px solid #4ECDC4;outline-offset:2px}
@@ -75,7 +75,7 @@ function gg_cookie_consent_banner() {
 @media(max-width:600px){.gg-consent-banner{padding:10px 16px;gap:10px}.gg-consent-text{font-size:11px;text-align:center}.gg-consent-btn{padding:6px 14px;font-size:11px}}
 @media(prefers-reduced-motion:reduce){.gg-consent-btn{transition:none}}
 </style>
-<div class="gg-privacy-choices-footer"><a class="gg-privacy-choices" id="gg-privacy-choices" href="/cookies/#privacy-choices">Privacy choices</a></div>
+<footer class="gg-privacy-choices-footer" aria-label="Legal"><a class="gg-privacy-choices" id="gg-privacy-choices" href="/cookies/#privacy-choices">Privacy choices</a><a class="gg-privacy-choices" href="/privacy/">Privacy</a><a class="gg-privacy-choices" href="/terms/">Terms</a></footer>
 <div class="gg-consent-banner" id="gg-consent-banner" role="dialog" aria-label="Cookie consent" aria-describedby="gg-consent-desc">
   <p class="gg-consent-text" id="gg-consent-desc">We use cookies for analytics to improve this site. No ads, no tracking across sites. <a href="/cookies/">Learn more</a>.</p>
   <button class="gg-consent-btn gg-consent-accept" id="gg-consent-accept">Accept</button>

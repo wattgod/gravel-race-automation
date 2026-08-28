@@ -438,6 +438,123 @@ def _normalize_surface_breakdown(raw: Any) -> dict:
     }
 
 
+def _rating_bumper(text: str, *, min_chars: int = 48, max_chars: int = 220) -> str:
+    """Return a compact, complete-sentence verdict from existing profile copy."""
+    clean = re.sub(r'\s+', ' ', str(text or '')).strip()
+    if not clean:
+        return ''
+    if clean.startswith('['):
+        return ''
+
+    sentences = re.split(r'(?<=[.!?])\s+', clean)
+    chosen = []
+    for sentence in sentences:
+        candidate = ' '.join(chosen + [sentence]).strip()
+        if chosen and len(candidate) > max_chars:
+            break
+        chosen.append(sentence)
+        if len(candidate) >= min_chars:
+            break
+    bumper = ' '.join(chosen).strip()
+    if len(bumper) <= max_chars:
+        return bumper
+    candidate = bumper[:max_chars + 1]
+    clause_break = max(candidate.rfind(mark) for mark in ('; ', ' — ', ', '))
+    if clause_break >= min_chars:
+        return candidate[:clause_break].rstrip(' ,;:—-') + '.'
+    word_break = candidate.rfind(' ')
+    return candidate[:word_break].rstrip(' ,;:—-') + '…'
+
+
+def _editorialize_rating_explanation(text: str) -> str:
+    """Remove research-process scaffolding while preserving facts and quotes.
+
+    Citations remain in the dedicated Sources & Citations section. Rating cards
+    should sound like the publication's judgment, not a research handoff.
+    """
+    clean = re.sub(r'\s+', ' ', str(text or '')).strip()
+    if not clean:
+        return ''
+
+    # Inline research-footnote markers belong in the citation section below.
+    clean = re.sub(r'(?<!\w)\[\d+\](?:\[\d+\])*', '', clean)
+
+    clean = re.sub(
+        r'\bthe\s+(?:event|official|race)\s+(?:page|site)\s+calls?\s+the\s+'
+        r'(course|route|event)\s+([^,.;]+)',
+        lambda match: f"The {match.group(1)} is {match.group(2)}",
+        clean,
+        flags=re.IGNORECASE,
+    )
+
+    # Keep the quoted words; remove the clunky narration of how we found them.
+    clean = re.sub(
+        r'\bAs\s+[^,:]{1,100}\s+(?:puts it|notes?|reports?|describes?|captures?)[,:]\s*',
+        '',
+        clean,
+        flags=re.IGNORECASE,
+    )
+    clean = re.sub(
+        r"\b[A-Z][^.!?]{0,80}?[’']s\s+(?:assessment|description|account|take|verdict)\s+"
+        r'(?:rings true|is apt|is accurate):\s*',
+        '',
+        clean,
+    )
+    clean = re.sub(
+        r'\baccording to\s+[^,.;:]{1,80}(?=[,.;:])',
+        '',
+        clean,
+        flags=re.IGNORECASE,
+    )
+
+    # Source-led sentences are a recurring enrichment artifact: "X notes...",
+    # "X describes...", "the event page calls...". Remove the throat-clearing
+    # and leave the sourced fact or quotation to do the work.
+    source_subject = (
+        r'(?:[A-Z][\w@.\-’\']*(?:\s+(?:at|from|of|the|&|[A-Z][\w@.\-’\']*)){0,6}'
+        r'|[a-z][A-Za-z0-9_\-]{2,}'
+        r'|[Tt]he\s+(?:event|official|race|organizer|municipal|local)\s+(?:page|site|report|reporting)'
+        r'|[Tt]he\s+organizer(?:-linked)?\s+(?:route|page|site)'
+        r'|[Tt]he\s+organizers?)'
+    )
+    sentence_boundary = r'(^|(?<=[.!?])\s+|(?<=[.!?]["”\'])\s+)'
+    reporting_verb = (
+        r'(?i:notes?|noted|reports?|reported|says?|said|observes?|observed|recalls?|recalled|'
+        r'writes?|wrote|explains?|explained|emphasizes?|emphasized|acknowledges?|acknowledged|'
+        r'argues?|argued)'
+    )
+    clean = re.sub(
+        rf'{sentence_boundary}{source_subject}\s+{reporting_verb}\s+(?:that\s+|how\s+|it:?\s+)?',
+        r'\1',
+        clean,
+    )
+    clean = re.sub(
+        rf'{sentence_boundary}{source_subject}\s+(?i:describes?|described)\s+'
+        r'(?=(?:the|a|an)\b|["“\'])',
+        r'\1',
+        clean,
+    )
+    clean = re.sub(
+        rf'{sentence_boundary}{source_subject}\s+(?i:calls?|called|captures?|captured)\s+'
+        r'(?:it:?\s+|(?=["“\']))',
+        r'\1',
+        clean,
+    )
+
+    clean = re.sub(r'\s+([,.;:!?])', r'\1', clean)
+    clean = re.sub(r'\s{2,}', ' ', clean).strip(' ,;')
+    clean = re.sub(
+        r'(^|[.!?](?:["”\'])?\s+)([a-z])',
+        lambda match: match.group(1) + match.group(2).upper(),
+        clean,
+    )
+
+    # Mechanical removals can expose a lowercase first word.
+    if clean and clean[0].islower():
+        clean = clean[0].upper() + clean[1:]
+    return clean
+
+
 def normalize_race_data(data: dict) -> dict:
     """Normalize race data from new-format JSON into a consistent shape
     with all fields the generator expects. Computes derived fields if missing."""
@@ -471,14 +588,40 @@ def normalize_race_data(data: dict) -> dict:
     course_profile = sum(rating.get(d, 0) for d in COURSE_DIMS)
     opinion_total = sum(rating.get(d, 0) for d in OPINION_DIMS)
 
-    # Build explanations dict from biased_opinion_ratings
+    # Build display explanations from biased_opinion_ratings. The source data
+    # retains its full research provenance; the public page gets editorial copy.
     explanations = {}
     for dim in ALL_DIMS:
         entry = bor.get(dim, {})
         explanations[dim] = {
             'score': entry.get('score', rating.get(dim, 0)),
-            'explanation': entry.get('explanation', ''),
+            'explanation': _editorialize_rating_explanation(entry.get('explanation', '')),
         }
+
+    explicit_summaries = race.get('rating_summaries', {})
+    course_summary = next((
+        summary for source in (
+            explicit_summaries.get('course'),
+            course.get('character'),
+            course.get('summary'),
+            course.get('overview'),
+            race.get('tagline', ''),
+        ) if (summary := _rating_bumper(_editorialize_rating_explanation(source)))
+    ), '')
+    editorial_summary = next((
+        summary for source in (
+            explicit_summaries.get('editorial'),
+            final_verdict.get('one_liner'),
+            bo.get('bottom_line'),
+            bo.get('summary'),
+            race.get('tagline', ''),
+        ) if (summary := _rating_bumper(_editorialize_rating_explanation(source)))
+    ), '')
+    race_name = race.get('display_name') or race.get('name', 'This race')
+    if not course_summary:
+        course_summary = f"{race_name} scores {course_profile}/35 for course demands."
+    if not editorial_summary:
+        editorial_summary = f"{race_name} scores {opinion_total}/35 on the editorial card."
 
     # Extract date with year from date_specific like "2026: June 6" -> "June 6, 2026"
     raw_date_specific = vitals.get('date_specific', '')
@@ -546,6 +689,10 @@ def normalize_race_data(data: dict) -> dict:
         'opinion_total': opinion_total,
         'rating': rating,
         'explanations': explanations,
+        'rating_summaries': {
+            'course': course_summary,
+            'editorial': editorial_summary,
+        },
         'vitals': {
             'distance': f"{vitals.get('distance_mi', '--')} mi" if vitals.get('distance_mi') else '--',
             'distance_mi': vitals.get('distance_mi', 0),
@@ -816,21 +963,15 @@ def _radar_svg(dims: list, explanations: dict, color_fill: str, color_stroke: st
 
 
 def _build_rating_tiles(dims: list, explanations: dict, group_id: str) -> str:
-    """Build keyboard-operable score tiles and one shared explanation region."""
+    """Build score tiles plus a detail region revealed after selection."""
     tiles = []
-    first_label = ''
-    first_score = 0
-    first_explanation = ''
-    for i, dim in enumerate(dims):
+    for dim in dims:
         entry = explanations.get(dim, {})
         label = DIM_LABELS.get(dim, dim.replace('_', ' ').title())
         score = max(0, min(5, _parse_score(entry.get('score', 0))))
         score_label = f'{score:g}'
         explanation = entry.get('explanation', '').strip() or 'No written explanation is available yet.'
-        if i == 0:
-            first_label, first_score, first_explanation = label, score, explanation
-        pressed = 'true' if i == 0 else 'false'
-        tiles.append(f'''<button type="button" class="gg-rating-tile" data-rating-group="{group_id}" data-rating-key="{esc(dim)}" aria-pressed="{pressed}">
+        tiles.append(f'''<button type="button" class="gg-rating-tile" data-rating-group="{group_id}" data-rating-key="{esc(dim)}" aria-pressed="false">
           <span class="gg-rating-tile-label">{esc(label)}</span>
           <span class="gg-rating-tile-score">{score_label}<span>/5</span></span>
           <span class="gg-rating-source" hidden>{esc(explanation)}</span>
@@ -839,17 +980,23 @@ def _build_rating_tiles(dims: list, explanations: dict, group_id: str) -> str:
     return f'''<div class="gg-rating-breakdown" aria-label="{esc(group_id.title())} score breakdown">
         {''.join(tiles)}
       </div>
-      <div class="gg-rating-explanation" id="gg-rating-detail-{group_id}" role="status" aria-live="polite">
+      <div class="gg-rating-explanation" id="gg-rating-detail-{group_id}" role="status" aria-live="polite" hidden>
         <div class="gg-rating-explanation-head">
-          <span class="gg-rating-explanation-label">{esc(first_label)}</span>
-          <span class="gg-rating-explanation-score">{first_score:g}/5</span>
+          <span class="gg-rating-explanation-label"></span>
+          <span class="gg-rating-explanation-score"></span>
         </div>
-        <p>{esc(first_explanation)}</p>
+        <p></p>
       </div>'''
 
 
-def build_radar_charts(explanations: dict, course_total: int, opinion_total: int) -> str:
+def build_radar_charts(
+    explanations: dict,
+    course_total: int,
+    opinion_total: int,
+    summaries: Optional[dict] = None,
+) -> str:
     """Build tabbed, click-to-explain Course and Editorial radar charts."""
+    summaries = summaries or {}
     course_chart = _radar_svg(COURSE_DIMS, explanations,
                               COLORS['teal'], COLORS['teal'],
                               'Course Profile', course_total, 35, group_id='course')
@@ -864,10 +1011,18 @@ def build_radar_charts(explanations: dict, course_total: int, opinion_total: int
         <button type="button" id="gg-rating-tab-editorial" role="tab" aria-selected="false" aria-controls="gg-rating-panel-editorial" tabindex="-1">Editorial <span>{esc(opinion_total)}/35</span></button>
       </div>
       <div id="gg-rating-panel-course" class="gg-rating-panel" role="tabpanel" aria-labelledby="gg-rating-tab-course" data-rating-group="course">
+        <div class="gg-rating-summary">
+          <span>Course verdict</span>
+          <p>{esc(summaries.get('course', ''))}</p>
+        </div>
         {course_chart}
         {course_tiles}
       </div>
       <div id="gg-rating-panel-editorial" class="gg-rating-panel" role="tabpanel" aria-labelledby="gg-rating-tab-editorial" data-rating-group="editorial" hidden>
+        <div class="gg-rating-summary">
+          <span>Editorial verdict</span>
+          <p>{esc(summaries.get('editorial', ''))}</p>
+        </div>
         {editorial_chart}
         {editorial_tiles}
       </div>
@@ -977,6 +1132,7 @@ def build_inline_js() -> str:
     var detail = document.getElementById('gg-rating-detail-' + group);
     var source = tile.querySelector('.gg-rating-source');
     if (detail && source) {
+      detail.hidden = false;
       detail.querySelector('.gg-rating-explanation-label').textContent = tile.querySelector('.gg-rating-tile-label').textContent;
       detail.querySelector('.gg-rating-explanation-score').textContent = tile.querySelector('.gg-rating-tile-score').textContent;
       detail.querySelector('p').textContent = source.textContent;
@@ -2936,7 +3092,12 @@ def build_from_the_field(rd: dict) -> str:
 
 def build_ratings(rd: dict) -> str:
     """Build the centerpiece tabbed Course/Opinion rating component."""
-    radar = build_radar_charts(rd['explanations'], rd['course_profile'], rd['opinion_total'])
+    radar = build_radar_charts(
+        rd['explanations'],
+        rd['course_profile'],
+        rd['opinion_total'],
+        rd.get('rating_summaries'),
+    )
 
     return f'''<section id="ratings" class="gg-section gg-section--teal-accent gg-fade-section" data-measure-section="rating">
     <div class="gg-section-header gg-section-header--dark">
@@ -6053,8 +6214,11 @@ body {{ margin: 0; background: var(--gg-color-warm-paper); }}
 .gg-neo-brutalist-page .gg-rating-tablist button:last-child {{ border-right: 0; }}
 .gg-neo-brutalist-page .gg-rating-tablist button[aria-selected="true"] {{ background: var(--gg-color-sand); color: var(--gg-color-dark-brown); border-bottom: 3px solid var(--gg-color-gold); }}
 .gg-neo-brutalist-page .gg-rating-tablist button span {{ color: var(--gg-color-teal); }}
-.gg-neo-brutalist-page .gg-rating-panel {{ display: grid; grid-template-columns: minmax(300px, 1.1fr) minmax(260px, .9fr); grid-template-areas: 'radar tiles' 'radar detail'; gap: 16px; padding-top: 20px; }}
+.gg-neo-brutalist-page .gg-rating-panel {{ display: grid; grid-template-columns: minmax(300px, 1.1fr) minmax(260px, .9fr); grid-template-areas: 'summary summary' 'radar tiles' 'radar detail'; gap: 16px; padding-top: 20px; }}
 .gg-neo-brutalist-page .gg-rating-panel[hidden] {{ display: none; }}
+.gg-neo-brutalist-page .gg-rating-summary {{ grid-area: summary; padding: 18px 20px; border: 1px solid var(--gg-color-gold); background: var(--gg-color-sand); }}
+.gg-neo-brutalist-page .gg-rating-summary span {{ display: block; font-family: var(--gg-font-data); font-size: 10px; font-weight: 700; letter-spacing: var(--gg-letter-spacing-ultra-wide); text-transform: uppercase; color: var(--gg-color-teal); }}
+.gg-neo-brutalist-page .gg-rating-summary p {{ max-width: 72ch; margin: 7px 0 0; font-family: var(--gg-font-editorial); font-size: var(--gg-font-size-md); font-weight: 650; line-height: 1.45; color: var(--gg-color-dark-brown); }}
 .gg-neo-brutalist-page .gg-radar-chart {{ grid-area: radar; border: var(--gg-border-subtle); background: var(--gg-color-warm-paper); padding: 12px 8px; text-align: center; }}
 .gg-neo-brutalist-page .gg-radar-svg {{ width: 100%; height: auto; display: block; margin: 0 auto; }}
 .gg-neo-brutalist-page .gg-radar-label {{ font-family: var(--gg-font-data); font-size: var(--gg-font-size-2xs); font-weight: 700; text-transform: uppercase; letter-spacing: var(--gg-letter-spacing-wider); color: var(--gg-color-secondary-brown); margin-top: var(--gg-spacing-2xs); }}
@@ -6462,7 +6626,7 @@ body {{ margin: 0; background: var(--gg-color-warm-paper); }}
   .gg-neo-brutalist-page .gg-stat-grid {{ grid-template-columns: repeat(2, 1fr); }}
   .gg-neo-brutalist-page .gg-verdict-grid {{ grid-template-columns: 1fr; }}
   .gg-neo-brutalist-page .gg-logistics-grid {{ grid-template-columns: 1fr; }}
-  .gg-neo-brutalist-page .gg-rating-panel {{ grid-template-columns: 1fr; grid-template-areas: 'radar' 'tiles' 'detail'; }}
+  .gg-neo-brutalist-page .gg-rating-panel {{ grid-template-columns: 1fr; grid-template-areas: 'summary' 'radar' 'tiles' 'detail'; }}
   .gg-neo-brutalist-page .gg-training-secondary {{ flex-direction: column; text-align: center; }}
   .gg-neo-brutalist-page .gg-pack-demand-label {{ font-size: 11px; }}
   .gg-neo-brutalist-page .gg-pack-workout-header {{ flex-wrap: wrap; }}

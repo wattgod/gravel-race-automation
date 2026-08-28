@@ -1,0 +1,86 @@
+{
+  "schemaVersion": "gravel-weekly-history-entry/v1",
+  "entryId": "history-gravel-got-huge-before-important-2017",
+  "activeFrom": "2017-06-02",
+  "activeThrough": "2017-06-23",
+  "status": "draft",
+  "headline": "Gravel Got Huge Before It Learned to Act Important",
+  "point": "The 2017 Dirty Kanza had already become a 2,200-rider destination with thousands more chasing entries and millions of dollars moving through Emporia, yet its strongest competitive story was a gravel newcomer and a two-time champion sprinting after 206 miles. Gravel did not need a governing body, a television package, or a polished professional league to prove that mass participation and serious racing could inhabit the same event.",
+  "priorJudgment": "A race built around self-supported amateurs, local volunteers, and an all-day rural course could grow into a beloved festival, but serious competition and broad public consequence belonged to professional road racing.",
+  "changedJudgment": "Dirty Kanza had become economically consequential and competitively credible without surrendering the participant-first culture that created it. Its scale came from making ordinary riders part of the product; elite drama intensified that product instead of replacing it.",
+  "stakes": "Modern gravel repeatedly argues about whether growth, professional riders, and commercial attention corrupt its character. The 2017 evidence shows that size itself was not the original betrayal: more than two thousand riders, a consequential local economy, a course-record women's race, and a personal event atmosphere coexisted. The harder question is whether later owners and leagues kept participants inside the story or converted them into scenery for a professional show.",
+  "credibleOpposition": "Dirty Kanza was not an improvised club ride by 2017. Entry scarcity, sponsor-supported professionals, purpose-built equipment, organized checkpoints, and a large economic footprint already made it a commercial institution. Contemporary accounts celebrating its personal atmosphere were participant impressions, not independent measurements of access, community benefit, or who the growth excluded. One dramatic women's finish also cannot prove the entire event had achieved sporting maturity.",
+  "whatHappened": "Dirty Kanza's 2017 editions drew roughly 2,200 riders across its distances, while more than 4,000 people reportedly logged on seeking places. A Kansas report projected about 2,500 participants and a $2.2 million annual economic effect for Emporia. In the 206-mile race, road professional and first-time gravel racer Alison Tetrick broke the women's course record in 11 hours 41 minutes and beat two-time champion Amanda Nauman by five seconds. Tetrick said she regarded Dirty Kanza as gravel's pinnacle and had asked her professional road team for permission to enter. A participant account later contrasted the huge field with the event's continuing personal relationship to its organizers and town.",
+  "take": "Model draft, not Matti's approved view: Dirty Kanza got huge before gravel learned to hold a panel discussion about what huge was doing to gravel. In 2017, thousands of riders stampeded the registration page, Emporia expected a couple million dollars to fall out of their jersey pockets, and the women's 206-mile race ended in a five-second sprint. This was not a tiny counterculture protecting itself from the outside world. The outside world was already refreshing BikeReg. The useful part is what had not disappeared yet. Ordinary riders were not the audience planted behind barriers while professionals performed importance for them. They were the event, and Alison Tetrick's course record made the same day sharper without making everyone else irrelevant. Gravel's original scaling trick was almost offensively simple: let the crowd participate in the myth. Everything that came later should be judged by whether it preserved that trick or merely found a cleaner way to invoice it.",
+  "takeProvenance": "model_draft",
+  "uncertainty": "Contemporary reports vary between roughly 2,200 and 2,500 participants because some describe registrations, expected starts, or different distance totals. The $2.2 million figure was attributed by KSAL to Wichita Eagle reporting and was an estimate, not an audited impact study. The sources establish Tetrick's win, five-second margin, course record, road-team support, and first gravel-race status, but they do not measure broadcast reach, organizer finances, participant demographics, or whether every rider experienced the event as personal and accessible.",
+  "editorialScore": 96,
+  "editorialGates": {
+    "party": "pass",
+    "point": "pass",
+    "friend": "pass",
+    "craft": "pass",
+    "hostileEditor": "pass"
+  },
+  "contemporaryReceipts": [
+    {
+      "claimId": "claim_dirty_kanza_economic_scale_2017",
+      "canonicalUrl": "https://www.ksal.com/200-mile-kansas-bike-race-has-grown-into-major-event/",
+      "publisher": "KSAL",
+      "publishedAt": "2017-06-02T12:00:00Z",
+      "quoteExcerpt": "an estimated $2.2 million every spring",
+      "transcriptStartSeconds": null,
+      "transcriptEndSeconds": null
+    },
+    {
+      "claimId": "claim_tetrick_record_and_womens_inclusion_2017",
+      "canonicalUrl": "https://www.bicycling.com/racing/a20042725/tetrick-kanza-record/",
+      "publisher": "Bicycling",
+      "publishedAt": "2017-06-06T18:20:00Z",
+      "quoteExcerpt": "smashing the former women's course record",
+      "transcriptStartSeconds": null,
+      "transcriptEndSeconds": null
+    },
+    {
+      "claimId": "claim_tetrick_gravel_newcomer_five_second_win_2017",
+      "canonicalUrl": "https://www.cxmagazine.com/interview-alison-tetrick-queen-dirty-kanza-200-2017",
+      "publisher": "Cyclocross Magazine",
+      "publishedAt": "2017-06-14T12:00:00Z",
+      "quoteExcerpt": "first true gravel race",
+      "transcriptStartSeconds": null,
+      "transcriptEndSeconds": null
+    },
+    {
+      "claimId": "claim_dirty_kanza_scale_and_personal_character_2017",
+      "canonicalUrl": "https://singletrackworld.com/gritcx/2017/06/23/dirty-kanza-2017/",
+      "publisher": "Singletrack World",
+      "publishedAt": "2017-06-23T12:00:00Z",
+      "quoteExcerpt": "over 4000 riders were logged on seeking a spot",
+      "transcriptStartSeconds": null,
+      "transcriptEndSeconds": null
+    }
+  ],
+  "laterEvidence": [],
+  "raceImpacts": [
+    {
+      "impactKind": "editorial_review",
+      "raceId": "gravel:unbound-gravel",
+      "fieldPath": "race.biased_opinion",
+      "claimIds": [
+        "claim_dirty_kanza_economic_scale_2017",
+        "claim_tetrick_record_and_womens_inclusion_2017",
+        "claim_tetrick_gravel_newcomer_five_second_win_2017",
+        "claim_dirty_kanza_scale_and_personal_character_2017"
+      ],
+      "confidence": 0.95,
+      "owner": "Gravel God race editorial review",
+      "autoFixAllowed": false
+    }
+  ],
+  "humanApprovalRequired": true,
+  "autoPublishAllowed": false,
+  "editorialApproval": null,
+  "publishedAt": null,
+  "updatedAt": "2026-08-28T12:25:00Z",
+  "contentHash": "8c7b0fd51eb589396b85a803c6fbd2641d80fdfb7424a81f05bb462d728ed4b2"
+}

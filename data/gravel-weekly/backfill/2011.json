@@ -1,0 +1,446 @@
+{
+  "schemaVersion": "gravel-weekly-backfill-ledger/v1",
+  "year": 2011,
+  "asOf": "2011-12-31T23:59:59.000Z",
+  "sourceLedgerIssue": "https://github.com/wattgod/race-intelligence-control-plane/issues/66",
+  "sourceLedgerRun": "https://github.com/wattgod/race-intelligence-control-plane/actions/runs/33172355590",
+  "programIssue": "https://github.com/wattgod/race-intelligence-control-plane/issues/47",
+  "sourceCardCount": 1,
+  "complete": true,
+  "humanApprovalRequired": true,
+  "autoPublishAllowed": false,
+  "weeks": [
+    {
+      "periodStartedAt": "2011-01-01",
+      "periodEndedAt": "2011-01-07",
+      "sourceCardCount": 0,
+      "disposition": "explicit_gap",
+      "entryIds": [],
+      "reason": "Cyclingnews exposed no matching source card; preserve the quiet window."
+    },
+    {
+      "periodStartedAt": "2011-01-08",
+      "periodEndedAt": "2011-01-14",
+      "sourceCardCount": 0,
+      "disposition": "explicit_gap",
+      "entryIds": [],
+      "reason": "Cyclingnews exposed no matching source card; preserve the quiet window."
+    },
+    {
+      "periodStartedAt": "2011-01-15",
+      "periodEndedAt": "2011-01-21",
+      "sourceCardCount": 0,
+      "disposition": "explicit_gap",
+      "entryIds": [],
+      "reason": "Cyclingnews exposed no matching source card; preserve the quiet window."
+    },
+    {
+      "periodStartedAt": "2011-01-22",
+      "periodEndedAt": "2011-01-28",
+      "sourceCardCount": 0,
+      "disposition": "explicit_gap",
+      "entryIds": [],
+      "reason": "Cyclingnews exposed no matching source card; preserve the quiet window."
+    },
+    {
+      "periodStartedAt": "2011-01-29",
+      "periodEndedAt": "2011-02-04",
+      "sourceCardCount": 0,
+      "disposition": "explicit_gap",
+      "entryIds": [],
+      "reason": "Cyclingnews exposed no matching source card; preserve the quiet window."
+    },
+    {
+      "periodStartedAt": "2011-02-05",
+      "periodEndedAt": "2011-02-11",
+      "sourceCardCount": 0,
+      "disposition": "explicit_gap",
+      "entryIds": [],
+      "reason": "Cyclingnews exposed no matching source card; preserve the quiet window."
+    },
+    {
+      "periodStartedAt": "2011-02-12",
+      "periodEndedAt": "2011-02-18",
+      "sourceCardCount": 0,
+      "disposition": "explicit_gap",
+      "entryIds": [],
+      "reason": "Cyclingnews exposed no matching source card; preserve the quiet window."
+    },
+    {
+      "periodStartedAt": "2011-02-19",
+      "periodEndedAt": "2011-02-25",
+      "sourceCardCount": 0,
+      "disposition": "explicit_gap",
+      "entryIds": [],
+      "reason": "Cyclingnews exposed no matching source card; preserve the quiet window."
+    },
+    {
+      "periodStartedAt": "2011-02-26",
+      "periodEndedAt": "2011-03-04",
+      "sourceCardCount": 0,
+      "disposition": "explicit_gap",
+      "entryIds": [],
+      "reason": "Cyclingnews exposed no matching source card; preserve the quiet window."
+    },
+    {
+      "periodStartedAt": "2011-03-05",
+      "periodEndedAt": "2011-03-11",
+      "sourceCardCount": 0,
+      "disposition": "explicit_gap",
+      "entryIds": [],
+      "reason": "Cyclingnews exposed no matching source card; preserve the quiet window."
+    },
+    {
+      "periodStartedAt": "2011-03-12",
+      "periodEndedAt": "2011-03-18",
+      "sourceCardCount": 0,
+      "disposition": "explicit_gap",
+      "entryIds": [],
+      "reason": "Cyclingnews exposed no matching source card; preserve the quiet window."
+    },
+    {
+      "periodStartedAt": "2011-03-19",
+      "periodEndedAt": "2011-03-25",
+      "sourceCardCount": 0,
+      "disposition": "explicit_gap",
+      "entryIds": [],
+      "reason": "Cyclingnews exposed no matching source card; preserve the quiet window."
+    },
+    {
+      "periodStartedAt": "2011-03-26",
+      "periodEndedAt": "2011-04-01",
+      "sourceCardCount": 0,
+      "disposition": "explicit_gap",
+      "entryIds": [],
+      "reason": "Cyclingnews exposed no matching source card; preserve the quiet window."
+    },
+    {
+      "periodStartedAt": "2011-04-02",
+      "periodEndedAt": "2011-04-08",
+      "sourceCardCount": 0,
+      "disposition": "explicit_gap",
+      "entryIds": [],
+      "reason": "Cyclingnews exposed no matching source card; preserve the quiet window."
+    },
+    {
+      "periodStartedAt": "2011-04-09",
+      "periodEndedAt": "2011-04-15",
+      "sourceCardCount": 0,
+      "disposition": "covered_by_draft",
+      "entryIds": [
+        "history-crusher-made-wrong-bike-the-point-2011"
+      ],
+      "reason": "A contemporary preview records Swindlehurst’s deliberate no-correct-bike design and the one-bike constraint."
+    },
+    {
+      "periodStartedAt": "2011-04-16",
+      "periodEndedAt": "2011-04-22",
+      "sourceCardCount": 0,
+      "disposition": "explicit_gap",
+      "entryIds": [],
+      "reason": "Cyclingnews exposed no matching source card; preserve the quiet window."
+    },
+    {
+      "periodStartedAt": "2011-04-23",
+      "periodEndedAt": "2011-04-29",
+      "sourceCardCount": 0,
+      "disposition": "explicit_gap",
+      "entryIds": [],
+      "reason": "Cyclingnews exposed no matching source card; preserve the quiet window."
+    },
+    {
+      "periodStartedAt": "2011-04-30",
+      "periodEndedAt": "2011-05-06",
+      "sourceCardCount": 0,
+      "disposition": "explicit_gap",
+      "entryIds": [],
+      "reason": "Cyclingnews exposed no matching source card; preserve the quiet window."
+    },
+    {
+      "periodStartedAt": "2011-05-07",
+      "periodEndedAt": "2011-05-13",
+      "sourceCardCount": 1,
+      "disposition": "rejected",
+      "entryIds": [],
+      "reason": "The sole Cyclingnews card concerns Giro d’Italia road-stage gravel safety, not the North American gravel-racing narrative; reject it rather than manufacture relevance."
+    },
+    {
+      "periodStartedAt": "2011-05-14",
+      "periodEndedAt": "2011-05-20",
+      "sourceCardCount": 0,
+      "disposition": "explicit_gap",
+      "entryIds": [],
+      "reason": "Cyclingnews exposed no matching source card; preserve the quiet window."
+    },
+    {
+      "periodStartedAt": "2011-05-21",
+      "periodEndedAt": "2011-05-27",
+      "sourceCardCount": 0,
+      "disposition": "explicit_gap",
+      "entryIds": [],
+      "reason": "Cyclingnews exposed no matching source card; preserve the quiet window."
+    },
+    {
+      "periodStartedAt": "2011-05-28",
+      "periodEndedAt": "2011-06-03",
+      "sourceCardCount": 0,
+      "disposition": "explicit_gap",
+      "entryIds": [],
+      "reason": "Cyclingnews exposed no matching source card; preserve the quiet window."
+    },
+    {
+      "periodStartedAt": "2011-06-04",
+      "periodEndedAt": "2011-06-10",
+      "sourceCardCount": 0,
+      "disposition": "covered_by_draft",
+      "entryIds": [
+        "history-crusher-made-wrong-bike-the-point-2011"
+      ],
+      "reason": "A contemporary local preview establishes the planned asphalt-and-dirt course and promoter origin."
+    },
+    {
+      "periodStartedAt": "2011-06-11",
+      "periodEndedAt": "2011-06-17",
+      "sourceCardCount": 0,
+      "disposition": "explicit_gap",
+      "entryIds": [],
+      "reason": "Cyclingnews exposed no matching source card; preserve the quiet window."
+    },
+    {
+      "periodStartedAt": "2011-06-18",
+      "periodEndedAt": "2011-06-24",
+      "sourceCardCount": 0,
+      "disposition": "explicit_gap",
+      "entryIds": [],
+      "reason": "Cyclingnews exposed no matching source card; preserve the quiet window."
+    },
+    {
+      "periodStartedAt": "2011-06-25",
+      "periodEndedAt": "2011-07-01",
+      "sourceCardCount": 0,
+      "disposition": "explicit_gap",
+      "entryIds": [],
+      "reason": "Cyclingnews exposed no matching source card; preserve the quiet window."
+    },
+    {
+      "periodStartedAt": "2011-07-02",
+      "periodEndedAt": "2011-07-08",
+      "sourceCardCount": 0,
+      "disposition": "explicit_gap",
+      "entryIds": [],
+      "reason": "Cyclingnews exposed no matching source card; preserve the quiet window."
+    },
+    {
+      "periodStartedAt": "2011-07-09",
+      "periodEndedAt": "2011-07-15",
+      "sourceCardCount": 0,
+      "disposition": "explicit_gap",
+      "entryIds": [],
+      "reason": "Cyclingnews exposed no matching source card; preserve the quiet window."
+    },
+    {
+      "periodStartedAt": "2011-07-16",
+      "periodEndedAt": "2011-07-22",
+      "sourceCardCount": 0,
+      "disposition": "covered_by_draft",
+      "entryIds": [
+        "history-crusher-made-wrong-bike-the-point-2011"
+      ],
+      "reason": "A contemporary race report establishes the final course, winners, opposing bike choices, starter count, and the organizer’s satisfaction that riders wanted different equipment."
+    },
+    {
+      "periodStartedAt": "2011-07-23",
+      "periodEndedAt": "2011-07-29",
+      "sourceCardCount": 0,
+      "disposition": "explicit_gap",
+      "entryIds": [],
+      "reason": "Cyclingnews exposed no matching source card; preserve the quiet window."
+    },
+    {
+      "periodStartedAt": "2011-07-30",
+      "periodEndedAt": "2011-08-05",
+      "sourceCardCount": 0,
+      "disposition": "explicit_gap",
+      "entryIds": [],
+      "reason": "Cyclingnews exposed no matching source card; preserve the quiet window."
+    },
+    {
+      "periodStartedAt": "2011-08-06",
+      "periodEndedAt": "2011-08-12",
+      "sourceCardCount": 0,
+      "disposition": "explicit_gap",
+      "entryIds": [],
+      "reason": "Cyclingnews exposed no matching source card; preserve the quiet window."
+    },
+    {
+      "periodStartedAt": "2011-08-13",
+      "periodEndedAt": "2011-08-19",
+      "sourceCardCount": 0,
+      "disposition": "explicit_gap",
+      "entryIds": [],
+      "reason": "Cyclingnews exposed no matching source card; preserve the quiet window."
+    },
+    {
+      "periodStartedAt": "2011-08-20",
+      "periodEndedAt": "2011-08-26",
+      "sourceCardCount": 0,
+      "disposition": "explicit_gap",
+      "entryIds": [],
+      "reason": "Cyclingnews exposed no matching source card; preserve the quiet window."
+    },
+    {
+      "periodStartedAt": "2011-08-27",
+      "periodEndedAt": "2011-09-02",
+      "sourceCardCount": 0,
+      "disposition": "explicit_gap",
+      "entryIds": [],
+      "reason": "Cyclingnews exposed no matching source card; preserve the quiet window."
+    },
+    {
+      "periodStartedAt": "2011-09-03",
+      "periodEndedAt": "2011-09-09",
+      "sourceCardCount": 0,
+      "disposition": "explicit_gap",
+      "entryIds": [],
+      "reason": "Cyclingnews exposed no matching source card; preserve the quiet window."
+    },
+    {
+      "periodStartedAt": "2011-09-10",
+      "periodEndedAt": "2011-09-16",
+      "sourceCardCount": 0,
+      "disposition": "explicit_gap",
+      "entryIds": [],
+      "reason": "Cyclingnews exposed no matching source card; preserve the quiet window."
+    },
+    {
+      "periodStartedAt": "2011-09-17",
+      "periodEndedAt": "2011-09-23",
+      "sourceCardCount": 0,
+      "disposition": "explicit_gap",
+      "entryIds": [],
+      "reason": "Cyclingnews exposed no matching source card; preserve the quiet window."
+    },
+    {
+      "periodStartedAt": "2011-09-24",
+      "periodEndedAt": "2011-09-30",
+      "sourceCardCount": 0,
+      "disposition": "explicit_gap",
+      "entryIds": [],
+      "reason": "Cyclingnews exposed no matching source card; preserve the quiet window."
+    },
+    {
+      "periodStartedAt": "2011-10-01",
+      "periodEndedAt": "2011-10-07",
+      "sourceCardCount": 0,
+      "disposition": "explicit_gap",
+      "entryIds": [],
+      "reason": "Cyclingnews exposed no matching source card; preserve the quiet window."
+    },
+    {
+      "periodStartedAt": "2011-10-08",
+      "periodEndedAt": "2011-10-14",
+      "sourceCardCount": 0,
+      "disposition": "explicit_gap",
+      "entryIds": [],
+      "reason": "Cyclingnews exposed no matching source card; preserve the quiet window."
+    },
+    {
+      "periodStartedAt": "2011-10-15",
+      "periodEndedAt": "2011-10-21",
+      "sourceCardCount": 0,
+      "disposition": "explicit_gap",
+      "entryIds": [],
+      "reason": "Cyclingnews exposed no matching source card; preserve the quiet window."
+    },
+    {
+      "periodStartedAt": "2011-10-22",
+      "periodEndedAt": "2011-10-28",
+      "sourceCardCount": 0,
+      "disposition": "explicit_gap",
+      "entryIds": [],
+      "reason": "Cyclingnews exposed no matching source card; preserve the quiet window."
+    },
+    {
+      "periodStartedAt": "2011-10-29",
+      "periodEndedAt": "2011-11-04",
+      "sourceCardCount": 0,
+      "disposition": "explicit_gap",
+      "entryIds": [],
+      "reason": "Cyclingnews exposed no matching source card; preserve the quiet window."
+    },
+    {
+      "periodStartedAt": "2011-11-05",
+      "periodEndedAt": "2011-11-11",
+      "sourceCardCount": 0,
+      "disposition": "explicit_gap",
+      "entryIds": [],
+      "reason": "Cyclingnews exposed no matching source card; preserve the quiet window."
+    },
+    {
+      "periodStartedAt": "2011-11-12",
+      "periodEndedAt": "2011-11-18",
+      "sourceCardCount": 0,
+      "disposition": "explicit_gap",
+      "entryIds": [],
+      "reason": "Cyclingnews exposed no matching source card; preserve the quiet window."
+    },
+    {
+      "periodStartedAt": "2011-11-19",
+      "periodEndedAt": "2011-11-25",
+      "sourceCardCount": 0,
+      "disposition": "explicit_gap",
+      "entryIds": [],
+      "reason": "Cyclingnews exposed no matching source card; preserve the quiet window."
+    },
+    {
+      "periodStartedAt": "2011-11-26",
+      "periodEndedAt": "2011-12-02",
+      "sourceCardCount": 0,
+      "disposition": "explicit_gap",
+      "entryIds": [],
+      "reason": "Cyclingnews exposed no matching source card; preserve the quiet window."
+    },
+    {
+      "periodStartedAt": "2011-12-03",
+      "periodEndedAt": "2011-12-09",
+      "sourceCardCount": 0,
+      "disposition": "explicit_gap",
+      "entryIds": [],
+      "reason": "Cyclingnews exposed no matching source card; preserve the quiet window."
+    },
+    {
+      "periodStartedAt": "2011-12-10",
+      "periodEndedAt": "2011-12-16",
+      "sourceCardCount": 0,
+      "disposition": "explicit_gap",
+      "entryIds": [],
+      "reason": "Cyclingnews exposed no matching source card; preserve the quiet window."
+    },
+    {
+      "periodStartedAt": "2011-12-17",
+      "periodEndedAt": "2011-12-23",
+      "sourceCardCount": 0,
+      "disposition": "explicit_gap",
+      "entryIds": [],
+      "reason": "Cyclingnews exposed no matching source card; preserve the quiet window."
+    },
+    {
+      "periodStartedAt": "2011-12-24",
+      "periodEndedAt": "2011-12-30",
+      "sourceCardCount": 0,
+      "disposition": "explicit_gap",
+      "entryIds": [],
+      "reason": "Cyclingnews exposed no matching source card; preserve the quiet window."
+    },
+    {
+      "periodStartedAt": "2011-12-31",
+      "periodEndedAt": "2012-01-06",
+      "sourceCardCount": 0,
+      "disposition": "explicit_gap",
+      "entryIds": [],
+      "reason": "Cyclingnews exposed no matching source card; preserve the quiet window."
+    }
+  ],
+  "updatedAt": "2026-08-28T15:30:00Z"
+}
+

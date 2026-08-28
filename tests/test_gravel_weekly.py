@@ -648,6 +648,18 @@ def test_2023_backfill_ledger_starts_from_the_complete_source_census():
     assert validated["complete"] is True
 
 
+def test_2022_backfill_ledger_starts_from_the_complete_source_census():
+    histories = load_history_entries(ROOT / "data" / "gravel-weekly" / "history")
+    ledger = json.loads((ROOT / "data" / "gravel-weekly" / "backfill" / "2022.json").read_text())
+    validated = validate_backfill_ledger(ledger, histories)
+
+    assert len(validated["weeks"]) == 53
+    assert sum(week["sourceCardCount"] for week in validated["weeks"]) == 173
+    assert sum(week["disposition"] == "explicit_gap" for week in validated["weeks"]) == 6
+    assert sum(week["disposition"] == "pending_review" for week in validated["weeks"]) == 47
+    assert validated["complete"] is False
+
+
 def test_initial_backfill_ledger_accounts_for_every_discovery_card():
     discovery = {
         "schemaVersion": "gravel-weekly-historical-ledger/v1",

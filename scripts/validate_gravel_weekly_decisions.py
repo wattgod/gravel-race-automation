@@ -72,6 +72,8 @@ def validate_decision_receipt(value: Any, issue_value: Any) -> dict[str, Any]:
     approval = issue["editorialApproval"]
     if decided_by != approval["approver"] or decided_at != approval["approvedAt"]:
         raise ValueError("decision receipt identity and time must match editorial approval")
+    if draft_hash != approval["reviewedDraftContentHash"]:
+        raise ValueError("decision receipt reviewed draft hash must match editorial approval")
 
     raw_decisions = receipt.get("decisions")
     if not isinstance(raw_decisions, list) or not raw_decisions:

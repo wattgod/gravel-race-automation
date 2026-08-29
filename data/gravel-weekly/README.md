@@ -40,12 +40,15 @@ python3 scripts/approve_gravel_weekly_issue.py \
   data/gravel-weekly/drafts/2026-08-28.json APPROVAL.json
 ```
 
-The approval packet must use `gravel-weekly-approval/v1`, decide every reviewed
-story exactly once, and supply the final headline, deck, Take, and edit summary
-for every approved story. The bridge preserves the reviewed facts, scores,
-receipts, and race impacts verbatim. It emits both a `status=approved` issue and
-a decision receipt under the ignored `data/gravel-weekly/approved/` directory,
-which the deploy workflow refuses.
+The approval packet must use `gravel-weekly-approval/v2`, name the exact
+`reviewedDraftContentHash`, decide every reviewed story exactly once, and supply
+the final headline, deck, Take, and edit summary for every approved story. A
+stale approval cannot be replayed against a regenerated draft with the same
+issue ID. The reviewed hash remains in the approved snapshot and must match its
+decision receipt again at sealing and deploy time. The bridge preserves the
+reviewed facts, scores, receipts, and race impacts verbatim. It emits both a
+`status=approved` issue and a decision receipt under the ignored
+`data/gravel-weekly/approved/` directory, which the deploy workflow refuses.
 
 After a separate explicit publication instruction, seal the approved file:
 

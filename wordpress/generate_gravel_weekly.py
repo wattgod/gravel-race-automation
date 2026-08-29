@@ -165,9 +165,15 @@ def render_source_coverage_receipt(coverage: dict[str, Any]) -> str:
         f'''<li><b>{esc(source['publisher'])}</b><span>{esc(source['connector'])} · {esc(source['latestStatus'])} · {source['parsedItems']} parsed · {source['emittedItems']} new</span></li>'''
         for source in coverage["discoverySources"]
     )
-    errors = "".join(f"<li>{esc(error)}</li>" for error in coverage["sourceErrors"])
+    visible_errors = coverage["sourceErrors"][-20:]
+    hidden_error_count = len(coverage["sourceErrors"]) - len(visible_errors)
+    error_notice = (
+        f"<p>Showing the 20 most recent of {len(coverage['sourceErrors'])}; the complete receipt remains bound to this issue.</p>"
+        if hidden_error_count else ""
+    )
+    errors = "".join(f"<li>{esc(error)}</li>" for error in visible_errors)
     error_block = (
-        f'''<details><summary>COLLECTION GAPS ({len(coverage['sourceErrors'])})</summary><ul>{errors}</ul></details>'''
+        f'''<details><summary>MOST RECENT COLLECTION GAPS ({len(coverage['sourceErrors'])} TOTAL)</summary>{error_notice}<ul>{errors}</ul></details>'''
         if errors else ""
     )
     return f'''<aside class="gw-coverage" id="source-coverage">

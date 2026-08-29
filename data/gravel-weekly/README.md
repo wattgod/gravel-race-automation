@@ -129,6 +129,37 @@ A story is marked ready only when all five editorial gates and the prose gate
 pass and at least two contemporary publishers corroborate it. Historical drafts
 that fail the prose gate cannot enter the repository validator at all.
 
+Historical entries may also carry up to six `cultureArtifacts`. These are
+date-bound, rights-bounded links to X, Instagram, YouTube, forums, blogs,
+newsletters, or podcasts that help reconstruct the jokes, arguments,
+personalities, and artifacts circulating during the active period. They are
+part of the entry content hash and therefore part of Matti's exact approval.
+The private desk shows why each artifact was selected; the public timeline
+shows the artifact and original link but not the internal ranking rationale.
+No third-party embed, copied social image, engagement total, or tracking script
+is stored or rendered. Every artifact is permanently marked
+`purpose=culture_sensor`, `canProveClaim=false`, and
+`canEstablishConsensus=false`.
+
+Turn a control-plane `historical-culture-sweep/v1` artifact into a topical,
+date-correct private proposal:
+
+```bash
+python3 scripts/prepare_gravel_weekly_history_culture.py \
+  data/gravel-weekly/history/2026-example.json \
+  artifacts/historical-culture-2026.json
+```
+
+The bridge defaults to at most four artifacts, at most two from one source
+type, and X attention scores of 70 or higher. Generic gravel virality does not
+match a story; a distinctive configured topic must occur in the entry, and the
+artifact date must fall inside its active period. Cross-source recurrence can
+raise research priority but cannot establish consensus. By default the command
+writes to the ignored `history-culture-proposals/` directory and leaves the
+canonical draft unchanged. `--in-place` updates only a status=draft canonical
+entry, changing its content hash and invalidating any stale approval; it still
+cannot approve, seal, publish, deploy, or edit race data.
+
 Apply one explicit decision using `gravel-weekly-history-approval/v1`:
 
 ```bash

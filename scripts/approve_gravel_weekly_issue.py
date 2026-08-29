@@ -10,6 +10,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import re
 from pathlib import Path
 from typing import Any
 
@@ -18,9 +19,10 @@ from validate_gravel_weekly_decisions import DECISION_SCHEMA, RECEIPT_SCHEMA, va
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 APPROVED_DIR = PROJECT_ROOT / "data" / "gravel-weekly" / "approved"
-APPROVAL_SCHEMA = "gravel-weekly-approval/v1"
+APPROVAL_SCHEMA = "gravel-weekly-approval/v2"
 ALLOWED_APPROVAL_KEYS = {
-    "schemaVersion", "issueId", "approver", "approvedAt", "currentThingStoryId", "stories",
+    "schemaVersion", "issueId", "reviewedDraftContentHash", "approver",
+    "approvedAt", "currentThingStoryId", "stories",
 }
 ALLOWED_STORY_DECISION_KEYS = {
     "candidateId", "decision", "headline", "dek", "take", "editSummary", "reason",
@@ -86,6 +88,15 @@ def approve_issue(draft_value: Any, approval_value: Any) -> dict[str, Any]:
         raise ValueError("unsupported Gravel Weekly approval schema")
     if approval.get("issueId") != draft["issueId"]:
         raise ValueError("approval.issueId must match the draft issueId")
+    reviewed_hash = _text(
+        approval.get("reviewedDraftContentHash"),
+        "approval.reviewedDraftContentHash",
+        64,
+    )
+    if not re.fullmatch(r"[0-9a-f]{64}", reviewed_hash):
+        raise ValueError("approval.reviewedDraftContentHash must be a lowercase SHA-256 hash")
+    if reviewed_hash != draft["contentHash"]:
+        raise ValueError("approval.reviewedDraftContentHash must match the exact reviewed draft")
 
     decisions_raw = approval.get("stories")
     if not isinstance(decisions_raw, list):
@@ -143,7 +154,11 @@ def approve_issue(draft_value: Any, approval_value: Any) -> dict[str, Any]:
         "currentThingStoryId": current_id,
         "raceImpacts": all_impacts,
         "sourceIndex": source_index,
-        "editorialApproval": {"approver": approver, "approvedAt": approved_at},
+        "editorialApproval": {
+            "approver": approver,
+            "approvedAt": approved_at,
+            "reviewedDraftContentHash": reviewed_hash,
+        },
         "publishedAt": None,
         "updatedAt": approved_at,
         "contentHash": "pending",

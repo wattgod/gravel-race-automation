@@ -43,6 +43,9 @@ CULTURE_ARTIFACT_KEYS = {
 }
 STORY_CAST_KEYS = {"name", "role", "claimIds"}
 STORY_FIELD_NOTE_KEYS = {"text", "claimIds"}
+EDITORIAL_APPROVAL_KEYS = {
+    "approver", "approvedAt", "reviewedDraftContentHash",
+}
 
 
 class IssueValidationError(ValueError):
@@ -424,9 +427,28 @@ def validate_issue(value: Any, *, verify_hash: bool = True) -> dict[str, Any]:
     approval = issue.get("editorialApproval")
     if status != "draft" and not isinstance(approval, dict):
         raise IssueValidationError(f"{status} issues require editorial approval")
+    if status == "draft" and approval is not None:
+        raise IssueValidationError("draft issues cannot carry editorial approval")
     if isinstance(approval, dict):
+        unknown = set(approval) - EDITORIAL_APPROVAL_KEYS
+        missing = EDITORIAL_APPROVAL_KEYS - set(approval)
+        if unknown or missing:
+            raise IssueValidationError(
+                "editorialApproval fields must exactly preserve the approver, "
+                f"approval time, and reviewed draft hash; missing={sorted(missing)}, "
+                f"extra={sorted(unknown)}"
+            )
         _text(approval.get("approver"), "editorialApproval.approver", 300)
         _iso(approval.get("approvedAt"), "editorialApproval.approvedAt")
+        reviewed_hash = _text(
+            approval.get("reviewedDraftContentHash"),
+            "editorialApproval.reviewedDraftContentHash",
+            64,
+        )
+        if not re.fullmatch(r"[0-9a-f]{64}", reviewed_hash):
+            raise IssueValidationError(
+                "editorialApproval.reviewedDraftContentHash must be a lowercase SHA-256 hash"
+            )
     if status == "published" and issue.get("publishedAt") is None:
         raise IssueValidationError("published issues require publishedAt")
     if issue.get("publishedAt") is not None:

@@ -119,7 +119,11 @@ def sample_issue():
         "retrospectives": [],
         "corrections": [],
         "sourceIndex": ["https://www.cyclingnews.com/example/"],
-        "editorialApproval": {"approver": "Matti Rowe", "approvedAt": "2026-08-28T16:00:00Z"},
+        "editorialApproval": {
+            "approver": "Matti Rowe",
+            "approvedAt": "2026-08-28T16:00:00Z",
+            "reviewedDraftContentHash": "1" * 64,
+        },
         "publishedAt": "2026-08-28T16:05:00Z",
         "updatedAt": "2026-08-28T16:05:00Z",
         "contentHash": "pending",
@@ -410,10 +414,12 @@ def sample_draft():
     return issue
 
 
-def sample_approval():
+def sample_approval(draft=None):
+    draft = draft or sample_draft()
     return {
-        "schemaVersion": "gravel-weekly-approval/v1",
+        "schemaVersion": "gravel-weekly-approval/v2",
         "issueId": "gravel-weekly-001",
+        "reviewedDraftContentHash": draft["contentHash"],
         "approver": "Matti Rowe",
         "approvedAt": "2026-08-28T16:00:00Z",
         "currentThingStoryId": "story_1",
@@ -484,7 +490,7 @@ def test_weekly_culture_artifacts_are_direct_hash_bound_context_and_survive_appr
     draft["stories"][0]["cultureArtifacts"] = [artifact]
     draft["sourceIndex"].append(artifact["canonicalUrl"])
     draft["contentHash"] = compute_content_hash(draft)
-    approved = approve_issue(draft, sample_approval())
+    approved = approve_issue(draft, sample_approval(draft))
     assert approved["stories"][0]["cultureArtifacts"] == [artifact]
 
     unsafe = copy.deepcopy(published)
@@ -530,7 +536,7 @@ def test_claim_bound_cast_and_field_notes_survive_approval_and_render_as_optiona
     draft["stories"][0]["cast"] = copy.deepcopy(story["cast"])
     draft["stories"][0]["fieldNotes"] = copy.deepcopy(story["fieldNotes"])
     draft["contentHash"] = compute_content_hash(draft)
-    approved = approve_issue(draft, sample_approval())
+    approved = approve_issue(draft, sample_approval(draft))
     assert approved["stories"][0]["cast"] == story["cast"]
     assert approved["stories"][0]["fieldNotes"] == story["fieldNotes"]
 
@@ -631,12 +637,14 @@ def test_review_prepares_a_draft_but_cannot_imply_approval():
 
 def test_human_approval_bridge_changes_only_editorial_copy_and_stays_non_deployable():
     draft = sample_draft()
-    approved = approve_issue(draft, sample_approval())
+    approved = approve_issue(draft, sample_approval(draft))
 
     assert approved["status"] == "approved"
     assert approved["publishedAt"] is None
     assert approved["editorialApproval"] == {
-        "approver": "Matti Rowe", "approvedAt": "2026-08-28T16:00:00Z",
+        "approver": "Matti Rowe",
+        "approvedAt": "2026-08-28T16:00:00Z",
+        "reviewedDraftContentHash": draft["contentHash"],
     }
     assert approved["stories"][0]["headline"] == "The approved headline"
     assert approved["stories"][0]["take"] == "The approved take makes a concrete judgment."
@@ -711,6 +719,27 @@ def test_approval_bridge_requires_an_exact_human_decision_for_every_reviewed_sto
     misleading["whatHappened"] = "Quietly replace the reviewed facts."
     with pytest.raises(ValueError, match="unsupported fields"):
         approve_issue(draft, misleading)
+
+
+def test_weekly_approval_is_bound_to_the_exact_reviewed_draft_hash():
+    draft = sample_draft()
+    stale = sample_approval(draft)
+    stale["reviewedDraftContentHash"] = "0" * 64
+    with pytest.raises(ValueError, match="exact reviewed draft"):
+        approve_issue(draft, stale)
+
+    malformed = sample_approval(draft)
+    malformed["reviewedDraftContentHash"] = "not-a-hash"
+    with pytest.raises(ValueError, match="lowercase SHA-256"):
+        approve_issue(draft, malformed)
+
+    approved = approve_issue(draft, sample_approval(draft))
+    receipt = build_decision_receipt(draft, sample_approval(draft), approved)
+    forged = copy.deepcopy(approved)
+    forged["editorialApproval"]["reviewedDraftContentHash"] = "f" * 64
+    forged["contentHash"] = compute_content_hash(forged)
+    with pytest.raises(ValueError, match="reviewed draft hash"):
+        validate_decision_receipt(receipt, forged)
 
 
 def test_approval_bridge_rejects_copy_that_still_claims_to_be_a_model_draft():

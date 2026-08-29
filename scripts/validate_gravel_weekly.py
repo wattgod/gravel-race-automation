@@ -7,7 +7,7 @@ import argparse
 import hashlib
 import json
 import re
-from datetime import datetime
+from datetime import datetime, time, timedelta, timezone
 from pathlib import Path
 from typing import Any
 from urllib.parse import urlparse
@@ -26,6 +26,21 @@ IMPACT_KINDS = {
     "new_race_candidate",
 }
 RETROSPECTIVE_VERDICTS = {"aged_well", "aged_poorly", "still_developing"}
+CULTURE_SOURCE_KINDS = {"bluesky", "x", "instagram", "youtube", "forum", "blog", "newsletter", "podcast"}
+CULTURE_COLLECTION_METHODS = {
+    "official_api", "authorized_caption", "rss", "sitemap",
+    "public_metadata", "user_authorized",
+}
+CULTURE_RIGHTS_POLICIES = {
+    "metadata_only", "short_excerpt_and_canonical_link",
+    "timestamped_short_excerpt",
+}
+CULTURE_ARTIFACT_KEYS = {
+    "artifactId", "sourceKind", "publisher", "author", "canonicalUrl",
+    "publishedAt", "title", "excerpt", "timestampSeconds", "topicTags",
+    "reviewReason", "collectionMethod", "rightsPolicy", "purpose",
+    "canProveClaim", "canEstablishConsensus",
+}
 
 
 class IssueValidationError(ValueError):
@@ -121,6 +136,53 @@ def _impact(value: Any, name: str) -> dict[str, Any]:
     return item
 
 
+def _culture_artifact(value: Any, name: str) -> dict[str, Any]:
+    artifact = _record(value, name)
+    unknown = set(artifact) - CULTURE_ARTIFACT_KEYS
+    if unknown:
+        raise IssueValidationError(f"{name} has unsupported fields: {sorted(unknown)}")
+    _text(artifact.get("artifactId"), f"{name}.artifactId", 500)
+    if artifact.get("sourceKind") not in CULTURE_SOURCE_KINDS:
+        raise IssueValidationError(f"{name}.sourceKind is invalid")
+    _text(artifact.get("publisher"), f"{name}.publisher", 300)
+    if artifact.get("author") is not None:
+        _text(artifact["author"], f"{name}.author", 300)
+    _url(artifact.get("canonicalUrl"), f"{name}.canonicalUrl")
+    _iso(artifact.get("publishedAt"), f"{name}.publishedAt")
+    _text(artifact.get("title"), f"{name}.title", 500)
+    if artifact.get("excerpt") is not None:
+        _text(artifact["excerpt"], f"{name}.excerpt", 280)
+    timestamp = artifact.get("timestampSeconds")
+    if timestamp is not None and (
+        not isinstance(timestamp, int) or isinstance(timestamp, bool)
+        or timestamp < 0 or timestamp > 86_400
+    ):
+        raise IssueValidationError(f"{name}.timestampSeconds is invalid")
+    if artifact.get("collectionMethod") == "authorized_caption" and timestamp is None:
+        raise IssueValidationError(f"{name}.timestampSeconds is required for an authorized caption")
+    topics = _list(artifact.get("topicTags"), f"{name}.topicTags", 10)
+    if not topics:
+        raise IssueValidationError(f"{name}.topicTags must not be empty")
+    for index, topic in enumerate(topics):
+        raw = _text(topic, f"{name}.topicTags[{index}]", 64)
+        if not re.fullmatch(r"[a-z0-9][a-z0-9-]+", raw):
+            raise IssueValidationError(f"{name}.topicTags[{index}] is invalid")
+    if len(topics) != len(set(topics)):
+        raise IssueValidationError(f"{name}.topicTags must be unique")
+    _text(artifact.get("reviewReason"), f"{name}.reviewReason", 1_000)
+    if artifact.get("collectionMethod") not in CULTURE_COLLECTION_METHODS:
+        raise IssueValidationError(f"{name}.collectionMethod is invalid")
+    if artifact.get("rightsPolicy") not in CULTURE_RIGHTS_POLICIES:
+        raise IssueValidationError(f"{name}.rightsPolicy is invalid")
+    if artifact.get("purpose") != "culture_sensor":
+        raise IssueValidationError(f"{name}.purpose must be culture_sensor")
+    if artifact.get("canProveClaim") is not False:
+        raise IssueValidationError(f"{name}.canProveClaim must be false")
+    if artifact.get("canEstablishConsensus") is not False:
+        raise IssueValidationError(f"{name}.canEstablishConsensus must be false")
+    return artifact
+
+
 def _retrospective(value: Any, name: str, *, status: str) -> dict[str, Any]:
     item = _record(value, name)
     if item.get("verdict") not in RETROSPECTIVE_VERDICTS:
@@ -185,6 +247,10 @@ def validate_issue(value: Any, *, verify_hash: bool = True) -> dict[str, Any]:
     stories = _list(issue.get("stories"), "stories", 30)
     story_ids: list[str] = []
     story_impacts: list[dict[str, Any]] = []
+    story_culture_urls: set[str] = set()
+    publication_day = datetime.strptime(publication_date, "%Y-%m-%d").date()
+    culture_window_start = datetime.combine(publication_day - timedelta(days=14), time.min, tzinfo=timezone.utc)
+    culture_window_end = datetime.combine(publication_day + timedelta(days=1), time.min, tzinfo=timezone.utc)
     for index, raw_story in enumerate(stories):
         story = _record(raw_story, f"stories[{index}]")
         story_id = _text(story.get("candidateId"), f"stories[{index}].candidateId", 500)
@@ -224,6 +290,21 @@ def validate_issue(value: Any, *, verify_hash: bool = True) -> dict[str, Any]:
                     f"stories[{index}].raceImpacts[{impact_index}] references claims without story receipts: {sorted(missing_claims)}"
                 )
             story_impacts.append(validated_impact)
+        culture_ids: set[str] = set()
+        culture_urls: set[str] = set()
+        for artifact_index, artifact_value in enumerate(_list(story.get("cultureArtifacts", []), f"stories[{index}].cultureArtifacts", 6)):
+            artifact_name = f"stories[{index}].cultureArtifacts[{artifact_index}]"
+            artifact = _culture_artifact(artifact_value, artifact_name)
+            published_at = datetime.fromisoformat(
+                _iso(artifact["publishedAt"], f"{artifact_name}.publishedAt").replace("Z", "+00:00")
+            ).astimezone(timezone.utc)
+            if not culture_window_start <= published_at < culture_window_end:
+                raise IssueValidationError(f"{artifact_name} must be dated inside the 14-day weekly culture window")
+            if artifact["artifactId"] in culture_ids or artifact["canonicalUrl"] in culture_urls:
+                raise IssueValidationError(f"stories[{index}].cultureArtifacts must have unique IDs and canonical URLs")
+            culture_ids.add(artifact["artifactId"])
+            culture_urls.add(artifact["canonicalUrl"])
+            story_culture_urls.add(artifact["canonicalUrl"])
     if len(story_ids) != len(set(story_ids)):
         raise IssueValidationError("story candidate IDs must be unique")
 
@@ -263,6 +344,9 @@ def validate_issue(value: Any, *, verify_hash: bool = True) -> dict[str, Any]:
     source_index = [_url(item, f"sourceIndex[{index}]") for index, item in enumerate(_list(issue.get("sourceIndex"), "sourceIndex", 200))]
     if len(source_index) != len(set(source_index)):
         raise IssueValidationError("sourceIndex must not contain duplicates")
+    missing_culture_sources = story_culture_urls - set(source_index)
+    if missing_culture_sources:
+        raise IssueValidationError(f"sourceIndex omits culture artifact URLs: {sorted(missing_culture_sources)}")
 
     approval = issue.get("editorialApproval")
     if status != "draft" and not isinstance(approval, dict):

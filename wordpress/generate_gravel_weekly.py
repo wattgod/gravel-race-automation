@@ -163,6 +163,7 @@ def render_story(story: dict[str, Any], *, current: bool = False, draft: bool = 
           {prose(story['take'])}
         </section>
       </div>
+      {render_culture_artifacts(story.get('cultureArtifacts', []), private_review=draft)}
       <details class="gw-details">
         <summary>RECEIPTS · {len(story['receipts'])}</summary>
         {render_receipts(story['receipts'])}

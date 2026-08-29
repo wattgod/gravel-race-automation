@@ -106,6 +106,28 @@ def _passes_prose_gate(packet: dict[str, Any]) -> bool:
     )
 
 
+def _culture_artifacts(packet: dict[str, Any], candidate_id: str) -> list[dict[str, Any]]:
+    culture_read = packet.get("cultureRead")
+    if culture_read is None:
+        return []
+    culture_read = _record(culture_read, f"packet {candidate_id} cultureRead")
+    artifacts = culture_read.get("artifacts", [])
+    if not isinstance(artifacts, list) or len(artifacts) > 6:
+        raise ValueError(f"packet {candidate_id} cultureRead.artifacts must contain at most 6 items")
+    if artifacts and culture_read.get("relevance") != "direct":
+        raise ValueError(f"packet {candidate_id} culture artifacts require direct relevance")
+    source_urls = culture_read.get("sourceUrls", [])
+    if not isinstance(source_urls, list) or any(not isinstance(url, str) for url in source_urls):
+        raise ValueError(f"packet {candidate_id} cultureRead.sourceUrls is invalid")
+    copied: list[dict[str, Any]] = []
+    for index, artifact in enumerate(artifacts):
+        item = _record(artifact, f"packet {candidate_id} cultureRead.artifacts[{index}]")
+        if item.get("canonicalUrl") not in source_urls:
+            raise ValueError(f"packet {candidate_id} culture artifact is outside the bounded panel")
+        copied.append(dict(item))
+    return copied
+
+
 def prepare_issue(review_value: Any, publication_date: str, issue_number: int, *, now: str | None = None) -> dict[str, Any]:
     review = _record(review_value, "review")
     if review.get("schemaVersion") != "gravel-weekly-review/v1":
@@ -148,6 +170,7 @@ def prepare_issue(review_value: Any, publication_date: str, issue_number: int, *
         receipts = packet.get("receipts", [])
         if not isinstance(impacts, list) or not isinstance(receipts, list):
             raise ValueError(f"packet {candidate['id']} has invalid impacts or receipts")
+        culture_artifacts = _culture_artifacts(packet, candidate["id"])
         stories.append({
             "candidateId": candidate["id"],
             "headline": packet.get("suggestedHeadline") or candidate["headline"],
@@ -159,9 +182,11 @@ def prepare_issue(review_value: Any, publication_date: str, issue_number: int, *
             "takeProvenance": "model_draft",
             "receipts": receipts,
             "raceImpacts": impacts,
+            "cultureArtifacts": culture_artifacts,
         })
         all_impacts.extend(impacts)
         source_urls.extend(receipt["canonicalUrl"] for receipt in receipts)
+        source_urls.extend(artifact["canonicalUrl"] for artifact in culture_artifacts)
 
     current = next((story["candidateId"] for story in stories if story["score"] >= 85), None)
     issue = {

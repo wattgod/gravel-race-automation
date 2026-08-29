@@ -200,6 +200,23 @@ def sample_culture_artifact():
     }
 
 
+def sample_weekly_culture_artifact():
+    artifact = sample_culture_artifact()
+    artifact.update({
+        "artifactId": "culture-artifact_0123456789abcdef",
+        "sourceKind": "bluesky",
+        "publisher": "Cycling Reno",
+        "author": "cyclingreno.bsky.social",
+        "canonicalUrl": "https://bsky.app/profile/cyclingreno.bsky.social/post/3example",
+        "publishedAt": "2026-08-27T18:30:00Z",
+        "title": "The Worlds field has become calendar discourse in a rainbow jersey",
+        "excerpt": "Apparently the real qualification standard is having the correct flight itinerary.",
+        "topicTags": ["calendar", "worlds"],
+        "reviewReason": "Directly names the race in the evidence-backed story; context only.",
+    })
+    return artifact
+
+
 def sample_history_approval(draft=None):
     draft = draft or sample_history_draft()
     return {
@@ -443,6 +460,44 @@ def test_issue_contract_requires_receipts_approval_and_hash():
         validate_issue(slopped_draft, verify_hash=False)
 
 
+def test_weekly_culture_artifacts_are_direct_hash_bound_context_and_survive_approval():
+    artifact = sample_weekly_culture_artifact()
+    published = sample_issue()
+    published["stories"][0]["cultureArtifacts"] = [artifact]
+    published["sourceIndex"].append(artifact["canonicalUrl"])
+    published["contentHash"] = compute_content_hash(published)
+    validated = validate_issue(published)
+    assert validated["stories"][0]["cultureArtifacts"][0]["canProveClaim"] is False
+    assert validated["stories"][0]["cultureArtifacts"][0]["canEstablishConsensus"] is False
+    public = build_page(published, [published], latest=True)
+    assert "CULTURE RECEIPTS" in public
+    assert artifact["title"] in public
+    assert artifact["reviewReason"] not in public
+    assert "iframe" not in public
+
+    draft = sample_draft()
+    draft["stories"][0]["cultureArtifacts"] = [artifact]
+    draft["sourceIndex"].append(artifact["canonicalUrl"])
+    draft["contentHash"] = compute_content_hash(draft)
+    approved = approve_issue(draft, sample_approval())
+    assert approved["stories"][0]["cultureArtifacts"] == [artifact]
+
+    unsafe = copy.deepcopy(published)
+    unsafe["stories"][0]["cultureArtifacts"][0]["canEstablishConsensus"] = True
+    with pytest.raises(IssueValidationError, match="canEstablishConsensus must be false"):
+        validate_issue(unsafe, verify_hash=False)
+
+    stale = copy.deepcopy(published)
+    stale["stories"][0]["cultureArtifacts"][0]["publishedAt"] = "2026-07-01T18:30:00Z"
+    with pytest.raises(IssueValidationError, match="14-day weekly culture window"):
+        validate_issue(stale, verify_hash=False)
+
+    missing_index = copy.deepcopy(published)
+    missing_index["sourceIndex"].remove(artifact["canonicalUrl"])
+    with pytest.raises(IssueValidationError, match="sourceIndex omits culture artifact URLs"):
+        validate_issue(missing_index, verify_hash=False)
+
+
 def test_no_ai_slop_audit_names_patterns_without_guessing_authorship():
     clean = audit_no_ai_slop({
         "headline": "Gravel Worlds Moved Lunch Forty Miles",
@@ -468,6 +523,7 @@ def test_no_ai_slop_audit_names_patterns_without_guessing_authorship():
 
 
 def test_review_prepares_a_draft_but_cannot_imply_approval():
+    culture_artifact = sample_weekly_culture_artifact()
     packet = with_passing_prose_gate({
         "candidateId": "story_1",
         "editorialGate": passing_editorial_gate(),
@@ -477,6 +533,11 @@ def test_review_prepares_a_draft_but_cannot_imply_approval():
         "whatHappened": "The organizer published a revised distance. It affects preparation.",
         "receipts": [sample_issue()["stories"][0]["receipts"][0]],
         "raceImpacts": sample_issue()["stories"][0]["raceImpacts"],
+        "cultureRead": {
+            "relevance": "direct",
+            "sourceUrls": [culture_artifact["canonicalUrl"]],
+            "artifacts": [culture_artifact],
+        },
     })
     review = {
         "schemaVersion": "gravel-weekly-review/v1",
@@ -492,10 +553,14 @@ def test_review_prepares_a_draft_but_cannot_imply_approval():
     assert issue["currentThingStoryId"] == "story_1"
     assert issue["stories"][0]["headline"] == "The course moved"
     assert issue["stories"][0]["takeProvenance"] == "model_draft"
+    assert issue["stories"][0]["cultureArtifacts"] == [culture_artifact]
+    assert culture_artifact["canonicalUrl"] in issue["sourceIndex"]
     assert validate_issue(issue)["contentHash"] == issue["contentHash"]
     preview = build_page(issue, [issue], latest=True)
     assert "DRAFT — NOT PUBLISHED" in preview
     assert "THE TAKE — MODEL DRAFT" in preview
+    assert "PRIVATE CULTURE CHECK" in preview
+    assert culture_artifact["reviewReason"] in preview
     assert "application/ld+json" not in preview
 
 

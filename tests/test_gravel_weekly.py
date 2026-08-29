@@ -11,7 +11,11 @@ ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "scripts"))
 sys.path.insert(0, str(ROOT / "wordpress"))
 
-from generate_gravel_weekly import build_page, render_history_timeline  # noqa: E402
+from generate_gravel_weekly import (  # noqa: E402
+    build_page,
+    render_history_timeline,
+    render_source_coverage_receipt,
+)
 from gravel_weekly_culture import culture_css, render_culture_artifacts  # noqa: E402
 from gravel_weekly_visuals import (  # noqa: E402
     classify_theme,
@@ -969,6 +973,17 @@ def test_review_excludes_missing_failed_or_stale_prose_gates(prose_mutation):
     }
     with pytest.raises(ValueError, match="passing premises require a prose rewrite"):
         prepare_issue(review, "2026-08-28", 1, now="2026-08-27T17:00:00Z")
+
+
+def test_private_collection_receipt_compacts_historical_errors():
+    coverage = sample_source_coverage("partial")
+    coverage["sourceErrors"] = [f"failure {index}" for index in range(1, 26)]
+    receipt = render_source_coverage_receipt(coverage)
+    assert "Showing the 20 most recent of 25" in receipt
+    assert "failure 5<" not in receipt
+    assert "failure 6<" in receipt
+    assert "failure 25<" in receipt
+    assert len(coverage["sourceErrors"]) == 25
 
 
 def test_quiet_issue_requires_explicit_human_copy_approval_and_has_a_durable_receipt():

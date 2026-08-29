@@ -53,6 +53,11 @@ never licenses fake precision or delays publication.
 
 ## Reference systems
 
+- Manual for Speed's separation of the official race record from the lived
+  cultural record, plus its cast, recurring departments, issue contents, visual
+  sequencing, and specific field notes. See
+  [`gravel-weekly-manual-for-speed-reference.md`](gravel-weekly-manual-for-speed-reference.md)
+  for the archive study and the explicit no-copy boundary.
 - The Pudding's question-first, storyboard-before-code method and willingness to
   kill weak ideas.
 - ProPublica's insistence that the editorial nut be the most visible element and
@@ -62,10 +67,10 @@ never licenses fake precision or delays publication.
 - The Economist's constrained palette, repeatable grammar, and use of color to
   highlight the main message rather than decorate it.
 
-The Gravel Weekly synthesis is Economist restraint, Markup conceptual wit,
-ProPublica hierarchy, Pudding point-first rigor, and Gravel God type, texture, and
-motion. Those are operating principles, not a license to imitate any publisher's
-trade dress.
+The Gravel Weekly synthesis is Manual for Speed's inhabited scene record,
+Economist restraint, Markup conceptual wit, ProPublica hierarchy, Pudding
+point-first rigor, and Gravel God type, texture, and motion. Those are operating
+principles, not a license to imitate any publisher's trade dress.
 
 ## Non-negotiable gates
 

@@ -6,13 +6,17 @@ illustration, gradients, page composition, recurring names, or trade dress.
 
 ## Archive sample
 
-The review used five representative Internet Archive captures:
+The review used nine representative Internet Archive captures:
 
+- [February 2012 homepage](https://web.archive.org/web/20120228222408if_/http://www.manualforspeed.com/)
 - [December 2012 homepage](https://web.archive.org/web/20121218044342/http://manualforspeed.com/)
 - [2012 photo essay: Nice Work. Disappointment.](https://web.archive.org/web/20121101234132/http://manualforspeed.com/2012/09/nice-work-disappointment/)
+- [December 2014 homepage](https://web.archive.org/web/20141204191607if_/http://www.manualforspeed.com/)
+- [2014 brief: Hair Care](https://web.archive.org/web/20141205153449if_/http://www.manualforspeed.com/briefs/mfsm-003-bonus-tip-hair-care/)
 - [March 2016 homepage](https://web.archive.org/web/20160306025636/http://manualforspeed.com/)
 - [2015 Tour de France: Stage 01](https://web.archive.org/web/20160323053644/http://manualforspeed.com/road-racing/2015-tour-de-france-stage-01/)
 - [Clown Dreams Lookbook](https://web.archive.org/web/20160323030820/http://manualforspeed.com/bonus-treasures/clown-dreams-lookbook/)
+- [November 2021 homepage](https://web.archive.org/web/20211129175253if_/https://manualforspeed.com/)
 
 The 2012 and 2016 systems are materially different. The early site is a quiet,
 photo-led index of essays with short, pointed headlines. By 2016 it has become a
@@ -20,6 +24,71 @@ maximal magazine: full-bleed story cards, huge condensed display type, issue-lik
 tables of contents, recurring departments, character credits, and deliberately
 over-specific field notes. The durable lesson is the editorial structure, not
 either skin.
+
+## Three useful interface eras
+
+### 2012: documentary index
+
+The early homepage is a centered publication sheet on a neutral field. A short
+manifesto, one large documentary image, and a three-column archive establish the
+whole product. Headline decks sit directly on images or in consistent gray
+panels. The UI is plain enough that the photography and the specificity of titles
+do nearly all the cultural work.
+
+**Useful mechanic:** one dominant scene-setter followed by an honest, regular
+index. Gravel Weekly should keep this calm archival mode for historical year
+pages, where orientation and retrieval matter more than novelty.
+
+### 2014: magazine front, brief as object
+
+The 2014 homepage uses a centered feature carousel with partial neighboring
+images visible at both edges. That small piece of lateral disclosure makes the
+publication feel like a sequence rather than a feed. Beneath it, three `Recent
+Briefs` cards change scale and tone: a person, an odd detail, and a deliberately
+over-specific joke can share the same front page without pretending to be equal
+news events.
+
+The `Hair Care` brief is especially instructive. Its page has a compact title and
+place, a single oversized visual premise, a metadata strap (`DATE`, `TIME`,
+`SUBJECT`), and then the joke played completely straight in editorial typography.
+Persistent previous/next controls treat the brief as one artifact in a serial
+collection.
+
+**Useful mechanic:** Gravel Weekly culture cards should open as durable artifacts
+with a clear premise, source/date/context strap, and adjacent navigation. The
+homepage may preview the next and previous season moments, but it must not become
+an autoplay carousel or hide the current issue behind gesture-only controls.
+
+### 2021: archive as spectacle
+
+The final-era homepage drops the conventional publication chrome. A repeating
+marquee masthead, full-viewport color field, oversized thesis, large mission
+statement, and deliberately misaligned image/caption tiles make the archive feel
+like an event. Typography changes register—sans, italic, monospace-like labels—
+while color blocks act as caption hardware rather than decoration.
+
+**Useful mechanic:** an issue may have its own controlled art direction while the
+underlying data, accessibility, and navigation contracts remain fixed. Gravel
+Weekly can vary composition, crop grammar, accent color, and motion by story
+shape; it should not randomly mutate the masthead, reading order, evidence model,
+or approval state.
+
+## UX decisions for Gravel Weekly
+
+| Manual for Speed mechanic | What it accomplishes | Gravel Weekly translation | Guardrail |
+| --- | --- | --- | --- |
+| One huge documentary frame | Declares what deserves attention | One explanatory story graphic or verified source-video facade | No synthetic documentary image; no visual without an editorial job |
+| Neighboring cards peeking into frame | Makes the issue feel serial | Previous/next season moments visible beside the active change-point | Normal links and anchors remain available; no carousel-only navigation |
+| Small metadata strap | Makes an odd artifact legible and retrievable | Source, date, place, story role, and verification status beneath culture artifacts | Evidence mechanics stay subordinate to the point |
+| Recurring briefs and typologies | Builds shared lore from small observations | `FIELD NOTES`, `THE CAST`, and approved recurring scene patterns | A recurrence needs multiple reviewed examples; no filler quota |
+| Abrupt shifts in scale and type | Creates comic timing and surprise | One visual punch line or register shift per chapter | Body copy remains readable; hierarchy cannot obscure meaning |
+| Issue-specific art direction | Keeps a long-running archive alive | Choose composition from the verified story grammar and seeded brand system | Same input remains deterministic; reduced-motion and contrast always pass |
+| Persistent lateral navigation | Encourages archive wandering | Previous/next issue and previous/next season change-point | The current item and chronological position are announced in text |
+
+The synthesis is a stable publication shell with variable art direction. The
+reader should always know where they are, what the point is, what is evidence,
+and what is Matti's approved take—even when the page is allowed to misbehave
+visually.
 
 ## What made it cultural coverage
 

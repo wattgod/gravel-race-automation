@@ -105,3 +105,14 @@ def test_coaching_grant_returns_raw_token_once_and_stores_only_hash():
     assert "access_token_hash" in insert
     assert "access_token," not in insert
     assert "Coaching activation access must be case-bound" in grant
+
+
+def test_coaching_grant_rejects_cross_account_case_rebinding_cleanly():
+    source = WORKER.read_text()
+    grant = source.split("async function handleAdminGrant", 1)[1].split(
+        "// ── Unsubscribe Endpoint", 1)[0]
+    guard = grant.split("let accessToken = null", 1)[0]
+    assert "WHERE e.case_id = ? AND e.course_id = ?" in guard
+    assert "existingCaseEnrollment.email !== email" in guard
+    assert "Coaching activation case is already bound to another account" in guard
+    assert "}, 409, origin)" in guard

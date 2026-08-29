@@ -879,6 +879,20 @@ async function handleAdminGrant(data, env, origin) {
     return jsonResponse({ error: 'Coaching activation access must be case-bound' }, 400, origin);
   }
 
+  if (courseId === COACHING_COURSE_ID) {
+    const existingCaseEnrollment = await env.DB.prepare(`
+      SELECT u.email
+      FROM enrollments e
+      JOIN users u ON u.id = e.user_id
+      WHERE e.case_id = ? AND e.course_id = ?
+    `).bind(caseId, courseId).first();
+    if (existingCaseEnrollment && existingCaseEnrollment.email !== email) {
+      return jsonResponse({
+        error: 'Coaching activation case is already bound to another account'
+      }, 409, origin);
+    }
+  }
+
   let accessToken = null;
   let accessTokenHash = null;
   let accessTokenExpiresAt = null;

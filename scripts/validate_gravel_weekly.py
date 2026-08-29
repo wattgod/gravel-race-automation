@@ -47,6 +47,11 @@ QUIET_ISSUE_KEYS = {"headline", "note", "provenance"}
 EDITORIAL_APPROVAL_KEYS = {
     "approver", "approvedAt", "reviewedDraftContentHash",
 }
+CORRECTION_KEYS = {"publishedAt", "text", "storyId", "learning"}
+CORRECTION_LEARNING_KEYS = {
+    "failureKey", "originalClaim", "correctedClaim", "severity",
+    "evidenceUrls", "recordedBy",
+}
 
 
 class IssueValidationError(ValueError):
@@ -139,6 +144,48 @@ def _impact(value: Any, name: str) -> dict[str, Any]:
     _text(item.get("owner"), f"{name}.owner", 300)
     if item.get("autoFixAllowed") is not False:
         raise IssueValidationError(f"{name}.autoFixAllowed must be false")
+    return item
+
+
+def _correction(value: Any, name: str, story_ids: set[str]) -> dict[str, Any]:
+    item = _record(value, name)
+    unknown = set(item) - CORRECTION_KEYS
+    missing = CORRECTION_KEYS - set(item)
+    if unknown or missing:
+        raise IssueValidationError(
+            f"{name} fields are invalid; missing={sorted(missing)}, extra={sorted(unknown)}"
+        )
+    _iso(item.get("publishedAt"), f"{name}.publishedAt")
+    _text(item.get("text"), f"{name}.text", 2_000)
+    story_id = item.get("storyId")
+    if story_id is not None and story_id not in story_ids:
+        raise IssueValidationError(f"{name}.storyId must reference an issue story")
+    learning = _record(item.get("learning"), f"{name}.learning")
+    unknown = set(learning) - CORRECTION_LEARNING_KEYS
+    missing = CORRECTION_LEARNING_KEYS - set(learning)
+    if unknown or missing:
+        raise IssueValidationError(
+            f"{name}.learning fields are invalid; missing={sorted(missing)}, extra={sorted(unknown)}"
+        )
+    failure_key = _text(learning.get("failureKey"), f"{name}.learning.failureKey", 100)
+    if not re.fullmatch(r"[a-z0-9][a-z0-9-]{2,99}", failure_key):
+        raise IssueValidationError(f"{name}.learning.failureKey must be a lowercase slug")
+    original = _text(learning.get("originalClaim"), f"{name}.learning.originalClaim", 2_000)
+    corrected = _text(learning.get("correctedClaim"), f"{name}.learning.correctedClaim", 2_000)
+    if original == corrected:
+        raise IssueValidationError(f"{name}.learning must change the original claim")
+    if learning.get("severity") not in {"minor", "material"}:
+        raise IssueValidationError(f"{name}.learning.severity must be minor or material")
+    evidence_urls = _list(learning.get("evidenceUrls"), f"{name}.learning.evidenceUrls", 20)
+    if not evidence_urls:
+        raise IssueValidationError(f"{name}.learning.evidenceUrls must not be empty")
+    normalized_urls = [
+        _url(url, f"{name}.learning.evidenceUrls[{index}]")
+        for index, url in enumerate(evidence_urls)
+    ]
+    if len(normalized_urls) != len(set(normalized_urls)):
+        raise IssueValidationError(f"{name}.learning.evidenceUrls must be unique")
+    _text(learning.get("recordedBy"), f"{name}.learning.recordedBy", 300)
     return item
 
 
@@ -449,18 +496,23 @@ def validate_issue(value: Any, *, verify_hash: bool = True) -> dict[str, Any]:
         retrospective_refs.append((item["priorIssueId"], item["priorStoryId"]))
     if len(retrospective_refs) != len(set(retrospective_refs)):
         raise IssueValidationError("retrospectives must not revisit the same prior story twice")
+    correction_sources: set[str] = set()
+    correction_times: list[datetime] = []
     for index, correction_value in enumerate(_list(issue.get("corrections"), "corrections", 100)):
-        correction = _record(correction_value, f"corrections[{index}]")
-        _iso(correction.get("publishedAt"), f"corrections[{index}].publishedAt")
-        _text(correction.get("text"), f"corrections[{index}].text", 2_000)
-        if correction.get("storyId") is not None and correction.get("storyId") not in story_ids:
-            raise IssueValidationError(f"corrections[{index}].storyId must reference an issue story")
+        correction = _correction(correction_value, f"corrections[{index}]", set(story_ids))
+        correction_sources.update(correction["learning"]["evidenceUrls"])
+        correction_times.append(
+            datetime.fromisoformat(correction["publishedAt"].replace("Z", "+00:00")).astimezone(timezone.utc)
+        )
     source_index = [_url(item, f"sourceIndex[{index}]") for index, item in enumerate(_list(issue.get("sourceIndex"), "sourceIndex", 200))]
     if len(source_index) != len(set(source_index)):
         raise IssueValidationError("sourceIndex must not contain duplicates")
     missing_culture_sources = story_culture_urls - set(source_index)
     if missing_culture_sources:
         raise IssueValidationError(f"sourceIndex omits culture artifact URLs: {sorted(missing_culture_sources)}")
+    missing_correction_sources = correction_sources - set(source_index)
+    if missing_correction_sources:
+        raise IssueValidationError(f"sourceIndex omits correction evidence URLs: {sorted(missing_correction_sources)}")
 
     approval = issue.get("editorialApproval")
     if status != "draft" and not isinstance(approval, dict):
@@ -489,9 +541,19 @@ def validate_issue(value: Any, *, verify_hash: bool = True) -> dict[str, Any]:
             )
     if status == "published" and issue.get("publishedAt") is None:
         raise IssueValidationError("published issues require publishedAt")
+    issue_published_at = None
     if issue.get("publishedAt") is not None:
         _iso(issue["publishedAt"], "publishedAt")
-    _iso(issue.get("updatedAt"), "updatedAt")
+        issue_published_at = datetime.fromisoformat(
+            issue["publishedAt"].replace("Z", "+00:00")
+        ).astimezone(timezone.utc)
+    updated_at_raw = _iso(issue.get("updatedAt"), "updatedAt")
+    updated_at = datetime.fromisoformat(updated_at_raw.replace("Z", "+00:00")).astimezone(timezone.utc)
+    for correction_time in correction_times:
+        if issue_published_at is None or correction_time < issue_published_at:
+            raise IssueValidationError("corrections cannot predate the issue publication")
+        if correction_time > updated_at:
+            raise IssueValidationError("updatedAt must include every published correction")
     content_hash = _text(issue.get("contentHash"), "contentHash", 64)
     expected = compute_content_hash(issue)
     if verify_hash and content_hash != expected:

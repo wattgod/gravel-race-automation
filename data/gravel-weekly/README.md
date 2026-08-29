@@ -11,7 +11,13 @@ stores its exact quiet-issue approval in that receipt.
 The intelligence service may prepare candidates and reaction packets, but it
 does not write to `issues/`. An issue enters that directory only after Matti
 approves The Take. Published files are historical snapshots: corrections are appended
-to `corrections`; old copy is not silently rewritten.
+to `corrections`; old copy is not silently rewritten. Every correction is
+structured as both a reader-facing note and a learning receipt: it preserves
+the original and corrected claim, a bounded failure key, severity, evidence
+URLs, and the human recorder. The publish workflow mirrors that hash- and
+commit-bound event into the control plane. Replays are idempotent. Two matching
+failure keys can rank work for reproduction, but they cannot alter a model,
+threshold, issue, or race profile.
 
 Later issues can revisit an earlier story through `retrospectives`. Each entry
 must name the prior issue and story, classify the take as `aged_well`,

@@ -67,6 +67,7 @@ from approve_gravel_weekly_issue import approve_issue, build_decision_receipt  #
 from seal_gravel_weekly_issue import main as seal_issue_main, seal_issue  # noqa: E402
 from render_gravel_weekly_race_impact_review import render_review  # noqa: E402
 from validate_gravel_weekly_decisions import validate_decision_receipt  # noqa: E402
+from record_gravel_weekly_learning import build_correction_receipts  # noqa: E402
 
 
 def sample_issue():
@@ -1053,6 +1054,63 @@ def test_issue_race_impacts_exactly_preserve_story_impacts_and_receipts():
     missing_receipt["raceImpacts"][0]["claimIds"] = ["claim_missing"]
     with pytest.raises(IssueValidationError, match="without story receipts"):
         validate_issue(missing_receipt, verify_hash=False)
+
+
+def test_structured_corrections_become_hash_bound_learning_receipts():
+    issue = sample_issue()
+    issue["corrections"] = [{
+        "publishedAt": "2026-08-29T12:00:00Z",
+        "text": "Correction: the wet-course route was 148 miles; 150 remains the canonical distance.",
+        "storyId": "story_1",
+        "learning": {
+            "failureKey": "official-distance-not-rechecked",
+            "originalClaim": "The canonical race distance changed to 148 miles.",
+            "correctedClaim": "The 2026 wet-course route was 148 miles; 150 remains the canonical distance.",
+            "severity": "material",
+            "evidenceUrls": ["https://www.cyclingnews.com/example/"],
+            "recordedBy": "Matti Rowe",
+        },
+    }]
+    issue["updatedAt"] = "2026-08-29T12:00:00Z"
+    issue["contentHash"] = compute_content_hash(issue)
+    validated = validate_issue(issue)
+    receipts = build_correction_receipts(
+        validated,
+        source_repository="wattgod/gravel-race-automation",
+        source_path="data/gravel-weekly/issues/2026-08-28.json",
+        source_commit="a" * 40,
+        source_content_hash="b" * 64,
+    )
+    assert receipts == [{
+        "schemaVersion": "editorial-learning-receipt/v1",
+        "kind": "correction",
+        "issueId": "gravel-weekly-001",
+        "candidateId": "story_1",
+        "sourceRepository": "wattgod/gravel-race-automation",
+        "sourcePath": "data/gravel-weekly/issues/2026-08-28.json",
+        "sourceCommit": "a" * 40,
+        "sourceContentHash": "b" * 64,
+        "recordedBy": "Matti Rowe",
+        "recordedAt": "2026-08-29T12:00:00Z",
+        "correction": {
+            "failureKey": "official-distance-not-rechecked",
+            "publishedAt": "2026-08-29T12:00:00Z",
+            "originalClaim": "The canonical race distance changed to 148 miles.",
+            "correctedClaim": "The 2026 wet-course route was 148 miles; 150 remains the canonical distance.",
+            "severity": "material",
+            "evidenceUrls": ["https://www.cyclingnews.com/example/"],
+        },
+    }]
+
+    malformed = copy.deepcopy(issue)
+    malformed["corrections"][0]["learning"]["correctedClaim"] = malformed["corrections"][0]["learning"]["originalClaim"]
+    with pytest.raises(IssueValidationError, match="must change"):
+        validate_issue(malformed, verify_hash=False)
+
+    missing_source = copy.deepcopy(issue)
+    missing_source["corrections"][0]["learning"]["evidenceUrls"] = ["https://example.com/new-correction-source"]
+    with pytest.raises(IssueValidationError, match="omits correction evidence"):
+        validate_issue(missing_source, verify_hash=False)
 
 
 def test_published_issue_renders_immutable_race_impact_review():

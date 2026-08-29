@@ -45,7 +45,7 @@ from shared_header import get_site_header_css, get_site_header_html, get_site_he
 from scroll_animations import get_scroll_animation_css, get_scroll_animation_js
 
 sys.path.insert(0, str(Path(__file__).parent.parent / "scripts"))
-from validate_gravel_weekly import load_issues  # noqa: E402
+from validate_gravel_weekly import load_public_issues  # noqa: E402
 
 OUTPUT_DIR = Path(__file__).parent / "output"
 RACE_INDEX_PATH = Path(__file__).parent.parent / "web" / "race-index.json"
@@ -538,9 +538,8 @@ def build_guide_preview(chapters: list) -> str:
 
 
 def build_gravel_weekly_band() -> str:
-    """Compact teaser for the latest approved Gravel Weekly issue."""
-    issues = [issue for issue in load_issues()
-              if issue["status"] in {"approved", "published"}]
+    """Compact teaser for the latest sealed Gravel Weekly issue."""
+    issues = load_public_issues()
     latest = issues[0] if issues else None
     current = None
     if latest and latest.get("currentThingStoryId"):

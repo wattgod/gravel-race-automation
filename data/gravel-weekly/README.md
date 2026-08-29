@@ -111,6 +111,20 @@ must resolve to a receipt on that story. The publish workflow uploads the
 immutable artifact and opens one idempotent GitHub review issue when actionable
 impacts exist. It never edits a race profile.
 
+After an impact is handled through the owning repository's normal tested pull
+request—or explicitly rejected—commit one
+`gravel-weekly-learning-source/v1` record under `learning/`. The record binds
+the exact issue content hash and impact hash. Accepted outcomes also require
+the merged implementation URL and regression-test selector. Dispatch the
+manual `Gravel Weekly Learning Receipt` workflow with that path; it mirrors an
+idempotent result into usefulness metrics without changing any race data.
+
+A materially important story discovered after its useful issue window uses the
+same source schema with `kind=missed_story`. This is a human-confirmed failure,
+not a model complaint or an engagement signal. It preserves publication,
+discovery, and recording time so the collector can improve against an actual
+miss instead of rewriting history.
+
 Render a local draft for review without making it public:
 
 ```bash

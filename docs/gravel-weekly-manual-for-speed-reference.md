@@ -26,12 +26,14 @@ tables of contents, recurring departments, character credits, and deliberately
 over-specific field notes. The durable lesson is the editorial structure, not
 either skin.
 
-On August 29, 2026, a temporary Internet Archive outage made the visual captures
-unavailable. The 2014 and 2015 interface structure was independently cross-checked
-against the preserved Common Crawl HTML, while the surviving 2021 site and the
+On August 29, 2026, the Internet Archive captures were intermittently available:
+the document structure and copy loaded, but several captured stylesheets and
+images did not. The 2014 and 2015 interface structure was therefore independently
+cross-checked against the preserved Common Crawl HTML, while the surviving 2021
+site and the
 [1000% Studio retrospective](https://thousandpercent.studio/work/manual-for-speed/)
-remained available for visual inspection. This fallback recovered document
-structure and original asset references, not permission to reuse the assets.
+provided the reliable visual reference. This recovered document structure and
+original asset references, not permission to reuse the assets.
 
 ## Three useful interface eras
 

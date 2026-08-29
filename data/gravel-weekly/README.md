@@ -37,7 +37,11 @@ python3 scripts/prepare_gravel_weekly_issue.py REVIEW.json \
 The bridge refuses any review carrying model errors or deterministic-fallback
 packets. An incomplete evaluation remains a usable evidence record, but it is
 not proof of a quiet week and cannot generate quiet-issue copy. Replay the same
-locked Friday window after restoring model evaluation.
+locked Friday window after restoring model evaluation. The bridge also refuses
+an unresolved editorial `hold`: complete the named evidence work and replay the
+locked window before preparing either a story issue or a quiet issue. A passing
+premise with an incomplete gate or failed/stale prose audit is likewise a
+blocker requiring repair, not evidence that the week was quiet.
 
 The bridge independently recomputes the pinned `petergyang/no-ai-slop` audit
 over the exact headline, deck, `whatHappened`, and Take. A missing, failed, or

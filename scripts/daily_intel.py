@@ -442,7 +442,12 @@ def collect_workflows() -> dict:
                  "--limit", "1", "--json", "conclusion,updatedAt"],
                 capture_output=True, text=True, timeout=30)
             runs = json.loads(r.stdout or "[]")
-            out[f"{repo.split('/')[1]}/{wf}"] = runs[0]["conclusion"] if runs else "never-run"
+            # gh's conclusion is null/"" while the run is still in progress
+            # (not yet failed) — collapsing that to "in_progress" keeps the
+            # BROKEN section from flagging a run that just hasn't finished.
+            conclusion = (runs[0]["conclusion"] if runs else None) or (
+                "in_progress" if runs else "never-run")
+            out[f"{repo.split('/')[1]}/{wf}"] = conclusion
         except Exception as e:
             out[f"{repo.split('/')[1]}/{wf}"] = f"unknown ({type(e).__name__})"
     return {"latest": out}
@@ -1089,7 +1094,7 @@ def render_report(collected: dict) -> str:
     workflows = collected.get("workflows") or {}
     if workflows.get("ok"):
         for name, conclusion in (workflows.get("latest") or {}).items():
-            if conclusion != "success":
+            if conclusion not in ("success", "in_progress"):
                 broken.append(f"workflow {name}: {conclusion}")
     broken.extend(str(line) for line in (collected.get("report_issues") or []) if line)
     if broken:

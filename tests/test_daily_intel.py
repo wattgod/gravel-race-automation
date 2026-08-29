@@ -184,6 +184,14 @@ def test_render_report_failed_orders_are_first_and_broken_is_complete(collected)
     assert "possible tracking regression" in report
 
 
+def test_render_report_in_progress_workflow_is_not_broken(collected):
+    collected["workflows"]["latest"]["link-check.yml"] = "in_progress"
+
+    report = render_report(collected)
+
+    assert "workflow link-check.yml" not in report
+
+
 def test_render_report_includes_social_only_when_accounts_are_live(collected):
     collected["social"] = {
         "ok": True,

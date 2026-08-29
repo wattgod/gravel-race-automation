@@ -290,7 +290,10 @@ def render_retrospectives(retrospectives: list[dict[str, Any]], issues: list[dic
     return f'<section class="gw-retrospectives" id="memory"><h2>THE RECEIPTS ON US</h2><p class="gw-retro-dek">Old takes do not disappear when the timeline moves on.</p>{"".join(cards)}</section>'
 
 
-def render_story(story: dict[str, Any], *, current: bool = False, draft: bool = False) -> str:
+def render_story(
+    story: dict[str, Any], *, current: bool = False, draft: bool = False,
+    date_label: str | None = None,
+) -> str:
     label = "THE CURRENT THING" if current else story["storyKind"].replace("_", " ").upper()
     take_label = "THE TAKE — MODEL DRAFT" if draft else "THE TAKE"
     visual = render_story_visual(
@@ -298,7 +301,8 @@ def render_story(story: dict[str, Any], *, current: bool = False, draft: bool = 
         headline=story["headline"],
         body_text=" ".join([story["dek"], story["whatHappened"], story["take"]]),
         receipts=story["receipts"],
-        date_label=story["storyKind"].replace("_", " "),
+        date_label=date_label or story["storyKind"].replace("_", " "),
+        story_poster=current,
     )
     return f'''<article class="gw-story{' gw-story--cover' if current else ''}" id="{esc(story['candidateId'])}">
       <header class="gw-story-head">
@@ -743,10 +747,22 @@ def build_page(issue: dict[str, Any] | None, issues: list[dict[str, Any]], *, la
         description = current["dek"] if current else issue["mastheadDeck"]
         quiet = issue.get("quietIssue")
         content = (
-            render_story(current, current=True, draft=is_draft)
+            render_story(
+                current,
+                current=True,
+                draft=is_draft,
+                date_label=display_date(issue["publicationDate"]),
+            )
             if current else render_quiet_issue(quiet, draft=is_draft)
         )
-        content += "".join(render_story(story, draft=is_draft) for story in other_stories)
+        content += "".join(
+            render_story(
+                story,
+                draft=is_draft,
+                date_label=display_date(issue["publicationDate"]),
+            )
+            for story in other_stories
+        )
         watch = "".join(f"<li>{esc(item)}</li>" for item in issue["calendarWatch"]) or '<li class="gw-empty">No calendar item cleared the gate.</li>'
         corrections = ""
         if issue["corrections"]:

@@ -13,6 +13,14 @@ Gravel Weekly must never wait for Matti to choose, license, crop, or approve an 
 
 The SVG is abstract editorial art, visibly labeled as such. It is never presented as a photograph or as evidence of an event.
 
+The live issue gives its approved Current Thing one story-specific editorial
+poster: the exact approved headline is the dominant element, the issue date and
+machine classification remain quiet metadata, and a small abstract motif carries
+the Gravel God visual grammar. Secondary stories keep the smaller permanent
+brand-art fallback. A timestamped verified source video still outranks both.
+This creates one deliberate front door without manufacturing a documentary
+image or forcing every card to shout at the same volume.
+
 ## Two jobs, clearly separated
 
 The existing procedural visual is the publication signature: fast, deterministic,

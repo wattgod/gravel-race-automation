@@ -261,7 +261,10 @@ def course_page_class(course: dict) -> str:
     add scoped overrides — untouched courses keep the default look."""
     theme = (course or {}).get("theme")
     if theme == "desert":
-        return "gg-course-page gg-course-theme-desert"
+        classes = "gg-course-page gg-course-theme-desert"
+        if (course or {}).get("id") == "coaching-start":
+            classes += " gg-coaching-activation"
+        return classes
     return "gg-course-page"
 
 
@@ -1485,6 +1488,8 @@ def build_course_js(course: dict, module_lesson_map: dict = None) -> str:
     """Return course client-side JS for gate logic, progress tracking,
     gamification (XP, streaks, levels), and interactive blocks."""
     slug = course["id"]
+    if slug == "coaching-start":
+        return build_coaching_handbook_js()
     total = course["total_lessons"]
     # Build module lesson map JSON for module completion detection
     mlm_json = json.dumps(module_lesson_map or {})
@@ -2166,6 +2171,171 @@ document.querySelectorAll('a[href^="https://buy.stripe.com/"]').forEach(function
 }})();"""
 
 
+def build_coaching_activation_css() -> str:
+    return r"""
+.gg-activation{max-width:1120px;margin:0 auto;padding:56px 22px 96px}
+.gg-activation h1{font-size:clamp(42px,7vw,76px);line-height:.98;margin:0 0 18px}
+.gg-activation-intro{max-width:760px;font-size:20px;line-height:1.55;color:#59473c}
+.gg-activation-private,.gg-activation-panel{border:1px solid #c8b8a8;background:#fffaf3;padding:24px;margin-top:28px}
+.gg-activation-private h2,.gg-activation-panel h2{margin:0 0 10px}
+.gg-activation-private p,.gg-activation-panel p{line-height:1.55}
+.gg-activation-status{display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin:28px 0}
+.gg-activation-status strong{font-family:var(--gg-font-data,'Sometype Mono',monospace);font-size:13px;text-transform:uppercase;letter-spacing:.08em}
+.gg-activation-status span{color:#59473c}
+.gg-activation-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.gg-activation-task{border:1px solid #d5c7b9;background:#fff;padding:18px;min-height:130px}
+.gg-activation-task[data-state="verified"]{border-left:5px solid #178079}
+.gg-activation-task[data-state="action_required"]{border-left:5px solid #aa5b2d}
+.gg-activation-task[data-state="waiting_on_matti"]{border-left:5px solid #7d695d}
+.gg-activation-task[data-state="blocked"]{opacity:.72}
+.gg-activation-task h3{font-size:18px;margin:6px 0 8px}
+.gg-activation-task-state{font-family:var(--gg-font-data,'Sometype Mono',monospace);font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:#7d695d}
+.gg-activation-task a{display:inline-block;margin-top:10px;font-weight:700;color:#126a65}
+.gg-activation-forms{display:grid;gap:18px;margin-top:32px;min-width:0}
+.gg-activation-form{border:1px solid #c8b8a8;background:#fffaf3;padding:24px;min-width:0}
+.gg-activation-form h2{margin:0 0 8px}
+.gg-activation-form fieldset{border:0;padding:0;margin:18px 0}
+.gg-activation-form label{display:block;font-weight:700;margin:12px 0 5px}
+.gg-activation-form input,.gg-activation-form select{box-sizing:border-box;width:100%;padding:10px;border:1px solid #9e8b7c;background:#fff;font:inherit}
+.gg-activation-form input[type="checkbox"]{width:auto;margin-right:8px}
+.gg-activation-days{overflow-x:auto;max-width:100%;min-width:0}
+.gg-activation-days table{width:100%;border-collapse:collapse;min-width:720px}
+.gg-activation-days th,.gg-activation-days td{padding:7px;border-bottom:1px solid #ded3c8;text-align:left}
+.gg-activation-days input,.gg-activation-days select{min-width:90px}
+.gg-activation-row{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.gg-activation-submit{border:0;background:#178079;color:white;padding:13px 20px;font-family:var(--gg-font-data,'Sometype Mono',monospace);font-weight:700;letter-spacing:.05em;cursor:pointer}
+.gg-activation-submit:disabled{opacity:.55;cursor:wait}
+.gg-activation-result{min-height:24px;margin-top:10px;font-weight:700}
+.gg-handbook-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;padding:0;list-style:none}
+.gg-handbook-list a{display:block;border:1px solid #c8b8a8;background:#fff;padding:14px;color:#1a1613;text-decoration:none;font-weight:700}
+.gg-handbook-list a:hover{border-color:#178079;color:#126a65}
+.gg-coaching-activation .gg-streak-badge,.gg-coaching-activation .gg-xp-section,
+.gg-coaching-activation .gg-completion-ring,.gg-coaching-activation .gg-course-progress-bar-wrap,
+.gg-coaching-activation .gg-course-complete-btn,.gg-coaching-activation .gg-module-complete,
+.gg-coaching-activation .gg-levelup-overlay,.gg-coaching-activation .gg-course-chip,
+.gg-coaching-activation .gg-course-outline-bar-pct{display:none!important}
+@media(max-width:760px){.gg-activation-grid,.gg-handbook-list{grid-template-columns:1fr}.gg-activation-row{grid-template-columns:1fr 1fr}.gg-activation{padding-top:36px}}
+"""
+
+
+def build_coaching_activation_js(course: dict) -> str:
+    lessons = [lesson for _, lesson in get_flat_lessons(course)]
+    lesson_links = json.dumps({
+        lesson["id"]: f'/course/{course["id"]}/lesson/{lesson["id"]}/'
+        for lesson in lessons
+    })
+    return f"""
+(function(){{
+  var WORKER_URL={json.dumps(WORKER_URL)};
+  var COURSE_ID='coaching-start';
+  var TOKEN_KEY='gg-coaching-activation-token';
+  var token=(new URLSearchParams(window.location.search)).get('access_token')||sessionStorage.getItem(TOKEN_KEY)||'';
+  var privatePanel=document.getElementById('gg-activation-private');
+  var dashboard=document.getElementById('gg-activation-dashboard');
+  var taskGrid=document.getElementById('gg-activation-tasks');
+  var lessonLinks={lesson_links};
+
+  function event(name,params){{
+    if(typeof gtag==='function') gtag('event',name,params||{{}});
+  }}
+  function api(action,payload,eventId){{
+    var body={{course_id:COURSE_ID,access_token:token,action:action}};
+    if(payload!==undefined) body.payload=payload;
+    if(eventId) body.event_id=eventId;
+    return fetch(WORKER_URL+'/activation',{{method:'POST',headers:{{'Content-Type':'application/json'}},body:JSON.stringify(body)}})
+      .then(function(response){{return response.json().then(function(data){{if(!response.ok) throw new Error(data.error||'Request failed');return data;}});}});
+  }}
+  function taskStateLabel(state){{
+    return {{verified:'Verified',action_required:'Action needed',waiting_on_matti:'Waiting on Matti',blocked:'Blocked'}}[state]||state;
+  }}
+  function render(data){{
+    taskGrid.textContent='';
+    data.tasks.forEach(function(task){{
+      var card=document.createElement('article');
+      card.className='gg-activation-task';card.dataset.state=task.state;
+      var state=document.createElement('div');state.className='gg-activation-task-state';state.textContent=taskStateLabel(task.state);
+      var title=document.createElement('h3');title.textContent=task.label;
+      card.appendChild(state);card.appendChild(title);
+      if(task.detail){{var detail=document.createElement('p');detail.textContent=task.detail;card.appendChild(detail);}}
+      if(task.action_url&&task.state==='action_required'){{
+        var link=document.createElement('a');link.href=task.action_url;link.textContent='Open this step';link.rel='noreferrer';
+        link.addEventListener('click',function(){{event('coaching_activation_action_open',{{task_id:task.id}});}});card.appendChild(link);
+      }}
+      taskGrid.appendChild(card);
+    }});
+    var summary=document.getElementById('gg-activation-summary');
+    summary.querySelector('strong').textContent=data.active_ready?'Coaching active':(data.setup_ready?'Setup complete':'Setup in progress');
+    summary.querySelector('span').textContent=data.active_ready?'All setup and first-month checks are verified.':(data.setup_ready?'Your setup is complete. The first-month check-ins are still running.':'Finish the items marked Action needed. Items waiting on Matti are already in my queue.');
+    document.getElementById('gg-activation-name').textContent=data.preferred_name?data.preferred_name+' coaching setup':'Coaching setup';
+    if(data.goal_label) document.getElementById('gg-activation-goal').textContent=data.goal_label;
+    if(data.setup_ready) event('coaching_activation_setup_ready',{{course_id:COURSE_ID}});
+    if(data.active_ready) event('coaching_activation_active_ready',{{course_id:COURSE_ID}});
+  }}
+  function submitForm(form,action,payload){{
+    var button=form.querySelector('button[type="submit"]');var result=form.querySelector('.gg-activation-result');
+    button.disabled=true;result.textContent='Saving...';
+    var eventId='activation:'+action+':'+Date.now()+':'+Math.random().toString(16).slice(2);
+    api(action,payload,eventId).then(function(data){{render(data);result.textContent='Saved. This page now shows who owns the next step.';event('coaching_activation_task_submit',{{task_id:action}});}})
+      .catch(function(error){{result.textContent=error.message;event('coaching_activation_task_error',{{task_id:action}});}})
+      .finally(function(){{button.disabled=false;}});
+  }}
+  function setupForms(){{
+    var schedule=document.getElementById('gg-schedule-form');
+    schedule.addEventListener('submit',function(e){{e.preventDefault();var fd=new FormData(schedule);var windows=[];
+      schedule.querySelectorAll('[data-day-row]').forEach(function(row){{windows.push({{day:row.dataset.day,availability:row.querySelector('[name="availability"]').value,start:row.querySelector('[name="start"]').value,end:row.querySelector('[name="end"]').value,max_minutes:Number(row.querySelector('[name="max_minutes"]').value||0)}});}});
+      var commitments=[];if(fd.get('commitment_label')) commitments.push({{label:fd.get('commitment_label'),day:fd.get('commitment_day'),start:fd.get('commitment_start'),end:fd.get('commitment_end')}});
+      var exceptions=[];if(fd.get('exception_start')) exceptions.push({{start_date:fd.get('exception_start'),end_date:fd.get('exception_end'),note:fd.get('exception_note')}});
+      submitForm(schedule,'submit_schedule',{{home_timezone:fd.get('home_timezone'),weekly_windows:windows,recurring_commitments:commitments,exceptions:exceptions,preferred_long_days:[fd.get('preferred_long_day')],preferred_hard_days:[fd.get('preferred_hard_day')],change_protocol_ack:fd.get('change_protocol_ack')==='on'}});
+    }});
+    var communication=document.getElementById('gg-communication-form');
+    communication.addEventListener('submit',function(e){{e.preventDefault();var fd=new FormData(communication);submitForm(communication,'submit_communication',{{preferred_channel:fd.get('preferred_channel'),urgent_channel:fd.get('urgent_channel'),home_timezone:fd.get('home_timezone'),quiet_start:fd.get('quiet_start'),quiet_end:fd.get('quiet_end'),response_window_ack:fd.get('response_window_ack')==='on'}});}});
+    var device=document.getElementById('gg-device-form');
+    device.addEventListener('submit',function(e){{e.preventDefault();var fd=new FormData(device);submitForm(device,'submit_device_setup',{{platform:fd.get('platform'),data_types:fd.getAll('data_types'),sync_attempted:fd.get('sync_attempted')==='on'}});}});
+    var firstWeek=document.getElementById('gg-first-week-form');
+    firstWeek.addEventListener('submit',function(e){{e.preventDefault();submitForm(firstWeek,'ack_first_week',{{acknowledged:true}});}});
+  }}
+  if(!token||!/^[A-Za-z0-9_-]{{43}}$/.test(token)){{privatePanel.hidden=false;return;}}
+  fetch(WORKER_URL+'/verify',{{method:'POST',headers:{{'Content-Type':'application/json'}},body:JSON.stringify({{course_id:COURSE_ID,access_token:token}})}})
+    .then(function(response){{return response.json();}}).then(function(result){{
+      if(!result.has_access) throw new Error('This private link is invalid or expired.');
+      sessionStorage.setItem(TOKEN_KEY,token);
+      if(window.location.search) history.replaceState(null,'',window.location.pathname+window.location.hash);
+      Object.keys(lessonLinks).forEach(function(id){{var link=document.querySelector('[data-handbook="'+id+'"]');if(link) link.href=lessonLinks[id];}});
+      dashboard.hidden=false;privatePanel.hidden=true;setupForms();event('coaching_activation_view',{{course_id:COURSE_ID}});return api('get');
+    }}).then(render).catch(function(error){{privatePanel.hidden=false;privatePanel.querySelector('p').textContent=error.message+' Ask Matti for a new link.';}});
+}})();
+"""
+
+
+def build_coaching_handbook_js() -> str:
+    return f"""
+(function(){{
+  var WORKER_URL={json.dumps(WORKER_URL)};var COURSE_ID='coaching-start';var TOKEN_KEY='gg-coaching-activation-token';
+  var token=(new URLSearchParams(window.location.search)).get('access_token')||sessionStorage.getItem(TOKEN_KEY)||'';
+  var gate=document.getElementById('gg-course-gate');var lesson=document.getElementById('gg-course-lesson');
+  if(!token||!/^[A-Za-z0-9_-]{{43}}$/.test(token)) return;
+  fetch(WORKER_URL+'/verify',{{method:'POST',headers:{{'Content-Type':'application/json'}},body:JSON.stringify({{course_id:COURSE_ID,access_token:token}})}})
+    .then(function(response){{return response.json();}}).then(function(result){{if(!result.has_access) return;sessionStorage.setItem(TOKEN_KEY,token);if(window.location.search) history.replaceState(null,'',window.location.pathname+window.location.hash);gate.style.display='none';lesson.classList.add('gg-course-unlocked');}}).catch(function(){{}});
+}})();
+"""
+
+
+def build_coaching_activation_page(course: dict) -> str:
+    header = get_site_header_html(active="products")
+    footer = get_mega_footer_html()
+    days = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday']
+    day_rows = ''.join(
+        f'''<tr data-day-row data-day="{day}"><th>{day.title()}</th><td><select name="availability"><option value="available">Available</option><option value="unavailable">Unavailable</option></select></td><td><input name="start" type="time"></td><td><input name="end" type="time"></td><td><input name="max_minutes" type="number" min="0" max="1440" value="60"></td></tr>'''
+        for day in days
+    )
+    day_options = ''.join(f'<option value="{day}">{day.title()}</option>' for day in days)
+    handbook = ''.join(
+        f'<li><a data-handbook="{esc(lesson["id"])}" href="#">{esc(lesson["title"])}</a></li>'
+        for _, lesson in get_flat_lessons(course)
+    )
+    return f'''<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow"><meta name="referrer" content="no-referrer"><title>Coaching Setup | Gravel God Cycling</title>{get_preload_hints("/race/assets/fonts")}<style>{get_font_face_css("/race/assets/fonts")}{get_tokens_css()}{get_site_header_css()}{build_course_css()}{build_coaching_activation_css()}{get_mega_footer_css()}</style>{get_ga4_head_snippet()}</head><body><div class="{course_page_class(course)}">{header}<main class="gg-activation"><h1 id="gg-activation-name">Coaching setup</h1><p class="gg-activation-intro">This page shows what you need to do, what I need to do, and what has been verified. Come back here when your schedule changes or you need the handbook.</p><p id="gg-activation-goal" class="gg-activation-intro"></p><section class="gg-activation-private" id="gg-activation-private" hidden><h2>Use your private setup link</h2><p>Open the link from your coaching email. If it expired, ask Matti for a new one.</p></section><div id="gg-activation-dashboard" hidden><div class="gg-activation-status" id="gg-activation-summary"><strong>Checking setup</strong><span></span></div><section aria-labelledby="setup-checklist"><h2 id="setup-checklist">Setup checklist</h2><div class="gg-activation-grid" id="gg-activation-tasks"></div></section><div class="gg-activation-forms"><form class="gg-activation-form" id="gg-schedule-form"><h2>Your actual weekly schedule</h2><p>Give me the hours that can hold training, not every open minute on the calendar. Add work, family, group rides, strength, and known travel below.</p><label>Home timezone<input name="home_timezone" value="America/Denver" required></label><div class="gg-activation-days"><table><thead><tr><th>Day</th><th>Status</th><th>Earliest start</th><th>Latest finish</th><th>Max minutes</th></tr></thead><tbody>{day_rows}</tbody></table></div><div class="gg-activation-row"><label>Preferred long day<select name="preferred_long_day">{day_options}</select></label><label>Preferred hard day<select name="preferred_hard_day">{day_options}</select></label><label>Recurring item<input name="commitment_label" placeholder="Group ride, strength, work"></label><label>Day<select name="commitment_day">{day_options}</select></label><label>Starts<input name="commitment_start" type="time"></label><label>Ends<input name="commitment_end" type="time"></label><label>Exception starts<input name="exception_start" type="date"></label><label>Exception ends<input name="exception_end" type="date"></label><label>Travel or conflict<input name="exception_note" maxlength="120"></label></div><label><input type="checkbox" name="change_protocol_ack" required>I will add TrainingPeaks Availability when dates change and leave a comment when the change affects the current week. I will not stack or move missed sessions unless Matti asks me to.</label><button class="gg-activation-submit" type="submit">Save schedule</button><div class="gg-activation-result" role="status"></div></form><form class="gg-activation-form" id="gg-communication-form"><h2>Communication</h2><p>Workout feedback belongs in the TrainingPeaks workout comment. Use your preferred channel for schedule or life changes that affect more than one session. Medical emergencies belong with local medical services.</p><div class="gg-activation-row"><label>Preferred channel<select name="preferred_channel"><option value="trainingpeaks">TrainingPeaks</option><option value="email">Email</option><option value="text">Text</option></select></label><label>Urgent schedule change<select name="urgent_channel"><option value="text">Text</option><option value="email">Email</option><option value="trainingpeaks">TrainingPeaks</option></select></label><label>Home timezone<input name="home_timezone" value="America/Denver" required></label><label>Quiet hours start<input name="quiet_start" type="time"></label><label>Quiet hours end<input name="quiet_end" type="time"></label></div><label><input type="checkbox" name="response_window_ack" required>I understand normal coaching replies can take up to two business days and coaching messages are not emergency monitoring.</label><button class="gg-activation-submit" type="submit">Save communication</button><div class="gg-activation-result" role="status"></div></form><form class="gg-activation-form" id="gg-device-form"><h2>Device data</h2><p>Connect the device account that records your training, complete one sync, and tell me what should appear. This stays pending until I can see the data in TrainingPeaks.</p><div class="gg-activation-row"><label>Device account<select name="platform"><option value="garmin">Garmin</option><option value="wahoo">Wahoo</option><option value="coros">COROS</option><option value="apple">Apple</option><option value="strava">Strava</option><option value="other">Other</option><option value="none">None</option></select></label><fieldset><legend>Expected data</legend><label><input type="checkbox" name="data_types" value="power">Power</label><label><input type="checkbox" name="data_types" value="heart_rate">Heart rate</label><label><input type="checkbox" name="data_types" value="cadence">Cadence</label><label><input type="checkbox" name="data_types" value="speed_gps">GPS and speed</label><label><input type="checkbox" name="data_types" value="sleep">Sleep</label><label><input type="checkbox" name="data_types" value="hrv">HRV</label></fieldset></div><label><input type="checkbox" name="sync_attempted" required>I completed a sync or I have no device account to connect.</label><button class="gg-activation-submit" type="submit">Send device check</button><div class="gg-activation-result" role="status"></div></form><form class="gg-activation-form" id="gg-first-week-form"><h2>First-week check</h2><p>Use this after your first plan and guide arrive. Read the full week, check the session locations and durations, and tell me about conflicts before the week starts.</p><button class="gg-activation-submit" type="submit">I checked the first week</button><div class="gg-activation-result" role="status"></div></form></div><section class="gg-activation-panel"><h2>Coaching handbook</h2><p>Use these when you need the exact process. They are reference pages, not completion gates.</p><ul class="gg-handbook-list">{handbook}</ul></section></div></main>{footer}</div><script>{get_site_header_js()}</script><script>{build_coaching_activation_js(course)}</script>{get_consent_banner_html()}</body></html>'''
+
+
 def build_og_meta(course: dict, og_title: str, og_desc: str, og_url: str,
                   og_type: str = "website") -> str:
     """Open Graph + Twitter card meta tags. og_image files live at
@@ -2242,6 +2412,8 @@ def build_bundle_strip(course: dict, all_courses: list) -> str:
 
 def build_landing_page(course: dict, all_courses: list = None) -> str:
     """Build the ungated course landing/sales page."""
+    if course.get("id") == "coaching-start":
+        return build_coaching_activation_page(course)
     slug = course["id"]
     title = esc(course["title"])
     subtitle = esc(course["subtitle"])
@@ -2506,12 +2678,11 @@ def build_lesson_page(course: dict, module: dict, lesson: dict,
     course_css = build_course_css()
     course_js = build_course_js(course, module_lesson_map)
 
-    gate_buy = (
+    gate_markup = (
         f'''<div id="gg-course-gate-buy">
-      <div class="gg-course-gate-badge">COACHING ONBOARDING</div>
+      <div class="gg-course-gate-badge">PRIVATE COACHING HANDBOOK</div>
       <h2>{course_title}</h2>
-      <p>This course is included with coaching. Use the exact email your coach enrolled to continue.</p>
-      <button type="button" class="gg-course-gate-cta" id="gg-course-invite-signin">SIGN IN</button>
+      <p>Open this page from the private setup link in your coaching email. If the link expired, ask Matti for a new one.</p>
     </div>'''
         if invite_only else
         f'''<div id="gg-course-gate-buy">
@@ -2519,7 +2690,54 @@ def build_lesson_page(course: dict, module: dict, lesson: dict,
       <h2>{course_title}</h2>
       <p>This lesson is part of a paid course. Enroll to get lifetime access to all {total} lessons.</p>
       <a href="{stripe_link}" class="gg-course-gate-cta">ENROLL FOR ${price}</a>
-    </div>''')
+    </div>
+    <div id="gg-course-gate-verify" style="display:none">
+      <div class="gg-course-gate-badge">WELCOME BACK</div>
+      <h2>Verify Your Purchase</h2>
+      <p>Enter the email you used at checkout to access your course.</p>
+    </div>
+    <div class="gg-course-gate-divider">Already purchased?</div>
+    <form class="gg-course-gate-form" id="gg-course-verify-form" autocomplete="off">
+      <input type="hidden" name="website" value="">
+      <input type="email" name="email" required placeholder="your@email.com">
+      <button type="submit">VERIFY PURCHASE</button>
+    </form>
+    <div class="gg-course-gate-error" id="gg-course-gate-error"></div>
+    <p class="gg-course-gate-fine">Use the email address from your Stripe checkout.</p>''')
+
+    streak_html = '' if invite_only else '''<div class="gg-streak-badge gg-streak-none" id="gg-streak-badge">
+      <span class="gg-streak-fire">&#128293;</span>
+      <span class="gg-streak-count">No streak</span>
+    </div>'''
+    sidebar_metrics_html = '' if invite_only else '''<div class="gg-completion-ring">
+          <svg class="gg-ring-svg" viewBox="0 0 48 48">
+            <circle class="gg-ring-bg" cx="24" cy="24" r="20"/>
+            <circle class="gg-ring-fill" id="gg-ring-circle" cx="24" cy="24" r="20"
+                    stroke-dasharray="125.66" stroke-dashoffset="125.66"/>
+          </svg>
+          <div><div class="gg-ring-pct" id="gg-ring-pct">0%</div><div class="gg-ring-label">Complete</div></div>
+        </div>
+        <div class="gg-course-progress-bar-wrap"><div class="gg-course-progress-bar"></div></div>'''
+    xp_html = '' if invite_only else '''<div class="gg-xp-section">
+          <div class="gg-xp-header"><span class="gg-xp-level" id="gg-xp-level">LVL 1 · Gravel Curious</span><span class="gg-xp-count" id="gg-xp-count">0 XP</span></div>
+          <div class="gg-xp-bar-wrap"><div class="gg-xp-bar" id="gg-xp-bar"></div></div>
+          <div class="gg-xp-streak-row"><span class="gg-xp-streak-label">Streak</span><span class="gg-xp-streak-label" id="gg-xp-streak-val">0</span></div>
+        </div>'''
+    module_complete_html = '' if invite_only else f'''<div class="gg-module-complete" id="gg-module-complete">
+          <div class="gg-module-complete-badge">+25 XP MODULE BONUS</div>
+          <div class="gg-module-complete-title">Module Complete: {esc(module["title"])}</div>
+        </div>'''
+    complete_button_html = '' if invite_only else f'''<button class="gg-course-complete-btn" id="gg-course-complete-btn"
+                data-lesson-id="{esc(lesson_id)}" data-next-url="{next_url}">MARK AS COMPLETE</button>'''
+    chip_html = '' if invite_only else '''<button class="gg-course-chip" id="gg-course-chip" aria-label="Course progress — open outline">
+    <span class="gg-course-chip-pct" id="gg-course-chip-pct">0%</span><span>DONE</span></button>'''
+    level_overlay_html = '' if invite_only else '''<div class="gg-levelup-overlay" id="gg-levelup-overlay">
+  <div class="gg-levelup-card"><div class="gg-levelup-badge">LEVEL UP</div><div class="gg-levelup-title">Level 2</div><div class="gg-levelup-name">Dirt Dabbler</div><button class="gg-levelup-btn" id="gg-levelup-btn">CONTINUE</button></div>
+</div>'''
+    pwa_banner_html = '' if invite_only else '''<div class="gg-pwa-banner" id="gg-pwa-banner">
+  <span class="gg-pwa-banner-text">Install Gravel God Courses for offline access</span>
+  <div><button class="gg-pwa-banner-install" id="gg-pwa-install-btn">ADD TO HOME SCREEN</button><button class="gg-pwa-banner-dismiss" id="gg-pwa-dismiss-btn">&times;</button></div>
+</div>'''
 
     return f'''<!DOCTYPE html>
 <html lang="en">
@@ -2541,6 +2759,7 @@ def build_lesson_page(course: dict, module: dict, lesson: dict,
 {tokens_css}
 {header_css}
 {course_css}
+{build_coaching_activation_css() if invite_only else ''}
 {footer_css}
   </style>
   {get_ga4_head_snippet()}
@@ -2552,20 +2771,7 @@ def build_lesson_page(course: dict, module: dict, lesson: dict,
 <!-- Purchase Gate -->
 <div class="gg-course-gate" id="gg-course-gate">
   <div class="gg-course-gate-inner">
-    {gate_buy}
-    <div id="gg-course-gate-verify" style="display:none">
-      <div class="gg-course-gate-badge">WELCOME BACK</div>
-      <h2>Verify Your Purchase</h2>
-      <p>Enter the email you used at checkout to access your course.</p>
-    </div>
-    <div class="gg-course-gate-divider">Already purchased?</div>
-    <form class="gg-course-gate-form" id="gg-course-verify-form" autocomplete="off">
-      <input type="hidden" name="website" value="">
-      <input type="email" name="email" required placeholder="your@email.com">
-      <button type="submit">VERIFY PURCHASE</button>
-    </form>
-    <div class="gg-course-gate-error" id="gg-course-gate-error"></div>
-    <p class="gg-course-gate-fine">Use the email address from your Stripe checkout.</p>
+    {gate_markup}
   </div>
 </div>
 
@@ -2581,11 +2787,7 @@ def build_lesson_page(course: dict, module: dict, lesson: dict,
       <div class="gg-course-lesson-num">LESSON {lesson_idx + 1:02d} OF {total:02d} &middot; {duration_html}</div>
       <h1>{lesson_title}</h1>
     </div>
-    <!-- Streak Badge -->
-    <div class="gg-streak-badge gg-streak-none" id="gg-streak-badge">
-      <span class="gg-streak-fire">&#128293;</span>
-      <span class="gg-streak-count">No streak</span>
-    </div>
+    {streak_html}
   </div>
 
   <!-- Mobile outline bar (pinned below the lesson header) -->
@@ -2603,41 +2805,13 @@ def build_lesson_page(course: dict, module: dict, lesson: dict,
       <div class="gg-course-sidebar-inner">
         <a class="gg-course-sidebar-title" href="{SITE_BASE_URL}/course/{slug}/">{course_title}</a>
 
-        <!-- Completion Ring -->
-        <div class="gg-completion-ring">
-          <svg class="gg-ring-svg" viewBox="0 0 48 48">
-            <circle class="gg-ring-bg" cx="24" cy="24" r="20"/>
-            <circle class="gg-ring-fill" id="gg-ring-circle" cx="24" cy="24" r="20"
-                    stroke-dasharray="125.66" stroke-dashoffset="125.66"/>
-          </svg>
-          <div>
-            <div class="gg-ring-pct" id="gg-ring-pct">0%</div>
-            <div class="gg-ring-label">Complete</div>
-          </div>
-        </div>
-
-        <div class="gg-course-progress-bar-wrap">
-          <div class="gg-course-progress-bar"></div>
-        </div>
+        {sidebar_metrics_html}
 
         <nav class="gg-course-outline-nav" aria-label="Lessons by module">
           {outline_html}
         </nav>
 
-        <!-- XP + Level Section -->
-        <div class="gg-xp-section">
-          <div class="gg-xp-header">
-            <span class="gg-xp-level" id="gg-xp-level">LVL 1 · Gravel Curious</span>
-            <span class="gg-xp-count" id="gg-xp-count">0 XP</span>
-          </div>
-          <div class="gg-xp-bar-wrap">
-            <div class="gg-xp-bar" id="gg-xp-bar"></div>
-          </div>
-          <div class="gg-xp-streak-row">
-            <span class="gg-xp-streak-label">Streak</span>
-            <span class="gg-xp-streak-label" id="gg-xp-streak-val">0</span>
-          </div>
-        </div>
+        {xp_html}
       </div>
     </aside>
     <div class="gg-course-scrim" id="gg-course-scrim"></div>
@@ -2646,53 +2820,26 @@ def build_lesson_page(course: dict, module: dict, lesson: dict,
       <div class="gg-course-main-inner">
         {nav_block("top")}
 
-        <!-- Module Complete Card (hidden until triggered) -->
-        <div class="gg-module-complete" id="gg-module-complete">
-          <div class="gg-module-complete-badge">+25 XP MODULE BONUS</div>
-          <div class="gg-module-complete-title">Module Complete: {esc(module["title"])}</div>
-        </div>
+        {module_complete_html}
 
         <div class="gg-course-lesson-body">
           {blocks_html}
         </div>
 
-        <button class="gg-course-complete-btn" id="gg-course-complete-btn"
-                data-lesson-id="{esc(lesson_id)}" data-next-url="{next_url}">
-          MARK AS COMPLETE
-        </button>
+        {complete_button_html}
 
         {nav_block("bottom")}
       </div>
     </main>
   </div>
 
-  <!-- Floating compact progress chip (mobile) -->
-  <button class="gg-course-chip" id="gg-course-chip" aria-label="Course progress — open outline">
-    <span class="gg-course-chip-pct" id="gg-course-chip-pct">0%</span>
-    <span>DONE</span>
-  </button>
+  {chip_html}
 
   {mega_footer}
 </div>
 
-<!-- Level-Up Overlay -->
-<div class="gg-levelup-overlay" id="gg-levelup-overlay">
-  <div class="gg-levelup-card">
-    <div class="gg-levelup-badge">LEVEL UP</div>
-    <div class="gg-levelup-title">Level 2</div>
-    <div class="gg-levelup-name">Dirt Dabbler</div>
-    <button class="gg-levelup-btn" id="gg-levelup-btn">CONTINUE</button>
-  </div>
-</div>
-
-<!-- PWA Install Banner -->
-<div class="gg-pwa-banner" id="gg-pwa-banner">
-  <span class="gg-pwa-banner-text">Install Gravel God Courses for offline access</span>
-  <div>
-    <button class="gg-pwa-banner-install" id="gg-pwa-install-btn">ADD TO HOME SCREEN</button>
-    <button class="gg-pwa-banner-dismiss" id="gg-pwa-dismiss-btn">&times;</button>
-  </div>
-</div>
+{level_overlay_html}
+{pwa_banner_html}
 
 </div>
 <script>
@@ -2808,6 +2955,7 @@ def build_service_worker() -> str:
 const CACHE_NAME = 'gg-courses-v1';
 const OFFLINE_URL = '/course/offline.html';
 const API_PATHS = ['/verify', '/progress', '/kc', '/stats', '/leaderboard'];
+const SENSITIVE_API_PATHS = ['/activation'];
 
 // Install: cache offline fallback page
 self.addEventListener('install', event => {
@@ -2830,6 +2978,17 @@ self.addEventListener('activate', event => {
 // Fetch strategy
 self.addEventListener('fetch', event => {
   const url = new URL(event.request.url);
+
+  // Coaching activation carries a private case token and athlete schedule data.
+  // Keep it out of Cache Storage and the offline IndexedDB replay queue.
+  if (SENSITIVE_API_PATHS.some(p => url.pathname.endsWith(p)) ||
+      url.pathname.startsWith('/course/coaching-start/')) {
+    event.respondWith(fetch(event.request).catch(() => new Response(
+      event.request.method === 'GET' ? 'Offline' : JSON.stringify({ error: 'Offline' }),
+      { status: 503, headers: { 'Content-Type': event.request.method === 'GET' ? 'text/plain' : 'application/json' } }
+    )));
+    return;
+  }
 
   // API calls: network-first, queue offline submissions for replay
   if (API_PATHS.some(p => url.pathname.endsWith(p))) {

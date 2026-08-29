@@ -225,11 +225,20 @@ class TestCoachInviteCourse:
         assert all(lesson["blocks"] for module in course["modules"]
                    for lesson in module["lessons"])
 
-    def test_invite_landing_has_no_broken_checkout(self):
+    def test_invite_landing_is_activation_dashboard_not_storefront(self):
         course = load_course(COURSES_DIR / "coaching-start")
         html = generate_courses.build_landing_page(course, [course])
-        assert "INCLUDED WITH COACHING" in html
-        assert "SIGN IN TO START" in html
+        assert "Coaching setup" in html
+        assert 'id="gg-activation-tasks"' in html
+        assert 'id="gg-schedule-form"' in html
+        assert 'id="gg-communication-form"' in html
+        assert 'id="gg-device-form"' in html
+        assert "Day 0" not in html  # checkpoint truth comes from the case projection
+        assert "SELF-PACED COURSE" not in html
+        assert "Sign in with your email" not in html
+        assert "0 XP" not in html
+        assert "LEVEL UP" not in html
+        assert "MARK AS COMPLETE" not in html
         assert 'href=""' not in html
         assert "ENROLL FOR $0" not in html
 
@@ -237,10 +246,21 @@ class TestCoachInviteCourse:
         module, lesson = flat[0]
         lesson_html = generate_courses.build_lesson_page(
             course, module, lesson, 0, len(flat), flat)
-        assert "COACHING ONBOARDING" in lesson_html
-        assert 'id="gg-course-invite-signin"' in lesson_html
-        assert "ENROLL FOR $0" not in lesson_html
-        assert 'href=""' not in lesson_html
+        assert "PRIVATE COACHING HANDBOOK" in lesson_html
+        assert "Verify Your Purchase" not in lesson_html
+        assert 'type="email"' not in lesson_html
+
+    def test_activation_client_uses_private_token_and_case_projection(self):
+        course = load_course(COURSES_DIR / "coaching-start")
+        html = generate_courses.build_landing_page(course, [course])
+        assert "access_token" in html
+        assert "sessionStorage" in html
+        assert "WORKER_URL+'/activation'" in html
+        assert "coaching_activation_task_submit" in html
+        assert "coaching_activation_setup_ready" in html
+        assert "coaching_activation_active_ready" in html
+        assert 'name="change_protocol_ack"' in html
+        assert 'name="response_window_ack"' in html
 
     def test_invite_course_is_not_listed_in_store_index(self):
         invite = load_course(COURSES_DIR / "coaching-start")

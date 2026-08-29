@@ -63,8 +63,45 @@ def test_daily_canary_is_no_write_and_checks_both_boundaries():
     assert "runCourseCanary(env)" in source
     assert "PRAGMA table_info(enrollments)" in canary
     assert "/api/coaching-course-progress" in canary
+    assert "/api/coaching-activation" in canary
     assert "Valid case_id is required" in canary
+    assert "authenticated_activation_bridge" in canary
     assert "'/admin/canary'" in source
     assert "INSERT" not in canary
     assert "UPDATE" not in canary
     assert 'crons = ["23 14 * * *"]' in config
+
+
+def test_coaching_activation_uses_case_bound_expiring_token_not_email():
+    source = WORKER.read_text()
+    migration = (
+        ROOT / "workers" / "course-access" / "migrations" /
+        "0003_activation_access_tokens.sql"
+    ).read_text()
+    verify = source.split("async function handleVerify", 1)[1].split(
+        "// ── Coaching Activation Endpoint", 1)[0]
+    activation = source.split("async function handleActivation", 1)[1].split(
+        "// ── Progress Endpoint", 1)[0]
+    assert "getActivationEnrollment(data, env)" in verify
+    assert "data.course_id === COACHING_COURSE_ID" in verify
+    assert "email" not in verify.split("if (data.course_id", 1)[1].split("}\n", 1)[0]
+    assert "access_token_hash" in source
+    assert "access_token_expires_at > ?" in source
+    assert "case_id: enrollment.case_id" in activation
+    assert "athlete_key: enrollment.athlete_key" in activation
+    assert "email" not in activation.lower()
+    assert "ALTER TABLE enrollments ADD COLUMN access_token_hash TEXT" in migration
+    assert "idx_enrollments_access_token" in migration
+
+
+def test_coaching_grant_returns_raw_token_once_and_stores_only_hash():
+    source = WORKER.read_text()
+    grant = source.split("async function handleAdminGrant", 1)[1].split(
+        "// ── Unsubscribe Endpoint", 1)[0]
+    assert "generateAccessToken()" in grant
+    assert "sha256Hex(accessToken)" in grant
+    assert "access_token: accessToken" in grant
+    insert = grant.split("INSERT INTO enrollments", 1)[1].split(".run()", 1)[0]
+    assert "access_token_hash" in insert
+    assert "access_token," not in insert
+    assert "Coaching activation access must be case-bound" in grant

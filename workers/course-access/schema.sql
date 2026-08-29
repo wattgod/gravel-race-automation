@@ -29,6 +29,8 @@ CREATE TABLE IF NOT EXISTS enrollments (
   tier TEXT,
   preferred_name TEXT,
   goal_label TEXT,
+  access_token_hash TEXT,
+  access_token_expires_at TEXT,
   UNIQUE(user_id, course_id)
 );
 
@@ -88,6 +90,8 @@ CREATE TABLE IF NOT EXISTS nudge_log (
 CREATE INDEX IF NOT EXISTS idx_enrollments_user ON enrollments(user_id);
 CREATE UNIQUE INDEX IF NOT EXISTS idx_enrollments_case_course
   ON enrollments(case_id, course_id) WHERE case_id IS NOT NULL;
+CREATE UNIQUE INDEX IF NOT EXISTS idx_enrollments_access_token
+  ON enrollments(access_token_hash) WHERE access_token_hash IS NOT NULL;
 CREATE INDEX IF NOT EXISTS idx_lesson_progress_user_course ON lesson_progress(user_id, course_id);
 CREATE INDEX IF NOT EXISTS idx_xp_log_user ON xp_log(user_id);
 CREATE INDEX IF NOT EXISTS idx_streak_user ON streak_history(user_id, active_date);

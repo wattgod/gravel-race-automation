@@ -311,8 +311,9 @@ def render_history_timeline(entries: list[dict[str, Any]]) -> str:
         return '''<section class="gw-history" id="season-story">
           <header class="gw-history-head"><span class="gw-label">THE PULSE OF GRAVEL</span><h2>THE SEASON AS A STORY</h2><p>The backfill is underway. Empty periods stay empty until a sourced point clears the gate.</p></header>
         </section>'''
-    cards = []
+    year_groups: dict[str, list[str]] = {}
     for entry in entries:
+        year = entry["activeFrom"][:4]
         active_label = display_date(entry["activeFrom"])
         if entry["activeThrough"] != entry["activeFrom"]:
             active_label = f'{active_label} → {display_date(entry["activeThrough"])}'
@@ -338,7 +339,7 @@ def render_history_timeline(entries: list[dict[str, Any]]) -> str:
             changed_judgment=entry["changedJudgment"],
             point=entry["point"],
         )
-        cards.append(f'''<!-- gravel-weekly-history-hash: {esc(entry['contentHash'])} -->
+        card = f'''<!-- gravel-weekly-history-hash: {esc(entry['contentHash'])} -->
         <article class="gw-history-entry" id="{esc(entry['entryId'])}">
           <header><span class="gw-history-date">{esc(active_label.upper())}</span><span class="gw-score">EDITORIAL SCORE {entry['editorialScore']}/100</span><h3>{esc(entry['headline'])}</h3></header>
           {visual}
@@ -351,10 +352,24 @@ def render_history_timeline(entries: list[dict[str, Any]]) -> str:
           {render_culture_artifacts(entry.get('cultureArtifacts', []))}
           {later}
           <p class="gw-history-uncertainty"><b>UNCERTAINTY:</b> {esc(entry['uncertainty'])}</p>
-        </article>''')
+        </article>'''
+        year_groups.setdefault(year, []).append(card)
+    year_links = "".join(
+        f'<li><a href="#gravel-year-{esc(year)}"><b>{esc(year)}</b><span>{len(cards)} change-point{"s" if len(cards) != 1 else ""}</span></a></li>'
+        for year, cards in year_groups.items()
+    )
+    years = "".join(
+        f'''<section class="gw-history-year" id="gravel-year-{esc(year)}" aria-label="Gravel in {esc(year)}">
+          <header><span>YEAR IN THE STORY</span><strong>{esc(year)}</strong><p>{len(cards)} approved change-point{"s" if len(cards) != 1 else ""}</p></header>
+          {"".join(cards)}
+          <a class="gw-history-return" href="#gravel-history-years">BACK TO YEARS ↑</a>
+        </section>'''
+        for year, cards in year_groups.items()
+    )
     return f'''<section class="gw-history" id="season-story">
       <header class="gw-history-head"><span class="gw-label">THE PULSE OF GRAVEL</span><h2>THE SEASON AS A STORY</h2><p>Only approved narrative change-points. Contemporary receipts stay separate from what we learned later.</p></header>
-      <div class="gw-history-line">{"".join(cards)}</div>
+      <nav class="gw-history-years" id="gravel-history-years" aria-label="Jump to a year in gravel history"><span>JUMP TO YEAR</span><ol>{year_links}</ol></nav>
+      <div class="gw-history-line">{years}</div>
     </section>'''
 
 
@@ -504,14 +519,27 @@ def page_css() -> str:
   .gw-archive strong { font-family: var(--gg-font-editorial); font-size: var(--gg-font-size-md); }
   .gw-archive p { margin: 0; max-width: 760px; font-family: var(--gg-font-editorial); line-height: var(--gg-line-height-normal); }
   .gw-archive .gw-archive-take { font-size: var(--gg-font-size-sm); color: var(--gg-color-secondary-brown); }
-  .gw-history { margin-top: var(--gg-spacing-2xl); border: var(--gg-border-heavy); background: var(--gg-color-white); }
+  .gw-history { margin-top: var(--gg-spacing-2xl); border: var(--gg-border-heavy); background: var(--gg-color-white); scroll-margin-top: calc(var(--gg-header-height, 80px) + var(--gg-spacing-md)); }
   .gw-history-head { padding: var(--gg-spacing-lg); border-bottom: var(--gg-border-heavy); background: var(--gg-color-gold); }
   .gw-history-head h2 { margin: var(--gg-spacing-xs) 0; font-size: clamp(2rem, 6vw, 4.4rem); line-height: .95; }
   .gw-history-head p { max-width: 760px; margin: 0; font-family: var(--gg-font-editorial); font-size: var(--gg-font-size-md); }
+  .gw-history-years { border-bottom: var(--gg-border-heavy); background: var(--gg-color-near-black); color: var(--gg-color-warm-paper); }
+  .gw-history-years > span { display: block; padding: var(--gg-spacing-xs) var(--gg-spacing-md); border-bottom: var(--gg-border-subtle); font-size: var(--gg-font-size-xs); font-weight: var(--gg-font-weight-black); letter-spacing: var(--gg-letter-spacing-wider); }
+  .gw-history-years ol { display: flex; margin: 0; padding: 0; overflow-x: auto; list-style: none; scroll-snap-type: x proximity; }
+  .gw-history-years li { flex: 1 0 150px; border-right: var(--gg-border-subtle); scroll-snap-align: start; }
+  .gw-history-years a { display: grid; gap: var(--gg-spacing-2xs); min-height: 100%; padding: var(--gg-spacing-sm) var(--gg-spacing-md); color: inherit; text-decoration: none; }
+  .gw-history-years a:hover, .gw-history-years a:focus-visible { background: var(--gg-color-teal); outline: var(--gg-border-gold); outline-offset: calc(var(--gg-border-width-standard) * -1); }
+  .gw-history-years b { color: var(--gg-color-gold); font-size: var(--gg-font-size-2xl); line-height: .9; }
+  .gw-history-years a span { color: var(--gg-color-tan); font-family: var(--gg-font-editorial); font-size: var(--gg-font-size-xs); }
   .gw-history-line { position: relative; padding: var(--gg-spacing-lg); }
   .gw-history-line::before { content: ''; position: absolute; top: 0; bottom: 0; left: calc(var(--gg-spacing-lg) + 7px); width: var(--gg-border-width-standard); background: var(--gg-color-teal); }
+  .gw-history-year { position: relative; scroll-margin-top: calc(var(--gg-header-height, 80px) + var(--gg-spacing-md)); }
+  .gw-history-year + .gw-history-year { margin-top: var(--gg-spacing-2xl); }
+  .gw-history-year > header { display: grid; grid-template-columns: auto 1fr; gap: 0 var(--gg-spacing-sm); margin: 0 0 var(--gg-spacing-md) var(--gg-spacing-lg); padding: var(--gg-spacing-sm) var(--gg-spacing-md); border: var(--gg-border-heavy); background: var(--gg-color-near-black); color: var(--gg-color-warm-paper); }
+  .gw-history-year > header span { grid-column: 1 / -1; font-size: var(--gg-font-size-xs); font-weight: var(--gg-font-weight-black); letter-spacing: var(--gg-letter-spacing-wider); }
+  .gw-history-year > header strong { color: var(--gg-color-gold); font-size: clamp(2.8rem, 8vw, 5rem); line-height: .8; }
+  .gw-history-year > header p { align-self: end; margin: 0; color: var(--gg-color-tan); font-family: var(--gg-font-editorial); }
   .gw-history-entry { position: relative; margin: 0 0 var(--gg-spacing-xl) var(--gg-spacing-lg); border: var(--gg-border-heavy); background: var(--gg-color-warm-paper); }
-  .gw-history-entry:last-child { margin-bottom: 0; }
   .gw-history-entry::before { content: ''; position: absolute; left: calc(var(--gg-spacing-lg) * -1 - 9px); top: var(--gg-spacing-md); width: 14px; height: 14px; border: var(--gg-border-standard); background: var(--gg-color-gold); }
   .gw-history-entry > header { padding: var(--gg-spacing-md); border-bottom: var(--gg-border-standard); }
   .gw-history-date { display: inline-block; margin-right: var(--gg-spacing-xs); font-size: var(--gg-font-size-xs); font-weight: var(--gg-font-weight-bold); letter-spacing: var(--gg-letter-spacing-wide); }
@@ -526,6 +554,8 @@ def page_css() -> str:
   .gw-history-later { border-top: var(--gg-border-heavy); background: var(--gg-color-near-black); color: var(--gg-color-warm-paper); }
   .gw-history-later summary { cursor: pointer; padding: var(--gg-spacing-sm) var(--gg-spacing-md); font-weight: var(--gg-font-weight-black); letter-spacing: var(--gg-letter-spacing-wide); }
   .gw-history-later a { color: var(--gg-color-gold); }
+  .gw-history-return { display: block; width: fit-content; margin: calc(var(--gg-spacing-xl) * -1) 0 0 auto; padding: var(--gg-spacing-xs) var(--gg-spacing-sm); border: var(--gg-border-standard); background: var(--gg-color-white); color: var(--gg-color-near-black); font-size: var(--gg-font-size-xs); font-weight: var(--gg-font-weight-black); letter-spacing: var(--gg-letter-spacing-wide); text-decoration: none; }
+  .gw-history-return:hover, .gw-history-return:focus-visible { background: var(--gg-color-gold); outline: var(--gg-border-standard); outline-offset: var(--gg-spacing-2xs); }
   .gw-retrospectives { margin-top: var(--gg-spacing-xl); padding: var(--gg-spacing-lg); border: var(--gg-border-heavy); background: var(--gg-color-near-black); color: var(--gg-color-warm-paper); }
   .gw-retrospectives > h2 { margin: 0; font-size: clamp(2rem, 6vw, 4rem); }
   .gw-retro-dek { margin: var(--gg-spacing-xs) 0 var(--gg-spacing-lg); font-family: var(--gg-font-editorial); font-size: var(--gg-font-size-md); }

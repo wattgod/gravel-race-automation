@@ -165,6 +165,11 @@ must return empty arrays rather than infer a role, motive, personality,
 atmosphere, or colorful detail from a headline, culture post, or publisher
 byline.
 
+The public historical timeline also groups approved change-points into year
+chapters with a keyboard-accessible jump rail and explicit return links. That
+keeps the backfilled record browsable as it grows without turning the page into
+an undifferentiated archive scroll.
+
 ## What not to import
 
 - No copied masthead, wordmark, gradients, iconography, or condensed-type lockup.

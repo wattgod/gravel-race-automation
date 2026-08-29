@@ -12,15 +12,21 @@ try:
 except ModuleNotFoundError:  # Imported as scripts.validate_gravel_weekly_decisions.
     from scripts.validate_gravel_weekly import validate_issue
 
-RECEIPT_SCHEMA = "gravel-weekly-decision-receipt/v1"
+RECEIPT_SCHEMA = "gravel-weekly-decision-receipt/v2"
 DECISION_SCHEMA = "editorial-decision/v1"
+QUIET_DECISION_SCHEMA = "editorial-quiet-decision/v1"
 OUTER_KEYS = {
     "schemaVersion", "issueId", "publicationDate", "reviewedDraftContentHash",
-    "decidedBy", "decidedAt", "decisions",
+    "decidedBy", "decidedAt", "decisions", "quietIssueDecision",
 }
 DECISION_KEYS = {
     "schemaVersion", "issueId", "candidateId", "decision", "reason",
     "decidedBy", "decidedAt", "suggestedCopy", "approvedCopy", "editSummary",
+}
+QUIET_DECISION_KEYS = {
+    "schemaVersion", "issueId", "decision", "reason", "decidedBy", "decidedAt",
+    "suggestedHeadline", "suggestedNote", "approvedHeadline", "approvedNote",
+    "editSummary",
 }
 
 
@@ -76,8 +82,8 @@ def validate_decision_receipt(value: Any, issue_value: Any) -> dict[str, Any]:
         raise ValueError("decision receipt reviewed draft hash must match editorial approval")
 
     raw_decisions = receipt.get("decisions")
-    if not isinstance(raw_decisions, list) or not raw_decisions:
-        raise ValueError("decision receipt decisions must be a non-empty list")
+    if not isinstance(raw_decisions, list):
+        raise ValueError("decision receipt decisions must be a list")
     decisions: list[dict[str, Any]] = []
     seen: set[str] = set()
     for index, raw_value in enumerate(raw_decisions):
@@ -132,6 +138,71 @@ def validate_decision_receipt(value: Any, issue_value: Any) -> dict[str, Any]:
         if approved_by_id[candidate_id]["approvedCopy"] != story["take"]:
             raise ValueError(f"approved copy does not match issue story {candidate_id}")
 
+    quiet_issue = issue.get("quietIssue")
+    quiet_raw = receipt.get("quietIssueDecision")
+    quiet_decision = None
+    if quiet_issue is None:
+        if quiet_raw is not None:
+            raise ValueError("quietIssueDecision cannot exist for an issue with stories")
+        if not decisions:
+            raise ValueError("a story issue requires at least one editorial decision")
+    else:
+        quiet = _record(quiet_raw, "quietIssueDecision")
+        extra = set(quiet) - QUIET_DECISION_KEYS
+        missing = QUIET_DECISION_KEYS - set(quiet)
+        if extra or missing:
+            raise ValueError(
+                "quietIssueDecision fields are invalid; "
+                f"missing={sorted(missing)}, extra={sorted(extra)}"
+            )
+        if quiet.get("schemaVersion") != QUIET_DECISION_SCHEMA:
+            raise ValueError("quietIssueDecision has unsupported schema")
+        if quiet.get("issueId") != issue["issueId"]:
+            raise ValueError("quietIssueDecision issueId does not match issue")
+        if quiet.get("decision") != "approve":
+            raise ValueError("quietIssueDecision must approve the quiet issue")
+        if quiet.get("decidedBy") != decided_by or quiet.get("decidedAt") != decided_at:
+            raise ValueError("quietIssueDecision identity and time must match receipt")
+        reason = _text(quiet.get("reason"), "quietIssueDecision.reason", 2_000)
+        suggested_headline = quiet.get("suggestedHeadline")
+        suggested_note = quiet.get("suggestedNote")
+        if (suggested_headline is None) != (suggested_note is None):
+            raise ValueError("quietIssueDecision suggested copy must be paired")
+        if suggested_headline is not None:
+            suggested_headline = _text(
+                suggested_headline, "quietIssueDecision.suggestedHeadline", 300
+            )
+            suggested_note = _text(
+                suggested_note, "quietIssueDecision.suggestedNote", 1_000
+            )
+        approved_headline = _text(
+            quiet.get("approvedHeadline"), "quietIssueDecision.approvedHeadline", 300
+        )
+        approved_note = _text(
+            quiet.get("approvedNote"), "quietIssueDecision.approvedNote", 1_000
+        )
+        edit_summary = _text(
+            quiet.get("editSummary"), "quietIssueDecision.editSummary", 2_000
+        )
+        if (
+            approved_headline != quiet_issue["headline"]
+            or approved_note != quiet_issue["note"]
+        ):
+            raise ValueError("quiet issue approved copy does not match the issue")
+        quiet_decision = {
+            "schemaVersion": QUIET_DECISION_SCHEMA,
+            "issueId": issue["issueId"],
+            "decision": "approve",
+            "reason": reason,
+            "decidedBy": decided_by,
+            "decidedAt": decided_at,
+            "suggestedHeadline": suggested_headline,
+            "suggestedNote": suggested_note,
+            "approvedHeadline": approved_headline,
+            "approvedNote": approved_note,
+            "editSummary": edit_summary,
+        }
+
     return {
         "schemaVersion": RECEIPT_SCHEMA,
         "issueId": issue["issueId"],
@@ -140,4 +211,5 @@ def validate_decision_receipt(value: Any, issue_value: Any) -> dict[str, Any]:
         "decidedBy": decided_by,
         "decidedAt": decided_at,
         "decisions": decisions,
+        "quietIssueDecision": quiet_decision,
     }

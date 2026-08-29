@@ -207,6 +207,14 @@ def prepare_issue(review_value: Any, publication_date: str, issue_number: int, *
         source_urls.extend(artifact["canonicalUrl"] for artifact in culture_artifacts)
 
     current = next((story["candidateId"] for story in stories if story["score"] >= 85), None)
+    quiet_issue = None if stories else {
+        "headline": "Nothing cleared the gate this week.",
+        "note": (
+            "The Friday deadline does not turn an update into a story. "
+            "Gravel Weekly will be back when there is a point worth making."
+        ),
+        "provenance": "model_draft",
+    }
     issue = {
         "schemaVersion": "gravel-weekly-issue/v1",
         "issueId": f"gravel-weekly-{issue_number:03d}",
@@ -218,6 +226,7 @@ def prepare_issue(review_value: Any, publication_date: str, issue_number: int, *
         "mastheadDeck": "The people, races, money and bad ideas moving gravel.",
         "currentThingStoryId": current,
         "stories": stories,
+        "quietIssue": quiet_issue,
         "calendarWatch": [],
         "raceImpacts": _dedupe_records(all_impacts),
         "retrospectives": [],

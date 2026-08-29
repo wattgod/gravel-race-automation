@@ -43,6 +43,7 @@ CULTURE_ARTIFACT_KEYS = {
 }
 STORY_CAST_KEYS = {"name", "role", "claimIds"}
 STORY_FIELD_NOTE_KEYS = {"text", "claimIds"}
+QUIET_ISSUE_KEYS = {"headline", "note", "provenance"}
 EDITORIAL_APPROVAL_KEYS = {
     "approver", "approvedAt", "reviewedDraftContentHash",
 }
@@ -277,6 +278,35 @@ def _retrospective(value: Any, name: str, *, status: str) -> dict[str, Any]:
     return item
 
 
+def _quiet_issue(value: Any, name: str, *, status: str) -> dict[str, Any]:
+    item = _record(value, name)
+    unknown = set(item) - QUIET_ISSUE_KEYS
+    missing = QUIET_ISSUE_KEYS - set(item)
+    if unknown or missing:
+        raise IssueValidationError(
+            f"{name} fields are invalid; missing={sorted(missing)}, extra={sorted(unknown)}"
+        )
+    headline = _text(item.get("headline"), f"{name}.headline", 300)
+    note = _text(item.get("note"), f"{name}.note", 1_000)
+    provenance = item.get("provenance")
+    if provenance not in {"model_draft", "human_approved"}:
+        raise IssueValidationError(f"{name}.provenance is invalid")
+    if status != "draft" and provenance != "human_approved":
+        raise IssueValidationError(f"{name} requires human-approved provenance")
+    if status != "draft" and re.search(
+        r"model draft|not matti(?:’|')s approved", note, re.IGNORECASE
+    ):
+        raise IssueValidationError(f"{name} still contains model-draft language")
+    prose_gate = audit_no_ai_slop({"quiet_headline": headline, "quiet_note": note})
+    if prose_gate["verdict"] != "pass":
+        findings = ", ".join(
+            f"{finding['field']}:{finding['pattern']}"
+            for finding in prose_gate["findings"]
+        )
+        raise IssueValidationError(f"{name} fails the no-ai-slop gate: {findings}")
+    return item
+
+
 def canonical_issue_json(issue: dict[str, Any]) -> str:
     payload = dict(issue)
     payload.pop("contentHash", None)
@@ -383,6 +413,14 @@ def validate_issue(value: Any, *, verify_hash: bool = True) -> dict[str, Any]:
             story_culture_urls.add(artifact["canonicalUrl"])
     if len(story_ids) != len(set(story_ids)):
         raise IssueValidationError("story candidate IDs must be unique")
+
+    quiet_issue = issue.get("quietIssue")
+    if stories and quiet_issue is not None:
+        raise IssueValidationError("quietIssue cannot coexist with issue stories")
+    if not stories:
+        if quiet_issue is None:
+            raise IssueValidationError("an issue without stories requires quietIssue")
+        _quiet_issue(quiet_issue, "quietIssue", status=status)
 
     current_id = issue.get("currentThingStoryId")
     if current_id is not None:

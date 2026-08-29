@@ -194,3 +194,12 @@ The translated design passes only if:
 6. The Take is visibly Matti-approved and cannot be mistaken for model output.
 7. The season timeline preserves what was knowable then and what changed later.
 8. The result still looks unmistakably like Gravel God.
+
+## The quiet-week rule
+
+Weekly cadence is a deadline, not a story quota. If nothing clears the party,
+point, friend, story, comedy, and prose gates, Gravel Weekly publishes only
+after Matti approves an exact short quiet-week note. The issue carries no
+Current Thing, story, or empty department furniture. The note and its edit
+summary are hash-bound in the issue and decision receipt, so the system cannot
+silently convert a weak candidate into filler.

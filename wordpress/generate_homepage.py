@@ -546,9 +546,14 @@ def build_gravel_weekly_band() -> str:
     if latest and latest.get("currentThingStoryId"):
         current = next((story for story in latest["stories"]
                         if story["candidateId"] == latest["currentThingStoryId"]), None)
-    issue_line = (f"Issue #{latest['issueNumber']:03d}: {current['headline']}"
-                  if latest and current else
-                  "The first issue is being assembled. The evidence is ready; the opinion still requires a person.")
+    quiet = latest.get("quietIssue") if latest else None
+    issue_line = (
+        f"Issue #{latest['issueNumber']:03d}: {current['headline']}"
+        if latest and current else
+        f"Issue #{latest['issueNumber']:03d}: {quiet['headline']}"
+        if latest and quiet else
+        "The first issue is being assembled. The evidence is ready; the opinion still requires a person."
+    )
     return f'''<section class="gg-hp-gw" id="gravel-weekly">
     <a class="gg-hp-gw-inner" href="/gravel-weekly/">
       <span class="gg-hp-gw-logo">GRAVEL <em>WEEKLY</em></span>

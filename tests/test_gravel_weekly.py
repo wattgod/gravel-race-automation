@@ -417,7 +417,7 @@ def sample_draft():
 def sample_approval(draft=None):
     draft = draft or sample_draft()
     return {
-        "schemaVersion": "gravel-weekly-approval/v2",
+        "schemaVersion": "gravel-weekly-approval/v3",
         "issueId": "gravel-weekly-001",
         "reviewedDraftContentHash": draft["contentHash"],
         "approver": "Matti Rowe",
@@ -712,7 +712,7 @@ def test_approval_bridge_requires_an_exact_human_decision_for_every_reviewed_sto
         "candidateId": "story_1", "decision": "reject", "reason": "The premise is still slop.",
     }]
     rejected["currentThingStoryId"] = None
-    with pytest.raises(ValueError, match="at least one approved story"):
+    with pytest.raises(ValueError, match="explicit quiet issue decision"):
         approve_issue(draft, rejected)
 
     misleading = sample_approval()
@@ -839,6 +839,7 @@ def test_review_excludes_stories_that_do_not_clear_every_editorial_gate(gate_mut
     issue = prepare_issue(review, "2026-08-28", 1, now="2026-08-27T17:00:00Z")
     assert issue["stories"] == []
     assert issue["currentThingStoryId"] is None
+    assert issue["quietIssue"]["provenance"] == "model_draft"
 
 
 @pytest.mark.parametrize("prose_mutation", ["missing", "failed", "stale"])
@@ -877,6 +878,114 @@ def test_review_excludes_missing_failed_or_stale_prose_gates(prose_mutation):
     issue = prepare_issue(review, "2026-08-28", 1, now="2026-08-27T17:00:00Z")
     assert issue["stories"] == []
     assert issue["currentThingStoryId"] is None
+    assert issue["quietIssue"]["provenance"] == "model_draft"
+
+
+def test_quiet_issue_requires_explicit_human_copy_approval_and_has_a_durable_receipt():
+    review = {
+        "schemaVersion": "gravel-weekly-review/v1",
+        "candidates": [],
+        "packets": [],
+    }
+    draft = prepare_issue(
+        review, "2026-09-04", 2, now="2026-09-03T17:00:00Z"
+    )
+    approval = {
+        "schemaVersion": "gravel-weekly-approval/v3",
+        "issueId": draft["issueId"],
+        "reviewedDraftContentHash": draft["contentHash"],
+        "approver": "Matti Rowe",
+        "approvedAt": "2026-09-04T16:00:00Z",
+        "currentThingStoryId": None,
+        "stories": [],
+        "quietIssue": {
+            "decision": "approve",
+            "headline": "Nothing cleared the gate this week.",
+            "note": (
+                "The Friday deadline does not turn an update into a story. "
+                "Gravel Weekly will be back when there is a point worth making."
+            ),
+            "editSummary": "Approved the short issue without manufacturing a story.",
+        },
+    }
+
+    approved = approve_issue(draft, approval)
+    assert approved["status"] == "approved"
+    assert approved["stories"] == []
+    assert approved["currentThingStoryId"] is None
+    assert approved["quietIssue"]["provenance"] == "human_approved"
+
+    receipt = build_decision_receipt(draft, approval, approved)
+    assert receipt["schemaVersion"] == "gravel-weekly-decision-receipt/v2"
+    assert receipt["decisions"] == []
+    assert receipt["quietIssueDecision"]["approvedHeadline"] == approved["quietIssue"]["headline"]
+    assert receipt["quietIssueDecision"]["approvedNote"] == approved["quietIssue"]["note"]
+    assert validate_decision_receipt(receipt, approved) == receipt
+
+    sealed = seal_issue(approved, "2026-09-04T16:05:00Z")
+    assert validate_decision_receipt(receipt, sealed) == receipt
+    page = build_page(sealed, [sealed], latest=True)
+    assert 'id="quiet-week"' in page
+    assert "THE QUIET WEEK" in page
+    assert "Nothing cleared the gate this week." in page
+    assert "CALENDAR WATCH" not in page
+    assert "WHAT THIS CHANGES" not in page
+    assert "MODEL DRAFT" not in page
+    email = build_email_html(sealed)
+    assert "THE QUIET WEEK" in email
+    assert approved["quietIssue"]["note"] in email
+
+
+def test_rejecting_every_story_can_become_a_human_approved_quiet_issue():
+    draft = sample_draft()
+    approval = sample_approval(draft)
+    approval["stories"] = [{
+        "candidateId": "story_1",
+        "decision": "reject",
+        "reason": "The premise is still slop.",
+    }]
+    approval["currentThingStoryId"] = None
+    approval["quietIssue"] = {
+        "decision": "approve",
+        "headline": "Nothing cleared the gate this week.",
+        "note": "One candidate arrived. It did not have a point worth publishing.",
+        "editSummary": "Rejected the candidate and approved the exact quiet note.",
+    }
+
+    approved = approve_issue(draft, approval)
+    assert approved["stories"] == []
+    assert approved["quietIssue"]["provenance"] == "human_approved"
+    receipt = build_decision_receipt(draft, approval, approved)
+    assert receipt["decisions"][0]["decision"] == "reject"
+    assert receipt["quietIssueDecision"]["suggestedHeadline"] is None
+
+
+def test_quiet_issue_cannot_coexist_with_stories_or_unapproved_copy():
+    issue = sample_issue()
+    issue["quietIssue"] = {
+        "headline": "Nothing cleared the gate this week.",
+        "note": "There is no issue.",
+        "provenance": "human_approved",
+    }
+    with pytest.raises(IssueValidationError, match="cannot coexist"):
+        validate_issue(issue, verify_hash=False)
+
+    review = {"schemaVersion": "gravel-weekly-review/v1", "candidates": [], "packets": []}
+    draft = prepare_issue(review, "2026-09-04", 2, now="2026-09-03T17:00:00Z")
+    unapproved = copy.deepcopy(draft)
+    unapproved["status"] = "approved"
+    unapproved["editorialApproval"] = {
+        "approver": "Matti Rowe",
+        "approvedAt": "2026-09-04T16:00:00Z",
+        "reviewedDraftContentHash": draft["contentHash"],
+    }
+    with pytest.raises(IssueValidationError, match="human-approved provenance"):
+        validate_issue(unapproved, verify_hash=False)
+
+    slopped = copy.deepcopy(draft)
+    slopped["quietIssue"]["note"] = "The future isn't coming. It's already here."
+    with pytest.raises(IssueValidationError, match="no-ai-slop gate"):
+        validate_issue(slopped, verify_hash=False)
 
 
 def test_current_thing_requires_editorial_score_of_85():

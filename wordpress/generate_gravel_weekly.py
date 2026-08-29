@@ -68,7 +68,13 @@ def render_issue_contents(issue: dict[str, Any]) -> str:
     """Render an evidence-aware issue map without inventing empty departments."""
     current = story_by_id(issue, issue.get("currentThingStoryId"))
     if current is None:
-        return ""
+        quiet = issue.get("quietIssue")
+        if quiet is None:
+            return ""
+        return f'''<nav class="gw-contents" aria-label="In this issue">
+      <header><span>IN THIS ISSUE</span><p>A deliberate short issue. No filler.</p></header>
+      <ol><li><a href="#quiet-week"><span>1</span><b>THE QUIET WEEK</b><small>{esc(quiet['headline'])}</small></a></li></ol>
+    </nav>'''
     story_id = current["candidateId"]
     chapters: list[tuple[str, str, str]] = [
         (f"#{story_id}", "THE CURRENT THING", current["headline"]),
@@ -133,6 +139,15 @@ def render_receipts(receipts: list[dict[str, Any]]) -> str:
           {excerpt}
         </li>''')
     return f'<ol class="gw-receipts">{"".join(items)}</ol>'
+
+
+def render_quiet_issue(quiet: dict[str, Any], *, draft: bool) -> str:
+    label = "QUIET ISSUE — MODEL DRAFT" if draft else "THE QUIET WEEK"
+    return f'''<section class="gw-quiet" id="quiet-week">
+      <span>{esc(label)}</span>
+      <h2>{esc(quiet['headline'])}</h2>
+      {prose(quiet['note'])}
+    </section>'''
 
 
 def render_claim_markers(
@@ -581,6 +596,10 @@ def page_css() -> str:
   .gw-sub-msg { min-height: 1.5em; font-size: var(--gg-font-size-xs); font-weight: var(--gg-font-weight-bold); }
   .gw-hp, .gw-sr-only { position: absolute; left: -10000px; width: 1px; height: 1px; overflow: hidden; }
   .gw-empty { font-family: var(--gg-font-editorial); font-style: italic; color: var(--gg-color-secondary-brown); }
+  .gw-quiet { scroll-margin-top: 7rem; margin-top: var(--gg-spacing-xl); padding: clamp(1.5rem, 5vw, 4rem); border: var(--gg-border-heavy); background: var(--gg-color-gold); color: var(--gg-color-near-black); }
+  .gw-quiet > span { display: inline-block; font-size: var(--gg-font-size-xs); font-weight: var(--gg-font-weight-black); letter-spacing: var(--gg-letter-spacing-wide); }
+  .gw-quiet h2 { max-width: 15ch; margin: var(--gg-spacing-sm) 0; font-family: var(--gg-font-editorial); font-size: clamp(2.25rem, 8vw, 5.5rem); line-height: .95; }
+  .gw-quiet p { max-width: 48rem; margin: 0; font-family: var(--gg-font-editorial); font-size: var(--gg-font-size-lg); line-height: var(--gg-line-height-relaxed); }
   code { font-family: var(--gg-font-data); overflow-wrap: anywhere; }
   @media (max-width: 720px) {
     .gw-contents > header { display: grid; }
@@ -606,19 +625,26 @@ def build_page(issue: dict[str, Any] | None, issues: list[dict[str, Any]], *, la
         other_stories = [story for story in issue["stories"] if story["candidateId"] != issue.get("currentThingStoryId")]
         title = f"Gravel Weekly #{issue['issueNumber']:03d} — {display_date(issue['publicationDate'])}"
         description = current["dek"] if current else issue["mastheadDeck"]
-        content = (render_story(current, current=True, draft=is_draft) if current else '<p class="gw-empty">Nothing this week deserved a manufactured Current Thing.</p>')
+        quiet = issue.get("quietIssue")
+        content = (
+            render_story(current, current=True, draft=is_draft)
+            if current else render_quiet_issue(quiet, draft=is_draft)
+        )
         content += "".join(render_story(story, draft=is_draft) for story in other_stories)
         watch = "".join(f"<li>{esc(item)}</li>" for item in issue["calendarWatch"]) or '<li class="gw-empty">No calendar item cleared the gate.</li>'
         corrections = ""
         if issue["corrections"]:
             items = "".join(f'<li><strong>{esc(item["publishedAt"][:10])}</strong> — {esc(item["text"])}</li>' for item in issue["corrections"])
             corrections = f'<section class="gw-corrections" id="corrections"><h2>CORRECTIONS</h2><ul>{items}</ul></section>'
-        issue_body = f'''{render_issue_contents(issue)}
-        {content}
-        <div class="gw-utility-grid">
+        utility = ""
+        if issue["calendarWatch"] or issue["raceImpacts"]:
+            utility = f'''<div class="gw-utility-grid">
           <section class="gw-utility"><h2>CALENDAR WATCH</h2><ul class="gw-watch">{watch}</ul></section>
           <section class="gw-utility"><h2>WHAT THIS CHANGES</h2>{render_impacts(issue['raceImpacts'])}</section>
-        </div>
+        </div>'''
+        issue_body = f'''{render_issue_contents(issue)}
+        {content}
+        {utility}
         {render_retrospectives(issue['retrospectives'], issues, draft=is_draft)}
         {corrections}'''
         schema = "" if is_draft else f'<script type="application/ld+json">{json_ld(issue, canonical_url)}</script>'

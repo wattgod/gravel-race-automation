@@ -15,17 +15,25 @@ from pathlib import Path
 from typing import Any
 
 from validate_gravel_weekly import compute_content_hash, validate_issue
-from validate_gravel_weekly_decisions import DECISION_SCHEMA, RECEIPT_SCHEMA, validate_decision_receipt
+from validate_gravel_weekly_decisions import (
+    DECISION_SCHEMA,
+    QUIET_DECISION_SCHEMA,
+    RECEIPT_SCHEMA,
+    validate_decision_receipt,
+)
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 APPROVED_DIR = PROJECT_ROOT / "data" / "gravel-weekly" / "approved"
-APPROVAL_SCHEMA = "gravel-weekly-approval/v2"
+APPROVAL_SCHEMA = "gravel-weekly-approval/v3"
 ALLOWED_APPROVAL_KEYS = {
     "schemaVersion", "issueId", "reviewedDraftContentHash", "approver",
-    "approvedAt", "currentThingStoryId", "stories",
+    "approvedAt", "currentThingStoryId", "stories", "quietIssue",
 }
 ALLOWED_STORY_DECISION_KEYS = {
     "candidateId", "decision", "headline", "dek", "take", "editSummary", "reason",
+}
+ALLOWED_QUIET_DECISION_KEYS = {
+    "decision", "headline", "note", "editSummary",
 }
 
 
@@ -62,6 +70,23 @@ def _approval_story(value: Any, index: int) -> dict[str, Any]:
         "dek": _text(item.get("dek"), f"approval.stories[{index}].dek", 600),
         "take": _text(item.get("take"), f"approval.stories[{index}].take", 8_000),
         "editSummary": _text(item.get("editSummary"), f"approval.stories[{index}].editSummary", 2_000),
+    }
+
+
+def _approval_quiet_issue(value: Any) -> dict[str, Any]:
+    item = _record(value, "approval.quietIssue")
+    unknown = set(item) - ALLOWED_QUIET_DECISION_KEYS
+    if unknown:
+        raise ValueError(f"approval.quietIssue has unsupported fields: {sorted(unknown)}")
+    if item.get("decision") != "approve":
+        raise ValueError("approval.quietIssue.decision must be approve")
+    return {
+        "decision": "approve",
+        "headline": _text(item.get("headline"), "approval.quietIssue.headline", 300),
+        "note": _text(item.get("note"), "approval.quietIssue.note", 1_000),
+        "editSummary": _text(
+            item.get("editSummary"), "approval.quietIssue.editSummary", 2_000
+        ),
     }
 
 
@@ -127,8 +152,22 @@ def approve_issue(draft_value: Any, approval_value: Any) -> dict[str, Any]:
             "take": decision["take"],
             "takeProvenance": "human_approved",
         })
-    if not approved_stories:
-        raise ValueError("an approved issue must contain at least one approved story")
+    quiet_decision_raw = approval.get("quietIssue")
+    if approved_stories:
+        if quiet_decision_raw is not None:
+            raise ValueError("approval.quietIssue cannot coexist with approved stories")
+        approved_quiet_issue = None
+    else:
+        if quiet_decision_raw is None:
+            raise ValueError(
+                "an issue without approved stories requires an explicit quiet issue decision"
+            )
+        quiet_decision = _approval_quiet_issue(quiet_decision_raw)
+        approved_quiet_issue = {
+            "headline": quiet_decision["headline"],
+            "note": quiet_decision["note"],
+            "provenance": "human_approved",
+        }
 
     approved_at = _text(approval.get("approvedAt"), "approval.approvedAt", 100)
     approver = _text(approval.get("approver"), "approval.approver", 300)
@@ -138,6 +177,8 @@ def approve_issue(draft_value: Any, approval_value: Any) -> dict[str, Any]:
     approved_ids = {story["candidateId"] for story in approved_stories}
     if current_id is not None and current_id not in approved_ids:
         raise ValueError("approval.currentThingStoryId must reference an approved story")
+    if approved_quiet_issue is not None and current_id is not None:
+        raise ValueError("a quiet issue cannot designate The Current Thing")
 
     all_impacts = _dedupe_records([
         impact for story in approved_stories for impact in story["raceImpacts"]
@@ -151,6 +192,7 @@ def approve_issue(draft_value: Any, approval_value: Any) -> dict[str, Any]:
         **draft,
         "status": "approved",
         "stories": approved_stories,
+        "quietIssue": approved_quiet_issue,
         "currentThingStoryId": current_id,
         "raceImpacts": all_impacts,
         "sourceIndex": source_index,
@@ -204,7 +246,24 @@ def build_decision_receipt(draft_value: Any, approval_value: Any, approved_value
         "decidedBy": approval["approver"],
         "decidedAt": approval["approvedAt"],
         "decisions": records,
+        "quietIssueDecision": None,
     }
+    if approved.get("quietIssue") is not None:
+        quiet_decision = _approval_quiet_issue(approval.get("quietIssue"))
+        suggested = draft.get("quietIssue")
+        receipt["quietIssueDecision"] = {
+            "schemaVersion": QUIET_DECISION_SCHEMA,
+            "issueId": approved["issueId"],
+            "decision": "approve",
+            "reason": f"Approved a quiet Gravel Weekly #{approved['issueNumber']:03d}.",
+            "decidedBy": approval["approver"],
+            "decidedAt": approval["approvedAt"],
+            "suggestedHeadline": suggested["headline"] if suggested else None,
+            "suggestedNote": suggested["note"] if suggested else None,
+            "approvedHeadline": approved["quietIssue"]["headline"],
+            "approvedNote": approved["quietIssue"]["note"],
+            "editSummary": quiet_decision["editSummary"],
+        }
     return validate_decision_receipt(receipt, approved)
 
 

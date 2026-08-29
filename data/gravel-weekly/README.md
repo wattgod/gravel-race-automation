@@ -5,7 +5,8 @@ Approved issue snapshots live in `issues/YYYY-MM-DD.json` and use
 `gravel-weekly-issue/v1` from the race-intelligence control plane.
 Each snapshot has a paired `decisions/YYYY-MM-DD.json` receipt containing every
 explicit approve/reject verdict, the exact model Take that Matti reviewed, the
-approved Take, and the human edit summary.
+approved Take, and the human edit summary. A deliberately short issue also
+stores its exact quiet-issue approval in that receipt.
 
 The intelligence service may prepare candidates and reaction packets, but it
 does not write to `issues/`. An issue enters that directory only after Matti
@@ -40,7 +41,7 @@ python3 scripts/approve_gravel_weekly_issue.py \
   data/gravel-weekly/drafts/2026-08-28.json APPROVAL.json
 ```
 
-The approval packet must use `gravel-weekly-approval/v2`, name the exact
+The approval packet must use `gravel-weekly-approval/v3`, name the exact
 `reviewedDraftContentHash`, decide every reviewed story exactly once, and supply
 the final headline, deck, Take, and edit summary for every approved story. A
 stale approval cannot be replayed against a regenerated draft with the same
@@ -49,6 +50,13 @@ decision receipt again at sealing and deploy time. The bridge preserves the
 reviewed facts, scores, receipts, and race impacts verbatim. It emits both a
 `status=approved` issue and a decision receipt under the ignored
 `data/gravel-weekly/approved/` directory, which the deploy workflow refuses.
+
+If no story survives, the approval must instead include an explicit
+`quietIssue` decision with the exact final headline, note, and edit summary.
+This also works when Matti rejects every reviewed candidate. The approved issue
+contains no Current Thing and no manufactured story; its short public note has
+`human_approved` provenance and a dedicated immutable decision record. A quiet
+issue without that decision fails closed.
 
 After a separate explicit publication instruction, seal the approved file:
 

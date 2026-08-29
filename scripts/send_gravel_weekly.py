@@ -92,6 +92,13 @@ def build_email_html(issue: dict) -> str:
       <h2 style="font:700 30px Georgia,serif;line-height:1.05;margin:8px 0 12px;">{html.escape(story['headline'])}</h2>
       {_paragraphs(story['take'])}
     </div>'''
+    quiet = issue.get("quietIssue")
+    if quiet:
+        story_html = f'''<div style="border-top:3px solid {COLORS['near_black']};background:{COLORS['gold']};padding:24px 18px;">
+      <div style="font:700 12px monospace;letter-spacing:2px;">THE QUIET WEEK</div>
+      <h2 style="font:700 30px Georgia,serif;line-height:1.05;margin:8px 0 12px;">{html.escape(quiet['headline'])}</h2>
+      {_paragraphs(quiet['note'])}
+    </div>'''
     issue_url = f"{ISSUE_BASE_URL}{issue['slug']}/"
     return f'''<div style="max-width:620px;margin:0 auto;color:{COLORS['near_black']};font-family:monospace;">
   <div style="background:{COLORS['white']};border:4px solid {COLORS['near_black']};padding:20px;">
@@ -133,6 +140,8 @@ def main() -> int:
         subject = f"Gravel Weekly #{issue['issueNumber']:03d}"
         if current:
             subject += f": {current['headline']}"
+        elif issue.get("quietIssue"):
+            subject += f": {issue['quietIssue']['headline']}"
         broadcast = resend("/broadcasts", "POST", {
             "audience_id": audience_id,
             "from": FROM_ADDR,

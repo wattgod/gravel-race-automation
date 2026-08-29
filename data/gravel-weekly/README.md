@@ -64,6 +64,14 @@ stale content-hashed prose verdict excludes the packet even when every story
 gate passes. Draft, approved, and published issue files are all re-audited by
 the publication validator; human approval remains a separate requirement.
 
+New reviews use `gravel-weekly-source-coverage/v2`. Its completeness verdict
+is scoped to sources that declare the gravel vertical or to official
+observations bound to a `gravel:` race ID. Failures from road, Nordic, or
+unscoped infrastructure remain preserved as `infrastructureWarnings` in the
+private receipt, but they cannot downgrade the gravel verdict. Legacy v1
+receipts remain valid historical inputs and retain their original all-vertical
+semantics.
+
 Apply Matti's explicit approval packet without making anything deployable:
 
 ```bash

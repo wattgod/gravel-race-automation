@@ -152,10 +152,11 @@ def render_quiet_issue(quiet: dict[str, Any], *, draft: bool) -> str:
 
 def render_source_coverage_receipt(coverage: dict[str, Any]) -> str:
     latest = coverage["latestSourceHealth"]
+    scoped = coverage.get("schemaVersion") == "gravel-weekly-source-coverage/v2"
     lane_labels = (
-        ("OFFICIAL RACE/RESULTS", latest["officialObservation"]),
-        ("PUBLIC NEWS/BLOGS/FORUMS", latest["publicDiscovery"]),
-        ("SOCIAL/CULTURE APIS", latest["officialSocial"]),
+        (("GRAVEL OFFICIAL RACE/RESULTS" if scoped else "OFFICIAL RACE/RESULTS"), latest["officialObservation"]),
+        (("GRAVEL NEWS/BLOGS/FORUMS" if scoped else "PUBLIC NEWS/BLOGS/FORUMS"), latest["publicDiscovery"]),
+        (("GRAVEL SOCIAL/CULTURE APIS" if scoped else "SOCIAL/CULTURE APIS"), latest["officialSocial"]),
     )
     lanes = "".join(
         f'''<li><b>{esc(label)}</b><span>{health['succeeded']}/{health['attempted']} succeeded{f" · {health['failed']} failed" if health['failed'] else ""}</span></li>'''
@@ -176,13 +177,29 @@ def render_source_coverage_receipt(coverage: dict[str, Any]) -> str:
         f'''<details><summary>MOST RECENT COLLECTION GAPS ({len(coverage['sourceErrors'])} TOTAL)</summary>{error_notice}<ul>{errors}</ul></details>'''
         if errors else ""
     )
+    warnings = coverage.get("infrastructureWarnings", [])
+    visible_warnings = warnings[-20:]
+    warning_notice = (
+        f"<p>Showing the 20 most recent of {len(warnings)}; these did not change the gravel coverage verdict.</p>"
+        if len(warnings) > len(visible_warnings) else ""
+    )
+    warning_items = "".join(f"<li>{esc(warning)}</li>" for warning in visible_warnings)
+    warning_block = (
+        f'''<details><summary>OTHER VERTICAL / INFRASTRUCTURE WARNINGS ({len(warnings)} TOTAL)</summary>{warning_notice}<ul>{warning_items}</ul></details>'''
+        if warning_items else ""
+    )
+    scope_note = (
+        " The verdict is scoped to configured gravel sources; other-vertical failures remain visible below but cannot make gravel coverage partial."
+        if scoped else ""
+    )
     return f'''<aside class="gw-coverage" id="source-coverage">
       <span>PRIVATE COLLECTION RECEIPT — NOT PUBLIC COPY</span>
       <h2>{esc(coverage['status'].upper())} COVERAGE</h2>
-      <p>{coverage['runCount']} collection run{'s' if coverage['runCount'] != 1 else ''}; latest completed {esc(coverage['latestSweepCompletedAt'])}. {"A partial receipt keeps every gap visible for the human quiet-issue decision." if coverage['status'] == 'partial' else "Complete means every configured lane and named source reported successfully; it does not claim sources outside the registry were watched."}</p>
+      <p>{coverage['runCount']} collection run{'s' if coverage['runCount'] != 1 else ''}{f"; {coverage['scopedRunCount']} carried vertical-scoped health" if scoped else ""}; latest completed {esc(coverage['latestSweepCompletedAt'])}. {"A partial receipt keeps every gravel-relevant gap visible for the human quiet-issue decision." if coverage['status'] == 'partial' else "Complete means every configured gravel lane and named source reported successfully; it does not claim sources outside the registry were watched."}{esc(scope_note)}</p>
       <ul class="gw-coverage-lanes">{lanes}</ul>
       <details><summary>SOURCES ATTEMPTED ({len(coverage['discoverySources'])})</summary><ul>{sources}</ul></details>
       {error_block}
+      {warning_block}
     </aside>'''
 
 

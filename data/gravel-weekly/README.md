@@ -124,10 +124,10 @@ Generate the latest page and dated archive:
 python3 wordpress/generate_gravel_weekly.py
 ```
 
-The public generator and sender both use the same fail-closed loader: only a
-sealed `status=published` snapshot can cross the publication boundary.
-`status=approved` remains private staging even if a file is placed in the
-canonical issue directory by mistake.
+The public issue generator, homepage teaser, and sender all use the same
+fail-closed loader: only a sealed `status=published` snapshot can cross the
+publication boundary. `status=approved` remains private staging even if a file
+is placed in the canonical issue directory by mistake.
 
 Render the controlled race-profile review for a published issue:
 

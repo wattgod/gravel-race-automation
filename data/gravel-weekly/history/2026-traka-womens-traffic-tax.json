@@ -22,6 +22,29 @@
     "craft": "pass",
     "hostileEditor": "pass"
   },
+  "cultureArtifacts": [
+    {
+      "artifactId": "historical-culture-artifact_f04f5c9039124f402d5a18a7",
+      "sourceKind": "youtube",
+      "publisher": "Drew Dillman",
+      "author": "Drew Dillman",
+      "canonicalUrl": "https://www.youtube.com/watch?v=Ni80UfChRNE",
+      "publishedAt": "2026-05-06T19:00:32.000Z",
+      "title": "The Unbound of Europe? TRAKA 360 Pro Men's Race Analysis",
+      "excerpt": null,
+      "timestampSeconds": 38,
+      "topicTags": [
+        "amateurs",
+        "traka"
+      ],
+      "reviewReason": "At 0:38, a first-person race analysis describes a stopped start after some amateurs launched with the pro men. It records the event's wave-control chaos; it does not prove the separate claims about the elite women's race.",
+      "collectionMethod": "public_metadata",
+      "rightsPolicy": "metadata_only",
+      "purpose": "culture_sensor",
+      "canProveClaim": false,
+      "canEstablishConsensus": false
+    }
+  ],
   "contemporaryReceipts": [
     {
       "claimId": "claim_traka_rules_open_may_catch_elite_women",
@@ -110,5 +133,5 @@
   "editorialApproval": null,
   "publishedAt": null,
   "updatedAt": "2026-08-28T19:42:33Z",
-  "contentHash": "4d62869a2376b68941f313dbf5a6454c5dfe19ed2fbf08bccb44173f638cd4d9"
+  "contentHash": "6a73a381e4e10907e70f089e5475bf76c6ad2cc21e413d3a269d473fb7ed609e"
 }

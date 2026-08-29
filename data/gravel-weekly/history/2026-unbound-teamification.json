@@ -22,6 +22,29 @@
     "craft": "pass",
     "hostileEditor": "pass"
   },
+  "cultureArtifacts": [
+    {
+      "artifactId": "historical-culture-artifact_7380ad7052cb228788c1a4b4",
+      "sourceKind": "youtube",
+      "publisher": "Bonk Bros",
+      "author": "Bonk Bros",
+      "canonicalUrl": "https://www.youtube.com/watch?v=WCO5caKfLd0",
+      "publishedAt": "2026-05-28T16:00:38.000Z",
+      "title": "Big Wheels & Bigger Unbound Predictions",
+      "excerpt": null,
+      "timestampSeconds": 3130,
+      "topicTags": [
+        "teams",
+        "unbound"
+      ],
+      "reviewReason": "At 52:10, the pre-race show imagines Mads Würtz Schmidt, Matt Beers, and Keegan Swenson swapping pulls on a ride. That puts cooperation inside the culture before the race; it does not prove coordination at Unbound.",
+      "collectionMethod": "public_metadata",
+      "rightsPolicy": "metadata_only",
+      "purpose": "culture_sensor",
+      "canProveClaim": false,
+      "canEstablishConsensus": false
+    }
+  ],
   "contemporaryReceipts": [
     {
       "claimId": "claim_specialized_offroad_superteam_2026",
@@ -145,5 +168,5 @@
   "editorialApproval": null,
   "publishedAt": null,
   "updatedAt": "2026-08-28T03:25:00Z",
-  "contentHash": "6b42baedb9568ba738b17aca8475d1e95debc9b62159dae17d5a85e03113c511"
+  "contentHash": "718334814a7b3d63d7f738884e8c3f810e07b356be202382fb8b080de1893cd2"
 }

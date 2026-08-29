@@ -6,12 +6,13 @@ illustration, gradients, page composition, recurring names, or trade dress.
 
 ## Archive sample
 
-The review used nine representative Internet Archive captures:
+The review used ten representative Internet Archive captures:
 
 - [February 2012 homepage](https://web.archive.org/web/20120228222408if_/http://www.manualforspeed.com/)
 - [December 2012 homepage](https://web.archive.org/web/20121218044342/http://manualforspeed.com/)
 - [2012 photo essay: Nice Work. Disappointment.](https://web.archive.org/web/20121101234132/http://manualforspeed.com/2012/09/nice-work-disappointment/)
 - [December 2014 homepage](https://web.archive.org/web/20141204191607if_/http://www.manualforspeed.com/)
+- [2014 field guide: At the Races, Chapter 1](https://web.archive.org/web/20140607065638/http://www.manualforspeed.com/pro-tour/at-the-races-chapter-1)
 - [2014 brief: Hair Care](https://web.archive.org/web/20141205153449if_/http://www.manualforspeed.com/briefs/mfsm-003-bonus-tip-hair-care/)
 - [March 2016 homepage](https://web.archive.org/web/20160306025636/http://manualforspeed.com/)
 - [2015 Tour de France: Stage 01](https://web.archive.org/web/20160323053644/http://manualforspeed.com/road-racing/2015-tour-de-france-stage-01/)
@@ -105,6 +106,33 @@ feed. A Tour report can contain a conventional `RACE BIBLE` and a parallel
 meal report, corrections, quote of the day, playlist, and chronological diary.
 Those departments create continuity without forcing every item into a generic
 article template.
+
+### The killer pattern: report the scene as if it deserves a field guide
+
+`At the Races: Chapter 1` turns spectators into a comic but remarkably precise
+taxonomy. It names a recurring character type, supplies subtypes, associates,
+habitat, diet, proclivities, and dangers, then serializes the idea across ten
+weekly installments. The straight-faced structure is what makes the joke work:
+the observation is specific enough to be recognizable, the invented bureaucracy
+creates comic escalation, and the recurring format turns an otherwise disposable
+detail into shared lore.
+
+This is a better model for Gravel Weekly's cultural layer than a generic social
+post roundup. The system should look for a repeated, recognizable gravel-world
+behavior or character and prepare a possible field-guide treatment only when the
+sample supports it. Candidate fields may include `TYPE`, `HABITAT`, `NATURAL
+PREDATOR`, `STANDARD DEFENSE`, `EQUIPMENT TELLS`, and `WHERE SIGHTED`, but the
+visible labels must be written for the particular joke rather than emitted as
+mandatory furniture. One observation is a field note. Multiple independent,
+reviewed observations may earn a named type. Neither engagement nor model
+confidence can manufacture recurrence.
+
+The visual lesson is equally specific. A bold, deliberately simple illustration
+functions as the chapter's front door; the prose and taxonomy carry the factual
+and comic precision. Gravel Weekly can translate that division of labor with its
+deterministic story graphics: one oversized visual premise, followed by the
+evidence-bound labels and Matti's approved take. It should not copy MFS's drawing
+style, character names, heavy black frame, typography, or page composition.
 
 ## Layout and UI patterns worth translating
 

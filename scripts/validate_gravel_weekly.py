@@ -58,7 +58,7 @@ SOURCE_COVERAGE_V1_KEYS = {
     "discoverySources", "sourceErrors",
 }
 SOURCE_COVERAGE_V2_KEYS = SOURCE_COVERAGE_V1_KEYS | {
-    "scope", "infrastructureWarnings",
+    "scope", "scopedRunCount", "infrastructureWarnings",
 }
 SOURCE_COVERAGE_SCOPE_KEYS = {"vertical", "method"}
 SOURCE_COVERAGE_SOURCE_KEYS = {
@@ -224,6 +224,16 @@ def validate_source_coverage(value: Any, name: str = "sourceCoverage") -> dict[s
     run_count = coverage.get("runCount")
     if not isinstance(run_count, int) or isinstance(run_count, bool) or run_count < 1:
         raise IssueValidationError(f"{name}.runCount must be positive")
+    if schema == "gravel-weekly-source-coverage/v2":
+        scoped_run_count = coverage.get("scopedRunCount")
+        if (
+            not isinstance(scoped_run_count, int)
+            or isinstance(scoped_run_count, bool)
+            or not 1 <= scoped_run_count <= run_count
+        ):
+            raise IssueValidationError(
+                f"{name}.scopedRunCount must be between 1 and runCount"
+            )
     run_ids = _list(coverage.get("sweepRunIds"), f"{name}.sweepRunIds", 100)
     if len(run_ids) != run_count:
         raise IssueValidationError(f"{name}.sweepRunIds must match runCount")

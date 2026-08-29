@@ -195,7 +195,7 @@ def render_source_coverage_receipt(coverage: dict[str, Any]) -> str:
     return f'''<aside class="gw-coverage" id="source-coverage">
       <span>PRIVATE COLLECTION RECEIPT — NOT PUBLIC COPY</span>
       <h2>{esc(coverage['status'].upper())} COVERAGE</h2>
-      <p>{coverage['runCount']} collection run{'s' if coverage['runCount'] != 1 else ''}; latest completed {esc(coverage['latestSweepCompletedAt'])}. {"A partial receipt keeps every gravel-relevant gap visible for the human quiet-issue decision." if coverage['status'] == 'partial' else "Complete means every configured gravel lane and named source reported successfully; it does not claim sources outside the registry were watched."}{esc(scope_note)}</p>
+      <p>{coverage['runCount']} collection run{'s' if coverage['runCount'] != 1 else ''}{f"; {coverage['scopedRunCount']} carried vertical-scoped health" if scoped else ""}; latest completed {esc(coverage['latestSweepCompletedAt'])}. {"A partial receipt keeps every gravel-relevant gap visible for the human quiet-issue decision." if coverage['status'] == 'partial' else "Complete means every configured gravel lane and named source reported successfully; it does not claim sources outside the registry were watched."}{esc(scope_note)}</p>
       <ul class="gw-coverage-lanes">{lanes}</ul>
       <details><summary>SOURCES ATTEMPTED ({len(coverage['discoverySources'])})</summary><ul>{sources}</ul></details>
       {error_block}

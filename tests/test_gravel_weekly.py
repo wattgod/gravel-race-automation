@@ -203,6 +203,7 @@ def sample_scoped_source_coverage(status="complete"):
             "vertical": "gravel",
             "method": "declared_source_vertical_or_race_id",
         },
+        "scopedRunCount": 1,
         "infrastructureWarnings": [
             "run_coverage: observation:nordic:example-race: fetch failed",
         ],
@@ -839,6 +840,7 @@ def test_scoped_coverage_keeps_other_vertical_failures_visible_without_downgradi
     receipt = render_source_coverage_receipt(coverage)
     assert "COMPLETE COVERAGE" in receipt
     assert "GRAVEL OFFICIAL RACE/RESULTS" in receipt
+    assert "1 carried vertical-scoped health" in receipt
     assert "OTHER VERTICAL / INFRASTRUCTURE WARNINGS (1 TOTAL)" in receipt
     assert "did not change the gravel coverage verdict" not in receipt
     assert "observation:nordic:example-race" in receipt
@@ -854,6 +856,11 @@ def test_scoped_coverage_rejects_a_non_gravel_scope():
     coverage["scope"]["vertical"] = "nordic"
     with pytest.raises(IssueValidationError, match="scope.vertical must be gravel"):
         validate_source_coverage(coverage)
+
+    invalid_count = sample_scoped_source_coverage()
+    invalid_count["scopedRunCount"] = 2
+    with pytest.raises(IssueValidationError, match="scopedRunCount must be between"):
+        validate_source_coverage(invalid_count)
 
 
 def test_control_plane_run_validation_binds_the_exact_producer_and_artifact():

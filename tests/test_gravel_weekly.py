@@ -1899,6 +1899,32 @@ def test_historical_timeline_visually_separates_later_evidence_from_contemporary
     assert page.index("THE CURRENT THING") < page.index("THE SEASON AS A STORY") < page.index("PAST ISSUES")
 
 
+def test_historical_timeline_groups_change_points_into_accessible_year_chapters():
+    entry_2026 = sample_history_entry()
+    entry_2025 = copy.deepcopy(entry_2026)
+    entry_2025.update({
+        "entryId": "history-privateer-shift-2025",
+        "activeFrom": "2025-04-01",
+        "activeThrough": "2025-04-30",
+        "headline": "The privateer bill arrived before the team bus",
+    })
+    entry_2025["contentHash"] = compute_history_content_hash(entry_2025)
+
+    html = render_history_timeline([entry_2026, entry_2025])
+
+    assert 'id="gravel-history-years"' in html
+    assert 'aria-label="Jump to a year in gravel history"' in html
+    assert 'href="#gravel-year-2026"' in html
+    assert 'href="#gravel-year-2025"' in html
+    assert 'id="gravel-year-2026" aria-label="Gravel in 2026"' in html
+    assert 'id="gravel-year-2025" aria-label="Gravel in 2025"' in html
+    assert html.index('href="#gravel-year-2026"') < html.index('href="#gravel-year-2025"')
+    assert html.index('id="gravel-year-2026"') < html.index('id="gravel-year-2025"')
+    assert html.count('href="#gravel-history-years"') == 2
+    assert "1 approved change-point" in html
+    assert "innerHTML" not in html
+
+
 def test_historical_culture_artifacts_are_hash_bound_context_not_evidence():
     entry = sample_history_entry()
     original_hash = entry["contentHash"]

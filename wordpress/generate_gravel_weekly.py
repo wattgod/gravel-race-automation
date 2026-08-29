@@ -431,6 +431,81 @@ def render_issue_neighbors(issue: dict[str, Any], issues: list[dict[str, Any]]) 
     </nav>'''
 
 
+def _history_race_ids(entry: dict[str, Any]) -> set[str]:
+    return {
+        str(impact["raceId"])
+        for impact in entry.get("raceImpacts", [])
+        if impact.get("raceId")
+    }
+
+
+def _race_arc_name(race_id: str) -> str:
+    _, slug = race_id.split(":", 1)
+    return slug.replace("-", " ").upper()
+
+
+def render_history_arc_navigation(
+    entry: dict[str, Any], entries: list[dict[str, Any]]
+) -> str:
+    """Expose reviewed change-points sharing a race record, never inferred affinity."""
+    race_ids = _history_race_ids(entry)
+    if not race_ids:
+        return ""
+    related = sorted(
+        (
+            candidate
+            for candidate in entries
+            if race_ids & _history_race_ids(candidate)
+        ),
+        key=lambda candidate: (
+            candidate["activeFrom"],
+            candidate["activeThrough"],
+            candidate["entryId"],
+        ),
+    )
+    if len(related) < 2:
+        return ""
+    active_index = next(
+        index
+        for index, candidate in enumerate(related)
+        if candidate["entryId"] == entry["entryId"]
+    )
+    start = max(0, active_index - 2)
+    end = min(len(related), start + 5)
+    start = max(0, end - 5)
+    visible = related[start:end]
+    shared_ids = sorted(
+        race_id
+        for race_id in race_ids
+        if any(
+            candidate["entryId"] != entry["entryId"]
+            and race_id in _history_race_ids(candidate)
+            for candidate in related
+        )
+    )
+    arc_name = " + ".join(_race_arc_name(race_id) for race_id in shared_ids[:2])
+    if len(shared_ids) > 2:
+        arc_name += " + MORE"
+    label_id = f'arc-label-{entry["entryId"]}'
+    cards = []
+    for candidate in visible:
+        date = display_date(candidate["activeFrom"]).upper()
+        body = f'''<span>{esc(date)}</span><b>{esc(candidate['headline'])}</b>'''
+        if candidate["entryId"] == entry["entryId"]:
+            cards.append(
+                f'<li><span class="gw-story-arc-current" aria-current="location">'
+                f'<em>YOU ARE HERE</em>{body}</span></li>'
+            )
+        else:
+            cards.append(
+                f'<li><a href="#{esc(candidate["entryId"])}">{body}</a></li>'
+            )
+    return f'''<nav class="gw-story-arc" aria-labelledby="{esc(label_id)}">
+      <header><span>MORE FROM THIS RACE&rsquo;S STORY</span><h4 id="{esc(label_id)}">{esc(arc_name)} THROUGH TIME</h4><p>Reviewed change-points sharing the same race record. Chronological, never engagement-ranked.</p></header>
+      <ol>{"".join(cards)}</ol>
+    </nav>'''
+
+
 def render_history_timeline(entries: list[dict[str, Any]]) -> str:
     if not entries:
         return '''<section class="gw-history" id="season-story">
@@ -473,6 +548,7 @@ def render_history_timeline(entries: list[dict[str, Any]]) -> str:
             <section class="gw-history-take"><h4>THE TAKE</h4>{prose(entry['take'])}</section>
           </div>
           <div class="gw-history-judgment"><b>WHAT CHANGED:</b> {esc(entry['priorJudgment'])} → {esc(entry['changedJudgment'])}</div>
+          {render_history_arc_navigation(entry, entries)}
           <details class="gw-details"><summary>WHAT WAS KNOWABLE THEN · {len(entry['contemporaryReceipts'])}</summary>{render_receipts(entry['contemporaryReceipts'])}</details>
           {render_culture_artifacts(entry.get('cultureArtifacts', []))}
           {later}
@@ -687,6 +763,20 @@ def page_css() -> str:
   .gw-history-grid p { font-family: var(--gg-font-editorial); line-height: var(--gg-line-height-relaxed); }
   .gw-history-take { border-left: var(--gg-border-standard); background: var(--gg-color-sand); font-weight: var(--gg-font-weight-semibold); }
   .gw-history-judgment, .gw-history-uncertainty { margin: 0; padding: var(--gg-spacing-sm) var(--gg-spacing-md); border-top: var(--gg-border-standard); font-family: var(--gg-font-editorial); line-height: var(--gg-line-height-normal); }
+  .gw-story-arc { border-top: var(--gg-border-heavy); background: var(--gg-color-near-black); color: var(--gg-color-warm-paper); }
+  .gw-story-arc > header { display: grid; grid-template-columns: minmax(0, 1fr) minmax(260px, .75fr); gap: var(--gg-spacing-2xs) var(--gg-spacing-lg); padding: var(--gg-spacing-sm) var(--gg-spacing-md); border-bottom: var(--gg-border-subtle); }
+  .gw-story-arc > header > span { grid-column: 1 / -1; color: var(--gg-color-gold); font-size: var(--gg-font-size-xs); font-weight: var(--gg-font-weight-black); letter-spacing: var(--gg-letter-spacing-wider); }
+  .gw-story-arc h4 { margin: 0; font-size: var(--gg-font-size-md); letter-spacing: var(--gg-letter-spacing-wide); }
+  .gw-story-arc > header p { margin: 0; color: var(--gg-color-tan); font-family: var(--gg-font-editorial); font-size: var(--gg-font-size-xs); }
+  .gw-story-arc ol { display: flex; margin: 0; padding: 0; overflow-x: auto; list-style: none; scroll-snap-type: x proximity; }
+  .gw-story-arc li { flex: 1 1 180px; min-width: 180px; border-right: var(--gg-border-subtle); scroll-snap-align: start; }
+  .gw-story-arc a, .gw-story-arc-current { display: grid; align-content: start; gap: var(--gg-spacing-2xs); min-height: 100%; padding: var(--gg-spacing-sm) var(--gg-spacing-md); color: inherit; text-decoration: none; }
+  .gw-story-arc a:hover, .gw-story-arc a:focus-visible { background: var(--gg-color-teal); outline: var(--gg-border-gold); outline-offset: calc(var(--gg-border-width-standard) * -1); }
+  .gw-story-arc-current { background: var(--gg-color-gold); color: var(--gg-color-near-black); }
+  .gw-story-arc-current em { font-size: var(--gg-font-size-xs); font-style: normal; font-weight: var(--gg-font-weight-black); letter-spacing: var(--gg-letter-spacing-wide); }
+  .gw-story-arc li span:not(.gw-story-arc-current) { color: var(--gg-color-tan); font-size: var(--gg-font-size-xs); letter-spacing: var(--gg-letter-spacing-wide); }
+  .gw-story-arc-current > span { color: var(--gg-color-near-black); }
+  .gw-story-arc b { font-family: var(--gg-font-editorial); font-size: var(--gg-font-size-sm); line-height: var(--gg-line-height-tight); }
   .gw-history-later { border-top: var(--gg-border-heavy); background: var(--gg-color-near-black); color: var(--gg-color-warm-paper); }
   .gw-history-later summary { cursor: pointer; padding: var(--gg-spacing-sm) var(--gg-spacing-md); font-weight: var(--gg-font-weight-black); letter-spacing: var(--gg-letter-spacing-wide); }
   .gw-history-later a { color: var(--gg-color-gold); }
@@ -746,6 +836,8 @@ def page_css() -> str:
     .gw-take { border-left: 0; border-top: var(--gg-border-standard); }
     .gw-memory-grid section + section { border-left: 0; border-top: var(--gg-border-standard); }
     .gw-history-take { border-left: 0; border-top: var(--gg-border-standard); }
+    .gw-story-arc > header { grid-template-columns: 1fr; }
+    .gw-story-arc li { flex: 0 0 min(76vw, 240px); min-width: 0; }
     .gw-story-head, .gw-story-grid section, .gw-utility, .gw-sub { padding: var(--gg-spacing-md); }
     .gw-coverage li { display: block; }
     .gw-coverage li span { display: block; margin-top: var(--gg-spacing-2xs); text-align: left; }

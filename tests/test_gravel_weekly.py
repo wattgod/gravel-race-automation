@@ -1534,6 +1534,9 @@ def test_historical_seal_refuses_a_canonical_draft_changed_after_review(tmp_path
 
 def test_private_historical_review_desk_separates_evidence_and_approval_state():
     draft = sample_history_draft()
+    published = sample_history_entry()
+    published["entryId"] = "history-published-2026"
+    published["contentHash"] = compute_history_content_hash(published)
     held = copy.deepcopy(draft)
     held["entryId"] = "history-held-2026"
     held["headline"] = "A held premise"
@@ -1547,12 +1550,15 @@ def test_private_historical_review_desk_separates_evidence_and_approval_state():
     slopped["headline"] = "A prose-held premise"
     slopped["take"] = "The future isn't coming. It's already here."
     slopped["contentHash"] = compute_history_content_hash(slopped)
-    page = render_history_review([draft, held, slopped], 2026)
+    page = render_history_review([draft, held, slopped, published], 2026)
 
     assert "PRIVATE EDITORIAL DESK · NOT PUBLIC" in page
     assert "3 DRAFTS" in page
     assert "1 READY FOR HUMAN DECISION" in page
     assert "2 HELD BY EVIDENCE, EDITORIAL, OR PROSE GATES" in page
+    assert "0 APPROVED BUT UNSEALED" in page
+    assert "1 PUBLISHED" in page
+    assert "A complete source review does not make a historical entry public" in page
     assert "DECISION QUEUE" in page
     assert f'href="#{draft["entryId"]}"' in page
     assert f'href="#{held["entryId"]}"' in page
@@ -1614,12 +1620,17 @@ def test_historical_review_index_prioritizes_recent_ready_decisions():
 
     assert review_years([ready_2025, held_2026, ready_2026]) == [2026, 2025]
     assert sorted([held_2026, ready_2026], key=review_priority)[0]["entryId"] == ready_2026["entryId"]
-    page = render_history_review_index([ready_2025, held_2026, ready_2026])
+    published = sample_history_entry()
+    published["entryId"] = "history-published-2026"
+    published["contentHash"] = compute_history_content_hash(published)
+    page = render_history_review_index([ready_2025, held_2026, ready_2026, published])
 
     assert "THE WHOLE<br>GRAVEL STORY" in page
     assert "2 YEARS" in page
     assert "2 READY FOR HUMAN DECISION" in page
     assert "1 HELD" in page
+    assert "1 PUBLISHED" in page
+    assert "1 PUBLIC" in page
     assert page.index('href="2026.html"') < page.index('href="2025.html"')
     assert "@font-face" in page
     assert "noindex,nofollow" in page

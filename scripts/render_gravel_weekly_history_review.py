@@ -229,6 +229,8 @@ def render_history_review(entries: list[dict[str, Any]], year: int) -> str:
         entry for entry in entries
         if entry["activeFrom"] <= f"{year}-12-31" and entry["activeThrough"] >= f"{year}-01-01"
     ]
+    approved = sum(entry["status"] == "approved" for entry in selected)
+    published = sum(entry["status"] == "published" for entry in selected)
     drafts = sorted(
         (entry for entry in selected if entry["status"] == "draft"),
         key=review_priority,
@@ -313,7 +315,8 @@ code {{ overflow-wrap: anywhere; }} footer {{ background: var(--gg-color-near-bl
   <a class="desk-back" href="index.html">← ALL YEARS</a>
   <header class="desk-head"><div class="eyebrow">PRIVATE EDITORIAL DESK · NOT PUBLIC</div><h1>{year}<br>THE SEASON<br>AS A STORY</h1>
   <p>This queue contains narrative change-points, not one required story per week. Review the point first, then the Take. Receipts from the active period are separated from evidence learned later.</p>
-  <div class="summary"><b>{len(drafts)} DRAFTS</b><b>{ready} READY FOR HUMAN DECISION</b><b>{held} HELD BY EVIDENCE, EDITORIAL, OR PROSE GATES</b></div>
+  <p><b>PUBLICATION BOUNDARY:</b> A complete source review does not make a historical entry public. Only sealed entries count as published; this desk cannot approve or seal anything.</p>
+  <div class="summary"><b>{len(drafts)} DRAFTS</b><b>{ready} READY FOR HUMAN DECISION</b><b>{held} HELD BY EVIDENCE, EDITORIAL, OR PROSE GATES</b><b>{approved} APPROVED BUT UNSEALED</b><b>{published} PUBLISHED</b></div>
   {bulk_instruction}
   <nav class="decision-queue" aria-label="Historical story decision queue"><h2>DECISION QUEUE</h2><ol>{queue}</ol></nav></header>
   {cards or '<section class="story"><header><h2>No draft historical entries for this year.</h2></header></section>'}
@@ -325,6 +328,7 @@ def render_history_review_index(entries: list[dict[str, Any]]) -> str:
     rows = []
     total_ready = 0
     total_held = 0
+    total_published = sum(entry["status"] == "published" for entry in entries)
     years = review_years(entries)
     for year in years:
         drafts = sorted(
@@ -338,6 +342,12 @@ def render_history_review_index(entries: list[dict[str, Any]]) -> str:
         )
         ready = [entry for entry in drafts if not approval_holds(entry)]
         held = [entry for entry in drafts if approval_holds(entry)]
+        published = sum(
+            entry["status"] == "published"
+            for entry in entries
+            if entry["activeFrom"] <= f"{year}-12-31"
+            and entry["activeThrough"] >= f"{year}-01-01"
+        )
         total_ready += len(ready)
         total_held += len(held)
         highlights = "".join(
@@ -350,7 +360,7 @@ def render_history_review_index(entries: list[dict[str, Any]]) -> str:
         rows.append(f'''<article class="year-card">
           <a href="{year}.html" aria-label="Review Gravel Weekly historical drafts for {year}">
             <header><span>REVIEW YEAR</span><h2>{year}</h2></header>
-            <div class="counts"><b>{len(ready)} READY</b><b>{len(held)} HOLD</b></div>
+            <div class="counts"><b>{len(ready)} READY</b><b>{len(held)} HOLD</b><b>{published} PUBLIC</b></div>
             <ol>{highlights}</ol>
             <footer>OPEN {year} DESK →</footer>
           </a>
@@ -376,9 +386,10 @@ main {{ width: min(1120px, calc(100% - 32px)); margin: 32px auto 80px; }}
 .year-card header {{ padding: var(--gg-spacing-md); border-bottom: var(--gg-border-standard); }}
 .year-card header span {{ font-size: var(--gg-font-size-xs); font-weight: var(--gg-font-weight-bold); letter-spacing: var(--gg-letter-spacing-wide); }}
 .year-card h2 {{ margin: 0; font-size: clamp(3.2rem, 8vw, 5rem); line-height: .9; }}
-.counts {{ display: grid; grid-template-columns: 1fr 1fr; border-bottom: var(--gg-border-standard); }}
+.counts {{ display: grid; grid-template-columns: repeat(3, 1fr); border-bottom: var(--gg-border-standard); }}
 .counts b {{ padding: var(--gg-spacing-xs); text-align: center; }}
 .counts b + b {{ border-left: var(--gg-border-standard); background: var(--gg-color-near-black); color: var(--gg-color-warm-paper); }}
+.counts b:last-child {{ background: var(--gg-color-teal); }}
 .year-card ol {{ flex: 1; margin: 0; padding: var(--gg-spacing-md) var(--gg-spacing-md) var(--gg-spacing-md) calc(var(--gg-spacing-xl) + var(--gg-spacing-xs)); }}
 .year-card li {{ margin-bottom: var(--gg-spacing-sm); font-family: var(--gg-font-editorial); line-height: var(--gg-line-height-normal); }}
 .year-card li span {{ display: inline-block; margin-right: var(--gg-spacing-xs); font-family: var(--gg-font-data); font-size: var(--gg-font-size-xs); font-weight: var(--gg-font-weight-black); }}
@@ -389,7 +400,7 @@ main {{ width: min(1120px, calc(100% - 32px)); margin: 32px auto 80px; }}
 </style></head><body><main>
   <header class="desk-head"><div>PRIVATE EDITORIAL DESK · NOT PUBLIC</div><h1>THE WHOLE<br>GRAVEL STORY</h1>
   <p>Start with 2026, then work backward. Inside each year, entries that clear every evidence, editorial, hostile-editor, and prose gate come first. HOLD entries remain visible research debt; this index cannot approve, seal, publish, or edit anything.</p>
-  <div class="summary"><b>{len(years)} YEARS</b><b>{total_ready} READY FOR HUMAN DECISION</b><b>{total_held} HELD</b></div></header>
+  <div class="summary"><b>{len(years)} YEARS</b><b>{total_ready} READY FOR HUMAN DECISION</b><b>{total_held} HELD</b><b>{total_published} PUBLISHED</b></div></header>
   <section class="years" aria-label="Historical review years">{"".join(rows)}</section>
 </main></body></html>'''
 

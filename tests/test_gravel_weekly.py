@@ -24,6 +24,7 @@ from validate_gravel_weekly import (  # noqa: E402
     IssueValidationError,
     compute_content_hash,
     load_issues,
+    load_public_issues,
     validate_issue,
 )
 from validate_gravel_weekly_history import (  # noqa: E402
@@ -1724,7 +1725,7 @@ def test_homepage_surfaces_gravel_weekly_without_a_gravel_tv_content_path():
     assert "Gravel TV" not in band
 
 
-def test_email_preserves_legacy_subscribers_and_uses_approved_issue():
+def test_email_preserves_legacy_subscribers_and_renders_a_sealed_issue():
     issue = sample_issue()
     email = build_email_html(issue)
     assert SUBSCRIBER_SOURCES == ("gravel_weekly_subscribe", "gravel_tv_subscribe")
@@ -1732,3 +1733,28 @@ def test_email_preserves_legacy_subscribers_and_uses_approved_issue():
     assert "Unbound changed the course" in email
     assert "/gravel-weekly/2026-08-28/" in email
     assert "RESEND_UNSUBSCRIBE_URL" in email
+
+
+def test_only_sealed_issue_snapshots_cross_the_public_loader(tmp_path):
+    published = sample_issue()
+    approved = copy.deepcopy(published)
+    approved.update({
+        "issueId": "gravel-weekly-002",
+        "issueNumber": 2,
+        "publicationDate": "2026-09-04",
+        "slug": "2026-09-04",
+        "status": "approved",
+        "publishedAt": None,
+        "updatedAt": "2026-09-04T16:00:00Z",
+    })
+    approved["contentHash"] = compute_content_hash(approved)
+    (tmp_path / "2026-08-28.json").write_text(json.dumps(published))
+    (tmp_path / "2026-09-04.json").write_text(json.dumps(approved))
+
+    assert [issue["issueId"] for issue in load_issues(tmp_path)] == [
+        approved["issueId"],
+        published["issueId"],
+    ]
+    assert [issue["issueId"] for issue in load_public_issues(tmp_path)] == [
+        published["issueId"],
+    ]

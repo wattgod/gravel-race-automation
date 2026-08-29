@@ -28,6 +28,9 @@ const DISPOSABLE_DOMAINS = [
 const COURSE_ID_PATTERN = /^[a-z0-9][a-z0-9-]{0,98}[a-z0-9]$/;
 const LESSON_ID_PATTERN = /^[a-z0-9][a-z0-9-]{0,98}[a-z0-9]$/;
 const QUESTION_HASH_PATTERN = /^[a-f0-9]{8}$/;
+const CASE_ID_PATTERN = /^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i;
+const ATHLETE_KEY_PATTERN = /^[a-z0-9][a-z0-9:_-]{2,127}$/;
+const SLUG_PATTERN = /^[a-z0-9][a-z0-9-]{0,62}[a-z0-9]$/;
 
 // ── XP Constants ──────────────────────────────────────────────
 const XP_LESSON_COMPLETE = 10;
@@ -60,7 +63,7 @@ function getLevelInfo(totalXP) {
 }
 
 export default {
-  async fetch(request, env) {
+  async fetch(request, env, ctx) {
     if (request.method === 'OPTIONS') return handleCORS(request, env);
 
     const url = new URL(request.url);
@@ -102,14 +105,70 @@ export default {
     if (data.website) return jsonResponse({ error: 'Bot detected' }, 400, origin);
 
     if (path === '/verify') return handleVerify(data, env, origin);
-    if (path === '/progress') return handleProgress(data, env, origin);
+    if (path === '/progress') return handleProgress(data, env, origin, ctx);
     if (path === '/kc') return handleKC(data, env, origin);
     if (path === '/stats') return handleStats(data, env, origin);
     if (path === '/leaderboard') return handleLeaderboard(data, env, origin);
 
     return jsonResponse({ error: 'Not found' }, 404, origin);
-  }
+  },
+
+  async scheduled(_controller, env, ctx) {
+    ctx.waitUntil(runCourseCanary(env));
+  },
 };
+
+async function runCourseCanary(env) {
+  const columns = await env.DB.prepare('PRAGMA table_info(enrollments)').all();
+  const names = new Set((columns.results || []).map(row => row.name));
+  const required = ['case_id', 'athlete_key', 'brand', 'tier'];
+  const missing = required.filter(name => !names.has(name));
+  if (missing.length) {
+    console.error(JSON.stringify({
+      message: 'coaching_course_daily_canary',
+      status: 'failed',
+      check: 'd1_case_binding_schema',
+      missing,
+    }));
+    throw new Error('Course D1 case-binding schema is incomplete');
+  }
+  if (!env.COACHING_PIPELINE_URL || !env.COACHING_PROGRESS_SECRET) {
+    throw new Error('Course progress bridge is not configured');
+  }
+  const response = await fetch(
+    `${env.COACHING_PIPELINE_URL.replace(/\/$/, '')}/api/coaching-course-progress`,
+    {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'X-Coaching-Course-Secret': env.COACHING_PROGRESS_SECRET,
+      },
+      body: '{}',
+    }
+  );
+  let result = {};
+  try {
+    result = await response.json();
+  } catch (_error) {
+    result = {};
+  }
+  if (response.status !== 400 || result.error !== 'Valid case_id is required') {
+    console.error(JSON.stringify({
+      message: 'coaching_course_daily_canary',
+      status: 'failed',
+      check: 'authenticated_progress_bridge',
+      http_status: response.status,
+    }));
+    throw new Error('Course progress bridge canary failed');
+  }
+  const receipt = {
+    message: 'coaching_course_daily_canary',
+    status: 'ok',
+    checks: ['d1_case_binding_schema', 'authenticated_progress_bridge'],
+  };
+  console.log(JSON.stringify(receipt));
+  return receipt;
+}
 
 // ── Email + User Helpers ──────────────────────────────────────
 
@@ -219,18 +278,22 @@ async function handleVerify(data, env, origin) {
   }
 
   const enrollment = await env.DB.prepare(
-    'SELECT id FROM enrollments WHERE user_id = ? AND course_id = ?'
+    'SELECT id, preferred_name, goal_label FROM enrollments WHERE user_id = ? AND course_id = ?'
   ).bind(user.id, courseId).first();
 
   return jsonResponse({
     has_access: !!enrollment,
-    course_id: courseId
+    course_id: courseId,
+    personalization: enrollment ? {
+      preferred_name: enrollment.preferred_name || null,
+      goal_label: enrollment.goal_label || null,
+    } : null,
   }, 200, origin);
 }
 
 // ── Progress Endpoint ─────────────────────────────────────────
 
-async function handleProgress(data, env, origin) {
+async function handleProgress(data, env, origin, ctx) {
   const { email, error: emailError } = validateEmail(data.email);
   if (!email) return jsonResponse({ error: emailError }, 400, origin);
   if (!data.course_id) return jsonResponse({ error: 'Missing: course_id' }, 400, origin);
@@ -246,7 +309,7 @@ async function handleProgress(data, env, origin) {
   if (!user) return jsonResponse({ error: 'No access to this course' }, 403, origin);
 
   const enrollment = await env.DB.prepare(
-    'SELECT id FROM enrollments WHERE user_id = ? AND course_id = ?'
+    'SELECT id, case_id, athlete_key FROM enrollments WHERE user_id = ? AND course_id = ?'
   ).bind(user.id, courseId).first();
   if (!enrollment) return jsonResponse({ error: 'No access to this course' }, 403, origin);
 
@@ -357,6 +420,23 @@ async function handleProgress(data, env, origin) {
     const totalLessons = data.total_lessons || 0;
     const userRow = await env.DB.prepare('SELECT * FROM users WHERE id = ?').bind(user.id).first();
 
+    if (insertResult.meta.changes > 0 && enrollment.case_id && enrollment.athlete_key &&
+        env.COACHING_PIPELINE_URL && env.COACHING_PROGRESS_SECRET && ctx) {
+      const progressEvent = syncCoachingProgress(env, {
+        case_id: enrollment.case_id,
+        athlete_key: enrollment.athlete_key,
+        course_id: courseId,
+        lesson_id: lessonId,
+        completed_lessons: completedLessons.length,
+        total_lessons: Number(totalLessons) || 0,
+        pct_complete: totalLessons > 0
+          ? Math.min(100, Math.round((completedLessons.length / totalLessons) * 100))
+          : 0,
+        event_id: `course:${enrollment.id}:${courseId}:${lessonId}`,
+      });
+      ctx.waitUntil(progressEvent);
+    }
+
     return jsonResponse({
       completed_lessons: completedLessons,
       last_active: userRow.last_active_date,
@@ -370,6 +450,34 @@ async function handleProgress(data, env, origin) {
   }
 
   return jsonResponse({ error: 'Invalid action (get|complete)' }, 400, origin);
+}
+
+async function syncCoachingProgress(env, payload) {
+  try {
+    const response = await fetch(`${env.COACHING_PIPELINE_URL.replace(/\/$/, '')}/api/coaching-course-progress`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'X-Coaching-Course-Secret': env.COACHING_PROGRESS_SECRET,
+      },
+      body: JSON.stringify(payload),
+    });
+    if (!response.ok) {
+      console.error(JSON.stringify({
+        message: 'coaching_course_progress_sync_failed',
+        status: response.status,
+        course_id: payload.course_id,
+        event_id: payload.event_id,
+      }));
+    }
+  } catch (error) {
+    console.error(JSON.stringify({
+      message: 'coaching_course_progress_sync_failed',
+      status: 'network_error',
+      course_id: payload.course_id,
+      event_id: payload.event_id,
+    }));
+  }
 }
 
 // ── Knowledge Check Endpoint ──────────────────────────────────
@@ -507,7 +615,13 @@ async function handleAdmin(request, path, env) {
   const allowedOrigins = (env.ALLOWED_ORIGINS || 'https://gravelgodcycling.com').split(',').map(o => o.trim());
   const corsOrigin = allowedOrigins.includes(origin) ? origin : allowedOrigins[0];
 
-  if (!env.ADMIN_API_KEY || token !== env.ADMIN_API_KEY) {
+  const dashboardAuthorized = Boolean(
+    env.ADMIN_API_KEY && token === env.ADMIN_API_KEY
+  );
+  const grantAuthorized = ['/admin/grant', '/admin/canary'].includes(path) && Boolean(
+    env.COURSE_ACCESS_GRANT_KEY && token === env.COURSE_ACCESS_GRANT_KEY
+  );
+  if (!dashboardAuthorized && !grantAuthorized) {
     return jsonResponse({ error: 'Unauthorized' }, 401, corsOrigin);
   }
 
@@ -520,6 +634,13 @@ async function handleAdmin(request, path, env) {
 
   if (path === '/admin/dashboard') return handleAdminDashboard(data, env, corsOrigin);
   if (path === '/admin/grant') return handleAdminGrant(data, env, corsOrigin);
+  if (path === '/admin/canary') {
+    try {
+      return jsonResponse(await runCourseCanary(env), 200, corsOrigin);
+    } catch (_error) {
+      return jsonResponse({ error: 'Course canary failed' }, 503, corsOrigin);
+    }
+  }
 
   return jsonResponse({ error: 'Not found' }, 404, corsOrigin);
 }
@@ -613,19 +734,52 @@ async function handleAdminGrant(data, env, origin) {
   if (!data.email) return jsonResponse({ error: 'Missing: email' }, 400, origin);
   if (!data.course_id) return jsonResponse({ error: 'Missing: course_id' }, 400, origin);
 
-  const email = String(data.email).substring(0, 254).toLowerCase().trim();
+  const { email, error: emailError } = validateEmail(data.email);
+  if (!email) return jsonResponse({ error: emailError }, 400, origin);
   const courseId = String(data.course_id).substring(0, 100);
+  if (!COURSE_ID_PATTERN.test(courseId)) {
+    return jsonResponse({ error: 'Invalid course_id format' }, 400, origin);
+  }
+  const caseId = String(data.case_id || '').trim();
+  const athleteKey = String(data.athlete_key || '').trim().toLowerCase();
+  const brand = String(data.brand || '').trim().toLowerCase();
+  const tier = String(data.tier || '').trim().toLowerCase();
+  const preferredName = String(data.preferred_name || '').trim().substring(0, 80);
+  const goalLabel = String(data.goal_label || '').trim().substring(0, 160);
+  const hasCaseBinding = Boolean(caseId || athleteKey);
+  if (hasCaseBinding && (!CASE_ID_PATTERN.test(caseId) || !ATHLETE_KEY_PATTERN.test(athleteKey))) {
+    return jsonResponse({ error: 'Valid case_id and athlete_key are required together' }, 400, origin);
+  }
+  if ((brand && !SLUG_PATTERN.test(brand)) || (tier && !SLUG_PATTERN.test(tier))) {
+    return jsonResponse({ error: 'Invalid brand or tier format' }, 400, origin);
+  }
 
   const user = await getOrCreateUser(env, email);
 
-  await env.DB.prepare(
-    'INSERT OR IGNORE INTO enrollments (user_id, course_id, stripe_session_id, amount_cents, currency) VALUES (?, ?, ?, ?, ?)'
-  ).bind(user.id, courseId, data.stripe_session_id || 'manual_grant', data.amount_cents || 0, data.currency || 'usd').run();
+  await env.DB.prepare(`
+    INSERT INTO enrollments
+      (user_id, course_id, stripe_session_id, amount_cents, currency, case_id, athlete_key, brand, tier, preferred_name, goal_label)
+    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+    ON CONFLICT(user_id, course_id) DO UPDATE SET
+      case_id = COALESCE(excluded.case_id, enrollments.case_id),
+      athlete_key = COALESCE(excluded.athlete_key, enrollments.athlete_key),
+      brand = COALESCE(excluded.brand, enrollments.brand),
+      tier = COALESCE(excluded.tier, enrollments.tier),
+      preferred_name = COALESCE(excluded.preferred_name, enrollments.preferred_name),
+      goal_label = COALESCE(excluded.goal_label, enrollments.goal_label)
+  `).bind(
+    user.id, courseId, data.stripe_session_id || 'manual_grant',
+    data.amount_cents || 0, data.currency || 'usd',
+    caseId || null, athleteKey || null, brand || null, tier || null,
+    preferredName || null, goalLabel || null
+  ).run();
 
   return jsonResponse({
     granted: true,
     email: email,
-    course_id: courseId
+    course_id: courseId,
+    case_bound: hasCaseBinding,
+    case_id: caseId || null,
   }, 200, origin);
 }
 

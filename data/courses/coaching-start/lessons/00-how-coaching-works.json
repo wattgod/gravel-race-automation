@@ -1,0 +1,24 @@
+{
+  "id": "how-coaching-works",
+  "title": "How Coaching Works",
+  "module": "start-here",
+  "lesson_number": 0,
+  "blocks": [
+    {"type": "hero_stat", "value": "Plan. Ride. Report. Adjust.", "unit": "the same four jobs every week", "context": "I write the plan from what I know. You ride it, record what happened, and tell me what the file cannot. I use that to decide what stays and what changes."},
+    {"type": "callout", "style": "highlight", "content": "**Use the current TrainingPeaks calendar.** If the workout in your head differs from the workout on the calendar, check the calendar and ask me."},
+    {"type": "process", "title": "What Happens Each Week", "description": "You do four of these jobs. I do the fifth.", "steps": [
+      {"step": 1, "action": "Look at the week before Monday.", "detail": "Find the hard sessions, the long day, and the easy days that protect them."},
+      {"step": 2, "action": "Ride what is written.", "detail": "Do not add intensity, chase TSS, or turn an easy day into a test because you feel good."},
+      {"step": 3, "action": "Upload the file and comment.", "detail": "Leave a short, specific comment while the session is fresh."},
+      {"step": 4, "action": "Tell me early when life changes the week.", "detail": "Travel, illness, pain, poor recovery, and schedule collisions are easier to handle before the next hard session."},
+      {"step": 5, "action": "I review the week.", "detail": "I read the files and comments, then keep, change, move, or remove work."}
+    ]},
+    {"type": "knowledge_check", "question": "What should you use for today's training?", "options": [
+      {"text": "The workout you remember from last week", "correct": false},
+      {"text": "Whatever your group ride is doing", "correct": false},
+      {"text": "Your current TrainingPeaks calendar", "correct": true},
+      {"text": "Your most recent fitness test", "correct": false}
+    ], "explanation": "The current calendar wins over memory, habit, or the group ride. If a message seems to conflict with the calendar, ask me before improvising."},
+    {"type": "commitment", "content": "Open TrainingPeaks now. Find this week's hardest workout, long session, and easiest day."}
+  ]
+}

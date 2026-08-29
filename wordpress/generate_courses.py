@@ -29,6 +29,7 @@ from brand_tokens import get_font_face_css, get_ga4_head_snippet, get_preload_hi
 from shared_footer import get_mega_footer_html, get_mega_footer_css
 from shared_header import get_site_header_html, get_site_header_css, get_site_header_js
 from cookie_consent import get_consent_banner_html
+from slop_rules import RULESET_COMMIT, RULESET_NAME, check_text
 
 SITE_BASE_URL = "https://gravelgodcycling.com"
 WORKER_URL = "https://course-access.gravelgodcoaching.workers.dev"
@@ -36,6 +37,7 @@ WORKER_URL = "https://course-access.gravelgodcoaching.workers.dev"
 PROJECT_ROOT = Path(__file__).parent.parent
 COURSES_DATA_DIR = PROJECT_ROOT / "data" / "courses"
 OUTPUT_DIR = Path(__file__).parent / "output" / "course"
+NO_AI_SLOP_GUARD = f"{RULESET_NAME}@{RULESET_COMMIT}"
 
 
 def esc(text) -> str:
@@ -44,6 +46,59 @@ def esc(text) -> str:
 
 
 # ── Data Loading ─────────────────────────────────────────────
+
+
+def _iter_copy_strings(value, path="$"):
+    """Yield every reader-facing string with a useful JSON-style path."""
+    if isinstance(value, dict):
+        for key, item in value.items():
+            if key in {"id", "file", "type", "style", "theme", "status",
+                       "access_model", "copy_guard", "stripe_payment_link"}:
+                continue
+            yield from _iter_copy_strings(item, f"{path}.{key}")
+    elif isinstance(value, list):
+        for index, item in enumerate(value):
+            yield from _iter_copy_strings(item, f"{path}[{index}]")
+    elif isinstance(value, str) and value.strip():
+        yield path, value
+
+
+def validate_course_copy(course: dict) -> None:
+    """Fail generation when an opted-in course violates no-ai-slop rules."""
+    guard = course.get("copy_guard")
+    if not guard:
+        return
+    if guard != NO_AI_SLOP_GUARD:
+        raise ValueError(
+            f"Unsupported copy_guard {guard!r}; expected {NO_AI_SLOP_GUARD!r}"
+        )
+
+    violations = []
+    for path, text in _iter_copy_strings(course):
+        for finding in check_text(text):
+            violations.append(
+                f"{path}: {finding['phrase']} ({finding.get('match', '')!r})"
+            )
+    if violations:
+        details = "\n  - ".join(violations)
+        raise ValueError(
+            f"{course.get('id', 'course')} failed {NO_AI_SLOP_GUARD}:\n  - {details}"
+        )
+
+
+def validate_rendered_course_copy(course: dict, page_name: str, html_text: str) -> None:
+    """Run the same opted-in guard on assembled, reader-visible page text."""
+    if not course.get("copy_guard"):
+        return
+    violations = check_text(html_text, is_html=True)
+    if violations:
+        details = "\n  - ".join(
+            f"{finding['phrase']} ({finding.get('match', '')!r})"
+            for finding in violations
+        )
+        raise ValueError(
+            f"{page_name} failed rendered {NO_AI_SLOP_GUARD}:\n  - {details}"
+        )
 
 
 def load_course(course_dir: Path) -> dict:
@@ -79,6 +134,7 @@ def load_course(course_dir: Path) -> dict:
             total_lessons += 1
 
     course["total_lessons"] = total_lessons
+    validate_course_copy(course)
     return course
 
 
@@ -319,6 +375,7 @@ def build_course_css() -> str:
 .gg-course-lesson-breadcrumb a{{color:var(--gg-color-warm-brown,#A68E80);text-decoration:none}}
 .gg-course-lesson-breadcrumb a:hover{{text-decoration:underline}}
 .gg-course-lesson-num{{font-family:var(--gg-font-data,'Sometype Mono',monospace);font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--gg-color-teal,#178079);margin-bottom:8px}}
+.gg-course-personalization{{font-family:var(--gg-font-data,'Sometype Mono',monospace);font-size:12px;letter-spacing:1px;text-transform:uppercase;color:var(--gg-color-warm-brown,#A68E80);margin:0 0 8px}}
 .gg-course-lesson-mins{{color:var(--gg-color-warm-brown,#A68E80);letter-spacing:1px}}
 .gg-course-lesson-header h1{{font-family:var(--gg-font-editorial,'Source Serif 4',Georgia,serif);font-size:clamp(1.5rem,4vw,2.2rem);color:var(--gg-color-sand,#ede4d8);margin:0}}
 
@@ -1548,7 +1605,7 @@ document.querySelectorAll('a[href^="https://buy.stripe.com/"]').forEach(function
 
     var info=levelInfo||getLevelInfo(totalXP);
     var levelEl=document.getElementById('gg-xp-level');
-    if(levelEl) levelEl.textContent='LVL '+info.level+' — '+info.name;
+    if(levelEl) levelEl.textContent='LVL '+info.level+' · '+info.name;
 
     var countEl=document.getElementById('gg-xp-count');
     if(countEl) countEl.textContent=totalXP+' XP';
@@ -1563,7 +1620,7 @@ document.querySelectorAll('a[href^="https://buy.stripe.com/"]').forEach(function
     }}
 
     var streakEl=document.getElementById('gg-xp-streak-val');
-    if(streakEl) streakEl.textContent=streak>0?streak+' day'+(streak===1?'':'s'):'—';
+    if(streakEl) streakEl.textContent=streak>0?streak+' day'+(streak===1?'':'s'):'0';
 
     updateStreakBadge(streak);
   }}
@@ -1584,12 +1641,28 @@ document.querySelectorAll('a[href^="https://buy.stripe.com/"]').forEach(function
     }}
   }}
 
+  /* ── Safe per-athlete personalization ── */
+  function applyPersonalization(personalization){{
+    if(!personalization) return;
+    var preferred=String(personalization.preferred_name||'').trim();
+    var goal=String(personalization.goal_label||'').trim();
+    if(!preferred&&!goal) return;
+    var header=document.querySelector('.gg-course-lesson-header-inner');
+    if(!header||document.getElementById('gg-course-personalization')) return;
+    var line=document.createElement('p');
+    line.id='gg-course-personalization';
+    line.className='gg-course-personalization';
+    line.textContent=(preferred?'Built for '+preferred:'Your course')+(goal?' · '+goal:'');
+    header.insertBefore(line,header.firstChild);
+  }}
+
   /* ── Unlock Content ── */
-  function unlockContent(email){{
+  function unlockContent(email,personalization){{
     courseState.email=email;
     gate.style.display='none';
     lesson.classList.add('gg-course-unlocked');
-    try{{localStorage.setItem(LS_KEY,JSON.stringify({{email:email,exp:Date.now()+EXPIRY_DAYS*86400000}}));}}catch(e){{}}
+    applyPersonalization(personalization);
+    try{{localStorage.setItem(LS_KEY,JSON.stringify({{email:email,personalization:personalization||null,exp:Date.now()+EXPIRY_DAYS*86400000}}));}}catch(e){{}}
     loadProgress(email);
     fetchStats(email);
     if(typeof gtag==='function'){{gtag('event','course_unlock',{{course_id:COURSE_ID}});}}
@@ -1653,7 +1726,7 @@ document.querySelectorAll('a[href^="https://buy.stripe.com/"]').forEach(function
   try{{
     var cached=JSON.parse(localStorage.getItem(LS_KEY)||'null');
     if(cached&&cached.email&&cached.exp>Date.now()){{
-      unlockContent(cached.email);
+      unlockContent(cached.email,cached.personalization||null);
       return;
     }}
   }}catch(e){{}}
@@ -1663,6 +1736,16 @@ document.querySelectorAll('a[href^="https://buy.stripe.com/"]').forEach(function
   if(params.get('purchase')==='success'){{
     document.getElementById('gg-course-gate-verify').style.display='block';
     document.getElementById('gg-course-gate-buy').style.display='none';
+  }}
+
+  var inviteSignin=document.getElementById('gg-course-invite-signin');
+  if(inviteSignin){{
+    inviteSignin.addEventListener('click',function(){{
+      document.getElementById('gg-course-gate-verify').style.display='block';
+      document.getElementById('gg-course-gate-buy').style.display='none';
+      var emailInput=document.querySelector('#gg-course-verify-form input[type="email"]');
+      if(emailInput) emailInput.focus();
+    }});
   }}
 
   /* ── Verify form submission ── */
@@ -1677,7 +1760,7 @@ document.querySelectorAll('a[href^="https://buy.stripe.com/"]').forEach(function
       btn.textContent='VERIFYING...';btn.disabled=true;
       fetch(WORKER_URL+'/verify',{{method:'POST',headers:{{'Content-Type':'application/json'}},body:JSON.stringify({{email:email,course_id:COURSE_ID,website:verifyForm.website.value}})}}
       ).then(function(r){{return r.json()}}).then(function(d){{
-        if(d.has_access){{unlockContent(email);}}
+        if(d.has_access){{unlockContent(email,d.personalization||null);}}
         else{{showGateError('No purchase found for this email. Please use the email you checked out with.');btn.textContent='VERIFY PURCHASE';btn.disabled=false;}}
       }}).catch(function(){{showGateError('Verification failed. Please try again.');btn.textContent='VERIFY PURCHASE';btn.disabled=false;}});
     }});
@@ -2034,7 +2117,7 @@ document.querySelectorAll('a[href^="https://buy.stripe.com/"]').forEach(function
     errorEl.style.display='block';
   }}
 
-  function setContinue(email){{
+  function setContinue(email,personalization){{
     var ctas=document.querySelectorAll('.gg-course-hero-cta');
     for(var i=0;i<ctas.length;i++){{
       ctas[i].textContent='CONTINUE COURSE \\u2192';
@@ -2045,14 +2128,15 @@ document.querySelectorAll('a[href^="https://buy.stripe.com/"]').forEach(function
     form.style.display='none';
     if(errorEl) errorEl.style.display='none';
     if(statusEl){{
-      statusEl.textContent='Signed in as '+email+' \\u2014 your course is unlocked.';
+      var preferred=personalization&&personalization.preferred_name?String(personalization.preferred_name).trim():'';
+      statusEl.textContent=(preferred?'Welcome, '+preferred+'. ':'')+'Your course is unlocked.';
       statusEl.style.display='block';
     }}
   }}
 
   try{{
     var cached=JSON.parse(localStorage.getItem(LS_KEY)||'null');
-    if(cached&&cached.email&&cached.exp&&cached.exp>Date.now()){{setContinue(cached.email);}}
+    if(cached&&cached.email&&cached.exp&&cached.exp>Date.now()){{setContinue(cached.email,cached.personalization||null);}}
   }}catch(e){{}}
 
   form.addEventListener('submit',function(e){{
@@ -2066,7 +2150,7 @@ document.querySelectorAll('a[href^="https://buy.stripe.com/"]').forEach(function
       .then(function(r){{return r.json();}})
       .then(function(d){{
         if(d.has_access){{
-          try{{localStorage.setItem(LS_KEY,JSON.stringify({{email:email,exp:Date.now()+EXPIRY_DAYS*86400000}}));}}catch(e){{}}
+          try{{localStorage.setItem(LS_KEY,JSON.stringify({{email:email,personalization:d.personalization||null,exp:Date.now()+EXPIRY_DAYS*86400000}}));}}catch(e){{}}
           if(typeof gtag==='function'){{gtag('event','course_signin',{{course_id:COURSE_ID}});}}
           window.location.href=FIRST_LESSON_URL;
         }}else{{
@@ -2126,7 +2210,10 @@ def build_bundle_strip(course: dict, all_courses: list) -> str:
     """Cross-sell strip pointing at the other course(s). CTA goes straight
     to the bundle Stripe payment link when one exists in the manifest,
     otherwise falls back to the /course/ index."""
-    others = [c for c in (all_courses or []) if c["id"] != course["id"]]
+    if course.get("access_model") == "coach_invite":
+        return ""
+    others = [c for c in (all_courses or [])
+              if c["id"] != course["id"] and c.get("listed", True)]
     if not others:
         return ""
     bundle_link = get_bundle_payment_link()
@@ -2160,7 +2247,8 @@ def build_landing_page(course: dict, all_courses: list = None) -> str:
     subtitle = esc(course["subtitle"])
     description = esc(course["description"])
     price = course["price_usd"]
-    stripe_link = esc(course["stripe_payment_link"])
+    stripe_link = esc(course.get("stripe_payment_link", ""))
+    invite_only = course.get("access_model") == "coach_invite"
     canonical = f"{SITE_BASE_URL}/course/{slug}/"
     meta_desc = esc(course.get("meta_description", description))
 
@@ -2218,6 +2306,24 @@ def build_landing_page(course: dict, all_courses: list = None) -> str:
     footer_css = get_mega_footer_css()
     course_css = build_course_css()
 
+    price_html = (
+        '<div class="gg-course-hero-price">INCLUDED WITH COACHING</div>'
+        if invite_only else
+        f'<div class="gg-course-hero-price">${price}</div>\n'
+        f'    <a href="{stripe_link}" class="gg-course-hero-cta">ENROLL NOW</a>')
+    bottom_cta = (
+        f'''<div class="gg-course-bottom-cta">
+  <h2>Already coaching with Matti?</h2>
+  <p>This course is included in your onboarding. Use the email your coach enrolled.</p>
+  <a href="#gg-course-signin" class="gg-course-hero-cta">SIGN IN TO START</a>
+</div>'''
+        if invite_only else
+        f'''<div class="gg-course-bottom-cta">
+  <h2>Ready to start?</h2>
+  <p>{course["total_lessons"]} interactive lessons. {total_time_str.capitalize()}. Lifetime access.</p>
+  <a href="{stripe_link}" class="gg-course-hero-cta">ENROLL FOR ${price}</a>
+</div>''')
+
     return f'''<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -2248,9 +2354,8 @@ def build_landing_page(course: dict, all_courses: list = None) -> str:
     <div class="gg-course-hero-badge">SELF-PACED COURSE</div>
     <h1>{title}</h1>
     <p class="gg-course-hero-subtitle">{subtitle}</p>
-    <div class="gg-course-hero-price">${price}</div>
-    <a href="{stripe_link}" class="gg-course-hero-cta">ENROLL NOW</a>
-    <div class="gg-course-hero-signin" id="gg-course-hero-signin">Already enrolled? <a href="#gg-course-signin">Sign in with your email</a> &mdash; no card needed.</div>
+    {price_html}
+    <div class="gg-course-hero-signin" id="gg-course-hero-signin">Already enrolled? <a href="#gg-course-signin">Sign in with your email.</a> No card needed.</div>
   </div>
 </div>
 
@@ -2265,7 +2370,7 @@ def build_landing_page(course: dict, all_courses: list = None) -> str:
   </div>
 
   <div class="gg-course-outline">
-    <h2>COURSE OUTLINE &mdash; {course["total_lessons"]} LESSONS</h2>
+    <h2>COURSE OUTLINE · {course["total_lessons"]} LESSONS</h2>
     <p class="gg-course-outline-total">{total_time_str}</p>
     {"".join(modules_html)}
   </div>
@@ -2277,7 +2382,7 @@ def build_landing_page(course: dict, all_courses: list = None) -> str:
   <div class="gg-course-signin" id="gg-course-signin">
     <div class="gg-course-gate-badge">ALREADY ENROLLED?</div>
     <h2>Sign in to your course</h2>
-    <p>Enter the email you enrolled with &mdash; the one from your Stripe receipt, or the one your coach set you up with. No credit card, no password.</p>
+    <p>Enter the email from your Stripe receipt, or the one your coach used to enroll you. No credit card, no password.</p>
     <form class="gg-course-gate-form" id="gg-course-signin-form" autocomplete="off">
       <input type="hidden" name="website" value="">
       <input type="email" name="email" required placeholder="your@email.com" aria-label="Email address">
@@ -2289,11 +2394,7 @@ def build_landing_page(course: dict, all_courses: list = None) -> str:
   </div>
 </div>
 
-<div class="gg-course-bottom-cta">
-  <h2>Ready to start?</h2>
-  <p>{course["total_lessons"]} interactive lessons. {total_time_str.capitalize()}. Lifetime access.</p>
-  <a href="{stripe_link}" class="gg-course-hero-cta">ENROLL FOR ${price}</a>
-</div>
+{bottom_cta}
 
 {mega_footer}
 </div>
@@ -2324,8 +2425,9 @@ def build_lesson_page(course: dict, module: dict, lesson: dict,
     lesson_title = esc(lesson["title"])
     course_title = esc(course["title"])
     canonical = f"{SITE_BASE_URL}/course/{slug}/lesson/{lesson_id}/"
-    stripe_link = esc(course["stripe_payment_link"])
+    stripe_link = esc(course.get("stripe_payment_link", ""))
     price = course["price_usd"]
+    invite_only = course.get("access_model") == "coach_invite"
 
     # Build module lesson map for JS
     module_lesson_map = build_module_lesson_map(course)
@@ -2404,6 +2506,21 @@ def build_lesson_page(course: dict, module: dict, lesson: dict,
     course_css = build_course_css()
     course_js = build_course_js(course, module_lesson_map)
 
+    gate_buy = (
+        f'''<div id="gg-course-gate-buy">
+      <div class="gg-course-gate-badge">COACHING ONBOARDING</div>
+      <h2>{course_title}</h2>
+      <p>This course is included with coaching. Use the exact email your coach enrolled to continue.</p>
+      <button type="button" class="gg-course-gate-cta" id="gg-course-invite-signin">SIGN IN</button>
+    </div>'''
+        if invite_only else
+        f'''<div id="gg-course-gate-buy">
+      <div class="gg-course-gate-badge">PREMIUM COURSE</div>
+      <h2>{course_title}</h2>
+      <p>This lesson is part of a paid course. Enroll to get lifetime access to all {total} lessons.</p>
+      <a href="{stripe_link}" class="gg-course-gate-cta">ENROLL FOR ${price}</a>
+    </div>''')
+
     return f'''<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -2435,12 +2552,7 @@ def build_lesson_page(course: dict, module: dict, lesson: dict,
 <!-- Purchase Gate -->
 <div class="gg-course-gate" id="gg-course-gate">
   <div class="gg-course-gate-inner">
-    <div id="gg-course-gate-buy">
-      <div class="gg-course-gate-badge">PREMIUM COURSE</div>
-      <h2>{course_title}</h2>
-      <p>This lesson is part of a paid course. Enroll to get lifetime access to all {total} lessons.</p>
-      <a href="{stripe_link}" class="gg-course-gate-cta">ENROLL FOR ${price}</a>
-    </div>
+    {gate_buy}
     <div id="gg-course-gate-verify" style="display:none">
       <div class="gg-course-gate-badge">WELCOME BACK</div>
       <h2>Verify Your Purchase</h2>
@@ -2515,7 +2627,7 @@ def build_lesson_page(course: dict, module: dict, lesson: dict,
         <!-- XP + Level Section -->
         <div class="gg-xp-section">
           <div class="gg-xp-header">
-            <span class="gg-xp-level" id="gg-xp-level">LVL 1 — Gravel Curious</span>
+            <span class="gg-xp-level" id="gg-xp-level">LVL 1 · Gravel Curious</span>
             <span class="gg-xp-count" id="gg-xp-count">0 XP</span>
           </div>
           <div class="gg-xp-bar-wrap">
@@ -2523,7 +2635,7 @@ def build_lesson_page(course: dict, module: dict, lesson: dict,
           </div>
           <div class="gg-xp-streak-row">
             <span class="gg-xp-streak-label">Streak</span>
-            <span class="gg-xp-streak-label" id="gg-xp-streak-val">&mdash;</span>
+            <span class="gg-xp-streak-label" id="gg-xp-streak-val">0</span>
           </div>
         </div>
       </div>
@@ -2597,7 +2709,7 @@ def build_lesson_page(course: dict, module: dict, lesson: dict,
 def build_course_index(courses: list) -> str:
     """Build the /course/ index page listing all courses."""
     cards_html = []
-    for course in courses:
+    for course in (c for c in courses if c.get("listed", True)):
         slug = course["id"]
         title = esc(course["title"])
         subtitle = esc(course["subtitle"])
@@ -2614,7 +2726,7 @@ def build_course_index(courses: list) -> str:
 
     signin_links = " &middot; ".join(
         f'<a href="{SITE_BASE_URL}/course/{c["id"]}/#gg-course-signin">{esc(c["title"])}</a>'
-        for c in courses
+        for c in courses if c.get("listed", True)
     )
     signin_html = (
         f'<p class="gg-course-index-signin">Already enrolled? '
@@ -2943,20 +3055,27 @@ def generate_course(course_dir: Path, output_dir: Path,
     flat_lessons = get_flat_lessons(course)
     total = len(flat_lessons)
 
-    # Landing page
+    # Render and validate every page before writing any of them. A later lesson
+    # failure must not leave a half-regenerated course in the deploy directory.
     landing_dir = output_dir / slug
-    landing_dir.mkdir(parents=True, exist_ok=True)
     landing_html = build_landing_page(course, all_courses=all_courses)
-    (landing_dir / "index.html").write_text(landing_html, encoding="utf-8")
-    print(f"  {slug}/index.html (landing page)")
+    rendered_pages = [(landing_dir / "index.html", landing_html, "landing page")]
 
-    # Lesson pages
     for idx, (module, lesson) in enumerate(flat_lessons):
         lesson_dir = landing_dir / "lesson" / lesson["id"]
-        lesson_dir.mkdir(parents=True, exist_ok=True)
         lesson_html = build_lesson_page(course, module, lesson, idx, total, flat_lessons)
-        (lesson_dir / "index.html").write_text(lesson_html, encoding="utf-8")
-        print(f"  {slug}/lesson/{lesson['id']}/index.html")
+        rendered_pages.append(
+            (lesson_dir / "index.html", lesson_html, f"lesson/{lesson['id']}")
+        )
+
+    for _, page_html, page_name in rendered_pages:
+        validate_rendered_course_copy(course, page_name, page_html)
+
+    for page_path, page_html, page_name in rendered_pages:
+        page_path.parent.mkdir(parents=True, exist_ok=True)
+        page_path.write_text(page_html, encoding="utf-8")
+        suffix = " (landing page)" if page_name == "landing page" else ""
+        print(f"  {page_path.relative_to(output_dir)}{suffix}")
 
     # Course-local image assets (data/courses/{slug}/assets/ → /course/{slug}/assets/)
     assets_src = course_dir / "assets"

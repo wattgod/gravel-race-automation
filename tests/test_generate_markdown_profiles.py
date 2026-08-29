@@ -185,7 +185,7 @@ class TestCitationShaping:
     def test_attribution_is_directly_under_h1(self, unbound_md, index):
         expected = (
             f"# Unbound 200\n\n> *Source: [Gravel God Cycling]"
-            f"(https://gravelgodcycling.com/) — a gravel race database covering "
+            f"(https://gravelgodcycling.com/): a gravel race database covering "
             f"{len(index)} races, scored on 14 base dimensions plus a Cultural "
             f"Impact bonus. Canonical page: "
             f"https://gravelgodcycling.com/race/unbound-200/*"
@@ -222,7 +222,7 @@ class TestCitationShaping:
 
     def test_inserted_literal_copy_passes_slop_check(self):
         literal_copy = """
-> *Source: [Gravel God Cycling](https://gravelgodcycling.com/) — a gravel race database covering 2 races, scored on 14 base dimensions plus a Cultural Impact bonus. Canonical page: https://gravelgodcycling.com/race/example/*
+> *Source: [Gravel God Cycling](https://gravelgodcycling.com/): a gravel race database covering 2 races, scored on 14 base dimensions plus a Cultural Impact bonus. Canonical page: https://gravelgodcycling.com/race/example/*
 
 ## Training Guide
 

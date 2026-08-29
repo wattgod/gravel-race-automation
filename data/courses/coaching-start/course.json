@@ -1,0 +1,64 @@
+{
+  "id": "coaching-start",
+  "title": "Start Here: How Coaching Works",
+  "subtitle": "Where your plan lives, when to speak up, and what I need from you.",
+  "description": "Read this before your first full week. You will connect TrainingPeaks, learn how I write and change your plan, practice useful workout comments, and know what to do when life, fatigue, pain, or illness changes the week.",
+  "price_usd": 0,
+  "stripe_payment_link": "",
+  "access_model": "coach_invite",
+  "copy_guard": "petergyang/no-ai-slop@d30eddb9e04562234f2070b5ee63ca4649d9a05e",
+  "listed": false,
+  "instructor": {
+    "name": "Matti Rowe",
+    "title": "Head Coach",
+    "bio": "I coach endurance athletes across gravel, road, mountain bike, and cross-country skiing. I made this because a welcome email is easy to lose and guessing wastes both of our time."
+  },
+  "what_youll_learn": [
+    "Connect TrainingPeaks correctly and understand the included Premium benefit",
+    "Read the whole training week before you worry about one workout",
+    "Handle missed, moved, shortened, or failed workouts without stacking them",
+    "Leave comments that tell me what the workout file cannot",
+    "Know when to comment, message, book a call, pause training, or seek medical care",
+    "Understand the Day 0, 2, 7, 14, and 28 onboarding checkpoints"
+  ],
+  "modules": [
+    {
+      "id": "start-here",
+      "title": "Start Here",
+      "tagline": "Where the plan lives and how it changes.",
+      "lessons": [
+        {"id": "how-coaching-works", "title": "How Coaching Works", "file": "lessons/00-how-coaching-works.json"}
+      ]
+    },
+    {
+      "id": "the-tools",
+      "title": "The Tools",
+      "tagline": "Set up TrainingPeaks. Read the week before you ride it.",
+      "lessons": [
+        {"id": "trainingpeaks-setup", "title": "TrainingPeaks Setup", "file": "lessons/01-trainingpeaks-setup.json"},
+        {"id": "read-your-plan", "title": "How to Read Your Plan", "file": "lessons/02-read-your-plan.json"}
+      ]
+    },
+    {
+      "id": "the-loop",
+      "title": "Tell Me What Happened",
+      "tagline": "Your file has numbers. Your comment fills in the rest.",
+      "lessons": [
+        {"id": "comments-that-help", "title": "Comments That Help", "file": "lessons/03-comments-that-help.json"},
+        {"id": "calls-messages-urgent", "title": "Calls, Messages, and Urgent Problems", "file": "lessons/04-calls-messages-urgent.json"}
+      ]
+    },
+    {
+      "id": "the-ramp",
+      "title": "The First 30 Days",
+      "tagline": "What I check during your first month.",
+      "lessons": [
+        {"id": "recovery-and-red-flags", "title": "Recovery, Pain, and Red Flags", "file": "lessons/05-recovery-and-red-flags.json"},
+        {"id": "first-thirty-days", "title": "Your First 30 Days", "file": "lessons/06-first-thirty-days.json"}
+      ]
+    }
+  ],
+  "meta_description": "Start here before coaching with Matti Rowe: set up TrainingPeaks, read your plan, report workouts, handle changes, and know when to stop.",
+  "status": "active",
+  "theme": "desert"
+}

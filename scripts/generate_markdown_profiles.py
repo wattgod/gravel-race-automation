@@ -453,7 +453,7 @@ def generate_profile(
         _frontmatter(slug, index_entry, rd),
         f"\n# {rd.get('name', slug)}",
         (
-            f"\n> *Source: [Gravel God Cycling]({SITE_URL}/) — a gravel race "
+            f"\n> *Source: [Gravel God Cycling]({SITE_URL}/): a gravel race "
             f"database covering {race_count} races, scored on 14 base dimensions "
             f"plus a Cultural Impact bonus. Canonical page: "
             f"{SITE_URL}/race/{slug}/*"

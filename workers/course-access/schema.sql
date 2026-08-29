@@ -23,6 +23,12 @@ CREATE TABLE IF NOT EXISTS enrollments (
   stripe_session_id TEXT,
   amount_cents INTEGER,
   currency TEXT DEFAULT 'usd',
+  case_id TEXT,
+  athlete_key TEXT,
+  brand TEXT,
+  tier TEXT,
+  preferred_name TEXT,
+  goal_label TEXT,
   UNIQUE(user_id, course_id)
 );
 
@@ -80,6 +86,8 @@ CREATE TABLE IF NOT EXISTS nudge_log (
 
 -- Indexes
 CREATE INDEX IF NOT EXISTS idx_enrollments_user ON enrollments(user_id);
+CREATE UNIQUE INDEX IF NOT EXISTS idx_enrollments_case_course
+  ON enrollments(case_id, course_id) WHERE case_id IS NOT NULL;
 CREATE INDEX IF NOT EXISTS idx_lesson_progress_user_course ON lesson_progress(user_id, course_id);
 CREATE INDEX IF NOT EXISTS idx_xp_log_user ON xp_log(user_id);
 CREATE INDEX IF NOT EXISTS idx_streak_user ON streak_history(user_id, active_date);

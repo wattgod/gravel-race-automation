@@ -145,13 +145,11 @@ class TestHero:
     def test_headline(self):
         hero = build_hero()
         assert "You could be better than you think." in hero
-        assert "That is not encouragement &mdash;" in hero
-        assert "it&#39;s an observation about people who train alone." in hero
+        assert "Training alone makes it hard to see which weeks are actually moving you forward." in hero
 
     def test_subhead(self):
         hero = build_hero()
-        assert "The fix is a human in your corner." in hero
-        assert "Not an AI, not a dashboard, not a coach who reads you like a spreadsheet." in hero
+        assert "I read the whole week, including the comments and the life around it." in hero
         assert "The terms are below." in hero
 
 
@@ -185,8 +183,8 @@ class TestTerms:
     def test_clause_bodies(self):
         t = build_terms()
         assert "I notice the interval you bailed on and ask why." in t
-        assert "Knowledge isn&#39;t the limiter &mdash; application is." in t
-        assert "the week adjusts that week" in t
+        assert "You can know everything about training and still train wrong." in t
+        assert "The week changes when life changes" in t
         assert "&ldquo;You&#39;re sandbagging&rdquo; and &ldquo;take the rest week&rdquo;" in t
         assert "Same coach, same standards." in t
 
@@ -703,7 +701,7 @@ class TestRequiredContent:
 
     def test_hero_h1(self, coaching_html):
         assert "You could be better than you think." in coaching_html
-        assert "it&#39;s an observation about people who train alone." in coaching_html
+        assert "Training alone makes it hard to see which weeks are actually moving you forward." in coaching_html
 
     def test_final_contact_line(self, coaching_html):
         assert "matt@gravelgodcycling.com" in coaching_html

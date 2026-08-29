@@ -1,207 +1,243 @@
 #!/usr/bin/env python3
+"""Deterministic checks derived from petergyang/no-ai-slop.
+
+The upstream skill is the editorial authority. This module turns the parts
+that can be checked without guessing into a build guard. Qualitative checks
+such as voice preservation, portability, and robotic rhythm still require the
+upstream editorial review.
+
+Pinned source:
+    https://github.com/petergyang/no-ai-slop
+    commit d30eddb9e04562234f2070b5ee63ca4649d9a05e
+
+The upstream work is MIT licensed by Peter Yang. A vendored copy of the
+license and editorial rules lives in ``vendor/no-ai-slop``.
 """
-Slop detection rules for generated content.
 
-Catches marketing fluff, AI-generated filler phrases, and lazy structural
-patterns that weaken the brand voice. Import BANNED_PHRASES or call
-check_text() from any generator.
-
-Usage:
-    from slop_rules import check_text, clean_text, BANNED_PHRASES
-
-    violations = check_text(some_html_or_text)
-    cleaned = clean_text(some_text)
-"""
+from __future__ import annotations
 
 import re
 from html.parser import HTMLParser
 
 
-# ── Banned phrases ──────────────────────────────────────────
-# Case-insensitive matching. Each entry is matched as a whole phrase.
+RULESET_NAME = "petergyang/no-ai-slop"
+RULESET_URL = "https://github.com/petergyang/no-ai-slop"
+RULESET_COMMIT = "d30eddb9e04562234f2070b5ee63ca4649d9a05e"
 
+
+# "Banned outright" in the upstream skill. Multiword spelling variants are
+# included where a writer could otherwise bypass the same rule with a hyphen.
 BANNED_PHRASES = [
-    # Hype words
-    "revolutionary",
+    "delve",
+    "foster",
+    "leverage",
+    "utilize",
+    "facilitate",
+    "empower",
+    "streamline",
+    "robust",
     "cutting-edge",
-    "game-changing",
-    "next-level",
-    "best-in-class",
-    "world-class",
-    "state-of-the-art",
     "paradigm shift",
-    # Empty escalation
-    "take your cycling to the next level",
-    "unlock your potential",
-    "unlock your",
-    "transform your",
-    "leverage your",
-    "elevate your",
-    "supercharge your",
-    "turbocharge",
-    "synergy",
-    "seamlessly",
-    "holistic approach",
-    # Filler openers
-    "in today's fast-paced",
-    "in today's world",
+    "game changer",
+    "game-changing",
+    "this is huge",
+    "this changes everything",
+    "tapestry",
+    "realm",
+    "beacon",
+    "multifaceted",
+    "meticulous",
+    "intricate",
+    "paramount",
+    "transformative",
+    "elevate",
+    "embark",
+    "supercharge",
+    "harness",
+    "ever-evolving",
+]
+
+
+# Upstream says these are often empty, not always forbidden. Exact phrase
+# matches are safe enough to make deterministic; context-sensitive adverbs
+# ("just", "actually", etc.) remain in the human eval.
+EMPTY_PHRASES = [
     "it's worth noting",
-    "it goes without saying",
-    "needless to say",
+    "it is worth noting",
+    "it's important to note",
+    "it is important to note",
     "at the end of the day",
-    # Fake depth
-    "dive deep",
-    "deep dive into",
+    "when it comes to",
+    "at its core",
+    "in today's world",
+    "in the age of",
+    "in the world of",
+    "the reality is",
+    "the truth is",
+    "in terms of",
+    "with regard to",
+    "in order to",
+    "going forward",
+    "in this article",
+    "let's dive in",
 ]
 
-# ── Banned structural patterns ──────────────────────────────
-# Regex patterns that catch lazy AI sentence structures.
 
+# Deterministic portions of the upstream "Patterns to cut" section. The label
+# is kept verbatim so failures point back to a named, checkable editorial rule.
 BANNED_STRUCTURES = [
-    # "Whether you're a beginner or a seasoned pro"
-    (r"whether you'?re a .{3,40} or a .{3,40}", "Whether you're a X or a Y"),
-    # "From X to Y, we've got you covered"
-    (r"from .{3,30} to .{3,30},?\s+we'?ve got you covered", "From X to Y, we've got you covered"),
-    # "Look no further" / "Search no further"
-    (r"(?:look|search) no further", "Look/search no further"),
-    # "In the world of [noun]"
-    (r"in the world of \w+", "In the world of X"),
-    # "Are you ready to [verb]"
-    (r"are you ready to \w+", "Are you ready to X"),
-    # "Here's the thing" / "Here's what you need to know"
-    (r"here'?s (?:the thing|what you need to know)", "Here's the thing / what you need to know"),
-    # "Without further ado"
-    (r"without further ado", "Without further ado"),
-    # "It's no secret that"
-    (r"it'?s no secret that", "It's no secret that"),
-    # "Let's face it"
-    (r"let'?s face it", "Let's face it"),
+    (
+        r"\b(?:this|it|that|the (?:question|point|goal|answer))\s+(?:is|was)\s+not\s+[^.!?]{1,100}[.!?]\s+(?:it\s+is|it'?s|this\s+is|that\s+is|the\s+\w+\s+is)\b",
+        "binary contrast",
+    ),
+    (r"\b(?:it'?s|this is) not just\s+[^.!?]{1,100}\bbut\b", "binary contrast"),
+    (r"\bthe question isn'?t\s+[^,.!?]{1,100}[,.]\s*(?:it'?s|the answer is)", "binary contrast"),
+    (
+        r"(?:^|[.!?]\s+)(?:here(?:'?s| is) the thing|here(?:'?s| is) what i mean|here(?:'?s| is) what you need to know|let me be clear|i'?ll be honest|the uncomfortable truth is)\b",
+        "throat-clearing opener",
+    ),
+    (
+        r"\b(?:this is the part (?:most people|everyone) (?:skip|miss)|what (?:most people|everyone) (?:gets? wrong|miss(?:es)?)|here'?s what nobody tells you|the part everyone misses)\b",
+        "faux-insight setup",
+    ),
+    (
+        r"\b(?:the (?:detail|best part|worst part|reason|answer|secret|catch|point|problem|result)\b[^.!?\n:]{0,80}|plot twist):\s+[a-z]",
+        "colon reveal",
+    ),
+    (r",\s*(?:highlighting|underscoring|reflecting|showcasing)\b", "superficial analysis"),
+    (
+        r"\b(?:stands? as a testament|marks? a pivotal moment|plays? a vital role|solidif(?:y|ies) (?:its|their) position|underscores? (?:its|the) significance)\b",
+        "importance puffery",
+    ),
+    (
+        r"\b(?:that last part matters more than it sounds|the key point is|as you can see|this distinction matters|in other words)\b",
+        "interpretive metadiscourse",
+    ),
+    (r"\b(?:experts agree|industry reports suggest|many argue|widely regarded as|studies show)\b", "weasel attribution"),
+    (r"\b(?:serves as|acts as|functions as)\s+(?:an?|the)\b", "fake-strong verb"),
+    (
+        r"(?:^|[.!?]\s+)not an?\s+[^.!?]{1,60}[.!?]\s+not an?\s+[^.!?]{1,60}[.!?]\s+(?:an?|the)\s+",
+        "negative listing",
+    ),
+    (
+        r"\bnot an?\s+[^,.!?]{1,50},\s*not an?\s+[^,.!?]{1,50},\s*(?:and\s+)?not an?\s+[^.!?]{1,50}",
+        "negative listing",
+    ),
+    (r"\b(?:what if i told you|think about it:|plot twist:)\b", "rhetorical setup"),
+    (r"(?:^|[.!?]\s+)(?:in conclusion|ultimately|overall),\s+", "summary-recap ending"),
 ]
 
 
-# ── Suggested replacements ──────────────────────────────────
-# Maps banned phrase -> concrete replacement. Not exhaustive — some phrases
-# should just be deleted rather than replaced.
+# These upstream checks are intentionally not faked with brittle regexes.
+# Reviewers and writing agents must run them from the vendored eval.
+HUMAN_REVIEW_RULES = (
+    "preserve the writer's point and voice",
+    "portability test",
+    "show rather than label importance",
+    "synonym cycling",
+    "dramatic fragmentation",
+    "robotic rhythm",
+    "fake-profound kicker",
+    "formatting slop",
+)
 
-_REPLACEMENTS = {
-    "revolutionary": "new",
-    "cutting-edge": "modern",
-    "game-changing": "significant",
-    "next-level": "",  # delete
-    "best-in-class": "strong",
-    "world-class": "top-tier",
-    "state-of-the-art": "current",
-    "paradigm shift": "change",
-    "seamlessly": "",  # delete
-    "holistic approach": "approach",
-    "synergy": "combination",
-    "turbocharge": "improve",
-    "supercharge your": "improve your",
-    "elevate your": "improve your",
-    "transform your": "change your",
-    "leverage your": "use your",
-    "unlock your potential": "train effectively",
-    "unlock your": "use your",
-    "take your cycling to the next level": "get faster",
-    "dive deep": "examine",
-    "deep dive into": "detailed look at",
-    "in today's fast-paced": "",  # delete the filler
-    "in today's world": "",  # delete the filler
-    "it's worth noting": "",  # just state the fact
-    "it goes without saying": "",  # just state the fact
-    "needless to say": "",  # just state the fact
-    "at the end of the day": "ultimately",
-}
-
-
-# ── HTML text extractor ─────────────────────────────────────
 
 class _TextExtractor(HTMLParser):
-    """Extracts visible text from HTML, ignoring tags and attributes."""
+    """Extract visible text while ignoring scripts, styles, and noscript."""
 
     def __init__(self):
         super().__init__()
-        self._parts = []
-        self._skip = False
+        self._parts: list[str] = []
+        self._skip_depth = 0
 
     def handle_starttag(self, tag, attrs):
         if tag in ("script", "style", "noscript"):
-            self._skip = True
+            self._skip_depth += 1
 
     def handle_endtag(self, tag):
-        if tag in ("script", "style", "noscript"):
-            self._skip = False
+        if tag in ("script", "style", "noscript") and self._skip_depth:
+            self._skip_depth -= 1
 
     def handle_data(self, data):
-        if not self._skip:
+        if not self._skip_depth:
             self._parts.append(data)
 
     def get_text(self):
         return " ".join(self._parts)
 
 
-def _extract_text(html):
-    """Return visible text content from an HTML string."""
+def _extract_text(html: str) -> str:
     extractor = _TextExtractor()
     extractor.feed(html)
     return extractor.get_text()
 
 
-# ── Public API ──────────────────────────────────────────────
+def _phrase_pattern(phrase: str) -> re.Pattern[str]:
+    """Match a word/phrase without catching substrings such as elevation."""
+    escaped = re.escape(phrase).replace(r"\ ", r"\s+")
+    return re.compile(rf"(?<![\w-]){escaped}(?![\w-])", re.IGNORECASE)
 
-def check_text(text, is_html=False):
-    """Check text for slop violations.
 
-    Args:
-        text: The text (or HTML) to check.
-        is_html: If True, strip HTML tags before checking so that
-                 tag attributes and script content are ignored.
+def _finding(*, phrase: str, kind: str, match: re.Match[str] | None = None):
+    finding = {"phrase": phrase, "type": kind, "ruleset": RULESET_NAME}
+    if match:
+        finding["match"] = match.group(0)
+        finding["start"] = match.start()
+    return finding
 
-    Returns:
-        List of dicts: [{"phrase": str, "type": "banned_phrase"|"banned_structure"}]
-    """
+
+def check_text(text: str, is_html: bool = False):
+    """Return deterministic no-ai-slop findings for plain text or HTML."""
     if is_html:
         text = _extract_text(text)
 
-    text_lower = text.lower()
-    violations = []
-
-    # Check banned phrases
+    findings = []
     for phrase in BANNED_PHRASES:
-        if phrase.lower() in text_lower:
-            violations.append({"phrase": phrase, "type": "banned_phrase"})
+        match = _phrase_pattern(phrase).search(text)
+        if match:
+            findings.append(_finding(phrase=phrase, kind="banned_word", match=match))
 
-    # Check banned structures
+    for phrase in EMPTY_PHRASES:
+        match = _phrase_pattern(phrase).search(text)
+        if match:
+            findings.append(_finding(phrase=phrase, kind="empty_phrase", match=match))
+
     for pattern, label in BANNED_STRUCTURES:
-        if re.search(pattern, text_lower):
-            violations.append({"phrase": label, "type": "banned_structure"})
+        match = re.search(pattern, text, flags=re.IGNORECASE | re.MULTILINE)
+        if match:
+            findings.append(_finding(phrase=label, kind="banned_structure", match=match))
 
-    return violations
+    words = re.findall(r"\b\w+[’']?\w*\b", text)
+    # A citation title such as "Gravel God Cycling — Unbound 200" uses the
+    # dash as title punctuation, not prose rhythm. The upstream rule targets
+    # decorative sentence cadence, so quoted spans are excluded here.
+    prose_for_dash_check = re.sub(r'"[^"\n]*"|“[^”\n]*”', "", text)
+    em_dash_count = prose_for_dash_check.count("—")
+    max_em_dashes = 0 if len(words) <= 250 else 2
+    if em_dash_count > max_em_dashes:
+        findings.append({
+            "phrase": "em-dash overuse",
+            "type": "formatting_slop",
+            "ruleset": RULESET_NAME,
+            "match": "—",
+            "count": em_dash_count,
+            "allowed": max_em_dashes,
+        })
+
+    return findings
 
 
-def clean_text(text):
-    """Return text with common slop phrases replaced or removed.
+def clean_text(text: str):
+    """Remove exact filler phrases; structural edits still need judgment.
 
-    This is a best-effort helper. It handles exact phrase matches from
-    _REPLACEMENTS. Structural patterns require manual rewriting.
-
-    Args:
-        text: Plain text to clean.
-
-    Returns:
-        Cleaned text string.
+    The old checker guessed bland replacements for hype words. The upstream
+    rules require minimum effective edits that preserve voice, so this helper
+    refuses to manufacture generic substitute copy.
     """
     result = text
-    for phrase, replacement in sorted(_REPLACEMENTS.items(), key=lambda x: -len(x[0])):
-        # Case-insensitive replacement preserving sentence flow
-        pattern = re.compile(re.escape(phrase), re.IGNORECASE)
-        result = pattern.sub(replacement, result)
-
-    # Clean up double spaces and leading spaces from deletions
-    result = re.sub(r"  +", " ", result)
+    for phrase in sorted(EMPTY_PHRASES, key=len, reverse=True):
+        result = _phrase_pattern(phrase).sub("", result)
+    result = re.sub(r"[ \t]{2,}", " ", result)
     result = re.sub(r"^ +", "", result, flags=re.MULTILINE)
-    # Clean up orphaned punctuation from deletions (e.g., ", ," or ". .")
-    result = re.sub(r",\s*,", ",", result)
-    result = re.sub(r"\.\s*\.", ".", result)
-
-    return result
+    result = re.sub(r"\s+([,.;:!?])", r"\1", result)
+    return result.strip()

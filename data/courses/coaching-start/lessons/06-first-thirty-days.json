@@ -1,0 +1,23 @@
+{
+  "id": "first-thirty-days",
+  "title": "Your First 30 Days",
+  "module": "the-ramp",
+  "lesson_number": 6,
+  "blocks": [
+    {"type": "hero_stat", "value": "Days 0, 2, 7, 14, and 28", "unit": "the five times I check your setup and first block", "context": "I start with your intake, history, goals, and available training data. Your first month shows me how that plan fits your real life and legs."},
+    {"type": "process", "title": "What I Check", "description": "Each check catches a different kind of problem.", "steps": [
+      {"step": 1, "action": "Day 0: get oriented.", "detail": "Confirm TrainingPeaks, communication, calendar constraints, your kickoff call, and the purpose of the first week."},
+      {"step": 2, "action": "Day 2: verify the setup.", "detail": "Check device sync, uploaded files, zones, availability, and whether you can find and understand the plan."},
+      {"step": 3, "action": "Day 7: review the first week.", "detail": "Compare the plan with your files, readiness, comments, fuel, and unanswered questions."},
+      {"step": 4, "action": "Day 14: adjust the plan.", "detail": "Use two weeks of files and comments to adjust zones, dose, schedule, equipment assumptions, and recovery."},
+      {"step": 5, "action": "Day 28: review the first month.", "detail": "Summarize what changed, what still needs watching, and what the next block needs to accomplish."}
+    ]},
+    {"type": "knowledge_check", "question": "What is the main purpose of the first 30 days?", "options": [
+      {"text": "Prove how much training you can survive", "correct": false},
+      {"text": "Show how the first plan fits your schedule, recovery, and response to training", "correct": true},
+      {"text": "Set permanent zones after one workout", "correct": false}
+    ], "explanation": "Your first month shows me how the plan fits your schedule, recovery, equipment, and response to training."},
+    {"type": "commitment", "content": "I will use the current TrainingPeaks calendar, report changes early, leave useful workout comments, and ask before moving missed work."},
+    {"type": "callout", "style": "next", "content": "You are done here. Open TrainingPeaks, look over the first week, and ask about anything that is unclear."}
+  ]
+}

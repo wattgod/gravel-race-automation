@@ -216,6 +216,40 @@ class TestDurations:
         assert 'field drills' in format_course_total_time(dirt_craft)
 
 
+class TestCoachInviteCourse:
+    def test_coaching_start_manifest_and_lessons(self):
+        course = load_course(COURSES_DIR / "coaching-start")
+        assert course["access_model"] == "coach_invite"
+        assert course["listed"] is False
+        assert course["total_lessons"] == 7
+        assert all(lesson["blocks"] for module in course["modules"]
+                   for lesson in module["lessons"])
+
+    def test_invite_landing_has_no_broken_checkout(self):
+        course = load_course(COURSES_DIR / "coaching-start")
+        html = generate_courses.build_landing_page(course, [course])
+        assert "INCLUDED WITH COACHING" in html
+        assert "SIGN IN TO START" in html
+        assert 'href=""' not in html
+        assert "ENROLL FOR $0" not in html
+
+        flat = generate_courses.get_flat_lessons(course)
+        module, lesson = flat[0]
+        lesson_html = generate_courses.build_lesson_page(
+            course, module, lesson, 0, len(flat), flat)
+        assert "COACHING ONBOARDING" in lesson_html
+        assert 'id="gg-course-invite-signin"' in lesson_html
+        assert "ENROLL FOR $0" not in lesson_html
+        assert 'href=""' not in lesson_html
+
+    def test_invite_course_is_not_listed_in_store_index(self):
+        invite = load_course(COURSES_DIR / "coaching-start")
+        public = load_course(COURSES_DIR / "dirt-craft")
+        html = generate_courses.build_course_index([invite, public])
+        assert "Dirt Craft" in html
+        assert "Your Coaching Operating System" not in html
+
+
 # ── OG / social meta ─────────────────────────────────────────
 
 

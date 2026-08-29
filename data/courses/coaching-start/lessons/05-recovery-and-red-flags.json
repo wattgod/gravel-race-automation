@@ -1,0 +1,21 @@
+{
+  "id": "recovery-and-red-flags",
+  "title": "Recovery, Pain, and Red Flags",
+  "module": "the-ramp",
+  "lesson_number": 5,
+  "blocks": [
+    {"type": "hero_stat", "value": "Say it early", "unit": "fatigue and pain are easier to handle before they wreck the week", "context": "Tell me what you notice and how it changes your training. I can change the plan. A clinician handles diagnosis and medical clearance."},
+    {"type": "prose", "content": "### Report the trend\n\nFatigue, soreness, poor sleep, life stress, and heavy legs come with training. Tell me how long they have lasted and whether they are changing your workouts. One rough night calls for a different decision than a week of worse sleep and rising effort.\n\n### Pain and illness can stop the plan\n\nDo not hide pain to protect a workout. Stop or modify activity when pain, unusual symptoms, equipment, traffic, terrain, weather, or the law makes continuing unsafe. I may reduce or pause training and ask for clinician clearance. A signed waiver does not make a symptom safe."},
+    {"type": "process", "title": "Stop, Write It Down, Report It", "description": "Give me the facts while you still remember them.", "steps": [
+      {"step": 1, "action": "Stop or reduce the activity.", "detail": "Do not keep testing a symptom to create a cleaner data point."},
+      {"step": 2, "action": "Record what you can observe.", "detail": "Location, timing, intensity, what changed it, and whether normal movement is affected."},
+      {"step": 3, "action": "Use the appropriate care path.", "detail": "Call emergency services for emergency symptoms. Ask a clinician for medical care. I decide only what happens to training."},
+      {"step": 4, "action": "Wait before resuming.", "detail": "Wait for me or your clinician to clear the applicable next step."}
+    ]},
+    {"type": "knowledge_check", "question": "What does a signed waiver prove about a new symptom?", "options": [
+      {"text": "That it is safe to train through", "correct": false},
+      {"text": "That the coach can diagnose it", "correct": false},
+      {"text": "Nothing about medical safety; the symptom still needs the appropriate response", "correct": true}
+    ], "explanation": "A waiver records legal consent. It says nothing about whether a new symptom is safe."}
+  ]
+}

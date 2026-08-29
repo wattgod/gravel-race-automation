@@ -1,5 +1,6 @@
 """Contract checks for the shared coaching-intake edge Worker."""
 
+import json
 import subprocess
 from pathlib import Path
 
@@ -47,18 +48,25 @@ def test_worker_preserves_client_submission_receipt_for_safe_retry():
     assert "backend.status === 200 ? 200 : 201" in source
 
 
+def test_worker_normalizes_analytics_consent_fail_closed():
+    source = WORKER.read_text()
+    assert "questionnaire.analytics_consent" in source
+    assert "=== 'granted'" in source
+    assert ": 'denied'" in source
+
+
 def test_worker_does_not_reflect_cors_for_unknown_origins():
     source = WORKER.read_text()
     assert "if (brandFromOrigin(origin)) Object.assign(headers, corsHeaders(origin));" in source
 
 
 def test_worker_secret_is_not_committed():
-    config = WRANGLER.read_text()
-    assert '"COACHING_INTAKE_SECRET"' not in config
-    assert '"COACHING_CANARY_SECRET"' not in config
-    assert '"compatibility_date": "2026-08-25"' in config
-    assert '"compatibility_flags": ["nodejs_compat"]' in config
-    assert '"observability"' in config
+    config = json.loads(WRANGLER.read_text())
+    assert 'COACHING_INTAKE_SECRET' not in config.get('vars', {})
+    assert 'COACHING_CANARY_SECRET' not in config.get('vars', {})
+    assert config['compatibility_date'] == '2026-08-25'
+    assert config['compatibility_flags'] == ['nodejs_compat']
+    assert 'observability' in config
 
 
 def test_worker_has_authenticated_edge_to_backend_canary():
@@ -68,6 +76,17 @@ def test_worker_has_authenticated_edge_to_backend_canary():
     assert 'X-Coaching-Canary-Secret' in source
     assert 'COACHING_CANARY_SECRET' in source
     assert '/api/coaching-canary' in source
+
+
+def test_worker_runs_the_side_effect_free_canary_daily():
+    source = WORKER.read_text()
+    config = json.loads(WRANGLER.read_text())
+    assert 'async scheduled(' in source
+    assert 'runScheduledCanary(env)' in source
+    assert 'coaching_daily_synthetic_canary' in source
+    assert config['triggers']['crons'] == ['17 14 * * *']
+    assert set(config['secrets']['required']) == {
+        'COACHING_INTAKE_SECRET', 'COACHING_CANARY_SECRET'}
     assert 'X-Coaching-Intake-Secret' in source
     assert 'crypto.subtle.timingSafeEqual' in source
     assert "side_effects" not in source  # backend owns the safety claim

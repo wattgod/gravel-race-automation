@@ -11,5 +11,14 @@
   },
   "vars": {
     "PIPELINE_URL": "https://athlete-custom-training-plan-pipeline-production.up.railway.app"
+  },
+  "secrets": {
+    "required": [
+      "COACHING_INTAKE_SECRET",
+      "COACHING_CANARY_SECRET"
+    ]
+  },
+  "triggers": {
+    "crons": ["17 14 * * *"]
   }
 }

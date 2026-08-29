@@ -38,7 +38,7 @@ Race database site (gravelgodcycling.com) — 757 race profiles, 543 tire guides
 
 ### Brand & Copy
 - **Brand tokens source of truth**: `tokens.css`. Never hardcode hex.
-- **Anti-slop rules**: `wordpress/slop_rules.py` — 27 banned phrases, 9 banned structures. Preflight warns on matches.
+- **Anti-slop authority**: `petergyang/no-ai-slop`, pinned and attributed in `.claude/skills/no-ai-slop/`. Read its `SKILL.md` and `eval.md` before writing or editing public copy. `wordpress/slop_rules.py` makes the deterministic portion fail-checkable; voice preservation, portability, and robotic rhythm still require the editorial eval.
 - **Neo-brutalist style**: No border-radius, no box-shadow, 2-3px solid borders.
 - **Fonts**: Sometype Mono (data) + Source Serif 4 (editorial).
 
@@ -81,6 +81,7 @@ Race database site (gravelgodcycling.com) — 757 race profiles, 543 tire guides
 | Brand tokens, fonts, CI, Python versions | `.claude/skills/brand-tokens-and-ci/SKILL.md` |
 | Email capture, sequences, Mission Control | `.claude/skills/conversion-and-email/SKILL.md` |
 | Race profiles, enrichment, scraping, site regen | `.claude/skills/data-pipeline-ops/SKILL.md` |
+| Public-facing copy | `.claude/skills/no-ai-slop/SKILL.md` and `eval.md` |
 
 ## Known Pitfalls
 1. Coaching carousel auto-advance was firing GA events every 6s — fixed, test enforces.

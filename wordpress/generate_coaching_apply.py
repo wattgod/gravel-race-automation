@@ -88,8 +88,14 @@ def build_section_1_basic_info() -> str:
 
       <div class="gg-apply-inline">
         <div class="gg-apply-group">
-          <label class="gg-apply-label" for="name">Full Name <span class="gg-apply-required">*</span></label>
-          <input type="text" id="name" name="name" required placeholder="First Last">
+          <label class="gg-apply-label" for="name">Legal Full Name <span class="gg-apply-required">*</span></label>
+          <input type="text" id="name" name="name" required autocomplete="name" placeholder="First Last">
+          <div class="gg-apply-field-hint">Use the name that should appear on your coaching agreement.</div>
+        </div>
+        <div class="gg-apply-field">
+          <label class="gg-apply-label" for="preferred_name">What should I call you?</label>
+          <input type="text" id="preferred_name" name="preferred_name" autocomplete="nickname" placeholder="First name or nickname">
+          <div class="gg-apply-field-hint">Optional. This is used in coaching messages and your onboarding course.</div>
         </div>
         <div class="gg-apply-group">
           <label class="gg-apply-label" for="email">Email <span class="gg-apply-required">*</span></label>
@@ -148,8 +154,10 @@ def build_section_1_basic_info() -> str:
           </select>
         </div>
         <div class="gg-apply-group">
-          <label class="gg-apply-label" for="age">Age <span class="gg-apply-required">*</span></label>
-          <input type="number" id="age" name="age" required placeholder="35" min="13" max="90">
+          <label class="gg-apply-label" for="date_of_birth">Date of Birth <span class="gg-apply-required">*</span></label>
+          <input type="date" id="date_of_birth" name="date_of_birth" required autocomplete="bday">
+          <input type="hidden" id="age" name="age">
+          <div class="gg-apply-field-hint">Used for age-group planning, guardian routing, and birthday reminders.</div>
         </div>
         <div class="gg-apply-group">
           <label class="gg-apply-label" for="weight">Weight <span class="gg-apply-required">*</span></label>
@@ -899,7 +907,7 @@ def build_tier_selector() -> str:
 
 def build_footer() -> str:
     return f'''<div class="gg-apply-confidential-wrap">
-    <p class="gg-apply-confidential">Your information is kept confidential and used only for coaching purposes. Questions? Email gravelgodcoaching@gmail.com</p>
+    <p class="gg-apply-confidential">Your answers, including health information you choose to provide, are processed to review and deliver coaching as described in the <a href="/privacy/">Privacy Policy</a>. Analytics is separately controlled by your privacy choice. Questions? Email gravelgodcoaching@gmail.com</p>
   </div>
   ''' + get_mega_footer_html()
 
@@ -1396,7 +1404,7 @@ def build_apply_css() -> str:
 
 def build_apply_js() -> str:
     """Build all JS for the coaching apply form. Includes W/kg calculator,
-    blindspot inference, progress tracking, save/resume, Google Form hybrid
+    blindspot inference, progress tracking, save/resume, durable intake
     submission, and GA4 event tracking."""
     return '''<script>
 (function() {
@@ -1425,6 +1433,12 @@ def build_apply_js() -> str:
     if (typeof gtag === "function") {
       gtag("event", name, params || {});
     }
+  }
+
+  function analyticsConsentState() {
+    if (/(^|; )gg_consent=accepted/.test(document.cookie)) { return "granted"; }
+    if (/(^|; )gg_consent=declined/.test(document.cookie)) { return "denied"; }
+    return window.ggConsentRequiresOptIn === false ? "granted" : "denied";
   }
 
   var applyStartedTracked = false;
@@ -1824,11 +1838,25 @@ def build_apply_js() -> str:
     var formData = new FormData(this);
     var data = {};
     formData.forEach(function(value, key) { data[key] = value; });
+    var birthDate = new Date(String(data.date_of_birth || "") + "T12:00:00Z");
+    var today = new Date();
+    var calculatedAge = today.getUTCFullYear() - birthDate.getUTCFullYear();
+    var birthdayPending = (today.getUTCMonth() < birthDate.getUTCMonth()) ||
+      (today.getUTCMonth() === birthDate.getUTCMonth() && today.getUTCDate() < birthDate.getUTCDate());
+    if (birthdayPending) { calculatedAge -= 1; }
+    if (!Number.isFinite(calculatedAge) || calculatedAge < 13 || calculatedAge > 100) {
+      showMessage("error", "Please enter a valid date of birth. This intake supports athletes age 13 and older.");
+      submitBtn.disabled = false;
+      submitBtn.textContent = "Submit Questionnaire";
+      return;
+    }
+    data.age = String(calculatedAge);
     data.devices = formData.getAll("devices");
     data.long_ride_days = formData.getAll("long_ride_days");
     data.interval_days = formData.getAll("interval_days");
     data.off_days = formData.getAll("off_days");
     data.submission_id = getSubmissionId();
+    data.analytics_consent = analyticsConsentState();
 
     var submittedAge = parseInt(data.age, 10);
     if (submittedAge < 18 && (!data.guardian_name || !data.guardian_email || !data.guardian_relationship)) {

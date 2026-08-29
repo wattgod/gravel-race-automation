@@ -1,0 +1,19 @@
+{
+  "id": "comments-that-help",
+  "title": "Comments That Help",
+  "module": "the-loop",
+  "lesson_number": 3,
+  "blocks": [
+    {"type": "hero_stat", "value": "Tell me what I cannot see", "unit": "execution, feel, symptoms, fuel, and the next few days", "context": "The workout file gives me numbers. A short comment tells me why the numbers looked that way and whether I should change anything."},
+    {"type": "process", "title": "A Useful Workout Comment", "description": "You rarely need an essay. Include these when they affected the workout.", "steps": [
+      {"step": 1, "action": "Execution.", "detail": "Completed, shortened, changed, or stopped. Say where the prescription broke down."},
+      {"step": 2, "action": "Feel.", "detail": "Easy, controlled, hard, or maximal. Add RPE when it sharpens the picture."},
+      {"step": 3, "action": "Pain or unusual symptoms.", "detail": "Say what, when, and whether it changed your movement or effort. Do not diagnose it."},
+      {"step": 4, "action": "Fuel and fluids.", "detail": "For longer work, report approximate carbohydrate and fluid intake and any gut trouble."},
+      {"step": 5, "action": "The next few days.", "detail": "Mention travel, poor sleep, schedule collisions, illness, or a limited training window."}
+    ]},
+    {"type": "callout", "style": "tip", "content": "**Useful:** ‘3/4 climbs at target. Fourth faded after 8 min; legs 8/10, breathing controlled. 85g carbs/hr, one bottle/hr, no gut issue. Right knee 0/10 during, 2/10 walking downstairs after. Thursday is still open.’"},
+    {"type": "callout", "style": "warning", "content": "**Too vague:** ‘Done. Felt okay.’ I still do not know where you struggled, what you felt, or whether anything needs to change."},
+    {"type": "commitment", "content": "Use this format on your next hard workout. Short and specific beats polished."}
+  ]
+}

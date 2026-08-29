@@ -1,0 +1,21 @@
+{
+  "id": "read-your-plan",
+  "title": "How to Read Your Plan",
+  "module": "the-tools",
+  "lesson_number": 2,
+  "blocks": [
+    {"type": "hero_stat", "value": "Read the week", "unit": "then read today's workout", "context": "Before you ride, check the purpose, duration, intensity target, recovery, and notes. A green box means very little if you missed the reason for the workout."},
+    {"type": "prose", "content": "### Read the week first\n\nThe work around a hard session changes what that session can do. Easy days leave room for the hard ones. Long rides build durability. Recovery weeks absorb the work you have already done. Before Monday, find the sessions that need your best legs.\n\n### When life changes the plan\n\nLeave the missed workout where it is. Tell me what changed and when you can train next. I will decide whether the workout moves, changes, or disappears."},
+    {"type": "process", "title": "Before Every Hard Session", "description": "This takes about 30 seconds and catches most avoidable mistakes.", "steps": [
+      {"step": 1, "action": "Read the objective.", "detail": "Know whether the target is aerobic durability, threshold control, repeatability, technique, or recovery."},
+      {"step": 2, "action": "Check duration and terrain.", "detail": "Choose a route or trainer setup that lets you execute without turning logistics into extra intensity."},
+      {"step": 3, "action": "Plan fuel and fluids.", "detail": "Long or demanding sessions need fuel before the bonk sends you into a gas station looking for miracles."},
+      {"step": 4, "action": "Check the next day.", "detail": "Leave enough in the tank for the work that follows."}
+    ]},
+    {"type": "knowledge_check", "question": "You miss Tuesday's intervals and Wednesday is an easy day. What should you do?", "options": [
+      {"text": "Stack Tuesday's intervals onto Wednesday", "correct": false},
+      {"text": "Do both sessions Wednesday", "correct": false},
+      {"text": "Comment with what happened and your next available window; wait for Matti to adjust the plan", "correct": true}
+    ], "explanation": "Tell me what happened and when you can train next. Stacking missed work often ruins the sessions that still matter."}
+  ]
+}

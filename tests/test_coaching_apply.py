@@ -182,7 +182,9 @@ class TestSectionContent:
                 'preferred_contact_channel', 'trainingpeaks_connection_status',
                 'guardian_name', 'guardian_email', 'guardian_relationship'):
             assert f'name="{field}"' in s
-        assert 'min="13"' in s
+        assert 'type="date"' in s
+        assert 'Legal Full Name' in s
+        assert 'name="preferred_name"' in s
         assert 'separate consent step' in s
 
     def test_timezone_is_captured_without_becoming_required(self, apply_html, apply_js):
@@ -363,6 +365,12 @@ class TestGA4Events:
         assert "coaching_apply_started" in apply_js
         assert "coaching_apply_submitted" in apply_js
         assert "coaching_apply_error" in apply_js
+
+    def test_submission_preserves_consent_mode_state(self, apply_js):
+        assert "analyticsConsentState" in apply_js
+        assert "gg_consent=accepted" in apply_js
+        assert "ggConsentRequiresOptIn === false" in apply_js
+        assert "data.analytics_consent = analyticsConsentState()" in apply_js
 
     def test_progress_saved_event(self, apply_js):
         assert "apply_progress_saved" in apply_js

@@ -75,27 +75,13 @@ def build_nav() -> str:
   </div>'''
 
 
-# SANCTIONED EXCEPTION to the anti-defensive-messaging rule (see
-# .claude/skills/brand-and-trust/SKILL.md, "Never defensive messaging" —
-# phrases naming what something ISN'T are normally banned because they
-# plant doubt nobody had). The sub-line below ("Not an AI, not a
-# dashboard, not a coach who reads you like a spreadsheet") is an
-# explicit, owner-approved exception. It is carried over verbatim from
-# the Roadie Labs /coaching/ hero
-# (road-race-automation/wordpress/generate_coaching.py, build_hero()) —
-# Roadie Labs shipped this line 2026-07-18 as the precedent-setting
-# instance of this exception, under the same brand-and-trust
-# anti-defensive-messaging rule that governs both sites. This is
-# gravel adopting an already-owner-sanctioned pattern from the sibling
-# brand, not a fabricated in-repo precedent — no equivalent footnote
-# existed anywhere in gravel-race-automation before this rebuild
-# (checked including HTML-entity/curly-apostrophe variants and
-# generated output).
+# The hero uses concrete coach behavior. Do not reintroduce the old negative
+# list ("Not an AI, not a dashboard..."); petergyang/no-ai-slop bans it.
 def build_hero() -> str:
     return f'''<section class="gg-coach-band gg-coach-hero" id="hero">
     <div class="gg-coach-inner">
-      <h1>You could be better than you think. That is not encouragement &mdash; it&#39;s an observation about people who train alone.</h1>
-      <p class="gg-coach-tagline">The fix is a human in your corner. Not an AI, not a dashboard, not a coach who reads you like a spreadsheet. The terms are below.</p>
+      <h1>You could be better than you think. Training alone makes it hard to see which weeks are actually moving you forward.</h1>
+      <p class="gg-coach-tagline">I read the whole week, including the comments and the life around it. The terms are below.</p>
       <a href="{QUESTIONNAIRE_URL}" class="gg-coach-hero-cta" data-cta="hero_apply">GET ME IN YOUR CORNER &rarr;</a>
     </div>
   </section>'''
@@ -111,12 +97,12 @@ def build_terms() -> str:
         (
             "02",
             "The patterns you can&#39;t see",
-            "You can know everything about training and still train wrong. Knowledge isn&#39;t the limiter &mdash; application is. Every athlete is their own worst blindspot: too fresh to rest, too stubborn to taper, too close to their own data to see the shape of it. Seeing it is the job.",
+            "You can know everything about training and still train wrong. Every athlete is their own worst blindspot: too fresh to rest, too stubborn to taper, too close to their own data to see the shape of it. Seeing it is the job.",
         ),
         (
             "03",
             "The plan moves when your life does",
-            "Sick kid, work trip, tender knee &mdash; the week adjusts that week, not after three missed targets teach an algorithm what a person would have seen on Tuesday.",
+            "Sick kid, work trip, tender knee. The week changes when life changes, before three missed targets teach an algorithm what a person would have seen on Tuesday.",
         ),
         (
             "04",
@@ -192,7 +178,7 @@ def build_tiers() -> str:
           <a href="{QUESTIONNAIRE_URL}?tier=max" class="gg-coach-tier-cta" data-cta="tier_max">GET STARTED</a>
         </div>
       </div>
-      <p class="gg-coach-tier-disclaimer">Coaching doesn&#39;t fix skipped workouts or feedback you don&#39;t act on. I review applications and usually reply within two business days &mdash; including when I don&#39;t think coaching is the right fit.</p>
+      <p class="gg-coach-tier-disclaimer">Coaching doesn&#39;t fix skipped workouts or feedback you don&#39;t act on. I review applications and usually reply within two business days, including when I don&#39;t think coaching is the right fit.</p>
       <p class="gg-coach-tier-setup-fee">TrainingPeaks Premium is included with every tier. Checkout includes a one-time $99 setup fee for intake analysis and your first plan build. Any waiver is offered privately, case by case.</p>
     </div>
   </section>'''
@@ -238,7 +224,7 @@ def build_faq() -> str:
         ),
         (
             "Do I need a power meter?",
-            "Not required &mdash; every workout carries effort-based targets you can train by feel. A power meter removes the guesswork; heart rate sits in between.",
+            "Not required. Every workout carries effort-based targets you can train by feel. A power meter removes the guesswork; heart rate sits in between.",
         ),
         (
             "What if I miss workouts?",
@@ -250,7 +236,7 @@ def build_faq() -> str:
         ),
         (
             "What&#39;s the time commitment?",
-            "The training you&#39;re already doing, but smarter. I&#39;m not adding hours &mdash; I&#39;m making the ones you have count.",
+            "I make the hours you already train count.",
         ),
         (
             "What&#39;s the $99 setup fee?",
@@ -290,9 +276,9 @@ def build_application_close() -> str:
     <div class="gg-coach-inner">
       <div class="gg-coach-final-cta">
         <p class="gg-coach-final-kicker">APPLICATION</p>
-        <p class="gg-coach-final-hook">Ten minutes of honest answers. I read every one myself. You&#39;ll usually hear from me within two business days &mdash; including if I don&#39;t think coaching is what you need.</p>
+        <p class="gg-coach-final-hook">Ten minutes of honest answers. I read every one myself. You&#39;ll usually hear from me within two business days, including if I don&#39;t think coaching is what you need.</p>
         <a href="{QUESTIONNAIRE_URL}" class="gg-coach-final-cta-link" data-cta="final_fill_intake">GET ME IN YOUR CORNER &rarr;</a>
-        <p class="gg-coach-final-contact">Questions first? <a href="mailto:matt@gravelgodcycling.com">matt@gravelgodcycling.com</a> &mdash; I answer myself, usually within a day.</p>
+        <p class="gg-coach-final-contact">Questions first? Email <a href="mailto:matt@gravelgodcycling.com">matt@gravelgodcycling.com</a>. I answer myself, usually within a day.</p>
       </div>
     </div>
   </section>'''

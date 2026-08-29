@@ -1,0 +1,21 @@
+{
+  "id": "calls-messages-urgent",
+  "title": "Calls, Messages, and Urgent Problems",
+  "module": "the-loop",
+  "lesson_number": 4,
+  "blocks": [
+    {"type": "hero_stat", "value": "Put it where I will see it", "unit": "comments for workouts, messages for schedule, calls for bigger decisions", "context": "Comment on the workout when your question belongs to that session. Message me when the next day or two needs to change. Use your private link to book a call."},
+    {"type": "process", "title": "Pick the Channel", "description": "Match the channel to the decision you need.", "steps": [
+      {"step": 1, "action": "TrainingPeaks comment.", "detail": "Workout execution, feel, fuel, symptoms, and questions tied to that session."},
+      {"step": 2, "action": "Direct message or email.", "detail": "Travel, a fast schedule change, or a question that affects the next one or two days."},
+      {"step": 3, "action": "Booked call.", "detail": "Race strategy, larger plan changes, recurring friction, or a topic that needs real conversation."},
+      {"step": 4, "action": "Emergency or clinical care.", "detail": "Call local emergency services for urgent medical or safety problems. Ask a clinician for medical care or diagnosis."}
+    ]},
+    {"type": "callout", "style": "highlight", "content": "I usually reply within two business days. For an emergency, call local emergency services instead of waiting for me."},
+    {"type": "knowledge_check", "question": "You develop chest pressure during a workout. What should you do?", "options": [
+      {"text": "Wait for a TrainingPeaks comment reply", "correct": false},
+      {"text": "Book the next available coaching call", "correct": false},
+      {"text": "Stop and use appropriate emergency or clinical care", "correct": true}
+    ], "explanation": "Potential emergencies need medical help now. Do not wait for a coach response."}
+  ]
+}

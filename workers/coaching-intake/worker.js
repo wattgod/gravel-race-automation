@@ -73,6 +73,10 @@ export default {
     const questionnaire = { ...data };
     delete questionnaire.website;
     delete questionnaire.submission_id;
+    questionnaire.analytics_consent =
+      String(data.analytics_consent || '').trim().toLowerCase() === 'granted'
+        ? 'granted'
+        : 'denied';
 
     let backend;
     try {
@@ -125,7 +129,32 @@ export default {
       duplicate: Boolean(result.duplicate),
     }, backend.status === 200 ? 200 : 201, origin);
   },
+
+  async scheduled(_controller, env, ctx) {
+    ctx.waitUntil(runScheduledCanary(env));
+  },
 };
+
+async function runScheduledCanary(env) {
+  const request = new Request('https://scheduled.invalid/__canary', {
+    method: 'POST',
+    headers: { 'X-Coaching-Canary-Secret': env.COACHING_CANARY_SECRET || '' },
+  });
+  const response = await handleCanary(request, env);
+  const result = await response.json();
+  const log = {
+    message: 'coaching_daily_synthetic_canary',
+    status: result.status || 'failed',
+    http_status: response.status,
+    summary: result.summary || {},
+  };
+  if (response.ok && result.status === 'ok') {
+    console.log(JSON.stringify(log));
+    return;
+  }
+  console.error(JSON.stringify(log));
+  throw new Error('Daily coaching onboarding canary failed');
+}
 
 async function handleCanary(request, env) {
   if (request.method !== 'POST') {

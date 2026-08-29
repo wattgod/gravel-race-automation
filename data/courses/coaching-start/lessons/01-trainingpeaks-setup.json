@@ -1,0 +1,22 @@
+{
+  "id": "trainingpeaks-setup",
+  "title": "TrainingPeaks Setup",
+  "module": "the-tools",
+  "lesson_number": 1,
+  "blocks": [
+    {"type": "hero_stat", "value": "Premium is included", "unit": "do not buy a separate TrainingPeaks subscription", "context": "Connect the TrainingPeaks account you use for training. I apply Premium through the coaching relationship after the connection is in place."},
+    {"type": "process", "title": "Set Up One Account", "description": "Five minutes now can prevent weeks of split data.", "steps": [
+      {"step": 1, "action": "Connect your athlete account to me.", "detail": "Use the private coaching-account invitation in your welcome email."},
+      {"step": 2, "action": "Confirm Premium appears.", "detail": "Do not purchase Premium yourself. Message me if it has not appeared after I accept the connection."},
+      {"step": 3, "action": "Connect your device platform.", "detail": "Garmin, Wahoo, COROS, Zwift, or another service should send completed files into the same athlete account."},
+      {"step": 4, "action": "Verify one real activity.", "detail": "Check that duration, power or heart rate when available, and your comment all appear on the completed workout."},
+      {"step": 5, "action": "Keep one account.", "detail": "Duplicate TrainingPeaks accounts split your history. Ask me before merging or reconnecting anything if you are unsure which account to use."}
+    ]},
+    {"type": "callout", "style": "warning", "content": "I check the coach connection, Premium status, and one uploaded activity before I call your setup finished."},
+    {"type": "knowledge_check", "question": "TrainingPeaks shows your plan, but completed rides are landing in a second account. What should you do?", "options": [
+      {"text": "Keep both accounts and summarize the other one in comments", "correct": false},
+      {"text": "Stop and ask Matti which account to use before changing integrations", "correct": true},
+      {"text": "Export every workout manually forever", "correct": false}
+    ], "explanation": "Your plan and completed files need to live in the same account. Ask before merging accounts or reconnecting a device."}
+  ]
+}

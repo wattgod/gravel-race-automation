@@ -26,6 +26,13 @@ tables of contents, recurring departments, character credits, and deliberately
 over-specific field notes. The durable lesson is the editorial structure, not
 either skin.
 
+On August 29, 2026, a temporary Internet Archive outage made the visual captures
+unavailable. The 2014 and 2015 interface structure was independently cross-checked
+against the preserved Common Crawl HTML, while the surviving 2021 site and the
+[1000% Studio retrospective](https://thousandpercent.studio/work/manual-for-speed/)
+remained available for visual inspection. This fallback recovered document
+structure and original asset references, not permission to reuse the assets.
+
 ## Three useful interface eras
 
 ### 2012: documentary index
@@ -60,6 +67,35 @@ with a clear premise, source/date/context strap, and adjacent navigation. The
 homepage may preview the next and previous season moments, but it must not become
 an autoplay carousel or hide the current issue behind gesture-only controls.
 
+### 2015: one publication, several story shapes
+
+The November 2015 homepage is the clearest bridge between the restrained archive
+and the later spectacle. A deliberately obsolete scrolling announcement sits
+above a deep publication menu organized into `RACE REPORTS`, `PROJECTS`, and
+`FEATURES`. The page then alternates among three strong modules instead of forcing
+every item into one card grid:
+
+- a split-screen feature with one documentary image, series/date context, a huge
+  stage title, small `Location` metadata, and a first-person pull quote;
+- a full-viewport image story with the title centered over the scene and two
+  compact fact cells for location and date;
+- an image-only interstitial that lets a Manual or visual project change the
+  rhythm without pretending to be another race report.
+
+Each large feature is followed by a horizontal `MORE FROM THIS SERIES` rail. Its
+cards carry an image, title, date, and place, so a reader can move laterally across
+one event while the page itself continues chronologically. The homepage lockup
+also used an animated gradient, but the useful lesson is not the GIF: one stable
+publication shell can support several recurring story shapes and make series
+membership visible at the moment of reading.
+
+**Useful mechanic:** Gravel Weekly should choose among a small deterministic set
+of issue modules based on the approved material: full visual thesis, split
+record/take, compact culture artifact, or quiet issue. A Current Thing should
+immediately expose adjacent moments from the same race, conflict, or season arc.
+The module choice must follow the story's editorial job; it cannot be random art
+direction or a pretext to fill an empty department.
+
 ### 2021: archive as spectacle
 
 The final-era homepage drops the conventional publication chrome. A repeating
@@ -82,6 +118,8 @@ or approval state.
 | Neighboring cards peeking into frame | Makes the issue feel serial | Previous/next season moments visible beside the active change-point | Normal links and anchors remain available; no carousel-only navigation |
 | Small metadata strap | Makes an odd artifact legible and retrievable | Source, date, place, story role, and verification status beneath culture artifacts | Evidence mechanics stay subordinate to the point |
 | Recurring briefs and typologies | Builds shared lore from small observations | `FIELD NOTES`, `THE CAST`, and approved recurring scene patterns | A recurrence needs multiple reviewed examples; no filler quota |
+| Full, split, and interstitial story modules | Gives unlike material distinct pace without losing publication identity | Deterministically choose a visual-thesis, record/take, culture-artifact, or quiet module from approved content | Module choice follows the editorial job; never randomize layout to manufacture novelty |
+| `More from this series` rail | Makes one event legible as an evolving sequence | Show adjacent moments from the same race, conflict, or season arc | Normal chronological links remain; no engagement-ranked recommendations |
 | Abrupt shifts in scale and type | Creates comic timing and surprise | One visual punch line or register shift per chapter | Body copy remains readable; hierarchy cannot obscure meaning |
 | Issue-specific art direction | Keeps a long-running archive alive | Choose composition from the verified story grammar and seeded brand system | Same input remains deterministic; reduced-motion and contrast always pass |
 | Persistent lateral navigation | Encourages archive wandering | Previous/next issue and previous/next season change-point | The current item and chronological position are announced in text |

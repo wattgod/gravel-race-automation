@@ -1129,8 +1129,23 @@ def test_historical_current_thing_requires_contemporary_corroboration_and_human_
 
     held_gate = copy.deepcopy(entry)
     held_gate["editorialGates"]["friend"] = "hold"
+    held_gate["editorialGateNotes"] = {
+        "friend": "The story still fails the friend-at-a-party attention test."
+    }
     with pytest.raises(IssueValidationError, match="every editorial gate"):
         validate_history_entry(held_gate, verify_hash=False)
+
+    undocumented_hold = sample_history_draft()
+    undocumented_hold["editorialGates"]["hostileEditor"] = "hold"
+    with pytest.raises(IssueValidationError, match="exactly the non-passing"):
+        validate_history_entry(undocumented_hold, verify_hash=False)
+
+    stale_gate_note = sample_history_draft()
+    stale_gate_note["editorialGateNotes"] = {
+        "hostileEditor": "This note must not survive after the gate passes."
+    }
+    with pytest.raises(IssueValidationError, match="must be empty"):
+        validate_history_entry(stale_gate_note, verify_hash=False)
 
     model_take = copy.deepcopy(entry)
     model_take["takeProvenance"] = "model_draft"
@@ -1207,6 +1222,9 @@ def test_historical_rejection_records_the_reason_without_approved_copy():
 def test_historical_approval_cannot_rescue_a_held_editorial_gate():
     draft = sample_history_draft()
     draft["editorialGates"]["hostileEditor"] = "hold"
+    draft["editorialGateNotes"] = {
+        "hostileEditor": "The governing claim outruns the evidence currently attached."
+    }
     draft["contentHash"] = compute_history_content_hash(draft)
     with pytest.raises(IssueValidationError, match="every editorial gate"):
         apply_history_decision(draft, sample_history_approval(draft))
@@ -1264,6 +1282,9 @@ def test_private_historical_review_desk_separates_evidence_and_approval_state():
     held["entryId"] = "history-held-2026"
     held["headline"] = "A held premise"
     held["editorialGates"]["friend"] = "hold"
+    held["editorialGateNotes"] = {
+        "friend": "The premise is accurate but would lose the room before reaching a point."
+    }
     held["contentHash"] = compute_history_content_hash(held)
     slopped = copy.deepcopy(draft)
     slopped["entryId"] = "history-slopped-2026"
@@ -1303,6 +1324,8 @@ def test_private_historical_review_desk_separates_evidence_and_approval_state():
     assert "LATER EVIDENCE (1)" in page
     assert "any decision binds to this exact draft hash" in page.lower()
     assert "approval fails closed while any hold remains" in page.lower()
+    assert "WHY HOLD:" in page
+    assert held["editorialGateNotes"]["friend"] in page
     assert draft["contentHash"] in page
     assert "noindex,nofollow" in page
     assert "@font-face" in page
@@ -1328,6 +1351,9 @@ def test_historical_review_index_prioritizes_recent_ready_decisions():
         "editorialScore": 100,
     })
     held_2026["editorialGates"]["hostileEditor"] = "hold"
+    held_2026["editorialGateNotes"] = {
+        "hostileEditor": "The headline claims more institutional control than the record proves."
+    }
     held_2026["contentHash"] = compute_history_content_hash(held_2026)
 
     assert review_years([ready_2025, held_2026, ready_2026]) == [2026, 2025]
@@ -1348,6 +1374,9 @@ def test_bulk_history_approval_is_exact_ready_only_and_non_publishing(tmp_path):
     held = copy.deepcopy(ready)
     held["entryId"] = "history-held-2026"
     held["editorialGates"]["hostileEditor"] = "hold"
+    held["editorialGateNotes"] = {
+        "hostileEditor": "The conclusion outruns the evidence currently attached."
+    }
     held["contentHash"] = compute_history_content_hash(held)
 
     prepared = prepare_ready_approvals(
@@ -1435,6 +1464,9 @@ def test_only_sealed_historical_snapshots_cross_the_public_loader(tmp_path):
         "editorialApproval": None,
     })
     draft["editorialGates"]["hostileEditor"] = "hold"
+    draft["editorialGateNotes"] = {
+        "hostileEditor": "The conclusion outruns the evidence currently attached."
+    }
     published["contentHash"] = compute_history_content_hash(published)
     approved["contentHash"] = compute_history_content_hash(approved)
     draft["contentHash"] = compute_history_content_hash(draft)

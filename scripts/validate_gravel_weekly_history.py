@@ -171,6 +171,28 @@ def validate_history_entry(value: Any, *, verify_hash: bool = True) -> dict[str,
             raise IssueValidationError(f"editorialGates.{gate_name} is invalid")
         if status != "draft" and verdict != "pass":
             raise IssueValidationError("approved historical entries require every editorial gate to pass")
+    non_passing_gates = {
+        gate_name for gate_name, verdict in gates.items() if verdict != "pass"
+    }
+    gate_notes_value = entry.get("editorialGateNotes")
+    if non_passing_gates:
+        if not isinstance(gate_notes_value, dict):
+            raise IssueValidationError(
+                "editorialGateNotes must contain exactly the non-passing editorial gates"
+            )
+        gate_notes = _record(gate_notes_value, "editorialGateNotes")
+        if set(gate_notes) != non_passing_gates:
+            raise IssueValidationError(
+                "editorialGateNotes must contain exactly the non-passing editorial gates"
+            )
+        for gate_name, note in gate_notes.items():
+            _text(note, f"editorialGateNotes.{gate_name}", 1_000)
+    elif gate_notes_value is not None:
+        gate_notes = _record(gate_notes_value, "editorialGateNotes")
+        if gate_notes:
+            raise IssueValidationError(
+                "editorialGateNotes must be empty when every editorial gate passes"
+            )
 
     contemporary = _list(entry.get("contemporaryReceipts"), "contemporaryReceipts", 100)
     if not contemporary:

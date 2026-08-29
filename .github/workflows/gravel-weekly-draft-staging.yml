@@ -1,0 +1,197 @@
+name: "Gravel Weekly Draft Staging"
+
+# The control plane owns evidence collection and model drafting. This workflow
+# closes the artifact handoff, but its token and permissions cannot approve,
+# commit, deploy, email, or mutate race data.
+on:
+  schedule:
+    - cron: "0 18 * * 5"
+  workflow_dispatch:
+    inputs:
+      source_run_id:
+        description: "Optional successful control-plane review run ID; blank selects the latest trusted producer"
+        required: false
+        type: string
+
+permissions:
+  contents: read
+  issues: write
+
+concurrency:
+  group: gravel-weekly-draft-staging
+  cancel-in-progress: false
+
+jobs:
+  stage:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      SOURCE_REPOSITORY: wattgod/race-intelligence-control-plane
+    steps:
+      - name: Resolve a trusted source run
+        id: source
+        env:
+          GH_TOKEN: ${{ secrets.GH_PAT }}
+          REQUESTED_RUN_ID: ${{ inputs.source_run_id }}
+          TRIGGER_EVENT: ${{ github.event_name }}
+        run: |
+          if [[ -z "$GH_TOKEN" ]]; then
+            echo "::error::GH_PAT is required for read-only cross-repository artifact access"
+            exit 1
+          fi
+          if [[ -n "$REQUESTED_RUN_ID" ]] && ! [[ "$REQUESTED_RUN_ID" =~ ^[0-9]+$ ]]; then
+            echo "::error::source_run_id must be a GitHub Actions run ID"
+            exit 1
+          fi
+          if [[ -n "$REQUESTED_RUN_ID" ]]; then
+            run_id="$REQUESTED_RUN_ID"
+          else
+            gh api "repos/$SOURCE_REPOSITORY/actions/workflows/race-intelligence.yml/runs?branch=main&status=success&per_page=10" > "$RUNNER_TEMP/weekly-runs.json"
+            if [[ "$TRIGGER_EVENT" = "workflow_dispatch" ]]; then
+              gh api "repos/$SOURCE_REPOSITORY/actions/workflows/gravel-weekly-editorial-replay.yml/runs?branch=main&status=success&per_page=10" > "$RUNNER_TEMP/replay-runs.json"
+            else
+              printf '%s\n' '{"workflow_runs":[]}' > "$RUNNER_TEMP/replay-runs.json"
+            fi
+            run_id="$(python3 - <<'PY'
+          import json
+          import os
+          from datetime import datetime, timezone
+          from pathlib import Path
+
+          root = Path(os.environ["RUNNER_TEMP"])
+          runs = []
+          for filename in ("weekly-runs.json", "replay-runs.json"):
+              runs.extend(json.loads((root / filename).read_text())["workflow_runs"])
+          if os.environ["TRIGGER_EVENT"] == "schedule":
+              runs = [run for run in runs if run.get("event") == "schedule"]
+              now = datetime.now(timezone.utc)
+              runs = [
+                  run for run in runs
+                  if 0 <= (now - datetime.fromisoformat(run["created_at"].replace("Z", "+00:00"))).total_seconds() <= 12 * 3600
+              ]
+          if not runs:
+              raise SystemExit("no recent trusted Gravel Weekly producer run is available")
+          runs.sort(key=lambda run: run["created_at"], reverse=True)
+          print(runs[0]["id"])
+          PY
+            )"
+          fi
+          gh api "repos/$SOURCE_REPOSITORY/actions/runs/$run_id" > "$RUNNER_TEMP/source-run.json"
+          python3 - <<'PY'
+          import json
+          import os
+          from pathlib import Path
+
+          run = json.loads((Path(os.environ["RUNNER_TEMP"]) / "source-run.json").read_text())
+          accepted = {
+              ".github/workflows/race-intelligence.yml": ("Race intelligence review", f"race-intelligence-{run.get('id')}"),
+              ".github/workflows/gravel-weekly-editorial-replay.yml": ("Gravel Weekly fast editorial replay", f"gravel-weekly-editorial-{run.get('id')}"),
+          }
+          path = str(run.get("path", "")).split("@", 1)[0]
+          expected = accepted.get(path)
+          failures = []
+          if run.get("repository", {}).get("full_name") != os.environ["SOURCE_REPOSITORY"]: failures.append("repository")
+          if run.get("head_branch") != "main": failures.append("head_branch")
+          if run.get("conclusion") != "success": failures.append("conclusion")
+          if run.get("event") not in {"schedule", "workflow_dispatch"}: failures.append("event")
+          if expected is None or run.get("name") != expected[0]: failures.append("workflow")
+          if failures:
+              raise SystemExit(f"source workflow is not an accepted successful main run: {', '.join(failures)}")
+          output = Path(os.environ["GITHUB_OUTPUT"])
+          with output.open("a") as handle:
+              handle.write(f"run_id={run['id']}\nartifact={expected[1]}\n")
+          print({"run_id": run["id"], "workflow": run["name"], "head_sha": run["head_sha"]})
+          PY
+
+      - name: Download the exact source artifact
+        env:
+          GH_TOKEN: ${{ secrets.GH_PAT }}
+          SOURCE_RUN_ID: ${{ steps.source.outputs.run_id }}
+          SOURCE_ARTIFACT: ${{ steps.source.outputs.artifact }}
+        run: |
+          mkdir -p "$RUNNER_TEMP/source"
+          gh run download "$SOURCE_RUN_ID" \
+            --repo "$SOURCE_REPOSITORY" \
+            --name "$SOURCE_ARTIFACT" \
+            --dir "$RUNNER_TEMP/source"
+          test -s "$RUNNER_TEMP/source/gravel-weekly-review.json"
+          test -s "$RUNNER_TEMP/source/gravel-weekly-review.md"
+
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+
+      - name: Install canonical runtime
+        run: pip install -r requirements.txt
+
+      - name: Stage a private, non-publishable issue
+        id: draft
+        run: |
+          python scripts/stage_gravel_weekly_review.py \
+            "$RUNNER_TEMP/source/gravel-weekly-review.json" \
+            --source-run "$RUNNER_TEMP/source-run.json" \
+            --output-dir artifacts/gravel-weekly-stage \
+            | tee "$RUNNER_TEMP/stage-result.json"
+          python wordpress/generate_gravel_weekly.py \
+            --preview-draft artifacts/gravel-weekly-stage/draft.json \
+            --preview-output artifacts/gravel-weekly-stage/preview.html
+          cp "$RUNNER_TEMP/source/gravel-weekly-review.md" artifacts/gravel-weekly-stage/source-review.md
+          python3 - <<'PY'
+          import json
+          import os
+          from pathlib import Path
+
+          result = json.loads((Path(os.environ["RUNNER_TEMP"]) / "stage-result.json").read_text().splitlines()[-1])
+          with Path(os.environ["GITHUB_OUTPUT"]).open("a") as output:
+              output.write(f"date={result['publicationDate']}\nnumber={result['issueNumber']}\nhash={result['contentHash']}\n")
+          PY
+
+      - name: Prove the staging boundary
+        run: |
+          python scripts/validate_gravel_weekly.py artifacts/gravel-weekly-stage/draft.json
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+
+          draft = json.loads(Path("artifacts/gravel-weekly-stage/draft.json").read_text())
+          manifest = json.loads(Path("artifacts/gravel-weekly-stage/manifest.json").read_text())
+          assert draft["status"] == "draft"
+          assert draft["editorialApproval"] is None
+          assert draft["publishedAt"] is None
+          assert manifest["humanApprovalRequired"] is True
+          assert manifest["autoPublishAllowed"] is False
+          preview = Path("artifacts/gravel-weekly-stage/preview.html").read_text()
+          assert "DRAFT — NOT PUBLISHED" in preview
+          assert "application/ld+json" not in preview
+          PY
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: gravel-weekly-draft-${{ steps.draft.outputs.date }}-${{ github.run_id }}
+          path: artifacts/gravel-weekly-stage/
+          retention-days: 90
+
+      - name: Update the private decision desk
+        env:
+          GH_TOKEN: ${{ github.token }}
+          ISSUE_DATE: ${{ steps.draft.outputs.date }}
+          ISSUE_NUMBER: ${{ steps.draft.outputs.number }}
+          SOURCE_RUN_ID: ${{ steps.source.outputs.run_id }}
+        run: |
+          cat >> artifacts/gravel-weekly-stage/review-summary.md <<EOF
+
+          [Download the private draft, preview, manifest, and source review](${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }})
+
+          Source review run: [$SOURCE_RUN_ID](https://github.com/$SOURCE_REPOSITORY/actions/runs/$SOURCE_RUN_ID)
+          EOF
+          gh label create gravel-weekly-draft --color d4a017 --description "Private Gravel Weekly draft awaiting human decision" --force
+          title="Gravel Weekly #$(printf '%03d' "$ISSUE_NUMBER") private draft — $ISSUE_DATE"
+          issue="$(gh issue list --label gravel-weekly-draft --state open --limit 100 --json number,title --jq ".[] | select(.title == \"$title\") | .number" | head -1)"
+          if [[ -n "$issue" ]]; then
+            gh issue edit "$issue" --body-file artifacts/gravel-weekly-stage/review-summary.md
+          else
+            gh issue create --title "$title" --label gravel-weekly-draft --body-file artifacts/gravel-weekly-stage/review-summary.md
+          fi

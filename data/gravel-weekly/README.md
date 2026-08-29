@@ -34,6 +34,21 @@ python3 scripts/prepare_gravel_weekly_issue.py REVIEW.json \
   --publication-date 2026-08-28 --issue-number 1
 ```
 
+The `Gravel Weekly Draft Staging` workflow automates that artifact handoff. At
+18:00 UTC Friday it uses the repository's existing cross-repository read token
+to select that day's successful scheduled control-plane review. A manual run
+may instead name a successful `Race intelligence review` or `Gravel Weekly
+fast editorial replay` run ID. The workflow verifies the source repository,
+workflow path and name, main-branch commit, event, conclusion, exact artifact
+name, seven-day window, and Friday 15:30 UTC close before staging anything.
+
+Its output is a 90-day private artifact containing `draft.json`, a rendered
+`preview.html`, a source-run manifest, the source review, and a short decision
+summary. One hash-bound GitHub issue is updated for the date. The staging
+workflow has read-only content permission and no approval, sealing, deploy,
+email, or race-data step. A scheduled run can therefore remove the download
+and copy/paste chore without turning a cron job into Matti's opinion.
+
 The bridge refuses any review carrying model errors or deterministic-fallback
 packets. An incomplete evaluation remains a usable evidence record, but it is
 not proof of a quiet week and cannot generate quiet-issue copy. Replay the same

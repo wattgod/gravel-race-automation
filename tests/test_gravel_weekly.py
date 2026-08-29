@@ -4,6 +4,7 @@ import copy
 import json
 import sys
 import urllib.error
+from datetime import datetime, timedelta
 from pathlib import Path
 
 import pytest
@@ -77,6 +78,12 @@ from send_gravel_weekly import (  # noqa: E402
     send_broadcast_once,
 )
 from prepare_gravel_weekly_issue import prepare_issue  # noqa: E402
+from stage_gravel_weekly_review import (  # noqa: E402
+    derive_weekly_identity,
+    render_stage_summary,
+    stage_review,
+    validate_source_run,
+)
 from approve_gravel_weekly_issue import approve_issue, build_decision_receipt  # noqa: E402
 from seal_gravel_weekly_issue import main as seal_issue_main, seal_issue  # noqa: E402
 from render_gravel_weekly_race_impact_review import render_review  # noqa: E402
@@ -184,6 +191,35 @@ def sample_source_coverage(status="complete"):
             "lastError": None,
         }],
         "sourceErrors": [],
+    }
+
+
+def sample_control_plane_run(run_id=33243938367):
+    return {
+        "id": run_id,
+        "name": "Gravel Weekly fast editorial replay",
+        "path": ".github/workflows/gravel-weekly-editorial-replay.yml@refs/heads/main",
+        "head_branch": "main",
+        "head_sha": "a" * 40,
+        "event": "workflow_dispatch",
+        "conclusion": "success",
+        "created_at": "2026-08-29T08:46:31Z",
+        "html_url": f"https://github.com/wattgod/race-intelligence-control-plane/actions/runs/{run_id}",
+        "repository": {"full_name": "wattgod/race-intelligence-control-plane"},
+    }
+
+
+def sample_quiet_review(publication_date="2026-08-28"):
+    end = datetime.fromisoformat(f"{publication_date}T15:30:00+00:00")
+    return {
+        "schemaVersion": "gravel-weekly-review/v1",
+        "runId": "editorial_test",
+        "windowStartedAt": (end - timedelta(days=7)).isoformat().replace("+00:00", "Z"),
+        "windowEndedAt": end.isoformat().replace("+00:00", "Z"),
+        "sourceCoverage": sample_source_coverage(),
+        "modelErrors": [],
+        "candidates": [],
+        "packets": [],
     }
 
 
@@ -779,6 +815,77 @@ def test_review_prepares_a_draft_but_cannot_imply_approval():
     assert "Cyclingnews" in preview
     assert culture_artifact["reviewReason"] in preview
     assert "application/ld+json" not in preview
+
+
+def test_control_plane_run_validation_binds_the_exact_producer_and_artifact():
+    source = validate_source_run(sample_control_plane_run())
+    assert source["repository"] == "wattgod/race-intelligence-control-plane"
+    assert source["workflowPath"] == ".github/workflows/gravel-weekly-editorial-replay.yml"
+    assert source["artifactName"] == "gravel-weekly-editorial-33243938367"
+    assert source["headSha"] == "a" * 40
+
+    untrusted = sample_control_plane_run()
+    untrusted["path"] = ".github/workflows/arbitrary.yml"
+    with pytest.raises(ValueError, match="not an accepted Gravel Weekly producer"):
+        validate_source_run(untrusted)
+
+
+def test_automatic_staging_derives_serial_identity_and_stays_private(tmp_path):
+    review = sample_quiet_review()
+    issue, manifest = stage_review(
+        review,
+        sample_control_plane_run(),
+        issue_dir=tmp_path,
+        now="2026-08-29T09:00:00Z",
+    )
+    assert issue["issueId"] == "gravel-weekly-001"
+    assert issue["publicationDate"] == "2026-08-28"
+    assert issue["status"] == "draft"
+    assert issue["editorialApproval"] is None
+    assert issue["publishedAt"] is None
+    assert issue["quietIssue"]["provenance"] == "model_draft"
+    assert manifest["draftContentHash"] == issue["contentHash"]
+    assert manifest["humanApprovalRequired"] is True
+    assert manifest["autoPublishAllowed"] is False
+    summary = render_stage_summary(issue, manifest)
+    assert "QUIET ISSUE CANDIDATE" in summary
+    assert "APPROVE QUIET #001" in summary
+    assert "NOT MATTI-APPROVED, PUBLISHED, EMAILED" in summary
+
+
+def test_automatic_staging_advances_after_an_immutable_issue_and_never_replaces_it(tmp_path):
+    existing = sample_issue()
+    (tmp_path / "2026-08-28.json").write_text(json.dumps(existing))
+    assert derive_weekly_identity(sample_quiet_review("2026-09-04"), issue_dir=tmp_path) == (
+        "2026-09-04",
+        2,
+    )
+    with pytest.raises(ValueError, match="cannot replace publication history"):
+        derive_weekly_identity(sample_quiet_review("2026-08-28"), issue_dir=tmp_path)
+
+
+def test_automatic_staging_rejects_a_noncanonical_weekly_window(tmp_path):
+    review = sample_quiet_review()
+    review["windowEndedAt"] = "2026-08-28T16:00:00Z"
+    with pytest.raises(ValueError, match="exact seven-day window"):
+        derive_weekly_identity(review, issue_dir=tmp_path)
+
+
+def test_draft_staging_workflow_cannot_cross_the_publication_boundary():
+    workflow = (ROOT / ".github" / "workflows" / "gravel-weekly-draft-staging.yml").read_text()
+    assert 'cron: "0 18 * * 5"' in workflow
+    assert "contents: read" in workflow
+    assert "issues: write" in workflow
+    assert "stage_gravel_weekly_review.py" in workflow
+    assert "gravel-weekly-review.json" in workflow
+    assert "DRAFT — NOT PUBLISHED" in workflow
+    assert "GH_PAT" in workflow
+    assert "contents: write" not in workflow
+    assert "git push" not in workflow
+    assert "approve_gravel_weekly_issue.py" not in workflow
+    assert "seal_gravel_weekly_issue.py" not in workflow
+    assert "send_gravel_weekly.py" not in workflow
+    assert "push_wordpress.py" not in workflow
 
 
 def test_human_approval_bridge_changes_only_editorial_copy_and_stays_non_deployable():

@@ -34,6 +34,11 @@ python3 scripts/prepare_gravel_weekly_issue.py REVIEW.json \
   --publication-date 2026-08-28 --issue-number 1
 ```
 
+The bridge refuses any review carrying model errors or deterministic-fallback
+packets. An incomplete evaluation remains a usable evidence record, but it is
+not proof of a quiet week and cannot generate quiet-issue copy. Replay the same
+locked Friday window after restoring model evaluation.
+
 The bridge independently recomputes the pinned `petergyang/no-ai-slop` audit
 over the exact headline, deck, `whatHappened`, and Take. A missing, failed, or
 stale content-hashed prose verdict excludes the packet even when every story

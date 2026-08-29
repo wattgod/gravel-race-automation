@@ -146,6 +146,30 @@ def prepare_issue(review_value: Any, publication_date: str, issue_number: int, *
     review = _record(review_value, "review")
     if review.get("schemaVersion") != "gravel-weekly-review/v1":
         raise ValueError("unsupported Gravel Weekly review schema")
+    model_errors = review.get("modelErrors", [])
+    if not isinstance(model_errors, list) or any(
+        not isinstance(error, str) or not error.strip() for error in model_errors
+    ):
+        raise ValueError("review.modelErrors must be an array of non-empty strings")
+    fallback_candidates = [
+        packet.get("candidateId", "unknown")
+        for packet in review.get("packets", [])
+        if isinstance(packet, dict)
+        and packet.get("generatorModel") == "deterministic-fallback"
+    ]
+    if model_errors or fallback_candidates:
+        details = []
+        if model_errors:
+            details.append(f"{len(model_errors)} model error(s)")
+        if fallback_candidates:
+            details.append(
+                "deterministic fallback for " + ", ".join(map(str, fallback_candidates))
+            )
+        raise ValueError(
+            "cannot prepare a Gravel Weekly issue from an incomplete editorial review: "
+            + "; ".join(details)
+            + ". Replay the same locked window after restoring model evaluation."
+        )
     if issue_number < 1:
         raise ValueError("issue_number must be positive")
     datetime.strptime(publication_date, "%Y-%m-%d")

@@ -987,6 +987,26 @@ def test_quiet_issue_requires_explicit_human_copy_approval_and_has_a_durable_rec
     assert approved["quietIssue"]["note"] in email
 
 
+@pytest.mark.parametrize("failure_mode", ["model_error", "deterministic_fallback"])
+def test_issue_bridge_refuses_to_call_an_incomplete_editorial_review_quiet(failure_mode):
+    review = {
+        "schemaVersion": "gravel-weekly-review/v1",
+        "modelErrors": [],
+        "candidates": [],
+        "packets": [],
+    }
+    if failure_mode == "model_error":
+        review["modelErrors"] = ["story_1: rejected Gateway credential"]
+    else:
+        review["packets"] = [{
+            "candidateId": "story_1",
+            "generatorModel": "deterministic-fallback",
+        }]
+
+    with pytest.raises(ValueError, match="incomplete editorial review"):
+        prepare_issue(review, "2026-09-04", 2, now="2026-09-03T17:00:00Z")
+
+
 def test_rejecting_every_story_can_become_a_human_approved_quiet_issue():
     draft = sample_draft()
     approval = sample_approval(draft)

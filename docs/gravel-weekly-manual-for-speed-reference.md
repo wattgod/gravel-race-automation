@@ -158,9 +158,12 @@ than approved judgments. The public and historical surfaces now distinguish
 `THE RECORD`, `THE SCENE REPORT`, `THE TAKE`, and `WHAT THIS CHANGES` with stable
 anchor targets and keyboard-visible focus states.
 
-`THE CAST` and `FIELD NOTES` remain deliberately unimplemented. They require
-sourced role and observation fields in the issue contract; the renderer must not
-infer them from a headline, a social post, or a publisher byline.
+`THE CAST` and `FIELD NOTES` are also data-aware. They accept only reviewed
+items carrying one or more story-receipt claim IDs, preserve those items through
+approval, and render numbered source links. The upstream reaction-packet contract
+must return empty arrays rather than infer a role, motive, personality,
+atmosphere, or colorful detail from a headline, culture post, or publisher
+byline.
 
 ## What not to import
 

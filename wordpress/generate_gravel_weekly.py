@@ -72,16 +72,20 @@ def render_issue_contents(issue: dict[str, Any]) -> str:
     story_id = current["candidateId"]
     chapters: list[tuple[str, str, str]] = [
         (f"#{story_id}", "THE CURRENT THING", current["headline"]),
-        (f"#record-{story_id}", "THE RECORD", "The verified account"),
     ]
-    if current.get("cultureArtifacts"):
-        chapters.append((f"#scene-{story_id}", "THE SCENE REPORT", "What the culture sample adds"))
+    if current.get("cast"):
+        chapters.append((f"#cast-{story_id}", "THE CAST", "The sourced roles in the story"))
+    chapters.append((f"#record-{story_id}", "THE RECORD", "The verified account"))
     take_description = (
         "The model draft awaiting approval"
         if issue["status"] == "draft"
         else "The approved judgment"
     )
     chapters.append((f"#take-{story_id}", "THE TAKE", take_description))
+    if current.get("fieldNotes"):
+        chapters.append((f"#field-notes-{story_id}", "FIELD NOTES", "Specific details from the evidence"))
+    if current.get("cultureArtifacts"):
+        chapters.append((f"#scene-{story_id}", "THE SCENE REPORT", "What the culture sample adds"))
     if meaningful_impacts(current["raceImpacts"]):
         chapters.append((f"#changes-{story_id}", "WHAT THIS CHANGES", "Controlled race intelligence"))
     other_stories = [
@@ -129,6 +133,57 @@ def render_receipts(receipts: list[dict[str, Any]]) -> str:
           {excerpt}
         </li>''')
     return f'<ol class="gw-receipts">{"".join(items)}</ol>'
+
+
+def render_claim_markers(
+    claim_ids: list[str], receipts: list[dict[str, Any]]
+) -> str:
+    receipt_by_claim = {
+        receipt["claimId"]: (index, receipt)
+        for index, receipt in enumerate(receipts, start=1)
+    }
+    markers = []
+    for claim_id in claim_ids:
+        item = receipt_by_claim.get(claim_id)
+        if item is None:
+            continue
+        index, receipt = item
+        markers.append(
+            f'<a href="{esc(receipt["canonicalUrl"])}" rel="noopener" '
+            f'target="_blank" aria-label="Source {index}: {esc(receipt["publisher"])}">'
+            f'[{index}]</a>'
+        )
+    return f'<sup class="gw-claim-markers">{"".join(markers)}</sup>'
+
+
+def render_cast(
+    cast: list[dict[str, Any]], receipts: list[dict[str, Any]], story_id: str
+) -> str:
+    if not cast:
+        return ""
+    cards = "".join(
+        f'''<article><span>{index:02d}</span><h4>{esc(member['name'])}</h4><p>{esc(member['role'])}{render_claim_markers(member['claimIds'], receipts)}</p></article>'''
+        for index, member in enumerate(cast, start=1)
+    )
+    return f'''<section class="gw-cast" id="cast-{esc(story_id)}" aria-labelledby="cast-label-{esc(story_id)}">
+      <header><span>THE CAST</span><h3 id="cast-label-{esc(story_id)}">WHO IS ACTUALLY IN THIS STORY</h3><p>Only sourced roles. No inferred motives or synthetic character sketches.</p></header>
+      <div>{cards}</div>
+    </section>'''
+
+
+def render_field_notes(
+    notes: list[dict[str, Any]], receipts: list[dict[str, Any]], story_id: str
+) -> str:
+    if not notes:
+        return ""
+    items = "".join(
+        f'<li><span>{index:02d}</span><p>{esc(note["text"])}{render_claim_markers(note["claimIds"], receipts)}</p></li>'
+        for index, note in enumerate(notes, start=1)
+    )
+    return f'''<section class="gw-field-notes" id="field-notes-{esc(story_id)}" aria-labelledby="field-notes-label-{esc(story_id)}">
+      <header><span>FIELD NOTES</span><h3 id="field-notes-label-{esc(story_id)}">THE DETAILS THAT MAKE THE SCENE LEGIBLE</h3></header>
+      <ol>{items}</ol>
+    </section>'''
 
 
 def render_impacts(impacts: list[dict[str, Any]]) -> str:
@@ -202,6 +257,7 @@ def render_story(story: dict[str, Any], *, current: bool = False, draft: bool = 
         <p class="gw-dek">{esc(story['dek'])}</p>
       </header>
       {visual}
+      {render_cast(story.get('cast', []), story['receipts'], story['candidateId'])}
       <div class="gw-story-grid">
         <section class="gw-facts" id="record-{esc(story['candidateId'])}" aria-labelledby="record-label-{esc(story['candidateId'])}">
           <h3 id="record-label-{esc(story['candidateId'])}">THE RECORD</h3>
@@ -212,6 +268,7 @@ def render_story(story: dict[str, Any], *, current: bool = False, draft: bool = 
           {prose(story['take'])}
         </section>
       </div>
+      {render_field_notes(story.get('fieldNotes', []), story['receipts'], story['candidateId'])}
       {render_culture_artifacts(story.get('cultureArtifacts', []), private_review=draft, section_id=f"scene-{story['candidateId']}")}
       <details class="gw-details">
         <summary>RECEIPTS · {len(story['receipts'])}</summary>
@@ -403,12 +460,30 @@ def page_css() -> str:
   .gw-story h2 { max-width: 900px; margin: var(--gg-spacing-md) 0 var(--gg-spacing-xs); font-family: var(--gg-font-editorial); font-size: clamp(2rem, 7vw, 4.8rem); line-height: .98; letter-spacing: var(--gg-letter-spacing-tight); }
   .gw-story:not(.gw-story--cover) h2 { font-size: clamp(1.8rem, 5vw, 3.4rem); }
   .gw-dek { max-width: 760px; margin: 0; font-family: var(--gg-font-editorial); font-size: var(--gg-font-size-lg); line-height: var(--gg-line-height-normal); }
+  .gw-cast { border-bottom: var(--gg-border-standard); background: var(--gg-color-near-black); color: var(--gg-color-warm-paper); }
+  .gw-cast > header, .gw-field-notes > header { padding: var(--gg-spacing-md); border-bottom: var(--gg-border-standard); }
+  .gw-cast > header > span, .gw-field-notes > header > span { font-size: var(--gg-font-size-xs); font-weight: var(--gg-font-weight-black); letter-spacing: var(--gg-letter-spacing-wider); }
+  .gw-cast h3, .gw-field-notes h3 { margin: var(--gg-spacing-xs) 0 0; font-size: clamp(1.3rem, 4vw, 2.2rem); line-height: 1; }
+  .gw-cast > header p { max-width: 760px; margin: var(--gg-spacing-xs) 0 0; font-family: var(--gg-font-editorial); }
+  .gw-cast > div { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
+  .gw-cast article { display: grid; grid-template-columns: auto 1fr; gap: 0 var(--gg-spacing-sm); padding: var(--gg-spacing-md); border-right: var(--gg-border-subtle); border-bottom: var(--gg-border-subtle); }
+  .gw-cast article > span { grid-row: 1 / span 2; color: var(--gg-color-gold); font-size: var(--gg-font-size-2xl); font-weight: var(--gg-font-weight-black); line-height: .9; }
+  .gw-cast h4 { margin: 0; font-size: var(--gg-font-size-md); }
+  .gw-cast article p { margin: var(--gg-spacing-2xs) 0 0; font-family: var(--gg-font-editorial); line-height: var(--gg-line-height-normal); }
   .gw-story-grid { display: grid; grid-template-columns: minmax(0, 2fr) minmax(260px, 1fr); }
   .gw-story-grid section { padding: var(--gg-spacing-lg); }
   .gw-take { background: var(--gg-color-sand); border-left: var(--gg-border-standard); }
   .gw-story-grid h3 { margin: 0 0 var(--gg-spacing-sm); font-size: var(--gg-font-size-xs); letter-spacing: var(--gg-letter-spacing-wider); }
   .gw-story-grid p { font-family: var(--gg-font-editorial); font-size: var(--gg-font-size-md); line-height: var(--gg-line-height-relaxed); }
   .gw-take p { font-weight: var(--gg-font-weight-semibold); }
+  .gw-field-notes { border-top: var(--gg-border-heavy); background: var(--gg-color-gold); }
+  .gw-field-notes ol { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); margin: 0; padding: 0; list-style: none; }
+  .gw-field-notes li { display: grid; grid-template-columns: auto 1fr; gap: var(--gg-spacing-sm); padding: var(--gg-spacing-md); border-right: var(--gg-border-subtle); border-bottom: var(--gg-border-subtle); }
+  .gw-field-notes li > span { font-size: var(--gg-font-size-2xl); font-weight: var(--gg-font-weight-black); line-height: .9; }
+  .gw-field-notes li p { margin: 0; font-family: var(--gg-font-editorial); font-size: var(--gg-font-size-md); line-height: var(--gg-line-height-normal); }
+  .gw-claim-markers { display: inline-flex; gap: var(--gg-spacing-2xs); margin-left: var(--gg-spacing-2xs); font-family: var(--gg-font-data); font-size: var(--gg-font-size-xs); vertical-align: super; }
+  .gw-claim-markers a { color: inherit; font-weight: var(--gg-font-weight-black); }
+  .gw-claim-markers a:focus-visible { outline: var(--gg-border-gold); outline-offset: var(--gg-spacing-2xs); }
   .gw-details { border-top: var(--gg-border-standard); }
   .gw-details summary { cursor: pointer; padding: var(--gg-spacing-sm) var(--gg-spacing-lg); font-weight: var(--gg-font-weight-bold); letter-spacing: var(--gg-letter-spacing-wide); }
   .gw-receipts, .gw-impacts { margin: 0; padding: 0 var(--gg-spacing-lg) var(--gg-spacing-lg) calc(var(--gg-spacing-lg) * 2); }

@@ -128,6 +128,20 @@ def _culture_artifacts(packet: dict[str, Any], candidate_id: str) -> list[dict[s
     return copied
 
 
+def _scene_items(
+    packet: dict[str, Any], candidate_id: str, key: str, maximum: int
+) -> list[dict[str, Any]]:
+    value = packet.get(key, [])
+    if not isinstance(value, list) or len(value) > maximum:
+        raise ValueError(
+            f"packet {candidate_id} {key} must contain at most {maximum} items"
+        )
+    return [
+        dict(_record(item, f"packet {candidate_id} {key}[{index}]"))
+        for index, item in enumerate(value)
+    ]
+
+
 def prepare_issue(review_value: Any, publication_date: str, issue_number: int, *, now: str | None = None) -> dict[str, Any]:
     review = _record(review_value, "review")
     if review.get("schemaVersion") != "gravel-weekly-review/v1":
@@ -171,6 +185,8 @@ def prepare_issue(review_value: Any, publication_date: str, issue_number: int, *
         if not isinstance(impacts, list) or not isinstance(receipts, list):
             raise ValueError(f"packet {candidate['id']} has invalid impacts or receipts")
         culture_artifacts = _culture_artifacts(packet, candidate["id"])
+        cast = _scene_items(packet, candidate["id"], "cast", 8)
+        field_notes = _scene_items(packet, candidate["id"], "fieldNotes", 6)
         stories.append({
             "candidateId": candidate["id"],
             "headline": packet.get("suggestedHeadline") or candidate["headline"],
@@ -183,6 +199,8 @@ def prepare_issue(review_value: Any, publication_date: str, issue_number: int, *
             "receipts": receipts,
             "raceImpacts": impacts,
             "cultureArtifacts": culture_artifacts,
+            "cast": cast,
+            "fieldNotes": field_notes,
         })
         all_impacts.extend(impacts)
         source_urls.extend(receipt["canonicalUrl"] for receipt in receipts)

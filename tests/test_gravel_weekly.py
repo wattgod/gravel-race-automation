@@ -110,6 +110,9 @@ def sample_issue():
             "takeProvenance": "human_approved",
             "receipts": [receipt],
             "raceImpacts": [impact],
+            "cultureArtifacts": [],
+            "cast": [],
+            "fieldNotes": [],
         }],
         "calendarWatch": ["Registration closes Friday."],
         "raceImpacts": [impact],
@@ -500,6 +503,53 @@ def test_weekly_culture_artifacts_are_direct_hash_bound_context_and_survive_appr
         validate_issue(missing_index, verify_hash=False)
 
 
+def test_claim_bound_cast_and_field_notes_survive_approval_and_render_as_optional_departments():
+    issue = sample_issue()
+    story = issue["stories"][0]
+    story["cast"] = [{
+        "name": "The organizer",
+        "role": "Published the revised course distance.",
+        "claimIds": ["claim_1"],
+    }]
+    story["fieldNotes"] = [{
+        "text": "The revision arrived before the final route file.",
+        "claimIds": ["claim_1"],
+    }]
+    issue["contentHash"] = compute_content_hash(issue)
+    assert validate_issue(issue)["stories"][0]["cast"] == story["cast"]
+    page = build_page(issue, [issue], latest=True)
+    assert 'href="#cast-story_1"' in page
+    assert 'id="cast-story_1"' in page
+    assert 'href="#field-notes-story_1"' in page
+    assert 'id="field-notes-story_1"' in page
+    assert "WHO IS ACTUALLY IN THIS STORY" in page
+    assert "THE DETAILS THAT MAKE THE SCENE LEGIBLE" in page
+    assert 'aria-label="Source 1: Cyclingnews"' in page
+
+    draft = sample_draft()
+    draft["stories"][0]["cast"] = copy.deepcopy(story["cast"])
+    draft["stories"][0]["fieldNotes"] = copy.deepcopy(story["fieldNotes"])
+    draft["contentHash"] = compute_content_hash(draft)
+    approved = approve_issue(draft, sample_approval())
+    assert approved["stories"][0]["cast"] == story["cast"]
+    assert approved["stories"][0]["fieldNotes"] == story["fieldNotes"]
+
+    missing_claim = copy.deepcopy(issue)
+    missing_claim["stories"][0]["cast"][0]["claimIds"] = ["missing_claim"]
+    with pytest.raises(IssueValidationError, match="without story receipts"):
+        validate_issue(missing_claim, verify_hash=False)
+
+    invented_note = copy.deepcopy(issue)
+    invented_note["stories"][0]["fieldNotes"][0]["claimIds"] = []
+    with pytest.raises(IssueValidationError, match="claimIds must not be empty"):
+        validate_issue(invented_note, verify_hash=False)
+
+    unsupported = copy.deepcopy(issue)
+    unsupported["stories"][0]["cast"][0]["portraitUrl"] = "https://example.com/photo.jpg"
+    with pytest.raises(IssueValidationError, match="unsupported fields"):
+        validate_issue(unsupported, verify_hash=False)
+
+
 def test_no_ai_slop_audit_names_patterns_without_guessing_authorship():
     clean = audit_no_ai_slop({
         "headline": "Gravel Worlds Moved Lunch Forty Miles",
@@ -540,6 +590,15 @@ def test_review_prepares_a_draft_but_cannot_imply_approval():
             "sourceUrls": [culture_artifact["canonicalUrl"]],
             "artifacts": [culture_artifact],
         },
+        "cast": [{
+            "name": "The organizer",
+            "role": "Published the revised course distance.",
+            "claimIds": ["claim_1"],
+        }],
+        "fieldNotes": [{
+            "text": "The revision arrived before the final route file.",
+            "claimIds": ["claim_1"],
+        }],
     })
     review = {
         "schemaVersion": "gravel-weekly-review/v1",
@@ -556,6 +615,8 @@ def test_review_prepares_a_draft_but_cannot_imply_approval():
     assert issue["stories"][0]["headline"] == "The course moved"
     assert issue["stories"][0]["takeProvenance"] == "model_draft"
     assert issue["stories"][0]["cultureArtifacts"] == [culture_artifact]
+    assert issue["stories"][0]["cast"][0]["name"] == "The organizer"
+    assert issue["stories"][0]["fieldNotes"][0]["claimIds"] == ["claim_1"]
     assert culture_artifact["canonicalUrl"] in issue["sourceIndex"]
     assert validate_issue(issue)["contentHash"] == issue["contentHash"]
     preview = build_page(issue, [issue], latest=True)
@@ -580,7 +641,10 @@ def test_human_approval_bridge_changes_only_editorial_copy_and_stays_non_deploya
     assert approved["stories"][0]["headline"] == "The approved headline"
     assert approved["stories"][0]["take"] == "The approved take makes a concrete judgment."
     assert approved["stories"][0]["takeProvenance"] == "human_approved"
-    for field in ("score", "storyKind", "whatHappened", "receipts", "raceImpacts"):
+    for field in (
+        "score", "storyKind", "whatHappened", "receipts", "raceImpacts",
+        "cultureArtifacts", "cast", "fieldNotes",
+    ):
         assert approved["stories"][0][field] == draft["stories"][0][field]
     assert approved["contentHash"] == compute_content_hash(approved)
     with pytest.raises(ValueError, match="published issue"):

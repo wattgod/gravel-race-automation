@@ -15,6 +15,7 @@ sys.path.insert(0, str(ROOT / "wordpress"))
 
 from generate_gravel_weekly import (  # noqa: E402
     build_page,
+    render_history_arc_navigation,
     render_history_timeline,
     render_source_coverage_receipt,
 )
@@ -2678,6 +2679,89 @@ def test_historical_timeline_groups_change_points_into_accessible_year_chapters(
     assert html.count('href="#gravel-history-years"') == 2
     assert "1 approved change-point" in html
     assert "innerHTML" not in html
+
+
+def test_history_race_arc_uses_exact_race_ids_and_chronology_not_attention():
+    entries = []
+    for year in range(2021, 2027):
+        entry = copy.deepcopy(sample_history_entry())
+        entry.update({
+            "entryId": f"history-unbound-{year}",
+            "activeFrom": f"{year}-06-01",
+            "activeThrough": f"{year}-06-02",
+            "headline": f"The Unbound turn in {year}",
+            "raceImpacts": [{
+                "impactKind": "editorial_review",
+                "raceId": "gravel:unbound-200",
+                "fieldPath": "race.biased_opinion",
+                "claimIds": ["claim_team_1"],
+                "confidence": 0.9,
+                "owner": "Gravel God race editorial review",
+                "autoFixAllowed": False,
+            }],
+        })
+        entries.append(entry)
+    unrelated = copy.deepcopy(sample_history_entry())
+    unrelated.update({
+        "entryId": "history-leadville-2024",
+        "activeFrom": "2024-08-10",
+        "activeThrough": "2024-08-10",
+        "headline": "A Leadville turn that does not belong here",
+        "raceImpacts": [{
+            **entries[0]["raceImpacts"][0],
+            "raceId": "gravel:leadville-trail-100",
+        }],
+    })
+
+    html = render_history_arc_navigation(entries[3], [unrelated, *reversed(entries)])
+
+    assert 'aria-labelledby="arc-label-history-unbound-2024"' in html
+    assert "MORE FROM THIS RACE&rsquo;S STORY" in html
+    assert "UNBOUND 200 THROUGH TIME" in html
+    assert "Chronological, never engagement-ranked." in html
+    assert 'aria-current="location"' in html
+    assert 'href="#history-unbound-2024"' not in html
+    assert html.count("The Unbound turn in") == 5
+    assert "The Unbound turn in 2021" not in html
+    assert "A Leadville turn that does not belong here" not in html
+    assert html.index("The Unbound turn in 2022") < html.index("The Unbound turn in 2026")
+    assert "innerHTML" not in html
+
+
+def test_history_race_arc_stays_absent_without_a_reviewed_shared_race_id():
+    entry = sample_history_entry()
+    other = copy.deepcopy(entry)
+    other["entryId"] = "history-other-2025"
+    other["activeFrom"] = "2025-01-01"
+    other["activeThrough"] = "2025-01-01"
+
+    assert render_history_arc_navigation(entry, [entry, other]) == ""
+
+
+def test_historical_timeline_places_race_arc_after_the_judgment_when_available():
+    newer = sample_history_entry()
+    newer["raceImpacts"] = [{
+        "impactKind": "editorial_review",
+        "raceId": "gravel:unbound-200",
+        "fieldPath": "race.biased_opinion",
+        "claimIds": ["claim_team_1"],
+        "confidence": 0.9,
+        "owner": "Gravel God race editorial review",
+        "autoFixAllowed": False,
+    }]
+    older = copy.deepcopy(newer)
+    older.update({
+        "entryId": "history-unbound-2025",
+        "activeFrom": "2025-06-01",
+        "activeThrough": "2025-06-02",
+        "headline": "The previous Unbound turn",
+    })
+
+    html = render_history_timeline([newer, older])
+
+    first_entry = html.split('id="history-teamification-2026"', 1)[1]
+    assert first_entry.index("WHAT CHANGED:") < first_entry.index('class="gw-story-arc"')
+    assert first_entry.index('class="gw-story-arc"') < first_entry.index("WHAT WAS KNOWABLE THEN")
 
 
 def test_historical_culture_artifacts_are_hash_bound_context_not_evidence():

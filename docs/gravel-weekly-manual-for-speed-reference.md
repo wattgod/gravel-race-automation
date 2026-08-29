@@ -131,6 +131,14 @@ reader should always know where they are, what the point is, what is evidence,
 and what is Matti's approved take—even when the page is allowed to misbehave
 visually.
 
+The first production translation of the `More from this series` mechanic is
+deliberately narrower than semantic recommendations. A historical entry gets a
+`MORE FROM THIS RACE'S STORY` rail only when another approved change-point carries
+the same exact vertical-qualified `raceId`. The rail is chronological, includes
+the active entry as a visible `YOU ARE HERE` position, and never uses engagement,
+model similarity, or generic topic affinity. Entries without that reviewed join
+stay unlinked rather than receiving an inferred series.
+
 ## What made it cultural coverage
 
 Manual for Speed ran two records at the same time:

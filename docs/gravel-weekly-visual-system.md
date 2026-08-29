@@ -48,6 +48,15 @@ show the pressure moving. It gets one restrained loop, remains intelligible as a
 still, and stops under reduced-motion preferences. Decorative perpetual motion is
 not a substitute for a point.
 
+## Race-arc navigation
+
+The historical timeline may expose up to five nearby change-points that share an
+exact reviewed `raceId` with the active entry. This is a serial-navigation aid,
+not a recommendation system: entries are ordered by their active date, the
+current entry remains visibly marked, and the renderer neither ranks by attention
+nor infers a relationship from prose or theme. No shared reviewed race ID means
+no rail.
+
 ## Story-graphic gate
 
 Before labeling a visual explanatory, the review desk must answer yes to all of the

@@ -137,6 +137,42 @@ def sample_issue():
     return issue
 
 
+def sample_source_coverage(status="complete"):
+    return {
+        "schemaVersion": "gravel-weekly-source-coverage/v1",
+        "status": status,
+        "runCount": 1,
+        "sweepRunIds": ["run_coverage"],
+        "latestSweepCompletedAt": "2026-08-28T14:00:00.000Z",
+        "latestSourceHealth": {
+            "officialObservation": {"attempted": 25, "succeeded": 25, "failed": 0},
+            "publicDiscovery": {"attempted": 2, "succeeded": 2, "failed": 0},
+            "officialSocial": {"attempted": 2, "succeeded": 2, "failed": 0},
+        },
+        "aggregateSourceHealth": {
+            "officialObservation": {"attempted": 25, "succeeded": 25, "failed": 0},
+            "publicDiscovery": {"attempted": 2, "succeeded": 2, "failed": 0},
+            "officialSocial": {"attempted": 2, "succeeded": 2, "failed": 0},
+        },
+        "discoverySources": [{
+            "sourceId": "cyclingnews",
+            "publisher": "Cyclingnews",
+            "purpose": "evidence_source",
+            "connector": "rss",
+            "attempts": 1,
+            "successes": 1,
+            "failures": 0,
+            "parsedItems": 12,
+            "emittedItems": 2,
+            "latestStatus": "succeeded",
+            "lastAttemptedAt": "2026-08-28T14:00:00.000Z",
+            "lastSucceededAt": "2026-08-28T14:00:00.000Z",
+            "lastError": None,
+        }],
+        "sourceErrors": [],
+    }
+
+
 def sample_history_entry():
     entry = {
         "schemaVersion": "gravel-weekly-history-entry/v1",
@@ -659,6 +695,7 @@ def test_review_prepares_a_draft_but_cannot_imply_approval():
     })
     review = {
         "schemaVersion": "gravel-weekly-review/v1",
+        "sourceCoverage": sample_source_coverage(),
         "candidates": [{
             "id": "story_1", "score": 93, "headline": "Unbound changed the course",
             "storyKind": "route",
@@ -674,6 +711,7 @@ def test_review_prepares_a_draft_but_cannot_imply_approval():
     assert issue["stories"][0]["cultureArtifacts"] == [culture_artifact]
     assert issue["stories"][0]["cast"][0]["name"] == "The organizer"
     assert issue["stories"][0]["fieldNotes"][0]["claimIds"] == ["claim_1"]
+    assert issue["sourceCoverage"]["status"] == "complete"
     assert culture_artifact["canonicalUrl"] in issue["sourceIndex"]
     assert validate_issue(issue)["contentHash"] == issue["contentHash"]
     preview = build_page(issue, [issue], latest=True)
@@ -682,6 +720,8 @@ def test_review_prepares_a_draft_but_cannot_imply_approval():
     assert "The model draft awaiting approval" in preview
     assert "The approved judgment" not in preview
     assert "PRIVATE CULTURE CHECK" in preview
+    assert "PRIVATE COLLECTION RECEIPT — NOT PUBLIC COPY" in preview
+    assert "Cyclingnews" in preview
     assert culture_artifact["reviewReason"] in preview
     assert "application/ld+json" not in preview
 
@@ -884,6 +924,7 @@ def test_issue_bridge_refuses_unresolved_or_malformed_editorial_gates(gate_mutat
         packet["editorialGate"] = gate
     review = {
         "schemaVersion": "gravel-weekly-review/v1",
+        "sourceCoverage": sample_source_coverage(),
         "candidates": [{"id": "story_1", "score": 93, "headline": "Unbound changed the course", "storyKind": "route"}],
         "packets": [packet],
     }
@@ -919,6 +960,7 @@ def test_review_excludes_missing_failed_or_stale_prose_gates(prose_mutation):
         packet["suggestedHeadline"] = "The course moved again"
     review = {
         "schemaVersion": "gravel-weekly-review/v1",
+        "sourceCoverage": sample_source_coverage(),
         "candidates": [{
             "id": "story_1", "score": 93,
             "headline": "Unbound changed the course", "storyKind": "route",
@@ -932,11 +974,15 @@ def test_review_excludes_missing_failed_or_stale_prose_gates(prose_mutation):
 def test_quiet_issue_requires_explicit_human_copy_approval_and_has_a_durable_receipt():
     review = {
         "schemaVersion": "gravel-weekly-review/v1",
+        "sourceCoverage": sample_source_coverage(),
         "candidates": [],
         "packets": [],
     }
     draft = prepare_issue(
         review, "2026-09-04", 2, now="2026-09-03T17:00:00Z"
+    )
+    assert "PRIVATE COLLECTION RECEIPT — NOT PUBLIC COPY" in build_page(
+        draft, [draft], latest=True
     )
     approval = {
         "schemaVersion": "gravel-weekly-approval/v3",
@@ -976,6 +1022,7 @@ def test_quiet_issue_requires_explicit_human_copy_approval_and_has_a_durable_rec
     assert 'id="quiet-week"' in page
     assert "THE QUIET WEEK" in page
     assert "Nothing cleared the gate this week." in page
+    assert "PRIVATE COLLECTION RECEIPT — NOT PUBLIC COPY" not in page
     assert "CALENDAR WATCH" not in page
     assert "WHAT THIS CHANGES" not in page
     assert "MODEL DRAFT" not in page
@@ -988,6 +1035,7 @@ def test_quiet_issue_requires_explicit_human_copy_approval_and_has_a_durable_rec
 def test_issue_bridge_refuses_to_call_an_incomplete_editorial_review_quiet(failure_mode):
     review = {
         "schemaVersion": "gravel-weekly-review/v1",
+        "sourceCoverage": sample_source_coverage(),
         "modelErrors": [],
         "candidates": [],
         "packets": [],
@@ -1004,9 +1052,47 @@ def test_issue_bridge_refuses_to_call_an_incomplete_editorial_review_quiet(failu
         prepare_issue(review, "2026-09-04", 2, now="2026-09-03T17:00:00Z")
 
 
+@pytest.mark.parametrize("failure_mode", ["missing", "unavailable", "public_outage"])
+def test_issue_bridge_refuses_to_call_an_unwatched_window_quiet(failure_mode):
+    review = {
+        "schemaVersion": "gravel-weekly-review/v1",
+        "sourceCoverage": sample_source_coverage(),
+        "modelErrors": [],
+        "candidates": [],
+        "packets": [],
+    }
+    if failure_mode == "missing":
+        del review["sourceCoverage"]
+    elif failure_mode == "unavailable":
+        review["sourceCoverage"]["status"] = "unavailable"
+    else:
+        review["sourceCoverage"]["latestSourceHealth"]["publicDiscovery"] = {
+            "attempted": 2, "succeeded": 0, "failed": 2,
+        }
+
+    with pytest.raises(ValueError, match="incomplete source coverage"):
+        prepare_issue(review, "2026-09-04", 2, now="2026-09-03T17:00:00Z")
+
+
+def test_issue_bridge_allows_visible_partial_coverage_for_human_quiet_review():
+    coverage = sample_source_coverage("partial")
+    coverage["sourceErrors"] = ["run_coverage: reddit:r/gravelcycling: credentials unavailable"]
+    review = {
+        "schemaVersion": "gravel-weekly-review/v1",
+        "sourceCoverage": coverage,
+        "modelErrors": [],
+        "candidates": [],
+        "packets": [],
+    }
+    draft = prepare_issue(review, "2026-09-04", 2, now="2026-09-03T17:00:00Z")
+    assert draft["status"] == "draft"
+    assert draft["quietIssue"]["provenance"] == "model_draft"
+
+
 def test_issue_bridge_refuses_to_call_an_unresolved_editorial_hold_quiet():
     review = {
         "schemaVersion": "gravel-weekly-review/v1",
+        "sourceCoverage": sample_source_coverage(),
         "modelErrors": [],
         "candidates": [{
             "id": "story_1", "score": 75, "headline": "Research is incomplete",
@@ -1057,7 +1143,12 @@ def test_quiet_issue_cannot_coexist_with_stories_or_unapproved_copy():
     with pytest.raises(IssueValidationError, match="cannot coexist"):
         validate_issue(issue, verify_hash=False)
 
-    review = {"schemaVersion": "gravel-weekly-review/v1", "candidates": [], "packets": []}
+    review = {
+        "schemaVersion": "gravel-weekly-review/v1",
+        "sourceCoverage": sample_source_coverage(),
+        "candidates": [],
+        "packets": [],
+    }
     draft = prepare_issue(review, "2026-09-04", 2, now="2026-09-03T17:00:00Z")
     unapproved = copy.deepcopy(draft)
     unapproved["status"] = "approved"

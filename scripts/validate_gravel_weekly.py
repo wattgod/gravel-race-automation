@@ -52,6 +52,16 @@ CORRECTION_LEARNING_KEYS = {
     "failureKey", "originalClaim", "correctedClaim", "severity",
     "evidenceUrls", "recordedBy",
 }
+SOURCE_COVERAGE_KEYS = {
+    "schemaVersion", "status", "runCount", "sweepRunIds",
+    "latestSweepCompletedAt", "latestSourceHealth", "aggregateSourceHealth",
+    "discoverySources", "sourceErrors",
+}
+SOURCE_COVERAGE_SOURCE_KEYS = {
+    "sourceId", "publisher", "purpose", "connector", "attempts",
+    "successes", "failures", "parsedItems", "emittedItems", "latestStatus",
+    "lastAttemptedAt", "lastSucceededAt", "lastError",
+}
 
 
 class IssueValidationError(ValueError):
@@ -145,6 +155,121 @@ def _impact(value: Any, name: str) -> dict[str, Any]:
     if item.get("autoFixAllowed") is not False:
         raise IssueValidationError(f"{name}.autoFixAllowed must be false")
     return item
+
+
+def _connector_health(value: Any, name: str) -> dict[str, int]:
+    item = _record(value, name)
+    if set(item) != {"attempted", "succeeded", "failed"}:
+        raise IssueValidationError(f"{name} must contain attempted, succeeded, and failed")
+    if any(
+        not isinstance(item.get(key), int)
+        or isinstance(item.get(key), bool)
+        or item[key] < 0
+        for key in ("attempted", "succeeded", "failed")
+    ):
+        raise IssueValidationError(f"{name} counts must be non-negative integers")
+    if item["succeeded"] + item["failed"] != item["attempted"]:
+        raise IssueValidationError(f"{name} counts do not reconcile")
+    return item
+
+
+def _sweep_source_health(value: Any, name: str) -> dict[str, dict[str, int]]:
+    item = _record(value, name)
+    expected = {"officialObservation", "publicDiscovery", "officialSocial"}
+    if set(item) != expected:
+        raise IssueValidationError(f"{name} must contain all three connector lanes")
+    for lane in sorted(expected):
+        _connector_health(item[lane], f"{name}.{lane}")
+    return item
+
+
+def validate_source_coverage(value: Any, name: str = "sourceCoverage") -> dict[str, Any]:
+    coverage = _record(value, name)
+    unknown = set(coverage) - SOURCE_COVERAGE_KEYS
+    missing = SOURCE_COVERAGE_KEYS - set(coverage)
+    if unknown or missing:
+        raise IssueValidationError(
+            f"{name} fields are invalid; missing={sorted(missing)}, extra={sorted(unknown)}"
+        )
+    if coverage.get("schemaVersion") != "gravel-weekly-source-coverage/v1":
+        raise IssueValidationError(f"{name}.schemaVersion is invalid")
+    if coverage.get("status") not in {"complete", "partial"}:
+        raise IssueValidationError(f"{name}.status must be complete or partial")
+    run_count = coverage.get("runCount")
+    if not isinstance(run_count, int) or isinstance(run_count, bool) or run_count < 1:
+        raise IssueValidationError(f"{name}.runCount must be positive")
+    run_ids = _list(coverage.get("sweepRunIds"), f"{name}.sweepRunIds", 100)
+    if len(run_ids) != run_count:
+        raise IssueValidationError(f"{name}.sweepRunIds must match runCount")
+    normalized_run_ids = [
+        _text(run_id, f"{name}.sweepRunIds[{index}]", 500)
+        for index, run_id in enumerate(run_ids)
+    ]
+    if len(normalized_run_ids) != len(set(normalized_run_ids)):
+        raise IssueValidationError(f"{name}.sweepRunIds must be unique")
+    _iso(coverage.get("latestSweepCompletedAt"), f"{name}.latestSweepCompletedAt")
+    latest_health = _sweep_source_health(
+        coverage.get("latestSourceHealth"), f"{name}.latestSourceHealth"
+    )
+    _sweep_source_health(
+        coverage.get("aggregateSourceHealth"), f"{name}.aggregateSourceHealth"
+    )
+    public = latest_health["publicDiscovery"]
+    if public["attempted"] == 0 or public["succeeded"] == 0:
+        raise IssueValidationError(f"{name} has no usable public-discovery lane")
+    sources = _list(coverage.get("discoverySources"), f"{name}.discoverySources", 200)
+    if not sources:
+        raise IssueValidationError(f"{name}.discoverySources must not be empty")
+    source_keys: list[tuple[str, str]] = []
+    has_public_success = False
+    has_latest_failure = False
+    for index, source_value in enumerate(sources):
+        source_name = f"{name}.discoverySources[{index}]"
+        source = _record(source_value, source_name)
+        unknown = set(source) - SOURCE_COVERAGE_SOURCE_KEYS
+        missing = SOURCE_COVERAGE_SOURCE_KEYS - set(source)
+        if unknown or missing:
+            raise IssueValidationError(
+                f"{source_name} fields are invalid; missing={sorted(missing)}, extra={sorted(unknown)}"
+            )
+        source_id = _text(source.get("sourceId"), f"{source_name}.sourceId", 500)
+        _text(source.get("publisher"), f"{source_name}.publisher", 300)
+        if source.get("purpose") not in {"evidence_source", "culture_sensor"}:
+            raise IssueValidationError(f"{source_name}.purpose is invalid")
+        connector = source.get("connector")
+        if connector not in {"rss", "sitemap", "bluesky", "x", "instagram", "reddit"}:
+            raise IssueValidationError(f"{source_name}.connector is invalid")
+        for key in ("attempts", "successes", "failures", "parsedItems", "emittedItems"):
+            number = source.get(key)
+            if not isinstance(number, int) or isinstance(number, bool) or number < 0:
+                raise IssueValidationError(f"{source_name}.{key} must be a non-negative integer")
+        if source["successes"] + source["failures"] != source["attempts"]:
+            raise IssueValidationError(f"{source_name} attempt counts do not reconcile")
+        latest_status = source.get("latestStatus")
+        if latest_status not in {"succeeded", "failed"}:
+            raise IssueValidationError(f"{source_name}.latestStatus is invalid")
+        _iso(source.get("lastAttemptedAt"), f"{source_name}.lastAttemptedAt")
+        if source.get("lastSucceededAt") is not None:
+            _iso(source["lastSucceededAt"], f"{source_name}.lastSucceededAt")
+        if source.get("lastError") is not None:
+            _text(source["lastError"], f"{source_name}.lastError", 2_000)
+        source_keys.append((connector, source_id))
+        has_public_success |= connector in {"rss", "sitemap"} and latest_status == "succeeded"
+        has_latest_failure |= latest_status == "failed"
+    if len(source_keys) != len(set(source_keys)):
+        raise IssueValidationError(f"{name}.discoverySources must be unique by connector and sourceId")
+    if not has_public_success:
+        raise IssueValidationError(f"{name} has no named successful public source")
+    errors = _list(coverage.get("sourceErrors"), f"{name}.sourceErrors", 500)
+    for index, error in enumerate(errors):
+        _text(error, f"{name}.sourceErrors[{index}]", 2_000)
+    if coverage["status"] == "complete" and (
+        errors
+        or has_latest_failure
+        or any(latest_health[lane]["failed"] for lane in latest_health)
+    ):
+        raise IssueValidationError(f"{name} marked complete despite collection gaps")
+    return coverage
 
 
 def _correction(value: Any, name: str, story_ids: set[str]) -> dict[str, Any]:
@@ -386,6 +511,8 @@ def validate_issue(value: Any, *, verify_hash: bool = True) -> dict[str, Any]:
         raise IssueValidationError("status is invalid")
     _text(issue.get("title"), "title", 300)
     _text(issue.get("mastheadDeck"), "mastheadDeck", 500)
+    if issue.get("sourceCoverage") is not None:
+        validate_source_coverage(issue["sourceCoverage"])
 
     stories = _list(issue.get("stories"), "stories", 30)
     story_ids: list[str] = []

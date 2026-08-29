@@ -142,10 +142,75 @@ def _scene_items(
     ]
 
 
+def _validate_source_coverage(review: dict[str, Any]) -> dict[str, Any]:
+    coverage_value = review.get("sourceCoverage")
+    if not isinstance(coverage_value, dict):
+        raise ValueError(
+            "cannot prepare a Gravel Weekly issue from incomplete source coverage: "
+            "the source-coverage receipt is missing"
+        )
+    coverage = coverage_value
+    if coverage.get("schemaVersion") != "gravel-weekly-source-coverage/v1":
+        raise ValueError("unsupported Gravel Weekly source-coverage schema")
+    status = coverage.get("status")
+    if status not in {"complete", "partial", "unavailable"}:
+        raise ValueError("review.sourceCoverage.status is invalid")
+    if status == "unavailable":
+        raise ValueError(
+            "cannot prepare a Gravel Weekly issue from incomplete source coverage: "
+            "public discovery was not observed successfully for the locked window"
+        )
+    if not isinstance(coverage.get("runCount"), int) or coverage["runCount"] < 1:
+        raise ValueError("review.sourceCoverage.runCount must be positive")
+    latest = _record(
+        coverage.get("latestSourceHealth"),
+        "review.sourceCoverage.latestSourceHealth",
+    )
+    public = _record(
+        latest.get("publicDiscovery"),
+        "review.sourceCoverage.latestSourceHealth.publicDiscovery",
+    )
+    attempted = public.get("attempted")
+    succeeded = public.get("succeeded")
+    failed = public.get("failed")
+    if not all(isinstance(value, int) and value >= 0 for value in (attempted, succeeded, failed)):
+        raise ValueError("review.sourceCoverage public-discovery health is invalid")
+    if succeeded + failed != attempted or attempted == 0 or succeeded == 0:
+        raise ValueError(
+            "cannot prepare a Gravel Weekly issue from incomplete source coverage: "
+            "the latest public-discovery lane was not usable"
+        )
+    sources = coverage.get("discoverySources")
+    if not isinstance(sources, list) or not sources:
+        raise ValueError(
+            "cannot prepare a Gravel Weekly issue from incomplete source coverage: "
+            "source-by-source receipts are missing"
+        )
+    if not any(
+        isinstance(source, dict)
+        and source.get("connector") in {"rss", "sitemap"}
+        and source.get("latestStatus") == "succeeded"
+        for source in sources
+    ):
+        raise ValueError(
+            "cannot prepare a Gravel Weekly issue from incomplete source coverage: "
+            "no named public news, blog, forum, or feed source succeeded"
+        )
+    errors = coverage.get("sourceErrors")
+    if not isinstance(errors, list) or any(
+        not isinstance(error, str) or not error.strip() for error in errors
+    ):
+        raise ValueError("review.sourceCoverage.sourceErrors must be an array of non-empty strings")
+    if status == "complete" and errors:
+        raise ValueError("complete source coverage cannot contain collection errors")
+    return coverage
+
+
 def prepare_issue(review_value: Any, publication_date: str, issue_number: int, *, now: str | None = None) -> dict[str, Any]:
     review = _record(review_value, "review")
     if review.get("schemaVersion") != "gravel-weekly-review/v1":
         raise ValueError("unsupported Gravel Weekly review schema")
+    _validate_source_coverage(review)
     model_errors = review.get("modelErrors", [])
     if not isinstance(model_errors, list) or any(
         not isinstance(error, str) or not error.strip() for error in model_errors
@@ -300,6 +365,7 @@ def prepare_issue(review_value: Any, publication_date: str, issue_number: int, *
         "retrospectives": [],
         "corrections": [],
         "sourceIndex": sorted(set(source_urls)),
+        "sourceCoverage": dict(review["sourceCoverage"]),
         "editorialApproval": None,
         "publishedAt": None,
         "updatedAt": generated_at,

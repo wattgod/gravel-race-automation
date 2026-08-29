@@ -150,6 +150,36 @@ def render_quiet_issue(quiet: dict[str, Any], *, draft: bool) -> str:
     </section>'''
 
 
+def render_source_coverage_receipt(coverage: dict[str, Any]) -> str:
+    latest = coverage["latestSourceHealth"]
+    lane_labels = (
+        ("OFFICIAL RACE/RESULTS", latest["officialObservation"]),
+        ("PUBLIC NEWS/BLOGS/FORUMS", latest["publicDiscovery"]),
+        ("SOCIAL/CULTURE APIS", latest["officialSocial"]),
+    )
+    lanes = "".join(
+        f'''<li><b>{esc(label)}</b><span>{health['succeeded']}/{health['attempted']} succeeded{f" · {health['failed']} failed" if health['failed'] else ""}</span></li>'''
+        for label, health in lane_labels
+    )
+    sources = "".join(
+        f'''<li><b>{esc(source['publisher'])}</b><span>{esc(source['connector'])} · {esc(source['latestStatus'])} · {source['parsedItems']} parsed · {source['emittedItems']} new</span></li>'''
+        for source in coverage["discoverySources"]
+    )
+    errors = "".join(f"<li>{esc(error)}</li>" for error in coverage["sourceErrors"])
+    error_block = (
+        f'''<details><summary>COLLECTION GAPS ({len(coverage['sourceErrors'])})</summary><ul>{errors}</ul></details>'''
+        if errors else ""
+    )
+    return f'''<aside class="gw-coverage" id="source-coverage">
+      <span>PRIVATE COLLECTION RECEIPT — NOT PUBLIC COPY</span>
+      <h2>{esc(coverage['status'].upper())} COVERAGE</h2>
+      <p>{coverage['runCount']} collection run{'s' if coverage['runCount'] != 1 else ''}; latest completed {esc(coverage['latestSweepCompletedAt'])}. A partial receipt keeps every gap visible for the human quiet-issue decision.</p>
+      <ul class="gw-coverage-lanes">{lanes}</ul>
+      <details><summary>SOURCES ATTEMPTED ({len(coverage['discoverySources'])})</summary><ul>{sources}</ul></details>
+      {error_block}
+    </aside>'''
+
+
 def render_claim_markers(
     claim_ids: list[str], receipts: list[dict[str, Any]]
 ) -> str:
@@ -664,6 +694,15 @@ def page_css() -> str:
   .gw-quiet > span { display: inline-block; font-size: var(--gg-font-size-xs); font-weight: var(--gg-font-weight-black); letter-spacing: var(--gg-letter-spacing-wide); }
   .gw-quiet h2 { max-width: 15ch; margin: var(--gg-spacing-sm) 0; font-family: var(--gg-font-editorial); font-size: clamp(2.25rem, 8vw, 5.5rem); line-height: .95; }
   .gw-quiet p { max-width: 48rem; margin: 0; font-family: var(--gg-font-editorial); font-size: var(--gg-font-size-lg); line-height: var(--gg-line-height-relaxed); }
+  .gw-coverage { margin-top: var(--gg-spacing-lg); padding: var(--gg-spacing-lg); border: var(--gg-border-heavy); background: var(--gg-color-warm-paper); }
+  .gw-coverage > span { font-size: var(--gg-font-size-xs); font-weight: var(--gg-font-weight-black); letter-spacing: var(--gg-letter-spacing-wide); }
+  .gw-coverage h2 { margin: var(--gg-spacing-xs) 0; font-size: clamp(1.5rem, 4vw, 2.5rem); }
+  .gw-coverage p { max-width: 56rem; font-family: var(--gg-font-editorial); line-height: var(--gg-line-height-relaxed); }
+  .gw-coverage ul { margin: var(--gg-spacing-sm) 0; padding: 0; list-style: none; }
+  .gw-coverage li { display: flex; justify-content: space-between; gap: var(--gg-spacing-sm); padding: var(--gg-spacing-xs) 0; border-bottom: var(--gg-border-subtle); }
+  .gw-coverage li span { text-align: right; }
+  .gw-coverage details { margin-top: var(--gg-spacing-md); border-top: var(--gg-border-standard); padding-top: var(--gg-spacing-sm); }
+  .gw-coverage summary { cursor: pointer; font-weight: var(--gg-font-weight-black); }
   code { font-family: var(--gg-font-data); overflow-wrap: anywhere; }
   @media (max-width: 720px) {
     .gw-issue-neighbors { grid-template-columns: 1fr; }
@@ -681,6 +720,8 @@ def page_css() -> str:
     .gw-memory-grid section + section { border-left: 0; border-top: var(--gg-border-standard); }
     .gw-history-take { border-left: 0; border-top: var(--gg-border-standard); }
     .gw-story-head, .gw-story-grid section, .gw-utility, .gw-sub { padding: var(--gg-spacing-md); }
+    .gw-coverage li { display: block; }
+    .gw-coverage li span { display: block; margin-top: var(--gg-spacing-2xs); text-align: left; }
   }
 ''' + culture_css()
 
@@ -713,6 +754,7 @@ def build_page(issue: dict[str, Any] | None, issues: list[dict[str, Any]], *, la
         </div>'''
         issue_body = f'''{render_issue_contents(issue)}
         {content}
+        {render_source_coverage_receipt(issue['sourceCoverage']) if is_draft and issue.get('sourceCoverage') else ''}
         {utility}
         {render_retrospectives(issue['retrospectives'], issues, draft=is_draft)}
         {corrections}'''

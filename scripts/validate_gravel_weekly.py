@@ -41,6 +41,8 @@ CULTURE_ARTIFACT_KEYS = {
     "reviewReason", "collectionMethod", "rightsPolicy", "purpose",
     "canProveClaim", "canEstablishConsensus",
 }
+STORY_CAST_KEYS = {"name", "role", "claimIds"}
+STORY_FIELD_NOTE_KEYS = {"text", "claimIds"}
 
 
 class IssueValidationError(ValueError):
@@ -183,6 +185,67 @@ def _culture_artifact(value: Any, name: str) -> dict[str, Any]:
     return artifact
 
 
+def _scene_claim_ids(
+    value: Any, name: str, receipt_claim_ids: set[str]
+) -> list[str]:
+    claim_ids = _list(value, f"{name}.claimIds", 10)
+    if not claim_ids:
+        raise IssueValidationError(f"{name}.claimIds must not be empty")
+    normalized = [
+        _text(claim_id, f"{name}.claimIds[{index}]", 500)
+        for index, claim_id in enumerate(claim_ids)
+    ]
+    if len(normalized) != len(set(normalized)):
+        raise IssueValidationError(f"{name}.claimIds must be unique")
+    missing = set(normalized) - receipt_claim_ids
+    if missing:
+        raise IssueValidationError(
+            f"{name} references claims without story receipts: {sorted(missing)}"
+        )
+    return normalized
+
+
+def _story_cast(
+    value: Any, name: str, receipt_claim_ids: set[str]
+) -> list[dict[str, Any]]:
+    cast = _list(value, name, 8)
+    names: list[str] = []
+    for index, item_value in enumerate(cast):
+        item_name = f"{name}[{index}]"
+        item = _record(item_value, item_name)
+        unknown = set(item) - STORY_CAST_KEYS
+        if unknown:
+            raise IssueValidationError(
+                f"{item_name} has unsupported fields: {sorted(unknown)}"
+            )
+        names.append(_text(item.get("name"), f"{item_name}.name", 160).casefold())
+        _text(item.get("role"), f"{item_name}.role", 300)
+        _scene_claim_ids(item.get("claimIds"), item_name, receipt_claim_ids)
+    if len(names) != len(set(names)):
+        raise IssueValidationError(f"{name} must not contain duplicate names")
+    return cast
+
+
+def _story_field_notes(
+    value: Any, name: str, receipt_claim_ids: set[str]
+) -> list[dict[str, Any]]:
+    notes = _list(value, name, 6)
+    texts: list[str] = []
+    for index, item_value in enumerate(notes):
+        item_name = f"{name}[{index}]"
+        item = _record(item_value, item_name)
+        unknown = set(item) - STORY_FIELD_NOTE_KEYS
+        if unknown:
+            raise IssueValidationError(
+                f"{item_name} has unsupported fields: {sorted(unknown)}"
+            )
+        texts.append(_text(item.get("text"), f"{item_name}.text", 500).casefold())
+        _scene_claim_ids(item.get("claimIds"), item_name, receipt_claim_ids)
+    if len(texts) != len(set(texts)):
+        raise IssueValidationError(f"{name} must not contain duplicate notes")
+    return notes
+
+
 def _retrospective(value: Any, name: str, *, status: str) -> dict[str, Any]:
     item = _record(value, name)
     if item.get("verdict") not in RETROSPECTIVE_VERDICTS:
@@ -282,6 +345,16 @@ def validate_issue(value: Any, *, verify_hash: bool = True) -> dict[str, Any]:
         for receipt_index, receipt in enumerate(receipts):
             validated_receipt = _receipt(receipt, f"stories[{index}].receipts[{receipt_index}]")
             receipt_claim_ids.add(validated_receipt["claimId"])
+        _story_cast(
+            story.get("cast", []),
+            f"stories[{index}].cast",
+            receipt_claim_ids,
+        )
+        _story_field_notes(
+            story.get("fieldNotes", []),
+            f"stories[{index}].fieldNotes",
+            receipt_claim_ids,
+        )
         for impact_index, impact in enumerate(_list(story.get("raceImpacts"), f"stories[{index}].raceImpacts")):
             validated_impact = _impact(impact, f"stories[{index}].raceImpacts[{impact_index}]")
             missing_claims = set(validated_impact["claimIds"]) - receipt_claim_ids

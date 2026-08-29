@@ -521,8 +521,39 @@ def test_timestamped_youtube_culture_card_opens_the_reviewed_moment():
     card = render_culture_artifacts([artifact])
     assert "OPEN ORIGINAL · 52:10" in card
     assert "https://www.youtube.com/watch?v=abcdefghijk&amp;list=example&amp;t=3130s" in card
+    assert 'data-culture-visual="gravel-weekly-culture-visual/v1"' in card
+    assert "SOURCE VIDEO // LOCAL FACADE" in card
+    assert "WATCH @ 52:10" in card
+    assert "no embed or thumbnail" in card
+    assert "<img" not in card
     assert "iframe" not in card
     assert ".gw-culture-card:only-child { grid-column: 1 / -1; }" in culture_css()
+
+
+def test_non_video_culture_artifact_gets_stable_local_poster_not_fake_source_media():
+    artifact = sample_weekly_culture_artifact()
+    artifact["title"] = "Privateers, team buses & <script>alert(1)</script>"
+    first = render_culture_artifacts([artifact])
+    second = render_culture_artifacts([artifact])
+
+    assert first == second
+    assert 'data-culture-visual="gravel-weekly-culture-visual/v1"' in first
+    assert "GW CULTURE DESK // AUTO" in first
+    assert "Abstract context poster; not the source image." in first
+    assert "FROM THE GROUP CHAT · BLUESKY" in first
+    assert "CALENDAR / WORLDS" in first
+    assert "&lt;script&gt;alert(1)&lt;/script&gt;" in first
+    assert "<script>" not in first
+    assert "<img" not in first and "<iframe" not in first
+
+
+def test_culture_poster_css_is_brand_token_only_and_accessible_without_motion():
+    css = culture_css()
+    assert ".gw-culture-poster" in css
+    assert "var(--gg-color-" in css
+    assert ":focus-visible" in css
+    assert "#" not in css
+    assert "infinite" not in css
 
 
 def test_claim_bound_cast_and_field_notes_survive_approval_and_render_as_optional_departments():

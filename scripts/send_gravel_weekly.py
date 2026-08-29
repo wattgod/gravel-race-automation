@@ -16,7 +16,7 @@ sys.path.insert(0, str(PROJECT_ROOT / "wordpress"))
 sys.path.insert(0, str(PROJECT_ROOT / "scripts"))
 
 from brand_tokens import COLORS  # noqa: E402
-from validate_gravel_weekly import load_issues  # noqa: E402
+from validate_gravel_weekly import load_public_issues  # noqa: E402
 
 RESEND_API = "https://api.resend.com"
 AUDIENCE_NAMES = ("Gravel Weekly", "Gravel TV")
@@ -110,9 +110,9 @@ def main() -> int:
     if missing:
         print(f"Missing {missing} — skipping Gravel Weekly send")
         return 0
-    issues = [issue for issue in load_issues() if issue["status"] in {"approved", "published"}]
+    issues = load_public_issues()
     if not issues:
-        print("No approved Gravel Weekly issue — refusing to send")
+        print("No sealed Gravel Weekly issue — refusing to send")
         return 0
     issue = issues[0]
     try:

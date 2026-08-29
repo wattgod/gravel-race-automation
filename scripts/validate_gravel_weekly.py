@@ -312,6 +312,16 @@ def load_issues(issue_dir: Path = ISSUE_DIR) -> list[dict[str, Any]]:
     return sorted(issues, key=lambda issue: issue["publicationDate"], reverse=True)
 
 
+def load_public_issues(issue_dir: Path = ISSUE_DIR) -> list[dict[str, Any]]:
+    """Return only sealed issue snapshots that are eligible for publication.
+
+    ``status=approved`` is an intentionally private staging state.  Keeping the
+    filter here gives the page generator and sender the same fail-closed
+    boundary instead of relying on every caller to remember it.
+    """
+    return [issue for issue in load_issues(issue_dir) if issue["status"] == "published"]
+
+
 def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("paths", nargs="*", type=Path)

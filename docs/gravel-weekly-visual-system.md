@@ -6,6 +6,10 @@ Gravel Weekly must never wait for Matti to choose, license, crop, or approve an 
 
 1. A contemporary receipt that is both a valid YouTube URL and a timestamped transcript claim becomes a branded source-video facade. The link opens the exact cited moment. It never autoplays or embeds tracking code.
 2. Every other story receives deterministic inline SVG generated from the story ID, content hash, and approved copy. Identical content produces an identical visual; a substantive edit produces a new one.
+3. Every approved culture artifact receives its own local poster. A timestamped
+   YouTube artifact gets an unmistakable source-video facade linked to the
+   reviewed moment; every other source gets abstract, hash-stable context art.
+   Neither path downloads, hotlinks, screenshots, or imitates the source media.
 
 The SVG is abstract editorial art, visibly labeled as such. It is never presented as a photograph or as evidence of an event.
 
@@ -95,3 +99,10 @@ editorial authority. Its selection rationale is visible only in draft/private
 review. Because the normalized artifact is part of the weekly issue or
 historical-entry content hash, Matti's story approval covers the exact culture
 context that can later appear publicly.
+
+Culture cards are visual artifacts rather than a text-only evidence ledger. The
+poster makes the selected object visible in the issue's rhythm while its caption
+states the rights boundary: local facade or abstract context art, never the
+publisher's image. The visible title, source, date, tags, excerpt, and canonical
+link remain normal HTML beneath the poster, so retrieval and accessibility do
+not depend on SVG text or JavaScript.

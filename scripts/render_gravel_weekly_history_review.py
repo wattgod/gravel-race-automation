@@ -13,7 +13,7 @@ from typing import Any
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(PROJECT_ROOT / "wordpress"))
 
-from brand_tokens import get_tokens_css  # noqa: E402
+from brand_tokens import get_font_face_css, get_tokens_css  # noqa: E402
 from gravel_weekly_visuals import render_story_visual, visual_css  # noqa: E402
 from no_ai_slop import audit_no_ai_slop  # noqa: E402
 from approve_gravel_weekly_history import (  # noqa: E402
@@ -56,6 +56,27 @@ def approval_holds(
     if (gate or prose_gate(entry))["verdict"] != "pass":
         holds.append("no-AI-slop prose gate")
     return holds
+
+
+def review_priority(entry: dict[str, Any]) -> tuple[int, int, str, str]:
+    """Put publishable decisions before research debt without hiding either."""
+    return (
+        1 if approval_holds(entry) else 0,
+        -entry["editorialScore"],
+        entry["activeFrom"],
+        entry["entryId"],
+    )
+
+
+def review_years(entries: list[dict[str, Any]]) -> list[int]:
+    years: set[int] = set()
+    for entry in entries:
+        if entry["status"] != "draft":
+            continue
+        first = int(entry["activeFrom"][:4])
+        last = int(entry["activeThrough"][:4])
+        years.update(range(first, last + 1))
+    return sorted(years, reverse=True)
 
 
 def _receipt_list(receipts: list[dict[str, Any]]) -> str:
@@ -173,7 +194,10 @@ def render_history_review(entries: list[dict[str, Any]], year: int) -> str:
         entry for entry in entries
         if entry["activeFrom"] <= f"{year}-12-31" and entry["activeThrough"] >= f"{year}-01-01"
     ]
-    drafts = [entry for entry in selected if entry["status"] == "draft"]
+    drafts = sorted(
+        (entry for entry in selected if entry["status"] == "draft"),
+        key=review_priority,
+    )
     ready_entries = [entry for entry in drafts if not approval_holds(entry)]
     held_entries = [entry for entry in drafts if approval_holds(entry)]
     ready_entry_ids = {entry["entryId"] for entry in ready_entries}
@@ -203,10 +227,12 @@ def render_history_review(entries: list[dict[str, Any]], year: int) -> str:
 <meta name="robots" content="noindex,nofollow"><title>Gravel Weekly {year} Historical Review</title>
 <style>
 {get_tokens_css()}
+{get_font_face_css()}
 {visual_css()}
 * {{ box-sizing: border-box; }}
 body {{ margin: 0; background: var(--gg-color-sand); color: var(--gg-color-near-black); font-family: var(--gg-font-data); }}
 main {{ width: min(1120px, calc(100% - 32px)); margin: 32px auto 80px; }}
+.desk-back {{ display: inline-block; margin-bottom: var(--gg-spacing-sm); color: inherit; font-weight: var(--gg-font-weight-black); }}
 .desk-head {{ border: var(--gg-border-heavy); background: var(--gg-color-gold); padding: var(--gg-spacing-lg); }}
 .desk-head h1 {{ margin: 0; font-size: clamp(2.4rem, 8vw, 6rem); line-height: .85; }}
 .desk-head p {{ max-width: 800px; font-family: var(--gg-font-editorial); font-size: var(--gg-font-size-lg); }}
@@ -238,6 +264,7 @@ summary {{ cursor: pointer; font-weight: var(--gg-font-weight-black); }}
 code {{ overflow-wrap: anywhere; }} footer {{ background: var(--gg-color-near-black); color: var(--gg-color-warm-paper); }} footer code {{ color: var(--gg-color-light-gold); }}
 @media (max-width: 700px) {{ .judgment {{ grid-template-columns: 1fr; }} .judgment section + section {{ border-left: 0; border-top: var(--gg-border-standard); }} .decision-queue a {{ grid-template-columns: 56px minmax(0, 1fr); }} .decision-queue code {{ grid-column: 2; }} main {{ width: min(100% - 16px, 1120px); margin-top: 8px; }} }}
 </style></head><body><main>
+  <a class="desk-back" href="index.html">← ALL YEARS</a>
   <header class="desk-head"><div class="eyebrow">PRIVATE EDITORIAL DESK · NOT PUBLIC</div><h1>{year}<br>THE SEASON<br>AS A STORY</h1>
   <p>This queue contains narrative change-points, not one required story per week. Review the point first, then the Take. Receipts from the active period are separated from evidence learned later.</p>
   <div class="summary"><b>{len(drafts)} DRAFTS</b><b>{ready} READY FOR HUMAN DECISION</b><b>{held} HELD BY EVIDENCE, EDITORIAL, OR PROSE GATES</b></div>
@@ -247,16 +274,108 @@ code {{ overflow-wrap: anywhere; }} footer {{ background: var(--gg-color-near-bl
 </main></body></html>'''
 
 
+def render_history_review_index(entries: list[dict[str, Any]]) -> str:
+    """Render one private map of the full newest-to-oldest decision queue."""
+    rows = []
+    total_ready = 0
+    total_held = 0
+    years = review_years(entries)
+    for year in years:
+        drafts = sorted(
+            (
+                entry for entry in entries
+                if entry["status"] == "draft"
+                and entry["activeFrom"] <= f"{year}-12-31"
+                and entry["activeThrough"] >= f"{year}-01-01"
+            ),
+            key=review_priority,
+        )
+        ready = [entry for entry in drafts if not approval_holds(entry)]
+        held = [entry for entry in drafts if approval_holds(entry)]
+        total_ready += len(ready)
+        total_held += len(held)
+        highlights = "".join(
+            '<li><span>{score}</span><b>{headline}</b></li>'.format(
+                score=entry["editorialScore"],
+                headline=esc(reviewed_headline_copy(entry)),
+            )
+            for entry in ready[:3]
+        ) or '<li class="empty">No entry clears every gate yet.</li>'
+        rows.append(f'''<article class="year-card">
+          <a href="{year}.html" aria-label="Review Gravel Weekly historical drafts for {year}">
+            <header><span>REVIEW YEAR</span><h2>{year}</h2></header>
+            <div class="counts"><b>{len(ready)} READY</b><b>{len(held)} HOLD</b></div>
+            <ol>{highlights}</ol>
+            <footer>OPEN {year} DESK →</footer>
+          </a>
+        </article>''')
+    return f'''<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow"><title>Gravel Weekly Historical Review Desk</title>
+<style>
+{get_tokens_css()}
+{get_font_face_css()}
+* {{ box-sizing: border-box; }}
+body {{ margin: 0; background: var(--gg-color-sand); color: var(--gg-color-near-black); font-family: var(--gg-font-data); }}
+main {{ width: min(1120px, calc(100% - 32px)); margin: 32px auto 80px; }}
+.desk-head {{ border: var(--gg-border-heavy); background: var(--gg-color-gold); padding: var(--gg-spacing-lg); }}
+.desk-head h1 {{ max-width: 900px; margin: var(--gg-spacing-xs) 0; font-size: clamp(2.5rem, 9vw, 6.5rem); line-height: .84; }}
+.desk-head p {{ max-width: 820px; font-family: var(--gg-font-editorial); font-size: var(--gg-font-size-lg); line-height: var(--gg-line-height-normal); }}
+.summary {{ display: flex; flex-wrap: wrap; gap: var(--gg-spacing-xs); margin-top: var(--gg-spacing-md); }}
+.summary b {{ border: var(--gg-border-standard); padding: var(--gg-spacing-xs) var(--gg-spacing-sm); background: var(--gg-color-warm-paper); }}
+.years {{ display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--gg-spacing-md); margin-top: var(--gg-spacing-lg); }}
+.year-card {{ border: var(--gg-border-heavy); background: var(--gg-color-white); }}
+.year-card a {{ display: flex; min-height: 100%; flex-direction: column; color: inherit; text-decoration: none; }}
+.year-card a:hover, .year-card a:focus-visible {{ background: var(--gg-color-warm-paper); outline: var(--gg-border-gold); outline-offset: 3px; }}
+.year-card header {{ padding: var(--gg-spacing-md); border-bottom: var(--gg-border-standard); }}
+.year-card header span {{ font-size: var(--gg-font-size-xs); font-weight: var(--gg-font-weight-bold); letter-spacing: var(--gg-letter-spacing-wide); }}
+.year-card h2 {{ margin: 0; font-size: clamp(3.2rem, 8vw, 5rem); line-height: .9; }}
+.counts {{ display: grid; grid-template-columns: 1fr 1fr; border-bottom: var(--gg-border-standard); }}
+.counts b {{ padding: var(--gg-spacing-xs); text-align: center; }}
+.counts b + b {{ border-left: var(--gg-border-standard); background: var(--gg-color-near-black); color: var(--gg-color-warm-paper); }}
+.year-card ol {{ flex: 1; margin: 0; padding: var(--gg-spacing-md) var(--gg-spacing-md) var(--gg-spacing-md) calc(var(--gg-spacing-xl) + var(--gg-spacing-xs)); }}
+.year-card li {{ margin-bottom: var(--gg-spacing-sm); font-family: var(--gg-font-editorial); line-height: var(--gg-line-height-normal); }}
+.year-card li span {{ display: inline-block; margin-right: var(--gg-spacing-xs); font-family: var(--gg-font-data); font-size: var(--gg-font-size-xs); font-weight: var(--gg-font-weight-black); }}
+.year-card footer {{ padding: var(--gg-spacing-sm) var(--gg-spacing-md); border-top: var(--gg-border-standard); background: var(--gg-color-teal); color: var(--gg-color-white); font-weight: var(--gg-font-weight-black); }}
+.empty {{ font-style: italic; }}
+@media (max-width: 860px) {{ .years {{ grid-template-columns: repeat(2, minmax(0, 1fr)); }} }}
+@media (max-width: 580px) {{ .years {{ grid-template-columns: 1fr; }} main {{ width: min(100% - 16px, 1120px); margin-top: 8px; }} }}
+</style></head><body><main>
+  <header class="desk-head"><div>PRIVATE EDITORIAL DESK · NOT PUBLIC</div><h1>THE WHOLE<br>GRAVEL STORY</h1>
+  <p>Start with 2026, then work backward. Inside each year, entries that clear every evidence, editorial, hostile-editor, and prose gate come first. HOLD entries remain visible research debt; this index cannot approve, seal, publish, or edit anything.</p>
+  <div class="summary"><b>{len(years)} YEARS</b><b>{total_ready} READY FOR HUMAN DECISION</b><b>{total_held} HELD</b></div></header>
+  <section class="years" aria-label="Historical review years">{"".join(rows)}</section>
+</main></body></html>'''
+
+
 def main() -> int:
     parser = argparse.ArgumentParser()
-    parser.add_argument("--year", required=True, type=int)
+    mode = parser.add_mutually_exclusive_group(required=True)
+    mode.add_argument("--year", type=int)
+    mode.add_argument("--all", action="store_true")
     parser.add_argument("--output", type=Path)
-    args = parser.parse_args()
-    output = args.output or (
-        PROJECT_ROOT / "data" / "gravel-weekly" / "history-review" / f"{args.year}.html"
+    parser.add_argument(
+        "--output-dir",
+        type=Path,
+        default=PROJECT_ROOT / "data" / "gravel-weekly" / "history-review",
     )
-    output.parent.mkdir(parents=True, exist_ok=True)
+    args = parser.parse_args()
     entries = load_history_entries(HISTORY_DIR)
+    if args.all:
+        if args.output is not None:
+            parser.error("--output cannot be combined with --all; use --output-dir")
+        args.output_dir.mkdir(parents=True, exist_ok=True)
+        years = review_years(entries)
+        for year in years:
+            target = args.output_dir / f"{year}.html"
+            target.write_text(render_history_review(entries, year), encoding="utf-8")
+        index = args.output_dir / "index.html"
+        index.write_text(render_history_review_index(entries), encoding="utf-8")
+        print(f"Rendered {len(years)} private yearly desks plus index: {index}")
+        return 0
+
+    output = args.output or args.output_dir / f"{args.year}.html"
+    output.parent.mkdir(parents=True, exist_ok=True)
     output.write_text(render_history_review(entries, args.year), encoding="utf-8")
     selected = [
         entry for entry in entries

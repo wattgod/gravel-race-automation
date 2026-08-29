@@ -111,6 +111,17 @@ them. Build a private, read-only desk for one year:
 python3 scripts/render_gravel_weekly_history_review.py --year 2026
 ```
 
+Or generate the complete newest-to-oldest desk index and every yearly review in
+one pass:
+
+```bash
+python3 scripts/render_gravel_weekly_history_review.py --all
+```
+
+The private index starts with 2026, then works backward. Within a year it places
+READY decisions before HOLD research debt and orders each group by editorial
+score. It changes no approval or publication state.
+
 The desk puts the point, prior and changed judgments, model Take, uncertainty,
 contemporary receipts, later evidence, gates, and review-only race implications
 in one place. It also displays the pinned no-AI-slop verdict and named findings.

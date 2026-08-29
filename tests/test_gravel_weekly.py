@@ -42,7 +42,12 @@ from approve_ready_gravel_weekly_history import (  # noqa: E402
     prepare_ready_approvals,
     stage_ready_approvals,
 )
-from render_gravel_weekly_history_review import render_history_review  # noqa: E402
+from render_gravel_weekly_history_review import (  # noqa: E402
+    render_history_review,
+    render_history_review_index,
+    review_priority,
+    review_years,
+)
 from seal_gravel_weekly_history import (  # noqa: E402
     main as seal_history_main,
     seal_history_entry,
@@ -970,6 +975,42 @@ def test_private_historical_review_desk_separates_evidence_and_approval_state():
     assert "any decision binds to this exact draft hash" in page.lower()
     assert "approval fails closed while any hold remains" in page.lower()
     assert draft["contentHash"] in page
+    assert "noindex,nofollow" in page
+    assert "@font-face" in page
+    assert 'href="index.html">← ALL YEARS</a>' in page
+    assert page.index(f'href="#{draft["entryId"]}"') < page.index(f'href="#{held["entryId"]}"')
+
+
+def test_historical_review_index_prioritizes_recent_ready_decisions():
+    ready_2026 = sample_history_draft()
+    ready_2025 = copy.deepcopy(ready_2026)
+    ready_2025.update({
+        "entryId": "history-ready-2025",
+        "activeFrom": "2025-04-01",
+        "activeThrough": "2025-04-30",
+        "headline": "MODEL DRAFT: A 2025 premise",
+        "editorialScore": 99,
+    })
+    ready_2025["contentHash"] = compute_history_content_hash(ready_2025)
+    held_2026 = copy.deepcopy(ready_2026)
+    held_2026.update({
+        "entryId": "history-held-2026",
+        "headline": "MODEL DRAFT: A held 2026 premise",
+        "editorialScore": 100,
+    })
+    held_2026["editorialGates"]["hostileEditor"] = "hold"
+    held_2026["contentHash"] = compute_history_content_hash(held_2026)
+
+    assert review_years([ready_2025, held_2026, ready_2026]) == [2026, 2025]
+    assert sorted([held_2026, ready_2026], key=review_priority)[0]["entryId"] == ready_2026["entryId"]
+    page = render_history_review_index([ready_2025, held_2026, ready_2026])
+
+    assert "THE WHOLE<br>GRAVEL STORY" in page
+    assert "2 YEARS" in page
+    assert "2 READY FOR HUMAN DECISION" in page
+    assert "1 HELD" in page
+    assert page.index('href="2026.html"') < page.index('href="2025.html"')
+    assert "@font-face" in page
     assert "noindex,nofollow" in page
 
 

@@ -3,6 +3,7 @@
 import copy
 import json
 import sys
+import urllib.error
 from pathlib import Path
 
 import pytest
@@ -65,7 +66,16 @@ from validate_gravel_weekly_backfill import validate_backfill_ledger  # noqa: E4
 from no_ai_slop import audit_no_ai_slop  # noqa: E402
 from prepare_gravel_weekly_backfill_ledger import build_initial_backfill_ledger  # noqa: E402
 from prepare_gravel_weekly_history_culture import prepare_history_culture_proposal  # noqa: E402
-from send_gravel_weekly import SUBSCRIBER_SOURCES, build_email_html  # noqa: E402
+import send_gravel_weekly  # noqa: E402
+from send_gravel_weekly import (  # noqa: E402
+    SUBSCRIBER_SOURCES,
+    broadcast_name,
+    build_email_html,
+    ensure_segment_contact,
+    find_or_create_segment,
+    select_issue,
+    send_broadcast_once,
+)
 from prepare_gravel_weekly_issue import prepare_issue  # noqa: E402
 from approve_gravel_weekly_issue import approve_issue, build_decision_receipt  # noqa: E402
 from seal_gravel_weekly_issue import main as seal_issue_main, seal_issue  # noqa: E402
@@ -2648,11 +2658,13 @@ def test_deploy_path_and_legacy_redirect_are_wired():
     assert not (ROOT / "scripts" / "send_broadcast_email.py").exists()
     workflow = (ROOT / ".github" / "workflows" / "weekly-broadcast.yml").read_text()
     assert "issues: write" in workflow
+    assert "refs/heads/main" in workflow
     assert "render_gravel_weekly_race_impact_review.py" in workflow
     assert "meaningful-race-impact-count: 0" in workflow
     assert "validate_decision_receipt" in workflow
     assert "record_gravel_weekly_decisions.py" in workflow
     assert "CONTROL_PLANE_INGEST_SECRET" in workflow
+    assert 'send_gravel_weekly.py --issue-date "$ISSUE_DATE"' in workflow
     history_workflow = (ROOT / ".github" / "workflows" / "gravel-weekly-history-publish.yml").read_text()
     assert "workflow_dispatch:" in history_workflow
     assert 'group: gravel-weekly-publish' in history_workflow
@@ -2682,6 +2694,152 @@ def test_email_preserves_legacy_subscribers_and_renders_a_sealed_issue():
     assert "Unbound changed the course" in email
     assert "/gravel-weekly/2026-08-28/" in email
     assert "RESEND_UNSUBSCRIBE_URL" in email
+
+
+def test_email_broadcast_name_binds_the_exact_published_issue_hash():
+    issue = sample_issue()
+    name = broadcast_name(issue)
+    assert name == (
+        f"Gravel Weekly #001 · 2026-08-28 · {issue['contentHash']}"
+    )
+
+
+def test_email_send_reuses_an_existing_sent_broadcast(monkeypatch):
+    issue = sample_issue()
+    calls = []
+
+    def fake_resend(path, method="GET", body=None):
+        calls.append((path, method, body))
+        if path == "/broadcasts":
+            return {"data": [{"id": "broadcast_existing", "status": "sent"}]}
+        if path == "/broadcasts/broadcast_existing":
+            return {
+                "id": "broadcast_existing",
+                "name": broadcast_name(issue),
+                "status": "sent",
+            }
+        raise AssertionError(f"unexpected request: {path}")
+
+    monkeypatch.setattr(send_gravel_weekly, "resend", fake_resend)
+    receipt = send_broadcast_once(issue, "segment_1", "Subject", "<p>Body</p>")
+    assert receipt == {
+        "id": "broadcast_existing", "status": "sent", "reused": True
+    }
+    assert [call[0] for call in calls] == [
+        "/broadcasts", "/broadcasts/broadcast_existing"
+    ]
+
+
+def test_email_send_creates_and_sends_once_with_a_content_bound_name(monkeypatch):
+    issue = sample_issue()
+    calls = []
+
+    def fake_resend(path, method="GET", body=None):
+        calls.append((path, method, body))
+        if path == "/broadcasts" and method == "GET":
+            return {"data": []}
+        if path == "/broadcasts" and method == "POST":
+            return {"id": "broadcast_new"}
+        raise AssertionError(f"unexpected request: {path}")
+
+    monkeypatch.setattr(send_gravel_weekly, "resend", fake_resend)
+    receipt = send_broadcast_once(issue, "segment_1", "Subject", "<p>Body</p>")
+    assert receipt == {
+        "id": "broadcast_new", "status": "queued", "reused": False
+    }
+    body = calls[-1][2]
+    assert body["name"] == broadcast_name(issue)
+    assert body["send"] is True
+    assert body["segment_id"] == "segment_1"
+
+
+def test_email_contact_sync_preserves_existing_segment_membership(monkeypatch):
+    calls = []
+
+    def fake_resend(path, method="GET", body=None):
+        calls.append((path, method, body))
+        if path.endswith("/segments"):
+            return {"data": [{"id": "segment_1", "name": "Gravel Weekly"}]}
+        return {"id": "contact_1", "email": "rider+weekly@example.com"}
+
+    monkeypatch.setattr(send_gravel_weekly, "resend", fake_resend)
+    assert ensure_segment_contact(
+        "segment_1", "rider+weekly@example.com"
+    ) is False
+    assert [call[0] for call in calls] == [
+        "/contacts/rider%2Bweekly%40example.com",
+        "/contacts/rider%2Bweekly%40example.com/segments",
+    ]
+
+
+def test_email_contact_sync_creates_only_after_a_real_404(monkeypatch):
+    calls = []
+
+    def fake_resend(path, method="GET", body=None):
+        calls.append((path, method, body))
+        if method == "GET":
+            raise urllib.error.HTTPError(path, 404, "Not Found", {}, None)
+        return {"id": "contact_new"}
+
+    monkeypatch.setattr(send_gravel_weekly, "resend", fake_resend)
+    assert ensure_segment_contact("segment_1", "new@example.com") is True
+    assert calls[-1] == (
+        "/contacts",
+        "POST",
+        {"email": "new@example.com", "segments": [{"id": "segment_1"}]},
+    )
+
+
+def test_email_contact_sync_adds_existing_contact_to_missing_segment(monkeypatch):
+    calls = []
+
+    def fake_resend(path, method="GET", body=None):
+        calls.append((path, method, body))
+        if path == "/contacts/rider%40example.com":
+            return {"id": "contact_1", "email": "rider@example.com"}
+        if path == "/contacts/rider%40example.com/segments":
+            return {"data": []}
+        if path == "/contacts/rider%40example.com/segments/segment_1":
+            return {"id": "segment_1"}
+        raise AssertionError(f"unexpected request: {path}")
+
+    monkeypatch.setattr(send_gravel_weekly, "resend", fake_resend)
+    assert ensure_segment_contact("segment_1", "rider@example.com") is True
+    assert calls[-1][1] == "POST"
+
+
+def test_email_segment_lookup_reuses_the_legacy_publication_group(monkeypatch):
+    def fake_resend(path, method="GET", body=None):
+        assert path == "/segments"
+        assert method == "GET"
+        return {"data": [{"id": "segment_legacy", "name": "Gravel TV"}]}
+
+    monkeypatch.setattr(send_gravel_weekly, "resend", fake_resend)
+    assert find_or_create_segment() == "segment_legacy"
+
+
+def test_email_contact_sync_propagates_provider_failures(monkeypatch):
+    def fake_resend(path, method="GET", body=None):
+        raise urllib.error.HTTPError(path, 503, "Unavailable", {}, None)
+
+    monkeypatch.setattr(send_gravel_weekly, "resend", fake_resend)
+    with pytest.raises(urllib.error.HTTPError):
+        ensure_segment_contact("segment_1", "rider@example.com")
+
+
+def test_email_send_fails_closed_when_delivery_secrets_are_missing(monkeypatch):
+    for key in ("RESEND_API_KEY", "SUPABASE_URL", "SUPABASE_SERVICE_ROLE_KEY"):
+        monkeypatch.delenv(key, raising=False)
+    assert send_gravel_weekly.main([]) == 1
+
+
+def test_email_sender_selects_the_workflow_issue_date_not_merely_latest():
+    latest = sample_issue()
+    older = copy.deepcopy(latest)
+    older["publicationDate"] = "2026-08-21"
+    assert select_issue([latest, older], "2026-08-21") is older
+    with pytest.raises(RuntimeError, match="No sealed Gravel Weekly issue exists"):
+        select_issue([latest, older], "2026-08-14")
 
 
 def test_only_sealed_issue_snapshots_cross_the_public_loader(tmp_path):

@@ -227,6 +227,9 @@ def render_history_timeline(entries: list[dict[str, Any]]) -> str:
             receipts=entry["contemporaryReceipts"],
             date_label=active_label,
             stable_hash=entry["contentHash"],
+            prior_judgment=entry["priorJudgment"],
+            changed_judgment=entry["changedJudgment"],
+            point=entry["point"],
         )
         cards.append(f'''<!-- gravel-weekly-history-hash: {esc(entry['contentHash'])} -->
         <article class="gw-history-entry" id="{esc(entry['entryId'])}">

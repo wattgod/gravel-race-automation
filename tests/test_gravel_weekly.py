@@ -273,6 +273,29 @@ def test_procedural_visual_is_stable_labeled_and_not_documentary():
     assert "<img" not in first
 
 
+def test_historical_story_turn_visual_uses_only_supplied_before_after_copy():
+    visual = render_story_visual(
+        item_id="history-teamification-2026",
+        headline="The privateer became gravel's unpaid control group",
+        body_text="Teams changed access to race-deciding support.",
+        receipts=[],
+        date_label="2026-02-10 → 2026-05-26",
+        stable_hash="abc123",
+        prior_judgment="Top-level gravel remained unusually accessible to independent riders.",
+        changed_judgment="The start stayed open while competitive infrastructure became gated.",
+        point="Open registration survived while race-deciding support became less open.",
+    )
+    assert 'data-visual-role="story-turn"' in visual
+    assert 'data-story-grammar="before-after"' in visual
+    assert "BEFORE" in visual and "AFTER" in visual
+    assert "Top-level gravel remained" in visual
+    assert "competitive infrastructure" in visual
+    assert "Open registration survived" in visual
+    assert "Hash-bound before → after" in visual
+    assert "not a news photo" in visual
+    assert "<img" not in visual and "<iframe" not in visual
+
+
 def test_timestamped_video_visual_links_exact_claim_without_autoplay_or_embed():
     visual = render_story_visual(
         item_id="story_video",
@@ -297,6 +320,8 @@ def test_visual_css_uses_brand_tokens_and_respects_reduced_motion():
     assert "var(--gg-color-" in css
     assert "@media (prefers-reduced-motion: no-preference)" in css
     assert "@media (max-width: 620px)" in css
+    assert "linear 1 both" in css
+    assert "infinite" not in css
     assert "#" not in css
 
 
@@ -993,6 +1018,9 @@ def test_private_historical_review_desk_separates_evidence_and_approval_state():
     assert "no-AI-slop prose gate" in page
     assert "fake_profound_kicker" in page
     assert "not an AI-authorship detector" in page
+    assert 'data-visual-role="story-turn"' in page
+    assert draft["priorJudgment"] in page
+    assert draft["changedJudgment"] in page
     assert "CONTEMPORARY RECEIPTS (2)" in page
     assert "LATER EVIDENCE (1)" in page
     assert "any decision binds to this exact draft hash" in page.lower()
@@ -1693,6 +1721,9 @@ def test_historical_timeline_visually_separates_later_evidence_from_contemporary
     assert "WHY IT MATTERED" in html
     assert "THE FAIR OBJECTION" in html
     assert "The privateer became gravel" in html
+    assert 'data-visual-role="story-turn"' in html
+    assert entry["priorJudgment"] in html
+    assert entry["changedJudgment"] in html
     assert "innerHTML" not in html
     page = build_page(sample_issue(), [sample_issue()], latest=True, history_entries=[entry])
     assert 'id="season-story"' in page

@@ -6,6 +6,7 @@ from __future__ import annotations
 import hashlib
 import html
 import re
+import textwrap
 from typing import Any
 from urllib.parse import parse_qs, urlparse
 
@@ -78,6 +79,34 @@ def _compact_context_label(value: str) -> str:
         return years[0] if len(set(years)) == 1 else f"{years[0]}–{years[-1]}"
     compact = " ".join(value.split()).upper()
     return compact[:28].rstrip()
+
+
+def _svg_text_block(
+    value: str,
+    *,
+    x: int,
+    y: int,
+    class_name: str,
+    max_chars: int = 25,
+    max_lines: int = 5,
+    line_height: int = 18,
+) -> str:
+    """Wrap trusted editorial copy into a compact, escaped native-SVG block."""
+    normalized = " ".join(value.split())
+    lines = textwrap.wrap(
+        normalized,
+        width=max_chars,
+        break_long_words=False,
+        break_on_hyphens=False,
+    ) or [""]
+    if len(lines) > max_lines:
+        lines = lines[:max_lines]
+        lines[-1] = f"{lines[-1][:max_chars - 1].rstrip()}…"
+    spans = "".join(
+        f'<tspan x="{x}" dy="{0 if index == 0 else line_height}">{esc(line)}</tspan>'
+        for index, line in enumerate(lines)
+    )
+    return f'<text class="{esc(class_name)}" x="{x}" y="{y}">{spans}</text>'
 
 
 def classify_theme(*values: str) -> tuple[str, str]:
@@ -197,6 +226,9 @@ def render_story_visual(
     receipts: list[dict[str, Any]],
     date_label: str,
     stable_hash: str | None = None,
+    prior_judgment: str | None = None,
+    changed_judgment: str | None = None,
+    point: str | None = None,
 ) -> str:
     """Render one automatic visual; factual source video wins over abstract art."""
     safe_id = _safe_id(item_id)
@@ -222,6 +254,39 @@ def render_story_visual(
             </svg>
           </a>
           <figcaption><b>VERIFIED SOURCE VIDEO</b><span>The cited passage starts at {esc(timestamp)}. Opens on YouTube.</span></figcaption>
+        </figure>'''
+
+    if prior_judgment and changed_judgment and point:
+        before = _svg_text_block(
+            prior_judgment,
+            x=42,
+            y=91,
+            class_name="gw-turn-copy",
+        )
+        after = _svg_text_block(
+            changed_judgment,
+            x=390,
+            y=91,
+            class_name="gw-turn-copy",
+        )
+        return f'''<figure class="gw-visual gw-visual--turn gw-visual--{esc(theme)}" data-visual-system="{VISUAL_SYSTEM_VERSION}" data-visual-role="story-turn" data-story-grammar="before-after">
+          <svg viewBox="0 0 660 238" role="img" aria-labelledby="gw-visual-title-{safe_id}" focusable="false">
+            <title id="gw-visual-title-{safe_id}">{esc(point)} Before: {esc(prior_judgment)} After: {esc(changed_judgment)}</title>
+            <rect class="gw-visual-paper" x="0" y="0" width="660" height="238" />
+            <path class="gw-visual-route gw-visual-route--background" d="{_route_path(seed)}" pathLength="100" />
+            <text class="gw-visual-kicker" x="24" y="34">GRAVEL WEEKLY · {esc(context_label)}</text>
+            <rect class="gw-turn-panel gw-turn-panel--before" x="24" y="54" width="276" height="132" />
+            <rect class="gw-turn-panel gw-turn-panel--after" x="360" y="54" width="276" height="132" />
+            <text class="gw-turn-label" x="42" y="74">BEFORE</text>
+            <g class="gw-turn-after">
+              <text class="gw-turn-label" x="390" y="74">AFTER</text>
+              {after}
+            </g>
+            {before}
+            <path class="gw-turn-arrow" d="M306 120h42 M334 104l16 16-16 16" pathLength="100" />
+            <text class="gw-visual-meta" x="24" y="217">THE POINT · {esc(theme_label)}</text>
+          </svg>
+          <figcaption><b>STORY TURN // AUTO</b><span>Hash-bound before → after; abstract editorial graphic, not a news photo.</span></figcaption>
         </figure>'''
 
     particles = "".join(
@@ -251,6 +316,7 @@ def visual_css() -> str:
   .gw-visual svg { display: block; width: 100%; height: auto; max-height: 310px; }
   .gw-visual-paper { fill: var(--gg-color-sand); }
   .gw-visual-route { fill: none; stroke: var(--gg-color-teal); stroke-width: 18; stroke-linecap: square; opacity: .9; stroke-dasharray: 10 4; }
+  .gw-visual-route--background { opacity: .23; }
   .gw-visual-gravel circle { fill: var(--gg-color-primary-brown); opacity: .55; }
   .gw-visual-motif { fill: none; stroke: var(--gg-color-near-black); stroke-width: 9; }
   .gw-visual-motif .gw-visual-accent { fill: none; stroke: var(--gg-color-gold); stroke-width: 13; }
@@ -264,11 +330,22 @@ def visual_css() -> str:
   .gw-video-screen { fill: var(--gg-color-near-black); stroke: var(--gg-color-gold); stroke-width: 8; }
   .gw-video-play { fill: var(--gg-color-gold); stroke: var(--gg-color-warm-paper); stroke-width: 4; }
   .gw-visual--video .gw-visual-route { stroke: var(--gg-color-primary-brown); opacity: .35; }
+  .gw-turn-panel { stroke: var(--gg-color-near-black); stroke-width: var(--gg-border-width-standard); }
+  .gw-turn-panel--before { fill: var(--gg-color-warm-paper); }
+  .gw-turn-panel--after { fill: var(--gg-color-gold); }
+  .gw-turn-label, .gw-turn-copy { fill: var(--gg-color-near-black); font-family: var(--gg-font-data); }
+  .gw-turn-label { font-size: 13px; font-weight: var(--gg-font-weight-black); letter-spacing: 2px; }
+  .gw-turn-copy { font-size: 15px; font-weight: var(--gg-font-weight-bold); }
+  .gw-turn-arrow { fill: none; stroke: var(--gg-color-teal); stroke-width: 9; stroke-linecap: square; stroke-linejoin: miter; }
   @media (prefers-reduced-motion: no-preference) {
-    .gw-visual-route { animation: gw-route-pulse 16s linear infinite; }
+    .gw-visual-route { animation: gw-route-pulse 1600ms linear 1 both; }
+    .gw-turn-arrow { animation: gw-turn-reveal 1100ms var(--gg-animation-easing-sharp) 1 both; }
+    .gw-turn-after { animation: gw-turn-land 520ms var(--gg-animation-easing-sharp) 850ms 1 both; }
     .gw-video-facade:hover .gw-video-play { transform: translateX(5px); transform-origin: center; transition: transform 140ms linear; }
   }
   @keyframes gw-route-pulse { to { stroke-dashoffset: -100; } }
+  @keyframes gw-turn-reveal { from { stroke-dasharray: 100; stroke-dashoffset: 100; } to { stroke-dasharray: 100; stroke-dashoffset: 0; } }
+  @keyframes gw-turn-land { from { transform: translateX(-8px); } to { transform: translateX(0); } }
   @media (max-width: 620px) {
     .gw-visual-word { font-size: 30px; }
     .gw-visual-kicker, .gw-visual-meta { display: none; }

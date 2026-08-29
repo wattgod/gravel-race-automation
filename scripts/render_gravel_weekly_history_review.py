@@ -159,6 +159,9 @@ def _card(entry: dict[str, Any]) -> str:
         receipts=entry["contemporaryReceipts"],
         date_label=f"{entry['activeFrom']} → {entry['activeThrough']}",
         stable_hash=entry["contentHash"],
+        prior_judgment=entry["priorJudgment"],
+        changed_judgment=entry["changedJudgment"],
+        point=entry["point"],
     )
     return f'''<article class="story" id="{esc(entry['entryId'])}">
       <header>

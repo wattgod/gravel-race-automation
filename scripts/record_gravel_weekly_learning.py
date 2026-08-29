@@ -121,6 +121,8 @@ def build_source_receipt(
             "reason": decision["reason"],
             "decidedAt": decision["decidedAt"],
             "evidenceUrls": evidence_urls,
+            "implementationUrl": decision["implementationUrl"],
+            "regressionTest": decision["regressionTest"],
         },
     }
 

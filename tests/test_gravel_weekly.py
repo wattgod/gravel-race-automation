@@ -1160,6 +1160,8 @@ def test_race_impact_outcomes_require_exact_issue_and_implementation_proof():
             "https://www.cyclingnews.com/example/",
             "https://github.com/wattgod/gravel-race-automation/pull/999",
         ],
+        "implementationUrl": "https://github.com/wattgod/gravel-race-automation/pull/999",
+        "regressionTest": "tests/test_gravel_weekly.py::test_race_impact_outcomes_require_exact_issue_and_implementation_proof",
     }
 
     stale = copy.deepcopy(source)

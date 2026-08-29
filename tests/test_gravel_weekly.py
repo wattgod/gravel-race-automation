@@ -33,6 +33,7 @@ from validate_gravel_weekly import (  # noqa: E402
     load_issues,
     load_public_issues,
     validate_issue,
+    validate_source_coverage,
 )
 from validate_gravel_weekly_history import (  # noqa: E402
     compute_history_content_hash,
@@ -192,6 +193,21 @@ def sample_source_coverage(status="complete"):
         }],
         "sourceErrors": [],
     }
+
+
+def sample_scoped_source_coverage(status="complete"):
+    coverage = sample_source_coverage(status)
+    coverage.update({
+        "schemaVersion": "gravel-weekly-source-coverage/v2",
+        "scope": {
+            "vertical": "gravel",
+            "method": "declared_source_vertical_or_race_id",
+        },
+        "infrastructureWarnings": [
+            "run_coverage: observation:nordic:example-race: fetch failed",
+        ],
+    })
+    return coverage
 
 
 def sample_control_plane_run(run_id=33243938367):
@@ -815,6 +831,29 @@ def test_review_prepares_a_draft_but_cannot_imply_approval():
     assert "Cyclingnews" in preview
     assert culture_artifact["reviewReason"] in preview
     assert "application/ld+json" not in preview
+
+
+def test_scoped_coverage_keeps_other_vertical_failures_visible_without_downgrading_gravel():
+    coverage = sample_scoped_source_coverage("complete")
+    assert validate_source_coverage(coverage)["status"] == "complete"
+    receipt = render_source_coverage_receipt(coverage)
+    assert "COMPLETE COVERAGE" in receipt
+    assert "GRAVEL OFFICIAL RACE/RESULTS" in receipt
+    assert "OTHER VERTICAL / INFRASTRUCTURE WARNINGS (1 TOTAL)" in receipt
+    assert "did not change the gravel coverage verdict" not in receipt
+    assert "observation:nordic:example-race" in receipt
+
+    review = sample_quiet_review()
+    review["sourceCoverage"] = coverage
+    issue = prepare_issue(review, "2026-08-28", 1, now="2026-08-29T09:00:00Z")
+    assert issue["sourceCoverage"]["schemaVersion"] == "gravel-weekly-source-coverage/v2"
+
+
+def test_scoped_coverage_rejects_a_non_gravel_scope():
+    coverage = sample_scoped_source_coverage()
+    coverage["scope"]["vertical"] = "nordic"
+    with pytest.raises(IssueValidationError, match="scope.vertical must be gravel"):
+        validate_source_coverage(coverage)
 
 
 def test_control_plane_run_validation_binds_the_exact_producer_and_artifact():

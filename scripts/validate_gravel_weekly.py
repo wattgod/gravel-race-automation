@@ -52,11 +52,15 @@ CORRECTION_LEARNING_KEYS = {
     "failureKey", "originalClaim", "correctedClaim", "severity",
     "evidenceUrls", "recordedBy",
 }
-SOURCE_COVERAGE_KEYS = {
+SOURCE_COVERAGE_V1_KEYS = {
     "schemaVersion", "status", "runCount", "sweepRunIds",
     "latestSweepCompletedAt", "latestSourceHealth", "aggregateSourceHealth",
     "discoverySources", "sourceErrors",
 }
+SOURCE_COVERAGE_V2_KEYS = SOURCE_COVERAGE_V1_KEYS | {
+    "scope", "infrastructureWarnings",
+}
+SOURCE_COVERAGE_SCOPE_KEYS = {"vertical", "method"}
 SOURCE_COVERAGE_SOURCE_KEYS = {
     "sourceId", "publisher", "purpose", "connector", "attempts",
     "successes", "failures", "parsedItems", "emittedItems", "latestStatus",
@@ -185,14 +189,36 @@ def _sweep_source_health(value: Any, name: str) -> dict[str, dict[str, int]]:
 
 def validate_source_coverage(value: Any, name: str = "sourceCoverage") -> dict[str, Any]:
     coverage = _record(value, name)
-    unknown = set(coverage) - SOURCE_COVERAGE_KEYS
-    missing = SOURCE_COVERAGE_KEYS - set(coverage)
+    schema = coverage.get("schemaVersion")
+    if schema not in {
+        "gravel-weekly-source-coverage/v1",
+        "gravel-weekly-source-coverage/v2",
+    }:
+        raise IssueValidationError(f"{name}.schemaVersion is invalid")
+    expected_keys = (
+        SOURCE_COVERAGE_V2_KEYS
+        if schema == "gravel-weekly-source-coverage/v2"
+        else SOURCE_COVERAGE_V1_KEYS
+    )
+    unknown = set(coverage) - expected_keys
+    missing = expected_keys - set(coverage)
     if unknown or missing:
         raise IssueValidationError(
             f"{name} fields are invalid; missing={sorted(missing)}, extra={sorted(unknown)}"
         )
-    if coverage.get("schemaVersion") != "gravel-weekly-source-coverage/v1":
-        raise IssueValidationError(f"{name}.schemaVersion is invalid")
+    if schema == "gravel-weekly-source-coverage/v2":
+        scope = _record(coverage.get("scope"), f"{name}.scope")
+        unknown_scope = set(scope) - SOURCE_COVERAGE_SCOPE_KEYS
+        missing_scope = SOURCE_COVERAGE_SCOPE_KEYS - set(scope)
+        if unknown_scope or missing_scope:
+            raise IssueValidationError(
+                f"{name}.scope fields are invalid; missing={sorted(missing_scope)}, "
+                f"extra={sorted(unknown_scope)}"
+            )
+        if scope.get("vertical") != "gravel":
+            raise IssueValidationError(f"{name}.scope.vertical must be gravel")
+        if scope.get("method") != "declared_source_vertical_or_race_id":
+            raise IssueValidationError(f"{name}.scope.method is invalid")
     if coverage.get("status") not in {"complete", "partial"}:
         raise IssueValidationError(f"{name}.status must be complete or partial")
     run_count = coverage.get("runCount")
@@ -263,6 +289,14 @@ def validate_source_coverage(value: Any, name: str = "sourceCoverage") -> dict[s
     errors = _list(coverage.get("sourceErrors"), f"{name}.sourceErrors", 500)
     for index, error in enumerate(errors):
         _text(error, f"{name}.sourceErrors[{index}]", 2_000)
+    if schema == "gravel-weekly-source-coverage/v2":
+        infrastructure_warnings = _list(
+            coverage.get("infrastructureWarnings"),
+            f"{name}.infrastructureWarnings",
+            500,
+        )
+        for index, warning in enumerate(infrastructure_warnings):
+            _text(warning, f"{name}.infrastructureWarnings[{index}]", 2_000)
     if coverage["status"] == "complete" and (
         errors
         or has_latest_failure

@@ -150,7 +150,10 @@ def _validate_source_coverage(review: dict[str, Any]) -> dict[str, Any]:
             "the source-coverage receipt is missing"
         )
     coverage = coverage_value
-    if coverage.get("schemaVersion") != "gravel-weekly-source-coverage/v1":
+    if coverage.get("schemaVersion") not in {
+        "gravel-weekly-source-coverage/v1",
+        "gravel-weekly-source-coverage/v2",
+    }:
         raise ValueError("unsupported Gravel Weekly source-coverage schema")
     status = coverage.get("status")
     if status not in {"complete", "partial", "unavailable"}:

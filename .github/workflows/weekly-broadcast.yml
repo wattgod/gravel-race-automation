@@ -79,6 +79,16 @@ jobs:
             "data/gravel-weekly/decisions/$ISSUE_DATE.json" \
             "data/gravel-weekly/issues/$ISSUE_DATE.json"
 
+      - name: Record immutable correction learning receipts
+        env:
+          ISSUE_DATE: ${{ inputs.issue_date }}
+          CONTROL_PLANE_INGEST_SECRET: ${{ secrets.CONTROL_PLANE_INGEST_SECRET }}
+          SOURCE_COMMIT: ${{ github.sha }}
+        run: |
+          python scripts/record_gravel_weekly_learning.py \
+            "data/gravel-weekly/issues/$ISSUE_DATE.json" \
+            --source-commit "$SOURCE_COMMIT"
+
       - name: Generate publication and homepage
         run: |
           python wordpress/generate_gravel_weekly.py

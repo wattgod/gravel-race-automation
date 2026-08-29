@@ -4,12 +4,12 @@
 from __future__ import annotations
 
 import argparse
-import hashlib
 import json
 from pathlib import Path
 from typing import Any
 
 from validate_gravel_weekly import validate_issue
+from gravel_weekly_race_impacts import race_impact_id
 
 
 def _inline_json(value: Any) -> str:
@@ -43,8 +43,7 @@ def render_review(issue_value: Any) -> tuple[str, int]:
         return "\n".join(lines), 0
 
     for impact in actionable:
-        encoded = json.dumps(impact, ensure_ascii=False, separators=(",", ":"), sort_keys=True)
-        impact_id = hashlib.sha256(encoded.encode("utf-8")).hexdigest()[:12]
+        impact_id = race_impact_id(impact)
         lines.extend([
             f"## {impact['impactKind'].upper()} · {impact['raceId']} · `{impact['fieldPath'] or 'catalog'}`",
             "",

@@ -1,0 +1,57 @@
+name: "Gravel Weekly Learning Receipt"
+
+on:
+  workflow_dispatch:
+    inputs:
+      learning_path:
+        description: "Committed learning source under data/gravel-weekly/learning/"
+        required: true
+        type: string
+
+permissions:
+  contents: read
+
+concurrency:
+  group: gravel-weekly-learning
+  cancel-in-progress: false
+
+jobs:
+  mirror:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+      - run: pip install -r requirements.txt
+
+      - name: Resolve and validate the committed learning source
+        env:
+          LEARNING_PATH: ${{ inputs.learning_path }}
+        run: |
+          python - <<'PY'
+          import os
+          from pathlib import Path
+
+          root = Path("data/gravel-weekly/learning").resolve()
+          target = Path(os.environ["LEARNING_PATH"]).resolve()
+          try:
+              target.relative_to(root)
+          except ValueError as exc:
+              raise SystemExit("learning_path must stay under data/gravel-weekly/learning/") from exc
+          if target.suffix != ".json" or not target.is_file():
+              raise SystemExit("learning_path must name one committed JSON file")
+          PY
+          python scripts/validate_gravel_weekly_learning.py
+          python -m pytest tests/test_gravel_weekly.py -q
+
+      - name: Mirror the immutable learning receipt
+        env:
+          LEARNING_PATH: ${{ inputs.learning_path }}
+          CONTROL_PLANE_INGEST_SECRET: ${{ secrets.CONTROL_PLANE_INGEST_SECRET }}
+        run: |
+          python scripts/record_gravel_weekly_learning.py \
+            --learning-source "$LEARNING_PATH" \
+            --source-commit "${{ github.sha }}"

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Mirror structured Gravel Weekly corrections into the learning loop."""
+"""Mirror validated Gravel Weekly learning records into the control plane."""
 
 from __future__ import annotations
 
@@ -15,6 +15,11 @@ from pathlib import Path
 from typing import Any
 
 from validate_gravel_weekly import PROJECT_ROOT, validate_issue
+from validate_gravel_weekly_learning import (
+    impact_with_evidence,
+    load_linked_issue,
+    validate_learning_source,
+)
 
 DEFAULT_ENDPOINT = "https://race-intelligence-control-plane.vercel.app/api/editorial-learning-receipt"
 DEFAULT_REPOSITORY = "wattgod/gravel-race-automation"
@@ -74,6 +79,52 @@ def build_correction_receipts(
     return receipts
 
 
+def build_source_receipt(
+    source: dict[str, Any],
+    *,
+    issue: dict[str, Any] | None,
+    source_repository: str,
+    source_path: str,
+    source_commit: str,
+    source_content_hash: str,
+) -> dict[str, Any]:
+    common = {
+        "schemaVersion": "editorial-learning-receipt/v1",
+        "kind": source["kind"],
+        "issueId": issue["issueId"] if issue else None,
+        "candidateId": source["candidateId"],
+        "sourceRepository": source_repository,
+        "sourcePath": source_path,
+        "sourceCommit": source_commit,
+        "sourceContentHash": source_content_hash,
+        "recordedBy": source["recordedBy"],
+        "recordedAt": source["recordedAt"],
+    }
+    if source["kind"] == "missed_story":
+        return {**common, "missedStory": source["missedStory"]}
+
+    decision = source["raceImpactDecision"]
+    if issue is None:
+        raise ValueError("race-impact decisions require a linked issue")
+    impact, evidence_urls = impact_with_evidence(issue, decision["impactId"])
+    if decision["implementationUrl"] is not None:
+        evidence_urls = list(dict.fromkeys([*evidence_urls, decision["implementationUrl"]]))
+    vertical, race_slug = impact["raceId"].split(":", 1)
+    return {
+        **common,
+        "raceImpactDecision": {
+            "impactId": decision["impactId"],
+            "vertical": vertical,
+            "raceSlug": race_slug,
+            "fieldPath": impact["fieldPath"] or "catalog",
+            "outcome": decision["outcome"],
+            "reason": decision["reason"],
+            "decidedAt": decision["decidedAt"],
+            "evidenceUrls": evidence_urls,
+        },
+    }
+
+
 def post_receipts(receipts: list[dict[str, Any]], endpoint: str, secret: str) -> list[dict[str, Any]]:
     responses: list[dict[str, Any]] = []
     for receipt in receipts:
@@ -97,29 +148,49 @@ def post_receipts(receipts: list[dict[str, Any]], endpoint: str, secret: str) ->
 
 def main() -> int:
     parser = argparse.ArgumentParser()
-    parser.add_argument("issue", type=Path)
+    parser.add_argument("issue", nargs="?", type=Path)
+    parser.add_argument("--learning-source", action="append", default=[], type=Path)
     parser.add_argument("--endpoint", default=os.environ.get("CONTROL_PLANE_EDITORIAL_LEARNING_URL", DEFAULT_ENDPOINT))
     parser.add_argument("--source-repository", default=DEFAULT_REPOSITORY)
     parser.add_argument("--source-commit")
     parser.add_argument("--dry-run", action="store_true")
     args = parser.parse_args()
 
-    source_bytes = args.issue.read_bytes()
-    issue = validate_issue(json.loads(source_bytes.decode("utf-8")))
-    if issue["status"] != "published":
-        raise SystemExit("learning receipts require a published issue snapshot")
-    receipts = build_correction_receipts(
-        issue,
-        source_repository=args.source_repository,
-        source_path=_repository_relative(args.issue),
-        source_commit=_source_commit(args.source_commit),
-        source_content_hash=hashlib.sha256(source_bytes).hexdigest(),
-    )
+    if args.issue is None and not args.learning_source:
+        parser.error("provide an issue or at least one --learning-source")
+    commit = _source_commit(args.source_commit)
+    receipts: list[dict[str, Any]] = []
+    if args.issue is not None:
+        source_bytes = args.issue.read_bytes()
+        issue = validate_issue(json.loads(source_bytes.decode("utf-8")))
+        if issue["status"] != "published":
+            raise SystemExit("learning receipts require a published issue snapshot")
+        receipts.extend(build_correction_receipts(
+            issue,
+            source_repository=args.source_repository,
+            source_path=_repository_relative(args.issue),
+            source_commit=commit,
+            source_content_hash=hashlib.sha256(source_bytes).hexdigest(),
+        ))
+    for learning_path in args.learning_source:
+        learning_bytes = learning_path.read_bytes()
+        source = json.loads(learning_bytes.decode("utf-8"))
+        issue_value = load_linked_issue(source)
+        validated = validate_learning_source(source, issue_value)
+        linked_issue = validate_issue(issue_value) if issue_value is not None else None
+        receipts.append(build_source_receipt(
+            validated,
+            issue=linked_issue,
+            source_repository=args.source_repository,
+            source_path=_repository_relative(learning_path),
+            source_commit=commit,
+            source_content_hash=hashlib.sha256(learning_bytes).hexdigest(),
+        ))
     if args.dry_run:
         print(json.dumps(receipts, ensure_ascii=False, indent=2))
         return 0
     if not receipts:
-        print("Recorded 0 correction learning receipt(s)")
+        print("Recorded 0 Gravel Weekly learning receipt(s)")
         return 0
     secret = os.environ.get("CONTROL_PLANE_INGEST_SECRET")
     if not secret:
@@ -127,7 +198,7 @@ def main() -> int:
     responses = post_receipts(receipts, args.endpoint, secret)
     recorded = sum(response.get("recorded") is True for response in responses)
     replayed = len(responses) - recorded
-    print(f"Recorded {recorded} correction learning receipt(s); {replayed} idempotent replay(s)")
+    print(f"Recorded {recorded} Gravel Weekly learning receipt(s); {replayed} idempotent replay(s)")
     return 0
 
 

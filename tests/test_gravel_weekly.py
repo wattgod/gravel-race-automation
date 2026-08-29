@@ -68,6 +68,9 @@ from seal_gravel_weekly_issue import main as seal_issue_main, seal_issue  # noqa
 from render_gravel_weekly_race_impact_review import render_review  # noqa: E402
 from validate_gravel_weekly_decisions import validate_decision_receipt  # noqa: E402
 from record_gravel_weekly_learning import build_correction_receipts  # noqa: E402
+from record_gravel_weekly_learning import build_source_receipt  # noqa: E402
+from gravel_weekly_race_impacts import race_impact_hash, race_impact_id  # noqa: E402
+from validate_gravel_weekly_learning import load_learning_sources, validate_learning_source  # noqa: E402
 
 
 def sample_issue():
@@ -1111,6 +1114,110 @@ def test_structured_corrections_become_hash_bound_learning_receipts():
     missing_source["corrections"][0]["learning"]["evidenceUrls"] = ["https://example.com/new-correction-source"]
     with pytest.raises(IssueValidationError, match="omits correction evidence"):
         validate_issue(missing_source, verify_hash=False)
+
+
+def test_race_impact_outcomes_require_exact_issue_and_implementation_proof():
+    issue = sample_issue()
+    impact = issue["raceImpacts"][0]
+    source = {
+        "schemaVersion": "gravel-weekly-learning-source/v1",
+        "kind": "race_impact_decision",
+        "issueDate": issue["publicationDate"],
+        "issueContentHash": issue["contentHash"],
+        "candidateId": "story_1",
+        "recordedBy": "Matti Rowe",
+        "recordedAt": "2026-08-30T12:00:00Z",
+        "raceImpactDecision": {
+            "impactId": race_impact_id(impact),
+            "reviewedImpactHash": race_impact_hash(impact),
+            "outcome": "accepted",
+            "reason": "The current profile was stale; the owning repository merged the evidence-backed correction.",
+            "decidedAt": "2026-08-30T12:00:00Z",
+            "implementationUrl": "https://github.com/wattgod/gravel-race-automation/pull/999",
+            "regressionTest": "tests/test_gravel_weekly.py::test_race_impact_outcomes_require_exact_issue_and_implementation_proof",
+        },
+        "missedStory": None,
+    }
+    assert validate_learning_source(source, issue) == source
+    receipt = build_source_receipt(
+        source,
+        issue=issue,
+        source_repository="wattgod/gravel-race-automation",
+        source_path="data/gravel-weekly/learning/impact.json",
+        source_commit="a" * 40,
+        source_content_hash="b" * 64,
+    )
+    assert receipt["kind"] == "race_impact_decision"
+    assert receipt["raceImpactDecision"] == {
+        "impactId": race_impact_id(impact),
+        "vertical": "gravel",
+        "raceSlug": "unbound-gravel",
+        "fieldPath": "race.vitals.distance",
+        "outcome": "accepted",
+        "reason": source["raceImpactDecision"]["reason"],
+        "decidedAt": "2026-08-30T12:00:00Z",
+        "evidenceUrls": [
+            "https://www.cyclingnews.com/example/",
+            "https://github.com/wattgod/gravel-race-automation/pull/999",
+        ],
+    }
+
+    stale = copy.deepcopy(source)
+    stale["issueContentHash"] = "0" * 64
+    with pytest.raises(IssueValidationError, match="issueContentHash"):
+        validate_learning_source(stale, issue)
+
+    unimplemented = copy.deepcopy(source)
+    unimplemented["raceImpactDecision"]["implementationUrl"] = None
+    with pytest.raises(IssueValidationError, match="implementationUrl"):
+        validate_learning_source(unimplemented, issue)
+
+    fake_rejection = copy.deepcopy(source)
+    fake_rejection["raceImpactDecision"]["outcome"] = "rejected"
+    with pytest.raises(IssueValidationError, match="implementation proof"):
+        validate_learning_source(fake_rejection, issue)
+
+
+def test_only_a_human_authored_late_discovery_can_become_a_missed_story_receipt():
+    source = {
+        "schemaVersion": "gravel-weekly-learning-source/v1",
+        "kind": "missed_story",
+        "issueDate": None,
+        "issueContentHash": None,
+        "candidateId": None,
+        "recordedBy": "Matti Rowe",
+        "recordedAt": "2026-09-05T18:00:00Z",
+        "raceImpactDecision": None,
+        "missedStory": {
+            "failureKey": "results-feed-late-discovery",
+            "headline": "A wildcard rider won the whole series.",
+            "whyImportant": "The result changed the judgment on whether the admissions process selected the strongest field.",
+            "sourceUrl": "https://example.com/official-results",
+            "publishedAt": "2026-09-04T15:00:00Z",
+            "discoveredAt": "2026-09-05T17:00:00Z",
+        },
+    }
+    assert validate_learning_source(source) == source
+    receipt = build_source_receipt(
+        source,
+        issue=None,
+        source_repository="wattgod/gravel-race-automation",
+        source_path="data/gravel-weekly/learning/missed.json",
+        source_commit="a" * 40,
+        source_content_hash="b" * 64,
+    )
+    assert receipt["kind"] == "missed_story"
+    assert receipt["issueId"] is None
+    assert receipt["missedStory"] == source["missedStory"]
+
+    not_late = copy.deepcopy(source)
+    not_late["missedStory"]["discoveredAt"] = not_late["missedStory"]["publishedAt"]
+    with pytest.raises(IssueValidationError, match="must be after"):
+        validate_learning_source(not_late)
+
+
+def test_every_committed_gravel_weekly_learning_source_is_valid_and_unique():
+    assert isinstance(load_learning_sources(), list)
 
 
 def test_published_issue_renders_immutable_race_impact_review():

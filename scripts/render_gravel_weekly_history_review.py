@@ -113,6 +113,26 @@ def _impact_list(impacts: list[dict[str, Any]]) -> str:
     )
 
 
+def _story_contents(entry: dict[str, Any]) -> str:
+    """Map a long review card without manufacturing unavailable departments."""
+    entry_id = entry["entryId"]
+    chapters = [
+        (f"#{entry_id}-point", "THE POINT"),
+        (f"#{entry_id}-record", "THE RECORD"),
+        (f"#{entry_id}-take", "THE TAKE"),
+        (f"#{entry_id}-opposition", "THE OTHER SIDE"),
+        (f"#{entry_id}-receipts", "THE RECEIPTS"),
+    ]
+    if entry.get("cultureArtifacts"):
+        chapters.append((f"#{entry_id}-scene", "THE SCENE REPORT"))
+    chapters.append((f"#{entry_id}-changes", "WHAT THIS CHANGES"))
+    items = "".join(
+        f'<li><a href="{esc(target)}"><span>{index:02d}</span>{esc(label)}</a></li>'
+        for index, (target, label) in enumerate(chapters, start=1)
+    )
+    return f'<nav class="story-contents" aria-label="Sections in {esc(reviewed_headline_copy(entry))}"><ol>{items}</ol></nav>'
+
+
 def _card(entry: dict[str, Any]) -> str:
     gate = prose_gate(entry)
     holds = approval_holds(entry, gate)
@@ -170,23 +190,24 @@ def _card(entry: dict[str, Any]) -> str:
         <div class="status">{readiness}<code>{esc(entry['entryId'])}</code></div>
       </header>
       {visual}
-      <section class="point"><h3>THE POINT</h3>{paragraphs(entry['point'])}</section>
+      {_story_contents(entry)}
+      <section class="point" id="{esc(entry['entryId'])}-point"><h3>THE POINT</h3>{paragraphs(entry['point'])}</section>
       <div class="judgment">
         <section><h3>BEFORE</h3>{paragraphs(entry['priorJudgment'])}</section>
         <section><h3>AFTER</h3>{paragraphs(entry['changedJudgment'])}</section>
       </div>
-      <section><h3>WHAT HAPPENED</h3>{paragraphs(entry['whatHappened'])}</section>
-      <section class="take"><h3>THE TAKE · MODEL DRAFT</h3>{paragraphs(reviewed_take_copy(entry))}</section>
+      <section id="{esc(entry['entryId'])}-record"><h3>THE RECORD</h3>{paragraphs(entry['whatHappened'])}</section>
+      <section class="take" id="{esc(entry['entryId'])}-take"><h3>THE TAKE · MODEL DRAFT</h3>{paragraphs(reviewed_take_copy(entry))}</section>
       <div class="judgment">
         <section><h3>STAKES</h3>{paragraphs(entry['stakes'])}</section>
-        <section><h3>CREDIBLE OPPOSITION</h3>{paragraphs(entry['credibleOpposition'])}</section>
+        <section id="{esc(entry['entryId'])}-opposition"><h3>THE OTHER SIDE</h3>{paragraphs(entry['credibleOpposition'])}</section>
       </div>
       <section><h3>UNCERTAINTY</h3>{paragraphs(entry['uncertainty'])}</section>
-      <details open><summary>CONTEMPORARY RECEIPTS ({len(entry['contemporaryReceipts'])})</summary>{_receipt_list(entry['contemporaryReceipts'])}</details>
-      {render_culture_artifacts(entry.get('cultureArtifacts', []), private_review=True)}
+      <details open id="{esc(entry['entryId'])}-receipts"><summary>CONTEMPORARY RECEIPTS ({len(entry['contemporaryReceipts'])})</summary>{_receipt_list(entry['contemporaryReceipts'])}</details>
+      {render_culture_artifacts(entry.get('cultureArtifacts', []), private_review=True, section_id=f"{entry['entryId']}-scene")}
       <details><summary>LATER EVIDENCE ({len(entry['laterEvidence'])})</summary>{_receipt_list(entry['laterEvidence'])}</details>
       <details open><summary>{prose_summary}</summary><p>Checked against <a href="{esc(gate['sourceUrl'])}" rel="noopener" target="_blank">petergyang/no-ai-slop</a> at <code>{esc(str(gate['sourceRevision'])[:8])}</code>. This is a prose-pattern gate, not an AI-authorship detector.</p><ul class="prose-findings">{prose_finding_rows}</ul></details>
-      <details><summary>GATES &amp; RACE INTELLIGENCE</summary><ul class="gates">{gate_rows}</ul>{_impact_list(entry['raceImpacts'])}</details>
+      <details id="{esc(entry['entryId'])}-changes"><summary>WHAT THIS CHANGES · GATES &amp; RACE INTELLIGENCE</summary><ul class="gates">{gate_rows}</ul>{_impact_list(entry['raceImpacts'])}</details>
       <footer>
         <p><b>DECIDE:</b> {decision_instruction} Any decision binds to this exact draft hash and still does not publish.</p>
         <code>{esc(entry['contentHash'])}</code>
@@ -258,6 +279,12 @@ main {{ width: min(1120px, calc(100% - 32px)); margin: 32px auto 80px; }}
 .story > header, .story > section, .story > div, .story > details, .story > footer {{ padding: var(--gg-spacing-lg); border-top: var(--gg-border-standard); }}
 .story > header {{ border-top: 0; background: var(--gg-color-white); }}
 .story h2 {{ margin: 8px 0 16px; max-width: 900px; font-family: var(--gg-font-editorial); font-size: clamp(2rem, 6vw, 4rem); line-height: .95; }}
+.story-contents {{ padding: 0 !important; background: var(--gg-color-near-black); color: var(--gg-color-warm-paper); }}
+.story-contents ol {{ display: flex; margin: 0; padding: 0; overflow-x: auto; list-style: none; scroll-snap-type: x proximity; }}
+.story-contents li {{ flex: 1 0 150px; border-right: var(--gg-border-subtle); scroll-snap-align: start; }}
+.story-contents a {{ display: grid; grid-template-columns: auto 1fr; gap: var(--gg-spacing-xs); align-items: center; min-height: 100%; padding: var(--gg-spacing-sm); color: inherit; font-size: var(--gg-font-size-xs); font-weight: var(--gg-font-weight-black); letter-spacing: var(--gg-letter-spacing-wide); text-decoration: none; }}
+.story-contents a:hover, .story-contents a:focus-visible {{ background: var(--gg-color-teal); outline: var(--gg-border-gold); outline-offset: calc(var(--gg-border-width-standard) * -1); }}
+.story-contents span {{ color: var(--gg-color-gold); font-size: var(--gg-font-size-xl); line-height: .9; }}
 .story h3 {{ margin: 0 0 8px; letter-spacing: var(--gg-letter-spacing-wide); }}
 .story p {{ max-width: 900px; font-family: var(--gg-font-editorial); font-size: var(--gg-font-size-md); line-height: var(--gg-line-height-relaxed); }}
 .status {{ display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; }}

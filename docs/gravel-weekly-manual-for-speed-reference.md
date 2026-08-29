@@ -148,6 +148,20 @@ On mobile, contents is a horizontally scrollable chapter rail. On desktop it may
 be sticky only while the issue is in view. Every chapter remains a normal anchor
 target; the page works without JavaScript.
 
+### Implemented first pass
+
+The public issue renderer and private historical review desk now generate the
+chapter rail from available data. `THE SCENE REPORT` appears only when culture
+artifacts survived review; `WHAT THIS CHANGES` enters the public contents only
+for a non-`no_change` race impact; draft Takes are labeled as model drafts rather
+than approved judgments. The public and historical surfaces now distinguish
+`THE RECORD`, `THE SCENE REPORT`, `THE TAKE`, and `WHAT THIS CHANGES` with stable
+anchor targets and keyboard-visible focus states.
+
+`THE CAST` and `FIELD NOTES` remain deliberately unimplemented. They require
+sourced role and observation fields in the issue contract; the renderer must not
+infer them from a headline, a social post, or a publisher byline.
+
 ## What not to import
 
 - No copied masthead, wordmark, gradients, iconography, or condensed-type lockup.

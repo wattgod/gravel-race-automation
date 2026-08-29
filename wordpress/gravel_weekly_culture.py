@@ -19,7 +19,8 @@ def _timestamp_label(seconds: int | None) -> str:
 
 
 def render_culture_artifacts(
-    artifacts: list[dict[str, Any]], *, private_review: bool = False
+    artifacts: list[dict[str, Any]], *, private_review: bool = False,
+    section_id: str | None = None,
 ) -> str:
     if not artifacts:
         return ""
@@ -47,12 +48,13 @@ def render_culture_artifacts(
           {review_reason}
           <a href="{esc(artifact['canonicalUrl'])}" rel="noopener noreferrer" target="_blank">OPEN ORIGINAL{esc(timestamp)} →</a>
         </article>''')
-    mode = "PRIVATE CULTURE CHECK" if private_review else "CULTURE RECEIPTS"
+    mode = "PRIVATE CULTURE CHECK" if private_review else "THE SCENE REPORT"
     explanation = (
         "These are the jokes, arguments, personalities, and artifacts the desk thinks help reconstruct the moment. "
         "They are context—not proof, consensus, or a substitute for the point."
     )
-    return f'''<section class="gw-culture" aria-label="Culture artifacts">
+    id_attribute = f' id="{esc(section_id)}"' if section_id else ""
+    return f'''<section class="gw-culture"{id_attribute} aria-label="Culture artifacts">
       <header><span>{mode}</span><h4>WHAT THE GROUP CHAT WAS PASSING AROUND</h4><p>{explanation}</p></header>
       <div class="gw-culture-grid">{"".join(cards)}</div>
     </section>'''

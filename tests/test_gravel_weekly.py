@@ -12,6 +12,7 @@ sys.path.insert(0, str(ROOT / "scripts"))
 sys.path.insert(0, str(ROOT / "wordpress"))
 
 from generate_gravel_weekly import build_page, render_history_timeline  # noqa: E402
+from gravel_weekly_culture import culture_css, render_culture_artifacts  # noqa: E402
 from gravel_weekly_visuals import (  # noqa: E402
     classify_theme,
     render_story_visual,
@@ -507,6 +508,21 @@ def test_weekly_culture_artifacts_are_direct_hash_bound_context_and_survive_appr
     missing_index["sourceIndex"].remove(artifact["canonicalUrl"])
     with pytest.raises(IssueValidationError, match="sourceIndex omits culture artifact URLs"):
         validate_issue(missing_index, verify_hash=False)
+
+
+def test_timestamped_youtube_culture_card_opens_the_reviewed_moment():
+    artifact = sample_culture_artifact()
+    artifact.update({
+        "sourceKind": "youtube",
+        "canonicalUrl": "https://www.youtube.com/watch?v=abcdefghijk&list=example",
+        "timestampSeconds": 3130,
+        "collectionMethod": "public_metadata",
+    })
+    card = render_culture_artifacts([artifact])
+    assert "OPEN ORIGINAL · 52:10" in card
+    assert "https://www.youtube.com/watch?v=abcdefghijk&amp;list=example&amp;t=3130s" in card
+    assert "iframe" not in card
+    assert ".gw-culture-card:only-child { grid-column: 1 / -1; }" in culture_css()
 
 
 def test_claim_bound_cast_and_field_notes_survive_approval_and_render_as_optional_departments():

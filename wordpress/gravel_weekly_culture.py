@@ -6,6 +6,7 @@ from __future__ import annotations
 import html
 from datetime import datetime
 from typing import Any
+from urllib.parse import parse_qsl, urlencode, urlsplit, urlunsplit
 
 
 def esc(value: Any) -> str:
@@ -16,6 +17,20 @@ def _timestamp_label(seconds: int | None) -> str:
     if seconds is None:
         return ""
     return f" · {seconds // 60}:{seconds % 60:02d}"
+
+
+def _source_url(artifact: dict[str, Any]) -> str:
+    """Make timestamped YouTube culture links land on the reviewed moment."""
+    url = artifact["canonicalUrl"]
+    seconds = artifact.get("timestampSeconds")
+    if artifact.get("sourceKind") != "youtube" or seconds is None:
+        return url
+    parsed = urlsplit(url)
+    query = dict(parse_qsl(parsed.query, keep_blank_values=True))
+    query["t"] = f"{int(seconds)}s"
+    return urlunsplit(
+        (parsed.scheme, parsed.netloc, parsed.path, urlencode(query), parsed.fragment)
+    )
 
 
 def render_culture_artifacts(
@@ -46,7 +61,7 @@ def render_culture_artifacts(
           <p class="gw-culture-by">{esc(author)}</p>
           {excerpt}
           {review_reason}
-          <a href="{esc(artifact['canonicalUrl'])}" rel="noopener noreferrer" target="_blank">OPEN ORIGINAL{esc(timestamp)} →</a>
+          <a href="{esc(_source_url(artifact))}" rel="noopener noreferrer" target="_blank">OPEN ORIGINAL{esc(timestamp)} →</a>
         </article>''')
     mode = "PRIVATE CULTURE CHECK" if private_review else "THE SCENE REPORT"
     explanation = (
@@ -69,6 +84,7 @@ def culture_css() -> str:
   .gw-culture > header p { max-width: 760px; margin: 0; font-family: var(--gg-font-editorial); line-height: var(--gg-line-height-normal); }
   .gw-culture-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--gg-border-width-standard); background: var(--gg-color-near-black); }
   .gw-culture-card { display: flex; min-width: 0; flex-direction: column; padding: var(--gg-spacing-md); background: var(--gg-color-warm-paper); color: var(--gg-color-near-black); }
+  .gw-culture-card:only-child { grid-column: 1 / -1; }
   .gw-culture-card > header { display: flex; justify-content: space-between; gap: var(--gg-spacing-sm); border: 0; padding: 0; font-size: var(--gg-font-size-xs); font-weight: var(--gg-font-weight-black); letter-spacing: var(--gg-letter-spacing-wide); }
   .gw-culture-card h5 { margin: var(--gg-spacing-md) 0 var(--gg-spacing-xs); font-family: var(--gg-font-editorial); font-size: var(--gg-font-size-xl); line-height: 1.05; }
   .gw-culture-by { margin: 0 0 var(--gg-spacing-sm); font-size: var(--gg-font-size-xs); font-weight: var(--gg-font-weight-bold); text-transform: uppercase; }

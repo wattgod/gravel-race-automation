@@ -1265,6 +1265,48 @@ def test_rendered_issue_preserves_site_infrastructure_and_honest_form():
     assert "rounded" not in page.lower()
 
 
+def test_dated_issue_renders_accessible_serial_navigation_with_chronological_position():
+    middle = sample_issue()
+    middle.update({
+        "issueId": "gravel-weekly-002",
+        "issueNumber": 2,
+        "publicationDate": "2026-09-04",
+        "slug": "2026-09-04",
+    })
+    middle["stories"][0]["headline"] = "The middle issue has a point"
+
+    older = copy.deepcopy(middle)
+    older.update({
+        "issueId": "gravel-weekly-001",
+        "issueNumber": 1,
+        "publicationDate": "2026-08-28",
+        "slug": "2026-08-28",
+    })
+    older["stories"][0]["headline"] = "The older issue"
+
+    newer = copy.deepcopy(middle)
+    newer.update({
+        "issueId": "gravel-weekly-003",
+        "issueNumber": 3,
+        "publicationDate": "2026-09-11",
+        "slug": "2026-09-11",
+    })
+    newer["stories"][0]["headline"] = "The newer issue"
+
+    page = build_page(middle, [newer, older, middle], latest=False)
+
+    assert 'aria-label="Adjacent Gravel Weekly issues"' in page
+    assert 'href="/gravel-weekly/2026-08-28/" rel="prev"' in page
+    assert 'href="/gravel-weekly/2026-09-11/" rel="next"' in page
+    assert "← OLDER ISSUE" in page
+    assert "NEWER ISSUE →" in page
+    assert "ISSUE 2 OF 3" in page
+    assert "The older issue" in page
+    assert "The newer issue" in page
+    assert 'href="/gravel-weekly/2026-09-04/" rel=' not in page
+    assert page.index('class="gw-issue-neighbors"') < page.index('class="gw-contents"')
+
+
 def test_retrospective_requires_receipts_and_human_approval_then_renders_memory_timeline(tmp_path):
     prior = sample_issue()
     current = copy.deepcopy(prior)

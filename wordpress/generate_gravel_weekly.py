@@ -321,6 +321,59 @@ def render_archive(issues: list[dict[str, Any]], active_issue_id: str) -> str:
     return f'<ol class="gw-archive">{"".join(items)}</ol>' if items else '<p class="gw-empty">The archive starts with Issue #001.</p>'
 
 
+def _issue_preview(issue: dict[str, Any]) -> tuple[str, str]:
+    current = story_by_id(issue, issue.get("currentThingStoryId"))
+    if current:
+        return current["headline"], current["dek"]
+    quiet = issue.get("quietIssue")
+    if quiet:
+        return quiet["headline"], quiet["note"]
+    return issue["title"], "No manufactured Current Thing cleared the gate."
+
+
+def render_issue_neighbors(issue: dict[str, Any], issues: list[dict[str, Any]]) -> str:
+    """Keep dated issues visibly connected to the publication's chronology."""
+    ordered = sorted(
+        issues,
+        key=lambda candidate: (candidate["publicationDate"], candidate["issueNumber"]),
+    )
+    active_index = next(
+        (index for index, candidate in enumerate(ordered)
+         if candidate["issueId"] == issue["issueId"]),
+        None,
+    )
+    if active_index is None or len(ordered) < 2:
+        return ""
+
+    older = ordered[active_index - 1] if active_index > 0 else None
+    newer = ordered[active_index + 1] if active_index + 1 < len(ordered) else None
+
+    def link(candidate: dict[str, Any] | None, *, direction: str) -> str:
+        if candidate is None:
+            return '<span class="gw-neighbor-empty" aria-hidden="true"></span>'
+        headline, deck = _issue_preview(candidate)
+        excerpt = " ".join(deck.split())
+        if len(excerpt) > 150:
+            excerpt = f"{excerpt[:150].rstrip()}…"
+        relation = "prev" if direction == "OLDER ISSUE" else "next"
+        arrow = "←" if relation == "prev" else "→"
+        direction_label = (
+            f"{arrow} {direction}" if relation == "prev" else f"{direction} {arrow}"
+        )
+        return f'''<a class="gw-neighbor gw-neighbor--{relation}" href="/gravel-weekly/{esc(candidate['slug'])}/" rel="{relation}">
+          <span>{esc(direction_label)}</span>
+          <strong>#{candidate['issueNumber']:03d} · {esc(display_date(candidate['publicationDate']).upper())}</strong>
+          <b>{esc(headline)}</b>
+          <small>{esc(excerpt)}</small>
+        </a>'''
+
+    return f'''<nav class="gw-issue-neighbors" aria-label="Adjacent Gravel Weekly issues">
+      {link(older, direction="OLDER ISSUE")}
+      <p><span>YOU ARE HERE</span><b>ISSUE {active_index + 1} OF {len(ordered)}</b></p>
+      {link(newer, direction="NEWER ISSUE")}
+    </nav>'''
+
+
 def render_history_timeline(entries: list[dict[str, Any]]) -> str:
     if not entries:
         return '''<section class="gw-history" id="season-story">
@@ -470,6 +523,17 @@ def page_css() -> str:
   .gw-cover-lines span { padding: var(--gg-spacing-sm); border-right: var(--gg-border-subtle); font-size: var(--gg-font-size-xs); font-weight: var(--gg-font-weight-bold); text-align: center; text-transform: uppercase; }
   .gw-cover-lines span:last-child { border-right: 0; }
   .gw-back { display: inline-block; margin: var(--gg-spacing-lg) 0 0; color: var(--gg-color-primary-brown); font-weight: var(--gg-font-weight-bold); }
+  .gw-issue-neighbors { display: grid; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); margin-top: var(--gg-spacing-md); border: var(--gg-border-heavy); background: var(--gg-color-near-black); color: var(--gg-color-warm-paper); }
+  .gw-neighbor { display: grid; align-content: start; gap: var(--gg-spacing-2xs); min-width: 0; padding: var(--gg-spacing-sm) var(--gg-spacing-md); color: inherit; text-decoration: none; }
+  .gw-neighbor--prev { border-right: var(--gg-border-subtle); }
+  .gw-neighbor--next { border-left: var(--gg-border-subtle); text-align: right; }
+  .gw-neighbor > span, .gw-issue-neighbors > p span { color: var(--gg-color-gold); font-size: var(--gg-font-size-xs); font-weight: var(--gg-font-weight-black); letter-spacing: var(--gg-letter-spacing-wider); }
+  .gw-neighbor > strong { font-size: var(--gg-font-size-xs); letter-spacing: var(--gg-letter-spacing-wide); }
+  .gw-neighbor > b { overflow-wrap: anywhere; font-family: var(--gg-font-editorial); font-size: var(--gg-font-size-md); line-height: var(--gg-line-height-tight); }
+  .gw-neighbor > small { color: var(--gg-color-tan); font-family: var(--gg-font-editorial); line-height: var(--gg-line-height-normal); }
+  .gw-neighbor:hover, .gw-neighbor:focus-visible { background: var(--gg-color-teal); outline: var(--gg-border-gold); outline-offset: calc(var(--gg-border-width-standard) * -1); }
+  .gw-issue-neighbors > p { display: grid; place-content: center; gap: var(--gg-spacing-2xs); margin: 0; padding: var(--gg-spacing-sm) var(--gg-spacing-md); text-align: center; }
+  .gw-issue-neighbors > p b { font-size: var(--gg-font-size-xs); white-space: nowrap; }
   .gw-contents { margin-top: var(--gg-spacing-xl); border: var(--gg-border-heavy); background: var(--gg-color-near-black); color: var(--gg-color-warm-paper); }
   .gw-contents > header { display: flex; justify-content: space-between; gap: var(--gg-spacing-md); align-items: baseline; padding: var(--gg-spacing-sm) var(--gg-spacing-md); border-bottom: var(--gg-border-standard); }
   .gw-contents > header span { font-weight: var(--gg-font-weight-black); letter-spacing: var(--gg-letter-spacing-wider); }
@@ -602,6 +666,11 @@ def page_css() -> str:
   .gw-quiet p { max-width: 48rem; margin: 0; font-family: var(--gg-font-editorial); font-size: var(--gg-font-size-lg); line-height: var(--gg-line-height-relaxed); }
   code { font-family: var(--gg-font-data); overflow-wrap: anywhere; }
   @media (max-width: 720px) {
+    .gw-issue-neighbors { grid-template-columns: 1fr; }
+    .gw-neighbor--prev, .gw-neighbor--next, .gw-issue-neighbors > p { border: 0; border-bottom: var(--gg-border-subtle); text-align: left; }
+    .gw-neighbor--next { border-bottom: 0; }
+    .gw-neighbor-empty { display: none; }
+    .gw-issue-neighbors > p { place-content: start; }
     .gw-contents > header { display: grid; }
     .gw-contents ol { display: flex; overflow-x: auto; scroll-snap-type: x proximity; }
     .gw-contents li { flex: 0 0 min(78vw, 260px); scroll-snap-align: start; }
@@ -662,6 +731,7 @@ def build_page(issue: dict[str, Any] | None, issues: list[dict[str, Any]], *, la
         issue_id = "none"
         publication_label = "BY GRAVEL GOD"
     back = '<a class="gw-back" href="/gravel-weekly/">← LATEST ISSUE</a>' if not latest else ""
+    neighbors = render_issue_neighbors(issue, issues) if issue and not latest else ""
     return f'''<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -691,6 +761,7 @@ def build_page(issue: dict[str, Any] | None, issues: list[dict[str, Any]], *, la
     <p class="gw-deck">THE PEOPLE, RACES, MONEY &amp; BAD IDEAS MOVING GRAVEL</p>
     <div class="gw-cover-lines"><span>THE RECORD</span><span>THE SCENE</span><span>THE TAKE</span></div>
   </header>
+  {neighbors}
   {issue_body}
   {render_history_timeline(history_entries or []) if latest else ''}
   <section class="gw-utility" id="past-issues"><h2>PAST ISSUES</h2>{render_archive(issues, issue_id)}</section>

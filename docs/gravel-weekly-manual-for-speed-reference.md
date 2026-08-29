@@ -267,6 +267,12 @@ chapters with a keyboard-accessible jump rail and explicit return links. That
 keeps the backfilled record browsable as it grows without turning the page into
 an undifferentiated archive scroll.
 
+Dated issue pages now expose the adjacent older and newer issues immediately
+below the masthead. The rail names the chronological position, previews each
+neighbor's actual Current Thing or quiet-week premise, and uses ordinary
+`rel="prev"` / `rel="next"` links. This translates the archive's lateral
+disclosure without a carousel, autoplay, gesture dependency, or invented teaser.
+
 ## What not to import
 
 - No copied masthead, wordmark, gradients, iconography, or condensed-type lockup.

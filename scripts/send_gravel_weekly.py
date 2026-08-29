@@ -3,10 +3,12 @@
 
 from __future__ import annotations
 
+import argparse
 import html
 import json
 import os
 import sys
+import urllib.error
 import urllib.parse
 import urllib.request
 from pathlib import Path
@@ -19,10 +21,11 @@ from brand_tokens import COLORS  # noqa: E402
 from validate_gravel_weekly import load_public_issues  # noqa: E402
 
 RESEND_API = "https://api.resend.com"
-AUDIENCE_NAMES = ("Gravel Weekly", "Gravel TV")
+SEGMENT_NAMES = ("Gravel Weekly", "Gravel TV")
 FROM_ADDR = "Gravel Weekly <weekly@gravelgodcycling.com>"
 ISSUE_BASE_URL = "https://gravelgodcycling.com/gravel-weekly/"
 SUBSCRIBER_SOURCES = ("gravel_weekly_subscribe", "gravel_tv_subscribe")
+ACTIVE_BROADCAST_STATUSES = frozenset({"queued", "scheduled", "sent"})
 
 
 def _req(url: str, method: str = "GET", body: dict | None = None,
@@ -63,13 +66,102 @@ def fetch_subscribers() -> list[str]:
     return sorted(subscribers)
 
 
-def find_or_create_audience() -> str | None:
-    audiences = resend("/audiences").get("data", [])
-    for preferred_name in AUDIENCE_NAMES:
-        for audience in audiences:
-            if audience.get("name") == preferred_name:
-                return audience["id"]
-    return resend("/audiences", "POST", {"name": AUDIENCE_NAMES[0]}).get("id")
+def find_or_create_segment() -> str | None:
+    segments = resend("/segments").get("data", [])
+    if not isinstance(segments, list):
+        raise RuntimeError("Resend segment list returned an invalid response")
+    for preferred_name in SEGMENT_NAMES:
+        for segment in segments:
+            if segment.get("name") == preferred_name:
+                return segment["id"]
+    return resend("/segments", "POST", {"name": SEGMENT_NAMES[0]}).get("id")
+
+
+def ensure_segment_contact(segment_id: str, email_address: str) -> bool:
+    """Ensure segment membership without changing an existing unsubscribe state."""
+    encoded_email = urllib.parse.quote(email_address, safe="")
+    try:
+        existing = resend(f"/contacts/{encoded_email}")
+        if not existing.get("id") and existing.get("email") != email_address:
+            raise RuntimeError(f"Resend returned an invalid contact for {email_address}")
+    except urllib.error.HTTPError as exc:
+        if exc.code != 404:
+            raise
+        created = resend(
+            "/contacts",
+            "POST",
+            {"email": email_address, "segments": [{"id": segment_id}]},
+        )
+        if not created.get("id"):
+            raise RuntimeError(f"Resend contact creation returned no id for {email_address}")
+        return True
+
+    memberships = resend(f"/contacts/{encoded_email}/segments").get("data", [])
+    if not isinstance(memberships, list):
+        raise RuntimeError(f"Resend returned invalid segment membership for {email_address}")
+    if any(item.get("id") == segment_id for item in memberships if isinstance(item, dict)):
+        return False
+    added = resend(
+        f"/contacts/{encoded_email}/segments/{segment_id}",
+        "POST",
+        {},
+    )
+    if added.get("id") != segment_id:
+        raise RuntimeError(f"Resend did not confirm segment membership for {email_address}")
+    return True
+
+
+def broadcast_name(issue: dict) -> str:
+    """Bind a Resend broadcast to one immutable published issue snapshot."""
+    return (
+        f"Gravel Weekly #{issue['issueNumber']:03d} · "
+        f"{issue['publicationDate']} · {issue['contentHash']}"
+    )
+
+
+def find_existing_broadcast(name: str) -> dict | None:
+    """Find a prior API broadcast by its content-hash-bound internal name."""
+    summaries = resend("/broadcasts").get("data", [])
+    if not isinstance(summaries, list):
+        raise RuntimeError("Resend broadcast list returned an invalid response")
+    for summary in summaries:
+        broadcast_id = summary.get("id") if isinstance(summary, dict) else None
+        if not broadcast_id:
+            continue
+        detail = resend(f"/broadcasts/{broadcast_id}")
+        if detail.get("name") == name:
+            return detail
+    return None
+
+
+def send_broadcast_once(issue: dict, segment_id: str, subject: str, email_html: str) -> dict:
+    """Start exactly one broadcast for an immutable issue, safe across workflow reruns."""
+    name = broadcast_name(issue)
+    existing = find_existing_broadcast(name)
+    if existing:
+        status = existing.get("status")
+        broadcast_id = existing.get("id")
+        if not broadcast_id:
+            raise RuntimeError("Existing Resend broadcast has no id")
+        if status in ACTIVE_BROADCAST_STATUSES:
+            return {"id": broadcast_id, "status": status, "reused": True}
+        if status == "draft":
+            resend(f"/broadcasts/{broadcast_id}/send", "POST", {})
+            return {"id": broadcast_id, "status": "queued", "reused": True}
+        raise RuntimeError(f"Existing Resend broadcast has unsafe status: {status!r}")
+
+    created = resend("/broadcasts", "POST", {
+        "segment_id": segment_id,
+        "from": FROM_ADDR,
+        "name": name,
+        "subject": subject,
+        "html": email_html,
+        "send": True,
+    })
+    broadcast_id = created.get("id")
+    if not broadcast_id:
+        raise RuntimeError("Resend create-and-send returned no broadcast id")
+    return {"id": broadcast_id, "status": "queued", "reused": False}
 
 
 def _paragraphs(value: str) -> str:
@@ -112,49 +204,63 @@ def build_email_html(issue: dict) -> str:
 </div>'''
 
 
-def main() -> int:
+def select_issue(issues: list[dict], issue_date: str | None) -> dict:
+    if not issues:
+        raise RuntimeError("No sealed Gravel Weekly issue is available")
+    if issue_date is None:
+        return issues[0]
+    selected = next(
+        (issue for issue in issues if issue["publicationDate"] == issue_date),
+        None,
+    )
+    if selected is None:
+        raise RuntimeError(f"No sealed Gravel Weekly issue exists for {issue_date}")
+    return selected
+
+
+def main(argv: list[str] | None = None) -> int:
+    parser = argparse.ArgumentParser()
+    parser.add_argument(
+        "--issue-date",
+        help="Exact sealed issue date to send (YYYY-MM-DD); defaults to latest",
+    )
+    args = parser.parse_args(argv)
     missing = [key for key in ("RESEND_API_KEY", "SUPABASE_URL", "SUPABASE_SERVICE_ROLE_KEY") if not os.environ.get(key)]
     if missing:
-        print(f"Missing {missing} — skipping Gravel Weekly send")
-        return 0
-    issues = load_public_issues()
-    if not issues:
-        print("No sealed Gravel Weekly issue — refusing to send")
-        return 0
-    issue = issues[0]
+        print(f"Missing {missing} — refusing to claim Gravel Weekly was sent", file=sys.stderr)
+        return 1
+    try:
+        issue = select_issue(load_public_issues(), args.issue_date)
+    except RuntimeError as exc:
+        print(f"{exc} — refusing to send", file=sys.stderr)
+        return 1
     try:
         subscribers = fetch_subscribers()
         if not subscribers:
-            print("No Gravel Weekly subscribers — nothing to send")
-            return 0
-        audience_id = find_or_create_audience()
-        if not audience_id:
-            print("Could not resolve the existing publication audience — skipping")
-            return 0
-        for email_address in subscribers:
-            try:
-                resend(f"/audiences/{audience_id}/contacts", "POST", {"email": email_address})
-            except Exception:
-                pass
+            raise RuntimeError("No Gravel Weekly subscribers were found")
+        segment_id = find_or_create_segment()
+        if not segment_id:
+            raise RuntimeError("Could not resolve the existing publication segment")
+        added_memberships = sum(
+            ensure_segment_contact(segment_id, email_address)
+            for email_address in subscribers
+        )
         current = next((story for story in issue["stories"] if story["candidateId"] == issue.get("currentThingStoryId")), None)
         subject = f"Gravel Weekly #{issue['issueNumber']:03d}"
         if current:
             subject += f": {current['headline']}"
         elif issue.get("quietIssue"):
             subject += f": {issue['quietIssue']['headline']}"
-        broadcast = resend("/broadcasts", "POST", {
-            "audience_id": audience_id,
-            "from": FROM_ADDR,
-            "subject": subject,
-            "html": build_email_html(issue),
-        })
-        broadcast_id = broadcast.get("id")
-        if not broadcast_id:
-            raise RuntimeError("broadcast creation returned no id")
-        resend(f"/broadcasts/{broadcast_id}/send", "POST", {})
-        print(f"Sent Gravel Weekly #{issue['issueNumber']:03d} to {len(subscribers)} subscriber(s)")
+        receipt = send_broadcast_once(issue, segment_id, subject, build_email_html(issue))
+        action = "Verified existing" if receipt["reused"] else "Started"
+        print(
+            f"{action} Gravel Weekly #{issue['issueNumber']:03d} broadcast "
+            f"{receipt['id']} ({receipt['status']}) for {len(subscribers)} subscriber(s); "
+            f"{added_memberships} new segment membership(s)"
+        )
     except Exception as exc:
-        print(f"Gravel Weekly send failed softly: {exc}")
+        print(f"Gravel Weekly send failed: {exc}", file=sys.stderr)
+        return 1
     return 0
 
 

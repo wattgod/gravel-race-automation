@@ -230,6 +230,7 @@ class TestCoachInviteCourse:
         html = generate_courses.build_landing_page(course, [course])
         assert "Coaching setup" in html
         assert 'id="gg-activation-tasks"' in html
+        assert 'id="gg-health-form"' in html
         assert 'id="gg-schedule-form"' in html
         assert 'id="gg-communication-form"' in html
         assert 'id="gg-device-form"' in html
@@ -259,6 +260,11 @@ class TestCoachInviteCourse:
         assert "coaching_activation_task_submit" in html
         assert "coaching_activation_setup_ready" in html
         assert "coaching_activation_active_ready" in html
+        assert "submit_health_update" in html
+        assert 'name="current_information_ack"' in html
+        assert 'name="emergency_boundary_ack"' in html
+        assert 'name="diagnosis"' not in html
+        assert '<textarea' not in html
         assert 'name="change_protocol_ack"' in html
         assert 'name="response_window_ack"' in html
 

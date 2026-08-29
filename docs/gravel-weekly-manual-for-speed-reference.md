@@ -267,6 +267,14 @@ chapters with a keyboard-accessible jump rail and explicit return links. That
 keeps the backfilled record browsable as it grows without turning the page into
 an undifferentiated archive scroll.
 
+The live Current Thing now receives a distinct, hash-bound story poster rather
+than the generic category motif used by secondary stories. It uses the approved
+headline as the visual premise, preserves the Gravel God token and type system,
+and identifies itself as abstract automatic editorial art. This is the concrete
+translation of Manual for Speed's story-as-front-door mechanic; none of its
+trade dress, source photography, illustration style, or title treatment is
+copied.
+
 Dated issue pages now expose the adjacent older and newer issues immediately
 below the masthead. The rail names the chronological position, previews each
 neighbor's actual Current Thing or quiet-week premise, and uses ordinary

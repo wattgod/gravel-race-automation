@@ -375,6 +375,47 @@ def test_historical_story_turn_visual_uses_only_supplied_before_after_copy():
     assert "<img" not in visual and "<iframe" not in visual
 
 
+def test_current_thing_visual_is_a_hash_bound_story_specific_poster():
+    kwargs = {
+        "item_id": "story_teamification",
+        "headline": "The privateer became gravel's unpaid control group",
+        "body_text": "Teams changed access to race-deciding support.",
+        "receipts": [],
+        "date_label": "August 28, 2026",
+        "stable_hash": "abc123",
+        "story_poster": True,
+    }
+    first = render_story_visual(**kwargs)
+    second = render_story_visual(**kwargs)
+    changed = render_story_visual(**{**kwargs, "stable_hash": "def456"})
+    assert first == second
+    assert first != changed
+    assert 'data-visual-role="story-poster"' in first
+    assert 'data-story-grammar="editorial-poster"' in first
+    assert "The privateer became" in first
+    assert "AUGUST 28, 2026" in first
+    assert "STORY POSTER // AUTO" in first
+    assert "not a news photo" in first.casefold()
+    assert "<img" not in first and "<iframe" not in first
+
+
+def test_timestamped_source_video_still_wins_over_story_poster():
+    visual = render_story_visual(
+        item_id="story_video_poster",
+        headline="A rider explained the change",
+        body_text="The reviewed clip starts at the cited passage.",
+        receipts=[{
+            "canonicalUrl": "https://www.youtube.com/watch?v=abcdefghijk",
+            "transcriptStartSeconds": 125,
+            "publisher": "Rider channel",
+        }],
+        date_label="August 28, 2026",
+        story_poster=True,
+    )
+    assert "VERIFIED SOURCE VIDEO" in visual
+    assert 'data-visual-role="story-poster"' not in visual
+
+
 def test_timestamped_video_visual_links_exact_claim_without_autoplay_or_embed():
     visual = render_story_visual(
         item_id="story_video",

@@ -229,6 +229,7 @@ def render_story_visual(
     prior_judgment: str | None = None,
     changed_judgment: str | None = None,
     point: str | None = None,
+    story_poster: bool = False,
 ) -> str:
     """Render one automatic visual; factual source video wins over abstract art."""
     safe_id = _safe_id(item_id)
@@ -289,6 +290,32 @@ def render_story_visual(
           <figcaption><b>STORY TURN // AUTO</b><span>Hash-bound before → after; abstract editorial graphic, not a news photo.</span></figcaption>
         </figure>'''
 
+    if story_poster:
+        poster_context = " ".join(date_label.split()).upper()[:28].rstrip()
+        poster_title = _svg_text_block(
+            headline,
+            x=42,
+            y=108,
+            class_name="gw-poster-title",
+            max_chars=27,
+            max_lines=4,
+            line_height=43,
+        )
+        return f'''<figure class="gw-visual gw-visual--poster gw-visual--{esc(theme)}" data-visual-system="{VISUAL_SYSTEM_VERSION}" data-visual-role="story-poster" data-story-grammar="editorial-poster">
+          <svg viewBox="0 0 660 320" role="img" aria-labelledby="gw-visual-title-{safe_id}" focusable="false">
+            <title id="gw-visual-title-{safe_id}">Abstract Gravel Weekly story poster for {esc(headline)}. Not documentary imagery.</title>
+            <rect class="gw-visual-paper" x="0" y="0" width="660" height="320" />
+            <path class="gw-visual-route gw-visual-route--background" d="{_route_path(seed)}" pathLength="100" />
+            <rect class="gw-poster-band" x="0" y="0" width="660" height="52" />
+            <text class="gw-poster-kicker" x="24" y="34">THE CURRENT THING · {esc(poster_context)}</text>
+            <g class="gw-poster-motif" transform="translate(438 112) scale(1.08)" aria-hidden="true">{_motif(theme)}</g>
+            <rect class="gw-poster-title-panel" x="24" y="72" width="516" height="204" />
+            {poster_title}
+            <text class="gw-poster-meta" x="42" y="296">{esc(theme_label)} · {esc(seed[:8].upper())}</text>
+          </svg>
+          <figcaption><b>STORY POSTER // AUTO</b><span>Hash-bound Gravel Weekly art; abstract editorial graphic, not a news photo.</span></figcaption>
+        </figure>'''
+
     particles = "".join(
         f'<circle cx="{238 + (int(seed[index:index + 2], 16) % 390)}" '
         f'cy="{24 + (int(seed[index + 2:index + 4], 16) % 142)}" '
@@ -337,18 +364,30 @@ def visual_css() -> str:
   .gw-turn-label { font-size: 13px; font-weight: var(--gg-font-weight-black); letter-spacing: 2px; }
   .gw-turn-copy { font-size: 15px; font-weight: var(--gg-font-weight-bold); }
   .gw-turn-arrow { fill: none; stroke: var(--gg-color-teal); stroke-width: 9; stroke-linecap: square; stroke-linejoin: miter; }
+  .gw-poster-band { fill: var(--gg-color-teal); }
+  .gw-poster-title-panel { fill: var(--gg-color-warm-paper); stroke: var(--gg-color-near-black); stroke-width: var(--gg-border-width-heavy); }
+  .gw-poster-kicker, .gw-poster-title, .gw-poster-meta { fill: var(--gg-color-near-black); font-family: var(--gg-font-data); }
+  .gw-poster-kicker { font-size: 15px; font-weight: var(--gg-font-weight-black); letter-spacing: 2px; }
+  .gw-poster-title { font-size: 34px; font-weight: var(--gg-font-weight-black); letter-spacing: -1px; }
+  .gw-poster-meta { font-size: 12px; font-weight: var(--gg-font-weight-black); letter-spacing: 1px; }
+  .gw-poster-motif { opacity: .82; }
+  .gw-poster-motif .gw-visual-motif { stroke: var(--gg-color-primary-brown); }
+  .gw-poster-motif .gw-visual-accent { stroke: var(--gg-color-gold); }
   @media (prefers-reduced-motion: no-preference) {
     .gw-visual-route { animation: gw-route-pulse 1600ms linear 1 both; }
     .gw-turn-arrow { animation: gw-turn-reveal 1100ms var(--gg-animation-easing-sharp) 1 both; }
     .gw-turn-after { animation: gw-turn-land 520ms var(--gg-animation-easing-sharp) 850ms 1 both; }
+    .gw-poster-title-panel { animation: gw-poster-land 520ms var(--gg-animation-easing-sharp) 420ms 1 both; }
     .gw-video-facade:hover .gw-video-play { transform: translateX(5px); transform-origin: center; transition: transform 140ms linear; }
   }
   @keyframes gw-route-pulse { to { stroke-dashoffset: -100; } }
   @keyframes gw-turn-reveal { from { stroke-dasharray: 100; stroke-dashoffset: 100; } to { stroke-dasharray: 100; stroke-dashoffset: 0; } }
   @keyframes gw-turn-land { from { transform: translateX(-8px); } to { transform: translateX(0); } }
+  @keyframes gw-poster-land { from { transform: translateX(-10px); } to { transform: translateX(0); } }
   @media (max-width: 620px) {
     .gw-visual-word { font-size: 30px; }
     .gw-visual-kicker, .gw-visual-meta { display: none; }
     .gw-visual figcaption { display: grid; }
+    .gw-poster-title { font-size: 30px; }
   }
 '''

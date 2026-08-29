@@ -141,8 +141,17 @@ def _card(entry: dict[str, Any]) -> str:
         if not holds
         else f'<span class="hold">HOLD · {esc(", ".join(holds))}</span>'
     )
+    gate_notes = entry.get("editorialGateNotes") or {}
     gate_rows = "".join(
-        f"<li><b>{esc(name)}</b><span>{esc(verdict.upper())}</span></li>"
+        '<li class="gate-{verdict}"><div><b>{name}</b><span>{verdict_label}</span></div>{note}</li>'.format(
+            verdict=esc(verdict),
+            name=esc(name),
+            verdict_label=esc(verdict.upper()),
+            note=(
+                f'<p><b>WHY {esc(verdict.upper())}:</b> {esc(gate_notes[name])}</p>'
+                if name in gate_notes else ""
+            ),
+        )
         for name, verdict in entry["editorialGates"].items()
     )
     prose_findings = gate["findings"]
@@ -293,7 +302,11 @@ main {{ width: min(1120px, calc(100% - 32px)); margin: 32px auto 80px; }}
 .point {{ background: var(--gg-color-gold); }} .take {{ background: var(--gg-color-sand); }}
 summary {{ cursor: pointer; font-weight: var(--gg-font-weight-black); }}
 .receipts li {{ margin: 16px 0; }} blockquote {{ margin: 8px 0; font-family: var(--gg-font-editorial); }}
-.gates {{ max-width: 520px; padding: 0; list-style: none; }} .gates li {{ display: flex; justify-content: space-between; border-bottom: var(--gg-border-subtle); padding: 8px 0; }}
+.gates {{ max-width: 760px; padding: 0; list-style: none; }}
+.gates li {{ border-bottom: var(--gg-border-subtle); padding: 8px 0; }}
+.gates li > div {{ display: flex; justify-content: space-between; gap: var(--gg-spacing-md); }}
+.gates li > p {{ margin: var(--gg-spacing-xs) 0 0; padding: var(--gg-spacing-sm); border-left: var(--gg-border-gold); background: var(--gg-color-sand); font-size: var(--gg-font-size-sm); }}
+.gates .gate-hold > div span, .gates .gate-fail > div span {{ font-weight: var(--gg-font-weight-black); }}
 code {{ overflow-wrap: anywhere; }} footer {{ background: var(--gg-color-near-black); color: var(--gg-color-warm-paper); }} footer code {{ color: var(--gg-color-light-gold); }}
 @media (max-width: 700px) {{ .judgment {{ grid-template-columns: 1fr; }} .judgment section + section {{ border-left: 0; border-top: var(--gg-border-standard); }} .decision-queue a {{ grid-template-columns: 56px minmax(0, 1fr); }} .decision-queue code {{ grid-column: 2; }} main {{ width: min(100% - 16px, 1120px); margin-top: 8px; }} }}
 </style></head><body><main>

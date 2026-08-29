@@ -1214,6 +1214,21 @@ def check_questionnaire_parity():
     )
 
 
+ROBOTS_NOINDEX_NOFOLLOW_RE = re.compile(
+    r'''<meta\b
+        (?=[^>]*\bname=["']robots["'])
+        (?=[^>]*\bcontent=["'][^"']*\bnoindex\b[^"']*["'])
+        (?=[^>]*\bcontent=["'][^"']*\bnofollow\b[^"']*["'])
+        [^>]*>''',
+    re.IGNORECASE | re.VERBOSE,
+)
+
+
+def _is_internal_noindex_nofollow(content: str) -> bool:
+    """Recognize private/internal robots directives without formatting assumptions."""
+    return ROBOTS_NOINDEX_NOFOLLOW_RE.search(content) is not None
+
+
 def check_ga4_in_output_html():
     """Verify every HTML file in wordpress/output/ contains the GA4 measurement ID.
 
@@ -1240,7 +1255,7 @@ def check_ga4_in_output_html():
             continue
         # Internal tools (noindex, nofollow) are exempt — GA4 there would
         # pollute analytics with the coach's own visits.
-        if 'content="noindex, nofollow"' in content:
+        if _is_internal_noindex_nofollow(content):
             continue
         # PWA offline fallbacks render without network — GA4 can't load
         if html_file.name == 'offline.html':

@@ -81,11 +81,12 @@ This makes visuals a build product, not a new editorial approval queue.
 
 ## Culture artifacts
 
-Approved historical stories may include durable culture cards for an X or
-Instagram post, timestamped YouTube moment, forum thread, blog, newsletter, or
-podcast. The card is generated locally from a short excerpt, source identity,
-publication time, and canonical link. It never copies the source image/video,
-loads a third-party embed, or displays engagement as editorial authority. Its
-selection rationale is visible only in the private desk. Because the normalized
-artifact is part of the historical entry content hash, Matti's story approval
-covers the exact culture context that can later appear publicly.
+Approved weekly and historical stories may include durable culture cards for a
+Bluesky, X, or Instagram post, timestamped YouTube moment, forum thread, blog,
+newsletter, or podcast. The card is generated locally from a short excerpt,
+source identity, publication time, and canonical link. It never copies the
+source image/video, loads a third-party embed, or displays engagement as
+editorial authority. Its selection rationale is visible only in draft/private
+review. Because the normalized artifact is part of the weekly issue or
+historical-entry content hash, Matti's story approval covers the exact culture
+context that can later appear publicly.

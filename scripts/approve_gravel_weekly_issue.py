@@ -107,7 +107,8 @@ def approve_issue(draft_value: Any, approval_value: Any) -> dict[str, Any]:
         if decision["decision"] == "reject":
             continue
         # Only these three fields come from the human approval. Every factual,
-        # evidentiary, scoring, and race-impact field remains the reviewed draft.
+        # evidentiary, scoring, race-impact, and culture-context field remains
+        # the reviewed draft.
         approved_stories.append({
             **draft_story,
             "headline": decision["headline"],
@@ -132,6 +133,8 @@ def approve_issue(draft_value: Any, approval_value: Any) -> dict[str, Any]:
     ])
     source_index = sorted({
         receipt["canonicalUrl"] for story in approved_stories for receipt in story["receipts"]
+    } | {
+        artifact["canonicalUrl"] for story in approved_stories for artifact in story.get("cultureArtifacts", [])
     })
     approved = {
         **draft,

@@ -17,7 +17,7 @@ from no_ai_slop import audit_no_ai_slop
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 HISTORY_DIR = PROJECT_ROOT / "data" / "gravel-weekly" / "history"
 PASSING_GATES = {"party", "point", "friend", "craft", "hostileEditor"}
-CULTURE_SOURCE_KINDS = {"x", "instagram", "youtube", "forum", "blog", "newsletter", "podcast"}
+CULTURE_SOURCE_KINDS = {"bluesky", "x", "instagram", "youtube", "forum", "blog", "newsletter", "podcast"}
 CULTURE_COLLECTION_METHODS = {
     "official_api", "authorized_caption", "rss", "sitemap",
     "public_metadata", "user_authorized",

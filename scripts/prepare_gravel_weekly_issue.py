@@ -170,6 +170,50 @@ def prepare_issue(review_value: Any, publication_date: str, issue_number: int, *
             + "; ".join(details)
             + ". Replay the same locked window after restoring model evaluation."
         )
+    held_candidates = []
+    invalid_gate_candidates = []
+    rewrite_candidates = []
+    for packet in review.get("packets", []):
+        if not isinstance(packet, dict):
+            invalid_gate_candidates.append("unknown")
+            continue
+        candidate_id = packet.get("candidateId", "unknown")
+        gate = packet.get("editorialGate")
+        if not isinstance(gate, dict):
+            invalid_gate_candidates.append(candidate_id)
+            continue
+        verdicts = []
+        for key in ("partyTest", "pointTest", "friendTest"):
+            test = gate.get(key)
+            verdicts.append(test.get("verdict") if isinstance(test, dict) else None)
+        decision = gate.get("decision")
+        if decision == "hold" or "hold" in verdicts:
+            held_candidates.append(candidate_id)
+            continue
+        if decision == "pass":
+            if not _passes_editorial_gate(packet):
+                invalid_gate_candidates.append(candidate_id)
+            elif not _passes_prose_gate(packet):
+                rewrite_candidates.append(candidate_id)
+        elif decision != "reject":
+            invalid_gate_candidates.append(candidate_id)
+    if held_candidates:
+        raise ValueError(
+            "cannot prepare a Gravel Weekly issue while editorial research remains HOLD: "
+            + ", ".join(map(str, held_candidates))
+            + ". Complete the named evidence work and replay the same locked window."
+        )
+    if invalid_gate_candidates:
+        raise ValueError(
+            "cannot prepare a Gravel Weekly issue from malformed or incomplete editorial gates: "
+            + ", ".join(map(str, invalid_gate_candidates))
+        )
+    if rewrite_candidates:
+        raise ValueError(
+            "cannot prepare a Gravel Weekly issue while passing premises require a prose rewrite: "
+            + ", ".join(map(str, rewrite_candidates))
+            + ". Rerun the no-AI-slop gate on the exact replacement copy."
+        )
     if issue_number < 1:
         raise ValueError("issue_number must be positive")
     datetime.strptime(publication_date, "%Y-%m-%d")

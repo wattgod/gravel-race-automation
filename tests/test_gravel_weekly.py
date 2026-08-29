@@ -856,7 +856,7 @@ def test_sealing_writes_the_issue_and_its_canonical_decision_receipt_together(tm
 
 
 @pytest.mark.parametrize("gate_mutation", ["missing", "hold", "party_hold", "no_point", "friend_fail", "friend_kill", "no_mechanics"])
-def test_review_excludes_stories_that_do_not_clear_every_editorial_gate(gate_mutation):
+def test_issue_bridge_refuses_unresolved_or_malformed_editorial_gates(gate_mutation):
     gate = passing_editorial_gate()
     if gate_mutation == "hold":
         gate["decision"] = "hold"
@@ -887,10 +887,9 @@ def test_review_excludes_stories_that_do_not_clear_every_editorial_gate(gate_mut
         "candidates": [{"id": "story_1", "score": 93, "headline": "Unbound changed the course", "storyKind": "route"}],
         "packets": [packet],
     }
-    issue = prepare_issue(review, "2026-08-28", 1, now="2026-08-27T17:00:00Z")
-    assert issue["stories"] == []
-    assert issue["currentThingStoryId"] is None
-    assert issue["quietIssue"]["provenance"] == "model_draft"
+    expected = "editorial research remains HOLD" if gate_mutation in {"hold", "party_hold"} else "malformed or incomplete editorial gates"
+    with pytest.raises(ValueError, match=expected):
+        prepare_issue(review, "2026-08-28", 1, now="2026-08-27T17:00:00Z")
 
 
 @pytest.mark.parametrize("prose_mutation", ["missing", "failed", "stale"])
@@ -926,10 +925,8 @@ def test_review_excludes_missing_failed_or_stale_prose_gates(prose_mutation):
         }],
         "packets": [packet],
     }
-    issue = prepare_issue(review, "2026-08-28", 1, now="2026-08-27T17:00:00Z")
-    assert issue["stories"] == []
-    assert issue["currentThingStoryId"] is None
-    assert issue["quietIssue"]["provenance"] == "model_draft"
+    with pytest.raises(ValueError, match="passing premises require a prose rewrite"):
+        prepare_issue(review, "2026-08-28", 1, now="2026-08-27T17:00:00Z")
 
 
 def test_quiet_issue_requires_explicit_human_copy_approval_and_has_a_durable_receipt():
@@ -1004,6 +1001,25 @@ def test_issue_bridge_refuses_to_call_an_incomplete_editorial_review_quiet(failu
         }]
 
     with pytest.raises(ValueError, match="incomplete editorial review"):
+        prepare_issue(review, "2026-09-04", 2, now="2026-09-03T17:00:00Z")
+
+
+def test_issue_bridge_refuses_to_call_an_unresolved_editorial_hold_quiet():
+    review = {
+        "schemaVersion": "gravel-weekly-review/v1",
+        "modelErrors": [],
+        "candidates": [{
+            "id": "story_1", "score": 75, "headline": "Research is incomplete",
+            "storyKind": "business",
+        }],
+        "packets": [{
+            "candidateId": "story_1",
+            "generatorModel": "openai/gpt-5.6-sol",
+            "editorialGate": {"decision": "hold"},
+        }],
+    }
+
+    with pytest.raises(ValueError, match="editorial research remains HOLD"):
         prepare_issue(review, "2026-09-04", 2, now="2026-09-03T17:00:00Z")
 
 

@@ -60,6 +60,55 @@ def story_by_id(issue: dict[str, Any], story_id: str | None) -> dict[str, Any] |
     return next((story for story in issue["stories"] if story["candidateId"] == story_id), None)
 
 
+def meaningful_impacts(impacts: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    return [impact for impact in impacts if impact["impactKind"] != "no_change"]
+
+
+def render_issue_contents(issue: dict[str, Any]) -> str:
+    """Render an evidence-aware issue map without inventing empty departments."""
+    current = story_by_id(issue, issue.get("currentThingStoryId"))
+    if current is None:
+        return ""
+    story_id = current["candidateId"]
+    chapters: list[tuple[str, str, str]] = [
+        (f"#{story_id}", "THE CURRENT THING", current["headline"]),
+        (f"#record-{story_id}", "THE RECORD", "The verified account"),
+    ]
+    if current.get("cultureArtifacts"):
+        chapters.append((f"#scene-{story_id}", "THE SCENE REPORT", "What the culture sample adds"))
+    take_description = (
+        "The model draft awaiting approval"
+        if issue["status"] == "draft"
+        else "The approved judgment"
+    )
+    chapters.append((f"#take-{story_id}", "THE TAKE", take_description))
+    if meaningful_impacts(current["raceImpacts"]):
+        chapters.append((f"#changes-{story_id}", "WHAT THIS CHANGES", "Controlled race intelligence"))
+    other_stories = [
+        story for story in issue["stories"]
+        if story["candidateId"] != issue.get("currentThingStoryId")
+    ]
+    if other_stories:
+        noun = "story" if len(other_stories) == 1 else "stories"
+        chapters.append((
+            f"#{other_stories[0]['candidateId']}",
+            "ALSO THIS WEEK",
+            f"{len(other_stories)} more {noun} that cleared the gate",
+        ))
+    if issue["retrospectives"]:
+        chapters.append(("#memory", "MEMORY", "Earlier takes meet later evidence"))
+    if issue["corrections"]:
+        chapters.append(("#corrections", "CORRECTIONS", "The permanent record"))
+    items = "".join(
+        f'''<li><a href="{esc(target)}"><span>{index}</span><b>{esc(label)}</b><small>{esc(description)}</small></a></li>'''
+        for index, (target, label, description) in enumerate(chapters, start=1)
+    )
+    return f'''<nav class="gw-contents" aria-label="In this issue">
+      <header><span>IN THIS ISSUE</span><p>The record, the scene, the Take, and the receipts.</p></header>
+      <ol>{items}</ol>
+    </nav>'''
+
+
 def render_receipts(receipts: list[dict[str, Any]]) -> str:
     items = []
     for receipt in receipts:
@@ -83,7 +132,7 @@ def render_receipts(receipts: list[dict[str, Any]]) -> str:
 
 
 def render_impacts(impacts: list[dict[str, Any]]) -> str:
-    meaningful = [impact for impact in impacts if impact["impactKind"] != "no_change"]
+    meaningful = meaningful_impacts(impacts)
     if not meaningful:
         return '<p class="gw-empty">No race-profile change proposed.</p>'
     labels = {
@@ -132,7 +181,7 @@ def render_retrospectives(retrospectives: list[dict[str, Any]], issues: list[dic
           </div>
           <details class="gw-details"><summary>RECEIPTS · {len(item['receipts'])}</summary>{render_receipts(item['receipts'])}</details>
         </article>''')
-    return f'<section class="gw-retrospectives"><h2>THE RECEIPTS ON US</h2><p class="gw-retro-dek">Old takes do not disappear when the timeline moves on.</p>{"".join(cards)}</section>'
+    return f'<section class="gw-retrospectives" id="memory"><h2>THE RECEIPTS ON US</h2><p class="gw-retro-dek">Old takes do not disappear when the timeline moves on.</p>{"".join(cards)}</section>'
 
 
 def render_story(story: dict[str, Any], *, current: bool = False, draft: bool = False) -> str:
@@ -154,22 +203,22 @@ def render_story(story: dict[str, Any], *, current: bool = False, draft: bool = 
       </header>
       {visual}
       <div class="gw-story-grid">
-        <section class="gw-facts" aria-labelledby="facts-{esc(story['candidateId'])}">
-          <h3 id="facts-{esc(story['candidateId'])}">WHAT HAPPENED</h3>
+        <section class="gw-facts" id="record-{esc(story['candidateId'])}" aria-labelledby="record-label-{esc(story['candidateId'])}">
+          <h3 id="record-label-{esc(story['candidateId'])}">THE RECORD</h3>
           {prose(story['whatHappened'])}
         </section>
-        <section class="gw-take" aria-labelledby="take-{esc(story['candidateId'])}">
-          <h3 id="take-{esc(story['candidateId'])}">{take_label}</h3>
+        <section class="gw-take" id="take-{esc(story['candidateId'])}" aria-labelledby="take-label-{esc(story['candidateId'])}">
+          <h3 id="take-label-{esc(story['candidateId'])}">{take_label}</h3>
           {prose(story['take'])}
         </section>
       </div>
-      {render_culture_artifacts(story.get('cultureArtifacts', []), private_review=draft)}
+      {render_culture_artifacts(story.get('cultureArtifacts', []), private_review=draft, section_id=f"scene-{story['candidateId']}")}
       <details class="gw-details">
         <summary>RECEIPTS · {len(story['receipts'])}</summary>
         {render_receipts(story['receipts'])}
       </details>
-      <details class="gw-details">
-        <summary>RACE INTELLIGENCE</summary>
+      <details class="gw-details" id="changes-{esc(story['candidateId'])}">
+        <summary>WHAT THIS CHANGES</summary>
         {render_impacts(story['raceImpacts'])}
       </details>
     </article>'''
@@ -237,7 +286,7 @@ def render_history_timeline(entries: list[dict[str, Any]]) -> str:
           <header><span class="gw-history-date">{esc(active_label.upper())}</span><span class="gw-score">EDITORIAL SCORE {entry['editorialScore']}/100</span><h3>{esc(entry['headline'])}</h3></header>
           {visual}
           <div class="gw-history-grid">
-            <section><h4>THE POINT</h4>{prose(entry['point'])}<h4>WHAT HAPPENED</h4>{prose(entry['whatHappened'])}<h4>WHY IT MATTERED</h4>{prose(entry['stakes'])}<h4>THE FAIR OBJECTION</h4>{prose(entry['credibleOpposition'])}</section>
+            <section><h4>THE POINT</h4>{prose(entry['point'])}<h4>THE RECORD</h4>{prose(entry['whatHappened'])}<h4>WHY IT MATTERED</h4>{prose(entry['stakes'])}<h4>THE FAIR OBJECTION</h4>{prose(entry['credibleOpposition'])}</section>
             <section class="gw-history-take"><h4>THE TAKE</h4>{prose(entry['take'])}</section>
           </div>
           <div class="gw-history-judgment"><b>WHAT CHANGED:</b> {esc(entry['priorJudgment'])} → {esc(entry['changedJudgment'])}</div>
@@ -334,6 +383,17 @@ def page_css() -> str:
   .gw-cover-lines span { padding: var(--gg-spacing-sm); border-right: var(--gg-border-subtle); font-size: var(--gg-font-size-xs); font-weight: var(--gg-font-weight-bold); text-align: center; text-transform: uppercase; }
   .gw-cover-lines span:last-child { border-right: 0; }
   .gw-back { display: inline-block; margin: var(--gg-spacing-lg) 0 0; color: var(--gg-color-primary-brown); font-weight: var(--gg-font-weight-bold); }
+  .gw-contents { margin-top: var(--gg-spacing-xl); border: var(--gg-border-heavy); background: var(--gg-color-near-black); color: var(--gg-color-warm-paper); }
+  .gw-contents > header { display: flex; justify-content: space-between; gap: var(--gg-spacing-md); align-items: baseline; padding: var(--gg-spacing-sm) var(--gg-spacing-md); border-bottom: var(--gg-border-standard); }
+  .gw-contents > header span { font-weight: var(--gg-font-weight-black); letter-spacing: var(--gg-letter-spacing-wider); }
+  .gw-contents > header p { margin: 0; font-family: var(--gg-font-editorial); }
+  .gw-contents ol { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); margin: 0; padding: 0; list-style: none; }
+  .gw-contents li { min-width: 0; border-right: var(--gg-border-subtle); border-bottom: var(--gg-border-subtle); }
+  .gw-contents a { display: grid; grid-template-columns: auto 1fr; gap: 0 var(--gg-spacing-xs); min-height: 100%; padding: var(--gg-spacing-sm); color: inherit; text-decoration: none; }
+  .gw-contents a:hover, .gw-contents a:focus-visible { background: var(--gg-color-teal); outline: var(--gg-border-gold); outline-offset: calc(var(--gg-border-width-standard) * -1); }
+  .gw-contents a > span { grid-row: 1 / span 2; color: var(--gg-color-gold); font-size: var(--gg-font-size-xl); font-weight: var(--gg-font-weight-black); line-height: .9; }
+  .gw-contents b { font-size: var(--gg-font-size-xs); letter-spacing: var(--gg-letter-spacing-wide); }
+  .gw-contents small { margin-top: var(--gg-spacing-2xs); color: var(--gg-color-tan); font-family: var(--gg-font-editorial); line-height: var(--gg-line-height-tight); }
   .gw-story { margin-top: var(--gg-spacing-xl); border: var(--gg-border-heavy); background: var(--gg-color-white); }
   .gw-story--cover { border-width: calc(var(--gg-border-width-heavy) * 2); }
   .gw-story-head { padding: var(--gg-spacing-lg); border-bottom: var(--gg-border-standard); }
@@ -418,6 +478,9 @@ def page_css() -> str:
   .gw-empty { font-family: var(--gg-font-editorial); font-style: italic; color: var(--gg-color-secondary-brown); }
   code { font-family: var(--gg-font-data); overflow-wrap: anywhere; }
   @media (max-width: 720px) {
+    .gw-contents > header { display: grid; }
+    .gw-contents ol { display: flex; overflow-x: auto; scroll-snap-type: x proximity; }
+    .gw-contents li { flex: 0 0 min(78vw, 260px); scroll-snap-align: start; }
     .gw-cover-lines, .gw-story-grid, .gw-utility-grid, .gw-memory-grid, .gw-history-grid { grid-template-columns: 1fr; }
     .gw-cover-lines span { border-right: 0; border-bottom: var(--gg-border-subtle); }
     .gw-cover-lines span:last-child { border-bottom: 0; }
@@ -444,11 +507,12 @@ def build_page(issue: dict[str, Any] | None, issues: list[dict[str, Any]], *, la
         corrections = ""
         if issue["corrections"]:
             items = "".join(f'<li><strong>{esc(item["publishedAt"][:10])}</strong> — {esc(item["text"])}</li>' for item in issue["corrections"])
-            corrections = f'<section class="gw-corrections"><h2>CORRECTIONS</h2><ul>{items}</ul></section>'
-        issue_body = f'''{content}
+            corrections = f'<section class="gw-corrections" id="corrections"><h2>CORRECTIONS</h2><ul>{items}</ul></section>'
+        issue_body = f'''{render_issue_contents(issue)}
+        {content}
         <div class="gw-utility-grid">
           <section class="gw-utility"><h2>CALENDAR WATCH</h2><ul class="gw-watch">{watch}</ul></section>
-          <section class="gw-utility"><h2>RACE INTELLIGENCE</h2>{render_impacts(issue['raceImpacts'])}</section>
+          <section class="gw-utility"><h2>WHAT THIS CHANGES</h2>{render_impacts(issue['raceImpacts'])}</section>
         </div>
         {render_retrospectives(issue['retrospectives'], issues, draft=is_draft)}
         {corrections}'''
@@ -494,7 +558,7 @@ def build_page(issue: dict[str, Any] | None, issues: list[dict[str, Any]], *, la
     <div class="gw-masthead-top"><span>ISSUE #{issue_number:03d}</span><span>{esc(date_label)}</span><span>{esc(publication_label)}</span></div>
     <h1 class="gw-name">GRAVEL <span>WEEKLY</span></h1>
     <p class="gw-deck">THE PEOPLE, RACES, MONEY &amp; BAD IDEAS MOVING GRAVEL</p>
-    <div class="gw-cover-lines"><span>WHAT HAPPENED</span><span>WHAT IT MEANS</span><span>WHAT CHANGES</span></div>
+    <div class="gw-cover-lines"><span>THE RECORD</span><span>THE SCENE</span><span>THE TAKE</span></div>
   </header>
   {issue_body}
   {render_history_timeline(history_entries or []) if latest else ''}

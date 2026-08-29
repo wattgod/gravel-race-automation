@@ -470,7 +470,9 @@ def test_weekly_culture_artifacts_are_direct_hash_bound_context_and_survive_appr
     assert validated["stories"][0]["cultureArtifacts"][0]["canProveClaim"] is False
     assert validated["stories"][0]["cultureArtifacts"][0]["canEstablishConsensus"] is False
     public = build_page(published, [published], latest=True)
-    assert "CULTURE RECEIPTS" in public
+    assert "THE SCENE REPORT" in public
+    assert 'href="#scene-story_1"' in public
+    assert 'id="scene-story_1"' in public
     assert artifact["title"] in public
     assert artifact["reviewReason"] not in public
     assert "iframe" not in public
@@ -559,6 +561,8 @@ def test_review_prepares_a_draft_but_cannot_imply_approval():
     preview = build_page(issue, [issue], latest=True)
     assert "DRAFT — NOT PUBLISHED" in preview
     assert "THE TAKE — MODEL DRAFT" in preview
+    assert "The model draft awaiting approval" in preview
+    assert "The approved judgment" not in preview
     assert "PRIVATE CULTURE CHECK" in preview
     assert culture_artifact["reviewReason"] in preview
     assert "application/ld+json" not in preview
@@ -826,6 +830,13 @@ def test_rendered_issue_preserves_site_infrastructure_and_honest_form():
     page = build_page(issue, [issue], latest=True)
     assert "GRAVEL <span>WEEKLY</span>" in page
     assert "THE CURRENT THING" in page
+    assert 'class="gw-contents"' in page
+    assert 'href="#record-story_1"' in page
+    assert 'id="record-story_1"' in page
+    assert 'href="#take-story_1"' in page
+    assert 'id="take-story_1"' in page
+    assert "THE RECORD" in page
+    assert "WHAT THIS CHANGES" in page
     assert "G-EJJZ9T6M52" in page
     assert "gravel_weekly_subscribe" in page
     assert "if (!response.ok)" in page
@@ -1826,7 +1837,7 @@ def test_historical_culture_cards_render_in_review_and_only_after_publication():
     entry["cultureArtifacts"] = [sample_culture_artifact()]
     entry["contentHash"] = compute_history_content_hash(entry)
     public = render_history_timeline([entry])
-    assert "CULTURE RECEIPTS" in public
+    assert "THE SCENE REPORT" in public
     assert "WHAT THE GROUP CHAT WAS PASSING AROUND" in public
     assert 'data-culture-artifact="historical-culture_0123456789abcdef"' in public
     assert "Gravel has entered its team-bus era." in public
@@ -1840,6 +1851,12 @@ def test_historical_culture_cards_render_in_review_and_only_after_publication():
     draft["contentHash"] = compute_history_content_hash(draft)
     private = render_history_review([draft], 2026)
     assert "PRIVATE CULTURE CHECK" in private
+    assert 'class="story-contents"' in private
+    assert f'href="#{draft["entryId"]}-scene"' in private
+    assert f'id="{draft["entryId"]}-scene"' in private
+    assert "THE RECORD" in private
+    assert "THE OTHER SIDE" in private
+    assert "WHAT THIS CHANGES" in private
     assert "A contemporaneous joke compressed" in private
     approved, _ = apply_history_decision(draft, sample_history_approval(draft))
     assert approved is not None

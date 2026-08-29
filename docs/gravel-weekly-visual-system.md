@@ -9,6 +9,64 @@ Gravel Weekly must never wait for Matti to choose, license, crop, or approve an 
 
 The SVG is abstract editorial art, visibly labeled as such. It is never presented as a photograph or as evidence of an event.
 
+## Two jobs, clearly separated
+
+The existing procedural visual is the publication signature: fast, deterministic,
+brand-true, and always available. It may set tone without claiming to explain the
+story.
+
+A story graphic has a higher burden. With the headline hidden, a reader should be
+able to infer the story's central turn from the graphic. If they cannot, it remains
+useful brand art, but it must not be described as explanatory.
+
+When evidence supports it, the generator should promote the signature into one of
+five small story grammars instead of inventing a new visual language every week:
+
+- **Before → after:** the prior judgment and changed judgment are the two states.
+- **Tension:** two credible forces pull against one another; neither is a straw man.
+- **Timeline:** only the few events needed to reveal an inflection point.
+- **Network:** access, hierarchy, teams, organizers, and privateers as relationships.
+- **Route / pressure map:** only when verified course geography or race mechanics
+  actually carry the point.
+- **Culture constellation:** several approved culture artifacts orbit the claimed
+  Current Thing; recurrence may show attention, never truth or consensus.
+
+Animation must perform editorial work: reveal the transition, trace the route, or
+show the pressure moving. It gets one restrained loop, remains intelligible as a
+still, and stops under reduced-motion preferences. Decorative perpetual motion is
+not a substitute for a point.
+
+## Story-graphic gate
+
+Before labeling a visual explanatory, the review desk must answer yes to all of the
+following:
+
+1. Does it express the story's point rather than merely its topic?
+2. Is every encoded relationship supported by an approved field or receipt?
+3. Would removing an element make the central turn harder to understand?
+4. Is the most important editorial fact the most visually prominent element?
+5. Is it understandable without animation, color alone, or unexplained symbols?
+6. Does its accessible title describe the meaning, not just the shapes?
+
+Any failure demotes the visual to the permanent brand-art fallback. Missing data
+never licenses fake precision or delays publication.
+
+## Reference systems
+
+- The Pudding's question-first, storyboard-before-code method and willingness to
+  kill weak ideas.
+- ProPublica's insistence that the editorial nut be the most visible element and
+  that unnecessary elements come out.
+- The Markup's conceptual illustration test: communicate the headline or theme,
+  set the mood, avoid cliché, and design accessibility from the start.
+- The Economist's constrained palette, repeatable grammar, and use of color to
+  highlight the main message rather than decorate it.
+
+The Gravel Weekly synthesis is Economist restraint, Markup conceptual wit,
+ProPublica hierarchy, Pudding point-first rigor, and Gravel God type, texture, and
+motion. Those are operating principles, not a license to imitate any publisher's
+trade dress.
+
 ## Non-negotiable gates
 
 - Do not scrape or hotlink publisher, Instagram, race-organizer, photographer, or athlete images.
@@ -20,3 +78,14 @@ The SVG is abstract editorial art, visibly labeled as such. It is never presente
 - Preserve reduced-motion behavior, keyboard focus, accessible titles, and mobile legibility.
 
 This makes visuals a build product, not a new editorial approval queue.
+
+## Culture artifacts
+
+Approved historical stories may include durable culture cards for an X or
+Instagram post, timestamped YouTube moment, forum thread, blog, newsletter, or
+podcast. The card is generated locally from a short excerpt, source identity,
+publication time, and canonical link. It never copies the source image/video,
+loads a third-party embed, or displays engagement as editorial authority. Its
+selection rationale is visible only in the private desk. Because the normalized
+artifact is part of the historical entry content hash, Matti's story approval
+covers the exact culture context that can later appear publicly.

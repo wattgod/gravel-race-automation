@@ -15,6 +15,7 @@ sys.path.insert(0, str(PROJECT_ROOT / "wordpress"))
 
 from brand_tokens import get_font_face_css, get_tokens_css  # noqa: E402
 from gravel_weekly_visuals import render_story_visual, visual_css  # noqa: E402
+from gravel_weekly_culture import culture_css, render_culture_artifacts  # noqa: E402
 from no_ai_slop import audit_no_ai_slop  # noqa: E402
 from approve_gravel_weekly_history import (  # noqa: E402
     reviewed_headline_copy,
@@ -158,6 +159,9 @@ def _card(entry: dict[str, Any]) -> str:
         receipts=entry["contemporaryReceipts"],
         date_label=f"{entry['activeFrom']} → {entry['activeThrough']}",
         stable_hash=entry["contentHash"],
+        prior_judgment=entry["priorJudgment"],
+        changed_judgment=entry["changedJudgment"],
+        point=entry["point"],
     )
     return f'''<article class="story" id="{esc(entry['entryId'])}">
       <header>
@@ -179,6 +183,7 @@ def _card(entry: dict[str, Any]) -> str:
       </div>
       <section><h3>UNCERTAINTY</h3>{paragraphs(entry['uncertainty'])}</section>
       <details open><summary>CONTEMPORARY RECEIPTS ({len(entry['contemporaryReceipts'])})</summary>{_receipt_list(entry['contemporaryReceipts'])}</details>
+      {render_culture_artifacts(entry.get('cultureArtifacts', []), private_review=True)}
       <details><summary>LATER EVIDENCE ({len(entry['laterEvidence'])})</summary>{_receipt_list(entry['laterEvidence'])}</details>
       <details open><summary>{prose_summary}</summary><p>Checked against <a href="{esc(gate['sourceUrl'])}" rel="noopener" target="_blank">petergyang/no-ai-slop</a> at <code>{esc(str(gate['sourceRevision'])[:8])}</code>. This is a prose-pattern gate, not an AI-authorship detector.</p><ul class="prose-findings">{prose_finding_rows}</ul></details>
       <details><summary>GATES &amp; RACE INTELLIGENCE</summary><ul class="gates">{gate_rows}</ul>{_impact_list(entry['raceImpacts'])}</details>
@@ -229,6 +234,7 @@ def render_history_review(entries: list[dict[str, Any]], year: int) -> str:
 {get_tokens_css()}
 {get_font_face_css()}
 {visual_css()}
+{culture_css()}
 * {{ box-sizing: border-box; }}
 body {{ margin: 0; background: var(--gg-color-sand); color: var(--gg-color-near-black); font-family: var(--gg-font-data); }}
 main {{ width: min(1120px, calc(100% - 32px)); margin: 32px auto 80px; }}

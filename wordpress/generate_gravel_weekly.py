@@ -18,6 +18,7 @@ sys.path.insert(0, str(PROJECT_ROOT / "scripts"))
 from brand_tokens import get_font_face_css, get_ga4_head_snippet, get_tokens_css  # noqa: E402
 from cookie_consent import get_consent_banner_html  # noqa: E402
 from gravel_weekly_visuals import render_story_visual, visual_css  # noqa: E402
+from gravel_weekly_culture import culture_css, render_culture_artifacts  # noqa: E402
 from shared_header import get_site_header_css, get_site_header_html, get_site_header_js  # noqa: E402
 from validate_gravel_weekly import load_public_issues, validate_issue  # noqa: E402
 from validate_gravel_weekly_history import HISTORY_DIR, load_public_history_entries  # noqa: E402
@@ -226,6 +227,9 @@ def render_history_timeline(entries: list[dict[str, Any]]) -> str:
             receipts=entry["contemporaryReceipts"],
             date_label=active_label,
             stable_hash=entry["contentHash"],
+            prior_judgment=entry["priorJudgment"],
+            changed_judgment=entry["changedJudgment"],
+            point=entry["point"],
         )
         cards.append(f'''<!-- gravel-weekly-history-hash: {esc(entry['contentHash'])} -->
         <article class="gw-history-entry" id="{esc(entry['entryId'])}">
@@ -237,6 +241,7 @@ def render_history_timeline(entries: list[dict[str, Any]]) -> str:
           </div>
           <div class="gw-history-judgment"><b>WHAT CHANGED:</b> {esc(entry['priorJudgment'])} → {esc(entry['changedJudgment'])}</div>
           <details class="gw-details"><summary>WHAT WAS KNOWABLE THEN · {len(entry['contemporaryReceipts'])}</summary>{render_receipts(entry['contemporaryReceipts'])}</details>
+          {render_culture_artifacts(entry.get('cultureArtifacts', []))}
           {later}
           <p class="gw-history-uncertainty"><b>UNCERTAINTY:</b> {esc(entry['uncertainty'])}</p>
         </article>''')
@@ -420,7 +425,7 @@ def page_css() -> str:
     .gw-history-take { border-left: 0; border-top: var(--gg-border-standard); }
     .gw-story-head, .gw-story-grid section, .gw-utility, .gw-sub { padding: var(--gg-spacing-md); }
   }
-'''
+''' + culture_css()
 
 
 def build_page(issue: dict[str, Any] | None, issues: list[dict[str, Any]], *, latest: bool, history_entries: list[dict[str, Any]] | None = None) -> str:

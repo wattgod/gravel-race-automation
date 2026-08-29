@@ -59,6 +59,7 @@ from validate_gravel_weekly_history_decisions import validate_history_decision  
 from validate_gravel_weekly_backfill import validate_backfill_ledger  # noqa: E402
 from no_ai_slop import audit_no_ai_slop  # noqa: E402
 from prepare_gravel_weekly_backfill_ledger import build_initial_backfill_ledger  # noqa: E402
+from prepare_gravel_weekly_history_culture import prepare_history_culture_proposal  # noqa: E402
 from send_gravel_weekly import SUBSCRIBER_SOURCES, build_email_html  # noqa: E402
 from prepare_gravel_weekly_issue import prepare_issue  # noqa: E402
 from approve_gravel_weekly_issue import approve_issue, build_decision_receipt  # noqa: E402
@@ -150,6 +151,7 @@ def sample_history_entry():
         "laterEvidence": [
             {"claimId": "claim_team_later", "canonicalUrl": "https://example.com/later-analysis/", "publisher": "Official series", "publishedAt": "2026-06-10T12:00:00Z", "quoteExcerpt": "A later update.", "transcriptStartSeconds": None, "transcriptEndSeconds": None},
         ],
+        "cultureArtifacts": [],
         "raceImpacts": [],
         "humanApprovalRequired": True,
         "autoPublishAllowed": False,
@@ -175,6 +177,27 @@ def sample_history_draft():
     })
     entry["contentHash"] = compute_history_content_hash(entry)
     return entry
+
+
+def sample_culture_artifact():
+    return {
+        "artifactId": "historical-culture_0123456789abcdef",
+        "sourceKind": "x",
+        "publisher": "Gravel Person",
+        "author": "@gravelperson",
+        "canonicalUrl": "https://x.com/gravelperson/status/123456789",
+        "publishedAt": "2026-03-01T18:30:00Z",
+        "title": "The team bus became the meme",
+        "excerpt": "Gravel has entered its team-bus era.",
+        "timestampSeconds": None,
+        "topicTags": ["privateers", "teamification"],
+        "reviewReason": "A contemporaneous joke compressed the same access argument into one line.",
+        "collectionMethod": "official_api",
+        "rightsPolicy": "short_excerpt_and_canonical_link",
+        "purpose": "culture_sensor",
+        "canProveClaim": False,
+        "canEstablishConsensus": False,
+    }
 
 
 def sample_history_approval(draft=None):
@@ -250,6 +273,29 @@ def test_procedural_visual_is_stable_labeled_and_not_documentary():
     assert "<img" not in first
 
 
+def test_historical_story_turn_visual_uses_only_supplied_before_after_copy():
+    visual = render_story_visual(
+        item_id="history-teamification-2026",
+        headline="The privateer became gravel's unpaid control group",
+        body_text="Teams changed access to race-deciding support.",
+        receipts=[],
+        date_label="2026-02-10 → 2026-05-26",
+        stable_hash="abc123",
+        prior_judgment="Top-level gravel remained unusually accessible to independent riders.",
+        changed_judgment="The start stayed open while competitive infrastructure became gated.",
+        point="Open registration survived while race-deciding support became less open.",
+    )
+    assert 'data-visual-role="story-turn"' in visual
+    assert 'data-story-grammar="before-after"' in visual
+    assert "BEFORE" in visual and "AFTER" in visual
+    assert "Top-level gravel remained" in visual
+    assert "competitive infrastructure" in visual
+    assert "Open registration survived" in visual
+    assert "Hash-bound before → after" in visual
+    assert "not a news photo" in visual
+    assert "<img" not in visual and "<iframe" not in visual
+
+
 def test_timestamped_video_visual_links_exact_claim_without_autoplay_or_embed():
     visual = render_story_visual(
         item_id="story_video",
@@ -274,6 +320,8 @@ def test_visual_css_uses_brand_tokens_and_respects_reduced_motion():
     assert "var(--gg-color-" in css
     assert "@media (prefers-reduced-motion: no-preference)" in css
     assert "@media (max-width: 620px)" in css
+    assert "linear 1 both" in css
+    assert "infinite" not in css
     assert "#" not in css
 
 
@@ -838,7 +886,7 @@ def test_historical_approval_is_hash_bound_copy_limited_and_non_public(tmp_path)
     for field in (
         "point", "priorJudgment", "changedJudgment", "stakes", "credibleOpposition",
         "whatHappened", "uncertainty", "editorialScore", "editorialGates",
-        "contemporaryReceipts", "laterEvidence", "raceImpacts",
+        "contemporaryReceipts", "laterEvidence", "cultureArtifacts", "raceImpacts",
     ):
         assert approved[field] == draft[field]
     assert decision["reviewedDraftContentHash"] == draft["contentHash"]
@@ -970,6 +1018,9 @@ def test_private_historical_review_desk_separates_evidence_and_approval_state():
     assert "no-AI-slop prose gate" in page
     assert "fake_profound_kicker" in page
     assert "not an AI-authorship detector" in page
+    assert 'data-visual-role="story-turn"' in page
+    assert draft["priorJudgment"] in page
+    assert draft["changedJudgment"] in page
     assert "CONTEMPORARY RECEIPTS (2)" in page
     assert "LATER EVIDENCE (1)" in page
     assert "any decision binds to this exact draft hash" in page.lower()
@@ -1670,10 +1721,116 @@ def test_historical_timeline_visually_separates_later_evidence_from_contemporary
     assert "WHY IT MATTERED" in html
     assert "THE FAIR OBJECTION" in html
     assert "The privateer became gravel" in html
+    assert 'data-visual-role="story-turn"' in html
+    assert entry["priorJudgment"] in html
+    assert entry["changedJudgment"] in html
     assert "innerHTML" not in html
     page = build_page(sample_issue(), [sample_issue()], latest=True, history_entries=[entry])
     assert 'id="season-story"' in page
     assert page.index("THE CURRENT THING") < page.index("THE SEASON AS A STORY") < page.index("PAST ISSUES")
+
+
+def test_historical_culture_artifacts_are_hash_bound_context_not_evidence():
+    entry = sample_history_entry()
+    original_hash = entry["contentHash"]
+    entry["cultureArtifacts"] = [sample_culture_artifact()]
+    entry["contentHash"] = compute_history_content_hash(entry)
+    validated = validate_history_entry(entry)
+    assert validated["contentHash"] != original_hash
+    assert validated["cultureArtifacts"][0]["canProveClaim"] is False
+    assert validated["cultureArtifacts"][0]["canEstablishConsensus"] is False
+
+    unsafe = copy.deepcopy(entry)
+    unsafe["cultureArtifacts"][0]["canProveClaim"] = True
+    with pytest.raises(IssueValidationError, match="canProveClaim must be false"):
+        validate_history_entry(unsafe, verify_hash=False)
+
+    off_period = copy.deepcopy(entry)
+    off_period["cultureArtifacts"][0]["publishedAt"] = "2025-03-01T18:30:00Z"
+    with pytest.raises(IssueValidationError, match="inside the historical active period"):
+        validate_history_entry(off_period, verify_hash=False)
+
+    copied_media = copy.deepcopy(entry)
+    copied_media["cultureArtifacts"][0]["mediaUrl"] = "https://cdn.example/copied.jpg"
+    with pytest.raises(IssueValidationError, match="unsupported fields"):
+        validate_history_entry(copied_media, verify_hash=False)
+
+
+def test_historical_culture_cards_render_in_review_and_only_after_publication():
+    entry = sample_history_entry()
+    entry["cultureArtifacts"] = [sample_culture_artifact()]
+    entry["contentHash"] = compute_history_content_hash(entry)
+    public = render_history_timeline([entry])
+    assert "CULTURE RECEIPTS" in public
+    assert "WHAT THE GROUP CHAT WAS PASSING AROUND" in public
+    assert 'data-culture-artifact="historical-culture_0123456789abcdef"' in public
+    assert "Gravel has entered its team-bus era." in public
+    assert "https://x.com/gravelperson/status/123456789" in public
+    assert "A contemporaneous joke compressed" not in public
+    assert "iframe" not in public
+    assert "platform.twitter.com" not in public
+
+    draft = sample_history_draft()
+    draft["cultureArtifacts"] = [sample_culture_artifact()]
+    draft["contentHash"] = compute_history_content_hash(draft)
+    private = render_history_review([draft], 2026)
+    assert "PRIVATE CULTURE CHECK" in private
+    assert "A contemporaneous joke compressed" in private
+    approved, _ = apply_history_decision(draft, sample_history_approval(draft))
+    assert approved is not None
+    assert approved["cultureArtifacts"] == draft["cultureArtifacts"]
+
+
+def test_historical_culture_sweep_becomes_diverse_topical_private_proposal():
+    draft = sample_history_draft()
+    sweep = {
+        "schemaVersion": "historical-culture-sweep/v1",
+        "year": 2026,
+        "candidates": [
+            {
+                "id": "x_team_bus", "platform": "x", "canonicalUrl": "https://x.com/gravelperson/status/1",
+                "authorHandle": "gravelperson", "authorName": "Gravel Person", "publishedAt": "2026-03-01T18:30:00Z",
+                "excerpt": "Gravel has entered its team-bus era.", "queryIds": ["teamification"], "queryLabels": ["Teamification"],
+                "attentionScore": 94, "purpose": "culture_sensor", "canProveClaim": False,
+            },
+            {
+                "id": "x_generic", "platform": "x", "canonicalUrl": "https://x.com/other/status/2",
+                "authorHandle": "other", "authorName": None, "publishedAt": "2026-03-02T18:30:00Z",
+                "excerpt": "A viral but generic gravel post.", "queryIds": ["gravel-scene"], "queryLabels": ["Gravel scene"],
+                "attentionScore": 100, "purpose": "culture_sensor", "canProveClaim": False,
+            },
+            {
+                "id": "x_late", "platform": "x", "canonicalUrl": "https://x.com/late/status/3",
+                "authorHandle": "late", "authorName": None, "publishedAt": "2026-07-02T18:30:00Z",
+                "excerpt": "Right topic, wrong moment.", "queryIds": ["teamification"], "queryLabels": ["Teamification"],
+                "attentionScore": 99, "purpose": "culture_sensor", "canProveClaim": False,
+            },
+        ],
+        "supplementalArtifacts": [{
+            "id": "yt_privateer", "sourceKind": "youtube", "publisher": "Bonk Bros", "author": "Bonk Bros",
+            "canonicalUrl": "https://www.youtube.com/watch?v=abcdefghijk", "publishedAt": "2026-03-03T12:00:00Z",
+            "title": "Privateers and the team-bus era", "excerpt": "The paddock suddenly has hierarchy.",
+            "timestampSeconds": 812, "topicTags": ["privateers"], "reviewReason": "A contemporaneous discussion of the same access fight.",
+            "collectionMethod": "authorized_caption", "purpose": "culture_sensor", "canProveClaim": False,
+        }],
+        "crossSourcePatterns": [{"topicTag": "teamification", "sourceKinds": ["x", "youtube"], "artifactIds": ["x_team_bus", "yt_privateer"], "boundary": "research only"}],
+        "canEstablishConsensus": False,
+        "canProveClaim": False,
+        "humanApprovalRequired": True,
+        "autoPublishAllowed": False,
+    }
+    proposal = prepare_history_culture_proposal(draft, sweep, max_artifacts=4)
+    assert [artifact["artifactId"] for artifact in proposal["cultureArtifacts"]] == ["x_team_bus", "yt_privateer"]
+    assert {artifact["sourceKind"] for artifact in proposal["cultureArtifacts"]} == {"x", "youtube"}
+    assert all(artifact["canProveClaim"] is False for artifact in proposal["cultureArtifacts"])
+    assert proposal["contentHash"] != draft["contentHash"]
+    assert proposal["status"] == "draft"
+    assert proposal["editorialApproval"] is None
+
+    unsafe = copy.deepcopy(sweep)
+    unsafe["canEstablishConsensus"] = True
+    with pytest.raises(IssueValidationError, match="safety boundary"):
+        prepare_history_culture_proposal(draft, unsafe)
 
 
 def test_published_history_creates_a_controlled_hash_bound_race_impact_queue():

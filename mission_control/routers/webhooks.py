@@ -7,7 +7,7 @@ from collections import defaultdict
 
 from fastapi import APIRouter, Header, HTTPException, Request
 
-from mission_control.config import BRAND_SITE_URLS, WEBHOOK_SECRET
+from mission_control.config import BRAND_SEQUENCE_SENDERS, BRAND_SITE_URLS, WEBHOOK_SECRET
 from mission_control import supabase_client as db
 from mission_control.sequences import get_sequences_for_trigger
 from mission_control.services.sequence_engine import enroll, record_event
@@ -78,6 +78,29 @@ def _truncate(value: str, max_len: int) -> str:
 def _require_webhook_secret(authorization: str) -> None:
     if not WEBHOOK_SECRET or authorization != f"Bearer {WEBHOOK_SECRET}":
         raise HTTPException(status_code=401, detail="Invalid webhook secret")
+
+
+def _gmail_bridge_scope(account: str, brands_header: str) -> set[str]:
+    """Validate that an account-local bridge may handle the requested brands."""
+    from mission_control.services.lead_nurture import normalize_email
+
+    account_email = normalize_email(account)
+    brands = {
+        value.strip().lower() for value in (brands_header or "").split(",")
+        if value.strip()
+    }
+    if not account_email or not brands:
+        raise HTTPException(status_code=400, detail="Bridge account and brands are required")
+    unknown = brands - set(BRAND_SEQUENCE_SENDERS)
+    if unknown:
+        raise HTTPException(status_code=400, detail="Unknown bridge brand")
+    mismatched = {
+        brand for brand in brands
+        if normalize_email(BRAND_SEQUENCE_SENDERS[brand]["reply_to"]) != account_email
+    }
+    if mismatched:
+        raise HTTPException(status_code=403, detail="Bridge account does not own requested brands")
+    return brands
 
 
 @router.post("/intake")
@@ -456,18 +479,23 @@ async def resend_inbound_webhook(
 async def gmail_sync_candidates(
     request: Request,
     authorization: str = Header(""),
+    x_lead_bridge_account: str = Header(""),
+    x_lead_bridge_brands: str = Header(""),
 ):
     _check_rate_limit(request)
     _require_webhook_secret(authorization)
     from mission_control.services.lead_nurture import get_sync_candidates
 
-    return {"candidates": get_sync_candidates()}
+    brands = _gmail_bridge_scope(x_lead_bridge_account, x_lead_bridge_brands)
+    return {"candidates": get_sync_candidates(brands=brands)}
 
 
 @router.post("/gmail-sync")
 async def gmail_sync(
     request: Request,
     authorization: str = Header(""),
+    x_lead_bridge_account: str = Header(""),
+    x_lead_bridge_brands: str = Header(""),
 ):
     _check_rate_limit(request)
     _require_webhook_secret(authorization)
@@ -476,19 +504,23 @@ async def gmail_sync(
         raise HTTPException(status_code=400, detail="threads must be a list")
     from mission_control.services.lead_nurture import ingest_gmail_sync
 
-    return ingest_gmail_sync(payload)
+    brands = _gmail_bridge_scope(x_lead_bridge_account, x_lead_bridge_brands)
+    return ingest_gmail_sync(payload, brands=brands)
 
 
 @router.get("/gmail-sync/drafts/ready")
 async def gmail_sync_ready_drafts(
     request: Request,
     authorization: str = Header(""),
+    x_lead_bridge_account: str = Header(""),
+    x_lead_bridge_brands: str = Header(""),
 ):
     _check_rate_limit(request)
     _require_webhook_secret(authorization)
     from mission_control.services.lead_nurture import get_approved_drafts
 
-    return {"drafts": get_approved_drafts()}
+    brands = _gmail_bridge_scope(x_lead_bridge_account, x_lead_bridge_brands)
+    return {"drafts": get_approved_drafts(brands=brands)}
 
 
 @router.post("/gmail-sync/drafts/{suggestion_id}/receipt")
@@ -496,6 +528,8 @@ async def gmail_sync_draft_receipt(
     suggestion_id: str,
     request: Request,
     authorization: str = Header(""),
+    x_lead_bridge_account: str = Header(""),
+    x_lead_bridge_brands: str = Header(""),
 ):
     _check_rate_limit(request)
     _require_webhook_secret(authorization)
@@ -504,7 +538,10 @@ async def gmail_sync_draft_receipt(
     payload = await request.json()
     from mission_control.services.lead_nurture import record_draft_receipt
 
-    result = record_draft_receipt(suggestion_id, payload if isinstance(payload, dict) else {})
+    brands = _gmail_bridge_scope(x_lead_bridge_account, x_lead_bridge_brands)
+    result = record_draft_receipt(
+        suggestion_id, payload if isinstance(payload, dict) else {}, brands=brands,
+    )
     if not result:
         raise HTTPException(status_code=409, detail="Suggestion is not ready for a Gmail draft")
     return result

@@ -1,8 +1,8 @@
 /**
  * Gmail Lead Bridge for Gravel God Mission Control.
  *
- * Runs as the owner of gravelgodcoaching@gmail.com. It reads only known lead
- * correspondents returned by Mission Control, syncs their threads, and turns
+ * Runs as the owner of the configured Gmail account. It reads only known lead
+ * correspondents for the configured brands, syncs their threads, and turns
  * explicitly approved suggestions into Gmail drafts. It never sends email.
  */
 
@@ -17,16 +17,18 @@ const SYNC_POST_BATCH_SIZE = 20;
 const MAX_MESSAGES_PER_THREAD = 50;
 const MAX_MESSAGE_BODY_CHARS = 12000;
 const MAX_DRAFTS_PER_RUN = 15;
+const VALID_BRANDS = ['gravelgod', 'roadielabs', 'xcskilabs'];
 
 
 function installLeadBridge() {
   const props = PropertiesService.getScriptProperties();
-  const required = ['MISSION_CONTROL_URL', 'WEBHOOK_SECRET', 'ACCOUNT_EMAIL'];
+  const required = ['MISSION_CONTROL_URL', 'WEBHOOK_SECRET', 'ACCOUNT_EMAIL', 'BRANDS'];
   const missing = required.filter((key) => !props.getProperty(key));
   if (missing.length) {
     throw new Error(`Set Script Properties first: ${missing.join(', ')}`);
   }
   assertCorrectAccount_();
+  bridgeBrands_();
 
   ScriptApp.getProjectTriggers()
     .filter((trigger) => trigger.getHandlerFunction() === BRIDGE_TRIGGER_FUNCTION)
@@ -203,7 +205,11 @@ function missionControlRequest_(path, method, payload) {
   const options = {
     method,
     muteHttpExceptions: true,
-    headers: {Authorization: `Bearer ${secret}`},
+    headers: {
+      Authorization: `Bearer ${secret}`,
+      'X-Lead-Bridge-Account': bridgeAccount_(),
+      'X-Lead-Bridge-Brands': bridgeBrands_().join(','),
+    },
   };
   if (payload !== undefined) {
     options.contentType = 'application/json';
@@ -216,6 +222,30 @@ function missionControlRequest_(path, method, payload) {
     throw new Error(`Mission Control ${method.toUpperCase()} ${path}: ${code} ${text}`);
   }
   return text ? JSON.parse(text) : {};
+}
+
+
+function bridgeAccount_() {
+  return String(
+    PropertiesService.getScriptProperties().getProperty('ACCOUNT_EMAIL') || '',
+  ).trim().toLowerCase();
+}
+
+
+function bridgeBrands_() {
+  const raw = String(
+    PropertiesService.getScriptProperties().getProperty('BRANDS') || '',
+  );
+  const brands = raw.split(',')
+    .map((value) => value.trim().toLowerCase())
+    .filter(Boolean);
+  const invalid = brands.filter((brand) => VALID_BRANDS.indexOf(brand) === -1);
+  if (!brands.length || invalid.length) {
+    throw new Error(
+      `BRANDS must contain only ${VALID_BRANDS.join(', ')}; got ${raw || '(empty)'}`,
+    );
+  }
+  return [...new Set(brands)];
 }
 
 

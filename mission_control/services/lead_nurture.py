@@ -270,7 +270,9 @@ def build_reply_suggestion(
     }
 
 
-def get_sync_candidates(limit: int = 500) -> list[dict]:
+def get_sync_candidates(
+    limit: int = 500, brands: set[str] | None = None,
+) -> list[dict]:
     """Return open lead mailboxes for the account-local Apps Script relay."""
     contacts: dict[str, dict] = {}
     deals = db.select("gg_deals", limit=limit)
@@ -283,42 +285,61 @@ def get_sync_candidates(limit: int = 500) -> list[dict]:
         if not email or email in converted_emails:
             continue
         seq = get_sequence(enrollment.get("sequence_id", "")) or {}
+        brand = seq.get("brand", "gravelgod")
+        if brands is not None and brand not in brands:
+            continue
         if seq.get("trigger") in _POST_PURCHASE_TRIGGERS:
             continue
         contacts[email] = {
             "email": email,
             "name": enrollment.get("contact_name", ""),
-            "brand": seq.get("brand", "gravelgod"),
+            "brand": brand,
         }
     for deal in deals:
         if deal.get("stage") in {"closed_won", "closed_lost"}:
             continue
+        deal_brand = deal.get("brand") or "gravelgod"
+        if brands is not None and deal_brand not in brands:
+            continue
         email = normalize_email(deal.get("contact_email", ""))
         if not email:
             continue
-        existing = contacts.setdefault(email, {"email": email, "name": "", "brand": "gravelgod"})
+        existing = contacts.setdefault(
+            email, {"email": email, "name": "", "brand": deal_brand},
+        )
         existing["name"] = existing.get("name") or deal.get("contact_name", "")
     return sorted(contacts.values(), key=lambda row: row["email"])[:limit]
 
 
-def _contact_record(email: str) -> dict | None:
+def _contact_record(email: str, brands: set[str] | None = None) -> dict | None:
     # Existing rows predate strict lower-casing; compare normalized addresses.
     deal = next((
         row for row in db.select("gg_deals", limit=1000)
         if normalize_email(row.get("contact_email", "")) == email
+        and (
+            brands is None
+            or (row.get("brand") or "gravelgod") in brands
+        )
     ), None)
     enrollments = [
         row for row in db.select("gg_sequence_enrollments", limit=1000)
         if normalize_email(row.get("contact_email", "")) == email
+        and (
+            brands is None
+            or (get_sequence(row.get("sequence_id", "")) or {}).get(
+                "brand", "gravelgod",
+            ) in brands
+        )
     ]
     if not deal and not enrollments:
         return None
     enrollment = enrollments[-1] if enrollments else {}
     seq = get_sequence(enrollment.get("sequence_id", "")) or {}
+    brand = seq.get("brand") or (deal or {}).get("brand") or "gravelgod"
     return {
         "email": email,
         "name": (deal or {}).get("contact_name") or enrollment.get("contact_name", ""),
-        "brand": seq.get("brand", "gravelgod"),
+        "brand": brand,
         "deal_id": (deal or {}).get("id"),
         "enrollments": enrollments,
     }
@@ -503,7 +524,9 @@ def _record_existing_draft_conflict(
     })
 
 
-def _ingest_thread(thread: dict, candidate_map: dict[str, dict]) -> dict:
+def _ingest_thread(
+    thread: dict, candidate_map: dict[str, dict], brands: set[str] | None = None,
+) -> dict:
     thread_id = str(thread.get("id", ""))[:255]
     messages = (thread.get("messages") or [])[:MAX_MESSAGES_PER_THREAD]
     if not thread_id or not messages:
@@ -517,9 +540,28 @@ def _ingest_thread(thread: dict, candidate_map: dict[str, dict]) -> dict:
             break
     if not contact_email:
         return {"status": "ignored", "reason": "not_a_known_lead"}
-    contact = _contact_record(contact_email)
+    contact = _contact_record(contact_email, brands=brands)
     if not contact:
         return {"status": "ignored", "reason": "not_a_known_lead"}
+
+    # When one inbox handles several brands, the tagged Reply-To token is the
+    # strongest brand signal. Use it before creating the conversation so a
+    # person enrolled in more than one brand does not inherit whichever
+    # enrollment happened to be returned last by the database.
+    for message in messages:
+        sequence_send, _ = _exact_sequence_attribution(message)
+        if not sequence_send:
+            continue
+        enrollment = next((
+            row for row in contact.get("enrollments", [])
+            if row.get("id") == sequence_send.get("enrollment_id")
+        ), None)
+        sequence = get_sequence((enrollment or {}).get("sequence_id", "")) or {}
+        token_brand = sequence.get("brand", "gravelgod")
+        if brands is not None and token_brand not in brands:
+            return {"status": "ignored", "reason": "brand_out_of_scope"}
+        contact["brand"] = token_brand
+        break
 
     conversation = _conversation(thread_id, contact)
     inserted = 0
@@ -655,11 +697,11 @@ def _ingest_thread(thread: dict, candidate_map: dict[str, dict]) -> dict:
     return {"status": "recorded", "messages": inserted, "paused": paused}
 
 
-def ingest_gmail_sync(payload: dict) -> dict:
+def ingest_gmail_sync(payload: dict, brands: set[str] | None = None) -> dict:
     threads = (payload.get("threads") or [])[:MAX_THREADS_PER_SYNC]
-    candidates = get_sync_candidates()
+    candidates = get_sync_candidates(brands=brands)
     candidate_map = {row["email"]: row for row in candidates}
-    results = [_ingest_thread(thread, candidate_map) for thread in threads]
+    results = [_ingest_thread(thread, candidate_map, brands=brands) for thread in threads]
     return {
         "threads": len(results),
         "recorded": sum(1 for row in results if row["status"] == "recorded"),
@@ -669,7 +711,9 @@ def ingest_gmail_sync(payload: dict) -> dict:
     }
 
 
-def get_approved_drafts(limit: int = 25) -> list[dict]:
+def get_approved_drafts(
+    limit: int = 25, brands: set[str] | None = None,
+) -> list[dict]:
     rows = db.select(
         "gg_lead_reply_suggestions",
         match={"status": "approved_for_gmail"},
@@ -680,6 +724,8 @@ def get_approved_drafts(limit: int = 25) -> list[dict]:
         inbound = db.select_one("gg_lead_messages", match={"gmail_message_id": row["inbound_message_id"]})
         conversation = db.select_one("gg_lead_conversations", match={"id": row["conversation_id"]})
         if not inbound or not conversation:
+            continue
+        if brands is not None and conversation.get("brand", "gravelgod") not in brands:
             continue
         newer_inbound = next((
             message for message in db.select(
@@ -703,10 +749,21 @@ def get_approved_drafts(limit: int = 25) -> list[dict]:
     return output
 
 
-def record_draft_receipt(suggestion_id: str, payload: dict) -> dict | None:
+def record_draft_receipt(
+    suggestion_id: str, payload: dict, brands: set[str] | None = None,
+) -> dict | None:
     suggestion = db.select_one("gg_lead_reply_suggestions", match={"id": suggestion_id})
     if not suggestion or suggestion.get("status") != "approved_for_gmail":
         return None
+    if brands is not None:
+        conversation = db.select_one(
+            "gg_lead_conversations", match={"id": suggestion["conversation_id"]},
+        )
+        if (
+            not conversation
+            or conversation.get("brand", "gravelgod") not in brands
+        ):
+            return None
     receipt_status = payload.get("status")
     if receipt_status == "draft_conflict":
         status = "draft_conflict"

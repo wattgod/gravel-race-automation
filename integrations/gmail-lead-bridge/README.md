@@ -1,10 +1,11 @@
 # Gmail Lead Bridge
 
-Account-local relay between `gravelgodcoaching@gmail.com` and Mission Control.
-It runs every five minutes, reads only correspondents Mission Control identifies
-as open leads, and syncs their Gmail threads. It can create a Gmail reply draft
-only after a suggestion is explicitly marked `approved_for_gmail`. It never
-sends, archives, trashes, labels, or marks messages read.
+Account-local relay between a brand reply inbox and Mission Control. It runs
+every five minutes, reads only correspondents Mission Control identifies as
+open leads for the configured brands, and syncs their Gmail threads. It can
+create a Gmail reply draft only after a suggestion is explicitly marked
+`approved_for_gmail`. It never sends, archives, trashes, labels, or marks
+messages read.
 
 ## Install
 
@@ -17,12 +18,20 @@ sends, archives, trashes, labels, or marks messages read.
    - `MISSION_CONTROL_URL`: production Mission Control origin, no trailing slash.
    - `WEBHOOK_SECRET`: the existing Mission Control webhook secret.
    - `ACCOUNT_EMAIL`: `gravelgodcoaching@gmail.com`.
+   - `BRANDS`: comma-separated brand keys handled by this inbox. With the
+     current shared reply inbox use `gravelgod,roadielabs,xcskilabs`.
 5. Run `installLeadBridge()` once and approve the Gmail, external-request, and
    trigger scopes. This creates one five-minute installable trigger and performs
    the first sync.
 6. Run `backfillLeadThreads()` once. It scans 180 days for known lead threads so
    Mission Control can surface older replies and active drafts. It remains
    read-only in Gmail and may be rerun safely.
+
+If Roadie Labs or XC Ski Labs later receives replies in a separate Gmail
+account, create one Apps Script project in each account, set `ACCOUNT_EMAIL` to
+that mailbox, and set `BRANDS` to only that account's brand. Mission Control
+rejects a bridge when the account is not the configured Reply-To for every
+requested brand, preventing one inbox from claiming another brand's drafts.
 
 ## Safety invariants
 

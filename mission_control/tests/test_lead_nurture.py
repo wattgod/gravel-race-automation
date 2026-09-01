@@ -5,6 +5,13 @@ from datetime import datetime, timedelta, timezone
 from mission_control.tests.conftest import make_deal, make_enrollment, make_sequence_send
 
 
+BRIDGE_HEADERS = {
+    "Authorization": "Bearer test-secret-123",
+    "X-Lead-Bridge-Account": "gravelgodcoaching@gmail.com",
+    "X-Lead-Bridge-Brands": "gravelgod,roadielabs,xcskilabs",
+}
+
+
 def _message(
     *, message_id="gmail-in-1", sender="Jane Lead <lead@example.com>",
     recipients=None, body="Training is going well.", is_draft=False,
@@ -108,6 +115,66 @@ class TestGmailIngestion:
             make_deal(contact_email="athlete@example.com", stage="closed_won"),
         )
         assert get_sync_candidates() == []
+
+    def test_candidates_are_scoped_to_bridge_brands(self, fake_db):
+        from mission_control.services.lead_nurture import get_sync_candidates
+
+        fake_db.store["gg_sequence_enrollments"].extend([
+            make_enrollment(
+                sequence_id="welcome_v1", contact_email="gravel@example.com",
+            ),
+            make_enrollment(
+                sequence_id="road_welcome_v1", contact_email="road@example.com",
+            ),
+            make_enrollment(
+                sequence_id="xc_welcome_v1", contact_email="xc@example.com",
+            ),
+        ])
+
+        candidates = get_sync_candidates(brands={"roadielabs", "xcskilabs"})
+
+        assert {(row["email"], row["brand"]) for row in candidates} == {
+            ("road@example.com", "roadielabs"),
+            ("xc@example.com", "xcskilabs"),
+        }
+
+    def test_sync_cannot_ingest_a_lead_outside_bridge_brand(self, fake_db):
+        from mission_control.services.lead_nurture import ingest_gmail_sync
+
+        fake_db.store["gg_sequence_enrollments"].append(
+            make_enrollment(contact_email="lead@example.com"),
+        )
+
+        result = ingest_gmail_sync(
+            {"threads": [{"id": "thread-cross-brand", "messages": [_message()]}]},
+            brands={"roadielabs"},
+        )
+
+        assert result["ignored"] == 1
+        assert fake_db.store["gg_lead_messages"] == []
+
+    def test_reply_token_selects_brand_in_shared_inbox(self, fake_db):
+        from mission_control.services.lead_nurture import ingest_gmail_sync
+
+        gravel = make_enrollment(
+            sequence_id="welcome_v1", contact_email="lead@example.com",
+        )
+        road = make_enrollment(
+            sequence_id="road_welcome_v1", contact_email="lead@example.com",
+        )
+        send = make_sequence_send(
+            enrollment_id=road["id"],
+            reply_token="0123456789abcdef0123456789abcdef",
+        )
+        fake_db.store["gg_sequence_enrollments"].extend([gravel, road])
+        fake_db.store["gg_sequence_sends"].append(send)
+
+        ingest_gmail_sync(
+            {"threads": [{"id": "thread-road-token", "messages": [_message()]}]},
+            brands={"gravelgod", "roadielabs", "xcskilabs"},
+        )
+
+        assert fake_db.store["gg_lead_conversations"][0]["brand"] == "roadielabs"
 
     def test_known_lead_reply_is_attributed_and_pauses_marketing(self, fake_db):
         from mission_control.services.lead_nurture import ingest_gmail_sync
@@ -500,10 +567,28 @@ class TestGmailSyncEndpoints:
     def test_sync_accepts_empty_authorized_batch(self, client):
         response = client.post(
             "/webhooks/gmail-sync", json={"threads": []},
-            headers={"Authorization": "Bearer test-secret-123"},
+            headers=BRIDGE_HEADERS,
         )
         assert response.status_code == 200
         assert response.json()["messages"] == 0
+
+    def test_sync_requires_bridge_scope_headers(self, client):
+        response = client.post(
+            "/webhooks/gmail-sync", json={"threads": []},
+            headers={"Authorization": "Bearer test-secret-123"},
+        )
+        assert response.status_code == 400
+
+    def test_bridge_account_must_own_every_requested_brand(self, client):
+        response = client.get(
+            "/webhooks/gmail-sync/candidates",
+            headers={
+                "Authorization": "Bearer test-secret-123",
+                "X-Lead-Bridge-Account": "other@example.com",
+                "X-Lead-Bridge-Brands": "roadielabs",
+            },
+        )
+        assert response.status_code == 403
 
 
 class TestLeadReplyEditor:

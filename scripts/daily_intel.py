@@ -259,6 +259,13 @@ def collect_checkout(brand: str) -> dict:
                    "date": race_date}],
     }, headers={"Origin": BRANDS[brand]["origin"]})
     stripe_ok = ccode == 200 and "checkout.stripe.com" in body
+    # A 400 from the brand gate (training_plan_generation_enabled: false in
+    # brands.yaml) is an intentional product state, not breakage — keep probing
+    # so monitoring flips back on its own if the gate ever opens.
+    if ccode == 400 and "does not support training-plan generation" in body:
+        return {"health_ok": health_ok, "stripe_checkout_ok": True,
+                "ok": health_ok, "plans_gated": True,
+                "error": "" if health_ok else f"health={code}"}
     return {"health_ok": health_ok, "stripe_checkout_ok": stripe_ok,
             "ok": health_ok and stripe_ok,
             "error": "" if (health_ok and stripe_ok) else f"health={code} checkout={ccode}"}

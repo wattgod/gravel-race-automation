@@ -275,6 +275,35 @@ def test_safe_render_survives_shape_drift(collected):
     assert "report rendering crashed" in out
 
 
+def test_collect_checkout_gated_brand_is_not_broken(monkeypatch):
+    from scripts import daily_intel
+
+    def fake_http(url, data=None, headers=None, timeout=25):
+        if url.endswith("/health"):
+            return 200, "ok"
+        return 400, '{"error": "XC Ski Labs does not support training-plan generation yet"}'
+
+    monkeypatch.setattr(daily_intel, "_http", fake_http)
+    out = daily_intel.collect_checkout("xcski")
+    assert out["ok"] is True
+    assert out["plans_gated"] is True
+    assert out["error"] == ""
+
+
+def test_collect_checkout_real_400_still_fails(monkeypatch):
+    from scripts import daily_intel
+
+    def fake_http(url, data=None, headers=None, timeout=25):
+        if url.endswith("/health"):
+            return 200, "ok"
+        return 400, '{"error": "Valid email is required"}'
+
+    monkeypatch.setattr(daily_intel, "_http", fake_http)
+    out = daily_intel.collect_checkout("gravelgod")
+    assert out["ok"] is False
+    assert "checkout=400" in out["error"]
+
+
 def test_load_prior_snapshots_skips_non_dict(tmp_path, monkeypatch):
     from scripts import daily_intel
     monkeypatch.setattr(daily_intel, "SNAPSHOT_DIR", tmp_path)

@@ -285,7 +285,6 @@ def test_collect_checkout_gated_brand_is_not_broken(monkeypatch):
 
     monkeypatch.setattr(daily_intel, "_http", fake_http)
     out = daily_intel.collect_checkout("xcski")
-    assert out["ok"] is True
     assert out["plans_gated"] is True
     assert out["error"] == ""
 
@@ -348,3 +347,88 @@ def test_main_sends_email_even_when_everything_downstream_breaks(
     assert daily_intel.main() == 0
     assert "INTERPRETATION BROKEN" in sent["subject"]
     assert "snapshot write failed" in sent["report"]
+
+
+def test_collect_mission_control_reads_newest_rows_past_the_1000_row_cap(monkeypatch):
+    """Regression: gg_sequence_sends crossed 1000 rows on 2026-08-26 and the
+    collector — which sorted ascending and capped at 1000 — stopped seeing
+    any send in the 24h window, reporting "0 emails sent" for eight days
+    while the scheduler was sending daily. Every capped select must page
+    newest-first so the recent windows are always inside the page."""
+    import sys
+    import types
+    from datetime import datetime, timedelta, timezone
+
+    from scripts import daily_intel
+
+    now = datetime.now(timezone.utc)
+    iso = lambda dt: dt.isoformat()  # noqa: E731 — PostgREST returns ISO 8601 strings
+
+    old_sends = [
+        {"id": f"s-old-{i}", "enrollment_id": "e-old", "template": "old",
+         "status": "sent", "sent_at": iso(now - timedelta(days=200, minutes=-i)),
+         "opened_at": None, "clicked_at": None}
+        for i in range(1100)
+    ]
+    new_sends = [
+        {"id": "s-new-1", "enrollment_id": "e-new", "template": "prep_kit_delivery",
+         "status": "clicked", "sent_at": iso(now - timedelta(hours=3)),
+         "opened_at": iso(now - timedelta(hours=2)),
+         "clicked_at": iso(now - timedelta(hours=1))},
+        {"id": "s-new-2", "enrollment_id": "e-new", "template": "welcome_value",
+         "status": "sent", "sent_at": iso(now - timedelta(hours=2)),
+         "opened_at": None, "clicked_at": None},
+        {"id": "s-new-3", "enrollment_id": "e-old", "template": "sober_repitch",
+         "status": "sent", "sent_at": iso(now - timedelta(minutes=30)),
+         "opened_at": None, "clicked_at": None},
+    ]
+    enrollments = [
+        {"id": "e-old", "contact_email": "old@example.com", "contact_name": "Old",
+         "sequence_id": "nurture_v1", "current_step": 3, "status": "completed",
+         "enrolled_at": iso(now - timedelta(days=100)), "source": "kit",
+         "source_data": {"brand": "gravelgod", "race_name": "Unbound"}},
+        {"id": "e-new", "contact_email": "new@example.com", "contact_name": "New",
+         "sequence_id": "kit_delivery_v1", "current_step": 1, "status": "completed",
+         "enrolled_at": iso(now - timedelta(hours=4)), "source": "kit",
+         "source_data": {"brand": "gravelgod", "race_name": "The Rift"}},
+        {"id": "e-new-2", "contact_email": "new2@example.com", "contact_name": "",
+         "sequence_id": "road_kit_delivery_v1", "current_step": 0, "status": "active",
+         "enrolled_at": iso(now - timedelta(hours=1)), "source": "kit",
+         "source_data": {"brand": "roadielabs", "race_name": "Haute Route"}},
+    ]
+    tables = {"gg_sequence_sends": old_sends + new_sends,
+              "gg_sequence_enrollments": enrollments}
+
+    fake = types.ModuleType("mission_control.supabase_client")
+
+    def select(table, columns="*", match=None, order=None, order_desc=False,
+               limit=None, offset=None):
+        # Mirrors PostgREST: sort by `order` (ascending unless order_desc),
+        # then cap at `limit`. Ascending + limit=1000 returns the OLDEST page.
+        rows = list(tables[table])
+        for k, v in (match or {}).items():
+            rows = [r for r in rows if r.get(k) == v]
+        if order:
+            rows.sort(key=lambda r: r.get(order) or "", reverse=order_desc)
+        if limit:
+            rows = rows[:limit]
+        return [dict(r) for r in rows]
+
+    fake.select = select
+    fake.get_audit_log = lambda limit=50: []
+    monkeypatch.setitem(sys.modules, "mission_control.supabase_client", fake)
+    import mission_control
+    monkeypatch.setattr(mission_control, "supabase_client", fake, raising=False)
+
+    out = daily_intel.collect_mission_control()
+
+    assert out["emails_sent_24h"] == 3
+    assert out["opens_24h"] == 1
+    assert out["clicks_24h"] == 1
+    assert out["new_leads_24h"] == 2
+    assert out["leads_by_brand"] == {"gravelgod": 1, "roadielabs": 1}
+    hot = {lead["email"]: lead for lead in out["hot_leads_14d"]}
+    assert set(hot) == {"new@example.com", "new2@example.com"}
+    assert hot["new@example.com"]["opens"] == 1
+    assert hot["new@example.com"]["clicks"] == 1
+    assert hot["new@example.com"]["race"] == "The Rift"

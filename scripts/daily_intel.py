@@ -330,9 +330,14 @@ def collect_mission_control() -> dict:
     def recent(rows, field="created_at"):
         return [r for r in rows if (r.get(field) or "") >= cutoff]
 
+    # Every capped select below MUST be newest-first. db.select() defaults to
+    # ascending, so `order=..., limit=1000` returned the OLDEST 1000 rows —
+    # once gg_sequence_sends passed 1000 rows (2026-08-26) every send in the
+    # 24h window fell outside the page and the report read "0 emails sent"
+    # for a pipeline that was sending daily.
     enrollments = db.select("gg_sequence_enrollments",
                             columns="sequence_id,source,source_data,enrolled_at,status",
-                            order="enrolled_at", limit=1000)
+                            order="enrolled_at", order_desc=True, limit=1000)
     new_enr = recent(enrollments, field="enrolled_at")
     by_brand = {"gravelgod": 0, "roadielabs": 0}
     countdown = 0
@@ -344,7 +349,7 @@ def collect_mission_control() -> dict:
 
     sends = db.select("gg_sequence_sends",
                       columns="template,status,sent_at,opened_at,clicked_at",
-                      order="sent_at", limit=1000)
+                      order="sent_at", order_desc=True, limit=1000)
     new_sends = recent(sends, field="sent_at")
     opened = sum(1 for s in sends if (s.get("opened_at") or "") >= cutoff)
     clicked = sum(1 for s in sends if (s.get("clicked_at") or "") >= cutoff)
@@ -369,10 +374,10 @@ def collect_mission_control() -> dict:
     recent_enr = [e for e in enrollments if (e.get("enrolled_at") or "") >= two_weeks]
     recent_ids = {e.get("id") for e in db.select(
         "gg_sequence_enrollments", columns="id,contact_email,enrolled_at",
-        order="enrolled_at", limit=1000) if (e.get("enrolled_at") or "") >= two_weeks}
+        order="enrolled_at", order_desc=True, limit=1000) if (e.get("enrolled_at") or "") >= two_weeks}
     id_sends = [x for x in db.select(
         "gg_sequence_sends", columns="enrollment_id,sent_at,opened_at,clicked_at,template",
-        order="sent_at", limit=1000) if x.get("enrollment_id") in recent_ids]
+        order="sent_at", order_desc=True, limit=1000) if x.get("enrollment_id") in recent_ids]
     eng = {}
     for x in id_sends:
         d = eng.setdefault(x["enrollment_id"], {"opens": 0, "clicks": 0, "last_template": None})
@@ -381,7 +386,7 @@ def collect_mission_control() -> dict:
         d["last_template"] = x.get("template")
     full_enr = db.select("gg_sequence_enrollments",
                          columns="id,contact_email,contact_name,sequence_id,current_step,status,enrolled_at,source_data",
-                         order="enrolled_at", limit=1000)
+                         order="enrolled_at", order_desc=True, limit=1000)
     hot_leads = []
     seen_emails = set()
     for e in sorted(full_enr, key=lambda x: x.get("enrolled_at") or "", reverse=True):

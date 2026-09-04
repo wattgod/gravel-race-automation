@@ -248,3 +248,81 @@ def test_second_scan_with_different_challenged_urls_is_not_new(monkeypatch):
     baseline = {fp1}
     immune_check.mark_new(findings2, baseline)
     assert not findings2[0].new
+
+
+# ── Transport failures are inconclusive, not dead (#122) ─────────────────────
+# WAF-hardened days surfaced as connection resets/timeouts rather than 202s,
+# and the bare `except Exception` recorded them as ERR dead links, so
+# link-check.yml went red with nothing actually broken.
+import http.client
+import socket
+import ssl
+
+URL = "https://gravelgodcycling.com/race/unbound-200/"
+
+
+def _urlopen_raising(exc):
+    def raise_it(req, timeout=15):
+        raise exc
+    return raise_it
+
+
+@pytest.mark.parametrize("exc", [
+    socket.timeout("timed out"),
+    TimeoutError("timed out"),
+    ConnectionResetError(104, "Connection reset by peer"),
+    ConnectionRefusedError(111, "Connection refused"),
+    urllib.error.URLError(socket.timeout("timed out")),
+    urllib.error.URLError(ConnectionResetError(104, "reset")),
+    ssl.SSLError(1, "[SSL: WRONG_VERSION_NUMBER] wrong version number"),
+    http.client.RemoteDisconnected("Remote end closed connection without response"),
+    http.client.IncompleteRead(b""),
+], ids=lambda e: type(e).__name__)
+def test_transport_failure_is_inconclusive_not_dead(monkeypatch, exc):
+    monkeypatch.setattr(check_links.urllib.request, "urlopen", _urlopen_raising(exc))
+    status, body, challenged = check_links._fetch_once(URL, 15, False)
+    assert status == 0 and body == "" and challenged
+
+
+@pytest.mark.parametrize("code", [404, 410, 500, 503])
+def test_http_error_is_dead_not_inconclusive(monkeypatch, code):
+    err = urllib.error.HTTPError(URL, code, "boom", {}, io.BytesIO(b""))
+    monkeypatch.setattr(check_links.urllib.request, "urlopen", _urlopen_raising(err))
+    status, _, challenged = check_links._fetch_once(URL, 15, False)
+    assert status == code and not challenged
+
+
+def test_malformed_url_is_still_dead(monkeypatch):
+    """Non-transport exceptions (a broken href) keep counting as dead."""
+    monkeypatch.setattr(check_links.urllib.request, "urlopen",
+                        _urlopen_raising(ValueError("unknown url type")))
+    status, _, challenged = check_links._fetch_once("htp:/broken", 15, False)
+    assert status == 0 and not challenged
+
+
+def test_transport_failure_takes_the_retry_path(monkeypatch, capsys):
+    sleeps: list[float] = []
+    monkeypatch.setattr(check_links.time, "sleep", sleeps.append)
+    monkeypatch.setattr(check_links.urllib.request, "urlopen",
+                        _urlopen_raising(socket.timeout("timed out")))
+    monkeypatch.setattr(check_links, "_challenge_budget",
+                        check_links.CHALLENGE_RETRY_BUDGET)
+    status, _, challenged = check_links.fetch(URL)
+    assert status == 0 and challenged
+    assert sleeps == list(check_links.CHALLENGE_BACKOFF)
+    assert "connection error on" in capsys.readouterr().out
+
+
+def test_err_rows_under_waf_header_parse_as_challenged(monkeypatch):
+    """The checker prints status 0 as ERR; immune_check must file those under
+    live-check-challenged (YELLOW/low), never dead-link or live-check-failed."""
+    stdout = (
+        "\nWAF-CHALLENGED (2): still behind SiteGround's bot challenge (202) or "
+        "unreachable (ERR: timeout/reset/TLS) after retries — scan inconclusive, NOT dead links\n"
+        "   ERR  https://gravelgodcycling.com/questionnaire/\n"
+        "   202  https://gravelgodcycling.com/race/unbound-200/\n"
+        "No dead links found, but the scan is INCONCLUSIVE (WAF challenges).\n")
+    findings = parse(monkeypatch, stdout, 2)
+    assert [f.code for f in findings] == ["live-check-challenged"]
+    assert findings[0].lane == immune_check.YELLOW
+    assert "questionnaire" in findings[0].detail

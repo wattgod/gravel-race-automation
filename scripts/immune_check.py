@@ -471,7 +471,7 @@ def run_live_link_check() -> list[Finding]:
         findings.append(Finding(
             "live-check-challenged", YELLOW, "low", "Live Check Challenged by WAF",
             f"{len(shown)} URLs unverifiable behind SiteGround's bot challenge "
-            f"(HTTP 202) after backoff retries: " + " ".join(shown[:12])
+            f"(HTTP 202) or unreachable (ERR: connection failure) after backoff retries: " + " ".join(shown[:12])
             + (f" (+{len(shown) - 12} more)" if len(shown) > 12 else ""),
             "The scanner tripped SiteGround's bot protection, so these URLs could not "
             "be verified this run — an inconclusive scan, not an outage (Roadie Labs "

@@ -40,6 +40,12 @@ MANUAL_COORDS = {
     "nordic-chase-gravel-edition": (55.6761, 12.5683),     # Copenhagen
     "haute-route-gravel": (45.1885, 5.7245),               # Grenoble, France (primary venue)
     "spirit-world-100": (31.5394, -110.7550),               # Patagonia, AZ
+    # Nominatim traps (2026-09-04, #114): the full location string returned
+    # nothing, so the script fell back to the country centroid (graean-cymru
+    # landed in Cumbria) or a region seat 75 km off (khomas100). Verified by
+    # re-querying the specific place name.
+    "graean-cymru": (53.0922, -3.5288),                # Llyn Brenig reservoir, Denbighshire, Wales
+    "khomas100": (-22.5776, 17.0773),                  # Windhoek, Namibia (start; finish is Gross Barmen)
 }
 
 

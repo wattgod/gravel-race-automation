@@ -39,6 +39,9 @@ def test_spring_valley_current_identity_and_route_are_verified():
     assert race["vitals"]["registration"] == "Online via BikeReg. 2026 price: $35"
     assert race["course_description"]["ridewithgps_id"] == "54987672"
     assert race["gravel_god_rating"]["overall_score"] == 47
+    # 47 >= 45 with prestige 1 is Tier 3 by score alone (#68).
+    assert race["gravel_god_rating"]["tier"] == 3
+    assert race["gravel_god_rating"]["display_tier"] == 3
 
 
 def test_legacy_urls_have_root_and_subpath_redirects():

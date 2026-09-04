@@ -152,3 +152,99 @@ def test_rc1_without_parsable_dead_lines_flags_drift(monkeypatch):
 def test_clean_run_yields_nothing(monkeypatch):
     findings = parse(monkeypatch, "All links alive.\n", 0)
     assert findings == []
+
+
+# ── Fingerprint stability for volatile-detail findings ──────────────────────
+def test_volatile_code_fingerprints_on_code_alone():
+    """Findings with inherently volatile details (e.g. live-check-challenged with
+    shifting WAF-challenged URL lists) must fingerprint on code alone, not detail,
+    so they can stabilize against baseline.json even when the specific URLs change.
+    """
+    f1 = immune_check.Finding(
+        "live-check-challenged", immune_check.YELLOW, "low",
+        "Live Check Challenged by WAF",
+        "12 URLs unverifiable: https://example.com/a/ https://example.com/b/",
+        "WAF variance", None, "check_links")
+    f2 = immune_check.Finding(
+        "live-check-challenged", immune_check.YELLOW, "low",
+        "Live Check Challenged by WAF", 
+        "8 URLs unverifiable: https://example.com/c/ https://example.com/d/",
+        "WAF variance", None, "check_links")
+    assert immune_check.fingerprint(f1) == immune_check.fingerprint(f2) == "live-check-challenged"
+
+
+def test_prep_kit_blocked_fingerprints_stable():
+    """prep-kit-check-blocked (transport noise, no stable URL list) should also
+    fingerprint on code alone."""
+    f1 = immune_check.Finding(
+        "prep-kit-check-blocked", immune_check.YELLOW, "low",
+        "Prep-Kit Coverage Partially Blocked",
+        "some kit URLs returned non-404 errors (WAF challenge / timeout) — coverage unverified for those",
+        "Transport noise", None, "check_prep_kit_coverage")
+    f2 = immune_check.Finding(
+        "prep-kit-check-blocked", immune_check.YELLOW, "low",
+        "Prep-Kit Coverage Partially Blocked",
+        "different detail text here for variation",
+        "Transport noise", None, "check_prep_kit_coverage")
+    assert immune_check.fingerprint(f1) == immune_check.fingerprint(f2) == "prep-kit-check-blocked"
+
+
+def test_deploy_parity_skipped_fingerprints_stable():
+    """deploy-parity-skipped (informational skip) should fingerprint on code alone."""
+    f = immune_check.Finding(
+        "deploy-parity-skipped", immune_check.GREEN, "low",
+        "Deploy Parity Skipped",
+        "no SSH creds in this environment — live-tree drift unverified (not a defect)",
+        "Informational skip", None, "deploy_parity")
+    assert immune_check.fingerprint(f) == "deploy-parity-skipped"
+
+
+def test_normal_findings_still_fingerprint_with_detail():
+    """Findings that don't have volatile details should continue using code::detail."""
+    f1 = immune_check.Finding(
+        "prep-kit-missing", immune_check.YELLOW, "high",
+        "Prep kit missing: dirty-kanza",
+        "https://gravelgodcycling.com/race/dirty-kanza/prep-kit/",
+        "Generate the kit", None, "check_prep_kit_coverage")
+    f2 = immune_check.Finding(
+        "prep-kit-missing", immune_check.YELLOW, "high",
+        "Prep kit missing: unbound-gravel",
+        "https://gravelgodcycling.com/race/unbound-gravel/prep-kit/",
+        "Generate the kit", None, "check_prep_kit_coverage")
+    fp1 = immune_check.fingerprint(f1)
+    fp2 = immune_check.fingerprint(f2)
+    # Different races should have different fingerprints
+    assert fp1 != fp2
+    assert fp1 == "prep-kit-missing::https://gravelgodcycling.com/race/dirty-kanza/prep-kit/"
+    assert fp2 == "prep-kit-missing::https://gravelgodcycling.com/race/unbound-gravel/prep-kit/"
+
+
+def test_second_scan_with_different_challenged_urls_is_not_new(monkeypatch):
+    """End-to-end: two scans with different WAF-challenged URLs should produce the
+    same fingerprint, so the second run marks new:false (the core bug being fixed)."""
+    # First scan: 2 challenged URLs
+    stdout1 = (
+        "\nWAF-CHALLENGED (2): still behind SiteGround's bot challenge after retries\n"
+        "   202  https://gravelgodcycling.com/a/\n"
+        "   202  https://gravelgodcycling.com/b/\n")
+    findings1 = parse(monkeypatch, stdout1, 2)
+    assert len(findings1) == 1
+    fp1 = immune_check.fingerprint(findings1[0])
+    
+    # Second scan: different 2 challenged URLs
+    stdout2 = (
+        "\nWAF-CHALLENGED (2): still behind SiteGround's bot challenge after retries\n"
+        "   202  https://gravelgodcycling.com/c/\n"
+        "   202  https://gravelgodcycling.com/d/\n")
+    findings2 = parse(monkeypatch, stdout2, 2)
+    assert len(findings2) == 1
+    fp2 = immune_check.fingerprint(findings2[0])
+    
+    # Same fingerprint despite different URLs
+    assert fp1 == fp2 == "live-check-challenged"
+    
+    # Simulate baseline acceptance: if first run's fingerprint is in baseline,
+    # second run should be marked new:false
+    baseline = {fp1}
+    immune_check.mark_new(findings2, baseline)
+    assert not findings2[0].new

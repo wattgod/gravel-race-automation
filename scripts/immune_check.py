@@ -514,7 +514,27 @@ def now_iso() -> str:
 
 
 def fingerprint(f: Finding) -> str:
-    """Stable identity for a finding, so the baseline can recognise a recurrence."""
+    """Stable identity for a finding, so the baseline can recognise a recurrence.
+    
+    For certain finding codes with inherently volatile details (e.g. WAF-challenged
+    URL lists that shift run-to-run, or transport-noise blockers), we fingerprint
+    on the code alone so the finding can stabilize against the baseline even when
+    the specific URLs/counts vary. The full detail is still preserved in the
+    finding payload for human visibility.
+    """
+    # Finding codes with volatile details that should fingerprint on code alone:
+    # - live-check-challenged: list of WAF-challenged URLs changes each run
+    # - prep-kit-check-blocked: transport noise, no stable URL list
+    # - deploy-parity-skipped: informational skip, detail is static but code-only is cleaner
+    VOLATILE_CODES = {
+        "live-check-challenged",
+        "prep-kit-check-blocked", 
+        "deploy-parity-skipped",
+    }
+    
+    if f.code in VOLATILE_CODES:
+        return f.code
+    
     return f"{f.code}::{f.detail}"
 
 

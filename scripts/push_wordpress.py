@@ -1473,6 +1473,65 @@ ROOT_CANONICAL_SLUGS = frozenset({
     "training-plans",
 })
 
+RACE_DATA_DIR = Path(__file__).resolve().parent.parent / "race-data"
+
+
+# ── Prep-kit deploy gate (#122) ──────────────────────────────────────────────
+# Every generated race page links to /race/{slug}/prep-kit/. generate_prep_kit.py
+# runs in preflight, but publishing the kits needed the separate --sync-prep-kits
+# opt-in, so race-add deploys kept shipping race pages whose kit URL 404'd (12+
+# slugs by 2026-09-04). Rule: when race pages ship, their kits ship in the same
+# run — or the deploy refuses to start and names the slugs. --no-prep-kit-gate
+# is the only way past it.
+
+def prep_kit_gate(page_slugs, kit_slugs, race_slugs):
+    """Pure gate decision, no filesystem or network.
+
+    ``gated`` = race profiles about to ship (a page slug that has a race-data
+    profile; hub/utility/VS pages are not gated). ``missing`` = the gated slugs
+    with no generated kit HTML. Returns (gated, missing), both sorted.
+    """
+    gated = sorted(set(page_slugs) & set(race_slugs))
+    kits = set(kit_slugs)
+    missing = [slug for slug in gated if slug not in kits]
+    return gated, missing
+
+
+def check_prep_kit_gate(pages_dir, prep_kit_dir, race_data_dir=None):
+    """Filesystem wrapper for prep_kit_gate(); returns (gated, missing)."""
+    pages_path = Path(pages_dir)
+    kit_path = Path(prep_kit_dir)
+    race_path = Path(race_data_dir) if race_data_dir else RACE_DATA_DIR
+    pages = [f.stem for f in pages_path.glob("*.html") if f.stem not in ROOT_CANONICAL_SLUGS]
+    kits = [f.stem for f in kit_path.glob("*.html")]
+    races = [f.stem for f in race_path.glob("*.json")]
+    return prep_kit_gate(pages, kits, races)
+
+
+def apply_prep_kit_gate(args) -> None:
+    """Enforce the gate on a parsed CLI namespace, before any sync runs.
+
+    No-op unless --sync-pages is requested (and --no-prep-kit-gate is not).
+    Exits 1 — having pushed nothing — if any race page about to ship has no
+    generated kit; otherwise turns --sync-prep-kits on so the kits ship in
+    this same deploy.
+    """
+    if not args.sync_pages or args.no_prep_kit_gate:
+        return
+    gated, missing = check_prep_kit_gate(args.pages_dir, args.prep_kit_dir)
+    if missing:
+        print(f"✗ PREP-KIT GATE: {len(missing)} of {len(gated)} race pages about to ship "
+              f"have no generated prep kit in {args.prep_kit_dir} — nothing was pushed.")
+        for slug in missing:
+            print(f"    {slug}  → /race/{slug}/prep-kit/ would 404")
+        print("  Fix: python3 wordpress/generate_prep_kit.py --all, then re-run this deploy.")
+        print("  Escape hatch (ships the 404s knowingly): --no-prep-kit-gate")
+        sys.exit(1)
+    if gated and not args.sync_prep_kits:
+        print(f"  Prep-kit gate: {len(gated)} race pages ship with their kits — "
+              f"adding --sync-prep-kits to this deploy")
+        args.sync_prep_kits = True
+
 
 def sync_pages(pages_dir: str):
     """Upload race pages to /race/ on SiteGround via tar+ssh pipe.
@@ -4072,6 +4131,12 @@ if __name__ == "__main__":
         help="Upload prep kit pages to /race/{slug}/prep-kit/ via tar+ssh"
     )
     parser.add_argument(
+        "--no-prep-kit-gate", action="store_true",
+        help="Escape hatch (#122): ship race pages even when their prep kits are "
+             "missing or not synced. Default: --sync-pages refuses to push if any "
+             "race page's /prep-kit/ would 404, and auto-adds --sync-prep-kits"
+    )
+    parser.add_argument(
         "--sync-plan-pages", action="store_true",
         help="Upload training-plan pages to /race/{slug}/training-plan/ via tar+ssh"
     )
@@ -4257,6 +4322,9 @@ if __name__ == "__main__":
                       args.sync_latest, args.purge_cache])
     if not has_action:
         parser.error("Provide a sync flag (--sync-pages, --sync-index, etc.), --deploy-content, or --deploy-all")
+
+    # Prep-kit gate (#122): decided BEFORE any sync runs so a refusal pushes nothing.
+    apply_prep_kit_gate(args)
 
     # Any sync returning falsy marks the whole run failed — a deploy that
     # half-happens must exit non-zero so CI cannot report silent success.

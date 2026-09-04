@@ -21,6 +21,7 @@ Usage:
 """
 
 import argparse
+import http.client
 import sys
 import time
 import urllib.error
@@ -56,6 +57,11 @@ SKIP_SCHEMES = ("#", "mailto:", "tel:", "data:", "javascript:")
 # long WAF window can't blow the caller's timeout (immune_check allows 900s
 # for the whole subprocess) — once the budget is spent, challenged URLs are
 # recorded immediately without retrying.
+#
+# Connection-level failures (timeout, reset, refused, TLS handshake, remote
+# disconnect) are the second inconclusive class (#122): no HTTP verdict was
+# reached, so they take the same retry path and report under WAF-CHALLENGED
+# as ERR rows — exit 2, not 1. Only a real HTTP error (404/500...) is dead.
 CHALLENGE_BACKOFF = (20, 45)   # seconds to wait before each retry
 CHALLENGE_RETRY_BUDGET = 180   # total seconds of backoff sleep per scan
 
@@ -95,7 +101,12 @@ class LinkExtractor(HTMLParser):
 
 
 def _fetch_once(url: str, timeout: int, text_mode: bool) -> tuple[int, str, bool]:
-    """GET a URL following redirects; return (final_status, body, challenged)."""
+    """GET a URL following redirects; return (final_status, body, challenged).
+
+    ``challenged`` is True for both inconclusive outcomes — a WAF 202 and a
+    connection-level failure (status 0, printed as ERR). Neither is a dead
+    link; both are retried with backoff and reported under WAF-CHALLENGED.
+    """
     req = urllib.request.Request(url, headers={"User-Agent": UA})
     try:
         with urllib.request.urlopen(req, timeout=timeout) as resp:
@@ -106,8 +117,16 @@ def _fetch_once(url: str, timeout: int, text_mode: bool) -> tuple[int, str, bool
                     if "text/html" in resp.headers.get("Content-Type", "") else ""
             return resp.status, body, resp.status == 202
     except urllib.error.HTTPError as e:
+        # The server answered: 404/500 are dead even on a WAF-hardened day.
         return e.code, "", e.code == 202
+    except (OSError, http.client.HTTPException):
+        # No HTTP verdict at all. Covers URLError (non-HTTP reason such as
+        # timeout/reset/refused), socket.timeout/TimeoutError, ConnectionError
+        # subclasses, ssl.SSLError, and http.client.RemoteDisconnected /
+        # IncompleteRead — all OSError or HTTPException subclasses.
+        return 0, "", True
     except Exception:
+        # Anything else (e.g. ValueError on a malformed URL) is a broken link.
         return 0, "", False
 
 
@@ -119,10 +138,12 @@ def _fetch_retry(url: str, timeout: int, text_mode: bool) -> tuple[int, str, boo
         if not challenged:
             break
         if _challenge_budget < pause:
-            print(f"  WAF challenge on {url} — retry budget spent, recording as challenged")
+            label = "WAF challenge" if status == 202 else "connection error"
+            print(f"  {label} on {url} — retry budget spent, recording as challenged")
             break
         _challenge_budget -= pause
-        print(f"  WAF challenge on {url} — retrying in {pause}s")
+        label = "WAF challenge" if status == 202 else "connection error"
+        print(f"  {label} on {url} — retrying in {pause}s")
         time.sleep(pause)
         status, body, challenged = _fetch_once(url, timeout, text_mode)
     return status, body, challenged
@@ -298,8 +319,9 @@ def main() -> int:
     # "DEAD LINKS" header as dead links.
     if challenged_urls:
         rows = sorted(set(challenged_urls), key=lambda d: d[1])
-        print(f"\nWAF-CHALLENGED ({len(rows)}): still behind SiteGround's "
-              f"bot challenge after retries — scan inconclusive, NOT dead links")
+        print(f"\nWAF-CHALLENGED ({len(rows)}): still behind SiteGround's bot "
+              f"challenge (202) or unreachable (ERR: timeout/reset/TLS) after "
+              f"retries — scan inconclusive, NOT dead links")
         for status, url in rows:
             print(f"  {status or 'ERR':>4}  {url}")
     if dead:

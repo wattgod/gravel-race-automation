@@ -121,6 +121,56 @@ def test_log_collector_mocks_one_ssh_call_with_timeout(monkeypatch):
     assert kwargs["timeout"] == 270
 
 
+def test_check_llms_marker_retries_through_sgcaptcha_then_succeeds(monkeypatch):
+    challenge_page = (
+        '<html><head><link rel="icon" href="data:;">'
+        '<meta http-equiv="refresh" content="0;/.well-known/sgcaptcha/?r=%2Fllms.txt&y">'
+    )
+    real_body = "# Gravel God Race Database\nlast_updated: 2026-09-07\n"
+    responses = iter([challenge_page, challenge_page, real_body])
+    sleeps = []
+
+    monkeypatch.setattr(aeo_weekly, "_fetch_llms_head", lambda url, timeout: next(responses))
+    monkeypatch.setattr(aeo_weekly.time, "sleep", lambda seconds: sleeps.append(seconds))
+
+    result = aeo_weekly.check_llms_marker("gravelgod")
+
+    assert result["status"] == "ok"
+    assert sleeps == list(aeo_weekly.LLMS_CHALLENGE_BACKOFF[:2])
+
+
+def test_check_llms_marker_reports_displaced_when_challenge_never_clears(monkeypatch):
+    challenge_page = (
+        '<html><head><link rel="icon" href="data:;">'
+        '<meta http-equiv="refresh" content="0;/.well-known/sgcaptcha/?r=%2Fllms.txt&y">'
+    )
+    monkeypatch.setattr(aeo_weekly, "_fetch_llms_head", lambda url, timeout: challenge_page)
+    monkeypatch.setattr(aeo_weekly.time, "sleep", lambda seconds: None)
+
+    result = aeo_weekly.check_llms_marker("gravelgod")
+
+    assert result["status"] == "displaced"
+
+
+def test_check_llms_marker_does_not_retry_a_real_displacement(monkeypatch):
+    aioseo_body = "AIOSEO generated content, not our marker\n"
+    calls = []
+
+    def fake_fetch(url, timeout):
+        calls.append(url)
+        return aioseo_body
+
+    monkeypatch.setattr(aeo_weekly, "_fetch_llms_head", fake_fetch)
+    monkeypatch.setattr(
+        aeo_weekly.time, "sleep",
+        lambda seconds: pytest.fail("should not sleep on a non-challenge displacement"))
+
+    result = aeo_weekly.check_llms_marker("gravelgod")
+
+    assert result["status"] == "displaced"
+    assert len(calls) == 1
+
+
 def test_ga4_collector_uses_two_reports_and_filters_sources_in_python(
         monkeypatch):
     class Value:

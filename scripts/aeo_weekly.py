@@ -15,6 +15,7 @@ import os
 import re
 import subprocess
 import sys
+import time
 from datetime import date, datetime, timedelta, timezone
 from pathlib import Path
 from typing import Any
@@ -493,6 +494,25 @@ def _merge_unknown_candidates(
     )[:MAX_UNKNOWN_CANDIDATES]
 
 
+# SiteGround answers some requests with an sg-captcha meta-refresh page
+# instead of the real response (see scripts/check_links.py's identical
+# 202-challenge handling). A single-shot check_llms_marker request that
+# lands during a challenge window reads as "displaced" even though the
+# real file is fine — issue #53 traced a week of false BROKEN flags to
+# exactly this. Retry with backoff, same convention as check_links.py,
+# before concluding the marker is really gone.
+LLMS_CHALLENGE_BACKOFF = (20, 45)  # seconds to wait before each retry
+
+
+def _fetch_llms_head(url: str, timeout: int) -> str:
+    import urllib.request
+
+    req = urllib.request.Request(
+        url, headers={"User-Agent": "gg-aeo-weekly/1 (self-check)"})
+    with urllib.request.urlopen(req, timeout=timeout) as resp:
+        return resp.read(4096).decode("utf-8", "replace")
+
+
 def check_llms_marker(brand: str, timeout: int = 20) -> dict[str, Any]:
     """Verify the live /llms.txt still serves OUR database file.
 
@@ -503,16 +523,20 @@ def check_llms_marker(brand: str, timeout: int = 20) -> dict[str, Any]:
     catches the next silent displacement (renders as BROKEN in Morning
     Intel via the stale/invalid path).
     """
-    import urllib.request
-
     meta = BRANDS[brand]
     url = f"https://{meta['domain']}/llms.txt"
-    req = urllib.request.Request(
-        url, headers={"User-Agent": "gg-aeo-weekly/1 (self-check)"})
-    with urllib.request.urlopen(req, timeout=timeout) as resp:
-        head = resp.read(4096).decode("utf-8", "replace")
     marker = str(meta["llms_marker"])
-    ok = head.lstrip("﻿\n\r ").startswith(marker)
+
+    head = _fetch_llms_head(url, timeout)
+    stripped = head.lstrip("﻿\n\r ")
+    for pause in LLMS_CHALLENGE_BACKOFF:
+        if stripped.startswith(marker) or "sgcaptcha" not in stripped:
+            break
+        time.sleep(pause)
+        head = _fetch_llms_head(url, timeout)
+        stripped = head.lstrip("﻿\n\r ")
+
+    ok = stripped.startswith(marker)
     return {
         "status": "ok" if ok else "displaced",
         "marker": marker,

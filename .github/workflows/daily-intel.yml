@@ -8,6 +8,14 @@ on:
   schedule:
     - cron: "0 12 * * *"   # 12:00 UTC = 06:00 MT
   workflow_dispatch:
+    inputs:
+      delivery:
+        description: "Delivery mode (snapshot-only requires verified Claude consumers)"
+        type: choice
+        options:
+          - email
+          - snapshot-only
+        default: email
 
 permissions:
   contents: write
@@ -30,6 +38,7 @@ jobs:
           GA4_CREDENTIALS_JSON: ${{ secrets.GA4_CREDENTIALS_JSON }}
       - name: Run Morning Intel
         env:
+          INTEL_DELIVERY_MODE: ${{ inputs.delivery || vars.INTEL_DELIVERY_MODE || 'email' }}
           GG_GA4_PROPERTY_ID: ${{ secrets.GG_GA4_PROPERTY_ID }}
           RL_GA4_PROPERTY_ID: ${{ secrets.RL_GA4_PROPERTY_ID }}
           XC_GA4_PROPERTY_ID: ${{ secrets.XC_GA4_PROPERTY_ID }}
@@ -39,7 +48,12 @@ jobs:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           CRON_SECRET: ${{ secrets.CRON_SECRET }}
           GH_TOKEN: ${{ github.token }}
-        run: python3 scripts/daily_intel.py
+        run: |
+          case "$INTEL_DELIVERY_MODE" in
+            email) python3 scripts/daily_intel.py ;;
+            snapshot-only) python3 scripts/daily_intel.py --snapshot-only ;;
+            *) echo "Invalid INTEL_DELIVERY_MODE" >&2; exit 1 ;;
+          esac
       - name: Commit snapshot
         run: |
           git config user.name "github-actions[bot]"

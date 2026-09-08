@@ -1,6 +1,11 @@
 # Spec: Daily Intel Report ("Morning Intel")
 
 **Status:** PROPOSAL — not built (Jul 2026)
+**2026-09-08 update:** The workflow is now implemented. The staged migration to
+snapshot delivery and one Console email is specified in
+[`../runbooks/email-triage.md`](../runbooks/email-triage.md). Email remains the
+default until the Claude consumers are verified; the original proposal below
+describes email mode, not the migration's completed state.
 **Goal:** One email, every morning, that answers three questions in under two
 minutes of reading: *Is the machine working? Did we make money? What's the one
 thing to do today?* Interprets, doesn't just dump numbers. Both brands, one email.

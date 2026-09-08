@@ -349,6 +349,40 @@ def test_main_sends_email_even_when_everything_downstream_breaks(
     assert "snapshot write failed" in sent["report"]
 
 
+@pytest.mark.parametrize("persistence_fails", [False, True])
+def test_snapshot_only_never_emails_and_requires_persistence(
+        tmp_path, monkeypatch, persistence_fails):
+    from scripts import daily_intel
+
+    for name in ("collect_ga4", "collect_checkout", "collect_mission_control",
+                 "collect_commerce_ledger", "collect_social", "collect_workflows",
+                 "collect_aeo", "collect_seo"):
+        monkeypatch.setattr(daily_intel, name, lambda *a, **k: {})
+    monkeypatch.setattr(daily_intel, "compute_constraint", lambda *a: {})
+    monkeypatch.setattr(daily_intel, "detect_tracking_regression", lambda *a: None)
+    monkeypatch.setattr(daily_intel, "load_prior_snapshots", lambda *a: [])
+    monkeypatch.setattr(daily_intel, "load_trend", lambda: [])
+    monkeypatch.setattr(daily_intel, "safe_render", lambda *a: "Facts")
+    monkeypatch.setattr(daily_intel, "interpret", lambda *a: (
+        "Intel", "## TOP LINE\nSummary\n\n## DO TODAY\nCheck facts"))
+    monkeypatch.setattr(daily_intel, "send_email",
+                        lambda *a: pytest.fail("snapshot-only must never send"))
+    destination = tmp_path / "snapshots"
+    if persistence_fails:
+        destination.write_text("blocks directory creation")
+    monkeypatch.setattr(daily_intel, "SNAPSHOT_DIR", destination)
+    monkeypatch.setattr("sys.argv", ["daily_intel.py", "--snapshot-only"])
+
+    assert daily_intel.main() == int(persistence_fails)
+    if not persistence_fails:
+        import json
+        today = daily_intel.date.today().isoformat()
+        snapshot = json.loads((destination / f"{today}.json").read_text())
+        assert snapshot["date"] == today
+        assert "Facts" in snapshot["report"]
+        assert "Summary" in (destination / f"{today}.md").read_text()
+
+
 def test_collect_mission_control_reads_newest_rows_past_the_1000_row_cap(monkeypatch):
     """Regression: gg_sequence_sends crossed 1000 rows on 2026-08-26 and the
     collector — which sorted ascending and capped at 1000 — stopped seeing

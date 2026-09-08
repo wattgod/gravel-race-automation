@@ -1390,6 +1390,8 @@ def send_email(subject: str, markdown: str) -> str:
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--dry-run", action="store_true", help="skip the email send")
+    ap.add_argument("--snapshot-only", action="store_true",
+                    help="publish snapshots for the console, never email; fail if persistence fails")
     ap.add_argument("--no-llm", action="store_true", help="skip interpretation")
     args = ap.parse_args()
 
@@ -1446,9 +1448,12 @@ def main() -> int:
         print(f"snapshot: data/intel-snapshots/{today}.json")
     except Exception as e:
         report += f"\n- BROKEN: snapshot write failed: {type(e).__name__}: {e}"
+        if args.snapshot_only:
+            print(report, file=sys.stderr)
+            return 1
     print(f"subject:  {subject}")
 
-    if args.dry_run:
+    if args.dry_run or args.snapshot_only:
         print("\n" + report)
         return 0
     msg_id = send_email(subject, report)

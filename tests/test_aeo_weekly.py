@@ -139,7 +139,7 @@ def test_check_llms_marker_retries_through_sgcaptcha_then_succeeds(monkeypatch):
     assert sleeps == list(aeo_weekly.LLMS_CHALLENGE_BACKOFF[:2])
 
 
-def test_check_llms_marker_reports_displaced_when_challenge_never_clears(monkeypatch):
+def test_check_llms_marker_reports_challenged_when_challenge_never_clears(monkeypatch):
     challenge_page = (
         '<html><head><link rel="icon" href="data:;">'
         '<meta http-equiv="refresh" content="0;/.well-known/sgcaptcha/?r=%2Fllms.txt&y">'
@@ -149,7 +149,7 @@ def test_check_llms_marker_reports_displaced_when_challenge_never_clears(monkeyp
 
     result = aeo_weekly.check_llms_marker("gravelgod")
 
-    assert result["status"] == "displaced"
+    assert result["status"] == "challenged"
 
 
 def test_check_llms_marker_does_not_retry_a_real_displacement(monkeypatch):
@@ -334,6 +334,7 @@ def test_partial_artifact_is_written_and_strict_validation_fails(
         lambda *args, **kwargs: (_ for _ in ()).throw(RuntimeError("SSH down")),
     )
 
+    monkeypatch.setattr(aeo_weekly, "check_llms_marker", lambda *a: {"status": "ok"})
     artifact = aeo_weekly.collect_weekly(
         datetime(2026, 7, 20, 10, 30, tzinfo=timezone.utc))
     path = aeo_weekly.write_artifact(artifact, tmp_path)
@@ -440,3 +441,44 @@ def test_aeo_render_fixture_snapshot(tmp_path, monkeypatch):
         "- **Unknown agent candidates (spoofable):** FooBot/1.0 "
         "(4; gravelgod 3, roadie 1).",
     ])
+
+
+@pytest.mark.parametrize("status,first,expected", [
+    ("challenged", "sgcaptcha", "CAPTCHA-BLOCKED"),
+    ("displaced", "<html>sgcaptcha</html>", "CAPTCHA-BLOCKED"),
+    ("displaced", "Other content", "MARKER MISMATCH"),
+    ("error", "", "UNREACHABLE"),
+    ("ok", "# Gravel God Race Database", None),
+])
+def test_llms_alert_uses_evidence_without_inventing_cause(status, first, expected):
+    collected = {"aeo": {"state": "ok", "brands": {"gravelgod": {
+        "label": "Gravel God", "llms_serving_status": status,
+        "llms_serving_first_line": first, "llms_serving_error": "timeout",
+    }}}}
+    alerts = daily_intel._collector_failures(collected)
+    if expected is None:
+        assert alerts == []
+    else:
+        assert len(alerts) == 1
+        assert expected in alerts[0]
+        assert "AIOSEO" not in alerts[0]
+
+
+@pytest.mark.parametrize("status", ["challenged", "displaced", "error"])
+def test_strict_validation_rejects_unhealthy_llms(status):
+    artifact = _artifact("2026-07-20")
+    artifact["brands"]["gravelgod"]["llms_serving"] = {"status": status}
+    assert aeo_weekly.validate_artifact(artifact) == []
+    errors = aeo_weekly.validate_artifact(artifact, require_all_ok=True)
+    assert "brands.gravelgod.llms_serving collector not ok" in errors
+
+
+def test_fetch_does_not_accept_non_200_marker(monkeypatch):
+    from io import BytesIO
+    import urllib.request
+
+    response = BytesIO(b"# Gravel God Race Database")
+    response.status = 202
+    monkeypatch.setattr(urllib.request, "urlopen", lambda *a, **k: response)
+    with pytest.raises(OSError, match="HTTP status 202"):
+        aeo_weekly._fetch_llms_head("https://example.test/llms.txt", 1)

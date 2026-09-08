@@ -510,7 +510,10 @@ def _fetch_llms_head(url: str, timeout: int) -> str:
     req = urllib.request.Request(
         url, headers={"User-Agent": "gg-aeo-weekly/1 (self-check)"})
     with urllib.request.urlopen(req, timeout=timeout) as resp:
-        return resp.read(4096).decode("utf-8", "replace")
+        head = resp.read(4096).decode("utf-8", "replace")
+        if resp.status != 200 and "sgcaptcha" not in head.lower():
+            raise OSError(f"Unexpected HTTP status {resp.status}")
+        return head
 
 
 def check_llms_marker(brand: str, timeout: int = 20) -> dict[str, Any]:
@@ -530,7 +533,7 @@ def check_llms_marker(brand: str, timeout: int = 20) -> dict[str, Any]:
     head = _fetch_llms_head(url, timeout)
     stripped = head.lstrip("﻿\n\r ")
     for pause in LLMS_CHALLENGE_BACKOFF:
-        if stripped.startswith(marker) or "sgcaptcha" not in stripped:
+        if stripped.startswith(marker) or "sgcaptcha" not in stripped.lower():
             break
         time.sleep(pause)
         head = _fetch_llms_head(url, timeout)
@@ -538,7 +541,7 @@ def check_llms_marker(brand: str, timeout: int = 20) -> dict[str, Any]:
 
     ok = stripped.startswith(marker)
     return {
-        "status": "ok" if ok else "displaced",
+        "status": "ok" if ok else ("challenged" if "sgcaptcha" in stripped.lower() else "displaced"),
         "marker": marker,
         "first_line": head.splitlines()[0][:120] if head else "",
     }
@@ -647,6 +650,9 @@ def validate_artifact(
                         f"brands.{brand}.top_user_fetch_paths contains an invalid path")
                     break
         if require_all_ok:
+            llms = value.get("llms_serving")
+            if isinstance(llms, dict) and llms.get("status") != "ok":
+                errors.append(f"brands.{brand}.llms_serving collector not ok")
             expected_ga4 = "not_configured" if brand == "xcski" else "ok"
             if isinstance(ga4, dict) and ga4.get("status") != expected_ga4:
                 errors.append(f"brands.{brand}.ga4 collector not ok")

@@ -1,0 +1,84 @@
+name: Deploy Race Support Pages
+
+on:
+  workflow_dispatch:
+    inputs:
+      slug:
+        description: Canonical race slug for prep-kit and Markdown deployment
+        required: true
+        type: string
+
+permissions:
+  contents: read
+
+concurrency:
+  group: deploy-race-support
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      RACE_SLUG: ${{ inputs.slug }}
+      SSH_HOST: ${{ secrets.SSH_HOST }}
+      SSH_USER: ${{ secrets.SSH_USER }}
+      SSH_PORT: ${{ secrets.SSH_PORT }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: pip
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+      - name: Install browser for required tests
+        run: python3 -m playwright install --with-deps chromium
+      - name: Validate slug and source
+        run: |
+          set -euo pipefail
+          test "$GITHUB_REF" = refs/heads/main
+          [[ "$RACE_SLUG" =~ ^[a-z0-9]+(-[a-z0-9]+)*$ ]]
+          test -f "race-data/$RACE_SLUG.json"
+      - name: Pre-deploy gates
+        run: |
+          set -euo pipefail
+          python3 -m pytest tests/ -q --tb=short -x
+          python3 scripts/audit_colors.py
+          python3 scripts/validate_citations.py
+          python3 scripts/validate_blog_content.py
+          python3 scripts/youtube_validate.py
+      - name: Configure SSH for live inventory and deployment
+        env:
+          DEPLOY_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+        run: |
+          set -euo pipefail
+          test -n "$DEPLOY_KEY"
+          test -n "$SSH_HOST"
+          test -n "$SSH_USER"
+          mkdir -p ~/.ssh
+          printf '%s\n' "$DEPLOY_KEY" > ~/.ssh/siteground_key
+          chmod 600 ~/.ssh/siteground_key
+          ssh-keyscan -p "${SSH_PORT:-18765}" "$SSH_HOST" >> ~/.ssh/known_hosts
+          echo "SSH_PORT=${SSH_PORT:-18765}" >> "$GITHUB_ENV"
+      - name: Build the two-file payload
+        run: |
+          set -euo pipefail
+          python3 wordpress/generate_prep_kit.py "$RACE_SLUG" --output-dir wordpress/output/prep-kit
+          python3 scripts/generate_markdown_profiles.py --slug "$RACE_SLUG" --output-dir wordpress/output/markdown
+          python3 scripts/preflight_quality.py
+      - name: Preserve payload for inspection
+        uses: actions/upload-artifact@v4
+        with:
+          name: race-support-${{ inputs.slug }}-${{ github.sha }}
+          path: |
+            wordpress/output/prep-kit/
+            wordpress/output/markdown/
+          if-no-files-found: error
+      - name: Upload, purge cache, and verify both live files
+        run: python3 scripts/deploy_race_support.py "$RACE_SLUG" --payload-dir wordpress/output --upload
+      - name: Validate deployment
+        run: python3 scripts/validate_deploy.py
+      - name: Remove SSH key
+        if: always()
+        run: rm -f ~/.ssh/siteground_key

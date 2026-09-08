@@ -582,11 +582,9 @@ def _collect_aeo(today: date | None = None) -> dict:
             "label": label,
             "ga4_status": (current_brand.get("ga4") or {}).get("status", "error"),
             "logs_status": (current_brand.get("logs") or {}).get("status", "error"),
-            # "displaced" = the live /llms.txt no longer starts with our
-            # database marker (e.g. AIOSEO clobbered it again) — surfaced
-            # as a BROKEN line by _collector_failures.
             "llms_serving_status": llms_serving.get("status", "unknown"),
             "llms_serving_first_line": llms_serving.get("first_line", ""),
+            "llms_serving_error": llms_serving.get("error", ""),
             "ai_referral_sessions": ga4_sessions,
             "ai_referral_delta": ga4_delta,
             "ai_referral_delta_text": _aeo_delta_text(ga4_delta),
@@ -816,12 +814,27 @@ def _collector_failures(collected: dict) -> list[str]:
         for brand, summary in (aeo.get("brands") or {}).items():
             if not isinstance(summary, dict):
                 continue
-            if summary.get("llms_serving_status") == "displaced":
-                first = summary.get("llms_serving_first_line") or "?"
+            status = summary.get("llms_serving_status")
+            first = summary.get("llms_serving_first_line") or "?"
+            label = summary.get("label", brand)
+            # Old weekly snapshots classified captcha responses as displaced.
+            # Correct their interpretation without changing historical evidence.
+            if status == "displaced" and "sgcaptcha" in first.lower():
+                status = "challenged"
+            if status == "challenged":
                 broken.append(
-                    f"{summary.get('label', brand)} /llms.txt DISPLACED — live file "
-                    f"no longer starts with our database marker (serving: {first!r}); "
-                    f"likely AIOSEO clobbered it again")
+                    f"{label} /llms.txt CAPTCHA-BLOCKED — the monitoring request "
+                    "received a SiteGround challenge; file contents are unverified. "
+                    "Check WAF rules and recheck from the host; an overwrite is not proven.")
+            elif status == "displaced":
+                broken.append(
+                    f"{label} /llms.txt MARKER MISMATCH — response does not start "
+                    f"with our database marker (serving: {first!r}); "
+                    "inspect the live file and response before assigning a cause.")
+            elif status == "error":
+                error = summary.get("llms_serving_error") or "unknown fetch error"
+                broken.append(
+                    f"{label} /llms.txt UNREACHABLE — {error}; file contents are unverified.")
     seo = collected.get("seo") or {}
     if (
             isinstance(seo, dict)

@@ -2108,7 +2108,9 @@ def generate_homepage(race_index: list, race_data_dir: Path = None,
     testimonials = build_testimonials()
     email = build_email_capture(substack_posts)
     footer = build_footer()
-    css = build_homepage_css()
+    # Omit standalone source comments from the shipped CSS. Keep declarations,
+    # strings, inline comments, and all page content unchanged.
+    css = re.sub(r"(?m)^[ \t]*/\*(?:(?!\*/)[^\n])*\*/[ \t]*(?:\n|$)", "", build_homepage_css())
     js = build_homepage_js()
     jsonld = build_jsonld(stats)
 

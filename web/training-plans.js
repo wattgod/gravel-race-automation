@@ -122,7 +122,6 @@
     "You know what a generic plan does at mile 80 of Unbound? Nothing. Because it doesn't know you're at Unbound.",
     "Every training plan is a bet. Most plans are betting you're a 25-year-old with unlimited time and perfect recovery. Are you?",
     "The plan said 'tempo ride, 2 hours.' You had 45 minutes before school pickup. So you skipped it. Then you skipped Tuesday too.",
-    "Your FTP is 230. Your plan was written for someone with an FTP of 300. You've been training in the wrong zones for 8 weeks.",
     "You have a smart trainer collecting dust. You have a race in 16 weeks. You have no plan. You have excuses. Pick one to fix.",
     "Nutrition plan: 'eat 60g carbs per hour.' At what elevation? In what heat? For what distance? Details matter. Vague advice kills races.",
     "Your strength training is whatever YouTube recommended this week. Your left hip flexor has an opinion about that.",

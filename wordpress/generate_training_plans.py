@@ -316,6 +316,7 @@ def build_honest_check() -> str:
     return f'''<section class="gg-tp-section gg-tp-section-alt" id="honest-check">
   <div class="gg-tp-section-label">Honest Check</div>
   <h2>This Isn&rsquo;t For Everyone. Good.</h2>
+  <ul class="gg-tp-audience-list gg-tp-for-list"><li>Start with a published TrainingPeaks plan when the listed race, duration, and workload fit. Choose a custom plan when your race, schedule, or constraints need the calendar built around you. Choose coaching when you want ongoing review and adjustments.</li></ul>
   <div class="gg-tp-audience-grid">
     <div class="gg-tp-audience-col">
       <h3>Buy This If:</h3>

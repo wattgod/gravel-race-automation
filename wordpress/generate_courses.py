@@ -543,7 +543,7 @@ body:has(.gg-pwa-banner-show) .gg-course-chip{{bottom:96px}}
 
 /* ── Course Index ── */
 .gg-course-index{{padding:80px 24px 60px}}
-.gg-course-index-inner{{max-width:960px;margin:0 auto}}
+.gg-course-index-inner{{max-width:1200px;margin:0 auto}}
 .gg-course-index h1{{font-family:var(--gg-font-editorial,'Source Serif 4',Georgia,serif);font-size:clamp(2rem,4vw,2.8rem);color:var(--gg-color-dark-brown,#3a2e25);text-align:center;margin:0 0 12px}}
 .gg-course-index-subtitle{{font-family:var(--gg-font-editorial,'Source Serif 4',Georgia,serif);color:var(--gg-color-primary-brown,#59473c);text-align:center;margin:0 0 48px;font-size:1.1rem}}
 .gg-course-grid{{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:24px}}

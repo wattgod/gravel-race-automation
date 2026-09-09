@@ -127,7 +127,7 @@ def generate_blog_index_page(output_dir=None):
       color: var(--gg-dark-brown);
       line-height: 1.7;
     }}
-    .gg-blog-index {{ max-width: 1100px; margin: 0 auto; padding: 32px 24px; }}
+    .gg-blog-index {{ max-width: 1200px; margin: 0 auto; padding: 32px 24px; }}
 
     /* Hero */
     .gg-bi-hero {{

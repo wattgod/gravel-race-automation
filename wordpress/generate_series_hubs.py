@@ -1441,7 +1441,7 @@ def build_hub_page(series: dict, race_lookup: dict, race_data: dict) -> str:
 {tokens}
 
 .gg-series-page {{
-  max-width: 960px;
+  max-width: 1200px;
   margin: 0 auto;
   padding: 0 24px;
   font-family: var(--gg-font-data);

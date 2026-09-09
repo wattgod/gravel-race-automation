@@ -71,7 +71,7 @@ def render_page(intel: dict, race_index: list[dict], today: date | None = None) 
     events = flatten_events(intel, race_index, today)
     css = f"""<style>{get_tokens_css()}{get_font_face_css('/race/assets/fonts')}{get_site_header_css()}
 body{{margin:0;background:var(--gg-color-cream);color:var(--gg-color-dark-brown)}}
-.gg-wire{{max-width:1080px;margin:0 auto;padding:var(--gg-spacing-xl) var(--gg-spacing-md)}}
+.gg-wire{{max-width:1200px;margin:0 auto;padding:var(--gg-spacing-xl) var(--gg-spacing-md)}}
 .gg-wire h1,.gg-wire h2{{font-family:var(--gg-font-data);text-transform:uppercase}}
 .gg-wire h1{{font-size:clamp(2rem,8vw,5rem);margin:0;border-bottom:var(--gg-border-thick);padding-bottom:var(--gg-spacing-sm)}}
 .gg-wire-intro{{font-family:var(--gg-font-editorial);font-size:var(--gg-font-size-lg);margin:var(--gg-spacing-md) 0 var(--gg-spacing-xl)}}

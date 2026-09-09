@@ -439,7 +439,7 @@ def build_training_css() -> str:
   font-family: var(--gg-font-data);
   font-size: var(--gg-font-size-2xs);
   color: var(--gg-color-secondary-brown);
-  max-width: 960px;
+  max-width: 1200px;
   margin: 0 auto;
   letter-spacing: var(--gg-letter-spacing-wide);
 }}
@@ -454,7 +454,7 @@ def build_training_css() -> str:
 /* ── Layout ── */
 .gg-tp-section {{
   padding: var(--gg-spacing-2xl) var(--gg-spacing-xl);
-  max-width: 900px;
+  max-width: 1200px;
   margin: 0 auto;
   border-bottom: var(--gg-border-standard);
 }}
@@ -465,7 +465,7 @@ def build_training_css() -> str:
   border-bottom-color: var(--gg-color-primary-brown);
 }}
 .gg-tp-section-alt > * {{
-  max-width: 900px;
+  max-width: 1200px;
   margin-left: auto;
   margin-right: auto;
 }}
@@ -527,7 +527,7 @@ def build_training_css() -> str:
 /* ── Hero ── */
 .gg-tp-hero {{
   padding: var(--gg-spacing-2xl) var(--gg-spacing-xl) var(--gg-spacing-xl);
-  max-width: 900px;
+  max-width: 1200px;
   margin: 0 auto;
   border-bottom: var(--gg-border-standard);
 }}
@@ -537,7 +537,7 @@ def build_training_css() -> str:
   font-weight: var(--gg-font-weight-bold);
   color: var(--gg-color-near-black);
   margin: 0 0 var(--gg-spacing-lg) 0;
-  max-width: 700px;
+  max-width: none;
   text-transform: uppercase;
   letter-spacing: var(--gg-letter-spacing-wide);
   line-height: var(--gg-line-height-tight);
@@ -636,6 +636,7 @@ def build_training_css() -> str:
   color: var(--gg-color-primary-brown);
   margin: 0;
   line-height: var(--gg-line-height-prose);
+  max-width: 68ch;
 }}
 .gg-tp-deliverable-row:nth-child(odd) .gg-tp-deliverable-content {{
   background: var(--gg-color-white);
@@ -859,6 +860,7 @@ def build_training_css() -> str:
   color: var(--gg-color-primary-brown);
   margin: 0;
   line-height: var(--gg-line-height-prose);
+  max-width: 68ch;
 }}
 
 /* ── Pullquote / Rotating Reality Check ── */

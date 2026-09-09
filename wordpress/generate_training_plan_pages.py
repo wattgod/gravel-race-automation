@@ -602,7 +602,7 @@ def build_json_ld(rd: dict, qa: list, canonical: str) -> str:
 
 def build_css() -> str:
     return '''
-.gg-tpp-page { max-width: 1120px; margin: 0 auto; padding: 0 20px 60px; font-family: var(--gg-font-editorial); color: var(--gg-color-primary-brown); }
+.gg-tpp-page { max-width: 1200px; margin: 0 auto; padding: 0 20px 60px; font-family: var(--gg-font-editorial); color: var(--gg-color-primary-brown); }
 .gg-tpp-kicker { font-family: var(--gg-font-data); font-size: 11px; font-weight: 700; letter-spacing: 3px; color: var(--gg-color-secondary-brown); margin: 28px 0 8px; }
 .gg-tpp-hero h1 { font-family: var(--gg-font-data); font-size: clamp(26px, 5vw, 40px); text-transform: uppercase; letter-spacing: 0.03em; line-height: 1.15; margin: 0 0 10px; color: #000; }
 .gg-tpp-facts { font-family: var(--gg-font-data); font-size: 12px; letter-spacing: 1px; text-transform: uppercase; color: var(--gg-color-secondary-brown); margin: 0 0 16px; }

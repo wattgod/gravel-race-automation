@@ -180,5 +180,5 @@ class TestMegaFooterCSS:
         for cls in classes:
             assert cls.startswith("gg-mega-footer"), f"Wrong prefix: .{cls}"
 
-    def test_max_width_960(self):
-        assert "max-width: 960px" in self.css
+    def test_max_width_1200(self):
+        assert "max-width: 1200px" in self.css

@@ -657,7 +657,7 @@ def build_consulting_css() -> str:
   font-family: var(--gg-font-data);
   font-size: var(--gg-font-size-2xs);
   color: var(--gg-color-secondary-brown);
-  max-width: 960px;
+  max-width: 1200px;
   margin: 0 auto;
   letter-spacing: var(--gg-letter-spacing-wide);
 }}

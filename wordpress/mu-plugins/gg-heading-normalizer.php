@@ -117,7 +117,7 @@ function gg_h1_normalizer_styles() {
         return;
     }
     echo '<style id="gg-heading-normalizer-css">'
-        . '.gg-auto-title-wrap{max-width:1100px;margin:0 auto;padding:32px 24px 16px}'
+        . '.gg-auto-title-wrap{max-width:1200px;margin:0 auto;padding:32px 24px 16px}'
         . '.gg-auto-title{margin:0;color:#3a2e25;font-family:"Source Serif 4",Georgia,serif;'
         . 'font-size:clamp(32px,5vw,64px);font-weight:700;line-height:1.05;letter-spacing:-.025em}'
         . '@media(max-width:600px){.gg-auto-title-wrap{padding:24px 20px 12px}}'

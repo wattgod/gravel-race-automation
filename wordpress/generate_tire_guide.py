@@ -820,9 +820,18 @@ a { color: var(--gg-color-teal); text-decoration: none; }
 a:hover { text-decoration: underline; }
 
 .tg-container {
-  max-width: 820px;
+  max-width: 1200px;
   margin: 0 auto;
   padding: 0 var(--gg-spacing-md);
+}
+
+.tg-surface-box p,
+.tg-tire-tagline,
+.tg-tire-why,
+.tg-pressure-note,
+.tg-setup-item p,
+.tg-alt-card p {
+  max-width: 68ch;
 }
 
 /* Header */

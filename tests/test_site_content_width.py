@@ -16,6 +16,7 @@ from generate_coaching import build_coaching_css  # noqa: E402
 from generate_homepage import build_homepage_css  # noqa: E402
 from generate_neo_brutalist import get_page_css  # noqa: E402
 from generate_training_plans import build_training_css  # noqa: E402
+from generate_tire_guide import get_page_css as get_tire_guide_css  # noqa: E402
 from shared_footer import get_mega_footer_css  # noqa: E402
 from shared_header import get_site_header_css  # noqa: E402
 
@@ -68,6 +69,18 @@ def test_training_plan_page_widens_frame_without_stretching_copy():
     assert "max-width: 760px" in _rule(css, ".gg-tp-coaching-copy")
 
 
+def test_tire_guide_widens_data_frame_without_stretching_prose():
+    css = get_tire_guide_css()
+    assert "max-width: 1200px" in _rule(css, ".tg-container")
+    prose_group = """.tg-surface-box p,
+.tg-tire-tagline,
+.tg-tire-why,
+.tg-pressure-note,
+.tg-setup-item p,
+.tg-alt-card p"""
+    assert "max-width: 68ch" in _rule(css, prose_group)
+
+
 def test_coaching_reference_keeps_1200px_frame_and_68ch_prose():
     css = build_coaching_css()
     assert "max-width: 1200px" in _rule(css, ".gg-coach-inner")
@@ -108,6 +121,7 @@ def test_release_overlay_is_width_only_and_preserves_prose_caps():
     assert "max-width: none" in _rule(css, ".gg-tp-section.gg-tp-section-alt")
     assert "max-width: none" in _rule(css, ".gg-tp-hero-title")
     assert "max-width: 68ch" in _rule(css, ".gg-neo-brutalist-page .gg-prose")
+    assert "max-width: 1200px" in _rule(css, ".tg-container")
 
     expected_caps = {
         ".gg-tp-hero-sub": "600px",
@@ -121,3 +135,11 @@ def test_release_overlay_is_width_only_and_preserves_prose_caps():
     }
     for selector, width in expected_caps.items():
         assert f"max-width: {width}" in _rule(css, selector)
+
+    tire_prose_group = """.tg-surface-box p,
+.tg-tire-tagline,
+.tg-tire-why,
+.tg-pressure-note,
+.tg-setup-item p,
+.tg-alt-card p"""
+    assert "max-width: 68ch" in _rule(css, tire_prose_group)

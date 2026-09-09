@@ -22,7 +22,8 @@
 .gg-blog-index,
 .gg-tpp-page,
 .gg-wp-scroll-section,
-.gg-breadcrumb {
+.gg-breadcrumb,
+.tg-container {
   max-width: 1200px;
 }
 
@@ -91,5 +92,14 @@
 }
 
 .gg-neo-brutalist-page .gg-prose {
+  max-width: 68ch;
+}
+
+.tg-surface-box p,
+.tg-tire-tagline,
+.tg-tire-why,
+.tg-pressure-note,
+.tg-setup-item p,
+.tg-alt-card p {
   max-width: 68ch;
 }

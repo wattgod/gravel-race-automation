@@ -283,8 +283,11 @@ def collect_checkout(brand: str) -> dict:
 
 
 def collect_commerce_ledger() -> dict:
-    """Ground truth from the webhook's /api/intel-stats (Railway volume logs):
-    orders WITH fulfillment outcomes, cart recoveries, questionnaire starts."""
+    """Local processing records from /api/intel-stats (Railway volume logs).
+
+    These records expose processing attempts and failures for operations. They
+    are not provider payment receipts or proof of customer fulfillment.
+    """
     secret = os.environ.get("CRON_SECRET", "")
     if not secret:
         return {"ok": False, "error": "CRON_SECRET not set"}
@@ -713,31 +716,35 @@ def load_trend(days: int = 7) -> list[dict]:
             for b in BRANDS:
                 g = snap.get("ga4", {}).get(b, {})
                 funnel = g.get("funnel") or {}
+                available = g.get("ok") is True and isinstance(funnel, dict)
                 compact[b] = {
-                    "sessions": g.get("sessions"),
-                    "purchase_events": funnel.get("purchase"),
-                    "refund_events": funnel.get("refund"),
+                    "sessions": g.get("sessions") if available else None,
+                    "purchase_events": (
+                        funnel.get("purchase")
+                        if available and "purchase" in funnel else None
+                    ),
+                    "refund_events": (
+                        funnel.get("refund")
+                        if available and "refund" in funnel else None
+                    ),
                 }
             mc = snap.get("mission_control", {})
             compact["leads"] = mc.get("new_leads_24h")
             for event in ("purchase", "refund"):
-                values = []
-                for b in BRANDS:
-                    value = (((snap.get("ga4") or {}).get(b) or {}).get("funnel") or {}).get(
-                        event, 0)
-                    try:
-                        values.append(int(value or 0))
-                    except (TypeError, ValueError):
-                        values.append(0)
-                compact[f"{event}_events"] = sum(values)
+                values = [compact[b][f"{event}_events"] for b in BRANDS]
+                if all(isinstance(value, int) and not isinstance(value, bool)
+                       for value in values):
+                    compact[f"{event}_events"] = sum(values)
+                else:
+                    compact[f"{event}_events"] = None
             ledger = snap.get("commerce_ledger") or {}
             if ledger.get("ok"):
-                compact["provider_orders"] = sum(
+                compact["order_processing_records"] = sum(
                     1 for order in (ledger.get("orders") or [])
                     if isinstance(order, dict)
                 )
             else:
-                compact["provider_orders"] = None
+                compact["order_processing_records"] = None
             trend.append(compact)
         except Exception:
             continue
@@ -791,7 +798,7 @@ def _collector_failures(collected: dict) -> list[str]:
                 broken.append(f"GA4 {label} collector failed: {error}")
     for key, label in (
         ("mission_control", "Mission Control"),
-        ("commerce_ledger", "commerce ledger"),
+        ("commerce_ledger", "order processing records"),
         ("social", "social"),
         ("workflows", "workflows"),
     ):
@@ -906,36 +913,39 @@ def render_report(collected: dict) -> str:
             f"- **{meta['label']} top landing:** {landing}.",
         ])
 
-    lines.extend(["", "## COMMERCE (GROUND TRUTH)"])
+    lines.extend(["", "## ORDER PROCESSING (LOCAL RECORDS)"])
     ledger = collected.get("commerce_ledger") or {}
     if not ledger.get("ok"):
-        lines.append("- commerce ledger unavailable.")
+        lines.append("- order processing records unavailable.")
     else:
         orders = list(ledger.get("orders") or [])
-        failed_orders = list(ledger.get("failed_orders") or [])
-        failed_orders.extend(o for o in orders if o.get("success") is False)
+        if not orders:
+            orders = list(ledger.get("failed_orders") or [])
+        failed_orders = [o for o in orders if o.get("success") is False]
         successful_orders = [o for o in orders if o.get("success") is not False]
         recoveries = list(ledger.get("recoveries") or [])
         starts = ledger.get("questionnaire_starts") or 0
         if not failed_orders and not successful_orders and not recoveries and not starts:
-            lines.append("- no orders, cart recoveries, or questionnaire starts.")
+            lines.append(
+                "- no processing attempts, cart recoveries, or questionnaire starts."
+            )
         else:
-            seen_failures = set()
             for order in failed_orders:
-                identity = (order.get("timestamp"), order.get("email"), order.get("error"))
-                if identity in seen_failures:
-                    continue
-                seen_failures.add(identity)
                 product = order.get("product_type") or order.get("product") or "order"
-                error = _display(order.get("error"), "unknown fulfillment error")
+                error = _display(order.get("error"), "unknown processing error")
                 lines.append(
-                    f"- **FAILED ORDER:** {_person(order)} — {product}; "
-                    f"fulfillment FAILED: {error}."
+                    f"- **PROCESSING FAILURE:** {_person(order)} — {product}; "
+                    f"processing FAILED: {error}."
                 )
             for order in successful_orders:
                 product = order.get("product_type") or order.get("product") or "order"
-                outcome = "fulfilled" if order.get("success") is True else "outcome unknown"
-                lines.append(f"- order: {_person(order)} — {product}; fulfillment {outcome}.")
+                outcome = (
+                    "processing succeeded"
+                    if order.get("success") is True else "processing outcome unknown"
+                )
+                lines.append(
+                    f"- processing record: {_person(order)} — {product}; {outcome}."
+                )
             for recovery in recoveries:
                 product = recovery.get("product") or recovery.get("product_type") or "order"
                 lines.append(f"- cart recovery: {_person(recovery)} — {product}.")
@@ -1098,17 +1108,15 @@ def render_report(collected: dict) -> str:
 
     lines.extend(["", "## BROKEN"])
     broken = []
-    failed_for_broken = list(ledger.get("failed_orders") or [])
-    failed_for_broken.extend(
-        order for order in (ledger.get("orders") or []) if order.get("success") is False)
-    seen_failures = set()
+    processing_records = list(ledger.get("orders") or [])
+    failed_for_broken = [
+        order for order in processing_records if order.get("success") is False
+    ]
+    if not processing_records:
+        failed_for_broken = list(ledger.get("failed_orders") or [])
     for order in failed_for_broken:
-        identity = (order.get("timestamp"), order.get("email"), order.get("error"))
-        if identity in seen_failures:
-            continue
-        seen_failures.add(identity)
-        error = _display(order.get("error"), "unknown fulfillment error")
-        broken.append(f"FAILED ORDER: {_person(order)} — {error}")
+        error = _display(order.get("error"), "unknown processing error")
+        broken.append(f"PROCESSING FAILURE: {_person(order)} — {error}")
     broken.extend(_collector_failures(collected))
     if mc.get("ok"):
         for error in mc.get("errors_24h") or []:
@@ -1222,9 +1230,13 @@ this started (Jun 2026): ~35 users/day, ~1 sale/month.
 
 Register: deadpan, terse, zero hype, zero filler. Like a good analyst who respects the \
 reader's time. NEVER invent or extrapolate a number not present in the context below. \
-Only the commerce ledger establishes provider orders and fulfillment outcomes. GA4 \
-purchase and refund counts are behavioral events, not orders; never use them as order \
-counts or infer revenue from them. The factual report is already \
+GA4 purchase and refund counts are behavioral events, not orders; never use them as \
+order counts or infer revenue from them. The `commerce_ledger` key is a legacy name \
+for local order-processing log records. Those records may contain retries, duplicate \
+attempts, failures, or synthetic traffic. A successful processing record does not \
+establish payment or customer fulfillment. Provider payments, refunds, distinct orders, \
+and customer fulfillment are unavailable without a separate provider reconciliation. \
+The factual report is already \
 rendered; do not repeat its sections or add new facts.
 
 Measurement epochs in DATA mark analytics collection changes, not demand changes. If a \

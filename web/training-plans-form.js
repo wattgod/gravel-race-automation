@@ -352,37 +352,46 @@
 
     // Humanize slug as fallback name: "unbound-200" → "Unbound 200"
     var fallbackName = raceSlug.replace(/-/g, ' ').replace(/\b\w/g, function(c) { return c.toUpperCase(); });
+    prefilledRaceName = fallbackName;
 
-    // Try to fetch race-index.json for accurate display name + date
+    function applyNameAndPriority(name) {
+      prefilledRaceName = name;
+      var nameField = form.querySelector('input[name="race_0_name"]');
+      if (nameField && (!nameField.value || nameField.value === fallbackName)) {
+        nameField.value = name;
+      }
+      var priorityField = form.querySelector('select[name="race_0_priority"]');
+      if (priorityField && !priorityField.value) {
+        priorityField.value = 'A';
+      }
+    }
+
+    applyNameAndPriority(fallbackName);
+
+    // race-index.json carries the exact display name and, when the canonical
+    // profile explicitly confirms one event day, a questionnaire-safe date.
     fetch('/wp-content/uploads/race-index.json')
       .then(function(r) { return r.ok ? r.json() : Promise.reject(); })
       .then(function(races) {
         var match = races.find(function(r) { return r.slug === raceSlug; });
-        prefilledRaceName = match ? match.name : fallbackName;
-        var nameField = form.querySelector('input[name="race_0_name"]');
-        if (nameField && !nameField.value) {
-          nameField.value = prefilledRaceName;
-        }
-        var priorityField = form.querySelector('select[name="race_0_priority"]');
-        if (priorityField && !priorityField.value) {
-          priorityField.value = 'A';
+        applyNameAndPriority(match ? match.name : fallbackName);
+        var raceDate = match && match.questionnaire_date;
+        if (typeof raceDate === 'string' && /^\d{4}-\d{2}-\d{2}$/.test(raceDate)) {
+          var parsedRaceDate = new Date(raceDate + 'T00:00:00');
+          var today = new Date();
+          today.setHours(0, 0, 0, 0);
+          var dateField = form.querySelector('input[name="race_0_date"]');
+          if (!isNaN(parsedRaceDate.getTime()) && parsedRaceDate >= today && dateField && !dateField.value) {
+            dateField.value = raceDate;
+          }
         }
         updatePriceDisplay();
         track('tp_race_prefill', { race_slug: raceSlug, matched: !!match });
       })
       .catch(function() {
-        // Fallback: use humanized slug
-        prefilledRaceName = fallbackName;
-        var nameField = form.querySelector('input[name="race_0_name"]');
-        if (nameField && !nameField.value) {
-          nameField.value = fallbackName;
-        }
-        var priorityField = form.querySelector('select[name="race_0_priority"]');
-        if (priorityField && !priorityField.value) {
-          priorityField.value = 'A';
-        }
         track('tp_race_prefill', { race_slug: raceSlug, matched: false });
       });
+
   })();
 
   // ---- Update price when race fields change ----

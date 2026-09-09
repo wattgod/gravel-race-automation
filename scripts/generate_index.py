@@ -14,6 +14,7 @@ Usage:
 """
 
 import argparse
+from datetime import date
 import json
 import re
 import sys
@@ -280,6 +281,57 @@ def extract_year(vitals: dict) -> Optional[int]:
     return None
 
 
+def _questionnaire_date_from_vitals(vitals: dict) -> Optional[str]:
+    """Return an ISO date only when the canonical vitals explicitly confirm one day.
+
+    The broader date catalog also represents estimates and multi-day events. Those
+    values are useful for discovery and countdowns, but a questionnaire date drives
+    plan timing and price. Keep that field customer-entered unless the first dated
+    edition is both a single day and explicitly marked confirmed in the profile.
+    """
+    if vitals.get("course_status") == "source_blocked":
+        return None
+
+    date_specific = str(vitals.get("date_specific", "") or "").strip()
+    primary_edition = date_specific.split(";", 1)[0]
+    if not re.search(r"\bconfirmed\b", primary_edition, re.IGNORECASE):
+        return None
+    if re.search(
+        r"(?:\bnot\b[^.;)]{0,24}\bconfirmed\b|\bunconfirmed\b|\bprovisional\b|"
+        r"tentative|estimated?|pending|tbd)\b",
+        primary_edition,
+        re.IGNORECASE,
+    ):
+        return None
+
+    match = re.match(
+        r"^\s*(20\d{2})\s*:\s*(?:Monday|Tuesday|Wednesday|Thursday|Friday|"
+        r"Saturday|Sunday)?\s*,?\s*(January|February|March|April|May|June|July|"
+        r"August|September|October|November|December)\s+(\d{1,2})\b",
+        primary_edition,
+        re.IGNORECASE,
+    )
+    if not match:
+        return None
+    if re.match(
+        r"\s*(?:-|–|—|to)\s*(?:[A-Za-z]+\s+)?\d{1,2}\b",
+        primary_edition[match.end():],
+        re.IGNORECASE,
+    ):
+        return None
+
+    year = int(match.group(1))
+    month = [
+        "january", "february", "march", "april", "may", "june",
+        "july", "august", "september", "october", "november", "december",
+    ].index(match.group(2).lower()) + 1
+    day = int(match.group(3))
+    try:
+        return date(year, month, day).isoformat()
+    except ValueError:
+        return None
+
+
 def build_index_entry_from_profile(slug: str, data: dict) -> dict:
     """Build index entry from a canonical race JSON."""
     race = data.get("race", {})
@@ -328,6 +380,10 @@ def build_index_entry_from_profile(slug: str, data: dict) -> dict:
         "discipline": rating.get("discipline", "gravel"),
         "has_tire_guide": bool(race.get("tire_recommendations", {}).get("primary")),
     }
+
+    questionnaire_date = _questionnaire_date_from_vitals(vitals)
+    if questionnaire_date:
+        entry["questionnaire_date"] = questionnaire_date
 
     # Include coordinates if available
     if vitals.get("lat") is not None and vitals.get("lng") is not None:

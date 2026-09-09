@@ -264,7 +264,7 @@ def build_how_it_works() -> str:
         ("02", "Connect on TrainingPeaks",
          "Attach to my TrainingPeaks Coach Account. This is how the plan gets to your calendar. Free TrainingPeaks account works fine."),
         ("03", "I Build Your Plan",
-         "Your intake hits the methodology engine. The training approach gets selected based on your profile. Polarized for the time-crunched. Pyramidal for the balanced. Block for the serious. Matched to your availability and ability."),
+         "I choose the training approach that fits your available time, experience, and race demands."),
         ("04", "Plan Drops Into Your Calendar",
          "Your plan, personally reviewed and delivered in TrainingPeaks within 24 hours."),
     ]

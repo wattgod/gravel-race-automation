@@ -540,13 +540,13 @@ def build_cta(rd: dict) -> str:
   <p>The free version of preparing for {name} is this page plus the
   <a href="/race/{slug}/prep-kit/" data-cta="tpp_cta_kit">prep kit</a>.
   The custom version is a plan built from your hours, your schedule, your
-  fitness markers, and this exact course &mdash; delivered to your
-  TrainingPeaks calendar the same day.</p>
+  fitness markers, and this exact course &mdash; personally reviewed and
+  delivered in TrainingPeaks within 24 hours.</p>
   <div class="gg-tpp-cta-row">
     <a href="{QUESTIONNAIRE_URL}?race={slug}" class="gg-btn" data-cta="tpp_footer_build" id="gg-tpp-footer-cta">BUILD MY PLAN &mdash; $15/WK</a>
     <a href="/race/{slug}/" class="gg-btn gg-btn--outline" data-cta="tpp_race_page">READ THE {name.upper()} REVIEW</a>
   </div>
-  <p class="gg-tpp-guarantee">7-day full refund. Same-day delivery. $249 cap.</p>
+  <p class="gg-tpp-guarantee">7-day full refund. Delivery within 24 hours. $249 cap.</p>
 </section>'''
 
 

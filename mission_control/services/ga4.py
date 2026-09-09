@@ -26,6 +26,18 @@ logger = logging.getLogger(__name__)
 
 CACHE_TTL_HOURS = 4
 
+# Keep this list aligned with the events already emitted by the site and the
+# standard commerce lifecycle. These are independently aggregated event totals;
+# this service does not join them into a user, session, product, or order cohort.
+CONVERSION_EVENT_NAMES = frozenset({
+    "email_capture", "prep_kit_unlock", "quiz_complete", "plan_request",
+    "exit_intent_capture", "fueling_calculate", "review_submit",
+    "form_start", "tp_form_start", "form_submit", "tp_form_submit",
+    "view_item_list", "select_item", "view_item", "add_to_wishlist",
+    "add_to_cart", "remove_from_cart", "view_cart", "begin_checkout",
+    "add_shipping_info", "add_payment_info", "purchase", "refund",
+})
+
 
 def _get_cached(cache_key: str) -> dict | None:
     """Get cached data if fresh enough. Returns None if caching unavailable."""
@@ -211,8 +223,8 @@ def get_daily_sessions(days: int = 90) -> list[dict]:
 
 
 def get_conversion_events(days: int = 30) -> list[dict]:
-    """Key conversion events: email captures, plan requests, quiz completions."""
-    cache_key = f"conversion_events_{days}"
+    """Independent totals for lead and commerce events; no cohort join."""
+    cache_key = f"conversion_events_v2_{days}"
     cached = _get_cached(cache_key)
     if cached:
         return cached
@@ -225,6 +237,8 @@ def get_conversion_events(days: int = 30) -> list[dict]:
         from google.analytics.data_v1beta.types import (
             DateRange,
             Dimension,
+            Filter,
+            FilterExpression,
             Metric,
             RunReportRequest,
         )
@@ -234,20 +248,19 @@ def get_conversion_events(days: int = 30) -> list[dict]:
             dimensions=[Dimension(name="eventName")],
             metrics=[Metric(name="eventCount")],
             date_ranges=[DateRange(start_date=f"{days}daysAgo", end_date="today")],
+            dimension_filter=FilterExpression(filter=Filter(
+                field_name="eventName",
+                in_list_filter=Filter.InListFilter(
+                    values=sorted(CONVERSION_EVENT_NAMES),
+                ),
+            )),
         )
         response = client.run_report(request)
-
-        # Filter to conversion-relevant events
-        conversion_events = {
-            "email_capture", "prep_kit_unlock", "quiz_complete",
-            "plan_request", "exit_intent_capture", "fueling_calculate",
-            "review_submit",
-        }
 
         events = []
         for row in response.rows:
             name = row.dimension_values[0].value
-            if name in conversion_events:
+            if name in CONVERSION_EVENT_NAMES:
                 events.append({
                     "event": name,
                     "count": int(row.metric_values[0].value),

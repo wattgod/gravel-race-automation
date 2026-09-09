@@ -30,11 +30,11 @@ def prepare_ga4_credentials(temp_parent: Path | None = None) -> str:
     ):
         return "json_invalid_shape"
 
-    target_dir = Path(tempfile.mkdtemp(
-        prefix="ga4-runtime-", dir=temp_parent))
-    os.chmod(target_dir, 0o700)
     target: Path | None = None
     try:
+        target_dir = Path(tempfile.mkdtemp(
+            prefix="ga4-runtime-", dir=temp_parent))
+        os.chmod(target_dir, 0o700)
         fd, filename = tempfile.mkstemp(
             prefix="ga4-credentials-", suffix=".json", dir=target_dir)
         target = Path(filename)

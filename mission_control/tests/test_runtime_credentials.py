@@ -49,3 +49,15 @@ def test_invalid_inputs_do_not_set_path_or_echo_secret(tmp_path, monkeypatch):
     assert result == "json_invalid_shape"
     assert "do-not-echo" not in result
     assert "GA4_CREDENTIALS_PATH" not in os.environ
+
+
+def test_runtime_directory_failure_leaves_ga4_unavailable(monkeypatch):
+    monkeypatch.delenv("GA4_CREDENTIALS_PATH", raising=False)
+    monkeypatch.setenv("GA4_CREDENTIALS_JSON", json.dumps(_credential()))
+
+    def fail(*args, **kwargs):
+        raise OSError("private material must not appear here")
+
+    monkeypatch.setattr("mission_control.runtime_credentials.tempfile.mkdtemp", fail)
+    assert prepare_ga4_credentials() == "write_failed"
+    assert "GA4_CREDENTIALS_PATH" not in os.environ

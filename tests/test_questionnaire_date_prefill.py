@@ -51,3 +51,18 @@ def test_exact_date_without_explicit_confirmation_is_not_promoted():
     vitals = {"date_specific": "2027: April 17 (Saturday)"}
 
     assert _questionnaire_date_from_vitals(vitals) is None
+
+
+def test_cross_month_ranges_are_not_published_for_prefill():
+    for separator in ("-", " to "):
+        vitals = {
+            "date_specific": f"2027: June 30{separator}July 2 (CONFIRMED)"
+        }
+
+        assert _questionnaire_date_from_vitals(vitals) is None
+
+
+def test_not_yet_confirmed_date_is_not_published_for_prefill():
+    vitals = {"date_specific": "2027: June 30 (not yet confirmed)"}
+
+    assert _questionnaire_date_from_vitals(vitals) is None

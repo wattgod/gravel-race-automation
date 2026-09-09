@@ -297,7 +297,7 @@ def _questionnaire_date_from_vitals(vitals: dict) -> Optional[str]:
     if not re.search(r"\bconfirmed\b", primary_edition, re.IGNORECASE):
         return None
     if re.search(
-        r"\b(?:not\s+(?:officially\s+)?confirmed|unconfirmed|provisional|"
+        r"(?:\bnot\b[^.;)]{0,24}\bconfirmed\b|\bunconfirmed\b|\bprovisional\b|"
         r"tentative|estimated?|pending|tbd)\b",
         primary_edition,
         re.IGNORECASE,
@@ -313,7 +313,11 @@ def _questionnaire_date_from_vitals(vitals: dict) -> Optional[str]:
     )
     if not match:
         return None
-    if re.match(r"\s*(?:-|–|—|to)\s*\d{1,2}", primary_edition[match.end():]):
+    if re.match(
+        r"\s*(?:-|–|—|to)\s*(?:[A-Za-z]+\s+)?\d{1,2}\b",
+        primary_edition[match.end():],
+        re.IGNORECASE,
+    ):
         return None
 
     year = int(match.group(1))

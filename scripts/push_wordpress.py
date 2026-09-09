@@ -18,6 +18,12 @@ from dotenv import load_dotenv
 from pathlib import Path
 
 try:
+    from scripts.prep_kit_fact_gate import GateError, validate_release as validate_prep_kit_fact_release
+except ModuleNotFoundError:
+    # Direct invocation puts scripts/ rather than the repository root on sys.path.
+    from prep_kit_fact_gate import GateError, validate_release as validate_prep_kit_fact_release
+
+try:
     from scripts.road_migration import (
         DEFAULT_MAP_PATH as ROAD_MIGRATION_MAP_PATH,
         DEFAULT_RACE_DATA_DIR as ROAD_MIGRATION_RACE_DATA_DIR,
@@ -1533,6 +1539,30 @@ def apply_prep_kit_gate(args) -> None:
         args.sync_prep_kits = True
 
 
+def apply_prep_kit_fact_gate(args) -> None:
+    """Refuse prep-kit publication before any sync if its review packet is absent.
+
+    This check intentionally has no escape hatch.  It validates the exact local
+    payload against a fresh, operator-captured live baseline and an offline
+    independent-review packet.  ``sync_prep_kits`` repeats the check so direct
+    callers cannot bypass the CLI boundary.
+    """
+    if not args.sync_prep_kits:
+        return
+    if not args.prep_kit_live_baseline_dir or not args.prep_kit_fact_manifest:
+        print("✗ PREP-KIT FACT GATE: --sync-prep-kits requires "
+              "--prep-kit-live-baseline-dir and --prep-kit-fact-manifest — nothing was pushed.")
+        sys.exit(1)
+    try:
+        report = validate_prep_kit_fact_release(
+            args.prep_kit_dir, args.prep_kit_live_baseline_dir, args.prep_kit_fact_manifest)
+    except GateError as exc:
+        print(f"✗ PREP-KIT FACT GATE: {exc} — nothing was pushed.")
+        sys.exit(1)
+    print(f"  Prep-kit fact gate: {len(report.proposed_pages)} pages and "
+          f"{len(report.changed_facts)} independently reviewed factual deltas")
+
+
 def sync_pages(pages_dir: str):
     """Upload race pages to /race/ on SiteGround via tar+ssh pipe.
 
@@ -2671,16 +2701,17 @@ def sync_photos(photos_dir: str):
     return f"{wp_url}/race-photos/"
 
 
-def sync_prep_kits(prep_kit_dir: str):
+def sync_prep_kits(prep_kit_dir: str, live_baseline_dir: str | None = None,
+                   fact_manifest: str | None = None):
     """Upload prep kit pages to /race/{slug}/prep-kit/ on SiteGround via tar+ssh.
 
     Converts flat {slug}.html files to {slug}/prep-kit/index.html directory
     structure under /race/. Same tar+ssh pattern as sync_pages().
     """
-    ssh = get_ssh_credentials()
-    if not ssh:
+    if not live_baseline_dir or not fact_manifest:
+        print("✗ PREP-KIT FACT GATE: direct sync_prep_kits requires a live baseline "
+              "directory and review manifest — nothing was pushed.")
         return None
-    host, user, port = ssh
 
     pk_path = Path(prep_kit_dir)
     if not pk_path.exists():
@@ -2691,6 +2722,17 @@ def sync_prep_kits(prep_kit_dir: str):
     if not html_files:
         print(f"✗ No .html files found in {pk_path}")
         return None
+
+    try:
+        validate_prep_kit_fact_release(pk_path, live_baseline_dir, fact_manifest)
+    except GateError as exc:
+        print(f"✗ PREP-KIT FACT GATE: {exc} — nothing was pushed.")
+        return None
+
+    ssh = get_ssh_credentials()
+    if not ssh:
+        return None
+    host, user, port = ssh
 
     remote_base = "~/www/gravelgodcycling.com/public_html/race"
 
@@ -4145,6 +4187,14 @@ if __name__ == "__main__":
         help="Path to prep kit directory (default: wordpress/output/prep-kit)"
     )
     parser.add_argument(
+        "--prep-kit-live-baseline-dir", default=None,
+        help="Fresh captured-live prep-kit HTML directory required for --sync-prep-kits"
+    )
+    parser.add_argument(
+        "--prep-kit-fact-manifest", default=None,
+        help="Offline rendered-fact review manifest required for --sync-prep-kits"
+    )
+    parser.add_argument(
         "--plan-dir", default="wordpress/output/training-plan",
         help="Path to training-plan pages dir (default: wordpress/output/training-plan)"
     )
@@ -4325,6 +4375,9 @@ if __name__ == "__main__":
 
     # Prep-kit gate (#122): decided BEFORE any sync runs so a refusal pushes nothing.
     apply_prep_kit_gate(args)
+    # Rendered-fact gate: a kit sync must bind the exact payload to its captured
+    # live baseline and independent review before credentials or upload are used.
+    apply_prep_kit_fact_gate(args)
 
     # Any sync returning falsy marks the whole run failed — a deploy that
     # half-happens must exit non-zero so CI cannot report silent success.
@@ -4396,7 +4449,8 @@ if __name__ == "__main__":
     if args.sync_photos:
         _run("sync-photos", sync_photos, args.photos_dir)
     if args.sync_prep_kits:
-        _run("sync-prep-kits", sync_prep_kits, args.prep_kit_dir)
+        _run("sync-prep-kits", sync_prep_kits, args.prep_kit_dir,
+             args.prep_kit_live_baseline_dir, args.prep_kit_fact_manifest)
     if args.sync_plan_pages:
         _run("sync-plan-pages", sync_plan_pages, args.plan_dir)
     if args.sync_tire_guides:

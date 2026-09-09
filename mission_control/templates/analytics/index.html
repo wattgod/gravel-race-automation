@@ -29,19 +29,19 @@
         <div class="gg-stat-card__label">Top 20 Pageviews (30d)</div>
     </div>
     <div class="gg-stat-card">
-        <div class="gg-stat-card__value mc-text-teal">{{ "{:,}".format(event_summary.checkout_start_events) }}</div>
+        <div class="gg-stat-card__value mc-text-teal">{% if event_data_available %}{{ "{:,}".format(event_summary.checkout_start_events) }}{% else %}Unavailable{% endif %}</div>
         <div class="gg-stat-card__label">Checkout starts (30d)</div>
     </div>
     <div class="gg-stat-card">
-        <div class="gg-stat-card__value mc-text-teal">{{ "{:,}".format(event_summary.purchase_events) }}</div>
+        <div class="gg-stat-card__value mc-text-teal">{% if event_data_available %}{{ "{:,}".format(event_summary.purchase_events) }}{% else %}Unavailable{% endif %}</div>
         <div class="gg-stat-card__label">Purchase events (30d)</div>
     </div>
     <div class="gg-stat-card">
-        <div class="gg-stat-card__value">{{ "{:,}".format(event_summary.refund_events) }}</div>
+        <div class="gg-stat-card__value">{% if event_data_available %}{{ "{:,}".format(event_summary.refund_events) }}{% else %}Unavailable{% endif %}</div>
         <div class="gg-stat-card__label">Refund events (30d)</div>
     </div>
     <div class="gg-stat-card">
-        <div class="gg-stat-card__value">{{ "{:,}".format(event_summary.email_capture_events) }}</div>
+        <div class="gg-stat-card__value">{% if event_data_available %}{{ "{:,}".format(event_summary.email_capture_events) }}{% else %}Unavailable{% endif %}</div>
         <div class="gg-stat-card__label">Email capture events (30d)</div>
     </div>
 </div>
@@ -91,7 +91,9 @@
         </div>
         <div class="mc-card__body">
             <p class="mc-text-muted" style="font-size:var(--gg-font-size-sm)">Independent event counts; no cross-stage conversion rate.</p>
-            {% if event_totals %}
+            {% if not event_data_available %}
+            <p class="mc-text-muted" style="font-size:var(--gg-font-size-sm)">GA4 event data unavailable. Counts are not shown as zero.</p>
+            {% elif event_totals %}
             <table class="gg-table gg-table--compact">
                 <thead>
                     <tr>
@@ -109,7 +111,7 @@
                 </tbody>
             </table>
             {% else %}
-            <p class="mc-text-muted" style="font-size:var(--gg-font-size-sm)">No lead or commerce event data available.</p>
+            <p class="mc-text-muted" style="font-size:var(--gg-font-size-sm)">No lead or commerce events observed in this period.</p>
             {% endif %}
         </div>
     </div>

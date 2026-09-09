@@ -2,6 +2,9 @@
 from __future__ import annotations
 
 from copy import deepcopy
+import json
+import sys
+from types import ModuleType, SimpleNamespace
 
 import pytest
 
@@ -174,6 +177,105 @@ def test_compute_constraint_refuses_rates_for_nonmonotonic_event_totals():
     }
     assert not any(key.endswith("_pct") for key in result)
     assert "binding_constraint" not in result
+
+
+def test_collect_ga4_filters_both_event_queries_before_limit(monkeypatch):
+    from scripts import daily_intel
+
+    class Message:
+        def __init__(self, **kwargs):
+            self.__dict__.update(kwargs)
+
+    class Filter(Message):
+        class InListFilter(Message):
+            pass
+
+    def row(name, count):
+        return SimpleNamespace(
+            dimension_values=[SimpleNamespace(value=name)],
+            metric_values=[SimpleNamespace(value=str(count))],
+        )
+
+    class Client:
+        def __init__(self):
+            self.event_requests = []
+
+        def run_report(self, request):
+            dimensions = [item.name for item in request.dimensions]
+            if dimensions == ["eventName"]:
+                self.event_requests.append(request)
+                if getattr(request, "dimension_filter", None):
+                    return SimpleNamespace(rows=[row("purchase", 2), row("refund", 7)])
+                return SimpleNamespace(rows=[row(f"unrelated_{i}", 1) for i in range(100)])
+            return SimpleNamespace(rows=[])
+
+    client = Client()
+    fake_api = ModuleType("google.analytics.data_v1beta")
+    fake_api.BetaAnalyticsDataClient = lambda: client
+    fake_types = ModuleType("google.analytics.data_v1beta.types")
+    for name, value in {
+        "DateRange": Message,
+        "Dimension": Message,
+        "Filter": Filter,
+        "FilterExpression": Message,
+        "Metric": Message,
+        "RunReportRequest": Message,
+    }.items():
+        setattr(fake_types, name, value)
+    monkeypatch.setitem(sys.modules, "google.analytics.data_v1beta", fake_api)
+    monkeypatch.setitem(sys.modules, "google.analytics.data_v1beta.types", fake_types)
+    monkeypatch.setenv(daily_intel.BRANDS["gravelgod"]["property_env"], "123")
+
+    result = daily_intel.collect_ga4("gravelgod")
+
+    assert result["funnel"]["purchase"] == 2
+    assert result["funnel"]["refund"] == 7
+    assert result["funnel_28d"]["purchase"] == 2
+    assert result["funnel_28d"]["refund"] == 7
+    assert len(client.event_requests) == 2
+    for request in client.event_requests:
+        event_filter = request.dimension_filter.filter
+        assert event_filter.field_name == "eventName"
+        assert set(event_filter.in_list_filter.values) == set(daily_intel.FUNNEL_EVENTS)
+
+
+def test_load_trend_keeps_ga4_events_distinct_from_provider_orders(tmp_path, monkeypatch):
+    from scripts import daily_intel
+
+    snapshot = {
+        "ga4": {
+            "gravelgod": {
+                "sessions": 10,
+                "funnel": {"purchase": 9, "refund": 4},
+            },
+            "roadielabs": {
+                "sessions": 5,
+                "funnel": {"purchase": 2, "refund": 1},
+            },
+        },
+        "commerce_ledger": {
+            "ok": True,
+            "orders": [{"id": "provider-order-1", "success": True}],
+            "failed_orders": [],
+        },
+        "mission_control": {
+            "new_orders_24h_UNRELIABLE": "use ga4 purchase counts",
+        },
+    }
+    (tmp_path / "2026-09-07.json").write_text(json.dumps(snapshot))
+    monkeypatch.setattr(daily_intel, "SNAPSHOT_DIR", tmp_path)
+
+    [trend] = daily_intel.load_trend()
+
+    assert trend["purchase_events"] == 11
+    assert trend["refund_events"] == 5
+    assert trend["provider_orders"] == 1
+    assert "orders" not in trend
+    assert trend["gravelgod"]["purchase_events"] == 9
+    assert trend["gravelgod"]["refund_events"] == 4
+    assert "purchases" not in trend["gravelgod"]
+    assert "GA4 purchase and refund counts are behavioral events, not orders" in daily_intel.INTERPRET_PROMPT
+    assert "Only the commerce ledger establishes provider orders" in daily_intel.INTERPRET_PROMPT
 
 
 def test_empty_epoch_list_preserves_report_behavior(collected):
@@ -467,6 +569,7 @@ def test_collect_mission_control_reads_newest_rows_past_the_1000_row_cap(monkeyp
     assert out["clicks_24h"] == 1
     assert out["new_leads_24h"] == 2
     assert out["leads_by_brand"] == {"gravelgod": 1, "roadielabs": 1}
+    assert "new_orders_24h_UNRELIABLE" not in out
     hot = {lead["email"]: lead for lead in out["hot_leads_14d"]}
     assert set(hot) == {"new@example.com", "new2@example.com"}
     assert hot["new@example.com"]["opens"] == 1

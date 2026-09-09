@@ -176,7 +176,7 @@ def _safe(fn):
 def collect_ga4(brand: str) -> dict:
     from google.analytics.data_v1beta import BetaAnalyticsDataClient
     from google.analytics.data_v1beta.types import (
-        DateRange, Dimension, Metric, RunReportRequest,
+        DateRange, Dimension, Filter, FilterExpression, Metric, RunReportRequest,
     )
 
     creds = os.environ.get("GA4_CREDENTIALS", str(PROJECT_ROOT / "ga4-credentials.json"))
@@ -191,21 +191,30 @@ def collect_ga4(brand: str) -> dict:
     y = (date.today() - timedelta(days=1)).isoformat()
     week_ago = (date.today() - timedelta(days=7)).isoformat()  # 7 full days ending yesterday
 
-    def run(metrics, dimensions=None, date_from=y, date_to=y, limit=100):
-        return client.run_report(RunReportRequest(
+    def run(metrics, dimensions=None, date_from=y, date_to=y, limit=100,
+            dimension_filter=None):
+        request_args = dict(
             property=f"properties/{prop}",
             date_ranges=[DateRange(start_date=date_from, end_date=date_to)],
             metrics=[Metric(name=m) for m in metrics],
             dimensions=[Dimension(name=d) for d in (dimensions or [])],
             limit=limit,
-        ))
+        )
+        if dimension_filter is not None:
+            request_args["dimension_filter"] = dimension_filter
+        return client.run_report(RunReportRequest(**request_args))
+
+    event_filter = FilterExpression(filter=Filter(
+        field_name="eventName",
+        in_list_filter=Filter.InListFilter(values=sorted(FUNNEL_EVENTS)),
+    ))
 
     totals = run(["sessions", "totalUsers", "screenPageViews"])
     t = totals.rows[0].metric_values if totals.rows else None
     week = run(["sessions"], date_from=week_ago, date_to=y)
     week_sessions = int(week.rows[0].metric_values[0].value) if week.rows else 0
 
-    events = run(["eventCount"], ["eventName"])
+    events = run(["eventCount"], ["eventName"], dimension_filter=event_filter)
     ev = {r.dimension_values[0].value: int(r.metric_values[0].value)
           for r in events.rows}
 
@@ -218,7 +227,10 @@ def collect_ga4(brand: str) -> dict:
     m_ago = (date.today() - timedelta(days=28)).isoformat()
     agg = run(["sessions"], date_from=m_ago, date_to=y)
     sessions_28d = int(agg.rows[0].metric_values[0].value) if agg.rows else 0
-    ev28 = run(["eventCount"], ["eventName"], date_from=m_ago, date_to=y)
+    ev28 = run(
+        ["eventCount"], ["eventName"], date_from=m_ago, date_to=y,
+        dimension_filter=event_filter,
+    )
     ev28d = {r.dimension_values[0].value: int(r.metric_values[0].value)
              for r in ev28.rows}
     funnel_28d = {stage: sum(ev28d.get(e, 0) for e in evs)
@@ -335,11 +347,6 @@ def collect_mission_control() -> dict:
     clicked = sum(1 for s in sends if (s.get("clicked_at") or "") >= cutoff)
     bounced = sum(1 for s in new_sends if s.get("status") == "bounced")
 
-    # NOTE: gg_athletes is NOT written by the purchase path (verified Jul 2026
-    # — real June sales never appeared there). Orders truth = GA4 purchase
-    # events (see ga4 collector) + the [GG] FAILED emails for fulfillment.
-    new_orders = []
-
     audit = db.get_audit_log(limit=200)
     errors = [
         {"action": a.get("action"), "details": (a.get("details") or "")[:160]}
@@ -393,7 +400,6 @@ def collect_mission_control() -> dict:
         "countdown_enrollments": countdown,
         "emails_sent_24h": len(new_sends),
         "opens_24h": opened, "clicks_24h": clicked, "bounces_24h": bounced,
-        "new_orders_24h_UNRELIABLE": "use ga4 purchase counts — gg_athletes is not written by purchases",
         "errors_24h": errors[:10],
     }
 
@@ -706,19 +712,32 @@ def load_trend(days: int = 7) -> list[dict]:
             compact = {"date": f.stem}
             for b in BRANDS:
                 g = snap.get("ga4", {}).get(b, {})
-                compact[b] = {"sessions": g.get("sessions"),
-                              "purchases": (g.get("funnel") or {}).get("purchase")}
+                funnel = g.get("funnel") or {}
+                compact[b] = {
+                    "sessions": g.get("sessions"),
+                    "purchase_events": funnel.get("purchase"),
+                    "refund_events": funnel.get("refund"),
+                }
             mc = snap.get("mission_control", {})
             compact["leads"] = mc.get("new_leads_24h")
-            purchases = []
-            for b in BRANDS:
-                value = (((snap.get("ga4") or {}).get(b) or {}).get("funnel") or {}).get(
-                    "purchase", 0)
-                try:
-                    purchases.append(int(value or 0))
-                except (TypeError, ValueError):
-                    purchases.append(0)
-            compact["orders"] = sum(purchases)
+            for event in ("purchase", "refund"):
+                values = []
+                for b in BRANDS:
+                    value = (((snap.get("ga4") or {}).get(b) or {}).get("funnel") or {}).get(
+                        event, 0)
+                    try:
+                        values.append(int(value or 0))
+                    except (TypeError, ValueError):
+                        values.append(0)
+                compact[f"{event}_events"] = sum(values)
+            ledger = snap.get("commerce_ledger") or {}
+            if ledger.get("ok"):
+                compact["provider_orders"] = sum(
+                    1 for order in (ledger.get("orders") or [])
+                    if isinstance(order, dict)
+                )
+            else:
+                compact["provider_orders"] = None
             trend.append(compact)
         except Exception:
             continue
@@ -1203,7 +1222,9 @@ this started (Jun 2026): ~35 users/day, ~1 sale/month.
 
 Register: deadpan, terse, zero hype, zero filler. Like a good analyst who respects the \
 reader's time. NEVER invent or extrapolate a number not present in the context below. \
-The commerce ledger is ground truth and overrides GA4. The factual report is already \
+Only the commerce ledger establishes provider orders and fulfillment outcomes. GA4 \
+purchase and refund counts are behavioral events, not orders; never use them as order \
+counts or infer revenue from them. The factual report is already \
 rendered; do not repeat its sections or add new facts.
 
 Measurement epochs in DATA mark analytics collection changes, not demand changes. If a \

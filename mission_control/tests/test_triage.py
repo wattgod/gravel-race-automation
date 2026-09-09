@@ -512,10 +512,13 @@ class TestTriageGA4Integration:
         mock_sources = [{"channel": "organic / search", "sessions": 200}]
 
         with patch("mission_control.services.ga4.get_daily_sessions", return_value=mock_daily), \
-             patch("mission_control.services.ga4.get_conversion_events", return_value=mock_conversions), \
+             patch("mission_control.services.ga4.get_conversion_event_report", return_value={
+                 "available": True, "events": mock_conversions, "error": None,
+             }), \
              patch("mission_control.services.ga4.get_traffic_sources", return_value=mock_sources):
             result = get_triage_ga4_summary()
             assert result["configured"] is True
+            assert result["event_data_available"] is True
             assert result["sessions_7d"] == 250
             assert "total_conversions" not in result
             assert result["purchase_events"] == 2
@@ -523,6 +526,30 @@ class TestTriageGA4Integration:
             assert result["plan_requests"] == 3
             assert result["email_captures"] == 10
             assert result["top_source"] == "organic / search"
+
+    def test_ga4_summary_preserves_unavailable_event_state(self, fake_db):
+        from mission_control.services.triage import get_triage_ga4_summary
+
+        with patch("mission_control.services.ga4.get_daily_sessions", return_value=[]), \
+             patch("mission_control.services.ga4._get_cached", return_value=None), \
+             patch("mission_control.services.ga4._get_client", return_value=None), \
+             patch("mission_control.services.ga4.get_traffic_sources", return_value=[]):
+            result = get_triage_ga4_summary()
+
+        assert result["configured"] is True
+        assert result["event_data_available"] is False
+        assert result["purchase_events"] is None
+        assert result["refund_events"] is None
+        assert result["event_error"] == "GA4 client unavailable"
+
+    def test_triage_page_renders_event_failure_as_unavailable(self, client, fake_db):
+        with patch("mission_control.services.ga4._get_cached", return_value=None), \
+             patch("mission_control.services.ga4._get_client", return_value=None):
+            response = client.get("/triage")
+
+        assert response.status_code == 200
+        assert response.text.count("Unavailable</div>") >= 4
+        assert "GA4 event data unavailable" in response.text
 
     def test_triage_page_shows_ga4_section(self, client, fake_db):
         resp = client.get("/triage")

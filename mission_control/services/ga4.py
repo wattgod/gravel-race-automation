@@ -237,16 +237,20 @@ def get_daily_sessions(days: int = 90) -> list[dict]:
         return []
 
 
-def get_conversion_events(days: int = 30) -> list[dict]:
-    """Independent totals for lead and commerce events; no cohort join."""
+def get_conversion_event_report(days: int = 30) -> dict:
+    """Return event totals with an explicit GA4 availability state."""
     cache_key = f"conversion_events_v2_{days}"
     cached = _get_cached(cache_key)
-    if cached:
-        return cached
+    if cached is not None:
+        return {"available": True, "events": cached, "error": None}
 
     client = _get_client()
     if not client:
-        return []
+        return {
+            "available": False,
+            "events": [],
+            "error": "GA4 client unavailable",
+        }
 
     try:
         from google.analytics.data_v1beta.types import (
@@ -283,11 +287,20 @@ def get_conversion_events(days: int = 30) -> list[dict]:
 
         events.sort(key=lambda x: x["count"], reverse=True)
         _set_cached(cache_key, events)
-        return events
+        return {"available": True, "events": events, "error": None}
 
     except Exception as e:
         logger.error("GA4 conversion_events error: %s", e)
-        return []
+        return {
+            "available": False,
+            "events": [],
+            "error": "GA4 event query failed",
+        }
+
+
+def get_conversion_events(days: int = 30) -> list[dict]:
+    """Compatibility wrapper returning independent event totals as a list."""
+    return get_conversion_event_report(days=days)["events"]
 
 
 def refresh_cache() -> int:

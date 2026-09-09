@@ -435,13 +435,14 @@ def get_triage_ga4_summary() -> dict:
     """GA4 snapshot for triage with separate operational event totals."""
     try:
         from mission_control.services.ga4 import (
-            get_conversion_events,
+            get_conversion_event_report,
             get_daily_sessions,
             get_traffic_sources,
             summarize_event_totals,
         )
         daily = get_daily_sessions(days=7)
-        event_totals = get_conversion_events(days=7)
+        event_report = get_conversion_event_report(days=7)
+        event_totals = event_report["events"]
         sources = get_traffic_sources(days=7)
 
         sessions_7d = sum(d["sessions"] for d in daily) if daily else 0
@@ -451,11 +452,17 @@ def get_triage_ga4_summary() -> dict:
 
         return {
             "configured": True,
+            "event_data_available": event_report["available"],
+            "event_error": event_report["error"],
             "sessions_7d": sessions_7d,
-            "purchase_events": event_summary["purchase_events"],
-            "refund_events": event_summary["refund_events"],
-            "plan_requests": event_summary["plan_request_events"],
-            "email_captures": event_summary["email_capture_events"],
+            "purchase_events": (
+                event_summary["purchase_events"] if event_report["available"] else None),
+            "refund_events": (
+                event_summary["refund_events"] if event_report["available"] else None),
+            "plan_requests": (
+                event_summary["plan_request_events"] if event_report["available"] else None),
+            "email_captures": (
+                event_summary["email_capture_events"] if event_report["available"] else None),
             "top_source": top_source,
             "top_source_sessions": top_source_sessions,
             "event_totals": event_totals,

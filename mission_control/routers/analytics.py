@@ -6,7 +6,7 @@ from fastapi.templating import Jinja2Templates
 
 from mission_control.config import WEB_TEMPLATES_DIR
 from mission_control.services.ga4 import (
-    get_conversion_events,
+    get_conversion_event_report,
     get_daily_sessions,
     get_top_pages,
     get_traffic_sources,
@@ -24,7 +24,8 @@ async def analytics_index(request: Request):
     top_pages = get_top_pages(days=30, limit=20)
     sources = get_traffic_sources(days=30)
     daily = get_daily_sessions(days=90)
-    event_totals = get_conversion_events(days=30)
+    event_report = get_conversion_event_report(days=30)
+    event_totals = event_report["events"]
 
     # Calculate totals
     total_sessions = sum(d["sessions"] for d in daily) if daily else 0
@@ -39,6 +40,8 @@ async def analytics_index(request: Request):
         "daily": daily,
         "event_totals": event_totals,
         "event_summary": event_summary,
+        "event_data_available": event_report["available"],
+        "event_error": event_report["error"],
         "total_sessions": total_sessions,
         "total_pageviews": total_pageviews,
     })

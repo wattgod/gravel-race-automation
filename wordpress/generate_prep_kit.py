@@ -50,7 +50,7 @@ from brand_tokens import (
 from shared_footer import get_mega_footer_css, get_mega_footer_html
 from cookie_consent import get_consent_banner_html
 
-# Disable glossary tooltips in guide renderers (we don't need them here)
+# Prep kits omit glossary tooltips; source markers are rendered as plain terms.
 import generate_guide
 generate_guide._GLOSSARY = None
 from generate_guide import (
@@ -95,6 +95,22 @@ PHASE_RANGES = {
     "taper": (11, 12),
 }
 
+_GLOSSARY_MARKER_RE = re.compile(r"\{\{([A-Za-z][A-Za-z0-9_/]*)\}\}")
+
+
+def _resolve_plain_glossary_terms(value: Any) -> Any:
+    """Resolve guide glossary markers without adding tooltip markup."""
+    if isinstance(value, str):
+        return _GLOSSARY_MARKER_RE.sub(lambda match: match.group(1), value)
+    if isinstance(value, list):
+        return [_resolve_plain_glossary_terms(item) for item in value]
+    if isinstance(value, dict):
+        return {
+            key: _resolve_plain_glossary_terms(item)
+            for key, item in value.items()
+        }
+    return value
+
 
 def classify_runway(days_out: int) -> str | None:
     """Mirror of classifyRunway in build_runway_js; keep thresholds in sync."""
@@ -122,7 +138,7 @@ def load_guide_sections() -> dict:
     for chapter in content.get("chapters", []):
         for section in chapter.get("sections", []):
             if section.get("id") in GUIDE_SECTION_IDS:
-                sections[section["id"]] = section
+                sections[section["id"]] = _resolve_plain_glossary_terms(section)
     return sections
 
 
@@ -330,7 +346,7 @@ def render_personalized_timeline(block: dict, phase_extras: dict) -> str:
 
     for i, step in enumerate(steps):
         label = esc(step["label"])
-        content = _md_inline(esc(step["content"]))
+        content = _md_inline(esc(_resolve_plain_glossary_terms(step["content"])))
         paras = [f'<p>{p.strip()}</p>' for p in content.split('\n') if p.strip()]
 
         phase = phase_names[i] if i < len(phase_names) else "taper"
@@ -625,20 +641,23 @@ def classify_climate_heat(climate: Optional[dict], climate_score: Optional[int])
     if any(kw in combined for kw in ["scorching", "brutal heat", "heat stroke"]):
         return "hot"
 
-    # Cool: cold/freeze keywords
-    if any(kw in combined for kw in ["cold", "freez", "winter", "snow", "30°", "40°", "5-12"]):
+    # Strong cold evidence remains decisive even when a source also says summer.
+    strong_cold_kw = ["cold", "freez", "winter", "snow", "30°", "40°", "5-12"]
+    if any(kw in combined for kw in strong_cold_kw):
         return "cool"
 
-    # Warm: heat-adjacent keywords with moderate score, or explicit warmth
+    # Warm: explicit warmth outweighs a cool start to an otherwise warm day.
     if any(kw in combined for kw in strong_heat_kw) and score >= 3:
         return "warm"
-    if any(kw in combined for kw in ["warm", "summer", "sun", "75-85", "75°", "80°"]):
+    warm_kw = ["warm", "summer", "sun", "75-85", "75°", "80°"]
+    if any(kw in combined for kw in warm_kw):
         return "warm"
+    if score >= 3 and "cool morning" in combined:
+        return "cool"
     if score >= 4:
         return "warm"
     if score == 3:
         return "warm"
-
     return "mild"
 
 
@@ -848,6 +867,12 @@ def build_fueling_calculator_html(rd: dict, raw: Optional[dict] = None) -> str:
     distance_mi = rd["vitals"].get("distance_mi", 0)
     est = compute_fueling_estimate(distance_mi)
     prefill_hours = est["hours"] if est else ""
+    max_hours = max(48, math.ceil(prefill_hours)) if prefill_hours else 48
+    step_hours = 0.5
+    if prefill_hours and prefill_hours > 48:
+        half_steps = (prefill_hours - 1) / step_hours
+        if not math.isclose(half_steps, round(half_steps)):
+            step_hours = 0.1
 
     # Pre-classify climate at build time
     climate_data = raw.get("climate", {})
@@ -912,7 +937,7 @@ def build_fueling_calculator_html(rd: dict, raw: Optional[dict] = None) -> str:
       </div>
       <div class="gg-pk-calc-field">
         <label for="gg-pk-hours">Target finish time (hours)</label>
-        <input type="number" id="gg-pk-hours" name="target_hours" min="1" max="48" step="0.5" placeholder="{prefill_hours}" value="{prefill_hours}" class="gg-pk-calc-input">
+        <input type="number" id="gg-pk-hours" name="target_hours" min="1" max="{max_hours}" step="{step_hours}" placeholder="{prefill_hours}" value="{prefill_hours}" class="gg-pk-calc-input">
       </div>
       <div class="gg-pk-calc-field gg-pk-calc-field--climate">
         <label>Race Climate</label>
@@ -1292,8 +1317,12 @@ def build_rider_quotes_callout(quotes: list, criteria_filter: Optional[list] = N
     for q in selected:
         text = esc(q["quote"].strip())
         rider = esc(q.get("rider", "Anonymous"))
-        level = q.get("level", "")
-        level_tag = f' <span style="font-size:10px;text-transform:uppercase;letter-spacing:1px;color:var(--gg-color-teal)">{esc(level)}</span>' if level else ""
+        level = str(q.get("level") or "").strip()
+        level_tag = (
+            f' <span style="font-size:10px;text-transform:uppercase;letter-spacing:1px;color:var(--gg-color-teal)">{esc(level)}</span>'
+            if level and level.upper() != "UNKNOWN"
+            else ""
+        )
         quotes_html.append(
             f'<div class="gg-guide-callout gg-guide-callout--quote">'
             f'<p>\u201c{text}\u201d</p>'
@@ -2216,13 +2245,35 @@ def build_pk_fueling(guide_sections: dict, raw: dict, rd: dict) -> str:
     if isinstance(bor, dict):
         climate_insight = _extract_dimension_insight(bor, "climate", 250)
         if climate_insight:
+            climate_band = classify_climate_heat(
+                raw.get("climate"),
+                (raw.get("gravel_god_rating") or {}).get("climate"),
+            )
+            reviewed_cool_copy = rd.get("slug") in {
+                "bootlegger-100",
+                "nordic-chase-gravel",
+            }
+            if climate_band in {"warm", "hot", "extreme"} or not reviewed_cool_copy:
+                condition_note = (
+                    "Plan your fueling around these conditions \u2014 heat and humidity "
+                    "increase fluid and sodium demands significantly."
+                )
+            elif climate_band == "cool":
+                condition_note = (
+                    "Plan food, fluid, and sodium carrying for cool, wet, or windy "
+                    "conditions, using the final forecast."
+                )
+            else:
+                condition_note = (
+                    "Use the final forecast when setting food, fluid, and sodium "
+                    "quantities."
+                )
             parts.append(
                 f'<div class="gg-guide-callout gg-guide-callout--highlight">'
                 f'<p><strong>What Riders Say About Conditions:</strong> '
                 f'{esc(climate_insight)}</p>'
                 f'<p style="font-size:12px;color:var(--gg-color-secondary-brown)">'
-                f'Plan your fueling around these conditions \u2014 heat and humidity '
-                f'increase fluid and sodium demands significantly.</p>'
+                f'{condition_note}</p>'
                 f'</div>'
             )
 

@@ -18,11 +18,26 @@ def test_materializes_valid_json_with_private_permissions(tmp_path, monkeypatch)
     monkeypatch.setenv("GA4_CREDENTIALS_JSON", json.dumps(_credential()))
 
     assert prepare_ga4_credentials(tmp_path) == "materialized"
-    path = tmp_path / "ga4-credentials.json"
+    paths = list(tmp_path.glob("ga4-credentials-*.json"))
+    assert len(paths) == 1
+    path = paths[0]
     assert os.environ["GA4_CREDENTIALS_PATH"] == str(path)
     assert tmp_path.stat().st_mode & 0o777 == 0o700
     assert path.stat().st_mode & 0o777 == 0o600
     assert json.loads(path.read_text()) == _credential()
+
+
+def test_rejects_symlink_runtime_directory(tmp_path, monkeypatch):
+    actual = tmp_path / "actual"
+    actual.mkdir()
+    linked = tmp_path / "linked"
+    linked.symlink_to(actual, target_is_directory=True)
+    monkeypatch.delenv("GA4_CREDENTIALS_PATH", raising=False)
+    monkeypatch.setenv("GA4_CREDENTIALS_JSON", json.dumps(_credential()))
+
+    assert prepare_ga4_credentials(linked) == "runtime_dir_unsafe"
+    assert list(actual.iterdir()) == []
+    assert "GA4_CREDENTIALS_PATH" not in os.environ
 
 
 def test_explicit_path_takes_precedence(tmp_path, monkeypatch):

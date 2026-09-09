@@ -2,6 +2,7 @@
 
 import json
 import os
+import tempfile
 from pathlib import Path
 
 
@@ -29,24 +30,27 @@ def prepare_ga4_credentials(runtime_dir: Path | None = None) -> str:
     ):
         return "json_invalid_shape"
 
-    target_dir = runtime_dir or Path("/tmp/gravel-god-mission-control")
-    target_dir.mkdir(mode=0o700, parents=True, exist_ok=True)
+    if runtime_dir is None:
+        target_dir = Path(tempfile.mkdtemp(prefix="gravel-god-ga4-"))
+    else:
+        target_dir = runtime_dir
+        target_dir.mkdir(mode=0o700, parents=True, exist_ok=True)
+        if target_dir.is_symlink() or target_dir.stat().st_uid != os.getuid():
+            return "runtime_dir_unsafe"
     os.chmod(target_dir, 0o700)
-    target = target_dir / "ga4-credentials.json"
-    temporary = target.with_suffix(".tmp")
+    target: Path | None = None
     try:
-        flags = os.O_WRONLY | os.O_CREAT | os.O_TRUNC
-        if hasattr(os, "O_NOFOLLOW"):
-            flags |= os.O_NOFOLLOW
-        fd = os.open(temporary, flags, 0o600)
+        fd, filename = tempfile.mkstemp(
+            prefix="ga4-credentials-", suffix=".json", dir=target_dir)
+        target = Path(filename)
         with os.fdopen(fd, "w", encoding="utf-8") as handle:
             json.dump(value, handle, separators=(",", ":"))
-        os.chmod(temporary, 0o600)
-        os.replace(temporary, target)
+        os.chmod(target, 0o600)
         os.environ["GA4_CREDENTIALS_PATH"] = str(target)
     except OSError:
         try:
-            temporary.unlink(missing_ok=True)
+            if target is not None:
+                target.unlink(missing_ok=True)
         except OSError:
             pass
         return "write_failed"

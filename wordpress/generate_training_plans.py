@@ -66,11 +66,12 @@ def build_hero() -> str:
     <a href="#how-it-works" class="gg-tp-btn gg-tp-btn-secondary" data-cta="hero_how">See How It Works</a>
   </div>
   <div class="gg-tp-hero-bar">
-    <div class="gg-tp-hero-bar-item"><strong>Same Day</strong><span>Delivery</span></div>
+    <div class="gg-tp-hero-bar-item"><strong>24 Hours</strong><span>Plan or Delivery Update</span></div>
     <div class="gg-tp-hero-bar-item"><strong>Matched</strong><span>Methodology</span></div>
     <div class="gg-tp-hero-bar-item"><strong>$2/day</strong><span>Less Than a Tube</span></div>
     <div class="gg-tp-hero-bar-item"><strong>5 min</strong><span>To Start</span></div>
   </div>
+  <p class="gg-tp-delivery-terms">The 24-hour clock starts when payment, your complete questionnaire, and your TrainingPeaks connection are all in place. Within that window, I will deliver your personally reviewed plan in TrainingPeaks or email you with the specific blocker, what is needed, and a revised delivery time.</p>
 </section>'''
 
 
@@ -246,7 +247,7 @@ def build_how_it_works() -> str:
         ("01", "Questionnaire", "5 min form"),
         ("02", "TrainingPeaks", "Connect account"),
         ("03", "Plan Built", "Matched to you"),
-        ("04", "You Train", "Same day delivery"),
+        ("04", "You Train", "Plan or update within 24 hours"),
     ]
     cards_html = ""
     for num, title, desc in process_cards:
@@ -264,7 +265,7 @@ def build_how_it_works() -> str:
         ("03", "I Build Your Plan",
          "Your intake hits the methodology engine. The training approach gets selected based on your profile. Polarized for the time-crunched. Pyramidal for the balanced. Block for the serious. Matched to your availability and ability."),
         ("04", "Plan Drops Into Your Calendar",
-         "I push the plan directly into your TrainingPeaks calendar. Every workout. Every phase. Open your app &mdash; it&rsquo;s there. Syncs to Zwift, Wahoo, Garmin. You start training. Delivered same day."),
+         "The 24-hour clock starts when payment, your complete questionnaire, and your TrainingPeaks connection are all in place. Within that window, I deliver your personally reviewed plan in TrainingPeaks or email you with the specific blocker, what is needed, and a revised delivery time."),
     ]
     steps_html = ""
     for num, title, desc in steps:
@@ -278,7 +279,7 @@ def build_how_it_works() -> str:
 '''
     return f'''<section class="gg-tp-section gg-tp-section-alt" id="how-it-works">
   <div class="gg-tp-section-label">How It Works</div>
-  <h2>Four Steps. You Start Training Today.</h2>
+  <h2>Four Steps. Then You Train.</h2>
   <div class="gg-tp-process">
     {cards_html}
   </div>
@@ -382,8 +383,9 @@ def build_pricing() -> str:
         <li>Race-optimized fueling plan</li>
         <li>Custom strength program</li>
         <li>Heat &amp; altitude protocols</li>
-        <li>Same-day delivery</li>
+        <li>Your plan or a delivery update within 24 hours</li>
       </ul>
+      <p class="gg-tp-support-terms">The 24-hour clock starts when payment, your complete questionnaire, and your TrainingPeaks connection are all in place. Within that window, I will deliver your personally reviewed plan in TrainingPeaks or email you with the specific blocker, what is needed, and a revised delivery time. Email support and two plan adjustments are included during the dates covered by your plan for changes to your schedule, available training hours, or equipment. Correcting a plan that does not match your order does not use an adjustment. The first rescale after the scheduled FTP test is included separately. Weekly review and recurring changes are part of Coaching.</p>
       <div class="gg-tp-pricing-cta">
         <a href="{QUESTIONNAIRE_URL}" class="gg-tp-btn" data-cta="pricing_build">Build My Plan</a>
       </div>
@@ -403,7 +405,7 @@ FAQ_ITEMS = [
     ),
     (
         "What if I don&rsquo;t know my FTP?",
-        "Mark it unknown. Week 1 includes an FTP test protocol. Once you have the number, every zone recalibrates.",
+        "Mark it unknown. Week 1 includes an FTP test protocol. Reply with the result and I&rsquo;ll rescale the remaining workouts. The first rescale after the scheduled FTP test is included separately and does not use one of your two adjustments.",
     ),
     (
         "How are workouts delivered?",
@@ -415,7 +417,7 @@ FAQ_ITEMS = [
     ),
     (
         "Is this coaching?",
-        "No. This is a plan, not a relationship. You get the full plan up front and execute it yourself. No weekly check-ins.",
+        "This is a plan to execute yourself. Email support and two plan adjustments are included during the dates covered by your plan. Weekly review and recurring changes are part of Coaching.",
     ),
     (
         "What if my race isn&rsquo;t in the database?",
@@ -609,6 +611,14 @@ def build_training_css() -> str:
   letter-spacing: var(--gg-letter-spacing-wider);
   color: var(--gg-color-primary-brown);
   font-weight: var(--gg-font-weight-semibold);
+}}
+.gg-tp-delivery-terms {{
+  font-family: var(--gg-font-editorial);
+  font-size: var(--gg-font-size-sm);
+  line-height: var(--gg-line-height-prose);
+  color: var(--gg-color-primary-brown);
+  margin: var(--gg-spacing-sm) 0 0;
+  max-width: 700px;
 }}
 
 /* ── What You Get — Deliverables ── */
@@ -1036,6 +1046,15 @@ def build_training_css() -> str:
   font-family: var(--gg-font-data);
   font-weight: var(--gg-font-weight-bold);
   color: var(--gg-color-primary-brown);
+}}
+.gg-tp-support-terms {{
+  font-family: var(--gg-font-editorial);
+  font-size: var(--gg-font-size-sm);
+  line-height: var(--gg-line-height-prose);
+  color: var(--gg-color-primary-brown);
+  padding: var(--gg-spacing-sm) var(--gg-spacing-lg);
+  margin: 0;
+  border-top: 1px solid var(--gg-color-tan);
 }}
 .gg-tp-pricing-cta {{
   padding: var(--gg-spacing-md) var(--gg-spacing-lg);

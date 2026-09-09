@@ -22,6 +22,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           repository: wattgod/endurelabs
+          ref: 0d5685404312b80ac613dda702d58559e5685866
           path: endurelabs
           sparse-checkout: |
             scripts/import-single-source.ts

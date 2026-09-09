@@ -7,6 +7,11 @@ import re
 import time
 import urllib.request
 
+try:
+    from scripts.prep_kit_fact_gate import GateError, validate_release as validate_prep_kit_fact_release
+except ImportError:  # Direct invocation from scripts/.
+    from prep_kit_fact_gate import GateError, validate_release as validate_prep_kit_fact_release
+
 
 def payload_files(root: Path, slug: str) -> dict[str, Path]:
     if not re.fullmatch(r"[a-z0-9]+(?:-[a-z0-9]+)*", slug):
@@ -50,19 +55,42 @@ def verify(files: dict[str, Path], attempts: int = 8) -> None:
     raise RuntimeError("Live verification failed: " + ", ".join(pending))
 
 
+def _push_wordpress():
+    try:
+        from scripts import push_wordpress
+    except ImportError:  # Direct invocation from scripts/.
+        import push_wordpress
+    return push_wordpress
+
+
+def validate_fact_packet(payload_dir: Path, live_baseline_dir: Path | None,
+                         fact_manifest: Path | None) -> None:
+    """Bind the one prep-kit HTML file to its reviewed packet before imports/uploads."""
+    if live_baseline_dir is None or fact_manifest is None:
+        raise GateError(
+            "scoped prep-kit upload requires --prep-kit-live-baseline-dir and "
+            "--prep-kit-fact-manifest")
+    validate_prep_kit_fact_release(
+        payload_dir / "prep-kit", live_baseline_dir, fact_manifest)
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("slug")
     parser.add_argument("--payload-dir", type=Path, required=True)
+    parser.add_argument("--prep-kit-live-baseline-dir", type=Path)
+    parser.add_argument("--prep-kit-fact-manifest", type=Path)
     parser.add_argument("--upload", action="store_true")
     args = parser.parse_args()
     files = payload_files(args.payload_dir, args.slug)
     if args.upload:
-        try:
-            from scripts import push_wordpress
-        except ImportError:
-            import push_wordpress
-        if not push_wordpress.sync_prep_kits(str(args.payload_dir / "prep-kit")):
+        validate_fact_packet(args.payload_dir, args.prep_kit_live_baseline_dir,
+                             args.prep_kit_fact_manifest)
+        push_wordpress = _push_wordpress()
+        if not push_wordpress.sync_prep_kits(
+                str(args.payload_dir / "prep-kit"),
+                str(args.prep_kit_live_baseline_dir),
+                str(args.prep_kit_fact_manifest)):
             raise RuntimeError("Prep-kit upload failed")
         if not push_wordpress.sync_markdown(str(args.payload_dir / "markdown")):
             raise RuntimeError("Markdown upload failed; prep kit may already be live")

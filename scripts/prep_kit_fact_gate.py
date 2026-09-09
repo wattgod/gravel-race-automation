@@ -29,9 +29,15 @@ _LABEL_PATTERNS = {
     "race_week_climate": ("Climate",),
     "race_week_challenges": ("Key Challenges",),
     "course": ("Signature Challenge", "Course"),
+    "entry_fee": ("Entry Fee",),
+    "trip_cost": ("Cost of Trip",),
+    "nearest_airport": ("Nearest Airport",),
+    "aid_stations": ("Aid Stations",),
 }
 _DISTANCE_RE = re.compile(r"\b\d[\d,.]*\s*(?:mi|miles|km|kilometers)\b", re.IGNORECASE)
 _ELEVATION_RE = re.compile(r"\b\d[\d,.]*\s*(?:ft|feet|met(?:er|re)s?)\b", re.IGNORECASE)
+_START_TIME_LABEL_RE = re.compile(
+    r"(?is)<strong>\s*[^<]+?\s+Start\s+Time\s*:\s*</strong>")
 
 
 class GateError(ValueError):
@@ -50,7 +56,8 @@ def sha256_file(path: Path) -> str:
 
 
 def _text(fragment: str) -> str:
-    return " ".join(html.unescape(re.sub(r"(?is)<[^>]+>", " ", fragment)).split())
+    text = " ".join(html.unescape(re.sub(r"(?is)<[^>]+>", " ", fragment)).split())
+    return re.sub(r"\s+([,.;:!?])", r"\1", text)
 
 
 def _normalized_text(fragment: str) -> str:
@@ -85,6 +92,23 @@ def _unique_field(field: str, values: list[str], facts: dict[str, str]) -> None:
     facts[field] = value
 
 
+def _start_time_values(page_html: str) -> list[str]:
+    """Extract the generator's race-specific start-time callout verbatim."""
+    matches = re.findall(
+        r"(?is)<strong>\s*[^<]+?\s+Start\s+Time\s*:\s*</strong>\s*(.*?)\s*</p\s*>",
+        page_html,
+    )
+    if _START_TIME_LABEL_RE.search(page_html) and not matches:
+        raise GateError("malformed rendered start-time field")
+    values = []
+    for match in matches:
+        value = _text(match)
+        if not value:
+            raise GateError("malformed rendered start-time field has no value")
+        values.append(value)
+    return values
+
+
 def _extract_hero_facts(page_html: str) -> dict[str, str]:
     """Parse the generator's public header, including legacy omitted vitals."""
     headers = re.findall(r"(?is)<header\s+class=[\"']gg-pk-header[\"']\s*>(.*?)</header\s*>", page_html)
@@ -99,7 +123,7 @@ def _extract_hero_facts(page_html: str) -> dict[str, str]:
         raise GateError("unrecognized prep-kit vitals-ribbon layout")
     stats = re.findall(r"(?is)<span\s+class=[\"']gg-pk-stat[\"']\s*>(.*?)</span\s*>", ribbons[0])
     values = [(_text(stat), bool(re.search(r"(?is)<strong\b", stat))) for stat in stats]
-    if not values or any(not value for value in values) or len(values) > 4:
+    if not values or any(not value[0] for value in values) or len(values) > 4:
         raise GateError("unrecognized prep-kit vitals-ribbon values")
 
     facts = {"name": _text(titles[0])}
@@ -139,6 +163,7 @@ def extract_rendered_facts(page_html: str) -> dict[str, str]:
     for field, labels in _LABEL_PATTERNS.items():
         for label in labels:
             _unique_field(field, _label_values(page_html, label), facts)
+    _unique_field("start_time", _start_time_values(page_html), facts)
 
     # Full-personalization kits render distance in the fueling heading instead
     # of the generic race-context box.  It is the same public distance claim.
@@ -207,7 +232,7 @@ def _review_entries(entry: dict[str, Any], slug: str) -> dict[str, dict[str, Any
         if not isinstance(review, dict) or not isinstance(review.get("field"), str):
             raise GateError(f"{slug}: each fact review requires field")
         field = review["field"]
-        if field not in {"name", * _LABEL_PATTERNS} or field in result:
+        if field not in {"name", "start_time", * _LABEL_PATTERNS} or field in result:
             raise GateError(f"{slug}: invalid or duplicate fact field {field!r}")
         result[field] = review
     return result

@@ -22,7 +22,9 @@ def _sha(path: Path) -> str:
 
 def _page(*, name="Fuego MTB", distance="70 mi", elevation="7,800 ft",
           race_date="July 26, 2026", location="Monterey, California",
-          conditions="Dry and warm", course="Long exposed climb", historical=False, css="") -> str:
+          conditions="Dry and warm", course="Long exposed climb", entry_fee=None,
+          trip_cost=None, nearest_airport=None, start_time=None, aid_stations=None,
+          historical=False, css="") -> str:
     label = "<p>Historical course information.</p>" if historical else ""
     vitals = []
     if distance is not None:
@@ -31,6 +33,14 @@ def _page(*, name="Fuego MTB", distance="70 mi", elevation="7,800 ft",
         vitals.append(f'<span class="gg-pk-stat"><strong>{elevation}</strong></span>')
     vitals.extend((f'<span class="gg-pk-stat">{race_date}</span>',
                    f'<span class="gg-pk-stat">{location}</span>'))
+    budget = "".join(
+        f"<p><strong>{label}:</strong> {value}</p>"
+        for label, value in (("Entry Fee", entry_fee), ("Cost of Trip", trip_cost),
+                             ("Nearest Airport", nearest_airport),
+                             ("Aid Stations", aid_stations))
+        if value is not None)
+    start = (f"<p><strong>{name} Start Time:</strong> {start_time}</p>"
+             if start_time is not None else "")
     return f"""<html><style>{css}</style><header class="gg-pk-header">
 <h1 class="gg-pk-header-title">{name}</h1>
 <div class="gg-pk-vitals-ribbon">{' '.join(vitals)}</div></header>
@@ -38,7 +48,7 @@ def _page(*, name="Fuego MTB", distance="70 mi", elevation="7,800 ft",
 <p><strong>Distance:</strong> {distance}</p>
 {'' if elevation is None else f'<p><strong>Elevation:</strong> {elevation}</p>'}
 <p><strong>Conditions:</strong> {conditions}</p>
-<p><strong>Signature Challenge:</strong> {course}</p>{label}</div></html>"""
+<p><strong>Signature Challenge:</strong> {course}</p>{budget}</div>{start}{label}</html>"""
 
 
 def _source(root: Path, text="Official course announcement. Fuego XL is 66 mi with 7,800 ft."):
@@ -156,6 +166,23 @@ class TestExtraction:
         with pytest.raises(gate.GateError, match="unrecognized prep-kit header"):
             gate.extract_rendered_facts("<h1>New Race</h1><p>Race date: July 25, 2027</p>")
 
+    def test_rejects_empty_hero_date_or_location(self):
+        for kwargs in ({"race_date": ""}, {"location": ""}):
+            with pytest.raises(gate.GateError, match="vitals-ribbon values"):
+                gate.extract_rendered_facts(_page(**kwargs))
+
+    def test_extracts_actual_generated_budget_morning_and_aid_regions(self):
+        facts = gate.extract_rendered_facts(
+            (FIXTURE_DIR / "lone-wolf-factual-regions.html").read_text())
+        assert facts == {
+            "name": "Lone Wolf Gravel", "distance": "62 mi", "elevation": "4,000 ft",
+            "race_date": "September 27, 2026", "location": "Iron Mountain, Michigan",
+            "entry_fee": "~$60", "trip_cost": "Above average (4/5)",
+            "nearest_airport": "Green Bay (GRB) 2 hours, or Detroit (DTW) 5 hours",
+            "start_time": "9:15 AM CDT. Set your alarm for 6:15 AM.",
+            "aid_stations": "Minimal aid stations",
+        }
+
 
 class TestRenderedFactGate:
     def test_unchanged_facts_pass_with_css_change_and_no_reviews(self, tree):
@@ -177,6 +204,22 @@ class TestRenderedFactGate:
         (proposed / "fuego-mtb.html").write_text(_page(distance="66 mi"))
         manifest = _manifest(tree[0].parent, baseline, proposed, [])
         with pytest.raises(gate.GateError, match="fuego-mtb.distance"):
+            gate.validate_release(proposed, baseline, manifest)
+
+    @pytest.mark.parametrize("field,baseline_value,proposed_value", [
+        ("entry_fee", "~$75", "~$109"),
+        ("trip_cost", "Moderate (3/5)", "Premium destination (5/5)"),
+        ("nearest_airport", "Airport A", "Airport B"),
+        ("start_time", "8:00 AM mass start.", "8:15 AM wave start."),
+        ("aid_stations", "Multiple on course", "Two stocked stops"),
+    ])
+    def test_generated_factual_region_change_requires_review(
+            self, tree, field, baseline_value, proposed_value):
+        baseline, proposed = tree
+        (baseline / "fuego-mtb.html").write_text(_page(**{field: baseline_value}))
+        (proposed / "fuego-mtb.html").write_text(_page(**{field: proposed_value}))
+        manifest = _manifest(tree[0].parent, baseline, proposed, [])
+        with pytest.raises(gate.GateError, match=f"fuego-mtb.{field}"):
             gate.validate_release(proposed, baseline, manifest)
 
     def test_accepted_current_distance_and_elevation_pair_passes(self, tree):

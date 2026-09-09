@@ -48,6 +48,22 @@ jobs:
           python3 scripts/validate_citations.py
           python3 scripts/validate_blog_content.py
           python3 scripts/youtube_validate.py
+      - name: Build the two-file payload
+        run: |
+          set -euo pipefail
+          python3 wordpress/generate_prep_kit.py "$RACE_SLUG" --output-dir wordpress/output/prep-kit
+          python3 scripts/generate_markdown_profiles.py --slug "$RACE_SLUG" --output-dir wordpress/output/markdown
+          python3 scripts/preflight_quality.py
+      - name: Validate checked-in prep-kit fact packet before SSH
+        run: |
+          set -euo pipefail
+          PACKET_DIR="release/prep-kit-fact-packets/$RACE_SLUG"
+          test -d "$PACKET_DIR/live"
+          test -f "$PACKET_DIR/review.json"
+          python3 scripts/prep_kit_fact_gate.py \
+            --proposed-dir wordpress/output/prep-kit \
+            --live-baseline-dir "$PACKET_DIR/live" \
+            --manifest "$PACKET_DIR/review.json"
       - name: Configure SSH for live inventory and deployment
         env:
           DEPLOY_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
@@ -61,12 +77,6 @@ jobs:
           chmod 600 ~/.ssh/siteground_key
           ssh-keyscan -p "${SSH_PORT:-18765}" "$SSH_HOST" >> ~/.ssh/known_hosts
           echo "SSH_PORT=${SSH_PORT:-18765}" >> "$GITHUB_ENV"
-      - name: Build the two-file payload
-        run: |
-          set -euo pipefail
-          python3 wordpress/generate_prep_kit.py "$RACE_SLUG" --output-dir wordpress/output/prep-kit
-          python3 scripts/generate_markdown_profiles.py --slug "$RACE_SLUG" --output-dir wordpress/output/markdown
-          python3 scripts/preflight_quality.py
       - name: Preserve payload for inspection
         uses: actions/upload-artifact@v4
         with:
@@ -76,7 +86,10 @@ jobs:
             wordpress/output/markdown/
           if-no-files-found: error
       - name: Upload, purge cache, and verify both live files
-        run: python3 scripts/deploy_race_support.py "$RACE_SLUG" --payload-dir wordpress/output --upload
+        run: |
+          python3 scripts/deploy_race_support.py "$RACE_SLUG" --payload-dir wordpress/output --upload \
+            --prep-kit-live-baseline-dir "release/prep-kit-fact-packets/$RACE_SLUG/live" \
+            --prep-kit-fact-manifest "release/prep-kit-fact-packets/$RACE_SLUG/review.json"
       - name: Validate deployment
         run: python3 scripts/validate_deploy.py
       - name: Remove SSH key

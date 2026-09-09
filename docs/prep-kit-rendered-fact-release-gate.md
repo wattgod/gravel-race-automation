@@ -26,6 +26,16 @@ Existing pages use `captured_live` and bind their baseline hash. A page absent
 from the live capture is never silently approved: use `new_page` explicitly and
 review every factual field it renders.
 
+For the canonical one-race `Deploy Race Support Pages` workflow, the packet is
+checked into the same main checkout at
+`release/prep-kit-fact-packets/<slug>/`. It contains `review.json`,
+`live/<slug>.html`, and its `captures/` files. The checkout commit pins the
+packet; `review.json.proposed_sha256` then binds the freshly generated prep-kit
+HTML. A source or generator change cannot use a stale packet because that byte
+binding fails. The packet stores declared author and independent-reviewer
+identities plus hashes; it does not authenticate an approval or prove a source
+claim true.
+
 ```json
 {
   "schemaVersion": "prep-kit-rendered-fact-review/v1",
@@ -107,7 +117,16 @@ The gate requires the generated hero layout and extracts its name, distance,
 elevation, date/status slot, and location in both current and legacy
 omitted-vital forms. It also extracts labeled race-context distance, elevation,
 location, conditions, signature challenge/course, race-week climate, key
-challenges, and the Fueling Math distance heading. Unknown or malformed hero
-markup refuses publication rather than producing an empty fact set. New factual
-surfaces must extend the extractor and tests before publication; prose is not
-inferred as fact by this tool.
+challenges, entry fee, cost of trip, nearest airport, aid stations, the
+race-specific start-time callout, and the Fueling Math distance heading. Unknown
+or malformed hero markup refuses publication rather than producing an empty
+fact set. New factual surfaces must extend the extractor and tests before
+publication; prose is not inferred as fact by this tool.
+
+The scoped workflow validates its one-page prep-kit packet before it configures
+SSH, then the deployment helper validates it again before calling an upload.
+It still deploys and byte-verifies exactly two files: that prep-kit HTML and its
+Markdown profile. The fact gate binds the prep-kit HTML only. Markdown embeds
+the current UTC day and remains within the existing two-file payload/readback
+check rather than receiving a second semantic review gate. A year rollover or
+other generated prep-kit byte drift fails the packet hash normally.

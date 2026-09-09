@@ -6,7 +6,7 @@ import tempfile
 from pathlib import Path
 
 
-def prepare_ga4_credentials(runtime_dir: Path | None = None) -> str:
+def prepare_ga4_credentials(temp_parent: Path | None = None) -> str:
     """Create the GA4 credential file expected by the existing client contract.
 
     An explicit path always wins. Railway can provide the existing GitHub-style
@@ -30,13 +30,8 @@ def prepare_ga4_credentials(runtime_dir: Path | None = None) -> str:
     ):
         return "json_invalid_shape"
 
-    if runtime_dir is None:
-        target_dir = Path(tempfile.mkdtemp(prefix="gravel-god-ga4-"))
-    else:
-        target_dir = runtime_dir
-        target_dir.mkdir(mode=0o700, parents=True, exist_ok=True)
-        if target_dir.is_symlink() or target_dir.stat().st_uid != os.getuid():
-            return "runtime_dir_unsafe"
+    target_dir = Path(tempfile.mkdtemp(
+        prefix="ga4-runtime-", dir=temp_parent))
     os.chmod(target_dir, 0o700)
     target: Path | None = None
     try:

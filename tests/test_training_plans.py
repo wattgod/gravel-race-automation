@@ -142,10 +142,18 @@ class TestHero:
 
     def test_four_stats(self):
         hero = build_hero()
-        assert "Same Day" in hero
+        assert "24 Hours" in hero
+        assert "Plan or Delivery Update" in hero
         assert "Matched" in hero
         assert "$2/day" in hero
         assert "5 min" in hero
+
+    def test_delivery_clock_and_blocker_are_visible(self):
+        hero = build_hero()
+        assert "payment, your complete questionnaire, and your TrainingPeaks connection" in hero
+        assert "specific blocker" in hero
+        assert "revised delivery time" in hero
+        assert "Same Day" not in hero
 
     def test_no_coffee_cliche(self):
         hero = build_hero()
@@ -354,6 +362,27 @@ class TestPricing:
         assert "6-week plan = $90" in section
         assert "12-week plan = $180" in section
         assert "16-week plan = $240" in section
+
+    def test_support_and_adjustment_boundary(self):
+        section = build_pricing()
+        assert "Email support and two plan adjustments" in section
+        assert "schedule, available training hours, or equipment" in section
+        assert "does not use an adjustment" in section
+        assert "first rescale after the scheduled FTP test" in section
+        assert "Weekly review and recurring changes are part of Coaching" in section
+
+
+class TestQuestionnaireReferenceContract:
+    def test_reference_matches_accepted_delivery_and_support_terms(self):
+        reference = (Path(__file__).parent.parent / "web" / "training-plans-questionnaire.html").read_text()
+        assert "Personally reviewed. Your plan or a delivery update within 24 hours." in reference
+        assert "payment, your complete questionnaire, and your TrainingPeaks connection" in reference
+        assert "specific blocker" in reference
+        assert "revised delivery time" in reference
+        assert "Email support and two plan adjustments" in reference
+        assert "first rescale after the scheduled FTP test" in reference
+        assert "Same-Day Delivery" not in reference
+        assert "same-day delivery" not in reference.lower()
 
 
 # ── 10. FAQ ──────────────────────────────────────────────────

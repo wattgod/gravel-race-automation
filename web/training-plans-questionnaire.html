@@ -508,6 +508,17 @@
   padding: 0.4rem 0.75rem;
 }
 
+.gg-trust-terms {
+  margin: 1rem 0 0;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: inherit;
+}
+
+.gg-trust-terms + .gg-trust-terms {
+  margin-top: 0.65rem;
+}
+
 @media (max-width: 700px) {
   .gg-trust-quotes {
     flex-direction: column;
@@ -544,14 +555,15 @@
   <div class="tp-questionnaire-hero">
     <h1>Build Your Plan</h1>
     <p>Five minutes. Be thorough. The plan is only as good as the data.
-    Same-day delivery to your TrainingPeaks calendar.</p>
+    Personally reviewed. Your plan or a delivery update within 24 hours.</p>
+    <p>The 24-hour clock starts when payment, your complete questionnaire, and your TrainingPeaks connection are all in place. If something prevents delivery, I will explain the specific blocker, what is needed, and give you a revised delivery time.</p>
   </div>
 
   <div class="gg-form-container">
     <div class="gg-form-header">
       <span class="gg-form-badge">Custom Training Plan</span>
       <h2>Build Your Plan</h2>
-      <p>Fill out this form, pay securely via Stripe, and your plan will be delivered to your TrainingPeaks calendar same day.</p>
+      <p>Fill out this form and pay securely via Stripe. The 24-hour clock starts once payment, your complete questionnaire, and your TrainingPeaks connection are all in place.</p>
     </div>
 
     <form id="gg-training-form">
@@ -957,8 +969,10 @@
         <div class="gg-trust-badges">
           <span class="gg-trust-badge">7-Day Full Refund</span>
           <span class="gg-trust-badge">Secure Checkout via Stripe</span>
-          <span class="gg-trust-badge">Same-Day Delivery</span>
+          <span class="gg-trust-badge">Plan or Delivery Update in 24 Hours</span>
         </div>
+        <p class="gg-trust-terms">The 24-hour clock starts when payment, your complete questionnaire, and your TrainingPeaks connection are all in place. Within that window, I will deliver your personally reviewed plan in TrainingPeaks or email you with the specific blocker, what is needed, and a revised delivery time.</p>
+        <p class="gg-trust-terms">Email support and two plan adjustments are included during the dates covered by your plan for changes to your schedule, available training hours, or equipment. Correcting a plan that does not match your order does not use an adjustment. The first rescale after the scheduled FTP test is included separately. Weekly review and recurring changes are part of Coaching.</p>
       </div>
 
       <button type="submit" class="gg-submit-btn">Submit &amp; Pay</button>

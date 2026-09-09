@@ -228,7 +228,6 @@ def collect_ga4_metrics() -> dict:
     """GA4 analytics — requires credentials."""
     try:
         from mission_control.services.ga4 import (
-            get_conversion_events,
             get_daily_sessions,
             get_top_pages,
             get_traffic_sources,
@@ -251,8 +250,6 @@ def collect_ga4_metrics() -> dict:
 
         top_pages = get_top_pages(days=7, limit=5)
         sources = get_traffic_sources(days=7)
-        conversions = get_conversion_events(days=7)
-
         pct_change = None
         if prev_7 and prev_7 > 0:
             pct_change = round((recent_7 - prev_7) / prev_7 * 100, 1)
@@ -264,7 +261,6 @@ def collect_ga4_metrics() -> dict:
             "sessions_pct_change": pct_change,
             "top_pages": top_pages[:5],
             "sources": sources[:5],
-            "conversions": conversions[:5],
         }
     except Exception:
         return {"configured": False}

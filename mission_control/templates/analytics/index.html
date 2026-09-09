@@ -2,12 +2,48 @@
 
 {% block title %}Analytics — Gravel God Mission Control{% endblock %}
 
+{% block head_extra %}
+<style>
+.mc-main,
+.mc-native-funnel,
+.mc-native-funnel__table {
+    min-width: 0;
+}
+.mc-native-funnel__table {
+    max-width: 100%;
+    overflow-x: auto;
+}
+.mc-native-funnel__mobile-label {
+    display: none;
+}
+@media (max-width: 700px) {
+    .mc-native-funnel__table .gg-table {
+        table-layout: fixed;
+    }
+    .mc-native-funnel__table th,
+    .mc-native-funnel__table td {
+        overflow-wrap: anywhere;
+    }
+    .mc-native-funnel__table th:first-child,
+    .mc-native-funnel__table td:first-child {
+        width: 44%;
+    }
+    .mc-native-funnel__desktop-label {
+        display: none;
+    }
+    .mc-native-funnel__mobile-label {
+        display: inline;
+    }
+}
+</style>
+{% endblock %}
+
 {% block content %}
 <div class="mc-page-header mc-page-header--with-actions">
     <div>
         <span class="mc-page-header__kicker">Marketing</span>
         <h1 class="mc-page-header__title">Analytics</h1>
-        <p class="mc-page-header__desc">GA4 traffic, conversions, and top pages. Cached 4 hours.</p>
+        <p class="mc-page-header__desc">GA4 traffic and independently counted lead and commerce events. Cached 4 hours.</p>
     </div>
     <div class="mc-page-header__actions">
         <form hx-post="/analytics/refresh" hx-target="#refresh-result" hx-swap="innerHTML">
@@ -29,12 +65,20 @@
         <div class="gg-stat-card__label">Top 20 Pageviews (30d)</div>
     </div>
     <div class="gg-stat-card">
-        <div class="gg-stat-card__value mc-text-teal">{{ "{:,}".format(total_conversions) }}</div>
-        <div class="gg-stat-card__label">Conversions (30d)</div>
+        <div class="gg-stat-card__value mc-text-teal">{% if event_data_available %}{{ "{:,}".format(event_summary.checkout_start_events) }}{% else %}Unavailable{% endif %}</div>
+        <div class="gg-stat-card__label">Checkout starts (30d)</div>
     </div>
     <div class="gg-stat-card">
-        <div class="gg-stat-card__value">{{ sources|length }}</div>
-        <div class="gg-stat-card__label">Traffic Channels</div>
+        <div class="gg-stat-card__value mc-text-teal">{% if event_data_available %}{{ "{:,}".format(event_summary.purchase_events) }}{% else %}Unavailable{% endif %}</div>
+        <div class="gg-stat-card__label">Purchase events (30d)</div>
+    </div>
+    <div class="gg-stat-card">
+        <div class="gg-stat-card__value">{% if event_data_available %}{{ "{:,}".format(event_summary.refund_events) }}{% else %}Unavailable{% endif %}</div>
+        <div class="gg-stat-card__label">Refund events (30d)</div>
+    </div>
+    <div class="gg-stat-card">
+        <div class="gg-stat-card__value">{% if event_data_available %}{{ "{:,}".format(event_summary.email_capture_events) }}{% else %}Unavailable{% endif %}</div>
+        <div class="gg-stat-card__label">Email capture events (30d)</div>
     </div>
 </div>
 
@@ -50,7 +94,70 @@
 </div>
 {% endif %}
 
-<div style="display:grid;grid-template-columns:1fr 1fr;gap:var(--gg-spacing-lg)" class="mc-mt-lg">
+<!-- Native ordered user funnel -->
+<div class="mc-card mc-mt-lg mc-native-funnel">
+    <div class="mc-card__header">
+        <div>
+            <h3 class="mc-card__title">Ordered user funnel</h3>
+            <p class="mc-text-muted" style="font-size:var(--gg-font-size-xs);margin:4px 0 0">Closed, ordered behavioral user progression in GA4.</p>
+        </div>
+    </div>
+    <div class="mc-card__body">
+        {% if funnel_report.available %}
+        <div class="mc-flex-between" style="align-items:flex-start;gap:var(--gg-spacing-md);flex-wrap:wrap;margin-bottom:var(--gg-spacing-md)">
+            <div>
+                <div class="mc-text-mono" style="font-size:var(--gg-font-size-sm);font-weight:600">{{ funnel_period_label }}</div>
+                <div class="mc-text-muted" style="font-size:var(--gg-font-size-xs)">{{ funnel_report.period.complete_days }} complete days · {{ funnel_report.period.timezone }}</div>
+            </div>
+            <div class="mc-text-muted mc-text-mono" style="font-size:var(--gg-font-size-2xs);text-align:right">
+                Fetched {{ funnel_report.fetched_at }}{% if funnel_report.provenance.cache_hit %} · cached result{% endif %}
+            </div>
+        </div>
+        <div class="mc-native-funnel__table">
+            <table class="gg-table gg-table--striped gg-table--compact">
+                <thead>
+                    <tr>
+                        <th>Step</th>
+                        <th class="mc-text-right"><span class="mc-native-funnel__desktop-label">Active users</span><span class="mc-native-funnel__mobile-label">Users</span></th>
+                        <th class="mc-text-right"><span class="mc-native-funnel__desktop-label">Reached next step</span><span class="mc-native-funnel__mobile-label">Next</span></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for step in funnel_report.steps %}
+                    <tr>
+                        <td>
+                            <span class="mc-text-muted mc-text-mono">{{ step.position }}.</span>
+                            {{ step.name }}
+                        </td>
+                        <td class="mc-text-right mc-text-mono" style="font-weight:600">
+                            {% if step.present %}{{ "{:,}".format(step.users) }}{% else %}<span class="mc-text-muted">Absent</span>{% endif %}
+                        </td>
+                        <td class="mc-text-right mc-text-mono mc-text-muted">
+                            {% if not loop.last and step.present and step.completion_rate is not none %}{{ "{:.1%}".format(step.completion_rate) }}{% else %}—{% endif %}
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <p class="mc-text-muted" style="font-size:var(--gg-font-size-xs);margin:var(--gg-spacing-md) 0 0"><strong>Broad race-page CTA:</strong> this step includes every recorded CTA click on a race page. The current event does not identify an exact training-plan target.</p>
+        <p class="mc-text-muted" style="font-size:var(--gg-font-size-xs);margin:4px 0 0">Purchase is a GA4 event in this behavioral sequence. Payment and delivered-order evidence remain in their provider ledgers. An absent row is not displayed as zero.</p>
+        {% if funnel_sampling %}
+        <p class="mc-text-muted" style="font-size:var(--gg-font-size-xs);margin:4px 0 0">GA4 sampled this report{% for sample in funnel_sampling %}{% if sample.samplesReadCount and sample.samplingSpaceSize %}: {{ sample.samplesReadCount }} of {{ sample.samplingSpaceSize }} events read{% endif %}{% if not loop.last %}; {% endif %}{% endfor %}.</p>
+        {% endif %}
+        {% if funnel_thresholded %}
+        <p class="mc-text-muted" style="font-size:var(--gg-font-size-xs);margin:4px 0 0">This report is subject to GA4 thresholding.</p>
+        {% endif %}
+        {% else %}
+        <p class="mc-text-muted" style="font-size:var(--gg-font-size-sm);margin:0"><strong>Ordered user funnel unavailable.</strong> {{ funnel_report.error }}{% if funnel_report.error_code %} ({{ funnel_report.error_code }}){% endif %}</p>
+        {% if funnel_report.period %}
+        <p class="mc-text-muted" style="font-size:var(--gg-font-size-xs);margin:4px 0 0">Requested {{ funnel_report.period.start_date }} through {{ funnel_report.period.end_date }} in {{ funnel_report.period.timezone }}.</p>
+        {% endif %}
+        {% endif %}
+    </div>
+</div>
+
+<div class="mc-grid mc-grid--2 mc-mt-lg">
     <!-- Traffic Sources -->
     <div class="mc-card">
         <div class="mc-card__header">
@@ -76,13 +183,16 @@
         </div>
     </div>
 
-    <!-- Conversion Events -->
+    <!-- Lead and commerce event totals -->
     <div class="mc-card">
         <div class="mc-card__header">
-            <h3 class="mc-card__title">Conversion Events (30 days)</h3>
+            <h3 class="mc-card__title">Lead and commerce event totals (30 days)</h3>
         </div>
         <div class="mc-card__body">
-            {% if conversions %}
+            <p class="mc-text-muted" style="font-size:var(--gg-font-size-sm)">Independent event counts; no cross-stage conversion rate.</p>
+            {% if not event_data_available %}
+            <p class="mc-text-muted" style="font-size:var(--gg-font-size-sm)">GA4 event data unavailable. Counts are not shown as zero.</p>
+            {% elif event_totals %}
             <table class="gg-table gg-table--compact">
                 <thead>
                     <tr>
@@ -91,7 +201,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    {% for ev in conversions %}
+                    {% for ev in event_totals %}
                     <tr>
                         <td class="mc-text-mono" style="font-size:var(--gg-font-size-2xs)">{{ ev.event }}</td>
                         <td class="mc-text-right mc-text-teal" style="font-weight:600">{{ "{:,}".format(ev.count) }}</td>
@@ -100,7 +210,7 @@
                 </tbody>
             </table>
             {% else %}
-            <p class="mc-text-muted" style="font-size:var(--gg-font-size-sm)">No conversion data available.</p>
+            <p class="mc-text-muted" style="font-size:var(--gg-font-size-sm)">No lead or commerce events observed in this period.</p>
             {% endif %}
         </div>
     </div>

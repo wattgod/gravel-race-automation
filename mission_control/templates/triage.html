@@ -304,18 +304,25 @@
                 <div class="gg-stat-card__label">Sessions (7d)</div>
             </div>
             <div class="gg-stat-card">
-                <div class="gg-stat-card__value">{{ ga4.total_conversions }}</div>
-                <div class="gg-stat-card__label">Conversions (7d)</div>
+                <div class="gg-stat-card__value">{% if ga4.event_data_available %}{{ ga4.purchase_events }}{% else %}Unavailable{% endif %}</div>
+                <div class="gg-stat-card__label">Purchase Events</div>
             </div>
             <div class="gg-stat-card">
-                <div class="gg-stat-card__value">{{ ga4.email_captures }}</div>
+                <div class="gg-stat-card__value">{% if ga4.event_data_available %}{{ ga4.refund_events }}{% else %}Unavailable{% endif %}</div>
+                <div class="gg-stat-card__label">Refund Events</div>
+            </div>
+            <div class="gg-stat-card">
+                <div class="gg-stat-card__value">{% if ga4.event_data_available %}{{ ga4.email_captures }}{% else %}Unavailable{% endif %}</div>
                 <div class="gg-stat-card__label">Email Captures</div>
             </div>
             <div class="gg-stat-card">
-                <div class="gg-stat-card__value">{{ ga4.plan_requests }}</div>
+                <div class="gg-stat-card__value">{% if ga4.event_data_available %}{{ ga4.plan_requests }}{% else %}Unavailable{% endif %}</div>
                 <div class="gg-stat-card__label">Plan Requests</div>
             </div>
         </div>
+        {% if not ga4.event_data_available %}
+        <p class="mc-text-muted triage-source-hint">GA4 event data unavailable. Counts are not shown as zero.</p>
+        {% endif %}
         {% if ga4.top_source %}
         <p class="mc-text-muted triage-source-hint">
             Top source: <strong>{{ ga4.top_source }}</strong> ({{ ga4.top_source_sessions }} sessions)

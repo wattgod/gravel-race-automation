@@ -599,7 +599,7 @@ body {{ margin: 0; background: var(--gg-color-warm-paper); }}
 *, *::before, *::after {{ border-radius: 0 !important; box-shadow: none !important; }}
 
 .gg-state-page {{
-  max-width: 960px;
+  max-width: 1200px;
   margin: 0 auto;
   padding: 0 24px;
   font-family: var(--gg-font-data);

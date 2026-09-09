@@ -1691,7 +1691,7 @@ def build_whitepaper_css() -> str:
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: var(--gg-spacing-xl);
-  max-width: 1080px;
+  max-width: 1200px;
   margin: 0 auto;
   padding: var(--gg-spacing-2xl) var(--gg-spacing-xl);
 }}

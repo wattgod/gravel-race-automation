@@ -157,9 +157,9 @@ class TestHeaderCSS:
         css = get_site_header_css()
         assert "@media" in css
 
-    def test_max_width_960(self):
+    def test_max_width_1200(self):
         css = get_site_header_css()
-        assert "max-width: 960px" in css
+        assert "max-width: 1200px" in css
 
     def test_dropdown_border(self):
         css = get_site_header_css()

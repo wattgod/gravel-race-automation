@@ -78,7 +78,7 @@ header.site-header,
 /* ── Sticky Header ── */
 .gg-site-header { position: sticky !important; top: 0 !important; z-index: 900 !important; padding: 16px 24px !important; border-bottom: 2px solid #9a7e0a !important; background: #f5efe6 !important; transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important; }
 .gg-site-header.gg-header-hidden { transform: translateY(-100%) !important; }
-.gg-site-header-inner { display: flex !important; align-items: center !important; justify-content: space-between !important; max-width: 960px !important; margin: 0 auto !important; }
+.gg-site-header-inner { display: flex !important; align-items: center !important; justify-content: space-between !important; max-width: 1200px !important; margin: 0 auto !important; }
 .gg-site-header-logo { display: block !important; }
 .gg-site-header-logo .gg-logo-mark { display: block !important; height: 46px !important; width: auto !important; fill: currentColor !important; color: #3a2e25 !important; }
 

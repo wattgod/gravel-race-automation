@@ -122,7 +122,7 @@ def get_site_header_css() -> str:
   transition: transform var(--gg-transition-hover);
 }
 .gg-site-header.gg-header-hidden { transform: translateY(-100%); }
-.gg-site-header-inner { display: flex; align-items: center; justify-content: space-between; max-width: 960px; margin: 0 auto; }
+.gg-site-header-inner { display: flex; align-items: center; justify-content: space-between; max-width: 1200px; margin: 0 auto; }
 .gg-site-header-logo { display: block; }
 .gg-site-header-logo .gg-logo-mark { display: block; height: 46px; width: auto; fill: currentColor; color: var(--gg-color-dark-brown); }
 .gg-site-header-nav { display: flex; gap: 24px; align-items: center; }

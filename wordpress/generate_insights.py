@@ -1256,7 +1256,7 @@ def build_insights_css() -> str:
   border-bottom: 3px solid var(--gg-color-dark-brown);
 }}
 .gg-insights-hero-inner {{
-  max-width: 960px;
+  max-width: 1200px;
   margin: 0 auto;
   text-align: center;
 }}
@@ -1309,7 +1309,7 @@ def build_insights_css() -> str:
 /* ── Sections ── */
 .gg-insights-section {{
   padding: var(--gg-spacing-2xl) var(--gg-spacing-xl);
-  max-width: 960px;
+  max-width: 1200px;
   margin: 0 auto;
 }}
 .gg-insights-section--alt {{
@@ -1995,7 +1995,7 @@ def build_insights_css() -> str:
    ══════════════════════════════════════════════════════════════ */
 #dimension-leaderboard {{
   padding: var(--gg-spacing-2xl) var(--gg-spacing-xl);
-  max-width: 960px;
+  max-width: 1200px;
   margin: 0 auto;
 }}
 .gg-ins-dim-controls {{
@@ -2209,7 +2209,7 @@ def build_insights_css() -> str:
    ══════════════════════════════════════════════════════════════ */
 .gg-ins-rank {{
   padding: var(--gg-spacing-2xl) var(--gg-spacing-xl);
-  max-width: 960px;
+  max-width: 1200px;
   margin: 0 auto;
 }}
 .gg-ins-rank-inner {{
@@ -2430,7 +2430,7 @@ def build_insights_css() -> str:
   font-family: var(--gg-font-data);
   font-size: var(--gg-font-size-2xs);
   color: var(--gg-color-secondary-brown);
-  max-width: 960px;
+  max-width: 1200px;
   margin: 0 auto;
   letter-spacing: var(--gg-letter-spacing-wide);
 }}

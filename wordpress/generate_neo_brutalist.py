@@ -6171,7 +6171,7 @@ body {{ margin: 0; background: var(--gg-color-warm-paper); }}
 
 /* Page wrapper */
 .gg-neo-brutalist-page {{
-  max-width: 960px;
+  max-width: 1200px;
   margin: 0 auto;
   padding: 0 20px;
   font-family: var(--gg-font-data);
@@ -6389,7 +6389,7 @@ body {{ margin: 0; background: var(--gg-color-warm-paper); }}
 .gg-neo-brutalist-page .gg-map-embed iframe {{ width: 100%; height: 500px; border: none; display: block; }}
 
 /* Prose — editorial font */
-.gg-neo-brutalist-page .gg-prose {{ font-family: var(--gg-font-editorial); font-size: var(--gg-font-size-base); line-height: var(--gg-line-height-prose); color: var(--gg-color-dark-brown); }}
+.gg-neo-brutalist-page .gg-prose {{ max-width: 68ch; font-family: var(--gg-font-editorial); font-size: var(--gg-font-size-base); line-height: var(--gg-line-height-prose); color: var(--gg-color-dark-brown); }}
 .gg-neo-brutalist-page .gg-prose p {{ margin-bottom: 14px; }}
 .gg-neo-brutalist-page .gg-prose p:last-child {{ margin-bottom: 0; }}
 
@@ -6698,7 +6698,7 @@ body {{ margin: 0; background: var(--gg-color-warm-paper); }}
 /* Sticky CTA */
 .gg-sticky-cta {{ position: fixed; bottom: 0; left: 0; right: 0; z-index: 200; background: var(--gg-color-near-black); border-top: 3px solid var(--gg-color-teal); padding: 12px 24px; transform: translateY(100%); transition: transform 0.3s ease; }}
 .gg-sticky-cta.is-visible {{ transform: translateY(0); }}
-.gg-sticky-cta-inner {{ max-width: 960px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 16px; }}
+.gg-sticky-cta-inner {{ max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 16px; }}
 .gg-sticky-cta-name {{ font-family: var(--gg-font-data); font-size: 13px; font-weight: 700; color: var(--gg-color-white); text-transform: uppercase; letter-spacing: 1px; }}
 .gg-sticky-cta .gg-btn {{ font-family: var(--gg-font-data); background: var(--gg-color-teal); color: var(--gg-color-white); border: var(--gg-border-width-subtle) solid var(--gg-color-teal); padding: var(--gg-spacing-xs) 20px; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: var(--gg-letter-spacing-wider); text-decoration: none; cursor: pointer; }}
 .gg-sticky-cta .gg-btn:hover {{ background: var(--gg-color-dark-teal); border-color: var(--gg-color-dark-teal); }}

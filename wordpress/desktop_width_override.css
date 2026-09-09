@@ -1,0 +1,105 @@
+/* Width-only release overlay for already-built Gravel God pages.
+   Load after page CSS. Source values live in the corresponding generators. */
+.gg-site-header-inner,
+.gg-mega-footer-grid,
+.gg-mega-footer-legal,
+.gg-mega-footer-disclaimer,
+.gg-neo-brutalist-page,
+.gg-sticky-cta-inner,
+.gg-state-page,
+.gg-hub-page,
+.gg-series-page,
+.gg-vs-page,
+.gg-pr-page,
+.gg-insights-hero-inner,
+.gg-insights-section,
+#dimension-leaderboard,
+.gg-ins-rank,
+.gg-cal-page,
+.gg-ai-page,
+.gg-course-index-inner,
+.gg-wire,
+.gg-blog-index,
+.gg-tpp-page,
+.gg-wp-scroll-section,
+.gg-breadcrumb,
+.tg-container {
+  max-width: 1200px;
+}
+
+.gg-site-header-inner {
+  max-width: 1200px !important;
+}
+
+.gg-hp-hero-inner,
+.gg-hp-ladder-grid,
+.gg-hp-stats-inner,
+.gg-hp-content-grid,
+.gg-hp-latest-takes,
+.gg-hp-how-it-works,
+.gg-hp-coming-up,
+.gg-hp-training-cta-full,
+.gg-hp-guide,
+.gg-hp-featured-in,
+.gg-hp-testimonials,
+.gg-hp-email,
+.gg-tp-section,
+.gg-tp-section-alt > *,
+.gg-tp-hero {
+  max-width: 1200px;
+}
+
+.gg-tp-section.gg-tp-section-alt {
+  max-width: none;
+}
+
+.gg-tp-hero-title {
+  max-width: none;
+}
+
+/* The source defines these after the widened section frame. Reassert them
+   because this release overlay is appended after the existing page CSS. */
+.gg-tp-hero-sub {
+  max-width: 600px;
+}
+
+.gg-tp-hero-bar {
+  max-width: 550px;
+}
+
+.gg-tp-delivery-terms {
+  max-width: 700px;
+}
+
+.gg-tp-pullquote p {
+  max-width: 750px;
+}
+
+.gg-tp-coaching-copy {
+  max-width: 760px;
+}
+
+.gg-tp-pricing-wrap {
+  max-width: 500px;
+}
+
+.gg-tp-step p {
+  max-width: 68ch;
+}
+
+.gg-tp-deliverable-content p {
+  max-width: 68ch;
+}
+
+.gg-neo-brutalist-page .gg-prose {
+  max-width: 68ch;
+}
+
+.tg-surface-box p,
+.tg-tire-tagline,
+.tg-tire-why,
+.tg-pressure-note,
+.tg-setup-item p,
+.tg-alt-card p {
+  max-width: 68ch;
+}

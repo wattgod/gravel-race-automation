@@ -1535,11 +1535,11 @@ class TestLatestTakesFullWidth:
         """Latest Takes should have its own max-width for full-width layout."""
         css = build_homepage_css()
         assert "gg-hp-latest-takes" in css
-        # Should have max-width: 1080px
+        # Should use the ratified desktop content measure.
         import re
         takes_rule = re.search(r'\.gg-hp-latest-takes\s*\{[^}]+\}', css)
         assert takes_rule is not None
-        assert "max-width: 1080px" in takes_rule.group(0)
+        assert "max-width: 1200px" in takes_rule.group(0)
 
     def test_latest_takes_three_card_layout(self):
         """Take cards should be 33.333% width for 3-card layout."""

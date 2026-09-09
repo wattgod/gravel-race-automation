@@ -234,7 +234,7 @@ def build_hub_page(tier: int, races: list, all_races: list) -> str:
 {tokens}
 
 .gg-hub-page {{
-  max-width: 960px;
+  max-width: 1200px;
   margin: 0 auto;
   padding: 0 24px;
   font-family: var(--gg-font-data);

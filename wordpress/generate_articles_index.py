@@ -101,7 +101,7 @@ def generate_articles_index():
 * {{ margin: 0; padding: 0; box-sizing: border-box; border-radius: 0 !important; box-shadow: none !important; }}
 body {{ font-family: var(--gg-font-data); background: var(--gg-color-warm-paper); color: var(--gg-color-dark-brown); line-height: 1.6; }}
 
-.gg-ai-page {{ max-width: 960px; margin: 0 auto; padding: 0 20px; }}
+.gg-ai-page {{ max-width: 1200px; margin: 0 auto; padding: 0 20px; }}
 
 /* Hero */
 .gg-ai-hero {{

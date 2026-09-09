@@ -187,7 +187,7 @@ class TestCliEndToEnd:
         assert "unbound-200  → /race/unbound-200/prep-kit/ would 404" in proc.stdout
         assert "Uploading" not in proc.stdout and "DEPLOY FAILED" not in proc.stdout
 
-    def test_race_page_with_kit_pulls_the_kit_sync_into_the_run(self, tmp_path):
+    def test_race_page_with_kit_requires_fact_packet_before_any_sync(self, tmp_path):
         pages_dir = tmp_path / "output"
         kit_dir = pages_dir / "prep-kit"
         kit_dir.mkdir(parents=True)
@@ -197,6 +197,8 @@ class TestCliEndToEnd:
                          "--prep-kit-dir", str(kit_dir))
         # Both steps were attempted (and both stopped at the credential check).
         assert "adding --sync-prep-kits" in proc.stdout
-        assert "DEPLOY FAILED — 2 step(s): sync-pages, sync-prep-kits" in proc.stdout
+        assert "adding --sync-prep-kits" in proc.stdout
+        assert "PREP-KIT FACT GATE" in proc.stdout
+        assert "requires --prep-kit-live-baseline-dir and --prep-kit-fact-manifest" in proc.stdout
         assert "Uploading" not in proc.stdout
         assert proc.returncode == 1

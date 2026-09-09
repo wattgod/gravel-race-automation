@@ -79,6 +79,7 @@ FUNNEL_STAGES = {
     "form_submit": ["form_submit", "tp_form_submit"],
     "begin_checkout": ["begin_checkout"],
     "purchase": ["purchase"],
+    "refund": ["refund"],
 }
 FUNNEL_EVENTS = [e for evs in FUNNEL_STAGES.values() for e in evs]
 
@@ -175,7 +176,7 @@ def _safe(fn):
 def collect_ga4(brand: str) -> dict:
     from google.analytics.data_v1beta import BetaAnalyticsDataClient
     from google.analytics.data_v1beta.types import (
-        DateRange, Dimension, Metric, RunReportRequest,
+        DateRange, Dimension, Filter, FilterExpression, Metric, RunReportRequest,
     )
 
     creds = os.environ.get("GA4_CREDENTIALS", str(PROJECT_ROOT / "ga4-credentials.json"))
@@ -190,21 +191,30 @@ def collect_ga4(brand: str) -> dict:
     y = (date.today() - timedelta(days=1)).isoformat()
     week_ago = (date.today() - timedelta(days=7)).isoformat()  # 7 full days ending yesterday
 
-    def run(metrics, dimensions=None, date_from=y, date_to=y, limit=100):
-        return client.run_report(RunReportRequest(
+    def run(metrics, dimensions=None, date_from=y, date_to=y, limit=100,
+            dimension_filter=None):
+        request_args = dict(
             property=f"properties/{prop}",
             date_ranges=[DateRange(start_date=date_from, end_date=date_to)],
             metrics=[Metric(name=m) for m in metrics],
             dimensions=[Dimension(name=d) for d in (dimensions or [])],
             limit=limit,
-        ))
+        )
+        if dimension_filter is not None:
+            request_args["dimension_filter"] = dimension_filter
+        return client.run_report(RunReportRequest(**request_args))
+
+    event_filter = FilterExpression(filter=Filter(
+        field_name="eventName",
+        in_list_filter=Filter.InListFilter(values=sorted(FUNNEL_EVENTS)),
+    ))
 
     totals = run(["sessions", "totalUsers", "screenPageViews"])
     t = totals.rows[0].metric_values if totals.rows else None
     week = run(["sessions"], date_from=week_ago, date_to=y)
     week_sessions = int(week.rows[0].metric_values[0].value) if week.rows else 0
 
-    events = run(["eventCount"], ["eventName"])
+    events = run(["eventCount"], ["eventName"], dimension_filter=event_filter)
     ev = {r.dimension_values[0].value: int(r.metric_values[0].value)
           for r in events.rows}
 
@@ -212,12 +222,15 @@ def collect_ga4(brand: str) -> dict:
     top_pages = [{"path": r.dimension_values[0].value,
                   "views": int(r.metric_values[0].value)} for r in pages.rows]
 
-    # 28-day aggregates for the constraint math (precomputed — the
-    # interpreter must never do arithmetic itself)
+    # 28-day event totals for measurement context. They remain independent
+    # aggregates and cannot identify a causal bottleneck.
     m_ago = (date.today() - timedelta(days=28)).isoformat()
     agg = run(["sessions"], date_from=m_ago, date_to=y)
     sessions_28d = int(agg.rows[0].metric_values[0].value) if agg.rows else 0
-    ev28 = run(["eventCount"], ["eventName"], date_from=m_ago, date_to=y)
+    ev28 = run(
+        ["eventCount"], ["eventName"], date_from=m_ago, date_to=y,
+        dimension_filter=event_filter,
+    )
     ev28d = {r.dimension_values[0].value: int(r.metric_values[0].value)
              for r in ev28.rows}
     funnel_28d = {stage: sum(ev28d.get(e, 0) for e in evs)
@@ -238,8 +251,6 @@ def collect_ga4(brand: str) -> dict:
         "sessions_7d_avg": round(week_sessions / 7, 1),
         "funnel": {stage: sum(ev.get(e, 0) for e in evs)
                    for stage, evs in FUNNEL_STAGES.items()},
-        "abandoned_submits": max(0, sum(ev.get(e, 0) for e in FUNNEL_STAGES["form_submit"])
-                                    - ev.get("purchase", 0)),
         "top_pages": top_pages,
         "channel_mix": channel_mix,
         "top_landing": top_landing,
@@ -272,8 +283,11 @@ def collect_checkout(brand: str) -> dict:
 
 
 def collect_commerce_ledger() -> dict:
-    """Ground truth from the webhook's /api/intel-stats (Railway volume logs):
-    orders WITH fulfillment outcomes, cart recoveries, questionnaire starts."""
+    """Local processing records from /api/intel-stats (Railway volume logs).
+
+    These records expose processing attempts and failures for operations. They
+    are not provider payment receipts or proof of customer fulfillment.
+    """
     secret = os.environ.get("CRON_SECRET", "")
     if not secret:
         return {"ok": False, "error": "CRON_SECRET not set"}
@@ -285,40 +299,21 @@ def collect_commerce_ledger() -> dict:
 
 
 def compute_constraint(ga4_gravel: dict) -> dict:
-    """Name the funnel's binding constraint from 28-day rates. Pure math,
-    precomputed here so the interpreter only narrates."""
+    """Describe why aggregate GA4 totals cannot identify a causal bottleneck."""
     if not ga4_gravel.get("ok"):
         return {"ok": False, "error": "no GA4 data"}
     s28 = ga4_gravel.get("sessions_28d") or 0
-    f = ga4_gravel.get("funnel_28d") or {}
-    cta, sub, pur = f.get("cta_click", 0), f.get("form_submit", 0), f.get("purchase", 0)
-    days = 28
-    rates = {
-        "sessions_per_day": round(s28 / days, 1),
-        "cta_rate_pct": round(100 * cta / s28, 2) if s28 else 0,
-        "cta_to_submit_pct": round(100 * sub / cta, 1) if cta else 0,
-        "submit_to_purchase_pct": round(100 * pur / sub, 1) if sub else 0,
-        "purchases_28d": pur, "submits_28d": sub, "ctas_28d": cta,
+    totals = ga4_gravel.get("funnel_28d") or {}
+    return {
+        "ok": True,
+        "assessment": "data_insufficient",
+        "reason": "independent event totals do not establish a causal bottleneck",
+        "sessions_28d": s28,
+        "event_totals_28d": {
+            stage: int(totals.get(stage, 0) or 0)
+            for stage in FUNNEL_STAGES
+        },
     }
-    # sessions/day needed for 1 purchase/day at current observed rates
-    # (fall back through the funnel when a stage has no data yet)
-    chain = (cta / s28 if s28 else 0) * (sub / cta if cta else 0) * (pur / sub if sub else 0)
-    rates["sessions_per_day_needed_for_1_sale"] = (
-        round(1 / chain) if chain > 0 else None)
-    # binding constraint heuristic, top-down
-    if s28 / days < 100:
-        binding = ("traffic — at these volumes no funnel rate is even "
-                   "measurable; nothing downstream is worth optimizing yet")
-    elif cta == 0:
-        binding = "cta_rate — sessions exist but nobody clicks toward a plan"
-    elif sub == 0:
-        binding = "form completion — clicks exist but nobody finishes intake"
-    elif pur == 0:
-        binding = "close rate — completed intakes aren't converting to payment"
-    else:
-        binding = "scaling — every stage has signal; grow the top"
-    rates["binding_constraint"] = binding
-    return {"ok": True, **rates}
 
 
 def collect_mission_control() -> dict:
@@ -354,11 +349,6 @@ def collect_mission_control() -> dict:
     opened = sum(1 for s in sends if (s.get("opened_at") or "") >= cutoff)
     clicked = sum(1 for s in sends if (s.get("clicked_at") or "") >= cutoff)
     bounced = sum(1 for s in new_sends if s.get("status") == "bounced")
-
-    # NOTE: gg_athletes is NOT written by the purchase path (verified Jul 2026
-    # — real June sales never appeared there). Orders truth = GA4 purchase
-    # events (see ga4 collector) + the [GG] FAILED emails for fulfillment.
-    new_orders = []
 
     audit = db.get_audit_log(limit=200)
     errors = [
@@ -413,7 +403,6 @@ def collect_mission_control() -> dict:
         "countdown_enrollments": countdown,
         "emails_sent_24h": len(new_sends),
         "opens_24h": opened, "clicks_24h": clicked, "bounces_24h": bounced,
-        "new_orders_24h_UNRELIABLE": "use ga4 purchase counts — gg_athletes is not written by purchases",
         "errors_24h": errors[:10],
     }
 
@@ -726,19 +715,36 @@ def load_trend(days: int = 7) -> list[dict]:
             compact = {"date": f.stem}
             for b in BRANDS:
                 g = snap.get("ga4", {}).get(b, {})
-                compact[b] = {"sessions": g.get("sessions"),
-                              "purchases": (g.get("funnel") or {}).get("purchase")}
+                funnel = g.get("funnel") or {}
+                available = g.get("ok") is True and isinstance(funnel, dict)
+                compact[b] = {
+                    "sessions": g.get("sessions") if available else None,
+                    "purchase_events": (
+                        funnel.get("purchase")
+                        if available and "purchase" in funnel else None
+                    ),
+                    "refund_events": (
+                        funnel.get("refund")
+                        if available and "refund" in funnel else None
+                    ),
+                }
             mc = snap.get("mission_control", {})
             compact["leads"] = mc.get("new_leads_24h")
-            purchases = []
-            for b in BRANDS:
-                value = (((snap.get("ga4") or {}).get(b) or {}).get("funnel") or {}).get(
-                    "purchase", 0)
-                try:
-                    purchases.append(int(value or 0))
-                except (TypeError, ValueError):
-                    purchases.append(0)
-            compact["orders"] = sum(purchases)
+            for event in ("purchase", "refund"):
+                values = [compact[b][f"{event}_events"] for b in BRANDS]
+                if all(isinstance(value, int) and not isinstance(value, bool)
+                       for value in values):
+                    compact[f"{event}_events"] = sum(values)
+                else:
+                    compact[f"{event}_events"] = None
+            ledger = snap.get("commerce_ledger") or {}
+            if ledger.get("ok"):
+                compact["order_processing_records"] = sum(
+                    1 for order in (ledger.get("orders") or [])
+                    if isinstance(order, dict)
+                )
+            else:
+                compact["order_processing_records"] = None
             trend.append(compact)
         except Exception:
             continue
@@ -759,13 +765,14 @@ def _path(value) -> str:
     return str(value)
 
 
-def _funnel_line(funnel: dict) -> str:
+def _event_totals_line(event_totals: dict) -> str:
     return (
-        f"cta {_display(funnel.get('cta_click'))} → "
-        f"form_start {_display(funnel.get('form_start'))} → "
-        f"submit {_display(funnel.get('form_submit'))} → "
-        f"checkout {_display(funnel.get('begin_checkout'))} → "
-        f"purchase {_display(funnel.get('purchase'))}"
+        f"cta {_display(event_totals.get('cta_click'))}; "
+        f"form_start {_display(event_totals.get('form_start'))}; "
+        f"submit {_display(event_totals.get('form_submit'))}; "
+        f"checkout {_display(event_totals.get('begin_checkout'))}; "
+        f"purchase {_display(event_totals.get('purchase'))}; "
+        f"refund {_display(event_totals.get('refund'))}"
     )
 
 
@@ -791,7 +798,7 @@ def _collector_failures(collected: dict) -> list[str]:
                 broken.append(f"GA4 {label} collector failed: {error}")
     for key, label in (
         ("mission_control", "Mission Control"),
-        ("commerce_ledger", "commerce ledger"),
+        ("commerce_ledger", "order processing records"),
         ("social", "social"),
         ("workflows", "workflows"),
     ):
@@ -848,7 +855,7 @@ def render_report(collected: dict) -> str:
     """Render the factual report sections without network calls or inference."""
     lines = [
         "## NUMBERS",
-        "| Brand | Sessions (vs 7d avg) | Funnel | Leads |",
+        "| Brand | Sessions (vs 7d avg) | Independent event totals | Leads |",
         "|---|---:|---|---:|",
     ]
     ga4 = collected.get("ga4") or {}
@@ -860,18 +867,19 @@ def render_report(collected: dict) -> str:
             sessions = _display(g.get("sessions"))
             avg = _display(g.get("sessions_7d_avg"))
             session_cell = f"{sessions} (vs {avg})"
-            funnel = _funnel_line(g.get("funnel") or {})
+            event_totals = _event_totals_line(g.get("funnel") or {})
         else:
             session_cell = "unavailable"
-            funnel = "unavailable"
+            event_totals = "unavailable"
         if mc.get("ok"):
             leads = _display(leads_by_brand.get(brand), "unavailable")
         else:
             leads = "unavailable"
-        lines.append(f"| {meta['label']} | {session_cell} | {funnel} | {leads} |")
+        lines.append(f"| {meta['label']} | {session_cell} | {event_totals} | {leads} |")
     lines.extend(
         f"- {warning}" for warning in _measurement_warnings(collected, 7)
     )
+    lines.append("- GA4 event totals are independent; they do not form a joined funnel.")
 
     lines.extend(["", "## TRAFFIC"])
     for brand, meta in BRANDS.items():
@@ -905,36 +913,39 @@ def render_report(collected: dict) -> str:
             f"- **{meta['label']} top landing:** {landing}.",
         ])
 
-    lines.extend(["", "## COMMERCE (GROUND TRUTH)"])
+    lines.extend(["", "## ORDER PROCESSING (LOCAL RECORDS)"])
     ledger = collected.get("commerce_ledger") or {}
     if not ledger.get("ok"):
-        lines.append("- commerce ledger unavailable.")
+        lines.append("- order processing records unavailable.")
     else:
         orders = list(ledger.get("orders") or [])
-        failed_orders = list(ledger.get("failed_orders") or [])
-        failed_orders.extend(o for o in orders if o.get("success") is False)
+        if not orders:
+            orders = list(ledger.get("failed_orders") or [])
+        failed_orders = [o for o in orders if o.get("success") is False]
         successful_orders = [o for o in orders if o.get("success") is not False]
         recoveries = list(ledger.get("recoveries") or [])
         starts = ledger.get("questionnaire_starts") or 0
         if not failed_orders and not successful_orders and not recoveries and not starts:
-            lines.append("- no orders, cart recoveries, or questionnaire starts.")
+            lines.append(
+                "- no processing attempts, cart recoveries, or questionnaire starts."
+            )
         else:
-            seen_failures = set()
             for order in failed_orders:
-                identity = (order.get("timestamp"), order.get("email"), order.get("error"))
-                if identity in seen_failures:
-                    continue
-                seen_failures.add(identity)
                 product = order.get("product_type") or order.get("product") or "order"
-                error = _display(order.get("error"), "unknown fulfillment error")
+                error = _display(order.get("error"), "unknown processing error")
                 lines.append(
-                    f"- **FAILED ORDER:** {_person(order)} — {product}; "
-                    f"fulfillment FAILED: {error}."
+                    f"- **PROCESSING FAILURE:** {_person(order)} — {product}; "
+                    f"processing FAILED: {error}."
                 )
             for order in successful_orders:
                 product = order.get("product_type") or order.get("product") or "order"
-                outcome = "fulfilled" if order.get("success") is True else "outcome unknown"
-                lines.append(f"- order: {_person(order)} — {product}; fulfillment {outcome}.")
+                outcome = (
+                    "processing succeeded"
+                    if order.get("success") is True else "processing outcome unknown"
+                )
+                lines.append(
+                    f"- processing record: {_person(order)} — {product}; {outcome}."
+                )
             for recovery in recoveries:
                 product = recovery.get("product") or recovery.get("product_type") or "order"
                 lines.append(f"- cart recovery: {_person(recovery)} — {product}.")
@@ -945,20 +956,23 @@ def render_report(collected: dict) -> str:
     if not constraint.get("ok"):
         lines.append("- constraint unavailable.")
     else:
-        binding = _display(constraint.get("binding_constraint"), "not available")
-        lines.append(f"- binding constraint: {binding}.")
         lines.append(
-            "- 28d rates: "
-            f"CTA {_display(constraint.get('cta_rate_pct'))}%; "
-            f"CTA→submit {_display(constraint.get('cta_to_submit_pct'))}%; "
-            f"submit→purchase {_display(constraint.get('submit_to_purchase_pct'))}%."
+            "- causal bottleneck: data insufficient — independent GA4 event totals "
+            "do not establish a shared cohort or event order."
         )
-        needed = constraint.get("sessions_per_day_needed_for_1_sale")
-        needed_text = _display(needed, "not measurable")
-        actual = _display(constraint.get("sessions_per_day"), "not available")
-        lines.append(f"- sessions/day needed for 1 sale/day: {needed_text}; actual: {actual}.")
+        totals = constraint.get("event_totals_28d") or {}
+        lines.append(
+            "- 28d observed totals: "
+            f"sessions {_display(constraint.get('sessions_28d'))}; "
+            f"cta {_display(totals.get('cta_click'))}; "
+            f"form_start {_display(totals.get('form_start'))}; "
+            f"submit {_display(totals.get('form_submit'))}; "
+            f"checkout {_display(totals.get('begin_checkout'))}; "
+            f"purchase {_display(totals.get('purchase'))}; "
+            f"refund {_display(totals.get('refund'))}."
+        )
         lines.extend(
-            f"- {warning} (28d sessions, funnel, and constraint rates)."
+            f"- {warning} (28d sessions and independent event totals)."
             for warning in _measurement_warnings(collected, 28)
         )
 
@@ -1094,17 +1108,15 @@ def render_report(collected: dict) -> str:
 
     lines.extend(["", "## BROKEN"])
     broken = []
-    failed_for_broken = list(ledger.get("failed_orders") or [])
-    failed_for_broken.extend(
-        order for order in (ledger.get("orders") or []) if order.get("success") is False)
-    seen_failures = set()
+    processing_records = list(ledger.get("orders") or [])
+    failed_for_broken = [
+        order for order in processing_records if order.get("success") is False
+    ]
+    if not processing_records:
+        failed_for_broken = list(ledger.get("failed_orders") or [])
     for order in failed_for_broken:
-        identity = (order.get("timestamp"), order.get("email"), order.get("error"))
-        if identity in seen_failures:
-            continue
-        seen_failures.add(identity)
-        error = _display(order.get("error"), "unknown fulfillment error")
-        broken.append(f"FAILED ORDER: {_person(order)} — {error}")
+        error = _display(order.get("error"), "unknown processing error")
+        broken.append(f"PROCESSING FAILURE: {_person(order)} — {error}")
     broken.extend(_collector_failures(collected))
     if mc.get("ok"):
         for error in mc.get("errors_24h") or []:
@@ -1218,12 +1230,19 @@ this started (Jun 2026): ~35 users/day, ~1 sale/month.
 
 Register: deadpan, terse, zero hype, zero filler. Like a good analyst who respects the \
 reader's time. NEVER invent or extrapolate a number not present in the context below. \
-The commerce ledger is ground truth and overrides GA4. The factual report is already \
+GA4 purchase and refund counts are behavioral events, not orders; never use them as \
+order counts or infer revenue from them. The `commerce_ledger` key is a legacy name \
+for local order-processing log records. Those records may contain retries, duplicate \
+attempts, failures, or synthetic traffic. A successful processing record does not \
+establish payment or customer fulfillment. Provider payments, refunds, distinct orders, \
+and customer fulfillment are unavailable without a separate provider reconciliation. \
+The factual report is already \
 rendered; do not repeat its sections or add new facts.
 
 Measurement epochs in DATA mark analytics collection changes, not demand changes. If a \
-comparison straddles one, explicitly treat the apparent session jump and affected funnel \
-or constraint rates as not like-for-like; do not report them as increased demand.
+comparison straddles one, explicitly treat the apparent session jump and affected event \
+totals as not like-for-like; do not report them as increased demand. Do not infer \
+conversion rates or a causal bottleneck from independent GA4 event totals.
 
 Write EXACTLY this structure (markdown):
 Line 1: `SUBJECT: intel {date}: <hook under 60 chars — the single most important fact>`

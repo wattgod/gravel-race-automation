@@ -1,0 +1,52 @@
+"""Materialize optional runtime credentials without exposing their contents."""
+
+import json
+import os
+import tempfile
+from pathlib import Path
+
+
+def prepare_ga4_credentials(temp_parent: Path | None = None) -> str:
+    """Create the GA4 credential file expected by the existing client contract.
+
+    An explicit path always wins. Railway can provide the existing GitHub-style
+    JSON secret as an environment variable, but the Google client requires a
+    file. Invalid input leaves GA4 unavailable and returns a bounded reason.
+    """
+    explicit = os.environ.get("GA4_CREDENTIALS_PATH", "").strip()
+    if explicit:
+        return "explicit_path" if Path(explicit).is_file() else "invalid_explicit_path"
+
+    raw = os.environ.get("GA4_CREDENTIALS_JSON", "")
+    if not raw:
+        return "json_absent"
+    try:
+        value = json.loads(raw)
+    except (TypeError, json.JSONDecodeError):
+        return "json_invalid"
+    required = ("client_email", "private_key", "token_uri")
+    if not isinstance(value, dict) or value.get("type") != "service_account" or any(
+        not isinstance(value.get(key), str) or not value[key].strip() for key in required
+    ):
+        return "json_invalid_shape"
+
+    target: Path | None = None
+    try:
+        target_dir = Path(tempfile.mkdtemp(
+            prefix="ga4-runtime-", dir=temp_parent))
+        os.chmod(target_dir, 0o700)
+        fd, filename = tempfile.mkstemp(
+            prefix="ga4-credentials-", suffix=".json", dir=target_dir)
+        target = Path(filename)
+        with os.fdopen(fd, "w", encoding="utf-8") as handle:
+            json.dump(value, handle, separators=(",", ":"))
+        os.chmod(target, 0o600)
+        os.environ["GA4_CREDENTIALS_PATH"] = str(target)
+    except OSError:
+        try:
+            if target is not None:
+                target.unlink(missing_ok=True)
+        except OSError:
+            pass
+        return "write_failed"
+    return "materialized"

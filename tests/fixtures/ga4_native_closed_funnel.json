@@ -1,0 +1,268 @@
+{
+  "generated_at": "2026-09-09T04:30:56.429347+00:00",
+  "limitations": [
+    "Rows are aggregate active-user sequence evidence; no user or session identifiers are returned.",
+    "GA4 reporting identity and consent determine which people can be joined across steps.",
+    "Server purchases using the order-scoped fallback client ID cannot join earlier browser steps.",
+    "GA4 purchase evidence does not establish provider-collected cash.",
+    "The alpha API can change, and sampling is reported per subreport when applied."
+  ],
+  "ok": true,
+  "period": {
+    "end_date": "2026-09-07",
+    "start_date": "2026-07-01",
+    "timezone": "property_reporting_timezone"
+  },
+  "property_ref": "898abca13284",
+  "request_contract": {
+    "closed": true,
+    "directly_followed": false,
+    "ordered": true,
+    "steps": [
+      {
+        "events": [
+          "page_view"
+        ],
+        "name": "Race page view",
+        "page_prefix": "/race/"
+      },
+      {
+        "events": [
+          "cta_click"
+        ],
+        "name": "Race CTA",
+        "page_prefix": "/race/"
+      },
+      {
+        "events": [
+          "form_start",
+          "tp_form_start"
+        ],
+        "name": "Plan form start",
+        "page_prefix": "/questionnaire/"
+      },
+      {
+        "events": [
+          "form_submit",
+          "tp_form_submit"
+        ],
+        "name": "Plan form submit",
+        "page_prefix": "/questionnaire/"
+      },
+      {
+        "events": [
+          "begin_checkout"
+        ],
+        "itemCategory": "training_plan",
+        "name": "Training-plan checkout"
+      },
+      {
+        "events": [
+          "purchase"
+        ],
+        "itemCategory": "training_plan",
+        "name": "Training-plan purchase"
+      }
+    ]
+  },
+  "response": {
+    "funnel_table": {
+      "dimensionHeaders": [
+        {
+          "name": "funnelStepName"
+        }
+      ],
+      "metadata": {},
+      "metricHeaders": [
+        {
+          "name": "activeUsers",
+          "type": "TYPE_INTEGER"
+        },
+        {
+          "name": "funnelStepCompletionRate",
+          "type": "TYPE_INTEGER"
+        },
+        {
+          "name": "funnelStepAbandonments",
+          "type": "TYPE_INTEGER"
+        },
+        {
+          "name": "funnelStepAbandonmentRate",
+          "type": "TYPE_INTEGER"
+        },
+        {
+          "name": "activeUsers",
+          "type": "TYPE_INTEGER"
+        },
+        {
+          "name": "funnelStepCompletionRate",
+          "type": "TYPE_INTEGER"
+        },
+        {
+          "name": "funnelStepAbandonments",
+          "type": "TYPE_INTEGER"
+        },
+        {
+          "name": "funnelStepAbandonmentRate",
+          "type": "TYPE_INTEGER"
+        }
+      ],
+      "rows": [
+        {
+          "dimensionValues": [
+            {
+              "value": "1. Race page view"
+            }
+          ],
+          "metricValues": [
+            {
+              "value": "4601"
+            },
+            {
+              "value": "0.040425994349054556"
+            },
+            {
+              "value": "4415"
+            },
+            {
+              "value": "0.95957400565094542"
+            }
+          ]
+        },
+        {
+          "dimensionValues": [
+            {
+              "value": "2. Race CTA"
+            }
+          ],
+          "metricValues": [
+            {
+              "value": "186"
+            },
+            {
+              "value": "0.053763440860215055"
+            },
+            {
+              "value": "176"
+            },
+            {
+              "value": "0.946236559139785"
+            }
+          ]
+        },
+        {
+          "dimensionValues": [
+            {
+              "value": "3. Plan form start"
+            }
+          ],
+          "metricValues": [
+            {
+              "value": "10"
+            },
+            {
+              "value": "0.2"
+            },
+            {
+              "value": "8"
+            },
+            {
+              "value": "0.8"
+            }
+          ]
+        },
+        {
+          "dimensionValues": [
+            {
+              "value": "4. Plan form submit"
+            }
+          ],
+          "metricValues": [
+            {
+              "value": "2"
+            },
+            {
+              "value": "0"
+            },
+            {
+              "value": "2"
+            },
+            {
+              "value": "1"
+            }
+          ]
+        }
+      ]
+    },
+    "funnel_visualization": {
+      "dimensionHeaders": [
+        {
+          "name": "funnelStepName"
+        }
+      ],
+      "metadata": {},
+      "metricHeaders": [
+        {
+          "name": "activeUsers",
+          "type": "TYPE_INTEGER"
+        },
+        {
+          "name": "activeUsers",
+          "type": "TYPE_INTEGER"
+        }
+      ],
+      "rows": [
+        {
+          "dimensionValues": [
+            {
+              "value": "1. Race page view"
+            }
+          ],
+          "metricValues": [
+            {
+              "value": "4601"
+            }
+          ]
+        },
+        {
+          "dimensionValues": [
+            {
+              "value": "2. Race CTA"
+            }
+          ],
+          "metricValues": [
+            {
+              "value": "186"
+            }
+          ]
+        },
+        {
+          "dimensionValues": [
+            {
+              "value": "3. Plan form start"
+            }
+          ],
+          "metricValues": [
+            {
+              "value": "10"
+            }
+          ]
+        },
+        {
+          "dimensionValues": [
+            {
+              "value": "4. Plan form submit"
+            }
+          ],
+          "metricValues": [
+            {
+              "value": "2"
+            }
+          ]
+        }
+      ]
+    },
+    "kind": "analyticsData#runFunnelReport"
+  },
+  "schema": "ga4_native_funnel_probe/v1"
+}

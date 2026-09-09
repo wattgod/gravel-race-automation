@@ -2,12 +2,16 @@
 from __future__ import annotations
 
 from copy import deepcopy
+import json
+import sys
+from types import ModuleType, SimpleNamespace
 
 import pytest
 
 from scripts.daily_intel import (
     INTERPRET_PROMPT,
     combine_report,
+    compute_constraint,
     detect_tracking_regression,
     measurement_epochs_for_report,
     measurement_epochs_in_window,
@@ -68,12 +72,17 @@ def collected():
         },
         "constraint": {
             "ok": True,
-            "binding_constraint": "traffic",
-            "cta_rate_pct": 4.05,
-            "cta_to_submit_pct": 60.5,
-            "submit_to_purchase_pct": 11.5,
-            "sessions_per_day_needed_for_1_sale": 354,
-            "sessions_per_day": 37.9,
+            "assessment": "data_insufficient",
+            "reason": "independent event totals do not establish a causal bottleneck",
+            "sessions_28d": 1061,
+            "event_totals_28d": {
+                "cta_click": 43,
+                "form_start": 20,
+                "form_submit": 10,
+                "begin_checkout": 3,
+                "purchase": 2,
+                "refund": 4,
+            },
         },
         "social": {"ok": True, "accounts_live": False},
         "workflows": {"ok": True, "latest": {"regression-tests.yml": "success"}},
@@ -85,15 +94,16 @@ def test_render_report_has_deterministic_sections_and_readable_funnel(collected)
     report = render_report(collected)
 
     assert report.startswith("## NUMBERS")
-    assert "cta 2 → form_start 2 → submit 1 → checkout 0 → purchase 0" in report
+    assert "cta 2; form_start 2; submit 1; checkout 0; purchase 0; refund 0" in report
     assert "{'cta_click'" not in report
     assert "## TRAFFIC" in report
     assert "Gravel God top pages" in report
     assert "Roadie Labs:** 3 sessions; near-zero traffic" in report
-    assert "## COMMERCE (GROUND TRUTH)" in report
-    assert "no orders, cart recoveries, or questionnaire starts" in report
-    assert "binding constraint: traffic" in report
-    assert "354; actual: 37.9" in report
+    assert "## ORDER PROCESSING (LOCAL RECORDS)" in report
+    assert "no processing attempts, cart recoveries, or questionnaire starts" in report
+    assert "causal bottleneck: data insufficient" in report
+    assert "sessions 1061; cta 43; form_start 20; submit 10; checkout 3; purchase 2; refund 4" in report
+    assert "CTA→submit" not in report
     assert "Ada Rider <ada@example.com> — Test Gravel; welcome_v1 step 2" in report
     assert "## SOCIAL" not in report
     assert "###" not in report
@@ -123,7 +133,7 @@ def test_measurement_window_straddle_is_annotated_and_serializable(collected):
         "⚠ measurement regime change 2026-07-26 — comparison not like-for-like"
     )
     assert report.count(warning) == 2
-    assert "(28d sessions, funnel, and constraint rates)." in report
+    assert "(28d sessions and independent event totals)." in report
     assert snapshot["measurement_epochs"] == [{
         "date": "2026-07-26",
         "scope": "sessions",
@@ -134,6 +144,215 @@ def test_measurement_window_straddle_is_annotated_and_serializable(collected):
     }]
     assert warning in snapshot["report"]
     assert "analytics collection changes, not demand changes" in INTERPRET_PROMPT
+    assert "Do not infer conversion rates or a causal bottleneck" in INTERPRET_PROMPT
+
+
+def test_compute_constraint_refuses_rates_for_nonmonotonic_event_totals():
+    result = compute_constraint({
+        "ok": True,
+        "sessions_28d": 500,
+        "funnel_28d": {
+            "cta_click": 4,
+            "form_start": 3,
+            "form_submit": 1,
+            "begin_checkout": 1,
+            "purchase": 2,
+            "refund": 7,
+        },
+    })
+
+    assert result == {
+        "ok": True,
+        "assessment": "data_insufficient",
+        "reason": "independent event totals do not establish a causal bottleneck",
+        "sessions_28d": 500,
+        "event_totals_28d": {
+            "cta_click": 4,
+            "form_start": 3,
+            "form_submit": 1,
+            "begin_checkout": 1,
+            "purchase": 2,
+            "refund": 7,
+        },
+    }
+    assert not any(key.endswith("_pct") for key in result)
+    assert "binding_constraint" not in result
+
+
+def test_collect_ga4_filters_both_event_queries_before_limit(monkeypatch):
+    from scripts import daily_intel
+
+    class Message:
+        def __init__(self, **kwargs):
+            self.__dict__.update(kwargs)
+
+    class Filter(Message):
+        class InListFilter(Message):
+            pass
+
+    def row(name, count):
+        return SimpleNamespace(
+            dimension_values=[SimpleNamespace(value=name)],
+            metric_values=[SimpleNamespace(value=str(count))],
+        )
+
+    class Client:
+        def __init__(self):
+            self.event_requests = []
+
+        def run_report(self, request):
+            dimensions = [item.name for item in request.dimensions]
+            if dimensions == ["eventName"]:
+                self.event_requests.append(request)
+                if getattr(request, "dimension_filter", None):
+                    return SimpleNamespace(rows=[row("purchase", 2), row("refund", 7)])
+                return SimpleNamespace(rows=[row(f"unrelated_{i}", 1) for i in range(100)])
+            return SimpleNamespace(rows=[])
+
+    client = Client()
+    fake_api = ModuleType("google.analytics.data_v1beta")
+    fake_api.BetaAnalyticsDataClient = lambda: client
+    fake_types = ModuleType("google.analytics.data_v1beta.types")
+    for name, value in {
+        "DateRange": Message,
+        "Dimension": Message,
+        "Filter": Filter,
+        "FilterExpression": Message,
+        "Metric": Message,
+        "RunReportRequest": Message,
+    }.items():
+        setattr(fake_types, name, value)
+    monkeypatch.setitem(sys.modules, "google.analytics.data_v1beta", fake_api)
+    monkeypatch.setitem(sys.modules, "google.analytics.data_v1beta.types", fake_types)
+    monkeypatch.setenv(daily_intel.BRANDS["gravelgod"]["property_env"], "123")
+
+    result = daily_intel.collect_ga4("gravelgod")
+
+    assert result["funnel"]["purchase"] == 2
+    assert result["funnel"]["refund"] == 7
+    assert result["funnel_28d"]["purchase"] == 2
+    assert result["funnel_28d"]["refund"] == 7
+    assert len(client.event_requests) == 2
+    for request in client.event_requests:
+        event_filter = request.dimension_filter.filter
+        assert event_filter.field_name == "eventName"
+        assert set(event_filter.in_list_filter.values) == set(daily_intel.FUNNEL_EVENTS)
+
+
+def test_load_trend_keeps_events_distinct_from_processing_records(tmp_path, monkeypatch):
+    from scripts import daily_intel
+
+    snapshot = {
+        "ga4": {
+            "gravelgod": {
+                "ok": True,
+                "sessions": 10,
+                "funnel": {"purchase": 9, "refund": 4},
+            },
+            "roadielabs": {
+                "ok": True,
+                "sessions": 5,
+                "funnel": {"purchase": 2, "refund": 1},
+            },
+            "xcski": {
+                "ok": True,
+                "sessions": 0,
+                "funnel": {"purchase": 0, "refund": 0},
+            },
+        },
+        "commerce_ledger": {
+            "ok": True,
+            "orders": [
+                {"id": "cs_test_same", "success": True},
+                {"id": "cs_test_same", "success": True},
+            ],
+            "failed_orders": [],
+        },
+        "mission_control": {
+            "new_orders_24h_UNRELIABLE": "use ga4 purchase counts",
+        },
+    }
+    (tmp_path / "2026-09-07.json").write_text(json.dumps(snapshot))
+    monkeypatch.setattr(daily_intel, "SNAPSHOT_DIR", tmp_path)
+
+    [trend] = daily_intel.load_trend()
+
+    assert trend["purchase_events"] == 11
+    assert trend["refund_events"] == 5
+    assert trend["order_processing_records"] == 2
+    assert "provider_orders" not in trend
+    assert "orders" not in trend
+    assert trend["gravelgod"]["purchase_events"] == 9
+    assert trend["gravelgod"]["refund_events"] == 4
+    assert "purchases" not in trend["gravelgod"]
+    assert "GA4 purchase and refund counts are behavioral events, not orders" in daily_intel.INTERPRET_PROMPT
+    assert "may contain retries, duplicate attempts, failures, or synthetic traffic" in daily_intel.INTERPRET_PROMPT
+    assert "does not establish payment or customer fulfillment" in daily_intel.INTERPRET_PROMPT
+
+
+@pytest.mark.parametrize(
+    "unavailable_brand",
+    [None, {"ok": False, "funnel": {"purchase": 0, "refund": 0}}],
+)
+def test_load_trend_keeps_aggregate_unknown_for_missing_or_failed_brand(
+        tmp_path, monkeypatch, unavailable_brand):
+    from scripts import daily_intel
+
+    ga4 = {
+        "gravelgod": {
+            "ok": True,
+            "sessions": 10,
+            "funnel": {"purchase": 2, "refund": 1},
+        },
+        "roadielabs": {
+            "ok": True,
+            "sessions": 5,
+            "funnel": {"purchase": 0, "refund": 0},
+        },
+    }
+    if unavailable_brand is not None:
+        ga4["xcski"] = unavailable_brand
+    (tmp_path / "2026-09-05.json").write_text(json.dumps({"ga4": ga4}))
+    monkeypatch.setattr(daily_intel, "SNAPSHOT_DIR", tmp_path)
+
+    [trend] = daily_intel.load_trend()
+
+    assert trend["purchase_events"] is None
+    assert trend["refund_events"] is None
+    assert trend["xcski"]["purchase_events"] is None
+
+
+def test_load_trend_keeps_refunds_unknown_before_refund_epoch(tmp_path, monkeypatch):
+    from scripts import daily_intel
+
+    ga4 = {
+        brand: {"ok": True, "funnel": {"purchase": 0}}
+        for brand in daily_intel.BRANDS
+    }
+    (tmp_path / "2026-06-30.json").write_text(json.dumps({"ga4": ga4}))
+    monkeypatch.setattr(daily_intel, "SNAPSHOT_DIR", tmp_path)
+
+    [trend] = daily_intel.load_trend()
+
+    assert trend["purchase_events"] == 0
+    assert trend["refund_events"] is None
+    assert all(trend[brand]["refund_events"] is None for brand in daily_intel.BRANDS)
+
+
+def test_load_trend_preserves_true_complete_zero(tmp_path, monkeypatch):
+    from scripts import daily_intel
+
+    ga4 = {
+        brand: {"ok": True, "funnel": {"purchase": 0, "refund": 0}}
+        for brand in daily_intel.BRANDS
+    }
+    (tmp_path / "2026-09-06.json").write_text(json.dumps({"ga4": ga4}))
+    monkeypatch.setattr(daily_intel, "SNAPSHOT_DIR", tmp_path)
+
+    [trend] = daily_intel.load_trend()
+
+    assert trend["purchase_events"] == 0
+    assert trend["refund_events"] == 0
 
 
 def test_empty_epoch_list_preserves_report_behavior(collected):
@@ -146,20 +365,24 @@ def test_empty_epoch_list_preserves_report_behavior(collected):
 
 
 def test_render_report_failed_orders_are_first_and_broken_is_complete(collected):
+    failed_record = {
+        "name": "Failed Rider",
+        "email": "failed@example.com",
+        "product_type": "training_plan",
+        "success": False,
+        "error": "delivery timeout",
+    }
     collected["commerce_ledger"].update({
-        "failed_orders": [{
-            "name": "Failed Rider",
-            "email": "failed@example.com",
-            "product_type": "training_plan",
-            "success": False,
-            "error": "delivery timeout",
-        }],
-        "orders": [{
-            "name": "Paid Rider",
-            "email": "paid@example.com",
-            "product_type": "training_plan",
-            "success": True,
-        }],
+        "failed_orders": [failed_record],
+        "orders": [
+            failed_record,
+            {
+                "name": "Paid Rider",
+                "email": "paid@example.com",
+                "product_type": "training_plan",
+                "success": True,
+            },
+        ],
         "recoveries": [{"email": "cart@example.com", "product": "training_plan"}],
         "questionnaire_starts": 2,
     })
@@ -171,11 +394,14 @@ def test_render_report_failed_orders_are_first_and_broken_is_complete(collected)
     collected["report_issues"] = ["possible tracking regression"]
 
     report = render_report(collected)
-    commerce = report.split("## COMMERCE (GROUND TRUTH)\n", 1)[1].split("\n\n## CONSTRAINT", 1)[0]
+    commerce = report.split("## ORDER PROCESSING (LOCAL RECORDS)\n", 1)[1].split(
+        "\n\n## CONSTRAINT", 1)[0]
 
-    assert commerce.index("**FAILED ORDER:**") < commerce.index("- order: Paid Rider")
-    assert "fulfillment FAILED: delivery timeout" in commerce
-    assert "fulfillment fulfilled" in commerce
+    assert commerce.index("**PROCESSING FAILURE:**") < commerce.index(
+        "- processing record: Paid Rider")
+    assert "processing FAILED: delivery timeout" in commerce
+    assert "processing succeeded" in commerce
+    assert "fulfilled" not in commerce
     assert "cart recovery: cart@example.com" in commerce
     assert "questionnaire starts: 2" in commerce
     assert "checkout Roadie Labs FAIL: checkout=500" in report
@@ -427,6 +653,7 @@ def test_collect_mission_control_reads_newest_rows_past_the_1000_row_cap(monkeyp
     assert out["clicks_24h"] == 1
     assert out["new_leads_24h"] == 2
     assert out["leads_by_brand"] == {"gravelgod": 1, "roadielabs": 1}
+    assert "new_orders_24h_UNRELIABLE" not in out
     hot = {lead["email"]: lead for lead in out["hot_leads_14d"]}
     assert set(hot) == {"new@example.com", "new2@example.com"}
     assert hot["new@example.com"]["opens"] == 1

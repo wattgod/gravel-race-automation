@@ -2,26 +2,28 @@
 
 Covers:
 - Mock data output format
-- Funnel stage ordering
-- Drop-off calculation
-- Cumulative conversion calculation
-- Edge cases (zero counts, single stage)
+- Observed stage ordering and query scope
+- Independent-total measurement semantics
+- Human and JSON disclosure of denominator limits
 """
 from __future__ import annotations
 
 import sys
 from pathlib import Path
+from types import SimpleNamespace
 
 import pytest
 
 # Ensure scripts/ is importable
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "scripts"))
 
+import funnel_report
 from funnel_report import (
+    ARTICLE_FUNNEL,
     COACHING_FUNNEL,
     TRAINING_PLAN_FUNNEL,
-    compute_funnel_metrics,
     get_mock_data,
+    print_report,
 )
 
 
@@ -43,6 +45,7 @@ class TestMockData:
             assert "stage" in stage
             assert "label" in stage
             assert "count" in stage
+            assert "scope" in stage
             assert isinstance(stage["count"], int)
 
     def test_coaching_stages_have_required_keys(self):
@@ -51,6 +54,7 @@ class TestMockData:
             assert "stage" in stage
             assert "label" in stage
             assert "count" in stage
+            assert "scope" in stage
             assert isinstance(stage["count"], int)
 
     def test_article_stages_have_required_keys(self):
@@ -59,6 +63,7 @@ class TestMockData:
             assert "stage" in stage
             assert "label" in stage
             assert "count" in stage
+            assert "scope" in stage
             assert isinstance(stage["count"], int)
 
     def test_training_plan_has_six_stages(self):
@@ -82,8 +87,8 @@ class TestMockData:
 # ── Funnel stage ordering ──────────────────────────────────
 
 
-class TestFunnelStageOrdering:
-    """Funnel stages must be in correct sequential order."""
+class TestObservedStageOrdering:
+    """Rows retain a useful journey-like reading order without claiming a cohort."""
 
     def test_training_plan_funnel_order(self):
         expected_stages = [
@@ -100,138 +105,88 @@ class TestFunnelStageOrdering:
         actual = [s["stage"] for s in COACHING_FUNNEL]
         assert actual == expected_stages
 
-    def test_mock_data_counts_decrease_through_training_funnel(self):
-        """Each stage should have fewer or equal events than the previous."""
+    def test_mock_data_need_not_decrease_through_training_totals(self):
+        """Mock totals may rise because the rows are independent event totals."""
         tp, _, _ = get_mock_data()
-        for i in range(1, len(tp)):
-            # Coaching scroll might be higher than CTA clicks (passive vs active),
-            # but training plan funnel should monotonically decrease
-            assert tp[i]["count"] <= tp[i - 1]["count"], (
-                f"Stage {tp[i]['stage']} ({tp[i]['count']}) > "
-                f"{tp[i - 1]['stage']} ({tp[i - 1]['count']})"
-            )
+        assert tp[-1]["count"] > tp[-2]["count"]
+
+    def test_every_stage_declares_its_query_scope(self):
+        for stage in TRAINING_PLAN_FUNNEL + COACHING_FUNNEL + ARTICLE_FUNNEL:
+            assert stage["scope"]
+
+    def test_race_cta_is_scoped_to_race_pages(self):
+        cta = next(s for s in TRAINING_PLAN_FUNNEL if s["stage"] == "cta_click")
+        assert cta["filter_field"] == "pagePath"
+        assert cta["filter_prefix"] == "/race/"
+
+    def test_form_stage_counts_both_deployed_event_generations(self):
+        start = next(s for s in TRAINING_PLAN_FUNNEL if s["stage"] == "tp_form_start")
+        submit = next(s for s in TRAINING_PLAN_FUNNEL if s["stage"] == "tp_form_submit")
+        assert set(start["events"]) == {"form_start", "tp_form_start"}
+        assert set(submit["events"]) == {"form_submit", "tp_form_submit"}
 
 
-# ── Drop-off calculation ───────────────────────────────────
+# ── Measurement semantics ──────────────────────────────────
 
 
-class TestDropoffCalculation:
-    """Tests for compute_funnel_metrics drop-off percentages."""
+class TestIndependentTotalSemantics:
+    def test_metadata_refuses_unavailable_denominators(self):
+        metadata = getattr(funnel_report, "MEASUREMENT_METADATA", {})
+        assert metadata.get("kind") == "independent_event_totals"
+        assert metadata.get("joined") is False
+        assert metadata.get("denominator", "missing") is None
 
-    def test_basic_dropoff(self):
-        stages = [
-            {"stage": "a", "label": "A", "count": 100},
-            {"stage": "b", "label": "B", "count": 50},
-        ]
-        result = compute_funnel_metrics(stages)
-        assert result[0]["dropoff_pct"] is None  # first stage has no drop-off
-        assert result[1]["dropoff_pct"] == 50.0  # 50% drop from 100 to 50
-
-    def test_zero_dropoff(self):
-        stages = [
-            {"stage": "a", "label": "A", "count": 100},
-            {"stage": "b", "label": "B", "count": 100},
-        ]
-        result = compute_funnel_metrics(stages)
-        assert result[1]["dropoff_pct"] == 0.0
-
-    def test_full_dropoff(self):
-        stages = [
-            {"stage": "a", "label": "A", "count": 100},
-            {"stage": "b", "label": "B", "count": 0},
-        ]
-        result = compute_funnel_metrics(stages)
-        assert result[1]["dropoff_pct"] == 100.0
-
-    def test_multi_stage_dropoff(self):
-        stages = [
-            {"stage": "a", "label": "A", "count": 1000},
-            {"stage": "b", "label": "B", "count": 500},
-            {"stage": "c", "label": "C", "count": 250},
-        ]
-        result = compute_funnel_metrics(stages)
-        assert result[1]["dropoff_pct"] == 50.0
-        assert result[2]["dropoff_pct"] == 50.0
-
-    def test_dropoff_with_zero_previous(self):
-        stages = [
-            {"stage": "a", "label": "A", "count": 100},
-            {"stage": "b", "label": "B", "count": 0},
-            {"stage": "c", "label": "C", "count": 0},
-        ]
-        result = compute_funnel_metrics(stages)
-        assert result[2]["dropoff_pct"] is None  # 0/0 = undefined
-
-    def test_first_stage_dropoff_is_none(self):
-        stages = [{"stage": "a", "label": "A", "count": 500}]
-        result = compute_funnel_metrics(stages)
-        assert result[0]["dropoff_pct"] is None
-
-
-# ── Cumulative conversion ──────────────────────────────────
-
-
-class TestCumulativeConversion:
-    """Tests for compute_funnel_metrics cumulative conversion percentages."""
-
-    def test_first_stage_is_100_percent(self):
-        stages = [
-            {"stage": "a", "label": "A", "count": 100},
-            {"stage": "b", "label": "B", "count": 50},
-        ]
-        result = compute_funnel_metrics(stages)
-        assert result[0]["cumulative_pct"] == 100.0
-
-    def test_basic_cumulative(self):
-        stages = [
-            {"stage": "a", "label": "A", "count": 100},
-            {"stage": "b", "label": "B", "count": 50},
-        ]
-        result = compute_funnel_metrics(stages)
-        assert result[1]["cumulative_pct"] == 50.0
-
-    def test_multi_stage_cumulative(self):
-        stages = [
-            {"stage": "a", "label": "A", "count": 1000},
-            {"stage": "b", "label": "B", "count": 500},
-            {"stage": "c", "label": "C", "count": 100},
-        ]
-        result = compute_funnel_metrics(stages)
-        assert result[0]["cumulative_pct"] == 100.0
-        assert result[1]["cumulative_pct"] == 50.0
-        assert result[2]["cumulative_pct"] == 10.0
-
-    def test_zero_top_of_funnel(self):
-        stages = [
-            {"stage": "a", "label": "A", "count": 0},
-            {"stage": "b", "label": "B", "count": 0},
-        ]
-        result = compute_funnel_metrics(stages)
-        assert result[0]["cumulative_pct"] is None
-        assert result[1]["cumulative_pct"] is None
-
-    def test_empty_stages_list(self):
-        result = compute_funnel_metrics([])
-        assert result == []
-
-    def test_mock_data_cumulative_first_is_100(self):
+    def test_json_payload_contains_limits_and_no_cross_stage_rates(self):
         tp, coaching, articles = get_mock_data()
-        tp = compute_funnel_metrics(tp)
-        coaching = compute_funnel_metrics(coaching)
-        articles = compute_funnel_metrics(articles)
-        assert tp[0]["cumulative_pct"] == 100.0
-        assert coaching[0]["cumulative_pct"] == 100.0
-        assert articles[0]["cumulative_pct"] == 100.0
+        build_report_payload = getattr(funnel_report, "build_report_payload", None)
+        assert callable(build_report_payload)
+        payload = build_report_payload(30, tp, coaching, articles)
+        assert payload["measurement"] == funnel_report.MEASUREMENT_METADATA
+        assert payload["schema"] == "ga4_event_totals/v2"
+        for rows in (
+            payload["training_plan_totals"],
+            payload["coaching_totals"],
+            payload["article_totals"],
+        ):
+            for row in rows:
+                assert "dropoff_pct" not in row
+                assert "cumulative_pct" not in row
 
-    def test_mock_data_last_stage_overall_conversion(self):
-        tp, _, _ = get_mock_data()
-        tp = compute_funnel_metrics(tp)
-        # Last stage cumulative = purchases / page views * 100
-        expected = round(tp[-1]["count"] / tp[0]["count"] * 100, 2)
-        assert tp[-1]["cumulative_pct"] == expected
+    def test_query_applies_declared_scope_and_event_aliases(self, monkeypatch):
+        from google.analytics import data_v1beta
 
-    def test_output_has_dropoff_and_cumulative_keys(self):
-        stages = [{"stage": "x", "label": "X", "count": 42}]
-        result = compute_funnel_metrics(stages)
-        assert "dropoff_pct" in result[0]
-        assert "cumulative_pct" in result[0]
+        requests = []
+
+        class Client:
+            def run_report(self, request):
+                requests.append(request)
+                return SimpleNamespace(rows=[])
+
+        monkeypatch.setattr(data_v1beta, "BetaAnalyticsDataClient", Client)
+        monkeypatch.setenv("GOOGLE_APPLICATION_CREDENTIALS", "test-sentinel")
+        rows = funnel_report.get_funnel_data(
+            "123", "/tmp/test-ga4.json", 30, TRAINING_PLAN_FUNNEL
+        )
+
+        assert len(requests) == len(TRAINING_PLAN_FUNNEL)
+        assert [row["scope"] for row in rows] == [
+            stage["scope"] for stage in TRAINING_PLAN_FUNNEL
+        ]
+        race_path_filter = requests[1].dimension_filter.and_group.expressions[1]
+        assert race_path_filter.filter.string_filter.value == "/race/"
+        form_events = requests[2].dimension_filter.and_group.expressions[0]
+        assert {
+            expression.filter.string_filter.value
+            for expression in form_events.or_group.expressions
+        } == {"form_start", "tp_form_start"}
+        assert not requests[-1].dimension_filter.and_group.expressions
+
+    def test_human_report_labels_totals_and_omits_conversion_claims(self, capsys):
+        tp, coaching, articles = get_mock_data()
+        print_report(tp, coaching, 30, articles)
+        output = capsys.readouterr().out
+        assert "INDEPENDENT GA4 EVENT TOTALS" in output
+        assert "No shared session, user, product, or event order" in output
+        assert "Overall conversion" not in output
+        assert "Drop-off" not in output
+        assert "Cumulative" not in output

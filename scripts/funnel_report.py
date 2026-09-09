@@ -1,12 +1,10 @@
 #!/usr/bin/env python3
 """
-Conversion funnel analysis — queries GA4 Data API for stage-by-stage drop-off.
+GA4 event-total report for journey-related events.
 
-Reports two funnels:
-  1. Training Plan funnel: race page_view → cta_click → tp_form_start →
-     tp_form_submit → begin_checkout → purchase
-  2. Coaching funnel: coaching page_view → coaching_cta_click →
-     coaching_scroll_depth (87_faq or 100_final_cta)
+Rows are independently aggregated event counts in a useful reading order. They
+do not identify a common user, session, product, race, or event sequence, so the
+report deliberately does not calculate drop-off or conversion percentages.
 
 Prerequisites:
   - Google Analytics Data API credentials (service account JSON)
@@ -34,36 +32,83 @@ from pathlib import Path
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 
-# ── Funnel definitions ──────────────────────────────────────────────────
+# ── Observed event groups ───────────────────────────────────────────────
+
+MEASUREMENT_METADATA = {
+    "kind": "independent_event_totals",
+    "joined": False,
+    "denominator": None,
+    "evidence_gap": (
+        "The GA4 requests return aggregate eventCount values without a shared "
+        "user, session, product, race, order identifier, or event sequence."
+    ),
+    "limitations": [
+        "Each row is counted independently; rows are not a sequential cohort.",
+        "Query scope can differ by row and is declared on every row.",
+        "Purchase events are behavioral evidence until reconciled to provider transactions.",
+    ],
+    "joined_measurement_path": {
+        "session_cohort": (
+            "Use event-level GA4 export or a GA4 funnel report with ordered steps "
+            "after the same race/product dimensions are present on every step."
+        ),
+        "order_cohort": (
+            "Carry a common order and offer identifier through checkout and purchase, "
+            "then reconcile purchase transaction_id to the provider ledger."
+        ),
+    },
+}
+
+RACE_SCOPE = "race pages (/race/*)"
+QUESTIONNAIRE_SCOPE = "questionnaire (/questionnaire/*)"
+COACHING_SCOPE = "coaching pages (/coaching/*)"
+ARTICLE_SCOPE = "article pages (/articles/*)"
+PROPERTY_SCOPE = "property-wide purchase events"
 
 TRAINING_PLAN_FUNNEL = [
-    {"stage": "page_view",       "event": "page_view",      "label": "Race page views",
-     "filter_field": "pagePath", "filter_prefix": "/race/"},
-    {"stage": "cta_click",       "event": "cta_click",      "label": "CTA clicks"},
-    {"stage": "tp_form_start",   "event": "tp_form_start",  "label": "Form started"},
-    {"stage": "tp_form_submit",  "event": "tp_form_submit", "label": "Form submitted"},
-    {"stage": "begin_checkout",  "event": "begin_checkout",  "label": "Checkout initiated"},
-    {"stage": "purchase",        "event": "purchase",        "label": "Purchase completed"},
+    {"stage": "page_view", "events": ["page_view"], "label": "Race page views",
+     "filter_field": "pagePath", "filter_prefix": "/race/", "scope": RACE_SCOPE},
+    {"stage": "cta_click", "events": ["cta_click"], "label": "Race-page CTA clicks",
+     "filter_field": "pagePath", "filter_prefix": "/race/", "scope": RACE_SCOPE},
+    {"stage": "tp_form_start", "events": ["form_start", "tp_form_start"],
+     "label": "Form starts", "filter_field": "pagePath", "filter_prefix": "/questionnaire/",
+     "scope": QUESTIONNAIRE_SCOPE},
+    {"stage": "tp_form_submit", "events": ["form_submit", "tp_form_submit"],
+     "label": "Form submissions", "filter_field": "pagePath", "filter_prefix": "/questionnaire/",
+     "scope": QUESTIONNAIRE_SCOPE},
+    {"stage": "begin_checkout", "events": ["begin_checkout"],
+     "label": "Checkout starts", "filter_field": "pagePath", "filter_prefix": "/questionnaire/",
+     "scope": QUESTIONNAIRE_SCOPE},
+    {"stage": "purchase", "events": ["purchase"], "label": "Purchase events",
+     "scope": PROPERTY_SCOPE},
 ]
 
 COACHING_FUNNEL = [
-    {"stage": "page_view",              "event": "page_view",              "label": "Coaching page views",
-     "filter_field": "pagePath", "filter_prefix": "/coaching/"},
-    {"stage": "coaching_cta_click",     "event": "coaching_cta_click",     "label": "CTA clicks"},
-    {"stage": "coaching_scroll_depth",  "event": "coaching_scroll_depth",  "label": "Deep scroll (FAQ/final CTA)"},
+    {"stage": "page_view", "events": ["page_view"], "label": "Coaching page views",
+     "filter_field": "pagePath", "filter_prefix": "/coaching/", "scope": COACHING_SCOPE},
+    {"stage": "coaching_cta_click", "events": ["cta_click", "coaching_cta_click"],
+     "label": "CTA clicks", "filter_field": "pagePath", "filter_prefix": "/coaching/",
+     "scope": COACHING_SCOPE},
+    {"stage": "coaching_scroll_depth", "events": ["coaching_scroll_depth"],
+     "label": "Deep scroll (FAQ/final CTA)", "filter_field": "pagePath",
+     "filter_prefix": "/coaching/", "scope": COACHING_SCOPE},
 ]
 
 ARTICLE_FUNNEL = [
-    {"stage": "page_view",          "event": "page_view",          "label": "Article page views",
-     "filter_field": "pagePath", "filter_prefix": "/articles/"},
-    {"stage": "article_deep_read",  "event": "article_deep_read",  "label": "Deep read (75%+ scroll)"},
-    {"stage": "article_cta_click",  "event": "article_cta_click",  "label": "CTA clicks (coaching/plans/substack)"},
+    {"stage": "page_view", "events": ["page_view"], "label": "Article page views",
+     "filter_field": "pagePath", "filter_prefix": "/articles/", "scope": ARTICLE_SCOPE},
+    {"stage": "article_deep_read", "events": ["article_deep_read"],
+     "label": "Deep reads (75%+ scroll)", "filter_field": "pagePath",
+     "filter_prefix": "/articles/", "scope": ARTICLE_SCOPE},
+    {"stage": "article_cta_click", "events": ["article_cta_click"],
+     "label": "CTA clicks (coaching/plans/substack)", "filter_field": "pagePath",
+     "filter_prefix": "/articles/", "scope": ARTICLE_SCOPE},
 ]
 
 
 def get_funnel_data(property_id: str, credentials_path: str, days: int,
                     funnel: list[dict]) -> list[dict]:
-    """Query GA4 Data API for event counts at each funnel stage."""
+    """Query GA4 Data API for independent event totals in display order."""
     try:
         from google.analytics.data_v1beta import BetaAnalyticsDataClient
         from google.analytics.data_v1beta.types import (
@@ -88,10 +133,19 @@ def get_funnel_data(property_id: str, credentials_path: str, days: int,
 
     stages = []
     for stage_def in funnel:
-        event_filter = Filter(
-            field_name="eventName",
-            string_filter=Filter.StringFilter(value=stage_def["event"]),
-        )
+        event_expressions = [
+            FilterExpression(filter=Filter(
+                field_name="eventName",
+                string_filter=Filter.StringFilter(value=event_name),
+            ))
+            for event_name in stage_def["events"]
+        ]
+        if len(event_expressions) == 1:
+            event_expression = event_expressions[0]
+        else:
+            event_expression = FilterExpression(
+                or_group=FilterExpressionList(expressions=event_expressions)
+            )
 
         # If the stage has a page path filter, combine with AND
         if "filter_field" in stage_def:
@@ -105,13 +159,13 @@ def get_funnel_data(property_id: str, credentials_path: str, days: int,
             dimension_filter = FilterExpression(
                 and_group=FilterExpressionList(
                     expressions=[
-                        FilterExpression(filter=event_filter),
+                        event_expression,
                         FilterExpression(filter=path_filter),
                     ]
                 )
             )
         else:
-            dimension_filter = FilterExpression(filter=event_filter)
+            dimension_filter = event_expression
 
         request = RunReportRequest(
             property=f"properties/{property_id}",
@@ -131,101 +185,79 @@ def get_funnel_data(property_id: str, credentials_path: str, days: int,
             "stage": stage_def["stage"],
             "label": stage_def["label"],
             "count": count,
+            "scope": stage_def["scope"],
+            "event_names": list(stage_def["events"]),
         })
 
     return stages
 
 
-def compute_funnel_metrics(stages: list[dict]) -> list[dict]:
-    """Add drop-off and cumulative conversion percentages to stage data."""
-    if not stages or stages[0]["count"] == 0:
-        for s in stages:
-            s["dropoff_pct"] = None
-            s["cumulative_pct"] = None
-        return stages
-
-    top_count = stages[0]["count"]
-
-    for i, s in enumerate(stages):
-        # Cumulative conversion from top of funnel
-        s["cumulative_pct"] = round(s["count"] / top_count * 100, 2)
-
-        # Drop-off from previous stage
-        if i == 0:
-            s["dropoff_pct"] = None
-        else:
-            prev = stages[i - 1]["count"]
-            if prev > 0:
-                s["dropoff_pct"] = round((1 - s["count"] / prev) * 100, 2)
-            else:
-                s["dropoff_pct"] = None
-
-    return stages
-
-
-def print_funnel(title: str, stages: list[dict]):
-    """Print a single funnel as a formatted table."""
+def print_event_totals(title: str, stages: list[dict]):
+    """Print independently aggregated events without cross-stage rates."""
     print(f"\n{'─' * 70}")
     print(f"  {title}")
     print(f"{'─' * 70}")
 
-    # Header
-    print(f"  {'Stage':<28} {'Count':>8}  {'Drop-off':>9}  {'Cumulative':>11}")
-    print(f"  {'─' * 28} {'─' * 8}  {'─' * 9}  {'─' * 11}")
+    print(f"  {'Observed event group':<38} {'Count':>8}  Scope")
+    print(f"  {'─' * 38} {'─' * 8}  {'─' * 30}")
 
     for s in stages:
-        dropoff = f"{s['dropoff_pct']:>8.1f}%" if s["dropoff_pct"] is not None else f"{'—':>9}"
-        cumul = f"{s['cumulative_pct']:>10.1f}%" if s["cumulative_pct"] is not None else f"{'—':>11}"
-        print(f"  {s['label']:<28} {s['count']:>8,}  {dropoff}  {cumul}")
-
-    # Overall conversion
-    if len(stages) >= 2 and stages[0]["count"] > 0:
-        overall = stages[-1]["count"] / stages[0]["count"] * 100
-        print(f"\n  Overall conversion: {overall:.2f}% "
-              f"({stages[-1]['count']:,} / {stages[0]['count']:,})")
+        print(f"  {s['label']:<38} {s['count']:>8,}  {s['scope']}")
 
 
 def print_report(tp_stages: list[dict], coaching_stages: list[dict], days: int,
                  article_stages: list[dict] | None = None):
-    """Print human-readable funnel report to stdout."""
+    """Print human-readable independent event totals to stdout."""
     print("=" * 70)
-    print(f"CONVERSION FUNNEL REPORT — last {days} days")
+    print(f"INDEPENDENT GA4 EVENT TOTALS — last {days} days")
     print("=" * 70)
+    print("No shared session, user, product, or event order is established.")
+    print("Counts are observations, not conversion-rate denominators.")
 
-    print_funnel("TRAINING PLAN FUNNEL", tp_stages)
-    print_funnel("COACHING FUNNEL", coaching_stages)
+    print_event_totals("TRAINING PLAN JOURNEY EVENTS", tp_stages)
+    print_event_totals("COACHING JOURNEY EVENTS", coaching_stages)
     if article_stages:
-        print_funnel("ARTICLE FUNNEL", article_stages)
+        print_event_totals("ARTICLE JOURNEY EVENTS", article_stages)
 
     print(f"\n{'=' * 70}")
 
 
+def build_report_payload(days: int, tp_stages: list[dict],
+                         coaching_stages: list[dict],
+                         article_stages: list[dict]) -> dict:
+    """Build machine-readable output with an explicit measurement contract."""
+    return {
+        "schema": "ga4_event_totals/v2",
+        "days": days,
+        "measurement": MEASUREMENT_METADATA,
+        "training_plan_totals": tp_stages,
+        "coaching_totals": coaching_stages,
+        "article_totals": article_stages,
+    }
+
+
 def get_mock_data() -> tuple[list[dict], list[dict], list[dict]]:
     """Return hardcoded sample data for testing without credentials."""
-    tp_stages = [
-        {"stage": "page_view",       "label": "Race page views",     "count": 12480},
-        {"stage": "cta_click",       "label": "CTA clicks",          "count": 1870},
-        {"stage": "tp_form_start",   "label": "Form started",        "count": 624},
-        {"stage": "tp_form_submit",  "label": "Form submitted",      "count": 287},
-        {"stage": "begin_checkout",  "label": "Checkout initiated",   "count": 143},
-        {"stage": "purchase",        "label": "Purchase completed",   "count": 52},
-    ]
-    coaching_stages = [
-        {"stage": "page_view",              "label": "Coaching page views",          "count": 3200},
-        {"stage": "coaching_cta_click",     "label": "CTA clicks",                   "count": 480},
-        {"stage": "coaching_scroll_depth",  "label": "Deep scroll (FAQ/final CTA)",  "count": 1120},
-    ]
-    article_stages = [
-        {"stage": "page_view",          "label": "Article page views",                    "count": 850},
-        {"stage": "article_deep_read",  "label": "Deep read (75%+ scroll)",               "count": 340},
-        {"stage": "article_cta_click",  "label": "CTA clicks (coaching/plans/substack)",  "count": 68},
-    ]
+    def rows(definitions: list[dict], counts: list[int]) -> list[dict]:
+        return [{
+            "stage": definition["stage"],
+            "label": definition["label"],
+            "count": count,
+            "scope": definition["scope"],
+            "event_names": list(definition["events"]),
+        } for definition, count in zip(definitions, counts)]
+
+    # The purchase total intentionally exceeds checkout starts. Independent
+    # aggregates can do this when event scope, attribution, or sources differ.
+    tp_stages = rows(TRAINING_PLAN_FUNNEL, [12480, 1870, 624, 287, 143, 180])
+    coaching_stages = rows(COACHING_FUNNEL, [3200, 480, 1120])
+    article_stages = rows(ARTICLE_FUNNEL, [850, 340, 68])
     return tp_stages, coaching_stages, article_stages
 
 
 def main():
     parser = argparse.ArgumentParser(
-        description="Conversion funnel analysis — stage-by-stage drop-off report"
+        description="GA4 journey-event totals with explicit scope and denominator limits"
     )
     parser.add_argument("--days", type=int, default=30,
                         help="Lookback days (default: 30)")
@@ -263,17 +295,10 @@ def main():
             property_id, credentials_path, args.days, ARTICLE_FUNNEL
         )
 
-    tp_stages = compute_funnel_metrics(tp_stages)
-    coaching_stages = compute_funnel_metrics(coaching_stages)
-    article_stages = compute_funnel_metrics(article_stages)
-
     if args.json:
-        output = {
-            "days": args.days,
-            "training_plan_funnel": tp_stages,
-            "coaching_funnel": coaching_stages,
-            "article_funnel": article_stages,
-        }
+        output = build_report_payload(
+            args.days, tp_stages, coaching_stages, article_stages
+        )
         print(json.dumps(output, indent=2))
     else:
         print_report(tp_stages, coaching_stages, args.days, article_stages)

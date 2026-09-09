@@ -9,6 +9,7 @@ from pathlib import Path
 import pytest
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
+FIXTURE_DIR = Path(__file__).parent / "fixtures" / "prep_kit_fact_gate"
 sys.path.insert(0, str(PROJECT_ROOT / "scripts"))
 
 import prep_kit_fact_gate as gate  # noqa: E402
@@ -19,17 +20,28 @@ def _sha(path: Path) -> str:
     return hashlib.sha256(path.read_bytes()).hexdigest()
 
 
-def _page(*, distance="70 mi", elevation="7,800 ft", conditions="Dry and warm",
-          course="Long exposed climb", historical=False, css="") -> str:
+def _page(*, name="Fuego MTB", distance="70 mi", elevation="7,800 ft",
+          race_date="July 26, 2026", location="Monterey, California",
+          conditions="Dry and warm", course="Long exposed climb", historical=False, css="") -> str:
     label = "<p>Historical course information.</p>" if historical else ""
-    return f"""<html><style>{css}</style><div class=\"gg-pk-context-box\">
+    vitals = []
+    if distance is not None:
+        vitals.append(f'<span class="gg-pk-stat"><strong>{distance}</strong></span>')
+    if elevation is not None:
+        vitals.append(f'<span class="gg-pk-stat"><strong>{elevation}</strong></span>')
+    vitals.extend((f'<span class="gg-pk-stat">{race_date}</span>',
+                   f'<span class="gg-pk-stat">{location}</span>'))
+    return f"""<html><style>{css}</style><header class="gg-pk-header">
+<h1 class="gg-pk-header-title">{name}</h1>
+<div class="gg-pk-vitals-ribbon">{' '.join(vitals)}</div></header>
+<div class=\"gg-pk-context-box\">
 <p><strong>Distance:</strong> {distance}</p>
-<p><strong>Elevation:</strong> {elevation}</p>
+{'' if elevation is None else f'<p><strong>Elevation:</strong> {elevation}</p>'}
 <p><strong>Conditions:</strong> {conditions}</p>
 <p><strong>Signature Challenge:</strong> {course}</p>{label}</div></html>"""
 
 
-def _source(root: Path, text="Official Fuego XL is 66 mi with 7,800 ft."):
+def _source(root: Path, text="Official course announcement. Fuego XL is 66 mi with 7,800 ft."):
     capture = root / "captures" / "official.txt"
     capture.parent.mkdir(parents=True, exist_ok=True)
     capture.write_text(text)
@@ -45,7 +57,7 @@ def _review(field, proposed, capture, *, author="author-a", reviewer="reviewer-b
             "url": "https://organizer.example/fuego",
             "capture": str(capture.relative_to(capture.parents[1])),
             "sha256": _sha(capture),
-            "excerpt": "Official course announcement for the selected edition.",
+            "excerpt": "Official course announcement.",
         },
         "edition_or_status": status,
         "author": author,
@@ -102,15 +114,47 @@ def tree(tmp_path):
 class TestExtraction:
     def test_extracts_only_rendered_context_facts_and_fueling_distance(self):
         facts = gate.extract_rendered_facts(
-            _page(distance="66 mi", conditions="Windy", course="Ridge").replace(
-                '<p><strong>Elevation:</strong> 7,800 ft</p>', '') +
+            _page(distance="66 mi", elevation=None, conditions="Windy", course="Ridge") +
             '<p><strong>Your Fueling Math (66 miles):</strong> text</p>')
-        assert facts == {"distance": "66 mi", "conditions": "Windy", "course": "Ridge"}
+        assert facts == {
+            "name": "Fuego MTB", "distance": "66 mi", "race_date": "July 26, 2026",
+            "location": "Monterey, California", "conditions": "Windy", "course": "Ridge",
+        }
 
     def test_rejects_conflicting_rendered_distance_values(self):
         with pytest.raises(gate.GateError, match="conflicting rendered distance"):
             gate.extract_rendered_facts(
                 _page(distance="66 mi") + '<p><strong>Your Fueling Math (70 miles):</strong> text</p>')
+
+    def test_real_the_divide_headers_include_date_and_all_hero_vitals(self):
+        provenance = json.loads((FIXTURE_DIR / "provenance.json").read_text())
+        assert provenance["the-divide-live-header.html"]["source_sha256"] == (
+            "304ff713c979929cf76455629987cf8d6dbbb96f96b74525db6a774dde635f5c")
+        live = gate.extract_rendered_facts((FIXTURE_DIR / "the-divide-live-header.html").read_text())
+        proposed = gate.extract_rendered_facts((FIXTURE_DIR / "the-divide-proposed-header.html").read_text())
+        assert live == {
+            "name": "The Divide", "distance": "50 mi", "elevation": "2,500 ft",
+            "race_date": "July 26, 2026", "location": "Manton, Michigan",
+        }
+        assert proposed == {
+            "name": "The Divide", "distance": "52 mi", "elevation": "4,500 ft",
+            "race_date": "July 25, 2027", "location": "Manton, Michigan, United States",
+        }
+
+    def test_real_trans_sylvania_headers_include_name_and_date_change(self):
+        provenance = json.loads((FIXTURE_DIR / "provenance.json").read_text())
+        assert provenance["trans-sylvania-proposed-header.html"]["source_sha256"] == (
+            "51a2a89a675a77082ec8893953225979625c2066f550f8662ef732bba98ac1ea")
+        live = gate.extract_rendered_facts((FIXTURE_DIR / "trans-sylvania-live-header.html").read_text())
+        proposed = gate.extract_rendered_facts((FIXTURE_DIR / "trans-sylvania-proposed-header.html").read_text())
+        assert live["name"] == "Trans-Sylvania Epic"
+        assert proposed["name"] == "Trans-Sylvania Gravel Epic"
+        assert live["race_date"] == "May 19-23, 2026"
+        assert proposed["race_date"] == "May 21-23; 2027 not announced, 2026"
+
+    def test_unknown_or_unmanaged_header_markup_refuses(self):
+        with pytest.raises(gate.GateError, match="unrecognized prep-kit header"):
+            gate.extract_rendered_facts("<h1>New Race</h1><p>Race date: July 25, 2027</p>")
 
 
 class TestRenderedFactGate:
@@ -120,6 +164,13 @@ class TestRenderedFactGate:
         manifest = _manifest(tree[0].parent, baseline, proposed, [])
         report = gate.validate_release(proposed, baseline, manifest)
         assert report.changed_facts == []
+
+    def test_unchanged_suppressed_elevation_passes(self, tree):
+        baseline, proposed = tree
+        (baseline / "fuego-mtb.html").write_text(_page(elevation=None))
+        (proposed / "fuego-mtb.html").write_text(_page(elevation=None, css="body { color: red; }"))
+        manifest = _manifest(tree[0].parent, baseline, proposed, [])
+        assert gate.validate_release(proposed, baseline, manifest).changed_facts == []
 
     def test_generator_only_live_drift_fuego_fails_without_review(self, tree):
         baseline, proposed = tree
@@ -147,9 +198,9 @@ class TestRenderedFactGate:
         def facts(capture):
             return [
                 _review("distance", "46 mi", capture, variant="two loops",
-                        pair={"distance": "46 mi", "elevation": "4,000 ft"}),
+                        pair={"distance": "46 mi", "elevation": "2,000 ft"}),
                 _review("elevation", "2,000 ft", capture, variant="one loop",
-                        pair={"distance": "23 mi", "elevation": "2,000 ft"}),
+                        pair={"distance": "46 mi", "elevation": "2,000 ft"}),
             ]
         manifest = _manifest(tree[0].parent, baseline, proposed, facts)
         with pytest.raises(gate.GateError, match="course_variant"):
@@ -211,8 +262,11 @@ class TestRenderedFactGate:
         def facts(capture):
             pair = {"distance": "70 mi", "elevation": "7,800 ft"}
             return [
+                _review("name", "Fuego MTB", capture),
                 _review("distance", "70 mi", capture, variant="Fuego XL", pair=pair),
                 _review("elevation", "7,800 ft", capture, variant="Fuego XL", pair=pair),
+                _review("race_date", "July 26, 2026", capture),
+                _review("location", "Monterey, California", capture),
                 _review("conditions", "Dry and warm", capture),
                 _review("course", "Long exposed climb", capture, variant="Fuego XL"),
             ]
@@ -239,6 +293,42 @@ class TestRenderedFactGate:
                                      pair={"distance": "66 mi", "elevation": "7,800 ft"})])
         (tree[0].parent / "captures" / "official.txt").write_text("tampered")
         with pytest.raises(gate.GateError, match="source capture sha256"):
+            gate.validate_release(proposed, baseline, manifest)
+
+    def test_excerpt_must_appear_in_the_hashed_capture(self, tree):
+        baseline, proposed = tree
+        (proposed / "fuego-mtb.html").write_text(_page(distance="66 mi"))
+        manifest = _manifest(
+            tree[0].parent, baseline, proposed,
+            lambda capture: [_review("distance", "66 mi", capture, variant="Fuego XL",
+                                     pair={"distance": "66 mi", "elevation": "7,800 ft"})])
+        payload = json.loads(manifest.read_text())
+        payload["pages"][0]["facts"][0]["source"]["excerpt"] = "not in capture"
+        manifest.write_text(json.dumps(payload))
+        with pytest.raises(gate.GateError, match="excerpt"):
+            gate.validate_release(proposed, baseline, manifest)
+
+    def test_review_date_must_be_timezone_aware_iso_timestamp(self, tree):
+        baseline, proposed = tree
+        (proposed / "fuego-mtb.html").write_text(_page(distance="66 mi"))
+        manifest = _manifest(
+            tree[0].parent, baseline, proposed,
+            lambda capture: [_review("distance", "66 mi", capture, variant="Fuego XL",
+                                     pair={"distance": "66 mi", "elevation": "7,800 ft"})])
+        payload = json.loads(manifest.read_text())
+        payload["pages"][0]["facts"][0]["independent_review"]["reviewed_at"] = "2026-09-09T12:00:00"
+        manifest.write_text(json.dumps(payload))
+        with pytest.raises(gate.GateError, match="timezone"):
+            gate.validate_release(proposed, baseline, manifest)
+
+    def test_distance_only_change_must_bind_unmodified_rendered_elevation(self, tree):
+        baseline, proposed = tree
+        (proposed / "fuego-mtb.html").write_text(_page(distance="66 mi", elevation="7,800 ft"))
+        manifest = _manifest(
+            tree[0].parent, baseline, proposed,
+            lambda capture: [_review("distance", "66 mi", capture, variant="Fuego XL",
+                                     pair={"distance": "66 mi", "elevation": "2,000 ft"})])
+        with pytest.raises(gate.GateError, match="rendered elevation"):
             gate.validate_release(proposed, baseline, manifest)
 
     def test_manifest_inventory_must_exactly_match_proposed_files(self, tree):

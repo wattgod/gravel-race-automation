@@ -24,9 +24,14 @@ _LABEL_PATTERNS = {
     "distance": ("Distance",),
     "elevation": ("Elevation",),
     "race_date": ("Race Date", "Date"),
+    "location": ("Location",),
     "conditions": ("Conditions", "Expected Conditions"),
+    "race_week_climate": ("Climate",),
+    "race_week_challenges": ("Key Challenges",),
     "course": ("Signature Challenge", "Course"),
 }
+_DISTANCE_RE = re.compile(r"\b\d[\d,.]*\s*(?:mi|miles|km|kilometers)\b", re.IGNORECASE)
+_ELEVATION_RE = re.compile(r"\b\d[\d,.]*\s*(?:ft|feet|met(?:er|re)s?)\b", re.IGNORECASE)
 
 
 class GateError(ValueError):
@@ -46,6 +51,11 @@ def sha256_file(path: Path) -> str:
 
 def _text(fragment: str) -> str:
     return " ".join(html.unescape(re.sub(r"(?is)<[^>]+>", " ", fragment)).split())
+
+
+def _normalized_text(fragment: str) -> str:
+    """Stable text normalization used for the capture/excerpt byte binding."""
+    return _text(fragment).casefold()
 
 
 def _label_values(page_html: str, label: str) -> list[str]:
@@ -75,14 +85,57 @@ def _unique_field(field: str, values: list[str], facts: dict[str, str]) -> None:
     facts[field] = value
 
 
-def extract_rendered_facts(page_html: str) -> dict[str, str]:
-    """Extract the finite, labeled factual surface emitted by the prep-kit page.
+def _extract_hero_facts(page_html: str) -> dict[str, str]:
+    """Parse the generator's public header, including legacy omitted vitals."""
+    headers = re.findall(r"(?is)<header\s+class=[\"']gg-pk-header[\"']\s*>(.*?)</header\s*>", page_html)
+    if len(headers) != 1:
+        raise GateError("unrecognized prep-kit header layout")
+    header = headers[0]
+    titles = re.findall(r"(?is)<h1\s+class=[\"']gg-pk-header-title[\"']\s*>(.*?)</h1\s*>", header)
+    if len(titles) != 1 or not _text(titles[0]):
+        raise GateError("unrecognized prep-kit header title")
+    ribbons = re.findall(r"(?is)<div\s+class=[\"']gg-pk-vitals-ribbon[\"']\s*>(.*?)</div\s*>", header)
+    if len(ribbons) != 1:
+        raise GateError("unrecognized prep-kit vitals-ribbon layout")
+    stats = re.findall(r"(?is)<span\s+class=[\"']gg-pk-stat[\"']\s*>(.*?)</span\s*>", ribbons[0])
+    values = [(_text(stat), bool(re.search(r"(?is)<strong\b", stat))) for stat in stats]
+    if not values or any(not value for value in values) or len(values) > 4:
+        raise GateError("unrecognized prep-kit vitals-ribbon values")
 
-    This intentionally does not infer facts from prose.  When the generator adds
-    a new factual label, it must be added here and therefore fails closed until
-    the release packet schema and tests describe its review requirements.
+    facts = {"name": _text(titles[0])}
+    index = 0
+    if index < len(values) and values[index][1]:
+        if not _DISTANCE_RE.search(values[index][0]):
+            raise GateError("unrecognized prep-kit distance value")
+        facts["distance"] = values[index][0]
+        index += 1
+    if index < len(values) and values[index][1]:
+        if not _ELEVATION_RE.search(values[index][0]):
+            raise GateError("unrecognized prep-kit elevation value")
+        facts["elevation"] = values[index][0]
+        index += 1
+    remaining = values[index:]
+    if len(remaining) != 2:
+        raise GateError("unrecognized prep-kit vitals-ribbon ordering")
+    if remaining[0][1] or remaining[1][1]:
+        raise GateError("unrecognized prep-kit date/location layout")
+    # The legacy generator puts either a date or an explicit edition/status
+    # statement in this same public slot; both are factual release content.
+    facts["race_date"] = remaining[0][0]
+    facts["location"] = remaining[1][0]
+    return facts
+
+
+def extract_rendered_facts(page_html: str) -> dict[str, str]:
+    """Extract every modeled objective race fact from a known prep-kit layout.
+
+    The public hero is mandatory and is parsed before optional race-context
+    labels. Unknown/malformed hero markup refuses release rather than yielding
+    an empty fact set. The extraction stays intentionally finite: it models the
+    generator's factual header plus labeled race-context conditions/course data,
+    not arbitrary editorial prose.
     """
-    facts: dict[str, str] = {}
+    facts = _extract_hero_facts(page_html)
     for field, labels in _LABEL_PATTERNS.items():
         for label in labels:
             _unique_field(field, _label_values(page_html, label), facts)
@@ -113,9 +166,11 @@ def _read_manifest(path: Path) -> dict[str, Any]:
     if not isinstance(captured_at, str):
         raise GateError("baseline_metadata.captured_at is required")
     try:
-        datetime.fromisoformat(captured_at.replace("Z", "+00:00"))
+        captured_time = datetime.fromisoformat(captured_at.replace("Z", "+00:00"))
     except ValueError as exc:
         raise GateError("baseline_metadata.captured_at must be ISO-8601") from exc
+    if captured_time.tzinfo is None or captured_time.utcoffset() is None:
+        raise GateError("baseline_metadata.captured_at must include timezone")
     base_url = metadata.get("canonical_live_base_url")
     if not isinstance(base_url, str) or not base_url.startswith("https://"):
         raise GateError("baseline_metadata.canonical_live_base_url must be an https URL")
@@ -152,7 +207,7 @@ def _review_entries(entry: dict[str, Any], slug: str) -> dict[str, dict[str, Any
         if not isinstance(review, dict) or not isinstance(review.get("field"), str):
             raise GateError(f"{slug}: each fact review requires field")
         field = review["field"]
-        if field not in _LABEL_PATTERNS or field in result:
+        if field not in {"name", * _LABEL_PATTERNS} or field in result:
             raise GateError(f"{slug}: invalid or duplicate fact field {field!r}")
         result[field] = review
     return result
@@ -189,6 +244,8 @@ def _validate_review(
         raise GateError(f"{slug}.{field}: source capture sha256 does not match")
     if not isinstance(source.get("excerpt"), str) or not source["excerpt"].strip():
         raise GateError(f"{slug}.{field}: source excerpt is required")
+    if _normalized_text(source["excerpt"]) not in _normalized_text(capture_path.read_text(encoding="utf-8")):
+        raise GateError(f"{slug}.{field}: source excerpt does not bind captured source text")
     if not isinstance(review.get("author"), str) or not review["author"].strip():
         raise GateError(f"{slug}.{field}: review author is required")
     independent = review.get("independent_review")
@@ -202,8 +259,15 @@ def _validate_review(
     outcome = independent.get("outcome")
     if outcome not in {"accepted", "historical"}:
         raise GateError(f"{slug}.{field}: independent review outcome {outcome!r} is not publishable")
-    if not isinstance(independent.get("reviewed_at"), str):
+    reviewed_at = independent.get("reviewed_at")
+    if not isinstance(reviewed_at, str):
         raise GateError(f"{slug}.{field}: independent review date is required")
+    try:
+        review_time = datetime.fromisoformat(reviewed_at.replace("Z", "+00:00"))
+    except ValueError as exc:
+        raise GateError(f"{slug}.{field}: independent review date must be ISO-8601") from exc
+    if review_time.tzinfo is None or review_time.utcoffset() is None:
+        raise GateError(f"{slug}.{field}: independent review date must include timezone")
     status = review.get("edition_or_status")
     if status not in {"current", "planned", "historical"}:
         raise GateError(f"{slug}.{field}: edition_or_status {status!r} is not publishable")
@@ -229,14 +293,28 @@ def _validate_review(
             raise GateError(f"{slug}.{field}: suppressed elevation requires suppression_reason")
 
 
-def _validate_pair_consistency(slug: str, reviews: dict[str, dict[str, Any]], changed: dict[str, tuple[str | None, str | None]]) -> None:
+def _validate_pair_consistency(
+    slug: str, reviews: dict[str, dict[str, Any]],
+    changed: dict[str, tuple[str | None, str | None]], proposed_facts: dict[str, str],
+) -> None:
+    """Bind any changed course vital to the complete *rendered* vital pair.
+
+    A distance-only edit can still leave a mismatched displayed elevation, so a
+    pair is required even when elevation itself did not change.
+    """
     paired_fields = [field for field in ("distance", "elevation") if field in changed and changed[field][1] is not None]
-    if len(paired_fields) < 2:
-        return
-    variants = {reviews[field].get("course_variant") for field in paired_fields}
-    pairs = {json.dumps(reviews[field].get("course_pair"), sort_keys=True) for field in paired_fields}
-    if len(variants) != 1 or len(pairs) != 1:
-        raise GateError(f"{slug}: changed distance/elevation reviews must share one course_variant and course_pair")
+    for field in paired_fields:
+        pair = reviews[field].get("course_pair")
+        if not isinstance(pair, dict):
+            raise GateError(f"{slug}.{field}: course_pair is required")
+        for vital in ("distance", "elevation"):
+            if vital in proposed_facts and pair.get(vital) != proposed_facts[vital]:
+                raise GateError(f"{slug}.{field}: course_pair does not bind rendered {vital}")
+    if len(paired_fields) > 1:
+        variants = {reviews[field].get("course_variant") for field in paired_fields}
+        pairs = {json.dumps(reviews[field].get("course_pair"), sort_keys=True) for field in paired_fields}
+        if len(variants) != 1 or len(pairs) != 1:
+            raise GateError(f"{slug}: changed distance/elevation reviews must share one course_variant and course_pair")
 
 
 def validate_release(proposed_dir: str | Path, live_baseline_dir: str | Path, manifest_path: str | Path) -> GateReport:
@@ -311,7 +389,7 @@ def validate_release(proposed_dir: str | Path, live_baseline_dir: str | Path, ma
                 manifest_path=manifest_path, proposed_html=proposed_html,
             )
             changed_facts.append((slug, field))
-        _validate_pair_consistency(slug, reviews, changed)
+        _validate_pair_consistency(slug, reviews, changed, proposed_facts)
     return GateReport(sorted(proposed), changed_facts, new_pages)
 
 

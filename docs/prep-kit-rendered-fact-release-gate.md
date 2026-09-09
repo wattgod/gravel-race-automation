@@ -75,9 +75,11 @@ must identify the same course variant and paired distance/elevation values.
 If a reviewed elevation is intentionally suppressed, its review must give a
 `suppression_reason`.
 
-Source captures must stay under the manifest directory, and their hash, URL,
-and nonempty excerpt are mandatory. The reviewer identity check is an auditable
-declaration rather than authentication.
+Source captures must stay under the manifest directory. Their hash, URL, and
+nonempty excerpt are mandatory; deterministic HTML/text normalization requires
+the excerpt to appear in the hashed capture. The reviewer identity check is an
+auditable declaration rather than authentication, and `reviewed_at` must be an
+ISO-8601 timestamp with a timezone.
 
 ## Validate and publish
 
@@ -101,7 +103,11 @@ python3 scripts/push_wordpress.py --sync-prep-kits \
 
 CSS or layout changes with no change to the extracted factual fields require no
 fact-review entries, but still require the page and byte hashes in the packet.
-The gate currently extracts only explicit prep-kit labels: Distance, Elevation,
-Race Date, Conditions, Signature Challenge/Course, and the Fueling Math
-distance heading. New labeled factual surfaces must extend the extractor and
-tests before publication; prose is not inferred as fact by this tool.
+The gate requires the generated hero layout and extracts its name, distance,
+elevation, date/status slot, and location in both current and legacy
+omitted-vital forms. It also extracts labeled race-context distance, elevation,
+location, conditions, signature challenge/course, race-week climate, key
+challenges, and the Fueling Math distance heading. Unknown or malformed hero
+markup refuses publication rather than producing an empty fact set. New factual
+surfaces must extend the extractor and tests before publication; prose is not
+inferred as fact by this tool.

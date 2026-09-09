@@ -67,12 +67,12 @@ def build_hero() -> str:
     <a href="#how-it-works" class="gg-tp-btn gg-tp-btn-secondary" data-cta="hero_how">See How It Works</a>
   </div>
   <div class="gg-tp-hero-bar">
-    <div class="gg-tp-hero-bar-item"><strong>24 Hours</strong><span>Plan or Delivery Update</span></div>
+    <div class="gg-tp-hero-bar-item"><strong>24 Hours</strong><span>Delivery</span></div>
     <div class="gg-tp-hero-bar-item"><strong>Matched</strong><span>Methodology</span></div>
     <div class="gg-tp-hero-bar-item"><strong>$2/day</strong><span>Less Than a Tube</span></div>
     <div class="gg-tp-hero-bar-item"><strong>5 min</strong><span>To Start</span></div>
   </div>
-  <p class="gg-tp-delivery-terms">The 24-hour clock starts when payment, your complete questionnaire, and your TrainingPeaks connection are all in place. Within that window, I will deliver your personally reviewed plan in TrainingPeaks or email you with the specific blocker, what is needed, and a revised delivery time.</p>
+  <p class="gg-tp-delivery-terms">Your plan, personally reviewed and delivered in TrainingPeaks within 24 hours.</p>
 </section>'''
 
 
@@ -248,7 +248,7 @@ def build_how_it_works() -> str:
         ("01", "Questionnaire", "5 min form"),
         ("02", "TrainingPeaks", "Connect account"),
         ("03", "Plan Built", "Matched to you"),
-        ("04", "You Train", "Plan or update within 24 hours"),
+        ("04", "You Train", "Delivered within 24 hours"),
     ]
     cards_html = ""
     for num, title, desc in process_cards:
@@ -266,7 +266,7 @@ def build_how_it_works() -> str:
         ("03", "I Build Your Plan",
          "Your intake hits the methodology engine. The training approach gets selected based on your profile. Polarized for the time-crunched. Pyramidal for the balanced. Block for the serious. Matched to your availability and ability."),
         ("04", "Plan Drops Into Your Calendar",
-         "The 24-hour clock starts when payment, your complete questionnaire, and your TrainingPeaks connection are all in place. Within that window, I deliver your personally reviewed plan in TrainingPeaks or email you with the specific blocker, what is needed, and a revised delivery time."),
+         "Your plan, personally reviewed and delivered in TrainingPeaks within 24 hours."),
     ]
     steps_html = ""
     for num, title, desc in steps:
@@ -355,9 +355,9 @@ def build_pricing() -> str:
         <li>Race-optimized fueling plan</li>
         <li>Custom strength program</li>
         <li>Heat &amp; altitude protocols</li>
-        <li>Your plan or a delivery update within 24 hours</li>
+        <li>Your plan, personally reviewed and delivered in TrainingPeaks within 24 hours</li>
       </ul>
-      <p class="gg-tp-support-terms">The 24-hour clock starts when payment, your complete questionnaire, and your TrainingPeaks connection are all in place. Within that window, I will deliver your personally reviewed plan in TrainingPeaks or email you with the specific blocker, what is needed, and a revised delivery time. Email support and two plan adjustments are included during the dates covered by your plan for changes to your schedule, available training hours, or equipment. Correcting a plan that does not match your order does not use an adjustment. The first rescale after the scheduled FTP test is included separately. Weekly review and recurring changes are part of Coaching.</p>
+      <p class="gg-tp-support-terms">Your plan, personally reviewed and delivered in TrainingPeaks within 24 hours. Email support and two plan adjustments are included during the dates covered by your plan for changes to your schedule, available training hours, or equipment. Correcting a plan that does not match your order does not use an adjustment. The first rescale after the scheduled FTP test is included separately. Weekly review and recurring changes are part of Coaching.</p>
       <div class="gg-tp-pricing-cta">
         <a href="{QUESTIONNAIRE_URL}" class="gg-tp-btn" data-cta="pricing_build">Build My Plan</a>
       </div>

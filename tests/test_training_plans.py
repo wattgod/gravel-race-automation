@@ -144,16 +144,16 @@ class TestHero:
     def test_four_stats(self):
         hero = build_hero()
         assert "24 Hours" in hero
-        assert "Plan or Delivery Update" in hero
+        assert "Delivery" in hero
         assert "Matched" in hero
         assert "$2/day" in hero
         assert "5 min" in hero
 
-    def test_delivery_clock_and_blocker_are_visible(self):
+    def test_delivery_promise_is_simple_and_specific(self):
         hero = build_hero()
-        assert "payment, your complete questionnaire, and your TrainingPeaks connection" in hero
-        assert "specific blocker" in hero
-        assert "revised delivery time" in hero
+        assert "Your plan, personally reviewed and delivered in TrainingPeaks within 24 hours." in hero
+        assert "24-hour clock" not in hero
+        assert "delivery update" not in hero.lower()
         assert "Same Day" not in hero
 
     def test_hours_claim_is_specific_without_overstating_the_science(self):
@@ -385,12 +385,11 @@ class TestPricing:
 
 
 class TestQuestionnaireReferenceContract:
-    def test_reference_matches_accepted_delivery_and_support_terms(self):
+    def test_reference_matches_delivery_and_support_terms(self):
         reference = (Path(__file__).parent.parent / "web" / "training-plans-questionnaire.html").read_text()
-        assert "Personally reviewed. Your plan or a delivery update within 24 hours." in reference
-        assert "payment, your complete questionnaire, and your TrainingPeaks connection" in reference
-        assert "specific blocker" in reference
-        assert "revised delivery time" in reference
+        assert "Your plan, personally reviewed and delivered in TrainingPeaks within 24 hours." in reference
+        assert "24-hour clock" not in reference
+        assert "delivery update" not in reference.lower()
         assert "Email support and two plan adjustments" in reference
         assert "first rescale after the scheduled FTP test" in reference
         assert "Same-Day Delivery" not in reference

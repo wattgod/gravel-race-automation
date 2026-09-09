@@ -641,25 +641,19 @@ def classify_climate_heat(climate: Optional[dict], climate_score: Optional[int])
     if any(kw in combined for kw in ["scorching", "brutal heat", "heat stroke"]):
         return "hot"
 
-    # Cool: explicit cool/cold/freeze evidence
-    cool_keywords = [
-        "cool morning",
-        "cold",
-        "freez",
-        "winter",
-        "snow",
-        "30°",
-        "40°",
-        "5-12",
-    ]
-    if any(kw in combined for kw in cool_keywords):
+    # Strong cold evidence remains decisive even when a source also says summer.
+    strong_cold_kw = ["cold", "freez", "winter", "snow", "30°", "40°", "5-12"]
+    if any(kw in combined for kw in strong_cold_kw):
         return "cool"
 
-    # Warm: heat-adjacent keywords with moderate score, or explicit warmth
+    # Warm: explicit warmth outweighs a cool start to an otherwise warm day.
     if any(kw in combined for kw in strong_heat_kw) and score >= 3:
         return "warm"
-    if any(kw in combined for kw in ["warm", "summer", "sun", "75-85", "75°", "80°"]):
+    warm_kw = ["warm", "summer", "sun", "75-85", "75°", "80°"]
+    if any(kw in combined for kw in warm_kw):
         return "warm"
+    if score >= 3 and "cool morning" in combined:
+        return "cool"
     if score >= 4:
         return "warm"
     if score == 3:
@@ -874,6 +868,11 @@ def build_fueling_calculator_html(rd: dict, raw: Optional[dict] = None) -> str:
     est = compute_fueling_estimate(distance_mi)
     prefill_hours = est["hours"] if est else ""
     max_hours = max(48, math.ceil(prefill_hours)) if prefill_hours else 48
+    step_hours = 0.5
+    if prefill_hours and prefill_hours > 48:
+        half_steps = (prefill_hours - 1) / step_hours
+        if not math.isclose(half_steps, round(half_steps)):
+            step_hours = 0.1
 
     # Pre-classify climate at build time
     climate_data = raw.get("climate", {})
@@ -938,7 +937,7 @@ def build_fueling_calculator_html(rd: dict, raw: Optional[dict] = None) -> str:
       </div>
       <div class="gg-pk-calc-field">
         <label for="gg-pk-hours">Target finish time (hours)</label>
-        <input type="number" id="gg-pk-hours" name="target_hours" min="1" max="{max_hours}" step="0.5" placeholder="{prefill_hours}" value="{prefill_hours}" class="gg-pk-calc-input">
+        <input type="number" id="gg-pk-hours" name="target_hours" min="1" max="{max_hours}" step="{step_hours}" placeholder="{prefill_hours}" value="{prefill_hours}" class="gg-pk-calc-input">
       </div>
       <div class="gg-pk-calc-field gg-pk-calc-field--climate">
         <label>Race Climate</label>

@@ -1,6 +1,7 @@
 """Regression contracts for the seven reviewed prep-kit drift cases."""
 
 import json
+import math
 import re
 import sys
 from pathlib import Path
@@ -97,6 +98,15 @@ def test_climate_classification_requires_heat_evidence_and_keeps_hot_positive():
     ) in {"hot", "extreme"}
 
 
+@pytest.mark.parametrize("slug", ("alentejo-gravel", "safari-gravel-race"))
+def test_warm_or_heat_evidence_outweighs_a_cool_morning(slug):
+    raw, rd = _load(slug)
+
+    assert classify_climate_heat(
+        raw["climate"], rd["rating"]["climate"]
+    ) == "warm"
+
+
 @pytest.mark.parametrize("slug", REVIEWED_SLUGS)
 def test_all_reviewed_profiles_render_their_evidence_without_heat_default(slug):
     raw, rd = _load(slug)
@@ -123,11 +133,14 @@ def test_nordic_valid_estimate_fits_input_without_changing_estimate():
 
     assert input_tag
     value = float(re.search(r'value="([0-9.]+)"', input_tag.group()).group(1))
+    minimum = float(re.search(r'min="([0-9.]+)"', input_tag.group()).group(1))
     maximum = float(re.search(r'max="([0-9.]+)"', input_tag.group()).group(1))
+    step = float(re.search(r'step="([0-9.]+)"', input_tag.group()).group(1))
     assert estimate["hours"] == 49.7
     assert (estimate["carb_rate_lo"], estimate["carb_rate_hi"]) == (30, 50)
     assert value == 49.7
     assert maximum >= value
+    assert math.isclose((value - minimum) / step, round((value - minimum) / step))
     assert rd["vitals"]["date"] == (
         "2027: August 13-19 event window; exact grand depart pending"
     )

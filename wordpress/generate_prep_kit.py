@@ -641,8 +641,18 @@ def classify_climate_heat(climate: Optional[dict], climate_score: Optional[int])
     if any(kw in combined for kw in ["scorching", "brutal heat", "heat stroke"]):
         return "hot"
 
-    # Cool: cold/freeze keywords
-    if any(kw in combined for kw in ["cold", "freez", "winter", "snow", "30°", "40°", "5-12"]):
+    # Cool: explicit cool/cold/freeze evidence
+    cool_keywords = [
+        "cool morning",
+        "cold",
+        "freez",
+        "winter",
+        "snow",
+        "30°",
+        "40°",
+        "5-12",
+    ]
+    if any(kw in combined for kw in cool_keywords):
         return "cool"
 
     # Warm: heat-adjacent keywords with moderate score, or explicit warmth
@@ -654,7 +664,6 @@ def classify_climate_heat(climate: Optional[dict], climate_score: Optional[int])
         return "warm"
     if score == 3:
         return "warm"
-
     return "mild"
 
 
@@ -864,6 +873,7 @@ def build_fueling_calculator_html(rd: dict, raw: Optional[dict] = None) -> str:
     distance_mi = rd["vitals"].get("distance_mi", 0)
     est = compute_fueling_estimate(distance_mi)
     prefill_hours = est["hours"] if est else ""
+    max_hours = max(48, math.ceil(prefill_hours)) if prefill_hours else 48
 
     # Pre-classify climate at build time
     climate_data = raw.get("climate", {})
@@ -928,7 +938,7 @@ def build_fueling_calculator_html(rd: dict, raw: Optional[dict] = None) -> str:
       </div>
       <div class="gg-pk-calc-field">
         <label for="gg-pk-hours">Target finish time (hours)</label>
-        <input type="number" id="gg-pk-hours" name="target_hours" min="1" max="48" step="0.5" placeholder="{prefill_hours}" value="{prefill_hours}" class="gg-pk-calc-input">
+        <input type="number" id="gg-pk-hours" name="target_hours" min="1" max="{max_hours}" step="0.5" placeholder="{prefill_hours}" value="{prefill_hours}" class="gg-pk-calc-input">
       </div>
       <div class="gg-pk-calc-field gg-pk-calc-field--climate">
         <label>Race Climate</label>
@@ -2236,13 +2246,35 @@ def build_pk_fueling(guide_sections: dict, raw: dict, rd: dict) -> str:
     if isinstance(bor, dict):
         climate_insight = _extract_dimension_insight(bor, "climate", 250)
         if climate_insight:
+            climate_band = classify_climate_heat(
+                raw.get("climate"),
+                (raw.get("gravel_god_rating") or {}).get("climate"),
+            )
+            reviewed_cool_copy = rd.get("slug") in {
+                "bootlegger-100",
+                "nordic-chase-gravel",
+            }
+            if climate_band in {"warm", "hot", "extreme"} or not reviewed_cool_copy:
+                condition_note = (
+                    "Plan your fueling around these conditions \u2014 heat and humidity "
+                    "increase fluid and sodium demands significantly."
+                )
+            elif climate_band == "cool":
+                condition_note = (
+                    "Plan food, fluid, and sodium carrying for cool, wet, or windy "
+                    "conditions, using the final forecast."
+                )
+            else:
+                condition_note = (
+                    "Use the final forecast when setting food, fluid, and sodium "
+                    "quantities."
+                )
             parts.append(
                 f'<div class="gg-guide-callout gg-guide-callout--highlight">'
                 f'<p><strong>What Riders Say About Conditions:</strong> '
                 f'{esc(climate_insight)}</p>'
                 f'<p style="font-size:12px;color:var(--gg-color-secondary-brown)">'
-                f'Plan your fueling around these conditions \u2014 heat and humidity '
-                f'increase fluid and sodium demands significantly.</p>'
+                f'{condition_note}</p>'
                 f'</div>'
             )
 

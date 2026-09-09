@@ -895,14 +895,47 @@ def normalize_race_data(data: dict) -> dict:
     # but that historical date must not become a scheduled event, calendar
     # export, countdown, or plan-start prompt on the public page.
     date_specific = '' if source_blocked else raw_date_specific
-    short_date = date_specific
-    date_match = re.search(r'(\d{4}):\s*(.+)', date_specific)
+    display_source = date_specific
+    format_display_source = not source_blocked
+    if source_blocked:
+        if "completed; next edition not announced" in raw_date_specific.lower():
+            display_source = raw_date_specific
+            format_display_source = True
+        elif raw_date_specific:
+            display_source = vitals.get('date', '')
+        else:
+            display_source = '--'
+    short_date = display_source
+    date_match = (
+        re.search(r'(\d{4}):\s*(.+)', display_source)
+        if format_display_source
+        else None
+    )
     if date_match:
         year = date_match.group(1)
         date_part = date_match.group(2).strip()
-        short_date = f"{date_part}, {year}"
-    elif source_blocked:
-        short_date = vitals.get('date', '')
+        completed_status = " (completed; next edition not announced)"
+        if date_part.lower().endswith(completed_status):
+            date_only = date_part[:-len(completed_status)]
+            short_date = f"{date_only}, {year}{completed_status}"
+        else:
+            status_clause = None
+            semicolon = date_part.find(';')
+            if (
+                semicolon >= 0
+                and date_part[:semicolon].count('(') == date_part[:semicolon].count(')')
+            ):
+                status_clause = re.match(
+                    r'^([^;]+);\s*((?:19|20)\d{2}\s+not announced)$',
+                    date_part,
+                )
+            if status_clause:
+                short_date = (
+                    f"{status_clause.group(1).strip()}, {year}; "
+                    f"{status_clause.group(2)}"
+                )
+            else:
+                short_date = f"{date_part}, {year}"
 
     # Parse entry cost from registration string, then fallback to rating explanations
     reg = vitals.get('registration', '')

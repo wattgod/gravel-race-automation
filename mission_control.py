@@ -10,6 +10,10 @@ import sys
 
 import uvicorn
 
+from mission_control.runtime_credentials import prepare_ga4_credentials
+
+prepare_ga4_credentials()
+
 from mission_control.config import HOST, PORT
 
 

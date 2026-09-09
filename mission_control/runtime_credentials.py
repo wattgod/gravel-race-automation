@@ -31,10 +31,14 @@ def prepare_ga4_credentials(runtime_dir: Path | None = None) -> str:
 
     target_dir = runtime_dir or Path("/tmp/gravel-god-mission-control")
     target_dir.mkdir(mode=0o700, parents=True, exist_ok=True)
+    os.chmod(target_dir, 0o700)
     target = target_dir / "ga4-credentials.json"
     temporary = target.with_suffix(".tmp")
     try:
-        fd = os.open(temporary, os.O_WRONLY | os.O_CREAT | os.O_TRUNC, 0o600)
+        flags = os.O_WRONLY | os.O_CREAT | os.O_TRUNC
+        if hasattr(os, "O_NOFOLLOW"):
+            flags |= os.O_NOFOLLOW
+        fd = os.open(temporary, flags, 0o600)
         with os.fdopen(fd, "w", encoding="utf-8") as handle:
             json.dump(value, handle, separators=(",", ":"))
         os.chmod(temporary, 0o600)

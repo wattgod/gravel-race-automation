@@ -20,6 +20,7 @@ def test_materializes_valid_json_with_private_permissions(tmp_path, monkeypatch)
     assert prepare_ga4_credentials(tmp_path) == "materialized"
     path = tmp_path / "ga4-credentials.json"
     assert os.environ["GA4_CREDENTIALS_PATH"] == str(path)
+    assert tmp_path.stat().st_mode & 0o777 == 0o700
     assert path.stat().st_mode & 0o777 == 0o600
     assert json.loads(path.read_text()) == _credential()
 

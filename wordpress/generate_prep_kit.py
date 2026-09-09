@@ -50,7 +50,7 @@ from brand_tokens import (
 from shared_footer import get_mega_footer_css, get_mega_footer_html
 from cookie_consent import get_consent_banner_html
 
-# Disable glossary tooltips in guide renderers (we don't need them here)
+# Prep kits omit glossary tooltips; source markers are rendered as plain terms.
 import generate_guide
 generate_guide._GLOSSARY = None
 from generate_guide import (
@@ -95,6 +95,22 @@ PHASE_RANGES = {
     "taper": (11, 12),
 }
 
+_GLOSSARY_MARKER_RE = re.compile(r"\{\{([A-Za-z][A-Za-z0-9_/]*)\}\}")
+
+
+def _resolve_plain_glossary_terms(value: Any) -> Any:
+    """Resolve guide glossary markers without adding tooltip markup."""
+    if isinstance(value, str):
+        return _GLOSSARY_MARKER_RE.sub(lambda match: match.group(1), value)
+    if isinstance(value, list):
+        return [_resolve_plain_glossary_terms(item) for item in value]
+    if isinstance(value, dict):
+        return {
+            key: _resolve_plain_glossary_terms(item)
+            for key, item in value.items()
+        }
+    return value
+
 
 def classify_runway(days_out: int) -> str | None:
     """Mirror of classifyRunway in build_runway_js; keep thresholds in sync."""
@@ -122,7 +138,7 @@ def load_guide_sections() -> dict:
     for chapter in content.get("chapters", []):
         for section in chapter.get("sections", []):
             if section.get("id") in GUIDE_SECTION_IDS:
-                sections[section["id"]] = section
+                sections[section["id"]] = _resolve_plain_glossary_terms(section)
     return sections
 
 
@@ -330,7 +346,7 @@ def render_personalized_timeline(block: dict, phase_extras: dict) -> str:
 
     for i, step in enumerate(steps):
         label = esc(step["label"])
-        content = _md_inline(esc(step["content"]))
+        content = _md_inline(esc(_resolve_plain_glossary_terms(step["content"])))
         paras = [f'<p>{p.strip()}</p>' for p in content.split('\n') if p.strip()]
 
         phase = phase_names[i] if i < len(phase_names) else "taper"
@@ -1292,8 +1308,12 @@ def build_rider_quotes_callout(quotes: list, criteria_filter: Optional[list] = N
     for q in selected:
         text = esc(q["quote"].strip())
         rider = esc(q.get("rider", "Anonymous"))
-        level = q.get("level", "")
-        level_tag = f' <span style="font-size:10px;text-transform:uppercase;letter-spacing:1px;color:var(--gg-color-teal)">{esc(level)}</span>' if level else ""
+        level = str(q.get("level") or "").strip()
+        level_tag = (
+            f' <span style="font-size:10px;text-transform:uppercase;letter-spacing:1px;color:var(--gg-color-teal)">{esc(level)}</span>'
+            if level and level.upper() != "UNKNOWN"
+            else ""
+        )
         quotes_html.append(
             f'<div class="gg-guide-callout gg-guide-callout--quote">'
             f'<p>\u201c{text}\u201d</p>'

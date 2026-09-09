@@ -506,6 +506,8 @@ class TestTriageGA4Integration:
             {"event": "email_capture", "count": 10},
             {"event": "plan_request", "count": 3},
             {"event": "quiz_complete", "count": 5},
+            {"event": "purchase", "count": 2},
+            {"event": "refund", "count": 7},
         ]
         mock_sources = [{"channel": "organic / search", "sessions": 200}]
 
@@ -515,7 +517,9 @@ class TestTriageGA4Integration:
             result = get_triage_ga4_summary()
             assert result["configured"] is True
             assert result["sessions_7d"] == 250
-            assert result["total_conversions"] == 18
+            assert "total_conversions" not in result
+            assert result["purchase_events"] == 2
+            assert result["refund_events"] == 7
             assert result["plan_requests"] == 3
             assert result["email_captures"] == 10
             assert result["top_source"] == "organic / search"

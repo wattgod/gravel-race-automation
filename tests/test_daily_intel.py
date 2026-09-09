@@ -8,6 +8,7 @@ import pytest
 from scripts.daily_intel import (
     INTERPRET_PROMPT,
     combine_report,
+    compute_constraint,
     detect_tracking_regression,
     measurement_epochs_for_report,
     measurement_epochs_in_window,
@@ -68,12 +69,17 @@ def collected():
         },
         "constraint": {
             "ok": True,
-            "binding_constraint": "traffic",
-            "cta_rate_pct": 4.05,
-            "cta_to_submit_pct": 60.5,
-            "submit_to_purchase_pct": 11.5,
-            "sessions_per_day_needed_for_1_sale": 354,
-            "sessions_per_day": 37.9,
+            "assessment": "data_insufficient",
+            "reason": "independent event totals do not establish a causal bottleneck",
+            "sessions_28d": 1061,
+            "event_totals_28d": {
+                "cta_click": 43,
+                "form_start": 20,
+                "form_submit": 10,
+                "begin_checkout": 3,
+                "purchase": 2,
+                "refund": 4,
+            },
         },
         "social": {"ok": True, "accounts_live": False},
         "workflows": {"ok": True, "latest": {"regression-tests.yml": "success"}},
@@ -85,15 +91,16 @@ def test_render_report_has_deterministic_sections_and_readable_funnel(collected)
     report = render_report(collected)
 
     assert report.startswith("## NUMBERS")
-    assert "cta 2 → form_start 2 → submit 1 → checkout 0 → purchase 0" in report
+    assert "cta 2; form_start 2; submit 1; checkout 0; purchase 0; refund 0" in report
     assert "{'cta_click'" not in report
     assert "## TRAFFIC" in report
     assert "Gravel God top pages" in report
     assert "Roadie Labs:** 3 sessions; near-zero traffic" in report
     assert "## COMMERCE (GROUND TRUTH)" in report
     assert "no orders, cart recoveries, or questionnaire starts" in report
-    assert "binding constraint: traffic" in report
-    assert "354; actual: 37.9" in report
+    assert "causal bottleneck: data insufficient" in report
+    assert "sessions 1061; cta 43; form_start 20; submit 10; checkout 3; purchase 2; refund 4" in report
+    assert "CTA→submit" not in report
     assert "Ada Rider <ada@example.com> — Test Gravel; welcome_v1 step 2" in report
     assert "## SOCIAL" not in report
     assert "###" not in report
@@ -123,7 +130,7 @@ def test_measurement_window_straddle_is_annotated_and_serializable(collected):
         "⚠ measurement regime change 2026-07-26 — comparison not like-for-like"
     )
     assert report.count(warning) == 2
-    assert "(28d sessions, funnel, and constraint rates)." in report
+    assert "(28d sessions and independent event totals)." in report
     assert snapshot["measurement_epochs"] == [{
         "date": "2026-07-26",
         "scope": "sessions",
@@ -134,6 +141,39 @@ def test_measurement_window_straddle_is_annotated_and_serializable(collected):
     }]
     assert warning in snapshot["report"]
     assert "analytics collection changes, not demand changes" in INTERPRET_PROMPT
+    assert "Do not infer conversion rates or a causal bottleneck" in INTERPRET_PROMPT
+
+
+def test_compute_constraint_refuses_rates_for_nonmonotonic_event_totals():
+    result = compute_constraint({
+        "ok": True,
+        "sessions_28d": 500,
+        "funnel_28d": {
+            "cta_click": 4,
+            "form_start": 3,
+            "form_submit": 1,
+            "begin_checkout": 1,
+            "purchase": 2,
+            "refund": 7,
+        },
+    })
+
+    assert result == {
+        "ok": True,
+        "assessment": "data_insufficient",
+        "reason": "independent event totals do not establish a causal bottleneck",
+        "sessions_28d": 500,
+        "event_totals_28d": {
+            "cta_click": 4,
+            "form_start": 3,
+            "form_submit": 1,
+            "begin_checkout": 1,
+            "purchase": 2,
+            "refund": 7,
+        },
+    }
+    assert not any(key.endswith("_pct") for key in result)
+    assert "binding_constraint" not in result
 
 
 def test_empty_epoch_list_preserves_report_behavior(collected):

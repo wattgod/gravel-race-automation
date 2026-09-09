@@ -79,6 +79,7 @@ FUNNEL_STAGES = {
     "form_submit": ["form_submit", "tp_form_submit"],
     "begin_checkout": ["begin_checkout"],
     "purchase": ["purchase"],
+    "refund": ["refund"],
 }
 FUNNEL_EVENTS = [e for evs in FUNNEL_STAGES.values() for e in evs]
 
@@ -212,8 +213,8 @@ def collect_ga4(brand: str) -> dict:
     top_pages = [{"path": r.dimension_values[0].value,
                   "views": int(r.metric_values[0].value)} for r in pages.rows]
 
-    # 28-day aggregates for the constraint math (precomputed — the
-    # interpreter must never do arithmetic itself)
+    # 28-day event totals for measurement context. They remain independent
+    # aggregates and cannot identify a causal bottleneck.
     m_ago = (date.today() - timedelta(days=28)).isoformat()
     agg = run(["sessions"], date_from=m_ago, date_to=y)
     sessions_28d = int(agg.rows[0].metric_values[0].value) if agg.rows else 0
@@ -238,8 +239,6 @@ def collect_ga4(brand: str) -> dict:
         "sessions_7d_avg": round(week_sessions / 7, 1),
         "funnel": {stage: sum(ev.get(e, 0) for e in evs)
                    for stage, evs in FUNNEL_STAGES.items()},
-        "abandoned_submits": max(0, sum(ev.get(e, 0) for e in FUNNEL_STAGES["form_submit"])
-                                    - ev.get("purchase", 0)),
         "top_pages": top_pages,
         "channel_mix": channel_mix,
         "top_landing": top_landing,
@@ -285,40 +284,21 @@ def collect_commerce_ledger() -> dict:
 
 
 def compute_constraint(ga4_gravel: dict) -> dict:
-    """Name the funnel's binding constraint from 28-day rates. Pure math,
-    precomputed here so the interpreter only narrates."""
+    """Describe why aggregate GA4 totals cannot identify a causal bottleneck."""
     if not ga4_gravel.get("ok"):
         return {"ok": False, "error": "no GA4 data"}
     s28 = ga4_gravel.get("sessions_28d") or 0
-    f = ga4_gravel.get("funnel_28d") or {}
-    cta, sub, pur = f.get("cta_click", 0), f.get("form_submit", 0), f.get("purchase", 0)
-    days = 28
-    rates = {
-        "sessions_per_day": round(s28 / days, 1),
-        "cta_rate_pct": round(100 * cta / s28, 2) if s28 else 0,
-        "cta_to_submit_pct": round(100 * sub / cta, 1) if cta else 0,
-        "submit_to_purchase_pct": round(100 * pur / sub, 1) if sub else 0,
-        "purchases_28d": pur, "submits_28d": sub, "ctas_28d": cta,
+    totals = ga4_gravel.get("funnel_28d") or {}
+    return {
+        "ok": True,
+        "assessment": "data_insufficient",
+        "reason": "independent event totals do not establish a causal bottleneck",
+        "sessions_28d": s28,
+        "event_totals_28d": {
+            stage: int(totals.get(stage, 0) or 0)
+            for stage in FUNNEL_STAGES
+        },
     }
-    # sessions/day needed for 1 purchase/day at current observed rates
-    # (fall back through the funnel when a stage has no data yet)
-    chain = (cta / s28 if s28 else 0) * (sub / cta if cta else 0) * (pur / sub if sub else 0)
-    rates["sessions_per_day_needed_for_1_sale"] = (
-        round(1 / chain) if chain > 0 else None)
-    # binding constraint heuristic, top-down
-    if s28 / days < 100:
-        binding = ("traffic — at these volumes no funnel rate is even "
-                   "measurable; nothing downstream is worth optimizing yet")
-    elif cta == 0:
-        binding = "cta_rate — sessions exist but nobody clicks toward a plan"
-    elif sub == 0:
-        binding = "form completion — clicks exist but nobody finishes intake"
-    elif pur == 0:
-        binding = "close rate — completed intakes aren't converting to payment"
-    else:
-        binding = "scaling — every stage has signal; grow the top"
-    rates["binding_constraint"] = binding
-    return {"ok": True, **rates}
 
 
 def collect_mission_control() -> dict:
@@ -759,13 +739,14 @@ def _path(value) -> str:
     return str(value)
 
 
-def _funnel_line(funnel: dict) -> str:
+def _event_totals_line(event_totals: dict) -> str:
     return (
-        f"cta {_display(funnel.get('cta_click'))} → "
-        f"form_start {_display(funnel.get('form_start'))} → "
-        f"submit {_display(funnel.get('form_submit'))} → "
-        f"checkout {_display(funnel.get('begin_checkout'))} → "
-        f"purchase {_display(funnel.get('purchase'))}"
+        f"cta {_display(event_totals.get('cta_click'))}; "
+        f"form_start {_display(event_totals.get('form_start'))}; "
+        f"submit {_display(event_totals.get('form_submit'))}; "
+        f"checkout {_display(event_totals.get('begin_checkout'))}; "
+        f"purchase {_display(event_totals.get('purchase'))}; "
+        f"refund {_display(event_totals.get('refund'))}"
     )
 
 
@@ -848,7 +829,7 @@ def render_report(collected: dict) -> str:
     """Render the factual report sections without network calls or inference."""
     lines = [
         "## NUMBERS",
-        "| Brand | Sessions (vs 7d avg) | Funnel | Leads |",
+        "| Brand | Sessions (vs 7d avg) | Independent event totals | Leads |",
         "|---|---:|---|---:|",
     ]
     ga4 = collected.get("ga4") or {}
@@ -860,18 +841,19 @@ def render_report(collected: dict) -> str:
             sessions = _display(g.get("sessions"))
             avg = _display(g.get("sessions_7d_avg"))
             session_cell = f"{sessions} (vs {avg})"
-            funnel = _funnel_line(g.get("funnel") or {})
+            event_totals = _event_totals_line(g.get("funnel") or {})
         else:
             session_cell = "unavailable"
-            funnel = "unavailable"
+            event_totals = "unavailable"
         if mc.get("ok"):
             leads = _display(leads_by_brand.get(brand), "unavailable")
         else:
             leads = "unavailable"
-        lines.append(f"| {meta['label']} | {session_cell} | {funnel} | {leads} |")
+        lines.append(f"| {meta['label']} | {session_cell} | {event_totals} | {leads} |")
     lines.extend(
         f"- {warning}" for warning in _measurement_warnings(collected, 7)
     )
+    lines.append("- GA4 event totals are independent; they do not form a joined funnel.")
 
     lines.extend(["", "## TRAFFIC"])
     for brand, meta in BRANDS.items():
@@ -945,20 +927,23 @@ def render_report(collected: dict) -> str:
     if not constraint.get("ok"):
         lines.append("- constraint unavailable.")
     else:
-        binding = _display(constraint.get("binding_constraint"), "not available")
-        lines.append(f"- binding constraint: {binding}.")
         lines.append(
-            "- 28d rates: "
-            f"CTA {_display(constraint.get('cta_rate_pct'))}%; "
-            f"CTA→submit {_display(constraint.get('cta_to_submit_pct'))}%; "
-            f"submit→purchase {_display(constraint.get('submit_to_purchase_pct'))}%."
+            "- causal bottleneck: data insufficient — independent GA4 event totals "
+            "do not establish a shared cohort or event order."
         )
-        needed = constraint.get("sessions_per_day_needed_for_1_sale")
-        needed_text = _display(needed, "not measurable")
-        actual = _display(constraint.get("sessions_per_day"), "not available")
-        lines.append(f"- sessions/day needed for 1 sale/day: {needed_text}; actual: {actual}.")
+        totals = constraint.get("event_totals_28d") or {}
+        lines.append(
+            "- 28d observed totals: "
+            f"sessions {_display(constraint.get('sessions_28d'))}; "
+            f"cta {_display(totals.get('cta_click'))}; "
+            f"form_start {_display(totals.get('form_start'))}; "
+            f"submit {_display(totals.get('form_submit'))}; "
+            f"checkout {_display(totals.get('begin_checkout'))}; "
+            f"purchase {_display(totals.get('purchase'))}; "
+            f"refund {_display(totals.get('refund'))}."
+        )
         lines.extend(
-            f"- {warning} (28d sessions, funnel, and constraint rates)."
+            f"- {warning} (28d sessions and independent event totals)."
             for warning in _measurement_warnings(collected, 28)
         )
 
@@ -1222,8 +1207,9 @@ The commerce ledger is ground truth and overrides GA4. The factual report is alr
 rendered; do not repeat its sections or add new facts.
 
 Measurement epochs in DATA mark analytics collection changes, not demand changes. If a \
-comparison straddles one, explicitly treat the apparent session jump and affected funnel \
-or constraint rates as not like-for-like; do not report them as increased demand.
+comparison straddles one, explicitly treat the apparent session jump and affected event \
+totals as not like-for-like; do not report them as increased demand. Do not infer \
+conversion rates or a causal bottleneck from independent GA4 event totals.
 
 Write EXACTLY this structure (markdown):
 Line 1: `SUBJECT: intel {date}: <hook under 60 chars — the single most important fact>`

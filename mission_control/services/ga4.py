@@ -39,6 +39,21 @@ CONVERSION_EVENT_NAMES = frozenset({
 })
 
 
+def summarize_event_totals(events: list[dict]) -> dict[str, int]:
+    """Return exact operational event counts without combining unlike events."""
+    counts: dict[str, int] = {}
+    for event in events:
+        name = str(event.get("event") or "")
+        counts[name] = counts.get(name, 0) + int(event.get("count") or 0)
+    return {
+        "email_capture_events": counts.get("email_capture", 0),
+        "plan_request_events": counts.get("plan_request", 0),
+        "checkout_start_events": counts.get("begin_checkout", 0),
+        "purchase_events": counts.get("purchase", 0),
+        "refund_events": counts.get("refund", 0),
+    }
+
+
 def _get_cached(cache_key: str) -> dict | None:
     """Get cached data if fresh enough. Returns None if caching unavailable."""
     if db is None:

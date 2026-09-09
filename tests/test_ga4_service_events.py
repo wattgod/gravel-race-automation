@@ -84,3 +84,22 @@ def test_conversion_query_filters_and_returns_commerce_events(monkeypatch):
     event_filter = client.request.dimension_filter.filter
     assert event_filter.field_name == "eventName"
     assert set(event_filter.in_list_filter.values) == ga4.CONVERSION_EVENT_NAMES
+
+
+def test_event_summary_keeps_refunds_out_of_purchase_and_lead_counts():
+    events = [
+        {"event": "email_capture", "count": 7},
+        {"event": "plan_request", "count": 3},
+        {"event": "begin_checkout", "count": 4},
+        {"event": "purchase", "count": 2},
+        {"event": "refund", "count": 5},
+        {"event": "add_to_cart", "count": 90},
+    ]
+
+    assert ga4.summarize_event_totals(events) == {
+        "email_capture_events": 7,
+        "plan_request_events": 3,
+        "checkout_start_events": 4,
+        "purchase_events": 2,
+        "refund_events": 5,
+    }

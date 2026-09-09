@@ -432,34 +432,33 @@ def triage_summary(
 # ---------------------------------------------------------------------------
 
 def get_triage_ga4_summary() -> dict:
-    """GA4 snapshot for triage — sessions, conversions, top source."""
+    """GA4 snapshot for triage with separate operational event totals."""
     try:
         from mission_control.services.ga4 import (
             get_conversion_events,
             get_daily_sessions,
             get_traffic_sources,
+            summarize_event_totals,
         )
         daily = get_daily_sessions(days=7)
-        conversions = get_conversion_events(days=7)
+        event_totals = get_conversion_events(days=7)
         sources = get_traffic_sources(days=7)
 
         sessions_7d = sum(d["sessions"] for d in daily) if daily else 0
-        total_conversions = sum(e["count"] for e in conversions) if conversions else 0
+        event_summary = summarize_event_totals(event_totals)
         top_source = sources[0]["channel"] if sources else None
         top_source_sessions = sources[0]["sessions"] if sources else 0
-
-        plan_requests = next((e["count"] for e in conversions if e["event"] == "plan_request"), 0)
-        email_captures = next((e["count"] for e in conversions if e["event"] == "email_capture"), 0)
 
         return {
             "configured": True,
             "sessions_7d": sessions_7d,
-            "total_conversions": total_conversions,
-            "plan_requests": plan_requests,
-            "email_captures": email_captures,
+            "purchase_events": event_summary["purchase_events"],
+            "refund_events": event_summary["refund_events"],
+            "plan_requests": event_summary["plan_request_events"],
+            "email_captures": event_summary["email_capture_events"],
             "top_source": top_source,
             "top_source_sessions": top_source_sessions,
-            "conversions": conversions,
+            "event_totals": event_totals,
         }
     except Exception:
         logger.exception("Failed to fetch GA4 triage summary")

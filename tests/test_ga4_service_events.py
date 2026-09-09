@@ -315,6 +315,28 @@ def test_native_funnel_preserves_provider_zero_as_present(monkeypatch):
     assert report["steps"][5]["users"] is None
 
 
+@pytest.mark.parametrize(("metric_index", "bad_value"), [
+    (0, True),
+    (0, 1.9),
+    (0, float("inf")),
+    (0, "1.9"),
+    (1, True),
+])
+def test_native_funnel_rejects_non_schema_provider_metrics_without_caching(
+        monkeypatch, metric_index, bad_value):
+    body = _captured_response()
+    body["funnelTable"]["rows"][0]["metricValues"][metric_index]["value"] = bad_value
+    if metric_index == 0:
+        body["funnelVisualization"]["rows"][0]["metricValues"][0]["value"] = bad_value
+    _client, _session, writes = _install_funnel_boundaries(monkeypatch, body)
+
+    report = ga4.get_ordered_funnel_report()
+
+    assert report["available"] is False
+    assert report["error_code"] == "UNKNOWN_RESPONSE_SHAPE"
+    assert not any(key.startswith("native_ordered_funnel_") for key, _data in writes)
+
+
 def test_native_funnel_rejects_unknown_shape_without_caching(monkeypatch):
     body = _captured_response()
     body["funnelTable"]["metricHeaders"][0]["name"] = "sessions"
@@ -364,6 +386,25 @@ def test_native_funnel_retains_sampling_and_threshold_metadata(monkeypatch):
     assert report["metadata"]["funnel_table"] == body["funnelTable"]["metadata"]
 
 
+@pytest.mark.parametrize("bad_metadata", [
+    {"samplingMetadatas": 7},
+    {"samplingMetadatas": [{"samplesReadCount": 50,
+                             "samplingSpaceSize": "100"}]},
+    {"subjectToThresholding": "true"},
+])
+def test_native_funnel_rejects_malformed_provider_metadata_without_caching(
+        monkeypatch, bad_metadata):
+    body = _captured_response()
+    body["funnelTable"]["metadata"] = bad_metadata
+    _client, _session, writes = _install_funnel_boundaries(monkeypatch, body)
+
+    report = ga4.get_ordered_funnel_report()
+
+    assert report["available"] is False
+    assert report["error_code"] == "UNKNOWN_RESPONSE_SHAPE"
+    assert not any(key.startswith("native_ordered_funnel_") for key, _data in writes)
+
+
 def test_native_funnel_cache_is_versioned_and_window_specific(monkeypatch):
     seen = []
     client = _TimezoneClient()
@@ -393,8 +434,8 @@ def test_native_funnel_cache_is_versioned_and_window_specific(monkeypatch):
     assert "2026-09-08" in seen[1]
 
 
-def test_native_funnel_valid_cache_reports_hit_and_skips_transport(monkeypatch):
-    cached = {
+def _valid_cached_funnel():
+    return {
         "schema": "ga4_native_ordered_funnel/v1",
         "available": True,
         "fetched_at": "2026-09-09T05:30:00+00:00",
@@ -428,6 +469,10 @@ def test_native_funnel_valid_cache_reports_hit_and_skips_transport(monkeypatch):
             "response_kind": "analyticsData#runFunnelReport",
         },
     }
+
+
+def test_native_funnel_valid_cache_reports_hit_and_skips_transport(monkeypatch):
+    cached = _valid_cached_funnel()
     monkeypatch.setattr(ga4, "_get_client", lambda: _TimezoneClient())
     monkeypatch.setattr(
         ga4, "_get_property_reporting_timezone",
@@ -448,6 +493,72 @@ def test_native_funnel_valid_cache_reports_hit_and_skips_transport(monkeypatch):
 
     assert report["provenance"]["cache_hit"] is True
     assert cached["provenance"]["cache_hit"] is False
+
+
+@pytest.mark.parametrize(("field", "bad_value"), [
+    ("users", True),
+    ("abandonments", True),
+    ("completion_rate", True),
+    ("abandonment_rate", True),
+])
+def test_native_funnel_rejects_cached_boolean_metrics_and_refetches(
+        monkeypatch, field, bad_value):
+    cached = _valid_cached_funnel()
+    cached["steps"][0].update({
+        "present": True,
+        "users": 1,
+        "completion_rate": 0.5,
+        "abandonments": 1,
+        "abandonment_rate": 0.5,
+    })
+    cached["steps"][0][field] = bad_value
+    session = _FunnelSession(_captured_response())
+    monkeypatch.setattr(ga4, "GA4_PROPERTY_ID", "properties/123456")
+    monkeypatch.setattr(ga4, "_get_client", lambda: _TimezoneClient())
+    monkeypatch.setattr(
+        ga4, "_get_property_reporting_timezone",
+        lambda _client, _property: "America/Denver",
+    )
+    monkeypatch.setattr(ga4, "_get_cached", lambda key: cached)
+    monkeypatch.setattr(ga4, "_set_cached", lambda key, data: None)
+    monkeypatch.setattr(ga4, "_get_funnel_session", lambda: session)
+    monkeypatch.setattr(
+        ga4, "_utc_now",
+        lambda: datetime(2026, 9, 9, 5, 30, tzinfo=timezone.utc),
+    )
+
+    report = ga4.get_ordered_funnel_report()
+
+    assert report["available"] is True
+    assert report["provenance"]["cache_hit"] is False
+    assert report["steps"][0]["users"] == 4601
+    assert len(session.calls) == 1
+
+
+def test_native_funnel_rejects_cached_malformed_metadata_and_refetches(monkeypatch):
+    cached = _valid_cached_funnel()
+    cached["metadata"]["funnel_table"] = {"samplingMetadatas": 7}
+    session = _FunnelSession(_captured_response())
+    monkeypatch.setattr(ga4, "GA4_PROPERTY_ID", "properties/123456")
+    monkeypatch.setattr(ga4, "_get_client", lambda: _TimezoneClient())
+    monkeypatch.setattr(
+        ga4, "_get_property_reporting_timezone",
+        lambda _client, _property: "America/Denver",
+    )
+    monkeypatch.setattr(ga4, "_get_cached", lambda key: cached)
+    monkeypatch.setattr(ga4, "_set_cached", lambda key, data: None)
+    monkeypatch.setattr(ga4, "_get_funnel_session", lambda: session)
+    monkeypatch.setattr(
+        ga4, "_utc_now",
+        lambda: datetime(2026, 9, 9, 5, 30, tzinfo=timezone.utc),
+    )
+
+    report = ga4.get_ordered_funnel_report()
+
+    assert report["available"] is True
+    assert report["provenance"]["cache_hit"] is False
+    assert report["metadata"]["funnel_table"] == {}
+    assert len(session.calls) == 1
 
 
 @pytest.mark.parametrize("cached", [

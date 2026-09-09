@@ -145,3 +145,23 @@ def test_analytics_page_renders_native_funnel_unavailable_without_zeroes(
     assert "PERMISSION_DENIED" in response.text
     funnel = response.text.split("Ordered user funnel", 1)[1].split("Traffic Sources", 1)[0]
     assert ">0<" not in funnel
+
+
+def test_analytics_page_defensively_ignores_malformed_funnel_metadata(
+        client, fake_db):
+    report = _native_funnel_report()
+    report["metadata"] = {
+        "funnel_table": {
+            "samplingMetadatas": 7,
+            "subjectToThresholding": "true",
+        },
+        "funnel_visualization": {},
+    }
+    patches = _common_analytics_patches(report)
+    with patches[0], patches[1], patches[2], patches[3], patches[4]:
+        response = client.get("/analytics/")
+
+    assert response.status_code == 200
+    assert "Ordered user funnel" in response.text
+    assert "GA4 sampled this report" not in response.text
+    assert "subject to GA4 thresholding" not in response.text

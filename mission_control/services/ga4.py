@@ -12,6 +12,7 @@ import hashlib
 import logging
 import math
 import os
+import re
 from datetime import datetime, timedelta, timezone
 from zoneinfo import ZoneInfo, ZoneInfoNotFoundError
 
@@ -46,6 +47,7 @@ NATIVE_FUNNEL_STEPS = (
     {"key": "training_plan_checkout", "name": "Training-plan checkout"},
     {"key": "training_plan_purchase", "name": "Training-plan purchase"},
 )
+_INTEGER_METRIC = re.compile(r"(?:0|[1-9][0-9]*)\Z")
 
 # Keep this list aligned with the events already emitted by the site and the
 # standard commerce lifecycle. These are independently aggregated event totals;
@@ -262,17 +264,39 @@ def _native_funnel_request(start_date: str, end_date: str) -> dict:
 
 
 def _parse_int(value) -> int:
-    parsed = int(value)
-    if parsed < 0:
-        raise ValueError("negative integer")
-    return parsed
+    if type(value) is not str or _INTEGER_METRIC.fullmatch(value) is None:
+        raise ValueError("invalid integer metric")
+    return int(value)
 
 
 def _parse_rate(value) -> float:
+    if type(value) is not str:
+        raise ValueError("invalid rate metric")
     parsed = float(value)
     if not math.isfinite(parsed) or parsed < 0 or parsed > 1:
         raise ValueError("rate outside [0, 1]")
     return parsed
+
+
+def _valid_subreport_metadata(metadata) -> bool:
+    if not isinstance(metadata, dict):
+        return False
+    if ("subjectToThresholding" in metadata
+            and type(metadata["subjectToThresholding"]) is not bool):
+        return False
+    if "samplingMetadatas" not in metadata:
+        return True
+    samples = metadata["samplingMetadatas"]
+    if not isinstance(samples, list):
+        return False
+    for sample in samples:
+        if not isinstance(sample, dict):
+            return False
+        for key in ("samplesReadCount", "samplingSpaceSize"):
+            value = sample.get(key)
+            if type(value) is not str or _INTEGER_METRIC.fullmatch(value) is None:
+                return False
+    return True
 
 
 def _subreport_headers(subreport: dict, expected_metrics: tuple[str, ...]) -> None:
@@ -288,7 +312,7 @@ def _subreport_headers(subreport: dict, expected_metrics: tuple[str, ...]) -> No
     if len(names) != len(headers) or names not in {
             expected_metrics, expected_metrics + expected_metrics}:
         raise ValueError("unexpected metric headers")
-    if not isinstance(subreport.get("metadata", {}), dict):
+    if not _valid_subreport_metadata(subreport.get("metadata", {})):
         raise ValueError("unexpected report metadata")
 
 
@@ -389,6 +413,10 @@ def _valid_cached_funnel(value, period: dict, property_ref: str) -> bool:
             and isinstance(value.get("steps"), list)
             and len(value["steps"]) == len(NATIVE_FUNNEL_STEPS)
             and isinstance(value.get("metadata"), dict)
+            and set(value["metadata"]) == {
+                "funnel_table", "funnel_visualization"}
+            and _valid_subreport_metadata(value["metadata"]["funnel_table"])
+            and _valid_subreport_metadata(value["metadata"]["funnel_visualization"])
             and isinstance(value.get("request_contract"), dict)
             and value["request_contract"].get("closed") is True
             and value["request_contract"].get("ordered") is True
@@ -410,13 +438,16 @@ def _valid_cached_funnel(value, period: dict, property_ref: str) -> bool:
             return False
         users = step.get("users")
         if step["present"]:
-            if not isinstance(users, int) or isinstance(users, bool) or users < 0:
+            if type(users) is not int or users < 0:
                 return False
-            try:
-                _parse_rate(step.get("completion_rate"))
-                _parse_int(step.get("abandonments"))
-                _parse_rate(step.get("abandonment_rate"))
-            except (TypeError, ValueError):
+            if (type(step.get("completion_rate")) is not float
+                    or not math.isfinite(step["completion_rate"])
+                    or not 0 <= step["completion_rate"] <= 1
+                    or type(step.get("abandonments")) is not int
+                    or step["abandonments"] < 0
+                    or type(step.get("abandonment_rate")) is not float
+                    or not math.isfinite(step["abandonment_rate"])
+                    or not 0 <= step["abandonment_rate"] <= 1):
                 return False
         elif users is not None:
             return False
@@ -510,7 +541,7 @@ def get_ordered_funnel_report(days: int = 30) -> dict:
 
     try:
         steps, metadata = _parse_native_funnel_response(body)
-    except (KeyError, TypeError, ValueError) as e:
+    except (KeyError, OverflowError, TypeError, ValueError) as e:
         logger.error("GA4 native funnel response shape failed: %s", e)
         return _unavailable_funnel(
             "GA4 native funnel response shape is unsupported",

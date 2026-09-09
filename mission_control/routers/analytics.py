@@ -45,19 +45,26 @@ async def analytics_index(request: Request):
     funnel_report = get_ordered_funnel_report(days=30)
     event_totals = event_report["events"]
 
-    funnel_metadata = funnel_report.get("metadata") or {}
+    funnel_metadata = funnel_report.get("metadata")
+    if not isinstance(funnel_metadata, dict):
+        funnel_metadata = {}
     subreport_metadata = [
         item for item in (
             funnel_metadata.get("funnel_table"),
             funnel_metadata.get("funnel_visualization"),
         ) if isinstance(item, dict)
     ]
-    funnel_sampling = [
-        sample
-        for item in subreport_metadata
-        for sample in (item.get("samplingMetadatas") or [])
-        if isinstance(sample, dict)
-    ]
+    funnel_sampling = []
+    for item in subreport_metadata:
+        samples = item.get("samplingMetadatas")
+        if not isinstance(samples, list):
+            continue
+        funnel_sampling.extend(
+            sample for sample in samples
+            if (isinstance(sample, dict)
+                and isinstance(sample.get("samplesReadCount"), str)
+                and isinstance(sample.get("samplingSpaceSize"), str))
+        )
     funnel_thresholded = any(
         item.get("subjectToThresholding") is True
         for item in subreport_metadata

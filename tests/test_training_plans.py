@@ -17,6 +17,7 @@ import pytest
 sys.path.insert(0, str(Path(__file__).parent.parent / "wordpress"))
 
 from generate_training_plans import (
+    COACHING_URL,
     DELIVERABLES,
     FAQ_ITEMS,
     PRICE_CAP,
@@ -155,6 +156,11 @@ class TestHero:
         assert "revised delivery time" in hero
         assert "Same Day" not in hero
 
+    def test_hours_claim_is_specific_without_overstating_the_science(self):
+        hero = build_hero()
+        assert "a plan that fits five hours" in hero
+        assert "fundamentally different training" not in hero
+
     def test_no_coffee_cliche(self):
         hero = build_hero()
         hero_lower = hero.lower()
@@ -273,30 +279,36 @@ class TestRotatingQuote:
         # First quote should be present (HTML-escaped)
         assert "12-week plan" in section
 
+    def test_hours_and_altitude_checks_do_not_make_universal_claims(self):
+        combined = " ".join(REALITY_CHECKS)
+        assert "fundamentally different training" not in combined
+        assert "different science" not in combined
+        assert "different sport" not in combined
+        assert "altitude changes how you pace and prepare" in combined
+
 
 # ── 7. Honest Check ─────────────────────────────────────────
 
 
 class TestHonestCheck:
-    def test_buy_if_column(self):
+    def test_direct_coaching_headline_and_cta(self):
         section = build_honest_check()
-        assert "Buy This If:" in section
+        assert "Are You Actually Serious About Getting Fast?" in section
+        assert 'data-cta="honest_coaching"' in section
+        assert f'href="{COACHING_URL}"' in section
+        assert "Get Coaching" in section
 
-    def test_dont_buy_if_column(self):
+    def test_plan_value_and_coaching_boundary(self):
         section = build_honest_check()
-        assert "Buy This If:" in section
+        assert "A training plan gives you the structure" in section
+        assert "weekly review, direct feedback, and recurring adjustments" in section
+        assert "ChatGPT subscription" in section
 
-    def test_five_buy_items(self):
+    def test_old_qualification_grid_is_removed(self):
         section = build_honest_check()
-        assert section.count("gg-tp-for-list") >= 1
-
-    def test_five_dont_items(self):
-        section = build_honest_check()
-        assert section.count("gg-tp-not-list") >= 1
-
-    def test_two_column_grid(self):
-        section = build_honest_check()
-        assert "gg-tp-audience-grid" in section
+        assert "Buy This If:" not in section
+        assert "Don&rsquo;t Buy This If:" not in section
+        assert "gg-tp-audience-grid" not in section
 
 
 # ── 8. Testimonials ──────────────────────────────────────────

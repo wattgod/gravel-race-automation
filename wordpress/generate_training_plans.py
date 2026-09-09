@@ -36,6 +36,7 @@ OUTPUT_DIR = Path(__file__).parent / "output"
 
 QUESTIONNAIRE_URL = f"{SITE_BASE_URL}/questionnaire/"
 TRAINING_PLANS_URL = f"{SITE_BASE_URL}/products/training-plans/"
+COACHING_URL = f"{SITE_BASE_URL}/coaching/"
 PRICE_PER_WEEK = "$15"
 PRICE_CAP = "$249"
 
@@ -60,7 +61,7 @@ def build_nav() -> str:
 def build_hero() -> str:
     return f'''<section class="gg-tp-hero" id="hero">
   <h1 class="gg-tp-hero-title">Your Race. Your Hours. Your Plan.</h1>
-  <p class="gg-tp-hero-sub">Most training plans assume you&rsquo;re average. A parent with 5 hours a week needs fundamentally different training than someone with 15. This isn&rsquo;t a template with your name on it. It&rsquo;s a plan built from your schedule, your fitness, your race, and the specific demands of the course you&rsquo;re lining up for.</p>
+  <p class="gg-tp-hero-sub">Most training plans assume you&rsquo;re average. A parent with 5 hours a week needs a plan that fits five hours; someone with 15 has more room to work. This isn&rsquo;t a template with your name on it. It&rsquo;s a plan built from your schedule, your fitness, your race, and the specific demands of the course you&rsquo;re lining up for.</p>
   <div class="gg-tp-hero-cta">
     <a href="{QUESTIONNAIRE_URL}" class="gg-tp-btn" data-cta="hero_build">Build My Plan</a>
     <a href="#how-it-works" class="gg-tp-btn gg-tp-btn-secondary" data-cta="hero_how">See How It Works</a>
@@ -171,7 +172,7 @@ SAMPLE_WEEK_BLOCKS = [
 REALITY_CHECKS = [
     "You downloaded a 12-week plan from the internet. It assumed you had 15 hours a week and zero injuries. How'd that go?",
     "Your buddy's training plan worked great. For your buddy. You're not your buddy.",
-    "A 50-year-old with 5 hours needs fundamentally different training than a 28-year-old with 15. Different hours demand different science.",
+    "A 50-year-old with 5 hours and a 28-year-old with 15 have different constraints. Their plans should reflect them.",
     "You know what a generic plan does at mile 80 of Unbound? Nothing. Because it doesn't know you're at Unbound.",
     "Every training plan is a bet. Most plans are betting you're a 25-year-old with unlimited time and perfect recovery. Are you?",
     "The plan said 'tempo ride, 2 hours.' You had 45 minutes before school pickup. So you skipped it. Then you skipped Tuesday too.",
@@ -185,7 +186,7 @@ REALITY_CHECKS = [
     "You told your last plan about your bad knee. It gave you plyometrics in week 3.",
     "Heat kills more gravel races than fitness. If your plan doesn't have an acclimatization protocol, it's not a plan. It's a wish.",
     "You tapered for 3 weeks because 'that's what the article said.' You lost fitness. Race day felt flat. Taper length is individual.",
-    "Your race starts at 7,000 feet. Your plan was written at sea level. That's a different sport and nobody told you.",
+    "Your race starts at 7,000 feet. Your plan was written at sea level. The altitude changes how you pace and prepare.",
     "Training without power zones is like cooking without measurements. You can do it. It's just worse.",
     "You finished your last race. You also bonked at mile 60, walked two climbs, and questioned your life choices. 'Finished' is a low bar.",
     "Somewhere right now, someone is doing their third 'base phase' of the year because they keep restarting the same generic plan.",
@@ -298,40 +299,11 @@ def build_rotating_quote() -> str:
 
 
 def build_honest_check() -> str:
-    buy_items = [
-        "You have a race on the calendar and you&rsquo;re done winging it",
-        "You have 3-15 hours a week and need every session to count",
-        "You want structure that respects your actual life",
-        "You can follow a plan without someone texting you every morning",
-        "You&rsquo;re tired of generic plans that assume you&rsquo;re 25 with 20 hours",
-    ]
-    dont_items = [
-        "You want ongoing coaching with weekly adjustments",
-        "You don&rsquo;t have a target event",
-        "Your race is in 3 weeks &mdash; not enough time to build anything real",
-        "You need daily accountability to do the work",
-        "You just want someone to tell you you&rsquo;re doing great",
-    ]
-    buy_li = "\n".join(f"          <li>{i}</li>" for i in buy_items)
-    dont_li = "\n".join(f"          <li>{i}</li>" for i in dont_items)
     return f'''<section class="gg-tp-section gg-tp-section-alt" id="honest-check">
-  <div class="gg-tp-section-label">Honest Check</div>
-  <h2>This Isn&rsquo;t For Everyone. Good.</h2>
-  <ul class="gg-tp-audience-list gg-tp-for-list"><li>Start with a published TrainingPeaks plan when the listed race, duration, and workload fit. Choose a custom plan when your race, schedule, or constraints need the calendar built around you. Choose coaching when you want ongoing review and adjustments.</li></ul>
-  <div class="gg-tp-audience-grid">
-    <div class="gg-tp-audience-col">
-      <h3>Buy This If:</h3>
-      <ul class="gg-tp-audience-list gg-tp-for-list">
-{buy_li}
-      </ul>
-    </div>
-    <div class="gg-tp-audience-col gg-tp-not-for">
-      <h3>Don&rsquo;t Buy This If:</h3>
-      <ul class="gg-tp-audience-list gg-tp-not-list">
-{dont_li}
-      </ul>
-    </div>
-  </div>
+  <div class="gg-tp-section-label">Coaching</div>
+  <h2>Are You Actually Serious About Getting Fast?</h2>
+  <p class="gg-tp-coaching-copy">A training plan gives you the structure. If you want weekly review, direct feedback, and recurring adjustments as life and fitness change, you&rsquo;re going to need more than a training plan and a ChatGPT subscription.</p>
+  <a href="{COACHING_URL}" class="gg-tp-btn gg-tp-coaching-cta" data-cta="honest_coaching">Get Coaching</a>
 </section>'''
 
 
@@ -919,47 +891,16 @@ def build_training_css() -> str:
   display: block;
 }}
 
-/* ── Honest Check (Audience) ── */
-.gg-tp-audience-grid {{
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: var(--gg-spacing-lg);
-  margin-top: var(--gg-spacing-lg);
-}}
-.gg-tp-audience-col h3 {{
-  font-family: var(--gg-font-data);
-  font-size: var(--gg-font-size-sm);
-  font-weight: var(--gg-font-weight-bold);
-  text-transform: uppercase;
-  letter-spacing: var(--gg-letter-spacing-wide);
-  margin-bottom: var(--gg-spacing-sm);
-  color: var(--gg-color-primary-brown);
-}}
-.gg-tp-not-for h3 {{ color: var(--gg-color-secondary-brown); }}
-.gg-tp-audience-list {{
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}}
-.gg-tp-audience-list li {{
-  padding: var(--gg-spacing-xs) 0;
-  padding-left: var(--gg-spacing-lg);
-  position: relative;
+/* ── Coaching CTA ── */
+.gg-tp-coaching-copy {{
   font-family: var(--gg-font-editorial);
-  font-size: var(--gg-font-size-sm);
+  font-size: var(--gg-font-size-md);
   color: var(--gg-color-near-black);
-  border-bottom: 1px solid var(--gg-color-tan);
-  line-height: var(--gg-line-height-normal);
+  line-height: var(--gg-line-height-prose);
+  max-width: 760px;
+  margin: var(--gg-spacing-md) 0;
 }}
-.gg-tp-audience-list li:last-child {{ border-bottom: none; }}
-.gg-tp-audience-list li::before {{
-  position: absolute;
-  left: 0;
-  font-family: var(--gg-font-data);
-  font-weight: var(--gg-font-weight-bold);
-}}
-.gg-tp-for-list li::before {{ content: ">"; color: var(--gg-color-primary-brown); }}
-.gg-tp-not-list li::before {{ content: "x"; color: var(--gg-color-secondary-brown); }}
+.gg-tp-coaching-cta {{ margin-top: var(--gg-spacing-xs); }}
 
 /* ── Testimonials ── */
 .gg-tp-testimonials {{
@@ -1198,7 +1139,6 @@ def build_training_css() -> str:
   .gg-tp-section h2 {{ font-size: clamp(20px, 5vw, 28px); }}
   .gg-tp-sample-grid {{ grid-template-columns: repeat(4, 1fr); }}
   .gg-tp-testimonials {{ grid-template-columns: 1fr; }}
-  .gg-tp-audience-grid {{ grid-template-columns: 1fr; }}
   .gg-tp-process {{ flex-direction: column; gap: var(--gg-spacing-sm); }}
   .gg-neo-brutalist-page {{ padding-bottom: var(--gg-spacing-2xl); }}
 }}

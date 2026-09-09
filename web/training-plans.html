@@ -526,59 +526,18 @@
 }
 
 /* ================================================================
-   WHO THIS IS FOR — Qualifying / Disqualifying
+   COACHING CTA
    ================================================================ */
 
-.tp-audience-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1.5rem;
-  margin-top: 1.5rem;
+.tp-coaching-copy {
+  max-width: 760px;
+  margin: 1rem 0;
+  font-size: 1rem;
+  line-height: 1.7;
 }
 
-.tp-audience-col h3 {
-  margin-bottom: 0.75rem;
-  font-size: 0.85rem;
-  color: #59473C;
-}
-
-.tp-audience-list {
-  list-style: none;
-  padding: 0;
-}
-
-.tp-audience-list li {
-  padding: 0.5rem 0;
-  padding-left: 1.5rem;
-  position: relative;
-  font-size: 0.8rem;
-  color: #000;
-  border-bottom: 1px solid #e0e0e0;
-  line-height: 1.5;
-}
-
-.tp-audience-list li:last-child {
-  border-bottom: none;
-}
-
-.tp-audience-list li::before {
-  position: absolute;
-  left: 0;
-  font-weight: 700;
-}
-
-.tp-for-list li::before {
-  content: ">";
-  color: #59473C;
-}
-
-.tp-not-list li::before {
-  content: "x";
-  color: #999;
-}
-
-.tp-not-for h3 {
-  color: #999;
+.tp-coaching-cta {
+  margin-top: 0.5rem;
 }
 
 /* ================================================================
@@ -943,15 +902,6 @@
   box-shadow: 8px 10px 0 #59473C;
 }
 
-/* Audience list hover */
-.tp-audience-list li {
-  transition: transform 0.15s ease;
-}
-
-.tp-audience-list li:hover {
-  transform: translateX(6px);
-}
-
 /* ================================================================
    RESPONSIVE
    ================================================================ */
@@ -983,10 +933,6 @@
     grid-template-columns: 1fr;
   }
 
-  .tp-audience-grid {
-    grid-template-columns: 1fr;
-  }
-
   .tp-landing {
     padding-bottom: 4rem; /* space for sticky cta */
   }
@@ -1011,7 +957,7 @@
     <h1>Your Race. Your Hours. Your Plan.</h1>
     <p class="tp-hero-sub">
       Most training plans assume you're average. A parent with 5 hours a week
-      needs fundamentally different training than someone with 15. This isn't a
+      needs a plan that fits five hours; someone with 15 has more room to work. This isn't a
       template with your name on it. It's a plan built from your schedule, your
       fitness, your race, and the specific demands of the course you're lining up for.
     </p>
@@ -1226,30 +1172,10 @@
        WHO THIS IS FOR
        ============================================================ -->
   <div class="tp-section tp-section-cream">
-    <div class="tp-section-label">Honest Check</div>
-    <h2>This Isn't For Everyone. Good.</h2>
-    <div class="tp-audience-grid">
-      <div class="tp-audience-col">
-        <h3>Buy This If:</h3>
-        <ul class="tp-audience-list tp-for-list">
-          <li>You have a race on the calendar and you're done winging it</li>
-          <li>You have 3-15 hours a week and need every session to count</li>
-          <li>You want structure that respects your actual life</li>
-          <li>You can follow a plan without someone texting you every morning</li>
-          <li>You're tired of generic plans that assume you're 25 with 20 hours</li>
-        </ul>
-      </div>
-      <div class="tp-audience-col tp-not-for">
-        <h3>Don't Buy This If:</h3>
-        <ul class="tp-audience-list tp-not-list">
-          <li>You want ongoing coaching with weekly adjustments</li>
-          <li>You don't have a target event</li>
-          <li>Your race is in 3 weeks &mdash; not enough time to build anything real</li>
-          <li>You need daily accountability to do the work</li>
-          <li>You just want someone to tell you you're doing great</li>
-        </ul>
-      </div>
-    </div>
+    <div class="tp-section-label">Coaching</div>
+    <h2>Are You Actually Serious About Getting Fast?</h2>
+    <p class="tp-coaching-copy">A training plan gives you the structure. If you want weekly review, direct feedback, and recurring adjustments as life and fitness change, you're going to need more than a training plan and a ChatGPT subscription.</p>
+    <a href="https://gravelgodcycling.com/coaching/" class="tp-btn tp-coaching-cta">Get Coaching</a>
   </div>
 
   <!-- ============================================================

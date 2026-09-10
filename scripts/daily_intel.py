@@ -73,6 +73,14 @@ BRANDS = {
 # The deployed gravel form JS predates the tp_* rename — both generations
 # fire in the wild, so each stage counts the union (Jul 2026 investigation:
 # June was form_start 33 / form_submit 20 / purchase 2, invisible to tp_*-only queries).
+# form_start/form_submit are ALSO GA4 Enhanced Measurement auto-events fired by
+# every <form> on the site — chiefly the homepage race search (Sep 9 2026: 46 of
+# 49 form_submit over 28d were on "/"; tp_form_submit 2 = begin_checkout 2).
+# Counting them property-wide fabricates a "submits die before checkout" signal,
+# so the legacy pair is scoped to the questionnaire page (same rule as
+# funnel_report.py and the native funnel in mission_control/services/ga4.py).
+LEGACY_FORM_EVENTS = ["form_start", "form_submit"]
+LEGACY_FORM_PATH_PREFIX = "/questionnaire/"
 FUNNEL_STAGES = {
     "cta_click": ["cta_click"],
     "form_start": ["form_start", "tp_form_start"],
@@ -176,7 +184,8 @@ def _safe(fn):
 def collect_ga4(brand: str) -> dict:
     from google.analytics.data_v1beta import BetaAnalyticsDataClient
     from google.analytics.data_v1beta.types import (
-        DateRange, Dimension, Filter, FilterExpression, Metric, RunReportRequest,
+        DateRange, Dimension, Filter, FilterExpression, FilterExpressionList,
+        Metric, RunReportRequest,
     )
 
     creds = os.environ.get("GA4_CREDENTIALS", str(PROJECT_ROOT / "ga4-credentials.json"))
@@ -204,19 +213,43 @@ def collect_ga4(brand: str) -> dict:
             request_args["dimension_filter"] = dimension_filter
         return client.run_report(RunReportRequest(**request_args))
 
+    # Two event queries per window: custom events property-wide, and the
+    # legacy Enhanced-Measurement pair restricted to the questionnaire page.
+    custom_events = sorted(set(FUNNEL_EVENTS) - set(LEGACY_FORM_EVENTS))
     event_filter = FilterExpression(filter=Filter(
         field_name="eventName",
-        in_list_filter=Filter.InListFilter(values=sorted(FUNNEL_EVENTS)),
+        in_list_filter=Filter.InListFilter(values=custom_events),
     ))
+    legacy_filter = FilterExpression(and_group=FilterExpressionList(expressions=[
+        FilterExpression(filter=Filter(
+            field_name="eventName",
+            in_list_filter=Filter.InListFilter(values=sorted(LEGACY_FORM_EVENTS)),
+        )),
+        FilterExpression(filter=Filter(
+            field_name="pagePath",
+            string_filter=Filter.StringFilter(
+                value=LEGACY_FORM_PATH_PREFIX,
+                match_type=Filter.StringFilter.MatchType.BEGINS_WITH,
+            ),
+        )),
+    ]))
+
+    def event_counts(date_from, date_to):
+        counts = {}
+        for dim_filter in (event_filter, legacy_filter):
+            report = run(["eventCount"], ["eventName"], date_from=date_from,
+                         date_to=date_to, dimension_filter=dim_filter)
+            for r in report.rows:
+                name = r.dimension_values[0].value
+                counts[name] = counts.get(name, 0) + int(r.metric_values[0].value)
+        return counts
 
     totals = run(["sessions", "totalUsers", "screenPageViews"])
     t = totals.rows[0].metric_values if totals.rows else None
     week = run(["sessions"], date_from=week_ago, date_to=y)
     week_sessions = int(week.rows[0].metric_values[0].value) if week.rows else 0
 
-    events = run(["eventCount"], ["eventName"], dimension_filter=event_filter)
-    ev = {r.dimension_values[0].value: int(r.metric_values[0].value)
-          for r in events.rows}
+    ev = event_counts(y, y)
 
     pages = run(["screenPageViews"], ["pagePath"], limit=8)
     top_pages = [{"path": r.dimension_values[0].value,
@@ -227,12 +260,7 @@ def collect_ga4(brand: str) -> dict:
     m_ago = (date.today() - timedelta(days=28)).isoformat()
     agg = run(["sessions"], date_from=m_ago, date_to=y)
     sessions_28d = int(agg.rows[0].metric_values[0].value) if agg.rows else 0
-    ev28 = run(
-        ["eventCount"], ["eventName"], date_from=m_ago, date_to=y,
-        dimension_filter=event_filter,
-    )
-    ev28d = {r.dimension_values[0].value: int(r.metric_values[0].value)
-             for r in ev28.rows}
+    ev28d = event_counts(m_ago, y)
     funnel_28d = {stage: sum(ev28d.get(e, 0) for e in evs)
                   for stage, evs in FUNNEL_STAGES.items()}
 

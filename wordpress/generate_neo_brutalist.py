@@ -1811,7 +1811,7 @@ document.querySelectorAll('.gg-faq-question').forEach(function(q) {
       // old '.gg-section' lookup missed — every plan-CTA click reported 'unknown').
       // Same vocabulary as race_section_view: measured name, else 'deep_' + id
       // for deep-dive sections, else the first class (hero → 'gg-hero').
-      var section = this.closest('[data-measure-section], .gg-section, .gg-hero, .gg-sticky-cta');
+      var section = this.closest('[data-measure-section], .gg-section, .gg-sticky-cta');
       var section_id = section
         ? (section.getAttribute('data-measure-section') || (section.id ? 'deep_' + section.id : section.className.split(' ')[0]))
         : 'unknown';
@@ -2844,7 +2844,7 @@ def build_hero(rd: dict) -> str:
             f'margin-top:4px">{esc(break_note["line"])}</div></div>'
         )
 
-    return f'''<section class="gg-hero">
+    return f'''<section class="gg-hero" data-measure-section="hero">
   <div class="gg-hero-content">
     <span class="gg-hero-tier">{esc(rd['tier_label'])}</span>{discipline_badge}{series_badge}
     <h1>{esc(rd['name'])}</h1>

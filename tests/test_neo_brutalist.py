@@ -1858,5 +1858,46 @@ class TestFunnelAttribution:
 
     def test_cta_section_prefers_measured_section_name(self):
         src = (Path(__file__).parent.parent / "wordpress" / "generate_neo_brutalist.py").read_text()
-        assert "this.closest('[data-measure-section], .gg-section, .gg-hero, .gg-sticky-cta')" in src
+        assert "this.closest('[data-measure-section], .gg-section, .gg-sticky-cta')" in src
         assert "section.getAttribute('data-measure-section')" in src
+
+    def test_every_cta_sits_inside_an_observed_section(self, normalized_data):
+        """Every data-cta anchor must have an ancestor the race_section_view
+        observer watches ([data-measure-section] or .gg-deep-dive > section[id]),
+        so a click can always be joined to an exposure of the same section."""
+        from html.parser import HTMLParser
+
+        class Walker(HTMLParser):
+            VOID = {"img", "br", "hr", "input", "meta", "link", "source", "wbr"}
+
+            def __init__(self):
+                super().__init__()
+                self.stack = []
+                self.orphans = []
+                self.seen_ctas = 0
+
+            def handle_starttag(self, tag, attrs):
+                a = dict(attrs)
+                if tag == "a" and "data-cta" in a:
+                    self.seen_ctas += 1
+                    observed = any(
+                        "data-measure-section" in anc_attrs
+                        or (anc_tag == "section" and "id" in anc_attrs and any(
+                            "gg-deep-dive" in (p_attrs.get("class") or "") for _, p_attrs in self.stack[:i]))
+                        for i, (anc_tag, anc_attrs) in enumerate(self.stack)
+                    )
+                    if not observed:
+                        self.orphans.append(a["data-cta"])
+                if tag not in self.VOID:
+                    self.stack.append((tag, a))
+
+            def handle_endtag(self, tag):
+                for i in range(len(self.stack) - 1, -1, -1):
+                    if self.stack[i][0] == tag:
+                        del self.stack[i:]
+                        break
+
+        html = generate_page(normalized_data)
+        w = Walker(); w.feed(html)
+        assert w.seen_ctas >= 3
+        assert w.orphans == [], f"CTAs outside any observed section: {w.orphans}"

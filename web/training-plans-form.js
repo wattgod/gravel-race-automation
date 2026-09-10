@@ -53,23 +53,65 @@
   function updatePriceDisplay() {
     var races = getRaces();
     var aRace = races.find(function(r) { return r.priority === 'A'; }) || races[0];
+    var totalEl = document.getElementById('gg-plan-total');
     if (aRace && aRace.date) {
       var pricing = computePrice(aRace.date);
       if (pricing) {
         submitBtn.textContent = 'Submit & Pay — $' + pricing.price;
+        if (totalEl) {
+          totalEl.textContent = '$' + pricing.price + ' for ' + pricing.weeks + ' weeks';
+        }
         return;
       }
     }
     submitBtn.textContent = 'Submit & Pay';
+    if (totalEl) totalEl.textContent = 'set by your A-race date';
   }
 
   // ---- GA4 Analytics Helper ----
+  // ---- Entry surface + form version (funnel attribution, Sep 2026) ----
+  // Every questionnaire link on the site carries ?src=<surface> (race_profile,
+  // race_plan_page, product_page, race_configurator, race_sticky). It is kept in
+  // sessionStorage so a bounce back from Stripe keeps the same attribution, and
+  // stamped on every event this script sends as `entry_surface`.
+  // form_version names the rendered markup, not this script: the purchase-terms
+  // block ships separately through the Elementor widget, so a page with it and a
+  // page without it must report differently.
+  var FORM_VERSION = document.getElementById('gg-plan-total') ? '2026-09-10-terms' : '2026-09-10';
+  var ENTRY_SURFACE_KEY = 'gg_tp_entry_surface';
+  var ENTRY_SURFACE_RE = /^[a-z_]{1,32}$/;
+  function resolveEntrySurface() {
+    var fromUrl = '';
+    try { fromUrl = new URLSearchParams(window.location.search).get('src') || ''; } catch (e) {}
+    if (ENTRY_SURFACE_RE.test(fromUrl)) {
+      try { sessionStorage.setItem(ENTRY_SURFACE_KEY, fromUrl); } catch (e) {}
+      return fromUrl;
+    }
+    // Same-session return (e.g. back from Stripe) keeps the original surface.
+    // Validated again: storage is same-origin but not trusted.
+    try {
+      var stored = sessionStorage.getItem(ENTRY_SURFACE_KEY) || '';
+      if (ENTRY_SURFACE_RE.test(stored)) return stored;
+    } catch (e) {}
+    var ref = document.referrer || '';
+    if (!ref) return 'direct';
+    var refOrigin = '';
+    try { refOrigin = new URL(ref).origin; } catch (e) { return 'external'; }
+    if (refOrigin !== window.location.origin) return 'external';
+    if (/\/race\/[^/]+\/training-plan\//.test(ref)) return 'race_plan_page_untagged';
+    if (/\/race\//.test(ref)) return 'race_profile_untagged';
+    return 'internal_other';
+  }
+  var ENTRY_SURFACE = resolveEntrySurface();
+
   function track(event, params) {
+    var payload = { entry_surface: ENTRY_SURFACE, form_version: FORM_VERSION };
+    if (params) { for (var k in params) payload[k] = params[k]; }
     if (typeof gtag === 'function') {
-      gtag('event', event, params || {});
+      gtag('event', event, payload);
     } else if (window.dataLayer) {
       var obj = { event: event };
-      if (params) { for (var k in params) obj[k] = params[k]; }
+      for (var k2 in payload) obj[k2] = payload[k2];
       window.dataLayer.push(obj);
     }
   }

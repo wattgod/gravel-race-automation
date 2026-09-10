@@ -63,7 +63,7 @@ def build_hero() -> str:
   <h1 class="gg-tp-hero-title">Your Race. Your Hours. Your Plan.</h1>
   <p class="gg-tp-hero-sub">Most training plans assume you&rsquo;re average. A parent with 5 hours a week needs a plan that fits five hours; someone with 15 has more room to work. This isn&rsquo;t a template with your name on it. It&rsquo;s a plan built from your schedule, your fitness, your race, and the specific demands of the course you&rsquo;re lining up for.</p>
   <div class="gg-tp-hero-cta">
-    <a href="{QUESTIONNAIRE_URL}" class="gg-tp-btn" data-cta="hero_build">Build My Plan</a>
+    <a href="{QUESTIONNAIRE_URL}?src=product_page" class="gg-tp-btn" data-cta="hero_build">Build My Plan</a>
     <a href="#how-it-works" class="gg-tp-btn gg-tp-btn-secondary" data-cta="hero_how">See How It Works</a>
   </div>
   <div class="gg-tp-hero-bar">
@@ -359,7 +359,7 @@ def build_pricing() -> str:
       </ul>
       <p class="gg-tp-support-terms">Your plan, personally reviewed and delivered in TrainingPeaks within 24 hours. Email support and two plan adjustments are included during the dates covered by your plan for changes to your schedule, available training hours, or equipment. Correcting a plan that does not match your order does not use an adjustment. The first rescale after the scheduled FTP test is included separately. Weekly review and recurring changes are part of Coaching.</p>
       <div class="gg-tp-pricing-cta">
-        <a href="{QUESTIONNAIRE_URL}" class="gg-tp-btn" data-cta="pricing_build">Build My Plan</a>
+        <a href="{QUESTIONNAIRE_URL}?src=product_page" class="gg-tp-btn" data-cta="pricing_build">Build My Plan</a>
       </div>
       <p class="gg-tp-pricing-note">Your entry fee was $175. Your hotel is $200. Your plan is $2/day. Don&rsquo;t show up without one.</p>
     </div>
@@ -417,7 +417,7 @@ def build_faq() -> str:
 
 def build_mobile_sticky() -> str:
     return f'''<div class="gg-tp-sticky-cta" id="gg-tp-sticky-cta">
-  <a href="{QUESTIONNAIRE_URL}" data-cta="sticky_mobile">Build My Plan &mdash; $2/day</a>
+  <a href="{QUESTIONNAIRE_URL}?src=product_page" data-cta="sticky_mobile">Build My Plan &mdash; $2/day</a>
 </div>'''
 
 

@@ -559,7 +559,7 @@ def build_custom_plan_preview(rd: dict, pack: dict) -> str:
         brand="gravel_god",
         race=rd,
         demands=pack.get("demands") or {},
-        questionnaire_url=f"{QUESTIONNAIRE_URL}?race={esc(rd['slug'])}",
+        questionnaire_url=f"{QUESTIONNAIRE_URL}?race={esc(rd['slug'])}&src=race_plan_page",
         heading=f"See your {rd['name']} week before you buy.",
         lede=("Choose the week you actually have. The current plan engine "
               "uses those constraints and this race's demand profile to "

@@ -22,3 +22,22 @@ def test_ga4_lookup_cannot_indefinitely_block_checkout():
 
 def test_form_script_does_not_emit_purchase():
     assert "gtag('event', 'purchase'" not in FORM_JS
+
+
+def test_every_event_carries_entry_surface_and_form_version():
+    """Funnel attribution (Sep 2026): every tp_*/begin_checkout event is stamped
+    with the questionnaire entry surface and the form version, so arrivals can be
+    split by race profile / race plan page / product page in GA4."""
+    assert "var FORM_VERSION = document.getElementById('gg-plan-total')" in FORM_JS
+    assert "entry_surface: ENTRY_SURFACE" in FORM_JS
+    assert "form_version: FORM_VERSION" in FORM_JS
+    assert "sessionStorage.setItem(ENTRY_SURFACE_KEY" in FORM_JS  # survives Stripe back-nav
+    assert "ENTRY_SURFACE_RE.test(fromUrl)" in FORM_JS   # src= is validated, never echoed raw
+    assert "ENTRY_SURFACE_RE.test(stored)" in FORM_JS    # ...and so is the stored copy
+    assert "refOrigin !== window.location.origin" in FORM_JS  # origin compare, not substring
+    assert "getElementById('gg-plan-total') ? '2026-09-10-terms' : '2026-09-10'" in FORM_JS
+
+
+def test_purchase_total_mirrors_into_terms_block_when_present():
+    assert "getElementById('gg-plan-total')" in FORM_JS
+    assert "' for ' + pricing.weeks + ' weeks'" in FORM_JS

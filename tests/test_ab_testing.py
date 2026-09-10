@@ -828,3 +828,29 @@ class TestApplyVariantCorrectness:
             f"applyVariant has {len(assignments)} textContent assignments, expected 1 "
             "(dead code if >1)"
         )
+
+
+
+class TestMissingTargetIsNotAnExposure:
+    """A variant that finds no element on the page must not log an impression
+    (race_sticky_cta_copy logged 820 exposed users against a non-rendered element)."""
+
+    def test_apply_variant_reports_whether_it_applied(self):
+        js = get_ab_js()
+        apply_fn = re.search(r"function applyVariant.*?\n  \}", js, re.DOTALL).group(0)
+        assert "return false;" in apply_fn and "return true;" in apply_fn
+
+    def test_run_skips_impression_when_target_missing(self):
+        js = get_ab_js()
+        assert "if (!applyVariant(exp, variant)) continue;" in js
+        # the skip must come BEFORE the impression fires
+        assert js.index("if (!applyVariant(exp, variant)) continue;") < js.index("fireGA4('ab_impression'")
+
+    def test_dead_target_race_experiments_are_retired(self):
+        ids = {e["id"] for e in EXPERIMENTS}
+        assert "race_sticky_cta_copy" not in ids and "race_coaching_teaser" not in ids
+
+    def test_conversion_never_binds_without_a_sent_impression(self):
+        js = get_ab_js()
+        assert "var impressionSent = fireGA4('ab_impression'" in js
+        assert js.index("if (!impressionSent) continue;") < js.index("bindConversion(exp, variant);")

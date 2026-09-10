@@ -88,6 +88,8 @@ class TestAntiShillStructure:
 
     def test_prefilled_questionnaire_cta(self, html):
         assert "questionnaire/?race=unbound-200" in html
+        assert ("questionnaire/?race=unbound-200&src=race_plan_page" in html
+                or "questionnaire/?race=unbound-200&amp;src=race_plan_page" in html)
 
     def test_links_to_free_prep_kit(self, html):
         assert "/race/unbound-200/prep-kit/" in html
@@ -184,3 +186,4 @@ class TestSafety:
 
 if __name__ == "__main__":
     sys.exit(pytest.main([__file__, "-v"]))
+

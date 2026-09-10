@@ -174,6 +174,7 @@ class TestHero:
     def test_cta_questionnaire_url(self):
         hero = build_hero()
         assert QUESTIONNAIRE_URL in hero
+        assert f'{QUESTIONNAIRE_URL}?src=product_page' in hero
 
     def test_cta_build_my_plan(self):
         hero = build_hero()

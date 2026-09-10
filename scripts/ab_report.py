@@ -83,7 +83,10 @@ def get_ga4_data(property_id: str, credentials_path: str, days: int,
                 Dimension(name="customEvent:experiment_id"),
                 Dimension(name="customEvent:variant_id"),
             ],
-            metrics=[Metric(name="eventCount")],
+            # Unique users, not event counts: impressions fire on every page
+            # load while conversions are session-deduplicated in the engine,
+            # so eventCount/eventCount mixed two units and inflated denominators.
+            metrics=[Metric(name="totalUsers")],
             date_ranges=[DateRange(start_date=start_date, end_date=end_date)],
             dimension_filter=dimension_filter,
         )
@@ -214,7 +217,7 @@ def print_report(reports: list[dict]):
         print(f"\n{'─' * 65}")
         print(f"Experiment: {r['experiment_id']}")
         print(f"  {r['description']}")
-        print(f"  Status: {r['status'].upper()} | Total impressions: {r['total_impressions']}")
+        print(f"  Status: {r['status'].upper()} | Total exposed users: {r['total_impressions']} (unit: unique users since 2026-09-10; earlier runs counted events)")
         print()
 
         for v in r["variants"]:
@@ -227,7 +230,7 @@ def print_report(reports: list[dict]):
                 lift = v.get("lift")
                 if lift is not None:
                     sig += f" | lift={lift:+.1%}"
-            print(f"  {v['variant_id']:>12}: {v['impressions']:>6} imp → "
+            print(f"  {v['variant_id']:>12}: {v['impressions']:>6} users → "
                   f"{v['conversions']:>4} conv = {rate_pct:>6}{sig}")
 
         if r["winner"]:

@@ -193,10 +193,14 @@ class TestCliEndToEnd:
         kit_dir.mkdir(parents=True)
         (pages_dir / "unbound-200.html").write_text("<html></html>")
         (kit_dir / "unbound-200.html").write_text("<html></html>")
+        md_dir = tmp_path / "markdown"
+        md_dir.mkdir()
+        (md_dir / "unbound-200.md").write_text("# unbound")  # markdown gate satisfied
         proc = self._run(tmp_path, "--sync-pages", "--pages-dir", str(pages_dir),
-                         "--prep-kit-dir", str(kit_dir))
-        # Both steps were attempted (and both stopped at the credential check).
+                         "--prep-kit-dir", str(kit_dir), "--markdown-dir", str(md_dir))
+        # All three steps were attempted (and all stopped at the credential check).
         assert "adding --sync-prep-kits" in proc.stdout
-        assert "DEPLOY FAILED — 2 step(s): sync-pages, sync-prep-kits" in proc.stdout
+        assert "adding --sync-markdown" in proc.stdout
+        assert "DEPLOY FAILED — 3 step(s): sync-pages, sync-prep-kits, sync-markdown" in proc.stdout
         assert "Uploading" not in proc.stdout
         assert proc.returncode == 1

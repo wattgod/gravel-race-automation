@@ -2565,14 +2565,17 @@ def sync_ab():
     remote_ab = f"{remote_base}/ab"
     remote_mu = f"{remote_base}/wp-content/mu-plugins"
 
-    # Create /ab/ directory and clean old hashed JS files
+    # Create /ab/. Old hashed bundles are KEPT: every static generator embeds
+    # the hash current at its own generation time, so a page not regenerated
+    # in this deploy (guide, tire, prep-kit, plan pages, …) still references
+    # the previous file. Deleting it 404'd the A/B script on those pages
+    # (2026-09-10 review). Prune by hand once no live page references a hash.
     try:
         subprocess.run(
             [
                 "ssh", "-i", str(SSH_KEY), "-p", port,
                 f"{user}@{host}",
-                f"mkdir -p {remote_ab} && chmod 755 {remote_ab} && "
-                f"rm -f {remote_ab}/gg-ab-tests.*.js",
+                f"mkdir -p {remote_ab} && chmod 755 {remote_ab}",
             ],
             check=True, capture_output=True, text=True, timeout=15,
         )

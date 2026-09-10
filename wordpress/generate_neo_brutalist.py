@@ -1809,9 +1809,11 @@ document.querySelectorAll('.gg-faq-question').forEach(function(q) {
       // Prefer the measured section name so cta_section matches race_section_view
       // (the custom-plan offer is <section class="gg-approved-section">, which the
       // old '.gg-section' lookup missed — every plan-CTA click reported 'unknown').
-      var section = this.closest('[data-measure-section], .gg-section, .gg-sticky-cta');
+      // Same vocabulary as race_section_view: measured name, else 'deep_' + id
+      // for deep-dive sections, else the first class (hero → 'gg-hero').
+      var section = this.closest('[data-measure-section], .gg-section, .gg-hero, .gg-sticky-cta');
       var section_id = section
-        ? (section.getAttribute('data-measure-section') || section.id || section.className.split(' ')[0])
+        ? (section.getAttribute('data-measure-section') || (section.id ? 'deep_' + section.id : section.className.split(' ')[0]))
         : 'unknown';
       gtag('event', 'cta_click', {
         source: 'race_page',

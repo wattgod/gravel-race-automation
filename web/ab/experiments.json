@@ -94,35 +94,6 @@
         "type": "click",
         "selector": "[data-ga='coaching_click'], [data-cta='coaching_apply']"
       }
-    },
-    {
-      "id": "race_coaching_teaser",
-      "selector": "[data-ab='race_coaching_cta']",
-      "pages": [
-        "/race/*"
-      ],
-      "traffic": 1.0,
-      "variants": [
-        {
-          "id": "control",
-          "name": "Talk to a coach",
-          "content": "TALK TO A COACH"
-        },
-        {
-          "id": "variant_a",
-          "name": "Apply for coaching",
-          "content": "APPLY FOR COACHING"
-        },
-        {
-          "id": "variant_b",
-          "name": "Get a coach",
-          "content": "GET A COACH FOR THIS RACE"
-        }
-      ],
-      "conversion": {
-        "type": "click",
-        "selector": "[data-cta='coaching']"
-      }
     }
   ]
 }

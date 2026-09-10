@@ -1858,5 +1858,5 @@ class TestFunnelAttribution:
 
     def test_cta_section_prefers_measured_section_name(self):
         src = (Path(__file__).parent.parent / "wordpress" / "generate_neo_brutalist.py").read_text()
-        assert "this.closest('[data-measure-section], .gg-section, .gg-sticky-cta')" in src
+        assert "this.closest('[data-measure-section], .gg-section, .gg-hero, .gg-sticky-cta')" in src
         assert "section.getAttribute('data-measure-section')" in src

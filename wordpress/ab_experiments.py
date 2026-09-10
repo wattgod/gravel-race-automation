@@ -122,36 +122,10 @@ EXPERIMENTS = [
     # race_sticky_cta_copy retired 2026-09-10: the spine-v2 race page renders no
     # sticky CTA (docs/race-page-spine-v2-canonical.md), so the experiment had no
     # target; GA4 still logged 820 exposed users in 28 days. See #338 follow-up.
-    {
-        "id": "race_coaching_teaser",
-        "description": "Test coaching teaser CTA copy on race pages",
-        "selector": "[data-ab='race_coaching_cta']",
-        "pages": ["/race/*"],
-        "traffic": 1.0,
-        "start": "2026-03-25",
-        "end": None,
-        "variants": [
-            {
-                "id": "control",
-                "name": "Talk to a coach",
-                "content": "TALK TO A COACH",
-            },
-            {
-                "id": "variant_a",
-                "name": "Apply for coaching",
-                "content": "APPLY FOR COACHING",
-            },
-            {
-                "id": "variant_b",
-                "name": "Get a coach",
-                "content": "GET A COACH FOR THIS RACE",
-            },
-        ],
-        "conversion": {
-            "type": "click",
-            "selector": "[data-cta='coaching']",
-        },
-    },
+    # race_coaching_teaser retired 2026-09-10 for the same reason: the live
+    # coaching footnote (build_coaching_footnote) carries no data-ab target; all
+    # 384 generated profiles lacked it.
+
 ]
 
 

@@ -217,7 +217,7 @@ def print_report(reports: list[dict]):
         print(f"\n{'─' * 65}")
         print(f"Experiment: {r['experiment_id']}")
         print(f"  {r['description']}")
-        print(f"  Status: {r['status'].upper()} | Total impressions: {r['total_impressions']}")
+        print(f"  Status: {r['status'].upper()} | Total exposed users: {r['total_impressions']} (unit: unique users since 2026-09-10; earlier runs counted events)")
         print()
 
         for v in r["variants"]:
@@ -230,7 +230,7 @@ def print_report(reports: list[dict]):
                 lift = v.get("lift")
                 if lift is not None:
                     sig += f" | lift={lift:+.1%}"
-            print(f"  {v['variant_id']:>12}: {v['impressions']:>6} imp → "
+            print(f"  {v['variant_id']:>12}: {v['impressions']:>6} users → "
                   f"{v['conversions']:>4} conv = {rate_pct:>6}{sig}")
 
         if r["winner"]:

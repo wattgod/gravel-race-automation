@@ -74,22 +74,30 @@
   // race_plan_page, product_page, race_configurator, race_sticky). It is kept in
   // sessionStorage so a bounce back from Stripe keeps the same attribution, and
   // stamped on every event this script sends as `entry_surface`.
-  var FORM_VERSION = '2026-09-10';
+  // form_version names the rendered markup, not this script: the purchase-terms
+  // block ships separately through the Elementor widget, so a page with it and a
+  // page without it must report differently.
+  var FORM_VERSION = document.getElementById('gg-plan-total') ? '2026-09-10-terms' : '2026-09-10';
   var ENTRY_SURFACE_KEY = 'gg_tp_entry_surface';
+  var ENTRY_SURFACE_RE = /^[a-z_]{1,32}$/;
   function resolveEntrySurface() {
     var fromUrl = '';
     try { fromUrl = new URLSearchParams(window.location.search).get('src') || ''; } catch (e) {}
-    if (/^[a-z_]{1,32}$/.test(fromUrl)) {
+    if (ENTRY_SURFACE_RE.test(fromUrl)) {
       try { sessionStorage.setItem(ENTRY_SURFACE_KEY, fromUrl); } catch (e) {}
       return fromUrl;
     }
+    // Same-session return (e.g. back from Stripe) keeps the original surface.
+    // Validated again: storage is same-origin but not trusted.
     try {
-      var stored = sessionStorage.getItem(ENTRY_SURFACE_KEY);
-      if (stored) return stored;
+      var stored = sessionStorage.getItem(ENTRY_SURFACE_KEY) || '';
+      if (ENTRY_SURFACE_RE.test(stored)) return stored;
     } catch (e) {}
     var ref = document.referrer || '';
     if (!ref) return 'direct';
-    if (ref.indexOf(window.location.host) === -1) return 'external';
+    var refOrigin = '';
+    try { refOrigin = new URL(ref).origin; } catch (e) { return 'external'; }
+    if (refOrigin !== window.location.origin) return 'external';
     if (/\/race\/[^/]+\/training-plan\//.test(ref)) return 'race_plan_page_untagged';
     if (/\/race\//.test(ref)) return 'race_profile_untagged';
     return 'internal_other';

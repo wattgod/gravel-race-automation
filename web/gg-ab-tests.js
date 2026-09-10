@@ -82,7 +82,9 @@
   function fireGA4(eventName, params) {
     if (typeof gtag === 'function') {
       gtag('event', eventName, params);
+      return true;
     }
+    return false;
   }
 
   // ── DOM swap ───────────────────────────────────────────────
@@ -178,12 +180,15 @@
       // Build cache for inline bootstrap (anti-flicker on return visits)
       cache[exp.id] = { sel: exp.selector, txt: variant.content };
 
-      // Fire impression
-      fireGA4('ab_impression', {
+      // Fire impression. If it could not be sent (no gtag yet), do not bind
+      // the conversion either: a conversion without an impression puts a
+      // user in the numerator who is missing from the denominator.
+      var impressionSent = fireGA4('ab_impression', {
         experiment_id: exp.id,
         variant_id: variant.id,
         variant_name: variant.name
       });
+      if (!impressionSent) continue;
 
       // Bind conversion tracking
       bindConversion(exp, variant);

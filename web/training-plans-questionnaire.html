@@ -104,8 +104,8 @@
 .gg-purchase-terms {
   margin: 0 0 2rem 0;
   padding: 1.25rem 1.5rem;
-  border: 2px solid #59473C;
-  background: #F5EFE6;
+  border: 2px solid var(--gg-color-primary-brown, #59473C);
+  background: var(--gg-color-warm-paper, #F5EFE6);
 }
 
 .gg-purchase-terms dl {
@@ -117,7 +117,7 @@
   grid-template-columns: 9.5rem 1fr;
   gap: 0.25rem 1rem;
   padding: 0.5rem 0;
-  border-bottom: 1px solid #D4C5B9;
+  border-bottom: 1px solid var(--gg-color-tan, #D4C5B9);
 }
 
 .gg-purchase-row:last-child {
@@ -129,7 +129,7 @@
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 1px;
-  color: #59473C;
+  color: var(--gg-color-primary-brown, #59473C);
   padding-top: 0.15rem;
 }
 
@@ -137,12 +137,12 @@
   margin: 0;
   font-size: 0.95rem;
   line-height: 1.5;
-  color: #3A2E25;
+  color: var(--gg-color-dark-brown, #3A2E25);
 }
 
 #gg-plan-total {
   font-weight: 700;
-  color: #178079;
+  color: var(--gg-color-teal, #178079);
 }
 
 @media (max-width: 560px) {
@@ -636,7 +636,7 @@
          field. The only price on this page used to be the submit button, and
          only after a race date was entered. #gg-plan-total is filled by
          training-plans-form.js updatePriceDisplay(). -->
-    <div class="gg-purchase-terms" id="gg-purchase-terms">
+    <div class="gg-purchase-terms">
       <dl>
         <div class="gg-purchase-row">
           <dt>Price</dt>

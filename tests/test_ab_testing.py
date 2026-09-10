@@ -846,5 +846,11 @@ class TestMissingTargetIsNotAnExposure:
         # the skip must come BEFORE the impression fires
         assert js.index("if (!applyVariant(exp, variant)) continue;") < js.index("fireGA4('ab_impression'")
 
-    def test_sticky_cta_experiment_is_retired(self):
-        assert all(e["id"] != "race_sticky_cta_copy" for e in EXPERIMENTS)
+    def test_dead_target_race_experiments_are_retired(self):
+        ids = {e["id"] for e in EXPERIMENTS}
+        assert "race_sticky_cta_copy" not in ids and "race_coaching_teaser" not in ids
+
+    def test_conversion_never_binds_without_a_sent_impression(self):
+        js = get_ab_js()
+        assert "var impressionSent = fireGA4('ab_impression'" in js
+        assert js.index("if (!impressionSent) continue;") < js.index("bindConversion(exp, variant);")

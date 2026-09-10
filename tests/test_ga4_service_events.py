@@ -269,8 +269,8 @@ def test_native_funnel_parses_captured_repeated_headers_and_preserves_absence(
     assert payload["dateRanges"] == [{"startDate": "2026-08-09", "endDate": "2026-09-07"}]
     assert payload["funnel"]["isOpenFunnel"] is False
     assert [step["name"] for step in payload["funnel"]["steps"]] == [
-        "Race page view", "Race CTA", "Plan form start", "Plan form submit",
-        "Training-plan checkout", "Training-plan purchase",
+        "Race page view", "Race CTA", "Plan form start", "Training-plan checkout",
+        "Plan form submit", "Training-plan purchase",
     ]
     assert "unifiedPagePathScreen" in json.dumps(payload)
     assert '"itemCategory"' in json.dumps(payload)
@@ -294,13 +294,13 @@ def test_native_funnel_parses_captured_repeated_headers_and_preserves_absence(
 def test_native_funnel_preserves_provider_zero_as_present(monkeypatch):
     body = _captured_response()
     table_row = {
-        "dimensionValues": [{"value": "5. Training-plan checkout"}],
+        "dimensionValues": [{"value": "5. Plan form submit"}],
         "metricValues": [
             {"value": "0"}, {"value": "0"}, {"value": "0"}, {"value": "0"},
         ],
     }
     visual_row = {
-        "dimensionValues": [{"value": "5. Training-plan checkout"}],
+        "dimensionValues": [{"value": "5. Plan form submit"}],
         "metricValues": [{"value": "0"}],
     }
     body["funnelTable"]["rows"].append(table_row)
@@ -464,7 +464,7 @@ def _valid_cached_funnel():
         },
         "provenance": {
             "cache_hit": False,
-            "request_version": "v1",
+            "request_version": "v2",
             "property_ref": "1f5aeb67e1f0",
             "response_kind": "analyticsData#runFunnelReport",
         },
@@ -572,7 +572,7 @@ def test_native_funnel_rejects_cached_malformed_metadata_and_refetches(monkeypat
         },
         "steps": [],
         "provenance": {
-            "request_version": "v1", "property_ref": "1f5aeb67e1f0",
+            "request_version": "v2", "property_ref": "1f5aeb67e1f0",
         },
     },
 ])

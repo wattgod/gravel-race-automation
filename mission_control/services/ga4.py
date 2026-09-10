@@ -32,7 +32,7 @@ logger = logging.getLogger(__name__)
 CACHE_TTL_HOURS = 4
 GA4_DATA_API_ROOT = "https://analyticsdata.googleapis.com"
 NATIVE_FUNNEL_SCHEMA = "ga4_native_ordered_funnel/v1"
-NATIVE_FUNNEL_CACHE_VERSION = "v1"
+NATIVE_FUNNEL_CACHE_VERSION = "v2"  # v2: checkout step moved before submit (#338)
 NATIVE_FUNNEL_METRICS = (
     "activeUsers",
     "funnelStepCompletionRate",
@@ -43,8 +43,13 @@ NATIVE_FUNNEL_STEPS = (
     {"key": "race_page_view", "name": "Race page view"},
     {"key": "race_cta", "name": "Race CTA"},
     {"key": "plan_form_start", "name": "Plan form start"},
-    {"key": "plan_form_submit", "name": "Plan form submit"},
+    # Checkout precedes submit on purpose: training-plans-form.js fires
+    # begin_checkout when the submit handler starts and tp_form_submit only
+    # after the API returns a checkout_url (just before the Stripe redirect).
+    # This is a CLOSED, ordered funnel, so the steps must match emission order
+    # or every real journey is dropped at the checkout step (#338).
     {"key": "training_plan_checkout", "name": "Training-plan checkout"},
+    {"key": "plan_form_submit", "name": "Plan form submit"},
     {"key": "training_plan_purchase", "name": "Training-plan purchase"},
 )
 _INTEGER_METRIC = re.compile(r"(?:0|[1-9][0-9]*)\Z")
@@ -240,12 +245,12 @@ def _native_funnel_request(start_date: str, end_date: str) -> dict:
         _funnel_and(_funnel_or(
             _funnel_event("form_start"), _funnel_event("tp_form_start")),
             form_path),
-        _funnel_and(_funnel_or(
-            _funnel_event("form_submit"), _funnel_event("tp_form_submit")),
-            form_path),
         _funnel_and(
             _funnel_event("begin_checkout"),
             _funnel_field("itemCategory", "training_plan", "EXACT")),
+        _funnel_and(_funnel_or(
+            _funnel_event("form_submit"), _funnel_event("tp_form_submit")),
+            form_path),
         _funnel_and(
             _funnel_event("purchase"),
             _funnel_field("itemCategory", "training_plan", "EXACT")),

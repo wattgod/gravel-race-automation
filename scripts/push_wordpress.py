@@ -1533,6 +1533,58 @@ def apply_prep_kit_gate(args) -> None:
         args.sync_prep_kits = True
 
 
+# Markdown gate (2026-09-09): every race page emits
+# <link rel="alternate" type="text/markdown" href="/race/{slug}.md">, so a race
+# page shipped without its Markdown mirror is a guaranteed 404 the weekly
+# link-check flags. 30 profiles drifted that way before anything caught it.
+# Same shape as the prep-kit gate: decided before any sync, refuses and names
+# the slugs, otherwise auto-adds --sync-markdown. --no-markdown-gate is the
+# only way past it.
+
+def markdown_gate(page_slugs, md_slugs, race_slugs):
+    """Pure gate decision, no filesystem or network. Returns (gated, missing)."""
+    gated = sorted(set(page_slugs) & set(race_slugs))
+    mds = set(md_slugs)
+    missing = [slug for slug in gated if slug not in mds]
+    return gated, missing
+
+
+def check_markdown_gate(pages_dir, markdown_dir, race_data_dir=None):
+    """Filesystem wrapper for markdown_gate(); returns (gated, missing)."""
+    pages_path = Path(pages_dir)
+    md_path = Path(markdown_dir)
+    race_path = Path(race_data_dir) if race_data_dir else RACE_DATA_DIR
+    pages = [f.stem for f in pages_path.glob("*.html") if f.stem not in ROOT_CANONICAL_SLUGS]
+    mds = [f.stem for f in md_path.glob("*.md")]
+    races = [f.stem for f in race_path.glob("*.json")]
+    return markdown_gate(pages, mds, races)
+
+
+def apply_markdown_gate(args) -> None:
+    """Enforce the Markdown gate on a parsed CLI namespace, before any sync runs.
+
+    No-op unless --sync-pages is requested (and --no-markdown-gate is not).
+    Exits 1 — having pushed nothing — if any race page about to ship has no
+    generated Markdown profile; otherwise turns --sync-markdown on so the
+    mirrors ship in this same deploy.
+    """
+    if not args.sync_pages or args.no_markdown_gate:
+        return
+    gated, missing = check_markdown_gate(args.pages_dir, args.markdown_dir)
+    if missing:
+        print(f"✗ MARKDOWN GATE: {len(missing)} of {len(gated)} race pages about to ship "
+              f"have no generated Markdown profile in {args.markdown_dir} — nothing was pushed.")
+        for slug in missing:
+            print(f"    {slug}  → /race/{slug}.md would 404")
+        print("  Fix: python3 scripts/generate_markdown_profiles.py, then re-run this deploy.")
+        print("  Escape hatch (ships the 404s knowingly): --no-markdown-gate")
+        sys.exit(1)
+    if gated and not args.sync_markdown:
+        print(f"  Markdown gate: {len(gated)} race pages ship with their Markdown mirrors — "
+              f"adding --sync-markdown to this deploy")
+        args.sync_markdown = True
+
+
 def sync_pages(pages_dir: str):
     """Upload race pages to /race/ on SiteGround via tar+ssh pipe.
 
@@ -4137,6 +4189,12 @@ if __name__ == "__main__":
              "race page's /prep-kit/ would 404, and auto-adds --sync-prep-kits"
     )
     parser.add_argument(
+        "--no-markdown-gate", action="store_true",
+        help="Escape hatch: ship race pages even when their Markdown mirrors are "
+             "missing or not synced. Default: --sync-pages refuses to push if any "
+             "race page's /race/{slug}.md would 404, and auto-adds --sync-markdown"
+    )
+    parser.add_argument(
         "--sync-plan-pages", action="store_true",
         help="Upload training-plan pages to /race/{slug}/training-plan/ via tar+ssh"
     )
@@ -4325,6 +4383,7 @@ if __name__ == "__main__":
 
     # Prep-kit gate (#122): decided BEFORE any sync runs so a refusal pushes nothing.
     apply_prep_kit_gate(args)
+    apply_markdown_gate(args)
 
     # Any sync returning falsy marks the whole run failed — a deploy that
     # half-happens must exit non-zero so CI cannot report silent success.

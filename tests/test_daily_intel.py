@@ -190,6 +190,10 @@ def test_collect_ga4_filters_both_event_queries_before_limit(monkeypatch):
         class InListFilter(Message):
             pass
 
+        class StringFilter(Message):
+            class MatchType:
+                BEGINS_WITH = "BEGINS_WITH"
+
     def row(name, count):
         return SimpleNamespace(
             dimension_values=[SimpleNamespace(value=name)],
@@ -204,9 +208,14 @@ def test_collect_ga4_filters_both_event_queries_before_limit(monkeypatch):
             dimensions = [item.name for item in request.dimensions]
             if dimensions == ["eventName"]:
                 self.event_requests.append(request)
-                if getattr(request, "dimension_filter", None):
-                    return SimpleNamespace(rows=[row("purchase", 2), row("refund", 7)])
-                return SimpleNamespace(rows=[row(f"unrelated_{i}", 1) for i in range(100)])
+                dim_filter = getattr(request, "dimension_filter", None)
+                if dim_filter is None:
+                    return SimpleNamespace(rows=[row(f"unrelated_{i}", 1) for i in range(100)])
+                if getattr(dim_filter, "and_group", None) is not None:
+                    # Legacy Enhanced-Measurement pair, questionnaire-scoped.
+                    return SimpleNamespace(rows=[row("form_submit", 3)])
+                return SimpleNamespace(rows=[row("purchase", 2), row("refund", 7),
+                                             row("tp_form_submit", 1)])
             return SimpleNamespace(rows=[])
 
     client = Client()
@@ -218,6 +227,7 @@ def test_collect_ga4_filters_both_event_queries_before_limit(monkeypatch):
         "Dimension": Message,
         "Filter": Filter,
         "FilterExpression": Message,
+        "FilterExpressionList": Message,
         "Metric": Message,
         "RunReportRequest": Message,
     }.items():
@@ -230,13 +240,29 @@ def test_collect_ga4_filters_both_event_queries_before_limit(monkeypatch):
 
     assert result["funnel"]["purchase"] == 2
     assert result["funnel"]["refund"] == 7
+    assert result["funnel"]["form_submit"] == 4  # 1 tp_form_submit + 3 scoped legacy
     assert result["funnel_28d"]["purchase"] == 2
     assert result["funnel_28d"]["refund"] == 7
-    assert len(client.event_requests) == 2
-    for request in client.event_requests:
+    assert result["funnel_28d"]["form_submit"] == 4
+    # Two windows (yesterday, 28d) x two filtered queries each.
+    assert len(client.event_requests) == 4
+    custom = [r for r in client.event_requests
+              if getattr(r.dimension_filter, "and_group", None) is None]
+    legacy = [r for r in client.event_requests
+              if getattr(r.dimension_filter, "and_group", None) is not None]
+    assert len(custom) == 2 and len(legacy) == 2
+    expected_custom = set(daily_intel.FUNNEL_EVENTS) - set(daily_intel.LEGACY_FORM_EVENTS)
+    for request in custom:
         event_filter = request.dimension_filter.filter
         assert event_filter.field_name == "eventName"
-        assert set(event_filter.in_list_filter.values) == set(daily_intel.FUNNEL_EVENTS)
+        assert set(event_filter.in_list_filter.values) == expected_custom
+    for request in legacy:
+        name_expr, path_expr = request.dimension_filter.and_group.expressions
+        assert name_expr.filter.field_name == "eventName"
+        assert set(name_expr.filter.in_list_filter.values) == set(daily_intel.LEGACY_FORM_EVENTS)
+        assert path_expr.filter.field_name == "pagePath"
+        assert path_expr.filter.string_filter.value == daily_intel.LEGACY_FORM_PATH_PREFIX
+        assert path_expr.filter.string_filter.match_type == "BEGINS_WITH"
 
 
 def test_load_trend_keeps_events_distinct_from_processing_records(tmp_path, monkeypatch):

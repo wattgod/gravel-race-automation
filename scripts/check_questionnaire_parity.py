@@ -30,6 +30,7 @@ CONTENT_MARKERS = [
     'gg-trust-strip',        # conversion trust strip (commit 6939db7c)
     'travelDatesGroup',      # travel-dates field (commit 72c6a741)
     '#178079',               # WCAG AA teal (color audit sprint)
+    'gg-purchase-terms',     # purchase terms above the form (Sep 2026, funnel move 2)
 ]
 
 

@@ -101,6 +101,57 @@
   margin: 0 auto;
 }
 
+.gg-purchase-terms {
+  margin: 0 0 2rem 0;
+  padding: 1.25rem 1.5rem;
+  border: 2px solid #59473C;
+  background: #F5EFE6;
+}
+
+.gg-purchase-terms dl {
+  margin: 0;
+}
+
+.gg-purchase-row {
+  display: grid;
+  grid-template-columns: 9.5rem 1fr;
+  gap: 0.25rem 1rem;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #D4C5B9;
+}
+
+.gg-purchase-row:last-child {
+  border-bottom: 0;
+}
+
+.gg-purchase-row dt {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #59473C;
+  padding-top: 0.15rem;
+}
+
+.gg-purchase-row dd {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: #3A2E25;
+}
+
+#gg-plan-total {
+  font-weight: 700;
+  color: #178079;
+}
+
+@media (max-width: 560px) {
+  .gg-purchase-row {
+    grid-template-columns: 1fr;
+    gap: 0.15rem;
+  }
+}
+
 .gg-form-section {
   margin-bottom: 2rem;
   padding-bottom: 1.5rem;
@@ -579,6 +630,39 @@
       <span class="gg-form-badge">Custom Training Plan</span>
       <h2>Build Your Plan</h2>
       <p>Fill out this form and pay securely via Stripe.</p>
+    </div>
+
+    <!-- Purchase terms (Sep 2026): what the athlete is buying, before the first
+         field. The only price on this page used to be the submit button, and
+         only after a race date was entered. #gg-plan-total is filled by
+         training-plans-form.js updatePriceDisplay(). -->
+    <div class="gg-purchase-terms" id="gg-purchase-terms">
+      <dl>
+        <div class="gg-purchase-row">
+          <dt>Price</dt>
+          <dd>$15 per week of training, computed from your A-race date. Four-week minimum, capped at $249.</dd>
+        </div>
+        <div class="gg-purchase-row">
+          <dt>Your total</dt>
+          <dd><span id="gg-plan-total">set by your A-race date</span></dd>
+        </div>
+        <div class="gg-purchase-row">
+          <dt>Delivery</dt>
+          <dd>Your plan, personally reviewed and delivered in TrainingPeaks within 24 hours.</dd>
+        </div>
+        <div class="gg-purchase-row">
+          <dt>Included</dt>
+          <dd>Structured .zwo workouts for Zwift, TrainingPeaks and Wahoo. A race-specific fueling plan, a strength program, and heat and altitude protocols. Email support and two plan adjustments during the plan.</dd>
+        </div>
+        <div class="gg-purchase-row">
+          <dt>A week from a 12-week plan</dt>
+          <dd>Mon rest. Tue VO2max intervals, 1 hr. Wed easy spin, 45 min. Thu 2&times;20 min sweet spot, 1.5 hr. Fri strength, 45 min. Sat long ride, 3 hr. Sun rest.</dd>
+        </div>
+        <div class="gg-purchase-row">
+          <dt>Refund</dt>
+          <dd>Full refund within 7 days, no questions asked.</dd>
+        </div>
+      </dl>
     </div>
 
     <form id="gg-training-form">

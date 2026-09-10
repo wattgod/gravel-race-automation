@@ -204,13 +204,21 @@ def build_success_js() -> str:
 (function() {
   var params = new URLSearchParams(window.location.search);
   var sessionId = params.get('session_id') || '';
+  var deliveryTarget = params.get('delivery') === 'endure'
+    ? 'endure'
+    : 'trainingpeaks';
   var productType = document.querySelector('[data-product-type]');
   var ptype = productType ? productType.getAttribute('data-product-type') : 'unknown';
+
+  document.querySelectorAll('[data-delivery-copy]').forEach(function(copy) {
+    copy.hidden = copy.getAttribute('data-delivery-copy') !== deliveryTarget;
+  });
 
   if (typeof gtag === 'function') {
     gtag('event', 'success_page_view', {
       product_type: ptype,
       session_id: sessionId,
+      delivery_target: deliveryTarget,
     });
   }
 
@@ -245,7 +253,8 @@ def build_success_js() -> str:
 
 def build_training_plan_success() -> str:
     """Content sections for training plan success page."""
-    hero = f"""
+    trainingpeaks = f"""
+  <div data-delivery-copy="trainingpeaks">
   <div class="gg-success-hero" data-product-type="training_plan">
     <div class="gg-success-check">&check;</div>
     <h1>Your Training Plan Is on the Way</h1>
@@ -281,6 +290,48 @@ def build_training_plan_success() -> str:
         workouts may feel easy. That's intentional.</p>
       </div>
     </div>
+  </div>
+  </div>"""
+
+    endure = """
+  <div data-delivery-copy="endure" hidden>
+  <div class="gg-success-hero" data-product-type="training_plan">
+    <div class="gg-success-check">&check;</div>
+    <h1>Your Endure Plan Is on the Way</h1>
+    <p>Payment confirmed. Matti will review the first training block before
+    it appears in your Endure account.</p>
+  </div>
+
+  <div class="gg-success-steps">
+    <h2>WHAT HAPPENS NEXT</h2>
+    <div class="gg-success-step">
+      <div class="gg-success-step-num">1</div>
+      <div class="gg-success-step-text">
+        <h3>Watch Your Email</h3>
+        <p>You will receive a secure Endure access link within 24 hours,
+        after the race, schedule, progression, and workouts are checked.</p>
+      </div>
+    </div>
+    <div class="gg-success-step">
+      <div class="gg-success-step-num">2</div>
+      <div class="gg-success-step-text">
+        <h3>Open Your First Block</h3>
+        <p>Endure works in your phone or computer browser; no mobile app is
+        required. Your training guide covers the full plan, while Endure opens
+        the first approved block for this pilot.</p>
+      </div>
+    </div>
+    <div class="gg-success-step">
+      <div class="gg-success-step-num">3</div>
+      <div class="gg-success-step-text">
+        <h3>Check In, Train, and Add Feedback</h3>
+        <p>Automatic device sync is not part of this pilot. Upload a
+        completed FIT or TCX file from Today, then add how the workout felt.
+        This purchase does not start ongoing coaching or automatic plan
+        changes.</p>
+      </div>
+    </div>
+  </div>
   </div>"""
 
     crosssell = f"""
@@ -306,7 +357,7 @@ def build_training_plan_success() -> str:
     <a href="mailto:gravelgodcoaching@gmail.com">gravelgodcoaching@gmail.com</a></p>
   </div>"""
 
-    return hero + steps + crosssell + support
+    return trainingpeaks + steps + endure + crosssell + support
 
 
 # ── Coaching Success ──────────────────────────────────────────

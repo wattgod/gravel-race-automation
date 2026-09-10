@@ -116,6 +116,19 @@ class TestGA4Tracking:
     def test_training_plan_product_type(self, all_pages):
         assert 'data-product-type="training_plan"' in all_pages["training-plans-success"]
 
+    def test_training_plan_success_supports_the_endure_pilot_receipt(self, all_pages):
+        page = all_pages["training-plans-success"]
+        assert 'data-delivery-copy="trainingpeaks"' in page
+        assert 'data-delivery-copy="endure" hidden' in page
+        assert "Your Endure Plan Is on the Way" in page
+        assert "Automatic device sync is not part of this pilot" in page
+        assert "Upload a\n        completed FIT or TCX file from Today" in page
+
+    def test_success_receipt_selects_delivery_copy_from_the_return_url(self, success_js):
+        assert "params.get('delivery') === 'endure'" in success_js
+        assert "copy.hidden = copy.getAttribute('data-delivery-copy') !== deliveryTarget" in success_js
+        assert "delivery_target: deliveryTarget" in success_js
+
     def test_coaching_product_type(self, all_pages):
         assert 'data-product-type="coaching"' in all_pages["coaching-welcome"]
 

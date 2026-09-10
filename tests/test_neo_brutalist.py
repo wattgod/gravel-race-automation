@@ -1843,3 +1843,20 @@ class TestJsonLdSafety:
             assert '</script>' not in block, (
                 f"JSON-LD block contains literal </script>: {block[:200]}"
             )
+
+
+
+class TestFunnelAttribution:
+    """Sep 2026: the custom-plan offer link names its entry surface and the
+    click handler reports the measured section, not 'unknown'."""
+
+    def test_offer_link_carries_entry_surface(self, sample_race_data):
+        from wordpress.generate_neo_brutalist import build_custom_plan_offer
+        rd = normalize_race_data(sample_race_data)
+        html = build_custom_plan_offer(rd)
+        assert "questionnaire/?race=test-gravel-100&amp;src=race_profile" in html  # esc() encodes the ampersand
+
+    def test_cta_section_prefers_measured_section_name(self):
+        src = (Path(__file__).parent.parent / "wordpress" / "generate_neo_brutalist.py").read_text()
+        assert "this.closest('[data-measure-section], .gg-section, .gg-sticky-cta')" in src
+        assert "section.getAttribute('data-measure-section')" in src

@@ -119,36 +119,9 @@ EXPERIMENTS = [
         },
     },
     # ── Race page experiments (wildcard matching required) ──
-    {
-        "id": "race_sticky_cta_copy",
-        "description": "Test sticky CTA text on race pages",
-        "selector": "[data-ab='race_sticky_cta']",
-        "pages": ["/race/*"],
-        "traffic": 1.0,
-        "start": "2026-03-25",
-        "end": None,
-        "variants": [
-            {
-                "id": "control",
-                "name": "BUILD MY PLAN",
-                "content": "BUILD MY PLAN \u2014 $15/WK",
-            },
-            {
-                "id": "variant_a",
-                "name": "Race-specific verb",
-                "content": "TRAIN FOR THIS RACE \u2014 $15/WK",
-            },
-            {
-                "id": "variant_b",
-                "name": "Get plan",
-                "content": "GET YOUR RACE PLAN \u2014 $15/WK",
-            },
-        ],
-        "conversion": {
-            "type": "click",
-            "selector": "[data-cta='build_plan'], #gg-sticky-cta-link",
-        },
-    },
+    # race_sticky_cta_copy retired 2026-09-10: the spine-v2 race page renders no
+    # sticky CTA (docs/race-page-spine-v2-canonical.md), so the experiment had no
+    # target; GA4 still logged 820 exposed users in 28 days. See #338 follow-up.
     {
         "id": "race_coaching_teaser",
         "description": "Test coaching teaser CTA copy on race pages",

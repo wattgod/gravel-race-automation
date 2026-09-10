@@ -83,7 +83,10 @@ def get_ga4_data(property_id: str, credentials_path: str, days: int,
                 Dimension(name="customEvent:experiment_id"),
                 Dimension(name="customEvent:variant_id"),
             ],
-            metrics=[Metric(name="eventCount")],
+            # Unique users, not event counts: impressions fire on every page
+            # load while conversions are session-deduplicated in the engine,
+            # so eventCount/eventCount mixed two units and inflated denominators.
+            metrics=[Metric(name="totalUsers")],
             date_ranges=[DateRange(start_date=start_date, end_date=end_date)],
             dimension_filter=dimension_filter,
         )

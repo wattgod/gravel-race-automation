@@ -1806,8 +1806,13 @@ document.querySelectorAll('.gg-faq-question').forEach(function(q) {
       if (cta_type === 'other' && T.indexOf('BUILD MY') !== -1) cta_type = 'build_plan';
       else if (T.indexOf('PREP KIT') !== -1) cta_type = 'prep_kit';
       else if (T.indexOf('COACHING') !== -1) cta_type = 'coaching';
-      var section = this.closest('.gg-section, .gg-sticky-cta');
-      var section_id = section ? (section.id || section.className.split(' ')[0]) : 'unknown';
+      // Prefer the measured section name so cta_section matches race_section_view
+      // (the custom-plan offer is <section class="gg-approved-section">, which the
+      // old '.gg-section' lookup missed — every plan-CTA click reported 'unknown').
+      var section = this.closest('[data-measure-section], .gg-section, .gg-sticky-cta');
+      var section_id = section
+        ? (section.getAttribute('data-measure-section') || section.id || section.className.split(' ')[0])
+        : 'unknown';
       gtag('event', 'cta_click', {
         source: 'race_page',
         cta_name: this.getAttribute('data-cta') || cta_type,
@@ -2410,7 +2415,7 @@ document.querySelectorAll('.gg-pack-workout').forEach(function(card) {
       cfgCtaLink.href = '/questionnaire/?race=' + encodeURIComponent(rd.slug) +
         '&level=' + encodeURIComponent(level) +
         '&hours=' + encodeURIComponent(hours) +
-        '&weeks=' + weeks;
+        '&weeks=' + weeks + '&src=race_configurator';
       cfgCtaDetail.textContent = totalWorkouts + ' workouts \u00b7 ZWO files \u00b7 Phase-periodized for ' + rd.race_name;
       cfgCta.style.display = 'block';
       cfgCta.removeAttribute('aria-hidden');
@@ -2426,7 +2431,7 @@ document.querySelectorAll('.gg-pack-workout').forEach(function(card) {
       stickyLink.href = '/questionnaire/?race=' + encodeURIComponent(rd.slug) +
         '&level=' + encodeURIComponent(level) +
         '&hours=' + encodeURIComponent(hours) +
-        '&weeks=' + weeks;
+        '&weeks=' + weeks + '&src=race_sticky';
     }
 
     previewActive = true;
@@ -3760,7 +3765,9 @@ def build_custom_plan_offer(rd: dict) -> str:
             f"A training plan for {race_name}—shaped to your fitness and the "
             "hours you have."
         )
-    href = f"{TRAINING_PLANS_URL}?race={rd['slug']}"
+    # src= names the entry surface so the questionnaire can attribute arrivals
+    # (carried onto tp_page_view / tp_form_start / tp_form_submit / begin_checkout).
+    href = f"{TRAINING_PLANS_URL}?race={rd['slug']}&src=race_profile"
     return f'''<section class="gg-approved-section gg-offer" data-measure-section="custom-plan">
   <div class="gg-approved-inner">
     <span class="gg-approved-kicker">Custom plan</span>

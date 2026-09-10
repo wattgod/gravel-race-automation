@@ -90,12 +90,13 @@
     var el = document.querySelector(experiment.selector);
     if (!el) {
       console.warn('[GG-AB] Experiment ' + experiment.id + ': target element not found: ' + experiment.selector);
-      return;
+      return false;
     }
     // All variants are plain text — textContent for XSS safety.
     // If rich HTML variants are needed later, add an explicit "html"
     // flag to the variant config.
     el.textContent = variant.content;
+    return true;
   }
 
   // ── Conversion tracking (deduplicated per session) ─────────
@@ -167,8 +168,12 @@
 
       if (!variant) continue;
 
-      // Apply variant to DOM
-      applyVariant(exp, variant);
+      // Apply variant to DOM. No target on this page = no exposure: skip the
+      // impression, the conversion binding and the bootstrap cache, otherwise
+      // the report counts users who never saw the variant (race_sticky_cta_copy
+      // logged 820 "exposed" users in 28 days against an element the spine-v2
+      // race page no longer renders).
+      if (!applyVariant(exp, variant)) continue;
 
       // Build cache for inline bootstrap (anti-flicker on return visits)
       cache[exp.id] = { sel: exp.selector, txt: variant.content };

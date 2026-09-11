@@ -46,6 +46,17 @@ def success_js():
 
 
 class TestPageGeneration:
+    def test_legacy_web_snapshot_is_not_tracked(self):
+        """The generator and wordpress/output are the only success-page sources.
+
+        A second checked-in HTML copy previously drifted behind the deployed
+        Endure receipt and made recovery audits report the wrong customer flow.
+        """
+        legacy_snapshot = (
+            Path(__file__).parent.parent / "web" / "training-plans-success.html"
+        )
+        assert not legacy_snapshot.exists()
+
     @pytest.mark.parametrize("key", list(PAGES.keys()))
     def test_generates_valid_html(self, all_pages, key):
         html = all_pages[key]

@@ -110,7 +110,7 @@ def get_terms_content() -> str:
 <p>All training and coaching content is general fitness guidance. It is not medical advice. Consult a physician before starting any exercise program, especially if you have health conditions.</p>
 
 <h2>Payments &amp; Refunds</h2>
-<p>All payments are processed by Stripe. If you are unsatisfied with a training plan or consulting session, contact <a href="mailto:{CONTACT_EMAIL}">{CONTACT_EMAIL}</a> within 7 days. We handle refund requests on a case-by-case basis and aim to be fair.</p>
+<p>All payments are processed by Stripe. If you are not satisfied with a custom training plan, contact <a href="mailto:{CONTACT_EMAIL}">{CONTACT_EMAIL}</a> within 7 days of purchase for a full refund, no questions asked. For consulting sessions, contact us within 7 days; we handle those requests on a case-by-case basis and aim to be fair.</p>
 <p>Coaching subscriptions can be cancelled at any time. No refunds are issued for partially completed billing cycles.</p>
 
 <h2>Intellectual Property</h2>

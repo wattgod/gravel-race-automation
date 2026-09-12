@@ -791,8 +791,10 @@ def test_render_leads_shows_movement_only(collected):
         {"email": "c@x.com", "name": "C", "race": "R3", "sequence": "kit_delivery_v1", "step": 1, "opens": 1, "clicks": 1},
     ]
     report = daily_intel.render_report(collected)
-    assert "MOVED" in report and "c@x.com" in report or "C" in report
-    assert "STALLED" in report
+    moved_line = next(l for l in report.splitlines() if l.startswith("- MOVED"))
+    assert "R3" in moved_line and "1 opens/1 clicks" in moved_line
+    stalled_line = next(l for l in report.splitlines() if l.startswith("- STALLED"))
+    assert "R2" in stalled_line and "step 3" in stalled_line
     assert "1 fresh lead(s) at step 1 with no signal yet" in report
     assert "a@x.com" not in report
 
@@ -822,3 +824,34 @@ def test_mark_new_agents_and_seo_adjudication_render(collected):
     assert [(m["user_agent"], m["new_this_week"]) for m in marked] == [("OldBot", False), ("NewBot", True)]
     assert "marked PROVISIONAL" in daily_intel.INTERPRET_PROMPT
     assert "REVIEW QUEUE" in daily_intel.INTERPRET_PROMPT
+
+
+def test_in_progress_workflow_run_is_not_broken(collected):
+    from scripts import daily_intel
+    collected["workflows"] = {"ok": True, "latest": {"link-check.yml": "in-progress"},
+                              "runs": {"link-check.yml": {"conclusion": "in-progress"}}}
+    assert "workflow link-check.yml" not in daily_intel.render_report(collected)
+    assert daily_intel.summarize_workflow_runs(
+        [{"conclusion": "", "updatedAt": "2026-09-12T03:00:00Z", "event": "schedule"}])["conclusion"] == "in-progress"
+
+
+def test_since_yesterday_surfaces_gh_failures(monkeypatch):
+    import subprocess
+    from scripts import daily_intel
+    from types import SimpleNamespace
+    monkeypatch.setattr(subprocess, "run", lambda *a, **k: SimpleNamespace(returncode=1, stdout="", stderr="gh: auth required"))
+    import pytest as _pytest
+    with _pytest.raises(RuntimeError, match="gh pr list failed"):
+        daily_intel.collect_since_yesterday()
+
+
+def test_seo_adjudication_matches_whole_path_only(monkeypatch):
+    import subprocess, json as _json
+    from scripts import daily_intel
+    from types import SimpleNamespace
+    issues = [{"number": 118, "title": "intel: SEO decliners", "body": "see /race/ned-gravel/tires/ only"},
+              {"number": 119, "title": "intel: /race/crooked-gravel/ seasonal", "body": ""}]
+    monkeypatch.setattr(subprocess, "run", lambda *a, **k: SimpleNamespace(returncode=0, stdout=_json.dumps(issues), stderr=""))
+    out = daily_intel._annotate_seo_adjudications([{"target_path": "/race/ned-gravel/"}, {"target_path": "/race/crooked-gravel/"}])
+    assert "adjudicated_issue" not in out[0]
+    assert out[1]["adjudicated_issue"] == 119

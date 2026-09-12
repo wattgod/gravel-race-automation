@@ -325,36 +325,52 @@ def collect_ga4(brand: str) -> dict:
     # replaces cta_click-as-a-stage: cta_click fires for every tracked link on
     # a race page, so "164 clicks → 13 starts" was never one funnel step.
     def plan_funnel(date_from, date_to):
-        def users_by(dim, event):
+        EXACT = Filter.StringFilter.MatchType.EXACT
+        BEGINS = Filter.StringFilter.MatchType.BEGINS_WITH
+
+        def f_eq(field, value):
+            return FilterExpression(filter=Filter(
+                field_name=field, string_filter=Filter.StringFilter(value=value, match_type=EXACT)))
+
+        def f_and(*exprs):
+            return FilterExpression(and_group=FilterExpressionList(expressions=list(exprs)))
+
+        # tp_page_view also fires on /products/training-plans/ (training-plans.js);
+        # only the questionnaire page counts as an arrival.
+        on_questionnaire = FilterExpression(filter=Filter(
+            field_name="pagePath", string_filter=Filter.StringFilter(
+                value=LEGACY_FORM_PATH_PREFIX, match_type=BEGINS)))
+
+        def users_by(dim, expr):
             report = run(["totalUsers"], [dim], date_from=date_from, date_to=date_to,
-                         limit=50, dimension_filter=FilterExpression(filter=Filter(
-                             field_name="eventName", string_filter=Filter.StringFilter(value=event))))
+                         limit=50, dimension_filter=expr)
             return {r.dimension_values[0].value: int(r.metric_values[0].value) for r in report.rows}
 
-        def users(event, extra=None):
-            expr = FilterExpression(filter=Filter(
-                field_name="eventName", string_filter=Filter.StringFilter(value=event)))
-            if extra is not None:
-                expr = FilterExpression(and_group=FilterExpressionList(expressions=[expr, extra]))
+        def users(expr):
             report = run(["totalUsers"], [], date_from=date_from, date_to=date_to,
                          dimension_filter=expr)
             return int(report.rows[0].metric_values[0].value) if report.rows else 0
 
-        by_cta = users_by("customEvent:cta_name", "cta_click")
-        by_surface = users_by("customEvent:entry_surface", "tp_page_view")
-        plan_cta_users = sum(v for k, v in by_cta.items() if k in PLAN_CTA_NAMES)
-        offer_seen = users_by("customEvent:section_name", "race_section_view").get("custom-plan", 0)
+        by_cta = users_by("customEvent:cta_name", f_eq("eventName", "cta_click"))
+        # One count of unique users across ALL plan CTA names (a user who
+        # clicked two of them is one person, not two).
+        plan_cta_users = users(f_and(f_eq("eventName", "cta_click"), FilterExpression(filter=Filter(
+            field_name="customEvent:cta_name",
+            in_list_filter=Filter.InListFilter(values=sorted(PLAN_CTA_NAMES))))))
+        offer_seen = users_by("customEvent:section_name",
+                              f_eq("eventName", "race_section_view")).get("custom-plan", 0)
+        q_view = f_and(f_eq("eventName", "tp_page_view"), on_questionnaire)
         return {
             "race_offer_seen_users": offer_seen,
             "plan_cta_users": plan_cta_users,
             "cta_unlabelled_users": sum(v for k, v in by_cta.items() if k in ("", "(not set)")),
-            "questionnaire_users_by_surface": by_surface,
-            "questionnaire_users": users("tp_page_view"),
-            "form_start_users": users("tp_form_start"),
-            "form_submit_users": users("tp_form_submit"),
-            "checkout_users": users("begin_checkout"),
-            "plan_purchase_users": users("purchase", FilterExpression(filter=Filter(
-                field_name="itemCategory", string_filter=Filter.StringFilter(value="training_plan")))),
+            "questionnaire_users_by_surface": users_by("customEvent:entry_surface", q_view),
+            "questionnaire_users": users(q_view),
+            "form_start_users": users(f_eq("eventName", "tp_form_start")),
+            "form_submit_users": users(f_eq("eventName", "tp_form_submit")),
+            "checkout_users": users(f_eq("eventName", "begin_checkout")),
+            "plan_purchase_users": users(f_and(f_eq("eventName", "purchase"),
+                                               f_eq("itemCategory", "training_plan"))),
         }
 
     plan = {"available": False, "error": None}
@@ -646,6 +662,8 @@ def collect_since_yesterday() -> dict:
 
     def gh_json(args, timeout=30):
         r = subprocess.run(["gh", *args], capture_output=True, text=True, timeout=timeout)
+        if r.returncode != 0:
+            raise RuntimeError(f"gh {' '.join(args[:2])} failed: {(r.stderr or '').strip()[:160]}")
         return json.loads(r.stdout or "[]")
 
     merged, closed, review_queue, runs = [], [], [], []
@@ -966,13 +984,17 @@ def _annotate_seo_adjudications(candidates: list) -> list:
         issues = json.loads(r.stdout or "[]")
     except Exception:
         return out
+    import re
     for c in out:
         path = str(c.get("target_path") or "")
         if not path:
             continue
+        # Whole-path match: '/race/ned-gravel/' must not be satisfied by a
+        # mention of '/race/ned-gravel/tires/'.
+        pattern = re.compile(r"(?<![\w/-])" + re.escape(path) + r"(?![\w-])")
         for issue in issues:
             text = f"{issue.get('title', '')}\n{issue.get('body', '')}"
-            if path in text:
+            if pattern.search(text):
                 c["adjudicated_issue"] = issue["number"]
                 c["adjudicated_title"] = issue.get("title", "")[:120]
                 break
@@ -1510,7 +1532,9 @@ def render_report(collected: dict) -> str:
     if workflows.get("ok"):
         details = workflows.get("runs") or {}
         for name, conclusion in (workflows.get("latest") or {}).items():
-            if conclusion != "success":
+            if conclusion in ("success", "in-progress"):
+                continue  # a run that has not concluded yet is not a failure
+            if True:
                 d = details.get(name) or {}
                 extra = ""
                 if d.get("age_hours") is not None:

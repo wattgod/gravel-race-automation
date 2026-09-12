@@ -694,7 +694,7 @@ def test_collect_seo_ok_state_and_render_with_candidates(tmp_path, monkeypatch):
     report = daily_intel.render_report({"seo": result})
     assert "## SEO (WEEKLY)" in report
     assert '#1 [striking_distance] /race/x/ — "some query" pos 6.2, 480 impr, CTR 2.1% — push it up' in report
-    assert "Run /seo-updates to draft these." in report
+    assert "candidate(s) without a ruling; draft refreshes for those only." in report
 
 
 def test_collect_seo_ok_state_empty_candidates_render_text(tmp_path, monkeypatch):

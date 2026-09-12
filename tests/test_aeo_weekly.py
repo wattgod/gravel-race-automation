@@ -439,7 +439,7 @@ def test_aeo_render_fixture_snapshot(tmp_path, monkeypatch):
         "(baseline — no prior artifact); search_index 2; training_crawl 3; "
         "llms.txt/.md 2xx 4.",
         "- **XC Ski Labs top fetched paths:** none.",
-        "- **Unknown agent candidates (spoofable):** FooBot/1.0 "
+        "- **New unknown agent candidates this week (spoofable):** FooBot/1.0 "
         "(4; gravelgod 3, roadie 1).",
     ])
 

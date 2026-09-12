@@ -39,7 +39,9 @@ jobs:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           CRON_SECRET: ${{ secrets.CRON_SECRET }}
           GH_TOKEN: ${{ github.token }}
-        run: python3 scripts/daily_intel.py
+        # One surface: the Morning Console (12:45 UTC) reads this snapshot and
+        # emails the single daily digest. This job no longer emails.
+        run: python3 scripts/daily_intel.py --no-email
       - name: Commit snapshot
         run: |
           git config user.name "github-actions[bot]"

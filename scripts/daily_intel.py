@@ -991,7 +991,7 @@ def _annotate_seo_adjudications(candidates: list) -> list:
             continue
         # Whole-path match: '/race/ned-gravel/' must not be satisfied by a
         # mention of '/race/ned-gravel/tires/'.
-        pattern = re.compile(r"(?<![\w/-])" + re.escape(path) + r"(?![\w-])")
+        pattern = re.compile(r"(?<![/-])" + re.escape(path) + r"(?![\w-])")  # domain prefix OK
         for issue in issues:
             text = f"{issue.get('title', '')}\n{issue.get('body', '')}"
             if pattern.search(text):
@@ -1534,15 +1534,14 @@ def render_report(collected: dict) -> str:
         for name, conclusion in (workflows.get("latest") or {}).items():
             if conclusion in ("success", "in-progress"):
                 continue  # a run that has not concluded yet is not a failure
-            if True:
-                d = details.get(name) or {}
-                extra = ""
-                if d.get("age_hours") is not None:
-                    extra += f" ({d.get('event') or 'run'} {d['age_hours']:.0f}h ago"
-                    last = d.get("last_success_at")
-                    extra += (f"; last green {str(last)[:10]} via {d.get('last_success_event') or 'run'})"
-                              if last else "; no green run in the last 8)")
-                broken.append(f"workflow {name}: {conclusion}{extra}")
+            d = details.get(name) or {}
+            extra = ""
+            if d.get("age_hours") is not None:
+                extra += f" ({d.get('event') or 'run'} {d['age_hours']:.0f}h ago"
+                last = d.get("last_success_at")
+                extra += (f"; last green {str(last)[:10]} via {d.get('last_success_event') or 'run'})"
+                          if last else "; no green run in the last 8)")
+            broken.append(f"workflow {name}: {conclusion}{extra}")
     broken.extend(str(line) for line in (collected.get("report_issues") or []) if line)
     if broken:
         lines.extend(f"- {line}" for line in broken)

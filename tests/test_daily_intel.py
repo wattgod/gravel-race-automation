@@ -850,7 +850,7 @@ def test_seo_adjudication_matches_whole_path_only(monkeypatch):
     from scripts import daily_intel
     from types import SimpleNamespace
     issues = [{"number": 118, "title": "intel: SEO decliners", "body": "see /race/ned-gravel/tires/ only"},
-              {"number": 119, "title": "intel: /race/crooked-gravel/ seasonal", "body": ""}]
+              {"number": 119, "title": "intel: seasonal", "body": "https://gravelgodcycling.com/race/crooked-gravel/ fell"}]
     monkeypatch.setattr(subprocess, "run", lambda *a, **k: SimpleNamespace(returncode=0, stdout=_json.dumps(issues), stderr=""))
     out = daily_intel._annotate_seo_adjudications([{"target_path": "/race/ned-gravel/"}, {"target_path": "/race/crooked-gravel/"}])
     assert "adjudicated_issue" not in out[0]

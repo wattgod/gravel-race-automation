@@ -285,7 +285,7 @@ def collect_ga4(brand: str) -> dict:
             realtime_active_users = None
     # The day before yesterday, re-read: closes yesterday's provisional figure
     # in the next report (rendered as a revision when it moved).
-    d2 = (date.today() - timedelta(days=2)).isoformat()
+    d2 = (date.fromisoformat(y) - timedelta(days=1)).isoformat()  # same clock as y
     try:
         d2_report = run(["sessions"], date_from=d2, date_to=d2)
         sessions_d2 = int(d2_report.rows[0].metric_values[0].value) if d2_report.rows else 0

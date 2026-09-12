@@ -507,7 +507,10 @@ def _inject_utm_params(
         url = match.group(1)
         base, frag = (url.split("#", 1) + [""])[:2]
         params = utm
-        if "/questionnaire" in base.split("?", 1)[0] and "src=" not in base:
+        parts = urllib.parse.urlsplit(base)
+        is_questionnaire = parts.path.rstrip("/") == "/questionnaire"
+        has_src = "src" in urllib.parse.parse_qs(parts.query, keep_blank_values=True)
+        if is_questionnaire and not has_src:
             params = f"src={surface}&{utm}"
         sep = "&" if "?" in base else "?"
         return f'href="{base}{sep}{params}{"#" + frag if frag else ""}"'
@@ -625,9 +628,15 @@ def get_sequence_stats(sequence_id: str) -> dict:
     """Get aggregate stats for a sequence."""
     enrollments = db.select("gg_sequence_enrollments", match={"sequence_id": sequence_id})
 
+    def _is_completed(e: dict) -> bool:
+        # A completed enrollment that later became the contact's unsubscribe
+        # marker (see unsubscribe()) still completed its sequence.
+        return e["status"] == "completed" or (
+            e["status"] == "unsubscribed" and bool(e.get("completed_at")))
+
     total = len(enrollments)
     active = sum(1 for e in enrollments if e["status"] == "active")
-    completed = sum(1 for e in enrollments if e["status"] == "completed")
+    completed = sum(1 for e in enrollments if _is_completed(e))
     paused = sum(1 for e in enrollments if e["status"] == "paused")
 
     # Per-variant stats
@@ -637,7 +646,7 @@ def get_sequence_stats(sequence_id: str) -> dict:
         if v not in variant_stats:
             variant_stats[v] = {"total": 0, "completed": 0, "active": 0}
         variant_stats[v]["total"] += 1
-        if e["status"] == "completed":
+        if _is_completed(e):
             variant_stats[v]["completed"] += 1
         elif e["status"] == "active":
             variant_stats[v]["active"] += 1

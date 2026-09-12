@@ -1152,3 +1152,37 @@ class TestPersistentUnsubscribe:
         fake_db.store["gg_sequence_enrollments"].append(e)
         assert unsubscribe(email) == 0
         assert e["status"] == "completed"
+
+
+class TestEntrySurfaceNegatives:
+    def test_only_the_exact_questionnaire_path_is_tagged(self, fake_db):
+        from mission_control.services.sequence_engine import _inject_utm_params
+        html = ('<a href="https://gravelgodcycling.com/questionnaire-preview/">p</a>'
+                '<a href="https://gravelgodcycling.com/guide/questionnaire/">g</a>'
+                '<a href="https://gravelgodcycling.com/questionnaire">q</a>')
+        out = _inject_utm_params(html, "welcome_v1", "A", 0)
+        assert out.count("src=email_welcome") == 1
+        assert 'questionnaire?src=email_welcome&utm_source=' in out
+
+    def test_src_detection_uses_parsed_params_not_substrings(self, fake_db):
+        from mission_control.services.sequence_engine import _inject_utm_params
+        html = ('<a href="https://gravelgodcycling.com/questionnaire/?img_src=x">a</a>'
+                '<a href="https://gravelgodcycling.com/questionnaire/?%73rc=email_custom">b</a>')
+        out = _inject_utm_params(html, "welcome_v1", "A", 0)
+        first, second = out.split("</a>")[0], out.split("</a>")[1]
+        assert "src=email_welcome" in first          # img_src is not src
+        assert "src=email_welcome" not in second     # encoded src IS src
+
+
+class TestSuppressionKeepsCompletionStats:
+    def test_marker_row_still_counts_as_completed(self, fake_db):
+        from mission_control.services.sequence_engine import get_sequence_stats, unsubscribe
+        email = "stats@example.com"
+        e = make_enrollment(contact_email=email, status="completed", sequence_id="nurture_v1")
+        e["completed_at"] = "2026-09-01T00:00:00+00:00"
+        fake_db.store["gg_sequence_enrollments"].append(e)
+        before = get_sequence_stats("nurture_v1")["completed"]
+        assert unsubscribe(email) == 1 and e["status"] == "unsubscribed"
+        after = get_sequence_stats("nurture_v1")
+        assert after["completed"] == before
+        assert after["variants"][e["variant"]]["completed"] == 1

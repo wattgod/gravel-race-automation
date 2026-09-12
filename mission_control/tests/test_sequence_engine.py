@@ -1094,3 +1094,61 @@ class TestCustomerSuppression:
             if "Customer suppression" in l.get("details", "")
         ]
         assert len(suppression_logs) == 0
+
+
+class TestEntrySurfaceAttribution:
+    """Questionnaire links carry a valid `src=` so the plan funnel can see email."""
+
+    def test_surface_names_are_valid_and_brand_agnostic(self, fake_db):
+        from mission_control.services.sequence_engine import entry_surface_for_sequence as f
+        assert f("nurture_v1") == "email_nurture"
+        assert f("road_nurture_v1") == "email_nurture"
+        assert f("welcome_v1") == "email_welcome"
+        assert f("kit_delivery_v1") == "email_kit"
+        assert f("race_countdown_8_v1") == "email_countdown"
+        assert f("race_debrief_v1") == "email_debrief"
+        assert f("xc_win_back_v1") == "email_winback"
+        assert f("") == "email_other"
+        import re
+        for sid in ("nurture_v1", "race_countdown_16_v1", "post_purchase_v1", "weird-Seq 9"):
+            assert re.match(r"^[a-z_]{1,32}$", f(sid)), f(sid)
+
+    def test_questionnaire_link_gets_src_and_keeps_fragment(self, fake_db):
+        from mission_control.services.sequence_engine import _inject_utm_params
+        html = ('<a href="https://gravelgodcycling.com/questionnaire/?race=unbound-200#top">go</a>'
+                '<a href="https://gravelgodcycling.com/products/training-plans/">plans</a>')
+        out = _inject_utm_params(html, "nurture_v1", "A", 1)
+        assert 'href="https://gravelgodcycling.com/questionnaire/?race=unbound-200&src=email_nurture&utm_source=' in out
+        assert out.count("#top") == 1 and out.endswith('#top">go</a><a href="https://gravelgodcycling.com/products/training-plans/?utm_source=gravel_god&utm_medium=email&utm_campaign=nurture_v1&utm_content=A_1">plans</a>')
+        assert "src=" not in out.split("training-plans")[1]  # non-questionnaire links untouched
+
+    def test_template_supplied_src_is_respected(self, fake_db):
+        from mission_control.services.sequence_engine import _inject_utm_params
+        html = '<a href="https://roadielabs.com/questionnaire/?src=email_custom">go</a>'
+        out = _inject_utm_params(html, "road_welcome_v1", "A", 0, brand="roadielabs")
+        assert out.count("src=") == 1 and "src=email_custom" in out
+
+
+class TestPersistentUnsubscribe:
+    def test_completed_only_contact_gets_a_suppression_record(self, fake_db):
+        from mission_control.services.sequence_engine import enroll, unsubscribe
+        email = "done@example.com"
+        e1 = make_enrollment(contact_email=email, status="completed", sequence_id="nurture_v1")
+        e1["enrolled_at"] = "2026-08-01T00:00:00+00:00"
+        e2 = make_enrollment(contact_email=email, status="completed", sequence_id="kit_delivery_v1")
+        e2["enrolled_at"] = "2026-08-02T00:00:00+00:00"
+        fake_db.store["gg_sequence_enrollments"].extend([e1, e2])
+        assert unsubscribe(email) == 1
+        assert e2["status"] == "unsubscribed"  # newest marketing enrollment carries the marker
+        assert e1["status"] == "completed"
+        # ...and the enroll-time guard now holds for later lifecycle sequences
+        assert enroll(email, "Done", "race_debrief_v1", source="race_debrief") is None
+        assert unsubscribe(email) == 0  # idempotent
+
+    def test_post_purchase_only_contact_is_not_marked(self, fake_db):
+        from mission_control.services.sequence_engine import unsubscribe
+        email = "buyer@example.com"
+        e = make_enrollment(contact_email=email, status="completed", sequence_id="post_purchase_v1")
+        fake_db.store["gg_sequence_enrollments"].append(e)
+        assert unsubscribe(email) == 0
+        assert e["status"] == "completed"

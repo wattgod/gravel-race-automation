@@ -455,11 +455,43 @@ def _render_template(template_name: str, enrollment: dict) -> str:
     return html.replace("{race_name}", "your race")
 
 
+_ENTRY_SURFACE_RE = re.compile(r"^[a-z_]{1,32}$")  # mirrors training-plans-form.js
+
+
+def entry_surface_for_sequence(sequence_id: str) -> str:
+    """Map a sequence id to the questionnaire's `src=` entry surface.
+
+    The questionnaire (web/training-plans-form.js) stamps `entry_surface` on
+    every GA4 event it sends but only accepts /^[a-z_]{1,32}$/, so the raw
+    sequence id (`nurture_v1`, digits) would be rejected and email arrivals
+    would read as 'external'. Strip brand prefix and version so all brands'
+    nurture tracks share one surface: email_nurture, email_welcome,
+    email_kit, email_countdown, email_debrief, email_winback, email_watch,
+    email_purchase, email_quiz.
+    """
+    base = re.sub(r"_v\d+$", "", sequence_id or "")
+    base = re.sub(r"^(road|xc)_", "", base)
+    aliases = {
+        "kit_delivery": "kit", "race_countdown_8": "countdown",
+        "race_countdown_16": "countdown", "race_debrief": "debrief",
+        "win_back": "winback", "race_watch": "watch",
+        "post_purchase": "purchase", "race_specific": "quiz",
+    }
+    surface = "email_" + aliases.get(base, base or "other")
+    surface = re.sub(r"[^a-z_]", "_", surface)[:32]
+    return surface if _ENTRY_SURFACE_RE.match(surface) else "email_other"
+
+
 def _inject_utm_params(
     html: str, sequence_id: str, variant: str, step_index: int,
     brand: str = "gravelgod",
 ) -> str:
-    """Append UTM tracking params to all brand-site links in HTML."""
+    """Append UTM tracking params to all brand-site links in HTML.
+
+    Questionnaire links additionally get `src=<entry surface>` (unless the
+    template already set one) so the plan funnel attributes arrivals to
+    email instead of 'external'. Fragments are preserved.
+    """
     from mission_control.config import BRAND_SEQUENCE_SENDERS
 
     sender = BRAND_SEQUENCE_SENDERS.get(brand, BRAND_SEQUENCE_SENDERS["gravelgod"])
@@ -469,11 +501,16 @@ def _inject_utm_params(
         "utm_campaign": sequence_id,
         "utm_content": f"{variant}_{step_index}",
     })
+    surface = entry_surface_for_sequence(sequence_id)
 
     def _add_utm(match: re.Match) -> str:
         url = match.group(1)
-        sep = "&" if "?" in url else "?"
-        return f'href="{url}{sep}{utm}"'
+        base, frag = (url.split("#", 1) + [""])[:2]
+        params = utm
+        if "/questionnaire" in base.split("?", 1)[0] and "src=" not in base:
+            params = f"src={surface}&{utm}"
+        sep = "&" if "?" in base else "?"
+        return f'href="{base}{sep}{params}{"#" + frag if frag else ""}"'
 
     return re.sub(
         r'href="(https://(?:gravelgodcycling|roadielabs|xcskilabs)\.com[^"]*)"',
@@ -711,7 +748,17 @@ def reset_enrollment(enrollment_id: str) -> bool:
 
 
 def unsubscribe(email: str) -> int:
-    """Pause all active enrollments for an email. Returns count paused."""
+    """Unsubscribe a contact from all marketing sequences. Returns the
+    number of enrollments changed.
+
+    Active enrollments become 'unsubscribed'. If the contact has NO active
+    enrollment (every sequence already completed or paused), one existing
+    marketing enrollment is still marked 'unsubscribed' so the enroll-time
+    guard (`status == unsubscribed`) keeps suppressing later lifecycle
+    enrollments (countdown, debrief, win-back). Before this, a
+    completed-only contact who clicked unsubscribe left no record and could
+    be re-enrolled — while the page told them they were unsubscribed.
+    """
     enrollments = db.select(
         "gg_sequence_enrollments",
         match={"contact_email": email},
@@ -721,8 +768,23 @@ def unsubscribe(email: str) -> int:
         if e["status"] == "active":
             db.update("gg_sequence_enrollments", {"status": "unsubscribed"}, {"id": e["id"]})
             count += 1
-
     if count:
         db.log_action("sequence_unsubscribed", "contact", email, f"Paused {count} enrollments")
-
-    return count
+        return count
+    if any(e.get("status") == "unsubscribed" for e in enrollments):
+        return 0  # already suppressed
+    marketing = [
+        e for e in enrollments
+        if (get_sequence(e.get("sequence_id") or "") or {}).get("trigger")
+        not in _POST_PURCHASE_TRIGGERS
+    ]
+    marketing.sort(key=lambda e: str(e.get("enrolled_at") or ""), reverse=True)
+    if not marketing:
+        return 0
+    marker = marketing[0]
+    db.update("gg_sequence_enrollments", {"status": "unsubscribed"}, {"id": marker["id"]})
+    db.log_action(
+        "sequence_unsubscribed", "contact", email,
+        f"No active enrollment; marked {marker.get('sequence_id')} "
+        f"(was {marker.get('status')}) as the suppression record")
+    return 1

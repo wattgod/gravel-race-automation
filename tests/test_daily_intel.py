@@ -740,3 +740,85 @@ def test_interpret_prompt_forbids_narrating_provisional_as_a_drop():
     assert "marked PROVISIONAL" in daily_intel.INTERPRET_PROMPT
     assert "do not compare it to the 7-day average or call it a drop" in daily_intel.INTERPRET_PROMPT
     assert "realtime shows 0 active users" in daily_intel.INTERPRET_PROMPT
+
+
+def test_summarize_workflow_runs_reports_newest_any_trigger_and_last_green():
+    from scripts import daily_intel
+    runs = [
+        {"conclusion": "failure", "updatedAt": "2026-09-08T12:29:08Z", "event": "schedule"},
+        {"conclusion": "success", "updatedAt": "2026-09-11T17:00:00Z", "event": "workflow_dispatch"},
+    ]
+    s = daily_intel.summarize_workflow_runs(runs)
+    assert s["conclusion"] == "failure" and s["event"] == "schedule"
+    assert s["last_success_at"] == "2026-09-11T17:00:00Z"
+    assert s["last_success_event"] == "workflow_dispatch"
+    assert daily_intel.summarize_workflow_runs([]) == {"conclusion": "never-run"}
+
+
+def test_render_workflow_failure_names_age_and_last_green(collected):
+    from scripts import daily_intel
+    collected["workflows"] = {"ok": True, "latest": {"link-check.yml": "failure"},
+                              "runs": {"link-check.yml": {"conclusion": "failure", "event": "schedule",
+                                                          "age_hours": 72.0,
+                                                          "last_success_at": "2026-09-11T17:00:00Z",
+                                                          "last_success_event": "workflow_dispatch"}}}
+    report = daily_intel.render_report(collected)
+    assert "workflow link-check.yml: failure (schedule 72h ago; last green 2026-09-11 via workflow_dispatch)" in report
+
+
+def test_render_since_yesterday_and_review_queue(collected):
+    from scripts import daily_intel
+    collected["since_yesterday"] = {
+        "ok": True,
+        "merged_prs": [{"repo": "gravel-race-automation", "number": 350, "title": "fix(intel): guard"}],
+        "closed_issues": [{"repo": "gravel-race-automation", "number": 41, "title": "font 404"}],
+        "review_queue": [{"repo": "gravel-race-automation", "number": 351, "title": "exec: score",
+                          "agent": "nightly-executor", "draft": True, "age_days": 2.5}],
+        "runs_24h": {"gravel-race-automation/Link Check": {"success": 1, "failure": 0, "other": 0}},
+    }
+    report = daily_intel.render_report(collected)
+    assert "merged gravel-race-automation#350" in report
+    assert "closed gravel-race-automation#41" in report
+    assert "#351 (nightly-executor, draft, 2.5d)" in report
+    assert "Link Check 1✓/0✗" in report
+
+
+def test_render_leads_shows_movement_only(collected):
+    from scripts import daily_intel
+    collected["mission_control"]["hot_leads_14d"] = [
+        {"email": "a@x.com", "name": "A", "race": "R1", "sequence": "kit_delivery_v1", "step": 1, "opens": 0, "clicks": 0},
+        {"email": "b@x.com", "name": "B", "race": "R2", "sequence": "welcome_v1", "step": 3, "opens": 0, "clicks": 0},
+        {"email": "c@x.com", "name": "C", "race": "R3", "sequence": "kit_delivery_v1", "step": 1, "opens": 1, "clicks": 1},
+    ]
+    report = daily_intel.render_report(collected)
+    assert "MOVED" in report and "c@x.com" in report or "C" in report
+    assert "STALLED" in report
+    assert "1 fresh lead(s) at step 1 with no signal yet" in report
+    assert "a@x.com" not in report
+
+
+def test_plan_funnel_renders_when_available(collected):
+    from scripts import daily_intel
+    collected["ga4"]["gravelgod"]["plan_funnel"] = {
+        "available": True, "error": None,
+        "yesterday": {"race_offer_seen_users": 40, "plan_cta_users": 2, "cta_unlabelled_users": 0,
+                      "questionnaire_users_by_surface": {"race_profile": 2}, "questionnaire_users": 3,
+                      "form_start_users": 1, "form_submit_users": 0, "checkout_users": 0, "plan_purchase_users": 0},
+        "28d": {"race_offer_seen_users": 700, "plan_cta_users": 19, "cta_unlabelled_users": 0,
+                "questionnaire_users_by_surface": {"race_profile": 15, "product_page": 4}, "questionnaire_users": 30,
+                "form_start_users": 7, "form_submit_users": 2, "checkout_users": 2, "plan_purchase_users": 1},
+    }
+    report = daily_intel.render_report(collected)
+    assert "offer seen 700 → plan CTA 19 → questionnaire 30 (race_profile 15, product_page 4)" in report
+    c = daily_intel.compute_constraint(collected["ga4"]["gravelgod"])
+    assert c["assessment"] == "plan_funnel" and c["plan_funnel_28d"]["form_submit_users"] == 2
+
+
+def test_mark_new_agents_and_seo_adjudication_render(collected):
+    from scripts import daily_intel
+    marked = daily_intel._mark_new_agents(
+        [{"user_agent": "OldBot", "count": 5}, {"user_agent": "NewBot", "count": 2}],
+        [{"user_agent": "OldBot", "count": 4}])
+    assert [(m["user_agent"], m["new_this_week"]) for m in marked] == [("OldBot", False), ("NewBot", True)]
+    assert "marked PROVISIONAL" in daily_intel.INTERPRET_PROMPT
+    assert "REVIEW QUEUE" in daily_intel.INTERPRET_PROMPT

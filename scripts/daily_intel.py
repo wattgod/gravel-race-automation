@@ -79,6 +79,12 @@ BRANDS = {
 # Counting them property-wide fabricates a "submits die before checkout" signal,
 # so the legacy pair is scoped to the questionnaire page (same rule as
 # funnel_report.py and the native funnel in mission_control/services/ga4.py).
+# Questionnaire entry CTAs (data-cta values). Everything else on a race page
+# that fires cta_click — rate-it anchor, coaching, prep kit, official site,
+# tire guide — is not a plan-funnel step.
+PLAN_CTA_NAMES = {"approved_custom_plan", "tpp_hero_build", "tpp_preview_build",
+                  "tpp_footer_build", "hero_build", "pricing_build", "sticky_mobile",
+                  "build_plan", "personalized_plan"}
 LEGACY_FORM_EVENTS = ["form_start", "form_submit"]
 LEGACY_FORM_PATH_PREFIX = "/questionnaire/"
 FUNNEL_STAGES = {
@@ -315,6 +321,50 @@ def collect_ga4(brand: str) -> dict:
     top_landing = [{"path": r.dimension_values[0].value.split("?")[0],
                     "sessions": int(r.metric_values[0].value)} for r in landing.rows]
 
+    # Plan funnel on the dimensions registered 2026-09-11 (unique users). This
+    # replaces cta_click-as-a-stage: cta_click fires for every tracked link on
+    # a race page, so "164 clicks → 13 starts" was never one funnel step.
+    def plan_funnel(date_from, date_to):
+        def users_by(dim, event):
+            report = run(["totalUsers"], [dim], date_from=date_from, date_to=date_to,
+                         limit=50, dimension_filter=FilterExpression(filter=Filter(
+                             field_name="eventName", string_filter=Filter.StringFilter(value=event))))
+            return {r.dimension_values[0].value: int(r.metric_values[0].value) for r in report.rows}
+
+        def users(event, extra=None):
+            expr = FilterExpression(filter=Filter(
+                field_name="eventName", string_filter=Filter.StringFilter(value=event)))
+            if extra is not None:
+                expr = FilterExpression(and_group=FilterExpressionList(expressions=[expr, extra]))
+            report = run(["totalUsers"], [], date_from=date_from, date_to=date_to,
+                         dimension_filter=expr)
+            return int(report.rows[0].metric_values[0].value) if report.rows else 0
+
+        by_cta = users_by("customEvent:cta_name", "cta_click")
+        by_surface = users_by("customEvent:entry_surface", "tp_page_view")
+        plan_cta_users = sum(v for k, v in by_cta.items() if k in PLAN_CTA_NAMES)
+        offer_seen = users_by("customEvent:section_name", "race_section_view").get("custom-plan", 0)
+        return {
+            "race_offer_seen_users": offer_seen,
+            "plan_cta_users": plan_cta_users,
+            "cta_unlabelled_users": sum(v for k, v in by_cta.items() if k in ("", "(not set)")),
+            "questionnaire_users_by_surface": by_surface,
+            "questionnaire_users": users("tp_page_view"),
+            "form_start_users": users("tp_form_start"),
+            "form_submit_users": users("tp_form_submit"),
+            "checkout_users": users("begin_checkout"),
+            "plan_purchase_users": users("purchase", FilterExpression(filter=Filter(
+                field_name="itemCategory", string_filter=Filter.StringFilter(value="training_plan")))),
+        }
+
+    plan = {"available": False, "error": None}
+    if brand == "gravelgod":
+        try:
+            plan = {"available": True, "error": None,
+                    "yesterday": plan_funnel(y, y), "28d": plan_funnel(m_ago, y)}
+        except Exception as e:  # dims not registered / API change: never sink the collector
+            plan = {"available": False, "error": f"{type(e).__name__}: {str(e)[:160]}"}
+
     return {
         "sessions": int(t[0].value) if t else 0,
         "users": int(t[1].value) if t else 0,
@@ -333,6 +383,7 @@ def collect_ga4(brand: str) -> dict:
         "top_landing": top_landing,
         "sessions_28d": sessions_28d,
         "funnel_28d": funnel_28d,
+        "plan_funnel": plan,
     }
 
 
@@ -381,7 +432,7 @@ def compute_constraint(ga4_gravel: dict) -> dict:
         return {"ok": False, "error": "no GA4 data"}
     s28 = ga4_gravel.get("sessions_28d") or 0
     totals = ga4_gravel.get("funnel_28d") or {}
-    return {
+    out = {
         "ok": True,
         "assessment": "data_insufficient",
         "reason": "independent event totals do not establish a causal bottleneck",
@@ -391,6 +442,15 @@ def compute_constraint(ga4_gravel: dict) -> dict:
             for stage in FUNNEL_STAGES
         },
     }
+    plan = ga4_gravel.get("plan_funnel") or {}
+    if plan.get("available") and isinstance(plan.get("28d"), dict):
+        # Unique users through named steps is a real readout; still no
+        # causal claim, and no rates on small counts.
+        out["assessment"] = "plan_funnel"
+        out["reason"] = ("unique users through the named plan steps (28d); "
+                         "counts, not rates — n is small")
+        out["plan_funnel_28d"] = plan["28d"]
+    return out
 
 
 def collect_mission_control() -> dict:
@@ -504,26 +564,130 @@ def collect_social() -> dict:
     return out
 
 
+HEALTH_WORKFLOWS = [("wattgod/gravel-race-automation", "link-check.yml"),
+                    ("wattgod/road-race-automation", "link-check.yml"),
+                    ("wattgod/road-race-automation", "checkout-monitor.yml"),
+                    ("wattgod/gravel-race-automation", "regression-tests.yml"),
+                    ("wattgod/gravel-race-automation", "aeo-weekly.yml"),
+                    ("wattgod/gravel-race-automation", "seo-weekly.yml")]
+
+
+def _age_hours(iso: str | None) -> float | None:
+    if not iso:
+        return None
+    try:
+        when = datetime.fromisoformat(str(iso).replace("Z", "+00:00"))
+    except ValueError:
+        return None
+    return round((datetime.now(timezone.utc) - when).total_seconds() / 3600, 1)
+
+
+def summarize_workflow_runs(runs: list[dict]) -> dict:
+    """Newest run of ANY trigger, its age, and the last green run in the window.
+
+    `latest` (a bare conclusion string) is kept for every existing consumer;
+    the detail lets the report say "failure, scheduled run 3 days ago; last
+    green 2026-09-11 (dispatch)" instead of just "failure" — the Sep 11
+    console called link-check "chronic" while a dispatched run had been green
+    for hours.
+    """
+    runs = [r for r in runs if isinstance(r, dict)]
+    if not runs:
+        return {"conclusion": "never-run"}
+    newest = runs[0]
+    green = next((r for r in runs if r.get("conclusion") == "success"), None)
+    return {
+        "conclusion": newest.get("conclusion") or "in-progress",
+        "event": newest.get("event"),
+        "updated_at": newest.get("updatedAt"),
+        "age_hours": _age_hours(newest.get("updatedAt")),
+        "last_success_at": green.get("updatedAt") if green else None,
+        "last_success_event": green.get("event") if green else None,
+    }
+
+
 def collect_workflows() -> dict:
     """Latest conclusions of the health workflows (needs GITHUB_TOKEN or gh auth)."""
     import subprocess
     out = {}
-    for repo, wf in [("wattgod/gravel-race-automation", "link-check.yml"),
-                     ("wattgod/road-race-automation", "link-check.yml"),
-                     ("wattgod/road-race-automation", "checkout-monitor.yml"),
-                     ("wattgod/gravel-race-automation", "regression-tests.yml"),
-                     ("wattgod/gravel-race-automation", "aeo-weekly.yml"),
-                     ("wattgod/gravel-race-automation", "seo-weekly.yml")]:
+    detail = {}
+    for repo, wf in HEALTH_WORKFLOWS:
+        key = f"{repo.split('/')[1]}/{wf}"
         try:
             r = subprocess.run(
                 ["gh", "run", "list", "--repo", repo, "--workflow", wf,
-                 "--limit", "1", "--json", "conclusion,updatedAt"],
+                 "--limit", "8", "--json", "conclusion,updatedAt,event"],
                 capture_output=True, text=True, timeout=30)
-            runs = json.loads(r.stdout or "[]")
-            out[f"{repo.split('/')[1]}/{wf}"] = runs[0]["conclusion"] if runs else "never-run"
+            summary = summarize_workflow_runs(json.loads(r.stdout or "[]"))
+            out[key] = summary["conclusion"]
+            detail[key] = summary
         except Exception as e:
-            out[f"{repo.split('/')[1]}/{wf}"] = f"unknown ({type(e).__name__})"
-    return {"latest": out}
+            out[key] = f"unknown ({type(e).__name__})"
+            detail[key] = {"conclusion": out[key]}
+    return {"latest": out, "runs": detail}
+
+
+REPO_SLUGS = ["wattgod/gravel-race-automation", "wattgod/road-race-automation"]
+AUTO_PR_MARKERS = ("auto-authored by nightly-executor", "auto-authored by morning-intel-triage")
+
+
+def collect_since_yesterday() -> dict:
+    """What actually changed in the last 24h: merged PRs, closed issues, runs,
+    plus the review queue of agent-authored draft PRs waiting on Matti.
+
+    The narrator reads this BEFORE recommending anything, so DO TODAY cannot
+    ask for work that landed yesterday (Sep 11: two of three items were
+    already done) and the review queue becomes the to-do list.
+    """
+    import subprocess
+    cutoff = datetime.now(timezone.utc) - timedelta(hours=24)
+    cutoff_iso = cutoff.isoformat()
+    since_day = (cutoff - timedelta(days=1)).date().isoformat()
+
+    def gh_json(args, timeout=30):
+        r = subprocess.run(["gh", *args], capture_output=True, text=True, timeout=timeout)
+        return json.loads(r.stdout or "[]")
+
+    merged, closed, review_queue, runs = [], [], [], []
+    for repo in REPO_SLUGS:
+        short = repo.split("/")[1]
+        for pr in gh_json(["pr", "list", "--repo", repo, "--state", "merged",
+                           "--search", f"merged:>={since_day}", "--limit", "30",
+                           "--json", "number,title,mergedAt,author"]):
+            if (pr.get("mergedAt") or "") >= cutoff_iso:
+                merged.append({"repo": short, "number": pr["number"], "title": pr["title"],
+                               "merged_at": pr["mergedAt"]})
+        for issue in gh_json(["issue", "list", "--repo", repo, "--state", "closed",
+                              "--search", f"closed:>={since_day}", "--limit", "30",
+                              "--json", "number,title,closedAt"]):
+            if (issue.get("closedAt") or "") >= cutoff_iso:
+                closed.append({"repo": short, "number": issue["number"], "title": issue["title"],
+                               "closed_at": issue["closedAt"]})
+        for pr in gh_json(["pr", "list", "--repo", repo, "--state", "open", "--limit", "50",
+                           "--json", "number,title,isDraft,createdAt,body,headRefName"]):
+            body = pr.get("body") or ""
+            agent = next((m.split("by ")[-1] for m in AUTO_PR_MARKERS if m in body), None)
+            if agent or str(pr.get("headRefName", "")).startswith(("exec/", "intel/")):
+                age_h = _age_hours(pr.get("createdAt"))
+                review_queue.append({
+                    "repo": short, "number": pr["number"], "title": pr["title"],
+                    "agent": agent or "agent", "draft": bool(pr.get("isDraft")),
+                    "age_days": round(age_h / 24, 1) if age_h is not None else None,
+                })
+        for run in gh_json(["run", "list", "--repo", repo, "--limit", "40",
+                            "--json", "name,conclusion,updatedAt,event"]):
+            if (run.get("updatedAt") or "") >= cutoff_iso and run.get("conclusion"):
+                runs.append({"repo": short, "name": run["name"], "conclusion": run["conclusion"],
+                             "event": run.get("event")})
+    review_queue.sort(key=lambda x: -(x["age_days"] or 0))
+    run_summary = {}
+    for run in runs:
+        key = f"{run['repo']}/{run['name']}"
+        run_summary.setdefault(key, {"success": 0, "failure": 0, "other": 0})
+        bucket = run["conclusion"] if run["conclusion"] in ("success", "failure") else "other"
+        run_summary[key][bucket] += 1
+    return {"merged_prs": merged, "closed_issues": closed,
+            "review_queue": review_queue, "runs_24h": run_summary}
 
 
 AEO_BRANDS = {
@@ -679,8 +843,25 @@ def _collect_aeo(today: date | None = None) -> dict:
         "generated_at_utc": latest["generated_at_utc"],
         "current_window": latest["current_window"],
         "brands": rendered_brands,
-        "unknown_agent_candidates": latest.get("unknown_agent_candidates") or [],
+        "unknown_agent_candidates": _mark_new_agents(
+            latest.get("unknown_agent_candidates") or [],
+            (prior or {}).get("unknown_agent_candidates") or []),
     }
+
+
+def _mark_new_agents(current: list, prior: list) -> list:
+    """Flag agents not seen in the prior weekly artifact; the render shows
+    only those plus a count of recurring ones (the full list repeated weekly
+    was a wall of text with nothing to act on)."""
+    seen = {str(item.get("user_agent")) for item in prior if isinstance(item, dict)}
+    out = []
+    for item in current:
+        if not isinstance(item, dict):
+            continue
+        item = dict(item)
+        item["new_this_week"] = not prior or str(item.get("user_agent")) not in seen
+        out.append(item)
+    return out
 
 
 def collect_aeo(today: date | None = None) -> dict:
@@ -765,8 +946,37 @@ def _collect_seo(today: date | None = None) -> dict:
             "impressions_delta": impressions_delta,
             "impressions_delta_text": _aeo_delta_text(impressions_delta),
         },
-        "top_candidates": latest.get("top_candidates") or [],
+        "top_candidates": _annotate_seo_adjudications(latest.get("top_candidates") or []),
     }
+
+
+def _annotate_seo_adjudications(candidates: list) -> list:
+    """Attach the open intel issue that already adjudicated a page, so the
+    report stops re-listing 'refresh content' for pages triage ruled
+    seasonal (ned-gravel: flagged Aug 18, Aug 22, Sep 11 with the same
+    advice). Fail-soft: no gh, no annotation."""
+    import subprocess
+    out = [dict(c) for c in candidates if isinstance(c, dict)]
+    try:
+        r = subprocess.run(
+            ["gh", "issue", "list", "--repo", "wattgod/gravel-race-automation",
+             "--state", "open", "--label", "intel", "--limit", "100",
+             "--json", "number,title,body"],
+            capture_output=True, text=True, timeout=30)
+        issues = json.loads(r.stdout or "[]")
+    except Exception:
+        return out
+    for c in out:
+        path = str(c.get("target_path") or "")
+        if not path:
+            continue
+        for issue in issues:
+            text = f"{issue.get('title', '')}\n{issue.get('body', '')}"
+            if path in text:
+                c["adjudicated_issue"] = issue["number"]
+                c["adjudicated_title"] = issue.get("title", "")[:120]
+                break
+    return out
 
 
 def collect_seo(today: date | None = None) -> dict:
@@ -1073,22 +1283,89 @@ def render_report(collected: dict) -> str:
             for warning in _measurement_warnings(collected, 28)
         )
 
-    lines.extend(["", "## HOT LEADS"])
-    hot_leads = (mc.get("hot_leads_14d") or []) if mc.get("ok") else []
-    if not hot_leads:
-        lines.append("- no hot leads in the last 14 days.")
-    else:
-        for lead in hot_leads:
-            person = _person(lead)
-            race = lead.get("race") or "(no race given)"
-            sequence = lead.get("sequence") or "unknown sequence"
-            step = _display(lead.get("step"), "unknown")
-            opens = _display(lead.get("opens"))
-            clicks = _display(lead.get("clicks"))
+    plan = ((ga4.get("gravelgod") or {}).get("plan_funnel") or {})
+    lines.extend(["", "## PLAN FUNNEL (Gravel God, unique users)"])
+    if plan.get("available"):
+        for label, key in (("yesterday", "yesterday"), ("28d", "28d")):
+            f = plan.get(key) or {}
+            surfaces = f.get("questionnaire_users_by_surface") or {}
+            surface_text = ", ".join(f"{k or '(unset)'} {v}" for k, v in
+                                     sorted(surfaces.items(), key=lambda kv: -kv[1])[:6]) or "none"
             lines.append(
-                f"- {person} — {race}; {sequence} step {step}; "
-                f"{opens} opens/{clicks} clicks."
+                f"- {label}: offer seen {_display(f.get('race_offer_seen_users'))} → "
+                f"plan CTA {_display(f.get('plan_cta_users'))} → questionnaire "
+                f"{_display(f.get('questionnaire_users'))} ({surface_text}) → start "
+                f"{_display(f.get('form_start_users'))} → submit {_display(f.get('form_submit_users'))} → "
+                f"checkout {_display(f.get('checkout_users'))} → plan purchase "
+                f"{_display(f.get('plan_purchase_users'))}."
             )
+        f28 = plan.get("28d") or {}
+        if not f28.get("plan_cta_users") and f28.get("cta_unlabelled_users"):
+            lines.append(f"- CTA labels not populated yet ({_display(f28.get('cta_unlabelled_users'))} "
+                         "unlabelled cta_click users in 28d): dimensions were registered 2026-09-11 and "
+                         "GA4 backfills nothing before that; zeros above are absence of labels, not of clicks.")
+        lines.append("- counts of unique users, not rates; dimensions registered 2026-09-11, "
+                     "so 28d windows are partial until 2026-10-09.")
+    else:
+        lines.append(f"- unavailable: {_display(plan.get('error'), 'plan-funnel dimensions not queried')}.")
+
+    since = collected.get("since_yesterday") or {}
+    lines.extend(["", "## SINCE YESTERDAY (last 24h)"])
+    if since.get("ok"):
+        merged = since.get("merged_prs") or []
+        closed = since.get("closed_issues") or []
+        runs = since.get("runs_24h") or {}
+        if not merged and not closed and not runs:
+            lines.append("- nothing merged, closed, or run.")
+        for pr in merged:
+            lines.append(f"- merged {pr['repo']}#{pr['number']}: {pr['title']}")
+        for issue in closed:
+            lines.append(f"- closed {issue['repo']}#{issue['number']}: {issue['title']}")
+        if runs:
+            parts = [f"{name} {v['success']}✓/{v['failure']}✗" for name, v in sorted(runs.items())]
+            lines.append("- runs: " + "; ".join(parts) + ".")
+        lines.extend(["", "## REVIEW QUEUE (agent PRs waiting on Matti)"])
+        queue = since.get("review_queue") or []
+        if not queue:
+            lines.append("- empty.")
+        for pr in queue:
+            age = pr.get("age_days")
+            age_text = f"{age:.1f}d" if isinstance(age, (int, float)) else "age unknown"
+            kind = "draft" if pr.get("draft") else "open"
+            lines.append(f"- {pr['repo']}#{pr['number']} ({pr['agent']}, {kind}, {age_text}): {pr['title']}")
+    else:
+        lines.append(f"- unavailable: {_display(since.get('error'), 'gh unavailable')}.")
+
+    lines.extend(["", "## LEADS (movement only)"])
+    hot_leads = (mc.get("hot_leads_14d") or []) if mc.get("ok") else []
+    moved, stalled, fresh = [], [], 0
+    for lead in hot_leads:
+        opens = int(lead.get("opens") or 0)
+        clicks = int(lead.get("clicks") or 0)
+        try:
+            step = int(lead.get("step") or 0)
+        except (TypeError, ValueError):
+            step = 0
+        if opens or clicks:
+            moved.append(lead)
+        elif step >= 2:
+            stalled.append(lead)
+        else:
+            fresh += 1
+    if not hot_leads:
+        lines.append("- no leads in the last 14 days.")
+    for lead in moved:
+        lines.append(
+            f"- MOVED {_person(lead)} — {lead.get('race') or '(no race given)'}; "
+            f"{lead.get('sequence') or 'unknown sequence'} step {_display(lead.get('step'), 'unknown')}; "
+            f"{_display(lead.get('opens'))} opens/{_display(lead.get('clicks'))} clicks.")
+    for lead in stalled:
+        lines.append(
+            f"- STALLED {_person(lead)} — {lead.get('race') or '(no race given)'}; "
+            f"{lead.get('sequence') or 'unknown sequence'} step {_display(lead.get('step'), 'unknown')}, "
+            "no opens.")
+    if fresh:
+        lines.append(f"- {fresh} fresh lead(s) at step 1 with no signal yet (not listed).")
 
     social = collected.get("social") or {}
     if social.get("accounts_live"):
@@ -1147,6 +1424,10 @@ def render_report(collected: dict) -> str:
             ) or "none"
             lines.append(f"- **{label} top fetched paths:** {paths}.")
         candidates = aeo.get("unknown_agent_candidates") or []
+        recurring = [c for c in candidates if isinstance(c, dict) and not c.get("new_this_week", True)]
+        candidates = [c for c in candidates if not isinstance(c, dict) or c.get("new_this_week", True)]
+        if recurring:
+            lines.append(f"- {len(recurring)} recurring unknown agent(s) unchanged from last week (not listed).")
         if candidates:
             rendered_candidates = []
             for item in candidates:
@@ -1160,7 +1441,7 @@ def render_report(collected: dict) -> str:
                     f"({_display(item.get('count'))}{detail})"
                 )
             lines.append(
-                "- **Unknown agent candidates (spoofable):** "
+                "- **New unknown agent candidates this week (spoofable):** "
                 + ", ".join(rendered_candidates) + ".")
 
     seo = collected.get("seo") or {}
@@ -1193,13 +1474,18 @@ def render_report(collected: dict) -> str:
                     f"{float(position_value):.1f}"
                     if isinstance(position_value, (int, float)) else "n/a"
                 )
+                adjudicated = candidate.get("adjudicated_issue")
+                tail = (f" — ADJUDICATED in #{adjudicated} ({candidate.get('adjudicated_title', '')}); "
+                        "no new action unless the ruling changed") if adjudicated else ""
                 lines.append(
                     f"- #{_display(candidate.get('rank'))} [{bucket}] {target} — "
                     f"{query_part}pos {position_text}, "
                     f"{_display(candidate.get('impressions'))} impr, CTR {ctr_text} "
-                    f"— {_display(candidate.get('reason'), '')}"
+                    f"— {_display(candidate.get('reason'), '')}{tail}"
                 )
-            lines.append("- Run /seo-updates to draft these.")
+            unadjudicated = [c for c in candidates[:5] if not c.get("adjudicated_issue")]
+            if unadjudicated:
+                lines.append(f"- {len(unadjudicated)} candidate(s) without a ruling; draft refreshes for those only.")
         else:
             lines.append("- no qualifying candidates this week.")
 
@@ -1222,9 +1508,17 @@ def render_report(collected: dict) -> str:
             broken.append(f"Mission Control {action}: {details}")
     workflows = collected.get("workflows") or {}
     if workflows.get("ok"):
+        details = workflows.get("runs") or {}
         for name, conclusion in (workflows.get("latest") or {}).items():
             if conclusion != "success":
-                broken.append(f"workflow {name}: {conclusion}")
+                d = details.get(name) or {}
+                extra = ""
+                if d.get("age_hours") is not None:
+                    extra += f" ({d.get('event') or 'run'} {d['age_hours']:.0f}h ago"
+                    last = d.get("last_success_at")
+                    extra += (f"; last green {str(last)[:10]} via {d.get('last_success_event') or 'run'})"
+                              if last else "; no green run in the last 8)")
+                broken.append(f"workflow {name}: {conclusion}{extra}")
     broken.extend(str(line) for line in (collected.get("report_issues") or []) if line)
     if broken:
         lines.extend(f"- {line}" for line in broken)
@@ -1368,6 +1662,14 @@ cell says the tag is live, late processing is the likely cause: say "provisional
 move on. If the cell says realtime shows 0 active users, that is the one case to \
 recommend a tag/site check. A "revised to" note means yesterday's provisional figure has \
 been re-read; report the revised number, not the old one.
+
+SINCE YESTERDAY lists what merged, closed, and ran in the last 24h: never recommend \
+something that appears there as done. REVIEW QUEUE lists agent-authored draft PRs \
+waiting on Matti: if any is older than 2 days, the FIRST DO TODAY action is to review it \
+(name the PR). PLAN FUNNEL is the only funnel that means anything: cta_click totals \
+include every link on a race page and must not be read as plan intent. Leads marked \
+MOVED opened or clicked; STALLED have not — fresh leads are not news. Tag each DO TODAY \
+action verified (a number in the report supports it) or hypothesis.
 
 Measurement epochs in DATA mark analytics collection changes, not demand changes. If a \
 comparison straddles one, explicitly treat the apparent session jump and affected event \
@@ -1540,6 +1842,8 @@ def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--dry-run", action="store_true", help="skip the email send")
     ap.add_argument("--no-llm", action="store_true", help="skip interpretation")
+    ap.add_argument("--no-email", action="store_true",
+                    help="write the snapshot and narration but do not email (Morning Console is the surface)")
     args = ap.parse_args()
 
     today = date.today().isoformat()
@@ -1554,6 +1858,7 @@ def main() -> int:
         "workflows": _safe(collect_workflows),
         "aeo": _safe(collect_aeo),
         "seo": _safe(collect_seo),
+        "since_yesterday": _safe(collect_since_yesterday),
     }
     collected["constraint"] = compute_constraint(collected["ga4"].get("gravelgod", {}))
     try:
@@ -1600,6 +1905,9 @@ def main() -> int:
 
     if args.dry_run:
         print("\n" + report)
+        return 0
+    if args.no_email:
+        print("email:    skipped (--no-email); snapshot is the product")
         return 0
     msg_id = send_email(subject, report)
     print(f"sent:     {msg_id} → {INTEL_TO}")

@@ -204,8 +204,17 @@ def test_collect_ga4_filters_both_event_queries_before_limit(monkeypatch):
         def __init__(self):
             self.event_requests = []
 
+        def run_realtime_report(self, request):
+            return SimpleNamespace(rows=[SimpleNamespace(metric_values=[SimpleNamespace(value="2")])])
+
         def run_report(self, request):
             dimensions = [item.name for item in request.dimensions]
+            if dimensions == ["dateHour"]:
+                # Hourly rows stop at 03:00 — GA4 still processing yesterday.
+                return SimpleNamespace(rows=[
+                    SimpleNamespace(dimension_values=[SimpleNamespace(value=f"20260910{h:02d}")],
+                                    metric_values=[SimpleNamespace(value="3")])
+                    for h in range(0, 4)])
             if dimensions == ["eventName"]:
                 self.event_requests.append(request)
                 dim_filter = getattr(request, "dimension_filter", None)
@@ -230,6 +239,7 @@ def test_collect_ga4_filters_both_event_queries_before_limit(monkeypatch):
         "FilterExpressionList": Message,
         "Metric": Message,
         "RunReportRequest": Message,
+        "RunRealtimeReportRequest": Message,
     }.items():
         setattr(fake_types, name, value)
     monkeypatch.setitem(sys.modules, "google.analytics.data_v1beta", fake_api)
@@ -241,6 +251,10 @@ def test_collect_ga4_filters_both_event_queries_before_limit(monkeypatch):
     assert result["funnel"]["purchase"] == 2
     assert result["funnel"]["refund"] == 7
     assert result["funnel"]["form_submit"] == 4  # 1 tp_form_submit + 3 scoped legacy
+    assert result["yesterday_last_hour"] == 3
+    assert result["yesterday_provisional"] is True
+    assert result["realtime_active_users"] == 2  # tag live → late processing likely
+    assert result["hourly_error"] is None
     assert result["funnel_28d"]["purchase"] == 2
     assert result["funnel_28d"]["refund"] == 7
     assert result["funnel_28d"]["form_submit"] == 4
@@ -685,3 +699,44 @@ def test_collect_mission_control_reads_newest_rows_past_the_1000_row_cap(monkeyp
     assert hot["new@example.com"]["opens"] == 1
     assert hot["new@example.com"]["clicks"] == 1
     assert hot["new@example.com"]["race"] == "The Rift"
+
+
+def test_render_marks_provisional_sessions_and_separates_lag_from_outage(collected):
+    from scripts import daily_intel
+    g = collected["ga4"]["gravelgod"]
+    g["yesterday_provisional"] = True
+    g["yesterday_last_hour"] = 3
+    g["realtime_active_users"] = 2
+    report = daily_intel.render_report(collected)
+    assert "PROVISIONAL" in report and "end at 03:00" in report
+    assert "tag is live (2 active users" in report
+    g["realtime_active_users"] = 0
+    assert "realtime shows 0 active users" in daily_intel.render_report(collected)
+    g["realtime_active_users"] = None
+    assert "completeness unknown" in daily_intel.render_report(collected)
+    g["yesterday_provisional"] = False
+    assert "PROVISIONAL" not in daily_intel.render_report(collected)
+
+
+def test_render_shows_revision_of_yesterdays_provisional_figure(collected):
+    from scripts import daily_intel
+    collected["ga4_revisions"] = {"gravelgod": {"date": "2026-09-10", "reported": 6, "now": 121}}
+    report = daily_intel.render_report(collected)
+    assert "2026-09-10 revised to 121 (reported 6 yesterday)" in report
+
+
+def test_compute_ga4_revisions_only_when_the_figure_moved():
+    from scripts import daily_intel
+    collected = {"ga4": {"gravelgod": {"ok": True, "sessions_d2": 121, "sessions_d2_date": "2026-09-10"},
+                         "roadielabs": {"ok": True, "sessions_d2": 5, "sessions_d2_date": "2026-09-10"}}}
+    prior = [{"ga4": {"gravelgod": {"ok": True, "sessions": 6}, "roadielabs": {"ok": True, "sessions": 5}}}]
+    rev = daily_intel.compute_ga4_revisions(collected, prior)
+    assert rev == {"gravelgod": {"date": "2026-09-10", "reported": 6, "now": 121}}
+    assert daily_intel.compute_ga4_revisions(collected, []) == {}
+
+
+def test_interpret_prompt_forbids_narrating_provisional_as_a_drop():
+    from scripts import daily_intel
+    assert "marked PROVISIONAL" in daily_intel.INTERPRET_PROMPT
+    assert "do not compare it to the 7-day average or call it a drop" in daily_intel.INTERPRET_PROMPT
+    assert "realtime shows 0 active users" in daily_intel.INTERPRET_PROMPT

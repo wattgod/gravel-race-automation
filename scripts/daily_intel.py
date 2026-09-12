@@ -185,7 +185,7 @@ def collect_ga4(brand: str) -> dict:
     from google.analytics.data_v1beta import BetaAnalyticsDataClient
     from google.analytics.data_v1beta.types import (
         DateRange, Dimension, Filter, FilterExpression, FilterExpressionList,
-        Metric, RunReportRequest,
+        Metric, RunReportRequest, RunRealtimeReportRequest,
     )
 
     creds = os.environ.get("GA4_CREDENTIALS", str(PROJECT_ROOT / "ga4-credentials.json"))
@@ -249,6 +249,49 @@ def collect_ga4(brand: str) -> dict:
     week = run(["sessions"], date_from=week_ago, date_to=y)
     week_sessions = int(week.rows[0].metric_values[0].value) if week.rows else 0
 
+    # GA4 completeness guard. This job runs at 12:00 UTC; GA4 often has not
+    # finished processing yesterday's late hours yet, so "yesterday" reads as
+    # a collapse (Aug 31: 9 sessions, Sep 11: 6 sessions — both revised to
+    # ~120 within hours). If the hourly rows stop before 21:00 property time
+    # the day is PROVISIONAL: completeness unknown. Hourly rows alone cannot
+    # separate late processing from an outage, so a realtime probe is
+    # attached: active users in the last 30 minutes means the tag is live and
+    # late processing is the likely cause; zero means investigate. The next
+    # run re-reads the same date (see `revisions`) so the figure is closed.
+    yesterday_last_hour = None
+    yesterday_provisional = None
+    try:
+        hours = run(["sessions"], ["dateHour"], limit=48)
+        populated = []
+        for r in hours.rows:
+            try:
+                if int(r.metric_values[0].value) > 0:
+                    populated.append(int(r.dimension_values[0].value[-2:]))
+            except (TypeError, ValueError):
+                continue
+        yesterday_last_hour = max(populated) if populated else None
+        yesterday_provisional = yesterday_last_hour is None or yesterday_last_hour < 21
+    except Exception as e:  # never let the guard discard the rest of GA4
+        hourly_error = f"{type(e).__name__}: {e}"
+    else:
+        hourly_error = None
+    realtime_active_users = None
+    if yesterday_provisional:
+        try:
+            rt = client.run_realtime_report(RunRealtimeReportRequest(
+                property=f"properties/{prop}", metrics=[Metric(name="activeUsers")]))
+            realtime_active_users = int(rt.rows[0].metric_values[0].value) if rt.rows else 0
+        except Exception:
+            realtime_active_users = None
+    # The day before yesterday, re-read: closes yesterday's provisional figure
+    # in the next report (rendered as a revision when it moved).
+    d2 = (date.fromisoformat(y) - timedelta(days=1)).isoformat()  # same clock as y
+    try:
+        d2_report = run(["sessions"], date_from=d2, date_to=d2)
+        sessions_d2 = int(d2_report.rows[0].metric_values[0].value) if d2_report.rows else 0
+    except Exception:
+        sessions_d2 = None
+
     ev = event_counts(y, y)
 
     pages = run(["screenPageViews"], ["pagePath"], limit=8)
@@ -277,6 +320,12 @@ def collect_ga4(brand: str) -> dict:
         "users": int(t[1].value) if t else 0,
         "pageviews": int(t[2].value) if t else 0,
         "sessions_7d_avg": round(week_sessions / 7, 1),
+        "yesterday_last_hour": yesterday_last_hour,
+        "yesterday_provisional": yesterday_provisional,
+        "hourly_error": hourly_error,
+        "realtime_active_users": realtime_active_users,
+        "sessions_d2": sessions_d2,
+        "sessions_d2_date": d2,
         "funnel": {stage: sum(ev.get(e, 0) for e in evs)
                    for stage, evs in FUNNEL_STAGES.items()},
         "top_pages": top_pages,
@@ -600,6 +649,7 @@ def _collect_aeo(today: date | None = None) -> dict:
             "ga4_status": (current_brand.get("ga4") or {}).get("status", "error"),
             "logs_status": (current_brand.get("logs") or {}).get("status", "error"),
             "llms_serving_status": llms_serving.get("status", "unknown"),
+            "llms_serving_verified_via": llms_serving.get("verified_via", "http"),
             "llms_serving_first_line": llms_serving.get("first_line", ""),
             "llms_serving_error": llms_serving.get("error", ""),
             "ai_referral_sessions": ga4_sessions,
@@ -895,6 +945,25 @@ def render_report(collected: dict) -> str:
             sessions = _display(g.get("sessions"))
             avg = _display(g.get("sessions_7d_avg"))
             session_cell = f"{sessions} (vs {avg})"
+            if g.get("yesterday_provisional"):
+                last_hour = g.get("yesterday_last_hour")
+                ends = f"{int(last_hour):02d}:00" if isinstance(last_hour, int) else "no hourly rows"
+                rt = g.get("realtime_active_users")
+                if isinstance(rt, int) and rt > 0:
+                    cause = (f"tag is live ({rt} active users in the last 30 min); "
+                             "late processing is the usual cause")
+                elif rt == 0:
+                    cause = "realtime shows 0 active users — check tag and site, not only processing"
+                else:
+                    cause = "realtime probe unavailable; completeness unknown"
+                session_cell += (
+                    f" PROVISIONAL — GA4 hourly rows end at {ends}; {cause}; "
+                    "this date is re-read tomorrow")
+            revision = (collected.get("ga4_revisions") or {}).get(brand)
+            if revision:
+                session_cell += (
+                    f" · {revision['date']} revised to {revision['now']} "
+                    f"(reported {revision['reported']} yesterday)")
             event_totals = _event_totals_line(g.get("funnel") or {})
         else:
             session_cell = "unavailable"
@@ -1213,6 +1282,32 @@ def detect_tracking_regression(
     )
 
 
+def compute_ga4_revisions(collected: dict, prior_snapshots: list[dict]) -> dict:
+    """Re-read of the day before yesterday vs what yesterday's report said.
+
+    Yesterday's report showed D-2 as its "yesterday" (often provisional).
+    Today's collector re-reads D-2. When the figure moved by more than 20%,
+    surface the revision so a provisional collapse is closed on the record.
+    """
+    revisions = {}
+    prior = prior_snapshots[0] if prior_snapshots else None
+    if not isinstance(prior, dict):
+        return revisions
+    for brand, g in (collected.get("ga4") or {}).items():
+        if not isinstance(g, dict) or g.get("ok") is not True:
+            continue
+        now = g.get("sessions_d2")
+        pg = ((prior.get("ga4") or {}).get(brand) or {})
+        reported = pg.get("sessions") if pg.get("ok") is True else None
+        if not isinstance(now, int) or not isinstance(reported, int):
+            continue
+        if reported == 0 and now == 0:
+            continue
+        if abs(now - reported) > 0.2 * max(now, reported):
+            revisions[brand] = {"date": g.get("sessions_d2_date"), "reported": reported, "now": now}
+    return revisions
+
+
 def load_prior_snapshots(today: str, days: int = 2) -> list[dict]:
     """Load exact preceding calendar days; a missing day breaks consecutiveness."""
     snapshots = []
@@ -1266,6 +1361,13 @@ establish payment or customer fulfillment. Provider payments, refunds, distinct 
 and customer fulfillment are unavailable without a separate provider reconciliation. \
 The factual report is already \
 rendered; do not repeat its sections or add new facts.
+
+A session count marked PROVISIONAL means GA4's hourly rows for that day stop early, so \
+completeness is unknown; do not compare it to the 7-day average or call it a drop. If the \
+cell says the tag is live, late processing is the likely cause: say "provisional" and \
+move on. If the cell says realtime shows 0 active users, that is the one case to \
+recommend a tag/site check. A "revised to" note means yesterday's provisional figure has \
+been re-read; report the revised number, not the old one.
 
 Measurement epochs in DATA mark analytics collection changes, not demand changes. If a \
 comparison straddles one, explicitly treat the apparent session jump and affected event \
@@ -1460,6 +1562,7 @@ def main() -> int:
     except Exception as e:
         tracking_issue = f"tracking-regression check crashed: {type(e).__name__}: {e}"
     collected["report_issues"] = [tracking_issue] if tracking_issue else []
+    collected["ga4_revisions"] = compute_ga4_revisions(collected, load_prior_snapshots(today, 1))
     trend = load_trend()
     deterministic_report = safe_render(collected)
 

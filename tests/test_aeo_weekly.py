@@ -140,6 +140,7 @@ def test_check_llms_marker_retries_through_sgcaptcha_then_succeeds(monkeypatch):
 
 
 def test_check_llms_marker_reports_challenged_when_challenge_never_clears(monkeypatch):
+    monkeypatch.setattr(aeo_weekly, "_read_llms_head_via_ssh", lambda brand, timeout=30: None)
     challenge_page = (
         '<html><head><link rel="icon" href="data:;">'
         '<meta http-equiv="refresh" content="0;/.well-known/sgcaptcha/?r=%2Fllms.txt&y">'
@@ -482,3 +483,28 @@ def test_fetch_does_not_accept_non_200_marker(monkeypatch):
     monkeypatch.setattr(urllib.request, "urlopen", lambda *a, **k: response)
     with pytest.raises(OSError, match="HTTP status 202"):
         aeo_weekly._fetch_llms_head("https://example.test/llms.txt", 1)
+
+
+def test_check_llms_marker_verifies_from_host_when_challenge_never_clears(monkeypatch):
+    """A WAF challenge on every HTTP attempt is not a verdict: read the file over SSH."""
+    monkeypatch.setattr(aeo_weekly, "LLMS_CHALLENGE_BACKOFF", ())
+    monkeypatch.setattr(aeo_weekly, "_fetch_llms_head", lambda url, timeout: "<html><body>sgcaptcha</body></html>")
+    monkeypatch.setattr(aeo_weekly, "_read_llms_head_via_ssh", lambda brand, timeout=30: "# Gravel God Race Database\n\n> The definitive gravel race database.")
+    result = aeo_weekly.check_llms_marker("gravelgod")
+    assert result["status"] == "ok"
+    assert result["verified_via"] == "ssh"
+    assert result["first_line"].startswith("# Gravel God Race Database")
+
+
+def test_check_llms_marker_host_read_can_still_find_a_real_displacement(monkeypatch):
+    monkeypatch.setattr(aeo_weekly, "LLMS_CHALLENGE_BACKOFF", ())
+    monkeypatch.setattr(aeo_weekly, "_fetch_llms_head", lambda url, timeout: "sgcaptcha")
+    monkeypatch.setattr(aeo_weekly, "_read_llms_head_via_ssh", lambda brand, timeout=30: "# AIOSEO generated llms.txt")
+    result = aeo_weekly.check_llms_marker("gravelgod")
+    assert result["status"] == "displaced" and result["verified_via"] == "ssh"
+
+
+def test_read_llms_head_via_ssh_returns_none_without_ssh_config(monkeypatch):
+    for name in ("SSH_HOST", "SSH_USER", "SSH_KEY_PATH"):
+        monkeypatch.delenv(name, raising=False)
+    assert aeo_weekly._read_llms_head_via_ssh("gravelgod") is None

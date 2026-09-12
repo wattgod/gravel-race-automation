@@ -540,11 +540,55 @@ def check_llms_marker(brand: str, timeout: int = 20) -> dict[str, Any]:
         stripped = head.lstrip("﻿\n\r ")
 
     ok = stripped.startswith(marker)
+    if not ok and "sgcaptcha" in stripped.lower():
+        # The WAF challenged every HTTP attempt: the file is unverified, not
+        # broken. Read it from the host instead — the same SSH config the log
+        # collector uses — so a challenge window never renders as BROKEN.
+        host_head = _read_llms_head_via_ssh(brand)
+        if host_head is not None:
+            host_stripped = host_head.lstrip("\ufeff\n\r ")
+            return {
+                "status": "ok" if host_stripped.startswith(marker) else "displaced",
+                "marker": marker,
+                "first_line": host_head.splitlines()[0][:120] if host_head else "",
+                "verified_via": "ssh",
+            }
     return {
         "status": "ok" if ok else ("challenged" if "sgcaptcha" in stripped.lower() else "displaced"),
         "marker": marker,
         "first_line": head.splitlines()[0][:120] if head else "",
     }
+
+
+def _read_llms_head_via_ssh(brand: str, timeout: int = 30) -> str | None:
+    """Return the first 4 KB of the live llms.txt read on the host, or None.
+
+    None means "could not verify from the host" (no SSH config in this
+    environment, connection failure, file missing) — never a verdict.
+    """
+    try:
+        config = _ssh_config(brand)
+    except RuntimeError:
+        return None
+    domain = str(BRANDS[brand]["domain"])
+    command = [
+        "ssh",
+        "-i", config["key_path"],
+        "-p", config["port"],
+        "-o", "BatchMode=yes",
+        "-o", "ConnectTimeout=15",
+        "-o", "StrictHostKeyChecking=accept-new",
+        f"{config['user']}@{config['host']}",
+        "head", "-c", "4096", f"www/{domain}/public_html/llms.txt",
+    ]
+    try:
+        result = subprocess.run(
+            command, capture_output=True, text=True, timeout=timeout, check=False)
+    except (subprocess.TimeoutExpired, OSError):
+        return None
+    if result.returncode != 0 or not result.stdout:
+        return None
+    return result.stdout
 
 
 def collect_weekly(now: datetime | None = None) -> dict[str, Any]:

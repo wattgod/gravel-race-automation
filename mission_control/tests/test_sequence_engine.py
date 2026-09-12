@@ -188,10 +188,19 @@ class TestRenderTemplate:
     def test_legacy_nurture_step_zero_remains_day_two_checkin(self, fake_db):
         from mission_control.sequences import SEQUENCES
 
-        for variant in SEQUENCES["nurture_v1"]["variants"].values():
-            assert variant["steps"][0] == {
+        variants = SEQUENCES["nurture_v1"]["variants"]
+        # A and B carry legacy rows whose current_step=0 means "the day-2
+        # check-in" — their first step must stay byte-identical.
+        for key in ("A", "B"):
+            assert variants[key]["steps"][0] == {
                 "delay_days": 2, "template": "race_prep_tips", "subject": "how'd the prep kit land?",
             }
+        # Any newer variant (the 2026-09 kit pitch pilot) may use its own
+        # check-in template but must keep step 0 as a day-2 check-in so the
+        # current_step semantics stay uniform across variants.
+        for key, variant in variants.items():
+            assert variant["steps"][0]["delay_days"] == 2
+            assert variant["steps"][0]["template"] in ("race_prep_tips", "kit_checkin_pilot")
 
     def test_legacy_nurture_past_step_zero_completes_without_delivery(self, fake_db):
         """A pre-existing nurture row must never discover the new receipt."""
@@ -1186,3 +1195,56 @@ class TestSuppressionKeepsCompletionStats:
         after = get_sequence_stats("nurture_v1")
         assert after["completed"] == before
         assert after["variants"][e["variant"]]["completed"] == 1
+
+
+
+class TestKitPitchPilot:
+    """Nurture variant C — the prep-kit pitch pilot (Matti, 2026-09-12)."""
+
+    def _render(self, tpl, source_data, name="Test Rider"):
+        from mission_control.services.sequence_engine import _render_template
+        return _render_template(tpl, {"contact_name": name, "source_data": source_data})
+
+    def test_variant_c_is_appended_not_shared(self, fake_db):
+        from mission_control.sequences.nurture import SEQUENCE
+        v = SEQUENCE["variants"]
+        assert [s["template"] for s in v["A"]["steps"]] == ["race_prep_tips"]
+        assert [s["template"] for s in v["C"]["steps"]] == ["kit_checkin_pilot", "kit_pitch", "kit_followup"]
+        assert [s["delay_days"] for s in v["C"]["steps"]] == [2, 7, 11]
+        assert v["A"]["weight"] == 50 and v["C"]["weight"] == 50 and v["B"]["weight"] == 0
+        assert v["A"]["steps"] is not v["C"]["steps"]
+
+    def test_single_pitch_plus_one_followup(self, fake_db):
+        checkin = self._render("kit_checkin_pilot", {"race_name": "Big Sugar", "race_slug": "big-sugar"})
+        assert "one note about the custom plan for Big Sugar, and one follow-up" in checkin
+        pitch = self._render("kit_pitch", {"race_name": "Big Sugar", "race_slug": "big-sugar"})
+        assert pitch.count("questionnaire/?race=big-sugar") == 1
+        assert "One follow-up next week" in pitch
+        follow = self._render("kit_followup", {"race_name": "Big Sugar", "race_slug": "big-sugar"})
+        assert follow.count("questionnaire/?race=big-sugar") == 1
+        assert "then I'll drop it" in follow
+        for html in (checkin, pitch, follow):
+            assert "48 hours" not in html and "{{" not in html and "{race_" not in html
+
+    def test_race_facts_come_from_race_data_only(self, fake_db):
+        from mission_control.services.sequence_engine import _race_facts
+        facts = _race_facts("unbound-200")
+        assert facts["race_facts"] == "1" and facts["race_distance_mi"] == "200"
+        assert facts["race_elevation_ft"] == "11,000"
+        assert _race_facts("no-such-race-xyz") == {}
+        assert _race_facts("../../etc/passwd") == {}
+        assert _race_facts(None) == {}
+
+    def test_pitch_states_numbers_only_when_facts_exist(self, fake_db):
+        with_facts = self._render("kit_pitch", {"race_name": "Unbound Gravel 200", "race_slug": "unbound-200"})
+        assert "200 miles with about 11,000 feet of climbing" in with_facts
+        without = self._render("kit_pitch", {"race_name": "Mystery Race", "race_slug": "mystery-race-404"})
+        assert "miles with about" not in without and "Mystery Race" in without
+        anon = self._render("kit_pitch", {})
+        assert "miles with about" not in anon and "questionnaire/?race=" not in anon
+
+    def test_engine_tags_pilot_cta_with_email_surface(self, fake_db):
+        from mission_control.services.sequence_engine import _inject_utm_params
+        html = self._render("kit_pitch", {"race_name": "Big Sugar", "race_slug": "big-sugar"})
+        out = _inject_utm_params(html, "nurture_v1", "C", 1)
+        assert "questionnaire/?race=big-sugar&src=email_nurture&utm_source=gravel_god" in out

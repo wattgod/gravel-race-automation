@@ -43,6 +43,11 @@ SITE_BASE_URL = "https://gravelgodcycling.com"
 # GSC property: the service account is registered on the Domain property;
 # the URL-prefix form 403s (sufficient-permission error in daily reports).
 GSC_SITE_URL = "sc-domain:gravelgodcycling.com"
+# Search Console data isn't finalized for the most recent ~2-3 days; a window
+# ending "today" always undercounts relative to a fully-settled prior window,
+# producing a WoW "decline" every single day regardless of real performance.
+# Anchor both windows this many days back so they're both fully processed.
+GSC_LAG_DAYS = 3
 
 # ── Report sections ──────────────────────────────────────────────
 
@@ -355,7 +360,7 @@ def fetch_gsc_data():
         )
         service = build("searchconsole", "v1", credentials=creds)
 
-        today = CURRENT_DATE
+        today = CURRENT_DATE - timedelta(days=GSC_LAG_DAYS)
         seven_ago = today - timedelta(days=7)
         fourteen_ago = today - timedelta(days=14)
 
@@ -597,6 +602,9 @@ def build_report(args) -> str:
             p_impr = prev.get("impressions", 0)
             impr_change = ((c_impr - p_impr) / max(p_impr, 1)) * 100
 
+            lines.append(f"_GSC data lags ~{GSC_LAG_DAYS}d; both windows below end "
+                         f"{(CURRENT_DATE - timedelta(days=GSC_LAG_DAYS)).isoformat()}._")
+            lines.append("")
             lines.append("| Metric | Last 7 days | Previous 7 days | Change |")
             lines.append("|--------|-------------|-----------------|--------|")
             lines.append(f"| Clicks | {c_clicks:,} | {p_clicks:,} | {click_change:+.1f}% |")

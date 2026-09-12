@@ -140,6 +140,7 @@ def test_check_llms_marker_retries_through_sgcaptcha_then_succeeds(monkeypatch):
 
 
 def test_check_llms_marker_reports_challenged_when_challenge_never_clears(monkeypatch):
+    monkeypatch.setattr(aeo_weekly, "_read_llms_head_via_ssh", lambda brand, timeout=30: None)
     challenge_page = (
         '<html><head><link rel="icon" href="data:;">'
         '<meta http-equiv="refresh" content="0;/.well-known/sgcaptcha/?r=%2Fllms.txt&y">'

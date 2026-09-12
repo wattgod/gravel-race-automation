@@ -249,6 +249,22 @@ def collect_ga4(brand: str) -> dict:
     week = run(["sessions"], date_from=week_ago, date_to=y)
     week_sessions = int(week.rows[0].metric_values[0].value) if week.rows else 0
 
+    # GA4 processing lag guard. This job runs at 12:00 UTC; GA4 often has not
+    # finished processing yesterday's late hours yet, so "yesterday" reads as
+    # a collapse (Aug 31: 9 sessions, Sep 11: 6 sessions — both revised to
+    # ~120 within hours). If the hourly rows stop before 21:00 property time,
+    # the day is PROVISIONAL and must not be narrated as a traffic drop.
+    hours = run(["sessions"], ["dateHour"], limit=48)
+    populated = []
+    for r in hours.rows:
+        try:
+            if int(r.metric_values[0].value) > 0:
+                populated.append(int(r.dimension_values[0].value[-2:]))
+        except (TypeError, ValueError):
+            continue
+    yesterday_last_hour = max(populated) if populated else None
+    yesterday_provisional = yesterday_last_hour is None or yesterday_last_hour < 21
+
     ev = event_counts(y, y)
 
     pages = run(["screenPageViews"], ["pagePath"], limit=8)
@@ -277,6 +293,8 @@ def collect_ga4(brand: str) -> dict:
         "users": int(t[1].value) if t else 0,
         "pageviews": int(t[2].value) if t else 0,
         "sessions_7d_avg": round(week_sessions / 7, 1),
+        "yesterday_last_hour": yesterday_last_hour,
+        "yesterday_provisional": yesterday_provisional,
         "funnel": {stage: sum(ev.get(e, 0) for e in evs)
                    for stage, evs in FUNNEL_STAGES.items()},
         "top_pages": top_pages,
@@ -895,6 +913,12 @@ def render_report(collected: dict) -> str:
             sessions = _display(g.get("sessions"))
             avg = _display(g.get("sessions_7d_avg"))
             session_cell = f"{sessions} (vs {avg})"
+            if g.get("yesterday_provisional"):
+                last_hour = g.get("yesterday_last_hour")
+                ends = f"{int(last_hour):02d}:00" if isinstance(last_hour, int) else "no hourly rows"
+                session_cell += (
+                    f" PROVISIONAL — GA4 hourly rows end at {ends}; "
+                    "late data still processing, recheck tomorrow")
             event_totals = _event_totals_line(g.get("funnel") or {})
         else:
             session_cell = "unavailable"
@@ -1266,6 +1290,11 @@ establish payment or customer fulfillment. Provider payments, refunds, distinct 
 and customer fulfillment are unavailable without a separate provider reconciliation. \
 The factual report is already \
 rendered; do not repeat its sections or add new facts.
+
+A session count marked PROVISIONAL means GA4 has not finished processing that day \
+(hourly rows stop early). It is not a traffic drop, an uptime problem, or a tagging \
+failure; do not recommend site or tag checks for it and do not compare it to the 7-day \
+average. Say "provisional" and move on.
 
 Measurement epochs in DATA mark analytics collection changes, not demand changes. If a \
 comparison straddles one, explicitly treat the apparent session jump and affected event \

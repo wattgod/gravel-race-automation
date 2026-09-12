@@ -111,7 +111,7 @@ How's the training been going? Tell me your weekly hours and I'll give you my ho
 ### post_purchase · day 0 · purchase_welcome
 SUBJECT: got your questionnaire
 BODY:
-{greeting} got your questionnaire. I'm building around your course, your FTP, and the hours you actually have. You'll have it inside 48 hours.
+{greeting} got your questionnaire. I'm building around your course, your FTP, and the hours you actually have. You'll have it inside 24 hours.
 
 One thing: if anything about your life changes — schedule, knee, race date — just reply. The plan bends.
 

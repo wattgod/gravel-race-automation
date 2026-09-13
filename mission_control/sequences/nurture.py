@@ -12,6 +12,14 @@ race-specific pitch at day 7, the follow-up at day 11, then done. Its
 templates are its own (kit_*) so the shared anti_pitch/repitch promises
 are never inherited. Steps are only ever APPENDED to C; A's list is not
 touched (legacy current_step semantics, see webhooks.py).
+
+DOCTRINE EXCEPTION (owner: Matti, 2026-09-12): docs/email-voice-model.md
+says "No broadcast ever pitches" and scripts/friend_test.py --gate enforces
+it — the gate FAILS kit_pitch and kit_followup by construction (friend 1/5,
+"straight-faced sales pitch"). That is the hypothesis under test, not a
+copy defect. Readout 2026-10-10 on plan-funnel entry_surface=email_nurture
+(arrivals → starts → checkouts → purchases) and unsubscribes per step;
+either C becomes the track or it goes to weight 0 and the exception ends.
 """
 
 _STEPS = [

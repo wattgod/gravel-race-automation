@@ -19,7 +19,7 @@ _STEPS = [
 ]
 
 _STEPS_PILOT = [
-    {"delay_days": 2, "template": "kit_checkin_pilot", "subject": "how'd the {race_name} prep kit land?"},
+    {"delay_days": 2, "template": "kit_checkin_pilot", "subject": "how'd the prep kit land?"},
     {"delay_days": 7, "template": "kit_pitch", "subject": "the plan, for {race_name}"},
     {"delay_days": 11, "template": "kit_followup", "subject": "week six"},
 ]

@@ -401,24 +401,42 @@ def _race_facts(race_slug) -> dict:
         race = json.loads(path.read_text()).get("race") or {}
     except Exception:
         return {}
-    vitals = race.get("vitals") or {}
-    distance = vitals.get("distance_mi")
-    elevation = vitals.get("elevation_ft")
-    if not isinstance(distance, (int, float)) or not isinstance(elevation, (int, float)):
+    try:
+        vitals = race.get("vitals") if isinstance(race, dict) else None
+        if not isinstance(vitals, dict):
+            return {}
+        distance = vitals.get("distance_mi")
+        elevation = vitals.get("elevation_ft")
+        if not _is_real_number(distance) or not _is_real_number(elevation):
+            return {}
+        if distance <= 0 or elevation < 0:
+            return {}
+        rating = race.get("gravel_god_rating")
+        terrain = vitals.get("terrain_types")
+        facts = {
+            "race_facts": "1",
+            "race_distance_mi": f"{int(round(distance)):,}",
+            "race_elevation_ft": f"{int(round(elevation)):,}",
+            "race_location": str(vitals.get("location") or "")[:80],
+            "race_terrain": str(terrain[0])[:60] if isinstance(terrain, list) and terrain else "",
+            "race_when": str(vitals.get("date") or "")[:60],
+        }
+        score = rating.get("overall_score") if isinstance(rating, dict) else None
+        if _is_real_number(score):
+            facts["race_score"] = str(int(score))
+        return facts
+    except Exception:
         return {}
-    rating = race.get("gravel_god_rating") or {}
-    terrain = vitals.get("terrain_types") or []
-    facts = {
-        "race_facts": "1",
-        "race_distance_mi": f"{int(round(distance)):,}",
-        "race_elevation_ft": f"{int(round(elevation)):,}",
-        "race_location": str(vitals.get("location") or ""),
-        "race_terrain": str(terrain[0]) if terrain else "",
-        "race_when": str(vitals.get("date") or ""),
-    }
-    if isinstance(rating.get("overall_score"), (int, float)):
-        facts["race_score"] = str(int(rating["overall_score"]))
-    return facts
+
+
+_RACE_FACT_KEYS = ("race_facts", "race_distance_mi", "race_elevation_ft",
+                   "race_location", "race_terrain", "race_when", "race_score")
+
+
+def _is_real_number(value) -> bool:
+    import math
+    return (isinstance(value, (int, float)) and not isinstance(value, bool)
+            and math.isfinite(value))
 
 
 def _apply_conditionals(html: str, data: dict) -> str:
@@ -464,6 +482,16 @@ def _render_template(template_name: str, enrollment: dict) -> str:
 
     # Replace placeholders with enrollment data
     source_data = dict(enrollment.get("source_data") or {})
+    # race_slug lands in hrefs (/race/{race_slug}/...): keep it only when it
+    # is a canonical slug, otherwise drop it so {{#race_slug}} blocks vanish.
+    slug = str(source_data.get("race_slug") or "").strip().lower()
+    if slug and _SLUG_RE.match(slug):
+        source_data["race_slug"] = slug
+    else:
+        source_data.pop("race_slug", None)
+    # Race facts are server-derived only: caller-supplied fact keys never win.
+    for key in _RACE_FACT_KEYS:
+        source_data.pop(key, None)
     source_data.update(_race_facts(source_data.get("race_slug")))
     html = _apply_conditionals(html, source_data)
     # Most templates open with a bare address ("Roberto —"). A missing name used

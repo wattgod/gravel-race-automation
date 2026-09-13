@@ -1217,9 +1217,12 @@ class TestKitPitchPilot:
     def test_single_pitch_plus_one_followup(self, fake_db):
         checkin = self._render("kit_checkin_pilot", {"race_name": "Big Sugar", "race_slug": "big-sugar"})
         assert "one note about the custom plan for Big Sugar, and one follow-up" in checkin
+        assert "That's all the plan talk from me" in checkin  # scoped promise, not "no more email ever"
         pitch = self._render("kit_pitch", {"race_name": "Big Sugar", "race_slug": "big-sugar"})
         assert pitch.count("questionnaire/?race=big-sugar") == 1
-        assert "One follow-up next week" in pitch
+        assert "One follow-up in a few days" in pitch
+        assert "Two plan adjustments" in pitch and "P.S." not in pitch
+        assert pitch.index("Reply and ask") < pitch.index('class="cta"')  # exit ramp before the CTA
         follow = self._render("kit_followup", {"race_name": "Big Sugar", "race_slug": "big-sugar"})
         assert follow.count("questionnaire/?race=big-sugar") == 1
         assert "then I'll drop it" in follow
@@ -1234,6 +1237,25 @@ class TestKitPitchPilot:
         assert _race_facts("no-such-race-xyz") == {}
         assert _race_facts("../../etc/passwd") == {}
         assert _race_facts(None) == {}
+        from mission_control.services.sequence_engine import _is_real_number
+        assert not _is_real_number(True) and not _is_real_number(float("nan")) and _is_real_number(11000)
+
+    def test_caller_cannot_forge_race_facts_or_bad_slug_hrefs(self, fake_db):
+        html = self._render("kit_pitch", {"race_name": "Fake", "race_slug": "../x",
+                                          "race_facts": "1", "race_distance_mi": "9999"})
+        assert "9999" not in html and "miles with about" not in html
+        assert "/questionnaire/?race=" not in html  # bad slug dropped → generic CTA
+        assert "race/../x" not in html
+
+    def test_checkin_arms_differ_only_by_the_promise_line(self, fake_db):
+        a = self._render("race_prep_tips", {"race_name": "Big Sugar", "race_slug": "big-sugar"})
+        c = self._render("kit_checkin_pilot", {"race_name": "Big Sugar", "race_slug": "big-sugar"})
+        import re as _re
+        strip = lambda h: _re.sub(r"\s+", " ", _re.sub(r"<[^>]+>", " ", h.split('<div class="container">')[1]))
+        a_t, c_t = strip(a), strip(c)
+        assert "Did it cover what you needed?" in a_t and "Did it cover what you needed?" in c_t
+        assert "happy to help" in a_t and "happy to help" in c_t
+        assert "custom plan" not in a_t and "custom plan" in c_t
 
     def test_pitch_states_numbers_only_when_facts_exist(self, fake_db):
         with_facts = self._render("kit_pitch", {"race_name": "Unbound Gravel 200", "race_slug": "unbound-200"})

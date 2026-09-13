@@ -139,6 +139,7 @@ class TestConditionalPersonalization:
     # docs/specs/friend-register-copy-road.md) — they're covered separately
     # below.
     RACE_CONDITIONAL = ("anti_pitch", "repitch", "race_prep_tips",
+                        "kit_checkin_pilot", "kit_pitch", "kit_followup",
                         "road_anti_pitch", "road_repitch",
                         "road_prep_variables")
 

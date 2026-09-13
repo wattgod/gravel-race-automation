@@ -7,6 +7,7 @@ import hashlib
 import hmac
 import logging
 import random
+import json
 import re
 import secrets
 import urllib.parse
@@ -377,6 +378,67 @@ def _render_subject(subject: str, source_data: dict) -> str:
     return subject.replace("{race_name}", "your race")
 
 
+_SLUG_RE = re.compile(r"^[a-z0-9]+(?:-[a-z0-9]+)*$")
+
+
+def _race_facts(race_slug) -> dict:
+    """Server-derived, verified race facts for race-aware templates.
+
+    Templates may only state numbers that exist in race-data/<slug>.json
+    (product-facts rule). Returns {} when the slug is missing, malformed,
+    unknown, or the profile lacks distance + elevation — the template's
+    {{#race_facts}} block then simply does not render. Values are escaped
+    later with everything else in source_data.
+    """
+    slug = str(race_slug or "").strip().lower()
+    if not slug or not _SLUG_RE.match(slug):
+        return {}
+    try:
+        from mission_control.services.race_data import RACE_DATA_DIR
+        path = RACE_DATA_DIR / f"{slug}.json"
+        if not path.is_file():
+            return {}
+        race = json.loads(path.read_text()).get("race") or {}
+    except Exception:
+        return {}
+    try:
+        vitals = race.get("vitals") if isinstance(race, dict) else None
+        if not isinstance(vitals, dict):
+            return {}
+        distance = vitals.get("distance_mi")
+        elevation = vitals.get("elevation_ft")
+        if not _is_real_number(distance) or not _is_real_number(elevation):
+            return {}
+        if distance <= 0 or elevation < 0:
+            return {}
+        rating = race.get("gravel_god_rating")
+        terrain = vitals.get("terrain_types")
+        facts = {
+            "race_facts": "1",
+            "race_distance_mi": f"{int(round(distance)):,}",
+            "race_elevation_ft": f"{int(round(elevation)):,}",
+            "race_location": str(vitals.get("location") or "")[:80],
+            "race_terrain": str(terrain[0])[:60] if isinstance(terrain, list) and terrain else "",
+            "race_when": str(vitals.get("date") or "")[:60],
+        }
+        score = rating.get("overall_score") if isinstance(rating, dict) else None
+        if _is_real_number(score):
+            facts["race_score"] = str(int(score))
+        return facts
+    except Exception:
+        return {}
+
+
+_RACE_FACT_KEYS = ("race_facts", "race_distance_mi", "race_elevation_ft",
+                   "race_location", "race_terrain", "race_when", "race_score")
+
+
+def _is_real_number(value) -> bool:
+    import math
+    return (isinstance(value, (int, float)) and not isinstance(value, bool)
+            and math.isfinite(value))
+
+
 def _apply_conditionals(html: str, data: dict) -> str:
     """Mustache-style conditional blocks for optional personalization.
 
@@ -419,7 +481,18 @@ def _render_template(template_name: str, enrollment: dict) -> str:
     html = template_path.read_text()
 
     # Replace placeholders with enrollment data
-    source_data = enrollment.get("source_data") or {}
+    source_data = dict(enrollment.get("source_data") or {})
+    # race_slug lands in hrefs (/race/{race_slug}/...): keep it only when it
+    # is a canonical slug, otherwise drop it so {{#race_slug}} blocks vanish.
+    slug = str(source_data.get("race_slug") or "").strip().lower()
+    if slug and _SLUG_RE.match(slug):
+        source_data["race_slug"] = slug
+    else:
+        source_data.pop("race_slug", None)
+    # Race facts are server-derived only: caller-supplied fact keys never win.
+    for key in _RACE_FACT_KEYS:
+        source_data.pop(key, None)
+    source_data.update(_race_facts(source_data.get("race_slug")))
     html = _apply_conditionals(html, source_data)
     # Most templates open with a bare address ("Roberto —"). A missing name used
     # to fall through to the "there" fallback and render "there —", which reads

@@ -1861,6 +1861,13 @@ class TestFunnelAttribution:
         assert "this.closest('[data-measure-section], .gg-section, .gg-sticky-cta')" in src
         assert "section.getAttribute('data-measure-section')" in src
 
+    def test_cta_click_sends_registered_section_name_dimension(self):
+        """Sep 14 (#357): cta_click by section read '(not set)' because the
+        payload only carried cta_section, but the GA4 dimension registered
+        2026-09-11 is section_name (also used by race_section_view)."""
+        src = (Path(__file__).parent.parent / "wordpress" / "generate_neo_brutalist.py").read_text()
+        assert "section_name: section_id" in src
+
     def test_every_cta_sits_inside_an_observed_section(self, normalized_data):
         """Every data-cta anchor must have an ancestor the race_section_view
         observer watches ([data-measure-section] or .gg-deep-dive > section[id]),

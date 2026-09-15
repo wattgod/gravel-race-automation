@@ -1821,6 +1821,7 @@ document.querySelectorAll('.gg-faq-question').forEach(function(q) {
         cta_type: cta_type,
         cta_text: text.substring(0, 50),
         cta_section: section_id,
+        section_name: section_id,
         cta_href: href,
         race_slug: raceSlug,
         page_format: pageFormat

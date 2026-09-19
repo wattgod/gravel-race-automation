@@ -63,6 +63,14 @@ event. Run `python scripts/verify_race_rankings.py --slug {slug}` (or
 enrichment, migration) that touches vitals. Don't wait for Thursday's cron —
 by then the wrong number has been public for days.
 
+## 2a. Jev advisory audits
+
+The optional `scripts/jev_rating_audit.py`, `jev_claim_support.py`, and
+`jev_duplicate_check.py` add flag-only semantic checks after bulk enrichment,
+alongside `verify_race_rankings.py`. They cost approximately $0.042/Mtok input
+and never change profiles, scores, tiers, explanations, or pages.
+Every flag requires human review; missing credentials fail closed.
+
 ## 3. NEVER fabricate social proof
 
 **War story**: a Jun 2026 voice audit (Phase 1 sprint) found 53 fabricated

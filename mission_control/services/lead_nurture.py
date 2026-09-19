@@ -21,7 +21,11 @@ from email.utils import parseaddr
 
 from mission_control import supabase_client as db
 from mission_control.sequences import get_sequence
-from scripts import jev_client
+
+try:
+    from scripts import jev_client
+except ImportError:  # pragma: no cover - scripts/ not on sys.path in some deployments
+    jev_client = None
 
 
 MAX_BODY_CHARS = 30_000
@@ -137,6 +141,8 @@ def classify_intent(text: str) -> str:
 
 def jev_intent_signal(text: str) -> dict | None:
     """Return an optional intent signal without changing deterministic routing."""
+    if jev_client is None:
+        return None
     Choice, Score, Noul = jev_client.question_types()
     del Score
     intent_descriptions = {

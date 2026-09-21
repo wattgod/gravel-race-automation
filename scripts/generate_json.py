@@ -74,7 +74,7 @@ Output ONLY valid JSON, no markdown code blocks, no explanation. The JSON should
     print(f"Generating JSON from {input_path}...")
     
     response = client.messages.create(
-        model="claude-sonnet-4-20250514",
+        model="claude-sonnet-4-5-20250929",
         max_tokens=4000,
         messages=[{"role": "user", "content": prompt}]
     )

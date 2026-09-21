@@ -166,7 +166,7 @@ Write in Matti voice throughout. Dry, direct, no hype. If it feels sweaty, cut i
     for attempt in range(max_retries):
         try:
             response = client.messages.create(
-                model="claude-sonnet-4-20250514",
+                model="claude-sonnet-4-5-20250929",
                 max_tokens=3000,  # Reduced to avoid rate limits
                 messages=[{"role": "user", "content": prompt}]
             )
@@ -195,7 +195,7 @@ Write in Matti voice throughout. Dry, direct, no hype. If it feels sweaty, cut i
     output = f"""---
 generated_at: {datetime.now().isoformat()}
 source: {input_path}
-model: claude-sonnet-4-20250514
+model: claude-sonnet-4-5-20250929
 ---
 
 {brief_content}

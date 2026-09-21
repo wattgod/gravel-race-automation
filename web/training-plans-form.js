@@ -199,6 +199,8 @@
           data[key] = val;
         }
       });
+      data._savedAt = Date.now();
+      if (prefilledRaceSlug) data._raceSlug = prefilledRaceSlug;
       localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
     } catch(e) {}
   }
@@ -207,8 +209,23 @@
     try {
       var saved = JSON.parse(localStorage.getItem(STORAGE_KEY));
       if (!saved) return;
+      if (!saved._savedAt || Date.now() - saved._savedAt > 7*24*60*60*1000) {
+        localStorage.removeItem(STORAGE_KEY);
+        return;
+      }
+      var urlRace = new URLSearchParams(window.location.search).get('race');
+      var restoreRaces = !(urlRace && urlRace !== saved._raceSlug);
+      if (restoreRaces) {
+        var maxRaceIdx = -1;
+        for (var rkey in saved) {
+          var rm = rkey.match(/^race_(\d+)_/);
+          if (rm && parseInt(rm[1], 10) > maxRaceIdx) maxRaceIdx = parseInt(rm[1], 10);
+        }
+        while (raceCount <= maxRaceIdx) addRace();
+      }
       for (var key in saved) {
-        if (key.startsWith('race_')) continue;
+        if (key.charAt(0) === '_') continue;
+        if (key.startsWith('race_') && !restoreRaces) continue;
         var val = saved[key];
         if (Array.isArray(val)) {
           val.forEach(function(v) {
@@ -232,10 +249,6 @@
       if (sexSelect) sexSelect.dispatchEvent(new Event('change'));
       calculateWkg();
     } catch(e) {}
-  }
-
-  function clearSaved() {
-    try { localStorage.removeItem(STORAGE_KEY); } catch(e) {}
   }
 
   // ---- Field name mapping (camelCase form → snake_case worker) ----
@@ -712,7 +725,6 @@
       if (result.checkout_url) {
         // Success — redirect to Stripe Checkout
         formSubmitted = true;
-        clearSaved();
         var aRace = races.find(function(r) { return r.priority === 'A'; }) || races[0];
         var pricing = aRace ? computePrice(aRace.date) : null;
         track('tp_form_submit', {

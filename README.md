@@ -50,6 +50,9 @@ python3 scripts/push_wordpress.py --deploy-all --purge-cache
 python3 scripts/push_wordpress.py --sync-pages --sync-widget --sync-index --purge-cache
 ```
 
+Optional advisory audits use `TYPESAFE_API_KEY` when set; keep it in the
+environment and never commit its value.
+
 ## Search Widget Features
 
 - **View modes**: Tier-based sections (T1-T4) and match mode (flat sorted list)

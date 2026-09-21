@@ -22,6 +22,11 @@ from email.utils import parseaddr
 from mission_control import supabase_client as db
 from mission_control.sequences import get_sequence
 
+try:
+    from scripts import jev_client
+except ImportError:  # pragma: no cover - scripts/ not on sys.path in some deployments
+    jev_client = None
+
 
 MAX_BODY_CHARS = 30_000
 MAX_SUBJECT_CHARS = 500
@@ -134,6 +139,61 @@ def classify_intent(text: str) -> str:
     return "conversation"
 
 
+def jev_intent_signal(text: str) -> dict | None:
+    """Return an optional intent signal without changing deterministic routing."""
+    if jev_client is None:
+        return None
+    Choice, Score, Noul = jev_client.question_types()
+    del Score
+    intent_descriptions = {
+        "support": "the athlete needs help with a missing, broken, charged, or account resource",
+        "buying": "the athlete is asking about price, coaching, a plan, or signing up",
+        "health_constraint": "the athlete reports an injury, illness, or health limitation",
+        "race_decision": "the athlete is choosing between races or working out race logistics",
+        "deferred": "the athlete did not race or postponed the event",
+        "training_positive": "the athlete reports that training is going well or is back on track",
+        "conversation": "the athlete is having a general training conversation",
+    }
+    response = jev_client.ask(
+        {"reply": text},
+        {
+            "intent": Choice(
+                instructions="What is this athlete reply mainly doing?",
+                criteria=intent_descriptions,
+            ),
+            "health_constraint": Noul(
+                instructions=(
+                    "Does the reply mention injury, illness, pregnancy, surgery, "
+                    "or a medical limitation?"
+                )
+            ),
+            "wants_human": Noul(
+                instructions=(
+                    "Does the reply need a personal answer from the coach rather "
+                    "than a template?"
+                )
+            ),
+        },
+    )
+    if response is None:
+        return None
+    answer = jev_client.choice(response, "intent")
+    intent = getattr(answer, "choice", None)
+    if intent not in intent_descriptions:
+        return None
+    return {
+        "intent": intent,
+        "confidence": jev_client.confidence(answer),
+        "agrees_with_rules": intent == classify_intent(text),
+        "health_constraint": jev_client.probability(
+            jev_client.noul(response, "health_constraint")
+        ),
+        "wants_human": jev_client.probability(
+            jev_client.noul(response, "wants_human")
+        ),
+    }
+
+
 def _stable_choice(seed: str, choices: tuple[tuple[str, str], ...]) -> tuple[str, str]:
     index = int(hashlib.sha256(seed.encode()).hexdigest()[:8], 16) % len(choices)
     return choices[index]
@@ -197,6 +257,7 @@ def build_reply_suggestion(
     or buying signal requires a coach answer before the draft can be approved.
     """
     intent = classify_intent(text)
+    jev = jev_intent_signal(text)
     needs_answer = "?" in text or intent in {"support", "buying"}
 
     answer_placeholder = ""
@@ -267,6 +328,7 @@ def build_reply_suggestion(
         "draft_text": draft,
         "needs_coach_answer": needs_answer,
         "rationale": rationale,
+        "jev": jev,
     }
 
 

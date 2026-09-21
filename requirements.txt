@@ -12,6 +12,7 @@ pytest>=7.4
 python-frontmatter>=1.0
 fastmcp>=2.0
 beautifulsoup4>=4.12
+typesafe-sdk==0.5.7
 
 # Mission Control
 # Pinned after the 2026-08 outage: unpinned fastapi let a Railway rebuild pull

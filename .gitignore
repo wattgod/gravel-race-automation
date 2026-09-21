@@ -84,6 +84,9 @@ reports/daily/*.html
 reports/daily/*.json
 !reports/daily/.gitkeep
 
+# Jev advisory audit reports (generated locally; source profiles stay canonical)
+data/jev/
+
 # Cloudflare Wrangler build artifacts
 .wrangler/
 workers/*/.wrangler/

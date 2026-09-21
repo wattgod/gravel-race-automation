@@ -215,7 +215,7 @@ MUST include 15-25 URLs total. Reddit + YouTube URLs are REQUIRED. Be specific, 
         for attempt in range(max_retries):
             try:
                 response = client.messages.create(
-                    model="claude-sonnet-4-20250514",
+                    model="claude-sonnet-4-5-20250929",
                     max_tokens=2000,  # Further reduced to avoid rate limits
                     tools=[{"type": "web_search_20250305", "name": "web_search"}],
                     messages=[{"role": "user", "content": prompt}]
@@ -295,7 +295,7 @@ MUST include 15-25 URLs total. Reddit + YouTube URLs are REQUIRED. Be specific, 
 race: {race_name}
 folder: {folder}
 researched_at: {datetime.now().isoformat()}
-model: claude-sonnet-4-20250514
+model: claude-sonnet-4-5-20250929
 ---
 
 {research_content}

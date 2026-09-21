@@ -45,7 +45,7 @@ def extract_claims(content: str) -> list:
     for attempt in range(max_retries):
         try:
             response = client.messages.create(
-                model="claude-sonnet-4-20250514",
+                model="claude-sonnet-4-5-20250929",
                 max_tokens=2000,  # Reduced to avoid rate limits
                 messages=[{
                     "role": "user",
@@ -94,7 +94,7 @@ def validate_claim(claim: dict, source_content: str) -> dict:
     client = anthropic.Anthropic(api_key=api_key)
     
     response = client.messages.create(
-        model="claude-sonnet-4-20250514",
+        model="claude-sonnet-4-5-20250929",
         max_tokens=500,
         messages=[{
             "role": "user", 

@@ -50,10 +50,29 @@ def test_no_inline_handlers():
     assert not re.search(r"\son(click|submit|change|input)=", page())
 
 
-def test_all_twelve_sections():
+def test_all_sixteen_sections_in_three_parts():
     html = page()
-    for n in range(1, 13):
+    for n in range(1, 17):
         assert f'gg-apply-section-title">{n}. ' in html
+    assert html.count('class="gg-sr-part"') == 3
+
+
+def test_no_training_metrics_asked():
+    # Matti: FTP and similar numbers come from data, not the athlete.
+    html = page().lower()
+    for term in ('name="ftp', 'data-field="ftp', 'w/kg', 'name="weight', 'plan_completion'):
+        assert term not in html
+
+
+def test_ideal_future_write_is_fifteen_minutes():
+    # Free-writing under ~15 min shows no effect (Frattaroli 2006).
+    assert 'data-minutes="15"' in page()
+
+
+def test_goal_and_habits_carry_if_then_plans():
+    html = page()
+    assert 'name="inner_obstacle"' in html and 'name="obstacle_plan"' in html
+    assert 'data-field="if_then"' in html
 
 
 def test_sum_of_law_scores_never_shown_to_athlete():

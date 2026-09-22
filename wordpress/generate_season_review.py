@@ -184,7 +184,7 @@ def build_section_past() -> str:
     return f'''<div class="gg-apply-section-title">2. {SEASON}</div>
 
       <div class="gg-apply-group">
-        <label class="gg-apply-label" for="proudest">What moment from {SEASON} are you proudest of? What happened, and what did you do that helped?{_req()}</label>
+        <label class="gg-apply-label" for="proudest">What are you proudest of from {SEASON}, and what did you do that made it happen?{_req()}</label>
         <textarea id="proudest" name="proudest" required rows="4"></textarea>
       </div>
 
@@ -309,6 +309,7 @@ def build_section_me() -> str:
             ("coaching", "Coaching"),
             ("custom_plan", "A custom plan"),
             ("undecided", "Not sure"),
+            ("break", "Taking a break"),
         ], required=True)}
       </div>
 
@@ -430,10 +431,11 @@ def build_deep_modules() -> str:
     )
 
 
-def build_submit_buttons() -> str:
-    return '''<div class="gg-apply-actions">
-        <button type="button" class="gg-apply-save-btn" id="save-btn">Save Progress</button>
-        <button type="submit" class="gg-apply-submit-btn" id="submit-btn">Submit Season Review</button>
+def build_submit_buttons(btn_id: str, lead: str = "") -> str:
+    lead_html = f'<p class="gg-sr-done">{lead}</p>' if lead else ""
+    return f'''{lead_html}<div class="gg-apply-actions">
+        <button type="button" class="gg-apply-save-btn gg-sr-save">Save Progress</button>
+        <button type="submit" class="gg-apply-submit-btn gg-sr-submit" id="{btn_id}">Submit Season Review</button>
       </div>'''
 
 
@@ -464,6 +466,12 @@ def build_season_review_css() -> str:
   border: 2px dashed var(--gg-color-near-black);
   padding: var(--gg-spacing-md);
   margin-bottom: var(--gg-spacing-sm);
+}
+.gg-sr-done {
+  font-family: var(--gg-font-editorial);
+  font-size: var(--gg-font-size-sm);
+  color: var(--gg-color-secondary-brown);
+  margin: var(--gg-spacing-xl) 0 0;
 }
 .gg-sr-deeper[open] { border-style: solid; background: var(--gg-color-warm-paper); }
 .gg-sr-deeper summary {
@@ -607,14 +615,34 @@ def build_season_review_js() -> str:
         inp.closest(".gg-apply-radio-option").classList.remove("selected");
       });
       input.checked = true;
-      opt.classList.add("selected");
-      if (input.name === "habit_direction") { setDirection(input.value); }
+      radioChanged(input);
       queueSave();
       updateProgress();
     }
   });
 
-  function onEdit() { queueSave(); updateProgress(); }
+  /* selected styling + dependent prompts; runs for mouse, keyboard and restore */
+  function radioChanged(input) {
+    form.querySelectorAll("input[name=\"" + input.name + "\"]").forEach(function(inp) {
+      inp.closest(".gg-apply-radio-option").classList.toggle("selected", inp.checked);
+    });
+    if (input.name === "habit_direction") { setDirection(input.value); }
+    if (input.name === "last_goal_result") {
+      var none = input.value === "none";
+      ["last_goal", "last_goal_why"].forEach(function(id) {
+        var el = document.getElementById(id);
+        el.required = !none;
+        var star = form.querySelector("label[for=" + id + "] .gg-apply-required");
+        if (star) { star.hidden = none; }
+      });
+    }
+  }
+
+  function onEdit(e) {
+    if (e && e.target.type === "radio" && e.target.checked) { radioChanged(e.target); }
+    queueSave();
+    updateProgress();
+  }
   form.addEventListener("input", onEdit);
   form.addEventListener("change", onEdit);
 
@@ -681,8 +709,7 @@ def build_season_review_js() -> str:
           } else if (el.type === "radio") {
             if (el.value === saved[key]) {
               el.checked = true;
-              el.closest(".gg-apply-radio-option").classList.add("selected");
-              if (el.name === "habit_direction") { setDirection(el.value); }
+              radioChanged(el);
             }
           } else {
             el.value = saved[key];
@@ -704,7 +731,9 @@ def build_season_review_js() -> str:
     updateProgress();
   }
 
-  document.getElementById("save-btn").addEventListener("click", function() { save(false); ga4("season_review_saved", {}); });
+  form.querySelectorAll(".gg-sr-save").forEach(function(b) {
+    b.addEventListener("click", function() { save(false); ga4("season_review_saved", {}); });
+  });
   window.addEventListener("beforeunload", function() { save(true); });
 
   /* ── Format the email ────────────────────────────── */
@@ -757,7 +786,7 @@ def build_season_review_js() -> str:
     dadd("Would have to start wanting", d.want_to_want);
     var missing = [["dead_obvious", "set time/place"], ["dead_attractive", "something to look forward to"], ["dead_easy", "easy to start"], ["dead_satisfying", "visible payoff"]]
       .filter(function(p) { return d[p[0]]; }).map(function(p) { return p[1]; });
-    if (d.dead_habit) { dadd("Habit that died", d.dead_habit + (missing.length ? " (missing: " + missing.join(", ") + ")" : "")); }
+    if (d.dead_habit || missing.length) { dadd("Habit that died", (d.dead_habit || "(unnamed)") + (missing.length ? " (missing: " + missing.join(", ") + ")" : "")); }
     if (d.why_2 || d.why_3) { dadd("Why, deeper", [d.outcome_why, d.why_2, d.why_3].filter(Boolean).join(" -> ")); }
     if (deep.length) {
       L.push("");
@@ -768,7 +797,6 @@ def build_season_review_js() -> str:
     L.push("## Flags");
     var flags = [];
     if (d.last_goal_result === "none") { flags.push("No clear goal last season"); }
-    if (d.a_race && /^(3-5|5-7)$/.test(d.hours_next || "")) { flags.push("Main race on " + d.hours_next + " hrs/week: check the fit"); }
     if (d.constraints && !/^(nothing|none|no)\.?$/i.test(d.constraints)) { flags.push("Constraint: " + d.constraints); }
     L.push(flags.length ? flags.map(function(f) { return "- " + f; }).join("\n") : "- none");
     L.push("");
@@ -804,15 +832,14 @@ def build_season_review_js() -> str:
   /* ── Submit ──────────────────────────────────────── */
   form.addEventListener("submit", function(e) {
     e.preventDefault();
-    var btn = document.getElementById("submit-btn");
-    if (btn.disabled) { return; }
+    var btns = form.querySelectorAll(".gg-sr-submit");
+    if (btns[0].disabled) { return; }
     if (form.querySelector("[name=website]").value) {
       showMessage("error", "Something filled a hidden field. Clear your browser's autofill for this page and try again.");
       return;
     }
     var d = collect();
-    btn.disabled = true;
-    btn.textContent = "Submitting...";
+    setButtons(true, "Submitting...");
     save(true);
 
     var payload = new FormData();
@@ -839,18 +866,21 @@ def build_season_review_js() -> str:
         try { localStorage.removeItem(STORAGE_KEY); } catch (err) { /* ignore */ }
         ga4("season_review_submitted", { deep_modules: form.querySelectorAll(".gg-sr-deeper[open]").length });
         showMessage("success", "Got it. I'll read it properly and come back with the plan for " + (SEASON + 1) + ".");
-        btn.textContent = "Submitted";
+        setButtons(true, "Submitted");
       })
       .catch(function(err) {
         clearTimeout(killer);
         showMessage("error", saveOk
           ? "That didn't go through. Your answers are saved in this browser. Try again, or email __EMAIL__."
           : "That didn't go through, and this browser can't save. Keep this page open and try again, or email __EMAIL__.");
-        btn.disabled = false;
-        btn.textContent = "Submit Season Review";
+        setButtons(false, "Submit Season Review");
         ga4("season_review_error", { message: String(err.message || "unknown").slice(0, 80) });
       });
   });
+
+  function setButtons(disabled, label) {
+    form.querySelectorAll(".gg-sr-submit").forEach(function(b) { b.disabled = disabled; b.textContent = label; });
+  }
 
   function showMessage(type, text) {
     var m = document.getElementById("message");
@@ -912,8 +942,9 @@ def generate_season_review_page(external_assets=None) -> str:
       {build_section_habit()}
       {build_section_year()}
       {build_section_me()}
+      {build_submit_buttons("submit-btn", "You&#39;re done. Submit now, or add any of the optional sections below first.")}
       {build_deep_modules()}
-      {build_submit_buttons()}
+      {build_submit_buttons("submit-btn-2")}
     </form>
   </div>
   {build_footer()}

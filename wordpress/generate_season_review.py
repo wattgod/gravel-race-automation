@@ -126,6 +126,8 @@ def _control(field) -> str:
             for n, t in field["options"]
         )
         return f'<div class="gg-apply-checkbox-vertical">{opts}</div>'
+    if kind == "hidden":
+        return f'<input type="hidden" id="{name}" name="{name}">'
     if kind == "timed":
         return f'<textarea id="{name}" name="{name}" rows="{field.get("rows", 10)}" class="gg-sr-long"></textarea>'
     raise ValueError(f"unknown field kind {kind!r}")
@@ -154,6 +156,8 @@ def render_why_chain(field) -> str:
 
 
 def render_field(field, context_title: str = "") -> str:
+    if field["kind"] == "hidden":
+        return _control(field)
     if field["kind"] == "whychain":
         return render_why_chain(field)
     if field["kind"] == "pair":
@@ -544,9 +548,9 @@ def build_season_review_js(variant) -> str:
     updateWhys();
     /* personalised links: ?name=&email= */
     var params = new URLSearchParams(window.location.search);
-    ["name", "email"].forEach(function(k) {
+    ["name", "email", "athlete"].forEach(function(k) {
       var el = document.getElementById(k);
-      if (params.get(k) && !el.value) { el.value = params.get(k); }
+      if (el && params.get(k) && !el.value) { el.value = params.get(k); }
     });
     updateProgress();
   }
@@ -610,10 +614,43 @@ def build_season_review_js(variant) -> str:
     return L.join("\n");
   }
 
+  /* The limiter interrogation, in the shape Endure stores it
+     (endurelabs docs/specs/endure-loop-2026.md §3): answers verbatim. */
+  var PROBES = [
+    ["limiter", "Rate limiter: if we could fix exactly one thing before the A race, what wins the most time?"],
+    ["limiter_evidence", "Rate limiter: what is the evidence?"],
+    ["vices", "Admitted vices: what do you eat, drink or do that is costing you? What, how often, when."],
+    ["skill_gaps", "Skill shortcomings: where do you lose races that fitness does not explain?"],
+    ["week_breakers", "Life constraints: what breaks a training week, and how often?"],
+    ["drop_order", "Drop order: when the week collapses, what goes first, second, third?"],
+    ["pre_race_48h", "The 48 hours: walk me through the 48 hours before your last race."],
+    ["admission", "The admission: what would you have to admit to yourself to hit this goal?"]
+  ];
+
+  function interrogation(d) {
+    var asked = new Date().toISOString();
+    return PROBES.filter(function(p) { return d[p[0]]; }).map(function(p) {
+      return { probe: p[1], field: p[0], answer: d[p[0]], asked_at: asked, version: 1 };
+    });
+  }
+
   /* goal -> area -> habit, in the shape of the Endure goal tree */
   function toEndure(d) {
     var areaSel = document.getElementById("area");
-    return {
+    var probes = interrogation(d);
+    var extras = {};
+    if (probes.length) {
+      extras.interrogation = probes;
+      extras.athlete_ref = d.athlete || null;
+    }
+    if (d.limiter) {
+      extras.limiter_evidence = [{
+        v: 1, text: d.limiter, kind: d.limiter_kind || null,
+        evidence: d.limiter_evidence || null, admitted_at: new Date().toISOString()
+      }];
+    }
+    if (d.drop_order) { extras.drop_order = d.drop_order.split(/,|→|->|then/i).map(function(x) { return x.trim(); }).filter(Boolean); }
+    return Object.assign(extras, {
       version: 4, variant: VARIANT, season: SEASON, email: d.email,
       goals: {
         "review:ROOT": {
@@ -633,7 +670,7 @@ def build_season_review_js(variant) -> str:
           design: { obvious: d.habit_when || null, easy: d.habit_min || null }, scores: null
         }
       } : {}
-    };
+    });
   }
 
   /* ── Submit ──────────────────────────────────────── */

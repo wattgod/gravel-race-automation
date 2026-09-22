@@ -135,3 +135,37 @@ def test_goal_has_five_whys_and_why_not_yet_in_core(slug):
     core = core_form(slug)
     for n in ("outcome_why", "why_2", "why_3", "why_4", "why_5", "not_yet"):
         assert f'name="{n}"' in core
+
+
+class TestAthleteVariant:
+    """The version Matti sends to people he already coaches. Its questions are
+    Endure's limiter interrogation (endure-loop-2026 §3), so the answers file
+    into the athlete's record instead of needing to be retyped.
+    """
+
+    def test_asks_all_seven_probes(self):
+        core = core_form("athlete")
+        for field in ("limiter", "limiter_evidence", "vices", "skill_gaps",
+                      "week_breakers", "drop_order", "pre_race_48h", "admission"):
+            assert f'name="{field}"' in core, field
+
+    def test_limiter_is_typed(self):
+        # a string alone would overload Endure's limiters[]; the kind is what
+        # lets it become a race_limiters row or a leaf goal
+        core = core_form("athlete")
+        for kind in ("fitness", "skill", "positioning", "durability", "body", "life"):
+            assert f'value="{kind}"' in core
+
+    def test_carries_a_hidden_athlete_tag(self):
+        assert '<input type="hidden" id="athlete" name="athlete">' in page("athlete")
+
+    def test_export_keeps_the_probes_verbatim(self):
+        js = build_season_review_js(VARIANTS["athlete"])
+        assert "interrogation" in js and "limiter_evidence" in js
+        assert "asked_at" in js and "version: 1" in js
+
+    def test_still_short_enough_to_finish(self):
+        # "athlete" is the hidden tag from the link, not a question
+        names = set(re.findall(r'name="([a-z_0-9]+)"', core_form("athlete"))) - {"website", "athlete"}
+        names = {n for n in names if not re.fullmatch(r"why_[2-5]", n)}
+        assert len(names) <= 32, sorted(names)

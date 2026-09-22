@@ -386,4 +386,108 @@ FIVE = {
 }
 
 
-VARIANTS = {v["slug"]: v for v in (STANDARD, CLAUDE, MATTI, FIVE)}
+# ── Athlete: for the people Matti already coaches ─────────────
+# Built on Endure's limiter interrogation (endurelabs
+# docs/specs/endure-loop-2026.md §3, the seven probes), so the answers file
+# straight into the athlete's record: probes stored verbatim, the rate
+# limiter with its evidence, vices as habits to cut, skill gaps, the week
+# breakers, the drop order, the 48 hours, and the admission.
+
+ATHLETE = {
+    "slug": "athlete",
+    "badge": "Athlete Season Review",
+    "h1": f"So. {SEASON}.",
+    "intro": "About 20 minutes. This one goes in your file and shapes what I build for you. Don&#39;t write what you&#39;d post. It saves as you type.",
+    "sections": [
+        {"title": "You", "fields": [
+            {"name": "athlete", "kind": "hidden"},
+            *YOU["fields"],
+        ]},
+        {"title": f"{SEASON}", "sub": "Not the Strava version.", "fields": [
+            {"name": "proudest", "label": f"What are you proudest of from {SEASON}?", "kind": "area", "req": True, "rows": 3},
+            {"name": "last_goal", "label": f"What did you say you&#39;d do this year?", "kind": "text", "req": True,
+             "ph": "The goal you set before the season, not the one you&#39;ve since decided you meant"},
+            {"name": "last_goal_result", "label": "And?", "kind": "radio", "req": True,
+             "options": [("hit", "Nailed it"), ("close", "Close"), ("missed", "Missed"), ("dropped", "Quietly abandoned"), ("none", "Never set one")],
+             "lift": {"when": "none", "fields": ["last_goal", "last_goal_why"]}},
+            {"name": "last_goal_why", "label": "What decided it?", "kind": "text", "req": True, "ph": "Flat tires only explain so much"},
+        ]},
+        {"title": "The One Thing", "sub": "If I could fix exactly one thing about you, what wins the most time?", "fields": [
+            {"name": "limiter", "label": "The one thing", "kind": "text", "req": True, "ph": "e.g., I fade after hour five"},
+            {"name": "limiter_kind", "label": "What kind of thing is it?", "kind": "radio", "req": True,
+             "options": [("fitness", "Fitness"), ("skill", "Skill"), ("positioning", "Positioning"),
+                         ("durability", "Durability"), ("body", "Body"), ("life", "Life")]},
+            {"name": "limiter_evidence", "label": "What&#39;s the evidence?", "kind": "area", "req": True, "rows": 2,
+             "ph": "The race, the ride, the moment you knew"},
+        ]},
+        {"title": "What You Already Know Is Costing You", "fields": [
+            {"name": "vices", "label": "What do you eat, drink or do that you already know is costing you? What, how often, and when.", "kind": "area", "req": True, "rows": 3,
+             "ph": "Mine&#39;s the post-ride party. Two days wrecked, twenty times a year."},
+        ]},
+        {"title": "Where You Lose Races", "fields": [
+            {"name": "skill_gaps", "label": "Where do you lose races that fitness doesn&#39;t explain?", "kind": "area", "req": True, "rows": 2,
+             "ph": "Descending, feed zones, the first 30 miles, the surge out of a corner"},
+        ]},
+        {"title": "The Week That Breaks", "fields": [
+            {"name": "week_breakers", "label": "What breaks a training week for you, and how often?", "kind": "area", "req": True, "rows": 2,
+             "ph": "Sick kids, travel, a 60-hour week. Roughly how many weeks a year?"},
+            {"name": "drop_order", "label": "When the week collapses, what goes first, second, third?", "kind": "text", "req": True,
+             "ph": "e.g., Strength, then the long ride, then sleep"},
+        ]},
+        {"title": "The 48 Hours", "fields": [
+            {"name": "pre_race_48h", "label": "Walk me through the 48 hours before your last race.", "kind": "area", "req": True, "rows": 4,
+             "ph": "Sleep, food, caffeine, travel, who you were with, what you were thinking"},
+        ]},
+        {"title": f"{NEXT}", "sub": "&ldquo;Get faster&rdquo; isn&#39;t a goal. It&#39;s a direction.", "fields": [
+            {"name": "outcome_goal", "label": f"By the end of {NEXT}, I will&hellip;", "kind": "text", "req": True,
+             "ph": "Measurable. If it can&#39;t fail, it&#39;s not a goal, it&#39;s a vibe."},
+            {"name": "outcome_measure", "label": "How will we know you did it?", "kind": "text", "req": True},
+            {"name": "not_yet", "label": "So why haven&#39;t you done it yet?", "kind": "text", "req": True, "ph": "Not the excuse. The reason."},
+            {"name": "outcome_why", "label": "Why do you want it?", "kind": "whychain", "req": True},
+            _race_pair("The race it all points at"),
+        ]},
+        {"title": "The Admission", "fields": [
+            {"name": "admission", "label": "What would you have to admit to yourself to hit this goal?", "kind": "area", "req": True, "rows": 3},
+        ]},
+        {"title": "What Gets in the Way", "fields": [
+            {"name": "inner_obstacle", "label": "What in you is most likely to screw this up?", "kind": "text", "req": True, "ph": "e.g., I skip rides after a late night out"},
+            {"name": "obstacle_plan", "label": "When that shows up, you&#39;ll&hellip;", "kind": "text", "req": True, "ph": "Specific. &ldquo;Try harder&rdquo; isn&#39;t a plan."},
+        ]},
+        {"title": "One Area, One Habit", "fields": [
+            {"name": "area", "label": "What one area most needs to improve?", "kind": "select", "req": True, "options": AREAS},
+            *HABIT_SWAP_FIELDS,
+        ]},
+        {"title": "The Boring Logistics", "sub": "Include the kids, the commute, and the partner who thinks you ride too much.", "fields": [
+            {"name": "hours_next", "label": f"Hours a week you can actually train in {NEXT}. Not aspirationally.", "kind": "select", "req": True, "options": HOURS},
+            {"name": "constraints", "label": "Anything coming that&#39;ll blow up the plan?", "kind": "text", "req": True,
+             "ph": "Baby, new job, surgery, a move. &ldquo;Nothing&rdquo; is a fine answer."},
+        ]},
+        {"title": "Me", "fields": [
+            {"name": "next_season_plan", "label": f"For {NEXT}, you want:", "kind": "radio", "req": True,
+             "options": [("coaching", "More coaching"), ("custom_plan", "A custom plan"), ("undecided", "Not sure"), ("break", "A break from me")]},
+            {"name": "coach_notes", "label": "What should I keep doing, and what should I stop? I can take it.", "kind": "area", "rows": 3},
+        ]},
+    ],
+    "done": "That&#39;s what I need. Hit submit, or keep digging below.",
+    "deep_title": "Extra credit &mdash; for the obsessive",
+    "modules": [
+        _module("ideal", "The season you want", "15 min", [
+            {"name": "ideal_season", "kind": "timed", "minutes": 15, "rows": 12,
+             "label": f"It&#39;s December {NEXT} and it went perfectly. Write it like a race report: where, who, how it felt. Don&#39;t stop to edit."}]),
+        _module("traits", "What carried you, what cost you", "5 min", [
+            {"name": "strength", "label": f"Which of these carried you in {SEASON}?", "kind": "select", "options": [(t, t) for t in STRENGTHS]},
+            {"name": "fault", "label": "Which cost you most?", "kind": "select", "options": [(t, t) for t in FAULTS]},
+            {"name": "fault_when", "label": "When did it bite you?", "kind": "area", "rows": 2}]),
+        _module("dead_habit", "The habit that died", "2 min", [
+            {"name": "dead_habit", "label": f"One you swore you&#39;d keep in {SEASON}", "kind": "text", "ph": "e.g., Mobility after every ride (lol)"},
+            {"name": "dead_reasons", "label": "Cause of death", "kind": "checks", "options": DEAD_HABIT_REASONS}]),
+        _module("moments", f"The moments that shaped {SEASON}", "10 min", [
+            {"name": "moment_1", "label": "The moment that mattered most: what happened?", "kind": "area", "rows": 3},
+            {"name": "moment_1_role", "label": "What part was yours, and what wasn&#39;t?", "kind": "area", "rows": 2}]),
+    ],
+    "submit": "Send It to Matti",
+    "success": f"Got it. It&#39;s in your file. I&#39;ll read it before I build {NEXT}.",
+}
+
+
+VARIANTS = {v["slug"]: v for v in (STANDARD, CLAUDE, MATTI, FIVE, ATHLETE)}

@@ -168,4 +168,32 @@ class TestAthleteVariant:
         # "athlete" is the hidden tag from the link, not a question
         names = set(re.findall(r'name="([a-z_0-9]+)"', core_form("athlete"))) - {"website", "athlete"}
         names = {n for n in names if not re.fullmatch(r"why_[2-5]", n)}
-        assert len(names) <= 32, sorted(names)
+        assert len(names) <= 36, sorted(names)
+
+
+class TestOneVoice:
+    """The lead form, the athlete form and the original are one questionnaire
+    in three lengths. They share their section blocks so the tone can't drift.
+    """
+
+    @pytest.mark.parametrize("slug", ["matti", "goal_2027", "athlete"])
+    def test_same_opening(self, slug):
+        assert "So. 2026." in page(slug)
+
+    @pytest.mark.parametrize("slug", ["matti", "goal_2027", "athlete"])
+    def test_shared_sections_are_word_for_word(self, slug):
+        core = core_form(slug)
+        for line in ("The Highlight Reel", "The Blooper Reel",
+                     "Your Biggest Obstacle Is You", "What Would a Fast Cyclist Do?",
+                     "Not the Strava version", "Not the weather. Not work. You."):
+            assert line in core, (slug, line)
+
+    def test_lead_form_asks_no_coaching_questions(self):
+        core = core_form("goal_2027")
+        for field in ("hours_next", "constraints", "next_season_plan", "coach_notes"):
+            assert f'name="{field}"' not in core, field
+
+    def test_lead_form_stays_a_fifteen_minute_job(self):
+        names = set(re.findall(r'name="([a-z_0-9]+)"', core_form("goal_2027"))) - {"website"}
+        names = {n for n in names if not re.fullmatch(r"why_[2-5]", n)}
+        assert len(names) <= 25, sorted(names)

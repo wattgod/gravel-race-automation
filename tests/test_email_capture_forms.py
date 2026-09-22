@@ -160,3 +160,33 @@ class TestNoFakeSuccessOnFormSubmit:
         assert re.search(r"\.then\(function\(r\)\s*\{", block), (
             f"{block_name} fetch call has no .then(function(r){{...}}) handler"
         )
+
+
+class TestGoal2027Source:
+    """The 2027 goal questionnaire is the only capture source that forwards a
+    body: its answers render the poster and give Matti the read. If the worker
+    drops them, the lead arrives with nothing to deliver.
+    """
+
+    @pytest.fixture(scope="class")
+    def worker_js(self):
+        if not WORKER_PATH.exists():
+            pytest.skip("worker.js not present")
+        return WORKER_PATH.read_text()
+
+    def test_known_sources_includes_goal_2027(self, worker_js):
+        match = re.search(r"KNOWN_SOURCES\s*=\s*\[[^\]]*\]", worker_js)
+        assert match, "KNOWN_SOURCES array not found in worker.js"
+        assert "'goal_2027'" in match.group(0), (
+            "Worker KNOWN_SOURCES must include 'goal_2027' or every submission "
+            "from /goals/ returns 400 Unknown source."
+        )
+
+    def test_answers_and_variant_are_forwarded(self, worker_js):
+        assert "payload.goal_answers" in worker_js
+        assert "payload.offer_variant" in worker_js
+
+    def test_answers_are_capped(self, worker_js):
+        assert "sanitizeAnswers" in worker_js
+        for cap in ("MAX_ANSWER_KEYS", "MAX_ANSWER_LEN", "MAX_ANSWERS_TOTAL"):
+            assert cap in worker_js, f"missing cap {cap}"

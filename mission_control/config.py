@@ -89,6 +89,14 @@ RACE_DATES_URLS = {
 }
 
 # Webhook secret (for Worker → Mission Control auth)
+# Public base URL Mission Control is reachable at, for links it serves itself
+# (the 2027 goal poster). Railway sets RAILWAY_PUBLIC_DOMAIN; MC_PUBLIC_URL
+# overrides it. Empty means "don't put a poster link in the email".
+_railway_domain = os.environ.get("RAILWAY_PUBLIC_DOMAIN", "")
+MC_PUBLIC_URL = os.environ.get(
+    "MC_PUBLIC_URL", f"https://{_railway_domain}" if _railway_domain else ""
+)
+
 WEBHOOK_SECRET = os.environ.get("WEBHOOK_SECRET", "")
 
 # Resend signs event webhooks Svix-style (svix-signature header), NOT with

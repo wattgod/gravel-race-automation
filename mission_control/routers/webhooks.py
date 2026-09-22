@@ -2,12 +2,13 @@
 
 import logging
 import re
+import secrets
 import time
 from collections import defaultdict
 
 from fastapi import APIRouter, Header, HTTPException, Request
 
-from mission_control.config import BRAND_SITE_URLS, WEBHOOK_SECRET
+from mission_control.config import BRAND_SITE_URLS, MC_PUBLIC_URL, WEBHOOK_SECRET
 from mission_control import supabase_client as db
 from mission_control.sequences import get_sequences_for_trigger
 from mission_control.services.sequence_engine import enroll, record_event
@@ -19,6 +20,10 @@ router = APIRouter(prefix="/webhooks")
 # Basic email validation — intentionally permissive
 _EMAIL_RE = re.compile(r"^[^@\s]{1,64}@[^@\s]{1,255}$")
 # race_slug arrives from page JS and is interpolated into email hrefs.
+_ANSWER_KEY_RE = re.compile(r"^[a-z0-9_]{1,40}$")
+_MAX_GOAL_ANSWER_KEYS = 45
+_MAX_GOAL_ANSWER_LEN = 1200
+_MAX_GOAL_ANSWERS_TOTAL = 12000
 _SLUG_RE = re.compile(r"^[a-z0-9][a-z0-9-]{0,80}$")
 _MAX_NAME_LEN = 200
 _MAX_SOURCE_LEN = 100
@@ -163,7 +168,15 @@ async def _send_enrollment_alert(
         or source_data.get("race_name") and f"race: {source_data['race_name']}"
         or "no context"
     )
-    subject = f"new lead · {name or email} · {context} [{brand}]"
+    # A coached athlete's season review is not a lead, and it must not be
+    # filed away unseen: Matti's Gmail sends "new lead ·" alerts (and every
+    # FormSubmit email) straight to Domain/Coaching, skipping the inbox. A
+    # different subject is what keeps this one in front of him.
+    if source == "athlete_review":
+        who = source_data.get("athlete") or name or email
+        subject = f"[GG] Season review filed · {who}"
+    else:
+        subject = f"new lead · {name or email} · {context} [{brand}]"
     race = source_data.get("race_name", "")
     # draft_race_reply.py knows gravel + road race data only; no hint for XC.
     drafter = (
@@ -171,6 +184,24 @@ async def _send_enrollment_alert(
         f"\"{escape(race)}\"{' --brand road' if brand == 'roadielabs' else ''}</code></p>"
         if race and brand in ("gravelgod", "roadielabs") else ""
     )
+    answers = source_data.get("goal_answers") or {}
+    if source == "athlete_review" and answers:
+        rows = "".join(
+            f"<tr><td style='padding:3px 12px 3px 0;color:#7d695d;vertical-align:top;"
+            f"font-family:monospace;font-size:12px'>{escape(k)}</td>"
+            f"<td style='padding:3px 0'>{escape(str(v))}</td></tr>"
+            for k, v in list(answers.items())[:45]
+        )
+        html = (
+            f"<p><b>{escape(name) or '(no name)'}</b> &lt;{escape(email)}&gt;"
+            f" &middot; {escape(source_data.get('athlete') or 'no athlete tag')}</p>"
+            f"<table style='border-collapse:collapse;font-family:Georgia,serif;font-size:15px'>{rows}</table>"
+            f"<p style='color:#666;font-family:monospace;font-size:12px'>file it: "
+            f"python3 scripts/file_athlete_review.py --email {escape(email)}</p>"
+        )
+        await asyncio.to_thread(_send_email_sync, to, subject, html, brand)
+        return
+
     html = (
         f"<p><b>{escape(name) or '(no name)'}</b> &lt;{escape(email)}&gt;</p>"
         f"<ul>"
@@ -274,6 +305,51 @@ async def subscriber_webhook(
     except (TypeError, ValueError):
         pass
 
+    # 2027 goal questionnaire (docs/specs/goals-2027-funnel-spec.md). The
+    # answers are the deliverable: they render the poster and give Matti the
+    # read. The worker caps them; cap again here, because this router trusts
+    # nothing it did not build itself.
+    if source in ("goal_2027", "athlete_review"):
+        answers = body.get("goal_answers")
+        if isinstance(answers, dict):
+            kept: dict[str, str] = {}
+            budget = _MAX_GOAL_ANSWERS_TOTAL
+            for key, value in answers.items():
+                if len(kept) >= _MAX_GOAL_ANSWER_KEYS:
+                    break
+                if not _ANSWER_KEY_RE.match(str(key)):
+                    continue
+                if not isinstance(value, (str, int, float)):
+                    continue
+                text = str(value).strip()[:_MAX_GOAL_ANSWER_LEN]
+                if not text or len(text) > budget:
+                    continue
+                budget -= len(text)
+                kept[str(key)] = text
+            if kept:
+                source_data["goal_answers"] = kept
+        if source == "athlete_review" and body.get("athlete"):
+            source_data["athlete"] = str(body["athlete"]).strip()[:80]
+        variant = str(body.get("offer_variant", "")).strip().upper()
+        if variant in ("A", "B", "C"):
+            source_data["offer_variant"] = variant
+        # The poster is served from an unguessable token rather than a signed
+        # payload: no key to rotate, and revoking one lead's poster is a row
+        # edit. The token is the only thing in the results email that needs
+        # to survive; it is stored with the answers it renders.
+        # Template-facing copies: the results email renders these directly,
+        # and templates read flat keys, not nested answer bags.
+        _answers = source_data.get("goal_answers") or {}
+        if _answers.get("outcome_goal"):
+            source_data["goal_line"] = _answers["outcome_goal"]
+        if _answers.get("inner_obstacle"):
+            source_data["inner_obstacle"] = _answers["inner_obstacle"]
+        source_data["poster_token"] = secrets.token_urlsafe(24)
+        if MC_PUBLIC_URL:
+            source_data["poster_url"] = (
+                f"{MC_PUBLIC_URL.rstrip('/')}/poster/{source_data['poster_token']}.png"
+            )
+
     # Map capture source to sequence trigger
     trigger_map = {
         "exit_intent": "new_subscriber",
@@ -285,6 +361,10 @@ async def subscriber_webhook(
         "training_guide": "new_subscriber",
         "bikepacking_guide": "new_subscriber",
         "race_watch": "race_watch",
+        "goal_2027": "goal_2027",
+        # A coached athlete filing their season review is not a lead: the only
+        # email they get is the receipt, and they never enter nurture.
+        "athlete_review": "athlete_review",
         # Plan purchases (Stripe / WooCommerce / own-site) -> post-purchase
         # onboarding + review flywheel. The payment webhook must POST a source in
         # this set, with brand + plan_weeks (+ race_slug). Until that POST exists

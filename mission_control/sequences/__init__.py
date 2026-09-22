@@ -22,6 +22,11 @@ from mission_control.sequences.xc_welcome import SEQUENCE as xc_welcome
 from mission_control.sequences.xc_win_back import SEQUENCE as xc_win_back
 from mission_control.sequences.kit_delivery import GG as kit_delivery, ROAD as road_kit_delivery
 from mission_control.sequences.race_watch import SEQUENCE as race_watch
+from mission_control.sequences.goal_2027 import (
+    GG as goal_2027,
+    ROAD as road_goal_2027,
+    ATHLETE_REVIEW as athlete_review,
+)
 
 DEFAULT_BRAND = "gravelgod"
 
@@ -44,6 +49,9 @@ SEQUENCES: dict[str, dict] = {
     xc_welcome["id"]: xc_welcome,
     xc_win_back["id"]: xc_win_back,
     kit_delivery["id"]: kit_delivery,
+    goal_2027["id"]: goal_2027,
+    road_goal_2027["id"]: road_goal_2027,
+    athlete_review["id"]: athlete_review,
     road_kit_delivery["id"]: road_kit_delivery,
     XC_16["id"]: XC_16,
     XC_8["id"]: XC_8,

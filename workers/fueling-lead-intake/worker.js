@@ -498,6 +498,9 @@ async function notifyMissionControl(env, data, source) {
       payload.goal_answers = data.goal_answers;
     }
     if (data.offer_variant) payload.offer_variant = data.offer_variant;
+    // Which athlete this belongs to. Without it a coached athlete's review
+    // arrives unattributed and the filing script has to guess.
+    if (data.athlete) payload.athlete = String(data.athlete).substring(0, 80);
     if (Array.isArray(data.viewed_races) && data.viewed_races.length) {
       payload.viewed_races = data.viewed_races;
     }

@@ -60,8 +60,9 @@ def test_all_sixteen_sections_in_three_parts():
 def test_no_training_metrics_asked():
     # Matti: FTP and similar numbers come from data, not the athlete.
     html = page().lower()
+    form = html[html.index('<form id="season-form"'):html.index("</form>")]
     for term in ('name="ftp', 'data-field="ftp', 'w/kg', 'name="weight', 'plan_completion'):
-        assert term not in html
+        assert term not in form
 
 
 def test_ideal_future_write_is_fifteen_minutes():

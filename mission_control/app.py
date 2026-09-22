@@ -100,6 +100,12 @@ def create_app() -> FastAPI:
     # Unsubscribe — public, no auth (CAN-SPAM compliance)
     app.include_router(unsubscribe.router, include_in_schema=False)
 
+    # Public, unauthenticated: the 2027 goal poster, served from the lead's
+    # own unguessable token (docs/specs/goals-2027-funnel-spec.md D8).
+    from mission_control.routers import poster
+
+    app.include_router(poster.router, include_in_schema=False)
+
     # Races API — public, included in API docs
     app.include_router(races_api.router)
 

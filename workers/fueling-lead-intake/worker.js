@@ -35,7 +35,7 @@ const DISPOSABLE_DOMAINS = [
   'yopmail.com', 'temp-mail.org', 'getnada.com', 'mohmal.com'
 ];
 
-const KNOWN_SOURCES = ['exit_intent', 'race_profile', 'prep_kit_gate', 'race_quiz', 'quiz_shared', 'tire_guide', 'race_review', 'state_hub', 'date_reminder', 'race_plan_ladder', 'training_guide', 'bikepacking_guide', 'race_watch', 'gravel_tv_subscribe', 'gravel_weekly_subscribe'];
+const KNOWN_SOURCES = ['exit_intent', 'race_profile', 'prep_kit_gate', 'race_quiz', 'quiz_shared', 'tire_guide', 'race_review', 'state_hub', 'date_reminder', 'race_plan_ladder', 'training_guide', 'bikepacking_guide', 'race_watch', 'gravel_tv_subscribe', 'gravel_weekly_subscribe', 'goal_2027'];
 
 export default {
   async fetch(request, env) {
@@ -78,6 +78,16 @@ export default {
     if (data.race_slug) data.race_slug = String(data.race_slug).substring(0, 100);
     if (data.race_name) data.race_name = String(data.race_name).substring(0, 200);
     if (data.guide_chapter) data.guide_chapter = String(data.guide_chapter).substring(0, 80);
+
+    // 2027 goal questionnaire: the answers ARE the deliverable (they make the
+    // poster and the coach's read), so unlike every other source this one
+    // forwards a body. Capped hard — a lead payload is not a document store.
+    if (source === 'goal_2027') {
+      data.goal_answers = sanitizeAnswers(data.goal_answers);
+      data.offer_variant = ['A', 'B', 'C'].includes(String(data.offer_variant))
+        ? String(data.offer_variant)
+        : '';
+    }
     // Trail context (docs/specs/friend-first-sequences.md §4.2-4.3) — the
     // browser's localStorage breadcrumb of recently viewed races, forwarded
     // by any capture form so welcome-sequence branching works regardless of
@@ -374,6 +384,31 @@ function formatEmailBody(lead) {
 </html>`;
 }
 
+// --- Goal questionnaire answers ---
+
+// Keep at most MAX_ANSWER_KEYS short answers, each truncated, with a total
+// budget so one pasted essay can't blow up every downstream store.
+const MAX_ANSWER_KEYS = 30;
+const MAX_ANSWER_LEN = 1200;
+const MAX_ANSWERS_TOTAL = 12000;
+
+function sanitizeAnswers(raw) {
+  if (!raw || typeof raw !== 'object' || Array.isArray(raw)) return {};
+  const out = {};
+  let budget = MAX_ANSWERS_TOTAL;
+  for (const [key, value] of Object.entries(raw)) {
+    if (Object.keys(out).length >= MAX_ANSWER_KEYS) break;
+    if (!/^[a-z0-9_]{1,40}$/.test(key)) continue;
+    if (typeof value !== 'string' && typeof value !== 'number') continue;
+    const text = String(value).trim().substring(0, MAX_ANSWER_LEN);
+    if (!text) continue;
+    if (text.length > budget) continue;
+    budget -= text.length;
+    out[key] = text;
+  }
+  return out;
+}
+
 // --- Mission Control Webhook ---
 
 async function notifyMissionControl(env, data, source) {
@@ -387,6 +422,10 @@ async function notifyMissionControl(env, data, source) {
       race_name: data.race_name || '',
     };
     if (data.guide_chapter) payload.guide_chapter = data.guide_chapter;
+    if (data.goal_answers && Object.keys(data.goal_answers).length) {
+      payload.goal_answers = data.goal_answers;
+    }
+    if (data.offer_variant) payload.offer_variant = data.offer_variant;
     if (Array.isArray(data.viewed_races) && data.viewed_races.length) {
       payload.viewed_races = data.viewed_races;
     }

@@ -50,9 +50,9 @@ def test_no_inline_handlers():
     assert not re.search(r"\son(click|submit|change|input)=", page())
 
 
-def test_all_sixteen_sections_in_three_parts():
+def test_all_fifteen_sections_in_three_parts():
     html = page()
-    for n in range(1, 17):
+    for n in range(1, 16):
         assert f'gg-apply-section-title">{n}. ' in html
     assert html.count('class="gg-sr-part"') == 3
 
@@ -80,3 +80,19 @@ def test_sum_of_law_scores_never_shown_to_athlete():
     # Endure ruling: show the shape of the four scores, never the total.
     js = build_season_review_js()
     assert "/12" not in js.split("function formatSubmission")[0]
+
+
+def test_privacy_footer_discloses_form_relay():
+    html = page()
+    assert "FormSubmit" in html and "/privacy/" in html
+    assert "go to your coach only" not in html
+
+
+def test_serves_links_use_stable_ids_not_positions():
+    js = build_season_review_js()
+    assert 'data-sid' in js
+    assert 'new Option(label, "S" + (i + 1))' not in js
+
+
+def test_submit_has_timeout():
+    assert "AbortController" in build_season_review_js()

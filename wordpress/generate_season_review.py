@@ -8,7 +8,7 @@ card, progress bar, save/resume, and brand tokens — and reuses that page's
 CSS so the two can't drift apart.
 
 Shape: Jordan Peterson's Self Authoring suite, compressed for athletes —
-Past (the season as chapters and turning points), Present (one strength,
+Past (the moments that mattered, the goals set), Present (one strength,
 one fault, the wants that fight the goal), Future (the season you want, the
 season to avoid, then a goal with an if-then plan). Trait wording is
 verbatim from the Present Authoring lists (Matti's Oct 2025 form).
@@ -16,11 +16,16 @@ verbatim from the Present Authoring lists (Matti's Oct 2025 form).
 Evidence that shaped the cuts (research brief, Sep 22 2026):
   - Only Future Authoring has outcome evidence, and independent trials are
     weaker than Peterson-linked ones. It gets the most room here.
-  - Free-writing under ~15 minutes shows ~zero effect (Frattaroli 2006), so
-    "the season you want" is a 15-minute write with an optional timer.
+  - In expressive-writing studies, sessions under ~15 minutes showed ~zero
+    effect (Frattaroli 2006, a subgroup finding, not a proven threshold), so
+    "the season you want" asks for 15 minutes with an optional timer.
   - Naming an internal obstacle and an if-then plan (Oettingen's WOOP,
-    Gollwitzer) is the best-evidenced piece; the goal and every habit carry it.
-  - Two sittings beat one, so answers autosave.
+    Gollwitzer) has the strongest general evidence; the goal requires it and
+    every habit offers it. None of this is tested on athletes.
+  - More writing sessions did marginally better (Frattaroli), so answers
+    autosave and the header suggests two sittings.
+Adversarial review (sol, Sep 22 2026) cut it to ~60 minutes across the two
+sittings: no chapters section, one strength, one fault, fewer rows.
 Training numbers (FTP etc.) are deliberately absent — they come from data.
 
 Habits are scored on James Clear's four laws (0-3 each) to match the Endure
@@ -160,7 +165,7 @@ def _trait_options(traits) -> str:
     esc = lambda s: s.replace("'", "&#39;")
     return '<option value="">Select...</option>' + "".join(
         f'<option value="{esc(t)}">{esc(t)}</option>' for t in traits
-    ) + '<option value="other">Something else (say it below)</option>'
+    ) + '<option value="other">Something else (name it in the box below)</option>'
 
 
 def _timed(minutes: int) -> str:
@@ -188,7 +193,7 @@ def build_header() -> str:
     return f'''<div class="gg-apply-header">
     <div class="gg-apply-badge">Season Review</div>
     <h1>Close the Books on {SEASON}</h1>
-    <p>Two sittings. The season now, about 15 minutes. {NEXT_SEASON} a few days later, about 25. Everything saves as you type. Write like nobody&#39;s grading it.</p>
+    <p>Two sittings. {SEASON}, about 20 minutes. {NEXT_SEASON} a few days later, about 40, fifteen of them writing. Everything saves as you type.</p>
   </div>'''
 
 
@@ -234,17 +239,8 @@ def build_section_start() -> str:
       </div>'''
 
 
-def build_section_chapters() -> str:
-    return f'''<div class="gg-apply-section-title">3. The Chapters</div>
-
-      <div class="gg-apply-group">
-        <label class="gg-apply-label" for="chapters">Split {SEASON} into two to four chapters. Name each, one line on what it was.</label>
-        <textarea id="chapters" name="chapters" rows="4" placeholder="Winter: the first base I didn&#39;t skip&#10;Spring: sick twice, lost April&#10;Summer: the Unbound block&#10;Fall: cooked, and fine with it"></textarea>
-      </div>'''
-
-
 def build_section_moments() -> str:
-    return '''<div class="gg-apply-section-title">4. The Moments That Mattered</div>
+    return '''<div class="gg-apply-section-title">3. The Moments That Mattered</div>
       <p class="gg-apply-section-sub">Up to three. Good or bad. The ones you still think about.</p>
 
       <div id="moments-container" class="gg-sr-list"></div>
@@ -252,7 +248,7 @@ def build_section_moments() -> str:
 
 
 def build_section_goals() -> str:
-    return f'''<div class="gg-apply-section-title">5. The Goals You Set</div>
+    return f'''<div class="gg-apply-section-title">4. The Goals You Set</div>
       <p class="gg-apply-section-sub">The ones you wrote down before the season, not the ones you wish you&#39;d written.</p>
 
       <div id="goals-container" class="gg-sr-list"></div>
@@ -260,17 +256,16 @@ def build_section_goals() -> str:
 
 
 def build_section_traits() -> str:
-    return '''<div class="gg-apply-section-title">6. What Carried You, What Cost You</div>
+    return '''<div class="gg-apply-section-title">5. What Carried You, What Cost You</div>
 
       <div id="strengths-container" class="gg-sr-list"></div>
-      <button type="button" class="gg-sr-add-btn" data-add="strength">+ Add a strength</button>
 
       <div id="faults-container" class="gg-sr-list"></div>
-      <button type="button" class="gg-sr-add-btn" data-add="fault">+ Add a fault</button>'''
+'''
 
 
 def build_section_wants() -> str:
-    return '''<div class="gg-apply-section-title">7. Wants That Fight Your Goals</div>
+    return '''<div class="gg-apply-section-title">6. Wants That Fight Your Goals</div>
       <p class="gg-apply-section-sub">Some of what you want gets in the way of what you want.</p>
 
       <div class="gg-apply-group">
@@ -285,7 +280,7 @@ def build_section_wants() -> str:
 
 
 def build_section_habits() -> str:
-    return '''<div class="gg-apply-section-title">8. The Habits That Held</div>
+    return '''<div class="gg-apply-section-title">7. The Habits That Held</div>
       <p class="gg-apply-section-sub">A habit that died usually had one of these four missing. Score each one honestly.</p>
 
       <div id="habits-container" class="gg-sr-list"></div>
@@ -293,7 +288,7 @@ def build_section_habits() -> str:
 
 
 def build_section_life() -> str:
-    return f'''<div class="gg-apply-section-title">9. Life Around the Bike</div>
+    return f'''<div class="gg-apply-section-title">8. Life Around the Bike</div>
 
       <div class="gg-apply-group">
         <label class="gg-apply-label">Did training fit your life this season, or fight it?</label>
@@ -305,7 +300,7 @@ def build_section_life() -> str:
       </div>
 
       <div class="gg-apply-group">
-        <label class="gg-apply-label" for="life_friction">Where did it fight, and who paid for it?</label>
+        <label class="gg-apply-label" for="life_friction">Where did it fight?</label>
         <textarea id="life_friction" name="life_friction" rows="2" placeholder="Work, family, sleep, money, your body"></textarea>
       </div>
 
@@ -316,7 +311,7 @@ def build_section_life() -> str:
 
 
 def build_section_ideal() -> str:
-    return f'''<div class="gg-apply-section-title">10. The Season You Want</div>
+    return f'''<div class="gg-apply-section-title">9. The Season You Want</div>
       <p class="gg-apply-section-sub">Fifteen minutes without stopping. Don&#39;t edit.</p>
 
       <div class="gg-apply-group">
@@ -329,19 +324,19 @@ def build_section_ideal() -> str:
 
 
 def build_section_avoid() -> str:
-    return f'''<div class="gg-apply-section-title">11. The Season to Avoid</div>
+    return f'''<div class="gg-apply-section-title">10. The Season to Avoid</div>
 
       <div class="gg-apply-group">
         <div class="gg-sr-label-row">
-          <label class="gg-apply-label" for="avoid_season">It&#39;s December {NEXT_SEASON} and it went badly. What happened, and what was your part in it? <span class="gg-apply-required">*</span></label>
+          <label class="gg-apply-label" for="avoid_season">It&#39;s December {NEXT_SEASON} and it went badly. What happened, and what was your part in it?</label>
           {_timed(5)}
         </div>
-        <textarea id="avoid_season" name="avoid_season" required rows="7" class="gg-sr-long"></textarea>
+        <textarea id="avoid_season" name="avoid_season" rows="7" class="gg-sr-long"></textarea>
       </div>'''
 
 
 def build_section_goal() -> str:
-    return f'''<div class="gg-apply-section-title">12. The Goal</div>
+    return f'''<div class="gg-apply-section-title">11. The Goal</div>
       <p class="gg-apply-section-sub">Measurable, dated, and a little frightening. If it isn&#39;t, it&#39;s a wish.</p>
 
       <div class="gg-apply-group">
@@ -393,15 +388,15 @@ def build_section_goal() -> str:
 
 
 def build_section_systems() -> str:
-    return '''<div class="gg-apply-section-title">13. What Has to Get Better</div>
-      <p class="gg-apply-section-sub">Two or three things that decide the goal. Each gets a number and a date.</p>
+    return '''<div class="gg-apply-section-title">12. What Has to Get Better</div>
+      <p class="gg-apply-section-sub">One or two things that decide the goal. Each gets evidence and a date.</p>
 
       <div id="systems-container" class="gg-sr-list"></div>
       <button type="button" class="gg-sr-add-btn" data-add="system">+ Add one</button>'''
 
 
 def build_section_new_habits() -> str:
-    return '''<div class="gg-apply-section-title">14. Habits to Start and Stop</div>
+    return '''<div class="gg-apply-section-title">13. Habits to Start and Stop</div>
       <p class="gg-apply-section-sub">Built so they survive a bad week.</p>
 
       <div id="newhabits-container" class="gg-sr-list"></div>
@@ -413,7 +408,7 @@ def build_section_calendar() -> str:
         ("3-5", "3&ndash;5 hrs"), ("5-7", "5&ndash;7 hrs"), ("7-10", "7&ndash;10 hrs"),
         ("10-12", "10&ndash;12 hrs"), ("12-15", "12&ndash;15 hrs"), ("15+", "15+ hrs"),
     ]
-    return f'''<div class="gg-apply-section-title">15. The Calendar</div>
+    return f'''<div class="gg-apply-section-title">14. The Calendar</div>
 
       <div id="races-container" class="gg-sr-list"></div>
       <button type="button" class="gg-sr-add-btn" data-add="race">+ Add a race</button>
@@ -436,7 +431,7 @@ def build_section_calendar() -> str:
 
 
 def build_section_me() -> str:
-    return f'''<div class="gg-apply-section-title">16. Me</div>
+    return f'''<div class="gg-apply-section-title">15. Me</div>
 
       <div class="gg-apply-group">
         <label class="gg-apply-label" for="coach_keep">What should I keep doing?</label>
@@ -472,7 +467,7 @@ def build_submit_buttons() -> str:
 
 def build_footer() -> str:
     return f'''<div class="gg-apply-confidential-wrap">
-    <p class="gg-apply-confidential">Your answers go to your coach only. Questions? Email {FORMSUBMIT_EMAIL}</p>
+    <p class="gg-apply-confidential">Your answers, including health information you choose to share, are used to coach you as described in the <a href="/privacy/">Privacy Policy</a>. They reach me by email through FormSubmit, a form service that keeps a copy for 30 days. Drafts are saved only in this browser until you submit. Questions? Email {FORMSUBMIT_EMAIL}</p>
   </div>
   ''' + get_mega_footer_html()
 
@@ -921,11 +916,11 @@ def build_season_review_js() -> str:
   var KINDS = {
     moment:   { list: "moments",    limit: 3, title: "Moment" },
     goal:     { list: "goals",      limit: 5, title: "Goal" },
-    strength: { list: "strengths",  limit: 2, title: "Strength" },
-    fault:    { list: "faults",     limit: 2, title: "Fault" },
-    habit:    { list: "habits",     limit: 5, title: "Habit" },
-    system:   { list: "systems",    limit: 3, title: "Area" },
-    newhabit: { list: "new_habits", limit: 6, title: "Habit" },
+    strength: { list: "strengths",  limit: 1, title: "Strength" },
+    fault:    { list: "faults",     limit: 1, title: "Fault" },
+    habit:    { list: "habits",     limit: 3, title: "Habit" },
+    system:   { list: "systems",    limit: 2, title: "Area" },
+    newhabit: { list: "new_habits", limit: 3, title: "Habit" },
     race:     { list: "races",      limit: 8, title: "Race" }
   };
   /* systems first so habits can point at them */
@@ -950,6 +945,7 @@ def build_season_review_js() -> str:
     node.querySelectorAll("input[type=radio]").forEach(function(r) {
       r.name = "row_" + rowSeq + "_" + r.getAttribute("data-field");
     });
+    if (kind === "system") { node.setAttribute("data-sid", "S" + rowSeq); }
     list.appendChild(node);
     renumber(kind);
     if (kind === "system" || kind === "newhabit") { refreshServes(); }
@@ -978,9 +974,9 @@ def build_season_review_js() -> str:
       var current = sel.value;
       while (sel.firstChild) { sel.removeChild(sel.firstChild); }
       sel.appendChild(new Option("Select...", ""));
-      systems.forEach(function(sys, i) {
+      systems.forEach(function(sys) {
         var label = areaLabel(sys);
-        if (label) { sel.appendChild(new Option(label, "S" + (i + 1))); }
+        if (label) { sel.appendChild(new Option(label, sys.getAttribute("data-sid"))); }
       });
       sel.appendChild(new Option("The goal directly", "goal"));
       sel.value = current;
@@ -1110,7 +1106,9 @@ def build_season_review_js() -> str:
     var names = {};
     form.querySelectorAll("[required]").forEach(function(el) { names[el.name] = true; });
     var keys = Object.keys(names);
+    keys.push("__new_habit__");
     var filled = keys.filter(function(n) {
+      if (n === "__new_habit__") { return readEntries("newhabit").some(function(h) { return !!h.habit; }); }
       var el = form.querySelector("[name=\"" + n + "\"]");
       if (el.type === "radio") { return !!form.querySelector("input[name=\"" + n + "\"]:checked"); }
       return !!el.value.trim();
@@ -1137,6 +1135,7 @@ def build_season_review_js() -> str:
         });
       }
       if (kind === "system") {
+        row.sid = entry.getAttribute("data-sid");
         var sel = entry.querySelector("[data-field=area]");
         if (sel.value) { row.area_label = sel.options[sel.selectedIndex].text; }
       }
@@ -1165,13 +1164,20 @@ def build_season_review_js() -> str:
   /* ── Save / restore ──────────────────────────────── */
   var submitted = false;
   var saveTimer = null;
+  var saveOk = true;
+  var saveWarned = false;
   function save(silent) {
     if (submitted) { return; }
     try {
       localStorage.setItem(STORAGE_KEY, JSON.stringify(collect()));
+      saveOk = true;
       if (!silent) { showMessage("info", "Saved in this browser. Close the page and come back any time."); }
     } catch (err) {
-      if (!silent) { showMessage("error", "This browser won't let me save. Keep the page open until you submit."); }
+      saveOk = false;
+      if (!silent || !saveWarned) {
+        saveWarned = true;
+        showMessage("error", "This browser won't let me save. Keep the page open until you submit.");
+      }
     }
   }
   function queueSave() {
@@ -1182,6 +1188,7 @@ def build_season_review_js() -> str:
   function fillEntry(entry, row) {
     Object.keys(row).forEach(function(f) {
       if (f === "scores" || f === "area_label") { return; }
+      if (f === "sid") { entry.setAttribute("data-sid", row.sid); return; }
       entry.querySelectorAll("[data-field=\"" + f + "\"]").forEach(function(el) {
         if (el.type === "radio") {
           var opt = el.closest(".gg-apply-radio-option");
@@ -1202,6 +1209,9 @@ def build_season_review_js() -> str:
   function restore() {
     var saved = null;
     try { saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || "null"); } catch (err) { saved = null; }
+    if (saved && saved.systems) {
+      saved.systems.forEach(function(s) { var n = Number(String(s.sid || "").slice(1)); if (n > rowSeq) { rowSeq = n; } });
+    }
     ORDER.forEach(function(kind) {
       var rows = saved && saved[KINDS[kind].list] && saved[KINDS[kind].list].length ? saved[KINDS[kind].list] : null;
       var n = rows ? rows.length : 1;
@@ -1258,7 +1268,6 @@ def build_season_review_js() -> str:
     add("Proudest", d.proudest);
     add("One word", d.one_word);
     L.push("");
-    block("Chapters", d.chapters);
     L.push("### Moments that mattered");
     d.moments.forEach(function(m, i) {
       L.push((i + 1) + ". " + (m.title || "(untitled)"));
@@ -1309,8 +1318,8 @@ def build_season_review_js() -> str:
     add("When it shows up", d.obstacle_plan);
     L.push("");
     L.push("### What has to get better");
-    d.systems.forEach(function(s, i) {
-      L.push("- S" + (i + 1) + " " + (s.area_label || "?") + (s.detail ? ": " + s.detail : ""));
+    d.systems.forEach(function(s) {
+      L.push("- " + s.sid + " " + (s.area_label || "?") + (s.detail ? ": " + s.detail : ""));
       sub("evidence", s.metric);
       sub("change approach if unmoved by", s.check_by);
     });
@@ -1350,15 +1359,17 @@ def build_season_review_js() -> str:
     });
     if (d.outcome_scary === "no") { flags.push("Goal doesn't scare them: likely too small"); }
     if (!d.why_2) { flags.push("Why stops at one level"); }
-    d.systems.forEach(function(s, i) {
-      if (!s.metric) { flags.push("S" + (i + 1) + ": no evidence named"); }
-      if (!s.check_by) { flags.push("S" + (i + 1) + ": no check date"); }
+    d.systems.forEach(function(s) {
+      if (!s.metric) { flags.push(s.sid + ": no evidence named"); }
+      if (!s.check_by) { flags.push(s.sid + ": no check date"); }
     });
+    if (!d.systems.length) { flags.push("No area to improve named"); }
+    d.new_habits.forEach(function(h) { if (!h.serves) { flags.push((h.habit || "habit") + ": not linked to the goal or an area"); } });
     d.new_habits.forEach(function(h) { if (!h.if_then) { flags.push((h.habit || "habit") + ": no if-then"); } });
     if ((d.ideal_season || "").split(/\s+/).length < 150) { flags.push("Season-you-want write is short (" + (d.ideal_season || "").split(/\s+/).filter(Boolean).length + " words)"); }
     L.push(flags.length ? flags.map(function(f) { return "- " + f; }).join("\n") : "- none");
     L.push("");
-    L.push("## Endure import (JSON)");
+    L.push("## Endure draft (JSON, not import-ready: needs athlete id and frequency rules)");
     L.push(JSON.stringify(toEndure(d)));
     return L.join("\n");
   }
@@ -1374,8 +1385,8 @@ def build_season_review_js() -> str:
         kill_condition: null
       }
     };
-    d.systems.forEach(function(s, i) {
-      goals["review:S" + (i + 1)] = {
+    d.systems.forEach(function(s) {
+      goals["review:" + s.sid] = {
         horizon: "season", parent: "review:ROOT", area: s.area || null, title: s.detail || s.area_label || null,
         metric: { source_type: "manual", description: s.metric || null },
         kill_condition: s.check_by ? { kind: "metric_unchanged", evaluate_on: s.check_by } : null
@@ -1400,7 +1411,11 @@ def build_season_review_js() -> str:
     e.preventDefault();
     var btn = document.getElementById("submit-btn");
     var d = collect();
-    if (form.querySelector("[name=website]").value) { return; }
+    if (btn.disabled) { return; }
+    if (form.querySelector("[name=website]").value) {
+      showMessage("error", "Something filled a hidden field. Clear your browser's autofill for this page and try again.");
+      return;
+    }
     if (!d.new_habits.length) {
       showMessage("error", "Add at least one habit to start or stop.");
       return;
@@ -1418,13 +1433,16 @@ def build_season_review_js() -> str:
     payload.append("email", d.email);
     payload.append("message", formatSubmission(d));
 
-    fetch(SUBMIT_URL, { method: "POST", body: payload, headers: { "Accept": "application/json" } })
+    var ctrl = typeof AbortController === "function" ? new AbortController() : null;
+    var killer = setTimeout(function() { if (ctrl) { ctrl.abort(); } }, 25000);
+    fetch(SUBMIT_URL, { method: "POST", body: payload, headers: { "Accept": "application/json" }, signal: ctrl ? ctrl.signal : undefined })
       .then(function(r) {
         return r.json().catch(function() { return {}; }).then(function(res) {
           if (!r.ok || String(res.success) !== "true") { throw new Error(res.message || ("HTTP " + r.status)); }
         });
       })
       .then(function() {
+        clearTimeout(killer);
         submitted = true;
         clearTimeout(saveTimer);
         try { localStorage.removeItem(STORAGE_KEY); } catch (err) { /* ignore */ }
@@ -1433,7 +1451,10 @@ def build_season_review_js() -> str:
         btn.textContent = "Submitted";
       })
       .catch(function(err) {
-        showMessage("error", "That didn't go through. Your answers are saved in this browser. Try again, or email __EMAIL__.");
+        clearTimeout(killer);
+        showMessage("error", saveOk
+          ? "That didn't go through. Your answers are saved in this browser. Try again, or email __EMAIL__."
+          : "That didn't go through, and this browser can't save. Keep this page open and try again, or email __EMAIL__.");
         btn.disabled = false;
         btn.textContent = "Submit Season Review";
         ga4("season_review_error", { message: String(err.message || "unknown").slice(0, 80) });
@@ -1496,7 +1517,6 @@ def generate_season_review_page(external_assets=None) -> str:
       {_part(f"Part I &mdash; {SEASON}")}
       {build_section_you()}
       {build_section_start()}
-      {build_section_chapters()}
       {build_section_moments()}
       {build_section_goals()}
       {_part("Part II &mdash; You, Now")}

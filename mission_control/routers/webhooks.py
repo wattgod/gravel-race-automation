@@ -21,7 +21,7 @@ router = APIRouter(prefix="/webhooks")
 _EMAIL_RE = re.compile(r"^[^@\s]{1,64}@[^@\s]{1,255}$")
 # race_slug arrives from page JS and is interpolated into email hrefs.
 _ANSWER_KEY_RE = re.compile(r"^[a-z0-9_]{1,40}$")
-_MAX_GOAL_ANSWER_KEYS = 30
+_MAX_GOAL_ANSWER_KEYS = 45
 _MAX_GOAL_ANSWER_LEN = 1200
 _MAX_GOAL_ANSWERS_TOTAL = 12000
 _SLUG_RE = re.compile(r"^[a-z0-9][a-z0-9-]{0,80}$")
@@ -168,7 +168,15 @@ async def _send_enrollment_alert(
         or source_data.get("race_name") and f"race: {source_data['race_name']}"
         or "no context"
     )
-    subject = f"new lead · {name or email} · {context} [{brand}]"
+    # A coached athlete's season review is not a lead, and it must not be
+    # filed away unseen: Matti's Gmail sends "new lead ·" alerts (and every
+    # FormSubmit email) straight to Domain/Coaching, skipping the inbox. A
+    # different subject is what keeps this one in front of him.
+    if source == "athlete_review":
+        who = source_data.get("athlete") or name or email
+        subject = f"[GG] Season review filed · {who}"
+    else:
+        subject = f"new lead · {name or email} · {context} [{brand}]"
     race = source_data.get("race_name", "")
     # draft_race_reply.py knows gravel + road race data only; no hint for XC.
     drafter = (
@@ -176,6 +184,24 @@ async def _send_enrollment_alert(
         f"\"{escape(race)}\"{' --brand road' if brand == 'roadielabs' else ''}</code></p>"
         if race and brand in ("gravelgod", "roadielabs") else ""
     )
+    answers = source_data.get("goal_answers") or {}
+    if source == "athlete_review" and answers:
+        rows = "".join(
+            f"<tr><td style='padding:3px 12px 3px 0;color:#7d695d;vertical-align:top;"
+            f"font-family:monospace;font-size:12px'>{escape(k)}</td>"
+            f"<td style='padding:3px 0'>{escape(str(v))}</td></tr>"
+            for k, v in list(answers.items())[:45]
+        )
+        html = (
+            f"<p><b>{escape(name) or '(no name)'}</b> &lt;{escape(email)}&gt;"
+            f" &middot; {escape(source_data.get('athlete') or 'no athlete tag')}</p>"
+            f"<table style='border-collapse:collapse;font-family:Georgia,serif;font-size:15px'>{rows}</table>"
+            f"<p style='color:#666;font-family:monospace;font-size:12px'>file it: "
+            f"python3 scripts/file_athlete_review.py --email {escape(email)}</p>"
+        )
+        await asyncio.to_thread(_send_email_sync, to, subject, html, brand)
+        return
+
     html = (
         f"<p><b>{escape(name) or '(no name)'}</b> &lt;{escape(email)}&gt;</p>"
         f"<ul>"
@@ -283,7 +309,7 @@ async def subscriber_webhook(
     # answers are the deliverable: they render the poster and give Matti the
     # read. The worker caps them; cap again here, because this router trusts
     # nothing it did not build itself.
-    if source == "goal_2027":
+    if source in ("goal_2027", "athlete_review"):
         answers = body.get("goal_answers")
         if isinstance(answers, dict):
             kept: dict[str, str] = {}
@@ -302,6 +328,8 @@ async def subscriber_webhook(
                 kept[str(key)] = text
             if kept:
                 source_data["goal_answers"] = kept
+        if source == "athlete_review" and body.get("athlete"):
+            source_data["athlete"] = str(body["athlete"]).strip()[:80]
         variant = str(body.get("offer_variant", "")).strip().upper()
         if variant in ("A", "B", "C"):
             source_data["offer_variant"] = variant
@@ -334,6 +362,9 @@ async def subscriber_webhook(
         "bikepacking_guide": "new_subscriber",
         "race_watch": "race_watch",
         "goal_2027": "goal_2027",
+        # A coached athlete filing their season review is not a lead: the only
+        # email they get is the receipt, and they never enter nurture.
+        "athlete_review": "athlete_review",
         # Plan purchases (Stripe / WooCommerce / own-site) -> post-purchase
         # onboarding + review flywheel. The payment webhook must POST a source in
         # this set, with brand + plan_weeks (+ race_slug). Until that POST exists

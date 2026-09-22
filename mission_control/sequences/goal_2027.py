@@ -27,3 +27,18 @@ ROAD = {
         {"delay_days": 7, "template": "road_goal_2027_checkin", "subject": "still the goal?"},
     ]}},
 }
+
+
+# A coached athlete's season review. One transactional receipt, no marketing:
+# their answers ride on the enrollment so scripts/file_athlete_review.py can
+# file them into the athlete's Endure record.
+ATHLETE_REVIEW = {
+    "id": "athlete_review_v1",
+    "name": "Athlete Season Review (Gravel God)",
+    "description": "Receipt for a coached athlete's season review. Never nurture.",
+    "trigger": "athlete_review",
+    "active": True,
+    "variants": {"A": {"weight": 100, "name": "Receipt", "steps": [
+        {"delay_days": 0, "template": "athlete_review_receipt", "subject": "got it"},
+    ]}},
+}

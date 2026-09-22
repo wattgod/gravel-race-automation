@@ -58,6 +58,12 @@ OUTPUT_DIR = Path(__file__).parent / "output"
 FORMSUBMIT_EMAIL = "gravelgodcoaching@gmail.com"
 FORMSUBMIT_URL = f"https://formsubmit.co/ajax/{FORMSUBMIT_EMAIL}"
 
+# The Cloudflare lead worker. Variants that post here get Matti a notification
+# in his inbox (FormSubmit mail is filtered to a label and skips it) and their
+# answers stored against the lead, where scripts can file them.
+LEAD_WORKER_URL = "https://fueling-lead-intake.gravelgodcoaching.workers.dev"
+WORKER_SOURCES = {"athlete": "athlete_review", "goal_2027": "goal_2027"}
+
 
 def page_path(slug: str) -> str:
     return "/coaching/season-review/" + ("" if slug == "standard" else f"{slug}/")
@@ -248,9 +254,17 @@ def build_submit_buttons(variant, btn_id: str, lead: str = "") -> str:
       </div>'''
 
 
-def build_footer() -> str:
+def build_footer(variant=None) -> str:
+    slug = (variant or {}).get("slug", "")
+    if slug in WORKER_SOURCES:
+        route = ("They come straight to me and are stored with your file. "
+                 "The email copy is sent through FormSubmit, a form service "
+                 "that keeps a copy for 30 days.")
+    else:
+        route = ("They reach me by email through FormSubmit, a form service that "
+                 "keeps a copy for 30 days.")
     return f'''<div class="gg-apply-confidential-wrap">
-    <p class="gg-apply-confidential">Your answers, including health information you choose to share, are used to coach you as described in the <a href="/privacy/">Privacy Policy</a>. They reach me by email through FormSubmit, a form service that keeps a copy for 30 days. Drafts are saved only in this browser until you submit. Questions? Email {FORMSUBMIT_EMAIL}</p>
+    <p class="gg-apply-confidential">Your answers, including health information you choose to share, are used to coach you as described in the <a href="/privacy/">Privacy Policy</a>. {route} Drafts are saved only in this browser until you submit. Questions? Email {FORMSUBMIT_EMAIL}</p>
   </div>
   ''' + get_mega_footer_html()
 
@@ -343,6 +357,7 @@ def build_season_review_js(variant) -> str:
 
   var STORAGE_KEY = "__STORAGE_KEY__";
   var SUBMIT_URL = "__SUBMIT_URL__";
+  var LEAD_SOURCE = "__LEAD_SOURCE__";  /* empty = email transport */
   var SEASON = __SEASON__;
   var VARIANT = "__VARIANT__";
   var SUCCESS = "__SUCCESS__";
@@ -689,6 +704,30 @@ def build_season_review_js(variant) -> str:
     setButtons(true, "Submitting...");
     save(true);
 
+    var request;
+    var ctrl = typeof AbortController === "function" ? new AbortController() : null;
+    var killer = setTimeout(function() { if (ctrl) { ctrl.abort(); } }, 25000);
+
+    /* The worker stores the answers and tells Matti. It is fire-and-forget:
+       the email below is the backstop, so a worker or SendGrid outage can
+       never swallow a review. */
+    if (LEAD_SOURCE) {
+      var answers = {};
+      Object.keys(d).forEach(function(k) {
+        if (k !== "name" && k !== "email" && k !== "athlete" && typeof d[k] === "string") { answers[k] = d[k]; }
+      });
+      try {
+        fetch("__LEAD_WORKER_URL__", {
+          method: "POST",
+          headers: { "Content-Type": "application/json", "Accept": "application/json" },
+          body: JSON.stringify({
+            source: LEAD_SOURCE, brand: "gravelgod", email: d.email, name: d.name || "",
+            athlete: d.athlete || "", goal_answers: answers, website: ""
+          })
+        }).catch(function() { /* the email below is the record */ });
+      } catch (err) { /* same */ }
+    }
+
     var payload = new FormData();
     payload.append("_subject", "Season Review " + SEASON + " [" + VARIANT + "]: " + d.name);
     payload.append("_replyto", d.email);
@@ -697,15 +736,14 @@ def build_season_review_js(variant) -> str:
     payload.append("name", d.name);
     payload.append("email", d.email);
     payload.append("message", formatSubmission(d));
-
-    var ctrl = typeof AbortController === "function" ? new AbortController() : null;
-    var killer = setTimeout(function() { if (ctrl) { ctrl.abort(); } }, 25000);
-    fetch(SUBMIT_URL, { method: "POST", body: payload, headers: { "Accept": "application/json" }, signal: ctrl ? ctrl.signal : undefined })
+    request = fetch(SUBMIT_URL, { method: "POST", body: payload, headers: { "Accept": "application/json" }, signal: ctrl ? ctrl.signal : undefined })
       .then(function(r) {
         return r.json().catch(function() { return {}; }).then(function(res) {
           if (!r.ok || String(res.success) !== "true") { throw new Error(res.message || ("HTTP " + r.status)); }
         });
-      })
+      });
+
+    request
       .then(function() {
         clearTimeout(killer);
         submitted = true;
@@ -741,6 +779,8 @@ def build_season_review_js(variant) -> str:
     return (
         js.replace("__STORAGE_KEY__", f"season_review_{SEASON}_{variant['slug']}_v3")
         .replace("__SUBMIT_URL__", FORMSUBMIT_URL)
+        .replace("__LEAD_WORKER_URL__", LEAD_WORKER_URL)
+        .replace("__LEAD_SOURCE__", WORKER_SOURCES.get(variant["slug"], ""))
         .replace("__SEASON__", str(SEASON))
         .replace("__VARIANT__", variant["slug"])
         .replace("__SUCCESS__", js_str(variant["success"]))
@@ -790,7 +830,7 @@ def generate_season_review_page(slug: str = "standard", external_assets=None) ->
       {build_submit_buttons(variant, "submit-btn-2")}
     </form>
   </div>
-  {build_footer()}
+  {build_footer(variant)}
   {build_season_review_js(variant)}
   <script>{get_site_header_js()}</script>
   {get_consent_banner_html()}

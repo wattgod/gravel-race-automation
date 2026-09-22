@@ -95,7 +95,7 @@ class TestWebhook:
                        "goal_answers": {"outcome_goal": "x" * 5000,
                                         **{f"q{i}": "y" * 400 for i in range(60)}}})
         kept = _enrollment(fake_db, "essay@example.com")["source_data"]["goal_answers"]
-        assert len(kept) <= 30
+        assert len(kept) <= 45
         assert all(len(v) <= 1200 for v in kept.values())
         assert sum(len(v) for v in kept.values()) <= 12000
 

@@ -1,4 +1,4 @@
-# 2027 Goals Funnel — spec v0.1 (2026-09-22)
+# 2027 Goals Funnel — spec v0.2 (2026-09-22, after Fable review)
 
 Matti's ask, in his words: the "So. 2026" season review becomes (1) a lead magnet
 above the fold on gravelgodcycling.com (then Roadie Labs, XC Ski Labs) with a

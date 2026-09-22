@@ -44,7 +44,7 @@ export default {
 
     const origin = request.headers.get('Origin');
     const allowedOrigins = (env.ALLOWED_ORIGINS || 'https://gravelgodcycling.com').split(',').map(o => o.trim());
-    if (!allowedOrigins.some(allowed => origin?.startsWith(allowed))) {
+    if (!origin || !allowedOrigins.includes(origin)) {
       return new Response('Forbidden', { status: 403 });
     }
 
@@ -460,9 +460,9 @@ function formatEmailBody(lead) {
 
 // Keep at most MAX_ANSWER_KEYS short answers, each truncated, with a total
 // budget so one pasted essay can't blow up every downstream store.
-const MAX_ANSWER_KEYS = 45;
-const MAX_ANSWER_LEN = 1200;
-const MAX_ANSWERS_TOTAL = 12000;
+const MAX_ANSWER_KEYS = 64;
+const MAX_ANSWER_LEN = 4000;
+const MAX_ANSWERS_TOTAL = 30000;
 
 function sanitizeAnswers(raw) {
   if (!raw || typeof raw !== 'object' || Array.isArray(raw)) return {};
@@ -498,6 +498,9 @@ async function notifyMissionControl(env, data, source) {
       payload.goal_answers = data.goal_answers;
     }
     if (data.offer_variant) payload.offer_variant = data.offer_variant;
+    // Which athlete this belongs to. Without it a coached athlete's review
+    // arrives unattributed and the filing script has to guess.
+    if (data.athlete) payload.athlete = String(data.athlete).substring(0, 80);
     if (Array.isArray(data.viewed_races) && data.viewed_races.length) {
       payload.viewed_races = data.viewed_races;
     }
@@ -522,7 +525,7 @@ async function notifyMissionControl(env, data, source) {
 function handleCORS(request, env) {
   const origin = request.headers.get('Origin');
   const allowedOrigins = (env.ALLOWED_ORIGINS || 'https://gravelgodcycling.com').split(',').map(o => o.trim());
-  const isAllowed = allowedOrigins.some(allowed => origin?.startsWith(allowed));
+  const isAllowed = !!origin && allowedOrigins.includes(origin);
 
   return new Response(null, {
     status: 204,

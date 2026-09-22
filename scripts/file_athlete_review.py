@@ -104,11 +104,14 @@ def _rest(creds: dict, path: str, method: str = "GET", body=None) -> list | dict
 
 
 def fetch_reviews(mc: dict, email: str | None) -> list[dict]:
-    query = "/rest/v1/gg_sequence_enrollments?source=eq.athlete_review&select=contact_email,contact_name,source_data,enrolled_at&order=enrolled_at.desc&limit=50"
-    rows = _rest(mc, query)
+    query = ("/rest/v1/gg_sequence_enrollments?source=eq.athlete_review"
+             "&select=contact_email,contact_name,source_data,enrolled_at"
+             "&order=enrolled_at.desc&limit=50")
     if email:
-        rows = [r for r in rows if (r.get("contact_email") or "").lower() == email.lower()]
-    return rows
+        # filter server-side: a name match past the 50th row would otherwise
+        # look like "no review found"
+        query += "&contact_email=eq." + urllib.parse.quote(email)
+    return _rest(mc, query)
 
 
 def build_updates(answers: dict, submitted_at: str) -> dict:
@@ -131,9 +134,37 @@ def build_updates(answers: dict, submitted_at: str) -> dict:
         }]
         updates["limiters"] = [answers["limiter"]]
     if answers.get("drop_order"):
-        parts = [p.strip() for p in answers["drop_order"].replace("→", ",").replace("then", ",").split(",")]
+        import re as _re
+        parts = [p.strip() for p in _re.split(r",|→|->|\bthen\b", answers["drop_order"])]
         updates["drop_order"] = [p for p in parts if p]
     return updates
+
+
+def merge_profile(existing: dict, updates: dict) -> tuple[dict, list[str]]:
+    """Add to what Endure already holds; never replace it.
+
+    `limiters` is read by the coach profile tab, the habit proposals and the
+    goals settings, and is written by onboarding — replacing it would delete
+    an athlete's history. The spec's interrogation, limiter_evidence and
+    drop_order are appended lists, so new entries go on the end.
+    """
+    profile = dict(existing)
+    notes: list[str] = []
+    for key, value in updates.items():
+        if key in ("interrogation", "limiter_evidence") and isinstance(value, list):
+            before = list(profile.get(key) or [])
+            profile[key] = before + value
+            notes.append(f"{key}: {len(before)} existing kept, {len(value)} appended")
+        elif key == "limiters" and isinstance(value, list):
+            before = [x for x in (profile.get(key) or []) if isinstance(x, str)]
+            added = [v for v in value if v not in before]
+            profile[key] = before + added
+            notes.append(f"limiters: {len(before)} existing kept, {len(added)} added")
+        else:
+            if key in profile:
+                notes.append(f"{key}: replaces the previous value")
+            profile[key] = value
+    return profile, notes
 
 
 def find_athlete(endure: dict, email: str) -> dict | None:
@@ -197,15 +228,22 @@ def main() -> int:
                      "Check the address they used, or file it by hand.")
     print(f"Endure athlete: {athlete.get('name') or '(unnamed)'}  id={athlete['id']}")
 
+    existing = athlete.get("extended_profile") or {}
+    profile, notes = merge_profile(existing, updates)
+    for note in notes:
+        print(f"  · {note}")
+
     if not args.apply:
         print("\nDry run. Nothing written. Add --apply to write this into their record.")
         return 0
 
-    profile = dict(athlete.get("extended_profile") or {})
-    profile.update(updates)
+    backup = Path(f"athlete-profile-backup-{athlete['id']}-{int(datetime.now(timezone.utc).timestamp())}.json")
+    backup.write_text(json.dumps(existing, indent=1))
+    print(f"\nBacked up their current profile to {backup}")
+
     _rest(endure, f"/rest/v1/athletes?id=eq.{athlete['id']}", method="PATCH",
           body={"extended_profile": profile})
-    print("\n✓ Written to Endure. David and the coach view read extended_profile.")
+    print("✓ Written to Endure. David and the coach view read extended_profile.")
     return 0
 
 

@@ -22,7 +22,12 @@ from mission_control.config import (
 from mission_control.sequences import get_sequence, SEQUENCES
 
 # Triggers that are post-purchase — should NOT be suppressed for customers
-_POST_PURCHASE_TRIGGERS = {"plan_purchased"}
+# Transactional triggers: exempt from the customer-suppression gate, the
+# unsubscribe guard and the sales-pipeline deal. A coached athlete filing a
+# season review is not being marketed to — and every one of those guards
+# would otherwise drop the review on the floor (they have bought a plan,
+# they may have unsubscribed years ago, and they are not a new deal).
+_POST_PURCHASE_TRIGGERS = {"plan_purchased", "athlete_review"}
 
 # Fallback plan length (weeks) for completion-relative steps when the
 # enrollment's source_data carries no usable plan_weeks AND the step has no

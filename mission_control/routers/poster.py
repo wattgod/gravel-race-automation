@@ -44,10 +44,14 @@ def goal_poster(token: str) -> Response:
     match = rows[0]
 
     source_data = match.get("source_data") or {}
-    png = render_poster(
-        source_data.get("goal_answers") or {},
-        name=match.get("contact_name") or "",
-    )
+    try:
+        png = render_poster(
+            source_data.get("goal_answers") or {},
+            name=match.get("contact_name") or "",
+        )
+    except Exception:  # noqa: BLE001 - a broken poster is a 404, never a 500
+        logger.exception("poster render failed")
+        raise HTTPException(status_code=404, detail="Not found") from None
     return Response(
         content=png,
         media_type="image/png",

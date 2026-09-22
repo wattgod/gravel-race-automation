@@ -35,7 +35,7 @@ const DISPOSABLE_DOMAINS = [
   'yopmail.com', 'temp-mail.org', 'getnada.com', 'mohmal.com'
 ];
 
-const KNOWN_SOURCES = ['exit_intent', 'race_profile', 'prep_kit_gate', 'race_quiz', 'quiz_shared', 'tire_guide', 'race_review', 'state_hub', 'date_reminder', 'race_plan_ladder', 'training_guide', 'bikepacking_guide', 'race_watch', 'gravel_tv_subscribe', 'gravel_weekly_subscribe', 'goal_2027'];
+const KNOWN_SOURCES = ['exit_intent', 'race_profile', 'prep_kit_gate', 'race_quiz', 'quiz_shared', 'tire_guide', 'race_review', 'state_hub', 'date_reminder', 'race_plan_ladder', 'training_guide', 'bikepacking_guide', 'race_watch', 'gravel_tv_subscribe', 'gravel_weekly_subscribe', 'goal_2027', 'athlete_review'];
 
 export default {
   async fetch(request, env) {
@@ -82,7 +82,7 @@ export default {
     // 2027 goal questionnaire: the answers ARE the deliverable (they make the
     // poster and the coach's read), so unlike every other source this one
     // forwards a body. Capped hard — a lead payload is not a document store.
-    if (source === 'goal_2027') {
+    if (source === 'goal_2027' || source === 'athlete_review') {
       data.goal_answers = sanitizeAnswers(data.goal_answers);
       data.offer_variant = ['A', 'B', 'C'].includes(String(data.offer_variant))
         ? String(data.offer_variant)
@@ -120,6 +120,13 @@ export default {
       // Notify Mission Control for sequence enrollment (all sources)
       if (env.MC_WEBHOOK_URL) {
         promises.push(notifyMissionControl(env, data, source));
+      }
+
+      // A coached athlete just filed their season review: tell Matti now, in
+      // his inbox. FormSubmit mail is filtered to a label and skips the inbox,
+      // which is how the old path went unseen.
+      if (source === 'athlete_review' && env.NOTIFICATION_EMAIL) {
+        promises.push(sendAthleteReviewEmail(env, data));
       }
 
       // Notification email only for fueling_calculator (has actionable athlete data)
@@ -290,6 +297,71 @@ async function sendToWebhook(webhookUrl, lead) {
   }
 }
 
+// --- Notification Email (athlete season review) ---
+
+// Resend first: SendGrid's key has been returning 401, and a season review
+// that nobody is told about is the whole failure mode this replaced.
+async function sendAthleteReviewEmail(env, data) {
+  const answers = data.goal_answers || {};
+  const who = esc(data.name || data.email);
+  const rows = Object.entries(answers)
+    .map(([k, v]) => `<tr><td style="padding:4px 12px 4px 0;font-family:monospace;color:#7d695d;vertical-align:top">${esc(k)}</td><td style="padding:4px 0">${esc(v)}</td></tr>`)
+    .join('');
+  const html = `<div style="font-family:Georgia,serif;max-width:640px">
+    <p style="font-family:monospace;letter-spacing:.14em;color:#178079">ATHLETE SEASON REVIEW</p>
+    <h2 style="margin:0 0 4px">${who}</h2>
+    <p style="color:#7d695d;margin:0 0 16px">${esc(data.athlete || 'no athlete tag')} &middot; ${esc(data.email)}</p>
+    <table style="border-collapse:collapse;font-size:15px">${rows}</table>
+    <p style="font-family:monospace;font-size:12px;color:#7d695d;margin-top:20px">File it: python3 scripts/file_athlete_review.py --email ${esc(data.email)}</p>
+  </div>`;
+
+  const subject = `[GG] Season review: ${(data.name || data.email).substring(0, 60)}`;
+
+  if (env.RESEND_API_KEY) {
+    try {
+      const resp = await fetch('https://api.resend.com/emails', {
+        method: 'POST',
+        headers: {
+          'Authorization': `Bearer ${env.RESEND_API_KEY}`,
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          from: 'Gravel God <noreply@gravelgodcycling.com>',
+          to: [env.NOTIFICATION_EMAIL],
+          reply_to: data.email,
+          subject,
+          html
+        })
+      });
+      const detail = await resp.text();
+      console.log('Athlete review notification (resend):', resp.status, detail.slice(0, 200));
+      if (resp.ok) return;
+    } catch (error) {
+      console.error('Resend notification failed:', error);
+    }
+  }
+
+  if (!env.SENDGRID_API_KEY) return;
+  try {
+    const resp = await fetch('https://api.sendgrid.com/v3/mail/send', {
+      method: 'POST',
+      headers: {
+        'Authorization': `Bearer ${env.SENDGRID_API_KEY}`,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        personalizations: [{ to: [{ email: env.NOTIFICATION_EMAIL }], subject }],
+        from: brandSender(data.brand || 'gravelgod'),
+        reply_to: { email: data.email },
+        content: [{ type: 'text/html', value: html }]
+      })
+    });
+    console.log('Athlete review notification (sendgrid):', resp.status);
+  } catch (error) {
+    console.error('Athlete review notification failed:', error);
+  }
+}
+
 // --- Notification Email (fueling_calculator only) ---
 
 async function sendNotificationEmail(env, lead) {
@@ -388,7 +460,7 @@ function formatEmailBody(lead) {
 
 // Keep at most MAX_ANSWER_KEYS short answers, each truncated, with a total
 // budget so one pasted essay can't blow up every downstream store.
-const MAX_ANSWER_KEYS = 30;
+const MAX_ANSWER_KEYS = 45;
 const MAX_ANSWER_LEN = 1200;
 const MAX_ANSWERS_TOTAL = 12000;
 

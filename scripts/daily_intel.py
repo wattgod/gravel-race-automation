@@ -27,6 +27,7 @@ from __future__ import annotations
 import argparse
 import json
 import os
+import re
 import sys
 import urllib.error
 import urllib.request
@@ -968,6 +969,14 @@ def _collect_seo(today: date | None = None) -> dict:
     }
 
 
+_SEO_ADJUDICATION_CONTEXT = re.compile(
+    r"\bfell\b|declin|\bseo\b|\bctr\b|impression|striking.distance|"
+    r"content refresh|refresh content|search demand|\branking\b|"
+    r"seasonal|\bclicks\b",
+    re.IGNORECASE,
+)
+
+
 def _annotate_seo_adjudications(candidates: list) -> list:
     """Attach the open intel issue that already adjudicated a page, so the
     report stops re-listing 'refresh content' for pages triage ruled
@@ -984,7 +993,6 @@ def _annotate_seo_adjudications(candidates: list) -> list:
         issues = json.loads(r.stdout or "[]")
     except Exception:
         return out
-    import re
     for c in out:
         path = str(c.get("target_path") or "")
         if not path:
@@ -994,10 +1002,20 @@ def _annotate_seo_adjudications(candidates: list) -> list:
         pattern = re.compile(r"(?<![/-])" + re.escape(path) + r"(?![\w-])")  # domain prefix OK
         for issue in issues:
             text = f"{issue.get('title', '')}\n{issue.get('body', '')}"
-            if pattern.search(text):
-                c["adjudicated_issue"] = issue["number"]
-                c["adjudicated_title"] = issue.get("title", "")[:120]
-                break
+            match = pattern.search(text)
+            if not match:
+                continue
+            # A bare path mention isn't enough on its own — a short generic
+            # path like '/guide/' can appear incidentally in an unrelated
+            # issue's live-verification curl list (e.g. #298 mentions
+            # '/guide/' while investigating a tracking regression, not an
+            # SEO decline). Require SEO-signal language near the match.
+            window = text[max(0, match.start() - 200):match.end() + 200]
+            if not _SEO_ADJUDICATION_CONTEXT.search(window):
+                continue
+            c["adjudicated_issue"] = issue["number"]
+            c["adjudicated_title"] = issue.get("title", "")[:120]
+            break
     return out
 
 

@@ -92,12 +92,12 @@ class TestWebhook:
 
     def test_an_essay_cannot_blow_up_the_row(self, client, fake_db):
         _post(client, {"email": "essay@example.com", "source": "goal_2027",
-                       "goal_answers": {"outcome_goal": "x" * 5000,
-                                        **{f"q{i}": "y" * 400 for i in range(60)}}})
+                       "goal_answers": {"outcome_goal": "x" * 9000,
+                                        **{f"q{i}": "y" * 900 for i in range(90)}}})
         kept = _enrollment(fake_db, "essay@example.com")["source_data"]["goal_answers"]
-        assert len(kept) <= 45
-        assert all(len(v) <= 1200 for v in kept.values())
-        assert sum(len(v) for v in kept.values()) <= 12000
+        assert len(kept) <= 64
+        assert all(len(v) <= 4000 for v in kept.values())
+        assert sum(len(v) for v in kept.values()) <= 30000
 
     def test_other_sources_carry_no_answers(self, client, fake_db):
         _post(client, {"email": "other@example.com", "source": "race_profile",
@@ -130,3 +130,50 @@ class TestPosterImage:
 
     def test_long_goal_does_not_crash(self):
         assert render_poster({"outcome_goal": "word " * 200})[:4] == b"\x89PNG"
+
+
+class TestAthleteReviewIsTransactional:
+    """A coached athlete filing a review is not being marketed to. Every
+    marketing guard in the engine would otherwise drop it (Fable review,
+    Sep 22): they have bought a plan, they may have unsubscribed years ago,
+    and they are not a new sales deal.
+    """
+
+    def test_exempt_from_the_marketing_guards(self):
+        from mission_control.services.sequence_engine import _POST_PURCHASE_TRIGGERS
+        assert "athlete_review" in _POST_PURCHASE_TRIGGERS
+
+    def test_an_unsubscribed_athlete_still_gets_stored(self, client, fake_db):
+        fake_db.store["gg_sequence_enrollments"].append({
+            "id": "old-1", "sequence_id": "welcome_v1",
+            "contact_email": "unsub@example.com", "status": "unsubscribed",
+            "source": "exit_intent", "source_data": {},
+        })
+        resp = _post(client, {"email": "unsub@example.com", "name": "Unsubbed",
+                              "source": "athlete_review", "goal_answers": ANSWERS})
+        assert "athlete_review_v1" in resp.json()["enrolled"]
+
+    def test_resubmitting_updates_the_answers(self, client, fake_db):
+        first = dict(ANSWERS, outcome_goal="First answer")
+        _post(client, {"email": "again@example.com", "name": "Again",
+                       "source": "athlete_review", "goal_answers": first})
+        token = _enrollment(fake_db, "again@example.com")["source_data"]["poster_token"]
+
+        second = dict(ANSWERS, outcome_goal="Corrected answer")
+        _post(client, {"email": "again@example.com", "name": "Again",
+                       "source": "athlete_review", "goal_answers": second})
+        sd = _enrollment(fake_db, "again@example.com")["source_data"]
+        assert sd["goal_answers"]["outcome_goal"] == "Corrected answer"
+        assert sd["poster_token"] == token, "a poster link already emailed must keep working"
+
+
+class TestCapsFitTheLongestForm:
+    """The athlete form has 50 answers and a 15-minute free-write."""
+
+    def test_key_cap_clears_the_form(self):
+        from mission_control.routers.webhooks import _MAX_GOAL_ANSWER_KEYS
+        assert _MAX_GOAL_ANSWER_KEYS >= 56
+
+    def test_answer_cap_fits_a_fifteen_minute_write(self):
+        from mission_control.routers.webhooks import _MAX_GOAL_ANSWER_LEN
+        assert _MAX_GOAL_ANSWER_LEN >= 3000

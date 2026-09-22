@@ -361,6 +361,8 @@ def build_season_review_js(variant) -> str:
   var SEASON = __SEASON__;
   var VARIANT = "__VARIANT__";
   var SUCCESS = "__SUCCESS__";
+  var SUCCESS_BY_EMAIL = "Got it — your answers came through by email. (My system had a wobble, so I'll file them by hand.)";
+  var lastStored = false;
   var SUBMIT_LABEL = "__SUBMIT_LABEL__";
 
   var form = document.getElementById("season-form");
@@ -704,28 +706,27 @@ def build_season_review_js(variant) -> str:
     setButtons(true, "Submitting...");
     save(true);
 
-    var request;
     var ctrl = typeof AbortController === "function" ? new AbortController() : null;
     var killer = setTimeout(function() { if (ctrl) { ctrl.abort(); } }, 25000);
 
-    /* The worker stores the answers and tells Matti. It is fire-and-forget:
-       the email below is the backstop, so a worker or SendGrid outage can
-       never swallow a review. */
+    /* The worker is the record: it stores the answers and tells Matti. The
+       email below is the backstop, so a failure on either side still lands
+       the review somewhere — but we wait for both before claiming success. */
+    var workerOk = Promise.resolve(false);
     if (LEAD_SOURCE) {
       var answers = {};
       Object.keys(d).forEach(function(k) {
         if (k !== "name" && k !== "email" && k !== "athlete" && typeof d[k] === "string") { answers[k] = d[k]; }
       });
-      try {
-        fetch("__LEAD_WORKER_URL__", {
-          method: "POST",
-          headers: { "Content-Type": "application/json", "Accept": "application/json" },
-          body: JSON.stringify({
-            source: LEAD_SOURCE, brand: "gravelgod", email: d.email, name: d.name || "",
-            athlete: d.athlete || "", goal_answers: answers, website: ""
-          })
-        }).catch(function() { /* the email below is the record */ });
-      } catch (err) { /* same */ }
+      workerOk = fetch("__LEAD_WORKER_URL__", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", "Accept": "application/json" },
+        body: JSON.stringify({
+          source: LEAD_SOURCE, brand: "gravelgod", email: d.email, name: d.name || "",
+          athlete: d.athlete || "", goal_answers: answers, website: ""
+        }),
+        signal: ctrl ? ctrl.signal : undefined
+      }).then(function(r) { return r.ok; }).catch(function() { return false; });
     }
 
     var payload = new FormData();
@@ -736,21 +737,25 @@ def build_season_review_js(variant) -> str:
     payload.append("name", d.name);
     payload.append("email", d.email);
     payload.append("message", formatSubmission(d));
-    request = fetch(SUBMIT_URL, { method: "POST", body: payload, headers: { "Accept": "application/json" }, signal: ctrl ? ctrl.signal : undefined })
+    var mailOk = fetch(SUBMIT_URL, { method: "POST", body: payload, headers: { "Accept": "application/json" }, signal: ctrl ? ctrl.signal : undefined })
       .then(function(r) {
         return r.json().catch(function() { return {}; }).then(function(res) {
-          if (!r.ok || String(res.success) !== "true") { throw new Error(res.message || ("HTTP " + r.status)); }
+          return r.ok && String(res.success) === "true";
         });
-      });
+      }).catch(function() { return false; });
 
-    request
+    Promise.all([workerOk, mailOk])
+      .then(function(results) {
+        if (!results[0] && !results[1]) { throw new Error("both transports failed"); }
+        lastStored = results[0];
+      })
       .then(function() {
         clearTimeout(killer);
         submitted = true;
         clearTimeout(saveTimer);
         try { localStorage.removeItem(STORAGE_KEY); } catch (err) { /* ignore */ }
         ga4("season_review_submitted", { variant: VARIANT, deep_modules: form.querySelectorAll(".gg-sr-deeper[open]").length });
-        showMessage("success", SUCCESS);
+        showMessage("success", lastStored ? SUCCESS : SUCCESS_BY_EMAIL);
         setButtons(true, "Submitted");
       })
       .catch(function(err) {

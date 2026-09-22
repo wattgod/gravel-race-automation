@@ -190,3 +190,25 @@ class TestGoal2027Source:
         assert "sanitizeAnswers" in worker_js
         for cap in ("MAX_ANSWER_KEYS", "MAX_ANSWER_LEN", "MAX_ANSWERS_TOTAL"):
             assert cap in worker_js, f"missing cap {cap}"
+
+
+class TestWorkerHardening:
+    """Fable review, Sep 22: a lookalike origin passed the prefix check, and
+    the caps were smaller than the form they carry."""
+
+    @pytest.fixture(scope="class")
+    def worker_js(self):
+        if not WORKER_PATH.exists():
+            pytest.skip("worker.js not present")
+        return WORKER_PATH.read_text()
+
+    def test_origin_is_matched_exactly(self, worker_js):
+        assert "startsWith(allowed)" not in worker_js, (
+            "prefix matching let https://gravelgodcycling.com.evil.example through"
+        )
+        assert "allowedOrigins.includes(origin)" in worker_js
+
+    def test_caps_fit_the_longest_questionnaire(self, worker_js):
+        keys = int(re.search(r"MAX_ANSWER_KEYS = (\d+)", worker_js).group(1))
+        length = int(re.search(r"MAX_ANSWER_LEN = (\d+)", worker_js).group(1))
+        assert keys >= 56 and length >= 3000

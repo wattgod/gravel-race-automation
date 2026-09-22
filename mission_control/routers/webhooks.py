@@ -21,9 +21,9 @@ router = APIRouter(prefix="/webhooks")
 _EMAIL_RE = re.compile(r"^[^@\s]{1,64}@[^@\s]{1,255}$")
 # race_slug arrives from page JS and is interpolated into email hrefs.
 _ANSWER_KEY_RE = re.compile(r"^[a-z0-9_]{1,40}$")
-_MAX_GOAL_ANSWER_KEYS = 45
-_MAX_GOAL_ANSWER_LEN = 1200
-_MAX_GOAL_ANSWERS_TOTAL = 12000
+_MAX_GOAL_ANSWER_KEYS = 64
+_MAX_GOAL_ANSWER_LEN = 4000
+_MAX_GOAL_ANSWERS_TOTAL = 30000
 _SLUG_RE = re.compile(r"^[a-z0-9][a-z0-9-]{0,80}$")
 _MAX_NAME_LEN = 200
 _MAX_SOURCE_LEN = 100
@@ -376,6 +376,28 @@ async def subscriber_webhook(
         "woocommerce": "plan_purchased",
     }
     trigger = trigger_map.get(source, "new_subscriber")
+
+    # A season review can be redone: the athlete edits an answer, or comes
+    # back next season. enroll() refuses a second enrollment per sequence, so
+    # without this the newer answers are silently discarded and the filing
+    # script would keep handing Matti the stale ones.
+    if source in ("goal_2027", "athlete_review") and source_data.get("goal_answers"):
+        for seq in get_sequences_for_trigger(trigger, brand):
+            existing = db.select_one(
+                "gg_sequence_enrollments",
+                match={"sequence_id": seq["id"], "contact_email": email},
+            )
+            if not existing:
+                continue
+            merged = {**(existing.get("source_data") or {}), **source_data}
+            # keep the poster token they may already have been emailed
+            if (existing.get("source_data") or {}).get("poster_token"):
+                merged["poster_token"] = existing["source_data"]["poster_token"]
+                if existing["source_data"].get("poster_url"):
+                    merged["poster_url"] = existing["source_data"]["poster_url"]
+            db.update("gg_sequence_enrollments", {"source_data": merged},
+                      match={"id": existing["id"]})
+            logger.info("season review updated in place for %s", email)
 
     # Enroll in matching sequences (brand-scoped)
     enrolled = []

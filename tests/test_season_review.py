@@ -10,6 +10,7 @@ sys.path.insert(0, str(Path(__file__).parent.parent / "wordpress"))
 from generate_season_review import (  # noqa: E402
     FORMSUBMIT_URL,
     build_season_review_js,
+    build_walkthrough_js,
     generate_season_review_page,
 )
 from season_review_variants import VARIANTS  # noqa: E402
@@ -247,3 +248,61 @@ class TestGoalsPage:
     def test_the_offer_states_the_real_terms(self):
         html = page("goal_2027")
         assert "$15 per week" in html and "$249" in html and "7 days" in html
+
+
+class TestWalkthroughMode:
+    """D19: a voice-recorded walkthrough. Turned on with ?walkthrough=1 and
+    otherwise inert — the IIFE bails on its first line, before it touches
+    the DOM, the mic, or anything else. Nothing it does ever leaves the
+    browser (see scripts/walkthrough.py for what happens to the files after).
+    """
+
+    @pytest.mark.parametrize("slug", ALL)
+    def test_present_but_gated_behind_the_flag_on_every_variant(self, slug):
+        js = build_walkthrough_js(VARIANTS[slug])
+        assert 'get("walkthrough") !== "1"' in js
+        # the guard (with its "return") must come before any DOM/mic code —
+        # nothing runs unless the flag is set
+        guard_pos = js.index('get("walkthrough")')
+        assert "return; }" in js[guard_pos:guard_pos + 60]
+        for later_code in ("new MediaRecorder(", "document.createElement", "getUserMedia("):
+            assert js.index(later_code) > guard_pos
+
+    @pytest.mark.parametrize("slug", ALL)
+    def test_no_placeholders_left(self, slug):
+        assert not re.search(r"__[A-Z_]+__", build_walkthrough_js(VARIANTS[slug]))
+
+    def test_records_with_mediarecorder(self):
+        js = build_walkthrough_js(VARIANTS["goal_2027"])
+        assert "new MediaRecorder(" in js
+        assert "getUserMedia({ audio: true })" in js
+
+    def test_downloads_two_matching_files_and_uploads_nothing(self):
+        js = build_walkthrough_js(VARIANTS["goal_2027"])
+        assert '"walkthrough-" + PAGE + "-" + stamp()' in js
+        assert '.json"' in js and '.webm"' in js
+        # nothing is ever POSTed or fetched from this script
+        assert "fetch(" not in js and "XMLHttpRequest" not in js and "sendBeacon" not in js
+
+    def test_timeline_logs_section_and_field_events(self):
+        js = build_walkthrough_js(VARIANTS["goal_2027"])
+        for kind in ('"section"', '"focus"', '"input"', '"click"'):
+            assert kind in js
+
+    def test_no_inline_handlers(self):
+        assert not re.search(r"\son(click|submit|change|input)=", build_walkthrough_js(VARIANTS["goal_2027"]))
+
+    def test_no_innerhtml(self):
+        assert "innerHTML" not in build_walkthrough_js(VARIANTS["goal_2027"])
+
+    def test_appears_on_the_goals_page_and_the_athlete_review(self):
+        for slug in ("goal_2027", "athlete"):
+            assert "gg-walkthrough-btn" in page(slug)
+
+    def test_flag_off_is_inert_end_to_end(self):
+        # the guard sits before every code path that could touch the page —
+        # creating the button, requesting the mic, attaching listeners
+        js = build_walkthrough_js(VARIANTS["goal_2027"])
+        guard_pos = js.index('get("walkthrough")')
+        assert js.index("gg-walkthrough-btn") > guard_pos
+        assert js.index("addEventListener") > guard_pos

@@ -392,11 +392,14 @@ async def subscriber_webhook(
             if not existing:
                 continue
             merged = {**(existing.get("source_data") or {}), **source_data}
-            # keep the poster token they may already have been emailed
+            # keep the poster token they may already have been emailed; the
+            # new link carries a version so a mail client that cached the old
+            # poster (the route allows a day) fetches the corrected one
             if (existing.get("source_data") or {}).get("poster_token"):
                 merged["poster_token"] = existing["source_data"]["poster_token"]
                 if existing["source_data"].get("poster_url"):
-                    merged["poster_url"] = existing["source_data"]["poster_url"]
+                    base = existing["source_data"]["poster_url"].split("?")[0]
+                    merged["poster_url"] = f"{base}?v={int(time.time())}"
             db.update("gg_sequence_enrollments", {"source_data": merged},
                       match={"id": existing["id"]})
             logger.info("season review updated in place for %s", email)

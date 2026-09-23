@@ -392,8 +392,11 @@ async def resend_first_step(enrollment: dict, subject: str | None = None) -> boo
     if not variant or not variant.get("steps"):
         return False
 
-    firsts = [s for s in db.select("gg_sequence_sends", match={"enrollment_id": enrollment["id"]})
-              if s.get("step_index") == 0]
+    def _firsts() -> list[dict]:
+        return [s for s in db.select("gg_sequence_sends", match={"enrollment_id": enrollment["id"]})
+                if s.get("step_index") == 0]
+
+    firsts = _firsts()
     if not firsts or len(firsts) > MAX_RESENDS:  # the original plus MAX_RESENDS corrections
         return False
     if not RESEND_API_KEY:
@@ -402,6 +405,18 @@ async def resend_first_step(enrollment: dict, subject: str | None = None) -> boo
     step = variant["steps"][0]
     brand = seq.get("brand", "gravelgod")
     subject = subject or _render_subject(step["subject"], enrollment.get("source_data") or {})
+
+    # Claim a slot before sending, then count. Every concurrent caller counts
+    # at least every claim made before its own, so however many arrive at
+    # once, no more than MAX_RESENDS of them get past this line.
+    claim = db.insert("gg_sequence_sends", {
+        "enrollment_id": enrollment["id"], "step_index": 0,
+        "template": step["template"], "subject": subject, "status": "sending",
+    })
+    if len(_firsts()) > MAX_RESENDS + 1:
+        db.delete("gg_sequence_sends", {"id": claim["id"]})
+        return False
+
     html = _render_template(step["template"], enrollment)
     html = _inject_utm_params(html, sequence_id=enrollment["sequence_id"],
                               variant=enrollment["variant"], step_index=0, brand=brand)
@@ -411,21 +426,18 @@ async def resend_first_step(enrollment: dict, subject: str | None = None) -> boo
         resend_id = await asyncio.to_thread(
             _send_email_sync, enrollment["contact_email"], subject, html, brand, reply_token)
     except Exception as e:
+        db.delete("gg_sequence_sends", {"id": claim["id"]})
         db.log_action("sequence_send_error", "enrollment", str(enrollment["id"]),
                       f"Resend error on resubmitted step 0: {e}")
         return False
 
     from mission_control.services.lead_nurture import classify_question
-    db.insert("gg_sequence_sends", {
-        "enrollment_id": enrollment["id"],
-        "step_index": 0,
-        "template": step["template"],
-        "subject": subject,
+    db.update("gg_sequence_sends", {
         "resend_id": resend_id,
         "status": "sent",
         "reply_token": reply_token,
         "question_type": step.get("question_type") or classify_question(html),
-    })
+    }, {"id": claim["id"]})
     return True
 
 

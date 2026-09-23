@@ -234,6 +234,47 @@ class TestResubmitResendsTheResults:
         assert sent == []
 
 
+    def test_simultaneous_corrections_stay_under_the_cap(self, fake_db, monkeypatch):
+        import asyncio
+        import time as _time
+        import mission_control.services.sequence_engine as se
+        sent = []
+
+        def slow_send(to, subject, *a):  # hold the thread so the calls overlap
+            _time.sleep(0.05)
+            sent.append(to)
+            return "rs-x"
+
+        monkeypatch.setattr(se, "RESEND_API_KEY", "test-key")
+        monkeypatch.setattr(se, "_send_email_sync", slow_send)
+        monkeypatch.setattr(se, "_render_template", lambda *a: "<p>poster</p>")
+        enrollment = {"id": "e-burst", "sequence_id": "goal_2027_v1", "variant": "A",
+                      "status": "active", "contact_email": "burst@example.com",
+                      "source_data": {}}
+        seq = get_sequences_for_trigger("goal_2027", "gravelgod")[0]
+        enrollment["variant"] = next(iter(seq["variants"]))
+        fake_db.store["gg_sequence_sends"].append({
+            "id": "orig", "enrollment_id": "e-burst", "step_index": 0,
+            "template": "goal_2027_results", "subject": "x", "status": "sent"})
+
+        async def burst():
+            return await asyncio.gather(*[se.resend_first_step(enrollment) for _ in range(10)])
+
+        asyncio.run(burst())
+        assert len(sent) <= se.MAX_RESENDS
+
+    def test_the_corrected_link_dodges_a_cached_poster(self, client, fake_db, monkeypatch):
+        import mission_control.routers.webhooks as wh
+        monkeypatch.setattr(wh, "MC_PUBLIC_URL", "https://mc.example")
+        _post(client, {"email": "cache@example.com", "name": "C", "source": "goal_2027",
+                       "goal_answers": ANSWERS})
+        first = _enrollment(fake_db, "cache@example.com")["source_data"]["poster_url"]
+        _post(client, {"email": "cache@example.com", "name": "C", "source": "goal_2027",
+                       "goal_answers": ANSWERS})
+        second = _enrollment(fake_db, "cache@example.com")["source_data"]["poster_url"]
+        assert second.startswith(first + "?v=")
+
+
 class TestCapsFitTheLongestForm:
     """The athlete form has 50 answers and a 15-minute free-write."""
 

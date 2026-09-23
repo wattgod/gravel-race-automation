@@ -41,8 +41,18 @@ Usage:
     python scripts/goals_funnel_report.py --mission-control-only  # skip GA4
 
 Environment:
-    GA4_PROPERTY_ID           — GA4 property ID (numeric)
-    GA4_CREDENTIALS           — path to service account JSON (default: ga4-credentials.json)
+    GA4_PROPERTY_ID           — GA4 property ID (accepts a bare number or a
+                                "properties/123..." string; only digits are kept)
+    GA4_CREDENTIALS           — path to service account JSON. If unset, this
+                                script looks for ga4-credentials.json at the
+                                MAIN checkout's root (found via `git
+                                rev-parse --git-common-dir`, so running this
+                                from a worktree still finds the real repo's
+                                credentials file instead of looking for one
+                                inside the worktree, which won't have it) —
+                                see _default_ga4_credentials_path(). Falls
+                                back to this file's own directory tree if
+                                that lookup fails or finds nothing.
     SUPABASE_URL               — Mission Control's Supabase project URL
     SUPABASE_SERVICE_ROLE_KEY  — service role key (or SUPABASE_SERVICE_KEY)
 """
@@ -59,6 +69,36 @@ from datetime import date, timedelta
 from pathlib import Path
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
+
+
+def _default_ga4_credentials_path() -> Path:
+    """Where ga4-credentials.json lives when GA4_CREDENTIALS isn't set.
+
+    This script's own PROJECT_ROOT is wherever *this file* sits, which is
+    wrong when it's running from a git worktree (e.g. .claude/worktrees/...):
+    a worktree checks out the tracked files but not untracked, local-only
+    ones like a credentials JSON — only the main checkout has that file.
+    `git rev-parse --git-common-dir` finds the .git directory every worktree
+    shares; its parent is the main checkout (standard, non-bare layout,
+    which is what this repo uses). Falls back to PROJECT_ROOT if git isn't
+    available or this isn't a worktree at all, which reproduces the old
+    behaviour exactly.
+    """
+    try:
+        import subprocess
+        result = subprocess.run(
+            ["git", "-C", str(Path(__file__).resolve().parent),
+             "rev-parse", "--git-common-dir"],
+            capture_output=True, text=True, timeout=5, check=True,
+        )
+        common_dir = Path(Path(__file__).resolve().parent, result.stdout.strip())
+        main_root = common_dir.resolve().parent
+        if (main_root / "ga4-credentials.json").exists():
+            return main_root / "ga4-credentials.json"
+    except Exception:
+        pass
+    return PROJECT_ROOT / "ga4-credentials.json"
+
 
 GOALS_SCOPE = "/goals/ page"
 PROPERTY_SCOPE = "property-wide (not filtered to /goals/ referrals)"
@@ -250,6 +290,33 @@ def _mc_req(path: str, params: str = "") -> list:
         return json.loads(resp.read().decode())
 
 
+MC_SENDS_BATCH_SIZE = 100  # enrollment_ids per "in.(...)" filter request
+
+
+def _sends_for_enrollments(enrollment_ids: list[str]) -> list[dict]:
+    """gg_sequence_sends rows for exactly these enrollments, fetched with a
+    server-side enrollment_id filter rather than pulled unfiltered and
+    matched client-side.
+
+    Pulling the whole table client-side undercounts silently: Supabase's
+    PostgREST caps a response at 1000 rows by default, and gg_sequence_sends
+    already holds 1000+ across every sequence (not just goal_2027) — so a
+    recent goal_2027 send can land past that cutoff and never reach the
+    Python-side filter at all. Filtering with enrollment_id=in.(...) instead
+    asks Postgres for only the rows this report cares about, which both
+    fixes that and keeps the request small.
+    """
+    out: list[dict] = []
+    for start in range(0, len(enrollment_ids), MC_SENDS_BATCH_SIZE):
+        batch = enrollment_ids[start:start + MC_SENDS_BATCH_SIZE]
+        ids = ",".join(urllib.parse.quote(str(i), safe="") for i in batch)
+        out.extend(_mc_req(
+            "gg_sequence_sends",
+            f"select=enrollment_id,step_index,opened_at,clicked_at,status&enrollment_id=in.({ids})",
+        ))
+    return out
+
+
 def get_mission_control_numbers(sequence_prefix: str = "goal_2027") -> dict:
     """Mission Control's own record: enrollments, resends, opens, clicks.
 
@@ -260,21 +327,17 @@ def get_mission_control_numbers(sequence_prefix: str = "goal_2027") -> dict:
     """
     enrollments = _mc_req(
         "gg_sequence_enrollments",
-        "select=id,sequence_id,variant,status,contact_email"
+        "select=id,sequence_id,variant,status,contact_email,source_data"
         f"&sequence_id=like.{urllib.parse.quote(sequence_prefix)}*",
     )
-    enrollment_ids = {e["id"] for e in enrollments}
+    enrollment_ids = [e["id"] for e in enrollments]
     if not enrollment_ids:
         return {
             "sequence_prefix": sequence_prefix, "enrollments": 0, "unsubscribed": 0,
-            "resends": 0, "sends": 0, "opens": 0, "clicks": 0, "by_variant": {},
+            "resends": 0, "sends": 0, "opens": 0, "clicks": 0, "by_offer_variant": {},
         }
 
-    sends = _mc_req(
-        "gg_sequence_sends",
-        "select=enrollment_id,step_index,opened_at,clicked_at,status",
-    )
-    sends = [s for s in sends if s.get("enrollment_id") in enrollment_ids]
+    sends = _sends_for_enrollments(enrollment_ids)
 
     step0_per_enrollment: dict[str, int] = {}
     opens = clicks = 0
@@ -287,9 +350,16 @@ def get_mission_control_numbers(sequence_prefix: str = "goal_2027") -> dict:
             clicks += 1
     resends = sum(max(0, n - 1) for n in step0_per_enrollment.values())
 
-    by_variant: dict[str, int] = {}
+    # The A/B/C offer copy variant a lead saw on /goals/ lives in
+    # source_data.offer_variant (mission_control/routers/webhooks.py). The
+    # enrollment's own top-level "variant" column is a different thing
+    # entirely — sequence_engine.py's internal template-variant slot for
+    # this sequence (e.g. which welcome-email copy) — and reading it here
+    # silently reported the wrong variant under the right-looking label.
+    by_offer_variant: dict[str, int] = {}
     for e in enrollments:
-        by_variant[e.get("variant") or "(none)"] = by_variant.get(e.get("variant") or "(none)", 0) + 1
+        v = (e.get("source_data") or {}).get("offer_variant") or "(none)"
+        by_offer_variant[v] = by_offer_variant.get(v, 0) + 1
 
     return {
         "sequence_prefix": sequence_prefix,
@@ -299,7 +369,7 @@ def get_mission_control_numbers(sequence_prefix: str = "goal_2027") -> dict:
         "sends": len(sends),
         "opens": opens,
         "clicks": clicks,
-        "by_variant": by_variant,
+        "by_offer_variant": by_offer_variant,
     }
 
 
@@ -307,7 +377,7 @@ def get_mock_mission_control() -> dict:
     return {
         "sequence_prefix": "goal_2027", "enrollments": 47, "unsubscribed": 2,
         "resends": 3, "sends": 61, "opens": 29, "clicks": 8,
-        "by_variant": {"A": 16, "B": 15, "C": 16},
+        "by_offer_variant": {"A": 16, "B": 15, "C": 16},
     }
 
 
@@ -347,9 +417,9 @@ def print_report(stages: list[dict], breakdowns: dict, mc: dict | None, days: in
         print(f"  Resends (corrections, step 0 only): {mc['resends']:>6,}")
         print(f"  Opens:              {mc['opens']:>6,}")
         print(f"  Clicks:             {mc['clicks']:>6,}")
-        if mc["by_variant"]:
+        if mc["by_offer_variant"]:
             print("  Enrollments by offer_variant (as stored at lead time):")
-            for k, v in sorted(mc["by_variant"].items()):
+            for k, v in sorted(mc["by_offer_variant"].items()):
                 print(f"    {k:<10} {v:>6,}")
 
     print(f"\n{'=' * 74}")
@@ -386,8 +456,10 @@ def main() -> int:
             mc = get_mock_mission_control()
     else:
         if not args.mission_control_only:
-            property_id = os.environ.get("GA4_PROPERTY_ID")
-            credentials_path = os.environ.get("GA4_CREDENTIALS", str(PROJECT_ROOT / "ga4-credentials.json"))
+            # .env values can carry quotes, a stray \r or a "properties/" prefix;
+            # the Data API wants the bare number.
+            property_id = "".join(ch for ch in (os.environ.get("GA4_PROPERTY_ID") or "").split("/")[-1] if ch.isdigit())
+            credentials_path = os.environ.get("GA4_CREDENTIALS", str(_default_ga4_credentials_path()))
             if not property_id:
                 print("ERROR: GA4_PROPERTY_ID environment variable not set.", file=sys.stderr)
                 print("  export GA4_PROPERTY_ID=<your-ga4-property-id>", file=sys.stderr)

@@ -1855,12 +1855,27 @@ document.querySelectorAll('[data-ga]').forEach(function(el) {
   ];
   if (canvases.indexOf(null) !== -1) return;
 
+  // Fields match the athlete-facing questionnaire (season_review_variants.py):
+  // habit + habit_when ("when and where"), an optional second habit, and
+  // inner_obstacle ("not the weather, you" — the thing in them that gets in
+  // the way). Invented examples, no named athletes, no invented statistics.
   var SAMPLES = [
-    { plan: "Text a training partner before checking the weather.", habit: "One structured interval session a week. No excuses.", why: "Because bailing at mile 40 stopped being funny.", goal: "Finish Unbound 200 under 14 hours." },
-    { plan: "Ride the trainer instead of skipping the session.", habit: "Two hours of zone 2, every Sunday, rain or shine.", why: "Because I stood at the start line undertrained twice.", goal: "Podium my age group at Mid South." },
-    { plan: "Walk it, don't quit it.", habit: "Hill repeats every other Thursday.", why: "Because the Stove Prairie climb humbled me in 2026.", goal: "Finish SBT GRVL without walking a single hill." },
-    { plan: "Log the ride even when it's ugly.", habit: "Strength work twice a week, no shortcuts.", why: "Because sub-11 has been the plan for three years running.", goal: "Go sub-11 hours at Leadville 100." },
-    { plan: "Ask for help instead of guessing.", habit: "A real training plan instead of Strava segments.", why: "Because someday never shows up on a training calendar.", goal: "Finish my first gravel century." }
+    { goal: "Finish Unbound 200 under 14 hours.", why: "Because bailing at mile 40 stopped being funny.",
+      habit: "One structured interval session", habit_when: "Tuesday mornings before the house wakes up",
+      inner_obstacle: "I let a bad night's sleep talk me out of the hard days" },
+    { goal: "Podium my age group at Mid South.", why: "Because I stood at the start line undertrained twice and swore never again.",
+      habit: "Two hours of zone 2", habit_when: "Every Sunday, rain or shine",
+      habit_2: "Strength work — Tuesday and Thursday evenings",
+      inner_obstacle: "I skip the easy days because they don't feel like progress" },
+    { goal: "Finish SBT GRVL without walking a single hill.", why: "Because the Stove Prairie climb humbled me and I haven't forgotten it.",
+      habit: "Hill repeats", habit_when: "Every other Thursday after work",
+      inner_obstacle: "I talk myself into the easier route when the legs feel heavy" },
+    { goal: "Go sub-11 hours at Leadville 100.", why: "Because sub-11 has been the plan for three years running.",
+      habit: "Strength work", habit_when: "Twice a week, no shortcuts",
+      inner_obstacle: "I trade the gym for extra sleep more than I'd admit" },
+    { goal: "Finish my first gravel century.", why: "Because someday never shows up on a training calendar.",
+      habit: "A real structured ride", habit_when: "Every Saturday morning",
+      inner_obstacle: "I let one missed week turn into three" }
   ];
   var GOAL_YEAR = new Date().getFullYear() + 1;
   var PAPER = { paper: "#f5efe6", ink: "#1a1613", teal: "#178079", gold: "#9a7e0a", grey: "#7d695d" };
@@ -1901,8 +1916,20 @@ document.querySelectorAll('[data-ga]').forEach(function(el) {
     ctx.fillStyle = PAPER.grey;
     ctx.fillText("SAMPLE / GRAVELGODCYCLING.COM", pad, H - pad - 20);
 
-    var rows = [["WHEN IT SHOWS UP", sample.plan], ["THE HABIT", sample.habit]];
-    var frameTop = H - pad - 60 - rows.length * 96;
+    // Bottom block: the daily habit(s) and the thing most likely to wreck
+    // it, anchored above the footer.
+    var habit = sample.habit;
+    if (habit && sample.habit_when) { habit += " — " + sample.habit_when; }
+    var rows = [["EVERY DAY", habit],
+                ["ALSO EVERY DAY", sample.habit_2 || ""],
+                ["WATCH FOR", sample.inner_obstacle]]
+      .filter(function(r) { return r[1]; })
+      .map(function(r) {
+        ctx.font = "30px " + MONO;
+        return [r[0], wrapText(ctx, r[1], inner).slice(0, 2)];
+      });
+    var framed = rows.reduce(function(h, r) { return h + 56 + r[1].length * 38; }, 0);
+    var frameTop = H - pad - 60 - framed;
     var y = frameTop;
     rows.forEach(function(row) {
       ctx.font = "700 24px " + MONO;
@@ -1910,15 +1937,16 @@ document.querySelectorAll('[data-ga]').forEach(function(el) {
       ctx.fillText(row[0], pad, y);
       ctx.font = "30px " + MONO;
       ctx.fillStyle = PAPER.ink;
-      ctx.fillText(wrapText(ctx, row[1], inner)[0], pad, y + 34);
-      y += 96;
+      row[1].forEach(function(line, i) { ctx.fillText(line, pad, y + 34 + i * 38); });
+      y += 56 + row[1].length * 38;
     });
 
+    // The deepest-sounding why, directly above the frame.
     ctx.font = "italic 38px " + SERIF;
     var whyLines = wrapText(ctx, '"' + sample.why + '"', inner).slice(0, 3);
-    var whyHeight = whyLines.length * 50 + 30;
+    var whyHeight = whyLines.length * 50 + (whyLines.length ? 30 : 0);
 
-    var labelY = pad + 300;
+    var labelY = pad + 200;
     var available = frameTop - whyHeight - labelY - 120;
     var goal = sample.goal;
     var size = 104, goalLines = [];

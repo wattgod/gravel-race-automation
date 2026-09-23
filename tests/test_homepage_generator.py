@@ -378,6 +378,37 @@ class TestSectionBuilders:
         assert "addEventListener('click'" in homepage_html
         assert 'id="gg-poster-wall"' in homepage_html
 
+    def test_homepage_poster_matches_new_layout_rows(self, homepage_html):
+        """The homepage samples must follow the real poster's layout
+        (PR #386, drawPoster() in generate_season_review.py /
+        goal_poster.py): every day / also every day / watch for, with the
+        label line starting at pad+200."""
+        idx = homepage_html.index("Goal poster wall")
+        end = homepage_html.index(")();", idx)
+        script = homepage_html[idx:end]
+        assert '"EVERY DAY"' in script
+        assert '"ALSO EVERY DAY"' in script
+        assert '"WATCH FOR"' in script
+        assert "pad + 200" in script
+        # Old layout's row labels must be gone.
+        assert "WHEN IT SHOWS UP" not in script
+        assert "THE HABIT" not in script
+
+    def test_homepage_poster_samples_have_deep_why_and_daily_habit(self, homepage_html):
+        """Each SAMPLE needs a goal, a deep-sounding why, a daily habit with
+        a when/where, and a watch-for obstacle — no named athletes, no
+        invented statistics."""
+        idx = homepage_html.index("var SAMPLES = [")
+        end = homepage_html.index("];", idx)
+        samples_src = homepage_html[idx:end]
+        assert samples_src.count("goal:") >= 5
+        assert samples_src.count("why:") >= 5
+        assert samples_src.count("habit:") >= 5
+        assert samples_src.count("habit_when:") >= 5
+        assert samples_src.count("inner_obstacle:") >= 5
+        assert "habit_2:" in samples_src  # at least one sample has a second habit
+        assert not re.search(r"\d+%|\bPRs?\b", samples_src)
+
     def test_stats_bar_five_stats(self, stats):
         bar = build_stats_bar(stats)
         assert bar.count("gg-hp-ss-val") == 5

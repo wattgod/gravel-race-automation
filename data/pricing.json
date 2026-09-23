@@ -22,6 +22,31 @@
         "7-day full refund",
         "One-time payment, no subscription"
       ]
+    },
+    "season_plan": {
+      "id": "season_plan",
+      "name": "Season Plan",
+      "reconciliation_label": "season_plan",
+      "pricing_model": "flat",
+      "price_cents": 49900,
+      "price_display": "$499",
+      "max_weeks": 52,
+      "scheduled_rebuilds": 4,
+      "refund_window_days": 7,
+      "inclusions": [
+        "Up to 52 weeks, the whole season",
+        "Every A/B/C race of the year periodised",
+        "Four scheduled rebuilds across the year",
+        "7-day full refund",
+        "Email support"
+      ],
+      "labour_budget": {
+        "note": "Coach-hours budget per athlete per year. Only holds if Motoren performs the rebuilds (docs/specs/goals-2027-funnel-spec.md D16). Rebuild automation is out of scope here.",
+        "first_build_minutes": 45,
+        "rebuild_minutes_each": 15,
+        "rebuild_count": 4,
+        "total_minutes_per_athlete_per_year": 105
+      }
     }
   }
 }

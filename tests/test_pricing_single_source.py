@@ -1,6 +1,6 @@
 """Pricing single-source-of-truth tests (docs/specs/goals-2027-funnel-spec.md D18).
 
-Two things this file guards:
+Three things this file guards:
 
 1. No stray money literal ("$249", "$15/week", ...) outside data/pricing.json
    and the code that reads it. `find_stray_literals()` walks every file
@@ -10,6 +10,8 @@ Two things this file guards:
    rate * weeks, 4-week minimum, $249 cap — the formula every generator used
    to hardcode) matches the NEW pricing.json-driven function, for every
    week count from 1 to 60.
+3. The Season Plan's shape in pricing.json, and that its reconciliation
+   label is registered (docs/specs/goals-2027-funnel-spec.md D15).
 """
 from __future__ import annotations
 
@@ -203,6 +205,7 @@ def test_mission_control_pricing_matches_wordpress_pricing():
     assert mc_pricing.PRICE_PER_WEEK_CENTS == wp_pricing.PRICE_PER_WEEK_CENTS
     assert mc_pricing.PRICE_CAP_CENTS == wp_pricing.PRICE_CAP_CENTS
     assert mc_pricing.MIN_WEEKS == wp_pricing.MIN_WEEKS
+    assert mc_pricing.SEASON_PLAN_PRICE_CENTS == wp_pricing.SEASON_PLAN_PRICE_CENTS
     for weeks in range(1, 61):
         assert (mc_pricing.compute_race_plan_price_cents(weeks)
                 == wp_pricing.compute_race_plan_price_cents(weeks))
@@ -219,3 +222,82 @@ def test_training_plans_form_js_pricing_block_is_current():
         "web/training-plans-form.js pricing block is stale — run: "
         "python scripts/generate_pricing_js.py"
     )
+
+
+# ── 5. Season Plan (D2, D15, D16) ────────────────────────────────────────
+
+def test_season_plan_price_is_499():
+    assert wp_pricing.SEASON_PLAN_PRICE_CENTS == 49900
+    assert wp_pricing.SEASON_PLAN["price_display"] == "$499"
+
+
+def test_season_plan_shape():
+    sp = wp_pricing.SEASON_PLAN
+    assert sp["max_weeks"] == 52
+    assert sp["scheduled_rebuilds"] == 4
+    assert sp["refund_window_days"] == 7
+    assert sp["reconciliation_label"] == "season_plan"
+
+
+def test_season_plan_labour_budget_documented():
+    budget = wp_pricing.SEASON_PLAN["labour_budget"]
+    assert budget["first_build_minutes"] == 45
+    assert budget["rebuild_minutes_each"] == 15
+    assert budget["rebuild_count"] == 4
+    assert budget["total_minutes_per_athlete_per_year"] == (
+        budget["first_build_minutes"] + budget["rebuild_minutes_each"] * budget["rebuild_count"]
+    )
+    assert budget["total_minutes_per_athlete_per_year"] == 105
+
+
+def test_season_plan_sits_between_race_plan_and_coaching():
+    # D2's reasoning: $499 sits between a $249 race plan and ~$2,600/yr
+    # coaching ($199 / 4 weeks * 13 cycles). Pin the ordering, not the exact
+    # coaching number (coaching pricing is out of scope for this change).
+    assert wp_pricing.PRICE_CAP_CENTS < wp_pricing.SEASON_PLAN_PRICE_CENTS
+    coaching_min_yearly_cents = 199 * 100 * 13  # $199 / 4wk cycle, 13 cycles/yr
+    assert wp_pricing.SEASON_PLAN_PRICE_CENTS < coaching_min_yearly_cents
+
+
+def test_season_plan_reconciliation_label_registered():
+    """docs/specs/goals-2027-funnel-spec.md D15: a Season Plan sale must be
+    classifiable in revenue reporting or it shows up as unattributed."""
+    import importlib
+    import types
+    import os
+    from unittest.mock import MagicMock
+
+    os.environ.setdefault("SUPABASE_URL", "https://fake.supabase.co")
+    os.environ.setdefault("SUPABASE_SERVICE_KEY", "fake-key")
+    if "supabase" not in sys.modules or not hasattr(sys.modules["supabase"], "Client"):
+        fake = types.ModuleType("supabase")
+        fake.Client = MagicMock
+        fake.create_client = MagicMock()
+        sys.modules["supabase"] = fake
+
+    mc_pricing = importlib.import_module("mission_control.services.pricing")
+    assert "season_plan" in mc_pricing.RECONCILIATION_LABELS
+    assert mc_pricing.RECONCILIATION_LABELS["season_plan"] == "Season Plan"
+    # The race plan's existing label must still resolve — adding Season Plan
+    # must not have displaced it.
+    assert mc_pricing.RECONCILIATION_LABELS["training_plan"] == "Custom Training Plan"
+
+
+def test_season_plan_rebuild_dates_are_four_and_spread_across_the_year():
+    """docs/specs/goals-2027-funnel-spec.md D2/D16: four scheduled rebuilds,
+    spread across the year, recorded on the order so fulfilment can see
+    them. This is the data the checkout server needs — it does not itself
+    schedule or automate anything."""
+    from datetime import date, timedelta
+
+    purchase = date(2027, 1, 5)
+    rebuild_dates = wp_pricing.compute_season_plan_rebuild_dates(purchase)
+
+    assert len(rebuild_dates) == wp_pricing.SEASON_PLAN_REBUILDS == 4
+    # Strictly increasing, and every one inside the up-to-52-week season.
+    assert rebuild_dates == sorted(rebuild_dates)
+    assert rebuild_dates[0] > purchase
+    assert rebuild_dates[-1] <= purchase + timedelta(weeks=wp_pricing.SEASON_PLAN_MAX_WEEKS)
+    # Spread, not clustered: no two rebuilds inside the same 4-week block.
+    for earlier, later in zip(rebuild_dates, rebuild_dates[1:]):
+        assert (later - earlier) >= timedelta(weeks=4)

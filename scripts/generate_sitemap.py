@@ -26,6 +26,7 @@ SITE_BASE_URL = "https://gravelgodcycling.com"
 INDEXABLE_BLOG_CATEGORIES = frozenset({"roundup", "article"})
 INDEXABLE_WORDPRESS_PAGES = (
     "/coaching/",
+    "/goals/",
     "/the-assessment-aerobic-6/",
     "/the-anaerobic-assessment-2/",
     "/articles/",

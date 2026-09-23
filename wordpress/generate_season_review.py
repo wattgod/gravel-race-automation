@@ -289,6 +289,12 @@ def build_submit_buttons(variant, btn_id: str, lead: str = "") -> str:
 
 def build_footer(variant=None) -> str:
     slug = (variant or {}).get("slug", "")
+    if (variant or {}).get("transport") == "worker":
+        # a stranger, not a client: say exactly what happens and nothing more
+        return f'''<div class="gg-apply-confidential-wrap">
+    <p class="gg-apply-confidential">Your answers are stored so I can make your poster and email it to you, and I&#39;ll send one short check-in a week later. Unsubscribe from either with the link in the email. Nothing is sold or shared; the <a href="/privacy/">Privacy Policy</a> has the detail. Your draft stays in this browser until you submit. Questions? Email {FORMSUBMIT_EMAIL}</p>
+  </div>
+  ''' + get_mega_footer_html()
     if slug in WORKER_SOURCES:
         route = ("They come straight to me and are stored with your file. "
                  "The email copy is sent through FormSubmit, a form service "
@@ -619,6 +625,14 @@ def build_season_review_js(variant) -> str:
     }
   }
 
+  /* Chosen before submit so it rides along with the answers — a test whose
+     result lives only in analytics is a test you cannot read later. */
+  var OFFER_VARIANT = (function() {
+    var cards = document.querySelectorAll("[data-offer-variant]");
+    if (!cards.length) { return ""; }
+    return cards[Math.floor(Math.random() * cards.length)].getAttribute("data-offer-variant");
+  })();
+
   var started = false;
   function onEdit(e) {
     if (!started) { started = true; ga4("goal_start", { variant: VARIANT }); }
@@ -862,7 +876,8 @@ def build_season_review_js(variant) -> str:
         headers: { "Content-Type": "application/json", "Accept": "application/json" },
         body: JSON.stringify({
           source: LEAD_SOURCE, brand: "gravelgod", email: d.email, name: d.name || "",
-          athlete: d.athlete || "", goal_answers: answers, website: ""
+          athlete: d.athlete || "", goal_answers: answers, website: "",
+          offer_variant: OFFER_VARIANT
         }),
         signal: ctrl ? ctrl.signal : undefined
       }).then(function(r) { return r.ok; }).catch(function() { return false; });
@@ -894,7 +909,10 @@ def build_season_review_js(variant) -> str:
         submitted = true;
         if (HAS_RESULTS) { showResults(d); }
         clearTimeout(saveTimer);
-        try { localStorage.removeItem(STORAGE_KEY); } catch (err) { /* ignore */ }
+        // only drop the draft once it is stored somewhere that is not this browser
+        if (lastStored || TRANSPORT !== "worker") {
+          try { localStorage.removeItem(STORAGE_KEY); } catch (err) { /* ignore */ }
+        }
         ga4("season_review_submitted", { variant: VARIANT, deep_modules: form.querySelectorAll(".gg-sr-deeper[open]").length });
         ga4("goal_submit", { variant: VARIANT });
         if (!HAS_RESULTS) { showMessage("success", lastStored ? SUCCESS : SUCCESS_BY_EMAIL); }
@@ -913,6 +931,12 @@ def build_season_review_js(variant) -> str:
   /* ── The results screen ──────────────────────────── */
   var POSTER = { ink: "#1a1613", paper: "#f5efe6", white: "#ffffff", tan: "#d4c5b9",
                  teal: "#178079", gold: "#c9a92c", grey: "#7d695d" };
+
+  /* The emailed poster trims to these lengths (services/goal_poster.py);
+     match them so the two copies read the same. */
+  function posterClean(value, limit) {
+    return String(value || "").split(/\s+/).join(" ").trim().slice(0, limit);
+  }
 
   function wrapText(ctx, text, maxWidth) {
     var words = String(text).split(/\s+/), lines = [], line = "";
@@ -946,8 +970,10 @@ def build_season_review_js(variant) -> str:
     ctx.fillStyle = POSTER.grey;
     ctx.fillText("GRAVELGODCYCLING.COM", pad, H - pad - 20);
 
-    var rows = [["THE ENEMY", d.inner_obstacle], ["WHEN IT SHOWS UP", d.obstacle_plan],
-                ["THE HABIT", d.habit], ["WHEN AND WHERE", d.habit_when]]
+    var rows = [["THE ENEMY", posterClean(d.inner_obstacle, 150)],
+                ["WHEN IT SHOWS UP", posterClean(d.obstacle_plan, 150)],
+                ["THE HABIT", posterClean(d.habit, 150)],
+                ["WHEN AND WHERE", posterClean(d.habit_when, 150)]]
       .filter(function(r) { return r[1]; });
     var frameTop = H - pad - 60 - rows.length * 96;
     var y = frameTop;
@@ -962,26 +988,27 @@ def build_season_review_js(variant) -> str:
     });
 
     ctx.font = "italic 38px 'Source Serif 4', Georgia, serif";
-    var whyLines = d.outcome_why ? wrapText(ctx, "\u201c" + d.outcome_why + "\u201d", inner).slice(0, 3) : [];
+    var why = posterClean(d.outcome_why, 200);
+    var whyLines = why ? wrapText(ctx, "\u201c" + why + "\u201d", inner).slice(0, 3) : [];
     var whyHeight = whyLines.length * 50 + (whyLines.length ? 30 : 0);
 
     var labelY = pad + 300;
     var available = frameTop - whyHeight - labelY - 120;
-    var goal = (d.outcome_goal || "[your goal]").trim();
+    var goal = posterClean(d.outcome_goal, 180) || "[your goal]";
     if (!/[.!?]$/.test(goal)) { goal += "."; }
     var size = 104, goalLines = [];
     [104, 92, 80, 68, 58, 48].forEach(function(candidate) {
       if (goalLines.length && goalLines.length * Math.round(size * 1.06) <= available) { return; }
       size = candidate;
-      ctx.font = "900 " + size + "px 'Source Serif 4', Georgia, serif";
+      ctx.font = "700 " + size + "px 'Source Serif 4', Georgia, serif";
       goalLines = wrapText(ctx, goal, inner);
     });
 
     ctx.font = "26px 'Sometype Mono', monospace";
     ctx.fillStyle = POSTER.tan;
-    ctx.fillText("BY THE END OF " + (SEASON + 1) + ", " + ((d.name || "I").toUpperCase()) + " WILL", pad, labelY);
+    ctx.fillText("BY THE END OF " + (SEASON + 1) + ", " + (posterClean(d.name, 40) || "I").toUpperCase() + " WILL", pad, labelY);
 
-    ctx.font = "900 " + size + "px 'Source Serif 4', Georgia, serif";
+    ctx.font = "700 " + size + "px 'Source Serif 4', Georgia, serif";
     ctx.fillStyle = POSTER.white;
     y = labelY + 60;
     goalLines.slice(0, 6).forEach(function(line) {
@@ -1009,11 +1036,10 @@ def build_season_review_js(variant) -> str:
     catch (err) { link.hidden = true; }
     link.addEventListener("click", function() { ga4("goal_poster_download", { variant: VARIANT }); });
 
-    var offers = results.querySelectorAll("[data-offer-variant]");
-    if (offers.length) {
-      var pick = offers[Math.floor(Math.random() * offers.length)];
+    var pick = results.querySelector("[data-offer-variant=\"" + OFFER_VARIANT + "\"]");
+    if (pick) {
       pick.hidden = false;
-      var key = pick.getAttribute("data-offer-variant");
+      var key = OFFER_VARIANT;
       ga4("goal_offer_view", { variant: VARIANT, offer_variant: key });
       pick.querySelector("[data-offer-cta]").addEventListener("click", function() {
         ga4("goal_offer_click", { variant: VARIANT, offer_variant: key, plan: "race" });
@@ -1064,7 +1090,12 @@ def build_season_review_js(variant) -> str:
 def generate_season_review_page(slug: str = "standard", external_assets=None) -> str:
     variant = VARIANTS[slug]
     page_css = external_assets["css_tag"] if external_assets else get_page_css()
-    title = f"Season Review {SEASON} | Gravel God"
+    title = variant.get("title") or f"Season Review {SEASON} | Gravel God"
+    description = variant.get("description", "")
+    description_tags = (
+        f'\n  <meta name="description" content="{description}">'
+        f'\n  <meta property="og:description" content="{description}">' if description else ""
+    )
     url = SITE_BASE_URL + page_path(slug)
     return f'''<!DOCTYPE html>
 <html lang="en">
@@ -1074,7 +1105,7 @@ def generate_season_review_page(slug: str = "standard", external_assets=None) ->
   <title>{title}</title>
   <meta name="robots" content="{variant.get('robots', 'noindex, nofollow')}">
   <link rel="canonical" href="{url}">
-  <meta property="og:title" content="{title}">
+  <meta property="og:title" content="{title}">{description_tags}
   <meta property="og:type" content="website">
   <meta property="og:url" content="{url}">
   <meta property="og:image" content="{SITE_BASE_URL}/og/homepage.jpg">

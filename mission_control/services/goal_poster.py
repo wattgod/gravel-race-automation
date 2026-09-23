@@ -127,7 +127,7 @@ def render_poster(answers: dict, name: str = "", season: int = 2027) -> bytes:
     label_y = pad + 300
     available = frame_top - why_height - label_y - 120
     goal = _clean(answers.get("outcome_goal"), 180) or "[your goal]"
-    if not goal.endswith("."):
+    if goal[-1] not in ".!?":
         goal += "."
     for size in (104, 92, 80, 68, 58, 48):
         goal_font = _font("serif", size)

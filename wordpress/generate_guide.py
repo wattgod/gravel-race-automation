@@ -48,6 +48,7 @@ from guide_infographics import INFOGRAPHIC_RENDERERS
 from guide_plates import render_chapter_plate
 from shared_header import get_site_header_css, get_site_header_html, get_site_header_js
 from cookie_consent import get_consent_banner_html
+from pricing import PRICE_CAP, PRICE_PER_WEEK
 from brand_tokens import get_ga4_head_snippet
 
 
@@ -1386,7 +1387,7 @@ def build_cta_training() -> str:
     <div class="gg-guide-cta-inner">
       <span class="gg-guide-cta-kicker">READY TO TRAIN?</span>
       <h3>Custom Gravel Training Plan</h3>
-      <p>Race-specific. Built for you by a coach. $15/week, capped at $249.</p>
+      <p>Race-specific. Built for you by a coach. {PRICE_PER_WEEK}/week, capped at {PRICE_CAP}.</p>
       <ul>
         <li>Structured workouts pushed to your device</li>
         <li>30+ page custom training guide</li>

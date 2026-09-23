@@ -32,9 +32,13 @@
   var STORAGE_KEY = 'gg_training_form';
 
   // ---- Pricing constants (must match server) ----
+  // GENERATED from data/pricing.json by scripts/generate_pricing_js.py — do
+  // not hand-edit the three lines below (docs/specs/goals-2027-funnel-spec.md D18).
+  // GG_PRICING_CONSTANTS_START
   var PRICE_PER_WEEK = 15;
   var PRICE_CAP = 249;
   var MIN_WEEKS = 4;
+  // GG_PRICING_CONSTANTS_END
 
   function computePrice(raceDateStr) {
     if (!raceDateStr) return null;

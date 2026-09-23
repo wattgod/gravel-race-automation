@@ -1,0 +1,27 @@
+{
+  "$schema_note": "Single source of truth for every price the site, emails, and the checkout server show. Change a number here, not in a generator or a template. See docs/specs/goals-2027-funnel-spec.md D18.",
+  "version": 1,
+  "currency": "usd",
+  "products": {
+    "race_plan": {
+      "id": "race_plan",
+      "name": "Custom Training Plan",
+      "stripe_product_id": "prod_U0yNXPOFJQhe53",
+      "reconciliation_label": "training_plan",
+      "pricing_model": "per_week_capped",
+      "weekly_rate_cents": 1500,
+      "weekly_rate_display": "$15",
+      "minimum_weeks": 4,
+      "cap_cents": 24900,
+      "cap_display": "$249",
+      "refund_window_days": 7,
+      "delivery_hours": 24,
+      "inclusions": [
+        "One race, periodised to your A-race date",
+        "Delivered to your TrainingPeaks calendar within 24 hours",
+        "7-day full refund",
+        "One-time payment, no subscription"
+      ]
+    }
+  }
+}

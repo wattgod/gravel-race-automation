@@ -35,6 +35,12 @@ Usage:
 
 from __future__ import annotations
 
+import sys
+from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "wordpress"))
+from pricing import PRICE_PER_WEEK  # data/pricing.json (D18)
+
 # ── Valid data-ab selectors (keep in sync with generators) ───
 
 VALID_SELECTORS: dict[str, list[str]] = {
@@ -121,7 +127,7 @@ TEMPLATES: dict[str, list[dict]] = {
                 {
                     "id": "variant_a",
                     "name": "weekly",
-                    "content": "Race-specific. Built for your target event. $15/week.",
+                    "content": f"Race-specific. Built for your target event. {PRICE_PER_WEEK}/week.",
                 },
                 {
                     "id": "variant_b",
@@ -145,7 +151,7 @@ TEMPLATES: dict[str, list[dict]] = {
                 {
                     "id": "variant_a",
                     "name": "gel_anchor",
-                    "content": "Less than one gel per ride — $15/week.",
+                    "content": f"Less than one gel per ride — {PRICE_PER_WEEK}/week.",
                 },
                 {
                     "id": "variant_b",
@@ -242,17 +248,17 @@ TEMPLATES: dict[str, list[dict]] = {
                 {
                     "id": "control",
                     "name": "control",
-                    "content": "BUILD MY PLAN — $15/WK",
+                    "content": f"BUILD MY PLAN — {PRICE_PER_WEEK}/WK",
                 },
                 {
                     "id": "variant_a",
                     "name": "race_specific",
-                    "content": "TRAIN FOR THIS RACE — $15/WK",
+                    "content": f"TRAIN FOR THIS RACE — {PRICE_PER_WEEK}/WK",
                 },
                 {
                     "id": "variant_b",
                     "name": "get_plan",
-                    "content": "GET YOUR RACE PLAN — $15/WK",
+                    "content": f"GET YOUR RACE PLAN — {PRICE_PER_WEEK}/WK",
                 },
             ],
         },
@@ -266,17 +272,17 @@ TEMPLATES: dict[str, list[dict]] = {
                 {
                     "id": "control",
                     "name": "control",
-                    "content": "BUILD MY PLAN — $15/WK",
+                    "content": f"BUILD MY PLAN — {PRICE_PER_WEEK}/WK",
                 },
                 {
                     "id": "variant_a",
                     "name": "build_phase",
-                    "content": "START YOUR BUILD PHASE — $15/WK",
+                    "content": f"START YOUR BUILD PHASE — {PRICE_PER_WEEK}/WK",
                 },
                 {
                     "id": "variant_b",
                     "name": "see_plan",
-                    "content": "SEE YOUR TRAINING PLAN — $15/WK",
+                    "content": f"SEE YOUR TRAINING PLAN — {PRICE_PER_WEEK}/WK",
                 },
             ],
         },
@@ -290,7 +296,7 @@ TEMPLATES: dict[str, list[dict]] = {
                 {
                     "id": "control",
                     "name": "control",
-                    "content": "BUILD MY PLAN — $15/WK",
+                    "content": f"BUILD MY PLAN — {PRICE_PER_WEEK}/WK",
                 },
                 {
                     "id": "variant_a",

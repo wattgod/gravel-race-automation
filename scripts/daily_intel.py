@@ -40,6 +40,9 @@ SNAPSHOT_DIR = PROJECT_ROOT / "data" / "intel-snapshots"
 AEO_DIR = PROJECT_ROOT / "data" / "aeo"
 SEO_DIR = PROJECT_ROOT / "data" / "seo"
 
+sys.path.insert(0, str(PROJECT_ROOT / "wordpress"))
+from pricing import PRICE_CAP, PRICE_PER_WEEK  # data/pricing.json (D18)
+
 try:
     from dotenv import load_dotenv
     load_dotenv(PROJECT_ROOT / ".env")
@@ -1715,7 +1718,7 @@ def interpretation_failure_streak(today: str) -> int:
 
 INTERPRET_PROMPT = """You are writing the Morning Intel report for Matti, who runs two \
 honest-critic cycling race-database businesses (Gravel God Cycling, Roadie Labs) selling \
-$15/wk custom training plans (cap $249). Target: one plan sale per day. Baseline when \
+__GG_PRICE_PER_WEEK__/wk custom training plans (cap __GG_PRICE_CAP__). Target: one plan sale per day. Baseline when \
 this started (Jun 2026): ~35 users/day, ~1 sale/month.
 
 Register: deadpan, terse, zero hype, zero filler. Like a good analyst who respects the \
@@ -1784,6 +1787,10 @@ def interpret(collected: dict, trend: list[dict], report: str) -> tuple[str, str
         trend=json.dumps(trend, indent=0, default=str)[:6000],
         report=report,
     )
+    # Pricing sentinels come from data/pricing.json, not literals (D18).
+    prompt = (prompt
+              .replace("__GG_PRICE_PER_WEEK__", PRICE_PER_WEEK)
+              .replace("__GG_PRICE_CAP__", PRICE_CAP))
     code, body = _http(
         "https://api.anthropic.com/v1/messages",
         data={"model": INTEL_MODEL, "max_tokens": 4000,

@@ -37,6 +37,7 @@ from shared_footer import get_mega_footer_html
 from cookie_consent import get_consent_banner_html
 from plan_simulator import (get_plan_simulator_css, get_plan_simulator_js,
                             render_plan_simulator)
+from pricing import MIN_WEEKS, PRICE_CAP, PRICE_PER_WEEK, RACE_PLAN_DELIVERY_HOURS
 from generate_neo_brutalist import (
     parse_event_dates,
     _safe_json_for_script,
@@ -205,7 +206,7 @@ def build_hero(rd: dict, pack: dict) -> str:
             "and your fitness, that&rsquo;s what the custom plan is for."
         )
         action = f'''<div class="gg-tpp-hero-cta">
-    <a href="{QUESTIONNAIRE_URL}?race={esc(slug)}" class="gg-btn" data-cta="tpp_hero_build" id="gg-tpp-hero-cta">BUILD MY PLAN &mdash; $15/WK</a>
+    <a href="{QUESTIONNAIRE_URL}?race={esc(slug)}" class="gg-btn" data-cta="tpp_hero_build" id="gg-tpp-hero-cta">BUILD MY PLAN &mdash; {PRICE_PER_WEEK}/WK</a>
     <span class="gg-tpp-countdown" id="gg-tpp-countdown"></span>
   </div>'''
         status_html = ""
@@ -543,10 +544,10 @@ def build_cta(rd: dict) -> str:
   fitness markers, and this exact course &mdash; personally reviewed and
   delivered in TrainingPeaks within 24 hours.</p>
   <div class="gg-tpp-cta-row">
-    <a href="{QUESTIONNAIRE_URL}?race={slug}" class="gg-btn" data-cta="tpp_footer_build" id="gg-tpp-footer-cta">BUILD MY PLAN &mdash; $15/WK</a>
+    <a href="{QUESTIONNAIRE_URL}?race={slug}" class="gg-btn" data-cta="tpp_footer_build" id="gg-tpp-footer-cta">BUILD MY PLAN &mdash; {PRICE_PER_WEEK}/WK</a>
     <a href="/race/{slug}/" class="gg-btn gg-btn--outline" data-cta="tpp_race_page">READ THE {name.upper()} REVIEW</a>
   </div>
-  <p class="gg-tpp-guarantee">7-day full refund. Delivery within 24 hours. $249 cap.</p>
+  <p class="gg-tpp-guarantee">7-day full refund. Delivery within {RACE_PLAN_DELIVERY_HOURS} hours. {PRICE_CAP} cap.</p>
 </section>'''
 
 
@@ -661,7 +662,7 @@ a { color: var(--gg-color-teal); }
 
 def build_js() -> str:
     """Countdown + dynamic price (mirrors prep strip / server pricing)."""
-    return '''
+    _js = '''
 (function() {
   var hero = document.getElementById('tpp-hero');
   if (!hero) return;
@@ -672,8 +673,8 @@ def build_js() -> str:
   var today = new Date(); today.setHours(0, 0, 0, 0);
   var days = Math.ceil((race - today) / 86400000);
   if (days <= 7) return;
-  var weeks = Math.max(4, Math.ceil(days / 7));
-  var price = Math.min(weeks * 15, 249);
+  var weeks = Math.max(__GG_MIN_WEEKS__, Math.ceil(days / 7));
+  var price = Math.min(weeks * __GG_PRICE_PER_WEEK__, __GG_PRICE_CAP__);
   var cd = document.getElementById('gg-tpp-countdown');
   if (cd) cd.textContent = weeks + ' WEEKS UNTIL RACE DAY';
   ['gg-tpp-hero-cta', 'gg-tpp-footer-cta'].forEach(function(id) {
@@ -697,6 +698,11 @@ def build_js() -> str:
   });
 })();
 ''' + get_plan_simulator_js()
+    # Pricing sentinels come from data/pricing.json, not literals (D18).
+    return (_js
+            .replace('__GG_MIN_WEEKS__', str(MIN_WEEKS))
+            .replace('__GG_PRICE_PER_WEEK__', str(int(PRICE_PER_WEEK.replace('$', ''))))
+            .replace('__GG_PRICE_CAP__', str(int(PRICE_CAP.replace('$', '')))))
 
 
 def generate_page(rd: dict, pack: dict) -> str:
@@ -724,7 +730,7 @@ def generate_page(rd: dict, pack: dict) -> str:
     else:
         meta = (f"How to train for {name}: demand profile, key workouts, "
                 f"12-16 week timeline, and fueling math — from the race data "
-                f"behind our rating. Custom plans from $15/week.")
+                f"behind our rating. Custom plans from {PRICE_PER_WEEK}/week.")
 
     return f'''<!DOCTYPE html>
 <html lang="en">

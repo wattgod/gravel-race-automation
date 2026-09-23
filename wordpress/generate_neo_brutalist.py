@@ -47,6 +47,7 @@ from brand_tokens import (
 from cookie_consent import get_consent_banner_html
 from shared_footer import get_mega_footer_css, get_mega_footer_html
 from shared_header import get_site_header_css, get_site_header_html, get_site_header_js
+from pricing import MIN_WEEKS, PRICE_CAP, PRICE_PER_WEEK
 
 # ── Constants ──────────────────────────────────────────────────
 
@@ -1304,7 +1305,7 @@ def build_sticky_cta(race_name: str, slug: str = "") -> str:
   <div class="gg-sticky-cta-inner">
     <span class="gg-sticky-cta-name">{esc(race_name)}</span>
     <div style="display:flex;align-items:center;gap:12px">
-      <a href="{plan_href}" class="gg-btn" id="gg-sticky-cta-link" data-cta="build_plan"><span id="gg-sticky-cta-text" data-ab="race_sticky_cta">BUILD MY PLAN &mdash; $15/WK</span></a>
+      <a href="{plan_href}" class="gg-btn" id="gg-sticky-cta-link" data-cta="build_plan"><span id="gg-sticky-cta-text" data-ab="race_sticky_cta">BUILD MY PLAN &mdash; {PRICE_PER_WEEK}/WK</span></a>
       <button class="gg-sticky-dismiss" id="gg-sticky-dismiss" aria-label="Dismiss">&times;</button>
     </div>
   </div>
@@ -1314,7 +1315,7 @@ def build_sticky_cta(race_name: str, slug: str = "") -> str:
 def build_inline_js() -> str:
     """Build the inline JavaScript for all interactive features."""
     header_js = get_site_header_js()
-    return '<script>\n' + header_js + r'''
+    _js = '<script>\n' + header_js + r'''
 // Race day countdown (HTML shows date for crawlers; JS replaces with day count)
 (function() {
   var cd = document.querySelector('.gg-countdown');
@@ -2316,7 +2317,7 @@ document.querySelectorAll('.gg-pack-workout').forEach(function(card) {
     today.setHours(0, 0, 0, 0);
     var diffMs = raceDate.getTime() - today.getTime();
     var weeksRaw = Math.ceil(diffMs / (7 * 24 * 60 * 60 * 1000));
-    var weeks = Math.max(4, weeksRaw);
+    var weeks = Math.max(__GG_MIN_WEEKS__, weeksRaw);
 
     // Phase split
     var taper = 1;
@@ -2327,7 +2328,7 @@ document.querySelectorAll('.gg-pack-workout').forEach(function(card) {
     if (peak < 1) { peak = 1; base = Math.max(1, base - 1); }
 
     // Price
-    var price = Math.min(249, Math.max(60, weeks * 15));
+    var price = Math.min(__GG_PRICE_CAP__, Math.max(__GG_MIN_PRICE__, weeks * __GG_PRICE_PER_WEEK__));
 
     // Session structure
     var hCfg = HOURS[hours] || HOURS['8-12'];
@@ -2470,7 +2471,7 @@ document.querySelectorAll('.gg-pack-workout').forEach(function(card) {
           if (defCta) { defCta.style.display = ''; defCta.removeAttribute('aria-hidden'); }
           if (cfgC) { cfgC.style.display = 'none'; cfgC.setAttribute('aria-hidden', 'true'); }
           var stickyT = document.getElementById('gg-sticky-cta-text');
-          if (stickyT) stickyT.textContent = 'BUILD MY PLAN \u2014 $15/WK';
+          if (stickyT) stickyT.textContent = 'BUILD MY PLAN \u2014 __GG_PRICE_PER_WEEK_DISPLAY__/WK';
           previewActive = false;
           btn.textContent = 'UPDATE PREVIEW';
         }
@@ -2592,6 +2593,13 @@ document.querySelectorAll('.gg-pack-workout').forEach(function(card) {
   });
 })();
 </script>'''
+    # Pricing sentinels come from data/pricing.json, not literals (D18).
+    return (_js
+            .replace('__GG_MIN_WEEKS__', str(MIN_WEEKS))
+            .replace('__GG_PRICE_CAP__', str(int(PRICE_CAP.replace('$', ''))))
+            .replace('__GG_MIN_PRICE__', str(int(PRICE_PER_WEEK.replace('$', '')) * MIN_WEEKS))
+            .replace('__GG_PRICE_PER_WEEK_DISPLAY__', PRICE_PER_WEEK)
+            .replace('__GG_PRICE_PER_WEEK__', str(int(PRICE_PER_WEEK.replace('$', '')))))
 
 
 # ── Phase 3D: JSON-LD Schema ──────────────────────────────────
@@ -3735,7 +3743,7 @@ def build_training(rd: dict) -> str:
       {countdown_html}
       <div class="gg-training-primary">
         <h3>Custom Training Plan</h3>
-        <p class="gg-training-subtitle" data-ab="race_offer_price">$15/week. Less than one gel per ride. Capped at $249.</p>
+        <p class="gg-training-subtitle" data-ab="race_offer_price">{PRICE_PER_WEEK}/week. Less than one gel per ride. Capped at {PRICE_CAP}.</p>
         <p class="gg-training-built-for">Your race date, your available hours, and the demands above determine the build. Start with a short questionnaire; the plan follows from your answers.</p>
         <ul class="gg-training-bullets">
           <li>Race-specific workouts pushed to your device</li>
@@ -3781,7 +3789,7 @@ def build_custom_plan_offer(rd: dict) -> str:
   </div>
   <div class="gg-approved-inner gg-offer-action">
     <a class="gg-plan-cta" href="{esc(href)}" data-cta="approved_custom_plan">START MY CUSTOM PLAN &rarr;</a>
-    <span class="gg-offer-price">$15 / WEEK</span>
+    <span class="gg-offer-price">{PRICE_PER_WEEK} / WEEK</span>
   </div>
 </section>'''
 
@@ -4999,7 +5007,7 @@ def build_prep_strip(rd: dict) -> str:
     </div>
     <div class="gg-prep-actions">
       <a href="#train-for-race" class="gg-btn gg-btn--outline" data-cta="prep_profile_full">FULL PREP PROFILE &darr;</a>
-      <a href="{plan_url}" class="gg-btn" data-cta="prep_strip_build" id="gg-prep-cta">BUILD MY PLAN &mdash; $15/WK</a>
+      <a href="{plan_url}" class="gg-btn" data-cta="prep_strip_build" id="gg-prep-cta">BUILD MY PLAN &mdash; {PRICE_PER_WEEK}/WK</a>
       <a href="#prep-kit-capture" class="gg-prep-kit-link" data-cta="prep_strip_kit">Free {esc(race_name)} prep kit &rarr;</a>
     </div>
   </section>'''
@@ -5271,8 +5279,8 @@ def build_train_for_race(
         <div class="gg-cfg-details" id="gg-cfg-details"></div>
       </div>
       <div class="gg-pack-cta" id="gg-pack-cta-default">
-        <a href="{plan_url}" class="gg-btn" id="gg-pack-cta-link">BUILD MY PLAN &mdash; $15/WK</a>
-        <p class="gg-pack-cta-detail">Race-specific. Built for {esc(race_name)}. $15/week, capped at $249.</p>
+        <a href="{plan_url}" class="gg-btn" id="gg-pack-cta-link">BUILD MY PLAN &mdash; {PRICE_PER_WEEK}/WK</a>
+        <p class="gg-pack-cta-detail">Race-specific. Built for {esc(race_name)}. {PRICE_PER_WEEK}/week, capped at {PRICE_CAP}.</p>
         <p class="gg-pack-cta-detail"><a href="/race/{esc(slug)}/training-plan/" data-cta="pack_plan_guide">Read the full {esc(race_name)} training guide &rarr;</a></p>
       </div>
       <div class="gg-pack-cta gg-cfg-cta" id="gg-cfg-cta" style="display:none;" aria-hidden="true">

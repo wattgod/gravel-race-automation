@@ -13,6 +13,7 @@ from pathlib import Path
 from typing import Any
 
 from mission_control.services.provider_ingestion import ProviderIngestionError
+from mission_control.services.pricing import RECONCILIATION_LABELS
 
 db: Any | None = None
 
@@ -677,15 +678,12 @@ def _validate_receipt(
 
 
 def _product_name(charge: dict[str, Any], invoices: dict[str, dict[str, Any]]) -> str:
-    labels = {
-        "training_plan": "Custom Training Plan",
-        "consulting": "Consulting",
-        "consult_addon": "Consulting add-on",
-        "coaching": "Coaching",
-    }
+    # Reconciliation registry: every product we sell needs an offer_family
+    # entry here or its revenue shows up unattributed. Source of truth is
+    # data/pricing.json (docs/specs/goals-2027-funnel-spec.md D15/D18).
     offer = str(charge.get("offer_family") or "unknown")
-    if offer in labels:
-        return labels[offer]
+    if offer in RECONCILIATION_LABELS:
+        return RECONCILIATION_LABELS[offer]
     invoice = invoices.get(str(charge.get("invoice_record_key") or ""), {})
     names = sorted(
         {

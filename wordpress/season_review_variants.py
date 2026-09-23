@@ -86,8 +86,9 @@ YOU = {"title": "You", "fields": [{"kind": "pair", "fields": [
 HABIT_SWAP_FIELDS = [
     {"name": "habit_direction", "label": "Will you start or stop a habit?", "kind": "radio", "req": True,
      "options": [("do", "Start"), ("reduce", "Stop")]},
-    {"name": "habit", "label": "What is the habit?", "kind": "text", "req": True,
-     "swap": {"do": {"ph": "e.g., 10 minutes of hip mobility"}, "reduce": {"ph": "e.g., Phone in the bedroom"}}},
+    {"name": "habit", "label": "What will you do every day?", "kind": "text", "req": True,
+     "swap": {"do": {"label": "What will you do every day?", "ph": "e.g., 10 minutes of hip mobility"},
+              "reduce": {"label": "What will you stop doing?", "ph": "e.g., Phone in the bedroom"}}},
     {"name": "habit_when", "label": "When and where will it happen?", "kind": "text", "req": True,
      "swap": {"do": {"label": "When and where will it happen?", "ph": "e.g., After I close the laptop, on the mat by the trainer"},
               "reduce": {"label": "What will you change so it doesn't happen?", "ph": "e.g., Charger lives in the kitchen"}}},
@@ -332,6 +333,8 @@ def s_habit():
         {"name": "habit_min", "label": "The smallest version that still counts", "kind": "text", "req": True,
          "swap": {"do": {"label": "The smallest version that still counts", "ph": "The one you&#39;ll still do on your worst Tuesday"},
                   "reduce": {"label": "What you&#39;ll do instead", "ph": "e.g., Read the book on the nightstand like an adult"}}},
+        {"name": "habit_2", "label": "A second daily habit, and when (optional)", "kind": "text",
+         "ph": "e.g., Lights out by 10, phone charging in the kitchen"},
     ]}
 
 

@@ -10,19 +10,17 @@ Talk through a page while using it. Get back a list of fixes per section.
    bottom-right corner. Without the flag, nothing about the page changes.
 2. Click it, allow the microphone, and talk through the page as you use it
    — click around, fill fields, say what's wrong out loud.
-3. Click the button again (now **Stop walkthrough**) when you're done. Two
-   files download: `walkthrough-<page>-<timestamp>.webm` (the audio) and
-   `walkthrough-<page>-<timestamp>.json` (a timeline of which section was
-   on screen and which fields you touched, timestamped). Nothing is
-   uploaded anywhere — both files only ever exist on your machine.
+3. Click the button again (now **Stop walkthrough**) when you're done. One
+   file downloads: `walkthrough-<page>-<timestamp>.walk.json`, holding the
+   audio and a timeline of which section was on screen and which fields you
+   touched. Nothing is uploaded anywhere.
 
 ## Process
 
 1. First time only: `python3 -m venv ~/Walkthroughs/.venv && ~/Walkthroughs/.venv/bin/pip install mlx-whisper`
    (Apple Silicon; see below for other machines). `ffmpeg` must also be
    installed (`brew install ffmpeg`).
-2. Move (or leave — the script watches this folder) both downloaded files
-   into `~/Walkthroughs/inbox/`.
+2. Move the downloaded `.walk.json` into `~/Walkthroughs/inbox/`.
 3. Run:
    ```
    ~/Walkthroughs/.venv/bin/python3 scripts/walkthrough.py

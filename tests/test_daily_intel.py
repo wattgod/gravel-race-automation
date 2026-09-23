@@ -855,3 +855,25 @@ def test_seo_adjudication_matches_whole_path_only(monkeypatch):
     out = daily_intel._annotate_seo_adjudications([{"target_path": "/race/ned-gravel/"}, {"target_path": "/race/crooked-gravel/"}])
     assert "adjudicated_issue" not in out[0]
     assert out[1]["adjudicated_issue"] == 119
+
+
+def test_seo_adjudication_requires_seo_context_near_match(monkeypatch):
+    """A short generic path (e.g. '/guide/') mentioned incidentally in an
+    unrelated issue's live-verification curl list must not be read as an
+    SEO adjudication of that page (regression: #298 mentions '/guide/'
+    while investigating a tracking regression, not an SEO decline)."""
+    import subprocess, json as _json
+    from scripts import daily_intel
+    from types import SimpleNamespace
+    issues = [
+        {"number": 298, "title": "intel: GG cta_click=0 with form_start=7 on 2026-08-30",
+         "body": "Attempted to curl `/guide/`, `/race/best-gravel-races-colorado/`, "
+                 "and `/course/coaching-start/` with a browser UA to confirm live JS "
+                 "still contains the `cta_click` wiring."},
+        {"number": 356, "title": "intel: SEO candidates crooked-gravel (decliners)",
+         "body": "/race/crooked-gravel/ clicks fell from 60 to 3 — refresh content."},
+    ]
+    monkeypatch.setattr(subprocess, "run", lambda *a, **k: SimpleNamespace(returncode=0, stdout=_json.dumps(issues), stderr=""))
+    out = daily_intel._annotate_seo_adjudications([{"target_path": "/guide/"}, {"target_path": "/race/crooked-gravel/"}])
+    assert "adjudicated_issue" not in out[0]
+    assert out[1]["adjudicated_issue"] == 356

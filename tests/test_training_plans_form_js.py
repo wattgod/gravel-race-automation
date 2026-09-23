@@ -128,3 +128,14 @@ def test_entry_surface_offer_variant_and_entry_src_forwarded_to_checkout_payload
     assert "workerData.entry_surface = ENTRY_SURFACE;" in block
     assert "if (OFFER_VARIANT) { workerData.offer_variant = OFFER_VARIANT; }" in block
     assert "if (ENTRY_SRC) { workerData.entry_src = ENTRY_SRC; }" in block
+
+
+def test_no_season_plan_scaffolding_remains_in_the_race_plan_form():
+    """Matti ruling (2026-09-23): the Season Plan no longer goes through
+    the race-plan questionnaire — it has its own page, /season-plan/. This
+    form must not carry the old ?plan=season / IS_SEASON_PLAN price-rewrite
+    hack; a Season Plan buyer never reaches this script."""
+    assert "IS_SEASON_PLAN" not in FORM_JS
+    assert "SEASON_PLAN_PRICE" not in FORM_JS
+    assert "applySeasonPlanCopyOverride" not in FORM_JS
+    assert "'season_plan'" not in FORM_JS

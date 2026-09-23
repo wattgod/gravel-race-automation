@@ -294,6 +294,74 @@ def test_pii_and_raw_provider_ids_fail_closed(tmp_path):
             )
 
 
+def test_refund_of_season_plan_charge_is_labelled_season_plan(tmp_path):
+    """A refunded charge's offer_family (Season Plan included) must label
+    the refund row too, not the generic 'Refund' catch-all — otherwise
+    Season Plan refunds are invisible in revenue reconciliation."""
+    receipt = _receipt()
+    receipt["rows"]["charges"][0]["offer_family"] = "season_plan"
+    receipt["rows"]["checkout_sessions"][0]["offer_family"] = "season_plan"
+    receipt["rows"]["invoices"][0]["offer_family"] = "season_plan"
+    receipt["rows"]["invoices"][0]["line_items"][0]["offer_family"] = "season_plan"
+    receipt["rows"]["products"][0]["offer_family"] = "season_plan"
+    receipt["rows"]["prices"][0]["offer_family"] = "season_plan"
+    bundle = ingestion.build_stripe_bundle(
+        _write(tmp_path, receipt), enforce_2026_08_27_controls=False
+    )
+    charge, refund = bundle.payments
+    assert charge["product_name"] == "Season Plan"
+    assert refund["product_name"] == "Season Plan"
+    assert refund["description"] == "Season Plan refund"
+    assert refund["provider_metadata"]["offer_family"] == "season_plan"
+
+
+def test_refund_with_charge_outside_receipt_period_stays_generic(tmp_path):
+    """A refund whose originating charge isn't in this receipt (it fell
+    outside the bounded period) must not guess a product name."""
+    receipt = _receipt()
+    receipt["rows"]["refunds"][0]["charge_record_key"] = _key("9")
+    bundle = ingestion.build_stripe_bundle(
+        _write(tmp_path, receipt), enforce_2026_08_27_controls=False
+    )
+    _, refund = bundle.payments
+    assert refund["product_name"] == "Refund"
+    assert refund["description"] == "Stripe refund"
+    assert refund["provider_metadata"]["offer_family"] is None
+
+
+def test_refund_never_labelled_from_a_non_successful_charge(tmp_path):
+    """sol review: a refund's charge_record_key must only source a product
+    label from a charge that's actually successful (paid/captured/
+    succeeded) — real Stripe data guarantees a refund can't exist against
+    a failed charge, but the ingestion code shouldn't trust that blindly.
+    Without this, a refund whose charge_record_key happened to reference a
+    non-successful row could be mislabelled with that row's offer_family."""
+    receipt = _receipt()
+    # Make the one charge non-successful, and keep the checkout session's
+    # paid_session_intents join trivially satisfied (empty set) so this
+    # doesn't trip the unrelated "paid session must join a successful
+    # charge" invariant.
+    receipt["rows"]["charges"][0]["paid"] = False
+    receipt["rows"]["charges"][0]["captured"] = False
+    receipt["rows"]["charges"][0]["status"] = "failed"
+    receipt["rows"]["charges"][0]["offer_family"] = "coaching"
+    receipt["rows"]["checkout_sessions"][0]["payment_status"] = "unpaid"
+    # The fixture's pinned control total assumed every charge in the
+    # receipt was successful; recompute it to match the now-empty
+    # successful-charges list, same as the real pipeline would.
+    receipt["controls"]["successful_charges"] = ingestion._totals([], "gross_cents")
+    bundle = ingestion.build_stripe_bundle(
+        _write(tmp_path, receipt), enforce_2026_08_27_controls=False
+    )
+    payments = bundle.payments
+    assert len(payments) == 1  # the failed charge never becomes a payment row
+    refund = payments[0]
+    assert refund["status"] == "refunded"
+    assert refund["product_name"] == "Refund"
+    assert refund["description"] == "Stripe refund"
+    assert refund["provider_metadata"]["offer_family"] is None
+
+
 def test_pinned_controls_reject_fixture(tmp_path):
     with pytest.raises(ingestion.ProviderIngestionError, match="Pinned Stripe control"):
         ingestion.build_stripe_bundle(_write(tmp_path))

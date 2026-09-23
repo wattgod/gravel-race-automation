@@ -17,6 +17,7 @@ from generate_success_pages import (
     build_success_css,
     build_success_js,
     build_training_plan_success,
+    build_season_plan_success,
     build_coaching_success,
     build_consulting_success,
     generate_success_page,
@@ -77,9 +78,10 @@ class TestPageGeneration:
         assert f'rel="canonical"' in html
         assert expected in html
 
-    def test_all_three_pages_generated(self, all_pages):
-        assert len(all_pages) == 3
+    def test_all_four_pages_generated(self, all_pages):
+        assert len(all_pages) == 4
         assert "training-plans-success" in all_pages
+        assert "season-plan-success" in all_pages
         assert "coaching-welcome" in all_pages
         assert "consulting-confirmed" in all_pages
 
@@ -270,6 +272,64 @@ class TestTrainingPlanSuccess:
         for bad in ["5 minutes", "within a few minutes", "within minutes",
                      "arrive in", "ready in"]:
             assert bad not in html.lower(), f"Dangerous time promise: '{bad}'"
+
+
+class TestSeasonPlanSuccess:
+    def test_has_hero(self):
+        html = build_season_plan_success()
+        assert "gg-success-hero" in html
+        assert "Season Plan" in html
+
+    def test_has_next_steps(self):
+        html = build_season_plan_success()
+        assert "WHAT HAPPENS NEXT" in html
+        assert "Connect TrainingPeaks" in html
+
+    def test_has_support_link(self):
+        html = build_season_plan_success()
+        assert "gravelgodcoaching@gmail.com" in html
+
+    def test_never_promises_zwo_files(self):
+        """A Season Plan success page must not promise the race plan's
+        .zwo-file package — it isn't part of this product."""
+        html = build_season_plan_success()
+        assert ".zwo" not in html.lower()
+
+    def test_never_promises_automated_generation(self):
+        """Matti builds every Season Plan himself; nothing here may imply
+        an automated pipeline or a same-day/faster-than-real turnaround."""
+        html = build_season_plan_success()
+        lowered = html.lower()
+        for bad in ["being generated", "automatically", "within an hour"]:
+            assert bad not in lowered, f"Dangerous automated-delivery promise: '{bad}'"
+
+    def test_24_hour_window_is_stated_and_tied_to_a_human_building_it(self):
+        """sol review: a page that dodges the literal '24 hours' string
+        while still implying the same window via 'same window a
+        single-race plan does' is worse, not safer — it says the same
+        thing less honestly. The real promise (matching the coach
+        notification and customer confirmation email in the coordinating
+        acpp PR, both of which state 24 hours explicitly) is fine as long
+        as every mention of the window sits next to Matti building it
+        himself, never standing alone as an automated-sounding claim."""
+        html = build_season_plan_success()
+        assert "24 hours" in html
+        # The 24-hour mention must be in the same paragraph as the
+        # human-builds-it statement, not a bare turnaround-time promise.
+        p_start = html.index("<p>Payment confirmed.")
+        p_end = html.index("</p>", p_start)
+        hero_paragraph = html[p_start:p_end]
+        assert "24 hours" in hero_paragraph
+        assert "i build every season plan myself" in hero_paragraph.lower()
+
+    def test_says_matti_builds_it_himself(self):
+        html = build_season_plan_success()
+        assert "i build every season plan myself" in html.lower()
+
+    def test_no_refund_line(self):
+        """Sales-surface ruling: no refund line on success/sales copy."""
+        html = build_season_plan_success()
+        assert "refund" not in html.lower()
 
 
 class TestCoachingSuccess:

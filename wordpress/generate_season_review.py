@@ -265,13 +265,21 @@ def build_results(variant) -> str:
     results, offer = variant.get("results"), variant.get("offer")
     if not results:
         return ""
+    plans_html = "".join(
+        f'<div class="gg-sr-offer-plan">'
+        f'<p class="gg-sr-offer-plan-price">{plan["price"]}</p>'
+        f'<a class="gg-sr-offer-cta{"" if plan["key"] == "race" else " gg-sr-offer-cta-secondary"}" '
+        f'href="{plan["cta_href"]}" data-offer-cta data-plan-type="{plan["key"]}">{plan["cta"]}</a>'
+        f"</div>"
+        for plan in offer.get("plans", [])
+    ) if offer else ""
     cards = "".join(
         f'<div class="gg-sr-offer" data-offer-variant="{v["key"]}" hidden>'
         f'<div class="gg-sr-offer-kicker">{offer["kicker"]}</div>'
         f'<h3 class="gg-sr-offer-h">{v["h"]}</h3>'
         f'<p class="gg-sr-offer-p">{v["p"]}</p>'
+        f'<div class="gg-sr-offer-plans">{plans_html}</div>'
         f'<p class="gg-sr-offer-terms">{offer["terms"]}</p>'
-        f'<a class="gg-sr-offer-cta" href="{offer["cta_href"]}" data-offer-cta="{v["key"]}">{offer["cta"]}</a>'
         f'<a class="gg-sr-offer-decline" href="#" data-offer-decline>{offer["decline"]}</a>'
         f"</div>"
         for v in offer["variants"]
@@ -478,6 +486,26 @@ def build_season_review_css() -> str:
   text-decoration: none;
 }
 .gg-sr-offer-cta:hover { background: var(--gg-color-near-black); color: var(--gg-color-teal); }
+.gg-sr-offer-plans {
+  display: flex;
+  gap: var(--gg-spacing-md);
+  margin: 0 0 var(--gg-spacing-md);
+}
+.gg-sr-offer-plan {
+  flex: 1;
+}
+.gg-sr-offer-plan-price {
+  font-family: var(--gg-font-data);
+  font-size: var(--gg-font-size-2xs);
+  color: var(--gg-color-secondary-brown);
+  margin: 0 0 var(--gg-spacing-xs);
+  text-align: center;
+}
+.gg-sr-offer-cta-secondary {
+  background: var(--gg-color-warm-paper);
+  color: var(--gg-color-near-black);
+}
+.gg-sr-offer-cta-secondary:hover { background: var(--gg-color-near-black); color: var(--gg-color-warm-paper); }
 .gg-sr-offer-decline {
   display: block;
   text-align: center;
@@ -492,6 +520,7 @@ def build_season_review_css() -> str:
   .gg-sr-timer { align-self: flex-start; }
   .gg-apply-actions { flex-direction: column-reverse; align-items: stretch; gap: var(--gg-spacing-sm); }
   .gg-apply-save-btn { margin-right: 0; }
+  .gg-sr-offer-plans { flex-direction: column; }
 }
 </style>'''
 
@@ -536,6 +565,10 @@ def build_season_review_js(variant) -> str:
     try { v = new URLSearchParams(window.location.search).get("race") || ""; } catch (e) {}
     return /^[a-z0-9-]{1,80}$/.test(v) ? v : "";
   })();
+  // Filled in from the lead-worker's response once this submission is
+  // stored (see the fetch below) — the Season Plan CTA rides it into
+  // /season-plan/?t=<token> so that page can read these saved answers.
+  var POSTER_TOKEN = "";
 
   function ga4(name, params) {
     params = params || {};
@@ -921,7 +954,15 @@ def build_season_review_js(variant) -> str:
           offer_variant: OFFER_VARIANT, race_slug: RACE_SLUG, entry_src: ENTRY_SRC
         }),
         signal: ctrl ? ctrl.signal : undefined
-      }).then(function(r) { return r.ok; }).catch(function() { return false; });
+      }).then(function(r) {
+        // Mission Control hands back this lead's poster_token so the
+        // Season Plan CTA can link to /season-plan/?t=<token> and prefill
+        // there — read it here, never block success on it parsing.
+        r.json().then(function(body) {
+          if (body && body.poster_token) { POSTER_TOKEN = body.poster_token; }
+        }).catch(function() {});
+        return r.ok;
+      }).catch(function() { return false; });
     }
 
     var payload = new FormData();
@@ -1092,26 +1133,32 @@ def build_season_review_js(variant) -> str:
       pick.hidden = false;
       var key = OFFER_VARIANT;
       /* Carry the offer variant (and, if present, the race that sent this
-         visitor to /goals/) into the plan form's URL so a later purchase can
+         visitor to /goals/) into each plan CTA's URL so a later purchase can
          be attributed back to which offer copy and which entry point led to
-         it. cta_href starts as the static "?src=goals"; add to it, don't
-         replace it. */
-      var cta = pick.querySelector("[data-offer-cta]");
-      try {
-        var ctaUrl = new URL(cta.getAttribute("href"), window.location.href);
-        ctaUrl.searchParams.set("offer_variant", key);
-        if (RACE_SLUG) { ctaUrl.searchParams.set("race", RACE_SLUG); }
-        // Carried as its own param, NOT written into src= — that stays
-        // "goals" (the plan form's own entry-surface value for "came from
-        // the goals funnel"). Losing which surface (home/race) originally
-        // sent the visitor to /goals/ would otherwise attribute every
-        // plan-form arrival from here the same way.
-        if (ENTRY_SRC) { ctaUrl.searchParams.set("entry_src", ENTRY_SRC); }
-        cta.href = ctaUrl.pathname + ctaUrl.search;
-      } catch (err) { /* keep the static href */ }
-      ga4("goal_offer_view", { variant: VARIANT, offer_variant: key });
-      cta.addEventListener("click", function() {
-        ga4("goal_offer_click", { variant: VARIANT, offer_variant: key, plan_type: "race" });
+         it. Race's cta_href starts as the static "?src=goals"; Season's
+         starts as the bare "/season-plan/" — add params, don't replace. The
+         Season CTA alone also carries ?t=<poster_token>, once the worker
+         response has handed it back, so /season-plan/ can read this lead's
+         saved /goals/ answers. */
+      pick.querySelectorAll("[data-offer-cta]").forEach(function(cta) {
+        var planType = cta.getAttribute("data-plan-type") || "race";
+        try {
+          var ctaUrl = new URL(cta.getAttribute("href"), window.location.href);
+          ctaUrl.searchParams.set("offer_variant", key);
+          if (RACE_SLUG) { ctaUrl.searchParams.set("race", RACE_SLUG); }
+          // Carried as its own param, NOT written into src= — that stays
+          // "goals" (the plan form's own entry-surface value for "came from
+          // the goals funnel"). Losing which surface (home/race) originally
+          // sent the visitor to /goals/ would otherwise attribute every
+          // plan-form arrival from here the same way.
+          if (ENTRY_SRC) { ctaUrl.searchParams.set("entry_src", ENTRY_SRC); }
+          if (planType === "season" && POSTER_TOKEN) { ctaUrl.searchParams.set("t", POSTER_TOKEN); }
+          cta.href = ctaUrl.pathname + ctaUrl.search;
+        } catch (err) { /* keep the static href */ }
+        ga4("goal_offer_view", { variant: VARIANT, offer_variant: key, plan_type: planType });
+        cta.addEventListener("click", function() {
+          ga4("goal_offer_click", { variant: VARIANT, offer_variant: key, plan_type: planType });
+        });
       });
       var decline = pick.querySelector("[data-offer-decline]");
       if (decline) {

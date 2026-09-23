@@ -17,6 +17,8 @@ swap, keyed off habit_direction), lift (a radio value that makes other
 fields optional).
 """
 
+from pricing import SEASON_PLAN_PRICE_DISPLAY
+
 SEASON = 2026
 NEXT = SEASON + 1
 
@@ -436,10 +438,25 @@ GOAL_2027 = {
             {"key": "C", "h": "That&#39;s step one. Step two is the part everyone skips.",
              "p": f"A custom plan for your {NEXT}, built from what you just told me."},
         ],
-        "cta": f"Build my {NEXT} plan",
-        "cta_href": "/questionnaire/?src=goals",
+        # Two plans beneath the same variant copy (D2/D15, step 5 of the
+        # build order). Kept to a price line + one button each — Matti
+        # found the earlier step-two body too complicated.
+        "plans": [
+            {
+                "key": "race",
+                "price": "Race Plan: priced by the week from your race date",
+                "cta": f"Build my {NEXT} plan",
+                "cta_href": "/questionnaire/?src=goals",
+            },
+            {
+                "key": "season",
+                "price": f"Season Plan: {SEASON_PLAN_PRICE_DISPLAY}, the whole year",
+                "cta": "Build my whole season",
+                "cta_href": "/season-plan/",
+            },
+        ],
         "decline": "Just the poster, thanks",
-        "terms": "I build every plan myself. Priced by the week from your race date; you see the number before you pay.",
+        "terms": "I build every plan myself. You see the number before you pay.",
     },
 }
 

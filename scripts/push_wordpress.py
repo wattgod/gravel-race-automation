@@ -845,8 +845,9 @@ def sync_coaching(coaching_file: str):
 def sync_success(output_dir: str):
     """Upload success pages to SiteGround via SSH+SCP.
 
-    Deploys 3 pages:
+    Deploys 4 pages:
       - training-plans-success.html -> /training-plans/success/index.html
+      - season-plan-success.html    -> /season-plan/success/index.html
       - coaching-welcome.html       -> /coaching/welcome/index.html
       - consulting-confirmed.html   -> /consulting/confirmed/index.html
     """
@@ -857,6 +858,7 @@ def sync_success(output_dir: str):
 
     pages = [
         ("training-plans-success.html", "training-plans/success"),
+        ("season-plan-success.html", "season-plan/success"),
         ("coaching-welcome.html", "coaching/welcome"),
         ("consulting-confirmed.html", "consulting/confirmed"),
     ]

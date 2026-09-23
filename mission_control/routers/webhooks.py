@@ -459,7 +459,14 @@ async def subscriber_webhook(
         except Exception:
             logger.exception("enrollment alert failed (enrollment itself succeeded)")
 
-    return {"status": "ok", "enrolled": enrolled}
+    response: dict = {"status": "ok", "enrolled": enrolled}
+    # The goal_2027 results page needs its own poster_token back so the
+    # Season Plan CTA can link to /season-plan/?t=<token> (D9) — the token
+    # that lets the new form read this lead's saved answers back. Nothing
+    # else reads this; a race-plan-only submission never sets it.
+    if source_data.get("poster_token"):
+        response["poster_token"] = source_data["poster_token"]
+    return response
 
 
 def _verify_svix_signature(raw_body: bytes, headers) -> bool:

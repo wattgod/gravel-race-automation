@@ -352,6 +352,28 @@ class TestGoalsPage:
         assert "race_slug: RACE_SLUG" in js
         assert "entry_src: ENTRY_SRC" in js
 
+    def test_season_plan_cta_goes_to_its_own_page_not_the_questionnaire(self):
+        # Matti ruling (2026-09-23): the Season Plan no longer goes through
+        # the race-plan questionnaire (whose Elementor widget drifts from
+        # this repo) — it has its own generated page, /season-plan/.
+        plans = VARIANTS["goal_2027"]["offer"]["plans"]
+        keys = [p["key"] for p in plans]
+        assert keys == ["race", "season"]
+        race, season = plans
+        assert "priced by the week from your race date" in race["price"]
+        assert "$" not in race["price"]  # no literal dollar figure duplicated here
+        assert "$499" in season["price"]
+        assert "the whole year" in season["price"]
+        assert season["cta_href"].startswith("/season-plan/")
+        assert "plan=season" not in season["cta_href"]
+        assert race["cta_href"] == "/questionnaire/?src=goals"
+
+    def test_offer_html_renders_both_plan_ctas(self):
+        html = page("goal_2027")
+        assert 'data-plan-type="race"' in html
+        assert 'data-plan-type="season"' in html
+        assert html.count('class="gg-sr-offer-plan"') == 6  # 3 offer variants x 2 plans
+
 
 class TestWalkthroughMode:
     """D19: a voice-recorded walkthrough. Turned on with ?walkthrough=1 and

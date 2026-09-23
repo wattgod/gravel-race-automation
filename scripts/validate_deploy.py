@@ -517,6 +517,7 @@ def check_success_pages(v):
     print("\n[Success Pages]")
     success_pages = [
         ("/training-plans/success/", "training-plans", "gg-success"),
+        ("/season-plan/success/", "season-plan", "gg-success"),
         ("/coaching/welcome/", "coaching", "gg-success"),
         ("/consulting/confirmed/", "consulting", "gg-success"),
     ]

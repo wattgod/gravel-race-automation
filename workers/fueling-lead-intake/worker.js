@@ -142,9 +142,22 @@ export default {
         }
       }
 
-      await Promise.allSettled(promises);
+      const settled = await Promise.allSettled(promises);
+      if (STORAGE_REQUIRED.includes(source) && settled.some(r => r.status === 'rejected')) {
+        // the caller keeps the athlete's draft and shows an honest error
+        return jsonResponse(
+          { error: 'Could not store your answers. Nothing was lost — please try again.' },
+          503, origin,
+        );
+      }
     } catch (downstreamError) {
       console.error('Downstream error (user unaffected):', downstreamError);
+      if (STORAGE_REQUIRED.includes(source)) {
+        return jsonResponse(
+          { error: 'Could not store your answers. Nothing was lost — please try again.' },
+          503, origin,
+        );
+      }
     }
 
     console.log('Lead captured:', { source, email: data.email, race_slug: data.race_slug || '' });
@@ -483,6 +496,12 @@ function sanitizeAnswers(raw) {
 
 // --- Mission Control Webhook ---
 
+// Sources whose answers are the deliverable. For these, Mission Control
+// refusing the payload is a failure the visitor must hear about — otherwise
+// the page shows a poster, wipes the saved draft, and the answers exist
+// nowhere.
+const STORAGE_REQUIRED = ['goal_2027', 'athlete_review'];
+
 async function notifyMissionControl(env, data, source) {
   try {
     const payload = {
@@ -505,7 +524,7 @@ async function notifyMissionControl(env, data, source) {
       payload.viewed_races = data.viewed_races;
     }
 
-    await fetch(`${env.MC_WEBHOOK_URL}/webhooks/subscriber`, {
+    const resp = await fetch(`${env.MC_WEBHOOK_URL}/webhooks/subscriber`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -514,9 +533,13 @@ async function notifyMissionControl(env, data, source) {
       body: JSON.stringify(payload),
     });
 
-    console.log('Mission Control notified:', data.email, source);
+    console.log('Mission Control notified:', data.email, source, resp.status);
+    if (!resp.ok && STORAGE_REQUIRED.includes(source)) {
+      throw new Error(`Mission Control returned ${resp.status}`);
+    }
   } catch (error) {
     console.error('Mission Control webhook error:', error);
+    if (STORAGE_REQUIRED.includes(source)) { throw error; }
   }
 }
 

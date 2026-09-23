@@ -1267,17 +1267,24 @@ def sync_season_review(variants: str = "athlete"):
     host, user, port = ssh
 
     wanted = [v.strip() for v in variants.split(",") if v.strip()]
+    sys.path.insert(0, str(Path("wordpress").resolve()))
+    try:
+        from generate_season_review import output_name, page_path
+    except Exception as e:  # noqa: BLE001
+        print(f"✗ Could not load the season review generator: {e}")
+        return None
+
     urls = []
     for slug in wanted:
-        name = "season-review.html" if slug == "standard" else f"season-review-{slug}.html"
+        name = output_name(slug)
         html_path = Path("wordpress/output") / name
         if not html_path.exists():
             print(f"✗ Season review HTML not found: {html_path}")
             print(f"  Run: python3 wordpress/generate_season_review.py --variant {slug} first")
             continue
 
-        suffix = "" if slug == "standard" else f"/{slug}"
-        remote_base = f"~/www/gravelgodcycling.com/public_html/coaching/season-review{suffix}"
+        path = page_path(slug)  # /goals/ or /coaching/season-review/<slug>/
+        remote_base = "~/www/gravelgodcycling.com/public_html" + path.rstrip("/")
         try:
             subprocess.run(
                 ["ssh", "-i", str(SSH_KEY), "-p", port, f"{user}@{host}",
@@ -1297,7 +1304,7 @@ def sync_season_review(variants: str = "athlete"):
             continue
 
         wp_url = os.environ.get("WP_URL", "https://gravelgodcycling.com")
-        url = f"{wp_url}/coaching/season-review{suffix}/"
+        url = wp_url + path
         print(f"✓ Uploaded season review '{slug}': {url}")
         urls.append(url)
 
@@ -4426,7 +4433,8 @@ if __name__ == "__main__":
     has_action = any([args.json, args.sync_index, args.sync_widget, args.sync_training,
                       args.sync_guide, args.sync_guide_cluster,
                       args.sync_og, args.sync_tp, args.sync_homepage, args.sync_gravel_weekly, args.sync_about,
-                      args.sync_coaching, args.sync_coaching_apply, args.sync_consulting,
+                      args.sync_coaching, args.sync_coaching_apply, args.sync_season_review,
+                      args.sync_consulting,
                       args.sync_consult_intake,
                       args.sync_training_plans, args.sync_success, args.sync_pages,
                       args.sync_sitemap, args.sync_redirects,

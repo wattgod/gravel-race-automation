@@ -197,3 +197,53 @@ class TestOneVoice:
         names = set(re.findall(r'name="([a-z_0-9]+)"', core_form("goal_2027"))) - {"website"}
         names = {n for n in names if not re.fullmatch(r"why_[2-5]", n)}
         assert len(names) <= 25, sorted(names)
+
+
+class TestGoalsPage:
+    """/goals/ — the public lead page: questionnaire, then the poster, then
+    the offer beneath it (never in front of it).
+    """
+
+    def test_lives_at_its_own_url_and_is_findable(self):
+        from generate_season_review import page_path, output_name
+        assert page_path("goal_2027") == "/goals/"
+        assert output_name("goal_2027") == "goals.html"
+        assert 'content="index, follow"' in page("goal_2027")
+
+    def test_every_other_variant_stays_hidden(self):
+        for slug in ALL:
+            if slug != "goal_2027":
+                assert 'content="noindex, nofollow"' in page(slug), slug
+
+    def test_results_come_before_the_offer(self):
+        html = page("goal_2027")
+        assert html.index('id="poster-canvas"') < html.index("data-offer-variant")
+
+    def test_results_start_hidden(self):
+        html = page("goal_2027")
+        section = html[html.index('<section id="results"'):html.index("</section>")]
+        assert 'hidden' in html[html.index('<section id="results"'):html.index('class="gg-sr-results-head"')]
+        assert section.count("data-offer-variant") == 3
+        assert section.count("<div class=\"gg-sr-offer\"") == 3
+
+    def test_three_offer_variants_to_test(self):
+        js = build_season_review_js(VARIANTS["goal_2027"])
+        assert "goal_offer_view" in js and "offer_variant" in js
+
+    def test_lead_page_does_not_use_the_email_backstop(self):
+        # every backstop copy is another stranger's answers in Matti's inbox
+        js = build_season_review_js(VARIANTS["goal_2027"])
+        assert 'TRANSPORT = "worker"' in js
+
+    def test_the_athlete_form_keeps_its_backstop(self):
+        assert 'TRANSPORT = "both"' in build_season_review_js(VARIANTS["athlete"])
+
+    def test_the_funnel_is_measurable(self):
+        js = build_season_review_js(VARIANTS["goal_2027"])
+        for event in ("goal_start", "goal_submit", "goal_results_view",
+                      "goal_poster_download", "goal_offer_view", "goal_offer_click"):
+            assert event in js, event
+
+    def test_the_offer_states_the_real_terms(self):
+        html = page("goal_2027")
+        assert "$15 per week" in html and "$249" in html and "7 days" in html

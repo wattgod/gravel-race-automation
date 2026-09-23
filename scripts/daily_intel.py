@@ -27,9 +27,11 @@ from __future__ import annotations
 import argparse
 import json
 import os
+import re
 import sys
 import urllib.error
 import urllib.request
+from copy import deepcopy
 from datetime import date, datetime, timedelta, timezone
 from pathlib import Path
 
@@ -1861,6 +1863,53 @@ def send_email(subject: str, markdown: str) -> str:
     return json.loads(body_resp).get("id", "")
 
 
+_EMAIL_RE = re.compile(r"[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}")
+
+# (group, list) pairs in `collected` whose rows are real people.
+_PEOPLE_LISTS = (("commerce_ledger", "orders"),
+                 ("mission_control", "hot_leads_14d"))
+
+
+def redact_for_snapshot(snapshot: dict) -> dict:
+    """Copy of the snapshot that is safe to commit.
+
+    data/intel-snapshots/ lives in a PUBLIC repo, and from 2026-07-02 to
+    2026-09-23 it committed customer and lead names and emails every day.
+    On disk, people keep their first name and a masked email
+    (j***@gmail.com). The emailed report keeps the full detail.
+    """
+    snapshot = deepcopy(snapshot)
+    full_names = set()
+    for group, key in _PEOPLE_LISTS:
+        rows = (snapshot.get(group) or {}).get(key) if isinstance(
+            snapshot.get(group), dict) else None
+        for person in rows or []:
+            if not isinstance(person, dict):
+                continue
+            name = " ".join(str(person.get("name") or "").split())
+            if " " in name:
+                full_names.add(name)
+                person["name"] = name.split()[0]
+    # Longest first, so "Ann Lee Smith" is replaced before "Ann Lee".
+    ordered_names = sorted(full_names, key=len, reverse=True)
+
+    def scrub(value):
+        if isinstance(value, dict):
+            return {k: scrub(v) for k, v in value.items()}
+        if isinstance(value, list):
+            return [scrub(v) for v in value]
+        if not isinstance(value, str):
+            return value
+        value = _EMAIL_RE.sub(
+            lambda m: m.group(0)[:1] + "***@" + m.group(0).split("@", 1)[1],
+            value)
+        for name in ordered_names:
+            value = value.replace(name, name.split()[0])
+        return value
+
+    return scrub(snapshot)
+
+
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--dry-run", action="store_true", help="skip the email send")
@@ -1918,9 +1967,13 @@ def main() -> int:
     # persistence must never cost the email — snapshot failures ride in the report
     try:
         SNAPSHOT_DIR.mkdir(parents=True, exist_ok=True)
+        snapshot = redact_for_snapshot(
+            {**collected, "report": report, "subject": subject})
+        subject_on_disk = snapshot.pop("subject")
         (SNAPSHOT_DIR / f"{today}.json").write_text(
-            json.dumps({**collected, "report": report}, indent=1, default=str))
-        (SNAPSHOT_DIR / f"{today}.md").write_text(f"# {subject}\n\n{report}\n")
+            json.dumps(snapshot, indent=1, default=str))
+        (SNAPSHOT_DIR / f"{today}.md").write_text(
+            f"# {subject_on_disk}\n\n{snapshot['report']}\n")
         print(f"snapshot: data/intel-snapshots/{today}.json")
     except Exception as e:
         report += f"\n- BROKEN: snapshot write failed: {type(e).__name__}: {e}"

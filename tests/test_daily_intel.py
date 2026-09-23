@@ -615,6 +615,79 @@ def test_main_sends_email_even_when_everything_downstream_breaks(
     assert "snapshot write failed" in sent["report"]
 
 
+def _people_snapshot():
+    return {
+        "commerce_ledger": {"ok": True, "orders": [
+            {"order_id": "cs_live_x", "name": "Jane Q Rider",
+             "email": "jane.rider@example.org", "success": True},
+        ]},
+        "mission_control": {"ok": True, "hot_leads_14d": [
+            {"name": "Sam Lead", "email": "sam@example.net", "opens": 2},
+            {"name": "", "email": "nameless@example.net", "opens": 0},
+        ]},
+        "workflows": {"runs": [{"name": "Daily Intel Report", "ok": True}]},
+        "report": ("Order processing: Jane Q Rider <jane.rider@example.org>. "
+                   "Sam Lead opened twice."),
+    }
+
+
+def test_redact_for_snapshot_keeps_first_names_and_masks_emails():
+    """data/intel-snapshots/ is committed to a public repo."""
+    from scripts.daily_intel import redact_for_snapshot
+
+    original = _people_snapshot()
+    snap = redact_for_snapshot(original)
+    text = json.dumps(snap)
+
+    for leaked in ("Rider", "jane.rider@", "Sam Lead", "sam@", "nameless@"):
+        assert leaked not in text
+    assert snap["commerce_ledger"]["orders"][0]["name"] == "Jane"
+    assert snap["commerce_ledger"]["orders"][0]["email"] == "j***@example.org"
+    assert snap["mission_control"]["hot_leads_14d"][1]["email"] == "n***@example.net"
+    assert snap["report"] == ("Order processing: Jane <j***@example.org>. "
+                              "Sam opened twice.")
+    # Non-person names are untouched, and the input is not mutated.
+    assert snap["workflows"]["runs"][0]["name"] == "Daily Intel Report"
+    assert original["commerce_ledger"]["orders"][0]["email"] == "jane.rider@example.org"
+
+
+def test_main_writes_redacted_snapshot_but_emails_full_report(tmp_path, monkeypatch):
+    from scripts import daily_intel
+
+    people = _people_snapshot()
+
+    def boom(*a, **k):
+        raise RuntimeError("offline")
+
+    for name in ("collect_ga4", "collect_checkout", "collect_social",
+                 "collect_workflows", "collect_aeo", "collect_seo",
+                 "collect_since_yesterday"):
+        monkeypatch.setattr(daily_intel, name, boom)
+    monkeypatch.setattr(daily_intel, "collect_commerce_ledger",
+                        lambda: people["commerce_ledger"])
+    monkeypatch.setattr(daily_intel, "collect_mission_control",
+                        lambda: people["mission_control"])
+    monkeypatch.setattr(daily_intel, "load_trend", lambda: [])
+    monkeypatch.setattr(daily_intel, "interpret", lambda *a: (
+        "Jane Q Rider bought a plan",
+        "## TOP LINE\n" + people["report"] + "\n## DO TODAY\n- ship it"))
+    monkeypatch.setattr(daily_intel, "SNAPSHOT_DIR", tmp_path)
+    sent = {}
+    monkeypatch.setattr(daily_intel, "send_email",
+                        lambda subject, report: sent.update(
+                            subject=subject, report=report) or "msg_test")
+    monkeypatch.setattr("sys.argv", ["daily_intel.py"])
+
+    assert daily_intel.main() == 0
+
+    on_disk = "".join(p.read_text() for p in tmp_path.iterdir())
+    for leaked in ("Rider", "jane.rider@", "Sam Lead", "sam@", "nameless@"):
+        assert leaked not in on_disk
+    assert "Jane" in on_disk
+    assert "jane.rider@example.org" in sent["report"]
+    assert sent["subject"] == "Jane Q Rider bought a plan"
+
+
 def test_collect_mission_control_reads_newest_rows_past_the_1000_row_cap(monkeypatch):
     """Regression: gg_sequence_sends crossed 1000 rows on 2026-08-26 and the
     collector — which sorted ascending and capped at 1000 — stopped seeing

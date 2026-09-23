@@ -1939,9 +1939,11 @@ class TestGoalStrip:
         assert "new Date().getMonth()" in html
         assert "strip.hidden = false" in html
 
-    def test_fires_goal_hero_click_with_race_src(self, normalized_data):
+    def test_fires_goal_hero_click_with_race_src_and_slug(self, normalized_data):
+        # docs/ga4-key-events.md documents race_slug as sent on this event;
+        # it must actually be there, not just in the destination URL.
         html = build_goal_strip(normalized_data)
-        assert "gtag('event', 'goal_hero_click', { src: 'race' });" in html
+        assert "gtag('event', 'goal_hero_click', { src: 'race', race_slug: \"test-gravel-100\" });" in html
 
     def test_strip_sits_after_ratings_before_custom_plan(self, normalized_data):
         html = generate_page(normalized_data)

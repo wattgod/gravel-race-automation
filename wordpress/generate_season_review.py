@@ -1090,6 +1090,12 @@ def build_season_review_js(variant) -> str:
         var ctaUrl = new URL(cta.getAttribute("href"), window.location.href);
         ctaUrl.searchParams.set("offer_variant", key);
         if (RACE_SLUG) { ctaUrl.searchParams.set("race", RACE_SLUG); }
+        // Carried as its own param, NOT written into src= — that stays
+        // "goals" (the plan form's own entry-surface value for "came from
+        // the goals funnel"). Losing which surface (home/race) originally
+        // sent the visitor to /goals/ would otherwise attribute every
+        // plan-form arrival from here the same way.
+        if (ENTRY_SRC) { ctaUrl.searchParams.set("entry_src", ENTRY_SRC); }
         cta.href = ctaUrl.pathname + ctaUrl.search;
       } catch (err) { /* keep the static href */ }
       ga4("goal_offer_view", { variant: VARIANT, offer_variant: key });
@@ -1119,7 +1125,14 @@ def build_season_review_js(variant) -> str:
 
   /* goal_section: fired once per numbered section the visitor actually
      scrolls to (a real action), never on a timer. Mirrors the walkthrough
-     recorder's own section watcher (data-section-n set by render_sections). */
+     recorder's own section watcher (data-section-n set by render_sections).
+
+     IntersectionObserver reports each target's CURRENT state the moment
+     observe() is called — so wiring it up immediately on load would fire
+     goal_section for section 1 (already on screen) before the visitor has
+     done anything at all. Deferred to the first real scroll or keystroke;
+     whatever is on screen at that point is then a genuine, once-per-section
+     read. */
   function watchGoalSections() {
     if (typeof IntersectionObserver !== "function") { return; }
     var targets = Array.prototype.slice.call(form.querySelectorAll("[data-section-n]"));
@@ -1137,7 +1150,14 @@ def build_season_review_js(variant) -> str:
     targets.forEach(function(t) { observer.observe(t); });
   }
 
-  watchGoalSections();
+  var goalSectionsStarted = false;
+  function startWatchingGoalSectionsOnce() {
+    if (goalSectionsStarted) { return; }
+    goalSectionsStarted = true;
+    watchGoalSections();
+  }
+  window.addEventListener("scroll", startWatchingGoalSectionsOnce, { once: true, passive: true });
+  form.addEventListener("input", startWatchingGoalSectionsOnce, { once: true });
   restore();
   ga4("season_review_view", { variant: VARIANT });
 })();

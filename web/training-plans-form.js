@@ -108,8 +108,15 @@
   // funnel-spec.md) sent this visitor here, if any. Kept in sessionStorage
   // for the same reason as entry surface: a bounce back from Stripe must not
   // lose the attribution.
+  //
+  // The stored value is only trusted while ENTRY_SURFACE (resolved above,
+  // for THIS pageload) still says "goals" — otherwise a stale offer_variant
+  // from an earlier /goals/ visit this session would keep riding along into
+  // a later, unrelated arrival (e.g. a race-page CTA later in the same
+  // session, which correctly overwrites ENTRY_SURFACE but carries no
+  // offer_variant of its own to overwrite this with).
   var OFFER_VARIANT_KEY = 'gg_tp_offer_variant';
-  var OFFER_VARIANT_RE = /^[A-Z]$/;
+  var OFFER_VARIANT_RE = /^[ABC]$/;
   function resolveOfferVariant() {
     var fromUrl = '';
     try { fromUrl = new URLSearchParams(window.location.search).get('offer_variant') || ''; } catch (e) {}
@@ -117,6 +124,7 @@
       try { sessionStorage.setItem(OFFER_VARIANT_KEY, fromUrl); } catch (e) {}
       return fromUrl;
     }
+    if (ENTRY_SURFACE !== 'goals') { return ''; }
     try {
       var stored = sessionStorage.getItem(OFFER_VARIANT_KEY) || '';
       if (OFFER_VARIANT_RE.test(stored)) return stored;
@@ -125,9 +133,32 @@
   }
   var OFFER_VARIANT = resolveOfferVariant();
 
+  // Which surface (home / race) sent the visitor to /goals/ in the first
+  // place — distinct from ENTRY_SURFACE, which for a goals-funnel arrival is
+  // always the fixed value "goals". Same same-session-only rule as
+  // OFFER_VARIANT, and for the same reason.
+  var ENTRY_SRC_KEY = 'gg_tp_entry_src';
+  var ENTRY_SRC_RE = /^[a-z_]{1,24}$/;
+  function resolveEntrySrc() {
+    var fromUrl = '';
+    try { fromUrl = new URLSearchParams(window.location.search).get('entry_src') || ''; } catch (e) {}
+    if (ENTRY_SRC_RE.test(fromUrl)) {
+      try { sessionStorage.setItem(ENTRY_SRC_KEY, fromUrl); } catch (e) {}
+      return fromUrl;
+    }
+    if (ENTRY_SURFACE !== 'goals') { return ''; }
+    try {
+      var stored = sessionStorage.getItem(ENTRY_SRC_KEY) || '';
+      if (ENTRY_SRC_RE.test(stored)) return stored;
+    } catch (e) {}
+    return '';
+  }
+  var ENTRY_SRC = resolveEntrySrc();
+
   function track(event, params) {
     var payload = { entry_surface: ENTRY_SURFACE, form_version: FORM_VERSION };
     if (OFFER_VARIANT) { payload.offer_variant = OFFER_VARIANT; }
+    if (ENTRY_SRC) { payload.entry_src = ENTRY_SRC; }
     if (params) { for (var k in params) payload[k] = params[k]; }
     if (typeof gtag === 'function') {
       gtag('event', event, payload);
@@ -735,6 +766,7 @@
     // record for the attribution to reach a purchase — not done in this repo.
     workerData.entry_surface = ENTRY_SURFACE;
     if (OFFER_VARIANT) { workerData.offer_variant = OFFER_VARIANT; }
+    if (ENTRY_SRC) { workerData.entry_src = ENTRY_SRC; }
     var ga4Attribution = await ga4AttributionPromise;
     workerData.analytics_consent = ga4Attribution.analytics_consent || 'denied';
     if (ga4Attribution.ga4_client_id) {

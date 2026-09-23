@@ -317,23 +317,31 @@ def _sends_for_enrollments(enrollment_ids: list[str]) -> list[dict]:
     return out
 
 
-def get_mission_control_numbers(sequence_prefix: str = "goal_2027") -> dict:
+def get_mission_control_numbers(sequence_prefix: str = "goal_2027", days: int = 30) -> dict:
     """Mission Control's own record: enrollments, resends, opens, clicks.
 
     A "resend" is an extra gg_sequence_sends row at step_index=0 for the
     same enrollment (services/sequence_engine.py resend_first_step — sent
     when someone corrects their goal_2027 answers). The first step-0 row per
     enrollment is the original send; anything after it is a resend.
+
+    Scoped to the same lookback window as the GA4 side (--days): enrollments
+    are new leads, so "enrolled in the last N days" is the direct equivalent
+    of GA4's "events in the last N days" — without this, this section always
+    reported everything ever, out of step with every GA4 row above it.
     """
+    cutoff = (date.today() - timedelta(days=days)).isoformat()
     enrollments = _mc_req(
         "gg_sequence_enrollments",
-        "select=id,sequence_id,variant,status,contact_email,source_data"
-        f"&sequence_id=like.{urllib.parse.quote(sequence_prefix)}*",
+        "select=id,sequence_id,variant,status,contact_email,source_data,enrolled_at"
+        f"&sequence_id=like.{urllib.parse.quote(sequence_prefix)}*"
+        f"&enrolled_at=gte.{cutoff}",
     )
     enrollment_ids = [e["id"] for e in enrollments]
     if not enrollment_ids:
         return {
-            "sequence_prefix": sequence_prefix, "enrollments": 0, "unsubscribed": 0,
+            "sequence_prefix": sequence_prefix, "days": days,
+            "enrollments": 0, "unsubscribed": 0,
             "resends": 0, "sends": 0, "opens": 0, "clicks": 0, "by_offer_variant": {},
         }
 
@@ -363,6 +371,7 @@ def get_mission_control_numbers(sequence_prefix: str = "goal_2027") -> dict:
 
     return {
         "sequence_prefix": sequence_prefix,
+        "days": days,
         "enrollments": len(enrollments),
         "unsubscribed": sum(1 for e in enrollments if e.get("status") == "unsubscribed"),
         "resends": resends,
@@ -373,9 +382,9 @@ def get_mission_control_numbers(sequence_prefix: str = "goal_2027") -> dict:
     }
 
 
-def get_mock_mission_control() -> dict:
+def get_mock_mission_control(days: int = 30) -> dict:
     return {
-        "sequence_prefix": "goal_2027", "enrollments": 47, "unsubscribed": 2,
+        "sequence_prefix": "goal_2027", "days": days, "enrollments": 47, "unsubscribed": 2,
         "resends": 3, "sends": 61, "opens": 29, "clicks": 8,
         "by_offer_variant": {"A": 16, "B": 15, "C": 16},
     }
@@ -453,7 +462,7 @@ def main() -> int:
         if not args.mission_control_only:
             stages, breakdowns = get_mock_ga4()
         if not args.ga4_only:
-            mc = get_mock_mission_control()
+            mc = get_mock_mission_control(days=args.days)
     else:
         if not args.mission_control_only:
             # .env values can carry quotes, a stray \r or a "properties/" prefix;
@@ -475,7 +484,7 @@ def main() -> int:
                       "SUPABASE_SERVICE_ROLE_KEY (tip: `railway run python3 "
                       "scripts/goals_funnel_report.py`)", file=sys.stderr)
             else:
-                mc = get_mission_control_numbers()
+                mc = get_mission_control_numbers(days=args.days)
 
     if args.json:
         print(json.dumps(build_payload(args.days, stages, breakdowns, mc), indent=2))

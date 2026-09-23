@@ -269,6 +269,24 @@ class TestGoalsPage:
         assert nums, "no numbered sections found"
         assert len(nums) == len(set(nums)), nums
 
+    def test_goal_section_does_not_fire_for_whatever_is_visible_on_load(self):
+        # sol review: IntersectionObserver reports each target's CURRENT
+        # state the instant observe() is called, so wiring it up
+        # immediately on load fired goal_section for section 1 (already on
+        # screen) before the visitor had done anything. watchGoalSections()
+        # must not be invoked at top level — only from a first real scroll
+        # or keystroke.
+        js = build_season_review_js(VARIANTS["goal_2027"])
+        # the old bug: called bare, right before restore() ran on page load
+        assert "watchGoalSections();\n  restore();" not in js
+        # the fix: the only call is inside the deferred wrapper
+        assert "goalSectionsStarted = true;\n    watchGoalSections();" in js
+
+    def test_goal_section_is_deferred_to_first_scroll_or_input(self):
+        js = build_season_review_js(VARIANTS["goal_2027"])
+        assert 'window.addEventListener("scroll", startWatchingGoalSectionsOnce, { once: true, passive: true });' in js
+        assert 'form.addEventListener("input", startWatchingGoalSectionsOnce, { once: true });' in js
+
     def test_goal_offer_click_carries_variant_and_plan_type(self):
         js = build_season_review_js(VARIANTS["goal_2027"])
         assert 'ga4("goal_offer_click", { variant: VARIANT, offer_variant: key, plan_type: "race" })' in js
@@ -288,6 +306,14 @@ class TestGoalsPage:
         assert "ctaUrl.searchParams.set(\"offer_variant\", key)" in js
         assert "ctaUrl.searchParams.set(\"race\", RACE_SLUG)" in js
         assert 'ctaUrl.searchParams.set("src"' not in js
+
+    def test_offer_cta_also_carries_the_original_entry_src(self):
+        # sol review: the home/race surface that originally sent this
+        # visitor to /goals/ (ENTRY_SRC) was captured but never carried
+        # onward — it must ride into the plan-form link as its own param,
+        # not overwrite src=goals.
+        js = build_season_review_js(VARIANTS["goal_2027"])
+        assert 'ctaUrl.searchParams.set("entry_src", ENTRY_SRC)' in js
 
     def test_entry_src_and_race_slug_are_validated_before_use(self):
         js = build_season_review_js(VARIANTS["goal_2027"])

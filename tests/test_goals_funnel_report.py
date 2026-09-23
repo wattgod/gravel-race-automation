@@ -10,12 +10,16 @@ Covers two bugs a live run against the real database turned up:
    table (shared across every sequence, not just goal_2027) grows past that.
 
 Plus the GA4 credentials-path fallback, which needs to find the main
-checkout's ga4-credentials.json even when this script runs from a worktree.
+checkout's ga4-credentials.json even when this script runs from a worktree,
+and a third bug from sol's review: the Mission Control section ignored
+--days entirely, always reporting everything ever while the GA4 section
+above it respected the requested window.
 """
 from __future__ import annotations
 
 import subprocess
 import sys
+from datetime import date, timedelta
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "scripts"))
@@ -148,7 +152,7 @@ class TestSendsAreFilteredServerSide:
         result = get_mission_control_numbers()
         assert calls == ["gg_sequence_enrollments"]
         assert result == {
-            "sequence_prefix": "goal_2027", "enrollments": 0, "unsubscribed": 0,
+            "sequence_prefix": "goal_2027", "days": 30, "enrollments": 0, "unsubscribed": 0,
             "resends": 0, "sends": 0, "opens": 0, "clicks": 0, "by_offer_variant": {},
         }
 
@@ -196,3 +200,47 @@ class TestDefaultCredentialsPath:
         monkeypatch.setattr(subprocess, "run", lambda *a, **k: FakeResult())
         result = _default_ga4_credentials_path()
         assert result == PROJECT_ROOT / "ga4-credentials.json"
+
+
+# ── Mission Control must respect --days like the GA4 section does ─────────
+
+
+class TestMissionControlRespectsDays:
+    def test_enrollments_query_is_scoped_to_the_requested_window(self, monkeypatch):
+        seen_params = []
+
+        def fake_mc_req(path, params=""):
+            if path == "gg_sequence_enrollments":
+                seen_params.append(params)
+                return []
+            return []
+
+        monkeypatch.setattr(goals_funnel_report, "_mc_req", fake_mc_req)
+        get_mission_control_numbers(days=7)
+
+        expected_cutoff = (date.today() - timedelta(days=7)).isoformat()
+        assert len(seen_params) == 1
+        assert f"enrolled_at=gte.{expected_cutoff}" in seen_params[0]
+
+    def test_default_window_is_thirty_days(self, monkeypatch):
+        seen_params = []
+        monkeypatch.setattr(goals_funnel_report, "_mc_req",
+                            lambda path, params="": (seen_params.append(params) or []))
+        get_mission_control_numbers()
+        expected_cutoff = (date.today() - timedelta(days=30)).isoformat()
+        assert f"enrolled_at=gte.{expected_cutoff}" in seen_params[0]
+
+    def test_result_reports_which_window_it_used(self, monkeypatch):
+        monkeypatch.setattr(goals_funnel_report, "_mc_req", lambda path, params="": [])
+        result = get_mission_control_numbers(days=14)
+        assert result["days"] == 14
+
+    def test_mock_mission_control_accepts_and_reports_days(self):
+        mock = get_mock_mission_control(days=7)
+        assert mock["days"] == 7
+
+    def test_main_forwards_args_days_to_mission_control(self):
+        import inspect
+        src = inspect.getsource(goals_funnel_report.main)
+        assert "get_mission_control_numbers(days=args.days)" in src
+        assert "get_mock_mission_control(days=args.days)" in src

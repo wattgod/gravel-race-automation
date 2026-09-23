@@ -3,9 +3,8 @@
  *
  * Multi-brand: serves gravelgodcycling.com (default), roadielabs.com, and
  * xcskilabs.com. The page sends `brand`; absent → gravelgod. Brand is
- * tagged on the SendGrid contact (env.SG_FIELD_BRAND), the Mission Control
- * payload, and the notification email subject/sender so road leads are
- * distinguishable in the shared list/inbox.
+ * tagged on the Mission Control payload and the notification email
+ * subject/sender so road leads are distinguishable in the shared inbox.
  *
  * Handles 16 capture sources:
  *   - exit_intent:        email only (race profile exit popup)
@@ -25,8 +24,9 @@
  *   - gravel_weekly_subscribe: Gravel Weekly publication signup
  *   - fueling_calculator: email + weight + race + fueling data (detected by weight_lbs, no source field)
  *
- * Every valid submission upserts the contact into SendGrid Marketing Contacts.
  * Notification emails only fire for fueling_calculator (contains actionable athlete data).
+ * Mission Control's database is the lead list of record — nothing else reads a marketing
+ * contacts list, so this worker does not maintain one.
  */
 
 const DISPOSABLE_DOMAINS = [
@@ -107,15 +107,10 @@ export default {
       return jsonResponse({ error: validation.error }, 400, origin);
     }
 
-    // Downstream work: SendGrid, webhook, notification email
+    // Downstream work: Mission Control, webhook, notification email
     // Failures here are logged but don't affect the user response
     try {
       const promises = [];
-
-      // Upsert to SendGrid Marketing Contacts (all sources)
-      if (env.SENDGRID_API_KEY && env.SG_LIST_ID) {
-        promises.push(upsertMarketingContact(env, data, source));
-      }
 
       // Notify Mission Control for sequence enrollment (all sources)
       if (env.MC_WEBHOOK_URL) {
@@ -137,7 +132,7 @@ export default {
         if (env.COACHING_WEBHOOK_URL) {
           promises.push(sendToWebhook(env.COACHING_WEBHOOK_URL, lead));
         }
-        if (env.SENDGRID_API_KEY && env.NOTIFICATION_EMAIL) {
+        if (env.RESEND_API_KEY && env.NOTIFICATION_EMAIL) {
           promises.push(sendNotificationEmail(env, lead));
         }
       }
@@ -216,42 +211,6 @@ function validateBySource(source, data) {
   // truncated to 80 chars before validation runs.
 
   return { valid: true };
-}
-
-// --- SendGrid Marketing Contacts ---
-
-async function upsertMarketingContact(env, data, source) {
-  try {
-    const customFields = {};
-    if (env.SG_FIELD_LATEST_SOURCE) customFields[env.SG_FIELD_LATEST_SOURCE] = source;
-    if (env.SG_FIELD_RACE_SLUG && data.race_slug) customFields[env.SG_FIELD_RACE_SLUG] = data.race_slug;
-    if (env.SG_FIELD_RACE_NAME && data.race_name) customFields[env.SG_FIELD_RACE_NAME] = data.race_name;
-    if (env.SG_FIELD_HAS_FUELING) customFields[env.SG_FIELD_HAS_FUELING] = source === 'fueling_calculator' ? 'yes' : 'no';
-    if (env.SG_FIELD_BRAND && data.brand) customFields[env.SG_FIELD_BRAND] = data.brand;
-
-    const contact = { email: data.email };
-    if (Object.keys(customFields).length > 0) {
-      contact.custom_fields = customFields;
-    }
-
-    const body = {
-      list_ids: [env.SG_LIST_ID],
-      contacts: [contact]
-    };
-
-    const resp = await fetch('https://api.sendgrid.com/v3/marketing/contacts', {
-      method: 'PUT',
-      headers: {
-        'Authorization': `Bearer ${env.SENDGRID_API_KEY}`,
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(body)
-    });
-
-    console.log('SendGrid Marketing upsert:', resp.status, 'email:', data.email, 'source:', source);
-  } catch (error) {
-    console.error('SendGrid Marketing error:', error);
-  }
 }
 
 // --- Fueling Calculator Lead Formatting ---
@@ -377,29 +336,33 @@ async function sendAthleteReviewEmail(env, data) {
 
 // --- Notification Email (fueling_calculator only) ---
 
+// Resend: SendGrid's key has been returning 401 account-wide. Sent from
+// noreply@ — the domain's other addresses (e.g. matti@) are accepted by
+// Resend but silently never deliver, so noreply@ + a display name is the
+// only address confirmed to arrive.
 async function sendNotificationEmail(env, lead) {
   const emailBody = formatEmailBody(lead);
+  const subject = `[${brandLabel(lead.brand)}] Fueling Lead: ${(lead.race_name || lead.race_slug).substring(0, 60)} - ${lead.email}`;
 
   try {
-    const sgResponse = await fetch('https://api.sendgrid.com/v3/mail/send', {
+    const resp = await fetch('https://api.resend.com/emails', {
       method: 'POST',
       headers: {
-        'Authorization': `Bearer ${env.SENDGRID_API_KEY}`,
+        'Authorization': `Bearer ${env.RESEND_API_KEY}`,
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        personalizations: [{
-          to: [{ email: env.NOTIFICATION_EMAIL }],
-          subject: `[${brandLabel(lead.brand)}] Fueling Lead: ${(lead.race_name || lead.race_slug).substring(0, 60)} - ${lead.email}`
-        }],
-        from: brandSender(lead.brand),
-        reply_to: { email: lead.email },
-        content: [{ type: 'text/html', value: emailBody }]
+        from: `${brandSender(lead.brand).name} <noreply@gravelgodcycling.com>`,
+        to: [env.NOTIFICATION_EMAIL],
+        reply_to: lead.email,
+        subject,
+        html: emailBody
       })
     });
-    console.log('SendGrid notification:', sgResponse.status);
+    const detail = await resp.text();
+    console.log('Fueling lead notification (resend):', resp.status, detail.slice(0, 200));
   } catch (error) {
-    console.error('Email error:', error);
+    console.error('Resend notification failed:', error);
   }
 }
 

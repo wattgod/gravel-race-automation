@@ -2,7 +2,7 @@
  * Cloudflare Worker: Tire Review Intake
  *
  * Receives tire review submissions from per-tire pages.
- * Validates, deduplicates by email+tire, writes to KV, sends SendGrid notification.
+ * Validates, deduplicates by email+tire, writes to KV, sends Resend notification.
  */
 
 const DISPOSABLE_DOMAINS = [
@@ -82,7 +82,7 @@ export default {
 
     // Notification email. Failures logged, don't affect user response.
     try {
-      if (env.SENDGRID_API_KEY && env.NOTIFICATION_EMAIL) {
+      if (env.RESEND_API_KEY && env.NOTIFICATION_EMAIL) {
         await sendNotificationEmail(env, review);
       }
     } catch (downstreamError) {
@@ -193,45 +193,50 @@ function formatReview(data, reviewId) {
 
 // --- Notification Email ---
 
+// Resend: SendGrid's key has been returning 401 account-wide. Sent from
+// noreply@ -- the domain's other addresses (e.g. matti@) are accepted by
+// Resend but silently never deliver, so noreply@ + a display name is the
+// only address confirmed to arrive.
 async function sendNotificationEmail(env, review) {
   const stars = '\u2605'.repeat(review.stars) + '\u2606'.repeat(5 - review.stars);
   const conditions = review.conditions.length ? review.conditions.join(', ') : '—';
 
-  const resp = await fetch('https://api.sendgrid.com/v3/mail/send', {
-    method: 'POST',
-    headers: {
-      'Authorization': `Bearer ${env.SENDGRID_API_KEY}`,
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify({
-      personalizations: [{
-        to: [{ email: env.NOTIFICATION_EMAIL }],
-        subject: `[GG Tire Review] ${(review.tire_name).substring(0, 60)} - ${stars} (${review.stars}/5)`
-      }],
-      from: { email: 'reviews@gravelgodcycling.com', name: 'Gravel God Tire Reviews' },
-      reply_to: { email: review.email },
-      content: [{
-        type: 'text/html',
-        value: `
-          <h2>${esc(review.tire_name)} — ${stars}</h2>
-          <table style="border-collapse:collapse;font-family:monospace">
-            <tr><td style="padding:4px 12px 4px 0;font-weight:bold">Review ID</td><td>${esc(review.review_id)}</td></tr>
-            <tr><td style="padding:4px 12px 4px 0;font-weight:bold">Email</td><td>${esc(review.email)}</td></tr>
-            <tr><td style="padding:4px 12px 4px 0;font-weight:bold">Stars</td><td>${review.stars}/5</td></tr>
-            <tr><td style="padding:4px 12px 4px 0;font-weight:bold">Width Ridden</td><td>${review.width_ridden ? review.width_ridden + 'mm' : '—'}</td></tr>
-            <tr><td style="padding:4px 12px 4px 0;font-weight:bold">Pressure</td><td>${review.pressure_psi ? review.pressure_psi + ' psi' : '—'}</td></tr>
-            <tr><td style="padding:4px 12px 4px 0;font-weight:bold">Conditions</td><td>${esc(conditions)}</td></tr>
-            <tr><td style="padding:4px 12px 4px 0;font-weight:bold">Race Used At</td><td>${esc(review.race_used_at) || '—'}</td></tr>
-            <tr><td style="padding:4px 12px 4px 0;font-weight:bold">Recommend?</td><td>${esc(review.would_recommend) || '—'}</td></tr>
-            <tr><td style="padding:4px 12px 4px 0;font-weight:bold">Review Text</td><td>${esc(review.review_text) || '—'}</td></tr>
-          </table>
-          <p style="color:#999;font-size:12px">Submitted: ${esc(review.submitted_at)}</p>
-        `
-      }]
-    })
-  });
+  const html = `
+    <h2>${esc(review.tire_name)} — ${stars}</h2>
+    <table style="border-collapse:collapse;font-family:monospace">
+      <tr><td style="padding:4px 12px 4px 0;font-weight:bold">Review ID</td><td>${esc(review.review_id)}</td></tr>
+      <tr><td style="padding:4px 12px 4px 0;font-weight:bold">Email</td><td>${esc(review.email)}</td></tr>
+      <tr><td style="padding:4px 12px 4px 0;font-weight:bold">Stars</td><td>${review.stars}/5</td></tr>
+      <tr><td style="padding:4px 12px 4px 0;font-weight:bold">Width Ridden</td><td>${review.width_ridden ? review.width_ridden + 'mm' : '—'}</td></tr>
+      <tr><td style="padding:4px 12px 4px 0;font-weight:bold">Pressure</td><td>${review.pressure_psi ? review.pressure_psi + ' psi' : '—'}</td></tr>
+      <tr><td style="padding:4px 12px 4px 0;font-weight:bold">Conditions</td><td>${esc(conditions)}</td></tr>
+      <tr><td style="padding:4px 12px 4px 0;font-weight:bold">Race Used At</td><td>${esc(review.race_used_at) || '—'}</td></tr>
+      <tr><td style="padding:4px 12px 4px 0;font-weight:bold">Recommend?</td><td>${esc(review.would_recommend) || '—'}</td></tr>
+      <tr><td style="padding:4px 12px 4px 0;font-weight:bold">Review Text</td><td>${esc(review.review_text) || '—'}</td></tr>
+    </table>
+    <p style="color:#999;font-size:12px">Submitted: ${esc(review.submitted_at)}</p>
+  `;
 
-  console.log('SendGrid notification:', resp.status);
+  try {
+    const resp = await fetch('https://api.resend.com/emails', {
+      method: 'POST',
+      headers: {
+        'Authorization': `Bearer ${env.RESEND_API_KEY}`,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        from: 'Gravel God Tire Reviews <noreply@gravelgodcycling.com>',
+        to: [env.NOTIFICATION_EMAIL],
+        reply_to: review.email,
+        subject: `[GG Tire Review] ${(review.tire_name).substring(0, 60)} - ${stars} (${review.stars}/5)`,
+        html
+      })
+    });
+    const detail = await resp.text();
+    console.log('Tire review notification (resend):', resp.status, detail.slice(0, 200));
+  } catch (error) {
+    console.error('Resend notification failed:', error);
+  }
 }
 
 // --- CORS + Response Helpers ---

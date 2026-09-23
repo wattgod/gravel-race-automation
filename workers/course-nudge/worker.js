@@ -3,7 +3,7 @@
  *
  * Cron Trigger that runs daily at 14:00 UTC (9 AM ET).
  * Queries D1 for users who need engagement nudges and sends
- * personalized emails via SendGrid.
+ * personalized emails via Resend.
  *
  * Nudge Types:
  *   streak_risk      — Streak >= 3 days, no activity today
@@ -250,37 +250,35 @@ async function sendNudge(env, user, courseId, nudgeType, data) {
     </div>
   `;
 
-  // Send via SendGrid — only log nudge if email actually sends
-  if (env.SENDGRID_API_KEY) {
-    const sgResponse = await fetch('https://api.sendgrid.com/v3/mail/send', {
+  // Send via Resend — only log nudge if email actually sends. SendGrid's
+  // key has been returning 401 account-wide. Sent from noreply@ — the
+  // domain's other addresses (e.g. matti@) are accepted by Resend but
+  // silently never deliver, so noreply@ is the only address confirmed
+  // to arrive.
+  if (env.RESEND_API_KEY) {
+    const fromName = env.FROM_NAME || 'Gravel God Courses';
+    const resendResponse = await fetch('https://api.resend.com/emails', {
       method: 'POST',
       headers: {
-        'Authorization': `Bearer ${env.SENDGRID_API_KEY}`,
+        'Authorization': `Bearer ${env.RESEND_API_KEY}`,
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        personalizations: [{
-          to: [{ email: user.email }],
-          subject: subject
-        }],
-        from: {
-          email: env.FROM_EMAIL || 'courses@gravelgodcycling.com',
-          name: env.FROM_NAME || 'Gravel God Courses'
-        },
-        content: [{
-          type: 'text/html',
-          value: bodyHtml
-        }]
+        from: `${fromName} <${env.FROM_EMAIL || 'noreply@gravelgodcycling.com'}>`,
+        to: [user.email],
+        subject: subject,
+        html: bodyHtml
       })
     });
 
-    if (!sgResponse.ok) {
-      console.error(`SendGrid failed for user ${user.id}: ${sgResponse.status}`);
+    if (!resendResponse.ok) {
+      const detail = await resendResponse.text();
+      console.error(`Resend failed for user ${user.id}: ${resendResponse.status} ${detail.slice(0, 200)}`);
       // Don't log the nudge — allow retry on next cron run
       return;
     }
   } else {
-    console.warn('SENDGRID_API_KEY not configured — skipping email send');
+    console.warn('RESEND_API_KEY not configured — skipping email send');
     return;
   }
 

@@ -12,7 +12,7 @@ database_id = "e9ce1ef3-46df-4bd8-9f49-c3b4a6bd9a9f"
 
 # Secrets (set via: wrangler secret put SECRET_NAME)
 # STRIPE_WEBHOOK_SECRET    — Stripe webhook signing secret
-# SENDGRID_API_KEY         — SendGrid API key (mail send)
+# RESEND_API_KEY           — Resend API key (mail send) — replaces SendGrid, whose account is dead (401s)
 # NOTIFICATION_EMAIL       — Where purchase notifications go
 # ADMIN_API_KEY            — Admin dashboard + grant endpoint auth
 # NUDGE_UNSUBSCRIBE_SECRET — HMAC key for unsubscribe tokens

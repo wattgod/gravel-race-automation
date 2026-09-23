@@ -10,5 +10,5 @@ binding = "TIRE_REVIEWS"
 id = "a8d21e34851f4ef398d4b7001f9fb5c3"
 
 # Secrets (set via: wrangler secret put SECRET_NAME)
-# SENDGRID_API_KEY   — SendGrid API key (mail send)
+# RESEND_API_KEY     — Resend API key (mail send) — replaces SendGrid, whose account is dead (401s)
 # NOTIFICATION_EMAIL — Where review notifications go

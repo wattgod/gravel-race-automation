@@ -95,33 +95,37 @@ def render_poster(answers: dict, name: str = "", season: int = 2027) -> bytes:
     draw.text((pad, HEIGHT - pad - 20), "GRAVELGODCYCLING.COM",
               font=_font("mono", 22), fill=GREY)
 
-    # bottom block: the frame, anchored above the footer
+    # bottom block: the daily habits and the thing most likely to wreck it,
+    # anchored above the footer (Matti, Sep 23)
+    habit = _clean(answers.get("habit"), 120)
+    if habit and answers.get("habit_when"):
+        habit += " \u2014 " + _clean(answers.get("habit_when"), 120)
+    value_font = _font("mono", 30)
     rows = [
-        ("THE ENEMY", _clean(answers.get("inner_obstacle"), 150)),
-        ("WHEN IT SHOWS UP", _clean(answers.get("obstacle_plan"), 150)),
-        ("THE HABIT", _clean(answers.get("habit"), 150)),
-        ("WHEN AND WHERE", _clean(answers.get("habit_when"), 150)),
+        ("STOPPING" if answers.get("habit_direction") == "reduce" else "EVERY DAY", habit),
+        ("ALSO EVERY DAY", _clean(answers.get("habit_2"), 150)),
+        ("WATCH FOR", _clean(answers.get("inner_obstacle"), 150)),
     ]
-    rows = [(k, v) for k, v in rows if v]
-    label_font, value_font = _font("mono_bold", 24), _font("mono", 30)
-    row_height = 96
-    frame_top = HEIGHT - pad - 60 - len(rows) * row_height
+    rows = [(k, _wrap(draw, v, value_font, inner)[:2]) for k, v in rows if v]
+    label_font = _font("mono_bold", 24)
+    frame_top = HEIGHT - pad - 60 - sum(56 + len(lines) * 38 for _, lines in rows)
     y = frame_top
-    for key, value in rows:
+    for key, lines in rows:
         draw.text((pad, y), key, font=label_font, fill=TEAL)
-        line = _wrap(draw, value, value_font, inner)[:1]
-        if line:
-            draw.text((pad, y + 34), line[0], font=value_font, fill=INK)
-        y += row_height
+        for i, line in enumerate(lines):
+            draw.text((pad, y + 34 + i * 38), line, font=value_font, fill=INK)
+        y += 56 + len(lines) * 38
 
-    # middle block: the why, sitting just above the frame
-    why = _clean(answers.get("outcome_why"), 200)
+    # middle block: the deepest why they gave, just above the frame
+    deepest = next((answers.get(k) for k in ("why_5", "why_4", "why_3", "why_2", "outcome_why")
+                    if str(answers.get(k) or "").strip()), "")
+    why = _clean(deepest, 200)
     why_font = _font("serif", 38)
     why_lines = _wrap(draw, f"\u201c{why}\u201d", why_font, inner)[:3] if why else []
     why_height = len(why_lines) * 50 + (30 if why_lines else 0)
 
     # top block: label, goal, rule — shrinks until it fits what's left
-    label_y = pad + 300
+    label_y = pad + 200
     available = frame_top - why_height - label_y - 120
     goal = _clean(answers.get("outcome_goal"), 180) or "[your goal]"
     if goal[-1] not in ".!?":

@@ -970,12 +970,20 @@ def build_season_review_js(variant) -> str:
     ctx.fillStyle = POSTER.grey;
     ctx.fillText("GRAVELGODCYCLING.COM", pad, H - pad - 20);
 
-    var rows = [["THE ENEMY", posterClean(d.inner_obstacle, 150)],
-                ["WHEN IT SHOWS UP", posterClean(d.obstacle_plan, 150)],
-                ["THE HABIT", posterClean(d.habit, 150)],
-                ["WHEN AND WHERE", posterClean(d.habit_when, 150)]]
-      .filter(function(r) { return r[1]; });
-    var frameTop = H - pad - 60 - rows.length * 96;
+    /* Matti, Sep 23: the goal, the deepest why, the one or two daily
+       habits that make the system, and the thing most likely to wreck it. */
+    var habit = posterClean(d.habit, 120);
+    if (habit && d.habit_when) { habit += " \u2014 " + posterClean(d.habit_when, 120); }
+    var rows = [[d.habit_direction === "reduce" ? "STOPPING" : "EVERY DAY", habit],
+                ["ALSO EVERY DAY", posterClean(d.habit_2, 150)],
+                ["WATCH FOR", posterClean(d.inner_obstacle, 150)]]
+      .filter(function(r) { return r[1]; })
+      .map(function(r) {
+        ctx.font = "30px 'Sometype Mono', monospace";
+        return [r[0], wrapText(ctx, r[1], inner).slice(0, 2)];
+      });
+    var framed = rows.reduce(function(h, r) { return h + 56 + r[1].length * 38; }, 0);
+    var frameTop = H - pad - 60 - framed;
     var y = frameTop;
     rows.forEach(function(row) {
       ctx.font = "700 24px 'Sometype Mono', monospace";
@@ -983,16 +991,18 @@ def build_season_review_js(variant) -> str:
       ctx.fillText(row[0], pad, y);
       ctx.font = "30px 'Sometype Mono', monospace";
       ctx.fillStyle = POSTER.ink;
-      ctx.fillText(wrapText(ctx, row[1], inner)[0], pad, y + 34);
-      y += 96;
+      row[1].forEach(function(line, i) { ctx.fillText(line, pad, y + 34 + i * 38); });
+      y += 56 + row[1].length * 38;
     });
 
+    /* The deepest why they gave: five whys exist to get past the first answer. */
     ctx.font = "italic 38px 'Source Serif 4', Georgia, serif";
-    var why = posterClean(d.outcome_why, 200);
+    var why = posterClean([d.why_5, d.why_4, d.why_3, d.why_2, d.outcome_why]
+      .filter(function(w) { return w && String(w).trim(); })[0], 200);
     var whyLines = why ? wrapText(ctx, "\u201c" + why + "\u201d", inner).slice(0, 3) : [];
     var whyHeight = whyLines.length * 50 + (whyLines.length ? 30 : 0);
 
-    var labelY = pad + 300;
+    var labelY = pad + 200;
     var available = frameTop - whyHeight - labelY - 120;
     var goal = posterClean(d.outcome_goal, 180) || "[your goal]";
     if (!/[.!?]$/.test(goal)) { goal += "."; }

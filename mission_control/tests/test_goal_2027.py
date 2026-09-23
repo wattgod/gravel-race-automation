@@ -304,3 +304,21 @@ class TestCapsFitTheLongestForm:
     def test_answer_cap_fits_a_fifteen_minute_write(self):
         from mission_control.routers.webhooks import _MAX_GOAL_ANSWER_LEN
         assert _MAX_GOAL_ANSWER_LEN >= 3000
+
+
+class TestPosterContent:
+    """Matti, Sep 23: goal, the deepest why, one or two daily habits."""
+
+    def test_uses_the_deepest_why(self, monkeypatch):
+        import mission_control.services.goal_poster as gp
+        drawn = []
+        real = gp.ImageDraw.ImageDraw.text
+        monkeypatch.setattr(gp.ImageDraw.ImageDraw, "text",
+                            lambda self, xy, text, **kw: drawn.append(text) or real(self, xy, text, **kw))
+        gp.render_poster(dict(ANSWERS, why_2="Because I quit last year", why_3="My kids watched me quit",
+                              habit_2="Lights out by 10"))
+        joined = " ".join(drawn)
+        assert "My kids watched me quit" in joined
+        assert "To prove a dad" not in joined  # the first, shallowest why
+        assert "ALSO EVERY DAY" in joined and "Lights out by 10" in joined
+        assert "EVERY DAY" in joined and "WATCH FOR" in joined

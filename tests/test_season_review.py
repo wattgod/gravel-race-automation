@@ -167,7 +167,8 @@ class TestAthleteVariant:
 
     def test_still_short_enough_to_finish(self):
         # "athlete" is the hidden tag from the link, not a question
-        names = set(re.findall(r'name="([a-z_0-9]+)"', core_form("athlete"))) - {"website", "athlete"}
+        # habit_2 is an optional one-liner (Matti, Sep 23: one or two daily habits)
+        names = set(re.findall(r'name="([a-z_0-9]+)"', core_form("athlete"))) - {"website", "athlete", "habit_2"}
         names = {n for n in names if not re.fullmatch(r"why_[2-5]", n)}
         assert len(names) <= 36, sorted(names)
 

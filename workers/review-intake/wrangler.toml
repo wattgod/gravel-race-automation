@@ -6,5 +6,5 @@ compatibility_date = "2024-01-01"
 ALLOWED_ORIGINS = "https://gravelgodcycling.com,https://www.gravelgodcycling.com,https://roadielabs.com,https://www.roadielabs.com"
 
 # Secrets (set via: wrangler secret put SECRET_NAME)
-# SENDGRID_API_KEY   — SendGrid API key (mail send)
+# RESEND_API_KEY     — Resend API key (mail send) — replaces SendGrid, whose account is dead (401s)
 # NOTIFICATION_EMAIL — Where review notifications go

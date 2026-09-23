@@ -766,7 +766,7 @@ async function handleWebhook(request, env) {
 
   // Send confirmation email (non-blocking)
   try {
-    if (env.SENDGRID_API_KEY && env.NOTIFICATION_EMAIL) {
+    if (env.RESEND_API_KEY && env.NOTIFICATION_EMAIL) {
       await sendPurchaseNotification(env, email, courseId, session);
     }
   } catch (downstreamError) {
@@ -840,41 +840,46 @@ function extractCourseIdFromSession(session) {
 
 // ── Notification Email ──────────────────────────────────────
 
+// Resend: SendGrid's key has been returning 401 account-wide. Sent from
+// noreply@ — the domain's other addresses (e.g. matti@) are accepted by
+// Resend but silently never deliver, so noreply@ + a display name is the
+// only address confirmed to arrive.
 async function sendPurchaseNotification(env, email, courseId, session) {
   const amount = session.amount_total
     ? `$${(session.amount_total / 100).toFixed(2)} ${(session.currency || 'usd').toUpperCase()}`
     : '—';
 
-  const resp = await fetch('https://api.sendgrid.com/v3/mail/send', {
-    method: 'POST',
-    headers: {
-      'Authorization': `Bearer ${env.SENDGRID_API_KEY}`,
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify({
-      personalizations: [{
-        to: [{ email: env.NOTIFICATION_EMAIL }],
-        subject: `[GG Course] New purchase: ${esc(courseId)} — ${esc(email)}`
-      }],
-      from: { email: 'courses@gravelgodcycling.com', name: 'Gravel God Courses' },
-      reply_to: { email: email },
-      content: [{
-        type: 'text/html',
-        value: `
-          <h2>New Course Purchase</h2>
-          <table style="border-collapse:collapse;font-family:monospace">
-            <tr><td style="padding:4px 12px 4px 0;font-weight:bold">Course</td><td>${esc(courseId)}</td></tr>
-            <tr><td style="padding:4px 12px 4px 0;font-weight:bold">Email</td><td>${esc(email)}</td></tr>
-            <tr><td style="padding:4px 12px 4px 0;font-weight:bold">Amount</td><td>${esc(amount)}</td></tr>
-            <tr><td style="padding:4px 12px 4px 0;font-weight:bold">Session ID</td><td>${esc(session.id)}</td></tr>
-            <tr><td style="padding:4px 12px 4px 0;font-weight:bold">Time</td><td>${new Date().toISOString()}</td></tr>
-          </table>
-        `
-      }]
-    })
-  });
+  const html = `
+    <h2>New Course Purchase</h2>
+    <table style="border-collapse:collapse;font-family:monospace">
+      <tr><td style="padding:4px 12px 4px 0;font-weight:bold">Course</td><td>${esc(courseId)}</td></tr>
+      <tr><td style="padding:4px 12px 4px 0;font-weight:bold">Email</td><td>${esc(email)}</td></tr>
+      <tr><td style="padding:4px 12px 4px 0;font-weight:bold">Amount</td><td>${esc(amount)}</td></tr>
+      <tr><td style="padding:4px 12px 4px 0;font-weight:bold">Session ID</td><td>${esc(session.id)}</td></tr>
+      <tr><td style="padding:4px 12px 4px 0;font-weight:bold">Time</td><td>${new Date().toISOString()}</td></tr>
+    </table>
+  `;
 
-  console.log('SendGrid purchase notification:', resp.status);
+  try {
+    const resp = await fetch('https://api.resend.com/emails', {
+      method: 'POST',
+      headers: {
+        'Authorization': `Bearer ${env.RESEND_API_KEY}`,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        from: 'Gravel God Courses <noreply@gravelgodcycling.com>',
+        to: [env.NOTIFICATION_EMAIL],
+        reply_to: email,
+        subject: `[GG Course] New purchase: ${esc(courseId)} — ${esc(email)}`,
+        html
+      })
+    });
+    const detail = await resp.text();
+    console.log('Purchase notification (resend):', resp.status, detail.slice(0, 200));
+  } catch (error) {
+    console.error('Resend purchase notification failed:', error);
+  }
 }
 
 // ── Helpers ─────────────────────────────────────────────────

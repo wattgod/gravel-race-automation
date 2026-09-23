@@ -2075,7 +2075,7 @@ class TestNoPullquote:
 
 
 class TestHeroRadarViz:
-    """Tests for the interactive 14-axis hero radar visualization.
+    """Tests for the interactive 15-axis hero radar visualization.
 
     Covers: structure, accessibility, brand compliance, buttons, tooltips,
     data integrity, CSS, JS morph animation, and XML well-formedness.
@@ -2107,20 +2107,20 @@ class TestHeroRadarViz:
         assert 'role="img"' in viz_html
 
     def test_viz_svg_aria_label(self, viz_html):
-        """SVG has aria-label mentioning 14 scoring criteria."""
-        assert 'aria-label="Rating system radar chart showing 14 scoring criteria"' in viz_html
+        """SVG has aria-label mentioning 15 scoring criteria."""
+        assert 'aria-label="Rating system radar chart showing 15 scoring criteria"' in viz_html
 
-    def test_viz_14_axis_labels(self, viz_html):
-        """14 text elements with the label class."""
+    def test_viz_15_axis_labels(self, viz_html):
+        """15 text elements with the label class."""
         import re
         labels = re.findall(r'<text[^>]*class="gg-hp-hv-lbl"', viz_html)
-        assert len(labels) == 14
+        assert len(labels) == 15
 
-    def test_viz_14_axis_spokes(self, viz_html):
-        """14 line elements with the grid class (spokes)."""
+    def test_viz_15_axis_spokes(self, viz_html):
+        """15 line elements with the grid class (spokes)."""
         import re
         spokes = re.findall(r'<line[^>]*class="gg-hp-hv-grid"', viz_html)
-        assert len(spokes) == 14
+        assert len(spokes) == 15
 
     def test_viz_3_grid_rings(self, viz_html):
         """3 polygon elements with the grid class (concentric rings)."""
@@ -2134,11 +2134,11 @@ class TestHeroRadarViz:
         data = re.findall(r'<polygon[^>]*class="gg-hp-hv-data"', viz_html)
         assert len(data) == 1
 
-    def test_viz_14_rect_markers(self, viz_html):
-        """14 rect elements with the dot class."""
+    def test_viz_15_rect_markers(self, viz_html):
+        """15 rect elements with the dot class."""
         import re
         dots = re.findall(r'<rect[^>]*class="gg-hp-hv-dot"', viz_html)
-        assert len(dots) == 14
+        assert len(dots) == 15
 
     def test_viz_no_circles(self, viz_html):
         """No circle elements (brand rule: no border-radius)."""
@@ -2170,7 +2170,7 @@ class TestHeroRadarViz:
         """data-dim-desc values match HERO_VIZ_TOOLTIPS."""
         import re
         descs = re.findall(r'data-dim-desc="([^"]+)"', viz_html)
-        assert len(descs) == 14
+        assert len(descs) == 15
         expected = list(HERO_VIZ_TOOLTIPS.values())
         for tooltip in expected:
             assert tooltip in descs, f"Missing tooltip desc: {tooltip}"
@@ -2220,13 +2220,13 @@ class TestHeroRadarViz:
         """Exactly 1 button has the active class."""
         assert viz_html.count("gg-hp-hv-btn--active") == 1
 
-    def test_viz_button_points_14_pairs(self, viz_html):
-        """Each data-points has 14 coordinate pairs."""
+    def test_viz_button_points_15_pairs(self, viz_html):
+        """Each data-points has 15 coordinate pairs."""
         import re
         points_attrs = re.findall(r'data-points="([^"]+)"', viz_html)
         for pts in points_attrs:
             pairs = pts.split()
-            assert len(pairs) == 14, f"Expected 14 pairs, got {len(pairs)}: {pts[:60]}..."
+            assert len(pairs) == 15, f"Expected 15 pairs, got {len(pairs)}: {pts[:60]}..."
 
     # ── Methodology link ──
 
@@ -2242,9 +2242,12 @@ class TestHeroRadarViz:
     # ── Data integrity ──
 
     def test_viz_dims_match_all_dims(self):
-        """HERO_VIZ_DIMS matches ALL_DIMS from neo_brutalist."""
+        """HERO_VIZ_DIMS is neo_brutalist's ALL_DIMS (the 14 base course+editorial
+        dimensions) plus cultural_impact, the 15th scored criterion in
+        race.gravel_god_rating (business_tier/editorial_tier are not criteria)."""
         from generate_neo_brutalist import ALL_DIMS
-        assert HERO_VIZ_DIMS == ALL_DIMS
+        assert HERO_VIZ_DIMS == ALL_DIMS + ["cultural_impact"]
+        assert len(HERO_VIZ_DIMS) == 15
 
     def test_viz_labels_cover_all_dims(self):
         """Every dim in HERO_VIZ_DIMS has a label."""
@@ -2257,15 +2260,32 @@ class TestHeroRadarViz:
             assert dim in HERO_VIZ_TOOLTIPS, f"Missing tooltip for dim: {dim}"
 
     def test_viz_archetype_scores_length(self):
-        """All archetype arrays have length 14."""
+        """All archetype arrays have length 15."""
         for name, scores in HERO_VIZ_ARCHETYPES.items():
-            assert len(scores) == 14, f"{name} has {len(scores)} scores, expected 14"
+            assert len(scores) == 15, f"{name} has {len(scores)} scores, expected 15"
 
     def test_viz_archetype_scores_range(self):
         """All scores between 1 and 5."""
         for name, scores in HERO_VIZ_ARCHETYPES.items():
             for i, s in enumerate(scores):
                 assert 1 <= s <= 5, f"{name}[{i}] = {s}, expected 1-5"
+
+    def test_viz_axis_count_matches_stats_and_headline(self, viz_html, stats, race_index):
+        """The radar's axis count, stats['dimensions'] (used in the hero
+        headline and stat bar), and the aria-label all agree on 15 — the
+        real count of scored criteria in race.gravel_god_rating."""
+        import re
+        labels = re.findall(r'<text[^>]*class="gg-hp-hv-lbl"', viz_html)
+        aria_match = re.search(
+            r'aria-label="Rating system radar chart showing (\d+) scoring criteria"',
+            viz_html,
+        )
+        assert aria_match, "aria-label with scoring criteria count not found"
+        assert len(HERO_VIZ_DIMS) == 15
+        assert len(labels) == 15
+        assert int(aria_match.group(1)) == 15
+        assert stats["dimensions"] == 15
+        assert len(labels) == int(aria_match.group(1)) == stats["dimensions"] == len(HERO_VIZ_DIMS)
 
     def test_viz_archetypes_visually_distinct(self):
         """No two archetypes have identical scores."""

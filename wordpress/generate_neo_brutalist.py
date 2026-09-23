@@ -4,7 +4,8 @@ Generate neo-brutalist landing page HTML for gravel race profiles.
 
 Reads race data from race-data/*.json (new format) or data/*-data.json (old format),
 produces self-contained HTML pages with:
-  - Interactive accordion ratings (15 dimensions)
+  - Interactive accordion ratings (14 base dimensions, Course + Editorial,
+    plus the cultural_impact bonus dimension shown on the methodology page)
   - Sticky bottom CTA bar
   - Contextual mid-page CTA strips
   - Scroll fade-in animations

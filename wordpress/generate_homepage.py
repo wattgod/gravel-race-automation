@@ -74,10 +74,15 @@ STAT_BAR_DIMENSIONS_COMPACT = [
 ]
 
 # ── Hero radar visualization constants ──
+# All 15 scored criteria in race.gravel_god_rating (course + editorial dims,
+# plus the cultural_impact bonus dimension). This is the single source of
+# truth for the radar's axis count — copy that states a criteria count
+# (stats["dimensions"], the aria-label, meta descriptions) reads len() of
+# this list rather than hardcoding a number.
 HERO_VIZ_DIMS = [
     "logistics", "length", "technicality", "elevation", "climate",
     "altitude", "adventure", "prestige", "race_quality", "experience",
-    "community", "field_depth", "value", "expenses",
+    "community", "field_depth", "value", "expenses", "cultural_impact",
 ]
 
 HERO_VIZ_LABELS = {
@@ -85,7 +90,7 @@ HERO_VIZ_LABELS = {
     "elevation": "ELEVATION", "climate": "CLIMATE", "altitude": "ALTITUDE",
     "adventure": "ADVENTURE", "prestige": "PRESTIGE", "race_quality": "QUALITY",
     "experience": "EXPERIENCE", "community": "COMMUNITY", "field_depth": "FIELD DEPTH",
-    "value": "VALUE", "expenses": "EXPENSES",
+    "value": "VALUE", "expenses": "EXPENSES", "cultural_impact": "CULTURAL IMPACT",
 }
 
 HERO_VIZ_TOOLTIPS = {
@@ -103,13 +108,14 @@ HERO_VIZ_TOOLTIPS = {
     "field_depth": "Caliber and size of the competitive field",
     "value": "What you get for what you pay",
     "expenses": "Total cost to participate",
+    "cultural_impact": "Attendance, media coverage, and cultural significance",
 }
 
 HERO_VIZ_ARCHETYPES = {
-    "All-Rounder": [4, 3, 3, 3, 3, 2, 4, 3, 4, 4, 4, 3, 4, 3],
-    "Sufferfest": [2, 5, 5, 5, 2, 4, 5, 3, 4, 4, 3, 4, 3, 4],
-    "Prestige Play": [4, 3, 2, 3, 3, 2, 3, 5, 5, 5, 4, 5, 2, 5],
-    "Hidden Gem": [2, 3, 4, 3, 4, 3, 5, 1, 3, 4, 5, 2, 5, 1],
+    "All-Rounder": [4, 3, 3, 3, 3, 2, 4, 3, 4, 4, 4, 3, 4, 3, 2],
+    "Sufferfest": [2, 5, 5, 5, 2, 4, 5, 3, 4, 4, 3, 4, 3, 4, 2],
+    "Prestige Play": [4, 3, 2, 3, 3, 2, 3, 5, 5, 5, 4, 5, 2, 5, 5],
+    "Hidden Gem": [2, 3, 4, 3, 4, 3, 5, 1, 3, 4, 5, 2, 5, 1, 1],
 }
 
 # ── Featured on-site articles (curated for homepage voice) ──────
@@ -227,7 +233,7 @@ def compute_stats(race_index: list) -> dict:
                 regions.add(parts[-1])
     return {
         "race_count": race_count,
-        "dimensions": 15,
+        "dimensions": len(HERO_VIZ_DIMS),
         "t1_count": t1_count,
         "t2_count": t2_count,
         "region_count": len(regions),
@@ -803,7 +809,9 @@ def _compute_archetype_examples(race_index: list) -> dict:
 
 
 def _build_hero_radar_viz(race_index: list = None) -> str:
-    """Build interactive 14-axis radar visualization for the hero section.
+    """Build interactive radar visualization for the hero section, one axis
+    per entry in HERO_VIZ_DIMS (currently 15 — the full set of scored
+    criteria in race.gravel_god_rating).
 
     Race-independent — showcases the rating system with archetype profiles.
     Each archetype shows 5 closest real races as clickable links.
@@ -872,7 +880,7 @@ def _build_hero_radar_viz(race_index: list = None) -> str:
 
     svg = (
         f'<svg viewBox="0 0 460 460" role="img" '
-        f'aria-label="Rating system radar chart showing 14 scoring criteria" '
+        f'aria-label="Rating system radar chart showing {n} scoring criteria" '
         f'xmlns="http://www.w3.org/2000/svg">\n'
         f'{grid_svg}{data_polygon}{markers}{labels}'
         f'</svg>'
@@ -2279,7 +2287,7 @@ def build_jsonld(stats: dict) -> str:
         "@type": "Organization",
         "name": "Gravel God Cycling",
         "url": SITE_BASE_URL,
-        "description": "The definitive gravel race database. Honest ratings across 15 criteria.",
+        "description": f"The definitive gravel race database. Honest ratings across {stats['dimensions']} criteria.",
     }
     website = {
         "@context": "https://schema.org",
@@ -2312,7 +2320,7 @@ def generate_homepage(race_index: list, race_data_dir: Path = None,
     title = f"{stable_count}+ Gravel, MTB & Ultra Races Rated for {CURRENT_YEAR} | Gravel God"
     meta_desc = (
         f"Find your next off-road cycling event. {stats['race_count']} races "
-        "worldwide, rated on 15 criteria. Training plans and race intel."
+        f"worldwide, rated on {stats['dimensions']} criteria. Training plans and race intel."
     )
 
     one_liners = load_editorial_one_liners(race_data_dir)

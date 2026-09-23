@@ -789,12 +789,34 @@ def render_image(block: dict) -> str:
 
 
 def render_video(block: dict) -> str:
-    """Render a video block. Two shapes:
+    """Render a video block. Three shapes:
     - YouTube embed: {"id", "title"?, "channel"?, "caption"?, "start"?, "mtb_demo"?}
+    - Course-local asset: {"src", "poster"?, "title"?, "alt"?, "caption"?}
     - Self-hosted asset: {"asset_id", "poster"?, "alt"?, "caption"?}
     """
     caption = block.get("caption", "")
     cap = f'<figcaption class="gg-guide-img-caption">{_md_inline(esc(caption))}</figcaption>' if caption else ''
+
+    # Files copied with the course into /course/{slug}/assets/.
+    if block.get("src"):
+        src = str(block["src"])
+        poster = str(block.get("poster", ""))
+        course_asset = r"/course/[a-z0-9-]+/assets/[A-Za-z0-9._-]+"
+        if not re.fullmatch(course_asset + r"\.mp4", src):
+            raise ValueError(f"Unsafe course video src: {src}")
+        if poster and not re.fullmatch(course_asset + r"\.(?:jpg|jpeg|png|webp)", poster):
+            raise ValueError(f"Unsafe course video poster: {poster}")
+        title = esc(block.get("title", "Video"))
+        alt = esc(block.get("alt", title))
+        poster_attr = f' poster="{esc(poster)}"' if poster else ''
+        return (
+            '<figure class="gg-guide-video gg-guide-video--local">'
+            '<div class="gg-guide-video-frame">'
+            f'<video src="{esc(src)}"{poster_attr} aria-label="{title}" '
+            f'controls playsinline preload="none">{alt}</video></div>'
+            f'<div class="gg-guide-video-meta"><span class="gg-guide-video-kicker">Watch</span>'
+            f'<span class="gg-guide-video-title">{title}</span></div>{cap}</figure>'
+        )
 
     # YouTube embed (Dirt Craft-style). Detected by "id" (a YouTube video id).
     if block.get("id"):
@@ -1928,6 +1950,7 @@ def build_guide_css() -> str:
 .gg-guide-video--embed{margin:0 0 20px}
 .gg-guide-video-frame{position:relative;width:100%;aspect-ratio:16/9;border:3px solid #3a2e25;background:#1a1613;line-height:0}
 .gg-guide-video-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.gg-guide-video-frame video{position:absolute;inset:0;width:100%;height:100%;border:0}
 .gg-guide-video-meta{display:flex;gap:10px;align-items:baseline;flex-wrap:wrap;background:#3a2e25;border:3px solid #3a2e25;border-top:0;padding:8px 12px}
 .gg-guide-video-kicker{font-family:'Sometype Mono',monospace;font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#c9a92c}
 .gg-guide-video-title{font-family:'Source Serif 4',Georgia,serif;font-weight:700;font-size:14px;color:#f5efe6}

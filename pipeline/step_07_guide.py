@@ -2936,6 +2936,35 @@ def _section_women_specific(profile: Dict, race_data: Dict, race_name: str, sect
 # ══════════════════════════════════════════════════════════════
 
 def _css():
+    """Training-guide stylesheet. FORKED COPY — upstream lives in another repo.
+
+    Upstream (canonical source):
+        repo:   athlete-custom-training-plan-pipeline
+        path:   athletes/scripts/training_guide_builder.py
+        symbol: _css()
+        commit: c4d6a595c2ea9b2243c08c8ee22a98682dac7178 (origin/main)
+        blob:   87b93fb323c3be59397c7b46d56dfcb0c7001d34
+
+    This function is a fork of that one. As of the commit above the two share
+    400 identical lines, and the `.gg-module` block with its four variants
+    (.gg-alert / .gg-tactical / .gg-info / .gg-blackpill) is byte-identical.
+
+    MAKE SHARED CHANGES UPSTREAM FIRST, then port them here. Editing this copy
+    alone silently diverges the two guide stylesheets, and only one of them is
+    the canonical brand definition.
+
+    tests/test_guide_css_fork.py pins the shared block and will fail if this
+    copy is edited without the snapshot being refreshed deliberately.
+
+    Known, INTENTIONAL divergences from upstream, verified at the commit above:
+      1. Upstream takes brand="gravel"|"road" and carries a second Roadie Labs
+         monochrome palette. This copy is gravel-only and takes no argument.
+      2. Upstream inlines a ~60-line @media print block. This copy delegates
+         print styling to pipeline/print.css, injected by step 8.
+    The gravel palette itself is byte-identical in both — gold #B7950B, teal
+    #1A8A82, secondary-brown #8c7568 all match upstream. There is no colour
+    drift between the two copies; do not "unify" what is already unified.
+    """
     return """<style>
 /* === Brand Tokens === */
 :root {

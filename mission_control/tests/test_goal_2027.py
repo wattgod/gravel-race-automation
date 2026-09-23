@@ -263,6 +263,25 @@ class TestResubmitResendsTheResults:
         asyncio.run(burst())
         assert len(sent) <= se.MAX_RESENDS
 
+    def test_a_failed_render_leaves_no_claim(self, fake_db, monkeypatch):
+        import asyncio
+        import mission_control.services.sequence_engine as se
+        monkeypatch.setattr(se, "RESEND_API_KEY", "test-key")
+
+        def broken(*a):
+            raise RuntimeError("template blew up")
+
+        monkeypatch.setattr(se, "_render_template", broken)
+        seq = get_sequences_for_trigger("goal_2027", "gravelgod")[0]
+        enrollment = {"id": "e-fail", "sequence_id": seq["id"], "variant": next(iter(seq["variants"])),
+                      "status": "active", "contact_email": "f@example.com", "source_data": {}}
+        fake_db.store["gg_sequence_sends"].append({
+            "id": "orig-f", "enrollment_id": "e-fail", "step_index": 0,
+            "template": "goal_2027_results", "subject": "x", "status": "sent"})
+        assert asyncio.run(se.resend_first_step(enrollment)) is False
+        rows = [r for r in fake_db.store["gg_sequence_sends"] if r["enrollment_id"] == "e-fail"]
+        assert [r["id"] for r in rows] == ["orig-f"]
+
     def test_the_corrected_link_dodges_a_cached_poster(self, client, fake_db, monkeypatch):
         import mission_control.routers.webhooks as wh
         monkeypatch.setattr(wh, "MC_PUBLIC_URL", "https://mc.example")

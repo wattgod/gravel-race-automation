@@ -417,27 +417,36 @@ async def resend_first_step(enrollment: dict, subject: str | None = None) -> boo
         db.delete("gg_sequence_sends", {"id": claim["id"]})
         return False
 
-    html = _render_template(step["template"], enrollment)
-    html = _inject_utm_params(html, sequence_id=enrollment["sequence_id"],
-                              variant=enrollment["variant"], step_index=0, brand=brand)
-    html = _inject_unsubscribe(html, enrollment["contact_email"])
-    reply_token = secrets.token_hex(16)
+    # From here on the claim is removed unless the email went and the row
+    # says so, so a failure never leaves a slot used or a phantom "send".
+    done = False
     try:
+        html = _render_template(step["template"], enrollment)
+        html = _inject_utm_params(html, sequence_id=enrollment["sequence_id"],
+                                  variant=enrollment["variant"], step_index=0, brand=brand)
+        html = _inject_unsubscribe(html, enrollment["contact_email"])
+        reply_token = secrets.token_hex(16)
         resend_id = await asyncio.to_thread(
             _send_email_sync, enrollment["contact_email"], subject, html, brand, reply_token)
+
+        from mission_control.services.lead_nurture import classify_question
+        db.update("gg_sequence_sends", {
+            "resend_id": resend_id,
+            "status": "sent",
+            "reply_token": reply_token,
+            "question_type": step.get("question_type") or classify_question(html),
+        }, {"id": claim["id"]})
+        done = True
     except Exception as e:
-        db.delete("gg_sequence_sends", {"id": claim["id"]})
         db.log_action("sequence_send_error", "enrollment", str(enrollment["id"]),
                       f"Resend error on resubmitted step 0: {e}")
         return False
-
-    from mission_control.services.lead_nurture import classify_question
-    db.update("gg_sequence_sends", {
-        "resend_id": resend_id,
-        "status": "sent",
-        "reply_token": reply_token,
-        "question_type": step.get("question_type") or classify_question(html),
-    }, {"id": claim["id"]})
+    finally:
+        if not done:
+            try:
+                db.delete("gg_sequence_sends", {"id": claim["id"]})
+            except Exception:
+                logger.exception("could not remove resend claim %s", claim.get("id"))
     return True
 
 

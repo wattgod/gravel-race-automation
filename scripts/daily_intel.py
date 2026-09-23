@@ -1096,6 +1096,39 @@ def _person(item: dict) -> str:
     return name or email or "unknown customer"
 
 
+# Pipeline fulfilment statuses that mean the customer has the plan. Anything
+# else on a paid order (GENERATED, BLOCKED_REVIEW, APPROVED, APPLYING, APPLIED,
+# APPLIED_ATTESTED) is paid but not delivered.
+DELIVERED_FULFILLMENT_STATUSES = {"CONFIRMED", "FULFILLED_EXTERNALLY"}
+
+
+def _fulfillment_note(order: dict) -> str:
+    """Delivery truth for one processing record, from /api/intel-stats."""
+    if "fulfillment_status" not in order:
+        return ""  # older pipeline deploy: no delivery data on the row
+    status = order.get("fulfillment_status")
+    if not status:
+        return "; fulfilment state missing"
+    if status in DELIVERED_FULFILLMENT_STATUSES:
+        return f"; delivered ({status})"
+    if status == "CANCELLED":
+        return "; cancelled"
+    blockers = order.get("blocker_count")
+    suffix = f", {blockers} blocker(s)" if blockers else ""
+    return f"; NOT DELIVERED ({status}{suffix})"
+
+
+def _open_paid_order_line(item: dict) -> str:
+    label = ("**PAID ORDER OVERDUE:**" if item.get("stale")
+             else "paid order awaiting delivery:")
+    return (
+        f"- {label} order {_display(item.get('order_ref'), '?')} — "
+        f"{_display(item.get('status'), 'unknown status')}, "
+        f"{_display(item.get('hours_since_payment'), '?')}h since payment, "
+        f"{_display(item.get('blocker_count'))} blocker(s)."
+    )
+
+
 def _collector_failures(collected: dict) -> list[str]:
     broken = []
     for group in ("ga4", "checkout"):
@@ -1275,12 +1308,20 @@ def render_report(collected: dict) -> str:
                     if order.get("success") is True else "processing outcome unknown"
                 )
                 lines.append(
-                    f"- processing record: {_person(order)} — {product}; {outcome}."
+                    f"- processing record: {_person(order)} — {product}; {outcome}"
+                    f"{_fulfillment_note(order)}."
                 )
             for recovery in recoveries:
                 product = recovery.get("product") or recovery.get("product_type") or "order"
                 lines.append(f"- cart recovery: {_person(recovery)} — {product}.")
             lines.append(f"- questionnaire starts: {starts}.")
+        # Every paid order still owed a plan, whatever its age (hashed refs).
+        if "open_paid_orders" in ledger:
+            open_paid = list(ledger.get("open_paid_orders") or [])
+            if not open_paid:
+                lines.append("- paid orders awaiting delivery: none.")
+            for item in open_paid:
+                lines.append(_open_paid_order_line(item))
 
     lines.extend(["", "## CONSTRAINT"])
     constraint = collected.get("constraint") or {}
@@ -1524,6 +1565,13 @@ def render_report(collected: dict) -> str:
     for order in failed_for_broken:
         error = _display(order.get("error"), "unknown processing error")
         broken.append(f"PROCESSING FAILURE: {_person(order)} — {error}")
+    for item in ledger.get("open_paid_orders") or []:
+        if item.get("stale"):
+            broken.append(
+                f"PAID ORDER OVERDUE: order {_display(item.get('order_ref'), '?')} — "
+                f"{_display(item.get('status'), 'unknown status')}, "
+                f"{_display(item.get('hours_since_payment'), '?')}h since payment "
+                f"(customer was promised the plan within 24h)")
     broken.extend(_collector_failures(collected))
     if mc.get("ok"):
         for error in mc.get("errors_24h") or []:
@@ -1676,8 +1724,12 @@ GA4 purchase and refund counts are behavioral events, not orders; never use them
 order counts or infer revenue from them. The `commerce_ledger` key is a legacy name \
 for local order-processing log records. Those records may contain retries, duplicate \
 attempts, failures, or synthetic traffic. A successful processing record does not \
-establish payment or customer fulfillment. Provider payments, refunds, distinct orders, \
-and customer fulfillment are unavailable without a separate provider reconciliation. \
+establish payment or customer fulfillment. Delivery truth is each training-plan \
+record's `fulfillment_status`: only CONFIRMED or FULFILLED_EXTERNALLY means the customer \
+has the plan. Every entry in `open_paid_orders` is a paid order not yet delivered; name \
+it as paid-but-undelivered with its status and hours since payment, never as a \
+milestone or a win, and lead with it when `stale` is true. Provider payments, refunds, \
+and distinct orders are unavailable without a separate provider reconciliation. \
 The factual report is already \
 rendered; do not repeat its sections or add new facts.
 

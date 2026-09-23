@@ -620,6 +620,11 @@ def _people_snapshot():
         "commerce_ledger": {"ok": True, "orders": [
             {"order_id": "cs_live_x", "name": "Jane Q Rider",
              "email": "jane.rider@example.org", "success": True},
+        ], "failed_orders": [
+            {"order_id": "cs_live_y", "name": "Pat Failed",
+             "email": "pat@example.org", "success": False},
+        ], "recoveries": [
+            {"name": "Rae Cart", "email": "rae@example.org", "product": "plan"},
         ]},
         "mission_control": {"ok": True, "hot_leads_14d": [
             {"name": "Sam Lead", "email": "sam@example.net", "opens": 2},
@@ -627,7 +632,8 @@ def _people_snapshot():
         ]},
         "workflows": {"runs": [{"name": "Daily Intel Report", "ok": True}]},
         "report": ("Order processing: Jane Q Rider <jane.rider@example.org>. "
-                   "Sam Lead opened twice."),
+                   "Sam Lead opened twice. PROCESSING FAILURE: PAT FAILED. "
+                   "cart recovery: Rae Cart."),
     }
 
 
@@ -639,13 +645,15 @@ def test_redact_for_snapshot_keeps_first_names_and_masks_emails():
     snap = redact_for_snapshot(original)
     text = json.dumps(snap)
 
-    for leaked in ("Rider", "jane.rider@", "Sam Lead", "sam@", "nameless@"):
+    for leaked in ("Rider", "jane.rider@", "Sam Lead", "sam@", "nameless@",
+                   "Failed", "FAILED", "pat@", "Cart", "rae@"):
         assert leaked not in text
     assert snap["commerce_ledger"]["orders"][0]["name"] == "Jane"
     assert snap["commerce_ledger"]["orders"][0]["email"] == "j***@example.org"
     assert snap["mission_control"]["hot_leads_14d"][1]["email"] == "n***@example.net"
     assert snap["report"] == ("Order processing: Jane <j***@example.org>. "
-                              "Sam opened twice.")
+                              "Sam opened twice. PROCESSING FAILURE: Pat. "
+                              "cart recovery: Rae.")
     # Non-person names are untouched, and the input is not mutated.
     assert snap["workflows"]["runs"][0]["name"] == "Daily Intel Report"
     assert original["commerce_ledger"]["orders"][0]["email"] == "jane.rider@example.org"
@@ -681,7 +689,8 @@ def test_main_writes_redacted_snapshot_but_emails_full_report(tmp_path, monkeypa
     assert daily_intel.main() == 0
 
     on_disk = "".join(p.read_text() for p in tmp_path.iterdir())
-    for leaked in ("Rider", "jane.rider@", "Sam Lead", "sam@", "nameless@"):
+    for leaked in ("Rider", "jane.rider@", "Sam Lead", "sam@", "nameless@",
+                   "Pat Failed", "pat@", "Rae Cart", "rae@"):
         assert leaked not in on_disk
     assert "Jane" in on_disk
     assert "jane.rider@example.org" in sent["report"]

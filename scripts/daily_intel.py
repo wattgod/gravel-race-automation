@@ -1867,6 +1867,8 @@ _EMAIL_RE = re.compile(r"[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}")
 
 # (group, list) pairs in `collected` whose rows are real people.
 _PEOPLE_LISTS = (("commerce_ledger", "orders"),
+                 ("commerce_ledger", "failed_orders"),
+                 ("commerce_ledger", "recoveries"),
                  ("mission_control", "hot_leads_14d"))
 
 
@@ -1891,7 +1893,11 @@ def redact_for_snapshot(snapshot: dict) -> dict:
                 full_names.add(name)
                 person["name"] = name.split()[0]
     # Longest first, so "Ann Lee Smith" is replaced before "Ann Lee".
-    ordered_names = sorted(full_names, key=len, reverse=True)
+    # Case-insensitive: Stripe names are often upper-case, narration isn't.
+    name_patterns = [
+        (re.compile(re.escape(name), re.IGNORECASE), name.split()[0])
+        for name in sorted(full_names, key=len, reverse=True)
+    ]
 
     def scrub(value):
         if isinstance(value, dict):
@@ -1903,8 +1909,8 @@ def redact_for_snapshot(snapshot: dict) -> dict:
         value = _EMAIL_RE.sub(
             lambda m: m.group(0)[:1] + "***@" + m.group(0).split("@", 1)[1],
             value)
-        for name in ordered_names:
-            value = value.replace(name, name.split()[0])
+        for pattern, first in name_patterns:
+            value = pattern.sub(first, value)
         return value
 
     return scrub(snapshot)

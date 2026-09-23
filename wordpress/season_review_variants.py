@@ -406,6 +406,37 @@ GOAL_2027 = {
     "modules": MATTI_MODULES,
     "submit": "Make My Poster",
     "success": f"Got it. Your {NEXT} poster is on its way to your inbox.",
+    # Its own page, and the only variant that is meant to be found.
+    "path": "/goals/",
+    "output": "goals.html",
+    "robots": "index, follow",
+    # The lead system is the record here: Mission Control stores the answers,
+    # renders the poster and sends it. No email backstop, because every
+    # backstop copy is another thing in Matti's inbox for a stranger.
+    "transport": "worker",
+    # The results screen, and the offer beneath it (never in front of it).
+    "results": {
+        "title": f"Your {NEXT}, on paper.",
+        "lead": "Download it, print it, put it where you'll see it in February. A copy is on its way to your inbox.",
+        "download": "Download the poster",
+    },
+    "offer": {
+        "kicker": "Step two",
+        "variants": [
+            {"key": "A", "h": "You&#39;ve written it down. Historically, this is where it dies.",
+             "p": "Step two is a plan built around the hours you actually have, not the ones you promised."},
+            {"key": "B", "h": "Goals are free. The doing is the product.",
+             "p": "Your answers are already half a training plan. Six more questions and it&#39;s a whole one."},
+            {"key": "C", "h": "That&#39;s step one. Step two is the part everyone skips.",
+             "p": f"A custom plan for your {NEXT}, built from what you just told me."},
+        ],
+        "cta": f"Build my {NEXT} plan",
+        "cta_href": "/questionnaire/?src=goals",
+        "decline": "Just the poster, thanks",
+        "terms": ("$15 per week of training, computed from your A-race date. Four-week "
+                  "minimum, capped at $249. Personally reviewed and delivered in "
+                  "TrainingPeaks within 24 hours. Full refund within 7 days."),
+    },
 }
 
 

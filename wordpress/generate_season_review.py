@@ -66,10 +66,16 @@ WORKER_SOURCES = {"athlete": "athlete_review", "goal_2027": "goal_2027"}
 
 
 def page_path(slug: str) -> str:
+    variant = VARIANTS.get(slug, {})
+    if variant.get("path"):
+        return variant["path"]
     return "/coaching/season-review/" + ("" if slug == "standard" else f"{slug}/")
 
 
 def output_name(slug: str) -> str:
+    variant = VARIANTS.get(slug, {})
+    if variant.get("output"):
+        return variant["output"]
     return "season-review.html" if slug == "standard" else f"season-review-{slug}.html"
 
 
@@ -246,6 +252,33 @@ def build_progress_bar() -> str:
   </div>'''
 
 
+def build_results(variant) -> str:
+    """Shown after submitting: the poster first, the offer underneath it."""
+    results, offer = variant.get("results"), variant.get("offer")
+    if not results:
+        return ""
+    cards = "".join(
+        f'<div class="gg-sr-offer" data-offer-variant="{v["key"]}" hidden>'
+        f'<div class="gg-sr-offer-kicker">{offer["kicker"]}</div>'
+        f'<h3 class="gg-sr-offer-h">{v["h"]}</h3>'
+        f'<p class="gg-sr-offer-p">{v["p"]}</p>'
+        f'<p class="gg-sr-offer-terms">{offer["terms"]}</p>'
+        f'<a class="gg-sr-offer-cta" href="{offer["cta_href"]}" data-offer-cta="{v["key"]}">{offer["cta"]}</a>'
+        f'<a class="gg-sr-offer-decline" href="#" data-offer-decline>{offer["decline"]}</a>'
+        f"</div>"
+        for v in offer["variants"]
+    ) if offer else ""
+    return f'''<section id="results" class="gg-sr-results" hidden>
+    <div class="gg-sr-results-head">
+      <h2>{results["title"]}</h2>
+      <p>{results["lead"]}</p>
+    </div>
+    <canvas id="poster-canvas" width="1080" height="1440" class="gg-sr-poster" aria-label="Your 2027 goal poster"></canvas>
+    <a id="poster-download" class="gg-sr-download" href="#" download="2027-goal-poster.png">{results["download"]}</a>
+    {cards}
+  </section>'''
+
+
 def build_submit_buttons(variant, btn_id: str, lead: str = "") -> str:
     lead_html = f'<p class="gg-sr-done">{lead}</p>' if lead else ""
     return f'''{lead_html}<div class="gg-apply-actions">
@@ -338,6 +371,108 @@ def build_season_review_css() -> str:
   line-height: var(--gg-line-height-relaxed);
 }
 
+/* Results: the poster first, the offer under it */
+.gg-sr-results {
+  /* the site header is sticky: without this the heading lands under it */
+  scroll-margin-top: calc(var(--gg-header-height, 90px) + 24px);
+  border: 3px solid var(--gg-color-near-black);
+  background: var(--gg-color-white);
+  padding: var(--gg-spacing-xl);
+  margin-bottom: var(--gg-spacing-lg);
+}
+.gg-sr-results-head h2 {
+  font-family: var(--gg-font-editorial);
+  font-size: var(--gg-font-size-2xl);
+  font-weight: var(--gg-font-weight-bold);
+  margin: 0 0 var(--gg-spacing-xs);
+}
+.gg-sr-results-head p {
+  font-family: var(--gg-font-editorial);
+  color: var(--gg-color-secondary-brown);
+  margin: 0 0 var(--gg-spacing-lg);
+  max-width: 46ch;
+}
+.gg-sr-poster {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 3px solid var(--gg-color-near-black);
+  background: var(--gg-color-near-black);
+}
+.gg-sr-download {
+  display: block;
+  text-align: center;
+  margin-top: var(--gg-spacing-md);
+  padding: var(--gg-spacing-md);
+  background: var(--gg-color-ink, var(--gg-color-near-black));
+  color: var(--gg-color-white);
+  font-family: var(--gg-font-data);
+  font-size: var(--gg-font-size-sm);
+  font-weight: var(--gg-font-weight-bold);
+  letter-spacing: var(--gg-letter-spacing-wide);
+  text-transform: uppercase;
+  text-decoration: none;
+  border: 3px solid var(--gg-color-near-black);
+}
+.gg-sr-download:hover { background: var(--gg-color-white); color: var(--gg-color-near-black); }
+.gg-sr-offer {
+  border: 3px solid var(--gg-color-near-black);
+  background: var(--gg-color-warm-paper);
+  padding: var(--gg-spacing-lg);
+  margin-top: var(--gg-spacing-2xl);
+}
+.gg-sr-offer-kicker {
+  font-family: var(--gg-font-data);
+  font-size: var(--gg-font-size-2xs);
+  font-weight: var(--gg-font-weight-bold);
+  letter-spacing: var(--gg-letter-spacing-wider);
+  text-transform: uppercase;
+  color: var(--gg-color-teal);
+}
+.gg-sr-offer-h {
+  font-family: var(--gg-font-editorial);
+  font-size: var(--gg-font-size-xl);
+  font-weight: var(--gg-font-weight-bold);
+  line-height: 1.1;
+  margin: var(--gg-spacing-xs) 0 var(--gg-spacing-sm);
+}
+.gg-sr-offer-p {
+  font-family: var(--gg-font-editorial);
+  font-size: var(--gg-font-size-base);
+  margin: 0 0 var(--gg-spacing-md);
+}
+.gg-sr-offer-terms {
+  font-family: var(--gg-font-data);
+  font-size: var(--gg-font-size-2xs);
+  line-height: 1.6;
+  color: var(--gg-color-secondary-brown);
+  border-top: 2px solid var(--gg-color-tan);
+  padding-top: var(--gg-spacing-sm);
+  margin: 0 0 var(--gg-spacing-md);
+}
+.gg-sr-offer-cta {
+  display: block;
+  text-align: center;
+  padding: var(--gg-spacing-md);
+  background: var(--gg-color-teal);
+  color: var(--gg-color-white);
+  border: 3px solid var(--gg-color-near-black);
+  font-family: var(--gg-font-data);
+  font-weight: var(--gg-font-weight-bold);
+  letter-spacing: var(--gg-letter-spacing-wide);
+  text-transform: uppercase;
+  text-decoration: none;
+}
+.gg-sr-offer-cta:hover { background: var(--gg-color-near-black); color: var(--gg-color-teal); }
+.gg-sr-offer-decline {
+  display: block;
+  text-align: center;
+  margin-top: var(--gg-spacing-sm);
+  font-family: var(--gg-font-data);
+  font-size: var(--gg-font-size-xs);
+  color: var(--gg-color-secondary-brown);
+}
+
 @media (max-width: 600px) {
   .gg-sr-label-row { flex-direction: column; align-items: stretch; }
   .gg-sr-timer { align-self: flex-start; }
@@ -358,6 +493,8 @@ def build_season_review_js(variant) -> str:
   var STORAGE_KEY = "__STORAGE_KEY__";
   var SUBMIT_URL = "__SUBMIT_URL__";
   var LEAD_SOURCE = "__LEAD_SOURCE__";  /* empty = email transport */
+  var TRANSPORT = "__TRANSPORT__";      /* "worker" = no email backstop */
+  var HAS_RESULTS = document.getElementById("results") !== null;
   var SEASON = __SEASON__;
   var VARIANT = "__VARIANT__";
   var SUCCESS = "__SUCCESS__";
@@ -482,7 +619,9 @@ def build_season_review_js(variant) -> str:
     }
   }
 
+  var started = false;
   function onEdit(e) {
+    if (!started) { started = true; ga4("goal_start", { variant: VARIANT }); }
     if (e && e.target.type === "radio" && e.target.checked) { radioChanged(e.target); }
     if (e && e.target.closest && e.target.closest(".gg-sr-why")) { updateWhys(); }
     queueSave();
@@ -737,7 +876,8 @@ def build_season_review_js(variant) -> str:
     payload.append("name", d.name);
     payload.append("email", d.email);
     payload.append("message", formatSubmission(d));
-    var mailOk = fetch(SUBMIT_URL, { method: "POST", body: payload, headers: { "Accept": "application/json" }, signal: ctrl ? ctrl.signal : undefined })
+    var mailOk = TRANSPORT === "worker" ? Promise.resolve(false)
+      : fetch(SUBMIT_URL, { method: "POST", body: payload, headers: { "Accept": "application/json" }, signal: ctrl ? ctrl.signal : undefined })
       .then(function(r) {
         return r.json().catch(function() { return {}; }).then(function(res) {
           return r.ok && String(res.success) === "true";
@@ -752,10 +892,12 @@ def build_season_review_js(variant) -> str:
       .then(function() {
         clearTimeout(killer);
         submitted = true;
+        if (HAS_RESULTS) { showResults(d); }
         clearTimeout(saveTimer);
         try { localStorage.removeItem(STORAGE_KEY); } catch (err) { /* ignore */ }
         ga4("season_review_submitted", { variant: VARIANT, deep_modules: form.querySelectorAll(".gg-sr-deeper[open]").length });
-        showMessage("success", lastStored ? SUCCESS : SUCCESS_BY_EMAIL);
+        ga4("goal_submit", { variant: VARIANT });
+        if (!HAS_RESULTS) { showMessage("success", lastStored ? SUCCESS : SUCCESS_BY_EMAIL); }
         setButtons(true, "Submitted");
       })
       .catch(function(err) {
@@ -767,6 +909,127 @@ def build_season_review_js(variant) -> str:
         ga4("season_review_error", { variant: VARIANT, message: String(err.message || "unknown").slice(0, 80) });
       });
   });
+
+  /* ── The results screen ──────────────────────────── */
+  var POSTER = { ink: "#1a1613", paper: "#f5efe6", white: "#ffffff", tan: "#d4c5b9",
+                 teal: "#178079", gold: "#c9a92c", grey: "#7d695d" };
+
+  function wrapText(ctx, text, maxWidth) {
+    var words = String(text).split(/\s+/), lines = [], line = "";
+    words.forEach(function(word) {
+      var next = line ? line + " " + word : word;
+      if (ctx.measureText(next).width <= maxWidth || !line) { line = next; }
+      else { lines.push(line); line = word; }
+    });
+    if (line) { lines.push(line); }
+    return lines;
+  }
+
+  /* Same design as the emailed poster (services/goal_poster.py): the goal
+     shrinks to fit rather than running into the frame below it. */
+  function drawPoster(d) {
+    var canvas = document.getElementById("poster-canvas");
+    var ctx = canvas.getContext("2d");
+    var W = canvas.width, H = canvas.height, pad = 84, inner = W - pad * 2;
+    ctx.fillStyle = POSTER.ink;
+    ctx.fillRect(0, 0, W, H);
+    ctx.textBaseline = "top";
+
+    ctx.font = "700 26px 'Sometype Mono', monospace";
+    ctx.fillStyle = POSTER.gold;
+    ctx.fillText((SEASON + 1) + " \u00b7 GOAL FILE", pad, pad);
+    ctx.fillStyle = POSTER.tan;
+    ctx.textAlign = "right";
+    ctx.fillText("GRAVEL GOD", W - pad, pad);
+    ctx.textAlign = "left";
+    ctx.font = "22px 'Sometype Mono', monospace";
+    ctx.fillStyle = POSTER.grey;
+    ctx.fillText("GRAVELGODCYCLING.COM", pad, H - pad - 20);
+
+    var rows = [["THE ENEMY", d.inner_obstacle], ["WHEN IT SHOWS UP", d.obstacle_plan],
+                ["THE HABIT", d.habit], ["WHEN AND WHERE", d.habit_when]]
+      .filter(function(r) { return r[1]; });
+    var frameTop = H - pad - 60 - rows.length * 96;
+    var y = frameTop;
+    rows.forEach(function(row) {
+      ctx.font = "700 24px 'Sometype Mono', monospace";
+      ctx.fillStyle = POSTER.teal;
+      ctx.fillText(row[0], pad, y);
+      ctx.font = "30px 'Sometype Mono', monospace";
+      ctx.fillStyle = POSTER.paper;
+      ctx.fillText(wrapText(ctx, row[1], inner)[0], pad, y + 34);
+      y += 96;
+    });
+
+    ctx.font = "italic 38px 'Source Serif 4', Georgia, serif";
+    var whyLines = d.outcome_why ? wrapText(ctx, "\u201c" + d.outcome_why + "\u201d", inner).slice(0, 3) : [];
+    var whyHeight = whyLines.length * 50 + (whyLines.length ? 30 : 0);
+
+    var labelY = pad + 300;
+    var available = frameTop - whyHeight - labelY - 120;
+    var goal = (d.outcome_goal || "[your goal]").trim();
+    if (!/[.!?]$/.test(goal)) { goal += "."; }
+    var size = 104, goalLines = [];
+    [104, 92, 80, 68, 58, 48].forEach(function(candidate) {
+      if (goalLines.length && goalLines.length * Math.round(size * 1.06) <= available) { return; }
+      size = candidate;
+      ctx.font = "900 " + size + "px 'Source Serif 4', Georgia, serif";
+      goalLines = wrapText(ctx, goal, inner);
+    });
+
+    ctx.font = "26px 'Sometype Mono', monospace";
+    ctx.fillStyle = POSTER.tan;
+    ctx.fillText("BY THE END OF " + (SEASON + 1) + ", " + ((d.name || "I").toUpperCase()) + " WILL", pad, labelY);
+
+    ctx.font = "900 " + size + "px 'Source Serif 4', Georgia, serif";
+    ctx.fillStyle = POSTER.white;
+    y = labelY + 60;
+    goalLines.slice(0, 6).forEach(function(line) {
+      ctx.fillText(line, pad, y);
+      y += Math.round(size * 1.06);
+    });
+    ctx.fillStyle = POSTER.teal;
+    ctx.fillRect(pad, y + 24, 150, 6);
+
+    ctx.font = "italic 38px 'Source Serif 4', Georgia, serif";
+    ctx.fillStyle = POSTER.tan;
+    y = frameTop - whyHeight;
+    whyLines.forEach(function(line) { ctx.fillText(line, pad, y); y += 50; });
+  }
+
+  function showResults(d) {
+    var results = document.getElementById("results");
+    var message = document.getElementById("message");
+    if (message) { message.classList.add("hidden"); }
+    form.hidden = true;
+    results.hidden = false;
+    try { drawPoster(d); } catch (err) { /* the emailed copy is the real one */ }
+    var link = document.getElementById("poster-download");
+    try { link.href = document.getElementById("poster-canvas").toDataURL("image/png"); }
+    catch (err) { link.hidden = true; }
+    link.addEventListener("click", function() { ga4("goal_poster_download", { variant: VARIANT }); });
+
+    var offers = results.querySelectorAll("[data-offer-variant]");
+    if (offers.length) {
+      var pick = offers[Math.floor(Math.random() * offers.length)];
+      pick.hidden = false;
+      var key = pick.getAttribute("data-offer-variant");
+      ga4("goal_offer_view", { variant: VARIANT, offer_variant: key });
+      pick.querySelector("[data-offer-cta]").addEventListener("click", function() {
+        ga4("goal_offer_click", { variant: VARIANT, offer_variant: key, plan: "race" });
+      });
+      var decline = pick.querySelector("[data-offer-decline]");
+      if (decline) {
+        decline.addEventListener("click", function(e) {
+          e.preventDefault();
+          pick.hidden = true;
+          ga4("goal_offer_declined", { variant: VARIANT, offer_variant: key });
+        });
+      }
+    }
+    ga4("goal_results_view", { variant: VARIANT });
+    results.scrollIntoView({ behavior: "smooth", block: "start" });
+  }
 
   function showMessage(type, text) {
     var m = document.getElementById("message");
@@ -786,6 +1049,7 @@ def build_season_review_js(variant) -> str:
         .replace("__SUBMIT_URL__", FORMSUBMIT_URL)
         .replace("__LEAD_WORKER_URL__", LEAD_WORKER_URL)
         .replace("__LEAD_SOURCE__", WORKER_SOURCES.get(variant["slug"], ""))
+        .replace("__TRANSPORT__", variant.get("transport", "both"))
         .replace("__SEASON__", str(SEASON))
         .replace("__VARIANT__", variant["slug"])
         .replace("__SUCCESS__", js_str(variant["success"]))
@@ -808,7 +1072,7 @@ def generate_season_review_page(slug: str = "standard", external_assets=None) ->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{title}</title>
-  <meta name="robots" content="noindex, nofollow">
+  <meta name="robots" content="{variant.get('robots', 'noindex, nofollow')}">
   <link rel="canonical" href="{url}">
   <meta property="og:title" content="{title}">
   <meta property="og:type" content="website">
@@ -834,6 +1098,7 @@ def generate_season_review_page(slug: str = "standard", external_assets=None) ->
       {render_modules(variant)}
       {build_submit_buttons(variant, "submit-btn-2")}
     </form>
+    {build_results(variant)}
   </div>
   {build_footer(variant)}
   {build_season_review_js(variant)}

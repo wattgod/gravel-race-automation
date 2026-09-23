@@ -21,6 +21,7 @@ from generate_homepage import (
     generate_homepage,
     build_nav,
     build_ticker,
+    build_goal_hero,
     build_hero,
     build_ladder_strip,
     build_stats_bar,
@@ -326,6 +327,56 @@ class TestSectionBuilders:
         hero = build_hero(stats, race_index)
         assert 'data-viz="hero-radar"' in hero
         assert "<svg" in hero
+
+    def test_goal_hero_has_fixed_headline_and_button(self):
+        """Headline and MAKE MINE button must be present and never gated on
+        which sample poster artwork is showing (goals-2027-funnel D5)."""
+        hero = build_goal_hero()
+        assert "It&rsquo;s dreaming season. Most of it stays a dream." in hero
+        assert "MAKE MINE" in hero
+        assert 'href="https://gravelgodcycling.com/goals/?src=home"' in hero
+        assert 'data-ga="goal_hero_click"' in hero
+        assert 'data-ga-label="home"' in hero
+
+    def test_goal_hero_has_no_subtitle(self):
+        """House rule: no descriptive copy under a heading. The only <p> in
+        the section is the small eyebrow kicker — no deck/subtitle under
+        the headline itself."""
+        hero = build_goal_hero()
+        assert hero.count("<p") == 1
+        assert 'class="gg-hp-hero-kicker"' in hero
+
+    def test_goal_hero_headline_is_not_h1(self):
+        """The page's one h1 stays on the race-database band (SEO); the
+        poster-wall headline is an h2."""
+        hero = build_goal_hero()
+        assert "<h1" not in hero
+        assert hero.count("<h2") == 1
+
+    def test_goal_hero_has_three_posters_no_timer(self):
+        hero = build_goal_hero()
+        assert hero.count('class="gg-hp-poster gg-hp-poster--') == 3
+        assert "gg-goal-poster-0" in hero
+        assert "gg-goal-poster-1" in hero
+        assert "gg-goal-poster-2" in hero
+        assert "setInterval" not in hero
+
+    def test_goal_hero_owns_skip_link_target(self):
+        assert 'id="main"' in build_goal_hero()
+
+    def test_homepage_poster_js_never_uses_a_timer(self, homepage_html):
+        """Owner ruling (D5): artwork may change on load or click, never on
+        a timer."""
+        idx = homepage_html.index("Goal poster wall")
+        end = homepage_html.index(")();", idx)
+        script = homepage_html[idx:end]
+        assert "setInterval" not in script
+        assert "setTimeout" not in script
+        assert "SAMPLE" in script
+
+    def test_homepage_poster_click_reshuffles_not_a_link(self, homepage_html):
+        assert "addEventListener('click'" in homepage_html
+        assert 'id="gg-poster-wall"' in homepage_html
 
     def test_stats_bar_five_stats(self, stats):
         bar = build_stats_bar(stats)
@@ -687,11 +738,14 @@ class TestFullPage:
         assert "gravel race" in h1_match.group(1).lower()
 
     def test_page_size_reasonable(self, homepage_html):
-        # Budget raised 150 → 160 (Jun 2026: page hit 150.7 via content
-        # growth). Real performance is guarded by the daily CWV monitor;
-        # this is a runaway-bloat tripwire. Next bump deserves a trim pass.
+        # Budget raised 150 -> 160 (Jun 2026: page hit 150.7 via content
+        # growth), then 160 -> 170 (Sep 2026: the 2027 goals poster-wall
+        # hero — three canvas-drawn SAMPLE posters plus their draw logic,
+        # goals-2027-funnel-spec.md D5 — added ~9KB; already trimmed once).
+        # Real performance is guarded by the daily CWV monitor; this is a
+        # runaway-bloat tripwire. Next bump deserves a trim pass.
         size_kb = len(homepage_html) / 1024
-        assert size_kb < 160, f"Homepage is {size_kb:.1f}KB, expected under 160KB"
+        assert size_kb < 170, f"Homepage is {size_kb:.1f}KB, expected under 170KB"
         assert size_kb > 20, f"Homepage is {size_kb:.1f}KB, seems too small"
 
     def test_ctas_have_ga_tracking(self, homepage_html):

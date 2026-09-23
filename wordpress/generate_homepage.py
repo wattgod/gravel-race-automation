@@ -564,12 +564,48 @@ def build_gravel_weekly_band() -> str:
   </section>'''
 
 
+GOAL_LEAD_URL = f"{SITE_BASE_URL}/goals/"
+
+
+def build_goal_hero() -> str:
+    """The 2027 goals poster wall — homepage hero, layout D1 (owner-ruled,
+    goals-2027-funnel-spec.md D5).
+
+    Left: three SAMPLE goal posters at once (middle large, two angled
+    behind), drawn on <canvas> in the PAPER style (same layout as
+    drawPoster() in generate_season_review.py, warm-paper background,
+    near-black ink text). The artwork rotates on page load or on click of
+    the poster wall only — never on a timer (see build_homepage_js()).
+    Right: a fixed headline and button; neither ever changes with the
+    artwork. No subtitle under the headline (house no-descriptive-copy rule).
+    """
+    posters = ""
+    for i in range(3):
+        posters += (
+            f'\n        <div class="gg-hp-poster gg-hp-poster--{i}">'
+            f'<canvas id="gg-goal-poster-{i}" width="1080" height="1440" '
+            f'class="gg-hp-poster-canvas" aria-hidden="true"></canvas></div>'
+        )
+
+    return f'''<section class="gg-hp-goal-hero" id="main">
+    <div class="gg-hp-goal-hero-inner">
+      <button type="button" class="gg-hp-poster-wall" id="gg-poster-wall" aria-label="Show different sample 2027 goal posters">{posters}
+      </button>
+      <div class="gg-hp-goal-content">
+        <p class="gg-hp-hero-kicker">2027 GOALS</p>
+        <h2 class="gg-hp-goal-title">It&rsquo;s dreaming season. Most of it stays a dream.</h2>
+        <a href="{GOAL_LEAD_URL}?src=home" class="gg-hp-btn-primary gg-hp-goal-cta" data-ga="goal_hero_click" data-ga-label="home">MAKE MINE</a>
+      </div>
+    </div>
+  </section>'''
+
+
 def build_hero(stats: dict, race_index: list = None) -> str:
     race_count = stats["race_count"]
     region_count = stats["region_count"]
     dimensions = stats["dimensions"]
 
-    return f'''<section class="gg-hp-hero" id="main">
+    return f'''<section class="gg-hp-hero" id="race-database">
     <div class="gg-hp-hero-inner">
       <div class="gg-hp-hero-content">
         <p class="gg-hp-hero-kicker">THE {CURRENT_YEAR} RACE DATABASE</p>
@@ -1356,6 +1392,19 @@ a { text-decoration: none; color: #178079; }
 .gg-hp-btn-secondary { display: inline-block; padding: 12px 28px; background: transparent; color: #3a2e25; font-family: 'Sometype Mono', monospace; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; border: 2px solid #3a2e25; text-decoration: none; transition: border-color .3s, color .3s; }
 .gg-hp-btn-secondary:hover { border-color: #178079; color: #178079; }
 
+/* ── Goal poster wall hero (2027 goals funnel, D1 — owner-ruled) ───────── */
+.gg-hp-goal-hero { background: var(--gg-color-warm-paper); padding: 64px 48px; border-bottom: 3px solid var(--gg-color-dark-brown); }
+.gg-hp-goal-hero-inner { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
+.gg-hp-poster-wall { position: relative; display: block; width: 100%; height: 420px; background: none; border: none; padding: 0; margin: 0; cursor: pointer; -webkit-tap-highlight-color: transparent; }
+.gg-hp-poster { position: absolute; top: 50%; left: 50%; width: 220px; border: 3px solid var(--gg-color-dark-brown); background: var(--gg-color-warm-paper); }
+.gg-hp-poster-canvas { display: block; width: 100%; height: auto; }
+.gg-hp-poster--0 { transform: translate(-50%, -50%) translateX(-88px) rotate(-8deg); z-index: 1; }
+.gg-hp-poster--1 { width: 260px; transform: translate(-50%, -50%) rotate(0deg); z-index: 3; }
+.gg-hp-poster--2 { transform: translate(-50%, -50%) translateX(88px) rotate(8deg); z-index: 2; }
+.gg-hp-goal-content { text-align: left; }
+.gg-hp-goal-title { font-family: var(--gg-font-editorial); font-size: 40px; font-weight: 900; line-height: 1.1; color: var(--gg-color-near-black); margin: 0 0 24px; }
+.gg-hp-goal-cta { font-size: 13px; padding: 16px 36px; }
+
 /* ── Hero radar visualization ── */
 .gg-hp-hv-wrap { text-align: center; position: relative; }
 .gg-hp-hv-wrap svg { max-width: 400px; width: 100%; height: auto; }
@@ -1633,6 +1682,7 @@ a { text-decoration: none; color: #178079; }
 /* ── Responsive: 900px ─────────────────────────────────── */
 @media (max-width: 900px) {
   .gg-hp-hero-inner { grid-template-columns: 1fr; gap: 32px; }
+  .gg-hp-goal-hero-inner { grid-template-columns: 1fr; gap: 32px; }
   .gg-hp-cta-card { grid-template-columns: 1fr; }
   .gg-hp-content-grid { grid-template-columns: 1fr; }
   .gg-hp-sidebar-sticky { position: static; max-height: none; }
@@ -1661,6 +1711,16 @@ a { text-decoration: none; color: #178079; }
   .gg-hp-chip { padding: 5px 10px; font-size: 10px; }
   .gg-hp-hero-stats { gap: 20px; }
   .gg-hp-hero-stat-num { font-size: 24px; }
+
+  /* Goal poster wall hero */
+  .gg-hp-goal-hero { padding: 36px 16px; }
+  .gg-hp-poster-wall { height: 320px; }
+  .gg-hp-poster { width: 160px; }
+  .gg-hp-poster--1 { width: 190px; }
+  .gg-hp-poster--0 { transform: translate(-50%, -50%) translateX(-60px) rotate(-8deg); }
+  .gg-hp-poster--2 { transform: translate(-50%, -50%) translateX(60px) rotate(8deg); }
+  .gg-hp-goal-title { font-size: 26px; }
+  .gg-hp-goal-cta { width: 100%; text-align: center; }
 
   /* Hero radar viz */
   .gg-hp-hv-wrap svg { max-width: 320px; }
@@ -1741,6 +1801,7 @@ a { text-decoration: none; color: #178079; }
 /* ── Responsive: 480px ─────────────────────────────────── */
 @media (max-width: 480px) {
   .gg-hp-hero { padding: 24px 12px; }
+  .gg-hp-goal-hero { padding: 24px 12px; }
   .gg-hp-content-grid { padding: 16px 12px; }
   .gg-hp-training-cta-full { padding: 0 12px; }
   .gg-hp-cta-left { padding: 24px 16px; }
@@ -1773,11 +1834,151 @@ document.querySelectorAll('[data-ga]').forEach(function(el) {
     if (typeof gtag === 'function') {
       var params = event_name === 'cta_click'
         ? { source: 'homepage', cta_name: label }
+        : event_name === 'goal_hero_click'
+        ? { src: label }
         : { event_label: label };
       gtag('event', event_name, params);
     }
   });
 });
+
+// Goal poster wall (2027 goals funnel hero, layout D1) — three SAMPLE
+// posters, paper style, artwork changes on load or click only, never on a
+// timer. Headline and MAKE MINE button never change (goals-2027-funnel D5).
+(function() {
+  var wall = document.getElementById('gg-poster-wall');
+  if (!wall) return;
+  var canvases = [
+    document.getElementById('gg-goal-poster-0'),
+    document.getElementById('gg-goal-poster-1'),
+    document.getElementById('gg-goal-poster-2')
+  ];
+  if (canvases.indexOf(null) !== -1) return;
+
+  var SAMPLES = [
+    { plan: "Text a training partner before checking the weather.", habit: "One structured interval session a week. No excuses.", why: "Because bailing at mile 40 stopped being funny.", goal: "Finish Unbound 200 under 14 hours." },
+    { plan: "Ride the trainer instead of skipping the session.", habit: "Two hours of zone 2, every Sunday, rain or shine.", why: "Because I stood at the start line undertrained twice.", goal: "Podium my age group at Mid South." },
+    { plan: "Walk it, don't quit it.", habit: "Hill repeats every other Thursday.", why: "Because the Stove Prairie climb humbled me in 2026.", goal: "Finish SBT GRVL without walking a single hill." },
+    { plan: "Log the ride even when it's ugly.", habit: "Strength work twice a week, no shortcuts.", why: "Because sub-11 has been the plan for three years running.", goal: "Go sub-11 hours at Leadville 100." },
+    { plan: "Ask for help instead of guessing.", habit: "A real training plan instead of Strava segments.", why: "Because someday never shows up on a training calendar.", goal: "Finish my first gravel century." }
+  ];
+  var GOAL_YEAR = new Date().getFullYear() + 1;
+  var PAPER = { paper: "#f5efe6", ink: "#1a1613", teal: "#178079", gold: "#9a7e0a", grey: "#7d695d" };
+  var MONO = "'Sometype Mono', monospace";
+  var SERIF = "'Source Serif 4', Georgia, serif";
+
+  function wrapText(ctx, text, maxWidth) {
+    var words = String(text).split(/\\s+/), lines = [], line = "";
+    words.forEach(function(word) {
+      var next = line ? line + " " + word : word;
+      if (ctx.measureText(next).width <= maxWidth || !line) { line = next; }
+      else { lines.push(line); line = word; }
+    });
+    if (line) { lines.push(line); }
+    return lines;
+  }
+
+  // Same layout as drawPoster() in generate_season_review.py, paper
+  // themed. Every card gets a SAMPLE stamp — invented examples, never a
+  // named athlete (goals-2027-funnel D5).
+  function drawSamplePoster(canvas, sample) {
+    var ctx = canvas.getContext('2d');
+    if (!ctx) return;
+    var W = canvas.width, H = canvas.height, pad = 84, inner = W - pad * 2;
+    ctx.clearRect(0, 0, W, H);
+    ctx.fillStyle = PAPER.paper;
+    ctx.fillRect(0, 0, W, H);
+    ctx.textBaseline = "top";
+
+    ctx.font = "700 26px " + MONO;
+    ctx.fillStyle = PAPER.gold;
+    ctx.fillText(GOAL_YEAR + " GOAL FILE", pad, pad);
+    ctx.fillStyle = PAPER.grey;
+    ctx.textAlign = "right";
+    ctx.fillText("GRAVEL GOD", W - pad, pad);
+    ctx.textAlign = "left";
+    ctx.font = "22px " + MONO;
+    ctx.fillStyle = PAPER.grey;
+    ctx.fillText("SAMPLE / GRAVELGODCYCLING.COM", pad, H - pad - 20);
+
+    var rows = [["WHEN IT SHOWS UP", sample.plan], ["THE HABIT", sample.habit]];
+    var frameTop = H - pad - 60 - rows.length * 96;
+    var y = frameTop;
+    rows.forEach(function(row) {
+      ctx.font = "700 24px " + MONO;
+      ctx.fillStyle = PAPER.teal;
+      ctx.fillText(row[0], pad, y);
+      ctx.font = "30px " + MONO;
+      ctx.fillStyle = PAPER.ink;
+      ctx.fillText(wrapText(ctx, row[1], inner)[0], pad, y + 34);
+      y += 96;
+    });
+
+    ctx.font = "italic 38px " + SERIF;
+    var whyLines = wrapText(ctx, '"' + sample.why + '"', inner).slice(0, 3);
+    var whyHeight = whyLines.length * 50 + 30;
+
+    var labelY = pad + 300;
+    var available = frameTop - whyHeight - labelY - 120;
+    var goal = sample.goal;
+    var size = 104, goalLines = [];
+    [104, 92, 80, 68, 58, 48].forEach(function(candidate) {
+      if (goalLines.length && goalLines.length * Math.round(size * 1.06) <= available) { return; }
+      size = candidate;
+      ctx.font = "700 " + size + "px " + SERIF;
+      goalLines = wrapText(ctx, goal, inner);
+    });
+
+    ctx.font = "26px " + MONO;
+    ctx.fillStyle = PAPER.grey;
+    ctx.fillText("BY THE END OF " + GOAL_YEAR + ", I WILL", pad, labelY);
+
+    ctx.font = "700 " + size + "px " + SERIF;
+    ctx.fillStyle = PAPER.ink;
+    y = labelY + 60;
+    goalLines.slice(0, 6).forEach(function(line) { ctx.fillText(line, pad, y); y += Math.round(size * 1.06); });
+    ctx.fillStyle = PAPER.teal;
+    ctx.fillRect(pad, y + 24, 150, 6);
+
+    ctx.font = "italic 38px " + SERIF;
+    ctx.fillStyle = PAPER.grey;
+    y = frameTop - whyHeight;
+    whyLines.forEach(function(line) { ctx.fillText(line, pad, y); y += 50; });
+
+    // Diagonal SAMPLE stamp — invented examples, never a real rider's poster.
+    ctx.save();
+    ctx.translate(W - 210, 210);
+    ctx.rotate(-Math.PI / 10);
+    ctx.font = "900 46px " + MONO;
+    ctx.fillStyle = "rgba(192, 57, 43, 0.55)";
+    ctx.strokeStyle = "rgba(192, 57, 43, 0.55)";
+    ctx.lineWidth = 4;
+    ctx.textAlign = "center";
+    ctx.strokeRect(-140, -34, 280, 68);
+    ctx.fillText("SAMPLE", 0, -14);
+    ctx.restore();
+  }
+
+  function pick3(startIndex) {
+    var order = [];
+    for (var i = 0; i < 3; i++) { order.push(SAMPLES[(startIndex + i) % SAMPLES.length]); }
+    return order;
+  }
+
+  // Random on load (never a timer); advance by 3 on click so the trio
+  // always changes together.
+  var cursor = Math.floor(Math.random() * SAMPLES.length);
+  function render() {
+    var picks = pick3(cursor);
+    canvases.forEach(function(c, i) { drawSamplePoster(c, picks[i]); });
+  }
+  render();
+
+  wall.addEventListener('click', function() {
+    cursor = (cursor + 3) % SAMPLES.length;
+    render();
+  });
+})();
 
 // Scroll progress — rAF-throttled
 var progressBar = document.getElementById('scrollProgress');
@@ -2094,6 +2295,7 @@ def generate_homepage(race_index: list, race_data_dir: Path = None,
 
     top_bar = build_top_bar()
     nav = build_nav()
+    goal_hero = build_goal_hero()
     hero = build_hero(stats, race_index)
     ladder = build_ladder_strip(stats)
     stats_stripe = build_stats_bar(stats)
@@ -2155,6 +2357,8 @@ def generate_homepage(race_index: list, race_data_dir: Path = None,
   {top_bar}
 
   {nav}
+
+  {goal_hero}
 
   {hero}
 

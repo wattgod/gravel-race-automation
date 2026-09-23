@@ -3796,6 +3796,48 @@ def build_coaching_footnote(rd: dict) -> str:
 </aside>'''
 
 
+# One line, deadpan register, ≤60 chars, from the 2027 goals funnel headline
+# slate (goals-2027-funnel-spec.md — "Headline slate"). Kept distinct from
+# the homepage poster-wall headline so the two surfaces don't repeat copy.
+GOAL_STRIP_COPY = "Same goal as last year. Bold."
+
+
+def build_goal_strip(rd: dict) -> str:
+    """Slim goal-setting strip under the ratings spine (D5b): 'race pages are
+    the traffic.' Links to the /goals/ 2027 lead page.
+
+    Shown only Oct 1 - Jan 31. Decided client-side rather than at build
+    time: race pages are not rebuilt daily, so a build-time date check
+    would go stale the moment the calendar turns. Hidden by default and
+    unhidden by the inline script below when today falls in that window.
+    """
+    slug = rd['slug']
+    href = f"{SITE_BASE_URL}/goals/?src=race&race={slug}"
+    return f'''<section class="gg-goal-strip" id="goal-strip" data-measure-section="goal-strip" hidden>
+  <a href="{esc(href)}" class="gg-goal-strip-link" id="gg-goal-strip-link">
+    <span class="gg-goal-strip-text">{GOAL_STRIP_COPY}</span>
+    <span class="gg-goal-strip-cta">MAKE MINE &rarr;</span>
+  </a>
+</section>
+<script>
+(function() {{
+  var m = new Date().getMonth(); /* 0=Jan .. 9=Oct, 10=Nov, 11=Dec */
+  if (m === 9 || m === 10 || m === 11 || m === 0) {{
+    var strip = document.getElementById('goal-strip');
+    if (strip) {{ strip.hidden = false; }}
+  }}
+  var link = document.getElementById('gg-goal-strip-link');
+  if (link) {{
+    link.addEventListener('click', function() {{
+      if (typeof gtag === 'function') {{
+        gtag('event', 'goal_hero_click', {{ src: 'race' }});
+      }}
+    }});
+  }}
+}})();
+</script>'''
+
+
 def build_training_intelligence(rd: dict) -> str:
     """Restore [07] Training as editorial rider intelligence, without sales."""
     race_name = rd['name']
@@ -6997,10 +7039,18 @@ APPROVED_TOP_CSS = '''<style>
 .gg-neo-brutalist-page .gg-coaching-note h2 { margin: 0 0 5px; font-family: var(--gg-font-editorial); font-size: clamp(1.25rem, 2vw, 1.75rem); line-height: 1.15; }
 .gg-neo-brutalist-page .gg-coaching-note p { margin: 0; font-family: var(--gg-font-editorial); font-size: 1rem; line-height: 1.45; color: var(--gg-color-secondary-brown); }
 .gg-neo-brutalist-page .gg-coaching-link { font-family: var(--gg-font-data); font-size: .78rem; font-weight: 900; letter-spacing: var(--gg-letter-spacing-wide); color: var(--gg-color-teal); text-transform: uppercase; white-space: nowrap; }
+.gg-neo-brutalist-page .gg-goal-strip { max-width: var(--gg-max-width); margin: 0 auto var(--gg-spacing-xl); }
+.gg-neo-brutalist-page .gg-goal-strip-link { display: flex; align-items: center; justify-content: space-between; gap: var(--gg-spacing-md); padding: var(--gg-spacing-sm) clamp(20px, 3vw, 44px); border: var(--gg-border-standard); background: var(--gg-color-warm-paper); text-decoration: none; }
+.gg-neo-brutalist-page .gg-goal-strip-text { font-family: var(--gg-font-editorial); font-style: italic; font-size: var(--gg-font-size-base); color: var(--gg-color-dark-brown); }
+.gg-neo-brutalist-page .gg-goal-strip-cta { font-family: var(--gg-font-data); font-size: var(--gg-font-size-2xs); font-weight: 800; letter-spacing: var(--gg-letter-spacing-wider); text-transform: uppercase; color: var(--gg-color-teal); white-space: nowrap; }
+.gg-neo-brutalist-page .gg-goal-strip-link:hover { border-color: var(--gg-color-teal); }
 @media (max-width: 820px) {
   .gg-neo-brutalist-page .gg-offer { grid-template-columns: 1fr; }
   .gg-neo-brutalist-page .gg-offer-action { min-width: 0; }
   .gg-neo-brutalist-page .gg-coaching-note { grid-template-columns: 1fr; }
+}
+@media (max-width: 480px) {
+  .gg-neo-brutalist-page .gg-goal-strip-link { flex-direction: column; align-items: flex-start; gap: var(--gg-spacing-2xs); }
 }
 </style>'''
 
@@ -7122,6 +7172,7 @@ def generate_page(rd: dict, race_index: list = None, external_assets: dict = Non
     news = build_news_section(rd)
     custom_plan = '' if suppress_plan_marketing else build_custom_plan_offer(rd)
     coaching = '' if suppress_plan_marketing else build_coaching_footnote(rd)
+    goal_strip = '' if suppress_plan_marketing else build_goal_strip(rd)
     training = build_training_intelligence(rd)
     train_for_race = '' if suppress_plan_marketing else build_train_for_race(
         rd, email_capture, include_commerce=False)
@@ -7173,7 +7224,7 @@ def generate_page(rd: dict, race_index: list = None, external_assets: dict = Non
 
     # The approved first pass is locked: ratings, custom plan, coaching
     # footnote, then the original Full Breakdown navigation.
-    spine_sections = [ratings, custom_plan, coaching, breakdown]
+    spine_sections = [ratings, goal_strip, custom_plan, coaching, breakdown]
     spine = '\n\n  '.join(section for section in spine_sections if section)
 
     deep_sections = []

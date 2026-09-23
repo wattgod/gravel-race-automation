@@ -19,9 +19,11 @@ from generate_neo_brutalist import (
     DIM_LABELS,
     FAQ_PRIORITY,
     FAQ_TEMPLATES,
+    GOAL_STRIP_COPY,
     MONTH_NUMBERS,
     OPINION_DIMS,
     RACER_RATING_THRESHOLD,
+    SITE_BASE_URL,
     TRAINING_PLANS_URL,
     US_STATES,
     _build_race_name_map,
@@ -33,6 +35,7 @@ from generate_neo_brutalist import (
     build_course_route,
     build_email_capture,
     build_footer,
+    build_goal_strip,
     build_hero,
     build_history,
     build_inline_js,
@@ -1085,6 +1088,7 @@ class TestSections:
         assert f"{TRAINING_PLANS_URL}?race=test-gravel-100" not in html
         assert "/race/test-gravel-100/prep-kit/" not in html
         assert 'id="train-for-race"' not in html
+        assert 'data-measure-section="goal-strip"' not in html
 
     def test_noncompetitive_event_suppresses_race_and_plan_surfaces(self, sample_race_data):
         sample_race_data["race"]["eligibility"] = {
@@ -1908,3 +1912,46 @@ class TestFunnelAttribution:
         w = Walker(); w.feed(html)
         assert w.seen_ctas >= 3
         assert w.orphans == [], f"CTAs outside any observed section: {w.orphans}"
+
+
+class TestGoalStrip:
+    """The 2027 goals funnel race-page strip (goals-2027-funnel-spec.md D5b,
+    build order step 3): a slim, Oct 1 - Jan 31 seasonal CTA under the
+    ratings spine linking to /goals/."""
+
+    def test_copy_is_deadpan_and_under_60_chars(self):
+        assert len(GOAL_STRIP_COPY) <= 60
+
+    def test_links_to_goals_page_with_race_attribution(self, normalized_data):
+        html = build_goal_strip(normalized_data)
+        assert f"{SITE_BASE_URL}/goals/?src=race&amp;race=test-gravel-100" in html
+
+    def test_hidden_by_default(self, normalized_data):
+        html = build_goal_strip(normalized_data)
+        assert '<section class="gg-goal-strip" id="goal-strip" data-measure-section="goal-strip" hidden>' in html
+
+    def test_visibility_check_is_client_side_not_build_time(self, normalized_data):
+        """Race pages aren't rebuilt daily, so the Oct 1 - Jan 31 window is
+        decided in the browser at view time, not baked in at generation
+        time — a build-time check would go stale the moment the calendar
+        turns."""
+        html = build_goal_strip(normalized_data)
+        assert "new Date().getMonth()" in html
+        assert "strip.hidden = false" in html
+
+    def test_fires_goal_hero_click_with_race_src(self, normalized_data):
+        html = build_goal_strip(normalized_data)
+        assert "gtag('event', 'goal_hero_click', { src: 'race' });" in html
+
+    def test_strip_sits_after_ratings_before_custom_plan(self, normalized_data):
+        html = generate_page(normalized_data)
+        ratings_pos = html.index('data-measure-section="rating"')
+        strip_pos = html.index('data-measure-section="goal-strip"')
+        plan_pos = html.index('data-measure-section="custom-plan"')
+        assert ratings_pos < strip_pos < plan_pos
+
+    def test_suppressed_when_source_blocked(self, sample_race_data):
+        sample_race_data["race"]["vitals"]["course_status"] = "source_blocked"
+        rd = normalize_race_data(sample_race_data)
+        html = generate_page(rd, [])
+        assert 'data-measure-section="goal-strip"' not in html

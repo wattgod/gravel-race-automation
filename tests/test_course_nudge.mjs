@@ -9,11 +9,13 @@ const {
   runNudges,
   sendNudge,
   courseTitleFor,
+  isKnownCourse,
   spelledOut,
   buildNudgeCopy,
   cadenceEligible,
   daysSinceDateOnly,
   daysSinceDatetime,
+  toSqliteDatetime,
   isDryRun,
 } = await import(
   `data:text/javascript;base64,${Buffer.from(workerSource).toString('base64')}`,
@@ -96,6 +98,31 @@ test('courseTitleFor: uses the known display title for dirt-craft', () => {
 
 test('courseTitleFor: falls back to a title-cased slug for unknown courses', () => {
   assert.equal(courseTitleFor('bike-fit-basics'), 'Bike Fit Basics');
+});
+
+test('isKnownCourse: true only for courses in COURSE_TITLES', () => {
+  assert.equal(isKnownCourse('dirt-craft'), true);
+  assert.equal(isKnownCourse('coaching-start'), false);
+  assert.equal(isKnownCourse('bike-fit-basics'), false);
+});
+
+test('toSqliteDatetime: matches the shape SQLite datetime(\'now\') stores (no T, no ms, no Z)', () => {
+  assert.equal(toSqliteDatetime(new Date('2026-09-23T14:00:00.123Z')), '2026-09-23 14:00:00');
+});
+
+test('toSqliteDatetime: fixes the 48h-throttle format mismatch — same-day sent_at now compares correctly', () => {
+  // Reproduces the bug found in review: comparing an ISO threshold against a
+  // SQLite 'YYYY-MM-DD HH:MM:SS' sent_at breaks on the same calendar date
+  // because ' ' (0x20) sorts below 'T' (0x54). With both sides now in the
+  // same shape, plain text ordering matches chronological ordering, which is
+  // what a real SQL "sent_at > ?" comparison relies on.
+  const now = new Date('2026-09-23T02:00:00.000Z');
+  const cutoffOld = new Date(now.getTime() - 48 * 3600000).toISOString(); // the old, broken format
+  const cutoffNew = toSqliteDatetime(new Date(now.getTime() - 48 * 3600000));
+  const sentAt = '2026-09-21 20:00:00'; // 30h before `now` — should be caught by the throttle
+
+  assert.equal(sentAt > cutoffOld, false); // the bug: wrongly looks not-recent
+  assert.equal(sentAt > cutoffNew, true); // fixed: correctly looks recent
 });
 
 test('spelledOut: spells 1-10, falls back to digits above 10', () => {
@@ -281,6 +308,94 @@ test('runNudges: streak_risk fires before never_started/inactive checks, in dry-
   const results = await runNudges({ ...baseEnv, DB: db }, { dryRun: true });
   assert.equal(results.streak_risk, 1);
   assert.equal(results.would_send[0].subject, 'day 5, or day 1 again');
+});
+
+// ── Unknown course_id is skipped entirely ───────────────────
+
+test('runNudges: an unlisted course_id gets no nudge of any type, even when never_started conditions are otherwise met', async () => {
+  const db = makeMockDB([
+    ['FROM users WHERE nudge_unsubscribed', () => [{ id: 7, email: 'g@example.com', current_streak: 0, last_active_date: null }]],
+    ['sent_at > ?', () => null],
+    // "coaching-start" isn't in COURSE_TITLES — real live-data case.
+    ['FROM enrollments WHERE user_id', () => [{ course_id: 'coaching-start', purchased_at: daysAgoDatetime(60) }]],
+    // No lesson_progress / xp_log / nudge_log handlers: if the worker queried
+    // any of them for this enrollment, the mock would throw and fail the test.
+  ]);
+
+  const results = await runNudges({ ...baseEnv, DB: db }, { dryRun: true });
+  assert.equal(results.never_started, 0);
+  assert.equal(results.inactive, 0);
+  assert.equal(results.would_send.length, 0);
+});
+
+test('runNudges: a known course alongside an unlisted one still gets nudged normally', async () => {
+  const db = makeMockDB([
+    ['FROM users WHERE nudge_unsubscribed', () => [{ id: 8, email: 'h@example.com', current_streak: 0, last_active_date: null }]],
+    ['sent_at > ?', () => null],
+    ['FROM enrollments WHERE user_id', () => [
+      { course_id: 'coaching-start', purchased_at: daysAgoDatetime(60) },
+      { course_id: 'dirt-craft', purchased_at: daysAgoDatetime(10) },
+    ]],
+    ['FROM lesson_progress WHERE user_id = ? AND course_id = ?', () => ({ cnt: 0 })],
+    ["event_type = 'course_complete'", () => null],
+    ["event_type = 'module_complete'", () => null],
+    ['nudge_type = ?', () => ({ cnt: 0 })],
+  ]);
+
+  const results = await runNudges({ ...baseEnv, DB: db }, { dryRun: true });
+  assert.equal(results.never_started, 1);
+  assert.equal(results.would_send[0].course_id, 'dirt-craft');
+});
+
+// ── A finished course never gets near_completion / never_started / inactive ──
+
+test('runNudges: course_complete blocks near_completion for the same course', async () => {
+  const db = makeMockDB([
+    ['FROM users WHERE nudge_unsubscribed', () => [{ id: 9, email: 'i@example.com', current_streak: 0, last_active_date: daysAgoDateOnly(3) }]],
+    ['sent_at > ?', () => null],
+    ['FROM enrollments WHERE user_id', () => [{ course_id: 'dirt-craft', purchased_at: daysAgoDatetime(90) }]],
+    ['FROM lesson_progress WHERE user_id = ? AND course_id = ?', () => ({ cnt: 21 })], // finished
+    ["event_type = 'course_complete'", () => ({ id: 1 })], // has the completion event
+    ["nudge_type = 'course_complete'", () => ({ id: 2 })], // already sent that email — falls through
+    ["event_type = 'module_complete'", () => ({ id: 3 })], // would otherwise satisfy near_completion
+  ]);
+
+  const results = await runNudges({ ...baseEnv, DB: db }, { dryRun: true });
+  assert.equal(results.near_completion, 0);
+  assert.equal(results.course_complete, 0); // already sent, not re-sent
+  assert.equal(results.would_send.length, 0);
+});
+
+test('runNudges: course_complete blocks never_started for the same course (defensive — 0 lessons + finished should not coexist, but guarded anyway)', async () => {
+  const db = makeMockDB([
+    ['FROM users WHERE nudge_unsubscribed', () => [{ id: 10, email: 'j@example.com', current_streak: 0, last_active_date: null }]],
+    ['sent_at > ?', () => null],
+    ['FROM enrollments WHERE user_id', () => [{ course_id: 'dirt-craft', purchased_at: daysAgoDatetime(90) }]],
+    ['FROM lesson_progress WHERE user_id = ? AND course_id = ?', () => ({ cnt: 0 })],
+    ["event_type = 'course_complete'", () => ({ id: 1 })],
+    ["nudge_type = 'course_complete'", () => ({ id: 2 })],
+    ["event_type = 'module_complete'", () => null],
+  ]);
+
+  const results = await runNudges({ ...baseEnv, DB: db }, { dryRun: true });
+  assert.equal(results.never_started, 0);
+  assert.equal(results.would_send.length, 0);
+});
+
+test('runNudges: course_complete blocks inactive for the same course', async () => {
+  const db = makeMockDB([
+    ['FROM users WHERE nudge_unsubscribed', () => [{ id: 11, email: 'k@example.com', current_streak: 0, last_active_date: daysAgoDateOnly(10) }]],
+    ['sent_at > ?', () => null],
+    ['FROM enrollments WHERE user_id', () => [{ course_id: 'dirt-craft', purchased_at: daysAgoDatetime(90) }]],
+    ['FROM lesson_progress WHERE user_id = ? AND course_id = ?', () => ({ cnt: 21 })],
+    ["event_type = 'course_complete'", () => ({ id: 1 })],
+    ["nudge_type = 'course_complete'", () => ({ id: 2 })],
+    ["event_type = 'module_complete'", () => ({ id: 3 })],
+  ]);
+
+  const results = await runNudges({ ...baseEnv, DB: db }, { dryRun: true });
+  assert.equal(results.inactive, 0);
+  assert.equal(results.would_send.length, 0);
 });
 
 // ── Cron entrypoint honors DRY_RUN ──────────────────────────

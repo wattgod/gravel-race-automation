@@ -21,17 +21,26 @@
  *     first at day 7 of silence, second at day 21, then never again
  *     (silence = days since enrollment for never_started, days since
  *     last_active_date for inactive). Checked against nudge_log.
+ *   - Only courses listed in COURSE_TITLES get nudged at all. An unlisted
+ *     course_id (e.g. a non-course product sharing the enrollments table)
+ *     is skipped entirely, no email of any type.
+ *   - No nudge type fires for a course the user already has a
+ *     course_complete xp_log event for, checked directly (not just via
+ *     the lesson-count proxies each branch already uses).
  *
- * Known pre-existing issues (predate this change, not fixed here — flagged
- * during review, out of scope for a copy/cadence-only PR):
- *   - The 48h throttle compares an ISO timestamp ('...T...Z') against D1's
- *     'YYYY-MM-DD HH:MM:SS' sent_at as TEXT. On the same calendar date this
- *     lexical comparison can wrongly treat a recent send as not-recent
- *     (space < 'T'), letting a user be nudged twice within 48h.
- *   - A user who already got the once-only course_complete email can still
- *     match near_completion afterwards (that branch doesn't check
- *     courseCompleteXP), so a finished course can keep sending "the rest is
- *     short."
+ * Fixed after review (both predated this change, caught by an adversarial
+ * review pass before shipping):
+ *   - The 48h throttle used to compare an ISO timestamp ('...T...Z') against
+ *     D1's 'YYYY-MM-DD HH:MM:SS' sent_at as TEXT. On the same calendar date
+ *     that lexical comparison could wrongly treat a recent send as
+ *     not-recent (space < 'T'), letting a user be nudged twice within 48h.
+ *     Fixed by formatting the threshold in the same 'YYYY-MM-DD HH:MM:SS'
+ *     shape D1 actually stores, so the comparison is apples-to-apples.
+ *   - A user who already got the once-only course_complete email could
+ *     still match near_completion afterwards (that branch didn't check
+ *     courseCompleteXP), so a finished course could keep sending "the rest
+ *     is short." Fixed by checking courseCompleteXP directly in every
+ *     branch below, not just relying on the lesson-count proxies.
  */
 
 const UNSUBSCRIBE_BASE = 'https://course-access.gravelgodcoaching.workers.dev/unsubscribe';
@@ -43,6 +52,13 @@ const UNSUBSCRIBE_BASE = 'https://course-access.gravelgodcoaching.workers.dev/un
 const COURSE_TITLES = {
   'dirt-craft': 'Dirt Craft'
 };
+
+// Only nudge for courses we actually know about. An enrollment for a
+// course_id not listed in COURSE_TITLES (e.g. a non-course product that
+// happens to share the enrollments table) is skipped entirely below.
+function isKnownCourse(courseId) {
+  return Object.prototype.hasOwnProperty.call(COURSE_TITLES, courseId);
+}
 
 const NUMBER_WORDS = ['Zero', 'One', 'Two', 'Three', 'Four', 'Five', 'Six', 'Seven', 'Eight', 'Nine', 'Ten'];
 
@@ -91,7 +107,10 @@ async function runNudges(env, opts = {}) {
   const today = now.toISOString().split('T')[0];
   const yesterday = new Date(now - 86400000).toISOString().split('T')[0];
   const twoDaysAgo = new Date(now - 2 * 86400000).toISOString().split('T')[0];
-  const fortyEightHoursAgo = new Date(now - 48 * 3600000).toISOString();
+  // Same 'YYYY-MM-DD HH:MM:SS' shape D1 stores via datetime('now') in
+  // nudge_log.sent_at, so the SQL text comparison below is apples-to-apples
+  // instead of comparing an ISO string against a SQLite datetime string.
+  const fortyEightHoursAgo = toSqliteDatetime(new Date(now - 48 * 3600000));
 
   const results = {
     never_started: 0,
@@ -134,6 +153,7 @@ async function runNudges(env, opts = {}) {
       for (const enrollment of enrollments.results) {
         if (nudgeSent) break;
         const courseId = enrollment.course_id;
+        if (!isKnownCourse(courseId)) continue; // unlisted course, no nudges at all
 
         // Get lesson count for this course
         const lessonCount = await env.DB.prepare(
@@ -179,6 +199,7 @@ async function runNudges(env, opts = {}) {
         ).bind(user.id, courseId).first();
 
         if (
+          !courseCompleteXP && // never nudge a finished course
           user.last_active_date &&
           user.last_active_date <= twoDaysAgo &&
           hasModuleComplete &&
@@ -192,7 +213,7 @@ async function runNudges(env, opts = {}) {
 
         // 4. never_started: zero lessons completed, 7+ days since enrollment.
         // Capped at 2 sends: day 7, then day 21.
-        if (lessonCount.cnt === 0 && enrollment.purchased_at) {
+        if (!courseCompleteXP && lessonCount.cnt === 0 && enrollment.purchased_at) {
           const daysSilent = daysSinceDatetime(enrollment.purchased_at, now);
           const priorCount = await nudgeSendCount(env, user.id, courseId, 'never_started');
           if (cadenceEligible(priorCount, daysSilent)) {
@@ -240,6 +261,14 @@ async function nudgeSendCount(env, userId, courseId, nudgeType) {
     'SELECT COUNT(*) as cnt FROM nudge_log WHERE user_id = ? AND course_id = ? AND nudge_type = ?'
   ).bind(userId, courseId, nudgeType).first();
   return row ? row.cnt : 0;
+}
+
+// Formats a Date the same way SQLite's datetime('now') does: a plain
+// 'YYYY-MM-DD HH:MM:SS' TEXT value, no 'T', no fractional seconds, no 'Z'.
+// Used so SQL TEXT comparisons against nudge_log.sent_at are apples-to-apples
+// instead of comparing this worker's ISO strings against SQLite's own shape.
+function toSqliteDatetime(date) {
+  return date.toISOString().replace('T', ' ').slice(0, 19);
 }
 
 // Missing or unparseable dates fail closed (-Infinity => never cadence-
@@ -452,10 +481,12 @@ export {
   runNudges,
   sendNudge,
   courseTitleFor,
+  isKnownCourse,
   spelledOut,
   buildNudgeCopy,
   cadenceEligible,
   daysSinceDateOnly,
   daysSinceDatetime,
+  toSqliteDatetime,
   isDryRun
 };

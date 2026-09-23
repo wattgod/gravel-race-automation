@@ -87,6 +87,12 @@ export default {
       data.offer_variant = ['A', 'B', 'C'].includes(String(data.offer_variant))
         ? String(data.offer_variant)
         : '';
+      // Which surface sent this visitor to /goals/ — 'home' (poster wall CTA)
+      // or 'race' (race-page goal strip, generate_neo_brutalist.py
+      // build_goal_strip). race_slug (above) already carries which race page.
+      data.entry_src = /^[a-z_]{1,24}$/.test(String(data.entry_src || ''))
+        ? String(data.entry_src)
+        : '';
     }
     // Trail context (docs/specs/friend-first-sequences.md §4.2-4.3) — the
     // browser's localStorage breadcrumb of recently viewed races, forwarded
@@ -480,6 +486,7 @@ async function notifyMissionControl(env, data, source) {
       payload.goal_answers = data.goal_answers;
     }
     if (data.offer_variant) payload.offer_variant = data.offer_variant;
+    if (data.entry_src) payload.entry_src = data.entry_src;
     // Which athlete this belongs to. Without it a coached athlete's review
     // arrives unattributed and the filing script has to guess.
     if (data.athlete) payload.athlete = String(data.athlete).substring(0, 80);

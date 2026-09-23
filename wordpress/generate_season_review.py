@@ -198,14 +198,22 @@ def _strip_tags(s: str) -> str:
 def render_sections(variant) -> str:
     out, n = [], 0
     for sec in variant["sections"]:
+        # data-section-n: the goal_section GA4 event (fired on real scroll,
+        # never a timer — see build_season_review_js) reads this to report
+        # which numbered section a visitor actually reached.
         if sec.get("numbered", True):
             n += 1
             title = f"{n}. {sec['title']}"
+            # Placed before class=, not after, so the existing
+            # `gg-apply-section-title">{n}. ` string match (tests, and the
+            # coach's email formatter) keeps working unchanged.
+            num_attr = f'data-section-n="{n}" '
         else:
             title = sec["title"]
+            num_attr = ""
         fields = "".join(render_field(f, sec["title"]) for f in sec["fields"])
         sub = f'<p class="gg-apply-section-sub">{sec["sub"]}</p>' if sec.get("sub") else ""
-        out.append(f'<div class="gg-apply-section-title">{title}</div>{sub}\n      {fields}')
+        out.append(f'<div {num_attr}class="gg-apply-section-title">{title}</div>{sub}\n      {fields}')
     return "\n      ".join(out)
 
 
@@ -510,8 +518,30 @@ def build_season_review_js(variant) -> str:
 
   var form = document.getElementById("season-form");
 
+  /* Entry attribution (goals-2027-funnel-spec.md "Consent and analytics").
+     The homepage poster wall and the race-page goal strip
+     (generate_homepage.py, generate_neo_brutalist.py build_goal_strip) both
+     link here as /goals/?src=home or /goals/?src=race&race=<slug>, firing
+     goal_hero_click with { src } on the click that got the visitor here.
+     Read the same two params so the rest of this page's funnel — and the
+     lead itself — can be attributed to the same surface. Validated so a
+     malformed value never lands in an event or a stored lead. */
+  var ENTRY_SRC = (function() {
+    var v = "";
+    try { v = new URLSearchParams(window.location.search).get("src") || ""; } catch (e) {}
+    return /^[a-z_]{1,24}$/.test(v) ? v : "";
+  })();
+  var RACE_SLUG = (function() {
+    var v = "";
+    try { v = new URLSearchParams(window.location.search).get("race") || ""; } catch (e) {}
+    return /^[a-z0-9-]{1,80}$/.test(v) ? v : "";
+  })();
+
   function ga4(name, params) {
-    if (typeof gtag === "function") { gtag("event", name, params || {}); }
+    params = params || {};
+    if (ENTRY_SRC) { params.src = ENTRY_SRC; }
+    if (RACE_SLUG) { params.race_slug = RACE_SLUG; }
+    if (typeof gtag === "function") { gtag("event", name, params); }
   }
 
   /* ── Start / stop swaps the habit prompts ────────── */
@@ -877,7 +907,7 @@ def build_season_review_js(variant) -> str:
         body: JSON.stringify({
           source: LEAD_SOURCE, brand: "gravelgod", email: d.email, name: d.name || "",
           athlete: d.athlete || "", goal_answers: answers, website: "",
-          offer_variant: OFFER_VARIANT
+          offer_variant: OFFER_VARIANT, race_slug: RACE_SLUG, entry_src: ENTRY_SRC
         }),
         signal: ctrl ? ctrl.signal : undefined
       }).then(function(r) { return r.ok; }).catch(function() { return false; });
@@ -1050,9 +1080,21 @@ def build_season_review_js(variant) -> str:
     if (pick) {
       pick.hidden = false;
       var key = OFFER_VARIANT;
+      /* Carry the offer variant (and, if present, the race that sent this
+         visitor to /goals/) into the plan form's URL so a later purchase can
+         be attributed back to which offer copy and which entry point led to
+         it. cta_href starts as the static "?src=goals"; add to it, don't
+         replace it. */
+      var cta = pick.querySelector("[data-offer-cta]");
+      try {
+        var ctaUrl = new URL(cta.getAttribute("href"), window.location.href);
+        ctaUrl.searchParams.set("offer_variant", key);
+        if (RACE_SLUG) { ctaUrl.searchParams.set("race", RACE_SLUG); }
+        cta.href = ctaUrl.pathname + ctaUrl.search;
+      } catch (err) { /* keep the static href */ }
       ga4("goal_offer_view", { variant: VARIANT, offer_variant: key });
-      pick.querySelector("[data-offer-cta]").addEventListener("click", function() {
-        ga4("goal_offer_click", { variant: VARIANT, offer_variant: key, plan: "race" });
+      cta.addEventListener("click", function() {
+        ga4("goal_offer_click", { variant: VARIANT, offer_variant: key, plan_type: "race" });
       });
       var decline = pick.querySelector("[data-offer-decline]");
       if (decline) {
@@ -1075,6 +1117,27 @@ def build_season_review_js(variant) -> str:
     m.scrollIntoView({ behavior: "smooth", block: "center" });
   }
 
+  /* goal_section: fired once per numbered section the visitor actually
+     scrolls to (a real action), never on a timer. Mirrors the walkthrough
+     recorder's own section watcher (data-section-n set by render_sections). */
+  function watchGoalSections() {
+    if (typeof IntersectionObserver !== "function") { return; }
+    var targets = Array.prototype.slice.call(form.querySelectorAll("[data-section-n]"));
+    if (!targets.length) { return; }
+    var seen = {};
+    var observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (!entry.isIntersecting) { return; }
+        var n = entry.target.getAttribute("data-section-n");
+        if (!n || seen[n]) { return; }
+        seen[n] = true;
+        ga4("goal_section", { variant: VARIANT, number: Number(n) });
+      });
+    }, { threshold: 0.5 });
+    targets.forEach(function(t) { observer.observe(t); });
+  }
+
+  watchGoalSections();
   restore();
   ga4("season_review_view", { variant: VARIANT });
 })();

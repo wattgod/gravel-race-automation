@@ -191,6 +191,15 @@ class TestGoal2027Source:
         for cap in ("MAX_ANSWER_KEYS", "MAX_ANSWER_LEN", "MAX_ANSWERS_TOTAL"):
             assert cap in worker_js, f"missing cap {cap}"
 
+    def test_entry_src_is_validated_and_forwarded(self, worker_js):
+        # Which surface sent the visitor to /goals/ (home poster wall vs a
+        # race-page goal strip) — goals-2027-funnel-spec.md entry attribution.
+        assert "data.entry_src" in worker_js
+        assert re.search(r"/\^\[a-z_\]\{1,24\}\$/", worker_js), (
+            "entry_src must be validated before it rides in a lead payload"
+        )
+        assert "payload.entry_src" in worker_js
+
 
 class TestWorkerHardening:
     """Fable review, Sep 22: a lookalike origin passed the prefix check, and

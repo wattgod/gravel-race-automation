@@ -242,7 +242,7 @@ class TestGoalsPage:
 
     def test_the_funnel_is_measurable(self):
         js = build_season_review_js(VARIANTS["goal_2027"])
-        for event in ("goal_start", "goal_submit", "goal_results_view",
+        for event in ("goal_start", "goal_section", "goal_submit", "goal_results_view",
                       "goal_poster_download", "goal_offer_view", "goal_offer_click"):
             assert event in js, event
 
@@ -253,6 +253,61 @@ class TestGoalsPage:
         assert terms.startswith("I build every plan myself")
         assert "refund" not in terms.lower()
         assert "$" not in terms
+
+    def test_goal_section_carries_number_and_is_scroll_triggered(self):
+        # Fired on a real scroll into view (IntersectionObserver), never a
+        # timer — CLAUDE.md's "never fire GA events on auto-play/timers".
+        js = build_season_review_js(VARIANTS["goal_2027"])
+        assert 'ga4("goal_section", { variant: VARIANT, number: Number(n) })' in js
+        section_fn = js[js.index("function watchGoalSections"):js.index("watchGoalSections();")]
+        assert "IntersectionObserver" in section_fn
+        assert "setInterval" not in section_fn and "setTimeout" not in section_fn
+
+    def test_goal_section_numbers_rendered_in_html_and_unique(self):
+        html = page("goal_2027")
+        nums = re.findall(r'data-section-n="(\d+)"', html)
+        assert nums, "no numbered sections found"
+        assert len(nums) == len(set(nums)), nums
+
+    def test_goal_offer_click_carries_variant_and_plan_type(self):
+        js = build_season_review_js(VARIANTS["goal_2027"])
+        assert 'ga4("goal_offer_click", { variant: VARIANT, offer_variant: key, plan_type: "race" })' in js
+
+    def test_goal_offer_click_is_wired_to_a_click_listener_not_a_timer(self):
+        js = build_season_review_js(VARIANTS["goal_2027"])
+        start = js.index("cta.addEventListener")
+        end = js.index("goal_offer_declined")
+        assert "setInterval" not in js[start:end] and "setTimeout" not in js[start:end]
+
+    def test_offer_cta_carries_variant_and_race_into_the_plan_form_link(self):
+        # The offer's CTA link starts as the static "?src=goals" (D9's
+        # cta_href, web/training-plans-form.js's own entry-surface value
+        # space); the offer variant and, when present, the race that sent
+        # the visitor here must ride along without touching that src=.
+        js = build_season_review_js(VARIANTS["goal_2027"])
+        assert "ctaUrl.searchParams.set(\"offer_variant\", key)" in js
+        assert "ctaUrl.searchParams.set(\"race\", RACE_SLUG)" in js
+        assert 'ctaUrl.searchParams.set("src"' not in js
+
+    def test_entry_src_and_race_slug_are_validated_before_use(self):
+        js = build_season_review_js(VARIANTS["goal_2027"])
+        assert '/^[a-z_]{1,24}$/.test(v)' in js       # ENTRY_SRC
+        assert '/^[a-z0-9-]{1,80}$/.test(v)' in js    # RACE_SLUG
+
+    def test_goal_hero_click_fires_upstream_not_on_this_page(self):
+        # goal_hero_click fires on the page that links to /goals/ — the
+        # homepage poster wall (generate_homepage.py, data-ga="goal_hero_click")
+        # and the race-page goal strip (generate_neo_brutalist.py
+        # build_goal_strip) — not on /goals/ itself. This page's job is only
+        # to read the ?src=/?race= those two surfaces link with.
+        js = build_season_review_js(VARIANTS["goal_2027"])
+        assert 'ga4("goal_hero_click"' not in js
+        assert "params.src = ENTRY_SRC" in js
+
+    def test_worker_payload_carries_entry_attribution(self):
+        js = build_season_review_js(VARIANTS["goal_2027"])
+        assert "race_slug: RACE_SLUG" in js
+        assert "entry_src: ENTRY_SRC" in js
 
 
 class TestWalkthroughMode:

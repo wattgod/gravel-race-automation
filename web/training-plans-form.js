@@ -104,8 +104,30 @@
   }
   var ENTRY_SURFACE = resolveEntrySurface();
 
+  // Which of the /goals/ results-screen offer variants (A/B/C, goals-2027-
+  // funnel-spec.md) sent this visitor here, if any. Kept in sessionStorage
+  // for the same reason as entry surface: a bounce back from Stripe must not
+  // lose the attribution.
+  var OFFER_VARIANT_KEY = 'gg_tp_offer_variant';
+  var OFFER_VARIANT_RE = /^[A-Z]$/;
+  function resolveOfferVariant() {
+    var fromUrl = '';
+    try { fromUrl = new URLSearchParams(window.location.search).get('offer_variant') || ''; } catch (e) {}
+    if (OFFER_VARIANT_RE.test(fromUrl)) {
+      try { sessionStorage.setItem(OFFER_VARIANT_KEY, fromUrl); } catch (e) {}
+      return fromUrl;
+    }
+    try {
+      var stored = sessionStorage.getItem(OFFER_VARIANT_KEY) || '';
+      if (OFFER_VARIANT_RE.test(stored)) return stored;
+    } catch (e) {}
+    return '';
+  }
+  var OFFER_VARIANT = resolveOfferVariant();
+
   function track(event, params) {
     var payload = { entry_surface: ENTRY_SURFACE, form_version: FORM_VERSION };
+    if (OFFER_VARIANT) { payload.offer_variant = OFFER_VARIANT; }
     if (params) { for (var k in params) payload[k] = params[k]; }
     if (typeof gtag === 'function') {
       gtag('event', event, payload);
@@ -705,6 +727,14 @@
 
     // Map to worker format (camelCase → snake_case)
     var workerData = mapToWorkerFormat(data);
+    // Entry surface and (for a /goals/ referral) offer variant, so a purchase
+    // can be attributed back to which offer copy and which page sent the
+    // visitor here. The checkout server (athlete-custom-training-plan-
+    // pipeline, a separate repo) must read these two fields and carry them
+    // into the Stripe Checkout Session metadata and the order/reconciliation
+    // record for the attribution to reach a purchase — not done in this repo.
+    workerData.entry_surface = ENTRY_SURFACE;
+    if (OFFER_VARIANT) { workerData.offer_variant = OFFER_VARIANT; }
     var ga4Attribution = await ga4AttributionPromise;
     workerData.analytics_consent = ga4Attribution.analytics_consent || 'denied';
     if (ga4Attribution.ga4_client_id) {

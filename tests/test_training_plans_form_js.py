@@ -50,3 +50,31 @@ def test_saved_form_survives_stripe_back_navigation():
     assert "clearSaved();" not in FORM_JS[start:end]
     assert "_savedAt" in FORM_JS
     assert "_raceSlug" in FORM_JS
+
+
+def test_offer_variant_is_captured_and_validated_like_entry_surface():
+    """goals-2027-funnel-spec.md: a /goals/ offer click can carry
+    ?offer_variant=A/B/C to the plan form. Mirrors ENTRY_SURFACE's own
+    validate-on-read, validate-on-restore, session-survives-Stripe pattern."""
+    assert "OFFER_VARIANT_RE = /^[A-Z]$/" in FORM_JS
+    assert "OFFER_VARIANT_RE.test(fromUrl)" in FORM_JS
+    assert "OFFER_VARIANT_RE.test(stored)" in FORM_JS
+    assert "sessionStorage.setItem(OFFER_VARIANT_KEY" in FORM_JS
+
+
+def test_offer_variant_rides_into_ga4_events_when_present():
+    assert "if (OFFER_VARIANT) { payload.offer_variant = OFFER_VARIANT; }" in FORM_JS
+
+
+def test_entry_surface_and_offer_variant_forwarded_to_checkout_payload():
+    """Task: entry src and offer variant must travel into checkout metadata
+    if feasible. This repo's part is forwarding them on the /create-checkout
+    POST body; the Railway checkout server (a separate repo) still has to
+    read workerData.entry_surface / workerData.offer_variant and write them
+    into the Stripe Checkout Session metadata for a purchase to be
+    attributable back to a variant."""
+    start = FORM_JS.index("var workerData = mapToWorkerFormat(data);")
+    end = FORM_JS.index("var response = await fetch(API_URL")
+    block = FORM_JS[start:end]
+    assert "workerData.entry_surface = ENTRY_SURFACE;" in block
+    assert "if (OFFER_VARIANT) { workerData.offer_variant = OFFER_VARIANT; }" in block

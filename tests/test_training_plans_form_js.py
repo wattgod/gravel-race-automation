@@ -70,20 +70,39 @@ def test_offer_variant_rides_into_ga4_events_when_present():
     assert "if (OFFER_VARIANT) { payload.offer_variant = OFFER_VARIANT; }" in FORM_JS
 
 
-def test_stored_offer_variant_and_entry_src_expire_outside_a_goals_session():
-    """sol review: a stored offer_variant/entry_src from an earlier /goals/
-    visit this session must not keep riding along once ENTRY_SURFACE has
-    moved on to a later, unrelated arrival (e.g. a race-page CTA with no
-    offer_variant of its own) — the stored-value fallback only applies
-    while ENTRY_SURFACE (resolved fresh for the current pageload) still
-    reads "goals"."""
+def test_checkout_pending_marker_is_the_only_thing_that_can_revive_stored_attribution():
+    """sol review, round 2: gating the stored fallback on ENTRY_SURFACE ===
+    'goals' wasn't enough, because ENTRY_SURFACE itself could re-hydrate
+    "goals" from sessionStorage on a later, unrelated visit with no ?src=
+    at all (e.g. a bookmark or the header nav) — there was nothing in that
+    branch to tell "genuine Stripe bounce" apart from "same tab, days
+    later." IS_CHECKOUT_RETURN is read once, from a marker set only in the
+    instant before redirecting to Stripe, and removed immediately — so it
+    can only ever be true on the one pageload that is a real return."""
+    assert "var CHECKOUT_PENDING_KEY = 'gg_tp_checkout_pending';" in FORM_JS
+    assert "IS_CHECKOUT_RETURN = sessionStorage.getItem(CHECKOUT_PENDING_KEY) === '1';" in FORM_JS
+    assert "sessionStorage.removeItem(CHECKOUT_PENDING_KEY);" in FORM_JS
+
+    # ENTRY_SURFACE's own stored-value fallback is gated on it
+    surface_fn_start = FORM_JS.index("function resolveEntrySurface()")
+    surface_fn_end = FORM_JS.index("var ENTRY_SURFACE = resolveEntrySurface();")
+    assert "if (IS_CHECKOUT_RETURN) {" in FORM_JS[surface_fn_start:surface_fn_end]
+
+    # ...and so are offer_variant and entry_src, the same rule everywhere
     variant_fn_start = FORM_JS.index("function resolveOfferVariant()")
     variant_fn_end = FORM_JS.index("var OFFER_VARIANT = resolveOfferVariant();")
-    assert "if (ENTRY_SURFACE !== 'goals') { return ''; }" in FORM_JS[variant_fn_start:variant_fn_end]
+    assert "if (!IS_CHECKOUT_RETURN) { return ''; }" in FORM_JS[variant_fn_start:variant_fn_end]
 
     src_fn_start = FORM_JS.index("function resolveEntrySrc()")
     src_fn_end = FORM_JS.index("var ENTRY_SRC = resolveEntrySrc();")
-    assert "if (ENTRY_SURFACE !== 'goals') { return ''; }" in FORM_JS[src_fn_start:src_fn_end]
+    assert "if (!IS_CHECKOUT_RETURN) { return ''; }" in FORM_JS[src_fn_start:src_fn_end]
+
+
+def test_checkout_pending_marker_is_set_right_before_the_stripe_redirect():
+    start = FORM_JS.index("if (result.checkout_url)")
+    end = FORM_JS.index("window.location.href = result.checkout_url")
+    block = FORM_JS[start:end]
+    assert "sessionStorage.setItem(CHECKOUT_PENDING_KEY, '1');" in block
 
 
 def test_entry_src_is_captured_distinct_from_entry_surface():

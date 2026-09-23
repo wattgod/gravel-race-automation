@@ -274,18 +274,35 @@ class TestGoalsPage:
         # state the instant observe() is called, so wiring it up
         # immediately on load fired goal_section for section 1 (already on
         # screen) before the visitor had done anything. watchGoalSections()
-        # must not be invoked at top level — only from a first real scroll
-        # or keystroke.
+        # must not be invoked at top level — only from a first real
+        # interaction.
         js = build_season_review_js(VARIANTS["goal_2027"])
         # the old bug: called bare, right before restore() ran on page load
         assert "watchGoalSections();\n  restore();" not in js
         # the fix: the only call is inside the deferred wrapper
         assert "goalSectionsStarted = true;\n    watchGoalSections();" in js
 
-    def test_goal_section_is_deferred_to_first_scroll_or_input(self):
+    def test_goal_section_is_deferred_to_a_genuine_pointer_key_or_wheel_event(self):
+        # sol review, round 2: a bare "scroll" listener can't tell a real
+        # scroll from restore()'s own programmatic scrollIntoView. None of
+        # pointerdown/keydown/wheel/touchstart ever fire from a
+        # programmatic scroll, only from something a person actually did.
         js = build_season_review_js(VARIANTS["goal_2027"])
-        assert 'window.addEventListener("scroll", startWatchingGoalSectionsOnce, { once: true, passive: true });' in js
-        assert 'form.addEventListener("input", startWatchingGoalSectionsOnce, { once: true });' in js
+        assert '["pointerdown", "keydown", "wheel", "touchstart"].forEach(function(evt) {' in js
+        assert 'window.addEventListener(evt, startWatchingGoalSectionsOnce, { once: true, passive: true });' in js
+        assert 'window.addEventListener("scroll", startWatchingGoalSectionsOnce' not in js
+        assert 'form.addEventListener("input", startWatchingGoalSectionsOnce' not in js
+
+    def test_goal_section_ignores_restores_own_programmatic_scroll(self):
+        # Belt and suspenders alongside the event-type switch above:
+        # restoringDraft is true for the "Picked up where you left off"
+        # message's smooth-scroll window, and startWatchingGoalSectionsOnce
+        # refuses to start while it's set.
+        js = build_season_review_js(VARIANTS["goal_2027"])
+        assert "if (goalSectionsStarted || restoringDraft) { return; }" in js
+        restore_fn = js[js.index("function restore() {"):js.index("/* ── The email:")]
+        assert "restoringDraft = true;" in restore_fn
+        assert "restoringDraft = false;" in restore_fn
 
     def test_goal_offer_click_carries_variant_and_plan_type(self):
         js = build_season_review_js(VARIANTS["goal_2027"])

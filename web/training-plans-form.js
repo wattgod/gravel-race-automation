@@ -78,6 +78,22 @@
   // block ships separately through the Elementor widget, so a page with it and a
   // page without it must report differently.
   var FORM_VERSION = document.getElementById('gg-plan-total') ? '2026-09-10-terms' : '2026-09-10';
+
+  // Set only in the instant before redirecting to Stripe Checkout, and
+  // consumed (read once, then removed) the moment this script next runs —
+  // the one reliable way to tell "this pageload is a genuine bounce back
+  // from Stripe, still the same checkout attempt" apart from "this is a
+  // later, unrelated visit that happens to still be the same browser tab."
+  // Without it, sessionStorage has no concept of expiry: an entry surface
+  // (or offer variant / entry src, below) captured once would otherwise
+  // keep re-hydrating on every later visit for the rest of the session.
+  var CHECKOUT_PENDING_KEY = 'gg_tp_checkout_pending';
+  var IS_CHECKOUT_RETURN = false;
+  try {
+    IS_CHECKOUT_RETURN = sessionStorage.getItem(CHECKOUT_PENDING_KEY) === '1';
+    sessionStorage.removeItem(CHECKOUT_PENDING_KEY);
+  } catch (e) {}
+
   var ENTRY_SURFACE_KEY = 'gg_tp_entry_surface';
   var ENTRY_SURFACE_RE = /^[a-z_]{1,32}$/;
   function resolveEntrySurface() {
@@ -87,12 +103,15 @@
       try { sessionStorage.setItem(ENTRY_SURFACE_KEY, fromUrl); } catch (e) {}
       return fromUrl;
     }
-    // Same-session return (e.g. back from Stripe) keeps the original surface.
-    // Validated again: storage is same-origin but not trusted.
-    try {
-      var stored = sessionStorage.getItem(ENTRY_SURFACE_KEY) || '';
-      if (ENTRY_SURFACE_RE.test(stored)) return stored;
-    } catch (e) {}
+    // Only a genuine bounce back from Stripe reuses the stored surface —
+    // a later, unrelated visit with no ?src= and no checkout in flight
+    // must not silently inherit an old attribution just for sharing a tab.
+    if (IS_CHECKOUT_RETURN) {
+      try {
+        var stored = sessionStorage.getItem(ENTRY_SURFACE_KEY) || '';
+        if (ENTRY_SURFACE_RE.test(stored)) return stored;
+      } catch (e) {}
+    }
     var ref = document.referrer || '';
     if (!ref) return 'direct';
     var refOrigin = '';
@@ -109,12 +128,12 @@
   // for the same reason as entry surface: a bounce back from Stripe must not
   // lose the attribution.
   //
-  // The stored value is only trusted while ENTRY_SURFACE (resolved above,
-  // for THIS pageload) still says "goals" — otherwise a stale offer_variant
-  // from an earlier /goals/ visit this session would keep riding along into
-  // a later, unrelated arrival (e.g. a race-page CTA later in the same
-  // session, which correctly overwrites ENTRY_SURFACE but carries no
-  // offer_variant of its own to overwrite this with).
+  // The stored value is only trusted on a genuine Stripe-bounce pageload
+  // (IS_CHECKOUT_RETURN) — the same expiry rule as ENTRY_SURFACE above, for
+  // the same reason: otherwise a stale offer_variant from an earlier
+  // /goals/ visit this session would keep riding along into a later,
+  // unrelated arrival that carries no offer_variant of its own to
+  // overwrite it with.
   var OFFER_VARIANT_KEY = 'gg_tp_offer_variant';
   var OFFER_VARIANT_RE = /^[ABC]$/;
   function resolveOfferVariant() {
@@ -124,7 +143,7 @@
       try { sessionStorage.setItem(OFFER_VARIANT_KEY, fromUrl); } catch (e) {}
       return fromUrl;
     }
-    if (ENTRY_SURFACE !== 'goals') { return ''; }
+    if (!IS_CHECKOUT_RETURN) { return ''; }
     try {
       var stored = sessionStorage.getItem(OFFER_VARIANT_KEY) || '';
       if (OFFER_VARIANT_RE.test(stored)) return stored;
@@ -135,8 +154,8 @@
 
   // Which surface (home / race) sent the visitor to /goals/ in the first
   // place — distinct from ENTRY_SURFACE, which for a goals-funnel arrival is
-  // always the fixed value "goals". Same same-session-only rule as
-  // OFFER_VARIANT, and for the same reason.
+  // always the fixed value "goals". Same expiry rule as OFFER_VARIANT, and
+  // for the same reason.
   var ENTRY_SRC_KEY = 'gg_tp_entry_src';
   var ENTRY_SRC_RE = /^[a-z_]{1,24}$/;
   function resolveEntrySrc() {
@@ -146,7 +165,7 @@
       try { sessionStorage.setItem(ENTRY_SRC_KEY, fromUrl); } catch (e) {}
       return fromUrl;
     }
-    if (ENTRY_SURFACE !== 'goals') { return ''; }
+    if (!IS_CHECKOUT_RETURN) { return ''; }
     try {
       var stored = sessionStorage.getItem(ENTRY_SRC_KEY) || '';
       if (ENTRY_SRC_RE.test(stored)) return stored;
@@ -796,6 +815,10 @@
           price: pricing ? pricing.price : 0,
           weeks: pricing ? pricing.weeks : 0
         });
+        // Marks the next pageload here as a genuine return from Stripe, so
+        // resolveEntrySurface/resolveOfferVariant/resolveEntrySrc know
+        // their stored values are still trustworthy — see IS_CHECKOUT_RETURN.
+        try { sessionStorage.setItem(CHECKOUT_PENDING_KEY, '1'); } catch (e) {}
         window.location.href = result.checkout_url;
         return; // Don't re-enable button — page is navigating away
       } else {

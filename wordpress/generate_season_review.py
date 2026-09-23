@@ -723,7 +723,14 @@ def build_season_review_js(variant) -> str:
     saveTimer = setTimeout(function() { save(true); }, 800);
   }
 
+  /* Set while restore() may still be driving a programmatic scroll (its
+     own "Picked up where you left off" message smooth-scrolls into view),
+     so that scroll is never mistaken for the genuine interaction that
+     starts goal_section tracking. See startWatchingGoalSectionsOnce(). */
+  var restoringDraft = false;
+
   function restore() {
+    restoringDraft = true;
     var saved = null;
     try { saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || "null"); } catch (err) { saved = null; }
     if (saved) {
@@ -753,6 +760,10 @@ def build_season_review_js(variant) -> str:
       if (el && params.get(k) && !el.value) { el.value = params.get(k); }
     });
     updateProgress();
+    // A smooth scrollIntoView keeps firing scroll events for a few hundred
+    // ms after this function returns, not just during it — clear the flag
+    // once that animation has had time to finish, not synchronously.
+    setTimeout(function() { restoringDraft = false; }, 800);
   }
 
   form.querySelectorAll(".gg-sr-save").forEach(function(b) {
@@ -1152,12 +1163,20 @@ def build_season_review_js(variant) -> str:
 
   var goalSectionsStarted = false;
   function startWatchingGoalSectionsOnce() {
-    if (goalSectionsStarted) { return; }
+    // restoringDraft: a restored draft's "Picked up where you left off"
+    // message smooth-scrolls the page (showMessage -> scrollIntoView),
+    // which is a plain "scroll" event with no way to tell it apart from a
+    // real one. Listening for pointerdown/keydown/wheel/touchstart instead
+    // sidesteps that entirely — none of those ever fire from a
+    // programmatic scroll — and restoringDraft is kept as a second guard
+    // in case a future signal is added that could.
+    if (goalSectionsStarted || restoringDraft) { return; }
     goalSectionsStarted = true;
     watchGoalSections();
   }
-  window.addEventListener("scroll", startWatchingGoalSectionsOnce, { once: true, passive: true });
-  form.addEventListener("input", startWatchingGoalSectionsOnce, { once: true });
+  ["pointerdown", "keydown", "wheel", "touchstart"].forEach(function(evt) {
+    window.addEventListener(evt, startWatchingGoalSectionsOnce, { once: true, passive: true });
+  });
   restore();
   ga4("season_review_view", { variant: VARIANT });
 })();

@@ -1945,6 +1945,17 @@ class TestGoalStrip:
         html = build_goal_strip(normalized_data)
         assert "gtag('event', 'goal_hero_click', { src: 'race', race_slug: \"test-gravel-100\" });" in html
 
+    def test_race_slug_is_embedded_with_the_script_safe_json_helper(self):
+        # sol review: CLAUDE.md bans bare json.dumps() inside <script> tags
+        # (it doesn't escape "</", so a slug containing "</script>" could
+        # break out of the tag) — must go through _safe_json_for_script.
+        import inspect
+
+        from generate_neo_brutalist import build_goal_strip
+        src = inspect.getsource(build_goal_strip)
+        assert "_safe_json_for_script(slug)" in src
+        assert "json.dumps(slug)" not in src
+
     def test_strip_sits_after_ratings_before_custom_plan(self, normalized_data):
         html = generate_page(normalized_data)
         ratings_pos = html.index('data-measure-section="rating"')

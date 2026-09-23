@@ -341,3 +341,63 @@ process.stdout.write(JSON.stringify({{
         assert not violations, (
             f"Generators defining GA_MEASUREMENT_ID locally: {violations}"
         )
+
+
+# ── border-left ratchet ───────────────────────────────────────
+
+# Measured 2026-09-22 across SOURCE only (wordpress/*.py + pipeline/*.py):
+#   border-left:        64
+#   border-left-color:  16
+#   border-left-width:   3
+#                      ---
+#                       83
+# This is a RATCHET, not a cleanup target. It exists to stop the count
+# growing. When a genuine reduction lands, lower this number in the same
+# commit. Never raise it without a deliberate decision.
+MAX_BORDER_LEFT_DECLARATIONS = 83
+
+# Matches the border-left property family as a declaration: the shorthand
+# plus the -color/-width/-style longhands, each followed by a colon. Prose
+# mentions of "border-left" in docstrings and comments are not declarations
+# and are deliberately excluded.
+_BORDER_LEFT_DECL = re.compile(r"border-left(?:-[a-z]+)?\s*:")
+
+
+def _source_css_files():
+    """Source Python files that emit CSS.
+
+    Deliberately non-recursive top-level globs. wordpress/output/ holds
+    generated artifacts where a single CSS rule is duplicated across
+    thousands of pages; counting those would inflate the number until it
+    said nothing about the source.
+    """
+    root = Path(__file__).resolve().parent.parent
+    files = sorted(root.glob("wordpress/*.py")) + sorted(root.glob("pipeline/*.py"))
+    assert files, "Found no source files to scan — glob is wrong"
+    assert not any("output" in f.parts for f in files), (
+        "Generated output leaked into the source scan"
+    )
+    return files
+
+
+class TestBorderLeftRatchet:
+    def test_border_left_count_does_not_grow(self):
+        """Neo-brutalist lint ratchet: border-left declarations must not increase.
+
+        border-left accent strips are a banned pattern. The existing ones are
+        grandfathered; this test only stops new ones appearing. If you are
+        adding a border-left, remove one elsewhere or make the case for
+        raising MAX_BORDER_LEFT_DECLARATIONS.
+        """
+        per_file = {}
+        for f in _source_css_files():
+            n = len(_BORDER_LEFT_DECL.findall(f.read_text()))
+            if n:
+                per_file[str(f.relative_to(Path(__file__).resolve().parent.parent))] = n
+
+        total = sum(per_file.values())
+        assert total <= MAX_BORDER_LEFT_DECLARATIONS, (
+            f"border-left declarations grew to {total}, ratchet is "
+            f"{MAX_BORDER_LEFT_DECLARATIONS}. Per file: "
+            f"{dict(sorted(per_file.items(), key=lambda kv: -kv[1]))}"
+        )

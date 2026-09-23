@@ -372,6 +372,84 @@ async def _send_next_step(enrollment: dict) -> bool:
     return True
 
 
+# A resubmitted season review re-sends its first email so the rider gets the
+# poster they just corrected. Capped, because the form is public and the
+# address is whatever was typed.
+MAX_RESENDS = 3
+
+
+async def resend_first_step(enrollment: dict, subject: str | None = None) -> bool:
+    """Send step 0 of an enrollment again without moving the sequence on.
+
+    Sends nothing when the enrollment is unsubscribed, paused or bounced, when
+    step 0 has not gone out yet (the scheduled send will already carry the
+    corrected answers), or when MAX_RESENDS is used up.
+    """
+    if enrollment.get("status") not in ("active", "completed"):
+        return False
+    seq = get_sequence(enrollment["sequence_id"])
+    variant = (seq or {}).get("variants", {}).get(enrollment.get("variant"))
+    if not variant or not variant.get("steps"):
+        return False
+
+    def _firsts() -> list[dict]:
+        return [s for s in db.select("gg_sequence_sends", match={"enrollment_id": enrollment["id"]})
+                if s.get("step_index") == 0]
+
+    firsts = _firsts()
+    if not firsts or len(firsts) > MAX_RESENDS:  # the original plus MAX_RESENDS corrections
+        return False
+    if not RESEND_API_KEY:
+        return False
+
+    step = variant["steps"][0]
+    brand = seq.get("brand", "gravelgod")
+    subject = subject or _render_subject(step["subject"], enrollment.get("source_data") or {})
+
+    # Claim a slot before sending, then count. Every concurrent caller counts
+    # at least every claim made before its own, so however many arrive at
+    # once, no more than MAX_RESENDS of them get past this line.
+    claim = db.insert("gg_sequence_sends", {
+        "enrollment_id": enrollment["id"], "step_index": 0,
+        "template": step["template"], "subject": subject, "status": "sending",
+    })
+    if len(_firsts()) > MAX_RESENDS + 1:
+        db.delete("gg_sequence_sends", {"id": claim["id"]})
+        return False
+
+    # From here on the claim is removed unless the email went and the row
+    # says so, so a failure never leaves a slot used or a phantom "send".
+    done = False
+    try:
+        html = _render_template(step["template"], enrollment)
+        html = _inject_utm_params(html, sequence_id=enrollment["sequence_id"],
+                                  variant=enrollment["variant"], step_index=0, brand=brand)
+        html = _inject_unsubscribe(html, enrollment["contact_email"])
+        reply_token = secrets.token_hex(16)
+        resend_id = await asyncio.to_thread(
+            _send_email_sync, enrollment["contact_email"], subject, html, brand, reply_token)
+
+        from mission_control.services.lead_nurture import classify_question
+        db.update("gg_sequence_sends", {
+            "resend_id": resend_id,
+            "status": "sent",
+            "reply_token": reply_token,
+            "question_type": step.get("question_type") or classify_question(html),
+        }, {"id": claim["id"]})
+        done = True
+    except Exception as e:
+        db.log_action("sequence_send_error", "enrollment", str(enrollment["id"]),
+                      f"Resend error on resubmitted step 0: {e}")
+        return False
+    finally:
+        if not done:
+            try:
+                db.delete("gg_sequence_sends", {"id": claim["id"]})
+            except Exception:
+                logger.exception("could not remove resend claim %s", claim.get("id"))
+    return True
+
+
 def _render_subject(subject: str, source_data: dict) -> str:
     """Replace {placeholders} in subject with source_data values."""
     for key, val in source_data.items():

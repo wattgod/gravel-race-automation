@@ -167,6 +167,133 @@ class TestAthleteReviewIsTransactional:
         assert sd["poster_token"] == token, "a poster link already emailed must keep working"
 
 
+class TestResubmitResendsTheResults:
+    """The results screen promises a copy, so a correction must send one."""
+
+    def _two_posts(self, client, fake_db, monkeypatch, gap_minutes=None):
+        from datetime import datetime, timedelta, timezone
+        import mission_control.services.sequence_engine as se
+        sent = []
+        monkeypatch.setattr(se, "RESEND_API_KEY", "test-key")
+        monkeypatch.setattr(se, "_send_email_sync",
+                            lambda to, subject, *a: (to == "fix@example.com" and sent.append(subject)) or "rs-1")
+        _post(client, {"email": "fix@example.com", "name": "Fix", "source": "goal_2027",
+                       "goal_answers": dict(ANSWERS, outcome_goal="First")})
+        enrollment = _enrollment(fake_db, "fix@example.com")
+        if gap_minutes is not None:  # the day-0 email the scheduler already sent
+            fake_db.store["gg_sequence_sends"].append({
+                "id": "s0", "enrollment_id": enrollment["id"], "step_index": 0,
+                "template": "goal_2027_results", "subject": "x",
+                "sent_at": (datetime.now(timezone.utc) - timedelta(minutes=gap_minutes)).isoformat(),
+            })
+        _post(client, {"email": "fix@example.com", "name": "Fix", "source": "goal_2027",
+                       "goal_answers": dict(ANSWERS, outcome_goal="Second")})
+        return sent
+
+    def test_a_correction_sends_the_revised_poster(self, client, fake_db, monkeypatch):
+        sent = self._two_posts(client, fake_db, monkeypatch, gap_minutes=30)
+        assert sent == ["your 2027 goal, revised"]
+
+    def test_a_quick_correction_still_gets_one(self, client, fake_db, monkeypatch):
+        assert self._two_posts(client, fake_db, monkeypatch, gap_minutes=1) == ["your 2027 goal, revised"]
+
+    def test_nothing_extra_before_the_first_email_goes(self, client, fake_db, monkeypatch):
+        # the scheduled day-0 send renders the corrected answers anyway
+        assert self._two_posts(client, fake_db, monkeypatch) == []
+
+    def test_resends_are_capped(self, client, fake_db, monkeypatch):
+        from datetime import datetime, timedelta, timezone
+        from mission_control.services.sequence_engine import MAX_RESENDS
+        _post(client, {"email": "cap@example.com", "name": "Cap", "source": "goal_2027",
+                       "goal_answers": ANSWERS})
+        enrollment = _enrollment(fake_db, "cap@example.com")
+        old = (datetime.now(timezone.utc) - timedelta(hours=2)).isoformat()
+        for i in range(MAX_RESENDS + 1):
+            fake_db.store["gg_sequence_sends"].append({
+                "id": f"c{i}", "enrollment_id": enrollment["id"], "step_index": 0,
+                "template": "goal_2027_results", "subject": "x", "sent_at": old})
+        import mission_control.services.sequence_engine as se
+        sent = []
+        monkeypatch.setattr(se, "RESEND_API_KEY", "test-key")
+        monkeypatch.setattr(se, "_send_email_sync",
+                            lambda to, *a: (to == "cap@example.com" and sent.append(a)) or "rs-2")
+        _post(client, {"email": "cap@example.com", "name": "Cap", "source": "goal_2027",
+                       "goal_answers": ANSWERS})
+        assert sent == []
+
+    def test_an_unsubscribed_lead_gets_nothing(self, client, fake_db, monkeypatch):
+        import mission_control.services.sequence_engine as se
+        sent = []
+        monkeypatch.setattr(se, "RESEND_API_KEY", "test-key")
+        monkeypatch.setattr(se, "_send_email_sync", lambda to, *a: (to == "gone@example.com" and sent.append(a)) or "rs-3")
+        _post(client, {"email": "gone@example.com", "name": "Gone", "source": "goal_2027",
+                       "goal_answers": ANSWERS})
+        _enrollment(fake_db, "gone@example.com")["status"] = "unsubscribed"
+        _post(client, {"email": "gone@example.com", "name": "Gone", "source": "goal_2027",
+                       "goal_answers": ANSWERS})
+        assert sent == []
+
+
+    def test_simultaneous_corrections_stay_under_the_cap(self, fake_db, monkeypatch):
+        import asyncio
+        import time as _time
+        import mission_control.services.sequence_engine as se
+        sent = []
+
+        def slow_send(to, subject, *a):  # hold the thread so the calls overlap
+            _time.sleep(0.05)
+            sent.append(to)
+            return "rs-x"
+
+        monkeypatch.setattr(se, "RESEND_API_KEY", "test-key")
+        monkeypatch.setattr(se, "_send_email_sync", slow_send)
+        monkeypatch.setattr(se, "_render_template", lambda *a: "<p>poster</p>")
+        enrollment = {"id": "e-burst", "sequence_id": "goal_2027_v1", "variant": "A",
+                      "status": "active", "contact_email": "burst@example.com",
+                      "source_data": {}}
+        seq = get_sequences_for_trigger("goal_2027", "gravelgod")[0]
+        enrollment["variant"] = next(iter(seq["variants"]))
+        fake_db.store["gg_sequence_sends"].append({
+            "id": "orig", "enrollment_id": "e-burst", "step_index": 0,
+            "template": "goal_2027_results", "subject": "x", "status": "sent"})
+
+        async def burst():
+            return await asyncio.gather(*[se.resend_first_step(enrollment) for _ in range(10)])
+
+        asyncio.run(burst())
+        assert len(sent) <= se.MAX_RESENDS
+
+    def test_a_failed_render_leaves_no_claim(self, fake_db, monkeypatch):
+        import asyncio
+        import mission_control.services.sequence_engine as se
+        monkeypatch.setattr(se, "RESEND_API_KEY", "test-key")
+
+        def broken(*a):
+            raise RuntimeError("template blew up")
+
+        monkeypatch.setattr(se, "_render_template", broken)
+        seq = get_sequences_for_trigger("goal_2027", "gravelgod")[0]
+        enrollment = {"id": "e-fail", "sequence_id": seq["id"], "variant": next(iter(seq["variants"])),
+                      "status": "active", "contact_email": "f@example.com", "source_data": {}}
+        fake_db.store["gg_sequence_sends"].append({
+            "id": "orig-f", "enrollment_id": "e-fail", "step_index": 0,
+            "template": "goal_2027_results", "subject": "x", "status": "sent"})
+        assert asyncio.run(se.resend_first_step(enrollment)) is False
+        rows = [r for r in fake_db.store["gg_sequence_sends"] if r["enrollment_id"] == "e-fail"]
+        assert [r["id"] for r in rows] == ["orig-f"]
+
+    def test_the_corrected_link_dodges_a_cached_poster(self, client, fake_db, monkeypatch):
+        import mission_control.routers.webhooks as wh
+        monkeypatch.setattr(wh, "MC_PUBLIC_URL", "https://mc.example")
+        _post(client, {"email": "cache@example.com", "name": "C", "source": "goal_2027",
+                       "goal_answers": ANSWERS})
+        first = _enrollment(fake_db, "cache@example.com")["source_data"]["poster_url"]
+        _post(client, {"email": "cache@example.com", "name": "C", "source": "goal_2027",
+                       "goal_answers": ANSWERS})
+        second = _enrollment(fake_db, "cache@example.com")["source_data"]["poster_url"]
+        assert second.startswith(first + "?v=")
+
+
 class TestCapsFitTheLongestForm:
     """The athlete form has 50 answers and a 15-minute free-write."""
 

@@ -4,9 +4,9 @@ Drawn on demand from the answers stored on the enrollment, never written to
 disk: Railway's filesystem does not survive a redeploy, so a file saved when
 the lead arrived would 404 by the time the email is opened.
 
-Brand: the D1 poster on the design canvas — near-black ground, Source Serif 4
-for the goal, Sometype Mono for the frame, one teal rule. Same fonts the site
-ships, loaded from guide/fonts/.
+Brand: the paper poster (Matti, Sep 23: paper over dark) — warm paper ground,
+near-black ink, Source Serif 4 for the goal, Sometype Mono for the frame, one
+teal rule. Same fonts the site ships, loaded from guide/fonts/.
 """
 from __future__ import annotations
 
@@ -21,10 +21,7 @@ WIDTH, HEIGHT = 1080, 1440  # 3:4, prints at 12x16in
 
 INK = (26, 22, 19)
 PAPER = (245, 239, 230)
-WHITE = (255, 255, 255)
-TAN = (212, 197, 185)
 TEAL = (23, 128, 121)
-GOLD = (201, 169, 44)
 GREY = (125, 105, 93)
 
 _FONT_DIR = REPO_ROOT / "guide" / "fonts"
@@ -87,14 +84,14 @@ def render_poster(answers: dict, name: str = "", season: int = 2027) -> bytes:
     habit) are anchored above the footer, and whatever room is left goes to
     the goal, which shrinks to fit rather than running over them.
     """
-    img = Image.new("RGB", (WIDTH, HEIGHT), INK)
+    img = Image.new("RGB", (WIDTH, HEIGHT), PAPER)
     draw = ImageDraw.Draw(img)
     pad = 84
     inner = WIDTH - pad * 2
 
     # header
-    draw.text((pad, pad), f"{season} · GOAL FILE", font=_font("mono_bold", 26), fill=GOLD)
-    draw.text((WIDTH - pad, pad), "GRAVEL GOD", font=_font("mono_bold", 26), fill=TAN, anchor="ra")
+    draw.text((pad, pad), f"{season} · GOAL FILE", font=_font("mono_bold", 26), fill=TEAL)
+    draw.text((WIDTH - pad, pad), "GRAVEL GOD", font=_font("mono_bold", 26), fill=INK, anchor="ra")
     draw.text((pad, HEIGHT - pad - 20), "GRAVELGODCYCLING.COM",
               font=_font("mono", 22), fill=GREY)
 
@@ -114,7 +111,7 @@ def render_poster(answers: dict, name: str = "", season: int = 2027) -> bytes:
         draw.text((pad, y), key, font=label_font, fill=TEAL)
         line = _wrap(draw, value, value_font, inner)[:1]
         if line:
-            draw.text((pad, y + 34), line[0], font=value_font, fill=PAPER)
+            draw.text((pad, y + 34), line[0], font=value_font, fill=INK)
         y += row_height
 
     # middle block: the why, sitting just above the frame
@@ -139,17 +136,17 @@ def render_poster(answers: dict, name: str = "", season: int = 2027) -> bytes:
 
     who = _clean(name, 40).upper() or "I"
     draw.text((pad, label_y), f"BY THE END OF {season}, {who} WILL",
-              font=_font("mono", 26), fill=TAN)
+              font=_font("mono", 26), fill=GREY)
     y = label_y + 60
     for line in goal_lines:
-        draw.text((pad, y), line, font=goal_font, fill=WHITE)
+        draw.text((pad, y), line, font=goal_font, fill=INK)
         y += line_height
     draw.rectangle([pad, y + 24, pad + 150, y + 30], fill=TEAL)
 
     # the why goes directly above the frame, never into it
     y = frame_top - why_height
     for line in why_lines:
-        draw.text((pad, y), line, font=why_font, fill=TAN)
+        draw.text((pad, y), line, font=why_font, fill=GREY)
         y += 50
 
     buffer = io.BytesIO()

@@ -955,14 +955,14 @@ def build_season_review_js(variant) -> str:
     var canvas = document.getElementById("poster-canvas");
     var ctx = canvas.getContext("2d");
     var W = canvas.width, H = canvas.height, pad = 84, inner = W - pad * 2;
-    ctx.fillStyle = POSTER.ink;
+    ctx.fillStyle = POSTER.paper;
     ctx.fillRect(0, 0, W, H);
     ctx.textBaseline = "top";
 
     ctx.font = "700 26px 'Sometype Mono', monospace";
-    ctx.fillStyle = POSTER.gold;
+    ctx.fillStyle = POSTER.teal;
     ctx.fillText((SEASON + 1) + " \u00b7 GOAL FILE", pad, pad);
-    ctx.fillStyle = POSTER.tan;
+    ctx.fillStyle = POSTER.ink;
     ctx.textAlign = "right";
     ctx.fillText("GRAVEL GOD", W - pad, pad);
     ctx.textAlign = "left";
@@ -982,7 +982,7 @@ def build_season_review_js(variant) -> str:
       ctx.fillStyle = POSTER.teal;
       ctx.fillText(row[0], pad, y);
       ctx.font = "30px 'Sometype Mono', monospace";
-      ctx.fillStyle = POSTER.paper;
+      ctx.fillStyle = POSTER.ink;
       ctx.fillText(wrapText(ctx, row[1], inner)[0], pad, y + 34);
       y += 96;
     });
@@ -1005,11 +1005,11 @@ def build_season_review_js(variant) -> str:
     });
 
     ctx.font = "26px 'Sometype Mono', monospace";
-    ctx.fillStyle = POSTER.tan;
+    ctx.fillStyle = POSTER.grey;
     ctx.fillText("BY THE END OF " + (SEASON + 1) + ", " + (posterClean(d.name, 40) || "I").toUpperCase() + " WILL", pad, labelY);
 
     ctx.font = "700 " + size + "px 'Source Serif 4', Georgia, serif";
-    ctx.fillStyle = POSTER.white;
+    ctx.fillStyle = POSTER.ink;
     y = labelY + 60;
     goalLines.slice(0, 6).forEach(function(line) {
       ctx.fillText(line, pad, y);
@@ -1019,7 +1019,7 @@ def build_season_review_js(variant) -> str:
     ctx.fillRect(pad, y + 24, 150, 6);
 
     ctx.font = "italic 38px 'Source Serif 4', Georgia, serif";
-    ctx.fillStyle = POSTER.tan;
+    ctx.fillStyle = POSTER.grey;
     y = frameTop - whyHeight;
     whyLines.forEach(function(line) { ctx.fillText(line, pad, y); y += 50; });
   }

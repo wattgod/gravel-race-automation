@@ -855,3 +855,66 @@ def test_seo_adjudication_matches_whole_path_only(monkeypatch):
     out = daily_intel._annotate_seo_adjudications([{"target_path": "/race/ned-gravel/"}, {"target_path": "/race/crooked-gravel/"}])
     assert "adjudicated_issue" not in out[0]
     assert out[1]["adjudicated_issue"] == 119
+
+
+def _commerce_section(report):
+    return report.split("## ORDER PROCESSING (LOCAL RECORDS)\n", 1)[1].split(
+        "\n\n## CONSTRAINT", 1)[0]
+
+
+def _broken_section(report):
+    return report.split("## BROKEN\n", 1)[1]
+
+
+def test_render_report_shows_paid_but_undelivered_orders(collected):
+    # 2026-09-22: a paid order sat in BLOCKED_REVIEW and the digest called the
+    # "processing succeeded" record a milestone. Delivery truth now rides on
+    # every row, and every open paid order is listed whatever its age.
+    collected["commerce_ledger"].update({
+        "orders": [
+            {"name": "Paid Rider", "email": "paid@example.com",
+             "product_type": "training_plan", "success": True,
+             "fulfillment_status": "BLOCKED_REVIEW", "fulfillment_open": True,
+             "blocker_count": 1, "order_ref": "abc123abc123"},
+            {"name": "Hand Built", "email": "hand@example.com",
+             "product_type": "training_plan", "success": True,
+             "fulfillment_status": "FULFILLED_EXTERNALLY",
+             "fulfillment_open": False, "blocker_count": 1,
+             "order_ref": "def456def456"},
+        ],
+        "open_paid_orders": [
+            {"order_ref": "abc123abc123", "status": "BLOCKED_REVIEW",
+             "hours_since_payment": 26, "blocker_count": 1, "stale": True},
+            {"order_ref": "789abc789abc", "status": "GENERATED",
+             "hours_since_payment": 2, "blocker_count": 0, "stale": False},
+        ],
+    })
+
+    report = render_report(collected)
+    commerce = _commerce_section(report)
+
+    assert ("- processing record: Paid Rider <paid@example.com> — training_plan; "
+            "processing succeeded; NOT DELIVERED (BLOCKED_REVIEW, 1 blocker(s)).") in commerce
+    assert "processing succeeded; delivered (FULFILLED_EXTERNALLY)." in commerce
+    assert ("- **PAID ORDER OVERDUE:** order abc123abc123 — BLOCKED_REVIEW, "
+            "26h since payment, 1 blocker(s).") in commerce
+    assert ("- paid order awaiting delivery: order 789abc789abc — GENERATED, "
+            "2h since payment, 0 blocker(s).") in commerce
+    broken = _broken_section(report)
+    assert "PAID ORDER OVERDUE: order abc123abc123 — BLOCKED_REVIEW, 26h since payment" in broken
+    assert "789abc789abc" not in broken
+    assert not report.endswith("- nothing broken.")
+
+
+def test_render_report_says_when_no_paid_order_is_waiting(collected):
+    collected["commerce_ledger"]["open_paid_orders"] = []
+    report = render_report(collected)
+    assert "- paid orders awaiting delivery: none." in _commerce_section(report)
+    assert report.endswith("- nothing broken.")
+
+
+def test_interpret_prompt_treats_open_paid_orders_as_undelivered():
+    from scripts.daily_intel import INTERPRET_PROMPT
+
+    assert "open_paid_orders" in INTERPRET_PROMPT
+    assert "never as a" in INTERPRET_PROMPT and "milestone" in INTERPRET_PROMPT

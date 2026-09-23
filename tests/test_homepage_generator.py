@@ -21,6 +21,7 @@ from generate_homepage import (
     generate_homepage,
     build_nav,
     build_ticker,
+    build_goal_hero,
     build_hero,
     build_ladder_strip,
     build_stats_bar,
@@ -326,6 +327,87 @@ class TestSectionBuilders:
         hero = build_hero(stats, race_index)
         assert 'data-viz="hero-radar"' in hero
         assert "<svg" in hero
+
+    def test_goal_hero_has_fixed_headline_and_button(self):
+        """Headline and MAKE MINE button must be present and never gated on
+        which sample poster artwork is showing (goals-2027-funnel D5)."""
+        hero = build_goal_hero()
+        assert "It&rsquo;s dreaming season. Most of it stays a dream." in hero
+        assert "MAKE MINE" in hero
+        assert 'href="https://gravelgodcycling.com/goals/?src=home"' in hero
+        assert 'data-ga="goal_hero_click"' in hero
+        assert 'data-ga-label="home"' in hero
+
+    def test_goal_hero_has_no_subtitle(self):
+        """House rule: no descriptive copy under a heading. The only <p> in
+        the section is the small eyebrow kicker — no deck/subtitle under
+        the headline itself."""
+        hero = build_goal_hero()
+        assert hero.count("<p") == 1
+        assert 'class="gg-hp-hero-kicker"' in hero
+
+    def test_goal_hero_headline_is_not_h1(self):
+        """The page's one h1 stays on the race-database band (SEO); the
+        poster-wall headline is an h2."""
+        hero = build_goal_hero()
+        assert "<h1" not in hero
+        assert hero.count("<h2") == 1
+
+    def test_goal_hero_has_three_posters_no_timer(self):
+        hero = build_goal_hero()
+        assert hero.count('class="gg-hp-poster gg-hp-poster--') == 3
+        assert "gg-goal-poster-0" in hero
+        assert "gg-goal-poster-1" in hero
+        assert "gg-goal-poster-2" in hero
+        assert "setInterval" not in hero
+
+    def test_goal_hero_owns_skip_link_target(self):
+        assert 'id="main"' in build_goal_hero()
+
+    def test_homepage_poster_js_never_uses_a_timer(self, homepage_html):
+        """Owner ruling (D5): artwork may change on load or click, never on
+        a timer."""
+        idx = homepage_html.index("Goal poster wall")
+        end = homepage_html.index(")();", idx)
+        script = homepage_html[idx:end]
+        assert "setInterval" not in script
+        assert "setTimeout" not in script
+        assert "SAMPLE" in script
+
+    def test_homepage_poster_click_reshuffles_not_a_link(self, homepage_html):
+        assert "addEventListener('click'" in homepage_html
+        assert 'id="gg-poster-wall"' in homepage_html
+
+    def test_homepage_poster_matches_new_layout_rows(self, homepage_html):
+        """The homepage samples must follow the real poster's layout
+        (PR #386, drawPoster() in generate_season_review.py /
+        goal_poster.py): every day / also every day / watch for, with the
+        label line starting at pad+200."""
+        idx = homepage_html.index("Goal poster wall")
+        end = homepage_html.index(")();", idx)
+        script = homepage_html[idx:end]
+        assert '"EVERY DAY"' in script
+        assert '"ALSO EVERY DAY"' in script
+        assert '"WATCH FOR"' in script
+        assert "pad + 200" in script
+        # Old layout's row labels must be gone.
+        assert "WHEN IT SHOWS UP" not in script
+        assert "THE HABIT" not in script
+
+    def test_homepage_poster_samples_have_deep_why_and_daily_habit(self, homepage_html):
+        """Each SAMPLE needs a goal, a deep-sounding why, a daily habit with
+        a when/where, and a watch-for obstacle — no named athletes, no
+        invented statistics."""
+        idx = homepage_html.index("var SAMPLES = [")
+        end = homepage_html.index("];", idx)
+        samples_src = homepage_html[idx:end]
+        assert samples_src.count("goal:") >= 5
+        assert samples_src.count("why:") >= 5
+        assert samples_src.count("habit:") >= 5
+        assert samples_src.count("habit_when:") >= 5
+        assert samples_src.count("inner_obstacle:") >= 5
+        assert "habit_2:" in samples_src  # at least one sample has a second habit
+        assert not re.search(r"\d+%|\bPRs?\b", samples_src)
 
     def test_stats_bar_five_stats(self, stats):
         bar = build_stats_bar(stats)
@@ -687,11 +769,14 @@ class TestFullPage:
         assert "gravel race" in h1_match.group(1).lower()
 
     def test_page_size_reasonable(self, homepage_html):
-        # Budget raised 150 → 160 (Jun 2026: page hit 150.7 via content
-        # growth). Real performance is guarded by the daily CWV monitor;
-        # this is a runaway-bloat tripwire. Next bump deserves a trim pass.
+        # Budget raised 150 -> 160 (Jun 2026: page hit 150.7 via content
+        # growth), then 160 -> 170 (Sep 2026: the 2027 goals poster-wall
+        # hero — three canvas-drawn SAMPLE posters plus their draw logic,
+        # goals-2027-funnel-spec.md D5 — added ~9KB; already trimmed once).
+        # Real performance is guarded by the daily CWV monitor; this is a
+        # runaway-bloat tripwire. Next bump deserves a trim pass.
         size_kb = len(homepage_html) / 1024
-        assert size_kb < 160, f"Homepage is {size_kb:.1f}KB, expected under 160KB"
+        assert size_kb < 170, f"Homepage is {size_kb:.1f}KB, expected under 170KB"
         assert size_kb > 20, f"Homepage is {size_kb:.1f}KB, seems too small"
 
     def test_ctas_have_ga_tracking(self, homepage_html):
@@ -1990,7 +2075,7 @@ class TestNoPullquote:
 
 
 class TestHeroRadarViz:
-    """Tests for the interactive 14-axis hero radar visualization.
+    """Tests for the interactive 15-axis hero radar visualization.
 
     Covers: structure, accessibility, brand compliance, buttons, tooltips,
     data integrity, CSS, JS morph animation, and XML well-formedness.
@@ -2022,20 +2107,20 @@ class TestHeroRadarViz:
         assert 'role="img"' in viz_html
 
     def test_viz_svg_aria_label(self, viz_html):
-        """SVG has aria-label mentioning 14 scoring criteria."""
-        assert 'aria-label="Rating system radar chart showing 14 scoring criteria"' in viz_html
+        """SVG has aria-label mentioning 15 scoring criteria."""
+        assert 'aria-label="Rating system radar chart showing 15 scoring criteria"' in viz_html
 
-    def test_viz_14_axis_labels(self, viz_html):
-        """14 text elements with the label class."""
+    def test_viz_15_axis_labels(self, viz_html):
+        """15 text elements with the label class."""
         import re
         labels = re.findall(r'<text[^>]*class="gg-hp-hv-lbl"', viz_html)
-        assert len(labels) == 14
+        assert len(labels) == 15
 
-    def test_viz_14_axis_spokes(self, viz_html):
-        """14 line elements with the grid class (spokes)."""
+    def test_viz_15_axis_spokes(self, viz_html):
+        """15 line elements with the grid class (spokes)."""
         import re
         spokes = re.findall(r'<line[^>]*class="gg-hp-hv-grid"', viz_html)
-        assert len(spokes) == 14
+        assert len(spokes) == 15
 
     def test_viz_3_grid_rings(self, viz_html):
         """3 polygon elements with the grid class (concentric rings)."""
@@ -2049,11 +2134,11 @@ class TestHeroRadarViz:
         data = re.findall(r'<polygon[^>]*class="gg-hp-hv-data"', viz_html)
         assert len(data) == 1
 
-    def test_viz_14_rect_markers(self, viz_html):
-        """14 rect elements with the dot class."""
+    def test_viz_15_rect_markers(self, viz_html):
+        """15 rect elements with the dot class."""
         import re
         dots = re.findall(r'<rect[^>]*class="gg-hp-hv-dot"', viz_html)
-        assert len(dots) == 14
+        assert len(dots) == 15
 
     def test_viz_no_circles(self, viz_html):
         """No circle elements (brand rule: no border-radius)."""
@@ -2085,7 +2170,7 @@ class TestHeroRadarViz:
         """data-dim-desc values match HERO_VIZ_TOOLTIPS."""
         import re
         descs = re.findall(r'data-dim-desc="([^"]+)"', viz_html)
-        assert len(descs) == 14
+        assert len(descs) == 15
         expected = list(HERO_VIZ_TOOLTIPS.values())
         for tooltip in expected:
             assert tooltip in descs, f"Missing tooltip desc: {tooltip}"
@@ -2135,13 +2220,13 @@ class TestHeroRadarViz:
         """Exactly 1 button has the active class."""
         assert viz_html.count("gg-hp-hv-btn--active") == 1
 
-    def test_viz_button_points_14_pairs(self, viz_html):
-        """Each data-points has 14 coordinate pairs."""
+    def test_viz_button_points_15_pairs(self, viz_html):
+        """Each data-points has 15 coordinate pairs."""
         import re
         points_attrs = re.findall(r'data-points="([^"]+)"', viz_html)
         for pts in points_attrs:
             pairs = pts.split()
-            assert len(pairs) == 14, f"Expected 14 pairs, got {len(pairs)}: {pts[:60]}..."
+            assert len(pairs) == 15, f"Expected 15 pairs, got {len(pairs)}: {pts[:60]}..."
 
     # ── Methodology link ──
 
@@ -2157,9 +2242,12 @@ class TestHeroRadarViz:
     # ── Data integrity ──
 
     def test_viz_dims_match_all_dims(self):
-        """HERO_VIZ_DIMS matches ALL_DIMS from neo_brutalist."""
+        """HERO_VIZ_DIMS is neo_brutalist's ALL_DIMS (the 14 base course+editorial
+        dimensions) plus cultural_impact, the 15th scored criterion in
+        race.gravel_god_rating (business_tier/editorial_tier are not criteria)."""
         from generate_neo_brutalist import ALL_DIMS
-        assert HERO_VIZ_DIMS == ALL_DIMS
+        assert HERO_VIZ_DIMS == ALL_DIMS + ["cultural_impact"]
+        assert len(HERO_VIZ_DIMS) == 15
 
     def test_viz_labels_cover_all_dims(self):
         """Every dim in HERO_VIZ_DIMS has a label."""
@@ -2172,15 +2260,32 @@ class TestHeroRadarViz:
             assert dim in HERO_VIZ_TOOLTIPS, f"Missing tooltip for dim: {dim}"
 
     def test_viz_archetype_scores_length(self):
-        """All archetype arrays have length 14."""
+        """All archetype arrays have length 15."""
         for name, scores in HERO_VIZ_ARCHETYPES.items():
-            assert len(scores) == 14, f"{name} has {len(scores)} scores, expected 14"
+            assert len(scores) == 15, f"{name} has {len(scores)} scores, expected 15"
 
     def test_viz_archetype_scores_range(self):
         """All scores between 1 and 5."""
         for name, scores in HERO_VIZ_ARCHETYPES.items():
             for i, s in enumerate(scores):
                 assert 1 <= s <= 5, f"{name}[{i}] = {s}, expected 1-5"
+
+    def test_viz_axis_count_matches_stats_and_headline(self, viz_html, stats, race_index):
+        """The radar's axis count, stats['dimensions'] (used in the hero
+        headline and stat bar), and the aria-label all agree on 15 — the
+        real count of scored criteria in race.gravel_god_rating."""
+        import re
+        labels = re.findall(r'<text[^>]*class="gg-hp-hv-lbl"', viz_html)
+        aria_match = re.search(
+            r'aria-label="Rating system radar chart showing (\d+) scoring criteria"',
+            viz_html,
+        )
+        assert aria_match, "aria-label with scoring criteria count not found"
+        assert len(HERO_VIZ_DIMS) == 15
+        assert len(labels) == 15
+        assert int(aria_match.group(1)) == 15
+        assert stats["dimensions"] == 15
+        assert len(labels) == int(aria_match.group(1)) == stats["dimensions"] == len(HERO_VIZ_DIMS)
 
     def test_viz_archetypes_visually_distinct(self):
         """No two archetypes have identical scores."""

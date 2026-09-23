@@ -1084,6 +1084,172 @@ def build_season_review_js(variant) -> str:
     )
 
 
+# ── Walkthrough mode (D19) ───────────────────────────────────
+# Matti talks through the page while using it; ?walkthrough=1 turns on a
+# record control that captures mic audio (MediaRecorder) plus a timeline of
+# which section is on screen and which fields he touches. On stop it
+# downloads a .webm and a matching .json — nothing is uploaded anywhere.
+# scripts/walkthrough.py turns the pair into a per-section markdown review.
+#
+# Absent the flag, the IIFE below returns on its very first line: no DOM
+# node is created, no listener is attached, nothing runs. The script tag
+# is still present in the HTML (this generator has one output per variant,
+# not two), but it is inert — confirmed by test_walkthrough.py and by the
+# Playwright check in the D19 build (docs/walkthrough.md).
+
+
+def build_walkthrough_js(variant) -> str:
+    js = r'''<script>
+(function() {
+  "use strict";
+  if (new URLSearchParams(window.location.search).get("walkthrough") !== "1") { return; }
+
+  var PAGE = "__WALK_PAGE__";
+  var t0 = 0, startedAt = null;
+  var events = [];
+  var recorder = null, chunks = [], stream = null;
+  var sectionObserver = null, lastSection = null;
+
+  function stamp() {
+    var d = new Date();
+    function p(n) { return String(n).padStart(2, "0"); }
+    return d.getFullYear() + p(d.getMonth() + 1) + p(d.getDate()) + "-" + p(d.getHours()) + p(d.getMinutes()) + p(d.getSeconds());
+  }
+
+  function log(type, extra) {
+    events.push(Object.assign({ t: Math.round((performance.now() - t0) / 10) / 100, type: type }, extra || {}));
+  }
+
+  /* Field NAMES only in the timeline events themselves — the typed values
+     ride along on "input" because these are his own test answers and the
+     file never leaves this machine (nothing here is ever uploaded). */
+  function fieldName(el) {
+    if (!el) { return null; }
+    var mod = el.closest && el.closest("[data-module]");
+    return el.name || el.id || (mod && mod.getAttribute("data-module")) || el.tagName;
+  }
+
+  function onFocus(e) { var f = fieldName(e.target); if (f) { log("focus", { field: f }); } }
+  function onInput(e) {
+    var f = fieldName(e.target);
+    if (!f) { return; }
+    var value = e.target.type === "checkbox" || e.target.type === "radio"
+      ? (e.target.checked ? "checked" : "unchecked")
+      : String(e.target.value || "").slice(0, 500);
+    log("input", { field: f, value: value });
+  }
+  function onClick(e) {
+    var el = e.target.closest("button, a, input[type=checkbox], input[type=radio], .gg-apply-radio-option, .gg-apply-checkbox-option, [data-module]");
+    if (!el) { return; }
+    log("click", { field: fieldName(el) || el.textContent.trim().slice(0, 60) });
+  }
+
+  function watchSections() {
+    var targets = Array.prototype.slice.call(document.querySelectorAll(".gg-apply-section-title, .gg-sr-deeper"));
+    if (!targets.length || typeof IntersectionObserver !== "function") { return; }
+    sectionObserver = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (!entry.isIntersecting) { return; }
+        var isModule = entry.target.matches(".gg-sr-deeper");
+        var summary = isModule ? entry.target.querySelector("summary") : null;
+        var title = (isModule ? (summary && summary.textContent) : entry.target.textContent);
+        title = (title || "").trim();
+        if (!title || title === lastSection) { return; }
+        lastSection = title;
+        log("section", { section: title });
+      });
+    }, { threshold: 0.5 });
+    targets.forEach(function(t) { sectionObserver.observe(t); });
+  }
+
+  function download(filename, blob) {
+    var a = document.createElement("a");
+    a.href = URL.createObjectURL(blob);
+    a.download = filename;
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+    setTimeout(function() { URL.revokeObjectURL(a.href); }, 60000);
+  }
+
+  function finish() {
+    var name = "walkthrough-" + PAGE + "-" + stamp();
+    var timeline = { page: PAGE, url: window.location.href, startedAt: startedAt, endedAt: new Date().toISOString(), events: events };
+    /* ONE file: Chrome silently blocks a second automatic download, which
+       lost the timeline on the first real walkthrough (Sep 23). */
+    var audio = chunks.length ? new Blob(chunks, { type: chunks[0].type || "audio/webm" }) : null;
+    if (!audio) {
+      download(name + ".walk.json", new Blob([JSON.stringify({ timeline: timeline, audio: null })], { type: "application/json" }));
+      return;
+    }
+    var reader = new FileReader();
+    reader.onload = function() {
+      var b64 = String(reader.result).split(",")[1] || "";
+      download(name + ".walk.json", new Blob([JSON.stringify({ timeline: timeline, audio: { mime: audio.type, base64: b64 } })], { type: "application/json" }));
+    };
+    reader.readAsDataURL(audio);
+  }
+
+  function stopAll(btn) {
+    if (recorder && recorder.state !== "inactive") { recorder.stop(); } else { finish(); }
+    if (stream) { stream.getTracks().forEach(function(tr) { tr.stop(); }); }
+    if (sectionObserver) { sectionObserver.disconnect(); }
+    document.removeEventListener("focusin", onFocus, true);
+    document.removeEventListener("input", onInput, true);
+    document.removeEventListener("click", onClick, true);
+    btn.textContent = "● Record walkthrough";
+    btn.classList.remove("recording");
+  }
+
+  function start(btn) {
+    if (typeof MediaRecorder === "undefined" || !navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
+      alert("This browser can't record audio here (no MediaRecorder).");
+      return;
+    }
+    navigator.mediaDevices.getUserMedia({ audio: true }).then(function(s) {
+      stream = s;
+      chunks = [];
+      events = [];
+      startedAt = new Date().toISOString();
+      t0 = performance.now();
+      lastSection = null;
+      try { recorder = new MediaRecorder(stream); }
+      catch (err) { alert("Couldn't start the recorder: " + err.message); return; }
+      recorder.ondataavailable = function(e) { if (e.data && e.data.size) { chunks.push(e.data); } };
+      recorder.onstop = finish;
+      recorder.start(1000);
+      document.addEventListener("focusin", onFocus, true);
+      document.addEventListener("input", onInput, true);
+      document.addEventListener("click", onClick, true);
+      watchSections();
+      btn.textContent = "■ Stop walkthrough";
+      btn.classList.add("recording");
+    }).catch(function(err) {
+      alert("Microphone access failed: " + err.message);
+    });
+  }
+
+  function buildControl() {
+    var btn = document.createElement("button");
+    btn.type = "button";
+    btn.id = "gg-walkthrough-btn";
+    btn.textContent = "● Record walkthrough";
+    btn.style.cssText = "position:fixed;bottom:16px;right:16px;z-index:99999;padding:10px 14px;"
+      + "background:#1a1613;color:#fff;border:2px solid #1a1613;font:700 12px/1 monospace;"
+      + "letter-spacing:.05em;text-transform:uppercase;cursor:pointer;";
+    btn.addEventListener("click", function() {
+      if (btn.classList.contains("recording")) { stopAll(btn); } else { start(btn); }
+    });
+    document.body.appendChild(btn);
+  }
+
+  if (document.readyState === "loading") { document.addEventListener("DOMContentLoaded", buildControl); }
+  else { buildControl(); }
+})();
+</script>'''
+    return js.replace("__WALK_PAGE__", variant["slug"])
+
+
 # ── Page assembly ─────────────────────────────────────────────
 
 
@@ -1133,6 +1299,7 @@ def generate_season_review_page(slug: str = "standard", external_assets=None) ->
   </div>
   {build_footer(variant)}
   {build_season_review_js(variant)}
+  {build_walkthrough_js(variant)}
   <script>{get_site_header_js()}</script>
   {get_consent_banner_html()}
 </body>

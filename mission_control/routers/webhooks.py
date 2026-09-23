@@ -11,7 +11,7 @@ from fastapi import APIRouter, Header, HTTPException, Request
 from mission_control.config import BRAND_SITE_URLS, MC_PUBLIC_URL, WEBHOOK_SECRET
 from mission_control import supabase_client as db
 from mission_control.sequences import get_sequences_for_trigger
-from mission_control.services.sequence_engine import enroll, record_event
+from mission_control.services.sequence_engine import enroll, record_event, resend_first_step
 
 logger = logging.getLogger(__name__)
 
@@ -24,6 +24,8 @@ _ANSWER_KEY_RE = re.compile(r"^[a-z0-9_]{1,40}$")
 _MAX_GOAL_ANSWER_KEYS = 64
 _MAX_GOAL_ANSWER_LEN = 4000
 _MAX_GOAL_ANSWERS_TOTAL = 30000
+# Subject for the resent first email after a rider corrects their answers.
+_REVISED_SUBJECTS = {"goal_2027": "your 2027 goal, revised"}
 _SLUG_RE = re.compile(r"^[a-z0-9][a-z0-9-]{0,80}$")
 _MAX_NAME_LEN = 200
 _MAX_SOURCE_LEN = 100
@@ -398,6 +400,17 @@ async def subscriber_webhook(
             db.update("gg_sequence_enrollments", {"source_data": merged},
                       match={"id": existing["id"]})
             logger.info("season review updated in place for %s", email)
+            # The page promises a copy of what they just wrote, so send the
+            # first email again with the corrected answers (bounded in
+            # resend_first_step). The poster link renders from the stored
+            # answers, so the same token now draws the new poster.
+            try:
+                await resend_first_step(
+                    {**existing, "source_data": merged},
+                    subject=_REVISED_SUBJECTS.get(source),
+                )
+            except Exception:
+                logger.exception("resubmitted review resend failed for %s", email)
 
     # Enroll in matching sequences (brand-scoped)
     enrolled = []

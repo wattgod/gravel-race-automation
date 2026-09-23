@@ -420,7 +420,7 @@ GOAL_2027 = {
     # The results screen, and the offer beneath it (never in front of it).
     "results": {
         "title": f"Your {NEXT}, on paper.",
-        "lead": "Download it, print it, put it where you'll see it in February. A copy is on its way to your inbox.",
+        "lead": "Print it. Tape it where you'll see it in February. A copy is on its way to your inbox.",
         "download": "Download the poster",
     },
     "offer": {
@@ -436,10 +436,10 @@ GOAL_2027 = {
         "cta": f"Build my {NEXT} plan",
         "cta_href": "/questionnaire/?src=goals",
         "decline": "Just the poster, thanks",
-        "terms": ("$15 per week of training, computed from your A-race date. Four-week "
-                  "minimum, capped at $249. Personally reviewed and delivered in "
-                  "TrainingPeaks, usually within 24 hours of your questionnaire being "
-                  "complete. Full refund within 7 days."),
+        "terms": ("$15 per week of training, counted back from your A-race. Four-week "
+                  "minimum, $249 at most. In your TrainingPeaks within 24 hours of "
+                  "payment, and I look at every one before it goes. Full refund "
+                  "within 7 days."),
     },
 }
 

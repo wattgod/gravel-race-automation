@@ -1175,8 +1175,19 @@ def build_walkthrough_js(variant) -> str:
   function finish() {
     var name = "walkthrough-" + PAGE + "-" + stamp();
     var timeline = { page: PAGE, url: window.location.href, startedAt: startedAt, endedAt: new Date().toISOString(), events: events };
-    download(name + ".json", new Blob([JSON.stringify(timeline, null, 2)], { type: "application/json" }));
-    if (chunks.length) { download(name + ".webm", new Blob(chunks, { type: chunks[0].type || "audio/webm" })); }
+    /* ONE file: Chrome silently blocks a second automatic download, which
+       lost the timeline on the first real walkthrough (Sep 23). */
+    var audio = chunks.length ? new Blob(chunks, { type: chunks[0].type || "audio/webm" }) : null;
+    if (!audio) {
+      download(name + ".walk.json", new Blob([JSON.stringify({ timeline: timeline, audio: null })], { type: "application/json" }));
+      return;
+    }
+    var reader = new FileReader();
+    reader.onload = function() {
+      var b64 = String(reader.result).split(",")[1] || "";
+      download(name + ".walk.json", new Blob([JSON.stringify({ timeline: timeline, audio: { mime: audio.type, base64: b64 } })], { type: "application/json" }));
+    };
+    reader.readAsDataURL(audio);
   }
 
   function stopAll(btn) {

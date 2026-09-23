@@ -245,9 +245,13 @@ class TestGoalsPage:
                       "goal_poster_download", "goal_offer_view", "goal_offer_click"):
             assert event in js, event
 
-    def test_the_offer_states_the_real_terms(self):
-        html = page("goal_2027")
-        assert "$15 per week" in html and "$249" in html and "7 days" in html
+    def test_the_offer_terms_follow_matti_s_walkthrough(self):
+        # Sep 23 walkthrough: he builds it (not "looks at it"), no refund
+        # line (reads as a risky purchase), no cap a Season Plan would break.
+        terms = VARIANTS["goal_2027"]["offer"]["terms"]
+        assert terms.startswith("I build every plan myself")
+        assert "refund" not in terms.lower()
+        assert "$" not in terms
 
 
 class TestWalkthroughMode:
@@ -277,10 +281,13 @@ class TestWalkthroughMode:
         assert "new MediaRecorder(" in js
         assert "getUserMedia({ audio: true })" in js
 
-    def test_downloads_two_matching_files_and_uploads_nothing(self):
+    def test_downloads_one_bundle_and_uploads_nothing(self):
+        # Chrome blocks a second automatic download; the first real
+        # walkthrough lost its timeline that way. One file carries both.
         js = build_walkthrough_js(VARIANTS["goal_2027"])
         assert '"walkthrough-" + PAGE + "-" + stamp()' in js
-        assert '.json"' in js and '.webm"' in js
+        assert js.count('download(name + ".walk.json"') == 2  # with and without audio
+        assert 'download(name + ".webm"' not in js
         # nothing is ever POSTed or fetched from this script
         assert "fetch(" not in js and "XMLHttpRequest" not in js and "sendBeacon" not in js
 
@@ -306,3 +313,24 @@ class TestWalkthroughMode:
         guard_pos = js.index('get("walkthrough")')
         assert js.index("gg-walkthrough-btn") > guard_pos
         assert js.index("addEventListener") > guard_pos
+
+
+def test_walkthrough_bundle_unpacks_to_audio_and_timeline(tmp_path):
+    import base64, json as _json
+    sys.path.insert(0, str(Path(__file__).parent.parent / "scripts"))
+    import walkthrough
+    bundle = tmp_path / "walkthrough-goal_2027-20260923-131712.walk.json"
+    bundle.write_text(_json.dumps({"timeline": {"page": "goal_2027", "events": []},
+                                   "audio": {"mime": "audio/webm", "base64": base64.b64encode(b"RIFF").decode()}}))
+    audio = walkthrough.unpack_bundle(bundle)
+    assert audio.name == "walkthrough-goal_2027-20260923-131712.webm"
+    assert audio.read_bytes() == b"RIFF"
+    assert _json.loads(audio.with_suffix(".json").read_text())["page"] == "goal_2027"
+
+
+def test_whisper_repeats_are_dropped():
+    sys.path.insert(0, str(Path(__file__).parent.parent / "scripts"))
+    import walkthrough
+    segs = [{"start": i, "end": i + 1, "text": "What's this?"} for i in range(20)]
+    segs.append({"start": 21, "end": 22, "text": "The main body is too complicated."})
+    assert [s["text"] for s in walkthrough._dedupe(segs)] == ["What's this?", "The main body is too complicated."]

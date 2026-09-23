@@ -290,7 +290,7 @@ def s_blooper(vices_field: str = "competing_wants"):
                      ("move_on", "Move on", "One workout won&#39;t matter"),
                      ("guilt", "Feel guilty", "Beat myself up, eventually let it go"),
                      ("spiral", "Spiral", "Start questioning the whole plan"),
-                     ("disappear", "Quietly disappear", "Go dark for a week and hope you don&#39;t notice")]},
+                     ("disappear", "Quietly disappear", "Go dark for a week and hope nobody notices")]},
         vices,
     ]}
 
@@ -429,17 +429,14 @@ GOAL_2027 = {
             {"key": "A", "h": "You&#39;ve written it down. Historically, this is where it dies.",
              "p": "Step two is a plan built around the hours you actually have, not the ones you promised."},
             {"key": "B", "h": "Goals are free. The doing is the product.",
-             "p": "You&#39;ve done the thinking. The rest is a calendar, your real hours, and someone who has seen the course."},
+             "p": "You&#39;ve done the thinking. The rest is a calendar and your real hours."},
             {"key": "C", "h": "That&#39;s step one. Step two is the part everyone skips.",
              "p": f"A custom plan for your {NEXT}, built from what you just told me."},
         ],
         "cta": f"Build my {NEXT} plan",
         "cta_href": "/questionnaire/?src=goals",
         "decline": "Just the poster, thanks",
-        "terms": ("$15 per week of training, counted back from your A-race. Four-week "
-                  "minimum, $249 at most. In your TrainingPeaks within 24 hours of "
-                  "payment, and I look at every one before it goes. Full refund "
-                  "within 7 days."),
+        "terms": "I build every plan myself. Priced by the week from your race date; you see the number before you pay.",
     },
 }
 

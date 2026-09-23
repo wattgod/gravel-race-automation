@@ -73,6 +73,7 @@ build_sticky_cta = v1.build_sticky_cta
 build_toc = v1.build_toc
 build_inline_js = v1.build_inline_js
 get_ga4_head_snippet = v1.get_ga4_head_snippet
+get_favicon_head_snippet = v1.get_favicon_head_snippet
 get_font_face_css = v1.get_font_face_css
 get_preload_hints = v1.get_preload_hints
 get_page_css = v1.get_page_css
@@ -321,7 +322,7 @@ def generate_page_v2(rd: dict, race_index: list = None, external_assets: dict = 
   <meta name="description" content="{esc(seo_description)}">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="{esc(canonical_url)}">
-  <link rel="icon" type="image/svg+xml" href="https://gravelgodcycling.com/gg-logo.svg">
+  {get_favicon_head_snippet()}
   <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
   <link rel="dns-prefetch" href="https://ridewithgps.com">
   <link rel="dns-prefetch" href="https://api.rss2json.com">

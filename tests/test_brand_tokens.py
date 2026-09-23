@@ -16,6 +16,7 @@ from brand_tokens import (
     FONT_FILES,
     GA_MEASUREMENT_ID,
     SITE_BASE_URL,
+    get_favicon_head_snippet,
     get_font_face_css,
     get_ga4_head_snippet,
     get_preload_hints,
@@ -341,3 +342,97 @@ process.stdout.write(JSON.stringify({{
         assert not violations, (
             f"Generators defining GA_MEASUREMENT_ID locally: {violations}"
         )
+
+
+class TestFaviconHeadSnippet:
+    """Tests for get_favicon_head_snippet() — centralized favicon <link> set.
+
+    Safari doesn't reliably use SVG favicons, and favicon.ico used to
+    302-redirect to an HTML page, so Safari showed a generic letter monogram
+    instead of the real mark. The fix: keep the SVG first for browsers that
+    support it, then ship ICO/PNG fallbacks Safari will actually use.
+    """
+
+    def test_returns_string(self):
+        snippet = get_favicon_head_snippet()
+        assert isinstance(snippet, str)
+        assert len(snippet) > 100
+
+    def test_svg_link_first(self):
+        snippet = get_favicon_head_snippet()
+        assert snippet.strip().startswith('<link rel="icon" type="image/svg+xml"')
+
+    def test_has_all_expected_links(self):
+        snippet = get_favicon_head_snippet()
+        expected = [
+            f'<link rel="icon" type="image/svg+xml" href="{SITE_BASE_URL}/gg-logo.svg">',
+            f'<link rel="icon" type="image/png" sizes="32x32" href="{SITE_BASE_URL}/favicon-32.png">',
+            f'<link rel="icon" type="image/png" sizes="16x16" href="{SITE_BASE_URL}/favicon-16.png">',
+            f'<link rel="shortcut icon" href="{SITE_BASE_URL}/favicon.ico">',
+            f'<link rel="apple-touch-icon" sizes="180x180" href="{SITE_BASE_URL}/apple-touch-icon.png">',
+            f'<link rel="icon" type="image/png" sizes="192x192" href="{SITE_BASE_URL}/icon-192.png">',
+            f'<link rel="icon" type="image/png" sizes="512x512" href="{SITE_BASE_URL}/icon-512.png">',
+        ]
+        for link in expected:
+            assert link in snippet, f"Missing favicon link: {link}"
+
+    def test_ico_fallback_present_for_safari(self):
+        """favicon.ico is what Safari actually falls back to — must not be missing."""
+        snippet = get_favicon_head_snippet()
+        assert "favicon.ico" in snippet
+
+    def test_no_generators_have_inline_favicon_link(self):
+        """No generator may hardcode the old single-line SVG-only favicon —
+        every generator that ships a favicon must call get_favicon_head_snippet()."""
+        wp_dir = Path(__file__).parent.parent / "wordpress"
+        violations = []
+        for f in sorted(wp_dir.glob("generate_*.py")):
+            if f.name == "brand_tokens.py":
+                continue
+            content = f.read_text()
+            if 'rel="icon" type="image/svg+xml" href="https://gravelgodcycling.com/gg-logo.svg">' in content:
+                violations.append(f.name)
+        assert not violations, (
+            f"Generators with a hardcoded favicon link (must use "
+            f"get_favicon_head_snippet()): {violations}"
+        )
+
+    def test_generators_emitting_a_favicon_use_the_shared_snippet(self):
+        """Every generator that references get_favicon_head_snippet must actually
+        call it in its emitted HTML (not just import it)."""
+        wp_dir = Path(__file__).parent.parent / "wordpress"
+        missing_call = []
+        for f in sorted(wp_dir.glob("generate_*.py")):
+            if f.name == "brand_tokens.py":
+                continue
+            content = f.read_text()
+            if "get_favicon_head_snippet" in content and "get_favicon_head_snippet()" not in content:
+                missing_call.append(f.name)
+        assert not missing_call, (
+            f"Generators importing get_favicon_head_snippet but never calling it: {missing_call}"
+        )
+
+    EXPECTED_FAVICON_GENERATORS = {
+        "generate_calendar.py",
+        "generate_coaching_apply.py",
+        "generate_homepage.py",
+        "generate_legal_pages.py",
+        "generate_neo_brutalist.py",
+        "generate_power_rankings.py",
+        "generate_race_page_v2.py",
+        "generate_season_review.py",
+        "generate_series_hubs.py",
+        "generate_state_hubs.py",
+        "generate_tier_hubs.py",
+        "generate_vs_pages.py",
+    }
+
+    def test_every_generator_emits_the_icon_block(self):
+        """Every generator known to ship a favicon must emit the shared,
+        full icon block — not a partial or hand-rolled one."""
+        wp_dir = Path(__file__).parent.parent / "wordpress"
+        for name in sorted(self.EXPECTED_FAVICON_GENERATORS):
+            content = (wp_dir / name).read_text()
+            assert "get_favicon_head_snippet()" in content or "v1.get_favicon_head_snippet" in content, (
+                f"{name} does not call the shared favicon snippet"
+            )

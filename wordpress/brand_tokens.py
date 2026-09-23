@@ -50,6 +50,31 @@ def get_ga4_head_snippet() -> str:
 SITE_BASE_URL = "https://gravelgodcycling.com"
 
 
+def get_favicon_head_snippet() -> str:
+    """Return the full favicon <link> set for <head>.
+
+    Safari does not reliably use SVG favicons, and favicon.ico used to
+    302-redirect to an HTML page — both left Safari showing a generic
+    letter-monogram tab icon instead of the real mark. The SVG stays first
+    for browsers that support it; the PNG/ICO fallbacks (generated from
+    gg-logo.svg via scripts, see docs) cover Safari and other holdouts.
+
+    Returns raw HTML (not f-string safe if it ever grows curly braces; today
+    it has none). Use directly in string concatenation, .format(), or
+    f-strings, same convention as get_ga4_head_snippet().
+
+    Centralized here so every generator emits the identical block instead of
+    the old single-line SVG-only `<link rel="icon">`.
+    """
+    return f'''  <link rel="icon" type="image/svg+xml" href="{SITE_BASE_URL}/gg-logo.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="{SITE_BASE_URL}/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="{SITE_BASE_URL}/favicon-16.png">
+  <link rel="shortcut icon" href="{SITE_BASE_URL}/favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="{SITE_BASE_URL}/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="{SITE_BASE_URL}/icon-192.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="{SITE_BASE_URL}/icon-512.png">'''
+
+
 def get_tokens_css() -> str:
     """Return the :root CSS custom properties block."""
     return """:root {

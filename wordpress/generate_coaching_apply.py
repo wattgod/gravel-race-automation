@@ -35,6 +35,7 @@ from generate_neo_brutalist import (
 from brand_tokens import (
     GA_MEASUREMENT_ID,
     get_ab_head_snippet,
+    get_favicon_head_snippet,
     get_ga4_head_snippet,
     get_preload_hints,
 )
@@ -2058,7 +2059,7 @@ def generate_apply_page(external_assets=None):
   <meta property="og:site_name" content="Gravel God Cycling">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="{SITE_BASE_URL}/og/homepage.jpg">
-  <link rel="icon" type="image/svg+xml" href="https://gravelgodcycling.com/gg-logo.svg">
+  {get_favicon_head_snippet()}
   {get_preload_hints()}
   {page_css}
   {get_ab_head_snippet()}

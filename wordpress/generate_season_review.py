@@ -813,8 +813,8 @@ def build_season_review_js(variant) -> str:
         finish: "Finish {race}.",
         beat_time: "Finish {race} faster than last time.",
         race_it: "Race {race}, not just ride it.",
-        same: "{race} again, and finish it better.",
-        bigger: "Something bigger than {race}."
+        same: "Ride {race} again, and ride it better.",
+        bigger: "Take on something bigger than {race}."
       };
       // The card's CTA only carries the slug, not the display name — humanize
       // it rather than fabricating or fetching race data on this page.

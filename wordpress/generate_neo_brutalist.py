@@ -3855,8 +3855,8 @@ GOAL_CARD_COPY = {
         "finish": "Finish {race}.",
         "beat_time": "Finish {race} faster than last time.",
         "race_it": "Race {race}, not just ride it.",
-        "same": "{race} again, and finish it better.",
-        "bigger": "Something bigger than {race}.",
+        "same": "Ride {race} again, and ride it better.",
+        "bigger": "Take on something bigger than {race}.",
     },
     "poster_label": "BY {date}, I WILL",
     # A past date in "BY {date}, I WILL" reads as nonsense once the race is

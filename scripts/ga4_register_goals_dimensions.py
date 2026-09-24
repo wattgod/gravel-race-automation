@@ -69,9 +69,8 @@ GOALS_FUNNEL_DIMENSIONS = [
     {
         "parameterName": "entry_surface",
         "displayName": "Questionnaire entry surface",
-        "description": "Which surface sent the visitor to the plan form "
-                        "(?src= param) — predates the goals funnel; verify "
-                        "it isn't already registered before creating it again.",
+        # GA4 caps descriptions at 150 characters (Admin API 400 otherwise).
+        "description": "Which surface sent the visitor to the plan form (?src= param).",
         "scope": "EVENT",
     },
     {

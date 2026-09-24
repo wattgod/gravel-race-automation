@@ -49,6 +49,7 @@ from brand_tokens import (
 )
 from shared_footer import get_mega_footer_css, get_mega_footer_html
 from cookie_consent import get_consent_banner_html
+from pricing import PRICE_PER_WEEK
 
 # Disable glossary tooltips in guide renderers (we don't need them here)
 import generate_guide
@@ -2360,7 +2361,7 @@ def build_pk_footer_cta(rd: dict) -> str:
          specifically for {name} — structured workouts, nutrition protocols, and race-day
          strategy — get a custom training plan.</p>
       <div class="gg-pk-footer-buttons">
-        <a href="{esc(TRAINING_PLANS_URL)}" class="gg-pk-btn gg-pk-btn--primary">BUILD MY PLAN &mdash; $15/WK</a>
+        <a href="{esc(TRAINING_PLANS_URL)}" class="gg-pk-btn gg-pk-btn--primary">BUILD MY PLAN &mdash; {PRICE_PER_WEEK}/WK</a>
         <a href="{esc(COACHING_URL)}" class="gg-pk-btn gg-pk-btn--secondary">1:1 COACHING</a>
       </div>
       <p class="gg-pk-footer-back">

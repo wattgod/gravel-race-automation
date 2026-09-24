@@ -33,6 +33,7 @@ sys.path.insert(0, str(Path(__file__).parent))
 from brand_tokens import COLORS, get_favicon_head_snippet, get_font_face_css, get_ga4_head_snippet, get_tokens_css, RACER_RATING_THRESHOLD, SITE_BASE_URL
 from shared_header import get_site_header_css, get_site_header_html, get_site_header_js
 from cookie_consent import get_consent_banner_html
+from pricing import PRICE_CAP, PRICE_PER_WEEK
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 CURRENT_YEAR = date.today().year
@@ -995,7 +996,7 @@ body {{ margin: 0; background: var(--gg-color-warm-paper); }}
     <h2>Racing in {esc(state)}?</h2>
     <p>Get a personalized training plan for any {esc(state)} gravel race — tailored to your fitness, schedule, and goals.</p>
     <a href="/questionnaire/" class="gg-state-cta-btn" data-cta="build_my_plan">Build My Plan</a>
-    <p style="font-size:11px;color:var(--gg-color-tan);margin-top:8px">$15/week, capped at $249. One-time payment.</p>
+    <p style="font-size:11px;color:var(--gg-color-tan);margin-top:8px">{PRICE_PER_WEEK}/week, capped at {PRICE_CAP}. One-time payment.</p>
   </section>
 
   <footer class="gg-state-footer">

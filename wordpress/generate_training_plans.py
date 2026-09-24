@@ -29,6 +29,14 @@ from brand_tokens import get_ab_head_snippet, get_ga4_head_snippet, get_preload_
 from shared_footer import get_mega_footer_html
 from shared_header import get_site_header_html, get_site_header_css
 from cookie_consent import get_consent_banner_html
+from pricing import (
+    MIN_WEEKS,
+    PRICE_CAP,
+    PRICE_PER_WEEK,
+    PRICE_PER_WEEK_CENTS,
+    compute_race_plan_price_cents,
+    format_cents,
+)
 
 OUTPUT_DIR = Path(__file__).parent / "output"
 
@@ -37,8 +45,11 @@ OUTPUT_DIR = Path(__file__).parent / "output"
 QUESTIONNAIRE_URL = f"{SITE_BASE_URL}/questionnaire/"
 TRAINING_PLANS_URL = f"{SITE_BASE_URL}/products/training-plans/"
 COACHING_URL = f"{SITE_BASE_URL}/coaching/"
-PRICE_PER_WEEK = "$15"
-PRICE_CAP = "$249"
+# PRICE_PER_WEEK / PRICE_CAP come from pricing.py (data/pricing.json) —
+# do not hardcode a price string here (docs/specs/goals-2027-funnel-spec.md D18).
+SIX_WEEK_PRICE = format_cents(compute_race_plan_price_cents(6))
+TWELVE_WEEK_PRICE = format_cents(compute_race_plan_price_cents(12))
+MIN_WEEKS_PRICE = format_cents(compute_race_plan_price_cents(MIN_WEEKS))
 
 
 def esc(text) -> str:
@@ -348,7 +359,7 @@ def build_pricing() -> str:
       <div class="gg-tp-price">{PRICE_PER_WEEK}<span> / week of training</span></div>
       <ul class="gg-tp-pricing-list">
         <li>Computed from your race date &mdash; pay for exactly what you need</li>
-        <li>6-week plan = $90. 12-week plan = $180. 16-week plan = $240</li>
+        <li>6-week plan = {SIX_WEEK_PRICE}. 12-week plan = {TWELVE_WEEK_PRICE}. 16-week plan = {format_cents(compute_race_plan_price_cents(16))}</li>
         <li>Capped at {PRICE_CAP} no matter how long the plan</li>
         <li>Structured .zwo workouts for Zwift/TrainingPeaks/Wahoo</li>
         <li>30+ page custom training guide</li>
@@ -385,7 +396,7 @@ FAQ_ITEMS = [
     ),
     (
         "How is the price calculated?",
-        f"{PRICE_PER_WEEK} per week of training, computed from your race date. A 6-week plan is $90. A 12-week plan is $180. Anything over 16 weeks caps at {PRICE_CAP}. You pay for exactly what you need &mdash; no more.",
+        f"{PRICE_PER_WEEK} per week of training, computed from your race date. A 6-week plan is {SIX_WEEK_PRICE}. A 12-week plan is {TWELVE_WEEK_PRICE}. Anything over 16 weeks caps at {PRICE_CAP}. You pay for exactly what you need &mdash; no more.",
     ),
     (
         "Is this coaching?",
@@ -1331,7 +1342,7 @@ def build_jsonld() -> str:
   }},
   "offers": {{
     "@type": "AggregateOffer",
-    "lowPrice": "60",
+    "lowPrice": "{MIN_WEEKS_PRICE.replace('$', '')}",
     "highPrice": "{PRICE_CAP.replace('$', '')}",
     "priceCurrency": "USD",
     "offerCount": "14",
@@ -1372,11 +1383,11 @@ def generate_training_page(external_assets: dict = None) -> str:
 
     meta_desc = (
         "Gravel training plans built for your goal race. 16-week periodized "
-        "programs with race-specific prep. Data-driven. From $15/week."
+        f"programs with race-specific prep. Data-driven. From {PRICE_PER_WEEK}/week."
     )
 
     og_tags = f'''<meta property="og:title" content="Custom Training Plans | Gravel God">
-  <meta property="og:description" content="Race-specific training plans. $15/week, capped at $249. Structured workouts, nutrition, strength, and race protocols.">
+  <meta property="og:description" content="Race-specific training plans. {PRICE_PER_WEEK}/week, capped at {PRICE_CAP}. Structured workouts, nutrition, strength, and race protocols.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="{esc(canonical_url)}">
   <meta property="og:image" content="{SITE_BASE_URL}/og/homepage.jpg">
@@ -1385,7 +1396,7 @@ def generate_training_page(external_assets: dict = None) -> str:
   <meta property="og:site_name" content="Gravel God Cycling">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Custom Training Plans | Gravel God">
-  <meta name="twitter:description" content="Race-specific training plans. $15/week, capped at $249.">
+  <meta name="twitter:description" content="Race-specific training plans. {PRICE_PER_WEEK}/week, capped at {PRICE_CAP}.">
   <meta name="twitter:image" content="{SITE_BASE_URL}/og/homepage.jpg">'''
 
     preload = get_preload_hints()

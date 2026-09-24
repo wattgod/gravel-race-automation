@@ -115,12 +115,18 @@ export default {
 
     // Downstream work: Mission Control, webhook, notification email
     // Failures here are logged but don't affect the user response
+    // (mcResultPromise is declared here, at function scope, not inside the
+    // try block below — it's read again after that block ends, and `let`
+    // is block-scoped: a sol review caught a ReferenceError crashing every
+    // accepted request when it was declared inside the try.)
+    let mcResultPromise = null;
     try {
       const promises = [];
 
       // Notify Mission Control for sequence enrollment (all sources)
       if (env.MC_WEBHOOK_URL) {
-        promises.push(notifyMissionControl(env, data, source));
+        mcResultPromise = notifyMissionControl(env, data, source);
+        promises.push(mcResultPromise);
       }
 
       // A coached athlete just filed their season review: tell Matti now, in
@@ -163,7 +169,12 @@ export default {
 
     console.log('Lead captured:', { source, email: data.email, race_slug: data.race_slug || '' });
 
-    return jsonResponse({ success: true, message: 'Your personalized plan is ready' }, 200, origin);
+    const responseBody = { success: true, message: 'Your personalized plan is ready' };
+    if (mcResultPromise) {
+      const mcResult = await mcResultPromise.catch(() => ({}));
+      if (mcResult && mcResult.poster_token) { responseBody.poster_token = mcResult.poster_token; }
+    }
+    return jsonResponse(responseBody, 200, origin);
   }
 };
 
@@ -507,10 +518,20 @@ async function notifyMissionControl(env, data, source) {
     if (!resp.ok && STORAGE_REQUIRED.includes(source)) {
       throw new Error(`Mission Control returned ${resp.status}`);
     }
+    // For goal_2027 (D9), Mission Control hands back this lead's
+    // poster_token so the caller can pass it on to the browser — the
+    // Season Plan CTA needs it to link to /season-plan/?t=<token>.
+    if (resp.ok && (source === 'goal_2027' || source === 'athlete_review')) {
+      try {
+        const body = await resp.json();
+        if (body && body.poster_token) { return { poster_token: body.poster_token }; }
+      } catch (parseErr) { /* not fatal — the CTA just falls back to blank */ }
+    }
   } catch (error) {
     console.error('Mission Control webhook error:', error);
     if (STORAGE_REQUIRED.includes(source)) { throw error; }
   }
+  return {};
 }
 
 // --- CORS + Response Helpers ---

@@ -20,6 +20,10 @@ from mission_control.config import (
     PUBLIC_URL, RESEND_API_KEY, UNSUBSCRIBE_SECRET, WEB_TEMPLATES_DIR,
 )
 from mission_control.sequences import get_sequence, SEQUENCES
+from mission_control.services.pricing import (
+    MIN_WEEKS, PRICE_CAP, PRICE_CAP_CENTS, PRICE_PER_WEEK,
+    PRICE_PER_WEEK_CENTS, compute_race_plan_price_cents,
+)
 
 # Triggers that are post-purchase — should NOT be suppressed for customers
 # Transactional triggers: exempt from the customer-suppression gate, the
@@ -515,6 +519,34 @@ def _race_facts(race_slug) -> dict:
 _RACE_FACT_KEYS = ("race_facts", "race_distance_mi", "race_elevation_ft",
                    "race_location", "race_terrain", "race_when", "race_score")
 
+# Server-derived pricing tokens for sequence copy — data/pricing.json is the
+# only place these numbers live (docs/specs/goals-2027-funnel-spec.md D18).
+# Reserved the same way race_facts are: popped from source_data before this
+# runs, so a caller-supplied "price_cap" can never override the real one.
+_PRICING_TOKEN_KEYS = (
+    "price_weekly", "price_cap", "price_min", "price_6wk", "price_10wk",
+    "price_12wk", "price_14wk", "price_cap_start_weeks", "price_10_to_14_delta",
+)
+
+
+def _pricing_tokens() -> dict:
+    # Weeks at which the plan first hits the cap — e.g. "a 20-week plan costs
+    # the same as a 17-week one" only holds while the cap starts at 17.
+    cap_start_weeks = (PRICE_CAP_CENTS - 1) // PRICE_PER_WEEK_CENTS + 1
+    price_10wk_cents = compute_race_plan_price_cents(10)
+    price_14wk_cents = compute_race_plan_price_cents(14)
+    return {
+        "price_weekly": PRICE_PER_WEEK,
+        "price_cap": PRICE_CAP,
+        "price_min": f"${compute_race_plan_price_cents(MIN_WEEKS) // 100}",
+        "price_6wk": f"${compute_race_plan_price_cents(6) // 100}",
+        "price_10wk": f"${price_10wk_cents // 100}",
+        "price_12wk": f"${compute_race_plan_price_cents(12) // 100}",
+        "price_14wk": f"${price_14wk_cents // 100}",
+        "price_cap_start_weeks": str(cap_start_weeks),
+        "price_10_to_14_delta": f"${(price_14wk_cents - price_10wk_cents) // 100}",
+    }
+
 
 def _is_real_number(value) -> bool:
     import math
@@ -576,6 +608,11 @@ def _render_template(template_name: str, enrollment: dict) -> str:
     for key in _RACE_FACT_KEYS:
         source_data.pop(key, None)
     source_data.update(_race_facts(source_data.get("race_slug")))
+    # Pricing tokens are server-derived only, same rule as race facts —
+    # data/pricing.json is the one place these numbers live (D18).
+    for key in _PRICING_TOKEN_KEYS:
+        source_data.pop(key, None)
+    source_data.update(_pricing_tokens())
     html = _apply_conditionals(html, source_data)
     # Most templates open with a bare address ("Roberto —"). A missing name used
     # to fall through to the "there" fallback and render "there —", which reads

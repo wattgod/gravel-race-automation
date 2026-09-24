@@ -32,9 +32,13 @@
   var STORAGE_KEY = 'gg_training_form';
 
   // ---- Pricing constants (must match server) ----
+  // GENERATED from data/pricing.json by scripts/generate_pricing_js.py — do
+  // not hand-edit the three lines below (docs/specs/goals-2027-funnel-spec.md D18).
+  // GG_PRICING_CONSTANTS_START
   var PRICE_PER_WEEK = 15;
   var PRICE_CAP = 249;
   var MIN_WEEKS = 4;
+  // GG_PRICING_CONSTANTS_END
 
   function computePrice(raceDateStr) {
     if (!raceDateStr) return null;
@@ -51,9 +55,9 @@
   }
 
   function updatePriceDisplay() {
+    var totalEl = document.getElementById('gg-plan-total');
     var races = getRaces();
     var aRace = races.find(function(r) { return r.priority === 'A'; }) || races[0];
-    var totalEl = document.getElementById('gg-plan-total');
     if (aRace && aRace.date) {
       var pricing = computePrice(aRace.date);
       if (pricing) {
@@ -742,13 +746,18 @@
     submitBtn.textContent = 'Preparing checkout...';
     messageEl.style.display = 'none';
 
-    // GA4 begin_checkout (standard e-commerce funnel event)
+    // GA4 begin_checkout (standard e-commerce funnel event).
     var aRaceForCheckout = races.find(function(r) { return r.priority === 'A'; }) || races[0];
     var checkoutPricing = aRaceForCheckout ? computePrice(aRaceForCheckout.date) : null;
+    var checkoutValue = checkoutPricing ? checkoutPricing.price : 0;
     track('begin_checkout', {
       currency: 'USD',
-      value: checkoutPricing ? checkoutPricing.price : 0,
-      items: [{ item_name: 'Custom Training Plan', item_category: 'training_plan', price: checkoutPricing ? checkoutPricing.price : 0 }]
+      value: checkoutValue,
+      items: [{
+        item_name: 'Custom Training Plan',
+        item_category: 'training_plan',
+        price: checkoutValue
+      }]
     });
     var ga4AttributionPromise = getGa4Attribution();
 
@@ -812,6 +821,7 @@
           races_count: races.length,
           has_power: !!(ftpInput && ftpInput.value),
           sections_completed: Object.keys(sectionsSeen).length,
+          product: 'training_plan',
           price: pricing ? pricing.price : 0,
           weeks: pricing ? pricing.weeks : 0
         });

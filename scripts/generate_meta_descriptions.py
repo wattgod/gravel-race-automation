@@ -21,6 +21,9 @@ PROJECT_ROOT = Path(__file__).resolve().parent.parent
 RACE_DATA_DIR = PROJECT_ROOT / "race-data"
 OUTPUT_FILE = PROJECT_ROOT / "seo" / "meta-descriptions.json"
 
+sys.path.insert(0, str(PROJECT_ROOT / "wordpress"))
+from pricing import PRICE_PER_WEEK  # data/pricing.json (D18)
+
 # ── Race guide entries: hand-crafted with race-data linkage ───────────
 # Format: (wp_id, wp_slug, race_data_slug, description, focus_keyword)
 # Each description uses the race's personality — no templates, no filler.
@@ -280,7 +283,7 @@ MANUAL_ENTRIES = [
      "The definitive gravel cycling guide: bike setup, training, nutrition, race strategy, and everything between the start and finish line.",
      None, "gravel cycling guide"),
     (5016, "page", "training-plans",
-     "Gravel training plans built for your goal race. 16-week periodized programs with race-specific prep. Data-driven. From $15/week.",
+     f"Gravel training plans built for your goal race. 16-week periodized programs with race-specific prep. Data-driven. From {PRICE_PER_WEEK}/week.",
      "Gravel training plans built for your goal race. 16-week periodized programs with race-specific prep.",
      "gravel training plans"),
     (5017, "page", "questionnaire",

@@ -33,6 +33,7 @@ sys.path.insert(0, str(Path(__file__).parent))
 from brand_tokens import COLORS, get_favicon_head_snippet, get_font_face_css, get_ga4_head_snippet, get_tokens_css, SITE_BASE_URL
 from shared_header import get_site_header_css, get_site_header_html, get_site_header_js
 from cookie_consent import get_consent_banner_html
+from pricing import PRICE_CAP, PRICE_PER_WEEK
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 CURRENT_YEAR = date.today().year
@@ -545,7 +546,7 @@ def build_training_cta(race_a: dict, race_b: dict) -> str:
       Train for {esc(race_b["name"][:25])}
     </a>
   </div>
-  <p class="gg-vs-cta-sub">$15/week, capped at $249. One-time payment.</p>
+  <p class="gg-vs-cta-sub">{PRICE_PER_WEEK}/week, capped at {PRICE_CAP}. One-time payment.</p>
 </section>'''
 
 

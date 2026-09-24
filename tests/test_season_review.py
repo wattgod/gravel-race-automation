@@ -305,8 +305,12 @@ class TestGoalsPage:
         assert "restoringDraft = false;" in restore_fn
 
     def test_goal_offer_click_carries_variant_and_plan_type(self):
+        # Two CTAs now share this block (race + season, data-plan-type on
+        # each) — the click handler must read each cta's own plan type,
+        # not hardcode "race" for both.
         js = build_season_review_js(VARIANTS["goal_2027"])
-        assert 'ga4("goal_offer_click", { variant: VARIANT, offer_variant: key, plan_type: "race" })' in js
+        assert 'ga4("goal_offer_click", { variant: VARIANT, offer_variant: key, plan_type: planType })' in js
+        assert 'var planType = cta.getAttribute("data-plan-type") || "race";' in js
 
     def test_goal_offer_click_is_wired_to_a_click_listener_not_a_timer(self):
         js = build_season_review_js(VARIANTS["goal_2027"])
@@ -351,6 +355,47 @@ class TestGoalsPage:
         js = build_season_review_js(VARIANTS["goal_2027"])
         assert "race_slug: RACE_SLUG" in js
         assert "entry_src: ENTRY_SRC" in js
+
+    def test_poster_token_fetch_chain_returns_the_json_parse_promise(self):
+        """sol review (BLOCKER #2): the worker fetch's .then(function(r){...})
+        must RETURN r.json().then(...), not fire it off unawaited — otherwise
+        workerOk resolves before POSTER_TOKEN is set, Promise.all races ahead
+        of it, and showResults() can build the Season CTA before the token
+        arrives (i.e. with no ?t= almost every time)."""
+        js = build_season_review_js(VARIANTS["goal_2027"])
+        start = js.index("workerOk = fetch(")
+        end = js.index("}).catch(function() { return false; });", start)
+        block = js[start:end]
+        assert "return r.json().then(function(body)" in block
+        assert "POSTER_TOKEN = body.poster_token" in block
+        assert "return r.ok;" in block
+
+    def test_season_cta_only_gets_the_token_param_not_the_race_cta(self):
+        js = build_season_review_js(VARIANTS["goal_2027"])
+        assert 'if (planType === "season" && POSTER_TOKEN)' in js
+        assert 'ctaUrl.searchParams.set("t", POSTER_TOKEN)' in js
+
+    def test_season_plan_cta_goes_to_its_own_page_not_the_questionnaire(self):
+        # Matti ruling (2026-09-23): the Season Plan no longer goes through
+        # the race-plan questionnaire (whose Elementor widget drifts from
+        # this repo) — it has its own generated page, /season-plan/.
+        plans = VARIANTS["goal_2027"]["offer"]["plans"]
+        keys = [p["key"] for p in plans]
+        assert keys == ["race", "season"]
+        race, season = plans
+        assert "priced by the week from your race date" in race["price"]
+        assert "$" not in race["price"]  # no literal dollar figure duplicated here
+        assert "$499" in season["price"]
+        assert "the whole year" in season["price"]
+        assert season["cta_href"].startswith("/season-plan/")
+        assert "plan=season" not in season["cta_href"]
+        assert race["cta_href"] == "/questionnaire/?src=goals"
+
+    def test_offer_html_renders_both_plan_ctas(self):
+        html = page("goal_2027")
+        assert 'data-plan-type="race"' in html
+        assert 'data-plan-type="season"' in html
+        assert html.count('class="gg-sr-offer-plan"') == 6  # 3 offer variants x 2 plans
 
 
 class TestWalkthroughMode:

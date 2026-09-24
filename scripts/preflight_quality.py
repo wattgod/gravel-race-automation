@@ -240,10 +240,9 @@ def check_pricing_parity():
     from datetime import date, timedelta
     import math
 
-    # Python computation (mirrors app.py compute_plan_price)
-    PRICE_PER_WEEK_CENTS = 1500
-    PRICE_CAP_CENTS = 24900
-    MIN_WEEKS = 4
+    if str(WORDPRESS_DIR) not in sys.path:
+        sys.path.insert(0, str(WORDPRESS_DIR))
+    from pricing import PRICE_PER_WEEK_CENTS, PRICE_CAP_CENTS, MIN_WEEKS  # data/pricing.json (D18)
 
     def py_price(race_date_str):
         try:
@@ -269,9 +268,9 @@ def check_pricing_parity():
     ]
 
     js_code = """
-    var PRICE_PER_WEEK = 15;
-    var PRICE_CAP = 249;
-    var MIN_WEEKS = 4;
+    var PRICE_PER_WEEK = %PRICE_PER_WEEK%;
+    var PRICE_CAP = %PRICE_CAP%;
+    var MIN_WEEKS = %MIN_WEEKS%;
 
     function computePrice(raceDateStr) {
       var raceDate = new Date(raceDateStr + 'T00:00:00');
@@ -286,7 +285,12 @@ def check_pricing_parity():
     var dates = %DATES%;
     var results = dates.map(function(d) { return computePrice(d); });
     console.log(JSON.stringify(results));
-    """.replace('%DATES%', json.dumps(test_dates))
+    """
+    js_code = (js_code
+               .replace('%PRICE_PER_WEEK%', str(PRICE_PER_WEEK_CENTS // 100))
+               .replace('%PRICE_CAP%', str(PRICE_CAP_CENTS // 100))
+               .replace('%MIN_WEEKS%', str(MIN_WEEKS))
+               .replace('%DATES%', json.dumps(test_dates)))
 
     result = subprocess.run(
         ["node", "-e", js_code],
@@ -348,9 +352,9 @@ def check_stripe_pricing_parity():
         nick = p.get("nickname", "")
         amount = p["amount"]
         if "cap" in nick.lower():
-            training_cap = amount // 100  # $249
+            training_cap = amount // 100  # the race-plan cap, from data/pricing.json
         if "4-week" in nick:
-            training_weekly = amount // 100 // 4  # $15
+            training_weekly = amount // 100 // 4  # the weekly rate, from data/pricing.json
         if "Coaching Min" in nick:
             coaching_min = amount // 100  # $199
         if "Coaching Mid" in nick:

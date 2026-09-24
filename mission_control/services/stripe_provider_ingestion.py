@@ -13,6 +13,7 @@ from pathlib import Path
 from typing import Any
 
 from mission_control.services.provider_ingestion import ProviderIngestionError
+from mission_control.services.pricing import RECONCILIATION_LABELS
 
 db: Any | None = None
 
@@ -677,15 +678,12 @@ def _validate_receipt(
 
 
 def _product_name(charge: dict[str, Any], invoices: dict[str, dict[str, Any]]) -> str:
-    labels = {
-        "training_plan": "Custom Training Plan",
-        "consulting": "Consulting",
-        "consult_addon": "Consulting add-on",
-        "coaching": "Coaching",
-    }
+    # Reconciliation registry: every product we sell needs an offer_family
+    # entry here or its revenue shows up unattributed. Source of truth is
+    # data/pricing.json (docs/specs/goals-2027-funnel-spec.md D15/D18).
     offer = str(charge.get("offer_family") or "unknown")
-    if offer in labels:
-        return labels[offer]
+    if offer in RECONCILIATION_LABELS:
+        return RECONCILIATION_LABELS[offer]
     invoice = invoices.get(str(charge.get("invoice_record_key") or ""), {})
     names = sorted(
         {
@@ -711,6 +709,16 @@ def _payment_rows(
         and row["captured"] is True
         and row["status"] == "succeeded"
     ]
+    # Keyed from `successful`, not every row in rows["charges"] — sol
+    # review: a refund can only exist against a genuinely successful charge
+    # (Stripe's own API guarantees this), and an adversarial fixture where
+    # a refund's charge_record_key pointed at a non-successful charge with
+    # a different offer_family produced a mislabelled refund when this was
+    # built from the unfiltered charge list. Restricting the lookup to
+    # `successful` closes that: a refund is still the source of truth for
+    # which product actually got refunded, but only when that charge is
+    # provably the real sale.
+    successful_charges = {row["record_key"]: row for row in successful}
     for charge in successful:
         balance = balances[charge["balance_transaction_record_key"]]
         gross = _integer(balance["amount_cents"], "balance.amount_cents")
@@ -772,6 +780,19 @@ def _payment_rows(
         balance = balances[refund["balance_transaction_record_key"]]
         gross = _integer(balance["amount_cents"], "refund balance.amount_cents")
         net = _integer(balance["net_cents"], "refund balance.net_cents")
+        # Label the refund with the same product name the original charge
+        # got (RECONCILIATION_LABELS — Season Plan included, once
+        # data/pricing.json registers it). The originating charge can fall
+        # outside the bounded receipt period (see source_boundary below),
+        # or simply not be a successful charge, in which case this stays
+        # "Refund" rather than guessing.
+        origin_charge = successful_charges.get(refund["charge_record_key"] or "")
+        refund_offer_family = (
+            origin_charge.get("offer_family") if origin_charge else None
+        )
+        refund_product_name = (
+            _product_name(origin_charge, invoices) if origin_charge else "Refund"
+        )
         output.append(
             {
                 "deal_id": None,
@@ -779,14 +800,16 @@ def _payment_rows(
                 "amount": _money_from_cents(net, "refund balance.net_cents"),
                 "source": "provider_import",
                 "stripe_payment_id": None,
-                "description": "Stripe refund",
+                "description": (
+                    f"{refund_product_name} refund" if origin_charge else "Stripe refund"
+                ),
                 "paid_at": refund["created_at"],
                 "provider": PROVIDER,
                 "provider_account": receipt["provider"]["account_record_key"],
                 "provider_record_key": refund["record_key"],
                 "provider_record_key_kind": RECORD_KEY_KIND,
                 "customer_key": None,
-                "product_name": "Refund",
+                "product_name": refund_product_name,
                 "status": "refunded",
                 "currency": balance["currency"],
                 "gross_amount": _money_from_cents(gross, "refund balance.amount_cents"),
@@ -812,6 +835,7 @@ def _payment_rows(
                     or None,
                     "presentment_currency": refund["currency"],
                     "presentment_amount_cents": refund["amount_cents"],
+                    "offer_family": refund_offer_family,
                     "in_operating_system_period": True,
                 },
                 "observed_at": observed_at,

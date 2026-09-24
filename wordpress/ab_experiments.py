@@ -17,6 +17,9 @@ import sys
 from datetime import date
 from pathlib import Path
 
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from pricing import PRICE_PER_WEEK
+
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 OUTPUT_DIR = PROJECT_ROOT / "web" / "ab"
 
@@ -45,7 +48,7 @@ EXPERIMENTS = [
             {
                 "id": "variant_a",
                 "name": "Gel anchor",
-                "content": "Race-specific. Built for your target event. $15/week. Less than one gel per ride.",
+                "content": f"Race-specific. Built for your target event. {PRICE_PER_WEEK}/week. Less than one gel per ride.",
             },
             {
                 "id": "variant_b",

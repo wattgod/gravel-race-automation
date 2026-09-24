@@ -402,10 +402,34 @@ async def subscriber_webhook(
             # new link carries a version so a mail client that cached the old
             # poster (the route allows a day) fetches the corrected one
             if (existing.get("source_data") or {}).get("poster_token"):
-                merged["poster_token"] = existing["source_data"]["poster_token"]
-                if existing["source_data"].get("poster_url"):
-                    base = existing["source_data"]["poster_url"].split("?")[0]
+                preserved_token = existing["source_data"]["poster_token"]
+                merged["poster_token"] = preserved_token
+                # Always rebuild poster_url from the PRESERVED token, not
+                # only when the existing row already had one — sol review
+                # round 2: the earlier version left merged["poster_url"]
+                # as whatever this submission's spread set it to (built
+                # from the fresh, discarded token) whenever the existing
+                # row had no poster_url yet (e.g. MC_PUBLIC_URL was unset
+                # at that athlete's first submission), producing a
+                # token/URL mismatch.
+                if MC_PUBLIC_URL:
+                    existing_url = existing["source_data"].get("poster_url")
+                    base = existing_url.split("?")[0] if existing_url else \
+                        f"{MC_PUBLIC_URL.rstrip('/')}/poster/{preserved_token}.png"
                     merged["poster_url"] = f"{base}?v={int(time.time())}"
+                elif "poster_url" in merged:
+                    del merged["poster_url"]
+                # sol review: `merged` is a copy — without this, the fresh
+                # (never-persisted) token minted above kept riding in
+                # source_data and out through this function's own return
+                # value, so a resubmission's /season-plan/ CTA carried a
+                # token the prefill route could never find. Keep the two in
+                # sync with what was actually written to the database.
+                source_data["poster_token"] = merged["poster_token"]
+                if merged.get("poster_url"):
+                    source_data["poster_url"] = merged["poster_url"]
+                elif "poster_url" in source_data:
+                    del source_data["poster_url"]
             db.update("gg_sequence_enrollments", {"source_data": merged},
                       match={"id": existing["id"]})
             logger.info("season review updated in place for %s", email)
@@ -459,7 +483,14 @@ async def subscriber_webhook(
         except Exception:
             logger.exception("enrollment alert failed (enrollment itself succeeded)")
 
-    return {"status": "ok", "enrolled": enrolled}
+    response: dict = {"status": "ok", "enrolled": enrolled}
+    # The goal_2027 results page needs its own poster_token back so the
+    # Season Plan CTA can link to /season-plan/?t=<token> (D9) — the token
+    # that lets the new form read this lead's saved answers back. Nothing
+    # else reads this; a race-plan-only submission never sets it.
+    if source_data.get("poster_token"):
+        response["poster_token"] = source_data["poster_token"]
+    return response
 
 
 def _verify_svix_signature(raw_body: bytes, headers) -> bool:

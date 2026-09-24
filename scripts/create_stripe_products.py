@@ -24,12 +24,16 @@ import argparse
 import json
 import os
 import sys
+from pathlib import Path
 
 try:
     import stripe
 except ImportError:
     print("ERROR: stripe package not installed. Run: pip install stripe")
     sys.exit(1)
+
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "wordpress"))
+from pricing import MIN_WEEKS, PRICE_CAP_CENTS, PRICE_PER_WEEK_CENTS  # data/pricing.json (D18)
 
 
 # =============================================================================
@@ -42,23 +46,24 @@ TRAINING_PLAN_PRODUCT = {
     "metadata": {"category": "training_plan"},
 }
 
-# $15/week, min 4 weeks ($60), cap $249
-# 4 weeks = $60, 5 = $75, ..., 16 = $240, 17+ = $249
+# Weekly rate, minimum weeks, and cap all come from data/pricing.json (D18).
+# Below the cap: one price per week. At/above the cap: a single "N+" price.
+_LAST_UNCAPPED_WEEK = (PRICE_CAP_CENTS - 1) // PRICE_PER_WEEK_CENTS
 TRAINING_PLAN_PRICES = []
-for weeks in range(4, 17):  # 4–16 weeks
-    amount = weeks * 15
+for weeks in range(MIN_WEEKS, _LAST_UNCAPPED_WEEK + 1):
+    amount_cents = weeks * PRICE_PER_WEEK_CENTS
     TRAINING_PLAN_PRICES.append({
-        "unit_amount": amount * 100,  # cents
+        "unit_amount": amount_cents,
         "currency": "usd",
-        "nickname": f"{weeks}-week plan (${amount})",
+        "nickname": f"{weeks}-week plan (${amount_cents // 100})",
         "metadata": {"weeks": str(weeks), "type": "training_plan"},
     })
-# Cap price: $249 for 17+ weeks
+# Cap price: applies from (_LAST_UNCAPPED_WEEK + 1) weeks onward.
 TRAINING_PLAN_PRICES.append({
-    "unit_amount": 249 * 100,
+    "unit_amount": PRICE_CAP_CENTS,
     "currency": "usd",
-    "nickname": "17+ week plan ($249 cap)",
-    "metadata": {"weeks": "17+", "type": "training_plan"},
+    "nickname": f"{_LAST_UNCAPPED_WEEK + 1}+ week plan (${PRICE_CAP_CENTS // 100} cap)",
+    "metadata": {"weeks": f"{_LAST_UNCAPPED_WEEK + 1}+", "type": "training_plan"},
 })
 
 

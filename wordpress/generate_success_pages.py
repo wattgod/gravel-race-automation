@@ -34,6 +34,7 @@ from brand_tokens import get_ab_head_snippet, get_ga4_head_snippet, get_preload_
 from shared_footer import get_mega_footer_html
 from shared_header import get_site_header_html, get_site_header_js
 from cookie_consent import get_consent_banner_html
+from pricing import SEASON_PLAN_DELIVERY_DAYS
 
 OUTPUT_DIR = Path(__file__).parent / "output"
 
@@ -360,6 +361,68 @@ def build_training_plan_success() -> str:
     return trainingpeaks + steps + endure + crosssell + support
 
 
+# ── Season Plan Success ───────────────────────────────────────
+
+
+def build_season_plan_success() -> str:
+    """Content sections for the Season Plan success page.
+
+    Deliberately does not promise .zwo files or same-day automated
+    generation — a Season Plan is a hand-built, multi-race calendar (up to
+    52 weeks, every A/B/C race periodised) with four scheduled rebuilds,
+    not the race plan's single-race pipeline output."""
+    hero = f"""
+  <div class="gg-success-hero" data-product-type="season_plan">
+    <div class="gg-success-check">&check;</div>
+    <h1>Your Season Plan Is Booked</h1>
+    <p>Payment confirmed. I build every Season Plan myself, from the races
+    you gave me &mdash; it lands in your TrainingPeaks calendar within
+    {SEASON_PLAN_DELIVERY_DAYS} days of payment, your complete questionnaire,
+    and your TrainingPeaks connection all being in place. A whole season,
+    every A/B/C race periodised, takes longer to build right than a
+    single-race plan.</p>
+  </div>"""
+
+    steps = """
+  <div class="gg-success-steps">
+    <h2>WHAT HAPPENS NEXT</h2>
+    <div class="gg-success-step">
+      <div class="gg-success-step-num">1</div>
+      <div class="gg-success-step-text">
+        <h3>Connect TrainingPeaks</h3>
+        <p>If you haven't already, connect your account so I can push the
+        calendar there once it's built.</p>
+      </div>
+    </div>
+    <div class="gg-success-step">
+      <div class="gg-success-step-num">2</div>
+      <div class="gg-success-step-text">
+        <h3>Check Your Email</h3>
+        <p>You'll get an email once your season is live, plus your four
+        scheduled rebuild dates for the year. Reply to that email if you
+        have questions.</p>
+      </div>
+    </div>
+    <div class="gg-success-step">
+      <div class="gg-success-step-num">3</div>
+      <div class="gg-success-step-text">
+        <h3>Train the Season, Not Just the Race</h3>
+        <p>Every A/B/C race you gave me is periodised into the calendar.
+        I rebuild it four times across the year so it keeps matching the
+        season you're actually having.</p>
+      </div>
+    </div>
+  </div>"""
+
+    support = f"""
+  <div class="gg-success-support">
+    <p>Questions? Reply to your confirmation email or reach out at
+    <a href="mailto:gravelgodcoaching@gmail.com">gravelgodcoaching@gmail.com</a></p>
+  </div>"""
+
+    return hero + steps + support
+
+
 # ── Coaching Success ──────────────────────────────────────────
 
 
@@ -498,6 +561,15 @@ PAGES = {
         'robots': 'noindex, follow',
         'builder': build_training_plan_success,
         'output_path': 'training-plans-success.html',
+    },
+    'season-plan-success': {
+        'title': 'Season Plan Confirmed | Gravel God Cycling',
+        'description': 'Your Season Plan order is confirmed.',
+        'canonical': '/season-plan/success/',
+        'active_nav': 'products',
+        'robots': 'noindex, follow',
+        'builder': build_season_plan_success,
+        'output_path': 'season-plan-success.html',
     },
     'coaching-welcome': {
         'title': 'Welcome to Coaching | Gravel God Cycling',

@@ -2037,6 +2037,18 @@ class TestGoalCard:
         html = build_goal_card(normalized_data)
         assert 'id="gg-goal-card-poster-wrap" hidden aria-live="polite"' in html
 
+    def test_poster_canvas_sizes_to_the_goal_line_not_a_fixed_box(self, normalized_data):
+        # Matti, screenshot review: a fixed-height canvas left a big empty
+        # area below a short goal line. The poster is a one-line teaser, not
+        # the full multi-field poster at /goals/, so it should read as
+        # complete at whatever height the goal needs, not framed — shrink
+        # instead of filling the space with faint placeholder rows.
+        html = build_goal_card(normalized_data)
+        assert "canvas.height = H;" in html
+        assert "lines.length * 40" in html
+        # the old fixed-height version read canvas.height before drawing
+        assert "var W = canvas.width, H = canvas.height, pad = 28;" not in html
+
     def test_card_sits_after_ratings_before_custom_plan(self, normalized_data):
         html = generate_page(normalized_data)
         ratings_pos = html.index('data-measure-section="rating"')

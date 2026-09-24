@@ -3929,25 +3929,35 @@ __GOAL_CARD_STATE_FN__
   function drawPoster(canvas, header, goal) {
     var ctx = canvas.getContext("2d");
     if (!ctx) { return; }
-    var W = canvas.width, H = canvas.height, pad = 28;
+    var W = canvas.width, pad = 28;
     var ink = "#1a1613", paper = "#f5efe6", teal = "#178079";
-    ctx.fillStyle = paper; ctx.fillRect(0, 0, W, H);
-    ctx.textBaseline = "top";
-    ctx.font = "700 15px 'Sometype Mono', monospace";
-    ctx.fillStyle = teal;
-    ctx.fillText(header, pad, pad);
-    ctx.font = "700 32px 'Source Serif 4', Georgia, serif";
-    ctx.fillStyle = ink;
-    var words = String(goal).split(/\s+/), lines = [], line = "";
     var maxW = W - pad * 2;
+    var goalFont = "700 32px 'Source Serif 4', Georgia, serif";
+    // Wrap first, size the canvas to the result, THEN draw — this card's
+    // poster is a one-line teaser (not the full multi-field poster at
+    // /goals/), so it should read as complete at whatever height the goal
+    // needs rather than framing a mostly-empty box below a short line.
+    ctx.font = goalFont;
+    var words = String(goal).split(/\s+/), lines = [], line = "";
     words.forEach(function(w) {
       var next = line ? line + " " + w : w;
       if (ctx.measureText(next).width <= maxW || !line) { line = next; }
       else { lines.push(line); line = w; }
     });
     if (line) { lines.push(line); }
-    var y = pad + 46;
-    lines.slice(0, 4).forEach(function(l) { ctx.fillText(l, pad, y); y += 40; });
+    lines = lines.slice(0, 4);
+    var goalTop = pad + 46;
+    var H = goalTop + lines.length * 40 + 8 + 5 + pad;
+    canvas.height = H; // resizing clears the canvas AND resets context state
+    ctx.fillStyle = paper; ctx.fillRect(0, 0, W, H);
+    ctx.textBaseline = "top";
+    ctx.font = "700 15px 'Sometype Mono', monospace";
+    ctx.fillStyle = teal;
+    ctx.fillText(header, pad, pad);
+    ctx.font = goalFont;
+    ctx.fillStyle = ink;
+    var y = goalTop;
+    lines.forEach(function(l) { ctx.fillText(l, pad, y); y += 40; });
     ctx.fillStyle = teal;
     ctx.fillRect(pad, y + 8, 120, 5);
   }

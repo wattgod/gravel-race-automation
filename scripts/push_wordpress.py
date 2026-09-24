@@ -2151,6 +2151,67 @@ def build_sitemap_index(today: str, has_blog_sitemap: bool) -> str:
 """
 
 
+def sync_favicons(favicon_dir: str = "web"):
+    """Upload the favicon set (+ gg-logo.svg) to the public_html root.
+
+    Safari doesn't reliably use SVG favicons, so it fell back to a generic
+    letter monogram in the tab bar. The SVG (web/gg-logo.svg) and the
+    generated ICO/PNG fallbacks it references (get_favicon_head_snippet() in
+    brand_tokens.py) all live flat in web/ and all ship here.
+
+    None of these files had a sync flag before — like gg-training-form.php
+    once did, they'd only ever been uploaded by hand. gg-logo.svg has been
+    live since Jul 2026 with no script that could redeploy it if it were
+    ever lost locally; this closes that gap for the whole set.
+    """
+    ssh = get_ssh_credentials()
+    if not ssh:
+        return False
+    host, user, port = ssh
+
+    src_dir = Path(favicon_dir)
+    filenames = [
+        "gg-logo.svg",
+        "favicon.ico",
+        "favicon-32.png",
+        "favicon-16.png",
+        "apple-touch-icon.png",
+        "icon-192.png",
+        "icon-512.png",
+    ]
+    remote_root = "~/www/gravelgodcycling.com/public_html"
+
+    missing = [name for name in filenames if not (src_dir / name).exists()]
+    if missing:
+        print(f"✗ Missing favicon file(s) in {src_dir}/: {', '.join(missing)}")
+        return False
+
+    uploaded = []
+    for name in filenames:
+        local_path = src_dir / name
+        try:
+            subprocess.run(
+                [
+                    "scp", "-i", str(SSH_KEY), "-P", port,
+                    str(local_path),
+                    f"{user}@{host}:{remote_root}/{name}",
+                ],
+                check=True,
+                capture_output=True,
+                text=True,
+                timeout=30,
+            )
+            uploaded.append(name)
+        except subprocess.CalledProcessError as e:
+            print(f"✗ SCP failed for {name}: {e.stderr.strip()}")
+
+    if len(uploaded) == len(filenames):
+        print(f"✓ Uploaded {len(uploaded)} favicon files")
+        return True
+    print(f"⚠ {len(uploaded)}/{len(filenames)} favicon files uploaded")
+    return False
+
+
 def sync_sitemap():
     """Deploy race-sitemap.xml and a sitemap index to the server.
 
@@ -4210,6 +4271,14 @@ if __name__ == "__main__":
         help="Deploy race-sitemap.xml + sitemap index to server"
     )
     parser.add_argument(
+        "--sync-favicons", action="store_true",
+        help="Deploy favicon.ico/PNGs + gg-logo.svg to the public_html root"
+    )
+    parser.add_argument(
+        "--favicon-dir", default="web",
+        help="Path to favicon source files (default: web)"
+    )
+    parser.add_argument(
         "--sync-redirects", action="store_true",
         help="Deploy redirect rules to .htaccess"
     )
@@ -4403,6 +4472,7 @@ if __name__ == "__main__":
         args.sync_training_plans = True
         args.sync_success = True
         args.sync_sitemap = True
+        args.sync_favicons = True
         args.sync_redirects = True
         args.sync_noindex = True
         args.sync_headings = True
@@ -4437,7 +4507,7 @@ if __name__ == "__main__":
                       args.sync_consulting,
                       args.sync_consult_intake,
                       args.sync_training_plans, args.sync_success, args.sync_pages,
-                      args.sync_sitemap, args.sync_redirects,
+                      args.sync_sitemap, args.sync_favicons, args.sync_redirects,
                       args.sync_noindex, args.sync_headings, args.sync_ctas, args.sync_training_form, args.sync_ga4, args.sync_header, args.sync_prep_kits, args.sync_plan_pages, args.sync_tire_guides,
                       args.sync_series, args.sync_blog,
                       args.sync_blog_index, args.sync_photos, args.sync_ab, args.sync_courses,
@@ -4509,6 +4579,8 @@ if __name__ == "__main__":
         _run("sync-pages", sync_pages, args.pages_dir)
     if args.sync_sitemap:
         _run("sync-sitemap", sync_sitemap)
+    if args.sync_favicons:
+        _run("sync-favicons", sync_favicons, args.favicon_dir)
     if args.sync_redirects:
         _run("sync-redirects", sync_redirects)
     if args.sync_noindex:

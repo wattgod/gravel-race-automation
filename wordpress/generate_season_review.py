@@ -46,7 +46,7 @@ from generate_neo_brutalist import (
     get_page_css,
     write_shared_assets,
 )
-from brand_tokens import get_ga4_head_snippet, get_preload_hints
+from brand_tokens import get_favicon_head_snippet, get_ga4_head_snippet, get_preload_hints
 from shared_footer import get_mega_footer_html
 from shared_header import get_site_header_html, get_site_header_js
 from cookie_consent import get_consent_banner_html
@@ -1387,7 +1387,7 @@ def generate_season_review_page(slug: str = "standard", external_assets=None) ->
   <meta property="og:type" content="website">
   <meta property="og:url" content="{url}">
   <meta property="og:image" content="{SITE_BASE_URL}/og/homepage.jpg">
-  <link rel="icon" type="image/svg+xml" href="https://gravelgodcycling.com/gg-logo.svg">
+  {get_favicon_head_snippet()}
   {get_preload_hints()}
   {page_css}
   {get_ga4_head_snippet()}

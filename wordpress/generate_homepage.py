@@ -34,6 +34,7 @@ from generate_neo_brutalist import (
 from brand_tokens import (
     RACER_RATING_THRESHOLD,
     get_ab_head_snippet,
+    get_favicon_head_snippet,
     get_font_face_css,
     get_preload_hints,
     get_tokens_css,
@@ -1687,6 +1688,47 @@ a { text-decoration: none; color: #178079; }
 .gg-hp-skip { position: absolute; left: -9999px; top: auto; width: 1px; height: 1px; overflow: hidden; font-family: 'Sometype Mono', monospace; font-size: 12px; font-weight: 700; letter-spacing: 2px; padding: 12px 24px; background: #9a7e0a; color: #3a2e25; z-index: 100; }
 .gg-hp-skip:focus { position: fixed; top: 0; left: 0; width: auto; height: auto; }
 
+/* ── Wide desktop: 1440px+ ───────────────────────────────
+   Sections were pinned to 1200px everywhere, which on a ~2000px monitor
+   left the whole page sitting in a narrow middle column. Widen the shared
+   measure and scale up the two hero bands (poster wall + race-database)
+   so they use the extra room instead of just adding whitespace. ── */
+@media (min-width: 1440px) {
+  .gg-hp-hero-inner,
+  .gg-hp-goal-hero-inner,
+  .gg-hp-ladder-grid,
+  .gg-hp-stats-inner,
+  .gg-hp-content-grid,
+  .gg-hp-latest-takes,
+  .gg-hp-how-it-works,
+  .gg-hp-coming-up,
+  .gg-hp-training-cta-full,
+  .gg-hp-guide,
+  .gg-hp-featured-in,
+  .gg-hp-testimonials,
+  .gg-hp-email {
+    max-width: 1440px;
+  }
+
+  /* Poster-wall hero: bigger poster stack. The canvases are drawn at a
+     fixed 1080x1440px (see build_goal_hero()/drawSamplePoster()), so there
+     is plenty of pixel-density headroom to display them larger here
+     without blur. */
+  .gg-hp-poster-wall { height: 520px; }
+  .gg-hp-poster { width: 300px; }
+  .gg-hp-poster--0 { transform: translate(-50%, -50%) translateX(-120px) rotate(-8deg); }
+  .gg-hp-poster--1 { width: 360px; }
+  .gg-hp-poster--2 { transform: translate(-50%, -50%) translateX(120px) rotate(8deg); }
+  .gg-hp-goal-title { font-size: 52px; }
+  .gg-hp-goal-cta { font-size: 15px; padding: 20px 44px; }
+
+  /* Race-database band */
+  .gg-hp-hero h1 { font-size: 60px; }
+  .gg-hp-hero-deck { font-size: 19px; }
+  .gg-hp-hero-stat-num { font-size: 38px; }
+  .gg-hp-hv-wrap svg { max-width: 480px; }
+}
+
 /* ── Responsive: 900px ─────────────────────────────────── */
 @media (max-width: 900px) {
   .gg-hp-hero-inner { grid-template-columns: 1fr; gap: 32px; }
@@ -2315,8 +2357,11 @@ def generate_homepage(race_index: list, race_data_dir: Path = None,
                       substack_posts: list | None = None) -> str:
     stats = compute_stats(race_index)
     canonical_url = f"{SITE_BASE_URL}/"
-    # Round down to nearest 50 for title stability as the catalog changes.
-    stable_count = (stats['race_count'] // 50) * 50
+    # Round down to nearest 10 for title stability as the catalog changes.
+    # (Was nearest 50 — with 384 races that rounded to a stale-looking "350+",
+    # a 34-race/9% undercount. Nearest 10 stays accurate to within single
+    # digits while still not flapping on every single new race added.)
+    stable_count = (stats['race_count'] // 10) * 10
     title = f"{stable_count}+ Gravel, MTB & Ultra Races Rated for {CURRENT_YEAR} | Gravel God"
     meta_desc = (
         f"Find your next off-road cycling event. {stats['race_count']} races "
@@ -2371,7 +2416,7 @@ def generate_homepage(race_index: list, race_data_dir: Path = None,
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="icon" type="image/svg+xml" href="https://gravelgodcycling.com/gg-logo.svg">
+  {get_favicon_head_snippet()}
   <title>{esc(title)}</title>
   <meta name="description" content="{esc(meta_desc)}">
   <meta name="robots" content="index, follow">

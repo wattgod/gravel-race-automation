@@ -21,7 +21,7 @@ from generate_neo_brutalist import (
     get_page_css,
     write_shared_assets,
 )
-from brand_tokens import get_ga4_head_snippet, get_preload_hints
+from brand_tokens import get_favicon_head_snippet, get_ga4_head_snippet, get_preload_hints
 from shared_footer import get_mega_footer_html, get_mega_footer_css
 from shared_header import get_site_header_html, get_site_header_css
 from cookie_consent import get_consent_banner_html
@@ -341,7 +341,7 @@ def generate_page(page_key: str, output_dir: Path) -> None:
   <meta property="og:site_name" content="Gravel God Cycling">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="{SITE_URL}/og/homepage.jpg">
-  <link rel="icon" type="image/svg+xml" href="https://gravelgodcycling.com/gg-logo.svg">
+  {get_favicon_head_snippet()}
   {preload}
   {page_css}
   {css}

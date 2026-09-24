@@ -37,6 +37,7 @@ from brand_tokens import (
     COLORS,
     FONT_FILES,
     RACER_RATING_THRESHOLD,
+    get_favicon_head_snippet,
     get_font_face_css,
     get_preload_hints,
     get_tokens_css,
@@ -7283,7 +7284,7 @@ def generate_page(rd: dict, race_index: list = None, external_assets: dict = Non
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="{esc(canonical_url)}">
   <link rel="alternate" type="text/markdown" href="{esc(SITE_BASE_URL)}/race/{esc(rd['slug'])}.md">
-  <link rel="icon" type="image/svg+xml" href="https://gravelgodcycling.com/gg-logo.svg">
+  {get_favicon_head_snippet()}
   <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
   <link rel="dns-prefetch" href="https://ridewithgps.com">
   <link rel="dns-prefetch" href="https://api.rss2json.com">

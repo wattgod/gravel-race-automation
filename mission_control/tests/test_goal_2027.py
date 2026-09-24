@@ -72,6 +72,22 @@ class TestWebhook:
         # url only when Mission Control knows its own address
         assert "poster_url" not in sd or sd["poster_token"] in sd["poster_url"]
 
+    def test_entry_src_is_stored_when_valid(self, client, fake_db):
+        # Which surface sent the visitor to /goals/: the homepage poster
+        # wall ("home") or a race-page goal strip ("race").
+        _post(client, {"email": "entrysrc@example.com", "source": "goal_2027",
+                       "goal_answers": ANSWERS, "entry_src": "race",
+                       "race_slug": "unbound-200"})
+        sd = _enrollment(fake_db, "entrysrc@example.com")["source_data"]
+        assert sd["entry_src"] == "race"
+        assert sd["race_slug"] == "unbound-200"
+
+    def test_junk_entry_src_is_dropped(self, client, fake_db):
+        _post(client, {"email": "junksrc@example.com", "source": "goal_2027",
+                       "goal_answers": ANSWERS, "entry_src": "<script>bad"})
+        sd = _enrollment(fake_db, "junksrc@example.com")["source_data"]
+        assert "entry_src" not in sd
+
     def test_template_keys_are_flattened(self, client, fake_db):
         _post(client, {"email": "flat@example.com", "source": "goal_2027",
                        "goal_answers": ANSWERS})

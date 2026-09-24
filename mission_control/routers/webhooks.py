@@ -335,6 +335,12 @@ async def subscriber_webhook(
         variant = str(body.get("offer_variant", "")).strip().upper()
         if variant in ("A", "B", "C"):
             source_data["offer_variant"] = variant
+        # Which surface sent this visitor to /goals/: 'home' (poster wall) or
+        # 'race' (race-page goal strip). The worker validates it too; cap
+        # again here for the same reason goal_answers is capped again above.
+        _entry_src = str(body.get("entry_src", "")).strip().lower()
+        if re.match(r"^[a-z_]{1,24}$", _entry_src):
+            source_data["entry_src"] = _entry_src
         # The poster is served from an unguessable token rather than a signed
         # payload: no key to rotate, and revoking one lead's poster is a row
         # edit. The token is the only thing in the results email that needs

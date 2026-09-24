@@ -3831,7 +3831,7 @@ def build_goal_strip(rd: dict) -> str:
   if (link) {{
     link.addEventListener('click', function() {{
       if (typeof gtag === 'function') {{
-        gtag('event', 'goal_hero_click', {{ src: 'race' }});
+        gtag('event', 'goal_hero_click', {{ src: 'race', race_slug: {_safe_json_for_script(slug)} }});
       }}
     }});
   }}

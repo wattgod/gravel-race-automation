@@ -303,23 +303,23 @@ class TestSeasonPlanSuccess:
         for bad in ["being generated", "automatically", "within an hour"]:
             assert bad not in lowered, f"Dangerous automated-delivery promise: '{bad}'"
 
-    def test_24_hour_window_is_stated_and_tied_to_a_human_building_it(self):
-        """sol review: a page that dodges the literal '24 hours' string
-        while still implying the same window via 'same window a
-        single-race plan does' is worse, not safer — it says the same
-        thing less honestly. The real promise (matching the coach
-        notification and customer confirmation email in the coordinating
-        acpp PR, both of which state 24 hours explicitly) is fine as long
-        as every mention of the window sits next to Matti building it
-        himself, never standing alone as an automated-sounding claim."""
+    def test_delivery_window_is_3_days_and_tied_to_a_human_building_it(self):
+        """Matti ruling (2026-09-23): the Season Plan's delivery promise is
+        3 days, not the race plan's 24 hours — a whole season, every A/B/C
+        race periodised, is more build than a single race. Sourced from
+        data/pricing.json products.season_plan.delivery_days (via
+        wordpress.pricing.SEASON_PLAN_DELIVERY_DAYS), matching the
+        coordinating acpp PR's coach notification and customer
+        confirmation email. Every mention of the window must sit next to
+        Matti building it himself, never stand alone as an
+        automated-sounding claim."""
         html = build_season_plan_success()
-        assert "24 hours" in html
-        # The 24-hour mention must be in the same paragraph as the
-        # human-builds-it statement, not a bare turnaround-time promise.
+        assert "3 days" in html
+        assert "24 hours" not in html
         p_start = html.index("<p>Payment confirmed.")
         p_end = html.index("</p>", p_start)
         hero_paragraph = html[p_start:p_end]
-        assert "24 hours" in hero_paragraph
+        assert "3 days" in hero_paragraph
         assert "i build every season plan myself" in hero_paragraph.lower()
 
     def test_says_matti_builds_it_himself(self):

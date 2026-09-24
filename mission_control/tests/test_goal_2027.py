@@ -182,6 +182,29 @@ class TestAthleteReviewIsTransactional:
         assert sd["goal_answers"]["outcome_goal"] == "Corrected answer"
         assert sd["poster_token"] == token, "a poster link already emailed must keep working"
 
+    def test_resubmit_response_returns_the_stored_token_not_a_fresh_one(
+            self, client, fake_db):
+        """sol review (BLOCKER #3): a new token is minted on every POST, but
+        a resubmission's DB write preserves the ORIGINAL one (so an
+        already-emailed poster link keeps working). The response this
+        function hands back — read by /goals/'s own JS to build the
+        /season-plan/?t= CTA — must match what was actually persisted, or
+        that link 404s at the prefill route forever."""
+        first = dict(ANSWERS, outcome_goal="First answer")
+        resp1 = _post(client, {"email": "resub@example.com", "name": "Resub",
+                               "source": "goal_2027", "goal_answers": first})
+        stored_token = _enrollment(fake_db, "resub@example.com")["source_data"]["poster_token"]
+        assert resp1.json()["poster_token"] == stored_token
+
+        second = dict(ANSWERS, outcome_goal="Corrected answer")
+        resp2 = _post(client, {"email": "resub@example.com", "name": "Resub",
+                               "source": "goal_2027", "goal_answers": second})
+        sd = _enrollment(fake_db, "resub@example.com")["source_data"]
+        assert sd["poster_token"] == stored_token
+        assert resp2.json()["poster_token"] == stored_token, (
+            "response returned a token that was never written to the database"
+        )
+
 
 class TestResubmitResendsTheResults:
     """The results screen promises a copy, so a correction must send one."""

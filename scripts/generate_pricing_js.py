@@ -26,7 +26,6 @@ from pricing import (  # data/pricing.json (D18)
     MIN_WEEKS,
     PRICE_CAP,
     PRICE_PER_WEEK,
-    SEASON_PLAN_PRICE_DISPLAY,
 )
 
 START_MARKER = "  // GG_PRICING_CONSTANTS_START\n"
@@ -36,12 +35,10 @@ END_MARKER = "  // GG_PRICING_CONSTANTS_END\n"
 def build_block() -> str:
     price_per_week = int(PRICE_PER_WEEK.replace("$", ""))
     price_cap = int(PRICE_CAP.replace("$", ""))
-    season_plan_price = int(SEASON_PLAN_PRICE_DISPLAY.replace("$", ""))
     return (
         f"  var PRICE_PER_WEEK = {price_per_week};\n"
         f"  var PRICE_CAP = {price_cap};\n"
         f"  var MIN_WEEKS = {MIN_WEEKS};\n"
-        f"  var SEASON_PLAN_PRICE = {season_plan_price};\n"
     )
 
 

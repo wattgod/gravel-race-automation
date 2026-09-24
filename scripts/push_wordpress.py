@@ -1313,6 +1313,52 @@ def sync_season_review(variants: str = "athlete"):
     return urls or None
 
 
+def sync_season_plan():
+    """Upload the Season Plan intake to /season-plan/index.html on
+    SiteGround via SSH+SCP.
+
+    A sol review of D9's build found this page had no deploy path at all:
+    "season-plan" wasn't in ROOT_CANONICAL_SLUGS, so the generic sync_pages
+    /race/ sweep would have picked up wordpress/output/season-plan.html and
+    shipped it at /race/season-plan/ instead of /season-plan/. Mirrors
+    sync_season_review's single-page upload pattern.
+    """
+    ssh = get_ssh_credentials()
+    if not ssh:
+        return None
+    host, user, port = ssh
+
+    html_path = Path("wordpress/output/season-plan.html")
+    if not html_path.exists():
+        print(f"✗ Season Plan HTML not found: {html_path}")
+        print("  Run: python3 wordpress/generate_season_plan_form.py first")
+        return None
+
+    remote_base = "~/www/gravelgodcycling.com/public_html/season-plan"
+    try:
+        subprocess.run(
+            ["ssh", "-i", str(SSH_KEY), "-p", port, f"{user}@{host}",
+             f"mkdir -p {remote_base}"],
+            check=True, capture_output=True, text=True, timeout=15,
+        )
+        subprocess.run(
+            ["scp", "-i", str(SSH_KEY), "-P", port, str(html_path),
+             f"{user}@{host}:{remote_base}/index.html"],
+            check=True, capture_output=True, text=True, timeout=30,
+        )
+    except subprocess.CalledProcessError as e:
+        print(f"✗ Upload failed for /season-plan/: {e.stderr.strip()}")
+        return None
+    except Exception as e:  # noqa: BLE001
+        print(f"✗ Error uploading /season-plan/: {e}")
+        return None
+
+    wp_url = os.environ.get("WP_URL", "https://gravelgodcycling.com")
+    url = f"{wp_url}/season-plan/"
+    print(f"✓ Uploaded /season-plan/: {url}")
+    return url
+
+
 def sync_coaching_apply(apply_file: str):
     """Upload coaching-apply.html to /coaching/apply/index.html on SiteGround via SSH+SCP."""
     ssh = get_ssh_credentials()
@@ -1528,7 +1574,7 @@ def sync_tp(tp_dir: str):
 ROOT_CANONICAL_SLUGS = frozenset({
     "about", "articles", "coaching", "consulting", "cookies", "course",
     "gravel-tv", "gravel-weekly", "guide", "homepage", "insights", "privacy", "terms",
-    "training-plans",
+    "training-plans", "season-plan",
 })
 
 RACE_DATA_DIR = Path(__file__).resolve().parent.parent / "race-data"
@@ -4189,6 +4235,10 @@ if __name__ == "__main__":
         help="Comma-separated variant slugs to upload (default: athlete)"
     )
     parser.add_argument(
+        "--sync-season-plan", action="store_true",
+        help="Upload the Season Plan intake to /season-plan/ via SCP"
+    )
+    parser.add_argument(
         "--sync-coaching-apply", action="store_true",
         help="Upload coaching apply page to /coaching/apply/ via SCP"
     )
@@ -4506,6 +4556,7 @@ if __name__ == "__main__":
                       args.sync_guide, args.sync_guide_cluster,
                       args.sync_og, args.sync_tp, args.sync_homepage, args.sync_gravel_weekly, args.sync_about,
                       args.sync_coaching, args.sync_coaching_apply, args.sync_season_review,
+                      args.sync_season_plan,
                       args.sync_consulting,
                       args.sync_consult_intake,
                       args.sync_training_plans, args.sync_success, args.sync_pages,
@@ -4562,6 +4613,8 @@ if __name__ == "__main__":
         _run("sync-coaching", sync_coaching, args.coaching_file)
     if args.sync_season_review:
         _run("sync-season-review", sync_season_review, args.season_review_variants)
+    if args.sync_season_plan:
+        _run("sync-season-plan", sync_season_plan)
 
     if args.sync_coaching_apply:
         _run("sync-coaching-apply", sync_coaching_apply, args.coaching_apply_file)

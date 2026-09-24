@@ -34,6 +34,7 @@ from brand_tokens import get_ab_head_snippet, get_ga4_head_snippet, get_preload_
 from shared_footer import get_mega_footer_html
 from shared_header import get_site_header_html, get_site_header_js
 from cookie_consent import get_consent_banner_html
+from pricing import SEASON_PLAN_DELIVERY_DAYS
 
 OUTPUT_DIR = Path(__file__).parent / "output"
 
@@ -376,9 +377,10 @@ def build_season_plan_success() -> str:
     <h1>Your Season Plan Is Booked</h1>
     <p>Payment confirmed. I build every Season Plan myself, from the races
     you gave me &mdash; it lands in your TrainingPeaks calendar within
-    24 hours of payment, your complete questionnaire, and your
-    TrainingPeaks connection all being in place. Same human-built process
-    as a single-race plan, just a bigger calendar.</p>
+    {SEASON_PLAN_DELIVERY_DAYS} days of payment, your complete questionnaire,
+    and your TrainingPeaks connection all being in place. A whole season,
+    every A/B/C race periodised, takes longer to build right than a
+    single-race plan.</p>
   </div>"""
 
     steps = """

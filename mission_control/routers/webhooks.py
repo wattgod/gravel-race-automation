@@ -406,6 +406,15 @@ async def subscriber_webhook(
                 if existing["source_data"].get("poster_url"):
                     base = existing["source_data"]["poster_url"].split("?")[0]
                     merged["poster_url"] = f"{base}?v={int(time.time())}"
+                # sol review: `merged` is a copy — without this, the fresh
+                # (never-persisted) token minted above kept riding in
+                # source_data and out through this function's own return
+                # value, so a resubmission's /season-plan/ CTA carried a
+                # token the prefill route could never find. Keep the two in
+                # sync with what was actually written to the database.
+                source_data["poster_token"] = merged["poster_token"]
+                if merged.get("poster_url"):
+                    source_data["poster_url"] = merged["poster_url"]
             db.update("gg_sequence_enrollments", {"source_data": merged},
                       match={"id": existing["id"]})
             logger.info("season review updated in place for %s", email)

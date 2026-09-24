@@ -38,6 +38,7 @@ SEASON_PLAN_PRICE_CENTS = SEASON_PLAN["price_cents"]          # 49900
 SEASON_PLAN_MAX_WEEKS = SEASON_PLAN["max_weeks"]              # 52
 SEASON_PLAN_REBUILDS = SEASON_PLAN["scheduled_rebuilds"]      # 4
 SEASON_PLAN_REFUND_DAYS = SEASON_PLAN["refund_window_days"]   # 7
+SEASON_PLAN_DELIVERY_DAYS = SEASON_PLAN["delivery_days"]       # 3 (race plan stays 24h)
 
 
 def compute_race_plan_price_cents(weeks: int) -> int:

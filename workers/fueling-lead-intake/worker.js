@@ -115,9 +115,13 @@ export default {
 
     // Downstream work: Mission Control, webhook, notification email
     // Failures here are logged but don't affect the user response
+    // (mcResultPromise is declared here, at function scope, not inside the
+    // try block below — it's read again after that block ends, and `let`
+    // is block-scoped: a sol review caught a ReferenceError crashing every
+    // accepted request when it was declared inside the try.)
+    let mcResultPromise = null;
     try {
       const promises = [];
-      let mcResultPromise = null;
 
       // Notify Mission Control for sequence enrollment (all sources)
       if (env.MC_WEBHOOK_URL) {

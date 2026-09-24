@@ -33,6 +33,7 @@ SEASON_PLAN_PRICE_DISPLAY = SEASON_PLAN["price_display"]       # "$499"
 SEASON_PLAN_PRICE_CENTS = SEASON_PLAN["price_cents"]            # 49900
 SEASON_PLAN_REBUILDS = SEASON_PLAN["scheduled_rebuilds"]        # 4
 SEASON_PLAN_REFUND_DAYS = SEASON_PLAN["refund_window_days"]     # 7
+SEASON_PLAN_DELIVERY_DAYS = SEASON_PLAN["delivery_days"]         # 3 (race plan stays 24h)
 SEASON_PLAN_RECONCILIATION_LABEL = SEASON_PLAN["reconciliation_label"]  # "season_plan"
 
 

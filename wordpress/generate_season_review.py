@@ -957,11 +957,17 @@ def build_season_review_js(variant) -> str:
       }).then(function(r) {
         // Mission Control hands back this lead's poster_token so the
         // Season Plan CTA can link to /season-plan/?t=<token> and prefill
-        // there — read it here, never block success on it parsing.
-        r.json().then(function(body) {
+        // there — read it here. This chain must return the parse promise
+        // (not fire-and-forget it) so workerOk — and therefore showResults(),
+        // which builds the CTA from POSTER_TOKEN — waits for it; a sol
+        // review caught the earlier version racing showResults() against
+        // an unresolved r.json() and shipping the CTA with no ?t= most of
+        // the time. A parse failure still resolves to r.ok, never blocking
+        // success on the token.
+        return r.json().then(function(body) {
           if (body && body.poster_token) { POSTER_TOKEN = body.poster_token; }
-        }).catch(function() {});
-        return r.ok;
+          return r.ok;
+        }).catch(function() { return r.ok; });
       }).catch(function() { return false; });
     }
 

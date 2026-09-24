@@ -106,6 +106,12 @@ def create_app() -> FastAPI:
 
     app.include_router(poster.router, include_in_schema=False)
 
+    # Public, unauthenticated: /season-plan/'s read-only prefill from the
+    # same poster_token (D9) — name/email/goal/A-race/habits only.
+    from mission_control.routers import season_plan_prefill
+
+    app.include_router(season_plan_prefill.router, include_in_schema=False)
+
     # Races API — public, included in API docs
     app.include_router(races_api.router)
 

@@ -15,6 +15,9 @@ final-cta), matching the Roadie Labs sibling-brand rebuild
 (road-race-automation/wordpress/generate_coaching.py). Owner-approved copy
 and structure.
 
+The tiers section opens with a JS-revealed "fit check" (three questions →
+a recommended tier). It is not the "A fit, or not" section (id="fit").
+
 Uses brand tokens exclusively — zero hardcoded hex, no border-radius, no
 box-shadow, no bounce easing, no entrance animations — the Dossier is a
 still document.
@@ -47,6 +50,47 @@ PROJECT_ROOT = Path(__file__).resolve().parent.parent
 # ── Constants ─────────────────────────────────────────────────
 
 QUESTIONNAIRE_URL = f"{SITE_BASE_URL}/coaching/apply/"
+
+# Tier identity — the single source for name and price. The tier columns
+# and the fit-check result both render from this, so a price can't drift
+# between the two.
+TIERS = (
+    ("min", "Min", "$199"),
+    ("mid", "Mid", "$299"),
+    ("max", "Max", "$1,200"),
+)
+TIER_INTERVAL = "/ 4 WEEKS"
+
+# Fit check — owner-voice copy, verbatim. Each option's answer value is its
+# index (0, 1, 2); the scoring lives in build_coaching_js().
+FIT_CHECK_INTRO = (
+    "Not sure which tier? Three questions, no email. "
+    "I&#39;ll point you at the cheapest one that does the job."
+)
+FIT_CHECK_QUESTIONS = (
+    ("When a week goes sideways, you want&hellip;", (
+        "I&#39;ll adjust it myself. Check my work weekly.",
+        "The plan moved that same week.",
+        "Someone on it the same day.",
+    )),
+    ("Your ride files should be&hellip;", (
+        "Skimmed. I know what I did.",
+        "Read between sessions.",
+        "Read every one, every day.",
+    )),
+    ("Your A race is&hellip;", (
+        "16+ weeks out",
+        "8&ndash;16 weeks out",
+        "Under 8 weeks",
+    )),
+)
+FIT_CHECK_EMPTY = "Answer the first two. The race date only changes what I tell you."
+FIT_CHECK_REASONS = {
+    "min": "You execute on your own and want the thinking done right. A weekly look is enough, and paying for attention you won&#39;t use is waste.",
+    "mid": "You want the week to move when life does, not after. That&#39;s the whole gap between Min and Mid, and it&#39;s where most athletes land.",
+    "max": "You want every file read the day it lands. Worth it for one race that matters more than the rest. If this season isn&#39;t that, Mid covers it.",
+}
+FIT_CHECK_TIGHT = "Under 8 weeks is tight. I&#39;ll tell you straight if it&#39;s too late to change much."
 
 
 def esc(text) -> str:
@@ -145,13 +189,83 @@ def build_terms() -> str:
   </section>'''
 
 
+def _tier_head(key: str) -> str:
+    """Name + price lines for a tier column, from TIERS. The name carries a
+    pre-rendered, hidden "YOUR FIT" label the fit check reveals."""
+    name, price = {k: (n, p) for k, n, p in TIERS}[key]
+    return (
+        f'<div class="gg-coach-tier-name">{name} '
+        f'<span class="gg-coach-tier-fit-label" hidden>YOUR FIT</span></div>\n'
+        f'          <div class="gg-coach-tier-price">{price}'
+        f'<span class="gg-coach-tier-interval">{TIER_INTERVAL}</span></div>'
+    )
+
+
+def build_fit_check() -> str:
+    """Three-question tier recommender, above the tier columns.
+
+    Rendered with `hidden`; build_coaching_js() removes it, so without JS
+    the page is unchanged. Every result state is pre-rendered here and JS
+    only toggles `hidden`, so all copy, prices and CTA hrefs come from the
+    Python constants and every CTA exists at load for the cta_click
+    listener."""
+    questions = []
+    for qi, (text, options) in enumerate(FIT_CHECK_QUESTIONS, start=1):
+        q_id = f"gg-coach-fitcheck-q{qi}"
+        buttons = "\n            ".join(
+            f'<button type="button" class="gg-coach-fitcheck-opt" data-q="{qi}" '
+            f'data-a="{ai}" aria-pressed="false">{label}</button>'
+            for ai, label in enumerate(options)
+        )
+        questions.append(
+            f'''<div class="gg-coach-fitcheck-q">
+          <p class="gg-coach-fitcheck-q-text" id="{q_id}">{text}</p>
+          <div class="gg-coach-fitcheck-opts" role="group" aria-labelledby="{q_id}">
+            {buttons}
+          </div>
+        </div>'''
+        )
+    recs = "\n            ".join(
+        f'<div class="gg-coach-fitcheck-rec" data-fit="{key}" hidden>'
+        f'<p class="gg-coach-fitcheck-tier">{name} '
+        f'<span class="gg-coach-fitcheck-price">{price} {TIER_INTERVAL}</span></p>'
+        f'<p class="gg-coach-fitcheck-reason">{FIT_CHECK_REASONS[key]}</p>'
+        f'</div>'
+        for key, name, price in TIERS
+    )
+    ctas = "\n            ".join(
+        f'<a href="{QUESTIONNAIRE_URL}?tier={key}&amp;src=fitcheck" '
+        f'class="gg-coach-fitcheck-cta" data-cta="fitcheck_apply_{key}" '
+        f'data-fit="{key}" hidden>APPLY FOR {name.upper()} &rarr;</a>'
+        for key, name, _price in TIERS
+    )
+    q_html = "\n          ".join(questions)
+    return f'''<div class="gg-coach-fitcheck" id="gg-coach-fitcheck" hidden>
+      <p class="gg-coach-fitcheck-intro">{FIT_CHECK_INTRO}</p>
+      <div class="gg-coach-fitcheck-grid">
+        <div class="gg-coach-fitcheck-questions">
+          {q_html}
+        </div>
+        <div class="gg-coach-fitcheck-result" aria-live="polite">
+          <p class="gg-coach-fitcheck-empty">{FIT_CHECK_EMPTY}</p>
+          <div class="gg-coach-fitcheck-answer" hidden>
+            <p class="gg-coach-fitcheck-label">YOU PROBABLY WANT</p>
+            {recs}
+            <p class="gg-coach-fitcheck-tight" hidden>{FIT_CHECK_TIGHT}</p>
+            {ctas}
+          </div>
+        </div>
+      </div>
+    </div>'''
+
+
 def build_tiers() -> str:
     return f'''<section class="gg-coach-band gg-coach-tiers-section" id="tiers">
     <div class="gg-coach-inner">
+      {build_fit_check()}
       <div class="gg-coach-tiers">
-        <div class="gg-coach-tier-col">
-          <div class="gg-coach-tier-name">Min</div>
-          <div class="gg-coach-tier-price">$199<span class="gg-coach-tier-interval">/ 4 WEEKS</span></div>
+        <div class="gg-coach-tier-col" data-tier="min">
+          {_tier_head("min")}
           <p class="gg-coach-tier-desc">The plan, plus a weekly check of your training. For athletes who execute on their own and want the thinking done right.</p>
           <ul class="gg-coach-tier-list">
             <li>Weekly training review</li>
@@ -163,9 +277,8 @@ def build_tiers() -> str:
           </ul>
           <a href="{QUESTIONNAIRE_URL}?tier=min" class="gg-coach-tier-cta" data-cta="tier_min">GET STARTED</a>
         </div>
-        <div class="gg-coach-tier-col">
-          <div class="gg-coach-tier-name">Mid</div>
-          <div class="gg-coach-tier-price">$299<span class="gg-coach-tier-interval">/ 4 WEEKS</span></div>
+        <div class="gg-coach-tier-col" data-tier="mid">
+          {_tier_head("mid")}
           <p class="gg-coach-tier-desc">The plan, watched. Someone reads the data between sessions and adjusts the same week life changes. Most athletes belong here.</p>
           <ul class="gg-coach-tier-list">
             <li>Everything in Min</li>
@@ -177,9 +290,8 @@ def build_tiers() -> str:
           </ul>
           <a href="{QUESTIONNAIRE_URL}?tier=mid" class="gg-coach-tier-cta" data-cta="tier_mid">GET STARTED</a>
         </div>
-        <div class="gg-coach-tier-col">
-          <div class="gg-coach-tier-name">Max</div>
-          <div class="gg-coach-tier-price">$1,200<span class="gg-coach-tier-interval">/ 4 WEEKS</span></div>
+        <div class="gg-coach-tier-col" data-tier="max">
+          {_tier_head("max")}
           <p class="gg-coach-tier-desc">Everything, daily. For the race where you want nothing left to chance.</p>
           <ul class="gg-coach-tier-list">
             <li>Everything in Mid</li>
@@ -583,6 +695,165 @@ def build_coaching_css() -> str:
   margin-bottom: 0;
 }
 
+/* ── Fit check — three questions above the tiers ─────
+   Continues the terms list (tan hairline on top), then hands off to the
+   tiers' dark rule. Options are plain hairline boxes; the chosen one
+   takes the solid inverted fill. The block ships `hidden` and JS reveals
+   it, so every toggled element needs [hidden] to beat its own display
+   rule (hence the (0,2,0) selector below). */
+.gg-coach-tiers-section [hidden] {
+  display: none;
+}
+.gg-coach-fitcheck {
+  border-top: 1px solid var(--gg-color-tan);
+  padding: var(--gg-spacing-xl) 0;
+}
+.gg-coach-fitcheck-intro {
+  font-family: var(--gg-font-editorial);
+  font-size: var(--gg-font-size-md);
+  line-height: var(--gg-line-height-relaxed);
+  color: var(--gg-color-dark-brown);
+  max-width: 60ch;
+  margin: 0 0 var(--gg-spacing-lg) 0;
+}
+.gg-coach-fitcheck-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+  gap: var(--gg-spacing-xl);
+  align-items: start;
+}
+.gg-coach-fitcheck-q + .gg-coach-fitcheck-q {
+  margin-top: var(--gg-spacing-lg);
+}
+.gg-coach-fitcheck-q-text {
+  font-family: var(--gg-font-editorial);
+  font-size: var(--gg-font-size-base);
+  font-weight: var(--gg-font-weight-semibold);
+  color: var(--gg-color-dark-brown);
+  line-height: var(--gg-line-height-tight);
+  margin: 0 0 var(--gg-spacing-sm) 0;
+}
+.gg-coach-fitcheck-opts {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--gg-spacing-xs);
+}
+.gg-coach-fitcheck-opt {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 100%;
+  min-height: 44px;
+  margin: 0;
+  padding: var(--gg-spacing-sm) var(--gg-spacing-md);
+  background: transparent;
+  border: 1px solid var(--gg-color-tan);
+  font-family: var(--gg-font-editorial);
+  font-size: var(--gg-font-size-sm);
+  line-height: var(--gg-line-height-normal);
+  color: var(--gg-color-dark-brown);
+  text-align: left;
+  cursor: pointer;
+  transition: background-color var(--gg-transition-hover),
+              color var(--gg-transition-hover),
+              border-color var(--gg-transition-hover);
+}
+.gg-coach-fitcheck-opt:hover {
+  border-color: var(--gg-color-dark-brown);
+}
+.gg-coach-fitcheck-opt[aria-pressed="true"] {
+  background: var(--gg-color-dark-brown);
+  border-color: var(--gg-color-dark-brown);
+  color: var(--gg-color-warm-paper);
+}
+.gg-coach-fitcheck-result {
+  border-left: 1px solid var(--gg-color-tan);
+  padding-left: var(--gg-spacing-lg);
+}
+.gg-coach-fitcheck-empty {
+  font-family: var(--gg-font-editorial);
+  font-size: var(--gg-font-size-sm);
+  line-height: var(--gg-line-height-relaxed);
+  color: var(--gg-color-secondary-brown);
+  margin: 0;
+}
+.gg-coach-fitcheck-label {
+  font-family: var(--gg-font-data);
+  font-size: var(--gg-font-size-2xs);
+  font-weight: var(--gg-font-weight-bold);
+  letter-spacing: var(--gg-letter-spacing-wider);
+  text-transform: uppercase;
+  color: var(--gg-color-secondary-brown);
+  margin: 0;
+}
+.gg-coach-fitcheck-tier {
+  font-family: var(--gg-font-editorial);
+  font-size: var(--gg-font-size-2xl);
+  font-weight: var(--gg-font-weight-semibold);
+  color: var(--gg-color-dark-brown);
+  line-height: var(--gg-line-height-tight);
+  margin: var(--gg-spacing-xs) 0 0 0;
+}
+.gg-coach-fitcheck-price {
+  font-family: var(--gg-font-data);
+  font-size: var(--gg-font-size-2xs);
+  font-weight: var(--gg-font-weight-regular);
+  letter-spacing: var(--gg-letter-spacing-normal);
+  color: var(--gg-color-secondary-brown);
+  margin-left: var(--gg-spacing-xs);
+}
+.gg-coach-fitcheck-reason,
+.gg-coach-fitcheck-tight {
+  font-family: var(--gg-font-editorial);
+  font-size: var(--gg-font-size-sm);
+  line-height: var(--gg-line-height-relaxed);
+  color: var(--gg-color-dark-brown);
+  margin: var(--gg-spacing-sm) 0 0 0;
+}
+.gg-coach-fitcheck-tight {
+  color: var(--gg-color-secondary-brown);
+}
+.gg-coach-fitcheck-cta {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  margin-top: var(--gg-spacing-md);
+  padding: 0 var(--gg-spacing-lg);
+  border: 1px solid var(--gg-color-dark-brown);
+  font-family: var(--gg-font-data);
+  font-size: var(--gg-font-size-2xs);
+  font-weight: var(--gg-font-weight-bold);
+  letter-spacing: var(--gg-letter-spacing-wide);
+  text-transform: uppercase;
+  color: var(--gg-color-dark-brown);
+  text-decoration: none;
+  transition: background-color var(--gg-transition-hover),
+              color var(--gg-transition-hover);
+}
+.gg-coach-fitcheck-cta:hover {
+  background-color: var(--gg-color-dark-brown);
+  color: var(--gg-color-warm-paper);
+}
+/* The recommended column: a heavier rule over it and an inverted label.
+   Every column reserves the 3px so marking one never shifts the row. */
+.gg-coach-tier-col {
+  border-top: 3px solid transparent;
+}
+.gg-coach-tier-col.gg-coach-is-fit {
+  border-top-color: var(--gg-color-dark-brown);
+}
+/* inline, not inline-block: its padding paints but doesn't grow the
+   line box, so the marked column's price stays level with the others. */
+.gg-coach-tier-fit-label {
+  display: inline;
+  margin-left: var(--gg-spacing-xs);
+  padding: 2px var(--gg-spacing-2xs);
+  background: var(--gg-color-dark-brown);
+  color: var(--gg-color-warm-paper);
+}
+.gg-coach-is-fit .gg-coach-tier-name {
+  color: var(--gg-color-dark-brown);
+}
+
 /* ── A fit, or not ───────────────────────────────── */
 .gg-coach-audience {
   display: grid;
@@ -765,7 +1036,9 @@ def build_coaching_css() -> str:
 
 /* ── Reduced motion ─────────────────────────────── */
 @media (prefers-reduced-motion: reduce) {
-  .gg-coach-faq-a {
+  .gg-coach-faq-a,
+  .gg-coach-fitcheck-opt,
+  .gg-coach-fitcheck-cta {
     transition: none;
   }
 }
@@ -787,6 +1060,19 @@ def build_coaching_css() -> str:
   }
   .gg-coach-term-num {
     padding-top: 0;
+  }
+  .gg-coach-fitcheck-grid,
+  .gg-coach-fitcheck-opts {
+    grid-template-columns: 1fr;
+  }
+  .gg-coach-fitcheck-grid {
+    gap: var(--gg-spacing-lg);
+  }
+  .gg-coach-fitcheck-result {
+    border-left: none;
+    border-top: 1px solid var(--gg-color-tan);
+    padding-left: 0;
+    padding-top: var(--gg-spacing-lg);
   }
   .gg-coach-tiers {
     grid-template-columns: 1fr;
@@ -843,6 +1129,52 @@ def build_coaching_js() -> str:
     q.addEventListener('click', toggle);
     q.addEventListener('keydown', function(e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggle(); } });
   });
+})();
+
+/* Fit check — three questions, one tier. No persistence. Every result
+   state is pre-rendered; this only scores and toggles `hidden`. */
+(function() {
+  var box = document.getElementById('gg-coach-fitcheck');
+  if (!box) return;
+  var answers = [null, null, null];
+  var current = null;
+  var empty = box.querySelector('.gg-coach-fitcheck-empty');
+  var answer = box.querySelector('.gg-coach-fitcheck-answer');
+  var tight = box.querySelector('.gg-coach-fitcheck-tight');
+  var cols = document.querySelectorAll('.gg-coach-tier-col[data-tier]');
+  function render() {
+    var ready = answers[0] !== null && answers[1] !== null;
+    var tier = null;
+    if (ready) {
+      var score = answers[0] + answers[1] + (answers[2] === 2 ? 1 : 0);
+      tier = score <= 1 ? 'min' : score <= 3 ? 'mid' : 'max';
+    }
+    empty.hidden = ready;
+    answer.hidden = !ready;
+    tight.hidden = answers[2] !== 2;
+    box.querySelectorAll('[data-fit]').forEach(function(el) { el.hidden = el.getAttribute('data-fit') !== tier; });
+    cols.forEach(function(col) {
+      var on = col.getAttribute('data-tier') === tier;
+      col.classList.toggle('gg-coach-is-fit', on);
+      var label = col.querySelector('.gg-coach-tier-fit-label');
+      if (label) label.hidden = !on;
+    });
+    if (tier && tier !== current && typeof gtag === 'function') gtag('event', 'coaching_fitcheck_result', { tier: tier });
+    current = tier;
+  }
+  box.querySelectorAll('.gg-coach-fitcheck-opt').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      var q = Number(btn.getAttribute('data-q'));
+      var a = Number(btn.getAttribute('data-a'));
+      answers[q - 1] = a;
+      btn.parentNode.querySelectorAll('.gg-coach-fitcheck-opt').forEach(function(b) {
+        b.setAttribute('aria-pressed', b === btn ? 'true' : 'false');
+      });
+      if (typeof gtag === 'function') gtag('event', 'coaching_fitcheck_answer', { question: q, answer: a });
+      render();
+    });
+  });
+  box.hidden = false;
 })();
 
 /* Scroll depth tracking */

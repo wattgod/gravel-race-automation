@@ -326,6 +326,33 @@ def _fit_score_tier(q1: int, q2: int, q3) -> str:
     return "max"
 
 
+def _ancestor_classes(fragment: str, target_class: str) -> list:
+    """Class names of every ancestor of the first element carrying
+    target_class in an HTML fragment."""
+    from html.parser import HTMLParser
+
+    class _Walk(HTMLParser):
+        def __init__(self):
+            super().__init__()
+            self.stack, self.found = [], None
+
+        def handle_starttag(self, tag, attrs):
+            cls = dict(attrs).get("class") or ""
+            if self.found is None and target_class in cls.split():
+                self.found = [c for _, c in self.stack]
+            self.stack.append((tag, cls))
+
+        def handle_endtag(self, tag):
+            while self.stack:
+                if self.stack.pop()[0] == tag:
+                    break
+
+    walker = _Walk()
+    walker.feed(fragment)
+    assert walker.found is not None, target_class
+    return " ".join(walker.found).split()
+
+
 def _fitcheck_js_iife(coaching_js: str) -> str:
     start = coaching_js.index("/* Fit check")
     end = coaching_js.index("/* Scroll depth tracking */")
@@ -338,6 +365,8 @@ def _fitcheck_js_iife(coaching_js: str) -> str:
 _FITCHECK_DOM_HARNESS = r"""
 const iife = process.argv[1];
 const plan = JSON.parse(process.argv[2]);
+const narrow = process.argv[3] === 'mobile';
+global.window = { matchMedia: function(q) { return { matches: q === '(max-width: 768px)' && narrow }; } };
 function el(attrs, hidden) {
   const cls = new Set();
   return {
@@ -356,6 +385,9 @@ function run(clicks) {
   const events = [];
   global.gtag = function(kind, name, params) { events.push([name, params]); };
   const empty = el({}, false), answer = el({}, true), tight = el({}, true);
+  const scrolls = [];
+  const result = el({});
+  result.scrollIntoView = function(opts) { scrolls.push(opts); };
   const fits = [];
   ['min', 'mid', 'max'].forEach(function(t) { fits.push(el({'data-fit': t, kind: 'rec'}, true)); });
   ['min', 'mid', 'max'].forEach(function(t) { fits.push(el({'data-fit': t, kind: 'cta'}, true)); });
@@ -368,7 +400,7 @@ function run(clicks) {
   const box = el({}, true);
   box.querySelector = function(sel) {
     return { '.gg-coach-fitcheck-empty': empty, '.gg-coach-fitcheck-answer': answer,
-             '.gg-coach-fitcheck-tight': tight }[sel];
+             '.gg-coach-fitcheck-tight': tight, '.gg-coach-fitcheck-result': result }[sel];
   };
   box.querySelectorAll = function(sel) {
     if (sel === '[data-fit]') return fits;
@@ -403,16 +435,17 @@ function run(clicks) {
     fitLabels: cols.filter(function(c) { return !c.label.hidden; }).map(function(c) { return c.attrs['data-tier']; }),
     pressed: buttons.filter(function(b) { return b.attrs['aria-pressed'] === 'true'; }).map(function(b) { return [Number(b.attrs['data-q']), Number(b.attrs['data-a'])]; }),
     events: events,
+    scrolls: scrolls,
   };
 }
 console.log(JSON.stringify(plan.map(run)));
 """
 
 
-def _run_fitcheck(coaching_js: str, plans: list) -> list:
+def _run_fitcheck(coaching_js: str, plans: list, viewport: str = "mobile") -> list:
     import json
     result = subprocess.run(
-        ["node", "-e", _FITCHECK_DOM_HARNESS, _fitcheck_js_iife(coaching_js), json.dumps(plans)],
+        ["node", "-e", _FITCHECK_DOM_HARNESS, _fitcheck_js_iife(coaching_js), json.dumps(plans), viewport],
         capture_output=True, text=True, timeout=30,
     )
     assert result.returncode == 0, f"fit-check harness failed: {result.stderr}"
@@ -551,6 +584,15 @@ class TestFitCheck:
         assert "background: var(--gg-color-dark-brown);" in block
         assert "color: var(--gg-color-warm-paper);" in block
 
+    def test_mobile_result_clears_sticky_cta(self, coaching_css):
+        """The first result is scrolled into view with block 'nearest';
+        on mobile the fixed sticky CTA (56px) would cover its bottom
+        without a scroll margin."""
+        mobile = coaching_css.split("/* ── Responsive", 1)[1]
+        block = mobile.split(".gg-coach-fitcheck-result {", 1)[1].split("}", 1)[0]
+        margin = re.search(r"scroll-margin-bottom:\s*(\d+)px;", block)
+        assert margin and int(margin.group(1)) >= 56
+
     def test_fit_column_marked(self, coaching_css):
         assert ".gg-coach-tier-col.gg-coach-is-fit {" in coaching_css
 
@@ -607,6 +649,7 @@ class TestFitCheck:
             assert r["fitCols"] == [tier] and r["fitLabels"] == [tier], (clicks, r)
             assert r["tightHidden"] is (not tight), clicks
             assert sorted(r["pressed"]) == sorted(clicks), clicks
+            assert r["scrolls"] == [{"block": "nearest", "behavior": "instant"}], (clicks, r["scrolls"])
 
     def test_named_combinations(self, coaching_js):
         cases = [
@@ -627,8 +670,10 @@ class TestFitCheck:
             assert r["emptyHidden"] is False and r["answerHidden"] is True
             assert r["recs"] == [] and r["ctas"] == [] and r["fitCols"] == [] and r["fitLabels"] == []
             assert not [e for e in r["events"] if e[0] == "coaching_fitcheck_result"]
-        # Q3 alone still surfaces its note, but no tier.
-        assert results[2]["tightHidden"] is False
+            assert r["scrolls"] == []
+        # The tight note lives inside the answer container, so while that
+        # is hidden the note can't show, whatever Q3 says.
+        assert "gg-coach-fitcheck-answer" in _ancestor_classes(build_fit_check(), "gg-coach-fitcheck-tight")
 
     def test_answers_change_live_and_result_fires_only_on_change(self, coaching_js):
         clicks = [[1, 0], [2, 0], [2, 0], [3, 0], [2, 2], [3, 2], [1, 2], [1, 0]]
@@ -640,6 +685,20 @@ class TestFitCheck:
         assert tiers == ["min", "mid", "max", "mid"]
         assert r["recs"] == ["mid"] and r["fitCols"] == ["mid"]
         assert sorted(r["pressed"]) == [[1, 0], [2, 2], [3, 2]]
+        # Scrolls once, on the first reveal; later answer changes never do.
+        assert r["scrolls"] == [{"block": "nearest", "behavior": "instant"}]
+
+    def test_desktop_never_scrolls(self, coaching_js):
+        """Side by side (above the 768px breakpoint) the result is beside
+        the questions and there is no sticky bar: the page must not move."""
+        plans = [[[1, a], [2, b], [3, 2]] for a in (0, 1, 2) for b in (0, 1, 2)]
+        for r in _run_fitcheck(coaching_js, plans, viewport="desktop"):
+            assert r["scrolls"] == []
+            assert r["recs"] and r["answerHidden"] is False
+
+    def test_scroll_breakpoint_matches_css(self, coaching_js, coaching_css):
+        assert "window.matchMedia('(max-width: 768px)')" in _fitcheck_js_iife(coaching_js)
+        assert "@media (max-width: 768px)" in coaching_css.split("/* ── Responsive", 1)[1]
 
 
 # ── A fit, or not ─────────────────────────────────────────────

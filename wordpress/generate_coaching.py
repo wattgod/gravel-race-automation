@@ -1073,6 +1073,9 @@ def build_coaching_css() -> str:
     border-top: 1px solid var(--gg-color-tan);
     padding-left: 0;
     padding-top: var(--gg-spacing-lg);
+    /* clears the fixed sticky CTA (56px at 390 wide) when JS scrolls
+       the first result into view */
+    scroll-margin-bottom: 72px;
   }
   .gg-coach-tiers {
     grid-template-columns: 1fr;
@@ -1141,6 +1144,7 @@ def build_coaching_js() -> str:
   var empty = box.querySelector('.gg-coach-fitcheck-empty');
   var answer = box.querySelector('.gg-coach-fitcheck-answer');
   var tight = box.querySelector('.gg-coach-fitcheck-tight');
+  var result = box.querySelector('.gg-coach-fitcheck-result');
   var cols = document.querySelectorAll('.gg-coach-tier-col[data-tier]');
   function render() {
     var ready = answers[0] !== null && answers[1] !== null;
@@ -1159,8 +1163,18 @@ def build_coaching_js() -> str:
       var label = col.querySelector('.gg-coach-tier-fit-label');
       if (label) label.hidden = !on;
     });
+    var firstResult = tier !== null && current === null;
     if (tier && tier !== current && typeof gtag === 'function') gtag('event', 'coaching_fitcheck_result', { tier: tier });
     current = tier;
+    /* First reveal only, and only where the layout stacks and the sticky
+       CTA exists (same 768px breakpoint as the CSS): there the result
+       lands under the sticky bar. Side-by-side on desktop the page never
+       moves. 'nearest' is a no-op when it is already in view; 'instant'
+       overrides the site-wide html { scroll-behavior: smooth }. Older
+       Safari rejects 'instant' and throws; it just skips the nudge. */
+    if (firstResult && window.matchMedia('(max-width: 768px)').matches) {
+      try { result.scrollIntoView({ block: 'nearest', behavior: 'instant' }); } catch (e) {}
+    }
   }
   box.querySelectorAll('.gg-coach-fitcheck-opt').forEach(function(btn) {
     btn.addEventListener('click', function() {

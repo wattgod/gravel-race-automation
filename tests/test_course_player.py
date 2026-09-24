@@ -76,6 +76,17 @@ def landing_html(dirt_craft, hydration):
     return build_landing_page(dirt_craft, all_courses=[dirt_craft, hydration])
 
 
+def test_dirt_craft_landing_shows_character_sample(landing_html):
+    assert "WATCH A LESSON SAMPLE" in landing_html
+    assert "/course/dirt-craft/assets/l02-hip-hinge-position.mp4" in landing_html
+    assert "illustrated position check" in landing_html.lower()
+
+
+def test_inactive_bundle_is_not_advertised(landing_html):
+    assert "GET THE 2-PACK" not in landing_html
+    assert "both courses for $39" not in landing_html
+
+
 @pytest.fixture(scope="module")
 def course_css():
     return build_course_css()
@@ -409,13 +420,17 @@ class TestLanding:
         assert 'YOUR INSTRUCTOR' in landing_html
         assert 'Matti Rowe' in landing_html
 
-    def test_bundle_strip(self, landing_html):
-        assert 'gg-course-bundle' in landing_html
-        assert 'BUNDLE' in landing_html
-        assert 'href="https://gravelgodcycling.com/course/"' in landing_html
+    def test_inactive_bundle_strip_is_hidden(self, landing_html):
+        assert 'class="gg-course-bundle"' not in landing_html
+        assert 'both courses for $39' not in landing_html
 
-    def test_bundle_strip_names_other_course(self, landing_html):
-        assert 'Gravel Hydration Mastery' in landing_html
+    def test_active_bundle_strip_names_other_course(self, dirt_craft, hydration, monkeypatch):
+        monkeypatch.setattr(generate_courses, "get_bundle_offer",
+                            lambda: ("https://buy.stripe.com/testbundle", 5900))
+        html = build_landing_page(dirt_craft, all_courses=[dirt_craft, hydration])
+        assert 'class="gg-course-bundle"' in html
+        assert 'Gravel Hydration Mastery' in html
+        assert 'get both courses for $59' in html
 
     def test_no_bundle_strip_with_single_course(self, dirt_craft):
         html = build_landing_page(dirt_craft, all_courses=[dirt_craft])

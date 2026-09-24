@@ -181,7 +181,7 @@
     ['A', 'B', 'C'].forEach(function(p) {
       var opt = document.createElement('option');
       opt.value = p;
-      opt.textContent = p + (p === 'A' ? ' — the one that matters most' : '');
+      opt.textContent = p;
       prioritySelect.appendChild(opt);
     });
     priorityGroup.appendChild(priorityLabel);

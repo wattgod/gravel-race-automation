@@ -71,8 +71,7 @@ def build_nav() -> str:
 def build_header() -> str:
     return f'''<div class="gg-apply-header">
     <h1>The Season Plan</h1>
-    <p>Every A/B/C race of your year, periodised. {SEASON_PLAN_PRICE_DISPLAY} flat, delivered
-    within {SEASON_PLAN_DELIVERY_DAYS} days of payment. I build every plan myself.</p>
+    <p>{SEASON_PLAN_PRICE_DISPLAY}. I build it myself; it's in your TrainingPeaks within {SEASON_PLAN_DELIVERY_DAYS} days of payment.</p>
   </div>'''
 
 
@@ -108,8 +107,6 @@ def build_you_section() -> str:
 
 def build_races_section() -> str:
     return '''<div class="gg-apply-section-title" data-section-n="2">2. Your season</div>
-      <p class="gg-apply-section-sub">Every race you care about this year — A, B, or C. At
-      least one A race.</p>
       <div id="season-races-container"></div>
       <button type="button" id="season-add-race-btn" class="gg-sp-add-race-btn">+ Add another race</button>'''
 

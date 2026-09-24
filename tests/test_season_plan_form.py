@@ -141,14 +141,14 @@ def test_says_i_build_every_plan_myself():
 def test_no_descriptive_subtitles_under_section_headings():
     """House rule: no helper copy under headings/labels beyond load-bearing
     content. Section titles (1. You, 2. Your season, etc.) carry no
-    trailing description line, except the one section with a real
-    constraint to state (races)."""
+    trailing description line (Matti, Sep 24: the races constraint lives in
+    the validation message, not a subtitle)."""
     html = page()
     import re
     subs = re.findall(r'gg-apply-section-title[^>]*>([^<]*)</div>\s*(<p class="gg-apply-section-sub">[^<]*</p>)?',
                        html)
     described = [t for t, s in subs if s]
-    assert described == ["2. Your season"], described
+    assert described == [], described
 
 
 def test_prefill_reads_token_and_calls_mc_route():

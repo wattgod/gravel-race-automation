@@ -456,6 +456,17 @@ class TestSectionBuilders:
         html = build_training_cta()
         assert "/questionnaire/" in html
 
+    def test_training_cta_has_no_empty_panel(self):
+        """Regression: gg-hp-cta-right used to render as an empty
+        role="img" div with no image, no background-image, and no text —
+        a placeholder tan box with no real content. There is no training
+        plan preview image in the repo, so the card must stay single
+        column rather than reserve a slot for content that doesn't exist."""
+        html = build_training_cta()
+        assert "gg-hp-cta-right" not in html
+        # No leftover empty div acting as a fake content slot.
+        assert 'role="img"' not in html
+
     def test_email_capture_has_content(self):
         html = build_email_capture()
         assert "Slow, Mid, 38s" in html

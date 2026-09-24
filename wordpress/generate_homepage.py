@@ -1250,7 +1250,6 @@ def build_training_cta() -> str:
         <p class="gg-hp-cta-price" data-ab="training_price">Custom-built for your target event &mdash; $15 a week.</p>
       <a href="{esc(TRAINING_PLANS_URL)}" class="gg-hp-cta-btn" data-ab="training_cta_btn" data-ga="cta_click" data-ga-label="training_plan">Get Your Plan &rarr;</a>
       </div>
-      <div class="gg-hp-cta-right" role="img" aria-label="Training plan preview"></div>
     </div>
   </section>'''
 
@@ -1615,13 +1614,12 @@ a { text-decoration: none; color: #178079; }
 
 /* ── Training CTA (split card) ──────────────────────────── */
 .gg-hp-training-cta-full { max-width: 1200px; margin: 32px auto 0; padding: 0 48px; }
-.gg-hp-cta-card { display: grid; grid-template-columns: 1fr 1fr; border: 3px solid #3a2e25; }
+.gg-hp-cta-card { display: grid; grid-template-columns: 1fr; border: 3px solid #3a2e25; }
 .gg-hp-cta-left { background: #1a1613; padding: 40px; display: flex; flex-direction: column; justify-content: center; }
 .gg-hp-cta-left h2 { font-size: 28px; font-weight: 900; color: #f5efe6; margin-bottom: 8px; }
 .gg-hp-cta-left p { font-size: 14px; color: #A68E80; line-height: 1.7; margin-bottom: 20px; }
 .gg-hp-cta-btn { display: inline-block; padding: 12px 28px; background: #9a7e0a; color: #1a1613; font-family: 'Sometype Mono', monospace; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; border: none; text-decoration: none; align-self: flex-start; transition: background-color .3s; }
 .gg-hp-cta-btn:hover { background-color: #c9a92c; }
-.gg-hp-cta-right { background: #d4c5b9; min-height: 200px; }
 
 /* ── Guide Preview ───────────────────────────────────────── */
 .gg-hp-guide { max-width: 1200px; margin: 32px auto 0; border: 1px solid #d4c5b9; }
@@ -1733,7 +1731,6 @@ a { text-decoration: none; color: #178079; }
 @media (max-width: 900px) {
   .gg-hp-hero-inner { grid-template-columns: 1fr; gap: 32px; }
   .gg-hp-goal-hero-inner { grid-template-columns: 1fr; gap: 32px; }
-  .gg-hp-cta-card { grid-template-columns: 1fr; }
   .gg-hp-content-grid { grid-template-columns: 1fr; }
   .gg-hp-sidebar-sticky { position: static; max-height: none; }
   .gg-hp-bento { grid-template-columns: 1fr; }

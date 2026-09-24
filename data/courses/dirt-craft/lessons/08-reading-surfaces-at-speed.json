@@ -5,12 +5,6 @@
   "lesson_number": 8,
   "blocks": [
     {
-      "type": "hero_stat",
-      "value": "3 sec",
-      "unit": "of advance notice",
-      "context": "is the difference between a smooth adjustment and a panic reaction — surface reading buys you that time"
-    },
-    {
       "type": "sensation_target",
       "label": "Prediction without surprise",
       "content": "When surface reading is working, transitions feel like walking from carpet onto tile — you noticed before your foot landed, so the change in feel is expected. Your body pre-adjusts. The bike says nothing because you already answered.\n\nWhen surface reading isn't working, every transition jolts you. The bike shouts at you through the bars and pedals: 'I didn't know that was coming.' Neither did you. You spend the next 3 seconds recovering instead of riding.\n\nHere's the test: ride 20 minutes on varied gravel surfaces. If you feel surprised by a surface change more than twice, your eyes aren't scanning far enough ahead. If you feel surprised zero times, you've found the reading distance."
@@ -51,17 +45,17 @@
       "items": [
         {
           "title": "Rain Chemistry — How Water Transforms Every Surface Type",
-          "content": "Every surface changes character when it rains. If you can predict those changes before you encounter them, you're riding a different race than the riders who can't.\n\n**Hardpack + rain = variable.** Clay-heavy hardpack becomes slick within 10 minutes of rain. Gravel-heavy hardpack actually improves slightly — the moisture adds weight that compacts the surface. The key indicator is color: if the wet hardpack turns reddish or orange, it has high clay content. Expect ice-rink conditions in corners.\n\n**Loose-over-hard + rain = adhesion.** Light rain is actually beneficial — the moisture helps the loose layer stick to the hard base, creating a firmer surface. Heavy rain reverses this: the water lubricates the interface between layers, and the loose material slides on the hard base like a hydroplaning tire.\n\n**Sand + rain = cement or quicksand.** Lightly wet sand packs hard and becomes fast — think of walking on the wet part of a beach. Saturated sand becomes a trap that stops wheels dead. The difference is 15 minutes of rain.\n\n**Washboard + rain = amplified.** Water collects in the corrugation troughs, creating micro-puddles that splash on each bounce. The visual reading is harder because the water obscures the corrugation depth. The physics are worse because each trough now has water that further reduces traction during the bounce. Slow down 10-15% on wet washboard — the resonance trap is more severe when your tires are hydroplaning in the troughs.\n\n**The universal rain rule:** Drop tire pressure 2-4 PSI when rain starts. The added contact patch compensates for the reduced coefficient of friction on every surface type. This alone prevents more rain-day crashes than any technique adjustment. Lesson 3's pressure window already accounts for this — add the 'wet adjustment' column to your Race Setup Card."
+          "content": "Rain can change a gravel road quickly, but the direction and size of that change depend on its material and drainage. Hardpack may stay firm or become slick. Loose stones may settle or begin to move over the base. Sand can firm up when damp and become difficult when saturated. Water can hide washboard depth and holes.\n\nRead the next visible section instead of relying on a weather rule. Slow early, leave a larger gap, and test grip gently on a straight section before committing to a bend. Do not make a fixed pressure change just because rain has started. If you adjust tire pressure, stay within tire and rim limits and check the handling on a familiar section before continuing."
         }
       ]
     },
     {
       "type": "prose",
-      "content": "### Tire Pressure Window Calculator\n\nGet a race-specific tire pressure recommendation that accounts for surface mix, altitude, and weather. Select a race from 757 profiles to auto-populate course data, or enter manually.\n\n**How it works:** Base pressure from rider weight and tire width using Silca's formula (adjusted for gravel). Front/rear split: front runs 2-3 PSI lower than rear for gravel (more contact patch where steering happens). Wet adjustment: -2 to -4 PSI depending on surface. Altitude adjustment: -1 PSI per 3,000 ft above sea level (atmospheric pressure reduction inflates tires). Tubeless insert: floor drops 3-5 PSI below standard tubeless. Tubed: floor 5+ PSI higher than tubeless due to pinch flat risk.\n\n_Interactive calculator coming soon — the numbers above are the method._"
+      "content": "### Build your pressure notes\n\nStart within your tire and rim manufacturers' pressure limits. Record tire size, load, surface, weather, and the pressure you rode. Change one setup variable at a time on a familiar route, and keep the setting that gives you control without rim strikes or tire instability."
     },
     {
       "type": "callout",
-      "content": "This calculator builds on Lesson 3's tire pressure fundamentals. If you haven't done the Traction Exploration drill from Lesson 3, do that first. The calculator gives you a starting window; the drill gives you the confidence to actually run those pressures. Numbers without feel are just numbers.",
+      "content": "Use the pressure notes from Lesson 3. Record how the same setup feels after the surface or weather changes, then make one careful adjustment only if you have room to test it. Keep the setup that lets the bike track predictably without rim strikes or tire instability.",
       "style": "tip"
     },
     {

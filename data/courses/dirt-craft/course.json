@@ -2,7 +2,7 @@
   "id": "dirt-craft",
   "title": "Dirt Craft: Technical Gravel Mastery",
   "subtitle": "Stop fighting the bike. Start riding it.",
-  "description": "The skills, numbers, and instincts that separate riders who race gravel from riders who survive it. 21 lessons across 7 modules — deliberate-practice drills, sensation targets, and honest physics, from fear to flow.",
+  "description": "Build confidence on gravel through 21 lessons across 7 modules. Practice body position, braking, cornering, surface reading, and field repairs with clear drills and notes from your own rides.",
   "price_usd": 49,
   "stripe_payment_link": "https://buy.stripe.com/eVq8wQ6YKdJr1td8klfjG04",
   "stripe_price_id": "price_1TvqP2LoaHDbEqSqALphvwyL",
@@ -19,12 +19,12 @@
   },
   "what_youll_learn": [
     "Break the death-grip cycle and let the bike move beneath you",
-    "Find your personal traction envelope on any surface",
-    "Brake, corner, and climb on loose terrain with specific, repeatable technique",
-    "Read surfaces at speed and pre-adjust before transitions",
-    "Descend gravel as play, not survival — using body position for free speed",
-    "Execute field repairs under pressure in under 5 minutes",
-    "Maintain technique under deep fatigue with the 20-minute reset protocol",
+    "Record tire-pressure notes within your equipment limits",
+    "Practice smooth braking, manageable corner approaches, and traction-aware climbing",
+    "Read surface changes and choose a visible line",
+    "Choose a stable position and speed for gravel descents",
+    "Practice common field repairs and decide when to use a fallback",
+    "Notice when fatigue changes your handling and adjust your pace",
     "Use field drills to record your own tire-pressure, gearing, and handling notes"
   ],
   "modules": [
@@ -151,11 +151,11 @@
     {
       "id": "skills-lab",
       "title": "Skills Lab",
-      "tagline": "Deliberate practice for the skills that separate riders — finding your traction limit on purpose, and the hops that turn obstacles into timing problems.",
+      "tagline": "Use low-speed practice to find a comfortable control margin and approach obstacles with a clear plan.",
       "lessons": [
         {
           "id": "finding-your-limits",
-          "title": "Finding Your Limits (On Purpose)",
+          "title": "Finding Your Control Margin",
           "file": "lessons/14-finding-your-limits.json"
         },
         {

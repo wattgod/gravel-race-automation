@@ -5,12 +5,6 @@
   "lesson_number": 4,
   "blocks": [
     {
-      "type": "hero_stat",
-      "value": "0.8s",
-      "unit": "minimum fixation time",
-      "context": "for accurate line selection at 18 mph — most panicking riders fixate for 0.2-0.3 seconds, then jerk to the next obstacle"
-    },
-    {
       "type": "black_box",
       "title": "Incident Report",
       "content": "Rider descends a gravel doubletrack at 18 mph. Surface is mixed — packed dirt with embedded fist-sized rocks and a few shallow ruts. Rider's eyes are locked on the rocks 5 feet ahead of the front wheel. Each rock triggers a correction: a jerk left, a jerk right, another left.\n\nThe rider is playing whack-a-mole with the terrain. Every obstacle demands a conscious steering input. Arms are tense from constant correction. The weighted drop from Lesson 1 is gone — hands are loaded because the arms are doing steering work every half-second.\n\nAt the bottom of the descent, the packed dirt transitions to a 15-foot sand patch — visible from 50 meters away to anyone looking for it. The rider doesn't see it. Their eyes are busy cataloging the next rock, 5 feet ahead.\n\nFront wheel hits the sand at 17 mph with no weight adjustment, no speed reduction, no line correction. The wheel digs in and stops. The rider doesn't.\n\nShoulder contusion. Torn bar tape. The rock field was never the problem. The sand patch was the problem, and it was in plain sight the entire time — just not in the rider's sight."
@@ -84,49 +78,25 @@
     },
     {
       "type": "drill",
-      "title": "Target Stare",
-      "time_minutes": 20,
-      "description": "100-meter repetitions at progressive speeds. The goal is to retrain your default focal distance — pushing central vision far ahead while peripheral vision handles the near field. You'll feel exposed at first. That's the point.",
+      "title": "Look, scan, choose",
+      "time_minutes": 15,
+      "description": "Practice looking toward a visible line while checking the near surface when needed.",
       "variants": [
         {
           "level": "beginner",
-          "label": "Smooth to moderate gravel, 10 mph",
+          "label": "Flat, open practice area",
           "steps": [
-            "Find a straight gravel road or path with at least 100 meters of clear sightline. Mild surface texture — small gravel, light washboard, minor ruts. Nothing that requires major line changes.",
-            "Pick a visible target point at the far end of the 100m — a fence post, tree, sign, road marker. Something fixed and obvious.",
-            "Rep 1-3: Ride the 100m at 10 mph with your central vision locked on the far target. Do NOT look down at the ground in front of you. Let your peripheral vision handle the near field. Your hands will want to tighten — keep the Lesson 1 weighted drop: heavy feet, quiet hands.",
-            "Rep 4-6: Same speed, same target lock, but now consciously notice what your peripheral vision is picking up. Can you sense the surface changes and small obstacles without looking at them directly? You should feel adjustments happening in your hands that you didn't consciously decide.",
-            "Rep 7-10: Same speed, but pick a NEW target point for each rep — a different far-field object. Practice shifting your gaze from one far target to another without letting it drop to the near field between shifts.",
-            "After 10 reps, ride 2 minutes freely. Check: did your focal distance drift back to 5 feet? If so, your default hasn't shifted yet — repeat the drill next ride."
-          ]
-        },
-        {
-          "level": "intermediate",
-          "label": "Chunky gravel with obstacles, 15 mph",
-          "steps": [
-            "Same 100m format, but on rougher terrain — embedded rocks, variable surface, ruts. Terrain that actively tempts you to look down.",
-            "Rep 1-3: 15 mph, central vision locked on far target. At this speed, you cover 100m in about 15 seconds. The near field will feel chaotic in your peripheral vision. Trust it. The Lesson 2 hip hinge matters here — if your upper body is decoupled, the bike can handle small deflections without your conscious input.",
-            "Rep 4-6: Add the scanning hierarchy. Start each rep by identifying the surface type far ahead (hardpack? loose? transition?), then let your mid-range vision read the general line, then let peripheral vision manage obstacles. One flow: far → mid → peripheral. No jumping back to near field.",
-            "Rep 7-10: Deliberately place obstacles in your path — water bottles, small rocks, sticks. Ride toward them with central vision on the far target. Your peripheral vision should detect them and your hands should steer around them automatically. If you fixate on the obstacle, you'll hit it. This is target fixation training — the obstacle is the test, not the target.",
-            "Debrief: how many obstacles did you avoid without consciously steering? How many did you fixate on? The ratio improves with practice."
-          ]
-        },
-        {
-          "level": "race-pace",
-          "label": "Technical gravel with rocks and ruts, 20+ mph",
-          "steps": [
-            "Find a gravel descent or fast section where you naturally reach 20+ mph. This is where the quiet eye pays its biggest dividends — and where the instinct to target-fixate is strongest.",
-            "Rep 1-2: Ride the section at race pace with your standard vision pattern. Note where your eyes go — honestly. Most riders will catch themselves staring 5-10 feet ahead at obstacles, especially on rough sections.",
-            "Rep 3-5: Same section, same speed, but force the quiet eye: central vision 3-5 seconds ahead (at 20 mph, that's 90-150 feet). Peripheral vision handles everything closer. Hold each fixation for a full 0.8 seconds before shifting to the next scan point. Count \"one-Mississippi\" if you need an anchor.",
-            "Rep 6-8: Add the full technique stack from Lessons 1-3: weighted drop (heavy feet, quiet hands) + hip hinge (upper body floating) + traction awareness (you know where grip lives). The quiet eye is the final layer — you've built the physical platform that lets far-field vision work, because your hands are light enough to make peripheral corrections automatically.",
-            "Rep 9-10: Full race simulation. Ride the section as fast as you'd ride it in a race. The goal: zero conscious obstacle-avoidance decisions. Every correction should happen below awareness. If you catch yourself thinking about a specific rock, your eyes dropped."
+            "Choose a quiet, flat route with a clear sightline and few obstacles.",
+            "Look ahead to choose a line, then briefly check the surface close to the wheel when it matters.",
+            "Adjust your pace whenever sightline or surface makes the next movement uncertain.",
+            "Stop and note whether looking farther ahead helped you choose a smoother line."
           ]
         }
       ],
       "proof_gate": {
-        "description": "1 full minute of continuous riding on rough gravel without looking at the front wheel.",
-        "metric": "binary",
-        "target": "60 seconds on rough, variable-surface gravel with central vision held at 3+ seconds ahead. Zero conscious obstacle-avoidance inputs — all corrections handled by peripheral vision and automatic motor responses."
+        "description": "A repeatable, controlled movement",
+        "metric": "observation",
+        "target": "Finish able to steer and brake smoothly; stop if control changes"
       }
     },
     {
@@ -158,7 +128,7 @@
     },
     {
       "type": "commitment",
-      "content": "Your commitment before Module 2: ride 1 full minute of rough gravel using The Quiet Eye — focal point 3-5 seconds ahead, all corrections via peripheral vision, zero looks at your front wheel. If you can do this, your Trust stack is solid."
+      "content": "On your next familiar ride, practice looking ahead to choose a visible line, with brief near-surface checks as needed. Keep a speed that leaves room to change course or stop."
     },
     {
       "type": "callout",

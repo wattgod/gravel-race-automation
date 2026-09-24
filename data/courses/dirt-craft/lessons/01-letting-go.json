@@ -5,12 +5,6 @@
   "lesson_number": 1,
   "blocks": [
     {
-      "type": "hero_stat",
-      "value": "20 lbs",
-      "unit": "is what your pedals should feel like",
-      "context": "that's the weight shift between a death grip and a rider who trusts the bike"
-    },
-    {
       "type": "black_box",
       "title": "Incident Report",
       "content": "Rider descends a gravel road at 15 mph. Surface is washboard — shallow, rhythmic corrugations spaced 3-4 inches apart. Rider grips bars with full force, elbows locked, shoulders braced. Body forms a single rigid unit from hands to feet.\n\nThe washboard frequency exceeds the fork's ability to absorb while the rider's weight is loaded through the handlebars. Front wheel begins to bounce. Each bounce lifts the contact patch off the surface for 30-40 milliseconds. The rider, feeling the wheel skip, grips harder.\n\nAt the third bounce, the front wheel lands at a 4-degree angle to the direction of travel. Traction is already reduced by the bouncing. The wheel deflects left. The rigid rider's mass follows. No absorption, no correction. The bike goes down at 15 mph.\n\nPalms bruised from the death grip. Right hip road rash. The crash wasn't caused by the washboard. It was caused by the rider's response to the washboard."
@@ -27,7 +21,7 @@
     {
       "type": "sensation_target",
       "label": "Heavy feet, quiet hands",
-      "content": "Stand on the pedals for a moment. Now sit back down — but keep 70% of your weight pressing through your feet into the pedals. Your hands rest on the bars like they're resting on a shelf. Fingers wrapped loosely. Palms barely touching.\n\nThis is the target sensation. Pedals feel like they weigh 20 lbs. Hands feel like they're holding a bag of chips you don't want to crush.\n\nI remember the first time I found this position — genuinely shocked that the bike felt more stable with less grip, not more. Everything I'd learned on the road was wrong.\n\nHere's the test: ride 5 minutes of rough gravel, then check your palms. If they're red, sore, or tingling, your weight was in the wrong place. If they feel the same as when you started, you found it."
+      "content": "On a familiar, flat stretch, let your feet support you and soften your elbows. Keep both hands securely wrapped around the bars and within reach of both brakes. Notice when you lean heavily on your palms or tense your shoulders. Slow down or stop if you cannot steer comfortably."
     },
     {
       "type": "prose",
@@ -69,7 +63,7 @@
         {
           "step": 3,
           "action": "Press through the pedals",
-          "detail": "Actively push your weight down through your feet, even when seated. Imagine the pedals are bathroom scales — you want them reading 70% of your body weight at all times."
+          "detail": "Let your feet support you while your hands stay secure and light enough to steer. Do not chase a weight percentage."
         },
         {
           "step": 4,
@@ -88,82 +82,48 @@
     },
     {
       "type": "drill",
-      "title": "Pedal Pressure Intervals",
+      "title": "Feet and hands check",
       "time_minutes": 15,
-      "description": "Three-minute segments alternating your attention between feet, hands, and both. The goal isn't fitness — it's rewiring your default weight distribution.",
+      "description": "Compare how your feet, elbows, and hands feel at an easy pace. Keep a secure grip throughout.",
       "variants": [
         {
           "level": "beginner",
-          "label": "Smooth gravel road, easy pace",
+          "label": "Flat, open practice area",
           "steps": [
-            "Find a flat or gently rolling gravel road with a consistent surface.",
-            "Minutes 0-3: Focus entirely on your feet. Press hard into the pedals. Imagine you're trying to push the cranks through the bottom bracket. Don't worry about your hands.",
-            "Minutes 3-6: Focus entirely on your hands. Systematically lighten them. Lift one finger at a time until you find the minimum grip. Can you ride with just thumb and index finger?",
-            "Minutes 6-9: Focus on both simultaneously. Heavy feet AND quiet hands. This is harder than either alone.",
-            "Minutes 9-12: Repeat the cycle. Note whether the sensation is easier to find the second time.",
-            "Minutes 12-15: Free ride. Stop thinking about it. Check your palms at the end — any redness or soreness means you drifted back to the death grip."
-          ]
-        },
-        {
-          "level": "intermediate",
-          "label": "Chunky or variable-surface gravel",
-          "steps": [
-            "Same structure as beginner, but on rougher terrain — loose rock, mixed surfaces, or mild washboard.",
-            "The challenge: maintaining light hands when the surface is actively trying to rip the bars from your grip.",
-            "Minutes 0-3: Feet focus. Press through every bump. Let the rough surface push back against your feet, not your hands.",
-            "Minutes 3-6: Hands focus. On rough terrain, lightening your hands will feel wrong. Do it anyway. The bike will track better, not worse.",
-            "Minutes 6-9: Combined focus. This is where the real rewiring happens — rough surface, heavy feet, quiet hands simultaneously.",
-            "Minutes 9-15: Extended combined focus through the roughest section you can find. Palm check at the end."
-          ]
-        },
-        {
-          "level": "race-pace",
-          "label": "Tempo power with standing surges on gravel",
-          "steps": [
-            "Warm up 5 minutes on gravel at endurance pace, practicing heavy feet/quiet hands.",
-            "3 x 3-minute intervals at sweet spot (88-93% FTP) on gravel. During each interval, include two 10-second standing surges.",
-            "The standing surges are the test: when you stand, your weight naturally shifts to your hands. Can you stand and surge while keeping your hands light?",
-            "Technique for standing surges: push the bike forward under you as you rise, keep hips over the bottom bracket, hands guide but don't pull.",
-            "Recovery between intervals: 2 minutes easy spinning, maintain the weight distribution even during recovery.",
-            "Palm check after each interval. If your hands hurt after the surges, you loaded the bars when you stood."
+            "Choose a flat, open, familiar route and ride at an easy pace.",
+            "Notice whether your feet support you without leaning hard on the bars. Keep both hands wrapped around the grips or hoods.",
+            "Soften your elbows and shoulders while maintaining secure steering and brake access.",
+            "Stop safely and record what changed. If your hands tingle or become sore, assess comfort and fit before repeating."
           ]
         }
       ],
       "proof_gate": {
-        "description": "10 minutes of continuous riding on rough gravel with zero palm soreness afterward.",
-        "metric": "binary",
-        "target": "No palm redness, soreness, or tingling after 10 minutes on rough gravel"
+        "description": "A repeatable, controlled movement",
+        "metric": "observation",
+        "target": "Finish able to steer and brake smoothly; stop if control changes"
       }
     },
     {
       "type": "drill",
-      "title": "Spirit Fingers",
+      "title": "Relaxed grip, secure hands",
       "time_minutes": 10,
-      "description": "A light-grip drill borrowed from moto coaching (via BetterRide): prove to yourself you barely need to hold the bars at all. The fastest way to break a death grip is to ride without one on purpose.",
-      "proof_gate": {
-        "target": "You can ride a slow figure-8 on flat, grippy ground with your fingers floating open off the grips — not wrapped around them — staying balanced and in control, both directions."
-      },
+      "description": "Practice easing unnecessary tension while keeping full control of the bike.",
       "variants": [
         {
           "level": "beginner",
-          "label": "Flat grass or pavement, walking-to-jogging pace",
+          "label": "Flat, open practice area",
           "steps": [
-            "Ride a slow, wide figure-8 or loop on flat, grippy ground.",
-            "Relax your hands and let your fingers float open in front of the bars instead of wrapping them. Thumbs relaxed under the bars.",
-            "Notice the bike still goes where you point it. The grip you thought you needed was doing nothing but tiring you out.",
-            "If it feels impossible at first, you're gripping from fear, not necessity — slow down until the fingers can open."
-          ]
-        },
-        {
-          "level": "intermediate",
-          "label": "Tighten the figure-8",
-          "steps": [
-            "Same drill, tighter radius and a little more speed, fingers still floating.",
-            "Feel how a light grip forces your weight down into your feet and frees the bars to self-steer.",
-            "Goal: a light grip becomes your default, not something you have to remember."
+            "In an empty, flat area, ride slowly with both hands securely on the bars.",
+            "Briefly notice your grip. Ease excess tension without lifting fingers or thumbs away from the controls.",
+            "Make a wide, slow turn and a gentle stop. Repeat only while steering and braking feel predictable."
           ]
         }
-      ]
+      ],
+      "proof_gate": {
+        "description": "A repeatable, controlled movement",
+        "metric": "observation",
+        "target": "Finish able to steer and brake smoothly; stop if control changes"
+      }
     },
     {
       "type": "prose",

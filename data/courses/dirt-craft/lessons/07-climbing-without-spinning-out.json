@@ -5,12 +5,6 @@
   "lesson_number": 7,
   "blocks": [
     {
-      "type": "hero_stat",
-      "value": "3rd",
-      "unit": "pedal stroke",
-      "context": "is where most gravel climb wheel-spin events happen — the torque spike from standing catches a tire already near its friction limit"
-    },
-    {
       "type": "black_box",
       "title": "Incident Report",
       "content": "Rider approaches a 10% gravel pitch at 9 mph. Road instinct kicks in — they stand out of the saddle and surge, exactly the way they would attack on pavement. First pedal stroke holds. Second stroke, the rear tire chirps. Third stroke, the rear wheel spins freely for a full revolution.\n\nThe standing surge unloaded the rear wheel by shifting the rider's center of mass forward and up. Peak pedal force in a standing surge reaches 1.4x the rider's body weight. On pavement, the tire's coefficient of friction handles this easily. On loose-over-hard gravel, the maximum transmittable torque is roughly 40% lower than pavement.\n\nThe rider sits back down, but they're now in a 53x19 — a gear that requires 350W to turn at 60 RPM on this gradient. Their fatigued power is 220W. Cadence drops to 42 RPM. The bike wobbles. Momentum dies. They unclip and walk.\n\nThe rider next to them never stood. They were seated, hips hinged forward, spinning 78 RPM in a 36x34. Same gradient, same power, half the peak torque per pedal stroke. Zero wheel slip. They crested the climb still pedaling."
@@ -136,11 +130,11 @@
     },
     {
       "type": "prose",
-      "content": "### Gearing Check Calculator\n\nWill your gearing survive the steepest pitch on your target race? Enter your details below. If you select a race from the database, max gradient and surface type will auto-populate from 757 race profiles.\n\n**How it works:** Fatigued power = 65% FTP (simulating hour 4+ of a long race). Speed calculated from power = (mass x 9.81 x gradient x speed) + rolling resistance. Cadence derived from speed, gear ratio, and wheel circumference. Pass threshold: cadence >= 55 RPM. Warning zone: 55-65 RPM. Comfortable: 65+ RPM.\n\n_Interactive calculator coming soon — the numbers above are the method._"
+      "content": "### Check your gearing on the bike\n\nFind a climb similar to the steepest one you expect to ride. Use the gear you would choose after several hours, and note whether you can keep the pedals turning smoothly without losing traction. Change equipment only after a real ride confirms the need."
     },
     {
       "type": "prose",
-      "content": "### Reading the Calculator Results\n\n**If you got ADEQUATE:** Good. Your gearing can handle the worst this course throws at you — at least on paper. But remember, the calculator assumes fatigued power at 65% FTP. If you've been riding for 8 hours and you're at 50% FTP, the math gets worse. Build in a margin.\n\n**If you got UNDERGEARED:** You have three options, ranked by effectiveness:\n\n1. **Change your cassette.** A 10-51T cassette (SRAM Eagle-style) or 11-46T gives you a bailout gear that will save you on the steepest pitches. This is the correct answer for most riders.\n2. **Change your chainring.** Dropping from a 42T to a 38T or 36T chainring shifts your entire gear range toward easier gears. You lose top-end speed on descents, but on a gravel course with 15%+ pitches, you weren't going to use that top end anyway.\n3. **Get stronger.** This works but takes 6-12 months. The cassette swap takes 15 minutes.\n\nI rode my first gravel race with a 42x11-36 cassette because that's what came on the bike. I walked three climbs. The guy who passed me on every single one was running a 38x11-46. We had similar FTPs. He just did the math beforehand and I didn't."
+      "content": "### Check your gearing on a climb\n\nChoose a climb similar to one you expect on your target ride. Try it after you have already been riding for a while. In your easiest gear, can you keep the pedals turning smoothly and the rear tire tracking without forcing each stroke? Note the grade, surface, gear, and how you felt.\n\nIf you repeatedly run out of gear, talk to a bike shop about cassette and chainring options that fit your drivetrain. A larger cassette or smaller chainring may help, but compatibility, chain length, and the top-end gears you use matter. Test any change before race day. A formula cannot tell you how your legs and the surface will feel in the final hour."
     },
     {
       "type": "drill",

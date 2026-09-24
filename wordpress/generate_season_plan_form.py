@@ -210,10 +210,11 @@ def build_season_plan_css() -> str:
 
 def build_season_plan_js() -> str:
     # sol review: repr() on a data/pricing.json string is the banned
-    # script-breakout pattern (repo CLAUDE.md) even though today's value
-    # ("$499") is harmless — repr() doesn't escape "</", so a future price
-    # display string containing it would break out of the <script> tag.
-    # _safe_json_for_script() is the repo's sanctioned safe serializer.
+    # script-breakout pattern (repo CLAUDE.md) even though the current
+    # SEASON_PLAN_PRICE_DISPLAY value is harmless — repr() doesn't escape
+    # "</", so a future price display string containing it would break
+    # out of the <script> tag. _safe_json_for_script() is the repo's
+    # sanctioned safe serializer.
     js_template = (Path(__file__).parent.parent / "web" / "season-plan-form.js").read_text()
     js = (
         js_template

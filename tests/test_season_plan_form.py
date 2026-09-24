@@ -206,3 +206,38 @@ def test_has_its_own_deploy_path_not_the_generic_race_sweep():
 
     assert "season-plan" in push_wordpress.ROOT_CANONICAL_SLUGS
     assert hasattr(push_wordpress, "sync_season_plan")
+
+
+def test_token_is_scrubbed_from_the_url_bar():
+    """sol review round 2 BLOCKER: ?t= is a bearer credential (unlocks
+    name/email/goal/race/habits for a valid token) — left in the visible
+    URL it would sit in browser history and this page's own later GA4
+    events for the rest of the visit. Scrubbed via history.replaceState
+    the instant it's read, before the prefill fetch runs."""
+    body = js()
+    assert "window.history.replaceState" in body
+    assert "scrubbedUrl.searchParams.delete('t')" in body
+    scrub_idx = body.index("window.history.replaceState")
+    fetch_idx = body.index("fetch(MC_BASE")
+    assert scrub_idx < fetch_idx
+
+
+def test_token_regex_uses_plain_dollar_not_python_style_z_anchor():
+    """Self-caught: \\Z is Python regex syntax, not JS — in a JS regex
+    literal it matches a literal "Z" character, which would have broken
+    every real token (none end in "Z"). Confirmed by re-screenshotting
+    with a mocked prefill response after applying this fix wrongly the
+    first time; plain $ is already correct in JS (no trailing-newline
+    quirk there, unlike Python's re module)."""
+    body = js()
+    assert "/^[A-Za-z0-9_-]{16,64}$/.test(v)" in body
+    assert "{16,64}\\Z" not in body
+
+
+def test_prefill_never_overwrites_something_the_visitor_already_typed():
+    """sol review round 2 NIT: a visitor typing into name/email while the
+    prefill fetch is still in flight must not have it clobbered when the
+    response lands."""
+    body = js()
+    assert "!nameInput.value" in body
+    assert "!emailInput.value" in body

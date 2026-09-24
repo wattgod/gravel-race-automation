@@ -25,8 +25,28 @@
   var TOKEN = (function() {
     var v = '';
     try { v = new URLSearchParams(window.location.search).get('t') || ''; } catch (e) {}
+    // Plain $ is correct and sufficient here — unlike Python's re module,
+    // JS regex $ (no /m flag) has no "matches before a trailing newline"
+    // quirk, so it doesn't need Python's \Z workaround (which isn't even
+    // valid JS regex syntax — \Z matches a literal "Z", silently breaking
+    // every token match, caught by re-screenshotting after this fix).
     return /^[A-Za-z0-9_-]{16,64}$/.test(v) ? v : '';
   })();
+  // sol review round 2: ?t= is a bearer credential (unlocks name/email/
+  // goal/race/habits for a valid token) that would otherwise sit in the
+  // visible URL for the rest of this visit — browser history, anything
+  // screenshotted or copy-pasted, and this page's own later GA4 events,
+  // which read window.location. Scrubbed from the URL bar (not from the
+  // one initial page load itself, which the browser has already sent to
+  // the server) the instant it's read, before the prefill fetch or
+  // anything else runs. Never throws if the History API is unavailable.
+  if (TOKEN && window.history && window.history.replaceState) {
+    try {
+      var scrubbedUrl = new URL(window.location.href);
+      scrubbedUrl.searchParams.delete('t');
+      window.history.replaceState(null, '', scrubbedUrl.pathname + scrubbedUrl.search);
+    } catch (e) {}
+  }
   var OFFER_VARIANT = (function() {
     var v = '';
     try { v = new URLSearchParams(window.location.search).get('offer_variant') || ''; } catch (e) {}
@@ -76,8 +96,10 @@
       if (!data) return;
       var nameInput = form.querySelector('[name="name"]');
       var emailInput = form.querySelector('[name="email"]');
-      if (data.name && nameInput) { nameInput.value = data.name; }
-      if (data.email && emailInput) { emailInput.value = data.email; }
+      // sol review round 2 NIT: don't clobber anything the visitor already
+      // typed while this fetch was still in flight.
+      if (data.name && nameInput && !nameInput.value) { nameInput.value = data.name; }
+      if (data.email && emailInput && !emailInput.value) { emailInput.value = data.email; }
       showPrefillField('gg-sp-goal-onfile', 'Goal', data.goal);
       showPrefillField('gg-sp-habits-onfile', 'Habits', data.habits);
       if (data.a_race_name) {

@@ -58,7 +58,10 @@ _MAX_TRACKED_IPS = 10_000
 _last_cleanup = 0.0
 
 
-def _check_rate_limit(request: Request) -> None:
+def _check_rate_limit(request: Request, headers: dict) -> None:
+    # sol review round 2 NIT: a 429 raised here had neither CORS nor
+    # no-store — "every response carries them" was false. Takes the
+    # already-computed headers so a rate-limited request gets them too.
     global _last_cleanup
     ip = request.client.host if request.client else "unknown"
     now = time.monotonic()
@@ -69,19 +72,19 @@ def _check_rate_limit(request: Request) -> None:
         for k in stale:
             del _rate_buckets[k]
     if ip not in _rate_buckets and len(_rate_buckets) >= _MAX_TRACKED_IPS:
-        raise HTTPException(status_code=429, detail="Rate limit exceeded")
+        raise HTTPException(status_code=429, detail="Rate limit exceeded", headers=headers)
     bucket = _rate_buckets[ip]
     cutoff = now - _RATE_WINDOW
     _rate_buckets[ip] = bucket = [t for t in bucket if t > cutoff]
     if len(bucket) >= _RATE_LIMIT:
-        raise HTTPException(status_code=429, detail="Rate limit exceeded")
+        raise HTTPException(status_code=429, detail="Rate limit exceeded", headers=headers)
     bucket.append(now)
 
 
 @router.get("/api/season-plan/prefill/{token}")
 def season_plan_prefill(token: str, request: Request) -> JSONResponse:
     cors = _base_headers(request)
-    _check_rate_limit(request)
+    _check_rate_limit(request, cors)
 
     if not _TOKEN_RE.match(token):
         raise HTTPException(status_code=404, detail="Not found", headers=cors)

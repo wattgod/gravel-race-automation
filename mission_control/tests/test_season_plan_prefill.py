@@ -175,3 +175,17 @@ class TestRateLimit:
             client.get(f"/api/season-plan/prefill/{VALID_TOKEN}")
         resp = client.get(f"/api/season-plan/prefill/{VALID_TOKEN}")
         assert resp.status_code == 429
+
+    def test_429_still_carries_cors_and_no_store(self, client, monkeypatch):
+        """sol review round 2 NIT: a 429 used to have neither header,
+        contradicting the "every response" claim."""
+        monkeypatch.setattr(season_plan_prefill, "db", _mock_db_returning([]))
+        for _ in range(season_plan_prefill._RATE_LIMIT):
+            client.get(f"/api/season-plan/prefill/{VALID_TOKEN}",
+                      headers={"Origin": "https://gravelgodcycling.com"})
+        resp = client.get(
+            f"/api/season-plan/prefill/{VALID_TOKEN}",
+            headers={"Origin": "https://gravelgodcycling.com"})
+        assert resp.status_code == 429
+        assert resp.headers.get("access-control-allow-origin") == "https://gravelgodcycling.com"
+        assert resp.headers.get("cache-control") == "no-store"

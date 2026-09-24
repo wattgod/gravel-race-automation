@@ -381,7 +381,7 @@ class TestCollapsibleSections:
     def test_collapsible_does_not_target_ratings(self):
         """Ratings remain outside .gg-deep-dive in page assembly."""
         source = Path(PROJECT_ROOT / "wordpress" / "generate_neo_brutalist.py").read_text()
-        assert "spine_sections = [ratings, goal_strip, custom_plan, coaching, breakdown]" in source
+        assert "spine_sections = [ratings, goal_card, custom_plan, coaching, breakdown]" in source
         deep_dive_assembly = source.split("deep_sections = []", 1)[1].split(
             "deep_content =", 1
         )[0]

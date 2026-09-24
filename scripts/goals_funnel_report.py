@@ -107,7 +107,8 @@ PROPERTY_SCOPE = "property-wide (not filtered to /goals/ referrals)"
 GOALS_FUNNEL = [
     {"stage": "goal_hero_click", "events": ["goal_hero_click"],
      "label": "Hero/CTA click into /goals/", "scope": PROPERTY_SCOPE,
-     "note": "Race-page strip shows Oct 1 – Jan 31 only."},
+     "note": "Race-page card is year-round (feat/race-goal-card); "
+             "homepage poster wall fires this too."},
     {"stage": "goal_start", "events": ["goal_start"], "label": "Started the questionnaire",
      "filter_field": "pagePath", "filter_prefix": "/goals/", "scope": GOALS_SCOPE},
     {"stage": "goal_section", "events": ["goal_section"], "label": "Reached a numbered section",

@@ -341,6 +341,12 @@ async def subscriber_webhook(
         _entry_src = str(body.get("entry_src", "")).strip().lower()
         if re.match(r"^[a-z_]{1,24}$", _entry_src):
             source_data["entry_src"] = _entry_src
+        # Which goal the visitor tapped on the race-page goal card
+        # (generate_neo_brutalist.py build_goal_card) before landing here.
+        # Fixed set only — same reasoning as entry_src above.
+        _goal_type = str(body.get("goal_type", "")).strip().lower()
+        if re.match(r"^(finish|beat_time|race_it|same|bigger)$", _goal_type):
+            source_data["goal_type"] = _goal_type
         # The poster is served from an unguessable token rather than a signed
         # payload: no key to rotate, and revoking one lead's poster is a row
         # edit. The token is the only thing in the results email that needs

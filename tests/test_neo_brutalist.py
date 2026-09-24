@@ -4,6 +4,8 @@ import copy
 import json
 import logging
 import re
+import shutil
+import subprocess
 import sys
 from pathlib import Path
 
@@ -19,7 +21,8 @@ from generate_neo_brutalist import (
     DIM_LABELS,
     FAQ_PRIORITY,
     FAQ_TEMPLATES,
-    GOAL_STRIP_COPY,
+    GOAL_CARD_COPY,
+    GOAL_CARD_STATE_JS,
     MONTH_NUMBERS,
     OPINION_DIMS,
     RACER_RATING_THRESHOLD,
@@ -35,7 +38,7 @@ from generate_neo_brutalist import (
     build_course_route,
     build_email_capture,
     build_footer,
-    build_goal_strip,
+    build_goal_card,
     build_hero,
     build_history,
     build_inline_js,
@@ -136,6 +139,24 @@ class TestSeoMetadata:
         assert "dates=20270207/20270214" in html
         assert "DTSTART;VALUE=DATE:20270207" in html
         assert "DTEND;VALUE=DATE:20270214" in html
+
+    def test_parses_abbreviated_month_names(self):
+        # sol review on the goal card: parse_event_dates() only recognized
+        # full month names, so real confirmed dates like Gravel Worlds'
+        # "2026: Aug 19-23" and MAAP Beechworth's "2026: Apr 17-19" failed
+        # to parse — hiding the goal card entirely for those races.
+        assert parse_event_dates("2026: Aug 19-23") == ("2026-08-19", "2026-08-23")
+        assert parse_event_dates("2026: Apr 17-19") == ("2026-04-17", "2026-04-19")
+        assert parse_event_dates("2026: Sept 5") == ("2026-09-05", "2026-09-05")
+
+    def test_abbreviation_support_does_not_break_full_month_display(self):
+        # Abbreviations were added to MONTH_NUMBERS itself (shared by the
+        # reversed {number: name} display dicts used elsewhere in this
+        # file) — must still reverse "08" to "August", not "Aug".
+        month_names = {v: k.capitalize() for k, v in MONTH_NUMBERS.items()}
+        assert month_names["08"] == "August"
+        assert month_names["04"] == "April"
+        assert month_names["09"] == "September"
 
     def test_per_race_overrides_are_emitted(self, sample_race_data):
         sample_race_data["race"]["seo"] = {
@@ -360,9 +381,17 @@ class TestConstants:
             assert dim in FAQ_TEMPLATES
 
     def test_month_numbers_complete(self):
-        assert len(MONTH_NUMBERS) == 12
+        # 12 full names + abbreviations (jan-dec, plus "sept") for
+        # parse_event_dates() — see MONTH_NUMBERS' comment for why
+        # abbreviations must be declared before the full names.
         assert MONTH_NUMBERS["january"] == "01"
         assert MONTH_NUMBERS["december"] == "12"
+        full_names = {
+            "january", "february", "march", "april", "may", "june", "july",
+            "august", "september", "october", "november", "december",
+        }
+        assert full_names <= set(MONTH_NUMBERS)
+        assert {MONTH_NUMBERS[m] for m in full_names} == {f"{i:02d}" for i in range(1, 13)}
 
 
 # ── Country Detection ─────────────────────────────────────────
@@ -1914,57 +1943,231 @@ class TestFunnelAttribution:
         assert w.orphans == [], f"CTAs outside any observed section: {w.orphans}"
 
 
-class TestGoalStrip:
-    """The 2027 goals funnel race-page strip (goals-2027-funnel-spec.md D5b,
-    build order step 3): a slim, Oct 1 - Jan 31 seasonal CTA under the
-    ratings spine linking to /goals/."""
-
-    def test_copy_is_deadpan_and_under_60_chars(self):
-        assert len(GOAL_STRIP_COPY) <= 60
+class TestGoalCard:
+    """The year-round race-page goal card (replaces the Oct 1 - Jan 31 goal
+    strip from PR #381): a small interactive card under the ratings spine
+    linking into /goals/. Which of the 4 time-window states shows is
+    computed in the browser from the race's real date, not at build time —
+    see TestGoalCardStateMath, which runs the literal shipped JS through
+    Node rather than re-implementing the date math in Python."""
 
     def test_links_to_goals_page_with_race_attribution(self, normalized_data):
-        html = build_goal_strip(normalized_data)
-        assert f"{SITE_BASE_URL}/goals/?src=race&amp;race=test-gravel-100" in html
+        html = build_goal_card(normalized_data)
+        assert f"{SITE_BASE_URL}/goals/?src=race&race=test-gravel-100" in html
 
     def test_hidden_by_default(self, normalized_data):
-        html = build_goal_strip(normalized_data)
-        assert '<section class="gg-goal-strip" id="goal-strip" data-measure-section="goal-strip" hidden>' in html
+        html = build_goal_card(normalized_data)
+        assert '<section class="gg-goal-card" id="goal-card" data-measure-section="goal-card" hidden>' in html
 
-    def test_visibility_check_is_client_side_not_build_time(self, normalized_data):
-        """Race pages aren't rebuilt daily, so the Oct 1 - Jan 31 window is
-        decided in the browser at view time, not baked in at generation
-        time — a build-time check would go stale the moment the calendar
-        turns."""
-        html = build_goal_strip(normalized_data)
-        assert "new Date().getMonth()" in html
-        assert "strip.hidden = false" in html
+    def test_state_is_computed_client_side_not_build_time(self, normalized_data):
+        """Race pages aren't rebuilt daily, so which window applies (and the
+        day count itself) is decided in the browser at view time, not baked
+        in at generation time — a build-time value would go stale the
+        moment the calendar turns."""
+        html = build_goal_card(normalized_data)
+        assert "ggGoalCardCompute(D.startISO, D.endISO, todayISO)" in html
+        assert "card.hidden = false" in html
+        assert '"2026-06-15"' not in html.split("<script>")[0]  # not pre-baked into a hidden state
 
-    def test_fires_goal_hero_click_with_race_src_and_slug(self, normalized_data):
-        # docs/ga4-key-events.md documents race_slug as sent on this event;
-        # it must actually be there, not just in the destination URL.
-        html = build_goal_strip(normalized_data)
-        assert "gtag('event', 'goal_hero_click', { src: 'race', race_slug: \"test-gravel-100\" });" in html
+    def test_fires_goal_hero_click_on_button_tap(self, normalized_data):
+        # docs/ga4-key-events.md documents race_slug + goal_type on this event.
+        html = build_goal_card(normalized_data)
+        assert 'gtag("event", "goal_hero_click", { src: "race", race_slug: D.slug, goal_type: goalType })' in html
 
-    def test_race_slug_is_embedded_with_the_script_safe_json_helper(self):
-        # sol review: CLAUDE.md bans bare json.dumps() inside <script> tags
-        # (it doesn't escape "</", so a slug containing "</script>" could
-        # break out of the tag) — must go through _safe_json_for_script.
+    def test_fires_on_cta_click_too(self, normalized_data):
+        html = build_goal_card(normalized_data)
+        assert 'posterCta.addEventListener("click", function() {' in html
+        assert "fireClick(lastGoalType)" in html
+
+    def test_never_fires_on_load_or_a_timer(self, normalized_data):
+        # CLAUDE.md: never fire GA events on auto-play/timers, only manual
+        # interaction. The card computes its state once on load but must
+        # not send an event for that — only for a tap.
+        html = build_goal_card(normalized_data)
+        assert "setInterval" not in html
+        assert "setTimeout" not in html
+        # the only two places goal_hero_click can fire are the two click handlers
+        assert html.count("goal_hero_click") == 1  # inside fireClick(), called from both handlers
+
+    def test_today_uses_the_visitors_local_date_not_utc(self, normalized_data):
+        # sol review: UTC getters would flip the state a day early every
+        # evening for any visitor west of Greenwich (most of this site's
+        # US audience). Must use the plain (local) Date getters.
+        html = build_goal_card(normalized_data)
+        assert 'now.getFullYear() + "-"' in html
+        assert 'now.getMonth() + 1' in html
+        assert 'now.getDate()' in html
+        assert "now.getUTCFullYear()" not in html
+        assert "now.getUTCMonth()" not in html
+        assert "now.getUTCDate()" not in html
+
+    def test_post_state_poster_label_makes_no_date_claim(self, normalized_data):
+        # sol review: "BY {date}, I WILL ... again" is nonsense once the
+        # race is over and there's no confirmed next edition — the
+        # post-race states get their own, date-free label.
+        html = build_goal_card(normalized_data)
+        assert GOAL_CARD_COPY["poster_label_post"] in html
+        assert 'var labelTpl = isPost ? COPY.poster_label_post : COPY.poster_label;' in html
+
+    def test_static_data_is_embedded_with_the_script_safe_json_helper(self):
+        # sol review on the old strip: CLAUDE.md bans bare json.dumps() inside
+        # <script> tags (it doesn't escape "</", so a slug containing
+        # "</script>" could break out of the tag) — must go through
+        # _safe_json_for_script.
         import inspect
 
-        from generate_neo_brutalist import build_goal_strip
-        src = inspect.getsource(build_goal_strip)
-        assert "_safe_json_for_script(slug)" in src
-        assert "json.dumps(slug)" not in src
+        from generate_neo_brutalist import build_goal_card
+        src = inspect.getsource(build_goal_card)
+        assert "_safe_json_for_script(static_data)" in src
+        assert "_safe_json_for_script(GOAL_CARD_COPY)" in src
+        assert "json.dumps(" not in src
 
-    def test_strip_sits_after_ratings_before_custom_plan(self, normalized_data):
+    def test_no_innerhtml(self, normalized_data):
+        html = build_goal_card(normalized_data)
+        assert "innerHTML" not in html
+
+    def test_buttons_are_real_buttons_not_divs(self, normalized_data):
+        """Keyboard accessibility: <button> elements are natively focusable
+        and Enter/Space-activated without extra JS."""
+        html = build_goal_card(normalized_data)
+        for goal in ("finish", "beat_time", "race_it", "same", "bigger"):
+            assert f'<button type="button" class="gg-goal-card-btn" data-goal="{goal}"' in html
+
+    def test_poster_has_aria_live(self, normalized_data):
+        html = build_goal_card(normalized_data)
+        assert 'id="gg-goal-card-poster-wrap" hidden aria-live="polite"' in html
+
+    def test_card_sits_after_ratings_before_custom_plan(self, normalized_data):
         html = generate_page(normalized_data)
         ratings_pos = html.index('data-measure-section="rating"')
-        strip_pos = html.index('data-measure-section="goal-strip"')
+        card_pos = html.index('data-measure-section="goal-card"')
         plan_pos = html.index('data-measure-section="custom-plan"')
-        assert ratings_pos < strip_pos < plan_pos
+        assert ratings_pos < card_pos < plan_pos
 
     def test_suppressed_when_source_blocked(self, sample_race_data):
         sample_race_data["race"]["vitals"]["course_status"] = "source_blocked"
         rd = normalize_race_data(sample_race_data)
         html = generate_page(rd, [])
-        assert 'data-measure-section="goal-strip"' not in html
+        assert 'data-measure-section="goal-card"' not in html
+
+    def test_suppressed_when_taking_a_break(self, sample_race_data):
+        sample_race_data["race"]["taking_a_break"] = {
+            "label": "Taking a break", "line": "Skipping 2026.",
+        }
+        rd = normalize_race_data(sample_race_data)
+        html = generate_page(rd, [])
+        assert 'data-measure-section="goal-card"' not in html
+
+    def test_hidden_entirely_when_date_is_tbd(self, sample_race_data):
+        sample_race_data["race"]["vitals"]["date_specific"] = "2026: TBD"
+        rd = normalize_race_data(sample_race_data)
+        assert build_goal_card(rd) == ""
+
+    def test_hidden_entirely_when_date_is_empty(self, sample_race_data):
+        sample_race_data["race"]["vitals"].pop("date_specific", None)
+        rd = normalize_race_data(sample_race_data)
+        assert build_goal_card(rd) == ""
+
+    def test_prep_kit_link_target(self, normalized_data):
+        html = build_goal_card(normalized_data)
+        assert 'href="/race/test-gravel-100/prep-kit/"' in html
+
+    def test_copy_dict_is_the_single_source_for_all_strings(self, normalized_data):
+        """Every headline/sub/button/goal-line string ships through
+        GOAL_CARD_COPY (embedded via _safe_json_for_script), not hand-typed
+        a second time elsewhere in the template — so a copy edit is a
+        one-dict edit."""
+        html = build_goal_card(normalized_data)
+        for state in ("far", "near", "week", "post"):
+            assert GOAL_CARD_COPY[state]["headline"] in html
+        for goal_type, line in GOAL_CARD_COPY["goal_lines"].items():
+            assert line in html
+
+    def test_freshness_line_shown_when_data_has_it(self, sample_race_data):
+        sample_race_data["race"]["research_metadata"] = {"last_verified": "2026-03-03"}
+        rd = normalize_race_data(sample_race_data)
+        html = build_goal_card(rd)
+        assert "Details last checked March 3, 2026" in html
+
+    def test_freshness_line_omitted_when_data_lacks_it(self, normalized_data):
+        # Never invent a checked date — most profiles don't have one.
+        html = build_goal_card(normalized_data)
+        assert "gg-goal-card-freshness" not in html
+
+    def test_hidden_attribute_css_overrides_are_not_lost(self):
+        """A real bug caught by screenshotting the far state: the buttons
+        container and prep-kit link each set an explicit CSS `display`
+        (flex / inline-block) for layout, which — without a [hidden]
+        override — beats the browser's default `[hidden] { display: none }`
+        rule and shows them even while their `hidden` attribute is true."""
+        from generate_neo_brutalist import APPROVED_TOP_CSS, get_page_css
+
+        css = get_page_css() + APPROVED_TOP_CSS
+        assert ".gg-goal-card-buttons[hidden]" in css
+        assert ".gg-goal-card-prep-link[hidden]" in css
+
+
+class TestGoalCardStateMath:
+    """The state math (which of the 4 windows, the day count, the weekday,
+    the display date) is the literal JS the browser runs — run through
+    Node with a frozen "today" rather than re-implemented in Python, so a
+    passing test actually pins the deployed logic."""
+
+    NODE = shutil.which("node")
+
+    @staticmethod
+    def _compute(start_iso, end_iso, today_iso):
+        script = (
+            GOAL_CARD_STATE_JS
+            + '\nconsole.log(JSON.stringify(ggGoalCardCompute('
+            + f'{json.dumps(start_iso)}, {json.dumps(end_iso)}, {json.dumps(today_iso)})));'
+        )
+        result = subprocess.run(
+            ["node", "-e", script], capture_output=True, text=True, check=True
+        )
+        return json.loads(result.stdout.strip())
+
+    @pytest.mark.skipif(NODE is None, reason="node not installed")
+    @pytest.mark.parametrize(
+        ("start_iso", "end_iso", "today_iso", "expected_state"),
+        [
+            ("2026-12-24", "2026-12-24", "2026-09-24", "far"),    # 91 days out
+            ("2026-12-23", "2026-12-23", "2026-09-24", "near"),   # 90 days out (boundary)
+            ("2026-10-02", "2026-10-02", "2026-09-24", "near"),   # 8 days out (boundary)
+            ("2026-10-01", "2026-10-01", "2026-09-24", "week"),   # 7 days out (boundary)
+            ("2026-09-24", "2026-09-24", "2026-09-24", "week"),   # race day itself
+            ("2026-09-23", "2026-09-23", "2026-09-24", "post"),   # 1 day ago (boundary)
+            ("2026-07-26", "2026-07-26", "2026-09-24", "post"),   # 60 days ago (boundary)
+            ("2026-07-25", "2026-07-25", "2026-09-24", "hidden"),  # 61 days ago (boundary)
+            ("not-a-date", "not-a-date", "2026-09-24", "hidden"),  # unparseable
+            # Multi-day event: started before today, ends after today — sol
+            # review caught this going to "post" ("was 3 days ago") on day 3
+            # of a 5-day event (Rift Valley Odyssey, Sep 21-25, checked Sep 24).
+            ("2026-09-21", "2026-09-25", "2026-09-24", "week"),
+            # Multi-day event ending exactly today: still running, not "post".
+            ("2026-09-20", "2026-09-24", "2026-09-24", "week"),
+            # Multi-day event that ended yesterday: post, counted from END
+            # date (1 day since it wrapped up), not from the start date.
+            ("2026-09-18", "2026-09-23", "2026-09-24", "post"),
+        ],
+    )
+    def test_state_boundaries(self, start_iso, end_iso, today_iso, expected_state):
+        assert self._compute(start_iso, end_iso, today_iso)["state"] == expected_state
+
+    @pytest.mark.skipif(NODE is None, reason="node not installed")
+    def test_multiday_post_days_counts_from_end_not_start(self):
+        result = self._compute("2026-09-18", "2026-09-23", "2026-09-24")
+        assert result["days"] == "1 day"  # 1 day since it ENDED, not 6 since it started
+
+    @pytest.mark.skipif(NODE is None, reason="node not installed")
+    def test_singular_day_is_not_pluralized(self):
+        assert self._compute("2026-09-23", "2026-09-23", "2026-09-24")["days"] == "1 day"
+
+    @pytest.mark.skipif(NODE is None, reason="node not installed")
+    def test_plural_days(self):
+        assert self._compute("2026-08-25", "2026-08-25", "2026-09-24")["days"] == "30 days"
+
+    @pytest.mark.skipif(NODE is None, reason="node not installed")
+    def test_weekday_is_the_races_weekday_not_todays(self):
+        # 2026-09-26 is a Saturday
+        assert self._compute("2026-09-26", "2026-09-26", "2026-09-24")["weekday"] == "Saturday"

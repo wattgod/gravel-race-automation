@@ -345,7 +345,7 @@ class TestGoalsPage:
         # goal_hero_click fires on the page that links to /goals/ — the
         # homepage poster wall (generate_homepage.py, data-ga="goal_hero_click")
         # and the race-page goal strip (generate_neo_brutalist.py
-        # build_goal_strip) — not on /goals/ itself. This page's job is only
+        # build_goal_card) — not on /goals/ itself. This page's job is only
         # to read the ?src=/?race= those two surfaces link with.
         js = build_season_review_js(VARIANTS["goal_2027"])
         assert 'ga4("goal_hero_click"' not in js
@@ -355,6 +355,26 @@ class TestGoalsPage:
         js = build_season_review_js(VARIANTS["goal_2027"])
         assert "race_slug: RACE_SLUG" in js
         assert "entry_src: ENTRY_SRC" in js
+        assert "goal_type: GOAL_TYPE" in js
+
+    def test_goal_type_is_validated_to_the_fixed_set(self):
+        js = build_season_review_js(VARIANTS["goal_2027"])
+        assert '/^(finish|beat_time|race_it|same|bigger)$/.test(v)' in js
+
+    def test_outcome_goal_is_prefilled_only_when_empty(self):
+        js = build_season_review_js(VARIANTS["goal_2027"])
+        assert 'if (goalField && !goalField.value.trim()) {' in js
+        assert 'document.getElementById("outcome_goal")' in js
+
+    def test_prefill_templates_mirror_the_race_card(self):
+        # goals-2027-funnel-spec.md: this page's prefill templates must not
+        # drift from generate_neo_brutalist.py's GOAL_CARD_COPY["goal_lines"]
+        # (the strings actually shown on the race-page goal card).
+        from generate_neo_brutalist import GOAL_CARD_COPY
+
+        js = build_season_review_js(VARIANTS["goal_2027"])
+        for line in GOAL_CARD_COPY["goal_lines"].values():
+            assert f'"{line}"' in js, f"prefill template drifted from the race card: {line!r}"
 
     def test_poster_token_fetch_chain_returns_the_json_parse_promise(self):
         """sol review (BLOCKER #2): the worker fetch's .then(function(r){...})

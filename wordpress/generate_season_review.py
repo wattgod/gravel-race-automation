@@ -549,7 +549,7 @@ def build_season_review_js(variant) -> str:
 
   /* Entry attribution (goals-2027-funnel-spec.md "Consent and analytics").
      The homepage poster wall and the race-page goal strip
-     (generate_homepage.py, generate_neo_brutalist.py build_goal_strip) both
+     (generate_homepage.py, generate_neo_brutalist.py build_goal_card) both
      link here as /goals/?src=home or /goals/?src=race&race=<slug>, firing
      goal_hero_click with { src } on the click that got the visitor here.
      Read the same two params so the rest of this page's funnel — and the
@@ -564,6 +564,16 @@ def build_season_review_js(variant) -> str:
     var v = "";
     try { v = new URLSearchParams(window.location.search).get("race") || ""; } catch (e) {}
     return /^[a-z0-9-]{1,80}$/.test(v) ? v : "";
+  })();
+  // Which goal the visitor tapped on the race-page goal card
+  // (generate_neo_brutalist.py build_goal_card) before landing here —
+  // ?goal_type=. Fixed set only, same discipline as ENTRY_SRC/RACE_SLUG:
+  // a malformed value never lands in an event, a stored lead, or the
+  // outcome_goal prefill below.
+  var GOAL_TYPE = (function() {
+    var v = "";
+    try { v = new URLSearchParams(window.location.search).get("goal_type") || ""; } catch (e) {}
+    return /^(finish|beat_time|race_it|same|bigger)$/.test(v) ? v : "";
   })();
   // Filled in from the lead-worker's response once this submission is
   // stored (see the fetch below) — the Season Plan CTA rides it into
@@ -792,6 +802,32 @@ def build_season_review_js(variant) -> str:
       var el = document.getElementById(k);
       if (el && params.get(k) && !el.value) { el.value = params.get(k); }
     });
+    /* Prefill from the race-page goal card's tap (goals-2027-funnel-spec.md):
+       ?goal_type= carries which goal the visitor already picked there. The
+       line templates mirror GOAL_CARD_COPY.goal_lines in
+       generate_neo_brutalist.py's build_goal_card — update both if the copy
+       changes. Only fills the field when it is still empty: a returning
+       visitor's own typed answer, or a restored draft, is never overwritten. */
+    if (GOAL_TYPE) {
+      var goalLineTemplates = {
+        finish: "Finish {race}.",
+        beat_time: "Finish {race} faster than last time.",
+        race_it: "Race {race}, not just ride it.",
+        same: "{race} again, and finish it better.",
+        bigger: "Something bigger than {race}."
+      };
+      // The card's CTA only carries the slug, not the display name — humanize
+      // it rather than fabricating or fetching race data on this page.
+      var raceLabel = RACE_SLUG
+        ? RACE_SLUG.split("-").filter(Boolean).map(function(w) {
+            return w.charAt(0).toUpperCase() + w.slice(1);
+          }).join(" ")
+        : "it";
+      var goalField = document.getElementById("outcome_goal");
+      if (goalField && !goalField.value.trim()) {
+        goalField.value = goalLineTemplates[GOAL_TYPE].replace("{race}", raceLabel);
+      }
+    }
     updateProgress();
     // A smooth scrollIntoView keeps firing scroll events for a few hundred
     // ms after this function returns, not just during it — clear the flag
@@ -951,7 +987,8 @@ def build_season_review_js(variant) -> str:
         body: JSON.stringify({
           source: LEAD_SOURCE, brand: "gravelgod", email: d.email, name: d.name || "",
           athlete: d.athlete || "", goal_answers: answers, website: "",
-          offer_variant: OFFER_VARIANT, race_slug: RACE_SLUG, entry_src: ENTRY_SRC
+          offer_variant: OFFER_VARIANT, race_slug: RACE_SLUG, entry_src: ENTRY_SRC,
+          goal_type: GOAL_TYPE
         }),
         signal: ctrl ? ctrl.signal : undefined
       }).then(function(r) {

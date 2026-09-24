@@ -6,134 +6,118 @@
   "blocks": [
     {
       "type": "black_box",
-      "title": "Incident Report",
-      "content": "Rider descends a gravel doubletrack at 18 mph. Surface is mixed — packed dirt with embedded fist-sized rocks and a few shallow ruts. Rider's eyes are locked on the rocks 5 feet ahead of the front wheel. Each rock triggers a correction: a jerk left, a jerk right, another left.\n\nThe rider is playing whack-a-mole with the terrain. Every obstacle demands a conscious steering input. Arms are tense from constant correction. The weighted drop from Lesson 1 is gone — hands are loaded because the arms are doing steering work every half-second.\n\nAt the bottom of the descent, the packed dirt transitions to a 15-foot sand patch — visible from 50 meters away to anyone looking for it. The rider doesn't see it. Their eyes are busy cataloging the next rock, 5 feet ahead.\n\nFront wheel hits the sand at 17 mph with no weight adjustment, no speed reduction, no line correction. The wheel digs in and stops. The rider doesn't.\n\nShoulder contusion. Torn bar tape. The rock field was never the problem. The sand patch was the problem, and it was in plain sight the entire time — just not in the rider's sight."
+      "title": "A line you can see",
+      "content": "On a gravel descent, a rider watches the loose stones right in front of the wheel. Each stone prompts a small steering correction. Farther along, the road bends out of view. The rider has little time to decide where to slow down.\n\nThe useful change is to look far enough ahead to choose a line while still checking what is close. If the next part of the road is hidden, reduce speed before you reach it."
+    },
+    {
+      "type": "sensation_target",
+      "label": "Look for the next usable line",
+      "content": "On a clear stretch, find a line that continues through the next few bike lengths. Let your gaze move between that line and the near surface when an obstacle needs attention. Keep your hands able to steer and brake.\n\nYou should be able to say where you plan to ride next. If you cannot, slow down until the line becomes visible."
+    },
+    {
+      "type": "prose",
+      "content": "Looking ahead gives you time to choose a line before you need to steer. Looking only at the front tire leaves each rock or rut as a last-second decision. Looking only at the exit can hide an obstacle between you and it.\n\nUse a moving scan. Check the line ahead, glance nearer when the surface calls for it, then return to where you want the bike to go. How far ahead you look depends on speed, visibility, and the ground. A blind corner or loose patch calls for more room to slow down."
+    },
+    {
+      "type": "process",
+      "title": "Look, scan, choose",
+      "description": "Practice this on a familiar road with a clear sightline.",
+      "steps": [
+        {
+          "step": 1,
+          "action": "Start with room to stop",
+          "detail": "Ride at an easy pace where you can see your route through the next bend or obstacle."
+        },
+        {
+          "step": 2,
+          "action": "Pick a line",
+          "detail": "Look for a clear path ahead rather than following the front wheel."
+        },
+        {
+          "step": 3,
+          "action": "Check nearby hazards",
+          "detail": "Glance toward the near surface when you need to confirm a rock, rut, or loose patch. Keep your eyes moving."
+        },
+        {
+          "step": 4,
+          "action": "Change the plan early",
+          "detail": "If the line disappears or the surface changes, slow down while you still have a predictable place to brake."
+        }
+      ]
     },
     {
       "type": "callout",
       "style": "highlight",
-      "content": "**Riders who fixed their eyes say the same thing.** The moment they stopped staring at the front wheel, the speed stopped feeling like an emergency:\n\n\"We tend to focus on the wheels right in front of us. That makes us reactive vs proactive… As soon as I looked ahead… I could actually carve even deeper if I needed to and it felt easy.\" — Power13, TrainerRoad forum\n\n\"Look as far down the trail as possible and dont look at what is directly in front of you.\" — top-voted cue, MTBR descending thread"
-    },
-    {
-      "type": "sensation_target",
-      "label": "Soft eyes — wide gaze, far focus",
-      "content": "Here's what you're looking for: let your eyes go slightly unfocused, like you're staring at a landscape painting instead of reading a text message. Your focal point sits 3-5 seconds ahead of the bike — at 15 mph, that's roughly 65-110 feet. The near field — rocks, roots, ruts within 10 feet — is handled by peripheral vision.\n\nWhen it's right, obstacles seem to steer around themselves. You don't consciously decide to go left of that rock. Your hands make the correction automatically because your peripheral vision registered the rock a full second before you reached it and your motor system handled the adjustment without involving the panic department.\n\nWhen it's wrong, you feel like you're playing a video game — every obstacle is a discrete event requiring a conscious decision. Your arms are busy. Your hands are loaded. You're exhausted after 5 minutes of rough terrain because your brain processed every single rock individually.\n\nThe test: ride 2 minutes of rough gravel, then ask yourself — did I make individual decisions about obstacles, or did the bike just flow through them? If you can't remember the specific rocks you avoided, your quiet eye is working. If you can describe each one, you were target-fixating."
-    },
-    {
-      "type": "prose",
-      "content": "### Why Your Eyes Are Lying to You\n\nYour visual system has two modes, and gravel requires the one you almost never use on the road.\n\n**Central vision** is the sharp, high-resolution cone in the center of your visual field — roughly 2-3 degrees wide. This is what you use to read, to identify, to focus. On the road, central vision does almost all the work: read the sign, spot the pothole, track the wheel ahead.\n\n**Peripheral vision** covers the remaining 170+ degrees. It's low-resolution but extremely fast at detecting motion, contrast changes, and spatial relationships. It operates largely below conscious awareness.\n\nOn pavement, central vision dominates because the surface is predictable. You only need to spot the occasional hazard. On gravel, the surface IS the hazard — every square foot contains visual information. If you try to process gravel with central vision, you overload immediately. Your eyes dart from obstacle to obstacle. Each fixation lasts 0.2-0.3 seconds — too short for your motor system to plan a smooth response. The result is reactive, jerky handling.\n\nThe fix: push central vision far ahead and let peripheral vision handle the near field. This is exactly backward from what your instincts demand. Your brain wants to stare at the thing that might hurt you. Staring at it is what makes you hit it."
-    },
-    {
-      "type": "accordion",
-      "items": [
-        {
-          "title": "Why This Works (Target Fixation Neuroscience)",
-          "content": "Target fixation isn't a metaphor. It's a documented neuromuscular phenomenon: you steer toward whatever you focus your central vision on. Motorcyclists learn this on day one of training. Cyclists rarely learn it at all.\n\nThe mechanism: your hands follow your eyes. When you fixate on a rock, your vestibular system and motor cortex subtly orient the bike toward that rock. The harder you stare — the more urgently you think \"don't hit that\" — the more precisely you steer toward it. The survival instinct to watch the threat IS the mechanism that causes the collision.\n\nThis is why Lesson 1's weighted drop matters here. When your hands are light (Lesson 1) and your hips are the hinge (Lesson 2), the front wheel has the freedom to track around small obstacles on its own. Your peripheral vision spots the rock, your hands make a micro-correction below conscious awareness, and the bike flows through. But this only works if your central vision is somewhere else — far ahead, scanning the big picture.\n\nIf you're staring at the rock AND your hands are loaded, two systems are fighting: target fixation is steering you toward the rock while your conscious mind is trying to steer you away from it. Conscious corrections at 18 mph are too slow. Target fixation wins."
-        }
-      ]
-    },
-    {
-      "type": "process",
-      "title": "The Quiet Eye",
-      "description": "Deploy on every rough section, descent, and unfamiliar terrain. This is the scanning hierarchy that replaces reactive obstacle-dodging with predictive terrain reading.",
-      "steps": [
-        {
-          "step": 1,
-          "action": "Surface type (far vision, 4-6 seconds ahead)",
-          "detail": "Identify what you're riding into — hardpack, loose, sand, wet. This is the strategic scan. It determines whether you need to adjust speed, pressure distribution, or body position before you arrive."
-        },
-        {
-          "step": 2,
-          "action": "Line (mid vision, 2-4 seconds ahead)",
-          "detail": "Find the smoothest, most predictable path for the surface ahead. On gravel, the best line is almost never the geometric shortest path. It's the one with the most consistent surface."
-        },
-        {
-          "step": 3,
-          "action": "Obstacle (peripheral vision, 0-2 seconds ahead)",
-          "detail": "Specific objects that need micro-corrections. Handled by peripheral vision and automatic motor responses — NOT by central vision and conscious steering."
-        }
-      ]
-    },
-    {
-      "type": "prose",
-      "content": "Most struggling riders invert this hierarchy completely. They scan obstacles first (central vision locked 5 feet ahead), occasionally glance at line (mid-range), and almost never scan surface type (far ahead). They're answering the least important question with their most powerful visual tool while ignoring the most important question entirely.\n\nThe Quiet Eye is really just restoring the correct hierarchy: surface → line → obstacle, far → mid → peripheral."
-    },
-    {
-      "type": "callout",
-      "content": "The Lesson 3 traction work connects directly here. When you know your tire pressure window and you've felt where grip lives on different surfaces, the surface-type scan becomes actionable — you're not just seeing that the surface changes, you're predicting exactly how the bike will respond. Quiet eyes plus traction knowledge means you're reading the terrain like a book instead of reacting to it like a pinball machine.",
-      "style": "tip"
-    },
-    {
-      "type": "accordion",
-      "items": [
-        {
-          "title": "Research: The 0.8-Second Quiet Eye Threshold",
-          "content": "Sports vision research on athletes in targeting and interception tasks found a critical threshold: expert performers fixate on their target for at least 0.8 seconds before initiating movement. This \"quiet eye\" period — a single, stable fixation — gives the motor system enough time to plan and execute a smooth, accurate response.\n\nBelow 0.8 seconds, accuracy degrades sharply. The movements become reactive instead of planned — exactly the jerky, obstacle-by-obstacle riding pattern from central-vision overload.\n\nOn gravel at 18 mph, you cover about 26 feet per second. A 0.8-second fixation means your eyes should hold steady on a point roughly 20 feet ahead while your peripheral vision handles everything closer. At higher speeds, the fixation point moves farther out — at 25 mph, 30+ feet ahead. At lower speeds, it comes in — at 10 mph, 12 feet is sufficient. The constant isn't distance, it's TIME: hold the fixation for 0.8 seconds minimum before moving to the next scan point."
-        }
-      ]
-    },
-    {
-      "type": "prose",
-      "content": "I rode gravel for years with my eyes glued to the ground 5-8 feet ahead. Constant corrections, tired arms, near-misses. The first time I deliberately pushed my focal point out to 3 seconds ahead, the bike felt like it was on rails. Same trail. Same tires. Same rider — just looking in the right place."
+      "content": "During a race, the road narrows and a bend hides the exit. Riders ahead may carry speed through it. Choose a pace based on what you can see, leave space, and look for your own line once the road opens."
     },
     {
       "type": "drill",
       "title": "Look, scan, choose",
       "time_minutes": 15,
-      "description": "Practice looking toward a visible line while checking the near surface when needed.",
+      "description": "Repeat a short, low-traffic section at an easy pace. Notice whether you can name the line ahead and the nearest hazard without staring at either.",
       "variants": [
         {
           "level": "beginner",
-          "label": "Flat, open practice area",
+          "label": "Open, mostly flat gravel",
           "steps": [
-            "Choose a quiet, flat route with a clear sightline and few obstacles.",
-            "Look ahead to choose a line, then briefly check the surface close to the wheel when it matters.",
-            "Adjust your pace whenever sightline or surface makes the next movement uncertain.",
-            "Stop and note whether looking farther ahead helped you choose a smoother line."
+            "Pick a familiar section with a clear sightline and room to stop.",
+            "Before rolling, point to the line you plan to use.",
+            "Ride through slowly, moving your gaze between that line and the nearby surface as needed.",
+            "Stop and note whether you had time to adjust for a change in the ground. If not, choose an easier pace or section."
+          ]
+        },
+        {
+          "level": "intermediate",
+          "label": "A visible bend or surface change",
+          "steps": [
+            "Choose a familiar bend with a clear exit and no traffic.",
+            "Approach at a pace that leaves room to brake before the bend.",
+            "Look through the bend, check the near surface as needed, and adjust your line before reaching the change.",
+            "Repeat only when you can explain your line and where you would slow down."
           ]
         }
       ],
       "proof_gate": {
-        "description": "A repeatable, controlled movement",
-        "metric": "observation",
-        "target": "Finish able to steer and brake smoothly; stop if control changes"
+        "description": "You can identify a visible line and a place to slow down before reaching a surface change.",
+        "metric": "self-check",
+        "target": "Describe the line and your speed decision after an easy repeat; choose a slower route if the view is blocked."
       }
     },
     {
       "type": "prose",
-      "content": "### Integrating the Quiet Eye With Everything Else\n\nThis is the fourth and final lesson in Module 1, and it's not an accident that it comes last. The quiet eye doesn't work in isolation — it requires the physical platform you built in Lessons 1-3.\n\n- **Lesson 1 (Weighted Drop)**: Light hands allow peripheral-vision corrections. If your hands are loaded with body weight, small steering inputs are impossible — you need big, conscious movements. Light hands = automatic micro-corrections.\n- **Lesson 2 (Hip Hinge)**: A decoupled upper body means the bike can deflect over obstacles without disturbing your visual field. If your skeleton is rigid, every bump bounces your head and resets your focal point. The hinge keeps your eyes stable.\n- **Lesson 3 (Traction)**: Knowing your pressure window and grip limits means the surface-type scan is actionable. \"I see loose gravel ahead\" becomes \"I see loose gravel ahead and I know my 32 PSI on 42mm tires will hold at this speed\" — that's the difference between seeing and understanding.\n\nWith all four lessons stacked: your weight is low (stable), your body is decoupled (smooth), your tires are set correctly (traction), and your eyes are far ahead (strategy). That's the complete trust platform. You're no longer fighting the bike. You're riding it."
+      "content": "### When the scan breaks down\n\nIf you keep looking at one rock, lower your speed and give yourself more time to choose a path around it. If you stare at the far exit and miss the near surface, bring your gaze back briefly to check the ground. If a rider ahead blocks your view, add space instead of following their wheel into a line you cannot see."
     },
     {
       "type": "knowledge_check",
-      "question": "You're approaching a hazard section — a 30-meter stretch of embedded rocks and shallow ruts at 16 mph. Where should your central vision be focused?",
+      "question": "You approach a gravel bend whose exit is hidden. What should guide your next move?",
       "options": [
         {
-          "text": "On the biggest rocks directly ahead, so you can steer around each one",
+          "text": "Match the speed of the rider ahead",
           "correct": false
         },
         {
-          "text": "Alternating rapidly between the near field and far field to track everything",
-          "correct": false
-        },
-        {
-          "text": "3-5 seconds ahead of the bike, scanning surface type and line, with peripheral vision handling individual obstacles",
+          "text": "Slow down where you can see and control the bike, then choose a line as the bend opens",
           "correct": true
         },
         {
-          "text": "On the exit point of the hazard section, ignoring everything in between",
+          "text": "Look only at the exit and ignore the near surface",
+          "correct": false
+        },
+        {
+          "text": "Look at the front tire until the bend ends",
           "correct": false
         }
       ],
-      "explanation": "Central vision should be 3-5 seconds ahead (at 16 mph, roughly 70-115 feet), scanning the surface type and selecting the general line. Individual obstacles within the hazard section are handled by peripheral vision and automatic motor responses — not by central fixation. Staring at specific rocks triggers target fixation (you steer toward what you stare at) and limits your fixation time below the 0.8-second minimum needed for accurate motor planning. Rapidly alternating between near and far fragments both systems without giving either enough processing time. Looking only at the exit ignores the scanning hierarchy — you need surface type and line information, not just a destination."
+      "explanation": "Your pace should leave room to respond within the road you can see. Keep scanning between the intended line and nearby hazards."
     },
     {
       "type": "commitment",
-      "content": "On your next familiar ride, practice looking ahead to choose a visible line, with brief near-surface checks as needed. Keep a speed that leaves room to change course or stop."
+      "content": "On your next easy gravel ride, pick one visible bend. Note where you chose a line, what you checked near the wheel, and where you decided to slow down."
     },
     {
       "type": "callout",
-      "content": "That's Module 1 complete: Trust the Bike. You've built the physical platform — weight low, body decoupled, tires dialed, eyes far ahead — that lets the bike do what it's designed to do on loose surfaces. Up next: Module 2, Control the Inputs. You'll take this foundation and layer specific technique on top of it — braking, cornering, climbing, surface reading. The shift is from \"stop fighting the bike\" to \"start directing it with precision.\" First up: Lesson 5, Braking That Builds Confidence. Turns out everything you learned about braking on the road is actively wrong on gravel.",
-      "style": "next"
+      "style": "next",
+      "content": "The next lesson covers braking. You will use the line you can see to choose where to reduce speed before a turn or a change in surface."
     }
   ]
 }

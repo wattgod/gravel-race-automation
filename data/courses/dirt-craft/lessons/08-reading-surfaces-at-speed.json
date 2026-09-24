@@ -6,167 +6,122 @@
   "blocks": [
     {
       "type": "sensation_target",
-      "label": "Prediction without surprise",
-      "content": "When surface reading is working, transitions feel like walking from carpet onto tile — you noticed before your foot landed, so the change in feel is expected. Your body pre-adjusts. The bike says nothing because you already answered.\n\nWhen surface reading isn't working, every transition jolts you. The bike shouts at you through the bars and pedals: 'I didn't know that was coming.' Neither did you. You spend the next 3 seconds recovering instead of riding.\n\nHere's the test: ride 20 minutes on varied gravel surfaces. If you feel surprised by a surface change more than twice, your eyes aren't scanning far enough ahead. If you feel surprised zero times, you've found the reading distance."
+      "label": "Notice the change while you have time",
+      "content": "Look ahead for a change in texture, tire tracks, puddles, or loose material. As you approach, compare what you see with how the bike feels. Keep enough time and space to reduce speed before the uncertain section."
     },
     {
       "type": "black_box",
-      "title": "Incident Report",
-      "content": "Two riders descend a gravel road at 22 mph. The surface is hardpack — fast, predictable, high traction. Both riders are in the drops, weight balanced, elbows bent. Correct position for the current surface.\n\nFifty meters ahead, the road transitions. Color shifts from dark brown to pale beige. Texture changes from smooth to granular. The pale section is loose-over-hard — a 2-inch layer of marble-sized aggregate sitting on top of a firm base.\n\nRider B notices the color change. Five seconds before contact, they move to the hoods, lighten their grip, press weight through the pedals, and drop tire pressure 2 PSI via their electronic dropper valve. They cross the transition without incident.\n\nRider A is looking at the road 10 feet ahead. They enter the loose section at full speed with hardpack body position — weight forward, firm grip, high confidence. The front tire hits the loose aggregate and deflects 3 inches left. The rigid upper body follows the deflection. Rider A grabs both brakes. On loose gravel. At 22 mph.\n\nRider A barely saves it — a full-body wobble, both feet unclipped, heart rate at 190. The loose section was 200 meters long. The surface change was visible from 50 meters away. They had 5 seconds of warning and used none of it."
+      "title": "A change in the road",
+      "content": "Two riders approach a stretch that looks different from the packed gravel under their wheels. One keeps the same pace and has to react when the front tire reaches loose stones. The other slows on the known surface, picks a visible line, and crosses without a sudden steering or braking input.\n\nColor alone cannot tell either rider how much grip is available. Shade, moisture, and recent traffic can change the look of the road. Use several clues and leave room to revise your line."
     },
     {
       "type": "prose",
-      "content": "### The Four Gravel Surfaces\n\nEvery gravel road you'll ever ride is one of four surfaces, or a transition between them. Each has a visual signature, a sound signature, and a specific set of physics that dictate how your bike behaves.\n\n**1. Hardpack**\n- **Visual**: Dark, uniform color. Often has tire tracks compressed into the surface. May show a slight sheen when wet. Vegetation grows close to the edges — the surface is stable enough that plants aren't getting buried.\n- **Sound**: Quiet hum, similar to rough pavement. Consistent pitch. No crunch.\n- **Physics**: High traction, low rolling resistance. Behaves like rough pavement. This is where you can push speed, corner aggressively, and brake confidently. Treat it like road with slightly wider margins.\n- **Body position**: Normal riding. All techniques from road cycling transfer here.\n\n**2. Loose-Over-Hard**\n- **Visual**: Lighter color than hardpack — the fresh, uncompacted aggregate sits on top. Often pale beige, white, or light gray. Tire tracks may be visible but filled with loose material. The surface looks 'dusty' or 'sugary.'\n- **Sound**: Crunch. Distinct, rhythmic crackling under both tires. Pitch rises with speed. If it sounds like walking on fresh snow, you're on loose-over-hard.\n- **Physics**: The loose layer moves under your tires while the hard base provides a floor. Front wheel can deflect in the loose layer. Traction is available but delayed — the tire has to push through the loose stuff to grip the base. Braking distances increase 30-50%.\n- **Body position**: Weighted drop (Lesson 1). Light hands, heavy feet. Let the front wheel wander — it will find the hard layer. Do not fight it.\n\n**3. Sand and Mud**\n- **Visual**: Sand is obvious — pale, fine-grained, often in patches where water has deposited it. Mud is dark, wet, reflective. Both tend to accumulate in low spots, inside corners, and at the base of climbs where water pools.\n- **Sound**: Sand hisses — a high-pitched, continuous friction sound. Mud is silent until it grabs, then it makes a sucking sound as the tire pulls free.\n- **Physics**: Both dramatically increase rolling resistance and reduce traction. Sand deflects the front wheel laterally. Mud grabs and releases unpredictably. Both reduce braking effectiveness to near zero. Speed management happens BEFORE you enter these sections, not during.\n- **Body position**: Weight back slightly, very light hands. In sand, momentum is survival — if you slow below a critical speed, the tire sinks and you stop. In mud, accept the speed the surface gives you.\n\n**4. Washboard**\n- **Visual**: Rhythmic corrugations running perpendicular to the road. Spacing is typically 2-4 inches. Often most pronounced on the inside line of curves and on descents where vehicles brake. The surface looks rippled.\n- **Sound**: Brrrrrrr. A low-frequency vibration that you feel before you hear. Frequency increases with speed. At high speed, it becomes a continuous drone.\n- **Physics**: Washboard bounces the wheels off the surface at a frequency determined by your speed and the corrugation spacing. At certain speeds, the bounce frequency matches the suspension frequency (your arms and legs) and amplifies. This is the resonance trap — the bike feels like it's shaking apart.\n- **Body position**: This is Lesson 1 and 2 territory. Weighted drop, hip hinge, arms as suspension. The key is to NOT speed up or slow down to escape the vibration — changing speed just shifts you into a different resonance. Maintain speed, absorb with your body, and let the wheels skip."
-    },
-    {
-      "type": "accordion",
-      "items": [
-        {
-          "title": "Sound Frequencies as Surface Sensors",
-          "content": "Your ears are a surface sensor that works when your eyes are busy. Each surface has a distinct audio signature, and with practice, you can identify transitions by sound before you consciously register the visual change.\n\n- **Hardpack to loose**: The hum breaks into a crunch. You'll hear it in the rear tire first (it contacts the new surface before your eyes adjust).\n- **Loose to sand**: The crunch flattens into a hiss. Rolling resistance increases and you feel the bike decelerate.\n- **Any surface to washboard**: A low-frequency rumble that starts in the handlebars before it reaches your ears.\n- **Dry to wet**: Sound gets muffled. The crisp crunch of dry loose gravel becomes a dull thud when wet. The surface absorbed the high-frequency sounds.\n\nThis isn't metaphorical. Experienced gravel riders describe 'hearing' the surface change before they see it. What they're actually doing is processing the rear tire's audio feedback 0.5-1 second before the front tire reaches the new surface. That extra second is free adjustment time.\n\nThe drill in this lesson trains this explicitly. But for now, just start paying attention to what your tires sound like. Most riders have never consciously listened."
-        }
-      ]
-    },
-    {
-      "type": "accordion",
-      "items": [
-        {
-          "title": "Surface Science — Color Cues, Texture Rules, and Vegetation Signals",
-          "content": "Visual surface reading follows a hierarchy: color first, texture second, vegetation third.\n\n**Color rules:**\n- Darker = more compact, more moisture, higher traction. Water compression packs the surface.\n- Lighter = fresher material, less compacted, more loose. Freshly graded roads are the lightest and loosest.\n- Wet sheen = caution. Wet hardpack is grippy. Wet loose-over-hard is treacherous — the water lubricates the layer between loose and hard.\n- Green tinge at edges = stable surface. Vegetation only grows where the road isn't being churned up regularly.\n\n**Texture rules:**\n- Smooth, uniform = hardpack. Safe to push.\n- Granular, visible individual stones = loose. Respect the torque ceiling.\n- Ridged or rippled = washboard. Absorb, don't fight.\n- Shiny when wet = clay content. Clay is the grease of gravel — nearly zero traction when wet, excellent when dry.\n\n**Vegetation rules:**\n- Grass growing IN the road = rarely trafficked, surface may be unpredictable.\n- Grass growing TO the road edge = stable, packed surface.\n- No vegetation at edges = recently graded. Expect the loosest, freshest material. Treat like a different road than the one you researched.\n- Moss or algae = persistent moisture. These sections will be slippery even on dry days because they never fully dry."
-        }
-      ]
-    },
-    {
-      "type": "prose",
-      "content": "### The 50-Meter Scan\n\nIn Lesson 4, you learned the quiet eye — focal point 3-5 seconds ahead, soft peripheral vision near-field. Surface reading extends that framework with a specific scanning pattern.\n\n1. **Primary gaze: 50 meters ahead.** At 20 mph, 50 meters is 5.5 seconds away. This is your color-scan distance. You're looking for changes in surface color, which signal transitions. A shift from dark to light = hardpack to loose. A shift from uniform to patchy = mixed surface ahead.\n2. **Secondary gaze: 20 meters ahead.** This is your texture-confirmation distance. At 20 mph, you have 2.2 seconds. By now, you should know what surface is coming and be initiating your adjustment — body position, grip, cadence, line choice.\n3. **Peripheral: immediate.** Your near-field peripheral vision handles the current surface. You don't need to look down — your feet and hands are telling you what's under the tires right now.\n\nThe most common mistake: looking at 10 meters instead of 50. At 10 meters, you have 1.1 seconds to identify, decide, and execute. That's not enough time for a body position change, a gear shift, and a line selection. By the time you react, you're already on the new surface with the wrong setup.\n\nI crashed three times in my first gravel season. Every single one was a surface transition I entered without adjusting. I was looking 10 meters ahead. The surface changes were visible from 50. Three crashes, three lessons in why reading distance matters more than reading accuracy."
-    },
-    {
-      "type": "accordion",
-      "items": [
-        {
-          "title": "Rain Chemistry — How Water Transforms Every Surface Type",
-          "content": "Rain can change a gravel road quickly, but the direction and size of that change depend on its material and drainage. Hardpack may stay firm or become slick. Loose stones may settle or begin to move over the base. Sand can firm up when damp and become difficult when saturated. Water can hide washboard depth and holes.\n\nRead the next visible section instead of relying on a weather rule. Slow early, leave a larger gap, and test grip gently on a straight section before committing to a bend. Do not make a fixed pressure change just because rain has started. If you adjust tire pressure, stay within tire and rim limits and check the handling on a familiar section before continuing."
-        }
-      ]
-    },
-    {
-      "type": "prose",
-      "content": "### Build your pressure notes\n\nStart within your tire and rim manufacturers' pressure limits. Record tire size, load, surface, weather, and the pressure you rode. Change one setup variable at a time on a familiar route, and keep the setting that gives you control without rim strikes or tire instability."
-    },
-    {
-      "type": "callout",
-      "content": "Use the pressure notes from Lesson 3. Record how the same setup feels after the surface or weather changes, then make one careful adjustment only if you have room to test it. Keep the setup that lets the bike track predictably without rim strikes or tire instability.",
-      "style": "tip"
+      "content": "A gravel road can change under you within a few wheel lengths. Packed sections may give way to loose stones, corrugations, sand, mud, or a wet patch. The same road can feel different after rain or grading. Your job is to notice a change early enough to choose a line and speed.\n\nStart with visible clues such as texture, the depth of loose material, tire tracks, standing water, and where the road drains. Then check what you feel through the bars and tires. If the surface is unfamiliar, slow down while you are still on predictable ground. Keep your steering, braking, and pedaling smooth as you cross it."
     },
     {
       "type": "process",
-      "title": "The 50-Meter Scan",
-      "description": "The surface reading protocol. Deploy continuously on any gravel ride — this becomes your default visual pattern.",
+      "title": "Read, decide, cross",
+      "description": "Use a familiar route at an easy pace before applying this during a ride or race.",
       "steps": [
         {
           "step": 1,
-          "action": "Eyes 50 meters ahead — identify surface type",
-          "detail": "Hardpack (dark, uniform), loose-over-hard (light, granular), sand/mud (pale patches or wet/reflective), washboard (rippled corrugations). Color is your first signal."
+          "action": "Look for a change",
+          "detail": "Notice texture, loose material, tracks, puddles, and the shape of the road ahead."
         },
         {
           "step": 2,
-          "action": "Listen — tire noise pitch changes before visual cues",
-          "detail": "Hum-to-crunch = hardpack to loose. Crunch-to-hiss = loose to sand. Low rumble = washboard incoming. Your rear tire hits the new surface before your eyes adjust."
+          "action": "Find a visible line",
+          "detail": "Choose the path with room to steer and stop. Do not cross into traffic or ride a blind line to avoid a rough patch."
         },
         {
           "step": 3,
-          "action": "Pre-adjust: Weighted Drop for rough, pressure shift for surface change, line choice for transitions",
-          "detail": "Execute the full pre-adjustment sequence: line (50m), body position (30m), speed (20m), cadence/gear (10m)."
+          "action": "Set your pace early",
+          "detail": "Reduce speed on the more predictable surface when the next section is uncertain."
         },
         {
           "step": 4,
-          "action": "Confirm on contact — did the surface match your read?",
-          "detail": "If yes, your scan is calibrated. If no, note the miss — was it a color misread, a hidden transition, or a depth misjudgment? Each miss sharpens the next read."
+          "action": "Cross smoothly",
+          "detail": "Keep your hands on the controls and avoid abrupt inputs. Recheck the line after the front wheel enters the new surface."
         }
       ]
     },
     {
+      "type": "callout",
+      "style": "highlight",
+      "content": "During a race, riders ahead enter a pale, loose-looking patch without slowing. Their line may work for their tires and speed, but it is not proof of grip for yours. Leave space, set your own pace, and avoid a sudden move across the road to follow them."
+    },
+    {
       "type": "prose",
-      "content": "### Putting It All Together: The Pre-Adjustment Sequence\n\nYou've seen the surface 50 meters ahead. You've identified it. Now what? Here's the adjustment sequence, in order of priority:\n\n1. **Line choice** (50m out). Move to the best surface available. On a wide gravel road, the center crown is often more packed than the edges. The tire tracks from vehicles are harder than the shoulders. Pick your line before you arrive.\n2. **Body position** (30m out). Shift to the position that matches the incoming surface. Hardpack: ride normally. Loose: weighted drop, light hands. Sand: weight back, momentum is king. Washboard: arms as suspension, hips as hinge.\n3. **Speed management** (20m out). If you need to slow down for the transition, do it NOW, on the current surface where you have traction. Do not brake on the new surface until you know how it responds.\n4. **Cadence/gear** (10m out). If the surface is loose, shift to an easier gear before you arrive. Shifting under load on a loose surface causes chain tension spikes that can break rear-wheel traction.\n\nThis sequence takes 5 seconds. It happens in the space between 50 meters and contact. After two weeks of deliberate practice, it becomes unconscious. Your eyes scan, your body adjusts, and you don't even register the transition as an event. That's the goal: prediction without surprise."
+      "content": "### Four surfaces to recognize\n\n**Packed gravel:** Often feels firm, but a thin loose layer or dust can hide on top.\n\n**Loose stones over firm ground:** The front wheel may wander more than on pavement. Give yourself room, lower speed, and avoid sharp inputs.\n\n**Washboard:** Repeated ridges can make the bike and rider bounce. Choose a manageable speed, keep your arms and legs able to move, and look for a smoother visible line.\n\n**Wet soil, mud, or sand:** Depth and grip vary. Walk a section when you cannot see a controlled line through it.\n\nThese are descriptions, not a grip rating. Tires, load, weather, and the ground beneath the surface all matter."
+    },
+    {
+      "type": "prose",
+      "content": "### Tire pressure is a separate setup decision\n\nRecord tire size, load, pressure, weather, and surface after a ride. Keep the pressure within the tire and rim makers’ limits. Change one setup variable at a time on a familiar route. Do not treat a color change in the road as a reason to adjust pressure while riding."
     },
     {
       "type": "drill",
-      "title": "Narrate the Surface",
+      "title": "Narrate the surface",
       "time_minutes": 20,
-      "description": "Ride varied gravel terrain and call out each surface type OUT LOUD 3 seconds before you reach it. This forces conscious surface identification until it becomes automatic. The narration is the training — after 20 minutes, your eyes will be scanning without being told to.",
+      "description": "Practice noticing changes and choosing a line on a quiet route. Speak or mentally name the next surface only when it does not distract you from riding.",
       "variants": [
         {
           "level": "beginner",
-          "label": "Easy pace on a road with 2-3 surface types",
+          "label": "Short, familiar route with clear sightlines",
           "steps": [
-            "Find a gravel route with at least 2-3 surface transitions in a 3-mile stretch. An out-and-back on a road that changes character works well.",
-            "Ride at easy endurance pace. Your attention should be on reading, not on effort.",
-            "For every surface change, call out the type 3 seconds before you reach it: 'Hardpack.' 'Loose-over-hard.' 'Sand patch.' 'Washboard.'",
-            "After calling the surface, call your adjustment: 'Light hands.' 'Weight back.' 'Easy gear.' Say it out loud — the verbalization forces the decision to be explicit.",
-            "Ride 20 minutes total. Count your successful calls (correct identification, 3+ seconds ahead) and your surprises (surface hit you before you called it).",
-            "Target: 7 out of 10 correct calls on your first session. By session 3, you should be at 9 out of 10."
+            "Choose a quiet route with two or more surface types and room to stop.",
+            "Ride at an easy pace. Name a change when you can see it and choose a line before you reach it.",
+            "After crossing, notice whether the surface felt as expected. Slow or stop if it did not.",
+            "Record one visual clue that helped and one that misled you."
           ]
         },
         {
           "level": "intermediate",
-          "label": "Tempo pace on varied multi-surface gravel",
+          "label": "Familiar route with a bend or uneven patch",
           "steps": [
-            "Same narration protocol, but at tempo pace (76-88% FTP). The added speed compresses your reaction time and forces you to scan further ahead.",
-            "Add COLOR calls to your narration: 'Light section ahead — loose.' 'Dark line — packed.' 'Wet sheen on right — avoid.'",
-            "When you identify a transition, execute the full pre-adjustment sequence: line, position, speed, gear. Call each step out loud.",
-            "Ride 20 minutes. Now count not just identifications but adjustments. Did you actually change your body position before the transition? Did you shift before the loose section?",
-            "Target: 8 out of 10 identifications AND completed adjustments. Calling the surface means nothing if your body doesn't move."
-          ]
-        },
-        {
-          "level": "race-pace",
-          "label": "High-speed surface reading with group or simulated pressure",
-          "steps": [
-            "Ride at race pace (sweet spot to threshold) on a route with frequent surface transitions. If possible, ride with a partner who pushes your pace.",
-            "Stop narrating out loud — by now, the habit should be internalized. Instead, focus on the sensation: does every transition feel predicted? Are you surprised by anything?",
-            "Add weather reading: ride in the first 30 minutes after rain, or on a morning with dew. The surfaces you know in dry conditions will behave differently. Can you predict the wet behavior from the dry signatures you've learned?",
-            "Bonus challenge: ride a gravel route you've never ridden before. Zero prior knowledge. Read it cold. If you can call 8 out of 10 surfaces correctly on an unfamiliar road, you've internalized the skill.",
-            "Record your results. Compare surprise count at race pace to your first beginner session. The gap tells you how much your reading has improved under stress."
+            "Choose a visible bend or surface change where you can reduce speed on firmer ground.",
+            "State your line and where you will slow before you enter.",
+            "Cross smoothly and compare your expectation with the feel of the tires.",
+            "Repeat only while you can see the route and control your pace."
           ]
         }
       ],
       "proof_gate": {
-        "description": "Correctly identify surface type before contact, 9 out of 10 transitions, on a varied gravel route.",
-        "metric": "ratio",
-        "target": "9 out of 10 surface transitions correctly identified 3+ seconds before contact on a route with at least 10 transitions"
+        "description": "You can identify a surface change early and choose a controlled pace and visible line.",
+        "metric": "self-check",
+        "target": "On a familiar route, describe the clue, line, and speed decision before crossing a change."
       }
     },
     {
       "type": "knowledge_check",
-      "question": "You're riding at 18 mph on hardpack when you see three things simultaneously: the road color lightens 40 meters ahead, the right side of the road has fresh tire tracks (darker), and there's a puddle on the left edge. What's your adjustment priority?",
+      "question": "A gravel road ahead changes from packed to loose-looking material. Riders ahead keep their pace. What should you do?",
       "options": [
         {
-          "text": "Brake hard to slow down before the surface change, then pick a line",
+          "text": "Match their speed because their tires prove the surface has grip",
           "correct": false
         },
         {
-          "text": "Move to the right side (darker, packed tire tracks), shift to a lighter grip and easier gear, scrub speed gently on the current hardpack",
+          "text": "Look for a visible line, create space, and reduce speed before the uncertain section",
           "correct": true
         },
         {
-          "text": "Stay on your current line and ride through — surface changes at 18 mph aren't dangerous",
+          "text": "Move suddenly across the road to follow the smoothest-looking tire track",
           "correct": false
         },
         {
-          "text": "Avoid the puddle by moving to the center of the road where the loose material is deepest",
+          "text": "Change tire pressure while rolling into the patch",
           "correct": false
         }
       ],
-      "explanation": "Line choice comes first — the darker tire tracks on the right indicate packed surface, the best available traction. Speed management comes second — scrub speed on the current hardpack where braking is safe, not on the loose surface ahead. Grip and gear adjustment come third — lighter hands for the loose section, easier gear in case you need to climb. Hard braking wastes your traction budget and may not leave enough grip for the transition. Ignoring the change is how Rider A in the black box nearly crashed. Avoiding the puddle by moving to the center puts you in the loosest material."
+      "explanation": "Set your own pace on the known surface and choose a line you can see. Another rider’s line does not establish grip for your bike."
     },
     {
       "type": "commitment",
-      "content": "Your commitment before Module 3: ride 20 minutes of varied gravel using The 50-Meter Scan. Call every surface transition 3 seconds before contact. 9 out of 10 correct means your Control stack is complete."
+      "content": "On your next gravel ride, note one surface change you predicted correctly and one that surprised you. Record what you saw before each one."
     },
     {
       "type": "callout",
-      "content": "This is the last lesson in Module 2: Control the Inputs. You started Module 2 learning to brake without crashing. You finish it reading surfaces before you reach them. The progression — braking, cornering, climbing, reading — has given you specific, repeatable techniques for every input your bike receives.\n\nModule 3 is where it gets fun. You're no longer fighting the terrain or white-knuckling through transitions. Now we find the speed that's been hiding in the skills you've built. Lesson 9: Descending as Play, Not Survival.",
-      "style": "next"
+      "style": "next",
+      "content": "The next lesson covers descending. Use these surface clues to choose your pace and line before the road points down."
     }
   ]
 }

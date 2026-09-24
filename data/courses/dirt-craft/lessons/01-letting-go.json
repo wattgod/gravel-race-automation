@@ -6,128 +6,98 @@
   "blocks": [
     {
       "type": "black_box",
-      "title": "Incident Report",
-      "content": "Rider descends a gravel road at 15 mph. Surface is washboard — shallow, rhythmic corrugations spaced 3-4 inches apart. Rider grips bars with full force, elbows locked, shoulders braced. Body forms a single rigid unit from hands to feet.\n\nThe washboard frequency exceeds the fork's ability to absorb while the rider's weight is loaded through the handlebars. Front wheel begins to bounce. Each bounce lifts the contact patch off the surface for 30-40 milliseconds. The rider, feeling the wheel skip, grips harder.\n\nAt the third bounce, the front wheel lands at a 4-degree angle to the direction of travel. Traction is already reduced by the bouncing. The wheel deflects left. The rigid rider's mass follows. No absorption, no correction. The bike goes down at 15 mph.\n\nPalms bruised from the death grip. Right hip road rash. The crash wasn't caused by the washboard. It was caused by the rider's response to the washboard."
+      "title": "When the bars feel busy",
+      "content": "A road rider reaches the first rough patch of a gravel ride. The front end moves more than it does on pavement, so the rider straightens the elbows and pushes down on the hoods. Steering gets harder as each bump moves the rider’s shoulders.\n\nStart with an easier patch and a slower pace. Keep a secure hold on the bars, but give your elbows room to move."
+    },
+    {
+      "type": "prose",
+      "content": "A death grip is an understandable reaction to an unfamiliar surface. It can also leave your arms too stiff to make small steering adjustments. You need control of the bars and access to the brakes, with enough movement in your elbows to respond to the ground.\n\nNotice where your weight goes. Your saddle carries much of it while you are seated; your feet share the load. If you press hard into the hoods, ease the pace and reset your position. The goal is a secure grip without using the bars as a brace."
+    },
+    {
+      "type": "sensation_target",
+      "label": "Support through your feet, secure hands",
+      "content": "On smooth, flat gravel at an easy pace, keep both hands wrapped around the hoods. Notice the contact under your feet. Bend your elbows slightly, breathe normally, and check that you can steer and brake without a sudden shift in weight. Do not open your hands or release the bars as a test."
+    },
+    {
+      "type": "process",
+      "title": "Set a position you can steer from",
+      "description": "Use these cues on easy ground before trying a rough section.",
+      "steps": [
+        {
+          "step": 1,
+          "action": "Choose an easy line",
+          "detail": "Pick a clear, quiet stretch where you can slow or stop without pressure from traffic."
+        },
+        {
+          "step": 2,
+          "action": "Keep the controls close",
+          "detail": "Wrap your hands around the hoods or drops and keep the brake levers within reach."
+        },
+        {
+          "step": 3,
+          "action": "Share the load",
+          "detail": "Let your saddle and feet support you rather than leaning hard on your hands."
+        },
+        {
+          "step": 4,
+          "action": "Let your elbows move",
+          "detail": "Keep a small bend in the arms. If the front end feels unpredictable, slow down or use smoother ground."
+        }
+      ]
     },
     {
       "type": "callout",
       "style": "highlight",
-      "content": "**You are not the only one who white-knuckled it.** Two riders, same wall, in their own words:\n\n\"I kept my hands on the hoods on all my descents and would legitimately be terrified at anything over 35mph… putting my hands in the drops made all that instability go away.\" — batwood14, TrainerRoad forum\n\n\"I started yelling at myself to relax because tension/stiffening in the body makes a sketchy descent waaay worse… I refrained from fear braking… I leveled up that ride.\" — funkinslick, TrainerRoad forum"
-    },
-    {
-      "type": "prose",
-      "content": "That crash report could be any of us. I've lived some version of it a dozen times — the white-knuckle descent, the bouncing front wheel, the moment where instinct says HOLD ON and physics says that's the wrong answer. I was a road rider for fifteen years before I touched gravel, and every one of those years trained me to do exactly the wrong thing on loose surfaces. The skill you're about to learn took me two minutes to understand and two seasons to unlearn the opposite. It's the single highest-leverage change I've ever made on a bike.\n\nI know — someone telling you to loosen your grip sounds about as useful as 'just relax' at the dentist. Bear with me. The physics are on my side here."
-    },
-    {
-      "type": "sensation_target",
-      "label": "Heavy feet, quiet hands",
-      "content": "On a familiar, flat stretch, let your feet support you and soften your elbows. Keep both hands securely wrapped around the bars and within reach of both brakes. Notice when you lean heavily on your palms or tense your shoulders. Slow down or stop if you cannot steer comfortably."
-    },
-    {
-      "type": "prose",
-      "content": "The death grip is the most common bike handling error in gravel cycling. It's also the most dangerous, because it creates the exact problem the rider is trying to prevent.\n\nThe cycle works like this:\n\n1. **Fear** — the surface looks rough, loose, or unfamiliar.\n2. **Grip** — the rider clamps the bars, locks their elbows, braces their shoulders.\n3. **Rigidity** — the upper body becomes a single rigid unit, transmitting every surface vibration directly through the skeleton.\n4. **Bounce** — the front wheel lifts off the surface with each bump. Contact patch time drops. Steering authority disappears.\n5. **More fear** — the rider feels the wheel skipping and interprets it as loss of control.\n6. **More grip** — back to step 2, but worse.\n\nI ran this exact cycle for two full seasons before I understood what was happening. Every sketchy descent, same sequence — white knuckles, bouncing front wheel, wondering why gravel felt so much harder than it should.\n\nThis isn't a character flaw. It's a deeply wired survival response. When your brain perceives instability, it tells your muscles to clamp down and brace for impact. On pavement, this works fine — the surface is predictable and the bike stays planted regardless of what you do with your upper body. On gravel, it's the mechanism that causes the crash."
-    },
-    {
-      "type": "prose",
-      "content": "The fix is counterintuitive: you have to move your weight DOWN to make the bike more stable.\n\nThis is what experienced gravel riders mean when they say \"let the bike do the work.\" They're not being vague. They're describing a specific weight distribution: heavy feet, light hands, hips as the hinge point between a stable lower body and a floating upper body."
-    },
-    {
-      "type": "accordion",
-      "items": [
-        {
-          "title": "Why This Works (The Physics)",
-          "content": "**Center of mass through the bottom bracket, not the handlebars.** When your weight pushes through the pedals, the lowest and most central point of the bike-rider system carries the load. The bike becomes bottom-heavy, like a weighted Weeble. It self-corrects.\n\n**When your weight is in your hands, the center of mass rises and moves forward.** The bike becomes top-heavy. Every perturbation amplifies instead of damping out.\n\n**Light hands = free steering.** With minimal weight on the bars, the front wheel is free to track over small obstacles — rocks, ruts, washboard ridges — without deflecting the entire bike. The wheel finds its own line. Your job is to let it."
-        }
-      ]
-    },
-    {
-      "type": "callout",
-      "content": "Road cycling trains you to be a single rigid unit — stiff core, locked hips, power from glutes through pedals. This is correct for pavement. On gravel, you need to be two separate systems: a stable lower body driving the pedals, and a loose upper body that absorbs terrain independently. Lesson 2 goes deep on this separation. For now, focus on one thing: get the weight out of your hands.",
-      "style": "tip"
-    },
-    {
-      "type": "process",
-      "title": "The Weighted Drop",
-      "description": "Deploy on any surface change or rough section. This is the foundational skill of the entire course — every lesson builds on it.",
-      "steps": [
-        {
-          "step": 1,
-          "action": "Drop your heels",
-          "detail": "10-15 degrees below horizontal. This engages your calves as shock absorbers and lowers your center of mass by 1-2 cm. Small change, large effect."
-        },
-        {
-          "step": 2,
-          "action": "Bend your elbows",
-          "detail": "Locked elbows transmit vibration. Bent elbows absorb it. Think of your arms as the front suspension you don't have. A 20-degree bend gives you roughly 3 inches of vertical travel."
-        },
-        {
-          "step": 3,
-          "action": "Press through the pedals",
-          "detail": "Let your feet support you while your hands stay secure and light enough to steer. Do not chase a weight percentage."
-        },
-        {
-          "step": 4,
-          "action": "Release the hands",
-          "detail": "Reduce grip pressure to the minimum needed to keep your hands on the bars. If you're gripping at a 9 out of 10, bring it to a 3."
-        }
-      ]
-    },
-    {
-      "type": "prose",
-      "content": "The result: when you hit a bump, the front wheel rises, your arms compress, the energy dissipates through your bent elbows, and the wheel settles back onto the surface still tracking straight. Your palms don't feel it. Your feet do — and feet can handle it.\n\nI spent two years riding gravel with a death grip before someone told me this. Two minutes of deliberate practice changed my riding more than two years of just logging miles."
-    },
-    {
-      "type": "prose",
-      "content": "Watch two riders on the same washboard section. The rigid rider bounces — head bobbing, shoulders ratcheting up toward the ears with every corrugation, bike chattering underneath like it's trying to shake them off. Their line wanders because the front wheel is spending half its time in the air. The loose rider flows. Their head stays level, almost eerily still, while the bike moves independently underneath them. Arms flex, elbows pump gently, hands rest. Same road, same speed, same tires. The difference is entirely in where their weight lives. You can spot a death-gripper from 50 meters away. You can also spot the moment someone figures out The Weighted Drop, because they suddenly look like they belong on the surface instead of fighting it."
+      "content": "During a race, the rider ahead rolls over washboard faster than you want to. Leave space, look for a smoother visible line, and choose your own pace. A secure grip and movable arms matter more than copying their speed."
     },
     {
       "type": "drill",
       "title": "Feet and hands check",
       "time_minutes": 15,
-      "description": "Compare how your feet, elbows, and hands feel at an easy pace. Keep a secure grip throughout.",
+      "description": "Compare your contact with the pedals, saddle, and bars at an easy pace. Keep a secure grip throughout.",
       "variants": [
         {
           "level": "beginner",
           "label": "Flat, open practice area",
           "steps": [
-            "Choose a flat, open, familiar route and ride at an easy pace.",
-            "Notice whether your feet support you without leaning hard on the bars. Keep both hands wrapped around the grips or hoods.",
-            "Soften your elbows and shoulders while maintaining secure steering and brake access.",
-            "Stop safely and record what changed. If your hands tingle or become sore, assess comfort and fit before repeating."
+            "Choose a flat, familiar route with room to stop.",
+            "Ride easily with both hands wrapped around the hoods. Notice whether you are pressing down on the bars.",
+            "Let your elbows bend slightly and keep your feet engaged on the pedals. Do not lift your fingers from the controls.",
+            "Stop safely and note what made steering feel easier. If your hands hurt or go numb, check your position and bike fit before repeating."
           ]
         }
       ],
       "proof_gate": {
-        "description": "A repeatable, controlled movement",
-        "metric": "observation",
-        "target": "Finish able to steer and brake smoothly; stop if control changes"
+        "description": "You can maintain a secure grip and reach the brakes without bracing on the bars.",
+        "metric": "self-check",
+        "target": "Repeat on a familiar, low-traffic surface at a comfortable pace."
       }
     },
     {
       "type": "drill",
       "title": "Relaxed grip, secure hands",
       "time_minutes": 10,
-      "description": "Practice easing unnecessary tension while keeping full control of the bike.",
+      "description": "Practice removing excess tension while keeping control of the bike.",
       "variants": [
         {
           "level": "beginner",
           "label": "Flat, open practice area",
           "steps": [
-            "In an empty, flat area, ride slowly with both hands securely on the bars.",
-            "Briefly notice your grip. Ease excess tension without lifting fingers or thumbs away from the controls.",
+            "Ride slowly with both hands securely on the bars.",
+            "Notice your grip. Ease excess tension without opening your hands or moving fingers away from the controls.",
             "Make a wide, slow turn and a gentle stop. Repeat only while steering and braking feel predictable."
           ]
         }
       ],
       "proof_gate": {
-        "description": "A repeatable, controlled movement",
-        "metric": "observation",
-        "target": "Finish able to steer and brake smoothly; stop if control changes"
+        "description": "You can turn and stop smoothly with secure hands and movable elbows.",
+        "metric": "self-check",
+        "target": "Stop the drill if steering or braking becomes uncertain."
       }
     },
     {
       "type": "prose",
-      "content": "### Why This Matters for Everything Else\n\nThe weighted drop isn't just a handling trick. It's the platform that every other skill in this course sits on.\n\n- **Braking** (Lesson 5): Light hands give you better brake modulation. You can feather the levers instead of grabbing them.\n- **Cornering** (Lesson 6): Weight through the pedals means weight through the tires. More traction when you need it most.\n- **Climbing** (Lesson 7): Pressing through the pedals on loose climbs keeps the rear tire planted. Death grip on climbs shifts weight forward and unloads the drive wheel.\n- **Descending** (Lesson 9): Bent elbows and light hands let the front wheel track through rough descents without deflecting.\n\nIf you nail this one thing — truly internalize heavy feet, quiet hands as your default state — you'll be a fundamentally different rider on gravel. Not because it's magic, but because you've removed the single biggest cause of crashes and replaced it with physics that actually work on loose surfaces.\n\nThis is The Weighted Drop. It's the first tool in your stack, and the one you'll reach for most often. Every lesson that follows assumes you have it dialed — cornering, braking, climbing, descending. They all start here, with your weight in your feet and your hands doing as little as possible."
+      "content": "### If it still feels tense\n\nDo not try to force your shoulders to relax while the bike is moving faster than you can manage. Reduce speed first. Check your line, keep both hands on the bars, and give your elbows room to bend. If hand pain or numbness keeps returning, a fit issue may be part of the problem."
     },
     {
       "type": "video",
@@ -138,35 +108,35 @@
     },
     {
       "type": "knowledge_check",
-      "question": "You're riding a smooth gravel road when the surface transitions abruptly to washboard. You feel the front wheel start to skip. What's the correct immediate response?",
+      "question": "Small bumps make you push down on the hoods. What is the useful first adjustment?",
       "options": [
         {
-          "text": "Grip the bars tighter to maintain control of the front wheel",
+          "text": "Open your hands to prove the bike can steer itself",
           "correct": false
         },
         {
-          "text": "Brake to reduce speed before the washboard gets worse",
-          "correct": false
-        },
-        {
-          "text": "Press weight down through the pedals, soften your hands, and bend your elbows",
+          "text": "Slow down, keep a secure grip, and let your elbows move",
           "correct": true
         },
         {
-          "text": "Stand up to absorb the bumps with your legs",
+          "text": "Lock your arms and ride faster through the bumps",
+          "correct": false
+        },
+        {
+          "text": "Look only at the front wheel",
           "correct": false
         }
       ],
-      "explanation": "The weighted drop is the correct response to any unexpected surface change. Pressing weight through the pedals lowers your center of mass and stabilizes the bike. Softening your hands and bending your elbows lets the front wheel track over the washboard instead of bouncing off it. Gripping tighter amplifies the bounce. Braking on washboard reduces traction further. Standing can work but shifts weight forward — the seated weighted drop is the first move."
+      "explanation": "Choose an easy pace, keep both hands at the controls, and give your arms room to respond."
     },
     {
       "type": "commitment",
-      "content": "Your commitment before Lesson 2: practice The Weighted Drop for 15 minutes on your next gravel ride. Do the Palm Check afterward — zero redness means you're ready."
+      "content": "On your next easy gravel ride, notice when you begin leaning into the hoods. Slow down, reset, and write down whether steering changed."
     },
     {
       "type": "callout",
-      "content": "Next lesson: Your Body Is the Suspension. You've moved the weight to your feet — now we separate the upper and lower body so you can pedal through rough terrain without your skeleton transmitting every bump to the handlebars. The key joint: the hip hinge.",
-      "style": "next"
+      "style": "next",
+      "content": "The next lesson covers rider position. You will use the same secure hands and movable elbows while letting your legs respond to small changes in the ground."
     }
   ]
 }

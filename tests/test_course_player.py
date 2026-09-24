@@ -78,8 +78,8 @@ def landing_html(dirt_craft, hydration):
 
 def test_dirt_craft_landing_shows_character_sample(landing_html):
     assert "WATCH A LESSON SAMPLE" in landing_html
-    assert "/course/dirt-craft/assets/l02-hip-hinge-position.mp4" in landing_html
-    assert "illustrated position check" in landing_html.lower()
+    assert "/course/dirt-craft/assets/l02-position-v52.mp4" in landing_html
+    assert "animated position check" in landing_html.lower()
 
 
 def test_inactive_bundle_is_not_advertised(landing_html):

@@ -213,11 +213,20 @@
       "workout_modifications": {
         "altitude_pacing": {
           "enabled": true,
-          "weeks": [2, 3, 4]
+          "weeks": [
+            2,
+            3,
+            4
+          ]
         },
         "century_endurance": {
           "enabled": true,
-          "weeks": [2, 3, 4, 5]
+          "weeks": [
+            2,
+            3,
+            4,
+            5
+          ]
         },
         "dress_rehearsal": {
           "enabled": true,
@@ -232,7 +241,12 @@
         }
       },
       "masterclass_topics": {
-        "priority_order": ["pacing", "fueling", "altitude", "self_support"],
+        "priority_order": [
+          "pacing",
+          "fueling",
+          "altitude",
+          "self_support"
+        ],
         "race_specific": true,
         "topics": {
           "pacing": "Pacing a 113-mile course with sustained altitude exposure",
@@ -747,6 +761,10 @@
         "credit": "YouTube / Life Time Grand Prix",
         "gif": true
       }
-    ]
+    ],
+    "seo": {
+      "title": "The Rad Gravel Race 2026 (Rad Dirt Fest): 113-Mile Guide",
+      "description": "The Rad Dirt Fest is Sat, Sept 26, 2026 in Trinidad, CO: 113 miles, 10,613 ft & a 31-mile unsupported gap. Course, cutoffs, tires & our 69/100 rating."
+    }
   }
 }

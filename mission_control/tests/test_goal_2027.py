@@ -88,6 +88,30 @@ class TestWebhook:
         sd = _enrollment(fake_db, "junksrc@example.com")["source_data"]
         assert "entry_src" not in sd
 
+    @pytest.mark.parametrize(
+        "goal_type", ["finish", "beat_time", "race_it", "same", "bigger"]
+    )
+    def test_goal_type_is_stored_when_valid(self, client, fake_db, goal_type):
+        # Which goal the visitor tapped on the race-page goal card
+        # (generate_neo_brutalist.py build_goal_card) before landing here.
+        _post(client, {"email": f"{goal_type}@example.com", "source": "goal_2027",
+                       "goal_answers": ANSWERS, "goal_type": goal_type,
+                       "race_slug": "unbound-200"})
+        sd = _enrollment(fake_db, f"{goal_type}@example.com")["source_data"]
+        assert sd["goal_type"] == goal_type
+
+    def test_junk_goal_type_is_dropped(self, client, fake_db):
+        _post(client, {"email": "junkgoal@example.com", "source": "goal_2027",
+                       "goal_answers": ANSWERS, "goal_type": "<script>bad"})
+        sd = _enrollment(fake_db, "junkgoal@example.com")["source_data"]
+        assert "goal_type" not in sd
+
+    def test_goal_type_not_in_the_fixed_set_is_dropped(self, client, fake_db):
+        _post(client, {"email": "notaset@example.com", "source": "goal_2027",
+                       "goal_answers": ANSWERS, "goal_type": "win"})
+        sd = _enrollment(fake_db, "notaset@example.com")["source_data"]
+        assert "goal_type" not in sd
+
     def test_template_keys_are_flattened(self, client, fake_db):
         _post(client, {"email": "flat@example.com", "source": "goal_2027",
                        "goal_answers": ANSWERS})

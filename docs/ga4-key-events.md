@@ -19,10 +19,11 @@ as a report dimension in GA4 until registered here.
 
 | Parameter | Scope | Sent on | Why |
 |---|---|---|---|
-| `src` | Event | `goal_hero_click` (homepage poster wall / race-page goal strip — `wordpress/generate_homepage.py`, `wordpress/generate_neo_brutalist.py build_goal_strip`), and every `goal_*` event on `/goals/` itself (`wordpress/generate_season_review.py`) | Which surface sent the visitor: `home` or `race`. Read from `/goals/?src=`. |
+| `src` | Event | `goal_hero_click` (homepage poster wall / race-page goal card — `wordpress/generate_homepage.py`, `wordpress/generate_neo_brutalist.py build_goal_card`), and every `goal_*` event on `/goals/` itself (`wordpress/generate_season_review.py`) | Which surface sent the visitor: `home` or `race`. Read from `/goals/?src=`. |
 | `offer_variant` | Event | `goal_offer_view`, `goal_offer_click`, `tp_form_start`, `tp_form_section`, `tp_form_submit`, `begin_checkout` | Which of the 3 offer copy variants (A/B/C) a visitor saw/clicked, carried through to the plan form. Needed to compare variants. |
 | `plan_type` | Event | `goal_offer_click` | Race Plan vs Season Plan (only "race" exists today; Season Plan is a later build step). |
-| `race_slug` | Event | `goal_hero_click` (race strip only), every `goal_*` event on `/goals/` | Which specific race page, if any, sent the visitor (`?race=` param — only set when `src=race`). |
+| `race_slug` | Event | `goal_hero_click` (race card only), every `goal_*` event on `/goals/` | Which specific race page, if any, sent the visitor (`?race=` param — only set when `src=race`). |
+| `goal_type` | Event | `goal_hero_click` (race card only, on a goal-type tap and on its poster CTA click) | Which goal the visitor picked on the race card — `finish`, `beat_time`, `race_it`, `same`, or `bigger`. Carried into `/goals/?goal_type=` and, from there, into the lead payload (`workers/fueling-lead-intake/worker.js`, `mission_control/routers/webhooks.py`). |
 | `entry_surface` | Event | every `tp_*`/`begin_checkout` event from the plan form | Already registered? Verify — this predates the goals funnel (Sep 2026 funnel-attribution work) and may already be a dimension. If not, it silently under-reports the same way. |
 | `number` | Event | `goal_section` | Which numbered question section (1–6) a visitor scrolled to. |
 | `variant` | Event | every season-review/goals event | Which question-set variant rendered (`goal_2027` on the public page; also `matti`, `athlete`, etc. on the coached versions). Likely already registered from the original season-review build — verify. |

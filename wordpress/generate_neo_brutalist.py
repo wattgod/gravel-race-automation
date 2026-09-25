@@ -135,8 +135,19 @@ FAQ_TEMPLATES = {
 FAQ_PRIORITY = ['climate', 'logistics', 'adventure', 'prestige', 'technicality',
                 'experience', 'race_quality', 'elevation', 'community', 'value']
 
-# Month name → number mapping (shared by JSON-LD and training countdown)
+# Month name → number mapping (shared by JSON-LD and training countdown).
+# Abbreviations are listed FIRST and full names LAST on purpose: several
+# call sites build a reversed {number: name} dict for display
+# (`{v: k.capitalize() for k, v in MONTH_NUMBERS.items()}`), and a dict
+# comprehension keeps the last key seen for each value — so this order is
+# what makes "08" reverse to "August", not "Aug". sol review: the goal
+# card's date parsing was failing real confirmed dates like "2026: Aug
+# 19-23" (Gravel Worlds) and "2026: Apr 17-19" (MAAP Beechworth) because
+# parse_event_dates() only recognized full month names.
 MONTH_NUMBERS = {
+    "jan": "01", "feb": "02", "mar": "03", "apr": "04", "jun": "06",
+    "jul": "07", "aug": "08", "sep": "09", "sept": "09", "oct": "10",
+    "nov": "11", "dec": "12",
     "january": "01", "february": "02", "march": "03", "april": "04",
     "may": "05", "june": "06", "july": "07", "august": "08",
     "september": "09", "october": "10", "november": "11", "december": "12",
@@ -818,6 +829,7 @@ def normalize_race_data(data: dict) -> dict:
     final_verdict = race.get('final_verdict', {})
     eligibility = race.get('eligibility', {})
     youtube_data = race.get('youtube_data') or {}
+    research_metadata = race.get('research_metadata') or {}
 
     # Warn about missing sections that produce degraded output
     if not vitals:
@@ -949,6 +961,10 @@ def normalize_race_data(data: dict) -> dict:
         'tagline': race.get('tagline', ''),
         'seo': race.get('seo', {}),
         'website': race.get('website', ''),
+        # When this race's details were last hand-checked against a source —
+        # rare in the data today (most profiles have no research_metadata),
+        # so the goal card only shows this line when it is actually present.
+        'last_verified': research_metadata.get('last_verified', ''),
         'discipline': discipline,
         'overall_score': rating.get('overall_score', 0),
         'tier': rating.get('tier', 4),
@@ -3806,46 +3822,275 @@ def build_coaching_footnote(rd: dict) -> str:
 </aside>'''
 
 
-# One line, deadpan register, ≤60 chars, from the 2027 goals funnel headline
-# slate (goals-2027-funnel-spec.md — "Headline slate"). Kept distinct from
-# the homepage poster-wall headline so the two surfaces don't repeat copy.
-GOAL_STRIP_COPY = "Same goal as last year. Bold."
+# Year-round race-page goal card (replaces the Oct 1 - Jan 31 goal strip
+# from PR #381 — GOAL_STRIP_COPY / build_goal_strip). Every visitor-facing
+# string lives in this one dict so Matti's copy pass only has to edit here;
+# {race}/{year}/{days}/{weekday}/{date} are filled in by the client-side
+# script (GOAL_CARD_SCRIPT below), not at build time — see build_goal_card.
+GOAL_CARD_COPY = {
+    "far": {
+        "headline": "{race} {year} is {days} out.",
+        "sub": "What are you going there to do?",
+    },
+    "near": {
+        "headline": "{days} to {race}.",
+        "sub": "Still the goal?",
+    },
+    "week": {
+        "headline": "{race} is {weekday}.",
+        "sub": "",
+    },
+    "post": {
+        "headline": "{race} was {days} ago.",
+        "sub": "Same goal next year, or a bigger one?",
+    },
+    "buttons": {
+        "finish": "Finish",
+        "beat_time": "Beat a time",
+        "race_it": "Race it",
+        "same": "Same",
+        "bigger": "Bigger",
+    },
+    "goal_lines": {
+        "finish": "Finish {race}.",
+        "beat_time": "Finish {race} faster than last time.",
+        "race_it": "Race {race}, not just ride it.",
+        "same": "Ride {race} again, and ride it better.",
+        "bigger": "Take on something bigger than {race}.",
+    },
+    "poster_label": "BY {date}, I WILL",
+    # A past date in "BY {date}, I WILL" reads as nonsense once the race is
+    # over (sol review) — the post-race states (Same/Bigger) get their own
+    # label with no date claim, since there's no confirmed next edition yet.
+    "poster_label_post": "NEXT TIME, I WILL",
+    "poster_cta": "Finish the poster →",
+    "prep_kit_link": "Open the {race} prep kit →",
+    "freshness": "Details last checked {date}",
+}
 
+# The state math — which of the 4 time windows applies, the pluralized day
+# count, the weekday, the display date — run against the real "today" in
+# the browser (race pages aren't rebuilt daily, so a value baked in at
+# generation time would go stale the moment the calendar turns). This is
+# the single source of truth: tests/test_neo_brutalist.py pins it by
+# running this exact source through Node, not a Python reimplementation.
+#
+# Takes the race's start AND end date (a multi-day event, e.g. "September
+# 21-25", must not fall into the post-race state while it is still
+# running — sol review caught this: Rift Valley Odyssey went to "was 3
+# days ago" on day 3 of a 5-day event). Once today is within [start, end]
+# inclusive it is treated as "week" (the far/near/post math never applies
+# while the event is actually happening); the post-race day count is
+# measured from the END date, not the start.
+GOAL_CARD_STATE_JS = r'''function ggGoalCardCompute(startISO, endISO, todayISO) {
+  var WD = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
+  var MO = ["January","February","March","April","May","June","July","August","September","October","November","December"];
+  var start = new Date(startISO + "T00:00:00Z");
+  var end = new Date((endISO || startISO) + "T00:00:00Z");
+  var today = new Date(todayISO + "T00:00:00Z");
+  if (isNaN(start.getTime()) || isNaN(end.getTime()) || isNaN(today.getTime())) { return { state: "hidden" }; }
+  var msDay = 86400000;
+  var diffToStart = Math.round((start.getTime() - today.getTime()) / msDay);
+  var diffFromEnd = Math.round((today.getTime() - end.getTime()) / msDay);
+  var state, days;
+  if (diffFromEnd > 0) {
+    // The event (including any multi-day span) has fully ended.
+    if (diffFromEnd > 60) { state = "hidden"; }
+    else { state = "post"; days = diffFromEnd === 1 ? "1 day" : (diffFromEnd + " days"); }
+  } else if (diffToStart > 90) {
+    state = "far"; days = diffToStart === 1 ? "1 day" : (diffToStart + " days");
+  } else if (diffToStart >= 8) {
+    state = "near"; days = diffToStart === 1 ? "1 day" : (diffToStart + " days");
+  } else {
+    // 0-7 days before the start, or the event is currently in progress
+    // (today is between start and end inclusive) — either way, race week.
+    state = "week";
+  }
+  return {
+    state: state,
+    days: days,
+    weekday: WD[start.getUTCDay()],
+    year: String(start.getUTCFullYear()),
+    date: MO[start.getUTCMonth()] + " " + start.getUTCDate() + ", " + start.getUTCFullYear()
+  };
+}'''
 
-def build_goal_strip(rd: dict) -> str:
-    """Slim goal-setting strip under the ratings spine (D5b): 'race pages are
-    the traffic.' Links to the /goals/ 2027 lead page.
+# Plain template (not an f-string — the JS below has real braces of its
+# own). __GOAL_CARD_STATIC__ / __GOAL_CARD_COPY__ / __GOAL_CARD_STATE_FN__
+# are replaced with real values in build_goal_card.
+GOAL_CARD_SCRIPT = r'''<script>
+(function() {
+  var D = __GOAL_CARD_STATIC__;
+  var COPY = __GOAL_CARD_COPY__;
+__GOAL_CARD_STATE_FN__
+  function fill(tpl, vars) {
+    return tpl.replace(/\{(\w+)\}/g, function(m, k) { return vars[k] != null ? vars[k] : ""; });
+  }
+  function drawPoster(canvas, header, goal) {
+    var ctx = canvas.getContext("2d");
+    if (!ctx) { return; }
+    var W = canvas.width, pad = 28;
+    var ink = "#1a1613", paper = "#f5efe6", teal = "#178079";
+    var maxW = W - pad * 2;
+    var goalFont = "700 32px 'Source Serif 4', Georgia, serif";
+    // Wrap first, size the canvas to the result, THEN draw — this card's
+    // poster is a one-line teaser (not the full multi-field poster at
+    // /goals/), so it should read as complete at whatever height the goal
+    // needs rather than framing a mostly-empty box below a short line.
+    ctx.font = goalFont;
+    var words = String(goal).split(/\s+/), lines = [], line = "";
+    words.forEach(function(w) {
+      var next = line ? line + " " + w : w;
+      if (ctx.measureText(next).width <= maxW || !line) { line = next; }
+      else { lines.push(line); line = w; }
+    });
+    if (line) { lines.push(line); }
+    lines = lines.slice(0, 4);
+    var goalTop = pad + 46;
+    var H = goalTop + lines.length * 40 + 8 + 5 + pad;
+    canvas.height = H; // resizing clears the canvas AND resets context state
+    ctx.fillStyle = paper; ctx.fillRect(0, 0, W, H);
+    ctx.textBaseline = "top";
+    ctx.font = "700 15px 'Sometype Mono', monospace";
+    ctx.fillStyle = teal;
+    ctx.fillText(header, pad, pad);
+    ctx.font = goalFont;
+    ctx.fillStyle = ink;
+    var y = goalTop;
+    lines.forEach(function(l) { ctx.fillText(l, pad, y); y += 40; });
+    ctx.fillStyle = teal;
+    ctx.fillRect(pad, y + 8, 120, 5);
+  }
+  var card = document.getElementById("goal-card");
+  var headline = document.getElementById("gg-goal-card-headline");
+  var sub = document.getElementById("gg-goal-card-sub");
+  var buttons = document.getElementById("gg-goal-card-buttons");
+  var prepLink = document.getElementById("gg-goal-card-prep-link");
+  var posterWrap = document.getElementById("gg-goal-card-poster-wrap");
+  var posterCanvas = document.getElementById("gg-goal-card-poster-canvas");
+  var posterCta = document.getElementById("gg-goal-card-poster-cta");
+  if (!card || !headline || !posterCanvas) { return; }
 
-    Shown only Oct 1 - Jan 31. Decided client-side rather than at build
-    time: race pages are not rebuilt daily, so a build-time date check
-    would go stale the moment the calendar turns. Hidden by default and
-    unhidden by the inline script below when today falls in that window.
-    """
-    slug = rd['slug']
-    href = f"{SITE_BASE_URL}/goals/?src=race&race={slug}"
-    return f'''<section class="gg-goal-strip" id="goal-strip" data-measure-section="goal-strip" hidden>
-  <a href="{esc(href)}" class="gg-goal-strip-link" id="gg-goal-strip-link">
-    <span class="gg-goal-strip-text">{GOAL_STRIP_COPY}</span>
-    <span class="gg-goal-strip-cta">MAKE MINE &rarr;</span>
-  </a>
-</section>
-<script>
-(function() {{
-  var m = new Date().getMonth(); /* 0=Jan .. 9=Oct, 10=Nov, 11=Dec */
-  if (m === 9 || m === 10 || m === 11 || m === 0) {{
-    var strip = document.getElementById('goal-strip');
-    if (strip) {{ strip.hidden = false; }}
-  }}
-  var link = document.getElementById('gg-goal-strip-link');
-  if (link) {{
-    link.addEventListener('click', function() {{
-      if (typeof gtag === 'function') {{
-        gtag('event', 'goal_hero_click', {{ src: 'race', race_slug: {_safe_json_for_script(slug)} }});
-      }}
-    }});
-  }}
-}})();
+  // The visitor's own local calendar day, not UTC — using UTC getters here
+  // would flip the state a day early every evening for anyone west of
+  // Greenwich (sol review).
+  var now = new Date();
+  var todayISO = now.getFullYear() + "-" + String(now.getMonth() + 1).padStart(2, "0") + "-" + String(now.getDate()).padStart(2, "0");
+  var computed = ggGoalCardCompute(D.startISO, D.endISO, todayISO);
+  if (computed.state === "hidden") { return; }
+
+  var vars = { race: D.race, year: computed.year, days: computed.days, weekday: computed.weekday, date: computed.date };
+  headline.textContent = fill(COPY[computed.state].headline, vars);
+  var subText = COPY[computed.state].sub;
+  if (subText) { sub.textContent = subText; sub.hidden = false; } else { sub.hidden = true; }
+
+  var showButtons = computed.state === "far" || computed.state === "near" || computed.state === "post";
+  buttons.hidden = !showButtons;
+  var isPost = computed.state === "post";
+  var goalTypes = isPost ? ["same", "bigger"] : ["finish", "beat_time", "race_it"];
+  var allButtons = buttons.querySelectorAll("[data-goal]");
+  for (var i = 0; i < allButtons.length; i++) {
+    var goal = allButtons[i].getAttribute("data-goal");
+    allButtons[i].hidden = !(showButtons && goalTypes.indexOf(goal) !== -1);
+  }
+  prepLink.hidden = !(computed.state === "near" || computed.state === "week");
+
+  var lastGoalType = "";
+  function fireClick(goalType) {
+    if (typeof gtag === "function") {
+      gtag("event", "goal_hero_click", { src: "race", race_slug: D.slug, goal_type: goalType });
+    }
+  }
+  buttons.addEventListener("click", function(e) {
+    var btn = e.target.closest ? e.target.closest("[data-goal]") : null;
+    if (!btn || btn.hidden) { return; }
+    var goalType = btn.getAttribute("data-goal");
+    lastGoalType = goalType;
+    var goalLine = fill(COPY.goal_lines[goalType], vars);
+    var labelTpl = isPost ? COPY.poster_label_post : COPY.poster_label;
+    drawPoster(posterCanvas, fill(labelTpl, vars).toUpperCase(), goalLine);
+    posterWrap.hidden = false;
+    posterCta.setAttribute("href", D.goalsHref + "&goal_type=" + encodeURIComponent(goalType));
+    fireClick(goalType);
+  });
+  posterCta.addEventListener("click", function() {
+    if (lastGoalType) { fireClick(lastGoalType); }
+  });
+
+  card.hidden = false;
+})();
 </script>'''
+
+
+def build_goal_card(rd: dict) -> str:
+    """Year-round race-page goal card. Replaces the Oct 1 - Jan 31 goal
+    strip (PR #381) with a small interactive card linking into /goals/.
+
+    Which of the 4 time-window states applies (>90 days out / 8-90 days
+    out / race week / 1-60 days after) is computed client-side from the
+    race's real date — race pages are not rebuilt daily, so a build-time
+    check would go stale the moment the calendar turns. No confirmed date,
+    or more than 60 days past the race with nothing forward-looking in the
+    data, hides the card entirely (GOAL_CARD_STATE_JS's "hidden" branch).
+    Hidden by default; unhidden by the inline script only when a visible
+    state is computed.
+    """
+    race_iso, end_iso = parse_event_dates(rd['vitals'].get('date_specific', ''))
+    if not race_iso:
+        # TBD / unparseable date — nothing to build a countdown from.
+        return ''
+
+    slug = rd['slug']
+    name = esc(rd['name'])
+    goals_href = f"{SITE_BASE_URL}/goals/?src=race&race={slug}"
+    prep_kit_href = f"/race/{slug}/prep-kit/"
+    prep_kit_text = esc(GOAL_CARD_COPY['prep_kit_link'].replace('{race}', rd['name']))
+
+    # Freshness line — only when the source data actually has a checked
+    # date (research_metadata.last_verified, normalize_race_data's
+    # 'last_verified'). Most profiles don't have one; never invent it.
+    last_checked_html = ''
+    last_verified = rd.get('last_verified', '')
+    date_parts = last_verified.split('-') if last_verified else []
+    if len(date_parts) == 3:
+        month_names = {v: k.capitalize() for k, v in MONTH_NUMBERS.items()}
+        display_month = month_names.get(date_parts[1], date_parts[1])
+        display_date = f"{display_month} {int(date_parts[2])}, {date_parts[0]}"
+        freshness_text = esc(GOAL_CARD_COPY['freshness'].replace('{date}', display_date))
+        last_checked_html = f'<p class="gg-goal-card-freshness">{freshness_text}</p>'
+
+    static_data = {
+        'slug': slug, 'race': rd['name'], 'goalsHref': goals_href,
+        'startISO': race_iso, 'endISO': end_iso or race_iso,
+    }
+
+    html_out = f'''<section class="gg-goal-card" id="goal-card" data-measure-section="goal-card" hidden>
+  <div class="gg-goal-card-body">
+    <p class="gg-goal-card-headline" id="gg-goal-card-headline"></p>
+    <p class="gg-goal-card-sub" id="gg-goal-card-sub" hidden></p>
+    <div class="gg-goal-card-buttons" id="gg-goal-card-buttons" hidden>
+      <button type="button" class="gg-goal-card-btn" data-goal="finish" hidden>{esc(GOAL_CARD_COPY['buttons']['finish'])}</button>
+      <button type="button" class="gg-goal-card-btn" data-goal="beat_time" hidden>{esc(GOAL_CARD_COPY['buttons']['beat_time'])}</button>
+      <button type="button" class="gg-goal-card-btn" data-goal="race_it" hidden>{esc(GOAL_CARD_COPY['buttons']['race_it'])}</button>
+      <button type="button" class="gg-goal-card-btn" data-goal="same" hidden>{esc(GOAL_CARD_COPY['buttons']['same'])}</button>
+      <button type="button" class="gg-goal-card-btn" data-goal="bigger" hidden>{esc(GOAL_CARD_COPY['buttons']['bigger'])}</button>
+    </div>
+    <a href="{esc(prep_kit_href)}" class="gg-goal-card-prep-link" id="gg-goal-card-prep-link" hidden>{prep_kit_text}</a>
+    <div class="gg-goal-card-poster-wrap" id="gg-goal-card-poster-wrap" hidden aria-live="polite">
+      <canvas class="gg-goal-card-poster-canvas" id="gg-goal-card-poster-canvas" width="640" height="300"></canvas>
+      <a class="gg-goal-card-poster-cta" id="gg-goal-card-poster-cta" href="{esc(goals_href)}">{esc(GOAL_CARD_COPY['poster_cta'])}</a>
+    </div>
+    {last_checked_html}
+  </div>
+</section>
+'''
+    script_out = (
+        GOAL_CARD_SCRIPT
+        .replace('__GOAL_CARD_STATIC__', _safe_json_for_script(static_data))
+        .replace('__GOAL_CARD_COPY__', _safe_json_for_script(GOAL_CARD_COPY))
+        .replace('__GOAL_CARD_STATE_FN__', GOAL_CARD_STATE_JS)
+    )
+    return html_out + script_out
 
 
 def build_training_intelligence(rd: dict) -> str:
@@ -7049,18 +7294,31 @@ APPROVED_TOP_CSS = '''<style>
 .gg-neo-brutalist-page .gg-coaching-note h2 { margin: 0 0 5px; font-family: var(--gg-font-editorial); font-size: clamp(1.25rem, 2vw, 1.75rem); line-height: 1.15; }
 .gg-neo-brutalist-page .gg-coaching-note p { margin: 0; font-family: var(--gg-font-editorial); font-size: 1rem; line-height: 1.45; color: var(--gg-color-secondary-brown); }
 .gg-neo-brutalist-page .gg-coaching-link { font-family: var(--gg-font-data); font-size: .78rem; font-weight: 900; letter-spacing: var(--gg-letter-spacing-wide); color: var(--gg-color-teal); text-transform: uppercase; white-space: nowrap; }
-.gg-neo-brutalist-page .gg-goal-strip { max-width: var(--gg-max-width); margin: 0 auto var(--gg-spacing-xl); }
-.gg-neo-brutalist-page .gg-goal-strip-link { display: flex; align-items: center; justify-content: space-between; gap: var(--gg-spacing-md); padding: var(--gg-spacing-sm) clamp(20px, 3vw, 44px); border: var(--gg-border-standard); background: var(--gg-color-warm-paper); text-decoration: none; }
-.gg-neo-brutalist-page .gg-goal-strip-text { font-family: var(--gg-font-editorial); font-style: italic; font-size: var(--gg-font-size-base); color: var(--gg-color-dark-brown); }
-.gg-neo-brutalist-page .gg-goal-strip-cta { font-family: var(--gg-font-data); font-size: var(--gg-font-size-2xs); font-weight: 800; letter-spacing: var(--gg-letter-spacing-wider); text-transform: uppercase; color: var(--gg-color-teal); white-space: nowrap; }
-.gg-neo-brutalist-page .gg-goal-strip-link:hover { border-color: var(--gg-color-teal); }
+.gg-neo-brutalist-page .gg-goal-card { max-width: var(--gg-max-width); margin: 0 auto var(--gg-spacing-xl); padding: clamp(20px, 3vw, 32px) clamp(20px, 3vw, 44px); border: var(--gg-border-standard); border-top: 5px solid var(--gg-color-teal); background: var(--gg-color-warm-paper); }
+.gg-neo-brutalist-page .gg-goal-card-headline { margin: 0; font-family: var(--gg-font-editorial); font-size: clamp(1.3rem, 2.4vw, 1.9rem); line-height: 1.2; color: var(--gg-color-dark-brown); }
+.gg-neo-brutalist-page .gg-goal-card-sub { margin: var(--gg-spacing-2xs) 0 0; font-family: var(--gg-font-editorial); font-style: italic; font-size: var(--gg-font-size-base); color: var(--gg-color-secondary-brown); }
+.gg-neo-brutalist-page .gg-goal-card-buttons { display: flex; flex-wrap: wrap; gap: var(--gg-spacing-sm); margin-top: var(--gg-spacing-md); }
+.gg-neo-brutalist-page .gg-goal-card-btn { padding: 10px 20px; border: 2px solid var(--gg-color-dark-brown); background: var(--gg-color-warm-paper); color: var(--gg-color-dark-brown); font-family: var(--gg-font-data); font-size: var(--gg-font-size-2xs); font-weight: 800; letter-spacing: var(--gg-letter-spacing-wide); text-transform: uppercase; cursor: pointer; }
+.gg-neo-brutalist-page .gg-goal-card-btn:hover, .gg-neo-brutalist-page .gg-goal-card-btn:focus-visible { background: var(--gg-color-dark-brown); color: var(--gg-color-warm-paper); }
+.gg-neo-brutalist-page .gg-goal-card-prep-link { display: inline-block; margin-top: var(--gg-spacing-md); font-family: var(--gg-font-data); font-size: .82rem; font-weight: 700; color: var(--gg-color-teal); text-decoration: underline; text-underline-offset: 3px; }
+.gg-neo-brutalist-page .gg-goal-card-poster-wrap { margin-top: var(--gg-spacing-lg); }
+.gg-neo-brutalist-page .gg-goal-card-poster-canvas { display: block; width: 100%; max-width: 640px; height: auto; border: var(--gg-border-standard); }
+.gg-neo-brutalist-page .gg-goal-card-poster-cta { display: inline-block; margin-top: var(--gg-spacing-sm); font-family: var(--gg-font-data); font-size: .82rem; font-weight: 800; letter-spacing: var(--gg-letter-spacing-wide); text-transform: uppercase; color: var(--gg-color-teal); text-decoration: none; }
+.gg-neo-brutalist-page .gg-goal-card-poster-cta:hover { text-decoration: underline; }
+.gg-neo-brutalist-page .gg-goal-card-freshness { margin: var(--gg-spacing-md) 0 0; font-family: var(--gg-font-data); font-size: var(--gg-font-size-2xs); color: var(--gg-color-secondary-brown); }
+/* display: flex/inline-block above would otherwise beat the UA [hidden]
+   rule (an author "display" declaration always wins over the default
+   stylesheet) and show these with an empty/stale state — a real bug the
+   goal-card screenshots caught: the far state's prep-kit link stayed
+   visible even though buttons.hidden/prepLink.hidden were set true. */
+.gg-neo-brutalist-page .gg-goal-card-buttons[hidden], .gg-neo-brutalist-page .gg-goal-card-prep-link[hidden] { display: none; }
 @media (max-width: 820px) {
   .gg-neo-brutalist-page .gg-offer { grid-template-columns: 1fr; }
   .gg-neo-brutalist-page .gg-offer-action { min-width: 0; }
   .gg-neo-brutalist-page .gg-coaching-note { grid-template-columns: 1fr; }
 }
 @media (max-width: 480px) {
-  .gg-neo-brutalist-page .gg-goal-strip-link { flex-direction: column; align-items: flex-start; gap: var(--gg-spacing-2xs); }
+  .gg-neo-brutalist-page .gg-goal-card-buttons { flex-direction: column; align-items: stretch; }
 }
 </style>'''
 
@@ -7182,7 +7440,7 @@ def generate_page(rd: dict, race_index: list = None, external_assets: dict = Non
     news = build_news_section(rd)
     custom_plan = '' if suppress_plan_marketing else build_custom_plan_offer(rd)
     coaching = '' if suppress_plan_marketing else build_coaching_footnote(rd)
-    goal_strip = '' if suppress_plan_marketing else build_goal_strip(rd)
+    goal_card = '' if suppress_plan_marketing else build_goal_card(rd)
     training = build_training_intelligence(rd)
     train_for_race = '' if suppress_plan_marketing else build_train_for_race(
         rd, email_capture, include_commerce=False)
@@ -7234,7 +7492,7 @@ def generate_page(rd: dict, race_index: list = None, external_assets: dict = Non
 
     # The approved first pass is locked: ratings, custom plan, coaching
     # footnote, then the original Full Breakdown navigation.
-    spine_sections = [ratings, goal_strip, custom_plan, coaching, breakdown]
+    spine_sections = [ratings, goal_card, custom_plan, coaching, breakdown]
     spine = '\n\n  '.join(section for section in spine_sections if section)
 
     deep_sections = []

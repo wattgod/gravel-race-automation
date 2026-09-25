@@ -89,9 +89,15 @@ export default {
         : '';
       // Which surface sent this visitor to /goals/ — 'home' (poster wall CTA)
       // or 'race' (race-page goal strip, generate_neo_brutalist.py
-      // build_goal_strip). race_slug (above) already carries which race page.
+      // build_goal_card). race_slug (above) already carries which race page.
       data.entry_src = /^[a-z_]{1,24}$/.test(String(data.entry_src || ''))
         ? String(data.entry_src)
+        : '';
+      // Which goal the visitor tapped on the race-page goal card
+      // (generate_neo_brutalist.py build_goal_card) before landing here —
+      // fixed set only, same discipline as entry_src above.
+      data.goal_type = /^(finish|beat_time|race_it|same|bigger)$/.test(String(data.goal_type || ''))
+        ? String(data.goal_type)
         : '';
     }
     // Trail context (docs/specs/friend-first-sequences.md §4.2-4.3) — the
@@ -498,6 +504,7 @@ async function notifyMissionControl(env, data, source) {
     }
     if (data.offer_variant) payload.offer_variant = data.offer_variant;
     if (data.entry_src) payload.entry_src = data.entry_src;
+    if (data.goal_type) payload.goal_type = data.goal_type;
     // Which athlete this belongs to. Without it a coached athlete's review
     // arrives unattributed and the filing script has to guess.
     if (data.athlete) payload.athlete = String(data.athlete).substring(0, 80);

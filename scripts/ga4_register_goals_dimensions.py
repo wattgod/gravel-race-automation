@@ -89,6 +89,15 @@ GOALS_FUNNEL_DIMENSIONS = [
                         "the original season-review build; verify first.",
         "scope": "EVENT",
     },
+    {
+        "parameterName": "goal_type",
+        "displayName": "Race-page goal type",
+        "description": "Which goal a visitor tapped on the race-page goal "
+                        "card (generate_neo_brutalist.py build_goal_card) — "
+                        "finish, beat_time, race_it, same, or bigger. Fires "
+                        "on goal_hero_click from that card and its poster CTA.",
+        "scope": "EVENT",
+    },
 ]
 
 

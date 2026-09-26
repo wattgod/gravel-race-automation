@@ -69,9 +69,8 @@ GOALS_FUNNEL_DIMENSIONS = [
     {
         "parameterName": "entry_surface",
         "displayName": "Questionnaire entry surface",
-        "description": "Which surface sent the visitor to the plan form "
-                        "(?src= param) — predates the goals funnel; verify "
-                        "it isn't already registered before creating it again.",
+        # GA4 caps descriptions at 150 characters (Admin API 400 otherwise).
+        "description": "Which surface sent the visitor to the plan form (?src= param).",
         "scope": "EVENT",
     },
     {
@@ -91,11 +90,8 @@ GOALS_FUNNEL_DIMENSIONS = [
     },
     {
         "parameterName": "goal_type",
-        "displayName": "Race-page goal type",
-        "description": "Which goal a visitor tapped on the race-page goal "
-                        "card (generate_neo_brutalist.py build_goal_card) — "
-                        "finish, beat_time, race_it, same, or bigger. Fires "
-                        "on goal_hero_click from that card and its poster CTA.",
+        "displayName": "Race page goal type",
+        "description": "Goal tapped on the race-page goal card: finish, beat_time, race_it, same, or bigger.",
         "scope": "EVENT",
     },
 ]

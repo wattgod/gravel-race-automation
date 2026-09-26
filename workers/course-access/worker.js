@@ -28,6 +28,11 @@ const DISPOSABLE_DOMAINS = [
 const COURSE_ID_PATTERN = /^[a-z0-9][a-z0-9-]{0,98}[a-z0-9]$/;
 const LESSON_ID_PATTERN = /^[a-z0-9][a-z0-9-]{0,98}[a-z0-9]$/;
 const QUESTION_HASH_PATTERN = /^[a-f0-9]{8}$/;
+const COURSE_PAYMENT_LINKS = new Map([
+  ['plink_1TvqSNLoaHDbEqSqNE5BwdRl', 'dirt-craft'],
+  ['plink_1TgsYlLoaHDbEqSqxt14vCKr', 'gravel-hydration-mastery']
+]);
+const SELLABLE_COURSE_IDS = new Set(['dirt-craft', 'gravel-hydration-mastery']);
 
 // ── XP Constants ──────────────────────────────────────────────
 const XP_LESSON_COMPLETE = 10;
@@ -721,19 +726,20 @@ async function handleWebhook(request, env) {
   }
 
   const session = event.data.object;
+  const courseId = resolveCourseIdFromSession(session);
+  if (!courseId) {
+    // This Stripe destination also receives purchases for other Gravel God products.
+    // Acknowledge those events so Stripe does not retry them as failed course orders.
+    return new Response(JSON.stringify({ received: true, ignored: true }), {
+      status: 200, headers: { 'Content-Type': 'application/json' }
+    });
+  }
+
   const email = (session.customer_details?.email || session.customer_email || '').toLowerCase().trim();
 
   if (!email) {
     console.error('Webhook: No email in checkout session', session.id);
     return new Response(JSON.stringify({ error: 'No email in session' }), {
-      status: 400, headers: { 'Content-Type': 'application/json' }
-    });
-  }
-
-  const courseId = session.metadata?.course_id || extractCourseIdFromSession(session);
-  if (!courseId) {
-    console.error('Webhook: No course_id found', session.id);
-    return new Response(JSON.stringify({ error: 'No course_id in session' }), {
       status: 400, headers: { 'Content-Type': 'application/json' }
     });
   }
@@ -832,10 +838,15 @@ function timingSafeEqual(a, b) {
   return result === 0;
 }
 
-function extractCourseIdFromSession(session) {
-  const successUrl = session.success_url || '';
-  const match = successUrl.match(/\/course\/([a-z0-9-]+)\//);
-  return match ? match[1] : null;
+function resolveCourseIdFromSession(session) {
+  const linkedCourse = COURSE_PAYMENT_LINKS.get(session.payment_link);
+  if (linkedCourse) return linkedCourse;
+
+  const metadataCourse = session.metadata?.course_id;
+  if (typeof metadataCourse !== 'string') return null;
+  const courseIds = metadataCourse.split(',').map(id => id.trim());
+  if (!courseIds.length || courseIds.some(id => !SELLABLE_COURSE_IDS.has(id))) return null;
+  return courseIds.join(',');
 }
 
 // ── Notification Email ──────────────────────────────────────

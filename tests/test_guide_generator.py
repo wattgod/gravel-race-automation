@@ -1374,6 +1374,28 @@ class TestImageRenderer:
 
 
 class TestVideoRenderer:
+    def test_course_local_video_uses_course_assets(self):
+        block = {
+            "src": "/course/dirt-craft/assets/l02-hip-hinge-position.mp4",
+            "poster": "/course/dirt-craft/assets/l02-hip-hinge-position.jpg",
+            "title": "Position Check",
+            "caption": "Heavy feet, quiet hands, active hinge.",
+        }
+        html = render_video(block)
+        assert 'src="/course/dirt-craft/assets/l02-hip-hinge-position.mp4"' in html
+        assert 'poster="/course/dirt-craft/assets/l02-hip-hinge-position.jpg"' in html
+        assert "controls playsinline preload=\"none\"" in html
+        assert "Heavy feet, quiet hands, active hinge." in html
+
+    @pytest.mark.parametrize("src", [
+        "javascript:alert(1)",
+        "/course/dirt-craft/assets/../secret.mp4",
+        "/guide/media/elsewhere.mp4",
+    ])
+    def test_course_local_video_rejects_unsafe_src(self, src):
+        with pytest.raises(ValueError, match="Unsafe course video src"):
+            render_video({"src": src})
+
     def test_render_video_basic(self):
         """Video block must produce figure, video tag, controls, preload=none."""
         block = {"asset_id": "ch6-demo", "alt": "Demo video"}

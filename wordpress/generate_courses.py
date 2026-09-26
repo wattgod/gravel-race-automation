@@ -265,6 +265,10 @@ def build_course_css() -> str:
 
 /* ── Landing: Description ── */
 .gg-course-desc{{padding:48px 0;font-family:var(--gg-font-editorial,'Source Serif 4',Georgia,serif);font-size:1.1rem;line-height:1.7;color:var(--gg-color-dark-brown,#3a2e25)}}
+.gg-course-sample{{margin:0 0 40px;max-width:920px}}
+.gg-course-sample h2{{font-family:var(--gg-font-data,'Sometype Mono',monospace);font-size:14px;letter-spacing:2px;text-transform:uppercase;color:var(--gg-color-secondary-brown,#7d695d);margin:0 0 16px}}
+.gg-course-sample video{{display:block;width:100%;height:auto;border:3px solid var(--gg-color-dark-brown,#3a2e25);background:#151515}}
+.gg-course-sample p{{font-family:var(--gg-font-editorial,'Source Serif 4',Georgia,serif);font-size:15px;line-height:1.5;color:var(--gg-color-secondary-brown,#7d695d);margin:10px 0 0}}
 
 /* ── Landing: What You'll Learn ── */
 .gg-course-learn{{padding:40px 0;border-top:1px solid var(--gg-color-tan,#d4c5b9)}}
@@ -2105,45 +2109,47 @@ def build_og_meta(course: dict, og_title: str, og_desc: str, og_url: str,
     return "\n  ".join(parts)
 
 
-def get_bundle_payment_link() -> str:
-    """Return the Academy bundle Stripe payment link from the manifest
-    written by scripts/create_course_products.py, or "" if absent."""
+def get_bundle_offer() -> tuple[str, int] | None:
+    """Return an active bundle link and its verified manifest price, if any."""
     manifest_path = Path(__file__).resolve().parent.parent / "data" / "stripe-course-products.json"
     if not manifest_path.exists():
-        return ""
+        return None
     try:
         with open(manifest_path) as f:
             manifest = json.load(f)
     except (json.JSONDecodeError, OSError):
-        return ""
+        return None
     for link in manifest.get("payment_links", []):
-        if link.get("bundle") and link.get("url", "").startswith("https://buy.stripe.com/"):
-            return link["url"]
-    return ""
+        if (link.get("bundle") and link.get("active", True)
+                and link.get("url", "").startswith("https://buy.stripe.com/")
+                and isinstance(link.get("amount"), int)
+                and link["amount"] > 0):
+            return link["url"], link["amount"]
+    return None
 
 
 def build_bundle_strip(course: dict, all_courses: list) -> str:
-    """Cross-sell strip pointing at the other course(s). CTA goes straight
-    to the bundle Stripe payment link when one exists in the manifest,
-    otherwise falls back to the /course/ index."""
+    """Cross-sell strip for an active, priced bundle in the manifest."""
     others = [c for c in (all_courses or []) if c["id"] != course["id"]]
     if not others:
         return ""
-    bundle_link = get_bundle_payment_link()
+    bundle_offer = get_bundle_offer()
+    if not bundle_offer:
+        return ""
+    bundle_link, bundle_amount = bundle_offer
+    bundle_price = bundle_amount / 100
+    bundle_price_label = f'${bundle_price:g}'
     if len(others) == 1:
         other = others[0]
         copy = (f'Pair <strong>{esc(course["title"])}</strong> with '
                 f'<a href="{SITE_BASE_URL}/course/{esc(other["id"])}/">'
-                f'{esc(other["title"])}</a> &mdash; get both courses for $39 '
+                f'{esc(other["title"])}</a> &mdash; get both courses for {bundle_price_label} '
                 f'at bundle checkout.')
     else:
         copy = (f'{esc(course["title"])} is one of {len(others) + 1} Gravel God '
                 f'courses &mdash; bundle pricing available at checkout.')
-    if bundle_link:
-        cta = (f'<a href="{esc(bundle_link)}" class="gg-course-bundle-cta" '
-               f'data-bundle-cta="1">GET THE 2-PACK &mdash; $39</a>')
-    else:
-        cta = f'<a href="{SITE_BASE_URL}/course/" class="gg-course-bundle-cta">VIEW ALL COURSES</a>'
+    cta = (f'<a href="{esc(bundle_link)}" class="gg-course-bundle-cta" '
+           f'data-bundle-cta="1">GET THE 2-PACK &mdash; {bundle_price_label}</a>')
     return f'''<div class="gg-course-bundle">
       <div>
         <p class="gg-course-bundle-kicker">BUNDLE &amp; SAVE</p>
@@ -2190,6 +2196,15 @@ def build_landing_page(course: dict, all_courses: list = None) -> str:
 
     total_time_str = esc(format_course_total_time(course))
     bundle_html = build_bundle_strip(course, all_courses)
+    sample_html = ""
+    sample = course.get("sample_video")
+    if sample:
+        src = esc(f'{SITE_BASE_URL}/course/{slug}/assets/{Path(sample["src"]).name}')
+        poster = esc(f'{SITE_BASE_URL}/course/{slug}/assets/{Path(sample["poster"]).name}')
+        sample_html = (f'<div class="gg-course-sample"><h2>WATCH A LESSON SAMPLE</h2>'
+                       f'<video controls playsinline preload="metadata" src="{src}" '
+                       f'poster="{poster}" aria-label="{esc(sample["title"])}"></video>'
+                       f'<p>{esc(sample["caption"])}</p></div>')
 
     # Already-enrolled sign-in — verified against the course-access worker,
     # then straight into lesson 1 (the lesson gate reads the same cache).
@@ -2259,6 +2274,8 @@ def build_landing_page(course: dict, all_courses: list = None) -> str:
     <p>{description}</p>
   </div>
 
+  {sample_html}
+
   <div class="gg-course-learn">
     <h2>WHAT YOU&rsquo;LL LEARN</h2>
     <ul>{learn_items}</ul>
@@ -2291,7 +2308,7 @@ def build_landing_page(course: dict, all_courses: list = None) -> str:
 
 <div class="gg-course-bottom-cta">
   <h2>Ready to start?</h2>
-  <p>{course["total_lessons"]} interactive lessons. {total_time_str.capitalize()}. Lifetime access.</p>
+  <p>{course["total_lessons"]} lessons. {total_time_str.capitalize()}. Lifetime access.</p>
   <a href="{stripe_link}" class="gg-course-hero-cta">ENROLL FOR ${price}</a>
 </div>
 

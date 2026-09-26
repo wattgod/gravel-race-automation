@@ -504,7 +504,7 @@ def call_api(prompt, max_retries=3, retry_delay=30):
     for attempt in range(max_retries):
         try:
             response = client.messages.create(
-                model="claude-sonnet-4-20250514",
+                model="claude-sonnet-4-5-20250929",
                 max_tokens=4000,
                 messages=[{"role": "user", "content": prompt}]
             )

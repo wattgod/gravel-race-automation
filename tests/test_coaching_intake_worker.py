@@ -1,5 +1,6 @@
 """Contract checks for the shared coaching-intake edge Worker."""
 
+import json
 import subprocess
 from pathlib import Path
 
@@ -88,3 +89,38 @@ def test_worker_uses_structured_error_logs():
     source = WORKER.read_text()
     assert "console.error('Coaching" not in source
     assert 'console.error(JSON.stringify({' in source
+
+
+def test_worker_forwards_free_text_answers_verbatim_to_backend():
+    """Run the Worker and capture the backend body: a questionnaire answer
+    the Worker has never heard of (normal_week) must reach Railway unchanged.
+    """
+    answer = "Mon off.\nTue 2x20 on the trainer.\nSat group ride, 4 hours."
+    script = f"""
+const worker = (await import({json.dumps(WORKER.as_uri())})).default;
+let forwarded = null;
+globalThis.fetch = async (url, init) => {{
+  forwarded = {{ url, body: JSON.parse(init.body) }};
+  return new Response(JSON.stringify({{ case_id: 'c', state: 'FIT_REVIEW' }}),
+                      {{ status: 201 }});
+}};
+const request = new Request('https://coaching-intake.example.workers.dev/', {{
+  method: 'POST',
+  headers: {{ 'Origin': 'https://gravelgodcycling.com',
+             'Content-Type': 'application/json' }},
+  body: JSON.stringify({{ name: 'A Rider', email: 'a@example.com', tier: 'mid',
+                         normal_week: {json.dumps(answer)} }}),
+}});
+const response = await worker.fetch(request, {{
+  PIPELINE_URL: 'https://pipeline.example', COACHING_INTAKE_SECRET: 's' }});
+process.stdout.write(JSON.stringify({{ status: response.status, forwarded }}));
+"""
+    result = subprocess.run(
+        ["node", "--input-type=module", "-e", script],
+        capture_output=True, text=True, timeout=10)
+    assert result.returncode == 0, result.stderr
+    out = json.loads(result.stdout)
+    assert out["status"] == 201
+    assert out["forwarded"]["url"] == "https://pipeline.example/api/coaching-intakes"
+    assert out["forwarded"]["body"]["brand"] == "gravelgod"
+    assert out["forwarded"]["body"]["questionnaire"]["normal_week"] == answer

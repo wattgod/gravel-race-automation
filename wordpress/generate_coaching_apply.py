@@ -267,6 +267,12 @@ def build_section_3_fitness() -> str:
       <p class="gg-apply-section-sub">Not September. Not should-be. Today &mdash; including the embarrassing part.</p>
       <p class="gg-apply-section-help">Where you&#39;re starting from. Estimates are fine if you don&#39;t know exact numbers.</p>
 
+      <div class="gg-apply-group">
+        <label class="gg-apply-label" for="normal_week">What does a normal week of riding look like right now? <span class="gg-apply-required">*</span></label>
+        <textarea id="normal_week" name="normal_week" required placeholder="Mon off. Tue 2x20 on the trainer. Sat group ride, 4 hours, usually hammering. On long rides, a bar and whatever&#39;s at the stop." rows="5"></textarea>
+        <div class="gg-apply-help">Day by day if you can. The week you actually ride, not the one you wish you did. Rough is fine, including what you eat on the long ride. I&#39;ll quote it back to you.</div>
+      </div>
+
       <div class="gg-apply-inline">
         <div class="gg-apply-group">
           <label class="gg-apply-label" for="years_cycling">Years Cycling <span class="gg-apply-required">*</span></label>
@@ -1817,6 +1823,7 @@ def build_apply_js() -> str:
     lines.push("- Primary Goal: " + data.primary_goal);
     if (data.race_list) { lines.push("- Races: " + data.race_list); }
     if (data.success_definition) { lines.push("- Success: " + data.success_definition); }
+    lines.push("- Normal week: " + (data.normal_week || "N/A"));
     if (data.obstacles) { lines.push("- Obstacles: " + data.obstacles); }
     lines.push("");
     lines.push("## Current Fitness");
@@ -1945,6 +1952,13 @@ def build_apply_js() -> str:
     }
     if (!data.interval_days || data.interval_days.length === 0) {
       showMessage("error", "Please select at least one day for intervals.");
+      submitBtn.disabled = false;
+      submitBtn.textContent = "Submit Questionnaire";
+      return;
+    }
+    /* Native `required` accepts whitespace; the normal week must be real words. */
+    if (!String(data.normal_week || "").trim()) {
+      showMessage("error", "Please describe a normal week of riding.");
       submitBtn.disabled = false;
       submitBtn.textContent = "Submit Questionnaire";
       return;

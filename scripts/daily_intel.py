@@ -1099,6 +1099,20 @@ def _person(item: dict) -> str:
     return name or email or "unknown customer"
 
 
+# The training-plan pipeline pushes a synthetic order through fulfillment once
+# daily (id prefixed drill-YYYYMMDD) to health-check the pipeline end to end.
+# No customer is attached (see intel #400) — label it as internal so DO TODAY
+# doesn't get generated against it as if it were a named customer's order.
+def _is_health_check_drill(item: dict) -> bool:
+    return str(item.get("id") or "").startswith("drill-")
+
+
+def _order_who(item: dict) -> str:
+    if _is_health_check_drill(item):
+        return "[internal health-check, no customer attached]"
+    return _person(item)
+
+
 # Pipeline fulfilment statuses that mean the customer has the plan. Anything
 # else on a paid order (GENERATED, BLOCKED_REVIEW, APPROVED, APPLYING, APPLIED,
 # APPLIED_ATTESTED) is paid but not delivered.
@@ -1301,7 +1315,7 @@ def render_report(collected: dict) -> str:
                 product = order.get("product_type") or order.get("product") or "order"
                 error = _display(order.get("error"), "unknown processing error")
                 lines.append(
-                    f"- **PROCESSING FAILURE:** {_person(order)} — {product}; "
+                    f"- **PROCESSING FAILURE:** {_order_who(order)} — {product}; "
                     f"processing FAILED: {error}."
                 )
             for order in successful_orders:
@@ -1311,7 +1325,7 @@ def render_report(collected: dict) -> str:
                     if order.get("success") is True else "processing outcome unknown"
                 )
                 lines.append(
-                    f"- processing record: {_person(order)} — {product}; {outcome}"
+                    f"- processing record: {_order_who(order)} — {product}; {outcome}"
                     f"{_fulfillment_note(order)}."
                 )
             for recovery in recoveries:
@@ -1567,7 +1581,7 @@ def render_report(collected: dict) -> str:
         failed_for_broken = list(ledger.get("failed_orders") or [])
     for order in failed_for_broken:
         error = _display(order.get("error"), "unknown processing error")
-        broken.append(f"PROCESSING FAILURE: {_person(order)} — {error}")
+        broken.append(f"PROCESSING FAILURE: {_order_who(order)} — {error}")
     for item in ledger.get("open_paid_orders") or []:
         if item.get("stale"):
             broken.append(

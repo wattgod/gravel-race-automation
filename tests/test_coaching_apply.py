@@ -1,10 +1,12 @@
 """Tests for the Gravel God coaching apply (intake form) page generator."""
 from __future__ import annotations
 
+import html
 import json
 import re
 import subprocess
 import sys
+from html.parser import HTMLParser
 from pathlib import Path
 
 import pytest
@@ -538,3 +540,154 @@ class TestFooter:
         assert "gravelgodcoaching@gmail.com" in apply_html
         assert 'href="/privacy/"' in apply_html
         assert "health information" in apply_html
+
+
+# ── Normal week (first-read input) ───────────────────────────
+
+
+NORMAL_WEEK_LABEL = "What does a normal week of riding look like right now?"
+NORMAL_WEEK_HELP = (
+    "Day by day if you can. The week you actually ride, not the one you wish "
+    "you did. Rough is fine, including what you eat on the long ride. I'll "
+    "quote it back to you."
+)
+NORMAL_WEEK_PLACEHOLDER = (
+    "Mon off. Tue 2x20 on the trainer. Sat group ride, 4 hours, usually "
+    "hammering. On long rides, a bar and whatever's at the stop."
+)
+FORM_CONTROLS = ("input", "select", "textarea")
+VOID_TAGS = {"area", "base", "br", "col", "embed", "hr", "img", "input",
+             "link", "meta", "source", "track", "wbr"}
+
+
+class _FormScan(HTMLParser):
+    """Record form controls, labels, help text, and section titles in order."""
+
+    def __init__(self):
+        super().__init__(convert_charrefs=True)
+        self.events = []  # (kind, payload) in document order
+        self._capture = None  # (kind, attrs, text parts)
+        self._depth = 0
+
+    def handle_starttag(self, tag, attrs):
+        attrs = dict(attrs)
+        classes = (attrs.get("class") or "").split()
+        if tag in FORM_CONTROLS:
+            self.events.append(("control", {"tag": tag, **attrs}))
+        if self._capture is not None:
+            if tag not in VOID_TAGS:
+                self._depth += 1
+            return
+        if tag == "label" or "gg-apply-help" in classes or \
+                "gg-apply-section-title" in classes:
+            kind = ("label" if tag == "label" else
+                    "help" if "gg-apply-help" in classes else "section")
+            self._capture = (kind, attrs, [])
+            self._depth = 1
+
+    def handle_endtag(self, tag):
+        if self._capture is None:
+            return
+        self._depth -= 1
+        if self._depth == 0:
+            kind, attrs, parts = self._capture
+            self.events.append((kind, {**attrs, "text": " ".join(
+                "".join(parts).split())}))
+            self._capture = None
+
+    def handle_data(self, data):
+        if self._capture is not None:
+            self._capture[2].append(data)
+
+
+def _scan(markup):
+    parser = _FormScan()
+    parser.feed(markup)
+    return parser.events
+
+
+def _normal_week_control(events):
+    return next(p for kind, p in events
+                if kind == "control" and p.get("name") == "normal_week")
+
+
+def _node(script):
+    return subprocess.run(["node", "-e", script],
+                          capture_output=True, text=True, timeout=10)
+
+
+class TestNormalWeek:
+    def test_field_is_a_required_textarea(self):
+        control = _normal_week_control(_scan(build_section_3_fitness()))
+        assert control["tag"] == "textarea"
+        assert control["id"] == "normal_week"
+        assert "required" in control
+
+    def test_field_is_first_in_section_3(self, apply_html):
+        events = _scan(apply_html)
+        start = next(i for i, (kind, p) in enumerate(events)
+                     if kind == "section" and p["text"].startswith("3. "))
+        first_control = next(p for kind, p in events[start:]
+                             if kind == "control")
+        assert first_control.get("name") == "normal_week"
+        section_3_controls = [
+            p.get("name") for kind, p in events[start:]
+            if kind == "control"][:3]
+        assert section_3_controls[:2] == ["normal_week", "years_cycling"]
+
+    def test_field_is_only_defined_once(self, apply_html):
+        assert apply_html.count('name="normal_week"') == 1
+        assert apply_html.count('id="normal_week"') == 1
+
+    def test_label_copy_and_required_asterisk(self):
+        section = build_section_3_fitness()
+        label = next(p for kind, p in _scan(section)
+                     if kind == "label" and p.get("for") == "normal_week")
+        assert label["text"] == NORMAL_WEEK_LABEL + " *"
+        assert ('for="normal_week">' + html.escape(NORMAL_WEEK_LABEL, quote=False)
+                + ' <span class="gg-apply-required">*</span></label>') in section
+
+    def test_help_copy_is_verbatim(self):
+        events = _scan(build_section_3_fitness())
+        index = next(i for i, (kind, p) in enumerate(events)
+                     if kind == "control" and p.get("name") == "normal_week")
+        kind, help_block = events[index + 1]
+        assert kind == "help"
+        assert help_block["text"] == NORMAL_WEEK_HELP
+
+    def test_placeholder_copy_is_verbatim(self):
+        control = _normal_week_control(_scan(build_section_3_fitness()))
+        assert control["placeholder"] == NORMAL_WEEK_PLACEHOLDER
+
+    def test_progress_counts_it(self, apply_html, apply_js):
+        # updateProgress() counts unique names of every [required] control in
+        # #intake-form; there is no allow-list, so the required attribute is
+        # the whole contract.
+        assert 'form.querySelectorAll("[required]")' in apply_js
+        assert "uniqueRequired[el.name] = true" in apply_js
+        form = apply_html[apply_html.index('<form id="intake-form"'):
+                          apply_html.index("</form>")]
+        required_names = {
+            p.get("name") for kind, p in _scan(form)
+            if kind == "control" and "required" in p}
+        assert "normal_week" in required_names
+
+    def test_save_and_restore_cover_it(self, apply_js):
+        # Save serialises every named control via FormData; restore writes
+        # back by name and assigns .value for anything not checkbox/radio.
+        save = apply_js[apply_js.index('getElementById("save-btn")'):
+                        apply_js.index("function restoreProgress")]
+        assert "new FormData(form)" in save
+        restore = apply_js[apply_js.index("function restoreProgress"):
+                           apply_js.index("function formatSubmission")]
+        assert 'document.querySelectorAll("[name=\\"" + key + "\\"]")' in restore
+        assert "el.value = value;" in restore
+        assert "updateProgress();" in restore
+
+    def test_submit_rejects_whitespace_only_answer(self, apply_js):
+        assert 'if (!String(data.normal_week || "").trim())' in apply_js
+        assert "Please describe a normal week of riding." in apply_js
+        submit = apply_js[apply_js.index('getElementById("intake-form").addEventListener("submit"'):]
+        guard = submit.index("data.normal_week")
+        assert guard < submit.index("fetch(COACHING_INTAKE_URL")
+

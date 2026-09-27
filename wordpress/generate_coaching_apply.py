@@ -1699,11 +1699,13 @@ def build_apply_js() -> str:
   });
 
   /* ── Checkbox option selection styling ───────────── */
-  document.querySelectorAll(".gg-apply-checkbox-option").forEach(function(option) {
-    option.addEventListener("click", function(e) {
-      var input = this.querySelector("input");
-      if (e.target.tagName !== "INPUT") { input.checked = !input.checked; }
-
+  /* Each option is a <label> wrapping its checkbox, so the browser already
+     toggles the box on any click inside it. Listen for the resulting change;
+     never toggle by hand. A manual toggle on the label's click is undone by
+     the label's own activation, leaving text taps unchecked. */
+  document.querySelectorAll(".gg-apply-checkbox-option input[type=\\"checkbox\\"]").forEach(function(input) {
+    input.addEventListener("change", function() {
+      var option = input.closest(".gg-apply-checkbox-option");
       var name = input.name;
       var value = input.value;
       var isChecked = input.checked;
@@ -1725,8 +1727,8 @@ def build_apply_js() -> str:
         }
       }
 
-      if (input.checked) { this.classList.add("selected"); }
-      else { this.classList.remove("selected"); }
+      if (input.checked) { option.classList.add("selected"); }
+      else { option.classList.remove("selected"); }
       updateProgress();
     });
   });

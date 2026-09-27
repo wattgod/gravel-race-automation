@@ -424,6 +424,35 @@ class TestJSFeatures:
     def test_flexible_checkbox_logic(self, apply_js):
         assert "flexible" in apply_js
 
+
+class TestCheckboxOptions:
+    """Day pills and device options must toggle on a tap anywhere in the pill.
+
+    Each option is a <label> wrapping its checkbox, so the browser toggles the
+    box natively. A click handler that also toggled it by hand was undone by
+    the label's own activation: tapping "Sat" left it unchecked, and the
+    required long-ride/interval days then failed validation.
+    """
+
+    def test_every_option_is_a_label_wrapping_a_checkbox(self, apply_html):
+        options = re.findall(
+            r'<(\w+) class="gg-apply-checkbox-option[^"]*">(.*?)</\1>',
+            apply_html, re.S)
+        assert len(options) >= 26  # devices + long-ride + interval + off days
+        for tag, body in options:
+            assert tag == "label"
+            assert body.count('type="checkbox"') == 1
+
+    def test_js_never_toggles_a_checkbox_by_hand(self, apply_js):
+        assert not re.search(r"\.checked\s*=\s*!", apply_js)
+
+    def test_styling_follows_the_checkbox_change_event(self, apply_js):
+        block = apply_js.split("Checkbox option selection styling", 1)[1]
+        block = block.split("/* ──", 1)[0]
+        assert '.gg-apply-checkbox-option input[type=\\"checkbox\\"]' in block
+        assert 'addEventListener("change"' in block
+        assert 'addEventListener("click"' not in block
+
     def test_worker_submission(self, apply_js):
         assert COACHING_INTAKE_WORKER_URL in apply_js
         assert "formsubmit.co" not in apply_js

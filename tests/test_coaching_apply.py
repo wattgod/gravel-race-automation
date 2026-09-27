@@ -662,22 +662,3 @@ class TestNormalWeek:
         guard = submit.index("data.normal_week")
         assert guard < submit.index("fetch(COACHING_INTAKE_URL")
 
-    def test_summary_includes_it_after_goal_lines(self, apply_js):
-        start = apply_js.index("function formatSubmission(data) {")
-        end = apply_js.index("\n  }\n", apply_js.index("return lines.join", start))
-        fn = apply_js[start:end + 4]
-        answer = "Mon off.\nSat group ride, 4 hours."
-        script = fn + "\nprocess.stdout.write(formatSubmission(" + json.dumps({
-            "name": "A Rider", "email": "a@example.com", "tier": "mid",
-            "primary_goal": "specific_race", "race_list": "Unbound 200",
-            "success_definition": "Finish", "obstacles": "Time",
-            "normal_week": answer,
-        }) + "));"
-        result = _node(script)
-        assert result.returncode == 0, result.stderr
-        lines = result.stdout.splitlines()
-        nw = lines.index("- Normal week: Mon off.")
-        assert lines[nw + 1] == "Sat group ride, 4 hours."
-        assert lines[nw - 1] == "- Success: Finish"
-        assert lines[nw + 2] == "- Obstacles: Time"
-        assert nw < lines.index("## Current Fitness")

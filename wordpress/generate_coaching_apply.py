@@ -1823,7 +1823,6 @@ def build_apply_js() -> str:
     lines.push("- Primary Goal: " + data.primary_goal);
     if (data.race_list) { lines.push("- Races: " + data.race_list); }
     if (data.success_definition) { lines.push("- Success: " + data.success_definition); }
-    lines.push("- Normal week: " + (data.normal_week || "N/A"));
     if (data.obstacles) { lines.push("- Obstacles: " + data.obstacles); }
     lines.push("");
     lines.push("## Current Fitness");

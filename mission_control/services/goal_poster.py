@@ -37,6 +37,13 @@ BRANDS = {
     # XC Ski Labs — vintage Nordic-print tokens (tokens/tokens.css in the
     # xc-ski-labs repo): --gl-ink, --gl-paper, --gl-rust (spot accent),
     # --gl-caption. Same two font families as every other brand's poster.
+    # Roadie Labs — newsprint + charcoal (road-labs-brand tokens.css
+    # --rl-color-cool-white / charcoal accent).
+    "roadielabs": {
+        "ink": (26, 26, 26), "paper": (245, 245, 240),
+        "accent": (51, 51, 51), "grey": (119, 119, 119),
+        "mark": "ROADIE LABS", "domain": "ROADIELABS.COM",
+    },
     "xcskilabs": {
         "ink": (32, 40, 34), "paper": (240, 232, 216),
         "accent": (168, 61, 45), "grey": (97, 93, 81),
@@ -45,8 +52,10 @@ BRANDS = {
 }
 
 
-def _brand(brand: str) -> dict:
-    return BRANDS.get(brand, BRANDS["gravelgod"])
+def _brand(brand) -> dict:
+    # The stored lead's brand is JSON; str() so a malformed or non-string
+    # value falls back to Gravel God instead of a 500 (sol review, Sep 27).
+    return BRANDS.get(str(brand or "").lower(), BRANDS["gravelgod"])
 
 
 _FONT_DIR = REPO_ROOT / "guide" / "fonts"

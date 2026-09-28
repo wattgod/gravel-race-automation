@@ -84,30 +84,9 @@ TEMPLATES: dict[str, list[dict]] = {
                 },
             ],
         },
-        {
-            "id": "hero_tagline_proof",
-            "description": "Test proof-oriented tagline variants",
-            "selector": _selector("hero_tagline"),
-            "pages": ["/", "/index.html"],
-            "conversion_selector": "[data-ga='hero_cta_click'], [data-ga='hero_search'] button",
-            "variants": [
-                {
-                    "id": "control",
-                    "name": "control",
-                    "content": "328 races. 15 criteria. 4,920 scores — all assigned by hand.",
-                },
-                {
-                    "id": "variant_a",
-                    "name": "hours_research",
-                    "content": "2,000+ hours of race research.",
-                },
-                {
-                    "id": "variant_b",
-                    "name": "rider_trust",
-                    "content": "Riders in 43 states trust these scores.",
-                },
-            ],
-        },
+        # hero_tagline_proof was removed 2026-09-28: "2,000+ hours of race
+        # research" and "Riders in 43 states trust these scores" are counts
+        # nobody can check (receipts spec, tests/test_no_unsourced_proof.py).
         # ── Training price framing ──
         {
             "id": "price_daily_vs_weekly",
@@ -259,6 +238,8 @@ TEMPLATES: dict[str, list[dict]] = {
             ],
         },
         # ── Coaching teaser CTA ──
+        # "1:1 COACHING — LIMITED SPOTS" was removed 2026-09-28: no scarcity
+        # copy without a checkable cap (tests/test_no_unsourced_proof.py).
         {
             "id": "race_coaching_verb",
             "description": "Test coaching CTA verb on race pages",
@@ -294,11 +275,6 @@ TEMPLATES: dict[str, list[dict]] = {
                     "id": "control",
                     "name": "control",
                     "content": "TALK TO A COACH",
-                },
-                {
-                    "id": "variant_a",
-                    "name": "one_on_one",
-                    "content": "1:1 COACHING — LIMITED SPOTS",
                 },
                 {
                     "id": "variant_b",

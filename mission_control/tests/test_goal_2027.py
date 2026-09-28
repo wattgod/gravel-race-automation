@@ -172,6 +172,66 @@ class TestPosterImage:
         assert render_poster({"outcome_goal": "word " * 200})[:4] == b"\x89PNG"
 
 
+class TestPosterBrand:
+    """2026-09-27: the poster is brand-aware — the emailed image must say
+    Roadie Labs for a roadielabs lead, not Gravel God (goal_poster.py)."""
+
+    def test_default_brand_is_gravel_god(self, monkeypatch):
+        import mission_control.services.goal_poster as gp
+        drawn = []
+        real = gp.ImageDraw.ImageDraw.text
+        monkeypatch.setattr(gp.ImageDraw.ImageDraw, "text",
+                            lambda self, xy, text, **kw: drawn.append(text) or real(self, xy, text, **kw))
+        gp.render_poster(ANSWERS, name="Ada")
+        assert "GRAVEL GOD" in drawn
+        assert "GRAVELGODCYCLING.COM" in drawn
+
+    def test_roadielabs_brand_draws_roadielabs(self, monkeypatch):
+        import mission_control.services.goal_poster as gp
+        drawn = []
+        real = gp.ImageDraw.ImageDraw.text
+        monkeypatch.setattr(gp.ImageDraw.ImageDraw, "text",
+                            lambda self, xy, text, **kw: drawn.append(text) or real(self, xy, text, **kw))
+        gp.render_poster(ANSWERS, name="Ada", brand="roadielabs")
+        assert "ROADIE LABS" in drawn
+        assert "ROADIELABS.COM" in drawn
+        assert "GRAVEL GOD" not in drawn
+
+    def test_unknown_brand_falls_back_to_gravel_god(self):
+        from mission_control.services.goal_poster import render_poster
+        # Must not crash, and must still produce a valid PNG.
+        png = render_poster(ANSWERS, name="Ada", brand="not_a_real_brand")
+        assert png[:8] == b"\x89PNG\r\n\x1a\n"
+
+    def test_non_string_brand_falls_back_to_gravel_god(self):
+        # sol review, 2026-09-27: source_data.get("brand") is a stored lead's
+        # JSON field — a malformed non-string value must fall back, not 500.
+        from mission_control.services.goal_poster import render_poster
+        for bad_brand in (123, ["roadielabs"], {"brand": "roadielabs"}):
+            png = render_poster(ANSWERS, name="Ada", brand=bad_brand)
+            assert png[:8] == b"\x89PNG\r\n\x1a\n"
+
+    def test_poster_route_passes_the_stored_brand(self, client, fake_db, monkeypatch):
+        import mission_control.services.goal_poster as gp
+        seen = {}
+        real_render = gp.render_poster
+
+        def spy(*args, **kwargs):
+            seen["brand"] = kwargs.get("brand")
+            return real_render(*args, **kwargs)
+
+        monkeypatch.setattr(gp, "render_poster", spy)
+        import mission_control.routers.poster as poster_router
+        monkeypatch.setattr(poster_router, "render_poster", spy)
+
+        _post(client, {"email": "rlposter@example.com", "name": "R", "source": "goal_2027",
+                       "brand": "roadielabs", "goal_answers": ANSWERS})
+        token = _enrollment(fake_db, "rlposter@example.com")["source_data"]["poster_token"]
+        resp = client.get(f"/poster/{token}.png")
+        assert resp.status_code == 200
+        assert seen["brand"] == "roadielabs"
+
+
 class TestAthleteReviewIsTransactional:
     """A coached athlete filing a review is not being marketed to. Every
     marketing guard in the engine would otherwise drop it (Fable review,

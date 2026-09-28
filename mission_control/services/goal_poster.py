@@ -6,7 +6,14 @@ the lead arrived would 404 by the time the email is opened.
 
 Brand: the paper poster (Matti, Sep 23: paper over dark) — warm paper ground,
 near-black ink, Source Serif 4 for the goal, Sometype Mono for the frame, one
-teal rule. Same fonts the site ships, loaded from guide/fonts/.
+accent rule. Same fonts the site ships, loaded from guide/fonts/.
+
+Brand-aware (2026-09-27, road goals funnel): the enrollment's stored
+`brand` decides the header/footer text and the accent color, matching each
+site's own tokens — Gravel God's warm paper + teal (gravelgodcycling.com
+tokens.css) and Roadie Labs' newsprint + charcoal (road-labs-brand
+tokens.css `--rl-color-cool-white` / `--rl-color-signal-red`). Unknown or
+missing brand falls back to Gravel God, the only brand this ran as before.
 """
 from __future__ import annotations
 
@@ -19,10 +26,31 @@ from mission_control.config import REPO_ROOT
 
 WIDTH, HEIGHT = 1080, 1440  # 3:4, prints at 12x16in
 
-INK = (26, 22, 19)
-PAPER = (245, 239, 230)
-TEAL = (23, 128, 121)
-GREY = (125, 105, 93)
+# Per-brand poster palette + header/footer text. Same layout algorithm for
+# every brand (render_poster below) — only these four values change.
+BRANDS = {
+    "gravelgod": {
+        "ink": (26, 22, 19), "paper": (245, 239, 230),
+        "accent": (23, 128, 121), "grey": (125, 105, 93),
+        "header": "GRAVEL GOD",
+        "footer": "GRAVELGODCYCLING.COM",
+    },
+    "roadielabs": {
+        "ink": (26, 26, 26), "paper": (245, 245, 240),
+        "accent": (51, 51, 51), "grey": (119, 119, 119),
+        "header": "ROADIE LABS",
+        "footer": "ROADIELABS.COM",
+    },
+}
+
+
+def _brand(name: str | None) -> dict:
+    # `name` comes from a stored lead's JSON column (source_data.get("brand"))
+    # — str() rather than trusting it's already a string, so a malformed or
+    # non-string value falls back to Gravel God instead of a 500 (sol review,
+    # 2026-09-27).
+    return BRANDS.get(str(name or "").lower(), BRANDS["gravelgod"])
+
 
 _FONT_DIR = REPO_ROOT / "guide" / "fonts"
 _FONTS = {
@@ -77,13 +105,20 @@ def _clean(value: str | None, limit: int = 160) -> str:
     return " ".join(str(value or "").split())[:limit]
 
 
-def render_poster(answers: dict, name: str = "", season: int = 2027) -> bytes:
+def render_poster(answers: dict, name: str = "", season: int = 2027,
+                   brand: str | None = None) -> bytes:
     """PNG bytes for one athlete's poster. Missing answers simply leave gaps.
 
     Laid out from the bottom up: the frame rows (the enemy, the plan, the
     habit) are anchored above the footer, and whatever room is left goes to
     the goal, which shrinks to fit rather than running over them.
+
+    `brand` ("gravelgod" | "roadielabs") picks the header/footer text and
+    accent color from BRANDS above; unknown or missing falls back to
+    Gravel God.
     """
+    b = _brand(brand)
+    INK, PAPER, TEAL, GREY = b["ink"], b["paper"], b["accent"], b["grey"]
     img = Image.new("RGB", (WIDTH, HEIGHT), PAPER)
     draw = ImageDraw.Draw(img)
     pad = 84
@@ -91,8 +126,8 @@ def render_poster(answers: dict, name: str = "", season: int = 2027) -> bytes:
 
     # header
     draw.text((pad, pad), f"{season} · GOAL FILE", font=_font("mono_bold", 26), fill=TEAL)
-    draw.text((WIDTH - pad, pad), "GRAVEL GOD", font=_font("mono_bold", 26), fill=INK, anchor="ra")
-    draw.text((pad, HEIGHT - pad - 20), "GRAVELGODCYCLING.COM",
+    draw.text((WIDTH - pad, pad), b["header"], font=_font("mono_bold", 26), fill=INK, anchor="ra")
+    draw.text((pad, HEIGHT - pad - 20), b["footer"],
               font=_font("mono", 22), fill=GREY)
 
     # bottom block: the daily habits and the thing most likely to wreck it,

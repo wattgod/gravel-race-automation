@@ -48,6 +48,7 @@ def goal_poster(token: str) -> Response:
         png = render_poster(
             source_data.get("goal_answers") or {},
             name=match.get("contact_name") or "",
+            brand=source_data.get("brand"),
         )
     except Exception:  # noqa: BLE001 - a broken poster is a 404, never a 500
         logger.exception("poster render failed")

@@ -132,7 +132,15 @@ class FakeQueryBuilder:
 
     def _match(self, row):
         for op, col, val in self._filters:
-            row_val = row.get(col)
+            # Postgrest JSON text-extraction ("col->>key"): real Supabase
+            # reaches into the JSON column server-side; mirror that here so
+            # tests can exercise queries like source_data->>poster_token
+            # (mission_control/routers/poster.py) against this fake DB.
+            if "->>" in col:
+                json_col, json_key = col.split("->>", 1)
+                row_val = (row.get(json_col) or {}).get(json_key)
+            else:
+                row_val = row.get(col)
             if op == "eq" and row_val != val:
                 return False
             if op == "neq" and row_val == val:

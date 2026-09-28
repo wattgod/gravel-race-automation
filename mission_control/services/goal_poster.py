@@ -6,7 +6,10 @@ the lead arrived would 404 by the time the email is opened.
 
 Brand: the paper poster (Matti, Sep 23: paper over dark) — warm paper ground,
 near-black ink, Source Serif 4 for the goal, Sometype Mono for the frame, one
-teal rule. Same fonts the site ships, loaded from guide/fonts/.
+accent rule. Same fonts every brand ships, loaded from guide/fonts/. Layout,
+copy and fonts are shared across brands; only the four colors, the
+corner mark and the footer domain change (BRANDS below). Unknown or
+unpassed brand renders as Gravel God (pre-multi-brand behavior, unchanged).
 """
 from __future__ import annotations
 
@@ -19,10 +22,41 @@ from mission_control.config import REPO_ROOT
 
 WIDTH, HEIGHT = 1080, 1440  # 3:4, prints at 12x16in
 
+# Back-compat module-level constants (some callers/tests reference these
+# directly) — always the Gravel God values, i.e. BRANDS["gravelgod"].
 INK = (26, 22, 19)
 PAPER = (245, 239, 230)
 TEAL = (23, 128, 121)
 GREY = (125, 105, 93)
+
+BRANDS = {
+    "gravelgod": {
+        "ink": INK, "paper": PAPER, "accent": TEAL, "grey": GREY,
+        "mark": "GRAVEL GOD", "domain": "GRAVELGODCYCLING.COM",
+    },
+    # XC Ski Labs — vintage Nordic-print tokens (tokens/tokens.css in the
+    # xc-ski-labs repo): --gl-ink, --gl-paper, --gl-rust (spot accent),
+    # --gl-caption. Same two font families as every other brand's poster.
+    # Roadie Labs — newsprint + charcoal (road-labs-brand tokens.css
+    # --rl-color-cool-white / charcoal accent).
+    "roadielabs": {
+        "ink": (26, 26, 26), "paper": (245, 245, 240),
+        "accent": (51, 51, 51), "grey": (119, 119, 119),
+        "mark": "ROADIE LABS", "domain": "ROADIELABS.COM",
+    },
+    "xcskilabs": {
+        "ink": (32, 40, 34), "paper": (240, 232, 216),
+        "accent": (168, 61, 45), "grey": (97, 93, 81),
+        "mark": "XC SKI LABS", "domain": "XCSKILABS.COM",
+    },
+}
+
+
+def _brand(brand) -> dict:
+    # The stored lead's brand is JSON; str() so a malformed or non-string
+    # value falls back to Gravel God instead of a 500 (sol review, Sep 27).
+    return BRANDS.get(str(brand or "").lower(), BRANDS["gravelgod"])
+
 
 _FONT_DIR = REPO_ROOT / "guide" / "fonts"
 _FONTS = {
@@ -77,23 +111,29 @@ def _clean(value: str | None, limit: int = 160) -> str:
     return " ".join(str(value or "").split())[:limit]
 
 
-def render_poster(answers: dict, name: str = "", season: int = 2027) -> bytes:
+def render_poster(answers: dict, name: str = "", season: int | str = 2027,
+                   brand: str = "gravelgod") -> bytes:
     """PNG bytes for one athlete's poster. Missing answers simply leave gaps.
 
     Laid out from the bottom up: the frame rows (the enemy, the plan, the
     habit) are anchored above the footer, and whatever room is left goes to
     the goal, which shrinks to fit rather than running over them.
+
+    `brand` picks the four colors and the corner mark/footer domain from
+    BRANDS; everything else (layout, fonts, copy) is identical across brands.
     """
-    img = Image.new("RGB", (WIDTH, HEIGHT), PAPER)
+    b = _brand(brand)
+    ink, paper, accent, grey = b["ink"], b["paper"], b["accent"], b["grey"]
+    img = Image.new("RGB", (WIDTH, HEIGHT), paper)
     draw = ImageDraw.Draw(img)
     pad = 84
     inner = WIDTH - pad * 2
 
     # header
-    draw.text((pad, pad), f"{season} · GOAL FILE", font=_font("mono_bold", 26), fill=TEAL)
-    draw.text((WIDTH - pad, pad), "GRAVEL GOD", font=_font("mono_bold", 26), fill=INK, anchor="ra")
-    draw.text((pad, HEIGHT - pad - 20), "GRAVELGODCYCLING.COM",
-              font=_font("mono", 22), fill=GREY)
+    draw.text((pad, pad), f"{season} · GOAL FILE", font=_font("mono_bold", 26), fill=accent)
+    draw.text((WIDTH - pad, pad), b["mark"], font=_font("mono_bold", 26), fill=ink, anchor="ra")
+    draw.text((pad, HEIGHT - pad - 20), b["domain"],
+              font=_font("mono", 22), fill=grey)
 
     # bottom block: the daily habits and the thing most likely to wreck it,
     # anchored above the footer (Matti, Sep 23)
@@ -111,9 +151,9 @@ def render_poster(answers: dict, name: str = "", season: int = 2027) -> bytes:
     frame_top = HEIGHT - pad - 60 - sum(56 + len(lines) * 38 for _, lines in rows)
     y = frame_top
     for key, lines in rows:
-        draw.text((pad, y), key, font=label_font, fill=TEAL)
+        draw.text((pad, y), key, font=label_font, fill=accent)
         for i, line in enumerate(lines):
-            draw.text((pad, y + 34 + i * 38), line, font=value_font, fill=INK)
+            draw.text((pad, y + 34 + i * 38), line, font=value_font, fill=ink)
         y += 56 + len(lines) * 38
 
     # middle block: the deepest why they gave, just above the frame
@@ -140,17 +180,17 @@ def render_poster(answers: dict, name: str = "", season: int = 2027) -> bytes:
 
     who = _clean(name, 40).upper() or "I"
     draw.text((pad, label_y), f"BY THE END OF {season}, {who} WILL",
-              font=_font("mono", 26), fill=GREY)
+              font=_font("mono", 26), fill=grey)
     y = label_y + 60
     for line in goal_lines:
-        draw.text((pad, y), line, font=goal_font, fill=INK)
+        draw.text((pad, y), line, font=goal_font, fill=ink)
         y += line_height
-    draw.rectangle([pad, y + 24, pad + 150, y + 30], fill=TEAL)
+    draw.rectangle([pad, y + 24, pad + 150, y + 30], fill=accent)
 
     # the why goes directly above the frame, never into it
     y = frame_top - why_height
     for line in why_lines:
-        draw.text((pad, y), line, font=why_font, fill=GREY)
+        draw.text((pad, y), line, font=why_font, fill=grey)
         y += 50
 
     buffer = io.BytesIO()

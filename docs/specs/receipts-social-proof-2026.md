@@ -2,8 +2,7 @@
 
 Spec author: Claude (Opus 5.5), adversarially reviewed by Claude (Fable 5.1), verdict
 SHIP-WITH-AMENDMENTS, all 12 amendments folded in. Implementer: Claude subagents in
-origin/main worktrees. Review and merge: Claude → Matti. Status: **DRAFT, waiting on
-the decisions in §12.**
+origin/main worktrees. Review and merge: Claude → Matti. Status: **APPROVED 2026-09-28** (decisions in §12).
 
 This repo is PUBLIC. This spec names no athletes, customers or prospects. The athlete
 evidence inventory, consent records and review notes live in private repos (§6.2).
@@ -392,20 +391,31 @@ form link:
 | PR-6 | pipeline | Proof `[GG] Reminder` triggers (§7) | Each trigger fires once per athlete per event, to Matti only |
 | PR-7 (gated on G) | gravel-race-automation | Placements §6.1, G1 reveal, G2, G3, G5 in case studies, G7 cards | The 8 acceptance criteria in §6.3 pass |
 
-## 12. Decisions for Matti
+## 12. Decisions (recorded 2026-09-28, Matti approved all eight)
 
-1. Take down all 55 + 53 placeholders and the unsupported claims today. *Recommended: yes.*
-2. Amend the 07-18 ruling for one new item only: a still outcomes table on /coaching/
-   linking to /athletes/. The identity block needs no amendment, and the first-read
-   exhibit was allowed on 09-24.
-3. Allow text messages as a quote source, per athlete, with that athlete's consent.
-4. Photograph: which real photo, and who holds the rights.
-5. Credential wording: exactly what to say about TrainingPeaks tenure, and whether to
-   list your own race results.
-6. Stats line: confirm or reword "100+ athletes coached / 1,000+ plans sold", or drop it.
-7. Roadie: identity block + TP line + link to GG /athletes/, with no borrowed quotes.
-   *Recommended.*
-8. Google Business Profile only if there is a real, recurring in-person offer.
+1. **Takedown today: approved.** Gravel God in PR-1; Roadie and XC Ski Labs in PR-2.
+2. **07-18 ruling amended for one item:** a still outcomes table on /coaching/ linking to
+   /athletes/. The identity block needs no amendment, and the first-read exhibit was
+   already allowed on 09-24.
+3. **Text messages are allowed as a quote source,** per athlete, with that athlete's
+   consent. The "texts are off-limits" rule in the review sheets is lifted for this purpose only.
+4. **Photograph:** a real photo Matti or a friend took, so the rights are clear. Race
+   photographers' images only with a licence. Matti supplies the file (open item).
+5. **Credentials:** publish only what can be checked. Matti's own results need an
+   official results link, e.g. the unverified "Unbound 2026 podium". TrainingPeaks
+   tenure wording stays as Matti's own bio line; Matti confirms the exact wording
+   (open item).
+6. **Stats line: "100+ athletes coached" and "1,000+ plans sold" are dropped,** because
+   neither can be checked. PR-1 and PR-2 remove them on all three brands.
+7. **Roadie:** identity block, TP ratings line, and a link to the Gravel God /athletes/
+   page. No borrowed quotes.
+8. **Google Business Profile:** only with a real, recurring in-person offer. Skipped for now.
+
+**Also resolved:** Matti shared the coaching-praise sheet ("Utholdening", tabs "Trener
+Ros", "Ros", "Ros 24"). It adds verbatim athlete material, including an unprompted
+offer to write a review and a 2020 message giving permission to use a quote. It is
+logged in the private evidence inventory. Friends' and teammates' remarks about
+Matti's own riding are not coaching proof and are excluded.
 
 ## 13. Risks
 

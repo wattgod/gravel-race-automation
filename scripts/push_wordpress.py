@@ -4,6 +4,7 @@ Push landing page JSON or race index to WordPress.
 """
 
 import argparse
+import hashlib
 import json
 import os
 import re
@@ -1708,23 +1709,66 @@ def apply_markdown_gate(args) -> None:
 # never touched and the staging directory is left in place for inspection.
 
 DEPLOY_STAGING_ROOT = "~/deploy-staging"
+DEPLOY_LOCK_PATH = f"{DEPLOY_STAGING_ROOT}/.lock"
+DEPLOY_LOCK_STALE_SECONDS = 30 * 60
+
+# Set True the first time this run actually opens the shared multiplexed ssh
+# connection (see _ssh_multiplex_opts) — lets the CLI close it exactly once
+# at the very end of a run instead of guessing whether it was ever opened.
+_ssh_connection_used = False
+
+# (host, user, port) tuples we've already checked for a stale leftover
+# control-socket file this process. Checked (and cleaned up) at most once
+# per run per credential set — see _ensure_no_stale_socket.
+_control_sockets_checked = set()
 
 
 def _ssh_control_path(host: str, user: str, port: str) -> str:
-    """Deterministic-per-run control socket path so every ssh/scp call made
-    while uploading one bulk sync reuses a single multiplexed (shared)
-    connection instead of re-handshaking for every small command — that
-    re-handshaking is what a slow SSH patch turns into aborted steps.
-    PID-scoped so two concurrent push_wordpress.py runs never collide on the
-    same socket file."""
-    safe = re.sub(r"[^A-Za-z0-9]", "_", f"{user}-{host}-{port}")
-    return str(Path(tempfile.gettempdir()) / f"gg-deploy-ctl-{os.getpid()}-{safe}.sock")
+    """Short, deterministic-per-run control socket path so every ssh/scp
+    call this run makes reuses a single multiplexed (shared) connection
+    instead of re-handshaking for every small command — that re-handshaking
+    is what a slow SSH patch turns into aborted steps. Hashed (not the raw
+    user/host/port) and placed directly under /tmp (not
+    tempfile.gettempdir(), which on macOS resolves to a long per-process
+    sandbox path like /var/folders/.../T/) so the final path stays well
+    under the ~104-byte limit most platforms enforce on AF_UNIX socket
+    paths — a long path here doesn't fail loudly, it makes ssh silently
+    refuse to bind the control socket and every single ssh call in the run
+    fails. PID-scoped so two concurrent push_wordpress.py runs never share
+    (and don't fight over closing) the same control master."""
+    digest = hashlib.sha1(f"{user}@{host}:{port}:{os.getpid()}".encode()).hexdigest()[:16]
+    path = f"/tmp/gg-ssh-{digest}.sock"
+    _ensure_no_stale_socket(host, user, port, path)
+    return path
+
+
+def _ensure_no_stale_socket(host: str, user: str, port: str, path: str) -> None:
+    """A file already sitting at our own about-to-be-used control path can
+    only be a leftover from a previous process that happened to reuse this
+    exact PID and crashed before its `ssh -O exit` cleanup ran (this
+    process hasn't created one yet) — remove it so ControlMaster=auto
+    doesn't try to dial a dead master and fail every ssh call this run
+    makes. Runs at most once per (host, user, port) per process — after
+    that, a file at this path is our own live master, not a stale one."""
+    key = (host, user, port)
+    if key in _control_sockets_checked:
+        return
+    _control_sockets_checked.add(key)
+    try:
+        os.unlink(path)
+    except OSError:
+        pass
 
 
 def _ssh_multiplex_opts(host: str, user: str, port: str) -> list:
     """-o flags enabling connection reuse (ControlMaster/ControlPath/
     ControlPersist), passed on the command line — nothing in ~/.ssh/config
-    needs to change for this to work."""
+    needs to change for this to work. ControlPersist is long enough to
+    outlast the gaps between pages/prep-kits/markdown within one run; the
+    CLI closes the master explicitly once at the end (see
+    _close_shared_ssh_connection_if_used) rather than waiting it out."""
+    global _ssh_connection_used
+    _ssh_connection_used = True
     return [
         "-o", "ControlMaster=auto",
         "-o", f"ControlPath={_ssh_control_path(host, user, port)}",
@@ -1743,9 +1787,11 @@ def _ssh_argv(host: str, user: str, port: str, remote_cmd: str) -> list:
 
 
 def _close_control_master(host: str, user: str, port: str) -> None:
-    """Best-effort: tell the multiplexed master to exit once a bulk sync is
-    done, rather than waiting out the ControlPersist window. Never raises —
-    this is cleanup, not part of the deploy's success/failure path."""
+    """Best-effort: tell the multiplexed master to exit, rather than
+    waiting out the ControlPersist window. Never raises — this is cleanup,
+    not part of the deploy's success/failure path. Called once per run (see
+    _close_shared_ssh_connection_if_used), not once per bulk sync — the
+    three bulk syncs share one connection across the whole run."""
     try:
         subprocess.run(
             ["ssh", "-i", str(SSH_KEY), "-p", port]
@@ -1757,13 +1803,26 @@ def _close_control_master(host: str, user: str, port: str) -> None:
         pass
 
 
+def _close_shared_ssh_connection_if_used() -> None:
+    """Call once, at the very end of a push_wordpress.py run. No-op if the
+    shared connection was never opened this run (e.g. no bulk sync ran, or
+    every one was a --dry-run, which never opens a real ssh connection at
+    all)."""
+    if not _ssh_connection_used:
+        return
+    ssh = get_ssh_credentials()
+    if ssh:
+        _close_control_master(*ssh)
+
+
 def _run_with_retry(cmd, *, timeout, input_text=None, retries=2, backoff=2):
     """Run a short ssh/scp command, retrying a failure (non-zero exit or a
     timeout) once or twice with linear backoff before giving up. SiteGround's
     SSH has slow patches where a single handshake stall shouldn't sink an
     otherwise-healthy deploy. Every command this wraps is idempotent (mkdir
-    -p, a read-only verify script, the move script's per-file mv loop), so
-    retrying it is always safe.
+    -p, a read-only verify script, launching the promote script — that
+    launch is itself guarded by its own atomic lock, see
+    _upload_and_launch_promotion), so retrying it is always safe.
 
     Raises subprocess.TimeoutExpired if every attempt timed out and none
     produced a result; otherwise returns the last CompletedProcess (which
@@ -1788,16 +1847,121 @@ def _run_with_retry(cmd, *, timeout, input_text=None, retries=2, backoff=2):
     raise last_error
 
 
-def _build_verify_script(base: str, relpaths: list, check_total_count: bool) -> str:
+def _run_ssh_level_retry(cmd, *, timeout, input_text=None, retries=2, backoff=2):
+    """Like _run_with_retry, but only retries when ssh ITSELF failed to
+    connect/authenticate (OpenSSH's dedicated exit code 255 for that) — not
+    when the remote command ran and returned its own non-zero exit. Used
+    only for the deploy lock's `mkdir` (genuinely NOT idempotent — a second
+    `mkdir` on the same path is supposed to fail): blindly retrying a
+    non-255 failure there could make us misread our own just-succeeded lock
+    as "held by someone else" if the confirmation of our first attempt got
+    lost in transit."""
+    last_result = None
+    last_error = None
+    for attempt in range(retries + 1):
+        try:
+            result = subprocess.run(
+                cmd, input=input_text, capture_output=True, text=True, timeout=timeout,
+            )
+            if result.returncode != 255:
+                return result
+            last_result = result
+        except subprocess.TimeoutExpired as e:
+            last_error = e
+        if attempt < retries:
+            time.sleep(backoff * (attempt + 1))
+    if last_result is not None:
+        return last_result
+    raise last_error
+
+
+def _acquire_deploy_lock(host: str, user: str, port: str, *, force: bool = False) -> tuple:
+    """Atomically claim `~/deploy-staging/.lock` (a plain `mkdir`, which
+    fails if the directory already exists) so two bulk syncs — same kind or
+    different, same process or a second concurrent invocation of
+    push_wordpress.py — never run at once and step on each other's staging/
+    promote/remote_base writes. Records pid+timestamp in `.lock/owner` for
+    diagnostics. Returns (True, "") once acquired. On failure, (False,
+    message) — the message names the current holder and, once the lock is
+    older than DEPLOY_LOCK_STALE_SECONDS, says to pass --force-unlock."""
+    try:
+        result = _run_ssh_level_retry(
+            _ssh_argv(host, user, port,
+                      f"mkdir -p {DEPLOY_STAGING_ROOT} && mkdir {DEPLOY_LOCK_PATH}"),
+            timeout=15,
+        )
+    except subprocess.TimeoutExpired:
+        return False, "Could not reach the server to check the deploy lock (timed out)."
+
+    if result.returncode == 0:
+        owner_info = f"pid={os.getpid()} started={int(time.time())}"
+        try:
+            _run_with_retry(
+                _ssh_argv(host, user, port, f"cat > {DEPLOY_LOCK_PATH}/owner"),
+                input_text=owner_info, timeout=15,
+            )
+        except subprocess.TimeoutExpired:
+            pass  # lock is still ours either way; the owner file is only diagnostic
+        return True, ""
+
+    owner_result = subprocess.run(
+        _ssh_argv(host, user, port, f"cat {DEPLOY_LOCK_PATH}/owner 2>/dev/null"),
+        capture_output=True, text=True, timeout=15,
+    )
+    owner_info = owner_result.stdout.strip() or "unknown owner (no marker file found)"
+    match = re.search(r"started=(\d+)", owner_info)
+    age = (time.time() - int(match.group(1))) if match else None
+    is_stale = age is not None and age > DEPLOY_LOCK_STALE_SECONDS
+    age_desc = f"{int(age // 60)} min old" if age is not None else "age unknown"
+
+    if is_stale and force:
+        subprocess.run(
+            _ssh_argv(host, user, port, f"rm -rf {DEPLOY_LOCK_PATH}"),
+            capture_output=True, text=True, timeout=15,
+        )
+        return _acquire_deploy_lock(host, user, port, force=False)
+
+    if is_stale:
+        return False, (f"Deploy lock is held ({owner_info}, {age_desc}) and looks stale "
+                        f"(>{DEPLOY_LOCK_STALE_SECONDS // 60} min) — pass --force-unlock to "
+                        f"clear it and proceed.")
+    return False, (f"Another deploy is already running ({owner_info}, {age_desc}). Wait "
+                    f"for it to finish, or pass --force-unlock if you're sure it's dead.")
+
+
+def _release_deploy_lock(host: str, user: str, port: str) -> None:
+    """Best-effort: release the remote deploy lock. Never raises — this is
+    cleanup, not part of the deploy's success/failure path."""
+    try:
+        subprocess.run(
+            _ssh_argv(host, user, port, f"rm -rf {DEPLOY_LOCK_PATH}"),
+            capture_output=True, text=True, timeout=15,
+        )
+    except Exception:  # noqa: BLE001
+        pass
+
+
+def _build_verify_script(base: str, relpaths: list, check_total_count: bool,
+                          sizes: dict = None) -> str:
     """Shell script (run via `ssh ... bash -s`, script text piped over
     stdin) that checks, for every path in `relpaths` relative to `base`:
-    the file exists, is non-empty, and — if it's HTML — ends with </html>.
-    When check_total_count is True (staging, which holds nothing but this
-    run's files) it also checks the total file count under `base` matches
+    the file exists, is non-empty, matches the local original's byte size
+    (when `sizes` gives one — cheap, and catches a subtler failure than
+    truncation-at-the-end: an interleaved/partial transfer landing a file
+    that's non-empty but the wrong size, even if it happens to still end in
+    </html>), and — if it's HTML — ends with </html>. When
+    check_total_count is True (staging, which holds nothing but this run's
+    files) it also checks the total file count under `base` matches
     len(relpaths) exactly, to catch a tar extraction that silently dropped
     or added files. Prints one line per problem found and exits non-zero if
-    any check failed; prints VERIFY_OK and exits 0 otherwise."""
-    quoted_paths = " ".join(shlex.quote(p) for p in relpaths)
+    any check failed; prints VERIFY_OK and exits 0 otherwise.
+
+    Uses plain indexed bash arrays (not `declare -A`) so it still runs on
+    the old bash (3.2, no associative-array support) that ships as
+    /bin/bash on some hosts."""
+    relpaths_arr = " ".join(shlex.quote(p) for p in relpaths)
+    sizes = sizes or {}
+    sizes_arr = " ".join(str(sizes.get(p, -1)) for p in relpaths)
     count_check = ""
     if check_total_count:
         count_check = f'''
@@ -1807,20 +1971,32 @@ if [ "$actual_count" != "{len(relpaths)}" ]; then
   status=1
 fi
 '''
-    # `base`/`remote_base`/`staging` are always our own generated constants
-    # (DEPLOY_STAGING_ROOT + kind + timestamp, or the hardcoded remote_base
-    # path) — never user input — so they're used unquoted, the same way the
-    # rest of this file already does, to keep server-side `~` expansion working.
+    # `base` is always our own generated constant (DEPLOY_STAGING_ROOT +
+    # kind + timestamp, or the hardcoded remote_base path) — never user
+    # input — so it's used unquoted, the same way the rest of this file
+    # does, to keep server-side `~` expansion working.
     return f"""set -u
 cd {base} || {{ echo "MISSING_DIR:{base}"; exit 1; }}
 status=0
 {count_check}
-for rel in {quoted_paths}; do
+relpaths=( {relpaths_arr} )
+expected_sizes=( {sizes_arr} )
+i=0
+while [ "$i" -lt "${{#relpaths[@]}}" ]; do
+  rel="${{relpaths[$i]}}"
+  expected_bytes="${{expected_sizes[$i]}}"
+  i=$((i + 1))
   if [ ! -f "$rel" ]; then
     echo "MISSING:$rel"; status=1; continue
   fi
   if [ ! -s "$rel" ]; then
     echo "EMPTY:$rel"; status=1; continue
+  fi
+  if [ "$expected_bytes" != "-1" ]; then
+    actual_bytes=$(wc -c < "$rel" | tr -d " ")
+    if [ "$actual_bytes" != "$expected_bytes" ]; then
+      echo "SIZE_MISMATCH:$rel expected=$expected_bytes actual=$actual_bytes"; status=1; continue
+    fi
   fi
   case "$rel" in
     *.html)
@@ -1837,54 +2013,179 @@ exit "$status"
 """
 
 
-def _build_move_script(staging: str, remote_base: str) -> str:
+def _build_promote_script(staging: str, remote_base: str, log_path: str, exit_path: str) -> str:
     """Shell script that moves every file out of `staging` into `remote_base`
     (creating subdirectories as needed) and cleans up the now-empty staging
     tree — a purely local, server-side operation with no network transfer,
     so it's fast even for hundreds of files. Deliberately per-file `mv`
     rather than a directory swap: a race directory holds both index.html
     AND prep-kit/ (uploaded by separate runs), so replacing the whole
-    directory would delete sibling content this run never touched. `set -e`
-    means a failed mv aborts immediately, leaving whatever hasn't moved yet
-    safely in staging (not lost) and remote_base holding only the files that
-    already finished moving."""
-    # `remote_base`/`staging` are assigned to shell variables via an UNQUOTED
-    # assignment first (so `~` still expands there), then referenced as
-    # "$remote_base"/"$staging" everywhere else. Embedding {remote_base}
-    # directly inside a double-quoted string (e.g. `destdir="{remote_base}/..."`)
-    # would NOT expand its leading `~` — bash only tilde-expands an unquoted
-    # `~` — so files would silently land under a literal "~" subdirectory
-    # inside staging instead of remote_base.
-    return f"""set -euo pipefail
+    directory would delete sibling content this run never touched.
+
+    Built to run DETACHED (see _upload_and_launch_promotion) so it survives
+    this ssh connection dropping mid-move: the actual move runs inside its
+    own subshell with `set -e` — a failed mv aborts that subshell
+    immediately, leaving whatever hasn't moved yet safely in staging (not
+    lost) and remote_base holding only the files that already finished
+    moving — with its combined output captured to `log_path` and its exit
+    status always written to `exit_path` afterward, success or failure.
+    `log_path`/`exit_path` deliberately live in DEPLOY_STAGING_ROOT, a
+    SIBLING of `staging`, not inside it, so they survive even a fully
+    successful run that removes `staging` itself. On full success the
+    script also deletes its own on-disk copy and its launch-lock directory
+    before removing `staging`, so nothing is left behind.
+
+    `remote_base`/`staging`/`log_path`/`exit_path` are assigned to shell
+    variables via an UNQUOTED assignment first (so a leading `~` still
+    expands there), then referenced as "$remote_base" etc. everywhere else.
+    Embedding one of these directly inside a double-quoted string (e.g.
+    `destdir="{remote_base}/..."`) would NOT expand its leading `~` — bash
+    only tilde-expands an unquoted `~` — so files would silently land under
+    a literal "~" subdirectory instead of the real path."""
+    return f"""set -uo pipefail
 remote_base={remote_base}
 staging={staging}
-mkdir -p "$remote_base"
-cd "$staging"
-find . -type f -print0 | while IFS= read -r -d '' f; do
-  rel="${{f#./}}"
-  destdir="$remote_base/$(dirname "$rel")"
-  mkdir -p "$destdir"
-  mv -f "$rel" "$remote_base/$rel"
-done
-cd - > /dev/null
-find "$staging" -depth -type d -empty -delete
-rmdir "$staging" 2>/dev/null || true
+log_path={log_path}
+exit_path={exit_path}
+script_path="$staging/.promote.sh"
+(
+  set -euo pipefail
+  mkdir -p "$remote_base"
+  cd "$staging"
+  find . -type f -print0 | while IFS= read -r -d '' f; do
+    rel="${{f#./}}"
+    destdir="$remote_base/$(dirname "$rel")"
+    mkdir -p "$destdir"
+    mv -f "$rel" "$remote_base/$rel"
+  done
+  cd ..
+  rm -f "$script_path"
+  rmdir "$staging/.promote-lock" 2>/dev/null || true
+  find "$staging" -depth -type d -empty -delete
+  rmdir "$staging" 2>/dev/null || true
+) > "$log_path" 2>&1
+rc=$?
+echo "$rc" > "$exit_path"
 """
+
+
+def _upload_and_launch_promotion(host: str, user: str, port: str, staging: str,
+                                  script_text: str) -> tuple:
+    """Upload the promote script into `staging` and launch it fully
+    detached — stdin/stdout/stderr redirected away from the ssh channel via
+    `nohup`, so it keeps running to completion on the server even if THIS
+    ssh connection drops mid-move. Returns (True, "") once the launch is
+    confirmed; (False, message) if the upload or launch itself failed (the
+    move never started).
+
+    The launch command is itself idempotent (guarded by an atomic `mkdir`
+    lock inside `staging`), so it's safe to route through _run_with_retry
+    even though "launch a background job" sounds like a one-shot action —
+    a retry after a lost confirmation just finds the lock already claimed
+    and skips relaunching, instead of starting a second promote process
+    that could race the first one's file moves."""
+    script_path = f"{staging}/.promote.sh"
+    try:
+        upload = _run_with_retry(
+            _ssh_argv(host, user, port, f"cat > {script_path}"),
+            input_text=script_text, timeout=15,
+        )
+    except subprocess.TimeoutExpired:
+        return False, "uploading the move script timed out"
+    if upload.returncode != 0:
+        return False, f"could not upload the move script: {upload.stderr.strip()}"
+
+    launch_cmd = (
+        f"(mkdir {staging}/.promote-lock 2>/dev/null && "
+        f"nohup bash {script_path} < /dev/null > /dev/null 2>&1 &); echo LAUNCHED"
+    )
+    try:
+        launch = _run_with_retry(_ssh_argv(host, user, port, launch_cmd), timeout=15)
+    except subprocess.TimeoutExpired:
+        return False, "launching the move script timed out"
+    if launch.returncode != 0 or "LAUNCHED" not in launch.stdout:
+        return False, f"could not launch the move script: {launch.stderr.strip()}"
+    return True, ""
+
+
+def _poll_for_promotion(host: str, user: str, port: str, exit_path: str, *,
+                         timeout: float, interval: float = 3.0) -> tuple:
+    """Poll for the detached promote script's completion marker. Tolerates
+    any single poll attempt failing or timing out — the script we're
+    waiting on doesn't depend on this (or any particular) ssh connection
+    staying up, so a dropped connection here just means we check again next
+    interval instead of giving up. Returns (finished, exit_code) —
+    finished=False if `timeout` elapses with the marker never seen (the
+    script may still be running server-side; it is NOT killed)."""
+    check_cmd = f'if [ -f {exit_path} ]; then cat {exit_path}; else echo __PENDING__; fi'
+    deadline = time.time() + timeout
+    while True:
+        try:
+            result = subprocess.run(
+                _ssh_argv(host, user, port, check_cmd),
+                capture_output=True, text=True, timeout=15,
+            )
+            out = result.stdout.strip()
+            if result.returncode == 0 and out and out != "__PENDING__":
+                try:
+                    return True, int(out.splitlines()[0].strip())
+                except ValueError:
+                    pass  # transient/garbled read (e.g. mid-write); poll again
+        except subprocess.TimeoutExpired:
+            pass
+        if time.time() >= deadline:
+            return False, None
+        time.sleep(interval)
+
+
+def _fetch_remote_text(host: str, user: str, port: str, path: str) -> str:
+    """Best-effort read of a small remote text file (e.g. the promote log,
+    for a failure report). Returns "" on any failure — this is diagnostic
+    only, never part of the pass/fail decision."""
+    try:
+        result = subprocess.run(
+            _ssh_argv(host, user, port, f"cat {path} 2>/dev/null"),
+            capture_output=True, text=True, timeout=15,
+        )
+        return result.stdout
+    except Exception:  # noqa: BLE001
+        return ""
+
+
+def _cleanup_remote_files(host: str, user: str, port: str, paths: list) -> None:
+    """Best-effort cleanup of small marker/log files left in
+    DEPLOY_STAGING_ROOT after a successful promotion. Never raises."""
+    if not paths:
+        return
+    try:
+        subprocess.run(
+            _ssh_argv(host, user, port, "rm -f " + " ".join(paths)),
+            capture_output=True, text=True, timeout=15,
+        )
+    except Exception:  # noqa: BLE001
+        pass
 
 
 def _atomic_tar_deploy(*, host: str, user: str, port: str, local_root: Path,
                         remote_base: str, kind: str, chmod_remote_base: bool = False,
-                        dry_run: bool = False, verbose_label: str = "files") -> bool:
+                        dry_run: bool = False, force_unlock: bool = False,
+                        verbose_label: str = "files") -> bool:
     """Ship everything under `local_root` to `remote_base` on the server
     atomically. `local_root` must contain exactly the files this run should
     upload (callers build a fresh tempdir with just that content).
 
-    Steps: (1) tar+ssh into a fresh timestamped staging directory — never
-    remote_base directly; (2) verify every file landed there intact; (3) if
+    Steps: (0) claim a remote lock so no other bulk sync runs concurrently
+    against the same staging root; (1) tar+ssh into a fresh timestamped
+    staging directory — never remote_base directly; (2) verify every file
+    landed there intact (existence, non-empty, exact byte-size match against
+    the local original, and — for HTML — an intact `</html>` ending); (3) if
     verification fails, stop — remote_base is never touched, staging is left
-    for inspection; (4) otherwise move everything into remote_base with one
-    fast server-side operation; (5) re-verify the live files; (6) clean up
-    staging on success.
+    for inspection; (4) otherwise launch the move DETACHED on the server and
+    poll for its completion marker, so a dropped ssh connection here can't
+    leave a half-promoted set — the move keeps running to completion
+    server-side regardless of what happens to our connection, and per-file
+    `mv` within one filesystem is atomic per file; (5) re-verify the live
+    files; (6) release the lock, always, on any exit path.
     """
     relpaths = sorted(
         str(p.relative_to(local_root)) for p in local_root.rglob("*") if p.is_file()
@@ -1904,7 +2205,19 @@ def _atomic_tar_deploy(*, host: str, user: str, port: str, local_root: Path,
             print(f"    ... and {len(relpaths) - 10} more")
         return True
 
+    sizes = {rel: (local_root / rel).stat().st_size for rel in relpaths}
+    lock_acquired = False
+
     try:
+        # 0. Claim the remote deploy lock — no other bulk sync may run
+        #    while this one holds it (they'd otherwise share the same
+        #    staging root and could race each other's promote scripts).
+        locked, lock_message = _acquire_deploy_lock(host, user, port, force=force_unlock)
+        if not locked:
+            print(f"✗ {lock_message}")
+            return False
+        lock_acquired = True
+
         # 1. Fresh staging directory.
         try:
             mkdir_result = _run_with_retry(
@@ -1951,7 +2264,8 @@ def _atomic_tar_deploy(*, host: str, user: str, port: str, local_root: Path,
         try:
             result = _run_with_retry(
                 _ssh_argv(host, user, port, "bash -s"),
-                input_text=_build_verify_script(staging, relpaths, check_total_count=True),
+                input_text=_build_verify_script(staging, relpaths, check_total_count=True,
+                                                 sizes=sizes),
                 timeout=verify_timeout,
             )
         except subprocess.TimeoutExpired:
@@ -1967,24 +2281,42 @@ def _atomic_tar_deploy(*, host: str, user: str, port: str, local_root: Path,
                 print(f"    stderr: {result.stderr.strip()}")
             return False
 
-        # 4. Move into place with one fast, local, server-side operation.
+        # 4. Promote: launch the move DETACHED so it survives a dropped ssh
+        #    connection, then poll for its completion marker instead of
+        #    blocking on one long-lived ssh call.
+        promote_ts = f"{kind}-{int(time.time())}-{os.getpid()}"
+        log_path = f"{DEPLOY_STAGING_ROOT}/.promote-{promote_ts}.log"
+        exit_path = f"{DEPLOY_STAGING_ROOT}/.promote-{promote_ts}.exit"
+        promote_script = _build_promote_script(staging, remote_base, log_path, exit_path)
+
+        launched, launch_error = _upload_and_launch_promotion(
+            host, user, port, staging, promote_script,
+        )
+        if not launched:
+            print(f"✗ Could not start the move into place: {launch_error} — staging left "
+                  f"at {staging} for inspection; nothing live was touched.")
+            return False
+
         move_timeout = max(60, len(relpaths))
-        try:
-            result = _run_with_retry(
-                _ssh_argv(host, user, port, "bash -s"),
-                input_text=_build_move_script(staging, remote_base),
-                timeout=move_timeout,
-            )
-        except subprocess.TimeoutExpired:
-            print(f"✗ Move into place timed out. Staging left at {staging} for "
-                  f"inspection — {remote_base} may hold a partial update from files "
-                  f"that finished moving before the timeout; re-running this sync is safe.")
+        finished, exit_code = _poll_for_promotion(
+            host, user, port, exit_path, timeout=move_timeout,
+        )
+        if not finished:
+            print(f"✗ Move into place did not report completion within {move_timeout}s. "
+                  f"It runs detached, so a dropped connection here does not stop it — it "
+                  f"may still finish on its own. Staging left at {staging}; check "
+                  f"{log_path} / {exit_path} on the server, or re-run this sync once you've "
+                  f"confirmed it finished (per-file moves are safe to repeat).")
             return False
-        if result.returncode != 0:
-            print(f"✗ Move into place FAILED: {result.stderr.strip()} — staging left at "
-                  f"{staging} for inspection; {remote_base} may hold a partial update "
-                  f"from files that moved before the failure. Re-running this sync is safe.")
+        if exit_code != 0:
+            log_text = _fetch_remote_text(host, user, port, log_path)
+            print(f"✗ Move into place FAILED (exit {exit_code}) — staging left at {staging} "
+                  f"for inspection; {remote_base} may hold a partial update from files that "
+                  f"moved before the failure. Re-running this sync is safe. Log:")
+            for line in (log_text or "(no log output captured)").strip().splitlines():
+                print(f"    {line}")
             return False
+        _cleanup_remote_files(host, user, port, [log_path, exit_path])
 
         if chmod_remote_base:
             try:
@@ -2002,7 +2334,8 @@ def _atomic_tar_deploy(*, host: str, user: str, port: str, local_root: Path,
         try:
             result = _run_with_retry(
                 _ssh_argv(host, user, port, "bash -s"),
-                input_text=_build_verify_script(remote_base, relpaths, check_total_count=False),
+                input_text=_build_verify_script(remote_base, relpaths, check_total_count=False,
+                                                 sizes=sizes),
                 timeout=verify_timeout,
             )
         except subprocess.TimeoutExpired:
@@ -2018,10 +2351,11 @@ def _atomic_tar_deploy(*, host: str, user: str, port: str, local_root: Path,
         print(f"✓ Verified {len(relpaths)} {verbose_label} live and intact at {remote_base}")
         return True
     finally:
-        _close_control_master(host, user, port)
+        if lock_acquired:
+            _release_deploy_lock(host, user, port)
 
 
-def sync_pages(pages_dir: str, dry_run: bool = False):
+def sync_pages(pages_dir: str, dry_run: bool = False, force_unlock: bool = False):
     """Upload race pages to /race/ on SiteGround, atomically (see
     _atomic_tar_deploy): staged and verified on the server before anything
     live changes.
@@ -2090,7 +2424,7 @@ def sync_pages(pages_dir: str, dry_run: bool = False):
             host=host, user=user, port=port,
             local_root=tmpdir, remote_base=remote_base,
             kind="pages", chmod_remote_base=True,
-            dry_run=dry_run, verbose_label="race pages",
+            dry_run=dry_run, force_unlock=force_unlock, verbose_label="race pages",
         )
 
     if not ok:
@@ -3176,7 +3510,7 @@ def sync_photos(photos_dir: str):
     return f"{wp_url}/race-photos/"
 
 
-def sync_prep_kits(prep_kit_dir: str, dry_run: bool = False):
+def sync_prep_kits(prep_kit_dir: str, dry_run: bool = False, force_unlock: bool = False):
     """Upload prep kit pages to /race/{slug}/prep-kit/ on SiteGround,
     atomically (see _atomic_tar_deploy): staged and verified on the server
     before anything live changes.
@@ -3217,7 +3551,7 @@ def sync_prep_kits(prep_kit_dir: str, dry_run: bool = False):
             host=host, user=user, port=port,
             local_root=tmpdir, remote_base=remote_base,
             kind="prep-kits", chmod_remote_base=False,
-            dry_run=dry_run, verbose_label="prep kit pages",
+            dry_run=dry_run, force_unlock=force_unlock, verbose_label="prep kit pages",
         )
 
     if not ok:
@@ -4338,7 +4672,7 @@ def sync_llms_txt():
     return f"{wp_url}/llms.txt"
 
 
-def sync_markdown(markdown_dir: str, dry_run: bool = False):
+def sync_markdown(markdown_dir: str, dry_run: bool = False, force_unlock: bool = False):
     """Upload markdown race profiles to /race/{slug}.md on SiteGround,
     atomically (see _atomic_tar_deploy): staged and verified on the server
     before anything live changes.
@@ -4383,7 +4717,7 @@ def sync_markdown(markdown_dir: str, dry_run: bool = False):
             host=host, user=user, port=port,
             local_root=tmpdir, remote_base=remote_base,
             kind="markdown", chmod_remote_base=False,
-            dry_run=dry_run, verbose_label="markdown profiles",
+            dry_run=dry_run, force_unlock=force_unlock, verbose_label="markdown profiles",
         )
 
     if not ok:
@@ -4738,8 +5072,18 @@ if __name__ == "__main__":
     )
     parser.add_argument(
         "--dry-run", action="store_true",
-        help="For --sync-pages/--sync-prep-kits/--sync-markdown: print what would be "
-             "staged and moved without touching the server (implies skipping --ping-indexnow)"
+        help="Global: nothing touches the server. --sync-pages/--sync-prep-kits/"
+             "--sync-markdown print what would be staged and moved; every other "
+             "--sync-*/--purge-cache/--json flag in the same invocation is skipped "
+             "with a printed notice instead of running for real (--ping-indexnow is "
+             "also skipped, since --sync-markdown never actually uploaded anything)"
+    )
+    parser.add_argument(
+        "--force-unlock", action="store_true",
+        help="For --sync-pages/--sync-prep-kits/--sync-markdown: if the remote deploy "
+             "lock (~/deploy-staging/.lock) is held but looks stale (older than 30 "
+             "minutes — almost certainly a crashed previous run), clear it and proceed "
+             "instead of refusing"
     )
     parser.add_argument(
         "--sync-meta-descriptions", action="store_true",
@@ -4824,6 +5168,34 @@ if __name__ == "__main__":
         args.sync_consent = True
         args.purge_cache = True
 
+    # --dry-run must be globally safe: NOTHING remote runs. sync_pages/
+    # sync_prep_kits/sync_markdown understand --dry-run directly (they
+    # print the atomic-upload staging preview and touch nothing). Every
+    # other --sync-*/--purge-cache/--json flag in this file still hits the
+    # server for real, so a combined invocation like
+    # `--deploy-content --dry-run` would otherwise silently push part of
+    # the deploy for real. Skip them all here instead, with a printed
+    # notice, rather than run them. --ping-indexnow is left alone — it
+    # already has its own --dry-run check right where it's dispatched
+    # below (it has nothing to ping in dry-run mode anyway).
+    _DRY_RUN_AWARE_SYNCS = {"sync_pages", "sync_prep_kits", "sync_markdown"}
+    if args.dry_run:
+        _dry_run_skipped = []
+        for _attr in vars(args):
+            if (_attr.startswith("sync_") and _attr not in _DRY_RUN_AWARE_SYNCS
+                    and _attr != "ping_indexnow" and getattr(args, _attr) is True):
+                setattr(args, _attr, False)
+                _dry_run_skipped.append("--" + _attr.replace("_", "-"))
+        if args.purge_cache:
+            args.purge_cache = False
+            _dry_run_skipped.append("--purge-cache")
+        if args.json:
+            _dry_run_skipped.append(f"--json {args.json}")
+            args.json = None
+        if _dry_run_skipped:
+            print(f"⚠ --dry-run: skipping (would touch the server for real): "
+                  f"{', '.join(_dry_run_skipped)}")
+
     has_action = any([args.json, args.sync_index, args.sync_widget, args.sync_training,
                       args.sync_guide, args.sync_guide_cluster,
                       args.sync_og, args.sync_tp, args.sync_homepage, args.sync_gravel_weekly, args.sync_about,
@@ -4903,7 +5275,7 @@ if __name__ == "__main__":
     if args.sync_success:
         _run("sync-success", sync_success, args.success_dir)
     if args.sync_pages:
-        _run("sync-pages", sync_pages, args.pages_dir, args.dry_run)
+        _run("sync-pages", sync_pages, args.pages_dir, args.dry_run, args.force_unlock)
     if args.sync_sitemap:
         _run("sync-sitemap", sync_sitemap)
     if args.sync_favicons:
@@ -4925,7 +5297,7 @@ if __name__ == "__main__":
     if args.sync_photos:
         _run("sync-photos", sync_photos, args.photos_dir)
     if args.sync_prep_kits:
-        _run("sync-prep-kits", sync_prep_kits, args.prep_kit_dir, args.dry_run)
+        _run("sync-prep-kits", sync_prep_kits, args.prep_kit_dir, args.dry_run, args.force_unlock)
     if args.sync_plan_pages:
         _run("sync-plan-pages", sync_plan_pages, args.plan_dir)
     if args.sync_tire_guides:
@@ -4963,7 +5335,7 @@ if __name__ == "__main__":
         _run("sync-llms-txt", sync_llms_txt)
     synced_markdown_urls = None
     if args.sync_markdown:
-        synced_markdown_urls = sync_markdown(args.markdown_dir, args.dry_run)
+        synced_markdown_urls = sync_markdown(args.markdown_dir, args.dry_run, args.force_unlock)
         if not synced_markdown_urls:
             _failures.append("sync-markdown")
     if args.ping_indexnow:
@@ -4979,6 +5351,11 @@ if __name__ == "__main__":
             print("⚠ --ping-indexnow had no synced URLs to ping (did --sync-markdown succeed?)")
     if args.purge_cache:
         _run("purge-cache", purge_cache)
+
+    # sync_pages/sync_prep_kits/sync_markdown share one multiplexed ssh
+    # connection across this whole run instead of closing it after each one
+    # (see _ssh_multiplex_opts) — close it exactly once, here, at the end.
+    _close_shared_ssh_connection_if_used()
 
     if _failures:
         print(f"\n✗ DEPLOY FAILED — {len(_failures)} step(s): {', '.join(_failures)}")

@@ -45,6 +45,17 @@ class TestSequence:
         ids = [s["id"] for s in get_sequences_for_trigger("goal_2027", "roadielabs")]
         assert ids == ["road_goal_2027_v1"]
 
+    def test_xc_gets_its_own(self):
+        ids = [s["id"] for s in get_sequences_for_trigger("goal_2027", "xcskilabs")]
+        assert ids == ["xc_goal_2027_v1"]
+
+    def test_xc_subject_says_season_not_2027(self):
+        # XC ski races span a winter (2026-27), not a calendar year.
+        seq = get_sequences_for_trigger("goal_2027", "xcskilabs")[0]
+        first = seq["variants"]["A"]["steps"][0]
+        assert first["template"] == "xc_goal_2027_results"
+        assert "2027" not in first["subject"]
+
     def test_results_email_is_first_and_same_day(self):
         seq = get_sequences_for_trigger("goal_2027", "gravelgod")[0]
         first = seq["variants"]["A"]["steps"][0]
@@ -63,6 +74,16 @@ class TestWebhook:
         sd = _enrollment(fake_db, "goal@example.com")["source_data"]
         assert sd["goal_answers"]["outcome_goal"] == ANSWERS["outcome_goal"]
         assert sd["offer_variant"] == "B"
+
+    def test_xcskilabs_lead_enrolls_the_xc_sequence_not_gravelgods(self, client, fake_db):
+        _post(client, {"email": "xcgoal@example.com", "name": "Ada Skier",
+                       "source": "goal_2027", "goal_answers": ANSWERS,
+                       "brand": "xcskilabs"})
+        sd = _enrollment(fake_db, "xcgoal@example.com")["source_data"]
+        assert sd["brand"] == "xcskilabs"
+        row = fake_db.store["gg_sequence_enrollments"]
+        ids = [e["sequence_id"] for e in row if e["contact_email"] == "xcgoal@example.com"]
+        assert ids == ["xc_goal_2027_v1"]
 
     def test_poster_token_and_url_are_issued(self, client, fake_db):
         _post(client, {"email": "token@example.com", "source": "goal_2027",
@@ -171,6 +192,23 @@ class TestPosterImage:
     def test_long_goal_does_not_crash(self):
         assert render_poster({"outcome_goal": "word " * 200})[:4] == b"\x89PNG"
 
+    def test_xc_brand_renders(self):
+        png = render_poster(ANSWERS, name="Ada Skier", brand="xcskilabs")
+        assert png[:8] == b"\x89PNG\r\n\x1a\n"
+        assert len(png) > 5000
+
+    def test_unknown_brand_falls_back_to_gravelgod(self):
+        from mission_control.services.goal_poster import render_poster as _rp
+        default = _rp(ANSWERS, name="Ada Rider")
+        unknown = _rp(ANSWERS, name="Ada Rider", brand="not_a_real_brand")
+        assert default == unknown
+
+    def test_xc_poster_uses_its_own_colors_not_gravelgods(self):
+        from mission_control.services.goal_poster import BRANDS
+        assert BRANDS["xcskilabs"]["paper"] != BRANDS["gravelgod"]["paper"]
+        assert BRANDS["xcskilabs"]["mark"] == "XC SKI LABS"
+        assert BRANDS["xcskilabs"]["domain"] == "XCSKILABS.COM"
+
 
 class TestAthleteReviewIsTransactional:
     """A coached athlete filing a review is not being marketed to. Every
@@ -259,6 +297,28 @@ class TestResubmitResendsTheResults:
 
     def test_a_quick_correction_still_gets_one(self, client, fake_db, monkeypatch):
         assert self._two_posts(client, fake_db, monkeypatch, gap_minutes=1) == ["your 2027 goal, revised"]
+
+    def test_xc_correction_subject_does_not_say_a_bare_2027(self, client, fake_db, monkeypatch):
+        # XC's goal_2027 day-0 subject is "your season, on paper" (a ski
+        # season, e.g. "2026-27") — the resend subject must match that
+        # framing, not GG/Road's bare-year "your 2027 goal, revised".
+        from datetime import datetime, timedelta, timezone
+        import mission_control.services.sequence_engine as se
+        sent = []
+        monkeypatch.setattr(se, "RESEND_API_KEY", "test-key")
+        monkeypatch.setattr(se, "_send_email_sync",
+                            lambda to, subject, *a: (to == "xcfix@example.com" and sent.append(subject)) or "rs-1")
+        _post(client, {"email": "xcfix@example.com", "name": "Fix", "source": "goal_2027",
+                       "brand": "xcskilabs", "goal_answers": dict(ANSWERS, outcome_goal="First")})
+        enrollment = _enrollment(fake_db, "xcfix@example.com")
+        fake_db.store["gg_sequence_sends"].append({
+            "id": "s0", "enrollment_id": enrollment["id"], "step_index": 0,
+            "template": "xc_goal_2027_results", "subject": "x",
+            "sent_at": (datetime.now(timezone.utc) - timedelta(minutes=30)).isoformat(),
+        })
+        _post(client, {"email": "xcfix@example.com", "name": "Fix", "source": "goal_2027",
+                       "brand": "xcskilabs", "goal_answers": dict(ANSWERS, outcome_goal="Second")})
+        assert sent == ["your season, revised"]
 
     def test_nothing_extra_before_the_first_email_goes(self, client, fake_db, monkeypatch):
         # the scheduled day-0 send renders the corrected answers anyway

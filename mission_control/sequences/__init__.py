@@ -25,6 +25,7 @@ from mission_control.sequences.race_watch import SEQUENCE as race_watch
 from mission_control.sequences.goal_2027 import (
     GG as goal_2027,
     ROAD as road_goal_2027,
+    XC as xc_goal_2027,
     ATHLETE_REVIEW as athlete_review,
 )
 
@@ -51,6 +52,7 @@ SEQUENCES: dict[str, dict] = {
     kit_delivery["id"]: kit_delivery,
     goal_2027["id"]: goal_2027,
     road_goal_2027["id"]: road_goal_2027,
+    xc_goal_2027["id"]: xc_goal_2027,
     athlete_review["id"]: athlete_review,
     road_kit_delivery["id"]: road_kit_delivery,
     XC_16["id"]: XC_16,

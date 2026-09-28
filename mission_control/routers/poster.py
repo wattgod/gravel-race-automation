@@ -20,6 +20,11 @@ logger = logging.getLogger(__name__)
 
 _TOKEN_RE = re.compile(r"^[A-Za-z0-9_-]{16,64}$")
 
+# Gravel/road goals run on a calendar year; XC ski races span a winter, so its
+# season reads as e.g. "2026-27" rather than a bare year (webhooks.py already
+# computes the brand's offseason months the same way, lines ~288-299).
+_SEASON_BY_BRAND = {"xcskilabs": "2026-27"}
+
 
 @router.get("/poster/{token}.png")
 def goal_poster(token: str) -> Response:
@@ -44,10 +49,13 @@ def goal_poster(token: str) -> Response:
     match = rows[0]
 
     source_data = match.get("source_data") or {}
+    brand = str(source_data.get("brand") or "gravelgod")
     try:
         png = render_poster(
             source_data.get("goal_answers") or {},
             name=match.get("contact_name") or "",
+            season=_SEASON_BY_BRAND.get(brand, 2027),
+            brand=brand,
         )
     except Exception:  # noqa: BLE001 - a broken poster is a 404, never a 500
         logger.exception("poster render failed")

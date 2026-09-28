@@ -28,6 +28,20 @@ ROAD = {
     ]}},
 }
 
+# XC ski races span a winter (2026-27), not a calendar year, so the subject
+# reads "your season" rather than "your 2027 goal" — everything else about
+# the delivery/check-in shape is identical to GG and Road.
+XC = {
+    **GG,
+    "id": "xc_goal_2027_v1",
+    "name": "2027 Goals (XC Ski Labs)",
+    "brand": "xcskilabs",
+    "variants": {"A": {"weight": 100, "name": "Delivery", "steps": [
+        {"delay_days": 0, "template": "xc_goal_2027_results", "subject": "your season, on paper"},
+        {"delay_days": 7, "template": "xc_goal_2027_checkin", "subject": "still the goal?"},
+    ]}},
+}
+
 
 # A coached athlete's season review. One transactional receipt, no marketing:
 # their answers ride on the enrollment so scripts/file_athlete_review.py can

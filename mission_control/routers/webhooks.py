@@ -26,6 +26,11 @@ _MAX_GOAL_ANSWER_LEN = 4000
 _MAX_GOAL_ANSWERS_TOTAL = 30000
 # Subject for the resent first email after a rider corrects their answers.
 _REVISED_SUBJECTS = {"goal_2027": "your 2027 goal, revised"}
+# XC Ski Labs' goal_2027 day-0 subject reads "your season, on paper" (a ski
+# season spans a winter, e.g. "2026-27" — there is no bare "2027" to revise).
+# Brand-specific overrides fall back to _REVISED_SUBJECTS when absent, so
+# every other brand keeps its existing subject unchanged.
+_REVISED_SUBJECTS_BY_BRAND = {"xcskilabs": {"goal_2027": "your season, revised"}}
 _SLUG_RE = re.compile(r"^[a-z0-9][a-z0-9-]{0,80}$")
 _MAX_NAME_LEN = 200
 _MAX_SOURCE_LEN = 100
@@ -446,7 +451,8 @@ async def subscriber_webhook(
             try:
                 await resend_first_step(
                     {**existing, "source_data": merged},
-                    subject=_REVISED_SUBJECTS.get(source),
+                    subject=(_REVISED_SUBJECTS_BY_BRAND.get(brand, {}).get(source)
+                             or _REVISED_SUBJECTS.get(source)),
                 )
             except Exception:
                 logger.exception("resubmitted review resend failed for %s", email)

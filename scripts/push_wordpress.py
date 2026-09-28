@@ -1880,41 +1880,56 @@ def _acquire_deploy_lock(host: str, user: str, port: str, *, force: bool = False
     fails if the directory already exists) so two bulk syncs — same kind or
     different, same process or a second concurrent invocation of
     push_wordpress.py — never run at once and step on each other's staging/
-    promote/remote_base writes. Records pid+timestamp in `.lock/owner` for
-    diagnostics. Returns (True, "") once acquired. On failure, (False,
-    message) — the message names the current holder and, once the lock is
-    older than DEPLOY_LOCK_STALE_SECONDS, says to pass --force-unlock."""
+    promote/remote_base writes. The `mkdir` and writing `pid=.../started=...`
+    to `.lock/owner` are one combined remote command (not two round trips)
+    so there's the smallest possible window where the lock dir exists
+    without its owner marker. Returns (True, "") once acquired. On failure,
+    (False, message) — the message names the current holder and, once the
+    lock is stale (older than DEPLOY_LOCK_STALE_SECONDS, OR has no owner
+    marker at all — which given the combined command above almost always
+    means an earlier attempt of OURS created the lock but we never saw the
+    confirmation, e.g. the connection dropped right after), says to pass
+    --force-unlock."""
+    owner_info = f"pid={os.getpid()} started={int(time.time())}"
     try:
         result = _run_ssh_level_retry(
             _ssh_argv(host, user, port,
-                      f"mkdir -p {DEPLOY_STAGING_ROOT} && mkdir {DEPLOY_LOCK_PATH}"),
+                      f"mkdir -p {DEPLOY_STAGING_ROOT} && mkdir {DEPLOY_LOCK_PATH} && "
+                      f"echo '{owner_info}' > {DEPLOY_LOCK_PATH}/owner"),
             timeout=15,
         )
     except subprocess.TimeoutExpired:
         return False, "Could not reach the server to check the deploy lock (timed out)."
 
     if result.returncode == 0:
-        owner_info = f"pid={os.getpid()} started={int(time.time())}"
-        try:
-            _run_with_retry(
-                _ssh_argv(host, user, port, f"cat > {DEPLOY_LOCK_PATH}/owner"),
-                input_text=owner_info, timeout=15,
-            )
-        except subprocess.TimeoutExpired:
-            pass  # lock is still ours either way; the owner file is only diagnostic
         return True, ""
 
     owner_result = subprocess.run(
         _ssh_argv(host, user, port, f"cat {DEPLOY_LOCK_PATH}/owner 2>/dev/null"),
         capture_output=True, text=True, timeout=15,
     )
-    owner_info = owner_result.stdout.strip() or "unknown owner (no marker file found)"
-    match = re.search(r"started=(\d+)", owner_info)
+    current_owner = owner_result.stdout.strip()
+    is_unknown = not current_owner
+    display_owner = current_owner or "unknown owner — no marker file at all"
+    match = re.search(r"started=(\d+)", current_owner)
     age = (time.time() - int(match.group(1))) if match else None
-    is_stale = age is not None and age > DEPLOY_LOCK_STALE_SECONDS
+    is_stale = is_unknown or (age is not None and age > DEPLOY_LOCK_STALE_SECONDS)
     age_desc = f"{int(age // 60)} min old" if age is not None else "age unknown"
 
     if is_stale and force:
+        # Narrow (not eliminate) the TOCTOU window between deciding the
+        # lock is stale and removing it: re-read the owner file right
+        # before deleting, and only proceed if it's still the exact same
+        # owner info we just judged stale. If someone else legitimately
+        # grabbed the lock in between, back off instead of deleting their
+        # fresh lock out from under them.
+        recheck = subprocess.run(
+            _ssh_argv(host, user, port, f"cat {DEPLOY_LOCK_PATH}/owner 2>/dev/null"),
+            capture_output=True, text=True, timeout=15,
+        )
+        if recheck.stdout.strip() != current_owner:
+            return False, ("The deploy lock changed while checking whether it was stale — "
+                            "another process may have just acquired it. Try again.")
         subprocess.run(
             _ssh_argv(host, user, port, f"rm -rf {DEPLOY_LOCK_PATH}"),
             capture_output=True, text=True, timeout=15,
@@ -1922,10 +1937,10 @@ def _acquire_deploy_lock(host: str, user: str, port: str, *, force: bool = False
         return _acquire_deploy_lock(host, user, port, force=False)
 
     if is_stale:
-        return False, (f"Deploy lock is held ({owner_info}, {age_desc}) and looks stale "
-                        f"(>{DEPLOY_LOCK_STALE_SECONDS // 60} min) — pass --force-unlock to "
-                        f"clear it and proceed.")
-    return False, (f"Another deploy is already running ({owner_info}, {age_desc}). Wait "
+        return False, (f"Deploy lock is held ({display_owner}, {age_desc}) and looks stale "
+                        f"(>{DEPLOY_LOCK_STALE_SECONDS // 60} min old, or no owner marker at "
+                        f"all) — pass --force-unlock to clear it and proceed.")
+    return False, (f"Another deploy is already running ({display_owner}, {age_desc}). Wait "
                     f"for it to finish, or pass --force-unlock if you're sure it's dead.")
 
 
@@ -2031,9 +2046,13 @@ def _build_promote_script(staging: str, remote_base: str, log_path: str, exit_pa
     status always written to `exit_path` afterward, success or failure.
     `log_path`/`exit_path` deliberately live in DEPLOY_STAGING_ROOT, a
     SIBLING of `staging`, not inside it, so they survive even a fully
-    successful run that removes `staging` itself. On full success the
-    script also deletes its own on-disk copy and its launch-lock directory
-    before removing `staging`, so nothing is left behind.
+    successful run that removes `staging` itself. The script's own on-disk
+    copy and its launch-lock directory are deleted FIRST, before the `find
+    . -type f` move loop ever runs — sol-caught bug: doing this cleanup
+    AFTER the loop meant `find` had already swept up `.promote.sh` itself
+    (a plain file sitting in `staging`) as one of "this run's files" and
+    moved it into remote_base, leaving a stray script file live on every
+    single successful deploy.
 
     `remote_base`/`staging`/`log_path`/`exit_path` are assigned to shell
     variables via an UNQUOTED assignment first (so a leading `~` still
@@ -2052,6 +2071,8 @@ script_path="$staging/.promote.sh"
   set -euo pipefail
   mkdir -p "$remote_base"
   cd "$staging"
+  rm -f "$script_path"
+  rmdir "$staging/.promote-lock" 2>/dev/null || true
   find . -type f -print0 | while IFS= read -r -d '' f; do
     rel="${{f#./}}"
     destdir="$remote_base/$(dirname "$rel")"
@@ -2059,8 +2080,6 @@ script_path="$staging/.promote.sh"
     mv -f "$rel" "$remote_base/$rel"
   done
   cd ..
-  rm -f "$script_path"
-  rmdir "$staging/.promote-lock" 2>/dev/null || true
   find "$staging" -depth -type d -empty -delete
   rmdir "$staging" 2>/dev/null || true
 ) > "$log_path" 2>&1
@@ -2074,9 +2093,20 @@ def _upload_and_launch_promotion(host: str, user: str, port: str, staging: str,
     """Upload the promote script into `staging` and launch it fully
     detached — stdin/stdout/stderr redirected away from the ssh channel via
     `nohup`, so it keeps running to completion on the server even if THIS
-    ssh connection drops mid-move. Returns (True, "") once the launch is
-    confirmed; (False, message) if the upload or launch itself failed (the
-    move never started).
+    ssh connection drops mid-move. Returns (True, "", False) once the
+    launch is confirmed; (False, message, ambiguous) if the upload or
+    launch itself failed.
+
+    `ambiguous` distinguishes two very different failure shapes for the
+    caller's lock-release decision: the UPLOAD failing (ambiguous=False)
+    definitely means nothing was launched — safe to release the deploy
+    lock. The LAUNCH step failing/timing out (ambiguous=True) does NOT mean
+    that: the launch command is fire-and-forget (`... &); echo LAUNCHED` —
+    once the local ssh call sends it, the remote shell can go on to
+    actually start the background job regardless of what happens to this
+    connection's response afterward, so a lost confirmation here does not
+    prove the move never started. The caller must NOT release the deploy
+    lock on an ambiguous failure.
 
     The launch command is itself idempotent (guarded by an atomic `mkdir`
     lock inside `staging`), so it's safe to route through _run_with_retry
@@ -2091,9 +2121,9 @@ def _upload_and_launch_promotion(host: str, user: str, port: str, staging: str,
             input_text=script_text, timeout=15,
         )
     except subprocess.TimeoutExpired:
-        return False, "uploading the move script timed out"
+        return False, "uploading the move script timed out", False
     if upload.returncode != 0:
-        return False, f"could not upload the move script: {upload.stderr.strip()}"
+        return False, f"could not upload the move script: {upload.stderr.strip()}", False
 
     launch_cmd = (
         f"(mkdir {staging}/.promote-lock 2>/dev/null && "
@@ -2102,10 +2132,10 @@ def _upload_and_launch_promotion(host: str, user: str, port: str, staging: str,
     try:
         launch = _run_with_retry(_ssh_argv(host, user, port, launch_cmd), timeout=15)
     except subprocess.TimeoutExpired:
-        return False, "launching the move script timed out"
+        return False, "launching the move script timed out", True
     if launch.returncode != 0 or "LAUNCHED" not in launch.stdout:
-        return False, f"could not launch the move script: {launch.stderr.strip()}"
-    return True, ""
+        return False, f"could not launch the move script: {launch.stderr.strip()}", True
+    return True, "", False
 
 
 def _poll_for_promotion(host: str, user: str, port: str, exit_path: str, *,
@@ -2185,7 +2215,11 @@ def _atomic_tar_deploy(*, host: str, user: str, port: str, local_root: Path,
     leave a half-promoted set — the move keeps running to completion
     server-side regardless of what happens to our connection, and per-file
     `mv` within one filesystem is atomic per file; (5) re-verify the live
-    files; (6) release the lock, always, on any exit path.
+    files; (6) release the lock on any exit path where we're SURE what
+    happened — but leave it held (never released) if the launch or the poll
+    ended ambiguously (we genuinely don't know whether the detached move
+    started/finished), so no other bulk sync can start against a possibly
+    still-running move.
     """
     relpaths = sorted(
         str(p.relative_to(local_root)) for p in local_root.rglob("*") if p.is_file()
@@ -2207,6 +2241,14 @@ def _atomic_tar_deploy(*, host: str, user: str, port: str, local_root: Path,
 
     sizes = {rel: (local_root / rel).stat().st_size for rel in relpaths}
     lock_acquired = False
+    # Set False only when we genuinely don't know whether the detached
+    # promote script started/finished (an ambiguous launch failure, or a
+    # poll that never saw a completion marker) — releasing the lock then
+    # would let another bulk sync start while this one's move might still
+    # be running server-side, exactly the race the lock exists to prevent.
+    # Every other failure path here is one we're SURE didn't touch (or is
+    # fully done touching) remote_base, so it's safe to release normally.
+    safe_to_release_lock = True
 
     try:
         # 0. Claim the remote deploy lock — no other bulk sync may run
@@ -2289,12 +2331,27 @@ def _atomic_tar_deploy(*, host: str, user: str, port: str, local_root: Path,
         exit_path = f"{DEPLOY_STAGING_ROOT}/.promote-{promote_ts}.exit"
         promote_script = _build_promote_script(staging, remote_base, log_path, exit_path)
 
-        launched, launch_error = _upload_and_launch_promotion(
+        launched, launch_error, launch_ambiguous = _upload_and_launch_promotion(
             host, user, port, staging, promote_script,
         )
         if not launched:
-            print(f"✗ Could not start the move into place: {launch_error} — staging left "
-                  f"at {staging} for inspection; nothing live was touched.")
+            if launch_ambiguous:
+                # The launch command is fire-and-forget ("... &); echo
+                # LAUNCHED") — losing the confirmation does NOT mean the
+                # remote shell never started the background job. Holding
+                # the lock here (rather than releasing it in `finally`) is
+                # deliberate: releasing it would let another bulk sync
+                # start while this one's move might actually be running.
+                safe_to_release_lock = False
+                print(f"✗ Could not confirm the move was launched: {launch_error} — it may "
+                      f"have started anyway (this ssh call is fire-and-forget). The deploy "
+                      f"lock is being left HELD rather than released, so no other bulk sync "
+                      f"can start until a human confirms what happened at {staging} "
+                      f"(check {log_path} / {exit_path} on the server) and either re-runs "
+                      f"this sync or, once the lock is >30 min old, uses --force-unlock.")
+            else:
+                print(f"✗ Could not start the move into place: {launch_error} — staging left "
+                      f"at {staging} for inspection; nothing live was touched.")
             return False
 
         move_timeout = max(60, len(relpaths))
@@ -2302,11 +2359,18 @@ def _atomic_tar_deploy(*, host: str, user: str, port: str, local_root: Path,
             host, user, port, exit_path, timeout=move_timeout,
         )
         if not finished:
+            # Same reasoning as the ambiguous-launch case above: the
+            # detached script may still be running (or may have already
+            # finished) — we simply don't know, so the lock stays held
+            # rather than being released underneath a possibly-still-live
+            # move.
+            safe_to_release_lock = False
             print(f"✗ Move into place did not report completion within {move_timeout}s. "
                   f"It runs detached, so a dropped connection here does not stop it — it "
                   f"may still finish on its own. Staging left at {staging}; check "
-                  f"{log_path} / {exit_path} on the server, or re-run this sync once you've "
-                  f"confirmed it finished (per-file moves are safe to repeat).")
+                  f"{log_path} / {exit_path} on the server. The deploy lock is being left "
+                  f"HELD (not released) until a human confirms what happened and either "
+                  f"re-runs this sync or, once the lock is >30 min old, uses --force-unlock.")
             return False
         if exit_code != 0:
             log_text = _fetch_remote_text(host, user, port, log_path)
@@ -2351,7 +2415,7 @@ def _atomic_tar_deploy(*, host: str, user: str, port: str, local_root: Path,
         print(f"✓ Verified {len(relpaths)} {verbose_label} live and intact at {remote_base}")
         return True
     finally:
-        if lock_acquired:
+        if lock_acquired and safe_to_release_lock:
             _release_deploy_lock(host, user, port)
 
 

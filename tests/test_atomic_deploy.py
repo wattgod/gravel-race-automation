@@ -221,9 +221,18 @@ class TestPromoteScript:
         assert recorded_exit not in ("", "0")
 
     def test_self_cleans_up_script_and_lock_dir_on_success(self, tmp_path):
-        """The uploaded .promote.sh and its launch-lock dir (created by
-        _upload_and_launch_promotion before this script ever runs) must not
-        block the final rmdir of staging on success."""
+        """Regression (sol round 2): .promote.sh is a plain FILE sitting
+        directly inside `staging` (uploaded by _upload_and_launch_promotion
+        before this script ever runs). The move loop's `find . -type f`
+        runs from inside `staging` too, so if the script deleted its own
+        on-disk copy AFTER that loop instead of before, `find` would sweep
+        up .promote.sh as one of "this run's files" and mv it into
+        remote_base — a stray script file left live on every single
+        successful deploy, undetected by post-move verification (which
+        only checks the specific relpaths this run was supposed to
+        upload, not for unexpected extras). It must never appear in
+        remote_base, and its launch-lock dir must not block the final
+        rmdir of staging either."""
         staging = tmp_path / "staging"
         remote = tmp_path / "remote"
         staging.mkdir()
@@ -241,6 +250,9 @@ class TestPromoteScript:
         assert exit_path.read_text().strip() == "0"
         assert not staging.exists()
         assert (remote / "a.md").read_text() == "content"
+        assert sorted(p.name for p in remote.rglob("*")) == ["a.md"]
+        assert not (remote / ".promote.sh").exists()
+        assert not (remote / ".promote-lock").exists()
 
     def test_tilde_paths_actually_expand(self, tmp_path):
         """Regression: real staging/remote_base/log_path/exit_path are all
@@ -483,8 +495,10 @@ class TestDeployLock:
         ok, msg = pw._acquire_deploy_lock("h", "u", "18765")
         assert ok is True
         assert msg == ""
-        assert any("mkdir" in c and pw.DEPLOY_LOCK_PATH in c for c in calls)
-        assert any(c == f"cat > {pw.DEPLOY_LOCK_PATH}/owner" for c in calls)
+        # mkdir + writing the owner marker are one combined command (not
+        # two round trips), to minimize the window where the lock dir
+        # exists without its owner file.
+        assert any("mkdir" in c and pw.DEPLOY_LOCK_PATH in c and "owner" in c for c in calls)
 
     def test_acquire_refused_when_held_and_fresh(self, monkeypatch):
         monkeypatch.setattr(pw.time, "sleep", lambda s: None)
@@ -571,6 +585,69 @@ class TestDeployLock:
         monkeypatch.setattr(pw.subprocess, "run", boom)
         pw._release_deploy_lock("h", "u", "18765")  # must not raise
 
+    def test_unknown_owner_is_treated_as_stale_and_forceable(self, monkeypatch):
+        """Regression (sol round 2): mkdir+owner-write are one combined
+        remote command specifically so a lock dir essentially never exists
+        without its owner file — but if it somehow does (e.g. our own
+        earlier attempt's confirmation got lost), treating "no owner
+        marker" as NOT stale would deadlock forever: it has no `started=`
+        timestamp to ever age past DEPLOY_LOCK_STALE_SECONDS, so
+        --force-unlock could never apply and the lock could never be
+        cleared without a human manually SSHing in."""
+        monkeypatch.setattr(pw.time, "sleep", lambda s: None)
+        state = {"removed": False}
+
+        def fake_run(cmd, **k):
+            rc = cmd[-1]
+            if rc.startswith("mkdir"):
+                return subprocess.CompletedProcess(cmd, 0 if state["removed"] else 1, "", "")
+            if rc.startswith("cat"):
+                return subprocess.CompletedProcess(cmd, 0, "", "")  # no owner file
+            if rc.startswith("rm -rf"):
+                state["removed"] = True
+                return subprocess.CompletedProcess(cmd, 0, "", "")
+            return subprocess.CompletedProcess(cmd, 0, "", "")
+
+        monkeypatch.setattr(pw.subprocess, "run", fake_run)
+        ok, msg = pw._acquire_deploy_lock("h", "u", "18765")
+        assert ok is False
+        assert "--force-unlock" in msg
+
+        ok, msg = pw._acquire_deploy_lock("h", "u", "18765", force=True)
+        assert ok is True
+
+    def test_force_unlock_backs_off_if_owner_changed_between_check_and_delete(self, monkeypatch):
+        """TOCTOU narrowing (sol round 2): if the lock's owner changes
+        between the staleness check and the delete (another process's
+        stale lock finished and a THIRD process grabbed a fresh one in
+        that gap), --force-unlock must back off instead of deleting that
+        fresh lock out from under its legitimate owner."""
+        monkeypatch.setattr(pw.time, "sleep", lambda s: None)
+        old_ts = int(pw.time.time()) - (31 * 60)
+        cat_call_count = {"n": 0}
+        removed = {"v": False}
+
+        def fake_run(cmd, **k):
+            rc = cmd[-1]
+            if rc.startswith("mkdir"):
+                return subprocess.CompletedProcess(cmd, 1, "", "File exists")
+            if rc.startswith("cat"):
+                cat_call_count["n"] += 1
+                if cat_call_count["n"] == 1:
+                    return subprocess.CompletedProcess(cmd, 0, f"pid=999 started={old_ts}", "")
+                # Someone else grabbed it between our two reads.
+                return subprocess.CompletedProcess(cmd, 0, f"pid=1000 started={int(pw.time.time())}", "")
+            if rc.startswith("rm -rf"):
+                removed["v"] = True
+                return subprocess.CompletedProcess(cmd, 0, "", "")
+            return subprocess.CompletedProcess(cmd, 0, "", "")
+
+        monkeypatch.setattr(pw.subprocess, "run", fake_run)
+        ok, msg = pw._acquire_deploy_lock("h", "u", "18765", force=True)
+        assert ok is False
+        assert removed["v"] is False
+        assert "changed" in msg
+
 
 # ── Detached promotion: upload+launch, polling ──────────────────────────────
 
@@ -586,13 +663,17 @@ class TestUploadAndLaunchPromotion:
             return subprocess.CompletedProcess(cmd, 0, "LAUNCHED\n", "")
 
         monkeypatch.setattr(pw.subprocess, "run", fake_run)
-        ok, err = pw._upload_and_launch_promotion("h", "u", "18765", "~/staging/x", "script text")
+        ok, err, ambiguous = pw._upload_and_launch_promotion(
+            "h", "u", "18765", "~/staging/x", "script text")
         assert ok is True
         assert err == ""
+        assert ambiguous is False
         assert any(c.startswith("cat >") and ".promote.sh" in c for c in calls)
         assert any("nohup bash" in c for c in calls)
 
-    def test_upload_failure_never_launches(self, monkeypatch):
+    def test_upload_failure_never_launches_and_is_not_ambiguous(self, monkeypatch):
+        """The upload failing definitely means nothing was launched — the
+        caller can safely release the deploy lock over this one."""
         monkeypatch.setattr(pw.time, "sleep", lambda s: None)
         calls = []
 
@@ -601,23 +682,48 @@ class TestUploadAndLaunchPromotion:
             return subprocess.CompletedProcess(cmd, 1, "", "disk full")
 
         monkeypatch.setattr(pw.subprocess, "run", fake_run)
-        ok, err = pw._upload_and_launch_promotion("h", "u", "18765", "~/staging/x", "script text")
+        ok, err, ambiguous = pw._upload_and_launch_promotion(
+            "h", "u", "18765", "~/staging/x", "script text")
         assert ok is False
         assert "disk full" in err
+        assert ambiguous is False
         assert not any("nohup bash" in c for c in calls)
 
-    def test_launch_failure_reported(self, monkeypatch):
+    def test_launch_ssh_level_failure_is_ambiguous(self, monkeypatch):
+        """The only realistic way the launch ssh call itself returns
+        non-zero is a connection-level failure (OpenSSH's dedicated exit
+        code 255) — the remote command's own last statement is an
+        unconditional `echo LAUNCHED`, so a *successful* round trip always
+        reports 0. That means losing this call's result doesn't prove the
+        fire-and-forget `nohup ... &` never actually started — the caller
+        must treat this as ambiguous, not "definitely didn't launch"."""
         monkeypatch.setattr(pw.time, "sleep", lambda s: None)
 
         def fake_run(cmd, **k):
             if cmd[-1].startswith("cat >"):
                 return subprocess.CompletedProcess(cmd, 0, "", "")
-            return subprocess.CompletedProcess(cmd, 1, "", "connection reset")
+            return subprocess.CompletedProcess(cmd, 255, "", "ssh: connection reset")
 
         monkeypatch.setattr(pw.subprocess, "run", fake_run)
-        ok, err = pw._upload_and_launch_promotion("h", "u", "18765", "~/staging/x", "script text")
+        ok, err, ambiguous = pw._upload_and_launch_promotion(
+            "h", "u", "18765", "~/staging/x", "script text")
         assert ok is False
         assert "connection reset" in err
+        assert ambiguous is True
+
+    def test_launch_timeout_is_ambiguous(self, monkeypatch):
+        monkeypatch.setattr(pw.time, "sleep", lambda s: None)
+
+        def fake_run(cmd, **k):
+            if cmd[-1].startswith("cat >"):
+                return subprocess.CompletedProcess(cmd, 0, "", "")
+            raise subprocess.TimeoutExpired(cmd, k.get("timeout"))
+
+        monkeypatch.setattr(pw.subprocess, "run", fake_run)
+        ok, err, ambiguous = pw._upload_and_launch_promotion(
+            "h", "u", "18765", "~/staging/x", "script text")
+        assert ok is False
+        assert ambiguous is True
 
 
 class TestPollForPromotion:
@@ -1055,6 +1161,61 @@ class TestAtomicTarDeploy:
             kind="pages", force_unlock=True,
         )
         assert ok is True
+
+    def test_ambiguous_launch_failure_does_not_release_lock(self, deploy_harness):
+        """Regression (sol round 2): the launch command is fire-and-forget
+        ("... &); echo LAUNCHED") — losing its confirmation does not prove
+        the move never started. Releasing the deploy lock here would let
+        another bulk sync start while this one's move might actually be
+        running. The lock must stay held so a human has to intervene (or
+        wait for --force-unlock's staleness window)."""
+        deploy_harness["launch_promote_rc"] = 255
+        ok = pw._atomic_tar_deploy(
+            host="h", user="u", port="18765",
+            local_root=deploy_harness["local_root"],
+            remote_base=deploy_harness["remote_base"],
+            kind="pages",
+        )
+        assert ok is False
+        lock_release_calls = [c for c in deploy_harness["run_calls"]
+                               if c["cmd"][-1].startswith("rm -rf") and pw.DEPLOY_LOCK_PATH in c["cmd"][-1]]
+        assert lock_release_calls == []
+
+    def test_poll_timeout_does_not_release_lock(self, deploy_harness, monkeypatch):
+        """Same reasoning as the ambiguous-launch case: a poll that never
+        saw a completion marker doesn't mean the detached move is done (or
+        even that it isn't still running) — the lock must stay held.
+        _poll_for_promotion itself is monkeypatched here (rather than
+        actually waiting out move_timeout, which is real wall-clock time
+        this loop respects even with time.sleep mocked out) since its own
+        timeout behavior already has dedicated fast tests above."""
+        monkeypatch.setattr(pw, "_poll_for_promotion", lambda *a, **k: (False, None))
+        ok = pw._atomic_tar_deploy(
+            host="h", user="u", port="18765",
+            local_root=deploy_harness["local_root"],
+            remote_base=deploy_harness["remote_base"],
+            kind="pages",
+        )
+        assert ok is False
+        lock_release_calls = [c for c in deploy_harness["run_calls"]
+                               if c["cmd"][-1].startswith("rm -rf") and pw.DEPLOY_LOCK_PATH in c["cmd"][-1]]
+        assert lock_release_calls == []
+
+    def test_confirmed_move_failure_still_releases_lock(self, deploy_harness):
+        """Contrast with the two tests above: once the poll DOES confirm a
+        result (even a failing one), we know the script is done running —
+        no ambiguity — so the lock releases normally."""
+        deploy_harness["move_rc"] = 1
+        ok = pw._atomic_tar_deploy(
+            host="h", user="u", port="18765",
+            local_root=deploy_harness["local_root"],
+            remote_base=deploy_harness["remote_base"],
+            kind="pages",
+        )
+        assert ok is False
+        lock_release_calls = [c for c in deploy_harness["run_calls"]
+                               if c["cmd"][-1].startswith("rm -rf") and pw.DEPLOY_LOCK_PATH in c["cmd"][-1]]
+        assert len(lock_release_calls) == 1
 
 
 # ── sync_pages/sync_prep_kits/sync_markdown wiring ───────────────────────────

@@ -239,7 +239,7 @@ def build_who() -> str:
     return f'''<section class="gg-consult-section" id="who">
   <h2 class="gg-consult-section-title">Who you&rsquo;ll talk to</h2>
   <div class="gg-consult-bio-text">
-    <p>I&rsquo;m Matti. Twelve years at TrainingPeaks, 100+ athletes coached, 1,000+ training plans sold. I&rsquo;ve raced at the national level and blown up at mile 80 enough times to know what bad pacing actually costs.</p>
+    <p>I&rsquo;m Matti. Twelve years at TrainingPeaks. I&rsquo;ve raced at the national level and blown up at mile 80 enough times to know what bad pacing actually costs.</p>
     <p>I built a database of {RACE_COUNT} gravel races &mdash; terrain, climbing, altitude, how they tend to be won and lost. When you ask &ldquo;which race should I do?&rdquo; or &ldquo;how do I fuel for this one?&rdquo;, the answer comes from that, not from vibes.</p>
   </div>
 </section>'''

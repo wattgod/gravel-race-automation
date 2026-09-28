@@ -318,37 +318,6 @@ def build_honest_check() -> str:
 </section>'''
 
 
-def build_testimonials() -> str:
-    testimonials = [
-        (
-            "I finished Mid-South 45 minutes faster than last year. The plan accounted for my 6-hour work weeks and bad left knee. Nothing else I tried did that.",
-            "Jason R.", "Mid-South 2025",
-        ),
-        (
-            "First gravel century. The fueling plan alone saved me. I watched people bonk at mile 60 while I was eating exactly what my plan said to eat.",
-            "Sarah M.", "Unbound 100 2025",
-        ),
-        (
-            "I have 5 hours a week and two kids. Every session in this plan mattered. No junk miles. Finished Big Sugar strong for the first time ever.",
-            "Mark D.", "Big Sugar 2025",
-        ),
-    ]
-    cards = ""
-    for quote, name, event in testimonials:
-        cards += f'''<div class="gg-tp-testimonial">
-        <p>&ldquo;{esc(quote)}&rdquo;</p>
-        <cite>&mdash; {esc(name)} &middot; {esc(event)}</cite>
-      </div>
-'''
-    return f'''<section class="gg-tp-section" id="testimonials">
-  <div class="gg-tp-section-label">Athletes</div>
-  <h2>Don&rsquo;t Take My Word For It.</h2>
-  <div class="gg-tp-testimonials">
-    {cards}
-  </div>
-</section>'''
-
-
 def build_pricing() -> str:
     return f'''<section class="gg-tp-section" id="pricing">
   <div class="gg-tp-section-label">Pricing</div>
@@ -915,38 +884,6 @@ def build_training_css() -> str:
 }}
 .gg-tp-coaching-cta {{ margin-top: var(--gg-spacing-xs); }}
 
-/* ── Testimonials ── */
-.gg-tp-testimonials {{
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: var(--gg-spacing-md);
-  margin-top: var(--gg-spacing-lg);
-}}
-.gg-tp-testimonial {{
-  border: var(--gg-border-standard);
-  padding: var(--gg-spacing-lg);
-  background: var(--gg-color-white);
-}}
-.gg-tp-testimonial:nth-child(even) {{ background: var(--gg-color-sand); }}
-.gg-tp-testimonial p {{
-  font-family: var(--gg-font-editorial);
-  font-size: var(--gg-font-size-sm);
-  font-style: italic;
-  color: var(--gg-color-near-black);
-  line-height: var(--gg-line-height-prose);
-  margin: 0 0 var(--gg-spacing-sm) 0;
-}}
-.gg-tp-testimonial cite {{
-  font-family: var(--gg-font-data);
-  font-size: var(--gg-font-size-2xs);
-  font-style: normal;
-  font-weight: var(--gg-font-weight-bold);
-  color: var(--gg-color-primary-brown);
-  text-transform: uppercase;
-  letter-spacing: var(--gg-letter-spacing-wide);
-  display: block;
-}}
-
 /* ── Pricing ── */
 .gg-tp-pricing-wrap {{
   max-width: 500px;
@@ -1151,7 +1088,6 @@ def build_training_css() -> str:
   .gg-tp-section {{ padding: var(--gg-spacing-xl) var(--gg-spacing-md); }}
   .gg-tp-section h2 {{ font-size: clamp(20px, 5vw, 28px); }}
   .gg-tp-sample-grid {{ grid-template-columns: repeat(4, 1fr); }}
-  .gg-tp-testimonials {{ grid-template-columns: 1fr; }}
   .gg-tp-process {{ flex-direction: column; gap: var(--gg-spacing-sm); }}
   .gg-neo-brutalist-page {{ padding-bottom: var(--gg-spacing-2xl); }}
 }}
@@ -1365,7 +1301,6 @@ def generate_training_page(external_assets: dict = None) -> str:
     how = build_how_it_works()
     quote = build_rotating_quote()
     honest = build_honest_check()
-    testimonials = build_testimonials()
     pricing = build_pricing()
     faq = build_faq()
     sticky = build_mobile_sticky()
@@ -1433,8 +1368,6 @@ def generate_training_page(external_assets: dict = None) -> str:
   {quote}
 
   {honest}
-
-  {testimonials}
 
   {pricing}
 

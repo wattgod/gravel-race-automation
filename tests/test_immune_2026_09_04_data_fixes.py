@@ -91,7 +91,11 @@ def test_search_index_carries_the_corrected_values():
     assert embed["spring-valley-100"]["t"] == 3
     assert embed["marly-grav"]["sc"] == 49
     jsonld = json.loads((ROOT / "web" / "jsonld" / "marly-grav.jsonld").read_text())
-    assert jsonld["aggregateRating"]["ratingValue"] == "49"
+    # The score used to ride along as a fake aggregateRating (ratingCount
+    # "14"); removed 2026-09-28 (receipts spec §4). The index and the embed
+    # above carry the corrected score now.
+    assert jsonld["name"]
+    assert "aggregateRating" not in jsonld
 
 
 # ── Baseline accepts the three code-only fingerprints (#50 known noise). ────

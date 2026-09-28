@@ -1405,7 +1405,7 @@ def build_cta_coaching() -> str:
     <div class="gg-guide-cta-inner">
       <span class="gg-guide-cta-kicker">NEXT LEVEL</span>
       <h3>1:1 Gravel Coaching</h3>
-      <p>For athletes who want individualized programming, weekly check-ins, and race-specific preparation. Limited spots available.</p>
+      <p>For athletes who want individualized programming, weekly check-ins, and race-specific preparation.</p>
       <a href="{COACHING_URL}" class="gg-guide-btn gg-guide-btn--secondary">APPLY FOR COACHING</a>
     </div>
   </div>'''

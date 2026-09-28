@@ -1170,6 +1170,26 @@ class TestTestimonials:
         assert "gg-hp-test-card" not in html
         assert "blockquote" not in html
 
+    def test_no_scarcity_ab_hook(self):
+        """coaching_scarcity was retired 2026-09-28 (receipts spec §4)."""
+        html = build_testimonials()
+        assert "data-ab" not in html
+        assert "coaching_scarcity" not in html
+
+    def test_dead_quote_card_css_removed(self):
+        """The quote-card rules outlived the cards by 2 months; the coaching
+        band (.gg-hp-testimonials / .gg-hp-test-cta) keeps its own rules."""
+        css = build_homepage_css()
+        for dead in ("gg-hp-test-grid", "gg-hp-test-card", "gg-hp-test-quote",
+                     "gg-hp-test-attr", "gg-hp-test-name", "gg-hp-test-title",
+                     "gg-hp-test-tags"):
+            assert dead not in css, dead
+        assert ".gg-hp-test-cta" in css
+
+    def test_no_testimonials_scaffolding(self):
+        import generate_homepage
+        assert not hasattr(generate_homepage, "TESTIMONIALS")
+
 
 # ── Brand & Tone Guard Tests ────────────────────────────────
 

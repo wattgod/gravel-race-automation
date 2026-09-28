@@ -201,10 +201,6 @@ FEATURED_ONSITE_ARTICLES = [
     ),
 ]
 
-# ── Athlete testimonials (from live site coaching section) ──────
-TESTIMONIALS = []  # removed 2026-07-18 — no homepage testimonials (owner ruling); full set on /about/
-
-
 def esc(text) -> str:
     """HTML-escape a string."""
     return html.escape(str(text)) if text else ""
@@ -660,8 +656,8 @@ def build_ladder_strip(stats: dict) -> str:
     """
     race_count = stats["race_count"]
     # SANCTIONED EXCEPTION to the anti-defensive-messaging rule: "not an AI, not
-    # a spreadsheet" already ships on this page in the coaching_scarcity data-ab
-    # variant above (build_email_capture()) and is the Roadie Labs 2026-07-18
+    # a spreadsheet" already ships on this page in the coaching band
+    # (build_testimonials()) and is the Roadie Labs 2026-07-18
     # /coaching/ hero precedent (generate_coaching.py build_hero()). Carried
     # verbatim into cell 03 below.
     cells = [
@@ -1255,13 +1251,13 @@ def build_training_cta() -> str:
 
 
 def build_testimonials() -> str:
-    """Homepage coaching band. The testimonial cards were removed 2026-07-18
-    (owner ruling: no testimonials — same call as /coaching/; the full set
-    lives on /about/). Section id + data-ab/data-ga hooks preserved for the
-    A/B templates that target them."""
+    """Homepage coaching band (the function name is historical). No
+    testimonials render here (owner ruling 2026-07-18). The quote cards it
+    held until then were Feb 2026 placeholder text, not athlete quotes; see
+    docs/specs/receipts-social-proof-2026.md."""
     return f'''<section class="gg-hp-testimonials" id="testimonials">
     <div class="gg-hp-test-cta">
-      <p data-ab="coaching_scarcity">You could be better than you think. A human in your corner &mdash; not an AI, not a spreadsheet.</p>
+      <p>You could be better than you think. A human in your corner &mdash; not an AI, not a spreadsheet.</p>
       <a href="{esc(SITE_BASE_URL)}/coaching/" class="gg-hp-btn gg-hp-btn--primary" data-ga="cta_click" data-ga-label="coaching">GET ME IN YOUR CORNER &rarr;</a>
     </div>
   </section>'''
@@ -1649,15 +1645,8 @@ a { text-decoration: none; color: #178079; }
 .gg-hp-feat-logo:hover { border-color: #9a7e0a; }
 .gg-hp-feat-logo img { display: block; height: 56px; width: auto; }
 
-/* ── Testimonials ────────────────────────────────────────── */
+/* ── Coaching band (class name historical) ───────────────── */
 .gg-hp-testimonials { max-width: 1200px; margin: 32px auto 0; border: 1px solid #d4c5b9; border-top: 2px solid #9a7e0a; }
-.gg-hp-test-grid { display: grid; grid-template-columns: repeat(2, 1fr); }
-.gg-hp-test-card { padding: 24px; border: 1px solid #d4c5b9; background: #f5efe6; }
-.gg-hp-test-quote { font-family: 'Source Serif 4', Georgia, serif; font-size: 14px; line-height: 1.75; color: #3a2e25; font-style: italic; margin: 0 0 16px; border-left: 3px solid #9a7e0a; padding-left: 16px; }
-.gg-hp-test-attr { margin-bottom: 8px; }
-.gg-hp-test-name { font-family: 'Sometype Mono', monospace; font-size: 12px; font-weight: 700; color: #3a2e25; letter-spacing: 1px; }
-.gg-hp-test-title { font-family: 'Sometype Mono', monospace; font-size: 11px; color: #9a7e0a; letter-spacing: 0.5px; margin-left: 8px; }
-.gg-hp-test-tags { font-family: 'Sometype Mono', monospace; font-size: 9px; color: #7d695d; letter-spacing: 1.5px; text-transform: uppercase; }
 .gg-hp-test-cta { padding: 20px; text-align: center; background: #ede4d8; border-top: 2px solid #d4c5b9; }
 .gg-hp-test-cta .gg-hp-btn--primary { background: #9a7e0a; color: #f5efe6; border-color: #9a7e0a; }
 .gg-hp-test-cta .gg-hp-btn--primary:hover { border-color: #9a7e0a; color: #fff; }
@@ -1813,11 +1802,6 @@ a { text-decoration: none; color: #178079; }
 
   /* Training CTA */
   .gg-hp-training-cta-full { padding: 0 16px; }
-
-  /* Testimonials */
-  .gg-hp-test-grid { grid-template-columns: 1fr; }
-  .gg-hp-test-card { padding: 16px; }
-  .gg-hp-test-quote { font-size: 13px; }
 
   /* Full-bleed sections on mobile */
   .gg-hp-latest-takes, .gg-hp-how-it-works, .gg-hp-coming-up,

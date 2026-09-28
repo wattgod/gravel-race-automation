@@ -91,36 +91,11 @@ EXPERIMENTS = [
             "selector": "[data-ab='training_cta_btn']",
         },
     },
-    {
-        "id": "coaching_scarcity",
-        "description": "Test scarcity framing on coaching card",
-        "selector": "[data-ab='coaching_scarcity']",
-        "pages": ["/", "/index.html", "/about/"],
-        "traffic": 1.0,
-        "start": "2026-02-16",
-        "end": None,
-        "variants": [
-            {
-                "id": "control",
-                "name": "Generic scarcity",
-                "content": "A human in your corner. Adapts week to week. Limited spots.",
-            },
-            {
-                "id": "variant_a",
-                "name": "Concrete number",
-                "content": "A human in your corner. Adapts week to week. 20 athletes/month.",
-            },
-            {
-                "id": "variant_b",
-                "name": "Next window",
-                "content": "A human in your corner. Adapts week to week. Next window: April.",
-            },
-        ],
-        "conversion": {
-            "type": "click",
-            "selector": "[data-ga='coaching_click'], [data-cta='coaching_apply']",
-        },
-    },
+    # coaching_scarcity retired 2026-09-28 (docs/specs/receipts-social-proof-2026.md
+    # §4): all three variants claimed scarcity (open spots, a monthly cap, a next
+    # intake window) that nothing backed. The data-ab hook was removed from
+    # /about/ and the homepage in the same change; tests/test_no_unsourced_proof.py
+    # fails if that copy returns.
     # ── Race page experiments (wildcard matching required) ──
     # race_sticky_cta_copy retired 2026-09-10: the spine-v2 race page renders no
     # sticky CTA (docs/race-page-spine-v2-canonical.md), so the experiment had no

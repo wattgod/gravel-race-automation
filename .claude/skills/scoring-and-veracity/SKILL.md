@@ -73,17 +73,31 @@ Every flag requires human review; missing credentials fail closed.
 
 ## 3. NEVER fabricate social proof
 
-**War story**: a Jun 2026 voice audit (Phase 1 sprint) found 53 fabricated
-testimonials live on roadielabs.com — an earlier generation pass had
-name-swapped road race names into real gravel-race quotes (3 on
-`/products/training-plans/`, 50 on `/about/`) and presented them as road
-testimonials. Fixed by restoring the real originals with a provenance line
-("Gravel God athletes — same coach, same plan engine, different surface...")
-labeled `(gravel)`.
+**War story (corrected 2026-09-28)**: a Jun 2026 voice audit (Phase 1
+sprint) found 53 testimonials on roadielabs.com that an earlier generation
+pass had name-swapped from gravel races into road races (3 on
+`/products/training-plans/`, 50 on `/about/`). The "fix" restored the
+gravel versions with a provenance line ("Gravel God athletes — same coach,
+same plan engine, different surface...") on the belief that they were real
+originals. They were not. The 50 `/about/` quotes and the 3 product-page
+quotes on gravelgodcycling.com (2 of them repeated above the
+questionnaire's Submit & Pay) were placeholder text written by Claude
+sessions in Feb 2026 (commits `cfd9cf09`, `6939db7c`). No athlete said
+them. They were removed on 2026-09-28 per
+`docs/specs/receipts-social-proof-2026.md`, together with the
+"100+ athletes coached" / "1,000+ plans sold" counts, the coaching
+scarcity A/B copy and the hard-coded `aggregateRating` (ratingCount "14")
+in the race JSON-LD template. The Roadie copies come down in
+road-race-automation (spec §4.2).
+`tests/test_no_unsourced_proof.py` fails the build if any of it returns.
 
 Rule going forward: testimonials, quotes, review counts, "riders say"
-claims — every one must trace to a real source (an actual rider, an actual
-review, an actual data point) or it does not exist on the page. Never
+claims — every one must trace to a real person, a source (an actual
+review, an actual data point) and that person's written approval of the
+exact text, or it does not exist on the page. A placeholder quote is a
+fabrication the moment it ships, so never write sample quotes into a
+generator, not even as scaffolding. Counts ("N athletes", "N plans",
+`aggregateRating`) follow the same rule: only numbers someone can check. Never
 name-swap or vertical-swap a real quote to make a new vertical (road, ski,
 future disciplines) look more populated than it is. This applies until that
 vertical has its own real finishers/reviewers — then replace with real ones,

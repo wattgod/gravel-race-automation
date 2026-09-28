@@ -141,7 +141,7 @@ def build_who() -> str:
       <div class="gg-about-bio">
         <div class="gg-about-bio-text">
           <p class="gg-about-prose">I&#39;m Matti. I&#39;ve spent 12 years at TrainingPeaks teaching coaches and athletes how to get the most out of their training. Before that I raced at the National level for Team Rio Grande &mdash; until the team folded and my third kid arrived in the same year. Turns out those two events have a way of reshuffling your priorities.</p>
-          <p class="gg-about-prose">I&#39;ve coached 100+ athletes and sold over 1,000 training plans &mdash; mostly to people who have real jobs, real families, and a limited tolerance for training plans that assume you have nothing else going on.</p>
+          <p class="gg-about-prose">I&#39;ve coached athletes and sold training plans &mdash; mostly to people who have real jobs, real families, and a limited tolerance for training plans that assume you have nothing else going on.</p>
           <div class="gg-about-highlight">
             <p>I built Gravel God because I kept answering the same questions from my athletes: <em>Which race should I do? How hard is this one, actually? What do I need to know before I register?</em> The answers were always buried in six different places. Now they&#39;re in one.</p>
           </div>
@@ -154,8 +154,6 @@ def build_who() -> str:
               <dt>TrainingPeaks</dt><dd>12 years (only 2 promotions tho)</dd>
               <dt>Racing</dt><dd>CAT 1 roadie (CAT 5 handling skills)</dd>
               <dt>Team</dt><dd>Rio Grande Elite (until it folded)</dd>
-              <dt>Athletes coached</dt><dd>100+</dd>
-              <dt>Plans sold</dt><dd>1,000+</dd>
             </dl>
           </div>
         </div>
@@ -192,94 +190,6 @@ def build_coaching() -> str:
   </div>'''
 
 
-def _testimonial_data() -> list:
-    """50 athlete testimonials — name, quote, meta line."""
-    return [
-        ("Sarah K.", "I finished Unbound in 13:47 this year. Last year I DNF'd at mile 140 because I had no idea how to pace myself and ran out of food twice. Matti's plan was boring as hell but it worked.", "Unbound 200 finisher · 9 hrs/week · Elementary school teacher"),
-        ("Chris M.", "I went from blowing up on every climb longer than 10 minutes to finishing SBT GRVL Black in the top third. The difference was pacing and fueling strategy, not some magic workout.", "SBT GRVL Black finisher · 10 hrs/week · Two kids under 5"),
-        ("Dan R.", "Finished Belgian Waffle Ride in 9:12. My previous best was 10:45. The only thing that changed was how I ate and when I pushed.", "BWR finisher · 11 hrs/week · Software engineer"),
-        ("Megan T.", "My first gravel race was Mid South and I finished middle of the pack on 7 hours a week of training. Matti convinced me that was enough and he was right.", "Mid South finisher · 7 hrs/week · Nurse practitioner"),
-        ("Jason L.", "Cut 45 minutes off my Steamboat Gravel time by actually following a taper for once. I always used to hammer the last week before a race.", "Steamboat Gravel · 8 hrs/week · Restaurant owner"),
-        ("Rachel P.", "I came back from a broken collarbone and finished Gravel Worlds 5 months later. The plan adapted every single week based on how I was recovering.", "Gravel Worlds finisher · 6 hrs/week · Physical therapist"),
-        ("Tom W.", "I'm 54 and just had my best season ever. Three gravel races, three finishes, zero bonks. Turns out the secret is eating enough.", "Big Sugar finisher · 9 hrs/week · Age 54 · Attorney"),
-        ("Katie B.", "Did Crusher in the Tushar on 8 hours a week. Everyone told me I needed more volume. I needed better pacing.", "Crusher in the Tushar · 8 hrs/week · Marketing director"),
-        ("Mike D.", "Went from DNF to top 25% at Gravel Locos. Same fitness, completely different race execution.", "Gravel Locos · 10 hrs/week · Firefighter"),
-        ("Jen H.", "The fueling plan alone was worth it. I used to cramp at mile 80 every single race. Haven't cramped once since.", "Unbound 200 finisher · 8 hrs/week · Accountant"),
-        ("Brian S.", "I've bought training plans from four different coaches. This is the first one I actually finished.", "SBT GRVL Blue · 7 hrs/week · Three kids"),
-        ("Amanda C.", "Finished DK200 in the rain and mud and never once thought about quitting. That's a first.", "DK 200 finisher · 9 hrs/week · Veterinarian"),
-        ("Greg F.", "My wife noticed I was less stressed during race build. That's the real testimonial.", "BWR Waffle · 10 hrs/week · Finance · Married with 2 kids"),
-        ("Nicole R.", "I PR'd Rule of Three by 38 minutes. The course hadn't changed. My preparation had.", "Rule of Three · 7 hrs/week · High school teacher"),
-        ("Steve A.", "I'm a Cat 1 road racer and I thought I knew how to train. Gravel is a different sport. Matti showed me the gaps.", "Unbound XL finisher · 14 hrs/week · Cat 1 road"),
-        ("Laura M.", "I train at 5 AM before my kids wake up. The plan was built around that constraint from day one.", "Mid South finisher · 6 hrs/week · Mom of 3 · Pharmacist"),
-        ("Derek J.", "Leadville 100 MTB. Finished under 9 hours on 10 hours a week of training. My coach friends who train 15+ hours were behind me.", "Leadville 100 · 10 hrs/week · Age 41"),
-        ("Carrie W.", "I was terrified of Unbound. Matti's prep kit and pacing plan made it feel manageable. Still hard as hell, but manageable.", "Unbound 200 finisher · 8 hrs/week · First-time 200-miler"),
-        ("Paul N.", "The race-day pacing strategy was the game changer. I used to go out way too hard and pay for it at mile 120.", "Gravel Worlds finisher · 9 hrs/week · Civil engineer"),
-        ("Heather L.", "I signed up for coaching because of the race database. Stayed because the training actually fit my life.", "SBT GRVL Black · 7 hrs/week · Working mom"),
-        ("Ryan G.", "Four gravel races this season, four finishes, zero DNFs. Last year I DNF'd two out of three.", "Multi-race season · 11 hrs/week · Sales manager"),
-        ("Trish K.", "My 10K trail run PR dropped by 3 minutes as a side effect of the gravel training. The base building works.", "Pisgah Monster Cross · 8 hrs/week · Trail runner crossover"),
-        ("Mark E.", "I'm 62 and just finished my first Dirty Kanza distance event. Matti never once made me feel too old for this.", "DK 100 finisher · 7 hrs/week · Age 62 · Retired teacher"),
-        ("Anna S.", "I thought I needed a power meter and a wind tunnel. I needed to eat more and sleep more. That's it.", "Lost and Found finisher · 6 hrs/week · Grad student"),
-        ("Jake T.", "Finished Rooted Vermont in top 10%. The course profile breakdown and pacing zones were dialed.", "Rooted Vermont · 12 hrs/week · Bike shop employee"),
-        ("Diane F.", "Three years of gravel racing and this was the first time I finished a race feeling like I had more in the tank.", "Gravel Locos finisher · 8 hrs/week · Age 48"),
-        ("Luis R.", "I work 60-hour weeks in construction. The plan was 6 hours. It worked. I finished Mid South.", "Mid South finisher · 6 hrs/week · Construction foreman"),
-        ("Emily P.", "The sodium loading protocol before Unbound was something I'd never seen before. Zero cramping for the first time ever.", "Unbound 200 · 9 hrs/week · Registered dietitian"),
-        ("Nathan B.", "I gained 4 watts per kilo over 16 weeks eating more food and sleeping 30 minutes more per night. No secret intervals.", "BWR finisher · 10 hrs/week · Programmer"),
-        ("Kara D.", "Finished Big Sugar 100 seven months postpartum. Matti built the plan around breastfeeding and sleep deprivation.", "Big Sugar 100 · 5 hrs/week · New mom"),
-        ("Doug H.", "My third Steamboat and my fastest by over an hour. I finally learned to ride my own race.", "Steamboat Gravel · 9 hrs/week · Dentist"),
-        ("Sierra J.", "I'm not fast. I'm not trying to be. Matti helped me finish what I start and enjoy it. That's enough.", "SBT GRVL Green · 6 hrs/week · Back-of-pack rider"),
-        ("Phil C.", "The prep kit for Crusher told me exactly what to expect on every climb. No surprises on race day.", "Crusher in the Tushar · 11 hrs/week · Age 45"),
-        ("Tanya M.", "I bought the Unbound plan, then the BWR plan, then just signed up for coaching because I was tired of doing this alone.", "Multi-race season · 8 hrs/week · Remote worker"),
-        ("Rob L.", "I travel 3 weeks a month for work. Every hotel has a gym or a road. Matti made it work.", "Gravel Worlds · 7 hrs/week · Traveling consultant"),
-        ("Lisa G.", "Dropped from 10:30 to 9:15 at Rebecca's Private Idaho with the same legs. Fueling and pacing, that's it.", "Rebecca's Private Idaho · 8 hrs/week · Teacher"),
-        ("Kevin O.", "My wife and I both used Matti's plans for Unbound. We both finished. That was the deal and we held up our end.", "Unbound 200 · 9 hrs/week · Couple's plan"),
-        ("Brooke A.", "I did Gravel Worlds 150 on a hardtail because Matti said my bike didn't matter as much as my prep. He was right.", "Gravel Worlds 150 · 7 hrs/week · Hardtail rider"),
-        ("Tony V.", "I used to overtrain every spring and show up to my A-race cooked. This year I showed up fresh and went 40 minutes faster.", "BWR Waffle · 12 hrs/week · Cat 2 road crossover"),
-        ("Maria K.", "English is my second language and the plan was still crystal clear. No jargon. No confusion. Just do this today.", "SBT GRVL Blue · 6 hrs/week · Originally from Colombia"),
-        ("Will S.", "Finished The Last Best Ride in Montana on 7 hours a week. My buddy who trains double that finished 20 minutes ahead. Worth it.", "The Last Best Ride · 7 hrs/week · Architect"),
-        ("Jess R.", "I was recovering from COVID and the plan adjusted week by week. No ego, no pressure, just smart rebuilding.", "Return to racing post-COVID · 5 hrs/week · Nurse"),
-        ("Andrew T.", "The race database is how I picked Gravel Locos over Unbound for my first 150-miler. Best decision I made all year.", "Gravel Locos · 8 hrs/week · First-time 150"),
-        ("Danielle B.", "I've done 4 Ironmans and gravel scared me more. Matti's prep kit made it approachable. Finished Land Run 100 with a smile.", "Land Run 100 · 10 hrs/week · Triathlete crossover"),
-        ("Scott P.", "I stopped chasing FTP and started chasing consistency. Went from 3 rides a week to 5 shorter ones. Everything got better.", "Steamboat Gravel · 8 hrs/week · Age 50"),
-        ("Olivia N.", "The course description for BWR was more accurate than anything the race organizer published. I knew every climb before I got there.", "BWR finisher · 9 hrs/week · Data analyst"),
-        ("Marcus W.", "I'm a big rider, 210 lbs. Matti never once tried to make me a climber. He made me a finisher.", "Unbound 200 · 8 hrs/week · 210 lbs · Clydesdale"),
-        ("Erin M.", "My training plan had me doing less in the last 3 weeks than I wanted. I was furious. Then I had the best race of my life.", "Mid South finisher · 7 hrs/week · Type-A personality"),
-        ("Carl J.", "Finished Grinduro with the best combined time I've ever posted. The interval work was minimal but targeted.", "Grinduro · 9 hrs/week · MTB background"),
-        ("Stephanie H.", "I signed up after reading the Unbound race profile. The detail convinced me this person knows gravel. The coaching confirmed it.", "Unbound 200 · 8 hrs/week · Found via race database"),
-    ]
-
-
-def build_testimonials() -> str:
-    testimonials = _testimonial_data()
-    cards = []
-    for name, quote, meta in testimonials:
-        cards.append(
-            f'<blockquote class="gg-about-testimonial">'
-            f'<p>{esc(quote)}</p>'
-            f'<footer><strong>{esc(name)}</strong>'
-            f'<span class="gg-about-testimonial-meta">{meta}</span>'
-            f'</footer></blockquote>'
-        )
-    inner = "\n        ".join(cards)
-    return f'''<div class="gg-section" id="results">
-    <div class="gg-section-header">
-      <span class="gg-section-kicker">05</span>
-      <h2 class="gg-section-title">Athlete Results</h2>
-    </div>
-    <div class="gg-section-body" style="position:relative">
-      <div class="gg-about-carousel" id="gg-testimonial-carousel">
-        <div class="gg-about-carousel-track">
-        {inner}
-        </div>
-      </div>
-      <div class="gg-about-carousel-nav">
-        <button class="gg-about-carousel-btn" id="gg-carousel-prev" aria-label="Previous testimonials">&larr;</button>
-        <span class="gg-about-carousel-count" id="gg-carousel-count"></span>
-        <button class="gg-about-carousel-btn" id="gg-carousel-next" aria-label="Next testimonials">&rarr;</button>
-      </div>
-    </div>
-  </div>'''
-
-
 def build_ctas() -> str:
     return f'''<div class="gg-section" id="cta">
     <div class="gg-section-body">
@@ -291,7 +201,7 @@ def build_ctas() -> str:
         </div>
         <div class="gg-about-cta">
           <h3>1:1 Coaching</h3>
-          <p data-ab="coaching_scarcity">A human in your corner. Adapts week to week. Limited spots &mdash; opens quarterly.</p>
+          <p>A human in your corner. Adapts week to week.</p>
           <a href="{SITE_BASE_URL}/coaching/apply/" class="gg-about-cta-btn gg-about-cta-btn--teal" data-cta="coaching_apply">APPLY</a>
         </div>
         <div class="gg-about-cta">
@@ -532,96 +442,6 @@ def build_about_css() -> str:
   margin: 0;
 }
 
-/* ── Testimonial carousel ────────────────────────── */
-.gg-neo-brutalist-page .gg-about-carousel {
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  -webkit-overflow-scrolling: touch;
-  scrollbar-width: none;
-}
-.gg-neo-brutalist-page .gg-about-carousel::-webkit-scrollbar {
-  display: none;
-}
-.gg-neo-brutalist-page .gg-about-carousel-track {
-  display: flex;
-  gap: var(--gg-spacing-md);
-}
-.gg-neo-brutalist-page .gg-about-testimonial {
-  flex: 0 0 calc(50% - 8px);
-  scroll-snap-align: start;
-  background: var(--gg-color-warm-paper);
-  border: var(--gg-border-standard);
-  padding: var(--gg-spacing-lg) var(--gg-spacing-lg) var(--gg-spacing-md);
-  margin: 0;
-  position: relative;
-  min-height: 200px;
-  display: flex;
-  flex-direction: column;
-}
-.gg-neo-brutalist-page .gg-about-testimonial p {
-  font-family: var(--gg-font-editorial);
-  font-size: var(--gg-font-size-sm);
-  font-style: italic;
-  line-height: var(--gg-line-height-prose);
-  color: var(--gg-color-dark-brown);
-  margin: 0 0 var(--gg-spacing-md) 0;
-  flex: 1;
-}
-.gg-neo-brutalist-page .gg-about-testimonial footer {
-  display: flex;
-  flex-direction: column;
-  gap: var(--gg-spacing-2xs);
-  border-top: 1px solid var(--gg-color-tan);
-  padding-top: var(--gg-spacing-sm);
-}
-.gg-neo-brutalist-page .gg-about-testimonial footer strong {
-  font-family: var(--gg-font-data);
-  font-size: var(--gg-font-size-sm);
-  font-weight: var(--gg-font-weight-bold);
-  color: var(--gg-color-dark-brown);
-  letter-spacing: var(--gg-letter-spacing-wide);
-}
-.gg-neo-brutalist-page .gg-about-testimonial-meta {
-  font-family: var(--gg-font-data);
-  font-size: var(--gg-font-size-2xs);
-  color: var(--gg-color-secondary-brown);
-  letter-spacing: var(--gg-letter-spacing-wide);
-}
-/* Carousel nav */
-.gg-neo-brutalist-page .gg-about-carousel-nav {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: var(--gg-spacing-md);
-  margin-top: var(--gg-spacing-md);
-}
-.gg-neo-brutalist-page .gg-about-carousel-btn {
-  background: var(--gg-color-sand);
-  border: var(--gg-border-standard);
-  width: 40px;
-  height: 40px;
-  font-size: 18px;
-  line-height: 1;
-  color: var(--gg-color-dark-brown);
-  cursor: pointer;
-  transition: background-color var(--gg-transition-hover),
-              border-color var(--gg-transition-hover);
-}
-.gg-neo-brutalist-page .gg-about-carousel-btn:hover {
-  background-color: var(--gg-color-warm-paper);
-  border-color: var(--gg-color-gold);
-}
-.gg-neo-brutalist-page .gg-about-carousel-count {
-  font-family: var(--gg-font-data);
-  font-size: var(--gg-font-size-2xs);
-  font-weight: var(--gg-font-weight-bold);
-  color: var(--gg-color-secondary-brown);
-  letter-spacing: var(--gg-letter-spacing-wider);
-  text-transform: uppercase;
-  min-width: 80px;
-  text-align: center;
-}
-
 /* ── CTA grid ────────────────────────────────────── */
 .gg-neo-brutalist-page .gg-about-ctas {
   display: grid;
@@ -737,9 +557,6 @@ def build_about_css() -> str:
   .gg-neo-brutalist-page .gg-about-pillars {
     grid-template-columns: 1fr;
   }
-  .gg-neo-brutalist-page .gg-about-testimonial {
-    flex: 0 0 calc(100% - 16px);
-  }
   .gg-neo-brutalist-page .gg-about-ctas {
     grid-template-columns: 1fr;
   }
@@ -751,7 +568,7 @@ def build_about_css() -> str:
 
 
 def build_about_js() -> str:
-    """Interactive JS for about page tabs and testimonial carousel."""
+    """Interactive JS for about page tabs, CTA clicks and scroll depth."""
     return '''<script>
 // About page tabs
 document.querySelectorAll('[data-about-tabs]').forEach(function(tabs) {
@@ -766,67 +583,6 @@ document.querySelectorAll('[data-about-tabs]').forEach(function(tabs) {
     });
   });
 });
-
-// Testimonial carousel
-(function() {
-  var carousel = document.getElementById('gg-testimonial-carousel');
-  var prev = document.getElementById('gg-carousel-prev');
-  var next = document.getElementById('gg-carousel-next');
-  var counter = document.getElementById('gg-carousel-count');
-  if (!carousel || !prev || !next) return;
-  var cards = carousel.querySelectorAll('.gg-about-testimonial');
-  var total = cards.length;
-  var perPage = window.innerWidth <= 768 ? 1 : 2;
-
-  function getPage() {
-    var scrollLeft = carousel.scrollLeft;
-    var cardWidth = cards[0].offsetWidth + 16;
-    return Math.round(scrollLeft / (cardWidth * perPage));
-  }
-  function totalPages() {
-    return Math.ceil(total / perPage);
-  }
-  function updateCounter() {
-    if (counter) counter.textContent = (getPage() + 1) + ' / ' + totalPages();
-  }
-  function scrollToPage(page) {
-    var cardWidth = cards[0].offsetWidth + 16;
-    carousel.scrollTo({ left: page * perPage * cardWidth, behavior: 'smooth' });
-  }
-  prev.addEventListener('click', function() {
-    var page = getPage();
-    if (page > 0) scrollToPage(page - 1);
-    else scrollToPage(totalPages() - 1);
-  });
-  next.addEventListener('click', function() {
-    var page = getPage();
-    if (page < totalPages() - 1) scrollToPage(page + 1);
-    else scrollToPage(0);
-  });
-  carousel.addEventListener('scroll', function() { updateCounter(); });
-  window.addEventListener('resize', function() {
-    perPage = window.innerWidth <= 768 ? 1 : 2;
-    updateCounter();
-  });
-  updateCounter();
-
-  // Auto-rotate every 5 seconds, pause on hover or manual interaction
-  var autoTimer = null;
-  var paused = false;
-  function autoAdvance() {
-    if (paused) return;
-    var page = getPage();
-    if (page < totalPages() - 1) scrollToPage(page + 1);
-    else scrollToPage(0);
-  }
-  function startAuto() { autoTimer = setInterval(autoAdvance, 5000); }
-  function stopAuto() { clearInterval(autoTimer); }
-  carousel.addEventListener('mouseenter', function() { paused = true; });
-  carousel.addEventListener('mouseleave', function() { paused = false; });
-  prev.addEventListener('click', function() { stopAuto(); startAuto(); if (typeof gtag === 'function') gtag('event', 'about_carousel', { action: 'prev' }); });
-  next.addEventListener('click', function() { stopAuto(); startAuto(); if (typeof gtag === 'function') gtag('event', 'about_carousel', { action: 'next' }); });
-  startAuto();
-})();
 
 // CTA click tracking
 document.querySelectorAll('[data-cta]').forEach(function(el) {
@@ -843,7 +599,6 @@ document.querySelectorAll('[data-cta]').forEach(function(el) {
     { id: 'what', label: 'what_i_built' },
     { id: 'who', label: 'whos_behind_this' },
     { id: 'coaching', label: 'how_i_coach' },
-    { id: 'results', label: 'athlete_results' },
     { id: 'cta', label: 'cta_section' }
   ];
   sections.forEach(function(s) {
@@ -903,7 +658,6 @@ def generate_about_page(external_assets: dict = None) -> str:
     what = build_what_we_built(race_count)
     who = build_who()
     coaching = build_coaching()
-    testimonials = build_testimonials()
     ctas = build_ctas()
     footer = build_footer()
     about_css = build_about_css()
@@ -966,8 +720,6 @@ def generate_about_page(external_assets: dict = None) -> str:
   {who}
 
   {coaching}
-
-  {testimonials}
 
   {ctas}
 

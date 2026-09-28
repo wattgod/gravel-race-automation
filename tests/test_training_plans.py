@@ -1,7 +1,8 @@
 """Tests for the Gravel God training plans page generator.
 
 Covers page generation, navigation, hero, deliverables, how-it-works,
-testimonials, pricing, FAQ, CSS quality, JS quality, and Stripe pricing parity.
+the no-testimonials guard, pricing, FAQ, CSS quality, JS quality, and Stripe
+pricing parity.
 """
 from __future__ import annotations
 
@@ -36,7 +37,6 @@ from generate_training_plans import (
     build_nav,
     build_pricing,
     build_rotating_quote,
-    build_testimonials,
     build_training_css,
     build_training_js,
     build_what_you_get,
@@ -312,25 +312,30 @@ class TestHonestCheck:
         assert "gg-tp-audience-grid" not in section
 
 
-# ── 8. Testimonials ──────────────────────────────────────────
+# ── 8. No testimonials ───────────────────────────────────────
 
 
-class TestTestimonials:
-    def test_three_testimonials(self):
-        section = build_testimonials()
-        assert section.count("gg-tp-testimonial") >= 3
+class TestNoTestimonials:
+    """The 3 quotes that sat here ("Don't Take My Word For It.") were
+    placeholder text written in Feb 2026, not athletes (receipts spec §1).
+    Removed 2026-09-28. Proof returns only as sourced, consented receipts;
+    tests/test_no_unsourced_proof.py guards the rendered page."""
 
-    def test_athlete_names(self):
-        section = build_testimonials()
-        assert "Jason R." in section
-        assert "Sarah M." in section
-        assert "Mark D." in section
+    def test_builder_removed(self):
+        import generate_training_plans
+        assert not hasattr(generate_training_plans, "build_testimonials")
 
-    def test_race_references(self):
-        section = build_testimonials()
-        assert "Mid-South" in section
-        assert "Unbound" in section
-        assert "Big Sugar" in section
+    def test_page_has_no_testimonial_section(self, tp_html):
+        assert 'id="testimonials"' not in tp_html
+        assert "gg-tp-testimonial" not in tp_html
+        assert "Don&rsquo;t Take My Word For It." not in tp_html
+        assert "<cite" not in tp_html
+
+    def test_css_has_no_testimonial_rules(self, tp_css):
+        assert "gg-tp-testimonial" not in tp_css
+
+    def test_honest_check_still_leads_into_pricing(self, tp_html):
+        assert tp_html.index('id="honest-check"') < tp_html.index('id="pricing"')
 
 
 # ── 9. Pricing ───────────────────────────────────────────────

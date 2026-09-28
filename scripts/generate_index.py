@@ -521,15 +521,11 @@ def generate_jsonld(entry: dict, profile_data: dict = None) -> dict:
             "availability": "https://schema.org/LimitedAvailability",
         }
 
-    # Add aggregate rating if we have scores
-    if entry.get("overall_score"):
-        jsonld["aggregateRating"] = {
-            "@type": "AggregateRating",
-            "ratingValue": str(entry["overall_score"]),
-            "bestRating": "100",
-            "ratingCount": "14",
-            "name": "Gravel God Rating",
-        }
+    # No aggregateRating here. The editorial score is one critic's rating, not
+    # an aggregate of user ratings, and the old hard-coded ratingCount "14"
+    # counted nobody (removed 2026-09-28, docs/specs/receipts-social-proof-2026.md).
+    # Race pages emit aggregateRating only from real Racer Ratings (3+);
+    # see build_sports_event_jsonld() in wordpress/generate_neo_brutalist.py.
 
     official_site = race.get("logistics", {}).get("official_site", "")
     if official_site and official_site.startswith("http"):

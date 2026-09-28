@@ -325,8 +325,15 @@ class TestWho:
 
     def test_bio_has_credentials(self):
         bio = build_who()
-        assert "TrainingPeaks" in bio
-        assert "100+" in bio
+        assert "Twelve years at TrainingPeaks" in bio
+
+    def test_bio_has_no_uncheckable_counts(self):
+        """"100+ athletes coached, 1,000+ training plans sold" came out
+        2026-09-28: owner decision, only claims that can be checked
+        (receipts spec §12.6)."""
+        bio = build_who()
+        for claim in ("100+", "1,000+", "athletes coached", "plans sold"):
+            assert claim not in bio, claim
 
     def test_bio_has_database_reference(self):
         bio = build_who()

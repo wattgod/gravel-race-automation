@@ -12,12 +12,10 @@ that exists in the rendered HTML. The valid attributes are:
     - data-ab="hero_tagline"        Hero tagline text
     - data-ab="training_price"      Training plan price/description line
     - data-ab="training_cta_btn"    Training plan CTA button text
-    - data-ab="coaching_scarcity"   Coaching card scarcity/description line
 
   About page (generate_about.py):
     - data-ab="training_price"      Training plan price/description line
     - data-ab="training_cta_btn"    Training plan CTA button text
-    - data-ab="coaching_scarcity"   Coaching card scarcity/description line
 
   Race pages (generate_neo_brutalist.py):
     - data-ab="race_sticky_cta"     Sticky CTA bar button text
@@ -47,7 +45,6 @@ VALID_SELECTORS: dict[str, list[str]] = {
     "hero_tagline": ["/", "/index.html"],
     "training_price": ["/", "/index.html", "/about/"],
     "training_cta_btn": ["/", "/index.html", "/about/"],
-    "coaching_scarcity": ["/", "/index.html", "/about/"],
     "race_sticky_cta": ["/race/*"],
     "race_coaching_cta": ["/race/*"],
 }
@@ -182,55 +179,6 @@ TEMPLATES: dict[str, list[dict]] = {
                     "id": "variant_b",
                     "name": "start_training",
                     "content": "START TRAINING",
-                },
-            ],
-        },
-        # ── Coaching scarcity ──
-        {
-            "id": "scarcity_coaching_slots",
-            "description": "Test scarcity framing specificity for coaching",
-            "selector": _selector("coaching_scarcity"),
-            "pages": ["/", "/index.html", "/about/"],
-            "conversion_selector": "[data-cta='coaching_apply']",
-            "variants": [
-                {
-                    "id": "control",
-                    "name": "control",
-                    "content": "A human in your corner. Adapts week to week. Limited spots.",
-                },
-                {
-                    "id": "variant_a",
-                    "name": "number",
-                    "content": "A human in your corner. Adapts week to week. 20 athletes/month.",
-                },
-                {
-                    "id": "variant_b",
-                    "name": "window",
-                    "content": "A human in your corner. Adapts week to week. Next window: April.",
-                },
-            ],
-        },
-        {
-            "id": "scarcity_coaching_framing",
-            "description": "Test coaching value framing in scarcity line",
-            "selector": _selector("coaching_scarcity"),
-            "pages": ["/", "/index.html", "/about/"],
-            "conversion_selector": "[data-cta='coaching_apply']",
-            "variants": [
-                {
-                    "id": "control",
-                    "name": "control",
-                    "content": "A human in your corner. Adapts week to week. Limited spots.",
-                },
-                {
-                    "id": "variant_a",
-                    "name": "price_anchor",
-                    "content": "1:1 coaching. $50/week. Cancel anytime.",
-                },
-                {
-                    "id": "variant_b",
-                    "name": "vs_generic",
-                    "content": "Not a template. Not a group plan. 1:1 coaching. $200 every 4 weeks.",
                 },
             ],
         },

@@ -2537,7 +2537,7 @@ RewriteRule ^llms\\.txt$ /llms-repo.txt [L]
 RewriteRule ^blog/roundup-december-2026/?$ /blog/ [R=301,L]
 RewriteRule ^blog/roundup-northeast-fall-2026/?$ /blog/ [R=301,L]
 
-# Legacy Elementor custom-plan page (old "$15 per week" copy, self-canonical,
+# Legacy Elementor custom-plan page (old per-week pricing copy, self-canonical,
 # not in any repo) → the current product page. Receipts spec §4 (2026-09-28).
 RewriteRule ^custom-training-plans/?$ /products/training-plans/ [R=301,L]
 

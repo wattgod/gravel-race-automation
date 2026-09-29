@@ -1,0 +1,339 @@
+"""The athlete exit survey (/coaching/exit/, source=athlete_exit).
+
+A leaving athlete is not a lead. Their answers are stored on an
+athlete_exit_v1 enrollment like a season review's, they get one receipt, and
+nothing else: no nurture, no deal, no Gmail lead sync, no race countdown. The
+last class carries one real page submission through the real worker into
+this router and out as Matti's alert and the athlete's receipt, and checks
+that no answer is dropped on the way (the handoff's two-whitelists bug).
+"""
+from __future__ import annotations
+
+import asyncio
+import json
+import shutil
+import subprocess
+import sys
+from datetime import datetime, timezone
+from pathlib import Path
+
+import pytest
+
+from mission_control.sequences import SEQUENCES, get_sequences_for_trigger
+
+ROOT = Path(__file__).resolve().parents[2]
+sys.path.insert(0, str(ROOT / "wordpress"))
+
+from generate_season_review import answer_keys  # noqa: E402
+from season_review_variants import EXIT  # noqa: E402
+
+SUBMISSION = json.loads((ROOT / "tests" / "fixtures" / "exit_survey_submission.json").read_text())
+ANSWERS = SUBMISSION["goal_answers"]
+EMAIL = SUBMISSION["email"]
+
+
+def _post(client, body):
+    return client.post("/webhooks/subscriber", json=body,
+                       headers={"Authorization": "Bearer test-secret-123"})
+
+
+def _exit_body(answers=None, **extra):
+    return {"email": EMAIL, "name": SUBMISSION["name"], "athlete": SUBMISSION["athlete"],
+            "source": "athlete_exit", "brand": "gravelgod",
+            "goal_answers": dict(ANSWERS if answers is None else answers), **extra}
+
+
+def _enrollments(fake_db, email=EMAIL):
+    return [e for e in fake_db.store["gg_sequence_enrollments"] if e["contact_email"] == email]
+
+
+def _capture_sends(monkeypatch):
+    import mission_control.services.sequence_engine as se
+    sent = []
+    monkeypatch.setattr(se, "RESEND_API_KEY", "test-key")
+    monkeypatch.setattr(se, "_send_email_sync",
+                        lambda to, subject, html, *a: sent.append({"to": to, "subject": subject, "html": html}) or "rs-1")
+    return sent
+
+
+def _send_receipt(enrollment, monkeypatch):
+    import mission_control.services.sequence_engine as se
+    sent = _capture_sends(monkeypatch)
+    assert asyncio.run(se._send_next_step(enrollment))
+    return sent
+
+
+class TestSequence:
+    def test_one_receipt_same_day(self):
+        seqs = get_sequences_for_trigger("athlete_exit", "gravelgod")
+        assert [s["id"] for s in seqs] == ["athlete_exit_v1"]
+        steps = seqs[0]["variants"]["A"]["steps"]
+        assert steps == [{"delay_days": 0, "template": "athlete_exit_receipt", "subject": "got it"}]
+
+    def test_no_other_brand_or_trigger_reaches_it(self):
+        assert get_sequences_for_trigger("athlete_exit", "roadielabs") == []
+        assert [s for s in SEQUENCES.values() if s.get("trigger") == "athlete_exit"] == [SEQUENCES["athlete_exit_v1"]]
+
+    def test_receipt_template_exists(self):
+        assert (ROOT / "mission_control" / "templates" / "emails" / "sequences"
+                / "athlete_exit_receipt.html").exists()
+
+    def test_transactional_in_the_engine_and_the_lead_bridge(self):
+        from mission_control.services import lead_nurture, sequence_engine
+        assert "athlete_exit" in sequence_engine._POST_PURCHASE_TRIGGERS
+        assert "athlete_exit" in lead_nurture._POST_PURCHASE_TRIGGERS
+
+
+class TestStorage:
+    def test_every_field_on_the_form_arrives_stored(self, client, fake_db):
+        """One key per input on the page, straight from the variant, so a new
+        question cannot be added without this noticing a whitelist drop."""
+        keys = answer_keys(EXIT)
+        assert set(keys) == set(ANSWERS)
+        resp = _post(client, _exit_body({k: ANSWERS[k] for k in keys}))
+        assert resp.status_code == 200
+        assert resp.json()["enrolled"] == ["athlete_exit_v1"]
+        stored = _enrollments(fake_db)[0]["source_data"]["goal_answers"]
+        missing = [k for k in keys if stored.get(k) != ANSWERS[k]]
+        assert missing == [], f"dropped or changed on the way in: {missing}"
+
+    def test_athlete_tag_is_stored_like_a_season_review(self, client, fake_db):
+        _post(client, _exit_body())
+        row = _enrollments(fake_db)[0]
+        assert row["source"] == "athlete_exit"
+        assert row["source_data"]["athlete"] == "test-rider-a"
+        assert row["contact_name"] == "Test Rider A"
+
+    def test_no_poster_token_so_nothing_to_prefill(self, client, fake_db):
+        resp = _post(client, _exit_body())
+        sd = _enrollments(fake_db)[0]["source_data"]
+        assert "poster_token" not in sd and "poster_url" not in sd
+        assert "poster_token" not in resp.json()
+
+    def test_no_lead_context_is_kept(self, client, fake_db):
+        _post(client, _exit_body(race_slug="unbound-200", race_name="Unbound 200",
+                                 offer_variant="A", entry_src="race", goal_type="finish",
+                                 guide_chapter="Race Selection", viewed_races=["Unbound"]))
+        sd = _enrollments(fake_db)[0]["source_data"]
+        for key in ("race_slug", "race_name", "prep_kit_url", "offer_variant", "entry_src",
+                    "goal_type", "guide_chapter", "wb_guide", "viewed_races", "wb_trail",
+                    "wb_race", "any_context", "goal_line", "inner_obstacle"):
+            assert key not in sd, key
+
+    def test_junk_keys_and_values_are_dropped(self, client, fake_db):
+        _post(client, _exit_body(dict(ANSWERS, **{"Bad Key": "x", "nested": {"a": 1}, "blank": "  "})))
+        stored = _enrollments(fake_db)[0]["source_data"]["goal_answers"]
+        assert not {"Bad Key", "nested", "blank"} & set(stored)
+
+
+class TestNotAMarketingContact:
+    def test_no_deal_is_opened(self, client, fake_db):
+        _post(client, _exit_body())
+        assert fake_db.store.get("gg_deals", []) == []
+
+    def test_enrolls_in_nothing_else(self, client, fake_db):
+        _post(client, _exit_body())
+        assert [e["sequence_id"] for e in _enrollments(fake_db)] == ["athlete_exit_v1"]
+
+    def test_an_unsubscribed_athlete_still_gets_stored(self, client, fake_db):
+        fake_db.store["gg_sequence_enrollments"].append({
+            "id": "old-1", "sequence_id": "welcome_v1", "contact_email": EMAIL,
+            "status": "unsubscribed", "source": "exit_intent", "source_data": {},
+        })
+        assert _post(client, _exit_body()).json()["enrolled"] == ["athlete_exit_v1"]
+
+    def test_a_customer_still_gets_the_receipt(self, client, fake_db, monkeypatch):
+        fake_db.store["gg_athletes"].append({"email": EMAIL, "plan_status": "delivered"})
+        _post(client, _exit_body())
+        sent = _send_receipt(_enrollments(fake_db)[0], monkeypatch)
+        assert [s["subject"] for s in sent] == ["got it"]
+
+    def test_not_a_gmail_lead_sync_candidate(self, client, fake_db):
+        from mission_control.services.lead_nurture import get_sync_candidates
+        _post(client, _exit_body())
+        assert EMAIL not in [c["email"] for c in get_sync_candidates()]
+
+    def test_not_a_race_countdown_or_debrief_candidate(self, client, fake_db):
+        from mission_control.services.race_countdown import gather_candidates
+        _post(client, _exit_body(race_slug="unbound-200", race_name="Unbound 200"))
+        contacts, _ = gather_candidates(fake_db.store["gg_sequence_enrollments"])
+        assert EMAIL not in contacts
+
+    def test_mission_control_sends_matti_no_second_alert(self, client, fake_db, monkeypatch):
+        # the worker sends the one exit alert, with next actions
+        sent = _capture_sends(monkeypatch)
+        _post(client, _exit_body())
+        assert sent == []
+
+    def test_a_routing_failure_still_alerts(self, client, fake_db, monkeypatch):
+        import mission_control.routers.webhooks as wh
+        sent = _capture_sends(monkeypatch)
+        monkeypatch.setattr(wh, "get_sequences_for_trigger", lambda *a, **k: [])
+        _post(client, _exit_body())
+        assert any(s["subject"].startswith("[UNROUTED]") for s in sent)
+
+
+class TestSeasonPlanPrefillRejectsIt:
+    def test_an_exit_row_never_prefills_even_with_a_token(self, client, fake_db):
+        fake_db.store["gg_sequence_enrollments"].append({
+            "id": "exit-1", "sequence_id": "athlete_exit_v1", "contact_email": EMAIL,
+            "contact_name": "Test Rider A", "source": "athlete_exit",
+            "source_data": {"poster_token": "exit-token-abcdefghijklmnop", "goal_answers": ANSWERS},
+        })
+        assert client.get("/api/season-plan/prefill/exit-token-abcdefghijklmnop").status_code == 404
+
+
+class TestResubmission:
+    def test_replaces_the_record_and_withdraws_what_they_took_back(self, client, fake_db, monkeypatch):
+        _capture_sends(monkeypatch)
+        _post(client, _exit_body())
+        first = _enrollments(fake_db)[0]["source_data"]
+        assert first["share_tier_plain"] and first["needs_plain"] and first["consent"]["assets"] == ["quote"]
+
+        second = {k: v for k, v in ANSWERS.items() if not k.startswith(("need_", "where_"))}
+        second.update(share_as="private", exit_story="Test answer: changed my mind.")
+        resp = _post(client, _exit_body(second))
+        rows = _enrollments(fake_db)
+        assert len(rows) == 1 and resp.json()["enrolled"] == []
+        sd = rows[0]["source_data"]
+        assert sd["goal_answers"]["exit_story"] == "Test answer: changed my mind."
+        assert "need_zones" not in sd["goal_answers"]
+        assert "share_tier_plain" not in sd and "needs_plain" not in sd
+        assert sd["consent"]["identity_tier"] == "count_only"
+        assert sd["consent"]["quote"] == "" and sd["consent"]["channels"] == []
+
+    def test_a_correction_resends_the_receipt(self, client, fake_db, monkeypatch):
+        sent = _capture_sends(monkeypatch)
+        _post(client, _exit_body())
+        enrollment = _enrollments(fake_db)[0]
+        fake_db.store["gg_sequence_sends"].append({
+            "id": "s0", "enrollment_id": enrollment["id"], "step_index": 0,
+            "template": "athlete_exit_receipt", "subject": "got it",
+        })
+        _post(client, _exit_body(dict(ANSWERS, last_word="Test answer: one more thing.")))
+        assert [s["subject"] for s in sent] == ["got it"]
+
+
+class TestConsentRecord:
+    """Shaped for the receipts ledger (receipts-social-proof-2026.md §5.3, §6.2)."""
+
+    def test_a_yes_is_consent_in_principle_not_approval(self):
+        from mission_control.services.athlete_exit import consent_record
+        now = datetime(2026, 9, 29, 12, tzinfo=timezone.utc)
+        rec = consent_record(ANSWERS, now)
+        assert rec["identity_tier"] == "initial"
+        assert rec["assets"] == ["quote"]
+        assert rec["quote"] == ANSWERS["quote"]
+        assert rec["not_for"] == ANSWERS["not_for"]
+        assert rec["channels"] == ["gravelgod", "social", "email", "tp"]
+        assert rec["material_connection"] == "friend"
+        assert rec["reference"] == "ask"
+        assert rec["consent_id"].startswith("athlete_exit:")
+        assert rec["consented_at"] == now.isoformat()
+        assert rec["consent_expires"] == "2029-09-28"
+        # the ledger validator rejects an entry until both are set (§6.2)
+        assert rec["quote_approved_at"] is None and rec["render_approved_at"] is None
+        assert rec["withdrawn_at"] is None
+
+    def test_private_is_count_only_and_keeps_no_words(self):
+        from mission_control.services.athlete_exit import consent_record
+        rec = consent_record(dict(ANSWERS, share_as="private"))
+        assert rec["identity_tier"] == "count_only"
+        assert rec["assets"] == [] and rec["quote"] == "" and rec["not_for"] == "" and rec["channels"] == []
+
+    def test_skipping_the_question_records_nothing(self):
+        from mission_control.services.athlete_exit import consent_record
+        assert consent_record({k: v for k, v in ANSWERS.items() if k != "share_as"}) is None
+
+    def test_junk_enums_are_not_recorded(self):
+        from mission_control.services.athlete_exit import consent_record
+        rec = consent_record(dict(ANSWERS, connection="boss", reference="maybe"))
+        assert rec["material_connection"] is None and rec["reference"] is None
+
+    def test_stored_on_the_enrollment(self, client, fake_db):
+        _post(client, _exit_body())
+        assert _enrollments(fake_db)[0]["source_data"]["consent"]["identity_tier"] == "initial"
+
+
+class TestReceipt:
+    def _receipt(self, client, fake_db, monkeypatch, answers):
+        _post(client, _exit_body(answers))
+        sent = _send_receipt(_enrollments(fake_db)[0], monkeypatch)
+        assert len(sent) == 1 and sent[0]["to"] == EMAIL and sent[0]["subject"] == "got it"
+        return sent[0]["html"]
+
+    def test_everything_they_asked_for(self, client, fake_db, monkeypatch):
+        html = self._receipt(client, fake_db, monkeypatch, ANSWERS)
+        assert "Test — got it. Thanks for taking the time." in html
+        assert ("You said I can share what you wrote, with your first name and last initial. "
+                "Before anything goes up I&rsquo;ll send you the exact words") in html
+        assert "Changed your mind? Reply and say so." in html
+        assert ("You asked for a summary of your zones and latest tests, notes for training on "
+                "your own, confirmation that billing has stopped and help with your TrainingPeaks "
+                "account. I&rsquo;ll send it over.") in html
+        assert "&mdash; Matti" in html and "Matti Rowe &middot; Gravel God Cycling" in html
+        assert "{" not in html.split("<body>")[1].split("unsubscribe")[0]
+
+    def test_nothing_they_did_not_ask_for(self, client, fake_db, monkeypatch):
+        html = self._receipt(client, fake_db, monkeypatch, {"exit_reason": "time", "share_as": "private"})
+        assert "got it. Thanks for taking the time." in html
+        assert "share what you wrote" not in html
+        assert "You asked for" not in html
+
+    def test_one_need_reads_as_one(self, client, fake_db, monkeypatch):
+        html = self._receipt(client, fake_db, monkeypatch, {"exit_reason": "cost", "need_billing": "yes"})
+        assert "You asked for confirmation that billing has stopped. I&rsquo;ll send it over." in html
+
+    @pytest.mark.parametrize("tier,plain", [("full", "with your full name"),
+                                            ("age_group", "with your first name and age group")])
+    def test_each_sharing_tier_in_plain_words(self, client, fake_db, monkeypatch, tier, plain):
+        html = self._receipt(client, fake_db, monkeypatch, {"exit_reason": "done", "share_as": tier})
+        assert f"You said I can share what you wrote, {plain}." in html
+
+
+def _chain_ready() -> bool:
+    sys.path.insert(0, str(ROOT))
+    from tests.exit_survey_browser import has_playwright
+    return has_playwright() and shutil.which("node") is not None
+
+
+@pytest.mark.skipif(not _chain_ready(), reason="needs playwright and node")
+class TestTheWholeChain:
+    """page -> worker -> Mission Control -> Matti's alert -> the receipt,
+    with the real page, the real worker and this router. Every answer the
+    page posts must be in the alert and on the stored record."""
+
+    def test_every_field_survives_every_hop(self, client, fake_db, monkeypatch):
+        from tests.exit_survey_browser import submit_exit_survey
+
+        page = submit_exit_survey(SUBMISSION, width=390)
+        assert page["errors"] == []
+        posted = page["worker"]
+        assert posted["goal_answers"] == ANSWERS
+
+        run = subprocess.run(
+            ["node", str(ROOT / "tests" / "helpers" / "run_lead_worker.mjs")],
+            input=json.dumps(posted), capture_output=True, text=True, timeout=60, check=True,
+        )
+        out = json.loads(run.stdout)
+        assert out["status"] == 200, out
+        to_mc = next(s["body"] for s in out["sent"] if s["url"].endswith("/webhooks/subscriber"))
+        alert = next(s["body"] for s in out["sent"] if s["url"] == "https://api.resend.com/emails")
+        assert len(out["sent"]) == 2, [s["url"] for s in out["sent"]]
+
+        assert to_mc["goal_answers"] == ANSWERS
+        assert alert["subject"] == "[GG] Exit survey · Test Rider A · Life got full"
+        for key, value in ANSWERS.items():
+            assert f">{key}</td>" in alert["html"], f"{key} missing from Matti's alert"
+            # free text verbatim, radio codes as "Label (code)", ticks as "ticked: Label"
+            assert (value in alert["html"]) if value != "yes" else ("ticked: " in alert["html"]), key
+
+        resp = _post(client, to_mc)
+        assert resp.status_code == 200 and resp.json()["enrolled"] == ["athlete_exit_v1"]
+        enrollment = _enrollments(fake_db)[0]
+        assert enrollment["source_data"]["goal_answers"] == ANSWERS
+        assert enrollment["source_data"]["athlete"] == "test-rider-a"
+
+        receipt = _send_receipt(enrollment, monkeypatch)[0]["html"]
+        assert "with your first name and last initial" in receipt
+        assert "help with your TrainingPeaks account" in receipt

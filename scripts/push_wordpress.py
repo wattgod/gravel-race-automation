@@ -1288,7 +1288,7 @@ def sync_season_review(variants: str = "athlete"):
             print(f"  Run: python3 wordpress/generate_season_review.py --variant {slug} first")
             continue
 
-        path = page_path(slug)  # /goals/ or /coaching/season-review/<slug>/
+        path = page_path(slug)  # /goals/, /coaching/exit/ or /coaching/season-review/<slug>/
         remote_base = "~/www/gravelgodcycling.com/public_html" + path.rstrip("/")
         try:
             subprocess.run(
@@ -4901,7 +4901,7 @@ if __name__ == "__main__":
     )
     parser.add_argument(
         "--season-review-variants", default="athlete",
-        help="Comma-separated variant slugs to upload (default: athlete)"
+        help="Comma-separated variant slugs to upload (default: athlete; e.g. exit for /coaching/exit/)"
     )
     parser.add_argument(
         "--sync-season-plan", action="store_true",

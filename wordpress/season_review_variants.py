@@ -11,10 +11,14 @@ flags and the Endure draft JSON work for every variant.
 
 Field kinds:
   text, area (textarea), date, select, radio, checks, timed (textarea
-  with a countdown), pair (two fields side by side).
+  with a countdown), pair (two fields side by side), scale (0-10 in one
+  row, with `low`/`high` end labels), note (a paragraph, no input).
 Optional keys: req, ph, rows, options, minutes, swap (start/stop prompt
 swap, keyed off habit_direction), lift (a radio value that makes other
-fields optional).
+fields optional), layout ("vertical" stacks a radio's options).
+
+Every input name must be unique within a variant; each `checks` option is
+its own input, named by its key.
 """
 
 from pricing import SEASON_PLAN_PRICE_DISPLAY
@@ -565,4 +569,107 @@ ATHLETE = {
 
 
 
-VARIANTS = {v["slug"]: v for v in (STANDARD, CLAUDE, MATTI, GOAL_2027, FIVE, ATHLETE)}
+# ── Exit: for an athlete who is leaving ──────────────────────
+# Not a season review and not a lead. One required question, then the
+# report card, the consent ask for the receipts ledger
+# (docs/specs/receipts-social-proof-2026.md §3, §5.3) and loose ends.
+# Answers go to Mission Control as source=athlete_exit, transactional only:
+# a receipt to the athlete, an alert to Matti, never a marketing sequence.
+
+# DRAFT COPY: Matti's read pending before deploy (receipts spec §3.7: Matti writes every ask).
+EXIT = {
+    "slug": "exit",
+    "badge": "Exit Interview",
+    "crumb": "Exit Interview",
+    "h1": "Before You Go",
+    "intro": "Five minutes, less if you&#39;re quick. Only the first question is required. I read every one of these myself. It isn&#39;t anonymous, so say it straight. It saves as you go.",
+    "sections": [
+        {"title": "You", "fields": s_you(hidden_athlete=True)["fields"]},
+        {"title": "Why Now", "sub": "The real reason. There isn&#39;t a wrong one.", "fields": [
+            {"name": "exit_reason", "label": "What&#39;s the main reason you&#39;re stopping?", "kind": "radio", "req": True,
+             "options": [("done", "I got what I came for", "The race is done or the goal is hit"),
+                         ("time", "Life got full", "Work, family, a move, the calendar"),
+                         ("cost", "Cost", "The money needs to go elsewhere for now"),
+                         ("health", "Injury or health"),
+                         ("break", "A break from structured training"),
+                         ("diy", "Coaching myself from here", "Or riding off a plan"),
+                         ("elsewhere", "Moving to another coach, team or app"),
+                         ("fit", "The coaching wasn&#39;t the right fit"),
+                         ("progress", "I wasn&#39;t seeing the progress I wanted"),
+                         ("other", "Something else")]},
+            {"name": "exit_story", "label": "What tipped it, and when did you know?", "kind": "area", "rows": 3,
+             "ph": "The week, the conversation, the race. Whatever it was."},
+            {"name": "stay_lever", "label": "What, if anything, would have kept you?", "kind": "text",
+             "ph": "&ldquo;Nothing, it was time&rdquo; is a fine answer."},
+        ]},
+        {"title": "The Report Card", "sub": "I&#39;ve graded you long enough. Your turn.", "fields": [
+            {"name": "recommend", "label": "How likely are you to recommend me to a rider like you?", "kind": "scale",
+             "low": "Not likely", "high": "Already have"},
+            {"name": "keep_doing", "label": "What should I keep doing?", "kind": "area", "rows": 2},
+            {"name": "change_one", "label": "What&#39;s one thing I should change?", "kind": "area", "rows": 2,
+             "ph": "Be blunt. I&#39;d rather hear it from you than guess."},
+            {"name": "what_changed", "label": "What changed for you while we worked together?", "kind": "area", "rows": 3,
+             "ph": "Results, habits, how you think about training. &ldquo;Not much&rdquo; is worth knowing too."},
+        ]},
+        {"title": "On the Record", "sub": "Optional. Skip it and nothing changes.", "fields": [
+            {"name": "quote", "label": "If a rider asked whether they should hire me, what would you tell them?", "kind": "area", "rows": 3,
+             "ph": "In your words, the way you&#39;d say it. Good, bad or both."},
+            {"name": "not_for", "label": "And who shouldn&#39;t hire me?", "kind": "text",
+             "ph": "The rider this wouldn&#39;t work for"},
+            {"name": "share_as", "label": "Can I share what you wrote above?", "kind": "radio", "layout": "vertical",
+             "options": [("full", "Yes, with my full name"),
+                         ("initial", "Yes, first name and last initial"),
+                         ("age_group", "Yes, first name and age group"),
+                         ("private", "No, keep it between us")]},
+            {"name": "share_where", "label": "Where it can appear", "kind": "checks",
+             "options": [("where_site", "gravelgodcycling.com"),
+                         ("where_social", "Gravel God social posts"),
+                         ("where_email", "Emails to riders thinking about coaching"),
+                         ("where_tp", "My TrainingPeaks coach profile")]},
+            {"name": "connection", "label": "Anything connecting us besides coaching? If so, I say so next to your words.",
+             "kind": "radio", "layout": "vertical",
+             "options": [("none", "No, just coaching"),
+                         ("comped", "You coached me free or at a discount"),
+                         ("friend", "We&#39;re friends or ride together"),
+                         ("work", "We&#39;ve worked together"),
+                         ("family", "We&#39;re family")]},
+            {"name": "reference", "label": "If someone thinking about coaching wants to talk to a real athlete, can I introduce you by email?",
+             "kind": "radio", "options": [("yes", "Yes"), ("ask", "Ask me first each time"), ("no", "No")]},
+            {"name": "consent_note", "kind": "note",
+             "text": "Before anything goes up, I&#39;ll send you the exact words and how they&#39;ll look, and nothing runs until you say yes. I won&#39;t edit your words without asking. It stays up for three years at most. Reply any time and it comes down within 7 days, though I can&#39;t pull back screenshots, reposts or search-engine copies. If you&#39;re under 18, I&#39;ll need a parent&#39;s OK too."},
+        ]},
+        {"title": "Loose Ends", "fields": [
+            {"name": "come_back", "label": "Would you come back one day?", "kind": "radio",
+             "options": [("yes", "Probably"), ("maybe", "Maybe"), ("no", "Probably not")]},
+            {"name": "checkin", "label": "Want me to check in later? Once, then I leave you alone.", "kind": "radio",
+             "options": [("none", "No thanks"), ("3m", "In about three months"),
+                         ("6m", "In about six months"), ("preseason", "Before next season")]},
+            {"name": "needs", "label": "Anything you need from me before you go?", "kind": "checks",
+             "options": [("need_zones", "A summary of my zones and latest tests"),
+                         ("need_notes", "Notes for training on my own"),
+                         ("need_billing", "Confirmation that billing has stopped"),
+                         ("need_tp", "Help with my TrainingPeaks account")]},
+            {"name": "last_word", "label": "Anything else?", "kind": "area", "rows": 3, "ph": "Last word&#39;s yours."},
+        ]},
+    ],
+    "done": "That&#39;s everything. Send it when you&#39;re ready.",
+    "modules": [],
+    "submit": "Send It to Matti",
+    "success": "Got it. I&#39;ll read every word, and I&#39;ll come back to you on anything you asked for above.",
+    # Its own page, never indexed, and not in any sitemap (the sitemap is an
+    # allowlist: scripts/generate_sitemap.py INDEXABLE_WORDPRESS_PAGES).
+    "path": "/coaching/exit/",
+    "output": "coaching-exit.html",
+    "title": "Before You Go | Gravel God",
+    "robots": "noindex, nofollow",
+    # Worker (the record) plus the FormSubmit email backstop, like athlete.
+    "transport": "both",
+    # The FormSubmit backstop's subject and heading. No coach flags and no
+    # Endure goal draft: nothing on this form is a goal.
+    "email_title": "Exit survey",
+    "goal_export": False,
+    "footer": "Your answers come straight to me and are stored with your coaching file. They aren&#39;t anonymous. If you said I can share your words, nothing goes up until you&#39;ve approved the exact wording. The email copy goes through FormSubmit, a form service that keeps a copy for 30 days. Drafts are saved only in this browser until you submit. Questions? Email gravelgodcoaching@gmail.com",
+}
+
+
+VARIANTS = {v["slug"]: v for v in (STANDARD, CLAUDE, MATTI, GOAL_2027, FIVE, ATHLETE, EXIT)}

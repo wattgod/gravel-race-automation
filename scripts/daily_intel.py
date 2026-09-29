@@ -474,6 +474,12 @@ def compute_constraint(ga4_gravel: dict) -> dict:
     return out
 
 
+# A leaving athlete's exit survey (/coaching/exit/) is not a lead, and this
+# snapshot is committed to a public repo: it must never count as a new lead
+# or be named as a hot one.
+NOT_LEAD_SEQUENCES = frozenset({"athlete_exit_v1"})
+
+
 def collect_mission_control() -> dict:
     sys.path.insert(0, str(PROJECT_ROOT))
     from mission_control import supabase_client as db
@@ -488,9 +494,10 @@ def collect_mission_control() -> dict:
     # once gg_sequence_sends passed 1000 rows (2026-08-26) every send in the
     # 24h window fell outside the page and the report read "0 emails sent"
     # for a pipeline that was sending daily.
-    enrollments = db.select("gg_sequence_enrollments",
-                            columns="sequence_id,source,source_data,enrolled_at,status",
-                            order="enrolled_at", order_desc=True, limit=1000)
+    enrollments = [e for e in db.select("gg_sequence_enrollments",
+                                        columns="sequence_id,source,source_data,enrolled_at,status",
+                                        order="enrolled_at", order_desc=True, limit=1000)
+                   if e.get("sequence_id") not in NOT_LEAD_SEQUENCES]
     new_enr = recent(enrollments, field="enrolled_at")
     by_brand = {"gravelgod": 0, "roadielabs": 0}
     countdown = 0
@@ -532,9 +539,10 @@ def collect_mission_control() -> dict:
         if x.get("opened_at"): d["opens"] += 1
         if x.get("clicked_at"): d["clicks"] += 1
         d["last_template"] = x.get("template")
-    full_enr = db.select("gg_sequence_enrollments",
-                         columns="id,contact_email,contact_name,sequence_id,current_step,status,enrolled_at,source_data",
-                         order="enrolled_at", order_desc=True, limit=1000)
+    full_enr = [e for e in db.select("gg_sequence_enrollments",
+                                     columns="id,contact_email,contact_name,sequence_id,current_step,status,enrolled_at,source_data",
+                                     order="enrolled_at", order_desc=True, limit=1000)
+                if e.get("sequence_id") not in NOT_LEAD_SEQUENCES]
     hot_leads = []
     seen_emails = set()
     for e in sorted(full_enr, key=lambda x: x.get("enrolled_at") or "", reverse=True):

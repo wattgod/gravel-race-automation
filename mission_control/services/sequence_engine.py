@@ -30,8 +30,9 @@ from mission_control.services.pricing import (
 # unsubscribe guard and the sales-pipeline deal. A coached athlete filing a
 # season review is not being marketed to — and every one of those guards
 # would otherwise drop the review on the floor (they have bought a plan,
-# they may have unsubscribed years ago, and they are not a new deal).
-_POST_PURCHASE_TRIGGERS = {"plan_purchased", "athlete_review"}
+# they may have unsubscribed years ago, and they are not a new deal). The
+# same holds for an athlete's exit survey, which must also never open a deal.
+_POST_PURCHASE_TRIGGERS = {"plan_purchased", "athlete_review", "athlete_exit"}
 
 # Fallback plan length (weeks) for completion-relative steps when the
 # enrollment's source_data carries no usable plan_weeks AND the step has no

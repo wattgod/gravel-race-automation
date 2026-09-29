@@ -24,7 +24,13 @@
  *   - gravel_weekly_subscribe: Gravel Weekly publication signup
  *   - fueling_calculator: email + weight + race + fueling data (detected by weight_lbs, no source field)
  *
- * Notification emails only fire for fueling_calculator (contains actionable athlete data).
+ * Transactional sources (not leads, never marketed to):
+ *   - athlete_review:     a coached athlete's season review (goal_answers + athlete tag)
+ *   - athlete_exit:       a leaving athlete's exit survey (goal_answers + athlete tag).
+ *                         Not exit_intent, which is the race-page exit popup above.
+ *
+ * Notification emails fire for fueling_calculator (contains actionable athlete data),
+ * athlete_review and athlete_exit.
  * Mission Control's database is the lead list of record — nothing else reads a marketing
  * contacts list, so this worker does not maintain one.
  */
@@ -35,7 +41,10 @@ const DISPOSABLE_DOMAINS = [
   'yopmail.com', 'temp-mail.org', 'getnada.com', 'mohmal.com'
 ];
 
-const KNOWN_SOURCES = ['exit_intent', 'race_profile', 'prep_kit_gate', 'race_quiz', 'quiz_shared', 'tire_guide', 'race_review', 'state_hub', 'date_reminder', 'race_plan_ladder', 'training_guide', 'bikepacking_guide', 'race_watch', 'gravel_tv_subscribe', 'gravel_weekly_subscribe', 'goal_2027', 'athlete_review'];
+const KNOWN_SOURCES = ['exit_intent', 'race_profile', 'prep_kit_gate', 'race_quiz', 'quiz_shared', 'tire_guide', 'race_review', 'state_hub', 'date_reminder', 'race_plan_ladder', 'training_guide', 'bikepacking_guide', 'race_watch', 'gravel_tv_subscribe', 'gravel_weekly_subscribe', 'goal_2027', 'athlete_review', 'athlete_exit'];
+
+// Sources whose questionnaire answers ride along as goal_answers.
+const ANSWER_SOURCES = ['goal_2027', 'athlete_review', 'athlete_exit'];
 
 export default {
   async fetch(request, env) {
@@ -82,7 +91,7 @@ export default {
     // 2027 goal questionnaire: the answers ARE the deliverable (they make the
     // poster and the coach's read), so unlike every other source this one
     // forwards a body. Capped hard — a lead payload is not a document store.
-    if (source === 'goal_2027' || source === 'athlete_review') {
+    if (ANSWER_SOURCES.includes(source)) {
       data.goal_answers = sanitizeAnswers(data.goal_answers);
       data.offer_variant = ['A', 'B', 'C'].includes(String(data.offer_variant))
         ? String(data.offer_variant)
@@ -99,6 +108,16 @@ export default {
       data.goal_type = /^(finish|beat_time|race_it|same|bigger)$/.test(String(data.goal_type || ''))
         ? String(data.goal_type)
         : '';
+    }
+    // A leaving athlete is not a lead: none of the lead context rides along.
+    // Mission Control's countdown/debrief jobs enroll anyone whose stored
+    // record carries a race_slug, so a stray ?race= on the exit link must
+    // never reach it.
+    if (source === 'athlete_exit') {
+      for (const key of ['race_slug', 'race_name', 'guide_chapter', 'offer_variant',
+        'entry_src', 'goal_type', 'viewed_races']) {
+        delete data[key];
+      }
     }
     // Trail context (docs/specs/friend-first-sequences.md §4.2-4.3) — the
     // browser's localStorage breadcrumb of recently viewed races, forwarded
@@ -140,6 +159,12 @@ export default {
       // which is how the old path went unseen.
       if (source === 'athlete_review' && env.NOTIFICATION_EMAIL) {
         promises.push(sendAthleteReviewEmail(env, data));
+      }
+      // A coached athlete is leaving: Matti hears now, with what to do next
+      // at the top. This is the only alert for it (Mission Control sends
+      // none), and nothing here touches a marketing list.
+      if (source === 'athlete_exit' && env.NOTIFICATION_EMAIL) {
+        promises.push(sendAthleteExitEmail(env, data));
       }
 
       // Notification email only for fueling_calculator (has actionable athlete data)
@@ -357,6 +382,177 @@ async function sendAthleteReviewEmail(env, data) {
   }
 }
 
+// --- Notification Email (athlete exit survey) ---
+
+// Option labels as the exit form shows them (wordpress/season_review_variants.py
+// EXIT). tests/test_exit_survey.py fails if the two drift apart.
+const EXIT_OPTION_LABELS = {
+  exit_reason: {
+    done: 'I got what I came for',
+    time: 'Life got full',
+    cost: 'Cost',
+    health: 'Injury or health',
+    break: 'A break from structured training',
+    diy: 'Coaching myself from here',
+    elsewhere: 'Moving to another coach, team or app',
+    fit: "The coaching wasn't the right fit",
+    progress: "I wasn't seeing the progress I wanted",
+    other: 'Something else',
+  },
+  share_as: {
+    full: 'Yes, with my full name',
+    initial: 'Yes, first name and last initial',
+    age_group: 'Yes, first name and age group',
+    private: 'No, keep it between us',
+  },
+  connection: {
+    none: 'No, just coaching',
+    comped: 'You coached me free or at a discount',
+    friend: "We're friends or ride together",
+    work: "We've worked together",
+    family: "We're family",
+  },
+  reference: { yes: 'Yes', ask: 'Ask me first each time', no: 'No' },
+  come_back: { yes: 'Probably', maybe: 'Maybe', no: 'Probably not' },
+  checkin: {
+    none: 'No thanks',
+    '3m': 'In about three months',
+    '6m': 'In about six months',
+    preseason: 'Before next season',
+  },
+};
+const EXIT_CHANNEL_LABELS = {
+  where_site: 'gravelgodcycling.com',
+  where_social: 'Gravel God social posts',
+  where_email: 'Emails to riders thinking about coaching',
+  where_tp: 'My TrainingPeaks coach profile',
+};
+const EXIT_NEED_LABELS = {
+  need_zones: 'A summary of my zones and latest tests',
+  need_notes: 'Notes for training on my own',
+  need_billing: 'Confirmation that billing has stopped',
+  need_tp: 'Help with my TrainingPeaks account',
+};
+// The receipts spec's identity tiers (docs/specs/receipts-social-proof-2026.md
+// §5.3). "private" is not a sharing tier: that athlete appears in the count only.
+const EXIT_SHARE_TIERS = {
+  full: 'full name',
+  initial: 'first name + last initial',
+  age_group: 'first name + age group',
+};
+
+const MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July',
+  'August', 'September', 'October', 'November', 'December'];
+
+function monthsFrom(now, n) {
+  const total = now.getUTCFullYear() * 12 + now.getUTCMonth() + n;
+  return `${MONTHS[total % 12]} ${Math.floor(total / 12)}`;
+}
+
+// "Before next season": the gravel build starts over the winter, so the
+// January after this one. The others count on from today.
+function checkinMonth(code, now) {
+  if (code === '3m') return monthsFrom(now, 3);
+  if (code === '6m') return monthsFrom(now, 6);
+  if (code === 'preseason') return `January ${now.getUTCFullYear() + 1}`;
+  return '';
+}
+
+function exitLabel(field, value) {
+  return (EXIT_OPTION_LABELS[field] || {})[value] || '';
+}
+
+// What Matti has to do, derived from the answers. Plain text; escaped where
+// it is rendered.
+function exitNextActions(answers, now) {
+  const actions = [];
+  const tier = EXIT_SHARE_TIERS[answers.share_as];
+  if (tier && answers.quote) {
+    const channels = Object.keys(EXIT_CHANNEL_LABELS)
+      .filter((k) => answers[k] === 'yes')
+      .map((k) => EXIT_CHANNEL_LABELS[k]);
+    const connection = exitLabel('connection', answers.connection) || 'not answered';
+    actions.push(
+      `Consent to share: ${tier}; channels: ${channels.join(', ') || 'none ticked'}; `
+      + `connection: ${connection}. Next: send the exact wording + render for approval. `
+      + 'Ledger entry needs quote_approved_at and render_approved_at before it can render.',
+    );
+  }
+  if (answers.reference === 'yes' || answers.reference === 'ask') {
+    actions.push(`Add to the talk-to-an-athlete roster (${answers.reference === 'yes' ? 'yes' : 'ask first'}).`);
+  }
+  if (answers.checkin && answers.checkin !== 'none') {
+    const month = checkinMonth(answers.checkin, now);
+    if (month) {
+      actions.push(`Check in around ${month} (${exitLabel('checkin', answers.checkin)}).`);
+    }
+  }
+  const needs = Object.keys(EXIT_NEED_LABELS)
+    .filter((k) => answers[k] === 'yes')
+    .map((k) => EXIT_NEED_LABELS[k]);
+  if (needs.length) actions.push(`Asked for: ${needs.join('; ')}.`);
+  return actions;
+}
+
+function exitAnswerDisplay(key, value) {
+  if (EXIT_OPTION_LABELS[key]) return exitLabel(key, value) ? `${exitLabel(key, value)} (${value})` : value;
+  const tick = EXIT_CHANNEL_LABELS[key] || EXIT_NEED_LABELS[key];
+  if (tick && value === 'yes') return `ticked: ${tick}`;
+  return value;
+}
+
+// Resend only, from noreply@ (matti@ is accepted and never arrives). No
+// marketing contact is created or updated for an exit, here or anywhere.
+async function sendAthleteExitEmail(env, data) {
+  const answers = data.goal_answers || {};
+  const reason = exitLabel('exit_reason', answers.exit_reason) || 'no reason given';
+  const actions = exitNextActions(answers, new Date());
+  const who = esc(data.name || data.email);
+  const actionsHtml = actions.length
+    ? `<ul style="margin:0 0 16px;padding-left:20px">${actions.map((a) => `<li style="margin:0 0 6px">${esc(a)}</li>`).join('')}</ul>`
+    : '<p style="margin:0 0 16px">None.</p>';
+  const recommend = answers.recommend !== undefined ? `${esc(answers.recommend)}/10` : 'not answered';
+  const rows = Object.entries(answers)
+    .map(([k, v]) => `<tr><td style="padding:4px 12px 4px 0;font-family:monospace;color:#7d695d;vertical-align:top">${esc(k)}</td><td style="padding:4px 0">${esc(exitAnswerDisplay(k, v))}</td></tr>`)
+    .join('');
+  const html = `<div style="font-family:Georgia,serif;max-width:640px">
+    <p style="font-family:monospace;letter-spacing:.14em;color:#178079">ATHLETE EXIT SURVEY</p>
+    <h2 style="margin:0 0 4px">${who}</h2>
+    <p style="color:#7d695d;margin:0 0 16px">${esc(data.athlete || 'no athlete tag')} &middot; ${esc(data.email)} &middot; ${esc(reason)}</p>
+    <p style="font-family:monospace;letter-spacing:.14em;margin:0 0 6px">NEXT ACTIONS</p>
+    ${actionsHtml}
+    <p style="margin:0 0 16px"><b>Recommend:</b> ${recommend}</p>
+    <table style="border-collapse:collapse;font-size:15px">${rows}</table>
+  </div>`;
+
+  const subject = `[GG] Exit survey · ${(data.name || data.email).substring(0, 60)} · ${reason}`;
+
+  if (!env.RESEND_API_KEY) {
+    console.error('Athlete exit notification skipped: no RESEND_API_KEY');
+    return;
+  }
+  try {
+    const resp = await fetch('https://api.resend.com/emails', {
+      method: 'POST',
+      headers: {
+        'Authorization': `Bearer ${env.RESEND_API_KEY}`,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        from: 'Gravel God <noreply@gravelgodcycling.com>',
+        to: [env.NOTIFICATION_EMAIL],
+        reply_to: data.email,
+        subject,
+        html
+      })
+    });
+    const detail = await resp.text();
+    console.log('Athlete exit notification (resend):', resp.status, detail.slice(0, 200));
+  } catch (error) {
+    console.error('Athlete exit notification failed:', error);
+  }
+}
+
 // --- Notification Email (fueling_calculator only) ---
 
 // Resend: SendGrid's key has been returning 401 account-wide. Sent from
@@ -486,7 +682,7 @@ function sanitizeAnswers(raw) {
 // refusing the payload is a failure the visitor must hear about — otherwise
 // the page shows a poster, wipes the saved draft, and the answers exist
 // nowhere.
-const STORAGE_REQUIRED = ['goal_2027', 'athlete_review'];
+const STORAGE_REQUIRED = ['goal_2027', 'athlete_review', 'athlete_exit'];
 
 async function notifyMissionControl(env, data, source) {
   try {

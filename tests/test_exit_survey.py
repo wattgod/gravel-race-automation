@@ -302,6 +302,14 @@ class TestPersonalLinkStaysOutOfAnalytics:
         assert "var prefill = window.ggPersonalLink || {};" in restore
         assert 'params.get(k)' not in restore
 
+    def test_prefilled_values_are_saved_to_the_draft_at_once(self):
+        # The stripped address can't prefill a reload, and iOS Safari often
+        # skips beforeunload, so restore() saves the link's values itself.
+        js = build_season_review_js(EXIT)
+        restore = js[js.index("function restore() {"):js.index("/* ── The email:")]
+        fill = restore.index("el.value = prefill[k]")
+        assert restore.index("{ save(true); }", fill) > fill
+
     def test_global_ga_snippet_is_untouched(self):
         from brand_tokens import get_ga4_head_snippet
         assert "ggPersonalLink" not in get_ga4_head_snippet()

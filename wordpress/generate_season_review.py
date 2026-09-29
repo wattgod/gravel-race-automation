@@ -974,6 +974,9 @@ def build_season_review_js(variant) -> str:
       var el = document.getElementById(k);
       if (el && prefill[k] && !el.value) { el.value = prefill[k]; }
     });
+    /* the stripped address can't prefill a reload, and iOS Safari often
+       skips beforeunload, so put the link's values in the draft now */
+    if (prefill.name || prefill.email || prefill.athlete) { save(true); }
     /* Prefill from the race-page goal card's tap (goals-2027-funnel-spec.md):
        ?goal_type= carries which goal the visitor already picked there. The
        line templates mirror GOAL_CARD_COPY.goal_lines in

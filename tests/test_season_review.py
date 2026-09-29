@@ -17,6 +17,9 @@ from season_review_variants import VARIANTS  # noqa: E402
 import pytest  # noqa: E402
 
 ALL = sorted(VARIANTS)
+# The exit survey (/coaching/exit/) shares the renderer but is not a goal
+# form: no optional modules, no goal, no obstacle. tests/test_exit_survey.py.
+GOAL_FORMS = [slug for slug in ALL if slug != "exit"]
 
 
 def page(slug: str = "standard") -> str:
@@ -26,7 +29,8 @@ def page(slug: str = "standard") -> str:
 def core_form(slug: str = "standard") -> str:
     html = page(slug)
     start = html.index('<form id="season-form"')
-    return html[start:html.index('<div class="gg-sr-part">', start)]
+    end = html.find('<div class="gg-sr-part">', start)
+    return html[start:end if end != -1 else html.index("</form>", start)]
 
 
 def test_has_ga4_and_header_js():
@@ -59,7 +63,7 @@ def test_no_innerhtml_in_js():
     assert "innerHTML" not in build_season_review_js(VARIANTS["standard"])
 
 
-@pytest.mark.parametrize("slug", ALL)
+@pytest.mark.parametrize("slug", GOAL_FORMS)
 def test_every_variant_is_mvp_plus_optional_depth(slug):
     html = page(slug)
     deep = html[html.index('<div class="gg-sr-part">'):html.index("</form>")]
@@ -74,7 +78,7 @@ def test_section_numbers_never_repeat(slug):
     assert len(nums) == len(set(nums)), nums
 
 
-@pytest.mark.parametrize("slug", ALL)
+@pytest.mark.parametrize("slug", GOAL_FORMS)
 def test_every_variant_asks_obstacle_and_goal(slug):
     core = core_form(slug)
     assert 'name="outcome_goal"' in core

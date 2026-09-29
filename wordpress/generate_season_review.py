@@ -17,6 +17,7 @@ The question sets live in season_review_variants.py as data:
   claude    /coaching/season-review/claude/   warm, plain, one idea per question
   matti     /coaching/season-review/matti/    Matti's coaching voice
   five      /coaching/season-review/five/     five questions, ~5 minutes
+  exit      /coaching/exit/                   an athlete who is leaving (no modules)
 
 What the research supports, and every variant keeps: judging last season
 against the goal actually set, one measurable goal, and naming an inner
@@ -62,7 +63,8 @@ FORMSUBMIT_URL = f"https://formsubmit.co/ajax/{FORMSUBMIT_EMAIL}"
 # in his inbox (FormSubmit mail is filtered to a label and skips it) and their
 # answers stored against the lead, where scripts can file them.
 LEAD_WORKER_URL = "https://fueling-lead-intake.gravelgodcoaching.workers.dev"
-WORKER_SOURCES = {"athlete": "athlete_review", "goal_2027": "goal_2027"}
+# athlete_exit, not exit_intent: exit_intent is the race-page exit popup.
+WORKER_SOURCES = {"athlete": "athlete_review", "goal_2027": "goal_2027", "exit": "athlete_exit"}
 
 
 def page_path(slug: str) -> str:
@@ -98,7 +100,44 @@ def _label(field, for_id: bool = True) -> str:
         f' data-lbl-{d}="{_attr(v["label"])}"' for d, v in swap.items() if "label" in v
     )
     target = f' for="{field["name"]}"' if for_id else ""
-    return f'<label class="gg-apply-label"{target}{data}>{field["label"]}{_req(field)}</label>'
+    # a scale is a radiogroup: it names itself by pointing at this label
+    ident = f' id="{field["name"]}-q"' if field["kind"] == "scale" else ""
+    return f'<label class="gg-apply-label"{ident}{target}{data}>{field["label"]}{_req(field)}</label>'
+
+
+SCALE = range(0, 11)
+
+
+def _scale(field) -> str:
+    """0-10 in one row. Real radios (visually hidden, still focusable), so
+    Tab reaches the group and the arrow keys move along it; the value is
+    the number as a string, like every other answer."""
+    name = field["name"]
+    low, high = field.get("low", ""), field.get("high", "")
+    end_label = {SCALE[0]: low, SCALE[-1]: high}
+    opts = []
+    for n in SCALE:
+        spoken = f"{n} ({html.unescape(end_label[n])})" if end_label.get(n) else str(n)
+        req = " required" if field.get("req") and n == SCALE[0] else ""
+        opts.append(
+            f'<label class="gg-apply-radio-option gg-sr-scale-option">'
+            f'<input type="radio" name="{name}" value="{n}"{req} aria-label="{_attr(spoken)}">'
+            f'<span class="gg-sr-scale-n" aria-hidden="true">{n}</span></label>'
+        )
+    opts = "".join(opts)
+    ends = (
+        f'<div class="gg-sr-scale-ends" aria-hidden="true"><span>{low}</span><span>{high}</span></div>'
+        if low or high else ""
+    )
+    return (f'<div class="gg-sr-scale" role="radiogroup" aria-labelledby="{name}-q" data-radio="{name}">'
+            f'<div class="gg-sr-scale-row">{opts}</div>{ends}</div>')
+
+
+# The worker (sanitizeAnswers) and Mission Control (_MAX_GOAL_ANSWER_LEN) keep
+# 4000 characters of an answer. Stop typing there, so what is stored is never
+# a silently cut version of what the athlete wrote.
+MAX_ANSWER_LEN = 4000
+MAXLENGTH_ATTR = f' maxlength="{MAX_ANSWER_LEN}"'
 
 
 def _control(field) -> str:
@@ -109,9 +148,10 @@ def _control(field) -> str:
     ph_data = "".join(f' data-ph-{d}="{_attr(v["ph"])}"' for d, v in swap.items() if "ph" in v)
     if kind in ("text", "email", "date"):
         auto = f' autocomplete="{field["auto"]}"' if field.get("auto") else ""
-        return f'<input type="{kind}" id="{name}" name="{name}"{req}{ph}{ph_data}{auto}>'
+        cap = MAXLENGTH_ATTR if kind == "text" else ""
+        return f'<input type="{kind}" id="{name}" name="{name}"{req}{ph}{ph_data}{auto}{cap}>'
     if kind == "area":
-        return f'<textarea id="{name}" name="{name}" rows="{field.get("rows", 3)}"{req}{ph}></textarea>'
+        return f'<textarea id="{name}" name="{name}" rows="{field.get("rows", 3)}"{req}{ph}{MAXLENGTH_ATTR}></textarea>'
     if kind == "select":
         opts = '<option value="">Select...</option>' + "".join(
             f'<option value="{_attr(v)}">{t}</option>' for v, t in field["options"]
@@ -129,8 +169,11 @@ def _control(field) -> str:
             + "</div></label>"
             for i, o in enumerate(field["options"])
         )
-        layout = "" if any(len(o) > 2 for o in field["options"]) else " gg-apply-radio-horizontal"
+        stacked = field.get("layout") == "vertical" or any(len(o) > 2 for o in field["options"])
+        layout = "" if stacked else " gg-apply-radio-horizontal"
         return f'<div class="gg-apply-radio-group{layout}" data-radio="{name}"{lift_attr}>{opts}</div>'
+    if kind == "scale":
+        return _scale(field)
     if kind == "checks":
         opts = "".join(
             f'<label class="gg-apply-checkbox-option"><input type="checkbox" name="{n}" value="yes">'
@@ -170,6 +213,10 @@ def render_why_chain(field) -> str:
 def render_field(field, context_title: str = "") -> str:
     if field["kind"] == "hidden":
         return _control(field)
+    if field["kind"] == "note":
+        # Explanation, not a question: no input, and no data-q, so the
+        # coach's email skips it.
+        return f'<p class="gg-sr-note">{field["text"]}</p>'
     if field["kind"] == "whychain":
         return render_why_chain(field)
     if field["kind"] == "pair":
@@ -177,7 +224,7 @@ def render_field(field, context_title: str = "") -> str:
         return f'<div class="gg-apply-inline">{inner}</div>'
     # data-q is the question as it appears in the coach's email
     q = field.get("label") or context_title
-    head = _label(field, for_id=field["kind"] not in ("radio", "checks"))
+    head = _label(field, for_id=field["kind"] not in ("radio", "checks", "scale"))
     if field["kind"] == "timed":
         head = (
             f'<div class="gg-sr-label-row">{head}'
@@ -193,6 +240,48 @@ def render_field(field, context_title: str = "") -> str:
 def _strip_tags(s: str) -> str:
     import re
     return re.sub(r"<[^>]+>", "", s)
+
+
+def _input_names(field) -> list[str]:
+    """The name(s) a field posts under. A radio group is one name; each
+    checks option is its own input, named by its key; a note posts nothing."""
+    kind = field["kind"]
+    if kind == "pair":
+        return [n for f in field["fields"] for n in _input_names(f)]
+    if kind == "checks":
+        return [key for key, _ in field["options"]]
+    if kind == "whychain":
+        return list(WHY_NAMES)
+    if kind == "note":
+        return []
+    return [field["name"]]
+
+
+def input_names(variant) -> list[str]:
+    """Every input name on the page, in page order (core, then modules)."""
+    fields = [f for sec in variant["sections"] for f in sec["fields"]]
+    fields += [f for m in variant.get("modules", []) for f in m["fields"]]
+    return [n for f in fields for n in _input_names(f)]
+
+
+# Posted as top-level keys, not answers (see the submit handler).
+IDENTITY_NAMES = ("name", "email", "athlete")
+
+
+def answer_keys(variant) -> list[str]:
+    """The goal_answers keys a full submission of this variant can carry."""
+    return [n for n in input_names(variant) if n not in IDENTITY_NAMES]
+
+
+def check_unique_names(variant) -> None:
+    """Two inputs with one name post one value and lose the other, silently."""
+    seen, dupes = set(), []
+    for n in input_names(variant):
+        if n in seen:
+            dupes.append(n)
+        seen.add(n)
+    if dupes:
+        raise ValueError(f"variant {variant['slug']!r} reuses input names: {sorted(set(dupes))}")
 
 
 def render_sections(variant) -> str:
@@ -218,6 +307,9 @@ def render_sections(variant) -> str:
 
 
 def render_modules(variant) -> str:
+    # No modules, no "extra credit" heading and no second set of buttons.
+    if not variant.get("modules"):
+        return ""
     mods = []
     for m in variant["modules"]:
         fields = "".join(render_field(f, m["title"]) for f in m["fields"])
@@ -232,14 +324,15 @@ def render_modules(variant) -> str:
 # ── Page pieces ───────────────────────────────────────────────
 
 
-def build_nav() -> str:
+def build_nav(variant=None) -> str:
+    crumb = (variant or {}).get("crumb", "Season Review")
     return get_site_header_html(active="services") + f'''
   <div class="gg-breadcrumb">
     <a href="{SITE_BASE_URL}/">Home</a>
     <span class="gg-breadcrumb-sep">&rsaquo;</span>
     <a href="{SITE_BASE_URL}/coaching/">Coaching</a>
     <span class="gg-breadcrumb-sep">&rsaquo;</span>
-    <span class="gg-breadcrumb-current">Season Review</span>
+    <span class="gg-breadcrumb-current">{crumb}</span>
   </div>'''
 
 
@@ -305,6 +398,13 @@ def build_submit_buttons(variant, btn_id: str, lead: str = "") -> str:
 
 def build_footer(variant=None) -> str:
     slug = (variant or {}).get("slug", "")
+    if (variant or {}).get("footer"):
+        # The variant says exactly what happens to its answers (the exit
+        # page is not "used to coach you"); the policy link rides along.
+        return f'''<div class="gg-apply-confidential-wrap">
+    <p class="gg-apply-confidential">{variant["footer"]} &middot; <a href="/privacy/">Privacy Policy</a></p>
+  </div>
+  ''' + get_mega_footer_html()
     if (variant or {}).get("transport") == "worker":
         # a stranger, not a client: say exactly what happens and nothing more
         return f'''<div class="gg-apply-confidential-wrap">
@@ -362,6 +462,73 @@ def build_season_review_css() -> str:
 }
 .gg-sr-deeper[open] summary { margin-bottom: var(--gg-spacing-lg); }
 .gg-sr-deeper .gg-apply-group:last-child { margin-bottom: 0; }
+
+/* A note: explanation between questions, no input */
+.gg-sr-note {
+  font-family: var(--gg-font-editorial);
+  font-size: var(--gg-font-size-xs);
+  line-height: var(--gg-line-height-relaxed);
+  color: var(--gg-color-secondary-brown);
+  border-left: 3px solid var(--gg-color-tan);
+  padding-left: var(--gg-spacing-md);
+  margin: 0 0 var(--gg-spacing-lg);
+}
+
+/* A 0-10 scale: eleven buttons in one row, down to a 390px phone. The
+   buttons share borders instead of a gap, which keeps each one wider than
+   24px (WCAG 2.5.8) at that width. */
+.gg-sr-scale-row {
+  display: flex;
+}
+.gg-apply-radio-option.gg-sr-scale-option {
+  position: relative;
+  flex: 1 1 0;
+  min-width: 0;
+  padding: 0;
+  gap: 0;
+  align-items: stretch;
+}
+.gg-apply-radio-option.gg-sr-scale-option + .gg-sr-scale-option { margin-left: -2px; }
+.gg-apply-radio-option.gg-sr-scale-option.selected,
+.gg-sr-scale-option:focus-within { z-index: 1; }
+.gg-sr-scale-option input {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+.gg-sr-scale-n {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  font-family: var(--gg-font-data);
+  font-size: var(--gg-font-size-sm);
+  font-weight: var(--gg-font-weight-bold);
+  font-variant-numeric: tabular-nums;
+}
+.gg-sr-scale-option input:checked + .gg-sr-scale-n {
+  background: var(--gg-color-near-black);
+  color: var(--gg-color-white);
+}
+.gg-sr-scale-option input:focus-visible + .gg-sr-scale-n {
+  outline: 3px solid var(--gg-color-teal);
+  outline-offset: -3px;
+}
+.gg-sr-scale-ends {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--gg-spacing-md);
+  margin-top: var(--gg-spacing-xs);
+  font-family: var(--gg-font-data);
+  font-size: var(--gg-font-size-2xs);
+  color: var(--gg-color-secondary-brown);
+}
+.gg-sr-scale-ends span:last-child { text-align: right; }
 
 .gg-sr-label-row {
   display: flex;
@@ -544,6 +711,10 @@ def build_season_review_js(variant) -> str:
   var SUCCESS_BY_EMAIL = "Got it — your answers came through by email. (My system had a wobble, so I'll file them by hand.)";
   var lastStored = false;
   var SUBMIT_LABEL = "__SUBMIT_LABEL__";
+  /* The backstop email's subject/heading, and whether it carries the coach's
+     goal flags and the Endure goal draft (not every form is about a goal). */
+  var EMAIL_TITLE = "__EMAIL_TITLE__";
+  var GOAL_EXPORT = __GOAL_EXPORT__;
 
   var form = document.getElementById("season-form");
 
@@ -796,12 +967,16 @@ def build_season_review_js(variant) -> str:
       showMessage("info", "Picked up where you left off.");
     }
     updateWhys();
-    /* personalised links: ?name=&email= */
-    var params = new URLSearchParams(window.location.search);
+    /* personalised links: ?name=&email=&athlete=, read (and taken out of
+       the address bar) by the head script before analytics loaded */
+    var prefill = window.ggPersonalLink || {};
     ["name", "email", "athlete"].forEach(function(k) {
       var el = document.getElementById(k);
-      if (el && params.get(k) && !el.value) { el.value = params.get(k); }
+      if (el && prefill[k] && !el.value) { el.value = prefill[k]; }
     });
+    /* the stripped address can't prefill a reload, and iOS Safari often
+       skips beforeunload, so put the link's values in the draft now */
+    if (prefill.name || prefill.email || prefill.athlete) { save(true); }
     /* Prefill from the race-page goal card's tap (goals-2027-funnel-spec.md):
        ?goal_type= carries which goal the visitor already picked there. The
        line templates mirror GOAL_CARD_COPY.goal_lines in
@@ -860,7 +1035,7 @@ def build_season_review_js(variant) -> str:
 
   function formatSubmission(d) {
     var L = [];
-    L.push("# Season Review " + SEASON + " [" + VARIANT + "]: " + d.name);
+    L.push("# " + EMAIL_TITLE + ": " + d.name);
     L.push("Email: " + d.email);
     L.push("Submitted: " + new Date().toISOString());
     var heading = null, printed = null;
@@ -875,6 +1050,7 @@ def build_season_review_js(variant) -> str:
       if (a.length > 140 || a.indexOf("\n") !== -1) { L.push("### " + q); L.push(a); }
       else { L.push("- " + q + " " + a); }
     });
+    if (!GOAL_EXPORT) { return L.join("\n"); }
     L.push("");
     L.push("## Flags");
     var flags = [];
@@ -1009,7 +1185,7 @@ def build_season_review_js(variant) -> str:
     }
 
     var payload = new FormData();
-    payload.append("_subject", "Season Review " + SEASON + " [" + VARIANT + "]: " + d.name);
+    payload.append("_subject", EMAIL_TITLE + ": " + d.name);
     payload.append("_replyto", d.email);
     payload.append("_captcha", "false");
     payload.append("_template", "box");
@@ -1282,8 +1458,48 @@ def build_season_review_js(variant) -> str:
         .replace("__VARIANT__", variant["slug"])
         .replace("__SUCCESS__", js_str(variant["success"]))
         .replace("__SUBMIT_LABEL__", js_str(variant["submit"]))
+        .replace("__EMAIL_TITLE__", js_str(
+            variant.get("email_title") or f"Season Review {SEASON} [{variant['slug']}]"))
+        .replace("__GOAL_EXPORT__", "true" if variant.get("goal_export", True) else "false")
         .replace("__EMAIL__", FORMSUBMIT_EMAIL)
     )
+
+
+# ── Personal links, kept out of analytics ────────────────────
+# A personalised link carries ?name=&email=&athlete=, and GA4 sends the full
+# address as page_location, so an athlete's email would land in Google
+# Analytics. This runs first in <head>, before the GA snippet: it keeps the
+# three values for the prefill (window.ggPersonalLink) and removes ONLY those
+# three from the address bar. Every other param (src, race, goal_type, utm_*)
+# stays byte for byte, and so does the hash. The global GA snippet is not
+# touched: stripping params site-wide would break UTM attribution.
+
+PERSONAL_PARAMS = ("name", "email", "athlete")
+
+
+def build_personal_link_js() -> str:
+    keys = ", ".join(f'"{k}"' for k in PERSONAL_PARAMS)
+    return r'''<script>
+(function() {
+  var KEYS = [__KEYS__], found = {}, kept = [], removed = false;
+  try {
+    var params = new URLSearchParams(window.location.search);
+    window.location.search.replace(/^\?/, "").split("&").forEach(function(part) {
+      if (!part) { return; }
+      var raw = part.split("=")[0], key = raw;
+      try { key = decodeURIComponent(raw.replace(/\+/g, " ")); } catch (e) { /* keep raw */ }
+      if (KEYS.indexOf(key) === -1) { kept.push(part); return; }
+      removed = true;
+      if (!(key in found)) { found[key] = params.get(key) || ""; }
+    });
+    if (removed) {
+      history.replaceState(history.state, "",
+        window.location.pathname + (kept.length ? "?" + kept.join("&") : "") + window.location.hash);
+    }
+  } catch (e) { /* a browser this old keeps the link as it came */ }
+  window.ggPersonalLink = found;
+})();
+</script>'''.replace("__KEYS__", keys)
 
 
 # ── Walkthrough mode (D19) ───────────────────────────────────
@@ -1457,6 +1673,10 @@ def build_walkthrough_js(variant) -> str:
 
 def generate_season_review_page(slug: str = "standard", external_assets=None) -> str:
     variant = VARIANTS[slug]
+    check_unique_names(variant)
+    # The second submit row sits under the optional modules; with none, the
+    # first row is the only one.
+    second_submit = build_submit_buttons(variant, "submit-btn-2") if variant.get("modules") else ""
     page_css = external_assets["css_tag"] if external_assets else get_page_css()
     title = variant.get("title") or f"Season Review {SEASON} | Gravel God"
     description = variant.get("description", "")
@@ -1470,6 +1690,7 @@ def generate_season_review_page(slug: str = "standard", external_assets=None) ->
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  {build_personal_link_js()}
   <title>{title}</title>
   <meta name="robots" content="{variant.get('robots', 'noindex, nofollow')}">
   <link rel="canonical" href="{url}">
@@ -1485,7 +1706,7 @@ def generate_season_review_page(slug: str = "standard", external_assets=None) ->
   {build_season_review_css()}
 </head>
 <body class="gg-neo-brutalist-page" style="background:var(--gg-color-warm-paper);color:var(--gg-color-near-black);font-family:var(--gg-font-data);font-size:var(--gg-font-size-sm);line-height:1.7;min-height:100vh">
-  {build_nav()}
+  {build_nav(variant)}
   <div class="gg-apply-container">
     {build_header(variant)}
     {build_progress_bar()}
@@ -1495,7 +1716,7 @@ def generate_season_review_page(slug: str = "standard", external_assets=None) ->
       {render_sections(variant)}
       {build_submit_buttons(variant, "submit-btn", variant["done"])}
       {render_modules(variant)}
-      {build_submit_buttons(variant, "submit-btn-2")}
+      {second_submit}
     </form>
     {build_results(variant)}
   </div>

@@ -12,6 +12,7 @@ from fastapi import APIRouter, Header, HTTPException, Request
 from mission_control.config import BRAND_SITE_URLS, MC_PUBLIC_URL, WEBHOOK_SECRET
 from mission_control import supabase_client as db
 from mission_control.sequences import get_sequences_for_trigger
+from mission_control.services.athlete_exit import exit_source_data, next_actions
 from mission_control.services.sequence_engine import enroll, record_event, resend_first_step
 
 logger = logging.getLogger(__name__)
@@ -25,6 +26,9 @@ _ANSWER_KEY_RE = re.compile(r"^[a-z0-9_]{1,40}$")
 _MAX_GOAL_ANSWER_KEYS = 64
 _MAX_GOAL_ANSWER_LEN = 4000
 _MAX_GOAL_ANSWERS_TOTAL = 30000
+# Sources whose questionnaire answers ride along as goal_answers. The exit
+# survey is the only one that is neither a goal nor a lead.
+_ANSWER_SOURCES = ("goal_2027", "athlete_review", "athlete_exit")
 # Subject for the resent first email after a rider corrects their answers.
 _REVISED_SUBJECTS = {"goal_2027": "your 2027 goal, revised"}
 # XC Ski Labs' goal_2027 day-0 subject reads "your season, on paper" (a ski
@@ -81,6 +85,28 @@ def _validate_email(email: str) -> str:
     if not email or not _EMAIL_RE.match(email):
         raise HTTPException(status_code=400, detail="Invalid email format")
     return email
+
+
+def _cap_goal_answers(answers) -> dict[str, str]:
+    """Questionnaire answers, capped. The worker caps them too; cap again
+    here, because this router trusts nothing it did not build itself."""
+    if not isinstance(answers, dict):
+        return {}
+    kept: dict[str, str] = {}
+    budget = _MAX_GOAL_ANSWERS_TOTAL
+    for key, value in answers.items():
+        if len(kept) >= _MAX_GOAL_ANSWER_KEYS:
+            break
+        if not _ANSWER_KEY_RE.match(str(key)):
+            continue
+        if not isinstance(value, (str, int, float)):
+            continue
+        text = str(value).strip()[:_MAX_GOAL_ANSWER_LEN]
+        if not text or len(text) > budget:
+            continue
+        budget -= len(text)
+        kept[str(key)] = text
+    return kept
 
 
 def _truncate(value: str, max_len: int) -> str:
@@ -183,6 +209,12 @@ async def _send_enrollment_alert(
     if source == "athlete_review":
         who = source_data.get("athlete") or name or email
         subject = f"[GG] Season review filed · {who}"
+    elif source == "athlete_exit":
+        # The backup to the worker's exit alert: two emails per exit is fine,
+        # none is not. A leaving athlete is not a "new lead", and that subject
+        # would be filtered out of the inbox.
+        who = source_data.get("athlete") or name or email
+        subject = f"[GG] Exit survey filed · {who}"
     else:
         subject = f"new lead · {name or email} · {context} [{brand}]"
     if unrouted:
@@ -198,19 +230,29 @@ async def _send_enrollment_alert(
         if race and brand in ("gravelgod", "roadielabs") else ""
     )
     answers = source_data.get("goal_answers") or {}
-    if source == "athlete_review" and answers:
+    if source in ("athlete_review", "athlete_exit") and answers:
         rows = "".join(
             f"<tr><td style='padding:3px 12px 3px 0;color:#7d695d;vertical-align:top;"
             f"font-family:monospace;font-size:12px'>{escape(k)}</td>"
             f"<td style='padding:3px 0'>{escape(str(v))}</td></tr>"
             for k, v in list(answers.items())[:45]
         )
+        if source == "athlete_exit":
+            actions = next_actions(answers)
+            head = ("<p style='font-family:monospace;font-size:12px'>NEXT ACTIONS</p>"
+                    + ("<ul>" + "".join(f"<li>{escape(a)}</li>" for a in actions) + "</ul>"
+                       if actions else "<p>None.</p>"))
+            tail = ""
+        else:
+            head = ""
+            tail = (f"<p style='color:#666;font-family:monospace;font-size:12px'>file it: "
+                    f"python3 scripts/file_athlete_review.py --email {escape(email)}</p>")
         html = (
             f"<p><b>{escape(name) or '(no name)'}</b> &lt;{escape(email)}&gt;"
             f" &middot; {escape(source_data.get('athlete') or 'no athlete tag')}</p>"
+            f"{head}"
             f"<table style='border-collapse:collapse;font-family:Georgia,serif;font-size:15px'>{rows}</table>"
-            f"<p style='color:#666;font-family:monospace;font-size:12px'>file it: "
-            f"python3 scripts/file_athlete_review.py --email {escape(email)}</p>"
+            f"{tail}"
         )
         await asyncio.to_thread(_send_email_sync, to, subject, html, brand)
         return
@@ -318,29 +360,23 @@ async def subscriber_webhook(
     except (TypeError, ValueError):
         pass
 
-    # 2027 goal questionnaire (docs/specs/goals-2027-funnel-spec.md). The
-    # answers are the deliverable: they render the poster and give Matti the
-    # read. The worker caps them; cap again here, because this router trusts
-    # nothing it did not build itself.
-    if source in ("goal_2027", "athlete_review"):
-        answers = body.get("goal_answers")
-        if isinstance(answers, dict):
-            kept: dict[str, str] = {}
-            budget = _MAX_GOAL_ANSWERS_TOTAL
-            for key, value in answers.items():
-                if len(kept) >= _MAX_GOAL_ANSWER_KEYS:
-                    break
-                if not _ANSWER_KEY_RE.match(str(key)):
-                    continue
-                if not isinstance(value, (str, int, float)):
-                    continue
-                text = str(value).strip()[:_MAX_GOAL_ANSWER_LEN]
-                if not text or len(text) > budget:
-                    continue
-                budget -= len(text)
-                kept[str(key)] = text
-            if kept:
-                source_data["goal_answers"] = kept
+    # Questionnaires: the 2027 goal page (docs/specs/goals-2027-funnel-spec.md),
+    # the season review and the exit survey. The answers are the deliverable:
+    # they render the poster and give Matti the read. The worker caps them;
+    # cap again here (_cap_goal_answers).
+    if source == "athlete_exit":
+        # Built from scratch: a leaving athlete's record carries the answers,
+        # the athlete tag, the receipt's flat keys and the consent record,
+        # and none of the lead context above (race_slug would put them in the
+        # countdown and debrief jobs; no poster token, so nothing to prefill).
+        source_data = exit_source_data(
+            brand, _cap_goal_answers(body.get("goal_answers")),
+            athlete=str(body.get("athlete") or "").strip()[:80],
+        )
+    elif source in ("goal_2027", "athlete_review"):
+        kept = _cap_goal_answers(body.get("goal_answers"))
+        if kept:
+            source_data["goal_answers"] = kept
         if source == "athlete_review" and body.get("athlete"):
             source_data["athlete"] = str(body["athlete"]).strip()[:80]
         variant = str(body.get("offer_variant", "")).strip().upper()
@@ -390,6 +426,8 @@ async def subscriber_webhook(
         # A coached athlete filing their season review is not a lead: the only
         # email they get is the receipt, and they never enter nurture.
         "athlete_review": "athlete_review",
+        # Nor is an athlete who is leaving: a receipt, then nothing.
+        "athlete_exit": "athlete_exit",
         # Plan purchases (Stripe / WooCommerce / own-site) -> post-purchase
         # onboarding + review flywheel. The payment webhook must POST a source in
         # this set, with brand + plan_weeks (+ race_slug). Until that POST exists
@@ -406,7 +444,7 @@ async def subscriber_webhook(
     # back next season. enroll() refuses a second enrollment per sequence, so
     # without this the newer answers are silently discarded and the filing
     # script would keep handing Matti the stale ones.
-    if source in ("goal_2027", "athlete_review") and source_data.get("goal_answers"):
+    if source in _ANSWER_SOURCES and source_data.get("goal_answers"):
         for seq in get_sequences_for_trigger(trigger, brand):
             existing = db.select_one(
                 "gg_sequence_enrollments",
@@ -414,7 +452,11 @@ async def subscriber_webhook(
             )
             if not existing:
                 continue
-            merged = {**(existing.get("source_data") or {}), **source_data}
+            # An exit resubmission replaces the record outright. Merging would
+            # keep a sharing tier, a need or a consent record the athlete has
+            # since taken back.
+            merged = (dict(source_data) if source == "athlete_exit"
+                      else {**(existing.get("source_data") or {}), **source_data})
             # keep the poster token they may already have been emailed; the
             # new link carries a version so a mail client that cached the old
             # poster (the route allows a day) fetches the corrected one

@@ -265,6 +265,6 @@ async def ai_plugin_manifest(request: Request):
             "url": f"{base}/api/v1/openapi.json",
         },
         "logo_url": f"{base}/static/favicon.ico",
-        "contact_email": "matt@gravelgodcycling.com",
+        "contact_email": "gravelgodcoaching@gmail.com",
         "legal_info_url": "https://gravelgodcycling.com/about/",
     })

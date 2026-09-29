@@ -74,7 +74,7 @@ class TestLlmsTxt:
 
     def test_has_contact(self, index, training_plan_slugs):
         txt = generate_llms_txt(index, training_plan_slugs)
-        assert "matt@gravelgodcycling.com" in txt
+        assert "gravelgodcoaching@gmail.com" in txt
 
     def test_reasonable_size(self, index, training_plan_slugs):
         txt = generate_llms_txt(index, training_plan_slugs)

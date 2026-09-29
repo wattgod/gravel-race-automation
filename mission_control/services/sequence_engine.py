@@ -31,8 +31,9 @@ from mission_control.services.pricing import (
 # season review is not being marketed to — and every one of those guards
 # would otherwise drop the review on the floor (they have bought a plan,
 # they may have unsubscribed years ago, and they are not a new deal). The
-# same holds for an athlete's exit survey, which must also never open a deal.
-_POST_PURCHASE_TRIGGERS = {"plan_purchased", "athlete_review", "athlete_exit"}
+# same holds for an athlete's exit survey and a plan buyer's race debrief,
+# which must also never open a deal.
+_POST_PURCHASE_TRIGGERS = {"plan_purchased", "athlete_review", "athlete_exit", "plan_debrief"}
 
 # One-email receipts for something the contact just submitted (a season
 # review, an exit survey). An unsubscribe never cancels one still pending:

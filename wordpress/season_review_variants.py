@@ -15,7 +15,8 @@ Field kinds:
   row, with `low`/`high` end labels), note (a paragraph, no input).
 Optional keys: req, ph, rows, options, minutes, swap (start/stop prompt
 swap, keyed off habit_direction), lift (a radio value that makes other
-fields optional), layout ("vertical" stacks a radio's options).
+fields optional), layout ("vertical" stacks a radio's options), param +
+pattern (a hidden field filled from that URL param when it matches).
 
 Every input name must be unique within a variant; each `checks` option is
 its own input, named by its key.
@@ -683,4 +684,133 @@ EXIT = {
 }
 
 
-VARIANTS = {v["slug"]: v for v in (STANDARD, CLAUDE, MATTI, GOAL_2027, FIVE, ATHLETE, EXIT)}
+# ── Race debrief: for anyone who bought a plan ───────────────
+# The TrainingPeaks marketplace plans and the custom plans. Mostly strangers,
+# so the worker is the record and there is no FormSubmit backstop. Two
+# optional hidden fields come from the link in the plan's notes: ?plan= (a TP
+# planId, marketplace notes) and ?ref= (an opaque id, custom-plan notes).
+# Both stay in the address on purpose: they are not personal, and GA4 counts
+# note clicks per plan from them. The page, the worker and Mission Control
+# each validate them against these patterns.
+# Answers go to Mission Control as source=plan_debrief, transactional only,
+# like the exit survey: a receipt, an alert to Matti, no marketing sequence.
+# The "On the Record" block is the exit survey's, approved as written; only
+# the lines that name coaching change (receipts spec §5.3: product =
+# tp_plan | custom_plan).
+
+PLAN_ID_PATTERN = r"^[0-9]{1,12}$"
+PLAN_REF_PATTERN = r"^[A-Za-z0-9_-]{8,32}$"
+
+
+def _exit_record_field(name: str) -> dict:
+    """A field from the exit survey's approved "On the Record" section."""
+    for sec in EXIT["sections"]:
+        for field in sec["fields"]:
+            if field.get("name") == name:
+                return dict(field)
+    raise KeyError(name)
+
+
+# DRAFT COPY: Matti's read pending before deploy (receipts spec §3.7: Matti writes every ask).
+RACE_DEBRIEF = {
+    "slug": "race_debrief",
+    "badge": "Race Debrief",
+    "crumb": "Race Debrief",
+    "crumb_parent": ("Training Plans", "/products/training-plans/"),
+    "h1": "How Did It Go?",
+    "intro": "Five minutes, less if you&#39;re quick. Apart from your name and email, only the first question is required. I read every one of these myself. It saves as you go.",
+    "sections": [
+        {"title": "You", "fields": [
+            *YOU["fields"],
+            {"name": "plan", "kind": "hidden", "param": "plan", "pattern": PLAN_ID_PATTERN},
+            {"name": "ref", "kind": "hidden", "param": "ref", "pattern": PLAN_REF_PATTERN},
+        ]},
+        {"title": "Race Day", "fields": [
+            {"name": "raced", "label": "Did you race it?", "kind": "radio", "req": True, "layout": "vertical",
+             "options": [("finished", "Finished"),
+                         ("dnf", "Started, didn&#39;t finish"),
+                         ("dns", "Didn&#39;t start"),
+                         ("later", "Not yet, it&#39;s still coming")]},
+            {"name": "result", "label": "How did it go?", "kind": "text",
+             "ph": "Time, placing, or how it felt."},
+            {"name": "result_url", "label": "Link to the official results, if there are any", "kind": "text",
+             "ph": "The timing company&#39;s page"},
+            {"name": "goal_met", "label": "Against the goal you had going in?", "kind": "radio", "layout": "vertical",
+             "options": [("hit", "Hit it"), ("close", "Close"), ("missed", "Missed"), ("none", "Didn&#39;t have one")]},
+        ]},
+        {"title": "The Plan", "fields": [
+            {"name": "completion", "label": "How much of the plan did you do?", "kind": "radio", "layout": "vertical",
+             "options": [("all", "Nearly all of it"), ("most", "Most of it"), ("half", "About half"), ("less", "Less than half")]},
+            {"name": "load", "label": "The training load was", "kind": "radio",
+             "options": [("easy", "Too easy"), ("right", "About right"), ("hard", "Too much")]},
+            {"name": "fit_week", "label": "Did it fit your week?", "kind": "radio",
+             "options": [("yes", "Yes"), ("mostly", "Mostly"), ("no", "Not really")]},
+            {"name": "worked", "label": "What worked best?", "kind": "area", "rows": 2},
+            {"name": "change_one", "label": "What&#39;s one thing you&#39;d change?", "kind": "area", "rows": 2,
+             "ph": "Be blunt. I&#39;d rather hear it from you than guess."},
+            {"name": "recommend", "label": "How likely are you to recommend this plan to a rider doing this race?",
+             "kind": "scale", "low": "Not likely", "high": "Already have"},
+        ]},
+        {"title": "On the Record", "sub": "Optional. Skip it and nothing changes.", "fields": [
+            dict(_exit_record_field("quote"),
+                 label="If a rider doing this race asked about the plan, what would you tell them?"),
+            dict(_exit_record_field("not_for"), label="And who shouldn&#39;t buy it?",
+                 ph="The rider this plan wouldn&#39;t work for"),
+            _exit_record_field("share_as"),
+            _exit_record_field("age_group"),
+            dict(_exit_record_field("share_where"), options=[
+                ("where_site", "gravelgodcycling.com"),
+                ("where_social", "Gravel God social posts"),
+                ("where_email", "Emails to riders choosing a plan"),
+                ("where_tp", "The plan&#39;s TrainingPeaks page")]),
+            # "besides coaching" / "just coaching" read wrong to someone who
+            # bought a plan and was never coached: the one wording change
+            # beyond the brief's, flagged for Matti's read.
+            dict(_exit_record_field("connection"),
+                 label="Anything connecting us besides the plan? If so, I say so next to your words.",
+                 options=[("none", "No, only the plan"),
+                          ("comped", "You gave me the plan free or at a discount"),
+                          ("friend", "We&#39;re friends or ride together"),
+                          ("work", "We&#39;ve worked together"),
+                          ("family", "We&#39;re family")]),
+            dict(_exit_record_field("reference"),
+                 label="If someone deciding on this plan wants to talk to a real rider, can I introduce you by email?"),
+            _exit_record_field("consent_note"),
+        ]},
+        {"title": "What&#39;s Next", "fields": [
+            {"name": "next_race", "label": "Next race on the list?", "kind": "text"},
+            {"name": "next_want", "label": "What do you want next?", "kind": "radio", "layout": "vertical",
+             "options": [("another_plan", "Another plan"), ("custom", "A plan built around me"),
+                         ("coaching", "Coaching"), ("break", "A break"), ("unsure", "Not sure yet")]},
+            {"name": "last_word", "label": "Anything else?", "kind": "area", "rows": 3, "ph": "Last word&#39;s yours."},
+        ]},
+    ],
+    "done": "That&#39;s everything. Send it when you&#39;re ready.",
+    "modules": [],
+    "submit": "Send It to Matti",
+    "success": "Got it. I&#39;ll read every word.",
+    # Shown under the success line only when ?plan= is a valid planId, to
+    # every marketplace buyer whatever they answered (receipts spec §5.6: no
+    # review gating). The link is the plan's own TP page:
+    # https://www.trainingpeaks.com/training-plans/cycling/tp-<planId>
+    # resolves to it (checked 2026-09-29 against 23 live GG and Roadie plans).
+    "tp_rating": {"before": "If you have a minute, ", "link": "rate the plan on TrainingPeaks",
+                  "after": ", whatever score you&#39;d give it."},
+    # GA4: its own funnel, not the goals page's (goal_start/goal_submit).
+    "start_event": "debrief_start",
+    "submit_event": "debrief_submit",
+    # Its own page, never indexed, and not in any sitemap (the sitemap is an
+    # allowlist: scripts/generate_sitemap.py INDEXABLE_WORDPRESS_PAGES).
+    "path": "/race-debrief/",
+    "output": "race-debrief.html",
+    "title": "How Did It Go? | Gravel God",
+    "robots": "noindex, nofollow",
+    # The worker is the record; no FormSubmit copy of a stranger's answers.
+    "transport": "worker",
+    "email_title": "Race debrief",
+    "goal_export": False,
+    "footer": "Your answers come straight to me and are stored in my system. If you said I can share your words, nothing goes up until you&#39;ve approved the exact wording. Drafts are saved only in this browser until you submit. Questions? Email gravelgodcoaching@gmail.com",
+}
+
+
+VARIANTS = {v["slug"]: v for v in (STANDARD, CLAUDE, MATTI, GOAL_2027, FIVE, ATHLETE, EXIT, RACE_DEBRIEF)}

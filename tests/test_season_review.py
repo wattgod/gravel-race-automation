@@ -17,9 +17,10 @@ from season_review_variants import VARIANTS  # noqa: E402
 import pytest  # noqa: E402
 
 ALL = sorted(VARIANTS)
-# The exit survey (/coaching/exit/) shares the renderer but is not a goal
-# form: no optional modules, no goal, no obstacle. tests/test_exit_survey.py.
-GOAL_FORMS = [slug for slug in ALL if slug != "exit"]
+# The exit survey (/coaching/exit/) and the race debrief (/race-debrief/)
+# share the renderer but are not goal forms: no optional modules, no goal, no
+# obstacle. tests/test_exit_survey.py, tests/test_race_debrief_survey.py.
+GOAL_FORMS = [slug for slug in ALL if slug not in ("exit", "race_debrief")]
 
 
 def page(slug: str = "standard") -> str:

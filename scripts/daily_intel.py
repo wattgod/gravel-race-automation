@@ -474,10 +474,12 @@ def compute_constraint(ga4_gravel: dict) -> dict:
     return out
 
 
-# A coached athlete's season review and a leaving athlete's exit survey
-# (/coaching/exit/) are not leads, and this snapshot is committed to a public
-# repo: they must never count as a new lead or be named as a hot one.
-NOT_LEAD_SEQUENCES = frozenset({"athlete_review_v1", "athlete_exit_v1"})
+# A coached athlete's season review, a leaving athlete's exit survey
+# (/coaching/exit/) and a plan buyer's race debrief (/race-debrief/) are not
+# leads, and this snapshot is committed to a public repo: they must never
+# count as a new lead or be named as a hot one.
+NOT_LEAD_SEQUENCES = frozenset({"athlete_review_v1", "athlete_exit_v1",
+                                "plan_debrief_v1", "road_plan_debrief_v1"})
 
 
 def collect_mission_control() -> dict:

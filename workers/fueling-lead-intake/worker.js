@@ -28,9 +28,12 @@
  *   - athlete_review:     a coached athlete's season review (goal_answers + athlete tag)
  *   - athlete_exit:       a leaving athlete's exit survey (goal_answers + athlete tag).
  *                         Not exit_intent, which is the race-page exit popup above.
+ *   - plan_debrief:       a plan buyer's race debrief (/race-debrief/ on gravelgodcycling.com
+ *                         and roadielabs.com): goal_answers + optional plan (TP planId) or
+ *                         ref (custom plan). Not Mission Control's race_debrief email.
  *
  * Notification emails fire for fueling_calculator (contains actionable athlete data),
- * athlete_review and athlete_exit.
+ * athlete_review, athlete_exit and plan_debrief.
  * Mission Control's database is the lead list of record — nothing else reads a marketing
  * contacts list, so this worker does not maintain one.
  */
@@ -41,10 +44,20 @@ const DISPOSABLE_DOMAINS = [
   'yopmail.com', 'temp-mail.org', 'getnada.com', 'mohmal.com'
 ];
 
-const KNOWN_SOURCES = ['exit_intent', 'race_profile', 'prep_kit_gate', 'race_quiz', 'quiz_shared', 'tire_guide', 'race_review', 'state_hub', 'date_reminder', 'race_plan_ladder', 'training_guide', 'bikepacking_guide', 'race_watch', 'gravel_tv_subscribe', 'gravel_weekly_subscribe', 'goal_2027', 'athlete_review', 'athlete_exit'];
+const KNOWN_SOURCES = ['exit_intent', 'race_profile', 'prep_kit_gate', 'race_quiz', 'quiz_shared', 'tire_guide', 'race_review', 'state_hub', 'date_reminder', 'race_plan_ladder', 'training_guide', 'bikepacking_guide', 'race_watch', 'gravel_tv_subscribe', 'gravel_weekly_subscribe', 'goal_2027', 'athlete_review', 'athlete_exit', 'plan_debrief'];
 
 // Sources whose questionnaire answers ride along as goal_answers.
-const ANSWER_SOURCES = ['goal_2027', 'athlete_review', 'athlete_exit'];
+const ANSWER_SOURCES = ['goal_2027', 'athlete_review', 'athlete_exit', 'plan_debrief'];
+
+// Not leads: a leaving athlete and a plan buyer's debrief. None of the lead
+// context rides along (stripLeadContext), and Matti gets an alert of his own.
+const NOT_LEAD_SOURCES = ['athlete_exit', 'plan_debrief'];
+
+// The race debrief's two hidden fields, from the link in the plan's notes.
+// The whole value must match or it is dropped (wordpress/season_review_variants.py
+// PLAN_ID_PATTERN / PLAN_REF_PATTERN; Mission Control checks again).
+const PLAN_ID_RE = /^[0-9]{1,12}$/;
+const PLAN_REF_RE = /^[A-Za-z0-9_-]{8,32}$/;
 
 export default {
   async fetch(request, env) {
@@ -109,15 +122,18 @@ export default {
         ? String(data.goal_type)
         : '';
     }
-    // A leaving athlete is not a lead: none of the lead context rides along.
-    // Mission Control's countdown/debrief jobs enroll anyone whose stored
-    // record carries a race_slug, so a stray ?race= on the exit link must
-    // never reach it.
-    if (source === 'athlete_exit') {
-      for (const key of ['race_slug', 'race_name', 'guide_chapter', 'offer_variant',
-        'entry_src', 'goal_type', 'viewed_races']) {
-        delete data[key];
-      }
+    // A leaving athlete or a plan buyer's debrief is not a lead: none of the
+    // lead context rides along. Mission Control's countdown/debrief jobs
+    // enroll anyone whose stored record carries a race_slug, so a stray
+    // ?race= on either link must never reach it.
+    if (NOT_LEAD_SOURCES.includes(source)) stripLeadContext(data);
+    // plan / ref: only on a debrief, only a string, only a whole-value match.
+    const { plan, ref } = data;
+    delete data.plan;
+    delete data.ref;
+    if (source === 'plan_debrief') {
+      if (typeof plan === 'string' && PLAN_ID_RE.test(plan)) data.plan = plan;
+      if (typeof ref === 'string' && PLAN_REF_RE.test(ref)) data.ref = ref;
     }
     // Trail context (docs/specs/friend-first-sequences.md §4.2-4.3) — the
     // browser's localStorage breadcrumb of recently viewed races, forwarded
@@ -180,6 +196,14 @@ export default {
           console.error('Athlete exit alert NOT sent: NOTIFICATION_EMAIL or RESEND_API_KEY is unset');
         }
       }
+      // A plan buyer filed a race debrief: the same guarantees as an exit.
+      if (source === 'plan_debrief') {
+        if (env.NOTIFICATION_EMAIL && env.RESEND_API_KEY) {
+          promises.push(sendPlanDebriefEmail(env, data));
+        } else {
+          console.error('Race debrief alert NOT sent: NOTIFICATION_EMAIL or RESEND_API_KEY is unset');
+        }
+      }
 
       // Notification email only for fueling_calculator (has actionable athlete data)
       if (source === 'fueling_calculator') {
@@ -231,8 +255,17 @@ const BRAND_SENDERS = {
   roadielabs: { email: 'leads@gravelgodcycling.com', name: 'Roadie Labs Fueling' },
   xcskilabs: { email: 'leads@gravelgodcycling.com', name: 'XC Ski Labs Leads' },
 };
+// The short tag on Matti's alert subjects: [GG], [RL], [XC].
+const BRAND_TAGS = { gravelgod: 'GG', roadielabs: 'RL', xcskilabs: 'XC' };
 function brandLabel(brand) { return BRAND_LABELS[brand] || 'Gravel God'; }
 function brandSender(brand) { return BRAND_SENDERS[brand] || BRAND_SENDERS.gravelgod; }
+function brandTag(brand) { return BRAND_TAGS[brand] || 'GG'; }
+
+const LEAD_CONTEXT_KEYS = ['race_slug', 'race_name', 'guide_chapter', 'offer_variant',
+  'entry_src', 'goal_type', 'viewed_races'];
+function stripLeadContext(data) {
+  for (const key of LEAD_CONTEXT_KEYS) delete data[key];
+}
 
 // --- HTML Escaping ---
 
@@ -484,20 +517,19 @@ function exitLabel(field, value) {
   return (EXIT_OPTION_LABELS[field] || {})[value] || '';
 }
 
-// What Matti has to do, derived from the answers. Plain text; escaped where
-// it is rendered. Mission Control's backup alert builds the same list
-// (mission_control/services/athlete_exit.py next_actions); a test holds the
-// two to the same output.
-function exitNextActions(answers, now) {
+// The "On the Record" block's actions, shared by the exit survey and the
+// race debrief: consent to share and its approval steps, the flags approval
+// needs, and the talk-to-a-rider roster. Plain text; escaped where rendered.
+function consentActions(answers, { channelLabels, connectionLabels, roster }) {
   const actions = [];
   const tier = EXIT_SHARE_TIERS[answers.share_as];
   // "Can I share what you wrote above?" covers both texts.
   const consented = !!(tier && (answers.quote || answers.not_for));
   if (consented) {
-    const channels = Object.keys(EXIT_CHANNEL_LABELS)
+    const channels = Object.keys(channelLabels)
       .filter((k) => answers[k] === 'yes')
-      .map((k) => EXIT_CHANNEL_LABELS[k]);
-    const connection = exitLabel('connection', answers.connection) || 'not answered';
+      .map((k) => channelLabels[k]);
+    const connection = connectionLabels[answers.connection] || 'not answered';
     actions.push(
       `Consent to share: ${tier}; channels: ${channels.join(', ') || 'none ticked'}; `
       + `connection: ${connection}. Next: send the exact wording + render for approval. `
@@ -510,12 +542,25 @@ function exitNextActions(answers, now) {
   if (consented && answers.share_as === 'age_group' && !exitLabel('age_group', answers.age_group)) {
     actions.push('Ask their age group at approval.');
   }
-  if (consented && !exitLabel('connection', answers.connection)) {
+  if (consented && !connectionLabels[answers.connection]) {
     actions.push('Connection not answered: ask before approval.');
   }
   if (answers.reference === 'yes' || answers.reference === 'ask') {
-    actions.push(`Add to the talk-to-an-athlete roster (${answers.reference === 'yes' ? 'yes' : 'ask first'}).`);
+    actions.push(`Add to ${roster} (${answers.reference === 'yes' ? 'yes' : 'ask first'}).`);
   }
+  return actions;
+}
+
+// What Matti has to do, derived from the answers. Plain text; escaped where
+// it is rendered. Mission Control's backup alert builds the same list
+// (mission_control/services/athlete_exit.py next_actions); a test holds the
+// two to the same output.
+function exitNextActions(answers, now) {
+  const actions = consentActions(answers, {
+    channelLabels: EXIT_CHANNEL_LABELS,
+    connectionLabels: EXIT_OPTION_LABELS.connection,
+    roster: 'the talk-to-an-athlete roster',
+  });
   if (answers.checkin && answers.checkin !== 'none') {
     const month = checkinMonth(answers.checkin, now);
     if (month) {
@@ -529,38 +574,44 @@ function exitNextActions(answers, now) {
   return actions;
 }
 
-function exitAnswerDisplay(key, value) {
-  if (EXIT_OPTION_LABELS[key]) return exitLabel(key, value) ? `${exitLabel(key, value)} (${value})` : value;
-  const tick = EXIT_CHANNEL_LABELS[key] || EXIT_NEED_LABELS[key];
-  if (tick && value === 'yes') return `ticked: ${tick}`;
+// An answer as Matti's alert shows it: a radio or select code as
+// "Label (code)", a ticked box as "ticked: Label", free text as written.
+function answerDisplay(key, value, optionLabels, tickLabels) {
+  if (optionLabels[key]) {
+    const label = optionLabels[key][value] || '';
+    return label ? `${label} (${value})` : value;
+  }
+  if (tickLabels[key] && value === 'yes') return `ticked: ${tickLabels[key]}`;
   return value;
 }
 
-// Resend only, from noreply@ (matti@ is accepted and never arrives). No
-// marketing contact is created or updated for an exit, here or anywhere.
-async function sendAthleteExitEmail(env, data) {
+function exitAnswerDisplay(key, value) {
+  return answerDisplay(key, value, EXIT_OPTION_LABELS, { ...EXIT_CHANNEL_LABELS, ...EXIT_NEED_LABELS });
+}
+
+// Matti's alert for a questionnaire that is not a lead: Next actions first,
+// then the recommend score, then every answer. Resend only, from noreply@
+// (matti@ is accepted and never arrives), reply-to the rider. No marketing
+// contact is created or updated, here or anywhere.
+async function sendQuestionnaireAlert(env, data, { kicker, meta, subject, actions, display, logName, from }) {
   const answers = data.goal_answers || {};
-  const reason = exitLabel('exit_reason', answers.exit_reason) || 'no reason given';
-  const actions = exitNextActions(answers, new Date());
   const who = esc(data.name || data.email);
   const actionsHtml = actions.length
     ? `<ul style="margin:0 0 16px;padding-left:20px">${actions.map((a) => `<li style="margin:0 0 6px">${esc(a)}</li>`).join('')}</ul>`
     : '<p style="margin:0 0 16px">None.</p>';
   const recommend = answers.recommend !== undefined ? `${esc(answers.recommend)}/10` : 'not answered';
   const rows = Object.entries(answers)
-    .map(([k, v]) => `<tr><td style="padding:4px 12px 4px 0;font-family:monospace;color:#7d695d;vertical-align:top">${esc(k)}</td><td style="padding:4px 0">${esc(exitAnswerDisplay(k, v))}</td></tr>`)
+    .map(([k, v]) => `<tr><td style="padding:4px 12px 4px 0;font-family:monospace;color:#7d695d;vertical-align:top">${esc(k)}</td><td style="padding:4px 0">${esc(display(k, v))}</td></tr>`)
     .join('');
   const html = `<div style="font-family:Georgia,serif;max-width:640px">
-    <p style="font-family:monospace;letter-spacing:.14em;color:#178079">ATHLETE EXIT SURVEY</p>
+    <p style="font-family:monospace;letter-spacing:.14em;color:#178079">${kicker}</p>
     <h2 style="margin:0 0 4px">${who}</h2>
-    <p style="color:#7d695d;margin:0 0 16px">${esc(data.athlete || 'no athlete tag')} &middot; ${esc(data.email)} &middot; ${esc(reason)}</p>
+    <p style="color:#7d695d;margin:0 0 16px">${meta}</p>
     <p style="font-family:monospace;letter-spacing:.14em;margin:0 0 6px">NEXT ACTIONS</p>
     ${actionsHtml}
     <p style="margin:0 0 16px"><b>Recommend:</b> ${recommend}</p>
     <table style="border-collapse:collapse;font-size:15px">${rows}</table>
   </div>`;
-
-  const subject = `[GG] Exit survey · ${(data.name || data.email).substring(0, 60)} · ${reason}`;
 
   try {
     const resp = await fetch('https://api.resend.com/emails', {
@@ -570,7 +621,7 @@ async function sendAthleteExitEmail(env, data) {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        from: 'Gravel God <noreply@gravelgodcycling.com>',
+        from,
         to: [env.NOTIFICATION_EMAIL],
         reply_to: data.email,
         subject,
@@ -579,13 +630,132 @@ async function sendAthleteExitEmail(env, data) {
     });
     const detail = await resp.text();
     if (resp.ok) {
-      console.log('Athlete exit notification (resend):', resp.status, detail.slice(0, 200));
+      console.log(`${logName} notification (resend):`, resp.status, detail.slice(0, 200));
     } else {
-      console.error('Athlete exit notification REJECTED by Resend:', resp.status, detail.slice(0, 200));
+      console.error(`${logName} notification REJECTED by Resend:`, resp.status, detail.slice(0, 200));
     }
   } catch (error) {
-    console.error('Athlete exit notification failed:', error);
+    console.error(`${logName} notification failed:`, error);
   }
+}
+
+async function sendAthleteExitEmail(env, data) {
+  const answers = data.goal_answers || {};
+  const reason = exitLabel('exit_reason', answers.exit_reason) || 'no reason given';
+  return sendQuestionnaireAlert(env, data, {
+    kicker: 'ATHLETE EXIT SURVEY',
+    meta: `${esc(data.athlete || 'no athlete tag')} &middot; ${esc(data.email)} &middot; ${esc(reason)}`,
+    subject: `[GG] Exit survey · ${(data.name || data.email).substring(0, 60)} · ${reason}`,
+    actions: exitNextActions(answers, new Date()),
+    display: exitAnswerDisplay,
+    logName: 'Athlete exit',
+    from: 'Gravel God <noreply@gravelgodcycling.com>',
+  });
+}
+
+// --- Notification Email (race debrief: a plan buyer, not a lead) ---
+
+// Option labels as the debrief form shows them (wordpress/season_review_variants.py
+// RACE_DEBRIEF, and road-race-automation's Roadie page). tests/test_race_debrief_survey.py
+// fails if the two drift apart. share_as, age_group and reference are the
+// exit survey's, word for word.
+const DEBRIEF_OPTION_LABELS = {
+  raced: {
+    finished: 'Finished',
+    dnf: "Started, didn't finish",
+    dns: "Didn't start",
+    later: "Not yet, it's still coming",
+  },
+  goal_met: { hit: 'Hit it', close: 'Close', missed: 'Missed', none: "Didn't have one" },
+  completion: {
+    all: 'Nearly all of it', most: 'Most of it', half: 'About half', less: 'Less than half',
+  },
+  load: { easy: 'Too easy', right: 'About right', hard: 'Too much' },
+  fit_week: { yes: 'Yes', mostly: 'Mostly', no: 'Not really' },
+  share_as: EXIT_OPTION_LABELS.share_as,
+  age_group: EXIT_OPTION_LABELS.age_group,
+  connection: {
+    none: 'No, only the plan',
+    comped: 'You gave me the plan free or at a discount',
+    friend: "We're friends or ride together",
+    work: "We've worked together",
+    family: "We're family",
+  },
+  reference: EXIT_OPTION_LABELS.reference,
+  next_want: {
+    another_plan: 'Another plan',
+    custom: 'A plan built around me',
+    coaching: 'Coaching',
+    break: 'A break',
+    unsure: 'Not sure yet',
+  },
+};
+// "Where it can appear", per brand: each site names itself.
+const DEBRIEF_CHANNEL_LABELS = {
+  gravelgod: {
+    where_site: 'gravelgodcycling.com',
+    where_social: 'Gravel God social posts',
+    where_email: 'Emails to riders choosing a plan',
+    where_tp: "The plan's TrainingPeaks page",
+  },
+  roadielabs: {
+    where_site: 'roadielabs.com',
+    where_social: 'Roadie Labs social posts',
+    where_email: 'Emails to riders choosing a plan',
+    where_tp: "The plan's TrainingPeaks page",
+  },
+};
+function debriefChannelLabels(brand) {
+  return DEBRIEF_CHANNEL_LABELS[brand] || DEBRIEF_CHANNEL_LABELS.gravelgod;
+}
+
+// "plan 658461" (a marketplace plan), "custom plan", or "plan unknown".
+function debriefPlanLabel(data) {
+  if (data.plan) return `plan ${data.plan}`;
+  if (data.ref) return 'custom plan';
+  return 'plan unknown';
+}
+
+// What Matti has to do. Mission Control's backup alert builds the same list
+// (mission_control/services/plan_debrief.py next_actions); a test holds the
+// two to the same output.
+function debriefRoster(data) {
+  if (data.plan) return `the talk-to-a-rider roster for plan ${data.plan}`;
+  if (data.ref) return 'the talk-to-a-rider roster for custom plans';
+  return 'the talk-to-a-rider roster';
+}
+
+function debriefNextActions(answers, data) {
+  const actions = consentActions(answers, {
+    channelLabels: debriefChannelLabels(data.brand),
+    connectionLabels: DEBRIEF_OPTION_LABELS.connection,
+    roster: debriefRoster(data),
+  });
+  const nextRace = answers.next_race
+    ? ` Next race: ${answers.next_race}${/[.!?]$/.test(answers.next_race) ? '' : '.'}` : '';
+  if (answers.next_want === 'coaching') actions.push(`Wants coaching: reply personally.${nextRace}`);
+  if (answers.next_want === 'custom') actions.push(`Wants a plan built around them: reply personally.${nextRace}`);
+  if (answers.next_want === 'another_plan') actions.push(`Asked for another plan.${nextRace}`);
+  return actions;
+}
+
+async function sendPlanDebriefEmail(env, data) {
+  const answers = data.goal_answers || {};
+  const planLabel = debriefPlanLabel(data);
+  const raced = DEBRIEF_OPTION_LABELS.raced[answers.raced] || 'race not answered';
+  const planLink = data.plan
+    ? `<a href="https://www.trainingpeaks.com/training-plans/cycling/tp-${esc(data.plan)}">${esc(planLabel)}</a>`
+    : esc(data.ref ? `${planLabel} (ref ${data.ref})` : planLabel);
+  const channels = debriefChannelLabels(data.brand);
+  return sendQuestionnaireAlert(env, data, {
+    kicker: 'RACE DEBRIEF',
+    meta: `${esc(brandLabel(data.brand))} &middot; ${esc(data.email)} &middot; ${planLink} &middot; ${esc(raced)}`,
+    subject: `[${brandTag(data.brand)}] Race debrief · ${(data.name || data.email).substring(0, 60)} · ${planLabel}`,
+    actions: debriefNextActions(answers, data),
+    display: (k, v) => answerDisplay(k, v, DEBRIEF_OPTION_LABELS, channels),
+    logName: 'Race debrief',
+    from: `${brandLabel(data.brand)} <noreply@gravelgodcycling.com>`,
+  });
 }
 
 // --- Notification Email (fueling_calculator only) ---
@@ -692,9 +862,10 @@ function formatEmailBody(lead) {
 // budget so one pasted essay can't blow up every downstream store.
 const MAX_ANSWER_KEYS = 64;
 const MAX_ANSWER_LEN = 4000;
-// Room for the exit survey's eight free-text answers at MAX_ANSWER_LEN each
-// (32000) plus its choices, so a full-length form is never cut. Mission
-// Control's _MAX_GOAL_ANSWERS_TOTAL must match.
+// Room for the exit survey's or the race debrief's free-text answers at
+// MAX_ANSWER_LEN each (about 32000) plus their choices, so a full-length form
+// is never cut. Mission Control's _MAX_GOAL_ANSWERS_TOTAL must match
+// (tests/test_race_debrief_survey.py checks both forms).
 const MAX_ANSWERS_TOTAL = 40000;
 
 function sanitizeAnswers(raw) {
@@ -720,7 +891,7 @@ function sanitizeAnswers(raw) {
 // refusing the payload is a failure the visitor must hear about — otherwise
 // the page shows a poster, wipes the saved draft, and the answers exist
 // nowhere.
-const STORAGE_REQUIRED = ['goal_2027', 'athlete_review', 'athlete_exit'];
+const STORAGE_REQUIRED = ['goal_2027', 'athlete_review', 'athlete_exit', 'plan_debrief'];
 
 async function notifyMissionControl(env, data, source) {
   try {
@@ -742,6 +913,9 @@ async function notifyMissionControl(env, data, source) {
     // Which athlete this belongs to. Without it a coached athlete's review
     // arrives unattributed and the filing script has to guess.
     if (data.athlete) payload.athlete = String(data.athlete).substring(0, 80);
+    // A debrief's plan: validated above, so either a whole match or absent.
+    if (data.plan) payload.plan = data.plan;
+    if (data.ref) payload.ref = data.ref;
     if (Array.isArray(data.viewed_races) && data.viewed_races.length) {
       payload.viewed_races = data.viewed_races;
     }

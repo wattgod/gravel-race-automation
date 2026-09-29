@@ -292,3 +292,169 @@ test('none of the approval flags without consent to share', async () => {
   const actions = nextActions((await runExit(exitPayload(answers))).alert.html);
   assert.deepEqual(actions, []);
 });
+
+// --- plan_debrief: the race debrief at /race-debrief/ (GG and Roadie) -------
+
+const debriefFixture = JSON.parse(readFileSync(
+  new URL('./fixtures/race_debrief_submission.json', import.meta.url), 'utf8',
+));
+const roadieDebriefFixture = JSON.parse(readFileSync(
+  new URL('./fixtures/race_debrief_submission_roadie.json', import.meta.url), 'utf8',
+));
+
+function debriefPayload(fixture = debriefFixture, extra = {}) {
+  return {
+    source: 'plan_debrief', brand: fixture.brand, name: fixture.name, email: fixture.email,
+    plan: fixture.plan, goal_answers: fixture.goal_answers, ...extra,
+  };
+}
+
+test('plan_debrief forwards every answer and the plan to Mission Control', async () => {
+  const { response, mc } = await runExit(debriefPayload());
+  assert.equal(response.status, 200);
+  assert.equal(mc.source, 'plan_debrief');
+  assert.equal(mc.brand, 'gravelgod');
+  assert.equal(mc.plan, '123456');
+  assert.equal('ref' in mc, false);
+  assert.deepEqual(mc.goal_answers, debriefFixture.goal_answers);
+});
+
+test('a custom plan ref is forwarded as ref', async () => {
+  const { mc } = await runExit(debriefPayload(debriefFixture, { plan: '', ref: 'test-ref-0001' }));
+  assert.equal(mc.ref, 'test-ref-0001');
+  assert.equal('plan' in mc, false);
+});
+
+test('a plan or ref that does not match whole is dropped, never forwarded', async () => {
+  for (const [plan, ref] of [['12ab34', 'bad'], ['1234567890123', 'has space1'], [' 123456', 'test-ref-0001\n'],
+    ['123456\n', 'a'.repeat(33)], [123456.5, { x: 1 }], [['123456'], null]]) {
+    const { response, mc } = await runExit(debriefPayload(debriefFixture, { plan, ref }));
+    assert.equal(response.status, 200, `${plan} / ${ref}`);
+    assert.equal('plan' in mc, false, `plan ${JSON.stringify(plan)}`);
+    assert.equal('ref' in mc, false, `ref ${JSON.stringify(ref)}`);
+  }
+});
+
+test('plan and ref ride only on a debrief', async () => {
+  const { mc } = await runExit({ source: 'goal_2027', email: 'goal@example.com', plan: '123456',
+    ref: 'test-ref-0001', goal_answers: { outcome_goal: 'x' } });
+  assert.equal('plan' in mc, false);
+  assert.equal('ref' in mc, false);
+});
+
+test('plan_debrief never carries lead context to Mission Control', async () => {
+  const { mc } = await runExit(debriefPayload(debriefFixture, {
+    race_slug: 'unbound-200', race_name: 'Unbound', offer_variant: 'A', entry_src: 'race',
+    goal_type: 'finish', viewed_races: ['Unbound'], guide_chapter: 'Race Selection',
+  }));
+  assert.equal(mc.race_slug, '');
+  assert.equal(mc.race_name, '');
+  for (const key of ['offer_variant', 'entry_src', 'goal_type', 'viewed_races', 'guide_chapter']) {
+    assert.equal(key in mc, false, key);
+  }
+});
+
+test('plan_debrief alerts Matti through Resend only, with the plan in the subject', async () => {
+  const { requests, alert } = await runExit(debriefPayload());
+  assert.deepEqual(requests.map((r) => r.url).sort(), [
+    'https://api.resend.com/emails',
+    'https://mission-control.example.test/webhooks/subscriber',
+  ]);
+  assert.equal(alert.subject, '[GG] Race debrief · Test Rider B · plan 123456');
+  assert.equal(alert.from, 'Gravel God <noreply@gravelgodcycling.com>');
+  assert.deepEqual(alert.to, ['coach@example.com']);
+  assert.equal(alert.reply_to, debriefFixture.email);
+  assert.ok(alert.html.includes('href="https://www.trainingpeaks.com/training-plans/cycling/tp-123456"'));
+});
+
+test('the subject says custom plan, or plan unknown', async () => {
+  const custom = await runExit(debriefPayload(debriefFixture, { plan: '', ref: 'test-ref-0001' }));
+  assert.equal(custom.alert.subject, '[GG] Race debrief · Test Rider B · custom plan');
+  assert.ok(custom.alert.html.includes('custom plan (ref test-ref-0001)'));
+  const bare = await runExit(debriefPayload(debriefFixture, { plan: '' }));
+  assert.equal(bare.alert.subject, '[GG] Race debrief · Test Rider B · plan unknown');
+});
+
+test('the debrief alert carries every answer, and the next actions come first', async () => {
+  const { alert } = await runExit(debriefPayload());
+  const html = alert.html;
+  for (const key of Object.keys(debriefFixture.goal_answers)) {
+    assert.ok(html.includes(`>${key}</td>`), `answer ${key} missing from the alert`);
+  }
+  assert.ok(html.indexOf('NEXT ACTIONS') > 0 && html.indexOf('NEXT ACTIONS') < html.indexOf('<table'));
+  assert.deepEqual(nextActions(html), [
+    'Consent to share: first name + last initial; channels: gravelgodcycling.com, Gravel God social posts, '
+    + "Emails to riders choosing a plan, The plan's TrainingPeaks page; connection: No, only the plan. "
+    + 'Next: send the exact wording + render for approval. '
+    + 'Ledger entry needs quote_approved_at and render_approved_at before it can render.',
+    'Add to the talk-to-a-rider roster for plan 123456 (ask first).',
+    'Wants coaching: reply personally. Next race: Test answer: the same race next June.',
+  ]);
+  assert.ok(html.includes('<b>Recommend:</b> 9/10'));
+  assert.ok(html.includes('Finished (finished)'));
+  assert.ok(html.includes('ticked: The plan&#39;s TrainingPeaks page') || html.includes("ticked: The plan's TrainingPeaks page"));
+});
+
+test('a Roadie debrief is tagged [RL], sent as Roadie Labs, with Roadie channels', async () => {
+  const { response, mc, alert } = await runExit(debriefPayload(roadieDebriefFixture));
+  assert.equal(response.status, 200);
+  assert.equal(mc.brand, 'roadielabs');
+  assert.equal(mc.plan, '654321');
+  assert.deepEqual(mc.goal_answers, roadieDebriefFixture.goal_answers);
+  assert.equal(alert.subject, '[RL] Race debrief · Test Rider C · plan 654321');
+  assert.equal(alert.from, 'Roadie Labs <noreply@gravelgodcycling.com>');
+  const actions = nextActions(alert.html);
+  assert.ok(actions[0].startsWith('Consent to share: full name; channels: roadielabs.com, Roadie Labs social posts, '));
+  assert.ok(actions.includes('Wants a plan built around them: reply personally. Next race: Test answer: the same race next June.'));
+  assert.equal(alert.html.includes('gravelgodcycling.com,'), false);
+});
+
+test('another plan is an ask; a break or not sure is not', async () => {
+  const ask = await runExit(debriefPayload(debriefFixture, { goal_answers: { raced: 'dnf', next_want: 'another_plan' } }));
+  assert.deepEqual(nextActions(ask.alert.html), ['Asked for another plan.']);
+  for (const want of ['break', 'unsure']) {
+    const none = await runExit(debriefPayload(debriefFixture, { goal_answers: { raced: 'dns', next_want: want } }));
+    assert.deepEqual(nextActions(none.alert.html), []);
+    assert.ok(none.alert.html.includes('<b>Recommend:</b> not answered'));
+  }
+});
+
+test('debrief answers are escaped in the alert', async () => {
+  const { alert } = await runExit(debriefPayload(debriefFixture, {
+    name: '<b>Test</b> Rider', goal_answers: { raced: 'finished', last_word: '<script>x</script>' } }));
+  assert.equal(alert.html.includes('<script>'), false);
+  assert.equal(alert.html.includes('<b>Test</b>'), false);
+  assert.ok(alert.html.includes('&lt;script&gt;x&lt;/script&gt;'));
+});
+
+test('plan_debrief is storage-required: a Mission Control failure is a 503', async () => {
+  const { response } = await runExit(debriefPayload(), { mcStatus: 500 });
+  assert.equal(response.status, 503);
+});
+
+test('a Resend rejection of the debrief alert is logged, and the answers still land', async () => {
+  const { response, errors, mc } = await runExit(debriefPayload(), { resendStatus: 422 });
+  assert.equal(response.status, 200);
+  assert.deepEqual(mc.goal_answers, debriefFixture.goal_answers);
+  assert.ok(errors.some((e) => e.includes('Race debrief notification REJECTED by Resend') && e.includes('422')),
+    errors.join('\n'));
+});
+
+for (const unset of ['NOTIFICATION_EMAIL', 'RESEND_API_KEY']) {
+  test(`with ${unset} unset the debrief alert is not sent, and says so`, async () => {
+    const { response, errors, requests, mc } = await runExit(debriefPayload(), { envOverrides: { [unset]: '' } });
+    assert.equal(response.status, 200);
+    assert.ok(mc);
+    assert.equal(requests.some((r) => r.url.includes('resend')), false);
+    assert.ok(errors.some((e) => e.includes('Race debrief alert NOT sent')), errors.join('\n'));
+  });
+}
+
+test('a debrief can carry a full form: every answer at 4000 characters', async () => {
+  const answers = {};
+  for (const [k, v] of Object.entries(debriefFixture.goal_answers)) {
+    answers[k] = v.startsWith('Test answer') || v.startsWith('https://') ? 'x'.repeat(4000) : v;
+  }
+  const { mc } = await runExit(debriefPayload(debriefFixture, { goal_answers: answers }));
+  assert.deepEqual(Object.keys(mc.goal_answers), Object.keys(answers));
+});

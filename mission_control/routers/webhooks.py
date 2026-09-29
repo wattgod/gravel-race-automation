@@ -12,7 +12,7 @@ from fastapi import APIRouter, Header, HTTPException, Request
 from mission_control.config import BRAND_SITE_URLS, MC_PUBLIC_URL, WEBHOOK_SECRET
 from mission_control import supabase_client as db
 from mission_control.sequences import get_sequences_for_trigger
-from mission_control.services.athlete_exit import exit_source_data
+from mission_control.services.athlete_exit import exit_source_data, next_actions
 from mission_control.services.sequence_engine import enroll, record_event, resend_first_step
 
 logger = logging.getLogger(__name__)
@@ -195,12 +195,6 @@ async def _send_enrollment_alert(
     from mission_control.config import REPLY_TO_EMAIL
     from mission_control.services.sequence_engine import _send_email_sync
 
-    # A leaving athlete is not a "new lead": the worker already sent Matti the
-    # exit alert with its next actions, and a second one here would land in
-    # the filtered lead label. Only a routing failure still speaks up.
-    if source == "athlete_exit" and not unrouted:
-        return
-
     to = os.environ.get("ENROLLMENT_ALERT_EMAIL", REPLY_TO_EMAIL)
     context = (
         source_data.get("wb_guide") and f"guide chapter: {source_data['wb_guide']}"
@@ -215,6 +209,12 @@ async def _send_enrollment_alert(
     if source == "athlete_review":
         who = source_data.get("athlete") or name or email
         subject = f"[GG] Season review filed · {who}"
+    elif source == "athlete_exit":
+        # The backup to the worker's exit alert: two emails per exit is fine,
+        # none is not. A leaving athlete is not a "new lead", and that subject
+        # would be filtered out of the inbox.
+        who = source_data.get("athlete") or name or email
+        subject = f"[GG] Exit survey filed · {who}"
     else:
         subject = f"new lead · {name or email} · {context} [{brand}]"
     if unrouted:
@@ -230,19 +230,29 @@ async def _send_enrollment_alert(
         if race and brand in ("gravelgod", "roadielabs") else ""
     )
     answers = source_data.get("goal_answers") or {}
-    if source == "athlete_review" and answers:
+    if source in ("athlete_review", "athlete_exit") and answers:
         rows = "".join(
             f"<tr><td style='padding:3px 12px 3px 0;color:#7d695d;vertical-align:top;"
             f"font-family:monospace;font-size:12px'>{escape(k)}</td>"
             f"<td style='padding:3px 0'>{escape(str(v))}</td></tr>"
             for k, v in list(answers.items())[:45]
         )
+        if source == "athlete_exit":
+            actions = next_actions(answers)
+            head = ("<p style='font-family:monospace;font-size:12px'>NEXT ACTIONS</p>"
+                    + ("<ul>" + "".join(f"<li>{escape(a)}</li>" for a in actions) + "</ul>"
+                       if actions else "<p>None.</p>"))
+            tail = ""
+        else:
+            head = ""
+            tail = (f"<p style='color:#666;font-family:monospace;font-size:12px'>file it: "
+                    f"python3 scripts/file_athlete_review.py --email {escape(email)}</p>")
         html = (
             f"<p><b>{escape(name) or '(no name)'}</b> &lt;{escape(email)}&gt;"
             f" &middot; {escape(source_data.get('athlete') or 'no athlete tag')}</p>"
+            f"{head}"
             f"<table style='border-collapse:collapse;font-family:Georgia,serif;font-size:15px'>{rows}</table>"
-            f"<p style='color:#666;font-family:monospace;font-size:12px'>file it: "
-            f"python3 scripts/file_athlete_review.py --email {escape(email)}</p>"
+            f"{tail}"
         )
         await asyncio.to_thread(_send_email_sync, to, subject, html, brand)
         return

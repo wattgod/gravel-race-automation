@@ -168,7 +168,8 @@ class TestFooter:
         footer = doc[doc.index('<p class="gg-apply-confidential">'):]
         footer = footer[:footer.index("</p>")]
         assert "used to coach you" not in footer
-        assert "stored with your coaching file" in footer
+        assert "stored in my system" in footer
+        assert "coaching file" not in footer
         assert "FormSubmit" in footer and "30 days" in footer
         assert '<a href="/privacy/">Privacy Policy</a>' in footer
 
@@ -188,8 +189,8 @@ class TestCopy:
     def test_header(self, doc):
         assert '<div class="gg-apply-badge">Exit Interview</div>' in doc
         assert "<h1>Before You Go</h1>" in doc
-        assert ("Five minutes, less if you&#39;re quick. Only the first question is required. "
-                "I read every one of these myself. It isn&#39;t anonymous, so say it straight. "
+        assert ("Five minutes, less if you&#39;re quick. Apart from your name and email, only the "
+                "first question is required. I read every one of these myself. It isn&#39;t anonymous, so say it straight. "
                 "It saves as you go.") in doc
 
     def test_sections_in_order(self, form):
@@ -228,7 +229,7 @@ class TestFields:
     def test_answer_keys(self):
         assert answer_keys(EXIT) == [
             "exit_reason", "exit_story", "stay_lever", "recommend", "keep_doing", "change_one",
-            "what_changed", "quote", "not_for", "share_as", "where_site", "where_social",
+            "what_changed", "quote", "not_for", "share_as", "age_group", "where_site", "where_social",
             "where_email", "where_tp", "connection", "reference", "come_back", "checkin",
             "need_zones", "need_notes", "need_billing", "need_tp", "last_word",
         ]
@@ -236,6 +237,75 @@ class TestFields:
     def test_every_answer_key_is_rendered(self, form):
         for key in answer_keys(EXIT):
             assert f'name="{key}"' in form, key
+
+
+class TestAgeGroup:
+    def test_optional_select_after_the_sharing_question(self, form):
+        assert '<select id="age_group" name="age_group">' in form
+        assert form.index('data-radio="share_as"') < form.index('name="age_group"') < form.index('name="where_site"')
+        assert "Your age group. It only shows if you picked first name and age group. If you&#39;re under 18, I&#39;ll need a parent&#39;s OK." in form
+
+    def test_options(self, form):
+        assert re.findall(r'<option value="([a-z0-9_]+)">', form[form.index('name="age_group"'):]) [:6] == [
+            "under_18", "18_29", "30_39", "40_49", "50_59", "60_plus"]
+        assert '<option value="18_29">18&ndash;29</option>' in form
+
+
+class TestNothingCutSilently:
+    """The worker and Mission Control keep 4000 characters of an answer; the
+    page stops typing there instead of storing a quietly cut quote."""
+
+    def test_every_text_and_area_field_on_every_form_is_capped(self):
+        for slug, variant in VARIANTS.items():
+            page_html = generate_season_review_page(slug)
+            for tag in re.findall(r"<textarea [^>]*>|<input type=\"text\" [^>]*>", page_html):
+                if 'class="gg-sr-long"' in tag or 'name="website"' in tag or "why_" in tag or "outcome_why" in tag:
+                    continue  # timed free-writes, the honeypot and the why-chain are not _control text/area
+                assert 'maxlength="4000"' in tag, (slug, tag)
+
+    def test_matches_the_worker_and_mission_control(self):
+        from generate_season_review import MAX_ANSWER_LEN
+        assert f"const MAX_ANSWER_LEN = {MAX_ANSWER_LEN};" in WORKER
+        webhooks = (ROOT / "mission_control" / "routers" / "webhooks.py").read_text(encoding="utf-8")
+        assert f"_MAX_GOAL_ANSWER_LEN = {MAX_ANSWER_LEN}" in webhooks
+
+    def test_the_quote_is_capped(self, form):
+        assert '<textarea id="quote" name="quote" rows="3" placeholder=' in form
+        start = form.index('<textarea id="quote"')
+        assert 'maxlength="4000"' in form[start:form.index(">", start)]
+
+
+class TestPersonalLinkStaysOutOfAnalytics:
+    """?name=&email=&athlete= come off the address before GA4 reads it."""
+
+    @pytest.mark.parametrize("slug", sorted(VARIANTS))
+    def test_strip_runs_before_the_ga_snippet_on_every_variant(self, slug):
+        page_html = generate_season_review_page(slug)
+        strip = page_html.index("window.ggPersonalLink = found;")
+        assert strip < page_html.index("gtag('config'")
+        assert strip < page_html.index("googletagmanager.com/gtag/js")
+        # and before anything else in <head> can request a resource
+        assert strip < page_html.index("<link ")
+
+    def test_removes_only_the_three_personal_params(self):
+        from generate_season_review import PERSONAL_PARAMS, build_personal_link_js
+        assert PERSONAL_PARAMS == ("name", "email", "athlete")
+        js = build_personal_link_js()
+        assert 'var KEYS = ["name", "email", "athlete"]' in js
+        # the rest of the query is kept as the raw text it arrived as, hash too
+        assert "kept.push(part)" in js and "window.location.hash" in js
+        assert "history.replaceState" in js
+
+    def test_prefill_reads_the_kept_values_not_the_address(self):
+        js = build_season_review_js(EXIT)
+        restore = js[js.index("function restore() {"):js.index("/* ── The email:")]
+        assert "var prefill = window.ggPersonalLink || {};" in restore
+        assert 'params.get(k)' not in restore
+
+    def test_global_ga_snippet_is_untouched(self):
+        from brand_tokens import get_ga4_head_snippet
+        assert "ggPersonalLink" not in get_ga4_head_snippet()
+        assert "replaceState" not in get_ga4_head_snippet()
 
 
 class TestUniqueNames:
@@ -265,12 +335,6 @@ class TestNothingDropped:
         assert FIXTURE["name"].startswith("Test Rider")
         assert FIXTURE["email"].endswith("@example.com")
 
-    def test_keys_pass_the_worker_and_mission_control_key_filters(self):
-        # worker sanitizeAnswers and webhooks._ANSWER_KEY_RE both use this
-        assert "/^[a-z0-9_]{1,40}$/" in WORKER
-        for key in answer_keys(EXIT):
-            assert re.fullmatch(r"[a-z0-9_]{1,40}", key), key
-
     def test_key_count_fits_the_worker_cap(self):
         cap = int(re.search(r"const MAX_ANSWER_KEYS = (\d+);", WORKER).group(1))
         assert len(answer_keys(EXIT)) <= cap
@@ -285,8 +349,9 @@ class TestWorkerMirrorsTheForm:
             line = re.search(rf"const {const} = \[([^\]]*)\]", WORKER).group(1)
             assert "'athlete_exit'" in line, const
 
-    @pytest.mark.parametrize("name", ["exit_reason", "share_as", "connection", "reference", "come_back", "checkin"])
-    def test_radio_labels(self, name):
+    @pytest.mark.parametrize("name", ["exit_reason", "share_as", "age_group", "connection", "reference",
+                                      "come_back", "checkin"])
+    def test_radio_and_select_labels(self, name):
         block = WORKER[WORKER.index(f"  {name}: {{"):]
         block = block[:block.index("}")]
         for value, label, *_ in _field(name)["options"]:

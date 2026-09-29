@@ -11,7 +11,7 @@ import html
 
 import pytest
 
-from tests.exit_survey_browser import has_playwright, load_submission, submit_exit_survey
+from tests.exit_survey_browser import has_playwright, load_submission, open_personal_link, submit_exit_survey
 
 pytestmark = pytest.mark.skipif(not has_playwright(), reason="playwright not installed")
 
@@ -30,6 +30,34 @@ def test_personalised_link_prefills_identity(run):
     assert run["prefilled"] == {k: sub[k] for k in ("name", "email", "athlete")}
 
 
+def _leaks(address: str) -> list[str]:
+    sub = load_submission()
+    return [bit for bit in ("name=", "email=", "athlete=", "%40", "Test+Rider", sub["athlete"])
+            if bit in address]
+
+
+def test_personal_params_never_reach_ga4(run):
+    address = run["address"]
+    # only name/email/athlete removed; src, utm_* (raw encoding) and the hash kept
+    assert address["href"] == address["expected"]
+    assert address["ga_page_location"] == address["expected"]
+    assert _leaks(address["ga_page_location"]) == []
+
+
+def test_typing_stops_at_the_stored_length(run):
+    assert run["capped_len"] == 4000
+
+
+def test_the_live_athlete_review_strips_them_too():
+    # the season review already out with personalised links (same renderer)
+    seen = open_personal_link("athlete", load_submission())
+    assert seen["errors"] == []
+    assert seen["href"] == seen["expected"] == seen["ga_page_location"]
+    assert _leaks(seen["ga_page_location"]) == []
+    sub = load_submission()
+    assert seen["prefilled"] == {k: sub[k] for k in ("name", "email", "athlete")}
+
+
 def test_worker_gets_every_answer_as_a_string(run):
     sub = load_submission()
     body = run["worker"]
@@ -39,6 +67,7 @@ def test_worker_gets_every_answer_as_a_string(run):
     assert body["goal_answers"] == sub["goal_answers"]
     assert all(isinstance(v, str) for v in body["goal_answers"].values())
     assert body["goal_answers"]["recommend"] == "8"
+    assert body["goal_answers"]["age_group"] == "40_49"
     # identity rides at the top level, never inside the answers
     assert not {"name", "email", "athlete", "consent_note"} & set(body["goal_answers"])
 

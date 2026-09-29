@@ -582,7 +582,7 @@ EXIT = {
     "badge": "Exit Interview",
     "crumb": "Exit Interview",
     "h1": "Before You Go",
-    "intro": "Five minutes, less if you&#39;re quick. Only the first question is required. I read every one of these myself. It isn&#39;t anonymous, so say it straight. It saves as you go.",
+    "intro": "Five minutes, less if you&#39;re quick. Apart from your name and email, only the first question is required. I read every one of these myself. It isn&#39;t anonymous, so say it straight. It saves as you go.",
     "sections": [
         {"title": "You", "fields": s_you(hidden_athlete=True)["fields"]},
         {"title": "Why Now", "sub": "The real reason. There isn&#39;t a wrong one.", "fields": [
@@ -621,6 +621,10 @@ EXIT = {
                          ("initial", "Yes, first name and last initial"),
                          ("age_group", "Yes, first name and age group"),
                          ("private", "No, keep it between us")]},
+            {"name": "age_group", "label": "Your age group. It only shows if you picked first name and age group. If you&#39;re under 18, I&#39;ll need a parent&#39;s OK.",
+             "kind": "select",
+             "options": [("under_18", "Under 18"), ("18_29", "18&ndash;29"), ("30_39", "30&ndash;39"),
+                         ("40_49", "40&ndash;49"), ("50_59", "50&ndash;59"), ("60_plus", "60+")]},
             {"name": "share_where", "label": "Where it can appear", "kind": "checks",
              "options": [("where_site", "gravelgodcycling.com"),
                          ("where_social", "Gravel God social posts"),
@@ -668,7 +672,7 @@ EXIT = {
     # Endure goal draft: nothing on this form is a goal.
     "email_title": "Exit survey",
     "goal_export": False,
-    "footer": "Your answers come straight to me and are stored with your coaching file. They aren&#39;t anonymous. If you said I can share your words, nothing goes up until you&#39;ve approved the exact wording. The email copy goes through FormSubmit, a form service that keeps a copy for 30 days. Drafts are saved only in this browser until you submit. Questions? Email gravelgodcoaching@gmail.com",
+    "footer": "Your answers come straight to me and are stored in my system. They aren&#39;t anonymous. If you said I can share your words, nothing goes up until you&#39;ve approved the exact wording. The email copy goes through FormSubmit, a form service that keeps a copy for 30 days. Drafts are saved only in this browser until you submit. Questions? Email gravelgodcoaching@gmail.com",
 }
 
 

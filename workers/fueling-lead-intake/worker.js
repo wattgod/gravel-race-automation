@@ -161,10 +161,15 @@ export default {
         promises.push(sendAthleteReviewEmail(env, data));
       }
       // A coached athlete is leaving: Matti hears now, with what to do next
-      // at the top. This is the only alert for it (Mission Control sends
-      // none), and nothing here touches a marketing list.
-      if (source === 'athlete_exit' && env.NOTIFICATION_EMAIL) {
-        promises.push(sendAthleteExitEmail(env, data));
+      // at the top. Mission Control sends a short backup alert too, so one
+      // failing never means none. Nothing here touches a marketing list.
+      if (source === 'athlete_exit') {
+        if (env.NOTIFICATION_EMAIL && env.RESEND_API_KEY) {
+          promises.push(sendAthleteExitEmail(env, data));
+        } else {
+          // Mission Control's backup alert still goes; say why this one didn't.
+          console.error('Athlete exit alert NOT sent: NOTIFICATION_EMAIL or RESEND_API_KEY is unset');
+        }
       }
 
       // Notification email only for fueling_calculator (has actionable athlete data)
@@ -412,6 +417,14 @@ const EXIT_OPTION_LABELS = {
     work: "We've worked together",
     family: "We're family",
   },
+  age_group: {
+    under_18: 'Under 18',
+    '18_29': '18–29',
+    '30_39': '30–39',
+    '40_49': '40–49',
+    '50_59': '50–59',
+    '60_plus': '60+',
+  },
   reference: { yes: 'Yes', ask: 'Ask me first each time', no: 'No' },
   come_back: { yes: 'Probably', maybe: 'Maybe', no: 'Probably not' },
   checkin: {
@@ -463,11 +476,15 @@ function exitLabel(field, value) {
 }
 
 // What Matti has to do, derived from the answers. Plain text; escaped where
-// it is rendered.
+// it is rendered. Mission Control's backup alert builds the same list
+// (mission_control/services/athlete_exit.py next_actions); a test holds the
+// two to the same output.
 function exitNextActions(answers, now) {
   const actions = [];
   const tier = EXIT_SHARE_TIERS[answers.share_as];
-  if (tier && answers.quote) {
+  // "Can I share what you wrote above?" covers both texts.
+  const consented = !!(tier && (answers.quote || answers.not_for));
+  if (consented) {
     const channels = Object.keys(EXIT_CHANNEL_LABELS)
       .filter((k) => answers[k] === 'yes')
       .map((k) => EXIT_CHANNEL_LABELS[k]);
@@ -477,6 +494,15 @@ function exitNextActions(answers, now) {
       + `connection: ${connection}. Next: send the exact wording + render for approval. `
       + 'Ledger entry needs quote_approved_at and render_approved_at before it can render.',
     );
+  }
+  if (answers.age_group === 'under_18') {
+    actions.push("Under 18: needs a parent's sign-off before anything renders.");
+  }
+  if (consented && answers.share_as === 'age_group' && !exitLabel('age_group', answers.age_group)) {
+    actions.push('Ask their age group at approval.');
+  }
+  if (consented && !exitLabel('connection', answers.connection)) {
+    actions.push('Connection not answered: ask before approval.');
   }
   if (answers.reference === 'yes' || answers.reference === 'ask') {
     actions.push(`Add to the talk-to-an-athlete roster (${answers.reference === 'yes' ? 'yes' : 'ask first'}).`);
@@ -527,10 +553,6 @@ async function sendAthleteExitEmail(env, data) {
 
   const subject = `[GG] Exit survey · ${(data.name || data.email).substring(0, 60)} · ${reason}`;
 
-  if (!env.RESEND_API_KEY) {
-    console.error('Athlete exit notification skipped: no RESEND_API_KEY');
-    return;
-  }
   try {
     const resp = await fetch('https://api.resend.com/emails', {
       method: 'POST',
@@ -547,7 +569,11 @@ async function sendAthleteExitEmail(env, data) {
       })
     });
     const detail = await resp.text();
-    console.log('Athlete exit notification (resend):', resp.status, detail.slice(0, 200));
+    if (resp.ok) {
+      console.log('Athlete exit notification (resend):', resp.status, detail.slice(0, 200));
+    } else {
+      console.error('Athlete exit notification REJECTED by Resend:', resp.status, detail.slice(0, 200));
+    }
   } catch (error) {
     console.error('Athlete exit notification failed:', error);
   }

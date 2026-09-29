@@ -32,6 +32,14 @@ ANSWERS = SUBMISSION["goal_answers"]
 EMAIL = SUBMISSION["email"]
 
 
+@pytest.fixture(autouse=True)
+def _no_real_email(monkeypatch):
+    """Nothing in these tests reaches Resend (Mission Control now sends a
+    backup alert on every new exit). Tests that read the mail re-patch this."""
+    import mission_control.services.sequence_engine as se
+    monkeypatch.setattr(se, "_send_email_sync", lambda *a, **k: "rs-test")
+
+
 def _post(client, body):
     return client.post("/webhooks/subscriber", json=body,
                        headers={"Authorization": "Bearer test-secret-123"})
@@ -159,11 +167,50 @@ class TestNotAMarketingContact:
         contacts, _ = gather_candidates(fake_db.store["gg_sequence_enrollments"])
         assert EMAIL not in contacts
 
-    def test_mission_control_sends_matti_no_second_alert(self, client, fake_db, monkeypatch):
-        # the worker sends the one exit alert, with next actions
+    def test_mission_control_sends_an_inbox_safe_backup_alert(self, client, fake_db, monkeypatch):
+        # the worker's alert can fail on its own; two per exit is fine, none is not
         sent = _capture_sends(monkeypatch)
         _post(client, _exit_body())
-        assert sent == []
+        assert [s["subject"] for s in sent] == ["[GG] Exit survey filed · test-rider-a"]
+        html = sent[0]["html"]
+        assert "new lead" not in sent[0]["subject"]
+        assert html.index("NEXT ACTIONS") < html.index("<table")
+        for key in ANSWERS:
+            assert f">{key}</td>" in html, key
+        assert "Add to the talk-to-an-athlete roster (ask first)." in html
+        assert "file_athlete_review.py" not in html
+
+    def test_backup_alert_names_the_minor(self, client, fake_db, monkeypatch):
+        sent = _capture_sends(monkeypatch)
+        _post(client, _exit_body(dict(ANSWERS, age_group="under_18")))
+        assert "Under 18: needs a parent&#x27;s sign-off before anything renders." in sent[0]["html"]
+
+    def test_backup_alert_falls_back_to_the_name(self, client, fake_db, monkeypatch):
+        sent = _capture_sends(monkeypatch)
+        body = _exit_body()
+        del body["athlete"]
+        _post(client, body)
+        assert sent[0]["subject"] == "[GG] Exit survey filed · Test Rider A"
+
+    def test_not_a_race_debrief_candidate_either(self, client, fake_db):
+        """The debrief job runs end to end: a real lead whose race was 71 days
+        ago is enrolled, the exit athlete with the same race is not."""
+        from datetime import date
+        from unittest.mock import patch
+        from mission_control.services.race_debrief import run_race_debrief
+
+        _post(client, _exit_body(race_slug="unbound-200", race_name="Unbound 200"))
+        fake_db.store["gg_sequence_enrollments"].append({
+            "id": "lead-1", "sequence_id": "welcome_v1", "contact_email": "control.lead@example.com",
+            "contact_name": "Control", "status": "completed", "source": "race_profile",
+            "source_data": {"brand": "gravelgod", "race_slug": "unbound-200", "race_name": "Unbound 200"},
+        })
+        with patch("mission_control.services.race_debrief._fetch_dates_sync",
+                   return_value={"gravelgod": {"unbound-200": "2026-05-30"}}):
+            summary = asyncio.run(run_race_debrief(today=date(2026, 8, 9)))
+        debriefed = {e["contact_email"] for e in fake_db.store["gg_sequence_enrollments"]
+                     if e["sequence_id"].startswith("race_debrief")}
+        assert debriefed == {"control.lead@example.com"}, summary
 
     def test_a_routing_failure_still_alerts(self, client, fake_db, monkeypatch):
         import mission_control.routers.webhooks as wh
@@ -188,7 +235,7 @@ class TestResubmission:
         _capture_sends(monkeypatch)
         _post(client, _exit_body())
         first = _enrollments(fake_db)[0]["source_data"]
-        assert first["share_tier_plain"] and first["needs_plain"] and first["consent"]["assets"] == ["quote"]
+        assert first["share_tier_plain"] and first["needs_plain"] and first["consent"]["assets"] == ["quote", "not_for"]
 
         second = {k: v for k, v in ANSWERS.items() if not k.startswith(("need_", "where_"))}
         second.update(share_as="private", exit_story="Test answer: changed my mind.")
@@ -211,7 +258,9 @@ class TestResubmission:
             "template": "athlete_exit_receipt", "subject": "got it",
         })
         _post(client, _exit_body(dict(ANSWERS, last_word="Test answer: one more thing.")))
-        assert [s["subject"] for s in sent] == ["got it"]
+        # to the athlete: the corrected receipt (Matti's backup alert went on the first post)
+        assert [s["subject"] for s in sent if s["to"] == EMAIL] == ["got it"]
+        assert [s["subject"] for s in sent if s["to"] != EMAIL] == ["[GG] Exit survey filed · test-rider-a"]
 
 
 class TestConsentRecord:
@@ -222,9 +271,12 @@ class TestConsentRecord:
         now = datetime(2026, 9, 29, 12, tzinfo=timezone.utc)
         rec = consent_record(ANSWERS, now)
         assert rec["identity_tier"] == "initial"
-        assert rec["assets"] == ["quote"]
+        # the question covers both texts above it
+        assert rec["assets"] == ["quote", "not_for"]
         assert rec["quote"] == ANSWERS["quote"]
         assert rec["not_for"] == ANSWERS["not_for"]
+        assert rec["age_group"] == "40_49"
+        assert rec["needs_parent_signoff"] is False
         assert rec["channels"] == ["gravelgod", "social", "email", "tp"]
         assert rec["material_connection"] == "friend"
         assert rec["reference"] == "ask"
@@ -234,6 +286,22 @@ class TestConsentRecord:
         # the ledger validator rejects an entry until both are set (§6.2)
         assert rec["quote_approved_at"] is None and rec["render_approved_at"] is None
         assert rec["withdrawn_at"] is None
+
+    def test_either_text_alone_is_an_asset(self):
+        from mission_control.services.athlete_exit import consent_record
+        only_not_for = {k: v for k, v in ANSWERS.items() if k != "quote"}
+        rec = consent_record(only_not_for)
+        assert rec["assets"] == ["not_for"] and rec["quote"] == "" and rec["not_for"] == ANSWERS["not_for"]
+
+    def test_under_18_needs_a_parent(self):
+        from mission_control.services.athlete_exit import consent_record
+        rec = consent_record(dict(ANSWERS, age_group="under_18"))
+        assert rec["age_group"] == "under_18" and rec["needs_parent_signoff"] is True
+
+    def test_no_or_junk_age_group_is_none(self):
+        from mission_control.services.athlete_exit import consent_record
+        assert consent_record(dict(ANSWERS, age_group="12"))["age_group"] is None
+        assert consent_record({k: v for k, v in ANSWERS.items() if k != "age_group"})["age_group"] is None
 
     def test_private_is_count_only_and_keeps_no_words(self):
         from mission_control.services.athlete_exit import consent_record
@@ -328,8 +396,12 @@ class TestTheWholeChain:
             # free text verbatim, radio codes as "Label (code)", ticks as "ticked: Label"
             assert (value in alert["html"]) if value != "yes" else ("ticked: " in alert["html"]), key
 
+        backup = _capture_sends(monkeypatch)
         resp = _post(client, to_mc)
         assert resp.status_code == 200 and resp.json()["enrolled"] == ["athlete_exit_v1"]
+        assert [m["subject"] for m in backup] == ["[GG] Exit survey filed · test-rider-a"]
+        for key in ANSWERS:
+            assert f">{key}</td>" in backup[0]["html"], f"{key} missing from the backup alert"
         enrollment = _enrollments(fake_db)[0]
         assert enrollment["source_data"]["goal_answers"] == ANSWERS
         assert enrollment["source_data"]["athlete"] == "test-rider-a"
@@ -337,3 +409,54 @@ class TestTheWholeChain:
         receipt = _send_receipt(enrollment, monkeypatch)[0]["html"]
         assert "with your first name and last initial" in receipt
         assert "help with your TrainingPeaks account" in receipt
+
+
+class TestBothAlertsAgree:
+    """The worker's alert and Mission Control's backup build their Next
+    actions separately (JS and Python). Same answers, same list."""
+
+    NOW = "2026-11-30T12:00:00+00:00"
+    CASES = [
+        ANSWERS,
+        dict(ANSWERS, age_group="under_18", checkin="3m"),
+        {k: v for k, v in ANSWERS.items() if k not in ("age_group", "connection", "quote")} | {"share_as": "age_group"},
+        {"exit_reason": "fit", "share_as": "age_group", "checkin": "preseason", "reference": "yes"},
+        {"exit_reason": "cost", "need_billing": "yes", "checkin": "none", "age_group": "18_29"},
+        {"exit_reason": "other", "connection": "boss", "share_as": "full", "quote": "Test answer: fine."},
+    ]
+
+    @pytest.mark.skipif(shutil.which("node") is None, reason="needs node")
+    @pytest.mark.parametrize("answers", CASES)
+    def test_same_next_actions(self, answers):
+        import html as html_lib
+        import os
+        import re
+        from mission_control.services.athlete_exit import next_actions
+
+        body = {"source": "athlete_exit", "email": EMAIL, "name": SUBMISSION["name"], "goal_answers": answers}
+        run = subprocess.run(
+            ["node", str(ROOT / "tests" / "helpers" / "run_lead_worker.mjs")],
+            input=json.dumps(body), capture_output=True, text=True, timeout=60, check=True,
+            env={**os.environ, "GG_NOW": self.NOW},
+        )
+        alert = next(s["body"] for s in json.loads(run.stdout)["sent"] if "resend" in s["url"])
+        worker = [html_lib.unescape(li) for li in re.findall(r'<li style="margin:0 0 6px">(.*?)</li>', alert["html"])]
+        assert worker == next_actions(answers, datetime.fromisoformat(self.NOW))
+
+    def test_python_labels_are_the_forms(self):
+        import html as html_lib
+        from mission_control.services import athlete_exit as ax
+
+        def options(name):
+            for sec in EXIT["sections"]:
+                for f in sec["fields"]:
+                    if f.get("name") == name:
+                        return {o[0]: html_lib.unescape(o[1]) for o in f["options"]}
+            raise KeyError(name)
+
+        assert ax.CONNECTION_LABELS == options("connection")
+        assert ax.CHANNEL_LABELS == options("share_where")
+        assert ax.NEED_LABELS == options("needs")
+        assert ax.CHECKIN_LABELS == {k: v for k, v in options("checkin").items() if k != "none"}
+        assert set(ax.AGE_GROUPS) == set(options("age_group"))
+        assert set(ax.SHARE_TIER_ALERT) == set(ax.SHARING_TIERS) == set(options("share_as")) - {"private"}

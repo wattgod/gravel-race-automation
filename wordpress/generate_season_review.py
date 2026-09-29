@@ -133,6 +133,13 @@ def _scale(field) -> str:
             f'<div class="gg-sr-scale-row">{opts}</div>{ends}</div>')
 
 
+# The worker (sanitizeAnswers) and Mission Control (_MAX_GOAL_ANSWER_LEN) keep
+# 4000 characters of an answer. Stop typing there, so what is stored is never
+# a silently cut version of what the athlete wrote.
+MAX_ANSWER_LEN = 4000
+MAXLENGTH_ATTR = f' maxlength="{MAX_ANSWER_LEN}"'
+
+
 def _control(field) -> str:
     name, kind = field["name"], field["kind"]
     req = " required" if field.get("req") else ""
@@ -141,9 +148,10 @@ def _control(field) -> str:
     ph_data = "".join(f' data-ph-{d}="{_attr(v["ph"])}"' for d, v in swap.items() if "ph" in v)
     if kind in ("text", "email", "date"):
         auto = f' autocomplete="{field["auto"]}"' if field.get("auto") else ""
-        return f'<input type="{kind}" id="{name}" name="{name}"{req}{ph}{ph_data}{auto}>'
+        cap = MAXLENGTH_ATTR if kind == "text" else ""
+        return f'<input type="{kind}" id="{name}" name="{name}"{req}{ph}{ph_data}{auto}{cap}>'
     if kind == "area":
-        return f'<textarea id="{name}" name="{name}" rows="{field.get("rows", 3)}"{req}{ph}></textarea>'
+        return f'<textarea id="{name}" name="{name}" rows="{field.get("rows", 3)}"{req}{ph}{MAXLENGTH_ATTR}></textarea>'
     if kind == "select":
         opts = '<option value="">Select...</option>' + "".join(
             f'<option value="{_attr(v)}">{t}</option>' for v, t in field["options"]
@@ -959,11 +967,12 @@ def build_season_review_js(variant) -> str:
       showMessage("info", "Picked up where you left off.");
     }
     updateWhys();
-    /* personalised links: ?name=&email= */
-    var params = new URLSearchParams(window.location.search);
+    /* personalised links: ?name=&email=&athlete=, read (and taken out of
+       the address bar) by the head script before analytics loaded */
+    var prefill = window.ggPersonalLink || {};
     ["name", "email", "athlete"].forEach(function(k) {
       var el = document.getElementById(k);
-      if (el && params.get(k) && !el.value) { el.value = params.get(k); }
+      if (el && prefill[k] && !el.value) { el.value = prefill[k]; }
     });
     /* Prefill from the race-page goal card's tap (goals-2027-funnel-spec.md):
        ?goal_type= carries which goal the visitor already picked there. The
@@ -1453,6 +1462,43 @@ def build_season_review_js(variant) -> str:
     )
 
 
+# ── Personal links, kept out of analytics ────────────────────
+# A personalised link carries ?name=&email=&athlete=, and GA4 sends the full
+# address as page_location, so an athlete's email would land in Google
+# Analytics. This runs first in <head>, before the GA snippet: it keeps the
+# three values for the prefill (window.ggPersonalLink) and removes ONLY those
+# three from the address bar. Every other param (src, race, goal_type, utm_*)
+# stays byte for byte, and so does the hash. The global GA snippet is not
+# touched: stripping params site-wide would break UTM attribution.
+
+PERSONAL_PARAMS = ("name", "email", "athlete")
+
+
+def build_personal_link_js() -> str:
+    keys = ", ".join(f'"{k}"' for k in PERSONAL_PARAMS)
+    return r'''<script>
+(function() {
+  var KEYS = [__KEYS__], found = {}, kept = [], removed = false;
+  try {
+    var params = new URLSearchParams(window.location.search);
+    window.location.search.replace(/^\?/, "").split("&").forEach(function(part) {
+      if (!part) { return; }
+      var raw = part.split("=")[0], key = raw;
+      try { key = decodeURIComponent(raw.replace(/\+/g, " ")); } catch (e) { /* keep raw */ }
+      if (KEYS.indexOf(key) === -1) { kept.push(part); return; }
+      removed = true;
+      if (!(key in found)) { found[key] = params.get(key) || ""; }
+    });
+    if (removed) {
+      history.replaceState(history.state, "",
+        window.location.pathname + (kept.length ? "?" + kept.join("&") : "") + window.location.hash);
+    }
+  } catch (e) { /* a browser this old keeps the link as it came */ }
+  window.ggPersonalLink = found;
+})();
+</script>'''.replace("__KEYS__", keys)
+
+
 # ── Walkthrough mode (D19) ───────────────────────────────────
 # Matti talks through the page while using it; ?walkthrough=1 turns on a
 # record control that captures mic audio (MediaRecorder) plus a timeline of
@@ -1641,6 +1687,7 @@ def generate_season_review_page(slug: str = "standard", external_assets=None) ->
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  {build_personal_link_js()}
   <title>{title}</title>
   <meta name="robots" content="{variant.get('robots', 'noindex, nofollow')}">
   <link rel="canonical" href="{url}">

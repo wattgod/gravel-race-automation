@@ -4,6 +4,7 @@
 // (mission_control/tests/test_athlete_exit.py) feeds it the body the real page
 // posted, then feeds what the worker forwarded into Mission Control.
 import { readFileSync } from 'node:fs';
+import { mock } from 'node:test';
 
 const workerPath = new URL('../../workers/fueling-lead-intake/worker.js', import.meta.url);
 const workerSource = readFileSync(workerPath, 'utf8');
@@ -13,6 +14,9 @@ const { default: worker } = await import(
 
 // stdout carries only the result; the worker's own logging goes to stderr
 console.log = console.error;
+
+// GG_NOW (ISO) pins the worker's clock, e.g. for the check-in month.
+if (process.env.GG_NOW) mock.timers.enable({ apis: ['Date'], now: new Date(process.env.GG_NOW) });
 
 const body = readFileSync(0, 'utf8');
 const sent = [];

@@ -1,5 +1,6 @@
 """Webhooks — receives intake from Cloudflare Worker + automation triggers."""
 
+import json
 import logging
 import re
 import secrets
@@ -157,7 +158,7 @@ async def intake_webhook(
 
 async def _send_enrollment_alert(
     email: str, name: str, brand: str, source: str,
-    source_data: dict, enrolled: list[str],
+    source_data: dict, enrolled: list[str], unrouted: bool = False,
 ) -> None:
     """Email the coach when someone new enrolls, with everything needed to
     open the conversation: who, from where, and their race/chapter/trail
@@ -184,6 +185,11 @@ async def _send_enrollment_alert(
         subject = f"[GG] Season review filed · {who}"
     else:
         subject = f"new lead · {name or email} · {context} [{brand}]"
+    if unrouted:
+        # No sequence exists for this brand/source: nothing was enrolled and
+        # no email will go to the lead. The answers are in gg_audit_log
+        # (action lead_unrouted).
+        subject = f"[UNROUTED] {subject} · no sequence for {source}"
     race = source_data.get("race_name", "")
     # draft_race_reply.py knows gravel + road race data only; no hint for XC.
     drafter = (
@@ -459,7 +465,8 @@ async def subscriber_webhook(
 
     # Enroll in matching sequences (brand-scoped)
     enrolled = []
-    for seq in get_sequences_for_trigger(trigger, brand=brand):
+    matching = get_sequences_for_trigger(trigger, brand=brand)
+    for seq in matching:
         result = enroll(email, name, seq["id"], source=source, source_data=source_data)
         if result:
             enrolled.append(seq["id"])
@@ -480,18 +487,32 @@ async def subscriber_webhook(
     # one subscriber (verified live, Jul 2026) and made any per-track promise
     # false. Deliberately removed; do not reintroduce.
 
-    db.log_action(
-        "subscriber_received", "webhook", email,
-        f"Brand: {brand}, source: {source}, enrolled in: {', '.join(enrolled) or 'none (already enrolled)'}",
-    )
+    # A lead with no sequence for its brand/source used to vanish: the page
+    # showed success, nothing was stored, nobody was told (found Sep 28 when
+    # XC goals leads had no XC sequence yet). Keep the whole lead in the audit
+    # log and alert Matti, loudly, so a missing route costs a fix, not a lead.
+    unrouted = not matching
+    if unrouted:
+        db.log_action(
+            "lead_unrouted", "webhook", email,
+            json.dumps({"name": name, "brand": brand, "source": source, "trigger": trigger,
+                        "source_data": source_data}, default=str)[:20000],
+        )
+    else:
+        db.log_action(
+            "subscriber_received", "webhook", email,
+            f"Brand: {brand}, source: {source}, enrolled in: "
+            f"{', '.join(enrolled) or 'none (already enrolled or unsubscribed)'}",
+        )
 
     # Coach alert: every NEW enrollment is a conversation opportunity (the
     # friend-register model converts in replies), so Matti hears about it
     # immediately. Loud to coach, invisible to customer — alert failure must
     # never affect the enrollment (order-killer rule).
-    if enrolled:
+    if enrolled or unrouted:
         try:
-            await _send_enrollment_alert(email, name, brand, source, source_data, enrolled)
+            await _send_enrollment_alert(email, name, brand, source, source_data, enrolled,
+                                         unrouted=unrouted)
         except Exception:
             logger.exception("enrollment alert failed (enrollment itself succeeded)")
 

@@ -526,3 +526,32 @@ class TestPosterContent:
         assert "To prove a dad" not in joined  # the first, shallowest why
         assert "ALSO EVERY DAY" in joined and "Lights out by 10" in joined
         assert "EVERY DAY" in joined and "WATCH FOR" in joined
+
+
+class TestUnroutedLeads:
+    """A lead whose brand/source has no sequence must be stored and alerted,
+    never silently dropped (XC goals leads, Sep 28)."""
+
+    def test_unrouted_lead_is_logged_and_alerted(self, client, fake_db, monkeypatch):
+        import mission_control.routers.webhooks as wh
+        import mission_control.services.sequence_engine as se
+        sent = []
+        monkeypatch.setattr(se, "_send_email_sync", lambda to, subject, *a: sent.append(subject) or "rs")
+        monkeypatch.setattr(wh, "get_sequences_for_trigger", lambda *a, **k: [])
+        resp = _post(client, {"email": "lost@example.com", "name": "Lost", "source": "goal_2027",
+                              "brand": "newbrand", "goal_answers": ANSWERS})
+        assert resp.status_code == 200
+        logs = [r for r in fake_db.store.get("gg_audit_log", []) if r.get("action") == "lead_unrouted"]
+        assert logs and "lost@example.com" == logs[0]["entity_id"]
+        assert "Finish Unbound 200" in logs[0]["details"]
+        assert any(s.startswith("[UNROUTED]") for s in sent)
+
+    def test_already_enrolled_does_not_alert_again(self, client, fake_db, monkeypatch):
+        import mission_control.services.sequence_engine as se
+        sent = []
+        monkeypatch.setattr(se, "_send_email_sync", lambda to, subject, *a: sent.append(subject) or "rs")
+        body = {"email": "twice@example.com", "name": "Twice", "source": "training_guide"}
+        _post(client, body); first = len(sent)
+        _post(client, body)
+        assert len(sent) == first
+        assert not any(s.startswith("[UNROUTED]") for s in sent)

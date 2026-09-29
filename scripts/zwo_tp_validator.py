@@ -6,7 +6,7 @@ TrainingPeaks has specific requirements for ZWO import. This script
 catches every known pitfall before the athlete drags files in.
 
 Run on any workouts directory:
-  python3 scripts/zwo_tp_validator.py athletes/sarah-printz-20260213/workouts/
+  python3 scripts/zwo_tp_validator.py athletes/<athlete-slug>/workouts/
 
 Common TrainingPeaks ZWO pitfalls checked:
   1. Invalid XML (TP silently drops the file)
@@ -21,12 +21,20 @@ Common TrainingPeaks ZWO pitfalls checked:
   10. Zero-duration elements (TP may crash or skip)
   11. FreeRide with Duration=0 (TP hangs)
   12. IntervalsT with Repeat=0 (TP shows empty workout)
+  13. More than 50 device steps (Garmin plays only the first 50, drops the rest)
 """
 
 import re
 import sys
 import xml.etree.ElementTree as ET
 from pathlib import Path
+
+_REPO_ROOT = Path(__file__).resolve().parent.parent
+if str(_REPO_ROOT) not in sys.path:
+    sys.path.insert(0, str(_REPO_ROOT))
+
+# One definition of the device-step rule, shared with the generator.
+from pipeline.step_06_workouts import GARMIN_MAX_DEVICE_STEPS, device_step_count  # noqa: E402
 
 
 class TPIssue:
@@ -97,6 +105,15 @@ def validate_zwo_for_tp(workouts_dir: Path) -> list[TPIssue]:
             if bad_chars:
                 issues.append(TPIssue(zwo.name, "BAD_NAME_CHARS",
                                       f"Name contains chars that may break TP: {bad_chars}"))
+
+        # Pitfall 13: Garmin device step limit
+        steps = device_step_count(workout)
+        if steps > GARMIN_MAX_DEVICE_STEPS:
+            issues.append(TPIssue(zwo.name, "DEVICE_STEP_LIMIT",
+                                  f"FAIL: {zwo.name} needs {steps} device steps "
+                                  f"(limit {GARMIN_MAX_DEVICE_STEPS}). Garmin head units play only "
+                                  f"the first {GARMIN_MAX_DEVICE_STEPS} steps and silently drop the "
+                                  f"rest. Group repeated on/off efforts as <IntervalsT>."))
 
         # Check workout elements
         for elem in workout.iter():
@@ -189,6 +206,7 @@ def main():
         print("  - Durations as seconds (positive integers)")
         print("  - No special characters in names")
         print("  - No zero-duration FreeRide or zero-repeat IntervalsT")
+        print(f"  - At most {GARMIN_MAX_DEVICE_STEPS} Garmin device steps per workout")
         sys.exit(0)
     else:
         for issue in issues:

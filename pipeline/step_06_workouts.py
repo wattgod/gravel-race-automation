@@ -17,9 +17,27 @@ import json
 import math
 import re
 import html as html_lib
+import xml.etree.ElementTree as ET
 from datetime import datetime, timedelta
 from pathlib import Path
 from typing import Dict, List, Optional, Tuple
+
+# ── Garmin device step limit ─────────────────────────────────
+# Garmin head units play only the first 50 steps of a structured workout and
+# silently drop the rest. Verified 2026-09-29 from recorded files: a workout
+# written as 61 flat steps recorded exactly 50 laps and ended mid-set, while
+# workouts stored with repeat blocks played in full (67 and 63 laps).
+#
+# Device steps = every leaf once, plus one repeat marker per repeat group.
+# A repeat is NOT multiplied out. In ZWO terms:
+#   <IntervalsT Repeat="N">  → 2 leaves + 1 marker = 3 steps, whatever N is
+#   every other element      → 1 step
+GARMIN_MAX_DEVICE_STEPS = 50
+
+
+class DeviceStepLimitError(ValueError):
+    """A generated workout needs more device steps than a Garmin will play."""
+
 
 # ── ZWO Template ─────────────────────────────────────────────
 
@@ -684,9 +702,28 @@ def _find_template_workout(workouts: List[Dict], day_abbrev: str, day_name: str)
     return None
 
 
+def device_step_count(workout: ET.Element) -> int:
+    """Count the steps a Garmin head unit needs for a parsed <workout> element.
+
+    Every leaf counts once and each repeat group adds one marker; the repeat
+    is not multiplied out. <IntervalsT> is a repeat group of two leaves (3
+    steps, whatever Repeat is). Every other element is 1 step.
+    """
+    return sum(3 if el.tag == "IntervalsT" else 1 for el in workout)
+
+
+def device_steps_for_blocks(blocks: str) -> int:
+    """device_step_count() for a ZWO blocks string (the <workout> body)."""
+    return device_step_count(ET.fromstring(f"<workout>{blocks}</workout>"))
+
+
 def _write_zwo(workouts_dir: Path, filename: str, name: str, description: str,
                blocks: str, sport_type: str = "bike"):
-    """Write a ZWO file with proper XML formatting."""
+    """Write a ZWO file with proper XML formatting.
+
+    Refuses (DeviceStepLimitError) any workout that needs more device steps
+    than a Garmin head unit will play. Nothing is written for a refused workout.
+    """
     safe_desc = html_lib.escape(description)
     safe_name = html_lib.escape(name)
 
@@ -695,6 +732,15 @@ def _write_zwo(workouts_dir: Path, filename: str, name: str, description: str,
         pass
     if not blocks or not blocks.strip():
         blocks = RECOVERY_RIDE_BLOCKS
+
+    steps = device_steps_for_blocks(blocks)
+    if steps > GARMIN_MAX_DEVICE_STEPS:
+        raise DeviceStepLimitError(
+            f"{filename}: workout needs {steps} device steps, over Garmin's "
+            f"{GARMIN_MAX_DEVICE_STEPS}-step limit. The head unit would play only "
+            f"the first {GARMIN_MAX_DEVICE_STEPS} steps and silently drop the rest. "
+            f"Express repeated efforts as <IntervalsT> repeat groups or shorten the workout."
+        )
 
     content = ZWO_TEMPLATE.format(
         name=safe_name,

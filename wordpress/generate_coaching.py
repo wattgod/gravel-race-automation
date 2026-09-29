@@ -61,12 +61,9 @@ TIERS = (
 )
 TIER_INTERVAL = "/ 4 WEEKS"
 
-# Fit check — owner-voice copy, verbatim. Each option's answer value is its
+# Fit check copy (drafted, pending Matt's rewrite). Each option's answer value is its
 # index (0, 1, 2); the scoring lives in build_coaching_js().
-FIT_CHECK_INTRO = (
-    "Not sure which tier? Three questions, no email. "
-    "I&#39;ll point you at the cheapest one that does the job."
-)
+FIT_CHECK_INTRO = "Not sure which tier? Three questions."
 FIT_CHECK_QUESTIONS = (
     ("When a week goes sideways, you want&hellip;", (
         "I&#39;ll adjust it myself. Check my work weekly.",
@@ -86,9 +83,9 @@ FIT_CHECK_QUESTIONS = (
 )
 FIT_CHECK_EMPTY = "Answer the first two. The race date only changes what I tell you."
 FIT_CHECK_REASONS = {
-    "min": "You execute on your own and want the thinking done right. A weekly look is enough, and paying for attention you won&#39;t use is waste.",
+    "min": "You execute on your own and want the thinking done right. A weekly look is enough.",
     "mid": "You want the week to move when life does, not after. That&#39;s the whole gap between Min and Mid, and it&#39;s where most athletes land.",
-    "max": "You want every file read the day it lands. Worth it for one race that matters more than the rest. If this season isn&#39;t that, Mid covers it.",
+    "max": "You want every file read the day it lands. Worth it for one race that matters more than the rest.",
 }
 FIT_CHECK_TIGHT = "Under 8 weeks is tight. I&#39;ll tell you straight if it&#39;s too late to change much."
 
@@ -404,7 +401,7 @@ def build_application_close() -> str:
         <p class="gg-coach-final-kicker">APPLICATION</p>
         <p class="gg-coach-final-hook">Ten minutes of honest answers. I read every one myself. You&#39;ll usually hear from me within two business days &mdash; including if I don&#39;t think coaching is what you need.</p>
         <a href="{QUESTIONNAIRE_URL}" class="gg-coach-final-cta-link" data-cta="final_fill_intake">GET ME IN YOUR CORNER &rarr;</a>
-        <p class="gg-coach-final-contact">Questions first? <a href="mailto:matt@gravelgodcycling.com">matt@gravelgodcycling.com</a> &mdash; I answer myself, usually within a day.</p>
+        <p class="gg-coach-final-contact">Questions first? <a href="mailto:gravelgodcoaching@gmail.com">gravelgodcoaching@gmail.com</a> &mdash; I answer myself, usually within a day.</p>
       </div>
     </div>
   </section>'''

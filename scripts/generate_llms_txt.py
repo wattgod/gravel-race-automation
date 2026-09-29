@@ -142,7 +142,7 @@ e.g. {SITE_URL}/race/unbound-200.md
 ## Contact
 
 - Website: {SITE_URL}
-- Email: matt@gravelgodcycling.com
+- Email: gravelgodcoaching@gmail.com
 """
 
 

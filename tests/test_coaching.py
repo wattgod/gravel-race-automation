@@ -540,7 +540,7 @@ class TestFitCheck:
             assert f'<div class="gg-coach-tier-price">{price}<span class="gg-coach-tier-interval">/ 4 WEEKS</span></div>' in tiers
 
     @pytest.mark.parametrize("copy", [
-        "Not sure which tier? Three questions, no email. I'll point you at the cheapest one that does the job.",
+        "Not sure which tier? Three questions.",
         "When a week goes sideways, you want…",
         "I'll adjust it myself. Check my work weekly.",
         "The plan moved that same week.",
@@ -555,9 +555,9 @@ class TestFitCheck:
         "Under 8 weeks",
         "Answer the first two. The race date only changes what I tell you.",
         "YOU PROBABLY WANT",
-        "You execute on your own and want the thinking done right. A weekly look is enough, and paying for attention you won't use is waste.",
+        "You execute on your own and want the thinking done right. A weekly look is enough.",
         "You want the week to move when life does, not after. That's the whole gap between Min and Mid, and it's where most athletes land.",
-        "You want every file read the day it lands. Worth it for one race that matters more than the rest. If this season isn't that, Mid covers it.",
+        "You want every file read the day it lands. Worth it for one race that matters more than the rest.",
         "Under 8 weeks is tight. I'll tell you straight if it's too late to change much.",
         "APPLY FOR MIN →",
         "APPLY FOR MID →",
@@ -776,7 +776,7 @@ class TestApplicationClose:
 
     def test_contact_line(self):
         c = build_application_close()
-        assert 'href="mailto:matt@gravelgodcycling.com"' in c
+        assert 'href="mailto:gravelgodcoaching@gmail.com"' in c
         assert "I answer myself, usually within a day." in c
 
 
@@ -1097,8 +1097,8 @@ class TestRequiredContent:
         assert "it&#39;s an observation about people who train alone." in coaching_html
 
     def test_final_contact_line(self, coaching_html):
-        assert "matt@gravelgodcycling.com" in coaching_html
-        assert 'href="mailto:matt@gravelgodcycling.com"' in coaching_html
+        assert "gravelgodcoaching@gmail.com" in coaching_html
+        assert 'href="mailto:gravelgodcoaching@gmail.com"' in coaching_html
         assert "I answer myself, usually within a day." in coaching_html
 
     def test_removed_sections_absent(self, coaching_html):

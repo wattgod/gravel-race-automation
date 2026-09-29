@@ -34,6 +34,13 @@ from mission_control.services.pricing import (
 # same holds for an athlete's exit survey, which must also never open a deal.
 _POST_PURCHASE_TRIGGERS = {"plan_purchased", "athlete_review", "athlete_exit"}
 
+# One-email receipts for something the contact just submitted (a season
+# review, an exit survey). An unsubscribe never cancels one still pending:
+# it is the reply to their own form, not a mailing. plan_purchased is not
+# here on purpose: its onboarding runs for weeks, and an unsubscribe must
+# stop it.
+_RECEIPT_TRIGGERS = {"athlete_review", "athlete_exit"}
+
 # Fallback plan length (weeks) for completion-relative steps when the
 # enrollment's source_data carries no usable plan_weeks AND the step has no
 # static delay_days fallback of its own. 12 weeks matches our most common
@@ -968,9 +975,12 @@ def unsubscribe(email: str) -> int:
     )
     count = 0
     for e in enrollments:
-        if e["status"] == "active":
-            db.update("gg_sequence_enrollments", {"status": "unsubscribed"}, {"id": e["id"]})
-            count += 1
+        if e["status"] != "active":
+            continue
+        if (get_sequence(e.get("sequence_id") or "") or {}).get("trigger") in _RECEIPT_TRIGGERS:
+            continue  # a pending receipt still goes (see _RECEIPT_TRIGGERS)
+        db.update("gg_sequence_enrollments", {"status": "unsubscribed"}, {"id": e["id"]})
+        count += 1
     if count:
         db.log_action("sequence_unsubscribed", "contact", email, f"Paused {count} enrollments")
         return count

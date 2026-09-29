@@ -25,7 +25,9 @@ _EMAIL_RE = re.compile(r"^[^@\s]{1,64}@[^@\s]{1,255}$")
 _ANSWER_KEY_RE = re.compile(r"^[a-z0-9_]{1,40}$")
 _MAX_GOAL_ANSWER_KEYS = 64
 _MAX_GOAL_ANSWER_LEN = 4000
-_MAX_GOAL_ANSWERS_TOTAL = 30000
+# Matches the worker's MAX_ANSWERS_TOTAL: room for the exit survey's eight
+# free-text answers at _MAX_GOAL_ANSWER_LEN each, plus its choices.
+_MAX_GOAL_ANSWERS_TOTAL = 40000
 # Sources whose questionnaire answers ride along as goal_answers. The exit
 # survey is the only one that is neither a goal nor a lead.
 _ANSWER_SOURCES = ("goal_2027", "athlete_review", "athlete_exit")
@@ -185,6 +187,7 @@ async def intake_webhook(
 async def _send_enrollment_alert(
     email: str, name: str, brand: str, source: str,
     source_data: dict, enrolled: list[str], unrouted: bool = False,
+    updated: bool = False,
 ) -> None:
     """Email the coach when someone new enrolls, with everything needed to
     open the conversation: who, from where, and their race/chapter/trail
@@ -212,9 +215,9 @@ async def _send_enrollment_alert(
     elif source == "athlete_exit":
         # The backup to the worker's exit alert: two emails per exit is fine,
         # none is not. A leaving athlete is not a "new lead", and that subject
-        # would be filtered out of the inbox.
-        who = source_data.get("athlete") or name or email
-        subject = f"[GG] Exit survey filed · {who}"
+        # would be filtered out of the inbox. A resubmission says "updated".
+        who = name or source_data.get("athlete") or email
+        subject = f"[GG] Exit survey {'updated' if updated else 'filed'} · {who}"
     else:
         subject = f"new lead · {name or email} · {context} [{brand}]"
     if unrouted:
@@ -444,6 +447,7 @@ async def subscriber_webhook(
     # back next season. enroll() refuses a second enrollment per sequence, so
     # without this the newer answers are silently discarded and the filing
     # script would keep handing Matti the stale ones.
+    updated_in_place = False
     if source in _ANSWER_SOURCES and source_data.get("goal_answers"):
         for seq in get_sequences_for_trigger(trigger, brand):
             existing = db.select_one(
@@ -492,6 +496,7 @@ async def subscriber_webhook(
             db.update("gg_sequence_enrollments", {"source_data": merged},
                       match={"id": existing["id"]})
             logger.info("season review updated in place for %s", email)
+            updated_in_place = True
             # The page promises a copy of what they just wrote, so send the
             # first email again with the corrected answers (bounded in
             # resend_first_step). The poster link renders from the stored
@@ -551,10 +556,13 @@ async def subscriber_webhook(
     # friend-register model converts in replies), so Matti hears about it
     # immediately. Loud to coach, invisible to customer — alert failure must
     # never affect the enrollment (order-killer rule).
-    if enrolled or unrouted:
+    # A resubmitted exit is updated in place, so nothing new enrolls; its
+    # backup alert still goes, or a failed worker alert would mean none.
+    exit_updated = source == "athlete_exit" and updated_in_place and not enrolled
+    if enrolled or unrouted or exit_updated:
         try:
             await _send_enrollment_alert(email, name, brand, source, source_data, enrolled,
-                                         unrouted=unrouted)
+                                         unrouted=unrouted, updated=exit_updated)
         except Exception:
             logger.exception("enrollment alert failed (enrollment itself succeeded)")
 

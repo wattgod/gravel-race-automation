@@ -171,7 +171,7 @@ class TestNotAMarketingContact:
         # the worker's alert can fail on its own; two per exit is fine, none is not
         sent = _capture_sends(monkeypatch)
         _post(client, _exit_body())
-        assert [s["subject"] for s in sent] == ["[GG] Exit survey filed · test-rider-a"]
+        assert [s["subject"] for s in sent] == ["[GG] Exit survey filed · Test Rider A"]
         html = sent[0]["html"]
         assert "new lead" not in sent[0]["subject"]
         assert html.index("NEXT ACTIONS") < html.index("<table")
@@ -185,12 +185,16 @@ class TestNotAMarketingContact:
         _post(client, _exit_body(dict(ANSWERS, age_group="under_18")))
         assert "Under 18: needs a parent&#x27;s sign-off before anything renders." in sent[0]["html"]
 
-    def test_backup_alert_falls_back_to_the_name(self, client, fake_db, monkeypatch):
+    def test_backup_alert_names_them_by_name_then_slug_then_email(self, client, fake_db, monkeypatch):
         sent = _capture_sends(monkeypatch)
-        body = _exit_body()
-        del body["athlete"]
-        _post(client, body)
-        assert sent[0]["subject"] == "[GG] Exit survey filed · Test Rider A"
+        _post(client, _exit_body())
+        _post(client, dict(_exit_body(), email="slug.only@example.com", name=""))
+        _post(client, dict(_exit_body(), email="email.only@example.com", name="", athlete=""))
+        assert [s["subject"] for s in sent] == [
+            "[GG] Exit survey filed · Test Rider A",
+            "[GG] Exit survey filed · test-rider-a",
+            "[GG] Exit survey filed · email.only@example.com",
+        ]
 
     def test_not_a_race_debrief_candidate_either(self, client, fake_db):
         """The debrief job runs end to end: a real lead whose race was 71 days
@@ -260,7 +264,140 @@ class TestResubmission:
         _post(client, _exit_body(dict(ANSWERS, last_word="Test answer: one more thing.")))
         # to the athlete: the corrected receipt (Matti's backup alert went on the first post)
         assert [s["subject"] for s in sent if s["to"] == EMAIL] == ["got it"]
-        assert [s["subject"] for s in sent if s["to"] != EMAIL] == ["[GG] Exit survey filed · test-rider-a"]
+        assert [s["subject"] for s in sent if s["to"] != EMAIL] == [
+            "[GG] Exit survey filed · Test Rider A", "[GG] Exit survey updated · Test Rider A"]
+
+
+class TestResubmissionAlert:
+    @pytest.mark.skipif(shutil.which("node") is None, reason="needs node")
+    def test_still_alerts_when_the_worker_cannot(self, client, fake_db, monkeypatch):
+        """Second submission, worker's own alert unavailable: Mission Control's
+        backup still goes out, marked as an update."""
+        import os
+
+        _post(client, _exit_body())
+        sent = _capture_sends(monkeypatch)
+        body = {"source": "athlete_exit", "brand": "gravelgod", "website": "", "email": EMAIL,
+                "name": SUBMISSION["name"], "athlete": SUBMISSION["athlete"],
+                "goal_answers": dict(ANSWERS, last_word="Test answer: one more thing.")}
+        run = subprocess.run(
+            ["node", str(ROOT / "tests" / "helpers" / "run_lead_worker.mjs")],
+            input=json.dumps(body), capture_output=True, text=True, timeout=60, check=True,
+            env={**os.environ, "GG_ENV_OVERRIDES": json.dumps({"RESEND_API_KEY": ""})},
+        )
+        out = json.loads(run.stdout)
+        assert out["status"] == 200
+        assert not any("resend" in s["url"] for s in out["sent"]), "the worker alert was meant to be unavailable"
+        assert "Athlete exit alert NOT sent" in run.stderr
+        to_mc = next(s["body"] for s in out["sent"] if s["url"].endswith("/webhooks/subscriber"))
+
+        resp = _post(client, to_mc)
+        assert resp.json()["enrolled"] == []  # updated in place, nothing new enrolled
+        alerts = [m for m in sent if m["to"] != EMAIL]
+        assert [m["subject"] for m in alerts] == ["[GG] Exit survey updated · Test Rider A"]
+        assert "Test answer: one more thing." in alerts[0]["html"]
+        assert alerts[0]["html"].index("NEXT ACTIONS") < alerts[0]["html"].index("<table")
+
+    def test_a_season_review_resubmission_is_unchanged(self, client, fake_db, monkeypatch):
+        body = {"email": "review@example.com", "name": "Test Rider B", "source": "athlete_review",
+                "goal_answers": {"outcome_goal": "Test answer: first"}}
+        _post(client, body)
+        sent = _capture_sends(monkeypatch)
+        _post(client, dict(body, goal_answers={"outcome_goal": "Test answer: second"}))
+        assert not [m for m in sent if "Season review" in m["subject"]]
+
+
+class TestUnsubscribeKeepsThePendingReceipt:
+    """An unsubscribe (from any email) stops marketing, not the one-email
+    receipt of a form they just sent. It still stops plan onboarding."""
+
+    def _enroll(self, fake_db, seq, status="active", **extra):
+        from mission_control.tests.conftest import make_enrollment
+        row = make_enrollment(contact_email=EMAIL, sequence_id=seq, status=status, **extra)
+        fake_db.store["gg_sequence_enrollments"].append(row)
+        return row
+
+    def test_receipt_still_sends_and_marketing_stops(self, client, fake_db, monkeypatch):
+        from mission_control.services.sequence_engine import _send_next_step, unsubscribe
+        _post(client, _exit_body())
+        receipt = _enrollments(fake_db)[0]
+        marketing = self._enroll(fake_db, "welcome_v1")
+
+        assert unsubscribe(EMAIL) == 1
+        assert marketing["status"] == "unsubscribed"
+        assert receipt["status"] == "active"
+
+        sent = _capture_sends(monkeypatch)
+        assert asyncio.run(_send_next_step(receipt))
+        assert [(m["to"], m["subject"]) for m in sent] == [(EMAIL, "got it")]
+        assert receipt["status"] == "completed"
+
+    def test_a_pending_season_review_receipt_is_kept_too(self, fake_db):
+        from mission_control.services.sequence_engine import unsubscribe
+        review = self._enroll(fake_db, "athlete_review_v1")
+        marketing = self._enroll(fake_db, "nurture_v1")
+        assert unsubscribe(EMAIL) == 1
+        assert (review["status"], marketing["status"]) == ("active", "unsubscribed")
+
+    def test_plan_onboarding_still_stops(self, fake_db):
+        # post_purchase is transactional but weeks long; an unsubscribe ends it
+        from mission_control.services.sequence_engine import unsubscribe
+        onboarding = self._enroll(fake_db, "post_purchase_v1")
+        receipt = self._enroll(fake_db, "athlete_exit_v1")
+        assert unsubscribe(EMAIL) == 1
+        assert (onboarding["status"], receipt["status"]) == ("unsubscribed", "active")
+
+    def test_the_suppression_marker_still_lands_on_marketing(self, fake_db):
+        from mission_control.services.sequence_engine import enroll, unsubscribe
+        receipt = self._enroll(fake_db, "athlete_exit_v1")
+        done = self._enroll(fake_db, "welcome_v1", status="completed")
+        assert unsubscribe(EMAIL) == 1
+        assert (receipt["status"], done["status"]) == ("active", "unsubscribed")
+        assert enroll(EMAIL, "Test Rider A", "race_debrief_v1", source="race_debrief") is None
+
+
+class TestCapsFitTheExitForm:
+    """Every free-text answer at the page's 4000-character cap, every choice
+    at its longest: all of it survives the worker and Mission Control."""
+
+    @staticmethod
+    def _longest_answers():
+        from generate_season_review import MAX_ANSWER_LEN
+        answers = {}
+        for sec in EXIT["sections"]:
+            for f in sec["fields"]:
+                kind = f["kind"]
+                if kind in ("text", "area") and f["name"] not in ("name", "email"):
+                    answers[f["name"]] = f["name"][0] * MAX_ANSWER_LEN
+                elif kind in ("radio", "select"):
+                    answers[f["name"]] = max((o[0] for o in f["options"]), key=len)
+                elif kind == "scale":
+                    answers[f["name"]] = "10"
+                elif kind == "checks":
+                    answers.update({key: "yes" for key, _ in f["options"]})
+        assert list(answers) == answer_keys(EXIT)
+        return answers
+
+    def test_mission_control_keeps_every_answer(self):
+        from mission_control.routers.webhooks import _cap_goal_answers
+        answers = self._longest_answers()
+        assert sum(len(v) for v in answers.values()) > 30000  # the old budget would cut it
+        assert _cap_goal_answers(answers) == answers
+
+    @pytest.mark.skipif(shutil.which("node") is None, reason="needs node")
+    def test_the_worker_keeps_every_answer(self):
+        answers = self._longest_answers()
+        body = {"source": "athlete_exit", "email": EMAIL, "name": SUBMISSION["name"], "website": "",
+                "goal_answers": answers}
+        run = subprocess.run(["node", str(ROOT / "tests" / "helpers" / "run_lead_worker.mjs")],
+                             input=json.dumps(body), capture_output=True, text=True, timeout=60, check=True)
+        to_mc = next(s["body"] for s in json.loads(run.stdout)["sent"] if s["url"].endswith("/webhooks/subscriber"))
+        assert to_mc["goal_answers"] == answers
+
+    def test_the_stored_row_keeps_every_answer(self, client, fake_db):
+        answers = self._longest_answers()
+        _post(client, _exit_body(answers))
+        assert _enrollments(fake_db)[0]["source_data"]["goal_answers"] == answers
 
 
 class TestConsentRecord:
@@ -348,6 +485,15 @@ class TestReceipt:
         assert "share what you wrote" not in html
         assert "You asked for" not in html
 
+    def test_no_sharing_line_when_they_wrote_nothing_to_share(self, client, fake_db, monkeypatch):
+        html = self._receipt(client, fake_db, monkeypatch, {"exit_reason": "done", "share_as": "full"})
+        assert "share what you wrote" not in html
+
+    def test_sharing_line_when_only_who_shouldnt_hire_me_was_written(self, client, fake_db, monkeypatch):
+        html = self._receipt(client, fake_db, monkeypatch,
+                             {"exit_reason": "done", "share_as": "full", "not_for": "Test answer: purists."})
+        assert "You said I can share what you wrote, with your full name." in html
+
     def test_one_need_reads_as_one(self, client, fake_db, monkeypatch):
         html = self._receipt(client, fake_db, monkeypatch, {"exit_reason": "cost", "need_billing": "yes"})
         assert "You asked for confirmation that billing has stopped. I&rsquo;ll send it over." in html
@@ -355,7 +501,8 @@ class TestReceipt:
     @pytest.mark.parametrize("tier,plain", [("full", "with your full name"),
                                             ("age_group", "with your first name and age group")])
     def test_each_sharing_tier_in_plain_words(self, client, fake_db, monkeypatch, tier, plain):
-        html = self._receipt(client, fake_db, monkeypatch, {"exit_reason": "done", "share_as": tier})
+        html = self._receipt(client, fake_db, monkeypatch,
+                             {"exit_reason": "done", "share_as": tier, "quote": "Test answer: good."})
         assert f"You said I can share what you wrote, {plain}." in html
 
 
@@ -399,7 +546,7 @@ class TestTheWholeChain:
         backup = _capture_sends(monkeypatch)
         resp = _post(client, to_mc)
         assert resp.status_code == 200 and resp.json()["enrolled"] == ["athlete_exit_v1"]
-        assert [m["subject"] for m in backup] == ["[GG] Exit survey filed · test-rider-a"]
+        assert [m["subject"] for m in backup] == ["[GG] Exit survey filed · Test Rider A"]
         for key in ANSWERS:
             assert f">{key}</td>" in backup[0]["html"], f"{key} missing from the backup alert"
         enrollment = _enrollments(fake_db)[0]

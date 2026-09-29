@@ -109,7 +109,8 @@ def receipt_fields(answers: dict) -> dict:
     {{#...}} blocks vanish, so only what they actually said shows."""
     out: dict[str, str] = {}
     share = answers.get("share_as")
-    if share in SHARE_TIER_PLAIN:
+    # "You said I can share what you wrote" only when they wrote something.
+    if share in SHARE_TIER_PLAIN and (answers.get("quote") or answers.get("not_for")):
         out["share_tier_plain"] = SHARE_TIER_PLAIN[share]
     needs = [plain for key, plain in NEEDS_PLAIN.items() if answers.get(key) == "yes"]
     if needs:

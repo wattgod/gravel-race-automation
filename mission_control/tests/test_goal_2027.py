@@ -158,7 +158,9 @@ class TestWebhook:
         kept = _enrollment(fake_db, "essay@example.com")["source_data"]["goal_answers"]
         assert len(kept) <= 64
         assert all(len(v) <= 4000 for v in kept.values())
-        assert sum(len(v) for v in kept.values()) <= 30000
+        from mission_control.routers.webhooks import _MAX_GOAL_ANSWERS_TOTAL
+        assert _MAX_GOAL_ANSWERS_TOTAL == 40000
+        assert sum(len(v) for v in kept.values()) <= _MAX_GOAL_ANSWERS_TOTAL
 
     def test_other_sources_carry_no_answers(self, client, fake_db):
         _post(client, {"email": "other@example.com", "source": "race_profile",

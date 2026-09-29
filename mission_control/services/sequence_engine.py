@@ -124,7 +124,7 @@ def enroll(
             "gg_sequence_enrollments",
             match={"contact_email": email, "status": "unsubscribed"},
         )
-        if unsubbed:
+        if unsubbed or _opted_out(email):
             logger.info("enroll blocked (unsubscribed contact): %s -> %s",
                         email, sequence_id)
             return None
@@ -957,6 +957,21 @@ def reset_enrollment(enrollment_id: str) -> bool:
     return True
 
 
+# A contact whose rows are all transactional, with at least one receipt, has
+# no marketing row to mark 'unsubscribed', and a receipt must not be
+# cancelled. The opt-out then rides on their newest receipt as
+# source_data["opted_out_at"], which the enroll-time guard honours too.
+# (A plan-onboarding-only contact is left as before: see
+# test_post_purchase_only_contact_is_not_marked.)
+OPT_OUT_FLAG = "opted_out_at"
+
+
+def _opted_out(email: str) -> bool:
+    rows = db.select("gg_sequence_enrollments", match={"contact_email": email})
+    return any(r.get("contact_email") == email and (r.get("source_data") or {}).get(OPT_OUT_FLAG)
+               for r in rows)
+
+
 def unsubscribe(email: str) -> int:
     """Unsubscribe a contact from all marketing sequences. Returns the
     number of enrollments changed.
@@ -984,7 +999,8 @@ def unsubscribe(email: str) -> int:
     if count:
         db.log_action("sequence_unsubscribed", "contact", email, f"Paused {count} enrollments")
         return count
-    if any(e.get("status") == "unsubscribed" for e in enrollments):
+    if any(e.get("status") == "unsubscribed" or (e.get("source_data") or {}).get(OPT_OUT_FLAG)
+           for e in enrollments):
         return 0  # already suppressed
     marketing = [
         e for e in enrollments
@@ -993,7 +1009,22 @@ def unsubscribe(email: str) -> int:
     ]
     marketing.sort(key=lambda e: str(e.get("enrolled_at") or ""), reverse=True)
     if not marketing:
-        return 0
+        receipts = [
+            e for e in enrollments
+            if (get_sequence(e.get("sequence_id") or "") or {}).get("trigger") in _RECEIPT_TRIGGERS
+        ]
+        if not receipts:
+            return 0
+        # Flag the newest receipt; its status, and so its send, are untouched.
+        carrier = sorted(receipts, key=lambda e: str(e.get("enrolled_at") or ""), reverse=True)[0]
+        flagged = {**(carrier.get("source_data") or {}),
+                   OPT_OUT_FLAG: datetime.now(timezone.utc).isoformat()}
+        db.update("gg_sequence_enrollments", {"source_data": flagged}, {"id": carrier["id"]})
+        db.log_action(
+            "sequence_unsubscribed", "contact", email,
+            f"No marketing enrollment; flagged receipt {carrier.get('sequence_id')} "
+            f"(status {carrier.get('status')}, unchanged) as the suppression record")
+        return 1
     marker = marketing[0]
     db.update("gg_sequence_enrollments", {"status": "unsubscribed"}, {"id": marker["id"]})
     db.log_action(

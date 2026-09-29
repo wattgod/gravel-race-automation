@@ -356,6 +356,58 @@ class TestUnsubscribeKeepsThePendingReceipt:
         assert enroll(EMAIL, "Test Rider A", "race_debrief_v1", source="race_debrief") is None
 
 
+    def test_a_receipt_only_opt_out_still_blocks_later_marketing(self, client, fake_db, monkeypatch):
+        """Devin on #420: with only a pending receipt, nothing may be marked
+        'unsubscribed'. The opt-out rides on the receipt as a flag instead."""
+        from mission_control.services.sequence_engine import _send_next_step, enroll, unsubscribe
+        _post(client, _exit_body())
+        receipt = _enrollments(fake_db)[0]
+
+        assert unsubscribe(EMAIL) == 1
+        assert receipt["status"] == "active" and receipt["source_data"]["opted_out_at"]
+        assert unsubscribe(EMAIL) == 0  # already suppressed
+
+        sent = _capture_sends(monkeypatch)
+        assert asyncio.run(_send_next_step(receipt))
+        assert [(m["to"], m["subject"]) for m in sent] == [(EMAIL, "got it")]
+
+        assert enroll(EMAIL, "Test Rider A", "race_debrief_v1", source="race_debrief") is None
+        assert enroll(EMAIL, "Test Rider A", "welcome_v1", source="race_profile") is None
+        # transactional enrollments are still allowed
+        assert enroll(EMAIL, "Test Rider A", "post_purchase_v1", source="plan_purchased") is not None
+
+    def test_the_flag_also_covers_a_completed_receipt(self, fake_db):
+        # before #420 a contact with only a sent receipt left no marker at all
+        from mission_control.services.sequence_engine import enroll, unsubscribe
+        done = self._enroll(fake_db, "athlete_exit_v1", status="completed")
+        assert unsubscribe(EMAIL) == 1
+        assert done["status"] == "completed" and done["source_data"]["opted_out_at"]
+        assert enroll(EMAIL, "Test Rider A", "race_debrief_v1", source="race_debrief") is None
+
+    def test_a_resubmission_keeps_the_opt_out(self, client, fake_db, monkeypatch):
+        from mission_control.services.sequence_engine import enroll, unsubscribe
+        _post(client, _exit_body())
+        unsubscribe(EMAIL)
+        _post(client, _exit_body(dict(ANSWERS, last_word="Test answer: changed.")))
+        sd = _enrollments(fake_db)[0]["source_data"]
+        assert sd["goal_answers"]["last_word"] == "Test answer: changed." and sd["opted_out_at"]
+        assert enroll(EMAIL, "Test Rider A", "race_debrief_v1", source="race_debrief") is None
+
+    def test_other_contacts_are_not_blocked(self, client, fake_db):
+        from mission_control.services.sequence_engine import enroll, unsubscribe
+        _post(client, _exit_body())
+        unsubscribe(EMAIL)
+        assert enroll("someone.else@example.com", "Else", "welcome_v1", source="race_profile") is not None
+
+
+    def test_plan_onboarding_only_contact_is_left_as_before(self, fake_db):
+        # unchanged on purpose (test_sequence_engine pins it); flagged in the PR
+        from mission_control.services.sequence_engine import unsubscribe
+        done = self._enroll(fake_db, "post_purchase_v1", status="completed")
+        assert unsubscribe(EMAIL) == 0
+        assert "opted_out_at" not in (done["source_data"] or {})
+
+
 class TestCapsFitTheExitForm:
     """Every free-text answer at the page's 4000-character cap, every choice
     at its longest: all of it survives the worker and Mission Control."""

@@ -461,6 +461,9 @@ async def subscriber_webhook(
             # since taken back.
             merged = (dict(source_data) if source == "athlete_exit"
                       else {**(existing.get("source_data") or {}), **source_data})
+            # ...except an opt-out, which a resubmission never takes back.
+            if (existing.get("source_data") or {}).get("opted_out_at"):
+                merged["opted_out_at"] = existing["source_data"]["opted_out_at"]
             # keep the poster token they may already have been emailed; the
             # new link carries a version so a mail client that cached the old
             # poster (the route allows a day) fetches the corrected one

@@ -20,26 +20,25 @@ LEAD_INTAKE_WORKER_URL = "https://fueling-lead-intake.gravelgodcoaching.workers.
 
 
 class GateEndpointMode(str, Enum):
-    """Submission behavior for a chapter gate."""
+    """Which gate copy and script a guide uses. Both post to the worker."""
 
-    FORM_SUBMIT = "formsubmit"
+    LEGACY = "legacy"
     WORKER_FIRST = "worker_first"
 
 
 @dataclass(frozen=True)
 class GateFormConfig:
-    """Gate form copy and delivery settings.
+    """Gate form delivery settings.
 
-    ``FORM_SUBMIT`` preserves the legacy gravel gate.  ``WORKER_FIRST`` uses
-    the lead-intake worker in JavaScript, unlocks immediately, and leaves the
-    configured FormSubmit endpoint available only as a no-JS fallback.
+    Both modes post the email to the lead-intake worker in JavaScript and
+    unlock only once the worker has it. ``LEGACY`` keeps the gravel guide's
+    own gate copy and script (it once posted to FormSubmit, which stopped
+    delivering on 2026-09-29); ``WORKER_FIRST`` is the generic one.
     """
 
-    subject_label: str
     worker_source_value: str
     endpoint_mode: GateEndpointMode
     worker_endpoint: str = LEAD_INTAKE_WORKER_URL
-    formsubmit_endpoint: str = "https://formsubmit.co/gravelgodcoaching@gmail.com"
 
 
 @dataclass(frozen=True)
@@ -113,11 +112,9 @@ GRAVEL_GUIDE = GuideConfig(
     chapter_meta=GRAVEL_CHAPTER_META,
     ga4_event_label_prefix="guide",
     local_storage_key_prefix="gg_guide",
-    # Grandfathered exception: retain the live FormSubmit gate unchanged.
     gate_form=GateFormConfig(
-        subject_label="Guide Unlock",
         worker_source_value="training_guide",
-        endpoint_mode=GateEndpointMode.FORM_SUBMIT,
+        endpoint_mode=GateEndpointMode.LEGACY,
     ),
     cta_set=CtaSetConfig(
         pillar_blocks=("newsletter", "training_plans", "coaching"),
@@ -142,7 +139,6 @@ BIKEPACKING_GUIDE = GuideConfig(
     ga4_event_label_prefix="bikepacking_guide",
     local_storage_key_prefix="gg_bikepacking_guide",
     gate_form=GateFormConfig(
-        subject_label="Bikepacking Guide Unlock",
         worker_source_value="bikepacking_guide",
         endpoint_mode=GateEndpointMode.WORKER_FIRST,
     ),

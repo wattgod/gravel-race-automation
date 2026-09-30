@@ -159,12 +159,14 @@ _LAYOUT_JS = """() => {
 }"""
 
 
-def submit_exit_survey(submission: dict | None = None, width: int = 390) -> dict:
+def submit_exit_survey(submission: dict | None = None, width: int = 390,
+                       worker_status: int = 200) -> dict:
     """Open the page from a personalised link, answer every question, submit.
 
-    Returns the worker's JSON body, the FormSubmit backstop's raw body, the
-    page errors, layout measurements taken before submitting, and the message
-    the athlete saw.
+    Returns the worker's JSON body, anything posted to FormSubmit (the page
+    is worker-only now, so that should be None), the page errors, layout
+    measurements taken before submitting, and the message the athlete saw.
+    worker_status is what the worker answers, to test a failed submit.
     """
     from playwright.sync_api import sync_playwright
 
@@ -178,13 +180,15 @@ def submit_exit_survey(submission: dict | None = None, width: int = 390) -> dict
             return route.fulfill(status=200, content_type="text/html; charset=utf-8", body=doc)
         if req.url.startswith(GTAG_URL):
             return route.fulfill(status=200, content_type="text/javascript", body=GTAG_STUB)
-        for prefix, key, answer in ((LEAD_WORKER_URL, "worker", {"success": True}),
-                                    (FORMSUBMIT_URL, "formsubmit", {"success": "true"})):
+        for prefix, key, status, answer in (
+                (LEAD_WORKER_URL, "worker", worker_status,
+                 {"success": True} if worker_status < 400 else {"error": "Storage unavailable"}),
+                (FORMSUBMIT_URL, "formsubmit", 200, {"success": "true"})):
             if req.url.startswith(prefix):
                 if req.method == "OPTIONS":
                     return route.fulfill(status=204, headers=CORS)
                 captured[key] = json.loads(req.post_data) if key == "worker" else req.post_data
-                return route.fulfill(status=200, headers={**CORS, "Content-Type": "application/json"},
+                return route.fulfill(status=status, headers={**CORS, "Content-Type": "application/json"},
                                      body=json.dumps(answer))
         captured["blocked"].append(req.url)
         return route.abort()

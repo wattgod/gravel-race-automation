@@ -27,8 +27,9 @@ never asked; they come from data.
 
 Links can be personalised: ?name=Ada&email=ada@example.com prefills both.
 
-Submission goes to formsubmit.co (already activated for
-gravelgodcoaching@gmail.com on this site). The email is built from the
+The athlete, exit and 2027 goal pages post to the lead worker (the record).
+The other variants submit to formsubmit.co, which stopped delivering on
+2026-09-29; none of them is deployed. That email is built from the
 page itself (question, then answer, in order), followed by flags for the
 coach and a draft JSON block in the shape of the Endure goal tree.
 
@@ -405,16 +406,14 @@ def build_footer(variant=None) -> str:
     <p class="gg-apply-confidential">{variant["footer"]} &middot; <a href="/privacy/">Privacy Policy</a></p>
   </div>
   ''' + get_mega_footer_html()
-    if (variant or {}).get("transport") == "worker":
+    if WORKER_SOURCES.get(slug) == "goal_2027":
         # a stranger, not a client: say exactly what happens and nothing more
         return f'''<div class="gg-apply-confidential-wrap">
     <p class="gg-apply-confidential">Your answers are stored so I can make your poster and email it to you, and I&#39;ll send one short check-in a week later. Unsubscribe from either with the link in the email. Nothing is sold or shared; the <a href="/privacy/">Privacy Policy</a> has the detail. Your draft stays in this browser until you submit. Questions? Email {FORMSUBMIT_EMAIL}</p>
   </div>
   ''' + get_mega_footer_html()
     if slug in WORKER_SOURCES:
-        route = ("They come straight to me and are stored with your file. "
-                 "The email copy is sent through FormSubmit, a form service "
-                 "that keeps a copy for 30 days.")
+        route = "They come straight to me and are stored with your file."
     else:
         route = ("They reach me by email through FormSubmit, a form service that "
                  "keeps a copy for 30 days.")
@@ -1450,7 +1449,8 @@ def build_season_review_js(variant) -> str:
     js_str = lambda s: html.unescape(s).replace("\\", "\\\\").replace('"', '\\"')
     return (
         js.replace("__STORAGE_KEY__", f"season_review_{SEASON}_{variant['slug']}_v3")
-        .replace("__SUBMIT_URL__", FORMSUBMIT_URL)
+        # a worker-only page carries no FormSubmit address at all
+        .replace("__SUBMIT_URL__", "" if variant.get("transport") == "worker" else FORMSUBMIT_URL)
         .replace("__LEAD_WORKER_URL__", LEAD_WORKER_URL)
         .replace("__LEAD_SOURCE__", WORKER_SOURCES.get(variant["slug"], ""))
         .replace("__TRANSPORT__", variant.get("transport", "both"))

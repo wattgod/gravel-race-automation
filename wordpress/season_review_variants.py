@@ -565,6 +565,12 @@ ATHLETE = {
     "modules": MATTI_MODULES,
     "submit": "Send It to Matti",
     "success": f"Got it. It&#39;s in your file. I&#39;ll read it before I build {NEXT}.",
+    # The worker is the record (Matti's alert from the worker, the receipt
+    # and the stored answers from Mission Control). No FormSubmit copy: it
+    # stopped delivering on 2026-09-29, and a backstop that answers 200
+    # without delivering would let the page claim success when nothing
+    # arrived.
+    "transport": "worker",
 }
 
 
@@ -666,13 +672,14 @@ EXIT = {
     "output": "coaching-exit.html",
     "title": "Before You Go | Gravel God",
     "robots": "noindex, nofollow",
-    # Worker (the record) plus the FormSubmit email backstop, like athlete.
-    "transport": "both",
-    # The FormSubmit backstop's subject and heading. No coach flags and no
+    # The worker is the record, with Mission Control's backup alert; no
+    # FormSubmit copy (see ATHLETE).
+    "transport": "worker",
+    # The (unsent) email copy's subject and heading. No coach flags and no
     # Endure goal draft: nothing on this form is a goal.
     "email_title": "Exit survey",
     "goal_export": False,
-    "footer": "Your answers come straight to me and are stored in my system. They aren&#39;t anonymous. If you said I can share your words, nothing goes up until you&#39;ve approved the exact wording. The email copy goes through FormSubmit, a form service that keeps a copy for 30 days. Drafts are saved only in this browser until you submit. Questions? Email gravelgodcoaching@gmail.com",
+    "footer": "Your answers come straight to me and are stored in my system. They aren&#39;t anonymous. If you said I can share your words, nothing goes up until you&#39;ve approved the exact wording. Drafts are saved only in this browser until you submit. Questions? Email gravelgodcoaching@gmail.com",
 }
 
 

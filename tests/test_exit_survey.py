@@ -90,8 +90,12 @@ class TestTransport:
         assert 'LEAD_SOURCE = "athlete_exit"' in js
         assert "exit_intent" not in js
 
-    def test_worker_plus_email_backstop(self):
-        assert 'TRANSPORT = "both"' in build_season_review_js(EXIT)
+    def test_worker_only_and_no_formsubmit_on_the_page(self):
+        """FormSubmit stopped delivering (2026-09-29). The worker is the
+        record; no FormSubmit address is left on the page to post to."""
+        assert 'TRANSPORT = "worker"' in build_season_review_js(EXIT)
+        assert 'SUBMIT_URL = ""' in build_season_review_js(EXIT)
+        assert "formsubmit" not in generate_season_review_page("exit").lower()
 
     def test_backstop_email_has_its_own_title_and_no_goal_export(self):
         js = build_season_review_js(EXIT)
@@ -170,11 +174,16 @@ class TestFooter:
         assert "used to coach you" not in footer
         assert "stored in my system" in footer
         assert "coaching file" not in footer
-        assert "FormSubmit" in footer and "30 days" in footer
+        assert "FormSubmit" not in footer and "30 days" not in footer
         assert '<a href="/privacy/">Privacy Policy</a>' in footer
 
-    def test_the_athlete_review_footer_is_unchanged(self):
-        assert "used to coach you" in generate_season_review_page("athlete")
+    def test_the_athlete_review_footer_keeps_its_wording_without_formsubmit(self):
+        doc = generate_season_review_page("athlete")
+        footer = doc[doc.index('<p class="gg-apply-confidential">'):]
+        footer = footer[:footer.index("</p>")]
+        assert "used to coach you" in footer
+        assert "They come straight to me and are stored with your file. Drafts are saved" in footer
+        assert "FormSubmit" not in footer and "30 days" not in footer
 
 
 class TestCopy:

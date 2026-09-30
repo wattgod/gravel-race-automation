@@ -269,14 +269,16 @@ class TestGating:
         gated = [ch for ch in chapters if ch["gated"]]
         for ch in gated:
             html = chapter_htmls.get(ch["id"], "")
-            assert "formsubmit.co" in html or 'type="email"' in html, \
+            assert 'type="email"' in html, \
                 f"Gated chapter {ch['id']} missing email form"
+            assert "formsubmit.co" not in html, \
+                f"Gated chapter {ch['id']} still posts to FormSubmit"
 
     def test_gate_no_substack_iframe(self, chapter_htmls, chapters):
         for ch in chapters:
             html = chapter_htmls.get(ch["id"], "")
             assert "substackapi.com" not in html, \
-                f"Chapter {ch['id']} still has Substack iframe (should use formsubmit.co)"
+                f"Chapter {ch['id']} still has Substack iframe (should use the worker form)"
 
     def test_gate_has_localstorage_unlock(self, chapter_htmls, chapters):
         gated = [ch for ch in chapters if ch["gated"]]
@@ -649,7 +651,7 @@ class TestGuideConfigurations:
         assert GRAVEL_GUIDE.url_base == "/guide/"
         assert GRAVEL_GUIDE.local_storage_key_prefix == "gg_guide"
         assert GRAVEL_GUIDE.ga4_event_label_prefix == "guide"
-        assert GRAVEL_GUIDE.gate_form.endpoint_mode is GateEndpointMode.FORM_SUBMIT
+        assert GRAVEL_GUIDE.gate_form.endpoint_mode is GateEndpointMode.LEGACY
         assert GRAVEL_GUIDE.gate_form.worker_source_value == "training_guide"
         assert GRAVEL_GUIDE.include_configurator is True
 
@@ -665,13 +667,39 @@ class TestGuideConfigurations:
         assert config.cta_set.targets["ultra_shelf"] == "/gravel-races/?discipline=bikepacking"
         assert config.cta_set.targets["coaching_corner"].endswith("/coaching/apply/")
 
-    def test_worker_first_gate_has_honeypot_and_worker_source(self):
+    def test_worker_first_gate_has_honeypot_and_no_formsubmit_fallback(self):
         gate = build_chapter_gate(
             {"title": "Systems", "id": "systems"}, BIKEPACKING_GUIDE
         )
         assert 'name="website"' in gate
-        assert 'name="source" value="bikepacking_guide"' in gate
-        assert "formsubmit.co" in gate  # documented no-JS fallback only
+        assert "formsubmit" not in gate.lower() and "action=" not in gate
+        assert 'var SOURCE="bikepacking_guide"' in build_cluster_js(BIKEPACKING_GUIDE)
+
+    def test_gravel_gate_posts_to_the_worker_not_formsubmit(self, chapters):
+        """FormSubmit stopped delivering (2026-09-29): the live gravel gate's
+        leads were being lost. Same copy; the email goes to the worker."""
+        gated = [ch for ch in chapters if ch["gated"]][0]
+        gate = build_chapter_gate(gated)
+        assert "formsubmit" not in gate.lower() and "action=" not in gate
+        assert 'method="post"' in gate  # an uncaught submit never puts the email in the URL
+        assert '<input type="hidden" name="website" value="">' in gate
+        assert f'<input type="hidden" name="guide_chapter" value="{ggc.esc(gated["title"])}">' in gate
+        assert "Subscribe to the Gravel God newsletter to unlock all premium chapters instantly." in gate
+        js = build_cluster_js()
+        assert "formsubmit" not in js.lower()
+        gate_js = js[js.index('var gateForm=document.getElementById("gg-cluster-gate-form")'):]
+        gate_js = gate_js[:gate_js.index("})();")]
+        assert 'source:"training_guide"' in gate_js
+        assert "fueling-lead-intake.gravelgodcoaching.workers.dev" in js
+        assert gate_js.index("e.preventDefault()") < gate_js.index("fetch(WORKER_URL")
+        # unlock only after the worker answered 2xx, never on submit
+        assert gate_js.index('if(!r.ok)throw') < gate_js.index('unlock("email_form")')
+        assert "localStorage.setItem" not in gate_js
+
+    def test_configurator_gate_names_no_chapter(self):
+        gate = build_chapter_gate({"title": "Race Prep Configurator", "id": "race-prep-configurator"})
+        assert "guide_chapter" not in gate
+        assert "formsubmit" not in gate.lower()
 
     def test_worker_first_capture_uses_isolated_storage_and_ga4_labels(self):
         js = build_cluster_js(BIKEPACKING_GUIDE)
@@ -1196,17 +1224,17 @@ class TestRaceBlocksInOutput:
 # ── Gate Verification ────────────────────────────────────────
 
 
-class TestGateFormsubmit:
+class TestGateWorkerForm:
     def test_gate_has_email_form(self, chapter_htmls):
-        """Gated chapters use formsubmit.co email form, not Substack iframe."""
+        """Gated chapters use the worker email form, not FormSubmit or Substack."""
         gated_slugs = ["workout-execution", "nutrition-fueling",
                        "mental-training-race-tactics", "race-week", "post-race"]
         for slug in gated_slugs:
             html = chapter_htmls.get(slug, "")
             if not html:
                 continue
-            assert "formsubmit.co" in html, \
-                f"Gated chapter '{slug}' missing formsubmit.co form"
+            assert "formsubmit.co" not in html, \
+                f"Gated chapter '{slug}' still posts to FormSubmit"
             assert 'type="email"' in html, \
                 f"Gated chapter '{slug}' missing email input"
 
@@ -1224,7 +1252,7 @@ class TestGateFormsubmit:
                 continue
             gate_section = html[gate_start:gate_start + 2000]
             assert "<iframe" not in gate_section, \
-                f"Gated chapter '{slug}' uses iframe in gate (should use formsubmit.co form)"
+                f"Gated chapter '{slug}' uses iframe in gate (should use the worker form)"
 
     def test_gate_has_bypass_button(self, chapter_htmls):
         """Gated chapters have a bypass button for existing subscribers."""
@@ -1581,8 +1609,8 @@ class TestConfiguratorGate:
         assert 'id="gg-guide-gate"' in configurator_html
 
     def test_configurator_gate_has_form(self, configurator_html):
-        """Configurator gate uses formsubmit.co email form."""
-        assert "formsubmit.co" in configurator_html
+        """Configurator gate uses the worker email form."""
+        assert "formsubmit.co" not in configurator_html
         assert 'type="email"' in configurator_html
 
     def test_configurator_form_behind_gate(self, configurator_html):

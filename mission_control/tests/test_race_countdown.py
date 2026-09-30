@@ -369,3 +369,161 @@ class TestFetchErrorSurfacing:
         abort = [c for c in mock_log.call_args_list
                  if c.args[0] == "race_countdown_aborted"]
         assert abort and "403" in abort[0].args[3]
+
+
+# ── One bad published date never takes the run down (2026-09-30) ──
+# xcskilabs.com/race-dates.json serves the date_specific display format
+# ("2026: January 18"), and the first one crashed the whole countdown job
+# with "Invalid isoformat string", for every brand.
+
+
+def _row(email, slug, brand):
+    return {"contact_email": email, "contact_name": email.split("@")[0], "status": "completed",
+            "source_data": {"race_slug": slug, "race_name": slug.title(), "brand": brand}}
+
+
+class TestParseRaceDate:
+    def test_iso_and_the_prefixed_display_format(self):
+        from mission_control.services.race_countdown import parse_race_date
+        assert parse_race_date("2026-10-21") == date(2026, 10, 21)
+        assert parse_race_date("2026: February 28") == date(2026, 2, 28)
+        assert parse_race_date("2026: Sep 27") == date(2026, 9, 27)
+        # multi-day: the start day is what the countdown needs
+        assert parse_race_date("2026: March 26-28") == date(2026, 3, 26)
+        assert parse_race_date("2026: January 31 (Skate), February 1 (Classic)") == date(2026, 1, 31)
+
+    def test_anything_else_is_not_a_date_and_never_raises(self):
+        from mission_control.services.race_countdown import parse_race_date
+        for value in ("2026: Cancelled (returning 2027)", "2026: January-February series",
+                      "2026: October TBD", "2026: February 30", "February 28", "TBD", "",
+                      None, [], {"date": "2026-10-21"}):
+            assert parse_race_date(value) is None, value
+
+
+class TestBadDatesNeverAbortTheRun:
+    def test_a_mixed_feed_still_enrolls_every_good_race(self, caplog):
+        today = date(2026, 7, 1)
+        dates = {
+            "gravelgod": {"unbound-200": "2026-10-21", "broken": "not a date"},
+            "roadielabs": {"mallorca-312": "2026-08-26"},
+            # the live XC shape, a bad one listed first
+            "xcskilabs": {"cancelled": "2026: Cancelled (returning 2027)",
+                          "birkie": "2026: October 21"},
+        }
+        rows = [_row("bad@x.com", "cancelled", "xcskilabs"),
+                _row("junk@x.com", "broken", "gravelgod"),
+                _row("g@x.com", "unbound-200", "gravelgod"),
+                _row("r@x.com", "mallorca-312", "roadielabs"),
+                _row("x@x.com", "birkie", "xcskilabs")]
+        with patch("mission_control.services.race_countdown._fetch_dates_sync", return_value=dates), \
+             patch("mission_control.services.race_countdown.db.select", return_value=rows), \
+             patch("mission_control.services.race_countdown.db.select_one", return_value=None), \
+             patch("mission_control.services.race_countdown.db.log_action"), \
+             patch("mission_control.services.race_countdown.enroll", return_value={"id": 1}) as mock_enroll, \
+             caplog.at_level("WARNING", logger="mission_control.services.race_countdown"):
+            summary = _run(run_race_countdown(today=today))
+        assert summary["enrolled"] == 3
+        assert summary["skipped_bad_date"] == 2
+        assert {c.args[0] for c in mock_enroll.call_args_list} == {"g@x.com", "r@x.com", "x@x.com"}
+        xc = next(c for c in mock_enroll.call_args_list if c.args[0] == "x@x.com")
+        assert xc.args[2] == "xc_race_countdown_16_v1"
+        assert xc.kwargs["source_data"]["race_date"] == "2026-10-21"  # ISO for the templates
+        warnings = [r.getMessage() for r in caplog.records if "not dates" in r.getMessage()]
+        assert len(warnings) == 1, warnings  # one aggregated warning, not one per race
+        assert "skipped 2 race date(s)" in warnings[0] and "xcskilabs/cancelled" in warnings[0]
+
+    def test_one_contact_failing_to_enroll_does_not_stop_the_rest(self):
+        today = date(2026, 7, 1)
+        dates = {"gravelgod": {"unbound-200": "2026-10-21"}}
+        rows = [_row("first@x.com", "unbound-200", "gravelgod"),
+                _row("second@x.com", "unbound-200", "gravelgod")]
+
+        def flaky_enroll(email, *a, **k):
+            if email == "first@x.com":
+                raise RuntimeError("supabase timeout")
+            return {"id": 1}
+
+        with patch("mission_control.services.race_countdown._fetch_dates_sync", return_value=dates), \
+             patch("mission_control.services.race_countdown.db.select", return_value=rows), \
+             patch("mission_control.services.race_countdown.db.select_one", return_value=None), \
+             patch("mission_control.services.race_countdown.db.log_action"), \
+             patch("mission_control.services.race_countdown.enroll", side_effect=flaky_enroll):
+            summary = _run(run_race_countdown(today=today))
+        assert summary["errors"] == 1 and summary["enrolled"] == 1
+
+
+class TestFetchSaysWhatCameBack:
+    """MC logged 'Expecting value: line 1 column 1 (char 0)' for all three
+    brands on 2026-09-30: a 2xx that wasn't JSON. The error now carries the
+    status, content type and the start of the body."""
+
+    class _Resp:
+        def __init__(self, body, status=200, ctype="application/json"):
+            self._body, self.status = body, status
+            self.headers = {"Content-Type": ctype}
+
+        def read(self):
+            return self._body
+
+        def __enter__(self):
+            return self
+
+        def __exit__(self, *a):
+            return False
+
+    def _fetch(self, **urlopen):
+        from mission_control.services import race_countdown as rc
+        rc._dates_cache.clear()
+        rc._last_errors.clear()
+        with patch("mission_control.services.race_countdown.urllib.request.urlopen", **urlopen), \
+             patch("mission_control.services.race_countdown.db.get_setting", return_value=""), \
+             patch("mission_control.services.race_countdown.db.set_setting"):
+            rc._fetch_dates_sync()
+        errors = dict(rc._last_errors)
+        rc._dates_cache.clear()
+        rc._last_errors.clear()
+        return errors
+
+    def test_a_challenge_page_is_named_with_status_type_and_body(self):
+        page = (b'<html><head><meta http-equiv="refresh" content="0;/.well-known/sgcaptcha/'
+                b'?r=%2Fwp-content%2Fuploads%2Frace-dates.json"></head></html>')
+        errors = self._fetch(return_value=self._Resp(page, status=202, ctype="text/html"))
+        for brand, err in errors.items():
+            assert "Expecting value" in err
+            assert "HTTP 202" in err and "text/html" in err
+            assert "sgcaptcha" in err, err
+        assert set(errors) == set(__import__(
+            "mission_control.services.race_countdown", fromlist=["RACE_DATES_URLS"]).RACE_DATES_URLS)
+
+    def test_an_http_error_is_named_with_its_body_too(self):
+        import io
+        import urllib.error
+
+        def forbidden(req, timeout=None):
+            raise urllib.error.HTTPError(req.full_url, 403, "Forbidden",
+                                         {"Content-Type": "text/html"},
+                                         io.BytesIO(b"403 - Forbidden | Access to this page is forbidden."))
+
+        errors = self._fetch(side_effect=forbidden)
+        assert errors and all("HTTP 403" in e and "Access to this page" in e for e in errors.values())
+
+    def test_a_json_array_is_not_a_dates_map(self):
+        errors = self._fetch(return_value=self._Resp(b'["2026-10-21"]'))
+        assert errors and all("not a JSON object" in e for e in errors.values())
+
+    def test_sends_a_browser_user_agent_and_asks_for_json(self):
+        from mission_control.services import race_countdown as rc
+        seen = []
+
+        def capture(req, timeout=None):
+            seen.append(req)
+            return self._Resp(b'{"unbound-200": "2026-10-21"}')
+
+        assert not self._fetch(side_effect=capture)
+        for req in seen:
+            ua = req.get_header("User-agent")
+            assert ua.startswith("Mozilla/5.0 (") and "Chrome/" in ua
+            # SiteGround 403s the bot-style "Mozilla/5.0 (compatible; ...)" shape
+            assert "compatible;" not in ua and "GG-MissionControl" in ua
+            assert req.get_header("Accept") == "application/json"
+        assert len(seen) == len(rc.RACE_DATES_URLS)

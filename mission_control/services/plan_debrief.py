@@ -65,8 +65,9 @@ CONNECTION_LABELS = {
 }
 BRAND_TAGS = {"gravelgod": "GG", "roadielabs": "RL", "xcskilabs": "XC"}
 
-# A second debrief from the same address for a different plan replaces the
-# live record like an exit resubmission, and the one before is kept here.
+# A second debrief from the same address, for a different plan or a different
+# race-day outcome, replaces the live record like an exit resubmission, and
+# the one before is kept here.
 MAX_EARLIER = 5
 
 
@@ -171,15 +172,22 @@ def debrief_source_data(brand: str, answers: dict, plan: str = "", ref: str = ""
     return source_data
 
 
+def _raced(record: dict) -> str | None:
+    return (record.get("goal_answers") or {}).get("raced")
+
+
 def replace_record(previous: dict, current: dict) -> dict:
     """A resubmission replaces the record, as an exit's does, so a sharing
-    tier or consent they took back does not linger. The same plan is a
-    correction. A different plan is a second debrief: the one before is kept
-    under `earlier` (newest first, at most MAX_EARLIER), consent and all."""
+    tier or consent they took back does not linger. The same plan with the
+    same race-day answer is a correction. A different plan, or the same plan
+    with a different `raced` (say "not yet" before the race, "finished"
+    after), is a second debrief: the one before is kept under `earlier`
+    (newest first, at most MAX_EARLIER), consent and all."""
     out = dict(current)
     earlier = list(previous.get("earlier") or [])
     same_plan = (previous.get("plan_id"), previous.get("ref")) == (current.get("plan_id"), current.get("ref"))
-    if previous.get("goal_answers") and not same_plan:
+    correction = same_plan and _raced(previous) == _raced(current)
+    if previous.get("goal_answers") and not correction:
         earlier.insert(0, {k: v for k, v in previous.items() if k != "earlier"})
     if earlier:
         out["earlier"] = earlier[:MAX_EARLIER]

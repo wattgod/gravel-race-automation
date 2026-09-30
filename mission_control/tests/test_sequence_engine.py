@@ -1270,3 +1270,33 @@ class TestKitPitchPilot:
         html = self._render("kit_pitch", {"race_name": "Big Sugar", "race_slug": "big-sugar"})
         out = _inject_utm_params(html, "nurture_v1", "C", 1)
         assert "questionnaire/?race=big-sugar&src=email_nurture&utm_source=gravel_god" in out
+
+
+class TestReceiptSequencesAreOneEmail:
+    """A one-email receipt (a season review, an exit survey, a race debrief)
+    must stay one email. The exit follow-ups (#420) add
+    sequence_engine._RECEIPT_TRIGGERS, which unsubscribe() skips so a pending
+    receipt still goes; that skip must never quietly cover a multi-step
+    sequence added under one of those triggers later.
+
+    Until #420 lands, the engine has no such set and this reads the receipts
+    this branch knows. On the rebase: drop the literal set below and assert
+    "plan_debrief" in sequence_engine._RECEIPT_TRIGGERS instead."""
+
+    KNOWN_RECEIPTS = {"athlete_review", "athlete_exit", "plan_debrief"}
+
+    def _receipt_triggers(self):
+        from mission_control.services import sequence_engine
+        return set(getattr(sequence_engine, "_RECEIPT_TRIGGERS", set())) | self.KNOWN_RECEIPTS
+
+    def test_every_receipt_sequence_has_exactly_one_step(self):
+        from mission_control.sequences import SEQUENCES
+        receipts = {sid: seq for sid, seq in SEQUENCES.items() if seq.get("trigger") in self._receipt_triggers()}
+        assert {"athlete_review_v1", "athlete_exit_v1", "plan_debrief_v1", "road_plan_debrief_v1"} <= set(receipts)
+        for sid, seq in receipts.items():
+            for key, variant in seq["variants"].items():
+                assert len(variant["steps"]) == 1, f"{sid} variant {key} has {len(variant['steps'])} steps"
+
+    def test_receipts_are_transactional(self):
+        from mission_control.services import sequence_engine
+        assert self._receipt_triggers() <= sequence_engine._POST_PURCHASE_TRIGGERS

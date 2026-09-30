@@ -296,6 +296,24 @@ class TestResubmission:
         assert sd["earlier"][0]["goal_answers"] == ANSWERS
         assert sd["earlier"][0]["consent"]["quote"] == ANSWERS["quote"]
 
+    def test_the_same_plan_after_the_race_keeps_the_before_race_answer(self, client, fake_db, monkeypatch):
+        """"Not yet" before the race, "finished" after: two debriefs, not a
+        correction, so the first is kept."""
+        _capture_sends(monkeypatch)
+        _post(client, _body({"raced": "later", "last_word": "Test answer: race is next month."}))
+        _post(client, _body())
+        sd = _enrollments(fake_db)[0]["source_data"]
+        assert sd["goal_answers"] == ANSWERS and sd["plan_id"] == "123456"
+        assert [e["goal_answers"]["raced"] for e in sd["earlier"]] == ["later"]
+        assert sd["earlier"][0]["goal_answers"]["last_word"] == "Test answer: race is next month."
+
+    def test_the_same_plan_and_outcome_is_still_a_correction(self):
+        from mission_control.services.plan_debrief import replace_record
+        before = {"plan_id": "123456", "goal_answers": {"raced": "finished", "worked": "a"}}
+        after = {"plan_id": "123456", "goal_answers": {"raced": "finished", "worked": "b"}}
+        assert "earlier" not in replace_record(before, after)
+        assert replace_record(before, after)["goal_answers"]["worked"] == "b"
+
     def test_earlier_debriefs_are_capped(self):
         from mission_control.services.plan_debrief import MAX_EARLIER, replace_record
         record = {}

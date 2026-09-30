@@ -22,9 +22,13 @@ from datetime import date, datetime, timezone
 
 from mission_control import supabase_client as db
 from mission_control.services.race_countdown import (
+    _MAX_ERRORS_PER_RUN,
     _fetch_dates_sync,
     _last_errors as _rc_errors,
+    audit,
     gather_candidates,
+    parse_race_date,
+    warn_bad_dates,
 )
 from mission_control.services.sequence_engine import enroll
 
@@ -59,7 +63,10 @@ async def run_race_debrief(today: date | None = None) -> dict:
     summary = {"candidates": 0, "enrolled": 0, "enrolled_inferred": 0,
                "skipped_window": 0, "skipped_mid_sequence": 0,
                "skipped_customer": 0, "skipped_no_date": 0,
-               "skipped_no_sequence": 0, "capped": False}
+               "skipped_bad_date": 0, "errors": 0,
+               "skipped_no_sequence": 0, "capped": False, "aborted": False}
+    bad_dates: list[str] = []
+    first_error: Exception | None = None
 
     dates = await asyncio.to_thread(_fetch_dates_sync)
     if not any(dates.values()):
@@ -88,11 +95,16 @@ async def run_race_debrief(today: date | None = None) -> dict:
             summary["skipped_no_sequence"] += 1
             continue
 
-        iso = (dates.get(info["brand"]) or {}).get(info["race_slug"])
-        if not iso:
+        raw = (dates.get(info["brand"]) or {}).get(info["race_slug"])
+        if not raw:
             summary["skipped_no_date"] += 1
             continue
-        race_date = date.fromisoformat(iso)
+        race_date = parse_race_date(raw)
+        if race_date is None:
+            # one bad value in a feed skips that race, never the run
+            summary["skipped_bad_date"] += 1
+            bad_dates.append(f"{info['brand']}/{info['race_slug']}={raw!r}")
+            continue
         days_since = (today - race_date).days
         inferred = False
         if days_since < _MIN_DAYS_SINCE:
@@ -117,37 +129,54 @@ async def run_race_debrief(today: date | None = None) -> dict:
             summary["skipped_mid_sequence"] += 1
             continue
 
-        # Customer suppression — customers debrief through post-purchase
-        # (nps_request already asks "did the race happen?")
-        customer = db.select_one("gg_athletes", columns="plan_status",
-                                 match={"email": email})
-        if customer and customer.get("plan_status") in _CUSTOMER_STATUSES:
-            summary["skipped_customer"] += 1
-            continue
+        try:
+            # Customer suppression — customers debrief through post-purchase
+            # (nps_request already asks "did the race happen?")
+            customer = db.select_one("gg_athletes", columns="plan_status",
+                                     match={"email": email})
+            if customer and customer.get("plan_status") in _CUSTOMER_STATUSES:
+                summary["skipped_customer"] += 1
+                continue
 
-        result = enroll(
-            email, info["name"], seq_id,
-            source="race_debrief",
-            source_data={
-                "brand": info["brand"],
-                "race_slug": info["race_slug"],
-                "race_name": info["race_name"],
-                "race_date": iso,
-                # An inferred edition date can be off by a week or two, so
-                # the phrase must not name a month — "this season" stays
-                # honest at any offset.
-                "when_phrase": "this season" if inferred
-                               else when_phrase(days_since, race_date),
-                **({"date_inferred": "true"} if inferred else {}),
-            },
-        )
-        if result:
-            summary["enrolled"] += 1
-            if inferred:
-                summary["enrolled_inferred"] += 1
-            db.log_action("race_debrief_enrolled", "sequence", seq_id,
-                          f"{email} — {info['race_name']} was {days_since}d ago"
-                          + (" (inferred previous edition)" if inferred else ""))
+            result = enroll(
+                email, info["name"], seq_id,
+                source="race_debrief",
+                source_data={
+                    "brand": info["brand"],
+                    "race_slug": info["race_slug"],
+                    "race_name": info["race_name"],
+                    "race_date": race_date.isoformat(),
+                    # An inferred edition date can be off by a week or two, so
+                    # the phrase must not name a month — "this season" stays
+                    # honest at any offset.
+                    "when_phrase": "this season" if inferred
+                                   else when_phrase(days_since, race_date),
+                    **({"date_inferred": "true"} if inferred else {}),
+                },
+            )
+            if result:
+                summary["enrolled"] += 1
+                if inferred:
+                    summary["enrolled_inferred"] += 1
+                db.log_action("race_debrief_enrolled", "sequence", seq_id,
+                              f"{email} — {info['race_name']} was {days_since}d ago"
+                              + (" (inferred previous edition)" if inferred else ""))
+        except Exception as e:
+            # one contact's failure is logged and skipped; the rest still go
+            summary["errors"] += 1
+            if first_error is None:
+                first_error = e
+                logger.exception("race-debrief: processing a contact failed (first error this run)")
+            if summary["errors"] >= _MAX_ERRORS_PER_RUN:
+                # past this it is an outage, not a bad record
+                summary["aborted"] = True
+                audit("race_debrief_aborted",
+                      f"{summary['errors']} contacts failed — {first_error!r}")
+                break
 
+    if summary["errors"]:
+        audit("race_debrief_errors",
+              f"{summary['errors']} contact(s) failed, {summary['enrolled']} enrolled — {first_error!r}")
+    warn_bad_dates("race-debrief", bad_dates)
     logger.info("race-debrief run: %s", summary)
     return summary

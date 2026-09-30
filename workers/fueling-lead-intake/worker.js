@@ -683,7 +683,10 @@ function formatEmailBody(lead) {
 // budget so one pasted essay can't blow up every downstream store.
 const MAX_ANSWER_KEYS = 64;
 const MAX_ANSWER_LEN = 4000;
-const MAX_ANSWERS_TOTAL = 30000;
+// Room for the exit survey's eight free-text answers at MAX_ANSWER_LEN each
+// (32000) plus its choices, so a full-length form is never cut. Mission
+// Control's _MAX_GOAL_ANSWERS_TOTAL must match.
+const MAX_ANSWERS_TOTAL = 40000;
 
 function sanitizeAnswers(raw) {
   if (!raw || typeof raw !== 'object' || Array.isArray(raw)) return {};

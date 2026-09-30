@@ -38,6 +38,9 @@ const response = await worker.fetch(new Request('https://fueling-lead-intake.exa
   MC_WEBHOOK_SECRET: 'test-secret',
   RESEND_API_KEY: 'test-resend-key',
   NOTIFICATION_EMAIL: 'coach@example.com',
+  // GG_ENV_OVERRIDES (JSON) swaps worker env, e.g. {"RESEND_API_KEY": ""}
+  // to take the worker's own alert away.
+  ...JSON.parse(process.env.GG_ENV_OVERRIDES || '{}'),
 });
 
 process.stdout.write(JSON.stringify({ status: response.status, response: await response.json(), sent }));

@@ -223,7 +223,7 @@ class TestFetchDatesUserAgent:
         for req in captured:
             assert isinstance(req, ur.Request), "must pass a Request (with headers), not a bare URL"
             ua = req.get_header("User-agent", "")
-            assert ua == rc._USER_AGENT
+            assert ua == rc._fetch_headers()["User-Agent"]
             assert not ua.lower().startswith("python-urllib")
 
 
@@ -487,13 +487,30 @@ class TestFetchSaysWhatCameBack:
     def test_a_challenge_page_is_named_with_status_type_and_body(self):
         page = (b'<html><head><meta http-equiv="refresh" content="0;/.well-known/sgcaptcha/'
                 b'?r=%2Fwp-content%2Fuploads%2Frace-dates.json"></head></html>')
+        from mission_control.services import race_countdown as rc
         errors = self._fetch(return_value=self._Resp(page, status=202, ctype="text/html"))
         for brand, err in errors.items():
             assert "Expecting value" in err
             assert "HTTP 202" in err and "text/html" in err
             assert "sgcaptcha" in err, err
-        assert set(errors) == set(__import__(
-            "mission_control.services.race_countdown", fromlist=["RACE_DATES_URLS"]).RACE_DATES_URLS)
+        assert set(errors) == set(rc.RACE_DATES_URLS)
+
+    def test_the_startup_probe_records_what_came_back(self):
+        """The probe's audit row is where a Railway-only failure shows up."""
+        from mission_control.services import race_countdown as rc
+        page = b'<html><meta http-equiv="refresh" content="0;/.well-known/sgcaptcha/?r=x"></html>'
+        rc._dates_cache.clear()
+        rc._last_errors.clear()
+        with patch("mission_control.services.race_countdown.urllib.request.urlopen",
+                   return_value=self._Resp(page, status=202, ctype="text/html")), \
+             patch("mission_control.services.race_countdown.db.get_setting", return_value=""):
+            detail = rc.probe_race_dates()
+        rc._last_errors.clear()
+        assert detail.count("FAILED") == len(rc.RACE_DATES_URLS)
+        assert detail.count("HTTP 202, text/html") == len(rc.RACE_DATES_URLS)
+        assert "sgcaptcha" in detail
+        # app.py stores the first 1500 characters: every brand's detail fits
+        assert len(detail) <= 1500
 
     def test_an_http_error_is_named_with_its_body_too(self):
         import io
@@ -511,8 +528,7 @@ class TestFetchSaysWhatCameBack:
         errors = self._fetch(return_value=self._Resp(b'["2026-10-21"]'))
         assert errors and all("not a JSON object" in e for e in errors.values())
 
-    def test_sends_a_browser_user_agent_and_asks_for_json(self):
-        from mission_control.services import race_countdown as rc
+    def _headers_sent(self):
         seen = []
 
         def capture(req, timeout=None):
@@ -520,10 +536,177 @@ class TestFetchSaysWhatCameBack:
             return self._Resp(b'{"unbound-200": "2026-10-21"}')
 
         assert not self._fetch(side_effect=capture)
-        for req in seen:
-            ua = req.get_header("User-agent")
-            assert ua.startswith("Mozilla/5.0 (") and "Chrome/" in ua
-            # SiteGround 403s the bot-style "Mozilla/5.0 (compatible; ...)" shape
-            assert "compatible;" not in ua and "GG-MissionControl" in ua
-            assert req.get_header("Accept") == "application/json"
-        assert len(seen) == len(rc.RACE_DATES_URLS)
+        return [(req.get_header("User-agent"), req.get_header("Accept")) for req in seen]
+
+    def test_sends_a_browser_user_agent_and_asks_for_json(self, monkeypatch):
+        from mission_control.services import race_countdown as rc
+        monkeypatch.delenv("RACE_DATES_USER_AGENT", raising=False)
+        default = rc._DEFAULT_USER_AGENT
+        assert default.startswith("Mozilla/5.0 (") and "Chrome/" in default
+        # SiteGround 403s the bot-style "Mozilla/5.0 (compatible; ...)" shape
+        assert "compatible;" not in default and "GG-MissionControl" in default
+        assert self._headers_sent() == [(default, "application/json")] * len(rc.RACE_DATES_URLS)
+
+    def test_the_user_agent_can_be_changed_without_a_deploy(self, monkeypatch):
+        from mission_control.services import race_countdown as rc
+        monkeypatch.setenv("RACE_DATES_USER_AGENT", "GG-MissionControl/1.0")
+        assert self._headers_sent() == [("GG-MissionControl/1.0", "application/json")] * len(rc.RACE_DATES_URLS)
+
+
+class TestStaleYearsSendNothing:
+    """A date from a past season ("2025: December 14", which XC still
+    publishes) is read as that past date: no countdown, and no debrief once
+    it is beyond the debrief window. Never rolled forward to a guess."""
+
+    def test_neither_job_enrolls_anyone(self):
+        from mission_control.services.race_debrief import run_race_debrief
+        today = date(2026, 9, 30)
+        dates = {"xcskilabs": {"stale": "2025: December 14"}}
+        rows = [_row("stale@x.com", "stale", "xcskilabs")]
+        runs = {}
+        for job, run in (("race_countdown", run_race_countdown), ("race_debrief", run_race_debrief)):
+            with patch(f"mission_control.services.{job}._fetch_dates_sync", return_value=dates), \
+                 patch(f"mission_control.services.{job}.db.select", return_value=rows), \
+                 patch(f"mission_control.services.{job}.db.select_one", return_value=None), \
+                 patch(f"mission_control.services.{job}.db.log_action"), \
+                 patch(f"mission_control.services.{job}.enroll", return_value={"id": 1}) as mock_enroll:
+                runs[job] = _run(run(today=today))
+            mock_enroll.assert_not_called()
+        for summary in runs.values():
+            assert summary["enrolled"] == 0 and summary["skipped_window"] == 1
+            assert summary["skipped_bad_date"] == 0  # a real date, just an old one
+
+
+class TestAnOutageStopsTheRun:
+    """A Supabase outage fails every contact. Ten failures stop the run with
+    an audit row, instead of a slow crawl through every contact."""
+
+    def _run_failing(self, n_contacts, fail_all=True):
+        from mission_control.services import race_countdown as rc
+        today = date(2026, 7, 1)
+        dates = {"gravelgod": {"unbound-200": "2026-10-21"}}
+        rows = [_row(f"c{i}@x.com", "unbound-200", "gravelgod") for i in range(n_contacts)]
+        calls = []
+
+        def select_one(*a, **k):
+            calls.append(k.get("match", {}).get("email"))
+            if fail_all or len(calls) == 1:
+                raise ConnectionError("supabase down")
+            return None
+
+        with patch("mission_control.services.race_countdown._fetch_dates_sync", return_value=dates), \
+             patch("mission_control.services.race_countdown.db.select", return_value=rows), \
+             patch("mission_control.services.race_countdown.db.select_one", side_effect=select_one), \
+             patch("mission_control.services.race_countdown.db.log_action") as mock_log, \
+             patch("mission_control.services.race_countdown.enroll", return_value={"id": 1}):
+            summary = _run(run_race_countdown(today=today))
+        audits = {c.args[0]: c.args[3] for c in mock_log.call_args_list
+                  if c.args[0] in ("race_countdown_aborted", "race_countdown_errors")}
+        return summary, calls, audits, rc._MAX_ERRORS_PER_RUN
+
+    def test_stops_at_the_error_limit_with_an_aborted_row(self):
+        summary, calls, audits, limit = self._run_failing(50)
+        assert limit == 10
+        assert summary["errors"] == limit and summary["aborted"] is True
+        assert len(calls) == limit  # the other 40 were never tried
+        assert audits["race_countdown_aborted"].startswith("10 contacts failed — ConnectionError(")
+        assert "supabase down" in audits["race_countdown_aborted"]
+        assert audits["race_countdown_errors"].startswith("10 contact(s) failed, 0 enrolled")
+
+    def test_a_few_errors_finish_the_run_and_leave_an_errors_row(self):
+        summary, calls, audits, _ = self._run_failing(5, fail_all=False)
+        assert summary["errors"] == 1 and summary["enrolled"] == 4 and not summary["aborted"]
+        assert "race_countdown_aborted" not in audits
+        assert audits["race_countdown_errors"].startswith("1 contact(s) failed, 4 enrolled — ConnectionError(")
+
+    def test_a_clean_run_writes_no_error_rows(self):
+        from mission_control.services.race_countdown import audit  # noqa: F401  (exists)
+        today = date(2026, 7, 1)
+        with patch("mission_control.services.race_countdown._fetch_dates_sync",
+                   return_value={"gravelgod": {"unbound-200": "2026-10-21"}}), \
+             patch("mission_control.services.race_countdown.db.select",
+                   return_value=[_row("ok@x.com", "unbound-200", "gravelgod")]), \
+             patch("mission_control.services.race_countdown.db.select_one", return_value=None), \
+             patch("mission_control.services.race_countdown.db.log_action") as mock_log, \
+             patch("mission_control.services.race_countdown.enroll", return_value={"id": 1}):
+            _run(run_race_countdown(today=today))
+        assert [c.args[0] for c in mock_log.call_args_list] == ["race_countdown_enrolled"]
+
+    def test_an_audit_write_that_fails_too_does_not_crash_the_job(self):
+        today = date(2026, 7, 1)
+        rows = [_row(f"c{i}@x.com", "unbound-200", "gravelgod") for i in range(12)]
+        with patch("mission_control.services.race_countdown._fetch_dates_sync",
+                   return_value={"gravelgod": {"unbound-200": "2026-10-21"}}), \
+             patch("mission_control.services.race_countdown.db.select", return_value=rows), \
+             patch("mission_control.services.race_countdown.db.select_one",
+                   side_effect=ConnectionError("supabase down")), \
+             patch("mission_control.services.race_countdown.db.log_action",
+                   side_effect=ConnectionError("supabase down")):
+            summary = _run(run_race_countdown(today=today))
+        assert summary["aborted"] is True
+
+
+class TestCatchUpCap:
+    """After weeks down, the first good run meets a backlog. The cap is
+    tunable per run (RACE_COUNTDOWN_MAX_PER_RUN), whoever's window closes
+    soonest goes first, and the rest are left for the next run."""
+
+    def _run(self, today, dates, rows, enrolled_store=None, **env):
+        import os
+        enrolled_store = enrolled_store if enrolled_store is not None else []
+
+        def enroll(email, name, seq_id, **k):
+            if any(e == email and s == seq_id for e, s in enrolled_store):
+                return None  # enroll() dedups on (sequence, contact)
+            enrolled_store.append((email, seq_id))
+            return {"id": len(enrolled_store)}
+
+        with patch.dict(os.environ, env), \
+             patch("mission_control.services.race_countdown._fetch_dates_sync", return_value=dates), \
+             patch("mission_control.services.race_countdown.db.select", return_value=rows), \
+             patch("mission_control.services.race_countdown.db.select_one", return_value=None), \
+             patch("mission_control.services.race_countdown.db.log_action"), \
+             patch("mission_control.services.race_countdown.enroll", side_effect=enroll):
+            summary = _run(run_race_countdown(today=today))
+        return summary, enrolled_store
+
+    def test_default_cap_is_200_and_bad_values_fall_back_to_it(self, monkeypatch):
+        from mission_control.services.race_countdown import _max_per_run
+        monkeypatch.delenv("RACE_COUNTDOWN_MAX_PER_RUN", raising=False)
+        assert _max_per_run() == 200
+        monkeypatch.setenv("RACE_COUNTDOWN_MAX_PER_RUN", "25")
+        assert _max_per_run() == 25
+        monkeypatch.setenv("RACE_COUNTDOWN_MAX_PER_RUN", "lots")
+        assert _max_per_run() == 200
+        monkeypatch.setenv("RACE_COUNTDOWN_MAX_PER_RUN", "-3")
+        assert _max_per_run() == 0
+
+    def test_soonest_closing_window_first_and_the_rest_next_run(self):
+        today = date(2026, 7, 1)
+        dates = {"gravelgod": {
+            "roomy-16": "2026-10-28",   # 17.0 weeks: 16-week window has 35 days left
+            "closing-16": "2026-09-23",  # 12.0 weeks: last day of the 16-week window
+            "closing-8": "2026-08-05",   # 5.0 weeks: last day of the 8-week window
+            "mid-8": "2026-08-26",       # 8.0 weeks: 21 days left
+        }}
+        # listed roomiest first, so plain insertion order would starve the closing ones
+        rows = [_row("roomy@x.com", "roomy-16", "gravelgod"),
+                _row("mid@x.com", "mid-8", "gravelgod"),
+                _row("closing16@x.com", "closing-16", "gravelgod"),
+                _row("closing8@x.com", "closing-8", "gravelgod")]
+        store = []
+        day1, _ = self._run(today, dates, rows, store, RACE_COUNTDOWN_MAX_PER_RUN="2")
+        assert [e for e, _ in store] == ["closing16@x.com", "closing8@x.com"]
+        assert day1["capped"] is True and day1["deferred"] == 2
+        # next run: the two already enrolled are dedup'd, the deferred two go
+        day2, _ = self._run(today, dates, rows, store, RACE_COUNTDOWN_MAX_PER_RUN="2")
+        assert [e for e, _ in store] == ["closing16@x.com", "closing8@x.com",
+                                         "mid@x.com", "roomy@x.com"]
+        assert day2["capped"] is False and day2["deferred"] == 0
+
+    def test_zero_pauses_enrolling(self):
+        today = date(2026, 7, 1)
+        summary, store = self._run(today, {"gravelgod": {"unbound-200": "2026-10-21"}},
+                                   [_row("a@x.com", "unbound-200", "gravelgod")],
+                                   RACE_COUNTDOWN_MAX_PER_RUN="0")
+        assert store == [] and summary["capped"] is True and summary["deferred"] == 1

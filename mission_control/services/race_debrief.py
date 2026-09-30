@@ -22,8 +22,10 @@ from datetime import date, datetime, timezone
 
 from mission_control import supabase_client as db
 from mission_control.services.race_countdown import (
+    _MAX_ERRORS_PER_RUN,
     _fetch_dates_sync,
     _last_errors as _rc_errors,
+    audit,
     gather_candidates,
     parse_race_date,
     warn_bad_dates,
@@ -62,8 +64,9 @@ async def run_race_debrief(today: date | None = None) -> dict:
                "skipped_window": 0, "skipped_mid_sequence": 0,
                "skipped_customer": 0, "skipped_no_date": 0,
                "skipped_bad_date": 0, "errors": 0,
-               "skipped_no_sequence": 0, "capped": False}
+               "skipped_no_sequence": 0, "capped": False, "aborted": False}
     bad_dates: list[str] = []
+    first_error: Exception | None = None
 
     dates = await asyncio.to_thread(_fetch_dates_sync)
     if not any(dates.values()):
@@ -151,20 +154,29 @@ async def run_race_debrief(today: date | None = None) -> dict:
                     **({"date_inferred": "true"} if inferred else {}),
                 },
             )
-        except Exception:
+            if result:
+                summary["enrolled"] += 1
+                if inferred:
+                    summary["enrolled_inferred"] += 1
+                db.log_action("race_debrief_enrolled", "sequence", seq_id,
+                              f"{email} — {info['race_name']} was {days_since}d ago"
+                              + (" (inferred previous edition)" if inferred else ""))
+        except Exception as e:
             # one contact's failure is logged and skipped; the rest still go
             summary["errors"] += 1
-            if summary["errors"] == 1:
-                logger.exception("race-debrief: enrolling a contact failed (first error this run)")
-            continue
-        if result:
-            summary["enrolled"] += 1
-            if inferred:
-                summary["enrolled_inferred"] += 1
-            db.log_action("race_debrief_enrolled", "sequence", seq_id,
-                          f"{email} — {info['race_name']} was {days_since}d ago"
-                          + (" (inferred previous edition)" if inferred else ""))
+            if first_error is None:
+                first_error = e
+                logger.exception("race-debrief: processing a contact failed (first error this run)")
+            if summary["errors"] >= _MAX_ERRORS_PER_RUN:
+                # past this it is an outage, not a bad record
+                summary["aborted"] = True
+                audit("race_debrief_aborted",
+                      f"{summary['errors']} contacts failed — {first_error!r}")
+                break
 
+    if summary["errors"]:
+        audit("race_debrief_errors",
+              f"{summary['errors']} contact(s) failed, {summary['enrolled']} enrolled — {first_error!r}")
     warn_bad_dates("race-debrief", bad_dates)
     logger.info("race-debrief run: %s", summary)
     return summary

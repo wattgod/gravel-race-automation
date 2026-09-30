@@ -42,7 +42,9 @@ async def lifespan(app: FastAPI):
         async def _startup_probe():
             try:
                 detail = await _asyncio.to_thread(probe_race_dates)
-                _db.log_action("race_dates_probe", "system", "startup", detail[:500])
+                # room for all three brands' failure detail (status,
+                # content type, body start); details is a TEXT column
+                _db.log_action("race_dates_probe", "system", "startup", detail[:1500])
                 logger.info("race-dates startup probe: %s", detail)
             except Exception as e:
                 logger.warning("race-dates startup probe failed: %s", e)

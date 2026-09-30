@@ -301,3 +301,43 @@ class TestBadDatesNeverAbortTheDebrief:
              patch("mission_control.services.race_debrief.enroll", side_effect=flaky_enroll):
             summary = _run(run_race_debrief(today=date(2026, 8, 9)))
         assert summary["errors"] == 1 and summary["enrolled"] == 1
+
+
+class TestAnOutageStopsTheDebrief:
+    def _run_failing(self, n_contacts, fail_all=True):
+        from mission_control.services.race_countdown import _MAX_ERRORS_PER_RUN
+        dates = {"gravelgod": {"unbound-200": "2026-05-30"}}
+        rows = [{"contact_email": f"c{i}@x.com", "contact_name": "N", "status": "completed",
+                 "source_data": {"race_slug": "unbound-200", "race_name": "Unbound", "brand": "gravelgod"}}
+                for i in range(n_contacts)]
+        calls = []
+
+        def select_one(*a, **k):
+            calls.append(1)
+            if fail_all or len(calls) == 1:
+                raise ConnectionError("supabase down")
+            return None
+
+        with patch("mission_control.services.race_debrief._fetch_dates_sync", return_value=dates), \
+             patch("mission_control.services.race_debrief.db.select", return_value=rows), \
+             patch("mission_control.services.race_debrief.db.select_one", side_effect=select_one), \
+             patch("mission_control.services.race_debrief.db.log_action") as mock_audit, \
+             patch("mission_control.services.race_debrief.enroll", return_value={"id": 1}):
+            summary = _run(run_race_debrief(today=date(2026, 8, 9)))
+        # the audit helper and the job share one db module, so one patch sees both
+        audits = {c.args[0]: c.args[3] for c in mock_audit.call_args_list
+                  if c.args[0] in ("race_debrief_aborted", "race_debrief_errors")}
+        return summary, calls, audits, _MAX_ERRORS_PER_RUN
+
+    def test_stops_at_the_error_limit_with_an_aborted_row(self):
+        summary, calls, audits, limit = self._run_failing(30)
+        assert summary["errors"] == limit == 10 and summary["aborted"] is True
+        assert len(calls) == limit
+        assert audits["race_debrief_aborted"].startswith("10 contacts failed — ConnectionError(")
+        assert audits["race_debrief_errors"].startswith("10 contact(s) failed, 0 enrolled")
+
+    def test_a_few_errors_finish_the_run_and_leave_an_errors_row(self):
+        summary, calls, audits, _ = self._run_failing(5, fail_all=False)
+        assert summary["errors"] == 1 and summary["enrolled"] == 4 and not summary["aborted"]
+        assert "race_debrief_aborted" not in audits
+        assert audits["race_debrief_errors"].startswith("1 contact(s) failed, 4 enrolled — ConnectionError(")

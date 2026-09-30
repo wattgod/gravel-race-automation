@@ -44,6 +44,9 @@ _SEQUENCE_IDS = {
 
 _CUSTOMER_STATUSES = ("delivered", "approved", "audit_passed")
 _MAX_ENROLLMENTS_PER_RUN = 200
+# A run stops after this many contacts fail: past that it is an outage, not
+# a bad record, and crawling on through every contact helps nobody.
+_MAX_ERRORS_PER_RUN = 10
 # Not leads, whatever their stored record carries: a coached athlete's season
 # review and a leaving athlete's exit survey. Intake strips race context from
 # both; this also covers a record stored before it did.
@@ -57,17 +60,48 @@ _dates_cache: dict[str, dict[str, str]] = {}
 # in gg_audit_log instead of only in Railway logs.
 _last_errors: dict[str, str] = {}
 
-# SiteGround (all three hosts) bot-filter 403s library default UAs
-# (Python-urllib/*, python-requests/*) and bot-style "Mozilla/5.0
-# (compatible; ...)" ones. Without a real UA every fetch 403'd and the job
-# aborted daily — silently — from the day it shipped. A browser UA (with our
-# name on the end) and a JSON Accept header; checked against all three hosts
-# 2026-09-30. RACE_DATES_USER_AGENT overrides it without a deploy.
-_USER_AGENT = os.environ.get(
-    "RACE_DATES_USER_AGENT",
+# SiteGround (all three hosts) 403s library default UAs (Python-urllib/*,
+# python-requests/*) and bot-style "Mozilla/5.0 (compatible; ...)" ones;
+# without a set UA every fetch 403'd and the job aborted daily, silently,
+# from the day it shipped. The browser-shaped UA below (our name on the end)
+# and the JSON Accept header got 200 JSON from all three hosts, checked
+# from a laptop on 2026-09-30, as did the old "GG-MissionControl/1.0". From
+# Railway the fetches have been failing with 2xx non-JSON bodies, which
+# looks like SiteGround's IP-based challenge rather than the UA; that is
+# unconfirmed. What settles it is the failure detail below (_describe),
+# which the startup probe records. RACE_DATES_USER_AGENT overrides the UA.
+_DEFAULT_USER_AGENT = (
     "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) "
     "Chrome/140.0.0.0 Safari/537.36 GG-MissionControl/1.1")
-_FETCH_HEADERS = {"User-Agent": _USER_AGENT, "Accept": "application/json"}
+
+
+def _fetch_headers() -> dict[str, str]:
+    return {"User-Agent": os.environ.get("RACE_DATES_USER_AGENT") or _DEFAULT_USER_AGENT,
+            "Accept": "application/json"}
+
+
+def _max_per_run() -> int:
+    """Countdown enrollments per run. RACE_COUNTDOWN_MAX_PER_RUN spreads a
+    backlog over several days (0 pauses enrolling); read on every run."""
+    try:
+        return max(0, int(os.environ.get("RACE_COUNTDOWN_MAX_PER_RUN", _MAX_ENROLLMENTS_PER_RUN)))
+    except ValueError:
+        return _MAX_ENROLLMENTS_PER_RUN
+
+
+def audit(action: str, detail: str) -> None:
+    """An audit row that never takes the job down with it (the database it
+    writes to may be the thing that is failing)."""
+    try:
+        db.log_action(action, "sequence", "", detail[:500])
+    except Exception as e:
+        logger.warning("audit write failed (%s): %s", action, e)
+
+
+def window_closes_in(days_out: int, tier: int) -> int:
+    """Days left before a race drops out of its tier's window (0 = last day)."""
+    low = next(lo for t, lo, _hi in _TIERS if t == tier)
+    return days_out - int(low * 7)
 
 
 def classify_weeks(weeks_out: float) -> int | None:
@@ -126,7 +160,7 @@ def _describe(status, headers, body: bytes) -> str:
 
 
 def _get_json(url: str) -> dict:
-    req = urllib.request.Request(url, headers=_FETCH_HEADERS)
+    req = urllib.request.Request(url, headers=_fetch_headers())
     try:
         with urllib.request.urlopen(req, timeout=10) as resp:
             status = getattr(resp, "status", None)
@@ -238,7 +272,7 @@ async def run_race_countdown(today: date | None = None) -> dict:
     summary = {"candidates": 0, "enrolled": 0, "skipped_window": 0,
                "skipped_mid_sequence": 0, "skipped_customer": 0,
                "skipped_no_date": 0, "skipped_bad_date": 0, "errors": 0,
-               "capped": False}
+               "capped": False, "deferred": 0, "aborted": False}
     bad_dates: list[str] = []
 
     dates = await asyncio.to_thread(_fetch_dates_sync)
@@ -259,13 +293,11 @@ async def run_race_countdown(today: date | None = None) -> dict:
     contacts, mid_sequence = gather_candidates(enrollments)
     summary["candidates"] = len(contacts)
 
+    # Who is in a window today, soonest-closing window first: when the cap
+    # cuts a run short (a backlog after the job was down), whoever would
+    # miss their window goes first, and the rest are still in it tomorrow.
+    queue = []
     for email, info in contacts.items():
-        if summary["enrolled"] >= _MAX_ENROLLMENTS_PER_RUN:
-            summary["capped"] = True
-            logger.warning("race-countdown: enrollment cap hit (%d) — remainder deferred to next run",
-                           _MAX_ENROLLMENTS_PER_RUN)
-            break
-
         raw = (dates.get(info["brand"]) or {}).get(info["race_slug"])
         if not raw:
             summary["skipped_no_date"] += 1
@@ -276,8 +308,8 @@ async def run_race_countdown(today: date | None = None) -> dict:
             summary["skipped_bad_date"] += 1
             bad_dates.append(f"{info['brand']}/{info['race_slug']}={raw!r}")
             continue
-        weeks_out = (race_date - today).days / 7
-        tier = classify_weeks(weeks_out)
+        days_out = (race_date - today).days
+        tier = classify_weeks(days_out / 7)
         if tier is None:
             summary["skipped_window"] += 1
             continue
@@ -286,7 +318,19 @@ async def run_race_countdown(today: date | None = None) -> dict:
         if email in mid_sequence:
             summary["skipped_mid_sequence"] += 1
             continue
+        queue.append((window_closes_in(days_out, tier), email, info, race_date, tier))
+    queue.sort(key=lambda item: item[0])  # stable: ties keep their order
 
+    cap = _max_per_run()
+    first_error: Exception | None = None
+    for position, (_closes_in, email, info, race_date, tier) in enumerate(queue):
+        if summary["enrolled"] >= cap:
+            summary["capped"] = True
+            summary["deferred"] = len(queue) - position
+            logger.warning("race-countdown: enrollment cap hit (%d) — %d deferred to the next run",
+                           cap, summary["deferred"])
+            break
+        weeks_out = (race_date - today).days / 7
         try:
             # Customer suppression — mirrors the engine's marketing suppression
             customer = db.select_one("gg_athletes", columns="plan_status",
@@ -307,17 +351,25 @@ async def run_race_countdown(today: date | None = None) -> dict:
                     "weeks_out": str(int(round(weeks_out))),
                 },
             )
-        except Exception:
+            if result:
+                summary["enrolled"] += 1
+                db.log_action("race_countdown_enrolled", "sequence", seq_id,
+                              f"{email} — {info['race_name']} in ~{weeks_out:.1f} weeks")
+        except Exception as e:
             # one contact's failure is logged and skipped; the rest still go
             summary["errors"] += 1
-            if summary["errors"] == 1:
-                logger.exception("race-countdown: enrolling a contact failed (first error this run)")
-            continue
-        if result:
-            summary["enrolled"] += 1
-            db.log_action("race_countdown_enrolled", "sequence", seq_id,
-                          f"{email} — {info['race_name']} in ~{weeks_out:.1f} weeks")
+            if first_error is None:
+                first_error = e
+                logger.exception("race-countdown: processing a contact failed (first error this run)")
+            if summary["errors"] >= _MAX_ERRORS_PER_RUN:
+                summary["aborted"] = True
+                audit("race_countdown_aborted",
+                      f"{summary['errors']} contacts failed — {first_error!r}")
+                break
 
+    if summary["errors"]:
+        audit("race_countdown_errors",
+              f"{summary['errors']} contact(s) failed, {summary['enrolled']} enrolled — {first_error!r}")
     warn_bad_dates("race-countdown", bad_dates)
     logger.info("race-countdown run: %s", summary)
     return summary

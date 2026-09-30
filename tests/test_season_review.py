@@ -241,8 +241,17 @@ class TestGoalsPage:
         js = build_season_review_js(VARIANTS["goal_2027"])
         assert 'TRANSPORT = "worker"' in js
 
-    def test_the_athlete_form_keeps_its_backstop(self):
-        assert 'TRANSPORT = "both"' in build_season_review_js(VARIANTS["athlete"])
+    def test_the_athlete_form_is_worker_only(self):
+        # FormSubmit stopped delivering (2026-09-29); a 200 from it without a
+        # delivery would let the page claim success when the worker failed
+        assert 'TRANSPORT = "worker"' in build_season_review_js(VARIANTS["athlete"])
+        assert "formsubmit" not in generate_season_review_page("athlete").lower()
+        assert "formsubmit" not in generate_season_review_page("goal_2027").lower()
+
+    def test_the_athlete_footer_is_not_the_goal_page_footer(self):
+        # the stranger footer (poster, check-in) is the goal page's alone
+        assert "make your poster" in generate_season_review_page("goal_2027")
+        assert "make your poster" not in generate_season_review_page("athlete")
 
     def test_the_funnel_is_measurable(self):
         js = build_season_review_js(VARIANTS["goal_2027"])

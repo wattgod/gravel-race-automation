@@ -314,6 +314,72 @@ class TestRenderHtml:
         assert "box-shadow" not in html
 
 
+class TestEnrollmentsSeparateNonLeads:
+    """Exits, debriefs and season reviews are not new leads: the report lists
+    them under their own labels, never in the new-enrollments table."""
+
+    def _collect(self, monkeypatch, rows):
+        import io
+        from datetime import datetime, timezone
+        from scripts import daily_report
+
+        now = datetime.now(timezone.utc).isoformat()
+        rows = [dict(r, enrolled_at=now) for r in rows]
+        monkeypatch.setenv("SUPABASE_URL", "https://supabase.example.test")
+        monkeypatch.setenv("SUPABASE_SERVICE_ROLE_KEY", "test-key")
+
+        class _Resp(io.BytesIO):
+            def __enter__(self):
+                return self
+
+            def __exit__(self, *a):
+                return False
+
+        with patch("urllib.request.urlopen",
+                   return_value=_Resp(json.dumps(rows).encode())):
+            return daily_report.collect_enrollments()
+
+    def test_grouped_by_kind_and_left_out_of_the_lead_table(self, monkeypatch):
+        enr = self._collect(monkeypatch, [
+            {"contact_email": "lead@example.com", "contact_name": "Lead", "sequence_id": "welcome_v1",
+             "source": "race_profile", "source_data": {"race_name": "Unbound 200"}},
+            {"contact_email": "test.rider.a@example.com", "contact_name": "Test Rider A",
+             "sequence_id": "athlete_exit_v1", "source": "athlete_exit", "source_data": {}},
+            {"contact_email": "test.rider.b@example.com", "contact_name": "Test Rider B",
+             "sequence_id": "athlete_review_v1", "source": "athlete_review", "source_data": {}},
+            {"contact_email": "raced@example.com", "contact_name": "Raced",
+             "sequence_id": "race_debrief_v1", "source": "race_debrief", "source_data": {}},
+            {"contact_email": "buyer@example.com", "contact_name": "Buyer",
+             "sequence_id": "plan_debrief_v1", "source": "plan_debrief", "source_data": {}},
+        ])
+        assert enr["count"] == 1
+        assert [p["email"] for p in enr["people"]] == ["lead@example.com"]
+        assert {k: [p["email"] for p in v] for k, v in enr["not_leads"].items()} == {
+            "Exits": ["test.rider.a@example.com"],
+            "Season reviews": ["test.rider.b@example.com"],
+            "Debriefs": ["raced@example.com", "buyer@example.com"],
+        }
+
+        html = render_html({
+            "race_stats": {"total": 0, "tier_counts": {}, "upcoming_count": 0, "upcoming_races": []},
+            "blog_stats": {"total": 0, "categories": {}, "recent_count": 0},
+            "data_quality": {"error": "test"},
+            "ab_status": {"active_count": 0, "experiments": []},
+            "seo_health": {"sitemap_entries": 0, "prep_kits": 0, "race_pages": 0},
+            "ga4": {"configured": False}, "revenue": {"configured": False},
+            "athletes": {"configured": False}, "commentary": [], "enrollments": enr,
+        })
+        assert "New Enrollments (24h) — 1" in html
+        table = html[html.index("New Enrollments (24h)"):html.index("</table>", html.index("New Enrollments (24h)"))]
+        assert "lead@example.com" in table
+        for email in ("test.rider.a@", "test.rider.b@", "raced@", "buyer@"):
+            assert email not in table, email
+        assert "<b>Exits (1)</b>" in html
+        assert "<b>Debriefs (2)</b>" in html
+        assert "<b>Season reviews (1)</b>" in html
+        assert html.index("<b>Exits (1)</b>") < html.index("<b>Debriefs (2)</b>") < html.index("<b>Season reviews (1)</b>")
+
+
 # ── Pipeline E2E collector (custom training plan pipeline) ─────────
 
 

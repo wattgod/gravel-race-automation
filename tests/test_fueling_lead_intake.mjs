@@ -142,6 +142,25 @@ test('athlete_exit never carries lead context to Mission Control', async () => {
   }
 });
 
+test('athlete_review (a coached athlete) never carries lead context to Mission Control', async () => {
+  const { response, mc } = await runExit({
+    source: 'athlete_review', brand: 'gravelgod',
+    name: 'Test Rider B', email: 'test.rider.b@example.com', athlete: 'test-rider-b',
+    goal_answers: { outcome_goal: 'Test answer: finish.' },
+    race_slug: 'unbound-200', race_name: 'Unbound', offer_variant: 'A', entry_src: 'race',
+    goal_type: 'finish', viewed_races: ['Unbound'], guide_chapter: 'Race Selection',
+  });
+  assert.equal(response.status, 200);
+  assert.equal(mc.source, 'athlete_review');
+  assert.equal(mc.athlete, 'test-rider-b');
+  assert.deepEqual(mc.goal_answers, { outcome_goal: 'Test answer: finish.' });
+  assert.equal(mc.race_slug, '');
+  assert.equal(mc.race_name, '');
+  for (const key of ['offer_variant', 'entry_src', 'goal_type', 'viewed_races', 'guide_chapter']) {
+    assert.equal(key in mc, false, key);
+  }
+});
+
 test('athlete_exit alerts Matti through Resend only, never a marketing list', async () => {
   const { requests, alert } = await runExit(exitPayload());
   assert.deepEqual(requests.map((r) => r.url).sort(), [

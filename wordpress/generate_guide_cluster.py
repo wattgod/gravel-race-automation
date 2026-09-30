@@ -423,21 +423,19 @@ def build_prev_next_nav(chapter: dict, chapters: list,
 def build_chapter_gate(chapter: dict, config: GuideConfig = GRAVEL_GUIDE) -> str:
     """Build the gate overlay for gated chapter pages."""
     title = esc(chapter["title"])
+    # The gate's script posts the email to the lead worker and unlocks only
+    # once the worker has it. No action: FormSubmit stopped delivering
+    # (2026-09-29), and the unlock never worked without JavaScript anyway.
+    # method="post" so a submit the script never caught can't put the email
+    # in the address.
     if config.gate_form.endpoint_mode is GateEndpointMode.WORKER_FIRST:
-        # The action is intentionally retained as a no-JS FormSubmit fallback.
-        # JavaScript posts to the worker first and unlocks without waiting.
         return f'''<div class="gg-guide-gate gg-cluster-gate" id="gg-guide-gate">
     <div class="gg-guide-gate-inner">
       <span class="gg-guide-gate-kicker">THIS CHAPTER IS LOCKED</span>
       <h2>Unlock {title}</h2>
       <p>Subscribe to unlock all premium chapters instantly.</p>
-      <form action="{esc(config.gate_form.formsubmit_endpoint)}" method="POST" class="gg-cluster-gate-form" id="gg-cluster-gate-form">
-        <input type="hidden" name="_subject" value="{esc(config.gate_form.subject_label)}: {title}">
-        <input type="hidden" name="_template" value="table">
-        <input type="hidden" name="_captcha" value="false">
-        <input type="hidden" name="_next" value="{SITE_BASE_URL}{_guide_url(config, chapter['id'])}?unlocked=1">
-        <input type="hidden" name="source" value="{esc(config.gate_form.worker_source_value)}">
-        <input type="text" name="website" value="" tabindex="-1" autocomplete="off" aria-hidden="true" class="gg-visually-hidden">
+      <form method="post" class="gg-cluster-gate-form" id="gg-cluster-gate-form" autocomplete="off">
+        <input type="hidden" name="website" value="">
         <input type="email" name="email" placeholder="your@email.com" required class="gg-cluster-gate-email" aria-label="Email address">
         <button type="submit" class="gg-guide-btn gg-guide-btn--primary">UNLOCK FREE</button>
       </form>
@@ -445,17 +443,18 @@ def build_chapter_gate(chapter: dict, config: GuideConfig = GRAVEL_GUIDE) -> str
     </div>
   </div>'''
 
-    # Do not alter the grandfathered gravel FormSubmit gate while it remains live.
+    # The gravel gate's copy is unchanged. A chapter names itself so the
+    # welcome email can ask about it and link back (Mission Control maps the
+    # title to its URL); the configurator is not a chapter.
+    chapter_field = ("" if chapter["id"] == "race-prep-configurator" else
+                     f'\n        <input type="hidden" name="guide_chapter" value="{title}">')
     return f'''<div class="gg-guide-gate gg-cluster-gate" id="gg-guide-gate">
     <div class="gg-guide-gate-inner">
       <span class="gg-guide-gate-kicker">THIS CHAPTER IS LOCKED</span>
       <h2>Unlock {title}</h2>
       <p>Subscribe to the Gravel God newsletter to unlock all premium chapters instantly. Covers workout execution, nutrition, mental training, race week protocol, and post-race recovery.</p>
-      <form action="https://formsubmit.co/gravelgodcoaching@gmail.com" method="POST" class="gg-cluster-gate-form" id="gg-cluster-gate-form">
-        <input type="hidden" name="_subject" value="{esc(config.gate_form.subject_label)}: {title}">
-        <input type="hidden" name="_template" value="table">
-        <input type="hidden" name="_captcha" value="false">
-        <input type="hidden" name="_next" value="{SITE_BASE_URL}{_guide_url(config, esc(chapter['id']))}?unlocked=1">
+      <form method="post" class="gg-cluster-gate-form" id="gg-cluster-gate-form" autocomplete="off">
+        <input type="hidden" name="website" value="">{chapter_field}
         <input type="email" name="email" placeholder="your@email.com" required class="gg-cluster-gate-email" aria-label="Email address">
         <button type="submit" class="gg-guide-btn gg-guide-btn--primary">UNLOCK FREE</button>
       </form>
@@ -599,7 +598,7 @@ def build_cluster_css() -> str:
 .gg-cluster-nav-lock{font-size:10px;opacity:0.5}
 .gg-cluster-nav-spacer{border:3px solid var(--gg-color-dark-brown);border-top:none}
 
-/* ── Gate Form (formsubmit.co) ── */
+/* ── Gate Form (posts to the lead worker) ── */
 .gg-cluster-gate-form{display:flex;gap:0;max-width:500px;margin:16px auto 0}
 .gg-cluster-gate-email{flex:1;padding:12px 16px;border:3px solid var(--gg-color-dark-brown);font-family:var(--gg-font-data);font-size:13px;background:var(--gg-color-warm-paper);color:var(--gg-color-dark-brown)}
 .gg-cluster-gate-email::placeholder{color:var(--gg-color-secondary-brown)}
@@ -742,12 +741,37 @@ document.documentElement.classList.add("gg-guide-unlocked");
 var bypassBtn=document.getElementById("gg-guide-gate-bypass");
 if(bypassBtn)bypassBtn.addEventListener("click",function(){unlock("manual_bypass");});
 
-/* Form intercept — set localStorage before formsubmit.co redirect */
+/* Gate form: the email goes to the lead worker, and the chapter unlocks only
+   once the worker has it. Never unlock or claim success on a failed submit. */
+var WORKER_URL="https://fueling-lead-intake.gravelgodcoaching.workers.dev";
 var gateForm=document.getElementById("gg-cluster-gate-form");
 if(gateForm){
-gateForm.addEventListener("submit",function(){
-try{localStorage.setItem(STORAGE_KEY,"1");}catch(e){}
-track("guide_gate_unlock",{method:"email_form"});
+gateForm.addEventListener("submit",function(e){
+e.preventDefault();
+if(gateForm.website&&gateForm.website.value)return;
+var btn=gateForm.querySelector("button[type=submit]");
+if(btn)btn.disabled=true;
+var errEl=document.getElementById("gg-cluster-gate-error");
+if(errEl)errEl.style.display="none";
+var payload={email:gateForm.email.value.trim(),source:"training_guide",website:""};
+if(gateForm.guide_chapter)payload.guide_chapter=gateForm.guide_chapter.value;
+fetch(WORKER_URL,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(payload),signal:(typeof AbortSignal!=="undefined"&&AbortSignal.timeout)?AbortSignal.timeout(10000):undefined})
+.then(function(r){
+if(!r.ok)throw new Error("bad status");
+unlock("email_form");
+})
+.catch(function(){
+if(btn)btn.disabled=false;
+if(!errEl){
+errEl=document.createElement("p");
+errEl.id="gg-cluster-gate-error";
+errEl.className="gg-guide-email-capture-error";
+errEl.setAttribute("role","alert");
+gateForm.parentNode.insertBefore(errEl,gateForm.nextSibling);
+}
+errEl.textContent="That did not go through. Check your connection and try again.";
+errEl.style.display="block";
+});
 });
 }
 })();
@@ -802,7 +826,7 @@ errEl.style.display="block";
 });
 })();
 '''
-    if config.gate_form.endpoint_mode is GateEndpointMode.FORM_SUBMIT:
+    if config.gate_form.endpoint_mode is GateEndpointMode.LEGACY:
         return legacy_js
     return _build_worker_first_cluster_js(config)
 

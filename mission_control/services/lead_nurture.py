@@ -43,9 +43,10 @@ _QUOTED_LINE_RE = re.compile(
 )
 
 # Not leads: never a Gmail-sync candidate, never paused as marketing. A
-# leaving athlete (athlete_exit) who replies to the receipt is talking to
-# their coach, not a lead to draft a sales reply for.
-_POST_PURCHASE_TRIGGERS = {"plan_purchased", "athlete_exit"}
+# coached athlete replying to their season review receipt (athlete_review) or
+# a leaving athlete (athlete_exit) replying to theirs is talking to their
+# coach, not a lead to draft a sales reply for.
+_POST_PURCHASE_TRIGGERS = {"plan_purchased", "athlete_review", "athlete_exit"}
 
 _SUPPORT_TERMS = (
     "never received", "didn't receive", "did not receive", "no guide",

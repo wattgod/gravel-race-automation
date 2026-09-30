@@ -131,6 +131,15 @@ export default {
     } else {
       delete data.viewed_races;
     }
+    // Nor is a coached athlete's season review a lead (the same reasoning as
+    // the exit above): a ?race= on their review link must never reach
+    // Mission Control's countdown/debrief jobs.
+    if (source === 'athlete_review') {
+      for (const key of ['race_slug', 'race_name', 'guide_chapter', 'offer_variant',
+        'entry_src', 'goal_type', 'viewed_races']) {
+        delete data[key];
+      }
+    }
 
     // Validate based on source
     const validation = validateBySource(source, data);

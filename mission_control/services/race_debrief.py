@@ -71,7 +71,7 @@ async def run_race_debrief(today: date | None = None) -> dict:
 
     enrollments = db.select(
         "gg_sequence_enrollments",
-        columns="contact_email,contact_name,source_data,status",
+        columns="contact_email,contact_name,source,source_data,status",
     )
     contacts, mid_sequence = gather_candidates(enrollments)
     summary["candidates"] = len(contacts)

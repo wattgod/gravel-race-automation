@@ -330,6 +330,83 @@ class TestAthleteReviewIsTransactional:
         )
 
 
+class TestAthleteReviewCarriesNoLeadContext:
+    """A season review opened with ?race= forwards a race_slug. A coached
+    athlete is not a lead, so none of the lead context is stored, and the
+    countdown and debrief jobs (which enroll anyone whose record carries a
+    race_slug) never pick them up."""
+
+    EMAIL = "test.rider.b@example.com"
+    LEAD_CONTEXT = {
+        "race_slug": "unbound-200", "race_name": "Unbound 200",
+        "guide_chapter": "Race Selection", "viewed_races": ["Unbound 200"],
+        "offer_variant": "A", "entry_src": "race", "goal_type": "finish",
+        "plan_weeks": 12,
+    }
+
+    def _file_review(self, client, fake_db):
+        _post(client, {"email": self.EMAIL, "name": "Test Rider B", "athlete": "test-rider-b",
+                       "source": "athlete_review", "goal_answers": ANSWERS,
+                       **self.LEAD_CONTEXT})
+        row = _enrollment(fake_db, self.EMAIL)
+        row["status"] = "completed"  # the receipt went; they are mid-nothing
+        return row
+
+    def _control_lead(self, fake_db):
+        fake_db.store["gg_sequence_enrollments"].append({
+            "id": "lead-1", "sequence_id": "welcome_v1", "contact_email": "control.lead@example.com",
+            "contact_name": "Control", "status": "completed", "source": "race_profile",
+            "source_data": {"brand": "gravelgod", "race_slug": "unbound-200", "race_name": "Unbound 200"},
+        })
+
+    def test_stores_the_review_and_none_of_the_lead_context(self, client, fake_db):
+        sd = self._file_review(client, fake_db)["source_data"]
+        assert sd["goal_answers"] == ANSWERS
+        assert sd["athlete"] == "test-rider-b"
+        assert sd["goal_line"] == ANSWERS["outcome_goal"]
+        assert sd["poster_token"]
+        for key in ("race_slug", "race_name", "prep_kit_url", "guide_chapter", "wb_guide",
+                    "wb_guide_url", "viewed_races", "wb_trail", "wb_race", "any_context",
+                    "offer_variant", "entry_src", "goal_type", "plan_weeks"):
+            assert key not in sd, key
+
+    def test_a_goal_2027_lead_keeps_its_race(self, client, fake_db):
+        _post(client, {"email": "goal.lead@example.com", "source": "goal_2027",
+                       "goal_answers": ANSWERS, **self.LEAD_CONTEXT})
+        sd = _enrollment(fake_db, "goal.lead@example.com")["source_data"]
+        assert sd["race_slug"] == "unbound-200" and sd["offer_variant"] == "A"
+
+    def test_not_a_race_countdown_candidate(self, client, fake_db):
+        import asyncio
+        from datetime import date
+        from unittest.mock import patch
+        from mission_control.services.race_countdown import run_race_countdown
+
+        self._file_review(client, fake_db)
+        self._control_lead(fake_db)
+        with patch("mission_control.services.race_countdown._fetch_dates_sync",
+                   return_value={"gravelgod": {"unbound-200": "2026-05-30"}}):
+            summary = asyncio.run(run_race_countdown(today=date(2026, 2, 1)))  # ~17 weeks out
+        counted = {e["contact_email"] for e in fake_db.store["gg_sequence_enrollments"]
+                   if e["sequence_id"].startswith("race_countdown")}
+        assert counted == {"control.lead@example.com"}, summary
+
+    def test_not_a_race_debrief_candidate(self, client, fake_db):
+        import asyncio
+        from datetime import date
+        from unittest.mock import patch
+        from mission_control.services.race_debrief import run_race_debrief
+
+        self._file_review(client, fake_db)
+        self._control_lead(fake_db)
+        with patch("mission_control.services.race_debrief._fetch_dates_sync",
+                   return_value={"gravelgod": {"unbound-200": "2026-05-30"}}):
+            summary = asyncio.run(run_race_debrief(today=date(2026, 8, 9)))  # 71 days after
+        debriefed = {e["contact_email"] for e in fake_db.store["gg_sequence_enrollments"]
+                     if e["sequence_id"].startswith("race_debrief")}
+        assert debriefed == {"control.lead@example.com"}, summary
+
+
 class TestResubmitResendsTheResults:
     """The results screen promises a copy, so a correction must send one."""
 

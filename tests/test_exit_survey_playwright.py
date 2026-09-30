@@ -1,9 +1,10 @@
 """/coaching/exit/ in a real browser on a 390px phone.
 
 Opens the page from a personalised link, answers every question the way an
-athlete would (the 0-10 scale by keyboard only), submits with both transports
-intercepted, and checks what the worker and the FormSubmit backstop received,
-what the athlete saw, and that nothing threw. Skipped without Playwright.
+athlete would (the 0-10 scale by keyboard only), submits with every request
+intercepted, and checks what the worker received, that nothing went to
+FormSubmit, what the athlete saw (success only after the worker's 2xx), and
+that nothing threw. Skipped without Playwright.
 """
 from __future__ import annotations
 
@@ -72,23 +73,26 @@ def test_worker_gets_every_answer_as_a_string(run):
     assert not {"name", "email", "athlete", "consent_note"} & set(body["goal_answers"])
 
 
-def test_backstop_email_is_the_exit_survey_not_a_goal_export(run):
-    raw = run["formsubmit"]
-    assert raw, "FormSubmit backstop never fired"
-    assert "Exit survey: Test Rider A" in raw
-    assert "# Exit survey: Test Rider A" in raw
-    assert "How likely are you to recommend me to a rider like you? 8" in raw
-    assert "Gravel God social posts" in raw  # a ticked channel, by its label
-    for goal_only in ("## Flags", "Endure draft", "Season Review 2026"):
-        assert goal_only not in raw, goal_only
-    # the consent note is an explanation, not a question
-    assert "Before anything goes up" not in raw
+def test_nothing_goes_to_formsubmit(run):
+    # FormSubmit stopped delivering (2026-09-29): the worker is the record
+    assert run["formsubmit"] is None
 
 
 def test_the_athlete_sees_the_success_line(run):
     from season_review_variants import EXIT
     assert "success" in run["message_class"]
     assert run["message"] == html.unescape(EXIT["success"])
+
+
+def test_a_worker_failure_is_an_error_never_a_success():
+    """No success message without a real submit: with the worker down there
+    is no email backstop to fall back on, so the athlete is told to retry."""
+    failed = submit_exit_survey(load_submission(), width=390, worker_status=503)
+    assert failed["worker"] is not None  # it was tried
+    assert failed["formsubmit"] is None
+    assert "error" in failed["message_class"] and "success" not in failed["message_class"]
+    assert failed["message"].startswith("That didn't go through.")
+    assert failed["errors"] == []
 
 
 def test_no_horizontal_scroll_at_390(run):

@@ -109,6 +109,18 @@ class TestGmailIngestion:
         )
         assert get_sync_candidates() == []
 
+    def test_coached_athlete_season_review_is_not_a_lead_candidate(self, fake_db):
+        """A coached athlete's season review (athlete_review_v1) is a receipt,
+        not a lead: their mailbox is never offered to the Gmail lead sync."""
+        from mission_control.services.lead_nurture import get_sync_candidates
+
+        fake_db.store["gg_sequence_enrollments"].extend([
+            make_enrollment(sequence_id="athlete_review_v1",
+                            contact_email="test.rider.b@example.com", source="athlete_review"),
+            make_enrollment(contact_email="lead@example.com"),
+        ])
+        assert [c["email"] for c in get_sync_candidates()] == ["lead@example.com"]
+
     def test_known_lead_reply_is_attributed_and_pauses_marketing(self, fake_db):
         from mission_control.services.lead_nurture import ingest_gmail_sync
 

@@ -40,7 +40,7 @@ _POST_PURCHASE_TRIGGERS = {"plan_purchased", "athlete_review", "athlete_exit", "
 # it is the reply to their own form, not a mailing. plan_purchased is not
 # here on purpose: its onboarding runs for weeks, and an unsubscribe must
 # stop it.
-_RECEIPT_TRIGGERS = {"athlete_review", "athlete_exit"}
+_RECEIPT_TRIGGERS = {"athlete_review", "athlete_exit", "plan_debrief"}
 
 # Fallback plan length (weeks) for completion-relative steps when the
 # enrollment's source_data carries no usable plan_weeks AND the step has no

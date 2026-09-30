@@ -334,7 +334,98 @@ class TestResubmission:
         _post(client, _body(dict(ANSWERS, last_word="Test answer: one more thing.")))
         assert [s["subject"] for s in sent if s["to"] == EMAIL] == ["got it"]
         assert [s["subject"] for s in sent if s["to"] != EMAIL] == [
-            "[GG] Race debrief filed · Test Rider B · plan 123456"]
+            "[GG] Race debrief filed · Test Rider B · plan 123456",
+            "[GG] Race debrief updated · Test Rider B · plan 123456"]
+
+
+class TestResubmitBackupAlert:
+    """A resubmitted debrief is updated in place, so nothing new enrolls. Its
+    Mission Control backup alert still goes, saying "updated", or a failed
+    worker alert would leave Matti with none (#420's rule for exits)."""
+
+    @pytest.mark.parametrize("fixture,subject", [
+        (SUBMISSION, "[GG] Race debrief updated · Test Rider B · plan 123456"),
+        (ROADIE, "[RL] Race debrief updated · Test Rider C · plan 654321"),
+    ])
+    def test_a_correction_gets_an_updated_backup_alert(self, client, fake_db, monkeypatch, fixture, subject):
+        _post(client, _body(fixture=fixture))
+        sent = _capture_sends(monkeypatch)
+        resp = _post(client, _body(dict(fixture["goal_answers"], last_word="Test answer: changed."), fixture=fixture))
+        assert resp.json()["enrolled"] == []
+        alerts = [m for m in sent if m["to"] != fixture["email"]]
+        assert [m["subject"] for m in alerts] == [subject]
+        assert "NEXT ACTIONS" in alerts[0]["html"] and "Test answer: changed." in alerts[0]["html"]
+
+    def test_a_different_plan_says_updated_with_the_new_plan(self, client, fake_db, monkeypatch):
+        _post(client, _body())
+        sent = _capture_sends(monkeypatch)
+        _post(client, _body({"raced": "dnf"}, plan="777777"))
+        assert [m["subject"] for m in sent if m["to"] != EMAIL] == [
+            "[GG] Race debrief updated · Test Rider B · plan 777777"]
+
+    def test_a_first_debrief_still_says_filed(self, client, fake_db, monkeypatch):
+        sent = _capture_sends(monkeypatch)
+        _post(client, _body())
+        assert [m["subject"] for m in sent] == ["[GG] Race debrief filed · Test Rider B · plan 123456"]
+
+
+class TestUnsubscribeKeepsTheDebriefReceipt:
+    """plan_debrief is a one-email receipt (_RECEIPT_TRIGGERS): an unsubscribe
+    before the scheduler's tick never cancels it, and a contact whose only
+    enrollment is a debrief still leaves a suppression record."""
+
+    def test_an_unsubscribe_before_the_tick_keeps_the_receipt(self, client, fake_db, monkeypatch):
+        from mission_control.services.sequence_engine import _send_next_step, unsubscribe
+        from mission_control.tests.conftest import make_enrollment
+        _post(client, _body())
+        receipt = _enrollments(fake_db)[0]
+        marketing = make_enrollment(contact_email=EMAIL, sequence_id="welcome_v1", status="active")
+        fake_db.store["gg_sequence_enrollments"].append(marketing)
+
+        assert unsubscribe(EMAIL) == 1
+        assert (receipt["status"], marketing["status"]) == ("active", "unsubscribed")
+        sent = _capture_sends(monkeypatch)
+        assert asyncio.run(_send_next_step(receipt))
+        assert [(m["to"], m["subject"]) for m in sent] == [(EMAIL, "got it")]
+
+    @pytest.mark.parametrize("fixture", [SUBMISSION, ROADIE], ids=["gravelgod", "roadielabs"])
+    def test_a_debrief_only_unsubscriber_is_still_suppressed(self, client, fake_db, monkeypatch, fixture):
+        from mission_control.services.sequence_engine import _send_next_step, enroll, unsubscribe
+        email = fixture["email"]
+        _post(client, _body(fixture=fixture))
+        receipt = _enrollments(fake_db, email)[0]
+
+        assert unsubscribe(email) == 1
+        assert receipt["status"] == "active" and receipt["source_data"]["opted_out_at"]
+        assert unsubscribe(email) == 0  # already suppressed
+        sent = _capture_sends(monkeypatch)
+        assert asyncio.run(_send_next_step(receipt))
+        assert [(m["to"], m["subject"]) for m in sent] == [(email, "got it")]
+        for marketing in ("race_debrief_v1", "welcome_v1"):
+            assert enroll(email, fixture["name"], marketing, source="race_profile") is None, marketing
+
+    def test_a_same_plan_resubmission_keeps_the_opt_out(self, client, fake_db, monkeypatch):
+        from mission_control.services.sequence_engine import enroll, unsubscribe
+        _capture_sends(monkeypatch)
+        _post(client, _body())
+        unsubscribe(EMAIL)
+        _post(client, _body(dict(ANSWERS, last_word="Test answer: changed.")))
+        sd = _enrollments(fake_db)[0]["source_data"]
+        assert sd["goal_answers"]["last_word"] == "Test answer: changed." and sd["opted_out_at"]
+        assert enroll(EMAIL, "Test Rider B", "race_debrief_v1", source="race_debrief") is None
+
+    def test_a_different_plan_resubmission_keeps_the_opt_out_on_top(self, client, fake_db, monkeypatch):
+        """replace_record() builds the new record from the new submission, so
+        the opt-out is carried over after it, not by it."""
+        from mission_control.services.sequence_engine import enroll, unsubscribe
+        _capture_sends(monkeypatch)
+        _post(client, _body())
+        unsubscribe(EMAIL)
+        _post(client, _body({"raced": "dnf"}, plan="777777"))
+        sd = _enrollments(fake_db)[0]["source_data"]
+        assert sd["plan_id"] == "777777" and sd["opted_out_at"]
+        assert sd["earlier"][0]["plan_id"] == "123456"
+        assert enroll(EMAIL, "Test Rider B", "welcome_v1", source="race_profile") is None
 
 
 class TestConsentRecord:

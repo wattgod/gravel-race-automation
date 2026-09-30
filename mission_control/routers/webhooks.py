@@ -224,7 +224,8 @@ async def _send_enrollment_alert(
     elif source == "plan_debrief":
         # Same reasoning as the exit: the backup to the worker's alert.
         _plan = plan_debrief.plan_label(source_data.get("plan_id", ""), source_data.get("ref", ""))
-        subject = f"[{plan_debrief.brand_tag(brand)}] Race debrief filed · {name or email} · {_plan}"
+        subject = (f"[{plan_debrief.brand_tag(brand)}] Race debrief {'updated' if updated else 'filed'}"
+                   f" · {name or email} · {_plan}")
     else:
         subject = f"new lead · {name or email} · {context} [{brand}]"
     if unrouted:
@@ -595,9 +596,10 @@ async def subscriber_webhook(
     # friend-register model converts in replies), so Matti hears about it
     # immediately. Loud to coach, invisible to customer — alert failure must
     # never affect the enrollment (order-killer rule).
-    # A resubmitted exit is updated in place, so nothing new enrolls; its
-    # backup alert still goes, or a failed worker alert would mean none.
-    exit_updated = source == "athlete_exit" and updated_in_place and not enrolled
+    # A resubmitted exit or debrief is updated in place, so nothing new
+    # enrolls; its backup alert still goes, or a failed worker alert would
+    # mean none.
+    exit_updated = source in _NOT_LEAD_SOURCES and updated_in_place and not enrolled
     if enrolled or unrouted or exit_updated:
         try:
             await _send_enrollment_alert(email, name, brand, source, source_data, enrolled,

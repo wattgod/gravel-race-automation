@@ -313,6 +313,17 @@ def collect_athletes() -> dict:
         return {"configured": False}
 
 
+# Enrollments that are not new leads, listed under their own heading instead:
+# a leaving athlete's exit survey, a race debrief (Mission Control's post-race
+# email, or a plan buyer's debrief form), a coached athlete's season review.
+_NOT_LEAD_GROUPS = {
+    "athlete_exit": "Exits",
+    "race_debrief": "Debriefs",
+    "plan_debrief": "Debriefs",
+    "athlete_review": "Season reviews",
+}
+
+
 def collect_enrollments() -> dict:
     """New sequence enrollments (last 24h) with reply context — the
     friend-register KPI surface. Requires Supabase."""
@@ -336,6 +347,7 @@ def collect_enrollments() -> dict:
         cutoff = (datetime.now(_tz.utc) - timedelta(hours=24)).isoformat()
         new = [r for r in rows if (r.get("enrolled_at") or "") >= cutoff]
         people = []
+        others: dict[str, list] = {}
         for r in new:
             sd = r.get("source_data") or {}
             if isinstance(sd, str):
@@ -349,7 +361,7 @@ def collect_enrollments() -> dict:
                 or (sd.get("race_name") and "race: " + str(sd["race_name"]))
                 or "\u2014"
             )
-            people.append({
+            person = {
                 "email": r.get("contact_email", ""),
                 "name": r.get("contact_name", ""),
                 "sequence": r.get("sequence_id", ""),
@@ -357,8 +369,14 @@ def collect_enrollments() -> dict:
                 "brand": sd.get("brand", "gravelgod"),
                 "context": context,
                 "at": (r.get("enrolled_at") or "")[:16].replace("T", " "),
-            })
-        return {"configured": True, "count": len(people), "people": people}
+            }
+            group = _NOT_LEAD_GROUPS.get(person["source"])
+            if group:
+                others.setdefault(group, []).append(person)
+            else:
+                people.append(person)
+        return {"configured": True, "count": len(people), "people": people,
+                "not_leads": others}
     except Exception:
         return {"configured": False}
 
@@ -820,6 +838,15 @@ def render_html(data: dict) -> str:
             + "</tr>"
             for p in enr.get("people", [])
         ) or "<tr><td colspan='6' style='padding:8px;color:#7d695d'>none in the last 24h</td></tr>"
+        _not_leads = enr.get("not_leads") or {}
+        _others = "".join(
+            f"<p style='font-size:12px;margin:8px 0 0'><b>{html_escape(label)} "
+            f"({len(_not_leads[label])})</b> &mdash; not leads: "
+            + ", ".join(html_escape(f"{p['name'] or p['email']} <{p['email']}>")
+                        for p in _not_leads[label])
+            + "</p>"
+            for label in ("Exits", "Debriefs", "Season reviews") if _not_leads.get(label)
+        )
         sections.append(f"""
         <tr><td style="font-family:'Courier New',monospace;font-size:12px;text-transform:uppercase;letter-spacing:1px;color:#7d695d;padding-bottom:8px;">New Enrollments (24h) \u2014 {enr.get('count', 0)}</td></tr>
         <tr><td>
@@ -828,6 +855,7 @@ def render_html(data: dict) -> str:
         <tr style="text-align:left"><th style="padding:4px 8px;font-size:11px">when (utc)</th><th style="padding:4px 8px;font-size:11px">who</th><th style="padding:4px 8px;font-size:11px">brand</th><th style="padding:4px 8px;font-size:11px">source</th><th style="padding:4px 8px;font-size:11px">context</th><th style="padding:4px 8px;font-size:11px">sequence</th></tr>
         {_rows}
         </table>
+        {_others}
         </td></tr>
 """)
 

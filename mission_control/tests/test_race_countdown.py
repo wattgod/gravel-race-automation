@@ -46,6 +46,24 @@ class TestGatherCandidates:
         assert "b@x.com" not in contacts          # no race supplied
         assert "a@x.com" in mid
 
+    def test_a_coached_or_leaving_athlete_is_never_a_candidate(self):
+        """Intake strips race context from a season review and an exit; a
+        record stored before it did (or merged from one) still carries a
+        race_slug, and must not put the athlete in countdown or debrief."""
+        rows = [
+            {"contact_email": "b@x.com", "contact_name": "B", "status": "completed",
+             "source": "athlete_review",
+             "source_data": {"race_slug": "unbound-200", "brand": "gravelgod"}},
+            {"contact_email": "e@x.com", "contact_name": "E", "status": "completed",
+             "source": "athlete_exit",
+             "source_data": {"race_slug": "unbound-200", "brand": "gravelgod"}},
+            {"contact_email": "l@x.com", "contact_name": "L", "status": "completed",
+             "source": "race_profile",
+             "source_data": {"race_slug": "unbound-200", "brand": "gravelgod"}},
+        ]
+        contacts, _ = gather_candidates(rows)
+        assert set(contacts) == {"l@x.com"}
+
     def test_brand_defaults_to_gravel(self):
         rows = [{"contact_email": "c@x.com", "contact_name": "C", "status": "completed",
                  "source_data": {"race_slug": "some-race"}}]

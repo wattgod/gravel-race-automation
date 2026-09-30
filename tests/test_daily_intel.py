@@ -783,6 +783,45 @@ def test_collect_mission_control_reads_newest_rows_past_the_1000_row_cap(monkeyp
     assert hot["new@example.com"]["race"] == "The Rift"
 
 
+def test_collect_mission_control_never_counts_a_season_review_as_a_lead(monkeypatch):
+    """A coached athlete's season review enrolls them in athlete_review_v1 (a
+    receipt). The intel snapshot is committed to this public repo, so that
+    athlete must not be counted as a new lead or named as a hot one."""
+    import sys
+    import types
+    from datetime import datetime, timezone
+
+    from scripts import daily_intel
+
+    now = datetime.now(timezone.utc).isoformat()
+    enrollments = [
+        {"id": "e-lead", "contact_email": "lead@example.com", "contact_name": "Lead",
+         "sequence_id": "welcome_v1", "current_step": 0, "status": "active",
+         "enrolled_at": now, "source": "race_profile", "source_data": {"brand": "gravelgod"}},
+        {"id": "e-review", "contact_email": "test.rider.b@example.com", "contact_name": "Test Rider B",
+         "sequence_id": "athlete_review_v1", "current_step": 1, "status": "completed",
+         "enrolled_at": now, "source": "athlete_review",
+         "source_data": {"brand": "gravelgod", "athlete": "test-rider-b"}},
+    ]
+    sends = [{"enrollment_id": "e-review", "template": "athlete_review_receipt",
+              "status": "sent", "sent_at": now, "opened_at": now, "clicked_at": None}]
+    tables = {"gg_sequence_sends": sends, "gg_sequence_enrollments": enrollments}
+    fake = types.ModuleType("mission_control.supabase_client")
+    fake.select = lambda table, **kw: [dict(r) for r in tables[table]]
+    fake.get_audit_log = lambda limit=50: []
+    monkeypatch.setitem(sys.modules, "mission_control.supabase_client", fake)
+    import mission_control
+    monkeypatch.setattr(mission_control, "supabase_client", fake, raising=False)
+
+    out = daily_intel.collect_mission_control()
+
+    assert out["new_leads_24h"] == 1
+    assert out["leads_by_brand"] == {"gravelgod": 1, "roadielabs": 0}
+    assert [lead["email"] for lead in out["hot_leads_14d"]] == ["lead@example.com"]
+    report = daily_intel.render_report({"mission_control": {"ok": True, **out}})
+    assert "test.rider.b" not in report and "Test Rider B" not in report
+
+
 def test_collect_mission_control_never_counts_an_exit_survey_as_a_lead(monkeypatch):
     """/coaching/exit/ enrolls a leaving athlete in athlete_exit_v1. The intel
     snapshot is committed to this public repo, so that athlete must not be

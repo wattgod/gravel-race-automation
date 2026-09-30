@@ -410,6 +410,14 @@ async def subscriber_webhook(
             source_data["poster_url"] = (
                 f"{MC_PUBLIC_URL.rstrip('/')}/poster/{source_data['poster_token']}.png"
             )
+        if source == "athlete_review":
+            # A coached athlete is not a lead either: their record keeps the
+            # review and none of the lead context above. A ?race= on their
+            # review link would store a race_slug, and the countdown and
+            # debrief jobs enroll anyone whose record carries one.
+            source_data = {k: v for k, v in source_data.items() if k in (
+                "brand", "goal_answers", "athlete", "goal_line", "inner_obstacle",
+                "poster_token", "poster_url")}
 
     # Map capture source to sequence trigger
     trigger_map = {

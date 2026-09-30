@@ -3129,6 +3129,143 @@ def test_email_contact_sync_propagates_provider_failures(monkeypatch):
         ensure_segment_contact("segment_1", "rider@example.com")
 
 
+def _fake_enrollments(monkeypatch, rows):
+    """Serve gg_sequence_enrollments to the script's PostgREST reads, honouring
+    the filters it sends (source, status, the opted_out_at marker) and paging."""
+    import urllib.parse
+
+    seen = []
+
+    def fake_req(url, method="GET", body=None, headers=None):
+        assert "/rest/v1/gg_sequence_enrollments?" in url
+        params = dict(urllib.parse.parse_qsl(url.split("?", 1)[1]))
+        seen.append(params)
+        out = rows
+        if "source" in params:
+            out = [r for r in out if f"eq.{r['source']}" == params["source"]]
+        if "status" in params:
+            out = [r for r in out if f"eq.{r['status']}" == params["status"]]
+        if "source_data->>opted_out_at" in params:
+            assert params["source_data->>opted_out_at"] == "not.is.null"
+            out = [r for r in out if (r.get("source_data") or {}).get("opted_out_at")]
+        if "limit" in params:
+            start = int(params.get("offset", 0))
+            out = out[start:start + int(params["limit"])]
+        return [{"contact_email": r["contact_email"]} for r in out]
+
+    monkeypatch.setenv("SUPABASE_URL", "https://supabase.example.test")
+    monkeypatch.setenv("SUPABASE_SERVICE_ROLE_KEY", "test-key")
+    monkeypatch.setattr(send_gravel_weekly, "_req", fake_req)
+    return seen
+
+
+def _enrollment(email, source="gravel_weekly_subscribe", status="active", source_data=None):
+    return {"contact_email": email, "source": source, "status": status,
+            "source_data": source_data or {}}
+
+
+def test_opted_out_covers_unsubscribes_and_receipt_markers_across_pages(monkeypatch):
+    rows = [_enrollment(f"unsub{i}@example.com", source="exit_intent", status="unsubscribed")
+            for i in range(5)]
+    rows += [
+        _enrollment("Receipt.Only@Example.com", source="athlete_review", status="completed",
+                    source_data={"opted_out_at": "2026-09-30T12:00:00+00:00"}),
+        _enrollment("still.here@example.com"),
+    ]
+    monkeypatch.setattr(send_gravel_weekly, "OPT_OUT_PAGE_SIZE", 2)
+    seen = _fake_enrollments(monkeypatch, rows)
+    opted_out = send_gravel_weekly.fetch_opted_out()
+    assert opted_out == {f"unsub{i}@example.com" for i in range(5)} | {"receipt.only@example.com"}
+    # paged until an empty page, so a row cap cannot cut the list short
+    assert [p["offset"] for p in seen if "status" in p] == ["0", "2", "4", "5"]
+
+
+def test_remove_segment_contact_only_touches_a_real_membership(monkeypatch):
+    calls = []
+
+    def fake_resend(path, method="GET", body=None):
+        calls.append((path, method))
+        if path == "/contacts/gone%40example.com/segments":
+            raise urllib.error.HTTPError(path, 404, "Not Found", {}, None)
+        if path == "/contacts/elsewhere%40example.com/segments":
+            return {"data": [{"id": "segment_other"}]}
+        if path == "/contacts/member%40example.com/segments":
+            return {"data": [{"id": "segment_1"}]}
+        if path == "/contacts/member%40example.com/segments/segment_1" and method == "DELETE":
+            return {"object": "contact_segment", "id": "segment_1", "deleted": True}
+        raise AssertionError(f"unexpected request: {method} {path}")
+
+    monkeypatch.setattr(send_gravel_weekly, "resend", fake_resend)
+    assert send_gravel_weekly.remove_segment_contact("segment_1", "gone@example.com") is False
+    assert send_gravel_weekly.remove_segment_contact("segment_1", "elsewhere@example.com") is False
+    assert send_gravel_weekly.remove_segment_contact("segment_1", "member@example.com") is True
+    assert [c for c in calls if c[1] == "DELETE"] == [
+        ("/contacts/member%40example.com/segments/segment_1", "DELETE")]
+
+
+def test_remove_segment_contact_fails_closed_without_confirmation(monkeypatch):
+    def fake_resend(path, method="GET", body=None):
+        if method == "DELETE":
+            return {"deleted": False}
+        return {"data": [{"id": "segment_1"}]}
+
+    monkeypatch.setattr(send_gravel_weekly, "resend", fake_resend)
+    with pytest.raises(RuntimeError, match="did not confirm") as err:
+        send_gravel_weekly.remove_segment_contact("segment_1", "member@example.com")
+    assert "member@example.com" not in str(err.value)  # public Actions log
+
+
+def test_a_mission_control_unsubscribe_leaves_the_weekly_before_it_sends(monkeypatch, capsys):
+    """Someone who subscribed to the Weekly and later unsubscribed through
+    Mission Control (from any email) is not re-added to the segment, and is
+    taken out of it before the broadcast goes. So is a contact whose only
+    opt-out record is a receipt's opted_out_at marker."""
+    import urllib.parse
+
+    issue = sample_issue()
+    _fake_enrollments(monkeypatch, [
+        _enrollment("reader@example.com"),
+        _enrollment("left@example.com", source="gravel_tv_subscribe", status="unsubscribed"),
+        _enrollment("left@example.com", source="exit_intent", status="unsubscribed"),
+        _enrollment("athlete@example.com"),
+        _enrollment("athlete@example.com", source="athlete_exit", status="completed",
+                    source_data={"opted_out_at": "2026-09-30T12:00:00+00:00"}),
+    ])
+    monkeypatch.setenv("RESEND_API_KEY", "test-resend-key")
+    monkeypatch.setattr(send_gravel_weekly, "load_public_issues", lambda: [issue])
+    calls = []
+    members = {"reader@example.com", "left@example.com", "athlete@example.com"}
+
+    def fake_resend(path, method="GET", body=None):
+        calls.append((method, path))
+        if path == "/segments":
+            return {"data": [{"id": "segment_1", "name": "Gravel Weekly"}]}
+        if path == "/broadcasts" and method == "GET":
+            return {"data": []}
+        if path == "/broadcasts" and method == "POST":
+            return {"id": "broadcast_new"}
+        email = urllib.parse.unquote(path.split("/")[2])
+        if path.endswith("/segments") and method == "GET":
+            return {"data": [{"id": "segment_1"}] if email in members else []}
+        if path.endswith("/segments/segment_1") and method == "DELETE":
+            members.discard(email)
+            return {"id": "segment_1", "deleted": True}
+        if path == f"/contacts/{urllib.parse.quote(email, safe='')}" and method == "GET":
+            return {"id": f"contact-{email}", "email": email}
+        raise AssertionError(f"unexpected request: {method} {path}")
+
+    monkeypatch.setattr(send_gravel_weekly, "resend", fake_resend)
+    assert send_gravel_weekly.main([]) == 0
+
+    assert members == {"reader@example.com"}
+    touched = {urllib.parse.unquote(p.split("/")[2]) for m, p in calls
+               if p.startswith("/contacts/") and m in ("POST", "DELETE")}
+    assert touched == {"left@example.com", "athlete@example.com"}  # removed, never added
+    broadcast_at = calls.index(("POST", "/broadcasts"))
+    assert all(i < broadcast_at for i, (m, _) in enumerate(calls) if m == "DELETE")
+    assert "for 1 subscriber(s)" in capsys.readouterr().out
+
+
 def test_email_send_fails_closed_when_delivery_secrets_are_missing(monkeypatch):
     for key in ("RESEND_API_KEY", "SUPABASE_URL", "SUPABASE_SERVICE_ROLE_KEY"):
         monkeypatch.delenv(key, raising=False)

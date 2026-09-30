@@ -41,6 +41,10 @@ _SEQUENCE_IDS = {
 
 _CUSTOMER_STATUSES = ("delivered", "approved", "audit_passed")
 _MAX_ENROLLMENTS_PER_RUN = 200
+# Not leads, whatever their stored record carries: a coached athlete's season
+# review and a leaving athlete's exit survey. Intake strips race context from
+# both; this also covers a record stored before it did.
+_NOT_LEAD_SOURCES = frozenset({"athlete_review", "athlete_exit"})
 
 # Last-good cache so one bad fetch doesn't blank a brand for the day.
 _dates_cache: dict[str, dict[str, str]] = {}
@@ -142,7 +146,7 @@ def gather_candidates(enrollments: list[dict]) -> tuple[dict, set]:
         if e.get("status") == "active":
             mid_sequence.add(email)
         sd = e.get("source_data") or {}
-        if sd.get("race_slug"):
+        if sd.get("race_slug") and e.get("source") not in _NOT_LEAD_SOURCES:
             contacts[email] = {
                 "name": e.get("contact_name") or "",
                 "brand": sd.get("brand", "gravelgod"),
@@ -172,7 +176,7 @@ async def run_race_countdown(today: date | None = None) -> dict:
 
     enrollments = db.select(
         "gg_sequence_enrollments",
-        columns="contact_email,contact_name,source_data,status",
+        columns="contact_email,contact_name,source,source_data,status",
     )
     contacts, mid_sequence = gather_candidates(enrollments)
     summary["candidates"] = len(contacts)

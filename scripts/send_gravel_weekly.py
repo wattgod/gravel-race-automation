@@ -26,6 +26,7 @@ FROM_ADDR = "Gravel Weekly <weekly@gravelgodcycling.com>"
 ISSUE_BASE_URL = "https://gravelgodcycling.com/gravel-weekly/"
 SUBSCRIBER_SOURCES = ("gravel_weekly_subscribe", "gravel_tv_subscribe")
 ACTIVE_BROADCAST_STATUSES = frozenset({"queued", "scheduled", "sent"})
+OPT_OUT_PAGE_SIZE = 1000
 
 
 def _req(url: str, method: str = "GET", body: dict | None = None,
@@ -64,6 +65,65 @@ def fetch_subscribers() -> list[str]:
             for row in rows if row.get("contact_email")
         )
     return sorted(subscribers)
+
+
+def _enrollment_emails(filters: dict[str, str]) -> set[str]:
+    """Every contact_email on gg_sequence_enrollments rows matching the
+    PostgREST filters, across all pages. Pages until an empty one, so a
+    server-side row cap can never silently cut the list short."""
+    key = os.environ["SUPABASE_SERVICE_ROLE_KEY"]
+    headers = {"apikey": key, "Authorization": f"Bearer {key}"}
+    emails: set[str] = set()
+    offset = 0
+    while True:
+        query = urllib.parse.urlencode({
+            "select": "contact_email", **filters,
+            "order": "id", "limit": OPT_OUT_PAGE_SIZE, "offset": offset,
+        })
+        rows = _req(
+            f"{os.environ['SUPABASE_URL']}/rest/v1/gg_sequence_enrollments?{query}",
+            headers=headers,
+        )
+        if not rows:
+            return emails
+        emails.update(
+            row["contact_email"].strip().lower()
+            for row in rows if row.get("contact_email")
+        )
+        offset += len(rows)
+
+
+def fetch_opted_out() -> set[str]:
+    """Contacts who unsubscribed through Mission Control, from anything.
+
+    unsubscribe() marks their enrollments 'unsubscribed'; a contact with only
+    receipt rows (a season review, an exit survey) carries the opt-out as
+    source_data.opted_out_at instead. Either one keeps them out of the
+    Weekly: a Mission Control unsubscribe never reaches Resend on its own.
+    """
+    return (_enrollment_emails({"status": "eq.unsubscribed"})
+            | _enrollment_emails({"source_data->>opted_out_at": "not.is.null"}))
+
+
+def remove_segment_contact(segment_id: str, email_address: str) -> bool:
+    """Take an opted-out contact out of the publication segment, if they are
+    in it. Returns True when a membership was removed. Addresses stay out of
+    the errors: this runs in a public repo's Actions log."""
+    encoded_email = urllib.parse.quote(email_address, safe="")
+    try:
+        memberships = resend(f"/contacts/{encoded_email}/segments").get("data", [])
+    except urllib.error.HTTPError as exc:
+        if exc.code == 404:
+            return False  # not a Resend contact, so not in the segment
+        raise
+    if not isinstance(memberships, list):
+        raise RuntimeError("Resend returned invalid segment membership for an opted-out contact")
+    if not any(item.get("id") == segment_id for item in memberships if isinstance(item, dict)):
+        return False
+    removed = resend(f"/contacts/{encoded_email}/segments/{segment_id}", "DELETE")
+    if removed.get("deleted") is not True:
+        raise RuntimeError("Resend did not confirm removing an opted-out contact from the segment")
+    return True
 
 
 def find_or_create_segment() -> str | None:
@@ -235,12 +295,19 @@ def main(argv: list[str] | None = None) -> int:
         print(f"{exc} — refusing to send", file=sys.stderr)
         return 1
     try:
-        subscribers = fetch_subscribers()
+        # CAN-SPAM: whoever unsubscribed through Mission Control is neither
+        # (re-)added to the segment nor left in it for this broadcast.
+        opted_out = fetch_opted_out()
+        subscribers = [email for email in fetch_subscribers() if email not in opted_out]
         if not subscribers:
             raise RuntimeError("No Gravel Weekly subscribers were found")
         segment_id = find_or_create_segment()
         if not segment_id:
             raise RuntimeError("Could not resolve the existing publication segment")
+        removed_memberships = sum(
+            remove_segment_contact(segment_id, email_address)
+            for email_address in sorted(opted_out)
+        )
         added_memberships = sum(
             ensure_segment_contact(segment_id, email_address)
             for email_address in subscribers
@@ -256,7 +323,8 @@ def main(argv: list[str] | None = None) -> int:
         print(
             f"{action} Gravel Weekly #{issue['issueNumber']:03d} broadcast "
             f"{receipt['id']} ({receipt['status']}) for {len(subscribers)} subscriber(s); "
-            f"{added_memberships} new segment membership(s)"
+            f"{added_memberships} new segment membership(s); "
+            f"{removed_memberships} opted-out contact(s) removed from the segment"
         )
     except Exception as exc:
         print(f"Gravel Weekly send failed: {exc}", file=sys.stderr)

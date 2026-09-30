@@ -130,16 +130,19 @@ def _checkin_month(code: str, now: datetime) -> str:
     return ""
 
 
-def next_actions(answers: dict, now: datetime | None = None) -> list[str]:
-    """What Matti has to do, derived from the answers (plain text)."""
-    now = now or datetime.now(timezone.utc)
+def consent_actions(answers: dict, *, channel_labels: dict, connection_labels: dict,
+                    roster: str) -> list[str]:
+    """The "On the Record" block's actions, shared with the race debrief
+    (services/plan_debrief.py): consent to share and its approval steps, the
+    flags approval needs, and the talk-to-a-rider roster. Mirrors the
+    worker's consentActions."""
     actions: list[str] = []
     tier = SHARE_TIER_ALERT.get(answers.get("share_as"))
     # "Can I share what you wrote above?" covers both texts.
     consented = bool(tier and (answers.get("quote") or answers.get("not_for")))
     if consented:
-        channels = [label for key, label in CHANNEL_LABELS.items() if answers.get(key) == "yes"]
-        connection = CONNECTION_LABELS.get(answers.get("connection"), "not answered")
+        channels = [label for key, label in channel_labels.items() if answers.get(key) == "yes"]
+        connection = connection_labels.get(answers.get("connection"), "not answered")
         actions.append(
             f"Consent to share: {tier}; channels: {', '.join(channels) or 'none ticked'}; "
             f"connection: {connection}. Next: send the exact wording + render for approval. "
@@ -149,11 +152,20 @@ def next_actions(answers: dict, now: datetime | None = None) -> list[str]:
         actions.append("Under 18: needs a parent's sign-off before anything renders.")
     if consented and answers.get("share_as") == "age_group" and answers.get("age_group") not in AGE_GROUPS:
         actions.append("Ask their age group at approval.")
-    if consented and answers.get("connection") not in CONNECTION_LABELS:
+    if consented and answers.get("connection") not in connection_labels:
         actions.append("Connection not answered: ask before approval.")
     if answers.get("reference") in ("yes", "ask"):
-        actions.append("Add to the talk-to-an-athlete roster "
+        actions.append(f"Add to {roster} "
                        f"({'yes' if answers['reference'] == 'yes' else 'ask first'}).")
+    return actions
+
+
+def next_actions(answers: dict, now: datetime | None = None) -> list[str]:
+    """What Matti has to do, derived from the answers (plain text)."""
+    now = now or datetime.now(timezone.utc)
+    actions = consent_actions(answers, channel_labels=CHANNEL_LABELS,
+                              connection_labels=CONNECTION_LABELS,
+                              roster="the talk-to-an-athlete roster")
     checkin = answers.get("checkin")
     if checkin in CHECKIN_LABELS:
         actions.append(f"Check in around {_checkin_month(checkin, now)} ({CHECKIN_LABELS[checkin]}).")
@@ -163,9 +175,12 @@ def next_actions(answers: dict, now: datetime | None = None) -> list[str]:
     return actions
 
 
-def consent_record(answers: dict, now: datetime | None = None) -> dict | None:
+def consent_record(answers: dict, now: datetime | None = None, *,
+                   source: str = "athlete_exit", channels: dict = CHANNELS) -> dict | None:
     """The athlete's answer to "Can I share what you wrote above?", shaped
-    for the receipts ledger. None when they skipped the question."""
+    for the receipts ledger. None when they skipped the question. The race
+    debrief (services/plan_debrief.py) builds on it with its own source and
+    channel ids."""
     share = answers.get("share_as")
     if share not in IDENTITY_TIERS:
         return None
@@ -179,8 +194,8 @@ def consent_record(answers: dict, now: datetime | None = None) -> dict | None:
     age_group = answers.get("age_group") if answers.get("age_group") in AGE_GROUPS else None
     return {
         # Form response id: one per submission; a resubmission replaces it.
-        "consent_id": f"athlete_exit:{secrets.token_hex(8)}",
-        "source": "athlete_exit",
+        "consent_id": f"{source}:{secrets.token_hex(8)}",
+        "source": source,
         "identity_tier": IDENTITY_TIERS[share],
         # One tick per asset (§5.3): each text they wrote and agreed to share.
         "assets": [key for key, text in texts.items() if text],
@@ -189,7 +204,7 @@ def consent_record(answers: dict, now: datetime | None = None) -> dict | None:
         "age_group": age_group,
         # §5.3: a parent signs before anything of a minor's renders.
         "needs_parent_signoff": age_group == "under_18",
-        "channels": [ch for key, ch in CHANNELS.items() if sharing and answers.get(key) == "yes"],
+        "channels": [ch for key, ch in channels.items() if sharing and answers.get(key) == "yes"],
         "material_connection": connection if connection in CONNECTIONS else None,
         "reference": reference if reference in REFERENCES else None,
         "consented_at": now.isoformat(),

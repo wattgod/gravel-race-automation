@@ -855,6 +855,42 @@ def test_collect_mission_control_never_counts_an_exit_survey_as_a_lead(monkeypat
     assert [lead["email"] for lead in out["hot_leads_14d"]] == ["lead@example.com"]
 
 
+def test_collect_mission_control_never_counts_a_race_debrief_as_a_lead(monkeypatch):
+    """/race-debrief/ enrolls a plan buyer in plan_debrief_v1 (Gravel God) or
+    road_plan_debrief_v1 (Roadie Labs). Same rule as the exit survey: never a
+    new lead, never named as a hot one in this public snapshot."""
+    import sys
+    import types
+    from datetime import datetime, timezone
+
+    from scripts import daily_intel
+
+    now = datetime.now(timezone.utc).isoformat()
+    enrollments = [
+        {"id": "e-lead", "contact_email": "lead@example.com", "contact_name": "Lead",
+         "sequence_id": "welcome_v1", "current_step": 0, "status": "active",
+         "enrolled_at": now, "source": "race_profile", "source_data": {"brand": "gravelgod"}},
+    ] + [
+        {"id": f"e-{seq}", "contact_email": f"{seq}@example.com", "contact_name": "Test Rider B",
+         "sequence_id": seq, "current_step": 1, "status": "completed", "enrolled_at": now,
+         "source": "plan_debrief", "source_data": {"brand": brand, "plan_id": "123456"}}
+        for seq, brand in (("plan_debrief_v1", "gravelgod"), ("road_plan_debrief_v1", "roadielabs"))
+    ]
+    tables = {"gg_sequence_sends": [], "gg_sequence_enrollments": enrollments}
+    fake = types.ModuleType("mission_control.supabase_client")
+    fake.select = lambda table, **kw: [dict(r) for r in tables[table]]
+    fake.get_audit_log = lambda limit=50: []
+    monkeypatch.setitem(sys.modules, "mission_control.supabase_client", fake)
+    import mission_control
+    monkeypatch.setattr(mission_control, "supabase_client", fake, raising=False)
+
+    out = daily_intel.collect_mission_control()
+
+    assert out["new_leads_24h"] == 1
+    assert out["leads_by_brand"] == {"gravelgod": 1, "roadielabs": 0}
+    assert [lead["email"] for lead in out["hot_leads_14d"]] == ["lead@example.com"]
+
+
 def test_render_marks_provisional_sessions_and_separates_lag_from_outage(collected):
     from scripts import daily_intel
     g = collected["ga4"]["gravelgod"]

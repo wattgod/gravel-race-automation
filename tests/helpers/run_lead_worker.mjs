@@ -17,6 +17,8 @@ console.log = console.error;
 
 // GG_NOW (ISO) pins the worker's clock, e.g. for the check-in month.
 if (process.env.GG_NOW) mock.timers.enable({ apis: ['Date'], now: new Date(process.env.GG_NOW) });
+// GG_ORIGIN: the page's origin, e.g. https://roadielabs.com for a Roadie form.
+const origin = process.env.GG_ORIGIN || 'https://gravelgodcycling.com';
 
 const body = readFileSync(0, 'utf8');
 const sent = [];
@@ -30,10 +32,10 @@ globalThis.fetch = async (url, options = {}) => {
 
 const response = await worker.fetch(new Request('https://fueling-lead-intake.example.test', {
   method: 'POST',
-  headers: { 'Content-Type': 'application/json', Origin: 'https://gravelgodcycling.com' },
+  headers: { 'Content-Type': 'application/json', Origin: origin },
   body,
 }), {
-  ALLOWED_ORIGINS: 'https://gravelgodcycling.com',
+  ALLOWED_ORIGINS: 'https://gravelgodcycling.com,https://roadielabs.com',
   MC_WEBHOOK_URL: 'https://mission-control.example.test',
   MC_WEBHOOK_SECRET: 'test-secret',
   RESEND_API_KEY: 'test-resend-key',

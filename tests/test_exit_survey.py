@@ -106,7 +106,7 @@ class TestTransport:
         assert fmt.index("if (!GOAL_EXPORT)") < fmt.index('"## Flags"') < fmt.index("Endure draft")
         assert 'payload.append("_subject", EMAIL_TITLE + ": " + d.name)' in js
 
-    @pytest.mark.parametrize("slug", sorted(set(VARIANTS) - {"exit"}))
+    @pytest.mark.parametrize("slug", sorted(set(VARIANTS) - {"exit", "race_debrief"}))
     def test_the_other_forms_keep_their_backstop_email(self, slug):
         js = build_season_review_js(VARIANTS[slug])
         assert f'EMAIL_TITLE = "Season Review 2026 [{slug}]"' in js

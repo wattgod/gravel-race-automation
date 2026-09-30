@@ -18,6 +18,7 @@ The question sets live in season_review_variants.py as data:
   matti     /coaching/season-review/matti/    Matti's coaching voice
   five      /coaching/season-review/five/     five questions, ~5 minutes
   exit      /coaching/exit/                   an athlete who is leaving (no modules)
+  race_debrief /race-debrief/                 anyone who bought a plan (no modules)
 
 What the research supports, and every variant keeps: judging last season
 against the goal actually set, one measurable goal, and naming an inner
@@ -41,6 +42,7 @@ Usage:
 
 import argparse
 import html
+import json
 from pathlib import Path
 
 from generate_neo_brutalist import (
@@ -65,7 +67,14 @@ FORMSUBMIT_URL = f"https://formsubmit.co/ajax/{FORMSUBMIT_EMAIL}"
 # answers stored against the lead, where scripts can file them.
 LEAD_WORKER_URL = "https://fueling-lead-intake.gravelgodcoaching.workers.dev"
 # athlete_exit, not exit_intent: exit_intent is the race-page exit popup.
-WORKER_SOURCES = {"athlete": "athlete_review", "goal_2027": "goal_2027", "exit": "athlete_exit"}
+# plan_debrief, not race_debrief: race_debrief is Mission Control's post-race
+# email to leads (sequences/race_debrief.py), a marketing sequence.
+WORKER_SOURCES = {"athlete": "athlete_review", "goal_2027": "goal_2027", "exit": "athlete_exit",
+                  "race_debrief": "plan_debrief"}
+# The plan's own TrainingPeaks page from its planId alone. Checked 2026-09-29:
+# resolves for every live GG and Roadie plan sampled (23 of 23), with the
+# plan's title; without "cycling/" it lands on TP's plan search instead.
+TP_PLAN_URL = "https://www.trainingpeaks.com/training-plans/cycling/tp-"
 
 
 def page_path(slug: str) -> str:
@@ -183,7 +192,11 @@ def _control(field) -> str:
         )
         return f'<div class="gg-apply-checkbox-vertical">{opts}</div>'
     if kind == "hidden":
-        return f'<input type="hidden" id="{name}" name="{name}">'
+        # param + pattern: filled from that URL param by the page script,
+        # only when the whole value matches (see URL_FIELDS in the JS).
+        url = (f' data-param="{_attr(field["param"])}" data-pattern="{_attr(field["pattern"])}"'
+               if field.get("param") else "")
+        return f'<input type="hidden" id="{name}" name="{name}"{url}>'
     if kind == "timed":
         return f'<textarea id="{name}" name="{name}" rows="{field.get("rows", 10)}" class="gg-sr-long"></textarea>'
     raise ValueError(f"unknown field kind {kind!r}")
@@ -267,11 +280,44 @@ def input_names(variant) -> list[str]:
 
 # Posted as top-level keys, not answers (see the submit handler).
 IDENTITY_NAMES = ("name", "email", "athlete")
+# Hidden fields filled from the address (the race debrief's ?plan= and ?ref=).
+URL_FIELD_NAMES = ("plan", "ref")
+TOP_LEVEL_NAMES = IDENTITY_NAMES + URL_FIELD_NAMES
 
 
 def answer_keys(variant) -> list[str]:
     """The goal_answers keys a full submission of this variant can carry."""
-    return [n for n in input_names(variant) if n not in IDENTITY_NAMES]
+    return [n for n in input_names(variant) if n not in TOP_LEVEL_NAMES]
+
+
+def _fields(variant) -> list[dict]:
+    out = []
+    for f in [f for sec in variant["sections"] for f in sec["fields"]] + [
+            f for m in variant.get("modules", []) for f in m["fields"]]:
+        out.extend(f["fields"] if f["kind"] == "pair" else [f])
+    return out
+
+
+def max_answer_chars(variant) -> int | None:
+    """The most characters a full submission's answers can hold, or None when
+    a field has no cap (timed free-writes and the why-chain). The worker's and
+    Mission Control's total budget has to fit this, or answers get dropped."""
+    total = 0
+    for field in _fields(variant):
+        kind, name = field["kind"], field.get("name")
+        if kind in ("note", "hidden", "email") or name in TOP_LEVEL_NAMES:
+            continue
+        if kind in ("text", "area"):
+            total += MAX_ANSWER_LEN
+        elif kind in ("radio", "select"):
+            total += max(len(o[0]) for o in field["options"])
+        elif kind == "scale":
+            total += len(str(SCALE[-1]))
+        elif kind == "checks":
+            total += len("yes") * len(field["options"])
+        else:
+            return None
+    return total
 
 
 def check_unique_names(variant) -> None:
@@ -327,11 +373,12 @@ def render_modules(variant) -> str:
 
 def build_nav(variant=None) -> str:
     crumb = (variant or {}).get("crumb", "Season Review")
+    parent, parent_path = (variant or {}).get("crumb_parent", ("Coaching", "/coaching/"))
     return get_site_header_html(active="services") + f'''
   <div class="gg-breadcrumb">
     <a href="{SITE_BASE_URL}/">Home</a>
     <span class="gg-breadcrumb-sep">&rsaquo;</span>
-    <a href="{SITE_BASE_URL}/coaching/">Coaching</a>
+    <a href="{SITE_BASE_URL}{parent_path}">{parent}</a>
     <span class="gg-breadcrumb-sep">&rsaquo;</span>
     <span class="gg-breadcrumb-current">{crumb}</span>
   </div>'''
@@ -387,6 +434,18 @@ def build_results(variant) -> str:
     <a id="poster-download" class="gg-sr-download" href="#" download="2027-goal-poster.png">{results["download"]}</a>
     {cards}
   </section>'''
+
+
+def build_tp_rating(variant) -> str:
+    """One line under the success message inviting a marketplace buyer to
+    rate the plan on TrainingPeaks. Hidden until a submission with a valid
+    ?plan= succeeds; the page script sets the link to that plan's page."""
+    rating = variant.get("tp_rating")
+    if not rating:
+        return ""
+    return (f'<p id="tp-rating" class="gg-sr-rating" hidden>{rating["before"]}'
+            f'<a id="tp-rating-link" href="https://www.trainingpeaks.com/training-plans/" target="_blank" rel="noopener">'
+            f'{rating["link"]}</a>{rating["after"]}</p>')
 
 
 def build_submit_buttons(variant, btn_id: str, lead: str = "") -> str:
@@ -461,6 +520,13 @@ def build_season_review_css() -> str:
 }
 .gg-sr-deeper[open] summary { margin-bottom: var(--gg-spacing-lg); }
 .gg-sr-deeper .gg-apply-group:last-child { margin-bottom: 0; }
+
+/* The race debrief's TP rating line, under the success message */
+.gg-sr-rating {
+  font-family: var(--gg-font-editorial);
+  font-size: var(--gg-font-size-sm);
+  margin: 0 0 var(--gg-spacing-lg);
+}
 
 /* A note: explanation between questions, no input */
 .gg-sr-note {
@@ -714,8 +780,42 @@ def build_season_review_js(variant) -> str:
      goal flags and the Endure goal draft (not every form is about a goal). */
   var EMAIL_TITLE = "__EMAIL_TITLE__";
   var GOAL_EXPORT = __GOAL_EXPORT__;
+  /* The first-edit and submit events. The goals funnel's by default; the
+     race debrief has its own, so it never counts as a goals-page start. */
+  var START_EVENT = "__START_EVENT__";
+  var SUBMIT_EVENT = "__SUBMIT_EVENT__";
+  /* Posted as top-level keys, never as answers. */
+  var TOP_LEVEL = __TOP_LEVEL__;
+  var TP_PLAN_URL = "__TP_PLAN_URL__";
 
   var form = document.getElementById("season-form");
+
+  /* Hidden fields filled from the address (the race debrief's ?plan= and
+     ?ref=). A value is used only when the whole of it matches the field's
+     pattern; the worker and Mission Control check it again. They stay in the
+     address: they are not personal, and GA4 counts note clicks per plan. */
+  var URL_FIELDS = Array.prototype.slice.call(form.querySelectorAll("input[data-param]"));
+  function matches(el, value) {
+    try { return new RegExp(el.getAttribute("data-pattern")).test(value); } catch (e) { return false; }
+  }
+  function fillFromAddress() {
+    var params = null;
+    try { params = new URLSearchParams(window.location.search); } catch (e) { return; }
+    /* A link that names a plan or a ref sets the whole context: a draft
+       saved from another plan's link must not carry that plan over. Only a
+       bare address (a resumed draft) keeps the draft's own values. */
+    var fromLink = URL_FIELDS.some(function(el) { return params.has(el.getAttribute("data-param")); });
+    URL_FIELDS.forEach(function(el) {
+      var v = params.get(el.getAttribute("data-param")) || "";
+      if (v && matches(el, v)) { el.value = v; }
+      else if (fromLink || (el.value && !matches(el, el.value))) { el.value = ""; }
+    });
+  }
+  /* Whether each one is there, never its value: has_plan / has_ref. */
+  function withPresence(params) {
+    URL_FIELDS.forEach(function(el) { params["has_" + el.name] = el.value ? "yes" : "no"; });
+    return params;
+  }
 
   /* Entry attribution (goals-2027-funnel-spec.md "Consent and analytics").
      The homepage poster wall and the race-page goal strip
@@ -878,7 +978,7 @@ def build_season_review_js(variant) -> str:
 
   var started = false;
   function onEdit(e) {
-    if (!started) { started = true; ga4("goal_start", { variant: VARIANT }); }
+    if (!started) { started = true; ga4(START_EVENT, withPresence({ variant: VARIANT })); }
     if (e && e.target.type === "radio" && e.target.checked) { radioChanged(e.target); }
     if (e && e.target.closest && e.target.closest(".gg-sr-why")) { updateWhys(); }
     queueSave();
@@ -976,6 +1076,9 @@ def build_season_review_js(variant) -> str:
     /* the stripped address can't prefill a reload, and iOS Safari often
        skips beforeunload, so put the link's values in the draft now */
     if (prefill.name || prefill.email || prefill.athlete) { save(true); }
+    /* ?plan= / ?ref= win over a restored draft; a draft's own value stays
+       when the address has none */
+    fillFromAddress();
     /* Prefill from the race-page goal card's tap (goals-2027-funnel-spec.md):
        ?goal_type= carries which goal the visitor already picked there. The
        line templates mirror GOAL_CARD_COPY.goal_lines in
@@ -1154,17 +1257,19 @@ def build_season_review_js(variant) -> str:
     if (LEAD_SOURCE) {
       var answers = {};
       Object.keys(d).forEach(function(k) {
-        if (k !== "name" && k !== "email" && k !== "athlete" && typeof d[k] === "string") { answers[k] = d[k]; }
+        if (TOP_LEVEL.indexOf(k) === -1 && typeof d[k] === "string") { answers[k] = d[k]; }
       });
+      var body = {
+        source: LEAD_SOURCE, brand: "gravelgod", email: d.email, name: d.name || "",
+        athlete: d.athlete || "", goal_answers: answers, website: "",
+        offer_variant: OFFER_VARIANT, race_slug: RACE_SLUG, entry_src: ENTRY_SRC,
+        goal_type: GOAL_TYPE
+      };
+      URL_FIELDS.forEach(function(el) { if (d[el.name]) { body[el.name] = d[el.name]; } });
       workerOk = fetch("__LEAD_WORKER_URL__", {
         method: "POST",
         headers: { "Content-Type": "application/json", "Accept": "application/json" },
-        body: JSON.stringify({
-          source: LEAD_SOURCE, brand: "gravelgod", email: d.email, name: d.name || "",
-          athlete: d.athlete || "", goal_answers: answers, website: "",
-          offer_variant: OFFER_VARIANT, race_slug: RACE_SLUG, entry_src: ENTRY_SRC,
-          goal_type: GOAL_TYPE
-        }),
+        body: JSON.stringify(body),
         signal: ctrl ? ctrl.signal : undefined
       }).then(function(r) {
         // Mission Control hands back this lead's poster_token so the
@@ -1214,8 +1319,9 @@ def build_season_review_js(variant) -> str:
           try { localStorage.removeItem(STORAGE_KEY); } catch (err) { /* ignore */ }
         }
         ga4("season_review_submitted", { variant: VARIANT, deep_modules: form.querySelectorAll(".gg-sr-deeper[open]").length });
-        ga4("goal_submit", { variant: VARIANT });
+        ga4(SUBMIT_EVENT, withPresence({ variant: VARIANT }));
         if (!HAS_RESULTS) { showMessage("success", lastStored ? SUCCESS : SUCCESS_BY_EMAIL); }
+        if (lastStored) { showRating(d); }
         setButtons(true, "Submitted");
       })
       .catch(function(err) {
@@ -1391,6 +1497,16 @@ def build_season_review_js(variant) -> str:
     results.scrollIntoView({ behavior: "smooth", block: "start" });
   }
 
+  /* Every marketplace buyer sees this, whatever they answered: a rating
+     ask gated on a good score would be review gating (receipts spec §5.6). */
+  function showRating(d) {
+    var rating = document.getElementById("tp-rating");
+    var plan = form.querySelector("input[name=\"plan\"][data-pattern]");
+    if (!rating || !plan || !d.plan || !matches(plan, d.plan)) { return; }
+    document.getElementById("tp-rating-link").href = TP_PLAN_URL + d.plan;
+    rating.hidden = false;
+  }
+
   function showMessage(type, text) {
     var m = document.getElementById("message");
     m.className = "gg-apply-message " + type;
@@ -1461,6 +1577,10 @@ def build_season_review_js(variant) -> str:
         .replace("__EMAIL_TITLE__", js_str(
             variant.get("email_title") or f"Season Review {SEASON} [{variant['slug']}]"))
         .replace("__GOAL_EXPORT__", "true" if variant.get("goal_export", True) else "false")
+        .replace("__START_EVENT__", variant.get("start_event", "goal_start"))
+        .replace("__SUBMIT_EVENT__", variant.get("submit_event", "goal_submit"))
+        .replace("__TOP_LEVEL__", json.dumps(list(TOP_LEVEL_NAMES)))
+        .replace("__TP_PLAN_URL__", TP_PLAN_URL)
         .replace("__EMAIL__", FORMSUBMIT_EMAIL)
     )
 
@@ -1711,6 +1831,7 @@ def generate_season_review_page(slug: str = "standard", external_assets=None) ->
     {build_header(variant)}
     {build_progress_bar()}
     <div id="message" class="gg-apply-message hidden"></div>
+    {build_tp_rating(variant)}
     <form id="season-form" class="gg-apply-form-card">
       <input type="text" name="website" class="gg-apply-honeypot" tabindex="-1" autocomplete="off">
       {render_sections(variant)}

@@ -13,6 +13,7 @@ from mission_control.config import BRAND_SITE_URLS, MC_PUBLIC_URL, WEBHOOK_SECRE
 from mission_control import supabase_client as db
 from mission_control.sequences import get_sequences_for_trigger
 from mission_control.services.athlete_exit import exit_source_data, next_actions
+from mission_control.services import plan_debrief
 from mission_control.services.sequence_engine import enroll, record_event, resend_first_step
 
 logger = logging.getLogger(__name__)
@@ -25,12 +26,14 @@ _EMAIL_RE = re.compile(r"^[^@\s]{1,64}@[^@\s]{1,255}$")
 _ANSWER_KEY_RE = re.compile(r"^[a-z0-9_]{1,40}$")
 _MAX_GOAL_ANSWER_KEYS = 64
 _MAX_GOAL_ANSWER_LEN = 4000
-# Matches the worker's MAX_ANSWERS_TOTAL: room for the exit survey's eight
-# free-text answers at _MAX_GOAL_ANSWER_LEN each, plus its choices.
+# Fits the longest capped form (the exit survey and the race debrief: every
+# text answer at 4000). The worker's MAX_ANSWERS_TOTAL is the same number.
 _MAX_GOAL_ANSWERS_TOTAL = 40000
-# Sources whose questionnaire answers ride along as goal_answers. The exit
-# survey is the only one that is neither a goal nor a lead.
-_ANSWER_SOURCES = ("goal_2027", "athlete_review", "athlete_exit")
+# Sources whose questionnaire answers ride along as goal_answers.
+_ANSWER_SOURCES = ("goal_2027", "athlete_review", "athlete_exit", "plan_debrief")
+# Neither a goal nor a lead: a leaving athlete and a plan buyer's debrief.
+# Their record is built from scratch and a resubmission replaces it.
+_NOT_LEAD_SOURCES = ("athlete_exit", "plan_debrief")
 # Subject for the resent first email after a rider corrects their answers.
 _REVISED_SUBJECTS = {"goal_2027": "your 2027 goal, revised"}
 # XC Ski Labs' goal_2027 day-0 subject reads "your season, on paper" (a ski
@@ -218,6 +221,11 @@ async def _send_enrollment_alert(
         # would be filtered out of the inbox. A resubmission says "updated".
         who = name or source_data.get("athlete") or email
         subject = f"[GG] Exit survey {'updated' if updated else 'filed'} · {who}"
+    elif source == "plan_debrief":
+        # Same reasoning as the exit: the backup to the worker's alert.
+        _plan = plan_debrief.plan_label(source_data.get("plan_id", ""), source_data.get("ref", ""))
+        subject = (f"[{plan_debrief.brand_tag(brand)}] Race debrief {'updated' if updated else 'filed'}"
+                   f" · {name or email} · {_plan}")
     else:
         subject = f"new lead · {name or email} · {context} [{brand}]"
     if unrouted:
@@ -233,15 +241,21 @@ async def _send_enrollment_alert(
         if race and brand in ("gravelgod", "roadielabs") else ""
     )
     answers = source_data.get("goal_answers") or {}
-    if source in ("athlete_review", "athlete_exit") and answers:
+    if source in ("athlete_review", "athlete_exit", "plan_debrief") and answers:
         rows = "".join(
             f"<tr><td style='padding:3px 12px 3px 0;color:#7d695d;vertical-align:top;"
             f"font-family:monospace;font-size:12px'>{escape(k)}</td>"
             f"<td style='padding:3px 0'>{escape(str(v))}</td></tr>"
             for k, v in list(answers.items())[:45]
         )
-        if source == "athlete_exit":
-            actions = next_actions(answers)
+        tag = source_data.get("athlete") or "no athlete tag"
+        if source in _NOT_LEAD_SOURCES:
+            if source == "plan_debrief":
+                _plan, _ref = source_data.get("plan_id", ""), source_data.get("ref", "")
+                actions = plan_debrief.next_actions(answers, _plan, _ref, brand)
+                tag = plan_debrief.plan_label(_plan, _ref) + (f" (ref {_ref})" if _ref else "")
+            else:
+                actions = next_actions(answers)
             head = ("<p style='font-family:monospace;font-size:12px'>NEXT ACTIONS</p>"
                     + ("<ul>" + "".join(f"<li>{escape(a)}</li>" for a in actions) + "</ul>"
                        if actions else "<p>None.</p>"))
@@ -252,7 +266,7 @@ async def _send_enrollment_alert(
                     f"python3 scripts/file_athlete_review.py --email {escape(email)}</p>")
         html = (
             f"<p><b>{escape(name) or '(no name)'}</b> &lt;{escape(email)}&gt;"
-            f" &middot; {escape(source_data.get('athlete') or 'no athlete tag')}</p>"
+            f" &middot; {escape(tag)}</p>"
             f"{head}"
             f"<table style='border-collapse:collapse;font-family:Georgia,serif;font-size:15px'>{rows}</table>"
             f"{tail}"
@@ -376,6 +390,13 @@ async def subscriber_webhook(
             brand, _cap_goal_answers(body.get("goal_answers")),
             athlete=str(body.get("athlete") or "").strip()[:80],
         )
+    elif source == "plan_debrief":
+        # Built from scratch like an exit, plus the plan from the link in the
+        # plan's notes: a whole-value match or nothing (checked here again).
+        source_data = plan_debrief.debrief_source_data(
+            brand, _cap_goal_answers(body.get("goal_answers")),
+            plan=body.get("plan"), ref=body.get("ref"),
+        )
     elif source in ("goal_2027", "athlete_review"):
         kept = _cap_goal_answers(body.get("goal_answers"))
         if kept:
@@ -439,6 +460,9 @@ async def subscriber_webhook(
         "athlete_review": "athlete_review",
         # Nor is an athlete who is leaving: a receipt, then nothing.
         "athlete_exit": "athlete_exit",
+        # Nor a plan buyer's race debrief. Not the race_debrief trigger, which
+        # is the post-race marketing email to leads.
+        "plan_debrief": "plan_debrief",
         # Plan purchases (Stripe / WooCommerce / own-site) -> post-purchase
         # onboarding + review flywheel. The payment webhook must POST a source in
         # this set, with brand + plan_weeks (+ race_slug). Until that POST exists
@@ -464,11 +488,16 @@ async def subscriber_webhook(
             )
             if not existing:
                 continue
-            # An exit resubmission replaces the record outright. Merging would
-            # keep a sharing tier, a need or a consent record the athlete has
-            # since taken back.
-            merged = (dict(source_data) if source == "athlete_exit"
-                      else {**(existing.get("source_data") or {}), **source_data})
+            # An exit or debrief resubmission replaces the record outright.
+            # Merging would keep a sharing tier, a need or a consent record
+            # the rider has since taken back. A debrief for a different plan
+            # keeps the one before under `earlier`.
+            if source == "plan_debrief":
+                merged = plan_debrief.replace_record(existing.get("source_data") or {}, source_data)
+            elif source == "athlete_exit":
+                merged = dict(source_data)
+            else:
+                merged = {**(existing.get("source_data") or {}), **source_data}
             # ...except an opt-out, which a resubmission never takes back.
             if (existing.get("source_data") or {}).get("opted_out_at"):
                 merged["opted_out_at"] = existing["source_data"]["opted_out_at"]
@@ -567,9 +596,10 @@ async def subscriber_webhook(
     # friend-register model converts in replies), so Matti hears about it
     # immediately. Loud to coach, invisible to customer — alert failure must
     # never affect the enrollment (order-killer rule).
-    # A resubmitted exit is updated in place, so nothing new enrolls; its
-    # backup alert still goes, or a failed worker alert would mean none.
-    exit_updated = source == "athlete_exit" and updated_in_place and not enrolled
+    # A resubmitted exit or debrief is updated in place, so nothing new
+    # enrolls; its backup alert still goes, or a failed worker alert would
+    # mean none.
+    exit_updated = source in _NOT_LEAD_SOURCES and updated_in_place and not enrolled
     if enrolled or unrouted or exit_updated:
         try:
             await _send_enrollment_alert(email, name, brand, source, source_data, enrolled,

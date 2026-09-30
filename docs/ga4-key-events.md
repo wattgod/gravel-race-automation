@@ -35,6 +35,23 @@ gravelgodcycling.com as of this audit (`curl` of the live homepage shows no
 poster wall, no `goal_hero_click`) — check with a deploy operator before
 assuming any `src`/`goal_hero_click` GA4 rows exist yet.
 
+## Custom dimensions to register (race debrief)
+
+`/race-debrief/` (`wordpress/season_review_variants.py` `RACE_DEBRIEF`) fires
+`debrief_start` on the first edit and `debrief_submit` on a stored
+submission, never on load or a timer. Neither is the goals funnel's
+`goal_start` / `goal_submit`. Plan notes link here with `?plan=<TP planId>`
+(marketplace plans) or `?ref=<id>` (custom plans); both stay in the address,
+so per-plan note clicks are already countable from `page_location`. The
+events carry only whether each was there:
+
+| Parameter | Scope | Sent on | Why |
+|---|---|---|---|
+| `has_plan` | Event | `debrief_start`, `debrief_submit` | `yes` when the page was opened from a marketplace plan's note link (`?plan=`), else `no`. |
+| `has_ref` | Event | `debrief_start`, `debrief_submit` | `yes` when opened from a custom plan's note link (`?ref=`), else `no`. |
+
+`variant` (`race_debrief`) rides on both, as on every season-review event.
+
 ## Click path (GA4 admin UI, per dimension)
 
 1. Admin (bottom-left gear) → **Custom definitions** → **Custom dimensions** tab

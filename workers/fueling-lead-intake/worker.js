@@ -163,6 +163,18 @@ export default {
       return jsonResponse({ error: validation.error }, 400, origin);
     }
 
+    // Without Mission Control there is nowhere to store a questionnaire's
+    // answers. Say so before anything else goes out (no alert for answers
+    // that were never kept), so the page keeps the draft and shows an error
+    // instead of success.
+    if (STORAGE_REQUIRED.includes(source) && !env.MC_WEBHOOK_URL) {
+      console.error(`${source} answers NOT stored: MC_WEBHOOK_URL is unset`);
+      return jsonResponse(
+        { error: 'Could not store your answers. Nothing was lost — please try again.' },
+        503, origin,
+      );
+    }
+
     // Downstream work: Mission Control, webhook, notification email
     // Failures here are logged but don't affect the user response
     // (mcResultPromise is declared here, at function scope, not inside the

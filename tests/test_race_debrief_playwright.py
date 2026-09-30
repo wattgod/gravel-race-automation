@@ -132,3 +132,37 @@ def test_a_failed_store_shows_the_error_and_no_rating_line():
     assert "error" in seen["message_class"]
     assert seen["rating"]["hidden"] is True
     assert _named(seen["events"], "debrief_submit") == []
+
+
+class TestADraftNeverCarriesAnotherPlan:
+    """Devin on #421: a draft saved from one plan's link must not attribute a
+    later debrief, opened from another plan's link, to the first plan."""
+
+    def test_a_custom_plan_link_drops_the_drafts_marketplace_plan(self):
+        from tests.race_debrief_browser import resume_from
+        seen = resume_from("?plan=123456", "?ref=test-ref-0001")
+        assert seen["errors"] == []
+        assert seen["first"] == {"plan": "123456", "ref": ""}
+        assert seen["second"] == {"plan": "", "ref": "test-ref-0001"}
+        assert seen["restored_email"] == load_submission()["email"]  # the draft itself still resumes
+        assert seen["worker"]["ref"] == "test-ref-0001" and "plan" not in seen["worker"]
+        assert seen["rating"]["hidden"] is True
+
+    def test_another_plans_link_replaces_the_plan(self):
+        from tests.race_debrief_browser import resume_from
+        seen = resume_from("?plan=123456", "?plan=654321")
+        assert seen["second"] == {"plan": "654321", "ref": ""}
+        assert seen["worker"]["plan"] == "654321"
+        assert seen["rating"]["href"].endswith("/tp-654321")
+
+    def test_a_malformed_plan_in_the_new_link_still_clears_the_old_one(self):
+        from tests.race_debrief_browser import resume_from
+        seen = resume_from("?plan=123456", "?plan=12ab34")
+        assert seen["second"] == {"plan": "", "ref": ""}
+        assert "plan" not in seen["worker"] and "ref" not in seen["worker"]
+
+    def test_a_bare_address_resumes_the_drafts_plan(self):
+        from tests.race_debrief_browser import resume_from
+        seen = resume_from("?plan=123456", "")
+        assert seen["second"] == {"plan": "123456", "ref": ""}
+        assert seen["worker"]["plan"] == "123456"

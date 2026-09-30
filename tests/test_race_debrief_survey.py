@@ -174,7 +174,10 @@ class TestUrlFields:
     def test_the_address_wins_over_a_draft_and_a_bad_draft_value_is_cleared(self, js):
         fill = js[js.index("function fillFromAddress() {"):js.index("/* Whether each one is there")]
         assert "if (v && matches(el, v)) { el.value = v; }" in fill
-        assert 'else if (el.value && !matches(el, el.value)) { el.value = ""; }' in fill
+        # a link naming a plan or ref clears the other; a bare address keeps
+        # the draft's (tests/test_race_debrief_playwright.py drives both)
+        assert 'var fromLink = URL_FIELDS.some(function(el) { return params.has(el.getAttribute("data-param")); });' in fill
+        assert 'else if (fromLink || (el.value && !matches(el, el.value))) { el.value = ""; }' in fill
         restore = js[js.index("function restore() {"):js.index("/* ── The email:")]
         assert restore.index("fillFromAddress();") > restore.index("var prefill = window.ggPersonalLink")
 

@@ -458,3 +458,36 @@ test('a debrief can carry a full form: every answer at 4000 characters', async (
   const { mc } = await runExit(debriefPayload(debriefFixture, { goal_answers: answers }));
   assert.deepEqual(Object.keys(mc.goal_answers), Object.keys(answers));
 });
+
+// --- Storage-required sources with no Mission Control URL (Devin on #421) ---
+
+const STORAGE_REQUIRED_BODIES = {
+  goal_2027: { source: 'goal_2027', email: 'goal@example.com', goal_answers: { outcome_goal: 'Test answer: x' } },
+  athlete_review: { source: 'athlete_review', email: 'review@example.com', goal_answers: { proudest: 'Test answer: x' } },
+  athlete_exit: exitPayload(),
+  plan_debrief: debriefPayload(),
+};
+
+for (const [source, body] of Object.entries(STORAGE_REQUIRED_BODIES)) {
+  test(`${source} with MC_WEBHOOK_URL unset is a 503 and sends nothing`, async () => {
+    const { response, requests, errors } = await runExit(body, { envOverrides: { MC_WEBHOOK_URL: '' } });
+    assert.equal(response.status, 503);
+    assert.deepEqual(await response.json(),
+      { error: 'Could not store your answers. Nothing was lost — please try again.' });
+    assert.deepEqual(requests, [], 'no alert for answers that were never stored');
+    assert.ok(errors.some((e) => e.includes(`${source} answers NOT stored: MC_WEBHOOK_URL is unset`)),
+      errors.join('\n'));
+  });
+}
+
+test('a lead capture with MC_WEBHOOK_URL unset still answers 200', async () => {
+  const { response } = await runExit({ source: 'exit_intent', email: 'popup@example.com' },
+    { envOverrides: { MC_WEBHOOK_URL: '' } });
+  assert.equal(response.status, 200);
+});
+
+test('every storage-required source is covered above', () => {
+  const m = workerSource.match(/const STORAGE_REQUIRED = \[([^\]]*)\]/);
+  const listed = m[1].split(',').map((s) => s.trim().replace(/'/g, '')).filter(Boolean);
+  assert.deepEqual(listed.sort(), Object.keys(STORAGE_REQUIRED_BODIES).sort());
+});

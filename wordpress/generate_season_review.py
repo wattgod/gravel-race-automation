@@ -801,10 +801,14 @@ def build_season_review_js(variant) -> str:
   function fillFromAddress() {
     var params = null;
     try { params = new URLSearchParams(window.location.search); } catch (e) { return; }
+    /* A link that names a plan or a ref sets the whole context: a draft
+       saved from another plan's link must not carry that plan over. Only a
+       bare address (a resumed draft) keeps the draft's own values. */
+    var fromLink = URL_FIELDS.some(function(el) { return params.has(el.getAttribute("data-param")); });
     URL_FIELDS.forEach(function(el) {
       var v = params.get(el.getAttribute("data-param")) || "";
       if (v && matches(el, v)) { el.value = v; }
-      else if (el.value && !matches(el, el.value)) { el.value = ""; }
+      else if (fromLink || (el.value && !matches(el, el.value))) { el.value = ""; }
     });
   }
   /* Whether each one is there, never its value: has_plan / has_ref. */

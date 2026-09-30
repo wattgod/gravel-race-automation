@@ -184,3 +184,59 @@ def run_debrief(query: str = "", submission: dict | None = None, width: int = 39
         "message": message,
         "message_class": message_class,
     }
+
+
+def resume_from(first_query: str, second_query: str) -> dict:
+    """Start a debrief from one link and save the draft, then open a second
+    link in the same browser (the draft is in its localStorage) and submit.
+    Returns the hidden fields after each load, the worker body and the
+    rating line. The page is served from memory; nothing leaves the machine."""
+    from playwright.sync_api import sync_playwright
+
+    submission = load_submission()
+    doc = generate_season_review_page("race_debrief")
+    captured: dict = {"worker": None}
+
+    def handle(route):
+        req = route.request
+        if req.url.startswith(PAGE_URL):
+            return route.fulfill(status=200, content_type="text/html; charset=utf-8", body=doc)
+        if req.url.startswith(GTAG_URL):
+            return route.fulfill(status=200, content_type="text/javascript", body=GTAG_STUB)
+        if req.url.startswith(LEAD_WORKER_URL):
+            if req.method == "OPTIONS":
+                return route.fulfill(status=204, headers=CORS)
+            captured["worker"] = json.loads(req.post_data)
+            return route.fulfill(status=200, headers={**CORS, "Content-Type": "application/json"},
+                                 body=json.dumps({"success": True}))
+        return route.abort()
+
+    hidden_js = ("() => ({plan: document.getElementById('plan').value,"
+                 " ref: document.getElementById('ref').value})")
+    with sync_playwright() as pw:
+        browser = pw.chromium.launch()
+        try:
+            page = browser.new_page(viewport={"width": 390, "height": 844})
+            errors: list[str] = []
+            page.on("pageerror", lambda exc: errors.append(str(exc)))
+            page.route("**/*", handle)
+            page.goto(PAGE_URL + first_query)
+            first = page.evaluate(hidden_js)
+            page.fill("#name", submission["name"])
+            page.fill("#email", submission["email"])
+            page.click('label.gg-apply-radio-option:has(input[name="raced"][value="later"])')
+            page.click(".gg-sr-save")
+            page.goto(PAGE_URL + second_query)
+            second = page.evaluate(hidden_js)
+            restored = page.input_value("#email")
+            page.click("form button[type=submit]")
+            page.wait_for_function(
+                "() => { const m = document.getElementById('message');"
+                " return m.classList.contains('success') || m.classList.contains('error'); }",
+                timeout=15000,
+            )
+            rating = page.evaluate(RATING_JS)
+        finally:
+            browser.close()
+    return {"first": first, "second": second, "restored_email": restored,
+            "worker": captured["worker"], "rating": rating, "errors": errors}

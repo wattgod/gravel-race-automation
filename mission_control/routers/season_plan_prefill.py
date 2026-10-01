@@ -34,6 +34,7 @@ _TOKEN_RE = re.compile(r"^[A-Za-z0-9_-]{16,64}\Z")
 _ALLOWED_ORIGINS = {
     "https://gravelgodcycling.com", "https://www.gravelgodcycling.com",
     "https://roadielabs.com", "https://www.roadielabs.com",
+    "https://xcskilabs.com", "https://www.xcskilabs.com",
 }
 
 

@@ -121,6 +121,18 @@ class TestValidToken:
         assert resp.status_code == 200
         assert resp.headers.get("access-control-allow-origin") == "https://gravelgodcycling.com"
 
+    @pytest.mark.parametrize("origin", [
+        "https://roadielabs.com", "https://www.roadielabs.com",
+        "https://xcskilabs.com", "https://www.xcskilabs.com",
+    ])
+    def test_lab_origins_can_read_prefill(self, client, monkeypatch, origin):
+        monkeypatch.setattr(season_plan_prefill, "db", _mock_db_returning([_fake_row()]))
+        resp = client.get(
+            f"/api/season-plan/prefill/{VALID_TOKEN}", headers={"Origin": origin})
+        assert resp.status_code == 200
+        assert resp.headers.get("access-control-allow-origin") == origin
+        assert resp.headers.get("vary") == "Origin"
+
     def test_cors_header_absent_for_unrecognized_origin(self, client, monkeypatch):
         monkeypatch.setattr(season_plan_prefill, "db", _mock_db_returning([_fake_row()]))
         resp = client.get(

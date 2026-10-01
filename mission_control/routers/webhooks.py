@@ -226,6 +226,9 @@ async def _send_enrollment_alert(
         _plan = plan_debrief.plan_label(source_data.get("plan_id", ""), source_data.get("ref", ""))
         subject = (f"[{plan_debrief.brand_tag(brand)}] Race debrief {'updated' if updated else 'filed'}"
                    f" · {name or email} · {_plan}")
+    elif source == "goal_2027":
+        subject = (f"[{plan_debrief.brand_tag(brand)}] Goal review "
+                   f"{'updated' if updated else 'filed'} · {name or email}")
     else:
         subject = f"new lead · {name or email} · {context} [{brand}]"
     if unrouted:
@@ -241,6 +244,28 @@ async def _send_enrollment_alert(
         if race and brand in ("gravelgod", "roadielabs") else ""
     )
     answers = source_data.get("goal_answers") or {}
+    if source == "goal_2027" and answers:
+        labels = (
+            ("a_race", "Race"), ("a_race_date", "Date"),
+            ("outcome_goal", "Goal"), ("inner_obstacle", "Obstacle"),
+            ("habit", "Habit"), ("habit_when", "When"),
+        )
+        rows = "".join(
+            f"<tr><th style='text-align:left;vertical-align:top;padding:3px 12px 3px 0'>"
+            f"{escape(label)}</th><td style='padding:3px 0'>{escape(str(answers[key]))}</td></tr>"
+            for key, label in labels if answers.get(key)
+        )
+        html = (
+            f"<p><b>{escape(name) or '(no name)'}</b> &lt;{escape(email)}&gt;"
+            f" · {escape(brand)}</p>"
+            f"<table style='border-collapse:collapse'>{rows}</table>"
+            f"<p>Reply personally using their stated goal and obstacle. "
+            f"Ask what their first week will look like. No automatic reply was sent from this alert.</p>"
+            f"<p>Entry: {escape(str(source_data.get('entry_src') or 'unknown'))}"
+            f" · Offer: {escape(str(source_data.get('offer_variant') or 'unknown'))}</p>"
+        )
+        await asyncio.to_thread(_send_email_sync, to, subject, html, brand)
+        return
     if source in ("athlete_review", "athlete_exit", "plan_debrief") and answers:
         rows = "".join(
             f"<tr><td style='padding:3px 12px 3px 0;color:#7d695d;vertical-align:top;"

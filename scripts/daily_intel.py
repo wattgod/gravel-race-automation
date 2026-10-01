@@ -479,6 +479,7 @@ def compute_constraint(ga4_gravel: dict) -> dict:
 # leads, and this snapshot is committed to a public repo: they must never
 # count as a new lead or be named as a hot one.
 NOT_LEAD_SEQUENCES = frozenset({"athlete_review_v1", "athlete_exit_v1",
+                                "road_athlete_exit_v1", "xc_athlete_exit_v1",
                                 "plan_debrief_v1", "road_plan_debrief_v1"})
 
 

@@ -220,7 +220,8 @@ async def _send_enrollment_alert(
         # none is not. A leaving athlete is not a "new lead", and that subject
         # would be filtered out of the inbox. A resubmission says "updated".
         who = name or source_data.get("athlete") or email
-        subject = f"[GG] Exit survey {'updated' if updated else 'filed'} · {who}"
+        subject = (f"[{plan_debrief.brand_tag(brand)}] Exit survey "
+                   f"{'updated' if updated else 'filed'} · {who}")
     elif source == "plan_debrief":
         # Same reasoning as the exit: the backup to the worker's alert.
         _plan = plan_debrief.plan_label(source_data.get("plan_id", ""), source_data.get("ref", ""))
@@ -255,7 +256,7 @@ async def _send_enrollment_alert(
                 actions = plan_debrief.next_actions(answers, _plan, _ref, brand)
                 tag = plan_debrief.plan_label(_plan, _ref) + (f" (ref {_ref})" if _ref else "")
             else:
-                actions = next_actions(answers)
+                actions = next_actions(answers, brand=brand)
             head = ("<p style='font-family:monospace;font-size:12px'>NEXT ACTIONS</p>"
                     + ("<ul>" + "".join(f"<li>{escape(a)}</li>" for a in actions) + "</ul>"
                        if actions else "<p>None.</p>"))

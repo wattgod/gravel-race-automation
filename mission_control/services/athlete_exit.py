@@ -42,12 +42,27 @@ SHARE_TIER_PLAIN = {
 
 # where_* checkbox -> ledger channel id (the spec names a site channel by its
 # brand, e.g. "channel = roadie" for roadielabs.com).
-CHANNELS = {
-    "where_site": "gravelgod",
-    "where_social": "social",
-    "where_email": "email",
-    "where_tp": "tp",
+CHANNELS_BY_BRAND = {
+    "gravelgod": {
+        "where_site": "gravelgod",
+        "where_social": "social",
+        "where_email": "email",
+        "where_tp": "tp",
+    },
+    "roadielabs": {
+        "where_site": "roadie",
+        "where_social": "social",
+        "where_email": "email",
+        "where_tp": "tp",
+    },
+    "xcskilabs": {
+        "where_site": "xcskilabs",
+        "where_social": "social",
+        "where_email": "email",
+        "where_tp": "tp",
+    },
 }
+CHANNELS = CHANNELS_BY_BRAND["gravelgod"]
 
 # need_* checkbox -> the receipt's plain-English list, in the athlete's terms.
 NEEDS_PLAIN = {
@@ -67,12 +82,27 @@ SHARE_TIER_ALERT = {
     "initial": "first name + last initial",
     "age_group": "first name + age group",
 }
-CHANNEL_LABELS = {
-    "where_site": "gravelgodcycling.com",
-    "where_social": "Gravel God social posts",
-    "where_email": "Emails to riders thinking about coaching",
-    "where_tp": "My TrainingPeaks coach profile",
+CHANNEL_LABELS_BY_BRAND = {
+    "gravelgod": {
+        "where_site": "gravelgodcycling.com",
+        "where_social": "Gravel God social posts",
+        "where_email": "Emails to riders thinking about coaching",
+        "where_tp": "My TrainingPeaks coach profile",
+    },
+    "roadielabs": {
+        "where_site": "roadielabs.com",
+        "where_social": "Roadie Labs social posts",
+        "where_email": "Emails to riders thinking about coaching",
+        "where_tp": "My TrainingPeaks coach profile",
+    },
+    "xcskilabs": {
+        "where_site": "xcskilabs.com",
+        "where_social": "XC Ski Labs social posts",
+        "where_email": "Emails to skiers thinking about coaching",
+        "where_tp": "My TrainingPeaks coach profile",
+    },
 }
+CHANNEL_LABELS = CHANNEL_LABELS_BY_BRAND["gravelgod"]
 CONNECTION_LABELS = {
     "none": "No, just coaching",
     "comped": "You coached me free or at a discount",
@@ -118,15 +148,21 @@ def receipt_fields(answers: dict) -> dict:
     return out
 
 
-def _checkin_month(code: str, now: datetime) -> str:
-    """"Before next season" is the January after this one; the others count
-    on from today. Mirrors the worker's checkinMonth."""
+def _checkin_month(code: str, now: datetime, brand: str = "gravelgod") -> str:
+    """Return the requested follow-up month for the athlete's sport.
+
+    Gravel and road builds restart in January; XC's dry-land build should be
+    checked before snow season, in September. The others count on from today.
+    Mirrors the worker's checkinMonth.
+    """
     months = {"3m": 3, "6m": 6}.get(code)
     if months is not None:
         total = now.year * 12 + (now.month - 1) + months
         return f"{MONTHS[total % 12]} {total // 12}"
     if code == "preseason":
-        return f"January {now.year + 1}"
+        month = 9 if brand == "xcskilabs" else 1
+        year = now.year + (1 if now.month >= month else 0)
+        return f"{MONTHS[month - 1]} {year}"
     return ""
 
 
@@ -160,15 +196,23 @@ def consent_actions(answers: dict, *, channel_labels: dict, connection_labels: d
     return actions
 
 
-def next_actions(answers: dict, now: datetime | None = None) -> list[str]:
+def _brand(mapping: dict, brand: str) -> dict:
+    return mapping.get(brand, mapping["gravelgod"])
+
+
+def next_actions(answers: dict, now: datetime | None = None,
+                 brand: str = "gravelgod") -> list[str]:
     """What Matti has to do, derived from the answers (plain text)."""
     now = now or datetime.now(timezone.utc)
-    actions = consent_actions(answers, channel_labels=CHANNEL_LABELS,
+    actions = consent_actions(answers, channel_labels=_brand(CHANNEL_LABELS_BY_BRAND, brand),
                               connection_labels=CONNECTION_LABELS,
                               roster="the talk-to-an-athlete roster")
     checkin = answers.get("checkin")
     if checkin in CHECKIN_LABELS:
-        actions.append(f"Check in around {_checkin_month(checkin, now)} ({CHECKIN_LABELS[checkin]}).")
+        actions.append(
+            f"Check in around {_checkin_month(checkin, now, brand)} "
+            f"({CHECKIN_LABELS[checkin]})."
+        )
     needs = [label for key, label in NEED_LABELS.items() if answers.get(key) == "yes"]
     if needs:
         actions.append(f"Asked for: {'; '.join(needs)}.")
@@ -176,11 +220,14 @@ def next_actions(answers: dict, now: datetime | None = None) -> list[str]:
 
 
 def consent_record(answers: dict, now: datetime | None = None, *,
-                   source: str = "athlete_exit", channels: dict = CHANNELS) -> dict | None:
+                   source: str = "athlete_exit", channels: dict | None = None,
+                   brand: str = "gravelgod") -> dict | None:
     """The athlete's answer to "Can I share what you wrote above?", shaped
     for the receipts ledger. None when they skipped the question. The race
     debrief (services/plan_debrief.py) builds on it with its own source and
     channel ids."""
+    if channels is None:
+        channels = _brand(CHANNELS_BY_BRAND, brand)
     share = answers.get("share_as")
     if share not in IDENTITY_TIERS:
         return None
@@ -227,7 +274,7 @@ def exit_source_data(brand: str, answers: dict, athlete: str = "",
     if athlete:
         source_data["athlete"] = athlete
     source_data.update(receipt_fields(answers))
-    consent = consent_record(answers, now)
+    consent = consent_record(answers, now, brand=brand)
     if consent:
         source_data["consent"] = consent
     return source_data

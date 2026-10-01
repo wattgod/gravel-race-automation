@@ -72,19 +72,30 @@ def _send_receipt(enrollment, monkeypatch):
 
 
 class TestSequence:
-    def test_one_receipt_same_day(self):
-        seqs = get_sequences_for_trigger("athlete_exit", "gravelgod")
-        assert [s["id"] for s in seqs] == ["athlete_exit_v1"]
+    @pytest.mark.parametrize("brand,sequence_id,template", [
+        ("gravelgod", "athlete_exit_v1", "athlete_exit_receipt"),
+        ("roadielabs", "road_athlete_exit_v1", "road_athlete_exit_receipt"),
+        ("xcskilabs", "xc_athlete_exit_v1", "xc_athlete_exit_receipt"),
+    ])
+    def test_one_receipt_same_day(self, brand, sequence_id, template):
+        seqs = get_sequences_for_trigger("athlete_exit", brand)
+        assert [s["id"] for s in seqs] == [sequence_id]
         steps = seqs[0]["variants"]["A"]["steps"]
-        assert steps == [{"delay_days": 0, "template": "athlete_exit_receipt", "subject": "got it"}]
+        assert steps == [{"delay_days": 0, "template": template, "subject": "got it"}]
 
     def test_no_other_brand_or_trigger_reaches_it(self):
-        assert get_sequences_for_trigger("athlete_exit", "roadielabs") == []
-        assert [s for s in SEQUENCES.values() if s.get("trigger") == "athlete_exit"] == [SEQUENCES["athlete_exit_v1"]]
+        assert get_sequences_for_trigger("athlete_exit", "not-a-brand") == []
+        assert sorted(s["id"] for s in SEQUENCES.values() if s.get("trigger") == "athlete_exit") == [
+            "athlete_exit_v1", "road_athlete_exit_v1", "xc_athlete_exit_v1"]
 
-    def test_receipt_template_exists(self):
-        assert (ROOT / "mission_control" / "templates" / "emails" / "sequences"
-                / "athlete_exit_receipt.html").exists()
+    def test_receipt_templates_exist_and_carry_their_brand(self):
+        root = ROOT / "mission_control" / "templates" / "emails" / "sequences"
+        gg = (root / "athlete_exit_receipt.html").read_text()
+        road = (root / "road_athlete_exit_receipt.html").read_text()
+        xc = (root / "xc_athlete_exit_receipt.html").read_text()
+        assert "Gravel God Cycling" in gg
+        assert "Roadie Labs" in road and "Gravel God" not in road
+        assert "XC Ski Labs" in xc and "Gravel God" not in xc
 
     def test_transactional_in_the_engine_and_the_lead_bridge(self):
         from mission_control.services import lead_nurture, sequence_engine
@@ -93,6 +104,18 @@ class TestSequence:
 
 
 class TestStorage:
+    @pytest.mark.parametrize("brand,sequence_id,site_channel", [
+        ("roadielabs", "road_athlete_exit_v1", "roadie"),
+        ("xcskilabs", "xc_athlete_exit_v1", "xcskilabs"),
+    ])
+    def test_brand_routes_to_its_own_sequence_and_consent_channel(
+            self, client, fake_db, brand, sequence_id, site_channel):
+        resp = _post(client, _exit_body(brand=brand))
+        assert resp.status_code == 200 and resp.json()["enrolled"] == [sequence_id]
+        row = _enrollments(fake_db)[0]
+        assert row["source_data"]["brand"] == brand
+        assert row["source_data"]["consent"]["channels"][0] == site_channel
+
     def test_every_field_on_the_form_arrives_stored(self, client, fake_db):
         """One key per input on the page, straight from the variant, so a new
         question cannot be added without this noticing a whitelist drop."""
@@ -624,6 +647,14 @@ class TestBothAlertsAgree:
         {"exit_reason": "other", "connection": "boss", "share_as": "full", "quote": "Test answer: fine."},
     ]
 
+    def test_preseason_follow_up_uses_the_sports_calendar(self):
+        from mission_control.services.athlete_exit import next_actions
+
+        answers = {"exit_reason": "fit", "checkin": "preseason"}
+        february = datetime(2027, 2, 10, tzinfo=timezone.utc)
+        assert "January 2028" in next_actions(answers, february, "roadielabs")[0]
+        assert "September 2027" in next_actions(answers, february, "xcskilabs")[0]
+
     @pytest.mark.skipif(shutil.which("node") is None, reason="needs node")
     @pytest.mark.parametrize("answers", CASES)
     def test_same_next_actions(self, answers):
@@ -655,6 +686,8 @@ class TestBothAlertsAgree:
 
         assert ax.CONNECTION_LABELS == options("connection")
         assert ax.CHANNEL_LABELS == options("share_where")
+        assert ax.CHANNEL_LABELS_BY_BRAND["roadielabs"]["where_site"] == "roadielabs.com"
+        assert ax.CHANNEL_LABELS_BY_BRAND["xcskilabs"]["where_site"] == "xcskilabs.com"
         assert ax.NEED_LABELS == options("needs")
         assert ax.CHECKIN_LABELS == {k: v for k, v in options("checkin").items() if k != "none"}
         assert set(ax.AGE_GROUPS) == set(options("age_group"))

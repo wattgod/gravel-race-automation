@@ -212,9 +212,11 @@ test('the alert carries every answer, and the next actions come first', async ()
   assert.ok(html.includes('test-rider-a'));
 });
 
-test('check-in months count on from today', async () => {
-  const month = async (checkin, now) => {
-    const { alert } = await runExit(exitPayload({ exit_reason: 'done', checkin }), { now });
+test('check-in months count on from today and preseason follows the sport', async () => {
+  const month = async (checkin, now, brand = 'gravelgod') => {
+    const { alert } = await runExit(exitPayload(
+      { exit_reason: 'done', checkin }, { brand },
+    ), { now });
     return (alert.html.match(/Check in around ([A-Za-z]+ \d{4})/) || [])[1];
   };
   assert.equal(await month('3m', '2026-09-29T12:00:00Z'), 'December 2026');
@@ -222,6 +224,8 @@ test('check-in months count on from today', async () => {
   assert.equal(await month('3m', '2026-11-30T12:00:00Z'), 'February 2027');
   assert.equal(await month('preseason', '2026-09-29T12:00:00Z'), 'January 2027');
   assert.equal(await month('preseason', '2027-02-10T12:00:00Z'), 'January 2028');
+  assert.equal(await month('preseason', '2026-09-29T12:00:00Z', 'xcskilabs'), 'September 2027');
+  assert.equal(await month('preseason', '2027-02-10T12:00:00Z', 'xcskilabs'), 'September 2027');
   assert.equal(await month('none', '2026-09-29T12:00:00Z'), undefined);
 });
 

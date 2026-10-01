@@ -647,6 +647,14 @@ class TestBothAlertsAgree:
         {"exit_reason": "other", "connection": "boss", "share_as": "full", "quote": "Test answer: fine."},
     ]
 
+    def test_preseason_follow_up_uses_the_sports_calendar(self):
+        from mission_control.services.athlete_exit import next_actions
+
+        answers = {"exit_reason": "fit", "checkin": "preseason"}
+        february = datetime(2027, 2, 10, tzinfo=timezone.utc)
+        assert "January 2028" in next_actions(answers, february, "roadielabs")[0]
+        assert "September 2027" in next_actions(answers, february, "xcskilabs")[0]
+
     @pytest.mark.skipif(shutil.which("node") is None, reason="needs node")
     @pytest.mark.parametrize("answers", CASES)
     def test_same_next_actions(self, answers):

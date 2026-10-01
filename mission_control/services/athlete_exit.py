@@ -148,15 +148,21 @@ def receipt_fields(answers: dict) -> dict:
     return out
 
 
-def _checkin_month(code: str, now: datetime) -> str:
-    """"Before next season" is the January after this one; the others count
-    on from today. Mirrors the worker's checkinMonth."""
+def _checkin_month(code: str, now: datetime, brand: str = "gravelgod") -> str:
+    """Return the requested follow-up month for the athlete's sport.
+
+    Gravel and road builds restart in January; XC's dry-land build should be
+    checked before snow season, in September. The others count on from today.
+    Mirrors the worker's checkinMonth.
+    """
     months = {"3m": 3, "6m": 6}.get(code)
     if months is not None:
         total = now.year * 12 + (now.month - 1) + months
         return f"{MONTHS[total % 12]} {total // 12}"
     if code == "preseason":
-        return f"January {now.year + 1}"
+        month = 9 if brand == "xcskilabs" else 1
+        year = now.year + (1 if now.month >= month else 0)
+        return f"{MONTHS[month - 1]} {year}"
     return ""
 
 
@@ -203,7 +209,10 @@ def next_actions(answers: dict, now: datetime | None = None,
                               roster="the talk-to-an-athlete roster")
     checkin = answers.get("checkin")
     if checkin in CHECKIN_LABELS:
-        actions.append(f"Check in around {_checkin_month(checkin, now)} ({CHECKIN_LABELS[checkin]}).")
+        actions.append(
+            f"Check in around {_checkin_month(checkin, now, brand)} "
+            f"({CHECKIN_LABELS[checkin]})."
+        )
     needs = [label for key, label in NEED_LABELS.items() if answers.get(key) == "yes"]
     if needs:
         actions.append(f"Asked for: {'; '.join(needs)}.")

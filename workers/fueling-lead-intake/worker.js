@@ -534,12 +534,16 @@ function monthsFrom(now, n) {
   return `${MONTHS[total % 12]} ${Math.floor(total / 12)}`;
 }
 
-// "Before next season": the gravel build starts over the winter, so the
-// January after this one. The others count on from today.
-function checkinMonth(code, now) {
+// "Before next season" follows the sport: January for bikes, September before
+// XC snow season. The others count on from today.
+function checkinMonth(code, now, brand = 'gravelgod') {
   if (code === '3m') return monthsFrom(now, 3);
   if (code === '6m') return monthsFrom(now, 6);
-  if (code === 'preseason') return `January ${now.getUTCFullYear() + 1}`;
+  if (code === 'preseason') {
+    const month = brand === 'xcskilabs' ? 8 : 0;
+    const year = now.getUTCFullYear() + (now.getUTCMonth() >= month ? 1 : 0);
+    return `${MONTHS[month]} ${year}`;
+  }
   return '';
 }
 
@@ -592,7 +596,7 @@ function exitNextActions(answers, now, brand = 'gravelgod') {
     roster: 'the talk-to-an-athlete roster',
   });
   if (answers.checkin && answers.checkin !== 'none') {
-    const month = checkinMonth(answers.checkin, now);
+    const month = checkinMonth(answers.checkin, now, brand);
     if (month) {
       actions.push(`Check in around ${month} (${exitLabel('checkin', answers.checkin)}).`);
     }

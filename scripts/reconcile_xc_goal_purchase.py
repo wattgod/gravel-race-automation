@@ -50,11 +50,17 @@ def reconcile(session_id: str, goal_ref: str, *, stripe_api, db, api_key: str) -
     email = (details.get("email") or session.customer_email or "").strip().lower()
     if not email:
         raise ValueError("Checkout Session has no buyer email")
-    rows = (db._table("gg_sequence_enrollments")
-            .select("source,contact_email,source_data")
-            .eq("contact_email", email).eq("source", "goal_2027")
-            .limit(10).execute().data or [])
-    review = matching_review(rows, email, goal_ref)
+    review = None
+    offset = 0
+    while True:
+        rows = (db._table("gg_sequence_enrollments")
+                .select("source,contact_email,source_data")
+                .eq("contact_email", email).eq("source", "goal_2027")
+                .range(offset, offset + 999).execute().data or [])
+        review = matching_review(rows, email, goal_ref)
+        if review or len(rows) < 1000:
+            break
+        offset += 1000
     if not review:
         raise ValueError("No matching XC review for the paid buyer")
     source_data = review.get("source_data") or {}

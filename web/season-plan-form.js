@@ -32,6 +32,7 @@
     // every token match, caught by re-screenshotting after this fix).
     return /^[A-Za-z0-9_-]{16,64}$/.test(v) ? v : '';
   })();
+  var prefillEmail = '';
   // sol review round 2: ?t= is a bearer credential (unlocks name/email/
   // goal/race/habits for a valid token) that would otherwise sit in the
   // visible URL for the rest of this visit — browser history, anything
@@ -100,6 +101,7 @@
       // typed while this fetch was still in flight.
       if (data.name && nameInput && !nameInput.value) { nameInput.value = data.name; }
       if (data.email && emailInput && !emailInput.value) { emailInput.value = data.email; }
+      prefillEmail = String(data.email || '').trim().toLowerCase();
       showPrefillField('gg-sp-goal-onfile', 'Goal', data.goal);
       showPrefillField('gg-sp-habits-onfile', 'Habits', data.habits);
       if (data.a_race_name) {
@@ -219,7 +221,7 @@
   }
 
   /* ---- Submit -> create-checkout, product: "season_plan" ---- */
-  form.addEventListener('submit', function(e) {
+  form.addEventListener('submit', async function(e) {
     e.preventDefault();
 
     // Honeypot: a filled hidden field means a bot. Fail silently, no error
@@ -265,6 +267,15 @@
     if (OFFER_VARIANT) { payload.offer_variant = OFFER_VARIANT; }
     if (ENTRY_SRC) { payload.entry_src = ENTRY_SRC; }
     if (RACE_SLUG) { payload.race_slug = RACE_SLUG; }
+    if (TOKEN && prefillEmail && payload.email.toLowerCase() === prefillEmail &&
+        window.crypto && crypto.subtle) {
+      try {
+        var hash = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(TOKEN));
+        payload.goal_ref = Array.from(new Uint8Array(hash)).map(function(b) {
+          return b.toString(16).padStart(2, '0');
+        }).join('');
+      } catch (err) { /* attribution must never block checkout */ }
+    }
 
     ga4('begin_checkout', {
       currency: 'USD',

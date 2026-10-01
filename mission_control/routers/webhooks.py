@@ -624,7 +624,7 @@ async def subscriber_webhook(
     # A resubmitted exit or debrief is updated in place, so nothing new
     # enrolls; its backup alert still goes, or a failed worker alert would
     # mean none.
-    exit_updated = source in _NOT_LEAD_SOURCES and updated_in_place and not enrolled
+    exit_updated = (source in _NOT_LEAD_SOURCES or source == "goal_2027") and updated_in_place and not enrolled
     if enrolled or unrouted or exit_updated:
         try:
             await _send_enrollment_alert(email, name, brand, source, source_data, enrolled,

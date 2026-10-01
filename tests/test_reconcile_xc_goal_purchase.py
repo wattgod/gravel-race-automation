@@ -25,7 +25,7 @@ def _dependencies(email="rider@example.com", paid="paid"):
     chain = MagicMock()
     chain.select.return_value = chain
     chain.eq.return_value = chain
-    chain.limit.return_value = chain
+    chain.range.return_value = chain
     chain.execute.return_value = SimpleNamespace(data=[{
         "source": "goal_2027", "contact_email": "rider@example.com",
         "source_data": {"brand": "xcskilabs", "poster_token": token,
@@ -44,6 +44,23 @@ def test_paid_matching_buyer_is_joined():
     metadata = stripe.checkout.Session.modify.call_args.kwargs["metadata"]
     assert metadata == {"goal_ref": ref, "brand": "xcskilabs",
                         "entry_src": "race", "offer_variant": "C"}
+
+
+def test_paid_review_on_later_page_is_joined():
+    mod = _module()
+    ref, stripe, db = _dependencies()
+    chain = db._table.return_value
+    matching_row = chain.execute.return_value.data[0]
+    unrelated = {"source": "goal_2027", "contact_email": "rider@example.com",
+                 "source_data": {"brand": "xcskilabs", "poster_token": "unrelated"}}
+    chain.execute.side_effect = [
+        SimpleNamespace(data=[unrelated] * 1000),
+        SimpleNamespace(data=[matching_row]),
+    ]
+    mod.reconcile("cs_live_123abc", ref, stripe_api=stripe, db=db, api_key="test-key")
+    assert chain.range.call_count == 2
+    assert chain.range.call_args_list[1].args == (1000, 1999)
+    stripe.checkout.Session.modify.assert_called_once()
 
 
 @pytest.mark.parametrize("email,paid", [

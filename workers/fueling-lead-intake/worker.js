@@ -494,6 +494,24 @@ const EXIT_CHANNEL_LABELS = {
   where_email: 'Emails to riders thinking about coaching',
   where_tp: 'My TrainingPeaks coach profile',
 };
+const EXIT_CHANNEL_LABELS_BY_BRAND = {
+  gravelgod: EXIT_CHANNEL_LABELS,
+  roadielabs: {
+    where_site: 'roadielabs.com',
+    where_social: 'Roadie Labs social posts',
+    where_email: 'Emails to riders thinking about coaching',
+    where_tp: 'My TrainingPeaks coach profile',
+  },
+  xcskilabs: {
+    where_site: 'xcskilabs.com',
+    where_social: 'XC Ski Labs social posts',
+    where_email: 'Emails to skiers thinking about coaching',
+    where_tp: 'My TrainingPeaks coach profile',
+  },
+};
+function exitChannelLabels(brand) {
+  return EXIT_CHANNEL_LABELS_BY_BRAND[brand] || EXIT_CHANNEL_LABELS;
+}
 const EXIT_NEED_LABELS = {
   need_zones: 'A summary of my zones and latest tests',
   need_notes: 'Notes for training on my own',
@@ -567,9 +585,9 @@ function consentActions(answers, { channelLabels, connectionLabels, roster }) {
 // it is rendered. Mission Control's backup alert builds the same list
 // (mission_control/services/athlete_exit.py next_actions); a test holds the
 // two to the same output.
-function exitNextActions(answers, now) {
+function exitNextActions(answers, now, brand = 'gravelgod') {
   const actions = consentActions(answers, {
-    channelLabels: EXIT_CHANNEL_LABELS,
+    channelLabels: exitChannelLabels(brand),
     connectionLabels: EXIT_OPTION_LABELS.connection,
     roster: 'the talk-to-an-athlete roster',
   });
@@ -597,8 +615,9 @@ function answerDisplay(key, value, optionLabels, tickLabels) {
   return value;
 }
 
-function exitAnswerDisplay(key, value) {
-  return answerDisplay(key, value, EXIT_OPTION_LABELS, { ...EXIT_CHANNEL_LABELS, ...EXIT_NEED_LABELS });
+function exitAnswerDisplay(key, value, brand = 'gravelgod') {
+  return answerDisplay(key, value, EXIT_OPTION_LABELS,
+    { ...exitChannelLabels(brand), ...EXIT_NEED_LABELS });
 }
 
 // Matti's alert for a questionnaire that is not a lead: Next actions first,
@@ -654,14 +673,15 @@ async function sendQuestionnaireAlert(env, data, { kicker, meta, subject, action
 async function sendAthleteExitEmail(env, data) {
   const answers = data.goal_answers || {};
   const reason = exitLabel('exit_reason', answers.exit_reason) || 'no reason given';
+  const brand = data.brand || 'gravelgod';
   return sendQuestionnaireAlert(env, data, {
     kicker: 'ATHLETE EXIT SURVEY',
-    meta: `${esc(data.athlete || 'no athlete tag')} &middot; ${esc(data.email)} &middot; ${esc(reason)}`,
-    subject: `[GG] Exit survey · ${(data.name || data.email).substring(0, 60)} · ${reason}`,
-    actions: exitNextActions(answers, new Date()),
-    display: exitAnswerDisplay,
+    meta: `${esc(brandLabel(brand))} &middot; ${esc(data.athlete || 'no athlete tag')} &middot; ${esc(data.email)} &middot; ${esc(reason)}`,
+    subject: `[${brandTag(brand)}] Exit survey · ${(data.name || data.email).substring(0, 60)} · ${reason}`,
+    actions: exitNextActions(answers, new Date(), brand),
+    display: (key, value) => exitAnswerDisplay(key, value, brand),
     logName: 'Athlete exit',
-    from: 'Gravel God <noreply@gravelgodcycling.com>',
+    from: `${brandLabel(brand)} <noreply@gravelgodcycling.com>`,
   });
 }
 

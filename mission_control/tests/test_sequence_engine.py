@@ -1287,7 +1287,8 @@ class TestReceiptSequencesAreOneEmail:
         from mission_control.sequences import SEQUENCES
         from mission_control.services.sequence_engine import _RECEIPT_TRIGGERS
         receipts = {sid: seq for sid, seq in SEQUENCES.items() if seq.get("trigger") in _RECEIPT_TRIGGERS}
-        assert {"athlete_review_v1", "athlete_exit_v1", "plan_debrief_v1", "road_plan_debrief_v1"} <= set(receipts)
+        assert {"athlete_review_v1", "athlete_exit_v1", "road_athlete_exit_v1",
+                "xc_athlete_exit_v1", "plan_debrief_v1", "road_plan_debrief_v1"} <= set(receipts)
         for sid, seq in receipts.items():
             for key, variant in seq["variants"].items():
                 assert len(variant["steps"]) == 1, f"{sid} variant {key} has {len(variant['steps'])} steps"

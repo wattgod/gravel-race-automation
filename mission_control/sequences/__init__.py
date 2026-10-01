@@ -22,7 +22,11 @@ from mission_control.sequences.xc_welcome import SEQUENCE as xc_welcome
 from mission_control.sequences.xc_win_back import SEQUENCE as xc_win_back
 from mission_control.sequences.kit_delivery import GG as kit_delivery, ROAD as road_kit_delivery
 from mission_control.sequences.race_watch import SEQUENCE as race_watch
-from mission_control.sequences.athlete_exit import SEQUENCE as athlete_exit
+from mission_control.sequences.athlete_exit import (
+    GG as athlete_exit,
+    ROAD as road_athlete_exit,
+    XC as xc_athlete_exit,
+)
 from mission_control.sequences.plan_debrief import GG as plan_debrief, ROAD as road_plan_debrief
 from mission_control.sequences.goal_2027 import (
     GG as goal_2027,
@@ -62,6 +66,8 @@ SEQUENCES: dict[str, dict] = {
     XC_DEBRIEF["id"]: XC_DEBRIEF,
     race_watch["id"]: race_watch,
     athlete_exit["id"]: athlete_exit,
+    road_athlete_exit["id"]: road_athlete_exit,
+    xc_athlete_exit["id"]: xc_athlete_exit,
     plan_debrief["id"]: plan_debrief,
     road_plan_debrief["id"]: road_plan_debrief,
 }

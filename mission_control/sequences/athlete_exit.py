@@ -9,7 +9,7 @@ unsubscribe guard, the sales deal) neither drop the receipt nor open a deal.
 # DRAFT COPY: Matti's read pending before deploy (receipts spec §3.7: Matti writes every ask).
 # The receipt, templates/emails/sequences/athlete_exit_receipt.html, and the
 # plain-English strings it fills in (services/athlete_exit.py) are draft too.
-SEQUENCE = {
+GG = {
     "id": "athlete_exit_v1",
     "name": "Athlete Exit Survey (Gravel God)",
     "description": "Receipt for a leaving athlete's exit survey. Never nurture.",
@@ -17,5 +17,25 @@ SEQUENCE = {
     "active": True,
     "variants": {"A": {"weight": 100, "name": "Receipt", "steps": [
         {"delay_days": 0, "template": "athlete_exit_receipt", "subject": "got it"},
+    ]}},
+}
+
+ROAD = {
+    **GG,
+    "id": "road_athlete_exit_v1",
+    "name": "Athlete Exit Survey (Roadie Labs)",
+    "brand": "roadielabs",
+    "variants": {"A": {"weight": 100, "name": "Receipt", "steps": [
+        {"delay_days": 0, "template": "road_athlete_exit_receipt", "subject": "got it"},
+    ]}},
+}
+
+XC = {
+    **GG,
+    "id": "xc_athlete_exit_v1",
+    "name": "Athlete Exit Survey (XC Ski Labs)",
+    "brand": "xcskilabs",
+    "variants": {"A": {"weight": 100, "name": "Receipt", "steps": [
+        {"delay_days": 0, "template": "xc_athlete_exit_receipt", "subject": "got it"},
     ]}},
 }

@@ -173,6 +173,23 @@ test('athlete_exit alerts Matti through Resend only, never a marketing list', as
   assert.equal(alert.reply_to, exitFixture.email);
 });
 
+for (const [brand, tag, label, site, social, audience] of [
+  ['roadielabs', 'RL', 'Roadie Labs', 'roadielabs.com', 'Roadie Labs social posts', 'riders'],
+  ['xcskilabs', 'XC', 'XC Ski Labs', 'xcskilabs.com', 'XC Ski Labs social posts', 'skiers'],
+]) {
+  test(`athlete_exit uses ${label} alert identity and consent channels`, async () => {
+    const { mc, alert } = await runExit(exitPayload(undefined, { brand }));
+    assert.equal(mc.brand, brand);
+    assert.equal(alert.subject, `[${tag}] Exit survey · Test Rider A · Life got full`);
+    assert.equal(alert.from, `${label} <noreply@gravelgodcycling.com>`);
+    assert.ok(alert.html.includes(`${label} &middot;`));
+    assert.ok(alert.html.includes(
+      `channels: ${site}, ${social}, Emails to ${audience} thinking about coaching, `
+      + 'My TrainingPeaks coach profile;',
+    ));
+  });
+}
+
 test('the alert carries every answer, and the next actions come first', async () => {
   const { alert } = await runExit(exitPayload());
   const html = alert.html;

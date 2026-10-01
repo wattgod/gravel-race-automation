@@ -1,31 +1,14 @@
 {
- "run_at": "2026-09-17T14:03:13.932963+00:00",
+ "run_at": "2026-10-01T14:03:14.707545+00:00",
  "model": "claude-haiku-4-5",
  "races": [
   {
-   "slug": "hibernator",
-   "verdicts": {
-    "distance_mi": "confirmed",
-    "elevation_ft": "confirmed",
-    "field_size": "confirmed",
-    "prize_purse": "confirmed",
-    "registration_cost": "unverifiable",
-    "status": "confirmed"
-   },
-   "mismatches": [],
-   "changes": [],
-   "usage": {
-    "input_tokens": 21413,
-    "output_tokens": 684
-   }
-  },
-  {
-   "slug": "highlands-gravel-classic",
+   "slug": "king-of-the-lake",
    "verdicts": {
     "distance_mi": "mismatch",
     "elevation_ft": "mismatch",
     "field_size": "confirmed",
-    "prize_purse": "confirmed",
+    "prize_purse": "unverifiable",
     "registration_cost": "confirmed",
     "status": "confirmed"
    },
@@ -33,31 +16,46 @@
     {
      "field": "distance_mi",
      "verdict": "mismatch",
-     "web_value": "68",
+     "web_value": "29",
      "confidence": "high",
-     "source_url": "https://www.highlandsgravelclassic.com/Race/Info/AR/Elkins/HighlandsGravelClassic",
-     "note": "Official race website and multiple sources (Experience Fayetteville, Spokes Collective, Gravel God Cycling) confirm the Highlands course is 68 miles, not 67. Some older sources cite 66-67 miles, but current 2026 sources consistently state 68 miles."
+     "source_url": "https://battistrada.com/en/cycling-calendar/edition/king-of-the-lake-2026/52909/",
+     "note": "Database states 65 mi. Web sources consistently report 47.2 km (29.3 mi). Conversion: 47.2 km ÷ 1.609 = 29.3 miles. Official site and multiple race coverage confirm 47.2 km."
     },
     {
      "field": "elevation_ft",
      "verdict": "mismatch",
-     "web_value": "4950",
+     "web_value": "915",
      "confidence": "high",
-     "source_url": "https://ucigravelworldseries.com/en/highlands-gravel-classic-first-us-qualifier-in-the-uci-gravel-world-series/",
-     "note": "UCI Gravel World Series official page states 4950 ft of elevation for the Highlands course, not 4850 ft. Strambecco cites 6150 ft total climbing, but UCI source specifically states 4950 ft elevation gain."
+     "source_url": "https://battistrada.com/en/cycling-calendar/edition/king-of-the-lake-2026/52909/",
+     "note": "Database states 3500 ft. Web sources consistently report 280 m elevation gain. Conversion: 280 m × 3.281 = 918 ft (approximately 915 ft). Official sources confirm 280 m of elevation."
     }
    ],
-   "changes": [],
+   "changes": [
+    {
+     "field": "vitals.distance_mi",
+     "old": 65.0,
+     "new": 29.0,
+     "source": "https://battistrada.com/en/cycling-calendar/edition/king-of-the-lake-2026/52909/",
+     "flag_only": true
+    },
+    {
+     "field": "vitals.elevation_ft",
+     "old": 3500.0,
+     "new": 915.0,
+     "source": "https://battistrada.com/en/cycling-calendar/edition/king-of-the-lake-2026/52909/",
+     "flag_only": true
+    }
+   ],
    "usage": {
-    "input_tokens": 45748,
-    "output_tokens": 897
+    "input_tokens": 56958,
+    "output_tokens": 908
    }
   },
   {
-   "slug": "holly-shelter-gravel-grinder",
+   "slug": "kowtown-gravel",
    "verdicts": {
     "distance_mi": "mismatch",
-    "elevation_ft": "mismatch",
+    "elevation_ft": "unverifiable",
     "field_size": "unverifiable",
     "prize_purse": "unverifiable",
     "registration_cost": "confirmed",
@@ -67,31 +65,57 @@
     {
      "field": "distance_mi",
      "verdict": "mismatch",
-     "web_value": "75",
+     "web_value": "88",
      "confidence": "high",
-     "source_url": "https://gravelgodcycling.com/race/holly-shelter-gravel-grinder/",
-     "note": "The race offers three distance options: 32 miles, 50 miles, and 100 miles. The database references 75 miles, but the official sources show only 32/50/100-mile options. Gravel God explicitly references '75 miles' once in a training guide, but this appears to be intermediate/averaged estimate, not an official distance. No official 75-mile distance found."
-    },
-    {
-     "field": "elevation_ft",
-     "verdict": "mismatch",
-     "web_value": "minimal/flat",
-     "confidence": "high",
-     "source_url": "https://www.elite-wheels.com/events/holly-shelter-gravel-grinder-2026/",
-     "note": "Multiple sources describe terrain as 'flat,' 'flat coastal plain,' 'minimal elevation gain,' and 'minimal to rolling.' One RideWithGPS source lists Short Course at +96 ft. The 1500 ft elevation gain in database contradicts all available sources."
+     "source_url": "https://www.kowtowngravel.com/",
+     "note": "Official website states Bull Course is 88 miles. However, 2026 distance data shows variations by course: Bull 88 mi, Cow 54 mi, Calf 28 mi. Database claim of 88 mi matches the Bull course specifically."
     }
    ],
    "changes": [],
    "usage": {
-    "input_tokens": 24274,
-    "output_tokens": 850
+    "input_tokens": 52900,
+    "output_tokens": 924
    }
   },
   {
-   "slug": "homegrown-gravel-adventure",
+   "slug": "la-dromoise-gravel",
+   "verdicts": {
+    "distance_mi": "mismatch",
+    "elevation_ft": "confirmed",
+    "field_size": "confirmed",
+    "prize_purse": "unverifiable",
+    "registration_cost": "mismatch",
+    "status": "confirmed"
+   },
+   "mismatches": [
+    {
+     "field": "distance_mi",
+     "verdict": "mismatch",
+     "web_value": "43.5",
+     "confidence": "high",
+     "source_url": "https://www.finishers.com/en/event/la-dromoise",
+     "note": "Finishers lists Gravel Bike 40 km (26.2 mi, 961 m D+) and Gravel Bike 70 km (43.5 mi, 1587 m D+). Database specifies 43 mi, but web shows 70 km = 43.5 mi for the larger gravel course. The 40 km = 24.9 mi option differs from 43 mi, making it a mismatch without clarity on which specific distance is referenced."
+    },
+    {
+     "field": "registration_cost",
+     "verdict": "mismatch",
+     "web_value": "€50",
+     "confidence": "medium",
+     "source_url": "https://www.cycloworld.cc/en/gran-fondo/france/la-dromoise-le-diois/41039",
+     "note": "CycloWorld shows €50 for Diois category. Database states €70-90 via Finishers. Actual fees likely vary by distance/format (Gravel 40/70 km vs. road courses). Registration confirmed on SportsnConnect, not Finishers as database states."
+    }
+   ],
+   "changes": [],
+   "usage": {
+    "input_tokens": 55288,
+    "output_tokens": 1051
+   }
+  },
+  {
+   "slug": "la-epica-gravel-grinder",
    "verdicts": {
     "distance_mi": "confirmed",
-    "elevation_ft": "confirmed",
+    "elevation_ft": "unverifiable",
     "field_size": "confirmed",
     "prize_purse": "confirmed",
     "registration_cost": "mismatch",
@@ -101,20 +125,37 @@
     {
      "field": "registration_cost",
      "verdict": "mismatch",
-     "web_value": "85-125",
+     "web_value": "$95 competitive mountain bike single-stage (120km Saturday only); $150 for two-day competitive gravel/MTB formats",
      "confidence": "high",
-     "source_url": "https://homegrowngravel.com/faq/",
-     "note": "Official FAQ lists tiered pricing: Oct 12 - Dec 13: $85; Dec 14 - Jan 31: $105; Feb 1 - Feb 27: $125. Database states $85-$150, but highest tier found is $125."
+     "source_url": "https://www.bikereg.com/la-epica-gravel-grinder-2027",
+     "note": "Database claims $165 for 'competitive two-stage gravel category.' BikeReg 2027 shows: Men/Women OPEN (Competitive) Mountain Bike for single Saturday stage: $95. Men/Women OPEN Gravel/MTB for two-day competitive: $150. No $165 rate found. Registration deadline confirmed as March 25, 2027 5:00 PM ET."
     }
    ],
    "changes": [],
    "usage": {
-    "input_tokens": 41593,
-    "output_tokens": 746
+    "input_tokens": 54462,
+    "output_tokens": 1001
    }
   },
   {
-   "slug": "hong-kong-cyclothon",
+   "slug": "la-resistance",
+   "verdicts": {
+    "distance_mi": "confirmed",
+    "elevation_ft": "confirmed",
+    "field_size": "confirmed",
+    "prize_purse": "unverifiable",
+    "registration_cost": "confirmed",
+    "status": "unverifiable"
+   },
+   "mismatches": [],
+   "changes": [],
+   "usage": {
+    "input_tokens": 70679,
+    "output_tokens": 994
+   }
+  },
+  {
+   "slug": "la-vaujany",
    "verdicts": {
     "distance_mi": "confirmed",
     "elevation_ft": "confirmed",
@@ -126,33 +167,16 @@
    "mismatches": [],
    "changes": [],
    "usage": {
-    "input_tokens": 21966,
-    "output_tokens": 681
+    "input_tokens": 54210,
+    "output_tokens": 756
    }
   },
   {
-   "slug": "hot-springs-gravel-gauntlet",
-   "verdicts": {
-    "distance_mi": "confirmed",
-    "elevation_ft": "confirmed",
-    "field_size": "unverifiable",
-    "prize_purse": "unverifiable",
-    "registration_cost": "unverifiable",
-    "status": "confirmed"
-   },
-   "mismatches": [],
-   "changes": [],
-   "usage": {
-    "input_tokens": 36981,
-    "output_tokens": 718
-   }
-  },
-  {
-   "slug": "houffa-gravel",
+   "slug": "lauf-gritfest",
    "verdicts": {
     "distance_mi": "mismatch",
     "elevation_ft": "mismatch",
-    "field_size": "unverifiable",
+    "field_size": "confirmed",
     "prize_purse": "unverifiable",
     "registration_cost": "confirmed",
     "status": "confirmed"
@@ -161,31 +185,470 @@
     {
      "field": "distance_mi",
      "verdict": "mismatch",
-     "web_value": "87.7",
+     "web_value": "75-80",
      "confidence": "high",
-     "source_url": "https://houffagravel.be/en/",
-     "note": "Official site lists 141 km for elite category (3 laps of ~47 km), equaling 87.7 miles, not 86 miles. Historical 2024 and earlier editions used 110 km (68 miles) or 68 km (42 miles) distances. 2026 course redesigned."
+     "source_url": "https://battistrada.com/en/cycling-calendar/edition/lauf-gritfest-gravel-2026/50048/",
+     "note": "The 2026 event has two routes: Day 1 is 75 km (47 mi) and Day 2 is 59 km (37 mi). The database value of 65 miles is significantly lower than the actual distances. Total over 2 days is approximately 134 km (83 mi)."
     },
     {
      "field": "elevation_ft",
      "verdict": "mismatch",
-     "web_value": "7874",
+     "web_value": "10498",
      "confidence": "high",
-     "source_url": "https://bolerogravelseries.be/en/",
-     "note": "Belgian Bolero Gravel Series page states 2400 meters elevation for 141 km distance (2024/2025), converting to ~7,874 ft. VISITWallonia lists older course as 1430m (4,691 ft) for 110km. 2026 course redesigned but elevation not specifically detailed in sources."
+     "source_url": "https://battistrada.com/en/cycling-calendar/edition/lauf-gritfest-gravel-2026/50048/",
+     "note": "2026 event: Day 1 has 1700 m (5577 ft) and Day 2 has 1500 m (4921 ft) of climbing. Total is approximately 3200 m (10,498 ft), which significantly exceeds the database value of 6000 ft."
+    }
+   ],
+   "changes": [
+    {
+     "field": "vitals.distance_mi",
+     "old": 65.0,
+     "new": 75.0,
+     "source": "https://battistrada.com/en/cycling-calendar/edition/lauf-gritfest-gravel-2026/50048/"
+    },
+    {
+     "field": "vitals.elevation_ft",
+     "old": 6000.0,
+     "new": 10498.0,
+     "source": "https://battistrada.com/en/cycling-calendar/edition/lauf-gritfest-gravel-2026/50048/",
+     "flag_only": true
+    }
+   ],
+   "usage": {
+    "input_tokens": 46043,
+    "output_tokens": 951
+   }
+  },
+  {
+   "slug": "lauf-true-grit",
+   "verdicts": {
+    "distance_mi": "confirmed",
+    "elevation_ft": "mismatch",
+    "field_size": "unverifiable",
+    "prize_purse": "unverifiable",
+    "registration_cost": "confirmed",
+    "status": "confirmed"
+   },
+   "mismatches": [
+    {
+     "field": "elevation_ft",
+     "verdict": "mismatch",
+     "web_value": "7000",
+     "confidence": "high",
+     "source_url": "https://battistrada.com/en/cycling-calendar/edition/true-grit-gravel-epic-2026/47239/",
+     "note": "Battistrada lists 2134m (7000 ft) for the 84 mi route. However, strambecco.com (163 days old) states 'nearly 7,000 feet' for 2027, and gravelgodcycling.com (34 days old) lists 9,000 ft. CXMagazine 2019 article also mentions 'nearly 9,000 feet.' Official site gropromotions.com states 9000 ft. Web sources conflict; taking official organizer source as authoritative."
+    }
+   ],
+   "changes": [
+    {
+     "field": "vitals.elevation_ft",
+     "old": 9000.0,
+     "new": 7000.0,
+     "source": "https://battistrada.com/en/cycling-calendar/edition/true-grit-gravel-epic-2026/47239/"
+    }
+   ],
+   "usage": {
+    "input_tokens": 52540,
+    "output_tokens": 972
+   }
+  },
+  {
+   "slug": "le-grand-du-nord",
+   "verdicts": {
+    "distance_mi": "confirmed",
+    "elevation_ft": "confirmed",
+    "field_size": "confirmed",
+    "prize_purse": "unverifiable",
+    "registration_cost": "mismatch",
+    "status": "confirmed"
+   },
+   "mismatches": [
+    {
+     "field": "registration_cost",
+     "verdict": "mismatch",
+     "web_value": "$75 (base) + service fees; typical total $80.75",
+     "confidence": "high",
+     "source_url": "https://www.heckofthenorth.com/legrand-registration",
+     "note": "Official Heck of the North site lists $75 for 110 mi. Registration sites show $80.75 total including service fees. Database claims '$90-$140' appears inflated; actual base is $75, with service fees bringing it to ~$80.75. GravelGodCycling lists $90-$140 but appears to include other associated costs."
     }
    ],
    "changes": [],
    "usage": {
-    "input_tokens": 26171,
-    "output_tokens": 907
+    "input_tokens": 52878,
+    "output_tokens": 860
    }
   },
   {
-   "slug": "huffmaster-grasshopper",
+   "slug": "leadville-100",
+   "verdicts": {
+    "distance_mi": "mismatch",
+    "elevation_ft": "mismatch",
+    "field_size": "confirmed",
+    "prize_purse": "mismatch",
+    "registration_cost": "confirmed",
+    "status": "confirmed"
+   },
+   "mismatches": [
+    {
+     "field": "distance_mi",
+     "verdict": "mismatch",
+     "web_value": "102.1",
+     "confidence": "high",
+     "source_url": "https://www.cyclingnews.com/races/leadville-trail-100-mtb-2026/",
+     "note": "2026 course distance is 102.1 miles (164.3 km), not 100 miles. Modified due to Willow Fire."
+    },
+    {
+     "field": "elevation_ft",
+     "verdict": "mismatch",
+     "web_value": "9916",
+     "confidence": "high",
+     "source_url": "https://www.cyclingnews.com/races/leadville-trail-100-mtb-2026/",
+     "note": "2026 elevation gain is 9,916 feet, not 11,900 feet. Modified route excludes Powerline, Sugarloaf, and Hagerman Pass."
+    },
+    {
+     "field": "prize_purse",
+     "verdict": "mismatch",
+     "web_value": "60000",
+     "confidence": "high",
+     "source_url": "https://www.leadvilleraceseries.com/mtb/leadvilletrail100mtb/",
+     "note": "Prize purse increased to $60,000 in 2026 (doubled from prior year), split evenly between elite men and women."
+    }
+   ],
+   "changes": [
+    {
+     "field": "vitals.elevation_ft",
+     "old": 11900.0,
+     "new": 9916.0,
+     "source": "https://www.cyclingnews.com/races/leadville-trail-100-mtb-2026/"
+    },
+    {
+     "field": "vitals.prize_purse",
+     "old": "$25,000+",
+     "new": "60000",
+     "source": "https://www.leadvilleraceseries.com/mtb/leadvilletrail100mtb/"
+    },
+    {
+     "field": "rating.elevation",
+     "old": 5,
+     "new": 4,
+     "source": "rubric recompute"
+    },
+    {
+     "field": "biased_opinion_ratings.elevation.score",
+     "old": 5,
+     "new": 4,
+     "source": "rubric recompute (sync)"
+    },
+    {
+     "field": "rating.overall_score",
+     "old": 89,
+     "new": 87,
+     "source": "rubric recompute"
+    }
+   ],
+   "usage": {
+    "input_tokens": 49588,
+    "output_tokens": 818
+   }
+  },
+  {
+   "slug": "little-apple-100",
    "verdicts": {
     "distance_mi": "confirmed",
+    "elevation_ft": "confirmed",
+    "field_size": "unverifiable",
+    "prize_purse": "confirmed",
+    "registration_cost": "confirmed",
+    "status": "confirmed"
+   },
+   "mismatches": [],
+   "changes": [],
+   "usage": {
+    "input_tokens": 32220,
+    "output_tokens": 866
+   }
+  },
+  {
+   "slug": "little-sugar-mtb",
+   "verdicts": {
+    "distance_mi": "confirmed",
+    "elevation_ft": "confirmed",
+    "field_size": "confirmed",
+    "prize_purse": "mismatch",
+    "registration_cost": "mismatch",
+    "status": "confirmed"
+   },
+   "mismatches": [
+    {
+     "field": "prize_purse",
+     "verdict": "mismatch",
+     "web_value": "$65,000 (2025 inaugural)",
+     "confidence": "high",
+     "source_url": "https://www.pinkbike.com/news/results-little-sugar-mtb-race.html",
+     "note": "Database lists 'Life Time Grand Prix points' as prize purse. However, Pinkbike reports the 2025 inaugural race had a $65,000 prize purse (with $25,000 from Life Time and $40,000 from OZ Brands). The prize structure is monetary, not points-based. Future 2026 prize purse not yet publicly announced, but historical evidence shows cash purses are offered."
+    },
+    {
+     "field": "registration_cost",
+     "verdict": "mismatch",
+     "web_value": "$80-$180 (distance-dependent: 20K $80, 50K $120, 100K $180)",
+     "confidence": "high",
+     "source_url": "https://www.bigsugarclassic.com/registration/",
+     "note": "Database states '$100-$150' for online registration. Official Life Time Big Sugar Classic registration page (dated Sept 2026) shows 2026 pricing: 20K $80, 50K $120, 100K $180. Earlier sources cited $95-$160 range for 2023. The database range does not align with current official pricing structure."
+    }
+   ],
+   "changes": [
+    {
+     "field": "vitals.prize_purse",
+     "old": "Life Time Grand Prix points",
+     "new": "$65,000 (2025 inaugural)",
+     "source": "https://www.pinkbike.com/news/results-little-sugar-mtb-race.html"
+    }
+   ],
+   "usage": {
+    "input_tokens": 51524,
+    "output_tokens": 978
+   }
+  },
+  {
+   "slug": "london-edinburgh-london",
+   "verdicts": {
+    "distance_mi": "confirmed",
+    "elevation_ft": "mismatch",
+    "field_size": "unverifiable",
+    "prize_purse": "unverifiable",
+    "registration_cost": "confirmed",
+    "status": "confirmed"
+   },
+   "mismatches": [
+    {
+     "field": "elevation_ft",
+     "verdict": "mismatch",
+     "web_value": "42000",
+     "confidence": "high",
+     "source_url": "https://www.sportive.com/cycling/543489/new-route-revealed-for-london-edinburgh-london-2025",
+     "note": "2025 edition has 12,800 metres total climbing = ~41,994 ft (approx 42,000 ft). The database lists 36,000 ft, which is ~10,973 metres. The more recent 2025 route information shows increased elevation gain."
+    }
+   ],
+   "changes": [
+    {
+     "field": "vitals.elevation_ft",
+     "old": 36000.0,
+     "new": 42000.0,
+     "source": "https://www.sportive.com/cycling/543489/new-route-revealed-for-london-edinburgh-london-2025"
+    },
+    {
+     "field": "rating.elevation",
+     "old": 4,
+     "new": 5,
+     "source": "rubric recompute"
+    },
+    {
+     "field": "biased_opinion_ratings.elevation.score",
+     "old": 4,
+     "new": 5,
+     "source": "rubric recompute (sync)"
+    },
+    {
+     "field": "rating.overall_score",
+     "old": 74,
+     "new": 76,
+     "source": "rubric recompute"
+    },
+    {
+     "field": "rating.tier",
+     "old": null,
+     "new": 2,
+     "source": "rubric recompute",
+     "tier_change": true
+    }
+   ],
+   "usage": {
+    "input_tokens": 51452,
+    "output_tokens": 787
+   }
+  },
+  {
+   "slug": "lone-wolf-gravel",
+   "verdicts": {
+    "distance_mi": "mismatch",
     "elevation_ft": "unverifiable",
+    "field_size": "mismatch",
+    "prize_purse": "confirmed",
+    "registration_cost": "confirmed",
+    "status": "confirmed"
+   },
+   "mismatches": [
+    {
+     "field": "distance_mi",
+     "verdict": "mismatch",
+     "web_value": "50",
+     "confidence": "high",
+     "source_url": "https://www.bikesignup.com/Race/MI/IronMountain/TheLoneWolfGravelRace",
+     "note": "The database lists 62 miles, but multiple sources confirm the three course options are 36, 50, and 100 miles. If the database intended to track the 50-mile course, that is confirmed. If 62 miles was intended as a distinct distance, it does not appear in any web sources."
+    },
+    {
+     "field": "field_size",
+     "verdict": "mismatch",
+     "web_value": "400",
+     "confidence": "high",
+     "source_url": "https://lmb.org/ride-calendar/lone-wolf-gravel-race/",
+     "note": "League of Michigan Bicyclists listing shows 400 riders expected, significantly higher than the database range of 50-150 riders."
+    }
+   ],
+   "changes": [
+    {
+     "field": "vitals.distance_mi",
+     "old": 62.0,
+     "new": 50.0,
+     "source": "https://www.bikesignup.com/Race/MI/IronMountain/TheLoneWolfGravelRace"
+    },
+    {
+     "field": "vitals.field_size",
+     "old": 50.0,
+     "new": 400.0,
+     "source": "https://lmb.org/ride-calendar/lone-wolf-gravel-race/",
+     "flag_only": true
+    },
+    {
+     "field": "rating.length",
+     "old": 3,
+     "new": 2,
+     "source": "rubric recompute"
+    },
+    {
+     "field": "biased_opinion_ratings.length.score",
+     "old": 3,
+     "new": 2,
+     "source": "rubric recompute (sync)"
+    },
+    {
+     "field": "rating.overall_score",
+     "old": 47,
+     "new": 46,
+     "source": "rubric recompute"
+    }
+   ],
+   "usage": {
+    "input_tokens": 33675,
+    "output_tokens": 847
+   }
+  },
+  {
+   "slug": "lost-and-found-gravel",
+   "verdicts": {
+    "distance_mi": "confirmed",
+    "elevation_ft": "confirmed",
+    "field_size": "mismatch",
+    "prize_purse": "mismatch",
+    "registration_cost": "mismatch",
+    "status": "confirmed"
+   },
+   "mismatches": [
+    {
+     "field": "field_size",
+     "verdict": "mismatch",
+     "web_value": "1000",
+     "confidence": "high",
+     "source_url": "https://www.whiteind.com/lost-and-found-cycling-through-the-lost-sierra/",
+     "note": "White Industries post-event coverage (June 2026) states 'more than 1,000 riders line up at the start' for 2026 race. Database claims ~2,000 riders, which is notably higher. sierradailynews.com also mentions 'About 800 racers and supporters' (though this may not include all categories)"
+    },
+    {
+     "field": "prize_purse",
+     "verdict": "mismatch",
+     "web_value": "$3500",
+     "confidence": "high",
+     "source_url": "https://lostandfoundbikeride.com/lost-and-found/ride.php",
+     "note": "Official website specifies '$3,500 cash purse' with breakdown: 1st place M/F $1,000, 2nd place M/F $500, 3rd place M/F $250. themountainmessenger.org also confirms '$3,500 in cash prizes'. Database describes as 'Modest prizes' which underrepresents the actual purse amount"
+    },
+    {
+     "field": "registration_cost",
+     "verdict": "mismatch",
+     "web_value": "$195-$225",
+     "confidence": "high",
+     "source_url": "https://lostandfoundbikeride.com/lost-and-found/registration.php",
+     "note": "Official registration page lists: HALF CALF (40mi) $195 Adult / $99 Junior; MID MOO (60mi) $225 Adult / $110 Junior; FULL BULL (99mi) not shown in search results but based on pattern likely $245+. Database claims '~$100-180' which is below current pricing. Pricing increases $15 in final two weeks (as of May 28)"
+    }
+   ],
+   "changes": [
+    {
+     "field": "vitals.field_size",
+     "old": 2000.0,
+     "new": 1000.0,
+     "source": "https://www.whiteind.com/lost-and-found-cycling-through-the-lost-sierra/"
+    },
+    {
+     "field": "vitals.prize_purse",
+     "old": "Modest prizes",
+     "new": "$3500",
+     "source": "https://lostandfoundbikeride.com/lost-and-found/ride.php"
+    }
+   ],
+   "usage": {
+    "input_tokens": 49937,
+    "output_tokens": 1038
+   }
+  },
+  {
+   "slug": "lost-river-classic",
+   "verdicts": {
+    "distance_mi": "mismatch",
+    "elevation_ft": "confirmed",
+    "field_size": "confirmed",
+    "prize_purse": "mismatch",
+    "registration_cost": "mismatch",
+    "status": "confirmed"
+   },
+   "mismatches": [
+    {
+     "field": "distance_mi",
+     "verdict": "mismatch",
+     "web_value": "28, 45, 72",
+     "confidence": "high",
+     "source_url": "https://www.granfondoguide.com/Events/Index/10501/lost-river-classic",
+     "note": "Official and multiple sources confirm 2026 race offers distances of 28, 45, and 72 miles. Database states 85mi, 60mi, and 28mi. The 85-mile main route was removed; current offerings are shorter."
+    },
+    {
+     "field": "prize_purse",
+     "verdict": "mismatch",
+     "web_value": "Prize categories exist: Men's/Women's Open $500/3 or merchandise for other categories",
+     "confidence": "high",
+     "source_url": "https://lostrivertrailscoalition.org/lost-river-classic/",
+     "note": "Database says None, but official LRTC site and GravelGodCycling confirm prize categories reaching $1000 for winners and merchandise prizes."
+    },
+    {
+     "field": "registration_cost",
+     "verdict": "mismatch",
+     "web_value": "Early bird $75, then $85 on Jan 2, $100 on Aug 1",
+     "confidence": "high",
+     "source_url": "https://lostrivertrailscoalition.org/lost-river-classic/",
+     "note": "Database states ~$65-85 depending on distance. Official pricing shows $75 early bird, escalating to $100 by August 1. BikeReg 2026 shows $100 standard, $85 for 60-mile route."
+    }
+   ],
+   "changes": [
+    {
+     "field": "vitals.distance_mi",
+     "old": 85.0,
+     "new": 28.0,
+     "source": "https://www.granfondoguide.com/Events/Index/10501/lost-river-classic",
+     "flag_only": true
+    },
+    {
+     "field": "vitals.prize_purse",
+     "old": null,
+     "new": "Prize categories exist: Men's/Women's Open $500/3 or merchandise for other categories",
+     "source": "https://lostrivertrailscoalition.org/lost-river-classic/"
+    }
+   ],
+   "usage": {
+    "input_tokens": 89783,
+    "output_tokens": 995
+   }
+  },
+  {
+   "slug": "low-gap-grasshopper",
+   "verdicts": {
+    "distance_mi": "confirmed",
+    "elevation_ft": "confirmed",
     "field_size": "mismatch",
     "prize_purse": "confirmed",
     "registration_cost": "unverifiable",
@@ -195,180 +658,130 @@
     {
      "field": "field_size",
      "verdict": "mismatch",
-     "web_value": "600",
+     "web_value": "700",
      "confidence": "high",
-     "source_url": "https://strambecco.com/event/huffmaster-hopper/",
-     "note": "Strambecco (Nov 2025 coverage) reports field of 600 participants for 2026 event; database states 'several hundred riders; exact 2026 count not published'"
+     "source_url": "https://battistrada.com/en/cycling-calendar/edition/low-gap-grasshopper-2026/46278/",
+     "note": "Database states 'Several hundred riders; exact 2026 count not published.' However, battistrada lists maximum 700 participants. GravelGodCycling mentions ~500 riders in older coverage, but 2026 cap appears to be 700, not 'several hundred' unspecified."
     }
    ],
    "changes": [
     {
      "field": "vitals.field_size",
      "old": 2026.0,
-     "new": 600.0,
-     "source": "https://strambecco.com/event/huffmaster-hopper/",
+     "new": 700.0,
+     "source": "https://battistrada.com/en/cycling-calendar/edition/low-gap-grasshopper-2026/46278/",
      "flag_only": true
     }
    ],
    "usage": {
-    "input_tokens": 12175,
-    "output_tokens": 580
+    "input_tokens": 51159,
+    "output_tokens": 1007
    }
   },
   {
-   "slug": "hungry-bear-100",
+   "slug": "lowell-classic",
    "verdicts": {
     "distance_mi": "confirmed",
-    "elevation_ft": "unverifiable",
-    "field_size": "mismatch",
-    "prize_purse": "confirmed",
-    "registration_cost": "unverifiable",
-    "status": "confirmed"
-   },
-   "mismatches": [
-    {
-     "field": "field_size",
-     "verdict": "mismatch",
-     "web_value": "161",
-     "confidence": "high",
-     "source_url": "https://www.mtecresults.com/race/leaderboard/20478/2026_Hungry_Bear_Gravel-Hungry_Bear_100",
-     "note": "2026 race had 161 finishers in the 100-mile event, not 200-400 riders. However, total field across all three routes (100, 60, 30) was over 1,000 (Climbing Cub had multiple finishers, Snacking Bear 60 also ran). The 100-mile specific field was 161 finishers."
-    }
-   ],
-   "changes": [],
-   "usage": {
-    "input_tokens": 52198,
-    "output_tokens": 880
-   }
-  },
-  {
-   "slug": "hysk-gravel-classic-yakurai",
-   "verdicts": {
-    "distance_mi": "mismatch",
     "elevation_ft": "mismatch",
-    "field_size": "confirmed",
-    "prize_purse": "unverifiable",
-    "registration_cost": "unverifiable",
+    "field_size": "unverifiable",
+    "prize_purse": "confirmed",
+    "registration_cost": "confirmed",
     "status": "confirmed"
    },
    "mismatches": [
-    {
-     "field": "distance_mi",
-     "verdict": "mismatch",
-     "web_value": "65.9",
-     "confidence": "high",
-     "source_url": "https://panaracer.com/en/news/2026/06/7217/",
-     "note": "Web sources consistently report 106km main race, which converts to 65.9 miles, not 66.5 miles. Database value is off by 0.6 miles."
-    },
     {
      "field": "elevation_ft",
      "verdict": "mismatch",
-     "web_value": "8581",
+     "web_value": "640",
      "confidence": "high",
-     "source_url": "https://panaracer.com/en/news/2026/06/7217/",
-     "note": "Web sources report 2616m elevation gain, which converts to 8581 feet, not 8563 feet. Database is off by 18 feet but within normal rounding variance; however, official sources are consistent on 2616m."
-    }
-   ],
-   "changes": [],
-   "usage": {
-    "input_tokens": 24080,
-    "output_tokens": 640
-   }
-  },
-  {
-   "slug": "iceman-cometh",
-   "verdicts": {
-    "distance_mi": "confirmed",
-    "elevation_ft": "unverifiable",
-    "field_size": "mismatch",
-    "prize_purse": "confirmed",
-    "registration_cost": "unverifiable",
-    "status": "confirmed"
-   },
-   "mismatches": [
-    {
-     "field": "field_size",
-     "verdict": "mismatch",
-     "web_value": "5400",
-     "confidence": "high",
-     "source_url": "https://findarace.com/us/events/iceman-cometh-challenge",
-     "note": "Official sources and recent 2026 listings indicate 5,400+ riders, not 4,000+"
+     "source_url": "https://www.spokescollective.com/bike-race-series/lowell-classic-gravel-road-race",
+     "note": "Multiple sources state elevation gain is approximately 640 ft (not 2150 ft). Spoke Collective and official course descriptions consistently cite 640 ft as the elevation figure."
     }
    ],
    "changes": [
     {
-     "field": "vitals.field_size",
-     "old": 4000.0,
-     "new": 5400.0,
-     "source": "https://findarace.com/us/events/iceman-cometh-challenge"
+     "field": "vitals.elevation_ft",
+     "old": 2150.0,
+     "new": 640.0,
+     "source": "https://www.spokescollective.com/bike-race-series/lowell-classic-gravel-road-race",
+     "flag_only": true
     }
    ],
    "usage": {
-    "input_tokens": 34166,
-    "output_tokens": 688
+    "input_tokens": 50843,
+    "output_tokens": 800
    }
   },
   {
-   "slug": "iowa-state-gravel-tt-championship",
-   "verdicts": {
-    "distance_mi": "unverifiable",
-    "elevation_ft": "unverifiable",
-    "field_size": "unverifiable",
-    "prize_purse": "unverifiable",
-    "registration_cost": "confirmed",
-    "status": "confirmed"
-   },
-   "mismatches": [],
-   "changes": [],
-   "usage": {
-    "input_tokens": 35387,
-    "output_tokens": 1269
-   }
-  },
-  {
-   "slug": "iowa-wind-and-rock",
+   "slug": "maap-beechworth-granite-classic",
    "verdicts": {
     "distance_mi": "confirmed",
-    "elevation_ft": "unverifiable",
-    "field_size": "mismatch",
+    "elevation_ft": "mismatch",
+    "field_size": "unverifiable",
     "prize_purse": "confirmed",
     "registration_cost": "mismatch",
     "status": "confirmed"
    },
    "mismatches": [
     {
-     "field": "field_size",
+     "field": "elevation_ft",
      "verdict": "mismatch",
-     "web_value": "50-60",
+     "web_value": "5216",
      "confidence": "high",
-     "source_url": "https://gravelgodcycling.com/race/iowa-wind-and-rock/",
-     "note": "GravelGod 2026 review states 'Fields of 50-60 riders.' Database claimed 150-300; actual field is much smaller."
+     "source_url": "https://events.humanitix.com/beechworth-granite-classic-2025/tickets",
+     "note": "Official 2025 course shows approx 1600m vertical gain; 1600m converts to ~5249 feet. UCI source (2022 data) shows 1892m (6207 ft). Database claims 4600 ft (~1402m), which is below documented elevations"
     },
     {
      "field": "registration_cost",
      "verdict": "mismatch",
-     "web_value": "free",
+     "web_value": "139 AUD",
      "confidence": "high",
-     "source_url": "https://iowawindandrock.com/",
-     "note": "Official site states 'free, 340ish mile' event. GravelGod 2026 review mentions 'Free entry with donations accepted' and 'Registration runs $150-200' but notes this as 'Value' analysis, not actual fee. Core event is free."
+     "source_url": "https://events.humanitix.com/beechworth-granite-classic-2025/tickets",
+     "note": "2025 115km ticket priced at $139 AUD (non-early-bird). Database claims ~$80-150 AUD range, but specific documented price for 115km is $139 (and early bird $129), not covering lower range"
+    }
+   ],
+   "changes": [],
+   "usage": {
+    "input_tokens": 34327,
+    "output_tokens": 835
+   }
+  },
+  {
+   "slug": "mad-gravel",
+   "verdicts": {
+    "distance_mi": "confirmed",
+    "elevation_ft": "confirmed",
+    "field_size": "mismatch",
+    "prize_purse": "unverifiable",
+    "registration_cost": "confirmed",
+    "status": "confirmed"
+   },
+   "mismatches": [
+    {
+     "field": "field_size",
+     "verdict": "mismatch",
+     "web_value": "~500 riders (multiple distances combined)",
+     "confidence": "high",
+     "source_url": "https://aresdec.org/mad-gravel-2026/",
+     "note": "Recent race report from September 6, 2026 states 'around 500 riders in three different races' (33, 55, and 84 miles). Database states 100-200 riders; actual field size substantially larger across all distances combined."
     }
    ],
    "changes": [
     {
      "field": "vitals.field_size",
-     "old": 150.0,
-     "new": 50.0,
-     "source": "https://gravelgodcycling.com/race/iowa-wind-and-rock/",
+     "old": 100.0,
+     "new": 500.0,
+     "source": "https://aresdec.org/mad-gravel-2026/",
      "flag_only": true
     }
    ],
    "usage": {
-    "input_tokens": 21871,
-    "output_tokens": 760
+    "input_tokens": 35885,
+    "output_tokens": 820
    }
   },
   {
-   "slug": "iron-cross",
+   "slug": "majka-gran-fondo",
    "verdicts": {
     "distance_mi": "mismatch",
     "elevation_ft": "mismatch",
@@ -381,32 +794,32 @@
     {
      "field": "distance_mi",
      "verdict": "mismatch",
-     "web_value": "56",
+     "web_value": "45.5",
      "confidence": "high",
-     "source_url": "https://www.tobedetermined.cc/journal/race-report-iron-cross-xxi-and-the-quest-for-smol-gravel",
-     "note": "Official Iron Cross race report from August 2026 confirms distance of 56 miles, not 60. Another source (MTBR forum) mentions 55 miles."
+     "source_url": "https://www.majkagranfondo.com/",
+     "note": "Official website states three distances: 100 km (62.1 mi), 73 km (45.4 mi), and 46 km (28.6 mi). Database value of 73 mi does not match any official distance. The 73 km MedioFondo is 45.4 miles, not 73 miles."
     },
     {
      "field": "elevation_ft",
      "verdict": "mismatch",
-     "web_value": "6400",
+     "web_value": "3937",
      "confidence": "high",
-     "source_url": "https://www.tobedetermined.cc/journal/race-report-iron-cross-xxi-and-the-quest-for-smol-gravel",
-     "note": "August 2026 race report documents 6,400 feet elevation gain, significantly higher than database claim of 4,500 ft."
+     "source_url": "https://www.majkagranfondo.com/",
+     "note": "Official website states the MedioFondo (73 km distance) has 1200m elevation, which converts to 3937 ft, not 5200 ft. The GranFondo 100 km has 1500m (4921 ft) elevation."
     }
    ],
    "changes": [
     {
      "field": "vitals.distance_mi",
-     "old": 60.0,
-     "new": 56.0,
-     "source": "https://www.tobedetermined.cc/journal/race-report-iron-cross-xxi-and-the-quest-for-smol-gravel"
+     "old": 73.0,
+     "new": 45.5,
+     "source": "https://www.majkagranfondo.com/"
     },
     {
      "field": "vitals.elevation_ft",
-     "old": 4500.0,
-     "new": 6400.0,
-     "source": "https://www.tobedetermined.cc/journal/race-report-iron-cross-xxi-and-the-quest-for-smol-gravel"
+     "old": 5200.0,
+     "new": 3937.0,
+     "source": "https://www.majkagranfondo.com/"
     },
     {
      "field": "rating.length",
@@ -422,330 +835,172 @@
     },
     {
      "field": "rating.elevation",
-     "old": 3,
-     "new": 4,
+     "old": 4,
+     "new": 2,
      "source": "rubric recompute"
     },
     {
      "field": "biased_opinion_ratings.elevation.score",
-     "old": 3,
-     "new": 4,
-     "source": "rubric recompute (sync)"
-    }
-   ],
-   "usage": {
-    "input_tokens": 50848,
-    "output_tokens": 747
-   }
-  },
-  {
-   "slug": "jackson-forest-grasshopper",
-   "verdicts": {
-    "distance_mi": "confirmed",
-    "elevation_ft": "confirmed",
-    "field_size": "unverifiable",
-    "prize_purse": "confirmed",
-    "registration_cost": "unverifiable",
-    "status": "confirmed"
-   },
-   "mismatches": [],
-   "changes": [],
-   "usage": {
-    "input_tokens": 24353,
-    "output_tokens": 702
-   }
-  },
-  {
-   "slug": "jamtlandspilen",
-   "verdicts": {
-    "distance_mi": "confirmed",
-    "elevation_ft": "unverifiable",
-    "field_size": "unverifiable",
-    "prize_purse": "unverifiable",
-    "registration_cost": "unverifiable",
-    "status": "confirmed"
-   },
-   "mismatches": [],
-   "changes": [],
-   "usage": {
-    "input_tokens": 19291,
-    "output_tokens": 469
-   }
-  },
-  {
-   "slug": "jeroboam",
-   "verdicts": {
-    "distance_mi": "mismatch",
-    "elevation_ft": "mismatch",
-    "field_size": "unverifiable",
-    "prize_purse": "unverifiable",
-    "registration_cost": "confirmed",
-    "status": "confirmed"
-   },
-   "mismatches": [
-    {
-     "field": "distance_mi",
-     "verdict": "mismatch",
-     "web_value": "372.82",
-     "confidence": "high",
-     "source_url": "https://jeroboam.bike/it/locations/jeroboam-mathusalem-600km/",
-     "note": "Official website lists Jeroboam Mathusalem as 600 km (approximately 372.8 miles, not 186 miles). The 186-mile figure may correspond to a different route (e.g., 300km bikepacking = 186 mi, which is ~7,500m elevation)."
-    },
-    {
-     "field": "elevation_ft",
-     "verdict": "mismatch",
-     "web_value": "55774",
-     "confidence": "high",
-     "source_url": "https://jeroboam.bike/it/locations/jeroboam-mathusalem-600km/",
-     "note": "Official website (Italian page) states the 600km Mathusalem has 17,000 meters elevation gain (approximately 55,774 feet), not 23,000 feet. However, sources report 14,500m for some editions; no source shows 23,000 feet (7,010m)."
-    }
-   ],
-   "changes": [
-    {
-     "field": "vitals.distance_mi",
-     "old": 186.0,
-     "new": 372.82,
-     "source": "https://jeroboam.bike/it/locations/jeroboam-mathusalem-600km/",
-     "flag_only": true
-    },
-    {
-     "field": "vitals.elevation_ft",
-     "old": 23000.0,
-     "new": 55774.0,
-     "source": "https://jeroboam.bike/it/locations/jeroboam-mathusalem-600km/",
-     "flag_only": true
-    }
-   ],
-   "usage": {
-    "input_tokens": 43960,
-    "output_tokens": 867
-   }
-  },
-  {
-   "slug": "just-gravel",
-   "verdicts": {
-    "distance_mi": "mismatch",
-    "elevation_ft": "unverifiable",
-    "field_size": "unverifiable",
-    "prize_purse": "unverifiable",
-    "registration_cost": "unverifiable",
-    "status": "confirmed"
-   },
-   "mismatches": [
-    {
-     "field": "distance_mi",
-     "verdict": "mismatch",
-     "web_value": "28",
-     "confidence": "high",
-     "source_url": "https://www.justgravel.co.uk/",
-     "note": "Official website states three route options: 15km (~9 mi), 32km (~20 mi), and 45km (~28 mi). The 45km 'Challenge' route converts to approximately 28 miles, not 50 miles as stated in database. Gravel Radar (gravelradar.app) also lists 50/66/90km options for a different Lake District event; JUST.GRAVEL specifically offers 15-45km."
-    }
-   ],
-   "changes": [
-    {
-     "field": "vitals.distance_mi",
-     "old": 50.0,
-     "new": 28.0,
-     "source": "https://www.justgravel.co.uk/"
-    },
-    {
-     "field": "rating.length",
-     "old": 2,
-     "new": 1,
-     "source": "rubric recompute"
-    },
-    {
-     "field": "biased_opinion_ratings.length.score",
-     "old": 2,
-     "new": 1,
+     "old": 4,
+     "new": 2,
      "source": "rubric recompute (sync)"
     },
     {
      "field": "rating.overall_score",
-     "old": 41,
-     "new": 40,
+     "old": 69,
+     "new": 64,
      "source": "rubric recompute"
+    },
+    {
+     "field": "rating.tier",
+     "old": null,
+     "new": 2,
+     "source": "rubric recompute",
+     "tier_change": true
     }
    ],
    "usage": {
-    "input_tokens": 49876,
-    "output_tokens": 853
+    "input_tokens": 38153,
+    "output_tokens": 771
    }
   },
   {
-   "slug": "kalona-horseshoe",
+   "slug": "mammoth-tuff",
    "verdicts": {
-    "distance_mi": "mismatch",
+    "distance_mi": "confirmed",
     "elevation_ft": "confirmed",
-    "field_size": "unverifiable",
-    "prize_purse": "unverifiable",
-    "registration_cost": "unverifiable",
+    "field_size": "confirmed",
+    "prize_purse": "confirmed",
+    "registration_cost": "mismatch",
     "status": "confirmed"
    },
    "mismatches": [
     {
-     "field": "distance_mi",
+     "field": "registration_cost",
      "verdict": "mismatch",
-     "web_value": "31.07 (50K) and 62.14 (100K)",
+     "web_value": "$107.75",
      "confidence": "high",
-     "source_url": "https://iowagravelseries.com/kalona/",
-     "note": "Race offers 2 distances (50K ≈31 miles; 100K ≈62 miles), not 50 miles. Database lists 50 mi, which does not match either official distance. Some sources mention '50 miles' colloquially but the official race profiles are 50K and 100K."
+     "source_url": "https://www.bikereg.com/mammoth-tuff-2026?nc=1",
+     "note": "BikeReg shows 2026 registration at $107.75 (including $7.75 fee, so base $100). GravelGodCycling references $100-$150 range. Database claim of '$100-$150' is overstated; actual 2026 pricing is approximately $100 base price"
     }
    ],
-   "changes": [
-    {
-     "field": "vitals.distance_mi",
-     "old": 50.0,
-     "new": 31.07,
-     "source": "https://iowagravelseries.com/kalona/"
-    },
-    {
-     "field": "rating.length",
-     "old": 2,
-     "new": 1,
-     "source": "rubric recompute"
-    },
-    {
-     "field": "biased_opinion_ratings.length.score",
-     "old": 2,
-     "new": 1,
-     "source": "rubric recompute (sync)"
-    },
-    {
-     "field": "rating.overall_score",
-     "old": 40,
-     "new": 39,
-     "source": "rubric recompute"
-    }
-   ],
+   "changes": [],
    "usage": {
-    "input_tokens": 17709,
-    "output_tokens": 607
+    "input_tokens": 48529,
+    "output_tokens": 873
    }
   },
   {
-   "slug": "karukinka",
+   "slug": "marji-gesick",
    "verdicts": {
     "distance_mi": "mismatch",
     "elevation_ft": "mismatch",
-    "field_size": "unverifiable",
+    "field_size": "mismatch",
     "prize_purse": "unverifiable",
-    "registration_cost": "unverifiable",
+    "registration_cost": "confirmed",
     "status": "confirmed"
    },
    "mismatches": [
     {
      "field": "distance_mi",
      "verdict": "mismatch",
-     "web_value": "273.4",
+     "web_value": "109",
      "confidence": "high",
-     "source_url": "https://karukinkagravelrace.com/",
-     "note": "Official website states 440 km total distance (273.4 miles). Database lists 120 miles, which is significantly lower than the actual multi-stage race distance."
+     "source_url": "https://www.trailforks.com/route/marji-gesick-100-2026",
+     "note": "Trailforks shows 108.8-109 miles for 2026 (just completed). Database claims 100 miles, but actual race is approximately 109 miles. Multiple sources confirm ~110 miles is typical."
     },
     {
      "field": "elevation_ft",
      "verdict": "mismatch",
-     "web_value": "18045",
+     "web_value": "12971",
      "confidence": "high",
-     "source_url": "https://karukinkagravelrace.com/",
-     "note": "Official website and multiple sources confirm 5500m elevation gain (18045 feet). Database lists 10000 feet, which is substantially lower."
+     "source_url": "https://www.trailforks.com/route/marji-gesick-100-2026",
+     "note": "Trailforks 2026 data shows 12,971 ft of climbing. Database claims 6,000 ft, which is significantly lower than actual elevation. Multiple sources consistently cite 12,000-13,000 ft."
+    },
+    {
+     "field": "field_size",
+     "verdict": "mismatch",
+     "web_value": "~1700",
+     "confidence": "high",
+     "source_url": "https://www.uppermichiganssource.com/2026/09/20/marji-gesick-sees-record-participation-2026/",
+     "note": "2026 race report states 'roughly 1700 participants signed up this year: a record.' Database claims 200-400 riders, but 2026 had 1700 total participants (bike and run events combined). 100-mile bike specific caps vary but field size is much larger than 200-400."
     }
    ],
    "changes": [
     {
      "field": "vitals.distance_mi",
-     "old": 120.0,
-     "new": 273.4,
-     "source": "https://karukinkagravelrace.com/",
-     "flag_only": true
+     "old": 100.0,
+     "new": 109.0,
+     "source": "https://www.trailforks.com/route/marji-gesick-100-2026"
     },
     {
      "field": "vitals.elevation_ft",
-     "old": 10000.0,
-     "new": 18045.0,
-     "source": "https://karukinkagravelrace.com/",
+     "old": 6000.0,
+     "new": 12971.0,
+     "source": "https://www.trailforks.com/route/marji-gesick-100-2026",
+     "flag_only": true
+    },
+    {
+     "field": "vitals.field_size",
+     "old": 200.0,
+     "new": 1700.0,
+     "source": "https://www.uppermichiganssource.com/2026/09/20/marji-gesick-sees-record-participation-2026/",
      "flag_only": true
     }
    ],
    "usage": {
-    "input_tokens": 22468,
-    "output_tokens": 656
+    "input_tokens": 50838,
+    "output_tokens": 972
    }
   },
   {
-   "slug": "kettle-mettle",
-   "verdicts": {
-    "distance_mi": "confirmed",
-    "elevation_ft": "confirmed",
-    "field_size": "confirmed",
-    "prize_purse": "unverifiable",
-    "registration_cost": "unverifiable",
-    "status": "confirmed"
-   },
-   "mismatches": [],
-   "changes": [],
-   "usage": {
-    "input_tokens": 45931,
-    "output_tokens": 885
-   }
-  },
-  {
-   "slug": "khomas100",
+   "slug": "marly-grav",
    "verdicts": {
     "distance_mi": "mismatch",
     "elevation_ft": "mismatch",
     "field_size": "confirmed",
-    "prize_purse": "confirmed",
-    "registration_cost": "unverifiable",
+    "prize_purse": "unverifiable",
+    "registration_cost": "confirmed",
     "status": "confirmed"
    },
    "mismatches": [
     {
      "field": "distance_mi",
      "verdict": "mismatch",
-     "web_value": "88.7",
+     "web_value": "93.2",
      "confidence": "high",
-     "source_url": "https://ucigravelworldseries.com/en/windhoek/",
-     "note": "UCI Gravel World Series official site states 157km long-distance course; 157km converts to ~97.5 miles. Gravel God (3 weeks ago) reports '143 kilometers'; 143km = ~88.9 miles confirming database value. However, Battistrada and UCI official sources report ~155-157km. Variation exists in source reporting: 143km cited in Khomas100.com.na FAQ and recent coverage for full distance; 157km cited by UCI official site April 2025. Database shows 88.9 mi (≈143km) which matches recent race reporting for the long-distance event."
+     "source_url": "https://www.marlygrav.com/en/route-race",
+     "note": "Official site lists men's main race at 150km (93.2 mi), women at 135km (83.9 mi), and older categories at 105km. Database value of 93 mi aligns with men's elite distance of 150km but this is only one of three race profiles. For accuracy, should specify which race distance."
     },
     {
      "field": "elevation_ft",
      "verdict": "mismatch",
-     "web_value": "7546",
-     "confidence": "medium",
-     "source_url": "https://khomas100.com.na/",
-     "note": "Official Khomas100.com.na states elevation gain ~2300 meters for full distance. 2300m = ~7546 feet confirms the database value exactly. UCI Gravel World Series site and Nova report ~2000m (6562 feet). Battistrada reports ~2000m. Official site (khomas100.com.na) gives 2300m which converts to 7546 feet, matching the database."
+     "web_value": "1863",
+     "confidence": "high",
+     "source_url": "https://www.procyclingstats.com/national-race/uci-world-gravel-series-gravel-fondo-limburg/2026/result/startlist/results-v3",
+     "note": "Pro Cycling Stats reports men's 150km race with 1863 vertical meters (6112 ft), significantly less than database value of 4890 ft. Komoot also shows ~1490m elevation for the 150km route."
     }
    ],
-   "changes": [],
+   "changes": [
+    {
+     "field": "vitals.elevation_ft",
+     "old": 4890.0,
+     "new": 1863.0,
+     "source": "https://www.procyclingstats.com/national-race/uci-world-gravel-series-gravel-fondo-limburg/2026/result/startlist/results-v3",
+     "flag_only": true
+    }
+   ],
    "usage": {
-    "input_tokens": 68260,
-    "output_tokens": 1192
+    "input_tokens": 74691,
+    "output_tokens": 888
    }
   },
   {
-   "slug": "kindling",
+   "slug": "marys-mayhem",
    "verdicts": {
-    "distance_mi": "confirmed",
+    "distance_mi": "mismatch",
     "elevation_ft": "unverifiable",
     "field_size": "unverifiable",
-    "prize_purse": "unverifiable",
-    "registration_cost": "confirmed",
-    "status": "confirmed"
-   },
-   "mismatches": [],
-   "changes": [],
-   "usage": {
-    "input_tokens": 20193,
-    "output_tokens": 659
-   }
-  },
-  {
-   "slug": "king-price-race-to-sun",
-   "verdicts": {
-    "distance_mi": "mismatch",
-    "elevation_ft": "mismatch",
-    "field_size": "unverifiable",
     "prize_purse": "confirmed",
     "registration_cost": "confirmed",
     "status": "confirmed"
@@ -754,46 +1009,18 @@
     {
      "field": "distance_mi",
      "verdict": "mismatch",
-     "web_value": "100",
+     "web_value": "62",
      "confidence": "high",
-     "source_url": "https://racetothesun.co.za/",
-     "note": "Official website states the main event is 100 miles (approximately 160km), not 250 miles. 2026 edition is 158km (approximately 98.2 miles). Database lists 250 miles which does not match either distance."
-    },
-    {
-     "field": "elevation_ft",
-     "verdict": "mismatch",
-     "web_value": "3281",
-     "confidence": "high",
-     "source_url": "https://racetothesun.co.za/",
-     "note": "Official sources consistently state 1000 meters of elevation gain, which equals approximately 3281 feet. Database lists 20000 feet (6096 meters), which is significantly higher than official sources."
+     "source_url": "https://myracehub.com.au/race/2368/marys-mayhem",
+     "note": "Database claims 62 mi (100 km). Web sources confirm the long course is approximately 100 km, which is 62.14 miles. However, Marys Mayhem is a multi-distance event with 30km, 60km, 100km, and 160km options. The database entry references only the 100km distance; 160km (99.4 mi) is also available as 'The Miler' for 2026. Without clear specification of which distance, 62 mi is technically correct for the 100km course but incomplete given the event structure."
     }
    ],
-   "changes": [
-    {
-     "field": "vitals.distance_mi",
-     "old": 250.0,
-     "new": 100.0,
-     "source": "https://racetothesun.co.za/",
-     "flag_only": true
-    },
-    {
-     "field": "vitals.elevation_ft",
-     "old": 20000.0,
-     "new": 3281.0,
-     "source": "https://racetothesun.co.za/",
-     "flag_only": true
-    }
-   ],
+   "changes": [],
    "usage": {
-    "input_tokens": 22657,
-    "output_tokens": 838
+    "input_tokens": 56697,
+    "output_tokens": 1031
    }
   }
  ],
- "errors": [
-  {
-   "slug": "king-of-the-lake",
-   "error": "Error code: 500 - {'type': 'error', 'error': {'type': 'api_error', 'message': 'Internal server error'}, 'request_id': 'req_011Cf99NwPQm6zELHUtzRyRo'}"
-  }
- ]
+ "errors": []
 }

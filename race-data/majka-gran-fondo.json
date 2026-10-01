@@ -7,8 +7,8 @@
       "name": "Majka Gran Fondo",
       "date": "2026: August TBD",
       "date_specific": "2026: August TBD",
-      "distance_mi": 73,
-      "elevation_ft": 5200,
+      "distance_mi": 45,
+      "elevation_ft": 3937,
       "location": "Krakow, Poland",
       "terrain": "Paved roads",
       "website": "https://www.majkagranfondo.com",
@@ -21,9 +21,9 @@
     },
     "gravel_god_rating": {
       "logistics": 3,
-      "length": 3,
+      "length": 2,
       "technicality": 2,
-      "elevation": 4,
+      "elevation": 2,
       "climate": 4,
       "altitude": 2,
       "adventure": 3,
@@ -35,9 +35,13 @@
       "value": 4,
       "expenses": 4,
       "cultural_impact": 2,
-      "overall_score": 69,
+      "overall_score": 64,
       "tier": 2,
-      "tier_label": "TIER 2"
+      "tier_label": "TIER 2",
+      "editorial_tier": 2,
+      "editorial_tier_label": "TIER 2",
+      "display_tier": 2,
+      "display_tier_label": "TIER 2"
     },
     "biased_opinion_ratings": {
       "logistics": {
@@ -45,7 +49,7 @@
         "explanation": "Held in Dobczyce and Myslenice near Krakow, logistics benefit from proximity to Krakow Airport just 30km away. Registration closes shortly before the event, like June 5 for the June race, with electronic entry simplifying access. Start village at Dobczyce Town Hall provides technical support and meals."
       },
       "length": {
-        "score": 3,
+        "score": 2,
         "explanation": "The 72km MedioFondo distance suits qualifiers for older categories, sharing the first 42km with the 105km GranFondo before looping back. This 73-mile option offers a solid challenge without extremes. Riders test form early season on Rafal Majka's training routes around Myslenice."
       },
       "technicality": {
@@ -53,7 +57,7 @@
         "explanation": "Courses feature paved roads with no steep or long climbs, keeping technical demands low. The flat 20km time trial out-and-back from Dobczyce has minor steep sections in kilometer two. Overall, it's accessible for amateurs focusing on pacing over handling skills."
       },
       "elevation": {
-        "score": 4,
+        "score": 2,
         "explanation": "Approximately 5200 feet of gain over 73 miles in Tatra Mountain foothills challenges with rolling terrain. The 900m (2950ft) for 72km builds to a 150m (492ft) rise between km52-55. GranFondo riders repeat sections like km32-42 for added climbing intensity."
       },
       "climate": {

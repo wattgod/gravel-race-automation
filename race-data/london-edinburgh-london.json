@@ -8,7 +8,7 @@
       "date": "2026: July TBD",
       "date_specific": "2026: July TBD",
       "distance_mi": 950,
-      "elevation_ft": 36000,
+      "elevation_ft": 42000,
       "location": "Chelmsford, Essex, UK",
       "terrain": "Paved roads",
       "website": "https://londonedinburghlondon.com/",
@@ -23,7 +23,7 @@
       "logistics": 4,
       "length": 5,
       "technicality": 1,
-      "elevation": 4,
+      "elevation": 5,
       "climate": 3,
       "altitude": 1,
       "adventure": 5,
@@ -35,9 +35,13 @@
       "value": 4,
       "expenses": 3,
       "cultural_impact": 3,
-      "overall_score": 74,
+      "overall_score": 76,
       "tier": 2,
-      "tier_label": "TIER 2"
+      "tier_label": "TIER 2",
+      "editorial_tier": 2,
+      "editorial_tier_label": "TIER 2",
+      "display_tier": 2,
+      "display_tier_label": "TIER 2"
     },
     "biased_opinion_ratings": {
       "logistics": {
@@ -53,7 +57,7 @@
         "explanation": "All on paved roads with no off-road or singletrack sections, focusing on navigation via route sheets and GPX files. Riders follow a fixed 1530km path through towns like Boston and Hawick without technical descents or rough terrain. Self-supported nature emphasizes steady road riding skills over bike handling."
       },
       "elevation": {
-        "score": 4,
+        "score": 5,
         "explanation": "13,442m of climbing over 1539km challenges legs across remote hill ranges north of Edinburgh. The profile builds cumulative fatigue with undulating terrain through Malton and Richmond on the return. London start variant hits 13,570m, demanding strong pacing on repeated ascents."
       },
       "climate": {

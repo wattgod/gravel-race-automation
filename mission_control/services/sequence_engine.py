@@ -202,10 +202,10 @@ def verify_unsubscribe_token(email: str, token: str) -> bool:
     return hmac.compare_digest(expected, token)
 
 
-def build_unsubscribe_url(email: str) -> str:
+def build_unsubscribe_url(email: str, brand: str = "gravelgod") -> str:
     """Build the full unsubscribe URL for an email address."""
     token = generate_unsubscribe_token(email)
-    params = urllib.parse.urlencode({"email": email, "token": token})
+    params = urllib.parse.urlencode({"email": email, "token": token, "brand": brand})
     return f"{PUBLIC_URL}/unsubscribe?{params}"
 
 
@@ -311,7 +311,7 @@ async def _send_next_step(enrollment: dict) -> bool:
         step_index=step_index,
         brand=brand,
     )
-    html = _inject_unsubscribe(html, enrollment["contact_email"])
+    html = _inject_unsubscribe(html, enrollment["contact_email"], brand)
 
     # Send via Resend (in thread to avoid blocking event loop)
     if not RESEND_API_KEY:
@@ -437,7 +437,7 @@ async def resend_first_step(enrollment: dict, subject: str | None = None) -> boo
         html = _render_template(step["template"], enrollment)
         html = _inject_utm_params(html, sequence_id=enrollment["sequence_id"],
                                   variant=enrollment["variant"], step_index=0, brand=brand)
-        html = _inject_unsubscribe(html, enrollment["contact_email"])
+        html = _inject_unsubscribe(html, enrollment["contact_email"], brand)
         reply_token = secrets.token_hex(16)
         resend_id = await asyncio.to_thread(
             _send_email_sync, enrollment["contact_email"], subject, html, brand, reply_token)
@@ -762,9 +762,9 @@ def _tagged_reply_to(reply_to: str, token: str) -> str:
     return formataddr((display_name, tagged)) if display_name else tagged
 
 
-def _inject_unsubscribe(html: str, email: str) -> str:
+def _inject_unsubscribe(html: str, email: str, brand: str = "gravelgod") -> str:
     """Inject unsubscribe link into email HTML before closing </body> or at end."""
-    unsub_url = build_unsubscribe_url(email)
+    unsub_url = build_unsubscribe_url(email, brand)
     unsub_block = (
         '<div style="text-align:center;padding:16px 32px;font-family:\'Courier New\',monospace;'
         'font-size:11px;color:#8c7568;border-top:1px solid #d4c5b9">'

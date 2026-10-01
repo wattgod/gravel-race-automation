@@ -2,6 +2,7 @@
 import json
 import re
 import sys
+from html import escape as html_escape
 from pathlib import Path
 
 import pytest
@@ -71,6 +72,7 @@ DATA_DIRS = [RACE_DATA_DIR]
 FULL_SLUG = "unbound-200"
 # Known generic race (no training_config)
 GENERIC_SLUG = "croatan-buck-fifty"
+LONE_WOLF_SLUG = "lone-wolf-gravel"
 
 
 def _load_test_race(slug):
@@ -468,6 +470,55 @@ class TestPageAssembly:
         assert "Race-Specific Non-Negotiables" not in html
         # But should still have other sections
         assert "gg-pk-section" in html
+
+    def test_lone_wolf_complete_output_resolves_terms_and_preserves_quote(self):
+        rd, raw = _load_test_race(LONE_WOLF_SLUG)
+        html = generate_prep_kit_page(rd, raw, self.guide)
+        quote = raw["quotes"][0]
+
+        assert not re.search(r"\{\{[A-Za-z][A-Za-z0-9_/]*\}\}", html)
+        assert "Z1-Z2" in html
+        assert "CTL rising steadily" in html
+        assert "TSB slightly negative" in html
+        assert html_escape(quote["quote"], quote=True) in html
+        assert f'— {html_escape(quote["rider"], quote=True)}' in html
+        assert "UNKNOWN" not in html
+
+    def test_generic_renderer_branch_resolves_the_same_visible_terms(self):
+        html = generate_prep_kit_page(self.gen_rd, self.gen_raw, self.guide)
+
+        assert not re.search(r"\{\{[A-Za-z][A-Za-z0-9_/]*\}\}", html)
+        assert "Z1-Z2" in html
+        assert "CTL rising steadily" in html
+        assert "TSB slightly negative" in html
+
+    def test_full_milestone_branch_keeps_non_negotiables_and_known_level(self):
+        html = generate_prep_kit_page(self.full_rd, self.full_raw, self.guide)
+        requirement = self.full_raw["non_negotiables"][0]["requirement"]
+
+        assert html_escape(requirement, quote=True) in html
+        assert "Race-Specific Non-Negotiables" in html
+        assert "ELITE" in html
+        assert not re.search(r"\{\{[A-Za-z][A-Za-z0-9_/]*\}\}", html)
+
+    def test_personalized_renderer_resolves_terms_without_weakening_escaping(self):
+        block = {
+            "steps": [{
+                "label": "<script>label()</script>",
+                "content": "Ride in {{Z2}} <script>content()</script>",
+            }],
+        }
+        extras = build_phase_extras({
+            "<script>extra()</script>": {"enabled": True, "week": 1},
+        })
+
+        html = render_personalized_timeline(block, extras)
+
+        assert "Ride in Z2" in html
+        assert "{{Z2}}" not in html
+        assert "<script>" not in html
+        assert "&lt;script&gt;label()&lt;/script&gt;" in html
+        assert "&lt;Script&gt;Extra()&lt;/Script&gt;" in html
 
 
 # ── Race Context Callout ─────────────────────────────────────

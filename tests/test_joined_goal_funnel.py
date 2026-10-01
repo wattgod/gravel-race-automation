@@ -45,3 +45,18 @@ def test_xc_manual_session_can_join_by_client_reference_id():
           "metadata": {"brand": "xcskilabs"}, "payment_status": "paid"}],
     )
     assert result["rows"][0]["buyers"] == 1
+
+
+def test_stripe_session_conversion_supports_current_and_older_sdks():
+    mod = _module()
+
+    class CurrentSession:
+        def to_dict(self):
+            return {"id": "cs_live_current", "metadata": {"goal_ref": "a" * 64}}
+
+    class OlderSession:
+        def to_dict_recursive(self):
+            return {"id": "cs_live_old", "metadata": {"goal_ref": "b" * 64}}
+
+    assert mod._session_dict(CurrentSession())["id"] == "cs_live_current"
+    assert mod._session_dict(OlderSession())["id"] == "cs_live_old"

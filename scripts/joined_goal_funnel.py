@@ -83,6 +83,12 @@ def join_funnel(enrollments: list[dict], sessions: list[dict]) -> dict:
             ]}
 
 
+def _session_dict(session) -> dict:
+    """Convert Stripe sessions across supported stripe-python releases."""
+    return (session.to_dict() if hasattr(session, "to_dict")
+            else session.to_dict_recursive())
+
+
 def load_live(days: int) -> tuple[list[dict], list[dict]]:
     import stripe
     sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
@@ -108,7 +114,7 @@ def load_live(days: int) -> tuple[list[dict], list[dict]]:
     for key in set(filter(None, keys)):
         for session in stripe.checkout.Session.list(
                 api_key=key, created={"gte": int(cutoff.timestamp())}, limit=100).auto_paging_iter():
-            item = session.to_dict_recursive()
+            item = _session_dict(session)
             sessions[item["id"]] = item
     if not any(keys):
         raise RuntimeError("A Stripe secret key is required for live purchase reconciliation")

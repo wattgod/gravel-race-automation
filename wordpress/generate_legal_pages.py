@@ -61,6 +61,12 @@ def get_privacy_content() -> str:
 </ul>
 <p>We do not sell, rent, or share your personal data with third parties for marketing purposes. Ever.</p>
 
+<h2>Race Discovery Plugin</h2>
+<p>When you use the Gravel God Cycling race discovery plugin in ChatGPT or Codex, the platform sends the tool arguments needed for your request to our public race service at <a href="https://races.endurelabs.app/">races.endurelabs.app</a>. These can include search words, broad location and distance filters, and race slugs. The plugin does not require an account. Do not include health, payment, or private training information in a plugin request.</p>
+<p>We use those inputs to return public event facts, comparisons, published race demands, and guide links. The service does not save tool inputs to its application database. Event-detail and preparation requests fetch public race profiles from pinned GitHub revisions. GitHub receives the requested profile path from our server, not your account information.</p>
+<p>Vercel hosts the service and processes request metadata, including IP address and time, to deliver requests and limit abuse. Vercel stores standard runtime logs for one day on our current Pro plan. We have no external log drain for this service. Vercel may process separate network and security data under its own privacy policy.</p>
+<p>Guide links include campaign tags identifying the plugin and workflow, but they do not include your search words or other tool inputs. If you open a guide, the website practices described in this policy apply. For plugin privacy requests, email <a href="mailto:{CONTACT_EMAIL}">{CONTACT_EMAIL}</a>.</p>
+
 <h2>Cookies</h2>
 <p>We use a minimal set of cookies. See our <a href="{SITE_URL}/cookies/">Cookie Policy</a> for specifics.</p>
 

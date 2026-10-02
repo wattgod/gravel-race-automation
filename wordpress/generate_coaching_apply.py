@@ -2068,12 +2068,12 @@ def generate_apply_page(external_assets=None):
   <meta property="og:description" content="Apply for personalized gravel cycling coaching. 12-section athlete intake with blindspot inference, W/kg calculator, and save/resume.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="{SITE_BASE_URL}/coaching/apply/">
-  <meta property="og:image" content="{SITE_BASE_URL}/og/homepage.jpg">
+  <meta property="og:image" content="{SITE_BASE_URL}/og/page-coaching.jpg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta property="og:site_name" content="Gravel God Cycling">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="{SITE_BASE_URL}/og/homepage.jpg">
+  <meta name="twitter:image" content="{SITE_BASE_URL}/og/page-coaching.jpg">
   {get_favicon_head_snippet()}
   {get_preload_hints()}
   {page_css}

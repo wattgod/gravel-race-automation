@@ -1309,14 +1309,14 @@ def generate_coaching_page(external_assets: dict = None) -> str:
   <meta property="og:description" content="Coaching built around your race, your hours, and your life. From the coach behind 757 course profiles.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="{esc(canonical_url)}">
-  <meta property="og:image" content="{SITE_BASE_URL}/og/homepage.jpg">
+  <meta property="og:image" content="{SITE_BASE_URL}/og/page-coaching.jpg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta property="og:site_name" content="Gravel God Cycling">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Coaching | Gravel God">
   <meta name="twitter:description" content="Coaching built around your race, your hours, and your life. From the coach behind 757 course profiles.">
-  <meta name="twitter:image" content="{SITE_BASE_URL}/og/homepage.jpg">'''
+  <meta name="twitter:image" content="{SITE_BASE_URL}/og/page-coaching.jpg">'''
 
     preload = get_preload_hints()
 

@@ -1,9 +1,11 @@
-"""OG share cards (scripts/og_brand.py and its three generators).
+"""Topo OG share cards (scripts/og_topo.py and its four generators).
 
-Guards the Feb-2026 failure: cards drawn once on the pre-rebrand dark theme
-with hardcoded numbers, then never regenerated — so every shared link showed
-the old logo/palette, "328 races / 14 dimensions", and race scores that no
-longer matched their pages (Unbound 200: card 80, page 96).
+Guards the Feb-2026 failure — cards drawn once with hardcoded numbers and
+never regenerated, so shared links showed the old logo/palette, "328 races /
+14 dimensions", and race scores that no longer matched their pages (Unbound
+200: card 80, page 96) — plus the Oct-2026 Topo rules: every card's numbers
+come from the page's own source, the race card stays in the critic's
+register, and a page never ships ahead of its card.
 """
 
 import re
@@ -12,14 +14,11 @@ from pathlib import Path
 
 import pytest
 
-PIL = pytest.importorskip("PIL")
-from PIL import Image  # noqa: E402
-
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "scripts"))
 sys.path.insert(0, str(ROOT / "wordpress"))
 
-import og_brand as og  # noqa: E402
+import og_topo  # noqa: E402
 import generate_og_images as race_og  # noqa: E402
 import generate_page_og as page_og  # noqa: E402
 import generate_homepage_og as home_og  # noqa: E402
@@ -29,154 +28,135 @@ from generate_season_review import (  # noqa: E402
     VARIANTS, generate_season_review_page, og_image_name,
 )
 
-EDGE_SLUGS = [
-    "unbound-200",                        # series + verdict
-    "race-across-germany",                # long name, long location, long verdict
-    "uec-gravel-european-championships",  # longest name
-    "leadville-100",                      # non-gravel discipline + series
-    "belgian-waffle-ride-kansas",         # taking_a_break
-    "gran-fondo-argentina",               # no verdict
-]
+UNBOUND = ROOT / "race-data" / "unbound-200.json"
 
 
-def _is_paper(img: Image.Image, xy) -> bool:
-    px = img.convert("RGB").getpixel(xy)
-    return all(abs(a - b) <= 6 for a, b in zip(px, og.WARM_PAPER))
+def _text(card_html: str) -> str:
+    return re.sub(r"\s+", " ", re.sub(r"<[^>]+>", " ", card_html))
 
 
-def _assert_brand_frame(path: Path):
-    img = Image.open(path)
-    assert img.size == (1200, 630)
-    # Paper ground (not the old near-black), gold top line + header rule.
-    assert _is_paper(img, (600, 600)) and _is_paper(img, (10, 300))
-    gold = og.GOLD
-    for xy in ((600, 2), (600, og.HEADER_RULE_Y + 1)):
-        px = img.convert("RGB").getpixel(xy)
-        assert all(abs(a - b) <= 24 for a, b in zip(px, gold)), (xy, px)  # JPEG
-    # The 2026 mark sits top-left: dark ink inside the logo box.
-    crop = img.convert("L").crop((og.MARGIN, 20, og.MARGIN + 60, 120))
-    assert min(crop.getdata()) < 80
+def _lit(card_html: str):
+    """Label of the strip pillar rendered as a solid chip, if any."""
+    m = re.search(r'<span style="background:[^"]+">([A-Z ]+)</span>', card_html)
+    return m.group(1) if m else None
 
 
-# ── Brand ───────────────────────────────────────────────────────
+# ── Race cards: same values as the page hero ────────────────────
 
-def test_brand_tokens_match_site_tokens():
-    from brand_tokens import get_tokens_css
-    css = get_tokens_css()
-    for name, rgb in (("warm-paper", og.WARM_PAPER), ("dark-brown", og.DARK_BROWN),
-                      ("gold", og.GOLD), ("teal", og.TEAL),
-                      ("secondary-brown", og.SEC_BROWN)):
-        m = re.search(rf"--gg-color-{name}:\s*#([0-9a-fA-F]{{6}})", css)
-        assert m, name
-        assert tuple(int(m.group(1)[i:i + 2], 16) for i in (0, 2, 4)) == rgb, name
-
-
-def test_logo_is_2026_mark_asset():
-    assert og.LOGO_PNG.exists()
-    assert og.logo(68).height == 68
-
-
-# ── Race cards ──────────────────────────────────────────────────
-
-@pytest.mark.parametrize("slug", EDGE_SLUGS)
-def test_race_card_renders_on_brand(slug, tmp_path):
-    rd = load_race_data(ROOT / "race-data" / f"{slug}.json")
-    rd.setdefault("slug", slug)
-    _assert_brand_frame(race_og.generate_og_image(rd, tmp_path / f"{slug}.jpg"))
-
-
-def test_race_card_score_and_verdict_come_from_page_normalizer():
-    rd = load_race_data(ROOT / "race-data" / "unbound-200.json")
+def test_race_card_matches_page_hero():
+    rd = load_race_data(UNBOUND)
+    rd.setdefault("slug", "unbound-200")
+    card = race_og.race_card_html(rd)
     hero = build_hero(rd)
-    # The card reads rd["overall_score"] and verdict_of(rd); both must be
-    # exactly what the page hero prints.
     assert f'data-target="{rd["overall_score"]}"' in hero
+    text = _text(card)
+    assert f"LAB SCORE {rd['overall_score']}" in text
+    assert rd["name"] in text and rd["tier_label"] in text
     verdict = race_og.verdict_of(rd)
-    assert verdict and verdict in hero
+    assert verdict and verdict in hero and og_topo.e(verdict) in card
 
 
-@pytest.mark.parametrize("raw,expected", [
-    ("2027: June 5; final 2027 route and elevation are pending", "June 5, 2027"),
-    ("2026: Sept. 12", "Sept. 12, 2026"),
-    ("May 1, 2026", "May 1, 2026"),
-    ("2027: Friday, June 4; final 2027 route and elevation are pending", "June 4, 2027"),
-    ("2027: Friday, June 11 at 8:00 AM Mountain Time", "June 11, 2027"),
-    ("2026: Sunday, June 7th", "June 7, 2026"),
-    ("2027: March 13-20", "March 13-20, 2027"),
-    ("2026: June 19-20 (Friday check-in/expo, Saturday race day)", "June 19-20, 2026"),
-    ("2026: Aug 19-23 (festival week)", "Aug 19-23, 2026"),
-    ("2027: TBD", ""),
-    ("2026: May 2026", ""),
-    ("2026: Early September (weather dependent)", ""),
-    ("2026: Spring/Fall TBD", ""),
-    ("Status: DROPPED — no 2026 or 2027 edition; last held October 11, 2025", ""),
-    ("", ""),
+def test_race_card_lights_ratings_and_never_pitches():
+    rd = load_race_data(UNBOUND)
+    rd.setdefault("slug", "unbound-200")
+    card = race_og.race_card_html(rd)
+    assert _lit(card) == "RACE RATINGS"
+    assert "AVAILABLE" not in card.upper()
+
+
+def test_topo_contours_are_deterministic_per_key():
+    assert og_topo.topo_svg("unbound-200", "#fff", .1) == og_topo.topo_svg("unbound-200", "#fff", .1)
+    assert og_topo.topo_svg("unbound-200", "#fff", .1) != og_topo.topo_svg("mid-south", "#fff", .1)
+
+
+# ── Homepage / fallback ladder ──────────────────────────────────
+
+def test_homepage_ladder_reads_live_sources():
+    from generate_homepage import compute_stats, load_race_index
+    from pricing import PRICE_PER_WEEK
+    rows = home_og.ladder_rows(compute_stats(load_race_index()))
+    assert [r[1] for r in rows] == ["Pick a race.", "Get a plan.", "Get coached."]
+    assert rows[0][2] == f"{compute_stats(load_race_index())['race_count']} RATED"
+    assert rows[1][2] == f"{PRICE_PER_WEEK} A WEEK"
+    card = og_topo.ladder_card(key="homepage", rows=rows)
+    assert _lit(card) is None  # all three pillars equal on the fallback card
+
+
+def test_no_hardcoded_counts_or_prices_in_generators():
+    for name in ("generate_homepage_og.py", "generate_page_og.py"):
+        src = (ROOT / "scripts" / name).read_text()
+        code = src.split('"""', 2)[2]  # everything after the module docstring
+        assert not re.search(r'"\$\d|\b384\b|\b328\b', code), name
+
+
+# ── Plans / coaching / season review page cards ────────────────
+
+def test_plans_card_prices_from_pricing():
+    from pricing import PRICE_CAP, PRICE_PER_WEEK
+    card = page_og.training_plans_card_html()
+    text = _text(card)
+    assert f"PER WEEK {PRICE_PER_WEEK}" in text and f"CAPPED AT {PRICE_CAP}" in text
+    assert _lit(card) == "TRAINING PLANS"
+
+
+def test_coaching_card_price_from_tiers():
+    from generate_coaching import TIERS
+    card = page_og.coaching_card_html()
+    assert f"{TIERS[0][2]}" in _text(card) and "PER 4 WEEKS" in card
+    assert _lit(card) == "COACHING"
+
+
+@pytest.mark.parametrize("intro,expected", [
+    ("About twenty-five minutes. Same deal as always", 25),
+    ("About 15 minutes, with optional sections", 15),
+    ("Fifteen minutes. Don&#39;t write what you&#39;d post.", 15),
+    ("Five minutes, less if you&#39;re quick.", 5),
+    ("No time given here.", None),
 ])
-def test_short_date(raw, expected):
-    assert race_og.short_date(raw) == expected
-
-
-# ── Homepage / fallback card ────────────────────────────────────
-
-def test_homepage_card_renders_on_brand(tmp_path):
-    _assert_brand_frame(home_og.generate(tmp_path))
-
-
-def test_homepage_og_has_no_hardcoded_counts():
-    src = (ROOT / "scripts" / "generate_homepage_og.py").read_text()
-    assert not re.search(r'"\d{3}"', src), "race counts must come from compute_stats()"
-    assert "compute_stats" in src
-
-
-# ── Page cards (Season Review) ──────────────────────────────────
-
-def test_every_season_review_variant_has_its_own_card(tmp_path):
-    paths = page_og.season_review_cards(tmp_path)
-    assert sorted(p.name for p in paths) == sorted(og_image_name(s) for s in VARIANTS)
-    for p in paths:
-        _assert_brand_frame(p)
+def test_minutes_from_intro(intro, expected):
+    assert page_og.minutes_from_intro(intro) == expected
 
 
 @pytest.mark.parametrize("slug", sorted(VARIANTS))
-def test_season_review_page_points_at_its_card(slug):
+def test_season_review_card_and_page(slug):
+    card = page_og.season_review_card_html(slug)
+    assert _lit(card) == "COACHING"
+    mins = page_og.minutes_from_intro(VARIANTS[slug].get("intro", ""))
+    if mins:
+        assert f"MINUTES {mins}" in _text(card)
     html = generate_season_review_page(slug)
     assert f'og:image" content="https://gravelgodcycling.com/og/{og_image_name(slug)}"' in html
     assert "og/homepage.jpg" not in html
 
 
-# ── Course cards ────────────────────────────────────────────────
+@pytest.mark.parametrize("generator,card", [
+    ("generate_coaching.py", "page-coaching.jpg"),
+    ("generate_coaching_apply.py", "page-coaching.jpg"),
+    ("generate_training_plans.py", "page-training-plans.jpg"),
+])
+def test_pillar_pages_point_at_their_card(generator, card):
+    src = (ROOT / "wordpress" / generator).read_text()
+    assert f"/og/{card}" in src and "/og/homepage.jpg" not in src
 
-def test_course_card_renders_on_brand(tmp_path):
-    path = course_og.generate_course_og("Dirt Craft: Technical Gravel Mastery",
-                                        "Stop fighting the bike. Start riding it.",
-                                        21, 49, tmp_path / "c.png")
-    _assert_brand_frame(path)
 
-
-def test_course_bundle_card_makes_no_hardcoded_savings_claim():
+def test_course_bundle_card_makes_no_savings_claim():
     src = (ROOT / "scripts" / "generate_course_og.py").read_text()
     assert not re.search(r'kicker="[^"]*SAVE', src, re.I)
-
-
-# ── Overflow is loud, not silent ────────────────────────────────
-
-def test_headline_that_cannot_fit_raises(tmp_path):
-    with pytest.raises(og.OGCardError):
-        page_og.render_page_card("KICKER", "word " * 60, tmp_path / "x.jpg")
+    assert _lit(course_og.course_card_html("Dirt Craft", 21, 49)) is None
 
 
 # ── Deploy: a Season Review page never ships ahead of its card ──
 
-def _fake_sync_env(monkeypatch, tmp_path, fail_card=False):
+def _sync_env(monkeypatch, tmp_path, *, card=True, fail_card=False):
     import subprocess
     import push_wordpress as pw
     out = tmp_path / "wordpress" / "output"
-    out.mkdir(parents=True)
+    (out / "og").mkdir(parents=True)
     (out / "season-review-athlete.html").write_text("<html></html>")
+    if card:
+        (out / "og" / og_image_name("athlete")).write_bytes(b"jpg")
     monkeypatch.chdir(tmp_path)
     monkeypatch.setattr(pw, "get_ssh_credentials", lambda: ("host", "user", "1"))
-    real_card = page_og.season_review_card
-    monkeypatch.setattr(page_og, "season_review_card", lambda slug: real_card(slug, tmp_path))
     calls = []
 
     def fake_run(cmd, **kw):
@@ -189,15 +169,73 @@ def _fake_sync_env(monkeypatch, tmp_path, fail_card=False):
     return pw, calls
 
 
+def _page_uploaded(calls):
+    return any(c[0] == "scp" and c[-1].endswith("index.html") for c in calls)
+
+
 def test_season_review_sync_uploads_card_before_page(monkeypatch, tmp_path):
-    pw, calls = _fake_sync_env(monkeypatch, tmp_path)
+    pw, calls = _sync_env(monkeypatch, tmp_path)
     assert pw.sync_season_review("athlete")
     scps = [c[-1] for c in calls if c[0] == "scp"]
     assert scps[0].endswith(f"/og/{og_image_name('athlete')}")
     assert scps[1].endswith("/coaching/season-review/athlete/index.html")
 
 
-def test_season_review_sync_skips_page_when_card_upload_fails(monkeypatch, tmp_path):
-    pw, calls = _fake_sync_env(monkeypatch, tmp_path, fail_card=True)
+def test_season_review_sync_skips_page_without_card(monkeypatch, tmp_path):
+    pw, calls = _sync_env(monkeypatch, tmp_path, card=False)
     assert pw.sync_season_review("athlete") is None
-    assert not any(c[0] == "scp" and c[-1].endswith("index.html") for c in calls)
+    assert not _page_uploaded(calls)
+
+
+def test_season_review_sync_skips_page_when_card_upload_fails(monkeypatch, tmp_path):
+    pw, calls = _sync_env(monkeypatch, tmp_path, fail_card=True)
+    assert pw.sync_season_review("athlete") is None
+    assert not _page_uploaded(calls)
+
+
+# ── Rendering (needs Playwright + Chromium; CI installs both) ───
+
+@pytest.fixture(scope="module")
+def renderer():
+    pytest.importorskip("playwright")
+    try:
+        with og_topo.Renderer() as r:
+            yield r
+    except Exception as exc:  # browser not installed locally
+        pytest.skip(f"Chromium unavailable: {exc}")
+
+
+def _field_at(path, xy=(6, 300)):
+    from PIL import Image
+    return Image.open(path).convert("RGB").getpixel(xy)
+
+
+def _hex(h):
+    return tuple(int(h[i:i + 2], 16) for i in (1, 3, 5))
+
+
+@pytest.mark.parametrize("kind", ["race", "home", "plans", "coaching", "season"])
+def test_cards_render_on_their_pillar_field(kind, renderer, tmp_path):
+    rd = load_race_data(UNBOUND)
+    rd.setdefault("slug", "unbound-200")
+    cards = {
+        "race": (race_og.race_card_html(rd), "races"),
+        "home": (og_topo.ladder_card(key="homepage", rows=home_og.ladder_rows(
+            {"race_count": 384})), "races"),
+        "plans": (page_og.training_plans_card_html(), "plans"),
+        "coaching": (page_og.coaching_card_html(), "coaching"),
+        "season": (page_og.season_review_card_html("athlete"), "coaching"),
+    }
+    card_html, pillar = cards[kind]
+    path = renderer.render(card_html, tmp_path / f"{kind}.jpg")
+    from PIL import Image
+    assert Image.open(path).size == (1200, 630)
+    got, want = _field_at(path), _hex(og_topo.FIELDS[pillar][0])
+    assert all(abs(a - b) <= 10 for a, b in zip(got, want)), (got, want)
+
+
+def test_overflowing_text_raises_instead_of_shipping(renderer, tmp_path):
+    card = og_topo.pillar_card(pillar="races", key="x", kicker="K",
+                               title_html="word " * 80, size=84)
+    with pytest.raises(og_topo.OGCardError):
+        renderer.render(card, tmp_path / "x.jpg")

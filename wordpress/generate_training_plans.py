@@ -1325,14 +1325,14 @@ def generate_training_page(external_assets: dict = None) -> str:
   <meta property="og:description" content="Race-specific training plans. {PRICE_PER_WEEK}/week, capped at {PRICE_CAP}. Structured workouts, nutrition, strength, and race protocols.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="{esc(canonical_url)}">
-  <meta property="og:image" content="{SITE_BASE_URL}/og/homepage.jpg">
+  <meta property="og:image" content="{SITE_BASE_URL}/og/page-training-plans.jpg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta property="og:site_name" content="Gravel God Cycling">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Custom Training Plans | Gravel God">
   <meta name="twitter:description" content="Race-specific training plans. {PRICE_PER_WEEK}/week, capped at {PRICE_CAP}.">
-  <meta name="twitter:image" content="{SITE_BASE_URL}/og/homepage.jpg">'''
+  <meta name="twitter:image" content="{SITE_BASE_URL}/og/page-training-plans.jpg">'''
 
     preload = get_preload_hints()
 

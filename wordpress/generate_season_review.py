@@ -91,6 +91,11 @@ def output_name(slug: str) -> str:
     return "season-review.html" if slug == "standard" else f"season-review-{slug}.html"
 
 
+def og_image_name(slug: str) -> str:
+    """This variant's share card in /og/ (scripts/generate_page_og.py)."""
+    return "page-season-review.jpg" if slug == "standard" else f"page-season-review-{slug}.jpg"
+
+
 # ── Field rendering ───────────────────────────────────────────
 
 
@@ -1817,7 +1822,10 @@ def generate_season_review_page(slug: str = "standard", external_assets=None) ->
   <meta property="og:title" content="{title}">{description_tags}
   <meta property="og:type" content="website">
   <meta property="og:url" content="{url}">
-  <meta property="og:image" content="{SITE_BASE_URL}/og/homepage.jpg">
+  <meta property="og:image" content="{SITE_BASE_URL}/og/{og_image_name(slug)}">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
   {get_favicon_head_snippet()}
   {get_preload_hints()}
   {page_css}

@@ -1265,6 +1265,11 @@ def sync_season_review(variants: str = "athlete"):
 
     One page per variant (docs/specs/goals-2027-funnel-spec.md). The athlete
     version is a private link Matti sends; the rest are noindex too.
+
+    Each page's og:image is its own card at /og/page-season-review*.jpg
+    (scripts/generate_page_og.py), so the card is uploaded first; a page whose
+    card is missing or didn't upload is not uploaded (it would unfurl with a
+    broken preview).
     """
     ssh = get_ssh_credentials()
     if not ssh:
@@ -1274,10 +1279,11 @@ def sync_season_review(variants: str = "athlete"):
     wanted = [v.strip() for v in variants.split(",") if v.strip()]
     sys.path.insert(0, str(Path("wordpress").resolve()))
     try:
-        from generate_season_review import output_name, page_path
+        from generate_season_review import og_image_name, output_name, page_path
     except Exception as e:  # noqa: BLE001
         print(f"✗ Could not load the season review generator: {e}")
         return None
+    og_remote = "~/www/gravelgodcycling.com/public_html/og"
 
     urls = []
     for slug in wanted:
@@ -1286,6 +1292,29 @@ def sync_season_review(variants: str = "athlete"):
         if not html_path.exists():
             print(f"✗ Season review HTML not found: {html_path}")
             print(f"  Run: python3 wordpress/generate_season_review.py --variant {slug} first")
+            continue
+
+        card = Path("wordpress/output/og") / og_image_name(slug)
+        if not card.exists():
+            print(f"✗ Share card not found: {card} — page not uploaded")
+            print("  Run: python3 scripts/generate_page_og.py first")
+            continue
+        try:
+            subprocess.run(
+                ["ssh", "-i", str(SSH_KEY), "-p", port, f"{user}@{host}",
+                 f"mkdir -p {og_remote}"],
+                check=True, capture_output=True, text=True, timeout=15,
+            )
+            subprocess.run(
+                ["scp", "-i", str(SSH_KEY), "-P", port, str(card),
+                 f"{user}@{host}:{og_remote}/{og_image_name(slug)}"],
+                check=True, capture_output=True, text=True, timeout=30,
+            )
+        except subprocess.CalledProcessError as e:
+            print(f"✗ Share card upload failed for '{slug}', page not uploaded: {e.stderr.strip()}")
+            continue
+        except Exception as e:  # noqa: BLE001
+            print(f"✗ Share card failed for '{slug}', page not uploaded: {e}")
             continue
 
         path = page_path(slug)  # /goals/, /coaching/exit/ or /coaching/season-review/<slug>/

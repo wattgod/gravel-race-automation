@@ -389,6 +389,7 @@ MATTI_MODULES = [
 MATTI = {
     "slug": "matti",
     "badge": "Season Autopsy",
+    "og_line": "Don’t write what you’d post.",  # share card line, from the intro
     "h1": f"So. {SEASON}.",
     "intro": "Fifteen minutes. Don&#39;t write what you&#39;d post. Write what you&#39;d admit after the second beer. It saves as you go, so &ldquo;I lost my answers&rdquo; is off the table as an excuse.",
     "sections": [s_you(), s_highlight(), s_blooper(), s_2027(), s_obstacle(), s_habit(), s_logistics(), s_me()],
@@ -408,6 +409,7 @@ MATTI = {
 GOAL_2027 = {
     "slug": "goal_2027",
     "badge": "The 2027 Goal Autopsy",
+    "og_line": "Don’t write what you’d post.",  # share card line, from the intro
     "h1": f"So. {SEASON}.",
     "intro": "Fifteen minutes. Don&#39;t write what you&#39;d post. Write what you&#39;d admit after the second beer. You leave with a 2027 goal poster and the one thing most likely to wreck it. It saves as you go.",
     "sections": [s_you(), s_highlight(), s_blooper(), s_2027(), s_obstacle(), s_habit()],
@@ -523,6 +525,7 @@ FIVE = {
 ATHLETE = {
     "slug": "athlete",
     "badge": "Athlete Season Review",
+    "og_line": "Don’t write what you’d post.",  # share card line, from the intro
     "h1": f"So. {SEASON}.",
     "intro": "About twenty-five minutes. Same deal as always: don&#39;t write what you&#39;d post, write what you&#39;d admit after the second beer. This one goes in your file and shapes what I build you. It saves as you go.",
     "sections": [

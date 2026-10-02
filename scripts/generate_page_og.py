@@ -45,16 +45,18 @@ def render_page_card(kicker: str, headline: str, output_path: Path) -> Path:
     return og.save(img, output_path)
 
 
-def season_review_cards(output_dir: Path = OUTPUT_DIR) -> list[Path]:
+def season_review_card(slug: str, output_dir: Path = OUTPUT_DIR) -> Path:
+    """One Season Review variant's card: its badge over its H1."""
     from generate_season_review import VARIANTS, og_image_name
-    out = []
-    for slug, variant in VARIANTS.items():
-        out.append(render_page_card(
-            html.unescape(variant["badge"]),
-            html.unescape(variant["h1"]),
-            output_dir / og_image_name(slug),
-        ))
-    return out
+    variant = VARIANTS[slug]
+    return render_page_card(html.unescape(variant["badge"]),
+                            html.unescape(variant["h1"]),
+                            output_dir / og_image_name(slug))
+
+
+def season_review_cards(output_dir: Path = OUTPUT_DIR) -> list[Path]:
+    from generate_season_review import VARIANTS
+    return [season_review_card(slug, output_dir) for slug in VARIANTS]
 
 
 def main():

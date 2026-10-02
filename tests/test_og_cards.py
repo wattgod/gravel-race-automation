@@ -99,7 +99,15 @@ def test_race_card_score_and_verdict_come_from_page_normalizer():
     ("2027: June 5; final 2027 route and elevation are pending", "June 5, 2027"),
     ("2026: Sept. 12", "Sept. 12, 2026"),
     ("May 1, 2026", "May 1, 2026"),
+    ("2027: Friday, June 4; final 2027 route and elevation are pending", "June 4, 2027"),
+    ("2027: Friday, June 11 at 8:00 AM Mountain Time", "June 11, 2027"),
+    ("2026: Sunday, June 7th", "June 7, 2026"),
+    ("2027: March 13-20", "March 13-20, 2027"),
+    ("2026: June 19-20 (Friday check-in/expo, Saturday race day)", "June 19-20, 2026"),
+    ("2026: Aug 19-23 (festival week)", "Aug 19-23, 2026"),
     ("2027: TBD", ""),
+    ("2026: May 2026", ""),
+    ("2026: Early September (weather dependent)", ""),
     ("2026: Spring/Fall TBD", ""),
     ("Status: DROPPED — no 2026 or 2027 edition; last held October 11, 2025", ""),
     ("", ""),
@@ -155,3 +163,41 @@ def test_course_bundle_card_makes_no_hardcoded_savings_claim():
 def test_headline_that_cannot_fit_raises(tmp_path):
     with pytest.raises(og.OGCardError):
         page_og.render_page_card("KICKER", "word " * 60, tmp_path / "x.jpg")
+
+
+# ── Deploy: a Season Review page never ships ahead of its card ──
+
+def _fake_sync_env(monkeypatch, tmp_path, fail_card=False):
+    import subprocess
+    import push_wordpress as pw
+    out = tmp_path / "wordpress" / "output"
+    out.mkdir(parents=True)
+    (out / "season-review-athlete.html").write_text("<html></html>")
+    monkeypatch.chdir(tmp_path)
+    monkeypatch.setattr(pw, "get_ssh_credentials", lambda: ("host", "user", "1"))
+    real_card = page_og.season_review_card
+    monkeypatch.setattr(page_og, "season_review_card", lambda slug: real_card(slug, tmp_path))
+    calls = []
+
+    def fake_run(cmd, **kw):
+        calls.append(cmd)
+        if fail_card and cmd[0] == "scp" and "/og/" in cmd[-1]:
+            raise subprocess.CalledProcessError(1, cmd, stderr="denied")
+        return subprocess.CompletedProcess(cmd, 0, "", "")
+
+    monkeypatch.setattr(pw.subprocess, "run", fake_run)
+    return pw, calls
+
+
+def test_season_review_sync_uploads_card_before_page(monkeypatch, tmp_path):
+    pw, calls = _fake_sync_env(monkeypatch, tmp_path)
+    assert pw.sync_season_review("athlete")
+    scps = [c[-1] for c in calls if c[0] == "scp"]
+    assert scps[0].endswith(f"/og/{og_image_name('athlete')}")
+    assert scps[1].endswith("/coaching/season-review/athlete/index.html")
+
+
+def test_season_review_sync_skips_page_when_card_upload_fails(monkeypatch, tmp_path):
+    pw, calls = _fake_sync_env(monkeypatch, tmp_path, fail_card=True)
+    assert pw.sync_season_review("athlete") is None
+    assert not any(c[0] == "scp" and c[-1].endswith("index.html") for c in calls)

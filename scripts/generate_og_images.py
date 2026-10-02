@@ -35,22 +35,31 @@ LEFT_W = og.W - 2 * og.MARGIN - SCORE_COL_W - 64
 CONTENT_TOP = 176
 CONTENT_BOTTOM = og.H - 44
 
-_YEAR_FIRST = re.compile(r"^(\d{4}):\s*([A-Z][a-z]+\.?\s+\d{1,2})\b")
-_MONTH_FIRST = re.compile(r"^([A-Z][a-z]+\.?\s+\d{1,2}),\s*(\d{4})\b")
+_WEEKDAY = r"(?:(?:Mon|Tues|Wednes|Thurs|Fri|Satur|Sun)day,?\s+)?"
+_DAY = r"(\d{1,2})(?:st|nd|rd|th)?"
+_RANGE = r"(?:\s*[-–]\s*" + _DAY + r")?"
+_MONTH = r"([A-Z][a-z]+\.?)"
+_YEAR_FIRST = re.compile(r"^(\d{4}):\s*" + _WEEKDAY + _MONTH + r"\s+" + _DAY + _RANGE + r"(?!\d)")
+_MONTH_FIRST = re.compile(r"^" + _WEEKDAY + _MONTH + r"\s+" + _DAY + _RANGE + r",\s*(\d{4})\b")
 
 
 def short_date(date_specific: str) -> str:
-    """'2027: June 5; final route pending' -> 'June 5, 2027'. Anything that
-    isn't a concrete date (TBD, DROPPED, CANCELLED...) returns '' so the card
-    shows location only rather than a status sentence cut in half."""
+    """'2027: Friday, June 4; final route pending' -> 'June 4, 2027';
+    '2027: March 13-20' -> 'March 13-20, 2027' (multi-day events keep their
+    range, as the page prints it). Anything that isn't a concrete date (TBD,
+    DROPPED, 'Early September'...) returns '' so the card shows location only
+    rather than a status sentence cut in half."""
     ds = (date_specific or "").strip()
     m = _YEAR_FIRST.match(ds)
     if m:
-        return f"{m.group(2)}, {m.group(1)}"
-    m = _MONTH_FIRST.match(ds)
-    if m:
-        return f"{m.group(1)}, {m.group(2)}"
-    return ""
+        year, month, d1, d2 = m.groups()
+    else:
+        m = _MONTH_FIRST.match(ds)
+        if not m:
+            return ""
+        month, d1, d2, year = m.groups()
+    days = f"{d1}-{d2}" if d2 else d1
+    return f"{month} {days}, {year}"
 
 
 def verdict_of(rd: dict) -> str:

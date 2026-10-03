@@ -477,9 +477,9 @@ class TestAnalyzeRaceDemands:
     def test_leadville_100(self):
         data = _load_race("leadville-100")
         demands = analyze_race_demands(data)
-        # elevation=5, 11900ft -> min(10, round(7.5+2.38)) = 10
+        # elevation=4, 9916ft -> min(10, round(6+1.98)) = 8
         assert demands["climbing"] >= 8
-        assert demands["climbing"] == 10
+        assert demands["climbing"] == 8
         # altitude=5 -> 10
         assert demands["altitude"] >= 8
         assert demands["altitude"] == 10
@@ -525,7 +525,7 @@ class TestAnalyzeRaceDemands:
         data = _load_race("leadville-100")
         demands = analyze_race_demands(data)
         assert demands["durability"] == 6
-        assert demands["climbing"] == 10
+        assert demands["climbing"] == 8
         assert demands["vo2_power"] == 10
         assert demands["threshold"] == 8  # 100mi -> 7, elev=5 >= 3 -> +1 = 8
         assert demands["technical"] == 8  # technicality=4 -> 8

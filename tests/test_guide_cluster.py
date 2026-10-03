@@ -874,7 +874,7 @@ class TestRaceCallout:
             "dimension": "elevation_ft"
         })
         assert "gg-race-callout__stat-value" in html
-        assert "11,900" in html  # Leadville elevation
+        assert "9,916" in html  # Leadville elevation
 
     def test_renders_overall_score_dimension(self, race_index):
         html = render_race_callout({

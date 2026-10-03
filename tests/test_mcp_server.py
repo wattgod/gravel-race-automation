@@ -265,7 +265,7 @@ class TestGetRace:
         result = mcp_server.get_race("leadville-100")
         vitals = result["race"]["vitals"]
         assert vitals["distance_mi"] == 100
-        assert vitals["elevation_ft"] == 11900
+        assert vitals["elevation_ft"] == 9916
 
     def test_has_gravel_god_rating(self):
         result = mcp_server.get_race("unbound-200")
@@ -344,7 +344,7 @@ class TestGetTrainingContext:
         ctx = mcp_server.get_training_context("leadville-100")
         assert ctx["race_name"] == "Leadville Trail 100 MTB"
         assert ctx["distance_mi"] == 100
-        assert ctx["elevation_ft"] == 11900
+        assert ctx["elevation_ft"] == 9916
         assert ctx["tier"] == 1
 
     def test_has_emphasis(self):

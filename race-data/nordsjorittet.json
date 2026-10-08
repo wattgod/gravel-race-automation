@@ -6,7 +6,7 @@
       "location": "Egersund to Sandnes, Norway",
       "date": "2026: June 13",
       "date_specific": "2026: June 13",
-      "distance_mi": 96,
+      "distance_mi": 56,
       "elevation_ft": 4900,
       "discipline": "road",
       "month": "June",
@@ -23,16 +23,20 @@
       "expenses": 4,
       "experience": 4,
       "field_depth": 3,
-      "length": 3,
+      "length": 2,
       "logistics": 4,
       "prestige": 3,
       "race_quality": 3,
       "technicality": 3,
       "value": 5,
       "cultural_impact": 2,
-      "overall_score": 71,
+      "overall_score": 70,
       "tier": 2,
-      "tier_label": "TIER 2"
+      "tier_label": "TIER 2",
+      "editorial_tier": 2,
+      "editorial_tier_label": "TIER 2",
+      "display_tier": 2,
+      "display_tier_label": "TIER 2"
     },
     "biased_opinion_ratings": {
       "adventure": {
@@ -68,7 +72,7 @@
         "explanation": "Mass participation event with competitive and recreational fields, drawing Norway's top amateurs."
       },
       "length": {
-        "score": 3,
+        "score": 2,
         "explanation": "96 miles is challenging yet manageable, with shorter 45km option for broader appeal."
       },
       "logistics": {

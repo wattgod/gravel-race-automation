@@ -8,7 +8,7 @@
       "distance_km": 800,
       "distance_mi": 497,
       "elevation_m": 7200,
-      "elevation_ft": 23622,
+      "elevation_ft": 18575,
       "course_status": "source_blocked",
       "course_status_label": "2027 GRAND DEPART PENDING",
       "course_status_reason": "The organizer's 2027 calendar confirms the Copenhagen-to-Oslo gravel event window, but its route page still describes the 2026 course and schedule. The final 2027 GPX and exact grand-depart date have not been published.",
@@ -85,20 +85,62 @@
       "scoring_notes": "The 66/100 score applies the published rubric to the established Copenhagen-to-Oslo identity and latest verified route, not an unpublished 2027 GPX. The ultra distance, 23,622 feet of climbing, and three-country crossing score highly; the young series, 100-rider cap, and expensive point-to-point trip keep prestige, field depth, and expenses conservative."
     },
     "biased_opinion_ratings": {
-      "logistics": {"score": 4, "explanation": "Two different endpoint cities, a cross-border ferry, self-arranged sleep, and possible extraction make this a significant destination-race operation even though Copenhagen and Oslo are strong transport hubs."},
-      "length": {"score": 5, "explanation": "The latest detailed route is 800 kilometres, firmly in multi-night ultra territory."},
-      "technicality": {"score": 3, "explanation": "The organizer's 2026 route uses forest tracks and gravel roads that demand control under fatigue without being marketed as extreme singletrack."},
-      "elevation": {"score": 5, "explanation": "The latest detailed route carries 7,200 metres, or 23,622 feet, of climbing, above the published 10,000-foot threshold for the maximum score."},
-      "climate": {"score": 3, "explanation": "The announced August 2027 window reduces heat risk but leaves real exposure to Nordic rain, wind, and cold overnight riding."},
-      "altitude": {"score": 1, "explanation": "The 2026 route's challenge comes from accumulated climbing and duration, not sustained high altitude."},
-      "adventure": {"score": 5, "explanation": "A self-supported crossing through Denmark, Sweden, and Norway with a ferry is expedition riding by any reasonable definition."},
-      "prestige": {"score": 2, "explanation": "The route has a distinctive identity, but the series is still young and capped at 100 riders, so it has not earned major national or international recognition."},
-      "race_quality": {"score": 4, "explanation": "Gregory Sanders' route reconnaissance, Follow My Challenge GPS tracking, a race manual, and a 100-rider cap support a professional format without enough history to call it elite or flawless."},
-      "experience": {"score": 4, "explanation": "Copenhagen, Swedish forests, and an Oslo finish create a memorable ride narrative, while the final 2027 route remains unpublished."},
-      "community": {"score": 3, "explanation": "The 100-rider cap, pre-race gathering, tracking, and Oslo finish welcome support a good event vibe, but there is not yet evidence for a legendary community score."},
-      "field_depth": {"score": 2, "explanation": "The 100-rider young event attracts committed ultra riders but does not have an established deep competitive field."},
-      "value": {"score": 3, "explanation": "The 2026 standard entry included Follow My Challenge GPS tracking and event organization, but riders still bought their own food, lodging, and travel."},
-      "expenses": {"score": 2, "explanation": "Copenhagen-to-Oslo travel, Nordic prices, accommodation, and possible extraction put the trip in the rubric's high-cost range; expenses score lower when the trip costs more."}
+      "logistics": {
+        "score": 4,
+        "explanation": "Two different endpoint cities, a cross-border ferry, self-arranged sleep, and possible extraction make this a significant destination-race operation even though Copenhagen and Oslo are strong transport hubs."
+      },
+      "length": {
+        "score": 5,
+        "explanation": "The latest detailed route is 800 kilometres, firmly in multi-night ultra territory."
+      },
+      "technicality": {
+        "score": 3,
+        "explanation": "The organizer's 2026 route uses forest tracks and gravel roads that demand control under fatigue without being marketed as extreme singletrack."
+      },
+      "elevation": {
+        "score": 5,
+        "explanation": "The latest detailed route carries 7,200 metres, or 23,622 feet, of climbing, above the published 10,000-foot threshold for the maximum score."
+      },
+      "climate": {
+        "score": 3,
+        "explanation": "The announced August 2027 window reduces heat risk but leaves real exposure to Nordic rain, wind, and cold overnight riding."
+      },
+      "altitude": {
+        "score": 1,
+        "explanation": "The 2026 route's challenge comes from accumulated climbing and duration, not sustained high altitude."
+      },
+      "adventure": {
+        "score": 5,
+        "explanation": "A self-supported crossing through Denmark, Sweden, and Norway with a ferry is expedition riding by any reasonable definition."
+      },
+      "prestige": {
+        "score": 2,
+        "explanation": "The route has a distinctive identity, but the series is still young and capped at 100 riders, so it has not earned major national or international recognition."
+      },
+      "race_quality": {
+        "score": 4,
+        "explanation": "Gregory Sanders' route reconnaissance, Follow My Challenge GPS tracking, a race manual, and a 100-rider cap support a professional format without enough history to call it elite or flawless."
+      },
+      "experience": {
+        "score": 4,
+        "explanation": "Copenhagen, Swedish forests, and an Oslo finish create a memorable ride narrative, while the final 2027 route remains unpublished."
+      },
+      "community": {
+        "score": 3,
+        "explanation": "The 100-rider cap, pre-race gathering, tracking, and Oslo finish welcome support a good event vibe, but there is not yet evidence for a legendary community score."
+      },
+      "field_depth": {
+        "score": 2,
+        "explanation": "The 100-rider young event attracts committed ultra riders but does not have an established deep competitive field."
+      },
+      "value": {
+        "score": 3,
+        "explanation": "The 2026 standard entry included Follow My Challenge GPS tracking and event organization, but riders still bought their own food, lodging, and travel."
+      },
+      "expenses": {
+        "score": 2,
+        "explanation": "Copenhagen-to-Oslo travel, Nordic prices, accommodation, and possible extraction put the trip in the rubric's high-cost range; expenses score lower when the trip costs more."
+      }
     },
     "biased_opinion": {
       "verdict": "The Bigger, Harder Nordic Chase",
@@ -121,10 +163,30 @@
       "character": "The latest organizer-verified route leaves Copenhagen, runs north through Denmark, crosses by ferry into Sweden, and uses gravel roads, forest trails, and quiet villages on the way to Oslo. It is an uninterrupted self-supported ultra, not a four-stage hotel race. The final 2027 GPX may change and is intentionally not represented here as fixed.",
       "signature_challenge": "Keeping food, navigation, sleep, clothing, and bike reliability under control for roughly 800 kilometres without private support.",
       "suffering_zones": [
-        {"name": "The Danish opening", "mile": "0-100", "description": "Fast terrain can tempt an unsustainable first-day pace.", "survival_strategy": "Cap effort early and start eating before speed disguises the cost."},
-        {"name": "Swedish forest sectors", "mile": "100-350", "description": "Long, quiet gravel where resupply timing and navigation matter.", "survival_strategy": "Carry a real food and water buffer and pre-plan every late-night service."},
-        {"name": "The second night", "mile": "300-425", "description": "Sleep debt, cold, and decision quality become performance limiters.", "survival_strategy": "Use a rehearsed sleep threshold instead of bargaining with obvious impairment."},
-        {"name": "The Oslo approach", "mile": "425-finish", "description": "Accumulated climbing and fatigue arrive after hundreds of kilometres.", "survival_strategy": "Ride the remaining time, not the remaining map distance, and keep fueling through the finish."}
+        {
+          "name": "The Danish opening",
+          "mile": "0-100",
+          "description": "Fast terrain can tempt an unsustainable first-day pace.",
+          "survival_strategy": "Cap effort early and start eating before speed disguises the cost."
+        },
+        {
+          "name": "Swedish forest sectors",
+          "mile": "100-350",
+          "description": "Long, quiet gravel where resupply timing and navigation matter.",
+          "survival_strategy": "Carry a real food and water buffer and pre-plan every late-night service."
+        },
+        {
+          "name": "The second night",
+          "mile": "300-425",
+          "description": "Sleep debt, cold, and decision quality become performance limiters.",
+          "survival_strategy": "Use a rehearsed sleep threshold instead of bargaining with obvious impairment."
+        },
+        {
+          "name": "The Oslo approach",
+          "mile": "425-finish",
+          "description": "Accumulated climbing and fatigue arrive after hundreds of kilometres.",
+          "survival_strategy": "Ride the remaining time, not the remaining map distance, and keep fueling through the finish."
+        }
       ]
     },
     "logistics": {

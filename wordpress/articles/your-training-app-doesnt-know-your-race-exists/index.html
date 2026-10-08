@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="index, follow">
+  <title>Your Training App Doesn't Know Your Race Exists | Gravel God</title>
+  <meta name="description" content="TrainerRoad and Zwift build you excellent fitness in a generic shape. Races are not generic. Where the climbing lands, when the selection happens, and what you can digest decide your day — and no algorithm reads a course profile.">
+  <meta property="og:title" content="Your Training App Doesn't Know Your Race Exists | Gravel God">
+  <meta property="og:description" content="Adaptive training solved the wrong problem. Your fitness has a shape, and so does your race.">
+  <meta property="og:url" content="https://gravelgodcycling.com/articles/your-training-app-doesnt-know-your-race-exists/">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Gravel God">
+  <link rel="canonical" href="https://gravelgodcycling.com/articles/your-training-app-doesnt-know-your-race-exists/">
+  <script type="application/ld+json">{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Sweet Spot Training Isn't That Sweet — The Science Says You're Wasting Time",
+    "author": {
+      "@type": "Person",
+      "name": "Matti Rowe",
+      "url": "https://gravelgodcycling.com"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Gravel God",
+      "url": "https://gravelgodcycling.com"
+    },
+    "datePublished": "2026-03-26",
+    "dateModified": "2026-03-26",
+    "description": "Sweet Spot training is made up, makes you slower, and science hates it. The evidence for polarized training is clear.",
+    "mainEntityOfPage": "https://gravelgodcycling.com/articles/your-training-app-doesnt-know-your-race-exists/",
+    "keywords": ["sweet spot training", "cycling training zones", "polarized training", "FTP", "threshold training", "cycling science"],
+    "citation": [
+      {"@type": "ScholarlyArticle", "name": "Autonomic recovery after exercise in trained athletes", "author": "Seiler, Haugen, Kuffel", "datePublished": "2007"},
+      {"@type": "ScholarlyArticle", "name": "Six weeks of a polarized training-intensity distribution leads to greater physiological and performance adaptations", "author": "Neal et al.", "datePublished": "2013"},
+      {"@type": "ScholarlyArticle", "name": "Polarized training has greater impact on key endurance variables", "author": "Stöggl, Sperlich", "datePublished": "2014"},
+      {"@type": "ScholarlyArticle", "name": "Impact of training intensity distribution on performance in endurance athletes", "author": "Esteve-Lanao, Foster, Seiler, Lucia", "datePublished": "2007"},
+      {"@type": "ScholarlyArticle", "name": "Polarized vs. threshold training intensity distribution on endurance sport performance", "author": "Rosenblat et al.", "datePublished": "2019"},
+      {"@type": "ScholarlyArticle", "name": "Which training intensity distribution intervention will produce the greatest improvements", "author": "Rosenblat, Seiler et al.", "datePublished": "2025"}
+    ]
+  }</script>
+  <script type="application/ld+json">{
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is Sweet Spot training in cycling?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sweet Spot training targets 88-94% of Functional Threshold Power (FTP). It was coined by Frank Overton of FasCat Coaching around 2004, based on a hypothetical, unitless graph by exercise physiologist Andy Coggan that was 'only ever intended as conveying a concept.' It lacks rigorous scientific foundation."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is polarized training better than Sweet Spot?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Multiple studies show polarized training (75-90% below LT1, 15-20% above LT2) consistently outperforms threshold-heavy training. Neal et al. (2013) showed 8% peak power gains vs 3% for threshold. Stöggl and Sperlich (2014) found polarized improved VO2peak by 11.7%. The 2025 network meta-analysis by Rosenblat and Seiler confirmed threshold-heavy approaches ranked worst for competitive athletes."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Why does Sweet Spot training make you slower?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sweet Spot sits in Seiler's 'black hole' of training intensity. Your autonomic nervous system treats it like threshold work (same recovery cost), it inhibits fat oxidation by locking out CPT1/CPT2 enzymes, and it's not intense enough to maximally trigger mitochondrial biogenesis. You get the recovery cost of hard training with the adaptive stimulus of not-that-hard training."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do most cyclists actually train at Sweet Spot intensity?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. Most cyclists overestimate their FTP by 5-10%, meaning their 'Sweet Spot' workouts at 88-94% of inflated FTP actually put them at or above their true threshold. They're doing threshold work while thinking they found a training hack."
+        }
+      }
+    ]
+  }</script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('consent','default',{'analytics_storage':/(^|; )gg_consent=accepted/.test(document.cookie)?'granted':'denied','ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied','wait_for_update':500});</script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-EJJZ9T6M52"></script>
+  <script>gtag('js',new Date());gtag('config','G-EJJZ9T6M52');</script>
+  <link rel="preload" href="/race/assets/fonts/SometypeMono-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/race/assets/fonts/SourceSerif4-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <style>
+    /* Sometype Mono — Normal — Latin Extended */
+    @font-face {
+      font-family: 'Sometype Mono';
+      font-style: normal;
+      font-weight: 400 700;
+      font-display: swap;
+      src: url('/race/assets/fonts/SometypeMono-normal-latin-ext.woff2') format('woff2');
+      unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+    }
+    /* Sometype Mono — Normal — Latin */
+    @font-face {
+      font-family: 'Sometype Mono';
+      font-style: normal;
+      font-weight: 400 700;
+      font-display: swap;
+      src: url('/race/assets/fonts/SometypeMono-normal-latin.woff2') format('woff2');
+      unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+    }
+    /* Sometype Mono — Italic — Latin Extended */
+    @font-face {
+      font-family: 'Sometype Mono';
+      font-style: italic;
+      font-weight: 400 700;
+      font-display: swap;
+      src: url('/race/assets/fonts/SometypeMono-italic-latin-ext.woff2') format('woff2');
+      unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+    }
+    /* Sometype Mono — Italic — Latin */
+    @font-face {
+      font-family: 'Sometype Mono';
+      font-style: italic;
+      font-weight: 400 700;
+      font-display: swap;
+      src: url('/race/assets/fonts/SometypeMono-italic-latin.woff2') format('woff2');
+      unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+    }
+    /* Source Serif 4 — Normal — Latin Extended */
+    @font-face {
+      font-family: 'Source Serif 4';
+      font-style: normal;
+      font-weight: 400 700;
+      font-display: swap;
+      src: url('/race/assets/fonts/SourceSerif4-normal-latin-ext.woff2') format('woff2');
+      unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+    }
+    /* Source Serif 4 — Normal — Latin */
+    @font-face {
+      font-family: 'Source Serif 4';
+      font-style: normal;
+      font-weight: 400 700;
+      font-display: swap;
+      src: url('/race/assets/fonts/SourceSerif4-normal-latin.woff2') format('woff2');
+      unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+    }
+    /* Source Serif 4 — Italic — Latin Extended */
+    @font-face {
+      font-family: 'Source Serif 4';
+      font-style: italic;
+      font-weight: 400 700;
+      font-display: swap;
+      src: url('/race/assets/fonts/SourceSerif4-italic-latin-ext.woff2') format('woff2');
+      unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+    }
+    /* Source Serif 4 — Italic — Latin */
+    @font-face {
+      font-family: 'Source Serif 4';
+      font-style: italic;
+      font-weight: 400 700;
+      font-display: swap;
+      src: url('/race/assets/fonts/SourceSerif4-italic-latin.woff2') format('woff2');
+      unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+    }
+    :root {
+      --gg-dark-brown: #3a2e25;
+      --gg-primary-brown: #59473c;
+      --gg-secondary-brown: #7d695d;
+      --gg-teal: #178079;
+      --gg-warm-paper: #f5efe6;
+      --gg-sand: #ede4d8;
+      --gg-white: #ffffff;
+      --gg-gold: #9a7e0a;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; border-radius: 0; }
+    body {
+      font-family: 'Source Serif 4', Georgia, serif;
+      background: var(--gg-warm-paper);
+      color: var(--gg-dark-brown);
+      line-height: 1.7;
+    }
+    .gg-blog-container { max-width: 1100px; margin: 0 auto; padding: 40px 32px; }
+    .gg-blog-hero {
+      background: var(--gg-primary-brown);
+      color: var(--gg-warm-paper);
+      padding: 56px 40px;
+      border: 3px solid var(--gg-dark-brown);
+      margin-bottom: 32px;
+    }
+    .gg-blog-hero-meta {
+      font-family: 'Sometype Mono', monospace;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      opacity: 0.8;
+      margin-bottom: 12px;
+    }
+    .gg-blog-hero h1 {
+      font-size: 42px;
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 8px;
+    }
+    .gg-blog-hero-sub {
+      font-family: 'Sometype Mono', monospace;
+      font-size: 14px;
+      opacity: 0.7;
+    }
+    .gg-blog-section {
+      margin-bottom: 32px;
+      padding: 36px 40px;
+      border: 2px solid var(--gg-dark-brown);
+      background: var(--gg-white);
+    }
+    .gg-blog-section h2 {
+      font-family: 'Sometype Mono', monospace;
+      font-size: 16px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 16px;
+      padding-bottom: 8px;
+      border-bottom: 2px solid var(--gg-dark-brown);
+    }
+    .gg-blog-section h3 {
+      font-family: 'Sometype Mono', monospace;
+      font-size: 14px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      margin: 24px 0 12px 0;
+      color: var(--gg-primary-brown);
+    }
+    .gg-blog-section p { margin-bottom: 18px; font-size: 18px; line-height: 1.8; }
+    .gg-blog-section ol, .gg-blog-section ul { margin: 14px 0 18px 28px; font-size: 18px; line-height: 1.8; }
+    .gg-blog-section li { margin-bottom: 8px; }
+    .gg-blog-section a {
+      color: var(--gg-teal);
+      text-decoration: none;
+      font-weight: 600;
+    }
+    .gg-blog-section a:hover { text-decoration: underline; }
+    .gg-blog-section blockquote {
+      border-left: 4px solid var(--gg-gold);
+      padding: 16px 20px;
+      margin: 20px 0;
+      background: var(--gg-sand);
+      font-size: 16px;
+    }
+    .gg-blog-section blockquote p { margin-bottom: 0; }
+    .gg-case-study {
+      border: 2px solid var(--gg-primary-brown);
+      padding: 20px;
+      margin: 16px 0;
+      background: var(--gg-sand);
+    }
+    .gg-case-study h4 {
+      font-family: 'Sometype Mono', monospace;
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      margin-bottom: 12px;
+      color: var(--gg-primary-brown);
+    }
+    .gg-case-study p { font-size: 16px; margin-bottom: 12px; line-height: 1.7; }
+    .gg-case-study ul { font-size: 16px; line-height: 1.7; }
+    .gg-subscribe-callout {
+      text-align: center;
+      padding: 32px 36px;
+      border: 3px solid var(--gg-dark-brown);
+      background: var(--gg-primary-brown);
+      margin: 32px 0;
+    }
+    .gg-subscribe-callout p {
+      font-family: 'Source Serif 4', Georgia, serif;
+      font-size: 17px;
+      color: var(--gg-warm-paper);
+      margin-bottom: 14px;
+      line-height: 1.6;
+    }
+    .gg-subscribe-callout a {
+      display: inline-block;
+      padding: 10px 28px;
+      background: var(--gg-gold);
+      color: var(--gg-white);
+      font-family: 'Sometype Mono', monospace;
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      text-decoration: none;
+      border: 2px solid var(--gg-gold);
+    }
+    .gg-subscribe-callout a:hover { background: var(--gg-teal); border-color: var(--gg-teal); }
+    .gg-subscribe-callout .gg-sub-name {
+      font-family: 'Sometype Mono', monospace;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: var(--gg-sand);
+      margin-top: 10px;
+      margin-bottom: 0;
+    }
+    .gg-blog-cta {
+      text-align: center;
+      padding: 32px;
+      border: 3px solid var(--gg-dark-brown);
+      background: var(--gg-dark-brown);
+      margin-bottom: 32px;
+    }
+    .gg-blog-cta p {
+      color: var(--gg-sand);
+      font-family: 'Source Serif 4', Georgia, serif;
+      font-size: 18px;
+      margin-bottom: 16px;
+    }
+    .gg-blog-cta a {
+      display: inline-block;
+      padding: 12px 32px;
+      background: var(--gg-teal);
+      color: var(--gg-white);
+      font-family: 'Sometype Mono', monospace;
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      text-decoration: none;
+      border: 2px solid var(--gg-teal);
+      margin: 6px;
+    }
+    .gg-blog-cta a:hover { background: var(--gg-primary-brown); border-color: var(--gg-primary-brown); }
+    .gg-blog-footer {
+      text-align: center;
+      font-family: 'Sometype Mono', monospace;
+      font-size: 11px;
+      color: var(--gg-secondary-brown);
+      padding: 24px;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+    }
+    .gg-blog-footer a { color: var(--gg-teal); text-decoration: none; }
+    .gg-references {
+      font-size: 12px;
+      line-height: 1.6;
+      color: var(--gg-secondary-brown);
+    }
+    .gg-references p { font-size: 12px; margin-bottom: 6px; }
+    .gg-references sup { font-weight: 700; color: var(--gg-primary-brown); }
+    sup a {
+      color: var(--gg-teal);
+      text-decoration: none;
+      font-weight: 700;
+    }
+    sup a:hover { text-decoration: underline; }
+    .gg-article-img {
+      margin: 0 0 32px 0;
+      line-height: 0;
+      border: 3px solid var(--gg-dark-brown);
+    }
+    .gg-article-img img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    .gg-article-img-inline {
+      margin: 20px 0;
+      line-height: 0;
+      border: 2px solid var(--gg-dark-brown);
+    }
+    .gg-article-img-inline img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    @media (max-width: 600px) {
+      .gg-blog-container { padding: 20px 16px; }
+      .gg-blog-hero { padding: 32px 20px; }
+      .gg-blog-hero h1 { font-size: 26px; }
+      .gg-blog-section { padding: 20px; }
+      .gg-blog-section p, .gg-blog-section ol, .gg-blog-section ul { font-size: 16px; }
+      .gg-case-study { padding: 16px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="gg-blog-container">
+    <div class="gg-blog-hero">
+      <div class="gg-blog-hero-meta">Training &middot; Opinion</div>
+      <h1>Your Training App Doesn&rsquo;t Know Your Race Exists</h1>
+      <div class="gg-blog-hero-sub">Adaptive training solved the wrong problem. Your fitness has a shape, and so does your race. &middot; July 2, 2026</div>
+    </div>
+
+    <section class="gg-blog-section">
+      <p>Mile 82 of Big Sugar, and the guy walking his bike up the third pitch of the Missouri line had a 91% compliance score.</p>
+      <p>I know this because he told me, unprompted, the way people confess things on gravel climbs. Twenty-two weeks of TrainerRoad. Every green checkmark. FTP up 31 watts. The app had adapted around his missed sessions, recalibrated after his spring cold, nudged his progression levels with machine-learned precision. It had done everything right.</p>
+      <p>And there he was, pushing a $9,000 bike through chunky rock at two miles an hour, cramping in both quads, wondering out loud what the hell happened.</p>
+      <p>What happened is that his app trained him for a race that doesn&rsquo;t exist.</p>
+    </section>
+
+    <section class="gg-blog-section">
+      <h2>First, the Part Where I Agree With the Robots</h2>
+      <p>Let me concede everything true, because it&rsquo;s a lot.</p>
+      <p>Adaptive training software is genuinely good. TrainerRoad&rsquo;s adaptations are real. Zwift&rsquo;s plans are fine. If you miss three days because your kid brought home a daycare plague, the algorithm reshuffles your week, and it does this faster and more consistently than most human coaches would. The problem these platforms set out to solve &mdash; static plans dying on contact with real life &mdash; was a real problem, and they solved it.</p>
+      <p>If your goal is &ldquo;get fitter on the bike,&rdquo; a $20-a-month algorithm is one of the best purchases in cycling. I mean that without a wink.</p>
+      <p>Here&rsquo;s the collapse: every one of these systems models <em>you</em>. Your fatigue. Your zones. Your missed Tuesdays. Your progression levels. You, you, you.</p>
+      <p>None of them models <em>the race</em>.</p>
+    </section>
+
+    <section class="gg-blog-section">
+      <h2>Fitness Has a Shape</h2>
+      <p>The app&rsquo;s output is a number going up. But races aren&rsquo;t won by a number &mdash; they&rsquo;re won by the right fitness showing up in the right shape, and shape is decided by questions no algorithm asks:</p>
+      <p><strong>Where does the climbing land?</strong> Big Sugar has 9,500 feet of it, and the part that ends people arrives after mile 75, on legs that have been rattled numb for four hours. A watts-per-kilogram number earned in 60-minute trainer sessions says nothing about whether you can produce it in hour five.</p>
+      <p><strong>When does the selection happen?</strong> Some races are decided in the first 20 minutes and then become a time trial for survivors. Some simmer for three hours and detonate on one feature everyone knows is coming. Training identically for both is training wrong for one of them.</p>
+      <p><strong>What can you actually digest?</strong> An 8-hour effort at race intensity wants 60&ndash;90 grams of carbohydrate an hour. Your gut&rsquo;s ability to process that is trainable &mdash; and completely invisible to an app that thinks nutrition is a footnote in a blog post. Nobody&rsquo;s progression level ever warned them about the arithmetic of 24 gels.</p>
+      <p>The app hands you excellent fitness in a generic shape. The race does not grade on fitness. It grades on fit.</p>
+    </section>
+
+    <section class="gg-blog-section">
+      <h2>A Field Guide to Perfectly-Trained Casualties</h2>
+      <p>Spend enough time at mile 80 of anything and you&rsquo;ll meet all three:</p>
+      <p><strong>The Flatland Diesel.</strong> Immaculate threshold, built entirely in 75-minute intervals on a smart trainer. Enters a race where the decisive climbs are 25 minutes long and stacked in the back half. His power profile and the course profile have never been introduced. They meet for the first time on race day, and it goes the way most blind dates go.</p>
+      <p><strong>The Interval Assassin.</strong> Can rip a five-minute VO2 effort that would make a Cat 2 nervous. Has not ridden longer than 2.5 hours since October, because the plan kept adapting his weekend ride down to protect his &ldquo;readiness.&rdquo; Readiness for what? Not for hour six. Durability &mdash; the ability to still make power deep into a long day &mdash; is the single most race-relevant quality in endurance sport, and it&rsquo;s the first thing adaptive logic sacrifices, because it&rsquo;s expensive and doesn&rsquo;t move short-term metrics.</p>
+      <p><strong>The Fueling Optimist.</strong> Fitness genuinely excellent, in any shape you like. Plans to &ldquo;eat when hungry.&rdquo; Hunger is a late-stage bonk symptom, not an appetite cue. His race ends at an aid station, staring at a table the first 500 riders already stripped of bananas, doing sad math.</p>
+      <p>All three did the training. All three had great numbers. All three got beaten by riders with worse FTPs and better-shaped preparation.</p>
+    </section>
+
+    <section class="gg-blog-section">
+      <h2>The Part Where I Tell You Not to Buy Anything</h2>
+      <p>Now the honest caveat, because this site runs on being rude to everyone including me: some of you don&rsquo;t need race-shaped training.</p>
+      <p>If your race is flat, your schedule is stable, and your goal is to finish respectably &mdash; a generic plan captures most of the value. Genuinely. Keep your twenty bucks a month, follow the plan, you&rsquo;ll have a good day. The shape problem is real in proportion to how specific your race is and how much of your season you&rsquo;ve bet on it.</p>
+      <p>And you can solve the shape problem yourself, for free. It takes three things: read your race&rsquo;s course profile twice &mdash; the second read is where your pacing plan comes from. Point your longest rides at the race&rsquo;s specific demand, whether that&rsquo;s late-day climbing or six hours of unrelenting flat power. And practice your race-day fueling on every long ride, starting now, at the grams-per-hour you&rsquo;ll actually need. Every race profile in <a href="https://gravelgodcycling.com/gravel-races/" data-event="article_cta_click" data-label="race_database_inline">the database</a> tells you where the day gets decided. That&rsquo;s what it&rsquo;s for.</p>
+      <p>What I sell &mdash; <a href="https://gravelgodcycling.com/products/training-plans/" data-event="article_cta_click" data-label="plans_inline">custom plans built from your race&rsquo;s actual course profile</a> &mdash; is for the people who read all that and know they won&rsquo;t do it at 9pm in week six. You&rsquo;re not buying knowledge. You&rsquo;re buying the decision already made.</p>
+    </section>
+
+    <section class="gg-blog-section">
+      <h2>The Start Line Doesn&rsquo;t Care About Your Compliance Score</h2>
+      <p>The guy on the Missouri line finished, for the record. Walked four pitches, cramped through the last hour, rolled in ninety minutes behind where his fitness said he should. His app congratulated him that evening on completing a workout. It logged the race as unstructured endurance.</p>
+      <p>Twenty-two weeks of perfect adaptation, and the software never once asked the only question that mattered: <em>adapted to what?</em></p>
+      <p>Your race knows the answer. It&rsquo;s been publishing it the whole time &mdash; in the course profile, the elevation chart, the finisher times, the aid station spacing. The information is sitting right there, free, waiting for someone to shape a season around it.</p>
+      <p>Be the one rider at mile 82 who&rsquo;s met the course before.</p>
+    </section>
+
+    <div class="gg-subscribe-callout">
+      <p>You&rsquo;ve loved every word I&rsquo;ve written and would make the world a better place if you shared this with someone.</p>
+      <a href="https://gravelgodcycling.substack.com" target="_blank" rel="noopener" data-event="article_cta_click" data-label="substack_mid">Subscribe to the Newsletter &rarr;</a>
+      <p class="gg-sub-name">Slow, Mid, 38s &mdash; Free, weekly, no Sweet Spot</p>
+    </div>
+
+    <section class="gg-blog-section">
+      <h2>It Makes You Slow</h2>
+      <p>Study after study after study, big expensive platforms, and numerous anecdotal accounts all converge on the same conclusion &mdash; moderate intensity training, or doing a significant amount of training between LT1 and LT2, makes you slow as hell. While that&rsquo;s not what they say in the scientific papers, this is what they are saying between the lines.</p>
+      <p>Why? Easy:</p>
+      <ul>
+        <li>It wrecks your nervous system</li>
+        <li>It&rsquo;s bad for fat oxidation</li>
+        <li>Mitochondria hate it</li>
+      </ul>
+      <p>I&rsquo;ll run through this quick, because despite those points being the most important scientifically, they&rsquo;re also the details in this article most likely to make you fall asleep.</p>
+
+      <h3>Your Nervous System Treats Sweet Spot Like Threshold</h3>
+      <p>Here&rsquo;s the kicker: your autonomic nervous system can&rsquo;t tell the difference between sweet spot and threshold. Stephen Seiler&rsquo;s research group measured heart rate variability recovery after sessions at different intensities and found something that should terrify sweet spot devotees &mdash; the first lactate threshold acts like an on/off switch for autonomic stress.<sup><a href="#ref-5">5</a></sup></p>
+      <p>Ride below LT1, even for two hours? Your nervous system barely notices. Cross above LT1 into sweet spot territory? Your body responds as if you just did a threshold session. The recovery cost is essentially identical whether you&rsquo;re grinding away at 90% FTP or hammering at 105%.</p>
+      <p>This, then, goes far in explaining why it&rsquo;s important to be selective when spending a lot of time above LT1. When you do, you&rsquo;re stressing yourself, so you want to make sure the stress really counts and drives the adaptations you&rsquo;re looking for.</p>
+
+      <h3>Sweet Spot Burns Your Matches (And Your Carbs)</h3>
+      <p>When you ride at sweet spot intensity, you&rsquo;re sitting at around 3&ndash;6 mmol/L of blood lactate. At those concentrations, lactate itself inhibits the enzymes (CPT1 and CPT2) that shuttle fat into your mitochondria for fuel.<sup><a href="#ref-6">6</a></sup> You&rsquo;ve essentially locked the door on fat oxidation and forced your body to burn through glycogen stores.</p>
+      <p>The intensity where you actually maximize fat burning &mdash; what scientists call FatMax &mdash; sits well below sweet spot, typically in Zone 2 around 2 mmol/L of lactate. I&ntilde;igo San Mill&aacute;n, who&rsquo;s spent 25 years coaching everyone from weekend warriors to Tadej Poga&ccedil;ar, is blunt about this: Zone 2 training produces &ldquo;the biggest improvement in fat burning and the biggest improvement in lactic clearance capacity.&rdquo;<sup><a href="#ref-7">7</a></sup></p>
+      <p>Sweet spot training doesn&rsquo;t build metabolic flexibility &mdash; it reinforces carbohydrate dependence. You&rsquo;re training your body to be a gas-guzzling V8 when endurance performance demands a hybrid engine.</p>
+
+      <h3>Mitochondria Want You to Go Easy or Go Hard</h3>
+      <p>Here&rsquo;s where it gets really damning: mitochondrial biogenesis &mdash; the creation of new cellular powerhouses that actually make you faster &mdash; shows intensity-dependent activation. High-intensity cycling induces approximately 2.5-fold greater mitochondrial protein synthesis than moderate-intensity work.<sup><a href="#ref-8">8</a></sup> PGC-1&alpha;, the master regulator that tells your cells to build more mitochondria, shows the greatest expression at higher intensities.</p>
+      <p>Sweet spot sits in no man&rsquo;s land. It&rsquo;s not easy enough to accumulate massive aerobic volume with minimal autonomic cost, and it&rsquo;s not hard enough to maximally trigger the intensity-dependent signaling that builds mitochondria. You get the worst of both worlds: the recovery cost of hard training with the adaptive stimulus of not-that-hard training.</p>
+      <p>I won&rsquo;t name names, but I&rsquo;ve worked with plenty of athletes who spend almost every pedal stroke in this zone and after a brief honeymoon period of gains, they plateau hard and can&rsquo;t figure out why adding more volume at sweet spot isn&rsquo;t working anymore.</p>
+      <h3>The Black Hole Metaphor is Perfect</h3>
+      <p>Seiler called it the &ldquo;black hole&rdquo; of training intensity, and the physics metaphor is apt. Black holes trap things that get too close &mdash; their gravitational pull is so strong that nothing escapes. Sweet spot training traps athletes in the same way. It feels productive because it&rsquo;s hard, but not so hard you can&rsquo;t do it several times a week. It becomes the default mode.</p>
+      <p>The problem is you&rsquo;re stuck there, accumulating fatigue that limits your ability to go truly easy (which builds your aerobic base) or truly hard (which drives VO2max and anaerobic capacity). You end up training in the middle all the time, which &mdash; if we&rsquo;re being honest about what the research shows &mdash; is the single best way to ensure you never reach your genetic ceiling.</p>
+      <p>Sweet spot makes you fit enough to ride steady in a breakaway. But if you want to win, you need to be able to go deep below LT1 for hours and spike hard above LT2 when it matters. Sweet spot training systematically prevents both adaptations.</p>
+    </section>
+
+    <section class="gg-blog-section">
+      <h2>Sweet Spot&rsquo;s Success Stories are Just Noob Gains</h2>
+      <p>If you&rsquo;re unfortunate enough to have accidentally signed up for FasCat&rsquo;s newsletters, you will frequently get hit with emails with headlines about how much Steve, a 45-year-old father of 8, improved his FTP by 30 watts in 10 weeks by using Sweet Spot training. While I&rsquo;m happy for Steve and sincerely want to educate him on birth control, I have tough news &mdash; he didn&rsquo;t improve that much because of Sweet Spot training. He improved because any training is better than not training.</p>
+      <p>Huh?</p>
+      <p>Steve has 9 kids (or did I say 8?) and doesn&rsquo;t have much time to train, so he frequently doesn&rsquo;t train throughout the year, which means he gets really out of shape at times. When he does train, however, he&rsquo;s starting from such a shockingly low point that any training is the equivalent of a nuclear bomb to his body and after a few rides every single gene that codes for not being slow is getting madly upregulated to meet the sudden, ridiculous metabolic, cardiovascular, neurological, and muscular demands of all this Sweet Spotting. The bump in performance athletes get when they go from not training at all to training some is called noob gains.</p>
+      <p>The mistake, here, is to pretend that Sweet Spot is doing all the heavy lifting. Steve doesn&rsquo;t know this, but he&rsquo;d actually get faster and enjoy himself more if he did most of his training easier, in say, an inferior zone like Zone 2, and some, but not much of it in an extremely violent zone, like Zone 5 or 6. Instead, he&rsquo;s unfortunately been brainwashed by Sweet Spot propaganda that turns almost every workout into some grueling sorta-hard blah that doesn&rsquo;t allow him to think but also doesn&rsquo;t really make him hurt like he should but gives him the false feeling of making great progress.</p>
+      <p>However, Steve doesn&rsquo;t know that. He was in the Marines and thinks &ldquo;No pain, no gain&rdquo; and doesn&rsquo;t think he&rsquo;s training hard enough unless he&rsquo;s always bleeding out of his eyeballs. He really does improve a lot, and once the 8- or 10-week training plan is over, he is a lot faster, and sends over a thank-you note to his good buddy Frank for his genius training zone and unwittingly becomes more social proof that ensnares future well-meaning cyclists into buying into a made-up training zone.</p>
+    </section>
+
+    <section class="gg-blog-section">
+      <h2>Polarized Training is Just Better</h2>
+      <p>Actually, that&rsquo;s just clickbait. If that upsets you, imagine how I feel after being on FasCat&rsquo;s newsletter for 10 years.</p>
+      <p>Look &mdash; polarized training (roughly 75&ndash;90% below LT1, 15&ndash;20% above LT2) consistently outperforms threshold-heavy training in controlled studies. Neal et al. (2013) showed 8% peak power gains vs. 3% for threshold training.<sup><a href="#ref-9">9</a></sup> St&ouml;ggl and Sperlich (2014) found polarized improved VO2peak by 11.7% while threshold training showed improvement only in work economy.<sup><a href="#ref-10">10</a></sup> Esteve-Lanao et al. (2007) demonstrated that simply replacing easy training with moderate/sweet-spot-intensity training &mdash; at equal total load &mdash; produced worse outcomes.<sup><a href="#ref-11">11</a></sup> Rosenblat et al. (2019) found a moderate effect size favoring polarized over threshold for time-trial performance.<sup><a href="#ref-12">12</a></sup> The most recent 2025 network meta-analysis by Rosenblat, Seiler, and colleagues confirmed that threshold-heavy approaches consistently ranked worst for competitive athletes.<sup><a href="#ref-13">13</a></sup></p>
+      <p>The evidence is clear.</p>
+      <p>But here&rsquo;s what the polarized-vs-sweet-spot debate gets wrong: zones don&rsquo;t exist in isolation.</p>
+      <p>Adaptation isn&rsquo;t a property of a single training intensity &mdash; it&rsquo;s an emergent property of your entire training system. How often you train, how long, your intensity distribution, your recovery protocols, your training history &mdash; all of it interacts to produce the stimulus your body responds to. Sweet Spot isn&rsquo;t inherently good or bad. It&rsquo;s a tool. And like hammers and screwdrivers, its value depends entirely on what you&rsquo;re building and when you use it.</p>
+      <p>The problem isn&rsquo;t that Sweet Spot can&rsquo;t work. It&rsquo;s that the way it&rsquo;s marketed and prescribed &mdash; as a default training mode, a shortcut, a hack &mdash; fundamentally misunderstands how adaptation works. When Sweet Spot becomes the center of your training philosophy instead of an occasionally useful intensity, you&rsquo;ve fallen into the exact trap Seiler warned about: the black hole that prevents you from going easy enough or hard enough to maximize your genetic potential.</p>
+      <p>So yes, polarized training is better. But not because Zone 2 is magic or because VO2max intervals are superior. It&rsquo;s better because it acknowledges the fundamental truth that Sweet Spot marketing denies: there are no shortcuts. You need massive easy volume to build your aerobic engine, and you need genuinely hard intensity to push your ceiling. Everything else is just noise in the middle.</p>
+    </section>
+
+    <section class="gg-blog-section">
+      <h2>That Said, G-Spot is Better than Sweet Spot</h2>
+      <p>God visited me in a dream months ago and told me that if I was able to carry out 40 days and 40 nights of sweet spot training he&rsquo;d reveal a truth to me.</p>
+      <p>After completing all those scientifically superior workouts and testing my FTP (it went down 10 watts), He revealed to me a prophecy via a graph on a tablet that charted training efficiency vs. training intensity, and he labeled this unitless graph on a tablet and then leaned in close while pointing to the intersection and whispered, &ldquo;The G-Spot.&rdquo;</p>
+      <p>The G-Spot! This, this is the intensity that Sweet Spot was always meant to be. It&rsquo;s 86&ndash;92% of FTP, unlike the fraudulent 88&ndash;94% Sweet Spot percentage, all but ensuring that every cyclist that overestimates their FTP is still comfortably under their FTP when they train at this intensity, which is what Sweet Spot always intended.</p>
+      <p>It&rsquo;s a better name, because on the one hand it refers to you know what (Bailey), but when questioned about it I can just say it&rsquo;s short for the &ldquo;Gravel Spot,&rdquo; or the intensity at which most gravel racers race for most gravel events.</p>
+      <p>I&rsquo;ve had at least 13 athletes on it for about 4 months and I can tell you that their gains at FTP have been HUGE! Keep your eyes peeled on the TrainingPeaks Training Plan Marketplace as I&rsquo;ll be selling G-Spot training plans for $19.95 with shipping and handling to a limited number of select customers. Let me know if you want to get your hands on a copy!</p>
+    </section>
+
+    <section class="gg-blog-section gg-references">
+      <h2>References</h2>
+      <p id="ref-1"><sup>1</sup> Overton, F. (2005). &ldquo;Sweet Spot Training.&rdquo; <em>PezCyclingNews</em>.</p>
+      <p id="ref-2"><sup>2</sup> Coggan, A. R., &amp; Allen, H. (2006). <em>Training and Racing with a Power Meter</em>. VeloPress.</p>
+      <p id="ref-3"><sup>3</sup> Coggan, A. R., &amp; Allen, H. (2006). <em>Training and Racing with a Power Meter</em>. VeloPress.</p>
+      <p id="ref-4"><sup>4</sup> Goodhart, C. A. E. (1984). &ldquo;Problems of monetary management: The U.K. experience.&rdquo; In <em>Monetary Theory and Practice</em>. London: Macmillan.</p>
+      <p id="ref-5"><sup>5</sup> Seiler, S., Haugen, O., &amp; Kuffel, E. (2007). &ldquo;Autonomic recovery after exercise in trained athletes: Intensity and duration effects.&rdquo; <em>Medicine &amp; Science in Sports &amp; Exercise</em>, 39(8), 1366&ndash;1373.</p>
+      <p id="ref-6"><sup>6</sup> San-Mill&aacute;n, I., &amp; Brooks, G. A. (2018). &ldquo;Assessment of metabolic flexibility by means of measuring blood lactate, fat, and carbohydrate oxidation responses to exercise.&rdquo; <em>Sports Medicine</em>, 48(2), 467&ndash;479.</p>
+      <p id="ref-7"><sup>7</sup> San-Mill&aacute;n, I., &amp; Brooks, G. A. (2018). &ldquo;Assessment of metabolic flexibility by means of measuring blood lactate, fat, and carbohydrate oxidation responses to exercise.&rdquo; <em>Sports Medicine</em>, 48(2), 467&ndash;479.</p>
+      <p id="ref-8"><sup>8</sup> Bishop, D. J., et al. (2019). &ldquo;High-intensity exercise and mitochondrial biogenesis: Current controversies and future research directions.&rdquo; <em>Physiology</em>, 34(1), 56&ndash;64.</p>
+      <p id="ref-9"><sup>9</sup> Neal, C. M., et al. (2013). &ldquo;Six weeks of a polarized training-intensity distribution leads to greater physiological and performance adaptations than a threshold model in trained cyclists.&rdquo; <em>Journal of Applied Physiology</em>, 114(4), 461&ndash;471.</p>
+      <p id="ref-10"><sup>10</sup> St&ouml;ggl, T. L., &amp; Sperlich, B. (2014). &ldquo;Polarized training has greater impact on key endurance variables than threshold, high intensity, or high volume training.&rdquo; <em>Frontiers in Physiology</em>, 5, 33.</p>
+      <p id="ref-11"><sup>11</sup> Esteve-Lanao, J., Foster, C., Seiler, S., &amp; Lucia, A. (2007). &ldquo;Impact of training intensity distribution on performance in endurance athletes.&rdquo; <em>Journal of Strength and Conditioning Research</em>, 21(3), 943&ndash;949.</p>
+      <p id="ref-12"><sup>12</sup> Rosenblat, M. A., et al. (2019). &ldquo;Polarized vs. threshold training intensity distribution on endurance sport performance.&rdquo; <em>Journal of Strength and Conditioning Research</em>, 33(12), 3491&ndash;3500.</p>
+      <p id="ref-13"><sup>13</sup> Rosenblat, M. A., Seiler, S., et al. (2025). &ldquo;Which training intensity distribution intervention will produce the greatest improvements in maximal oxygen uptake and time-trial performance in endurance athletes?&rdquo; <em>Sports Medicine</em>.</p>
+    </section>
+
+    <div class="gg-blog-cta">
+      <p>See how we actually structure plans &mdash; polarized, race-specific, built for your life.</p>
+      <a href="https://gravelgodcycling.com/coaching/" data-event="article_cta_click" data-label="coaching">Coaching &rarr;</a>
+      <a href="https://gravelgodcycling.com/training-plans/" data-event="article_cta_click" data-label="training_plans">Training Plans &rarr;</a>
+      <a href="https://gravelgodcycling.com/questionnaire/" data-event="article_cta_click" data-label="questionnaire">Get a Custom Plan &rarr;</a>
+    </div>
+
+    <div class="gg-subscribe-callout">
+      <p>More like this every week. Training science without the marketing. Race intel without the fluff.</p>
+      <a href="https://gravelgodcycling.substack.com" target="_blank" rel="noopener" data-event="article_cta_click" data-label="substack_bottom">Subscribe to Slow, Mid, 38s &rarr;</a>
+      <p class="gg-sub-name">Free &mdash; Unsubscribe anytime</p>
+    </div>
+
+    <div class="gg-blog-footer">
+      <a href="https://gravelgodcycling.com">Gravel God</a> &middot; July 2, 2026
+    </div>
+  </div>
+
+  <script>
+  // Article-specific GA4 events
+  (function() {
+    // Scroll depth tracking (25%, 50%, 75%, 100%)
+    var depths = [25, 50, 75, 100];
+    var fired = {};
+    function getScrollPercent() {
+      var h = document.documentElement;
+      var b = document.body;
+      var st = window.pageYOffset || h.scrollTop || b.scrollTop || 0;
+      var sh = Math.max(h.scrollHeight, b.scrollHeight) - Math.max(h.clientHeight, b.clientHeight);
+      return sh > 0 ? Math.round((st / sh) * 100) : 0;
+    }
+    window.addEventListener('scroll', function() {
+      var pct = getScrollPercent();
+      for (var i = 0; i < depths.length; i++) {
+        if (pct >= depths[i] && !fired[depths[i]]) {
+          fired[depths[i]] = true;
+          if (typeof gtag === 'function') {
+            gtag('event', 'article_scroll_depth', {
+              'article_slug': 'your-training-app-doesnt-know-your-race-exists',
+              'depth_threshold': depths[i]
+            });
+            // Fire separate deep-read event at 75%+ for funnel tracking
+            if (depths[i] >= 75) {
+              gtag('event', 'article_deep_read', {
+                'article_slug': 'your-training-app-doesnt-know-your-race-exists',
+                'depth_threshold': depths[i]
+              });
+            }
+          }
+        }
+      }
+    });
+
+    // CTA click tracking
+    document.querySelectorAll('[data-event="article_cta_click"]').forEach(function(el) {
+      el.addEventListener('click', function() {
+        if (typeof gtag === 'function') {
+          gtag('event', 'article_cta_click', {
+            'article_slug': 'your-training-app-doesnt-know-your-race-exists',
+            'cta_label': el.getAttribute('data-label') || 'unknown'
+          });
+        }
+      });
+    });
+  })();
+  </script>
+<footer aria-label="Legal" style="padding:16px 24px;text-align:center;background:#59473c;color:#d4c5b9;font:10px/1.5 'Sometype Mono',monospace;letter-spacing:1px;text-transform:uppercase"><a href="/privacy/" style="color:#d4c5b9">Privacy</a> &middot; <a href="/terms/" style="color:#d4c5b9">Terms</a></footer>
+</body>
+</html>

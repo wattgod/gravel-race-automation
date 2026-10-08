@@ -12,13 +12,17 @@ week, cross-posted to Substack, is the growth engine.
    math as weapon, ≤1 profanity, concession section ("who this ISN'T for"),
    end with weight. 1,200–1,600 words.
 3. Build from the proven shell: clone the head/tail of an existing
-   `wordpress/output/articles/*.html` (GA4, font-face, scroll-depth events,
+   `wordpress/articles/<slug>/index.html` (GA4, font-face, scroll-depth events,
    CTA/subscribe blocks), swap slug/meta/date/body. No og:image needed.
+   `wordpress/articles/` is the tracked source of truth (snapshotted from the
+   server 2026-10-08); `wordpress/output/` is gitignored, so don't author there.
 4. Checks: `slop_rules.check_text` = zero issues; then
-   `pytest tests/test_article_infrastructure.py` (54 tests).
+   `pytest tests/test_article_infrastructure.py` (54 tests; not on main as of
+   2026-10-08 — the file needs restoring).
 5. Entry in `web/blog-index.json` (category "article"), regen
    `generate_articles_index.py`.
-6. Deploy: SCP article + `/articles/index.html` to gravel; flush SG cache.
+6. Commit `wordpress/articles/<slug>/` first, then deploy: SCP it to
+   `public_html/articles/<slug>/` + `/articles/index.html` to gravel; flush SG cache.
 7. Cross-post to Substack (manual — the essay drives subs, subs drive return
    traffic). Link the article's on-site version from the Substack footer.
 8. Road cross-surface: when road's articles system exists, syndicate the

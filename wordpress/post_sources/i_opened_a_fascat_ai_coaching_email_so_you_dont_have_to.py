@@ -51,7 +51,7 @@ ALT = {
 
 # The "In short" rule (wp_post docstring); section = 0-based h2 index.
 IN_SHORT = (
-    Claim("The post argues that the email sells a fix for data overload that gear makers, FasCat included, helped create.",
+    Claim("The post argues that the email sells a fix for data overload that companies like FasCat helped create.",
           "#analysis-paralysis", "See the argument · §01", 0),
     Claim("It calls CoachCat&rsquo;s sample ride comment empty praise and jargon, and writes a longer coach-style comment as a contrast.",
           "#instant-data-analysis", "See the comment · §02", 1),

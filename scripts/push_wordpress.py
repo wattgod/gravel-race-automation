@@ -2782,6 +2782,38 @@ RewriteRule ^blog/grasslands-100/?$ /blog/ [R=301,L]
 RewriteRule ^blog/greek-gravel/?$ /blog/ [R=301,L]
 RewriteRule ^blog/natchez-trace-gran-fondo/?$ /blog/ [R=301,L]
 
+# 2024 recaps whose winners could not be verified (unverified or ambiguous
+# category; every winner field cleared in data/corrections/2026-10-09-winners.json,
+# PR #449). Approved by Matt 2026-10-09: recap -> race page, not the blog index.
+# Placed above the /blog/ self-healing rule; the recap files stay on the server.
+RewriteRule ^blog/barry-roubaix-recap/?$ /race/barry-roubaix/ [R=301,L]
+RewriteRule ^blog/border-wars-recap/?$ /race/border-wars/ [R=301,L]
+RewriteRule ^blog/camp-michaux-gravel-grinder-recap/?$ /race/camp-michaux-gravel-grinder/ [R=301,L]
+RewriteRule ^blog/crusher-in-the-tushar-recap/?$ /race/crusher-in-the-tushar/ [R=301,L]
+RewriteRule ^blog/galactic-grinder-recap/?$ /race/galactic-grinder/ [R=301,L]
+RewriteRule ^blog/grasshopper-series-recap/?$ /race/grasshopper-series/ [R=301,L]
+RewriteRule ^blog/grassroots-gravel-recap/?$ /race/grassroots-gravel/ [R=301,L]
+RewriteRule ^blog/gravel-earth-recap/?$ /race/gravel-earth/ [R=301,L]
+RewriteRule ^blog/gravel-revival-recap/?$ /race/gravel-revival/ [R=301,L]
+RewriteRule ^blog/gravel-roll-pecan-shaker-recap/?$ /race/gravel-roll-pecan-shaker/ [R=301,L]
+RewriteRule ^blog/gray-duck-grit-recap/?$ /race/gray-duck-grit/ [R=301,L]
+RewriteRule ^blog/grinduro-recap/?$ /race/grinduro/ [R=301,L]
+RewriteRule ^blog/grinduro-canada-recap/?$ /race/grinduro-canada/ [R=301,L]
+RewriteRule ^blog/grinduro-france-recap/?$ /race/grinduro-france/ [R=301,L]
+RewriteRule ^blog/jeroboam-recap/?$ /race/jeroboam/ [R=301,L]
+RewriteRule ^blog/karukinka-recap/?$ /race/karukinka/ [R=301,L]
+RewriteRule ^blog/king-of-the-lake-recap/?$ /race/king-of-the-lake/ [R=301,L]
+RewriteRule ^blog/marys-mayhem-recap/?$ /race/marys-mayhem/ [R=301,L]
+RewriteRule ^blog/ouachita-challenge-recap/?$ /race/ouachita-challenge/ [R=301,L]
+RewriteRule ^blog/pirinexus-360-recap/?$ /race/pirinexus-360/ [R=301,L]
+RewriteRule ^blog/rasputitsa-recap/?$ /race/rasputitsa/ [R=301,L]
+RewriteRule ^blog/red-granite-grinder-recap/?$ /race/red-granite-grinder/ [R=301,L]
+RewriteRule ^blog/salty-lizard-recap/?$ /race/salty-lizard/ [R=301,L]
+RewriteRule ^blog/thunder-bay-thriller-recap/?$ /race/thunder-bay-thriller/ [R=301,L]
+RewriteRule ^blog/tor-divide-recap/?$ /race/tor-divide/ [R=301,L]
+RewriteRule ^blog/torino-nice-rally-recap/?$ /race/torino-nice-rally/ [R=301,L]
+RewriteRule ^blog/wild-gravel-recap/?$ /race/wild-gravel/ [R=301,L]
+
 # Self-healing for stale blog URLs (2026-07-22 reconcile: server /blog/ had
 # 109 orphan dirs from older preview generations). A /blog/ URL that exists
 # as neither dir nor file 301s to the blog index instead of 404ing.

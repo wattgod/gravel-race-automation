@@ -19,6 +19,7 @@ Usage:
 import argparse
 import html
 import json
+import re
 import sys
 from datetime import date
 from pathlib import Path
@@ -26,7 +27,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).parent))
 from brand_tokens import TIER_NAMES
 from blog_tracking import get_plan_intent_tracking_script
-from editorial_shell import ArticleMeta, render_editorial_page
+from editorial_shell import ArticleMeta, Claim, render_editorial_page
 
 # Roundups indexable only via the owner-approved allowlist (WS5 Option A).
 INDEXABLE_ROUNDUPS = frozenset(
@@ -64,6 +65,16 @@ SEASONS = {
 }
 
 MIN_RACES_FOR_ROUNDUP = 3
+
+# "In short" (spec: ~/specs/gg-editorial-shell-2026-10-08/IN_SHORT_SPEC.md).
+# Every claim is a fixed template over race-index.json fields; no prose source.
+STATS_ID = "roundup-stats"  # the stats bar
+RACES_ID = "roundup-races"  # the race grid on a single-tier page (no tier h2s)
+MAX_CLAIM_WORDS = 25
+MIN_CLAIMS = 2
+# Banned: first person ("I ", "we " as words, so "UCI Gravel" passes),
+# exclamation marks and em-dash asides (also inside race names).
+BANNED_CLAIM_RE = re.compile(r"(?<![A-Za-z])(?:I|[Ww]e) |!| \u2014 ")
 
 # Roundup blocks on the editorial shell (its tokens: --ink, --sand, --mono...).
 # The tier badge keeps TIER_COLORS (inline), since its colour encodes the tier.
@@ -208,13 +219,13 @@ def build_roundup_stats(races):
 
 
 def build_stats_bar_html(stats):
-    """Build the stats bar HTML."""
+    """Build the stats bar HTML (id=STATS_ID)."""
     parts = [f'<span class="gg-roundup-stat">{stats["count"]} Races</span>']
     parts.append(f'<span class="gg-roundup-stat">Avg Score: {stats["avg_score"]}/100</span>')
     for t, count in sorted(stats["tier_breakdown"].items()):
         tier_name = TIER_NAMES.get(t, "")
         parts.append(f'<span class="gg-roundup-stat">T{t} {esc(tier_name)}: {count}</span>')
-    return '<div class="gg-roundup-stats-bar">' + "".join(parts) + "</div>"
+    return f'<div class="gg-roundup-stats-bar" id="{STATS_ID}">' + "".join(parts) + "</div>"
 
 
 def group_races_by_tier(sorted_races):
@@ -227,6 +238,81 @@ def group_races_by_tier(sorted_races):
         else:
             groups.append((tier, [race]))
     return groups
+
+
+def tier_section_id(tier):
+    """The tier h2's id (the slug the shell gave it before ids were explicit)."""
+    name = TIER_NAMES.get(tier, "")
+    return "-".join(f"t{tier} {name}".lower().split())
+
+
+def _claim_ok(text):
+    """Word cap and banned patterns, checked on the plain text."""
+    return (len(text.split()) <= MAX_CLAIM_WORDS
+            and not BANNED_CLAIM_RE.search(text))
+
+
+def build_in_short_claims(races, scope):
+    """The roundup "In short": 2-3 data-derived claims, or None.
+
+    `races` is the page's race list; `scope` is the page's span as plain text
+    ("August 2026", "West region, March to May 2026", "T1 The Icons").
+    Claims, in order (each skipped when its data is missing):
+      1. scope: "{N} races rated, {scope}."
+      2. top-rated: "{name} rates highest at {score}/100 (T{n} {tier name})."
+      3. tier split: "By tier: 4 T1, 12 T2 and 6 T4." (2+ tiers only)
+    Spec claim 4 (earliest date / biggest field) is never rendered:
+    race-index.json has month-level dates only and no field sizes.
+    Tiers are written "T{n}", never "Tier {n}": generate_blog_index reads the
+    first "Tier N" on a page as its tier. Links point at the first tier h2, or
+    on a single-tier page (no h2) at the race grid.
+    """
+    if not races:
+        return None
+    groups = group_races_by_tier(
+        sorted(races, key=lambda r: (r.get("tier", 4), -r.get("overall_score", 0))))
+    titled = len(groups) > 1
+
+    def target(tier):
+        if not titled:
+            return f"#{RACES_ID}", "See the races", 0
+        idx = next(i for i, (t, _) in enumerate(groups) if t == tier)
+        label = f"T{tier} {TIER_NAMES.get(tier, '')}".strip()
+        return f"#{tier_section_id(tier)}", f"See {label} \u00b7 \u00a7{idx + 1:02d}", idx
+
+    claims = []
+
+    def add(text, tier):
+        if _claim_ok(text):
+            href, label, sec = target(tier)
+            claims.append(Claim(esc(text), href, label, sec))
+
+    first_tier = groups[0][0]
+    if scope:
+        add(f"{len(races)} races rated, {scope}.", first_tier)
+
+    scored = [r for r in races if r.get("overall_score") and r.get("name")]
+    if scored:
+        top_score = max(r["overall_score"] for r in scored)
+        top = [r for g in groups for r in g[1]
+               if r in scored and r["overall_score"] == top_score]
+        lead = top[0]
+        tier = lead.get("tier", 4)
+        if len(top) == 1:
+            tier_label = f"T{tier} {TIER_NAMES.get(tier, '')}".strip()
+            add(f"{lead['name']} rates highest at {top_score}/100 ({tier_label}).", tier)
+        elif len(top) == 2:
+            add(f"{top[0]['name']} and {top[1]['name']} share the highest rating, "
+                f"{top_score}/100.", tier)
+        else:
+            add(f"{len(top)} races share the highest rating, {top_score}/100.", tier)
+
+    if titled:
+        parts = [f"{len(g)} T{t}" for t, g in groups]
+        split = ", ".join(parts[:-1]) + f" and {parts[-1]}"
+        add(f"By tier: {split}.", first_tier)
+
+    return claims if len(claims) >= MIN_CLAIMS else None
 
 
 def build_roundup_body(intro, stats_bar, sorted_races):
@@ -246,10 +332,12 @@ def build_roundup_body(intro, stats_bar, sorted_races):
     ]
     titled = len(groups) > 1
     for tier, group in groups:
-        heading = f"  <h2>T{tier} {esc(TIER_NAMES.get(tier, ''))}</h2>\n" if titled else ""
+        heading = (f'  <h2 id="{tier_section_id(tier)}">'
+                   f"T{tier} {esc(TIER_NAMES.get(tier, ''))}</h2>\n") if titled else ""
+        grid_id = "" if titled else f' id="{RACES_ID}"'
         cards = "".join(build_race_card_html(r) for r in group)
         parts.append(
-            '<div class="gg-blog-section gg-roundup-group">\n'
+            f'<div class="gg-blog-section gg-roundup-group"{grid_id}>\n'
             f'{heading}  <div class="gg-roundup-grid">{cards}\n  </div>\n'
             "</div>"
         )
@@ -263,7 +351,7 @@ def build_roundup_body(intro, stats_bar, sorted_races):
 
 
 def generate_roundup_html(title, subtitle, intro, races, slug, category_tag,
-                          publish_date=None):
+                          publish_date=None, scope=""):
     """Generate a complete roundup article HTML on the editorial shell.
 
     Args:
@@ -274,6 +362,7 @@ def generate_roundup_html(title, subtitle, intro, races, slug, category_tag,
         slug: Output slug (e.g. "roundup-march-2026")
         category_tag: Display tag (e.g. "Monthly Calendar")
         publish_date: date object for datePublished (defaults to today)
+        scope: plain-text span for the "In short" scope claim; "" skips it
     """
     stats = build_roundup_stats(races)
     stats_bar = build_stats_bar_html(stats)
@@ -324,7 +413,7 @@ def generate_roundup_html(title, subtitle, intro, races, slug, category_tag,
     return render_editorial_page(
         meta,
         body,
-        in_short=None,
+        in_short=build_in_short_claims(races, scope),
         ladder=False,  # roundups never had a plans/coaching block
         extra_css=ROUNDUP_CSS,
         extra_body_end=get_plan_intent_tracking_script(),
@@ -358,7 +447,7 @@ def generate_monthly_roundup(races, year, month, output_dir):
 
     html_content = generate_roundup_html(
         title, subtitle, intro, filtered, slug, "Monthly Calendar",
-        publish_date=pub_date,
+        publish_date=pub_date, scope=f"{month_name} {year}",
     )
 
     output_dir.mkdir(parents=True, exist_ok=True)
@@ -404,6 +493,8 @@ def generate_regional_roundup(races, region_key, season, year, output_dir):
     html_content = generate_roundup_html(
         title, subtitle, intro, filtered, slug, "Regional Roundup",
         publish_date=pub_date,
+        scope=(f"{region_display} region, {MONTH_NAMES[season_months[0]]} to "
+               f"{MONTH_NAMES[season_months[-1]]} {year}"),
     )
 
     output_dir.mkdir(parents=True, exist_ok=True)
@@ -440,7 +531,7 @@ def generate_tier_roundup(races, tier, year, output_dir):
 
     html_content = generate_roundup_html(
         title, subtitle, intro, filtered, slug, f"T{tier} {tier_name}",
-        publish_date=pub_date,
+        publish_date=pub_date, scope=f"T{tier} {tier_name}",
     )
 
     output_dir.mkdir(parents=True, exist_ok=True)

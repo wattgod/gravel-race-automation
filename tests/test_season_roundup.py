@@ -449,3 +449,153 @@ def test_roundup_heading_text_has_no_tier_n_for_blog_index(sample_races):
     """generate_blog_index reads `Tier N` as the entry tier; monthly roundups must stay tier 0."""
     import re
     assert not re.search(r"Tier\s+\d", _render(sample_races))
+
+
+# ── "In short" (IN_SHORT_SPEC.md, Roundup section) ──
+
+import re as _re
+
+from generate_season_roundup import (  # noqa: E402
+    BANNED_CLAIM_RE,
+    MAX_CLAIM_WORDS,
+    RACES_ID,
+    build_in_short_claims,
+    generate_all,
+)
+
+
+def _in_short_block(page):
+    m = _re.search(r'<aside class="inshort".*?</aside>', page, _re.S)
+    return m.group(0) if m else None
+
+
+def _claims_in(page):
+    block = _in_short_block(page)
+    if not block:
+        return []
+    return _re.findall(r'<li data-sec="\d+"><p>(.*?)</p><a class="ev" href="#([^"]+)"', block)
+
+
+def _plain(text_html):
+    import html as _html
+    return _html.unescape(_re.sub(r"<[^>]+>", "", text_html))
+
+
+def test_in_short_claims_from_fixture(sample_races):
+    claims = build_in_short_claims(sample_races, "June 2026")
+    assert [c.text_html for c in claims] == [
+        "5 races rated, June 2026.",
+        "Race A rates highest at 90/100 (T1 The Icons).",
+        "By tier: 2 T1, 1 T2, 1 T3 and 1 T4.",
+    ]
+    assert [c.href for c in claims] == ["#t1-the-icons"] * 3
+    assert [c.section for c in claims] == [0, 0, 0]
+    assert claims[0].link_label == "See T1 The Icons · §01"
+
+
+def test_in_short_top_race_links_to_its_own_tier(sample_races):
+    races = [dict(r) for r in sample_races]
+    races[1]["overall_score"] = 95  # Race B, T2
+    top = build_in_short_claims(races, "June 2026")[1]
+    assert top.text_html == "Race B rates highest at 95/100 (T2 Elite)."
+    assert (top.href, top.section, top.link_label) == ("#t2-elite", 1, "See T2 Elite · §02")
+
+
+def test_in_short_ties_are_not_called_a_single_winner(sample_races):
+    races = [dict(r) for r in sample_races]
+    races[3]["overall_score"] = 90  # Race D ties Race A
+    assert build_in_short_claims(races, "x")[1].text_html == (
+        "Race A and Race D share the highest rating, 90/100.")
+    races[1]["overall_score"] = 90
+    assert build_in_short_claims(races, "x")[1].text_html == (
+        "3 races share the highest rating, 90/100.")
+
+
+def test_in_short_single_tier_links_to_race_grid(sample_races):
+    t1 = filter_by_tier(sample_races, 1)
+    claims = build_in_short_claims(t1, "T1 The Icons")
+    assert [c.text_html for c in claims] == [
+        "2 races rated, T1 The Icons.",
+        "Race A rates highest at 90/100 (T1 The Icons).",
+    ]  # no tier split on a one-tier page
+    assert {c.href for c in claims} == {f"#{RACES_ID}"}
+    page = _render(t1)
+    assert f'id="{RACES_ID}"' in page and "<h2" not in page
+
+
+def test_in_short_skips_missing_data(sample_races):
+    no_scores = [dict(r, overall_score=0) for r in sample_races]
+    claims = build_in_short_claims(no_scores, "June 2026")
+    assert [c.text_html for c in claims] == [
+        "5 races rated, June 2026.", "By tier: 2 T1, 1 T2, 1 T3 and 1 T4."]
+    assert [c.text_html for c in build_in_short_claims(sample_races, "")][0].startswith("Race A")
+    assert build_in_short_claims([], "June 2026") is None
+
+
+def test_in_short_fewer_than_two_claims_renders_nothing(sample_races):
+    t1 = [dict(r, overall_score=0) for r in filter_by_tier(sample_races, 1)]
+    assert build_in_short_claims(t1, "T1 The Icons") is None  # scope only
+    page = generate_roundup_html("T", "S", "Intro.", t1, "roundup-x", "Cat", scope="T1 The Icons")
+    assert 'class="inshort"' not in page
+
+
+def test_in_short_skips_banned_and_overlong_names(sample_races):
+    for bad in ("Race — The Sequel", "Go Race!", "We Ride Gravel", " ".join(["Long"] * 20)):
+        races = [dict(r) for r in sample_races]
+        races[0]["name"] = bad
+        texts = [c.text_html for c in build_in_short_claims(races, "June 2026")]
+        assert not any("rates highest" in t for t in texts), bad
+    races = [dict(r) for r in sample_races]
+    races[0]["name"] = "UCI Gravel Worlds"  # "I " inside a word is not first person
+    assert "UCI Gravel Worlds rates highest" in build_in_short_claims(races, "x")[1].text_html
+
+
+def test_in_short_never_uses_prose_fields(sample_races):
+    """Truncation guard: no tagline (the only prose field) ever reaches a claim."""
+    races = [dict(r, tagline="A sentence cut off mid-wo") for r in sample_races]
+    assert "mid-wo" not in (_in_short_block(_render(races)) or "")
+
+
+def test_in_short_escapes_race_names(sample_races):
+    races = [dict(r) for r in sample_races]
+    races[0]["name"] = "<script>x</script> & Co"
+    block = _in_short_block(_render(races))
+    assert "&lt;script&gt;x&lt;/script&gt; &amp; Co rates highest" in block
+    assert "<script>" not in block
+
+
+def test_in_short_is_deterministic(sample_races):
+    assert _render(sample_races) == _render(list(reversed(sample_races)))
+
+
+def test_in_short_keeps_roundups_out_of_article_funnel_and_blog_tier(sample_races):
+    from generate_season_roundup import INDEXABLE_ROUNDUPS
+    page = generate_roundup_html("A", "B", "Intro.", sample_races, sorted(INDEXABLE_ROUNDUPS)[0],
+                                 "Monthly Calendar", scope="June 2026")
+    assert 'class="inshort"' in page
+    assert "article_scroll_depth" not in page and "article_deep_read" not in page
+    assert not _re.search(r"Tier\s+\d", page)  # generate_blog_index tier stays 0
+
+
+def test_every_generated_roundup_in_short_is_valid(race_index, tmp_path):
+    """All roundups from the real index: targets exist, ≤25 words, no banned patterns."""
+    slugs = generate_all(race_index, 2026, tmp_path)
+    assert slugs
+    with_in_short = 0
+    for slug in slugs:
+        page = (tmp_path / f"{slug}.html").read_text()
+        claims = _claims_in(page)
+        if not claims:
+            continue
+        with_in_short += 1
+        assert 2 <= len(claims) <= 4, slug
+        ids = set(_re.findall(r'\bid="([^"]+)"', page))
+        for text_html, target in claims:
+            text = _plain(text_html)
+            assert target in ids, (slug, target)
+            assert len(text.split()) <= MAX_CLAIM_WORDS, (slug, text)
+            assert not BANNED_CLAIM_RE.search(text), (slug, text)
+            for banned in ("!", " — "):
+                assert banned not in text, (slug, text)
+            assert not _re.search(r"(?<![A-Za-z])(I|we) ", text), (slug, text)
+    assert with_in_short == len(slugs)

@@ -14,6 +14,11 @@ px in the 1200x600 original) and drawn unitless, exactly as the chalk shows
 them. The original image stays one click away under the chart; the first
 (sober-only) chart is kept as the post has it.
 
+DESCRIPTION replaces the live meta description ("...The evidence on recovery,
+adaptation..."): the post cites no studies ("I'll stick to metaphors"). It
+argues by metaphor that habitual drinking compounds against adaptation, and
+says to cut it within two months of racing season.
+
 Regenerate: python3 wordpress/post_sources/does_beer_make_you_slow.py
 """
 from __future__ import annotations
@@ -122,11 +127,15 @@ CSS = """
 """
 
 
+DESCRIPTION = ("Using metaphors rather than studies, the post argues that habitual drinking compounds "
+               "against training adaptation and suggests cutting it before racing season.")
+
 
 def render() -> str:
     return wp_post.render_post(SOURCE, alt=ALT, in_short=IN_SHORT,
                                replace={"fitness-progression-sober-1": STEPS_FIGURE},
-                               replace_label="Show the original chart (with Gravel God)", extra_css=CSS)
+                               replace_label="Show the original chart (with Gravel God)", extra_css=CSS,
+                               description=DESCRIPTION)
 
 
 def main() -> None:

@@ -11,6 +11,11 @@ Infographic (2026-10-09): fig-switch-hours, the post's own January-to-April
 arithmetic as bars. Every number is stated in the post (80 days / 11 weeks,
 58, 50 days; 75 hours, 60 hours, about 80% quality); nothing is derived.
 
+DESCRIPTION replaces the live meta description ("The racing mindset switch:
+how to access real intensity when the effort actually matters. Training is
+practice, racing is war."): the post is not about race-day intensity. Its
+Switch is the move from offseason indulgence to everyday discipline.
+
 Regenerate: python3 wordpress/post_sources/to_make_it_count_flip_the_switch.py
 """
 from __future__ import annotations
@@ -102,9 +107,13 @@ CSS = """
 }
 """
 
+DESCRIPTION = ("The post argues for ending the offseason with a switch to strict discipline, "
+               "keeping occasional rituals from becoming habits, and doing the work now.")
+
 
 def render() -> str:
-    return wp_post.render_post(SOURCE, alt=ALT, in_short=IN_SHORT, figures=(HOURS_FIGURE,), extra_css=CSS)
+    return wp_post.render_post(SOURCE, alt=ALT, in_short=IN_SHORT, figures=(HOURS_FIGURE,), extra_css=CSS,
+                              description=DESCRIPTION)
 
 
 def main() -> None:

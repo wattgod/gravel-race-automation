@@ -97,7 +97,10 @@ def test_page_lives_at_its_original_url_with_live_metadata(pid):
     url = f"https://gravelgodcycling.com/{m.SLUG}/"
     assert live["canonical"] == url and f'<link rel="canonical" href="{url}">' in html
     assert f"<title>{es.esc(live['title'])}</title>" in html
-    assert f'<meta name="description" content="{es.esc(live["description"])}">' in html
+    desc = getattr(m, "DESCRIPTION", None) or live["description"]
+    assert f'<meta name="description" content="{es.esc(desc)}">' in html
+    ld = [json.loads(b) for b in re.findall(r'<script type="application/ld\+json">(.*?)</script>', html, re.S)]
+    assert [b["@type"] for b in ld] == ["BlogPosting"] and ld[0]["description"] == desc
     assert "[POST_CONTENT]" not in html
     assert m.OUTPUT_PATH == PROJECT_ROOT / "wordpress" / "posts" / m.SLUG / "index.html"
 
@@ -117,8 +120,10 @@ def test_every_image_has_alt_text_and_committed_files(pid):
     referenced |= set(re.findall(r", (img/[^ ]+) 2x", html))
     for path in referenced:
         assert (m.OUTPUT_PATH.parent / path).is_file(), path
-    shipped = {p.suffix for p in (m.OUTPUT_PATH.parent / "img").iterdir()}
-    assert shipped <= {".webp", ".mp4", ".webm"}
+    img_dir = m.OUTPUT_PATH.parent / "img"
+    shipped = {p.suffix for p in img_dir.iterdir() if not p.name.endswith("-og.jpg")}
+    assert shipped <= {".webp", ".mp4", ".webm"}, "WebP + video only (+ the og:image JPEG)"
+    assert [p.name for p in img_dir.glob("*.jpg")] == ([f"{feat['name']}-og.jpg"] if feat else [])
 
 
 @pytest.mark.parametrize("pid", POSTS)
@@ -190,3 +195,29 @@ def test_beer_steps_redraw_keeps_the_original_one_click_away():
     assert "data-draw-in" in html.split('id="fig-beer-steps"', 1)[0][-300:] + fig[:200]
     assert '<details class="gg-original"' in fig and "fitness-progression-sober-1" in fig
     assert 'id="fig-fitness-progression-sober"' in html  # the sober-only chart stays as published
+
+
+# post id -> (a phrase in the wrong live description, a phrase in the correction)
+CORRECTED = {
+    2414: ("racing is war", "offseason"),
+    1269: ("The evidence", "metaphors rather than studies"),
+}
+
+
+@pytest.mark.parametrize("pid", POSTS)
+def test_corrected_descriptions_replace_meta_og_and_json_ld(pid):
+    """2414 is about switching from the offseason to discipline, not race-day
+    intensity; 1269 argues by metaphor and cites no studies. Only those two
+    override the live text."""
+    m = _module(pid)
+    if pid not in CORRECTED:
+        assert not hasattr(m, "DESCRIPTION")
+        return
+    wrong, right = CORRECTED[pid]
+    html = _page(pid)
+    assert wrong in m.SOURCE.data["live"]["description"] and wrong not in html
+    assert right in m.DESCRIPTION
+    assert len(m.DESCRIPTION) <= 160 and "!" not in m.DESCRIPTION
+    assert not re.search(r"\b(I|me|my|we|our|you|your)\b", m.DESCRIPTION)
+    for tag in ('name="description"', 'property="og:description"'):
+        assert f'<meta {tag} content="{es.esc(m.DESCRIPTION)}">' in html

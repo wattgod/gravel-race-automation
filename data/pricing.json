@@ -49,6 +49,16 @@
         "rebuild_count": 4,
         "total_minutes_per_athlete_per_year": 105
       }
+    },
+    "coaching": {
+      "id": "coaching",
+      "name": "Coaching",
+      "pricing_model": "tiered_per_period",
+      "from_cents": 19900,
+      "from_display": "$199",
+      "interval_weeks": 4,
+      "summary": "A human coach and a plan that adjusts weekly.",
+      "note": "Entry tier (Min). The tier table itself lives in wordpress/generate_coaching.py TIERS; tests/test_editorial_shell.py fails if from_display drifts from it."
     }
   }
 }

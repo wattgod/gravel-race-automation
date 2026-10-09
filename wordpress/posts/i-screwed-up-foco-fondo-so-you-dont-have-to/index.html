@@ -287,7 +287,9 @@ sup a:hover{text-decoration:underline}
 .foot nav a{font:700 14px var(--mono);text-transform:uppercase;text-decoration:none;padding:6px 0}
 .foot .base{max-width:1296px;margin:0 auto;padding:0 32px 28px;font:700 12px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:#d9cbbb}
 
-/* wide: open column; quiet contents in the left margin, "In short" in the right */
+/* wide: open column; quiet contents in the left margin, "In short" in the right.
+   One rail at a time: with "In short", SHELL_JS holds the contents rail back
+   (.rail.wait) until "In short" has scrolled past. */
 @media (min-width:1280px){
   .frame{max-width:none;display:grid;grid-template-columns:minmax(0,1fr) var(--col) minmax(0,1fr);column-gap:var(--gap)}
   .hero,.hero.no-img,.hero.wide{grid-template-columns:minmax(0,1fr) var(--col) minmax(0,1fr)}
@@ -300,11 +302,14 @@ sup a:hover{text-decoration:underline}
   .rail{display:block;grid-column:1;justify-self:end;width:var(--side)}
   .rail .stick{position:sticky;top:28px}
   .rail .lbl{font:700 13px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--ink3);margin:6px 0 10px}
+  .rail .stick{transition:opacity .25s,visibility .25s}
+  .rail.wait .stick{opacity:0;visibility:hidden}
   .article{grid-column:2}
   .slot-summary{float:right;width:var(--side);margin:0 calc(-1 * (var(--side) + var(--gap))) 20px 0}
   .inshort{background:none;padding:0}
   .slot-summary + .gg-blog-section h2{margin-top:0}
 }
+@media (prefers-reduced-motion:reduce){.rail .stick{transition:none}}
 @media (max-width:900px){
   .gg-site-header-nav,.gg-hdr-sub{display:none}
   .gg-hamburger{display:flex}
@@ -469,13 +474,17 @@ h2[id],h3[id],[data-slot],figure[id]{scroll-margin-top:72px}
 
 
 /* pull quote (was an Elementor Click-to-Tweet) */
-.article .gg-pullquote{margin:44px 0 40px}
+/* Inset from the column on both sides so the italic overhang and the opening
+   quote mark sit inside the figure, never flush with the viewport edge on a
+   phone; no hanging punctuation (it would push the mark outside the box). */
+.article .gg-pullquote{margin:44px 0 40px;padding:0 20px}
 .article .gg-pullquote blockquote{margin:0;padding:0;box-shadow:none;font:italic 600 32px/1.22 var(--serif);
-  letter-spacing:-.01em;color:var(--ink);text-wrap:balance}
+  letter-spacing:-.01em;color:var(--ink);text-wrap:balance;hanging-punctuation:none;text-indent:0;
+  overflow-wrap:break-word}
 .article .gg-pullquote blockquote p{margin:0;font:inherit}
 .article .gg-pullquote figcaption{margin-top:14px;font:400 14px/1.5 var(--mono);color:var(--ink3)}
 .article .gg-pullquote figcaption::before{content:"\2014\00a0"}
-@media (max-width:640px){.article .gg-pullquote blockquote{font-size:26px}}
+@media (max-width:640px){.article .gg-pullquote{padding:0 18px}.article .gg-pullquote blockquote{font-size:26px}}
 
 
 /* sidebar aside (an Elementor "Sidebar" heading + its text) */
@@ -937,7 +946,12 @@ h2[id],h3[id],[data-slot],figure[id]{scroll-margin-top:72px}
   var dots=mini?heads.map(function(){var i=document.createElement('i'); mini.appendChild(i); return i;}):[];
   var tm=document.getElementById('tocm');
   if(tm) tm.addEventListener('click',function(e){ if(e.target.closest('ol.toc a')) tm.open=false; });
+  // One margin rail at a time on wide screens: while "In short" is beside the
+  // text, the Contents rail waits; it appears once "In short" has scrolled past.
+  var rail=document.querySelector('nav.rail'), sum=document.querySelector('.slot-summary');
+  function gate(){ if(rail&&sum) rail.classList.toggle('wait',sum.getBoundingClientRect().bottom>28); }
   function update(){
+    gate();
     var line=innerHeight*0.35, cur=-1;
     heads.forEach(function(h,i){ if(h.getBoundingClientRect().top<line) cur=i; });
     lists.forEach(function(list){ list.forEach(function(li,i){

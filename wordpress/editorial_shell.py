@@ -57,7 +57,9 @@ text), False = no ladder. Ladder prices and claims render from
 data/pricing.json; never type a price into a generator. The contents list
 (rail + sticky bar) renders only when the body has at least
 MIN_CONTENTS_HEADINGS (2) contents headings; `contents=False` hides it
-regardless. Ladder buttons carry
+regardless. On wide screens only one margin rail shows at a time: with "In
+short" beside the opening, the contents rail appears once it has scrolled
+past (SHELL_JS; without JS both show). Ladder buttons carry
 data-cta="custom_plan|season_plan|coaching", so a page that also includes
 blog_tracking.get_plan_intent_tracking_script() (pass it in extra_body_end)
 gets the canonical cta_click for them.
@@ -825,7 +827,12 @@ SHELL_JS = """<script>
   var dots=mini?heads.map(function(){var i=document.createElement('i'); mini.appendChild(i); return i;}):[];
   var tm=document.getElementById('tocm');
   if(tm) tm.addEventListener('click',function(e){ if(e.target.closest('ol.toc a')) tm.open=false; });
+  // One margin rail at a time on wide screens: while "In short" is beside the
+  // text, the Contents rail waits; it appears once "In short" has scrolled past.
+  var rail=document.querySelector('nav.rail'), sum=document.querySelector('.slot-summary');
+  function gate(){ if(rail&&sum) rail.classList.toggle('wait',sum.getBoundingClientRect().bottom>28); }
   function update(){
+    gate();
     var line=innerHeight*0.35, cur=-1;
     heads.forEach(function(h,i){ if(h.getBoundingClientRect().top<line) cur=i; });
     lists.forEach(function(list){ list.forEach(function(li,i){
@@ -1886,7 +1893,9 @@ sup a:hover{text-decoration:underline}
 .foot nav a{font:700 14px var(--mono);text-transform:uppercase;text-decoration:none;padding:6px 0}
 .foot .base{max-width:1296px;margin:0 auto;padding:0 32px 28px;font:700 12px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:#d9cbbb}
 
-/* wide: open column; quiet contents in the left margin, "In short" in the right */
+/* wide: open column; quiet contents in the left margin, "In short" in the right.
+   One rail at a time: with "In short", SHELL_JS holds the contents rail back
+   (.rail.wait) until "In short" has scrolled past. */
 @media (min-width:1280px){
   .frame{max-width:none;display:grid;grid-template-columns:minmax(0,1fr) var(--col) minmax(0,1fr);column-gap:var(--gap)}
   .hero,.hero.no-img,.hero.wide{grid-template-columns:minmax(0,1fr) var(--col) minmax(0,1fr)}
@@ -1899,11 +1908,14 @@ sup a:hover{text-decoration:underline}
   .rail{display:block;grid-column:1;justify-self:end;width:var(--side)}
   .rail .stick{position:sticky;top:28px}
   .rail .lbl{font:700 13px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--ink3);margin:6px 0 10px}
+  .rail .stick{transition:opacity .25s,visibility .25s}
+  .rail.wait .stick{opacity:0;visibility:hidden}
   .article{grid-column:2}
   .slot-summary{float:right;width:var(--side);margin:0 calc(-1 * (var(--side) + var(--gap))) 20px 0}
   .inshort{background:none;padding:0}
   .slot-summary + .gg-blog-section h2{margin-top:0}
 }
+@media (prefers-reduced-motion:reduce){.rail .stick{transition:none}}
 @media (max-width:900px){
   .gg-site-header-nav,.gg-hdr-sub{display:none}
   .gg-hamburger{display:flex}

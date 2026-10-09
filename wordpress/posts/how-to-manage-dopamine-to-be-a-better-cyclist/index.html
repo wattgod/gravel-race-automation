@@ -287,7 +287,9 @@ sup a:hover{text-decoration:underline}
 .foot nav a{font:700 14px var(--mono);text-transform:uppercase;text-decoration:none;padding:6px 0}
 .foot .base{max-width:1296px;margin:0 auto;padding:0 32px 28px;font:700 12px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:#d9cbbb}
 
-/* wide: open column; quiet contents in the left margin, "In short" in the right */
+/* wide: open column; quiet contents in the left margin, "In short" in the right.
+   One rail at a time: with "In short", SHELL_JS holds the contents rail back
+   (.rail.wait) until "In short" has scrolled past. */
 @media (min-width:1280px){
   .frame{max-width:none;display:grid;grid-template-columns:minmax(0,1fr) var(--col) minmax(0,1fr);column-gap:var(--gap)}
   .hero,.hero.no-img,.hero.wide{grid-template-columns:minmax(0,1fr) var(--col) minmax(0,1fr)}
@@ -300,11 +302,14 @@ sup a:hover{text-decoration:underline}
   .rail{display:block;grid-column:1;justify-self:end;width:var(--side)}
   .rail .stick{position:sticky;top:28px}
   .rail .lbl{font:700 13px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--ink3);margin:6px 0 10px}
+  .rail .stick{transition:opacity .25s,visibility .25s}
+  .rail.wait .stick{opacity:0;visibility:hidden}
   .article{grid-column:2}
   .slot-summary{float:right;width:var(--side);margin:0 calc(-1 * (var(--side) + var(--gap))) 20px 0}
   .inshort{background:none;padding:0}
   .slot-summary + .gg-blog-section h2{margin-top:0}
 }
+@media (prefers-reduced-motion:reduce){.rail .stick{transition:none}}
 @media (max-width:900px){
   .gg-site-header-nav,.gg-hdr-sub{display:none}
   .gg-hamburger{display:flex}
@@ -666,8 +671,8 @@ h2[id],h3[id],[data-slot],figure[id]{scroll-margin-top:72px}
 <figure class="gg-fig gg-htmlfig" id="fig-dopamine-multiples" aria-labelledby="fig-dopamine-multiples-h" data-draw-in data-gg-added>
   <p class="kick">The list above, as bars</p>
   <h5 id="fig-dopamine-multiples-h">Dopamine release as a multiple of your baseline</h5>
-  <ol class="dm-bars"><li><span class="dm-label">Caffeine</span><span class="dm-track"><span class="dm-base" style="width:10%"></span></span><span class="dm-val">Not at all**</span></li><li><span class="dm-label">Chocolate</span><span class="dm-track"><span class="dm-base" style="width:10%"></span><span class="dm-up" data-draw="grow-x" style="left:10%;width:5%;--draw-i:1"></span></span><span class="dm-val">1.5x</span></li><li><span class="dm-label">Sex</span><span class="dm-track"><span class="dm-base" style="width:10%"></span><span class="dm-up" data-draw="grow-x" style="left:10%;width:10%;--draw-i:2"></span></span><span class="dm-val">2x</span></li><li><span class="dm-label">Alcohol</span><span class="dm-track"><span class="dm-base" style="width:10%"></span><span class="dm-up" data-draw="grow-x" style="left:10%;width:10%;--draw-i:3"></span></span><span class="dm-val">2x</span></li><li><span class="dm-label">Nicotine</span><span class="dm-track"><span class="dm-base" style="width:10%"></span><span class="dm-up" data-draw="grow-x" style="left:10%;width:15%;--draw-i:4"></span></span><span class="dm-val">2.5x</span></li><li><span class="dm-label">Cocaine</span><span class="dm-track"><span class="dm-base" style="width:10%"></span><span class="dm-up" data-draw="grow-x" style="left:10%;width:15%;--draw-i:5"></span></span><span class="dm-val">2.5x</span></li><li><span class="dm-label">Amphetamine</span><span class="dm-track"><span class="dm-base" style="width:10%"></span><span class="dm-up" data-draw="grow-x" style="left:10%;width:90%;--draw-i:6"></span></span><span class="dm-val">10x</span></li><li><span class="dm-label">Exercise</span><span class="dm-track"><span class="dm-base" style="width:10%"></span><span class="dm-up is-maybe" data-draw="grow-x" style="left:10%;width:10%;--draw-i:7"></span></span><span class="dm-val">not at all or 2x</span></li></ol><div class="dm-axis" aria-hidden="true"><span class="dm-axis-in"><span class="dm-tick-1" style="left:10%">1x</span><span class="dm-tick-2" style="left:20%">2x</span><span class="dm-tick-5" style="left:50%">5x</span><span class="dm-tick-10" style="left:100%">10x</span></span></div>
-  <figcaption>Values exactly as the post lists them (2x = twice your baseline dopamine level). Shaded = the baseline itself; the bar past it is the increase. Exercise is an outline: &ldquo;not at all or 2x&rdquo;.</figcaption>
+  <ol class="dm-bars"><li><span class="dm-label">Caffeine</span><span class="dm-track"><span class="dm-base" style="width:10%"></span></span><span class="dm-val">No increase</span></li><li><span class="dm-label">Chocolate</span><span class="dm-track"><span class="dm-base" style="width:10%"></span><span class="dm-up" data-draw="grow-x" style="left:10%;width:5%;--draw-i:1"></span></span><span class="dm-val">1.5x</span></li><li><span class="dm-label">Sex</span><span class="dm-track"><span class="dm-base" style="width:10%"></span><span class="dm-up" data-draw="grow-x" style="left:10%;width:10%;--draw-i:2"></span></span><span class="dm-val">2x</span></li><li><span class="dm-label">Alcohol</span><span class="dm-track"><span class="dm-base" style="width:10%"></span><span class="dm-up" data-draw="grow-x" style="left:10%;width:10%;--draw-i:3"></span></span><span class="dm-val">2x</span></li><li><span class="dm-label">Nicotine</span><span class="dm-track"><span class="dm-base" style="width:10%"></span><span class="dm-up" data-draw="grow-x" style="left:10%;width:15%;--draw-i:4"></span></span><span class="dm-val">2.5x</span></li><li><span class="dm-label">Cocaine</span><span class="dm-track"><span class="dm-base" style="width:10%"></span><span class="dm-up" data-draw="grow-x" style="left:10%;width:15%;--draw-i:5"></span></span><span class="dm-val">2.5x</span></li><li><span class="dm-label">Amphetamine</span><span class="dm-track"><span class="dm-base" style="width:10%"></span><span class="dm-up" data-draw="grow-x" style="left:10%;width:90%;--draw-i:6"></span></span><span class="dm-val">10x</span></li><li><span class="dm-label">Exercise</span><span class="dm-track"><span class="dm-base" style="width:10%"></span><span class="dm-up is-maybe" data-draw="grow-x" style="left:10%;width:10%;--draw-i:7"></span></span><span class="dm-val">not at all or 2x</span></li></ol><div class="dm-axis" aria-hidden="true"><span class="dm-axis-in"><span class="dm-tick-1" style="left:10%">1x</span><span class="dm-tick-2" style="left:20%">2x</span><span class="dm-tick-5" style="left:50%">5x</span><span class="dm-tick-10" style="left:100%">10x</span></span></div>
+  <figcaption>Values as the post lists them (2x = twice your baseline dopamine level). Shaded = the baseline itself; the bar past it is the increase. Caffeine (&ldquo;not at all&rdquo; in the post): no increase above baseline, but it does increase the number of receptors that accept dopamine. Exercise is an outline: &ldquo;not at all or 2x&rdquo;.</figcaption>
 </figure>
 <figure class="gg-essay-fig is-column" id="fig-say-no-to-drugs">
   <div class="gg-media"><picture class="gg-pic gg-pic-art"><source media="(max-width: 640px)" type="image/webp" srcset="img/say-no-to-drugs-m.webp 1x, img/say-no-to-drugs-m@2x.webp 2x" width="660" height="371"><img src="img/say-no-to-drugs.webp" alt="Pills arranged in a heart on a wooden table beside a &quot;Say NO to Drugs&quot; note, a syringe and a bag of white powder; cartoon Gravel God strokes his beard: &quot;It all makes so much sense now!&quot;" width="1600" height="900" loading="lazy" decoding="async"></picture></div>
@@ -925,7 +930,12 @@ h2[id],h3[id],[data-slot],figure[id]{scroll-margin-top:72px}
   var dots=mini?heads.map(function(){var i=document.createElement('i'); mini.appendChild(i); return i;}):[];
   var tm=document.getElementById('tocm');
   if(tm) tm.addEventListener('click',function(e){ if(e.target.closest('ol.toc a')) tm.open=false; });
+  // One margin rail at a time on wide screens: while "In short" is beside the
+  // text, the Contents rail waits; it appears once "In short" has scrolled past.
+  var rail=document.querySelector('nav.rail'), sum=document.querySelector('.slot-summary');
+  function gate(){ if(rail&&sum) rail.classList.toggle('wait',sum.getBoundingClientRect().bottom>28); }
   function update(){
+    gate();
     var line=innerHeight*0.35, cur=-1;
     heads.forEach(function(h,i){ if(h.getBoundingClientRect().top<line) cur=i; });
     lists.forEach(function(list){ list.forEach(function(li,i){

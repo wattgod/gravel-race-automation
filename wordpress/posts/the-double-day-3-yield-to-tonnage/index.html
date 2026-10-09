@@ -287,7 +287,9 @@ sup a:hover{text-decoration:underline}
 .foot nav a{font:700 14px var(--mono);text-transform:uppercase;text-decoration:none;padding:6px 0}
 .foot .base{max-width:1296px;margin:0 auto;padding:0 32px 28px;font:700 12px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:#d9cbbb}
 
-/* wide: open column; quiet contents in the left margin, "In short" in the right */
+/* wide: open column; quiet contents in the left margin, "In short" in the right.
+   One rail at a time: with "In short", SHELL_JS holds the contents rail back
+   (.rail.wait) until "In short" has scrolled past. */
 @media (min-width:1280px){
   .frame{max-width:none;display:grid;grid-template-columns:minmax(0,1fr) var(--col) minmax(0,1fr);column-gap:var(--gap)}
   .hero,.hero.no-img,.hero.wide{grid-template-columns:minmax(0,1fr) var(--col) minmax(0,1fr)}
@@ -300,11 +302,14 @@ sup a:hover{text-decoration:underline}
   .rail{display:block;grid-column:1;justify-self:end;width:var(--side)}
   .rail .stick{position:sticky;top:28px}
   .rail .lbl{font:700 13px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--ink3);margin:6px 0 10px}
+  .rail .stick{transition:opacity .25s,visibility .25s}
+  .rail.wait .stick{opacity:0;visibility:hidden}
   .article{grid-column:2}
   .slot-summary{float:right;width:var(--side);margin:0 calc(-1 * (var(--side) + var(--gap))) 20px 0}
   .inshort{background:none;padding:0}
   .slot-summary + .gg-blog-section h2{margin-top:0}
 }
+@media (prefers-reduced-motion:reduce){.rail .stick{transition:none}}
 @media (max-width:900px){
   .gg-site-header-nav,.gg-hdr-sub{display:none}
   .gg-hamburger{display:flex}
@@ -562,24 +567,8 @@ h2[id],h3[id],[data-slot],figure[id]{scroll-margin-top:72px}
     </div>
   </div>
 
-  <details class="toc-m" id="tocm">
-    <summary><span class="mini" id="mini" aria-hidden="true"></span><span class="now" id="now">Intro</span><span class="tog">Contents</span></summary>
-    <ol class="toc">
-  <li><a href="#mediocre-power-reveal-inner-race-commentary">Mediocre power reveal/inner race commentary</a></li>
-  <li><a href="#what-i-loved-about-today">What I loved about today</a></li>
-</ol>
-  </details>
 
   <div class="frame body-row">
-    <nav class="rail" aria-label="Contents">
-      <div class="stick">
-        <p class="lbl">Contents</p>
-        <ol class="toc">
-  <li><a href="#mediocre-power-reveal-inner-race-commentary">Mediocre power reveal/inner race commentary</a></li>
-  <li><a href="#what-i-loved-about-today">What I loved about today</a></li>
-</ol>
-      </div>
-    </nav>
     <article class="article" id="article">
 <div class="slot slot-summary" data-slot="summary">
 <aside class="inshort" aria-label="In short">
@@ -587,7 +576,6 @@ h2[id],h3[id],[data-slot],figure[id]{scroll-margin-top:72px}
   <ol>
     <li data-sec="0"><p>The Airbnb has no toaster. The team has spent about $1000 on food this week but has no budget for a $20 toaster.</p><a class="ev" href="#what-i-hated-about-today">See what I hated · Intro</a></li>
     <li data-sec="0"><p>On the time trial, the teammate put out 100 more watts for the same duration: enough to power the toaster the team won&rsquo;t buy.</p><a class="ev" href="#fig-rte66-stats">See the numbers · §01</a></li>
-    <li data-sec="1"><p>James regularly passes out midday in the living room with Formula 1 Drive to Survive playing. Some people are built different.</p><a class="ev" href="#what-i-loved-about-today">See what I loved · §02</a></li>
   </ol>
 </aside>
 </div>
@@ -868,7 +856,12 @@ h2[id],h3[id],[data-slot],figure[id]{scroll-margin-top:72px}
   var dots=mini?heads.map(function(){var i=document.createElement('i'); mini.appendChild(i); return i;}):[];
   var tm=document.getElementById('tocm');
   if(tm) tm.addEventListener('click',function(e){ if(e.target.closest('ol.toc a')) tm.open=false; });
+  // One margin rail at a time on wide screens: while "In short" is beside the
+  // text, the Contents rail waits; it appears once "In short" has scrolled past.
+  var rail=document.querySelector('nav.rail'), sum=document.querySelector('.slot-summary');
+  function gate(){ if(rail&&sum) rail.classList.toggle('wait',sum.getBoundingClientRect().bottom>28); }
   function update(){
+    gate();
     var line=innerHeight*0.35, cur=-1;
     heads.forEach(function(h,i){ if(h.getBoundingClientRect().top<line) cur=i; });
     lists.forEach(function(list){ list.forEach(function(li,i){

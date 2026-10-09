@@ -162,6 +162,13 @@ class TestContents:
         html = es.render_editorial_page(_meta(), BODY, contents=False)
         assert 'class="toc"' not in html and 'class="rail"' not in html
 
+    def test_one_rail_at_a_time_on_wide_screens(self, page):
+        """The contents rail waits (.rail.wait) while "In short" is beside the
+        text; no-JS readers still get both (the rail is visible by default)."""
+        assert '<nav class="rail" aria-label="Contents">' in page  # no .wait in the markup
+        assert ".rail.wait .stick{opacity:0;visibility:hidden}" in page
+        assert "rail.classList.toggle('wait',sum.getBoundingClientRect().bottom>28)" in page
+
 
 DIV_BODY = """<div class="gg-blog-section">
   <p>Roundup intro.</p>

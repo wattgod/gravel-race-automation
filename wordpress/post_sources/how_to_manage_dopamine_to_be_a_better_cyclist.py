@@ -165,6 +165,10 @@ MULTIPLES = (
     ("Amphetamine", "10x", 1, 10),
     ("Exercise", "not at all or 2x", 1, 2),
 )
+# Shown in place of the post's text: "Not at all**" beside a drawn baseline bar
+# read as a contradiction with an unexplained footnote. The caption carries
+# the ** note in the post's words.
+SHOWN = {"Caffeine": "No increase"}
 
 
 def _bars() -> str:
@@ -178,7 +182,7 @@ def _bars() -> str:
                   f'--draw-i:{i}"></span>')
         rows.append(f'<li><span class="dm-label">{label}</span><span class="dm-track">'
                     f'<span class="dm-base" style="width:10%"></span>{up}</span>'
-                    f'<span class="dm-val">{text}</span></li>')
+                    f'<span class="dm-val">{SHOWN.get(label, text)}</span></li>')
     axis = "".join(f'<span class="dm-tick-{v}" style="left:{v * 10:g}%">{v}x</span>' for v in (1, 2, 5, 10))
     return (f'<ol class="dm-bars">{"".join(rows)}</ol>'
             f'<div class="dm-axis" aria-hidden="true"><span class="dm-axis-in">{axis}</span></div>')
@@ -189,8 +193,10 @@ MULTIPLES_FIGURE = HtmlFigure(
     kicker="The list above, as bars",
     title="Dopamine release as a multiple of your baseline",
     html=_bars(),
-    caption_html=("Values exactly as the post lists them (2x = twice your baseline dopamine level). "
-                  "Shaded = the baseline itself; the bar past it is the increase. Exercise is an outline: "
+    caption_html=("Values as the post lists them (2x = twice your baseline dopamine level). "
+                  "Shaded = the baseline itself; the bar past it is the increase. Caffeine "
+                  "(&ldquo;not at all&rdquo; in the post): no increase above baseline, but it does increase "
+                  "the number of receptors that accept dopamine. Exercise is an outline: "
                   "&ldquo;not at all or 2x&rdquo;."),
     after="it enhances dopamine function.</p>",
 )

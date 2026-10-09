@@ -41,13 +41,13 @@ ALT = {
 }
 
 # DRAFT for Matt: each claim restates the post; section = 0-based h2 index.
+# A 572-word post gets at most two claims (wp_post.SHORT_POST_MAX_CLAIMS); the
+# third (James asleep to Drive to Survive) was the weakest and was dropped.
 IN_SHORT = (
     Claim("The Airbnb has no toaster. The team has spent about $1000 on food this week but has no budget for a $20 toaster.",
           "#what-i-hated-about-today", "See what I hated · Intro", 0),
     Claim("On the time trial, the teammate put out 100 more watts for the same duration: enough to power the toaster the team won&rsquo;t buy.",
           "#fig-rte66-stats", "See the numbers · §01", 0),
-    Claim("James regularly passes out midday in the living room with Formula 1 Drive to Survive playing. Some people are built different.",
-          "#what-i-loved-about-today", "See what I loved · §02", 1),
 )
 
 # ── fig-rte66-stats: the overlaid stat panels as a table ─────

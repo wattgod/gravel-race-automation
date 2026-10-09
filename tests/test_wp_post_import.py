@@ -175,11 +175,32 @@ def test_in_short_drafts(pid):
         assert c.href.startswith("#") and f'id="{c.href[1:]}"' in html, c.href
 
 
-def test_h6_only_post_gets_a_contents():
+def test_h6_only_post_gets_sections_but_no_contents_under_three():
+    """Its two H6 headings become numbered sections, but two sections are
+    fewer than wp_post.MIN_CONTENTS_SECTIONS, so no Contents rail or bar."""
     html = _page(2592)
-    assert '<nav class="rail" aria-label="Contents">' in html
     assert re.search(r'<h2 id="mediocre-power-reveal-inner-race-commentary" data-toc>', html)
     assert re.search(r'<h2 id="what-i-loved-about-today" data-toc>', html)
+    assert '<nav class="rail"' not in html and 'class="toc-m"' not in html
+
+
+def test_three_or_more_sections_get_contents():
+    assert '<nav class="rail" aria-label="Contents">' in _page(2161)  # four sections
+
+
+def test_short_post_in_short_is_capped():
+    m = _module(2592)
+    assert len(m.IN_SHORT) <= wp_post.SHORT_POST_MAX_CLAIMS
+    extra = m.IN_SHORT + (es.Claim("x", "#x", "x", 0),)
+    with pytest.raises(ValueError, match="at most 2 claims"):
+        wp_post.render_post(m.SOURCE, alt=m.ALT, in_short=extra)
+
+
+def test_pull_quote_has_a_safe_gutter():
+    html = _page(3504)
+    assert ".article .gg-pullquote{margin:44px 0 40px;padding:0 20px}" in html
+    assert ".article .gg-pullquote{padding:0 18px}" in html
+    assert "hanging-punctuation:none" in html
 
 
 def test_foco_sidebar_is_an_aside_and_the_tweet_a_pull_quote():
@@ -202,6 +223,13 @@ def test_dopamine_bars_use_the_posts_values_verbatim():
     body = m.SOURCE.body
     for label, text, _, _ in m.MULTIPLES:
         assert f"<li>{label} – {text}</li>" in body, label
+
+
+def test_dopamine_caffeine_reads_no_increase_with_the_note():
+    html = _page(2161)
+    assert '<span class="dm-val">No increase</span>' in html
+    assert "**" not in html.split('id="fig-dopamine-multiples"')[1].split("</figure>")[0]
+    assert "no increase above baseline, but it does increase the number of receptors that accept dopamine" in html
 
 
 def test_rte66_table_numbers_are_in_the_alt_of_the_gif():

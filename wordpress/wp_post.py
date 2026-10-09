@@ -17,6 +17,8 @@ without pull quotes / galleries / videos / comments gets none of the CSS/JS):
   - <!--GG:GALLERY name--> -> a figure grid
   - pull quotes (converted Click-to-Tweet), the click-to-load YouTube embed
   - comments: approved comments as a static, read-only archive (no form)
+  - short posts: Contents only with MIN_CONTENTS_SECTIONS (3)+ sections, and
+    at most SHORT_POST_MAX_CLAIMS (2) "In short" claims under SHORT_POST_WORDS (800)
   - `replace={name: SvgFigure|DataTable}`: an infographic takes an image's place;
     the original image stays one click away in a <details> under the figure
 """
@@ -51,6 +53,14 @@ POSTS = WORDPRESS / "posts"
 SITE = "https://gravelgodcycling.com"
 SITE_TZ = ZoneInfo("America/Denver")
 GALLERY_MARKER_RE = re.compile(r"<!--GG:GALLERY ([a-z0-9-]+)-->")
+
+# Short-post front matter: a post's opening shouldn't outweigh the post.
+# Fewer contents sections than this and the Contents list/bar is left out.
+MIN_CONTENTS_SECTIONS = 3
+# Under this many words, "In short" holds at most SHORT_POST_MAX_CLAIMS claims
+# (keep the strongest); render_post raises otherwise.
+SHORT_POST_WORDS = 800
+SHORT_POST_MAX_CLAIMS = 2
 
 
 @dataclass(frozen=True)
@@ -299,6 +309,10 @@ def render_post(
     unknown = sorted(set(alt) - set(names))
     if missing or unknown:
         raise ValueError(f"alt text: missing {missing}, unknown {unknown}")
+    words = es.word_count(src.body)
+    if words < SHORT_POST_WORDS and len(in_short) > SHORT_POST_MAX_CLAIMS:
+        raise ValueError(f"in_short: a {words}-word post gets at most {SHORT_POST_MAX_CLAIMS} claims "
+                         f"(under {SHORT_POST_WORDS} words), not {len(in_short)}; keep the strongest")
 
     body = src.body
     for marker, image in after_image.items():
@@ -369,12 +383,14 @@ def render_post(
         css.insert(0, es.ESSAY_CSS)  # the shell adds it only with figures or a hero picture
 
     meta = build_meta(src, hero=hero, kicker=kicker)
+    sections = len(es.add_heading_ids(body)[1])
     return render_editorial_page(
         meta,
         body,
         in_short=in_short or None,
         in_short_on_phone=in_short_on_phone,
         ladder=True,
+        contents=sections >= MIN_CONTENTS_SECTIONS,
         figures=shell_figures,
         extra_css="\n".join(css + ([extra_css] if extra_css else [])),
         extra_body_end="\n".join(js + ([extra_body_end] if extra_body_end else [])),
@@ -385,13 +401,17 @@ def render_post(
 
 PULLQUOTE_CSS = """
 /* pull quote (was an Elementor Click-to-Tweet) */
-.article .gg-pullquote{margin:44px 0 40px}
+/* Inset from the column on both sides so the italic overhang and the opening
+   quote mark sit inside the figure, never flush with the viewport edge on a
+   phone; no hanging punctuation (it would push the mark outside the box). */
+.article .gg-pullquote{margin:44px 0 40px;padding:0 20px}
 .article .gg-pullquote blockquote{margin:0;padding:0;box-shadow:none;font:italic 600 32px/1.22 var(--serif);
-  letter-spacing:-.01em;color:var(--ink);text-wrap:balance}
+  letter-spacing:-.01em;color:var(--ink);text-wrap:balance;hanging-punctuation:none;text-indent:0;
+  overflow-wrap:break-word}
 .article .gg-pullquote blockquote p{margin:0;font:inherit}
 .article .gg-pullquote figcaption{margin-top:14px;font:400 14px/1.5 var(--mono);color:var(--ink3)}
 .article .gg-pullquote figcaption::before{content:"\\2014\\00a0"}
-@media (max-width:640px){.article .gg-pullquote blockquote{font-size:26px}}
+@media (max-width:640px){.article .gg-pullquote{padding:0 18px}.article .gg-pullquote blockquote{font-size:26px}}
 """
 
 GALLERY_CSS = """

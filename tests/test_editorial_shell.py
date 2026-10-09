@@ -493,6 +493,59 @@ class TestAnalyticsAndChrome:
         rule = re.search(r"\nh1\{[^}]*\}", es.SHELL_CSS).group(0)
         assert "overflow-wrap:break-word" in rule
 
+    @pytest.mark.parametrize("headline", [
+        "Test Article",
+        "Sweet Spot Isn’t That Sweet",
+        "Your Training App Doesn’t Know Your Race Exists",
+        "Alentejo Gravel Race Preview",
+        "Unbound 200 Race Preview",
+        "Championship",  # 12.2 units
+        "championships",  # 13 units: the widest word that stays untiered
+        "UNBOUND XL",
+    ])
+    def test_h1_normal_titles_unchanged(self, headline):
+        assert es.h1_long_word_class(headline) == ""
+        html = es.render_editorial_page(_meta(headline=headline), BODY)
+        assert f"      <h1>{es.esc(headline)}</h1>" in html
+
+    @pytest.mark.parametrize("headline,cls", [
+        ("Periodization Explained", "h1-long-1"),     # 13.2 units (capital P)
+        ("Ultradistance", "h1-long-1"),               # 13.2
+        ("Ultradistances", "h1-long-1"),              # 14.2
+        ("Gravelbikepacking", "h1-long-3"),            # 17.2
+        ("Transcontinental Race Preview", "h1-long-2"),  # 16.2
+        ("TRANSCONTINENTAL RACE Race Preview", "h1-long-3"),  # 19.2
+        ("TRANSCONTINENTALS", "h1-long-4"),           # 20.4
+    ])
+    def test_h1_long_word_tiers(self, headline, cls):
+        assert es.h1_long_word_class(headline) == cls
+        html = es.render_editorial_page(_meta(headline=headline), BODY)
+        assert f'<h1 class="{cls}">{es.esc(headline)}</h1>' in html
+
+    def test_h1_tier_boundaries(self):
+        assert es.h1_long_word_class("a" * 13) == ""
+        assert es.h1_long_word_class("a" * 14) == "h1-long-1"
+        assert es.h1_long_word_class("a" * 15) == "h1-long-1"
+        assert es.h1_long_word_class("a" * 16) == "h1-long-2"
+        assert es.h1_long_word_class("a" * 17) == "h1-long-2"
+        assert es.h1_long_word_class("a" * 18) == "h1-long-3"
+        assert es.h1_long_word_class("a" * 19) == "h1-long-3"
+        assert es.h1_long_word_class("a" * 20) == "h1-long-4"
+
+    def test_h1_words_split_on_hyphens_and_dashes(self):
+        assert es.h1_long_word_class("Race-Day Fueling — Bikepacking/Gravel") == ""
+        assert es.h1_long_word_class("") == ""
+
+    def test_h1_long_tiers_have_css_and_fit_the_phone_column(self):
+        css = es.SHELL_CSS
+        for limit, cls in es.H1_LONG_TIERS:
+            w = float(re.search(r"h1\." + cls + r"\{--h1-w:([\d.]+)\}", css).group(1))
+            if limit != float("inf"):
+                assert w >= limit * 0.55 - 1e-9  # the tier's widest word fits its width
+        assert 13 * 0.55 * 42 <= 360 - 32  # untiered words fit the 42px phone h1
+        phone = css.split("@media (max-width:640px)", 1)[1]
+        assert 'h1[class*="h1-long-"]{font-size:min(42px,calc((100vw - 32px) / var(--h1-w)))}' in phone
+
 
 ONE_H2 = '<section class="gg-blog-section"><h2>Only</h2><p>x</p></section>'
 TWO_H2 = ONE_H2 + '<section class="gg-blog-section"><h2>Second</h2><p>y</p></section>'

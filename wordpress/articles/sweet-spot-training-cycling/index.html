@@ -260,6 +260,13 @@ a{color:inherit}
 .hero.no-img{grid-template-columns:minmax(0,1fr)}
 .kick-top{font:700 13px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--teal-ink);margin:0 0 14px}
 h1{font:700 60px/1.0 var(--serif);letter-spacing:-.025em;margin:0 0 16px;font-optical-sizing:auto;text-wrap:balance;overflow-wrap:break-word}
+/* long-word h1 (render_hero): size to the column so the longest word fits */
+h1.h1-long-1{--h1-w:8.25}
+h1.h1-long-2{--h1-w:9.35}
+h1.h1-long-3{--h1-w:10.75}
+h1.h1-long-4{--h1-w:12.65}
+.hero h1[class*="h1-long-"]{font-size:min(60px,calc(min(var(--col),100vw - 64px) / var(--h1-w)))}
+.hero:not(.no-img):not(.wide) h1[class*="h1-long-"]{font-size:min(60px,calc(min(var(--col) - 218px,100vw - 282px) / var(--h1-w)))}
 .dek{font:italic 400 22px/1.4 var(--serif);color:var(--ink2);margin:0 0 16px;max-width:36em}
 .by{font:500 14px var(--mono);letter-spacing:.02em;color:var(--ink2);margin:0}
 .hero-img{margin:0}
@@ -370,6 +377,7 @@ sup a:hover{text-decoration:underline}
   .hero .txt{grid-column:2}
   .hero-img{grid-column:3;width:var(--side);margin-top:6px}
   .hero.wide .hero-img{grid-column:2;width:auto;margin-top:24px}
+  .hero h1[class*="h1-long-"],.hero:not(.no-img):not(.wide) h1[class*="h1-long-"]{font-size:min(60px,calc(var(--col) / var(--h1-w)))}
   .toc-m{display:none}
   .body-row{padding-top:12px}
   .rail{display:block;grid-column:1;justify-self:end;width:var(--side)}
@@ -392,6 +400,7 @@ sup a:hover{text-decoration:underline}
   .hero{grid-template-columns:1fr;padding-top:22px;padding-bottom:20px}
   .kick-top{margin-bottom:10px}
   h1{font-size:42px;margin-bottom:12px}
+  .hero h1[class*="h1-long-"],.hero:not(.no-img):not(.wide) h1[class*="h1-long-"]{font-size:min(42px,calc((100vw - 32px) / var(--h1-w)))}
   .dek{font-size:19px;margin-bottom:12px}
   .hero-img{margin-top:18px}
   .hero:not(.wide) .hero-img img{aspect-ratio:4/3;object-fit:cover;object-position:50% 30%}

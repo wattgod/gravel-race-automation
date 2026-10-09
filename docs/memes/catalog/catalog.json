@@ -1,0 +1,1134 @@
+{
+  "generated": "2026-10-09",
+  "essays": {
+    "sweet-spot-training-cycling": "Sweet Spot Training (sweet-spot-training-cycling)",
+    "your-training-app-doesnt-know-your-race-exists": "Your Training App Doesn't Know Your Race Exists"
+  },
+  "sources": [
+    "https://api.imgflip.com/get_memes (caption counts, pulled 2026-10-09)",
+    "https://knowyourmeme.com/memes/iq-bell-curve-midwit",
+    "https://knowyourmeme.com/editorials/guides/what-are-the-origins-of-the-its-so-over-were-so-back-meme-the-popular-turn-of-phrase-explained",
+    "https://knowyourmeme.com/editorials/guides/what-is-aura-farming-the-viral-internet-slang-and-its-memes-explained",
+    "../PLAN.md (prior decisions)"
+  ],
+  "rules": [
+    "Composition only: never trace a photo or draw the source character; GG plays every role.",
+    "Captions use only claims and numbers from the essays; no coach, company or product named in the image."
+  ],
+  "formats": [
+    {
+      "id": "two-buttons",
+      "name": "Two Buttons",
+      "tier": 1,
+      "layout": "buttons",
+      "structure": "Top panel: a hand hovers over two labelled red buttons. Bottom panel: the same man sweating, wiping his brow.",
+      "mechanic": "A dilemma where the right answer is obvious to everyone except the person choosing.",
+      "feasibility": "props",
+      "feasibility_note": "One character plus a two-button console and sweat drops.",
+      "hooks": [
+        {
+          "essay": "sweet-spot-training-cycling",
+          "section": "Sweet Spot is Really Threshold",
+          "caption": "Buttons: \"Re-test my FTP honestly\" / \"Keep my best test ever\". Bottom: GG sweating, label \"Me, before 3×20 at 235 W\"."
+        }
+      ],
+      "general_hook": "Race week: \"Ride the course recon\" / \"Do one more hard workout\".",
+      "risk": "medium",
+      "risk_note": "Layout is a page of Jake Clark's \"Daily Struggle\" webcomic: an artist's own work. He has not objected that we know of, but the earlier plan skipped it for this reason. Redraw composition only.",
+      "recommendation": "MAYBE",
+      "top_pick": null,
+      "popularity": "Imgflip #2 (1.2M captions)",
+      "rank": 1
+    },
+    {
+      "id": "distracted-boyfriend",
+      "name": "Distracted Boyfriend",
+      "tier": 1,
+      "layout": "three",
+      "structure": "A man turns to stare at a passer-by while his partner glares at him. Each figure carries a label.",
+      "mechanic": "Temptation versus commitment: the thing you should want is right beside you and you are looking at the shiny one.",
+      "feasibility": "figures",
+      "feasibility_note": "Three figures. Could be GG plus two objects (a power number and a course profile) to avoid drawing people.",
+      "hooks": [
+        {
+          "essay": "your-training-app-doesnt-know-your-race-exists",
+          "section": "Fitness Has a Shape",
+          "caption": "GG: \"Me\". Passer-by: \"FTP up 31 watts\". Partner: \"The course profile\"."
+        }
+      ],
+      "general_hook": "Off-season: GG eyeing a shiny new bike while \"base miles\" glares.",
+      "risk": "medium",
+      "risk_note": "Stock photo by Antonio Guillem, who has objected to sexist reuse. Three real models. Do not draw the people; recreate the glance-and-glare composition only.",
+      "recommendation": "MAYBE",
+      "top_pick": null,
+      "popularity": "Imgflip #3 (1.2M)",
+      "rank": 2
+    },
+    {
+      "id": "left-exit-12",
+      "name": "Left Exit 12 Off Ramp",
+      "tier": 1,
+      "layout": "fork",
+      "structure": "A highway sign shows \"straight\" and \"exit\" options; a car labelled \"me\" swerves hard onto the exit.",
+      "mechanic": "Choosing the worse option at the last second, with full knowledge.",
+      "feasibility": "props",
+      "feasibility_note": "One character on a bike, a road sign, a fork in a gravel road. Cycling-native.",
+      "hooks": [
+        {
+          "essay": "sweet-spot-training-cycling",
+          "section": "Polarized Training is Just Better",
+          "caption": "Sign, straight: \"75–90% below LT1, 15–20% above LT2\". Sign, exit: \"Another block of Sweet Spot\". GG on a bike, skidding onto the exit."
+        }
+      ],
+      "general_hook": "Race day: straight \"Eat on schedule\", exit \"Eat when hungry\".",
+      "risk": "low",
+      "risk_note": "Generic stock road scene; no person or character to recreate.",
+      "recommendation": "USE",
+      "top_pick": null,
+      "popularity": "Imgflip #6 (747k)",
+      "rank": 3
+    },
+    {
+      "id": "uno-draw-25",
+      "name": "UNO Draw 25",
+      "tier": 1,
+      "layout": "card",
+      "structure": "Panel 1: a card reading \"Do X or draw 25\". Panel 2: the person holding a huge fan of cards.",
+      "mechanic": "Someone would take any penalty rather than do one simple, sensible thing.",
+      "feasibility": "props",
+      "feasibility_note": "One character holding a card and a huge fan of cards (or gels).",
+      "hooks": [
+        {
+          "essay": "your-training-app-doesnt-know-your-race-exists",
+          "section": "The Part Where I Tell You Not to Buy Anything",
+          "caption": "Card: \"Practice your race-day fueling on every long ride, or draw 24 gels\". Panel 2: GG holding a fan of 24 gels."
+        }
+      ],
+      "general_hook": "Taper: \"Do less this week, or draw 25 extra intervals\".",
+      "risk": "low",
+      "risk_note": "UNO is a Mattel trademark: do not draw the UNO logo or card design. A plain card with our type is fine.",
+      "recommendation": "USE",
+      "top_pick": 10,
+      "popularity": "Imgflip #5 (666k)",
+      "rank": 4
+    },
+    {
+      "id": "waiting-skeleton",
+      "name": "Waiting Skeleton",
+      "tier": 1,
+      "layout": "single",
+      "structure": "A skeleton sits on a bench covered in cobwebs. Caption: \"Me waiting for X\".",
+      "mechanic": "Waiting forever for something that is never coming.",
+      "feasibility": "props",
+      "feasibility_note": "One character drawn as (or turning into) a skeleton, a bench, cobwebs. A bike leaning on the bench sells it.",
+      "hooks": [
+        {
+          "essay": "sweet-spot-training-cycling",
+          "section": "It's Conceptually Broken",
+          "caption": "\"Me waiting for the 40-watt FTP bump after yet another block of Sweet Spot.\""
+        }
+      ],
+      "general_hook": "\"Me waiting for the app to ask what my race looks like.\"",
+      "risk": "low",
+      "risk_note": "Generic skeleton image; nothing to license.",
+      "recommendation": "USE",
+      "top_pick": null,
+      "popularity": "Imgflip #13 (498k)",
+      "rank": 5
+    },
+    {
+      "id": "expanding-brain",
+      "name": "Expanding Brain",
+      "tier": 1,
+      "layout": "stack4",
+      "structure": "Four stacked panels; each idea gets dumber while the brain glows brighter.",
+      "mechanic": "Irony: the glow rises as the reasoning falls apart.",
+      "feasibility": "easy",
+      "feasibility_note": "One character, four head shots with increasing glow. Legibility at 390 px is the risk.",
+      "hooks": [
+        {
+          "essay": "sweet-spot-training-cycling",
+          "section": "It's Conceptually Broken",
+          "caption": "1 \"Ride 3 hours\" · 2 \"Ride for TSS\" · 3 \"Ride all of it at Sweet Spot for max TSS\" · 4 \"TSS is the metric, not the goal\" (the brightest brain makes the sane point, flipping the joke)."
+        }
+      ],
+      "general_hook": "Fuelling: \"Eat when hungry\" → \"Eat on a schedule\" → \"Train your gut\".",
+      "risk": "low",
+      "risk_note": "Original brain scans are stock imagery. Stonks already covers the Goodhart point, and the earlier plan skipped this for 390 px legibility.",
+      "recommendation": "MAYBE",
+      "top_pick": null,
+      "popularity": "Imgflip #33 (485k)",
+      "rank": 6
+    },
+    {
+      "id": "scooby-unmask",
+      "name": "Scooby-Doo Mask Reveal",
+      "tier": 1,
+      "layout": "reveal",
+      "structure": "Panel 1: a hero grabs the villain's mask (\"Let's see who you really are\"). Panel 2: the mask is off, showing the real identity.",
+      "mechanic": "The scary or impressive thing was the boring thing all along.",
+      "feasibility": "figures",
+      "feasibility_note": "Two roles. GG unmasks another GG, so one rig still covers it.",
+      "hooks": [
+        {
+          "essay": "sweet-spot-training-cycling",
+          "section": "The Real Issue: Sweet Spot is Predatory Marketing",
+          "caption": "Mask: \"Training hack\". Unmasked: \"Marketing hack\". GG: \"Let's see who you really are.\""
+        }
+      ],
+      "general_hook": "Mask: \"Secret race-winning workout\". Unmasked: \"Consistency\".",
+      "risk": "medium",
+      "risk_note": "Scooby-Doo characters are Warner Bros. IP: no Fred, no van, no ascot. Composition only.",
+      "recommendation": "USE",
+      "top_pick": null,
+      "popularity": "KYM classic; Imgflip top 70",
+      "rank": 7
+    },
+    {
+      "id": "epic-handshake",
+      "name": "Epic Handshake",
+      "tier": 1,
+      "layout": "handshake",
+      "structure": "Two muscular forearms clasp. Each arm is labelled with a group and the grip is labelled with what they share.",
+      "mechanic": "Two groups who usually disagree turn out to agree on one thing.",
+      "feasibility": "easy",
+      "feasibility_note": "Arms only, no faces. Easiest single-character format on the list.",
+      "hooks": [
+        {
+          "essay": "sweet-spot-training-cycling",
+          "section": "Polarized Training is Just Better",
+          "caption": "Left arm: \"Competitive athletes: polarized\". Right arm: \"Recreational athletes: pyramidal\". Grip: \"Not threshold-heavy\" (the 2025 network meta-analysis, 13 studies, 348 athletes)."
+        }
+      ],
+      "general_hook": "\"Coaches\" + \"Physiologists\", grip: \"Eat more on long rides\".",
+      "risk": "low",
+      "risk_note": "From the film Predator, but only the arms are used and redrawn. No likeness.",
+      "recommendation": "USE",
+      "top_pick": 7,
+      "popularity": "Imgflip #9 (270k)",
+      "rank": 8
+    },
+    {
+      "id": "same-picture",
+      "name": "They're the Same Picture",
+      "tier": 1,
+      "layout": "single",
+      "structure": "Someone holds up two sheets: \"Corporate needs you to find the differences between this picture and this picture.\" Reply: \"They're the same picture.\"",
+      "mechanic": "Two things presented as different are identical.",
+      "feasibility": "easy",
+      "feasibility_note": "One character holding two sheets.",
+      "hooks": [
+        {
+          "essay": "sweet-spot-training-cycling",
+          "section": "Your Nervous System Treats Sweet Spot Like Threshold",
+          "caption": "Sheets: \"~90% FTP\" and \"~105% FTP\". GG as your nervous system: \"They're the same picture.\" (Seiler 2007: recovery cost essentially identical above LT1.)"
+        }
+      ],
+      "general_hook": "\"Rest day\" vs \"easy spin with the fast group\": they're the same picture? (inverted).",
+      "risk": "medium",
+      "risk_note": "From The Office (NBC); the real actress is Jenna Fischer. Do not draw her or the office set. Spider-Man pointing already used a sweet-spot-equals-threshold joke, so keep this one on the nervous-system section.",
+      "recommendation": "USE",
+      "top_pick": null,
+      "popularity": "Imgflip #29 (191k)",
+      "rank": 9
+    },
+    {
+      "id": "buff-doge",
+      "name": "Buff Doge vs. Cheems",
+      "tier": 1,
+      "layout": "split2",
+      "structure": "Left: a muscular dog labelled with the strong past or option. Right: a small, weak dog labelled with the feeble one.",
+      "mechanic": "Exaggerated before/after or then/now contrast in body types.",
+      "feasibility": "figures",
+      "feasibility_note": "The character twice, in two builds (needs a buff and a deflated variant of the rig).",
+      "hooks": [
+        {
+          "essay": "sweet-spot-training-cycling",
+          "section": "Mitochondria Want You to Go Easy or Go Hard",
+          "caption": "Buff GG: \"High-intensity: ~2.5× mitochondrial protein synthesis\". Small GG: \"Moderate intensity\"."
+        }
+      ],
+      "general_hook": "Buff: \"Riders who trained their gut\". Small: \"Riders who 'eat when hungry'\".",
+      "risk": "low",
+      "risk_note": "The dog Kabosu (owner Atsuko Sato) is real; we draw no dog. Body-type contrast should stay cartoonish, not body-shaming.",
+      "recommendation": "MAYBE",
+      "top_pick": null,
+      "popularity": "Imgflip #30 (386k)",
+      "rank": 10
+    },
+    {
+      "id": "two-guys-bus",
+      "name": "Two Guys on a Bus",
+      "tier": 1,
+      "layout": "split2",
+      "structure": "Inside a bus: one man sits sad facing a rock wall; the other smiles out the opposite window at a view.",
+      "mechanic": "Same situation, opposite experiences depending on which side you sit on.",
+      "feasibility": "figures",
+      "feasibility_note": "Two seated figures: GG twice. The view window can show a gravel course.",
+      "hooks": [
+        {
+          "essay": "your-training-app-doesnt-know-your-race-exists",
+          "section": "The Start Line Doesn't Care About Your Compliance Score",
+          "caption": "Rock-wall side: \"Rider who trained for a number\". View side: \"Rider who read the course profile twice\". Caption: \"Be the one rider at mile 82 who's met the course before.\""
+        }
+      ],
+      "general_hook": "Wall side: \"Rider who skipped recon\". View side: \"Rider who rode the last 20 miles in training\".",
+      "risk": "low",
+      "risk_note": "Origin is an anonymous Twitter illustration; no real person.",
+      "recommendation": "USE",
+      "top_pick": 6,
+      "popularity": "Imgflip #47; big on Instagram",
+      "rank": 11
+    },
+    {
+      "id": "surprised-face",
+      "name": "Surprised Pikachu",
+      "tier": 1,
+      "layout": "stack3",
+      "structure": "Line 1: someone does something. Line 2: the obvious consequence. Line 3: a shocked open-mouth face.",
+      "mechanic": "Faking surprise at a consequence anyone could see coming.",
+      "feasibility": "easy",
+      "feasibility_note": "One character, one open-mouth expression. GG's existing surprised face may already cover it.",
+      "hooks": [
+        {
+          "essay": "your-training-app-doesnt-know-your-race-exists",
+          "section": "Fitness Has a Shape",
+          "caption": "\"Me: trains only in 60-minute trainer sessions\" / \"The race: 9,500 ft of climbing, the part that ends people after mile 75\" / GG, mouth open."
+        }
+      ],
+      "general_hook": "\"Me: no long rides in the taper\" / \"Race: 7 hours\" / shocked face.",
+      "risk": "medium",
+      "risk_note": "Pikachu is Nintendo/Pokémon IP. Draw only GG's own shocked face; never a yellow creature or the anime frame.",
+      "recommendation": "USE",
+      "top_pick": null,
+      "popularity": "KYM top format",
+      "rank": 12
+    },
+    {
+      "id": "bike-fall",
+      "name": "Bike Fall",
+      "tier": 1,
+      "layout": "bike",
+      "structure": "Three panels: a cyclist rides along, jams a stick into his own front wheel, then lies on the ground blaming something else.",
+      "mechanic": "Self-sabotage followed by blaming the world.",
+      "feasibility": "props",
+      "feasibility_note": "One character and a bike. It is a cycling meme already, which makes it the most natural fit we have.",
+      "hooks": [
+        {
+          "essay": "sweet-spot-training-cycling",
+          "section": "Sweet Spot is Really Threshold",
+          "caption": "1 GG riding: \"Sets FTP from his best test ever\" · 2 stick in wheel: \"3×20 at 235 W\" · 3 on the ground: \"Why is Sweet Spot so hard?\""
+        }
+      ],
+      "general_hook": "1 \"Plans to eat when hungry\" · 2 stick: \"no food for 3 hours\" · 3 \"Gravel is so hard\".",
+      "risk": "low",
+      "risk_note": "Anonymous stick-figure comic. Redraw in our style.",
+      "recommendation": "USE",
+      "top_pick": 1,
+      "popularity": "Imgflip #22 (149k)",
+      "rank": 13
+    },
+    {
+      "id": "clown-makeup",
+      "name": "Clown Applying Makeup",
+      "tier": 1,
+      "layout": "stack4",
+      "structure": "Four panels: a man applies clown makeup step by step, one rationalisation per panel, until he is a full clown.",
+      "mechanic": "Each step seems reasonable; together they make a fool of you.",
+      "feasibility": "props",
+      "feasibility_note": "One character, four close-ups, face paint and a wig as props.",
+      "hooks": [
+        {
+          "essay": "sweet-spot-training-cycling",
+          "section": "Sweet Spot is Really Threshold",
+          "caption": "1 \"Use my best test ever\" · 2 \"Tested on a 20-minute climb\" · 3 \"Take an optimistic 95%\" · 4 \"Set my Sweet Spot at 235 W\"."
+        }
+      ],
+      "general_hook": "1 \"Skip recon\" · 2 \"New tyres on race day\" · 3 \"Untested gels\" · 4 \"Go with the front group\".",
+      "risk": "low",
+      "risk_note": "Stock clown photos; nothing to license.",
+      "recommendation": "USE",
+      "top_pick": 2,
+      "popularity": "Imgflip #48 (132k)",
+      "rank": 14
+    },
+    {
+      "id": "pov",
+      "name": "POV:",
+      "tier": 2,
+      "layout": "single",
+      "structure": "A first-person caption, \"POV: you're X\", over an image of what that person sees or feels.",
+      "mechanic": "Puts the reader inside an awkward moment.",
+      "feasibility": "props",
+      "feasibility_note": "One character pushing a bike uphill, seen from the reader's angle.",
+      "hooks": [
+        {
+          "essay": "your-training-app-doesnt-know-your-race-exists",
+          "section": "Mile 82 opening",
+          "caption": "\"POV: you're walking the third pitch at mile 82 of Big Sugar with a 91% compliance score.\""
+        }
+      ],
+      "general_hook": "\"POV: your race has no bananas left at the aid station.\"",
+      "risk": "low",
+      "risk_note": "Generic text convention; nothing to license.",
+      "recommendation": "USE",
+      "top_pick": null,
+      "popularity": "TikTok staple since 2019",
+      "rank": 15
+    },
+    {
+      "id": "nobody-me",
+      "name": "Nobody: / Me:",
+      "tier": 2,
+      "layout": "text",
+      "structure": "\"Nobody:\" (with nothing after it), then \"Me:\" doing something unprompted and absurd.",
+      "mechanic": "Shows a behaviour nobody asked for.",
+      "feasibility": "easy",
+      "feasibility_note": "Text plus one character pose.",
+      "hooks": [
+        {
+          "essay": "your-training-app-doesnt-know-your-race-exists",
+          "section": "The Part Where I Tell You Not to Buy Anything",
+          "caption": "\"Nobody: / Me at 9pm in week six: I'll read the course profile tomorrow.\""
+        }
+      ],
+      "general_hook": "\"Nobody: / Me: re-testing FTP two weeks before the race.\"",
+      "risk": "low",
+      "risk_note": "Text format; nothing to license.",
+      "recommendation": "USE",
+      "top_pick": null,
+      "popularity": "Twitter/TikTok staple",
+      "rank": 16
+    },
+    {
+      "id": "tell-me-without",
+      "name": "Tell Me Without Telling Me",
+      "tier": 2,
+      "layout": "text",
+      "structure": "Prompt: \"Tell me you're X without telling me you're X.\" Reply: a giveaway detail.",
+      "mechanic": "The reply gives the person away without naming the trait.",
+      "feasibility": "easy",
+      "feasibility_note": "Text plus one character.",
+      "hooks": [
+        {
+          "essay": "sweet-spot-training-cycling",
+          "section": "Sweet Spot is Really Threshold",
+          "caption": "\"Tell me your FTP is inflated without telling me your FTP is inflated.\" GG: \"It's from my best test ever, perfectly rested, on a first-generation left-only crank.\""
+        }
+      ],
+      "general_hook": "\"Tell me you've never done a long gravel race without telling me.\" \"I'll eat when I'm hungry.\"",
+      "risk": "low",
+      "risk_note": "Text format.",
+      "recommendation": "USE",
+      "top_pick": null,
+      "popularity": "TikTok 2021, still common",
+      "rank": 17
+    },
+    {
+      "id": "starter-pack",
+      "name": "Starter Pack",
+      "tier": 2,
+      "layout": "collage",
+      "structure": "A grid or collage of objects under the heading \"The ___ starter pack\".",
+      "mechanic": "A stereotype rebuilt from its props; the recognition is the joke.",
+      "feasibility": "props",
+      "feasibility_note": "Objects only; GG can appear in one tile. Very legible at 390 px if tiles stay few.",
+      "hooks": [
+        {
+          "essay": "your-training-app-doesnt-know-your-race-exists",
+          "section": "A Field Guide to Perfectly-Trained Casualties",
+          "caption": "\"The Fueling Optimist starter pack\": \"I'll eat when I'm hungry\" · a stripped banana table · excellent fitness, any shape · sad math at the aid station."
+        }
+      ],
+      "general_hook": "\"Gravel race taper starter pack\": rest-day anxiety, new tyres, a forecast app open on every tab.",
+      "risk": "low",
+      "risk_note": "Collage format; draw our own objects.",
+      "recommendation": "USE",
+      "top_pick": 9,
+      "popularity": "Since 2014; Instagram staple",
+      "rank": 18
+    },
+    {
+      "id": "they-dont-know",
+      "name": "They Don't Know",
+      "tier": 2,
+      "layout": "party",
+      "structure": "A party; one person stands alone in a corner with a thought bubble: \"They don't know I ___\".",
+      "mechanic": "Secret smugness about something nobody else cares about.",
+      "feasibility": "figures",
+      "feasibility_note": "GG plus a crowd of simple silhouettes.",
+      "hooks": [
+        {
+          "essay": "your-training-app-doesnt-know-your-race-exists",
+          "section": "The Start Line Doesn't Care About Your Compliance Score",
+          "caption": "Group ride chatter about FTP; GG in the corner: \"They don't know I read the course profile twice.\""
+        }
+      ],
+      "general_hook": "\"They don't know I trained my gut for 90 g an hour.\" (only once an essay says so)",
+      "risk": "low",
+      "risk_note": "Original is a Wojak-style drawing; use our character, not the Wojak face.",
+      "recommendation": "USE",
+      "top_pick": null,
+      "popularity": "Imgflip #46; Instagram",
+      "rank": 19
+    },
+    {
+      "id": "me-and-the-boys",
+      "name": "Me and the Boys",
+      "tier": 2,
+      "layout": "group",
+      "structure": "A group of identical, slightly feral figures heading somewhere at night: \"Me and the boys going to ___\".",
+      "mechanic": "Bonding over a dumb shared mission.",
+      "feasibility": "figures",
+      "feasibility_note": "Four GG clones in a row (the original images are animals or figurines).",
+      "hooks": [
+        {
+          "essay": "your-training-app-doesnt-know-your-race-exists",
+          "section": "A Field Guide to Perfectly-Trained Casualties",
+          "caption": "\"Me and the boys at mile 82\": the Flatland Diesel, the Interval Assassin and the Fueling Optimist, all walking."
+        }
+      ],
+      "general_hook": "\"Me and the boys looking for the last bananas at aid station 3.\"",
+      "risk": "low",
+      "risk_note": "Several source images exist; draw our own group.",
+      "recommendation": "MAYBE",
+      "top_pick": null,
+      "popularity": "2019 onward",
+      "rank": 20
+    },
+    {
+      "id": "expectation-reality",
+      "name": "Expectation vs. Reality",
+      "tier": 2,
+      "layout": "split2",
+      "structure": "Two panels: how you pictured it, then how it went.",
+      "mechanic": "The gap between plan and outcome.",
+      "feasibility": "easy",
+      "feasibility_note": "One character twice, or one panel each.",
+      "hooks": [
+        {
+          "essay": "sweet-spot-training-cycling",
+          "section": "That Said, G-Spot is Better than Sweet Spot",
+          "caption": "Expectation: \"40 days and 40 nights of Sweet Spot\" (glowing GG). Reality: \"FTP went down 10 watts\"."
+        }
+      ],
+      "general_hook": "Expectation: \"Smooth gravel\". Reality: the course profile you didn't read.",
+      "risk": "low",
+      "risk_note": "Generic format.",
+      "recommendation": "USE",
+      "top_pick": null,
+      "popularity": "Evergreen",
+      "rank": 21
+    },
+    {
+      "id": "how-it-started",
+      "name": "How It Started / How It's Going",
+      "tier": 2,
+      "layout": "split2",
+      "structure": "Two images side by side: the beginning and the present.",
+      "mechanic": "A small or innocent start next to a ridiculous result.",
+      "feasibility": "props",
+      "feasibility_note": "Napkin graph and GG with a crowd of riders.",
+      "hooks": [
+        {
+          "essay": "sweet-spot-training-cycling",
+          "section": "What is the Sweet Spot?",
+          "caption": "How it started: \"A hypothetical, unitless graph\". How it's going: \"An entire generation of cyclists who think it's a hack\"."
+        }
+      ],
+      "general_hook": "How it started: \"One gravel race\". How it's going: a garage full of tyres.",
+      "risk": "medium",
+      "risk_note": "Keep the caption on the idea. Do not name the coach or company in the image; the essay names them, the meme should not.",
+      "recommendation": "USE",
+      "top_pick": null,
+      "popularity": "Twitter 2020, still used",
+      "rank": 22
+    },
+    {
+      "id": "era",
+      "name": "In My ___ Era",
+      "tier": 2,
+      "layout": "single",
+      "structure": "\"I'm in my ___ era\": announcing a new phase of life.",
+      "mechanic": "Self-mythologising about a small change.",
+      "feasibility": "easy",
+      "feasibility_note": "One character, one pose and a caption.",
+      "hooks": [
+        {
+          "essay": "sweet-spot-training-cycling",
+          "section": "Polarized Training is Just Better",
+          "caption": "GG on an easy spin: \"In my 75–90%-below-LT1 era.\""
+        }
+      ],
+      "general_hook": "\"In my long-ride-with-a-gel-every-30-minutes era.\"",
+      "risk": "low",
+      "risk_note": "Taylor Swift's Eras Tour popularised the phrase, but the phrase is generic. Do not reference her.",
+      "recommendation": "MAYBE",
+      "top_pick": null,
+      "popularity": "2022–2024 peak; fading",
+      "rank": 23
+    },
+    {
+      "id": "math-aint-mathing",
+      "name": "The Math Ain't Mathing",
+      "tier": 2,
+      "layout": "text",
+      "structure": "A calculation that doesn't add up, captioned \"the math ain't mathing\".",
+      "mechanic": "Deadpan audit of a claim with simple arithmetic.",
+      "feasibility": "easy",
+      "feasibility_note": "One character holding a calculator.",
+      "hooks": [
+        {
+          "essay": "sweet-spot-training-cycling",
+          "section": "Sweet Spot is Really Threshold (case study)",
+          "caption": "\"Sweet Spot\" target 235 W ÷ interval-3 FTP 215 W = 109%. Caption: \"The math ain't mathing.\""
+        }
+      ],
+      "general_hook": "Gels per hour × hours vs what's in your pockets.",
+      "risk": "low",
+      "risk_note": "Phrase from a TikTok audio; generic.",
+      "recommendation": "MAYBE",
+      "top_pick": null,
+      "popularity": "TikTok 2023",
+      "rank": 24
+    },
+    {
+      "id": "aura-farming",
+      "name": "Aura Farming",
+      "tier": 2,
+      "layout": "single",
+      "structure": "Someone poses with studied nonchalance to look cool. Caption: \"aura farming\".",
+      "mechanic": "Effort disguised as effortlessness.",
+      "feasibility": "easy",
+      "feasibility_note": "One character in a cool pose (e.g. on the start line, sunglasses on).",
+      "hooks": [
+        {
+          "essay": "your-training-app-doesnt-know-your-race-exists",
+          "section": "A Field Guide to Perfectly-Trained Casualties",
+          "caption": "The Interval Assassin ripping a five-minute VO2 effort on the trainer: \"Aura farming.\" (Then the hour-six panel.)"
+        }
+      ],
+      "general_hook": "GG at the coffee stop in a clean kit, arms crossed: \"Aura farming before the gravel.\"",
+      "risk": "medium",
+      "risk_note": "The 2025 mascot is a real child (the Indonesian boat-racing dancer). Use the phrase only; never the boat pose or likeness.",
+      "recommendation": "MAYBE",
+      "top_pick": null,
+      "popularity": "2025 breakout",
+      "rank": 25
+    },
+    {
+      "id": "midwit",
+      "name": "IQ Bell Curve (Midwit)",
+      "tier": 3,
+      "layout": "bellcurve",
+      "structure": "A bell curve of IQ. The low end and the high end say the same simple thing; the crying middle gives an over-complicated take.",
+      "mechanic": "Horseshoe: the simple answer is right, and overthinking is the dumb part.",
+      "feasibility": "figures",
+      "feasibility_note": "Three versions of GG: simple, crying middle, hooded monk. One rig in three costumes.",
+      "hooks": [
+        {
+          "essay": "sweet-spot-training-cycling",
+          "section": "Polarized Training is Just Better",
+          "caption": "Left and right GG: \"Ride easy. Sometimes go really hard.\" Middle GG, crying: \"If I maximise TSS at 88–94% of FTP, training efficiency…\""
+        }
+      ],
+      "general_hook": "Ends: \"Eat on the bike.\" Middle: \"Let me model my glycogen kinetics…\"",
+      "risk": "medium",
+      "risk_note": "Term popularised by Vox Day; early versions on 4chan /pol/ were racist; Know Your Meme tags it sensitive. Now mainstream on X. Use GG in all three roles (we mock ourselves, not readers) and never the Wojak drawings.",
+      "recommendation": "USE",
+      "top_pick": 3,
+      "popularity": "Imgflip #44; X staple, still active 2026",
+      "rank": 26
+    },
+    {
+      "id": "virgin-chad",
+      "name": "Virgin vs. Chad",
+      "tier": 3,
+      "layout": "split2",
+      "structure": "Two figures walking: a hunched \"Virgin\" with annotations listing his flaws, and a striding \"Chad\" with annotations listing his virtues.",
+      "mechanic": "Over-annotated comparison; the arrows and labels are the joke.",
+      "feasibility": "figures",
+      "feasibility_note": "GG twice: hunched and striding. Annotation arrows carry the text.",
+      "hooks": [
+        {
+          "essay": "sweet-spot-training-cycling",
+          "section": "Practical Implications? Getting Really Sad. + Polarized",
+          "caption": "\"The Virgin Sweet Spot Grinder\": \"3×20 every ride\", \"hungry all the time\", \"bad sleep\", \"grumpy a lot\". \"The Chad Polarized Rider\": \"Rides easy for hours\", \"goes really hard when it counts\", \"doesn't chase TSS\"."
+        }
+      ],
+      "general_hook": "\"The Virgin Trainer Hero\" vs \"The Chad Who Read the Course Profile\".",
+      "risk": "medium",
+      "risk_note": "4chan origin with incel-adjacent vocabulary (\"virgin\"). Keep annotations about training behaviour, never bodies. Do not use the original MS Paint figures.",
+      "recommendation": "USE",
+      "top_pick": 4,
+      "popularity": "2017 onward; still current on X",
+      "rank": 27
+    },
+    {
+      "id": "gigachad-yes",
+      "name": "Gigachad \"Yes.\"",
+      "tier": 3,
+      "layout": "split2",
+      "structure": "A gotcha question in a speech bubble, answered by a stoic black-and-white side profile saying just \"Yes.\"",
+      "mechanic": "Refusing to be embarrassed: owning the accusation completely.",
+      "feasibility": "easy",
+      "feasibility_note": "One character in a high-contrast monochrome profile.",
+      "hooks": [
+        {
+          "essay": "sweet-spot-training-cycling",
+          "section": "That Said, G-Spot is Better than Sweet Spot",
+          "caption": "Bubble: \"You named a training zone the G-Spot?\" GG profile: \"Yes.\""
+        }
+      ],
+      "general_hook": "\"You ride easy for most of the week?\" \"Yes.\"",
+      "risk": "high",
+      "risk_note": "Gigachad is a real person's photographs (credited to photographer Krista Sudmalis's project; the model is known as Ernest Khalimov). Never trace the face, jaw or photo. Recreate only the concept: GG, in our style, saying \"Yes.\"",
+      "recommendation": "USE",
+      "top_pick": 5,
+      "popularity": "X staple since 2021",
+      "rank": 28
+    },
+    {
+      "id": "galaxy-brain",
+      "name": "Galaxy Brain",
+      "tier": 3,
+      "layout": "single",
+      "structure": "A single head with a glowing cosmic brain, captioned \"galaxy brain\" to mock an idea that is too clever by half.",
+      "mechanic": "Sarcastic praise for an overthought idea.",
+      "feasibility": "easy",
+      "feasibility_note": "One character with a cosmic glow.",
+      "hooks": [
+        {
+          "essay": "sweet-spot-training-cycling",
+          "section": "What is the Sweet Spot?",
+          "caption": "\"Galaxy brain: turning a unitless graph into a training zone.\""
+        }
+      ],
+      "general_hook": "\"Galaxy brain: racing a new bike you've never ridden on gravel.\"",
+      "risk": "low",
+      "risk_note": "Same root as Expanding Brain; use one, not both, per essay.",
+      "recommendation": "MAYBE",
+      "top_pick": null,
+      "popularity": "X reaction, evergreen",
+      "rank": 29
+    },
+    {
+      "id": "mask-wojak",
+      "name": "Crying Behind the Mask",
+      "tier": 3,
+      "layout": "reveal",
+      "structure": "A figure holds up a smiling mask; behind it the real face is crying.",
+      "mechanic": "The public front versus the private truth.",
+      "feasibility": "props",
+      "feasibility_note": "One character and a mask prop.",
+      "hooks": [
+        {
+          "essay": "your-training-app-doesnt-know-your-race-exists",
+          "section": "Mile 82 opening",
+          "caption": "Mask: \"Every green checkmark. 91% compliance.\" Behind it: \"Walking the third pitch at mile 82.\""
+        }
+      ],
+      "general_hook": "Mask: \"Taper is going great.\" Behind: \"I feel slow and I'm panicking.\"",
+      "risk": "medium",
+      "risk_note": "A Wojak variant. Never draw the Wojak face; GG's own crying face only.",
+      "recommendation": "USE",
+      "top_pick": null,
+      "popularity": "X/4chan; current",
+      "rank": 30
+    },
+    {
+      "id": "so-over-so-back",
+      "name": "It's So Over / We're So Back",
+      "tier": 3,
+      "layout": "split2",
+      "structure": "A two-state swing: \"It's so over\" (despair) next to \"We're so back\" (triumph), often over something tiny.",
+      "mechanic": "The internet's mood pendulum.",
+      "feasibility": "easy",
+      "feasibility_note": "GG twice, two moods.",
+      "hooks": [
+        {
+          "essay": "sweet-spot-training-cycling",
+          "section": "Mitochondria Want You to Go Easy or Go Hard + Polarized",
+          "caption": "\"It's so over\": plateaued after a brief honeymoon of Sweet Spot gains. \"We're so back\": 75–90% below LT1, 15–20% above LT2."
+        }
+      ],
+      "general_hook": "Race-week weather forecast flipping every hour.",
+      "risk": "medium",
+      "risk_note": "The phrase began as a 2016 Trump reaction image on 4chan. The phrase is now generic; never use the original image or any political framing.",
+      "recommendation": "USE",
+      "top_pick": null,
+      "popularity": "X staple 2021–2026",
+      "rank": 31
+    },
+    {
+      "id": "npc",
+      "name": "NPC",
+      "tier": 3,
+      "layout": "single",
+      "structure": "A grey, expressionless figure repeating a stock opinion like scripted video-game dialogue.",
+      "mechanic": "Mocks people who repeat lines without thinking.",
+      "feasibility": "easy",
+      "feasibility_note": "One grey-washed GG with a dialogue box.",
+      "hooks": [
+        {
+          "essay": "sweet-spot-training-cycling",
+          "section": "Sweet Spot's Success Stories are Just Noob Gains",
+          "caption": "Dialogue box: \"+30 watts in 10 weeks! Sweet Spot works!\""
+        }
+      ],
+      "general_hook": "Group-ride NPC: \"Have you tried more Sweet Spot?\"",
+      "risk": "high",
+      "risk_note": "In 2018 it was a political insult; Twitter suspended about 1,500 NPC accounts. It also calls readers mindless. If used, GG plays the NPC.",
+      "recommendation": "MAYBE",
+      "top_pick": null,
+      "popularity": "2018 peak; still on X",
+      "rank": 32
+    },
+    {
+      "id": "average-enjoyer",
+      "name": "Average Fan vs. Average Enjoyer",
+      "tier": 3,
+      "layout": "split2",
+      "structure": "Left: a sweaty, unhappy \"average X fan\". Right: a serene, handsome \"average Y enjoyer\".",
+      "mechanic": "Tribal preference rendered as a looks contest.",
+      "feasibility": "figures",
+      "feasibility_note": "GG twice. Overlaps Virgin vs. Chad; pick one.",
+      "hooks": [
+        {
+          "essay": "sweet-spot-training-cycling",
+          "section": "Polarized Training is Just Better",
+          "caption": "\"Average TSS maximiser\" vs \"Average ride-easy-go-hard enjoyer\"."
+        }
+      ],
+      "general_hook": "\"Average power-number fan\" vs \"Average course-profile enjoyer\".",
+      "risk": "medium",
+      "risk_note": "The right-hand figure is a drawn \"Nordic gamer\"; the left is often a photo of a real person. Concept only.",
+      "recommendation": "MAYBE",
+      "top_pick": null,
+      "popularity": "2020 onward",
+      "rank": 33
+    },
+    {
+      "id": "trad-vs-modern",
+      "name": "Trad vs. Modern",
+      "tier": 3,
+      "layout": "split2",
+      "structure": "Two images: a beautiful traditional version and a bleak modern one, labelled \"Trad\" and \"Modern\".",
+      "mechanic": "Nostalgic contrast that flatters the old way.",
+      "feasibility": "props",
+      "feasibility_note": "Two scenes, character optional.",
+      "hooks": [
+        {
+          "essay": "sweet-spot-training-cycling",
+          "section": "The Black Hole Metaphor is Perfect",
+          "caption": "\"Trad\": long easy rides, a few truly hard ones. \"Modern\": sorta-hard every ride."
+        }
+      ],
+      "general_hook": "\"Trad\": paper cue sheet. \"Modern\": a dead head unit at mile 60.",
+      "risk": "high",
+      "risk_note": "On X, \"trad\" framing is heavily associated with reactionary and far-right accounts. Polarized training is not old-fashioned either, so the joke is also inaccurate.",
+      "recommendation": "SKIP",
+      "top_pick": null,
+      "popularity": "X aesthetics accounts",
+      "rank": 34
+    },
+    {
+      "id": "alignment-chart",
+      "name": "Alignment Chart",
+      "tier": 3,
+      "layout": "grid",
+      "structure": "A 3×3 grid from Lawful Good to Chaotic Evil, one example per cell.",
+      "mechanic": "Forcing arbitrary things into a moral taxonomy.",
+      "feasibility": "props",
+      "feasibility_note": "Nine small GG poses or just labels. Small type fails at 390 px; keep to short labels.",
+      "hooks": [
+        {
+          "essay": "your-training-app-doesnt-know-your-race-exists",
+          "section": "A Field Guide to Perfectly-Trained Casualties",
+          "caption": "Lawful good: \"Read the course profile twice\". Lawful neutral: \"The Flatland Diesel\". Chaotic neutral: \"The Fueling Optimist\". Chaotic evil: \"Logs your race as unstructured endurance\"."
+        }
+      ],
+      "general_hook": "Taper-week behaviours from lawful good to chaotic evil.",
+      "risk": "low",
+      "risk_note": "D&D alignment terms are generic.",
+      "recommendation": "MAYBE",
+      "top_pick": null,
+      "popularity": "Evergreen, X/Reddit",
+      "rank": 35
+    },
+    {
+      "id": "tier-list",
+      "name": "Tier List",
+      "tier": 3,
+      "layout": "tiers",
+      "structure": "Rows from S to F, with items placed in each tier.",
+      "mechanic": "Strong ranked opinions in a familiar format.",
+      "feasibility": "props",
+      "feasibility_note": "One character holding a marker beside the board.",
+      "hooks": [
+        {
+          "essay": "sweet-spot-training-cycling",
+          "section": "Polarized Training is Just Better",
+          "caption": "S: \"Below LT1, for hours\" · S: \"Above LT2, when it counts\" · B: \"Sweet Spot, occasionally\" · F: \"Sweet Spot as your default\"."
+        }
+      ],
+      "general_hook": "Aid-station foods, S to F.",
+      "risk": "low",
+      "risk_note": "Generic format (TierMaker).",
+      "recommendation": "USE",
+      "top_pick": 8,
+      "popularity": "X/YouTube staple",
+      "rank": 36
+    },
+    {
+      "id": "clueless",
+      "name": "Clueless",
+      "tier": 3,
+      "layout": "single",
+      "structure": "A serene, eyes-closed smiling face captioned \"Clueless\" after a statement the speaker clearly doesn't understand.",
+      "mechanic": "Dramatic irony: the reader knows; the speaker doesn't.",
+      "feasibility": "easy",
+      "feasibility_note": "One character, closed-eye smile.",
+      "hooks": [
+        {
+          "essay": "sweet-spot-training-cycling",
+          "section": "Sweet Spot is Really Threshold",
+          "caption": "\"My FTP is 250. (Best test ever, perfectly rested, on a 20-minute climb.)\" GG, eyes closed, smiling: \"Clueless\"."
+        }
+      ],
+      "general_hook": "\"I'll just eat when I'm hungry.\" Clueless.",
+      "risk": "medium",
+      "risk_note": "The \"Clueless\" Twitch emote is a Pepe derivative, and Matt Furie objects to Pepe use. Use the word and GG's face only; never a frog.",
+      "recommendation": "USE",
+      "top_pick": null,
+      "popularity": "Twitch/X 2022 onward",
+      "rank": 37
+    },
+    {
+      "id": "x-doubt",
+      "name": "X to Doubt",
+      "tier": 3,
+      "layout": "single",
+      "structure": "A sceptical squint with a video-game button prompt: \"[X] Doubt\".",
+      "mechanic": "Openly disbelieving a claim.",
+      "feasibility": "easy",
+      "feasibility_note": "One character squinting, plus a button prompt.",
+      "hooks": [
+        {
+          "essay": "sweet-spot-training-cycling",
+          "section": "Sweet Spot's Success Stories are Just Noob Gains",
+          "caption": "\"Steve improved his FTP by 30 watts in 10 weeks by using Sweet Spot.\" GG squints: \"[X] Doubt\"."
+        }
+      ],
+      "general_hook": "\"This new tyre is 20 watts faster.\" [X] Doubt.",
+      "risk": "medium",
+      "risk_note": "From L.A. Noire (Rockstar); the face is actor Aaron Staton. Draw only GG and a generic button prompt.",
+      "recommendation": "USE",
+      "top_pick": null,
+      "popularity": "Evergreen reaction",
+      "rank": 38
+    },
+    {
+      "id": "literally-me",
+      "name": "Literally Me / He's Just Like Me Fr",
+      "tier": 3,
+      "layout": "single",
+      "structure": "A moody, lone-wolf film character with the caption \"literally me\" or \"he's just like me fr\".",
+      "mechanic": "Over-identifying with a character, often with a flawed one.",
+      "feasibility": "easy",
+      "feasibility_note": "One character, moody profile.",
+      "hooks": [
+        {
+          "essay": "your-training-app-doesnt-know-your-race-exists",
+          "section": "A Field Guide to Perfectly-Trained Casualties",
+          "caption": "The Fueling Optimist, who plans to \"eat when hungry\": \"He's just like me fr.\""
+        }
+      ],
+      "general_hook": "\"Rides alone into the headwind. Literally me.\"",
+      "risk": "high",
+      "risk_note": "Bound to real actors (Ryan Gosling in Drive and Blade Runner 2049, Christian Bale as Patrick Bateman). No jacket, no stills; GG and the caption only.",
+      "recommendation": "MAYBE",
+      "top_pick": null,
+      "popularity": "X 2022 onward",
+      "rank": 39
+    },
+    {
+      "id": "four-horsemen",
+      "name": "Four Horsemen",
+      "tier": 3,
+      "layout": "quad",
+      "structure": "Four images in a row: \"The four horsemen of ___\".",
+      "mechanic": "Four symptoms named as an apocalypse.",
+      "feasibility": "figures",
+      "feasibility_note": "Four figures: GG four times, or four objects.",
+      "hooks": [
+        {
+          "essay": "sweet-spot-training-cycling",
+          "section": "Practical Implications? Getting Really Sad.",
+          "caption": "\"The four horsemen of too much Sweet Spot\": can't go really hard · hungry all the time · bad sleep · grumpy a lot."
+        }
+      ],
+      "general_hook": "\"The four horsemen of a DNF\": no food, no water, no recon, no spare tube.",
+      "risk": "low",
+      "risk_note": "Generic format.",
+      "recommendation": "USE",
+      "top_pick": null,
+      "popularity": "Evergreen",
+      "rank": 40
+    },
+    {
+      "id": "ratio",
+      "name": "Ratio",
+      "tier": 3,
+      "layout": "tweet",
+      "structure": "A reply to a post: \"Ratio + L + ___\", stacking insults; the reply out-likes the original.",
+      "mechanic": "Public point-scoring in a stack.",
+      "feasibility": "easy",
+      "feasibility_note": "Text post card with a GG avatar.",
+      "hooks": [
+        {
+          "essay": "your-training-app-doesnt-know-your-race-exists",
+          "section": "Fitness Has a Shape",
+          "caption": "Post: \"My app says I'm ready.\" Reply: \"Ratio + 9,500 ft of climbing + after mile 75 + 24 gels.\""
+        }
+      ],
+      "general_hook": "Post: \"Tubes are fine.\" Reply: \"Ratio + sidewall cut + mile 40.\"",
+      "risk": "medium",
+      "risk_note": "Do not mimic X's interface or logo; draw a neutral post card.",
+      "recommendation": "MAYBE",
+      "top_pick": null,
+      "popularity": "X-native",
+      "rank": 41
+    },
+    {
+      "id": "stop-doing",
+      "name": "Stop Doing ___",
+      "tier": 3,
+      "layout": "textwall",
+      "structure": "A mock poster: \"STOP DOING X\", bullet complaints, fake quotes, \"Look at what they need to mimic a fraction of our power\", and a clincher.",
+      "mechanic": "Dense, deadpan rant styled as a public notice.",
+      "feasibility": "easy",
+      "feasibility_note": "Text poster; GG can stand beside it. Text-heavy, so keep bullets few for 390 px.",
+      "hooks": [
+        {
+          "essay": "sweet-spot-training-cycling",
+          "section": "What is the Sweet Spot? Can We Call it Something Different?",
+          "caption": "\"STOP DOING SWEET SPOT\" · \"Y-axes were not supposed to be unitless\" · \"12 athletes, several months\" · \"'Only ever intended as conveying a concept'\" · \"They have played us for absolute fools.\""
+        }
+      ],
+      "general_hook": "\"STOP DOING ZWIFT RACES IN MARCH.\"",
+      "risk": "low",
+      "risk_note": "Anonymous 2021 \"Stop Doing Math\" template; no person or artist attached.",
+      "recommendation": "USE",
+      "top_pick": null,
+      "popularity": "X 2021 onward",
+      "rank": 42
+    },
+    {
+      "id": "look-inside",
+      "name": "Look Inside",
+      "tier": 3,
+      "layout": "book",
+      "structure": "A book or product cover with a \"Look inside\" button, then the inside page that contradicts the cover.",
+      "mechanic": "The packaging promises one thing; the contents admit another.",
+      "feasibility": "props",
+      "feasibility_note": "A drawn cover and inner page; GG on the cover.",
+      "hooks": [
+        {
+          "essay": "your-training-app-doesnt-know-your-race-exists",
+          "section": "First, the Part Where I Agree With the Robots",
+          "caption": "Cover: \"Adapted to you: your fatigue, your zones, your missed Tuesdays.\" Look inside: \"The race: not modelled.\""
+        }
+      ],
+      "general_hook": "Cover: \"Race-ready in 8 weeks\". Inside: \"Week 1: buy more plans\".",
+      "risk": "medium",
+      "risk_note": "Mimics Amazon's \"Look inside\" button; draw a generic button, no Amazon branding.",
+      "recommendation": "USE",
+      "top_pick": null,
+      "popularity": "X 2023 onward",
+      "rank": 43
+    },
+    {
+      "id": "domain-expansion",
+      "name": "Domain Expansion",
+      "tier": 3,
+      "layout": "single",
+      "structure": "A character makes a hand sign and declares \"Domain Expansion: ___\", trapping everyone in their world.",
+      "mechanic": "Grandiose anime declaration for a mundane habit.",
+      "feasibility": "easy",
+      "feasibility_note": "One character, hand sign, dark sphere behind.",
+      "hooks": [
+        {
+          "essay": "sweet-spot-training-cycling",
+          "section": "The Black Hole Metaphor is Perfect",
+          "caption": "GG with the hand sign: \"Domain Expansion: the black hole.\""
+        }
+      ],
+      "general_hook": "\"Domain Expansion: infinite headwind.\"",
+      "risk": "medium",
+      "risk_note": "Jujutsu Kaisen (Gege Akutami / Shueisha). Use only the phrase; never draw Gojo or Sukuna. The black-hole loop already illustrates this section.",
+      "recommendation": "MAYBE",
+      "top_pick": null,
+      "popularity": "2023–2025 anime/X",
+      "rank": 44
+    },
+    {
+      "id": "mogged",
+      "name": "Mogged",
+      "tier": 3,
+      "layout": "split2",
+      "structure": "Two people side by side; one \"mogs\" the other by looking better.",
+      "mechanic": "Status comparison from looksmaxxing slang.",
+      "feasibility": "figures",
+      "feasibility_note": "GG twice.",
+      "hooks": [
+        {
+          "essay": "your-training-app-doesnt-know-your-race-exists",
+          "section": "A Field Guide to Perfectly-Trained Casualties",
+          "caption": "Not drafted: the format's frame is appearance, which nothing in the essays is about."
+        }
+      ],
+      "general_hook": "None.",
+      "risk": "high",
+      "risk_note": "Comes from looksmaxxing and incel forums and is about looks. Off-brand.",
+      "recommendation": "SKIP",
+      "top_pick": null,
+      "popularity": "2024–2025 slang",
+      "rank": 45
+    }
+  ],
+  "excluded": [
+    {
+      "name": "Spider-Man pointing, Panik/Kalm/Panik, Stonks, Gru's plan, Drake, Is this a pigeon?",
+      "reason": "Already made (see ../PLAN.md)."
+    },
+    {
+      "name": "This Is Fine",
+      "reason": "KC Green objects to commercial use."
+    },
+    {
+      "name": "Pepe (and Pepe emotes drawn as frogs)",
+      "reason": "Matt Furie objects; the Clueless entry uses the word only."
+    },
+    {
+      "name": "Change My Mind",
+      "reason": "Tied to one political commentator."
+    },
+    {
+      "name": "Two Soyjaks Pointing",
+      "reason": "\"Soy\" framing is a political insult; Spider-Man pointing already covers pointing."
+    },
+    {
+      "name": "Disaster Girl, Hide the Pain Harold, Roll Safe, Sleeping Shaq, Absolute Cinema, Woman Yelling at Cat",
+      "reason": "The joke depends on a real person's face (Zoë Roth, András Arató, Kayode Ewumi, Shaquille O'Neal, Martin Scorsese, Taylor Armstrong)."
+    },
+    {
+      "name": "Always Has Been",
+      "reason": "Gun imagery, and it repeats the Sweet-Spot-is-threshold joke."
+    },
+    {
+      "name": "Wordcel vs. Shape Rotator",
+      "reason": "The only fitting hook maps onto two real, named people in the essay."
+    }
+  ]
+}

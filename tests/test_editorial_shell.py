@@ -915,6 +915,34 @@ class TestInShortOnPhone:
 # ── The Sweet Spot article ────────────────────────────────────
 
 
+MEMES = {
+    sweet_spot: ("spiderman-threshold", "panik-kalm-panik", "stonks-tss", "midwit-sweet-spot",
+                 "virgin-sweetspot-chad-polarized", "gru-noob-gains", "drake-polarized"),
+    training_app: ("pigeon-compliance", "drake-fit"),
+}
+
+
+@pytest.mark.parametrize("source", ARTICLE_SOURCES, ids=lambda m: m.SLUG)
+def test_memes_are_placed_after_their_paragraphs_with_their_files(source):
+    """Each meme renders once, WebP only (no PNG shipped), with its phone crop,
+    a real alt, lazy loading, and every file it references committed."""
+    html = _main(source.OUTPUT_PATH.read_text(encoding="utf-8"))
+    figs = [f for f in source.FIGURES if isinstance(f, es.EssayFigure) and "/memes/" in f.picture.src]
+    names = [f.picture.src.split("/")[-1].removesuffix(".webp") for f in figs]
+    assert sorted(names) == sorted(MEMES[source])
+    for fig, name in zip(figs, names):
+        tag = f'<img src="img/memes/{name}.webp" srcset="img/memes/{name}.webp 1x, img/memes/{name}@2x.webp 2x"'
+        assert html.count(tag) == 1, name
+        assert f'srcset="img/memes/{name}-m.webp 1x, img/memes/{name}-m@2x.webp 2x"' in html, name
+        assert len(fig.picture.alt) > 60 and 'loading="lazy"' in html.split(tag, 1)[1].split(">", 1)[0]
+        assert html.index(fig.after) < html.index(tag), name
+        for p in fig.picture.files():
+            assert p.endswith(".webp") and (source.OUTPUT_PATH.parent / p).is_file(), p
+    memes_dir = source.OUTPUT_PATH.parent / "img" / "memes"
+    assert sorted(f.name for f in memes_dir.iterdir()) == sorted(
+        f"{n}{v}.webp" for n in names for v in ("", "@2x", "-m", "-m@2x"))
+
+
 @pytest.mark.parametrize("source", ARTICLE_SOURCES, ids=lambda m: m.SLUG)
 def test_committed_article_html_is_fresh(source):
     """Fails after a change to the shell, data/pricing.json, brand_tokens
@@ -966,7 +994,7 @@ class TestSweetSpotArticle:
                 paths += fig.picture.files()
                 if fig.video:
                     paths += [s for s, _ in fig.video.sources] + [fig.video.poster]
-        assert len(paths) == 21
+        assert len(paths) == 21 + 7 * 4  # scenes + seven memes (1x, 2x, phone 1x/2x WebP)
         for p in paths:
             assert (sweet_spot.IMG_DIR.parent / p).is_file(), p
 
@@ -974,7 +1002,7 @@ class TestSweetSpotArticle:
         main = _main(SWEET_SPOT_INDEX.read_text(encoding="utf-8"))
         for old in ("black-hole.jpg", "g-spot-tablet.jpg", "sweet-spot-rip.png", 'src="img/unitless-graph.png"'):
             assert old not in main, old
-        assert main.count("<picture") == 3 and main.count("<video") == 1
+        assert main.count("<picture") == 3 + 7 and main.count("<video") == 1  # 3 scenes + 7 memes
         assert '<figure class="gg-svgfig gg-fig has-mini" id="fig-graph"' in main
         assert "data-draw-in" in main.split('id="fig-drift"', 1)[1].split(">", 1)[0]
 

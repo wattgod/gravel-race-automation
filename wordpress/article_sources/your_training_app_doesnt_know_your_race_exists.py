@@ -29,7 +29,7 @@ WORDPRESS = HERE.parent
 if str(WORDPRESS) not in sys.path:
     sys.path.insert(0, str(WORDPRESS))
 
-from editorial_shell import ArticleMeta, Claim, render_editorial_page  # noqa: E402
+from editorial_shell import ArticleMeta, Claim, EssayFigure, Picture, render_editorial_page  # noqa: E402
 
 SLUG = "your-training-app-doesnt-know-your-race-exists"
 URL = f"https://gravelgodcycling.com/articles/{SLUG}/"
@@ -82,8 +82,26 @@ IN_SHORT = (
 )
 
 
+# ── Gravel God memes (2026-10-09). Rendered in the dirt-craft-course repo; see
+# docs/memes/README.md. WebP only (the <img> fallback is the 1x WebP); alt text
+# is docs/memes ALT.txt verbatim; phones get the recomposed -m crop. Files live
+# in wordpress/articles/<slug>/img/memes/. Add a meme with one FIGURES line.
+def _meme(name: str, alt: str, width: int, height: int, *, phone: tuple[int, int]) -> Picture:
+    return Picture.from_stem(f"img/memes/{name}", alt, width, height, ext="webp", webp=False, phone=phone)
+
+
+MEME_PIGEON_COMPLIANCE = _meme("pigeon-compliance", "Gravel God, labelled \"YOUR TRAINING APP\", points at a green butterfly fluttering just past his finger, labelled \"91% COMPLIANCE\". Caption: \"IS THIS RACE PREP?\"", 1600, 1000, phone=(660, 825))
+MEME_DRAKE_FIT = _meme("drake-fit", "Two-panel approve/reject meme with Gravel God. Top: eyes shut, head turned away, palm raised against \"Fitness: a number going up.\" Bottom: smiling and pointing at \"Fit: shaped like your race.\"", 1200, 1200, phone=(660, 660))
+
+FIGURES = (
+    EssayFigure(MEME_DRAKE_FIT, after="The race does not grade on fitness. It grades on fit.</p>"),
+    EssayFigure(MEME_PIGEON_COMPLIANCE, after="the only question that mattered: <em>adapted to what?</em></p>", width="column"),
+)
+
+
 def render() -> str:
-    return render_editorial_page(META, BODY_PATH.read_text(encoding="utf-8"), in_short=IN_SHORT, ladder=True)
+    return render_editorial_page(META, BODY_PATH.read_text(encoding="utf-8"), in_short=IN_SHORT, ladder=True,
+                                 figures=FIGURES)
 
 
 def main() -> None:

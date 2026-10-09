@@ -1,10 +1,10 @@
-"""Imported WordPress posts, batch W1-1 (the posts that were broken live, showing
-[POST_CONTENT]). The same per-post checks as tests/test_wp_post_import.py runs on
-the pilots, for this batch's posts. Fixtures in tests/fixtures/wp_posts/<id>.*.
+"""Imported WordPress posts, batch W1-1 (the eight posts that were broken live,
+showing [POST_CONTENT]). Fixtures in tests/fixtures/wp_posts/<id>.*.
 
-Post 1186 (since-no-one-asked-why-did-dumoulin-retire-he-just-wants-to-eat-some-cheese)
-is not converted: its snapshot has an Elementor slides widget the converter does
-not map (test_1186_still_fails_loudly).
+tests/test_wp_post_import.py::test_every_post_module_is_complete_and_fresh already
+runs on every post module (converter reproduces body + metadata, "In short" lint,
+alt coverage, fresh page). This file adds the word-for-word diff and the per-page
+checks the pilots get, plus this batch's own figures and corrected descriptions.
 """
 from __future__ import annotations
 
@@ -36,7 +36,10 @@ POSTS = {
     901: ("since_no_one_asked_my_take_on_whoop", set()),
     915: ("so_why_do_you_skip_weight_training", set()),
     922: ("the_tao_of_tom", set()),
+    1186: ("since_no_one_asked_why_did_dumoulin_retire_he_just_wants_to_eat_some_cheese", set()),
 }
+# Posts whose live meta description misstated the post (Matt, 2026-10-09).
+CORRECTED_DESCRIPTION = {922, 1078, 1533}
 
 
 def _module(pid):
@@ -54,24 +57,6 @@ def test_body_text_is_word_for_word(pid):
 
 
 @pytest.mark.parametrize("pid", POSTS)
-def test_converter_reproduces_committed_body_and_metadata(pid):
-    record = json.loads((FIXTURES / f"{pid}.record.json").read_text(encoding="utf-8"))
-    conv, data = imp.import_post(record, (FIXTURES / f"{pid}.html").read_text(encoding="utf-8"),
-                                 (FIXTURES / f"{pid}.live-head.html").read_text(encoding="utf-8"))
-    src = _module(pid).SOURCE
-    assert conv.body_html == src.body
-    assert data["live"] == src.data["live"]
-    assert [f["name"] for f in data["figures"]] == [f["name"] for f in src.data["figures"]]
-
-
-@pytest.mark.parametrize("pid", POSTS)
-def test_committed_page_is_fresh(pid):
-    m = _module(pid)
-    assert m.OUTPUT_PATH.read_text(encoding="utf-8") == m.render(), (
-        f"stale: run python3 wordpress/post_sources/{m.__name__}.py")
-
-
-@pytest.mark.parametrize("pid", POSTS)
 def test_metadata_comes_from_the_live_page(pid):
     m = _module(pid)
     live = m.SOURCE.data["live"]
@@ -80,10 +65,17 @@ def test_metadata_comes_from_the_live_page(pid):
     assert live["canonical"] == url
     assert f'<link rel="canonical" href="{url}">' in html
     assert f"<title>{es.esc(live['title'])}</title>" in html
-    assert f'<meta name="description" content="{es.esc(live["description"])}">' in html
+    desc = getattr(m, "DESCRIPTION", None) or live["description"]
+    assert (pid in CORRECTED_DESCRIPTION) == hasattr(m, "DESCRIPTION")
+    assert f'<meta name="description" content="{es.esc(desc)}">' in html
+    assert f'<meta property="og:description" content="{es.esc(desc)}">' in html
     ld = [json.loads(b) for b in re.findall(r'<script type="application/ld\+json">(.*?)</script>', html, re.S)]
     assert [b["@type"] for b in ld] == ["BlogPosting"]
     assert ld[0]["headline"] == live["headline"] and ld[0]["mainEntityOfPage"] == url
+    assert ld[0]["description"] == desc and ld[0]["datePublished"] == live["published"]
+    head = html.split("</head>", 1)[0]
+    assert f'<meta property="article:published_time" content="{live["published"]}">' in head
+    assert f'<meta property="article:modified_time" content="{live["modified"]}">' in head
     assert m.OUTPUT_PATH == PROJECT_ROOT / "wordpress" / "posts" / m.SLUG / "index.html"
 
 
@@ -110,8 +102,21 @@ def test_every_image_has_alt_text_and_committed_files(pid):
     referenced |= set(re.findall(r", (img/[^ ]+) 2x", html))
     for path in referenced:
         assert (m.OUTPUT_PATH.parent / path).is_file(), path
-    shipped = {p.suffix for p in (m.OUTPUT_PATH.parent / "img").iterdir()}
+    img_dir = m.OUTPUT_PATH.parent / "img"
+    shipped = {p.suffix for p in img_dir.iterdir() if not p.name.endswith("-og.jpg")}
     assert shipped <= {".webp", ".mp4", ".webm"}
+    assert [p.name for p in img_dir.glob("*.jpg")] == ([f"{feat['name']}-og.jpg"] if feat else [])
+
+
+@pytest.mark.parametrize("pid", POSTS)
+def test_og_image_is_the_featured_image_crop(pid):
+    m = _module(pid)
+    html = _page(pid)
+    og = m.SOURCE.data["renditions"][m.SOURCE.data["featured"]["name"]]["og"]
+    assert f'<meta property="og:image" content="https://gravelgodcycling.com/{m.SLUG}/img/{og["file"]}">' in html
+    assert "cropped-Gravel-God-logo" not in html
+    local = m.OUTPUT_PATH.parent / "img" / og["file"]
+    assert local.stat().st_size <= imp.OG_MAX_BYTES and local.stat().st_size == og["bytes"]
 
 
 @pytest.mark.parametrize("pid", POSTS)
@@ -126,18 +131,12 @@ def test_gifs_are_muted_videos(pid):
 
 
 @pytest.mark.parametrize("pid", POSTS)
-def test_in_short_claims(pid):
-    """2-4 claims (at most 2 under 800 words), each at most 25 words, plain
-    (no first person, no "!"), each linking to an anchor on the page."""
-    m = _module(pid)
+def test_in_short_links_land_on_the_page(pid):
+    """The rule itself is linted for every post in test_wp_post_import; here each
+    claim's link must hit an id that exists on the rendered page."""
     html = _page(pid)
-    cap = wp_post.SHORT_POST_MAX_CLAIMS if es.word_count(m.SOURCE.body) < wp_post.SHORT_POST_WORDS else 4
-    assert 2 <= len(m.IN_SHORT) <= cap
-    for c in m.IN_SHORT:
-        text = re.sub(r"<[^>]+>", "", c.text_html)
-        assert len(text.split()) <= 25, text
-        assert "!" not in text and not re.search(r"\b(I|me|my|we|our)\b", text), text
-        assert c.href.startswith("#") and f'id="{c.href[1:]}"' in html, c.href
+    for c in _module(pid).IN_SHORT:
+        assert f'id="{c.href[1:]}"' in html, c.href
 
 
 @pytest.mark.parametrize("pid", POSTS)
@@ -184,10 +183,21 @@ def test_fortunato_table_uses_the_posts_words():
     assert '<p id="p-kom">' in _page(1078)
 
 
-def test_1186_still_fails_loudly():
-    """1186's slides widget has no mapping: the converter raises instead of dropping it."""
-    snap = Path.home() / "specs" / "gg-wp-posts-2026-10-09" / "snapshots" / "1186.html"
-    if not snap.exists():
-        pytest.skip("audit snapshots not on this machine")
-    with pytest.raises(NotImplementedError, match="slides"):
-        imp.ElementorConverter({}).convert(snap.read_text(encoding="utf-8"))
+def test_1186_slides_are_eight_step_figures_in_order():
+    """The slides widget (the Grand Tour recipe) renders one text figure per slide,
+    Step 1..8 in order, the slide text word for word (test_body_text_is_word_for_word)."""
+    html = _page(1186)
+    assert re.findall(r'<figure class="gg-slide">.*?<figcaption>(Step \d)</figcaption>', html, re.S) == [
+        f"Step {n}" for n in range(1, 9)]
+
+
+def test_1186_and_1230_are_different_posts():
+    a, b = _module(1186).SOURCE.data, _module(1230).SOURCE.data
+    assert a["id"] != b["id"] and a["live"]["headline"] != b["live"]["headline"]
+    assert _module(1230).SLUG == _module(1186).SLUG + "-2"
+
+
+def test_corrected_descriptions():
+    assert "younger teammate" in _module(922).DESCRIPTION and "trusted the plan" in _module(922).DESCRIPTION
+    assert "talent is real" in _module(1533).DESCRIPTION
+    assert "when data helps" not in _module(1078).DESCRIPTION and "power meter" in _module(1078).DESCRIPTION

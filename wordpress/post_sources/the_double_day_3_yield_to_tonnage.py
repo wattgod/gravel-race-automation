@@ -16,7 +16,8 @@ Infographic (2026-10-09): fig-rte66-stats, the two stat panels in the
 "stats overlayed" GIF as a table, numbers exactly as the GIF shows them.
 Matt to read: the GIF shows NP 328 W vs 415 W (20:56.61 vs 18:34), while the
 text says "100 more watts than I for the same duration". The table states only
-what the GIF shows and computes nothing.
+what the GIF shows and computes nothing, and the "In short" claim about it
+gives no number (the table's gap is 87 W, the text's 100).
 
 Regenerate: python3 wordpress/post_sources/the_double_day_3_yield_to_tonnage.py
 """
@@ -52,7 +53,7 @@ DESCRIPTION = ("Day 3 of The Double: the Route 66 time trial, a teammate who out
 IN_SHORT = (
     Claim("The post&rsquo;s complaint of the day is that the team&rsquo;s Airbnb has no toaster, though the team has spent about $1000 on food this week.",
           "#what-i-hated-about-today", "See the complaint · Intro", 0),
-    Claim("The post says a teammate of similar build put out 100 more watts than the author over the same Route 66 time trial.",
+    Claim("The post says a teammate it calls a similar rider out-powered the author in the Route 66 time trial.",
           "#fig-rte66-stats", "See the numbers · §01", 0),
 )
 

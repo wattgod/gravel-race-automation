@@ -80,7 +80,11 @@ OG_BACKGROUND = (0xF5, 0xEF, 0xE6)  # --paper, behind transparent PNGs
 
 DROP_WIDGETS = ("share-buttons.", "posts.", "spacer.")
 KNOWN_WIDGETS = ("text-editor.", "heading.", "image.", "blockquote.", "image-gallery.", "gallery.",
-                 "video.", "divider.", "icon-list.")
+                 "video.", "divider.", "icon-list.", "slides.", "price-table.", "call-to-action.")
+# Self-contained widgets whose own headings (a price table's h3, a CTA's h2) are
+# not post headings: they never enter the heading map or start a section.
+BOXED_WIDGETS = ("slides.", "price-table.", "call-to-action.")
+NNBSP = "\u202f"  # between a price's parts ("$ 100"): one word apart, as in the snapshot text
 
 
 # ── Mini DOM ──────────────────────────────────────────────────
@@ -101,11 +105,13 @@ class Node:
     def classes(self) -> set[str]:
         return set(self.get("class").split())
 
-    def iter(self):
+    def iter(self, skip: tuple[str, ...] = ("noscript",)):
+        """This node and its descendants, without the subtrees of `skip` tags:
+        a lazy-loaded image's <noscript> fallback is the same image again."""
         yield self
         for c in self.children:
-            if isinstance(c, Node):
-                yield from c.iter()
+            if isinstance(c, Node) and c.tag not in skip:
+                yield from c.iter(skip)
 
     def find_all(self, pred) -> list["Node"]:
         return [n for n in self.iter() if pred(n)]
@@ -319,7 +325,7 @@ class ElementorConverter:
         levels = set()
         for w in widgets:
             wt = w.get("data-widget_type")
-            if wt.startswith(DROP_WIDGETS):
+            if wt.startswith(DROP_WIDGETS + BOXED_WIDGETS):
                 continue
             if wt.startswith("heading.") and self._heading_text(w) in self.asides:
                 continue
@@ -351,6 +357,12 @@ class ElementorConverter:
         if wt.startswith("icon-list."):
             items = [self._inline_children(li).strip() for li in w.find_all(lambda n: n.tag == "li")]
             return [("block", "<ul>\n" + "\n".join(f"<li>{t}</li>" for t in items if t) + "\n</ul>")]
+        if wt.startswith("slides."):
+            return self._slides(w)
+        if wt.startswith("price-table."):
+            return [("block", self._price_table(w))]
+        if wt.startswith("call-to-action."):
+            return self._cta(w)
         raise NotImplementedError(wt)
 
     def _heading_widget(self, w: Node, force: str | None = None) -> list[tuple[str, str]]:
@@ -558,7 +570,10 @@ class ElementorConverter:
         return self._image_marker(imgs[0], cap, links[0].get("href") if links else "")
 
     def _gallery(self, w: Node) -> str:
+        """One figure per gallery item: <noscript> fallbacks are skipped (iter) and
+        the same original upload is taken once, whatever size the markup names."""
         names = []
+        seen: set[str] = set()
         for n in w.iter():
             src = ""
             if n.tag == "img":
@@ -566,6 +581,10 @@ class ElementorConverter:
             elif n.get("data-thumbnail"):
                 src = n.get("data-thumbnail")
             if src and not src.startswith("data:"):
+                key = _nfc(original_upload_url(src)).replace("-scaled.", ".")
+                if key in seen:
+                    continue
+                seen.add(key)
                 spec = self._spec(src)
                 self.figures.append(spec)
                 names.append(spec.name)
@@ -594,6 +613,130 @@ class ElementorConverter:
             raise NotImplementedError(f"video widget without a YouTube URL: {settings}")
         start = int(settings.get("start") or yt[1] or 0)
         return render_youtube(yt[0], start)
+
+    # -- boxed widgets (slides, price table, call to action) --
+    def _first(self, w: Node, cls: str) -> Node | None:
+        hits = w.find_all(lambda n: cls in n.classes)
+        return hits[0] if hits else None
+
+    def _text_of(self, w: Node, cls: str) -> str:
+        n = self._first(w, cls)
+        return self._inline_children(n).strip() if n else ""
+
+    def _link_or_text(self, n: Node | None, href: str = "") -> str:
+        """A button's text, as a plain link when it has an href (no button styling)."""
+        if n is None:
+            return ""
+        text = self._inline_children(n).strip()
+        href = n.get("href") or href
+        if not text or not href:
+            return text
+        attrs = f' href="{esc_attr(href)}"'
+        if n.get("target") == "_blank":
+            attrs += ' target="_blank" rel="noopener"'
+        return f"<a{attrs}>{text}</a>"
+
+    def _bg_image(self, n: Node | None) -> list[tuple[str, str]]:
+        m = re.search(r"background-image:\s*url\(\s*['\"]?([^'\")]+)", n.get("style")) if n else None
+        return self._image_marker(Node("img", {"src": m.group(1)})) if m else []
+
+    def _slides(self, w: Node) -> list[tuple[str, str]]:
+        """Elementor slides (a carousel) -> one figure per slide, in order: heading,
+        text and button label verbatim (the button as a link only if it has one).
+        A slide's background image becomes an ordinary figure just before it."""
+        out: list[tuple[str, str]] = []
+        for s in w.find_all(lambda n: "swiper-slide" in n.classes and "swiper-slide-duplicate" not in n.classes):
+            out += self._bg_image(self._first(s, "swiper-slide-bg"))
+            inner = self._first(s, "swiper-slide-inner")
+            slide_href = inner.get("href") if inner is not None and inner.tag == "a" else ""
+            head = self._text_of(s, "elementor-slide-heading")
+            desc = self._text_of(s, "elementor-slide-description")
+            label = self._link_or_text(self._first(s, "elementor-slide-button"), slide_href)
+            parts = []
+            if head:
+                parts.append(f'<p class="gg-slide-heading"><strong>{head}</strong></p>')
+            if desc:
+                parts.append(f"<p>{desc}</p>")
+            if label:
+                parts.append(f"<figcaption>{label}</figcaption>")
+            if parts:
+                out.append(("block", '<figure class="gg-slide">\n' + "\n".join(parts) + "\n</figure>"))
+        return out
+
+    def _price_table(self, w: Node) -> str:
+        """Elementor price table -> a definition list: name, subheading, price,
+        features, button (a plain link when it has an href), footnote, ribbon.
+        Every label, price and feature verbatim, in the widget's order."""
+        rows = []
+        name = self._text_of(w, "elementor-price-table__heading")
+        rows.append(f"<dt>{name}</dt>")
+        sub = self._text_of(w, "elementor-price-table__subheading")
+        if sub:
+            rows.append(f'<dd class="gg-price-sub">{sub}</dd>')
+        price_box = self._first(w, "elementor-price-table__price")
+        if price_box is not None:
+            parts: list[str] = []
+            for n in price_box.iter():
+                cls = n.classes
+                t = self._inline_children(n).strip()
+                if not t:
+                    continue
+                if "elementor-price-table__original-price" in cls:
+                    parts.append(f"<s>{t}</s>" + " ")
+                elif cls & {"elementor-price-table__currency", "elementor-price-table__integer-part",
+                            "elementor-price-table__fractional-part"}:
+                    parts.append(t + NNBSP)
+                elif "elementor-price-table__period" in cls:
+                    parts.append(" " + f'<span class="gg-price-period">{t}</span>')
+            price = "".join(parts).strip().strip(NNBSP).replace(NNBSP + " ", " ")
+            if price:
+                rows.append(f'<dd class="gg-price">{price}</dd>')
+        feats = [self._inline_children(li).strip()
+                 for li in w.find_all(lambda n: n.tag == "li")]
+        feats = [f for f in feats if f]
+        if feats:
+            rows.append('<dd class="gg-price-features"><ul>\n' + "\n".join(f"<li>{f}</li>" for f in feats)
+                        + "\n</ul></dd>")
+        button = self._link_or_text(self._first(w, "elementor-price-table__button"))
+        if button:
+            rows.append(f'<dd class="gg-price-action">{button}</dd>')
+        info = self._text_of(w, "elementor-price-table__additional_info")
+        if info:
+            rows.append(f'<dd class="gg-price-note">{info}</dd>')
+        ribbon = self._text_of(w, "elementor-price-table__ribbon-inner")
+        if ribbon:
+            rows.append(f'<dd class="gg-price-ribbon">{ribbon}</dd>')
+        if not name:
+            raise ValueError("price table without a heading")
+        return '<dl class="gg-price-table">\n' + "\n".join(rows) + "\n</dl>"
+
+    def _cta(self, w: Node) -> list[tuple[str, str]]:
+        """Elementor call to action -> a callout (the shell's sand aside): title,
+        text and button verbatim, the button as a plain link. The background image
+        is decoration behind the text and is left out; a foreground image (cover
+        skin) becomes an ordinary figure before the callout."""
+        out: list[tuple[str, str]] = []
+        img = [n for n in w.find_all(lambda n: n.tag == "img")]
+        if img:
+            out += self._image_marker(img[0])
+        box = self._first(w, "elementor-cta")
+        box_href = box.get("href") if box is not None and box.tag == "a" else ""
+        title = self._text_of(w, "elementor-cta__title")
+        desc = self._text_of(w, "elementor-cta__description")
+        button = self._link_or_text(self._first(w, "elementor-cta__button"), box_href)
+        ribbon = self._text_of(w, "elementor-ribbon-inner")
+        parts = []
+        if title:
+            parts.append(f'<p class="gg-cta-title"><strong>{title}</strong></p>')
+        if desc:
+            parts.append(f"<p>{desc}</p>")
+        if button:
+            parts.append(f'<p class="gg-cta-action">{button}</p>')
+        if ribbon:
+            parts.append(f'<p class="gg-cta-ribbon">{ribbon}</p>')
+        if parts:
+            out.append(("block", '<aside class="gg-case-study gg-cta">\n' + "\n".join(parts) + "\n</aside>"))
+        return out
 
     # -- sections --
     def _sections(self, blocks: list[tuple[str, str]]) -> tuple[str, list[tuple[str, str]]]:

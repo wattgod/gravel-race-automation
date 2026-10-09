@@ -298,6 +298,15 @@ def og_image(src: PostSource) -> OgImage | None:
     return OgImage(live["url"], live.get("width"), live.get("height")) if live.get("url") else None
 
 
+def article_time_meta(src: PostSource) -> str:
+    """article:published_time / article:modified_time, as the live page's head
+    has them (the live ISO timestamps, unchanged)."""
+    live = src.data["live"]
+    tags = [f'  <meta property="article:{k}_time" content="{es.esc(live[v])}">'
+            for k, v in (("published", "published"), ("modified", "modified")) if live.get(v)]
+    return "\n".join(tags)
+
+
 def article_ld(src: PostSource, description: str | None = None) -> dict:
     live = src.data["live"]
     ld = {
@@ -443,6 +452,12 @@ def render_post(
         css.append(ORIGINAL_CSS)
     if html_figures:
         css.append(HTMLFIG_CSS)
+    if 'class="gg-slide"' in body:
+        css.append(SLIDES_CSS)
+    if 'class="gg-price-table"' in body:
+        css.append(PRICE_TABLE_CSS)
+    if "gg-cta" in body:
+        css.append(CTA_CSS)
     if not hero and not shell_figures and "gg-gallery" in body:
         css.insert(0, es.ESSAY_CSS)  # the shell adds it only with figures or a hero picture
 
@@ -457,6 +472,7 @@ def render_post(
         contents=sections >= MIN_CONTENTS_SECTIONS,
         figures=shell_figures,
         extra_css="\n".join(css + ([extra_css] if extra_css else [])),
+        extra_head=article_time_meta(src),
         extra_body_end="\n".join(js + ([extra_body_end] if extra_body_end else [])),
     )
 
@@ -541,6 +557,33 @@ ORIGINAL_CSS = """
 .gg-original{margin-top:12px}
 .gg-original summary{font:400 14px/1.5 var(--mono);color:var(--teal-ink);cursor:pointer}
 .gg-original .gg-media{margin-top:12px}
+"""
+
+SLIDES_CSS = """
+/* slides (was an Elementor carousel): one figure per slide, in order */
+.gg-slide{background:var(--sand);padding:18px 22px 14px;margin:0 0 12px}
+.gg-slide p{margin:0 0 8px}
+.gg-slide figcaption{font:400 14px/1.5 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--ink3)}
+.gg-slide + :not(.gg-slide){margin-top:28px}
+@media (max-width:640px){.gg-slide{padding:16px 16px 12px}}
+"""
+
+PRICE_TABLE_CSS = """
+/* price table (was an Elementor price table): a plain definition list */
+.gg-price-table{margin:0 0 28px;padding:20px 22px 10px;background:var(--sand);display:flex;flex-direction:column}
+.gg-price-table dt{font:700 24px/1.2 var(--serif);color:var(--ink);margin:0 0 4px}
+.gg-price-table dd{margin:0 0 10px}
+.gg-price-table .gg-price{font:700 28px/1.2 var(--mono);color:var(--ink)}
+.gg-price-table .gg-price-period{font-size:14px;font-weight:400;color:var(--ink3)}
+.gg-price-table .gg-price-features ul{margin:0;padding-left:1.2em}
+.gg-price-table .gg-price-ribbon{order:-1;font:400 14px/1.5 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--ink3)}
+"""
+
+CTA_CSS = """
+/* call to action (was an Elementor CTA): the sand aside, title + text + plain link */
+.gg-cta .gg-cta-title{font:700 24px/1.2 var(--serif);margin:0 0 10px}
+.gg-cta .gg-cta-title strong{font-weight:inherit}
+.gg-cta .gg-cta-ribbon{font:400 14px/1.5 var(--mono);color:var(--ink3)}
 """
 
 HTMLFIG_CSS = """

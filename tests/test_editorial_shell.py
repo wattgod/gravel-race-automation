@@ -170,6 +170,38 @@ class TestContents:
         assert "rail.classList.toggle('wait',sum.getBoundingClientRect().bottom>28)" in page
 
 
+# 20 sections, like WP post 1626 ("5 ways ... power meter clown"): one dot per
+# section overflowed the phone Contents bar (416px wide at 390).
+TWENTY_SECTIONS = "\n".join(
+    f'<section class="gg-blog-section">\n  <h2>Section number {i}</h2>\n  <p>Text {i}.</p>\n</section>'
+    for i in range(1, 21))
+
+
+class TestPhoneContentsBarManySections:
+    def test_many_sections_collapse_the_dots_into_one_bar(self):
+        html = es.render_editorial_page(_meta(), TWENTY_SECTIONS)
+        assert '<span class="mini many" id="mini" aria-hidden="true"></span>' in html
+        assert html.count('<ol class="toc">') == 2  # the full list is still there, twice
+        assert "mini.classList.contains('many')" in html  # JS draws a progress bar, not 20 dots
+        assert "fill.style.width=((cur+1)/heads.length*100)+'%'" in html
+
+    def test_up_to_the_cap_keeps_one_dot_per_section(self):
+        n = es.MINI_DOTS_MAX
+        body = "\n".join(f'<section class="gg-blog-section">\n  <h2>S{i}</h2>\n  <p>T.</p>\n</section>'
+                         for i in range(1, n + 1))
+        html = es.render_editorial_page(_meta(), body)
+        assert '<span class="mini" id="mini" aria-hidden="true"></span>' in html
+        assert es.MINI_DOTS_MAX == 10
+
+    def test_the_dots_can_never_widen_the_bar(self):
+        """The dot strip shrinks and clips inside the summary instead of pushing
+        it past the viewport; the collapsed bar is at most 96px."""
+        css = es.SHELL_CSS
+        assert ".toc-m .mini{display:flex;gap:6px;flex:0 1 auto;min-width:0;overflow:hidden}" in css
+        assert ".toc-m .mini.many{flex:0 1 96px}" in css
+        assert "min-width:0;flex:1}" in css.split(".toc-m .now{", 1)[1].split("\n", 1)[0]
+
+
 DIV_BODY = """<div class="gg-blog-section">
   <p>Roundup intro.</p>
 </div>

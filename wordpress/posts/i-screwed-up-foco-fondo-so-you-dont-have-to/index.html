@@ -46,6 +46,8 @@
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-EJJZ9T6M52"></script>
   <link rel="preload" href="/race/assets/fonts/SometypeMono-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/race/assets/fonts/SourceSerif4-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <meta property="article:published_time" content="2023-08-31T18:59:25+00:00">
+  <meta property="article:modified_time" content="2023-08-31T19:10:31+00:00">
   <style>
 /* Sometype Mono — Normal — Latin Extended */
 @font-face {
@@ -195,8 +197,11 @@ h1.h1-long-4{--h1-w:12.65}
 .toc-m{position:sticky;top:0;z-index:20;background:var(--sand);margin:0 0 28px}
 .toc-m summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:12px;min-height:48px;padding:0 32px}
 .toc-m summary::-webkit-details-marker{display:none}
-.toc-m .mini{display:flex;gap:6px;flex:none}
-.toc-m .mini i{width:10px;height:10px;border-radius:50%;box-shadow:inset 0 0 0 2px var(--ink3)}
+.toc-m .mini{display:flex;gap:6px;flex:0 1 auto;min-width:0;overflow:hidden}
+.toc-m .mini.many{flex:0 1 96px}
+.toc-m .mini .bar{flex:1 1 auto;display:block;position:relative;width:100%;height:6px;border-radius:3px;box-shadow:inset 0 0 0 1.5px var(--ink3);overflow:hidden}
+.toc-m .mini .bar b{position:absolute;left:0;top:0;bottom:0;width:0;background:var(--cobalt-deep)}
+.toc-m .mini i{flex:none;width:10px;height:10px;border-radius:50%;box-shadow:inset 0 0 0 2px var(--ink3)}
 .toc-m .mini i.read{background:var(--ink);box-shadow:none}
 .toc-m .mini i.cur{background:var(--cobalt-deep);box-shadow:none;width:22px;border-radius:5px}
 .toc-m .now{font:700 13px var(--mono);color:var(--ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0;flex:1}
@@ -943,7 +948,9 @@ h2[id],h3[id],[data-slot],figure[id]{scroll-margin-top:72px}
   var lists=[].slice.call(document.querySelectorAll('ol.toc')).map(function(ol){return [].slice.call(ol.children);});
   var claims=[].slice.call(document.querySelectorAll('.inshort li'));
   var now=document.getElementById('now'), mini=document.getElementById('mini');
-  var dots=mini?heads.map(function(){var i=document.createElement('i'); mini.appendChild(i); return i;}):[];
+  var many=!!(mini&&mini.classList.contains('many')), fill=null;
+  if(many){ var bar=document.createElement('i'); bar.className='bar'; fill=document.createElement('b'); bar.appendChild(fill); mini.appendChild(bar); }
+  var dots=(mini&&!many)?heads.map(function(){var i=document.createElement('i'); mini.appendChild(i); return i;}):[];
   var tm=document.getElementById('tocm');
   if(tm) tm.addEventListener('click',function(e){ if(e.target.closest('ol.toc a')) tm.open=false; });
   // One margin rail at a time on wide screens: while "In short" is beside the
@@ -958,6 +965,7 @@ h2[id],h3[id],[data-slot],figure[id]{scroll-margin-top:72px}
       li.classList.toggle('read',i<cur); li.classList.toggle('cur',i===cur);
     });});
     dots.forEach(function(d,i){ d.className=i<cur?'read':(i===cur?'cur':''); });
+    if(fill) fill.style.width=((cur+1)/heads.length*100)+'%';
     claims.forEach(function(li){ li.classList.toggle('read',+li.dataset.sec<cur); });
     if(now) now.textContent=cur<0?'Intro':String(cur+1).padStart(2,'0')+'  '+heads[cur].textContent;
   }

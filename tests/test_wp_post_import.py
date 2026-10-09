@@ -81,9 +81,65 @@ def test_committed_page_is_fresh(pid):
         f"stale: run python3 wordpress/post_sources/{m.__name__}.py")
 
 
+# ── Every post module (auto-discovered: pilots and batch PRs alike) ──
+
+POST_SOURCES = PROJECT_ROOT / "wordpress" / "post_sources"
+POST_MODULES = sorted(p.stem for p in POST_SOURCES.glob("*.py"))
+FIXTURE_KINDS = ("html", "txt", "record.json", "live-head.html")
+
+
+def _post_test_files() -> dict[str, str]:
+    return {p.name: p.read_text(encoding="utf-8") for p in (PROJECT_ROOT / "tests").glob("test_wp_post*.py")}
+
+
+def _uncovered(modules, test_texts) -> list[str]:
+    return [m for m in modules if not any(f'"{m}"' in text for text in test_texts)]
+
+
 def test_every_post_source_is_covered():
-    modules = {p.stem for p in (PROJECT_ROOT / "wordpress" / "post_sources").glob("*.py")}
-    assert modules == {m for m, _ in PILOTS.values()}
+    """Every wordpress/post_sources/<module>.py is named in a test_wp_post*.py
+    post table (PILOTS here, a batch's POSTS in its own file), so its
+    word-for-word diff and its other per-post checks run."""
+    assert POST_MODULES, "no post modules found"
+    uncovered = _uncovered(POST_MODULES, _post_test_files().values())
+    assert uncovered == [], f"post modules no test_wp_post*.py names: {uncovered}"
+
+
+@pytest.mark.parametrize("module", POST_MODULES)
+def test_every_post_module_is_complete_and_fresh(module):
+    """Invariants for every discovered post: the module's interface, its
+    converter output and fixtures, the converter reproducing its body and live
+    metadata, the "In short" rule, alt text, and a fresh committed page."""
+    m = importlib.import_module(module)
+    for name in ("SLUG", "SOURCE", "OUTPUT_PATH", "ALT", "IN_SHORT", "render"):
+        assert hasattr(m, name), f"{module}: no {name}"
+    assert m.__name__ == imp.module_name(m.SLUG)
+    assert (POST_SOURCES / f"{m.SLUG}.body.html").is_file() and (POST_SOURCES / f"{m.SLUG}.json").is_file()
+    pid = m.SOURCE.data["id"]
+    for kind in FIXTURE_KINDS:
+        assert (FIXTURES / f"{pid}.{kind}").is_file(), f"{module}: missing fixture {pid}.{kind}"
+    record = json.loads((FIXTURES / f"{pid}.record.json").read_text(encoding="utf-8"))
+    asides = tuple((m.SOURCE.data.get("import") or {}).get("asides", ()))
+    conv, data = imp.import_post(record, (FIXTURES / f"{pid}.html").read_text(encoding="utf-8"),
+                                 (FIXTURES / f"{pid}.live-head.html").read_text(encoding="utf-8"), asides=asides)
+    assert conv.body_html == m.SOURCE.body, f"{module}: body differs from the converter's output"
+    assert data["live"] == m.SOURCE.data["live"]
+    assert [f["name"] for f in data["figures"]] == [f["name"] for f in m.SOURCE.data["figures"]]
+    assert m.SOURCE.data["live"]["canonical"] == f"https://gravelgodcycling.com/{m.SLUG}/"
+    assert wp_post.in_short_problems(m.IN_SHORT, es.word_count(m.SOURCE.body)) == []
+    names = [f["name"] for f in m.SOURCE.data["figures"]]
+    feat = m.SOURCE.data.get("featured")
+    if feat and not feat["also_inline"]:
+        names.append(feat["name"])
+    assert sorted(m.ALT) == sorted(names) and all(a.strip() for a in m.ALT.values())
+    assert m.OUTPUT_PATH.read_text(encoding="utf-8") == m.render(), (
+        f"stale: run python3 wordpress/post_sources/{module}.py")
+
+
+def test_coverage_check_sees_a_new_module():
+    """Discovery is by file, not by a list: a module no test table names fails."""
+    tables = ['POSTS = {1: ("covered_post", set())}']
+    assert _uncovered(["covered_post", "brand_new_post"], tables) == ["brand_new_post"]
 
 
 @pytest.mark.parametrize("pid", PILOTS)
@@ -105,6 +161,9 @@ def test_metadata_comes_from_the_live_page(pid):
     assert [b["@type"] for b in ld] == ["BlogPosting"]
     assert ld[0]["headline"] == live["headline"] and ld[0]["datePublished"] == live["published"]
     assert ld[0]["mainEntityOfPage"] == url and ld[0]["description"] == desc
+    head = html.split("</head>", 1)[0]
+    assert f'<meta property="article:published_time" content="{live["published"]}">' in head
+    assert f'<meta property="article:modified_time" content="{live["modified"]}">' in head
     assert m.OUTPUT_PATH == PROJECT_ROOT / "wordpress" / "posts" / m.SLUG / "index.html"
 
 
@@ -278,6 +337,14 @@ def test_three_or_more_sections_get_contents():
     assert '<nav class="rail" aria-label="Contents">' in _page(2161)  # four sections
 
 
+def test_double_day_3_claims_state_no_watt_gap():
+    """The text says "100 more watts"; the stats it links to show 328 W vs 415 W.
+    The claim states only what both agree on: the teammate out-powered the author."""
+    claims = [re.sub(r"<[^>]+>", "", c.text_html) for c in _module(2592).IN_SHORT]
+    assert not any(re.search(r"\b\d+\s*(?:more\s+)?watts?\b|\b\d+\s*W\b", c) for c in claims), claims
+    assert any("out-powered the author in the Route 66 time trial" in c for c in claims)
+
+
 def test_short_post_in_short_is_capped():
     m = _module(2592)
     assert len(m.IN_SHORT) <= wp_post.SHORT_POST_MAX_CLAIMS
@@ -409,8 +476,112 @@ def test_other_widgets_and_drops():
 
 
 def test_unknown_widgets_fail_loudly():
-    with pytest.raises(NotImplementedError, match="price-table"):
-        _convert(_w("price-table.default", "<p>$99</p>"))
+    with pytest.raises(NotImplementedError, match="flip-box"):
+        _convert(_w("flip-box.default", "<p>$99</p>"))
+
+
+def _fixture_convert(name: str) -> imp.Converted:
+    return imp.ElementorConverter().convert((FIXTURES / name).read_text(encoding="utf-8"))
+
+
+def _same_words(fixture: str, conv: imp.Converted) -> None:
+    """The converted widget's visible words equal the widget's own, in order."""
+    want = imp.words(imp.visible_text((FIXTURES / fixture).read_text(encoding="utf-8")))
+    got = imp.words(imp.visible_text(conv.body_html))
+    assert got == want, "\n".join(__import__("difflib").unified_diff(want, got, lineterm="", n=2))
+
+
+def test_gallery_skips_noscript_fallbacks_one_figure_per_photo():
+    """Post 3335 (Tour of the Gila): 10 gallery photos, each lazy-loaded with a
+    <noscript> copy; that was 20 figures."""
+    c = _fixture_convert("3335-gallery.html")
+    assert len(c.galleries) == 1
+    names = next(iter(c.galleries.values()))
+    assert len(names) == 10 == len(c.figures) == len({f.url for f in c.figures})
+    assert names[:2] == ["do-you-even-lift-bro", "abq-burritoes"]
+    assert not any(re.search(r"-\d$", n) for n in names), names  # no "-2" duplicates
+
+
+def test_gallery_dedupes_the_same_upload_at_two_sizes():
+    g = ('<div class="gallery"><img data-src="https://gravelgodcycling.com/wp-content/uploads/2023/05/a-768x1024.png">'
+         '<img src="https://gravelgodcycling.com/wp-content/uploads/2023/05/a-225x300.png">'
+         '<img src="https://gravelgodcycling.com/wp-content/uploads/2023/05/b-scaled.jpeg">'
+         '<img src="https://gravelgodcycling.com/wp-content/uploads/2023/05/b-300x200.jpeg"></div>')
+    c = _convert(_w("image-gallery.default", g))
+    assert c.galleries == {"gallery-a": ["a", "b-scaled"]}  # one figure per upload, named from the first size seen
+
+
+def test_image_in_a_paragraph_ignores_its_noscript_copy():
+    c = _convert(_w("text-editor.default",
+                    '<p>Look <img class="lazyload" data-src="https://gravelgodcycling.com/wp-content/uploads/2021/09/x-1024x576.png">'
+                    '<noscript><img src="https://gravelgodcycling.com/wp-content/uploads/2021/09/x-1024x576.png"></noscript></p>'))
+    assert [f.name for f in c.figures] == ["x"]
+
+
+def test_slides_become_one_figure_per_slide_text_verbatim():
+    """Post 1186 (Dumoulin): an 8-slide carousel, text only, button labels "Step N" (no links)."""
+    c = _fixture_convert("1186-slides.html")
+    b = c.body_html
+    assert b.count('<figure class="gg-slide">') == 8 and c.figures == [] and c.heading_map == {}
+    assert ("<p>Pick the right parents, especially your mom (she's the one that passes on her mitochondrion, "
+            "which creates all the ATP required for aerobic respiration).</p>\n<figcaption>Step 1</figcaption>") in b
+    assert [int(n) for n in re.findall(r"<figcaption>Step (\d)</figcaption>", b)] == list(range(1, 9))
+    assert "swiper" not in b and "<a " not in b
+    _same_words("1186-slides.html", c)
+
+
+def test_slide_background_image_and_link():
+    s = ('<div class="swiper-slide"><div class="swiper-slide-bg" style="background-image: url(https://gravelgodcycling.com/wp-content/uploads/2021/01/bg-1024x576.jpg)"></div>'
+         '<a class="swiper-slide-inner" href="https://x.test/"><div class="elementor-slide-heading">Head</div>'
+         '<div class="elementor-slide-description">Desc</div><div class="elementor-slide-button">Go</div></a></div>')
+    c = _convert(_w("slides.default", s))
+    assert c.body_html.index("<!--GG:FIGURE bg-->") < c.body_html.index('<figure class="gg-slide">')
+    assert ('<p class="gg-slide-heading"><strong>Head</strong></p>\n<p>Desc</p>\n'
+            '<figcaption><a href="https://x.test/">Go</a></figcaption>') in c.body_html
+
+
+def test_price_tables_become_definition_lists_every_price_and_feature_kept():
+    """Post 3203 (Hacking Unbound 200): two price tables side by side."""
+    c = _fixture_convert("3203-price-tables.html")
+    b = c.body_html
+    assert b.count('<dl class="gg-price-table">') == 2 and c.heading_map == {}  # their h3s are not post headings
+    assert "<dt>Unbound 200 Training Plan</dt>" in b and "<dt>Coaching</dt>" in b
+    assert "<dd class=\"gg-price-sub\">For the 2/3 of speed you can't buy.</dd>" in b
+    assert '<dd class="gg-price">$\u202f100</dd>' in b
+    assert '<dd class="gg-price">$\u202f175 <span class="gg-price-period">Monthly</span></dd>' in b
+    for feat in ("Science-based", "Workouts exportable to device", "Race Tactics", "Heat Training",
+                 "Mobility Workouts", "Tactics", "Accountability", "Support", "Custom-tailored",
+                 "Guaranteed Results", "Analysis"):
+        assert f"<li>{feat}</li>" in b
+    assert ('<dd class="gg-price-action"><a href="https://www.trainingpeaks.com/training-plans/cycling/'
+            'gran-fondo-century/tp-196715/gravel-god-unbound-200" target="_blank" rel="noopener">Buy Now</a></dd>') in b
+    assert '<dd class="gg-price-action">Apply Now</dd>' in b  # live button has href="": text kept, no dead link
+    assert '<dd class="gg-price-ribbon">Popular</dd>' in b
+    assert "elementor" not in b and "fa-check" not in b
+    _same_words("3203-price-tables.html", c)
+
+
+def test_call_to_action_becomes_a_callout_text_and_link_verbatim():
+    """Post 2324 (SBT GRVL): a CTA box with a background image (left out: decoration)."""
+    c = _fixture_convert("2324-cta.html")
+    assert c.body_html == (
+        '<section class="gg-blog-section">\n<aside class="gg-case-study gg-cta">\n'
+        '<p class="gg-cta-title"><strong>SBT GRVL Training Plan</strong></p>\n'
+        "<p>Can't be bothered to figture out how to train for SBT GRVL yourself? I get it. "
+        "Grab yourself a training plan and save the headache.</p>\n"
+        '<p class="gg-cta-action"><a href="https://www.trainingpeaks.com/training-plans/cycling/gran-fondo-century/'
+        "tp-287683/gravel-god-sbt-grvl-base-to-race\">Gimme' the plan</a></p>\n</aside>\n</section>\n")
+    assert c.figures == [] and c.heading_map == {}
+    _same_words("2324-cta.html", c)
+
+
+def test_boxed_widgets_render_with_their_css_only_when_used():
+    src = _module(2592).SOURCE
+    extra = "\n".join(_fixture_convert(f).body_html for f in ("1186-slides.html", "3203-price-tables.html", "2324-cta.html"))
+    page = wp_post.render_post(dataclasses.replace(src, body=src.body + extra), alt=_module(2592).ALT)
+    assert ".gg-slide{" in page and ".gg-price-table{" in page and ".gg-cta .gg-cta-title{" in page
+    plain = _page(2592)
+    assert ".gg-slide{" not in plain and ".gg-price-table{" not in plain and ".gg-cta " not in plain
 
 
 def test_image_inside_a_paragraph_goes_after_it():

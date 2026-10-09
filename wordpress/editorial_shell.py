@@ -814,6 +814,9 @@ SHELL_BODY_SCRIPT_MARKERS = (HEADER_JS_MARKER, SCROLLSPY_JS_MARKER)
 
 # Fewer contents headings than this and the Contents list + bar are left out.
 MIN_CONTENTS_HEADINGS = 2
+# The phone Contents bar draws one dot per section up to this many; past it the
+# dots collapse into one progress bar (20 dots overflowed a 390px screen).
+MINI_DOTS_MAX = 10
 
 # Contents scrollspy: read / current / ahead dots, the phone bar's label,
 # and the "In short" dots. Progressive enhancement only: everything is
@@ -824,7 +827,9 @@ SHELL_JS = """<script>
   var lists=[].slice.call(document.querySelectorAll('ol.toc')).map(function(ol){return [].slice.call(ol.children);});
   var claims=[].slice.call(document.querySelectorAll('.inshort li'));
   var now=document.getElementById('now'), mini=document.getElementById('mini');
-  var dots=mini?heads.map(function(){var i=document.createElement('i'); mini.appendChild(i); return i;}):[];
+  var many=!!(mini&&mini.classList.contains('many')), fill=null;
+  if(many){ var bar=document.createElement('i'); bar.className='bar'; fill=document.createElement('b'); bar.appendChild(fill); mini.appendChild(bar); }
+  var dots=(mini&&!many)?heads.map(function(){var i=document.createElement('i'); mini.appendChild(i); return i;}):[];
   var tm=document.getElementById('tocm');
   if(tm) tm.addEventListener('click',function(e){ if(e.target.closest('ol.toc a')) tm.open=false; });
   // One margin rail at a time on wide screens: while "In short" is beside the
@@ -839,6 +844,7 @@ SHELL_JS = """<script>
       li.classList.toggle('read',i<cur); li.classList.toggle('cur',i===cur);
     });});
     dots.forEach(function(d,i){ d.className=i<cur?'read':(i===cur?'cur':''); });
+    if(fill) fill.style.width=((cur+1)/heads.length*100)+'%';
     claims.forEach(function(li){ li.classList.toggle('read',+li.dataset.sec<cur); });
     if(now) now.textContent=cur<0?'Intro':String(cur+1).padStart(2,'0')+'  '+heads[cur].textContent;
   }
@@ -1654,8 +1660,9 @@ def render_editorial_page(
 
     if contents and len(toc) >= MIN_CONTENTS_HEADINGS:
         toc_html = render_contents(toc)
+        mini_cls = "mini many" if len(toc) > MINI_DOTS_MAX else "mini"
         toc_bar = f"""  <details class="toc-m" id="tocm">
-    <summary><span class="mini" id="mini" aria-hidden="true"></span><span class="now" id="now">Intro</span><span class="tog">Contents</span></summary>
+    <summary><span class="{mini_cls}" id="mini" aria-hidden="true"></span><span class="now" id="now">Intro</span><span class="tog">Contents</span></summary>
     {toc_html}
   </details>
 """
@@ -1801,8 +1808,11 @@ h1.h1-long-4{--h1-w:12.65}
 .toc-m{position:sticky;top:0;z-index:20;background:var(--sand);margin:0 0 28px}
 .toc-m summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:12px;min-height:48px;padding:0 32px}
 .toc-m summary::-webkit-details-marker{display:none}
-.toc-m .mini{display:flex;gap:6px;flex:none}
-.toc-m .mini i{width:10px;height:10px;border-radius:50%;box-shadow:inset 0 0 0 2px var(--ink3)}
+.toc-m .mini{display:flex;gap:6px;flex:0 1 auto;min-width:0;overflow:hidden}
+.toc-m .mini.many{flex:0 1 96px}
+.toc-m .mini .bar{flex:1 1 auto;display:block;position:relative;width:100%;height:6px;border-radius:3px;box-shadow:inset 0 0 0 1.5px var(--ink3);overflow:hidden}
+.toc-m .mini .bar b{position:absolute;left:0;top:0;bottom:0;width:0;background:var(--cobalt-deep)}
+.toc-m .mini i{flex:none;width:10px;height:10px;border-radius:50%;box-shadow:inset 0 0 0 2px var(--ink3)}
 .toc-m .mini i.read{background:var(--ink);box-shadow:none}
 .toc-m .mini i.cur{background:var(--cobalt-deep);box-shadow:none;width:22px;border-radius:5px}
 .toc-m .now{font:700 13px var(--mono);color:var(--ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0;flex:1}

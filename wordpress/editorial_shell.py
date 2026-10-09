@@ -60,12 +60,22 @@ data-cta="custom_plan|season_plan|coaching", so a page that also includes
 blog_tracking.get_plan_intent_tracking_script() (pass it in extra_body_end)
 gets the canonical cta_click for them.
 
+`ArticleMeta.show_read_time`: True (default) puts "N min read" in the hero
+byline; previews, recaps and roundups that aren't read top to bottom pass
+False.
+
 `HeroImage.layout`: "portrait" (default) sits in the right margin beside the
 headline; "wide" runs the full reading column under it (1200x630 OG cards).
 
 Header: shared_header.get_site_header_html(meta.nav_active) and its JS, so
 the nav and its dropdowns are single-sourced with the rest of the site; the
-shell only restyles it with CSS and adds a Subscribe button.
+shell only restyles it with CSS and adds a Subscribe button (render_header
+raises if shared_header's markup changes so the button can't be placed).
+The footer nav is the header's top-level links (header_nav_links()), so the
+two can't drift either.
+
+Warnings: add_heading_ids() warns (UserWarning) when the body has <h2>s but
+none of them is a contents heading, i.e. the body broke the section rule.
 
 Analytics: get_ga4_head_snippet() (consent defaults + GA4) in the head, the
 consent banner + legal footer at the end of the body, and the article
@@ -80,6 +90,7 @@ from __future__ import annotations
 import html
 import json
 import re
+import warnings
 from dataclasses import dataclass, field
 from datetime import date
 from html.parser import HTMLParser
@@ -98,14 +109,6 @@ from shared_header import get_site_header_html, get_site_header_js
 SITE_URL = "https://gravelgodcycling.com"
 SUBSTACK_URL = "https://gravelgodcycling.substack.com"
 WORDS_PER_MINUTE = 250
-
-NAV_LINKS = (
-    ("/gravel-races/", "Races"),
-    ("/products/training-plans/", "Training Plans"),
-    ("/coaching/", "Coaching"),
-    ("/articles/", "Articles"),
-    ("/about/", "About"),
-)
 
 DEFAULT_LADDER_LEAD = (
     "See how we actually structure plans — polarized, race-specific, "
@@ -182,6 +185,9 @@ class ArticleMeta:
     # Which shared-header item is current: "races", "products", "services",
     # "articles", "about" or None.
     nav_active: str | None = "articles"
+    # "N min read" in the hero byline. Articles keep it; previews, recaps
+    # and roundups (scanned, not read through) can turn it off.
+    show_read_time: bool = True
 
     @property
     def is_indexable(self) -> bool:
@@ -207,8 +213,12 @@ def esc(text: str) -> str:
     return html.escape(str(text), quote=False).replace('"', "&quot;")
 
 
+# One tag's attributes, allowing ">" inside quoted values.
+_ATTRS = r"""(?:[^>"']|"[^"]*"|'[^']*')*"""
+
+
 def _strip_tags(fragment: str) -> str:
-    return re.sub(r"<[^>]+>", "", fragment)
+    return re.sub(rf"<{_ATTRS}>", "", fragment)
 
 
 def _slug(fragment: str) -> str:
@@ -321,7 +331,14 @@ def add_heading_ids(body_html: str) -> tuple[str, list[tuple[str, str]]]:
                 attrs += " data-toc"
         return f"<{tag}{attrs}>{inner}</{tag}>"
 
-    out = re.sub(r"<(h2|h3)(\b[^>]*)>(.*?)</\1>", add, body_html, flags=re.S)
+    out = re.sub(rf"<(h2|h3)\b({_ATTRS})>(.*?)</\1>", add, body_html, flags=re.S | re.I)
+    if not contents and re.search(r"<h2\b", body_html, re.I):
+        warnings.warn(
+            "body has <h2> headings but none is a contents heading: wrap them in "
+            '<section class="gg-blog-section"> (or a div with that class) outside gg-references',
+            UserWarning,
+            stacklevel=2,
+        )
     return out, contents
 
 
@@ -456,8 +473,16 @@ _HEADER_SUBSCRIBE_ANCHOR = '<button class="gg-hamburger"'
 def render_header(active: str | None = "articles") -> str:
     """The site's shared header (shared_header.get_site_header_html), so nav
     links and dropdowns stay single-sourced; the shell restyles it with CSS
-    (HEADER_CSS) and adds its Subscribe button beside the nav."""
+    and adds its Subscribe button beside the nav.
+
+    Raises RuntimeError if the shared header no longer contains the
+    hamburger button the Subscribe button is placed before."""
     header = get_site_header_html(active)
+    if _HEADER_SUBSCRIBE_ANCHOR not in header:
+        raise RuntimeError(
+            f"shared_header.get_site_header_html() no longer contains {_HEADER_SUBSCRIBE_ANCHOR!r}; "
+            "update editorial_shell._HEADER_SUBSCRIBE_ANCHOR so the Subscribe button still renders"
+        )
     sub = (
         f'<a class="btn gg-hdr-sub" href="{SUBSTACK_URL}"{_cta_attrs("substack_header")}>Subscribe '
         '<span class="chev" aria-hidden="true">&rsaquo;</span></a>\n    '
@@ -465,8 +490,56 @@ def render_header(active: str | None = "articles") -> str:
     return header.replace(_HEADER_SUBSCRIBE_ANCHOR, sub + _HEADER_SUBSCRIBE_ANCHOR, 1)
 
 
+class _HeaderNavParser(HTMLParser):
+    """Collects the top-level links of the desktop nav (.gg-site-header-nav),
+    skipping the dropdown entries."""
+
+    def __init__(self) -> None:
+        super().__init__(convert_charrefs=True)
+        self._stack: list[tuple[str, set[str]]] = []
+        self._href: str | None = None
+        self._text: list[str] = []
+        self.links: list[tuple[str, str]] = []
+
+    def _inside(self, cls: str) -> bool:
+        return any(cls in c for _, c in self._stack)
+
+    def handle_starttag(self, tag, attrs):
+        if tag == "a" and self._inside("gg-site-header-nav") and not self._inside("gg-site-header-dropdown"):
+            self._href = dict(attrs).get("href") or ""
+            self._text = []
+        if tag not in ("a", "img", "br", "path", "meta", "link", "input"):
+            self._stack.append((tag, _classes(attrs)))
+
+    def handle_data(self, data):
+        if self._href is not None:
+            self._text.append(data)
+
+    def handle_endtag(self, tag):
+        if tag == "a" and self._href is not None:
+            self.links.append((self._href, " ".join("".join(self._text).split())))
+            self._href = None
+            return
+        for i in range(len(self._stack) - 1, -1, -1):
+            if self._stack[i][0] == tag:
+                del self._stack[i:]
+                break
+
+
+def header_nav_links() -> tuple[tuple[str, str], ...]:
+    """(href, label) for each top-level item of the shared header's desktop
+    nav, in order, read from shared_header.get_site_header_html(). The footer
+    renders these, so header and footer navs come from one source."""
+    parser = _HeaderNavParser()
+    parser.feed(get_site_header_html(None))
+    parser.close()
+    if not parser.links:
+        raise RuntimeError("no top-level links found in shared_header.get_site_header_html()")
+    return tuple(parser.links)
+
+
 def render_footer() -> str:
-    nav = "".join(f'<a href="{href}">{label}</a>' for href, label in NAV_LINKS)
+    nav = "".join(f'<a href="{esc(href)}">{esc(label.title())}</a>' for href, label in header_nav_links())
     return f"""<footer class="foot">
   <div class="in">
     <div>
@@ -484,7 +557,9 @@ def render_footer() -> str:
 def render_hero(meta: ArticleMeta, minutes: int) -> str:
     kick = f'      <p class="kick-top">{esc(meta.kicker)}</p>\n' if meta.kicker else ""
     dek = f'      <p class="dek">{esc(meta.dek)}</p>\n' if meta.dek else ""
-    by = f"{esc(meta.byline)} &middot; {esc(meta.date_display)} &middot; {minutes} min read"
+    by = f"{esc(meta.byline)} &middot; {esc(meta.date_display)}"
+    if meta.show_read_time:
+        by += f" &middot; {minutes} min read"
     img = ""
     cls = "frame hero"
     if meta.hero:

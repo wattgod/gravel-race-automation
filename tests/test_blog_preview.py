@@ -1066,3 +1066,172 @@ def test_stat_tiles_widen_long_values():
     )
     long_cell = _stat("750+ riders (2020); waves of up to 100", "Field Size")
     assert long_cell.startswith('<div class="gg-blog-stat wide">')
+
+
+# ── "In short" (IN_SHORT_SPEC.md, Preview section) ──
+
+import generate_blog_preview as gbp
+from generate_blog_preview import build_in_short, claim_ok, first_sentence
+
+ALL_SECTIONS = ["why-race", "the-real-talk", "course-preview", "key-stats",
+                "training-focus", "history", "registration-info"]
+BANNED_IN_CLAIMS = ("I ", "we ", "We ", "!", " — ", "—")
+
+
+def _fixture_race(**over):
+    race = {
+        "name": "Fixture Gravel",
+        "vitals": {"distance_mi": 74, "elevation_ft": 5741,
+                   "date_specific": "2026: October 25 (CONFIRMED; registration open)",
+                   "registration": "Online."},
+        "gravel_god_rating": {"tier": 3, "overall_score": 61},
+        "biased_opinion": {
+            "bottom_line": "A scenic rolling gravel race. Worth it for local riders.",
+            "weaknesses": ["Moderate access"],
+        },
+        "course_description": {
+            "suffering_zones": [
+                {"mile": 40, "label": "The Wall",
+                 "desc": "A 2-mile climb at 12% on loose limestone. It decides the race."},
+            ],
+            "surface_breakdown": {"overall": {"gravel": 85, "pavement": 15}},
+        },
+    }
+    for key, value in over.items():
+        race[key] = value
+    return race
+
+
+def _claim_texts(claims):
+    return [c.text_html for c in claims]
+
+
+def _in_short(html):
+    if 'class="inshort"' not in html:
+        return None
+    return html.split('<aside class="inshort"', 1)[1].split("</aside>", 1)[0]
+
+
+def test_in_short_claims_from_fixture():
+    claims = build_in_short(_fixture_race(), ALL_SECTIONS)
+    assert _claim_texts(claims) == [
+        "Rated 61/100, Tier 3 Solid. A scenic rolling gravel race.",
+        "74 miles with 5,741 ft of elevation gain, 85% gravel.",
+        "The Wall (mile 40): A 2-mile climb at 12% on loose limestone.",
+        "Race date: October 25, 2026. Registration is open.",
+    ]
+    assert [c.href for c in claims] == ["#why-race", "#key-stats", "#course-preview", "#registration-info"]
+    assert [c.section for c in claims] == [0, 3, 2, 6]
+    assert claims[1].link_label == "See Key Stats · §04"
+
+
+def test_in_short_is_deterministic_and_escaped():
+    race = _fixture_race(biased_opinion={"bottom_line": "Mud & <b>grit</b> rule here."})
+    first = build_in_short(race, ALL_SECTIONS)
+    assert first == build_in_short(race, ALL_SECTIONS)
+    assert first[0].text_html == "Rated 61/100, Tier 3 Solid. Mud &amp; &lt;b&gt;grit&lt;/b&gt; rule here."
+
+
+def test_in_short_weakness_with_sentence_beats_suffering_zone():
+    race = _fixture_race(biased_opinion={
+        "bottom_line": "A scenic race.", "weaknesses": ["The chaos: the race can feel like an afterthought."]})
+    hard = build_in_short(race, ALL_SECTIONS)[2]
+    assert hard.text_html == "The chaos: the race can feel like an afterthought."
+    assert hard.href == "#the-real-talk"
+
+
+def test_in_short_skips_missing_data():
+    race = _fixture_race(biased_opinion={}, course_description={})
+    race["vitals"] = {"distance_mi": 74, "date_specific": "2026: June 6"}
+    claims = build_in_short(race, ALL_SECTIONS)
+    assert _claim_texts(claims) == ["74 miles.", "Race date: June 6, 2026."]
+
+
+def test_in_short_truncation_guard():
+    # Cut-off strings (no terminal punctuation) never become claims.
+    assert first_sentence("A scenic Alentejo rolling gravel race with cork-oak mont") is None
+    assert first_sentence("Moderate Europe access") is None
+    assert first_sentence("Mt. Hood looms. Then rain.") == "Mt. Hood looms."
+    race = _fixture_race(biased_opinion={"bottom_line": "A scenic Alentejo rolling gravel race with cork-oak mont"})
+    race["course_description"]["suffering_zones"][0]["desc"] = "A 2-mile climb at 12% on loose lime"
+    assert all(c.href not in ("#why-race", "#course-preview") for c in build_in_short(race, ALL_SECTIONS))
+
+
+def test_in_short_skips_banned_voice_and_long_sentences():
+    for bad in ("Worth it — if you like mud.", "We loved it.", "Go now!",
+                "It is not a race, but a ride.", "I would race it again.",
+                "Riders suffer for days, not weekends."):
+        assert not claim_ok(bad), bad
+    long_line = "This race " + "goes on and on " * 8 + "forever."
+    race = _fixture_race(biased_opinion={"bottom_line": long_line})
+    assert "#why-race" not in [c.href for c in build_in_short(race, ALL_SECTIONS)]
+
+
+def test_in_short_skips_filler_zone_and_unparsed_date():
+    race = _fixture_race()
+    race["course_description"]["suffering_zones"] = [
+        {"mile": 15, "label": "Early Desert", "desc": "First desert sections."}]
+    race["vitals"]["date_specific"] = "2026: November TBD"
+    hrefs = [c.href for c in build_in_short(race, ALL_SECTIONS)]
+    assert hrefs == ["#why-race", "#key-stats"]
+
+
+def test_in_short_needs_two_claims_and_backing_sections():
+    race = _fixture_race(biased_opinion={}, course_description={})
+    race["vitals"] = {"distance_mi": 74}
+    assert build_in_short(race, ALL_SECTIONS) is None
+    # A claim whose section isn't on the page is dropped.
+    assert build_in_short(_fixture_race(), ["key-stats", "registration-info"]) is not None
+    assert build_in_short(_fixture_race(), ["key-stats"]) is None
+
+
+def test_sparse_preview_renders_no_in_short(monkeypatch):
+    race = {"name": "Tiny Gravel", "vitals": {"distance_mi": 40, "date_specific": "2026: June 6"},
+            "gravel_god_rating": {"tier": 4, "overall_score": 41}}
+    monkeypatch.setattr(gbp, "load_race", lambda slug: race)
+    html = gbp.generate_preview_html("tiny-gravel")
+    assert _in_short(html) is None
+    assert 'data-slot="summary"' not in html
+
+
+def test_fixture_preview_in_short_links_resolve(monkeypatch):
+    monkeypatch.setattr(gbp, "load_race", lambda slug: _fixture_race())
+    html = gbp.generate_preview_html("fixture-gravel")
+    block = _in_short(html)
+    assert block.count("<li ") == 4
+    # The surface claim is backed by a Key Stats tile.
+    assert '<span class="gg-blog-stat-val">85% gravel · 15% pavement</span>' in html
+
+
+@pytest.mark.parametrize("slug", [
+    "unbound-200", "mid-south", "alentejo-gravel", "transcontinental-race",
+    "dirty-reiver", "barry-roubaix", "tour-aotearoa",
+])
+def test_real_preview_in_short_contract(slug):
+    html = generate_preview_html(slug)
+    block = _in_short(html)
+    if block is None:
+        return
+    ids = set(re.findall(r'\bid="([^"]+)"', html))
+    rows = re.findall(r'<li data-sec="(\d+)"><p>(.*?)</p><a class="ev" href="#([^"]+)">', block)
+    assert 2 <= len(rows) <= 4
+    toc = _preview_sections(html)
+    for sec, text, target in rows:
+        assert target in ids, target
+        assert int(sec) < len(toc)
+        plain = re.sub(r"&[a-z#0-9]+;", "x", text)
+        assert len(plain.split()) <= 25, text
+        for banned in BANNED_IN_CLAIMS:
+            assert banned not in text, (banned, text)
+    # The block sits before the first section.
+    body = html.split('<article class="article" id="article">', 1)[1]
+    assert body.index('class="inshort"') < body.index("<section")
+
+
+def test_in_short_contract_holds_for_every_race():
+    for path in sorted(gbp.RACE_DATA_DIR.glob("*.json")):
+        rd = load_race(path.stem)
+        claims = build_in_short(rd, ALL_SECTIONS) or []
+        assert len(claims) in (0, 2, 3, 4)
+        for c in claims:
+            assert claim_ok(c.text_html.replace("&amp;", "&")), (path.stem, c.text_html)

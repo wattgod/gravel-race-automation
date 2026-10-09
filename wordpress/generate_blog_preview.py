@@ -24,7 +24,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).parent))
 from brand_tokens import TIER_NAMES
 from blog_tracking import get_plan_intent_tracking_script
-from editorial_shell import ArticleMeta, OgImage, render_editorial_page
+from editorial_shell import ArticleMeta, Claim, OgImage, render_editorial_page
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 RACE_DATA_DIR = PROJECT_ROOT / "race-data"
@@ -196,9 +196,19 @@ def race_date_line(date_str):
     Only the first edition named counts (text before the first top-level ';'). If the
     date doesn't parse, the raw first clause is shown with URLs removed.
     """
+    display, status, _ = race_date_parts(date_str)
+    return " \u00b7 ".join(p for p in (display, status) if p)
+
+
+def race_date_parts(date_str):
+    """(display, status, parsed) behind race_date_line().
+
+    parsed is False when the date didn't parse and display is the raw first
+    clause with URLs removed (status is then always "").
+    """
     raw = str(date_str or "").strip()
     if not raw:
-        return ""
+        return "", "", False
     clause = _first_edition(raw)
     status = _date_status(clause)
     display = ""
@@ -230,7 +240,181 @@ def race_date_line(date_str):
     else:
         display = _strip_urls(clause)
         status = ""  # the fallback text already says what it knows
-    return " \u00b7 ".join(p for p in (display, status) if p)
+    return display, status, bool(month_num)
+
+
+# ── "In short" (spec: ~/specs/gg-editorial-shell-2026-10-08/IN_SHORT_SPEC.md) ──
+# Every claim is race data verbatim or a fixed template over race fields. A
+# claim is skipped when its data is missing, looks cut off, breaks the voice
+# rules or runs past IN_SHORT_MAX_WORDS. Fewer than 2 claims: no "In short".
+
+IN_SHORT_MAX_WORDS = 25
+IN_SHORT_MIN_CLAIMS = 2
+MIN_ZONE_WORDS = 6  # a suffering-zone sentence shorter than this is filler
+
+# The h2 id of each preview section and the label its "In short" link uses.
+SECTION_LABELS = {
+    "why-race": "Why Race",
+    "the-real-talk": "The Real Talk",
+    "course-preview": "Course Preview",
+    "key-stats": "Key Stats",
+    "training-focus": "Training Focus",
+    "history": "History",
+    "registration-info": "Registration & Info",
+}
+
+# A period after one of these doesn't end a sentence.
+_ABBREVIATIONS = {
+    "st", "mt", "mr", "mrs", "ms", "dr", "jr", "sr", "vs", "approx", "est",
+    "no", "ft", "mi", "km", "e.g", "i.e", "u.s", "u.k", "etc", "ave", "rd",
+}
+_SENTENCE_END_RE = re.compile(r"[.?!][\"'’”)]*(?=\s|$)")
+_BANNED_CLAIM_RE = re.compile(
+    r"!|—|\s[–-]\s|…|\.\.\."           # exclamation, dash asides, ellipses
+    r"|\bI\b|\b[Ww]e\b|\b[Oo]ur\b|\bus\b|\b[Mm]y\b|\bme\b"  # first person
+    r"|\bnot\b[^.;]*\bbut\b|\b(?:isn't|aren't|wasn't)\b[^.;]*\bit'?s\b|,\s+not\b",  # not X, but Y / X, not Y
+)
+_NUMBERISH_RE = re.compile(r"~?\d[\d,]*(?:\.\d+)?(?:\s*[-–]\s*\d[\d,]*(?:\.\d+)?)?\+?")
+
+
+def first_sentence(text):
+    """The first full sentence of text, or None if it has no terminal punctuation.
+
+    A string with no sentence end looks cut off (truncation guard), so it
+    yields None rather than a fragment.
+    """
+    text = " ".join(str(text or "").split())
+    for m in _SENTENCE_END_RE.finditer(text):
+        candidate = text[:m.end()]
+        word = re.search(r"(\S+?)[.?!][\"'’”)]*$", candidate)
+        token = (word.group(1) if word else "").lstrip("(\"'“").lower()
+        if m.group(0)[0] == "." and (token in _ABBREVIATIONS or len(token) == 1):
+            continue
+        return candidate
+    return None
+
+
+def claim_ok(text):
+    """True if a plain-text claim fits the voice and length rules."""
+    return (bool(text) and len(text.split()) <= IN_SHORT_MAX_WORDS
+            and not _BANNED_CLAIM_RE.search(text))
+
+
+def _number(value):
+    """Display a numeric stat ('5,741', '74.5', '4,500–9,116'), or '' if it isn't one."""
+    if isinstance(value, bool) or value is None:
+        return ""
+    if isinstance(value, (int, float)):
+        if value <= 0:
+            return ""
+        return f"{value:,.1f}".rstrip("0").rstrip(".") if value % 1 else f"{int(value):,}"
+    text = str(value).strip()
+    return text.replace("-", "–") if _NUMBERISH_RE.fullmatch(text) else ""
+
+
+def surface_breakdown(rd):
+    """[(surface, pct)] from course_description.surface_breakdown.overall, largest first."""
+    overall = ((rd.get("course_description") or {}).get("surface_breakdown") or {})
+    overall = overall.get("overall") if isinstance(overall, dict) else None
+    if not isinstance(overall, dict):
+        return []
+    parts = [(str(k).replace("_", " "), v) for k, v in overall.items()
+             if isinstance(v, (int, float)) and not isinstance(v, bool) and v > 0]
+    return sorted(parts, key=lambda kv: (-kv[1], kv[0]))
+
+
+def why_race_text(rd):
+    """The first paragraph of Why Race: bottom_line, else should_you_race."""
+    biased = rd.get("biased_opinion") or {}
+    final_verdict = rd.get("final_verdict") or {}
+    return biased.get("bottom_line", "") or final_verdict.get("should_you_race", "")
+
+
+def shown_suffering_zones(rd):
+    """The suffering zones Course Preview lists (generic filler is hidden there)."""
+    zones = (rd.get("course_description") or {}).get("suffering_zones")
+    if isinstance(zones, list) and zones and not is_generic_suffering(zones):
+        return zones
+    return []
+
+
+def _verdict_claim(rd):
+    rating = rd.get("gravel_god_rating") or {}
+    score, tier = rating.get("overall_score"), rating.get("tier")
+    if not isinstance(score, (int, float)) or isinstance(score, bool) or tier not in TIER_NAMES:
+        return None
+    verdict = first_sentence(why_race_text(rd))
+    if not verdict:
+        return None
+    return f"Rated {_number(score) or score}/100, Tier {tier} {TIER_NAMES[tier]}. {verdict}"
+
+
+def _course_claim(rd):
+    vitals = rd.get("vitals") or {}
+    distance = _number(vitals.get("distance_mi"))
+    if not distance:
+        return None
+    elevation = _number(vitals.get("elevation_ft"))
+    text = f"{distance} miles" + (f" with {elevation} ft of elevation gain" if elevation else "")
+    surfaces = surface_breakdown(rd)
+    if surfaces:
+        surface, pct = surfaces[0]
+        text += f", {_number(pct)}% {surface}"
+    return text + "."
+
+
+def _hard_part_claim(rd):
+    """(text, section id): the first weakness, else the first shown suffering zone."""
+    weaknesses = (rd.get("biased_opinion") or {}).get("weaknesses")
+    if isinstance(weaknesses, list) and weaknesses:
+        sentence = first_sentence(weaknesses[0]) if isinstance(weaknesses[0], str) else None
+        if sentence and claim_ok(sentence):
+            return sentence, "the-real-talk"
+    for zone in shown_suffering_zones(rd)[:1]:
+        if not isinstance(zone, dict):
+            continue
+        sentence = first_sentence(zone.get("desc"))
+        # Short template descs ("First desert sections.") say nothing hard.
+        if not sentence or len(sentence.split()) < MIN_ZONE_WORDS:
+            continue
+        label = " ".join(str(zone.get("label") or "").split())
+        mile = _number(zone.get("mile")) if zone.get("mile") != 0 else "0"
+        where = f"{label} (mile {mile})" if label and mile else label or (f"Mile {mile}" if mile else "")
+        return (f"{where}: {sentence}" if where else sentence), "course-preview"
+    return None, None
+
+
+def _when_claim(rd):
+    vitals = rd.get("vitals") or {}
+    display, status, parsed = race_date_parts(vitals.get("date_specific", "") or vitals.get("date", ""))
+    if not parsed:
+        return None
+    noun = "Race dates" if ("–" in display or " and " in display) else "Race date"
+    text = f"{noun}: {display}"
+    if status == "Registration open":
+        return text + ". Registration is open."
+    if status == "Confirmed":
+        return text + " (confirmed)."
+    return text + "."
+
+
+def build_in_short(rd, section_ids):
+    """The preview's "In short" claims (editorial_shell.Claim), or None.
+
+    section_ids: the h2 ids of the sections the page renders, in order. A claim
+    renders only when the section that backs it is on the page.
+    """
+    candidates = [(_verdict_claim(rd), "why-race")]
+    candidates.append((_course_claim(rd), "key-stats"))
+    candidates.append(_hard_part_claim(rd))
+    candidates.append((_when_claim(rd), "registration-info"))
+    claims = []
+    for text, sid in candidates:
+        if not text or sid not in section_ids or not claim_ok(text):
+            continue
+        idx = section_ids.index(sid)
+        claims.append(Claim(esc(text), f"#{sid}", f"See {SECTION_LABELS[sid]} · §{idx + 1:02d}", idx))
+    return claims if len(claims) >= IN_SHORT_MIN_CLAIMS else None
 
 
 def load_race(slug):
@@ -299,7 +483,6 @@ def generate_preview_html(slug):
     vitals = rd.get("vitals", {})
     gravel_god = rd.get("gravel_god_rating", {})
     biased = rd.get("biased_opinion", {})
-    final_verdict = rd.get("final_verdict", {})
     course_desc = rd.get("course_description", {})
     history = rd.get("history", {})
     logistics = rd.get("logistics", {})
@@ -338,15 +521,13 @@ def generate_preview_html(slug):
 
     # Build sections
     why_section = ""
-    should_race = final_verdict.get("should_you_race", "")
-    bottom_line = biased.get("bottom_line", "")
     biased_summary = biased.get("summary", "")
     # Prefer bottom_line (more direct) over should_you_race (hedging)
-    why_text = bottom_line or should_race
+    why_text = why_race_text(rd)
     if why_text or biased_summary:
         why_section = f"""
     <section class="gg-blog-section">
-      <h2>Why Race {esc(name)}?</h2>
+      <h2 id="why-race">Why Race {esc(name)}?</h2>
       {f'<p>{esc(why_text)}</p>' if why_text else ''}
       {f'<p>{esc(biased_summary)}</p>' if biased_summary else ''}
     </section>"""
@@ -374,7 +555,7 @@ def generate_preview_html(slug):
             opinions_html = f'<p><strong>Our Take:</strong></p><ul>{items}</ul>'
         real_talk_section = f"""
     <section class="gg-blog-section">
-      <h2>The Real Talk</h2>
+      <h2 id="the-real-talk">The Real Talk</h2>
       {strengths_html}
       {weaknesses_html}
       {opinions_html}
@@ -385,7 +566,7 @@ def generate_preview_html(slug):
     suffering = course_desc.get("suffering_zones", "")
     suffering_html = ""
     # Suppress generic suffering zones (template filler in low-data profiles)
-    if isinstance(suffering, list) and suffering and not is_generic_suffering(suffering):
+    if shown_suffering_zones(rd):
         items = []
         for z in suffering:
             if isinstance(z, dict):
@@ -402,7 +583,7 @@ def generate_preview_html(slug):
     if character or suffering_html:
         course_section = f"""
     <section class="gg-blog-section">
-      <h2>Course Preview</h2>
+      <h2 id="course-preview">Course Preview</h2>
       {f'<p>{esc(character)}</p>' if character else ''}
       {suffering_html}
     </section>"""
@@ -418,6 +599,9 @@ def generate_preview_html(slug):
         stats_items.append(_stat(elev_display, "Ft Elevation"))
     if field_size:
         stats_items.append(_stat(str(field_size), "Field Size"))
+    surfaces = surface_breakdown(rd)
+    if surfaces:
+        stats_items.append(_stat(" · ".join(f"{_number(pct)}% {name}" for name, pct in surfaces), "Surface"))
     if terrain_types:
         terrain_display = " · ".join(str(t) for t in terrain_types) if isinstance(terrain_types, list) else str(terrain_types)
         stats_items.append(_stat(terrain_display, "Terrain"))
@@ -425,7 +609,7 @@ def generate_preview_html(slug):
     if stats_items:
         stats_section = f"""
     <section class="gg-blog-section">
-      <h2>Key Stats</h2>
+      <h2 id="key-stats">Key Stats</h2>
       <div class="gg-blog-stats">{''.join(stats_items)}</div>
     </section>"""
 
@@ -442,7 +626,7 @@ def generate_preview_html(slug):
                 items.append(f"<li>{esc(str(n))}</li>")
         training_section = f"""
     <section class="gg-blog-section">
-      <h2>Training Focus</h2>
+      <h2 id="training-focus">Training Focus</h2>
       <p>To be competitive at {esc(name)}, prioritize these non-negotiables:</p>
       <ol>{"".join(items)}</ol>
     </section>"""
@@ -459,7 +643,7 @@ def generate_preview_html(slug):
     if origin or notable_html:
         history_section = f"""
     <section class="gg-blog-section">
-      <h2>History</h2>
+      <h2 id="history">History</h2>
       {f'<p>{esc(origin)}</p>' if origin else ''}
       {notable_html}
     </section>"""
@@ -468,7 +652,7 @@ def generate_preview_html(slug):
     if registration or official_site:
         reg_section = f"""
     <section class="gg-blog-section">
-      <h2>Registration &amp; Info</h2>
+      <h2 id="registration-info">Registration &amp; Info</h2>
       {f'<p><strong>Registration:</strong> {esc(str(registration))}</p>' if registration else ''}
       {f'<p><a href="{esc(official_site)}">Official Website &rarr;</a></p>' if official_site else ''}
     </section>"""
@@ -476,10 +660,14 @@ def generate_preview_html(slug):
     # No JSON-LD for preview pages — they are noindexed, and Article schema
     # on noindexed pages sends contradictory signals to Google.
 
-    sections = [s for s in (
-        why_section, real_talk_section, course_section, stats_section,
-        training_section, history_section, reg_section,
-    ) if s]
+    named_sections = [
+        ("why-race", why_section), ("the-real-talk", real_talk_section),
+        ("course-preview", course_section), ("key-stats", stats_section),
+        ("training-focus", training_section), ("history", history_section),
+        ("registration-info", reg_section),
+    ]
+    sections = [s for _, s in named_sections if s]
+    in_short = build_in_short(rd, [sid for sid, s in named_sections if s])
 
     # Race-specific CTAs: same URLs and copy as before (no data-cta; the
     # plan-intent script still tracks the prep-kit link by its href).
@@ -529,6 +717,7 @@ def generate_preview_html(slug):
     page_html = render_editorial_page(
         meta,
         "\n".join(sections) + cta_block,
+        in_short=in_short,
         ladder=False,
         contents=len(sections) >= 3,
         extra_css=PREVIEW_CSS,

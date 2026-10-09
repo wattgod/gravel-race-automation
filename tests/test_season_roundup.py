@@ -357,3 +357,94 @@ def test_regional_slug_format():
 def test_tier_slug_format():
     slug = "roundup-tier-1-2026"
     assert classify_blog_slug(slug) == "roundup"
+
+
+# ── Editorial shell (re-skin keeps every element) ──
+
+
+def _render(races, slug="roundup-test"):
+    return generate_roundup_html(
+        "August 2026 Gravel Calendar", "5 Races to Watch", "Intro text.",
+        races, slug, "Monthly Calendar",
+    )
+
+
+def test_roundup_renders_on_editorial_shell(sample_races):
+    html = _render(sample_races)
+    assert 'id="article"' in html
+    assert 'class="gg-site-header"' in html
+    assert 'class="foot"' in html
+
+
+def test_roundup_robots_follow_indexable_allowlist(sample_races):
+    from generate_season_roundup import INDEXABLE_ROUNDUPS
+    indexable = sorted(INDEXABLE_ROUNDUPS)[0]
+    assert '<meta name="robots" content="index, follow">' in _render(sample_races, indexable)
+    assert '<meta name="robots" content="noindex, follow">' in _render(sample_races, "roundup-tier-1-2026")
+
+
+def test_roundup_never_fires_article_events(sample_races):
+    """Indexable roundups must not feed the article funnel."""
+    from generate_season_roundup import INDEXABLE_ROUNDUPS
+    html = _render(sample_races, sorted(INDEXABLE_ROUNDUPS)[0])
+    assert "article_scroll_depth" not in html
+    assert "article_deep_read" not in html
+
+
+def test_roundup_has_no_read_time_and_no_ladder(sample_races):
+    html = _render(sample_races)
+    assert "min read" not in html
+    assert 'class="ladder"' not in html
+
+
+def test_roundup_title_and_meta_unchanged(sample_races):
+    html = _render(sample_races, "roundup-test")
+    assert "<title>August 2026 Gravel Calendar: 5 Races to Watch — Gravel God</title>" in html
+    assert ('content="August 2026 Gravel Calendar: 5 Races to Watch. '
+            '5 races rated and ranked by Gravel God."') in html
+    assert 'og:description" content="5 gravel races rated and ranked. Average score: 68/100."' in html
+    assert '"datePublished":"' in html  # compact JSON-LD, read by generate_blog_index
+
+
+def test_roundup_hero_keeps_category_count_subtitle_date(sample_races):
+    from datetime import date
+    html = generate_roundup_html("T", "Sub Line", "Intro.", sample_races, "roundup-x",
+                                 "Regional Roundup", publish_date=date(2026, 9, 1))
+    assert "Regional Roundup · 5 Races" in html
+    assert "Sub Line" in html
+    assert "September 1, 2026" in html
+
+
+def test_roundup_contents_lists_tiers(sample_races):
+    html = _render(sample_races)
+    assert 'class="toc"' in html
+    for label in ("T1 The Icons", "T2 Elite", "T3 Solid", "T4 Grassroots"):
+        assert f">{label}</a></li>" in html
+
+
+def test_single_tier_roundup_has_no_contents(sample_races):
+    html = _render(filter_by_tier(sample_races, 1))
+    assert 'class="toc"' not in html
+    assert "<h2" not in html
+
+
+def test_roundup_cards_keep_every_field(sample_races):
+    html = _render(sample_races)
+    assert html.count('class="gg-roundup-card"') == len(sample_races)
+    assert "/race/race-a/prep-kit/" in html
+    assert "Free Prep Kit" in html and "Race Profile" in html
+    assert 'class="gg-roundup-vitals">200 mi &middot; June' in html
+    assert "background:#59473c" in html  # tier colour still encodes the tier
+
+
+def test_roundup_scripts_not_duplicated(sample_races):
+    html = _render(sample_races)
+    assert html.count("source: 'editorial'") == 1
+    assert html.count('id="gg-consent-banner"') <= 1
+    assert html.count("gtag('config'") <= 1
+
+
+def test_roundup_heading_text_has_no_tier_n_for_blog_index(sample_races):
+    """generate_blog_index reads `Tier N` as the entry tier; monthly roundups must stay tier 0."""
+    import re
+    assert not re.search(r"Tier\s+\d", _render(sample_races))

@@ -24,9 +24,9 @@ from datetime import date
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent))
-from brand_tokens import TIER_NAMES, get_ga4_head_snippet
+from brand_tokens import TIER_NAMES
 from blog_tracking import get_plan_intent_tracking_script
-from cookie_consent import get_consent_banner_html
+from editorial_shell import ArticleMeta, render_editorial_page
 
 # Roundups indexable only via the owner-approved allowlist (WS5 Option A).
 INDEXABLE_ROUNDUPS = frozenset(
@@ -64,6 +64,34 @@ SEASONS = {
 }
 
 MIN_RACES_FOR_ROUNDUP = 3
+
+# Roundup blocks on the editorial shell (its tokens: --ink, --sand, --mono...).
+# The tier badge keeps TIER_COLORS (inline), since its colour encodes the tier.
+ROUNDUP_CSS = """
+.gg-roundup-stats-bar{display:flex;flex-wrap:wrap;gap:6px 22px;margin:4px 0 0;padding:14px 0 0;box-shadow:inset 0 2px 0 var(--sand2)}
+.gg-roundup-stat{font:700 13px var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--ink2)}
+.gg-roundup-group .gg-roundup-grid{margin-top:8px}
+.gg-roundup-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px;margin:40px 0 0}
+.gg-roundup-group h2 + .gg-roundup-grid{margin-top:0}
+.gg-roundup-card{background:var(--sand);padding:18px 20px 16px;display:flex;flex-direction:column;min-width:0}
+.gg-roundup-card-header{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:12px}
+.gg-roundup-tier{font:700 12px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--paper);padding:4px 8px}
+.gg-roundup-score{font:700 15px var(--mono);color:var(--ink);white-space:nowrap}
+.article .gg-roundup-card h3{font:700 21px/1.25 var(--serif);margin:0 0 6px}
+.gg-roundup-card h3 a{color:var(--ink);text-decoration:none}
+.gg-roundup-card h3 a:hover{text-decoration:underline;text-underline-offset:3px}
+.gg-roundup-location,.gg-roundup-vitals{font:500 13px/1.45 var(--mono);color:var(--ink2);margin-bottom:4px}
+.article .gg-roundup-tagline{font-size:16px;line-height:1.5;color:var(--ink2);margin:6px 0 0}
+.gg-roundup-links{display:flex;flex-wrap:wrap;gap:6px 18px;margin-top:auto;padding-top:12px}
+.gg-roundup-link{font:700 13px var(--mono);letter-spacing:.05em;text-transform:uppercase;color:var(--teal-ink);text-decoration:none}
+.gg-roundup-link:hover{text-decoration:underline;text-underline-offset:3px}
+.gg-roundup-link--kit{color:var(--ink)}
+.gg-blog-cta{margin:56px 0 0}
+@media (max-width:640px){
+  .gg-roundup-grid{grid-template-columns:1fr}
+  .gg-roundup-card{padding:16px}
+}
+"""
 
 
 def esc(text):
@@ -189,9 +217,53 @@ def build_stats_bar_html(stats):
     return '<div class="gg-roundup-stats-bar">' + "".join(parts) + "</div>"
 
 
+def group_races_by_tier(sorted_races):
+    """Split tier-sorted races into [(tier, [races])] runs, order kept."""
+    groups = []
+    for race in sorted_races:
+        tier = race.get("tier", 4)
+        if groups and groups[-1][0] == tier:
+            groups[-1][1].append(race)
+        else:
+            groups.append((tier, [race]))
+    return groups
+
+
+def build_roundup_body(intro, stats_bar, sorted_races):
+    """The roundup body for the editorial shell (trusted, escaped HTML).
+
+    Intro + stats bar, then the race cards. With races in 2+ tiers, each tier
+    is its own gg-blog-section with an h2, so the shell's Contents lists the
+    tiers; a single-tier page (tier roundups) keeps one untitled grid.
+    """
+    groups = group_races_by_tier(sorted_races)
+    parts = [
+        '<div class="gg-blog-section gg-roundup-intro">\n'
+        f"  <p>{esc(intro)}</p>\n"
+        f"  {stats_bar}\n"
+        "</div>"
+    ]
+    titled = len(groups) > 1
+    for tier, group in groups:
+        heading = f"  <h2>T{tier} {esc(TIER_NAMES.get(tier, ''))}</h2>\n" if titled else ""
+        cards = "".join(build_race_card_html(r) for r in group)
+        parts.append(
+            '<div class="gg-blog-section gg-roundup-group">\n'
+            f'{heading}  <div class="gg-roundup-grid">{cards}\n  </div>\n'
+            "</div>"
+        )
+    parts.append(
+        '<div class="gg-blog-cta">\n'
+        f'  <a class="btn" href="{SITE_URL}/gravel-races/">Explore All Races '
+        '<span class="chev" aria-hidden="true">&rsaquo;</span></a>\n'
+        "</div>"
+    )
+    return "\n\n".join(parts)
+
+
 def generate_roundup_html(title, subtitle, intro, races, slug, category_tag,
                           publish_date=None):
-    """Generate a complete roundup article HTML.
+    """Generate a complete roundup article HTML on the editorial shell.
 
     Args:
         title: Main heading (e.g. "March 2026 Gravel Calendar")
@@ -207,10 +279,8 @@ def generate_roundup_html(title, subtitle, intro, races, slug, category_tag,
 
     # Sort races by tier (ascending) then score (descending)
     sorted_races = sorted(races, key=lambda r: (r.get("tier", 4), -r.get("overall_score", 0)))
-    cards = "".join(build_race_card_html(r) for r in sorted_races)
 
     pub_date = publish_date or date.today()
-    today_str = pub_date.strftime("%B %d, %Y")
     og_url = f"{SITE_URL}/blog/{slug}/"
 
     jsonld = json.dumps({
@@ -230,244 +300,35 @@ def generate_roundup_html(title, subtitle, intro, races, slug, category_tag,
         },
     }, separators=(",", ":"))
 
-    return f"""<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="robots" content="{'index, follow' if slug in INDEXABLE_ROUNDUPS else 'noindex, follow'}">
-  <title>{esc(title)}: {esc(subtitle)} — Gravel God</title>
-  <meta name="description" content="{esc(title)}: {esc(subtitle)}. {stats['count']} races rated and ranked by Gravel God.">
-  <meta property="og:title" content="{esc(title)}: {esc(subtitle)} — Gravel God">
-  <meta property="og:description" content="{stats['count']} gravel races rated and ranked. Average score: {stats['avg_score']}/100.">
-  <meta property="og:url" content="{og_url}">
-  <link rel="canonical" href="{og_url}">
-  <script type="application/ld+json">{jsonld}</script>
-  <style>
-    :root {{
-      --gg-dark-brown: #3a2e25;
-      --gg-primary-brown: #59473c;
-      --gg-secondary-brown: #7d695d;
-      --gg-teal: #178079;
-      --gg-warm-paper: #f5efe6;
-      --gg-sand: #ede4d8;
-      --gg-white: #ffffff;
-    }}
-    * {{ margin: 0; padding: 0; box-sizing: border-box; border-radius: 0; }}
-    body {{
-      font-family: 'Source Serif 4', Georgia, serif;
-      background: var(--gg-warm-paper);
-      color: var(--gg-dark-brown);
-      line-height: 1.7;
-    }}
-    .gg-blog-container {{ max-width: 900px; margin: 0 auto; padding: 32px 24px; }}
-    .gg-blog-hero {{
-      background: var(--gg-primary-brown);
-      color: var(--gg-warm-paper);
-      padding: 48px 32px;
-      border: 3px solid var(--gg-dark-brown);
-      margin-bottom: 32px;
-    }}
-    .gg-blog-hero-meta {{
-      font-family: 'Sometype Mono', monospace;
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      opacity: 0.8;
-      margin-bottom: 12px;
-    }}
-    .gg-blog-hero h1 {{
-      font-size: 28px;
-      font-weight: 700;
-      line-height: 1.2;
-      margin-bottom: 8px;
-    }}
-    .gg-blog-hero-sub {{
-      font-family: 'Sometype Mono', monospace;
-      font-size: 13px;
-      opacity: 0.7;
-    }}
-    .gg-blog-section {{
-      margin-bottom: 32px;
-      padding: 24px;
-      border: 2px solid var(--gg-dark-brown);
-      background: var(--gg-white);
-    }}
-    .gg-blog-section h2 {{
-      font-family: 'Sometype Mono', monospace;
-      font-size: 14px;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      margin-bottom: 16px;
-      padding-bottom: 8px;
-      border-bottom: 2px solid var(--gg-dark-brown);
-    }}
-    .gg-blog-section p {{ margin-bottom: 12px; font-size: 15px; }}
-    .gg-roundup-stats-bar {{
-      display: flex;
-      flex-wrap: wrap;
-      gap: 16px;
-      margin-bottom: 32px;
-      padding: 16px;
-      border: 2px solid var(--gg-dark-brown);
-      background: var(--gg-white);
-    }}
-    .gg-roundup-stat {{
-      font-family: 'Sometype Mono', monospace;
-      font-size: 12px;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-    }}
-    .gg-roundup-grid {{
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-      gap: 20px;
-      margin-bottom: 32px;
-    }}
-    .gg-roundup-card {{
-      border: 2px solid var(--gg-dark-brown);
-      background: var(--gg-white);
-      padding: 20px;
-    }}
-    .gg-roundup-card-header {{
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 12px;
-    }}
-    .gg-roundup-tier {{
-      font-family: 'Sometype Mono', monospace;
-      font-size: 10px;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 1.5px;
-      color: var(--gg-warm-paper);
-      padding: 3px 8px;
-    }}
-    .gg-roundup-score {{
-      font-family: 'Sometype Mono', monospace;
-      font-size: 12px;
-      font-weight: 700;
-      color: var(--gg-secondary-brown);
-    }}
-    .gg-roundup-card h3 {{
-      font-size: 18px;
-      font-weight: 700;
-      margin-bottom: 4px;
-      line-height: 1.3;
-    }}
-    .gg-roundup-card h3 a {{
-      color: var(--gg-dark-brown);
-      text-decoration: none;
-    }}
-    .gg-roundup-card h3 a:hover {{ text-decoration: underline; }}
-    .gg-roundup-location {{
-      font-family: 'Sometype Mono', monospace;
-      font-size: 11px;
-      color: var(--gg-secondary-brown);
-      margin-bottom: 4px;
-    }}
-    .gg-roundup-vitals {{
-      font-family: 'Sometype Mono', monospace;
-      font-size: 11px;
-      color: var(--gg-secondary-brown);
-      margin-bottom: 8px;
-    }}
-    .gg-roundup-tagline {{
-      font-size: 14px;
-      color: var(--gg-secondary-brown);
-      margin-bottom: 8px;
-      line-height: 1.5;
-    }}
-    .gg-roundup-link {{
-      font-family: 'Sometype Mono', monospace;
-      font-size: 12px;
-      font-weight: 700;
-      color: var(--gg-teal);
-      text-decoration: none;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-    }}
-    .gg-roundup-links {{
-      display: flex;
-      gap: 16px;
-      margin-top: 4px;
-    }}
-    .gg-roundup-link:hover {{ text-decoration: underline; }}
-    .gg-roundup-link--kit {{
-      color: var(--gg-gold);
-    }}
-    .gg-blog-cta {{
-      text-align: center;
-      padding: 32px;
-      border: 3px solid var(--gg-dark-brown);
-      background: var(--gg-dark-brown);
-      margin-bottom: 32px;
-    }}
-    .gg-blog-cta a {{
-      display: inline-block;
-      padding: 12px 32px;
-      background: var(--gg-teal);
-      color: var(--gg-white);
-      font-family: 'Sometype Mono', monospace;
-      font-size: 13px;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      text-decoration: none;
-      border: 2px solid var(--gg-teal);
-    }}
-    .gg-blog-cta a:hover {{ background: var(--gg-primary-brown); border-color: var(--gg-primary-brown); }}
-    .gg-blog-footer {{
-      text-align: center;
-      font-family: 'Sometype Mono', monospace;
-      font-size: 11px;
-      color: var(--gg-secondary-brown);
-      padding: 24px;
-      text-transform: uppercase;
-      letter-spacing: 1.5px;
-    }}
-    .gg-blog-footer a {{ color: var(--gg-teal); text-decoration: none; }}
-    @media (max-width: 600px) {{
-      .gg-blog-hero {{ padding: 32px 20px; }}
-      .gg-blog-hero h1 {{ font-size: 22px; }}
-      .gg-roundup-grid {{ grid-template-columns: 1fr; }}
-    }}
-  </style>
-{get_ga4_head_snippet()}
-</head>
-<body>
-  <div class="gg-blog-container">
-    <div class="gg-blog-hero">
-      <div class="gg-blog-hero-meta">{esc(category_tag)} &middot; {stats['count']} Races</div>
-      <h1>{esc(title)}</h1>
-      <div class="gg-blog-hero-sub">{esc(subtitle)} &middot; Published {today_str}</div>
-    </div>
-
-    <div class="gg-blog-section">
-      <p>{esc(intro)}</p>
-    </div>
-
-    {stats_bar}
-
-    <div class="gg-roundup-grid">
-      {cards}
-    </div>
-
-    <div class="gg-blog-cta">
-      <a href="{SITE_URL}/gravel-races/">Explore All Races &rarr;</a>
-    </div>
-
-    <div class="gg-blog-footer">
-      <a href="{SITE_URL}">Gravel God</a> &middot; {today_str}
-    </div>
-  </div>
-{get_consent_banner_html()}
-{get_plan_intent_tracking_script()}
-</body>
-</html>"""
+    meta = ArticleMeta(
+        slug=slug,
+        canonical_url=og_url,
+        title=f"{title}: {subtitle} — Gravel God",
+        description=f"{title}: {subtitle}. {stats['count']} races rated and ranked by Gravel God.",
+        og_description=(f"{stats['count']} gravel races rated and ranked. "
+                        f"Average score: {stats['avg_score']}/100."),
+        headline=title,
+        dek=subtitle,
+        kicker=f"{category_tag} · {stats['count']} Races",
+        date_published=pub_date,
+        robots="index, follow" if slug in INDEXABLE_ROUNDUPS else "noindex, follow",
+        json_ld=(jsonld,),
+        # Roundups are scanned, not read through, and must never feed the
+        # article funnel (article_* events), indexable or not.
+        track_article_events=False,
+        show_read_time=False,
+        nav_active="races",
+    )
+    body = build_roundup_body(intro, stats_bar, sorted_races)
+    return render_editorial_page(
+        meta,
+        body,
+        in_short=None,
+        ladder=False,  # roundups never had a plans/coaching block
+        contents=len(group_races_by_tier(sorted_races)) > 1,
+        extra_css=ROUNDUP_CSS,
+        extra_body_end=get_plan_intent_tracking_script(),
+    )
 
 
 def generate_monthly_roundup(races, year, month, output_dir):

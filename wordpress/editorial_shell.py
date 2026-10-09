@@ -602,6 +602,37 @@ def _join_classes(*parts: str) -> str:
     return " ".join(p for part in parts for p in part.split())
 
 
+# Long words in the h1. The h1 never breaks a word except as a last resort
+# (overflow-wrap), so a headline whose longest word is wider than the column
+# gets a tier class that sizes the h1 to the column (CSS: h1.h1-long-N).
+# Width is estimated in "units" of one Source Serif 4 Bold lowercase glyph
+# (~0.55em incl. the h1's -0.025em tracking); capitals are ~1.2 units.
+# Each tier's CSS --h1-w is its ceiling in em (units x 0.55), so every word
+# in the tier fits. Words of 13 units or less fit the 42px phone h1 at 360px
+# (328px column) and the 60px desktop h1 beside a portrait image (462px), so
+# ordinary titles get no class and keep their sizes.
+H1_LONG_WORD_FITS = 13.0
+H1_LONG_TIERS: tuple[tuple[float, str], ...] = (
+    (15.0, "h1-long-1"),
+    (17.0, "h1-long-2"),
+    (19.5, "h1-long-3"),
+    (float("inf"), "h1-long-4"),  # >23 units can still hit overflow-wrap
+)
+_H1_WORD_SPLIT = re.compile(r"[\s\u00ad\-\u2010-\u2015/]+")
+
+
+def h1_word_units(word: str) -> float:
+    return sum(1.2 if c.isupper() else 1.0 for c in word)
+
+
+def h1_long_word_class(headline: str) -> str:
+    """The h1 tier class for a headline's longest word, or "" if it fits."""
+    units = max((h1_word_units(w) for w in _H1_WORD_SPLIT.split(headline)), default=0.0)
+    if units <= H1_LONG_WORD_FITS:
+        return ""
+    return next(cls for limit, cls in H1_LONG_TIERS if units <= limit)
+
+
 def render_hero(meta: ArticleMeta, minutes: int) -> str:
     kick = f'      <p class="kick-top">{esc(meta.kicker)}</p>\n' if meta.kicker else ""
     dek = f'      <p class="dek">{esc(meta.dek)}</p>\n' if meta.dek else ""
@@ -624,9 +655,11 @@ def render_hero(meta: ArticleMeta, minutes: int) -> str:
     else:
         cls += " no-img"
     cls = _join_classes(cls, meta.hero_class)
+    long_cls = h1_long_word_class(meta.headline)
+    h1_open = f'<h1 class="{long_cls}">' if long_cls else "<h1>"
     return (
         f'  <div class="{cls}">\n    <div class="txt">\n{kick}'
-        f"      <h1>{esc(meta.headline)}</h1>\n{dek}"
+        f"      {h1_open}{esc(meta.headline)}</h1>\n{dek}"
         f'      <p class="by">{by}</p>\n    </div>{img}\n  </div>'
     )
 
@@ -922,6 +955,13 @@ a{color:inherit}
 .hero.no-img{grid-template-columns:minmax(0,1fr)}
 .kick-top{font:700 13px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--teal-ink);margin:0 0 14px}
 h1{font:700 60px/1.0 var(--serif);letter-spacing:-.025em;margin:0 0 16px;font-optical-sizing:auto;text-wrap:balance;overflow-wrap:break-word}
+/* long-word h1 (render_hero): size to the column so the longest word fits */
+h1.h1-long-1{--h1-w:8.25}
+h1.h1-long-2{--h1-w:9.35}
+h1.h1-long-3{--h1-w:10.75}
+h1.h1-long-4{--h1-w:12.65}
+.hero h1[class*="h1-long-"]{font-size:min(60px,calc(min(var(--col),100vw - 64px) / var(--h1-w)))}
+.hero:not(.no-img):not(.wide) h1[class*="h1-long-"]{font-size:min(60px,calc(min(var(--col) - 218px,100vw - 282px) / var(--h1-w)))}
 .dek{font:italic 400 22px/1.4 var(--serif);color:var(--ink2);margin:0 0 16px;max-width:36em}
 .by{font:500 14px var(--mono);letter-spacing:.02em;color:var(--ink2);margin:0}
 .hero-img{margin:0}
@@ -1032,6 +1072,7 @@ sup a:hover{text-decoration:underline}
   .hero .txt{grid-column:2}
   .hero-img{grid-column:3;width:var(--side);margin-top:6px}
   .hero.wide .hero-img{grid-column:2;width:auto;margin-top:24px}
+  .hero h1[class*="h1-long-"],.hero:not(.no-img):not(.wide) h1[class*="h1-long-"]{font-size:min(60px,calc(var(--col) / var(--h1-w)))}
   .toc-m{display:none}
   .body-row{padding-top:12px}
   .rail{display:block;grid-column:1;justify-self:end;width:var(--side)}
@@ -1054,6 +1095,7 @@ sup a:hover{text-decoration:underline}
   .hero{grid-template-columns:1fr;padding-top:22px;padding-bottom:20px}
   .kick-top{margin-bottom:10px}
   h1{font-size:42px;margin-bottom:12px}
+  .hero h1[class*="h1-long-"],.hero:not(.no-img):not(.wide) h1[class*="h1-long-"]{font-size:min(42px,calc((100vw - 32px) / var(--h1-w)))}
   .dek{font-size:19px;margin-bottom:12px}
   .hero-img{margin-top:18px}
   .hero:not(.wide) .hero-img img{aspect-ratio:4/3;object-fit:cover;object-position:50% 30%}

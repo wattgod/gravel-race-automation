@@ -19,14 +19,15 @@ Usage:
 import argparse
 import html
 import json
+import re
 import sys
 from datetime import date
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent))
-from brand_tokens import TIER_NAMES, get_ga4_head_snippet
+from brand_tokens import TIER_NAMES
 from blog_tracking import get_plan_intent_tracking_script
-from cookie_consent import get_consent_banner_html
+from editorial_shell import ArticleMeta, Claim, render_editorial_page
 
 # Roundups indexable only via the owner-approved allowlist (WS5 Option A).
 INDEXABLE_ROUNDUPS = frozenset(
@@ -64,6 +65,45 @@ SEASONS = {
 }
 
 MIN_RACES_FOR_ROUNDUP = 3
+
+# "In short" (spec: ~/specs/gg-editorial-shell-2026-10-08/IN_SHORT_SPEC.md).
+# Every claim is a fixed template over race-index.json fields; no prose source.
+STATS_ID = "roundup-stats"  # the stats bar
+RACES_ID = "roundup-races"  # the race grid on a single-tier page (no tier h2s)
+MAX_CLAIM_WORDS = 25
+MIN_CLAIMS = 2
+# Banned: first person ("I ", "we " as words, so "UCI Gravel" passes),
+# exclamation marks and em-dash asides. Checked on the template text only:
+# a race name is data quoted as is ("Tour of Thekkady \u2014 Kerala Gran Fondo").
+BANNED_CLAIM_RE = re.compile(r"(?<![A-Za-z])(?:I|[Ww]e) |!| \u2014 ")
+
+# Roundup blocks on the editorial shell (its tokens: --ink, --sand, --mono...).
+# The tier badge keeps TIER_COLORS (inline), since its colour encodes the tier.
+ROUNDUP_CSS = """
+.gg-roundup-stats-bar{display:flex;flex-wrap:wrap;gap:6px 22px;margin:4px 0 0;padding:14px 0 0;box-shadow:inset 0 2px 0 var(--sand2)}
+.gg-roundup-stat{font:700 13px var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--ink2)}
+.gg-roundup-group .gg-roundup-grid{margin-top:8px}
+.gg-roundup-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px;margin:40px 0 0}
+.gg-roundup-group h2 + .gg-roundup-grid{margin-top:0}
+.gg-roundup-card{background:var(--sand);padding:18px 20px 16px;display:flex;flex-direction:column;min-width:0}
+.gg-roundup-card-header{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:12px}
+.gg-roundup-tier{font:700 12px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--paper);padding:4px 8px}
+.gg-roundup-score{font:700 15px var(--mono);color:var(--ink);white-space:nowrap}
+.article .gg-roundup-card h3{font:700 21px/1.25 var(--serif);margin:0 0 6px}
+.gg-roundup-card h3 a{color:var(--ink);text-decoration:none}
+.gg-roundup-card h3 a:hover{text-decoration:underline;text-underline-offset:3px}
+.gg-roundup-location,.gg-roundup-vitals{font:500 13px/1.45 var(--mono);color:var(--ink2);margin-bottom:4px}
+.article .gg-roundup-tagline{font-size:16px;line-height:1.5;color:var(--ink2);margin:6px 0 0}
+.gg-roundup-links{display:flex;flex-wrap:wrap;gap:6px 18px;margin-top:auto;padding-top:12px}
+.gg-roundup-link{font:700 13px var(--mono);letter-spacing:.05em;text-transform:uppercase;color:var(--teal-ink);text-decoration:none}
+.gg-roundup-link:hover{text-decoration:underline;text-underline-offset:3px}
+.gg-roundup-link--kit{color:var(--ink)}
+.gg-blog-cta{margin:56px 0 0}
+@media (max-width:640px){
+  .gg-roundup-grid{grid-template-columns:1fr}
+  .gg-roundup-card{padding:16px}
+}
+"""
 
 
 def esc(text):
@@ -180,18 +220,154 @@ def build_roundup_stats(races):
 
 
 def build_stats_bar_html(stats):
-    """Build the stats bar HTML."""
+    """Build the stats bar HTML (id=STATS_ID)."""
     parts = [f'<span class="gg-roundup-stat">{stats["count"]} Races</span>']
     parts.append(f'<span class="gg-roundup-stat">Avg Score: {stats["avg_score"]}/100</span>')
     for t, count in sorted(stats["tier_breakdown"].items()):
         tier_name = TIER_NAMES.get(t, "")
         parts.append(f'<span class="gg-roundup-stat">T{t} {esc(tier_name)}: {count}</span>')
-    return '<div class="gg-roundup-stats-bar">' + "".join(parts) + "</div>"
+    return f'<div class="gg-roundup-stats-bar" id="{STATS_ID}">' + "".join(parts) + "</div>"
+
+
+def group_races_by_tier(sorted_races):
+    """Split tier-sorted races into [(tier, [races])] runs, order kept."""
+    groups = []
+    for race in sorted_races:
+        tier = race.get("tier", 4)
+        if groups and groups[-1][0] == tier:
+            groups[-1][1].append(race)
+        else:
+            groups.append((tier, [race]))
+    return groups
+
+
+def tier_section_id(tier):
+    """The tier h2's id (the slug the shell gave it before ids were explicit)."""
+    name = TIER_NAMES.get(tier, "")
+    return "-".join(f"t{tier} {name}".lower().split())
+
+
+NAME_SLOT = "Race"  # stands in for a race name when a template is checked
+
+
+def _claim_ok(text, template=None):
+    """Word cap on the full plain text; banned patterns on the template.
+
+    template is the claim with each race name replaced by NAME_SLOT; it
+    defaults to text (a claim with no race name in it).
+    """
+    return (len(text.split()) <= MAX_CLAIM_WORDS
+            and not BANNED_CLAIM_RE.search(text if template is None else template))
+
+
+def _braces(text):
+    """Escape str.format braces in generator text placed into a template."""
+    return str(text).replace("{", "{{").replace("}", "}}")
+
+
+def build_in_short_claims(races, scope):
+    """The roundup "In short": 2-3 data-derived claims, or None.
+
+    `races` is the page's race list; `scope` is the page's span as plain text
+    ("August 2026", "West region, March to May 2026", "T1 The Icons").
+    Claims, in order (each skipped when its data is missing):
+      1. scope: "{N} races rated, {scope}."
+      2. top-rated: "{name} rates highest at {score}/100 (T{n} {tier name})."
+      3. tier split: "By tier: 4 T1, 12 T2 and 6 T4." (2+ tiers only)
+    Spec claim 4 (earliest date / biggest field) is never rendered:
+    race-index.json has month-level dates only and no field sizes.
+    Tiers are written "T{n}", never "Tier {n}": generate_blog_index reads the
+    first "Tier N" on a page as its tier. Links point at the first tier h2, or
+    on a single-tier page (no h2) at the race grid.
+    """
+    if not races:
+        return None
+    groups = group_races_by_tier(
+        sorted(races, key=lambda r: (r.get("tier", 4), -r.get("overall_score", 0))))
+    titled = len(groups) > 1
+
+    def target(tier):
+        if not titled:
+            return f"#{RACES_ID}", "See the races", 0
+        idx = next(i for i, (t, _) in enumerate(groups) if t == tier)
+        label = f"T{tier} {TIER_NAMES.get(tier, '')}".strip()
+        return f"#{tier_section_id(tier)}", f"See {label} \u00b7 \u00a7{idx + 1:02d}", idx
+
+    claims = []
+
+    def add(template, tier, *names):
+        """template takes the race names as {} slots."""
+        text = template.format(*names)
+        if _claim_ok(text, template.format(*[NAME_SLOT] * len(names))):
+            href, label, sec = target(tier)
+            claims.append(Claim(esc(text), href, label, sec))
+
+    first_tier = groups[0][0]
+    if scope:
+        add(f"{len(races)} races rated, {_braces(scope)}.", first_tier)
+
+    scored = [r for r in races if r.get("overall_score") and r.get("name")]
+    if scored:
+        top_score = max(r["overall_score"] for r in scored)
+        top = [r for g in groups for r in g[1]
+               if r in scored and r["overall_score"] == top_score]
+        lead = top[0]
+        tier = lead.get("tier", 4)
+        if len(top) == 1:
+            tier_label = f"T{tier} {TIER_NAMES.get(tier, '')}".strip()
+            add(f"{{}} rates highest at {top_score}/100 ({tier_label}).", tier, lead["name"])
+        elif len(top) == 2:
+            add(f"{{}} and {{}} share the highest rating, {top_score}/100.", tier,
+                top[0]["name"], top[1]["name"])
+        else:
+            add(f"{len(top)} races share the highest rating, {top_score}/100.", tier)
+
+    if titled:
+        parts = [f"{len(g)} T{t}" for t, g in groups]
+        split = ", ".join(parts[:-1]) + f" and {parts[-1]}"
+        add(f"By tier: {split}.", first_tier)
+
+    return claims if len(claims) >= MIN_CLAIMS else None
+
+
+def build_roundup_body(intro, stats_bar, sorted_races):
+    """The roundup body for the editorial shell (trusted, escaped HTML).
+
+    Intro + stats bar, then the race cards. With races in 2+ tiers, each tier
+    is its own gg-blog-section with an h2, so the shell's Contents lists the
+    tiers; a single-tier page (tier roundups) keeps one untitled grid, so it
+    has no h2 and the shell hides Contents on its own (MIN_CONTENTS_HEADINGS).
+    """
+    groups = group_races_by_tier(sorted_races)
+    parts = [
+        '<div class="gg-blog-section gg-roundup-intro">\n'
+        f"  <p>{esc(intro)}</p>\n"
+        f"  {stats_bar}\n"
+        "</div>"
+    ]
+    titled = len(groups) > 1
+    for tier, group in groups:
+        heading = (f'  <h2 id="{tier_section_id(tier)}">'
+                   f"T{tier} {esc(TIER_NAMES.get(tier, ''))}</h2>\n") if titled else ""
+        grid_id = "" if titled else f' id="{RACES_ID}"'
+        cards = "".join(build_race_card_html(r) for r in group)
+        parts.append(
+            f'<div class="gg-blog-section gg-roundup-group"{grid_id}>\n'
+            f'{heading}  <div class="gg-roundup-grid">{cards}\n  </div>\n'
+            "</div>"
+        )
+    parts.append(
+        '<div class="gg-blog-cta">\n'
+        f'  <a class="btn" href="{SITE_URL}/gravel-races/">Explore All Races '
+        '<span class="chev" aria-hidden="true">&rsaquo;</span></a>\n'
+        "</div>"
+    )
+    return "\n\n".join(parts)
 
 
 def generate_roundup_html(title, subtitle, intro, races, slug, category_tag,
-                          publish_date=None):
-    """Generate a complete roundup article HTML.
+                          publish_date=None, scope=""):
+    """Generate a complete roundup article HTML on the editorial shell.
 
     Args:
         title: Main heading (e.g. "March 2026 Gravel Calendar")
@@ -201,16 +377,15 @@ def generate_roundup_html(title, subtitle, intro, races, slug, category_tag,
         slug: Output slug (e.g. "roundup-march-2026")
         category_tag: Display tag (e.g. "Monthly Calendar")
         publish_date: date object for datePublished (defaults to today)
+        scope: plain-text span for the "In short" scope claim; "" skips it
     """
     stats = build_roundup_stats(races)
     stats_bar = build_stats_bar_html(stats)
 
     # Sort races by tier (ascending) then score (descending)
     sorted_races = sorted(races, key=lambda r: (r.get("tier", 4), -r.get("overall_score", 0)))
-    cards = "".join(build_race_card_html(r) for r in sorted_races)
 
     pub_date = publish_date or date.today()
-    today_str = pub_date.strftime("%B %d, %Y")
     og_url = f"{SITE_URL}/blog/{slug}/"
 
     jsonld = json.dumps({
@@ -230,244 +405,34 @@ def generate_roundup_html(title, subtitle, intro, races, slug, category_tag,
         },
     }, separators=(",", ":"))
 
-    return f"""<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="robots" content="{'index, follow' if slug in INDEXABLE_ROUNDUPS else 'noindex, follow'}">
-  <title>{esc(title)}: {esc(subtitle)} — Gravel God</title>
-  <meta name="description" content="{esc(title)}: {esc(subtitle)}. {stats['count']} races rated and ranked by Gravel God.">
-  <meta property="og:title" content="{esc(title)}: {esc(subtitle)} — Gravel God">
-  <meta property="og:description" content="{stats['count']} gravel races rated and ranked. Average score: {stats['avg_score']}/100.">
-  <meta property="og:url" content="{og_url}">
-  <link rel="canonical" href="{og_url}">
-  <script type="application/ld+json">{jsonld}</script>
-  <style>
-    :root {{
-      --gg-dark-brown: #3a2e25;
-      --gg-primary-brown: #59473c;
-      --gg-secondary-brown: #7d695d;
-      --gg-teal: #178079;
-      --gg-warm-paper: #f5efe6;
-      --gg-sand: #ede4d8;
-      --gg-white: #ffffff;
-    }}
-    * {{ margin: 0; padding: 0; box-sizing: border-box; border-radius: 0; }}
-    body {{
-      font-family: 'Source Serif 4', Georgia, serif;
-      background: var(--gg-warm-paper);
-      color: var(--gg-dark-brown);
-      line-height: 1.7;
-    }}
-    .gg-blog-container {{ max-width: 900px; margin: 0 auto; padding: 32px 24px; }}
-    .gg-blog-hero {{
-      background: var(--gg-primary-brown);
-      color: var(--gg-warm-paper);
-      padding: 48px 32px;
-      border: 3px solid var(--gg-dark-brown);
-      margin-bottom: 32px;
-    }}
-    .gg-blog-hero-meta {{
-      font-family: 'Sometype Mono', monospace;
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      opacity: 0.8;
-      margin-bottom: 12px;
-    }}
-    .gg-blog-hero h1 {{
-      font-size: 28px;
-      font-weight: 700;
-      line-height: 1.2;
-      margin-bottom: 8px;
-    }}
-    .gg-blog-hero-sub {{
-      font-family: 'Sometype Mono', monospace;
-      font-size: 13px;
-      opacity: 0.7;
-    }}
-    .gg-blog-section {{
-      margin-bottom: 32px;
-      padding: 24px;
-      border: 2px solid var(--gg-dark-brown);
-      background: var(--gg-white);
-    }}
-    .gg-blog-section h2 {{
-      font-family: 'Sometype Mono', monospace;
-      font-size: 14px;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      margin-bottom: 16px;
-      padding-bottom: 8px;
-      border-bottom: 2px solid var(--gg-dark-brown);
-    }}
-    .gg-blog-section p {{ margin-bottom: 12px; font-size: 15px; }}
-    .gg-roundup-stats-bar {{
-      display: flex;
-      flex-wrap: wrap;
-      gap: 16px;
-      margin-bottom: 32px;
-      padding: 16px;
-      border: 2px solid var(--gg-dark-brown);
-      background: var(--gg-white);
-    }}
-    .gg-roundup-stat {{
-      font-family: 'Sometype Mono', monospace;
-      font-size: 12px;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-    }}
-    .gg-roundup-grid {{
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-      gap: 20px;
-      margin-bottom: 32px;
-    }}
-    .gg-roundup-card {{
-      border: 2px solid var(--gg-dark-brown);
-      background: var(--gg-white);
-      padding: 20px;
-    }}
-    .gg-roundup-card-header {{
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 12px;
-    }}
-    .gg-roundup-tier {{
-      font-family: 'Sometype Mono', monospace;
-      font-size: 10px;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 1.5px;
-      color: var(--gg-warm-paper);
-      padding: 3px 8px;
-    }}
-    .gg-roundup-score {{
-      font-family: 'Sometype Mono', monospace;
-      font-size: 12px;
-      font-weight: 700;
-      color: var(--gg-secondary-brown);
-    }}
-    .gg-roundup-card h3 {{
-      font-size: 18px;
-      font-weight: 700;
-      margin-bottom: 4px;
-      line-height: 1.3;
-    }}
-    .gg-roundup-card h3 a {{
-      color: var(--gg-dark-brown);
-      text-decoration: none;
-    }}
-    .gg-roundup-card h3 a:hover {{ text-decoration: underline; }}
-    .gg-roundup-location {{
-      font-family: 'Sometype Mono', monospace;
-      font-size: 11px;
-      color: var(--gg-secondary-brown);
-      margin-bottom: 4px;
-    }}
-    .gg-roundup-vitals {{
-      font-family: 'Sometype Mono', monospace;
-      font-size: 11px;
-      color: var(--gg-secondary-brown);
-      margin-bottom: 8px;
-    }}
-    .gg-roundup-tagline {{
-      font-size: 14px;
-      color: var(--gg-secondary-brown);
-      margin-bottom: 8px;
-      line-height: 1.5;
-    }}
-    .gg-roundup-link {{
-      font-family: 'Sometype Mono', monospace;
-      font-size: 12px;
-      font-weight: 700;
-      color: var(--gg-teal);
-      text-decoration: none;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-    }}
-    .gg-roundup-links {{
-      display: flex;
-      gap: 16px;
-      margin-top: 4px;
-    }}
-    .gg-roundup-link:hover {{ text-decoration: underline; }}
-    .gg-roundup-link--kit {{
-      color: var(--gg-gold);
-    }}
-    .gg-blog-cta {{
-      text-align: center;
-      padding: 32px;
-      border: 3px solid var(--gg-dark-brown);
-      background: var(--gg-dark-brown);
-      margin-bottom: 32px;
-    }}
-    .gg-blog-cta a {{
-      display: inline-block;
-      padding: 12px 32px;
-      background: var(--gg-teal);
-      color: var(--gg-white);
-      font-family: 'Sometype Mono', monospace;
-      font-size: 13px;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      text-decoration: none;
-      border: 2px solid var(--gg-teal);
-    }}
-    .gg-blog-cta a:hover {{ background: var(--gg-primary-brown); border-color: var(--gg-primary-brown); }}
-    .gg-blog-footer {{
-      text-align: center;
-      font-family: 'Sometype Mono', monospace;
-      font-size: 11px;
-      color: var(--gg-secondary-brown);
-      padding: 24px;
-      text-transform: uppercase;
-      letter-spacing: 1.5px;
-    }}
-    .gg-blog-footer a {{ color: var(--gg-teal); text-decoration: none; }}
-    @media (max-width: 600px) {{
-      .gg-blog-hero {{ padding: 32px 20px; }}
-      .gg-blog-hero h1 {{ font-size: 22px; }}
-      .gg-roundup-grid {{ grid-template-columns: 1fr; }}
-    }}
-  </style>
-{get_ga4_head_snippet()}
-</head>
-<body>
-  <div class="gg-blog-container">
-    <div class="gg-blog-hero">
-      <div class="gg-blog-hero-meta">{esc(category_tag)} &middot; {stats['count']} Races</div>
-      <h1>{esc(title)}</h1>
-      <div class="gg-blog-hero-sub">{esc(subtitle)} &middot; Published {today_str}</div>
-    </div>
-
-    <div class="gg-blog-section">
-      <p>{esc(intro)}</p>
-    </div>
-
-    {stats_bar}
-
-    <div class="gg-roundup-grid">
-      {cards}
-    </div>
-
-    <div class="gg-blog-cta">
-      <a href="{SITE_URL}/gravel-races/">Explore All Races &rarr;</a>
-    </div>
-
-    <div class="gg-blog-footer">
-      <a href="{SITE_URL}">Gravel God</a> &middot; {today_str}
-    </div>
-  </div>
-{get_consent_banner_html()}
-{get_plan_intent_tracking_script()}
-</body>
-</html>"""
+    meta = ArticleMeta(
+        slug=slug,
+        canonical_url=og_url,
+        title=f"{title}: {subtitle} — Gravel God",
+        description=f"{title}: {subtitle}. {stats['count']} races rated and ranked by Gravel God.",
+        og_description=(f"{stats['count']} gravel races rated and ranked. "
+                        f"Average score: {stats['avg_score']}/100."),
+        headline=title,
+        dek=subtitle,
+        kicker=f"{category_tag} · {stats['count']} Races",
+        date_published=pub_date,
+        robots="index, follow" if slug in INDEXABLE_ROUNDUPS else "noindex, follow",
+        json_ld=(jsonld,),
+        # Roundups are scanned, not read through, and must never feed the
+        # article funnel (article_* events), indexable or not.
+        track_article_events=False,
+        show_read_time=False,
+        nav_active="races",
+    )
+    body = build_roundup_body(intro, stats_bar, sorted_races)
+    return render_editorial_page(
+        meta,
+        body,
+        in_short=build_in_short_claims(races, scope),
+        ladder=False,  # roundups never had a plans/coaching block
+        extra_css=ROUNDUP_CSS,
+        extra_body_end=get_plan_intent_tracking_script(),
+    )
 
 
 def generate_monthly_roundup(races, year, month, output_dir):
@@ -497,7 +462,7 @@ def generate_monthly_roundup(races, year, month, output_dir):
 
     html_content = generate_roundup_html(
         title, subtitle, intro, filtered, slug, "Monthly Calendar",
-        publish_date=pub_date,
+        publish_date=pub_date, scope=f"{month_name} {year}",
     )
 
     output_dir.mkdir(parents=True, exist_ok=True)
@@ -543,6 +508,8 @@ def generate_regional_roundup(races, region_key, season, year, output_dir):
     html_content = generate_roundup_html(
         title, subtitle, intro, filtered, slug, "Regional Roundup",
         publish_date=pub_date,
+        scope=(f"{region_display} region, {MONTH_NAMES[season_months[0]]} to "
+               f"{MONTH_NAMES[season_months[-1]]} {year}"),
     )
 
     output_dir.mkdir(parents=True, exist_ok=True)
@@ -579,7 +546,7 @@ def generate_tier_roundup(races, tier, year, output_dir):
 
     html_content = generate_roundup_html(
         title, subtitle, intro, filtered, slug, f"T{tier} {tier_name}",
-        publish_date=pub_date,
+        publish_date=pub_date, scope=f"T{tier} {tier_name}",
     )
 
     output_dir.mkdir(parents=True, exist_ok=True)

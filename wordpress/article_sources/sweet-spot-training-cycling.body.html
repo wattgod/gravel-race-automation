@@ -15,9 +15,7 @@
     <li><strong>Unitless</strong> &mdash; The Y-axis representing training efficiency did not have any real values or real-world data.</li>
     <li>According to Coggan, &ldquo;only ever intended as conveying a concept, rather than being an accurate depiction of the relation between intensity and training effect.&rdquo;<sup><a href="#ref-2">2</a></sup></li>
   </ul>
-  <div class="gg-article-img-inline" id="fig-graph">
-    <img src="img/unitless-graph.png" alt="Coggan standing in front of his unitless hypothetical graph" width="594" height="594" loading="lazy">
-  </div>
+  <!--GG:FIGURE coggan-->
   <p>This is where our boy Frank comes in &mdash; at some point around that time Frank saw the point on Coggan&rsquo;s unitless, hypothetical graph and called that point of maximum training efficiency for the intensity, the &ldquo;Sweet Spot,&rdquo; which I&rsquo;m pretty sure Coggan secretly found kind of annoying and weird. (If you listen to any podcasts with Coggan as I have, any time Sweet Spot comes up he seems uncomfortable and even a little dismissive of it, even if it&rsquo;s Frank who is interviewing him lmao.)</p>
   <p>Obviously, putting the hypothetical Sweet Spot concept into practice requires a little bit of precision that Coggan was incredibly reluctant to engage in given the extremely non-existent scientific roots of the concept, but finally, at others&rsquo; urging and Frank&rsquo;s enthusiastic help, he attached specific percentages of FTP to it &mdash; 88&ndash;94% &mdash; and called it a training zone, I guess after subjecting 12 unwitting cyclists to a steady diet of it for a few months, which is almost enough to pretend that it&rsquo;s legit.</p>
   <p>I have to pause us here, because this origin story is fucking hilarious, like arguably up there with Mark Zuckerberg coding up Facebook in his dormitory in an all-nighter after getting dumped by his girlfriend.</p>
@@ -82,7 +80,7 @@
   <p>Maybe this is hard to imagine, so let&rsquo;s take those assumptions and show how they work if you had an FTP of 250w.</p>
 
 <div class="slot slot-drift" data-slot="drift">
-<figure class="drift gg-fig" id="fig-drift" aria-labelledby="drift-t">
+<figure class="drift gg-fig" id="fig-drift" aria-labelledby="drift-t" data-draw-in>
   <p class="kick">Case study &middot; 3&times;20 min @ 235 W &middot; tested FTP 250 W</p>
   <h5 id="drift-t">The plan says sweet spot. Your threshold says otherwise.</h5>
   <p class="sub">Outline = the workout as planned (235 W, 94% of a 250 W test). Solid = the threshold you actually have, day and interval.</p>
@@ -93,10 +91,10 @@
   </div>
   <div class="plot" role="img" aria-label="Planned 235 watts against real threshold: fresh 235 W, 100 percent, threshold; average day, interval 1, 228 W, 103 percent, above threshold; interval 2, 220 W, 107 percent, VO2max; interval 3, 215 W, 109 percent, anaerobic.">
     <div class="cap" style="grid-column:1"></div>
-    <div class="cap" style="grid-column:2"><span class="pill thin">100%</span><span class="zone">Threshold</span></div>
-    <div class="cap" style="grid-column:3"><span class="pill thick">103%</span><span class="zone">Above threshold</span></div>
-    <div class="cap" style="grid-column:4"><span class="pill fill">107%</span><span class="zone">VO2max</span></div>
-    <div class="cap" style="grid-column:5"><span class="pill fill">109%</span><span class="zone">Anaerobic</span></div>
+    <div class="cap" style="grid-column:2;--draw-i:0"><span class="pill thin" data-draw="rise">100%</span><span class="zone" data-draw="rise">Threshold</span></div>
+    <div class="cap" style="grid-column:3;--draw-i:1"><span class="pill thick" data-draw="rise">103%</span><span class="zone" data-draw="rise">Above threshold</span></div>
+    <div class="cap" style="grid-column:4;--draw-i:2"><span class="pill fill" data-draw="rise">107%</span><span class="zone" data-draw="rise">VO2max</span></div>
+    <div class="cap" style="grid-column:5;--draw-i:3"><span class="pill fill" data-draw="rise">109%</span><span class="zone" data-draw="rise">Anaerobic</span></div>
     <!-- scale: 200 W at bottom .. 255 W at top; y% = (W-200)/55 -->
     <div class="yax" style="grid-column:1">
       <span style="bottom:90.9%">250<em> W</em></span>
@@ -104,26 +102,26 @@
       <span style="bottom:36.4%">220<em> W</em></span>
       <span style="bottom:0%">200<em> W</em></span>
     </div>
-    <div class="col" style="grid-column:2">
-      <div class="act" style="height:63.6%"><span class="v">235 W</span></div>
-      <div class="plan" style="height:63.6%"></div>
+    <div class="col" style="grid-column:2;--draw-i:0">
+      <div class="act" data-draw="grow" style="height:63.6%"><span class="v" data-draw="fade">235 W</span></div>
+      <div class="plan" data-draw="fade" style="height:63.6%"></div>
     </div>
-    <div class="col" style="grid-column:3">
-      <div class="act" style="height:50.9%"><span class="v">228 W</span></div>
-      <div class="over amb" style="bottom:50.9%;height:12.7%"><span class="v">+7 W</span></div>
-      <div class="plan" style="height:63.6%"></div>
+    <div class="col" style="grid-column:3;--draw-i:1">
+      <div class="act" data-draw="grow" style="height:50.9%"><span class="v" data-draw="fade">228 W</span></div>
+      <div class="over amb" data-draw="grow" style="bottom:50.9%;height:12.7%"><span class="v" data-draw="fade">+7 W</span></div>
+      <div class="plan" data-draw="fade" style="height:63.6%"></div>
     </div>
-    <div class="col" style="grid-column:4">
-      <div class="act" style="height:36.4%"><span class="v">220 W</span></div>
-      <div class="over red" style="bottom:36.4%;height:27.2%"><span class="v">+15 W</span></div>
-      <div class="plan" style="height:63.6%"></div>
+    <div class="col" style="grid-column:4;--draw-i:2">
+      <div class="act" data-draw="grow" style="height:36.4%"><span class="v" data-draw="fade">220 W</span></div>
+      <div class="over red" data-draw="grow" style="bottom:36.4%;height:27.2%"><span class="v" data-draw="fade">+15 W</span></div>
+      <div class="plan" data-draw="fade" style="height:63.6%"></div>
     </div>
-    <div class="col" style="grid-column:5">
-      <div class="act" style="height:27.3%"><span class="v">215 W</span></div>
-      <div class="over red" style="bottom:27.3%;height:36.3%"><span class="v">+20 W</span></div>
-      <div class="plan" style="height:63.6%"></div>
+    <div class="col" style="grid-column:5;--draw-i:3">
+      <div class="act" data-draw="grow" style="height:27.3%"><span class="v" data-draw="fade">215 W</span></div>
+      <div class="over red" data-draw="grow" style="bottom:27.3%;height:36.3%"><span class="v" data-draw="fade">+20 W</span></div>
+      <div class="plan" data-draw="fade" style="height:63.6%"></div>
     </div>
-    <div class="tested" style="grid-column:2/6;grid-row:2"><i style="bottom:90.9%"></i><span style="bottom:90.9%">TESTED FTP 250 W</span></div>
+    <div class="tested" data-draw="wipe" style="grid-column:2/6;grid-row:2"><i style="bottom:90.9%"></i><span style="bottom:90.9%">TESTED FTP 250 W</span></div>
     <div class="xl" style="grid-column:1"></div>
     <div class="xl" style="grid-column:2">Fresh<small>True FTP</small></div>
     <div class="xl" style="grid-column:3">Avg day<small>Int 1</small></div>
@@ -262,9 +260,7 @@
   <p>Sweet spot sits in no man&rsquo;s land. It&rsquo;s not easy enough to accumulate massive aerobic volume with minimal autonomic cost, and it&rsquo;s not hard enough to maximally trigger the intensity-dependent signaling that builds mitochondria. You get the worst of both worlds: the recovery cost of hard training with the adaptive stimulus of not-that-hard training.</p>
   <p>I won&rsquo;t name names, but I&rsquo;ve worked with plenty of athletes who spend almost every pedal stroke in this zone and after a brief honeymoon period of gains, they plateau hard and can&rsquo;t figure out why adding more volume at sweet spot isn&rsquo;t working anymore.</p>
 
-  <div class="gg-article-img-inline">
-    <img src="img/black-hole.jpg" alt="Cyclist being pulled into a Sweet Spot black hole vortex" width="1024" height="1024" loading="lazy">
-  </div>
+  <!--GG:FIGURE black-hole-->
   <h3>The Black Hole Metaphor is Perfect</h3>
   <p>Seiler called it the &ldquo;black hole&rdquo; of training intensity, and the physics metaphor is apt. Black holes trap things that get too close &mdash; their gravitational pull is so strong that nothing escapes. Sweet spot training traps athletes in the same way. It feels productive because it&rsquo;s hard, but not so hard you can&rsquo;t do it several times a week. It becomes the default mode.</p>
   <p>The problem is you&rsquo;re stuck there, accumulating fatigue that limits your ability to go truly easy (which builds your aerobic base) or truly hard (which drives VO2max and anaerobic capacity). You end up training in the middle all the time, which &mdash; if we&rsquo;re being honest about what the research shows &mdash; is the single best way to ensure you never reach your genetic ceiling.</p>
@@ -284,6 +280,7 @@
   <h2>Polarized Training is Just Better</h2>
   <p>Actually, that&rsquo;s just clickbait. If that upsets you, imagine how I feel after being on FasCat&rsquo;s newsletter for 10 years.</p>
   <p>Look &mdash; polarized training (roughly 75&ndash;90% below LT1, 15&ndash;20% above LT2) consistently outperforms threshold-heavy training in controlled studies. Neal et al. (2013) showed 8% peak power gains vs. 3% for threshold training.<sup><a href="#ref-9">9</a></sup> St&ouml;ggl and Sperlich (2014) found polarized improved VO2peak by 11.7% while threshold training showed improvement only in work economy.<sup><a href="#ref-10">10</a></sup> Esteve-Lanao et al. (2007) demonstrated that simply replacing easy training with moderate/sweet-spot-intensity training &mdash; at equal total load &mdash; produced worse outcomes.<sup><a href="#ref-11">11</a></sup> Rosenblat et al. (2019) found a moderate effect size favoring polarized over threshold for time-trial performance.<sup><a href="#ref-12">12</a></sup> The most recent 2025 network meta-analysis by Rosenblat, Seiler, and colleagues pooled 13 studies and 348 athletes. It didn&rsquo;t crown an overall winner: no intensity distribution was significantly better. But it did say who should do what. Competitive athletes may gain more from polarized training; recreational athletes from a pyramidal mix. Notice what isn&rsquo;t on that list: threshold-heavy.<sup><a href="#ref-13">13</a></sup></p>
+<!--GG:FIGURE studies-->
 <div class="slot slot-polarized" data-slot="polarized">
 <figure class="pol gg-fig" id="fig-polarized">
   <p class="kick">Where the time goes &middot; polarized</p>
@@ -317,9 +314,7 @@
 <section class="gg-blog-section">
   <h2>That Said, G-Spot is Better than Sweet Spot</h2>
   <p>God visited me in a dream months ago and told me that if I was able to carry out 40 days and 40 nights of sweet spot training he&rsquo;d reveal a truth to me.</p>
-  <div class="gg-article-img-inline">
-    <img src="img/g-spot-tablet.jpg" alt="Cyclist on a mountaintop gazing at a divine tablet revealing the G-Spot graph" width="1024" height="1024" loading="lazy">
-  </div>
+  <!--GG:FIGURE tablet-->
   <p>After completing all those scientifically superior workouts and testing my FTP (it went down 10 watts), He revealed to me a prophecy via a graph on a tablet that charted training efficiency vs. training intensity, and he labeled this unitless graph on a tablet and then leaned in close while pointing to the intersection and whispered, &ldquo;The G-Spot.&rdquo;</p>
   <p>The G-Spot! This, this is the intensity that Sweet Spot was always meant to be. It&rsquo;s 86&ndash;92% of FTP, unlike the fraudulent 88&ndash;94% Sweet Spot percentage, all but ensuring that every cyclist that overestimates their FTP is still comfortably under their FTP when they train at this intensity, which is what Sweet Spot always intended.</p>
   <p>It&rsquo;s a better name, because on the one hand it refers to you know what (Bailey), but when questioned about it I can just say it&rsquo;s short for the &ldquo;Gravel Spot,&rdquo; or the intensity at which most gravel racers race for most gravel events.</p>

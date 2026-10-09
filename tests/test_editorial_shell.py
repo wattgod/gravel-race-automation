@@ -587,6 +587,290 @@ class TestValidatorHooks:
         assert es.SCROLLSPY_JS_MARKER not in get_site_header_js()
 
 
+# ── Essay components (opt-in) ─────────────────────────────────
+
+FIG_BODY = """<section class="gg-blog-section">
+  <p>Intro paragraph.</p>
+</section>
+<section class="gg-blog-section">
+  <h2>First Thing</h2>
+  <p>One &mdash; anchor here.</p>
+  <ul><li>List anchor</li></ul>
+  <!--GG:FIGURE one-->
+</section>
+<section class="gg-blog-section">
+  <h2>Second</h2>
+  <p>Two.</p>
+</section>
+"""
+
+
+def _pic(**kw) -> es.Picture:
+    return es.Picture.from_stem("img/scene", "A scene", 1600, 1000, **kw)
+
+
+def _table(**kw) -> es.DataTable:
+    base = dict(
+        id="fig-t",
+        title="Studies",
+        columns=(
+            es.TableColumn("Study", card="title"),
+            es.TableColumn("Year", kind="num", card="aside"),
+            es.TableColumn("n", kind="num", card="fact"),
+            es.TableColumn("Result"),
+        ),
+        rows=(
+            es.TableRow((es.TableCell("B <sup><a href=\"#ref-2\">2</a></sup>"), es.TableCell("2019", sort=2019),
+                         es.TableCell("", sort=""), es.TableCell("b result")),
+                        links=(es.TableLink("https://x.test/2/", "abstract", "Abstract (ref 2)"),)),
+            es.TableRow((es.TableCell("A"), es.TableCell("2007", sort=2007), es.TableCell("12", sort=12, note_html="cyclists"),
+                         es.TableCell("a result")),
+                        links=(es.TableLink("https://x.test/1/", "abstract", "Abstract (ref 1)"),)),
+        ),
+        sort_by=1,
+        marker="one",
+    )
+    base.update(kw)
+    return es.DataTable(**base)
+
+
+class TestEssayComponentsOptIn:
+    def test_plain_pages_get_no_essay_css_or_js(self, page):
+        assert es.ESSAY_JS_MARKER not in page
+        assert "gg-draw-grow" not in page and "gg-essay-fig" not in page
+
+    def test_figure_page_gets_css_and_one_essay_script(self):
+        html = es.render_editorial_page(_meta(), FIG_BODY, figures=[_table()])
+        assert "gg-draw-grow" in _head(html)
+        assert sum(es.ESSAY_JS_MARKER in s for s in _body_scripts(html)) == 1
+        assert es.ESSAY_JS_MARKER not in es.SHELL_BODY_SCRIPT_MARKERS  # blog validator untouched
+
+    def test_still_figure_needs_css_but_no_js(self):
+        html = es.render_editorial_page(_meta(), FIG_BODY, figures=[es.EssayFigure(_pic(), marker="one")])
+        assert "gg-essay-fig" in _head(html)
+        assert es.ESSAY_JS_MARKER not in html
+
+    def test_draw_in_alone_opts_in(self):
+        body = FIG_BODY.replace("<!--GG:FIGURE one-->", '<figure data-draw-in><i data-draw="grow"></i></figure>')
+        html = es.render_editorial_page(_meta(), body)
+        assert es.ESSAY_JS_MARKER in html and "@keyframes gg-draw-grow" in html
+
+
+class TestPicture:
+    def test_from_stem_paths(self):
+        p = _pic(phone=(900, 760))
+        assert p.files() == ("img/scene.png", "img/scene@2x.png", "img/scene.webp", "img/scene@2x.webp",
+                             "img/scene-m.webp", "img/scene-m@2x.webp")
+
+    def test_render_order_and_attrs(self):
+        out = es.render_picture(_pic(phone=(900, 760)))
+        phone = out.index('media="(max-width: 640px)"')
+        webp = out.index('<source type="image/webp" srcset="img/scene.webp 1x, img/scene@2x.webp 2x">')
+        img = out.index("<img ")
+        assert phone < webp < img
+        assert 'srcset="img/scene-m.webp 1x, img/scene-m@2x.webp 2x" width="900" height="760"' in out
+        assert 'srcset="img/scene.png 1x, img/scene@2x.png 2x"' in out
+        assert 'width="1600" height="1000" loading="lazy" decoding="async"' in out
+        assert 'class="gg-pic gg-pic-art"' in out
+
+    def test_plain_picture(self):
+        out = es.render_picture(es.Picture("img/a.jpg", "A", 10, 20))
+        assert "<source" not in out and "srcset" not in out and 'class="gg-pic"' in out
+
+    def test_eager(self):
+        assert 'loading="eager" fetchpriority="high"' in es.render_picture(_pic(), eager=True)
+
+    def test_hero_from_picture(self):
+        html = es.render_editorial_page(_meta(hero=es.HeroImage.from_picture(_pic(phone=(1130, 635)))), BODY)
+        hero = _main(html).split('<figure class="hero-img">', 1)[1].split("</figure>", 1)[0]
+        assert hero.startswith('<picture class="gg-pic gg-pic-art">') and 'fetchpriority="high"' in hero
+        assert ".hero:not(.wide) .hero-img .gg-pic-art img{aspect-ratio:auto" in html
+
+    def test_plain_hero_unchanged(self):
+        html = es.render_editorial_page(_meta(hero=es.HeroImage("img/a.png", "A", 10, 20)), BODY)
+        assert '<figure class="hero-img"><img src="img/a.png" alt="A" width="10" height="20" loading="eager"></figure>' in html
+        assert "gg-essay-fig" not in html
+
+
+class TestEssayFigure:
+    def _video(self, **kw):
+        base = dict(sources=(("img/v.webm", "video/webm"), ("img/v.mp4", "video/mp4")), poster="img/v.png",
+                    width=1280, height=800, phone_aspect="900/760", phone_position="100% 0")
+        base.update(kw)
+        return es.PlayOnceVideo(**base)
+
+    def test_still_with_caption(self):
+        out = es.render_essay_figure(es.EssayFigure(_pic(), caption_html="A <em>cap</em>", id="fig-x"))
+        assert out.startswith('<figure class="gg-essay-fig" id="fig-x">')
+        assert "<figcaption>A <em>cap</em></figcaption>" in out and "<video" not in out
+
+    def test_column_width(self):
+        assert 'class="gg-essay-fig is-column"' in es.render_essay_figure(es.EssayFigure(_pic(), width="column"))
+        with pytest.raises(ValueError):
+            es.EssayFigure(_pic(), width="huge")
+
+    def test_play_once_video(self):
+        out = es.render_essay_figure(es.EssayFigure(_pic(), video=self._video()))
+        v = re.search(r"<video[^>]*>", out).group(0)
+        for attr in ("muted", "playsinline", 'preload="none"', 'poster="img/v.png"', 'aria-label="A scene"'):
+            assert attr in v, attr
+        assert "autoplay" not in v and "loop" not in v and "controls" not in v
+        assert 'style="--ph-ar:900/760;--ph-pos:100% 0"' in v
+        assert out.index('src="img/v.webm"') < out.index('src="img/v.mp4"')
+        assert re.search(r'<button class="gg-replay" type="button" aria-label="Replay animation" hidden>', out)
+        assert "data-play-once" in out and '<picture class="gg-pic">' in out  # the still
+
+    def test_reduced_motion_shows_the_still(self):
+        css = es.ESSAY_CSS.split("@media (prefers-reduced-motion:reduce){", 1)[1].split("\n}", 1)[0]
+        assert ".gg-media.has-video video,.gg-replay{display:none}" in css
+        assert ".gg-media.has-video .gg-pic{display:block}" in css
+
+    def test_js_plays_once_at_half_visible_and_holds(self):
+        js = es.ESSAY_JS
+        assert "v.loop=false" in js and "intersectionRatio>=0.5" in js and "b.hidden=false" in js
+
+    @pytest.mark.parametrize("bad", [dict(sources=()), dict(phone_aspect="tall"), dict(phone_position="0;x:y")])
+    def test_video_validation(self, bad):
+        with pytest.raises(ValueError):
+            self._video(**bad)
+
+
+class TestFigurePlacement:
+    def test_marker(self):
+        html = es.render_editorial_page(_meta(), FIG_BODY, figures=[es.EssayFigure(_pic(), marker="one")])
+        main = _main(html)
+        assert "GG:FIGURE" not in main
+        assert main.index("List anchor") < main.index("gg-essay-fig") < main.index('<h2 id="second"')
+
+    def test_after_paragraph_and_list(self):
+        body = FIG_BODY.replace("<!--GG:FIGURE one-->", "")
+        out = es.place_figures(body, [es.EssayFigure(_pic(), id="f1", after="anchor here."),
+                                      es.EssayFigure(_pic(), id="f2", after="List anchor")])
+        assert out.index("anchor here.</p>") < out.index('id="f1"') < out.index("<ul>")
+        assert out.index("</ul>") < out.index('id="f2"')
+
+    @pytest.mark.parametrize("fig", [
+        es.EssayFigure(_pic(), marker="nope"),
+        es.EssayFigure(_pic(), after="not in the body"),
+        es.EssayFigure(_pic(), after="<p>"),  # more than once
+        es.EssayFigure(_pic()),  # no anchor
+        es.EssayFigure(_pic(), marker="one", after="Two."),  # both
+    ])
+    def test_bad_anchors_raise(self, fig):
+        with pytest.raises(ValueError):
+            es.place_figures(FIG_BODY, [fig, es.EssayFigure(_pic(), marker="one")] if fig.marker != "one" else [fig])
+
+    def test_unclaimed_marker_raises(self):
+        with pytest.raises(ValueError, match="without a figure"):
+            es.render_editorial_page(_meta(), FIG_BODY, figures=[es.EssayFigure(_pic(), after="Two.")])
+
+    def test_reading_time_ignores_figures(self):
+        plain = es.render_editorial_page(_meta(), FIG_BODY.replace("<!--GG:FIGURE one-->", ""))
+        with_fig = es.render_editorial_page(_meta(), FIG_BODY, figures=[_table()])
+        by = lambda h: re.search(r'<p class="by">(.*?)</p>', h).group(1)  # noqa: E731
+        assert by(plain) == by(with_fig)
+
+
+class TestDataTable:
+    def test_default_sort_and_aria(self):
+        out = es.render_data_table(_table())
+        assert '<th scope="col" data-type="num" aria-sort="ascending"><button type="button">Year' in out
+        assert out.count("aria-sort") == 1
+        tbody = out.split("<tbody>", 1)[1]
+        assert tbody.index("a result") < tbody.index("b result")  # 2007 before 2019
+
+    def test_blank_cells_are_dashes_and_sort_last(self):
+        out = es.render_data_table(_table())
+        assert '<td class="num" data-v=""><span class="na">&mdash;</span></td>' in out
+        assert "if(!x||!y) return" in es.ESSAY_JS
+
+    def test_sort_values_strip_citations_and_entities(self):
+        col = es.TableColumn("Study")
+        assert es._sort_value(col, es.TableCell('St&ouml;ggl &amp; S. <sup><a href="#r">10</a></sup>')) == "Stöggl & S."
+
+    def test_cards_and_per_row_links(self):
+        out = es.render_data_table(_table())
+        cards = out.split('<ol class="gg-cards"', 1)[1]
+        assert cards.count('<li class="gg-card">') == 2
+        assert '<span class="gg-card-aside">2007</span>' in cards
+        assert "<dt>n</dt><dd>12<span class=\"who\">cyclists</span></dd>" in cards
+        for part in (out.split("<tbody>", 1)[1].split("</tbody>", 1)[0], cards):
+            assert part.count('class="gg-cite"') == 2
+            assert 'href="https://x.test/1/" target="_blank" rel="noopener" aria-label="Abstract (ref 1)">abstract</a>' in part
+
+    def test_live_region_and_phone_css(self):
+        out = es.render_data_table(_table())
+        assert 'aria-live="polite" data-sort-status' in out
+        phone = es.ESSAY_CSS.split("/* sortable table", 1)[1].split("/* chart draw-in", 1)[0]
+        assert ".gg-table-wrap,.gg-sort-hint{display:none}" in phone and ".gg-table .gg-cards{display:block" in phone
+
+    @pytest.mark.parametrize("bad", [
+        dict(rows=(es.TableRow((es.TableCell("x"),)),)),
+        dict(sort_by=9),
+        dict(columns=(es.TableColumn("a"), es.TableColumn("b"), es.TableColumn("c"), es.TableColumn("d"))),
+        dict(id=""),
+    ])
+    def test_validation(self, bad):
+        with pytest.raises(ValueError):
+            _table(**bad)
+
+
+class TestSvgFigure:
+    SVG = '<svg viewBox="0 0 10 10"><title>T</title></svg>'
+
+    def test_with_phone_overview(self):
+        out = es.render_svg_figure(es.SvgFigure(id="fig-g", svg=self.SVG, phone_svg=self.SVG, title="Graph",
+                                                kicker="Evidence", caption_html="Cap", detail_min_width=700))
+        assert out.startswith('<figure class="gg-svgfig gg-fig has-mini" id="fig-g" aria-labelledby="fig-g-h">')
+        assert 'aria-expanded="false" aria-controls="fig-g-detail"' in out
+        assert '<div class="gg-svg-detail" id="fig-g-detail" tabindex="0" role="region"' in out
+        assert "--svg-min:700px" in out and "<figcaption>Cap</figcaption>" in out
+
+    def test_without_overview_no_toggle_no_js(self):
+        fig = es.SvgFigure(id="fig-g", svg=self.SVG, marker="one")
+        assert "gg-svg-zoom" not in es.render_svg_figure(fig)
+        assert es.ESSAY_JS_MARKER not in es.render_editorial_page(_meta(), FIG_BODY, figures=[fig])
+
+    def test_validation(self):
+        with pytest.raises(ValueError):
+            es.SvgFigure(id="", svg=self.SVG)
+        with pytest.raises(ValueError):
+            es.SvgFigure(id="x", svg="<div></div>")
+
+
+class TestDrawIn:
+    def test_complete_at_rest(self):
+        # Only .is-armed (added by JS while off-screen) hides anything.
+        hiding = re.findall(r"([^{}]*)\{(?:transform:scale[XY]\(0\)|opacity:0|clip-path:inset\(0 100% 0 0\))\}", es.ESSAY_CSS)
+        hiding = [sel for sel in hiding if sel.strip() not in ("from", "to")]  # keyframes
+        assert hiding and all(".is-armed" in sel for sel in hiding)
+
+    def test_plays_once_and_respects_reduced_motion(self):
+        js = es.ESSAY_JS
+        assert "intersectionRatio>=0.4" in js and "io.disconnect()" in js and "RM.matches" in js
+        assert "[data-draw-in] [data-draw]{animation:none!important" in es.ESSAY_CSS
+
+
+class TestInShortOnPhone:
+    CLAIMS = (es.Claim("A claim.", "#first-thing", "See it", 0),)
+
+    def test_after_intro(self):
+        html = es.render_editorial_page(_meta(), BODY, in_short=self.CLAIMS, in_short_on_phone="after_intro")
+        main = _main(html)
+        assert main.count('class="inshort"') == 2
+        assert main.index('class="slot slot-summary has-phone-copy"') < main.index("Intro paragraph")
+        assert main.index("Intro paragraph") < main.index('class="slot slot-summary-m"') < main.index("<h2")
+        assert ".slot-summary.has-phone-copy{display:none}" in html
+
+    def test_default_is_unchanged(self):
+        html = es.render_editorial_page(_meta(), BODY, in_short=self.CLAIMS)
+        assert "slot-summary-m" not in _main(html) and "has-phone-copy" not in html
+
+    def test_validated(self):
+        with pytest.raises(ValueError):
+            es.render_editorial_page(_meta(), BODY, in_short=self.CLAIMS, in_short_on_phone="bottom")
+
+
 # ── The Sweet Spot article ────────────────────────────────────
 
 
@@ -633,6 +917,47 @@ class TestSweetSpotArticle:
         html = SWEET_SPOT_INDEX.read_text(encoding="utf-8")
         rail = html.split('<nav class="rail"', 1)[1].split("</nav>", 1)[0]
         assert rail.count("<li>") == 8
+
+    def test_every_figure_asset_exists(self):
+        paths = list(sweet_spot.SCENE_TOMBSTONE.files())
+        for fig in sweet_spot.FIGURES:
+            if isinstance(fig, sweet_spot.EssayFigure):
+                paths += fig.picture.files()
+                if fig.video:
+                    paths += [s for s, _ in fig.video.sources] + [fig.video.poster]
+        assert len(paths) == 21
+        for p in paths:
+            assert (sweet_spot.IMG_DIR.parent / p).is_file(), p
+
+    def test_scenes_replace_the_old_illustrations(self):
+        main = _main(SWEET_SPOT_INDEX.read_text(encoding="utf-8"))
+        for old in ("black-hole.jpg", "g-spot-tablet.jpg", "sweet-spot-rip.png", 'src="img/unitless-graph.png"'):
+            assert old not in main, old
+        assert main.count("<picture") == 3 and main.count("<video") == 1
+        assert '<figure class="gg-svgfig gg-fig has-mini" id="fig-graph"' in main
+        assert "data-draw-in" in main.split('id="fig-drift"', 1)[1].split(">", 1)[0]
+
+    def test_studies_table(self):
+        main = _main(SWEET_SPOT_INDEX.read_text(encoding="utf-8"))
+        table = main.split('id="fig-studies"', 1)[1].split("</figure>", 1)[0]
+        tbody = table.split("<tbody>", 1)[1].split("</tbody>", 1)[0]
+        years = re.findall(r'<td class="num" data-v="(\d{4})">', tbody)
+        assert years == ["2007", "2013", "2014", "2019", "2025"]
+        assert tbody.count("pubmed.ncbi.nlm.nih.gov") == 5 and table.count('<li class="gg-card">') == 5
+        for ref in range(9, 14):
+            assert f'href="#ref-{ref}"' in tbody
+        # The studies sit in "Polarized Training is Just Better", before the polarized figure.
+        assert main.index("Polarized Training is Just Better") < main.index('id="fig-studies"') < main.index('id="fig-polarized"')
+
+    def test_body_copy_is_the_source_file(self):
+        html = SWEET_SPOT_INDEX.read_text(encoding="utf-8")
+        body = sweet_spot.BODY_PATH.read_text(encoding="utf-8")
+        for para in re.findall(r"<(p|li|h2|h3)>(.*?)</\1>", body, re.S):
+            assert para[1] in html
+
+    def test_in_short_after_intro_on_phones(self):
+        main = _main(SWEET_SPOT_INDEX.read_text(encoding="utf-8"))
+        assert main.index("time machine") < main.index("slot-summary-m") < main.index('<h2 id="what-is-the-sweet-spot')
 
 
 # ── Your Training App Doesn't Know Your Race Exists ───────────

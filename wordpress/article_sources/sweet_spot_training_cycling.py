@@ -2,7 +2,17 @@
 
 The article text is the live page's, verbatim (snapshot #438), in
 sweet-spot-training-cycling.body.html; this file adds the page metadata, the
-"In short" claims and the three figures' chart CSS/JS.
+"In short" claims, the chart CSS/JS for the three hand-built figures (drift,
+recovery, polarized) and the shell figures placed at the body's
+<!--GG:FIGURE name--> markers: the three Gravel God scenes, the Coggan
+reconstruction and the studies table (FIGURES below). To add a figure, add
+one line to FIGURES, e.g.
+
+    EssayFigure(Picture.from_stem("img/meme-x", "alt text", 1200, 900), after="lmao.)</p>"),
+
+(`after` is an exact snippet of the body file; the figure goes after the
+paragraph or list that holds it.) Image files live in
+wordpress/articles/sweet-spot-training-cycling/img/.
 
 Regenerate after editing the body, the shell or data/pricing.json:
 
@@ -24,8 +34,17 @@ if str(WORDPRESS) not in sys.path:
 from editorial_shell import (  # noqa: E402
     ArticleMeta,
     Claim,
+    DataTable,
+    EssayFigure,
     HeroImage,
     OgImage,
+    Picture,
+    PlayOnceVideo,
+    SvgFigure,
+    TableCell,
+    TableColumn,
+    TableLink,
+    TableRow,
     render_editorial_page,
 )
 
@@ -33,6 +52,36 @@ SLUG = "sweet-spot-training-cycling"
 URL = f"https://gravelgodcycling.com/articles/{SLUG}/"
 BODY_PATH = HERE / f"{SLUG}.body.html"
 OUTPUT_PATH = WORDPRESS / "articles" / SLUG / "index.html"
+IMG_DIR = OUTPUT_PATH.parent / "img"
+
+# ── Gravel God scenes (prototype 2026-10-09; Matt approved) ──
+SCENE_TOMBSTONE = Picture.from_stem(
+    "img/scene-tombstone",
+    "Cartoon Gravel God stands with his head bowed beside his gravel bike at a weathered, cracked headstone "
+    "engraved \"SWEET SPOT, 2004 – 2026\", with wilted flowers on the grave and a low desert sun behind.",
+    1600, 1000, phone=(1130, 635),
+)
+SCENE_TABLET = Picture.from_stem(
+    "img/scene-tablet",
+    "Cartoon Gravel God stands on a rocky outcrop in the desert, arms straight up like Moses, holding a stone "
+    "tablet engraved \"86–92%\" while rays of light fan out behind it.",
+    1600, 1000, phone=(660, 825),
+)
+SCENE_BLACK_HOLE = Picture.from_stem(
+    "img/scene-black-hole",
+    "Cartoon Gravel God, a mustachioed rider in a white tee and denim shorts, pedals a black gravel bike down a "
+    "desert road that lifts off the ground and spirals into a swirling black hole in the sky; he glances back "
+    "over his shoulder, eyebrows raised in alarm.",
+    1600, 1000, phone=(900, 760),
+)
+BLACK_HOLE_CLIP = PlayOnceVideo(
+    sources=(("img/scene-black-hole.webm", "video/webm"), ("img/scene-black-hole.mp4", "video/mp4")),
+    poster="img/scene-black-hole-poster.png",
+    width=1280,
+    height=800,
+    phone_aspect="900/760",
+    phone_position="100% 0",
+)
 
 ARTICLE_LD = {
     "@context": "https://schema.org",
@@ -94,12 +143,7 @@ META = ArticleMeta(
     kicker="Training · Science · Opinion",
     dek="It’s made up, it makes you slower, science hates it, the name is weird, and its marketing makes us all dumber",
     date_published=date(2026, 3, 26),
-    hero=HeroImage(
-        src="img/sweet-spot-rip.png",
-        alt="Cyclist standing on a gravestone reading Sweet Spot 2004-2026",
-        width=734,
-        height=894,
-    ),
+    hero=HeroImage.from_picture(SCENE_TOMBSTONE),
     json_ld=(ARTICLE_LD, FAQ_LD),
 )
 
@@ -118,6 +162,12 @@ IN_SHORT = (
 
 # Chart internals for the three figures (drift, recovery, polarized).
 CHART_CSS = """
+.drift .col .act{--draw-at:150ms;--draw-dur:.75s}
+.drift .col .over{--draw-at:800ms;--draw-dur:.5s}
+.drift .col .v{--draw-at:1150ms;--draw-dur:.3s}
+.drift .col .plan{--draw-i:0;--draw-dur:.35s}
+.drift .tested{--draw-at:500ms}
+.drift .cap>*{--draw-at:1250ms;--draw-dur:.4s}
 .slot-drift{margin:34px 0 26px}
 .drift h5{font:700 30px/1.15 var(--serif);letter-spacing:-.01em;margin:0 0 6px;color:var(--ink)}
 .drift .sub{font:500 15px/1.5 var(--mono);color:var(--ink2);margin:0 0 20px}
@@ -239,12 +289,240 @@ CHART_JS = """<script>
 </script>"""
 
 
+# ── Coggan's diagram, redrawn (replaces the AI cartoon unitless-graph.png) ──
+# Curves traced by eye from the diagram Hunter Allen credits to Coggan
+# (hunterallenpowerblog.com, "Power Training Zones 101", 2015): x = % of FTP
+# (40-150), y = arbitrary units (0-100).
+COGGAN_EFFECT = ((41, 0), (55, 31), (70, 61), (80, 77), (90, 85.5), (95, 87.5), (100, 86), (110, 77),
+                 (120, 61), (130, 41), (140, 19), (150, 0))
+COGGAN_VOLUME = ((40, 97.5), (55, 96), (70, 92.5), (80, 88.5), (90, 84), (100, 77.5), (110, 66), (120, 50.5),
+                 (130, 27), (138.5, 0))
+COGGAN_STRAIN = ((40, 2.5), (55, 4.5), (70, 7.5), (80, 11), (90, 16), (100, 23), (110, 35), (120, 50), (130, 73),
+                 (136, 90), (138.8, 100))
+COGGAN_BANDS = (("L1", 40, 55, "#7d7aa8"), ("L2", 55, 75, "#4a78b0"), ("L3", 75, 90, "#3f9a5a"),
+                ("L4", 90, 105, "#d8b62c"), ("L5", 105, 120, "#d58a3a"), ("L6", 120, 150, "#c62828"))
+_INK, _INK2 = "#2a211b", "#59473c"
+
+
+def _catmull(pts) -> str:
+    """Catmull-Rom through the points, as cubic Béziers."""
+    d = f"M{pts[0][0]:.1f},{pts[0][1]:.1f}"
+    for i in range(len(pts) - 1):
+        p0 = pts[i - 1] if i else pts[i]
+        p1, p2 = pts[i], pts[i + 1]
+        p3 = pts[i + 2] if i + 2 < len(pts) else p2
+        c1 = (p1[0] + (p2[0] - p0[0]) / 6, p1[1] + (p2[1] - p0[1]) / 6)
+        c2 = (p2[0] - (p3[0] - p1[0]) / 6, p2[1] - (p3[1] - p1[1]) / 6)
+        d += f" C{c1[0]:.1f},{c1[1]:.1f} {c2[0]:.1f},{c2[1]:.1f} {p2[0]:.1f},{p2[1]:.1f}"
+    return d
+
+
+def coggan_svg() -> str:
+    """The detailed diagram (720px wide on phones, panned sideways)."""
+    L, T, PW, PH = 62, 34, 600, 330
+
+    def X(v):
+        return L + (v - 40) / 110 * PW
+
+    def Y(v):
+        return T + PH * (1 - v / 100)
+
+    def P(pts):
+        return _catmull([(X(a), Y(b)) for a, b in pts])
+
+    g = [f'<svg viewBox="0 0 {L + PW + 18} {T + PH + 62}" role="img" aria-labelledby="cg-t cg-d" xmlns="http://www.w3.org/2000/svg">',
+         "<title id=\"cg-t\">Reconstruction of Coggan's original diagram</title>",
+         '<desc id="cg-d">Arbitrary units (0 to 100) against exercise intensity, 40 to 150 percent of functional threshold power, '
+         "over training levels L1 to L6. Training effect (increase in threshold power) is an inverted U peaking near 95 percent. "
+         "Maximum duration (volume) falls from about 97 at 40 percent to zero near 138 percent. Physiological strain rises slowly, "
+         "then steeply, crossing maximum duration at 120 percent and 50 units. A dashed ellipse around roughly 76 to 94 percent, "
+         'high on the training-effect curve, is labelled "Sweet Spot Training".</desc>',
+         f'<defs><clipPath id="cg-clip"><rect x="{L}" y="{T}" width="{PW}" height="{PH}"/></clipPath>'
+         '<marker id="cg-ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">'
+         f'<path d="M0,0L10,5L0,10z" fill="{_INK}"/></marker></defs>']
+    for lab, a, b, c in COGGAN_BANDS:
+        g.append(f'<rect x="{X(a):.1f}" y="{T}" width="{X(b) - X(a):.1f}" height="{PH}" fill="{c}" fill-opacity=".22"/>')
+        g.append(f'<text x="{(X(a) + X(b)) / 2:.1f}" y="{T + 20}" text-anchor="middle" font-size="15" font-weight="700" fill="{_INK}">{lab}</text>')
+    for v in range(0, 101, 10):
+        g.append(f'<line x1="{L - 5}" x2="{L}" y1="{Y(v):.1f}" y2="{Y(v):.1f}" stroke="{_INK}" stroke-width="1.5"/>'
+                 f'<text x="{L - 9}" y="{Y(v) + 4.5:.1f}" text-anchor="end" font-size="13" fill="{_INK2}">{v}</text>')
+    for v in range(40, 151, 10):
+        g.append(f'<line x1="{X(v):.1f}" x2="{X(v):.1f}" y1="{T + PH}" y2="{T + PH + 5}" stroke="{_INK}" stroke-width="1.5"/>'
+                 f'<text x="{X(v):.1f}" y="{T + PH + 21}" text-anchor="middle" font-size="13" fill="{_INK2}">{v}</text>')
+    g.append(f'<path d="M{L},{T}V{T + PH}H{L + PW}" fill="none" stroke="{_INK}" stroke-width="2"/>')
+    g.append(f'<text x="{L + PW / 2}" y="{T + PH + 48}" text-anchor="middle" font-size="14" font-weight="700" fill="{_INK}">'
+             "Exercise intensity (% of functional threshold power)</text>")
+    g.append(f'<text transform="translate(16 {T + PH / 2}) rotate(-90)" text-anchor="middle" font-size="14" font-weight="700" fill="{_INK}">Arbitrary units</text>')
+    g.append('<g clip-path="url(#cg-clip)" fill="none" stroke-linecap="round">'
+             f'<path d="{P(COGGAN_VOLUME)}" stroke="{_INK}" stroke-width="2"/>'
+             f'<path d="{P(COGGAN_STRAIN)}" stroke="{_INK}" stroke-width="2"/>'
+             f'<path d="{P(COGGAN_EFFECT)}" stroke="#1a1410" stroke-width="4"/></g>')
+    g.append(f'<ellipse cx="{X(85.2):.1f}" cy="{Y(78.9):.1f}" rx="{X(99.8) - X(85.2):.1f}" ry="{Y(64.9) - Y(78.9):.1f}" '
+             f'fill="none" stroke="{_INK}" stroke-width="2" stroke-dasharray="7 5"/>')
+    g.append(f'<text x="{X(86):.1f}" y="{Y(59.5):.1f}" text-anchor="middle" font-size="12" font-weight="700" fill="{_INK}">"Sweet Spot Training"</text>')
+
+    def note(lines, at, frm, to):
+        out = "".join(f'<text x="{X(at[0]):.1f}" y="{Y(at[1]) + 17 * k:.1f}" text-anchor="middle" font-size="12.5" '
+                      f'font-weight="700" fill="{_INK}">{t}</text>' for k, t in enumerate(lines))
+        return out + (f'<line x1="{X(frm[0]):.1f}" y1="{Y(frm[1]):.1f}" x2="{X(to[0]):.1f}" y2="{Y(to[1]):.1f}" '
+                      f'stroke="{_INK}" stroke-width="1.6" marker-end="url(#cg-ar)"/>')
+
+    g.append(note(["Training effect", "(increase in threshold power)"], (60.5, 84), (62.3, 64), (66.7, 57.5)))
+    g.append(note(["Physiological strain"], (95.4, 49.5), (98.6, 44), (104, 30.5)))
+    g.append(note(["Maximum duration (volume)"], (114.9, 12.5), (117.8, 15.5), (128.2, 27.4)))
+    g.append("</svg>")
+    return "".join(g)
+
+
+def coggan_phone_svg() -> str:
+    """Phone overview: the whole diagram in 330 user units, labels 12.5."""
+    W, L, T, PW, PH = 330, 36, 24, 284, 206
+    fs = 12.5
+    halo = 'paint-order="stroke" stroke="#faf6ef" stroke-width="4" stroke-linejoin="round"'
+
+    def X(v):
+        return L + (v - 40) / 110 * PW
+
+    def Y(v):
+        return T + PH * (1 - v / 100)
+
+    def P(pts):
+        return _catmull([(X(a), Y(b)) for a, b in pts])
+
+    m = [f'<svg viewBox="0 0 {W} {T + PH + 46}" role="img" aria-labelledby="cgm-t cgm-d" xmlns="http://www.w3.org/2000/svg">',
+         "<title id=\"cgm-t\">Reconstruction of Coggan's original diagram, overview</title>",
+         '<desc id="cgm-d">Same diagram as the detailed version: training effect is an inverted U peaking near 95 percent of FTP; '
+         "maximum duration falls from about 97 to zero near 138 percent; physiological strain rises slowly then steeply; "
+         "a dashed ellipse around roughly 76 to 94 percent is labelled Sweet Spot Training.</desc>",
+         f'<defs><clipPath id="cgm-clip"><rect x="{L}" y="{T}" width="{PW}" height="{PH}"/></clipPath>'
+         '<marker id="cgm-ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">'
+         f'<path d="M0,0L10,5L0,10z" fill="{_INK}"/></marker></defs>']
+    for lab, a, b, c in COGGAN_BANDS:
+        m.append(f'<rect x="{X(a):.1f}" y="{T}" width="{X(b) - X(a):.1f}" height="{PH}" fill="{c}" fill-opacity=".22"/>')
+        m.append(f'<text x="{(X(a) + X(b)) / 2:.1f}" y="{T + 16}" text-anchor="middle" font-size="{fs}" font-weight="700" fill="{_INK}">{lab}</text>')
+    for v in range(0, 101, 25):
+        m.append(f'<line x1="{L - 4}" x2="{L}" y1="{Y(v):.1f}" y2="{Y(v):.1f}" stroke="{_INK}" stroke-width="1.5"/>'
+                 f'<text x="{L - 6}" y="{Y(v) + 4.3:.1f}" text-anchor="end" font-size="{fs}" fill="{_INK2}">{v}</text>')
+    for v in range(40, 141, 20):
+        m.append(f'<line x1="{X(v):.1f}" x2="{X(v):.1f}" y1="{T + PH}" y2="{T + PH + 4}" stroke="{_INK}" stroke-width="1.5"/>'
+                 f'<text x="{X(v):.1f}" y="{T + PH + 18}" text-anchor="middle" font-size="{fs}" fill="{_INK2}">{v}</text>')
+    m.append(f'<path d="M{L},{T}V{T + PH}H{L + PW}" fill="none" stroke="{_INK}" stroke-width="2"/>')
+    m.append(f'<text x="{L + PW / 2}" y="{T + PH + 40}" text-anchor="middle" font-size="{fs}" font-weight="700" fill="{_INK}">Intensity (% of FTP)</text>')
+    m.append(f'<text transform="translate(11 {T + PH / 2}) rotate(-90)" text-anchor="middle" font-size="{fs}" font-weight="700" fill="{_INK}">Arbitrary units</text>')
+    m.append(f'<g clip-path="url(#cgm-clip)" fill="none" stroke-linecap="round"><path d="{P(COGGAN_VOLUME)}" stroke="{_INK}" stroke-width="1.6"/>'
+             f'<path d="{P(COGGAN_STRAIN)}" stroke="{_INK}" stroke-width="1.6"/><path d="{P(COGGAN_EFFECT)}" stroke="#1a1410" stroke-width="3.2"/></g>')
+    m.append(f'<ellipse cx="{X(85.2):.1f}" cy="{Y(78.9):.1f}" rx="{X(99.8) - X(85.2):.1f}" ry="{Y(64.9) - Y(78.9):.1f}" '
+             f'fill="none" stroke="{_INK}" stroke-width="1.6" stroke-dasharray="5 4"/>')
+
+    def lab(t, at, dy=0):
+        return (f'<text x="{X(at[0]):.1f}" y="{Y(at[1]) + dy:.1f}" text-anchor="middle" font-size="{fs}" '
+                f'font-weight="700" fill="{_INK}" {halo}>{t}</text>')
+
+    def arrow(frm, to):
+        return (f'<line x1="{X(frm[0]):.1f}" y1="{Y(frm[1]):.1f}" x2="{X(to[0]):.1f}" y2="{Y(to[1]):.1f}" '
+                f'stroke="{_INK}" stroke-width="1.4" marker-end="url(#cgm-ar)"/>')
+
+    m.append(lab("Sweet Spot", (85.5, 57)) + lab("Training", (85.5, 57), 15))
+    m.append(lab("Training", (53, 76)) + lab("effect", (53, 76), 15) + arrow((55.5, 63), (61.5, 54.5)))
+    m.append(lab("Strain", (109, 47)) + arrow((109.5, 40.5), (114, 33)))
+    m.append(lab("Volume", (113, 14)) + arrow((118, 17.5), (128.3, 27)))
+    m.append("</svg>")
+    return "".join(m)
+
+
+COGGAN_FIGURE = SvgFigure(
+    id="fig-graph",
+    kicker="Evidence · reconstruction",
+    title="Reconstruction of Coggan’s original diagram",
+    svg=coggan_svg(),
+    phone_svg=coggan_phone_svg(),
+    phone_note_html=("Training effect = increase in threshold power &middot; Strain = physiological strain &middot; "
+                     "Volume = maximum duration. Labels shortened from the original."),
+    caption_html=(
+        "Redrawn from the diagram Hunter Allen credits to Andy Coggan "
+        '(<a href="https://www.hunterallenpowerblog.com/2015/05/power-training-zones-101.html" target="_blank" '
+        'rel="noopener">Power Training Zones 101, 2015</a>). Curves traced by eye; the y-axis really is '
+        "&ldquo;arbitrary units&rdquo;. "
+        '<a href="img/unitless-graph.png" target="_blank" rel="noopener">The illustration this replaces</a>.'
+    ),
+    marker="coggan",
+)
+
+# ── The studies, side by side ──
+# Numbers only from the essay or each cited abstract (verified 2026-10-09 in
+# the prototype); an empty cell renders "—" = the abstract doesn't state it.
+PUBMED = "https://pubmed.ncbi.nlm.nih.gov/"
+STUDY_COLUMNS = (
+    TableColumn("Study", width="17%", card="title"),
+    TableColumn("Year", kind="num", width="8%", card="aside"),
+    TableColumn("Athletes (n)", kind="num", width="15%", card="fact"),
+    TableColumn("Weeks", kind="num", width="10%", card="fact"),
+    TableColumn("Comparison", width="20%"),
+    TableColumn("Headline result", width="30%"),
+)
+
+
+def _study(name, ref, year, n, n_note, weeks, weeks_html, weeks_note, comparison, result, pmid) -> TableRow:
+    return TableRow(
+        cells=(
+            TableCell(f'{name} <sup><a href="#ref-{ref}">{ref}</a></sup>'),
+            TableCell(str(year), sort=year),
+            TableCell(str(n) if n != "" else "", sort=n, note_html=n_note),
+            TableCell(weeks_html, sort=weeks, note_html=weeks_note),
+            TableCell(comparison),
+            TableCell(result),
+        ),
+        links=(TableLink(f"{PUBMED}{pmid}/", "abstract", f"Abstract on PubMed (ref {ref})"),),
+    )
+
+
+STUDIES = DataTable(
+    id="fig-studies",
+    kicker="The studies, side by side",
+    title="What the cited papers actually tested",
+    intro_html="Numbers come from each paper&rsquo;s abstract; &ldquo;&mdash;&rdquo; means the abstract doesn&rsquo;t state it.",
+    footnote_html=("Zone splits are % of training time below LT1 / between / above LT2. "
+                   "Meta-analyses list pooled athletes."),
+    columns=STUDY_COLUMNS,
+    rows=(
+        _study("Neal et al.", 9, 2013, 12, "male cyclists, crossover", 6, "6", "per arm",
+               "Polarized (80/0/20) vs threshold (57/43/0)",
+               "Peak power +8% vs +3%; lactate threshold +9% vs +2%", "23264537"),
+        _study("St&ouml;ggl &amp; Sperlich", 10, 2014, 48, "runners, cyclists, triathletes, XC skiers", 9, "9", "",
+               "Polarized vs threshold vs HIIT vs high volume",
+               "Polarized: VO2peak +11.7%, time to exhaustion +17.4%; threshold: slight work-economy gain only", "24550842"),
+        _study("Esteve-Lanao et al.", 11, 2007, 12, "subelite runners", "", "5 mo", "weeks not stated",
+               "More zone 1 (80.5/11.8/8.3) vs more zone 2 (66.8/24.7/8.5)",
+               "10.4 km race: &minus;157 s vs &minus;121.5 s (p = 0.03)", "17685689"),
+        _study("Rosenblat et al.", 12, 2019, "", "4 studies reviewed, 3 pooled", "", "", "",
+               "Polarized vs threshold (meta-analysis)",
+               "Time trial: moderate effect favouring polarized (ES &minus;0.66, 95% CI &minus;1.17 to &minus;0.15)", "29863593"),
+        _study("Rosenblat, Seiler et al.", 13, 2025, 348, "13 studies; 198 competitive, 150 recreational", "", "", "",
+               "Polarized vs pyramidal, threshold, high- and low-intensity (network meta-analysis)",
+               "No significant difference between polarized and any other model; competitive athletes may gain more "
+               "VO2max with polarized than pyramidal (SMD &minus;0.63)", "39888556"),
+    ),
+    sort_by=1,
+    marker="studies",
+)
+
+# Every shell figure on the page. Add a meme or another scene with one line.
+FIGURES = (
+    COGGAN_FIGURE,
+    EssayFigure(SCENE_BLACK_HOLE, video=BLACK_HOLE_CLIP, marker="black-hole"),
+    STUDIES,
+    EssayFigure(SCENE_TABLET, marker="tablet"),
+)
+
+
 def render() -> str:
     return render_editorial_page(
         META,
         BODY_PATH.read_text(encoding="utf-8"),
         in_short=IN_SHORT,
+        in_short_on_phone="after_intro",
         ladder=True,
+        figures=FIGURES,
         extra_css=CHART_CSS,
         extra_body_end=CHART_JS,
     )

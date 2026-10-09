@@ -916,9 +916,11 @@ class TestInShortOnPhone:
 
 
 MEMES = {
-    sweet_spot: ("spiderman-threshold", "panik-kalm-panik", "stonks-tss", "midwit-sweet-spot",
-                 "virgin-sweetspot-chad-polarized", "gru-noob-gains", "drake-polarized"),
-    training_app: ("pigeon-compliance", "drake-fit"),
+    sweet_spot: ("scooby-unmask", "clown-ftp", "spiderman-threshold", "midwit-sweet-spot", "same-picture",
+                 "so-over-so-back", "virgin-sweetspot-chad-polarized", "gru-noob-gains", "panik-kalm-panik",
+                 "four-horsemen", "drake-polarized", "gigachad-yes"),
+    training_app: ("pov-mile-82", "look-inside", "drake-fit", "starter-pack-fueling", "uno-draw-25",
+                   "pigeon-compliance"),
 }
 
 
@@ -994,7 +996,7 @@ class TestSweetSpotArticle:
                 paths += fig.picture.files()
                 if fig.video:
                     paths += [s for s, _ in fig.video.sources] + [fig.video.poster]
-        assert len(paths) == 21 + 7 * 4  # scenes + seven memes (1x, 2x, phone 1x/2x WebP)
+        assert len(paths) == 21 + 12 * 4  # scenes + twelve memes (1x, 2x, phone 1x/2x WebP)
         for p in paths:
             assert (sweet_spot.IMG_DIR.parent / p).is_file(), p
 
@@ -1002,7 +1004,7 @@ class TestSweetSpotArticle:
         main = _main(SWEET_SPOT_INDEX.read_text(encoding="utf-8"))
         for old in ("black-hole.jpg", "g-spot-tablet.jpg", "sweet-spot-rip.png", 'src="img/unitless-graph.png"'):
             assert old not in main, old
-        assert main.count("<picture") == 3 + 7 and main.count("<video") == 1  # 3 scenes + 7 memes
+        assert main.count("<picture") == 3 + 12 and main.count("<video") == 1  # 3 scenes + 12 memes
         assert '<figure class="gg-svgfig gg-fig has-mini" id="fig-graph"' in main
         assert "data-draw-in" in main.split('id="fig-drift"', 1)[1].split(">", 1)[0]
 

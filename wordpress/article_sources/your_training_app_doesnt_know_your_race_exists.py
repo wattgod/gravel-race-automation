@@ -90,11 +90,19 @@ def _meme(name: str, alt: str, width: int, height: int, *, phone: tuple[int, int
     return Picture.from_stem(f"img/memes/{name}", alt, width, height, ext="webp", webp=False, phone=phone)
 
 
-MEME_PIGEON_COMPLIANCE = _meme("pigeon-compliance", "Gravel God, labelled \"YOUR TRAINING APP\", points at a green butterfly fluttering just past his finger, labelled \"91% COMPLIANCE\". Caption: \"IS THIS RACE PREP?\"", 1600, 1000, phone=(660, 825))
+MEME_POV_MILE_82 = _meme("pov-mile-82", "First-person view while walking a gravel bike up a steep, rocky pitch: your own forearms reach in from the bottom, one hand on the hood, one on the top tube; the bike computer reads \"COMPLIANCE 91%\". Ahead, four other riders, sweating, walk their bikes up the pitch. Caption: \"POV: you're walking the third pitch at mile 82 with a 91% compliance score.\"", 1200, 1200, phone=(660, 900))
+MEME_LOOK_INSIDE = _meme("look-inside", "A book cover, \"Your training app: Adapted to you. Your fatigue · your zones · your missed Tuesdays\", with a smiling Gravel God and a \"Look inside\" arrow. Inside, the contents page ticks off your fatigue, your zones, your missed Tuesdays and your progression levels; the last line, in red: \"The race ... not modeled.\" Footer: \"None of them models the race.\"", 1600, 1000, phone=(660, 1300))
 MEME_DRAKE_FIT = _meme("drake-fit", "Two-panel approve/reject meme with Gravel God. Top: eyes shut, head turned away, palm raised against \"Fitness: a number going up.\" Bottom: smiling and pointing at \"Fit: shaped like your race.\"", 1200, 1200, phone=(660, 660))
+MEME_STARTER_PACK_FUELING = _meme("starter-pack-fueling", "Heading \"THE FUELING OPTIMIST STARTER PACK\". Gravel God gives a thumbs up beside a flat-lay of labelled objects: a sticky note reading \"eat when hungry\" (The fueling plan); a bike computer with an up arrow under \"FTP\" (Excellent fitness, any shape); banana peels on a white folding table (The aid station table, after the first 500 riders); a napkin reading \"8 h × 60–90 g/h = ???\" with a frowny face (Sad math at the aid station); three sealed gels (Gels, for later).", 1600, 1000, phone=(660, 1000))
+MEME_UNO_DRAW_25 = _meme("uno-draw-25", "Two-panel cartoon. A card reads 'Practice your race-day fueling on every long ride, or draw 24 gels.' In the next panel Gravel God smugly holds a huge fan of 24 energy gels.", 1600, 1000, phone=(660, 1200))
+MEME_PIGEON_COMPLIANCE = _meme("pigeon-compliance", "Gravel God, labelled \"YOUR TRAINING APP\", points at a green butterfly fluttering just past his finger, labelled \"91% COMPLIANCE\". Caption: \"IS THIS RACE PREP?\"", 1600, 1000, phone=(660, 825))
 
 FIGURES = (
+    EssayFigure(MEME_POV_MILE_82, after="his app trained him for a race that doesn&rsquo;t exist.</p>"),
+    EssayFigure(MEME_LOOK_INSIDE, after="None of them models <em>the race</em>.</p>", width="column"),
     EssayFigure(MEME_DRAKE_FIT, after="The race does not grade on fitness. It grades on fit.</p>"),
+    EssayFigure(MEME_STARTER_PACK_FUELING, after="already stripped of bananas, doing sad math.</p>", width="column"),
+    EssayFigure(MEME_UNO_DRAW_25, after="That&rsquo;s what it&rsquo;s for.</p>", width="column"),
     EssayFigure(MEME_PIGEON_COMPLIANCE, after="the only question that mattered: <em>adapted to what?</em></p>", width="column"),
 )
 

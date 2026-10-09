@@ -9,6 +9,11 @@ IN_SHORT (2026-10-09): matter-of-fact restatements for Matt's read. The post has
 no headings, so each claim links to the figure next to its proof.
 Infographics: none. The post has no chart or numbers a figure would clarify.
 
+DESCRIPTION replaces the live meta description ("Why cardiac output limits
+endurance cycling..."): the post is not about cardiac output. "Heart" means
+motivation: the author traces his 2021 season to racing that kept him away
+from his young children, and argues racing has to fit a rider's life.
+
 Regenerate: python3 wordpress/post_sources/if_you_really_want_to_race_bikes_fast_train_your_heart.py
 """
 from __future__ import annotations
@@ -45,9 +50,12 @@ IN_SHORT = (
           "#fig-makes-sense", "See the change", 0),
 )
 
+DESCRIPTION = ("The author traces a poor 2021 season to racing that took him away from his young children, "
+               "and argues racing has to fit a rider's values and life.")
+
 
 def render() -> str:
-    return wp_post.render_post(SOURCE, alt=ALT, in_short=IN_SHORT)
+    return wp_post.render_post(SOURCE, alt=ALT, in_short=IN_SHORT, description=DESCRIPTION)
 
 
 def main() -> None:

@@ -99,10 +99,12 @@ def test_metadata_comes_from_the_live_page(pid):
     assert live["canonical"] == url
     assert f'<link rel="canonical" href="{url}">' in html
     assert f"<title>{es.esc(live['title'])}</title>" in html
-    assert f'<meta name="description" content="{es.esc(live["description"])}">' in html
+    desc = getattr(m, "DESCRIPTION", None) or live["description"]
+    assert f'<meta name="description" content="{es.esc(desc)}">' in html
     ld = [json.loads(b) for b in re.findall(r'<script type="application/ld\+json">(.*?)</script>', html, re.S)]
     assert [b["@type"] for b in ld] == ["BlogPosting"]
     assert ld[0]["headline"] == live["headline"] and ld[0]["mainEntityOfPage"] == url
+    assert ld[0]["description"] == desc
     assert m.OUTPUT_PATH == PROJECT_ROOT / "wordpress" / "posts" / m.SLUG / "index.html"
 
 
@@ -128,8 +130,10 @@ def test_every_image_has_alt_text_and_committed_files(pid):
     referenced |= set(re.findall(r", (img/[^ ]+) 2x", html))
     for path in referenced:
         assert (m.OUTPUT_PATH.parent / path).is_file(), path
-    shipped = {p.suffix for p in (m.OUTPUT_PATH.parent / "img").iterdir()}
-    assert shipped <= {".webp", ".mp4", ".webm"}
+    img_dir = m.OUTPUT_PATH.parent / "img"
+    shipped = {p.suffix for p in img_dir.iterdir() if not p.name.endswith("-og.jpg")}
+    assert shipped <= {".webp", ".mp4", ".webm"}, "WebP + video only (+ the og:image JPEG)"
+    assert [p.name for p in img_dir.glob("*.jpg")] == ([f"{feat['name']}-og.jpg"] if feat else [])
 
 
 @pytest.mark.parametrize("pid", POSTS)
@@ -188,3 +192,34 @@ def test_tables_use_the_posts_numbers():
     wt = _page(1499).split('id="fig-waffles-tests"', 1)[1].split("</figure>", 1)[0]
     for v in ("369 W", "291 W", "149 lb", "376 W", "296 W", "148 lb", "397 W", "321 W", "155 lb"):
         assert v in wt
+
+
+# post id -> (a phrase in the wrong live description, a phrase in the correction)
+CORRECTED = {
+    2191: ("cardiac output", "young children"),
+    1626: ("chasing FTP", "racing by power"),
+}
+
+
+@pytest.mark.parametrize("pid", POSTS)
+def test_corrected_descriptions_replace_meta_og_and_json_ld(pid):
+    """2191 is about motivation and family, not cardiac output; 1626's five
+    mistakes don't include chasing FTP. Only those two override the live text."""
+    m = _module(pid)
+    if pid not in CORRECTED:
+        assert not hasattr(m, "DESCRIPTION")
+        return
+    wrong, right = CORRECTED[pid]
+    html = _page(pid)
+    assert wrong in m.SOURCE.data["live"]["description"] and wrong not in html
+    assert right in m.DESCRIPTION
+    assert len(m.DESCRIPTION) <= 160 and "!" not in m.DESCRIPTION
+    assert not re.search(r"\b(I|me|my|we|our|you|your)\b", m.DESCRIPTION)
+    for tag in ('name="description"', 'property="og:description"'):
+        assert f'<meta {tag} content="{es.esc(m.DESCRIPTION)}">' in html
+
+
+def test_power_meter_clown_has_no_page_css():
+    """The shell's phone Contents bar handles 20 sections; no page-only patch."""
+    assert not hasattr(_module(1626), "CSS")
+    assert ".toc-m .mini i{width:7px" not in _page(1626)

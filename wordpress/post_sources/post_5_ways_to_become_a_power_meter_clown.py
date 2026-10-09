@@ -13,9 +13,13 @@ table, so the flip in order between the two efforts is visible. Values exactly
 as the text gives them; the Garmin Vectors get no number in the post, so they
 are left out. Placed after the paragraph with the 30-second readings.
 
-CSS: the post has 20 sections, and the shell's phone Contents bar draws one
-10 px progress dot per section, which overflowed a 390 px screen (416 px).
-CSS below shrinks the dots on this page only; the shell itself is unchanged.
+DESCRIPTION replaces the live meta description, which listed "chasing FTP"
+among the mistakes; the post's five are comparing watts between riders,
+trusting a split-second reading, staring at the stem on Z2 rides, reading a
+Strava PR as a win, and racing by power (plus a bonus: watts as a pickup line).
+
+The post has 20 sections; the shell's phone Contents bar handles 10+ sections
+itself, so this page carries no CSS of its own.
 
 Regenerate: python3 wordpress/post_sources/post_5_ways_to_become_a_power_meter_clown.py
 """
@@ -96,14 +100,13 @@ POWER_METERS = DataTable(
 )
 
 
-# 20 sections: smaller progress dots so the phone Contents bar fits at 360-390 px.
-CSS = """
-@media (max-width:640px){.toc-m .mini{gap:3px}.toc-m .mini i{width:7px;height:7px}.toc-m .mini i.cur{width:14px}}
-"""
+DESCRIPTION = ("Five power-meter mistakes: comparing watts between riders, trusting one-second readings, "
+               "watching watts on easy rides, banking on a Strava PR, racing by power.")
 
 
 def render() -> str:
-    return wp_post.render_post(SOURCE, alt=ALT, in_short=IN_SHORT, figures=(POWER_METERS,), extra_css=CSS)
+    return wp_post.render_post(SOURCE, alt=ALT, in_short=IN_SHORT, figures=(POWER_METERS,),
+                              description=DESCRIPTION)
 
 
 def main() -> None:

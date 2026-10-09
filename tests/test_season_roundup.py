@@ -389,6 +389,7 @@ def test_roundup_never_fires_article_events(sample_races):
     html = _render(sample_races, sorted(INDEXABLE_ROUNDUPS)[0])
     assert "article_scroll_depth" not in html
     assert "article_deep_read" not in html
+    assert "gtag('event', 'article_cta_click'" not in html
 
 
 def test_roundup_has_no_read_time_and_no_ladder(sample_races):

@@ -234,7 +234,8 @@ def build_roundup_body(intro, stats_bar, sorted_races):
 
     Intro + stats bar, then the race cards. With races in 2+ tiers, each tier
     is its own gg-blog-section with an h2, so the shell's Contents lists the
-    tiers; a single-tier page (tier roundups) keeps one untitled grid.
+    tiers; a single-tier page (tier roundups) keeps one untitled grid, so it
+    has no h2 and the shell hides Contents on its own (MIN_CONTENTS_HEADINGS).
     """
     groups = group_races_by_tier(sorted_races)
     parts = [
@@ -325,7 +326,6 @@ def generate_roundup_html(title, subtitle, intro, races, slug, category_tag,
         body,
         in_short=None,
         ladder=False,  # roundups never had a plans/coaching block
-        contents=len(group_races_by_tier(sorted_races)) > 1,
         extra_css=ROUNDUP_CSS,
         extra_body_end=get_plan_intent_tracking_script(),
     )

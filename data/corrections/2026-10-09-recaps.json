@@ -4,7 +4,8 @@
     "Only verified recaps go live (Matt, 2026-10-09).",
     "The winner is the overall men's/women's winner of the distance the race profile describes, not a longer or elite event (Matt, 2026-10-09).",
     "Each field: keep if verified, correct if a sourced value exists, clear if unverifiable or about another year/distance. Prose is only trimmed to verified clauses.",
-    "PUBLISH = verified winner + at least one other verified rendered field; anything less = REDIRECT."
+    "PUBLISH = verified winner + at least one other verified rendered field; anything less = REDIRECT.",
+    "A slug-year that meets the PUBLISH rule can still REDIRECT when the recap page would mislabel it; such entries carry redirect_reason."
   ],
   "fields_rendered_by_recap": [
     "winner_male",
@@ -25,6 +26,119 @@
     "trim": "cut to a verbatim verified clause",
     "add": "empty field set from a source"
   },
+  "publish": [
+    {
+      "slug": "unbound-200",
+      "year": "2024"
+    },
+    {
+      "slug": "leadville-100",
+      "year": "2024"
+    },
+    {
+      "slug": "chequamegon-mtb",
+      "year": "2024"
+    },
+    {
+      "slug": "transcontinental-race",
+      "year": "2024"
+    },
+    {
+      "slug": "transcontinental-race",
+      "year": "2025"
+    },
+    {
+      "slug": "the-traka",
+      "year": "2024"
+    },
+    {
+      "slug": "bwr-cedar-city",
+      "year": "2024"
+    },
+    {
+      "slug": "ned-gravel",
+      "year": "2024"
+    },
+    {
+      "slug": "rebeccas-private-idaho",
+      "year": "2024"
+    },
+    {
+      "slug": "seven",
+      "year": "2024"
+    },
+    {
+      "slug": "border-wars",
+      "year": "2024"
+    },
+    {
+      "slug": "gray-duck-grit",
+      "year": "2024"
+    },
+    {
+      "slug": "ouachita-challenge",
+      "year": "2024"
+    },
+    {
+      "slug": "barry-roubaix",
+      "year": "2024"
+    },
+    {
+      "slug": "red-granite-grinder",
+      "year": "2024"
+    }
+  ],
+  "redirect": [
+    {
+      "slug": "colorado-trail-race",
+      "year": "2024"
+    },
+    {
+      "slug": "uci-gravel-worlds",
+      "year": "2024"
+    },
+    {
+      "slug": "uci-gravel-worlds",
+      "year": "2025"
+    },
+    {
+      "slug": "turnhout-gravel",
+      "year": "2024"
+    },
+    {
+      "slug": "salty-lizard",
+      "year": "2024"
+    },
+    {
+      "slug": "thunder-bay-thriller",
+      "year": "2024"
+    },
+    {
+      "slug": "gravel-del-fuego",
+      "year": null
+    },
+    {
+      "slug": "gravel-des-flandres",
+      "year": null
+    },
+    {
+      "slug": "iron-horse-bicycle-classic",
+      "year": null
+    },
+    {
+      "slug": "lotoja-classic",
+      "year": null
+    },
+    {
+      "slug": "rad-dirt-fest",
+      "year": null
+    },
+    {
+      "slug": "tour-de-okinawa",
+      "year": null
+    }
+  ],
+  "publish_redirect_note": "Recap page /<slug>-recap. publish = deploy the regenerated recap for that year; redirect = 301 the recap page (year null = no results data at all).",
   "entries": [
     {
       "slug": "unbound-200",
@@ -368,12 +482,12 @@
         },
         "winning_time_female": {
           "old": "2:16:22",
-          "new": "2:16:22",
-          "action": "keep",
+          "new": null,
+          "action": "clear",
           "sources": [
             "https://www.durangoherald.com/?p=130693"
           ],
-          "note": "Three-up sprint; Herald gives 2:16:22 for the sprint group."
+          "note": "Unverified: the only source (Durango Herald) gives 2:16:22 to the three-up sprint group, including 3rd place, so it does not establish the winner's own time."
         }
       },
       "notes": ""
@@ -548,7 +662,7 @@
     {
       "slug": "uci-gravel-worlds",
       "year": "2024",
-      "decision": "PUBLISH",
+      "decision": "REDIRECT",
       "course": "UCI Gravel World Championships elite, Halle-Leuven (men 182 km, women 135 km)",
       "fields": {
         "winner_male": {
@@ -620,12 +734,13 @@
           ]
         }
       },
-      "notes": "The championship is the profile's event; its elite race is the only title race. Profile distance (88.9 mi) is the 2026 course."
+      "notes": "The championship is the profile's event; its elite race is the only title race. Profile distance (88.9 mi) is the 2026 course.",
+      "redirect_reason": "The recap generator takes location and distance from vitals, which describe the 2026 Nannup host, so this year's verified Leuven/Zuid-Limburg winners would render under the wrong place and course. Winner data stays in race-data; the page redirects until the generator renders per-year venues."
     },
     {
       "slug": "uci-gravel-worlds",
       "year": "2025",
-      "decision": "PUBLISH",
+      "decision": "REDIRECT",
       "course": "UCI Gravel World Championships elite, Zuid-Limburg (men 181 km, women 131 km)",
       "fields": {
         "winner_male": {
@@ -709,7 +824,8 @@
           ]
         }
       },
-      "notes": "Not live (live page shows 2024) but the newest results year."
+      "notes": "Not live (live page shows 2024) but the newest results year.",
+      "redirect_reason": "The recap generator takes location and distance from vitals, which describe the 2026 Nannup host, so this year's verified Leuven/Zuid-Limburg winners would render under the wrong place and course. Winner data stays in race-data; the page redirects until the generator renders per-year venues."
     },
     {
       "slug": "turnhout-gravel",

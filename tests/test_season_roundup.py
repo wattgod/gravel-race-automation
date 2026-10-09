@@ -539,12 +539,17 @@ def test_in_short_fewer_than_two_claims_renders_nothing(sample_races):
     assert 'class="inshort"' not in page
 
 
-def test_in_short_skips_banned_and_overlong_names(sample_races):
-    for bad in ("Race — The Sequel", "Go Race!", "We Ride Gravel", " ".join(["Long"] * 20)):
+def test_in_short_quotes_names_but_skips_overlong(sample_races):
+    # A race name is data: its own dash, "!" or "We" doesn't drop the claim.
+    for name in ("Race — The Sequel", "Go Race!", "We Ride Gravel"):
         races = [dict(r) for r in sample_races]
-        races[0]["name"] = bad
-        texts = [c.text_html for c in build_in_short_claims(races, "June 2026")]
-        assert not any("rates highest" in t for t in texts), bad
+        races[0]["name"] = name
+        texts = [_plain(c.text_html) for c in build_in_short_claims(races, "June 2026")]
+        assert any(t.startswith(f"{name} rates highest") for t in texts), name
+    races = [dict(r) for r in sample_races]
+    races[0]["name"] = " ".join(["Long"] * 20)
+    texts = [c.text_html for c in build_in_short_claims(races, "June 2026")]
+    assert not any("rates highest" in t for t in texts)
     races = [dict(r) for r in sample_races]
     races[0]["name"] = "UCI Gravel Worlds"  # "I " inside a word is not first person
     assert "UCI Gravel Worlds rates highest" in build_in_short_claims(races, "x")[1].text_html
@@ -581,6 +586,7 @@ def test_every_generated_roundup_in_short_is_valid(race_index, tmp_path):
     """All roundups from the real index: targets exist, ≤25 words, no banned patterns."""
     slugs = generate_all(race_index, 2026, tmp_path)
     assert slugs
+    race_names = sorted({r["name"] for r in race_index if r.get("name")}, key=len, reverse=True)
     with_in_short = 0
     for slug in slugs:
         page = (tmp_path / f"{slug}.html").read_text()
@@ -594,8 +600,47 @@ def test_every_generated_roundup_in_short_is_valid(race_index, tmp_path):
             text = _plain(text_html)
             assert target in ids, (slug, target)
             assert len(text.split()) <= MAX_CLAIM_WORDS, (slug, text)
-            assert not BANNED_CLAIM_RE.search(text), (slug, text)
+            # Banned patterns apply to the template; race names are quoted data.
+            template = text
+            for name in race_names:
+                if name in template:
+                    template = template.replace(name, "Race")
+            assert not BANNED_CLAIM_RE.search(template), (slug, text)
             for banned in ("!", " — "):
-                assert banned not in text, (slug, text)
-            assert not _re.search(r"(?<![A-Za-z])(I|we) ", text), (slug, text)
+                assert banned not in template, (slug, text)
+            assert not _re.search(r"(?<![A-Za-z])(I|we) ", template), (slug, text)
     assert with_in_short == len(slugs)
+
+
+def test_em_dash_in_race_name_does_not_drop_claim():
+    races = [
+        {"name": "Tour of Thekkady \u2014 Kerala Gran Fondo", "slug": "thekkady", "tier": 2,
+         "overall_score": 70},
+        {"name": "Other Gravel", "slug": "other", "tier": 3, "overall_score": 50},
+    ]
+    texts = [_plain(c.text_html) for c in build_in_short_claims(races, "March 2026")]
+    assert "Tour of Thekkady \u2014 Kerala Gran Fondo rates highest at 70/100 (T2 Elite)." in texts
+    # Two names, one with an em dash: still kept.
+    races[1]["overall_score"] = 70
+    races[1]["tier"] = 2
+    texts = [_plain(c.text_html) for c in build_in_short_claims(races, "March 2026")]
+    assert any(t.endswith("share the highest rating, 70/100.") for t in texts)
+
+
+def test_template_text_is_still_checked():
+    from generate_season_roundup import _claim_ok
+
+    assert not _claim_ok("Race rates highest \u2014 by far.")
+    assert not _claim_ok("We rate Race highest.")
+    assert _claim_ok("A \u2014 B rates highest.", "Race rates highest.")
+    assert not _claim_ok("word " * 26, "Race.")  # the word cap counts the names
+
+
+def test_real_march_2026_roundup_names_top_rated(race_index, tmp_path):
+    march = [r for r in race_index if "Thekkady" in (r.get("name") or "")]
+    if not march:
+        pytest.skip("Tour of Thekkady not in the race index")
+    generate_all(race_index, 2026, tmp_path)
+    page = (tmp_path / "roundup-march-2026.html").read_text()
+    texts = [_plain(t) for t, _ in _claims_in(page)]
+    assert any("rates highest" in t or "share the highest rating" in t for t in texts), texts

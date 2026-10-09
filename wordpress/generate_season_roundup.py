@@ -73,7 +73,8 @@ RACES_ID = "roundup-races"  # the race grid on a single-tier page (no tier h2s)
 MAX_CLAIM_WORDS = 25
 MIN_CLAIMS = 2
 # Banned: first person ("I ", "we " as words, so "UCI Gravel" passes),
-# exclamation marks and em-dash asides (also inside race names).
+# exclamation marks and em-dash asides. Checked on the template text only:
+# a race name is data quoted as is ("Tour of Thekkady \u2014 Kerala Gran Fondo").
 BANNED_CLAIM_RE = re.compile(r"(?<![A-Za-z])(?:I|[Ww]e) |!| \u2014 ")
 
 # Roundup blocks on the editorial shell (its tokens: --ink, --sand, --mono...).
@@ -246,10 +247,22 @@ def tier_section_id(tier):
     return "-".join(f"t{tier} {name}".lower().split())
 
 
-def _claim_ok(text):
-    """Word cap and banned patterns, checked on the plain text."""
+NAME_SLOT = "Race"  # stands in for a race name when a template is checked
+
+
+def _claim_ok(text, template=None):
+    """Word cap on the full plain text; banned patterns on the template.
+
+    template is the claim with each race name replaced by NAME_SLOT; it
+    defaults to text (a claim with no race name in it).
+    """
     return (len(text.split()) <= MAX_CLAIM_WORDS
-            and not BANNED_CLAIM_RE.search(text))
+            and not BANNED_CLAIM_RE.search(text if template is None else template))
+
+
+def _braces(text):
+    """Escape str.format braces in generator text placed into a template."""
+    return str(text).replace("{", "{{").replace("}", "}}")
 
 
 def build_in_short_claims(races, scope):
@@ -282,14 +295,16 @@ def build_in_short_claims(races, scope):
 
     claims = []
 
-    def add(text, tier):
-        if _claim_ok(text):
+    def add(template, tier, *names):
+        """template takes the race names as {} slots."""
+        text = template.format(*names)
+        if _claim_ok(text, template.format(*[NAME_SLOT] * len(names))):
             href, label, sec = target(tier)
             claims.append(Claim(esc(text), href, label, sec))
 
     first_tier = groups[0][0]
     if scope:
-        add(f"{len(races)} races rated, {scope}.", first_tier)
+        add(f"{len(races)} races rated, {_braces(scope)}.", first_tier)
 
     scored = [r for r in races if r.get("overall_score") and r.get("name")]
     if scored:
@@ -300,10 +315,10 @@ def build_in_short_claims(races, scope):
         tier = lead.get("tier", 4)
         if len(top) == 1:
             tier_label = f"T{tier} {TIER_NAMES.get(tier, '')}".strip()
-            add(f"{lead['name']} rates highest at {top_score}/100 ({tier_label}).", tier)
+            add(f"{{}} rates highest at {top_score}/100 ({tier_label}).", tier, lead["name"])
         elif len(top) == 2:
-            add(f"{top[0]['name']} and {top[1]['name']} share the highest rating, "
-                f"{top_score}/100.", tier)
+            add(f"{{}} and {{}} share the highest rating, {top_score}/100.", tier,
+                top[0]["name"], top[1]["name"])
         else:
             add(f"{len(top)} races share the highest rating, {top_score}/100.", tier)
 

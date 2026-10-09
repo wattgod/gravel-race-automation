@@ -1,0 +1,1337 @@
+{
+  "generated": "2026-10-09",
+  "base": "wattgod/gravel-race-automation origin/main 35b20d63",
+  "fields_read_by_recap": [
+    "winner_male",
+    "winner_female",
+    "winning_time_male",
+    "winning_time_female"
+  ],
+  "entries": [
+    {
+      "slug": "barry-roubaix",
+      "year": "2024",
+      "category": "62mi Killer overall (open)",
+      "fields": {
+        "winner_male": {
+          "old": "Sierra Nevada",
+          "old_class": "not a person",
+          "new": null,
+          "sources": [
+            "https://granfondodailynews.com/2024/04/21/freezing-conditions-for-4300-riders-at-barry-roubaix-killer-gravel-road-race",
+            "https://barry-roubaix.com/results"
+          ],
+          "confidence": "ambiguous-cleared",
+          "note": "Both sources list Brower; time 2:52:09 (GFDN) vs 2:52:01 (official results page), not required.",
+          "researched_new": "David Brower",
+          "researched_confidence": "verified"
+        },
+        "winner_female": {
+          "old": null,
+          "old_class": "empty",
+          "new": null,
+          "sources": [
+            "https://granfondodailynews.com/2024/04/21/freezing-conditions-for-4300-riders-at-barry-roubaix-killer-gravel-road-race",
+            "https://barry-roubaix.com/results"
+          ],
+          "confidence": "ambiguous-cleared",
+          "note": "GFDN and official page agree (3:06:09); official page spells it Clark.",
+          "researched_new": "Devon Clarke",
+          "researched_confidence": "verified"
+        }
+      },
+      "ambiguous": "62 mi Killer vs 100 mi Psycho Killer category"
+    },
+    {
+      "slug": "border-wars",
+      "year": "2024",
+      "category": "100mi pro/elite overall (Feb 24 2024, Franklin GA; 62mi winners not found)",
+      "fields": {
+        "winner_male": {
+          "old": "Homegrown Gravel Adventure",
+          "old_class": "not a person",
+          "new": null,
+          "sources": [
+            "https://www.granfondoguide.com/Contents/Index/8309/top-privateers-to-kickstart-2025-gravel-racing-season-at-georgias-homegrown-gravel-adventure"
+          ],
+          "confidence": "ambiguous-cleared",
+          "note": "Michael Garrison (4:52:29) is named 2024 winner only in a Gran Fondo Guide preview that gives no distance (almost certainly the 100mi); no official results found, and 62mi winners not found.",
+          "researched_new": null,
+          "researched_confidence": "unverified"
+        },
+        "winner_female": {
+          "old": null,
+          "old_class": "empty",
+          "new": null,
+          "sources": [
+            "https://www.granfondoguide.com/Contents/Index/8309/top-privateers-to-kickstart-2025-gravel-racing-season-at-georgias-homegrown-gravel-adventure",
+            "https://www.ohiogravelgrinders.com/blog/2024/2/27/border-wars-gravel"
+          ],
+          "confidence": "ambiguous-cleared",
+          "note": "Ohio Gravel Grinders recap says she won the Women 100; Gran Fondo Guide gives her 2024 time as 5:04:49; event was later renamed Homegrown Gravel Adventure.",
+          "researched_new": "Lauren De Crescenzo",
+          "researched_confidence": "verified"
+        }
+      },
+      "ambiguous": "results distance does not match the profile distance"
+    },
+    {
+      "slug": "bwr-cedar-city",
+      "year": "2024",
+      "category": "BWR Utah pro/elite overall, shortened ~103mi course (April 6, 2024)",
+      "fields": {
+        "winner_male": {
+          "old": "Weather Unpredictability",
+          "old_class": "not a person",
+          "new": "Peter Stetina",
+          "sources": [
+            "https://granfondodailynews.com/2024/04/09/stetina-overcomes-brutal-winter-storm-to-win-3rd-belgian-waffle-ride-utah/",
+            "https://www.cyclingwest.com/racing/gravel-racing/2024-belgian-waffle-ride-utah-recaps/",
+            "https://www.cyclingnews.com/races/belgian-waffle-ride-series-2024/"
+          ],
+          "confidence": "verified",
+          "note": "Stetina 4:53:48, Roberge 2nd; course shortened from 126 to 103 mi by storm."
+        },
+        "winner_female": {
+          "old": null,
+          "old_class": "empty",
+          "new": "Sofia Gomez Villafane",
+          "sources": [
+            "https://granfondodailynews.com/2024/04/09/stetina-overcomes-brutal-winter-storm-to-win-3rd-belgian-waffle-ride-utah/",
+            "https://www.cyclingwest.com/racing/gravel-racing/2024-belgian-waffle-ride-utah-recaps/",
+            "https://www.cyclingnews.com/races/belgian-waffle-ride-series-2024/"
+          ],
+          "confidence": "verified",
+          "note": "Won solo in 5:19:03; spelled as elsewhere in race-data (correct form Sofía Gómez Villafañe)."
+        }
+      }
+    },
+    {
+      "slug": "camp-michaux-gravel-grinder",
+      "year": "2024",
+      "category": "50mi (38.6km listing) overall",
+      "fields": {
+        "winner_male": {
+          "old": "Franklin County Cyclists",
+          "old_class": "not a person",
+          "new": null,
+          "sources": [],
+          "confidence": "unverified",
+          "note": "No 2024 results found; only an undated event listing exists, and the current value is a club name, not a winner."
+        },
+        "winner_female": {
+          "old": null,
+          "old_class": "empty",
+          "new": null,
+          "sources": [],
+          "confidence": "unverified",
+          "note": "No 2024 results found; only an undated event listing exists, and the current value is a club name, not a winner."
+        }
+      }
+    },
+    {
+      "slug": "chequamegon-mtb",
+      "year": "2024",
+      "category": "Pro open men/women, ~40mi (Sept 14, 2024)",
+      "fields": {
+        "winner_male": {
+          "old": "Keegan Swenson",
+          "old_class": "plausible person",
+          "new": "Keegan Swenson",
+          "sources": [
+            "https://www.cyclingnews.com/races/chequamegon-mtb-festival-2024/ltgp-5-pro-women-and-men/results/",
+            "https://cyclingwest.com/?p=38050",
+            "https://www.durangoherald.com/?p=130693"
+          ],
+          "confidence": "verified",
+          "note": "Alex Wild 2nd, Sean Fincham 3rd."
+        },
+        "winner_female": {
+          "old": "Sofia Gomez Villafane",
+          "old_class": "plausible person",
+          "new": "Sofia Gomez Villafane",
+          "sources": [
+            "https://www.cyclingnews.com/races/chequamegon-mtb-festival-2024/ltgp-5-pro-women-and-men/results/",
+            "https://cyclingwest.com/?p=38050",
+            "https://www.durangoherald.com/?p=130693"
+          ],
+          "confidence": "verified",
+          "note": "Won 3-up sprint over Skarda and Blunk."
+        },
+        "winning_time_male": {
+          "old": "2:00:01",
+          "old_class": "time",
+          "new": "2:00:01",
+          "sources": [
+            "https://www.durangoherald.com/?p=130693"
+          ],
+          "confidence": "verified",
+          "note": "Durango Herald lists Swenson 2:00:01 (McElveen 4th 2:00:02); current value correct."
+        },
+        "winning_time_female": {
+          "old": "2:16:22",
+          "old_class": "time",
+          "new": "2:16:22",
+          "sources": [
+            "https://www.cyclingnews.com/races/chequamegon-mtb-festival-2024/ltgp-5-pro-women-and-men/results/",
+            "https://www.durangoherald.com/?p=130693"
+          ],
+          "confidence": "verified",
+          "note": "Cyclingnews/Durango give 2:16:22 (Skarda and Blunk same time); Life Time GP table shows 2:16:21."
+        }
+      }
+    },
+    {
+      "slug": "colorado-trail-race",
+      "year": "2024",
+      "category": "530mi Denver-Durango southbound, overall men/women (fastest finisher)",
+      "fields": {
+        "winner_male": {
+          "old": "Katya Rakhmatulina",
+          "old_class": "plausible person",
+          "new": "Xavier Chiriboga",
+          "sources": [
+            "https://bikepacking.com/tracker/2024ctr/",
+            "https://dotwatcher.cc/results/2024/colorado-trail-race-2024"
+          ],
+          "confidence": "verified",
+          "note": "First male finisher per Bikepacking.com tracker and Dotwatcher results."
+        },
+        "winner_female": {
+          "old": "Katya Rakhmatulina",
+          "old_class": "plausible person",
+          "new": "Nicolette Jones",
+          "sources": [
+            "https://bikepacking.com/tracker/2024ctr/",
+            "https://bikepacking.com/news/nicolette-jones-wins-the-2024-colorado-trail-race/",
+            "https://dotwatcher.cc/results/2024/colorado-trail-race-2024"
+          ],
+          "confidence": "verified",
+          "note": "First female finisher, fastest woman on the southbound route."
+        },
+        "winning_time_male": {
+          "old": "4:07:17",
+          "old_class": "time",
+          "new": "4d 15h 55m",
+          "sources": [
+            "https://bikepacking.com/tracker/2024ctr/"
+          ],
+          "confidence": "verified",
+          "note": "Bikepacking.com tracker (asterisked, preliminary); current 4:07:17 is wrong."
+        },
+        "winning_time_female": {
+          "old": "4:07:17",
+          "old_class": "time",
+          "new": "5d 12h 19m",
+          "sources": [
+            "https://bikepacking.com/tracker/2024ctr/",
+            "https://bikepacking.com/news/nicolette-jones-wins-the-2024-colorado-trail-race/"
+          ],
+          "confidence": "verified",
+          "note": "Bikepacking.com gives 5d 12h 19m; Dotwatcher preliminary shows 5d 12h 21m."
+        }
+      }
+    },
+    {
+      "slug": "crusher-in-the-tushar",
+      "year": "2024",
+      "category": "n/a - event cancelled",
+      "fields": {
+        "winner_male": {
+          "old": "Altitude Impact",
+          "old_class": "not a person",
+          "new": null,
+          "sources": [
+            "https://www.cyclingwest.com/?p=37284",
+            "https://velo.outsideonline.com/gravel/gravel-racing/2024-crusher-in-the-tushar-canceled/?scope=anon",
+            "https://granfondodailynews.com/2024/07/11/massive-western-usa-fires-force-2024-crusher-tushar-gravel-race-to-cancel"
+          ],
+          "confidence": "unverified",
+          "note": "2024 Crusher (July 13) was cancelled due to wildfires, so no winner exists; 2023 winners were Swenson/Gomez Villafane."
+        },
+        "winner_female": {
+          "old": null,
+          "old_class": "empty",
+          "new": null,
+          "sources": [
+            "https://www.cyclingwest.com/?p=37284",
+            "https://velo.outsideonline.com/gravel/gravel-racing/2024-crusher-in-the-tushar-canceled/?scope=anon",
+            "https://granfondodailynews.com/2024/07/11/massive-western-usa-fires-force-2024-crusher-tushar-gravel-race-to-cancel"
+          ],
+          "confidence": "unverified",
+          "note": "2024 Crusher was cancelled due to wildfires; no winner exists."
+        }
+      }
+    },
+    {
+      "slug": "galactic-grinder",
+      "year": "2024",
+      "category": "50mi overall (Cedar Hill, NM; 2024-04-20)",
+      "fields": {
+        "winner_male": {
+          "old": "Neil Hannum",
+          "old_class": "plausible person",
+          "new": null,
+          "sources": [
+            "https://outdoorindustry.org/press-release/third-annual-galactic-grinder-challenges-cyclists-northeast-of-aztec-n-m/"
+          ],
+          "confidence": "unverified",
+          "note": "Press release lists 50mi top-3 overall as Logan Lewis, Cobe Freeburn, Brent Winebarger with no gender split; full results are in an inaccessible Google Drive, so left null."
+        },
+        "winner_female": {
+          "old": null,
+          "old_class": "empty",
+          "new": null,
+          "sources": [
+            "https://outdoorindustry.org/press-release/third-annual-galactic-grinder-challenges-cyclists-northeast-of-aztec-n-m/"
+          ],
+          "confidence": "unverified",
+          "note": "Press release lists 50mi top-3 overall as Logan Lewis, Cobe Freeburn, Brent Winebarger with no gender split; full results are in an inaccessible Google Drive, so left null."
+        }
+      }
+    },
+    {
+      "slug": "grasshopper-series",
+      "year": "2024",
+      "category": "series (4 events Jan-May); no single flagship event",
+      "fields": {
+        "winner_male": {
+          "old": "Peter Stetina",
+          "old_class": "plausible person",
+          "new": null,
+          "sources": [
+            "https://www.cyclingnews.com/races/grasshopper-adventure-series-2025/"
+          ],
+          "confidence": "unverified",
+          "note": "Multi-event series with no flagship race; Cyclingnews only says Peter Stetina was best pro man, not series champion, and no official 2024 standings found."
+        },
+        "winner_female": {
+          "old": "Flavia Oliveira Parks",
+          "old_class": "plausible person",
+          "new": null,
+          "sources": [
+            "https://www.cyclingnews.com/races/grasshopper-adventure-series-2025/"
+          ],
+          "confidence": "unverified",
+          "note": "Series with no flagship event; Cyclingnews (single source) credits Flavia Oliveira Parks as 2024 overall pro women's series champion, so usable only if labeled series overall."
+        }
+      }
+    },
+    {
+      "slug": "grassroots-gravel",
+      "year": "2024",
+      "category": "113mi The Whole / 75mi overall (2024-10-12)",
+      "fields": {
+        "winner_male": {
+          "old": "Community Focus",
+          "old_class": "not a person",
+          "new": null,
+          "sources": [
+            "https://www.athlinks.com/event/379991/results/Event/1057459/Results"
+          ],
+          "confidence": "unverified",
+          "note": "Results live only on JS-rendered Athlinks (event 379991, race 1057459; API blocked) and no press coverage names winners."
+        },
+        "winner_female": {
+          "old": null,
+          "old_class": "empty",
+          "new": null,
+          "sources": [
+            "https://www.athlinks.com/event/379991/results/Event/1057459/Results"
+          ],
+          "confidence": "unverified",
+          "note": "Results live only on JS-rendered Athlinks (event 379991, race 1057459; API blocked) and no press coverage names winners."
+        }
+      }
+    },
+    {
+      "slug": "gravel-earth",
+      "year": "2024",
+      "category": "12-20 event series, no single flagship race",
+      "fields": {
+        "winner_male": {
+          "old": "Prize Money",
+          "old_class": "not a person",
+          "new": null,
+          "sources": [],
+          "confidence": "unverified",
+          "note": "Multi-event series with no flagship race; series points champions were Simen Nordahl Svendsen (men) and Karolina Migon (women) per rawcyclingmag/Cafe du Cycliste, but that is not a race winner."
+        },
+        "winner_female": {
+          "old": null,
+          "old_class": "empty",
+          "new": null,
+          "sources": [],
+          "confidence": "unverified",
+          "note": "Multi-event series with no flagship race; 2024 series women's champion reportedly Karolina Migon, not a race winner."
+        }
+      }
+    },
+    {
+      "slug": "gravel-revival",
+      "year": "2024",
+      "category": "100mi / 60-68mi timed race (Oct 18-20, 2024)",
+      "fields": {
+        "winner_male": {
+          "old": "Key Course Features",
+          "old_class": "not a person",
+          "new": null,
+          "sources": [
+            "https://www.gravelcyclist.com/training-rides/the-5th-annual-gravel-revival-returns-to-centerville-tennessee/"
+          ],
+          "confidence": "unverified",
+          "note": "Timed by Race Day Events with cash podiums, but no published 2024 overall winners found."
+        },
+        "winner_female": {
+          "old": null,
+          "old_class": "empty",
+          "new": null,
+          "sources": [
+            "https://www.gravelcyclist.com/training-rides/the-5th-annual-gravel-revival-returns-to-centerville-tennessee/"
+          ],
+          "confidence": "unverified",
+          "note": "Timed by Race Day Events with cash podiums, but no published 2024 overall winners found."
+        }
+      }
+    },
+    {
+      "slug": "gravel-roll-pecan-shaker",
+      "year": "2024",
+      "category": "72-106mi (not a conventional race)",
+      "fields": {
+        "winner_male": {
+          "old": "Gravel Roll",
+          "old_class": "not a person",
+          "new": null,
+          "sources": [
+            "https://georgiabikes.org/event/pecan-shaker/"
+          ],
+          "confidence": "unverified",
+          "note": "Event uses timed segments rather than a race result, and no 2024 results found."
+        },
+        "winner_female": {
+          "old": null,
+          "old_class": "empty",
+          "new": null,
+          "sources": [
+            "https://georgiabikes.org/event/pecan-shaker/"
+          ],
+          "confidence": "unverified",
+          "note": "Event uses timed segments rather than a race result, and no 2024 results found."
+        }
+      }
+    },
+    {
+      "slug": "gravel-worlds",
+      "year": "2026",
+      "category": "GW150 elite/pro overall (Aug 22, 2026)",
+      "fields": {
+        "winner_male": {
+          "old": "Torbjørn Røed",
+          "old_class": "plausible person",
+          "new": "Torbjørn Røed",
+          "sources": [
+            "https://www.granfondoguide.com/Contents/IndexFull/9337/2026-gravel-worlds-results-geerike-schreurs-and-torbjorn-roed-crowned-world-champions",
+            "https://slowtwitch.com/gravel/a-record-setting-day-at-gravel-worlds-sees-torbjorn-roed-sprint-to-the-win-ahead-of-keegan-swenson/",
+            "https://www.cyclingnews.com/pro-cycling/racing/lauf-gravel-worlds-geerike-schreurs-beats-rosa-kloser-in-photo-finish-as-torbjorn-roed-wins-three-way-sprint-after-storms-cause-course-rejig/"
+          ],
+          "confidence": "verified",
+          "note": "Beat Keegan Swenson by 1 second in three-way sprint; new course record."
+        },
+        "winner_female": {
+          "old": "Geerike Schreurs",
+          "old_class": "plausible person",
+          "new": "Geerike Schreurs",
+          "sources": [
+            "https://www.granfondoguide.com/Contents/IndexFull/9337/2026-gravel-worlds-results-geerike-schreurs-and-torbjorn-roed-crowned-world-champions",
+            "https://slowtwitch.com/gravel/photo-finish-geerike-schreurs-snatches-gravel-worlds-2026-win/",
+            "https://www.cyclingnews.com/pro-cycling/racing/lauf-gravel-worlds-geerike-schreurs-beats-rosa-kloser-in-photo-finish-as-torbjorn-roed-wins-three-way-sprint-after-storms-cause-course-rejig/"
+          ],
+          "confidence": "verified",
+          "note": "Photo-finish over Rosa Kloser."
+        },
+        "winning_time_male": {
+          "old": "6:05:22",
+          "old_class": "time",
+          "new": "6:05:22",
+          "sources": [
+            "https://www.granfondoguide.com/Contents/IndexFull/9337/2026-gravel-worlds-results-geerike-schreurs-and-torbjorn-roed-crowned-world-champions",
+            "https://slowtwitch.com/gravel/a-record-setting-day-at-gravel-worlds-sees-torbjorn-roed-sprint-to-the-win-ahead-of-keegan-swenson/"
+          ],
+          "confidence": "verified",
+          "note": "Two sources agree; current value correct."
+        },
+        "winning_time_female": {
+          "old": "7:19:37",
+          "old_class": "time",
+          "new": "7:19:37",
+          "sources": [
+            "https://www.granfondoguide.com/Contents/IndexFull/9337/2026-gravel-worlds-results-geerike-schreurs-and-torbjorn-roed-crowned-world-champions",
+            "https://slowtwitch.com/gravel/photo-finish-geerike-schreurs-snatches-gravel-worlds-2026-win/"
+          ],
+          "confidence": "verified",
+          "note": "Results table and Slowtwitch say 7:19:37 (GFG prose says 7:19:36); current value kept."
+        }
+      }
+    },
+    {
+      "slug": "gray-duck-grit",
+      "year": "2024",
+      "category": "69mi overall (Gray Duck Grit III, Sep 1 2024; no 62mi option, 111mi 'Suburb' winners Blake Nelson 5:50:29.5 / Sara Rondorf 7:04:06.9)",
+      "fields": {
+        "winner_male": {
+          "old": "Distance Options",
+          "old_class": "not a person",
+          "new": null,
+          "sources": [
+            "https://www.endurancepromotions.com/ResultDetails.aspx?id=1658"
+          ],
+          "confidence": "ambiguous-cleared",
+          "note": "Endurance Promotions official results, 69-mile class first place 3:24:00.2.",
+          "researched_new": "Marcus Duval",
+          "researched_confidence": "verified"
+        },
+        "winner_female": {
+          "old": null,
+          "old_class": "empty",
+          "new": null,
+          "sources": [
+            "https://www.endurancepromotions.com/ResultDetails.aspx?id=1658"
+          ],
+          "confidence": "ambiguous-cleared",
+          "note": "Endurance Promotions official results, 69-mile class first place 4:27:35.4.",
+          "researched_new": "Jennifer Hale",
+          "researched_confidence": "verified"
+        }
+      },
+      "ambiguous": "results distance does not match the profile distance"
+    },
+    {
+      "slug": "grinduro",
+      "year": "2024",
+      "category": "series (multiple location events, no flagship)",
+      "fields": {
+        "winner_male": {
+          "old": "Gordon Wadsworth",
+          "old_class": "plausible person",
+          "new": null,
+          "sources": [],
+          "confidence": "unverified",
+          "note": "Multi-location series (2024: California, Pennsylvania, Germany, Italy, Japan, France) with no single flagship event or series winner."
+        },
+        "winner_female": {
+          "old": "Meredith Miller",
+          "old_class": "plausible person",
+          "new": null,
+          "sources": [],
+          "confidence": "unverified",
+          "note": "Multi-location series with no single flagship event or series winner."
+        }
+      }
+    },
+    {
+      "slug": "grinduro-canada",
+      "year": "2024",
+      "category": "n/a (event not held)",
+      "fields": {
+        "winner_male": {
+          "old": "Accessibility Issues",
+          "old_class": "not a person",
+          "new": null,
+          "sources": [
+            "https://grinduro.com"
+          ],
+          "confidence": "unverified",
+          "note": "Grinduro Canada was last held 2022 and is absent from the 2024 Grinduro lineup (CA, PA, DE, IT, JP, FR), so there is no 2024 winner."
+        },
+        "winner_female": {
+          "old": null,
+          "old_class": "empty",
+          "new": null,
+          "sources": [
+            "https://grinduro.com"
+          ],
+          "confidence": "unverified",
+          "note": "Grinduro Canada was last held 2022 and is absent from the 2024 Grinduro lineup, so there is no 2024 winner."
+        }
+      }
+    },
+    {
+      "slug": "grinduro-france",
+      "year": "2024",
+      "category": "Grinduro Vosges, 62mi, timed-segment format",
+      "fields": {
+        "winner_male": {
+          "old": "Historical Weather Incidents",
+          "old_class": "not a person",
+          "new": null,
+          "sources": [],
+          "confidence": "unverified",
+          "note": "Grinduro is a segment-based event with no published overall winner found; only pre-event coverage located."
+        },
+        "winner_female": {
+          "old": null,
+          "old_class": "empty",
+          "new": null,
+          "sources": [],
+          "confidence": "unverified",
+          "note": "Grinduro is a segment-based event with no published overall winner found."
+        }
+      }
+    },
+    {
+      "slug": "jeroboam",
+      "year": "2024",
+      "category": "300km Jeroboam route (186mi)",
+      "fields": {
+        "winner_male": {
+          "old": "Gerard Vroomen",
+          "old_class": "plausible person",
+          "new": null,
+          "sources": [],
+          "confidence": "unverified",
+          "note": "No 2024 results found; 2024 series spanned several venues (Asiago, Wörthersee, Franciacorta) and current value Gerard Vroomen (3T co-founder) is unsupported."
+        },
+        "winner_female": {
+          "old": null,
+          "old_class": "empty",
+          "new": null,
+          "sources": [],
+          "confidence": "unverified",
+          "note": "No 2024 results found."
+        }
+      }
+    },
+    {
+      "slug": "karukinka",
+      "year": "2024",
+      "category": "4-stage 440km stage race, Tierra del Fuego, 4-7 Dec 2024",
+      "fields": {
+        "winner_male": {
+          "old": "Punta Arenas",
+          "old_class": "not a person",
+          "new": null,
+          "sources": [],
+          "confidence": "unverified",
+          "note": "Final 2024 GC not found; only stage 1 reported (Robert Gesink won stage 1, naszosie.pl); the 2023 first-edition Open winner was Eduardo Bonnefoix."
+        },
+        "winner_female": {
+          "old": null,
+          "old_class": "empty",
+          "new": null,
+          "sources": [],
+          "confidence": "unverified",
+          "note": "Final 2024 women's GC not found; only stage 1 winner Cinthia Wattson reported by one source."
+        }
+      }
+    },
+    {
+      "slug": "king-of-the-lake",
+      "year": "2024",
+      "category": "n/a - only known KOTL is the Attersee (Austria) 47km time trial",
+      "fields": {
+        "winner_male": {
+          "old": "Brian Megens",
+          "old_class": "plausible person",
+          "new": null,
+          "sources": [],
+          "confidence": "unverified",
+          "note": "No gravel King of the Lake at Lake Constance found; the real KOTL is a road time trial at Attersee (2024 elite sources conflict: Julian Braun 55:59 vs Daniel Szalay), so Brian Megens 1:03:22 is wrong and event mismatch is unresolved."
+        },
+        "winner_female": {
+          "old": "Brian Megens",
+          "old_class": "plausible person",
+          "new": null,
+          "sources": [],
+          "confidence": "unverified",
+          "note": "Event mismatch; Attersee KOTL 2024 Queen of the Lake reportedly Anna Kiesenhofer but that is not the Lake Constance gravel event."
+        },
+        "winning_time_male": {
+          "old": "1:03:22",
+          "old_class": "time",
+          "new": null,
+          "sources": [],
+          "confidence": "unverified",
+          "note": "Event mismatch; cannot verify 1:03:22."
+        }
+      }
+    },
+    {
+      "slug": "leadville-100",
+      "year": "2024",
+      "category": "Elite men/women, modified 100mi course (Aug 10, 2024)",
+      "fields": {
+        "winner_male": {
+          "old": "Twin Lakes",
+          "old_class": "not a person",
+          "new": "Keegan Swenson",
+          "sources": [
+            "https://www.cyclingwest.com/?p=37777",
+            "https://www.cyclingnews.com/pro-cycling/racing/leadville-trail-100-mtb-past-winners/"
+          ],
+          "confidence": "verified",
+          "note": "Swenson 5:49:08, John Gaston 2nd."
+        },
+        "winner_female": {
+          "old": null,
+          "old_class": "empty",
+          "new": "Melisa Rollins",
+          "sources": [
+            "https://www.cyclingwest.com/?p=37777",
+            "https://www.cyclingnews.com/pro-cycling/racing/leadville-trail-100-mtb-past-winners/"
+          ],
+          "confidence": "verified",
+          "note": "Rollins 7:10:10, Gomez Villafane 2nd."
+        },
+        "winning_time_male": {
+          "old": "12:00:00",
+          "old_class": "time",
+          "new": "5:49:08",
+          "sources": [
+            "https://www.cyclingwest.com/?p=37777",
+            "https://www.cyclingnews.com/pro-cycling/racing/leadville-trail-100-mtb-past-winners/"
+          ],
+          "confidence": "verified",
+          "note": "Replaces placeholder 12:00:00; both sources agree."
+        }
+      }
+    },
+    {
+      "slug": "marys-mayhem",
+      "year": "2024",
+      "category": "60/100km (social overnighter)",
+      "fields": {
+        "winner_male": {
+          "old": "Official Recognition",
+          "old_class": "not a person",
+          "new": null,
+          "sources": [
+            "https://raceroster.com/events/2024/87509/marys-mayhem-2024"
+          ],
+          "confidence": "unverified",
+          "note": "Organiser (Graveleur) describes it as non-competitive social gravel with prizes not based on finishing position; no results exist."
+        },
+        "winner_female": {
+          "old": null,
+          "old_class": "empty",
+          "new": null,
+          "sources": [
+            "https://raceroster.com/events/2024/87509/marys-mayhem-2024"
+          ],
+          "confidence": "unverified",
+          "note": "Organiser (Graveleur) describes it as non-competitive social gravel with prizes not based on finishing position; no results exist."
+        }
+      }
+    },
+    {
+      "slug": "ned-gravel",
+      "year": "2024",
+      "category": "Tungsten Course (70mi per current race info) overall by fastest time across age groups, Jul 13 2024; Ultra Course (~116mi) won by Lachlan Morton 6:56:38 / Katelyn Luther 11:15:21",
+      "fields": {
+        "winner_male": {
+          "old": "Founder Information",
+          "old_class": "not a person",
+          "new": "Eric Brunner",
+          "sources": [
+            "https://my.raceresult.com/299650/results"
+          ],
+          "confidence": "verified",
+          "note": "Official RaceResult: fastest Tungsten male is Eric Brunner (M19-29) 3:52:55, ahead of Andy Lydic 3:54:55; no combined overall list, so winner taken as fastest across age groups."
+        },
+        "winner_female": {
+          "old": null,
+          "old_class": "empty",
+          "new": "Lauren De Crescenzo",
+          "sources": [
+            "https://my.raceresult.com/299650/results"
+          ],
+          "confidence": "verified",
+          "note": "Official RaceResult: fastest Tungsten female is Lauren De Crescenzo (W30-39) 4:17:20, ahead of Sarah Lange 4:28:51; fastest across age groups."
+        }
+      }
+    },
+    {
+      "slug": "ouachita-challenge",
+      "year": "2024",
+      "category": "Sat 100k (~62mi) gravel overall, Mar 23 2024 (Sunday MTB race is a separate event)",
+      "fields": {
+        "winner_male": {
+          "old": "Founder Information",
+          "old_class": "not a person",
+          "new": null,
+          "sources": [
+            "https://my.raceresult.com/280883/results"
+          ],
+          "confidence": "ambiguous-cleared",
+          "note": "Official RaceResult Stage 1 (gravel) 2:57:03, rank 1 ahead of Rob Bell 2:57:07; the traditional Sunday MTB race was won by Spencer Whittier (Double, 4:42:07) / Chris Drummond (MTB-only, 4:43:07), so 'the' race is ambiguous.",
+          "researched_new": "Lucas Strain",
+          "researched_confidence": "verified"
+        },
+        "winner_female": {
+          "old": null,
+          "old_class": "empty",
+          "new": null,
+          "sources": [
+            "https://my.raceresult.com/280883/results"
+          ],
+          "confidence": "ambiguous-cleared",
+          "note": "Official RaceResult Stage 1 (gravel) 3:17:13, rank 1 female (Double entrant); Sunday MTB women's winners were Sara Sheets (Double) / Crystal Anthony (MTB-only).",
+          "researched_new": "Amy Phillips",
+          "researched_confidence": "verified"
+        }
+      },
+      "ambiguous": "gravel (Saturday 100k) vs MTB (Sunday) category"
+    },
+    {
+      "slug": "pirinexus-360",
+      "year": "2024",
+      "category": "~340km Pirinexus Challenge (Girona), personal challenge/relay",
+      "fields": {
+        "winner_male": {
+          "old": "Elevation Gain",
+          "old_class": "not a person",
+          "new": null,
+          "sources": [],
+          "confidence": "unverified",
+          "note": "Largely a non-competitive challenge with no published winners found for 2024."
+        },
+        "winner_female": {
+          "old": null,
+          "old_class": "empty",
+          "new": null,
+          "sources": [],
+          "confidence": "unverified",
+          "note": "No published 2024 results found."
+        }
+      }
+    },
+    {
+      "slug": "rasputitsa",
+      "year": "2024",
+      "category": "53mi (Apr 20 2024, Jay Peak) open overall",
+      "fields": {
+        "winner_male": {
+          "old": "Jay Peak Resort",
+          "old_class": "not a person",
+          "new": null,
+          "sources": [
+            "https://www.gravel-results.com/race/17883"
+          ],
+          "confidence": "unverified",
+          "note": "No readable official results (BikeReg/gravel-results blocked); gravel-results hints Adam Roberge but only as points standings, so not confirmed."
+        },
+        "winner_female": {
+          "old": null,
+          "old_class": "empty",
+          "new": null,
+          "sources": [
+            "https://www.gravel-results.com/race/17883"
+          ],
+          "confidence": "unverified",
+          "note": "No readable official results; gravel-results hints Maghalie Rochette but not confirmed."
+        }
+      }
+    },
+    {
+      "slug": "rebeccas-private-idaho",
+      "year": "2024",
+      "category": "Baked Potato (~102mi/165km) open men/women, Sun Aug 2024 (RaceResult event 305957)",
+      "fields": {
+        "winner_male": {
+          "old": "El Diablito",
+          "old_class": "not a person",
+          "new": "Michael Van Den Ham",
+          "sources": [
+            "https://my.raceresult.com/305957/results",
+            "https://www.mtexpress.com/sports/mountain_sports/private-idaho-race-ends-in-tight-finish/article_581d41d4-68cf-11ef-9b57-9720535d4104.html"
+          ],
+          "confidence": "verified",
+          "note": "Official RaceRite results: Van Den Ham 5:09:20.8, Joshua Bromley 2nd 5:09:21.3; no separate pro category, Baked Potato is the flagship."
+        },
+        "winner_female": {
+          "old": null,
+          "old_class": "empty",
+          "new": "Eden Nykamp",
+          "sources": [
+            "https://my.raceresult.com/305957/results",
+            "https://www.mtexpress.com/sports/mountain_sports/private-idaho-race-ends-in-tight-finish/article_581d41d4-68cf-11ef-9b57-9720535d4104.html"
+          ],
+          "confidence": "verified",
+          "note": "Official results: Nykamp 6:11:17.0, Erin Green 2nd; Mountain Express snippet matched, article itself not opened."
+        }
+      }
+    },
+    {
+      "slug": "red-granite-grinder",
+      "year": "2024",
+      "category": "144mi geared overall (Oct 12 2024, Wausau)",
+      "fields": {
+        "winner_male": {
+          "old": "Shane Hitz",
+          "old_class": "plausible person",
+          "new": null,
+          "sources": [
+            "https://results.raceroster.com/v2/en-US/results/3jca4z7n752gx9ym/results"
+          ],
+          "confidence": "ambiguous-cleared",
+          "note": "Official RaceRoster 144 Mile Geared: 7:55:47, 8:48:28 for 2nd; the live tracker (enabledtracking rgg2024) shows Mitch Guth 6:51:04 but RaceRoster lists Guth with no finish, so tracker is not final.",
+          "researched_new": "Peter Olejniczak",
+          "researched_confidence": "verified"
+        },
+        "winner_female": {
+          "old": null,
+          "old_class": "empty",
+          "new": null,
+          "sources": [
+            "https://results.raceroster.com/v2/en-US/results/3jca4z7n752gx9ym/results",
+            "https://results.enabledtracking.com/event/rgg2024"
+          ],
+          "confidence": "ambiguous-cleared",
+          "note": "Official RaceRoster 144 Mile Geared female 1st, 9:26:44 (tracker shows 9:27:26).",
+          "researched_new": "Maria Osowski",
+          "researched_confidence": "verified"
+        }
+      },
+      "ambiguous": "sources conflict (live tracker vs official RaceRoster)"
+    },
+    {
+      "slug": "red-granite-grinder",
+      "year": "2025",
+      "category": "150mi overall (Oct 11 2025, Athens WI)",
+      "fields": {
+        "winner_male": {
+          "old": "Aitor Azkarraga (150mi, 7:30:06)",
+          "old_class": "plausible person",
+          "new": "Aitor Azkarraga",
+          "sources": [
+            "https://www.webscorer.com/race?raceid=409522",
+            "https://www.ironbull.org/grinder-results-and-pictures"
+          ],
+          "confidence": "verified",
+          "note": "Webscorer 150 MILE male overall 7:30:06.9; name split from the embedded '(150mi, 7:30:06)'."
+        },
+        "winner_female": {
+          "old": "Olivia Austin (150mi, 9:42:54)",
+          "old_class": "plausible person",
+          "new": "Olivia Austin",
+          "sources": [
+            "https://www.webscorer.com/race?raceid=409522",
+            "https://www.ironbull.org/grinder-results-and-pictures"
+          ],
+          "confidence": "verified",
+          "note": "Webscorer 150 MILE female 9:42:54.2; name split from the embedded '(150mi, 9:42:54)'."
+        },
+        "winning_time_male": {
+          "old": null,
+          "old_class": "empty",
+          "new": "7:30:06",
+          "sources": [
+            "https://www.webscorer.com/race?raceid=409522",
+            "https://www.ironbull.org/grinder-results-and-pictures"
+          ],
+          "confidence": "verified",
+          "note": "Time previously embedded in winner_male; Webscorer 7:30:06.9."
+        },
+        "winning_time_female": {
+          "old": null,
+          "old_class": "empty",
+          "new": "9:42:54",
+          "sources": [
+            "https://www.webscorer.com/race?raceid=409522",
+            "https://www.ironbull.org/grinder-results-and-pictures"
+          ],
+          "confidence": "verified",
+          "note": "Time previously embedded in winner_female; Webscorer 9:42:54.2."
+        }
+      }
+    },
+    {
+      "slug": "salty-lizard",
+      "year": "2024",
+      "category": "El Lagarto (longest course, ~97-100mi) overall by fastest time across age groups, Aug 24 2024 (input distance 50mi matches no course; Lickety Split ~73mi: Todd Hageman 3:40:59 / Devery Harper 4:26:10)",
+      "fields": {
+        "winner_male": {
+          "old": "Breanne Harward",
+          "old_class": "plausible person",
+          "new": null,
+          "sources": [
+            "https://utahgravelseries.com/results",
+            "https://drive.google.com/file/d/1uOHKkoO4oR5s8EJ3TWHo9H8xmgSMSB8I/view"
+          ],
+          "confidence": "ambiguous-cleared",
+          "note": "Official Utah Gravel Series results PDF (dated 8/24/24): El Lagarto fastest male 4:37:13 (M19-29), 12s ahead of Sean Topel; no combined overall list.",
+          "researched_new": "Tanner Visnick",
+          "researched_confidence": "verified"
+        },
+        "winner_female": {
+          "old": null,
+          "old_class": "empty",
+          "new": null,
+          "sources": [
+            "https://utahgravelseries.com/results",
+            "https://drive.google.com/file/d/1uOHKkoO4oR5s8EJ3TWHo9H8xmgSMSB8I/view"
+          ],
+          "confidence": "ambiguous-cleared",
+          "note": "Official results PDF: El Lagarto fastest female 'Flavia Parks' 5:20:11 (W40-49), ahead of Megan Deppen 6:16:19; 'Breanne Harward' in current data is the race director.",
+          "researched_new": "Flavia Oliveira Parks",
+          "researched_confidence": "verified"
+        }
+      },
+      "ambiguous": "results distance does not match the profile distance"
+    },
+    {
+      "slug": "seven",
+      "year": "2024",
+      "category": "125km Seven elite/open overall, Nannup WA, 11 May 2024",
+      "fields": {
+        "winner_male": {
+          "old": "Western Grey Kangaroos",
+          "old_class": "not a person",
+          "new": "Brendan Johnston",
+          "sources": [
+            "https://granfondodailynews.com/2024/05/13/1500-riders-7-epic-sectors-1-champion-brendan-johnston-wins-uci-gravel-worlds-qualifier/",
+            "https://www.granfondoguide.com/Contents/PopUp/7960/johnston-and-barrow-fastest-at-uci-seven-gravel-fondo-in-western-australia-"
+          ],
+          "confidence": "verified",
+          "note": "4:05:11 solo win; two sources."
+        },
+        "winner_female": {
+          "old": null,
+          "old_class": "empty",
+          "new": "Justine Barrow",
+          "sources": [
+            "https://granfondodailynews.com/2024/05/13/1500-riders-7-epic-sectors-1-champion-brendan-johnston-wins-uci-gravel-worlds-qualifier/",
+            "https://www.granfondoguide.com/Contents/PopUp/7960/johnston-and-barrow-fastest-at-uci-seven-gravel-fondo-in-western-australia-"
+          ],
+          "confidence": "verified",
+          "note": "4:44:30; two sources."
+        }
+      }
+    },
+    {
+      "slug": "the-traka",
+      "year": "2024",
+      "category": "Traka 200 (200km) elite overall, Girona",
+      "fields": {
+        "winner_male": {
+          "old": "Peter Stetina",
+          "old_class": "plausible person",
+          "new": "Petr Vakoč",
+          "sources": [
+            "https://sportmaniacs.com/en/races/the-traka-2024-15365/6636a1c5-ae44-4712-b856-4405ac1f00ea/results/leaders",
+            "https://www.cyclingnews.com/races/gravel-earth-global-events-2024/the-traka-200/results/"
+          ],
+          "confidence": "verified",
+          "note": "Vakoc 6:07:08 after 5-min penalty stripped Frederik Rassmann of the win; Peter Stetina is not the winner."
+        },
+        "winner_female": {
+          "old": null,
+          "old_class": "empty",
+          "new": "Carolin Schiff",
+          "sources": [
+            "https://sportmaniacs.com/en/races/the-traka-2024-15365/6636a1c5-ae44-4712-b856-4405ac1f00ea/results/leaders",
+            "https://www.cyclingnews.com/races/gravel-earth-global-events-2024/the-traka-200/results/"
+          ],
+          "confidence": "verified",
+          "note": "Schiff 6:46:16, Klara Sofie Skovgaard Hansen 2nd."
+        }
+      }
+    },
+    {
+      "slug": "thunder-bay-thriller",
+      "year": "2024",
+      "category": "62mi overall (2024-06-01)",
+      "fields": {
+        "winner_male": {
+          "old": "New Race",
+          "old_class": "not a person",
+          "new": null,
+          "sources": [
+            "https://runsignup.com/Race/Results/165663",
+            "https://runsignup.com/Rest/race/165663/results/get-results?format=json&event_id=857880&individual_result_set_id=460576"
+          ],
+          "confidence": "ambiguous-cleared",
+          "note": "RunSignup official results (Rock CF Foundation), 62 Mile Overall, M place 1, 2:51:13 chip.",
+          "researched_new": "Jorden Wakeley",
+          "researched_confidence": "verified"
+        },
+        "winner_female": {
+          "old": null,
+          "old_class": "empty",
+          "new": null,
+          "sources": [
+            "https://runsignup.com/Race/Results/165663",
+            "https://runsignup.com/Rest/race/165663/results/get-results?format=json&event_id=857880&individual_result_set_id=460576"
+          ],
+          "confidence": "ambiguous-cleared",
+          "note": "RunSignup official results, 62 Mile Overall, top female (12th overall), 3:07:43 chip; single primary source.",
+          "researched_new": "Heather Compton",
+          "researched_confidence": "verified"
+        }
+      },
+      "ambiguous": "results distance does not match the profile distance"
+    },
+    {
+      "slug": "tor-divide",
+      "year": "2024",
+      "category": "150/250km self-supported bikepacking ride, Edale, 18 May 2024",
+      "fields": {
+        "winner_male": {
+          "old": "Finisher Time Limits",
+          "old_class": "not a person",
+          "new": null,
+          "sources": [],
+          "confidence": "unverified",
+          "note": "Unranked self-supported ride with a 36h finisher cutoff and no published winners."
+        },
+        "winner_female": {
+          "old": null,
+          "old_class": "empty",
+          "new": null,
+          "sources": [],
+          "confidence": "unverified",
+          "note": "Unranked self-supported ride; no published winners."
+        }
+      }
+    },
+    {
+      "slug": "torino-nice-rally",
+      "year": "2024",
+      "category": "n/a - rally, not a race",
+      "fields": {
+        "winner_male": {
+          "old": "Lael Wilcox",
+          "old_class": "plausible person",
+          "new": null,
+          "sources": [],
+          "confidence": "unverified",
+          "note": "Rally is an unranked ride, not a race; Lael Wilcox claim unsupported."
+        },
+        "winner_female": {
+          "old": null,
+          "old_class": "empty",
+          "new": null,
+          "sources": [],
+          "confidence": "unverified",
+          "note": "Rally is an unranked ride, not a race."
+        }
+      }
+    },
+    {
+      "slug": "transcontinental-race",
+      "year": "2024",
+      "category": "TCRNo10 Roubaix-Istanbul ~4000km, overall GC and first woman",
+      "fields": {
+        "winner_male": {
+          "old": "Robin Gemperle",
+          "old_class": "plausible person",
+          "new": "Robin Gemperle",
+          "sources": [
+            "https://bikepacking.com/news/robin-gemperle-wins-2024-transcontinental-race",
+            "https://www.apidura.com/journal/robin-gemperle-wins-the-historic-transcontinental-race-no-10/"
+          ],
+          "confidence": "verified",
+          "note": "Won in 8d 23h 59m, arriving Istanbul 30 July 2024."
+        },
+        "winner_female": {
+          "old": null,
+          "old_class": "empty",
+          "new": "Jana Kesenheimer",
+          "sources": [
+            "https://bikepacking.com/news/jana-kesenheimer-2024-transcontinental-race/",
+            "https://dotwatcher.cc/feature/dotwatcher-2024-roundup"
+          ],
+          "confidence": "verified",
+          "note": "First woman, 13th overall in about 11d 3h 57m (time from search summary, not page-verified)."
+        }
+      }
+    },
+    {
+      "slug": "transcontinental-race",
+      "year": "2025",
+      "category": "TCRNo11 Santiago de Compostela-Constanta ~4900km, overall GC and first woman",
+      "fields": {
+        "winner_male": {
+          "old": "Victor Bosoni",
+          "old_class": "plausible person",
+          "new": "Victor Bosoni",
+          "sources": [
+            "https://www.lostdot.cc/blog/gc-winner-victor-bosoni-232",
+            "https://escapecollective.com/how-a-decisive-ferry-crossing-helped-produce-the-transcontinental-races-youngest-ever-winner/"
+          ],
+          "confidence": "verified",
+          "note": "GC winner; reported time 10d 16h 38m (not page-verified)."
+        },
+        "winner_female": {
+          "old": null,
+          "old_class": "empty",
+          "new": "Jana Kesenheimer",
+          "sources": [
+            "https://www.lostdot.cc/blog/fastest-woman-jana-kesenheimer-001",
+            "https://coros.com/stories/more-than-splits/c/jana-kesenheimer-wins-tcr"
+          ],
+          "confidence": "verified",
+          "note": "Fastest woman, repeat champion, top 10 overall."
+        }
+      }
+    },
+    {
+      "slug": "turnhout-gravel",
+      "year": "2024",
+      "category": "Belgian national gravel championships elite, Turnhout, 1 May 2024 (event run by Turnhout Gravel)",
+      "fields": {
+        "winner_male": {
+          "old": "Gianni Vermeersch",
+          "old_class": "plausible person",
+          "new": "Gianni Vermeersch",
+          "sources": [
+            "https://sporza.be/nl/2024/05/01/gianni-vermeersch-zet-de-kers-op-zijn-voorjaarstaart-met-belgische-graveltitel~1714566804470/",
+            "https://www.wielerflits.nl/wielerkalender/national-gravel-championships-belgium-2024/result"
+          ],
+          "confidence": "verified",
+          "note": "Won BK gravel in 3:51:24; 2024 Turnhout Gravel was the national championship, not the later UCI-series event."
+        },
+        "winner_female": {
+          "old": null,
+          "old_class": "empty",
+          "new": "Alana Castrique",
+          "sources": [
+            "https://sporza.be/nl/2024/05/01/gianni-vermeersch-zet-de-kers-op-zijn-voorjaarstaart-met-belgische-graveltitel~1714566804470/"
+          ],
+          "confidence": "verified",
+          "note": "Women's BK gravel title; Sporza gives no time, only one source fetched."
+        }
+      }
+    },
+    {
+      "slug": "uci-gravel-worlds",
+      "year": "2024",
+      "category": "Elite championship race, Leuven BEL (men ~180km)",
+      "fields": {
+        "winner_male": {
+          "old": "Mathieu Van der Poel",
+          "old_class": "plausible person",
+          "new": "Mathieu van der Poel",
+          "sources": [
+            "https://www.granfondoguide.com/Contents/IndexFull/8185/mathieu-van-der-poel-wins-the-2024-uci-gravel-world-championships",
+            "https://road.cc/offroad/content/feature/2024-uci-gravel-world-championships-how-the-race-was-won-15835"
+          ],
+          "confidence": "verified",
+          "note": "Time 4:41:23; 2024 worlds were in Leuven, not Nannup."
+        },
+        "winner_female": {
+          "old": "Marianne Vos",
+          "old_class": "plausible person",
+          "new": "Marianne Vos",
+          "sources": [
+            "https://www.granfondoguide.com/Contents/IndexFull/8185/mathieu-van-der-poel-wins-the-2024-uci-gravel-world-championships"
+          ],
+          "confidence": "verified",
+          "note": "Time 4:01:07 per Gran Fondo Guide; second source not opened."
+        }
+      }
+    },
+    {
+      "slug": "uci-gravel-worlds",
+      "year": "2025",
+      "category": "Elite road-style championship race, Zuid-Limburg NL (men 181km, women 131km)",
+      "fields": {
+        "winner_male": {
+          "old": "Florian Vermeersch",
+          "old_class": "plausible person",
+          "new": "Florian Vermeersch",
+          "sources": [
+            "https://www.uci.org/article/2025-bolero-uci-gravel-world-championships-vermeersch-steps-up-to-the/5ZA5c1vr7I20SLcM2fWCDF",
+            "https://granfondodailynews.com/2025/10/11/results-2025-uci-gravel-world-championships-limburg-netherlands"
+          ],
+          "confidence": "verified",
+          "note": "Time 4:39:12; 2025 worlds were in Zuid-Limburg, not Nannup (site location is the 2026 host)."
+        },
+        "winner_female": {
+          "old": "Lorena Wiebes",
+          "old_class": "plausible person",
+          "new": "Lorena Wiebes",
+          "sources": [
+            "https://www.uci.org/article/2025-bolero-uci-gravel-world-championships-wiebes-leads-a-dutch-triumph/3kxIChQmv2vaMtZVVa0csD",
+            "https://granfondodailynews.com/2025/10/11/results-2025-uci-gravel-world-championships-limburg-netherlands"
+          ],
+          "confidence": "verified",
+          "note": "Time 3:58:16; Marianne Vos 2nd."
+        }
+      }
+    },
+    {
+      "slug": "unbound-200",
+      "year": "2024",
+      "category": "200mi elite overall",
+      "fields": {
+        "winner_male": {
+          "old": "Cameron Jones",
+          "old_class": "plausible person",
+          "new": "Lachlan Morton",
+          "sources": [
+            "https://www.granfondoguide.com/Contents/Index/8001/rosa-klöser-and-lachlan-morton-victorious-at-2024-unbound-gravel",
+            "https://www.cxmagazine.com/2024-unbound-gravel-results-elite-men-200-mile-life-time-grand-prix",
+            "https://www.cyclingwest.com/racing/gravel-racing/unbound-gravel-200-lachlan-morton-and-rosa-kloser-conquer-the-flint-hills-of-kansas/"
+          ],
+          "confidence": "verified",
+          "note": "Morton won sprint over Chad Haga; Cameron Jones won in 2025, not 2024."
+        },
+        "winner_female": {
+          "old": "Karolina Sowa Migon",
+          "old_class": "plausible person",
+          "new": "Rosa Klöser",
+          "sources": [
+            "https://www.granfondoguide.com/Contents/Index/8001/rosa-klöser-and-lachlan-morton-victorious-at-2024-unbound-gravel",
+            "https://www.cyclingwest.com/racing/gravel-racing/unbound-gravel-200-lachlan-morton-and-rosa-kloser-conquer-the-flint-hills-of-kansas/"
+          ],
+          "confidence": "verified",
+          "note": "Kloser won 9-rider sprint over Schreurs and Onweller; Migon was 21st in 2024."
+        },
+        "winning_time_male": {
+          "old": "8:34:39",
+          "old_class": "time",
+          "new": "9:11:47",
+          "sources": [
+            "https://www.granfondoguide.com/Contents/Index/8001/rosa-klöser-and-lachlan-morton-victorious-at-2024-unbound-gravel",
+            "https://www.cxmagazine.com/2024-unbound-gravel-results-elite-men-200-mile-life-time-grand-prix"
+          ],
+          "confidence": "verified",
+          "note": "Two sources; current 8:34:39 is wrong (Jones 2025 was 8:37:09)."
+        }
+      }
+    },
+    {
+      "slug": "wild-gravel",
+      "year": "2024",
+      "category": "Kany 125km (inaugural, 2024-10-05)",
+      "fields": {
+        "winner_male": {
+          "old": "Wild Gravel Trail",
+          "old_class": "not a person",
+          "new": null,
+          "sources": [
+            "https://wildgravel.com.au/"
+          ],
+          "confidence": "unverified",
+          "note": "No 2024 results found; only 2025 winners (Billeau/Humphreys) are published, and event is ride/walk/run with unclear timing."
+        },
+        "winner_female": {
+          "old": null,
+          "old_class": "empty",
+          "new": null,
+          "sources": [
+            "https://wildgravel.com.au/"
+          ],
+          "confidence": "unverified",
+          "note": "No 2024 results found; only 2025 winners (Billeau/Humphreys) are published, and event is ride/walk/run with unclear timing."
+        }
+      }
+    }
+  ],
+  "filtered": {
+    "date": "2026-10-09",
+    "from": "~/specs/gg-editorial-shell-2026-10-08/winners/corrections.json",
+    "rule": "Entries marked ambiguous have every field cleared (new: null) pending Matt's call on which category counts. The researched value is kept in researched_new with its sources."
+  }
+}

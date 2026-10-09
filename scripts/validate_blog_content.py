@@ -24,6 +24,12 @@ import sys
 from pathlib import Path
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
+sys.path.insert(0, str(PROJECT_ROOT / "wordpress"))
+
+# Shell pages are recognised by markers the shell itself exports, so a shell
+# change can't silently break these checks.
+from editorial_shell import HERO_FRAME_CLASS, SHELL_BODY_SCRIPT_MARKERS  # noqa: E402
+
 BLOG_DIR = PROJECT_ROOT / "wordpress" / "output" / "blog"
 INDEX_PATH = PROJECT_ROOT / "web" / "blog-index.json"
 GENERATORS = [
@@ -60,11 +66,23 @@ PYTHON_REPR_PATTERNS = [
 EXPECTED_BODY_SCRIPT_MARKERS = (
     "gg-consent-banner",
     "source: 'editorial'",
+    # Editorial shell pages: the shared-header hamburger JS and the contents
+    # scrollspy (editorial_shell.SHELL_BODY_SCRIPT_MARKERS).
+    *SHELL_BODY_SCRIPT_MARKERS,
 )
+
+LEGACY_HERO_CLASSES = ("gg-blog-hero", "gg-roundup-hero")
+_SHELL_HERO_RE = re.compile(r'class="' + re.escape(HERO_FRAME_CLASS) + r'(?:\s[^"]*)?"')
+
+
+def has_hero_section(content: str) -> bool:
+    """A legacy blog/roundup hero, or the editorial shell's hero frame."""
+    return any(c in content for c in LEGACY_HERO_CLASSES) or bool(_SHELL_HERO_RE.search(content))
 
 
 def body_scripts_are_expected(content: str) -> bool:
-    """Allow only the centralized consent and editorial CTA scripts in body."""
+    """Allow only the centralized consent and editorial CTA scripts, plus the
+    editorial shell's own scripts, in body; each at most once."""
     if "</head>" not in content or "</body>" not in content:
         return False
     body = content.split("</head>", 1)[1].split("</body>", 1)[0]
@@ -252,10 +270,7 @@ def check_html_quality(v):
         v.check("-preview/" not in content, f"{label}: no -preview/ in URLs")
 
         # Has hero section
-        v.check(
-            "gg-blog-hero" in content or "gg-roundup-hero" in content,
-            f"{label}: has hero section",
-        )
+        v.check(has_hero_section(content), f"{label}: has hero section")
 
         # Has CTA section
         v.check(
@@ -263,7 +278,8 @@ def check_html_quality(v):
             f"{label}: has CTA section",
         )
 
-        # Only centralized consent and editorial CTA tracking may execute in body.
+        # Only centralized consent, editorial CTA tracking and the editorial
+        # shell's own scripts may execute in body.
         if "</head>" in content and "</body>" in content:
             v.check(
                 body_scripts_are_expected(content),

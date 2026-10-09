@@ -452,6 +452,87 @@ class TestAnalyticsAndChrome:
         with pytest.raises(ValueError):
             es.HeroImage("x.jpg", "x", 1, 1, layout="banner")
 
+    def test_hero_class_hooks(self):
+        hero = es.HeroImage("og.jpg", "Card", 1200, 630, layout="wide", figure_class="gg-blog-hero-img")
+        html = es.render_editorial_page(_meta(hero=hero, hero_class="gg-blog-hero"), BODY)
+        assert '<div class="frame hero wide gg-blog-hero">' in html
+        assert '<figure class="hero-img gg-blog-hero-img"><img src="og.jpg"' in html
+
+    def test_hero_class_without_image(self):
+        html = es.render_editorial_page(_meta(hero_class="  a  b "), BODY)
+        assert '<div class="frame hero no-img a b">' in html
+
+    def test_hero_class_hooks_default_to_unchanged_markup(self):
+        """Generators that string-replace the hero markup keep working."""
+        hero = es.HeroImage("og.jpg", "Card", 1200, 630, layout="wide")
+        html = es.render_editorial_page(_meta(hero=hero), BODY)
+        assert html.count('<div class="frame hero wide">') == 1
+        assert html.count('<figure class="hero-img">') == 1
+
+    @pytest.mark.parametrize("bad", ['x" onclick="y', "a<b", "a>b"])
+    def test_hero_classes_are_validated(self, bad):
+        with pytest.raises(ValueError):
+            es.HeroImage("x.jpg", "x", 1, 1, figure_class=bad)
+        with pytest.raises(ValueError):
+            _meta(hero_class=bad)
+
+    def test_hero_frame_class_starts_every_hero(self):
+        for kw in ({}, {"hero": es.HeroImage("a.png", "A", 1, 1)},
+                   {"hero": es.HeroImage("a.png", "A", 1, 1, layout="wide"), "hero_class": "x"}):
+            html = es.render_editorial_page(_meta(**kw), BODY)
+            assert re.search(r'<div class="' + re.escape(es.HERO_FRAME_CLASS) + r'[ "]', _main(html))
+
+    def test_byline_date_default_hidden_and_custom(self):
+        assert '<p class="by">Gravel God &middot; March 26, 2026 &middot;' in es.render_editorial_page(_meta(), BODY)
+        hidden = es.render_editorial_page(_meta(byline_date="", show_read_time=False), BODY)
+        assert '<p class="by">Gravel God</p>' in hidden
+        custom = es.render_editorial_page(_meta(byline_date="Updated May 2026 & on", show_read_time=False), BODY)
+        assert '<p class="by">Gravel God &middot; Updated May 2026 &amp; on</p>' in custom
+
+    def test_h1_wraps_long_words(self):
+        rule = re.search(r"\nh1\{[^}]*\}", es.SHELL_CSS).group(0)
+        assert "overflow-wrap:break-word" in rule
+
+
+ONE_H2 = '<section class="gg-blog-section"><h2>Only</h2><p>x</p></section>'
+TWO_H2 = ONE_H2 + '<section class="gg-blog-section"><h2>Second</h2><p>y</p></section>'
+
+
+class TestContentsThreshold:
+    def test_one_heading_hides_contents(self):
+        html = es.render_editorial_page(_meta(), ONE_H2)
+        assert 'class="toc"' not in html and 'class="rail"' not in html and 'id="tocm"' not in html
+        assert '<h2 id="only" data-toc>' in html  # still numbered
+
+    def test_two_headings_show_contents(self):
+        html = es.render_editorial_page(_meta(), TWO_H2)
+        assert html.count('<ol class="toc">') == 2 and 'id="tocm"' in html
+
+    def test_explicit_false_still_wins(self):
+        html = es.render_editorial_page(_meta(), TWO_H2, contents=False)
+        assert 'class="toc"' not in html
+
+    def test_threshold_is_two(self):
+        assert es.MIN_CONTENTS_HEADINGS == 2
+
+
+def _body_scripts(html: str) -> list[str]:
+    body = html.split("</head>", 1)[1]
+    return re.findall(r"<script[^>]*>(.*?)</script>", body, flags=re.S)
+
+
+class TestValidatorHooks:
+    def test_each_shell_script_marker_is_in_exactly_one_body_script(self, page):
+        scripts = _body_scripts(page)
+        for marker in es.SHELL_BODY_SCRIPT_MARKERS:
+            assert sum(marker in s for s in scripts) == 1, marker
+
+    def test_markers_come_from_their_sources(self):
+        assert es.HEADER_JS_MARKER in get_site_header_js()
+        assert es.SCROLLSPY_JS_MARKER in es.SHELL_JS
+        assert es.HEADER_JS_MARKER not in es.SHELL_JS
+        assert es.SCROLLSPY_JS_MARKER not in get_site_header_js()
+
 
 # ── The Sweet Spot article ────────────────────────────────────
 

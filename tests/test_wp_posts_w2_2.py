@@ -55,6 +55,9 @@ def _page(pid) -> str:
 # <span>Compliment" -> "will:Compliment"). The page renders the same words in the
 # same blocks; only that block boundary is restored here, nothing else is relaxed.
 SNAPSHOT_GLUE = {3520: ("will:Compliment", "will: Compliment")}
+# Elementor template filler the converter drops (wp_post_import.ELEMENTOR_PLACEHOLDER_HEADING):
+# an unedited heading widget, not the author's words. Only that string may be absent.
+SNAPSHOT_FILLER = {2942: imp.ELEMENTOR_PLACEHOLDER_HEADING}
 
 
 def _baseline(pid) -> str:
@@ -63,6 +66,10 @@ def _baseline(pid) -> str:
         glued, split = SNAPSHOT_GLUE[pid]
         assert text.count(glued) == 1, glued
         text = text.replace(glued, split)
+    if pid in SNAPSHOT_FILLER:
+        filler = SNAPSHOT_FILLER[pid]
+        assert text.count(filler) == 1, filler
+        text = text.replace(filler, "")
     return text
 
 
@@ -78,6 +85,15 @@ def test_3520_glue_is_only_a_block_boundary():
     assert [d for d in diff if d[:1] in "+-" and d[:3] not in ("---", "+++")] == [
         "-will:Compliment", "+will:", "+Compliment"]
     assert "people will:<ol>" in _module(3520).SOURCE.body
+
+
+def test_2942_placeholder_heading_is_the_only_text_dropped():
+    """Unpatched, the one difference is Elementor's placeholder heading, missing from the page."""
+    diff = imp.text_diff((FIXTURES / "2942.txt").read_text(encoding="utf-8"), _page(2942))
+    assert [d for d in diff if d[:1] in "+-" and d[:3] not in ("---", "+++")] == [
+        "-Add", "-Your", "-Heading", "-Text", "-Here"]
+    assert imp.ELEMENTOR_PLACEHOLDER_HEADING not in _page(2942)
+    assert imp.ELEMENTOR_PLACEHOLDER_HEADING not in _module(2942).SOURCE.body
 
 
 @pytest.mark.parametrize("pid", POSTS)

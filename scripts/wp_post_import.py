@@ -35,6 +35,8 @@ Rules the converter holds:
   video (YouTube) and YouTube iframes -> click-to-load embed (no third-party JS until
   clicked); divider -> <hr>; icon-list -> <ul>; spacer/share-buttons -> dropped. Any
   other widget raises, so nothing is silently lost.
+- A heading widget still holding Elementor's default text ("Add Your Heading Text Here")
+  is template filler, not the author's words: it is dropped and never reaches Contents.
 """
 from __future__ import annotations
 
@@ -79,6 +81,8 @@ OG_QUALITIES = (85, 80, 75, 70, 65, 60, 55, 50, 45, 40)
 OG_BACKGROUND = (0xF5, 0xEF, 0xE6)  # --paper, behind transparent PNGs
 
 DROP_WIDGETS = ("share-buttons.", "posts.", "spacer.")
+# Elementor's default heading-widget text: an unedited template slot, never post copy.
+ELEMENTOR_PLACEHOLDER_HEADING = "Add Your Heading Text Here"
 KNOWN_WIDGETS = ("text-editor.", "heading.", "image.", "blockquote.", "image-gallery.", "gallery.",
                  "video.", "divider.", "icon-list.", "slides.", "price-table.", "call-to-action.")
 # Self-contained widgets whose own headings (a price table's h3, a CTA's h2) are
@@ -315,7 +319,11 @@ class ElementorConverter:
             wt = w.get("data-widget_type")
             if not wt.startswith(KNOWN_WIDGETS + DROP_WIDGETS):
                 raise NotImplementedError(f"Elementor widget {wt!r} has no mapping yet (add one in wp_post_import.py)")
-        return out
+        return [w for w in out if not self._is_placeholder_heading(w)]
+
+    def _is_placeholder_heading(self, w: Node) -> bool:
+        return (w.get("data-widget_type").startswith("heading.")
+                and self._heading_text(w).casefold() == ELEMENTOR_PLACEHOLDER_HEADING.casefold())
 
     def _heading_text(self, w: Node) -> str:
         hs = w.find_all(lambda n: n.tag in HEADINGS)

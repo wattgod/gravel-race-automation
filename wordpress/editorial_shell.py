@@ -1225,7 +1225,7 @@ def render_data_table(t: DataTable) -> str:
 
     cards = "\n    ".join(card(r) for r in rows)
     kick = f'\n  <p class="kick">{esc(t.kicker)}</p>' if t.kicker else ""
-    hint = '<span class="gg-sort-hint">Click a column to sort. </span>'
+    hint = '<span class="gg-sort-hint">Click a column to sort. </span>' if any(c.sortable for c in t.columns) else ""
     intro = f'\n  <p class="sub">{hint}{t.intro_html}</p>'
     foot = f'{t.footnote_html} ' if t.footnote_html else ""
     return f"""<figure class="gg-table" id="{tid}" aria-labelledby="{tid}-h">{kick}

@@ -871,6 +871,12 @@ class TestDataTable:
             assert part.count('class="gg-cite"') == 2
             assert 'href="https://x.test/1/" target="_blank" rel="noopener" aria-label="Abstract (ref 1)">abstract</a>' in part
 
+    def test_sort_hint_only_when_a_column_sorts(self):
+        assert 'class="gg-sort-hint">Click a column to sort.' in es.render_data_table(_table())
+        cols = tuple(es.TableColumn(c.label, kind=c.kind, card=c.card, sortable=False) for c in _table().columns)
+        out = es.render_data_table(_table(columns=cols, sort_by=None))
+        assert "gg-sort-hint" not in out and "<button" not in out
+
     def test_live_region_and_phone_css(self):
         out = es.render_data_table(_table())
         assert 'aria-live="polite" data-sort-status' in out

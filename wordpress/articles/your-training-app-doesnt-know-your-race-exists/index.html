@@ -341,6 +341,129 @@ sup a:hover{text-decoration:underline}
 h2[id],h3[id],[data-slot],figure[id]{scroll-margin-top:72px}
 
 
+/* essay figures: still / play-once video + caption */
+.gg-essay-fig{margin:28px 0 30px}
+.gg-media{position:relative;max-width:440px;margin:0 auto}
+.gg-essay-fig.is-column .gg-media{max-width:none}
+.gg-pic{display:block}
+.gg-media img,.gg-media video{display:block;width:100%;height:auto;background:var(--sand)}
+.gg-media.has-video video{display:none}
+.gg-media.has-video .gg-pic{display:block}
+.gg-media.has-video.is-live video{display:block}
+.gg-media.has-video.is-live .gg-pic{display:none}
+.gg-replay{position:absolute;right:8px;bottom:8px;width:40px;height:40px;border:0;cursor:pointer;padding:0;
+  background:rgba(26,20,16,.66);color:#fff;display:flex;align-items:center;justify-content:center;clip-path:var(--chamfer)}
+.gg-replay[hidden]{display:none}
+.gg-replay svg{width:16px;height:16px;fill:currentColor}
+.gg-essay-fig figcaption{font:500 15px/1.5 var(--mono);color:var(--ink2);margin:12px auto 0;max-width:440px}
+.gg-essay-fig.is-column figcaption{max-width:none}
+.hero-img .gg-pic{display:block}
+@media (max-width:640px){
+  .hero:not(.wide) .hero-img .gg-pic-art img{aspect-ratio:auto;object-fit:fill}
+  .gg-media video.gg-vid-crop{aspect-ratio:var(--ph-ar);object-fit:cover;object-position:var(--ph-pos,50% 50%)}
+}
+@media (prefers-reduced-motion:reduce){
+  .gg-media.has-video.is-live video,.gg-replay{display:none}
+  .gg-media.has-video.is-live .gg-pic{display:block}
+}
+
+/* inline SVG figures; phones get the overview + "Zoom in" when there is one */
+.gg-svgfig{margin:28px 0 30px;padding:22px 24px 18px}
+.gg-svgfig .kick{margin-bottom:6px}
+.gg-svgfig h5,.gg-table h5{font:700 24px/1.2 var(--serif);margin:0 0 14px;color:var(--ink)}
+.gg-svgfig svg{display:block;width:100%;height:auto}
+.gg-svgfig svg text{font-family:var(--mono)}
+.gg-svg-detail{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.gg-svg-detail:focus-visible,.gg-table-wrap:focus-visible{outline:3px solid var(--cobalt);outline-offset:2px}
+.gg-svgfig figcaption{font-size:14px;margin-top:12px}
+.gg-svgfig figcaption a{color:var(--cobalt-deep);text-underline-offset:3px}
+.gg-svg-mini,.gg-svgfig .gg-svg-hint{display:none}
+.gg-svgfig .gg-svg-note{font:500 12px/1.5 var(--mono);color:var(--ink2);margin:8px 0 10px}
+.gg-svg-zoom{font:700 13px var(--mono);letter-spacing:.04em;text-transform:uppercase;color:var(--cobalt-deep);background:none;border:0;cursor:pointer;
+  height:40px;padding:0 12px;box-shadow:inset 0 0 0 2px var(--cobalt-deep)}
+@media (max-width:640px){
+  .gg-svgfig{padding:18px 14px}
+  .gg-svgfig h5,.gg-table h5{font-size:21px}
+  .gg-svg-detail svg{min-width:var(--svg-min,720px)}
+  .gg-svgfig.has-mini .gg-svg-mini{display:block}
+  .gg-svgfig.has-mini:not(.is-zoomed) .gg-svg-detail{display:none}
+  .gg-svgfig.is-zoomed .gg-svg-hint{display:block;font:700 12px var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--ink3);margin:12px 0 6px}
+}
+
+/* sortable table; one card per row on phones */
+.gg-table{background:var(--fig);padding:22px 24px 16px;margin:30px 0}
+.gg-table h5{margin-bottom:6px}
+.article .gg-table .sub{font:500 14px/1.5 var(--mono);color:var(--ink2);margin:0 0 14px}
+.gg-table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.gg-sortable{border-collapse:collapse;width:100%;table-layout:fixed;font:500 13px/1.45 var(--mono);color:var(--ink)}
+.gg-sortable th,.gg-sortable td{text-align:left;vertical-align:top;padding:10px 10px 10px 0;box-shadow:inset 0 -1px 0 var(--sand2)}
+.gg-sortable thead th{padding:0;box-shadow:inset 0 -3px 0 var(--ink);vertical-align:bottom;font:700 12px var(--mono);letter-spacing:.06em;text-transform:uppercase}
+.gg-sortable th button{all:unset;box-sizing:border-box;display:flex;align-items:center;gap:6px;width:100%;cursor:pointer;padding:6px 10px 10px 0;
+  font:700 12px var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--ink)}
+.gg-sortable th button:focus-visible{outline:3px solid var(--cobalt);outline-offset:-1px}
+.gg-sortable th button .ar{width:10px;height:10px;flex:none;opacity:.35;background:linear-gradient(var(--ink),var(--ink)) center/2px 100% no-repeat}
+.gg-sortable th[aria-sort] button .ar{opacity:1;background:none;width:0;height:0;border:5px solid transparent}
+.gg-sortable th[aria-sort="ascending"] button .ar{border-bottom:7px solid var(--cobalt-deep);border-top-width:0}
+.gg-sortable th[aria-sort="descending"] button .ar{border-top:7px solid var(--cobalt-deep);border-bottom-width:0}
+.gg-sortable td.num{font-variant-numeric:tabular-nums;white-space:nowrap}
+.gg-sortable td.num .who{white-space:normal}
+.gg-sortable td:first-child{font-weight:700}
+.gg-table .who{display:block;color:var(--ink2);font-size:12px;font-weight:500}
+.gg-table sup a{font-size:12px}
+.gg-table .na{color:var(--ink3)}
+.gg-table .gg-cite{color:var(--cobalt-deep);text-underline-offset:3px}
+.article .gg-table .fn{font:500 13px/1.5 var(--mono);color:var(--ink2);margin:12px 0 0}
+.gg-sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.gg-cards{display:none;list-style:none;margin:0;padding:0}
+@media (max-width:640px){
+  .gg-table{padding:18px 14px 12px}
+  .gg-table-wrap,.gg-sort-hint{display:none}
+  .gg-table .gg-cards{display:block;padding:0}
+  .article .gg-cards > li.gg-card{background:var(--paper);padding:14px 14px 4px;margin:0 0 10px;font:500 14px/1.45 var(--mono);color:var(--ink)}
+  .article .gg-card p{margin:0 0 10px;font:500 14px/1.45 var(--mono)}
+  .article .gg-card .gg-card-h{display:flex;justify-content:space-between;align-items:baseline;gap:12px;font:700 18px/1.3 var(--serif)}
+  .gg-card-h sup a{font:500 12px var(--mono)}
+  .gg-card-aside{font:700 14px var(--mono);font-variant-numeric:tabular-nums;color:var(--ink2)}
+  .gg-card-facts{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:0 0 10px;padding:0 0 10px;box-shadow:inset 0 -1px 0 var(--sand2)}
+  .gg-card-facts dt,.gg-card .lbl{display:block;font:700 12px var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--ink2);margin:0 0 2px}
+  .gg-card-facts dd{margin:0;font:700 14px/1.4 var(--mono);font-variant-numeric:tabular-nums}
+}
+
+/* chart draw-in: complete at rest; JS adds .is-armed (off-screen) then .is-playing (once) */
+[data-draw-in] [data-draw="grow"]{transform-origin:50% 100%}
+[data-draw-in] [data-draw="grow-x"]{transform-origin:0 50%}
+[data-draw-in].is-armed [data-draw="grow"]{transform:scaleY(0)}
+[data-draw-in].is-armed [data-draw="grow-x"]{transform:scaleX(0)}
+[data-draw-in].is-armed [data-draw="fade"],[data-draw-in].is-armed [data-draw="rise"]{opacity:0}
+[data-draw-in].is-armed [data-draw="wipe"]{clip-path:inset(0 100% 0 0)}
+[data-draw-in].is-playing [data-draw]{animation-duration:var(--draw-dur,.6s);animation-delay:calc(var(--draw-i,0) * 110ms + var(--draw-at,0ms));
+  animation-fill-mode:backwards;animation-timing-function:cubic-bezier(.2,.75,.25,1)}
+[data-draw-in].is-playing [data-draw="grow"]{animation-name:gg-draw-grow}
+[data-draw-in].is-playing [data-draw="grow-x"]{animation-name:gg-draw-grow-x}
+[data-draw-in].is-playing [data-draw="fade"]{animation-name:gg-draw-fade;animation-timing-function:ease-out}
+[data-draw-in].is-playing [data-draw="rise"]{animation-name:gg-draw-rise;animation-timing-function:ease-out}
+[data-draw-in].is-playing [data-draw="wipe"]{animation-name:gg-draw-wipe;animation-timing-function:ease-out}
+@keyframes gg-draw-grow{from{transform:scaleY(0)}to{transform:scaleY(1)}}
+@keyframes gg-draw-grow-x{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+@keyframes gg-draw-fade{from{opacity:0}to{opacity:1}}
+@keyframes gg-draw-rise{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+@keyframes gg-draw-wipe{from{clip-path:inset(0 100% 0 0)}to{clip-path:inset(0 0 0 0)}}
+@media (prefers-reduced-motion:reduce){
+  [data-draw-in] [data-draw]{animation:none!important;transform:none!important;opacity:1!important;clip-path:none!important}
+}
+/* print the finished chart, even one still armed off-screen */
+@media print{
+  [data-draw-in] [data-draw]{animation:none!important;transform:none!important;opacity:1!important;clip-path:none!important}
+}
+
+/* "In short" after the intro on phones (in_short_on_phone="after_intro") */
+.slot-summary-m{display:none}
+@media (max-width:640px){
+  .slot-summary.has-phone-copy{display:none}
+  .slot-summary-m{display:block;margin:8px 0 40px}
+}
+
+
   </style>
 </head>
 <body>
@@ -495,6 +618,9 @@ h2[id],h3[id],[data-slot],figure[id]{scroll-margin-top:72px}
   <p><strong>When does the selection happen?</strong> Some races are decided in the first 20 minutes and then become a time trial for survivors. Some simmer for three hours and detonate on one feature everyone knows is coming. Training identically for both is training wrong for one of them.</p>
   <p><strong>What can you actually digest?</strong> An 8-hour effort at race intensity wants 60&ndash;90 grams of carbohydrate an hour. Your gut&rsquo;s ability to process that is trainable &mdash; and completely invisible to an app that thinks nutrition is a footnote in a blog post. Nobody&rsquo;s progression level ever warned them about the arithmetic of 24 gels.</p>
   <p>The app hands you excellent fitness in a generic shape. The race does not grade on fitness. It grades on fit.</p>
+<figure class="gg-essay-fig">
+  <div class="gg-media"><picture class="gg-pic gg-pic-art"><source media="(max-width: 640px)" type="image/webp" srcset="img/memes/drake-fit-m.webp 1x, img/memes/drake-fit-m@2x.webp 2x" width="660" height="660"><img src="img/memes/drake-fit.webp" srcset="img/memes/drake-fit.webp 1x, img/memes/drake-fit@2x.webp 2x" alt="Two-panel approve/reject meme with Gravel God. Top: eyes shut, head turned away, palm raised against &quot;Fitness: a number going up.&quot; Bottom: smiling and pointing at &quot;Fit: shaped like your race.&quot;" width="1200" height="1200" loading="lazy" decoding="async"></picture></div>
+</figure>
 </section>
 
 <section class="gg-blog-section">
@@ -518,6 +644,9 @@ h2[id],h3[id],[data-slot],figure[id]{scroll-margin-top:72px}
   <h2 id="the-start-line-doesn-t-care-about-your-compliance-score" data-toc>The Start Line Doesn&rsquo;t Care About Your Compliance Score</h2>
   <p>The guy on the Missouri line finished, for the record. Walked four pitches, cramped through the last hour, rolled in ninety minutes behind where his fitness said he should. His app congratulated him that evening on completing a workout. It logged the race as unstructured endurance.</p>
   <p>Twenty-two weeks of perfect adaptation, and the software never once asked the only question that mattered: <em>adapted to what?</em></p>
+<figure class="gg-essay-fig is-column">
+  <div class="gg-media"><picture class="gg-pic gg-pic-art"><source media="(max-width: 640px)" type="image/webp" srcset="img/memes/pigeon-compliance-m.webp 1x, img/memes/pigeon-compliance-m@2x.webp 2x" width="660" height="825"><img src="img/memes/pigeon-compliance.webp" srcset="img/memes/pigeon-compliance.webp 1x, img/memes/pigeon-compliance@2x.webp 2x" alt="Gravel God, labelled &quot;YOUR TRAINING APP&quot;, points at a green butterfly fluttering just past his finger, labelled &quot;91% COMPLIANCE&quot;. Caption: &quot;IS THIS RACE PREP?&quot;" width="1600" height="1000" loading="lazy" decoding="async"></picture></div>
+</figure>
   <p>Your race knows the answer. It&rsquo;s been publishing it the whole time &mdash; in the course profile, the elevation chart, the finisher times, the aid station spacing. The information is sitting right there, free, waiting for someone to shape a season around it.</p>
   <p>Be the one rider at mile 82 who&rsquo;s met the course before.</p>
 </section>

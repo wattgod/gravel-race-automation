@@ -5,7 +5,8 @@ sweet-spot-training-cycling.body.html; this file adds the page metadata, the
 "In short" claims, the chart CSS/JS for the three hand-built figures (drift,
 recovery, polarized) and the shell figures placed at the body's
 <!--GG:FIGURE name--> markers: the three Gravel God scenes, the Coggan
-reconstruction and the studies table (FIGURES below). To add a figure, add
+reconstruction and the studies table, plus seven Gravel God memes placed with
+after= (FIGURES below; docs/memes/README.md). To add a figure, add
 one line to FIGURES, e.g.
 
     EssayFigure(Picture.from_stem("img/meme-x", "alt text", 1200, 900), after="lmao.)</p>"),
@@ -506,12 +507,36 @@ STUDIES = DataTable(
     marker="studies",
 )
 
+# ── Gravel God memes (2026-10-09; Matt: "I absolutely love the gravel god meme
+# formats"). Rendered in the dirt-craft-course repo; see docs/memes/README.md.
+# WebP only: the <img> fallback is the 1x WebP, so no PNG ships. Alt text is
+# docs/memes ALT.txt verbatim. Landscape memes run the full column so their
+# small labels stay legible on desktop; phones get the recomposed -m crop.
+def _meme(name: str, alt: str, width: int, height: int, *, phone: tuple[int, int]) -> Picture:
+    return Picture.from_stem(f"img/memes/{name}", alt, width, height, ext="webp", webp=False, phone=phone)
+
+
+MEME_SPIDERMAN_THRESHOLD = _meme("spiderman-threshold", "Two identical cartoon Gravel Gods, mustachioed riders in white tees and denim shorts, stand in the desert pointing at each other. Over the left one: \"SWEET SPOT, 235 W, 94% of your tested FTP\". Over the right one: \"THRESHOLD, 235 W, 100–109% of your real threshold\".", 1600, 1000, phone=(660, 825))
+MEME_PANIK_KALM_PANIK = _meme("panik-kalm-panik", "Three-row panik/kalm meme with Gravel God's face. \"Interval 3 of 3×20 at 235 W.\" PANIK, sweating. \"Relax. It's only Sweet Spot. 94% of FTP.\" KALM, eyes half-closed and smiling. \"Your FTP right now: 215 W. 235 ÷ 215 = 109%.\" PANIK, sweating harder.", 1200, 1500, phone=(660, 990))
+MEME_STONKS_TSS = _meme("stonks-tss", "Gravel God, smug, head and shoulders, in front of a cartoon chart with no numbers. A teal line labelled \"WEEKLY TSS\" shoots up to an arrow while a line labelled \"ACTUAL ADAPTATION\" stays flat; a red tag reads \"TSS IS NOT FITNESS\". Caption: \"STONKS\".", 1600, 1000, phone=(660, 825))
+MEME_GRU_NOOB_GAINS = _meme("gru-noob-gains", "Four-panel plan: Gravel God points at a flip chart. 1. \"Skip training all winter.\" 2. \"Buy a 10-week Sweet Spot plan.\" 3. \"FTP +30 W!\" 4. \"+30 W from any training at all\", and he turns to the viewer, startled and sweating.", 1600, 1200, phone=(660, 825))
+MEME_DRAKE_POLARIZED = _meme("drake-polarized", "Two-panel approve/reject meme with Gravel God. Top: eyes shut, head turned away, palm raised against \"Sorta-hard, every ride.\" Bottom: smiling and pointing at \"Very easy for hours. Very hard when it counts.\"", 1200, 1200, phone=(660, 660))
+MEME_MIDWIT_SWEET_SPOT = _meme("midwit-sweet-spot", "Bell-curve meme with three cartoon Gravel Gods, a mustachioed rider in a white tee. At the low left tail he grins: \"just ride easy… and go hard sometimes\". At the hump he is sweating, eyes wide: \"Sweet spot maximizes TSS per hour, so if I do 3×20 at 94% four times a week…\". At the high right tail, eyes closed and calm in a soft gold glow: \"just ride easy… and go hard sometimes\". The axis reads \"How much you've thought about training zones\".", 1600, 1000, phone=(660, 990))
+MEME_VIRGIN_CHAD = _meme("virgin-sweetspot-chad-polarized", "Two-panel comparison with Gravel God twice. Left, \"The Virgin Sweet Spot Rider\", small and hunched, sweating, with arrows: \"3×20 at 94% of a flattering FTP test\", \"FTP 5–10% optimistic, so it's really threshold\", \"always kinda tired\", \"every ride sorta hard\", \"stuck in the black hole\", \"plateaus after the noob gains\". Right, \"The Chad Polarized Rider\", striding and smiling, with arrows: \"75–90% of the time below LT1: chatting pace\", \"15–20% above LT2: hard days actually hard\", \"recovers between them\", \"very easy or very hard, rarely in between\", \"beats threshold-heavy in head-to-head trials\".", 1600, 1000, phone=(660, 1500))
+
 # Every shell figure on the page. Add a meme or another scene with one line.
 FIGURES = (
     COGGAN_FIGURE,
     EssayFigure(SCENE_BLACK_HOLE, video=BLACK_HOLE_CLIP, marker="black-hole"),
     STUDIES,
     EssayFigure(SCENE_TABLET, marker="tablet"),
+    EssayFigure(MEME_SPIDERMAN_THRESHOLD, after="they&rsquo;re functionally doing is a threshold workout.</p>", width="column"),
+    EssayFigure(MEME_PANIK_KALM_PANIK, after="but the real victim in all this is the athletes stoke.</p>"),
+    EssayFigure(MEME_STONKS_TSS, after="it ceases to be a good metric.<sup>", width="column"),
+    EssayFigure(MEME_MIDWIT_SWEET_SPOT, after="but more intense workouts above that intensity.</p>", width="column"),
+    EssayFigure(MEME_VIRGIN_CHAD, after="spot training systematically prevents both adaptations.</p>", width="column"),
+    EssayFigure(MEME_GRU_NOOB_GAINS, after="to training some is called noob gains.</p>", width="column"),
+    EssayFigure(MEME_DRAKE_POLARIZED, after="Everything else is just noise in the middle.</p>"),
 )
 
 

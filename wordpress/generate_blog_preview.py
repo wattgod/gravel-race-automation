@@ -138,9 +138,11 @@ def parse_race_date(date_str):
 # The hero shows the race date as a clean date plus a short status, never the
 # raw date_specific string (which carries notes, later editions and URLs).
 _WEEKDAY = r"(?:(?:mon|tues|wednes|thurs|fri|satur|sun)day,?\s+)?"
+_MONTH_NAME = (r"(?:jan(?:uary)?|feb(?:ruary)?|mar(?:ch)?|apr(?:il)?|may|june?|july?|aug(?:ust)?"
+               r"|sep(?:t(?:ember)?)?|oct(?:ober)?|nov(?:ember)?|dec(?:ember)?)")
 _MONTH_FIRST_RE = re.compile(
     r"^\s*(\d{4})\s*:\s*" + _WEEKDAY + r"([A-Za-z]+)\.?\s+(\d{1,2})"
-    r"(?:\s*[-\u2013]\s*(\d{1,2})|((?:\s*,\s*\d{1,2}\b)+))?",
+    r"(?:\s*[-\u2013]\s*(?:(" + _MONTH_NAME + r")\.?\s+)?(\d{1,2})\b|((?:\s*,\s*\d{1,2}\b)+))?",
     re.I,
 )
 _DAY_FIRST_RE = re.compile(
@@ -181,8 +183,48 @@ def _first_edition(raw):
     return re.split(r"\.\s+\d{4}\s*:", raw, maxsplit=1)[0].strip()
 
 
+_YEAR_RE = re.compile(r"\b(?:19|20)\d{2}\b")
+# Words that mark a date as a guess. Checked before "confirmed", so a clause
+# that hedges never reads as confirmed.
+_ESTIMATE_RE = re.compile(r"\b(?:estimate[ds]?|pattern|projected|tentative|provisional|expected|tb[ad])\b", re.I)
+_UNCONFIRMED_RE = re.compile(
+    r"\bconflict|\bnot (?:yet )?(?:officially )?(?:announced|published|confirmed)\b"
+    r"|\bunconfirmed\b|\btbc\b|\bto be (?:announced|confirmed|determined)\b", re.I)
+# Notes about a later edition ("completed; next edition not announced") say
+# nothing about this edition's date.
+_NEXT_EDITION_RE = re.compile(r"\b(?:next|following|future|later) (?:editions?|years?)\b[^;)]*", re.I)
+DATE_ESTIMATED = "Date estimated"
+DATE_UNCONFIRMED = "Date unconfirmed"
+
+
+def _own_clause(clause):
+    """The part of an edition's clause about that edition: text before the
+    first mention of another year ("pattern estimate — 2026 confirmed Sun
+    Aug 9" is about 2026, not the 2027 date it follows)."""
+    lead = re.match(r"\s*(\d{4})\s*:", clause)
+    edition = lead.group(1) if lead else None
+    for y in _YEAR_RE.finditer(clause):
+        if lead and y.start() < lead.end():
+            continue
+        if edition is None:
+            edition = y.group(0)
+        elif y.group(0) != edition:
+            return clause[:y.start()]
+    return clause
+
+
 def _date_status(clause):
-    low = clause.lower()
+    """Status from the first edition's own clause only.
+
+    An estimate, pattern, TBD, conflict or not-yet-announced note wins over
+    any "confirmed" or "registration open" in the same clause.
+    """
+    own = _NEXT_EDITION_RE.sub("", _own_clause(clause))
+    if _ESTIMATE_RE.search(own):
+        return DATE_ESTIMATED
+    if _UNCONFIRMED_RE.search(own):
+        return DATE_UNCONFIRMED
+    low = own.lower()
     if "registration open" in low:
         return "Registration open"
     if re.search(r"(?<!un)(?<!not )\bconfirmed\b", low):
@@ -213,24 +255,29 @@ def race_date_parts(date_str):
     status = _date_status(clause)
     display = ""
     m = _MONTH_FIRST_RE.match(clause)
+    end_month = None
     if m:
-        year, month, day, end, more = m.groups()
+        year, month, day, end_month, end, more = m.groups()
     else:
         m = _DAY_FIRST_RE.match(clause)
         if m:
             month, day, end, year = m.groups()
             more = None
     month_num = _month_number(month) if m else None
+    end_num = (_month_number(end_month) if end_month else month_num) if month_num else None
     if month_num:
         try:
-            date(int(year), month_num, int(day))
-            if end:
-                date(int(year), month_num, int(end))
+            start = date(int(year), month_num, int(day))
+            if end and (not end_num or date(int(year), end_num, int(end)) <= start):
+                month_num = None
         except ValueError:
             month_num = None
     if month_num:
         mname = date(2000, month_num, 1).strftime("%B")
-        if end:
+        if end and end_num != month_num:
+            ename = date(2000, end_num, 1).strftime("%B")
+            display = f"{mname} {int(day)}\u2013{ename} {int(end)}, {year}"
+        elif end:
             display = f"{mname} {int(day)}\u2013{int(end)}, {year}"
         elif more:
             days = [str(int(day))] + re.findall(r"\d{1,2}", more)
@@ -251,6 +298,27 @@ def race_date_parts(date_str):
 IN_SHORT_MAX_WORDS = 25
 IN_SHORT_MIN_CLAIMS = 2
 MIN_ZONE_WORDS = 6  # a suffering-zone sentence shorter than this is filler
+CLAIM_SURFACES = {"gravel", "dirt", "pavement", "paved", "unpaved", "off-road",
+                  "singletrack", "doubletrack", "trail", "sand"}
+# Template zones from low-data profiles ("First Third (mile 50): 50 miles in,
+# settling into pace.") say nothing about this course, so they never make a claim.
+TEMPLATE_ZONE_LABELS = GENERIC_ZONE_LABELS | {
+    "first third", "second third", "last third", "final third", "halfway",
+    "the grind", "homestretch", "early miles", "late miles", "final miles",
+}
+_TEMPLATE_ZONE_DESC_RE = re.compile(
+    r"^\d[\d,]*\s*(?:miles|mi|km)\s+in\b|\bhalfway point\b|\bsettling into (?:the )?pace\b"
+    r"|\bmental game begins\b|^last \d[\d,]*\s*(?:miles|mi|km) to (?:the )?finish"
+    r"|^final miles to the finish|\bsections before (?:the )?finish\b",
+    re.I,
+)
+
+
+def is_template_zone(zone):
+    """True for a stock zone (label or desc from the low-data template)."""
+    label = " ".join(str(zone.get("label") or "").split()).lower()
+    desc = " ".join(str(zone.get("desc") or "").split())
+    return label in TEMPLATE_ZONE_LABELS or bool(_TEMPLATE_ZONE_DESC_RE.search(desc))
 
 # The h2 id of each preview section and the label its "In short" link uses.
 SECTION_LABELS = {
@@ -357,9 +425,11 @@ def _course_claim(rd):
     elevation = _number(vitals.get("elevation_ft"))
     text = f"{distance} miles" + (f" with {elevation} ft of elevation gain" if elevation else "")
     surfaces = surface_breakdown(rd)
-    if surfaces:
+    # Only plain surface words make the claim; an organizer's own term
+    # ("unroad") stays in the Key Stats tile, where it sits beside the rest.
+    if surfaces and surfaces[0][0].lower() in CLAIM_SURFACES:
         surface, pct = surfaces[0]
-        text += f", {_number(pct)}% {surface}"
+        text += f", {_number(pct)}% {surface.lower()}"
     return text + "."
 
 
@@ -370,8 +440,8 @@ def _hard_part_claim(rd):
         sentence = first_sentence(weaknesses[0]) if isinstance(weaknesses[0], str) else None
         if sentence and claim_ok(sentence):
             return sentence, "the-real-talk"
-    for zone in shown_suffering_zones(rd)[:1]:
-        if not isinstance(zone, dict):
+    for zone in shown_suffering_zones(rd):
+        if not isinstance(zone, dict) or is_template_zone(zone):
             continue
         sentence = first_sentence(zone.get("desc"))
         # Short template descs ("First desert sections.") say nothing hard.
@@ -387,7 +457,8 @@ def _hard_part_claim(rd):
 def _when_claim(rd):
     vitals = rd.get("vitals") or {}
     display, status, parsed = race_date_parts(vitals.get("date_specific", "") or vitals.get("date", ""))
-    if not parsed:
+    # An estimated or unconfirmed date is never stated as fact.
+    if not parsed or status in (DATE_ESTIMATED, DATE_UNCONFIRMED):
         return None
     noun = "Race dates" if ("–" in display or " and " in display) else "Race date"
     text = f"{noun}: {display}"

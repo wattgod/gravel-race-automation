@@ -1011,6 +1011,17 @@ def test_share_card_moves_after_first_section():
     ("2026: November TBD", "2026: November TBD"),
     ("2026: February 30", "2026: February 30"),
     ("2027: TBD (see example.com/dates)", "2027: TBD"),
+    # Another year's "confirmed" inside the clause is not this date's status.
+    ("2027: August 8 (pattern estimate \u2014 2026 confirmed Sun Aug 9; date floats)",
+     "August 8, 2027 · Date estimated"),
+    ("2027: June 5 (Saturday pattern; 2026 ran Jun 6)", "June 5, 2027 · Date estimated"),
+    ("2026: April 30-May 1 (sources conflict on exact race day \u2014 both CONFIRMED via UCI)",
+     "April 30\u2013May 1, 2026 · Date unconfirmed"),
+    ("2027: May 9 (projected; registration open)", "May 9, 2027 · Date estimated"),
+    ("2027: April 17 (Saturday, CONFIRMED \u2014 barry-roubaix.com; 2026 edition already ran)",
+     "April 17, 2027 · Confirmed"),
+    # A note about the next edition says nothing about this one.
+    ("2026: May 17 (completed; next edition not announced)", "May 17, 2026"),
     ("", ""),
     (None, ""),
 ])
@@ -1235,3 +1246,89 @@ def test_in_short_contract_holds_for_every_race():
         assert len(claims) in (0, 2, 3, 4)
         for c in claims:
             assert claim_ok(c.text_html.replace("&amp;", "&")), (path.stem, c.text_html)
+
+
+# ── Review fixes: estimated dates, template zones, surface labels ──
+
+# Every race whose first edition is a pattern estimate, conflict or otherwise
+# not announced: the hero says so and the "In short" never states the date.
+ESTIMATED_DATE_RACES = {
+    "little-apple-100": "August 8, 2027 · Date estimated",
+    "giro-sardegna-gravel": "April 30\u2013May 1, 2026 · Date unconfirmed",
+    "devils-cardigan": "June 19, 2027 · Date estimated",
+    "dead-swede-gravel": "June 5, 2027 · Date estimated",
+    "eislek-gravel": "June 20, 2027 · Date estimated",
+    "highlands-gravel-classic": "April 24, 2027 · Date estimated",
+    "le-grand-du-nord": "May 22, 2027 · Date estimated",
+    "lost-and-found-gravel": "June 12, 2027 · Date estimated",
+    "race-to-valhalla": "April 24, 2027 · Date estimated",
+    "safari-gravel-race": "June 12, 2027 · Date estimated",
+}
+
+
+@pytest.mark.parametrize("slug", sorted(ESTIMATED_DATE_RACES))
+def test_estimated_dates_never_read_as_fact(slug):
+    rd = load_race(slug)
+    raw = rd["vitals"].get("date_specific")
+    if race_date_line(raw) != ESTIMATED_DATE_RACES[slug]:
+        pytest.skip(f"{slug} date data changed: {raw!r}")
+    html = generate_preview_html(slug)
+    hero = _hero(html)
+    assert ESTIMATED_DATE_RACES[slug] in hero
+    assert "Confirmed" not in hero
+    claims = build_in_short(rd, ALL_SECTIONS) or []
+    assert "#registration-info" not in [c.href for c in claims]
+    block = _in_short(html) or ""
+    assert "Race date" not in block and "confirmed" not in block.lower()
+
+
+def test_when_claim_skips_estimates_and_conflicts():
+    for raw in ("2027: August 8 (pattern estimate \u2014 2026 confirmed Sun Aug 9)",
+                "2026: May 2 (sources conflict on exact race day; CONFIRMED)",
+                "2027: May 22 (official 2027 date not yet announced)",
+                "2027: June 12 (TBC, projected)"):
+        race = _fixture_race()
+        race["vitals"]["date_specific"] = raw
+        assert "#registration-info" not in [c.href for c in build_in_short(race, ALL_SECTIONS)], raw
+    race = _fixture_race()
+    race["vitals"]["date_specific"] = "2027: April 17 (CONFIRMED \u2014 x.com; 2026 edition already ran)"
+    assert build_in_short(race, ALL_SECTIONS)[-1].text_html == "Race date: April 17, 2027 (confirmed)."
+
+
+def test_template_zones_never_become_claims():
+    race = _fixture_race(biased_opinion={"bottom_line": "A scenic race."})
+    race["course_description"]["suffering_zones"] = [
+        {"mile": 50, "label": "First Third", "desc": "50 miles in, settling into pace."},
+        {"mile": 75, "label": "Halfway", "desc": "Halfway point, 75 miles to go."},
+        {"mile": 100, "label": "The Grind", "desc": "100 miles in, mental game begins."},
+        {"mile": 140, "label": "Late Lake District", "desc": "Final Lake District sections before finish."},
+    ]
+    assert "#course-preview" not in [c.href for c in build_in_short(race, ALL_SECTIONS)]
+    # A real zone after the template ones still counts.
+    race["course_description"]["suffering_zones"].append(
+        {"mile": 120, "label": "The Wall", "desc": "A 2-mile climb at 12% on loose limestone."})
+    assert build_in_short(race, ALL_SECTIONS)[2].text_html == (
+        "The Wall (mile 120): A 2-mile climb at 12% on loose limestone.")
+
+
+@pytest.mark.parametrize("slug", ["gravel-worlds-amateur", "barry-roubaix", "cohutta-gravel-grinder"])
+def test_real_template_zones_make_no_claim(slug):
+    claims = build_in_short(load_race(slug), ALL_SECTIONS) or []
+    for c in claims:
+        assert "miles in" not in c.text_html and "Halfway" not in c.text_html, c.text_html
+        assert "First Third" not in c.text_html and "settling into pace" not in c.text_html
+
+
+def test_surface_clause_only_uses_plain_surface_words():
+    race = _fixture_race()
+    race["course_description"]["surface_breakdown"] = {"overall": {"pavement": 47, "unroad": 53}}
+    assert build_in_short(race, ALL_SECTIONS)[1].text_html == "74 miles with 5,741 ft of elevation gain."
+    race["course_description"]["surface_breakdown"] = {"overall": {"unpaved": 60, "pavement": 40}}
+    assert build_in_short(race, ALL_SECTIONS)[1].text_html == (
+        "74 miles with 5,741 ft of elevation gain, 60% unpaved.")
+
+
+def test_bwr_california_keeps_surface_tile_but_no_unroad_claim():
+    html = generate_preview_html("bwr-california")
+    assert "unroad" not in (_in_short(html) or "")
+    assert "53% unroad" in html  # the Key Stats tile keeps the organizer's figure

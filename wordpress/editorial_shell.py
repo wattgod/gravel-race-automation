@@ -62,6 +62,47 @@ data-cta="custom_plan|season_plan|coaching", so a page that also includes
 blog_tracking.get_plan_intent_tracking_script() (pass it in extra_body_end)
 gets the canonical cta_click for them.
 
+Essay components (opt-in; a page that uses none renders byte-for-byte as
+before, with no extra CSS or JS):
+
+- `Picture` / `render_picture()`: <picture> with WebP + @2x, a PNG/JPEG
+  fallback and an optional art-directed phone crop (`PhoneCrop`, used below
+  PHONE_MAX_PX). `Picture.from_stem("img/scene-x", alt, w, h, phone=(w, h))`
+  follows the img/ naming: x.png, x@2x.png, x.webp, x@2x.webp, x-m.webp,
+  x-m@2x.webp. `HeroImage.from_picture(pic)` puts one in the hero.
+- `EssayFigure`: a picture (the still), an optional `PlayOnceVideo` (muted,
+  playsinline; plays once when half visible, holds its last frame, then
+  offers a replay button; the still without JS or under
+  prefers-reduced-motion, and the poster is attached only when the clip
+  shows) and an optional caption. `width="column"` runs the full column instead of 440px.
+- `SvgFigure`: trusted inline SVG with kicker, title and caption; with
+  `phone_svg` phones get that overview plus a "Zoom in" toggle that reveals
+  the detailed SVG in a sideways-scrolling region.
+- `DataTable`: a sortable table (buttons in the headers, aria-sort, a
+  polite live region) on wide screens and one card per row below 640px.
+  `TableRow.links` are per-row citation links shown after the last cell.
+- Chart draw-in: put `data-draw-in` on a figure and `data-draw="grow|
+  grow-x|fade|rise|wipe"` on its parts. Stagger with `--draw-i` (an index,
+  110ms apart; inherited, so set it on a column) and `--draw-at` (a base
+  delay); `--draw-dur` overrides the duration. At rest the chart is
+  complete: only the shell JS empties it while it is off-screen and plays it
+  once at 15% visible, so without JS or with reduced motion nothing moves.
+
+Placing them: pass `figures=[...]` to render_editorial_page. Each figure
+sets `marker` (replaces `<!--GG:FIGURE name-->` in the body) or `after` (an
+exact snippet of the body source, entities as written, found exactly once;
+the figure goes after the outermost paragraph, list, quote, heading, table or
+figure that contains it, never inside an <li> or a blockquote). Adding a
+figure is one line in the article source, e.g.
+`EssayFigure(Picture.from_stem("img/meme", "alt", 1200, 900), after="lmao.)")`.
+Unknown or unused markers raise ValueError. The essay JS is one body script
+marked ESSAY_JS_MARKER; it's emitted only on pages that use a video, an SVG
+zoom, a table or data-draw-in (a blog page that opts in must allow that
+marker in scripts/validate_blog_content.py).
+
+`in_short_on_phone="after_intro"` (with in_short) shows "In short" after the
+first section on phones, so the opening paragraph gets the first screen.
+
 `ArticleMeta.show_read_time`: True (default) puts "N min read" in the hero
 byline; previews, recaps and roundups that aren't read top to bottom pass
 False.
@@ -156,11 +197,19 @@ class HeroImage:
     # Extra classes on the <figure class="hero-img ...">, e.g. "gg-blog-hero-img"
     # (the hook the blog validator and index tooling key on).
     figure_class: str = ""
+    # A responsive <picture> (WebP, @2x, phone crop) instead of the plain
+    # <img>; use HeroImage.from_picture().
+    picture: "Picture | None" = None
 
     def __post_init__(self) -> None:
         if self.layout not in ("portrait", "wide"):
             raise ValueError(f"HeroImage.layout must be 'portrait' or 'wide', not {self.layout!r}")
         _check_class_list(self.figure_class, "HeroImage.figure_class")
+
+    @classmethod
+    def from_picture(cls, pic: "Picture", layout: HeroLayout = "portrait", figure_class: str = "") -> "HeroImage":
+        return cls(src=pic.src, alt=pic.alt, width=pic.width, height=pic.height,
+                   layout=layout, figure_class=figure_class, picture=pic)
 
 
 @dataclass(frozen=True)
@@ -648,10 +697,12 @@ def render_hero(meta: ArticleMeta, minutes: int) -> str:
         if h.layout == "wide":
             cls += " wide"
         fig_cls = _join_classes("hero-img", h.figure_class)
-        img = (
-            f'\n    <figure class="{fig_cls}"><img src="{esc(h.src)}" alt="{esc(h.alt)}" '
-            f'width="{h.width}" height="{h.height}" loading="eager"></figure>'
-        )
+        if h.picture:
+            inner = render_picture(h.picture, eager=True)
+        else:
+            inner = (f'<img src="{esc(h.src)}" alt="{esc(h.alt)}" '
+                     f'width="{h.width}" height="{h.height}" loading="eager">')
+        img = f'\n    <figure class="{fig_cls}">{inner}</figure>'
     else:
         cls += " no-img"
     cls = _join_classes(cls, meta.hero_class)
@@ -789,9 +840,754 @@ SHELL_JS = """<script>
 </script>"""
 
 
+# ── Essay components (opt-in) ─────────────────────────────────
+# See the module docstring. Every component renders trusted HTML; plain-text
+# fields are escaped here.
+
+PHONE_MAX_PX = 640  # phone crops, table cards and the SVG overview apply at or below this width
+
+
+@dataclass(frozen=True)
+class PhoneCrop:
+    """An art-directed crop served at or below PHONE_MAX_PX."""
+
+    src: str
+    width: int
+    height: int
+    src_2x: str = ""
+    type: str = "image/webp"
+
+
+@dataclass(frozen=True)
+class Picture:
+    """A responsive image. `src` (+ `src_2x`) is the PNG/JPEG fallback, `webp`
+    (+ `webp_2x`) the preferred source, `phone` an optional phone crop."""
+
+    src: str
+    alt: str
+    width: int
+    height: int
+    src_2x: str = ""
+    webp: str = ""
+    webp_2x: str = ""
+    phone: PhoneCrop | None = None
+
+    @classmethod
+    def from_stem(
+        cls,
+        stem: str,
+        alt: str,
+        width: int,
+        height: int,
+        *,
+        ext: str = "png",
+        retina: bool = True,
+        webp: bool = True,
+        phone: tuple[int, int] | None = None,
+    ) -> "Picture":
+        """stem="img/scene-tablet" -> img/scene-tablet.png (+@2x), .webp
+        (+@2x) and, with phone=(w, h), img/scene-tablet-m.webp (+@2x)."""
+        crop = None
+        if phone:
+            crop = PhoneCrop(f"{stem}-m.webp", phone[0], phone[1], f"{stem}-m@2x.webp" if retina else "")
+        return cls(
+            src=f"{stem}.{ext}",
+            alt=alt,
+            width=width,
+            height=height,
+            src_2x=f"{stem}@2x.{ext}" if retina else "",
+            webp=f"{stem}.webp" if webp else "",
+            webp_2x=f"{stem}@2x.webp" if webp and retina else "",
+            phone=crop,
+        )
+
+    def files(self) -> tuple[str, ...]:
+        """Every path this picture references (for asset checks)."""
+        paths = [self.src, self.src_2x, self.webp, self.webp_2x]
+        if self.phone:
+            paths += [self.phone.src, self.phone.src_2x]
+        return tuple(p for p in paths if p)
+
+
+def _srcset(one: str, two: str) -> str:
+    return f"{esc(one)} 1x, {esc(two)} 2x" if two else esc(one)
+
+
+def render_picture(pic: Picture, *, eager: bool = False) -> str:
+    """<picture class="gg-pic">: phone crop source, WebP source, fallback <img>."""
+    cls = "gg-pic gg-pic-art" if pic.phone else "gg-pic"
+    out = f'<picture class="{cls}">'
+    if pic.phone:
+        p = pic.phone
+        out += (f'<source media="(max-width: {PHONE_MAX_PX}px)" type="{esc(p.type)}" '
+                f'srcset="{_srcset(p.src, p.src_2x)}" width="{p.width}" height="{p.height}">')
+    if pic.webp:
+        out += f'<source type="image/webp" srcset="{_srcset(pic.webp, pic.webp_2x)}">'
+    srcset = f' srcset="{_srcset(pic.src, pic.src_2x)}"' if pic.src_2x else ""
+    load = 'loading="eager" fetchpriority="high"' if eager else 'loading="lazy"'
+    out += (f'<img src="{esc(pic.src)}"{srcset} alt="{esc(pic.alt)}" width="{pic.width}" '
+            f'height="{pic.height}" {load} decoding="async"></picture>')
+    return out
+
+
+@dataclass(frozen=True)
+class PlayOnceVideo:
+    """A short muted clip that plays once when half visible and holds its
+    last frame. sources = ((src, mime), ...) in preference order. On phones,
+    phone_aspect ("900/760") crops it with object-fit: cover at phone_position.
+    poster (use WebP) is attached by the essay JS only when the video will be
+    shown; without JS or under reduced motion the picture's still shows instead
+    and neither the poster nor the clip is fetched."""
+
+    sources: tuple[tuple[str, str], ...]
+    poster: str
+    width: int
+    height: int
+    phone_aspect: str = ""
+    phone_position: str = "50% 50%"
+    replay_label: str = "Replay animation"
+
+    def __post_init__(self) -> None:
+        if not self.sources:
+            raise ValueError("PlayOnceVideo needs at least one source")
+        if self.phone_aspect and not re.fullmatch(r"\d+(\.\d+)?\s*/\s*\d+(\.\d+)?", self.phone_aspect):
+            raise ValueError(f"PlayOnceVideo.phone_aspect must look like '900/760', not {self.phone_aspect!r}")
+        if not re.fullmatch(r"[0-9a-z.% -]+", self.phone_position):
+            raise ValueError(f"PlayOnceVideo.phone_position must be a CSS position, not {self.phone_position!r}")
+
+
+FigureWidth = Literal["inline", "column"]
+
+
+@dataclass(frozen=True)
+class EssayFigure:
+    """A picture (and optionally a play-once video) with an optional caption.
+    Place it with `marker` or `after` (module docstring)."""
+
+    picture: Picture
+    video: PlayOnceVideo | None = None
+    caption_html: str = ""
+    id: str = ""
+    width: FigureWidth = "inline"
+    marker: str = ""
+    after: str = ""
+
+    def __post_init__(self) -> None:
+        if self.width not in ("inline", "column"):
+            raise ValueError(f"EssayFigure.width must be 'inline' or 'column', not {self.width!r}")
+
+
+_REPLAY_ICON = ('<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 2.5a5.5 5.5 0 1 1-5.2 3.7l1.4.5A4 4 0 1 0 '
+                '8 4v2.2L4.6 3.3 8 .4z"/></svg>')
+
+
+def _id_attr(value: str) -> str:
+    return f' id="{esc(value)}"' if value else ""
+
+
+def render_essay_figure(fig: EssayFigure) -> str:
+    cls = "gg-essay-fig" + (" is-column" if fig.width == "column" else "")
+    still = render_picture(fig.picture)
+    if fig.video:
+        v = fig.video
+        srcs = "".join(f'<source src="{esc(s)}" type="{esc(t)}">' for s, t in v.sources)
+        crop = ""
+        if v.phone_aspect:
+            crop = f' class="gg-vid-crop" style="--ph-ar:{v.phone_aspect};--ph-pos:{v.phone_position}"'
+        media = (
+            f'<div class="gg-media has-video" data-play-once>'
+            f'<video muted playsinline preload="none" data-poster="{esc(v.poster)}" width="{v.width}" height="{v.height}"'
+            f'{crop} aria-label="{esc(fig.picture.alt)}">{srcs}</video>'
+            f'<button class="gg-replay" type="button" aria-label="{esc(v.replay_label)}" hidden>{_REPLAY_ICON}</button>'
+            f"{still}</div>"
+        )
+    else:
+        media = f'<div class="gg-media">{still}</div>'
+    cap = f"\n  <figcaption>{fig.caption_html}</figcaption>" if fig.caption_html else ""
+    return f'<figure class="{cls}"{_id_attr(fig.id)}>\n  {media}{cap}\n</figure>'
+
+
+@dataclass(frozen=True)
+class SvgFigure:
+    """Inline SVG evidence figure. `svg` is the detailed drawing (trusted);
+    `phone_svg` an optional overview for phones, with a "Zoom in" toggle that
+    reveals the detail, panned sideways at detail_min_width px."""
+
+    id: str
+    svg: str
+    kicker: str = ""
+    title: str = ""
+    caption_html: str = ""
+    phone_svg: str = ""
+    phone_note_html: str = ""
+    detail_min_width: int = 720
+    zoom_label: str = "Zoom in"
+    marker: str = ""
+    after: str = ""
+
+    def __post_init__(self) -> None:
+        if not self.id:
+            raise ValueError("SvgFigure.id is required (the zoom toggle and title point at it)")
+        if "<svg" not in self.svg:
+            raise ValueError("SvgFigure.svg must contain an <svg> element")
+
+
+def render_svg_figure(fig: SvgFigure) -> str:
+    fid = esc(fig.id)
+    label = f' aria-labelledby="{fid}-h"' if fig.title else ""
+    kick = f'\n  <p class="kick">{esc(fig.kicker)}</p>' if fig.kicker else ""
+    title = f'\n  <h5 id="{fid}-h">{esc(fig.title)}</h5>' if fig.title else ""
+    mini = ""
+    if fig.phone_svg:
+        note = f'\n    <p class="gg-svg-note">{fig.phone_note_html}</p>' if fig.phone_note_html else ""
+        mini = (
+            f'\n  <div class="gg-svg-mini">{fig.phone_svg}{note}\n'
+            f'    <button class="gg-svg-zoom" type="button" aria-expanded="false" aria-controls="{fid}-detail" '
+            f'data-label="{esc(fig.zoom_label)}">{esc(fig.zoom_label)}</button>\n  </div>'
+            '\n  <p class="gg-svg-hint" aria-hidden="true">Swipe the chart &rarr;</p>'
+        )
+    cls = "gg-svgfig gg-fig" + (" has-mini" if fig.phone_svg else "")
+    cap = f"\n  <figcaption>{fig.caption_html}</figcaption>" if fig.caption_html else ""
+    return (
+        f'<figure class="{cls}" id="{fid}"{label}>{kick}{title}{mini}\n'
+        f'  <div class="gg-svg-detail" id="{fid}-detail" tabindex="0" role="region" '
+        f'aria-label="Diagram, scrolls sideways" style="--svg-min:{int(fig.detail_min_width)}px">{fig.svg}</div>'
+        f"{cap}\n</figure>"
+    )
+
+
+ColumnKind = Literal["text", "num"]
+CardRole = Literal["title", "aside", "fact", "row"]
+
+
+@dataclass(frozen=True)
+class TableColumn:
+    """label: plain text. kind="num" sorts numerically. card: where the
+    column goes on a phone card ("title" heading, "aside" beside it, "fact"
+    in the two-up facts row, "row" as a labelled line)."""
+
+    label: str
+    kind: ColumnKind = "text"
+    width: str = ""
+    card: CardRole = "row"
+    sortable: bool = True
+
+    def __post_init__(self) -> None:
+        if self.width and not re.fullmatch(r"\d+(\.\d+)?(%|px|em|rem)", self.width):
+            raise ValueError(f"TableColumn.width must be a CSS length, not {self.width!r}")
+
+
+@dataclass(frozen=True)
+class TableCell:
+    """html: trusted HTML ("" = not stated, rendered as an em dash).
+    sort: the sort key (a number for num columns); None = the cell's text.
+    note_html: a quieter second line."""
+
+    html: str
+    sort: str | float | int | None = None
+    note_html: str = ""
+
+
+@dataclass(frozen=True)
+class TableLink:
+    href: str
+    text: str
+    label: str  # accessible name, e.g. "Abstract on PubMed (ref 9)"
+
+
+@dataclass(frozen=True)
+class TableRow:
+    cells: tuple[TableCell, ...]
+    links: tuple[TableLink, ...] = ()
+
+
+@dataclass(frozen=True)
+class DataTable:
+    """A sortable table on wide screens, cards on phones. Rows render sorted
+    ascending by column `sort_by` (None = as given)."""
+
+    id: str
+    title: str
+    columns: tuple[TableColumn, ...]
+    rows: tuple[TableRow, ...]
+    kicker: str = ""
+    intro_html: str = ""
+    footnote_html: str = ""
+    sort_by: int | None = None
+    marker: str = ""
+    after: str = ""
+
+    def __post_init__(self) -> None:
+        if not self.id:
+            raise ValueError("DataTable.id is required")
+        n = len(self.columns)
+        for i, row in enumerate(self.rows):
+            if len(row.cells) != n:
+                raise ValueError(f"DataTable row {i} has {len(row.cells)} cells, expected {n}")
+        if self.sort_by is not None and not 0 <= self.sort_by < n:
+            raise ValueError(f"DataTable.sort_by {self.sort_by} is out of range")
+        if sum(c.card == "title" for c in self.columns) != 1:
+            raise ValueError("DataTable needs exactly one column with card='title'")
+
+
+_NA = '<span class="na">&mdash;</span>'
+
+
+def _sort_value(col: TableColumn, cell: TableCell) -> str:
+    if cell.sort is not None:
+        return str(cell.sort)
+    if not cell.html:
+        return ""
+    return " ".join(html.unescape(_strip_tags(re.sub(r"<sup\b.*?</sup>", "", cell.html, flags=re.S))).split())
+
+
+def _cell_html(cell: TableCell) -> str:
+    out = cell.html or _NA
+    if cell.note_html:
+        out += f'<span class="who">{cell.note_html}</span>'
+    return out
+
+
+def _links_html(links: Sequence[TableLink]) -> str:
+    return "".join(
+        f' <a class="gg-cite" href="{esc(l.href)}" target="_blank" rel="noopener" aria-label="{esc(l.label)}">{esc(l.text)}</a>'
+        for l in links
+    )
+
+
+def _sorted_rows(t: DataTable) -> list[TableRow]:
+    if t.sort_by is None:
+        return list(t.rows)
+    col = t.columns[t.sort_by]
+
+    def key(row: TableRow):
+        v = _sort_value(col, row.cells[t.sort_by])
+        if v == "":
+            return (1, 0, "")
+        return (0, float(v), "") if col.kind == "num" else (0, 0, v.lower())
+
+    return sorted(t.rows, key=key)
+
+
+def render_data_table(t: DataTable) -> str:
+    tid = esc(t.id)
+    rows = _sorted_rows(t)
+    last = len(t.columns) - 1
+    cols = "".join(f'<col style="width:{c.width}">' if c.width else "<col>" for c in t.columns)
+
+    def th(i: int, c: TableColumn) -> str:
+        sort = ' aria-sort="ascending"' if t.sort_by == i else ""
+        if not c.sortable:
+            return f'<th scope="col">{esc(c.label)}</th>'
+        return (f'<th scope="col" data-type="{c.kind}"{sort}><button type="button">{esc(c.label)}'
+                '<span class="ar" aria-hidden="true"></span></button></th>')
+
+    def td(i: int, c: TableColumn, cell: TableCell, row: TableRow) -> str:
+        cls = ' class="num"' if c.kind == "num" else ""
+        links = _links_html(row.links) if i == last else ""
+        return f'<td{cls} data-v="{esc(_sort_value(c, cell))}">{_cell_html(cell)}{links}</td>'
+
+    head = "".join(th(i, c) for i, c in enumerate(t.columns))
+    body = "\n      ".join(
+        "<tr>" + "".join(td(i, c, r.cells[i], r) for i, c in enumerate(t.columns)) + "</tr>" for r in rows
+    )
+
+    def card(r: TableRow) -> str:
+        title = aside = ""
+        facts, lines = [], []
+        for i, c in enumerate(t.columns):
+            cell = r.cells[i]
+            links = _links_html(r.links) if i == last else ""
+            if c.card == "title":
+                title = cell.html or _NA
+            elif c.card == "aside":
+                aside = f'<span class="gg-card-aside">{_cell_html(cell)}</span>'
+            elif c.card == "fact":
+                facts.append(f"<div><dt>{esc(c.label)}</dt><dd>{_cell_html(cell)}{links}</dd></div>")
+            else:
+                lines.append(f'<p class="gg-card-row"><span class="lbl">{esc(c.label)}</span>{_cell_html(cell)}{links}</p>')
+        dl = f'<dl class="gg-card-facts">{"".join(facts)}</dl>' if facts else ""
+        return (f'<li class="gg-card"><p class="gg-card-h"><span class="gg-card-name">{title}</span>{aside}</p>'
+                f'{dl}{"".join(lines)}</li>')
+
+    cards = "\n    ".join(card(r) for r in rows)
+    kick = f'\n  <p class="kick">{esc(t.kicker)}</p>' if t.kicker else ""
+    hint = '<span class="gg-sort-hint">Click a column to sort. </span>'
+    intro = f'\n  <p class="sub">{hint}{t.intro_html}</p>'
+    foot = f'{t.footnote_html} ' if t.footnote_html else ""
+    return f"""<figure class="gg-table" id="{tid}" aria-labelledby="{tid}-h">{kick}
+  <h5 id="{tid}-h">{esc(t.title)}</h5>{intro}
+  <div class="gg-table-wrap" tabindex="0" role="region" aria-labelledby="{tid}-h">
+    <table class="gg-sortable">
+      <colgroup>{cols}</colgroup>
+      <thead><tr>{head}</tr></thead>
+      <tbody>
+      {body}
+      </tbody>
+    </table>
+  </div>
+  <ol class="gg-cards" aria-labelledby="{tid}-h">
+    {cards}
+  </ol>
+  <p class="fn">{foot}<span class="gg-sr" aria-live="polite" data-sort-status></span></p>
+</figure>"""
+
+
+Figure = EssayFigure | SvgFigure | DataTable
+
+
+def render_figure(fig: Figure) -> str:
+    if isinstance(fig, EssayFigure):
+        return render_essay_figure(fig)
+    if isinstance(fig, SvgFigure):
+        return render_svg_figure(fig)
+    if isinstance(fig, DataTable):
+        return render_data_table(fig)
+    raise TypeError(f"not a figure: {fig!r}")
+
+
+FIGURE_MARKER_RE = re.compile(r"<!--GG:FIGURE ([a-z0-9-]+)-->")
+# Blocks a figure can follow. A snippet inside an <li>, a <p> in a blockquote
+# or a heading lands after the outermost of these that holds it, never inside.
+_FIGURE_BLOCKS = frozenset({"p", "ul", "ol", "dl", "blockquote", "figure", "table", "pre",
+                            "h1", "h2", "h3", "h4", "h5", "h6"})
+_VOID_TAGS = frozenset({"area", "base", "br", "col", "embed", "hr", "img", "input", "link", "meta",
+                        "source", "track", "wbr"})
+
+
+class _BlockSpanParser(HTMLParser):
+    """(start, end) source offsets of every _FIGURE_BLOCKS element."""
+
+    def __init__(self, text: str) -> None:
+        super().__init__(convert_charrefs=True)
+        self._line_starts = [0] + [m.end() for m in re.finditer("\n", text)]
+        self._text = text
+        self._open: list[tuple[str, int]] = []
+        self.spans: list[tuple[int, int]] = []
+
+    def _offset(self) -> int:
+        line, col = self.getpos()
+        return self._line_starts[line - 1] + col
+
+    def handle_starttag(self, tag, attrs):
+        if tag not in _VOID_TAGS:
+            self._open.append((tag, self._offset()))
+
+    def handle_endtag(self, tag):
+        if not any(t == tag for t, _ in self._open):
+            return
+        end = self._text.index(">", self._offset()) + 1
+        while self._open:
+            t, start = self._open.pop()
+            if t in _FIGURE_BLOCKS:
+                self.spans.append((start, end))
+            if t == tag:
+                break
+
+
+def _enclosing_block_end(body: str, at: int) -> int | None:
+    """End offset of the outermost figure-able block holding offset `at`."""
+    p = _BlockSpanParser(body)
+    p.feed(body)
+    p.close()
+    holding = [(start, end) for start, end in p.spans if start < at <= end]
+    return min(holding)[1] if holding else None
+
+
+def place_figures(body: str, figures: Sequence[Figure]) -> str:
+    """Put each figure at its marker or after the outermost block (paragraph,
+    list, quote, heading, table, figure) holding its `after` snippet. Raises ValueError on a missing/duplicate anchor or a body marker
+    that no figure claims."""
+    for fig in figures:
+        if bool(fig.marker) == bool(fig.after):
+            raise ValueError(f"{type(fig).__name__} needs exactly one of marker= or after=")
+        block = render_figure(fig)
+        if fig.marker:
+            tag = f"<!--GG:FIGURE {fig.marker}-->"
+            if body.count(tag) != 1:
+                raise ValueError(f"marker {tag} found {body.count(tag)} times in the body, expected once")
+            body = body.replace(tag, block, 1)
+        else:
+            n = body.count(fig.after)
+            if n != 1:
+                raise ValueError(f"after={fig.after[:60]!r} found {n} times in the body, expected once")
+            end = _enclosing_block_end(body, body.index(fig.after) + len(fig.after))
+            if end is None:
+                raise ValueError(f"after={fig.after[:60]!r} is not inside a paragraph, list, quote, "
+                                 "heading, table or figure")
+            body = body[:end] + "\n" + block + body[end:]
+    left = FIGURE_MARKER_RE.findall(body)
+    if left:
+        raise ValueError(f"body markers without a figure: {left}")
+    return body
+
+
+def _uses_essay_js(body: str, figures: Sequence[Figure]) -> bool:
+    if "data-draw-in" in body:
+        return True
+    for f in figures:
+        if isinstance(f, DataTable) or (isinstance(f, SvgFigure) and f.phone_svg):
+            return True
+        if isinstance(f, EssayFigure) and f.video:
+            return True
+    return False
+
+
+class _SectionEndParser(HTMLParser):
+    """Offset just past the end of the first gg-blog-section that starts at or after `start`."""
+
+    def __init__(self, text: str, start: int) -> None:
+        super().__init__(convert_charrefs=True)
+        self._line_starts = [0] + [m.end() for m in re.finditer("\n", text)]
+        self._text, self._start = text, start
+        self._depth = 0
+        self._tag: str | None = None
+        self.end: int | None = None
+
+    def _offset(self) -> int:
+        line, col = self.getpos()
+        return self._line_starts[line - 1] + col
+
+    def handle_starttag(self, tag, attrs):
+        if self.end is not None:
+            return
+        if self._tag is None:
+            if tag in ("section", "div") and "gg-blog-section" in _classes(attrs) and self._offset() >= self._start:
+                self._tag, self._depth = tag, 1
+        elif tag == self._tag:
+            self._depth += 1
+
+    def handle_endtag(self, tag):
+        if self._tag is None or self.end is not None or tag != self._tag:
+            return
+        self._depth -= 1
+        if self._depth == 0:
+            off = self._offset()
+            self.end = self._text.index(">", off) + 1
+
+
+def _section_end_after(body: str, start: int) -> int | None:
+    p = _SectionEndParser(body, start)
+    p.feed(body)
+    p.close()
+    return p.end
+
+
+ESSAY_JS_MARKER = "gg-essay-js"
+
+# Play-once videos, chart draw-in, SVG zoom toggles, sortable tables. All
+# progressive enhancement: without it every figure is complete and readable.
+ESSAY_JS = """<script>
+/* gg-essay-js */
+(function(){
+  var RM=matchMedia('(prefers-reduced-motion: reduce)'), IO='IntersectionObserver' in window;
+  function each(sel,fn){ [].forEach.call(document.querySelectorAll(sel),fn); }
+
+  /* play once at 50% visible, hold the last frame, offer replay; the still until .is-live, and under reduced motion (CSS) */
+  each('[data-play-once]',function(box){
+    var v=box.querySelector('video'), b=box.querySelector('.gg-replay'); if(!v) return;
+    var done=false, seen=false, poster=v.getAttribute('data-poster');
+    v.loop=false;
+    function live(){ if(box.classList.contains('is-live')) return; if(poster) v.poster=poster; box.classList.add('is-live'); }
+    function go(){ if(v.preload==='none') v.preload='auto'; var p=v.play(); if(p&&p.catch) p.catch(function(){}); }
+    function sync(){ if(RM.matches){ v.pause(); return; } live(); if(done) return; if(seen) go(); else v.pause(); }
+    v.addEventListener('ended',function(){ done=true; box.setAttribute('data-played','1'); if(b) b.hidden=false; });
+    if(b) b.addEventListener('click',function(){ b.hidden=true; v.currentTime=0; go(); });
+    if(IO){ new IntersectionObserver(function(es){
+      var e=es[0]; if(e.isIntersecting && v.preload==='none') v.preload='metadata';
+      seen=e.intersectionRatio>=0.5; sync(); },{threshold:[0,0.5]}).observe(box); }
+    else seen=true;
+    if(RM.addEventListener) RM.addEventListener('change',sync);
+    sync();
+  });
+
+  /* draw-in: empty the chart only while it is off-screen, play it once at 15% visible */
+  each('[data-draw-in]',function(fig){
+    if(!IO) return;
+    var done=false;
+    var io=new IntersectionObserver(function(es){
+      var e=es[0];
+      if(done||RM.matches) return;
+      if(!e.isIntersecting){ fig.classList.add('is-armed'); return; }
+      if(e.intersectionRatio>=0.15 && fig.classList.contains('is-armed')){
+        done=true; io.disconnect();
+        fig.classList.remove('is-armed'); fig.classList.add('is-playing');
+        var end=0;
+        [].forEach.call(fig.querySelectorAll('[data-draw]'),function(el){
+          var cs=getComputedStyle(el), t=function(s){ return parseFloat(s)*(/ms$/.test(s)?1:1000)||0; };
+          end=Math.max(end,t(cs.animationDelay)+t(cs.animationDuration));
+        });
+        setTimeout(function(){ fig.classList.remove('is-playing'); fig.setAttribute('data-drawn','1'); },end+100);
+      }
+    },{threshold:[0,0.15]});
+    io.observe(fig);
+  });
+
+  /* SVG figures on phones: overview by default, the detail on request */
+  each('.gg-svg-zoom',function(b){
+    var fig=b.closest('.gg-svgfig'), label=b.getAttribute('data-label');
+    b.addEventListener('click',function(){
+      var on=!fig.classList.contains('is-zoomed');
+      fig.classList.toggle('is-zoomed',on);
+      b.setAttribute('aria-expanded',String(on)); b.textContent=on?'Hide detail':label;
+    });
+  });
+
+  /* sortable tables: blanks always sort last */
+  each('table.gg-sortable',function(t){
+    var ths=[].slice.call(t.querySelectorAll('thead th')), body=t.tBodies[0];
+    var live=t.closest('figure').querySelector('[data-sort-status]');
+    ths.forEach(function(th,ci){
+      var btn=th.querySelector('button'); if(!btn) return;
+      btn.addEventListener('click',function(){
+        var dir=th.getAttribute('aria-sort')==='ascending'?'descending':'ascending', num=th.getAttribute('data-type')==='num';
+        ths.forEach(function(o){ o.removeAttribute('aria-sort'); });
+        th.setAttribute('aria-sort',dir);
+        var rows=[].slice.call(body.rows);
+        rows.sort(function(a,b){
+          var x=a.cells[ci].getAttribute('data-v')||'', y=b.cells[ci].getAttribute('data-v')||'';
+          if(!x||!y) return !x===!y?0:(!x?1:-1);
+          var r=num?(+x - +y):x.localeCompare(y);
+          return dir==='ascending'?r:-r;
+        });
+        rows.forEach(function(r){ body.appendChild(r); });
+        if(live) live.textContent='Sorted by '+btn.textContent.trim()+', '+dir+'.';
+      });
+    });
+  });
+})();
+</script>"""
+
+# Styles for the essay components, emitted only on pages that use them.
+ESSAY_CSS = """
+/* essay figures: still / play-once video + caption */
+.gg-essay-fig{margin:28px 0 30px}
+.gg-media{position:relative;max-width:440px;margin:0 auto}
+.gg-essay-fig.is-column .gg-media{max-width:none}
+.gg-pic{display:block}
+.gg-media img,.gg-media video{display:block;width:100%;height:auto;background:var(--sand)}
+.gg-media.has-video video{display:none}
+.gg-media.has-video .gg-pic{display:block}
+.gg-media.has-video.is-live video{display:block}
+.gg-media.has-video.is-live .gg-pic{display:none}
+.gg-replay{position:absolute;right:8px;bottom:8px;width:40px;height:40px;border:0;cursor:pointer;padding:0;
+  background:rgba(26,20,16,.66);color:#fff;display:flex;align-items:center;justify-content:center;clip-path:var(--chamfer)}
+.gg-replay[hidden]{display:none}
+.gg-replay svg{width:16px;height:16px;fill:currentColor}
+.gg-essay-fig figcaption{font:500 15px/1.5 var(--mono);color:var(--ink2);margin:12px auto 0;max-width:440px}
+.gg-essay-fig.is-column figcaption{max-width:none}
+.hero-img .gg-pic{display:block}
+@media (max-width:640px){
+  .hero:not(.wide) .hero-img .gg-pic-art img{aspect-ratio:auto;object-fit:fill}
+  .gg-media video.gg-vid-crop{aspect-ratio:var(--ph-ar);object-fit:cover;object-position:var(--ph-pos,50% 50%)}
+}
+@media (prefers-reduced-motion:reduce){
+  .gg-media.has-video.is-live video,.gg-replay{display:none}
+  .gg-media.has-video.is-live .gg-pic{display:block}
+}
+
+/* inline SVG figures; phones get the overview + "Zoom in" when there is one */
+.gg-svgfig{margin:28px 0 30px;padding:22px 24px 18px}
+.gg-svgfig .kick{margin-bottom:6px}
+.gg-svgfig h5,.gg-table h5{font:700 24px/1.2 var(--serif);margin:0 0 14px;color:var(--ink)}
+.gg-svgfig svg{display:block;width:100%;height:auto}
+.gg-svgfig svg text{font-family:var(--mono)}
+.gg-svg-detail{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.gg-svg-detail:focus-visible,.gg-table-wrap:focus-visible{outline:3px solid var(--cobalt);outline-offset:2px}
+.gg-svgfig figcaption{font-size:14px;margin-top:12px}
+.gg-svgfig figcaption a{color:var(--cobalt-deep);text-underline-offset:3px}
+.gg-svg-mini,.gg-svgfig .gg-svg-hint{display:none}
+.gg-svgfig .gg-svg-note{font:500 12px/1.5 var(--mono);color:var(--ink2);margin:8px 0 10px}
+.gg-svg-zoom{font:700 13px var(--mono);letter-spacing:.04em;text-transform:uppercase;color:var(--cobalt-deep);background:none;border:0;cursor:pointer;
+  height:40px;padding:0 12px;box-shadow:inset 0 0 0 2px var(--cobalt-deep)}
+@media (max-width:640px){
+  .gg-svgfig{padding:18px 14px}
+  .gg-svgfig h5,.gg-table h5{font-size:21px}
+  .gg-svg-detail svg{min-width:var(--svg-min,720px)}
+  .gg-svgfig.has-mini .gg-svg-mini{display:block}
+  .gg-svgfig.has-mini:not(.is-zoomed) .gg-svg-detail{display:none}
+  .gg-svgfig.is-zoomed .gg-svg-hint{display:block;font:700 12px var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--ink3);margin:12px 0 6px}
+}
+
+/* sortable table; one card per row on phones */
+.gg-table{background:var(--fig);padding:22px 24px 16px;margin:30px 0}
+.gg-table h5{margin-bottom:6px}
+.article .gg-table .sub{font:500 14px/1.5 var(--mono);color:var(--ink2);margin:0 0 14px}
+.gg-table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.gg-sortable{border-collapse:collapse;width:100%;table-layout:fixed;font:500 13px/1.45 var(--mono);color:var(--ink)}
+.gg-sortable th,.gg-sortable td{text-align:left;vertical-align:top;padding:10px 10px 10px 0;box-shadow:inset 0 -1px 0 var(--sand2)}
+.gg-sortable thead th{padding:0;box-shadow:inset 0 -3px 0 var(--ink);vertical-align:bottom;font:700 12px var(--mono);letter-spacing:.06em;text-transform:uppercase}
+.gg-sortable th button{all:unset;box-sizing:border-box;display:flex;align-items:center;gap:6px;width:100%;cursor:pointer;padding:6px 10px 10px 0;
+  font:700 12px var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--ink)}
+.gg-sortable th button:focus-visible{outline:3px solid var(--cobalt);outline-offset:-1px}
+.gg-sortable th button .ar{width:10px;height:10px;flex:none;opacity:.35;background:linear-gradient(var(--ink),var(--ink)) center/2px 100% no-repeat}
+.gg-sortable th[aria-sort] button .ar{opacity:1;background:none;width:0;height:0;border:5px solid transparent}
+.gg-sortable th[aria-sort="ascending"] button .ar{border-bottom:7px solid var(--cobalt-deep);border-top-width:0}
+.gg-sortable th[aria-sort="descending"] button .ar{border-top:7px solid var(--cobalt-deep);border-bottom-width:0}
+.gg-sortable td.num{font-variant-numeric:tabular-nums;white-space:nowrap}
+.gg-sortable td.num .who{white-space:normal}
+.gg-sortable td:first-child{font-weight:700}
+.gg-table .who{display:block;color:var(--ink2);font-size:12px;font-weight:500}
+.gg-table sup a{font-size:12px}
+.gg-table .na{color:var(--ink3)}
+.gg-table .gg-cite{color:var(--cobalt-deep);text-underline-offset:3px}
+.article .gg-table .fn{font:500 13px/1.5 var(--mono);color:var(--ink2);margin:12px 0 0}
+.gg-sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.gg-cards{display:none;list-style:none;margin:0;padding:0}
+@media (max-width:640px){
+  .gg-table{padding:18px 14px 12px}
+  .gg-table-wrap,.gg-sort-hint{display:none}
+  .gg-table .gg-cards{display:block;padding:0}
+  .article .gg-cards > li.gg-card{background:var(--paper);padding:14px 14px 4px;margin:0 0 10px;font:500 14px/1.45 var(--mono);color:var(--ink)}
+  .article .gg-card p{margin:0 0 10px;font:500 14px/1.45 var(--mono)}
+  .article .gg-card .gg-card-h{display:flex;justify-content:space-between;align-items:baseline;gap:12px;font:700 18px/1.3 var(--serif)}
+  .gg-card-h sup a{font:500 12px var(--mono)}
+  .gg-card-aside{font:700 14px var(--mono);font-variant-numeric:tabular-nums;color:var(--ink2)}
+  .gg-card-facts{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:0 0 10px;padding:0 0 10px;box-shadow:inset 0 -1px 0 var(--sand2)}
+  .gg-card-facts dt,.gg-card .lbl{display:block;font:700 12px var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--ink2);margin:0 0 2px}
+  .gg-card-facts dd{margin:0;font:700 14px/1.4 var(--mono);font-variant-numeric:tabular-nums}
+}
+
+/* chart draw-in: complete at rest; JS adds .is-armed (off-screen) then .is-playing (once) */
+[data-draw-in] [data-draw="grow"]{transform-origin:50% 100%}
+[data-draw-in] [data-draw="grow-x"]{transform-origin:0 50%}
+[data-draw-in].is-armed [data-draw="grow"]{transform:scaleY(0)}
+[data-draw-in].is-armed [data-draw="grow-x"]{transform:scaleX(0)}
+[data-draw-in].is-armed [data-draw="fade"],[data-draw-in].is-armed [data-draw="rise"]{opacity:0}
+[data-draw-in].is-armed [data-draw="wipe"]{clip-path:inset(0 100% 0 0)}
+[data-draw-in].is-playing [data-draw]{animation-duration:var(--draw-dur,.6s);animation-delay:calc(var(--draw-i,0) * 110ms + var(--draw-at,0ms));
+  animation-fill-mode:backwards;animation-timing-function:cubic-bezier(.2,.75,.25,1)}
+[data-draw-in].is-playing [data-draw="grow"]{animation-name:gg-draw-grow}
+[data-draw-in].is-playing [data-draw="grow-x"]{animation-name:gg-draw-grow-x}
+[data-draw-in].is-playing [data-draw="fade"]{animation-name:gg-draw-fade;animation-timing-function:ease-out}
+[data-draw-in].is-playing [data-draw="rise"]{animation-name:gg-draw-rise;animation-timing-function:ease-out}
+[data-draw-in].is-playing [data-draw="wipe"]{animation-name:gg-draw-wipe;animation-timing-function:ease-out}
+@keyframes gg-draw-grow{from{transform:scaleY(0)}to{transform:scaleY(1)}}
+@keyframes gg-draw-grow-x{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+@keyframes gg-draw-fade{from{opacity:0}to{opacity:1}}
+@keyframes gg-draw-rise{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+@keyframes gg-draw-wipe{from{clip-path:inset(0 100% 0 0)}to{clip-path:inset(0 0 0 0)}}
+@media (prefers-reduced-motion:reduce){
+  [data-draw-in] [data-draw]{animation:none!important;transform:none!important;opacity:1!important;clip-path:none!important}
+}
+/* print the finished chart, even one still armed off-screen */
+@media print{
+  [data-draw-in] [data-draw]{animation:none!important;transform:none!important;opacity:1!important;clip-path:none!important}
+}
+
+/* "In short" after the intro on phones (in_short_on_phone="after_intro") */
+.slot-summary-m{display:none}
+@media (max-width:640px){
+  .slot-summary.has-phone-copy{display:none}
+  .slot-summary-m{display:block;margin:8px 0 40px}
+}
+"""
+
+
 # ── Page ──────────────────────────────────────────────────────
 
 IN_SHORT_MARKER = "<!--GG:IN_SHORT-->"
+InShortOnPhone = Literal["first", "after_intro"]
 LADDER_MARKER = "<!--GG:LADDER-->"
 
 
@@ -816,11 +1612,32 @@ def render_editorial_page(
     extra_head: str = "",
     extra_css: str = "",
     extra_body_end: str = "",
+    figures: Sequence[Figure] = (),
+    in_short_on_phone: InShortOnPhone = "first",
 ) -> str:
     """Render a full editorial page. See the module docstring for the contract."""
+    if in_short_on_phone not in ("first", "after_intro"):
+        raise ValueError(f"in_short_on_phone must be 'first' or 'after_intro', not {in_short_on_phone!r}")
     minutes = reading_minutes(body_html)
     body = body_html
-    body = _place(body, IN_SHORT_MARKER, render_in_short(in_short) if in_short else "", default="start")
+    if figures:
+        body = place_figures(body, figures)
+    # After placement, so data-draw-in inside a placed figure gets the JS.
+    essay_js = _uses_essay_js(body, figures)
+    uses_essay = bool(figures) or essay_js or bool(meta.hero and meta.hero.picture)
+    summary = render_in_short(in_short) if in_short else ""
+    if summary and in_short_on_phone == "after_intro":
+        uses_essay = True
+        phone = summary.replace('class="slot slot-summary" data-slot="summary"',
+                                'class="slot slot-summary-m" data-slot="summary-phone"', 1)
+        summary = summary.replace('class="slot slot-summary"', 'class="slot slot-summary has-phone-copy"', 1)
+        body = _place(body, IN_SHORT_MARKER, summary, default="start")
+        end = _section_end_after(body, body.index(summary) + len(summary))
+        if end is None:
+            raise ValueError('in_short_on_phone="after_intro" needs a gg-blog-section after "In short"')
+        body = body[:end] + "\n" + phone + body[end:]
+    else:
+        body = _place(body, IN_SHORT_MARKER, summary, default="start")
     if ladder:
         lead = ladder if isinstance(ladder, str) else DEFAULT_LADDER_LEAD
         body = _place(body, LADDER_MARKER, render_ladder(lead), default="refs")
@@ -846,6 +1663,10 @@ def render_editorial_page(
         toc_bar = rail = ""
 
     events = render_article_events_js(meta.slug) if meta.tracks_article_events else ""
+    if uses_essay:
+        extra_css = ESSAY_CSS + "\n" + extra_css
+    if essay_js:
+        extra_body_end = ESSAY_JS + ("\n" + extra_body_end if extra_body_end else "")
     return f"""<!DOCTYPE html>
 <html lang="en">
 <head>

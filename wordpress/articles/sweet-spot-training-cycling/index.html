@@ -10,9 +10,9 @@
   <meta property="og:description" content="It's made up, it makes you slower, science hates it, the name is weird, and its marketing makes us all dumber.">
   <meta property="og:url" content="https://gravelgodcycling.com/articles/sweet-spot-training-cycling/">
   <meta property="og:type" content="article">
-  <meta property="og:image" content="https://gravelgodcycling.com/articles/sweet-spot-training-cycling/img/sweet-spot-rip.png">
-  <meta property="og:image:width" content="734">
-  <meta property="og:image:height" content="894">
+  <meta property="og:image" content="https://gravelgodcycling.com/articles/sweet-spot-training-cycling/img/og-tombstone.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
   <meta property="og:site_name" content="Gravel God">
   <link rel="canonical" href="https://gravelgodcycling.com/articles/sweet-spot-training-cycling/">
   <link rel="icon" type="image/svg+xml" href="https://gravelgodcycling.com/gg-logo.svg">
@@ -428,6 +428,135 @@ sup a:hover{text-decoration:underline}
 h2[id],h3[id],[data-slot],figure[id]{scroll-margin-top:72px}
 
 
+/* essay figures: still / play-once video + caption */
+.gg-essay-fig{margin:28px 0 30px}
+.gg-media{position:relative;max-width:440px;margin:0 auto}
+.gg-essay-fig.is-column .gg-media{max-width:none}
+.gg-pic{display:block}
+.gg-media img,.gg-media video{display:block;width:100%;height:auto;background:var(--sand)}
+.gg-media.has-video video{display:none}
+.gg-media.has-video .gg-pic{display:block}
+.gg-media.has-video.is-live video{display:block}
+.gg-media.has-video.is-live .gg-pic{display:none}
+.gg-replay{position:absolute;right:8px;bottom:8px;width:40px;height:40px;border:0;cursor:pointer;padding:0;
+  background:rgba(26,20,16,.66);color:#fff;display:flex;align-items:center;justify-content:center;clip-path:var(--chamfer)}
+.gg-replay[hidden]{display:none}
+.gg-replay svg{width:16px;height:16px;fill:currentColor}
+.gg-essay-fig figcaption{font:500 15px/1.5 var(--mono);color:var(--ink2);margin:12px auto 0;max-width:440px}
+.gg-essay-fig.is-column figcaption{max-width:none}
+.hero-img .gg-pic{display:block}
+@media (max-width:640px){
+  .hero:not(.wide) .hero-img .gg-pic-art img{aspect-ratio:auto;object-fit:fill}
+  .gg-media video.gg-vid-crop{aspect-ratio:var(--ph-ar);object-fit:cover;object-position:var(--ph-pos,50% 50%)}
+}
+@media (prefers-reduced-motion:reduce){
+  .gg-media.has-video.is-live video,.gg-replay{display:none}
+  .gg-media.has-video.is-live .gg-pic{display:block}
+}
+
+/* inline SVG figures; phones get the overview + "Zoom in" when there is one */
+.gg-svgfig{margin:28px 0 30px;padding:22px 24px 18px}
+.gg-svgfig .kick{margin-bottom:6px}
+.gg-svgfig h5,.gg-table h5{font:700 24px/1.2 var(--serif);margin:0 0 14px;color:var(--ink)}
+.gg-svgfig svg{display:block;width:100%;height:auto}
+.gg-svgfig svg text{font-family:var(--mono)}
+.gg-svg-detail{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.gg-svg-detail:focus-visible,.gg-table-wrap:focus-visible{outline:3px solid var(--cobalt);outline-offset:2px}
+.gg-svgfig figcaption{font-size:14px;margin-top:12px}
+.gg-svgfig figcaption a{color:var(--cobalt-deep);text-underline-offset:3px}
+.gg-svg-mini,.gg-svgfig .gg-svg-hint{display:none}
+.gg-svgfig .gg-svg-note{font:500 12px/1.5 var(--mono);color:var(--ink2);margin:8px 0 10px}
+.gg-svg-zoom{font:700 13px var(--mono);letter-spacing:.04em;text-transform:uppercase;color:var(--cobalt-deep);background:none;border:0;cursor:pointer;
+  height:40px;padding:0 12px;box-shadow:inset 0 0 0 2px var(--cobalt-deep)}
+@media (max-width:640px){
+  .gg-svgfig{padding:18px 14px}
+  .gg-svgfig h5,.gg-table h5{font-size:21px}
+  .gg-svg-detail svg{min-width:var(--svg-min,720px)}
+  .gg-svgfig.has-mini .gg-svg-mini{display:block}
+  .gg-svgfig.has-mini:not(.is-zoomed) .gg-svg-detail{display:none}
+  .gg-svgfig.is-zoomed .gg-svg-hint{display:block;font:700 12px var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--ink3);margin:12px 0 6px}
+}
+
+/* sortable table; one card per row on phones */
+.gg-table{background:var(--fig);padding:22px 24px 16px;margin:30px 0}
+.gg-table h5{margin-bottom:6px}
+.article .gg-table .sub{font:500 14px/1.5 var(--mono);color:var(--ink2);margin:0 0 14px}
+.gg-table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.gg-sortable{border-collapse:collapse;width:100%;table-layout:fixed;font:500 13px/1.45 var(--mono);color:var(--ink)}
+.gg-sortable th,.gg-sortable td{text-align:left;vertical-align:top;padding:10px 10px 10px 0;box-shadow:inset 0 -1px 0 var(--sand2)}
+.gg-sortable thead th{padding:0;box-shadow:inset 0 -3px 0 var(--ink);vertical-align:bottom;font:700 12px var(--mono);letter-spacing:.06em;text-transform:uppercase}
+.gg-sortable th button{all:unset;box-sizing:border-box;display:flex;align-items:center;gap:6px;width:100%;cursor:pointer;padding:6px 10px 10px 0;
+  font:700 12px var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--ink)}
+.gg-sortable th button:focus-visible{outline:3px solid var(--cobalt);outline-offset:-1px}
+.gg-sortable th button .ar{width:10px;height:10px;flex:none;opacity:.35;background:linear-gradient(var(--ink),var(--ink)) center/2px 100% no-repeat}
+.gg-sortable th[aria-sort] button .ar{opacity:1;background:none;width:0;height:0;border:5px solid transparent}
+.gg-sortable th[aria-sort="ascending"] button .ar{border-bottom:7px solid var(--cobalt-deep);border-top-width:0}
+.gg-sortable th[aria-sort="descending"] button .ar{border-top:7px solid var(--cobalt-deep);border-bottom-width:0}
+.gg-sortable td.num{font-variant-numeric:tabular-nums;white-space:nowrap}
+.gg-sortable td.num .who{white-space:normal}
+.gg-sortable td:first-child{font-weight:700}
+.gg-table .who{display:block;color:var(--ink2);font-size:12px;font-weight:500}
+.gg-table sup a{font-size:12px}
+.gg-table .na{color:var(--ink3)}
+.gg-table .gg-cite{color:var(--cobalt-deep);text-underline-offset:3px}
+.article .gg-table .fn{font:500 13px/1.5 var(--mono);color:var(--ink2);margin:12px 0 0}
+.gg-sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.gg-cards{display:none;list-style:none;margin:0;padding:0}
+@media (max-width:640px){
+  .gg-table{padding:18px 14px 12px}
+  .gg-table-wrap,.gg-sort-hint{display:none}
+  .gg-table .gg-cards{display:block;padding:0}
+  .article .gg-cards > li.gg-card{background:var(--paper);padding:14px 14px 4px;margin:0 0 10px;font:500 14px/1.45 var(--mono);color:var(--ink)}
+  .article .gg-card p{margin:0 0 10px;font:500 14px/1.45 var(--mono)}
+  .article .gg-card .gg-card-h{display:flex;justify-content:space-between;align-items:baseline;gap:12px;font:700 18px/1.3 var(--serif)}
+  .gg-card-h sup a{font:500 12px var(--mono)}
+  .gg-card-aside{font:700 14px var(--mono);font-variant-numeric:tabular-nums;color:var(--ink2)}
+  .gg-card-facts{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:0 0 10px;padding:0 0 10px;box-shadow:inset 0 -1px 0 var(--sand2)}
+  .gg-card-facts dt,.gg-card .lbl{display:block;font:700 12px var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--ink2);margin:0 0 2px}
+  .gg-card-facts dd{margin:0;font:700 14px/1.4 var(--mono);font-variant-numeric:tabular-nums}
+}
+
+/* chart draw-in: complete at rest; JS adds .is-armed (off-screen) then .is-playing (once) */
+[data-draw-in] [data-draw="grow"]{transform-origin:50% 100%}
+[data-draw-in] [data-draw="grow-x"]{transform-origin:0 50%}
+[data-draw-in].is-armed [data-draw="grow"]{transform:scaleY(0)}
+[data-draw-in].is-armed [data-draw="grow-x"]{transform:scaleX(0)}
+[data-draw-in].is-armed [data-draw="fade"],[data-draw-in].is-armed [data-draw="rise"]{opacity:0}
+[data-draw-in].is-armed [data-draw="wipe"]{clip-path:inset(0 100% 0 0)}
+[data-draw-in].is-playing [data-draw]{animation-duration:var(--draw-dur,.6s);animation-delay:calc(var(--draw-i,0) * 110ms + var(--draw-at,0ms));
+  animation-fill-mode:backwards;animation-timing-function:cubic-bezier(.2,.75,.25,1)}
+[data-draw-in].is-playing [data-draw="grow"]{animation-name:gg-draw-grow}
+[data-draw-in].is-playing [data-draw="grow-x"]{animation-name:gg-draw-grow-x}
+[data-draw-in].is-playing [data-draw="fade"]{animation-name:gg-draw-fade;animation-timing-function:ease-out}
+[data-draw-in].is-playing [data-draw="rise"]{animation-name:gg-draw-rise;animation-timing-function:ease-out}
+[data-draw-in].is-playing [data-draw="wipe"]{animation-name:gg-draw-wipe;animation-timing-function:ease-out}
+@keyframes gg-draw-grow{from{transform:scaleY(0)}to{transform:scaleY(1)}}
+@keyframes gg-draw-grow-x{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+@keyframes gg-draw-fade{from{opacity:0}to{opacity:1}}
+@keyframes gg-draw-rise{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+@keyframes gg-draw-wipe{from{clip-path:inset(0 100% 0 0)}to{clip-path:inset(0 0 0 0)}}
+@media (prefers-reduced-motion:reduce){
+  [data-draw-in] [data-draw]{animation:none!important;transform:none!important;opacity:1!important;clip-path:none!important}
+}
+/* print the finished chart, even one still armed off-screen */
+@media print{
+  [data-draw-in] [data-draw]{animation:none!important;transform:none!important;opacity:1!important;clip-path:none!important}
+}
+
+/* "In short" after the intro on phones (in_short_on_phone="after_intro") */
+.slot-summary-m{display:none}
+@media (max-width:640px){
+  .slot-summary.has-phone-copy{display:none}
+  .slot-summary-m{display:block;margin:8px 0 40px}
+}
+
+
+.drift .col .act{--draw-at:150ms;--draw-dur:.75s}
+.drift .col .over{--draw-at:800ms;--draw-dur:.5s}
+.drift .col .v{--draw-at:1150ms;--draw-dur:.3s}
+.drift .col .plan{--draw-i:0;--draw-dur:.35s}
+.drift .tested{--draw-at:500ms}
+.drift .cap>*{--draw-at:1250ms;--draw-dur:.4s}
 .slot-drift{margin:34px 0 26px}
 .drift h5{font:700 30px/1.15 var(--serif);letter-spacing:-.01em;margin:0 0 6px;color:var(--ink)}
 .drift .sub{font:500 15px/1.5 var(--mono);color:var(--ink2);margin:0 0 20px}
@@ -625,7 +754,7 @@ h2[id],h3[id],[data-slot],figure[id]{scroll-margin-top:72px}
       <p class="dek">It’s made up, it makes you slower, science hates it, the name is weird, and its marketing makes us all dumber</p>
       <p class="by">Gravel God &middot; March 26, 2026 &middot; 22 min read</p>
     </div>
-    <figure class="hero-img"><img src="img/sweet-spot-rip.png" alt="Cyclist standing on a gravestone reading Sweet Spot 2004-2026" width="734" height="894" loading="eager"></figure>
+    <figure class="hero-img"><picture class="gg-pic gg-pic-art"><source media="(max-width: 640px)" type="image/webp" srcset="img/scene-tombstone-m.webp 1x, img/scene-tombstone-m@2x.webp 2x" width="1130" height="635"><source type="image/webp" srcset="img/scene-tombstone.webp 1x, img/scene-tombstone@2x.webp 2x"><img src="img/scene-tombstone.png" srcset="img/scene-tombstone.png 1x, img/scene-tombstone@2x.png 2x" alt="Cartoon Gravel God stands with his head bowed beside his gravel bike at a weathered, cracked headstone engraved &quot;SWEET SPOT, 2004 – 2026&quot;, with wilted flowers on the grave and a low desert sun behind." width="1600" height="1000" loading="eager" fetchpriority="high" decoding="async"></picture></figure>
   </div>
 
   <details class="toc-m" id="tocm">
@@ -659,7 +788,7 @@ h2[id],h3[id],[data-slot],figure[id]{scroll-margin-top:72px}
       </div>
     </nav>
     <article class="article" id="article">
-<div class="slot slot-summary" data-slot="summary">
+<div class="slot slot-summary has-phone-copy" data-slot="summary">
 <aside class="inshort" aria-label="In short">
   <p class="kick">In short</p>
   <ol>
@@ -674,6 +803,17 @@ h2[id],h3[id],[data-slot],figure[id]{scroll-margin-top:72px}
   <p>If you could go back in a time machine and change the course of one moment in history, would you go back to Germany in the 1930s and have a stern chat with a young Hitler, or would it make the world an even better place to take a short trip back in time to the early 2000s in Boulder, Colorado and roofie a local cycling coach&rsquo;s sugar-free vanilla latte the second before he had a training zone epiphany?</p>
   <p>It&rsquo;s a close one, but I think, on balance, we&rsquo;d all be better off going back in time to Boulder when its apartments cost less than Midwest mansions, George Bush was keeping us safe, and Blackberries were still a thing to prevent arguably the worst, most harmful, most misleading &ldquo;discovery&rdquo; in cycling training &mdash; the training zone called &ldquo;The Sweet Spot.&rdquo;</p>
 </section>
+<div class="slot slot-summary-m" data-slot="summary-phone">
+<aside class="inshort" aria-label="In short">
+  <p class="kick">In short</p>
+  <ol>
+    <li data-sec="0"><p>Sweet Spot (88&ndash;94% of FTP) grew out of a hypothetical, unitless graph. Coggan said it was only meant to convey a concept.</p><a class="ev" href="#fig-graph">See the graph · §01</a></li>
+    <li data-sec="2"><p>Most riders&rsquo; FTP is 5&ndash;10% optimistic, so a &ldquo;Sweet Spot&rdquo; workout is usually threshold work.</p><a class="ev" href="#fig-drift">See the 250 W case study · §03</a></li>
+    <li data-sec="4"><p>Above LT1, your nervous system bills sweet spot like threshold.</p><a class="ev" href="#fig-recovery">See recovery cost vs intensity · §05</a></li>
+    <li data-sec="6"><p>Polarized beat threshold-heavy training in head-to-head trials. A 2025 meta-analysis found no overall winner, but favored polarized for competitive athletes.</p><a class="ev" href="#fig-polarized">See the studies · §07</a></li>
+  </ol>
+</aside>
+</div>
 
 <section class="gg-blog-section">
   <h2 id="what-is-the-sweet-spot-can-we-call-it-something-different" data-toc>What is the Sweet Spot? Can We Call it Something Different?</h2>
@@ -686,9 +826,17 @@ h2[id],h3[id],[data-slot],figure[id]{scroll-margin-top:72px}
     <li><strong>Unitless</strong> &mdash; The Y-axis representing training efficiency did not have any real values or real-world data.</li>
     <li>According to Coggan, &ldquo;only ever intended as conveying a concept, rather than being an accurate depiction of the relation between intensity and training effect.&rdquo;<sup><a href="#ref-2">2</a></sup></li>
   </ul>
-  <div class="gg-article-img-inline" id="fig-graph">
-    <img src="img/unitless-graph.png" alt="Coggan standing in front of his unitless hypothetical graph" width="594" height="594" loading="lazy">
+  <figure class="gg-svgfig gg-fig has-mini" id="fig-graph" aria-labelledby="fig-graph-h">
+  <p class="kick">Evidence · reconstruction</p>
+  <h5 id="fig-graph-h">Reconstruction of Coggan’s original diagram</h5>
+  <div class="gg-svg-mini"><svg viewBox="0 0 330 276" role="img" aria-labelledby="cgm-t cgm-d" xmlns="http://www.w3.org/2000/svg"><title id="cgm-t">Reconstruction of Coggan's original diagram, overview</title><desc id="cgm-d">Same diagram as the detailed version: training effect is an inverted U peaking near 95 percent of FTP; maximum duration falls from about 97 to zero near 138 percent; physiological strain rises slowly then steeply; a dashed ellipse around roughly 76 to 94 percent is labelled Sweet Spot Training.</desc><defs><clipPath id="cgm-clip"><rect x="36" y="24" width="284" height="206"/></clipPath><marker id="cgm-ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0L10,5L0,10z" fill="#2a211b"/></marker></defs><rect x="36.0" y="24" width="38.7" height="206" fill="#7d7aa8" fill-opacity=".22"/><text x="55.4" y="40" text-anchor="middle" font-size="12.5" font-weight="700" fill="#2a211b">L1</text><rect x="74.7" y="24" width="51.6" height="206" fill="#4a78b0" fill-opacity=".22"/><text x="100.5" y="40" text-anchor="middle" font-size="12.5" font-weight="700" fill="#2a211b">L2</text><rect x="126.4" y="24" width="38.7" height="206" fill="#3f9a5a" fill-opacity=".22"/><text x="145.7" y="40" text-anchor="middle" font-size="12.5" font-weight="700" fill="#2a211b">L3</text><rect x="165.1" y="24" width="38.7" height="206" fill="#d8b62c" fill-opacity=".22"/><text x="184.5" y="40" text-anchor="middle" font-size="12.5" font-weight="700" fill="#2a211b">L4</text><rect x="203.8" y="24" width="38.7" height="206" fill="#d58a3a" fill-opacity=".22"/><text x="223.2" y="40" text-anchor="middle" font-size="12.5" font-weight="700" fill="#2a211b">L5</text><rect x="242.5" y="24" width="77.5" height="206" fill="#c62828" fill-opacity=".22"/><text x="281.3" y="40" text-anchor="middle" font-size="12.5" font-weight="700" fill="#2a211b">L6</text><line x1="32" x2="36" y1="230.0" y2="230.0" stroke="#2a211b" stroke-width="1.5"/><text x="30" y="234.3" text-anchor="end" font-size="12.5" fill="#59473c">0</text><line x1="32" x2="36" y1="178.5" y2="178.5" stroke="#2a211b" stroke-width="1.5"/><text x="30" y="182.8" text-anchor="end" font-size="12.5" fill="#59473c">25</text><line x1="32" x2="36" y1="127.0" y2="127.0" stroke="#2a211b" stroke-width="1.5"/><text x="30" y="131.3" text-anchor="end" font-size="12.5" fill="#59473c">50</text><line x1="32" x2="36" y1="75.5" y2="75.5" stroke="#2a211b" stroke-width="1.5"/><text x="30" y="79.8" text-anchor="end" font-size="12.5" fill="#59473c">75</text><line x1="32" x2="36" y1="24.0" y2="24.0" stroke="#2a211b" stroke-width="1.5"/><text x="30" y="28.3" text-anchor="end" font-size="12.5" fill="#59473c">100</text><line x1="36.0" x2="36.0" y1="230" y2="234" stroke="#2a211b" stroke-width="1.5"/><text x="36.0" y="248" text-anchor="middle" font-size="12.5" fill="#59473c">40</text><line x1="87.6" x2="87.6" y1="230" y2="234" stroke="#2a211b" stroke-width="1.5"/><text x="87.6" y="248" text-anchor="middle" font-size="12.5" fill="#59473c">60</text><line x1="139.3" x2="139.3" y1="230" y2="234" stroke="#2a211b" stroke-width="1.5"/><text x="139.3" y="248" text-anchor="middle" font-size="12.5" fill="#59473c">80</text><line x1="190.9" x2="190.9" y1="230" y2="234" stroke="#2a211b" stroke-width="1.5"/><text x="190.9" y="248" text-anchor="middle" font-size="12.5" fill="#59473c">100</text><line x1="242.5" x2="242.5" y1="230" y2="234" stroke="#2a211b" stroke-width="1.5"/><text x="242.5" y="248" text-anchor="middle" font-size="12.5" fill="#59473c">120</text><line x1="294.2" x2="294.2" y1="230" y2="234" stroke="#2a211b" stroke-width="1.5"/><text x="294.2" y="248" text-anchor="middle" font-size="12.5" fill="#59473c">140</text><path d="M36,24V230H320" fill="none" stroke="#2a211b" stroke-width="2"/><text x="178.0" y="270" text-anchor="middle" font-size="12.5" font-weight="700" fill="#2a211b">Intensity (% of FTP)</text><text transform="translate(11 127.0) rotate(-90)" text-anchor="middle" font-size="12.5" font-weight="700" fill="#2a211b">Arbitrary units</text><g clip-path="url(#cgm-clip)" fill="none" stroke-linecap="round"><path d="M36.0,29.2 C42.5,29.7 61.8,30.5 74.7,32.2 C87.6,34.0 102.7,36.9 113.5,39.4 C124.2,42.0 130.7,44.8 139.3,47.7 C147.9,50.6 156.5,53.2 165.1,57.0 C173.7,60.7 182.3,64.2 190.9,70.3 C199.5,76.5 208.1,84.8 216.7,94.0 C225.3,103.3 233.9,112.6 242.5,126.0 C251.2,139.4 260.4,157.0 268.4,174.4 C276.3,191.7 286.7,220.7 290.3,230.0" stroke="#2a211b" stroke-width="1.6"/><path d="M36.0,224.8 C42.5,224.2 61.8,222.4 74.7,220.7 C87.6,219.0 102.7,216.8 113.5,214.6 C124.2,212.3 130.7,210.3 139.3,207.3 C147.9,204.4 156.5,201.2 165.1,197.0 C173.7,192.9 182.3,189.1 190.9,182.6 C199.5,176.1 208.1,167.2 216.7,157.9 C225.3,148.6 233.9,140.0 242.5,127.0 C251.2,114.0 261.5,93.4 268.4,79.6 C275.2,65.9 280.1,53.9 283.9,44.6 C287.6,35.3 289.9,27.4 291.1,24.0" stroke="#2a211b" stroke-width="1.6"/><path d="M38.6,230.0 C44.6,219.4 62.2,187.1 74.7,166.1 C87.2,145.2 102.7,120.1 113.5,104.3 C124.2,88.5 130.7,79.8 139.3,71.4 C147.9,63.0 158.6,57.5 165.1,53.9 C171.5,50.3 173.7,49.9 178.0,49.8 C182.3,49.6 184.5,49.2 190.9,52.8 C197.4,56.4 208.1,62.8 216.7,71.4 C225.3,80.0 233.9,92.0 242.5,104.3 C251.2,116.7 259.8,131.1 268.4,145.5 C277.0,160.0 285.6,176.8 294.2,190.9 C302.8,204.9 315.7,223.5 320.0,230.0" stroke="#1a1410" stroke-width="3.2"/></g><ellipse cx="152.7" cy="67.5" rx="37.7" ry="28.8" fill="none" stroke="#2a211b" stroke-width="1.6" stroke-dasharray="5 4"/><text x="153.5" y="112.6" text-anchor="middle" font-size="12.5" font-weight="700" fill="#2a211b" paint-order="stroke" stroke="#faf6ef" stroke-width="4" stroke-linejoin="round">Sweet Spot</text><text x="153.5" y="127.6" text-anchor="middle" font-size="12.5" font-weight="700" fill="#2a211b" paint-order="stroke" stroke="#faf6ef" stroke-width="4" stroke-linejoin="round">Training</text><text x="69.6" y="73.4" text-anchor="middle" font-size="12.5" font-weight="700" fill="#2a211b" paint-order="stroke" stroke="#faf6ef" stroke-width="4" stroke-linejoin="round">Training</text><text x="69.6" y="88.4" text-anchor="middle" font-size="12.5" font-weight="700" fill="#2a211b" paint-order="stroke" stroke="#faf6ef" stroke-width="4" stroke-linejoin="round">effect</text><line x1="76.0" y1="100.2" x2="91.5" y2="117.7" stroke="#2a211b" stroke-width="1.4" marker-end="url(#cgm-ar)"/><text x="214.1" y="133.2" text-anchor="middle" font-size="12.5" font-weight="700" fill="#2a211b" paint-order="stroke" stroke="#faf6ef" stroke-width="4" stroke-linejoin="round">Strain</text><line x1="215.4" y1="146.6" x2="227.1" y2="162.0" stroke="#2a211b" stroke-width="1.4" marker-end="url(#cgm-ar)"/><text x="224.5" y="201.2" text-anchor="middle" font-size="12.5" font-weight="700" fill="#2a211b" paint-order="stroke" stroke="#faf6ef" stroke-width="4" stroke-linejoin="round">Volume</text><line x1="237.4" y1="193.9" x2="264.0" y2="174.4" stroke="#2a211b" stroke-width="1.4" marker-end="url(#cgm-ar)"/></svg>
+    <p class="gg-svg-note">Training effect = increase in threshold power &middot; Strain = physiological strain &middot; Volume = maximum duration. Labels shortened from the original.</p>
+    <button class="gg-svg-zoom" type="button" aria-expanded="false" aria-controls="fig-graph-detail" data-label="Zoom in">Zoom in</button>
   </div>
+  <p class="gg-svg-hint" aria-hidden="true">Swipe the chart &rarr;</p>
+  <div class="gg-svg-detail" id="fig-graph-detail" tabindex="0" role="region" aria-label="Diagram, scrolls sideways" style="--svg-min:720px"><svg viewBox="0 0 680 426" role="img" aria-labelledby="cg-t cg-d" xmlns="http://www.w3.org/2000/svg"><title id="cg-t">Reconstruction of Coggan's original diagram</title><desc id="cg-d">Arbitrary units (0 to 100) against exercise intensity, 40 to 150 percent of functional threshold power, over training levels L1 to L6. Training effect (increase in threshold power) is an inverted U peaking near 95 percent. Maximum duration (volume) falls from about 97 at 40 percent to zero near 138 percent. Physiological strain rises slowly, then steeply, crossing maximum duration at 120 percent and 50 units. A dashed ellipse around roughly 76 to 94 percent, high on the training-effect curve, is labelled "Sweet Spot Training".</desc><defs><clipPath id="cg-clip"><rect x="62" y="34" width="600" height="330"/></clipPath><marker id="cg-ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0L10,5L0,10z" fill="#2a211b"/></marker></defs><rect x="62.0" y="34" width="81.8" height="330" fill="#7d7aa8" fill-opacity=".22"/><text x="102.9" y="54" text-anchor="middle" font-size="15" font-weight="700" fill="#2a211b">L1</text><rect x="143.8" y="34" width="109.1" height="330" fill="#4a78b0" fill-opacity=".22"/><text x="198.4" y="54" text-anchor="middle" font-size="15" font-weight="700" fill="#2a211b">L2</text><rect x="252.9" y="34" width="81.8" height="330" fill="#3f9a5a" fill-opacity=".22"/><text x="293.8" y="54" text-anchor="middle" font-size="15" font-weight="700" fill="#2a211b">L3</text><rect x="334.7" y="34" width="81.8" height="330" fill="#d8b62c" fill-opacity=".22"/><text x="375.6" y="54" text-anchor="middle" font-size="15" font-weight="700" fill="#2a211b">L4</text><rect x="416.5" y="34" width="81.8" height="330" fill="#d58a3a" fill-opacity=".22"/><text x="457.5" y="54" text-anchor="middle" font-size="15" font-weight="700" fill="#2a211b">L5</text><rect x="498.4" y="34" width="163.6" height="330" fill="#c62828" fill-opacity=".22"/><text x="580.2" y="54" text-anchor="middle" font-size="15" font-weight="700" fill="#2a211b">L6</text><line x1="57" x2="62" y1="364.0" y2="364.0" stroke="#2a211b" stroke-width="1.5"/><text x="53" y="368.5" text-anchor="end" font-size="13" fill="#59473c">0</text><line x1="57" x2="62" y1="331.0" y2="331.0" stroke="#2a211b" stroke-width="1.5"/><text x="53" y="335.5" text-anchor="end" font-size="13" fill="#59473c">10</text><line x1="57" x2="62" y1="298.0" y2="298.0" stroke="#2a211b" stroke-width="1.5"/><text x="53" y="302.5" text-anchor="end" font-size="13" fill="#59473c">20</text><line x1="57" x2="62" y1="265.0" y2="265.0" stroke="#2a211b" stroke-width="1.5"/><text x="53" y="269.5" text-anchor="end" font-size="13" fill="#59473c">30</text><line x1="57" x2="62" y1="232.0" y2="232.0" stroke="#2a211b" stroke-width="1.5"/><text x="53" y="236.5" text-anchor="end" font-size="13" fill="#59473c">40</text><line x1="57" x2="62" y1="199.0" y2="199.0" stroke="#2a211b" stroke-width="1.5"/><text x="53" y="203.5" text-anchor="end" font-size="13" fill="#59473c">50</text><line x1="57" x2="62" y1="166.0" y2="166.0" stroke="#2a211b" stroke-width="1.5"/><text x="53" y="170.5" text-anchor="end" font-size="13" fill="#59473c">60</text><line x1="57" x2="62" y1="133.0" y2="133.0" stroke="#2a211b" stroke-width="1.5"/><text x="53" y="137.5" text-anchor="end" font-size="13" fill="#59473c">70</text><line x1="57" x2="62" y1="100.0" y2="100.0" stroke="#2a211b" stroke-width="1.5"/><text x="53" y="104.5" text-anchor="end" font-size="13" fill="#59473c">80</text><line x1="57" x2="62" y1="67.0" y2="67.0" stroke="#2a211b" stroke-width="1.5"/><text x="53" y="71.5" text-anchor="end" font-size="13" fill="#59473c">90</text><line x1="57" x2="62" y1="34.0" y2="34.0" stroke="#2a211b" stroke-width="1.5"/><text x="53" y="38.5" text-anchor="end" font-size="13" fill="#59473c">100</text><line x1="62.0" x2="62.0" y1="364" y2="369" stroke="#2a211b" stroke-width="1.5"/><text x="62.0" y="385" text-anchor="middle" font-size="13" fill="#59473c">40</text><line x1="116.5" x2="116.5" y1="364" y2="369" stroke="#2a211b" stroke-width="1.5"/><text x="116.5" y="385" text-anchor="middle" font-size="13" fill="#59473c">50</text><line x1="171.1" x2="171.1" y1="364" y2="369" stroke="#2a211b" stroke-width="1.5"/><text x="171.1" y="385" text-anchor="middle" font-size="13" fill="#59473c">60</text><line x1="225.6" x2="225.6" y1="364" y2="369" stroke="#2a211b" stroke-width="1.5"/><text x="225.6" y="385" text-anchor="middle" font-size="13" fill="#59473c">70</text><line x1="280.2" x2="280.2" y1="364" y2="369" stroke="#2a211b" stroke-width="1.5"/><text x="280.2" y="385" text-anchor="middle" font-size="13" fill="#59473c">80</text><line x1="334.7" x2="334.7" y1="364" y2="369" stroke="#2a211b" stroke-width="1.5"/><text x="334.7" y="385" text-anchor="middle" font-size="13" fill="#59473c">90</text><line x1="389.3" x2="389.3" y1="364" y2="369" stroke="#2a211b" stroke-width="1.5"/><text x="389.3" y="385" text-anchor="middle" font-size="13" fill="#59473c">100</text><line x1="443.8" x2="443.8" y1="364" y2="369" stroke="#2a211b" stroke-width="1.5"/><text x="443.8" y="385" text-anchor="middle" font-size="13" fill="#59473c">110</text><line x1="498.4" x2="498.4" y1="364" y2="369" stroke="#2a211b" stroke-width="1.5"/><text x="498.4" y="385" text-anchor="middle" font-size="13" fill="#59473c">120</text><line x1="552.9" x2="552.9" y1="364" y2="369" stroke="#2a211b" stroke-width="1.5"/><text x="552.9" y="385" text-anchor="middle" font-size="13" fill="#59473c">130</text><line x1="607.5" x2="607.5" y1="364" y2="369" stroke="#2a211b" stroke-width="1.5"/><text x="607.5" y="385" text-anchor="middle" font-size="13" fill="#59473c">140</text><line x1="662.0" x2="662.0" y1="364" y2="369" stroke="#2a211b" stroke-width="1.5"/><text x="662.0" y="385" text-anchor="middle" font-size="13" fill="#59473c">150</text><path d="M62,34V364H662" fill="none" stroke="#2a211b" stroke-width="2"/><text x="362.0" y="412" text-anchor="middle" font-size="14" font-weight="700" fill="#2a211b">Exercise intensity (% of functional threshold power)</text><text transform="translate(16 199.0) rotate(-90)" text-anchor="middle" font-size="14" font-weight="700" fill="#2a211b">Arbitrary units</text><g clip-path="url(#cg-clip)" fill="none" stroke-linecap="round"><path d="M62.0,42.3 C75.6,43.1 116.5,44.5 143.8,47.2 C171.1,50.0 202.9,54.6 225.6,58.7 C248.4,62.9 262.0,67.3 280.2,71.9 C298.4,76.6 316.5,80.8 334.7,86.8 C352.9,92.9 371.1,98.3 389.3,108.2 C407.5,118.1 425.6,131.3 443.8,146.2 C462.0,161.0 480.2,175.9 498.4,197.3 C516.5,218.8 536.1,247.1 552.9,274.9 C569.7,302.7 591.5,349.1 599.3,364.0" stroke="#2a211b" stroke-width="2"/><path d="M62.0,355.8 C75.6,354.6 116.5,351.9 143.8,349.1 C171.1,346.4 202.9,342.8 225.6,339.2 C248.4,335.7 262.0,332.4 280.2,327.7 C298.4,323.0 316.5,317.8 334.7,311.2 C352.9,304.6 371.1,298.6 389.3,288.1 C407.5,277.7 425.6,263.4 443.8,248.5 C462.0,233.7 480.2,219.9 498.4,199.0 C516.5,178.1 538.4,145.1 552.9,123.1 C567.5,101.1 577.6,81.8 585.6,67.0 C593.6,52.1 598.4,39.5 600.9,34.0" stroke="#2a211b" stroke-width="2"/><path d="M67.5,364.0 C80.2,346.9 117.5,295.2 143.8,261.7 C170.2,228.1 202.9,188.0 225.6,162.7 C248.4,137.4 262.0,123.4 280.2,109.9 C298.4,96.4 321.1,87.6 334.7,81.9 C348.4,76.1 352.9,75.5 362.0,75.2 C371.1,75.0 375.6,74.4 389.3,80.2 C402.9,86.0 425.6,96.1 443.8,109.9 C462.0,123.6 480.2,142.9 498.4,162.7 C516.5,182.5 534.7,205.6 552.9,228.7 C571.1,251.8 589.3,278.8 607.5,301.3 C625.6,323.9 652.9,353.6 662.0,364.0" stroke="#1a1410" stroke-width="4"/></g><ellipse cx="308.5" cy="103.6" rx="79.6" ry="46.2" fill="none" stroke="#2a211b" stroke-width="2" stroke-dasharray="7 5"/><text x="312.9" y="167.7" text-anchor="middle" font-size="12" font-weight="700" fill="#2a211b">"Sweet Spot Training"</text><text x="173.8" y="86.8" text-anchor="middle" font-size="12.5" font-weight="700" fill="#2a211b">Training effect</text><text x="173.8" y="103.8" text-anchor="middle" font-size="12.5" font-weight="700" fill="#2a211b">(increase in threshold power)</text><line x1="183.6" y1="152.8" x2="207.6" y2="174.3" stroke="#2a211b" stroke-width="1.6" marker-end="url(#cg-ar)"/><text x="364.2" y="200.7" text-anchor="middle" font-size="12.5" font-weight="700" fill="#2a211b">Physiological strain</text><line x1="381.6" y1="218.8" x2="411.1" y2="263.4" stroke="#2a211b" stroke-width="1.6" marker-end="url(#cg-ar)"/><text x="470.5" y="322.8" text-anchor="middle" font-size="12.5" font-weight="700" fill="#2a211b">Maximum duration (volume)</text><line x1="486.4" y1="312.8" x2="543.1" y2="273.6" stroke="#2a211b" stroke-width="1.6" marker-end="url(#cg-ar)"/></svg></div>
+  <figcaption>Redrawn from the diagram Hunter Allen credits to Andy Coggan (<a href="https://www.hunterallenpowerblog.com/2015/05/power-training-zones-101.html" target="_blank" rel="noopener">Power Training Zones 101, 2015</a>). Curves traced by eye; the y-axis really is &ldquo;arbitrary units&rdquo;. <a href="img/unitless-graph.png" target="_blank" rel="noopener">The illustration this replaces</a>.</figcaption>
+</figure>
   <p>This is where our boy Frank comes in &mdash; at some point around that time Frank saw the point on Coggan&rsquo;s unitless, hypothetical graph and called that point of maximum training efficiency for the intensity, the &ldquo;Sweet Spot,&rdquo; which I&rsquo;m pretty sure Coggan secretly found kind of annoying and weird. (If you listen to any podcasts with Coggan as I have, any time Sweet Spot comes up he seems uncomfortable and even a little dismissive of it, even if it&rsquo;s Frank who is interviewing him lmao.)</p>
   <p>Obviously, putting the hypothetical Sweet Spot concept into practice requires a little bit of precision that Coggan was incredibly reluctant to engage in given the extremely non-existent scientific roots of the concept, but finally, at others&rsquo; urging and Frank&rsquo;s enthusiastic help, he attached specific percentages of FTP to it &mdash; 88&ndash;94% &mdash; and called it a training zone, I guess after subjecting 12 unwitting cyclists to a steady diet of it for a few months, which is almost enough to pretend that it&rsquo;s legit.</p>
   <p>I have to pause us here, because this origin story is fucking hilarious, like arguably up there with Mark Zuckerberg coding up Facebook in his dormitory in an all-nighter after getting dumped by his girlfriend.</p>
@@ -753,7 +901,7 @@ h2[id],h3[id],[data-slot],figure[id]{scroll-margin-top:72px}
   <p>Maybe this is hard to imagine, so let&rsquo;s take those assumptions and show how they work if you had an FTP of 250w.</p>
 
 <div class="slot slot-drift" data-slot="drift">
-<figure class="drift gg-fig" id="fig-drift" aria-labelledby="drift-t">
+<figure class="drift gg-fig" id="fig-drift" aria-labelledby="drift-t" data-draw-in>
   <p class="kick">Case study &middot; 3&times;20 min @ 235 W &middot; tested FTP 250 W</p>
   <h5 id="drift-t">The plan says sweet spot. Your threshold says otherwise.</h5>
   <p class="sub">Outline = the workout as planned (235 W, 94% of a 250 W test). Solid = the threshold you actually have, day and interval.</p>
@@ -764,10 +912,10 @@ h2[id],h3[id],[data-slot],figure[id]{scroll-margin-top:72px}
   </div>
   <div class="plot" role="img" aria-label="Planned 235 watts against real threshold: fresh 235 W, 100 percent, threshold; average day, interval 1, 228 W, 103 percent, above threshold; interval 2, 220 W, 107 percent, VO2max; interval 3, 215 W, 109 percent, anaerobic.">
     <div class="cap" style="grid-column:1"></div>
-    <div class="cap" style="grid-column:2"><span class="pill thin">100%</span><span class="zone">Threshold</span></div>
-    <div class="cap" style="grid-column:3"><span class="pill thick">103%</span><span class="zone">Above threshold</span></div>
-    <div class="cap" style="grid-column:4"><span class="pill fill">107%</span><span class="zone">VO2max</span></div>
-    <div class="cap" style="grid-column:5"><span class="pill fill">109%</span><span class="zone">Anaerobic</span></div>
+    <div class="cap" style="grid-column:2;--draw-i:0"><span class="pill thin" data-draw="rise">100%</span><span class="zone" data-draw="rise">Threshold</span></div>
+    <div class="cap" style="grid-column:3;--draw-i:1"><span class="pill thick" data-draw="rise">103%</span><span class="zone" data-draw="rise">Above threshold</span></div>
+    <div class="cap" style="grid-column:4;--draw-i:2"><span class="pill fill" data-draw="rise">107%</span><span class="zone" data-draw="rise">VO2max</span></div>
+    <div class="cap" style="grid-column:5;--draw-i:3"><span class="pill fill" data-draw="rise">109%</span><span class="zone" data-draw="rise">Anaerobic</span></div>
     <!-- scale: 200 W at bottom .. 255 W at top; y% = (W-200)/55 -->
     <div class="yax" style="grid-column:1">
       <span style="bottom:90.9%">250<em> W</em></span>
@@ -775,26 +923,26 @@ h2[id],h3[id],[data-slot],figure[id]{scroll-margin-top:72px}
       <span style="bottom:36.4%">220<em> W</em></span>
       <span style="bottom:0%">200<em> W</em></span>
     </div>
-    <div class="col" style="grid-column:2">
-      <div class="act" style="height:63.6%"><span class="v">235 W</span></div>
-      <div class="plan" style="height:63.6%"></div>
+    <div class="col" style="grid-column:2;--draw-i:0">
+      <div class="act" data-draw="grow" style="height:63.6%"><span class="v" data-draw="fade">235 W</span></div>
+      <div class="plan" data-draw="fade" style="height:63.6%"></div>
     </div>
-    <div class="col" style="grid-column:3">
-      <div class="act" style="height:50.9%"><span class="v">228 W</span></div>
-      <div class="over amb" style="bottom:50.9%;height:12.7%"><span class="v">+7 W</span></div>
-      <div class="plan" style="height:63.6%"></div>
+    <div class="col" style="grid-column:3;--draw-i:1">
+      <div class="act" data-draw="grow" style="height:50.9%"><span class="v" data-draw="fade">228 W</span></div>
+      <div class="over amb" data-draw="grow" style="bottom:50.9%;height:12.7%"><span class="v" data-draw="fade">+7 W</span></div>
+      <div class="plan" data-draw="fade" style="height:63.6%"></div>
     </div>
-    <div class="col" style="grid-column:4">
-      <div class="act" style="height:36.4%"><span class="v">220 W</span></div>
-      <div class="over red" style="bottom:36.4%;height:27.2%"><span class="v">+15 W</span></div>
-      <div class="plan" style="height:63.6%"></div>
+    <div class="col" style="grid-column:4;--draw-i:2">
+      <div class="act" data-draw="grow" style="height:36.4%"><span class="v" data-draw="fade">220 W</span></div>
+      <div class="over red" data-draw="grow" style="bottom:36.4%;height:27.2%"><span class="v" data-draw="fade">+15 W</span></div>
+      <div class="plan" data-draw="fade" style="height:63.6%"></div>
     </div>
-    <div class="col" style="grid-column:5">
-      <div class="act" style="height:27.3%"><span class="v">215 W</span></div>
-      <div class="over red" style="bottom:27.3%;height:36.3%"><span class="v">+20 W</span></div>
-      <div class="plan" style="height:63.6%"></div>
+    <div class="col" style="grid-column:5;--draw-i:3">
+      <div class="act" data-draw="grow" style="height:27.3%"><span class="v" data-draw="fade">215 W</span></div>
+      <div class="over red" data-draw="grow" style="bottom:27.3%;height:36.3%"><span class="v" data-draw="fade">+20 W</span></div>
+      <div class="plan" data-draw="fade" style="height:63.6%"></div>
     </div>
-    <div class="tested" style="grid-column:2/6;grid-row:2"><i style="bottom:90.9%"></i><span style="bottom:90.9%">TESTED FTP 250 W</span></div>
+    <div class="tested" data-draw="wipe" style="grid-column:2/6;grid-row:2"><i style="bottom:90.9%"></i><span style="bottom:90.9%">TESTED FTP 250 W</span></div>
     <div class="xl" style="grid-column:1"></div>
     <div class="xl" style="grid-column:2">Fresh<small>True FTP</small></div>
     <div class="xl" style="grid-column:3">Avg day<small>Int 1</small></div>
@@ -933,9 +1081,9 @@ h2[id],h3[id],[data-slot],figure[id]{scroll-margin-top:72px}
   <p>Sweet spot sits in no man&rsquo;s land. It&rsquo;s not easy enough to accumulate massive aerobic volume with minimal autonomic cost, and it&rsquo;s not hard enough to maximally trigger the intensity-dependent signaling that builds mitochondria. You get the worst of both worlds: the recovery cost of hard training with the adaptive stimulus of not-that-hard training.</p>
   <p>I won&rsquo;t name names, but I&rsquo;ve worked with plenty of athletes who spend almost every pedal stroke in this zone and after a brief honeymoon period of gains, they plateau hard and can&rsquo;t figure out why adding more volume at sweet spot isn&rsquo;t working anymore.</p>
 
-  <div class="gg-article-img-inline">
-    <img src="img/black-hole.jpg" alt="Cyclist being pulled into a Sweet Spot black hole vortex" width="1024" height="1024" loading="lazy">
-  </div>
+  <figure class="gg-essay-fig">
+  <div class="gg-media has-video" data-play-once><video muted playsinline preload="none" data-poster="img/scene-black-hole-poster.webp" width="1280" height="800" class="gg-vid-crop" style="--ph-ar:900/760;--ph-pos:100% 0" aria-label="Cartoon Gravel God, a mustachioed rider in a white tee and denim shorts, pedals a black gravel bike down a desert road that lifts off the ground and spirals into a swirling black hole in the sky; he glances back over his shoulder, eyebrows raised in alarm."><source src="img/scene-black-hole.webm" type="video/webm"><source src="img/scene-black-hole.mp4" type="video/mp4"></video><button class="gg-replay" type="button" aria-label="Replay animation" hidden><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 2.5a5.5 5.5 0 1 1-5.2 3.7l1.4.5A4 4 0 1 0 8 4v2.2L4.6 3.3 8 .4z"/></svg></button><picture class="gg-pic gg-pic-art"><source media="(max-width: 640px)" type="image/webp" srcset="img/scene-black-hole-m.webp 1x, img/scene-black-hole-m@2x.webp 2x" width="900" height="760"><source type="image/webp" srcset="img/scene-black-hole.webp 1x, img/scene-black-hole@2x.webp 2x"><img src="img/scene-black-hole.png" srcset="img/scene-black-hole.png 1x, img/scene-black-hole@2x.png 2x" alt="Cartoon Gravel God, a mustachioed rider in a white tee and denim shorts, pedals a black gravel bike down a desert road that lifts off the ground and spirals into a swirling black hole in the sky; he glances back over his shoulder, eyebrows raised in alarm." width="1600" height="1000" loading="lazy" decoding="async"></picture></div>
+</figure>
   <h3 id="the-black-hole-metaphor-is-perfect">The Black Hole Metaphor is Perfect</h3>
   <p>Seiler called it the &ldquo;black hole&rdquo; of training intensity, and the physics metaphor is apt. Black holes trap things that get too close &mdash; their gravitational pull is so strong that nothing escapes. Sweet spot training traps athletes in the same way. It feels productive because it&rsquo;s hard, but not so hard you can&rsquo;t do it several times a week. It becomes the default mode.</p>
   <p>The problem is you&rsquo;re stuck there, accumulating fatigue that limits your ability to go truly easy (which builds your aerobic base) or truly hard (which drives VO2max and anaerobic capacity). You end up training in the middle all the time, which &mdash; if we&rsquo;re being honest about what the research shows &mdash; is the single best way to ensure you never reach your genetic ceiling.</p>
@@ -955,6 +1103,32 @@ h2[id],h3[id],[data-slot],figure[id]{scroll-margin-top:72px}
   <h2 id="polarized-training-is-just-better" data-toc>Polarized Training is Just Better</h2>
   <p>Actually, that&rsquo;s just clickbait. If that upsets you, imagine how I feel after being on FasCat&rsquo;s newsletter for 10 years.</p>
   <p>Look &mdash; polarized training (roughly 75&ndash;90% below LT1, 15&ndash;20% above LT2) consistently outperforms threshold-heavy training in controlled studies. Neal et al. (2013) showed 8% peak power gains vs. 3% for threshold training.<sup><a href="#ref-9">9</a></sup> St&ouml;ggl and Sperlich (2014) found polarized improved VO2peak by 11.7% while threshold training showed improvement only in work economy.<sup><a href="#ref-10">10</a></sup> Esteve-Lanao et al. (2007) demonstrated that simply replacing easy training with moderate/sweet-spot-intensity training &mdash; at equal total load &mdash; produced worse outcomes.<sup><a href="#ref-11">11</a></sup> Rosenblat et al. (2019) found a moderate effect size favoring polarized over threshold for time-trial performance.<sup><a href="#ref-12">12</a></sup> The most recent 2025 network meta-analysis by Rosenblat, Seiler, and colleagues pooled 13 studies and 348 athletes. It didn&rsquo;t crown an overall winner: no intensity distribution was significantly better. But it did say who should do what. Competitive athletes may gain more from polarized training; recreational athletes from a pyramidal mix. Notice what isn&rsquo;t on that list: threshold-heavy.<sup><a href="#ref-13">13</a></sup></p>
+<figure class="gg-table" id="fig-studies" aria-labelledby="fig-studies-h">
+  <p class="kick">The studies, side by side</p>
+  <h5 id="fig-studies-h">What the cited papers actually tested</h5>
+  <p class="sub"><span class="gg-sort-hint">Click a column to sort. </span>Numbers come from each paper&rsquo;s abstract; &ldquo;&mdash;&rdquo; means the abstract doesn&rsquo;t state it.</p>
+  <div class="gg-table-wrap" tabindex="0" role="region" aria-labelledby="fig-studies-h">
+    <table class="gg-sortable">
+      <colgroup><col style="width:17%"><col style="width:8%"><col style="width:15%"><col style="width:10%"><col style="width:20%"><col style="width:30%"></colgroup>
+      <thead><tr><th scope="col" data-type="text"><button type="button">Study<span class="ar" aria-hidden="true"></span></button></th><th scope="col" data-type="num" aria-sort="ascending"><button type="button">Year<span class="ar" aria-hidden="true"></span></button></th><th scope="col" data-type="num"><button type="button">Athletes (n)<span class="ar" aria-hidden="true"></span></button></th><th scope="col" data-type="num"><button type="button">Weeks<span class="ar" aria-hidden="true"></span></button></th><th scope="col" data-type="text"><button type="button">Comparison<span class="ar" aria-hidden="true"></span></button></th><th scope="col" data-type="text"><button type="button">Headline result<span class="ar" aria-hidden="true"></span></button></th></tr></thead>
+      <tbody>
+      <tr><td data-v="Esteve-Lanao et al.">Esteve-Lanao et al. <sup><a href="#ref-11">11</a></sup></td><td class="num" data-v="2007">2007</td><td class="num" data-v="12">12<span class="who">subelite runners</span></td><td class="num" data-v="">5 mo<span class="who">weeks not stated</span></td><td data-v="More zone 1 (80.5/11.8/8.3) vs more zone 2 (66.8/24.7/8.5)">More zone 1 (80.5/11.8/8.3) vs more zone 2 (66.8/24.7/8.5)</td><td data-v="10.4 km race: −157 s vs −121.5 s (p = 0.03)">10.4 km race: &minus;157 s vs &minus;121.5 s (p = 0.03) <a class="gg-cite" href="https://pubmed.ncbi.nlm.nih.gov/17685689/" target="_blank" rel="noopener" aria-label="Abstract on PubMed (ref 11)">abstract</a></td></tr>
+      <tr><td data-v="Neal et al.">Neal et al. <sup><a href="#ref-9">9</a></sup></td><td class="num" data-v="2013">2013</td><td class="num" data-v="12">12<span class="who">male cyclists, crossover</span></td><td class="num" data-v="6">6<span class="who">per arm</span></td><td data-v="Polarized (80/0/20) vs threshold (57/43/0)">Polarized (80/0/20) vs threshold (57/43/0)</td><td data-v="Peak power +8% vs +3%; lactate threshold +9% vs +2%">Peak power +8% vs +3%; lactate threshold +9% vs +2% <a class="gg-cite" href="https://pubmed.ncbi.nlm.nih.gov/23264537/" target="_blank" rel="noopener" aria-label="Abstract on PubMed (ref 9)">abstract</a></td></tr>
+      <tr><td data-v="Stöggl &amp; Sperlich">St&ouml;ggl &amp; Sperlich <sup><a href="#ref-10">10</a></sup></td><td class="num" data-v="2014">2014</td><td class="num" data-v="48">48<span class="who">runners, cyclists, triathletes, XC skiers</span></td><td class="num" data-v="9">9</td><td data-v="Polarized vs threshold vs HIIT vs high volume">Polarized vs threshold vs HIIT vs high volume</td><td data-v="Polarized: VO2peak +11.7%, time to exhaustion +17.4%; threshold: slight work-economy gain only">Polarized: VO2peak +11.7%, time to exhaustion +17.4%; threshold: slight work-economy gain only <a class="gg-cite" href="https://pubmed.ncbi.nlm.nih.gov/24550842/" target="_blank" rel="noopener" aria-label="Abstract on PubMed (ref 10)">abstract</a></td></tr>
+      <tr><td data-v="Rosenblat et al.">Rosenblat et al. <sup><a href="#ref-12">12</a></sup></td><td class="num" data-v="2019">2019</td><td class="num" data-v=""><span class="na">&mdash;</span><span class="who">4 studies reviewed, 3 pooled</span></td><td class="num" data-v=""><span class="na">&mdash;</span></td><td data-v="Polarized vs threshold (meta-analysis)">Polarized vs threshold (meta-analysis)</td><td data-v="Time trial: moderate effect favouring polarized (ES −0.66, 95% CI −1.17 to −0.15)">Time trial: moderate effect favouring polarized (ES &minus;0.66, 95% CI &minus;1.17 to &minus;0.15) <a class="gg-cite" href="https://pubmed.ncbi.nlm.nih.gov/29863593/" target="_blank" rel="noopener" aria-label="Abstract on PubMed (ref 12)">abstract</a></td></tr>
+      <tr><td data-v="Rosenblat, Seiler et al.">Rosenblat, Seiler et al. <sup><a href="#ref-13">13</a></sup></td><td class="num" data-v="2025">2025</td><td class="num" data-v="348">348<span class="who">13 studies; 198 competitive, 150 recreational</span></td><td class="num" data-v=""><span class="na">&mdash;</span></td><td data-v="Polarized vs pyramidal and other distributions (network meta-analysis)">Polarized vs pyramidal and other distributions (network meta-analysis)</td><td data-v="No significant difference between polarized and any other distribution; competitive athletes may benefit more from polarized, recreational from pyramidal">No significant difference between polarized and any other distribution; competitive athletes may benefit more from polarized, recreational from pyramidal <a class="gg-cite" href="https://pubmed.ncbi.nlm.nih.gov/39888556/" target="_blank" rel="noopener" aria-label="Abstract on PubMed (ref 13)">abstract</a></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <ol class="gg-cards" aria-labelledby="fig-studies-h">
+    <li class="gg-card"><p class="gg-card-h"><span class="gg-card-name">Esteve-Lanao et al. <sup><a href="#ref-11">11</a></sup></span><span class="gg-card-aside">2007</span></p><dl class="gg-card-facts"><div><dt>Athletes (n)</dt><dd>12<span class="who">subelite runners</span></dd></div><div><dt>Weeks</dt><dd>5 mo<span class="who">weeks not stated</span></dd></div></dl><p class="gg-card-row"><span class="lbl">Comparison</span>More zone 1 (80.5/11.8/8.3) vs more zone 2 (66.8/24.7/8.5)</p><p class="gg-card-row"><span class="lbl">Headline result</span>10.4 km race: &minus;157 s vs &minus;121.5 s (p = 0.03) <a class="gg-cite" href="https://pubmed.ncbi.nlm.nih.gov/17685689/" target="_blank" rel="noopener" aria-label="Abstract on PubMed (ref 11)">abstract</a></p></li>
+    <li class="gg-card"><p class="gg-card-h"><span class="gg-card-name">Neal et al. <sup><a href="#ref-9">9</a></sup></span><span class="gg-card-aside">2013</span></p><dl class="gg-card-facts"><div><dt>Athletes (n)</dt><dd>12<span class="who">male cyclists, crossover</span></dd></div><div><dt>Weeks</dt><dd>6<span class="who">per arm</span></dd></div></dl><p class="gg-card-row"><span class="lbl">Comparison</span>Polarized (80/0/20) vs threshold (57/43/0)</p><p class="gg-card-row"><span class="lbl">Headline result</span>Peak power +8% vs +3%; lactate threshold +9% vs +2% <a class="gg-cite" href="https://pubmed.ncbi.nlm.nih.gov/23264537/" target="_blank" rel="noopener" aria-label="Abstract on PubMed (ref 9)">abstract</a></p></li>
+    <li class="gg-card"><p class="gg-card-h"><span class="gg-card-name">St&ouml;ggl &amp; Sperlich <sup><a href="#ref-10">10</a></sup></span><span class="gg-card-aside">2014</span></p><dl class="gg-card-facts"><div><dt>Athletes (n)</dt><dd>48<span class="who">runners, cyclists, triathletes, XC skiers</span></dd></div><div><dt>Weeks</dt><dd>9</dd></div></dl><p class="gg-card-row"><span class="lbl">Comparison</span>Polarized vs threshold vs HIIT vs high volume</p><p class="gg-card-row"><span class="lbl">Headline result</span>Polarized: VO2peak +11.7%, time to exhaustion +17.4%; threshold: slight work-economy gain only <a class="gg-cite" href="https://pubmed.ncbi.nlm.nih.gov/24550842/" target="_blank" rel="noopener" aria-label="Abstract on PubMed (ref 10)">abstract</a></p></li>
+    <li class="gg-card"><p class="gg-card-h"><span class="gg-card-name">Rosenblat et al. <sup><a href="#ref-12">12</a></sup></span><span class="gg-card-aside">2019</span></p><dl class="gg-card-facts"><div><dt>Athletes (n)</dt><dd><span class="na">&mdash;</span><span class="who">4 studies reviewed, 3 pooled</span></dd></div><div><dt>Weeks</dt><dd><span class="na">&mdash;</span></dd></div></dl><p class="gg-card-row"><span class="lbl">Comparison</span>Polarized vs threshold (meta-analysis)</p><p class="gg-card-row"><span class="lbl">Headline result</span>Time trial: moderate effect favouring polarized (ES &minus;0.66, 95% CI &minus;1.17 to &minus;0.15) <a class="gg-cite" href="https://pubmed.ncbi.nlm.nih.gov/29863593/" target="_blank" rel="noopener" aria-label="Abstract on PubMed (ref 12)">abstract</a></p></li>
+    <li class="gg-card"><p class="gg-card-h"><span class="gg-card-name">Rosenblat, Seiler et al. <sup><a href="#ref-13">13</a></sup></span><span class="gg-card-aside">2025</span></p><dl class="gg-card-facts"><div><dt>Athletes (n)</dt><dd>348<span class="who">13 studies; 198 competitive, 150 recreational</span></dd></div><div><dt>Weeks</dt><dd><span class="na">&mdash;</span></dd></div></dl><p class="gg-card-row"><span class="lbl">Comparison</span>Polarized vs pyramidal and other distributions (network meta-analysis)</p><p class="gg-card-row"><span class="lbl">Headline result</span>No significant difference between polarized and any other distribution; competitive athletes may benefit more from polarized, recreational from pyramidal <a class="gg-cite" href="https://pubmed.ncbi.nlm.nih.gov/39888556/" target="_blank" rel="noopener" aria-label="Abstract on PubMed (ref 13)">abstract</a></p></li>
+  </ol>
+  <p class="fn">Zone splits are % of training time below LT1 / between / above LT2. Meta-analyses list pooled athletes. <span class="gg-sr" aria-live="polite" data-sort-status></span></p>
+</figure>
 <div class="slot slot-polarized" data-slot="polarized">
 <figure class="pol gg-fig" id="fig-polarized">
   <p class="kick">Where the time goes &middot; polarized</p>
@@ -1017,9 +1191,9 @@ h2[id],h3[id],[data-slot],figure[id]{scroll-margin-top:72px}
 <section class="gg-blog-section">
   <h2 id="that-said-g-spot-is-better-than-sweet-spot" data-toc>That Said, G-Spot is Better than Sweet Spot</h2>
   <p>God visited me in a dream months ago and told me that if I was able to carry out 40 days and 40 nights of sweet spot training he&rsquo;d reveal a truth to me.</p>
-  <div class="gg-article-img-inline">
-    <img src="img/g-spot-tablet.jpg" alt="Cyclist on a mountaintop gazing at a divine tablet revealing the G-Spot graph" width="1024" height="1024" loading="lazy">
-  </div>
+  <figure class="gg-essay-fig">
+  <div class="gg-media"><picture class="gg-pic gg-pic-art"><source media="(max-width: 640px)" type="image/webp" srcset="img/scene-tablet-m.webp 1x, img/scene-tablet-m@2x.webp 2x" width="660" height="825"><source type="image/webp" srcset="img/scene-tablet.webp 1x, img/scene-tablet@2x.webp 2x"><img src="img/scene-tablet.png" srcset="img/scene-tablet.png 1x, img/scene-tablet@2x.png 2x" alt="Cartoon Gravel God stands on a rocky outcrop in the desert, arms straight up like Moses, holding a stone tablet engraved &quot;86–92%&quot; while rays of light fan out behind it." width="1600" height="1000" loading="lazy" decoding="async"></picture></div>
+</figure>
   <p>After completing all those scientifically superior workouts and testing my FTP (it went down 10 watts), He revealed to me a prophecy via a graph on a tablet that charted training efficiency vs. training intensity, and he labeled this unitless graph on a tablet and then leaned in close while pointing to the intersection and whispered, &ldquo;The G-Spot.&rdquo;</p>
   <p>The G-Spot! This, this is the intensity that Sweet Spot was always meant to be. It&rsquo;s 86&ndash;92% of FTP, unlike the fraudulent 88&ndash;94% Sweet Spot percentage, all but ensuring that every cyclist that overestimates their FTP is still comfortably under their FTP when they train at this intensity, which is what Sweet Spot always intended.</p>
   <p>It&rsquo;s a better name, because on the one hand it refers to you know what (Bailey), but when questioned about it I can just say it&rsquo;s short for the &ldquo;Gravel Spot,&rdquo; or the intensity at which most gravel racers race for most gravel events.</p>
@@ -1232,6 +1406,86 @@ h2[id],h3[id],[data-slot],figure[id]{scroll-margin-top:72px}
     if(now) now.textContent=cur<0?'Intro':String(cur+1).padStart(2,'0')+'  '+heads[cur].textContent;
   }
   addEventListener('scroll',update,{passive:true}); addEventListener('resize',update); update();
+})();
+</script>
+<script>
+/* gg-essay-js */
+(function(){
+  var RM=matchMedia('(prefers-reduced-motion: reduce)'), IO='IntersectionObserver' in window;
+  function each(sel,fn){ [].forEach.call(document.querySelectorAll(sel),fn); }
+
+  /* play once at 50% visible, hold the last frame, offer replay; the still until .is-live, and under reduced motion (CSS) */
+  each('[data-play-once]',function(box){
+    var v=box.querySelector('video'), b=box.querySelector('.gg-replay'); if(!v) return;
+    var done=false, seen=false, poster=v.getAttribute('data-poster');
+    v.loop=false;
+    function live(){ if(box.classList.contains('is-live')) return; if(poster) v.poster=poster; box.classList.add('is-live'); }
+    function go(){ if(v.preload==='none') v.preload='auto'; var p=v.play(); if(p&&p.catch) p.catch(function(){}); }
+    function sync(){ if(RM.matches){ v.pause(); return; } live(); if(done) return; if(seen) go(); else v.pause(); }
+    v.addEventListener('ended',function(){ done=true; box.setAttribute('data-played','1'); if(b) b.hidden=false; });
+    if(b) b.addEventListener('click',function(){ b.hidden=true; v.currentTime=0; go(); });
+    if(IO){ new IntersectionObserver(function(es){
+      var e=es[0]; if(e.isIntersecting && v.preload==='none') v.preload='metadata';
+      seen=e.intersectionRatio>=0.5; sync(); },{threshold:[0,0.5]}).observe(box); }
+    else seen=true;
+    if(RM.addEventListener) RM.addEventListener('change',sync);
+    sync();
+  });
+
+  /* draw-in: empty the chart only while it is off-screen, play it once at 15% visible */
+  each('[data-draw-in]',function(fig){
+    if(!IO) return;
+    var done=false;
+    var io=new IntersectionObserver(function(es){
+      var e=es[0];
+      if(done||RM.matches) return;
+      if(!e.isIntersecting){ fig.classList.add('is-armed'); return; }
+      if(e.intersectionRatio>=0.15 && fig.classList.contains('is-armed')){
+        done=true; io.disconnect();
+        fig.classList.remove('is-armed'); fig.classList.add('is-playing');
+        var end=0;
+        [].forEach.call(fig.querySelectorAll('[data-draw]'),function(el){
+          var cs=getComputedStyle(el), t=function(s){ return parseFloat(s)*(/ms$/.test(s)?1:1000)||0; };
+          end=Math.max(end,t(cs.animationDelay)+t(cs.animationDuration));
+        });
+        setTimeout(function(){ fig.classList.remove('is-playing'); fig.setAttribute('data-drawn','1'); },end+100);
+      }
+    },{threshold:[0,0.15]});
+    io.observe(fig);
+  });
+
+  /* SVG figures on phones: overview by default, the detail on request */
+  each('.gg-svg-zoom',function(b){
+    var fig=b.closest('.gg-svgfig'), label=b.getAttribute('data-label');
+    b.addEventListener('click',function(){
+      var on=!fig.classList.contains('is-zoomed');
+      fig.classList.toggle('is-zoomed',on);
+      b.setAttribute('aria-expanded',String(on)); b.textContent=on?'Hide detail':label;
+    });
+  });
+
+  /* sortable tables: blanks always sort last */
+  each('table.gg-sortable',function(t){
+    var ths=[].slice.call(t.querySelectorAll('thead th')), body=t.tBodies[0];
+    var live=t.closest('figure').querySelector('[data-sort-status]');
+    ths.forEach(function(th,ci){
+      var btn=th.querySelector('button'); if(!btn) return;
+      btn.addEventListener('click',function(){
+        var dir=th.getAttribute('aria-sort')==='ascending'?'descending':'ascending', num=th.getAttribute('data-type')==='num';
+        ths.forEach(function(o){ o.removeAttribute('aria-sort'); });
+        th.setAttribute('aria-sort',dir);
+        var rows=[].slice.call(body.rows);
+        rows.sort(function(a,b){
+          var x=a.cells[ci].getAttribute('data-v')||'', y=b.cells[ci].getAttribute('data-v')||'';
+          if(!x||!y) return !x===!y?0:(!x?1:-1);
+          var r=num?(+x - +y):x.localeCompare(y);
+          return dir==='ascending'?r:-r;
+        });
+        rows.forEach(function(r){ body.appendChild(r); });
+        if(live) live.textContent='Sorted by '+btn.textContent.trim()+', '+dir+'.';
+      });
+    });
+  });
 })();
 </script>
 <script>

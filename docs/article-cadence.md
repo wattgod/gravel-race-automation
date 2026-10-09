@@ -69,10 +69,22 @@ root URL**: `gravelgodcycling.com/<slug>/`. The slug never changes (no
   - `wordpress/post_sources/<module>.py` (scaffolded once, then hand-edited:
     ALT for every image, "In short" drafts, infographics),
   - `wordpress/posts/<slug>/img/` (WebP 1x ≤1600w, @2x only when the source
-    has 2x pixels, phone 660w/@2x; GIFs → muted MP4 + WebM + WebP poster),
+    has 2x pixels, phone 660w/@2x; GIFs → muted MP4 + WebM + WebP poster;
+    `<featured>-og.jpg`, the featured image as a 1200×630 JPEG ≤200 KB that
+    the page uses as `og:image`; posts without a featured image keep the live
+    generic one; `--no-images` backfills a missing crop),
   - `<specs>/pilot/<slug>/images.json` (per-image manifest; hand-written
     fields survive re-runs).
   Unknown Elementor widgets raise; extend the mapping in the converter.
+- "In short" (Matt, 2026-10-09: "matter of fact in a claude voice"): plain,
+  neutral statements of what the post says or argues, third person or
+  impersonal ("The post argues that…"); no first person, no "!", no imitation
+  of the author's jokes or slang, no hype. Each claim is supported by the post
+  text, ≤25 words, and links to its section; 2–4 claims (≤2 under 800 words).
+  `render_post` raises on the lintable half (`wp_post.in_short_problems`); the
+  full rule is in the `wordpress/wp_post.py` docstring.
+- Meta description: the live one, unless it's wrong; then the module passes
+  `description=` (same neutral voice; e.g. Double Day 3).
 - Render: `python3 wordpress/post_sources/<module>.py` writes
   `wordpress/posts/<slug>/index.html` (renderer: `wordpress/wp_post.py`).
 - Check: `pytest tests/test_wp_post_import.py` (word-for-word text diff

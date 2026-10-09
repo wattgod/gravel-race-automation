@@ -21,6 +21,24 @@ without pull quotes / galleries / videos / comments gets none of the CSS/JS):
     at most SHORT_POST_MAX_CLAIMS (2) "In short" claims under SHORT_POST_WORDS (800)
   - `replace={name: SvgFigure|DataTable}`: an infographic takes an image's place;
     the original image stays one click away in a <details> under the figure
+  - og:image: the featured image's 1200x630 JPEG crop (<featured>-og.jpg, <=200 KB,
+    written by the converter) from the post's own img/ dir; the live (generic)
+    og:image only when the post has no featured image. See og_image().
+  - `description=`: replaces the live meta/og/JSON-LD description, only when the
+    live one is wrong (e.g. Double Day 3 misread "Yield to tonnage")
+
+"In short" rule (Matt, 2026-10-09: "matter of fact in a claude voice"). Every
+post module's IN_SHORT follows it; render_post raises on what can be linted
+(in_short_problems), the rest is on the writer:
+  - Plain, neutral, factual statements of what the post says or argues. Third
+    person or impersonal ("The post argues that...", "The author..."). No
+    imitation of the author's jokes or slang, no first person, no hype, no "!".
+  - Each claim is supported by the post's text (no outside facts, no numbers
+    the post doesn't state) and links to the section or figure that supports it.
+  - At most IN_SHORT_MAX_WORDS (25) words per claim; 2-4 claims, at most
+    SHORT_POST_MAX_CLAIMS (2) under SHORT_POST_WORDS (800) words.
+  Example: "The post argues that a dopamine spike above baseline is followed by
+  an equal dip below it."
 """
 from __future__ import annotations
 
@@ -61,6 +79,11 @@ MIN_CONTENTS_SECTIONS = 3
 # (keep the strongest); render_post raises otherwise.
 SHORT_POST_WORDS = 800
 SHORT_POST_MAX_CLAIMS = 2
+# "In short" lint (see the module docstring for the full rule).
+IN_SHORT_MIN_CLAIMS = 2
+IN_SHORT_MAX_CLAIMS = 4
+IN_SHORT_MAX_WORDS = 25
+FIRST_PERSON_RE = re.compile(r"\b(?:I|me|my|mine|we|us|our|ours)\b", re.I)
 
 
 @dataclass(frozen=True)
@@ -92,6 +115,31 @@ def write(path: Path, page: str) -> None:
 
 def _local_date(iso: str) -> date:
     return datetime.fromisoformat(iso).astimezone(SITE_TZ).date()
+
+
+def in_short_problems(claims: Sequence[Claim], words: int) -> list[str]:
+    """What breaks the "In short" rule's lintable half (empty list = fine).
+    `words` is the post's word count (es.word_count of the body)."""
+    out = []
+    n = len(claims)
+    if words < SHORT_POST_WORDS and n > SHORT_POST_MAX_CLAIMS:
+        out.append(f"a {words}-word post gets at most {SHORT_POST_MAX_CLAIMS} claims "
+                   f"(under {SHORT_POST_WORDS} words), not {n}; keep the strongest")
+    elif not IN_SHORT_MIN_CLAIMS <= n <= IN_SHORT_MAX_CLAIMS:
+        out.append(f"{n} claims; write {IN_SHORT_MIN_CLAIMS}-{IN_SHORT_MAX_CLAIMS}")
+    for c in claims:
+        text = html.unescape(re.sub(r"<[^>]+>", "", c.text_html))
+        head = text[:40] + ("..." if len(text) > 40 else "")
+        if len(text.split()) > IN_SHORT_MAX_WORDS:
+            out.append(f"{head!r}: {len(text.split())} words (max {IN_SHORT_MAX_WORDS})")
+        if "!" in text:
+            out.append(f"{head!r}: no '!'")
+        fp = sorted({m.group(0) for m in FIRST_PERSON_RE.finditer(text)})
+        if fp:
+            out.append(f"{head!r}: first person {fp}; write it in the third person")
+        if not c.href.startswith("#"):
+            out.append(f"{head!r}: href {c.href!r} must link to a section or figure on the page")
+    return out
 
 
 # ── Pictures ─────────────────────────────────────────────────
@@ -238,13 +286,25 @@ def render_comments(comments: Sequence[Mapping]) -> str:
 # ── Page ─────────────────────────────────────────────────────
 
 
-def article_ld(src: PostSource) -> dict:
+def og_image(src: PostSource) -> OgImage | None:
+    """The featured image's og:image crop (converter: wp_post_import.ensure_og),
+    as an absolute URL in the post's own img/ dir; the live og:image (the generic
+    logo) only when the post has no featured image or no crop yet."""
+    feat = src.data.get("featured")
+    og = src.data.get("renditions", {}).get(feat["name"], {}).get("og") if feat else None
+    if og:
+        return OgImage(f"{src.url}img/{og['file']}", og["width"], og["height"])
+    live = src.data["live"].get("og_image") or {}
+    return OgImage(live["url"], live.get("width"), live.get("height")) if live.get("url") else None
+
+
+def article_ld(src: PostSource, description: str | None = None) -> dict:
     live = src.data["live"]
     ld = {
         "@context": "https://schema.org",
         "@type": "BlogPosting",
         "headline": live["headline"],
-        "description": live["description"],
+        "description": description or live["description"],
         "datePublished": live["published"],
         "dateModified": live["modified"],
         "author": {"@type": "Person", "name": live.get("author") or "Matti Rowe", "url": SITE},
@@ -256,18 +316,19 @@ def article_ld(src: PostSource) -> dict:
     return ld
 
 
-def build_meta(src: PostSource, *, hero: HeroImage | None, kicker: str | None = None, dek: str = "") -> ArticleMeta:
+def build_meta(src: PostSource, *, hero: HeroImage | None, kicker: str | None = None, dek: str = "",
+               description: str | None = None) -> ArticleMeta:
+    """`description` replaces the live description (meta, og, JSON-LD) when set."""
     live = src.data["live"]
-    og = live.get("og_image") or {}
     robots = "index, follow" + (", max-image-preview:large" if "max-image-preview:large" in live.get("robots", "") else "")
     return ArticleMeta(
         slug=src.slug,
         canonical_url=src.url,
         title=live["title"],
-        description=live["description"],
+        description=description or live["description"],
         og_title=live.get("og_title") or None,
-        og_description=live.get("og_description") or None,
-        og_image=OgImage(og["url"], og.get("width"), og.get("height")) if og.get("url") else None,
+        og_description=description or live.get("og_description") or None,
+        og_image=og_image(src),
         headline=live["headline"],
         date_published=_local_date(live["published"]),
         kicker=kicker if kicker is not None else " · ".join(src.data.get("categories", [])),
@@ -275,7 +336,7 @@ def build_meta(src: PostSource, *, hero: HeroImage | None, kicker: str | None = 
         byline=live.get("author") or "Gravel God",
         robots=robots,
         hero=hero,
-        json_ld=(article_ld(src),),
+        json_ld=(article_ld(src, description),),
     )
 
 
@@ -292,12 +353,15 @@ def render_post(
     extra_css: str = "",
     extra_body_end: str = "",
     in_short_on_phone: es.InShortOnPhone = "first",
+    description: str | None = None,
 ) -> str:
     """The full page. `alt` must cover every image (raises otherwise).
     `figures`: extra shell figures (SvgFigure / DataTable / EssayFigure) placed by
     `after=` or by a marker that `after_image` ({marker: image name}) puts right
     after that image. `replace`: {image name: figure}: the figure takes the
-    image's place and the image moves into a <details> under it."""
+    image's place and the image moves into a <details> under it.
+    `in_short` must pass in_short_problems (the "In short" rule; empty = none).
+    `description`: a corrected meta description (default: the live one)."""
     data = src.data
     replace = dict(replace or {})
     after_image = dict(after_image or {})
@@ -309,10 +373,10 @@ def render_post(
     unknown = sorted(set(alt) - set(names))
     if missing or unknown:
         raise ValueError(f"alt text: missing {missing}, unknown {unknown}")
-    words = es.word_count(src.body)
-    if words < SHORT_POST_WORDS and len(in_short) > SHORT_POST_MAX_CLAIMS:
-        raise ValueError(f"in_short: a {words}-word post gets at most {SHORT_POST_MAX_CLAIMS} claims "
-                         f"(under {SHORT_POST_WORDS} words), not {len(in_short)}; keep the strongest")
+    if in_short:
+        problems = in_short_problems(in_short, es.word_count(src.body))
+        if problems:
+            raise ValueError("in_short: " + "; ".join(problems))
 
     body = src.body
     for marker, image in after_image.items():
@@ -382,7 +446,7 @@ def render_post(
     if not hero and not shell_figures and "gg-gallery" in body:
         css.insert(0, es.ESSAY_CSS)  # the shell adds it only with figures or a hero picture
 
-    meta = build_meta(src, hero=hero, kicker=kicker)
+    meta = build_meta(src, hero=hero, kicker=kicker, description=description)
     sections = len(es.add_heading_ids(body)[1])
     return render_editorial_page(
         meta,

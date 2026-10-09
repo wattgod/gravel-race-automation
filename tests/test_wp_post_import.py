@@ -97,14 +97,14 @@ def test_metadata_comes_from_the_live_page(pid):
     assert live["canonical"] == url
     assert f'<link rel="canonical" href="{url}">' in html
     assert f"<title>{es.esc(live['title'])}</title>" in html
-    assert f'<meta name="description" content="{es.esc(live["description"])}">' in html
+    desc = getattr(m, "DESCRIPTION", None) or live["description"]
+    assert f'<meta name="description" content="{es.esc(desc)}">' in html
     assert f'<meta property="og:title" content="{es.esc(live["og_title"])}">' in html
-    assert f'<meta property="og:image" content="{es.esc(live["og_image"]["url"])}">' in html
     assert '<meta name="robots" content="index, follow, max-image-preview:large">' in html
     ld = [json.loads(b) for b in re.findall(r'<script type="application/ld\+json">(.*?)</script>', html, re.S)]
     assert [b["@type"] for b in ld] == ["BlogPosting"]
     assert ld[0]["headline"] == live["headline"] and ld[0]["datePublished"] == live["published"]
-    assert ld[0]["mainEntityOfPage"] == url
+    assert ld[0]["mainEntityOfPage"] == url and ld[0]["description"] == desc
     assert m.OUTPUT_PATH == PROJECT_ROOT / "wordpress" / "posts" / m.SLUG / "index.html"
 
 
@@ -145,8 +145,9 @@ def test_every_image_has_alt_text_and_committed_files(pid):
     referenced |= set(re.findall(r", (img/[^ ]+) 2x", html))
     for path in referenced:
         assert (m.OUTPUT_PATH.parent / path).is_file(), path
-    shipped = {p.suffix for p in img_dir.iterdir()}
-    assert shipped <= {".webp", ".mp4", ".webm"}, "no PNG/JPEG/GIF ships; WebP + video only"
+    shipped = {p.suffix for p in img_dir.iterdir() if not p.name.endswith("-og.jpg")}
+    assert shipped <= {".webp", ".mp4", ".webm"}, "no PNG/JPEG/GIF ships; WebP + video only (+ the og:image JPEG)"
+    assert [p.name for p in img_dir.glob("*.jpg")] == ([f"{feat['name']}-og.jpg"] if feat else [])
 
 
 @pytest.mark.parametrize("pid", PILOTS)
@@ -164,15 +165,104 @@ def test_gifs_are_muted_play_once_videos(pid):
 
 
 @pytest.mark.parametrize("pid", PILOTS)
-def test_in_short_drafts(pid):
-    """2-4 claims, each at most 25 words, each linking to an anchor on the page."""
+def test_in_short_follows_the_rule(pid):
+    """The "In short" rule (wp_post docstring): 2-4 neutral third-person claims
+    (no I/me/my/we, no "!"), each at most 25 words, at most 2 under 800 words,
+    each linking to an anchor on the page."""
     m = _module(pid)
     html = _page(pid)
+    assert wp_post.in_short_problems(m.IN_SHORT, es.word_count(m.SOURCE.body)) == []
     assert 2 <= len(m.IN_SHORT) <= 4
     for c in m.IN_SHORT:
-        words = re.sub(r"<[^>]+>", "", c.text_html).split()
-        assert len(words) <= 25, c.text_html
+        text = re.sub(r"<[^>]+>", "", c.text_html)
+        assert len(text.split()) <= 25, text
+        assert "!" not in text and not re.search(r"\b(I|me|my|we)\b", text, re.I), text
         assert c.href.startswith("#") and f'id="{c.href[1:]}"' in html, c.href
+
+
+def test_in_short_lint_catches_voice_breaks():
+    ok = es.Claim("The post argues that a dopamine spike above baseline is followed by an equal dip below it.",
+                  "#a", "See §01", 0)
+    assert wp_post.in_short_problems((ok, ok), 1000) == []
+    bad = {
+        "first person": es.Claim("I mashed the button and we paid for it.", "#a", "x", 0),
+        "no '!'": es.Claim("The toaster costs $20!", "#a", "x", 0),
+        "words (max 25)": es.Claim(" ".join(["word"] * 26), "#a", "x", 0),
+        "must link": es.Claim("The post says so.", "https://example.com/", "x", 0),
+    }
+    for want, claim in bad.items():
+        assert any(want in p for p in wp_post.in_short_problems((ok, claim), 1000)), want
+    assert any("at most 2 claims" in p for p in wp_post.in_short_problems((ok, ok, ok), 799))
+    assert wp_post.in_short_problems((ok, ok, ok), 800) == []
+    assert any("write 2-4" in p for p in wp_post.in_short_problems((ok,), 1000))
+    m = _module(2592)
+    with pytest.raises(ValueError, match="first person"):
+        wp_post.render_post(m.SOURCE, alt=m.ALT, in_short=(ok, bad["first person"]))
+
+
+@pytest.mark.parametrize("pid", PILOTS)
+def test_og_image_is_the_featured_image_crop(pid):
+    """og:image = the post's featured image as a 1200x630 JPEG (<=200 KB) in its own img/."""
+    from PIL import Image
+    m = _module(pid)
+    html = _page(pid)
+    feat = m.SOURCE.data["featured"]
+    og = m.SOURCE.data["renditions"][feat["name"]]["og"]
+    url = f"https://gravelgodcycling.com/{m.SLUG}/img/{og['file']}"
+    assert og["file"] == f"{feat['name']}-og.jpg"
+    assert f'<meta property="og:image" content="{url}">' in html
+    assert '<meta property="og:image:width" content="1200">' in html
+    assert '<meta property="og:image:height" content="630">' in html
+    assert "cropped-Gravel-God-logo" not in html
+    local = m.OUTPUT_PATH.parent / "img" / og["file"]  # what the URL serves once deployed
+    assert local.stat().st_size <= imp.OG_MAX_BYTES and local.stat().st_size == og["bytes"]
+    with Image.open(local) as im:
+        assert im.format == "JPEG" and im.size == (1200, 630)
+
+
+def test_og_image_falls_back_to_the_live_one_without_a_featured_image():
+    src = _module(2161).SOURCE
+    bare = dataclasses.replace(src, data={**src.data, "featured": None})
+    live = src.data["live"]["og_image"]
+    assert wp_post.og_image(bare) == es.OgImage(live["url"], live["width"], live["height"])
+    no_crop = dataclasses.replace(src, data={**src.data, "renditions": {}})
+    assert wp_post.og_image(no_crop).url == live["url"]
+
+
+def test_og_rendition_crops_flattens_and_fits_the_budget(tmp_path):
+    """A noisy transparent portrait still comes out 1200x630, opaque, <=200 KB;
+    ensure_og falls back to the committed 1x WebP when the original isn't cached."""
+    import random
+    from PIL import Image
+    rnd = random.Random(7)
+    im = Image.new("RGBA", (1000, 1500), (0, 0, 0, 0))  # grain over a gradient, a transparent band every 3rd row
+    im.putdata([(min(255, x // 4 + rnd.randrange(64)), min(255, y // 6 + rnd.randrange(64)), rnd.randrange(64, 192),
+                 255 if y % 3 else 0) for y in range(1500) for x in range(1000)])
+    src = tmp_path / "noise.png"
+    im.save(src)
+    out = imp.og_rendition(src, tmp_path / "img", "noise")
+    assert out["width"] == 1200 and out["height"] == 630 and out["bytes"] <= imp.OG_MAX_BYTES
+    with Image.open(tmp_path / "img" / "noise-og.jpg") as og:
+        assert og.mode == "RGB" and og.size == (1200, 630)
+
+    Image.new("RGB", (1600, 900), (40, 90, 140)).save(tmp_path / "img" / "hero.webp")
+    data = {"featured": {"name": "hero", "url": "https://x/wp-content/uploads/hero.png", "kind": "still"},
+            "renditions": {"hero": {"1x": {"file": "hero.webp", "width": 1600, "height": 900}}}}
+    imp.ensure_og(data, tmp_path / "img", tmp_path / "no-cache")
+    assert data["renditions"]["hero"]["og"]["file"] == "hero-og.jpg"
+    imp.ensure_og({"featured": None, "renditions": {}}, tmp_path / "img", tmp_path)  # no featured: no-op
+
+
+def test_double_day_3_description_is_corrected_and_only_there():
+    """The live description misread "Yield to tonnage" (it's backing up a trailer)."""
+    html = _page(2592)
+    m = _module(2592)
+    assert "bigger riders" in m.SOURCE.data["live"]["description"]
+    assert "bigger riders" not in html and "trailer backed through a tight gap" in m.DESCRIPTION
+    assert f'<meta property="og:description" content="{es.esc(m.DESCRIPTION)}">' in html
+    assert len(m.DESCRIPTION) <= 160 and "!" not in m.DESCRIPTION
+    for pid in (3504, 2161):
+        assert not hasattr(_module(pid), "DESCRIPTION")
 
 
 def test_h6_only_post_gets_sections_but_no_contents_under_three():

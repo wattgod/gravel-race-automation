@@ -4,6 +4,7 @@ from __future__ import annotations
 import json
 import re
 import sys
+import warnings
 from datetime import date
 from pathlib import Path
 
@@ -178,6 +179,32 @@ DIV_BODY = """<div class="gg-blog-section">
 """
 
 
+class TestHeadingRobustness:
+    def test_gt_inside_h2_attribute(self):
+        body = '<section class="gg-blog-section"><h2 title="a > b" class="x">Gear &gt; Fitness</h2><p>x</p></section>'
+        out, toc = es.add_heading_ids(body)
+        assert toc == [("gear-fitness", "Gear &gt; Fitness")]
+        assert '<h2 title="a > b" class="x" id="gear-fitness" data-toc>Gear &gt; Fitness</h2>' in out
+
+    def test_gt_inside_h3_attribute_keeps_text(self):
+        body = '<section class="gg-blog-section"><h2>A</h2><h3 data-x=\'1>0\'>Detail</h3></section>'
+        out, _ = es.add_heading_ids(body)
+        assert '<h3 data-x=\'1>0\' id="detail">Detail</h3>' in out
+
+    def test_warns_when_h2s_but_no_contents(self):
+        body = "<div><h2>Loose heading</h2><p>Not in a gg-blog-section.</p></div>"
+        with pytest.warns(UserWarning, match="none is a contents heading"):
+            _, toc = es.add_heading_ids(body)
+        assert toc == []
+
+    def test_no_warning_for_valid_or_heading_free_bodies(self):
+        with warnings.catch_warnings():
+            warnings.simplefilter("error")
+            es.add_heading_ids(BODY)
+            es.add_heading_ids(DIV_BODY)
+            es.add_heading_ids('<section class="gg-blog-section"><p>No headings.</p></section>')
+
+
 class TestSectionRule:
     """One rule for Contents, numbering, scrollspy and references, <section> or <div>."""
 
@@ -276,7 +303,10 @@ class TestInShortAndLadder:
             for href, cta in re.findall(r'<a class="btn" href="([^"]+)"[^>]* data-cta="([^"]+)"', ladder)
             if any(n in href for n in needles)
         }
-        assert {"custom_plan", "coaching"} <= caught
+        assert caught == {"custom_plan", "season_plan", "coaching"}
+
+    def test_plan_intent_selector_covers_season_plan(self):
+        assert 'a[data-cta][href*="/season-plan"]' in get_plan_intent_tracking_script()
 
 
 class TestLadderPricing:
@@ -357,6 +387,32 @@ class TestAnalyticsAndChrome:
         assert 'class="btn gg-hdr-sub"' in header and 'data-label="substack_header"' in header
         assert '<nav class="nav"' not in page and 'class="menu"' not in page
 
+    def test_header_raises_if_subscribe_anchor_is_gone(self, monkeypatch):
+        monkeypatch.setattr(es, "get_site_header_html", lambda active=None: "<header>no hamburger</header>")
+        with pytest.raises(RuntimeError, match="gg-hamburger"):
+            es.render_header()
+
+    def test_every_restyled_header_class_exists_in_shared_header(self):
+        """SHELL_CSS restyles shared_header's markup; a renamed class would silently unstyle it."""
+        restyled = set(re.findall(r"\.((?:gg-site-header|gg-hamburger|gg-mobile-nav)[\w-]*|is-open)\b", es.SHELL_CSS))
+        assert {"gg-site-header-nav", "gg-hamburger-bar", "gg-mobile-nav-sub", "is-open"} <= restyled
+        html_classes = {
+            c for attr in re.findall(r'class="([^"]*)"', get_site_header_html("articles")) for c in attr.split()
+        }
+        js_classes = set(re.findall(r"classList\.\w+\('([\w-]+)'", get_site_header_js()))
+        missing = restyled - html_classes - js_classes
+        assert not missing, f"shell CSS restyles classes shared_header no longer emits: {sorted(missing)}"
+
+    def test_footer_nav_is_the_header_nav(self, page):
+        links = es.header_nav_links()
+        assert [label for _, label in links] == ["RACES", "PRODUCTS", "SERVICES", "ARTICLES", "ABOUT"]
+        shared = get_site_header_html(None)
+        for href, label in links:
+            assert f'<a href="{href}">{label}</a>' in shared
+        foot = page.split('<nav aria-label="Footer">', 1)[1].split("</nav>", 1)[0]
+        assert re.findall(r'<a href="([^"]+)">', foot) == [h for h, _ in links] + [es.SUBSTACK_URL]
+        assert not hasattr(es, "NAV_LINKS")
+
     def test_header_js_drives_hamburger_and_dropdowns(self, page):
         assert get_site_header_js().strip() in page
         assert 'id="gg-hamburger"' in page and 'id="gg-mobile-nav"' in page
@@ -371,6 +427,11 @@ class TestAnalyticsAndChrome:
 
     def test_hero_byline_and_reading_time(self, page):
         assert "Gravel God &middot; March 26, 2026 &middot; 1 min read" in page
+
+    def test_reading_time_can_be_off(self):
+        html = es.render_editorial_page(_meta(show_read_time=False), BODY)
+        assert '<p class="by">Gravel God &middot; March 26, 2026</p>' in html
+        assert "min read" not in html
 
     def test_no_hero_image(self, page):
         assert 'class="frame hero no-img"' in page
@@ -458,7 +519,28 @@ class TestTrainingAppArticle:
         main = _main(html)
         assert "slot-summary" not in main
         assert main.count('class="slot slot-ladder"') == 1
-        assert main.index("slot-ladder") < main.index("gg-references")
+        # No references: the ladder closes the essay, after the mid subscribe callout.
+        assert main.index("Compliance Score") < main.index("gg-subscribe-callout") < main.index("slot-ladder")
+        assert "gg-references" not in main
+
+    def test_sweet_spot_leftovers_are_gone(self, html):
+        main = _main(html)
+        for gone in ("It Makes You Slow", "Noob Gains", "Polarized Training is Just Better",
+                     "G-Spot is Better", ">References<", "Seiler"):
+            assert gone not in main, gone
+        last_h2 = re.findall(r"<h2[^>]*>(.*?)</h2>", main)[-1]
+        assert last_h2 == "The Start Line Doesn&rsquo;t Care About Your Compliance Score"
+
+    def test_json_ld_is_this_article(self, html):
+        blocks = [json.loads(b) for b in re.findall(r'<script type="application/ld\+json">(.*?)</script>', html, re.S)]
+        assert [b["@type"] for b in blocks] == ["Article"]
+        ld = blocks[0]
+        assert ld["headline"] == "Your Training App Doesn't Know Your Race Exists"
+        assert ld["description"] == training_app.META.og_description
+        assert f'<meta property="og:description" content="{ld["description"]}">' in html
+        assert (ld["datePublished"], ld["dateModified"]) == ("2026-07-02", "2026-10-08")
+        assert ld["mainEntityOfPage"] == training_app.URL
+        assert "keywords" not in ld and "citation" not in ld
 
     def test_body_is_the_source_file(self, html):
         body = training_app.BODY_PATH.read_text(encoding="utf-8")
@@ -472,4 +554,4 @@ class TestTrainingAppArticle:
 
     def test_contents(self, html):
         rail = html.split('<nav class="rail"', 1)[1].split("</nav>", 1)[0]
-        assert rail.count("<li>") == 9
+        assert rail.count("<li>") == 5

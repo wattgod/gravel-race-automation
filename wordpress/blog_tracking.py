@@ -10,7 +10,8 @@ def get_plan_intent_tracking_script() -> str:
     'a[href*="/prep-kit/"]',
     'a[href^="https://buy.stripe.com/"]',
     'a[data-cta][href*="/coaching"]',
-    'a[data-cta][href*="/training-plans"]'
+    'a[data-cta][href*="/training-plans"]',
+    'a[data-cta][href*="/season-plan"]'
   ].join(',');
   document.querySelectorAll(selector).forEach(function (link) {
     link.addEventListener('click', function () {

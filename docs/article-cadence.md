@@ -13,7 +13,8 @@ week, cross-posted to Substack, is the growth engine.
    end with weight. 1,200–1,600 words.
 3. Build on the editorial shell (`wordpress/editorial_shell.py`; the module
    docstring is the contract). Don't hand-copy another article's HTML: that
-   is how the training-app page shipped with Sweet Spot's tail and JSON-LD.
+   is how the training-app page shipped with Sweet Spot's tail and JSON-LD
+   (removed 2026-10-08).
    - Body: `wordpress/article_sources/<slug>.body.html`, a run of
      `<section class="gg-blog-section">` blocks (h2 per section; references
      in `gg-blog-section gg-references`). Optional `<!--GG:IN_SHORT-->` and
@@ -21,7 +22,13 @@ week, cross-posted to Substack, is the growth engine.
    - Meta + extras: `wordpress/article_sources/<slug_with_underscores>.py`
      with `META`, `render()` and `main()` (copy
      `your_training_app_doesnt_know_your_race_exists.py` for a plain essay,
-     `sweet_spot_training_cycling.py` for figures + "In short").
+     `sweet_spot_training_cycling.py` for figures + "In short"). The
+     plain-essay template is safe to copy as of 2026-10-08: its Sweet Spot
+     sections, references and FAQ JSON-LD are gone, and its Article JSON-LD
+     describes that article. Still rewrite every META field and the
+     `ARTICLE_LD` (headline, description, dates) for the new piece.
+   - "N min read" in the hero is on by default (`ArticleMeta.show_read_time`);
+     keep it on for essays.
    - Regenerate: `python3 wordpress/article_sources/<module>.py` writes
      `wordpress/articles/<slug>/index.html`. Add the module to
      `ARTICLE_SOURCES` in `tests/test_editorial_shell.py`.

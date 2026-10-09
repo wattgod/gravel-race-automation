@@ -135,6 +135,15 @@ _MONTHS = {
 def recap_publish_date(year_data, vitals, year):
     """A recap's publish date: stable for the same data, never read from today.
 
+    See recap_date_parts() for the rules.
+    """
+    return recap_date_parts(year_data, vitals, year)[0]
+
+
+def recap_date_parts(year_data, vitals, year):
+    """(publish date, exact). exact is False for the December 31 fallback,
+    which is a stand-in, not a day anything happened.
+
     1. results.years[year].date_completed (YYYY-MM-DD in the results year).
     2. vitals.date_specific when it names the results year ("2026: Aug 19-23"
        is that edition's own date; the last day of a range is when it ended).
@@ -147,7 +156,7 @@ def recap_publish_date(year_data, vitals, year):
     m = re.fullmatch(r"(\d{4})-(\d{2})-(\d{2})", completed)
     if m and int(m.group(1)) == year:
         try:
-            return date(year, int(m.group(2)), int(m.group(3)))
+            return date(year, int(m.group(2)), int(m.group(3))), True
         except ValueError:
             pass
     m = re.match(r"\s*(\d{4})\s*:\s*([A-Za-z]+)\.?\s+(\d{1,2})(?:\s*[-\u2013]\s*(\d{1,2}))?\b",
@@ -156,10 +165,10 @@ def recap_publish_date(year_data, vitals, year):
         month = _MONTHS.get(m.group(2).lower())
         if month:
             try:
-                return date(year, month, int(m.group(4) or m.group(3)))
+                return date(year, month, int(m.group(4) or m.group(3))), True
             except ValueError:
                 pass
-    return date(year, 12, 31)
+    return date(year, 12, 31), False
 
 
 # ── "In short" (spec: ~/specs/gg-editorial-shell-2026-10-08/IN_SHORT_SPEC.md) ──
@@ -173,7 +182,13 @@ IN_SHORT_MAX_WORDS = 25
 _SENTENCE_END = re.compile(r"[.?][\"'\u2019\u201d)]*(?=\s+[\"\u201cA-Z0-9]|$)")
 # Third person only: no "I", "we", "our", "my", "you", "your".
 _FIRST_PERSON = re.compile(r"\bI\b|\b(?:[Ww][Ee]|[Oo]urs?|[Mm]y|[Yy]ou|[Yy]our)\b")
-_BANNED_MARKS = ("!", "\u2014", " \u2013 ", " - ", "http", "](", "[", "\t", "\u2022")
+_BANNED_MARKS = ("!", "\u2014", " \u2013 ", " - ", "http", "](", "[", "\t", "\u2022", "...", "\u2026")
+# A period after one of these (or after a single letter, as in initials)
+# doesn't end a sentence: "St. George", "U.S. Open", "J. Smith".
+_ABBREVIATIONS = {
+    "st", "mt", "mr", "mrs", "ms", "dr", "jr", "sr", "vs", "approx", "est",
+    "no", "ft", "mi", "km", "e.g", "i.e", "u.s", "u.k", "etc", "ave", "rd",
+}
 
 
 def _claim_ok(text):
@@ -198,8 +213,14 @@ def first_sentence(text):
     text = " ".join(str(text or "").split())
     if not text or not (text[0].isupper() or text[0].isdigit()):
         return None
-    m = _SENTENCE_END.search(text)
-    return text[:m.end()] if m else None
+    for m in _SENTENCE_END.finditer(text):
+        candidate = text[:m.end()]
+        word = re.search(r"(\S+?)[.?][\"'\u2019\u201d)]*$", candidate)
+        token = (word.group(1) if word else "").lstrip("(\"'\u201c").lower()
+        if m.group(0)[0] == "." and (token in _ABBREVIATIONS or len(token) == 1):
+            continue
+        return candidate
+    return None
 
 
 def _join_clauses(clauses):
@@ -314,7 +335,7 @@ def generate_recap_html(slug, year):
     recap_slug = f"{slug}-recap"
     og_url = f"{SITE_URL}/blog/{recap_slug}/"
 
-    pub_date = recap_publish_date(year_data, vitals, year)
+    pub_date, pub_date_exact = recap_date_parts(year_data, vitals, year)
     article_date_iso = pub_date.isoformat()
 
     # Headline based on available data
@@ -441,6 +462,9 @@ def generate_recap_html(slug, year):
         description=f"{name} {year} recap: {headline}. Tier {tier} {tier_name} rated {score}/100.",
         headline=f"{name} {year} Recap",
         date_published=pub_date,
+        # The Dec 31 fallback keeps JSON-LD and the index stable, but the
+        # byline shows only what's known: the results year.
+        byline_date=None if pub_date_exact else f"{year} results",
         kicker=f"Race Recap · Tier {tier} {tier_name}" + (f" · {location}" if location else ""),
         dek=headline,
         robots="noindex, follow",

@@ -743,6 +743,33 @@ def test_recap_date_never_reads_today(tmp_path, monkeypatch):
     second = recap_mod.generate_recap_html("future-date-race", 2025)
     assert first == second
     assert '"datePublished":"2025-12-31"' in first
+    # The Dec 31 stand-in stays in JSON-LD only; the byline shows the year.
+    byline = first.split('<p class="by">', 1)[1].split("</p>", 1)[0]
+    assert "2025 results" in byline
+    assert "December" not in byline and "Dec" not in byline and "31" not in byline
+
+
+def test_recap_byline_shows_real_date_when_known(tmp_path, monkeypatch):
+    import generate_race_recap as recap_mod
+
+    race = {"name": "Known Date Race", "vitals": {"date_specific": "2025: June 7"},
+            "gravel_god_rating": {"tier": 3},
+            "results": {"years": {"2025": {"winner_male": "A Rider"}}}}
+    race_dir = tmp_path / "race-data"
+    _write_race(race_dir, "known-date-race", race)
+    monkeypatch.setattr(recap_mod, "RACE_DATA_DIR", race_dir)
+    html = recap_mod.generate_recap_html("known-date-race", 2025)
+    byline = html.split('<p class="by">', 1)[1].split("</p>", 1)[0]
+    assert "results" not in byline and "June" in byline
+    assert '"datePublished":"2025-06-07"' in html
+
+
+def test_recap_date_parts_flags_fallback():
+    from generate_race_recap import recap_date_parts
+
+    assert recap_date_parts({"date_completed": "2024-06-02"}, {}, 2024)[1] is True
+    assert recap_date_parts({}, {"date_specific": "2024: June 1"}, 2024)[1] is True
+    assert recap_date_parts({}, {"date_specific": "2026: June 1"}, 2024)[1] is False
 
 
 # ── "In short" ──
@@ -810,6 +837,20 @@ def test_in_short_stat_template(year_data, expected):
     assert stat_claim(year_data) == expected
 
 
+@pytest.mark.parametrize("text,expected", [
+    ("The start in St. George was cold. Then it warmed.", "The start in St. George was cold."),
+    ("Riders from the U.S. Open field rode well. Others did not.",
+     "Riders from the U.S. Open field rode well."),
+    ("J. Smith attacked on Mt. Hood early. The field split.", "J. Smith attacked on Mt. Hood early."),
+    ("Wind came at 2 p.m. and stayed. Then rain.", "Wind came at 2 p.m. and stayed."),
+    ("Mud near St. George", None),  # still cut off: no sentence end at all
+])
+def test_first_sentence_skips_abbreviations(text, expected):
+    from generate_race_recap import first_sentence
+
+    assert first_sentence(text) == expected
+
+
 @pytest.mark.parametrize("text", [
     "Finishing under 12 hours is more common (one year saw 1538 finishers[trainright",  # no end
     "If you can arrive early, you will go into the red more quickly at 7,000+ f",       # mid-word
@@ -829,6 +870,8 @@ def test_in_short_truncated_source_has_no_sentence(text):
     "If you can arrive early, do.",
     "Wind was brutal!",
     "Wind built after noon — riders suffered.",
+    "Riders waited... then the rain came.",
+    "Riders waited\u2026 then the rain came.",
     "It was not the heat, but the wind that decided it.",
     "One two three four five six seven eight nine ten eleven twelve thirteen "
     "fourteen fifteen sixteen seventeen eighteen nineteen twenty twenty-one "

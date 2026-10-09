@@ -33,7 +33,7 @@ Formats left out on purpose: "This Is Fine" (KC Green has objected to commercial
 - **Numbers.** Every number comes from the essays: 235 W, 94%, 215 W, +30 W, 10-week, 91%, 3×20.
 - **Font.** Anton (OFL 1.1) is redistributable and fine for commercial raster output; its licence sits next to the font.
 
-## Rendered set (best 5 + 3)
+## First rendered set (best 5 + 3, superseded by the final set below)
 
 Sweet Spot: #1 spiderman-threshold, #2 panik-kalm-panik, #3 stonks-tss, #4 gru-noob-gains, #5 drake-polarized.
 Training app: #6 pigeon-compliance, #8 drake-fit. (#7 spiderman-three was rendered, then cut after the design review; see below.)
@@ -54,3 +54,38 @@ Review: `../sol-memes/sol.md`. Kept as rendered: #2 Panik/Kalm, #4 Gru, #5 Drake
 - **#3 stonks-tss (satire, not evidence).** The grid is gone. The chart has bare axes with arrowheads, no numbers, and the word "WEEKS OF SWEET SPOT" (phone: "WEEKS") on the x-axis. The lines are labelled in big type, "WEEKLY TSS" and "ACTUAL ADAPTATION", and a red tag reads "TSS IS NOT FITNESS". The tag spells the words out because Anton's ≠ glyph renders without a visible slash, so "TSS ≠ FITNESS" read as "TSS = FITNESS".
 - **#6 pigeon-compliance (format restored).** The old version had a symmetric butterfly with check marks that floated like a logo. Now GG stands on the left with his arm out, pointing at a butterfly that is fluttering just past his finger (a three-quarter view with foreshortened far wings, wing veins and flap marks). The butterfly is labelled "91% COMPLIANCE", the character is labelled "YOUR TRAINING APP" across his chest, and "IS THIS RACE PREP?" runs along the bottom. Everything is drawn from scratch, with nothing traced.
 - **#7 spiderman-three: cut.** Its outputs and its MAP.json and ALT.txt entries are removed, and so is its code in `essay_memes.py`. The essay section keeps its text with no illustration.
+
+## Final set (2026-10-09)
+
+After the first nine shipped (#457), three more batches were drawn: batch A (classic formats), batch B
+(Instagram/TikTok-era) and batch C (X-native), 26 memes in all, every one fact-checked against its
+essay (all PASS). Matt reviewed the gallery of all 35: "this is fucking amazing". The placement plan
+picked 18 for the essays and kept 17 in `library/`.
+
+**Sweet Spot (12), in the placement plan's order:** scooby-unmask, clown-ftp, spiderman-threshold,
+midwit-sweet-spot, same-picture, so-over-so-back, virgin-sweetspot-chad-polarized, gru-noob-gains,
+panik-kalm-panik, four-horsemen, drake-polarized, gigachad-yes.
+
+**Training app (6):** pov-mile-82, look-inside, drake-fit, starter-pack-fueling, uno-draw-25,
+pigeon-compliance.
+
+**Library (17):** two-guys-bus, stonks-tss, bike-fall, left-exit-12, waiting-skeleton, epic-handshake,
+tier-list, surprised-face, expectation-reality, how-it-started, nobody-me, tell-me-hour-six,
+they-dont-know, mask-cry, clueless, x-doubt, stop-doing.
+
+stonks-tss, live since #457, moved from Sweet Spot to the library under the placement plan;
+*It's Conceptually Broken* keeps midwit-sweet-spot.
+
+Placement rules: two memes in one section sit at least two paragraphs apart, and no meme sits directly
+next to a scene or chart. Three memes moved off their MAP.json paragraph: two to keep the second rule, one to stay below the
+fold.
+
+- **same-picture** goes after p1 of *Your Nervous System Treats Sweet Spot Like Threshold* ("…on/off
+  switch for autonomic stress."), not after p2: p2 is directly followed by the recovery-cost chart.
+- **so-over-so-back** goes after p2 of *Mitochondria Want You to Go Easy or Go Hard* ("…not-that-hard
+  training."), not after p3: p3 is directly followed by the black-hole scene.
+- **pov-mile-82** goes after p4 of the opening ("…a race that doesn't exist."), not after p3: after p3
+  its top edge sat at 853 px on a 1440×900 screen, above the fold. After p4 it starts at 906 px.
+
+drake-polarized still ends *Polarized Training is Just Better*, directly above the plans ladder (a
+pricing block, not a scene or chart), as it has since #457.

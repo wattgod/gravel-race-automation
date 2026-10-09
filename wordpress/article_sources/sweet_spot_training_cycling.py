@@ -5,7 +5,7 @@ sweet-spot-training-cycling.body.html; this file adds the page metadata, the
 "In short" claims, the chart CSS/JS for the three hand-built figures (drift,
 recovery, polarized) and the shell figures placed at the body's
 <!--GG:FIGURE name--> markers: the three Gravel God scenes, the Coggan
-reconstruction and the studies table, plus seven Gravel God memes placed with
+reconstruction and the studies table, plus twelve Gravel God memes placed with
 after= (FIGURES below; docs/memes/README.md). To add a figure, add
 one line to FIGURES, e.g.
 
@@ -516,13 +516,18 @@ def _meme(name: str, alt: str, width: int, height: int, *, phone: tuple[int, int
     return Picture.from_stem(f"img/memes/{name}", alt, width, height, ext="webp", webp=False, phone=phone)
 
 
+MEME_SCOOBY_UNMASK = _meme("scooby-unmask", "Two-panel cartoon. Gravel God grabs the top of a bedsheet ghost labelled 'Training hack' and says 'Let's see who you really are'. With the sheet pulled off, the ghost turns out to be a red megaphone on a stand labelled 'Marketing'.", 1600, 1000, phone=(660, 1240))
+MEME_CLOWN_FTP = _meme("clown-ftp", "Four rows. On the left, numbered steps: 1 \"Use my best test ever.\" 2 \"Tested on a 20-minute climb.\" 3 \"Take an optimistic 95%.\" 4 \"Set my Sweet Spot at 235 W.\" On the right, Gravel God, a mustachioed rider in a white tee, paints his own face a step at a time: dabs of white, a full white face, blue diamond eyes, a red nose and smile, and finally an orange curly clown wig.", 1200, 1600, phone=(660, 1100))
 MEME_SPIDERMAN_THRESHOLD = _meme("spiderman-threshold", "Two identical cartoon Gravel Gods, mustachioed riders in white tees and denim shorts, stand in the desert pointing at each other. Over the left one: \"SWEET SPOT, 235 W, 94% of your tested FTP\". Over the right one: \"THRESHOLD, 235 W, 100–109% of your real threshold\".", 1600, 1000, phone=(660, 825))
-MEME_PANIK_KALM_PANIK = _meme("panik-kalm-panik", "Three-row panik/kalm meme with Gravel God's face. \"Interval 3 of 3×20 at 235 W.\" PANIK, sweating. \"Relax. It's only Sweet Spot. 94% of FTP.\" KALM, eyes half-closed and smiling. \"Your FTP right now: 215 W. 235 ÷ 215 = 109%.\" PANIK, sweating harder.", 1200, 1500, phone=(660, 990))
-MEME_STONKS_TSS = _meme("stonks-tss", "Gravel God, smug, head and shoulders, in front of a cartoon chart with no numbers. A teal line labelled \"WEEKLY TSS\" shoots up to an arrow while a line labelled \"ACTUAL ADAPTATION\" stays flat; a red tag reads \"TSS IS NOT FITNESS\". Caption: \"STONKS\".", 1600, 1000, phone=(660, 825))
-MEME_GRU_NOOB_GAINS = _meme("gru-noob-gains", "Four-panel plan: Gravel God points at a flip chart. 1. \"Skip training all winter.\" 2. \"Buy a 10-week Sweet Spot plan.\" 3. \"FTP +30 W!\" 4. \"+30 W from any training at all\", and he turns to the viewer, startled and sweating.", 1600, 1200, phone=(660, 825))
-MEME_DRAKE_POLARIZED = _meme("drake-polarized", "Two-panel approve/reject meme with Gravel God. Top: eyes shut, head turned away, palm raised against \"Sorta-hard, every ride.\" Bottom: smiling and pointing at \"Very easy for hours. Very hard when it counts.\"", 1200, 1200, phone=(660, 660))
 MEME_MIDWIT_SWEET_SPOT = _meme("midwit-sweet-spot", "Bell-curve meme with three cartoon Gravel Gods, a mustachioed rider in a white tee. At the low left tail he grins: \"just ride easy… and go hard sometimes\". At the hump he is sweating, eyes wide: \"Sweet spot maximizes TSS per hour, so if I do 3×20 at 94% four times a week…\". At the high right tail, eyes closed and calm in a soft gold glow: \"just ride easy… and go hard sometimes\". The axis reads \"How much you've thought about training zones\".", 1600, 1000, phone=(660, 990))
+MEME_SAME_PICTURE = _meme("same-picture", "Three-panel cartoon. Gravel God, labelled 'Your training plan', says 'Corporate needs you to find the differences between this picture and this picture.' The pictures read 'Sweet Spot ~90% FTP' and 'Threshold ~105% FTP', each with the same recovery-cost bar. Gravel God, labelled 'Your nervous system', answers: 'They're the same picture.' A note says that above LT1 the recovery cost is essentially identical (Seiler 2007).", 1600, 1100, phone=(660, 1560))
+MEME_SO_OVER_SO_BACK = _meme("so-over-so-back", "Two panels. \"It's so over\": Gravel God slumped on a crate under a rain cloud, \"Plateaued after a brief honeymoon of Sweet Spot gains.\" \"We're so back\": Gravel God with both fists in the air in front of sun rays, \"Polarized: roughly 75–90% below LT1, 15–20% above LT2.\"", 1600, 900, phone=(660, 1100))
 MEME_VIRGIN_CHAD = _meme("virgin-sweetspot-chad-polarized", "Two-panel comparison with Gravel God twice. Left, \"The Virgin Sweet Spot Rider\", small and hunched, sweating, with arrows: \"3×20 at 94% of a flattering FTP test\", \"FTP 5–10% optimistic, so it's really threshold\", \"always kinda tired\", \"every ride sorta hard\", \"stuck in the black hole\", \"plateaus after the noob gains\". Right, \"The Chad Polarized Rider\", striding and smiling, with arrows: \"75–90% of the time below LT1: chatting pace\", \"15–20% above LT2: hard days actually hard\", \"recovers between them\", \"very easy or very hard, rarely in between\", \"beats threshold-heavy in head-to-head trials\".", 1600, 1000, phone=(660, 1500))
+MEME_GRU_NOOB_GAINS = _meme("gru-noob-gains", "Four-panel plan: Gravel God points at a flip chart. 1. \"Skip training all winter.\" 2. \"Buy a 10-week Sweet Spot plan.\" 3. \"FTP +30 W!\" 4. \"+30 W from any training at all\", and he turns to the viewer, startled and sweating.", 1600, 1200, phone=(660, 825))
+MEME_PANIK_KALM_PANIK = _meme("panik-kalm-panik", "Three-row panik/kalm meme with Gravel God's face. \"Interval 3 of 3×20 at 235 W.\" PANIK, sweating. \"Relax. It's only Sweet Spot. 94% of FTP.\" KALM, eyes half-closed and smiling. \"Your FTP right now: 215 W. 235 ÷ 215 = 109%.\" PANIK, sweating harder.", 1200, 1500, phone=(660, 990))
+MEME_FOUR_HORSEMEN = _meme("four-horsemen", "\"The four horsemen of too much Sweet Spot\": four portraits of Gravel God. \"Can't go really hard\": sweating under a chart where the effort falls short of the dashed target. \"Hungry all the time\": eating a bar among empty wrappers. \"Bad sleep\": heavy-lidded beside a clock at three. \"Grumpy a lot\": arms crossed under a small storm cloud.", 1600, 820, phone=(660, 1000))
+MEME_DRAKE_POLARIZED = _meme("drake-polarized", "Two-panel approve/reject meme with Gravel God. Top: eyes shut, head turned away, palm raised against \"Sorta-hard, every ride.\" Bottom: smiling and pointing at \"Very easy for hours. Very hard when it counts.\"", 1200, 1200, phone=(660, 660))
+MEME_GIGACHAD_YES = _meme("gigachad-yes", "Two panels. Left, a speech bubble: \"You named a training zone the G-Spot?\" Right, Gravel God in heroic low-angle profile on a dark sunburst backdrop, chin up, handlebar mustache, answering: \"Yes.\"", 1600, 900, phone=(660, 990))
 
 # Every shell figure on the page. Add a meme or another scene with one line.
 FIGURES = (
@@ -530,13 +535,18 @@ FIGURES = (
     EssayFigure(SCENE_BLACK_HOLE, video=BLACK_HOLE_CLIP, marker="black-hole"),
     STUDIES,
     EssayFigure(SCENE_TABLET, marker="tablet"),
+    EssayFigure(MEME_SCOOBY_UNMASK, after="supposed to be a hack to getting faster.</p>", width="column"),
+    EssayFigure(MEME_CLOWN_FTP, after="thus ensures that all of their training zones are off.</p>"),
     EssayFigure(MEME_SPIDERMAN_THRESHOLD, after="they&rsquo;re functionally doing is a threshold workout.</p>", width="column"),
-    EssayFigure(MEME_PANIK_KALM_PANIK, after="but the real victim in all this is the athletes stoke.</p>"),
-    EssayFigure(MEME_STONKS_TSS, after="it ceases to be a good metric.<sup>", width="column"),
     EssayFigure(MEME_MIDWIT_SWEET_SPOT, after="but more intense workouts above that intensity.</p>", width="column"),
+    EssayFigure(MEME_SAME_PICTURE, after="acts like an on/off switch for autonomic stress.<sup>", width="column"),
+    EssayFigure(MEME_SO_OVER_SO_BACK, after="the adaptive stimulus of not-that-hard training.</p>", width="column"),
     EssayFigure(MEME_VIRGIN_CHAD, after="spot training systematically prevents both adaptations.</p>", width="column"),
     EssayFigure(MEME_GRU_NOOB_GAINS, after="to training some is called noob gains.</p>", width="column"),
+    EssayFigure(MEME_PANIK_KALM_PANIK, after="but the real victim in all this is the athletes stoke.</p>"),
+    EssayFigure(MEME_FOUR_HORSEMEN, after="It soured their relationship to the sport.</p>", width="column"),
     EssayFigure(MEME_DRAKE_POLARIZED, after="Everything else is just noise in the middle.</p>"),
+    EssayFigure(MEME_GIGACHAD_YES, after="the intensity at which most gravel racers race for most gravel events.</p>", width="column"),
 )
 
 

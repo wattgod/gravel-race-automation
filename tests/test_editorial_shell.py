@@ -649,9 +649,15 @@ class TestTrainingAppArticle:
         assert "'article_slug': \"your-training-app-doesnt-know-your-race-exists\"" in html
         assert "July 2, 2026" in html
 
-    def test_ladder_no_in_short(self, html):
+    def test_in_short_and_ladder(self, html):
         main = _main(html)
-        assert "slot-summary" not in main
+        # In short opens the essay; every claim links to an h2 on the page.
+        assert main.count('class="slot slot-summary"') == 1
+        assert main.index("slot-summary") < main.index("<h2 id=\"first-the-part")
+        hrefs = re.findall(r'<a class="ev" href="#([^"]+)"', main)
+        assert len(hrefs) == len(training_app.IN_SHORT) == 4
+        for href in hrefs:
+            assert f'<h2 id="{href}"' in main, href
         assert main.count('class="slot slot-ladder"') == 1
         # No references: the ladder closes the essay, after the mid subscribe callout.
         assert main.index("Compliance Score") < main.index("gg-subscribe-callout") < main.index("slot-ladder")

@@ -3,9 +3,9 @@
 The article text is the live page's (snapshot #438, minus the Sweet Spot
 tail, see below), in
 your-training-app-doesnt-know-your-race-exists.body.html; this file adds the
-page metadata. No "In short" (the article has no summary); the ladder
-replaces the old three-link CTA box (same lead line), and the shell footer
-replaces the old bottom subscribe box (same copy).
+page metadata and an "In short" (each claim restates one section and links
+to it); the ladder replaces the old three-link CTA box (same lead line), and
+the shell footer replaces the old bottom subscribe box (same copy).
 
 The live page was cloned from Sweet Spot and carried Sweet Spot's last four
 sections, its references and its Article/FAQ JSON-LD. Matt approved removing
@@ -29,7 +29,7 @@ WORDPRESS = HERE.parent
 if str(WORDPRESS) not in sys.path:
     sys.path.insert(0, str(WORDPRESS))
 
-from editorial_shell import ArticleMeta, render_editorial_page  # noqa: E402
+from editorial_shell import ArticleMeta, Claim, render_editorial_page  # noqa: E402
 
 SLUG = "your-training-app-doesnt-know-your-race-exists"
 URL = f"https://gravelgodcycling.com/articles/{SLUG}/"
@@ -69,8 +69,21 @@ META = ArticleMeta(
 )
 
 
+# Each claim restates its section; section indexes are 0-based h2 positions.
+IN_SHORT = (
+    Claim("TrainerRoad and Zwift model your fatigue, zones and missed sessions, and none of them models the race.",
+          "#first-the-part-where-i-agree-with-the-robots", "See what the apps model · §01", 0),
+    Claim("Races are won by the right fitness in the right shape: where the climbing lands, when the selection happens, what you can digest.",
+          "#fitness-has-a-shape", "See the shape of a race · §02", 1),
+    Claim("Durability is the most race-relevant quality in endurance sport, and adaptive logic sacrifices it first because it doesn&rsquo;t move short-term metrics.",
+          "#a-field-guide-to-perfectly-trained-casualties", "See the Interval Assassin · §03", 2),
+    Claim("If your race is flat, your schedule stable and your goal a respectable finish, a generic plan captures most of the value.",
+          "#the-part-where-i-tell-you-not-to-buy-anything", "See who doesn’t need it · §04", 3),
+)
+
+
 def render() -> str:
-    return render_editorial_page(META, BODY_PATH.read_text(encoding="utf-8"), in_short=None, ladder=True)
+    return render_editorial_page(META, BODY_PATH.read_text(encoding="utf-8"), in_short=IN_SHORT, ladder=True)
 
 
 def main() -> None:

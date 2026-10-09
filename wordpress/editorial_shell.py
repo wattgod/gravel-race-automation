@@ -72,8 +72,9 @@ before, with no extra CSS or JS):
   x-m@2x.webp. `HeroImage.from_picture(pic)` puts one in the hero.
 - `EssayFigure`: a picture (the still), an optional `PlayOnceVideo` (muted,
   playsinline; plays once when half visible, holds its last frame, then
-  offers a replay button; the still under prefers-reduced-motion) and an
-  optional caption. `width="column"` runs the full column instead of 440px.
+  offers a replay button; the still without JS or under
+  prefers-reduced-motion, and the poster is attached only when the clip
+  shows) and an optional caption. `width="column"` runs the full column instead of 440px.
 - `SvgFigure`: trusted inline SVG with kicker, title and caption; with
   `phone_svg` phones get that overview plus a "Zoom in" toggle that reveals
   the detailed SVG in a sideways-scrolling region.
@@ -85,12 +86,13 @@ before, with no extra CSS or JS):
   110ms apart; inherited, so set it on a column) and `--draw-at` (a base
   delay); `--draw-dur` overrides the duration. At rest the chart is
   complete: only the shell JS empties it while it is off-screen and plays it
-  once at 40% visible, so without JS or with reduced motion nothing moves.
+  once at 15% visible, so without JS or with reduced motion nothing moves.
 
 Placing them: pass `figures=[...]` to render_editorial_page. Each figure
 sets `marker` (replaces `<!--GG:FIGURE name-->` in the body) or `after` (an
 exact snippet of the body source, entities as written, found exactly once;
-the figure goes after the paragraph/list/figure that contains it). Adding a
+the figure goes after the outermost paragraph, list, quote, heading, table or
+figure that contains it, never inside an <li> or a blockquote). Adding a
 figure is one line in the article source, e.g.
 `EssayFigure(Picture.from_stem("img/meme", "alt", 1200, 900), after="lmao.)")`.
 Unknown or unused markers raise ValueError. The essay JS is one body script
@@ -932,7 +934,10 @@ def render_picture(pic: Picture, *, eager: bool = False) -> str:
 class PlayOnceVideo:
     """A short muted clip that plays once when half visible and holds its
     last frame. sources = ((src, mime), ...) in preference order. On phones,
-    phone_aspect ("900/760") crops it with object-fit: cover at phone_position."""
+    phone_aspect ("900/760") crops it with object-fit: cover at phone_position.
+    poster (use WebP) is attached by the essay JS only when the video will be
+    shown; without JS or under reduced motion the picture's still shows instead
+    and neither the poster nor the clip is fetched."""
 
     sources: tuple[tuple[str, str], ...]
     poster: str
@@ -991,7 +996,7 @@ def render_essay_figure(fig: EssayFigure) -> str:
             crop = f' class="gg-vid-crop" style="--ph-ar:{v.phone_aspect};--ph-pos:{v.phone_position}"'
         media = (
             f'<div class="gg-media has-video" data-play-once>'
-            f'<video muted playsinline preload="none" poster="{esc(v.poster)}" width="{v.width}" height="{v.height}"'
+            f'<video muted playsinline preload="none" data-poster="{esc(v.poster)}" width="{v.width}" height="{v.height}"'
             f'{crop} aria-label="{esc(fig.picture.alt)}">{srcs}</video>'
             f'<button class="gg-replay" type="button" aria-label="{esc(v.replay_label)}" hidden>{_REPLAY_ICON}</button>'
             f"{still}</div>"
@@ -1242,12 +1247,56 @@ def render_figure(fig: Figure) -> str:
 
 
 FIGURE_MARKER_RE = re.compile(r"<!--GG:FIGURE ([a-z0-9-]+)-->")
-_BLOCK_END_RE = re.compile(r"</(p|ul|ol|blockquote|figure)>", re.I)
+# Blocks a figure can follow. A snippet inside an <li>, a <p> in a blockquote
+# or a heading lands after the outermost of these that holds it, never inside.
+_FIGURE_BLOCKS = frozenset({"p", "ul", "ol", "dl", "blockquote", "figure", "table", "pre",
+                            "h1", "h2", "h3", "h4", "h5", "h6"})
+_VOID_TAGS = frozenset({"area", "base", "br", "col", "embed", "hr", "img", "input", "link", "meta",
+                        "source", "track", "wbr"})
+
+
+class _BlockSpanParser(HTMLParser):
+    """(start, end) source offsets of every _FIGURE_BLOCKS element."""
+
+    def __init__(self, text: str) -> None:
+        super().__init__(convert_charrefs=True)
+        self._line_starts = [0] + [m.end() for m in re.finditer("\n", text)]
+        self._text = text
+        self._open: list[tuple[str, int]] = []
+        self.spans: list[tuple[int, int]] = []
+
+    def _offset(self) -> int:
+        line, col = self.getpos()
+        return self._line_starts[line - 1] + col
+
+    def handle_starttag(self, tag, attrs):
+        if tag not in _VOID_TAGS:
+            self._open.append((tag, self._offset()))
+
+    def handle_endtag(self, tag):
+        if not any(t == tag for t, _ in self._open):
+            return
+        end = self._text.index(">", self._offset()) + 1
+        while self._open:
+            t, start = self._open.pop()
+            if t in _FIGURE_BLOCKS:
+                self.spans.append((start, end))
+            if t == tag:
+                break
+
+
+def _enclosing_block_end(body: str, at: int) -> int | None:
+    """End offset of the outermost figure-able block holding offset `at`."""
+    p = _BlockSpanParser(body)
+    p.feed(body)
+    p.close()
+    holding = [(start, end) for start, end in p.spans if start < at <= end]
+    return min(holding)[1] if holding else None
 
 
 def place_figures(body: str, figures: Sequence[Figure]) -> str:
-    """Put each figure at its marker or after the block holding its `after`
-    snippet. Raises ValueError on a missing/duplicate anchor or a body marker
+    """Put each figure at its marker or after the outermost block (paragraph,
+    list, quote, heading, table, figure) holding its `after` snippet. Raises ValueError on a missing/duplicate anchor or a body marker
     that no figure claims."""
     for fig in figures:
         if bool(fig.marker) == bool(fig.after):
@@ -1262,11 +1311,11 @@ def place_figures(body: str, figures: Sequence[Figure]) -> str:
             n = body.count(fig.after)
             if n != 1:
                 raise ValueError(f"after={fig.after[:60]!r} found {n} times in the body, expected once")
-            at = body.index(fig.after) + len(fig.after)
-            m = _BLOCK_END_RE.search(body, at)
-            if not m:
-                raise ValueError(f"no closing </p>, </ul>, </ol>, </blockquote> or </figure> after {fig.after[:60]!r}")
-            body = body[: m.end()] + "\n" + block + body[m.end():]
+            end = _enclosing_block_end(body, body.index(fig.after) + len(fig.after))
+            if end is None:
+                raise ValueError(f"after={fig.after[:60]!r} is not inside a paragraph, list, quote, "
+                                 "heading, table or figure")
+            body = body[:end] + "\n" + block + body[end:]
     left = FIGURE_MARKER_RE.findall(body)
     if left:
         raise ValueError(f"body markers without a figure: {left}")
@@ -1334,13 +1383,14 @@ ESSAY_JS = """<script>
   var RM=matchMedia('(prefers-reduced-motion: reduce)'), IO='IntersectionObserver' in window;
   function each(sel,fn){ [].forEach.call(document.querySelectorAll(sel),fn); }
 
-  /* play once at 50% visible, hold the last frame, offer replay; reduced motion = the still (CSS) */
+  /* play once at 50% visible, hold the last frame, offer replay; the still until .is-live, and under reduced motion (CSS) */
   each('[data-play-once]',function(box){
     var v=box.querySelector('video'), b=box.querySelector('.gg-replay'); if(!v) return;
-    var done=false, seen=false;
+    var done=false, seen=false, poster=v.getAttribute('data-poster');
     v.loop=false;
+    function live(){ if(box.classList.contains('is-live')) return; if(poster) v.poster=poster; box.classList.add('is-live'); }
     function go(){ if(v.preload==='none') v.preload='auto'; var p=v.play(); if(p&&p.catch) p.catch(function(){}); }
-    function sync(){ if(RM.matches){ v.pause(); return; } if(done) return; if(seen) go(); else v.pause(); }
+    function sync(){ if(RM.matches){ v.pause(); return; } live(); if(done) return; if(seen) go(); else v.pause(); }
     v.addEventListener('ended',function(){ done=true; box.setAttribute('data-played','1'); if(b) b.hidden=false; });
     if(b) b.addEventListener('click',function(){ b.hidden=true; v.currentTime=0; go(); });
     if(IO){ new IntersectionObserver(function(es){
@@ -1351,7 +1401,7 @@ ESSAY_JS = """<script>
     sync();
   });
 
-  /* draw-in: empty the chart only while it is off-screen, play it once at 40% visible */
+  /* draw-in: empty the chart only while it is off-screen, play it once at 15% visible */
   each('[data-draw-in]',function(fig){
     if(!IO) return;
     var done=false;
@@ -1359,7 +1409,7 @@ ESSAY_JS = """<script>
       var e=es[0];
       if(done||RM.matches) return;
       if(!e.isIntersecting){ fig.classList.add('is-armed'); return; }
-      if(e.intersectionRatio>=0.4 && fig.classList.contains('is-armed')){
+      if(e.intersectionRatio>=0.15 && fig.classList.contains('is-armed')){
         done=true; io.disconnect();
         fig.classList.remove('is-armed'); fig.classList.add('is-playing');
         var end=0;
@@ -1369,7 +1419,7 @@ ESSAY_JS = """<script>
         });
         setTimeout(function(){ fig.classList.remove('is-playing'); fig.setAttribute('data-drawn','1'); },end+100);
       }
-    },{threshold:[0,0.4]});
+    },{threshold:[0,0.15]});
     io.observe(fig);
   });
 
@@ -1416,7 +1466,10 @@ ESSAY_CSS = """
 .gg-essay-fig.is-column .gg-media{max-width:none}
 .gg-pic{display:block}
 .gg-media img,.gg-media video{display:block;width:100%;height:auto;background:var(--sand)}
-.gg-media.has-video .gg-pic{display:none}
+.gg-media.has-video video{display:none}
+.gg-media.has-video .gg-pic{display:block}
+.gg-media.has-video.is-live video{display:block}
+.gg-media.has-video.is-live .gg-pic{display:none}
 .gg-replay{position:absolute;right:8px;bottom:8px;width:40px;height:40px;border:0;cursor:pointer;padding:0;
   background:rgba(26,20,16,.66);color:#fff;display:flex;align-items:center;justify-content:center;clip-path:var(--chamfer)}
 .gg-replay[hidden]{display:none}
@@ -1429,8 +1482,8 @@ ESSAY_CSS = """
   .gg-media video.gg-vid-crop{aspect-ratio:var(--ph-ar);object-fit:cover;object-position:var(--ph-pos,50% 50%)}
 }
 @media (prefers-reduced-motion:reduce){
-  .gg-media.has-video video,.gg-replay{display:none}
-  .gg-media.has-video .gg-pic{display:block}
+  .gg-media.has-video.is-live video,.gg-replay{display:none}
+  .gg-media.has-video.is-live .gg-pic{display:block}
 }
 
 /* inline SVG figures; phones get the overview + "Zoom in" when there is one */
@@ -1517,6 +1570,10 @@ ESSAY_CSS = """
 @media (prefers-reduced-motion:reduce){
   [data-draw-in] [data-draw]{animation:none!important;transform:none!important;opacity:1!important;clip-path:none!important}
 }
+/* print the finished chart, even one still armed off-screen */
+@media print{
+  [data-draw-in] [data-draw]{animation:none!important;transform:none!important;opacity:1!important;clip-path:none!important}
+}
 
 /* "In short" after the intro on phones (in_short_on_phone="after_intro") */
 .slot-summary-m{display:none}
@@ -1563,10 +1620,11 @@ def render_editorial_page(
         raise ValueError(f"in_short_on_phone must be 'first' or 'after_intro', not {in_short_on_phone!r}")
     minutes = reading_minutes(body_html)
     body = body_html
-    essay_js = _uses_essay_js(body, figures)
-    uses_essay = bool(figures) or essay_js or bool(meta.hero and meta.hero.picture)
     if figures:
         body = place_figures(body, figures)
+    # After placement, so data-draw-in inside a placed figure gets the JS.
+    essay_js = _uses_essay_js(body, figures)
+    uses_essay = bool(figures) or essay_js or bool(meta.hero and meta.hero.picture)
     summary = render_in_short(in_short) if in_short else ""
     if summary and in_short_on_phone == "after_intro":
         uses_essay = True

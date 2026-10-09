@@ -650,6 +650,12 @@ class TestEssayComponentsOptIn:
         assert "gg-essay-fig" in _head(html)
         assert es.ESSAY_JS_MARKER not in html
 
+    def test_draw_in_inside_a_placed_figure_opts_in(self):
+        svg = es.SvgFigure(id="fig-t", svg='<svg viewBox="0 0 1 1"><g data-draw-in><rect data-draw="grow"/></g></svg>',
+                           title="T", marker="one")
+        html = es.render_editorial_page(_meta(), FIG_BODY, figures=[svg])
+        assert es.ESSAY_JS_MARKER in html
+
     def test_draw_in_alone_opts_in(self):
         body = FIG_BODY.replace("<!--GG:FIGURE one-->", '<figure data-draw-in><i data-draw="grow"></i></figure>')
         html = es.render_editorial_page(_meta(), body)
@@ -712,18 +718,30 @@ class TestEssayFigure:
     def test_play_once_video(self):
         out = es.render_essay_figure(es.EssayFigure(_pic(), video=self._video()))
         v = re.search(r"<video[^>]*>", out).group(0)
-        for attr in ("muted", "playsinline", 'preload="none"', 'poster="img/v.png"', 'aria-label="A scene"'):
+        for attr in ("muted", "playsinline", 'preload="none"', 'data-poster="img/v.png"', 'aria-label="A scene"'):
             assert attr in v, attr
+        assert " poster=" not in v  # attached by JS only when the clip will show
         assert "autoplay" not in v and "loop" not in v and "controls" not in v
         assert 'style="--ph-ar:900/760;--ph-pos:100% 0"' in v
         assert out.index('src="img/v.webm"') < out.index('src="img/v.mp4"')
         assert re.search(r'<button class="gg-replay" type="button" aria-label="Replay animation" hidden>', out)
         assert "data-play-once" in out and '<picture class="gg-pic">' in out  # the still
 
-    def test_reduced_motion_shows_the_still(self):
-        css = es.ESSAY_CSS.split("@media (prefers-reduced-motion:reduce){", 1)[1].split("\n}", 1)[0]
-        assert ".gg-media.has-video video,.gg-replay{display:none}" in css
+    def test_still_until_live_and_under_reduced_motion(self):
+        css = es.ESSAY_CSS
+        # Without JS the still shows and the video (and its poster) never load.
+        assert ".gg-media.has-video video{display:none}" in css
         assert ".gg-media.has-video .gg-pic{display:block}" in css
+        assert ".gg-media.has-video.is-live video{display:block}" in css
+        rm = css.split("@media (prefers-reduced-motion:reduce){", 1)[1].split("\n}", 1)[0]
+        assert ".gg-media.has-video.is-live video,.gg-replay{display:none}" in rm
+        assert ".gg-media.has-video.is-live .gg-pic{display:block}" in rm
+
+    def test_js_attaches_poster_only_when_the_clip_shows(self):
+        js = es.ESSAY_JS
+        assert "v.poster=poster; box.classList.add('is-live')" in js
+        # sync() returns under reduced motion before live(), so no poster is set.
+        assert "function sync(){ if(RM.matches){ v.pause(); return; } live();" in js
 
     def test_js_plays_once_at_half_visible_and_holds(self):
         js = es.ESSAY_JS
@@ -748,6 +766,22 @@ class TestFigurePlacement:
                                       es.EssayFigure(_pic(), id="f2", after="List anchor")])
         assert out.index("anchor here.</p>") < out.index('id="f1"') < out.index("<ul>")
         assert out.index("</ul>") < out.index('id="f2"')
+
+    @pytest.mark.parametrize("body,after", [
+        ("<ul><li><p>Item anchor.</p></li><li>Next</li></ul>\n<p>After.</p>", "Item anchor."),
+        ("<blockquote><p>Quote anchor.</p><p>More.</p></blockquote>\n<p>After.</p>", "Quote anchor."),
+        ("<h2>Heading anchor</h2>\n<p>After.</p>", "Heading anchor"),
+        ("<ol><li>One <em>emph anchor</em></li></ol>\n<p>After.</p>", "emph anchor"),
+    ])
+    def test_after_lands_after_the_enclosing_block(self, body, after):
+        out = es.place_figures(body, [es.EssayFigure(_pic(), id="f", after=after)])
+        before, rest = out.split('<figure class="gg-essay-fig" id="f">', 1)
+        assert before.rstrip().endswith(("</ul>", "</blockquote>", "</h2>", "</ol>")), before
+        assert rest.split("</figure>", 1)[1].lstrip().startswith("<p>After.</p>")
+
+    def test_after_outside_any_block_raises(self):
+        with pytest.raises(ValueError, match="not inside"):
+            es.place_figures("<div>bare anchor</div>", [es.EssayFigure(_pic(), after="bare anchor")])
 
     @pytest.mark.parametrize("fig", [
         es.EssayFigure(_pic(), marker="nope"),
@@ -847,8 +881,15 @@ class TestDrawIn:
 
     def test_plays_once_and_respects_reduced_motion(self):
         js = es.ESSAY_JS
-        assert "intersectionRatio>=0.4" in js and "io.disconnect()" in js and "RM.matches" in js
+        assert "intersectionRatio>=0.15" in js and "threshold:[0,0.15]" in js
+        assert "io.disconnect()" in js and "RM.matches" in js
         assert "[data-draw-in] [data-draw]{animation:none!important" in es.ESSAY_CSS
+
+    def test_prints_the_finished_chart(self):
+        # An armed (off-screen) chart must not print blank.
+        css = es.ESSAY_CSS.split("@media print{", 1)[1].split("\n}", 1)[0]
+        assert ("[data-draw-in] [data-draw]{animation:none!important;transform:none!important;"
+                "opacity:1!important;clip-path:none!important}") in css
 
 
 class TestInShortOnPhone:
@@ -936,6 +977,15 @@ class TestSweetSpotArticle:
         assert main.count("<picture") == 3 and main.count("<video") == 1
         assert '<figure class="gg-svgfig gg-fig has-mini" id="fig-graph"' in main
         assert "data-draw-in" in main.split('id="fig-drift"', 1)[1].split(">", 1)[0]
+
+    def test_og_image_is_the_tombstone_crop(self):
+        html = SWEET_SPOT_INDEX.read_text(encoding="utf-8")
+        assert f'<meta property="og:image" content="{sweet_spot.URL}img/og-tombstone.jpg">' in html
+        assert '<meta property="og:image:width" content="1200">' in html
+        assert '<meta property="og:image:height" content="630">' in html
+        og = SWEET_SPOT_INDEX.parent / "img/og-tombstone.jpg"
+        assert og.is_file() and og.stat().st_size <= 200_000
+        assert og.read_bytes()[:3] == b"\xff\xd8\xff"  # JPEG
 
     def test_studies_table(self):
         main = _main(SWEET_SPOT_INDEX.read_text(encoding="utf-8"))

@@ -76,7 +76,7 @@ SCENE_BLACK_HOLE = Picture.from_stem(
 )
 BLACK_HOLE_CLIP = PlayOnceVideo(
     sources=(("img/scene-black-hole.webm", "video/webm"), ("img/scene-black-hole.mp4", "video/mp4")),
-    poster="img/scene-black-hole-poster.png",
+    poster="img/scene-black-hole-poster.webp",
     width=1280,
     height=800,
     phone_aspect="900/760",
@@ -138,7 +138,7 @@ META = ArticleMeta(
     description="Sweet Spot training is made up, makes you slower, and science hates it. The evidence for polarized training is clear. 88-94% FTP is a marketing trick.",
     og_title="Sweet Spot Training Isn't That Sweet | Gravel God",
     og_description="It's made up, it makes you slower, science hates it, the name is weird, and its marketing makes us all dumber.",
-    og_image=OgImage(url=f"{URL}img/sweet-spot-rip.png", width=734, height=894),
+    og_image=OgImage(url=f"{URL}img/og-tombstone.jpg", width=1200, height=630),
     headline="Sweet Spot Isn’t That Sweet",
     kicker="Training · Science · Opinion",
     dek="It’s made up, it makes you slower, science hates it, the name is weird, and its marketing makes us all dumber",
@@ -498,9 +498,9 @@ STUDIES = DataTable(
                "Polarized vs threshold (meta-analysis)",
                "Time trial: moderate effect favouring polarized (ES &minus;0.66, 95% CI &minus;1.17 to &minus;0.15)", "29863593"),
         _study("Rosenblat, Seiler et al.", 13, 2025, 348, "13 studies; 198 competitive, 150 recreational", "", "", "",
-               "Polarized vs pyramidal, threshold, high- and low-intensity (network meta-analysis)",
-               "No significant difference between polarized and any other model; competitive athletes may gain more "
-               "VO2max with polarized than pyramidal (SMD &minus;0.63)", "39888556"),
+               "Polarized vs pyramidal and other distributions (network meta-analysis)",
+               "No significant difference between polarized and any other distribution; competitive athletes may "
+               "benefit more from polarized, recreational from pyramidal", "39888556"),
     ),
     sort_by=1,
     marker="studies",

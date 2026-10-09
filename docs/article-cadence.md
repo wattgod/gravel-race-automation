@@ -53,6 +53,40 @@ week, cross-posted to Substack, is the growth engine.
 8. Road cross-surface: when road's articles system exists, syndicate the
    road-relevant ones.
 
+## Imported WordPress posts (root URLs)
+
+The 77 old Elementor blog posts move onto the same shell **at their existing
+root URL**: `gravelgodcycling.com/<slug>/`. The slug never changes (no
+`/articles/` prefix, no redirect).
+
+- Convert: `python3 scripts/wp_post_import.py <post_id> [--aside "Sidebar"]`
+  reads the audit inventory + snapshot (`~/specs/gg-wp-posts-2026-10-09/`),
+  fetches the live page's `<head>` for metadata (never the REST API: aioseo
+  canonicals are wrong for some posts), downloads originals to
+  `~/.cache/gg-wp-import/`, and writes:
+  - `wordpress/post_sources/<slug>.body.html` + `<slug>.json` (generated;
+    re-runnable),
+  - `wordpress/post_sources/<module>.py` (scaffolded once, then hand-edited:
+    ALT for every image, "In short" drafts, infographics),
+  - `wordpress/posts/<slug>/img/` (WebP 1x ≤1600w, @2x only when the source
+    has 2x pixels, phone 660w/@2x; GIFs → muted MP4 + WebM + WebP poster),
+  - `<specs>/pilot/<slug>/images.json` (per-image manifest; hand-written
+    fields survive re-runs).
+  Unknown Elementor widgets raise; extend the mapping in the converter.
+- Render: `python3 wordpress/post_sources/<module>.py` writes
+  `wordpress/posts/<slug>/index.html` (renderer: `wordpress/wp_post.py`).
+- Check: `pytest tests/test_wp_post_import.py` (word-for-word text diff
+  against the snapshot, freshness, alt text, metadata, widget mapping,
+  comments). Add the post to `PILOTS` there with its fixtures in
+  `tests/fixtures/wp_posts/`.
+- Deploy (not automated): SCP `wordpress/posts/<slug>/` (index.html + img/)
+  to `public_html/<slug>/`, then flush the SG cache. Apache serves a real
+  directory's `index.html` before WordPress's rewrite runs (WP's `.htaccess`
+  skips existing files and directories), so the static page wins at the
+  same URL while the WP post stays in the database. Rollback = delete
+  `public_html/<slug>/`. Verify with `curl -s https://gravelgodcycling.com/<slug>/ | grep gg-blog-section`.
+- Comments: approved comments render as a read-only archive (no form).
+
 ## Backlog (ranked by contrarian energy × funnel relevance)
 
 1. ~~Your Training App Doesn't Know Your Race Exists~~ — SHIPPED Jul 2 2026.

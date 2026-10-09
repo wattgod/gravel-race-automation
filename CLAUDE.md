@@ -85,6 +85,7 @@ Race database site (gravelgodcycling.com) — 757 race profiles, 543 tire guides
 ### Deploy
 - Race pages via tar+ssh (not rsync). Must use `{slug}/index.html` structure.
 - **Articles** deploy via SCP to `/articles/{slug}/index.html` — NOT via `--sync-blog` (which deploys to `/blog/`).
+- **Imported WordPress posts** keep their root URL: SCP `wordpress/posts/{slug}/` to `public_html/{slug}/` (see `docs/article-cadence.md`, "Imported WordPress posts"). The slug never changes.
 - Always purge SiteGround cache after deploying.
 - Full checklist: `python3 scripts/preflight.py --deploy`
 - **Questionnaire page (`/questionnaire/`) is an ELEMENTOR page** (page ID

@@ -14,14 +14,15 @@ from brand_tokens import get_ga4_head_snippet
 from editorial_shell import SHELL_JS
 from shared_header import get_site_header_js
 from generate_blog_preview import (
+    _add_score_tile,
     _stat,
-    _tag_hero,
     find_candidates,
     generate_preview_html,
     is_generic_suffering,
     load_race,
     parse_race_date,
     pick_best_opinions,
+    race_date_line,
 )
 from generate_blog_index import (
     classify_blog_slug,
@@ -948,14 +949,73 @@ def test_preview_keeps_head_contract():
     assert "application/ld+json" not in html
 
 
-def test_preview_hero_is_wide_og_card_without_read_time():
+def _hero(html):
+    return html.split('<div class="frame hero', 1)[1].split("</div>\n  </div>", 1)[0]
+
+
+def test_preview_hero_is_text_with_score_tile_and_no_read_time():
     html = generate_preview_html("unbound-200")
-    assert 'class="frame hero wide gg-blog-hero"' in html
-    assert 'class="hero-img gg-blog-hero-img"' in html
-    assert 'width="1200" height="630"' in html
-    assert '<p class="dek">Rated ' in html and " / 100</p>" in html
+    # No hero image: the share card lives in the body (see below).
+    assert 'class="frame hero no-img gg-blog-hero"' in html
+    assert 'class="hero-img' not in html
     assert 'class="kick-top">Tier 1 ' in html
     assert "min read" not in html
+    hero = _hero(html)
+    assert '<div class="gg-blog-score"><span class="gg-blog-score-val">' in hero
+    assert '<span class="gg-blog-score-of">/100</span>' in hero
+    assert '<span class="gg-blog-stat-label">Tier 1 The Icons</span>' in hero
+    assert "Rated " not in hero
+    # The tile sits right before the byline, once.
+    assert hero.count("gg-blog-score-val") == 1
+    assert hero.index("gg-blog-score") < hero.index('<p class="by">')
+
+
+def test_preview_hero_shows_clean_date_not_raw_string():
+    race = load_race("alentejo-gravel")
+    raw = race["vitals"]["date_specific"]
+    assert "ucigravelworldseries.com" in raw  # the raw string carries a URL
+    hero = _hero(generate_preview_html("alentejo-gravel"))
+    kicker = hero.split('class="kick-top">', 1)[1].split("</p>", 1)[0]
+    assert kicker == "Tier 3 Solid · Ourique, Alentejo, Portugal"
+    assert '<p class="dek">October 25, 2026 · Registration open</p>' in hero
+    assert "ucigravelworldseries" not in hero and "SUNDAY" not in hero
+
+
+def test_share_card_moves_after_first_section():
+    html = generate_preview_html("unbound-200")
+    body = html.split('<article class="article" id="article">', 1)[1]
+    first_end = body.index("</section>")
+    card = body.index('<div class="gg-article-img-inline">')
+    assert first_end < card < body.index("<section", first_end)
+    img = body[card:].split("</div>", 1)[0]
+    assert 'class="gg-blog-hero-img"' in img
+    assert 'src="https://gravelgodcycling.com/og/unbound-200.jpg"' in img
+    assert 'width="1200" height="630"' in img
+    assert html.count("/og/unbound-200.jpg\"") >= 1
+
+
+@pytest.mark.parametrize("raw, expected", [
+    ("2026: June 6", "June 6, 2026"),
+    ("2026: June 19-21", "June 19\u201321, 2026"),
+    ("2026: May 24 (Sunday)", "May 24, 2026"),
+    ("2026: Aug 19-23 (festival week)", "August 19\u201323, 2026"),
+    ("2026: Saturday, September 19 (Gravel day) CONFIRMED official", "September 19, 2026 · Confirmed"),
+    ("April 19, 2026", "April 19, 2026"),
+    ("2026: February 19, 26, 27, 28", "February 19, 26, 27 and 28, 2026"),
+    ("2026: October 25 (SUNDAY, CONFIRMED \u2014 ucigravelworldseries.com/en/ourique-2026; "
+     "registration open)", "October 25, 2026 · Registration open"),
+    # Only the first edition counts: a later year's CONFIRMED is not this one's.
+    ("2026: Apr 17-19, main ride Saturday Apr 18. 2027: confirmed Apr 16-18", "April 17\u201319, 2026"),
+    ("2026: July 12 (Sunday, CONFIRMED \u2014 nedgravel.com; completed); 2027: July 11", "July 12, 2026 · Confirmed"),
+    ("2026: NO EDITION CONFIRMED", "2026: NO EDITION CONFIRMED"),
+    ("2026: November TBD", "2026: November TBD"),
+    ("2026: February 30", "2026: February 30"),
+    ("2027: TBD (see example.com/dates)", "2027: TBD"),
+    ("", ""),
+    (None, ""),
+])
+def test_race_date_line(raw, expected):
+    assert race_date_line(raw) == expected
 
 
 def test_preview_has_no_article_events_and_no_ladder():
@@ -994,10 +1054,9 @@ def test_sparse_preview_hides_contents(monkeypatch):
     assert "gg-blog-cta" in html
 
 
-def test_tag_hero_raises_when_shell_markup_changes():
+def test_score_tile_raises_when_shell_byline_changes():
     with pytest.raises(RuntimeError):
-        _tag_hero("<html><body>no hero here</body></html>")
-
+        _add_score_tile("<html><body>no byline here</body></html>", "<div></div>")
 
 
 def test_stat_tiles_widen_long_values():

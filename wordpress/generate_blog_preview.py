@@ -24,7 +24,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).parent))
 from brand_tokens import TIER_NAMES
 from blog_tracking import get_plan_intent_tracking_script
-from editorial_shell import ArticleMeta, HeroImage, OgImage, render_editorial_page
+from editorial_shell import ArticleMeta, OgImage, render_editorial_page
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 RACE_DATA_DIR = PROJECT_ROOT / "race-data"
@@ -133,6 +133,104 @@ def parse_race_date(date_str):
         return date(int(year), month_num, int(day))
     except ValueError:
         return None
+
+
+# The hero shows the race date as a clean date plus a short status, never the
+# raw date_specific string (which carries notes, later editions and URLs).
+_WEEKDAY = r"(?:(?:mon|tues|wednes|thurs|fri|satur|sun)day,?\s+)?"
+_MONTH_FIRST_RE = re.compile(
+    r"^\s*(\d{4})\s*:\s*" + _WEEKDAY + r"([A-Za-z]+)\.?\s+(\d{1,2})"
+    r"(?:\s*[-\u2013]\s*(\d{1,2})|((?:\s*,\s*\d{1,2}\b)+))?",
+    re.I,
+)
+_DAY_FIRST_RE = re.compile(
+    r"^\s*" + _WEEKDAY + r"([A-Za-z]+)\.?\s+(\d{1,2})(?:\s*[-\u2013]\s*(\d{1,2}))?,\s*(\d{4})\b",
+    re.I,
+)
+_URL_RE = re.compile(r"(?:https?://|www\.)\S+|\b[\w-]+(?:\.[\w-]+)*\.(?:com|org|net|bike|cc|co|io|es|pt|uk|eu|de|fr|it|nz|au|ca)\b\S*", re.I)
+
+
+def _strip_urls(text):
+    """Drop URLs (and any parenthetical holding one) from a date note."""
+    text = re.sub(r"\([^)]*\)", lambda m: "" if _URL_RE.search(m.group(0)) else m.group(0), text)
+    text = _URL_RE.sub("", text)
+    text = re.sub(r"\(\s*\)", "", text)
+    return re.sub(r"\s{2,}", " ", text).strip(" ,;\u2014-")
+
+
+_MONTH_ABBR = {name[:3]: num for name, num in MONTH_NUMBERS.items()}
+_MONTH_ABBR["sept"] = 9
+
+
+def _month_number(name):
+    name = name.lower()
+    return MONTH_NUMBERS.get(name) or _MONTH_ABBR.get(name)
+
+
+def _first_edition(raw):
+    """Text up to the first ';' outside parentheses, or the next 'YYYY:'."""
+    depth = 0
+    for i, ch in enumerate(raw):
+        if ch == "(":
+            depth += 1
+        elif ch == ")":
+            depth = max(depth - 1, 0)
+        elif ch == ";" and depth == 0:
+            raw = raw[:i]
+            break
+    return re.split(r"\.\s+\d{4}\s*:", raw, maxsplit=1)[0].strip()
+
+
+def _date_status(clause):
+    low = clause.lower()
+    if "registration open" in low:
+        return "Registration open"
+    if re.search(r"(?<!un)(?<!not )\bconfirmed\b", low):
+        return "Confirmed"
+    return ""
+
+
+def race_date_line(date_str):
+    """'October 25, 2026 · Registration open' from a date_specific string.
+
+    Only the first edition named counts (text before the first top-level ';'). If the
+    date doesn't parse, the raw first clause is shown with URLs removed.
+    """
+    raw = str(date_str or "").strip()
+    if not raw:
+        return ""
+    clause = _first_edition(raw)
+    status = _date_status(clause)
+    display = ""
+    m = _MONTH_FIRST_RE.match(clause)
+    if m:
+        year, month, day, end, more = m.groups()
+    else:
+        m = _DAY_FIRST_RE.match(clause)
+        if m:
+            month, day, end, year = m.groups()
+            more = None
+    month_num = _month_number(month) if m else None
+    if month_num:
+        try:
+            date(int(year), month_num, int(day))
+            if end:
+                date(int(year), month_num, int(end))
+        except ValueError:
+            month_num = None
+    if month_num:
+        mname = date(2000, month_num, 1).strftime("%B")
+        if end:
+            display = f"{mname} {int(day)}\u2013{int(end)}, {year}"
+        elif more:
+            days = [str(int(day))] + re.findall(r"\d{1,2}", more)
+            display = f"{mname} {', '.join(days[:-1])} and {days[-1]}, {year}"
+        else:
+            display = f"{mname} {int(day)}, {year}"
+    else:
+        display = _strip_urls(clause)
+        status = ""  # the fallback text already says what it knows
+    return " \u00b7 ".join(p for p in (display, status) if p)
 
 
 def load_race(slug):
@@ -392,7 +490,7 @@ def generate_preview_html(slug):
     </div>"""
 
     kicker = " · ".join(
-        str(part) for part in (f"Tier {tier} {tier_name}", location, date_str) if part
+        str(part) for part in (f"Tier {tier} {tier_name}", location) if part
     )
     meta = ArticleMeta(
         slug=slug,
@@ -406,17 +504,28 @@ def generate_preview_html(slug):
         headline=f"{name} Race Preview",
         date_published=preview_date,
         kicker=kicker,
-        dek=f"Rated {score} / 100",
+        dek=race_date_line(date_str),
         robots="noindex, follow",
-        hero=HeroImage(
-            src=og_image_url, alt=f"{name} race preview",
-            width=1200, height=630, layout="wide",
-        ),
+        hero_class="gg-blog-hero",
         og_image=OgImage(url=og_image_url, width=1200, height=630),
         track_article_events=False,
         show_read_time=False,
         nav_active=None,
     )
+    # The share card (title, tier, location, score) would repeat the hero, so
+    # it sits after the first section as a plain inline figure. It keeps the
+    # gg-blog-hero-img class the blog validator checks for.
+    share_card = (
+        f'\n    <div class="gg-article-img-inline">\n'
+        f'      <img class="gg-blog-hero-img" src="{esc(og_image_url)}" '
+        f'alt="{esc(name)} race preview" width="1200" height="630" loading="lazy">\n'
+        f'    </div>'
+    )
+    if sections:
+        sections[0] += share_card
+    else:
+        sections.append(share_card)
+
     page_html = render_editorial_page(
         meta,
         "\n".join(sections) + cta_block,
@@ -425,29 +534,31 @@ def generate_preview_html(slug):
         extra_css=PREVIEW_CSS,
         extra_body_end=get_plan_intent_tracking_script(),
     )
-    return _tag_hero(page_html)
+    return _add_score_tile(page_html, _score_tile(score, tier, tier_name))
 
 
-# Class hooks the blog validator and index tooling key on. The shell has no
-# class parameter for the hero, so add them to its markup and fail loudly if
-# that markup ever changes.
-_HERO_HOOKS = (
-    ('<div class="frame hero wide">', '<div class="frame hero wide gg-blog-hero">'),
-    ('<figure class="hero-img">', '<figure class="hero-img gg-blog-hero-img">'),
-)
+def _score_tile(score, tier, tier_name):
+    """The rating as a hero measurement tile: the number, then /100 and the tier."""
+    return (
+        f'<div class="gg-blog-score"><span class="gg-blog-score-val">{esc(str(score))}</span>'
+        f'<span class="gg-blog-score-of">/100</span>'
+        f'<span class="gg-blog-stat-label">Tier {esc(str(tier))} {esc(tier_name)}</span></div>'
+    )
 
 
-def _tag_hero(page_html):
-    for old, new in _HERO_HOOKS:
-        if page_html.count(old) != 1:
-            raise RuntimeError(f"editorial shell hero markup changed: {old!r} not found once")
-        page_html = page_html.replace(old, new, 1)
-    return page_html
+# The shell's hero takes no extra markup, so the score tile goes in right
+# before its byline. Fail loudly if that markup ever changes.
+_BYLINE_ANCHOR = '<p class="by">'
+
+
+def _add_score_tile(page_html, tile_html):
+    if page_html.count(_BYLINE_ANCHOR) != 1:
+        raise RuntimeError(f"editorial shell hero markup changed: {_BYLINE_ANCHOR!r} not found once")
+    return page_html.replace(_BYLINE_ANCHOR, tile_html + "\n      " + _BYLINE_ANCHOR, 1)
 
 
 # Preview-only blocks on top of the shell: the stat row and the race CTAs.
 PREVIEW_CSS = """
-.hero h1{overflow-wrap:break-word;hyphens:auto}
 .article .gg-blog-section{overflow-wrap:break-word}
 .article .gg-blog-section a{color:var(--teal-ink);text-decoration:underline;text-underline-offset:3px;text-decoration-thickness:2px}
 .gg-blog-stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:6px;margin:0 0 1.05em}
@@ -455,6 +566,10 @@ PREVIEW_CSS = """
 .gg-blog-stat-val{display:block;font:700 24px/1.2 var(--mono);color:var(--ink);overflow-wrap:anywhere}
 .gg-blog-stat-label{display:block;font:700 12px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--ink3);margin-top:6px}
 .gg-blog-stat.wide{grid-column:1/-1}
+.gg-blog-score{display:inline-grid;grid-template-columns:auto 1fr;align-items:baseline;column-gap:8px;background:var(--sand);padding:14px 18px 16px;margin:4px 0 16px}
+.gg-blog-score-val{font:700 48px/1 var(--mono);color:var(--ink)}
+.gg-blog-score-of{font:700 13px var(--mono);letter-spacing:.1em;color:var(--ink3)}
+.gg-blog-score .gg-blog-stat-label{grid-column:1/-1;margin-top:8px}
 .gg-blog-stat.wide .gg-blog-stat-val{font:400 19px/1.45 var(--serif)}
 .gg-blog-cta{display:flex;flex-wrap:wrap;gap:10px;margin:56px 0 0}
 .gg-blog-cta .btn.alt{background:var(--ink)}

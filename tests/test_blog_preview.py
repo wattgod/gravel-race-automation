@@ -9,8 +9,13 @@ import pytest
 sys.path.insert(0, str(Path(__file__).parent.parent / "wordpress"))
 sys.path.insert(0, str(Path(__file__).parent.parent / "scripts"))
 
+from blog_tracking import get_plan_intent_tracking_script
 from brand_tokens import get_ga4_head_snippet
+from editorial_shell import SHELL_JS
+from shared_header import get_site_header_js
 from generate_blog_preview import (
+    _stat,
+    _tag_hero,
     find_candidates,
     generate_preview_html,
     is_generic_suffering,
@@ -160,11 +165,15 @@ def test_generate_preview_escapes_html():
     """Verify HTML entities are escaped in output."""
     html = generate_preview_html("unbound-200")
     assert html is not None
-    # Body scripts are the static shared consent controller and canonical CTA
-    # tracker; race data must never create an additional script block.
+    # Body scripts are the shell's static header + contents scripts, the
+    # canonical CTA tracker and the shared consent controller; race data must
+    # never create an additional script block.
     body = html.split("</head>", 1)[1].split("</body>", 1)[0]
-    assert body.count("<script>") == 2
+    assert body.count("<script>") == 4
     assert "document.getElementById('gg-consent-banner')" in body
+    assert get_site_header_js() in body
+    assert SHELL_JS in body
+    assert get_plan_intent_tracking_script() in body
 
 
 # ── Template quality ──
@@ -903,3 +912,98 @@ def test_preview_tracks_plan_intent_with_canonical_event():
     html = generate_preview_html("unbound-200")
     assert "gtag('event', 'cta_click'" in html
     assert "source: 'editorial'" in html
+
+
+# ── Editorial shell (2026-10-08 re-skin: same elements, shell design) ──
+
+
+def _preview_sections(html):
+    return re.findall(r'<h2 id="[^"]+" data-toc>([^<]+)</h2>', html)
+
+
+def test_preview_renders_on_editorial_shell():
+    html = generate_preview_html("unbound-200")
+    assert '<article class="article" id="article">' in html
+    assert 'class="gg-site-header"' in html
+    assert '<footer class="foot">' in html
+    # Every content section is a Contents entry, in the original order.
+    assert _preview_sections(html) == [
+        "Why Race Unbound 200?", "The Real Talk", "Course Preview", "Key Stats",
+        "Training Focus", "History", "Registration &amp; Info",
+    ]
+    assert 'class="rail"' in html and 'id="tocm"' in html
+
+
+def test_preview_keeps_head_contract():
+    html = generate_preview_html("unbound-200")
+    head = html.split("</head>", 1)[0]
+    assert '<meta name="robots" content="noindex, follow">' in head
+    assert "<title>Unbound 200 Race Preview — Gravel God</title>" in head
+    assert '<meta property="og:title" content="Unbound 200 Race Preview — Gravel God">' in head
+    assert '<link rel="canonical" href="https://gravelgodcycling.com/blog/unbound-200/">' in head
+    assert '<meta property="og:url" content="https://gravelgodcycling.com/blog/unbound-200/">' in head
+    assert '<meta property="og:image" content="https://gravelgodcycling.com/og/unbound-200.jpg">' in head
+    assert 'name="description" content="Everything you need to know about Unbound 200: course preview' in head
+    assert '<meta property="og:description" content="Tier 1 ' in head
+    assert "application/ld+json" not in html
+
+
+def test_preview_hero_is_wide_og_card_without_read_time():
+    html = generate_preview_html("unbound-200")
+    assert 'class="frame hero wide gg-blog-hero"' in html
+    assert 'class="hero-img gg-blog-hero-img"' in html
+    assert 'width="1200" height="630"' in html
+    assert '<p class="dek">Rated ' in html and " / 100</p>" in html
+    assert 'class="kick-top">Tier 1 ' in html
+    assert "min read" not in html
+
+
+def test_preview_has_no_article_events_and_no_ladder():
+    html = generate_preview_html("unbound-200")
+    assert "article_scroll_depth" not in html
+    assert "article_deep_read" not in html
+    # Previews never had a generic plans/coaching block, so no ladder.
+    assert 'data-slot="ladder"' not in html
+    assert html.count(get_plan_intent_tracking_script()) == 1
+
+
+def test_preview_race_ctas_unchanged():
+    html = generate_preview_html("mid-south")
+    cta = html.split('<div class="gg-blog-cta">', 1)[1].split("</div>", 1)[0]
+    assert 'href="https://gravelgodcycling.com/race/mid-south/"' in cta
+    assert 'href="https://gravelgodcycling.com/race/mid-south/prep-kit/"' in cta
+    assert "Full Race Profile" in cta and "Free Prep Kit" in cta
+    # The prep-kit link is tracked by href (plan_intent); no data-cta added.
+    assert "data-cta" not in cta
+
+
+def test_sparse_preview_hides_contents(monkeypatch):
+    import generate_blog_preview as gbp
+
+    race = {
+        "name": "Tiny Gravel",
+        "vitals": {"distance_mi": 40, "date_specific": "2026: June 6"},
+        "gravel_god_rating": {"tier": 4, "overall_score": 41},
+    }
+    monkeypatch.setattr(gbp, "load_race", lambda slug: race)
+    html = gbp.generate_preview_html("tiny-gravel")
+    assert _preview_sections(html) == ["Key Stats"]
+    assert 'class="rail"' not in html and 'id="tocm"' not in html
+    # Empty location is skipped instead of leaving a dangling separator.
+    assert 'class="kick-top">Tier 4 ' in html and "·  ·" not in html
+    assert "gg-blog-cta" in html
+
+
+def test_tag_hero_raises_when_shell_markup_changes():
+    with pytest.raises(RuntimeError):
+        _tag_hero("<html><body>no hero here</body></html>")
+
+
+
+def test_stat_tiles_widen_long_values():
+    assert _stat("200", "Miles") == (
+        '<div class="gg-blog-stat"><span class="gg-blog-stat-val">200</span>'
+        '<span class="gg-blog-stat-label">Miles</span></div>'
+    )
+    long_cell = _stat("750+ riders (2020); waves of up to 100", "Field Size")
+    assert long_cell.startswith('<div class="gg-blog-stat wide">')

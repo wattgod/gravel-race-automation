@@ -3,7 +3,9 @@
 Generate race preview blog articles from race JSON data.
 
 Template-based (no Claude API needed). Creates HTML preview articles
-for races with upcoming dates, timed to registration windows.
+for races with upcoming dates, timed to registration windows. Pages render
+on the editorial shell (editorial_shell.render_editorial_page): noindex,
+no JSON-LD, no article_* events, no read time, no plans ladder.
 
 Usage:
     python wordpress/generate_blog_preview.py --dry-run       # List candidates
@@ -20,9 +22,9 @@ from datetime import date, datetime, timedelta
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent))
-from brand_tokens import TIER_NAMES, get_ga4_head_snippet
+from brand_tokens import TIER_NAMES
 from blog_tracking import get_plan_intent_tracking_script
-from cookie_consent import get_consent_banner_html
+from editorial_shell import ArticleMeta, HeroImage, OgImage, render_editorial_page
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 RACE_DATA_DIR = PROJECT_ROOT / "race-data"
@@ -101,6 +103,19 @@ def pick_best_opinions(biased_opinion_ratings, max_count=3):
     # Sort by explanation length (most detailed first)
     candidates.sort(key=lambda c: -len(c[1]))
     return candidates[:max_count]
+
+
+# Stat values longer than this read as prose (e.g. "750+ riders (2020); waves
+# of up to 100"), so they take a full row in the serif face instead of a tile.
+STAT_TILE_MAX_CHARS = 16
+
+
+def _stat(value, label):
+    """One Key Stats cell; long values span the row."""
+    value = str(value)
+    cls = "gg-blog-stat wide" if len(value) > STAT_TILE_MAX_CHARS else "gg-blog-stat"
+    return (f'<div class="{cls}"><span class="gg-blog-stat-val">{esc(value)}</span>'
+            f'<span class="gg-blog-stat-label">{esc(label)}</span></div>')
 
 
 def parse_race_date(date_str):
@@ -220,8 +235,6 @@ def generate_preview_html(slug):
             preview_date = date.today()
     else:
         preview_date = date.today()
-    article_date_str = preview_date.strftime("%B %d, %Y")
-    article_date_iso = preview_date.isoformat()
 
     biased_ratings = rd.get("biased_opinion_ratings", {})
 
@@ -298,18 +311,18 @@ def generate_preview_html(slug):
 
     stats_items = []
     if distance:
-        stats_items.append(f'<div class="gg-blog-stat"><span class="gg-blog-stat-val">{esc(str(distance))}</span><span class="gg-blog-stat-label">Miles</span></div>')
+        stats_items.append(_stat(str(distance), "Miles"))
     if elevation:
         if isinstance(elevation, (int, float)):
             elev_display = f"{int(elevation):,}"
         else:
             elev_display = str(elevation)
-        stats_items.append(f'<div class="gg-blog-stat"><span class="gg-blog-stat-val">{esc(elev_display)}</span><span class="gg-blog-stat-label">Ft Elevation</span></div>')
+        stats_items.append(_stat(elev_display, "Ft Elevation"))
     if field_size:
-        stats_items.append(f'<div class="gg-blog-stat"><span class="gg-blog-stat-val">{esc(str(field_size))}</span><span class="gg-blog-stat-label">Field Size</span></div>')
+        stats_items.append(_stat(str(field_size), "Field Size"))
     if terrain_types:
         terrain_display = " · ".join(str(t) for t in terrain_types) if isinstance(terrain_types, list) else str(terrain_types)
-        stats_items.append(f'<div class="gg-blog-stat"><span class="gg-blog-stat-val">{esc(terrain_display)}</span><span class="gg-blog-stat-label">Terrain</span></div>')
+        stats_items.append(_stat(terrain_display, "Terrain"))
     stats_section = ""
     if stats_items:
         stats_section = f"""
@@ -365,195 +378,92 @@ def generate_preview_html(slug):
     # No JSON-LD for preview pages — they are noindexed, and Article schema
     # on noindexed pages sends contradictory signals to Google.
 
-    page_html = f"""<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="robots" content="noindex, follow">
-  <title>{esc(name)} Race Preview — Gravel God</title>
-{get_ga4_head_snippet()}
-  <meta name="description" content="Everything you need to know about {esc(name)}: course preview, key stats, training tips, and registration info. Tier {tier} {tier_name} rated {score}/100.">
-  <meta property="og:title" content="{esc(name)} Race Preview — Gravel God">
-  <meta property="og:description" content="Tier {tier} {tier_name} gravel race. {esc(location)}. Rated {score}/100.">
-  <meta property="og:image" content="{og_image_url}">
-  <meta property="og:url" content="{SITE_URL}/blog/{slug}/">
-  <link rel="canonical" href="{SITE_URL}/blog/{slug}/">
-  <style>
-    :root {{
-      --gg-dark-brown: #3a2e25;
-      --gg-primary-brown: #59473c;
-      --gg-secondary-brown: #7d695d;
-      --gg-teal: #178079;
-      --gg-warm-paper: #f5efe6;
-      --gg-sand: #ede4d8;
-      --gg-white: #ffffff;
-    }}
-    * {{ margin: 0; padding: 0; box-sizing: border-box; border-radius: 0; }}
-    body {{
-      font-family: 'Source Serif 4', Georgia, serif;
-      background: var(--gg-warm-paper);
-      color: var(--gg-dark-brown);
-      line-height: 1.7;
-    }}
-    .gg-blog-container {{ max-width: 780px; margin: 0 auto; padding: 32px 24px; }}
-    .gg-blog-hero {{
-      background: var(--gg-primary-brown);
-      color: var(--gg-warm-paper);
-      padding: 48px 32px;
-      border: 3px solid var(--gg-dark-brown);
-      margin-bottom: 32px;
-    }}
-    .gg-blog-hero-meta {{
-      font-family: 'Sometype Mono', monospace;
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      opacity: 0.8;
-      margin-bottom: 12px;
-    }}
-    .gg-blog-hero h1 {{
-      font-size: 28px;
-      font-weight: 700;
-      line-height: 1.2;
-      margin-bottom: 8px;
-    }}
-    .gg-blog-hero-sub {{
-      font-family: 'Sometype Mono', monospace;
-      font-size: 13px;
-      opacity: 0.7;
-    }}
-    .gg-blog-section {{
-      margin-bottom: 32px;
-      padding: 24px;
-      border: 2px solid var(--gg-dark-brown);
-      background: var(--gg-white);
-    }}
-    .gg-blog-section h2 {{
-      font-family: 'Sometype Mono', monospace;
-      font-size: 14px;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      margin-bottom: 16px;
-      padding-bottom: 8px;
-      border-bottom: 2px solid var(--gg-dark-brown);
-    }}
-    .gg-blog-section p {{ margin-bottom: 12px; font-size: 15px; }}
-    .gg-blog-section ol, .gg-blog-section ul {{ margin: 12px 0 12px 24px; font-size: 15px; }}
-    .gg-blog-section li {{ margin-bottom: 6px; }}
-    .gg-blog-section a {{
-      color: var(--gg-teal);
-      text-decoration: none;
-      font-weight: 600;
-    }}
-    .gg-blog-section a:hover {{ text-decoration: underline; }}
-    .gg-blog-stats {{
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-      gap: 16px;
-    }}
-    .gg-blog-stat {{
-      text-align: center;
-      padding: 16px;
-      border: 2px solid var(--gg-dark-brown);
-      background: var(--gg-warm-paper);
-    }}
-    .gg-blog-stat-val {{
-      font-family: 'Sometype Mono', monospace;
-      font-size: 20px;
-      font-weight: 700;
-      display: block;
-    }}
-    .gg-blog-stat-label {{
-      font-family: 'Sometype Mono', monospace;
-      font-size: 10px;
-      text-transform: uppercase;
-      letter-spacing: 1.5px;
-      color: var(--gg-secondary-brown);
-    }}
-    .gg-blog-cta {{
-      text-align: center;
-      padding: 32px;
-      border: 3px solid var(--gg-dark-brown);
-      background: var(--gg-dark-brown);
-      margin-bottom: 32px;
-    }}
-    .gg-blog-cta a {{
-      display: inline-block;
-      padding: 12px 32px;
-      background: var(--gg-teal);
-      color: var(--gg-white);
-      font-family: 'Sometype Mono', monospace;
-      font-size: 13px;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      text-decoration: none;
-      border: 2px solid var(--gg-teal);
-      margin: 6px;
-    }}
-    .gg-blog-cta a:hover {{ background: var(--gg-primary-brown); border-color: var(--gg-primary-brown); }}
-    .gg-blog-footer {{
-      text-align: center;
-      font-family: 'Sometype Mono', monospace;
-      font-size: 11px;
-      color: var(--gg-secondary-brown);
-      padding: 24px;
-      text-transform: uppercase;
-      letter-spacing: 1.5px;
-    }}
-    .gg-blog-footer a {{ color: var(--gg-teal); text-decoration: none; }}
-    .gg-blog-hero-img {{
-      margin-bottom: 32px;
-      line-height: 0;
-      border: 3px solid var(--gg-dark-brown);
-    }}
-    .gg-blog-hero-img img {{
-      width: 100%;
-      height: auto;
-      display: block;
-    }}
-    @media (max-width: 600px) {{
-      .gg-blog-hero {{ padding: 32px 20px; }}
-      .gg-blog-hero h1 {{ font-size: 22px; }}
-      .gg-blog-section {{ padding: 16px; }}
-    }}
-  </style>
-</head>
-<body>
-  <div class="gg-blog-container">
-    <div class="gg-blog-hero">
-      <div class="gg-blog-hero-meta">Tier {tier} {esc(tier_name)} &middot; {esc(location)} &middot; {esc(date_str)}</div>
-      <h1>{esc(name)} Race Preview</h1>
-      <div class="gg-blog-hero-sub">Rated {score} / 100 &middot; Published {article_date_str}</div>
-    </div>
-    <div class="gg-blog-hero-img">
-      <img src="{og_image_url}" alt="{esc(name)} race preview" width="1200" height="630" loading="eager">
-    </div>
-    {why_section}
-    {real_talk_section}
-    {course_section}
-    {stats_section}
-    {training_section}
-    {history_section}
-    {reg_section}
+    sections = [s for s in (
+        why_section, real_talk_section, course_section, stats_section,
+        training_section, history_section, reg_section,
+    ) if s]
 
+    # Race-specific CTAs: same URLs and copy as before (no data-cta; the
+    # plan-intent script still tracks the prep-kit link by its href).
+    cta_block = f"""
     <div class="gg-blog-cta">
-      <a href="{profile_url}">Full Race Profile &rarr;</a>
-      <a href="{prep_kit_url}">Free Prep Kit &rarr;</a>
-    </div>
+      <a class="btn" href="{profile_url}">Full Race Profile <span class="chev" aria-hidden="true">&rsaquo;</span></a>
+      <a class="btn alt" href="{prep_kit_url}">Free Prep Kit <span class="chev" aria-hidden="true">&rsaquo;</span></a>
+    </div>"""
 
-    <div class="gg-blog-footer">
-      <a href="{SITE_URL}">Gravel God</a> &middot; {article_date_str}
-    </div>
-  </div>
-{get_consent_banner_html()}
-{get_plan_intent_tracking_script()}
-</body>
-</html>"""
+    kicker = " · ".join(
+        str(part) for part in (f"Tier {tier} {tier_name}", location, date_str) if part
+    )
+    meta = ArticleMeta(
+        slug=slug,
+        canonical_url=f"{SITE_URL}/blog/{slug}/",
+        title=f"{name} Race Preview — Gravel God",
+        description=(
+            f"Everything you need to know about {name}: course preview, key stats, "
+            f"training tips, and registration info. Tier {tier} {tier_name} rated {score}/100."
+        ),
+        og_description=f"Tier {tier} {tier_name} gravel race. {location}. Rated {score}/100.",
+        headline=f"{name} Race Preview",
+        date_published=preview_date,
+        kicker=kicker,
+        dek=f"Rated {score} / 100",
+        robots="noindex, follow",
+        hero=HeroImage(
+            src=og_image_url, alt=f"{name} race preview",
+            width=1200, height=630, layout="wide",
+        ),
+        og_image=OgImage(url=og_image_url, width=1200, height=630),
+        track_article_events=False,
+        show_read_time=False,
+        nav_active=None,
+    )
+    page_html = render_editorial_page(
+        meta,
+        "\n".join(sections) + cta_block,
+        ladder=False,
+        contents=len(sections) >= 3,
+        extra_css=PREVIEW_CSS,
+        extra_body_end=get_plan_intent_tracking_script(),
+    )
+    return _tag_hero(page_html)
 
+
+# Class hooks the blog validator and index tooling key on. The shell has no
+# class parameter for the hero, so add them to its markup and fail loudly if
+# that markup ever changes.
+_HERO_HOOKS = (
+    ('<div class="frame hero wide">', '<div class="frame hero wide gg-blog-hero">'),
+    ('<figure class="hero-img">', '<figure class="hero-img gg-blog-hero-img">'),
+)
+
+
+def _tag_hero(page_html):
+    for old, new in _HERO_HOOKS:
+        if page_html.count(old) != 1:
+            raise RuntimeError(f"editorial shell hero markup changed: {old!r} not found once")
+        page_html = page_html.replace(old, new, 1)
     return page_html
+
+
+# Preview-only blocks on top of the shell: the stat row and the race CTAs.
+PREVIEW_CSS = """
+.hero h1{overflow-wrap:break-word;hyphens:auto}
+.article .gg-blog-section{overflow-wrap:break-word}
+.article .gg-blog-section a{color:var(--teal-ink);text-decoration:underline;text-underline-offset:3px;text-decoration-thickness:2px}
+.gg-blog-stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:6px;margin:0 0 1.05em}
+.gg-blog-stat{background:var(--sand);padding:16px 18px;min-width:0}
+.gg-blog-stat-val{display:block;font:700 24px/1.2 var(--mono);color:var(--ink);overflow-wrap:anywhere}
+.gg-blog-stat-label{display:block;font:700 12px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--ink3);margin-top:6px}
+.gg-blog-stat.wide{grid-column:1/-1}
+.gg-blog-stat.wide .gg-blog-stat-val{font:400 19px/1.45 var(--serif)}
+.gg-blog-cta{display:flex;flex-wrap:wrap;gap:10px;margin:56px 0 0}
+.gg-blog-cta .btn.alt{background:var(--ink)}
+.gg-blog-cta .btn.alt:hover{background:#000}
+@media (max-width:640px){
+  .gg-blog-stat-val{font-size:21px}
+  .gg-blog-stat.wide .gg-blog-stat-val{font-size:17px}
+}
+"""
 
 
 def main():

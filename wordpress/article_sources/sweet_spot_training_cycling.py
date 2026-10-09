@@ -67,7 +67,7 @@ FAQ_LD = {
         {
             "@type": "Question",
             "name": "Is polarized training better than Sweet Spot?",
-            "acceptedAnswer": {"@type": "Answer", "text": "Yes. Multiple studies show polarized training (75-90% below LT1, 15-20% above LT2) consistently outperforms threshold-heavy training. Neal et al. (2013) showed 8% peak power gains vs 3% for threshold. Stöggl and Sperlich (2014) found polarized improved VO2peak by 11.7%. The 2025 network meta-analysis by Rosenblat and Seiler confirmed threshold-heavy approaches ranked worst for competitive athletes."},
+            "acceptedAnswer": {"@type": "Answer", "text": "Yes. Multiple studies show polarized training (75-90% below LT1, 15-20% above LT2) consistently outperforms threshold-heavy training. Neal et al. (2013) showed 8% peak power gains vs 3% for threshold. Stöggl and Sperlich (2014) found polarized improved VO2peak by 11.7%. The 2025 network meta-analysis by Rosenblat and Seiler found no significant overall difference between intensity distributions, but favored polarized training for competitive athletes."},
         },
         {
             "@type": "Question",
@@ -112,7 +112,7 @@ IN_SHORT = (
           "#fig-drift", "See the 250 W case study · §03", 2),
     Claim("Above LT1, your nervous system bills sweet spot like threshold.",
           "#fig-recovery", "See recovery cost vs intensity · §05", 4),
-    Claim("Polarized training beat threshold-heavy training in study after study, including a 2025 meta-analysis.",
+    Claim("Polarized beat threshold-heavy training in head-to-head trials. A 2025 meta-analysis found no overall winner, but favored polarized for competitive athletes.",
           "#fig-polarized", "See the studies · §07", 6),
 )
 

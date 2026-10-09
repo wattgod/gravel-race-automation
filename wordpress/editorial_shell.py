@@ -54,8 +54,10 @@ is trusted HTML the caller already escaped. Its contract:
 dot next to a claim fills once the reader has passed h2 number `section`
 (0-based). `ladder`: True = default lead line, a str = custom lead (plain
 text), False = no ladder. Ladder prices and claims render from
-data/pricing.json; never type a price into a generator. `contents=False`
-hides the contents list (very short pages). Ladder buttons carry
+data/pricing.json; never type a price into a generator. The contents list
+(rail + sticky bar) renders only when the body has at least
+MIN_CONTENTS_HEADINGS (2) contents headings; `contents=False` hides it
+regardless. Ladder buttons carry
 data-cta="custom_plan|season_plan|coaching", so a page that also includes
 blog_tracking.get_plan_intent_tracking_script() (pass it in extra_body_end)
 gets the canonical cta_click for them.
@@ -64,8 +66,21 @@ gets the canonical cta_click for them.
 byline; previews, recaps and roundups that aren't read top to bottom pass
 False.
 
+`ArticleMeta.byline_date`: None (default) shows date_display in the byline,
+"" hides the date, any other string is shown as given.
+
 `HeroImage.layout`: "portrait" (default) sits in the right margin beside the
 headline; "wide" runs the full reading column under it (1200x630 OG cards).
+
+Class hooks: `ArticleMeta.hero_class` adds classes to the hero frame
+(`<div class="frame hero ...">`), `HeroImage.figure_class` to the hero
+`<figure class="hero-img ...">`; blog pages pass "gg-blog-hero" and
+"gg-blog-hero-img". Plain class names only (ValueError otherwise).
+
+Validator hooks: HERO_FRAME_CLASS starts every hero frame's class list and
+SHELL_BODY_SCRIPT_MARKERS identify the shell's own body scripts (header
+hamburger JS, contents scrollspy); scripts/validate_blog_content.py reads
+both from here.
 
 Header: shared_header.get_site_header_html(meta.nav_active) and its JS, so
 the nav and its dropdowns are single-sourced with the rest of the site; the
@@ -138,10 +153,14 @@ class HeroImage:
     width: int
     height: int
     layout: HeroLayout = "portrait"
+    # Extra classes on the <figure class="hero-img ...">, e.g. "gg-blog-hero-img"
+    # (the hook the blog validator and index tooling key on).
+    figure_class: str = ""
 
     def __post_init__(self) -> None:
         if self.layout not in ("portrait", "wide"):
             raise ValueError(f"HeroImage.layout must be 'portrait' or 'wide', not {self.layout!r}")
+        _check_class_list(self.figure_class, "HeroImage.figure_class")
 
 
 @dataclass(frozen=True)
@@ -188,6 +207,15 @@ class ArticleMeta:
     # "N min read" in the hero byline. Articles keep it; previews, recaps
     # and roundups (scanned, not read through) can turn it off.
     show_read_time: bool = True
+    # Extra classes on the hero frame (<div class="frame hero ...">), e.g.
+    # "gg-blog-hero" for blog previews and recaps.
+    hero_class: str = ""
+    # The date in the hero byline. None (default) = date_display (e.g.
+    # "March 26, 2026"); "" = no date; any other string is shown as given.
+    byline_date: str | None = None
+
+    def __post_init__(self) -> None:
+        _check_class_list(self.hero_class, "ArticleMeta.hero_class")
 
     @property
     def is_indexable(self) -> bool:
@@ -203,6 +231,17 @@ class ArticleMeta:
     def date_display(self) -> str:
         d = self.date_published
         return f"{d:%B} {d.day}, {d.year}"
+
+    @property
+    def byline_date_text(self) -> str:
+        """The byline's date text: byline_date if given, else date_display."""
+        return self.date_display if self.byline_date is None else self.byline_date
+
+
+def _check_class_list(value: str, name: str) -> None:
+    """Extra-class fields take plain class names separated by spaces."""
+    if not re.fullmatch(r"[A-Za-z0-9_ -]*", value):
+        raise ValueError(f"{name} must be class names separated by spaces, not {value!r}")
 
 
 # ── Helpers ───────────────────────────────────────────────────
@@ -554,24 +593,37 @@ def render_footer() -> str:
 </footer>"""
 
 
+# Every hero frame's class list starts with this (render_hero); the blog
+# validator recognises shell pages by it.
+HERO_FRAME_CLASS = "frame hero"
+
+
+def _join_classes(*parts: str) -> str:
+    return " ".join(p for part in parts for p in part.split())
+
+
 def render_hero(meta: ArticleMeta, minutes: int) -> str:
     kick = f'      <p class="kick-top">{esc(meta.kicker)}</p>\n' if meta.kicker else ""
     dek = f'      <p class="dek">{esc(meta.dek)}</p>\n' if meta.dek else ""
-    by = f"{esc(meta.byline)} &middot; {esc(meta.date_display)}"
+    by = esc(meta.byline)
+    if meta.byline_date_text:
+        by += f" &middot; {esc(meta.byline_date_text)}"
     if meta.show_read_time:
         by += f" &middot; {minutes} min read"
     img = ""
-    cls = "frame hero"
+    cls = HERO_FRAME_CLASS
     if meta.hero:
         h = meta.hero
         if h.layout == "wide":
             cls += " wide"
+        fig_cls = _join_classes("hero-img", h.figure_class)
         img = (
-            f'\n    <figure class="hero-img"><img src="{esc(h.src)}" alt="{esc(h.alt)}" '
+            f'\n    <figure class="{fig_cls}"><img src="{esc(h.src)}" alt="{esc(h.alt)}" '
             f'width="{h.width}" height="{h.height}" loading="eager"></figure>'
         )
     else:
         cls += " no-img"
+    cls = _join_classes(cls, meta.hero_class)
     return (
         f'  <div class="{cls}">\n    <div class="txt">\n{kick}'
         f"      <h1>{esc(meta.headline)}</h1>\n{dek}"
@@ -668,6 +720,15 @@ def render_article_events_js(slug: str) -> str:
   </script>"""
 
 
+# Substrings that identify the shell's own body <script>s, so a validator
+# can allow exactly these (tests pin each to one script of a rendered page).
+HEADER_JS_MARKER = "getElementById('gg-hamburger')"  # shared_header.get_site_header_js()
+SCROLLSPY_JS_MARKER = "h2[data-toc]"  # SHELL_JS
+SHELL_BODY_SCRIPT_MARKERS = (HEADER_JS_MARKER, SCROLLSPY_JS_MARKER)
+
+# Fewer contents headings than this and the Contents list + bar are left out.
+MIN_CONTENTS_HEADINGS = 2
+
 # Contents scrollspy: read / current / ahead dots, the phone bar's label,
 # and the "In short" dots. Progressive enhancement only: everything is
 # visible and every link works without it.
@@ -734,7 +795,7 @@ def render_editorial_page(
         body = body.replace(LADDER_MARKER, "")
     body, toc = add_heading_ids(body)
 
-    if contents and toc:
+    if contents and len(toc) >= MIN_CONTENTS_HEADINGS:
         toc_html = render_contents(toc)
         toc_bar = f"""  <details class="toc-m" id="tocm">
     <summary><span class="mini" id="mini" aria-hidden="true"></span><span class="now" id="now">Intro</span><span class="tog">Contents</span></summary>
@@ -860,7 +921,7 @@ a{color:inherit}
 .hero{display:grid;grid-template-columns:minmax(0,1fr) 190px;column-gap:28px;padding-top:36px;padding-bottom:28px;align-items:start}
 .hero.no-img{grid-template-columns:minmax(0,1fr)}
 .kick-top{font:700 13px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--teal-ink);margin:0 0 14px}
-h1{font:700 60px/1.0 var(--serif);letter-spacing:-.025em;margin:0 0 16px;font-optical-sizing:auto;text-wrap:balance}
+h1{font:700 60px/1.0 var(--serif);letter-spacing:-.025em;margin:0 0 16px;font-optical-sizing:auto;text-wrap:balance;overflow-wrap:break-word}
 .dek{font:italic 400 22px/1.4 var(--serif);color:var(--ink2);margin:0 0 16px;max-width:36em}
 .by{font:500 14px var(--mono);letter-spacing:.02em;color:var(--ink2);margin:0}
 .hero-img{margin:0}

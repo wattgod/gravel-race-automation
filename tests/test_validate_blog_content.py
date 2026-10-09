@@ -6,6 +6,7 @@ real repr strings and don't false-positive on normal HTML content.
 
 import re
 import sys
+from datetime import date
 from pathlib import Path
 
 import pytest
@@ -13,6 +14,7 @@ import pytest
 sys.path.insert(0, str(Path(__file__).parent.parent / "scripts"))
 
 from validate_blog_content import (
+    EXPECTED_BODY_SCRIPT_MARKERS,
     PYTHON_REPR_PATTERNS,
     TAKEAWAY_BAD_PATTERNS,
     Validator,
@@ -21,6 +23,7 @@ from validate_blog_content import (
     check_no_python_repr,
     check_t4_content_quality,
     check_takeaway_quality,
+    has_hero_section,
 )
 
 # Single source of truth — imported from the validator, not duplicated
@@ -51,6 +54,66 @@ class TestExpectedBodyScripts:
         </body></html>"""
         assert not body_scripts_are_expected(arbitrary)
         assert not body_scripts_are_expected(duplicate)
+
+
+def _shell_page(**kw):
+    import editorial_shell as es  # scripts/validate_blog_content put wordpress/ on sys.path
+    from blog_tracking import get_plan_intent_tracking_script
+
+    meta = es.ArticleMeta(
+        slug="unbound-200", canonical_url="https://gravelgodcycling.com/blog/unbound-200/",
+        title="Unbound 200 Race Preview", description="d", headline="Unbound 200 Race Preview",
+        date_published=date(2026, 5, 1), robots="noindex, follow", **kw,
+    )
+    body = (
+        '<section class="gg-blog-section"><h2>One</h2><p>x</p></section>'
+        '<section class="gg-blog-section"><h2>Two</h2><p>y</p></section>'
+    )
+    return es.render_editorial_page(
+        meta, body, ladder=False, extra_body_end=get_plan_intent_tracking_script()
+    )
+
+
+class TestShellPages:
+    """Pages rendered by wordpress/editorial_shell.py (blog previews, recaps, roundups)."""
+
+    def test_shell_body_scripts_are_allowed(self):
+        assert body_scripts_are_expected(_shell_page())
+
+    def test_shell_markers_are_derived_from_the_shell(self):
+        import editorial_shell as es
+
+        for marker in es.SHELL_BODY_SCRIPT_MARKERS:
+            assert marker in EXPECTED_BODY_SCRIPT_MARKERS
+
+    def test_extra_or_duplicate_script_on_shell_page_fails(self):
+        page = _shell_page()
+        assert not body_scripts_are_expected(page.replace("</body>", "<script>alert(1)</script></body>"))
+        dup = re.search(r"<script>[^<]*getElementById\('gg-hamburger'\).*?</script>", page, re.S).group(0)
+        assert not body_scripts_are_expected(page.replace("</body>", dup + "</body>"))
+
+    def test_shell_hero_is_a_hero_section(self):
+        assert has_hero_section(_shell_page())  # no image: frame hero no-img
+        assert has_hero_section('<div class="frame hero">')
+        assert has_hero_section('<div class="frame hero wide gg-blog-hero">')
+
+    def test_legacy_heroes_still_count(self):
+        assert has_hero_section('<section class="gg-blog-hero">')
+        assert has_hero_section('<header class="gg-roundup-hero">')
+
+    def test_no_hero_fails(self):
+        assert not has_hero_section('<div class="frame body-row"><article></article></div>')
+        assert not has_hero_section('<div class="frame heroic">')
+
+    def test_shell_page_passes_html_quality_checks(self, tmp_path, monkeypatch):
+        import validate_blog_content as vbc
+
+        page = _shell_page().replace("</main>", '<div class="gg-blog-cta"></div></main>')
+        (tmp_path / "unbound-200.html").write_text(page)
+        monkeypatch.setattr(vbc, "BLOG_DIR", tmp_path)
+        v = Validator()
+        vbc.check_html_quality(v)
+        assert v.failed == 0
 
 
 # ── True positives: these MUST be caught ──

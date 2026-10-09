@@ -11,14 +11,32 @@ week, cross-posted to Substack, is the growth engine.
 2. Write in Matti's voice (`/voice` skill): gut-punch open, inversion-turn,
    math as weapon, ≤1 profanity, concession section ("who this ISN'T for"),
    end with weight. 1,200–1,600 words.
-3. Build from the proven shell: clone the head/tail of an existing
-   `wordpress/articles/<slug>/index.html` (GA4, font-face, scroll-depth events,
-   CTA/subscribe blocks), swap slug/meta/date/body. No og:image needed.
-   `wordpress/articles/` is the tracked source of truth (snapshotted from the
-   server 2026-10-08); `wordpress/output/` is gitignored, so don't author there.
+3. Build on the editorial shell (`wordpress/editorial_shell.py`; the module
+   docstring is the contract). Don't hand-copy another article's HTML: that
+   is how the training-app page shipped with Sweet Spot's tail and JSON-LD.
+   - Body: `wordpress/article_sources/<slug>.body.html`, a run of
+     `<section class="gg-blog-section">` blocks (h2 per section; references
+     in `gg-blog-section gg-references`). Optional `<!--GG:IN_SHORT-->` and
+     `<!--GG:LADDER-->` markers.
+   - Meta + extras: `wordpress/article_sources/<slug_with_underscores>.py`
+     with `META`, `render()` and `main()` (copy
+     `your_training_app_doesnt_know_your_race_exists.py` for a plain essay,
+     `sweet_spot_training_cycling.py` for figures + "In short").
+   - Regenerate: `python3 wordpress/article_sources/<module>.py` writes
+     `wordpress/articles/<slug>/index.html`. Add the module to
+     `ARTICLE_SOURCES` in `tests/test_editorial_shell.py`.
+   `wordpress/articles/` is the tracked, generated output; `wordpress/output/`
+   is gitignored, so don't author there.
+   **Regenerate every committed article** (run each module in
+   `wordpress/article_sources/`) after changing any of: the shell,
+   `data/pricing.json` (ladder prices), `brand_tokens` snippets (GA4, fonts,
+   favicon, preload), the consent banner (`cookie_consent.py`), or the
+   shared header/logo (`shared_header.py`). The articles embed all of these,
+   and `test_committed_article_html_is_fresh` fails until they're rebuilt.
 4. Checks: `slop_rules.check_text` = zero issues; then
-   `pytest tests/test_article_infrastructure.py` (54 tests; not on main as of
-   2026-10-08 — the file needs restoring).
+   `pytest tests/test_editorial_shell.py` (freshness, contents, ladder
+   pricing, analytics). `tests/test_article_infrastructure.py` is not on
+   main as of 2026-10-08.
 5. Entry in `web/blog-index.json` (category "article"), regen
    `generate_articles_index.py`.
 6. Commit `wordpress/articles/<slug>/` first, then deploy: SCP it to
@@ -57,4 +75,4 @@ week, cross-posted to Substack, is the growth engine.
   composite — keep composites obviously archetypal (field-guide framing).
 - Concession section is mandatory: name who shouldn't buy/believe.
 - Free-first: the article must be fully useful with zero purchase.
-- One CTA voice: the existing shell's CTA/subscribe blocks; no extra pitches.
+- One CTA voice: the shell's ladder + subscribe blocks; no extra pitches.

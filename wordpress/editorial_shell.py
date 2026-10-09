@@ -24,7 +24,7 @@ API for generators (articles, and later blog preview / recap / roundup)
         kicker="Tier 1 · Emporia, KS",                        # mono line above the h1
         dek="...",                                            # italic line under the h1
         robots="noindex, follow",                             # previews are noindex
-        hero=HeroImage(src=".../og.jpg", alt="...", width=1200, height=630),
+        hero=HeroImage(src=".../og.jpg", alt="...", width=1200, height=630, layout="wide"),
         og_image=OgImage(url=".../og.jpg", width=1200, height=630),
         json_ld=({"@context": "https://schema.org", ...},),   # dicts or raw JSON strings
     )
@@ -33,10 +33,13 @@ API for generators (articles, and later blog preview / recap / roundup)
 All ArticleMeta strings are PLAIN TEXT; the shell escapes them. `body_html`
 is trusted HTML the caller already escaped. Its contract:
 
-- A run of `<section class="gg-blog-section">` blocks. Each `<h2>` becomes a
-  Contents entry and is numbered 01, 02, ... by CSS; h2/h3 get stable ids
-  (slug of their text) unless they already have one. A section with class
-  `gg-references` is styled as sources and left out of Contents/numbering.
+- A run of section blocks: `<section class="gg-blog-section">` or
+  `<div class="gg-blog-section">` (roundups). One rule (see outline()):
+  every h2 inside a section and not inside a `gg-references` element is a
+  contents heading. It gets a Contents entry, a `data-toc` attribute, the
+  01, 02, ... number (CSS) and a scrollspy dot (JS). h2/h3 get stable ids
+  (slug of their text) unless they already have one. The `gg-references`
+  block is styled as sources.
 - `<!--GG:IN_SHORT-->` places the "In short" list; without the marker it
   goes first. `<!--GG:LADDER-->` places the ladder; without it, the ladder
   goes right before the references section (or at the end).
@@ -52,14 +55,25 @@ dot next to a claim fills once the reader has passed h2 number `section`
 (0-based). `ladder`: True = default lead line, a str = custom lead (plain
 text), False = no ladder. Ladder prices and claims render from
 data/pricing.json; never type a price into a generator. `contents=False`
-hides the contents list (very short pages).
+hides the contents list (very short pages). Ladder buttons carry
+data-cta="custom_plan|season_plan|coaching", so a page that also includes
+blog_tracking.get_plan_intent_tracking_script() (pass it in extra_body_end)
+gets the canonical cta_click for them.
+
+`HeroImage.layout`: "portrait" (default) sits in the right margin beside the
+headline; "wide" runs the full reading column under it (1200x630 OG cards).
+
+Header: shared_header.get_site_header_html(meta.nav_active) and its JS, so
+the nav and its dropdowns are single-sourced with the rest of the site; the
+shell only restyles it with CSS and adds a Subscribe button.
 
 Analytics: get_ga4_head_snippet() (consent defaults + GA4) in the head, the
-consent banner + legal footer at the end of the body, and, when
-meta.track_article_events is true, the article events: article_scroll_depth
-(25/50/75/100), article_deep_read (75%+ only, the funnel metric) and
-article_cta_click for any element with data-event="article_cta_click"
-(ladder buttons, subscribe links, header subscribe).
+consent banner + legal footer at the end of the body, and the article
+events when meta.tracks_article_events: article_scroll_depth (25/50/75/100),
+article_deep_read (75%+ only, the funnel metric) and article_cta_click for
+any element with data-event="article_cta_click". track_article_events=None
+(default) means on only when robots is indexable, so noindex blog pages never
+pollute the article funnel; True/False forces it.
 """
 from __future__ import annotations
 
@@ -68,7 +82,8 @@ import json
 import re
 from dataclasses import dataclass, field
 from datetime import date
-from typing import Sequence
+from html.parser import HTMLParser
+from typing import Literal, Sequence
 
 import pricing
 from brand_tokens import (
@@ -78,7 +93,7 @@ from brand_tokens import (
     get_preload_hints,
 )
 from cookie_consent import get_consent_banner_html
-from shared_header import GG_LOGO_SVG
+from shared_header import get_site_header_html, get_site_header_js
 
 SITE_URL = "https://gravelgodcycling.com"
 SUBSTACK_URL = "https://gravelgodcycling.substack.com"
@@ -106,12 +121,24 @@ COACHING_URL = "/coaching/"
 # ── Data types ────────────────────────────────────────────────
 
 
+HeroLayout = Literal["portrait", "wide"]
+
+
 @dataclass(frozen=True)
 class HeroImage:
+    """The hero picture. layout="portrait" (default) sits in the right margin
+    beside the headline; layout="wide" runs the full reading column under the
+    headline, for 1200x630 OG-style images (blog previews, recaps)."""
+
     src: str
     alt: str
     width: int
     height: int
+    layout: HeroLayout = "portrait"
+
+    def __post_init__(self) -> None:
+        if self.layout not in ("portrait", "wide"):
+            raise ValueError(f"HeroImage.layout must be 'portrait' or 'wide', not {self.layout!r}")
 
 
 @dataclass(frozen=True)
@@ -149,7 +176,22 @@ class ArticleMeta:
     og_image: OgImage | None = None
     hero: HeroImage | None = None
     json_ld: Sequence[dict | str] = field(default_factory=tuple)
-    track_article_events: bool = True
+    # None = on only for indexable pages, so noindex blog previews/recaps
+    # never fire article_* events. Pass True/False to force it.
+    track_article_events: bool | None = None
+    # Which shared-header item is current: "races", "products", "services",
+    # "articles", "about" or None.
+    nav_active: str | None = "articles"
+
+    @property
+    def is_indexable(self) -> bool:
+        return "noindex" not in self.robots.lower()
+
+    @property
+    def tracks_article_events(self) -> bool:
+        if self.track_article_events is None:
+            return self.is_indexable
+        return self.track_article_events
 
     @property
     def date_display(self) -> str:
@@ -183,32 +225,101 @@ def reading_minutes(body_html: str) -> int:
     return max(1, round(word_count(body_html) / WORDS_PER_MINUTE))
 
 
-def add_heading_ids(body_html: str) -> tuple[str, list[tuple[str, str]]]:
-    """Give every h2/h3 a stable id; return (html, contents).
+# ── Sections: the one rule ────────────────────────────────────
+# A *section* is any <section> or <div> whose class list has gg-blog-section
+# (articles and previews use <section>, roundups use <div>). Anything inside
+# an element whose class list has gg-references is the *references* block.
+# A *contents heading* is an h2 inside a section and not inside references.
+# Contents entries, the 01/02/... numbers (CSS: h2[data-toc]) and the
+# scrollspy (JS: h2[data-toc]) all follow from that one decision, made here.
 
-    contents = [(id, label_html)] for each h2 outside the references section,
-    in document order. Duplicate slugs get -2, -3 ...
+_CLASS_RE = re.compile(r"[^\s]+")
+
+
+def _classes(attrs: list[tuple[str, str | None]]) -> set[str]:
+    for name, value in attrs:
+        if name == "class" and value:
+            return set(_CLASS_RE.findall(value))
+    return set()
+
+
+@dataclass(frozen=True)
+class Outline:
+    references_start: int | None  # offset of the first references block
+    toc_h2_starts: frozenset[int]  # offsets of the "<h2" of contents headings
+
+
+class _OutlineParser(HTMLParser):
+    def __init__(self, text: str) -> None:
+        super().__init__(convert_charrefs=True)
+        self._line_starts = [0]
+        for m in re.finditer("\n", text):
+            self._line_starts.append(m.end())
+        self._stack: list[tuple[str, bool, bool]] = []  # (tag, is_section, is_refs)
+        self.references_start: int | None = None
+        self.toc_h2_starts: set[int] = set()
+
+    def _offset(self) -> int:
+        line, col = self.getpos()
+        return self._line_starts[line - 1] + col
+
+    def handle_starttag(self, tag, attrs):
+        if tag in ("section", "div"):
+            cls = _classes(attrs)
+            refs = "gg-references" in cls
+            if refs and self.references_start is None and not any(r for _, _, r in self._stack):
+                self.references_start = self._offset()
+            self._stack.append((tag, "gg-blog-section" in cls, refs))
+        elif tag == "h2":
+            in_section = any(sec for _, sec, _ in self._stack)
+            in_refs = any(r for _, _, r in self._stack)
+            if in_section and not in_refs:
+                self.toc_h2_starts.add(self._offset())
+
+    def handle_endtag(self, tag):
+        if tag in ("section", "div"):
+            for i in range(len(self._stack) - 1, -1, -1):
+                if self._stack[i][0] == tag:
+                    del self._stack[i:]
+                    break
+
+
+def outline(body_html: str) -> Outline:
+    """Apply the section rule to body_html (see the comment above)."""
+    parser = _OutlineParser(body_html)
+    parser.feed(body_html)
+    parser.close()
+    return Outline(parser.references_start, frozenset(parser.toc_h2_starts))
+
+
+def add_heading_ids(body_html: str) -> tuple[str, list[tuple[str, str]]]:
+    """Give every h2/h3 a stable id and mark contents headings; return (html, contents).
+
+    contents = [(id, label_html)] for each contents heading (see the section
+    rule), in document order; those h2s also get a data-toc attribute, which
+    the CSS numbers and the scrollspy follows. Duplicate slugs get -2, -3 ...
     """
     used: set[str] = set(re.findall(r'\bid="([^"]+)"', body_html))
+    toc_starts = outline(body_html).toc_h2_starts
     contents: list[tuple[str, str]] = []
-    ref_start = body_html.find("gg-references")
 
     def add(m: re.Match) -> str:
         tag, attrs, inner = m.group(1), m.group(2), m.group(3)
         idm = re.search(r'\bid="([^"]+)"', attrs)
         if idm:
-            sid, out = idm.group(1), m.group(0)
+            sid = idm.group(1)
         else:
             base = _slug(inner) or tag
             sid, n = base, 2
             while sid in used:
                 sid, n = f"{base}-{n}", n + 1
             used.add(sid)
-            out = f'<{tag}{attrs} id="{sid}">{inner}</{tag}>'
-        in_refs = ref_start != -1 and m.start() > ref_start
-        if tag == "h2" and not in_refs:
+            attrs = f'{attrs} id="{sid}"'
+        if tag == "h2" and m.start() in toc_starts:
             contents.append((sid, _strip_tags(inner).strip()))
-        return out
+            if "data-toc" not in attrs:
+                attrs += " data-toc"
+        return f"<{tag}{attrs}>{inner}</{tag}>"
 
     out = re.sub(r"<(h2|h3)(\b[^>]*)>(.*?)</\1>", add, body_html, flags=re.S)
     return out, contents
@@ -223,10 +334,13 @@ def _cta_attrs(label: str) -> str:
     return f' data-event="article_cta_click" data-label="{esc(label)}"'
 
 
-def _btn(href: str, text: str, label: str, extra_class: str = "") -> str:
+def _btn(href: str, text: str, label: str, extra_class: str = "", *, cta: str | None = None) -> str:
+    """A chamfered button. cta= adds data-cta, which blog_tracking's plan-intent
+    script (a[data-cta][href*=...]) picks up as the canonical cta_click."""
     cls = f"btn {extra_class}".strip()
+    cta_attr = f' data-cta="{esc(cta)}"' if cta else ""
     return (
-        f'<a class="{cls}" href="{esc(href)}"{_cta_attrs(label)}>{esc(text)} '
+        f'<a class="{cls}" href="{esc(href)}"{_cta_attrs(label)}{cta_attr}>{esc(text)} '
         '<span class="chev" aria-hidden="true">&rsaquo;</span></a>'
     )
 
@@ -309,7 +423,7 @@ def render_ladder(lead: str = DEFAULT_LADDER_LEAD) -> str:
 
     pair_html = "\n".join(
         f'    <div class="rung">\n      {rung_text(o)}\n'
-        f'      {_btn(o["href"], o["button"], o["key"])}\n    </div>'
+        f'      {_btn(o["href"], o["button"], o["key"], cta=o["key"])}\n    </div>'
         for o in pair
     )
     return (
@@ -318,7 +432,7 @@ def render_ladder(lead: str = DEFAULT_LADDER_LEAD) -> str:
         f'  <p class="lead">{esc(lead)}</p>\n'
         '  <div class="rung main">\n'
         f'    <div>\n      {rung_text(main)}\n    </div>\n'
-        f'    {_btn(main["href"], main["button"], main["key"])}\n'
+        f'    {_btn(main["href"], main["button"], main["key"], cta=main["key"])}\n'
         "  </div>\n"
         f'  <div class="pair">\n{pair_html}\n  </div>\n'
         "</aside>\n</div>"
@@ -336,27 +450,19 @@ def render_subscribe_callout(text_html: str, link_text: str, sub_name_html: str,
     )
 
 
-def _logo() -> str:
-    return GG_LOGO_SVG.replace('class="gg-logo-mark"', 'class="gg-logo" fill="currentColor"', 1)
+_HEADER_SUBSCRIBE_ANCHOR = '<button class="gg-hamburger"'
 
 
-def render_header() -> str:
-    nav = "".join(f'<a href="{href}">{label}</a>' for href, label in NAV_LINKS)
+def render_header(active: str | None = "articles") -> str:
+    """The site's shared header (shared_header.get_site_header_html), so nav
+    links and dropdowns stay single-sourced; the shell restyles it with CSS
+    (HEADER_CSS) and adds its Subscribe button beside the nav."""
+    header = get_site_header_html(active)
     sub = (
-        f'<a class="btn" href="{SUBSTACK_URL}"{_cta_attrs("substack_header")}>Subscribe '
-        '<span class="chev" aria-hidden="true">&rsaquo;</span></a>'
+        f'<a class="btn gg-hdr-sub" href="{SUBSTACK_URL}"{_cta_attrs("substack_header")}>Subscribe '
+        '<span class="chev" aria-hidden="true">&rsaquo;</span></a>\n    '
     )
-    return f"""<header class="site">
-  <div class="in">
-    <a class="brand" href="/">{_logo()}<span>Gravel God</span></a>
-    <nav class="nav" aria-label="Site">{nav}</nav>
-    {sub}
-    <details class="menu">
-      <summary>MENU</summary>
-      <div class="drop">{nav}<a href="{SUBSTACK_URL}">Subscribe &rsaquo;</a></div>
-    </details>
-  </div>
-</header>"""
+    return header.replace(_HEADER_SUBSCRIBE_ANCHOR, sub + _HEADER_SUBSCRIBE_ANCHOR, 1)
 
 
 def render_footer() -> str:
@@ -383,6 +489,8 @@ def render_hero(meta: ArticleMeta, minutes: int) -> str:
     cls = "frame hero"
     if meta.hero:
         h = meta.hero
+        if h.layout == "wide":
+            cls += " wide"
         img = (
             f'\n    <figure class="hero-img"><img src="{esc(h.src)}" alt="{esc(h.alt)}" '
             f'width="{h.width}" height="{h.height}" loading="eager"></figure>'
@@ -490,7 +598,7 @@ def render_article_events_js(slug: str) -> str:
 # visible and every link works without it.
 SHELL_JS = """<script>
 (function(){
-  var heads=[].slice.call(document.querySelectorAll('#article section.gg-blog-section:not(.gg-references) h2'));
+  var heads=[].slice.call(document.querySelectorAll('#article h2[data-toc]'));
   var lists=[].slice.call(document.querySelectorAll('ol.toc')).map(function(ol){return [].slice.call(ol.children);});
   var claims=[].slice.call(document.querySelectorAll('.inshort li'));
   var now=document.getElementById('now'), mini=document.getElementById('mini');
@@ -516,7 +624,6 @@ SHELL_JS = """<script>
 
 IN_SHORT_MARKER = "<!--GG:IN_SHORT-->"
 LADDER_MARKER = "<!--GG:LADDER-->"
-_REFERENCES_RE = re.compile(r'<section class="gg-blog-section gg-references"')
 
 
 def _place(body: str, marker: str, block: str, *, default: str) -> str:
@@ -524,9 +631,9 @@ def _place(body: str, marker: str, block: str, *, default: str) -> str:
         return body.replace(marker, block, 1)
     if default == "start":
         return block + "\n" + body
-    m = _REFERENCES_RE.search(body)
-    if m:
-        return body[: m.start()] + block + "\n" + body[m.start():]
+    refs = outline(body).references_start
+    if refs is not None:
+        return body[:refs] + block + "\n" + body[refs:]
     return body + "\n" + block
 
 
@@ -569,14 +676,14 @@ def render_editorial_page(
     else:
         toc_bar = rail = ""
 
-    events = render_article_events_js(meta.slug) if meta.track_article_events else ""
+    events = render_article_events_js(meta.slug) if meta.tracks_article_events else ""
     return f"""<!DOCTYPE html>
 <html lang="en">
 <head>
 {render_head(meta, extra_head, extra_css)}
 </head>
 <body>
-{render_header()}
+{render_header(meta.nav_active)}
 
 <main>
 {render_hero(meta, minutes)}
@@ -590,6 +697,7 @@ def render_editorial_page(
 </main>
 
 {render_footer()}
+<script>{get_site_header_js()}</script>
 {SHELL_JS}
 {extra_body_end}
 {events}
@@ -638,20 +746,37 @@ a{color:inherit}
 .toc li.read a{color:var(--ink)}
 .toc li.cur a{color:var(--ink);font-weight:700}
 
-/* header */
-.site{background:var(--brown);color:var(--paper)}
-.site .in{max-width:1296px;margin:0 auto;padding:0 32px;height:64px;display:flex;align-items:center;gap:28px}
-.brand{display:flex;align-items:center;gap:10px;text-decoration:none;font:700 16px var(--mono);letter-spacing:.06em;text-transform:uppercase;white-space:nowrap}
-.gg-logo{height:34px;width:auto;display:block}
-.nav{display:flex;gap:22px;margin-left:auto}
-.nav a{font:700 14px var(--mono);letter-spacing:.04em;text-transform:uppercase;text-decoration:none;color:var(--paper);padding:8px 0}
-.nav a:hover{text-decoration:underline;text-underline-offset:5px;text-decoration-thickness:3px}
-.site .btn{background:var(--teal)}
-.menu{display:none;position:relative;margin-left:auto}
-.menu summary{list-style:none;font:700 14px var(--mono);letter-spacing:.06em;color:var(--paper);padding:9px 12px;box-shadow:inset 0 0 0 2px var(--paper);cursor:pointer}
-.menu summary::-webkit-details-marker{display:none}
-.menu .drop{position:absolute;right:0;top:46px;background:var(--brown);padding:8px 0;min-width:230px;z-index:30;box-shadow:0 12px 32px rgba(0,0,0,.3)}
-.menu .drop a{display:block;padding:12px 18px;font:700 15px var(--mono);text-transform:uppercase;text-decoration:none;color:var(--paper)}
+/* header: shared_header.get_site_header_html(), restyled. Static (not
+   sticky) so the Contents bar owns the top edge while reading. */
+.gg-site-header{position:relative;z-index:40;background:var(--brown);color:var(--paper)}
+.gg-site-header-inner{max-width:1296px;margin:0 auto;padding:0 32px;height:64px;display:flex;align-items:center;gap:28px}
+.gg-site-header-logo{display:flex;align-items:center;color:var(--paper)}
+.gg-site-header-logo .gg-logo-mark{height:38px;width:auto;display:block;fill:currentColor}
+.gg-site-header-nav{display:flex;align-items:center;gap:22px;margin-left:auto;height:100%}
+.gg-site-header-item{position:relative;height:100%;display:flex;align-items:center}
+.gg-site-header-nav > a,.gg-site-header-item > a{font:700 14px var(--mono);letter-spacing:.04em;text-transform:uppercase;text-decoration:none;color:var(--paper);padding:8px 0}
+.gg-site-header-nav > a:hover,.gg-site-header-item > a:hover,.gg-site-header-nav a[aria-current="page"]{text-decoration:underline;text-underline-offset:5px;text-decoration-thickness:3px}
+.gg-site-header-dropdown{display:none;position:absolute;top:100%;left:-18px;min-width:240px;padding:8px 0;background:var(--brown);box-shadow:0 12px 32px rgba(0,0,0,.3);z-index:50}
+.gg-site-header-item:hover .gg-site-header-dropdown,.gg-site-header-item:focus-within .gg-site-header-dropdown{display:block}
+.gg-site-header-dropdown a{display:block;padding:10px 18px;font:700 13px var(--mono);letter-spacing:.03em;text-transform:uppercase;text-decoration:none;color:var(--paper)}
+.gg-site-header-dropdown a:hover{background:#2c231c;text-decoration:underline;text-underline-offset:4px}
+.gg-site-header .btn{background:var(--teal)}
+.gg-hamburger{display:none;margin-left:auto;background:none;border:0;cursor:pointer;width:48px;height:48px;padding:12px;flex-direction:column;justify-content:center;align-items:center;gap:5px;box-shadow:inset 0 0 0 2px var(--paper)}
+.gg-hamburger-bar{display:block;width:22px;height:2px;background:var(--paper);transition:transform .15s}
+.gg-hamburger.is-open .gg-hamburger-bar:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.gg-hamburger.is-open .gg-hamburger-bar:nth-child(2){opacity:0}
+.gg-hamburger.is-open .gg-hamburger-bar:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.gg-mobile-nav{display:none;flex-direction:column;padding:0 32px 14px;background:var(--brown)}
+.gg-mobile-nav.is-open{display:flex}
+.gg-mobile-nav-group{box-shadow:inset 0 -1px 0 rgba(245,239,230,.25)}
+.gg-mobile-nav-toggle{display:flex;align-items:center;justify-content:space-between;width:100%;min-height:48px;padding:0;background:none;border:0;cursor:pointer;font:700 15px var(--mono);letter-spacing:.04em;text-transform:uppercase;color:var(--paper)}
+.gg-mobile-nav-toggle::after{content:"+";font-size:20px;font-weight:400}
+.gg-mobile-nav-toggle[aria-expanded="true"]::after{content:"\\2212"}
+.gg-mobile-nav-sub{display:none;flex-direction:column;padding:0 0 10px 16px}
+.gg-mobile-nav-sub.is-open{display:flex}
+.gg-mobile-nav-sub a{display:block;padding:11px 0;font:400 15px var(--mono);color:var(--paper);text-decoration:none}
+.gg-mobile-nav-link{display:flex;align-items:center;min-height:48px;font:700 15px var(--mono);letter-spacing:.04em;text-transform:uppercase;color:var(--paper);text-decoration:none}
+.gg-mobile-nav a:hover{text-decoration:underline;text-underline-offset:4px}
 
 /* layout */
 .frame{max-width:calc(var(--col) + 64px);margin:0 auto;padding:0 32px}
@@ -665,6 +790,8 @@ h1{font:700 60px/1.0 var(--serif);letter-spacing:-.025em;margin:0 0 16px;font-op
 .by{font:500 14px var(--mono);letter-spacing:.02em;color:var(--ink2);margin:0}
 .hero-img{margin:0}
 .hero-img img{width:100%;height:auto;display:block;background:var(--sand)}
+.hero.wide{grid-template-columns:minmax(0,1fr)}
+.hero.wide .hero-img{margin-top:24px}
 
 /* contents: phone/tablet sticky bar */
 .toc-m{position:sticky;top:0;z-index:20;background:var(--sand);margin:0 0 28px}
@@ -688,10 +815,11 @@ h1{font:700 60px/1.0 var(--serif);letter-spacing:-.025em;margin:0 0 16px;font-op
 .article p,.article li{font-size:20px;line-height:1.62}
 .article p{margin:0 0 1.05em}
 .gg-blog-section{margin:0}
-.gg-blog-section:not(.gg-references) h2{counter-increment:blk}
+.article h2[data-toc]{counter-increment:blk}
 .article h2{font:700 36px/1.12 var(--serif);letter-spacing:-.015em;margin:72px 0 22px;text-wrap:balance}
-.article h2::before{content:counter(blk,decimal-leading-zero);display:block;font:700 14px var(--mono);letter-spacing:.1em;color:var(--ink3);margin-bottom:8px}
-.article .gg-blog-section:first-of-type h2,.slot-summary + .gg-blog-section h2{margin-top:8px}
+.article h2[data-toc]::before,.gg-references h2::before{display:block;font:700 14px var(--mono);letter-spacing:.1em;color:var(--ink3);margin-bottom:8px}
+.article h2[data-toc]::before{content:counter(blk,decimal-leading-zero)}
+.article > .gg-blog-section:first-child h2:first-child,.slot-summary + .gg-blog-section h2{margin-top:8px}
 .gg-references h2::before{content:"Sources"}
 .article h3{font:700 26px/1.2 var(--serif);margin:44px 0 14px}
 .article h4{font:700 15px var(--mono);letter-spacing:.06em;text-transform:uppercase;margin:0 0 16px}
@@ -764,9 +892,10 @@ sup a:hover{text-decoration:underline}
 /* wide: open column; quiet contents in the left margin, "In short" in the right */
 @media (min-width:1280px){
   .frame{max-width:none;display:grid;grid-template-columns:minmax(0,1fr) var(--col) minmax(0,1fr);column-gap:var(--gap)}
-  .hero,.hero.no-img{grid-template-columns:minmax(0,1fr) var(--col) minmax(0,1fr)}
+  .hero,.hero.no-img,.hero.wide{grid-template-columns:minmax(0,1fr) var(--col) minmax(0,1fr)}
   .hero .txt{grid-column:2}
   .hero-img{grid-column:3;width:var(--side);margin-top:6px}
+  .hero.wide .hero-img{grid-column:2;width:auto;margin-top:24px}
   .toc-m{display:none}
   .body-row{padding-top:12px}
   .rail{display:block;grid-column:1;justify-self:end;width:var(--side)}
@@ -778,18 +907,20 @@ sup a:hover{text-decoration:underline}
   .slot-summary + .gg-blog-section h2{margin-top:0}
 }
 @media (max-width:900px){
-  .nav,.site .btn{display:none}
-  .menu{display:block}
+  .gg-site-header-nav,.gg-hdr-sub{display:none}
+  .gg-hamburger{display:flex}
 }
 @media (max-width:640px){
-  .site .in{padding:0 16px;height:58px;gap:12px}
+  .gg-site-header-inner{padding:0 16px;height:58px;gap:12px}
+  .gg-site-header-logo .gg-logo-mark{height:34px}
+  .gg-mobile-nav{padding:0 16px 12px}
   .frame{padding:0 16px}
   .hero{grid-template-columns:1fr;padding-top:22px;padding-bottom:20px}
   .kick-top{margin-bottom:10px}
   h1{font-size:42px;margin-bottom:12px}
   .dek{font-size:19px;margin-bottom:12px}
   .hero-img{margin-top:18px}
-  .hero-img img{aspect-ratio:4/3;object-fit:cover;object-position:50% 30%}
+  .hero:not(.wide) .hero-img img{aspect-ratio:4/3;object-fit:cover;object-position:50% 30%}
   .toc-m{margin:0 0 24px}
   .toc-m summary{padding:0 16px}
   .toc-m .toc{padding:4px 16px 14px}

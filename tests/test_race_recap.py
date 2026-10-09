@@ -654,3 +654,248 @@ def test_single_section_recap_has_no_contents(monkeypatch, tmp_path):
     assert 'class="rail"' not in page and 'id="tocm"' not in page
     # The share card still follows the one section.
     assert page.index("</section>") < page.index("gg-blog-hero-img")
+
+
+# ── Newest results year wins (one URL per race) ──
+
+
+def _write_race(race_dir, slug, race):
+    race_dir.mkdir(exist_ok=True)
+    (race_dir / f"{slug}.json").write_text(json.dumps({"race": race}))
+
+
+@pytest.mark.parametrize("order", [("2024", "2025"), ("2025", "2024")])
+def test_all_recaps_newest_year_wins(order, tmp_path, monkeypatch):
+    """Two results years share {slug}-recap.html; the newest must win in any key order."""
+    import generate_race_recap as recap_mod
+
+    years = {"2024": {"winner_male": "Old Winner"}, "2025": {"winner_male": "New Winner"}}
+    race = {"name": "Two Year Race", "vitals": {}, "gravel_god_rating": {"tier": 2},
+            "results": {"years": {y: years[y] for y in order}}}
+    race_dir = tmp_path / "race-data"
+    _write_race(race_dir, "two-year-race", race)
+    monkeypatch.setattr(recap_mod, "RACE_DATA_DIR", race_dir)
+
+    cands = recap_mod.find_recap_candidates()
+    assert [(c["slug"], c["year"]) for c in cands] == [("two-year-race", 2025)]
+    # An explicit --year still lists that year.
+    assert [c["year"] for c in recap_mod.find_recap_candidates(2024)] == [2024]
+
+    out = tmp_path / "out"
+    monkeypatch.setattr(sys, "argv", ["generate_race_recap.py", "--all", "--output-dir", str(out)])
+    recap_mod.main()
+    page = (out / "two-year-race-recap.html").read_text()
+    assert "Two Year Race 2025 Recap" in page and "New Winner" in page
+    assert "Old Winner" not in page
+    assert [p.name for p in out.iterdir()] == ["two-year-race-recap.html"]
+
+
+def test_newest_results_year_ignores_years_without_winner():
+    from generate_race_recap import newest_results_year
+
+    race = {"results": {"years": {"2025": {"conditions": "Wet."},
+                                  "2024": {"winner_female": "A Rider"}}}}
+    assert newest_results_year(race) == 2024
+    assert newest_results_year({"results": {"years": {}}}) is None
+
+
+# ── Stable publish date (never today) ──
+
+
+@pytest.mark.parametrize("year_data,vitals,year,expected", [
+    ({"date_completed": "2024-06-02"}, {"date_specific": "2026: June 6"}, 2024, "2024-06-02"),
+    ({}, {"date_specific": "2024: June 1"}, 2024, "2024-06-01"),
+    ({}, {"date_specific": "2026: Aug 19-23 (festival week)"}, 2026, "2026-08-23"),
+    ({}, {"date_specific": "2026: September 26–27"}, 2026, "2026-09-27"),
+    # The next edition's date is not the results year's date.
+    ({}, {"date_specific": "2026: September 12"}, 2024, "2024-12-31"),
+    ({}, {"date_specific": "Status: CANCELLED for 2026"}, 2024, "2024-12-31"),
+    ({"date_completed": "2023-06-02"}, {}, 2024, "2024-12-31"),
+    ({"date_completed": "June 2"}, {}, 2024, "2024-12-31"),
+    ({}, {}, 2025, "2025-12-31"),
+])
+def test_recap_publish_date(year_data, vitals, year, expected):
+    from generate_race_recap import recap_publish_date
+
+    assert recap_publish_date(year_data, vitals, year).isoformat() == expected
+
+
+def test_recap_date_never_reads_today(tmp_path, monkeypatch):
+    """Rebuilding on another day gives the same page (the old date was capped at today)."""
+    import datetime as dt
+    import generate_race_recap as recap_mod
+
+    race = {"name": "Future Date Race", "vitals": {"date_specific": "2027: May 1"},
+            "gravel_god_rating": {"tier": 3},
+            "results": {"years": {"2025": {"winner_male": "A Rider"}}}}
+    race_dir = tmp_path / "race-data"
+    _write_race(race_dir, "future-date-race", race)
+    monkeypatch.setattr(recap_mod, "RACE_DATA_DIR", race_dir)
+
+    first = recap_mod.generate_recap_html("future-date-race", 2025)
+
+    class NoToday(dt.date):
+        @classmethod
+        def today(cls):
+            raise AssertionError("recap dates must not depend on today")
+
+    monkeypatch.setattr(recap_mod, "date", NoToday)
+    second = recap_mod.generate_recap_html("future-date-race", 2025)
+    assert first == second
+    assert '"datePublished":"2025-12-31"' in first
+
+
+# ── "In short" ──
+
+
+FULL_YEAR = {
+    "winner_male": "John Doe", "winner_female": "Jane Smith",
+    "winning_time_male": "8:30:00", "winning_time_female": "9:45:00",
+    "conditions": "Cool and dry at the start. Wind built after noon.",
+    "field_size_actual": 2000, "finisher_count": 1700, "dnf_rate_pct": 15,
+    "key_takeaways": ["The new course added 12 miles of gravel. Times were slower."],
+}
+ALL_SECTIONS = {"winners": (0, "Winners"), "conditions": (1, "Conditions"),
+                "key-stats": (2, "Key Stats"), "key-takeaways": (3, "Key Takeaways")}
+BANNED = ("I ", "we ", "We ", "!", " — ")
+
+
+def _texts(claims):
+    import html as html_mod
+    return [html_mod.unescape(c.text_html) for c in claims]
+
+
+def test_in_short_claims_from_fixture():
+    from generate_race_recap import build_in_short
+
+    claims = build_in_short(FULL_YEAR, ALL_SECTIONS)
+    assert _texts(claims) == [
+        "John Doe won the men's race in 8:30:00 and Jane Smith won the women's race in 9:45:00.",
+        "Cool and dry at the start.",
+        "2,000 riders started, 1,700 finished and the DNF rate was 15%.",
+        "The new course added 12 miles of gravel.",
+    ]
+    assert [c.href for c in claims] == ["#winners", "#conditions", "#key-stats", "#key-takeaways"]
+    assert [c.section for c in claims] == [0, 1, 2, 3]
+    assert claims[2].link_label == "Key Stats · §03"
+    for text in _texts(claims):
+        assert len(text.split()) <= 25
+        assert not any(b in text for b in BANNED)
+    # Deterministic: same data, same claims.
+    assert build_in_short(FULL_YEAR, ALL_SECTIONS) == claims
+
+
+@pytest.mark.parametrize("year_data,expected", [
+    ({"winner_male": "A"}, "A won the men's race."),
+    ({"winner_female": "B", "winning_time_female": "5:00:00"}, "B won the women's race in 5:00:00."),
+    ({"winner_male": "Same Name", "winner_female": "Same Name"}, None),
+])
+def test_in_short_winners_template(year_data, expected):
+    from generate_race_recap import winners_claim
+
+    assert winners_claim(year_data) == expected
+
+
+@pytest.mark.parametrize("year_data,expected", [
+    ({"dnf_rate_pct": 30}, "The DNF rate was 30%."),
+    ({"finisher_count": 900}, "900 riders finished."),
+    ({"field_size_actual": 1500}, "1,500 riders started."),
+    ({"field_size_actual": 800, "dnf_rate_pct": 30}, "800 riders started and the DNF rate was 30%."),
+    ({"winning_time_male": "8:00:00"}, None),
+    ({"field_size_actual": "lots"}, None),
+])
+def test_in_short_stat_template(year_data, expected):
+    from generate_race_recap import stat_claim
+
+    assert stat_claim(year_data) == expected
+
+
+@pytest.mark.parametrize("text", [
+    "Finishing under 12 hours is more common (one year saw 1538 finishers[trainright",  # no end
+    "If you can arrive early, you will go into the red more quickly at 7,000+ f",       # mid-word
+    "a rider from Boston noted they came on Thursday.",                                 # starts mid-sentence
+    "- Historical weather incidents: Mud logjam in 2024.",                              # bullet
+    "",
+    None,
+])
+def test_in_short_truncated_source_has_no_sentence(text):
+    from generate_race_recap import first_sentence
+
+    assert first_sentence(text) is None
+
+
+@pytest.mark.parametrize("conditions", [
+    "We rode through mud for hours.",
+    "If you can arrive early, do.",
+    "Wind was brutal!",
+    "Wind built after noon — riders suffered.",
+    "It was not the heat, but the wind that decided it.",
+    "One two three four five six seven eight nine ten eleven twelve thirteen "
+    "fourteen fifteen sixteen seventeen eighteen nineteen twenty twenty-one "
+    "twenty-two twenty-three twenty-four twenty-five twenty-six.",
+])
+def test_in_short_skips_claims_breaking_voice_rules(conditions):
+    from generate_race_recap import build_in_short
+
+    claims = build_in_short({"winner_male": "A", "conditions": conditions}, ALL_SECTIONS)
+    assert [c.href for c in claims] == ["#winners"]
+
+
+def test_in_short_skips_claims_whose_section_is_missing():
+    from generate_race_recap import build_in_short
+
+    claims = build_in_short(FULL_YEAR, {"winners": (0, "Winners"), "key-stats": (1, "Key Stats")})
+    assert [c.href for c in claims] == ["#winners", "#key-stats"]
+    assert [c.section for c in claims] == [0, 1]
+
+
+def test_in_short_escapes_data():
+    from generate_race_recap import build_in_short
+
+    claims = build_in_short({"winner_male": "<b>A&B</b>", "dnf_rate_pct": 5}, ALL_SECTIONS)
+    assert "<b>" not in claims[0].text_html and "&lt;b&gt;A&amp;B&lt;/b&gt;" in claims[0].text_html
+
+
+def _render(tmp_path, monkeypatch, year_data, slug="in-short-race"):
+    import generate_race_recap as recap_mod
+
+    race = {"name": "In Short Race", "vitals": {"distance_mi": 100, "date_specific": "2024: May 4"},
+            "gravel_god_rating": {"tier": 2, "overall_score": 70},
+            "results": {"years": {"2024": year_data}}}
+    race_dir = tmp_path / "race-data"
+    _write_race(race_dir, slug, race)
+    monkeypatch.setattr(recap_mod, "RACE_DATA_DIR", race_dir)
+    return recap_mod.generate_recap_html(slug, 2024)
+
+
+def test_in_short_renders_and_every_link_target_exists(tmp_path, monkeypatch):
+    page = _render(tmp_path, monkeypatch, FULL_YEAR)
+    aside = page.split('<aside class="inshort"', 1)[1].split("</aside>", 1)[0]
+    hrefs = re.findall(r'class="ev" href="#([\w-]+)"', aside)
+    assert hrefs == ["winners", "conditions", "key-stats", "key-takeaways"]
+    for target in hrefs:
+        assert page.count(f'id="{target}"') == 1
+    # data-sec matches each target's h2 position on the page.
+    h2_ids = re.findall(r'<h2 id="([\w-]+)" data-toc>', page)
+    secs = [int(s) for s in re.findall(r'<li data-sec="(\d+)">', aside)]
+    assert [h2_ids[s] for s in secs] == hrefs
+    # In short sits before the first section.
+    assert page.index('class="inshort"') < page.index('<h2 id="winners"')
+
+
+def test_in_short_absent_with_fewer_than_two_claims(tmp_path, monkeypatch):
+    # Winner only; truncated conditions and takeaway are skipped.
+    page = _render(tmp_path, monkeypatch, {
+        "winner_male": "John Doe",
+        "conditions": "a rider noted the headwinds",
+        "key_takeaways": ["If you can arrive early, be prepared at 7,000+ f"],
+    })
+    assert "John Doe" in page
+    assert 'class="inshort"' not in page and 'data-slot="summary"' not in page
+
+
+def test_shell_recap_in_short_from_fixture(shell_recap):
+    """Fixture strings 'Cool and dry' / 'New course record' have no full stop: skipped."""
+    aside = shell_recap.split('<aside class="inshort"', 1)[1].split("</aside>", 1)[0]
+    assert re.findall(r'href="#([\w-]+)"', aside) == ["winners", "key-stats"]
+    assert "2,000 riders started, 1,700 finished and the DNF rate was 15%." in aside

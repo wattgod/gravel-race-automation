@@ -14,6 +14,7 @@ Usage:
 import argparse
 import html
 import json
+import re
 import sys
 from datetime import date
 from pathlib import Path
@@ -21,7 +22,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).parent))
 from brand_tokens import TIER_NAMES
 from blog_tracking import get_plan_intent_tracking_script
-from editorial_shell import ArticleMeta, OgImage, render_editorial_page
+from editorial_shell import ArticleMeta, Claim, OgImage, render_editorial_page
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 RACE_DATA_DIR = PROJECT_ROOT / "race-data"
@@ -72,8 +73,21 @@ def has_results(race, year):
     return bool(year_data.get("winner_male") or year_data.get("winner_female"))
 
 
+def newest_results_year(race):
+    """The newest year (int) that has a winner, or None.
+
+    Every recap of a race writes to the same {slug}-recap.html (one URL per
+    race), so with no --year only the newest year may be generated: listing
+    each year let whichever ran last, the oldest, overwrite the newest.
+    """
+    years = race.get("results", {}).get("years", {}) or {}
+    eligible = [int(yr) for yr in years
+                if str(yr).strip().isdigit() and has_results(race, int(yr))]
+    return max(eligible) if eligible else None
+
+
 def find_recap_candidates(year=None):
-    """Find races with results data for the given year (or any year)."""
+    """Races with results for the given year, or (no year) each race's newest results year."""
     candidates = []
     for f in sorted(RACE_DATA_DIR.glob("*.json")):
         try:
@@ -91,20 +105,173 @@ def find_recap_candidates(year=None):
                         "tier": race.get("gravel_god_rating", {}).get("tier", 4),
                     })
             else:
-                for yr in sorted(years_data.keys(), reverse=True):
-                    yr_data = years_data[yr]
-                    if yr_data.get("winner_male") or yr_data.get("winner_female"):
-                        candidates.append({
-                            "slug": f.stem,
-                            "name": race.get("name", f.stem),
-                            "year": int(yr),
-                            "tier": race.get("gravel_god_rating", {}).get("tier", 4),
-                        })
+                newest = newest_results_year(race)
+                if newest is not None:
+                    candidates.append({
+                        "slug": f.stem,
+                        "name": race.get("name", f.stem),
+                        "year": newest,
+                        "tier": race.get("gravel_god_rating", {}).get("tier", 4),
+                    })
         except (json.JSONDecodeError, KeyError):
             continue
 
     candidates.sort(key=lambda c: (c.get("tier", 4), c["slug"]))
     return candidates
+
+
+_MONTHS = {
+    name: num
+    for num, names in enumerate((
+        ("january", "jan"), ("february", "feb"), ("march", "mar"), ("april", "apr"),
+        ("may",), ("june", "jun"), ("july", "jul"), ("august", "aug"),
+        ("september", "sep", "sept"), ("october", "oct"), ("november", "nov"),
+        ("december", "dec"),
+    ), start=1)
+    for name in names
+}
+
+
+def recap_publish_date(year_data, vitals, year):
+    """A recap's publish date: stable for the same data, never read from today.
+
+    1. results.years[year].date_completed (YYYY-MM-DD in the results year).
+    2. vitals.date_specific when it names the results year ("2026: Aug 19-23"
+       is that edition's own date; the last day of a range is when it ended).
+    3. December 31 of the results year: after any race that season.
+
+    date_specific for another year (usually the next edition) is never used:
+    its month and day are not the date the results year's race ran.
+    """
+    completed = str(year_data.get("date_completed") or "").strip()
+    m = re.fullmatch(r"(\d{4})-(\d{2})-(\d{2})", completed)
+    if m and int(m.group(1)) == year:
+        try:
+            return date(year, int(m.group(2)), int(m.group(3)))
+        except ValueError:
+            pass
+    m = re.match(r"\s*(\d{4})\s*:\s*([A-Za-z]+)\.?\s+(\d{1,2})(?:\s*[-\u2013]\s*(\d{1,2}))?\b",
+                 str(vitals.get("date_specific") or ""))
+    if m and int(m.group(1)) == year:
+        month = _MONTHS.get(m.group(2).lower())
+        if month:
+            try:
+                return date(year, month, int(m.group(4) or m.group(3)))
+            except ValueError:
+                pass
+    return date(year, 12, 31)
+
+
+# ── "In short" (spec: ~/specs/gg-editorial-shell-2026-10-08/IN_SHORT_SPEC.md) ──
+# Every claim is a fixed template over results fields, or the first sentence
+# of a results string quoted as is. A claim that can't be built cleanly is
+# skipped; fewer than IN_SHORT_MIN claims renders no "In short".
+IN_SHORT_MIN = 2
+IN_SHORT_MAX_WORDS = 25
+# First sentence: ends at . or ? (plus closing quotes) followed by a new
+# sentence or the end. No terminal punctuation = cut off, so no sentence.
+_SENTENCE_END = re.compile(r"[.?][\"'\u2019\u201d)]*(?=\s+[\"\u201cA-Z0-9]|$)")
+# Third person only: no "I", "we", "our", "my", "you", "your".
+_FIRST_PERSON = re.compile(r"\bI\b|\b(?:[Ww][Ee]|[Oo]urs?|[Mm]y|[Yy]ou|[Yy]our)\b")
+_BANNED_MARKS = ("!", "\u2014", " \u2013 ", " - ", "http", "](", "[", "\t", "\u2022")
+
+
+def _claim_ok(text):
+    """Voice and size rules every claim must pass."""
+    if len(text.split()) > IN_SHORT_MAX_WORDS:
+        return False
+    if any(mark in text for mark in _BANNED_MARKS):
+        return False
+    if _FIRST_PERSON.search(text):
+        return False
+    if re.search(r"\bnot\b[^.?]*\bbut\b", text, re.I):
+        return False
+    return True
+
+
+def first_sentence(text):
+    """The first complete sentence of a results string, or None.
+
+    None when the string starts mid-sentence (lowercase, a bullet or a
+    bracket) or has no terminal punctuation (cut off at extraction).
+    """
+    text = " ".join(str(text or "").split())
+    if not text or not (text[0].isupper() or text[0].isdigit()):
+        return None
+    m = _SENTENCE_END.search(text)
+    return text[:m.end()] if m else None
+
+
+def _join_clauses(clauses):
+    if len(clauses) == 1:
+        return clauses[0]
+    return ", ".join(clauses[:-1]) + " and " + clauses[-1]
+
+
+def winners_claim(year_data):
+    """ "{M} won the men's race in {t} and {F} won the women's race in {t}." """
+    winner_m = str(year_data.get("winner_male") or "").strip()
+    winner_f = str(year_data.get("winner_female") or "").strip()
+    if winner_m and winner_m == winner_f:
+        return None  # one name for both races contradicts itself; don't repeat it
+    clauses = []
+    for name, time, race in ((winner_m, year_data.get("winning_time_male"), "men's"),
+                             (winner_f, year_data.get("winning_time_female"), "women's")):
+        if name:
+            clause = f"{name} won the {race} race"
+            if time:
+                clause += f" in {str(time).strip()}"
+            clauses.append(clause)
+    return _join_clauses(clauses) + "." if clauses else None
+
+
+def _count(value):
+    return value if isinstance(value, int) and not isinstance(value, bool) and value > 0 else None
+
+
+def stat_claim(year_data):
+    """Starters, finishers and DNF rate, whichever exist, in one sentence.
+
+    The winning time is not repeated here: the winners claim carries it.
+    """
+    starters = _count(year_data.get("field_size_actual"))
+    finishers = _count(year_data.get("finisher_count"))
+    dnf = year_data.get("dnf_rate_pct")
+    dnf = dnf if isinstance(dnf, (int, float)) and not isinstance(dnf, bool) else None
+    clauses = []
+    if starters:
+        clauses.append(f"{starters:,} riders started")
+    if finishers:
+        clauses.append(f"{finishers:,} finished" if starters else f"{finishers:,} riders finished")
+    if dnf is not None:
+        clauses.append(f"the DNF rate was {dnf}%")
+    if not clauses:
+        return None
+    text = _join_clauses(clauses)
+    return text[0].upper() + text[1:] + "."
+
+
+def build_in_short(year_data, section_index):
+    """Recap "In short" claims, in spec order, skipping any that lack clean data.
+
+    section_index maps h2 id -> (0-based h2 position, heading text); a claim
+    is only built when its section is on the page. Returns a list of Claim.
+    """
+    takeaways = year_data.get("key_takeaways") or []
+    takeaways = takeaways if isinstance(takeaways, list) else []
+    candidates = (
+        ("winners", winners_claim(year_data)),
+        ("conditions", first_sentence(year_data.get("conditions"))),
+        ("key-stats", stat_claim(year_data)),
+        ("key-takeaways", first_sentence(takeaways[0]) if takeaways else None),
+    )
+    claims = []
+    for section_id, text in candidates:
+        if not text or section_id not in section_index or not _claim_ok(text):
+            continue
+        pos, heading = section_index[section_id]
+        claims.append(Claim(esc(text), f"#{section_id}", f"{heading} · §{pos + 1:02d}", pos))
+    return claims
 
 
 def generate_recap_html(slug, year):
@@ -147,39 +314,7 @@ def generate_recap_html(slug, year):
     recap_slug = f"{slug}-recap"
     og_url = f"{SITE_URL}/blog/{recap_slug}/"
 
-    # Publish date: use date_completed from results, or race date, or derive from year
-    pub_date = None
-    date_completed = year_data.get("date_completed", "")
-    if date_completed:
-        try:
-            from datetime import datetime
-            pub_date = datetime.strptime(date_completed, "%Y-%m-%d").date()
-        except ValueError:
-            pass
-    if not pub_date:
-        # Try race's date_specific
-        date_str = vitals.get("date_specific", "")
-        if date_str:
-            import re
-            m = re.match(r"(\d{4}).*?(\w+)\s+(\d+)", str(date_str))
-            if m:
-                month_nums = {
-                    "january": 1, "february": 2, "march": 3, "april": 4,
-                    "may": 5, "june": 6, "july": 7, "august": 8,
-                    "september": 9, "october": 10, "november": 11, "december": 12,
-                }
-                mn = month_nums.get(m.group(2).lower())
-                if mn:
-                    try:
-                        pub_date = date(int(m.group(1)), mn, int(m.group(3)))
-                    except ValueError:
-                        pass
-    if not pub_date:
-        # Fall back to July 1 of the recap year (mid-season)
-        pub_date = date(year, 7, 1)
-    # Cap at today
-    if pub_date > date.today():
-        pub_date = date.today()
+    pub_date = recap_publish_date(year_data, vitals, year)
     article_date_iso = pub_date.isoformat()
 
     # Headline based on available data
@@ -194,6 +329,13 @@ def generate_recap_html(slug, year):
 
     # Winners: label + value rows (same copy as before the shell move)
     sections = []
+    # h2 id -> (0-based h2 position, heading): the "In short" link targets.
+    section_index = {}
+
+    def add_section(section_id, heading, section_html):
+        section_index[section_id] = (len(section_index), heading)
+        sections.append(section_html)
+
     if winner_m or winner_f:
         rows = []
         if winner_m:
@@ -210,16 +352,16 @@ def generate_recap_html(slug, year):
             <span class="gg-recap-label">Women's Winner</span>
             <span class="gg-recap-value">{esc(winner_f)}{time_display}</span>
           </div>""")
-        sections.append(f"""
+        add_section("winners", "Winners", f"""
     <section class="gg-blog-section">
-      <h2>Winners</h2>
+      <h2 id="winners">Winners</h2>
       <div class="gg-recap-winners">{''.join(rows)}</div>
     </section>""")
 
     if conditions:
-        sections.append(f"""
+        add_section("conditions", "Conditions", f"""
     <section class="gg-blog-section">
-      <h2>Conditions</h2>
+      <h2 id="conditions">Conditions</h2>
       <p>{esc(conditions)}</p>
     </section>""")
 
@@ -240,17 +382,17 @@ def generate_recap_html(slug, year):
     if dnf_rate is not None:
         stats_items.append(f'<div class="gg-blog-stat"><span class="gg-blog-stat-val">{dnf_rate}%</span><span class="gg-blog-stat-label">DNF Rate</span></div>')
     if stats_items:
-        sections.append(f"""
+        add_section("key-stats", "Key Stats", f"""
     <section class="gg-blog-section">
-      <h2>Key Stats</h2>
+      <h2 id="key-stats">Key Stats</h2>
       <div class="gg-blog-stats">{''.join(stats_items)}</div>
     </section>""")
 
     if takeaways:
         items = "".join(f"<li>{esc(t)}</li>" for t in takeaways)
-        sections.append(f"""
+        add_section("key-takeaways", "Key Takeaways", f"""
     <section class="gg-blog-section">
-      <h2>Key Takeaways</h2>
+      <h2 id="key-takeaways">Key Takeaways</h2>
       <ul>{items}</ul>
     </section>""")
 
@@ -310,9 +452,11 @@ def generate_recap_html(slug, year):
         track_article_events=False,
         show_read_time=False,
     )
+    claims = build_in_short(year_data, section_index)
     return render_editorial_page(
         meta,
         "".join(sections) + cta_html,
+        in_short=claims if len(claims) >= IN_SHORT_MIN else None,
         ladder=False,
         extra_css=RECAP_CSS,
         extra_body_end=get_plan_intent_tracking_script(),

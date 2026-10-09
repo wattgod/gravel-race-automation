@@ -3,7 +3,9 @@
 Generate race preview blog articles from race JSON data.
 
 Template-based (no Claude API needed). Creates HTML preview articles
-for races with upcoming dates, timed to registration windows.
+for races with upcoming dates, timed to registration windows. Pages render
+on the editorial shell (editorial_shell.render_editorial_page): noindex,
+no JSON-LD, no article_* events, no read time, no plans ladder.
 
 Usage:
     python wordpress/generate_blog_preview.py --dry-run       # List candidates
@@ -20,9 +22,9 @@ from datetime import date, datetime, timedelta
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent))
-from brand_tokens import TIER_NAMES, get_ga4_head_snippet
+from brand_tokens import TIER_NAMES
 from blog_tracking import get_plan_intent_tracking_script
-from cookie_consent import get_consent_banner_html
+from editorial_shell import ArticleMeta, Claim, OgImage, render_editorial_page
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 RACE_DATA_DIR = PROJECT_ROOT / "race-data"
@@ -103,6 +105,19 @@ def pick_best_opinions(biased_opinion_ratings, max_count=3):
     return candidates[:max_count]
 
 
+# Stat values longer than this read as prose (e.g. "750+ riders (2020); waves
+# of up to 100"), so they take a full row in the serif face instead of a tile.
+STAT_TILE_MAX_CHARS = 16
+
+
+def _stat(value, label):
+    """One Key Stats cell; long values span the row."""
+    value = str(value)
+    cls = "gg-blog-stat wide" if len(value) > STAT_TILE_MAX_CHARS else "gg-blog-stat"
+    return (f'<div class="{cls}"><span class="gg-blog-stat-val">{esc(value)}</span>'
+            f'<span class="gg-blog-stat-label">{esc(label)}</span></div>')
+
+
 def parse_race_date(date_str):
     """Parse date_specific string like '2026: June 6' into a date object."""
     if not date_str:
@@ -118,6 +133,359 @@ def parse_race_date(date_str):
         return date(int(year), month_num, int(day))
     except ValueError:
         return None
+
+
+# The hero shows the race date as a clean date plus a short status, never the
+# raw date_specific string (which carries notes, later editions and URLs).
+_WEEKDAY = r"(?:(?:mon|tues|wednes|thurs|fri|satur|sun)day,?\s+)?"
+_MONTH_NAME = (r"(?:jan(?:uary)?|feb(?:ruary)?|mar(?:ch)?|apr(?:il)?|may|june?|july?|aug(?:ust)?"
+               r"|sep(?:t(?:ember)?)?|oct(?:ober)?|nov(?:ember)?|dec(?:ember)?)")
+_MONTH_FIRST_RE = re.compile(
+    r"^\s*(\d{4})\s*:\s*" + _WEEKDAY + r"([A-Za-z]+)\.?\s+(\d{1,2})"
+    r"(?:\s*[-\u2013]\s*(?:(" + _MONTH_NAME + r")\.?\s+)?(\d{1,2})\b|((?:\s*,\s*\d{1,2}\b)+))?",
+    re.I,
+)
+_DAY_FIRST_RE = re.compile(
+    r"^\s*" + _WEEKDAY + r"([A-Za-z]+)\.?\s+(\d{1,2})(?:\s*[-\u2013]\s*(\d{1,2}))?,\s*(\d{4})\b",
+    re.I,
+)
+_URL_RE = re.compile(r"(?:https?://|www\.)\S+|\b[\w-]+(?:\.[\w-]+)*\.(?:com|org|net|bike|cc|co|io|es|pt|uk|eu|de|fr|it|nz|au|ca)\b\S*", re.I)
+
+
+def _strip_urls(text):
+    """Drop URLs (and any parenthetical holding one) from a date note."""
+    text = re.sub(r"\([^)]*\)", lambda m: "" if _URL_RE.search(m.group(0)) else m.group(0), text)
+    text = _URL_RE.sub("", text)
+    text = re.sub(r"\(\s*\)", "", text)
+    return re.sub(r"\s{2,}", " ", text).strip(" ,;\u2014-")
+
+
+_MONTH_ABBR = {name[:3]: num for name, num in MONTH_NUMBERS.items()}
+_MONTH_ABBR["sept"] = 9
+
+
+def _month_number(name):
+    name = name.lower()
+    return MONTH_NUMBERS.get(name) or _MONTH_ABBR.get(name)
+
+
+def _first_edition(raw):
+    """Text up to the first ';' outside parentheses, or the next 'YYYY:'."""
+    depth = 0
+    for i, ch in enumerate(raw):
+        if ch == "(":
+            depth += 1
+        elif ch == ")":
+            depth = max(depth - 1, 0)
+        elif ch == ";" and depth == 0:
+            raw = raw[:i]
+            break
+    return re.split(r"\.\s+\d{4}\s*:", raw, maxsplit=1)[0].strip()
+
+
+_YEAR_RE = re.compile(r"\b(?:19|20)\d{2}\b")
+# Words that mark a date as a guess. Checked before "confirmed", so a clause
+# that hedges never reads as confirmed.
+_ESTIMATE_RE = re.compile(r"\b(?:estimate[ds]?|pattern|projected|tentative|provisional|expected|tb[ad])\b", re.I)
+_UNCONFIRMED_RE = re.compile(
+    r"\bconflict|\bnot (?:yet )?(?:officially )?(?:announced|published|confirmed)\b"
+    r"|\bunconfirmed\b|\btbc\b|\bto be (?:announced|confirmed|determined)\b", re.I)
+# Notes about a later edition ("completed; next edition not announced") say
+# nothing about this edition's date.
+_NEXT_EDITION_RE = re.compile(r"\b(?:next|following|future|later) (?:editions?|years?)\b[^;)]*", re.I)
+DATE_ESTIMATED = "Date estimated"
+DATE_UNCONFIRMED = "Date unconfirmed"
+
+
+def _own_clause(clause):
+    """The part of an edition's clause about that edition: text before the
+    first mention of another year ("pattern estimate — 2026 confirmed Sun
+    Aug 9" is about 2026, not the 2027 date it follows)."""
+    lead = re.match(r"\s*(\d{4})\s*:", clause)
+    edition = lead.group(1) if lead else None
+    for y in _YEAR_RE.finditer(clause):
+        if lead and y.start() < lead.end():
+            continue
+        if edition is None:
+            edition = y.group(0)
+        elif y.group(0) != edition:
+            return clause[:y.start()]
+    return clause
+
+
+def _date_status(clause):
+    """Status from the first edition's own clause only.
+
+    An estimate, pattern, TBD, conflict or not-yet-announced note wins over
+    any "confirmed" or "registration open" in the same clause.
+    """
+    own = _NEXT_EDITION_RE.sub("", _own_clause(clause))
+    if _ESTIMATE_RE.search(own):
+        return DATE_ESTIMATED
+    if _UNCONFIRMED_RE.search(own):
+        return DATE_UNCONFIRMED
+    low = own.lower()
+    if "registration open" in low:
+        return "Registration open"
+    if re.search(r"(?<!un)(?<!not )\bconfirmed\b", low):
+        return "Confirmed"
+    return ""
+
+
+def race_date_line(date_str):
+    """'October 25, 2026 · Registration open' from a date_specific string.
+
+    Only the first edition named counts (text before the first top-level ';'). If the
+    date doesn't parse, the raw first clause is shown with URLs removed.
+    """
+    display, status, _ = race_date_parts(date_str)
+    return " \u00b7 ".join(p for p in (display, status) if p)
+
+
+def race_date_parts(date_str):
+    """(display, status, parsed) behind race_date_line().
+
+    parsed is False when the date didn't parse and display is the raw first
+    clause with URLs removed (status is then always "").
+    """
+    raw = str(date_str or "").strip()
+    if not raw:
+        return "", "", False
+    clause = _first_edition(raw)
+    status = _date_status(clause)
+    display = ""
+    m = _MONTH_FIRST_RE.match(clause)
+    end_month = None
+    if m:
+        year, month, day, end_month, end, more = m.groups()
+    else:
+        m = _DAY_FIRST_RE.match(clause)
+        if m:
+            month, day, end, year = m.groups()
+            more = None
+    month_num = _month_number(month) if m else None
+    end_num = (_month_number(end_month) if end_month else month_num) if month_num else None
+    if month_num:
+        try:
+            start = date(int(year), month_num, int(day))
+            if end and (not end_num or date(int(year), end_num, int(end)) <= start):
+                month_num = None
+        except ValueError:
+            month_num = None
+    if month_num:
+        mname = date(2000, month_num, 1).strftime("%B")
+        if end and end_num != month_num:
+            ename = date(2000, end_num, 1).strftime("%B")
+            display = f"{mname} {int(day)}\u2013{ename} {int(end)}, {year}"
+        elif end:
+            display = f"{mname} {int(day)}\u2013{int(end)}, {year}"
+        elif more:
+            days = [str(int(day))] + re.findall(r"\d{1,2}", more)
+            display = f"{mname} {', '.join(days[:-1])} and {days[-1]}, {year}"
+        else:
+            display = f"{mname} {int(day)}, {year}"
+    else:
+        display = _strip_urls(clause)
+        status = ""  # the fallback text already says what it knows
+    return display, status, bool(month_num)
+
+
+# ── "In short" (spec: ~/specs/gg-editorial-shell-2026-10-08/IN_SHORT_SPEC.md) ──
+# Every claim is race data verbatim or a fixed template over race fields. A
+# claim is skipped when its data is missing, looks cut off, breaks the voice
+# rules or runs past IN_SHORT_MAX_WORDS. Fewer than 2 claims: no "In short".
+
+IN_SHORT_MAX_WORDS = 25
+IN_SHORT_MIN_CLAIMS = 2
+MIN_ZONE_WORDS = 6  # a suffering-zone sentence shorter than this is filler
+CLAIM_SURFACES = {"gravel", "dirt", "pavement", "paved", "unpaved", "off-road",
+                  "singletrack", "doubletrack", "trail", "sand"}
+# Template zones from low-data profiles ("First Third (mile 50): 50 miles in,
+# settling into pace.") say nothing about this course, so they never make a claim.
+TEMPLATE_ZONE_LABELS = GENERIC_ZONE_LABELS | {
+    "first third", "second third", "last third", "final third", "halfway",
+    "the grind", "homestretch", "early miles", "late miles", "final miles",
+}
+_TEMPLATE_ZONE_DESC_RE = re.compile(
+    r"^\d[\d,]*\s*(?:miles|mi|km)\s+in\b|\bhalfway point\b|\bsettling into (?:the )?pace\b"
+    r"|\bmental game begins\b|^last \d[\d,]*\s*(?:miles|mi|km) to (?:the )?finish"
+    r"|^final miles to the finish|\bsections before (?:the )?finish\b",
+    re.I,
+)
+
+
+def is_template_zone(zone):
+    """True for a stock zone (label or desc from the low-data template)."""
+    label = " ".join(str(zone.get("label") or "").split()).lower()
+    desc = " ".join(str(zone.get("desc") or "").split())
+    return label in TEMPLATE_ZONE_LABELS or bool(_TEMPLATE_ZONE_DESC_RE.search(desc))
+
+# The h2 id of each preview section and the label its "In short" link uses.
+SECTION_LABELS = {
+    "why-race": "Why Race",
+    "the-real-talk": "The Real Talk",
+    "course-preview": "Course Preview",
+    "key-stats": "Key Stats",
+    "training-focus": "Training Focus",
+    "history": "History",
+    "registration-info": "Registration & Info",
+}
+
+# A period after one of these doesn't end a sentence.
+_ABBREVIATIONS = {
+    "st", "mt", "mr", "mrs", "ms", "dr", "jr", "sr", "vs", "approx", "est",
+    "no", "ft", "mi", "km", "e.g", "i.e", "u.s", "u.k", "etc", "ave", "rd",
+}
+_SENTENCE_END_RE = re.compile(r"[.?!][\"'’”)]*(?=\s|$)")
+_BANNED_CLAIM_RE = re.compile(
+    r"!|—|\s[–-]\s|…|\.\.\."           # exclamation, dash asides, ellipses
+    r"|\bI\b|\b[Ww]e\b|\b[Oo]ur\b|\bus\b|\b[Mm]y\b|\bme\b"  # first person
+    r"|\bnot\b[^.;]*\bbut\b|\b(?:isn't|aren't|wasn't)\b[^.;]*\bit'?s\b|,\s+not\b",  # not X, but Y / X, not Y
+)
+_NUMBERISH_RE = re.compile(r"~?\d[\d,]*(?:\.\d+)?(?:\s*[-–]\s*\d[\d,]*(?:\.\d+)?)?\+?")
+
+
+def first_sentence(text):
+    """The first full sentence of text, or None if it has no terminal punctuation.
+
+    A string with no sentence end looks cut off (truncation guard), so it
+    yields None rather than a fragment.
+    """
+    text = " ".join(str(text or "").split())
+    for m in _SENTENCE_END_RE.finditer(text):
+        candidate = text[:m.end()]
+        word = re.search(r"(\S+?)[.?!][\"'’”)]*$", candidate)
+        token = (word.group(1) if word else "").lstrip("(\"'“").lower()
+        if m.group(0)[0] == "." and (token in _ABBREVIATIONS or len(token) == 1):
+            continue
+        return candidate
+    return None
+
+
+def claim_ok(text):
+    """True if a plain-text claim fits the voice and length rules."""
+    return (bool(text) and len(text.split()) <= IN_SHORT_MAX_WORDS
+            and not _BANNED_CLAIM_RE.search(text))
+
+
+def _number(value):
+    """Display a numeric stat ('5,741', '74.5', '4,500–9,116'), or '' if it isn't one."""
+    if isinstance(value, bool) or value is None:
+        return ""
+    if isinstance(value, (int, float)):
+        if value <= 0:
+            return ""
+        return f"{value:,.1f}".rstrip("0").rstrip(".") if value % 1 else f"{int(value):,}"
+    text = str(value).strip()
+    return text.replace("-", "–") if _NUMBERISH_RE.fullmatch(text) else ""
+
+
+def surface_breakdown(rd):
+    """[(surface, pct)] from course_description.surface_breakdown.overall, largest first."""
+    overall = ((rd.get("course_description") or {}).get("surface_breakdown") or {})
+    overall = overall.get("overall") if isinstance(overall, dict) else None
+    if not isinstance(overall, dict):
+        return []
+    parts = [(str(k).replace("_", " "), v) for k, v in overall.items()
+             if isinstance(v, (int, float)) and not isinstance(v, bool) and v > 0]
+    return sorted(parts, key=lambda kv: (-kv[1], kv[0]))
+
+
+def why_race_text(rd):
+    """The first paragraph of Why Race: bottom_line, else should_you_race."""
+    biased = rd.get("biased_opinion") or {}
+    final_verdict = rd.get("final_verdict") or {}
+    return biased.get("bottom_line", "") or final_verdict.get("should_you_race", "")
+
+
+def shown_suffering_zones(rd):
+    """The suffering zones Course Preview lists (generic filler is hidden there)."""
+    zones = (rd.get("course_description") or {}).get("suffering_zones")
+    if isinstance(zones, list) and zones and not is_generic_suffering(zones):
+        return zones
+    return []
+
+
+def _verdict_claim(rd):
+    rating = rd.get("gravel_god_rating") or {}
+    score, tier = rating.get("overall_score"), rating.get("tier")
+    if not isinstance(score, (int, float)) or isinstance(score, bool) or tier not in TIER_NAMES:
+        return None
+    verdict = first_sentence(why_race_text(rd))
+    if not verdict:
+        return None
+    return f"Rated {_number(score) or score}/100, Tier {tier} {TIER_NAMES[tier]}. {verdict}"
+
+
+def _course_claim(rd):
+    vitals = rd.get("vitals") or {}
+    distance = _number(vitals.get("distance_mi"))
+    if not distance:
+        return None
+    elevation = _number(vitals.get("elevation_ft"))
+    text = f"{distance} miles" + (f" with {elevation} ft of elevation gain" if elevation else "")
+    surfaces = surface_breakdown(rd)
+    # Only plain surface words make the claim; an organizer's own term
+    # ("unroad") stays in the Key Stats tile, where it sits beside the rest.
+    if surfaces and surfaces[0][0].lower() in CLAIM_SURFACES:
+        surface, pct = surfaces[0]
+        text += f", {_number(pct)}% {surface.lower()}"
+    return text + "."
+
+
+def _hard_part_claim(rd):
+    """(text, section id): the first weakness, else the first shown suffering zone."""
+    weaknesses = (rd.get("biased_opinion") or {}).get("weaknesses")
+    if isinstance(weaknesses, list) and weaknesses:
+        sentence = first_sentence(weaknesses[0]) if isinstance(weaknesses[0], str) else None
+        if sentence and claim_ok(sentence):
+            return sentence, "the-real-talk"
+    for zone in shown_suffering_zones(rd):
+        if not isinstance(zone, dict) or is_template_zone(zone):
+            continue
+        sentence = first_sentence(zone.get("desc"))
+        # Short template descs ("First desert sections.") say nothing hard.
+        if not sentence or len(sentence.split()) < MIN_ZONE_WORDS:
+            continue
+        label = " ".join(str(zone.get("label") or "").split())
+        mile = _number(zone.get("mile")) if zone.get("mile") != 0 else "0"
+        where = f"{label} (mile {mile})" if label and mile else label or (f"Mile {mile}" if mile else "")
+        return (f"{where}: {sentence}" if where else sentence), "course-preview"
+    return None, None
+
+
+def _when_claim(rd):
+    vitals = rd.get("vitals") or {}
+    display, status, parsed = race_date_parts(vitals.get("date_specific", "") or vitals.get("date", ""))
+    # An estimated or unconfirmed date is never stated as fact.
+    if not parsed or status in (DATE_ESTIMATED, DATE_UNCONFIRMED):
+        return None
+    noun = "Race dates" if ("–" in display or " and " in display) else "Race date"
+    text = f"{noun}: {display}"
+    if status == "Registration open":
+        return text + ". Registration is open."
+    if status == "Confirmed":
+        return text + " (confirmed)."
+    return text + "."
+
+
+def build_in_short(rd, section_ids):
+    """The preview's "In short" claims (editorial_shell.Claim), or None.
+
+    section_ids: the h2 ids of the sections the page renders, in order. A claim
+    renders only when the section that backs it is on the page.
+    """
+    candidates = [(_verdict_claim(rd), "why-race")]
+    candidates.append((_course_claim(rd), "key-stats"))
+    candidates.append(_hard_part_claim(rd))
+    candidates.append((_when_claim(rd), "registration-info"))
+    claims = []
+    for text, sid in candidates:
+        if not text or sid not in section_ids or not claim_ok(text):
+            continue
+        idx = section_ids.index(sid)
+        claims.append(Claim(esc(text), f"#{sid}", f"See {SECTION_LABELS[sid]} · §{idx + 1:02d}", idx))
+    return claims if len(claims) >= IN_SHORT_MIN_CLAIMS else None
 
 
 def load_race(slug):
@@ -186,7 +554,6 @@ def generate_preview_html(slug):
     vitals = rd.get("vitals", {})
     gravel_god = rd.get("gravel_god_rating", {})
     biased = rd.get("biased_opinion", {})
-    final_verdict = rd.get("final_verdict", {})
     course_desc = rd.get("course_description", {})
     history = rd.get("history", {})
     logistics = rd.get("logistics", {})
@@ -220,22 +587,18 @@ def generate_preview_html(slug):
             preview_date = date.today()
     else:
         preview_date = date.today()
-    article_date_str = preview_date.strftime("%B %d, %Y")
-    article_date_iso = preview_date.isoformat()
 
     biased_ratings = rd.get("biased_opinion_ratings", {})
 
     # Build sections
     why_section = ""
-    should_race = final_verdict.get("should_you_race", "")
-    bottom_line = biased.get("bottom_line", "")
     biased_summary = biased.get("summary", "")
     # Prefer bottom_line (more direct) over should_you_race (hedging)
-    why_text = bottom_line or should_race
+    why_text = why_race_text(rd)
     if why_text or biased_summary:
         why_section = f"""
     <section class="gg-blog-section">
-      <h2>Why Race {esc(name)}?</h2>
+      <h2 id="why-race">Why Race {esc(name)}?</h2>
       {f'<p>{esc(why_text)}</p>' if why_text else ''}
       {f'<p>{esc(biased_summary)}</p>' if biased_summary else ''}
     </section>"""
@@ -263,7 +626,7 @@ def generate_preview_html(slug):
             opinions_html = f'<p><strong>Our Take:</strong></p><ul>{items}</ul>'
         real_talk_section = f"""
     <section class="gg-blog-section">
-      <h2>The Real Talk</h2>
+      <h2 id="the-real-talk">The Real Talk</h2>
       {strengths_html}
       {weaknesses_html}
       {opinions_html}
@@ -274,7 +637,7 @@ def generate_preview_html(slug):
     suffering = course_desc.get("suffering_zones", "")
     suffering_html = ""
     # Suppress generic suffering zones (template filler in low-data profiles)
-    if isinstance(suffering, list) and suffering and not is_generic_suffering(suffering):
+    if shown_suffering_zones(rd):
         items = []
         for z in suffering:
             if isinstance(z, dict):
@@ -291,30 +654,33 @@ def generate_preview_html(slug):
     if character or suffering_html:
         course_section = f"""
     <section class="gg-blog-section">
-      <h2>Course Preview</h2>
+      <h2 id="course-preview">Course Preview</h2>
       {f'<p>{esc(character)}</p>' if character else ''}
       {suffering_html}
     </section>"""
 
     stats_items = []
     if distance:
-        stats_items.append(f'<div class="gg-blog-stat"><span class="gg-blog-stat-val">{esc(str(distance))}</span><span class="gg-blog-stat-label">Miles</span></div>')
+        stats_items.append(_stat(str(distance), "Miles"))
     if elevation:
         if isinstance(elevation, (int, float)):
             elev_display = f"{int(elevation):,}"
         else:
             elev_display = str(elevation)
-        stats_items.append(f'<div class="gg-blog-stat"><span class="gg-blog-stat-val">{esc(elev_display)}</span><span class="gg-blog-stat-label">Ft Elevation</span></div>')
+        stats_items.append(_stat(elev_display, "Ft Elevation"))
     if field_size:
-        stats_items.append(f'<div class="gg-blog-stat"><span class="gg-blog-stat-val">{esc(str(field_size))}</span><span class="gg-blog-stat-label">Field Size</span></div>')
+        stats_items.append(_stat(str(field_size), "Field Size"))
+    surfaces = surface_breakdown(rd)
+    if surfaces:
+        stats_items.append(_stat(" · ".join(f"{_number(pct)}% {name}" for name, pct in surfaces), "Surface"))
     if terrain_types:
         terrain_display = " · ".join(str(t) for t in terrain_types) if isinstance(terrain_types, list) else str(terrain_types)
-        stats_items.append(f'<div class="gg-blog-stat"><span class="gg-blog-stat-val">{esc(terrain_display)}</span><span class="gg-blog-stat-label">Terrain</span></div>')
+        stats_items.append(_stat(terrain_display, "Terrain"))
     stats_section = ""
     if stats_items:
         stats_section = f"""
     <section class="gg-blog-section">
-      <h2>Key Stats</h2>
+      <h2 id="key-stats">Key Stats</h2>
       <div class="gg-blog-stats">{''.join(stats_items)}</div>
     </section>"""
 
@@ -331,7 +697,7 @@ def generate_preview_html(slug):
                 items.append(f"<li>{esc(str(n))}</li>")
         training_section = f"""
     <section class="gg-blog-section">
-      <h2>Training Focus</h2>
+      <h2 id="training-focus">Training Focus</h2>
       <p>To be competitive at {esc(name)}, prioritize these non-negotiables:</p>
       <ol>{"".join(items)}</ol>
     </section>"""
@@ -348,7 +714,7 @@ def generate_preview_html(slug):
     if origin or notable_html:
         history_section = f"""
     <section class="gg-blog-section">
-      <h2>History</h2>
+      <h2 id="history">History</h2>
       {f'<p>{esc(origin)}</p>' if origin else ''}
       {notable_html}
     </section>"""
@@ -357,7 +723,7 @@ def generate_preview_html(slug):
     if registration or official_site:
         reg_section = f"""
     <section class="gg-blog-section">
-      <h2>Registration &amp; Info</h2>
+      <h2 id="registration-info">Registration &amp; Info</h2>
       {f'<p><strong>Registration:</strong> {esc(str(registration))}</p>' if registration else ''}
       {f'<p><a href="{esc(official_site)}">Official Website &rarr;</a></p>' if official_site else ''}
     </section>"""
@@ -365,195 +731,114 @@ def generate_preview_html(slug):
     # No JSON-LD for preview pages — they are noindexed, and Article schema
     # on noindexed pages sends contradictory signals to Google.
 
-    page_html = f"""<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="robots" content="noindex, follow">
-  <title>{esc(name)} Race Preview — Gravel God</title>
-{get_ga4_head_snippet()}
-  <meta name="description" content="Everything you need to know about {esc(name)}: course preview, key stats, training tips, and registration info. Tier {tier} {tier_name} rated {score}/100.">
-  <meta property="og:title" content="{esc(name)} Race Preview — Gravel God">
-  <meta property="og:description" content="Tier {tier} {tier_name} gravel race. {esc(location)}. Rated {score}/100.">
-  <meta property="og:image" content="{og_image_url}">
-  <meta property="og:url" content="{SITE_URL}/blog/{slug}/">
-  <link rel="canonical" href="{SITE_URL}/blog/{slug}/">
-  <style>
-    :root {{
-      --gg-dark-brown: #3a2e25;
-      --gg-primary-brown: #59473c;
-      --gg-secondary-brown: #7d695d;
-      --gg-teal: #178079;
-      --gg-warm-paper: #f5efe6;
-      --gg-sand: #ede4d8;
-      --gg-white: #ffffff;
-    }}
-    * {{ margin: 0; padding: 0; box-sizing: border-box; border-radius: 0; }}
-    body {{
-      font-family: 'Source Serif 4', Georgia, serif;
-      background: var(--gg-warm-paper);
-      color: var(--gg-dark-brown);
-      line-height: 1.7;
-    }}
-    .gg-blog-container {{ max-width: 780px; margin: 0 auto; padding: 32px 24px; }}
-    .gg-blog-hero {{
-      background: var(--gg-primary-brown);
-      color: var(--gg-warm-paper);
-      padding: 48px 32px;
-      border: 3px solid var(--gg-dark-brown);
-      margin-bottom: 32px;
-    }}
-    .gg-blog-hero-meta {{
-      font-family: 'Sometype Mono', monospace;
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      opacity: 0.8;
-      margin-bottom: 12px;
-    }}
-    .gg-blog-hero h1 {{
-      font-size: 28px;
-      font-weight: 700;
-      line-height: 1.2;
-      margin-bottom: 8px;
-    }}
-    .gg-blog-hero-sub {{
-      font-family: 'Sometype Mono', monospace;
-      font-size: 13px;
-      opacity: 0.7;
-    }}
-    .gg-blog-section {{
-      margin-bottom: 32px;
-      padding: 24px;
-      border: 2px solid var(--gg-dark-brown);
-      background: var(--gg-white);
-    }}
-    .gg-blog-section h2 {{
-      font-family: 'Sometype Mono', monospace;
-      font-size: 14px;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      margin-bottom: 16px;
-      padding-bottom: 8px;
-      border-bottom: 2px solid var(--gg-dark-brown);
-    }}
-    .gg-blog-section p {{ margin-bottom: 12px; font-size: 15px; }}
-    .gg-blog-section ol, .gg-blog-section ul {{ margin: 12px 0 12px 24px; font-size: 15px; }}
-    .gg-blog-section li {{ margin-bottom: 6px; }}
-    .gg-blog-section a {{
-      color: var(--gg-teal);
-      text-decoration: none;
-      font-weight: 600;
-    }}
-    .gg-blog-section a:hover {{ text-decoration: underline; }}
-    .gg-blog-stats {{
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-      gap: 16px;
-    }}
-    .gg-blog-stat {{
-      text-align: center;
-      padding: 16px;
-      border: 2px solid var(--gg-dark-brown);
-      background: var(--gg-warm-paper);
-    }}
-    .gg-blog-stat-val {{
-      font-family: 'Sometype Mono', monospace;
-      font-size: 20px;
-      font-weight: 700;
-      display: block;
-    }}
-    .gg-blog-stat-label {{
-      font-family: 'Sometype Mono', monospace;
-      font-size: 10px;
-      text-transform: uppercase;
-      letter-spacing: 1.5px;
-      color: var(--gg-secondary-brown);
-    }}
-    .gg-blog-cta {{
-      text-align: center;
-      padding: 32px;
-      border: 3px solid var(--gg-dark-brown);
-      background: var(--gg-dark-brown);
-      margin-bottom: 32px;
-    }}
-    .gg-blog-cta a {{
-      display: inline-block;
-      padding: 12px 32px;
-      background: var(--gg-teal);
-      color: var(--gg-white);
-      font-family: 'Sometype Mono', monospace;
-      font-size: 13px;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      text-decoration: none;
-      border: 2px solid var(--gg-teal);
-      margin: 6px;
-    }}
-    .gg-blog-cta a:hover {{ background: var(--gg-primary-brown); border-color: var(--gg-primary-brown); }}
-    .gg-blog-footer {{
-      text-align: center;
-      font-family: 'Sometype Mono', monospace;
-      font-size: 11px;
-      color: var(--gg-secondary-brown);
-      padding: 24px;
-      text-transform: uppercase;
-      letter-spacing: 1.5px;
-    }}
-    .gg-blog-footer a {{ color: var(--gg-teal); text-decoration: none; }}
-    .gg-blog-hero-img {{
-      margin-bottom: 32px;
-      line-height: 0;
-      border: 3px solid var(--gg-dark-brown);
-    }}
-    .gg-blog-hero-img img {{
-      width: 100%;
-      height: auto;
-      display: block;
-    }}
-    @media (max-width: 600px) {{
-      .gg-blog-hero {{ padding: 32px 20px; }}
-      .gg-blog-hero h1 {{ font-size: 22px; }}
-      .gg-blog-section {{ padding: 16px; }}
-    }}
-  </style>
-</head>
-<body>
-  <div class="gg-blog-container">
-    <div class="gg-blog-hero">
-      <div class="gg-blog-hero-meta">Tier {tier} {esc(tier_name)} &middot; {esc(location)} &middot; {esc(date_str)}</div>
-      <h1>{esc(name)} Race Preview</h1>
-      <div class="gg-blog-hero-sub">Rated {score} / 100 &middot; Published {article_date_str}</div>
-    </div>
-    <div class="gg-blog-hero-img">
-      <img src="{og_image_url}" alt="{esc(name)} race preview" width="1200" height="630" loading="eager">
-    </div>
-    {why_section}
-    {real_talk_section}
-    {course_section}
-    {stats_section}
-    {training_section}
-    {history_section}
-    {reg_section}
+    named_sections = [
+        ("why-race", why_section), ("the-real-talk", real_talk_section),
+        ("course-preview", course_section), ("key-stats", stats_section),
+        ("training-focus", training_section), ("history", history_section),
+        ("registration-info", reg_section),
+    ]
+    sections = [s for _, s in named_sections if s]
+    in_short = build_in_short(rd, [sid for sid, s in named_sections if s])
 
+    # Race-specific CTAs: same URLs and copy as before (no data-cta; the
+    # plan-intent script still tracks the prep-kit link by its href).
+    cta_block = f"""
     <div class="gg-blog-cta">
-      <a href="{profile_url}">Full Race Profile &rarr;</a>
-      <a href="{prep_kit_url}">Free Prep Kit &rarr;</a>
-    </div>
+      <a class="btn" href="{profile_url}">Full Race Profile <span class="chev" aria-hidden="true">&rsaquo;</span></a>
+      <a class="btn alt" href="{prep_kit_url}">Free Prep Kit <span class="chev" aria-hidden="true">&rsaquo;</span></a>
+    </div>"""
 
-    <div class="gg-blog-footer">
-      <a href="{SITE_URL}">Gravel God</a> &middot; {article_date_str}
-    </div>
-  </div>
-{get_consent_banner_html()}
-{get_plan_intent_tracking_script()}
-</body>
-</html>"""
+    kicker = " · ".join(
+        str(part) for part in (f"Tier {tier} {tier_name}", location) if part
+    )
+    meta = ArticleMeta(
+        slug=slug,
+        canonical_url=f"{SITE_URL}/blog/{slug}/",
+        title=f"{name} Race Preview — Gravel God",
+        description=(
+            f"Everything you need to know about {name}: course preview, key stats, "
+            f"training tips, and registration info. Tier {tier} {tier_name} rated {score}/100."
+        ),
+        og_description=f"Tier {tier} {tier_name} gravel race. {location}. Rated {score}/100.",
+        headline=f"{name} Race Preview",
+        date_published=preview_date,
+        kicker=kicker,
+        dek=race_date_line(date_str),
+        robots="noindex, follow",
+        hero_class="gg-blog-hero",
+        og_image=OgImage(url=og_image_url, width=1200, height=630),
+        track_article_events=False,
+        show_read_time=False,
+        nav_active=None,
+    )
+    # The share card (title, tier, location, score) would repeat the hero, so
+    # it sits after the first section as a plain inline figure. It keeps the
+    # gg-blog-hero-img class the blog validator checks for.
+    share_card = (
+        f'\n    <div class="gg-article-img-inline">\n'
+        f'      <img class="gg-blog-hero-img" src="{esc(og_image_url)}" '
+        f'alt="{esc(name)} race preview" width="1200" height="630" loading="lazy">\n'
+        f'    </div>'
+    )
+    if sections:
+        sections[0] += share_card
+    else:
+        sections.append(share_card)
 
-    return page_html
+    page_html = render_editorial_page(
+        meta,
+        "\n".join(sections) + cta_block,
+        in_short=in_short,
+        ladder=False,
+        contents=len(sections) >= 3,
+        extra_css=PREVIEW_CSS,
+        extra_body_end=get_plan_intent_tracking_script(),
+    )
+    return _add_score_tile(page_html, _score_tile(score, tier, tier_name))
+
+
+def _score_tile(score, tier, tier_name):
+    """The rating as a hero measurement tile: the number, then /100 and the tier."""
+    return (
+        f'<div class="gg-blog-score"><span class="gg-blog-score-val">{esc(str(score))}</span>'
+        f'<span class="gg-blog-score-of">/100</span>'
+        f'<span class="gg-blog-stat-label">Tier {esc(str(tier))} {esc(tier_name)}</span></div>'
+    )
+
+
+# The shell's hero takes no extra markup, so the score tile goes in right
+# before its byline. Fail loudly if that markup ever changes.
+_BYLINE_ANCHOR = '<p class="by">'
+
+
+def _add_score_tile(page_html, tile_html):
+    if page_html.count(_BYLINE_ANCHOR) != 1:
+        raise RuntimeError(f"editorial shell hero markup changed: {_BYLINE_ANCHOR!r} not found once")
+    return page_html.replace(_BYLINE_ANCHOR, tile_html + "\n      " + _BYLINE_ANCHOR, 1)
+
+
+# Preview-only blocks on top of the shell: the stat row and the race CTAs.
+PREVIEW_CSS = """
+.article .gg-blog-section{overflow-wrap:break-word}
+.article .gg-blog-section a{color:var(--teal-ink);text-decoration:underline;text-underline-offset:3px;text-decoration-thickness:2px}
+.gg-blog-stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:6px;margin:0 0 1.05em}
+.gg-blog-stat{background:var(--sand);padding:16px 18px;min-width:0}
+.gg-blog-stat-val{display:block;font:700 24px/1.2 var(--mono);color:var(--ink);overflow-wrap:anywhere}
+.gg-blog-stat-label{display:block;font:700 12px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--ink3);margin-top:6px}
+.gg-blog-stat.wide{grid-column:1/-1}
+.gg-blog-score{display:inline-grid;grid-template-columns:auto 1fr;align-items:baseline;column-gap:8px;background:var(--sand);padding:14px 18px 16px;margin:4px 0 16px}
+.gg-blog-score-val{font:700 48px/1 var(--mono);color:var(--ink)}
+.gg-blog-score-of{font:700 13px var(--mono);letter-spacing:.1em;color:var(--ink3)}
+.gg-blog-score .gg-blog-stat-label{grid-column:1/-1;margin-top:8px}
+.gg-blog-stat.wide .gg-blog-stat-val{font:400 19px/1.45 var(--serif)}
+.gg-blog-cta{display:flex;flex-wrap:wrap;gap:10px;margin:56px 0 0}
+.gg-blog-cta .btn.alt{background:var(--ink)}
+.gg-blog-cta .btn.alt:hover{background:#000}
+@media (max-width:640px){
+  .gg-blog-stat-val{font-size:21px}
+  .gg-blog-stat.wide .gg-blog-stat-val{font-size:17px}
+}
+"""
 
 
 def main():

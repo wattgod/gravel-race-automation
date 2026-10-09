@@ -9,14 +9,20 @@ import pytest
 sys.path.insert(0, str(Path(__file__).parent.parent / "wordpress"))
 sys.path.insert(0, str(Path(__file__).parent.parent / "scripts"))
 
+from blog_tracking import get_plan_intent_tracking_script
 from brand_tokens import get_ga4_head_snippet
+from editorial_shell import SHELL_JS
+from shared_header import get_site_header_js
 from generate_blog_preview import (
+    _add_score_tile,
+    _stat,
     find_candidates,
     generate_preview_html,
     is_generic_suffering,
     load_race,
     parse_race_date,
     pick_best_opinions,
+    race_date_line,
 )
 from generate_blog_index import (
     classify_blog_slug,
@@ -160,11 +166,15 @@ def test_generate_preview_escapes_html():
     """Verify HTML entities are escaped in output."""
     html = generate_preview_html("unbound-200")
     assert html is not None
-    # Body scripts are the static shared consent controller and canonical CTA
-    # tracker; race data must never create an additional script block.
+    # Body scripts are the shell's static header + contents scripts, the
+    # canonical CTA tracker and the shared consent controller; race data must
+    # never create an additional script block.
     body = html.split("</head>", 1)[1].split("</body>", 1)[0]
-    assert body.count("<script>") == 2
+    assert body.count("<script>") == 4
     assert "document.getElementById('gg-consent-banner')" in body
+    assert get_site_header_js() in body
+    assert SHELL_JS in body
+    assert get_plan_intent_tracking_script() in body
 
 
 # ── Template quality ──
@@ -903,3 +913,422 @@ def test_preview_tracks_plan_intent_with_canonical_event():
     html = generate_preview_html("unbound-200")
     assert "gtag('event', 'cta_click'" in html
     assert "source: 'editorial'" in html
+
+
+# ── Editorial shell (2026-10-08 re-skin: same elements, shell design) ──
+
+
+def _preview_sections(html):
+    return re.findall(r'<h2 id="[^"]+" data-toc>([^<]+)</h2>', html)
+
+
+def test_preview_renders_on_editorial_shell():
+    html = generate_preview_html("unbound-200")
+    assert '<article class="article" id="article">' in html
+    assert 'class="gg-site-header"' in html
+    assert '<footer class="foot">' in html
+    # Every content section is a Contents entry, in the original order.
+    assert _preview_sections(html) == [
+        "Why Race Unbound 200?", "The Real Talk", "Course Preview", "Key Stats",
+        "Training Focus", "History", "Registration &amp; Info",
+    ]
+    assert 'class="rail"' in html and 'id="tocm"' in html
+
+
+def test_preview_keeps_head_contract():
+    html = generate_preview_html("unbound-200")
+    head = html.split("</head>", 1)[0]
+    assert '<meta name="robots" content="noindex, follow">' in head
+    assert "<title>Unbound 200 Race Preview — Gravel God</title>" in head
+    assert '<meta property="og:title" content="Unbound 200 Race Preview — Gravel God">' in head
+    assert '<link rel="canonical" href="https://gravelgodcycling.com/blog/unbound-200/">' in head
+    assert '<meta property="og:url" content="https://gravelgodcycling.com/blog/unbound-200/">' in head
+    assert '<meta property="og:image" content="https://gravelgodcycling.com/og/unbound-200.jpg">' in head
+    assert 'name="description" content="Everything you need to know about Unbound 200: course preview' in head
+    assert '<meta property="og:description" content="Tier 1 ' in head
+    assert "application/ld+json" not in html
+
+
+def _hero(html):
+    return html.split('<div class="frame hero', 1)[1].split("</div>\n  </div>", 1)[0]
+
+
+def test_preview_hero_is_text_with_score_tile_and_no_read_time():
+    html = generate_preview_html("unbound-200")
+    # No hero image: the share card lives in the body (see below).
+    assert 'class="frame hero no-img gg-blog-hero"' in html
+    assert 'class="hero-img' not in html
+    assert 'class="kick-top">Tier 1 ' in html
+    assert "min read" not in html
+    hero = _hero(html)
+    assert '<div class="gg-blog-score"><span class="gg-blog-score-val">' in hero
+    assert '<span class="gg-blog-score-of">/100</span>' in hero
+    assert '<span class="gg-blog-stat-label">Tier 1 The Icons</span>' in hero
+    assert "Rated " not in hero
+    # The tile sits right before the byline, once.
+    assert hero.count("gg-blog-score-val") == 1
+    assert hero.index("gg-blog-score") < hero.index('<p class="by">')
+
+
+def test_preview_hero_shows_clean_date_not_raw_string():
+    race = load_race("alentejo-gravel")
+    raw = race["vitals"]["date_specific"]
+    assert "ucigravelworldseries.com" in raw  # the raw string carries a URL
+    hero = _hero(generate_preview_html("alentejo-gravel"))
+    kicker = hero.split('class="kick-top">', 1)[1].split("</p>", 1)[0]
+    assert kicker == "Tier 3 Solid · Ourique, Alentejo, Portugal"
+    assert '<p class="dek">October 25, 2026 · Registration open</p>' in hero
+    assert "ucigravelworldseries" not in hero and "SUNDAY" not in hero
+
+
+def test_share_card_moves_after_first_section():
+    html = generate_preview_html("unbound-200")
+    body = html.split('<article class="article" id="article">', 1)[1]
+    first_end = body.index("</section>")
+    card = body.index('<div class="gg-article-img-inline">')
+    assert first_end < card < body.index("<section", first_end)
+    img = body[card:].split("</div>", 1)[0]
+    assert 'class="gg-blog-hero-img"' in img
+    assert 'src="https://gravelgodcycling.com/og/unbound-200.jpg"' in img
+    assert 'width="1200" height="630"' in img
+    assert html.count("/og/unbound-200.jpg\"") >= 1
+
+
+@pytest.mark.parametrize("raw, expected", [
+    ("2026: June 6", "June 6, 2026"),
+    ("2026: June 19-21", "June 19\u201321, 2026"),
+    ("2026: May 24 (Sunday)", "May 24, 2026"),
+    ("2026: Aug 19-23 (festival week)", "August 19\u201323, 2026"),
+    ("2026: Saturday, September 19 (Gravel day) CONFIRMED official", "September 19, 2026 · Confirmed"),
+    ("April 19, 2026", "April 19, 2026"),
+    ("2026: February 19, 26, 27, 28", "February 19, 26, 27 and 28, 2026"),
+    ("2026: October 25 (SUNDAY, CONFIRMED \u2014 ucigravelworldseries.com/en/ourique-2026; "
+     "registration open)", "October 25, 2026 · Registration open"),
+    # Only the first edition counts: a later year's CONFIRMED is not this one's.
+    ("2026: Apr 17-19, main ride Saturday Apr 18. 2027: confirmed Apr 16-18", "April 17\u201319, 2026"),
+    ("2026: July 12 (Sunday, CONFIRMED \u2014 nedgravel.com; completed); 2027: July 11", "July 12, 2026 · Confirmed"),
+    ("2026: NO EDITION CONFIRMED", "2026: NO EDITION CONFIRMED"),
+    ("2026: November TBD", "2026: November TBD"),
+    ("2026: February 30", "2026: February 30"),
+    ("2027: TBD (see example.com/dates)", "2027: TBD"),
+    # Another year's "confirmed" inside the clause is not this date's status.
+    ("2027: August 8 (pattern estimate \u2014 2026 confirmed Sun Aug 9; date floats)",
+     "August 8, 2027 · Date estimated"),
+    ("2027: June 5 (Saturday pattern; 2026 ran Jun 6)", "June 5, 2027 · Date estimated"),
+    ("2026: April 30-May 1 (sources conflict on exact race day \u2014 both CONFIRMED via UCI)",
+     "April 30\u2013May 1, 2026 · Date unconfirmed"),
+    ("2027: May 9 (projected; registration open)", "May 9, 2027 · Date estimated"),
+    ("2027: April 17 (Saturday, CONFIRMED \u2014 barry-roubaix.com; 2026 edition already ran)",
+     "April 17, 2027 · Confirmed"),
+    # A note about the next edition says nothing about this one.
+    ("2026: May 17 (completed; next edition not announced)", "May 17, 2026"),
+    ("", ""),
+    (None, ""),
+])
+def test_race_date_line(raw, expected):
+    assert race_date_line(raw) == expected
+
+
+def test_preview_has_no_article_events_and_no_ladder():
+    html = generate_preview_html("unbound-200")
+    assert "article_scroll_depth" not in html
+    assert "article_deep_read" not in html
+    # Previews never had a generic plans/coaching block, so no ladder.
+    assert 'data-slot="ladder"' not in html
+    assert html.count(get_plan_intent_tracking_script()) == 1
+
+
+def test_preview_race_ctas_unchanged():
+    html = generate_preview_html("mid-south")
+    cta = html.split('<div class="gg-blog-cta">', 1)[1].split("</div>", 1)[0]
+    assert 'href="https://gravelgodcycling.com/race/mid-south/"' in cta
+    assert 'href="https://gravelgodcycling.com/race/mid-south/prep-kit/"' in cta
+    assert "Full Race Profile" in cta and "Free Prep Kit" in cta
+    # The prep-kit link is tracked by href (plan_intent); no data-cta added.
+    assert "data-cta" not in cta
+
+
+def test_sparse_preview_hides_contents(monkeypatch):
+    import generate_blog_preview as gbp
+
+    race = {
+        "name": "Tiny Gravel",
+        "vitals": {"distance_mi": 40, "date_specific": "2026: June 6"},
+        "gravel_god_rating": {"tier": 4, "overall_score": 41},
+    }
+    monkeypatch.setattr(gbp, "load_race", lambda slug: race)
+    html = gbp.generate_preview_html("tiny-gravel")
+    assert _preview_sections(html) == ["Key Stats"]
+    assert 'class="rail"' not in html and 'id="tocm"' not in html
+    # Empty location is skipped instead of leaving a dangling separator.
+    assert 'class="kick-top">Tier 4 ' in html and "·  ·" not in html
+    assert "gg-blog-cta" in html
+
+
+def test_score_tile_raises_when_shell_byline_changes():
+    with pytest.raises(RuntimeError):
+        _add_score_tile("<html><body>no byline here</body></html>", "<div></div>")
+
+
+def test_stat_tiles_widen_long_values():
+    assert _stat("200", "Miles") == (
+        '<div class="gg-blog-stat"><span class="gg-blog-stat-val">200</span>'
+        '<span class="gg-blog-stat-label">Miles</span></div>'
+    )
+    long_cell = _stat("750+ riders (2020); waves of up to 100", "Field Size")
+    assert long_cell.startswith('<div class="gg-blog-stat wide">')
+
+
+# ── "In short" (IN_SHORT_SPEC.md, Preview section) ──
+
+import generate_blog_preview as gbp
+from generate_blog_preview import build_in_short, claim_ok, first_sentence
+
+ALL_SECTIONS = ["why-race", "the-real-talk", "course-preview", "key-stats",
+                "training-focus", "history", "registration-info"]
+BANNED_IN_CLAIMS = ("I ", "we ", "We ", "!", " — ", "—")
+
+
+def _fixture_race(**over):
+    race = {
+        "name": "Fixture Gravel",
+        "vitals": {"distance_mi": 74, "elevation_ft": 5741,
+                   "date_specific": "2026: October 25 (CONFIRMED; registration open)",
+                   "registration": "Online."},
+        "gravel_god_rating": {"tier": 3, "overall_score": 61},
+        "biased_opinion": {
+            "bottom_line": "A scenic rolling gravel race. Worth it for local riders.",
+            "weaknesses": ["Moderate access"],
+        },
+        "course_description": {
+            "suffering_zones": [
+                {"mile": 40, "label": "The Wall",
+                 "desc": "A 2-mile climb at 12% on loose limestone. It decides the race."},
+            ],
+            "surface_breakdown": {"overall": {"gravel": 85, "pavement": 15}},
+        },
+    }
+    for key, value in over.items():
+        race[key] = value
+    return race
+
+
+def _claim_texts(claims):
+    return [c.text_html for c in claims]
+
+
+def _in_short(html):
+    if 'class="inshort"' not in html:
+        return None
+    return html.split('<aside class="inshort"', 1)[1].split("</aside>", 1)[0]
+
+
+def test_in_short_claims_from_fixture():
+    claims = build_in_short(_fixture_race(), ALL_SECTIONS)
+    assert _claim_texts(claims) == [
+        "Rated 61/100, Tier 3 Solid. A scenic rolling gravel race.",
+        "74 miles with 5,741 ft of elevation gain, 85% gravel.",
+        "The Wall (mile 40): A 2-mile climb at 12% on loose limestone.",
+        "Race date: October 25, 2026. Registration is open.",
+    ]
+    assert [c.href for c in claims] == ["#why-race", "#key-stats", "#course-preview", "#registration-info"]
+    assert [c.section for c in claims] == [0, 3, 2, 6]
+    assert claims[1].link_label == "See Key Stats · §04"
+
+
+def test_in_short_is_deterministic_and_escaped():
+    race = _fixture_race(biased_opinion={"bottom_line": "Mud & <b>grit</b> rule here."})
+    first = build_in_short(race, ALL_SECTIONS)
+    assert first == build_in_short(race, ALL_SECTIONS)
+    assert first[0].text_html == "Rated 61/100, Tier 3 Solid. Mud &amp; &lt;b&gt;grit&lt;/b&gt; rule here."
+
+
+def test_in_short_weakness_with_sentence_beats_suffering_zone():
+    race = _fixture_race(biased_opinion={
+        "bottom_line": "A scenic race.", "weaknesses": ["The chaos: the race can feel like an afterthought."]})
+    hard = build_in_short(race, ALL_SECTIONS)[2]
+    assert hard.text_html == "The chaos: the race can feel like an afterthought."
+    assert hard.href == "#the-real-talk"
+
+
+def test_in_short_skips_missing_data():
+    race = _fixture_race(biased_opinion={}, course_description={})
+    race["vitals"] = {"distance_mi": 74, "date_specific": "2026: June 6"}
+    claims = build_in_short(race, ALL_SECTIONS)
+    assert _claim_texts(claims) == ["74 miles.", "Race date: June 6, 2026."]
+
+
+def test_in_short_truncation_guard():
+    # Cut-off strings (no terminal punctuation) never become claims.
+    assert first_sentence("A scenic Alentejo rolling gravel race with cork-oak mont") is None
+    assert first_sentence("Moderate Europe access") is None
+    assert first_sentence("Mt. Hood looms. Then rain.") == "Mt. Hood looms."
+    race = _fixture_race(biased_opinion={"bottom_line": "A scenic Alentejo rolling gravel race with cork-oak mont"})
+    race["course_description"]["suffering_zones"][0]["desc"] = "A 2-mile climb at 12% on loose lime"
+    assert all(c.href not in ("#why-race", "#course-preview") for c in build_in_short(race, ALL_SECTIONS))
+
+
+def test_in_short_skips_banned_voice_and_long_sentences():
+    for bad in ("Worth it — if you like mud.", "We loved it.", "Go now!",
+                "It is not a race, but a ride.", "I would race it again.",
+                "Riders suffer for days, not weekends."):
+        assert not claim_ok(bad), bad
+    long_line = "This race " + "goes on and on " * 8 + "forever."
+    race = _fixture_race(biased_opinion={"bottom_line": long_line})
+    assert "#why-race" not in [c.href for c in build_in_short(race, ALL_SECTIONS)]
+
+
+def test_in_short_skips_filler_zone_and_unparsed_date():
+    race = _fixture_race()
+    race["course_description"]["suffering_zones"] = [
+        {"mile": 15, "label": "Early Desert", "desc": "First desert sections."}]
+    race["vitals"]["date_specific"] = "2026: November TBD"
+    hrefs = [c.href for c in build_in_short(race, ALL_SECTIONS)]
+    assert hrefs == ["#why-race", "#key-stats"]
+
+
+def test_in_short_needs_two_claims_and_backing_sections():
+    race = _fixture_race(biased_opinion={}, course_description={})
+    race["vitals"] = {"distance_mi": 74}
+    assert build_in_short(race, ALL_SECTIONS) is None
+    # A claim whose section isn't on the page is dropped.
+    assert build_in_short(_fixture_race(), ["key-stats", "registration-info"]) is not None
+    assert build_in_short(_fixture_race(), ["key-stats"]) is None
+
+
+def test_sparse_preview_renders_no_in_short(monkeypatch):
+    race = {"name": "Tiny Gravel", "vitals": {"distance_mi": 40, "date_specific": "2026: June 6"},
+            "gravel_god_rating": {"tier": 4, "overall_score": 41}}
+    monkeypatch.setattr(gbp, "load_race", lambda slug: race)
+    html = gbp.generate_preview_html("tiny-gravel")
+    assert _in_short(html) is None
+    assert 'data-slot="summary"' not in html
+
+
+def test_fixture_preview_in_short_links_resolve(monkeypatch):
+    monkeypatch.setattr(gbp, "load_race", lambda slug: _fixture_race())
+    html = gbp.generate_preview_html("fixture-gravel")
+    block = _in_short(html)
+    assert block.count("<li ") == 4
+    # The surface claim is backed by a Key Stats tile.
+    assert '<span class="gg-blog-stat-val">85% gravel · 15% pavement</span>' in html
+
+
+@pytest.mark.parametrize("slug", [
+    "unbound-200", "mid-south", "alentejo-gravel", "transcontinental-race",
+    "dirty-reiver", "barry-roubaix", "tour-aotearoa",
+])
+def test_real_preview_in_short_contract(slug):
+    html = generate_preview_html(slug)
+    block = _in_short(html)
+    if block is None:
+        return
+    ids = set(re.findall(r'\bid="([^"]+)"', html))
+    rows = re.findall(r'<li data-sec="(\d+)"><p>(.*?)</p><a class="ev" href="#([^"]+)">', block)
+    assert 2 <= len(rows) <= 4
+    toc = _preview_sections(html)
+    for sec, text, target in rows:
+        assert target in ids, target
+        assert int(sec) < len(toc)
+        plain = re.sub(r"&[a-z#0-9]+;", "x", text)
+        assert len(plain.split()) <= 25, text
+        for banned in BANNED_IN_CLAIMS:
+            assert banned not in text, (banned, text)
+    # The block sits before the first section.
+    body = html.split('<article class="article" id="article">', 1)[1]
+    assert body.index('class="inshort"') < body.index("<section")
+
+
+def test_in_short_contract_holds_for_every_race():
+    for path in sorted(gbp.RACE_DATA_DIR.glob("*.json")):
+        rd = load_race(path.stem)
+        claims = build_in_short(rd, ALL_SECTIONS) or []
+        assert len(claims) in (0, 2, 3, 4)
+        for c in claims:
+            assert claim_ok(c.text_html.replace("&amp;", "&")), (path.stem, c.text_html)
+
+
+# ── Review fixes: estimated dates, template zones, surface labels ──
+
+# Every race whose first edition is a pattern estimate, conflict or otherwise
+# not announced: the hero says so and the "In short" never states the date.
+ESTIMATED_DATE_RACES = {
+    "little-apple-100": "August 8, 2027 · Date estimated",
+    "giro-sardegna-gravel": "April 30\u2013May 1, 2026 · Date unconfirmed",
+    "devils-cardigan": "June 19, 2027 · Date estimated",
+    "dead-swede-gravel": "June 5, 2027 · Date estimated",
+    "eislek-gravel": "June 20, 2027 · Date estimated",
+    "highlands-gravel-classic": "April 24, 2027 · Date estimated",
+    "le-grand-du-nord": "May 22, 2027 · Date estimated",
+    "lost-and-found-gravel": "June 12, 2027 · Date estimated",
+    "race-to-valhalla": "April 24, 2027 · Date estimated",
+    "safari-gravel-race": "June 12, 2027 · Date estimated",
+}
+
+
+@pytest.mark.parametrize("slug", sorted(ESTIMATED_DATE_RACES))
+def test_estimated_dates_never_read_as_fact(slug):
+    rd = load_race(slug)
+    raw = rd["vitals"].get("date_specific")
+    if race_date_line(raw) != ESTIMATED_DATE_RACES[slug]:
+        pytest.skip(f"{slug} date data changed: {raw!r}")
+    html = generate_preview_html(slug)
+    hero = _hero(html)
+    assert ESTIMATED_DATE_RACES[slug] in hero
+    assert "Confirmed" not in hero
+    claims = build_in_short(rd, ALL_SECTIONS) or []
+    assert "#registration-info" not in [c.href for c in claims]
+    block = _in_short(html) or ""
+    assert "Race date" not in block and "confirmed" not in block.lower()
+
+
+def test_when_claim_skips_estimates_and_conflicts():
+    for raw in ("2027: August 8 (pattern estimate \u2014 2026 confirmed Sun Aug 9)",
+                "2026: May 2 (sources conflict on exact race day; CONFIRMED)",
+                "2027: May 22 (official 2027 date not yet announced)",
+                "2027: June 12 (TBC, projected)"):
+        race = _fixture_race()
+        race["vitals"]["date_specific"] = raw
+        assert "#registration-info" not in [c.href for c in build_in_short(race, ALL_SECTIONS)], raw
+    race = _fixture_race()
+    race["vitals"]["date_specific"] = "2027: April 17 (CONFIRMED \u2014 x.com; 2026 edition already ran)"
+    assert build_in_short(race, ALL_SECTIONS)[-1].text_html == "Race date: April 17, 2027 (confirmed)."
+
+
+def test_template_zones_never_become_claims():
+    race = _fixture_race(biased_opinion={"bottom_line": "A scenic race."})
+    race["course_description"]["suffering_zones"] = [
+        {"mile": 50, "label": "First Third", "desc": "50 miles in, settling into pace."},
+        {"mile": 75, "label": "Halfway", "desc": "Halfway point, 75 miles to go."},
+        {"mile": 100, "label": "The Grind", "desc": "100 miles in, mental game begins."},
+        {"mile": 140, "label": "Late Lake District", "desc": "Final Lake District sections before finish."},
+    ]
+    assert "#course-preview" not in [c.href for c in build_in_short(race, ALL_SECTIONS)]
+    # A real zone after the template ones still counts.
+    race["course_description"]["suffering_zones"].append(
+        {"mile": 120, "label": "The Wall", "desc": "A 2-mile climb at 12% on loose limestone."})
+    assert build_in_short(race, ALL_SECTIONS)[2].text_html == (
+        "The Wall (mile 120): A 2-mile climb at 12% on loose limestone.")
+
+
+@pytest.mark.parametrize("slug", ["gravel-worlds-amateur", "barry-roubaix", "cohutta-gravel-grinder"])
+def test_real_template_zones_make_no_claim(slug):
+    claims = build_in_short(load_race(slug), ALL_SECTIONS) or []
+    for c in claims:
+        assert "miles in" not in c.text_html and "Halfway" not in c.text_html, c.text_html
+        assert "First Third" not in c.text_html and "settling into pace" not in c.text_html
+
+
+def test_surface_clause_only_uses_plain_surface_words():
+    race = _fixture_race()
+    race["course_description"]["surface_breakdown"] = {"overall": {"pavement": 47, "unroad": 53}}
+    assert build_in_short(race, ALL_SECTIONS)[1].text_html == "74 miles with 5,741 ft of elevation gain."
+    race["course_description"]["surface_breakdown"] = {"overall": {"unpaved": 60, "pavement": 40}}
+    assert build_in_short(race, ALL_SECTIONS)[1].text_html == (
+        "74 miles with 5,741 ft of elevation gain, 60% unpaved.")
+
+
+def test_bwr_california_keeps_surface_tile_but_no_unroad_claim():
+    html = generate_preview_html("bwr-california")
+    assert "unroad" not in (_in_short(html) or "")
+    assert "53% unroad" in html  # the Key Stats tile keeps the organizer's figure

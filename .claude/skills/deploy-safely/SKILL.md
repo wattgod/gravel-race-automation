@@ -58,6 +58,9 @@ mu-plugin syncs (section 3) or article SCP sync. Run those separately —
   `{slug}/index.html`. Never rsync.
 - Articles: SCP to `/articles/{slug}/index.html`, separate from `--sync-blog`
   (targets `/blog/`) — see CLAUDE.md Deploy section.
+- Imported WordPress posts: SCP `wordpress/posts/{slug}/` to `public_html/{slug}/`
+  (same root URL as the WP post; the static directory wins) — see
+  docs/article-cadence.md "Imported WordPress posts".
 - Cache purge is scripted: `purge_cache()` SSHes `wp --path=$HOME/www/
   gravelgodcycling.com/public_html sg purge` (SiteGround wp-cli command) —
   clears static, dynamic, memcached, opcache in one call. Pass

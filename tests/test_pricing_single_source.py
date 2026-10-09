@@ -103,6 +103,20 @@ ALLOWLIST = {
 }
 
 
+# Generated pages allowlisted by directory, for pipelines that emit one page
+# per post. wordpress/posts/<slug>/index.html is rendered by wordpress/wp_post.py
+# on the editorial shell: its ladder prices come from pricing.json
+# (editorial_shell.ladder_offers), and tests/test_wp_post_import.py fails if a
+# committed page is stale.
+ALLOWLIST_GENERATED_PAGES = ("wordpress/posts/",)
+
+
+def _is_allowlisted(rel_path: str) -> bool:
+    if rel_path in ALLOWLIST:
+        return True
+    return rel_path.endswith("/index.html") and rel_path.startswith(ALLOWLIST_GENERATED_PAGES)
+
+
 def _stray_literal_pattern() -> re.Pattern:
     """Build the scanner regex from pricing.json's own current values, so it
     stays correct if the weekly rate, cap, or Season Plan price ever change."""
@@ -133,7 +147,7 @@ def find_stray_literals() -> list[str]:
     pattern = _stray_literal_pattern()
     hits: list[str] = []
     for rel_path in _tracked_files():
-        if rel_path in ALLOWLIST:
+        if _is_allowlisted(rel_path):
             continue
         # Test files legitimately assert on real rendered/computed numbers —
         # that verifies the source of truth, it isn't a second copy of it.

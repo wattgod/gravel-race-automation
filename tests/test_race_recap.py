@@ -584,15 +584,26 @@ def test_shell_keeps_head_contract(shell_recap):
     assert ld["about"]["url"] == "https://gravelgodcycling.com/race/test-race/"
 
 
-def test_shell_hero_is_wide_og_image_without_read_time(shell_recap):
-    assert '<div class="frame hero wide">' in shell_recap
-    assert '<figure class="hero-img gg-blog-hero-img"><img src="https://gravelgodcycling.com/og/test-race.jpg"' in shell_recap
-    assert 'width="1200" height="630"' in shell_recap
+def test_shell_hero_is_text_only_without_read_time(shell_recap):
+    # The share card repeats title/tier/score, so the hero carries no image.
+    hero = shell_recap.split('<div class="frame hero', 1)[1].split("</div>\n  </div>", 1)[0]
+    assert shell_recap.count('<div class="frame hero no-img gg-blog-hero">') == 1
+    assert "<img" not in hero and 'class="hero-img' not in shell_recap
     assert "Race Recap · Tier 1 The Icons · Test, CO" in shell_recap
     assert "<h1>Test Race 2024 Recap</h1>" in shell_recap
     assert '<p class="dek">John Doe Takes the Win</p>' in shell_recap
     assert "Gravel God &middot; June 1, 2024</p>" in shell_recap
     assert "min read" not in shell_recap
+
+
+def test_shell_share_card_is_body_image_after_winners(shell_recap):
+    img = ('<img class="gg-blog-hero-img" src="https://gravelgodcycling.com/og/test-race.jpg" '
+           'alt="Test Race 2024 race recap" width="1200" height="630" loading="lazy">')
+    assert shell_recap.count(img) == 1
+    body = shell_recap.split("<h2", 1)[1]
+    winners_end = body.index("</section>")
+    assert winners_end < body.index('<div class="gg-article-img-inline">') < body.index(">Conditions</h2>")
+    assert '<div class="gg-article-img-inline">\n      ' + img in shell_recap
 
 
 def test_shell_sections_feed_contents(shell_recap):
@@ -624,9 +635,22 @@ def test_shell_tracking_is_plan_intent_only(shell_recap):
     assert shell_recap.count("gg-consent-banner") >= 1
 
 
-def test_shell_hero_hook_fails_loudly(monkeypatch, shell_recap):
+def test_single_section_recap_has_no_contents(monkeypatch, tmp_path):
+    """One h2 is below the shell's MIN_CONTENTS_HEADINGS, so no rail or bar."""
     import generate_race_recap as recap_mod
 
-    monkeypatch.setattr(recap_mod, "HERO_FIGURE", '<figure class="no-such-hero">')
-    with pytest.raises(RuntimeError, match="hero markup changed"):
-        recap_mod.generate_recap_html("test-race", 2024)
+    race_data = {"race": {
+        "name": "Solo Race",
+        "vitals": {"location": "Test, CO", "date_specific": "2024: June 1"},
+        "gravel_god_rating": {"tier": 2, "overall_score": 70},
+        "results": {"years": {"2024": {"winner_male": "John Doe"}}},
+    }}
+    race_dir = tmp_path / "race-data"
+    race_dir.mkdir()
+    (race_dir / "solo-race.json").write_text(json.dumps(race_data))
+    monkeypatch.setattr(recap_mod, "RACE_DATA_DIR", race_dir)
+    page = recap_mod.generate_recap_html("solo-race", 2024)
+    assert page.count("data-toc>") == 1
+    assert 'class="rail"' not in page and 'id="tocm"' not in page
+    # The share card still follows the one section.
+    assert page.index("</section>") < page.index("gg-blog-hero-img")

@@ -21,13 +21,12 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).parent))
 from brand_tokens import TIER_NAMES
 from blog_tracking import get_plan_intent_tracking_script
-from editorial_shell import ArticleMeta, HeroImage, OgImage, render_editorial_page
+from editorial_shell import ArticleMeta, OgImage, render_editorial_page
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 RACE_DATA_DIR = PROJECT_ROOT / "race-data"
 OUTPUT_DIR = PROJECT_ROOT / "wordpress" / "output" / "blog"
 SITE_URL = "https://gravelgodcycling.com"
-HERO_FIGURE = '<figure class="hero-img">'
 
 # Recap-only blocks on top of editorial_shell.SHELL_CSS (shell tokens only).
 # Winners and stats are measurements: mono labels, no chart, no glyphs.
@@ -255,6 +254,16 @@ def generate_recap_html(slug, year):
       <ul>{items}</ul>
     </section>""")
 
+    # The 1200x630 share card repeats the title, tier and score, so it sits
+    # after the first section as a body image (the essays' inline-image
+    # block), not in the hero. gg-blog-hero-img stays on the img: the blog
+    # validator checks every non-roundup post for it.
+    share_card = f"""
+    <div class="gg-article-img-inline">
+      <img class="gg-blog-hero-img" src="{esc(og_image_url)}" alt="{esc(f'{name} {year} race recap')}" width="1200" height="630" loading="lazy">
+    </div>"""
+    sections.insert(1 if sections else 0, share_card)
+
     # Race-specific CTAs: same hrefs and copy as before; real buttons, so chamfer.
     cta_html = f"""
     <div class="gg-blog-cta">
@@ -296,25 +305,18 @@ def generate_recap_html(slug, year):
         og_title=title,
         og_description=f"{headline}. Tier {tier} {tier_name} gravel race.",
         og_image=OgImage(url=og_image_url, width=1200, height=630),
-        hero=HeroImage(src=og_image_url, alt=f"{name} {year} race recap", width=1200, height=630, layout="wide"),
+        hero_class="gg-blog-hero",
         json_ld=(jsonld,),
         track_article_events=False,
         show_read_time=False,
     )
-    page_html = render_editorial_page(
+    return render_editorial_page(
         meta,
         "".join(sections) + cta_html,
         ladder=False,
         extra_css=RECAP_CSS,
         extra_body_end=get_plan_intent_tracking_script(),
     )
-    # Keep the gg-blog-hero-img hook that validate_blog_content.py and the
-    # blog checks look for on every non-roundup post.
-    if HERO_FIGURE not in page_html:
-        raise RuntimeError("editorial_shell hero markup changed; update HERO_FIGURE")
-    page_html = page_html.replace(HERO_FIGURE, '<figure class="hero-img gg-blog-hero-img">', 1)
-
-    return page_html
 
 
 def main():

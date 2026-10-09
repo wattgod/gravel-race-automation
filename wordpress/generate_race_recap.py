@@ -19,14 +19,35 @@ from datetime import date
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent))
-from brand_tokens import TIER_NAMES, get_ga4_head_snippet
+from brand_tokens import TIER_NAMES
 from blog_tracking import get_plan_intent_tracking_script
-from cookie_consent import get_consent_banner_html
+from editorial_shell import ArticleMeta, HeroImage, OgImage, render_editorial_page
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 RACE_DATA_DIR = PROJECT_ROOT / "race-data"
 OUTPUT_DIR = PROJECT_ROOT / "wordpress" / "output" / "blog"
 SITE_URL = "https://gravelgodcycling.com"
+HERO_FIGURE = '<figure class="hero-img">'
+
+# Recap-only blocks on top of editorial_shell.SHELL_CSS (shell tokens only).
+# Winners and stats are measurements: mono labels, no chart, no glyphs.
+RECAP_CSS = """
+.gg-recap-winners{display:flex;flex-direction:column;gap:6px}
+.gg-recap-winner{display:flex;justify-content:space-between;align-items:baseline;gap:16px;background:var(--sand);padding:16px 20px}
+.gg-recap-label{font:700 13px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--ink3)}
+.gg-recap-value{font:700 20px/1.35 var(--serif);text-align:right}
+.gg-blog-stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:6px}
+.gg-blog-stat{background:var(--sand);padding:18px 20px}
+.gg-blog-stat-val{display:block;font:700 30px/1.1 var(--mono);font-variant-numeric:tabular-nums;margin-bottom:6px}
+.gg-blog-stat-label{display:block;font:700 12px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--ink3)}
+.gg-blog-cta{display:flex;flex-wrap:wrap;gap:10px;margin:56px 0 0}
+@media (max-width:640px){
+  .gg-recap-winner{flex-direction:column;gap:4px;padding:14px 16px}
+  .gg-recap-value{text-align:left;font-size:19px}
+  .gg-blog-stats{grid-template-columns:1fr 1fr}
+  .gg-blog-stat-val{font-size:26px}
+}
+"""
 
 
 def esc(text):
@@ -160,7 +181,6 @@ def generate_recap_html(slug, year):
     # Cap at today
     if pub_date > date.today():
         pub_date = date.today()
-    today_str = pub_date.strftime("%B %d, %Y")
     article_date_iso = pub_date.isoformat()
 
     # Headline based on available data
@@ -173,8 +193,8 @@ def generate_recap_html(slug, year):
         headline_parts.append("Race Results")
     headline = " — ".join(headline_parts)
 
-    # Winners section
-    winners_html = ""
+    # Winners: label + value rows (same copy as before the shell move)
+    sections = []
     if winner_m or winner_f:
         rows = []
         if winner_m:
@@ -191,20 +211,18 @@ def generate_recap_html(slug, year):
             <span class="gg-recap-label">Women's Winner</span>
             <span class="gg-recap-value">{esc(winner_f)}{time_display}</span>
           </div>""")
-        winners_html = f"""
+        sections.append(f"""
     <section class="gg-blog-section">
       <h2>Winners</h2>
       <div class="gg-recap-winners">{''.join(rows)}</div>
-    </section>"""
+    </section>""")
 
-    # Conditions section
-    conditions_html = ""
     if conditions:
-        conditions_html = f"""
+        sections.append(f"""
     <section class="gg-blog-section">
       <h2>Conditions</h2>
       <p>{esc(conditions)}</p>
-    </section>"""
+    </section>""")
 
     # Stats grid
     stats_items = []
@@ -222,25 +240,29 @@ def generate_recap_html(slug, year):
         stats_items.append(f'<div class="gg-blog-stat"><span class="gg-blog-stat-val">{finisher_count:,}</span><span class="gg-blog-stat-label">Finishers</span></div>')
     if dnf_rate is not None:
         stats_items.append(f'<div class="gg-blog-stat"><span class="gg-blog-stat-val">{dnf_rate}%</span><span class="gg-blog-stat-label">DNF Rate</span></div>')
-    stats_html = ""
     if stats_items:
-        stats_html = f"""
+        sections.append(f"""
     <section class="gg-blog-section">
       <h2>Key Stats</h2>
       <div class="gg-blog-stats">{''.join(stats_items)}</div>
-    </section>"""
+    </section>""")
 
-    # Key takeaways
-    takeaways_html = ""
     if takeaways:
         items = "".join(f"<li>{esc(t)}</li>" for t in takeaways)
-        takeaways_html = f"""
+        sections.append(f"""
     <section class="gg-blog-section">
       <h2>Key Takeaways</h2>
       <ul>{items}</ul>
-    </section>"""
+    </section>""")
 
-    # JSON-LD
+    # Race-specific CTAs: same hrefs and copy as before; real buttons, so chamfer.
+    cta_html = f"""
+    <div class="gg-blog-cta">
+      <a class="btn" href="{profile_url}">Full Race Profile <span class="chev" aria-hidden="true">&rsaquo;</span></a>
+      <a class="btn" href="{prep_kit_url}">Free Prep Kit <span class="chev" aria-hidden="true">&rsaquo;</span></a>
+    </div>"""
+
+    # JSON-LD (kept on recaps, as before; compact string passed through verbatim)
     jsonld = json.dumps({
         "@context": "https://schema.org",
         "@type": "Article",
@@ -260,213 +282,37 @@ def generate_recap_html(slug, year):
         },
     }, separators=(",", ":"))
 
-    page_html = f"""<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="robots" content="noindex, follow">
-  <title>{esc(name)} {year} Race Recap — Gravel God</title>
-{get_ga4_head_snippet()}
-  <meta name="description" content="{esc(name)} {year} recap: {esc(headline)}. Tier {tier} {tier_name} rated {score}/100.">
-  <meta property="og:title" content="{esc(name)} {year} Race Recap — Gravel God">
-  <meta property="og:description" content="{esc(headline)}. Tier {tier} {tier_name} gravel race.">
-  <meta property="og:image" content="{og_image_url}">
-  <meta property="og:url" content="{og_url}">
-  <link rel="canonical" href="{og_url}">
-  <script type="application/ld+json">{jsonld}</script>
-  <style>
-    :root {{
-      --gg-dark-brown: #3a2e25;
-      --gg-primary-brown: #59473c;
-      --gg-secondary-brown: #7d695d;
-      --gg-teal: #178079;
-      --gg-warm-paper: #f5efe6;
-      --gg-sand: #ede4d8;
-      --gg-white: #ffffff;
-    }}
-    * {{ margin: 0; padding: 0; box-sizing: border-box; border-radius: 0; }}
-    body {{
-      font-family: 'Source Serif 4', Georgia, serif;
-      background: var(--gg-warm-paper);
-      color: var(--gg-dark-brown);
-      line-height: 1.7;
-    }}
-    .gg-blog-container {{ max-width: 780px; margin: 0 auto; padding: 32px 24px; }}
-    .gg-blog-hero {{
-      background: var(--gg-primary-brown);
-      color: var(--gg-warm-paper);
-      padding: 48px 32px;
-      border: 3px solid var(--gg-dark-brown);
-      margin-bottom: 32px;
-    }}
-    .gg-blog-hero-meta {{
-      font-family: 'Sometype Mono', monospace;
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      opacity: 0.8;
-      margin-bottom: 12px;
-    }}
-    .gg-blog-hero h1 {{
-      font-size: 28px;
-      font-weight: 700;
-      line-height: 1.2;
-      margin-bottom: 8px;
-    }}
-    .gg-blog-hero-sub {{
-      font-family: 'Sometype Mono', monospace;
-      font-size: 13px;
-      opacity: 0.7;
-    }}
-    .gg-blog-section {{
-      margin-bottom: 32px;
-      padding: 24px;
-      border: 2px solid var(--gg-dark-brown);
-      background: var(--gg-white);
-    }}
-    .gg-blog-section h2 {{
-      font-family: 'Sometype Mono', monospace;
-      font-size: 14px;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      margin-bottom: 16px;
-      padding-bottom: 8px;
-      border-bottom: 2px solid var(--gg-dark-brown);
-    }}
-    .gg-blog-section p {{ margin-bottom: 12px; font-size: 15px; }}
-    .gg-blog-section ul {{ margin: 12px 0 12px 24px; font-size: 15px; }}
-    .gg-blog-section li {{ margin-bottom: 6px; }}
-    .gg-blog-section a {{
-      color: var(--gg-teal);
-      text-decoration: none;
-      font-weight: 600;
-    }}
-    .gg-blog-section a:hover {{ text-decoration: underline; }}
-    .gg-recap-winners {{ display: flex; flex-direction: column; gap: 16px; }}
-    .gg-recap-winner {{
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 12px 16px;
-      border: 2px solid var(--gg-dark-brown);
-      background: var(--gg-warm-paper);
-    }}
-    .gg-recap-label {{
-      font-family: 'Sometype Mono', monospace;
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: 1.5px;
-      color: var(--gg-secondary-brown);
-    }}
-    .gg-recap-value {{
-      font-family: 'Sometype Mono', monospace;
-      font-size: 14px;
-      font-weight: 700;
-    }}
-    .gg-blog-stats {{
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-      gap: 16px;
-    }}
-    .gg-blog-stat {{
-      text-align: center;
-      padding: 16px;
-      border: 2px solid var(--gg-dark-brown);
-      background: var(--gg-warm-paper);
-    }}
-    .gg-blog-stat-val {{
-      font-family: 'Sometype Mono', monospace;
-      font-size: 20px;
-      font-weight: 700;
-      display: block;
-    }}
-    .gg-blog-stat-label {{
-      font-family: 'Sometype Mono', monospace;
-      font-size: 10px;
-      text-transform: uppercase;
-      letter-spacing: 1.5px;
-      color: var(--gg-secondary-brown);
-    }}
-    .gg-blog-cta {{
-      text-align: center;
-      padding: 32px;
-      border: 3px solid var(--gg-dark-brown);
-      background: var(--gg-dark-brown);
-      margin-bottom: 32px;
-    }}
-    .gg-blog-cta a {{
-      display: inline-block;
-      padding: 12px 32px;
-      background: var(--gg-teal);
-      color: var(--gg-white);
-      font-family: 'Sometype Mono', monospace;
-      font-size: 13px;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      text-decoration: none;
-      border: 2px solid var(--gg-teal);
-      margin: 6px;
-    }}
-    .gg-blog-cta a:hover {{ background: var(--gg-primary-brown); border-color: var(--gg-primary-brown); }}
-    .gg-blog-footer {{
-      text-align: center;
-      font-family: 'Sometype Mono', monospace;
-      font-size: 11px;
-      color: var(--gg-secondary-brown);
-      padding: 24px;
-      text-transform: uppercase;
-      letter-spacing: 1.5px;
-    }}
-    .gg-blog-footer a {{ color: var(--gg-teal); text-decoration: none; }}
-    .gg-blog-hero-img {{
-      margin-bottom: 32px;
-      line-height: 0;
-      border: 3px solid var(--gg-dark-brown);
-    }}
-    .gg-blog-hero-img img {{
-      width: 100%;
-      height: auto;
-      display: block;
-    }}
-    @media (max-width: 600px) {{
-      .gg-blog-hero {{ padding: 32px 20px; }}
-      .gg-blog-hero h1 {{ font-size: 22px; }}
-      .gg-blog-section {{ padding: 16px; }}
-      .gg-recap-winner {{ flex-direction: column; gap: 4px; text-align: center; }}
-    }}
-  </style>
-</head>
-<body>
-  <div class="gg-blog-container">
-    <div class="gg-blog-hero">
-      <div class="gg-blog-hero-meta">Race Recap &middot; Tier {tier} {esc(tier_name)} &middot; {esc(location)}</div>
-      <h1>{esc(name)} {year} Recap</h1>
-      <div class="gg-blog-hero-sub">{esc(headline)} &middot; Published {today_str}</div>
-    </div>
-    <div class="gg-blog-hero-img">
-      <img src="{og_image_url}" alt="{esc(name)} {year} race recap" width="1200" height="630" loading="eager">
-    </div>
-    {winners_html}
-    {conditions_html}
-    {stats_html}
-    {takeaways_html}
-
-    <div class="gg-blog-cta">
-      <a href="{profile_url}">Full Race Profile &rarr;</a>
-      <a href="{prep_kit_url}">Free Prep Kit &rarr;</a>
-    </div>
-
-    <div class="gg-blog-footer">
-      <a href="{SITE_URL}">Gravel God</a> &middot; {today_str}
-    </div>
-  </div>
-{get_consent_banner_html()}
-{get_plan_intent_tracking_script()}
-</body>
-</html>"""
+    title = f"{name} {year} Race Recap — Gravel God"
+    meta = ArticleMeta(
+        slug=recap_slug,
+        canonical_url=og_url,
+        title=title,
+        description=f"{name} {year} recap: {headline}. Tier {tier} {tier_name} rated {score}/100.",
+        headline=f"{name} {year} Recap",
+        date_published=pub_date,
+        kicker=f"Race Recap · Tier {tier} {tier_name}" + (f" · {location}" if location else ""),
+        dek=headline,
+        robots="noindex, follow",
+        og_title=title,
+        og_description=f"{headline}. Tier {tier} {tier_name} gravel race.",
+        og_image=OgImage(url=og_image_url, width=1200, height=630),
+        hero=HeroImage(src=og_image_url, alt=f"{name} {year} race recap", width=1200, height=630, layout="wide"),
+        json_ld=(jsonld,),
+        track_article_events=False,
+        show_read_time=False,
+    )
+    page_html = render_editorial_page(
+        meta,
+        "".join(sections) + cta_html,
+        ladder=False,
+        extra_css=RECAP_CSS,
+        extra_body_end=get_plan_intent_tracking_script(),
+    )
+    # Keep the gg-blog-hero-img hook that validate_blog_content.py and the
+    # blog checks look for on every non-roundup post.
+    if HERO_FIGURE not in page_html:
+        raise RuntimeError("editorial_shell hero markup changed; update HERO_FIGURE")
+    page_html = page_html.replace(HERO_FIGURE, '<figure class="hero-img gg-blog-hero-img">', 1)
 
     return page_html
 

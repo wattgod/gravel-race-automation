@@ -1,6 +1,7 @@
 """Tests for race recap generator and results extractor."""
 
 import json
+import re
 import sys
 from pathlib import Path
 
@@ -528,3 +529,104 @@ def test_recap_has_hero_image(tmp_path):
         assert "source: 'editorial'" in html_content
     finally:
         recap_mod.RACE_DATA_DIR = orig_dir
+
+
+# ── Editorial shell (Gravel God x Endure Glyph) ──
+
+
+@pytest.fixture
+def shell_recap(tmp_path, monkeypatch):
+    """A full recap rendered on the editorial shell from a temp race JSON."""
+    import generate_race_recap as recap_mod
+
+    race_data = {
+        "race": {
+            "name": "Test Race",
+            "vitals": {"location": "Test, CO", "distance_mi": 200, "elevation_ft": 15000,
+                       "date_specific": "2024: June 1"},
+            "gravel_god_rating": {"tier": 1, "overall_score": 85},
+            "results": {"years": {"2024": {
+                "winner_male": "John Doe", "winner_female": "Jane Smith",
+                "winning_time_male": "8:30:00", "conditions": "Cool and dry",
+                "field_size_actual": 2000, "finisher_count": 1700, "dnf_rate_pct": 15,
+                "key_takeaways": ["New course record"],
+            }}},
+        }
+    }
+    race_dir = tmp_path / "race-data"
+    race_dir.mkdir()
+    (race_dir / "test-race.json").write_text(json.dumps(race_data))
+    monkeypatch.setattr(recap_mod, "RACE_DATA_DIR", race_dir)
+    return recap_mod.generate_recap_html("test-race", 2024)
+
+
+def _head(page):
+    return page.split("<head>", 1)[1].split("</head>", 1)[0]
+
+
+def test_shell_keeps_head_contract(shell_recap):
+    head = _head(shell_recap)
+    url = "https://gravelgodcycling.com/blog/test-race-recap/"
+    assert '<meta name="robots" content="noindex, follow">' in head
+    assert "<title>Test Race 2024 Race Recap — Gravel God</title>" in head
+    assert f'<link rel="canonical" href="{url}">' in head
+    assert f'<meta property="og:url" content="{url}">' in head
+    assert '<meta property="og:image" content="https://gravelgodcycling.com/og/test-race.jpg">' in head
+    assert ('content="Test Race 2024 recap: John Doe Takes the Win. '
+            'Tier 1 The Icons rated 85/100."') in head
+    assert 'og:description" content="John Doe Takes the Win. Tier 1 The Icons gravel race."' in head
+    # JSON-LD policy unchanged: one compact Article block with the SportsEvent.
+    blocks = re.findall(r'<script type="application/ld\+json">(.*?)</script>', head, re.S)
+    assert len(blocks) == 1
+    ld = json.loads(blocks[0])
+    assert ld["@type"] == "Article"
+    assert ld["datePublished"] == "2024-06-01"
+    assert ld["about"]["url"] == "https://gravelgodcycling.com/race/test-race/"
+
+
+def test_shell_hero_is_wide_og_image_without_read_time(shell_recap):
+    assert '<div class="frame hero wide">' in shell_recap
+    assert '<figure class="hero-img gg-blog-hero-img"><img src="https://gravelgodcycling.com/og/test-race.jpg"' in shell_recap
+    assert 'width="1200" height="630"' in shell_recap
+    assert "Race Recap · Tier 1 The Icons · Test, CO" in shell_recap
+    assert "<h1>Test Race 2024 Recap</h1>" in shell_recap
+    assert '<p class="dek">John Doe Takes the Win</p>' in shell_recap
+    assert "Gravel God &middot; June 1, 2024</p>" in shell_recap
+    assert "min read" not in shell_recap
+
+
+def test_shell_sections_feed_contents(shell_recap):
+    heads = re.findall(r"<h2 id=\"([\w-]+)\" data-toc>([^<]+)</h2>", shell_recap)
+    assert [h for _, h in heads] == ["Winners", "Conditions", "Key Stats", "Key Takeaways"]
+    assert shell_recap.count('<section class="gg-blog-section">') == 4
+    assert 'class="rail"' in shell_recap and 'id="tocm"' in shell_recap
+    for label in ("Men's Winner", "Women's Winner", "Miles", "Ft Elevation",
+                  "Starters", "Finishers", "DNF Rate"):
+        assert label in shell_recap
+    assert "John Doe (8:30:00)" in shell_recap
+    assert "15,000" in shell_recap and "2,000" in shell_recap and "15%" in shell_recap
+
+
+def test_shell_keeps_race_ctas_and_no_ladder(shell_recap):
+    cta = shell_recap.split('<div class="gg-blog-cta">', 1)[1].split("</div>", 1)[0]
+    assert 'href="https://gravelgodcycling.com/race/test-race/"' in cta
+    assert 'href="https://gravelgodcycling.com/race/test-race/prep-kit/"' in cta
+    assert "Full Race Profile" in cta and "Free Prep Kit" in cta
+    # No generic plans/coaching block existed, so no shell ladder is added.
+    assert 'data-cta="custom_plan"' not in shell_recap
+
+
+def test_shell_tracking_is_plan_intent_only(shell_recap):
+    assert shell_recap.count("source: 'editorial'") == 1
+    # noindex blog pages stay out of the article funnel
+    assert "article_scroll_depth" not in shell_recap
+    assert "article_deep_read" not in shell_recap
+    assert shell_recap.count("gg-consent-banner") >= 1
+
+
+def test_shell_hero_hook_fails_loudly(monkeypatch, shell_recap):
+    import generate_race_recap as recap_mod
+
+    monkeypatch.setattr(recap_mod, "HERO_FIGURE", '<figure class="no-such-hero">')
+    with pytest.raises(RuntimeError, match="hero markup changed"):
+        recap_mod.generate_recap_html("test-race", 2024)

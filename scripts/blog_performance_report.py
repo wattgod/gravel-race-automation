@@ -1,10 +1,19 @@
 #!/usr/bin/env python3
 """Per-post GA4 performance for Gravel God essays and blog posts.
 
-Compares the 30 days before the 2026-10-09 editorial redesign with
-2026-10-09 → yesterday. Every count is normalised per day because the
-after-window is short; ratios (engagement rate, average engagement time,
-deep-read rate) are reported as-is.
+Default comparison: the last 7 complete days vs the 7 days before them
+(week over week). Every count is also given per usable day, where a usable
+day is on or after the page type's tracking start and not an excluded date.
+
+Tracking start matters: the 77 WordPress posts had no GA4 tag until
+2026-10-09, so nothing before that date is a baseline for them. Essays
+(/articles/) and /blog/ pages carried GA4 before the redesign and are
+treated as tracked throughout. The optional --compare-redesign section
+(30 days before 2026-10-09 vs after) therefore only covers those types.
+
+QA noise: scripted headless-browser checks loaded many pages on
+2026-10-09/10. Those dates are excluded by default (--exclude-dates), and
+every GA4 query drops rows whose browser begins with "Headless".
 
 Content covered:
   essays   /articles/<slug>/      (wordpress/articles/)
@@ -20,7 +29,7 @@ the repo.
 
 Usage:
     python scripts/blog_performance_report.py --mock --output-dir /tmp/bp
-    python scripts/blog_performance_report.py --property 123 \
+    python scripts/blog_performance_report.py --property 123 \\
         --credentials ga4.json --output-dir data/blog-performance
 """
 
@@ -34,7 +43,7 @@ import re
 import sys
 from datetime import date, datetime, timedelta, timezone
 from pathlib import Path
-from typing import Any, Callable
+from typing import Any, Callable, Iterable
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 POST_SOURCES = PROJECT_ROOT / "wordpress" / "post_sources"
@@ -43,6 +52,23 @@ BLOG_INDEX = PROJECT_ROOT / "web" / "blog-index.json"
 
 REDESIGN_DATE = date(2026, 10, 9)
 BEFORE_DAYS = 30
+WEEK_DAYS = 7
+
+PAGE_TYPES = ("essay", "post", "preview", "recap", "roundup")
+# First day GA4 data exists for a page type. Types not listed carried GA4
+# before the redesign and are treated as tracked for the whole report span.
+# The WordPress posts' live heads had no GA4/gtag/GTM before 2026-10-09
+# (tests/fixtures/wp_posts/*.live-head.html).
+TRACKING_START: dict[str, date] = {"post": REDESIGN_DATE}
+
+# 2026-10-09/10: scripted headless QA loaded many pages at 390 and 1440 px
+# (~2 views each, 0 s engagement). Not real readers.
+DEFAULT_EXCLUDE_DATES = (date(2026, 10, 9), date(2026, 10, 10))
+
+# GA4's `browser` dimension. If GA4 reports automation as its own browser
+# (e.g. "HeadlessChrome"), every query drops it; the browsers report says
+# how many views that removed.
+HEADLESS_PREFIX = "Headless"
 
 ARTICLE_EVENTS = ("article_scroll_depth", "article_deep_read",
                   "article_cta_click", "cta_click")
@@ -57,6 +83,7 @@ COACHING_CTA_NAMES = frozenset({"coaching"})
 PAGE_METRICS = ("screenPageViews", "activeUsers",
                 "userEngagementDuration", "engagementRate")
 TITLE_SUFFIX_RE = re.compile(r"\s*[|—–-]\s*Gravel God\s*$")
+PAGE_LIMIT = 10000
 
 
 def _load_audit_module():
@@ -146,20 +173,91 @@ def is_blog_content(path: str) -> bool:
     return bool(re.fullmatch(r"/blog/[^/]+/", path))
 
 
-# ── Windows ───────────────────────────────────────────────────────────────
+# ── Windows, tracking start, usable days ──────────────────────────────────
 
-def build_windows(end: date) -> dict[str, dict]:
-    if end < REDESIGN_DATE:
-        raise Ga4Error(
-            f"after-window is empty: end date {end} is before {REDESIGN_DATE}")
-    before_start = REDESIGN_DATE - timedelta(days=BEFORE_DAYS)
-    before_end = REDESIGN_DATE - timedelta(days=1)
-    return {
-        "before": {"start": before_start.isoformat(), "end": before_end.isoformat(),
-                   "days": BEFORE_DAYS},
-        "after": {"start": REDESIGN_DATE.isoformat(), "end": end.isoformat(),
-                  "days": (end - REDESIGN_DATE).days + 1},
+def date_range(start: date, end: date) -> list[date]:
+    return [start + timedelta(days=i) for i in range((end - start).days + 1)]
+
+
+def _window(start: date, end: date) -> dict:
+    return {"start": start.isoformat(), "end": end.isoformat(),
+            "days": (end - start).days + 1}
+
+
+def build_windows(end: date, compare_redesign: bool = False) -> dict[str, dict]:
+    """current = the 7 days ending on `end`; previous = the 7 days before.
+    With compare_redesign, also the 30 days before REDESIGN_DATE and
+    REDESIGN_DATE → end."""
+    current_start = end - timedelta(days=WEEK_DAYS - 1)
+    previous_end = current_start - timedelta(days=1)
+    windows = {
+        "current": _window(current_start, end),
+        "previous": _window(previous_end - timedelta(days=WEEK_DAYS - 1),
+                            previous_end),
     }
+    if compare_redesign:
+        if end < REDESIGN_DATE:
+            raise Ga4Error(f"redesign comparison needs an end date on or after "
+                           f"{REDESIGN_DATE}, got {end}")
+        windows["redesign_before"] = _window(
+            REDESIGN_DATE - timedelta(days=BEFORE_DAYS),
+            REDESIGN_DATE - timedelta(days=1))
+        windows["redesign_after"] = _window(REDESIGN_DATE, end)
+    return windows
+
+
+def query_span(windows: dict) -> dict:
+    return {"start": min(w["start"] for w in windows.values()),
+            "end": max(w["end"] for w in windows.values())}
+
+
+def tracking_start(page_type: str) -> date | None:
+    """None = tracked before anything this report looks at."""
+    return TRACKING_START.get(page_type)
+
+
+def tracked_before_redesign(page_type: str) -> bool:
+    start = tracking_start(page_type)
+    return start is None or start < REDESIGN_DATE
+
+
+def usable_dates(window: dict, page_type: str,
+                 exclude: Iterable[date] = ()) -> list[str]:
+    """Days in `window` on/after the type's tracking start, minus excluded
+    dates. Data before tracking start is never counted."""
+    start = tracking_start(page_type)
+    skip = set(exclude)
+    return [d.isoformat() for d in date_range(date.fromisoformat(window["start"]),
+                                              date.fromisoformat(window["end"]))
+            if (start is None or d >= start) and d not in skip]
+
+
+def week_status(page_type: str, windows: dict, exclude: Iterable[date]) -> str:
+    exclude = tuple(exclude)
+    days = {name: len(usable_dates(windows[name], page_type, exclude))
+            for name in ("current", "previous")}
+    if all(days.values()):
+        return "compared"
+    start = tracking_start(page_type)
+    if start and start > date.fromisoformat(windows["previous"]["start"]):
+        return f"tracking began {start.isoformat()}"
+    missing = [label for name, label in (("current", "this week"),
+                                         ("previous", "last week"))
+               if not days[name]]
+    return f"no usable days {' or '.join(missing)} (excluded dates)"
+
+
+def first_week_over_week_end(page_type: str, end: date,
+                             exclude: Iterable[date], horizon: int = 90) -> date | None:
+    """First end date ≥ `end` whose two weeks both have usable days."""
+    exclude = tuple(exclude)
+    for offset in range(horizon):
+        candidate = end + timedelta(days=offset)
+        windows = build_windows(candidate)
+        if all(usable_dates(windows[n], page_type, exclude)
+               for n in ("current", "previous")):
+            return candidate
+    return None
 
 
 # ── GA4 queries (REST runReport) ─────────────────────────────────────────
@@ -182,35 +280,53 @@ def _and(*exprs: dict) -> dict:
     return {"andGroup": {"expressions": list(exprs)}}
 
 
-def report_requests(window: dict, post_paths: list[str]) -> dict[str, dict]:
-    date_ranges = [{"startDate": window["start"], "endDate": window["end"]}]
+HEADLESS_EXCLUSION = {"notExpression": {"filter": {
+    "fieldName": "browser", "stringFilter": {
+        "matchType": "BEGINS_WITH", "value": HEADLESS_PREFIX,
+        "caseSensitive": False}}}}
+
+
+def report_requests(span: dict, post_paths: list[str]) -> dict[str, dict]:
+    """Daily (date-dimensioned) reports over the whole span, so tracking
+    start and excluded dates can be applied per day in Python."""
+    date_ranges = [{"startDate": span["start"], "endDate": span["end"]}]
     pages = _page_filter(post_paths)
     return {
         "pages": {
             "dateRanges": date_ranges,
-            "dimensions": [{"name": "pagePath"}],
+            "dimensions": [{"name": "date"}, {"name": "pagePath"}],
             "metrics": [{"name": m} for m in PAGE_METRICS],
-            "dimensionFilter": pages,
-            "limit": "10000",
+            "dimensionFilter": _and(pages, HEADLESS_EXCLUSION),
+            "limit": str(PAGE_LIMIT),
         },
         "events": {
             "dateRanges": date_ranges,
-            "dimensions": [{"name": "pagePath"}, {"name": "eventName"}],
+            "dimensions": [{"name": "date"}, {"name": "pagePath"},
+                           {"name": "eventName"}],
             "metrics": [{"name": "eventCount"}],
-            "dimensionFilter": _and(pages, {"filter": {
+            "dimensionFilter": _and(pages, HEADLESS_EXCLUSION, {"filter": {
                 "fieldName": "eventName",
                 "inListFilter": {"values": list(ARTICLE_EVENTS)}}}),
-            "limit": "10000",
+            "limit": str(PAGE_LIMIT),
         },
         "cta": {
             "dateRanges": date_ranges,
-            "dimensions": [{"name": "pagePath"},
+            "dimensions": [{"name": "date"}, {"name": "pagePath"},
                            {"name": "customEvent:cta_name"}],
             "metrics": [{"name": "eventCount"}],
-            "dimensionFilter": _and(pages, {"filter": {
+            "dimensionFilter": _and(pages, HEADLESS_EXCLUSION, {"filter": {
                 "fieldName": "eventName",
                 "stringFilter": {"matchType": "EXACT", "value": "cta_click"}}}),
-            "limit": "10000",
+            "limit": str(PAGE_LIMIT),
+        },
+        # Diagnostic, unfiltered by browser: how many views the headless
+        # exclusion removes.
+        "browsers": {
+            "dateRanges": date_ranges,
+            "dimensions": [{"name": "browser"}],
+            "metrics": [{"name": "screenPageViews"}],
+            "dimensionFilter": pages,
+            "limit": "1000",
         },
     }
 
@@ -236,56 +352,118 @@ def _empty_raw() -> dict:
             "plan_clicks": 0.0, "coaching_clicks": 0.0}
 
 
-def parse_window_reports(reports: dict[str, dict | None]) -> dict[str, dict]:
-    """Raw GA4 report bodies → path → summed raw counts.
+def ga4_date(value: str) -> str:
+    """GA4 `date` is YYYYMMDD; return ISO YYYY-MM-DD."""
+    value = str(value or "").strip()
+    if re.fullmatch(r"\d{8}", value):
+        return f"{value[:4]}-{value[4:6]}-{value[6:]}"
+    return value
+
+
+def parse_daily_reports(reports: dict[str, dict | None]) -> dict[str, dict[str, dict]]:
+    """Raw GA4 report bodies → ISO date → path → summed raw counts.
 
     Rows whose paths differ only by a trailing slash are merged.
     engagementRate is per-session, so it is recombined weighted by views."""
-    raw: dict[str, dict] = {}
+    daily: dict[str, dict[str, dict]] = {}
+
+    def bucket(day: str, path: str) -> dict:
+        return daily.setdefault(ga4_date(day), {}).setdefault(
+            normalize_path(path), _empty_raw())
+
     for dims, vals in _rows(reports.get("pages") or {}):
-        r = raw.setdefault(normalize_path(dims[0]), _empty_raw())
+        if len(dims) < 2:
+            continue
+        r = bucket(dims[0], dims[1])
         views = vals.get("screenPageViews", 0.0)
         r["views"] += views
         r["active_users"] += vals.get("activeUsers", 0.0)
         r["engagement_seconds"] += vals.get("userEngagementDuration", 0.0)
         r["engaged_weight"] += vals.get("engagementRate", 0.0) * views
     for dims, vals in _rows(reports.get("events") or {}):
-        if len(dims) < 2 or dims[1] not in ARTICLE_EVENTS:
+        if len(dims) < 3 or dims[2] not in ARTICLE_EVENTS:
             continue
-        r = raw.setdefault(normalize_path(dims[0]), _empty_raw())
-        r["events"][dims[1]] += vals.get("eventCount", 0.0)
-    cta = reports.get("cta")
-    for dims, vals in _rows(cta or {}):
-        if len(dims) < 2:
+        bucket(dims[0], dims[1])["events"][dims[2]] += vals.get("eventCount", 0.0)
+    for dims, vals in _rows(reports.get("cta") or {}):
+        if len(dims) < 3:
             continue
-        name = dims[1].strip().lower()
-        r = raw.setdefault(normalize_path(dims[0]), _empty_raw())
+        name = dims[2].strip().lower()
+        r = bucket(dims[0], dims[1])
         if name in PLAN_CTA_NAMES:
             r["plan_clicks"] += vals.get("eventCount", 0.0)
         elif name in COACHING_CTA_NAMES:
             r["coaching_clicks"] += vals.get("eventCount", 0.0)
-    if cta is None:
-        for r in raw.values():
-            r["plan_clicks"] = r["coaching_clicks"] = None
-    return raw
+    return daily
 
 
-def fetch_window(session: Any, property_name: str, window: dict,
-                 post_paths: list[str]) -> tuple[dict, list[str]]:
-    """Run the three reports for one window. The cta_name breakdown is
-    optional: if the custom dimension is unavailable the report still ships
-    with plan/coaching clicks marked unavailable."""
+def parse_browsers(report: dict | None) -> dict | None:
+    if report is None:
+        return None
+    total = headless = 0.0
+    for dims, vals in _rows(report):
+        views = vals.get("screenPageViews", 0.0)
+        total += views
+        if dims and dims[0].lower().startswith(HEADLESS_PREFIX.lower()):
+            headless += views
+    return {"views": int(total), "headless_views": int(headless)}
+
+
+def aggregate(daily: dict[str, dict[str, dict]], path: str,
+              dates: Iterable[str]) -> dict:
+    total = _empty_raw()
+    for day in dates:
+        r = (daily.get(day) or {}).get(path)
+        if r is None:
+            continue
+        for key in ("views", "active_users", "engagement_seconds",
+                    "engaged_weight", "plan_clicks", "coaching_clicks"):
+            total[key] += r[key]
+        for name in ARTICLE_EVENTS:
+            total["events"][name] += r["events"][name]
+    return total
+
+
+def _run_paged(session: Any, property_name: str, body: dict,
+               operation: str) -> dict:
+    """runReport with offset paging up to rowCount."""
+    first: dict | None = None
+    rows: list = []
+    offset = 0
+    while True:
+        page_body = dict(body, offset=str(offset)) if offset else body
+        report = _audit._run_report(session, property_name, page_body, operation)
+        if first is None:
+            first = dict(report)
+        page = report.get("rows") or []
+        rows += page
+        offset += len(page)
+        if not page or offset >= int(report.get("rowCount") or 0):
+            break
+    first["rows"] = rows
+    return first
+
+
+OPTIONAL_REPORTS = {
+    "cta": "plan/coaching click breakdown unavailable",
+    "browsers": "headless-browser check unavailable",
+}
+
+
+def fetch_reports(session: Any, property_name: str, span: dict,
+                  post_paths: list[str]) -> tuple[dict, list[str]]:
+    """Run every report over the span. cta and browsers are optional: if
+    either fails the report still ships and says what is missing."""
     warnings: list[str] = []
     reports: dict[str, dict | None] = {}
-    for name, body in report_requests(window, post_paths).items():
+    for name, body in report_requests(span, post_paths).items():
         try:
-            reports[name] = _audit._run_report(
-                session, property_name, body, f"{name} report")
+            reports[name] = _run_paged(session, property_name, body,
+                                       f"{name} report")
         except Ga4Error as exc:
-            if name != "cta":
+            if name not in OPTIONAL_REPORTS:
                 raise
             reports[name] = None
-            warnings.append(f"plan/coaching click breakdown unavailable: {exc}")
+            warnings.append(f"{OPTIONAL_REPORTS[name]}: {exc}")
     return reports, warnings
 
 
@@ -302,34 +480,46 @@ def _mock_report(dim_names: list[str], metric_names: list[str],
     }
 
 
-def mock_reports(window_name: str, paths: list[str]) -> dict[str, dict]:
-    """Deterministic GA4-shaped responses for --mock and tests."""
-    after = window_name == "after"
+def mock_reports(span: dict, inventory: dict[str, dict]) -> dict[str, dict]:
+    """Deterministic, GA4-shaped daily responses for --mock and tests.
+    Posts only have data from their tracking start; the default excluded
+    dates carry QA-shaped rows (2 views, 0 s)."""
     page_rows, event_rows, cta_rows = [], [], []
-    for i, path in enumerate(sorted(paths)):
+    days = date_range(date.fromisoformat(span["start"]),
+                      date.fromisoformat(span["end"]))
+    for i, path in enumerate(sorted(inventory)):
+        start = tracking_start(inventory[path]["type"])
         seed = (sum(map(ord, path)) % 97) + 3
-        days = 2 if after else BEFORE_DAYS
-        lift = 1.0 + ((seed % 7) - 3) / 10 if after else 1.0
-        views = round(seed * days / 10 * lift)
-        if views == 0:
-            continue
-        # Exercise trailing-slash merging on one row.
+        # Exercise trailing-slash merging on one path.
         out_path = path.rstrip("/") if i == 0 else path
-        page_rows.append(([out_path], [views, max(1, views * 0.7),
-                                       views * (40 + seed % 60),
-                                       0.4 + (seed % 5) / 10]))
-        event_rows.append(([path, "article_scroll_depth"], [views * 2]))
-        event_rows.append(([path, "article_deep_read"],
-                           [round(views * (0.1 + (seed % 4) / 20) * lift)]))
-        event_rows.append(([path, "article_cta_click"], [seed % 5]))
-        event_rows.append(([path, "cta_click"], [seed % 4]))
-        cta_rows.append(([path, "custom_plan"], [seed % 3]))
-        cta_rows.append(([path, "coaching"], [seed % 2]))
+        for n, day in enumerate(days):
+            if start and day < start:
+                continue
+            key = day.strftime("%Y%m%d")
+            if day in DEFAULT_EXCLUDE_DATES:
+                page_rows.append(([key, out_path], [2, 1, 0, 1.0]))
+                continue
+            views = (seed + n) % 6
+            if not views:
+                continue
+            page_rows.append(([key, out_path], [views, max(1, views - 1),
+                                                views * (40 + seed % 60),
+                                                0.4 + (seed % 5) / 10]))
+            event_rows.append(([key, path, "article_scroll_depth"], [views * 2]))
+            event_rows.append(([key, path, "article_deep_read"],
+                               [(seed + n) % 2]))
+            event_rows.append(([key, path, "cta_click"], [int((seed + n) % 3 == 0)]))
+            cta_rows.append(([key, path, "custom_plan"], [int((seed + n) % 5 == 0)]))
+            cta_rows.append(([key, path, "coaching"], [int((seed + n) % 7 == 0)]))
     return {
-        "pages": _mock_report(["pagePath"], list(PAGE_METRICS), page_rows),
-        "events": _mock_report(["pagePath", "eventName"], ["eventCount"], event_rows),
-        "cta": _mock_report(["pagePath", "customEvent:cta_name"], ["eventCount"],
-                            cta_rows),
+        "pages": _mock_report(["date", "pagePath"], list(PAGE_METRICS), page_rows),
+        "events": _mock_report(["date", "pagePath", "eventName"], ["eventCount"],
+                               event_rows),
+        "cta": _mock_report(["date", "pagePath", "customEvent:cta_name"],
+                            ["eventCount"], cta_rows),
+        "browsers": _mock_report(["browser"], ["screenPageViews"],
+                                 [(["Chrome"], [400]), (["Safari"], [250]),
+                                  (["HeadlessChrome"], [30])]),
     }
 
 
@@ -339,14 +529,25 @@ def _r(value: float | None, digits: int = 3) -> float | None:
     return None if value is None else round(value, digits)
 
 
-def window_metrics(raw: dict | None, days: int) -> dict:
+def window_metrics(raw: dict | None, days: int, clicks: bool = True) -> dict:
+    """Metrics over `days` usable days. With no usable days every value is
+    None: there is nothing to report, not a zero."""
+    if not days:
+        return {"days": 0, "views": None, "views_per_day": None,
+                "active_users": None, "active_users_per_day": None,
+                "avg_engagement_seconds": None, "engagement_rate": None,
+                "events": {name: None for name in ARTICLE_EVENTS},
+                "events_per_day": {name: None for name in ARTICLE_EVENTS},
+                "deep_read_rate": None, "plan_clicks": None,
+                "coaching_clicks": None}
     raw = raw or _empty_raw()
     views = raw["views"]
     users = raw["active_users"]
     events = raw["events"]
     deep = events["article_deep_read"]
-    per_day = lambda v: None if v is None else _r(v / days, 2)  # noqa: E731
+    per_day = lambda v: _r(v / days, 2)  # noqa: E731
     return {
+        "days": days,
         "views": int(views),
         "views_per_day": per_day(views),
         "active_users": int(users),
@@ -356,9 +557,8 @@ def window_metrics(raw: dict | None, days: int) -> dict:
         "events": {name: int(count) for name, count in events.items()},
         "events_per_day": {name: per_day(count) for name, count in events.items()},
         "deep_read_rate": _r(deep / views) if views else None,
-        "plan_clicks": None if raw["plan_clicks"] is None else int(raw["plan_clicks"]),
-        "coaching_clicks": (None if raw["coaching_clicks"] is None
-                            else int(raw["coaching_clicks"])),
+        "plan_clicks": int(raw["plan_clicks"]) if clicks else None,
+        "coaching_clicks": int(raw["coaching_clicks"]) if clicks else None,
     }
 
 
@@ -391,12 +591,19 @@ def deltas(before: dict, after: dict) -> dict:
     }
 
 
-def build_rows(inventory: dict[str, dict], raw_before: dict, raw_after: dict,
-               windows: dict) -> list[dict]:
+def _metrics_for(daily: dict, path: str, window: dict, page_type: str,
+                 exclude: tuple[date, ...], clicks: bool) -> dict:
+    dates = usable_dates(window, page_type, exclude)
+    return window_metrics(aggregate(daily, path, dates), len(dates), clicks)
+
+
+def build_rows(inventory: dict[str, dict], daily: dict, windows: dict,
+               exclude: tuple[date, ...], clicks: bool = True) -> list[dict]:
+    seen = {p for day in daily.values() for p in day}
     paths = set(inventory)
-    paths |= {p for p in set(raw_before) | set(raw_after) if is_blog_content(p)}
-    paths |= {p for p in set(raw_before) | set(raw_after)
-              if p.startswith("/articles/") and p != "/articles/"}
+    paths |= {p for p in seen if is_blog_content(p)}
+    paths |= {p for p in seen if p.startswith("/articles/") and p != "/articles/"}
+    redesign = "redesign_before" in windows
     rows = []
     for path in sorted(paths):
         meta = inventory.get(path)
@@ -405,69 +612,151 @@ def build_rows(inventory: dict[str, dict], raw_before: dict, raw_after: dict,
             meta = {"title": _slug_title(slug),
                     "type": "essay" if path.startswith("/articles/")
                     else classify_blog_slug(slug)}
-        before = window_metrics(raw_before.get(path), windows["before"]["days"])
-        after = window_metrics(raw_after.get(path), windows["after"]["days"])
-        rows.append({"path": path, "title": meta["title"], "type": meta["type"],
-                     "before": before, "after": after,
-                     "deltas": deltas(before, after)})
-    rows.sort(key=lambda r: (-r["after"]["views"], -r["before"]["views"], r["path"]))
+        kind = meta["type"]
+        start = tracking_start(kind)
+        previous = _metrics_for(daily, path, windows["previous"], kind, exclude, clicks)
+        current = _metrics_for(daily, path, windows["current"], kind, exclude, clicks)
+        status = week_status(kind, windows, exclude)
+        row = {"path": path, "title": meta["title"], "type": kind,
+               "tracking_start": start.isoformat() if start else None,
+               "comparable": status == "compared", "status": status,
+               "previous": previous, "current": current,
+               "deltas": deltas(previous, current)}
+        if redesign:
+            row["redesign"] = None
+            if tracked_before_redesign(kind):
+                before = _metrics_for(daily, path, windows["redesign_before"],
+                                      kind, exclude, clicks)
+                after = _metrics_for(daily, path, windows["redesign_after"],
+                                     kind, exclude, clicks)
+                row["redesign"] = {"before": before, "after": after,
+                                   "deltas": deltas(before, after)}
+        rows.append(row)
+    rows.sort(key=lambda r: (-(r["current"]["views"] or 0),
+                             -(r["previous"]["views"] or 0), r["path"]))
     return rows
 
 
-def _sum_clicks(rows: list[dict], window: str, key: str) -> int | None:
-    values = [r[window][key] for r in rows]
-    if any(v is None for v in values):
-        return None
-    return sum(values)
+def _window_total(metrics: list[dict], days: int) -> dict:
+    if not days:
+        return {"days": 0, "views": None, "views_per_day": None,
+                "article_deep_read": None, "article_cta_click": None,
+                "cta_click": None, "plan_clicks": None, "coaching_clicks": None}
+    views = sum(m["views"] for m in metrics)
+
+    def clicks(key: str) -> int | None:
+        values = [m[key] for m in metrics]
+        return None if any(v is None for v in values) else sum(values)
+
+    return {
+        "days": days,
+        "views": views,
+        "views_per_day": round(views / days, 2),
+        "article_deep_read": sum(m["events"]["article_deep_read"] for m in metrics),
+        "article_cta_click": sum(m["events"]["article_cta_click"] for m in metrics),
+        "cta_click": sum(m["events"]["cta_click"] for m in metrics),
+        "plan_clicks": clicks("plan_clicks"),
+        "coaching_clicks": clicks("coaching_clicks"),
+    }
 
 
-def build_totals(rows: list[dict], windows: dict) -> dict:
-    totals = {}
-    for window in ("before", "after"):
-        days = windows[window]["days"]
-        views = sum(r[window]["views"] for r in rows)
-        deep = sum(r[window]["events"]["article_deep_read"] for r in rows)
-        plan = _sum_clicks(rows, window, "plan_clicks")
-        coaching = _sum_clicks(rows, window, "coaching_clicks")
-        totals[window] = {
-            "views": views,
-            "views_per_day": round(views / days, 2),
-            "article_deep_read": deep,
-            "article_cta_click": sum(r[window]["events"]["article_cta_click"] for r in rows),
-            "cta_click": sum(r[window]["events"]["cta_click"] for r in rows),
-            "plan_clicks": plan,
-            "coaching_clicks": coaching,
-            "plan_clicks_per_day": None if plan is None else round(plan / days, 2),
-            "coaching_clicks_per_day": (None if coaching is None
-                                        else round(coaching / days, 2)),
+def build_type_summary(rows: list[dict], daily: dict, windows: dict,
+                       exclude: tuple[date, ...], end: date) -> dict:
+    """Per page type: tracking start, usable days, status, totals. Totals are
+    per type because usable days differ by type."""
+    path_type = {r["path"]: r["type"] for r in rows}
+    first_data: dict[str, str] = {}
+    for day in sorted(daily):
+        for path, raw in daily[day].items():
+            kind = path_type.get(path)
+            if kind and raw["views"] and kind not in first_data:
+                first_data[kind] = day
+    summary = {}
+    for kind in [t for t in PAGE_TYPES if t in path_type.values()]:
+        trows = [r for r in rows if r["type"] == kind]
+        start = tracking_start(kind)
+        days = {name: len(usable_dates(w, kind, exclude))
+                for name, w in windows.items()}
+        current = _window_total([r["current"] for r in trows], days["current"])
+        previous = _window_total([r["previous"] for r in trows], days["previous"])
+        entry = {
+            "pages": len(trows),
+            "tracking_start": start.isoformat() if start else None,
+            "first_date_with_data": first_data.get(kind),
+            "usable_days": days,
+            "status": week_status(kind, windows, exclude),
+            "current": current,
+            "previous": previous,
+            "views_per_day_pct": _pct(current["views_per_day"],
+                                      previous["views_per_day"]),
         }
-    return totals
+        if entry["status"] != "compared":
+            nxt = first_week_over_week_end(kind, end, exclude)
+            entry["first_week_over_week_end"] = nxt.isoformat() if nxt else None
+        if "redesign_before" in windows:
+            entry["redesign"] = None
+            if tracked_before_redesign(kind):
+                before = _window_total([r["redesign"]["before"] for r in trows],
+                                       days["redesign_before"])
+                after = _window_total([r["redesign"]["after"] for r in trows],
+                                      days["redesign_after"])
+                entry["redesign"] = {
+                    "before": before, "after": after,
+                    "views_per_day_pct": _pct(after["views_per_day"],
+                                              before["views_per_day"])}
+        summary[kind] = entry
+    return summary
 
 
-def build_report(inventory: dict[str, dict], reports_before: dict,
-                 reports_after: dict, windows: dict, *, property_name: str,
-                 mock: bool, warnings: list[str] | None = None) -> dict:
-    raw_before = parse_window_reports(reports_before)
-    raw_after = parse_window_reports(reports_after)
-    rows = build_rows(inventory, raw_before, raw_after, windows)
+def build_report(inventory: dict[str, dict], reports: dict, windows: dict, *,
+                 property_name: str, mock: bool,
+                 exclude_dates: Iterable[date] = DEFAULT_EXCLUDE_DATES,
+                 warnings: list[str] | None = None) -> dict:
+    exclude = tuple(sorted(set(exclude_dates)))
+    daily = parse_daily_reports(reports)
+    clicks = reports.get("cta") is not None
+    rows = build_rows(inventory, daily, windows, exclude, clicks)
+    end = date.fromisoformat(windows["current"]["end"])
+    span = query_span(windows)
+    browsers = parse_browsers(reports.get("browsers"))
+    excluded = [{"date": d.isoformat(),
+                 "views": int(sum(r["views"] for r in
+                                  (daily.get(d.isoformat()) or {}).values()))}
+                for d in exclude if span["start"] <= d.isoformat() <= span["end"]]
     return {
         "generated_at": datetime.now(timezone.utc).isoformat(timespec="seconds"),
         "property": property_name,
         "mock": mock,
+        "comparison": "week_over_week",
         "redesign_date": REDESIGN_DATE.isoformat(),
         "windows": windows,
+        "query_span": span,
+        "exclude_dates": [d.isoformat() for d in exclude],
+        "excluded": excluded,
+        "headless_filter": {
+            "applied": True,
+            "rule": f'GA4 browser does not begin with "{HEADLESS_PREFIX}" '
+                    "(case-insensitive), on every query",
+            "views_in_span": None if browsers is None else browsers["views"],
+            "headless_views_removed": (None if browsers is None
+                                       else browsers["headless_views"]),
+        },
         "notes": [
-            "Counts are also given per day (count / window days) because the "
-            "after-window is short.",
-            "active_users_per_day = window active users / days (users are not "
-            "additive across days; read it as a rate, not daily actives).",
+            "Usable day = on/after the page type's tracking_start and not in "
+            "exclude_dates. Per-day figures divide by usable days.",
+            "WordPress posts had no GA4 before 2026-10-09; earlier windows are "
+            "never compared for them.",
+            "active_users = sum of daily active users (users are not additive "
+            "across days; read it as a rate, not unique readers).",
             "deep_read_rate = article_deep_read events / views; "
             "engagement_rate is view-weighted when trailing-slash variants merge.",
             "plan/coaching clicks = cta_click events by cta_name "
             "(custom_plan/season_plan/plan_intent… vs coaching).",
+            "Recommended: define internal traffic in GA4 and activate the "
+            "Internal Traffic data filter so QA runs never reach reports.",
         ],
         "warnings": list(warnings or []),
-        "totals": build_totals(rows, windows),
+        "types": build_type_summary(rows, daily, windows, exclude, end),
         "pages": rows,
     }
 
@@ -492,98 +781,231 @@ def _signed(value, suffix: str = "") -> str:
     return f"{value:+,.1f}{suffix}"
 
 
+def _pair(a, b) -> str:
+    return f"{_fmt(a)} / {_fmt(b)}"
+
+
 def _md_title(row: dict) -> str:
     title = row["title"].replace("|", "/")
     return f"[{title}](https://gravelgodcycling.com{row['path']}) ({row['type']})"
 
 
-def render_markdown(report: dict, top_n: int = 10, min_views: int = 20) -> str:
+def _change(row_or_type: dict, pct) -> str:
+    """Δ % when both weeks have usable days, otherwise the reason."""
+    if row_or_type["status"] != "compared":
+        return row_or_type["status"]
+    return _signed(pct, "%")
+
+
+def _headless_line(report: dict) -> str:
+    h = report["headless_filter"]
+    rule = f'every query drops rows whose GA4 browser begins with "{HEADLESS_PREFIX}"'
+    if h["headless_views_removed"] is None:
+        return (f"Headless filter: applied ({rule}), but the browsers check "
+                "failed, so how many views it removed is unknown.")
+    if h["headless_views_removed"]:
+        return (f"Headless filter: applied ({rule}); it removed "
+                f"{h['headless_views_removed']:,} of {h['views_in_span']:,} "
+                "content views in the queried span.")
+    return (f"Headless filter: applied ({rule}), but GA4 reported 0 such views: "
+            "the QA runs are recorded as ordinary browsers, so only the date "
+            "exclusion removes them.")
+
+
+def render_how_to_read(report: dict) -> list[str]:
     w = report["windows"]
-    rows = report["pages"]
-    t = report["totals"]
+    types = report["types"]
     lines = [
-        "# Gravel God blog performance",
+        "## How to read this",
         "",
-        f"Redesign {report['redesign_date']}. Before: {w['before']['start']} → "
-        f"{w['before']['end']} ({w['before']['days']} d). After: {w['after']['start']} → "
-        f"{w['after']['end']} ({w['after']['days']} d). Per-day figures normalise the "
-        "short after-window." + (" **MOCK DATA.**" if report["mock"] else ""),
+        f"- **Main comparison: week over week.** This week = {w['current']['start']} → "
+        f"{w['current']['end']}; last week = {w['previous']['start']} → "
+        f"{w['previous']['end']}. Δ % compares views per usable day.",
+        "- **Usable day** = on or after the page type's tracking start and not an "
+        "excluded date. The Days column says how many each week had.",
+    ]
+    post = types.get("post")
+    if post:
+        msg = (f"- **WordPress posts: tracking began {post['tracking_start']}.** "
+               "Their earlier numbers are not a baseline (no GA4 tag), so they are "
+               "never compared against days before that.")
+        if post["status"] != "compared" and post.get("first_week_over_week_end"):
+            msg += (" First week-over-week comparison: the report covering the week "
+                    f"ending {post['first_week_over_week_end']}.")
+        lines.append(msg)
+    if report["excluded"]:
+        dates = ", ".join(f"{e['date']} ({e['views']:,} views)"
+                          for e in report["excluded"])
+        lines.append(f"- **Excluded dates (scripted QA traffic):** {dates}. "
+                     "Change with `--exclude-dates`.")
+    elif report["exclude_dates"]:
+        lines.append(f"- **Excluded dates:** {', '.join(report['exclude_dates'])} "
+                     "(outside this report's span).")
+    lines += [
+        f"- {_headless_line(report)}",
+        "- **Recommended:** in GA4, define internal traffic (Admin → Data streams → "
+        "Configure tag settings → Define internal traffic) and activate the "
+        "Internal Traffic data filter, so QA runs stop landing in reports.",
+        "- \"–\" means no usable days, or no views to compute a rate from.",
         "",
     ]
+    return lines
+
+
+def _type_label(kind: str, info: dict) -> str:
+    start = info["tracking_start"]
+    return f"{kind} (since {start})" if start else kind
+
+
+def render_markdown(report: dict, top_n: int = 10, min_views: int = 20) -> str:
+    rows = report["pages"]
+    types = report["types"]
+    lines = ["# Gravel God blog performance", ""]
+    if report["mock"]:
+        lines += ["**MOCK DATA.**", ""]
+    lines += render_how_to_read(report)
     for warning in report["warnings"]:
         lines += [f"> Warning: {warning}", ""]
     lines += [
-        "## Totals",
+        "## By page type (this week / last week)",
         "",
-        "| | Before | After |",
-        "|---|---:|---:|",
-        f"| Pages tracked | {len(rows)} | {len(rows)} |",
-        f"| Views / day | {_fmt(t['before']['views_per_day'])} | {_fmt(t['after']['views_per_day'])} |",
-        f"| Deep reads | {_fmt(t['before']['article_deep_read'])} | {_fmt(t['after']['article_deep_read'])} |",
-        f"| Plan clicks (cta_click) | {_fmt(t['before']['plan_clicks'])} | {_fmt(t['after']['plan_clicks'])} |",
-        f"| Coaching clicks (cta_click) | {_fmt(t['before']['coaching_clicks'])} | {_fmt(t['after']['coaching_clicks'])} |",
-        f"| Plan clicks / day | {_fmt(t['before']['plan_clicks_per_day'])} | {_fmt(t['after']['plan_clicks_per_day'])} |",
-        f"| Coaching clicks / day | {_fmt(t['before']['coaching_clicks_per_day'])} | {_fmt(t['after']['coaching_clicks_per_day'])} |",
-        f"| article_cta_click | {_fmt(t['before']['article_cta_click'])} | {_fmt(t['after']['article_cta_click'])} |",
-        "",
-        f"## Top {top_n} by views (after window)",
-        "",
-        "| Page | Views/day after | Views/day before | Δ % | Avg engagement (s) | Engagement rate |",
-        "|---|---:|---:|---:|---:|---:|",
+        "| Type | Pages | Days | Views/day | Δ % | Deep reads | Plan clicks | Coaching clicks |",
+        "|---|---:|---:|---:|---:|---:|---:|---:|",
     ]
-    for row in [r for r in rows if r["after"]["views"]][:top_n]:
-        a, b, d = row["after"], row["before"], row["deltas"]
+    for kind, info in types.items():
+        c, p = info["current"], info["previous"]
         lines.append(
-            f"| {_md_title(row)} | {_fmt(a['views_per_day'])} | {_fmt(b['views_per_day'])} | "
-            f"{_signed(d['views_per_day_pct'], '%')} | {_fmt(a['avg_engagement_seconds'])} | "
-            f"{_rate(a['engagement_rate'])} |")
-    deep = sorted((r for r in rows if r["after"]["views"] >= min_views
-                   and r["after"]["deep_read_rate"] is not None),
-                  key=lambda r: (-r["after"]["deep_read_rate"], r["path"]))[:top_n]
+            f"| {_type_label(kind, info)} | {info['pages']} | "
+            f"{_pair(c['days'], p['days'])} | "
+            f"{_pair(c['views_per_day'], p['views_per_day'])} | "
+            f"{_change(info, info['views_per_day_pct'])} | "
+            f"{_pair(c['article_deep_read'], p['article_deep_read'])} | "
+            f"{_pair(c['plan_clicks'], p['plan_clicks'])} | "
+            f"{_pair(c['coaching_clicks'], p['coaching_clicks'])} |")
     lines += [
         "",
-        f"## Top {top_n} by deep-read rate (after window, ≥{min_views} views)",
+        f"## Top {top_n} by views (this week)",
         "",
-        "| Page | Deep-read rate | Before | Views |",
+        "| Page | Views/day this week | Last week | Δ % | Avg engagement (s) | Engagement rate |",
+        "|---|---:|---:|---:|---:|---:|",
+    ]
+    top = [r for r in rows if r["current"]["views"]][:top_n]
+    if not top:
+        lines.append("| No views on usable days this week | | | | | |")
+    for row in top:
+        c, p = row["current"], row["previous"]
+        lines.append(
+            f"| {_md_title(row)} | {_fmt(c['views_per_day'])} | "
+            f"{_fmt(p['views_per_day'])} | "
+            f"{_change(row, row['deltas']['views_per_day_pct'])} | "
+            f"{_fmt(c['avg_engagement_seconds'])} | {_rate(c['engagement_rate'])} |")
+    deep = sorted((r for r in rows if (r["current"]["views"] or 0) >= min_views
+                   and r["current"]["deep_read_rate"] is not None),
+                  key=lambda r: (-r["current"]["deep_read_rate"], r["path"]))[:top_n]
+    lines += [
+        "",
+        f"## Top {top_n} by deep-read rate (this week, ≥{min_views} views)",
+        "",
+        "| Page | Deep-read rate | Last week | Views |",
         "|---|---:|---:|---:|",
     ]
     if not deep:
-        lines.append(f"| No page has ≥{min_views} views in the after window yet | | | |")
+        lines.append(f"| No page has ≥{min_views} views this week | | | |")
     for row in deep:
         lines.append(
-            f"| {_md_title(row)} | {_rate(row['after']['deep_read_rate'])} | "
-            f"{_rate(row['before']['deep_read_rate'])} | {row['after']['views']} |")
-    movers = [r for r in rows if r["before"]["views"] + r["after"]["views"] >= min_views]
+            f"| {_md_title(row)} | {_rate(row['current']['deep_read_rate'])} | "
+            f"{_rate(row['previous']['deep_read_rate'])} | {row['current']['views']} |")
+    movers = [r for r in rows if r["comparable"]
+              and r["previous"]["views"] + r["current"]["views"] >= min_views]
     movers.sort(key=lambda r: (-abs(r["deltas"]["views_per_day"] or 0), r["path"]))
     lines += [
         "",
-        "## Biggest movers (views/day, either direction)",
+        "## Biggest movers (week over week, views/day)",
         "",
-        "| Page | Before/day | After/day | Δ/day | Δ % |",
+        "Only pages with usable days in both weeks.",
+        "",
+        "| Page | Last week/day | This week/day | Δ/day | Δ % |",
         "|---|---:|---:|---:|---:|",
     ]
+    if not movers:
+        lines.append(f"| No page has usable days in both weeks and ≥{min_views} "
+                     "views yet | | | | |")
     for row in movers[:top_n]:
         d = row["deltas"]
         lines.append(
-            f"| {_md_title(row)} | {_fmt(row['before']['views_per_day'])} | "
-            f"{_fmt(row['after']['views_per_day'])} | {_signed(d['views_per_day'])} | "
+            f"| {_md_title(row)} | {_fmt(row['previous']['views_per_day'])} | "
+            f"{_fmt(row['current']['views_per_day'])} | {_signed(d['views_per_day'])} | "
             f"{_signed(d['views_per_day_pct'], '%')} |")
-    lines += ["", "Full per-page data (both windows, deltas) is in the JSON beside this file.", ""]
+    if "redesign_before" in report["windows"]:
+        lines += render_redesign(report, top_n)
+    lines += ["", "Full per-page data (both weeks, deltas, usable days) is in the "
+              "JSON beside this file.", ""]
     return "\n".join(lines)
+
+
+def render_redesign(report: dict, top_n: int) -> list[str]:
+    w = report["windows"]
+    eligible = {k: v for k, v in report["types"].items() if v.get("redesign")}
+    skipped = [f"{k} (tracking began {v['tracking_start']})"
+               for k, v in report["types"].items() if not v.get("redesign")]
+    lines = [
+        "",
+        f"## Before vs after the {report['redesign_date']} redesign",
+        "",
+        f"Before {w['redesign_before']['start']} → {w['redesign_before']['end']}; "
+        f"after {w['redesign_after']['start']} → {w['redesign_after']['end']}, "
+        "excluded dates removed. Only page types tracked before the redesign."
+        + (f" Not compared: {', '.join(skipped)}." if skipped else ""),
+        "",
+        "| Type | Days (after / before) | Views/day (after / before) | Δ % |",
+        "|---|---:|---:|---:|",
+    ]
+    for kind, info in eligible.items():
+        r = info["redesign"]
+        lines.append(
+            f"| {kind} | {_pair(r['after']['days'], r['before']['days'])} | "
+            f"{_pair(r['after']['views_per_day'], r['before']['views_per_day'])} | "
+            f"{_signed(r['views_per_day_pct'], '%')} |")
+    rows = [r for r in report["pages"] if r.get("redesign")
+            and r["redesign"]["after"]["views"]]
+    rows.sort(key=lambda r: (-r["redesign"]["after"]["views"], r["path"]))
+    lines += ["", "| Page | After/day | Before/day | Δ % |", "|---|---:|---:|---:|"]
+    if not rows:
+        lines.append("| No views after the redesign on usable days | | | |")
+    for row in rows[:top_n]:
+        r = row["redesign"]
+        lines.append(
+            f"| {_md_title(row)} | {_fmt(r['after']['views_per_day'])} | "
+            f"{_fmt(r['before']['views_per_day'])} | "
+            f"{_signed(r['deltas']['views_per_day_pct'], '%')} |")
+    return lines
 
 
 # ── CLI ───────────────────────────────────────────────────────────────────
 
+def parse_exclude_dates(value: str | None) -> tuple[date, ...]:
+    """None/blank → default QA dates; 'none' → nothing; else comma list."""
+    if value is None or not value.strip():
+        return DEFAULT_EXCLUDE_DATES
+    if value.strip().lower() == "none":
+        return ()
+    return tuple(sorted({date.fromisoformat(part.strip())
+                         for part in value.split(",") if part.strip()}))
+
+
 def run(*, end: date, mock: bool, property_value: str | None,
         credentials: Path | None,
+        exclude_dates: Iterable[date] = DEFAULT_EXCLUDE_DATES,
+        compare_redesign: bool = False,
         session_factory: Callable[[Path], Any] | None = None) -> dict:
-    windows = build_windows(end)
+    windows = build_windows(end, compare_redesign)
+    span = query_span(windows)
     inventory = load_inventory()
     post_paths = sorted(p for p, m in inventory.items() if m["type"] == "post")
     warnings: list[str] = []
     if mock:
         property_name = "properties/0"
-        reports = {name: mock_reports(name, list(inventory)) for name in windows}
+        reports = mock_reports(span, inventory)
     else:
         if not property_value or not credentials:
             raise Ga4Error("--property and --credentials are required unless --mock")
@@ -592,13 +1014,9 @@ def run(*, end: date, mock: bool, property_value: str | None,
             raise Ga4Error("credentials file not found")
         factory = session_factory or (lambda p: _audit.authorized_session(p))
         session = factory(credentials)
-        reports = {}
-        for name, window in windows.items():
-            reports[name], window_warnings = fetch_window(
-                session, property_name, window, post_paths)
-            warnings += [f"{name}: {w}" for w in window_warnings]
-    return build_report(inventory, reports["before"], reports["after"], windows,
-                        property_name=property_name, mock=mock, warnings=warnings)
+        reports, warnings = fetch_reports(session, property_name, span, post_paths)
+    return build_report(inventory, reports, windows, property_name=property_name,
+                        mock=mock, exclude_dates=exclude_dates, warnings=warnings)
 
 
 def main(argv: list[str] | None = None) -> int:
@@ -609,7 +1027,14 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--credentials", type=Path,
                         help="Service-account JSON path")
     parser.add_argument("--end-date", default=None,
-                        help="Last day of the after-window (default: yesterday UTC)")
+                        help="Last day of this week's window (default: yesterday UTC)")
+    parser.add_argument("--exclude-dates", default=None,
+                        help="Comma-separated YYYY-MM-DD dates to drop (default: "
+                             + ",".join(d.isoformat() for d in DEFAULT_EXCLUDE_DATES)
+                             + "; 'none' drops nothing)")
+    parser.add_argument("--compare-redesign", action="store_true",
+                        help="Add the 30-days-before vs after-redesign section "
+                             "(page types tracked before the redesign only)")
     parser.add_argument("--output-dir", type=Path, required=True)
     parser.add_argument("--stem", default=None,
                         help="Output file stem (default: run date, YYYY-MM-DD)")
@@ -619,12 +1044,15 @@ def main(argv: list[str] | None = None) -> int:
     try:
         end = (date.fromisoformat(args.end_date) if args.end_date
                else today - timedelta(days=1))
+        exclude = parse_exclude_dates(args.exclude_dates)
     except ValueError:
-        print("ERROR: --end-date must use YYYY-MM-DD", file=sys.stderr)
+        print("ERROR: --end-date and --exclude-dates must use YYYY-MM-DD",
+              file=sys.stderr)
         return 2
     try:
         report = run(end=end, mock=args.mock, property_value=args.property,
-                     credentials=args.credentials)
+                     credentials=args.credentials, exclude_dates=exclude,
+                     compare_redesign=args.compare_redesign)
     except Ga4Error as exc:
         print(f"ERROR: {exc}", file=sys.stderr)
         return 1

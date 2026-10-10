@@ -1,10 +1,12 @@
 name: Blog Performance Report
 
 # Per-post GA4 performance for essays (/articles/), WordPress posts and /blog/
-# previews/recaps/roundups: 30 days before the 2026-10-09 redesign vs
-# 2026-10-09 → yesterday, normalised per day. JSON + markdown are uploaded as
-# a workflow artifact and, on main, committed to data/blog-performance/
-# (same convention as data/intel-snapshots/). Read-only GA4 scope.
+# previews/recaps/roundups: last 7 complete days vs the previous 7, per usable
+# day. Posts had no GA4 before 2026-10-09, so they are never compared against
+# earlier days; QA dates (2026-10-09/10) are excluded by default. JSON +
+# markdown are uploaded as a workflow artifact and, on main, committed to
+# data/blog-performance/ (same convention as data/intel-snapshots/).
+# Read-only GA4 scope.
 
 on:
   schedule:
@@ -12,9 +14,18 @@ on:
   workflow_dispatch:
     inputs:
       end_date:
-        description: "Last day of the after-window (YYYY-MM-DD, default yesterday)"
+        description: "Last day of this week's window (YYYY-MM-DD, default yesterday)"
         required: false
         default: ""
+      exclude_dates:
+        description: "Comma-separated YYYY-MM-DD to drop (blank = 2026-10-09,2026-10-10; 'none' = drop nothing)"
+        required: false
+        default: ""
+      compare_redesign:
+        description: "Add before/after-redesign section (types tracked before 2026-10-09 only)"
+        type: boolean
+        required: false
+        default: false
 
 permissions:
   contents: write
@@ -56,6 +67,8 @@ jobs:
           GG_GA4_PROPERTY_ID: ${{ secrets.GG_GA4_PROPERTY_ID }}
           GA4_PROPERTY_ID: ${{ secrets.GA4_PROPERTY_ID }}
           END_DATE: ${{ inputs.end_date }}
+          EXCLUDE_DATES: ${{ inputs.exclude_dates }}
+          COMPARE_REDESIGN: ${{ inputs.compare_redesign }}
         run: |
           PROPERTY="${GG_GA4_PROPERTY_ID:-$GA4_PROPERTY_ID}"
           if [ -z "$PROPERTY" ]; then
@@ -66,6 +79,8 @@ jobs:
           echo "STEM=$STEM" >> "$GITHUB_ENV"
           ARGS=(--stem "$STEM")
           if [ -n "$END_DATE" ]; then ARGS+=(--end-date "$END_DATE"); fi
+          if [ -n "$EXCLUDE_DATES" ]; then ARGS+=(--exclude-dates "$EXCLUDE_DATES"); fi
+          if [ "$COMPARE_REDESIGN" = "true" ]; then ARGS+=(--compare-redesign); fi
           python3 scripts/blog_performance_report.py \
             --property "$PROPERTY" \
             --credentials "${RUNNER_TEMP}/ga4-credentials.json" \

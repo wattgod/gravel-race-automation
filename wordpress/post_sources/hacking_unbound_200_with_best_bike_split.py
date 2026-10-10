@@ -13,19 +13,34 @@ The closing price tables are the converter's price-table mapping. The coaching
 table's "Apply Now" button has an empty link on the live page, so it stays
 plain text.
 
-Infographic (2026-10-09): fig-bbs-savings, the three Best Bike Split time
-savings the post states in its text, as a table. Nothing derived.
+Restored tables (2026-10-09, Matt: "1. try"): the post's four tables (the
+dollars-per-watt aero list, the ~9:30 and ~12:30 finisher FTP tables and the
+"Combined" average-rider-vs-elite breakdown) render as empty Elementor columns
+on the live page. RESTORED rebuilds them from the Internet Archive capture of
+2024-07-17 (the May 2023 capture has the same cells), values verbatim; the raw
+archived tables are tests/fixtures/wp_posts/3203.archive-2024-07-17.tables.html
+and tests/test_wp_posts_restorations.py checks every cell against them.
+The earlier fig-bbs-savings infographic (15:29 / 17:33 / 8:18) is removed: it
+was a stand-in for the missing tables, and its three values are the sentences
+right above it.
 
-Matt to read:
-- The post's FTP tables (~9:30 and ~12:30 finishers), the "Combined" buy-vs-earn
-  breakdown, the dollars-per-watt aero list and the tire Crr chart are not on
-  the live page (their Elementor columns are empty), so the text refers to
-  tables that aren't there. Not recreated: the numbers aren't in the post.
-- Numbers: a 7 W chain saving = 15:29 and "the equivalent of raising your FTP
-  by 4%", but 7 W is 1.9% of the 370 W FTP, and the post's own +5% power run
-  saves only 17:33. The Best Bike Split screenshot (12:26:02, NP 161.64 W,
-  IF 0.65, 1.92 W/kg) implies an FTP near 249 W and about 82 kg, not the
-  post's rider (FTP 370, 166 lb).
+No tire Crr chart to restore: "Take a look." has no image or link in the live
+page or in either archived capture (May 2023, July 2024).
+
+Matt to read (archived values kept verbatim, not fixed):
+- "26;47" (~12:30 finisher, 7%): a semicolon for a colon.
+- "37:18:00" and "50:47:00" (Combined, average rider): spreadsheet h:mm:ss
+  artifacts for 37:18 and 50:47.
+- Aero Skinsuit: 20 W for $200 is $10/watt, the table says "$100/watt".
+- The list is introduced as "sorted by dollars/watt" but is not sorted.
+- Combined totals don't add up: average rider 8:24 + 7:21 + 1:19 = 17:04
+  (table: 14:28); 14:28 + 37:18 = 51:46 (table: 50:47); elite
+  10:10 + 25:25 = 35:35 (table: 35:00).
+- Numbers in the text: a 7 W chain saving = 15:29, "the equivalent of raising
+  your FTP by 4%" (the ~12:30 table has 4% = 15:42); the text's +5% power =
+  17:33 matches neither FTP table (5% = 13:14 / 19:27). The Best Bike Split
+  screenshot (12:26:02, NP 161.64 W, IF 0.65, 1.92 W/kg) implies an FTP near
+  249 W and about 82 kg, not the post's rider (FTP 370, 166 lb).
 
 Regenerate: python3 wordpress/post_sources/hacking_unbound_200_with_best_bike_split.py
 """
@@ -59,39 +74,104 @@ IN_SHORT = (
     Claim("The post argues that the slower a rider goes, the more time small gains save, because they act over more hours.",
           "#baseline", "See Baseline · §02", 1),
     Claim("By its Best Bike Split runs, a waxed chain saving up to 7 watts is worth 15:29 over Unbound 200.",
-          "#fig-bbs-savings", "See the numbers · §02", 1),
+          "#waxing-your-chain", "See Waxing Your Chain · §02", 1),
     Claim("On Unbound&rsquo;s rolling course, the post finds a 5% weight loss saves about half the time of a 5% power gain.",
           "#weight-loss", "See Weight Loss · §02", 1),
     Claim("Its bottom line: equipment can buy about a third of a rider&rsquo;s potential speed; fitness, skills and execution make up the rest.",
           "#combined", "See Combined · §02", 1),
 )
 
-# ── fig-bbs-savings: the post's stated Best Bike Split results ───
-SAVINGS = DataTable(
-    id="fig-bbs-savings",
-    kicker="The numbers above, side by side",
-    title="Time saved at Unbound 200, by Best Bike Split",
-    intro_html="The three simulation results the post states in its text.",
-    footnote_html=("From the post&rsquo;s Best Bike Split runs for Unbound 200 (rider: age 26, 166 lbs, FTP 370; "
-                   "default gravel bike). Chain: &ldquo;as much as 7 watts (in extreme cases)&rdquo; of drivetrain loss."),
+# ── Restored tables: verbatim from the Internet Archive capture (2024-07-17) ───
+ARCHIVE_URL = ("https://web.archive.org/web/20240717213415/"
+               "https://gravelgodcycling.com/hacking-unbound-200-with-best-bike-split/")
+RESTORED_NOTE = (f'Tables restored from the <a href="{ARCHIVE_URL}" target="_blank" rel="noopener">'
+                 "Internet Archive copy</a> of this post (July 17, 2024).")
+
+
+def _rows(*rows: tuple[str, ...]) -> tuple[TableRow, ...]:
+    return tuple(TableRow(cells=tuple(TableCell(v) for v in r)) for r in rows)
+
+
+AERO = DataTable(
+    id="fig-bbs-aero",
+    title="Aero upgrades: watts saved, cost and dollars per watt",
+    footnote_html=RESTORED_NOTE,
     columns=(
-        TableColumn("Change", card="title", sortable=False),
-        TableColumn("Time saved", card="fact", sortable=False),
+        TableColumn("Product", card="title", sortable=False, width="34%"),
+        TableColumn("Potential Watt Savings", kind="num", card="fact", sortable=False),
+        TableColumn("Potential Cost", kind="num", card="fact", sortable=False),
+        TableColumn("Dollars/Watts", kind="num", card="aside", sortable=False),
     ),
-    rows=(
-        TableRow(cells=(TableCell("Clean, waxed chain (up to 7 W)"), TableCell("15:29"))),
-        TableRow(cells=(TableCell("Power +5%"), TableCell("17:33"))),
-        TableRow(cells=(TableCell("Body weight &minus;5%"), TableCell("8:18"))),
+    rows=_rows(
+        ("Aero Frame", "20", "$5,500", "$275/watt"),
+        ("Aero Wheels", "25", "$2,500", "$100/watt"),
+        ("Aero Handlebars", "10", "$350", "$35/watt"),
+        ("Race Tires", "25", "$175", "$7/watt"),
+        ("Waxed Chain", "5", "$175", "$35/watt"),
+        ("Oversized Pulley Wheels", "2", "$600", "$300/watt"),
+        ("Aero Helmet", "15", "$300", "$20/watt"),
+        ("Aero Skinsuit", "20", "$200", "$100/watt"),
+        ("Aero Socks", "8", "$30", "$3.75/watt"),
     ),
-    after="decreasing your weight by 5% saves you 8:18.</p>",
+    after="because few people are made of money:</p>",
 )
 
-# Nothing in this table sorts, so the shell's "Click a column to sort" hint is hidden.
-CSS = "#fig-bbs-savings .gg-sort-hint{display:none}"
+FTP_COLUMNS = (
+    TableColumn("% FTP Improvement", kind="num", card="title", sortable=False),
+    TableColumn("Time Savings", kind="num", card="fact", sortable=False),
+)
+
+FTP_930 = DataTable(
+    id="fig-bbs-ftp-930",
+    title="Time saved by FTP improvement, ~9:30 hour finisher",
+    columns=FTP_COLUMNS,
+    rows=_rows(("1", "2:44"), ("2", "5:25"), ("3", "8:04"), ("4", "10:41"), ("5", "13:14"),
+               ("6", "15:45"), ("7", "18:13"), ("8", "20:39"), ("9", "23:04"), ("10", "25:25")),
+    after="~9:30 hour Finisher (~20 mph avg)</h3>",
+)
+
+FTP_1230 = DataTable(
+    id="fig-bbs-ftp-1230",
+    title="Time saved by FTP improvement, ~12:30 hour finisher",
+    columns=FTP_COLUMNS,
+    rows=_rows(("1", "4:02"), ("2", "7:59"), ("3", "11:53"), ("4", "15:42"), ("5", "19:27"),
+               ("6", "23:09"), ("7", "26;47"), ("8", "30:21"), ("9", "33:51"), ("10", "37:18")),
+    after="~12:30 hour finisher (~16 mph avg)</h3>",
+)
+
+COMBINED = DataTable(
+    id="fig-bbs-combined",
+    title="Combined time savings: average rider and elite",
+    columns=(
+        TableColumn("", card="title", sortable=False, width="44%"),
+        TableColumn("Average Rider", kind="num", card="fact", sortable=False),
+        TableColumn("Elite", kind="num", card="fact", sortable=False),
+    ),
+    rows=_rows(
+        ("-4% Drag", "8:24", "6:24"),
+        ("-3% Weight", "7:21", "3:03"),
+        ("-1% Rolling Resistance", "1:19", "0:43"),
+        ("Total", "14:28", "10:10"),
+        ("10% FTP Increase", "37:18:00", "25:25"),
+        ("Total", "50:47:00", "35:00"),
+    ),
+    after="Here’s the breakdown:</p>",
+)
+
+RESTORED = (AERO, FTP_930, FTP_1230, COMBINED)
+
+# The short tables (2-3 columns) stay tables on phones; only the 4-column aero
+# list becomes cards. Nothing sorts, so the headers get the padding the shell
+# gives sort buttons (a plain header otherwise sits on the rule).
+SHORT_TABLES = ("#fig-bbs-ftp-930", "#fig-bbs-ftp-1230", "#fig-bbs-combined")
+CSS = (",".join(f"#{f.id} thead th" for f in (AERO, FTP_930, FTP_1230, COMBINED)) + "{padding:6px 10px 10px 0}"
+       "@media (max-width:640px){"
+       + ",".join(f"{t} .gg-table-wrap" for t in SHORT_TABLES) + "{display:block}"
+       + ",".join(f"{t} .gg-cards" for t in SHORT_TABLES) + "{display:none}}")
 
 
 def render() -> str:
-    return wp_post.render_post(SOURCE, alt=ALT, in_short=IN_SHORT, figures=(SAVINGS,), extra_css=CSS,
+    return wp_post.render_post(SOURCE, alt=ALT, in_short=IN_SHORT, restored=RESTORED, extra_css=CSS,
                                description=DESCRIPTION)
 
 

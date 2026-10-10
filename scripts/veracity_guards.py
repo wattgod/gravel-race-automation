@@ -13,16 +13,19 @@ Rules:
   1. Source priority: official race site > official results > reputable
      outlets > everything else > trackers. A weaker source never overwrites a
      value backed by a stronger one. Only official site/results auto-commit;
-     outlets go to human review; unknown sites and trackers are never written.
+     outlets and unknown sites go to human review (many profiles carry a
+     placeholder website, so a real organizer domain can rank unknown);
+     trackers are never written.
   2. Course scope: the profile describes the flagship/standard course. One-off
      reroutes, fire/weather detours and single-edition changes are recorded as
      a note, never written as the value. A shorter course option never
      replaces the flagship distance.
   3. Change limits: a distance/elevation change over 15%, or any score change
      of 2+ points, never auto-commits; it goes to a labelled review PR.
-  4. Unit sanity: a new imperial value must agree with the profile's own
-     metric twin (elevation_m, distance_km); a value that looks like a km/mi
-     or m/ft mix-up of the old one goes to review.
+  4. Unit sanity: the profile's own metric twin (elevation_m, distance_km)
+     moves with every write; when the twin agrees with neither the old nor
+     the new value, or old -> new looks like a km/mi or m/ft mix-up, the
+     change goes to review.
 """
 
 import re
@@ -230,25 +233,52 @@ def _close(a, b, tol=UNIT_TOLERANCE):
     return b and abs(a - b) / abs(b) <= tol
 
 
+def _twin(vitals, field):
+    twin = METRIC_TWINS.get(field)
+    if not twin:
+        return None, None, None
+    twin_field, factor = twin
+    try:
+        return twin_field, float(vitals.get(twin_field)), factor
+    except (TypeError, ValueError):
+        return None, None, None
+
+
 def unit_twin_conflict(vitals, field, new):
-    """The profile's own metric field disagrees with the new imperial value
-    (and agrees with nothing the agent reported) -> refuse to write.
+    """Genuine conflict: the profile's own metric twin agrees with NEITHER the
+    current imperial value nor the new one, so we can't tell which number is
+    right. Route to human review. A consistent profile (old value matches the
+    twin) is a normal change; write it and move the twin with
+    sync_metric_twin.
 
     Returns a reason string or None.
     """
-    twin = METRIC_TWINS.get(field)
-    if not twin:
-        return None
-    twin_field, factor = twin
-    try:
-        twin_val = float(vitals.get(twin_field))
-    except (TypeError, ValueError):
+    twin_field, twin_val, factor = _twin(vitals, field)
+    if twin_field is None:
         return None
     expected = twin_val * factor
-    if _close(new, expected):
+    try:
+        old = float(vitals.get(field))
+    except (TypeError, ValueError):
+        old = None
+    if _close(new, expected) or (old is not None and _close(old, expected)):
         return None
-    return (f"{field} {new:g} disagrees with the profile's own {twin_field} "
-            f"{twin_val:g} (= {expected:,.0f})")
+    return (f"{field} {new:g} and current {old if old is None else f'{old:g}'} both "
+            f"disagree with the profile's own {twin_field} {twin_val:g} "
+            f"(= {expected:,.0f})")
+
+
+def sync_metric_twin(vitals, field, new):
+    """After writing an imperial value, keep its metric twin consistent.
+    Returns (twin_field, old, new) when the twin moved, else None."""
+    twin_field, twin_val, factor = _twin(vitals, field)
+    if twin_field is None:
+        return None
+    new_twin = int(round(new / factor))
+    if _close(new, twin_val * factor, tol=0.005):
+        return None
+    vitals[twin_field] = new_twin
+    return twin_field, twin_val, new_twin
 
 
 def looks_like_unit_mixup(field, old, new):

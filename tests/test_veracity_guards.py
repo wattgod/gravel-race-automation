@@ -253,13 +253,38 @@ class TestCourseScope:
 
 class TestChangeLimits:
     def test_nordsjorittet_blog_source_is_never_written(self, races):
-        """217d624f: 96 -> 56 mi from nordictrailblazer.cc (a blog)."""
+        """217d624f: 96 -> 56 mi from nordictrailblazer.cc (a blog). Blocked by
+        the note's two-distance wording (a shorter option), not the domain."""
         path = races("nordsjorittet", NORDSJORITTET)
         changes = vrr.apply_fixes("nordsjorittet", [_v(
             "distance_mi", "56",
             "https://nordictrailblazer.cc/blog/follow-nordsjorittet-gravel-race/",
             note="Multiple sources confirm the race is 91 km (56 mi)",
             source_type="other")], dry_run=False)
+        assert _one(changes, "vitals.distance_mi")["flag_only"]
+        assert _vitals(path)["distance_mi"] == 96
+
+    def test_unknown_domain_goes_to_review_pr_with_url(self, races):
+        """Many profiles have a placeholder website, so the real organizer
+        domain ranks unknown. Not flag-only forever: it goes to review."""
+        path = races("placeholder-site", {**NORDSJORITTET, "logistics": {
+            "official_site": "https://gravelgodcycling.com/race/placeholder"}})
+        url = "https://real-organizer.example.no/course"
+        changes = vrr.apply_fixes("placeholder-site", [_v(
+            "distance_mi", "90", url, source_type="official_site")], dry_run=False)
+        c = _one(changes, "vitals.distance_mi")
+        assert not c.get("flag_only") and c["needs_review"]
+        assert "unknown" in c["reason"] and c["source"] == url
+        assert _vitals(path)["distance_mi"] == 96  # never on main
+        vrr.apply_fixes("placeholder-site", [_v("distance_mi", "90", url)],
+                        dry_run=False, allow_review=True)
+        assert _vitals(path)["distance_mi"] == 90  # lands in the review PR
+
+    def test_tracker_is_still_flag_only_in_review_pass(self, races):
+        path = races("nordsjorittet", NORDSJORITTET)
+        changes = vrr.apply_fixes("nordsjorittet", [_v(
+            "distance_mi", "90", "https://www.strava.com/routes/1")],
+            dry_run=False, allow_review=True)
         assert _one(changes, "vitals.distance_mi")["flag_only"]
         assert _vitals(path)["distance_mi"] == 96
 
@@ -327,15 +352,45 @@ class TestChangeLimits:
 # ---------------------------------------------------------------------------
 
 class TestUnitSanity:
-    def test_official_value_contradicting_own_elevation_m_is_refused(self, races):
-        """Even from the organizer's domain, 18,575 ft != the profile's 7,200 m."""
+    def test_consistent_twin_moves_with_the_write(self, races):
+        """Nordic Chase: 23,622 ft == 7,200 m, so a real change rewrites both."""
+        path = races("nordic-chase-gravel", NORDIC_CHASE)
+        changes = vrr.apply_fixes("nordic-chase-gravel", [_v(
+            "distance_mi", "466", "https://nordicchase.com/cph-osl-gravel-2026")],
+            dry_run=False)
+        assert not any(c.get("flag_only") or c.get("needs_review") for c in changes)
+        v = _vitals(path)
+        assert v["distance_mi"] == 466 and v["distance_km"] == 750
+        assert _one(changes, "vitals.distance_km")["old"] == 800
+
+    def test_elevation_write_updates_elevation_m(self, races):
+        """18,575 ft from the organizer: over 15% so review, and the review
+        write keeps elevation_m consistent instead of leaving 7,200 m."""
         path = races("nordic-chase-gravel", NORDIC_CHASE)
         changes = vrr.apply_fixes("nordic-chase-gravel", [_v(
             "elevation_ft", "18575", "https://nordicchase.com/cph-osl-gravel-2026")],
-            dry_run=False, allow_review=True)
-        c = _one(changes, "vitals.elevation_ft")
-        assert c["flag_only"] and "elevation_m" in c["reason"]
+            dry_run=False)
+        assert _one(changes, "vitals.elevation_ft")["needs_review"]
         assert _vitals(path)["elevation_ft"] == 23622
+        vrr.apply_fixes("nordic-chase-gravel", [_v(
+            "elevation_ft", "18575", "https://nordicchase.com/cph-osl-gravel-2026")],
+            dry_run=False, allow_review=True)
+        v = _vitals(path)
+        assert (v["elevation_ft"], v["elevation_m"]) == (18575, 5662)
+
+    def test_genuine_twin_conflict_goes_to_review_not_flag(self, races):
+        """Twin (1000 m = 3,281 ft) matches neither 2,600 nor 4,000 ft."""
+        race = {**NORDIC_CHASE, "vitals": {"elevation_m": 1000, "elevation_ft": 2600}}
+        path = races("twin-race", race)
+        changes = vrr.apply_fixes("twin-race", [_v(
+            "elevation_ft", "3100", "https://nordicchase.com/x")], dry_run=False)
+        c = _one(changes, "vitals.elevation_ft")
+        assert not c.get("flag_only") and c["needs_review"]
+        assert "elevation_m" in c["reason"]
+        assert _vitals(path)["elevation_ft"] == 2600
+        vrr.apply_fixes("twin-race", [_v("elevation_ft", "3100", "https://nordicchase.com/x")],
+                        dry_run=False, allow_review=True)
+        assert _vitals(path)["elevation_m"] == 945
 
     def test_value_matching_own_metric_twin_is_allowed(self, races):
         """elevation_ft was the bad conversion; the twin (1000 m) backs 3,281 ft."""
@@ -345,7 +400,9 @@ class TestUnitSanity:
             "elevation_ft", "3281", "https://nordicchase.com/x")],
             dry_run=False, allow_review=True)
         assert not _one(changes, "vitals.elevation_ft").get("flag_only")
+        assert "unit check" not in (_one(changes, "vitals.elevation_ft")["reason"] or "")
         assert _vitals(path)["elevation_ft"] == 3281
+        assert _vitals(path)["elevation_m"] == 1000  # twin already right
 
     def test_km_as_miles_mixup_goes_to_review(self, races):
         """Majka's 73 'mi' was 73 km: 45.4 is a conversion, not a correction."""
@@ -480,6 +537,7 @@ class TestIndexRegeneration:
         assert _vitals(path)["distance_mi"] == 70
         text = body.read_text()
         assert "| `nordsjorittet` | vitals.distance_mi | 96.0 | 70.0 | https://nordsjorittet.no/" in text
+        assert "GITHUB_TOKEN" in text and "does not trigger CI" in text
 
 
 # ---------------------------------------------------------------------------
@@ -503,11 +561,47 @@ class TestWorkflowWiring:
         assert "web/race-index.json" in commit["run"]
         assert "generate_index.py --with-jsonld" in commit["run"]
 
-    def test_gate_failure_opens_pr_not_push_to_main(self, steps):
-        fail = self._step(steps, "Gates failed")
-        assert "steps.gates.outcome == 'failure'" in fail["if"]
+    def test_every_piped_step_sets_pipefail(self, steps):
+        """Actions' default `bash -e` has no pipefail: `pytest | tee` exits 0."""
+        import re
+        piped = {n: st["run"] for n, st in steps.items()
+                 if "run" in st and re.search(r"[^|]\|[^|]", st["run"])}
+        assert piped, "expected piped steps (verify, gates)"
+        for name, run in piped.items():
+            assert run.lstrip().startswith("set -o pipefail"), name
+
+    def test_commit_requires_verify_success(self, steps):
+        commit = self._step(steps, "Commit fixes to main")
+        assert "steps.verify.outcome == 'success'" in commit["if"]
+        assert commit.get("continue-on-error") is True
+
+    def test_web_regenerated_only_after_rebase(self, steps):
+        run = self._step(steps, "Commit fixes to main")["run"]
+        first_add = run.index("git add race-data/ data/verification/")
+        assert "web/" not in run[first_add:run.index("\n", first_add)]
+        assert run.index("git pull --rebase") < run.index("generate_index.py --with-jsonld")
+        assert 'echo "pushed=true"' in run
+
+    def test_any_failure_opens_pr_not_push_to_main(self, steps):
+        fail = self._step(steps, "Verify, gates or push failed")
+        for cond in ("steps.verify.outcome == 'failure'",
+                     "steps.gates.outcome == 'failure'",
+                     "steps.commit.outcome == 'failure'",
+                     "steps.commit.outputs.pushed != 'true'", "!cancelled()"):
+            assert cond in fail["if"], cond
         assert "gh pr create" in fail["run"] and "--label" in fail["run"]
         assert "git push origin \"$BRANCH\"" in fail["run"]
+        assert "GITHUB_TOKEN" in fail["run"]  # CI-not-triggered note in body
+
+    def test_final_step_fails_the_run(self, steps):
+        final = self._step(steps, "Fail the run")
+        assert final["if"].startswith("always()")
+        for s_id in ("verify", "gates", "commit"):
+            assert f"steps.{s_id}.outcome == 'failure'" in final["if"]
+        assert "exit 1" in final["run"]
+
+    def test_review_pr_survives_earlier_failure(self, steps):
+        assert "!cancelled()" in self._step(steps, "Over-limit changes")["if"]
 
     def test_over_limit_changes_open_labelled_review_pr(self, steps):
         review = self._step(steps, "Over-limit changes")

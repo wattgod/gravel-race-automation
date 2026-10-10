@@ -76,6 +76,7 @@ jobs:
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
         run: |
+          set -o pipefail
           python scripts/verify_race_rankings.py \
             --limit "${{ inputs.limit || '25' }}" \
             --review-queue "$RUNNER_TEMP/review_queue.json" \
@@ -85,6 +86,7 @@ jobs:
       - name: Count changed profiles
         id: changes
         run: |
+          set -o pipefail
           CHANGED=$(git diff --name-only race-data/ | wc -l | tr -d ' ')
           echo "count=$CHANGED" >> "$GITHUB_OUTPUT"
           echo "Changed profiles: $CHANGED"
@@ -95,6 +97,7 @@ jobs:
         if: steps.changes.outputs.count != '0'
         continue-on-error: true
         run: |
+          set -o pipefail
           python -m pytest -q \
             tests/test_verify_race_rankings.py tests/test_veracity_guards.py \
             tests/test_index_integrity.py tests/test_tier_integrity.py \
@@ -115,27 +118,40 @@ jobs:
           git checkout -- race-data/ web/ data/verification/ 2>/dev/null || git checkout -- race-data/ web/
           exit 0
 
-      - name: Commit fixes to main (gates passed)
-        if: steps.changes.outputs.count != '0' && steps.changes.outputs.count <= 10 && steps.gates.outcome == 'success'
+      - name: Commit fixes to main (verify + gates passed)
+        id: commit
+        if: steps.changes.outputs.count != '0' && steps.changes.outputs.count <= 10 && steps.verify.outcome == 'success' && steps.gates.outcome == 'success'
+        # A failed push falls through to the PR step below, never to nothing.
+        continue-on-error: true
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
+          set -o pipefail
           git config user.name "rankings-veracity-bot"
           git config user.email "veracity@gravelgodcycling.com"
-          git add race-data/ data/verification/ web/race-index.json web/jsonld/
+          # Commit only source data. Derived web/ files are rebuilt AFTER the
+          # rebase, so they can't conflict with whatever landed on main.
+          git add race-data/ data/verification/
           git commit -m "veracity: web-verified rankings fixes ($(date +%Y-%m-%d))"
-          # main moves constantly (crons, sessions) — rebase-retry the push,
-          # regenerating the index on top of whatever landed meanwhile and
-          # re-running the index gate so a stale index can never reach main.
+          git checkout -- web/
+          git clean -fdq web/jsonld/
+          # main moves constantly (crons, sessions) — rebase-retry the push.
           for i in 1 2 3; do
             if git pull --rebase origin main; then
               python scripts/generate_index.py --with-jsonld > /dev/null
               if [ -n "$(git status --porcelain web/)" ]; then
                 git add web/race-index.json web/jsonld/
-                git commit -m "veracity: regenerate race index after rebase"
+                git commit -m "veracity: regenerate race index ($(date +%Y-%m-%d))"
               fi
               python -m pytest -q tests/test_index_integrity.py || exit 1
-              git push && break
+              if git push; then
+                echo "pushed=true" >> "$GITHUB_OUTPUT"
+                break
+              fi
+              # push lost a race: drop our regen commit (rebuilt after the next rebase)
+              case "$(git log -1 --format=%s)" in "veracity: regenerate race index"*)
+                git reset -q --hard HEAD~1 ;;
+              esac
             else
               git rebase --abort || true
             fi
@@ -147,21 +163,28 @@ jobs:
             --title "Rankings veracity: $(grep -oE '[0-9]+ with changes' /tmp/verify-output.txt || echo 'fixes') applied — $(date +%Y-%m-%d)" \
             --body "$(printf 'Cheap-agent verification (Haiku + web search) found and fixed high-confidence factual mismatches from official sources. Criterion scores and tiers recomputed from the rubric where inputs changed. [TIER CHANGE], [REVIEW PR] and [FLAG-ONLY] lines need your review; [REVIEW PR] changes are in a separate needs-human-review PR, not on main.\n\n```\n%s\n```\n\nFull report: data/verification/last_run_report.json' "$SUMMARY")"
 
-      - name: Gates failed — open a PR instead of pushing to main
-        if: steps.changes.outputs.count != '0' && steps.changes.outputs.count <= 10 && steps.gates.outcome == 'failure'
+      - name: Verify, gates or push failed — open a PR instead of pushing to main
+        id: fallback_pr
+        if: >-
+          !cancelled() && steps.changes.outputs.count != '0' && steps.changes.outputs.count <= 10
+          && steps.commit.outputs.pushed != 'true'
+          && (steps.verify.outcome == 'failure' || steps.gates.outcome == 'failure' || steps.commit.outcome == 'failure')
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           BRANCH="veracity/gate-failed-$(date +%Y-%m-%d)-${{ github.run_id }}"
           git config user.name "rankings-veracity-bot"
           git config user.email "veracity@gravelgodcycling.com"
-          git checkout -b "$BRANCH"
+          git checkout -B "$BRANCH"
+          python scripts/generate_index.py --with-jsonld > /dev/null || true
           git add race-data/ data/verification/ web/race-index.json web/jsonld/
-          git commit -m "veracity: rankings fixes that FAILED gates ($(date +%Y-%m-%d))"
+          git diff --cached --quiet || git commit -m "veracity: rankings fixes held for review ($(date +%Y-%m-%d))"
           git push origin "$BRANCH"
           gh label create "$REVIEW_LABEL" --color d93f0b --description "Bot change held for a human" --force
           {
-            echo "The veracity bot's changes failed its own gates, so nothing was pushed to main."
+            echo "The veracity bot did not push to main: verify=${{ steps.verify.outcome }}, gates=${{ steps.gates.outcome }}, commit/push=${{ steps.commit.outcome }}."
+            echo
+            echo "Note: this PR was opened with GITHUB_TOKEN, and GitHub does not trigger CI workflows for such PRs. Re-run CI before merging (push an empty commit, or close and reopen the PR)."
             echo
             echo '```'
             tail -40 /tmp/gate-output.txt 2>/dev/null || echo "see run logs"
@@ -172,9 +195,8 @@ jobs:
             echo '```'
           } > /tmp/gate-pr-body.md
           gh pr create --base main --head "$BRANCH" --label "$REVIEW_LABEL" \
-            --title "veracity: gate failure — review before merge ($(date +%Y-%m-%d))" \
+            --title "veracity: held for review, not pushed to main ($(date +%Y-%m-%d))" \
             --body-file /tmp/gate-pr-body.md
-          git checkout main
 
       - name: Persist state even with no fixes
         if: steps.changes.outputs.count == '0' && inputs.dry_run != true
@@ -193,7 +215,7 @@ jobs:
           echo "All checked facts confirmed."
 
       - name: Over-limit changes — open a needs-human-review PR
-        if: steps.changes.outputs.review == 'true' && inputs.dry_run != true && steps.changes.outputs.count <= 10
+        if: "!cancelled() && steps.changes.outputs.review == 'true' && inputs.dry_run != true && steps.changes.outputs.count <= 10"
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
@@ -219,7 +241,7 @@ jobs:
             --body-file /tmp/review-pr-body.md
 
       - name: Fail the run if verification or gates failed
-        if: always() && (steps.verify.outcome == 'failure' || steps.gates.outcome == 'failure')
+        if: always() && (steps.verify.outcome == 'failure' || steps.gates.outcome == 'failure' || steps.commit.outcome == 'failure')
         run: |
-          echo "::error::verify=${{ steps.verify.outcome }} gates=${{ steps.gates.outcome }} — nothing unsafe reached main; see PR/issue"
+          echo "::error::verify=${{ steps.verify.outcome }} gates=${{ steps.gates.outcome }} commit=${{ steps.commit.outcome }} — nothing unsafe reached main; see the held-for-review PR"
           exit 1

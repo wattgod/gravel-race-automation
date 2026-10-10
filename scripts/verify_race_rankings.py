@@ -250,15 +250,12 @@ def _block_reason(race, vitals, field, v, old, new, tier, provenance):
         if scope == "shorter_option" or (
                 field == "distance_mi" and vg.is_shorter_option(v, old, new)):
             return "shorter course option: flagship distance kept", {}
-    if tier < vg.TIER_OUTLET:
+    if tier == vg.TIER_TRACKER:
         return f"weak source ({vg.TIER_NAMES[tier]})", {}
     backing = vg.existing_backing_tier(race, field, vitals.get(field), provenance)
     if tier < backing:
         return (f"{vg.TIER_NAMES[tier]} cannot overwrite a value backed by "
                 f"{vg.TIER_NAMES[backing]}"), {}
-    conflict = vg.unit_twin_conflict(vitals, field, new)
-    if conflict:
-        return f"unit check: {conflict}", {}
     return None, {}
 
 
@@ -305,23 +302,30 @@ def apply_fixes(slug, verdicts, dry_run, allow_review=False, provenance=None):
                     review.append(f"{vg.rel_change(old, new):.0%} change (limit 15%)")
                 if vg.looks_like_unit_mixup(field, old, new):
                     review.append("old to new is a unit conversion (km/mi or m/ft mix-up?)")
+                conflict = vg.unit_twin_conflict(vitals, field, new)
+                if conflict:
+                    review.append(f"unit check: {conflict}")
             if tier < vg.TIER_RESULTS:
-                review.append(f"source is a {vg.TIER_NAMES[tier]}, not official")
+                review.append(f"source is {vg.TIER_NAMES[tier]}, not official")
             vitals[field] = str(int(new)) if field == "field_size" else int(new)
             changes.append({"field": f"vitals.{field}", "old": old, "new": new,
                             "source": v.get("source_url"),
                             "source_tier": vg.TIER_NAMES[tier],
                             "needs_review": bool(review),
                             "reason": "; ".join(review) or None})
+            twin = vg.sync_metric_twin(vitals, field, new)
+            if twin:
+                changes.append({"field": f"vitals.{twin[0]}", "old": twin[1],
+                                "new": twin[2], "source": "unit sync"})
         elif field == "prize_purse" and web_value:
             old = vitals.get("prize_purse")
             if str(old).strip().lower() == str(web_value).strip().lower():
                 continue
             backing = vg.existing_backing_tier(race, field, old, provenance)
-            if tier < vg.TIER_OUTLET or tier < backing:
+            if tier == vg.TIER_TRACKER or tier < backing:
                 _flag(changes, "vitals.prize_purse", old, web_value, v,
                       f"{vg.TIER_NAMES[tier]} cannot overwrite a value backed by "
-                      f"{vg.TIER_NAMES[backing]}" if tier >= vg.TIER_OUTLET
+                      f"{vg.TIER_NAMES[backing]}" if tier != vg.TIER_TRACKER
                       else f"weak source ({vg.TIER_NAMES[tier]})")
                 continue
             vitals["prize_purse"] = web_value
@@ -510,7 +514,11 @@ def render_review_pr_body(results):
         lines += ["", "Flagged and NOT written (for context):", *flagged]
     lines += ["", "Index and JSON-LD regenerated with "
               "`python scripts/generate_index.py --with-jsonld`; "
-              "`tests/test_index_integrity.py` passed before this PR was opened."]
+              "`tests/test_index_integrity.py` passed before this PR was opened.",
+              "",
+              "Note: this PR was opened with GITHUB_TOKEN, and GitHub does not "
+              "trigger CI workflows for such PRs. Re-run CI before merging (push an "
+              "empty commit, or close and reopen the PR)."]
     return "\n".join(lines) + "\n"
 
 

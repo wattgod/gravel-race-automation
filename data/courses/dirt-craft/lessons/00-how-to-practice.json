@@ -5,12 +5,6 @@
   "lesson_number": 0,
   "blocks": [
     {
-      "type": "hero_stat",
-      "value": "20 min",
-      "unit": "of focused drilling beats a 3-hour 'just ride'",
-      "context": "Mileage makes you fitter. It does not make you better at riding your bike. This lesson is the operating system for every drill in this course — read it first, and the rest compounds."
-    },
-    {
       "type": "callout",
       "style": "highlight",
       "content": "**Every other lesson hands you a drill. This one is how to run it.** Skill isn't installed by effort or saddle time — it's installed by a specific, repeatable, fairly boring loop. Worth being straight about who's teaching this: I'm not a naturally gifted bike handler. I was a stiff, nervous roadie who got a lot better by practicing deliberately over a long time. That's the whole method. It's slow, it works, and it's available to anyone willing to be bored on purpose."
@@ -59,6 +53,14 @@
           "detail": "Once a piece is automatic, practice it in different corners, surfaces, and speeds — then combine it with the next piece. Real riding is components chained; you can only chain what each part has become invisible."
         }
       ]
+    },
+    {
+      "type": "video",
+      "src": "/course/dirt-craft/assets/l00-practice-loop.mp4",
+      "poster": "/course/dirt-craft/assets/l00-practice-loop.jpg",
+      "title": "The Practice Loop",
+      "alt": "Five-step graphic: isolate, slow, prove, space, and vary, then chain the skill.",
+      "caption": "The five moves behind every drill: isolate one component, drill it slow, prove it, space it, then vary and chain it."
     },
     {
       "type": "sensation_target",

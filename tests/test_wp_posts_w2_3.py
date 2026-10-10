@@ -28,7 +28,7 @@ from brand_tokens import get_ga4_head_snippet  # noqa: E402
 # post id -> (module, ids of figures the module ADDS: excluded from the text diff)
 POSTS = {
     3433: ("i_didnt_screw_up_unbound_200_and_you_dont_have_to_either", set()),
-    3203: ("hacking_unbound_200_with_best_bike_split", {"fig-bbs-savings"}),
+    3203: ("hacking_unbound_200_with_best_bike_split", set()),  # + RESTORED tables (wp_post.restored_ids)
     3537: ("i_didnt_screw_up_red_granite_grinder_and_neither_do_you_2", set()),
     3581: ("david_beckham_has_something_to_say_to_cyclists", set()),
     3749: ("i_screwed_up_unbound_2024_so_you_dont_have_to", set()),
@@ -65,7 +65,7 @@ def _page(pid) -> str:
 
 @pytest.mark.parametrize("pid", POSTS)
 def test_body_text_is_word_for_word(pid):
-    diff = imp.text_diff(wp_post.corrected_baseline((FIXTURES / f"{pid}.txt").read_text(encoding="utf-8"), getattr(_module(pid), "CORRECTIONS", ())), _page(pid), POSTS[pid][1])
+    diff = imp.text_diff(wp_post.corrected_baseline((FIXTURES / f"{pid}.txt").read_text(encoding="utf-8"), getattr(_module(pid), "CORRECTIONS", ())), _page(pid), POSTS[pid][1] | wp_post.restored_ids(_module(pid)))
     assert diff == [], "\n".join(diff[:80])
 
 
@@ -208,15 +208,18 @@ def test_comments_archive_only_where_the_post_had_comments(pid):
         assert 'id="comments"' not in html
 
 
-def test_best_bike_split_table_is_the_posts_numbers():
+def test_best_bike_split_tables_are_restored_where_the_post_refers_to_them():
+    """The four restored tables sit right after the text that introduces them;
+    the earlier stand-in infographic (fig-bbs-savings) is gone."""
     m = _module(3203)
-    body = m.SOURCE.body
-    for phrase in ("as much as 7 watts", "15:29", "increasing your power by 5% saves you 17:33",
-                   "decreasing your weight by 5% saves you 8:18", "FTP of 370", "weighing 166 lbs"):
-        assert phrase in body, phrase
-    fig = _page(3203).split('id="fig-bbs-savings"', 1)[1].split("</figure>", 1)[0]
-    for v in ("15:29", "17:33", "8:18"):
-        assert v in fig, v
+    html = imp.article_of(_page(3203))
+    assert "fig-bbs-savings" not in html
+    for fig, before in ((m.AERO, "because few people are made of money:</p>"),
+                        (m.FTP_930, "~9:30 hour Finisher (~20 mph avg)</h3>"),
+                        (m.FTP_1230, "~12:30 hour finisher (~16 mph avg)</h3>"),
+                        (m.COMBINED, "Here’s the breakdown:</p>")):
+        after = html.split(before, 1)[1].lstrip()
+        assert after.startswith(f'<figure class="gg-table" id="{fig.id}"'), fig.id
 
 
 def test_price_table_apply_now_stays_plain_text():

@@ -135,7 +135,10 @@ def test_corrected_post_says_so_and_bumps_its_modified_date(pid):
     assert ld["datePublished"] == _module(pid).SOURCE.data["live"]["published"]
 
 
-@pytest.mark.parametrize("pid", sorted(set(MODULES) - set(CORRECTED)))
+RESTORED = sorted(pid for pid, m in MODULES.items() if getattr(importlib.import_module(m), "RESTORED", ()))
+
+
+@pytest.mark.parametrize("pid", sorted(set(MODULES) - set(CORRECTED) - set(RESTORED)))
 def test_uncorrected_posts_keep_the_live_modified_date_and_no_note(pid):
     html = _page(pid)
     assert wp_post.CORRECTION_NOTE not in html

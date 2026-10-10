@@ -28,7 +28,7 @@
   "headline": "Hacking Unbound 200 with Best Bike Split",
   "description": "Best Bike Split estimates of how much time chain waxing, aero, tires, weight loss and fitness save at Unbound 200, and what the simulator leaves out.",
   "datePublished": "2023-04-08T15:45:47+00:00",
-  "dateModified": "2026-02-13T16:35:41+00:00",
+  "dateModified": "2026-10-09T00:00:00-06:00",
   "author": {
     "@type": "Person",
     "name": "Matti Rowe",
@@ -47,7 +47,7 @@
   <link rel="preload" href="/race/assets/fonts/SometypeMono-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/race/assets/fonts/SourceSerif4-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
   <meta property="article:published_time" content="2023-04-08T15:45:47+00:00">
-  <meta property="article:modified_time" content="2026-02-13T16:35:41+00:00">
+  <meta property="article:modified_time" content="2026-10-09T00:00:00-06:00">
   <style>
 /* Sometype Mono — Normal — Latin Extended */
 @font-face {
@@ -488,7 +488,7 @@ h2[id],h3[id],[data-slot],figure[id]{scroll-margin-top:72px}
 .gg-price-table .gg-price-features ul{margin:0;padding-left:1.2em}
 .gg-price-table .gg-price-ribbon{order:-1;font:400 14px/1.5 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--ink3)}
 
-#fig-bbs-savings .gg-sort-hint{display:none}
+#fig-bbs-aero thead th,#fig-bbs-ftp-930 thead th,#fig-bbs-ftp-1230 thead th,#fig-bbs-combined thead th{padding:6px 10px 10px 0}@media (max-width:640px){#fig-bbs-ftp-930 .gg-table-wrap,#fig-bbs-ftp-1230 .gg-table-wrap,#fig-bbs-combined .gg-table-wrap{display:block}#fig-bbs-ftp-930 .gg-cards,#fig-bbs-ftp-1230 .gg-cards,#fig-bbs-combined .gg-cards{display:none}}
   </style>
 </head>
 <body>
@@ -613,7 +613,7 @@ h2[id],h3[id],[data-slot],figure[id]{scroll-margin-top:72px}
   <p class="kick">In short</p>
   <ol>
     <li data-sec="1"><p>The post argues that the slower a rider goes, the more time small gains save, because they act over more hours.</p><a class="ev" href="#baseline">See Baseline · §02</a></li>
-    <li data-sec="1"><p>By its Best Bike Split runs, a waxed chain saving up to 7 watts is worth 15:29 over Unbound 200.</p><a class="ev" href="#fig-bbs-savings">See the numbers · §02</a></li>
+    <li data-sec="1"><p>By its Best Bike Split runs, a waxed chain saving up to 7 watts is worth 15:29 over Unbound 200.</p><a class="ev" href="#waxing-your-chain">See Waxing Your Chain · §02</a></li>
     <li data-sec="1"><p>On Unbound&rsquo;s rolling course, the post finds a 5% weight loss saves about half the time of a 5% power gain.</p><a class="ev" href="#weight-loss">See Weight Loss · §02</a></li>
     <li data-sec="1"><p>Its bottom line: equipment can buy about a third of a rider&rsquo;s potential speed; fitness, skills and execution make up the rest.</p><a class="ev" href="#combined">See Combined · §02</a></li>
   </ol>
@@ -673,6 +673,39 @@ h2[id],h3[id],[data-slot],figure[id]{scroll-margin-top:72px}
 <p>To a lesser extent than road, your ideal gravel racing setup is a tradeoff between aerodynamic performance, comfort, and durability. I’ll never forget seeing someone blow by me in the first 25 minutes at Unbound in 2021 with a TT frame in aero bars running 28 mm tires with a shit-eating grin on his face. Five miles later, I saw the same guy in a ditch with a cracked head tube with a very different look on his face.</p>
 <p>So, no, Aero isn’t everything, but it’s safe to say that you can add a few aerodynamic touches to your rig that won’t risk mechanical hazards or physical misery.</p>
 <p>Here’s a list, sorted by dollars/watt, because few people are made of money:</p>
+<figure class="gg-table" id="fig-bbs-aero" aria-labelledby="fig-bbs-aero-h">
+  <h5 id="fig-bbs-aero-h">Aero upgrades: watts saved, cost and dollars per watt</h5>
+  <p class="sub"></p>
+  <div class="gg-table-wrap" tabindex="0" role="region" aria-labelledby="fig-bbs-aero-h">
+    <table class="gg-sortable">
+      <colgroup><col style="width:34%"><col><col><col></colgroup>
+      <thead><tr><th scope="col">Product</th><th scope="col">Potential Watt Savings</th><th scope="col">Potential Cost</th><th scope="col">Dollars/Watts</th></tr></thead>
+      <tbody>
+      <tr><td data-v="Aero Frame">Aero Frame</td><td class="num" data-v="20">20</td><td class="num" data-v="$5,500">$5,500</td><td class="num" data-v="$275/watt">$275/watt</td></tr>
+      <tr><td data-v="Aero Wheels">Aero Wheels</td><td class="num" data-v="25">25</td><td class="num" data-v="$2,500">$2,500</td><td class="num" data-v="$100/watt">$100/watt</td></tr>
+      <tr><td data-v="Aero Handlebars">Aero Handlebars</td><td class="num" data-v="10">10</td><td class="num" data-v="$350">$350</td><td class="num" data-v="$35/watt">$35/watt</td></tr>
+      <tr><td data-v="Race Tires">Race Tires</td><td class="num" data-v="25">25</td><td class="num" data-v="$175">$175</td><td class="num" data-v="$7/watt">$7/watt</td></tr>
+      <tr><td data-v="Waxed Chain">Waxed Chain</td><td class="num" data-v="5">5</td><td class="num" data-v="$175">$175</td><td class="num" data-v="$35/watt">$35/watt</td></tr>
+      <tr><td data-v="Oversized Pulley Wheels">Oversized Pulley Wheels</td><td class="num" data-v="2">2</td><td class="num" data-v="$600">$600</td><td class="num" data-v="$300/watt">$300/watt</td></tr>
+      <tr><td data-v="Aero Helmet">Aero Helmet</td><td class="num" data-v="15">15</td><td class="num" data-v="$300">$300</td><td class="num" data-v="$20/watt">$20/watt</td></tr>
+      <tr><td data-v="Aero Skinsuit">Aero Skinsuit</td><td class="num" data-v="20">20</td><td class="num" data-v="$200">$200</td><td class="num" data-v="$100/watt">$100/watt</td></tr>
+      <tr><td data-v="Aero Socks">Aero Socks</td><td class="num" data-v="8">8</td><td class="num" data-v="$30">$30</td><td class="num" data-v="$3.75/watt">$3.75/watt</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <ol class="gg-cards" aria-labelledby="fig-bbs-aero-h">
+    <li class="gg-card"><p class="gg-card-h"><span class="gg-card-name">Aero Frame</span><span class="gg-card-aside">$275/watt</span></p><dl class="gg-card-facts"><div><dt>Potential Watt Savings</dt><dd>20</dd></div><div><dt>Potential Cost</dt><dd>$5,500</dd></div></dl></li>
+    <li class="gg-card"><p class="gg-card-h"><span class="gg-card-name">Aero Wheels</span><span class="gg-card-aside">$100/watt</span></p><dl class="gg-card-facts"><div><dt>Potential Watt Savings</dt><dd>25</dd></div><div><dt>Potential Cost</dt><dd>$2,500</dd></div></dl></li>
+    <li class="gg-card"><p class="gg-card-h"><span class="gg-card-name">Aero Handlebars</span><span class="gg-card-aside">$35/watt</span></p><dl class="gg-card-facts"><div><dt>Potential Watt Savings</dt><dd>10</dd></div><div><dt>Potential Cost</dt><dd>$350</dd></div></dl></li>
+    <li class="gg-card"><p class="gg-card-h"><span class="gg-card-name">Race Tires</span><span class="gg-card-aside">$7/watt</span></p><dl class="gg-card-facts"><div><dt>Potential Watt Savings</dt><dd>25</dd></div><div><dt>Potential Cost</dt><dd>$175</dd></div></dl></li>
+    <li class="gg-card"><p class="gg-card-h"><span class="gg-card-name">Waxed Chain</span><span class="gg-card-aside">$35/watt</span></p><dl class="gg-card-facts"><div><dt>Potential Watt Savings</dt><dd>5</dd></div><div><dt>Potential Cost</dt><dd>$175</dd></div></dl></li>
+    <li class="gg-card"><p class="gg-card-h"><span class="gg-card-name">Oversized Pulley Wheels</span><span class="gg-card-aside">$300/watt</span></p><dl class="gg-card-facts"><div><dt>Potential Watt Savings</dt><dd>2</dd></div><div><dt>Potential Cost</dt><dd>$600</dd></div></dl></li>
+    <li class="gg-card"><p class="gg-card-h"><span class="gg-card-name">Aero Helmet</span><span class="gg-card-aside">$20/watt</span></p><dl class="gg-card-facts"><div><dt>Potential Watt Savings</dt><dd>15</dd></div><div><dt>Potential Cost</dt><dd>$300</dd></div></dl></li>
+    <li class="gg-card"><p class="gg-card-h"><span class="gg-card-name">Aero Skinsuit</span><span class="gg-card-aside">$100/watt</span></p><dl class="gg-card-facts"><div><dt>Potential Watt Savings</dt><dd>20</dd></div><div><dt>Potential Cost</dt><dd>$200</dd></div></dl></li>
+    <li class="gg-card"><p class="gg-card-h"><span class="gg-card-name">Aero Socks</span><span class="gg-card-aside">$3.75/watt</span></p><dl class="gg-card-facts"><div><dt>Potential Watt Savings</dt><dd>8</dd></div><div><dt>Potential Cost</dt><dd>$30</dd></div></dl></li>
+  </ol>
+  <p class="fn">Tables restored from the <a href="https://web.archive.org/web/20240717213415/https://gravelgodcycling.com/hacking-unbound-200-with-best-bike-split/" target="_blank" rel="noopener">Internet Archive copy</a> of this post (July 17, 2024). <span class="gg-sr" aria-live="polite" data-sort-status></span></p>
+</figure>
 <p><strong><a href="https://www.theproscloset.com/blogs/news/are-aero-socks-the-cheapest-way-to-buy-speed" target="_blank" rel="noopener">Source</a></strong></p>
 <h3 id="tire-choice">Tire Choice</h3>
 <p>As mentioned above, many forces oppose forward movement on the bike. It should come as no surprise that the part of the park that touches the ground – your tires – is no exception.</p>
@@ -694,37 +727,112 @@ h2[id],h3[id],[data-slot],figure[id]{scroll-margin-top:72px}
 <p>Also. Not all vertical miles are the same. With rolling hills, it’s easier to keep the gas on over the top of the hill and use your momentum to coast halfway up the next one. With proper, sustained climbs, you’ll be earning every pedal stroke.</p>
 <p>This isn’t to say that weight doesn’t matter – w/kg always plays! However, I ran the math in Best Bike Split and in Unbound, as a rule, weight reductions give you half the time savings by increasing your watts by the same percentage.</p>
 <p>For example, increasing your power by 5% saves you 17:33; decreasing your weight by 5% saves you 8:18.</p>
-<figure class="gg-table" id="fig-bbs-savings" aria-labelledby="fig-bbs-savings-h">
-  <p class="kick">The numbers above, side by side</p>
-  <h5 id="fig-bbs-savings-h">Time saved at Unbound 200, by Best Bike Split</h5>
-  <p class="sub">The three simulation results the post states in its text.</p>
-  <div class="gg-table-wrap" tabindex="0" role="region" aria-labelledby="fig-bbs-savings-h">
-    <table class="gg-sortable">
-      <colgroup><col><col></colgroup>
-      <thead><tr><th scope="col">Change</th><th scope="col">Time saved</th></tr></thead>
-      <tbody>
-      <tr><td data-v="Clean, waxed chain (up to 7 W)">Clean, waxed chain (up to 7 W)</td><td data-v="15:29">15:29</td></tr>
-      <tr><td data-v="Power +5%">Power +5%</td><td data-v="17:33">17:33</td></tr>
-      <tr><td data-v="Body weight −5%">Body weight &minus;5%</td><td data-v="8:18">8:18</td></tr>
-      </tbody>
-    </table>
-  </div>
-  <ol class="gg-cards" aria-labelledby="fig-bbs-savings-h">
-    <li class="gg-card"><p class="gg-card-h"><span class="gg-card-name">Clean, waxed chain (up to 7 W)</span></p><dl class="gg-card-facts"><div><dt>Time saved</dt><dd>15:29</dd></div></dl></li>
-    <li class="gg-card"><p class="gg-card-h"><span class="gg-card-name">Power +5%</span></p><dl class="gg-card-facts"><div><dt>Time saved</dt><dd>17:33</dd></div></dl></li>
-    <li class="gg-card"><p class="gg-card-h"><span class="gg-card-name">Body weight &minus;5%</span></p><dl class="gg-card-facts"><div><dt>Time saved</dt><dd>8:18</dd></div></dl></li>
-  </ol>
-  <p class="fn">From the post&rsquo;s Best Bike Split runs for Unbound 200 (rider: age 26, 166 lbs, FTP 370; default gravel bike). Chain: &ldquo;as much as 7 watts (in extreme cases)&rdquo; of drivetrain loss. <span class="gg-sr" aria-live="polite" data-sort-status></span></p>
-</figure>
 <p>We could caveat this to the moon (yes, I know losing body fat has other advantages beyond improving w/kg), but the point is that a larger rider at Unbound doesn’t have the same gravitational disadvantages to overcome in other races. Enjoy your sandwich.</p>
 <h3 id="fitness">Fitness</h3>
 <p>Best Bike Split demonstrates what you already know but hate to admit – by far, improving your fitness is the most impactful determinant of finishing time.</p>
 <p>Unfortunately, even if you take out a loan on your mortgage to buy the best bike, tires, aerodynamics, chain wax, etc., you still have to pedal. If you can pedal harder, longer, over 200 miles, that extra fitness produces staggering time savings.</p>
 <p>Here’s a table of time savings at Unbound 200 in 1% improvements in FTP up to 10%.</p>
 <h3 id="9-30-hour-finisher-20-mph-avg">~9:30 hour Finisher (~20 mph avg)</h3>
+<figure class="gg-table" id="fig-bbs-ftp-930" aria-labelledby="fig-bbs-ftp-930-h">
+  <h5 id="fig-bbs-ftp-930-h">Time saved by FTP improvement, ~9:30 hour finisher</h5>
+  <p class="sub"></p>
+  <div class="gg-table-wrap" tabindex="0" role="region" aria-labelledby="fig-bbs-ftp-930-h">
+    <table class="gg-sortable">
+      <colgroup><col><col></colgroup>
+      <thead><tr><th scope="col">% FTP Improvement</th><th scope="col">Time Savings</th></tr></thead>
+      <tbody>
+      <tr><td class="num" data-v="1">1</td><td class="num" data-v="2:44">2:44</td></tr>
+      <tr><td class="num" data-v="2">2</td><td class="num" data-v="5:25">5:25</td></tr>
+      <tr><td class="num" data-v="3">3</td><td class="num" data-v="8:04">8:04</td></tr>
+      <tr><td class="num" data-v="4">4</td><td class="num" data-v="10:41">10:41</td></tr>
+      <tr><td class="num" data-v="5">5</td><td class="num" data-v="13:14">13:14</td></tr>
+      <tr><td class="num" data-v="6">6</td><td class="num" data-v="15:45">15:45</td></tr>
+      <tr><td class="num" data-v="7">7</td><td class="num" data-v="18:13">18:13</td></tr>
+      <tr><td class="num" data-v="8">8</td><td class="num" data-v="20:39">20:39</td></tr>
+      <tr><td class="num" data-v="9">9</td><td class="num" data-v="23:04">23:04</td></tr>
+      <tr><td class="num" data-v="10">10</td><td class="num" data-v="25:25">25:25</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <ol class="gg-cards" aria-labelledby="fig-bbs-ftp-930-h">
+    <li class="gg-card"><p class="gg-card-h"><span class="gg-card-name">1</span></p><dl class="gg-card-facts"><div><dt>Time Savings</dt><dd>2:44</dd></div></dl></li>
+    <li class="gg-card"><p class="gg-card-h"><span class="gg-card-name">2</span></p><dl class="gg-card-facts"><div><dt>Time Savings</dt><dd>5:25</dd></div></dl></li>
+    <li class="gg-card"><p class="gg-card-h"><span class="gg-card-name">3</span></p><dl class="gg-card-facts"><div><dt>Time Savings</dt><dd>8:04</dd></div></dl></li>
+    <li class="gg-card"><p class="gg-card-h"><span class="gg-card-name">4</span></p><dl class="gg-card-facts"><div><dt>Time Savings</dt><dd>10:41</dd></div></dl></li>
+    <li class="gg-card"><p class="gg-card-h"><span class="gg-card-name">5</span></p><dl class="gg-card-facts"><div><dt>Time Savings</dt><dd>13:14</dd></div></dl></li>
+    <li class="gg-card"><p class="gg-card-h"><span class="gg-card-name">6</span></p><dl class="gg-card-facts"><div><dt>Time Savings</dt><dd>15:45</dd></div></dl></li>
+    <li class="gg-card"><p class="gg-card-h"><span class="gg-card-name">7</span></p><dl class="gg-card-facts"><div><dt>Time Savings</dt><dd>18:13</dd></div></dl></li>
+    <li class="gg-card"><p class="gg-card-h"><span class="gg-card-name">8</span></p><dl class="gg-card-facts"><div><dt>Time Savings</dt><dd>20:39</dd></div></dl></li>
+    <li class="gg-card"><p class="gg-card-h"><span class="gg-card-name">9</span></p><dl class="gg-card-facts"><div><dt>Time Savings</dt><dd>23:04</dd></div></dl></li>
+    <li class="gg-card"><p class="gg-card-h"><span class="gg-card-name">10</span></p><dl class="gg-card-facts"><div><dt>Time Savings</dt><dd>25:25</dd></div></dl></li>
+  </ol>
+  <p class="fn"><span class="gg-sr" aria-live="polite" data-sort-status></span></p>
+</figure>
 <h3 id="12-30-hour-finisher-16-mph-avg">~12:30 hour finisher (~16 mph avg)</h3>
+<figure class="gg-table" id="fig-bbs-ftp-1230" aria-labelledby="fig-bbs-ftp-1230-h">
+  <h5 id="fig-bbs-ftp-1230-h">Time saved by FTP improvement, ~12:30 hour finisher</h5>
+  <p class="sub"></p>
+  <div class="gg-table-wrap" tabindex="0" role="region" aria-labelledby="fig-bbs-ftp-1230-h">
+    <table class="gg-sortable">
+      <colgroup><col><col></colgroup>
+      <thead><tr><th scope="col">% FTP Improvement</th><th scope="col">Time Savings</th></tr></thead>
+      <tbody>
+      <tr><td class="num" data-v="1">1</td><td class="num" data-v="4:02">4:02</td></tr>
+      <tr><td class="num" data-v="2">2</td><td class="num" data-v="7:59">7:59</td></tr>
+      <tr><td class="num" data-v="3">3</td><td class="num" data-v="11:53">11:53</td></tr>
+      <tr><td class="num" data-v="4">4</td><td class="num" data-v="15:42">15:42</td></tr>
+      <tr><td class="num" data-v="5">5</td><td class="num" data-v="19:27">19:27</td></tr>
+      <tr><td class="num" data-v="6">6</td><td class="num" data-v="23:09">23:09</td></tr>
+      <tr><td class="num" data-v="7">7</td><td class="num" data-v="26;47">26;47</td></tr>
+      <tr><td class="num" data-v="8">8</td><td class="num" data-v="30:21">30:21</td></tr>
+      <tr><td class="num" data-v="9">9</td><td class="num" data-v="33:51">33:51</td></tr>
+      <tr><td class="num" data-v="10">10</td><td class="num" data-v="37:18">37:18</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <ol class="gg-cards" aria-labelledby="fig-bbs-ftp-1230-h">
+    <li class="gg-card"><p class="gg-card-h"><span class="gg-card-name">1</span></p><dl class="gg-card-facts"><div><dt>Time Savings</dt><dd>4:02</dd></div></dl></li>
+    <li class="gg-card"><p class="gg-card-h"><span class="gg-card-name">2</span></p><dl class="gg-card-facts"><div><dt>Time Savings</dt><dd>7:59</dd></div></dl></li>
+    <li class="gg-card"><p class="gg-card-h"><span class="gg-card-name">3</span></p><dl class="gg-card-facts"><div><dt>Time Savings</dt><dd>11:53</dd></div></dl></li>
+    <li class="gg-card"><p class="gg-card-h"><span class="gg-card-name">4</span></p><dl class="gg-card-facts"><div><dt>Time Savings</dt><dd>15:42</dd></div></dl></li>
+    <li class="gg-card"><p class="gg-card-h"><span class="gg-card-name">5</span></p><dl class="gg-card-facts"><div><dt>Time Savings</dt><dd>19:27</dd></div></dl></li>
+    <li class="gg-card"><p class="gg-card-h"><span class="gg-card-name">6</span></p><dl class="gg-card-facts"><div><dt>Time Savings</dt><dd>23:09</dd></div></dl></li>
+    <li class="gg-card"><p class="gg-card-h"><span class="gg-card-name">7</span></p><dl class="gg-card-facts"><div><dt>Time Savings</dt><dd>26;47</dd></div></dl></li>
+    <li class="gg-card"><p class="gg-card-h"><span class="gg-card-name">8</span></p><dl class="gg-card-facts"><div><dt>Time Savings</dt><dd>30:21</dd></div></dl></li>
+    <li class="gg-card"><p class="gg-card-h"><span class="gg-card-name">9</span></p><dl class="gg-card-facts"><div><dt>Time Savings</dt><dd>33:51</dd></div></dl></li>
+    <li class="gg-card"><p class="gg-card-h"><span class="gg-card-name">10</span></p><dl class="gg-card-facts"><div><dt>Time Savings</dt><dd>37:18</dd></div></dl></li>
+  </ol>
+  <p class="fn"><span class="gg-sr" aria-live="polite" data-sort-status></span></p>
+</figure>
 <h3 id="combined">Combined</h3>
 <p>K, that was a lot of foreplay to arrive at the number you’re really looking for – how much speed can I buy versus how much speed can I earn?  Here’s the breakdown:</p>
+<figure class="gg-table" id="fig-bbs-combined" aria-labelledby="fig-bbs-combined-h">
+  <h5 id="fig-bbs-combined-h">Combined time savings: average rider and elite</h5>
+  <p class="sub"></p>
+  <div class="gg-table-wrap" tabindex="0" role="region" aria-labelledby="fig-bbs-combined-h">
+    <table class="gg-sortable">
+      <colgroup><col style="width:44%"><col><col></colgroup>
+      <thead><tr><th scope="col"></th><th scope="col">Average Rider</th><th scope="col">Elite</th></tr></thead>
+      <tbody>
+      <tr><td data-v="-4% Drag">-4% Drag</td><td class="num" data-v="8:24">8:24</td><td class="num" data-v="6:24">6:24</td></tr>
+      <tr><td data-v="-3% Weight">-3% Weight</td><td class="num" data-v="7:21">7:21</td><td class="num" data-v="3:03">3:03</td></tr>
+      <tr><td data-v="-1% Rolling Resistance">-1% Rolling Resistance</td><td class="num" data-v="1:19">1:19</td><td class="num" data-v="0:43">0:43</td></tr>
+      <tr><td data-v="Total">Total</td><td class="num" data-v="14:28">14:28</td><td class="num" data-v="10:10">10:10</td></tr>
+      <tr><td data-v="10% FTP Increase">10% FTP Increase</td><td class="num" data-v="37:18:00">37:18:00</td><td class="num" data-v="25:25">25:25</td></tr>
+      <tr><td data-v="Total">Total</td><td class="num" data-v="50:47:00">50:47:00</td><td class="num" data-v="35:00">35:00</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <ol class="gg-cards" aria-labelledby="fig-bbs-combined-h">
+    <li class="gg-card"><p class="gg-card-h"><span class="gg-card-name">-4% Drag</span></p><dl class="gg-card-facts"><div><dt>Average Rider</dt><dd>8:24</dd></div><div><dt>Elite</dt><dd>6:24</dd></div></dl></li>
+    <li class="gg-card"><p class="gg-card-h"><span class="gg-card-name">-3% Weight</span></p><dl class="gg-card-facts"><div><dt>Average Rider</dt><dd>7:21</dd></div><div><dt>Elite</dt><dd>3:03</dd></div></dl></li>
+    <li class="gg-card"><p class="gg-card-h"><span class="gg-card-name">-1% Rolling Resistance</span></p><dl class="gg-card-facts"><div><dt>Average Rider</dt><dd>1:19</dd></div><div><dt>Elite</dt><dd>0:43</dd></div></dl></li>
+    <li class="gg-card"><p class="gg-card-h"><span class="gg-card-name">Total</span></p><dl class="gg-card-facts"><div><dt>Average Rider</dt><dd>14:28</dd></div><div><dt>Elite</dt><dd>10:10</dd></div></dl></li>
+    <li class="gg-card"><p class="gg-card-h"><span class="gg-card-name">10% FTP Increase</span></p><dl class="gg-card-facts"><div><dt>Average Rider</dt><dd>37:18:00</dd></div><div><dt>Elite</dt><dd>25:25</dd></div></dl></li>
+    <li class="gg-card"><p class="gg-card-h"><span class="gg-card-name">Total</span></p><dl class="gg-card-facts"><div><dt>Average Rider</dt><dd>50:47:00</dd></div><div><dt>Elite</dt><dd>35:00</dd></div></dl></li>
+  </ol>
+  <p class="fn"><span class="gg-sr" aria-live="polite" data-sort-status></span></p>
+</figure>
 <p>It’ll take some squinting, but here’s the bottom line: <strong>You can buy/hack 1/3 of your potential speed – the rest is fitness. </strong></p>
 <figure class="gg-essay-fig is-column" id="fig-47-watts-2">
   <div class="gg-media"><picture class="gg-pic gg-pic-art"><source media="(max-width: 640px)" type="image/webp" srcset="img/47-watts-2-m.webp 1x, img/47-watts-2-m@2x.webp 2x" width="660" height="371"><img src="img/47-watts-2.webp" alt="Cartoon Gravel God in a cowboy hat stands on a grassy verge beside a wide, freshly graded white gravel road, puffing a cigar." width="1600" height="900" loading="lazy" decoding="async"></picture></div>

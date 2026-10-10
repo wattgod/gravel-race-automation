@@ -38,6 +38,12 @@ without pull quotes / galleries / videos / comments gets none of the CSS/JS):
     article:modified_time / dateModified. The word-for-word tests apply the
     same corrections to the snapshot (corrected_baseline), so any other drift
     still fails.
+  - `restored=`: content the live post lost and an archived copy still has
+    (e.g. Elementor tables whose columns now render empty; Matt, 2026-10-09:
+    "1. try"). Each is a shell figure (DataTable) placed by `after=`, with the
+    archived values verbatim and the provenance line in a footnote. A restored
+    post gets RESTORED_MODIFIED as its modified date. The word-for-word tests
+    skip the restored figures by id (restored_ids), so any other drift fails.
   - `dead_youtube=`: {video id: where it sat} for embeds YouTube no longer
     serves (404); the whole click-to-load figure is left out of the page. The
     module keeps the record so a video can be restored.
@@ -104,6 +110,15 @@ FIRST_PERSON_RE = re.compile(r"\b(?:I|me|my|mine|we|us|our|ours)\b", re.I)
 # Figure corrections (Matt, 2026-10-09: "Yeah go ahead and fix").
 CORRECTED_MODIFIED = "2026-10-09T00:00:00-06:00"
 CORRECTION_NOTE = "Some figures in this post were corrected on October 9, 2026."
+
+
+# Content restored from an archived copy of the post (Matt, 2026-10-09: "1. try").
+RESTORED_MODIFIED = "2026-10-09T00:00:00-06:00"
+
+
+def restored_ids(module) -> set[str]:
+    """Ids of a post module's RESTORED figures: additions the word-for-word tests skip."""
+    return {f.id for f in getattr(module, "RESTORED", ())}
 
 
 class Correction(NamedTuple):
@@ -461,6 +476,7 @@ def render_post(
     title: str | None = None,
     corrections: Sequence[Correction] = (),
     dead_youtube: Mapping[str, str] | None = None,
+    restored: Sequence = (),
 ) -> str:
     """The full page. `alt` must cover every image (raises otherwise).
     `figures`: extra shell figures (SvgFigure / DataTable / EssayFigure) placed by
@@ -472,7 +488,9 @@ def render_post(
     `title`: a corrected "... | Gravel God" title (default: the live one).
     `corrections`: Correction(old, new, why) fixes to the post's own figures;
     adds CORRECTION_NOTE and bumps the modified date. `dead_youtube`: {id:
-    where it sat} embeds to leave out (see the module docstring)."""
+    where it sat} embeds to leave out. `restored`: figures restored from an
+    archived copy (placed by after=); bumps the modified date (see the module
+    docstring)."""
     data = src.data
     replace = dict(replace or {})
     after_image = dict(after_image or {})
@@ -529,6 +547,10 @@ def render_post(
     if replace:
         raise ValueError(f"replace: no image named {sorted(replace)}")
     shell_figures += [f for f in figures if not isinstance(f, HtmlFigure)]
+    ids = [f.id for f in restored]
+    if len(set(ids)) != len(ids) or any(not f.after for f in restored):
+        raise ValueError(f"restored: figures need distinct ids and after= ({ids})")
+    shell_figures += list(restored)
     for hf in html_figures:
         body = _place_html_figure(body, hf)
 
@@ -569,7 +591,7 @@ def render_post(
     if not hero and not shell_figures and "gg-gallery" in body:
         css.insert(0, es.ESSAY_CSS)  # the shell adds it only with figures or a hero picture
 
-    modified = CORRECTED_MODIFIED if corrections else None
+    modified = CORRECTED_MODIFIED if corrections else RESTORED_MODIFIED if restored else None
     meta = build_meta(src, hero=hero, kicker=kicker, description=description, title=title, modified=modified)
     sections = len(es.add_heading_ids(body)[1])
     return render_editorial_page(

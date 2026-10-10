@@ -224,6 +224,49 @@ class TestRedirectGeneration:
         assert block.count(road_migration.REDIRECT_SECTION_END) == 1
         assert len(push_wordpress.ROAD_MIGRATION_REDIRECT_RULES) == 726
 
+    def test_renamed_roadie_labs_pages_redirect_in_one_hop(self, migration_map):
+        rules = road_migration.generate_redirect_rules(
+            migration_map, RACE_DATA_DIR
+        )
+        rendered = "\n".join(rules)
+        for old, new in road_migration.ROADIE_LABS_PAGE_RENAMES.items():
+            assert f" {old} " not in rendered
+            assert f" {new} " in rendered
+        assert (
+            "RewriteRule ^race/chasing-cancellara/?$ "
+            "https://roadielabs.com/race/chasing-cancellara-bern-zermatt/ [R=301,L]"
+        ) in rendered
+        assert (
+            "RewriteRule ^race/letape-norway/?$ "
+            "https://roadielabs.com/race/letape-trondheim/ [R=301,L]"
+        ) in rendered
+
+    def test_road_previews_go_to_roadie_labs_not_blog_index(self):
+        block = push_wordpress.REDIRECT_BLOCK
+        assert (
+            "RewriteRule ^blog/gfny-miami/?$ "
+            "https://roadielabs.com/race/gfny-miami/ [R=301,L]"
+        ) in block
+        assert (
+            "RewriteRule ^blog/whistler-granfondo/?$ "
+            "https://roadielabs.com/race/rbc-granfondo-whistler/ [R=301,L]"
+        ) in block
+        assert (
+            "RewriteRule ^blog/66-south-pyrenees/?$ "
+            "/race/pyrenees-catalanes-gravel-tour/ [R=301,L]"
+        ) in block
+        archived = {
+            path.stem
+            for path in (PROJECT_ROOT / "race-data-archived" / "road").glob("*.json")
+        }
+        blog_index_rules = [
+            line for line in block.splitlines()
+            if line.startswith("RewriteRule ^blog/") and line.endswith(" /blog/ [R=301,L]")
+        ]
+        for line in blog_index_rules:
+            slug = line.split("^blog/", 1)[1].split("/", 1)[0]
+            assert slug not in archived, f"{slug} has a Roadie Labs page"
+
     def test_source_blocked_colombia_subpages_redirect_to_race_profile(self):
         block = push_wordpress.REDIRECT_BLOCK
 

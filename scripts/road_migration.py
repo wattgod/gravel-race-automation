@@ -39,6 +39,17 @@ QUARANTINED_FABRICATIONS = frozenset(
 )
 KEEP_ON_GG_SLUG = "rift-valley-odyssey"
 
+# Roadie Labs renamed these race pages after the map was approved; the old
+# slug now 301s on roadielabs.com. Point the GG redirect at the final page so
+# it is one hop, not a chain. The approved map stays untouched. The old .md
+# mirrors still return 200 (the new slugs have none), so they are not remapped.
+ROADIE_LABS_PAGE_RENAMES = {
+    "https://roadielabs.com/race/chasing-cancellara/":
+        "https://roadielabs.com/race/chasing-cancellara-bern-zermatt/",
+    "https://roadielabs.com/race/letape-norway/":
+        "https://roadielabs.com/race/letape-trondheim/",
+}
+
 REDIRECT_SECTION_BEGIN = "# BEGIN GENERATED ROAD MIGRATION REDIRECTS"
 REDIRECT_SECTION_END = "# END GENERATED ROAD MIGRATION REDIRECTS"
 
@@ -157,7 +168,7 @@ def _redirect_targets(entry: dict) -> tuple[str, str]:
         raise ValueError(
             f"missing canonical Roadie Labs targets for {entry['gg']['slug']}"
         )
-    return page_target, markdown_target
+    return ROADIE_LABS_PAGE_RENAMES.get(page_target, page_target), markdown_target
 
 
 def generate_redirect_rules(

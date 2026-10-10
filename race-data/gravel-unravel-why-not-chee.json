@@ -6,12 +6,12 @@
     "tagline": "Washington coastal gravel challenge.",
     "vitals": {
       "distance_mi": 69,
-      "elevation_ft": 3500,
+      "elevation_ft": 5900,
       "location": "Hoquiam, WA",
       "location_badge": "HOQUIAM, WA",
       "county": "Grays Harbor County",
       "date": "Mid-July annually",
-      "date_specific": "2026: July 18",
+      "date_specific": "Cancelled for 2026 — the organizer cancelled the Why-Not-Chee race; no 2027 date announced",
       "terrain_types": [
         "Washington coast",
         "Coastal gravel",
@@ -50,13 +50,13 @@
       ]
     },
     "gravel_god_rating": {
-      "overall_score": 41,
+      "overall_score": 43,
       "tier": 4,
       "tier_label": "TIER 4",
       "logistics": 2,
       "length": 3,
       "technicality": 2,
-      "elevation": 2,
+      "elevation": 3,
       "climate": 2,
       "altitude": 1,
       "adventure": 3,
@@ -275,7 +275,7 @@
         "explanation": "The course is \"approximately 95% gravel\" with \"wheel-eating potholes which would end your day badly if you weren't paying close attention,\" according to pro cyclist Ted King. ACree favors a 29er hardtail over gravel bikes here, noting \"there is enough very rough gravel\" despite the 40mm minimum tire recommendation. Less technical than The Mid South."
       },
       "elevation": {
-        "score": 2,
+        "score": 3,
         "explanation": "The Big Creek Loop around Mount Fitzgerald delivers steady Olympic National Forest climbing through \"older growth forest offering pristine views.\" With \"just under 2,000' of climbing per lap\" in the new loop format, it's consistent work without the punishing gradients that would fragment the field significantly. Less climbing than The Mid South."
       },
       "climate": {
@@ -433,6 +433,13 @@
         "200pluslb_mixed": "42-46",
         "200pluslb_wet": "40-44"
       }
+    },
+    "eligibility": {
+      "status": "cancelled",
+      "race_plan_eligible": false,
+      "verified": "2026-10-10",
+      "source": "https://peninsulaadventuresports.com/events/gravel-unravel/why-not-chee/",
+      "status_note": "The organizer page states: \"THE WHY-NOT-CHEE RACE IS CANCELLED FOR 2026\". No 2027 date is announced."
     }
   }
 }

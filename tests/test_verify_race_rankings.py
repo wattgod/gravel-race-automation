@@ -52,7 +52,9 @@ class TestRubricThresholds:
 def _make_race_file(tmp_path, monkeypatch, vitals, rating):
     race_dir = tmp_path / "race-data"
     race_dir.mkdir()
+    # example.com is the race's own site, so _verdict() sources are official.
     data = {"race": {"name": "Test Race", "vitals": vitals,
+                     "logistics": {"official_site": "https://example.com/"},
                      "gravel_god_rating": rating}}
     (race_dir / "test-race.json").write_text(json.dumps(data))
     monkeypatch.setattr(vrr, "RACE_DATA", race_dir)
@@ -64,7 +66,7 @@ BASE_RATING = {
     "climate": 4, "altitude": 1, "adventure": 4, "prestige": 3,
     "race_quality": 4, "experience": 5, "community": 5, "field_depth": 4,
     "value": 4, "expenses": 3, "cultural_impact": 4,
-    "overall_score": 71, "tier": 2, "editorial_tier": 2, "display_tier": 2,
+    "overall_score": 77, "tier": 2, "editorial_tier": 2, "display_tier": 2,
     "tier_label": "TIER 2", "editorial_tier_label": "TIER 2",
     "display_tier_label": "TIER 2",
 }
@@ -82,11 +84,12 @@ class TestApplyFixes:
                                {"distance_mi": 100, "elevation_ft": 5000},
                                dict(BASE_RATING))
         changes = vrr.apply_fixes("test-race",
-                                  [_verdict("distance_mi", web_value="62")],
+                                  [_verdict("distance_mi", web_value="90")],
                                   dry_run=False)
         data = json.loads(path.read_text())
-        assert data["race"]["vitals"]["distance_mi"] == 62
+        assert data["race"]["vitals"]["distance_mi"] == 90
         assert any(c["field"] == "vitals.distance_mi" for c in changes)
+        assert not any(c.get("needs_review") for c in changes)
 
     def test_low_confidence_never_fixes(self, tmp_path, monkeypatch):
         path = _make_race_file(tmp_path, monkeypatch,
@@ -112,7 +115,7 @@ class TestApplyFixes:
                                dict(BASE_RATING))
         vrr.apply_fixes("test-race",
                         [_verdict("distance_mi", web_value="62")],
-                        dry_run=False)
+                        dry_run=False, allow_review=True)
         rating = json.loads(path.read_text())["race"]["gravel_god_rating"]
         assert rating["length"] == 3  # 62 mi → score 3 per rubric
         # overall recomputed: base sum drops by 1 → round(53/70*100) = 76... depends
@@ -126,7 +129,7 @@ class TestApplyFixes:
                                {"distance_mi": 45, "elevation_ft": 5000}, rating)
         changes = vrr.apply_fixes("test-race",
                                   [_verdict("distance_mi", web_value="30")],
-                                  dry_run=False)
+                                  dry_run=False, allow_review=True)
         new_rating = json.loads(path.read_text())["race"]["gravel_god_rating"]
         assert new_rating["length"] == 1
         if new_rating["display_tier"] != 2:
@@ -172,8 +175,9 @@ class TestApplyFixes:
                                dict(BASE_RATING))
         vrr.apply_fixes("test-race",
                         [_verdict("distance_mi", web_value="62")],
-                        dry_run=False)
+                        dry_run=False, allow_review=True)
         rating = json.loads(path.read_text())["race"]["gravel_god_rating"]
+        assert rating["length"] == 3  # the fix really landed
         for field in ("prestige", "community", "experience", "adventure",
                       "race_quality", "cultural_impact"):
             assert rating[field] == BASE_RATING[field]

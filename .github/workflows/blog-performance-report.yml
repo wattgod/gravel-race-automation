@@ -1,0 +1,95 @@
+name: Blog Performance Report
+
+# Per-post GA4 performance for essays (/articles/), WordPress posts and /blog/
+# previews/recaps/roundups: 30 days before the 2026-10-09 redesign vs
+# 2026-10-09 → yesterday, normalised per day. JSON + markdown are uploaded as
+# a workflow artifact and, on main, committed to data/blog-performance/
+# (same convention as data/intel-snapshots/). Read-only GA4 scope.
+
+on:
+  schedule:
+    - cron: "0 13 * * 1"   # Mondays 13:00 UTC = 07:00 MT
+  workflow_dispatch:
+    inputs:
+      end_date:
+        description: "Last day of the after-window (YYYY-MM-DD, default yesterday)"
+        required: false
+        default: ""
+
+permissions:
+  contents: write
+
+concurrency:
+  group: blog-performance-report
+  cancel-in-progress: false
+
+jobs:
+  report:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install GA4 client dependencies
+        run: pip install --quiet google-auth requests
+      - name: Validate and write service-account credentials
+        env:
+          GA4_CREDENTIALS_JSON: ${{ secrets.GA4_CREDENTIALS_JSON }}
+        run: |
+          python3 - <<'PY'
+          import json, os, pathlib
+          raw = os.environ.get("GA4_CREDENTIALS_JSON", "")
+          if not raw:
+              raise SystemExit("GA4_CREDENTIALS_JSON is not configured")
+          parsed = json.loads(raw)
+          required = {"client_email", "private_key", "token_uri"}
+          if not required.issubset(parsed):
+              raise SystemExit("GA4_CREDENTIALS_JSON has an invalid shape")
+          path = pathlib.Path(os.environ["RUNNER_TEMP"]) / "ga4-credentials.json"
+          path.write_text(json.dumps(parsed))
+          path.chmod(0o600)
+          PY
+      - name: Build report
+        env:
+          GG_GA4_PROPERTY_ID: ${{ secrets.GG_GA4_PROPERTY_ID }}
+          GA4_PROPERTY_ID: ${{ secrets.GA4_PROPERTY_ID }}
+          END_DATE: ${{ inputs.end_date }}
+        run: |
+          PROPERTY="${GG_GA4_PROPERTY_ID:-$GA4_PROPERTY_ID}"
+          if [ -z "$PROPERTY" ]; then
+            echo "::error::GG_GA4_PROPERTY_ID (or GA4_PROPERTY_ID) is not configured"
+            exit 1
+          fi
+          STEM="$(date -u +%Y-%m-%d)"
+          echo "STEM=$STEM" >> "$GITHUB_ENV"
+          ARGS=(--stem "$STEM")
+          if [ -n "$END_DATE" ]; then ARGS+=(--end-date "$END_DATE"); fi
+          python3 scripts/blog_performance_report.py \
+            --property "$PROPERTY" \
+            --credentials "${RUNNER_TEMP}/ga4-credentials.json" \
+            --output-dir data/blog-performance \
+            "${ARGS[@]}"
+          cat "data/blog-performance/${STEM}.md" >> "$GITHUB_STEP_SUMMARY"
+      - name: Remove credentials
+        if: always()
+        run: rm -f "${RUNNER_TEMP}/ga4-credentials.json"
+      - name: Upload report
+        uses: actions/upload-artifact@v4
+        with:
+          name: blog-performance-${{ github.run_id }}
+          path: |
+            data/blog-performance/${{ env.STEM }}.json
+            data/blog-performance/${{ env.STEM }}.md
+          if-no-files-found: error
+          retention-days: 90
+      - name: Commit snapshot
+        if: github.ref == 'refs/heads/main'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/blog-performance/
+          git diff --cached --quiet || git commit -m "chore: blog performance snapshot $(date -u +%Y-%m-%d)"
+          git pull --rebase origin main || true
+          git push

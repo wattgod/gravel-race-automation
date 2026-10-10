@@ -40,14 +40,22 @@ week, cross-posted to Substack, is the growth engine.
    favicon, preload), the consent banner (`cookie_consent.py`), or the
    shared header/logo (`shared_header.py`). The articles embed all of these,
    and `test_committed_article_html_is_fresh` fails until they're rebuilt.
+   The listing (`wordpress/articles/index.html`) embeds them too: rerun
+   `python3 wordpress/generate_articles_index.py` as well
+   (`tests/test_articles_index.py::test_committed_listing_is_fresh`).
 4. Checks: `slop_rules.check_text` = zero issues; then
    `pytest tests/test_editorial_shell.py` (freshness, contents, ladder
    pricing, analytics). `tests/test_article_infrastructure.py` is not on
    main as of 2026-10-08.
-5. Entry in `web/blog-index.json` (category "article"), regen
-   `generate_articles_index.py`.
-6. Commit `wordpress/articles/<slug>/` first, then deploy: SCP it to
-   `public_html/articles/<slug>/` + `/articles/index.html` to gravel; flush SG cache.
+5. Entry in `web/blog-index.json` (category "article", `url`
+   `/articles/<slug>/`, ISO `date`), then
+   `python3 wordpress/generate_articles_index.py`. The listing card reads
+   its headline, dek, OG image and "N min read" from the committed essay
+   page, so there's nothing else to edit; newest essay leads.
+6. Commit `wordpress/articles/<slug>/` and `wordpress/articles/index.html`
+   first, then deploy: SCP the essay dir to `public_html/articles/<slug>/` and
+   `wordpress/articles/index.html` to `public_html/articles/index.html`;
+   flush SG cache.
 7. Cross-post to Substack (manual — the essay drives subs, subs drive return
    traffic). Link the article's on-site version from the Substack footer.
 8. Road cross-surface: when road's articles system exists, syndicate the

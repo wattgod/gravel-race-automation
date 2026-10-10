@@ -462,10 +462,11 @@ class TestTruncateAtSentence:
         result = _truncate_at_sentence(text, 35)
         assert result == "First sentence. Second sentence."
 
-    def test_fallback_to_ellipsis(self):
+    def test_fallback_keeps_whole_words_without_ellipsis(self):
         text = "A very long word without any periods or sentence boundaries at all"
         result = _truncate_at_sentence(text, 20)
-        assert result.endswith("...")
+        assert result == "A very long word"
+        assert not result.endswith("...")
 
     def test_exact_boundary(self):
         text = "Exactly at limit."

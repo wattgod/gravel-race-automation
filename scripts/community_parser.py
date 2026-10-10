@@ -17,7 +17,11 @@ test_enrichment_quality.py.
 """
 
 import re
+import sys
 from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from text_trim import trim_to_sentence  # noqa: E402
 
 RESEARCH_DUMPS = Path(__file__).parent.parent / "research-dumps"
 
@@ -495,23 +499,13 @@ def extract_key_quotes(text, max_quotes=8):
 # ============================================================
 
 def _truncate_at_sentence(text, max_chars):
-    """Truncate text at the last sentence boundary before max_chars.
+    """Trim text to max_chars at the last sentence boundary.
 
-    Falls back to max_chars if no sentence boundary found in first half.
+    Falls back to the last clause, then the last whole word; never cuts a
+    word and never appends an ellipsis (these hints feed the enrichment
+    prompt, and a cut quote here can be copied into a rendered explanation).
     """
-    if len(text) <= max_chars:
-        return text
-    # Look for sentence-ending punctuation followed by space/newline
-    truncated = text[:max_chars]
-    # Find last sentence boundary (. or !) followed by space, newline, or end
-    last_period = -1
-    for i in range(len(truncated) - 1, max_chars // 2, -1):
-        if truncated[i] in ".!)" and (i + 1 >= len(truncated) or truncated[i + 1] in " \n\""):
-            last_period = i + 1
-            break
-    if last_period > 0:
-        return truncated[:last_period]
-    return truncated + "..."
+    return trim_to_sentence(text, max_chars)
 
 
 def get_criterion_data(criterion, sections):

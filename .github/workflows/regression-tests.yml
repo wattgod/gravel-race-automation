@@ -28,3 +28,10 @@ jobs:
         run: |
           python scripts/regression_test.py
 
+      # Stdlib only; runs even if the step above fails. Any truncated,
+      # scrape-broken or unterminated string in race-data (the class PR #448
+      # cleaned up) fails this check on every PR and every push to main.
+      - name: Audit race-data text defects
+        if: always()
+        run: |
+          python scripts/audit_text_defects.py --summary --fail

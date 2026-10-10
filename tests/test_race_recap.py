@@ -418,7 +418,7 @@ def test_extract_real_grinduro_winner_male():
 # ── Takeaway cleaning helpers ──
 
 
-from extract_results import _clean_takeaway, _truncate_at_word_boundary
+from extract_results import _clean_takeaway, extract_key_takeaways as _takeaways
 
 
 def test_clean_takeaway_strips_bare_urls():
@@ -473,20 +473,18 @@ def test_clean_takeaway_strips_bold_asterisks():
     assert "Cameron Jones" in result
 
 
-def test_truncate_at_word_boundary_no_mid_word():
-    text = "This is a very long sentence that needs to be truncated at a word boundary to avoid mid-word cuts that look terrible in rendered HTML output on the page"
-    result = _truncate_at_word_boundary(text, 50)
-    assert len(result) <= 50
-    assert not result.endswith("boun")  # Should not cut mid-word
-    assert result.endswith(" ") is False  # Should not end with space
-    # Should end at a complete word
-    assert result == text[:50].rsplit(' ', 1)[0]
+def test_long_takeaway_is_kept_whole_not_truncated():
+    # The old 150-char word-boundary cap shipped takeaways ending mid-sentence
+    # ("...at 7,000+ f"). A long sentence now survives whole.
+    text = ("2024 saw a new course record on a very long day that needs no "
+            "truncation at a word boundary, because mid-sentence cuts look "
+            "terrible in rendered HTML output on the page.")
+    assert _takeaways(text, "test", 2024) == [text]
 
 
-def test_truncate_at_word_boundary_short_text():
-    text = "Short text"
-    result = _truncate_at_word_boundary(text, 150)
-    assert result == "Short text"
+def test_short_takeaway_unchanged():
+    assert _takeaways("2024: First ever sub-9 finish.", "test", 2024) == [
+        "2024: First ever sub-9 finish."]
 
 
 # ── Hero image in recaps ──

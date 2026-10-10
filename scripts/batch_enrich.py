@@ -39,6 +39,7 @@ SCORE_COMPONENTS = [
 sys.path.insert(0, str(Path(__file__).parent))
 
 from community_parser import build_fact_sheet, build_criterion_hints, RE_NO_EVIDENCE
+from text_trim import trim_to_sentence
 from quality_gates import check_slop_phrases
 
 
@@ -339,7 +340,7 @@ def build_re_enrichment_prompt(race, research_text, voice_guide, slug=None):
                 hint_parts = []
                 for k in SCORE_COMPONENTS:
                     if k in hints and hints[k].strip():
-                        hint_parts.append(f"  [{k}] {hints[k][:600]}")
+                        hint_parts.append(f"  [{k}] {trim_to_sentence(hints[k], 600)}")
                 if hint_parts:
                     criterion_hints_block = (
                         "\nPER-CRITERION RELEVANT DATA (use these facts for each criterion):\n" +

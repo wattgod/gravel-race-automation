@@ -124,14 +124,9 @@ def extract_quotes_from_dump(text: str) -> list[dict]:
         if len(name.split()) > 4:
             continue
 
-        # Skip very long quotes (>300 chars) — trim them
-        if len(quote) > 300:
-            # Find last sentence boundary before 300
-            cut = quote[:300].rfind(".")
-            if cut > 100:
-                quote = quote[:cut + 1]
-            else:
-                quote = quote[:300] + "..."
+        # Keep the rider's words verbatim, whatever the length. Trimming here
+        # once shipped quotes cut mid-word with an invented "...".
+        # pick_best_quote() skips quotes too long to inject.
         quotes.append({
             "rider": name,
             "level": level,
@@ -175,11 +170,18 @@ def has_quote(explanation: str) -> bool:
     return bool(re.search(r'["\u201c\u201d][^"\u201c\u201d]{10,}["\u201c\u201d]', explanation))
 
 
+# Longest quote injected into an explanation. A longer quote is skipped, not
+# cut: a rider's words are quoted whole or not at all.
+MAX_INJECTED_QUOTE_CHARS = 200
+
+
 def pick_best_quote(quotes: list[dict], criterion: str, explanation: str) -> dict | None:
     """Pick the best quote for a criterion that doesn't duplicate existing content."""
-    # Filter to quotes categorized for this criterion
+    # Filter to quotes categorized for this criterion that fit whole
     candidates = []
     for q in quotes:
+        if len(q["quote"]) > MAX_INJECTED_QUOTE_CHARS:
+            continue
         criteria = categorize_quote(q["quote"])
         if criterion in criteria:
             candidates.append(q)
@@ -270,14 +272,7 @@ def main():
 
             # Build injection: append quote at end
             rider = best["rider"]
-            quote_text = best["quote"]
-            # Trim quote if too long
-            if len(quote_text) > 200:
-                cut = quote_text[:200].rfind(".")
-                if cut > 80:
-                    quote_text = quote_text[:cut + 1]
-                else:
-                    quote_text = quote_text[:200] + "..."
+            quote_text = best["quote"]  # verbatim; never trimmed
 
             injection = f' As {rider} puts it: "{quote_text}"'
 
@@ -289,7 +284,7 @@ def main():
 
             if dry_run:
                 print(f"  {slug}.{criterion}:")
-                print(f"    QUOTE: {rider}: \"{quote_text[:100]}...\"")
+                print(f"    QUOTE: {rider}: \"{quote_text}\"")
                 print()
                 if total_injected > 20:
                     pass

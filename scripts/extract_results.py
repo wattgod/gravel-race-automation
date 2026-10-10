@@ -25,6 +25,9 @@ import re
 import sys
 from pathlib import Path
 
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+import text_trim  # noqa: E402
+
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 RACE_DATA_DIR = PROJECT_ROOT / "race-data"
 RESEARCH_DIR = PROJECT_ROOT / "research-dumps"
@@ -245,13 +248,12 @@ def extract_conditions(dump, slug, year):
         search_block = "\n".join(lines[i:i+3]).lower()
         matches = [kw for kw in weather_keywords if kw in search_block]
         if len(matches) >= 2:
-            # Extract the relevant sentence
-            sentences = re.split(r'[.!]', lines[i])
-            for sent in sentences:
+            # Extract the relevant sentence, whole. Never slice it: a cap here
+            # once shipped conditions cut off mid-word on live recap pages.
+            for sent in _sentences(lines[i]):
                 if any(kw in sent.lower() for kw in weather_keywords):
-                    clean = sent.strip().strip("*").strip()
-                    if len(clean) > 10:
-                        return clean[:200]
+                    if len(sent) > 10:
+                        return sent
 
     return ""
 
@@ -335,21 +337,50 @@ def _clean_takeaway(text):
     clean = re.sub(r'</?[a-zA-Z][^>]*>', '', clean)
     # Strip citation brackets [4], [12], etc.
     clean = re.sub(r'\[\d+\]', '', clean)
-    # Collapse multiple spaces
-    clean = re.sub(r'\s{2,}', ' ', clean).strip()
+    # Collapse multiple spaces, and the space a removed URL or citation
+    # leaves before punctuation ("8:34 (Cyclingnews) .")
+    clean = re.sub(r'\s{2,}', ' ', clean)
+    clean = re.sub(r'\s+([.,;:!?])(?=\s|$)', r'\1', clean).strip()
     return clean
 
 
-def _truncate_at_word_boundary(text, max_len=150):
-    """Truncate text at a word boundary, never mid-word."""
-    if len(text) <= max_len:
-        return text
-    truncated = text[:max_len]
-    # Find last space to avoid cutting mid-word
-    last_space = truncated.rsplit(' ', 1)
-    if len(last_space) > 1:
-        return last_space[0]
-    return truncated
+# A "sentence" longer than this is scrape residue (a run-on table row or a
+# paragraph with no punctuation), not a takeaway. It is skipped, never cut.
+MAX_SENTENCE_CHARS = 320
+# An unpunctuated bullet this long reads as cut off, and
+# scripts/audit_text_defects.py (RESULTS_CAP_LEN) fails CI on it. Skip it.
+MAX_UNTERMINATED_CHARS = 139
+_TERMINAL = (".", "!", "?", "…", '"', "”", "’", "'", ")")
+
+_LEADING_MARKER = re.compile(r'^\s*(?:#+\s*|[-•*]\s+|•\s*)')
+
+
+def _is_fragment(sent):
+    """True for text that is not a standalone sentence a reader can use."""
+    return (
+        len(sent) > MAX_SENTENCE_CHARS
+        or (len(sent) > MAX_UNTERMINATED_CHARS and not sent.endswith(_TERMINAL))
+        or "|" in sent
+        or not re.match(r'["“(]?[A-Z0-9~$£€]', sent)
+        or text_trim.unbalanced(sent)
+    )
+
+
+def _sentences(line):
+    """Clean whole sentences from one dump line, with their punctuation.
+
+    Markdown, URLs and citation markers are stripped from the whole line
+    before splitting, so a period inside a URL or "e.g." never splits a
+    sentence. Fragments (leading lowercase, table rows, unbalanced brackets,
+    over-long run-ons) are dropped rather than trimmed.
+    """
+    clean = _clean_takeaway(_LEADING_MARKER.sub('', line))
+    out = []
+    for sent in text_trim.split_sentences(clean):
+        sent = _LEADING_MARKER.sub('', sent).strip()
+        if sent and not _is_fragment(sent):
+            out.append(sent)
+    return out
 
 
 def extract_key_takeaways(dump, slug, year):
@@ -374,14 +405,12 @@ def extract_key_takeaways(dump, slug, year):
         search_block = "\n".join(lines[max(0, i-1):i+3])
         for pattern in notable_patterns:
             if re.search(pattern, search_block, re.IGNORECASE):
-                # Extract the sentence containing the notable phrase
-                for sent in re.split(r'[.!]', line):
-                    sent = sent.strip().strip("*").strip("•").strip("-").strip()
-                    if re.search(pattern, sent, re.IGNORECASE) and len(sent) > 15:
-                        clean = _clean_takeaway(sent)
-                        if clean and len(clean) > 15 and clean not in takeaways:
-                            takeaways.append(_truncate_at_word_boundary(clean))
-                            break
+                # Extract the whole sentence containing the notable phrase
+                for sent in _sentences(line):
+                    if (re.search(pattern, sent, re.IGNORECASE)
+                            and len(sent) > 15 and sent not in takeaways):
+                        takeaways.append(sent)
+                        break
 
     return takeaways[:5]
 

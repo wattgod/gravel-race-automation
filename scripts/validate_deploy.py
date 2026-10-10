@@ -326,41 +326,61 @@ def check_featured_slugs(v):
                 v.check(code == "200", f"Featured race page /race/{slug}/", f"HTTP {code}")
 
 
-def check_photo_infrastructure(v):
-    """Verify photo infrastructure is in place."""
+PHOTO_LIVE_SAMPLE_SIZE = 5
+
+
+def check_photo_infrastructure(v, project_root=None):
+    """Verify photo infrastructure is in place.
+
+    race-photos/ is not in git, so a checkout (CI, a fresh worktree) usually
+    lacks it. Without it the per-file existence check is skipped with one
+    warning. The live check fetches a sample of real photo URLs and needs
+    a 200 for each; the /race-photos/ directory index itself is 403 by
+    design (no directory listing), so it is not a useful signal.
+    """
     print("\n[Photo Infrastructure]")
-    project_root = Path(__file__).resolve().parent.parent
+    project_root = Path(project_root or Path(__file__).resolve().parent.parent)
     data_dir = project_root / "race-data"
     photos_dir = project_root / "race-photos"
 
-    # Check if any races have photos configured
+    photo_urls = []
     races_with_photos = 0
     for f in sorted(data_dir.glob("*.json")):
         try:
             d = json.loads(f.read_text())
             photos = d["race"].get("photos", [])
-            if photos:
-                races_with_photos += 1
-                # Verify photo files exist locally
-                for p in photos:
-                    url = p.get("url", "")
-                    if url.startswith("/race-photos/"):
-                        local_path = project_root / url.lstrip("/")
-                        v.check(local_path.exists(),
-                                f"Photo exists: {url}",
-                                f"File not found: {local_path}")
         except (json.JSONDecodeError, KeyError):
             continue
+        if photos:
+            races_with_photos += 1
+            photo_urls.extend(
+                p.get("url", "") for p in photos
+                if p.get("url", "").startswith("/race-photos/")
+            )
 
-    if races_with_photos > 0:
-        v.check(True, f"{races_with_photos} races have photos configured", "")
-        # Check that /race-photos/ is accessible on server
-        if not QUICK:
-            code = curl_status(f"{BASE_URL}/race-photos/")
-            v.check(code != "403", "/race-photos/ not 403", f"HTTP {code}")
-    else:
+    if races_with_photos == 0:
         v.warn("No races have photos configured yet",
                "Add photos to race JSON files as they become available")
+        return
+
+    v.check(True, f"{races_with_photos} races have photos configured", "")
+
+    if photos_dir.is_dir():
+        for url in photo_urls:
+            local_path = project_root / url.lstrip("/")
+            v.check(local_path.exists(),
+                    f"Photo exists: {url}",
+                    f"File not found: {local_path}")
+    else:
+        v.warn("Local photo file check skipped",
+               f"{photos_dir} not present in this checkout; "
+               f"{len(photo_urls)} configured photos not checked locally")
+
+    if not QUICK and photo_urls:
+        step = max(1, len(photo_urls) // PHOTO_LIVE_SAMPLE_SIZE)
+        for url in photo_urls[::step][:PHOTO_LIVE_SAMPLE_SIZE]:
+            code = curl_status(f"{BASE_URL}{url}")
+            v.check(code == "200", f"Live photo {url}", f"HTTP {code}")
 
 
 def check_blog_pages(v):
@@ -559,6 +579,58 @@ def check_whitepaper(v):
         v.check('"Article"' in body and "application/ld+json" in body, "White paper has JSON-LD", "Missing structured data")
 
 
+RACE_COUNT_RE = re.compile(r"\b(\d{2,4}) (?:gravel )?races\b")
+
+
+def load_race_count(project_root=None):
+    """Number of races in the published catalog (web/race-index.json)."""
+    project_root = project_root or Path(__file__).resolve().parent.parent
+    index_path = project_root / "web" / "race-index.json"
+    return len(json.loads(index_path.read_text(encoding="utf-8")))
+
+
+def generated_page_meta(race_index):
+    """Expected (path, title, description) for pages our generators own.
+
+    The homepage, coaching and articles pages are static pages built by
+    wordpress/generate_*.py, so their head comes from the generator, not
+    from seo/meta-descriptions.json. Values are unescaped.
+    """
+    wp_dir = str(Path(__file__).resolve().parent.parent / "wordpress")
+    if wp_dir not in sys.path:
+        sys.path.insert(0, wp_dir)
+    import generate_articles_index as articles
+    import generate_coaching as coaching
+    import generate_homepage as homepage
+
+    home_title, home_desc = homepage.homepage_title_and_description(
+        homepage.compute_stats(race_index))
+    return [
+        ("/", home_title, home_desc),
+        ("/coaching/", coaching.COACHING_TITLE, coaching.COACHING_META_DESC),
+        ("/articles/", articles.PAGE_TITLE, articles.PAGE_DESCRIPTION),
+    ]
+
+
+def page_has_title(body, title):
+    import html as html_mod
+    return f"<title>{html_mod.escape(title, quote=True)}</title>" in body
+
+
+def page_has_description(body, description):
+    import html as html_mod
+    escaped = html_mod.escape(description, quote=True)
+    return f'name="description" content="{escaped}"' in body
+
+
+def check_race_counts(v, label, text, race_count):
+    """Every 'N races' claim in page copy must equal the catalog size."""
+    for match in RACE_COUNT_RE.finditer(text or ""):
+        claimed = int(match.group(1))
+        v.check(claimed == race_count, f"Race count in {label}",
+                f"says {claimed} races, race-index.json has {race_count}")
+
+
 def check_meta_descriptions(v):
     """Verify meta descriptions are deployed and appearing on pages."""
     import html as html_mod
@@ -576,17 +648,31 @@ def check_meta_descriptions(v):
     v.check(len(entries) >= 100, f"meta-descriptions.json has {len(entries)} entries",
             f"Too few entries (expected 131)")
 
+    race_count = load_race_count(project_root)
+    for e in entries:
+        for field in ("description", "og_description"):
+            check_race_counts(v, f"meta-descriptions.json {e.get('slug')} {field}",
+                              e.get(field), race_count)
+
     if QUICK:
         return
 
-    # Spot-check 5 key pages for meta description presence.
-    # These are WordPress-managed pages where the mu-plugin injects our descriptions.
+    # Generator-owned static pages: expect exactly what the generator emits.
+    index_path = project_root / "web" / "race-index.json"
+    race_index = json.loads(index_path.read_text(encoding="utf-8"))
+    for path, title, description in generated_page_meta(race_index):
+        body = curl_body(f"{BASE_URL}{path}")
+        v.check(page_has_title(body, title), f"Title on {path}",
+                f"Expected: {title}")
+        v.check(page_has_description(body, description),
+                f"Meta description on {path}",
+                f"Expected: {description[:60]}...")
+        check_race_counts(v, f"{path} description", description, race_count)
+
+    # WordPress-managed pages: the mu-plugin injects seo/meta-descriptions.json.
     spot_checks = [
-        (448, "/", "home"),
         (5018, "/gravel-races/", "gravel-races"),
         (5016, "/products/training-plans/", "training-plans"),
-        (5043, "/coaching/", "coaching"),
-        (5045, "/articles/", "articles"),
     ]
 
     entries_by_id = {e["wp_id"]: e for e in entries}
@@ -600,19 +686,13 @@ def check_meta_descriptions(v):
 
         # HTML encodes special chars in attribute values (&→&amp; "→&quot; etc.)
         escaped_desc = html_mod.escape(expected_desc, quote=True)
-        # Check for exact match in content attr, or partial match (first 50 chars)
-        has_meta = (f'content="{escaped_desc}"' in body
-                    or html_mod.escape(expected_desc[:50], quote=True) in body)
-        v.check(has_meta, f"Meta description on {path}",
+        v.check(f'content="{escaped_desc}"' in body, f"Meta description on {path}",
                 f"Expected: {expected_desc[:60]}...")
 
         # Spot-check title override if present
         expected_title = entries_by_id[wp_id].get("title")
         if expected_title:
-            escaped_title = html_mod.escape(expected_title, quote=True)
-            has_title = (escaped_title in body
-                         or f"<title>{escaped_title}</title>" in body)
-            v.check(has_title, f"Title override on {path}",
+            v.check(page_has_title(body, expected_title), f"Title override on {path}",
                     f"Expected: {expected_title}")
 
 

@@ -90,6 +90,12 @@ FIT_CHECK_REASONS = {
 FIT_CHECK_TIGHT = "Under 8 weeks is tight. I&#39;ll tell you straight if it&#39;s too late to change much."
 
 
+# Head metadata. Shared with scripts/validate_deploy.py so the deploy check
+# expects exactly what this generator emits.
+COACHING_TITLE = "Gravel Cycling Coaching | Gravel God"
+COACHING_META_DESC = "Gravel race coaching built on 757 analyzed courses. A human coach, a plan that adjusts weekly, and honest feedback. From $199 every 4 weeks."
+
+
 def esc(text) -> str:
     """HTML-escape a string."""
     return html.escape(str(text)) if text else ""
@@ -1303,7 +1309,7 @@ def generate_coaching_page(external_assets: dict = None) -> str:
         page_css = get_page_css()
         inline_js = build_inline_js()
 
-    meta_desc = "Gravel race coaching built on 757 analyzed courses. A human coach, a plan that adjusts weekly, and honest feedback. From $199 every 4 weeks."
+    meta_desc = COACHING_META_DESC
 
     og_tags = f'''<meta property="og:title" content="Coaching | Gravel God">
   <meta property="og:description" content="Coaching built around your race, your hours, and your life. From the coach behind 757 course profiles.">
@@ -1325,7 +1331,7 @@ def generate_coaching_page(external_assets: dict = None) -> str:
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Gravel Cycling Coaching | Gravel God</title>
+  <title>{esc(COACHING_TITLE)}</title>
   <meta name="description" content="{esc(meta_desc)}">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="{esc(canonical_url)}">

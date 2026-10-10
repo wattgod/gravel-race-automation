@@ -608,3 +608,57 @@ class TestWorkflowWiring:
         assert "--apply-review-queue" in review["run"]
         assert "gh pr create" in review["run"] and "$REVIEW_LABEL" in review["run"]
         assert "--body-file" in review["run"]
+
+    def test_persist_state_requires_verify_success(self, steps):
+        """A crashed verify run must not push its partial verification state."""
+        persist = self._step(steps, "Persist state even with no fixes")
+        assert "steps.verify.outcome == 'success'" in persist["if"]
+        assert "steps.changes.outputs.count == '0'" in persist["if"]
+
+    @staticmethod
+    def _run_final_message(run, *, verify, gates, commit, pushed, fallback_pr):
+        import re
+        import subprocess
+        values = {
+            "steps.verify.outcome": verify,
+            "steps.gates.outcome": gates,
+            "steps.commit.outcome": commit,
+            "steps.commit.outputs.pushed": pushed,
+            "steps.fallback_pr.outcome": fallback_pr,
+        }
+
+        def sub(m):
+            key = m.group(1).strip()
+            assert key in values, f"unexpected expression {key}"
+            return values[key]
+
+        script = re.sub(r"\$\{\{(.*?)\}\}", sub, run)
+        proc = subprocess.run(["bash", "-c", script], capture_output=True, text=True)
+        assert proc.returncode == 1
+        return proc.stdout
+
+    def test_final_message_when_push_landed_but_issue_failed(self, steps):
+        run = self._step(steps, "Fail the run")["run"]
+        out = self._run_final_message(
+            run, verify="success", gates="success", commit="failure",
+            pushed="true", fallback_pr="skipped")
+        assert "WERE pushed to main" in out
+        assert "nothing" not in out.lower()
+        assert "No held-for-review PR" in out
+
+    def test_final_message_when_held_for_review(self, steps):
+        run = self._step(steps, "Fail the run")["run"]
+        out = self._run_final_message(
+            run, verify="success", gates="failure", commit="skipped",
+            pushed="", fallback_pr="success")
+        assert "nothing from this run reached main" in out
+        assert "the changes are in the held-for-review PR" in out
+        assert "pushed to main" not in out
+
+    def test_final_message_when_no_pr_was_opened(self, steps):
+        run = self._step(steps, "Fail the run")["run"]
+        out = self._run_final_message(
+            run, verify="failure", gates="skipped", commit="skipped",
+            pushed="", fallback_pr="skipped")
+        assert "nothing from this run reached main" in out
+        assert "no held-for-review PR was opened" in out

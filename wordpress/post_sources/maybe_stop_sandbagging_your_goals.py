@@ -13,10 +13,9 @@ draw-in. Levels are the original chart's: both paths start at level 1; one
 goes 2, 1, 2 (forward, backward, forward), the other 2, 3, 4. The original
 image stays one click away under the chart.
 
-Matt to read: the text says forward, backward, forward leaves you "at the same
-place" after three years; its chart (and the steps) end one level above the
-start, i.e. where year 1 got you. The "two levels ahead" comparison matches
-the chart (4 vs 2). The text is unchanged.
+Corrected 2026-10-09 (Matt approved): CORRECTIONS below changes "the same place" to where
+the first year got you (the chart ends one level up); each
+entry names its evidence. The page notes the correction at the end.
 
 Regenerate: python3 wordpress/post_sources/maybe_stop_sandbagging_your_goals.py
 """
@@ -116,8 +115,19 @@ IN_SHORT = (
 )
 
 
+# Figures corrected to match the post's own evidence (Matt, 2026-10-09:
+# "Yeah go ahead and fix"). wp_post applies each to the body (old text must
+# occur exactly once) and the word-for-word tests apply them to the snapshot.
+CORRECTIONS = (
+    wp_post.Correction(
+        "only to end up at the same place.",
+        "only to end up where your first year got you.",
+        "the post's chart (and the steps) go 1, 2, 1, 2: three years end one level up, where year one ended"),
+)
+
+
 def render() -> str:
-    return wp_post.render_post(SOURCE, alt=ALT, in_short=IN_SHORT,
+    return wp_post.render_post(SOURCE, corrections=CORRECTIONS, alt=ALT, in_short=IN_SHORT,
                                replace={"lars-did-you-know-were-all-going-to-die-3": STEPS_FIGURE},
                                replace_label="Show the original chart (with Gravel God)", extra_css=CSS)
 

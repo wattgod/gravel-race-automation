@@ -8,7 +8,7 @@ person).
 
 Almost all of the post sits before its only heading, so "In short" links point
 at paragraph anchors that render() adds (ANCHORS: the paragraph's opening
-words -> id). Text is unchanged.
+words -> id). Text is unchanged apart from CORRECTIONS.
 
 DESCRIPTION replaces the live meta description ("pacing mistakes, altitude
 miscalculations"): the post mentions neither. It is about a weekend with the
@@ -16,8 +16,9 @@ author's oldest friend, a wrong turn, and technical terrain.
 
 No infographic: the post states no figures a chart would clarify.
 
-Matt to read: the text says his friend weighed "139.8 pounds"; the scale in
-the image (139-5.jpg) reads 139.5. The text is unchanged.
+Corrected 2026-10-09 (Matt approved): CORRECTIONS below changes 139.8 to 139.5 (the scale
+photo); each
+entry names its evidence. The page notes the correction at the end.
 
 Regenerate: python3 wordpress/post_sources/i_screwed_up_gunni_grinder_so_you_dont_have_to.py
 """
@@ -80,9 +81,27 @@ def _anchored(body: str) -> str:
     return body
 
 
+# Figures corrected to match the post's own evidence (Matt, 2026-10-09:
+# "Yeah go ahead and fix"). wp_post applies each to the body (old text must
+# occur exactly once) and the word-for-word tests apply them to the snapshot.
+CORRECTIONS = (
+    wp_post.Correction(
+        "139.8 pounds",
+        "139.5 pounds",
+        "the scale in the photo (139-5) reads 139.5"),
+)
+
+# Dead YouTube embeds (YouTube returns 404 for them, checked 2026-10-09): left
+# out of the page. The converter still writes them into the body; delete an
+# entry here to restore the click-to-load figure where it sat.
+DEAD_YOUTUBE = {
+    "Zs8rChTEpHQ": "after the opening paragraph (\"I took a wrong turn, not that it mattered...\")",
+}
+
+
 def render() -> str:
     src = dataclasses.replace(SOURCE, body=_anchored(SOURCE.body))
-    return wp_post.render_post(src, alt=ALT, in_short=IN_SHORT, description=DESCRIPTION)
+    return wp_post.render_post(src, corrections=CORRECTIONS, dead_youtube=DEAD_YOUTUBE, alt=ALT, in_short=IN_SHORT, description=DESCRIPTION)
 
 
 def main() -> None:

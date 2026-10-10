@@ -6,16 +6,16 @@ by the converter, this file is not. ALT is written from what each image shows;
 IN_SHORT follows the "In short" rule in wp_post (neutral, third person).
 
 The opening (before "What Surging?") has no heading, so its "In short" link
-points at a paragraph anchor that render() adds (ANCHORS). Text is unchanged.
+points at a paragraph anchor that render() adds (ANCHORS). Text is unchanged apart from CORRECTIONS.
 
 DESCRIPTION replaces the live meta description ("What redemption looks like
 after years of mistakes"): the post is about the Panic Pack, Surge Addicts and
 when to surge, a 45th place, and the post-race community.
 
 No infographic: the post's argument is a list of reasons, already a list.
-Matt to read: the post dates the race "August 20th, 2023" (as does the Strava
-screenshot) but later says "I got to ride my bike in the high country in the
-height of June."
+Corrected 2026-10-09 (Matt approved): CORRECTIONS below changes "the height of June" to
+August (the race was August 20, 2023); each
+entry names its evidence. The page notes the correction at the end.
 
 Regenerate: python3 wordpress/post_sources/i_didnt_screw_up_sbt_grvl_and_neither_do_you.py
 """
@@ -79,9 +79,20 @@ def _anchored(body: str) -> str:
     return body
 
 
+# Figures corrected to match the post's own evidence (Matt, 2026-10-09:
+# "Yeah go ahead and fix"). wp_post applies each to the body (old text must
+# occur exactly once) and the word-for-word tests apply them to the snapshot.
+CORRECTIONS = (
+    wp_post.Correction(
+        "in the height of June",
+        "in the height of August",
+        "the post and its Strava/TrainingPeaks screenshots date the race Sunday, August 20, 2023"),
+)
+
+
 def render() -> str:
     src = dataclasses.replace(SOURCE, body=_anchored(SOURCE.body))
-    return wp_post.render_post(src, alt=ALT, in_short=IN_SHORT, description=DESCRIPTION)
+    return wp_post.render_post(src, corrections=CORRECTIONS, alt=ALT, in_short=IN_SHORT, description=DESCRIPTION)
 
 
 def main() -> None:

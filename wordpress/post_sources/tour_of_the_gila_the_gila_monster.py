@@ -10,9 +10,11 @@ The live meta description is kept: it is generic but not wrong.
 The featured image (sheeeee) is one of the gallery photos, so the page has no
 hero. No infographic.
 
-For Matt (numbers, text unchanged): the text gives the stage as "100 miles with
-10,000 feet of climbing" and an average race temperature of 88 F (high 106 F);
-the Strava screenshot shows 111.03 mi, 9,255 ft and a weather panel of 20 °C.
+Corrected 2026-10-09 (Matt approved; CORRECTIONS below): "10,000 feet of
+climbing" now reads "about 9,000" (Strava: 9,255 ft over 111.03 mi, riding to
+and from the stage included). Left unchanged: "100 miles" is the official stage
+length; the 88 F average / 106 F high are the device's readings, which no
+screenshot shows (Strava's 20 °C is the weather at the 9 AM start).
 
 Regenerate: python3 wordpress/post_sources/tour_of_the_gila_the_gila_monster.py
 """
@@ -54,8 +56,19 @@ IN_SHORT = (
 )
 
 
+# Figures corrected to match the post's own evidence (Matt, 2026-10-09:
+# "Yeah go ahead and fix"). wp_post applies each to the body (old text must
+# occur exactly once) and the word-for-word tests apply them to the snapshot.
+CORRECTIONS = (
+    wp_post.Correction(
+        "100 miles with 10,000 feet of climbing",
+        "100 miles with about 9,000 feet of climbing",
+        "the Strava screenshot: 9,255 ft over 111.03 mi (the official stage is 100 mi; the file includes riding to and from it)"),
+)
+
+
 def render() -> str:
-    return wp_post.render_post(SOURCE, alt=ALT, in_short=IN_SHORT)
+    return wp_post.render_post(SOURCE, corrections=CORRECTIONS, alt=ALT, in_short=IN_SHORT)
 
 
 def main() -> None:

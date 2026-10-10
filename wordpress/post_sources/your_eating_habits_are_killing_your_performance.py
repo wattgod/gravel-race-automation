@@ -10,8 +10,9 @@ IN_SHORT (2026-10-09): matter-of-fact restatements for Matt's read.
 Infographic (2026-10-09): fig-waffles-tests, Mr. Waffles's three tests as a
 table, every number as the post's text states it (nothing derived). Placed
 right after the "In 3 weeks" image.
-Matt to read: the text says "397, which was a 20-watt increase" (397 - 376 = 21);
-the table shows only the stated values.
+Corrected 2026-10-09 (Matt approved): CORRECTIONS below changes "20-watt increase" to 21
+(397 - 376); each
+entry names its evidence. The page notes the correction at the end.
 
 Regenerate: python3 wordpress/post_sources/your_eating_habits_are_killing_your_performance.py
 """
@@ -83,8 +84,19 @@ WAFFLES_TESTS = DataTable(
 )
 
 
+# Figures corrected to match the post's own evidence (Matt, 2026-10-09:
+# "Yeah go ahead and fix"). wp_post applies each to the body (old text must
+# occur exactly once) and the word-for-word tests apply them to the snapshot.
+CORRECTIONS = (
+    wp_post.Correction(
+        "397, which was a 20-watt increase",
+        "397, which was a 21-watt increase",
+        "the post's own 376 W before: 397 - 376 = 21"),
+)
+
+
 def render() -> str:
-    return wp_post.render_post(SOURCE, alt=ALT, in_short=IN_SHORT, figures=(WAFFLES_TESTS,),
+    return wp_post.render_post(SOURCE, corrections=CORRECTIONS, alt=ALT, in_short=IN_SHORT, figures=(WAFFLES_TESTS,),
                                after_image={"waffles-tests": "in-3-weeks"})
 
 

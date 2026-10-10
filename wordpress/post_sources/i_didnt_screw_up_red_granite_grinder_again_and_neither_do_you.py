@@ -18,10 +18,12 @@ night before, brakes lost at mile 90 and a win anyway.
 Infographic: fig-night-before, the night before the race by the clock, every
 time as the post states it; nothing computed.
 
-For Matt (arithmetic, text unchanged): "Two hours left ... If I have six
-minutes, that's like two miles, so ... the guy behind me would have to be going
-2 miles an hour faster than me": closing two miles in two hours takes 1 mph.
-Also "he just resumed pulling at about 55 mph" on a flat finish (likely a typo).
+Corrected 2026-10-09 (Matt approved): CORRECTIONS below changes "2 miles an hour
+faster" to 1; each
+entry names its evidence. The page notes the correction at the end.
+Left unchanged: "he just resumed pulling at about 55 mph" is surely a typo
+(the Strava screenshot's max for the whole ride is 42.2 mph), but no
+screenshot shows that speed, so there is no figure to put in its place.
 
 Regenerate: python3 wordpress/post_sources/i_didnt_screw_up_red_granite_grinder_again_and_neither_do_you.py
 """
@@ -121,9 +123,28 @@ def _anchored(body: str) -> str:
     return body
 
 
+# Figures corrected to match the post's own evidence (Matt, 2026-10-09:
+# "Yeah go ahead and fix"). wp_post applies each to the body (old text must
+# occur exactly once) and the word-for-word tests apply them to the snapshot.
+CORRECTIONS = (
+    wp_post.Correction(
+        "going 2 miles an hour faster than me",
+        "going 1 mile an hour faster than me",
+        "closing a 2-mile gap in the 2 hours left takes 1 mph more"),
+)
+
+# Dead YouTube embeds (YouTube returns 404 for them, checked 2026-10-09): left
+# out of the page. The converter still writes them into the body; delete an
+# entry here to restore the click-to-load figure where it sat.
+DEAD_YOUTUBE = {
+    "U3lNsHOqiYc": "after \"It was faint, but I could almost hear the Beatles in my ear already.\"",
+    "UY8zep_tLMA": "after the thank-yous intro, before \"My Brother (Uncle Andy)\"",
+}
+
+
 def render() -> str:
     src = dataclasses.replace(SOURCE, body=_anchored(SOURCE.body))
-    return wp_post.render_post(src, alt=ALT, in_short=IN_SHORT, figures=(NIGHT_TABLE,), extra_css=CSS,
+    return wp_post.render_post(src, corrections=CORRECTIONS, dead_youtube=DEAD_YOUTUBE, alt=ALT, in_short=IN_SHORT, figures=(NIGHT_TABLE,), extra_css=CSS,
                                description=DESCRIPTION)
 
 

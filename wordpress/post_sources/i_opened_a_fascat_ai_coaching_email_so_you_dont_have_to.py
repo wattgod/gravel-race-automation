@@ -11,10 +11,9 @@ The live meta description is kept: it broadly matches the post.
 The post has one approved comment (Jack, 2025-02-20); it renders as the
 read-only archive. No infographic.
 
-For Matt (numbers, text unchanged): the post says 1:1 coaching costs "$7,757
-more" a year than CoachCat at "$599/month", billed every four weeks. 13 bills
-of $599 come to $7,787; the post doesn't give CoachCat's price, so the "more"
-can't be checked from the post.
+Corrected 2026-10-09 (Matt approved): CORRECTIONS below changes $7,757 to $7,787
+(twice): 13 four-week bills of $599; each
+entry names its evidence. The page notes the correction at the end.
 
 Regenerate: python3 wordpress/post_sources/i_opened_a_fascat_ai_coaching_email_so_you_dont_have_to.py
 """
@@ -62,8 +61,23 @@ IN_SHORT = (
 )
 
 
+# Figures corrected to match the post's own evidence (Matt, 2026-10-09:
+# "Yeah go ahead and fix"). wp_post applies each to the body (old text must
+# occur exactly once) and the word-for-word tests apply them to the snapshot.
+CORRECTIONS = (
+    wp_post.Correction(
+        "$7,757*** more",
+        "$7,787*** more",
+        "billed every four weeks: 13 x $599 = $7,787"),
+    wp_post.Correction(
+        "$7,757/yr",
+        "$7,787/yr",
+        "13 x $599 = $7,787"),
+)
+
+
 def render() -> str:
-    return wp_post.render_post(SOURCE, alt=ALT, in_short=IN_SHORT)
+    return wp_post.render_post(SOURCE, corrections=CORRECTIONS, alt=ALT, in_short=IN_SHORT)
 
 
 def main() -> None:

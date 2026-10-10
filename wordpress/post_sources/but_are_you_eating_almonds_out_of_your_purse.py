@@ -10,9 +10,10 @@ The live meta description is kept (it matches the post).
 
 Infographic (2026-10-09): fig-killer-math, the post's two scenarios as one
 table, every value as the post states it (nothing computed).
-Matt to read: at 1% for six months the post gives +500 (killer) and +179
-(linear). +500 matches 180 days of 1% compounding, but the linear scenario
-(-1, then +1 a day) reaches +178 at 180 days, not +179; an off-by-one.
+Corrected 2026-10-09 (Matt approved): CORRECTIONS below changes +179 to +178 and the
+difference 321 to 322; each
+entry names its evidence. The page notes the correction at the end.
+KILLER_MATH shows +178 to match.
 
 Regenerate: python3 wordpress/post_sources/but_are_you_eating_almonds_out_of_your_purse.py
 """
@@ -77,9 +78,9 @@ KILLER_MATH = DataTable(
         _row("Day 1", "+1", "&minus;1"),
         _row("Day 2", "+2.10", "0"),
         _row("Day 3", "+3.31", "+1"),
-        _row("Six months (1%)", "+500", "+179"),
+        _row("Six months (1%)", "+500", "+178"),
     ),
-    after="– 321.",
+    after="– 322.",
 )
 
 
@@ -92,9 +93,24 @@ def _anchored(body: str) -> str:
     return body
 
 
+# Figures corrected to match the post's own evidence (Matt, 2026-10-09:
+# "Yeah go ahead and fix"). wp_post applies each to the body (old text must
+# occur exactly once) and the word-for-word tests apply them to the snapshot.
+CORRECTIONS = (
+    wp_post.Correction(
+        "+179",
+        "+178",
+        "the post's linear scenario (-1, then +1 a day) reaches +178 at 180 days; the +500 compounding figure is 180 days at 1%"),
+    wp_post.Correction(
+        "– 321.",
+        "– 322.",
+        "500 - 178 = 322"),
+)
+
+
 def render() -> str:
     src = dataclasses.replace(SOURCE, body=_anchored(SOURCE.body))
-    return wp_post.render_post(src, alt=ALT, in_short=IN_SHORT, figures=(KILLER_MATH,))
+    return wp_post.render_post(src, corrections=CORRECTIONS, alt=ALT, in_short=IN_SHORT, figures=(KILLER_MATH,))
 
 
 def main() -> None:

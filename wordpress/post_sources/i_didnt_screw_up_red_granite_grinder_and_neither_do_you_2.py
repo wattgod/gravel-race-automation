@@ -16,9 +16,9 @@ The only heading is "Quotes of the Week", so the "In short" links point at
 paragraph anchors (ANCHORS). No infographic: the Strava/TrainingPeaks
 screenshots carry their own numbers and the text states none to chart.
 
-Matt to read (minor): the text says that on the gravel pit climb "my heart rate
-broke 150"; the TrainingPeaks panel for that climb (pit-climb) shows a max of
-150 bpm.
+Corrected 2026-10-09 (Matt approved): CORRECTIONS below changes "broke 150" to
+"reached 150" (the panel's max is 150 bpm); each
+entry names its evidence. The page notes the correction at the end.
 
 Regenerate: python3 wordpress/post_sources/i_didnt_screw_up_red_granite_grinder_and_neither_do_you_2.py
 """
@@ -97,9 +97,27 @@ DESCRIPTION = ("The 2023 Red Granite Grinder: a long two-man breakaway with Pete
                "lost by one second in the sprint, and a rival's broken wheel.")
 
 
+# Figures corrected to match the post's own evidence (Matt, 2026-10-09:
+# "Yeah go ahead and fix"). wp_post applies each to the body (old text must
+# occur exactly once) and the word-for-word tests apply them to the snapshot.
+CORRECTIONS = (
+    wp_post.Correction(
+        "my heart rate broke 150",
+        "my heart rate reached 150",
+        "the TrainingPeaks panel for the climb (pit-climb) shows a max of 150 bpm"),
+)
+
+# Dead YouTube embeds (YouTube returns 404 for them, checked 2026-10-09): left
+# out of the page. The converter still writes them into the body; delete an
+# entry here to restore the click-to-load figure where it sat.
+DEAD_YOUTUBE = {
+    "JEvc9KtautY": "after Forest's bell-pepper quote, before the Era restaurant breakfast order",
+}
+
+
 def render() -> str:
     src = dataclasses.replace(SOURCE, body=_anchored(SOURCE.body))
-    return wp_post.render_post(src, alt=ALT, in_short=IN_SHORT, description=DESCRIPTION)
+    return wp_post.render_post(src, corrections=CORRECTIONS, dead_youtube=DEAD_YOUTUBE, alt=ALT, in_short=IN_SHORT, description=DESCRIPTION)
 
 
 def main() -> None:

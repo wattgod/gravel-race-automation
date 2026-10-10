@@ -52,7 +52,7 @@ def _page(pid) -> str:
 
 @pytest.mark.parametrize("pid", POSTS)
 def test_body_text_is_word_for_word(pid):
-    diff = imp.text_diff((FIXTURES / f"{pid}.txt").read_text(encoding="utf-8"), _page(pid), POSTS[pid][1])
+    diff = imp.text_diff(wp_post.corrected_baseline((FIXTURES / f"{pid}.txt").read_text(encoding="utf-8"), getattr(_module(pid), "CORRECTIONS", ())), _page(pid), POSTS[pid][1])
     assert diff == [], "\n".join(diff[:80])
 
 
@@ -75,7 +75,8 @@ def test_metadata_comes_from_the_live_page(pid):
     assert ld[0]["description"] == desc and ld[0]["datePublished"] == live["published"]
     head = html.split("</head>", 1)[0]
     assert f'<meta property="article:published_time" content="{live["published"]}">' in head
-    assert f'<meta property="article:modified_time" content="{live["modified"]}">' in head
+    modified = wp_post.CORRECTED_MODIFIED if getattr(m, "CORRECTIONS", ()) else live["modified"]
+    assert f'<meta property="article:modified_time" content="{modified}">' in head
     assert m.OUTPUT_PATH == PROJECT_ROOT / "wordpress" / "posts" / m.SLUG / "index.html"
 
 

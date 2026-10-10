@@ -14,11 +14,13 @@ one scale: 0.55 recovery pace, the 0.69 ceiling the post sets for the race,
 planned 0.65 and completed 0.74, read off the TrainingPeaks screenshot
 (dk-card). Nothing is derived.
 
-Matt to read: the starters are "960 or so", then "900 of us rode off", then
-"the top 15 wheels ... the other 975 people" (990). The text says 206 miles;
-the TrainingPeaks and Strava screenshots show 208 mi. The tire advice says
-"less than a 35 mm tire ... I wouldn't recommend it", then "do NOT run
-anything less than a 38mm tire". The text is unchanged.
+Corrected 2026-10-09 (Matt approved; CORRECTIONS below): the starters were
+"960 or so", then "900 of us rode off", then "the other 975" after the top 15
+(990); they now all follow the post's "960 or so" (no official 200-mile start
+count was quickly verifiable). The tire advice said "less than a 35 mm tire",
+then "do NOT run anything less than a 38mm tire"; both say 38 now.
+Left unchanged: "206 miles" is the official 2021 course length (206.8 mi); the
+screenshots' 208 mi include riding to and from the start.
 
 Regenerate: python3 wordpress/post_sources/i_screwed_up_unbound_gravel_200_so_you_dont_have_to.py
 """
@@ -128,8 +130,34 @@ IN_SHORT = (
 )
 
 
+# Figures corrected to match the post's own evidence (Matt, 2026-10-09:
+# "Yeah go ahead and fix"). wp_post applies each to the body (old text must
+# occur exactly once) and the word-for-word tests apply them to the snapshot.
+CORRECTIONS = (
+    wp_post.Correction(
+        "900 of us rode off",
+        "960 or so of us rode off",
+        "the post's own \"960 or so starters\"; it also gave 900 and 990 (15 + 975); no official 200-mile start count was quickly verifiable"),
+    wp_post.Correction(
+        "For the other 975 people",
+        "For the other 945 people",
+        "960 or so starters minus the top 15"),
+    wp_post.Correction(
+        "less than a 35 mm tire",
+        "less than a 38 mm tire",
+        "the next line's rule: \"do NOT run anything less than a 38mm tire\""),
+)
+
+# Dead YouTube embeds (YouTube returns 404 for them, checked 2026-10-09): left
+# out of the page. The converter still writes them into the body; delete an
+# entry here to restore the click-to-load figure where it sat.
+DEAD_YOUTUBE = {
+    "laCYM4ZpcBQ": "end of the race-report section, after \"...filled with something I'd call life.\"",
+}
+
+
 def render() -> str:
-    return wp_post.render_post(SOURCE, alt=ALT, in_short=IN_SHORT, figures=(IF_FIGURE,), extra_css=CSS)
+    return wp_post.render_post(SOURCE, corrections=CORRECTIONS, dead_youtube=DEAD_YOUTUBE, alt=ALT, in_short=IN_SHORT, figures=(IF_FIGURE,), extra_css=CSS)
 
 
 def main() -> None:

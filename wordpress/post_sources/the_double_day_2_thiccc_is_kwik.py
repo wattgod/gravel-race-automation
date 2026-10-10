@@ -11,10 +11,11 @@ DESCRIPTION replaces the live meta description ("race weight is a myth and
 diesel engines win gravel"): the day was a road race, and the post makes no
 claim about race weight.
 No infographic.
-Matt to read: the post describes "six laps of a 14-mile circuit" (84 mi plus
-the final climb), while the Strava and TrainingPeaks screenshots show 96.2 mi
-(possibly including riding to and from the course). The post spells the race
-"Yuipica"; the Strava screenshot says Yucaipa.
+Corrected 2026-10-09 (Matt approved): CORRECTIONS below changes "Yuipica" to Yucaipa (twice); each
+entry names its evidence. The page notes the correction at the end.
+Left unchanged: "six laps of a 14-mile circuit". The Strava file (96.2 mi)
+includes the Oak Glen climb leg and riding to the start; the race ran six
+laps before the climb, so the screenshots do not contradict the lap length.
 
 Regenerate: python3 wordpress/post_sources/the_double_day_2_thiccc_is_kwik.py
 """
@@ -52,8 +53,23 @@ IN_SHORT = (
 )
 
 
+# Figures corrected to match the post's own evidence (Matt, 2026-10-09:
+# "Yeah go ahead and fix"). wp_post applies each to the body (old text must
+# occur exactly once) and the word-for-word tests apply them to the snapshot.
+CORRECTIONS = (
+    wp_post.Correction(
+        "Yuipica road race",
+        "Yucaipa road race",
+        "spelling: the Strava screenshot (faenskap) reads Yucaipa, California"),
+    wp_post.Correction(
+        "the end of Yuipica",
+        "the end of Yucaipa",
+        "spelling: the Strava screenshot (faenskap) reads Yucaipa"),
+)
+
+
 def render() -> str:
-    return wp_post.render_post(SOURCE, alt=ALT, in_short=IN_SHORT, description=DESCRIPTION)
+    return wp_post.render_post(SOURCE, corrections=CORRECTIONS, alt=ALT, in_short=IN_SHORT, description=DESCRIPTION)
 
 
 def main() -> None:

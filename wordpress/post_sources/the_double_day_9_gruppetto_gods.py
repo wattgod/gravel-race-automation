@@ -13,8 +13,10 @@ learning that sometimes the back of the race is where the real stories are"):
 the author did not embrace the gruppetto; he was caught behind a crash and
 spent the stage chasing the time cut.
 
-Matt to read (minor): the text says "three and a half hours"; the Strava and
-TrainingPeaks screenshots show 3:57:54 / 3:58:00 moving (4:58:40 elapsed).
+Checked 2026-10-09, left unchanged: the text says "three and a half hours"; the
+Strava and TrainingPeaks screenshots show 3:57:54 / 3:58:00 moving (4:58:40
+elapsed), but the file includes riding before the start (the TrainingPeaks
+trace has a separate first block), and the race's own duration isn't shown.
 
 No infographic: the screenshots carry their own numbers.
 

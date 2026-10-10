@@ -9,7 +9,7 @@ Post 3537 has the identical title; this is post 2209 at its own slug.
 
 The race report (everything before "How to Red Granite Grinder 144") has no
 headings, so its "In short" links point at paragraph anchors that render() adds
-(ANCHORS: the paragraph's opening words -> id). Text is unchanged.
+(ANCHORS: the paragraph's opening words -> id). Text is unchanged apart from CORRECTIONS.
 
 DESCRIPTION replaces the live meta description ("how to execute a clean gravel
 race when everything finally goes according to plan"): in the post the race is
@@ -18,9 +18,9 @@ broken spoke.
 
 Infographic (2026-10-09): fig-rgg-race, the race at the mile points the post
 states, as bars. Nothing is derived except bar lengths (mile / 144).
-Matt to read: the post says "I'd been solo for 129 of 144 miles", but it also
-says the chasers caught him at mile 35 and he went solo again at mile 50
-("Soloing for 94 miles"); the figure shows the stated mile points only.
+Corrected 2026-10-09 (Matt approved): CORRECTIONS below changes "solo for 129 of 144
+miles" to 121 (miles 8-35 and 50-144); each
+entry names its evidence. The page notes the correction at the end.
 
 Regenerate: python3 wordpress/post_sources/i_didnt_screw_up_red_granite_grinder_and_neither_do_you.py
 """
@@ -160,9 +160,20 @@ def _anchored(body: str) -> str:
     return body
 
 
+# Figures corrected to match the post's own evidence (Matt, 2026-10-09:
+# "Yeah go ahead and fix"). wp_post applies each to the body (old text must
+# occur exactly once) and the word-for-word tests apply them to the snapshot.
+CORRECTIONS = (
+    wp_post.Correction(
+        "solo for 129 of 144 miles",
+        "solo for 121 of 144 miles",
+        "the post's own mile points: alone from mile 8 to 35 (27) and from mile 50 to 144 (\"Soloing for 94 miles\"): 121"),
+)
+
+
 def render() -> str:
     src = dataclasses.replace(SOURCE, body=_anchored(SOURCE.body))
-    return wp_post.render_post(src, alt=ALT, in_short=IN_SHORT, figures=(RACE_FIGURE,),
+    return wp_post.render_post(src, corrections=CORRECTIONS, alt=ALT, in_short=IN_SHORT, figures=(RACE_FIGURE,),
                                extra_css=CSS, description=DESCRIPTION)
 
 

@@ -11,11 +11,10 @@ patterns side by side. Every cell is the post's own wording from its four
 lists; nothing is computed. The HRV charts are not redrawn: they are
 screenshots without readable values for most points.
 
-Matt to read: the long-range chart (hrv-trend, HRV on a 50-150 axis) shows
-2020 HRV values above 150 and above the pulse line, while the text says that
-pre-"Standard, Not Sober" HRV "wouldn't break 90" and that "before SNS, the
-yellow never rose above the blue". The text may mean only the 90-day window
-(hrv-zoom), which has no axis values to check.
+Corrected 2026-10-09 (Matt approved): CORRECTIONS below changes the two pre-SNS claims to
+"the year before SNS" (the long-range chart's 2021 stretch: HRV mostly under
+90 and under the pulse line; 2020 went past 150); each
+entry names its evidence. The page notes the correction at the end.
 
 Regenerate: python3 wordpress/post_sources/what_is_hrv_and_why_should_i_care.py
 """
@@ -107,8 +106,23 @@ LOAD_PATTERNS = DataTable(
 CSS = "#fig-load-patterns .gg-sort-hint{display:none}"
 
 
+# Figures corrected to match the post's own evidence (Matt, 2026-10-09:
+# "Yeah go ahead and fix"). wp_post applies each to the body (old text must
+# occur exactly once) and the word-for-word tests apply them to the snapshot.
+CORRECTIONS = (
+    wp_post.Correction(
+        "Clearly, before SNS, the yellow",
+        "Clearly, in the year before SNS, the yellow",
+        "the long-range chart (hrv-trend) has 2020 HRV above 150 and above the pulse line; the 2021 stretch before SNS stays under it"),
+    wp_post.Correction(
+        "Pre-SNS, at best my HRV wouldn’t break 90.",
+        "In the year before SNS, my HRV rarely broke 90.",
+        "hrv-trend: the 2021 stretch before SNS is mostly under 90 with a few points near 110-120; 2020 went past 150"),
+)
+
+
 def render() -> str:
-    return wp_post.render_post(SOURCE, alt=ALT, in_short=IN_SHORT, figures=(LOAD_PATTERNS,), extra_css=CSS)
+    return wp_post.render_post(SOURCE, corrections=CORRECTIONS, alt=ALT, in_short=IN_SHORT, figures=(LOAD_PATTERNS,), extra_css=CSS)
 
 
 def main() -> None:

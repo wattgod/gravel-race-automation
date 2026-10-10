@@ -15,8 +15,9 @@ No infographic: the post states no figures a chart would clarify.
 The post's divider is one unbroken run of em dashes, wider than a phone; the
 shell lets it wrap (editorial_shell.mark_dash_rules), so no sideways scroll.
 
-Matt to read: the text says "85F Silver City heat"; the Strava screenshot
-shows 26 °C (about 79 °F) at the start. The text is unchanged.
+Corrected 2026-10-09 (Matt approved): CORRECTIONS below changes 85F to 79F (Strava:
+26 °C); each
+entry names its evidence. The page notes the correction at the end.
 
 Regenerate: python3 wordpress/post_sources/the_double_day_11_how_do_you_get_excited_for_crits.py
 """
@@ -54,8 +55,19 @@ IN_SHORT = (
 )
 
 
+# Figures corrected to match the post's own evidence (Matt, 2026-10-09:
+# "Yeah go ahead and fix"). wp_post applies each to the body (old text must
+# occur exactly once) and the word-for-word tests apply them to the snapshot.
+CORRECTIONS = (
+    wp_post.Correction(
+        "85F Silver City heat",
+        "79F Silver City heat",
+        "the Strava screenshot (boolin-1): 26 °C, about 79 °F"),
+)
+
+
 def render() -> str:
-    return wp_post.render_post(SOURCE, alt=ALT, in_short=IN_SHORT, description=DESCRIPTION)
+    return wp_post.render_post(SOURCE, corrections=CORRECTIONS, alt=ALT, in_short=IN_SHORT, description=DESCRIPTION)
 
 
 def main() -> None:

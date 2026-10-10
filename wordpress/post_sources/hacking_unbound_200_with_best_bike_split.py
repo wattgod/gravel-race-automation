@@ -21,11 +21,12 @@ Matt to read:
   breakdown, the dollars-per-watt aero list and the tire Crr chart are not on
   the live page (their Elementor columns are empty), so the text refers to
   tables that aren't there. Not recreated: the numbers aren't in the post.
-- Numbers: a 7 W chain saving = 15:29 and "the equivalent of raising your FTP
-  by 4%", but 7 W is 1.9% of the 370 W FTP, and the post's own +5% power run
-  saves only 17:33. The Best Bike Split screenshot (12:26:02, NP 161.64 W,
-  IF 0.65, 1.92 W/kg) implies an FTP near 249 W and about 82 kg, not the
-  post's rider (FTP 370, 166 lb).
+- Corrected 2026-10-09 (Matt approved; CORRECTIONS below): the rider setup
+  "weighing 166 lbs, FTP of 370" now reads "about 180 lbs, FTP of about 250",
+  what the Best Bike Split screenshot implies (12:26:02, NP 161.64 W, IF 0.65
+  -> FTP 249 W; 156.72 W at 1.92 W/kg -> 82 kg). Left unchanged: "the
+  equivalent of raising your FTP by 4%" holds for that rider (7 W is about 4%
+  of the ~160 W race power at the same IF).
 
 Regenerate: python3 wordpress/post_sources/hacking_unbound_200_with_best_bike_split.py
 """
@@ -90,8 +91,19 @@ SAVINGS = DataTable(
 CSS = "#fig-bbs-savings .gg-sort-hint{display:none}"
 
 
+# Figures corrected to match the post's own evidence (Matt, 2026-10-09:
+# "Yeah go ahead and fix"). wp_post applies each to the body (old text must
+# occur exactly once) and the word-for-word tests apply them to the snapshot.
+CORRECTIONS = (
+    wp_post.Correction(
+        "weighing 166 lbs, FTP of 370",
+        "weighing about 180 lbs, FTP of about 250",
+        "the Best Bike Split screenshot: NP 161.64 W at IF 0.65 = FTP 249 W; 156.72 W at 1.92 W/kg = 82 kg (181 lb)"),
+)
+
+
 def render() -> str:
-    return wp_post.render_post(SOURCE, alt=ALT, in_short=IN_SHORT, figures=(SAVINGS,), extra_css=CSS,
+    return wp_post.render_post(SOURCE, corrections=CORRECTIONS, alt=ALT, in_short=IN_SHORT, figures=(SAVINGS,), extra_css=CSS,
                                description=DESCRIPTION)
 
 

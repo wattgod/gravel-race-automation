@@ -55,7 +55,7 @@ ALT = {
 }
 
 DESCRIPTION = ("SBT GRVL race report: a crash three days out, fear on dry washboard descents, a high-sodium "
-               "hydration plan that ended the cramping, a 68th-place finish, and a course guide.")
+               "plan that ended the cramping, 68th place, and a course guide.")  # <=160 chars
 
 # Paragraph anchors (first words of the paragraph -> id).
 ANCHORS = {

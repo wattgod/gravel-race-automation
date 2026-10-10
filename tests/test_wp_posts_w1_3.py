@@ -96,7 +96,7 @@ def test_page_lives_at_its_original_url_with_live_metadata(pid):
     html = _page(pid)
     url = f"https://gravelgodcycling.com/{m.SLUG}/"
     assert live["canonical"] == url and f'<link rel="canonical" href="{url}">' in html
-    assert f"<title>{es.esc(live['title'])}</title>" in html
+    assert f"<title>{es.esc(getattr(m, 'TITLE', None) or live['title'])}</title>" in html
     desc = getattr(m, "DESCRIPTION", None) or live["description"]
     assert f'<meta name="description" content="{es.esc(desc)}">' in html
     ld = [json.loads(b) for b in re.findall(r'<script type="application/ld\+json">(.*?)</script>', html, re.S)]
@@ -133,7 +133,10 @@ def test_gifs_are_muted_videos(pid):
     for f in m.SOURCE.data["figures"]:
         if f["kind"] == "gif":
             n = f["name"]
-            assert f'<source src="img/{n}.webm" type="video/webm"><source src="img/{n}.mp4" type="video/mp4">' in html
+            # smallest file first (browsers play the first source); the MP4 always ships
+            srcs = "".join(f'<source src="{s}" type="{t}">'
+                           for s, t in m.wp_post.video_sources(m.SOURCE.data["renditions"][n]))
+            assert srcs in html and f'img/{n}.mp4' in srcs
     assert ".gif" not in re.sub(r"https://gravelgodcycling\.com/wp-content/[^\"' ]+", "", html)
 
 

@@ -12,6 +12,11 @@ sections, its references and its Article/FAQ JSON-LD. Matt approved removing
 them (2026-10-08): the essay now ends after "The Start Line Doesn't Care
 About Your Compliance Score", and the JSON-LD below describes this article.
 
+og:image: img/og-look-inside.jpg, a 1200x630 crop of the "Look inside" meme
+(memes/look-inside@2x.webp, full width, rows 133-1813 of 2000, Lanczos to
+1200x630, progressive JPEG q85, 67 KB): the essay's thesis in one picture.
+Same treatment as Sweet Spot's og-tombstone.jpg.
+
 Regenerate after editing the body, the shell or data/pricing.json:
 
     python3 wordpress/article_sources/your_training_app_doesnt_know_your_race_exists.py
@@ -29,7 +34,7 @@ WORDPRESS = HERE.parent
 if str(WORDPRESS) not in sys.path:
     sys.path.insert(0, str(WORDPRESS))
 
-from editorial_shell import ArticleMeta, Claim, EssayFigure, Picture, render_editorial_page  # noqa: E402
+from editorial_shell import ArticleMeta, Claim, EssayFigure, OgImage, Picture, render_editorial_page  # noqa: E402
 
 SLUG = "your-training-app-doesnt-know-your-race-exists"
 URL = f"https://gravelgodcycling.com/articles/{SLUG}/"
@@ -61,6 +66,7 @@ META = ArticleMeta(
     title="Your Training App Doesn't Know Your Race Exists | Gravel God",
     description=DESCRIPTION,
     og_description=OG_DESCRIPTION,
+    og_image=OgImage(url=f"{URL}img/og-look-inside.jpg", width=1200, height=630),
     headline="Your Training App Doesn’t Know Your Race Exists",
     kicker="Training · Opinion",
     dek="Adaptive training solved the wrong problem. Your fitness has a shape, and so does your race.",

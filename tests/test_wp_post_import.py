@@ -152,14 +152,14 @@ def test_metadata_comes_from_the_live_page(pid):
     url = f"https://gravelgodcycling.com/{m.SLUG}/"
     assert live["canonical"] == url
     assert f'<link rel="canonical" href="{url}">' in html
-    assert f"<title>{es.esc(live['title'])}</title>" in html
+    assert f"<title>{es.esc(getattr(m, 'TITLE', None) or live['title'])}</title>" in html
     desc = getattr(m, "DESCRIPTION", None) or live["description"]
     assert f'<meta name="description" content="{es.esc(desc)}">' in html
-    assert f'<meta property="og:title" content="{es.esc(live["og_title"])}">' in html
+    assert f'<meta property="og:title" content="{es.esc(getattr(m, "TITLE", None) or live["og_title"])}">' in html
     assert '<meta name="robots" content="index, follow, max-image-preview:large">' in html
     ld = [json.loads(b) for b in re.findall(r'<script type="application/ld\+json">(.*?)</script>', html, re.S)]
     assert [b["@type"] for b in ld] == ["BlogPosting"]
-    assert ld[0]["headline"] == live["headline"] and ld[0]["datePublished"] == live["published"]
+    assert ld[0]["headline"] == (m.TITLE.removesuffix(" | Gravel God") if hasattr(m, "TITLE") else live["headline"]) and ld[0]["datePublished"] == live["published"]
     assert ld[0]["mainEntityOfPage"] == url and ld[0]["description"] == desc
     head = html.split("</head>", 1)[0]
     assert f'<meta property="article:published_time" content="{live["published"]}">' in head
@@ -217,8 +217,11 @@ def test_gifs_are_muted_play_once_videos(pid):
         if f["kind"] != "gif":
             continue
         n = f["name"]
-        assert f'<source src="img/{n}.webm" type="video/webm"><source src="img/{n}.mp4" type="video/mp4">' in html
-        tag = html.split(f'<source src="img/{n}.webm"', 1)[0].rsplit("<video", 1)[1]
+        # smallest file first (browsers play the first source); the MP4 always ships
+        srcs = "".join(f'<source src="{s}" type="{t}">'
+                       for s, t in m.wp_post.video_sources(m.SOURCE.data["renditions"][n]))
+        assert srcs in html and f'img/{n}.mp4' in srcs
+        tag = html.split(srcs, 1)[0].rsplit("<video", 1)[1]
         assert "muted playsinline" in tag and 'preload="none"' in tag and "autoplay" not in tag
     assert ".gif" not in re.sub(r"https://gravelgodcycling\.com/wp-content/[^\"' ]+", "", html)
 
@@ -637,7 +640,7 @@ COMMENTS = [
 def test_comments_render_escaped_threaded_and_read_only():
     out = wp_post.render_comments(COMMENTS)
     assert out.startswith('<section class="gg-comments" id="comments" data-gg-archive')
-    assert "<h2 id=\"comments-h\">Comments</h2>" in out and "3 comments from the original post" in out
+    assert "<h2 id=\"comments-h\" data-no-toc>Comments</h2>" in out and "3 comments from the original post" in out
     assert '<strong>Jack</strong> &middot; <time datetime="2025-02-20">February 20, 2025</time>' in out
     assert "<p>Great read &amp; thanks!</p><p>Second para<br>line</p>" in out
     assert "spam.test" not in out and "<script>" not in out and "<img" not in out
@@ -684,3 +687,91 @@ def test_gallery_and_youtube_render_with_their_css_and_js_only_when_used():
     assert "gg-yt-link" in page and "youtube-nocookie.com/embed/" in page and "<iframe" not in page
     plain = _page(2592)
     assert ".gg-gallery{" not in plain and "youtube-nocookie" not in plain
+
+
+# ── Post polish (2026-10-09): video weight, titles, descriptions ─────────
+
+ALL_POST_JSON = sorted((PROJECT_ROOT / "wordpress" / "post_sources").glob("*.json"))
+# ~4 MB for a ~15 s clip: the served (first) source of every GIF video stays under this.
+MAX_SERVED_VIDEO_BYTES = 4_000_000
+
+
+def test_video_sources_list_the_smaller_file_first():
+    both = {"mp4": {"file": "a.mp4", "bytes": 300}, "webm": {"file": "a.webm", "bytes": 200}}
+    assert wp_post.video_sources(both) == (("img/a.webm", "video/webm"), ("img/a.mp4", "video/mp4"))
+    heavier_webm = {"mp4": {"file": "a.mp4", "bytes": 300}, "webm": {"file": "a.webm", "bytes": 400}}
+    assert wp_post.video_sources(heavier_webm)[0] == ("img/a.mp4", "video/mp4")
+    assert wp_post.video_sources({"mp4": {"file": "a.mp4", "bytes": 3}}) == (("img/a.mp4", "video/mp4"),)
+
+
+def test_gif_filters_cap_side_fps_and_denoise():
+    vf = imp._gif_filters({"width": 1080, "height": 1920, "avg_frame_rate": "100/3"})
+    assert vf == f"fps={imp.GIF_MAX_FPS},scale=720:1280:flags=lanczos,{imp.GIF_DENOISE}"
+    vf = imp._gif_filters({"width": 480, "height": 394, "avg_frame_rate": "5/1"})
+    assert vf == f"scale=480:394:flags=lanczos,{imp.GIF_DENOISE}"
+
+
+@pytest.mark.parametrize("path", ALL_POST_JSON, ids=lambda p: p.stem)
+def test_gif_videos_are_light_and_smallest_first(path):
+    """Every GIF ships as an MP4, plus a WebM only when it is smaller; the
+    recorded bytes match the files, the page lists the smaller one first, and
+    the served one is at most MAX_SERVED_VIDEO_BYTES."""
+    data = json.loads(path.read_text(encoding="utf-8"))
+    img = PROJECT_ROOT / "wordpress" / "posts" / data["slug"] / "img"
+    page = (img.parent / "index.html").read_text(encoding="utf-8")
+    for name, r in data.get("renditions", {}).items():
+        if "mp4" not in r:
+            continue
+        for k in ("mp4", "webm"):
+            if k in r:
+                assert (img / r[k]["file"]).stat().st_size == r[k]["bytes"], (name, k)
+        assert not (img / f"{name}.webm").exists() or "webm" in r, f"{name}.webm ships but is not listed"
+        if "webm" in r:
+            assert r["webm"]["bytes"] < r["mp4"]["bytes"], name
+        srcs = wp_post.video_sources(r)
+        assert min(r[k]["bytes"] for k in ("mp4", "webm") if k in r) == r[srcs[0][0].rsplit(".", 1)[1]]["bytes"]
+        assert r[srcs[0][0].rsplit(".", 1)[1]]["bytes"] <= MAX_SERVED_VIDEO_BYTES, name
+        if f"img/{name}.mp4" in page:
+            assert "".join(f'<source src="{s}" type="{t}">' for s, t in srcs) in page, name
+
+
+CORRECTED_TITLES = {
+    "the-tao-of-tom": "The Tao of Tom — Trusting the Plan | Gravel God",
+    "how-do-i-know-if-im-getting-fitter": "Training Is a Privilege, Not a Right | Gravel God",
+    "eight-years-of-nate-wilson": "Eight Years of Nate Wilson, My Cycling Coach | Gravel God",
+}
+
+
+@pytest.mark.parametrize("slug", CORRECTED_TITLES)
+def test_corrected_titles_are_consistent(slug):
+    title = CORRECTED_TITLES[slug]
+    page = (PROJECT_ROOT / "wordpress" / "posts" / slug / "index.html").read_text(encoding="utf-8")
+    live = json.loads((PROJECT_ROOT / "wordpress" / "post_sources" / f"{slug}.json").read_text(encoding="utf-8"))["live"]
+    assert live["title"] != title
+    assert f"<title>{es.esc(title)}</title>" in page
+    assert f'<meta property="og:title" content="{es.esc(title)}">' in page
+    ld = [json.loads(b) for b in re.findall(r'<script type="application/ld\+json">(.*?)</script>', page, re.S)]
+    assert ld[0]["headline"] == title.removesuffix(" | Gravel God")
+    assert es.esc(live["headline"]) in page.split("</h1>", 1)[0].rsplit("<h1", 1)[1]  # the h1 is unchanged
+    assert f'<link rel="canonical" href="https://gravelgodcycling.com/{slug}/">' in page
+
+
+def test_title_override_must_keep_the_site_pattern():
+    src = _module(2592).SOURCE
+    with pytest.raises(ValueError, match="Gravel God"):
+        wp_post.build_meta(src, hero=None, title="No suffix")
+    with pytest.raises(ValueError):
+        wp_post.build_meta(src, hero=None, title=" | Gravel God")
+    meta = wp_post.build_meta(src, hero=None, title="A Better Title | Gravel God")
+    assert (meta.title, meta.og_title, meta.json_ld[0]["headline"]) == (
+        "A Better Title | Gravel God", "A Better Title | Gravel God", "A Better Title")
+    assert meta.headline == src.data["live"]["headline"]  # the h1 never changes
+
+
+@pytest.mark.parametrize("path", ALL_POST_JSON, ids=lambda p: p.stem)
+def test_meta_descriptions_fit_160_chars(path):
+    import html as _html
+    slug = json.loads(path.read_text(encoding="utf-8"))["slug"]
+    page = (PROJECT_ROOT / "wordpress" / "posts" / slug / "index.html").read_text(encoding="utf-8")
+    desc = _html.unescape(re.search(r'<meta name="description" content="([^"]*)"', page).group(1))
+    assert len(desc) <= 160, (len(desc), desc)

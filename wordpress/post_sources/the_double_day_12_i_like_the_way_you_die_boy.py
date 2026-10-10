@@ -41,8 +41,8 @@ ALT = {
     "zia": "Cartoon Gravel God in a cowboy hat looks in profile at a yellow metal tray on the wall, painted with the red Zia sun symbol of New Mexico and a small red heart.",
 }
 
-DESCRIPTION = ("Day 12 of The Double: the Tour of the Gila’s Gila Monster stage, where the author "
-               "finished 24th, his best UCI race, then the drive to Albuquerque with his family.")
+DESCRIPTION = ("Day 12 of The Double: the Tour of the Gila’s Gila Monster stage, where the author finished "
+               "24th, his best UCI race, then the drive to Albuquerque with family.")  # <=160 chars
 
 # The "In short" rule (wp_post docstring); section = 0-based h2 index. A
 # 607-word post gets at most two claims (wp_post.SHORT_POST_MAX_CLAIMS).

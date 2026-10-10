@@ -1121,6 +1121,17 @@ class TestTrainingAppArticle:
         last_h2 = re.findall(r"<h2[^>]*>(.*?)</h2>", main)[-1]
         assert last_h2 == "The Start Line Doesn&rsquo;t Care About Your Compliance Score"
 
+    def test_og_image_is_the_look_inside_crop(self, html):
+        assert f'<meta property="og:image" content="{training_app.URL}img/og-look-inside.jpg">' in html
+        assert '<meta property="og:image:width" content="1200">' in html
+        assert '<meta property="og:image:height" content="630">' in html
+        og = TRAINING_APP_INDEX.parent / "img/og-look-inside.jpg"
+        assert og.is_file() and og.stat().st_size <= 200_000
+        assert og.read_bytes()[:3] == b"\xff\xd8\xff"  # JPEG
+        from PIL import Image
+        with Image.open(og) as im:
+            assert im.size == (1200, 630)
+
     def test_json_ld_is_this_article(self, html):
         blocks = [json.loads(b) for b in re.findall(r'<script type="application/ld\+json">(.*?)</script>', html, re.S)]
         assert [b["@type"] for b in blocks] == ["Article"]
@@ -1145,3 +1156,33 @@ class TestTrainingAppArticle:
     def test_contents(self, html):
         rail = html.split('<nav class="rail"', 1)[1].split("</nav>", 1)[0]
         assert rail.count("<li>") == 5
+
+
+# ── Shell nits: opted-out h2s, dash-rule paragraphs ───────────
+
+
+class TestNoTocAndDashRules:
+    def test_data_no_toc_h2_is_not_a_contents_heading_and_does_not_warn(self):
+        import warnings as _w
+        body = ('<section class="gg-blog-section"><h2>One</h2><p>x</p></section>\n'
+                '<section class="gg-comments"><h2 id="comments-h" data-no-toc>Comments</h2></section>')
+        out, toc = es.add_heading_ids(body)
+        assert [label for _, label in toc] == ["One"]
+        assert '<h2 id="comments-h" data-no-toc>Comments</h2>' in out
+        with _w.catch_warnings():
+            _w.simplefilter("error")
+            es.add_heading_ids('<p>short post</p><section class="gg-comments"><h2 data-no-toc>Comments</h2></section>')
+        with pytest.warns(UserWarning):
+            es.add_heading_ids('<p>short post</p><section class="gg-comments"><h2>Comments</h2></section>')
+        inside = '<section class="gg-blog-section"><h2>One</h2><h2 data-no-toc>Aside</h2></section>'
+        assert [label for _, label in es.add_heading_ids(inside)[1]] == ["One"]
+
+    def test_dash_only_paragraphs_get_the_wrap_class_text_unchanged(self):
+        run = "\u2014" * 26
+        body = f'<p>{run}</p><p class="x">{run}-</p><p>A sentence \u2014 with a dash.</p><p>\u2014\u2014</p>'
+        out = es.mark_dash_rules(body)
+        assert f'<p class="gg-dashrule">{run}</p>' in out
+        assert f'<p class="x gg-dashrule">{run}-</p>' in out
+        assert "<p>A sentence \u2014 with a dash.</p>" in out and "<p>\u2014\u2014</p>" in out
+        assert re.sub(r"<[^>]+>", "", out) == re.sub(r"<[^>]+>", "", body)
+        assert ".article p.gg-dashrule{overflow-wrap:anywhere}" in es.SHELL_CSS

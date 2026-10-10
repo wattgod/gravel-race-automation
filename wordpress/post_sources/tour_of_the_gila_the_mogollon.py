@@ -31,8 +31,8 @@ SLUG = "tour-of-the-gila-the-mogollon"
 SOURCE = wp_post.load(SLUG)
 OUTPUT_PATH = wp_post.output_path(SLUG)
 
-DESCRIPTION = ("Tour of the Gila 2023, the Mogollon stage: a road race of more than 90 miles with a finishing "
-               "climb, the author's result, quotes from the team, and scenes from Silver City.")
+DESCRIPTION = ("Tour of the Gila 2023, the Mogollon stage: a 90-plus-mile road race with a finishing climb, "
+               "the author's result, quotes from the team, and Silver City scenes.")  # <=160 chars
 
 ALT = {
     "got-any-meelahrs": "Strava activity \"Stage 1: 'Got any MeeLahrs in Der?'\", Wednesday, April 26, 2023, Silver City, New Mexico: 74.21 mi, 3:00:19 moving time, 2,910 ft of climbing, 226 W weighted average power; cartoon Gravel God in a cowboy hat pops a wheelie at the right.",

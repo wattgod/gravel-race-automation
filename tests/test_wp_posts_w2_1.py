@@ -104,10 +104,10 @@ def test_metadata_comes_from_the_live_page(pid):
     url = f"https://gravelgodcycling.com/{m.SLUG}/"
     assert live["canonical"] == url
     assert f'<link rel="canonical" href="{url}">' in html
-    assert f"<title>{es.esc(live['title'])}</title>" in html
+    assert f"<title>{es.esc(getattr(m, 'TITLE', None) or live['title'])}</title>" in html
     ld = [json.loads(b) for b in re.findall(r'<script type="application/ld\+json">(.*?)</script>', html, re.S)]
     assert [b["@type"] for b in ld] == ["BlogPosting"]
-    assert ld[0]["headline"] == live["headline"] and ld[0]["mainEntityOfPage"] == url
+    assert ld[0]["headline"] == (m.TITLE.removesuffix(" | Gravel God") if hasattr(m, "TITLE") else live["headline"]) and ld[0]["mainEntityOfPage"] == url
     assert ld[0]["datePublished"] == live["published"]
     assert m.OUTPUT_PATH == PROJECT_ROOT / "wordpress" / "posts" / m.SLUG / "index.html"
 
@@ -168,8 +168,11 @@ def test_gifs_are_muted_videos(pid):
     for f in m.SOURCE.data["figures"]:
         if f["kind"] == "gif":
             n = f["name"]
-            assert f'<source src="img/{n}.webm" type="video/webm"><source src="img/{n}.mp4" type="video/mp4">' in html
-            tag = html.split(f'<source src="img/{n}.webm"', 1)[0].rsplit("<video", 1)[1]
+            # smallest file first (browsers play the first source); the MP4 always ships
+            srcs = "".join(f'<source src="{s}" type="{t}">'
+                           for s, t in m.wp_post.video_sources(m.SOURCE.data["renditions"][n]))
+            assert srcs in html and f'img/{n}.mp4' in srcs
+            tag = html.split(srcs, 1)[0].rsplit("<video", 1)[1]
             assert "muted playsinline" in tag and "autoplay" not in tag
     assert ".gif" not in re.sub(r"https://gravelgodcycling\.com/wp-content/[^\"' ]+", "", html)
 

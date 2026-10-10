@@ -32,8 +32,8 @@ SLUG = "and-just-like-that-its-over"
 SOURCE = wp_post.load(SLUG)
 OUTPUT_PATH = wp_post.output_path(SLUG)
 
-DESCRIPTION = ("An end-of-season essay: after the last race of the year, the author argues that the offseason "
-               "is a time to stop making sense and follow impulses before the work resumes.")
+DESCRIPTION = ("An end-of-season essay: after the year’s last race, the author argues the offseason is a time "
+               "to stop making sense and follow impulses before the work resumes.")  # <=160 chars
 
 ALT = {
     "season": "Google Maps driving routes from Wisconsin to Fort Collins, Colorado, about 16 hours and 1,019 to 1,086 miles; the Colorado half of the map is grey and labelled \"Off-season\", the Wisconsin half green and labelled \"Season\".",

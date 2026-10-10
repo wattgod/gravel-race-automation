@@ -12,8 +12,8 @@ the crit.
 
 The featured image is also the first inline image, so the page has no hero.
 No infographic: the post states no figures a chart would clarify.
-CSS: the post's divider is one unbroken run of em dashes, wider than a phone;
-it may wrap (overflow-wrap:anywhere) so the page has no sideways scroll.
+The post's divider is one unbroken run of em dashes, wider than a phone; the
+shell lets it wrap (editorial_shell.mark_dash_rules), so no sideways scroll.
 
 Matt to read: the text says "85F Silver City heat"; the Strava screenshot
 shows 26 °C (about 79 °F) at the start. The text is unchanged.
@@ -54,12 +54,8 @@ IN_SHORT = (
 )
 
 
-# The post's em-dash divider line is one unbreakable "word"; let it wrap.
-CSS = ".article .gg-blog-section p{overflow-wrap:anywhere}"
-
-
 def render() -> str:
-    return wp_post.render_post(SOURCE, alt=ALT, in_short=IN_SHORT, description=DESCRIPTION, extra_css=CSS)
+    return wp_post.render_post(SOURCE, alt=ALT, in_short=IN_SHORT, description=DESCRIPTION)
 
 
 def main() -> None:

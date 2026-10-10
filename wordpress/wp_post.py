@@ -12,8 +12,9 @@ Per post, wordpress/post_sources/ holds:
 What this module adds on top of the shell (all opt-in by content, so a post
 without pull quotes / galleries / videos / comments gets none of the CSS/JS):
   - images: EssayFigure per <!--GG:FIGURE name--> marker, WebP 1x/@2x + phone;
-    GIFs as PlayOnceVideo (muted MP4/WebM, plays once when half visible, replay
-    button, the still under reduced motion or without JS)
+    GIFs as PlayOnceVideo (muted MP4, + a WebM only when smaller, smallest
+    first; plays once when half visible, replay button, the still under
+    reduced motion or without JS)
   - <!--GG:GALLERY name--> -> a figure grid
   - pull quotes (converted Click-to-Tweet), the click-to-load YouTube embed
   - comments: approved comments as a static, read-only archive (no form)
@@ -26,6 +27,10 @@ without pull quotes / galleries / videos / comments gets none of the CSS/JS):
     og:image only when the post has no featured image. See og_image().
   - `description=`: replaces the live meta/og/JSON-LD description, only when the
     live one is wrong (e.g. Double Day 3 misread "Yield to tonnage")
+  - `title=`: the same for the <title>, og:title and JSON-LD headline (the
+    title without its " | Gravel God" suffix), only when the live title misstates
+    the post (e.g. "Eight Years of Coaching Nate": Nate coached the author).
+    Must keep the site's "... | Gravel God" pattern. The h1 and slug never change.
 
 "In short" rule (Matt, 2026-10-09: "matter of fact in a claude voice"). Every
 post module's IN_SHORT follows it; render_post raises on what can be linted
@@ -156,6 +161,18 @@ def picture(src: PostSource, name: str, alt: str) -> Picture:
                    src_2x=f"img/{two['file']}" if two else "", phone=phone)
 
 
+VIDEO_MIME = {"mp4": "video/mp4", "webm": "video/webm"}
+
+
+def video_sources(r: Mapping) -> tuple[tuple[str, str], ...]:
+    """A GIF's video <source>s, smallest file first: browsers play the first
+    source they can, so listing a heavier WebM ahead of the MP4 made readers
+    download the heavier one. The converter keeps a WebM only when it is
+    smaller; the sort still holds if a committed one is not."""
+    kinds = sorted((k for k in VIDEO_MIME if k in r), key=lambda k: (r[k]["bytes"], k != "mp4"))
+    return tuple((f"img/{r[k]['file']}", VIDEO_MIME[k]) for k in kinds)
+
+
 def _figure_for(src: PostSource, spec: dict, alt: str) -> EssayFigure:
     pic = picture(src, spec["name"], alt)
     wide = pic.width >= 1.2 * pic.height
@@ -163,7 +180,7 @@ def _figure_for(src: PostSource, spec: dict, alt: str) -> EssayFigure:
     if spec["kind"] == "gif":
         r = src.data["renditions"][spec["name"]]
         video = PlayOnceVideo(
-            sources=((f"img/{r['webm']['file']}", "video/webm"), (f"img/{r['mp4']['file']}", "video/mp4")),
+            sources=video_sources(r),
             poster=pic.src, width=pic.width, height=pic.height)
     cap = spec.get("caption_html", "")
     return EssayFigure(pic, video=video, caption_html=cap, width="column" if wide else "inline",
@@ -276,7 +293,7 @@ def render_comments(comments: Sequence[Mapping]) -> str:
     n = len(comments)
     return (
         f'<section class="gg-comments" id="comments" data-gg-archive aria-labelledby="comments-h">\n'
-        f'<h2 id="comments-h">Comments</h2>\n'
+        f'<h2 id="comments-h" data-no-toc>Comments</h2>\n'
         f'<p class="gg-comments-note">{n} comment{"s" if n != 1 else ""} from the original post. '
         f"Comments are closed.</p>\n"
         f'<ol class="gg-comment-list">{items(0)}</ol>\n</section>'
@@ -307,12 +324,21 @@ def article_time_meta(src: PostSource) -> str:
     return "\n".join(tags)
 
 
-def article_ld(src: PostSource, description: str | None = None) -> dict:
+TITLE_SUFFIX = " | Gravel God"
+
+
+def _checked_title(title: str | None) -> str | None:
+    if title is not None and (not title.endswith(TITLE_SUFFIX) or not title[: -len(TITLE_SUFFIX)].strip()):
+        raise ValueError(f"title must look like '... | Gravel God', not {title!r}")
+    return title
+
+
+def article_ld(src: PostSource, description: str | None = None, title: str | None = None) -> dict:
     live = src.data["live"]
     ld = {
         "@context": "https://schema.org",
         "@type": "BlogPosting",
-        "headline": live["headline"],
+        "headline": _checked_title(title)[: -len(TITLE_SUFFIX)] if title else live["headline"],
         "description": description or live["description"],
         "datePublished": live["published"],
         "dateModified": live["modified"],
@@ -326,16 +352,18 @@ def article_ld(src: PostSource, description: str | None = None) -> dict:
 
 
 def build_meta(src: PostSource, *, hero: HeroImage | None, kicker: str | None = None, dek: str = "",
-               description: str | None = None) -> ArticleMeta:
-    """`description` replaces the live description (meta, og, JSON-LD) when set."""
+               description: str | None = None, title: str | None = None) -> ArticleMeta:
+    """`description` replaces the live description (meta, og, JSON-LD) when set;
+    `title` the live title (<title>, og:title, JSON-LD headline)."""
     live = src.data["live"]
+    title = _checked_title(title)
     robots = "index, follow" + (", max-image-preview:large" if "max-image-preview:large" in live.get("robots", "") else "")
     return ArticleMeta(
         slug=src.slug,
         canonical_url=src.url,
-        title=live["title"],
+        title=title or live["title"],
         description=description or live["description"],
-        og_title=live.get("og_title") or None,
+        og_title=title or live.get("og_title") or None,
         og_description=description or live.get("og_description") or None,
         og_image=og_image(src),
         headline=live["headline"],
@@ -345,7 +373,7 @@ def build_meta(src: PostSource, *, hero: HeroImage | None, kicker: str | None = 
         byline=live.get("author") or "Gravel God",
         robots=robots,
         hero=hero,
-        json_ld=(article_ld(src, description),),
+        json_ld=(article_ld(src, description, title),),
     )
 
 
@@ -363,6 +391,7 @@ def render_post(
     extra_body_end: str = "",
     in_short_on_phone: es.InShortOnPhone = "first",
     description: str | None = None,
+    title: str | None = None,
 ) -> str:
     """The full page. `alt` must cover every image (raises otherwise).
     `figures`: extra shell figures (SvgFigure / DataTable / EssayFigure) placed by
@@ -370,7 +399,8 @@ def render_post(
     after that image. `replace`: {image name: figure}: the figure takes the
     image's place and the image moves into a <details> under it.
     `in_short` must pass in_short_problems (the "In short" rule; empty = none).
-    `description`: a corrected meta description (default: the live one)."""
+    `description`: a corrected meta description (default: the live one).
+    `title`: a corrected "... | Gravel God" title (default: the live one)."""
     data = src.data
     replace = dict(replace or {})
     after_image = dict(after_image or {})
@@ -461,7 +491,7 @@ def render_post(
     if not hero and not shell_figures and "gg-gallery" in body:
         css.insert(0, es.ESSAY_CSS)  # the shell adds it only with figures or a hero picture
 
-    meta = build_meta(src, hero=hero, kicker=kicker, description=description)
+    meta = build_meta(src, hero=hero, kicker=kicker, description=description, title=title)
     sections = len(es.add_heading_ids(body)[1])
     return render_editorial_page(
         meta,

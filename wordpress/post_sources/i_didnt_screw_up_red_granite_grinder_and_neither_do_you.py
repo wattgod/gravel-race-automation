@@ -42,9 +42,8 @@ SLUG = "i-didnt-screw-up-red-granite-grinder-and-neither-do-you"
 SOURCE = wp_post.load(SLUG)
 OUTPUT_PATH = wp_post.output_path(SLUG)
 
-DESCRIPTION = ("A race report from the 2021 Red Granite Grinder 144 in Wausau, Wisconsin, which the author "
-               "won solo despite several mechanicals, followed by advice on fitness, skills, equipment, "
-               "fueling and tactics for the race.")
+DESCRIPTION = ("A race report from the 2021 Red Granite Grinder 144 in Wausau, won solo despite mechanicals, "
+               "with advice on fitness, skills, equipment, fueling and tactics.")  # <=160 chars
 
 ALT = {
     "cruxassembly-1": "Animated, filmed from floor level in a garage: a Specialized gravel bike with an orange, yellow and blue fade is assembled in stages in front of a cardboard The Pro's Closet shipping box.",

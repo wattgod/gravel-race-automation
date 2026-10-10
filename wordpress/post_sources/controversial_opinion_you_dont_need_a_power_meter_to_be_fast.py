@@ -35,8 +35,8 @@ SLUG = "controversial-opinion-you-dont-need-a-power-meter-to-be-fast"
 SOURCE = wp_post.load(SLUG)
 OUTPUT_PATH = wp_post.output_path(SLUG)
 
-DESCRIPTION = ("Fortunato Ferrara, a national-level New Mexico rider, trains about 20 hours a week without "
-               "a power meter; the post argues that riding lots matters more than power data.")
+DESCRIPTION = ("Fortunato Ferrara, a national-level New Mexico rider, trains about 20 hours a week without a "
+               "power meter; the post argues riding lots matters more than data.")  # <=160 chars
 
 ALT = {
     "fortunato-doesnt-use-a-power-meter": "A nuclear mushroom cloud glowing orange against a dark sky, under the words \"Fortunato doesn't use a power meter.\"",

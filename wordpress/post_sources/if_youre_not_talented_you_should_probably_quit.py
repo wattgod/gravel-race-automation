@@ -38,8 +38,8 @@ SLUG = "if-youre-not-talented-you-should-probably-quit"
 SOURCE = wp_post.load(SLUG)
 OUTPUT_PATH = wp_post.output_path(SLUG)
 
-DESCRIPTION = ("The post accepts that talent is real but argues that lab tests and w/kg figures do not "
-               "show a rider’s potential, and that the value lies in committing to improve.")
+DESCRIPTION = ("The post accepts that talent is real but argues that lab tests and w/kg do not show a rider’s "
+               "potential, and that the value lies in committing to improve.")  # <=160 chars
 
 ALT = {
     "dont-quit-your-day-job-9": "Cartoon Gravel God in a cowboy hat stands with his road bike in the middle of a country highway, a white coach bus right behind him.",

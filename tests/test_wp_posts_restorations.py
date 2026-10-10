@@ -7,6 +7,11 @@ tables that now render as empty columns). The batch tests skip them by id
 file checks the other direction: every restored cell equals the archived copy,
 the restored figures are the only additions to the raw snapshot, the
 provenance line appears once and the modified date is bumped.
+
+A module's RESTORED_CORRECTIONS fix errors in the archived tables themselves
+(Matt, 2026-10-09): the module still declares the archived cells verbatim,
+the page shows them corrected, and every cell no correction names still
+equals the archive.
 """
 from __future__ import annotations
 
@@ -90,27 +95,102 @@ def _declared(fig) -> list[list[str]]:
     return [[c.label for c in fig.columns]] + [[plain(c.html) for c in r.cells] for r in fig.rows]
 
 
+def _key(row: list[str]) -> str:
+    return wp_post.ROW_SEP.join(row)
+
+
+def _corrected(rows: list[list[str]], fixes) -> list[list[str]]:
+    """Archived rows with the module's row corrections applied, in order."""
+    rows = [list(r) for r in rows]
+    for c in fixes:
+        hits = [i for i, r in enumerate(rows) if _key(r) == c.old]
+        assert len(hits) == 1, c.old
+        rows[hits[0]] = c.new.split(wp_post.ROW_SEP)
+    return rows
+
+
+def _same_rows(declared: list[list[str]], archived: list[list[str]]) -> bool:
+    """Same header, same rows; the body order may differ (a re-sorted list)."""
+    return declared[0] == archived[0] and sorted(declared[1:]) == sorted(archived[1:])
+
+
 @pytest.mark.parametrize("pid", RESTORED)
 def test_every_restored_cell_equals_the_archive(pid):
-    """Module tables and the rendered page tables, cell for cell, header
-    included, in order, against the archived tables (typos and all)."""
+    """Module tables cell for cell against the archived tables (header
+    included; rows in archive order, or re-sorted); the rendered tables equal
+    the declared ones with the module's RESTORED_CORRECTIONS applied, and
+    nothing else."""
     m = _module(pid)
     archived = _archived(pid)
+    fixes = getattr(m, "RESTORED_CORRECTIONS", {})
     assert len(m.RESTORED) == len(archived)
+    assert set(fixes) <= {f.id for f in m.RESTORED}
     page = _page(pid)
     for fig, want in zip(m.RESTORED, archived):
-        assert _declared(fig) == want, fig.id
+        declared = _declared(fig)
+        assert declared == want or _same_rows(declared, want), fig.id
         rendered = _tables(_figure(page, fig.id))
-        assert rendered == [want], fig.id
+        expected = [declared[0]] + _corrected(declared[1:], fixes.get(fig.id, ()))
+        assert rendered == [expected], fig.id
 
 
-def test_best_bike_split_archive_typos_are_kept_verbatim():
-    """Typos in the archived tables are Matt's call, not fixed on restore."""
+def _secs(t: str) -> int:
+    m, s = t.split(":")
+    return int(m) * 60 + int(s)
+
+
+def _rendered_rows(fid: str) -> list[list[str]]:
+    return _tables(_figure(_page(3203), fid))[0][1:]
+
+
+def test_best_bike_split_corrections_are_exactly_the_approved_ones():
+    """Rendered vs archived, cell by cell: these changes and nothing else, so
+    every other cell (and every header) is the archive's."""
+    diffs = []
+    for fig, want in zip(_module(3203).RESTORED, _archived(3203)):
+        got = _tables(_figure(_page(3203), fig.id))[0]
+        assert got[0] == want[0], fig.id
+        body = got[1:]
+        if fig.id == "fig-bbs-aero":  # re-sorted: pair rows by product
+            by_name = {r[0]: r for r in body}
+            body = [by_name[r[0]] for r in want[1:]]
+        assert len(body) == len(want) - 1, fig.id
+        for old, new in zip(want[1:], body):
+            diffs += [(fig.id, o, n) for o, n in zip(old, new) if o != n]
+    assert diffs == [
+        ("fig-bbs-aero", "$100/watt", "$10/watt"),
+        ("fig-bbs-ftp-1230", "26;47", "26:47"),
+        ("fig-bbs-combined", "14:28", "17:04"),
+        ("fig-bbs-combined", "37:18:00", "37:18"),
+        ("fig-bbs-combined", "50:47:00", "54:22"),
+        ("fig-bbs-combined", "35:00", "35:35"),
+    ]
     page = _page(3203)
-    for typo in (">26;47<", ">37:18:00<", ">50:47:00<"):
-        assert typo in page, typo
-    skinsuit = [r for r in _module(3203).AERO.rows if r.cells[0].html == "Aero Skinsuit"][0]
-    assert [c.html for c in skinsuit.cells] == ["Aero Skinsuit", "20", "$200", "$100/watt"]
+    for gone in (">26;47<", ">37:18:00<", ">50:47:00<", ">50:47<", ">14:28<", ">35:00<"):
+        assert gone not in page.replace(" ", ""), gone
+    assert page.count(wp_post.CORRECTION_NOTE) == 1
+
+
+def test_best_bike_split_aero_list_is_sorted_and_its_arithmetic_holds():
+    """"sorted by dollars/watt": ascending; and each $/watt = cost / watts."""
+    rows = _rendered_rows("fig-bbs-aero")
+    per_watt = [float(r[3].removeprefix("$").removesuffix("/watt")) for r in rows]
+    assert per_watt == sorted(per_watt)
+    for (name, watts, cost, _), pw in zip(rows, per_watt):
+        assert float(cost.replace("$", "").replace(",", "")) / int(watts) == pw, name
+
+
+def test_best_bike_split_combined_totals_are_the_sums_of_their_rows():
+    rows = {r[0] + ("2" if r[0] == "Total" and i > 3 else ""): r[1:] for i, r in
+            enumerate(_rendered_rows("fig-bbs-combined"))}
+    for col in (0, 1):
+        parts = ("-4% Drag", "-3% Weight", "-1% Rolling Resistance")
+        assert _secs(rows["Total"][col]) == sum(_secs(rows[p][col]) for p in parts)
+        assert _secs(rows["Total2"][col]) == _secs(rows["Total"][col]) + _secs(rows["10% FTP Increase"][col])
+    assert rows["Total"] == ["17:04", "10:10"] and rows["Total2"] == ["54:22", "35:35"]
+    # the 10% rows are the FTP tables' 10% rows (~12:30 and ~9:30 finishers)
+    assert rows["10% FTP Increase"] == [_rendered_rows("fig-bbs-ftp-1230")[-1][1],
+                                        _rendered_rows("fig-bbs-ftp-930")[-1][1]]
 
 
 @pytest.mark.parametrize("pid", RESTORED)
@@ -146,3 +226,17 @@ def test_restored_needs_distinct_ids_and_an_anchor():
     m = _module(3203)
     with pytest.raises(ValueError, match="restored"):
         wp_post.render_post(m.SOURCE, alt=m.ALT, restored=(m.AERO, m.AERO))
+    with pytest.raises(ValueError, match="restored_corrections"):
+        wp_post.render_post(m.SOURCE, alt=m.ALT, restored=(m.AERO,),
+                            restored_corrections={"fig-nope": m.RESTORED_CORRECTIONS[m.AERO.id]})
+
+
+def test_correct_table_needs_one_matching_row_and_the_same_width():
+    m = _module(3203)
+    fix = wp_post.Correction
+    with pytest.raises(ValueError, match="found 0 times"):
+        wp_post.correct_table(m.COMBINED, [fix("Total | 1:00 | 2:00", "Total | 1:01 | 2:00", "a b c d")])
+    with pytest.raises(ValueError, match="cells"):
+        wp_post.correct_table(m.COMBINED, [fix("Total | 14:28 | 10:10", "Total | 17:04", "a b c d")])
+    with pytest.raises(ValueError, match="reason"):
+        wp_post.correct_table(m.COMBINED, [fix("Total | 14:28 | 10:10", "Total | 17:04 | 10:10", " ")])

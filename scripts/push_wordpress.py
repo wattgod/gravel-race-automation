@@ -20,6 +20,11 @@ import requests
 from dotenv import load_dotenv
 from pathlib import Path
 
+# macOS tar adds AppleDouble `._*` metadata files to archives, which then land
+# on the server (3,844 found under /race/ on 2026-10-10) and break the race
+# page sync's file-count check. Every `tar -cf` below inherits this.
+os.environ.setdefault("COPYFILE_DISABLE", "1")
+
 try:
     from scripts.road_migration import (
         DEFAULT_MAP_PATH as ROAD_MIGRATION_MAP_PATH,

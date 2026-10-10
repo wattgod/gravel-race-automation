@@ -420,6 +420,17 @@ def test_heading_levels_map_to_h2_then_h3_text_unchanged():
     assert c.body_html.count('<section class="gg-blog-section">') == 2
 
 
+def test_elementor_placeholder_heading_is_dropped_real_headings_kept():
+    c = _convert(_w("heading.default", "<h2>  add your HEADING\n text here </h2>"),
+                 _w("heading.default", "<h3>Real one</h3>"),
+                 _w("text-editor.default", "<p>Add Your Heading Text Here</p>"),
+                 _w("heading.default", "<h3>Add Your Heading Text Here, please</h3>"))
+    assert "<h2>Real one</h2>" in c.body_html  # placeholder's h2 level never enters the heading map
+    assert c.heading_map == {"h3": "h2"}
+    assert c.headings == [("h2", "Real one"), ("h2", "Add Your Heading Text Here, please")]
+    assert "<p>Add Your Heading Text Here</p>" in c.body_html  # only heading widgets are filtered
+
+
 def test_text_editor_keeps_lists_quotes_links_and_inline_marks():
     c = _convert(_w("text-editor.default",
                     '<p>Go <a href="https://x.test/" target="_blank">here</a>, <i>now</i>&nbsp;<span style="x">ok</span></p>'

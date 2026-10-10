@@ -16,9 +16,10 @@ weight_points.json there): 147 visible markers, plus the 169.1 lb end point the
 chart's own tooltip labels (its marker sits under the tooltip). A few markers
 hidden by the cartoon, the speech bubble and the tooltips are left out. The GIF
 stays in place above the redraw.
-Corrected 2026-10-09 (Matt approved): CORRECTIONS below changes 18 pounds to 17
-(twice) and "early March" to "late March"; each
-entry names its evidence. The page notes the correction at the end.
+Corrected 2026-10-09 (Matt approved): CORRECTIONS below changes "early March"
+to "late March" (the chart labels 169.1 lb on Mon, 3/26/2018); the entry names
+its evidence. The page notes the correction at the end. Left unchanged after
+review: "18 pounds" (twice).
 
 Regenerate: python3 wordpress/post_sources/how_to_achieve_your_goals_and_stop_ruining_your_dreams.py
 """
@@ -150,14 +151,6 @@ CSS = """
 # "Yeah go ahead and fix"). wp_post applies each to the body (old text must
 # occur exactly once) and the word-for-word tests apply them to the snapshot.
 CORRECTIONS = (
-    wp_post.Correction(
-        "an extra 18 pounds",
-        "an extra 17 pounds",
-        "chart: 186.5 lb (11/27/2017) to 169.1 lb (3/26/2018) = 17.4 lb"),
-    wp_post.Correction(
-        "lose 18 pounds in four months",
-        "lose 17 pounds in four months",
-        "186.5 - 169.1 = 17.4 lb"),
     wp_post.Correction(
         "169.1 pounds by early March",
         "169.1 pounds by late March",

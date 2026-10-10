@@ -18,9 +18,8 @@ plan the post is about.
 Infographic: fig-sodium, the post's race-day sodium steps as a table, in the
 post's own words; nothing added or computed.
 
-Corrected 2026-10-09 (Matt approved): CORRECTIONS below changes "approximately 30
-minutes" to 27 (20 s x 80 miles); each
-entry names its evidence. The page notes the correction at the end. The In short claim says 27 too.
+For Matt (arithmetic, text unchanged): "lose 20 seconds per mile ... roughly
+80 miles ... approximately 30 minutes": 20 s x 80 = 1,600 s, about 27 minutes.
 
 Regenerate: python3 wordpress/post_sources/i_screwed_up_sbt_grvl_so_you_dont_have_to.py
 """
@@ -67,7 +66,7 @@ ANCHORS = {
 # The "In short" rule (wp_post docstring); section = 0-based h2 index (the
 # race story comes before the first h2).
 IN_SHORT = (
-    Claim("The post estimates that losing 20 seconds a mile over roughly 80 miles of descents and technical trail costs about 27 minutes.",
+    Claim("The post estimates that losing 20 seconds a mile over roughly 80 miles of descents and technical trail costs about 30 minutes.",
           "#p-fear-cost", "See the estimate", 0),
     Claim("After switching from drinking to thirst to heavy sodium loading, the author reports no cramping or nausea in the race.",
           "#fig-sodium", "See the sodium steps", 0),
@@ -113,16 +112,6 @@ def _anchored(body: str) -> str:
     return body
 
 
-# Figures corrected to match the post's own evidence (Matt, 2026-10-09:
-# "Yeah go ahead and fix"). wp_post applies each to the body (old text must
-# occur exactly once) and the word-for-word tests apply them to the snapshot.
-CORRECTIONS = (
-    wp_post.Correction(
-        "lose approximately 30 minutes",
-        "lose approximately 27 minutes",
-        "20 s x 80 miles = 1,600 s, about 27 minutes"),
-)
-
 # Dead YouTube embeds (YouTube returns 404 for them, checked 2026-10-09): left
 # out of the page. The converter still writes them into the body; delete an
 # entry here to restore the click-to-load figure where it sat.
@@ -133,7 +122,7 @@ DEAD_YOUTUBE = {
 
 def render() -> str:
     src = dataclasses.replace(SOURCE, body=_anchored(SOURCE.body))
-    return wp_post.render_post(src, corrections=CORRECTIONS, dead_youtube=DEAD_YOUTUBE, alt=ALT, in_short=IN_SHORT, figures=(SODIUM_TABLE,), extra_css=CSS,
+    return wp_post.render_post(src, dead_youtube=DEAD_YOUTUBE, alt=ALT, in_short=IN_SHORT, figures=(SODIUM_TABLE,), extra_css=CSS,
                                description=DESCRIPTION)
 
 

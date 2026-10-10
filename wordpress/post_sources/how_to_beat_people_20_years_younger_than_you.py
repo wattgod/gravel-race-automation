@@ -17,10 +17,10 @@ Infographics (2026-10-09, nothing invented):
   reader's year (200, 300, 500 hours), the lowest recommended pro volume (750)
   and the author's estimate for a top-end US domestic pro (850-1000).
 
-Corrected 2026-10-09 (Matt approved): CORRECTIONS below changes "10% down" to 9% (330 to
-300) and "15 hours a week" to "over 14" (750 / 52 = 14.4); each
-entry names its evidence. The page notes the correction at the end.
-The fig-hours caption quotes the corrected text.
+Matt to read: "at 30 ... your threshold was 330, and now, at 40, it's 300 -
+10% down in 10 years" - 330 to 300 is about 9% (10% of 300, not of 330).
+Also "750 hours. That's 15 hours a week" (750 / 52 = 14.4). The text is
+unchanged.
 
 Regenerate: python3 wordpress/post_sources/how_to_beat_people_20_years_younger_than_you.py
 """
@@ -112,7 +112,7 @@ HOURS_FIGURE = HtmlFigure(
     kicker="Training hours, from the paragraphs above",
     title="Hours of training a year",
     html=_hours(),
-    caption_html=("Numbers as the post gives them: 750 hours (&ldquo;over 14 hours a week&rdquo;) is the lowest "
+    caption_html=("Numbers as the post gives them: 750 hours (&ldquo;15 hours a week&rdquo;) is the lowest "
                   "recommended volume for a pro; 850&ndash;1000 (&ldquo;17-20 hours a week&rdquo;) is the "
                   "author&rsquo;s estimate for a top-end US domestic pro."),
     after="not someone training 200 hours a year.</p>",
@@ -156,23 +156,8 @@ IN_SHORT = (
 )
 
 
-# Figures corrected to match the post's own evidence (Matt, 2026-10-09:
-# "Yeah go ahead and fix"). wp_post applies each to the body (old text must
-# occur exactly once) and the word-for-word tests apply them to the snapshot.
-CORRECTIONS = (
-    wp_post.Correction(
-        "10% down in 10 years – 1% a year!",
-        "9% down in 10 years – about 1% a year!",
-        "330 to 300 is a 9.1% drop, 0.9% a year"),
-    wp_post.Correction(
-        "That’s 15 hours a week",
-        "That’s over 14 hours a week",
-        "750 / 52 = 14.4 hours a week (2.06 a day)"),
-)
-
-
 def render() -> str:
-    return wp_post.render_post(SOURCE, corrections=CORRECTIONS, alt=ALT, in_short=IN_SHORT, figures=(HOURS_FIGURE,),
+    return wp_post.render_post(SOURCE, alt=ALT, in_short=IN_SHORT, figures=(HOURS_FIGURE,),
                                replace={"screen-shot-2023-01-19-at-12-18-30-pm": ADAPTATIONS},
                                replace_label="Show the original chart", extra_css=CSS)
 

@@ -11,9 +11,9 @@ No infographic: the post's numbers (the Double Peak climb, training hours,
 sodium) are few and already plain in the text, and the climb's two
 descriptions disagree (below), so a chart of it would pick one.
 
-Corrected 2026-10-09 (Matt approved): CORRECTIONS below changes 11,000 ft to "nearly
-10,000" (Strava: 9,787 ft) and the final climb's "4 miles" to 4.5; each
-entry names its evidence. The page notes the correction at the end.
+Matt to read: "130 miles with 11,000 feet of climbing"; the Strava screenshot
+(the hero) shows 130.68 mi and 9,787 ft. The final climb is "4.5 miles long
+and gained 1800 feet", then "1800 feet in 4 miles". The text is unchanged.
 
 Regenerate: python3 wordpress/post_sources/i_screwed_up_belgian_waffle_ride_so_you_dont_have_to.py
 """
@@ -69,23 +69,8 @@ IN_SHORT = (
 )
 
 
-# Figures corrected to match the post's own evidence (Matt, 2026-10-09:
-# "Yeah go ahead and fix"). wp_post applies each to the body (old text must
-# occur exactly once) and the word-for-word tests apply them to the snapshot.
-CORRECTIONS = (
-    wp_post.Correction(
-        "130 miles with 11,000 feet of climbing",
-        "130 miles with nearly 10,000 feet of climbing",
-        "the Strava screenshot: 130.68 mi, 9,787 ft"),
-    wp_post.Correction(
-        "1800 feet in 4 miles",
-        "1800 feet in 4.5 miles",
-        "the post gives the final climb as 4.5 miles twice"),
-)
-
-
 def render() -> str:
-    return wp_post.render_post(SOURCE, corrections=CORRECTIONS, alt=ALT, in_short=IN_SHORT)
+    return wp_post.render_post(SOURCE, alt=ALT, in_short=IN_SHORT)
 
 
 def main() -> None:

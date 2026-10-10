@@ -76,7 +76,7 @@ def _baseline_and_skip(pid) -> tuple[str, set[str]]:
 
 def test_every_post_is_covered_and_the_lists_are_the_approved_ones():
     assert len(MODULES) == 77
-    assert len(CORRECTED) == 23
+    assert len(CORRECTED) == 12
     assert DEAD == sorted([2844, 3537, 2065, 2324, 1964, 3662, 3673])
 
 

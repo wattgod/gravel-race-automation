@@ -14,6 +14,15 @@ name: "Rankings Veracity Check (gated auto-commit)"
 #   - status (cancelled/defunct) is FLAG-ONLY — never auto-applied
 #   - Tier changes are applied (pure rubric math) but flagged loudly
 #   - Anomaly brake: >10 changed profiles → issue instead of commit
+#   - Source priority, flagship-course scope, change limits and unit checks
+#     live in scripts/veracity_guards.py (after the 2026-10-01/10-08 runs
+#     wrote a Leadville fire reroute, a Dotwatcher elevation and shorter
+#     course options onto profiles). Over-limit changes (distance/elevation
+#     >15%, score move of 2+, non-official source) never touch main: they go
+#     to a PR labelled needs-human-review with old/new/source in the body.
+#   - Derived data: the script regenerates web/race-index.json + web/jsonld
+#     after any profile edit, and the index-integrity tests gate every push.
+#     If a gate fails, the bot opens a PR instead of pushing to main.
 #   - Budget: ~$0.04/race (Haiku + <=4 web searches). 25 races weekly ≈
 #     $4-5/mo; full 757-race sweep ≈ 30 weeks.
 
@@ -37,6 +46,10 @@ on:
 permissions:
   contents: write
   issues: write
+  pull-requests: write
+
+env:
+  REVIEW_LABEL: needs-human-review
 
 jobs:
   verify:
@@ -53,14 +66,19 @@ jobs:
           cache: 'pip'
 
       - name: Install dependencies
-        run: pip install anthropic pytest
+        run: pip install anthropic pytest pyyaml
 
       - name: Verify rankings facts
+        id: verify
+        # A crash or index drift must not skip the gates below; the final
+        # step fails the job if this step failed.
+        continue-on-error: true
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
         run: |
           python scripts/verify_race_rankings.py \
             --limit "${{ inputs.limit || '25' }}" \
+            --review-queue "$RUNNER_TEMP/review_queue.json" \
             ${{ inputs.dry_run == true && '--dry-run' || '' }} \
             | tee /tmp/verify-output.txt
 
@@ -70,11 +88,18 @@ jobs:
           CHANGED=$(git diff --name-only race-data/ | wc -l | tr -d ' ')
           echo "count=$CHANGED" >> "$GITHUB_OUTPUT"
           echo "Changed profiles: $CHANGED"
+          if [ -s "$RUNNER_TEMP/review_queue.json" ]; then echo "review=true" >> "$GITHUB_OUTPUT"; fi
 
-      - name: Verification gates
+      - name: Verification gates (index integrity before any commit)
+        id: gates
         if: steps.changes.outputs.count != '0'
+        continue-on-error: true
         run: |
-          python -m pytest tests/test_verify_race_rankings.py tests/test_dates.py -q
+          python -m pytest -q \
+            tests/test_verify_race_rankings.py tests/test_veracity_guards.py \
+            tests/test_index_integrity.py tests/test_tier_integrity.py \
+            tests/test_profile_integrity.py tests/test_dates.py \
+            2>&1 | tee /tmp/gate-output.txt
           python scripts/validate_citations.py > /dev/null
 
       - name: Anomaly brake — too many changes
@@ -87,28 +112,69 @@ jobs:
             --title "Rankings veracity anomaly: ${{ steps.changes.outputs.count }} profiles changed in one run" \
             --body "$(printf 'The veracity check changed more than 10 profiles, exceeding the anomaly brake. Nothing was committed — review the run logs.\n\n```\n%s\n```' "$(cat /tmp/diffstat.txt)")"
           echo "::warning::Anomaly brake tripped — issue opened, no commit"
-          git checkout -- race-data/ data/verification/ 2>/dev/null || git checkout -- race-data/
+          git checkout -- race-data/ web/ data/verification/ 2>/dev/null || git checkout -- race-data/ web/
           exit 0
 
-      - name: Commit fixes to main (gated auto-merge)
-        if: steps.changes.outputs.count != '0' && steps.changes.outputs.count <= 10
+      - name: Commit fixes to main (gates passed)
+        if: steps.changes.outputs.count != '0' && steps.changes.outputs.count <= 10 && steps.gates.outcome == 'success'
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           git config user.name "rankings-veracity-bot"
           git config user.email "veracity@gravelgodcycling.com"
-          git add race-data/ data/verification/
+          git add race-data/ data/verification/ web/race-index.json web/jsonld/
           git commit -m "veracity: web-verified rankings fixes ($(date +%Y-%m-%d))"
-          # main moves constantly (crons, sessions) — rebase-retry the push
+          # main moves constantly (crons, sessions) — rebase-retry the push,
+          # regenerating the index on top of whatever landed meanwhile and
+          # re-running the index gate so a stale index can never reach main.
           for i in 1 2 3; do
-            git pull --rebase origin main && git push && break
+            if git pull --rebase origin main; then
+              python scripts/generate_index.py --with-jsonld > /dev/null
+              if [ -n "$(git status --porcelain web/)" ]; then
+                git add web/race-index.json web/jsonld/
+                git commit -m "veracity: regenerate race index after rebase"
+              fi
+              python -m pytest -q tests/test_index_integrity.py || exit 1
+              git push && break
+            else
+              git rebase --abort || true
+            fi
             [ "$i" = "3" ] && exit 1
             sleep 5
           done
           SUMMARY=$(grep -E "^  [a-z0-9-]+: " /tmp/verify-output.txt || echo "see run logs")
           gh issue create \
             --title "Rankings veracity: $(grep -oE '[0-9]+ with changes' /tmp/verify-output.txt || echo 'fixes') applied — $(date +%Y-%m-%d)" \
-            --body "$(printf 'Cheap-agent verification (Haiku + web search) found and fixed high-confidence factual mismatches. Criterion scores and tiers recomputed from the rubric where inputs changed. [TIER CHANGE] and [FLAG-ONLY] lines need your review.\n\n```\n%s\n```\n\nFull report: data/verification/last_run_report.json' "$SUMMARY")"
+            --body "$(printf 'Cheap-agent verification (Haiku + web search) found and fixed high-confidence factual mismatches from official sources. Criterion scores and tiers recomputed from the rubric where inputs changed. [TIER CHANGE], [REVIEW PR] and [FLAG-ONLY] lines need your review; [REVIEW PR] changes are in a separate needs-human-review PR, not on main.\n\n```\n%s\n```\n\nFull report: data/verification/last_run_report.json' "$SUMMARY")"
+
+      - name: Gates failed — open a PR instead of pushing to main
+        if: steps.changes.outputs.count != '0' && steps.changes.outputs.count <= 10 && steps.gates.outcome == 'failure'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          BRANCH="veracity/gate-failed-$(date +%Y-%m-%d)-${{ github.run_id }}"
+          git config user.name "rankings-veracity-bot"
+          git config user.email "veracity@gravelgodcycling.com"
+          git checkout -b "$BRANCH"
+          git add race-data/ data/verification/ web/race-index.json web/jsonld/
+          git commit -m "veracity: rankings fixes that FAILED gates ($(date +%Y-%m-%d))"
+          git push origin "$BRANCH"
+          gh label create "$REVIEW_LABEL" --color d93f0b --description "Bot change held for a human" --force
+          {
+            echo "The veracity bot's changes failed its own gates, so nothing was pushed to main."
+            echo
+            echo '```'
+            tail -40 /tmp/gate-output.txt 2>/dev/null || echo "see run logs"
+            echo '```'
+            echo
+            echo '```'
+            grep -E "^  [a-z0-9-]+: " /tmp/verify-output.txt || true
+            echo '```'
+          } > /tmp/gate-pr-body.md
+          gh pr create --base main --head "$BRANCH" --label "$REVIEW_LABEL" \
+            --title "veracity: gate failure — review before merge ($(date +%Y-%m-%d))" \
+            --body-file /tmp/gate-pr-body.md
+          git checkout main
 
       - name: Persist state even with no fixes
         if: steps.changes.outputs.count == '0' && inputs.dry_run != true
@@ -125,3 +191,35 @@ jobs:
             done
           fi
           echo "All checked facts confirmed."
+
+      - name: Over-limit changes — open a needs-human-review PR
+        if: steps.changes.outputs.review == 'true' && inputs.dry_run != true && steps.changes.outputs.count <= 10
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          BRANCH="veracity/review-$(date +%Y-%m-%d)-${{ github.run_id }}"
+          git config user.name "rankings-veracity-bot"
+          git config user.email "veracity@gravelgodcycling.com"
+          git fetch origin main
+          git stash --include-untracked || true
+          git checkout -B "$BRANCH" origin/main
+          python scripts/verify_race_rankings.py \
+            --apply-review-queue "$RUNNER_TEMP/review_queue.json" \
+            --pr-body /tmp/review-pr-body.md
+          if [ -z "$(git status --porcelain race-data/)" ]; then
+            echo "Review queue produced no profile changes"; exit 0
+          fi
+          python -m pytest -q tests/test_index_integrity.py tests/test_tier_integrity.py tests/test_profile_integrity.py
+          git add race-data/ web/race-index.json web/jsonld/
+          git commit -m "veracity: over-limit rankings changes for human review ($(date +%Y-%m-%d))"
+          git push origin "$BRANCH"
+          gh label create "$REVIEW_LABEL" --color d93f0b --description "Bot change held for a human" --force
+          gh pr create --base main --head "$BRANCH" --label "$REVIEW_LABEL" \
+            --title "veracity: review over-limit rankings changes ($(date +%Y-%m-%d))" \
+            --body-file /tmp/review-pr-body.md
+
+      - name: Fail the run if verification or gates failed
+        if: always() && (steps.verify.outcome == 'failure' || steps.gates.outcome == 'failure')
+        run: |
+          echo "::error::verify=${{ steps.verify.outcome }} gates=${{ steps.gates.outcome }} — nothing unsafe reached main; see PR/issue"
+          exit 1

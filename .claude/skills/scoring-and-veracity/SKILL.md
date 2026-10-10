@@ -55,6 +55,21 @@ drop can invalidate `cultural_impact` eligibility (ci>0 requires prestige>=3
 or tier<=2, enforced by `test_tier_integrity.py`) — the checker does not
 zero the bonus itself; do it manually when the tier test fires.
 
+**Guards (2026-10-10, `scripts/veracity_guards.py`)**: the 2026-10-01 and
+10-08 runs wrote Leadville's one-off 2026 Willow Fire reroute (9,916 ft) onto
+the standard course, took Nordic Chase elevation from Dotwatcher over the
+organizer and the profile's own `elevation_m`, swapped flagship distances for
+shorter options (Majka, Nordsjorittet), and never regenerated
+`web/race-index.json` (main red 9 days). Now: source priority (official site >
+official results > outlets > other > trackers; only official auto-commits,
+trackers/unknown never write, weaker never overwrites stronger); flagship
+scope (one-offs go to `verify_state.json` `one_off_notes`, never the value;
+shorter options never replace the flagship); change limits (distance/elevation
+>15% or a score move of 2+ → `needs-human-review` PR with old/new/source);
+unit check against the profile's own metric twin; the script regenerates the
+index + JSON-LD and the workflow runs `test_index_integrity.py` before any
+push, opening a PR instead of pushing when a gate fails.
+
 **War story**: rankings claims silently drifted from reality for months
 before this shipped (2026-07-04, hardened 2026-07-09) — nobody was
 re-verifying published distance/elevation/field-size against the live

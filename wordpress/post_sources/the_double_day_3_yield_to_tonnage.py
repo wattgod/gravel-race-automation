@@ -14,10 +14,12 @@ image, so the page has no hero (the converter detects this).
 
 Infographic (2026-10-09): fig-rte66-stats, the two stat panels in the
 "stats overlayed" GIF as a table, numbers exactly as the GIF shows them.
-Matt to read: the GIF shows NP 328 W vs 415 W (20:56.61 vs 18:34), while the
-text says "100 more watts than I for the same duration". The table states only
-what the GIF shows and computes nothing, and the "In short" claim about it
-gives no number (the table's gap is 87 W, the text's 100).
+Corrected 2026-10-09 (Matt approved): CORRECTIONS below changes "for the same
+duration" to "over the same course" (the GIF's efforts are the same course in
+20:56.61 vs 18:34, not the same duration); the entry names its evidence. The
+page notes the correction at the end. Left unchanged after review: "100 more
+watts" (twice, as written). The table states only what the GIF shows (NP 328 W
+vs 415 W) and the "In short" claim about it gives no number.
 
 Regenerate: python3 wordpress/post_sources/the_double_day_3_yield_to_tonnage.py
 """
@@ -101,8 +103,19 @@ RTE66_STATS = DataTable(
 )
 
 
+# Figures corrected to match the post's own evidence (Matt, 2026-10-09:
+# "Yeah go ahead and fix"). wp_post applies each to the body (old text must
+# occur exactly once) and the word-for-word tests apply them to the snapshot.
+CORRECTIONS = (
+    wp_post.Correction(
+        "100 more watts than I for the same duration.",
+        "100 more watts than I over the same course.",
+        "GIF (bufz-doge-fuchs): 20:56.61 vs 18:34 on the same ~9.1 mi course, so not the same duration"),
+)
+
+
 def render() -> str:
-    return wp_post.render_post(SOURCE, alt=ALT, in_short=IN_SHORT, figures=(RTE66_STATS,),
+    return wp_post.render_post(SOURCE, corrections=CORRECTIONS, alt=ALT, in_short=IN_SHORT, figures=(RTE66_STATS,),
                                after_image={"rte66-stats": "bufz-doge-fuchs"}, description=DESCRIPTION)
 
 

@@ -68,7 +68,7 @@ def _baseline(pid) -> str:
 
 @pytest.mark.parametrize("pid", POSTS)
 def test_body_text_is_word_for_word(pid):
-    diff = imp.text_diff(_baseline(pid), _page(pid), POSTS[pid][1])
+    diff = imp.text_diff(wp_post.corrected_baseline(_baseline(pid), getattr(_module(pid), "CORRECTIONS", ())), _page(pid), POSTS[pid][1])
     assert diff == [], "\n".join(diff[:80])
 
 

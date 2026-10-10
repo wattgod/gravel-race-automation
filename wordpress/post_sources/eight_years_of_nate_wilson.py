@@ -15,10 +15,9 @@ is unchanged. The one approved comment renders as a read-only archive.
 Infographic (2026-10-09): fig-road-to-cat-1, the years the post names from
 2013 to 2019 as a table. Every quote is the post's; nothing is computed.
 
-Matt to read: the post's workout description ("4x10min that are 40 sec @
-420-480, 20 sec easy, 9min steady @ 320-340" and "1x4min vo2 @ 400-440") does
-not match the screenshots it follows ("3x10min that are 2min @ 400-420, 8min @
-320-340" and "1x4min vo2 @ 400-430").
+Corrected 2026-10-09 (Matt approved): CORRECTIONS below changes the workout details to
+what the screenshots above them say; each
+entry names its evidence. The page notes the correction at the end.
 
 Regenerate: python3 wordpress/post_sources/eight_years_of_nate_wilson.py
 """
@@ -117,9 +116,24 @@ def _anchored(body: str) -> str:
     return body
 
 
+# Figures corrected to match the post's own evidence (Matt, 2026-10-09:
+# "Yeah go ahead and fix"). wp_post applies each to the body (old text must
+# occur exactly once) and the word-for-word tests apply them to the snapshot.
+CORRECTIONS = (
+    wp_post.Correction(
+        "4x10min that are 40 sec @ 420-480, 20 sec easy, 9min steady @ 320-340?",
+        "3x10min that are 2min @ 400-420, 8min steady @ 320-340?",
+        "the workout screenshot above (14-05-27) reads \"3x10min that are 2min @ 400-420, 8min @ 320-340\""),
+    wp_post.Correction(
+        "1x4min vo2 @ 400-440?",
+        "1x4min vo2 @ 400-430?",
+        "the workout screenshot above (14-03-19) reads \"1x4min vo2 @ 400-430\""),
+)
+
+
 def render() -> str:
     src = dataclasses.replace(SOURCE, body=_anchored(SOURCE.body))
-    return wp_post.render_post(src, alt=ALT, in_short=IN_SHORT, figures=(ROAD_TO_CAT_1,), extra_css=CSS, title=TITLE)
+    return wp_post.render_post(src, corrections=CORRECTIONS, alt=ALT, in_short=IN_SHORT, figures=(ROAD_TO_CAT_1,), extra_css=CSS, title=TITLE)
 
 
 def main() -> None:

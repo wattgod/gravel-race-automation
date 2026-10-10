@@ -9,9 +9,11 @@ DESCRIPTION replaces the live meta description, which describes "a 13-day stage
 race experiment. Two races, two weeks, one question: is this even possible?";
 the post says none of that. It is the Highland Circuit Race and a 123/162 finish.
 
-No infographic: the post states few numbers. Matt to read: the post says "20
-laps of a 5-mile circuit" (100 miles), while the Strava and TrainingPeaks
-screenshots show 60.15 mi / 60.2 mi for the day.
+No infographic: the post states few numbers.
+
+Corrected 2026-10-09 (Matt approved): CORRECTIONS below changes the "5-mile circuit" to 3
+(20 laps; Strava 60.15 mi; the official stage was 58.1 mi); each
+entry names its evidence. The page notes the correction at the end.
 
 Regenerate: python3 wordpress/post_sources/the_double_day_1.py
 """
@@ -49,8 +51,19 @@ IN_SHORT = (
 )
 
 
+# Figures corrected to match the post's own evidence (Matt, 2026-10-09:
+# "Yeah go ahead and fix"). wp_post applies each to the body (old text must
+# occur exactly once) and the word-for-word tests apply them to the snapshot.
+CORRECTIONS = (
+    wp_post.Correction(
+        "20 laps of a 5-mile circuit",
+        "20 laps of a 3-mile circuit",
+        "Strava (day-1) shows 60.15 mi for the day; the race's men's stage was 20 laps, 58.1 mi (about 2.9 mi a lap)"),
+)
+
+
 def render() -> str:
-    return wp_post.render_post(SOURCE, alt=ALT, in_short=IN_SHORT, description=DESCRIPTION)
+    return wp_post.render_post(SOURCE, corrections=CORRECTIONS, alt=ALT, in_short=IN_SHORT, description=DESCRIPTION)
 
 
 def main() -> None:

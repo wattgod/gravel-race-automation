@@ -13,9 +13,10 @@ DESCRIPTION replaces the live meta description ("short, fast, and chaotic.
 What happens when stage racers try to sprint"): the post is about riding at the
 back of a 90-minute crit and finishing in the bunch, not about sprinting.
 
-Matt to read (minor): the text describes laps "at 29 mph for 90 minutes"; the
-Strava screenshot shows 48.98 mi at 24.6 mi/h average over 1:59:25 moving
-(likely including riding to and from the course).
+Checked 2026-10-09, left unchanged: the text describes laps "at 29 mph for 90
+minutes"; the Strava screenshot shows 48.98 mi at 24.6 mi/h over 1:59:25 moving,
+riding to and from the course included. The race was 40 laps, 43.2 mi: 90
+minutes at 29 mph is 43.5 mi, so the text holds.
 
 No infographic: the post states no data worth charting.
 

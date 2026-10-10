@@ -493,17 +493,6 @@ h2[id],h3[id],[data-slot],figure[id]{scroll-margin-top:72px}
 @media (max-width:640px){.article .gg-pullquote{padding:0 18px}.article .gg-pullquote blockquote{font-size:26px}}
 
 
-/* click-to-load YouTube: thumbnail + play until clicked, then a youtube-nocookie iframe */
-.gg-yt{margin:0 0 28px}
-.gg-yt-link{position:relative;display:block;aspect-ratio:16/9;background:var(--hole);overflow:hidden}
-.gg-yt-link img{display:block;width:100%;height:100%;object-fit:cover}
-.gg-yt-play{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);padding:12px 22px;
-  background:var(--ink);color:var(--paper);font:700 14px var(--mono);letter-spacing:.12em;text-transform:uppercase;
-  clip-path:var(--chamfer)}
-.gg-yt-link:hover .gg-yt-play,.gg-yt-link:focus-visible .gg-yt-play{background:var(--teal-ink)}
-.gg-yt-frame{display:block;width:100%;height:auto;aspect-ratio:16/9;border:0}
-
-
 /* comments: read-only archive */
 .gg-comments{margin:72px 0 0}
 .gg-comments h2{font-size:28px;margin:0 0 8px}
@@ -763,7 +752,6 @@ h2[id],h3[id],[data-slot],figure[id]{scroll-margin-top:72px}
 <p>We didn’t say much. We watched young love walk by, maskless laughter, the roaring June stars above this nothing, everything town, and all my cares fell aside to the demands of tacos, suds, and surrender.</p>
 <p>I knew that tomorrow we’d awake and press that pedal down and strain the RVs 350 to the breaking against the plains, exchange short words, and slowly the world would creep back in with its demands.</p>
 <p>But for now, I was empty and happy and filled with something I’d call life.</p>
-<figure class="gg-yt"><a class="gg-yt-link" href="https://www.youtube.com/watch?v=laCYM4ZpcBQ" data-yt="laCYM4ZpcBQ" data-start="0" aria-label="Play video (loads YouTube)"><img src="https://i.ytimg.com/vi/laCYM4ZpcBQ/hqdefault.jpg" alt="" width="480" height="360" loading="lazy" decoding="async"><span class="gg-yt-play" data-gg-chrome aria-hidden="true">Play</span></a></figure>
 </section>
 <section class="gg-blog-section">
 <h2 id="how-to-unbound-gravel-200" data-toc>How to Unbound Gravel 200</h2>
@@ -1172,26 +1160,6 @@ h2[id],h3[id],[data-slot],figure[id]{scroll-margin-top:72px}
     });
   });
 })();
-</script>
-<script>
-  // Click-to-load YouTube: no third-party request until the reader asks for the video.
-  (function() {
-    document.addEventListener('click', function(e) {
-      var a = e.target.closest ? e.target.closest('a.gg-yt-link') : null;
-      if (!a) return;
-      e.preventDefault();
-      var f = document.createElement('iframe');
-      var start = parseInt(a.getAttribute('data-start'), 10) || 0;
-      f.src = 'https://www.youtube-nocookie.com/embed/' + encodeURIComponent(a.getAttribute('data-yt')) +
-        '?autoplay=1' + (start ? '&start=' + start : '');
-      f.title = a.getAttribute('aria-label') || 'YouTube video';
-      f.allow = 'accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture';
-      f.allowFullscreen = true;
-      f.className = 'gg-yt-frame';
-      a.parentNode.replaceChild(f, a);
-      f.focus();
-    });
-  })();
 </script>
 <script>
   // Article-specific GA4 events

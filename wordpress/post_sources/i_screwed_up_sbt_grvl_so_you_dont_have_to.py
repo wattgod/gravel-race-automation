@@ -112,9 +112,17 @@ def _anchored(body: str) -> str:
     return body
 
 
+# Dead YouTube embeds (YouTube returns 404 for them, checked 2026-10-09): left
+# out of the page. The converter still writes them into the body; delete an
+# entry here to restore the click-to-load figure where it sat.
+DEAD_YOUTUBE = {
+    "LYJ0QGV0Sco": "after the washboard-gravel paragraph (\"But now? Jesus Christ...\")",
+}
+
+
 def render() -> str:
     src = dataclasses.replace(SOURCE, body=_anchored(SOURCE.body))
-    return wp_post.render_post(src, alt=ALT, in_short=IN_SHORT, figures=(SODIUM_TABLE,), extra_css=CSS,
+    return wp_post.render_post(src, dead_youtube=DEAD_YOUTUBE, alt=ALT, in_short=IN_SHORT, figures=(SODIUM_TABLE,), extra_css=CSS,
                                description=DESCRIPTION)
 
 

@@ -75,13 +75,15 @@ def _baseline(pid) -> str:
 
 @pytest.mark.parametrize("pid", POSTS)
 def test_body_text_is_word_for_word(pid):
-    diff = imp.text_diff(_baseline(pid), _page(pid), POSTS[pid][1])
+    diff = imp.text_diff(wp_post.corrected_baseline(_baseline(pid), getattr(_module(pid), "CORRECTIONS", ())), _page(pid), POSTS[pid][1])
     assert diff == [], "\n".join(diff[:80])
 
 
 def test_3520_glue_is_only_a_block_boundary():
-    """Unpatched, the one difference is the glued token, split at the nested list."""
-    diff = imp.text_diff((FIXTURES / "3520.txt").read_text(encoding="utf-8"), _page(3520))
+    """Unpatched (bar the module's CORRECTIONS), the one difference is the glued
+    token, split at the nested list."""
+    raw = (FIXTURES / "3520.txt").read_text(encoding="utf-8")
+    diff = imp.text_diff(wp_post.corrected_baseline(raw, _module(3520).CORRECTIONS), _page(3520))
     assert [d for d in diff if d[:1] in "+-" and d[:3] not in ("---", "+++")] == [
         "-will:Compliment", "+will:", "+Compliment"]
     assert "people will:<ol>" in _module(3520).SOURCE.body
@@ -238,12 +240,12 @@ def test_rgg_race_figure_uses_the_posts_miles():
 
 def test_killer_math_table_is_the_posts_numbers():
     m = _module(3811)
-    body = m.SOURCE.body
+    body = wp_post.apply_corrections(m.SOURCE.body, m.CORRECTIONS)  # +179 -> +178 (2026-10-09)
     for row in m.KILLER_MATH.rows:
         for cell in row.cells[1:]:
             v = cell.html.replace("&minus;", "-")
             assert v.lstrip("+-") in body, v
-    for v in ("+2.10", "+3.31", "+500", "+179", "Starting total: -1", "New total: 0", "New total: +1"):
+    for v in ("+2.10", "+3.31", "+500", "+178", "Starting total: -1", "New total: 0", "New total: +1"):
         assert v in body, v
 
 

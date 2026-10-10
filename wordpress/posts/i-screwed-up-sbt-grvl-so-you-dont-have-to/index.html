@@ -493,17 +493,6 @@ h2[id],h3[id],[data-slot],figure[id]{scroll-margin-top:72px}
 @media (max-width:640px){.article .gg-pullquote{padding:0 18px}.article .gg-pullquote blockquote{font-size:26px}}
 
 
-/* click-to-load YouTube: thumbnail + play until clicked, then a youtube-nocookie iframe */
-.gg-yt{margin:0 0 28px}
-.gg-yt-link{position:relative;display:block;aspect-ratio:16/9;background:var(--hole);overflow:hidden}
-.gg-yt-link img{display:block;width:100%;height:100%;object-fit:cover}
-.gg-yt-play{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);padding:12px 22px;
-  background:var(--ink);color:var(--paper);font:700 14px var(--mono);letter-spacing:.12em;text-transform:uppercase;
-  clip-path:var(--chamfer)}
-.gg-yt-link:hover .gg-yt-play,.gg-yt-link:focus-visible .gg-yt-play{background:var(--teal-ink)}
-.gg-yt-frame{display:block;width:100%;height:auto;aspect-ratio:16/9;border:0}
-
-
 /* call to action (was an Elementor CTA): the sand aside, title + text + plain link */
 .gg-cta .gg-cta-title{font:700 24px/1.2 var(--serif);margin:0 0 10px}
 .gg-cta .gg-cta-title strong{font-weight:inherit}
@@ -647,7 +636,6 @@ h2[id],h3[id],[data-slot],figure[id]{scroll-margin-top:72px}
 <p>So after wrecking three days before SBT GRVL and entering the race with lacerated hands, ass cheeks, and a ripped-up face, I wasn’t feeling bullish even by my standards. Lord knows, then, why I chose a tire width and tread pattern more befitting a downhill mountain biker than a hapless roadie.</p>
 <p>Early this year, I rode Steamboat Roubaix, which featured some of the same roads. I did that on 25 mm tires, which was a bold move. But it was spring, and Steamboat had a lot of moisture, and even if I was puckered at the time, I survived and pulled down a decent result.</p>
 <p>But now? Jesus Christ. The drought in the west is real, and most of these gravel roads were a loosely packed nightmare of washboard gravel. Every gravel downhill, I felt less like I was riding a bike and more like I was surfing on some kind of hell wave where if my concentration wavered even slightly, the consequence wasn’t that I was falling into the water, but gravel at 25 mph.</p>
-<figure class="gg-yt"><a class="gg-yt-link" href="https://www.youtube.com/watch?v=LYJ0QGV0Sco" data-yt="LYJ0QGV0Sco" data-start="0" aria-label="Play video (loads YouTube)"><img src="https://i.ytimg.com/vi/LYJ0QGV0Sco/hqdefault.jpg" alt="" width="480" height="360" loading="lazy" decoding="async"><span class="gg-yt-play" data-gg-chrome aria-hidden="true">Play</span></a></figure>
 <p>That could have been fine for 50 miles, but 140? As the race progressed, my anxiety grew. Every time I hit another extended screaming downhill of washed-out gravel, my panic increased. I kept replaying my crash over and over. My forearms burned from grabbing brakes when I didn’t need to. I puckered so long my pucker got tired.</p>
 <p>I tried to be daring. I did. But then my front tire would bolt underneath me like a wild animal, and I felt the sickening shift of my gravity start to slide toward oblivion only to catch myself barely. My nerves shredded, and I contemplated pulling, but two things saved me.</p>
 <p>First, I randomly found myself in a group with <a href="https://www.strava.com/athletes/179631#interval?interval=202132&amp;interval_type=week&amp;chart_type=miles&amp;year_offset=0" target="_blank" rel="noopener">Andy Johnson</a>. Andy knew me from my younger days when I barely knew how to inflate my tires. Still, he took me onto his team anyway and watched me inexplicably power my considerable nordic bulk over climbs and rise swiftly through the early categories of road racing. I hadn’t talked to him in ages.</p>
@@ -1071,26 +1059,6 @@ h2[id],h3[id],[data-slot],figure[id]{scroll-margin-top:72px}
     });
   });
 })();
-</script>
-<script>
-  // Click-to-load YouTube: no third-party request until the reader asks for the video.
-  (function() {
-    document.addEventListener('click', function(e) {
-      var a = e.target.closest ? e.target.closest('a.gg-yt-link') : null;
-      if (!a) return;
-      e.preventDefault();
-      var f = document.createElement('iframe');
-      var start = parseInt(a.getAttribute('data-start'), 10) || 0;
-      f.src = 'https://www.youtube-nocookie.com/embed/' + encodeURIComponent(a.getAttribute('data-yt')) +
-        '?autoplay=1' + (start ? '&start=' + start : '');
-      f.title = a.getAttribute('aria-label') || 'YouTube video';
-      f.allow = 'accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture';
-      f.allowFullscreen = true;
-      f.className = 'gg-yt-frame';
-      a.parentNode.replaceChild(f, a);
-      f.focus();
-    });
-  })();
 </script>
 <script>
   // Article-specific GA4 events

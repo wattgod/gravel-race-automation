@@ -31,6 +31,16 @@ without pull quotes / galleries / videos / comments gets none of the CSS/JS):
     title without its " | Gravel God" suffix), only when the live title misstates
     the post (e.g. "Eight Years of Coaching Nate": Nate coached the author).
     Must keep the site's "... | Gravel God" pattern. The h1 and slug never change.
+  - `corrections=`: a post's own figures corrected to match its own evidence
+    (Matt, 2026-10-09). Each Correction is (exact old text, new text, reason);
+    the old text must occur exactly once in the body. A corrected post gets
+    CORRECTION_NOTE at the end of the body and CORRECTED_MODIFIED as its
+    article:modified_time / dateModified. The word-for-word tests apply the
+    same corrections to the snapshot (corrected_baseline), so any other drift
+    still fails.
+  - `dead_youtube=`: {video id: where it sat} for embeds YouTube no longer
+    serves (404); the whole click-to-load figure is left out of the page. The
+    module keeps the record so a video can be restored.
 
 "In short" rule (Matt, 2026-10-09: "matter of fact in a claude voice"). Every
 post module's IN_SHORT follows it; render_post raises on what can be linted
@@ -54,7 +64,7 @@ import re
 from dataclasses import dataclass
 from datetime import date, datetime
 from pathlib import Path
-from typing import Mapping, Sequence
+from typing import Mapping, NamedTuple, Sequence
 from zoneinfo import ZoneInfo
 
 import editorial_shell as es
@@ -89,6 +99,60 @@ IN_SHORT_MIN_CLAIMS = 2
 IN_SHORT_MAX_CLAIMS = 4
 IN_SHORT_MAX_WORDS = 25
 FIRST_PERSON_RE = re.compile(r"\b(?:I|me|my|mine|we|us|our|ours)\b", re.I)
+
+
+# Figure corrections (Matt, 2026-10-09: "Yeah go ahead and fix").
+CORRECTED_MODIFIED = "2026-10-09T00:00:00-06:00"
+CORRECTION_NOTE = "Some figures in this post were corrected on October 9, 2026."
+
+
+class Correction(NamedTuple):
+    """One factual fix to a post's own text: `old` occurs exactly once in the
+    body and becomes `new`; `why` is the evidence (screenshot, arithmetic)."""
+    old: str
+    new: str
+    why: str
+
+
+def apply_corrections(body: str, corrections: Sequence[Correction]) -> str:
+    for c in corrections:
+        c = Correction(*c)
+        if not c.why.strip() or c.old == c.new:
+            raise ValueError(f"correction {c.old[:60]!r}: needs a reason and a change")
+        n = body.count(c.old)
+        if n != 1:
+            raise ValueError(f"correction {c.old[:60]!r} found {n} times in the body, expected once")
+        body = body.replace(c.old, c.new, 1)
+    return body
+
+
+def corrected_baseline(text: str, corrections: Sequence[Correction]) -> str:
+    """The snapshot text with the same corrections applied, compared word for
+    word (whitespace-normalized), so the corrections are the only allowed drift.
+    Raises when an old text isn't in the snapshot exactly once."""
+    out = " ".join(text.replace("\u200b", " ").split())
+    for c in corrections:
+        c = Correction(*c)
+        old, new = " ".join(c.old.split()), " ".join(c.new.split())
+        n = out.count(old)
+        if n != 1:
+            raise ValueError(f"correction {old[:60]!r} found {n} times in the snapshot, expected once")
+        out = out.replace(old, new, 1)
+    return out
+
+
+YT_FIGURE_RE = r'<figure class="gg-yt"><a class="gg-yt-link" [^>]*data-yt="{vid}"[^>]*>.*?</figure>\n?'
+
+
+def drop_youtube(body: str, dead: Mapping[str, str]) -> str:
+    """Leave out each dead click-to-load YouTube figure (exactly one per id)."""
+    for vid in dead:
+        pat = re.compile(YT_FIGURE_RE.format(vid=re.escape(vid)), re.S)
+        n = len(pat.findall(body))
+        if n != 1:
+            raise ValueError(f"dead_youtube: {vid} found {n} times, expected once")
+        body = pat.sub("", body, count=1)
+    return body
 
 
 @dataclass(frozen=True)
@@ -315,10 +379,11 @@ def og_image(src: PostSource) -> OgImage | None:
     return OgImage(live["url"], live.get("width"), live.get("height")) if live.get("url") else None
 
 
-def article_time_meta(src: PostSource) -> str:
+def article_time_meta(src: PostSource, modified: str | None = None) -> str:
     """article:published_time / article:modified_time, as the live page's head
-    has them (the live ISO timestamps, unchanged)."""
-    live = src.data["live"]
+    has them (the live ISO timestamps, unchanged), except `modified` when the
+    post was corrected."""
+    live = {**src.data["live"], **({"modified": modified} if modified else {})}
     tags = [f'  <meta property="article:{k}_time" content="{es.esc(live[v])}">'
             for k, v in (("published", "published"), ("modified", "modified")) if live.get(v)]
     return "\n".join(tags)
@@ -333,7 +398,8 @@ def _checked_title(title: str | None) -> str | None:
     return title
 
 
-def article_ld(src: PostSource, description: str | None = None, title: str | None = None) -> dict:
+def article_ld(src: PostSource, description: str | None = None, title: str | None = None,
+               modified: str | None = None) -> dict:
     live = src.data["live"]
     ld = {
         "@context": "https://schema.org",
@@ -341,7 +407,7 @@ def article_ld(src: PostSource, description: str | None = None, title: str | Non
         "headline": _checked_title(title)[: -len(TITLE_SUFFIX)] if title else live["headline"],
         "description": description or live["description"],
         "datePublished": live["published"],
-        "dateModified": live["modified"],
+        "dateModified": modified or live["modified"],
         "author": {"@type": "Person", "name": live.get("author") or "Matti Rowe", "url": SITE},
         "publisher": {"@type": "Organization", "name": "Gravel God", "url": SITE},
         "mainEntityOfPage": src.url,
@@ -352,7 +418,8 @@ def article_ld(src: PostSource, description: str | None = None, title: str | Non
 
 
 def build_meta(src: PostSource, *, hero: HeroImage | None, kicker: str | None = None, dek: str = "",
-               description: str | None = None, title: str | None = None) -> ArticleMeta:
+               description: str | None = None, title: str | None = None,
+               modified: str | None = None) -> ArticleMeta:
     """`description` replaces the live description (meta, og, JSON-LD) when set;
     `title` the live title (<title>, og:title, JSON-LD headline)."""
     live = src.data["live"]
@@ -373,7 +440,7 @@ def build_meta(src: PostSource, *, hero: HeroImage | None, kicker: str | None = 
         byline=live.get("author") or "Gravel God",
         robots=robots,
         hero=hero,
-        json_ld=(article_ld(src, description, title),),
+        json_ld=(article_ld(src, description, title, modified),),
     )
 
 
@@ -392,6 +459,8 @@ def render_post(
     in_short_on_phone: es.InShortOnPhone = "first",
     description: str | None = None,
     title: str | None = None,
+    corrections: Sequence[Correction] = (),
+    dead_youtube: Mapping[str, str] | None = None,
 ) -> str:
     """The full page. `alt` must cover every image (raises otherwise).
     `figures`: extra shell figures (SvgFigure / DataTable / EssayFigure) placed by
@@ -400,7 +469,10 @@ def render_post(
     image's place and the image moves into a <details> under it.
     `in_short` must pass in_short_problems (the "In short" rule; empty = none).
     `description`: a corrected meta description (default: the live one).
-    `title`: a corrected "... | Gravel God" title (default: the live one)."""
+    `title`: a corrected "... | Gravel God" title (default: the live one).
+    `corrections`: Correction(old, new, why) fixes to the post's own figures;
+    adds CORRECTION_NOTE and bumps the modified date. `dead_youtube`: {id:
+    where it sat} embeds to leave out (see the module docstring)."""
     data = src.data
     replace = dict(replace or {})
     after_image = dict(after_image or {})
@@ -417,7 +489,11 @@ def render_post(
         if problems:
             raise ValueError("in_short: " + "; ".join(problems))
 
-    body = src.body
+    body = apply_corrections(src.body, corrections)
+    if dead_youtube:
+        body = drop_youtube(body, dead_youtube)
+    if corrections:
+        body = body.rstrip() + f'\n<p class="gg-corrected" data-gg-added>{es.esc(CORRECTION_NOTE)}</p>\n'
     for marker, image in after_image.items():
         tag = f"<!--GG:FIGURE {image}-->"
         if body.count(tag) != 1:
@@ -488,10 +564,13 @@ def render_post(
         css.append(PRICE_TABLE_CSS)
     if "gg-cta" in body:
         css.append(CTA_CSS)
+    if 'class="gg-corrected"' in body:
+        css.append(CORRECTED_CSS)
     if not hero and not shell_figures and "gg-gallery" in body:
         css.insert(0, es.ESSAY_CSS)  # the shell adds it only with figures or a hero picture
 
-    meta = build_meta(src, hero=hero, kicker=kicker, description=description, title=title)
+    modified = CORRECTED_MODIFIED if corrections else None
+    meta = build_meta(src, hero=hero, kicker=kicker, description=description, title=title, modified=modified)
     sections = len(es.add_heading_ids(body)[1])
     return render_editorial_page(
         meta,
@@ -502,7 +581,7 @@ def render_post(
         contents=sections >= MIN_CONTENTS_SECTIONS,
         figures=shell_figures,
         extra_css="\n".join(css + ([extra_css] if extra_css else [])),
-        extra_head=article_time_meta(src),
+        extra_head=article_time_meta(src, modified),
         extra_body_end="\n".join(js + ([extra_body_end] if extra_body_end else [])),
     )
 
@@ -614,6 +693,11 @@ CTA_CSS = """
 .gg-cta .gg-cta-title{font:700 24px/1.2 var(--serif);margin:0 0 10px}
 .gg-cta .gg-cta-title strong{font-weight:inherit}
 .gg-cta .gg-cta-ribbon{font:400 14px/1.5 var(--mono);color:var(--ink3)}
+"""
+
+CORRECTED_CSS = """
+/* one neutral line at the end of a corrected post */
+.article .gg-corrected{margin:40px 0 0;font:400 14px/1.5 var(--mono);color:var(--ink3)}
 """
 
 HTMLFIG_CSS = """

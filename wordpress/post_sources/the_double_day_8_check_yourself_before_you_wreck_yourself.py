@@ -11,8 +11,9 @@ the body makes that decision for you. Ego management in real time"): the title
 quote is a driver telling the author off at an intersection, and the post is
 his best UCI result, 24th on Gila stage 1, plus bedtime with his son.
 
-No infographic. Matt to read: the post calls the stage "90 miles", while both
-screenshots show 101.75 mi (Strava) / 102 mi (TrainingPeaks).
+No infographic. Checked 2026-10-09, left unchanged: the post calls the stage "90 miles";
+the screenshots show 101.75 mi (Strava) / 102 mi (TrainingPeaks), but the
+official stage 1 is 92 mi (148 km) and the file includes riding to the start.
 
 Regenerate: python3 wordpress/post_sources/the_double_day_8_check_yourself_before_you_wreck_yourself.py
 """

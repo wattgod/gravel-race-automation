@@ -52,8 +52,16 @@ IN_SHORT = (
 )
 
 
+# Dead YouTube embeds (YouTube returns 404 for them, checked 2026-10-09): left
+# out of the page. The converter still writes them into the body; delete an
+# entry here to restore the click-to-load figure where it sat.
+DEAD_YOUTUBE = {
+    "WKxpd7ANy8k": "end of the last section, after the cooper-cheesin photo",
+}
+
+
 def render() -> str:
-    return wp_post.render_post(SOURCE, alt=ALT, in_short=IN_SHORT, description=DESCRIPTION)
+    return wp_post.render_post(SOURCE, dead_youtube=DEAD_YOUTUBE, alt=ALT, in_short=IN_SHORT, description=DESCRIPTION)
 
 
 def main() -> None:

@@ -9,9 +9,11 @@ person).
 The live meta description is kept (it matches the post). The repeated
 "Stalk and Arrange" paragraphs are in the WordPress post itself and stay.
 No infographic.
-Matt to read: the text describes "a collage with five squares" with one larger
-square in the middle, but the poster image shows nine round avatars in a 3x3
-grid.
+Checked 2026-10-09, left unchanged: the text tells the reader to make "a
+collage with five squares" with one larger square in the middle, and the
+poster image at the top shows nine round avatars in a 3x3 grid. The text is
+instructions, not a description of that image, and agrees with itself ("The
+other four faces"); the paragraph also appears twice on the live page.
 
 Regenerate: python3 wordpress/post_sources/maybe_a_hate_poster_is_what_youve_been_missing.py
 """

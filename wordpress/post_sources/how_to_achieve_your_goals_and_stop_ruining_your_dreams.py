@@ -16,9 +16,10 @@ weight_points.json there): 147 visible markers, plus the 169.1 lb end point the
 chart's own tooltip labels (its marker sits under the tooltip). A few markers
 hidden by the cartoon, the speech bubble and the tooltips are left out. The GIF
 stays in place above the redraw.
-Matt to read: the chart labels 169.1 lb on Mon, 3/26/2018; the text says
-"169.1 pounds by early March" and "lose 18 pounds in four months"
-(186.5 - 169.1 = 17.4). The figure shows the chart's values and computes nothing.
+Corrected 2026-10-09 (Matt approved): CORRECTIONS below changes "early March"
+to "late March" (the chart labels 169.1 lb on Mon, 3/26/2018); the entry names
+its evidence. The page notes the correction at the end. Left unchanged after
+review: "18 pounds" (twice).
 
 Regenerate: python3 wordpress/post_sources/how_to_achieve_your_goals_and_stop_ruining_your_dreams.py
 """
@@ -146,8 +147,19 @@ CSS = """
 """
 
 
+# Figures corrected to match the post's own evidence (Matt, 2026-10-09:
+# "Yeah go ahead and fix"). wp_post applies each to the body (old text must
+# occur exactly once) and the word-for-word tests apply them to the snapshot.
+CORRECTIONS = (
+    wp_post.Correction(
+        "169.1 pounds by early March",
+        "169.1 pounds by late March",
+        "the chart labels 169.1 lb on Mon, 3/26/2018"),
+)
+
+
 def render() -> str:
-    return wp_post.render_post(SOURCE, alt=ALT, in_short=IN_SHORT, figures=(WEIGHT_FIGURE,),
+    return wp_post.render_post(SOURCE, corrections=CORRECTIONS, alt=ALT, in_short=IN_SHORT, figures=(WEIGHT_FIGURE,),
                                after_image={"weight-chart": "all-i-had-for-breakfast-was-a-big-gust-of-wind"},
                                extra_css=CSS)
 

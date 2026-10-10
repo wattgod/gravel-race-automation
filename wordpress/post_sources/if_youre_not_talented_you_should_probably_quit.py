@@ -9,12 +9,13 @@ GIFs ("The Great Dane 2018" and "The Great Dane 2021") side by side. Every numbe
 is printed in the GIFs (and transcribed in their alt text); the change column
 holds only the changes the 2021 GIF itself prints (+50 watts, +56 watts, -20 lbs).
 The 5 sec and 60 min bars carry no watt label in either GIF, so they are left out.
-Matt to read: the text says "In two years" for the +56 W over 2 hours, while the
-GIFs are labelled 2018 and 2021 (and "We've worked together for three years").
+Corrected 2026-10-09 (Matt approved; CORRECTIONS below): "In two years" now
+reads "In three years" (the GIFs are labelled 2018 and 2021, and "We've worked
+together for three years").
 
-The drawn Gaimon slide (dont-quit-your-day-job-8) says 475 watts; the book
-excerpt above it (dont-quit-your-day-job-7) says 465. Both alts transcribe the
-image as it is.
+Left unchanged: the drawn Gaimon slide (dont-quit-your-day-job-8) says 475
+watts, the book excerpt above it (dont-quit-your-day-job-7) says 465. Both are
+images, not text; both alts transcribe the image as it is.
 
 DESCRIPTION replaces the live meta description ("consistency beats ability
 every time"); the post says talent is real and argues that no test shows a
@@ -106,8 +107,19 @@ DANE_TABLE = DataTable(
 )
 
 
+# Figures corrected to match the post's own evidence (Matt, 2026-10-09:
+# "Yeah go ahead and fix"). wp_post applies each to the body (old text must
+# occur exactly once) and the word-for-word tests apply them to the snapshot.
+CORRECTIONS = (
+    wp_post.Correction(
+        "In two years, the Great Dane",
+        "In three years, the Great Dane",
+        "the GIFs compared are labelled 2018 and 2021; the post says they have worked together three years"),
+)
+
+
 def render() -> str:
-    return wp_post.render_post(SOURCE, alt=ALT, in_short=IN_SHORT, figures=(DANE_TABLE,),
+    return wp_post.render_post(SOURCE, corrections=CORRECTIONS, alt=ALT, in_short=IN_SHORT, figures=(DANE_TABLE,),
                                after_image={"great-dane-table": "the-great-dane-2018-5"}, description=DESCRIPTION)
 
 

@@ -97,9 +97,17 @@ DESCRIPTION = ("The 2023 Red Granite Grinder: a long two-man breakaway with Pete
                "lost by one second in the sprint, and a rival's broken wheel.")
 
 
+# Dead YouTube embeds (YouTube returns 404 for them, checked 2026-10-09): left
+# out of the page. The converter still writes them into the body; delete an
+# entry here to restore the click-to-load figure where it sat.
+DEAD_YOUTUBE = {
+    "JEvc9KtautY": "after Forest's bell-pepper quote, before the Era restaurant breakfast order",
+}
+
+
 def render() -> str:
     src = dataclasses.replace(SOURCE, body=_anchored(SOURCE.body))
-    return wp_post.render_post(src, alt=ALT, in_short=IN_SHORT, description=DESCRIPTION)
+    return wp_post.render_post(src, dead_youtube=DEAD_YOUTUBE, alt=ALT, in_short=IN_SHORT, description=DESCRIPTION)
 
 
 def main() -> None:

@@ -27,15 +27,26 @@ right above it.
 No tire Crr chart to restore: "Take a look." has no image or link in the live
 page or in either archived capture (May 2023, July 2024).
 
-Matt to read (archived values kept verbatim, not fixed):
-- "26;47" (~12:30 finisher, 7%): a semicolon for a colon.
-- "37:18:00" and "50:47:00" (Combined, average rider): spreadsheet h:mm:ss
-  artifacts for 37:18 and 50:47.
-- Aero Skinsuit: 20 W for $200 is $10/watt, the table says "$100/watt".
-- The list is introduced as "sorted by dollars/watt" but is not sorted.
-- Combined totals don't add up: average rider 8:24 + 7:21 + 1:19 = 17:04
-  (table: 14:28); 14:28 + 37:18 = 51:46 (table: 50:47); elite
-  10:10 + 25:25 = 35:35 (table: 35:00).
+Table corrections (Matt, 2026-10-09, approved): the archived cells stay
+verbatim in the tables below; RESTORED_CORRECTIONS fixes the archive's own
+errors at render time (wp_post.correct_table) and the page carries the
+correction note:
+- "26;47" (~12:30 finisher, 7%) -> "26:47": a semicolon for a colon.
+- "37:18:00" / "50:47:00" (Combined, average rider) -> "37:18" / "50:47":
+  spreadsheet h:mm:ss artifacts.
+- Aero Skinsuit "$100/watt" -> "$10/watt": $200 / 20 W. Every other row's
+  $/watt is its cost / watts.
+- The list is introduced as "sorted by dollars/watt" but was not sorted: AERO
+  declares the archived rows in ascending corrected $/watt (ties in archive
+  order); the archive order was Frame, Wheels, Handlebars, Tires, Chain,
+  Pulleys, Helmet, Skinsuit, Socks.
+- Combined totals are sums (elite 6:24 + 3:03 + 0:43 = 10:10 exactly):
+  average rider Total 14:28 -> 17:04 (8:24 + 7:21 + 1:19), grand total
+  50:47 -> 54:22 (17:04 + 37:18); elite grand total 35:00 -> 35:35
+  (10:10 + 25:25). The text's "1/3 of your potential speed" still holds
+  (17:04 of 54:22, 10:10 of 35:35), so no sentence changes.
+
+Matt to read (not changed):
 - Numbers in the text: a 7 W chain saving = 15:29, "the equivalent of raising
   your FTP by 4%" (the ~12:30 table has 4% = 15:42); the text's +5% power =
   17:33 matches neither FTP table (5% = 13:14 / 19:27). The Best Bike Split
@@ -102,16 +113,16 @@ AERO = DataTable(
         TableColumn("Potential Cost", kind="num", card="fact", sortable=False),
         TableColumn("Dollars/Watts", kind="num", card="aside", sortable=False),
     ),
-    rows=_rows(
-        ("Aero Frame", "20", "$5,500", "$275/watt"),
-        ("Aero Wheels", "25", "$2,500", "$100/watt"),
-        ("Aero Handlebars", "10", "$350", "$35/watt"),
-        ("Race Tires", "25", "$175", "$7/watt"),
-        ("Waxed Chain", "5", "$175", "$35/watt"),
-        ("Oversized Pulley Wheels", "2", "$600", "$300/watt"),
-        ("Aero Helmet", "15", "$300", "$20/watt"),
-        ("Aero Skinsuit", "20", "$200", "$100/watt"),
+    rows=_rows(  # archived cells, in ascending (corrected) $/watt order
         ("Aero Socks", "8", "$30", "$3.75/watt"),
+        ("Race Tires", "25", "$175", "$7/watt"),
+        ("Aero Skinsuit", "20", "$200", "$100/watt"),
+        ("Aero Helmet", "15", "$300", "$20/watt"),
+        ("Aero Handlebars", "10", "$350", "$35/watt"),
+        ("Waxed Chain", "5", "$175", "$35/watt"),
+        ("Aero Wheels", "25", "$2,500", "$100/watt"),
+        ("Aero Frame", "20", "$5,500", "$275/watt"),
+        ("Oversized Pulley Wheels", "2", "$600", "$300/watt"),
     ),
     after="because few people are made of money:</p>",
 )
@@ -160,6 +171,28 @@ COMBINED = DataTable(
 
 RESTORED = (AERO, FTP_930, FTP_1230, COMBINED)
 
+# Errors in the archived tables (see the docstring). Old and new are whole rows,
+# cells joined by wp_post.ROW_SEP; applied in order.
+_C = wp_post.Correction
+RESTORED_CORRECTIONS = {
+    AERO.id: (
+        _C("Aero Skinsuit | 20 | $200 | $100/watt", "Aero Skinsuit | 20 | $200 | $10/watt",
+           "$200 for 20 watts is $10 per watt"),
+    ),
+    FTP_1230.id: (
+        _C("7 | 26;47", "7 | 26:47", "a semicolon typed for the colon"),
+    ),
+    COMBINED.id: (
+        _C("10% FTP Increase | 37:18:00 | 25:25", "10% FTP Increase | 37:18 | 25:25",
+           "spreadsheet h:mm:ss artifact; the ~12:30 table's 10% row is 37:18"),
+        _C("Total | 50:47:00 | 35:00", "Total | 50:47 | 35:00", "spreadsheet h:mm:ss artifact for 50:47"),
+        _C("Total | 14:28 | 10:10", "Total | 17:04 | 10:10",
+           "the total is the sum of its rows: 8:24 + 7:21 + 1:19 = 17:04 (elite 6:24 + 3:03 + 0:43 = 10:10)"),
+        _C("Total | 50:47 | 35:00", "Total | 54:22 | 35:35",
+           "grand totals are sums: 17:04 + 37:18 = 54:22 and 10:10 + 25:25 = 35:35"),
+    ),
+}
+
 # The short tables (2-3 columns) stay tables on phones; only the 4-column aero
 # list becomes cards. Nothing sorts, so the headers get the padding the shell
 # gives sort buttons (a plain header otherwise sits on the rule).
@@ -171,7 +204,8 @@ CSS = (",".join(f"#{f.id} thead th" for f in (AERO, FTP_930, FTP_1230, COMBINED)
 
 
 def render() -> str:
-    return wp_post.render_post(SOURCE, alt=ALT, in_short=IN_SHORT, restored=RESTORED, extra_css=CSS,
+    return wp_post.render_post(SOURCE, alt=ALT, in_short=IN_SHORT, restored=RESTORED,
+                               restored_corrections=RESTORED_CORRECTIONS, extra_css=CSS,
                                description=DESCRIPTION)
 
 

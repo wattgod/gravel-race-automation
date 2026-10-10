@@ -488,6 +488,10 @@ h2[id],h3[id],[data-slot],figure[id]{scroll-margin-top:72px}
 .gg-price-table .gg-price-features ul{margin:0;padding-left:1.2em}
 .gg-price-table .gg-price-ribbon{order:-1;font:400 14px/1.5 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--ink3)}
 
+
+/* one neutral line at the end of a corrected post */
+.article .gg-corrected{margin:40px 0 0;font:400 14px/1.5 var(--mono);color:var(--ink3)}
+
 #fig-bbs-aero thead th,#fig-bbs-ftp-930 thead th,#fig-bbs-ftp-1230 thead th,#fig-bbs-combined thead th{padding:6px 10px 10px 0}@media (max-width:640px){#fig-bbs-ftp-930 .gg-table-wrap,#fig-bbs-ftp-1230 .gg-table-wrap,#fig-bbs-combined .gg-table-wrap{display:block}#fig-bbs-ftp-930 .gg-cards,#fig-bbs-ftp-1230 .gg-cards,#fig-bbs-combined .gg-cards{display:none}}
   </style>
 </head>
@@ -681,28 +685,28 @@ h2[id],h3[id],[data-slot],figure[id]{scroll-margin-top:72px}
       <colgroup><col style="width:34%"><col><col><col></colgroup>
       <thead><tr><th scope="col">Product</th><th scope="col">Potential Watt Savings</th><th scope="col">Potential Cost</th><th scope="col">Dollars/Watts</th></tr></thead>
       <tbody>
-      <tr><td data-v="Aero Frame">Aero Frame</td><td class="num" data-v="20">20</td><td class="num" data-v="$5,500">$5,500</td><td class="num" data-v="$275/watt">$275/watt</td></tr>
-      <tr><td data-v="Aero Wheels">Aero Wheels</td><td class="num" data-v="25">25</td><td class="num" data-v="$2,500">$2,500</td><td class="num" data-v="$100/watt">$100/watt</td></tr>
-      <tr><td data-v="Aero Handlebars">Aero Handlebars</td><td class="num" data-v="10">10</td><td class="num" data-v="$350">$350</td><td class="num" data-v="$35/watt">$35/watt</td></tr>
-      <tr><td data-v="Race Tires">Race Tires</td><td class="num" data-v="25">25</td><td class="num" data-v="$175">$175</td><td class="num" data-v="$7/watt">$7/watt</td></tr>
-      <tr><td data-v="Waxed Chain">Waxed Chain</td><td class="num" data-v="5">5</td><td class="num" data-v="$175">$175</td><td class="num" data-v="$35/watt">$35/watt</td></tr>
-      <tr><td data-v="Oversized Pulley Wheels">Oversized Pulley Wheels</td><td class="num" data-v="2">2</td><td class="num" data-v="$600">$600</td><td class="num" data-v="$300/watt">$300/watt</td></tr>
-      <tr><td data-v="Aero Helmet">Aero Helmet</td><td class="num" data-v="15">15</td><td class="num" data-v="$300">$300</td><td class="num" data-v="$20/watt">$20/watt</td></tr>
-      <tr><td data-v="Aero Skinsuit">Aero Skinsuit</td><td class="num" data-v="20">20</td><td class="num" data-v="$200">$200</td><td class="num" data-v="$100/watt">$100/watt</td></tr>
       <tr><td data-v="Aero Socks">Aero Socks</td><td class="num" data-v="8">8</td><td class="num" data-v="$30">$30</td><td class="num" data-v="$3.75/watt">$3.75/watt</td></tr>
+      <tr><td data-v="Race Tires">Race Tires</td><td class="num" data-v="25">25</td><td class="num" data-v="$175">$175</td><td class="num" data-v="$7/watt">$7/watt</td></tr>
+      <tr><td data-v="Aero Skinsuit">Aero Skinsuit</td><td class="num" data-v="20">20</td><td class="num" data-v="$200">$200</td><td class="num" data-v="$10/watt">$10/watt</td></tr>
+      <tr><td data-v="Aero Helmet">Aero Helmet</td><td class="num" data-v="15">15</td><td class="num" data-v="$300">$300</td><td class="num" data-v="$20/watt">$20/watt</td></tr>
+      <tr><td data-v="Aero Handlebars">Aero Handlebars</td><td class="num" data-v="10">10</td><td class="num" data-v="$350">$350</td><td class="num" data-v="$35/watt">$35/watt</td></tr>
+      <tr><td data-v="Waxed Chain">Waxed Chain</td><td class="num" data-v="5">5</td><td class="num" data-v="$175">$175</td><td class="num" data-v="$35/watt">$35/watt</td></tr>
+      <tr><td data-v="Aero Wheels">Aero Wheels</td><td class="num" data-v="25">25</td><td class="num" data-v="$2,500">$2,500</td><td class="num" data-v="$100/watt">$100/watt</td></tr>
+      <tr><td data-v="Aero Frame">Aero Frame</td><td class="num" data-v="20">20</td><td class="num" data-v="$5,500">$5,500</td><td class="num" data-v="$275/watt">$275/watt</td></tr>
+      <tr><td data-v="Oversized Pulley Wheels">Oversized Pulley Wheels</td><td class="num" data-v="2">2</td><td class="num" data-v="$600">$600</td><td class="num" data-v="$300/watt">$300/watt</td></tr>
       </tbody>
     </table>
   </div>
   <ol class="gg-cards" aria-labelledby="fig-bbs-aero-h">
-    <li class="gg-card"><p class="gg-card-h"><span class="gg-card-name">Aero Frame</span><span class="gg-card-aside">$275/watt</span></p><dl class="gg-card-facts"><div><dt>Potential Watt Savings</dt><dd>20</dd></div><div><dt>Potential Cost</dt><dd>$5,500</dd></div></dl></li>
-    <li class="gg-card"><p class="gg-card-h"><span class="gg-card-name">Aero Wheels</span><span class="gg-card-aside">$100/watt</span></p><dl class="gg-card-facts"><div><dt>Potential Watt Savings</dt><dd>25</dd></div><div><dt>Potential Cost</dt><dd>$2,500</dd></div></dl></li>
-    <li class="gg-card"><p class="gg-card-h"><span class="gg-card-name">Aero Handlebars</span><span class="gg-card-aside">$35/watt</span></p><dl class="gg-card-facts"><div><dt>Potential Watt Savings</dt><dd>10</dd></div><div><dt>Potential Cost</dt><dd>$350</dd></div></dl></li>
-    <li class="gg-card"><p class="gg-card-h"><span class="gg-card-name">Race Tires</span><span class="gg-card-aside">$7/watt</span></p><dl class="gg-card-facts"><div><dt>Potential Watt Savings</dt><dd>25</dd></div><div><dt>Potential Cost</dt><dd>$175</dd></div></dl></li>
-    <li class="gg-card"><p class="gg-card-h"><span class="gg-card-name">Waxed Chain</span><span class="gg-card-aside">$35/watt</span></p><dl class="gg-card-facts"><div><dt>Potential Watt Savings</dt><dd>5</dd></div><div><dt>Potential Cost</dt><dd>$175</dd></div></dl></li>
-    <li class="gg-card"><p class="gg-card-h"><span class="gg-card-name">Oversized Pulley Wheels</span><span class="gg-card-aside">$300/watt</span></p><dl class="gg-card-facts"><div><dt>Potential Watt Savings</dt><dd>2</dd></div><div><dt>Potential Cost</dt><dd>$600</dd></div></dl></li>
-    <li class="gg-card"><p class="gg-card-h"><span class="gg-card-name">Aero Helmet</span><span class="gg-card-aside">$20/watt</span></p><dl class="gg-card-facts"><div><dt>Potential Watt Savings</dt><dd>15</dd></div><div><dt>Potential Cost</dt><dd>$300</dd></div></dl></li>
-    <li class="gg-card"><p class="gg-card-h"><span class="gg-card-name">Aero Skinsuit</span><span class="gg-card-aside">$100/watt</span></p><dl class="gg-card-facts"><div><dt>Potential Watt Savings</dt><dd>20</dd></div><div><dt>Potential Cost</dt><dd>$200</dd></div></dl></li>
     <li class="gg-card"><p class="gg-card-h"><span class="gg-card-name">Aero Socks</span><span class="gg-card-aside">$3.75/watt</span></p><dl class="gg-card-facts"><div><dt>Potential Watt Savings</dt><dd>8</dd></div><div><dt>Potential Cost</dt><dd>$30</dd></div></dl></li>
+    <li class="gg-card"><p class="gg-card-h"><span class="gg-card-name">Race Tires</span><span class="gg-card-aside">$7/watt</span></p><dl class="gg-card-facts"><div><dt>Potential Watt Savings</dt><dd>25</dd></div><div><dt>Potential Cost</dt><dd>$175</dd></div></dl></li>
+    <li class="gg-card"><p class="gg-card-h"><span class="gg-card-name">Aero Skinsuit</span><span class="gg-card-aside">$10/watt</span></p><dl class="gg-card-facts"><div><dt>Potential Watt Savings</dt><dd>20</dd></div><div><dt>Potential Cost</dt><dd>$200</dd></div></dl></li>
+    <li class="gg-card"><p class="gg-card-h"><span class="gg-card-name">Aero Helmet</span><span class="gg-card-aside">$20/watt</span></p><dl class="gg-card-facts"><div><dt>Potential Watt Savings</dt><dd>15</dd></div><div><dt>Potential Cost</dt><dd>$300</dd></div></dl></li>
+    <li class="gg-card"><p class="gg-card-h"><span class="gg-card-name">Aero Handlebars</span><span class="gg-card-aside">$35/watt</span></p><dl class="gg-card-facts"><div><dt>Potential Watt Savings</dt><dd>10</dd></div><div><dt>Potential Cost</dt><dd>$350</dd></div></dl></li>
+    <li class="gg-card"><p class="gg-card-h"><span class="gg-card-name">Waxed Chain</span><span class="gg-card-aside">$35/watt</span></p><dl class="gg-card-facts"><div><dt>Potential Watt Savings</dt><dd>5</dd></div><div><dt>Potential Cost</dt><dd>$175</dd></div></dl></li>
+    <li class="gg-card"><p class="gg-card-h"><span class="gg-card-name">Aero Wheels</span><span class="gg-card-aside">$100/watt</span></p><dl class="gg-card-facts"><div><dt>Potential Watt Savings</dt><dd>25</dd></div><div><dt>Potential Cost</dt><dd>$2,500</dd></div></dl></li>
+    <li class="gg-card"><p class="gg-card-h"><span class="gg-card-name">Aero Frame</span><span class="gg-card-aside">$275/watt</span></p><dl class="gg-card-facts"><div><dt>Potential Watt Savings</dt><dd>20</dd></div><div><dt>Potential Cost</dt><dd>$5,500</dd></div></dl></li>
+    <li class="gg-card"><p class="gg-card-h"><span class="gg-card-name">Oversized Pulley Wheels</span><span class="gg-card-aside">$300/watt</span></p><dl class="gg-card-facts"><div><dt>Potential Watt Savings</dt><dd>2</dd></div><div><dt>Potential Cost</dt><dd>$600</dd></div></dl></li>
   </ol>
   <p class="fn">Tables restored from the <a href="https://web.archive.org/web/20240717213415/https://gravelgodcycling.com/hacking-unbound-200-with-best-bike-split/" target="_blank" rel="noopener">Internet Archive copy</a> of this post (July 17, 2024). <span class="gg-sr" aria-live="polite" data-sort-status></span></p>
 </figure>
@@ -783,7 +787,7 @@ h2[id],h3[id],[data-slot],figure[id]{scroll-margin-top:72px}
       <tr><td class="num" data-v="4">4</td><td class="num" data-v="15:42">15:42</td></tr>
       <tr><td class="num" data-v="5">5</td><td class="num" data-v="19:27">19:27</td></tr>
       <tr><td class="num" data-v="6">6</td><td class="num" data-v="23:09">23:09</td></tr>
-      <tr><td class="num" data-v="7">7</td><td class="num" data-v="26;47">26;47</td></tr>
+      <tr><td class="num" data-v="7">7</td><td class="num" data-v="26:47">26:47</td></tr>
       <tr><td class="num" data-v="8">8</td><td class="num" data-v="30:21">30:21</td></tr>
       <tr><td class="num" data-v="9">9</td><td class="num" data-v="33:51">33:51</td></tr>
       <tr><td class="num" data-v="10">10</td><td class="num" data-v="37:18">37:18</td></tr>
@@ -797,7 +801,7 @@ h2[id],h3[id],[data-slot],figure[id]{scroll-margin-top:72px}
     <li class="gg-card"><p class="gg-card-h"><span class="gg-card-name">4</span></p><dl class="gg-card-facts"><div><dt>Time Savings</dt><dd>15:42</dd></div></dl></li>
     <li class="gg-card"><p class="gg-card-h"><span class="gg-card-name">5</span></p><dl class="gg-card-facts"><div><dt>Time Savings</dt><dd>19:27</dd></div></dl></li>
     <li class="gg-card"><p class="gg-card-h"><span class="gg-card-name">6</span></p><dl class="gg-card-facts"><div><dt>Time Savings</dt><dd>23:09</dd></div></dl></li>
-    <li class="gg-card"><p class="gg-card-h"><span class="gg-card-name">7</span></p><dl class="gg-card-facts"><div><dt>Time Savings</dt><dd>26;47</dd></div></dl></li>
+    <li class="gg-card"><p class="gg-card-h"><span class="gg-card-name">7</span></p><dl class="gg-card-facts"><div><dt>Time Savings</dt><dd>26:47</dd></div></dl></li>
     <li class="gg-card"><p class="gg-card-h"><span class="gg-card-name">8</span></p><dl class="gg-card-facts"><div><dt>Time Savings</dt><dd>30:21</dd></div></dl></li>
     <li class="gg-card"><p class="gg-card-h"><span class="gg-card-name">9</span></p><dl class="gg-card-facts"><div><dt>Time Savings</dt><dd>33:51</dd></div></dl></li>
     <li class="gg-card"><p class="gg-card-h"><span class="gg-card-name">10</span></p><dl class="gg-card-facts"><div><dt>Time Savings</dt><dd>37:18</dd></div></dl></li>
@@ -817,9 +821,9 @@ h2[id],h3[id],[data-slot],figure[id]{scroll-margin-top:72px}
       <tr><td data-v="-4% Drag">-4% Drag</td><td class="num" data-v="8:24">8:24</td><td class="num" data-v="6:24">6:24</td></tr>
       <tr><td data-v="-3% Weight">-3% Weight</td><td class="num" data-v="7:21">7:21</td><td class="num" data-v="3:03">3:03</td></tr>
       <tr><td data-v="-1% Rolling Resistance">-1% Rolling Resistance</td><td class="num" data-v="1:19">1:19</td><td class="num" data-v="0:43">0:43</td></tr>
-      <tr><td data-v="Total">Total</td><td class="num" data-v="14:28">14:28</td><td class="num" data-v="10:10">10:10</td></tr>
-      <tr><td data-v="10% FTP Increase">10% FTP Increase</td><td class="num" data-v="37:18:00">37:18:00</td><td class="num" data-v="25:25">25:25</td></tr>
-      <tr><td data-v="Total">Total</td><td class="num" data-v="50:47:00">50:47:00</td><td class="num" data-v="35:00">35:00</td></tr>
+      <tr><td data-v="Total">Total</td><td class="num" data-v="17:04">17:04</td><td class="num" data-v="10:10">10:10</td></tr>
+      <tr><td data-v="10% FTP Increase">10% FTP Increase</td><td class="num" data-v="37:18">37:18</td><td class="num" data-v="25:25">25:25</td></tr>
+      <tr><td data-v="Total">Total</td><td class="num" data-v="54:22">54:22</td><td class="num" data-v="35:35">35:35</td></tr>
       </tbody>
     </table>
   </div>
@@ -827,9 +831,9 @@ h2[id],h3[id],[data-slot],figure[id]{scroll-margin-top:72px}
     <li class="gg-card"><p class="gg-card-h"><span class="gg-card-name">-4% Drag</span></p><dl class="gg-card-facts"><div><dt>Average Rider</dt><dd>8:24</dd></div><div><dt>Elite</dt><dd>6:24</dd></div></dl></li>
     <li class="gg-card"><p class="gg-card-h"><span class="gg-card-name">-3% Weight</span></p><dl class="gg-card-facts"><div><dt>Average Rider</dt><dd>7:21</dd></div><div><dt>Elite</dt><dd>3:03</dd></div></dl></li>
     <li class="gg-card"><p class="gg-card-h"><span class="gg-card-name">-1% Rolling Resistance</span></p><dl class="gg-card-facts"><div><dt>Average Rider</dt><dd>1:19</dd></div><div><dt>Elite</dt><dd>0:43</dd></div></dl></li>
-    <li class="gg-card"><p class="gg-card-h"><span class="gg-card-name">Total</span></p><dl class="gg-card-facts"><div><dt>Average Rider</dt><dd>14:28</dd></div><div><dt>Elite</dt><dd>10:10</dd></div></dl></li>
-    <li class="gg-card"><p class="gg-card-h"><span class="gg-card-name">10% FTP Increase</span></p><dl class="gg-card-facts"><div><dt>Average Rider</dt><dd>37:18:00</dd></div><div><dt>Elite</dt><dd>25:25</dd></div></dl></li>
-    <li class="gg-card"><p class="gg-card-h"><span class="gg-card-name">Total</span></p><dl class="gg-card-facts"><div><dt>Average Rider</dt><dd>50:47:00</dd></div><div><dt>Elite</dt><dd>35:00</dd></div></dl></li>
+    <li class="gg-card"><p class="gg-card-h"><span class="gg-card-name">Total</span></p><dl class="gg-card-facts"><div><dt>Average Rider</dt><dd>17:04</dd></div><div><dt>Elite</dt><dd>10:10</dd></div></dl></li>
+    <li class="gg-card"><p class="gg-card-h"><span class="gg-card-name">10% FTP Increase</span></p><dl class="gg-card-facts"><div><dt>Average Rider</dt><dd>37:18</dd></div><div><dt>Elite</dt><dd>25:25</dd></div></dl></li>
+    <li class="gg-card"><p class="gg-card-h"><span class="gg-card-name">Total</span></p><dl class="gg-card-facts"><div><dt>Average Rider</dt><dd>54:22</dd></div><div><dt>Elite</dt><dd>35:35</dd></div></dl></li>
   </ol>
   <p class="fn"><span class="gg-sr" aria-live="polite" data-sort-status></span></p>
 </figure>
@@ -925,6 +929,7 @@ h2[id],h3[id],[data-slot],figure[id]{scroll-margin-top:72px}
 <dd class="gg-price-action">Apply Now</dd>
 </dl>
 </section>
+<p class="gg-corrected" data-gg-added>Some figures in this post were corrected on October 9, 2026.</p>
 
 <div class="slot slot-ladder" data-slot="ladder">
 <aside class="ladder" aria-label="Training plans and coaching">

@@ -44,6 +44,11 @@ without pull quotes / galleries / videos / comments gets none of the CSS/JS):
     archived values verbatim and the provenance line in a footnote. A restored
     post gets RESTORED_MODIFIED as its modified date. The word-for-word tests
     skip the restored figures by id (restored_ids), so any other drift fails.
+  - `restored_corrections=`: {restored figure id: Corrections} for errors in
+    the archived tables themselves (Matt, 2026-10-09). Each Correction's old
+    and new are a whole row, cells joined by ROW_SEP; old matches exactly one
+    row of the archived table (correct_table). Like `corrections=`, it adds
+    CORRECTION_NOTE and bumps the modified date to CORRECTED_MODIFIED.
   - `dead_youtube=`: {video id: where it sat} for embeds YouTube no longer
     serves (404); the whole click-to-load figure is left out of the page. The
     module keeps the record so a video can be restored.
@@ -139,6 +144,31 @@ def apply_corrections(body: str, corrections: Sequence[Correction]) -> str:
             raise ValueError(f"correction {c.old[:60]!r} found {n} times in the body, expected once")
         body = body.replace(c.old, c.new, 1)
     return body
+
+
+ROW_SEP = " | "
+
+
+def correct_table(table, corrections: Sequence[Correction]):
+    """A restored DataTable with row-level corrections applied in order: each
+    old is a whole row (cell texts joined by ROW_SEP) that occurs exactly once,
+    and its new has the same number of cells."""
+    rows = list(table.rows)
+    for c in corrections:
+        c = Correction(*c)
+        if not c.why.strip() or c.old == c.new:
+            raise ValueError(f"table correction {c.old[:60]!r}: needs a reason and a change")
+        texts = [ROW_SEP.join(cell.html for cell in r.cells) for r in rows]
+        if texts.count(c.old) != 1:
+            raise ValueError(f"table correction {c.old[:60]!r} found {texts.count(c.old)} times "
+                             f"in {table.id}, expected once")
+        i = texts.index(c.old)
+        new = c.new.split(ROW_SEP)
+        if len(new) != len(rows[i].cells):
+            raise ValueError(f"table correction {c.new[:60]!r}: {len(new)} cells, expected {len(rows[i].cells)}")
+        rows[i] = dataclasses.replace(rows[i], cells=tuple(
+            dataclasses.replace(cell, html=v) for cell, v in zip(rows[i].cells, new)))
+    return dataclasses.replace(table, rows=tuple(rows))
 
 
 def corrected_baseline(text: str, corrections: Sequence[Correction]) -> str:
@@ -477,6 +507,7 @@ def render_post(
     corrections: Sequence[Correction] = (),
     dead_youtube: Mapping[str, str] | None = None,
     restored: Sequence = (),
+    restored_corrections: Mapping[str, Sequence[Correction]] | None = None,
 ) -> str:
     """The full page. `alt` must cover every image (raises otherwise).
     `figures`: extra shell figures (SvgFigure / DataTable / EssayFigure) placed by
@@ -490,7 +521,8 @@ def render_post(
     adds CORRECTION_NOTE and bumps the modified date. `dead_youtube`: {id:
     where it sat} embeds to leave out. `restored`: figures restored from an
     archived copy (placed by after=); bumps the modified date (see the module
-    docstring)."""
+    docstring). `restored_corrections`: {restored figure id: row Corrections}
+    applied to those figures (correct_table); adds CORRECTION_NOTE."""
     data = src.data
     replace = dict(replace or {})
     after_image = dict(after_image or {})
@@ -510,7 +542,14 @@ def render_post(
     body = apply_corrections(src.body, corrections)
     if dead_youtube:
         body = drop_youtube(body, dead_youtube)
-    if corrections:
+    restored_corrections = dict(restored_corrections or {})
+    unknown_fix = sorted(set(restored_corrections) - {f.id for f in restored})
+    if unknown_fix:
+        raise ValueError(f"restored_corrections: no restored figure {unknown_fix}")
+    restored = [correct_table(f, restored_corrections[f.id]) if restored_corrections.get(f.id) else f
+                for f in restored]
+    corrected = bool(corrections) or any(restored_corrections.values())
+    if corrected:
         body = body.rstrip() + f'\n<p class="gg-corrected" data-gg-added>{es.esc(CORRECTION_NOTE)}</p>\n'
     for marker, image in after_image.items():
         tag = f"<!--GG:FIGURE {image}-->"
@@ -591,7 +630,7 @@ def render_post(
     if not hero and not shell_figures and "gg-gallery" in body:
         css.insert(0, es.ESSAY_CSS)  # the shell adds it only with figures or a hero picture
 
-    modified = CORRECTED_MODIFIED if corrections else RESTORED_MODIFIED if restored else None
+    modified = CORRECTED_MODIFIED if corrected else RESTORED_MODIFIED if restored else None
     meta = build_meta(src, hero=hero, kicker=kicker, description=description, title=title, modified=modified)
     sections = len(es.add_heading_ids(body)[1])
     return render_editorial_page(

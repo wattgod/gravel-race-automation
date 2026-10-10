@@ -42,9 +42,8 @@ BODY_PATH = HERE / f"{SLUG}.body.html"
 OUTPUT_PATH = WORDPRESS / "articles" / SLUG / "index.html"
 
 DESCRIPTION = (
-    "TrainerRoad and Zwift build you excellent fitness in a generic shape. Races are not generic. "
-    "Where the climbing lands, when the selection happens, and what you can digest decide your day "
-    "— and no algorithm reads a course profile."
+    "TrainerRoad and Zwift build you excellent fitness in a generic shape. Races are not generic, "
+    "and no algorithm reads a course profile."
 )
 OG_DESCRIPTION = "Adaptive training solved the wrong problem. Your fitness has a shape, and so does your race."
 

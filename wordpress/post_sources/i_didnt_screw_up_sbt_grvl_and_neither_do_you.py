@@ -36,8 +36,8 @@ SLUG = "i-didnt-screw-up-sbt-grvl-and-neither-do-you"
 SOURCE = wp_post.load(SLUG)
 OUTPUT_PATH = wp_post.output_path(SLUG)
 
-DESCRIPTION = ("A race report from SBT GRVL 2023 in Steamboat Springs: the Panic Pack and Surge Addicts, "
-               "the three good reasons to surge, a 45th-place finish, and the post-race community.")
+DESCRIPTION = ("An SBT GRVL 2023 race report from Steamboat Springs: the Panic Pack and Surge Addicts, three "
+               "good reasons to surge, 45th place, and the post-race community.")  # <=160 chars
 
 ALT = {
     "festival-of-pain": "Strava activity \"SBT GRVL - Topp Femti!\", Sunday, August 20, 2023, Steamboat Springs, Colorado: 145.42 mi, 7:15:32 moving time, 9,419 ft of climbing, 268 W weighted average power, 5,995 kJ, with four segment PRs; faded behind it, cartoon Gravel God's face with bloodshot eyes.",

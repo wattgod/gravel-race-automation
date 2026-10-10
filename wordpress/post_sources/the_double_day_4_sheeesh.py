@@ -11,7 +11,8 @@ doesn't say: it is the Redlands criterium, where the author was pulled, and
 teammates who answer everything with "Sheesh".
 
 The featured image (sheeesh-1) is the first inline image, so the page has no
-hero. No infographic. CSS lets the long em-dash divider wrap on phones.
+hero. No infographic. The long em-dash divider wraps on phones via the shell
+(editorial_shell.mark_dash_rules).
 
 Regenerate: python3 wordpress/post_sources/the_double_day_4_sheeesh.py
 """
@@ -51,13 +52,8 @@ IN_SHORT = (
 )
 
 
-# The quote section's divider is a run of 26 em dashes with no break point; it
-# overflowed a 390px phone by 18px. Let long runs wrap (text unchanged).
-CSS = ".gg-blog-section p{overflow-wrap:break-word}"
-
-
 def render() -> str:
-    return wp_post.render_post(SOURCE, alt=ALT, in_short=IN_SHORT, description=DESCRIPTION, extra_css=CSS)
+    return wp_post.render_post(SOURCE, alt=ALT, in_short=IN_SHORT, description=DESCRIPTION)
 
 
 def main() -> None:

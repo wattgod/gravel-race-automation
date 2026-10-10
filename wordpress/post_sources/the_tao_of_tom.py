@@ -11,7 +11,8 @@ No infographic: a story with no numbers to chart.
 
 DESCRIPTION replaces the live meta description, which called Tom a cycling
 mentor; in the post he is a younger teammate on the author's college ski team,
-and the post is about trusting the plan.
+and the post is about trusting the plan. TITLE replaces the live title ("The
+Tao of Tom — Cycling Mentor") for the same reason.
 
 Regenerate: python3 wordpress/post_sources/the_tao_of_tom.py
 """
@@ -34,6 +35,8 @@ OUTPUT_PATH = wp_post.output_path(SLUG)
 
 DESCRIPTION = ("A story about Tom, a younger teammate on the author’s college ski team who trusted "
                "the plan: easy on easy days, hard on hard days, whatever his teammates did.")
+
+TITLE = "The Tao of Tom — Trusting the Plan | Gravel God"
 
 ALT = {
     "tao-of-tom": "Three monks in saffron robes walk away down a misty, grassy path under arching trees; cartoon Gravel God in a cowboy hat, arms crossed, stands beside them facing the camera.",
@@ -64,7 +67,7 @@ def _anchored(body: str) -> str:
 
 def render() -> str:
     src = dataclasses.replace(SOURCE, body=_anchored(SOURCE.body))
-    return wp_post.render_post(src, alt=ALT, in_short=IN_SHORT, description=DESCRIPTION)
+    return wp_post.render_post(src, alt=ALT, in_short=IN_SHORT, description=DESCRIPTION, title=TITLE)
 
 
 def main() -> None:

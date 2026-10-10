@@ -87,10 +87,10 @@ def test_metadata_comes_from_the_live_page(pid):
     assert m.SLUG == json.loads((FIXTURES / f"{pid}.record.json").read_text(encoding="utf-8"))["slug"]
     assert live["canonical"] == url
     assert f'<link rel="canonical" href="{url}">' in page
-    assert f"<title>{es.esc(live['title'])}</title>" in page
+    assert f"<title>{es.esc(getattr(m, 'TITLE', None) or live['title'])}</title>" in page
     ld = [json.loads(b) for b in re.findall(r'<script type="application/ld\+json">(.*?)</script>', page, re.S)]
     assert [b["@type"] for b in ld] == ["BlogPosting"]
-    assert ld[0]["headline"] == live["headline"] and ld[0]["mainEntityOfPage"] == url
+    assert ld[0]["headline"] == (m.TITLE.removesuffix(" | Gravel God") if hasattr(m, "TITLE") else live["headline"]) and ld[0]["mainEntityOfPage"] == url
     assert m.OUTPUT_PATH == PROJECT_ROOT / "wordpress" / "posts" / m.SLUG / "index.html"
 
 
@@ -148,7 +148,10 @@ def test_gifs_are_muted_videos(pid):
     for f in m.SOURCE.data["figures"]:
         if f["kind"] == "gif":
             n = f["name"]
-            assert f'<source src="img/{n}.webm" type="video/webm"><source src="img/{n}.mp4" type="video/mp4">' in page
+            # smallest file first (browsers play the first source); the MP4 always ships
+            srcs = "".join(f'<source src="{s}" type="{t}">'
+                           for s, t in m.wp_post.video_sources(m.SOURCE.data["renditions"][n]))
+            assert srcs in page and f'img/{n}.mp4' in srcs
     assert ".gif" not in re.sub(r"https://gravelgodcycling\.com/wp-content/[^\"' ]+", "", page)
 
 

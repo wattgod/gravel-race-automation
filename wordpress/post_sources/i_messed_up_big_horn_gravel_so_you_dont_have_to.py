@@ -33,8 +33,8 @@ SLUG = "i-messed-up-big-horn-gravel-so-you-dont-have-to"
 SOURCE = wp_post.load(SLUG)
 OUTPUT_PATH = wp_post.output_path(SLUG)
 
-DESCRIPTION = ("A race report from Big Horn Gravel: slow, nervous descending on loose, technical trails, "
-               "a climb from about 70th to the top 25, and a lower back that gave out before the finish in Gypsum.")
+DESCRIPTION = ("A Big Horn Gravel race report: slow, nervous descending on technical trails, a climb from "
+               "about 70th to the top 25, and a back that gave out before the finish.")  # <=160 chars
 
 ALT = {
     "big-horn-gravel": "A rutted red-dirt double track through sagebrush toward distant mountains, with a rider far ahead and cartoon Gravel God in a cowboy hat riding away from the camera.",

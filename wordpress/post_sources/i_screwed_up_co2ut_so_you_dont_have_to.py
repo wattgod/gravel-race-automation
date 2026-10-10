@@ -47,7 +47,7 @@ ALT = {
 }
 
 DESCRIPTION = ("CO2UT race report: a misbooked hotel, a bike rack that sprang open on I-70, rough cattle-track "
-               "gravel, and a 9th-place finish the author learned of on the drive home.")
+               "gravel, and a 9th place the author learned of driving home.")  # <=160 chars
 
 # Paragraph anchors (first words of the paragraph -> id).
 ANCHORS = {

@@ -71,7 +71,13 @@ UA = "Mozilla/5.0 (GravelGod wp_post_import)"
 # covers DPR 2.3; @2x is only written when the source really has 2x pixels.
 ONE_X = 1600
 PHONE_W = 660
-GIF_MAX_W = 1280
+# GIF -> video: longest side, frame-rate cap, light denoise (hqdn3d) and the
+# MP4's bitrate ceiling (2 Mbit/s: ~3.75 MB for 15 s); a WebM ships only when smaller.
+GIF_MAX_SIDE = 1280
+GIF_MAX_FPS = 24
+GIF_DENOISE = "hqdn3d=2:2:3:3"
+GIF_MAXRATE = "2M"
+GIF_BUFSIZE = "4M"
 WEBP_QUALITY = 80
 # og:image: each post's featured image as a 1200x630 JPEG share card (<=200 KB),
 # served from the post's own img/ dir (wp_post.og_image picks it up).
@@ -1046,27 +1052,48 @@ def ensure_og(data: dict, out_img: Path, cache_img: Path, *, force: bool = False
     r["og"] = og_rendition(src, out_img, feat["name"], force=force)
 
 
-def gif_renditions(src: Path, out_dir: Path, name: str, *, force: bool = False) -> dict:
-    """GIF -> muted MP4 (H.264) + WebM (VP9), a WebP poster (the frame 90% of the
-    way through, usually the payoff) and still renditions of that frame for no-JS/reduced motion."""
+def _gif_filters(info: dict) -> str:
+    """Scale to fit GIF_MAX_SIDE (a portrait phone clip no longer encodes at
+    1080x1920 for a 680px column), cap the frame rate at GIF_MAX_FPS (memes and
+    screen grabs gain nothing from 30-33 fps) and denoise lightly: GIF dither is
+    noise to an encoder, and was most of the bytes in the heavy clips."""
+    w, h = int(info["width"]), int(info["height"])
+    k = min(1.0, GIF_MAX_SIDE / max(w, h))
+    tw, th = max(2, round(w * k / 2) * 2), max(2, round(h * k / 2) * 2)
+    num, _, den = (info.get("avg_frame_rate") or "0/1").partition("/")
+    fps = float(num) / float(den or 1) if float(den or 1) else 0.0
+    vf = [f"fps={GIF_MAX_FPS}"] if fps > GIF_MAX_FPS else []
+    return ",".join(vf + [f"scale={tw}:{th}:flags=lanczos", GIF_DENOISE])
+
+
+def gif_renditions(src: Path, out_dir: Path, name: str, *, force: bool = False,
+                   force_video: bool = False) -> dict:
+    """GIF -> muted MP4 (H.264), a WebM (VP9) ONLY when it is smaller than the
+    MP4 (browsers take the first playable <source>, so a heavier WebM listed
+    first is what readers download), a WebP poster (the frame 90% of the way
+    through, usually the payoff) and still renditions of that frame for
+    no-JS/reduced motion. Both encodes are quality-targeted (CRF); the MP4 has
+    a bitrate ceiling (GIF_MAXRATE: ~4 MB for 15 s at most), and a kept WebM is
+    smaller still. (VP9's own ceiling, constrained quality, inflates small clips.)
+    `force_video` re-encodes the clips but keeps the committed stills."""
     out_dir.mkdir(parents=True, exist_ok=True)
     if not shutil.which("ffmpeg"):
         raise RuntimeError("ffmpeg is required for GIFs")
     probe = subprocess.run(["ffprobe", "-v", "error", "-count_frames", "-select_streams", "v:0",
-                            "-show_entries", "stream=width,height,nb_read_frames", "-of", "json", str(src)],
-                           check=True, capture_output=True, text=True)
+                            "-show_entries", "stream=width,height,avg_frame_rate,nb_read_frames", "-of", "json",
+                            str(src)], check=True, capture_output=True, text=True)
     info = json.loads(probe.stdout)["streams"][0]
     frames = int(info.get("nb_read_frames") or 1)
-    w = int(info["width"])
-    tw = min(GIF_MAX_W, w) // 2 * 2
-    scale = f"scale={tw}:-2:flags=lanczos"
+    vf = _gif_filters(info)
     mp4, webm = out_dir / f"{name}.mp4", out_dir / f"{name}.webm"
-    if force or not mp4.exists():
-        _run(["ffmpeg", "-y", "-v", "error", "-i", str(src), "-vf", scale, "-an", "-c:v", "libx264",
-              "-pix_fmt", "yuv420p", "-crf", "26", "-preset", "slow", "-movflags", "+faststart", str(mp4)])
-    if force or not webm.exists():
-        _run(["ffmpeg", "-y", "-v", "error", "-i", str(src), "-vf", scale, "-an", "-c:v", "libvpx-vp9",
-              "-b:v", "0", "-crf", "38", "-row-mt", "1", str(webm)])
+    if force or force_video or not mp4.exists():
+        _run(["ffmpeg", "-y", "-v", "error", "-i", str(src), "-vf", vf, "-an", "-c:v", "libx264",
+              "-pix_fmt", "yuv420p", "-crf", "26", "-maxrate", GIF_MAXRATE, "-bufsize", GIF_BUFSIZE,
+              "-preset", "slow", "-movflags", "+faststart", str(mp4)])
+        _run(["ffmpeg", "-y", "-v", "error", "-i", str(src), "-vf", vf, "-an", "-c:v", "libvpx-vp9",
+              "-pix_fmt", "yuv420p", "-crf", "38", "-b:v", "0", "-row-mt", "1", str(webm)])
+        if webm.stat().st_size >= mp4.stat().st_size:
+            webm.unlink()  # not smaller: the MP4 alone serves every browser
     frame = out_dir.parent / f".{name}-frame.png"
     pick = int(0.9 * (frames - 1))
     _run(["ffmpeg", "-y", "-v", "error", "-i", str(src), "-vf", f"select=eq(n\\,{pick})", "-frames:v", "1",
@@ -1075,7 +1102,8 @@ def gif_renditions(src: Path, out_dir: Path, name: str, *, force: bool = False) 
     frame.unlink()
     files = dict(stills)
     files["mp4"] = {"file": mp4.name, "bytes": mp4.stat().st_size}
-    files["webm"] = {"file": webm.name, "bytes": webm.stat().st_size}
+    if webm.exists():
+        files["webm"] = {"file": webm.name, "bytes": webm.stat().st_size}
     return files
 
 
@@ -1191,6 +1219,8 @@ def main(argv: list[str] | None = None) -> int:
     ap.add_argument("--no-images", action="store_true",
                     help="keep the committed renditions (still writes a missing og:image crop)")
     ap.add_argument("--force-images", action="store_true")
+    ap.add_argument("--force-video", action="store_true",
+                    help="re-encode the GIF videos (MP4/WebM) but keep the committed stills")
     ap.add_argument("--refresh", action="store_true", help="re-download the live page")
     args = ap.parse_args(argv)
 
@@ -1227,8 +1257,11 @@ def main(argv: list[str] | None = None) -> int:
                 feat.update(also_inline=True, name=seen[digest])
                 continue
             seen.setdefault(digest, name)
-            renditions[name] = (gif_renditions if kind == "gif" else still_renditions)(
-                src, out_img, name, force=args.force_images)
+            if kind == "gif":
+                renditions[name] = gif_renditions(src, out_img, name, force=args.force_images,
+                                                  force_video=args.force_video)
+            else:
+                renditions[name] = still_renditions(src, out_img, name, force=args.force_images)
             renditions[name]["source_bytes"] = src.stat().st_size
         data["renditions"] = renditions
         ensure_og(data, out_img, args.cache / "img" / slug, force=args.force_images)

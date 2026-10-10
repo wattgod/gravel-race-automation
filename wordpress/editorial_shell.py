@@ -36,7 +36,8 @@ is trusted HTML the caller already escaped. Its contract:
 - A run of section blocks: `<section class="gg-blog-section">` or
   `<div class="gg-blog-section">` (roundups). One rule (see outline()):
   every h2 inside a section and not inside a `gg-references` element is a
-  contents heading. It gets a Contents entry, a `data-toc` attribute, the
+  contents heading (an h2 with a `data-no-toc` attribute never is: e.g. a
+  post's "Comments" archive heading). It gets a Contents entry, a `data-toc` attribute, the
   01, 02, ... number (CSS) and a scrollspy dot (JS). h2/h3 get stable ids
   (slug of their text) unless they already have one. The `gg-references`
   block is styled as sources.
@@ -132,8 +133,13 @@ raises if shared_header's markup changes so the button can't be placed).
 The footer nav is the header's top-level links (header_nav_links()), so the
 two can't drift either.
 
-Warnings: add_heading_ids() warns (UserWarning) when the body has <h2>s but
-none of them is a contents heading, i.e. the body broke the section rule.
+Warnings: add_heading_ids() warns (UserWarning) when the body has <h2>s
+(other than `data-no-toc` ones) but none of them is a contents heading, i.e.
+the body broke the section rule.
+
+Dash rules: a paragraph that is only a long run of dashes (an old WordPress
+divider, e.g. 26 em dashes) has no break point and overflowed phones; the
+shell gives it class "gg-dashrule" (overflow-wrap:anywhere). Text unchanged.
 
 Analytics: get_ga4_head_snippet() (consent defaults + GA4) in the head, the
 consent banner + legal footer at the end of the body, and the article
@@ -329,7 +335,8 @@ def reading_minutes(body_html: str) -> int:
 # A *section* is any <section> or <div> whose class list has gg-blog-section
 # (articles and previews use <section>, roundups use <div>). Anything inside
 # an element whose class list has gg-references is the *references* block.
-# A *contents heading* is an h2 inside a section and not inside references.
+# A *contents heading* is an h2 inside a section and not inside references,
+# unless it has a data-no-toc attribute (opted out, e.g. "Comments").
 # Contents entries, the 01/02/... numbers (CSS: h2[data-toc]) and the
 # scrollspy (JS: h2[data-toc]) all follow from that one decision, made here.
 
@@ -373,7 +380,7 @@ class _OutlineParser(HTMLParser):
         elif tag == "h2":
             in_section = any(sec for _, sec, _ in self._stack)
             in_refs = any(r for _, _, r in self._stack)
-            if in_section and not in_refs:
+            if in_section and not in_refs and not any(n == "data-no-toc" for n, _ in attrs):
                 self.toc_h2_starts.add(self._offset())
 
     def handle_endtag(self, tag):
@@ -422,7 +429,7 @@ def add_heading_ids(body_html: str) -> tuple[str, list[tuple[str, str]]]:
         return f"<{tag}{attrs}>{inner}</{tag}>"
 
     out = re.sub(rf"<(h2|h3)\b({_ATTRS})>(.*?)</\1>", add, body_html, flags=re.S | re.I)
-    if not contents and re.search(r"<h2\b", body_html, re.I):
+    if not contents and re.search(r"<h2\b(?![^>]*\bdata-no-toc\b)", body_html, re.I):
         warnings.warn(
             "body has <h2> headings but none is a contents heading: wrap them in "
             '<section class="gg-blog-section"> (or a div with that class) outside gg-references',
@@ -430,6 +437,21 @@ def add_heading_ids(body_html: str) -> tuple[str, list[tuple[str, str]]]:
             stacklevel=2,
         )
     return out, contents
+
+
+# A paragraph that is only dashes (em/en/figure dash, horizontal bar, hyphen),
+# at least DASH_RULE_MIN of them: an unbreakable divider line.
+DASH_RULE_MIN = 8
+_DASH_RULE_RE = re.compile(r'<p( class="([^"]*)")?>(\s*[\u2010-\u2015\-]{%d,}\s*)</p>' % DASH_RULE_MIN)
+
+
+def mark_dash_rules(body_html: str) -> str:
+    """Class "gg-dashrule" on dash-only paragraphs, so CSS lets them wrap
+    (overflow-wrap:anywhere) instead of overflowing a phone. Text unchanged."""
+    def add(m: re.Match) -> str:
+        cls = f"{m.group(2)} gg-dashrule" if m.group(2) else "gg-dashrule"
+        return f'<p class="{cls}">{m.group(3)}</p>'
+    return _DASH_RULE_RE.sub(add, body_html)
 
 
 def _number_word(n: int) -> str:
@@ -1657,6 +1679,7 @@ def render_editorial_page(
     else:
         body = body.replace(LADDER_MARKER, "")
     body, toc = add_heading_ids(body)
+    body = mark_dash_rules(body)
 
     if contents and len(toc) >= MIN_CONTENTS_HEADINGS:
         toc_html = render_contents(toc)
@@ -1828,6 +1851,7 @@ h1.h1-long-4{--h1-w:12.65}
 .article{counter-reset:blk;min-width:0}
 .article p,.article li{font-size:20px;line-height:1.62}
 .article p{margin:0 0 1.05em}
+.article p.gg-dashrule{overflow-wrap:anywhere}
 .gg-blog-section{margin:0}
 .article h2[data-toc]{counter-increment:blk}
 .article h2{font:700 36px/1.12 var(--serif);letter-spacing:-.015em;margin:72px 0 22px;text-wrap:balance}

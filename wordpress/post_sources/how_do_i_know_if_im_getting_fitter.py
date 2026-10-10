@@ -9,9 +9,9 @@ third person). The post's Click-to-Tweet is a pull quote (converter).
 DESCRIPTION replaces the live meta description ("How to measure cycling fitness:
 the metrics that matter, the ones that don't"): the post discusses no metrics.
 Its headline is "The More You Take, the Faster You Get."; it is about training
-as a privilege that depends on the people who support it. The live <title>
-("How to Measure Cycling Fitness") has the same problem; it is kept (the
-renderer takes titles from the live page) and flagged for Matt.
+as a privilege that depends on the people who support it. TITLE replaces the
+live <title> ("How to Measure Cycling Fitness"), which has the same problem,
+with the post's own claim ("That isn't your right, but a privilege.").
 
 No infographic: the post's only structure, the four athlete life stages, is
 already a captioned list.
@@ -58,6 +58,8 @@ ALT = {
     "dreaming": "Cartoon Gravel God in a cowboy hat smiles as he daydreams of a rider in the yellow jersey holding a stuffed lion on a podium.",
 }
 
+TITLE = "Training Is a Privilege, Not a Right | Gravel God"
+
 DESCRIPTION = ("A morning of missed training while solo parenting, and the argument that training and racing "
                "are a privilege that depends on the people who support it.")
 
@@ -75,7 +77,7 @@ IN_SHORT = (
 
 
 def render() -> str:
-    return wp_post.render_post(SOURCE, alt=ALT, in_short=IN_SHORT, description=DESCRIPTION)
+    return wp_post.render_post(SOURCE, alt=ALT, in_short=IN_SHORT, description=DESCRIPTION, title=TITLE)
 
 
 def main() -> None:

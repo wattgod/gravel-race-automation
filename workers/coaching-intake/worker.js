@@ -42,6 +42,9 @@ export default {
     if (!brand) {
       return jsonResponse({ error: 'Forbidden' }, 403, origin);
     }
+    if (url.pathname.startsWith('/native/')) {
+      return handleNative(request, env, origin, brand, url.pathname);
+    }
     if (!env.PIPELINE_URL || !env.COACHING_INTAKE_SECRET) {
       console.error(JSON.stringify({
         message: 'coaching_intake_configuration_missing',
@@ -87,6 +90,7 @@ export default {
     delete questionnaire.analytics_consent;
     delete questionnaire.ga4_client_id;
     delete questionnaire.ga4_session_id;
+    delete questionnaire.native_acceptance;
 
     let backend;
     try {
@@ -106,6 +110,7 @@ export default {
           ga4_client_id: ga4ClientId,
           ga4_session_id: ga4SessionId,
           questionnaire,
+          ...(data.native_acceptance ? { native_acceptance: data.native_acceptance } : {}),
         }),
       });
     } catch (error) {
@@ -140,9 +145,57 @@ export default {
       state: result.state || 'FIT_REVIEW',
       receipt_sent: Boolean(result.receipt_sent),
       duplicate: Boolean(result.duplicate),
+      native_receipt: result.native_receipt || null,
     }, backend.status === 200 ? 200 : 201, origin);
   },
 };
+
+async function handleNative(request, env, origin, brand, path) {
+  const routes = {
+    '/native/documents': 'documents',
+    '/native/setup': 'setup',
+    '/native/accept': 'accept',
+  };
+  if (!routes[path]) return jsonResponse({ error: 'Not found' }, 404, origin);
+  if (brand !== 'gravelgod') return jsonResponse({ error: 'Forbidden' }, 403, origin);
+  if (!env.PIPELINE_URL || !env.COACHING_INTAKE_SECRET) {
+    return jsonResponse({ error: 'Setup is temporarily unavailable' }, 503, origin);
+  }
+  const size = Number(request.headers.get('Content-Length') || 0);
+  if (size > 16000) return jsonResponse({ error: 'Request is too large' }, 413, origin);
+  let data;
+  try {
+    const raw = await request.text();
+    if (raw.length > 16000) return jsonResponse({ error: 'Request is too large' }, 413, origin);
+    data = JSON.parse(raw);
+    if (!data || typeof data !== 'object' || Array.isArray(data)) throw new Error('Invalid object');
+  } catch (_) {
+    return jsonResponse({ error: 'Invalid request' }, 400, origin);
+  }
+  const token = String(data.token || '');
+  if (token.length > 128) return jsonResponse({ error: 'Invalid link' }, 400, origin);
+  const controller = new AbortController();
+  const timeout = setTimeout(() => controller.abort(), 15000);
+  try {
+    const backend = await fetch(
+      `${env.PIPELINE_URL.replace(/\/$/, '')}/api/coaching-native/${routes[path]}`,
+      {
+        method: 'POST', signal: controller.signal,
+        headers: { 'Content-Type': 'application/json',
+          'X-Coaching-Intake-Secret': env.COACHING_INTAKE_SECRET },
+        body: JSON.stringify({ brand, token, acceptance: data.acceptance }),
+      },
+    );
+    const result = await backend.json();
+    return jsonResponse(result, backend.status, origin);
+  } catch (_) {
+    // No bearer links or athlete data enter logs.
+    console.error(JSON.stringify({ message: 'native_coaching_backend_unavailable', route: routes[path] }));
+    return jsonResponse({ error: 'Could not save. Please try again.' }, 502, origin);
+  } finally {
+    clearTimeout(timeout);
+  }
+}
 
 async function handleCanary(request, env) {
   if (request.method !== 'POST') {
@@ -239,6 +292,8 @@ function jsonResponse(body, status, origin) {
   const headers = {
     'Content-Type': 'application/json',
     'X-Content-Type-Options': 'nosniff',
+    'Cache-Control': 'no-store, private',
+    'Referrer-Policy': 'no-referrer',
   };
   if (brandFromOrigin(origin)) Object.assign(headers, corsHeaders(origin));
   return new Response(JSON.stringify(body), {

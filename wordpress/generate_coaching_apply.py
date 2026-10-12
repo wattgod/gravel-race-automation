@@ -890,6 +890,11 @@ def build_section_12_other() -> str:
       </div>'''
 
 
+def build_native_assets() -> str:
+    root = Path(__file__).resolve().parents[1]
+    return '<style>' + (root / 'web/coaching-native.css').read_text() + '</style><script>' + (root / 'web/coaching-native.js').read_text() + '</script>'
+
+
 def build_submit_buttons() -> str:
     return '''<div class="gg-apply-actions">
         <button type="button" class="gg-apply-save-btn" id="save-btn">Save Progress</button>
@@ -1903,6 +1908,9 @@ def build_apply_js() -> str:
     return lines.join("\\n");
   }
 
+  var nativeOnboarding = GGNativeOnboarding.mountIntake(
+    document.getElementById("gg-native-consent"), document.getElementById("intake-form"));
+
   /* ── Form submission — shared coaching intake Worker ─ */
   document.getElementById("intake-form").addEventListener("submit", function(e) {
     e.preventDefault();
@@ -1927,6 +1935,8 @@ def build_apply_js() -> str:
     data.interval_days = formData.getAll("interval_days");
     data.off_days = formData.getAll("off_days");
     data.submission_id = getSubmissionId();
+    var nativeAcceptance = nativeOnboarding.acceptance();
+    if (nativeAcceptance) { data.native_acceptance = nativeAcceptance; }
 
     var submittedAge = parseInt(data.age, 10);
     if (submittedAge < 18 && (!data.guardian_name || !data.guardian_email || !data.guardian_relationship)) {
@@ -1985,7 +1995,8 @@ def build_apply_js() -> str:
         }
         return result;
       });
-    }).then(function() {
+    }).then(function(result) {
+      nativeOnboarding.showReceipt(result.native_receipt);
       localStorage.removeItem("athlete_questionnaire_progress");
       localStorage.removeItem("coaching_intake_submission_id");
       ga4("apply_form_submitted", {
@@ -2109,11 +2120,13 @@ def generate_apply_page(external_assets=None):
       {build_section_10_coaching_prefs()}
       {build_section_11_mental_game()}
       {build_section_12_other()}
+      <section id="gg-native-consent" class="gg-native-consent" hidden></section>
       {build_submit_buttons()}
     </form>
   </div>
   {build_footer()}
   {build_jsonld()}
+  {build_native_assets()}
   {build_apply_js()}
 ''' + '<script>' + get_site_header_js() + '</script>' + get_consent_banner_html() + '''
 </body>

@@ -1,0 +1,29 @@
+.gg-native-consent {
+  border-top: 2px solid var(--gg-color-dark-brown);
+  margin-top: var(--gg-spacing-lg);
+  padding-top: var(--gg-spacing-lg);
+}
+.gg-native-consent[hidden] { display: none; }
+.gg-native-consent details {
+  border: 1px solid var(--gg-color-dark-brown);
+  padding: var(--gg-spacing-md);
+  margin: var(--gg-spacing-md) 0;
+}
+.gg-native-consent summary { cursor: pointer; font-weight: bold; }
+.gg-native-consent details p { line-height: 1.65; overflow-wrap: anywhere; }
+.gg-native-consent button {
+  background: var(--gg-color-dark-brown);
+  color: var(--gg-color-warm-paper);
+  border: 2px solid var(--gg-color-dark-brown);
+  padding: var(--gg-spacing-sm) var(--gg-spacing-md);
+  font: inherit;
+  cursor: pointer;
+  margin: var(--gg-spacing-sm) 0;
+}
+.gg-native-consent button:disabled { cursor: wait; }
+.gg-native-service { white-space: pre-line; line-height: 1.6; }
+.gg-native-consent label { display: block; margin-top: var(--gg-spacing-md); }
+.gg-native-consent .gg-native-choice { display: flex; gap: var(--gg-spacing-sm); align-items: start; }
+.gg-native-consent input[type="checkbox"] { width: 20px; height: 20px; flex-shrink: 0; margin-top: 4px; }
+.gg-native-consent input[type="text"] { width: 100%; box-sizing: border-box; padding: var(--gg-spacing-sm); font: inherit; }
+.gg-native-consent :focus-visible { outline: 3px solid var(--gg-color-dark-brown); outline-offset: 3px; }

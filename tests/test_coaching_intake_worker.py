@@ -124,3 +124,45 @@ process.stdout.write(JSON.stringify({{ status: response.status, forwarded }}));
     assert out["forwarded"]["url"] == "https://pipeline.example/api/coaching-intakes"
     assert out["forwarded"]["body"]["brand"] == "gravelgod"
     assert out["forwarded"]["body"]["questionnaire"]["normal_week"] == answer
+
+
+def test_native_routes_forward_only_case_capability_and_trusted_origin_brand():
+    script = """
+const worker = (await import(WORKER_URI)).default;
+let captured;
+globalThis.fetch = async (url, options) => {
+ captured = {url, headers: options.headers, body: JSON.parse(options.body)};
+ return new Response(JSON.stringify({success: true, receipt: {receipt_id: 'native-test'}}), {status: 200});
+};
+const result = await worker.fetch(new Request('https://edge.test/native/accept', {
+ method: 'POST', headers: {'Origin': 'https://gravelgodcycling.com', 'Content-Type': 'application/json'},
+ body: JSON.stringify({brand: 'roadielabs', token: 'case.capability', acceptance: {data_consent: true}})
+}), {PIPELINE_URL: 'https://backend.test', COACHING_INTAKE_SECRET: 'edge-secret'});
+console.log(JSON.stringify({status: result.status, cache: result.headers.get('Cache-Control'), captured}));
+""".replace('WORKER_URI', json.dumps(WORKER.as_uri()))
+    result = subprocess.run(['node', '--input-type=module', '-e', script],
+                            capture_output=True, text=True, check=True)
+    data = json.loads(result.stdout)
+    assert data['status'] == 200
+    assert data['cache'] == 'no-store, private'
+    assert data['captured']['url'] == 'https://backend.test/api/coaching-native/accept'
+    assert data['captured']['body']['brand'] == 'gravelgod'
+    assert data['captured']['headers']['X-Coaching-Intake-Secret'] == 'edge-secret'
+
+
+def test_native_edge_rejects_unknown_route_and_untrusted_origin():
+    script = """
+const worker = (await import(WORKER_URI)).default;
+globalThis.fetch = async () => {throw new Error('must not contact backend');};
+let results = [];
+for (const [path, origin] of [['accept', 'https://attacker.test'], ['operator', 'https://gravelgodcycling.com']]) {
+ const r = await worker.fetch(new Request('https://edge.test/native/' + path, {method: 'POST',
+ headers: {Origin: origin, 'Content-Type': 'application/json'}, body: '{}'}),
+ {PIPELINE_URL: 'https://backend.test', COACHING_INTAKE_SECRET: 'edge-secret'});
+ results.push(r.status);
+}
+console.log(JSON.stringify(results));
+""".replace('WORKER_URI', json.dumps(WORKER.as_uri()))
+    result = subprocess.run(['node', '--input-type=module', '-e', script],
+                            capture_output=True, text=True, check=True)
+    assert json.loads(result.stdout) == [403, 404]

@@ -17,7 +17,12 @@ from __future__ import annotations
 import argparse
 import html
 import json
+import sys
 from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "scripts"))
+from race_demand_analyzer import analyze_race_demands
+from plan_simulator import render_plan_simulator, get_plan_simulator_css, get_plan_simulator_js
 
 from generate_neo_brutalist import (
     SITE_BASE_URL,
@@ -69,18 +74,42 @@ def build_nav() -> str:
     return get_site_header_html(active="products") + breadcrumb
 
 
+
+def build_plan_preview() -> str:
+    """Use the canonical demand analyzer and Motoren's public v2 provider."""
+    races = []
+    for path in sorted((Path(__file__).resolve().parent.parent / "race-data").glob("*.json")):
+        if path.name.startswith("_"):
+            continue
+        document = json.loads(path.read_text(encoding="utf-8"))
+        race = document.get("race", {})
+        if not race.get("slug") or (race.get("vitals") or {}).get("course_status") == "source_blocked":
+            continue
+        races.append({**race, "discipline": "gravel",
+                      "demands": analyze_race_demands(document)})
+    races.sort(key=lambda race: (race["slug"] != "unbound-200", race.get("name", "")))
+    if not races:
+        return ""
+    return render_plan_simulator(
+        brand="gravel_god", race=races[0], demands=races[0]["demands"],
+        race_options=races, questionnaire_url=QUESTIONNAIRE_URL + "?src=plan_preview",
+        heading="See the plan before you buy.",
+        lede="Choose your race, available hours, and training experience. Open a week to see the sessions, recovery days, and workout targets.",
+    )
+
+
 def build_hero() -> str:
     return f'''<section class="gg-tp-hero" id="hero">
   <h1 class="gg-tp-hero-title">Your Race. Your Hours. Your Plan.</h1>
   <p class="gg-tp-hero-sub">Most training plans assume you&rsquo;re average. A parent with 5 hours a week needs a plan that fits five hours; someone with 15 has more room to work. This isn&rsquo;t a template with your name on it. It&rsquo;s a plan built from your schedule, your fitness, your race, and the specific demands of the course you&rsquo;re lining up for.</p>
   <div class="gg-tp-hero-cta">
     <a href="{QUESTIONNAIRE_URL}?src=product_page" class="gg-tp-btn" data-cta="hero_build">Build My Plan</a>
-    <a href="#how-it-works" class="gg-tp-btn gg-tp-btn-secondary" data-cta="hero_how">See How It Works</a>
+    <a href="#custom-plan-preview" class="gg-tp-btn gg-tp-btn-secondary" data-cta="hero_how">Preview My Plan</a>
   </div>
   <div class="gg-tp-hero-bar">
     <div class="gg-tp-hero-bar-item"><strong>24 Hours</strong><span>Delivery</span></div>
     <div class="gg-tp-hero-bar-item"><strong>Matched</strong><span>Methodology</span></div>
-    <div class="gg-tp-hero-bar-item"><strong>$2/day</strong><span>Less Than a Tube</span></div>
+    <div class="gg-tp-hero-bar-item"><strong>$15/week</strong><span>One Payment</span></div>
     <div class="gg-tp-hero-bar-item"><strong>5 min</strong><span>To Start</span></div>
   </div>
   <p class="gg-tp-delivery-terms">Your plan, personally reviewed and delivered in TrainingPeaks within 24 hours.</p>
@@ -243,7 +272,7 @@ def build_what_you_get() -> str:
         </div>
       </div>
 '''
-    sample_week = _build_sample_week()
+    sample_week = ""  # Generated sample weeks live in the Motoren preview above.
     return f'''<section class="gg-tp-section" id="what-you-get">
   <div class="gg-tp-section-label">What You Get</div>
   <h2>Five Things. All Custom. Zero Filler.</h2>
@@ -341,7 +370,7 @@ def build_pricing() -> str:
       <div class="gg-tp-pricing-cta">
         <a href="{QUESTIONNAIRE_URL}?src=product_page" class="gg-tp-btn" data-cta="pricing_build">Build My Plan</a>
       </div>
-      <p class="gg-tp-pricing-note">Your entry fee was $175. Your hotel is $200. Your plan is $2/day. Don&rsquo;t show up without one.</p>
+      <p class="gg-tp-pricing-note">Choose the weeks you need. Your total is shown before payment.</p>
     </div>
   </div>
   <div class="gg-tp-guarantee">
@@ -397,7 +426,7 @@ def build_faq() -> str:
 
 def build_mobile_sticky() -> str:
     return f'''<div class="gg-tp-sticky-cta" id="gg-tp-sticky-cta">
-  <a href="{QUESTIONNAIRE_URL}?src=product_page" data-cta="sticky_mobile">Build My Plan &mdash; $2/day</a>
+  <a href="{QUESTIONNAIRE_URL}?src=product_page" data-cta="sticky_mobile">Build My Plan &mdash; $15/week</a>
 </div>'''
 
 
@@ -1297,16 +1326,22 @@ def generate_training_page(external_assets: dict = None) -> str:
 
     nav = build_nav()
     hero = build_hero()
+    preview = build_plan_preview()
     what = build_what_you_get()
     how = build_how_it_works()
-    quote = build_rotating_quote()
+    quote = ""
     honest = build_honest_check()
     pricing = build_pricing()
     faq = build_faq()
     sticky = build_mobile_sticky()
     footer = build_footer()
-    training_css = build_training_css()
-    training_js = build_training_js()
+    training_css = build_training_css() + "<style>" + get_plan_simulator_css(
+        ink="var(--gg-color-primary-brown)", paper="var(--gg-color-warm-paper)",
+        panel="var(--gg-color-white)", line="var(--gg-color-tan)",
+        accent="var(--gg-color-teal)",
+        data_font="var(--gg-font-data)", body_font="var(--gg-font-editorial)",
+    ) + "</style>"
+    training_js = build_training_js() + "<script>" + get_plan_simulator_js() + "</script>"
     jsonld = build_jsonld()
 
     if external_assets:
@@ -1360,6 +1395,8 @@ def generate_training_page(external_assets: dict = None) -> str:
   {nav}
 
   {hero}
+
+  {preview}
 
   {what}
 

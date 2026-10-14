@@ -146,7 +146,7 @@ class TestHero:
         assert "24 Hours" in hero
         assert "Delivery" in hero
         assert "Matched" in hero
-        assert "$2/day" in hero
+        assert "$15/week" in hero
         assert "5 min" in hero
 
     def test_delivery_promise_is_simple_and_specific(self):
@@ -167,9 +167,10 @@ class TestHero:
         assert "coffee" not in hero_lower
         assert "latte" not in hero_lower
 
-    def test_tube_comparison(self):
+    def test_plain_weekly_price(self):
         hero = build_hero()
-        assert "Less Than a Tube" in hero
+        assert "Less Than a Tube" not in hero
+        assert "One Payment" in hero
 
     def test_cta_questionnaire_url(self):
         hero = build_hero()
@@ -182,7 +183,7 @@ class TestHero:
 
     def test_cta_how_it_works(self):
         hero = build_hero()
-        assert "#how-it-works" in hero
+        assert "#custom-plan-preview" in hero
 
     def test_data_cta_attributes(self):
         hero = build_hero()
@@ -204,26 +205,12 @@ class TestWhatYouGet:
             # Titles are embedded as-is (already contain &amp; entities)
             assert title in section
 
-    def test_sample_week_grid(self):
-        section = build_what_you_get()
-        assert "gg-tp-sample-grid" in section
-
-    def test_sample_week_seven_days(self):
-        section = build_what_you_get()
-        for day in ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]:
-            assert day in section
-
-    def test_sample_blocks_have_data_detail(self):
-        section = build_what_you_get()
-        assert "data-detail=" in section
-
-    def test_sample_blocks_have_data_structure(self):
-        section = build_what_you_get()
-        assert "data-structure=" in section
-
-    def test_seven_sample_blocks(self):
-        section = build_what_you_get()
-        assert section.count("gg-tp-sample-block ") == 7
+    def test_hand_written_sample_is_replaced_by_engine_preview(self, tp_html):
+        assert 'gg-tp-sample-grid' not in build_what_you_get()
+        assert 'id="custom-plan-preview"' in tp_html
+        assert 'training-plan-preview-request/v2' in tp_html
+        assert len(re.findall(r'<section[^>]+data-calendar-day=', tp_html)) == 7
+        assert tp_html.index('id="custom-plan-preview"') < tp_html.index('id="what-you-get"')
 
     def test_section_label(self):
         section = build_what_you_get()
@@ -373,7 +360,8 @@ class TestPricing:
     def test_honest_math_daily_rate(self):
         """$15/week ≈ $2.14/day, displayed as $2/day — order of magnitude correct."""
         section = build_pricing()
-        assert "$2/day" in section
+        assert "$2/day" not in section
+        assert "Your total is shown before payment" in section
 
     def test_example_calculations(self):
         section = build_pricing()
@@ -659,7 +647,7 @@ class TestMobileStickyCta:
 
     def test_sticky_daily_rate(self):
         sticky = build_mobile_sticky()
-        assert "$2/day" in sticky
+        assert "$15/week" in sticky
 
     def test_no_coffee_in_sticky(self):
         sticky = build_mobile_sticky()

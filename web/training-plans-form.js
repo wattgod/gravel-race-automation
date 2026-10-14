@@ -474,6 +474,31 @@
   addRace(); // First race by default
   addRaceBtn.addEventListener('click', addRace);
 
+  // Public preview handoff: schedule only; never health or power data in URLs.
+  function prefillPreviewSchedule() {
+    var preview = new URLSearchParams(window.location.search);
+    if (preview.get('src') !== 'plan_preview') return;
+    var hours = Number(preview.get('hours'));
+    var hoursField = form.querySelector('select[name="weeklyHours"]');
+    if (hoursField && !hoursField.value && hours >= 4 && hours <= 18) {
+      hoursField.value = hours < 5 ? '3-5' : hours < 7 ? '5-7' : hours < 10 ? '7-10' : hours < 12 ? '10-12' : hours < 15 ? '12-15' : '15+';
+    }
+    var rawDate = preview.get('race_date') || '';
+    var dateField = form.querySelector('input[name="race_0_date"]');
+    if (dateField && !dateField.value && /^\d{4}-\d{2}-\d{2}$/.test(rawDate)) {
+      var parsed = new Date(rawDate + 'T12:00:00Z');
+      if (!isNaN(parsed.getTime()) && parsed.toISOString().slice(0, 10) === rawDate) dateField.value = rawDate;
+    }
+    var names = {Mon:'Monday',Tue:'Tuesday',Wed:'Wednesday',Thu:'Thursday',Fri:'Friday',Sat:'Saturday',Sun:'Sunday'};
+    var selected = (preview.get('days') || '').split(',');
+    if (selected.length >= 3 && selected.every(function(day) { return names[day]; }) && !form.querySelector('input[name="daysOff"]:checked')) {
+      form.querySelectorAll('input[name="daysOff"]').forEach(function(field) {
+        field.checked = selected.map(function(day) { return names[day]; }).indexOf(field.value) === -1;
+      });
+    }
+    updatePriceDisplay();
+  }
+
   // ---- Pre-populate from ?race= URL param ----
   (function prefillFromURL() {
     var params = new URLSearchParams(window.location.search);
@@ -728,6 +753,7 @@
 
   // ---- Restore saved form data ----
   restoreForm();
+  prefillPreviewSchedule();
   updatePriceDisplay(); // Show price from restored race dates
 
   // ---- Form submission → Stripe Checkout ----

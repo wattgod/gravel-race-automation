@@ -668,8 +668,8 @@ def check_infographic_editorial():
     for aid, renderer in sorted(INFOGRAPHIC_RENDERERS.items()):
         block = {"type": "image", "asset_id": aid, "alt": "test", "caption": "c"}
         html = renderer(block)
-        has_title = "gg-infographic-title" in html
-        has_takeaway = "gg-infographic-takeaway" in html
+        has_title = bool(re.search(r"<h3>[^<]+</h3>", html))
+        has_takeaway = "<figcaption" in html or "guide-reference-summary" in html
         check(f"Editorial framing: {aid}",
               has_title and has_takeaway,
               f"Missing {'title' if not has_title else 'takeaway'} for {aid}")

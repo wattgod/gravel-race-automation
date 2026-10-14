@@ -24,7 +24,16 @@ All colors use CSS custom properties via var(--gg-color-*).
 
 import html as _html
 import json
+import re
+from guide_reference import figure as _reference_figure, table, bars, line_chart, sequence
 from pathlib import Path
+
+def figure(*args, **kwargs):
+    return _reference_figure(*args, **kwargs).replace(
+        'class="guide-reference"',
+        'class="gg-infographic" data-reference="field" style="--ref-ink:var(--gg-color-primary-brown);--ref-paper:var(--gg-color-warm-paper);--ref-panel:var(--gg-color-sand);--ref-line:var(--gg-color-tan);--ref-accent:var(--gg-color-teal);--ref-data:var(--gg-font-data);--ref-body:var(--gg-font-editorial)"'
+    ).replace('<figcaption>', '<figcaption class="gg-infographic-caption">')
+
 
 RACE_DATA_DIR = Path(__file__).parent.parent / "race-data"
 
@@ -34,7 +43,7 @@ _SCORING_CACHE = {}  # populated lazily by _load_unbound_rating()
 
 def _esc(text) -> str:
     """HTML-escape a string."""
-    return _html.escape(str(text)) if text else ""
+    return _html.escape(str(text)) if text is not None else ""
 
 
 # ── SVG Helpers ─────────────────────────────────────────────
@@ -42,6 +51,8 @@ def _esc(text) -> str:
 
 def _svg_open(width: int, height: int, cls: str = "") -> str:
     """Open an SVG tag with viewBox for fluid scaling."""
+    global _CURRENT_SVG_WIDTH
+    _CURRENT_SVG_WIDTH = width
     c = f' class="{cls}"' if cls else ""
     return (
         f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {width} {height}"'
@@ -74,6 +85,7 @@ def _svg_text(x, y, text, font_size=14, fill="", anchor="start",
     font-family is set via style="" attribute (not presentation attribute)
     so that CSS custom properties like var(--gg-font-data) can resolve.
     """
+    font_size = max(font_size, round(globals().get("_CURRENT_SVG_WIDTH", 800) * 14 / 900))
     parts = [f'<text x="{x}" y="{y}" font-size="{font_size}"']
     if fill:
         parts.append(f' fill="{fill}"')
@@ -156,29 +168,53 @@ def _cubic_bezier_path(points: list[tuple[float, float]], closed: bool = False) 
 # ── Figure Wrapper ──────────────────────────────────────────
 
 
+def _svg_token_styles(match):
+    tag = match[0]
+    styles = []
+    for name in ('stroke', 'fill'):
+        attr = re.search(r' '+name+r'="([^"]*)"', tag)
+        if attr and ('var(' in attr[1] or 'color-mix(' in attr[1]):
+            styles.append(name+':'+attr[1])
+    if styles:
+        if 'style="' in tag:
+            tag = tag.replace('style="', 'style="'+(';'.join(styles))+';', 1)
+        else:
+            tag = tag.replace('/>', ' style="'+(';'.join(styles))+'"/>') if tag.endswith('/>') else tag[:-1]+' style="'+(';'.join(styles))+'">'
+    return tag
+
+
 def _figure_wrap(inner: str, caption: str, layout: str = "inline",
                  asset_id: str = "", alt: str = "",
                  title: str = "", takeaway: str = "") -> str:
-    """Wrap content in a <figure> with optional title bar, takeaway, caption, and aria-label."""
-    cls = "gg-infographic"
+    # Reference information stays visible with JavaScript and motion disabled.
+    inner = re.sub(r' data-animate="[^"]*"', '', inner)
+    inner = re.sub(r' data-interactive="(?:flip|accordion|timeline|traffic-light|digit-roller|before-after)"', '', inner)
+    inner = inner.replace(' role="button"', '').replace(' aria-expanded="false"', '')
+    inner = re.sub(r'aria-label="Flip to see ([^"]*) details"', r'aria-label="\1"', inner)
+    inner = inner.replace('Tap to flip', '')
+    example = asset_id in {
+        'ch2-course-profile', 'ch3-training-phases', 'ch3-power-duration',
+        'ch3-gantt-season', 'ch4-execution-gap', 'ch4-sleep-debt',
+        'ch5-fueling-timeline', 'ch5-bonk-math', 'ch5-hydration-calc',
+        'ch5-glycogen-gauge', 'ch5-macro-split', 'ch5-calorie-burn',
+        'ch6-psych-phases',
+    }
+    if example:
+        caption = 'Illustrative example. ' + caption
+    if '<svg' in inner:
+        inner = re.sub(r'<(?:path|rect|line|polyline|text)\b[^>]*>', _svg_token_styles, inner)
+        inner = '<div class="guide-legacy-chart" tabindex="0" role="region" aria-label="Diagram; scroll horizontally on a small screen">'+inner+'</div>'
+        inner = inner.replace('role="img" aria-hidden="true"', 'role="img" aria-label="'+_esc(alt or title)+'"')
+        labels = [_html.unescape(re.sub('<[^>]+>', '', text)) for text in re.findall(r'<text[^>]*>(.*?)</text>', inner)]
+        if labels:
+            inner += '<details class="guide-chart-data"><summary>Read diagram labels</summary><ul>'+''.join('<li>'+_esc(label)+'</li>' for label in labels)+'</ul></details>'
+    body = inner
+    if takeaway:
+        body += '<p class="guide-reference-summary">'+_esc(takeaway)+'</p>'
+    result = figure(title or alt or 'Guide reference', body, caption, alt, example, asset_id)
     if layout and layout != "inline":
-        cls += f" gg-infographic--{layout}"
-    aid = f' data-asset-id="{_esc(asset_id)}"' if asset_id else ""
-    aria = f' aria-label="{_esc(alt)}"' if alt else ""
-    role = ' role="figure"' if alt else ""
-    title_html = (
-        f'<div class="gg-infographic-title">{_esc(title)}</div>'
-        if title else ""
-    )
-    takeaway_html = (
-        f'<div class="gg-infographic-takeaway">{_esc(takeaway)}</div>'
-        if takeaway else ""
-    )
-    cap = (
-        f'<figcaption class="gg-infographic-caption">{_esc(caption)}</figcaption>'
-        if caption else ""
-    )
-    return f'<figure class="{cls}"{aid}{role}{aria}>{title_html}{inner}{takeaway_html}{cap}</figure>'
+        result = result.replace('class="gg-infographic"', 'class="gg-infographic gg-infographic--'+_esc(layout)+'"', 1)
+    return result
 
 
 # ── Shared SVG Micro-Icons (for gear grid cards) ────────────
@@ -306,103 +342,6 @@ def render_gear_grid(block: dict) -> str:
     )
 
 
-def render_rider_categories(block: dict) -> str:
-    """4-column rider category grid as flip cards (front: summary, back: details).
-
-    Uses data-interactive="flip" for click-to-flip progressive enhancement.
-    """
-    riders = [
-        {
-            "name": "Ayahuasca",
-            "hours": "3-5 hrs/wk",
-            "ftp_range": "100-160W",
-            "ftp_pct": 25,
-            "goal": "Finish upright",
-            "reality": "Survival mode",
-            "tier": "T4",
-            "detail": "First-timers and casual riders. Focus on completing the distance, "
-                      "not competing. Build slowly with 3-4 rides per week.",
-        },
-        {
-            "name": "Finisher",
-            "hours": "5-8 hrs/wk",
-            "ftp_range": "160-220W",
-            "ftp_pct": 50,
-            "goal": "Finish strong",
-            "reality": "Solid mid-pack",
-            "tier": "T3-T4",
-            "detail": "The biggest category. Consistent training pays off \u2014 "
-                      "structured intervals 2x/week plus one long ride builds real fitness.",
-        },
-        {
-            "name": "Competitor",
-            "hours": "8-12 hrs/wk",
-            "ftp_range": "220-280W",
-            "ftp_pct": 75,
-            "goal": "Top 25%",
-            "reality": "Age group podium",
-            "tier": "T2-T3",
-            "detail": "Serious athletes balancing training with life. Periodized plans, "
-                      "race-specific prep, and dialed nutrition separate you from finishers.",
-        },
-        {
-            "name": "Podium",
-            "hours": "12-20 hrs/wk",
-            "ftp_range": "280-400W",
-            "ftp_pct": 100,
-            "goal": "Win or podium",
-            "reality": "Elite-level prep",
-            "tier": "T1",
-            "detail": "Full commitment. Double days, altitude camps, race recon. "
-                      "Every marginal gain matters when the field is this deep.",
-        },
-    ]
-
-    highlight_colors = {
-        "Ayahuasca": "var(--gg-color-secondary-brown)",
-        "Finisher": "var(--gg-color-teal)",
-        "Competitor": "var(--gg-color-gold)",
-        "Podium": "var(--gg-color-primary-brown)",
-    }
-
-    cards = []
-    for r in riders:
-        bar_w = r["ftp_pct"]
-        accent = highlight_colors.get(r["name"], "var(--gg-color-teal)")
-        cards.append(
-            f'<div class="gg-infographic-card" data-interactive="flip" tabindex="0"'
-            f' aria-label="Flip to see {_esc(r["name"])} details">'
-            # Front face — summary
-            f'<div class="gg-infographic-card-front">'
-            f'<div class="gg-infographic-rider-name">{_esc(r["name"])}</div>'
-            f'<div class="gg-infographic-rider-hours">{_esc(r["hours"])}</div>'
-            f'<div class="gg-infographic-rider-bar-wrap">'
-            f'<div class="gg-infographic-rider-bar" style="width:{bar_w}%;background:{accent}"></div>'
-            f'</div>'
-            f'<div class="gg-infographic-rider-ftp">{_esc(r["ftp_range"])}</div>'
-            f'<div class="gg-infographic-flip-hint">Tap to flip</div>'
-            f'</div>'
-            # Back face — details
-            f'<div class="gg-infographic-card-back"'
-            f' style="border-top:4px solid {accent}">'
-            f'<div class="gg-infographic-rider-name">{_esc(r["name"])}</div>'
-            f'<div class="gg-infographic-rider-meta">'
-            f'<span>Goal: {_esc(r["goal"])}</span>'
-            f'<span>Reality: {_esc(r["reality"])}</span>'
-            f'<span>Races: {_esc(r["tier"])}</span>'
-            f'</div>'
-            f'<div class="gg-infographic-card-detail">{_esc(r["detail"])}</div>'
-            f'</div>'
-            f'</div>'
-        )
-
-    inner = f'<div class="gg-infographic-rider-grid">{"".join(cards)}</div>'
-    return _figure_wrap(
-        inner, block.get("caption", ""), block.get("layout", "inline"),
-        block.get("asset_id", ""), block.get("alt", ""),
-        title="Four Rider Archetypes",
-        takeaway="Most riders are Finishers \u2014 and that\u2019s the right goal for your first gravel race.",
-    )
 
 
 def render_race_week_countdown(block: dict) -> str:
@@ -744,107 +683,8 @@ def render_zone_spectrum(block: dict) -> str:
     )
 
 
-def render_hierarchy_pyramid(block: dict) -> str:
-    """5-layer performance hierarchy as narrowing HTML bars (pyramid, bottom-to-top).
-
-    Uses data-animate="pyramid" with stagger delays for bottom-up reveal.
-    Widest bar (Fitness) at bottom, narrowest (Equipment) at top.
-    """
-    # Ordered top-to-bottom visually (narrowest first)
-    layers = [
-        ("Equipment", "0.5%", 15,
-         "Marginal gains: lighter wheels, aero bars. Matters least.",
-         "var(--gg-color-tan)", "var(--gg-color-primary-brown)"),
-        ("Bike Handling", "1.5%", 30,
-         "Cornering, descending, loose-surface skills save minutes.",
-         "var(--gg-color-sand)", "var(--gg-color-primary-brown)"),
-        ("Nutrition", "8%", 50,
-         "Proper fueling prevents bonking \u2014 worth 30+ min in long races.",
-         "var(--gg-color-warm-brown)", "var(--gg-color-warm-paper)"),
-        ("Pacing", "20%", 75,
-         "Even pacing beats heroic surges. Discipline > talent.",
-         "var(--gg-color-secondary-brown)", "var(--gg-color-warm-paper)"),
-        ("Fitness", "70%", 100,
-         "+50W FTP = ~2mph faster. Train more, spend less.",
-         "var(--gg-color-primary-brown)", "var(--gg-color-warm-paper)"),
-    ]
-
-    n = len(layers)
-    bars = []
-    for i, (label, pct, width, tip, bg, text_color) in enumerate(layers):
-        # Stagger delay: bottom-up (reverse index)
-        delay = (n - 1 - i) * 120
-        bars.append(
-            f'<div class="gg-infographic-pyramid-bar"'
-            f' style="--w:{width}%;--delay:{delay}ms;background:{bg}"'
-            f' data-tooltip="{_esc(tip)}" tabindex="0">'
-            f'<div class="gg-infographic-pyramid-label"'
-            f' style="color:{text_color}">{_esc(label)}</div>'
-            f'<div class="gg-infographic-pyramid-pct"'
-            f' style="color:{text_color}">{_esc(pct)}</div>'
-            f'</div>'
-        )
-
-    inner = (
-        f'<div class="gg-infographic-pyramid" data-animate="pyramid">'
-        f'{"".join(bars)}</div>'
-    )
-    return _figure_wrap(
-        inner, block.get("caption", ""), block.get("layout", "inline"),
-        block.get("asset_id", ""), block.get("alt", ""),
-        title="The Hierarchy of Speed: What Actually Makes You Faster",
-        takeaway="Aero gains are sexy but fitness is 80% of the equation. Train more, spend less.",
-    )
 
 
-def render_tier_distribution(block: dict) -> str:
-    """Tier distribution as pyramid with narrowing bars (T4 widest, T1 narrowest).
-
-    Uses data-animate="pyramid" with bottom-to-top stagger.
-    Visual hierarchy: T1 at top (narrow, prestigious), T4 at bottom (wide, many races).
-    """
-    # Ordered top-to-bottom: T1 (fewest) → T4 (most)
-    tiers = [
-        ("T1", 25, 8, "var(--gg-color-primary-brown)", "var(--gg-color-warm-paper)",
-         "Unbound, BWR, Leadville \u2014 the bucket-list events"),
-        ("T2", 73, 22, "var(--gg-color-secondary-brown)", "var(--gg-color-warm-paper)",
-         "SBT GRVL, Gravel Worlds, Mid South \u2014 strong fields, great courses"),
-        ("T3", 154, 47, "var(--gg-color-tier-3)", "var(--gg-color-warm-paper)",
-         "Regional favorites with solid organization and community"),
-        ("T4", 76, 23, "var(--gg-color-tier-4)", "var(--gg-color-warm-paper)",
-         "Local or niche events \u2014 great entry points for beginners"),
-    ]
-
-    total = sum(t[1] for t in tiers)
-    n = len(tiers)
-    bars = []
-    # Width proportional to count, scaled so T3 (largest) = 100%
-    max_count = max(t[1] for t in tiers)
-    for i, (label, count, pct, bg, text_color, tip) in enumerate(tiers):
-        width_pct = int((count / max_count) * 100)
-        delay = (n - 1 - i) * 150
-        bars.append(
-            f'<div class="gg-infographic-pyramid-bar"'
-            f' style="--w:{width_pct}%;--delay:{delay}ms;background:{bg}"'
-            f' data-tooltip="{_esc(tip)}" tabindex="0">'
-            f'<div class="gg-infographic-pyramid-label"'
-            f' style="color:{text_color}">'
-            f'{_esc(label)}: {count} races</div>'
-            f'<div class="gg-infographic-pyramid-pct"'
-            f' style="color:{text_color}">{pct}%</div>'
-            f'</div>'
-        )
-
-    inner = (
-        f'<div class="gg-infographic-pyramid" data-animate="pyramid">'
-        f'{"".join(bars)}</div>'
-    )
-    return _figure_wrap(
-        inner, block.get("caption", ""), block.get("layout", "inline"),
-        block.get("asset_id", ""), block.get("alt", ""),
-        title="How We Tier 328 Gravel Races",
-        takeaway="Only 8% earn Tier 1. If your target race is T1, respect it with T1 preparation.",
-    )
 
 
 def render_training_phases(block: dict) -> str:
@@ -1112,424 +952,14 @@ def _load_unbound_rating() -> dict:
             ub_data = json.loads(ub_path.read_text(encoding="utf-8"))
             _SCORING_CACHE["unbound"] = ub_data["race"]["gravel_god_rating"]
         else:
-            _SCORING_CACHE["unbound"] = {
-                "logistics": 4, "length": 5, "technicality": 3, "elevation": 3,
-                "climate": 5, "altitude": 1, "adventure": 5, "prestige": 5,
-                "race_quality": 5, "experience": 5, "community": 5,
-                "field_depth": 5, "value": 3, "expenses": 2,
-            }
+            _SCORING_CACHE["unbound"] = {}
     return _SCORING_CACHE["unbound"]
 
 
-def render_scoring_dimensions(block: dict) -> str:
-    """Radar chart showing scoring dimensions as SVG polygon.
-
-    Uses data-interactive="radar-morph" for toggling between race profiles.
-    14 axes arranged radially. Polygon scales in on scroll.
-    Falls back to static polygon without JS.
-    """
-    import math
-
-    rating = _load_unbound_rating()
-
-    dim_tips = {
-        "Logistics": "Travel complexity, registration difficulty, permit requirements",
-        "Length": "Total race distance \u2014 longer races score higher",
-        "Technicality": "Surface difficulty, navigation challenges, technical terrain",
-        "Elevation": "Total climbing relative to distance",
-        "Climate": "Heat, cold, wind, altitude exposure risks",
-        "Altitude": "Maximum elevation and time spent above 5,000ft",
-        "Adventure": "Remoteness, scenery, exploration factor",
-        "Prestige": "Historical significance, brand recognition, media coverage",
-        "Race Quality": "Organization, course marking, aid station quality",
-        "Experience": "Overall rider experience, post-race atmosphere",
-        "Community": "Local engagement, volunteer quality, spectator support",
-        "Field Depth": "Pro presence, competitive depth, field size",
-        "Value": "Registration cost relative to what you get",
-        "Expenses": "Total trip cost: travel, lodging, gear requirements",
-    }
-    dim_keys = [
-        ("Logistics", "logistics"), ("Length", "length"),
-        ("Technicality", "technicality"), ("Elevation", "elevation"),
-        ("Climate", "climate"), ("Altitude", "altitude"),
-        ("Adventure", "adventure"), ("Prestige", "prestige"),
-        ("Race Quality", "race_quality"), ("Experience", "experience"),
-        ("Community", "community"), ("Field Depth", "field_depth"),
-        ("Value", "value"), ("Expenses", "expenses"),
-    ]
-
-    n = len(dim_keys)
-    vb_size = 800
-    cx, cy = vb_size / 2, vb_size / 2
-    max_r = 300  # max radius for score 5
-    label_r = max_r + 40  # where labels sit
-
-    svg = [_svg_open(vb_size, vb_size, "gg-infographic-svg")]
-
-    # Grid rings at each score level (1-5)
-    for level in range(1, 6):
-        r = (level / 5) * max_r
-        ring_pts = []
-        for i in range(n):
-            angle = (2 * math.pi * i / n) - math.pi / 2
-            px = cx + r * math.cos(angle)
-            py = cy + r * math.sin(angle)
-            ring_pts.append(f"{px:.1f},{py:.1f}")
-        ring_pts.append(ring_pts[0])  # close
-        svg.append(
-            f'<polyline points="{" ".join(ring_pts)}" fill="none"'
-            f' stroke="var(--gg-color-tan)" stroke-width="1"/>'
-        )
-
-    # Axis lines from center to each vertex
-    for i in range(n):
-        angle = (2 * math.pi * i / n) - math.pi / 2
-        ex = cx + max_r * math.cos(angle)
-        ey = cy + max_r * math.sin(angle)
-        svg.append(_svg_line(cx, cy, ex, ey,
-                             stroke="var(--gg-color-sand)", stroke_width=1))
-
-    # Data polygon — Unbound 200 scores
-    data_pts = []
-    for i, (label, key) in enumerate(dim_keys):
-        score = rating.get(key, 0)
-        r = (score / 5) * max_r
-        angle = (2 * math.pi * i / n) - math.pi / 2
-        px = cx + r * math.cos(angle)
-        py = cy + r * math.sin(angle)
-        data_pts.append(f"{px:.1f},{py:.1f}")
-
-    # Data polygon as JSON for morph animation
-    data_json = ",".join(str(rating.get(k, 0)) for _, k in dim_keys)
-    svg.append(
-        f'<polygon points="{" ".join(data_pts)}"'
-        f' fill="color-mix(in srgb, var(--gg-color-teal) 20%, transparent)"'
-        f' stroke="var(--gg-color-teal)" stroke-width="2.5"'
-        f' stroke-linejoin="miter"'
-        f' class="gg-radar-chart__polygon"'
-        f' data-scores="{data_json}"/>'
-    )
-
-    # Vertex markers (rect only) + tooltips
-    for i, (label, key) in enumerate(dim_keys):
-        score = rating.get(key, 0)
-        r = (score / 5) * max_r
-        angle = (2 * math.pi * i / n) - math.pi / 2
-        px = cx + r * math.cos(angle)
-        py = cy + r * math.sin(angle)
-        tip = dim_tips.get(label, "")
-        svg.append(_svg_rect(
-            px - 4, py - 4, 8, 8,
-            fill="var(--gg-color-teal)",
-            stroke="var(--gg-color-dark-brown)", stroke_width=1,
-            extra=f'class="gg-line-chart__marker"'
-                  f' data-tooltip="{_esc(label)}: {score}/5 \u2014 {_esc(tip)}" tabindex="0"'
-        ))
-
-    # Axis labels
-    for i, (label, _key) in enumerate(dim_keys):
-        angle = (2 * math.pi * i / n) - math.pi / 2
-        lx = cx + label_r * math.cos(angle)
-        ly = cy + label_r * math.sin(angle)
-        # Determine text-anchor based on position
-        if abs(math.cos(angle)) < 0.15:
-            anchor = "middle"
-        elif math.cos(angle) > 0:
-            anchor = "start"
-        else:
-            anchor = "end"
-        svg.append(_svg_text(
-            lx, ly + 5, label,
-            font_size=12, fill="var(--gg-color-primary-brown)",
-            anchor=anchor, weight="600",
-            family="var(--gg-font-data)"
-        ))
-
-    svg.append(_svg_close())
-
-    # Morph toggle buttons (race comparison)
-    toggle_html = (
-        '<div class="gg-radar-chart__toggles">'
-        '<button class="gg-radar-chart__toggle is-active" data-race="unbound-200"'
-        ' data-scores="' + data_json + '">Unbound 200</button>'
-        '<button class="gg-radar-chart__toggle" data-race="mid-south-100"'
-        ' data-scores="3,4,3,2,4,1,3,4,5,5,5,4,4,3">Mid South</button>'
-        '<button class="gg-radar-chart__toggle" data-race="leadville-100"'
-        ' data-scores="4,5,4,5,4,5,5,5,4,5,4,4,3,2">Leadville</button>'
-        '</div>'
-    )
-
-    inner = (
-        f'<div class="gg-radar-chart" data-interactive="radar-morph">'
-        f'{toggle_html}{"".join(svg)}</div>'
-    )
-    return _figure_wrap(
-        inner, block.get("caption", ""), block.get("layout", "inline"),
-        block.get("asset_id", ""), block.get("alt", ""),
-        title="Inside the Rating: 14 Scoring Dimensions",
-        takeaway="No single score tells the whole story. A race can be Tier 3 overall but Tier 1 on course difficulty.",
-    )
 
 
-def render_supercompensation(block: dict) -> str:
-    """Supercompensation curve: stress → fatigue → recovery → adaptation overshoot."""
-    vb_w, vb_h = 1200, 600
-    margin_l, margin_r = 80, 60
-    chart_top = 60
-    chart_bot = 500
-    chart_w = vb_w - margin_l - margin_r
-
-    # Baseline
-    baseline_y = chart_bot - 200
-
-    # Curve points: (x_frac, y_offset from baseline)
-    # Negative = below baseline (fatigue), positive = above (supercompensation)
-    curve_pts = [
-        (0.00, 0),      # start at baseline
-        (0.05, 5),      # slight rise during training stimulus
-        (0.10, -10),    # training stress begins
-        (0.15, -80),    # deep fatigue
-        (0.20, -120),   # nadir
-        (0.25, -100),   # recovery begins
-        (0.30, -60),
-        (0.35, -20),
-        (0.40, 0),      # back to baseline
-        (0.45, 30),     # supercompensation begins
-        (0.50, 55),
-        (0.55, 70),     # peak supercompensation
-        (0.60, 65),
-        (0.65, 50),
-        (0.70, 30),     # detraining begins
-        (0.75, 15),
-        (0.80, 5),
-        (0.85, 0),      # return to baseline
-        (0.90, -5),
-        (0.95, -8),
-        (1.00, -10),
-    ]
-
-    points = [
-        (margin_l + frac * chart_w, baseline_y - offset)
-        for frac, offset in curve_pts
-    ]
-
-    svg = [_svg_open(vb_w, vb_h, "gg-infographic-svg")]
-
-    # Baseline
-    svg.append(_svg_line(margin_l, baseline_y, margin_l + chart_w, baseline_y,
-                         stroke="var(--gg-color-tan)", stroke_width=2,
-                         extra='stroke-dasharray="8 4"'))
-    svg.append(_svg_text(
-        margin_l - 10, baseline_y + 5, "Baseline",
-        font_size=12, fill="var(--gg-color-secondary-brown)",
-        anchor="end", family="var(--gg-font-data)"
-    ))
-
-    # Main curve with line-draw animation
-    svg.append(_svg_path(
-        _cubic_bezier_path(points),
-        stroke="var(--gg-color-primary-brown)", stroke_width=3,
-        extra='stroke-linecap="round" data-animate="line"'
-              ' class="gg-line-chart__path"'
-    ))
-
-    # Key point markers (rect only — no circles per brand rule)
-    key_pts = [(0.20, -120, "Nadir"), (0.55, 70, "Peak")]
-    for frac, offset, mk_label in key_pts:
-        mx = margin_l + frac * chart_w
-        my = baseline_y - offset
-        svg.append(_svg_rect(
-            mx - 4, my - 4, 8, 8,
-            fill="var(--gg-color-primary-brown)",
-            stroke="var(--gg-color-warm-paper)", stroke_width=2,
-            extra='class="gg-line-chart__marker"'
-        ))
-
-    # Phase labels with tooltips + fade-stagger animation
-    phase_labels = [
-        (0.12, -140, "Training\nStress", "var(--gg-color-error)",
-         "The workout itself \u2014 muscle fiber damage and glycogen depletion"),
-        (0.22, -150, "Fatigue", "var(--gg-color-error)",
-         "Performance dips below baseline as body repairs damage"),
-        (0.35, 10, "Recovery", "var(--gg-color-gold)",
-         "Repair and adaptation \u2014 sleep, nutrition, and easy days"),
-        (0.55, 95, "Supercompensation", "var(--gg-color-teal)",
-         "The window where fitness exceeds previous baseline \u2014 train again here"),
-        (0.80, 25, "Detraining", "var(--gg-color-secondary-brown)",
-         "Wait too long and you lose the adaptation gains"),
-    ]
-
-    for idx, (frac, y_off, label, color, tip) in enumerate(phase_labels):
-        x = margin_l + frac * chart_w
-        y = baseline_y - y_off
-        # Annotation group with stagger delay for fade-in
-        delay_ms = 2500 + idx * 300  # start after line draw completes
-        svg.append(f'<g class="gg-line-chart__annotation" style="--delay:{delay_ms}ms">')
-        lines = label.split("\n")
-        for j, line in enumerate(lines):
-            extra_attr = ""
-            if j == 0:
-                extra_attr = f'data-tooltip="{_esc(tip)}" tabindex="0"'
-            svg.append(_svg_text(
-                x, y + j * 18, line,
-                font_size=14, fill=color,
-                anchor="middle", weight="700",
-                family="var(--gg-font-editorial)",
-                extra=extra_attr
-            ))
-        svg.append("</g>")
-
-    # Insight box at bottom
-    svg.append(_svg_rect(margin_l, chart_bot + 20, chart_w, 50,
-                         fill="color-mix(in srgb, var(--gg-color-gold) 8%, transparent)",
-                         stroke="var(--gg-color-gold)", stroke_width=2))
-    svg.append(_svg_text(
-        vb_w / 2, chart_bot + 50,
-        "Train hard enough to trigger adaptation, then rest long enough to realize it.",
-        font_size=14, fill="var(--gg-color-primary-brown)",
-        anchor="middle", weight="600",
-        family="var(--gg-font-editorial)"
-    ))
-
-    svg.append(_svg_close())
-    return _figure_wrap(
-        "".join(svg), block.get("caption", ""), block.get("layout", "inline"),
-        block.get("asset_id", ""), block.get("alt", ""),
-        title="Supercompensation: Why Rest Makes You Faster",
-        takeaway="You don\u2019t get faster during the workout \u2014 you get faster during recovery.",
-    )
 
 
-def render_pmc_chart(block: dict) -> str:
-    """Performance Management Chart: 3 Bezier curves (CTL/ATL/TSB) over 12 weeks.
-
-    Dual line draw with stagger delay. Cross-reveal marker where CTL > ATL (taper).
-    Uses gg-line-chart classes for draw animation.
-    """
-    vb_w, vb_h = 1600, 600
-    margin_l, margin_r = 80, 60
-    chart_top = 60
-    chart_bot = 480
-    chart_w = vb_w - margin_l - margin_r
-    chart_h = chart_bot - chart_top
-
-    svg = [_svg_open(vb_w, vb_h, "gg-infographic-svg")]
-
-    # Y-axis labels + grid
-    for val, label in [(0, "0"), (50, "50"), (100, "100")]:
-        y = chart_bot - (val / 100) * chart_h
-        svg.append(_svg_text(
-            margin_l - 10, y + 4, label,
-            font_size=12, fill="var(--gg-color-secondary-brown)",
-            anchor="end", family="var(--gg-font-data)"
-        ))
-        svg.append(_svg_line(margin_l, y, margin_l + chart_w, y,
-                             stroke="var(--gg-color-tan)", stroke_width=1,
-                             extra='stroke-dasharray="4 4" class="gg-line-chart__grid"'))
-
-    zero_y = chart_bot - (50 / 100) * chart_h
-
-    # CTL (Fitness) — primary line
-    ctl_vals = [25, 30, 36, 43, 50, 57, 63, 70, 75, 78, 72, 65]
-    ctl_points = [
-        (margin_l + (i + 0.5) * (chart_w / 12), chart_bot - (v / 100) * chart_h)
-        for i, v in enumerate(ctl_vals)
-    ]
-    svg.append(_svg_path(
-        _cubic_bezier_path(ctl_points),
-        stroke="var(--gg-color-teal)", stroke_width=3,
-        extra='stroke-linecap="round" data-animate="line"'
-              ' class="gg-line-chart__path"'
-    ))
-
-    # ATL (Fatigue) — secondary line with stagger delay
-    atl_vals = [30, 45, 55, 50, 65, 70, 60, 80, 75, 50, 35, 25]
-    atl_points = [
-        (margin_l + (i + 0.5) * (chart_w / 12), chart_bot - (v / 100) * chart_h)
-        for i, v in enumerate(atl_vals)
-    ]
-    svg.append(_svg_path(
-        _cubic_bezier_path(atl_points),
-        stroke="var(--gg-color-error)", stroke_width=3,
-        extra='stroke-linecap="round" stroke-dasharray="8 4" data-animate="line"'
-              ' class="gg-line-chart__path gg-line-chart__path--secondary"'
-    ))
-
-    # TSB (Form) — third line with further stagger
-    tsb_vals = [-5, -15, -19, -7, -15, -13, 3, -10, 0, 28, 37, 40]
-    tsb_points = [
-        (margin_l + (i + 0.5) * (chart_w / 12), zero_y - (v / 50) * (chart_h / 2))
-        for i, v in enumerate(tsb_vals)
-    ]
-    svg.append(_svg_path(
-        _cubic_bezier_path(tsb_points),
-        stroke="var(--gg-color-gold)", stroke_width=3,
-        extra='stroke-linecap="round" data-animate="line"'
-              ' class="gg-line-chart__path gg-line-chart__path--gold"'
-    ))
-
-    # Cross-reveal marker: week 10 where CTL > ATL (taper starts working)
-    cross_week = 9  # 0-indexed, week 10
-    cross_x = margin_l + (cross_week + 0.5) * (chart_w / 12)
-    cross_ctl_y = chart_bot - (ctl_vals[cross_week] / 100) * chart_h
-    cross_atl_y = chart_bot - (atl_vals[cross_week] / 100) * chart_h
-    cross_mid_y = (cross_ctl_y + cross_atl_y) / 2
-    svg.append(
-        f'<g class="gg-line-chart__annotation" style="--delay:3000ms">'
-    )
-    svg.append(_svg_rect(
-        cross_x - 5, cross_mid_y - 5, 10, 10,
-        fill="var(--gg-color-gold)",
-        stroke="var(--gg-color-near-black)", stroke_width=2,
-        extra='data-tooltip="Week 10: CTL exceeds ATL \u2014 you\'re fresh and fit. Race week." tabindex="0"'
-    ))
-    svg.append(_svg_text(
-        cross_x, cross_mid_y - 16, "RACE READY",
-        font_size=12, fill="var(--gg-color-gold)",
-        anchor="middle", weight="700",
-        family="var(--gg-font-data)"
-    ))
-    svg.append("</g>")
-
-    # Week labels
-    for wk in range(12):
-        x = margin_l + (wk + 0.5) * (chart_w / 12)
-        svg.append(_svg_text(
-            x, chart_bot + 25, f"W{wk + 1}",
-            font_size=12, fill="var(--gg-color-secondary-brown)",
-            anchor="middle", family="var(--gg-font-data)"
-        ))
-
-    # Legend
-    leg_y = chart_bot + 55
-    items = [
-        ("var(--gg-color-teal)", "CTL (Fitness)", "",
-         "Chronic Training Load \u2014 your long-term fitness trend"),
-        ("var(--gg-color-error)", "ATL (Fatigue)", 'stroke-dasharray="8 4"',
-         "Acute Training Load \u2014 recent fatigue from hard training"),
-        ("var(--gg-color-gold)", "TSB (Form)", "",
-         "Training Stress Balance \u2014 positive = fresh, negative = fatigued"),
-    ]
-    leg_x = margin_l
-    for color, label, dash, tip in items:
-        svg.append(_svg_line(leg_x, leg_y, leg_x + 30, leg_y,
-                             stroke=color, stroke_width=3,
-                             extra=dash))
-        svg.append(_svg_text(
-            leg_x + 40, leg_y + 5, label,
-            font_size=14, fill="var(--gg-color-primary-brown)",
-            family="var(--gg-font-data)",
-            extra=f'data-tooltip="{_esc(tip)}" tabindex="0"'
-        ))
-        leg_x += 220
-
-    svg.append(_svg_close())
-    return _figure_wrap(
-        "".join(svg), block.get("caption", ""), block.get("layout", "full-width"),
-        block.get("asset_id", ""), block.get("alt", ""),
-        title="The Performance Management Chart: Fitness, Fatigue, Form",
-        takeaway="CTL is your fitness. ATL is your fatigue. TSB is the gap \u2014 go positive before race day.",
-    )
 
 
 def render_psych_phases(block: dict) -> str:
@@ -1857,111 +1287,6 @@ def render_course_profile(block: dict) -> str:
     )
 
 
-def render_field_scatter(block: dict) -> str:
-    """SVG scatter plot: field size vs median finish time for T1-T4 races.
-
-    Uses data-animate="scatter" for staggered dot fade-in.
-    Rect markers only (no circles per brand rule).
-    """
-    # Sample data: (name, field_size, median_hrs, tier)
-    races = [
-        ("Unbound 200", 4000, 12.5, "T1"), ("BWR", 1200, 7.5, "T1"),
-        ("Leadville", 2500, 10.0, "T1"), ("SBT GRVL", 3500, 6.0, "T1"),
-        ("Mid South", 3000, 5.5, "T2"), ("Gravel Worlds", 800, 11.0, "T2"),
-        ("Steamboat", 2000, 7.0, "T2"), ("The Rift", 600, 8.5, "T2"),
-        ("Rooted VT", 500, 6.5, "T3"), ("Grasshopper", 300, 5.0, "T3"),
-        ("Rule of 3", 400, 8.0, "T3"), ("Ochoco", 200, 9.0, "T3"),
-        ("Local Gravel", 100, 4.0, "T4"), ("County Gravel", 150, 5.5, "T4"),
-        ("Backroads 50", 80, 3.5, "T4"), ("Farm Gravel", 120, 4.5, "T4"),
-    ]
-
-    tier_colors = {
-        "T1": "var(--gg-color-primary-brown)",
-        "T2": "var(--gg-color-secondary-brown)",
-        "T3": "var(--gg-color-tier-3)",
-        "T4": "var(--gg-color-tier-4)",
-    }
-
-    vb_w, vb_h = 1200, 600
-    margin_l, margin_r = 100, 60
-    chart_top = 40
-    chart_bot = 480
-    chart_w = vb_w - margin_l - margin_r
-    chart_h = chart_bot - chart_top
-    max_field = 4500
-    max_hrs = 14
-
-    svg = [_svg_open(vb_w, vb_h, "gg-infographic-svg")]
-
-    # Grid
-    for hrs in range(0, max_hrs + 1, 2):
-        y = chart_bot - (hrs / max_hrs) * chart_h
-        svg.append(_svg_line(margin_l, y, margin_l + chart_w, y,
-                             stroke="var(--gg-color-sand)", stroke_width=1,
-                             extra='stroke-dasharray="4 4"'))
-        svg.append(_svg_text(
-            margin_l - 8, y + 4, f"{hrs}h",
-            font_size=11, fill="var(--gg-color-secondary-brown)",
-            anchor="end", family="var(--gg-font-data)"
-        ))
-
-    for field in range(0, max_field + 1, 1000):
-        x = margin_l + (field / max_field) * chart_w
-        svg.append(_svg_line(x, chart_top, x, chart_bot,
-                             stroke="var(--gg-color-sand)", stroke_width=1,
-                             extra='stroke-dasharray="4 4"'))
-        svg.append(_svg_text(
-            x, chart_bot + 25, f"{field}",
-            font_size=11, fill="var(--gg-color-secondary-brown)",
-            anchor="middle", family="var(--gg-font-data)"
-        ))
-
-    # Axis labels
-    svg.append(_svg_text(
-        vb_w / 2, chart_bot + 50, "FIELD SIZE",
-        font_size=13, fill="var(--gg-color-secondary-brown)",
-        anchor="middle", weight="700", family="var(--gg-font-data)"
-    ))
-    svg.append(_svg_text(
-        20, vb_h / 2, "MEDIAN FINISH (HRS)",
-        font_size=13, fill="var(--gg-color-secondary-brown)",
-        anchor="middle", weight="700", family="var(--gg-font-data)",
-        extra='transform="rotate(-90,20,' + str(int(vb_h / 2)) + ')"'
-    ))
-
-    # Data points (rect markers — no circles)
-    for i, (name, field, hrs, tier) in enumerate(races):
-        x = margin_l + (field / max_field) * chart_w
-        y = chart_bot - (hrs / max_hrs) * chart_h
-        color = tier_colors.get(tier, "var(--gg-color-secondary-brown)")
-        svg.append(_svg_rect(
-            x - 5, y - 5, 10, 10,
-            fill=color, stroke="var(--gg-color-near-black)", stroke_width=1,
-            extra=f'class="gg-line-chart__marker" style="--delay:{i * 60}ms"'
-                  f' data-tooltip="{_esc(name)} ({tier}): {field} riders, {hrs}h median" tabindex="0"'
-        ))
-
-    # Legend
-    leg_y = chart_bot + 75
-    leg_x = margin_l
-    for tier, color in tier_colors.items():
-        svg.append(_svg_rect(leg_x, leg_y - 6, 12, 12, fill=color,
-                             stroke="var(--gg-color-near-black)", stroke_width=1))
-        svg.append(_svg_text(
-            leg_x + 18, leg_y + 4, tier,
-            font_size=12, fill="var(--gg-color-primary-brown)",
-            weight="600", family="var(--gg-font-data)"
-        ))
-        leg_x += 80
-
-    svg.append(_svg_close())
-    inner = f'<div data-animate="scatter">{"".join(svg)}</div>'
-    return _figure_wrap(
-        inner, block.get("caption", ""), block.get("layout", "inline"),
-        block.get("asset_id", ""), block.get("alt", ""),
-        title="Field Size vs. Race Duration: What You\u2019re Getting Into",
-        takeaway="T1 races combine massive fields with brutal distances. T4 events are intimate and accessible.",
-    )
 
 
 def render_race_table(block: dict) -> str:
@@ -2182,60 +1507,6 @@ def render_gantt_season(block: dict) -> str:
     )
 
 
-def render_before_after(block: dict) -> str:
-    """Before/after comparison: untrained vs trained athlete stats.
-
-    Uses data-interactive="before-after" with drag clip-path divider.
-    """
-    comparisons = [
-        ("FTP", "180W", "250W", "39% increase"),
-        ("4hr Power", "140W", "195W", "Sustained race power"),
-        ("Recovery HR", "95 bpm", "68 bpm", "Faster bounce-back"),
-        ("Time to Exhaustion", "3.5 hrs", "7+ hrs", "Double the endurance"),
-        ("Body Comp", "22% BF", "15% BF", "Power-to-weight gains"),
-        ("Race Finish", "Bottom 25%", "Top 35%", "Mid-pack competitive"),
-    ]
-
-    before_items = []
-    after_items = []
-    for metric, before, after, note in comparisons:
-        before_items.append(
-            f'<div class="gg-before-after__row">'
-            f'<div class="gg-before-after__metric">{_esc(metric)}</div>'
-            f'<div class="gg-before-after__value">{_esc(before)}</div>'
-            f'</div>'
-        )
-        after_items.append(
-            f'<div class="gg-before-after__row">'
-            f'<div class="gg-before-after__metric">{_esc(metric)}</div>'
-            f'<div class="gg-before-after__value">{_esc(after)}</div>'
-            f'<div class="gg-before-after__note">{_esc(note)}</div>'
-            f'</div>'
-        )
-
-    inner = (
-        f'<div class="gg-before-after" data-interactive="before-after">'
-        f'<div class="gg-before-after__panel gg-before-after__panel--before">'
-        f'<div class="gg-before-after__label">BEFORE</div>'
-        f'<div class="gg-before-after__subtitle">Untrained / 3 months</div>'
-        f'{"".join(before_items)}</div>'
-        f'<div class="gg-before-after__divider">'
-        f'<div class="gg-before-after__handle" tabindex="0"'
-        f' role="slider" aria-label="Drag to compare before and after"'
-        f' aria-valuemin="0" aria-valuemax="100" aria-valuenow="50"></div>'
-        f'</div>'
-        f'<div class="gg-before-after__panel gg-before-after__panel--after">'
-        f'<div class="gg-before-after__label">AFTER</div>'
-        f'<div class="gg-before-after__subtitle">12 months structured training</div>'
-        f'{"".join(after_items)}</div>'
-        f'</div>'
-    )
-    return _figure_wrap(
-        inner, block.get("caption", ""), block.get("layout", "inline"),
-        block.get("asset_id", ""), block.get("alt", ""),
-        title="12 Months of Structured Training: Before vs. After",
-        takeaway="Consistent training transforms everything. A year of focused work can move you up two tiers.",
-    )
 
 
 # ══════════════════════════════════════════════════════════════
@@ -2243,60 +1514,6 @@ def render_before_after(block: dict) -> str:
 # ══════════════════════════════════════════════════════════════
 
 
-def render_recovery_dash(block: dict) -> str:
-    """Recovery dashboard: Sleep/HRV/Soreness gauges in a 3-up grid.
-
-    Uses data-animate="stroke" for gauge fill animation.
-    Square gauges (rect perimeter, not circles).
-    """
-    gauges = [
-        ("Sleep Quality", 7.2, 10, "hrs avg",
-         "var(--gg-color-teal)",
-         "7+ hours correlates with 15-20% better recovery scores"),
-        ("HRV Score", 65, 100, "ms rMSSD",
-         "var(--gg-color-gold)",
-         "Higher HRV = better parasympathetic recovery. Track trends, not single readings."),
-        ("Muscle Readiness", 3, 5, "/5 soreness",
-         "var(--gg-color-primary-brown)",
-         "Self-rated 1-5. Below 3 = modify workout. Below 2 = rest day."),
-    ]
-
-    gauge_html = []
-    for label, value, max_val, unit, color, tip in gauges:
-        pct = int((value / max_val) * 100)
-        # Square gauge: rect perimeter = 4 * side. We use a 120x120 rect.
-        side = 120
-        perim = 4 * side
-        filled = (pct / 100) * perim
-        gauge_html.append(
-            f'<div class="gg-gauge" data-animate="stroke"'
-            f' data-tooltip="{_esc(tip)}" tabindex="0">'
-            f'<svg viewBox="0 0 140 140" style="width:100%;height:auto;display:block"'
-            f' aria-hidden="true">'
-            f'<rect x="10" y="10" width="{side}" height="{side}"'
-            f' fill="none" stroke="var(--gg-color-sand)" stroke-width="8"/>'
-            f'<rect x="10" y="10" width="{side}" height="{side}"'
-            f' fill="none" stroke="{color}" stroke-width="8"'
-            f' stroke-dasharray="{perim}" stroke-dashoffset="{perim - filled}"'
-            f' class="gg-gauge__fill"'
-            f' style="--gauge-perimeter:{perim};--gauge-target:{filled}"/>'
-            f'</svg>'
-            f'<div class="gg-gauge__value">{value}</div>'
-            f'<div class="gg-gauge__unit">{_esc(unit)}</div>'
-            f'<div class="gg-gauge__label">{_esc(label)}</div>'
-            f'</div>'
-        )
-
-    inner = (
-        f'<div class="gg-gauge-grid" data-animate="counter">'
-        f'{"".join(gauge_html)}</div>'
-    )
-    return _figure_wrap(
-        inner, block.get("caption", ""), block.get("layout", "inline"),
-        block.get("asset_id", ""), block.get("alt", ""),
-        title="Recovery Dashboard: Three Metrics That Matter",
-        takeaway="Track sleep, HRV, and subjective soreness. Two out of three in the red? Take a rest day.",
-    )
 
 
 def render_sleep_debt(block: dict) -> str:
@@ -2653,6 +1870,77 @@ def render_weather_matrix(block: dict) -> str:
 # ══════════════════════════════════════════════════════════════
 # Dispatch Map
 # ══════════════════════════════════════════════════════════════
+
+
+# Public guide redesign: quantitative examples never masquerade as outcomes.
+def render_tier_distribution(block):
+    counts = {tier: 0 for tier in (1, 2, 3, 4)}
+    for path in sorted(RACE_DATA_DIR.glob('*.json')):
+        if path.name.startswith('_'):
+            continue
+        race = json.loads(path.read_text()).get('race', {})
+        tier = (race.get('gravel_god_rating') or {}).get('tier')
+        if tier in counts and (race.get('vitals') or {}).get('course_status') != 'source_blocked':
+            counts[tier] += 1
+    total = sum(counts.values())
+    body = bars([(f'Tier {tier}', count) for tier,count in counts.items()], max(counts.values()) or 1)
+    body += table({'caption': 'Current rated catalogue', 'headers':['Tier','Races','Share'], 'rows':[[f'T{tier}',count,f'{count/total*100:.1f}%' if total else 'Not available'] for tier,count in counts.items()]})
+    return figure(f'The {total}-race catalogue by tier', body, 'Counts come from the current race catalogue; blocked profiles are excluded.', asset_id=block.get('asset_id',''))
+
+
+def render_scoring_dimensions(block):
+    rating = _load_unbound_rating()
+    keys = [('Logistics','logistics'),('Length','length'),('Technicality','technicality'),('Elevation','elevation'),('Climate','climate'),('Altitude','altitude'),('Adventure','adventure'),('Prestige','prestige'),('Race Quality','race_quality'),('Experience','experience'),('Community','community'),('Field Depth','field_depth'),('Value','value'),('Expenses','expenses')]
+    items = [(label, rating.get(key)) for label,key in keys]
+    body = bars(items,5,'/5')
+    body += '<p><a href="/race/unbound-200/">Read the Unbound 200 ratings and their sources →</a></p>'
+    return figure('Unbound 200, criterion by criterion',body,'Each criterion is rated from 1 to 5. The course and experience measures remain separate.',asset_id=block.get('asset_id',''))
+
+
+def render_rider_categories(block):
+    content = json.loads((RACE_DATA_DIR.parent/'guide/gravel-guide-content.json').read_text())
+    rows = [[r['label'],r['hours']] for r in content['personalization']['rider_types']]
+    return figure('Choose the hours you can repeat',table({'caption':'Training profiles','headers':['Profile','Available hours/week'],'rows':rows}), 'Use your available training time to choose a profile. These are planning categories, not FTP targets or predicted results.',asset_id=block.get('asset_id',''))
+
+
+def render_hierarchy_pyramid(block):
+    items = [('Fitness','Build the preparation your event requires.'),('Pacing','Use the effort you can sustain over the whole course.'),('Nutrition','Rehearse the food and drink you will carry.'),('Bike handling','Practice the surfaces and decisions the race demands.'),('Equipment','Check fit, tires, repairs, and carrying capacity in training.')]
+    return figure('The preparation priorities',sequence(items), 'A priority order, not measured percentages of race performance.',asset_id=block.get('asset_id',''))
+
+
+def render_field_scatter(block):
+    slugs = ['unbound-200','unbound-100','unbound-xl','the-mid-south','sbt-grvl','gravel-worlds','the-rift']
+    rows=[]
+    for slug in slugs:
+        path=RACE_DATA_DIR/(slug+'.json')
+        if not path.exists():
+            continue
+        race=json.loads(path.read_text()).get('race',{}); v=race.get('vitals',{})
+        distance=v.get('distance_mi')
+        if isinstance(distance,(int,float)):
+            rows.append([race.get('name',slug),distance,v.get('elevation_ft','Not recorded')])
+    return figure('Compare the course, not an invented finish time',table({'caption':'Recorded course demands','headers':['Race','Distance (mi)','Climbing (ft)'],'rows':rows}), 'Recorded catalogue figures. Final routes can change; use each race profile for edition status and sources. No median finish times are inferred.',asset_id=block.get('asset_id',''))
+
+
+def render_pmc_chart(block):
+    ctl=[25,30,36,43,50,57,63,70,75,78,72,65]
+    atl=[30,45,55,50,65,70,60,80,75,50,35,25]
+    tsb=[fitness-fatigue for fitness,fatigue in zip(ctl,atl)]
+    return figure('Fitness, fatigue, and form use different clocks',line_chart([('CTL · fitness',ctl),('ATL · fatigue',atl),('TSB · form',tsb)],list(range(1,13)),'Training load'), 'Illustrative values only. TSB is CTL minus ATL. Your forecast requires your own training history; this is not a race-readiness prediction.',example=True,asset_id=block.get('asset_id',''))
+
+
+def render_before_after(block):
+    return figure('Compare your own baseline and retest',sequence([('Record the baseline','Keep the test protocol, equipment, and conditions in your notes.'),('Train and record what happened','Log completed workouts, recovery, interruptions, and race-specific practice.'),('Repeat the test','Compare like with like. Review the result alongside how you executed the training.')]), 'No invented athlete, guaranteed FTP gain, body-composition change, or predicted race placing.',asset_id=block.get('asset_id',''))
+
+
+def render_recovery_dash(block):
+    return figure('Read recovery as a pattern',table({'caption':'Signals to review together','headers':['Signal','Check','Context'],'rows':[['Sleep','Compare with your normal sleep','Use your notes from the last few nights.'],['Heart-rate trends','Compare with your own baseline','Read alongside sleep, fatigue, and how the legs feel.'],['Soreness and fatigue','Record location and change','Review the planned workout with the coach when symptoms change.']]}), 'A reference for your observations. No sample numbers are presented as your readiness score.',asset_id=block.get('asset_id',''))
+
+
+def render_supercompensation(block):
+    body = '<div class="guide-chart-scroll"><svg class="guide-line-chart" viewBox="0 0 880 280" role="img" aria-label="Conceptual performance curve: fatigue after training, recovery, adaptation, then return toward baseline"><line class="guide-chart-grid" x1="45" y1="145" x2="840" y2="145" stroke-dasharray="6 5"/><path class="guide-chart-line" fill="none" d="M45 145 C90 145 105 232 195 232 S290 145 365 145 S475 70 540 70 S700 145 840 145"/><text x="45" y="130">Baseline</text><text x="195" y="258" text-anchor="middle">Fatigue</text><text x="365" y="176" text-anchor="middle">Recovery</text><text x="540" y="54" text-anchor="middle">Adaptation</text><text x="840" y="176" text-anchor="end">Time →</text></svg></div>'
+    body += sequence([('Training','A workout creates training stress.'),('Recovery','Rest and recovery sit between the workout and the next useful stimulus.'),('Adaptation','Train hard enough to trigger adaptation, then allow recovery. The timing varies by athlete and workout.')])
+    return figure('Training and recovery belong to the same cycle',body, 'Conceptual illustration, not a measured timeline or a prediction of your next peak.',example=True,asset_id=block.get('asset_id',''))
 
 
 INFOGRAPHIC_RENDERERS = {

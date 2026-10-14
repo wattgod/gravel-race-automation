@@ -197,10 +197,10 @@ class TestSpecificRenderers:
         html = INFOGRAPHIC_RENDERERS["ch1-gear-essentials"](block)
         assert html.count("gg-infographic-card") >= 5
 
-    def test_rider_categories_has_4_cards(self):
-        block = {"type": "image", "asset_id": "ch1-rider-grid", "caption": ""}
-        html = INFOGRAPHIC_RENDERERS["ch1-rider-grid"](block)
-        assert html.count('data-interactive="flip"') == 4
+    def test_rider_categories_has_four_visible_profiles(self):
+        out = INFOGRAPHIC_RENDERERS['ch1-rider-grid']({})
+        assert out.count('scope="row"') == 4
+        assert 'data-interactive="flip"' not in out
 
     def test_race_week_has_7_days(self):
         block = {"type": "image", "asset_id": "ch7-race-week-countdown", "caption": ""}
@@ -233,10 +233,14 @@ class TestSpecificRenderers:
         # Radar chart has 14 axis labels with /5 in tooltips
         assert html.count("/5") == 14
 
-    def test_tier_distribution_shows_328(self):
-        block = {"type": "image", "asset_id": "ch2-tier-distribution", "caption": ""}
-        html = INFOGRAPHIC_RENDERERS["ch2-tier-distribution"](block)
-        assert "328" in html
+    def test_tier_distribution_uses_current_catalogue(self):
+        import json
+        from guide_infographics import RACE_DATA_DIR
+        count = sum(1 for p in RACE_DATA_DIR.glob('*.json') if p.name != '_schema.json' and json.loads(p.read_text()).get('race', {}).get('gravel_god_rating', {}).get('tier') in (1,2,3,4) and json.loads(p.read_text()).get('race', {}).get('vitals', {}).get('course_status') != 'source_blocked')
+        out = INFOGRAPHIC_RENDERERS['ch2-tier-distribution']({})
+        assert 'current race catalogue' in out
+        assert 'scope="row"' in out
+        assert str(count) in out
 
     def test_training_phases_has_legend(self):
         block = {"type": "image", "asset_id": "ch3-training-phases", "caption": ""}
@@ -275,12 +279,11 @@ class TestSpecificRenderers:
         html = INFOGRAPHIC_RENDERERS["ch3-supercompensation"](block)
         assert "trigger adaptation" in html
 
-    def test_hierarchy_pyramid_has_5_layers(self):
-        block = {"type": "image", "asset_id": "ch1-hierarchy-of-speed", "caption": ""}
-        html = INFOGRAPHIC_RENDERERS["ch1-hierarchy-of-speed"](block)
-        assert "Equipment" in html
-        assert "Fitness" in html
-        assert "70%" in html
+    def test_hierarchy_is_priority_order_without_fake_percentages(self):
+        out = INFOGRAPHIC_RENDERERS['ch1-hierarchy-of-speed']({})
+        assert out.count('<li>') == 5
+        assert 'Equipment' in out and 'Fitness' in out
+        assert '70%' not in out
 
 
 # ══════════════════════════════════════════════════════════════
@@ -310,14 +313,9 @@ class TestAccessibility:
         """Figure with alt must have role=figure for assistive tech."""
         assert 'role="figure"' in rendered_with_alt
 
-    def test_no_aria_label_on_figure_without_alt(self):
-        """No aria-label on <figure> when alt is empty."""
-        block = {"type": "image", "asset_id": "ch1-gear-essentials"}
-        html = INFOGRAPHIC_RENDERERS["ch1-gear-essentials"](block)
-        # Check the <figure> tag specifically — inner elements may have aria-label
-        import re
-        figure_tag = re.search(r"<figure[^>]*>", html).group()
-        assert "aria-label" not in figure_tag
+    def test_figure_has_fallback_name_without_alt(self):
+        out = INFOGRAPHIC_RENDERERS['ch1-gear-essentials']({})
+        assert re.search(r'<figure[^>]+aria-label="[^"]+"', out)
 
 
 class TestNoOpacity:
@@ -496,29 +494,18 @@ class TestEditorialFraming:
         block = {"type": "image", "asset_id": aid, "alt": "test", "caption": "cap"}
         return INFOGRAPHIC_RENDERERS[aid](block)
 
-    def test_has_title_div(self, rendered_editorial):
-        """Every renderer output must contain .gg-infographic-title."""
-        assert "gg-infographic-title" in rendered_editorial
+    def test_has_semantic_title(self, rendered_editorial):
+        assert '<h3>' in rendered_editorial
 
-    def test_has_takeaway_div(self, rendered_editorial):
-        """Every renderer output must contain .gg-infographic-takeaway."""
-        assert "gg-infographic-takeaway" in rendered_editorial
+    def test_reference_has_caption_or_readable_summary(self, rendered_editorial):
+        assert '<figcaption' in rendered_editorial or 'guide-reference-body' in rendered_editorial
 
     def test_title_text_non_empty(self, rendered_editorial):
-        """Title div must contain non-empty text."""
-        match = re.search(
-            r'class="gg-infographic-title">([^<]+)<', rendered_editorial
-        )
-        assert match, "Title div has no text content"
-        assert len(match.group(1).strip()) > 3
+        match = re.search(r'<h3>([^<]+)</h3>', rendered_editorial)
+        assert match and len(match[1].strip()) > 3
 
-    def test_takeaway_text_non_empty(self, rendered_editorial):
-        """Takeaway div must contain non-empty text."""
-        match = re.search(
-            r'class="gg-infographic-takeaway">([^<]+)<', rendered_editorial
-        )
-        assert match, "Takeaway div has no text content"
-        assert len(match.group(1).strip()) > 10
+    def test_reference_body_non_empty(self, rendered_editorial):
+        assert len(re.sub(r'<[^>]+>', '', rendered_editorial).strip()) > 30
 
 
 # ══════════════════════════════════════════════════════════════
@@ -538,11 +525,9 @@ class TestAnimationAttributes:
         block = {"type": "image", "asset_id": aid, "alt": "test"}
         return INFOGRAPHIC_RENDERERS[aid](block)
 
-    def test_has_data_animate_or_interactive(self, rendered_anim):
-        """All renderers must have at least one data-animate or data-interactive."""
-        assert ("data-animate=" in rendered_anim
-                or "data-interactive=" in rendered_anim), \
-            "Renderer missing data-animate or data-interactive attribute"
+    def test_information_does_not_depend_on_animation(self, rendered_anim):
+        assert 'data-animate=' not in rendered_anim
+        assert 'data-interactive="flip"' not in rendered_anim
 
     def test_no_keyframes_in_infographic_css(self):
         """Infographic CSS must use transitions, not @keyframes."""
@@ -562,11 +547,8 @@ class TestTooltipAttributes:
         block = {"type": "image", "asset_id": aid, "alt": "test"}
         return INFOGRAPHIC_RENDERERS[aid](block)
 
-    def test_has_data_tooltip_or_interactive(self, rendered_tooltips):
-        """Every renderer should have data-tooltip or data-interactive for info access."""
-        assert ("data-tooltip=" in rendered_tooltips
-                or "data-interactive=" in rendered_tooltips), \
-            "Renderer has neither data-tooltip nor data-interactive"
+    def test_information_has_accessible_name(self, rendered_tooltips):
+        assert 'aria-label=' in rendered_tooltips
 
     def test_tooltip_values_non_empty(self, rendered_tooltips):
         """All data-tooltip values must be non-empty strings."""
@@ -647,12 +629,12 @@ class TestFigureWrapEditorial:
 
     def test_title_rendered(self):
         html = _figure_wrap("<p>inner</p>", "cap", title="My Title")
-        assert "gg-infographic-title" in html
+        assert "<h3>" in html
         assert "My Title" in html
 
     def test_takeaway_rendered(self):
         html = _figure_wrap("<p>inner</p>", "cap", takeaway="Key insight here")
-        assert "gg-infographic-takeaway" in html
+        assert "guide-reference-summary" in html
         assert "Key insight here" in html
 
     def test_no_title_no_div(self):
@@ -665,14 +647,14 @@ class TestFigureWrapEditorial:
 
     def test_title_before_inner(self):
         html = _figure_wrap("<p>inner</p>", "cap", title="My Title")
-        title_pos = html.index("gg-infographic-title")
+        title_pos = html.index("<h3>")
         inner_pos = html.index("<p>inner</p>")
         assert title_pos < inner_pos
 
     def test_takeaway_after_inner(self):
         html = _figure_wrap("<p>inner</p>", "cap", takeaway="Insight")
         inner_pos = html.index("<p>inner</p>")
-        takeaway_pos = html.index("gg-infographic-takeaway")
+        takeaway_pos = html.index("guide-reference-summary")
         assert takeaway_pos > inner_pos
 
     def test_title_html_escaped(self):
@@ -751,16 +733,16 @@ class TestInteractiveAttributes:
         html = INFOGRAPHIC_RENDERERS[aid](block)
         return aid, expected_type, html
 
-    def test_has_correct_interactive_type(self, rendered_interactive):
-        aid, expected_type, html = rendered_interactive
-        assert f'data-interactive="{expected_type}"' in html, \
-            f'{aid} should have data-interactive="{expected_type}"'
+    def test_only_useful_controls_remain(self, rendered_interactive):
+        out = rendered_interactive[-1] if isinstance(rendered_interactive, tuple) else rendered_interactive
+        assert 'data-interactive="flip"' not in out
+        assert 'data-interactive="digit-roller"' not in out
 
     def test_interactive_elements_are_focusable(self, rendered_interactive):
         """Interactive elements should have tabindex or be natively focusable."""
         aid, expected_type, html = rendered_interactive
         # Check that the data-interactive container or its children have tabindex
-        assert ('tabindex=' in html
+        assert ('data-interactive=' not in html or 'tabindex=' in html
                 or '<button' in html
                 or '<input' in html
                 or '<a ' in html), \
@@ -801,10 +783,9 @@ class TestNewAnimationTypes:
         html = INFOGRAPHIC_RENDERERS[aid](block)
         return aid, expected_type, html
 
-    def test_has_correct_animate_type(self, rendered_animate):
-        aid, expected_type, html = rendered_animate
-        assert f'data-animate="{expected_type}"' in html, \
-            f'{aid} should have data-animate="{expected_type}"'
+    def test_chart_visible_immediately(self, rendered_animate):
+        out = rendered_animate[-1] if isinstance(rendered_animate, tuple) else rendered_animate
+        assert 'data-animate=' not in out
 
     def test_all_animation_types_covered(self):
         """Every data-animate type used in renderers has CSS or JS support."""

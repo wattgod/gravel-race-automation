@@ -130,9 +130,10 @@ class TestBlockRenderers:
             "caption": "Test Table",
         }
         html = render_data_table(block)
-        assert "gg-guide-table" in html
-        assert "<th>A</th>" in html
-        assert "<td>1</td>" in html
+        assert 'class="guide-table"' in html
+        assert 'scope="col"' in html and 'scope="row"' in html
+        assert '<th scope="col">A</th>' in html
+        assert '<th scope="row" data-label="A">1</th>' in html
         assert "Test Table" in html
 
     def test_render_accordion(self):

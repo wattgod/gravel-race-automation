@@ -489,6 +489,19 @@
       var parsed = new Date(rawDate + 'T12:00:00Z');
       if (!isNaN(parsed.getTime()) && parsed.toISOString().slice(0, 10) === rawDate) dateField.value = rawDate;
     }
+    var secondName = preview.get('second_race_name') || '', secondDate = preview.get('second_race_date') || '';
+    if (secondName && secondName.length <= 120 && /^\d{4}-\d{2}-\d{2}$/.test(secondDate)) {
+      var parsedSecond = new Date(secondDate + 'T12:00:00Z');
+      if (!isNaN(parsedSecond.getTime()) && parsedSecond.toISOString().slice(0,10) === secondDate) {
+        if (raceCount < 2) addRace();
+        var secondNameField = form.querySelector('input[name="race_1_name"]');
+        if (secondNameField && !secondNameField.value) {
+          secondNameField.value = secondName;
+          form.querySelector('input[name="race_1_date"]').value = secondDate;
+          form.querySelector('select[name="race_1_priority"]').value = 'A';
+        }
+      }
+    }
     var names = {Mon:'Monday',Tue:'Tuesday',Wed:'Wednesday',Thu:'Thursday',Fri:'Friday',Sat:'Saturday',Sun:'Sunday'};
     var selected = (preview.get('days') || '').split(',');
     if (selected.length >= 3 && selected.every(function(day) { return names[day]; }) && !form.querySelector('input[name="daysOff"]:checked')) {

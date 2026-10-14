@@ -254,7 +254,7 @@ def get_plan_simulator_css(*, ink: str, paper: str, panel: str,
                            body_font: str) -> str:
     """Return isolated CSS; all estate colors/fonts arrive as brand tokens."""
     return f'''
-.tp-sim {{ --sim-ink:{ink}; --sim-paper:{paper}; --sim-panel:{panel}; --sim-line:{line}; --sim-accent:{accent}; --sim-data:{data_font}; --sim-body:{body_font}; box-sizing:border-box; position:relative; left:50%; width:min(1400px,calc(100vw - 32px)); transform:translateX(-50%); margin:64px 0; padding:clamp(22px,3vw,40px); border:4px solid var(--sim-ink); background:var(--sim-paper); color:var(--sim-ink); }}
+.tp-sim {{ --sim-ink:{ink}; --sim-paper:{paper}; --sim-panel:{panel}; --sim-line:{line}; --sim-accent:{accent}; --sim-data:{data_font}; --sim-body:{body_font}; box-sizing:border-box; position:relative; scroll-margin-top:96px; left:50%; width:min(1400px,calc(100vw - 32px)); transform:translateX(-50%); margin:64px 0; padding:clamp(22px,3vw,40px); border:4px solid var(--sim-ink); background:var(--sim-paper); color:var(--sim-ink); }}
 .tp-sim * {{ box-sizing:border-box; }}
 .tp-sim-kicker {{ margin:0 0 8px; font:700 11px/1 var(--sim-data); letter-spacing:2px; color:var(--sim-accent); }}
 .tp-sim > h2 {{ margin:0 0 10px; font:700 clamp(24px,3vw,34px)/1.08 var(--sim-data); text-transform:uppercase; }}
@@ -306,8 +306,8 @@ def get_plan_simulator_css(*, ink: str, paper: str, panel: str,
 .tp-sim-overview>small {{ display:block; margin-top:12px; font:12px/1.4 var(--sim-body); }}
 .tp-sim-phases {{ display:flex; gap:3px; margin-bottom:15px; }}
 .tp-sim-phases span {{ min-width:0; padding:10px 3px; border:1px solid var(--sim-ink); text-align:center; overflow:hidden; font:700 10px/1.2 var(--sim-data); }}
-.tp-sim-runway {{ display:grid; grid-template-columns:repeat(var(--week-count),minmax(28px,1fr)); height:155px; gap:3px; overflow-x:auto; }}
-.tp-sim-runway-week {{ display:grid; grid-template-rows:20px 1fr 22px; align-items:end; min-width:28px; padding:3px; border:0; background:transparent; color:var(--sim-ink); cursor:pointer; }}
+.tp-sim-runway {{ display:grid; grid-template-columns:repeat(var(--week-count),minmax(44px,1fr)); height:155px; gap:3px; overflow-x:auto; }}
+.tp-sim-runway-week {{ display:grid; grid-template-rows:20px 1fr 22px; align-items:end; min-width:44px; padding:3px; border:0; background:transparent; color:var(--sim-ink); cursor:pointer; }}
 .tp-sim-runway-week i {{ height:var(--week-height); min-height:3px; border:1px solid var(--sim-ink); border-top:3px dotted var(--sim-ink); background:var(--sim-panel); }}
 .tp-sim-runway-week small,.tp-sim-runway-week b {{ font:700 9px/1 var(--sim-data); text-align:center; }}
 .tp-sim-runway-week[aria-current=true] i {{ background:var(--sim-ink); }}

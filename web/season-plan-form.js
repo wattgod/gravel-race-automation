@@ -225,7 +225,8 @@
       entry.querySelector('[name$="_priority"]').value = 'A';
     });
     var hoursField = form.querySelector('[name="hours_per_week"]');
-    if (hoursField && Array.prototype.some.call(hoursField.options,function(option){return option.value === preview.get('hours');})) hoursField.value = preview.get('hours');
+    var hours = Number(preview.get('hours'));
+    if (hoursField && hours >= 4 && hours <= 18) hoursField.value = hours < 5 ? '<5 hrs' : hours < 7 ? '5-7 hrs' : hours < 10 ? '7-10 hrs' : hours < 13 ? '10-13 hrs' : hours < 16 ? '13-16 hrs' : '16+ hrs';
     var days = (preview.get('days') || '').split(',');
     if (days.length >= 3 && days.every(function(day){return ['Mon','Tue','Wed','Thu','Fri','Sat','Sun'].indexOf(day) !== -1;})) {
       form.querySelectorAll('[name="off_days"]').forEach(function(field){field.checked=days.indexOf(field.value.slice(0,3))===-1;});

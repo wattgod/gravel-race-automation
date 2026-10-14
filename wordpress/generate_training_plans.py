@@ -186,7 +186,7 @@ SAMPLE_WEEK_BLOCKS = [
     {
         "cls": "intervals",
         "label": "G-Spot<br>1.5hr",
-        "detail": "2x20min @ 88-94% FTP / RPE 7. The workhorse session. Builds sustained power you&rsquo;ll need at mile 60+. Cadence: 85-95rpm seated on the hoods. Position and cadence cues baked into the .zwo file.",
+        "detail": "2x20min @ 88-94% FTP / RPE 7. The workhorse workout. Builds sustained power you&rsquo;ll need at mile 60+. Cadence: 85-95rpm seated on the hoods. Position and cadence cues baked into the .zwo file.",
         "structure": '[{"z":"z2","w":12,"h":45,"l":"WU 10m"},{"z":"z3","w":6,"h":58,"l":"5m"},{"z":"z4","w":22,"h":72,"l":"20m"},{"z":"z2","w":6,"h":40,"l":"5m"},{"z":"z4","w":22,"h":74,"l":"20m"},{"z":"z3","w":6,"h":55,"l":"5m"},{"z":"z2","w":10,"h":40,"l":"CD"}]',
         "meta": "88-94% FTP | 85-95rpm | Hoods, seated",
     },
@@ -253,7 +253,7 @@ def _build_sample_week() -> str:
         block_cells += f'        <div class="gg-tp-sample-block {b["cls"]}"{data_detail}{data_structure}{data_meta}>{b["label"]}</div>\n'
 
     return f'''<div class="gg-tp-sample-week">
-      <div class="gg-tp-sample-week-label">Sample Build Week (8 hrs/wk athlete) <span class="gg-tp-sample-hint">&mdash; click a session for details</span></div>
+      <div class="gg-tp-sample-week-label">Sample Build Week (8 hrs/wk athlete) <span class="gg-tp-sample-hint">&mdash; click a workout for details</span></div>
       <div class="gg-tp-sample-grid">
 {day_cells}
 {block_cells}      </div>

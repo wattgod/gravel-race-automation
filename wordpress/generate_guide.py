@@ -189,7 +189,14 @@ def render_prose(block: dict) -> str:
     return _md_block(esc(block["content"]))
 
 
+from guide_reference import table as reference_table, css as reference_css
+
+
 def render_data_table(block: dict) -> str:
+    return reference_table(block, lambda text: _md_inline(esc(text)))
+
+
+def render_data_table_legacy(block: dict) -> str:
     """Render a data table block."""
     caption = esc(block.get("caption", ""))
     headers = block["headers"]
@@ -2539,6 +2546,41 @@ def build_guide_css() -> str:
 
 
 
+# The public reference layer follows the current brand tokens.
+_legacy_guide_css = build_guide_css
+
+def build_guide_css():
+    return _legacy_guide_css() + reference_css(
+        'var(--gg-color-primary-brown)','var(--gg-color-warm-paper)',
+        'var(--gg-color-sand)','var(--gg-color-tan)','var(--gg-color-teal)',
+        'var(--gg-font-data)','var(--gg-font-editorial)') + """
+.guide-legacy-chart { overflow:auto; max-width:100%; }
+.guide-legacy-chart>.gg-infographic-svg,.guide-legacy-chart>div>.gg-infographic-svg { min-width:900px; }
+.guide-reference .gg-line-chart__path { stroke-dashoffset:0!important; opacity:1!important; }
+.guide-reference * { animation:none!important; transition:none!important; }
+.guide-reference .gg-line-chart__annotation,.guide-reference .gg-line-chart__marker { opacity:1!important; transform:none!important; }
+.guide-reference .gg-infographic-card { height:auto!important; min-height:0!important; cursor:default; transform:none!important; background:transparent; border:0; border-bottom:1px solid var(--gg-color-tan); padding:16px 0; }
+.guide-reference .gg-infographic-card-front,.guide-reference .gg-infographic-card-back { position:static!important; transform:none!important; backface-visibility:visible!important; display:block!important; padding:10px 0!important; background:transparent!important; color:var(--gg-color-primary-brown)!important; }
+.guide-reference .gg-infographic-card-back .gg-infographic-card-title,.guide-reference .gg-infographic-flip-hint { display:none; }
+.guide-reference .gg-infographic-gear-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:0 32px; }
+.guide-reference .gg-infographic-card-desc,.guide-reference .gg-infographic-card-tip { font-size:16px; line-height:1.6; border:0; padding:0; }
+.guide-reference-summary { font:400 17px/1.6 var(--gg-font-editorial); margin:20px 0 0; }
+.guide-reference .gg-infographic-act-body,.guide-reference .gg-infographic-timeline-body { display:block!important; max-height:none!important; overflow:visible!important; }
+.guide-reference .gg-infographic-bonk-total { font:700 48px/1 var(--gg-font-data); }
+.guide-reference .gg-infographic-bonk-digit { display:none; }
+.guide-reference .gg-infographic-bonk-total::before { content:'600'; }
+.guide-reference .gg-bar-chart__fill { width:var(--w)!important; opacity:1!important; transform:none!important; }
+.guide-reference .gg-infographic-pyramid-bar { width:var(--w)!important; opacity:1!important; transform:none!important; }
+@media(max-width:600px) { .guide-reference .gg-infographic-gear-grid { grid-template-columns:1fr; } }
+"""
+
+
+_reference_guide_css = build_guide_css
+
+def build_guide_css():
+    return _reference_guide_css().replace('.guide-reference', ':is(.guide-reference,.gg-infographic[data-reference])')
+
+
 def build_guide_js() -> str:
     """Return all guide-specific JavaScript as a single IIFE."""
     return '''(function(){
@@ -3414,6 +3456,16 @@ def main():
     output_file.write_text(html_content, encoding="utf-8")
     print(f"Generated {output_file} ({len(html_content):,} bytes)")
 
+
+
+# Keep the public guide within its existing CSS transfer budget.
+_reference_css_uncompressed = build_guide_css
+
+def build_guide_css():
+    css = re.sub(r'/\*.*?\*/', lambda m: m[0] if 'Inline Infographics' in m[0] else '', _reference_css_uncompressed(), flags=re.S)
+    css = css.replace(':is(.guide-reference,.gg-infographic[data-reference])', '.gg-infographic')
+    css += '.gg-infographic[data-reference]{min-width:0;max-width:100%;overflow:hidden}.gg-infographic[data-reference] figcaption{border-inline:0!important;border-bottom:0!important;padding:16px 0 0!important;background:transparent!important}.gg-infographic[data-reference] .guide-reference-body{min-width:0;overflow:auto}'
+    return re.sub(r'\s*([{}:;,])\s*', r'\1', css).strip()
 
 if __name__ == "__main__":
     main()

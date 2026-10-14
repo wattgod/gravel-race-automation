@@ -323,43 +323,38 @@
           "blocks": [
             {
               "type": "prose",
-              "content": "Here's what actually matters, in order. Fitness determines {{70}}% of your result. Everything else fights over the remaining {{30}}%:"
+              "content": "Put fitness, pacing, fueling, and handling ahead of equipment upgrades. This is a coaching priority order, not measured shares of your race result."
             },
             {
               "type": "process_list",
               "items": [
                 {
                   "label": "Fitness",
-                  "detail": "Costs nothing. Requires time and discipline. Determines 70% of your result.",
-                  "percentage": 70
+                  "detail": "Costs nothing. Requires time and discipline."
                 },
                 {
                   "label": "Pacing and Execution",
-                  "detail": "Free. Determines 20% of your result. You can be fit and blow up by going out too hard.",
-                  "percentage": 20
+                  "detail": "Free.  You can be fit and blow up by going out too hard."
                 },
                 {
                   "label": "Nutrition",
-                  "detail": "Cheap. Determines 8% of your result. Bonking loses races.",
-                  "percentage": 8
+                  "detail": "Cheap.  Bonking loses races."
                 },
                 {
                   "label": "Bike Handling",
-                  "detail": "Free (just requires practice). Determines 1.5% of your result.",
-                  "percentage": 1.5
+                  "detail": "Free (just requires practice)."
                 },
                 {
                   "label": "Equipment",
-                  "detail": "Expensive. Determines 0.5% of your result (unless your equipment is broken or wildly inappropriate).",
-                  "percentage": 0.5
+                  "detail": "Expensive."
                 }
               ]
             },
             {
               "type": "image",
               "asset_id": "ch1-hierarchy-of-speed",
-              "alt": "Pyramid showing hierarchy of speed: fitness 70%, pacing 20%, nutrition 8%, bike handling 1.5%, equipment 0.5%",
-              "caption": "Fitness dominates. Equipment is a rounding error."
+              "alt": "Training priorities in order",
+              "caption": "Read the reference and its qualifications below."
             },
             {
               "type": "prose",
@@ -383,7 +378,7 @@
                   "correct": false
                 },
                 {
-                  "text": "Marginal improvement (~0.5%) because equipment determines very little of the result",
+                  "text": "The equipment change does not replace training and course preparation",
                   "correct": true
                 },
                 {
@@ -391,7 +386,7 @@
                   "correct": false
                 }
               ],
-              "explanation": "Equipment determines roughly 0.5% of your result. Fitness (70%) and pacing (20%) dwarf equipment gains. A strong rider on a mediocre bike will humiliate a mediocre rider on a $12k spaceship."
+              "explanation": "Equipment needs to work and fit the course. Fitness, pacing, fueling, and handling deserve training time before another upgrade."
             },
             {
               "type": "race_callout",
@@ -592,19 +587,19 @@
             },
             {
               "type": "hero_stat",
-              "value": "8",
-              "unit": "%",
-              "context": "Of 328 rated races earn Tier 1 status. The bar is deliberately high."
+              "value": "4",
+              "unit": "tiers",
+              "context": "See the current rated catalogue below. Counts update when the guide is regenerated."
             },
             {
               "type": "image",
               "asset_id": "ch2-tier-distribution",
-              "alt": "Distribution of 328 gravel races across 4 tiers: T1=25, T2=73, T3=154, T4=76",
-              "caption": "Only 8% make Tier 1. Most races are solid Tier 3."
+              "alt": "Current rated race counts by tier",
+              "caption": "Read the reference and its qualifications below."
             },
             {
               "type": "prose",
-              "content": "Only 25 races — 8% of the database — earn Tier 1 status. That is deliberate. If every race is elite, none of them are. The pyramid shape means something: most races are solid, well-run events that do not need national prestige to be worth your time."
+              "content": "Tier 1 is reserved for the highest-rated races. The current counts below come from the rated catalogue. A lower-tier race can still fit your goals and be worth your time."
             },
             {
               "type": "tabs",
@@ -685,7 +680,7 @@
               "items": [
                 {
                   "label": "Browse the race database",
-                  "detail": "Search all 328 scored races in the [Gravel God Race Database](/gravel-races/). Filter by region, tier, distance, or date."
+                  "detail": "Search the scored races in the [Gravel God Race Database](/gravel-races/). Filter by region, tier, distance, or date."
                 },
                 {
                   "label": "Check the tier and score breakdown",
@@ -719,8 +714,8 @@
             {
               "type": "image",
               "asset_id": "ch2-field-scatter",
-              "alt": "Scatter plot showing field size versus median finish time for T1 through T4 gravel races",
-              "caption": "T1 races combine massive fields with brutal distances. T4 events are intimate and accessible.",
+              "alt": "Recorded route distances and elevation",
+              "caption": "Read the reference and its qualifications below.",
               "layout": "inline"
             },
             {
@@ -745,7 +740,7 @@
             {
               "type": "callout",
               "style": "highlight",
-              "content": "Explore all 328 scored races in the [Gravel God Race Database](/gravel-races/). Read the full [scoring methodology](/methodology/).\n\nOnce you've picked your race, [Chapter 3](#training-fundamentals) covers how training actually works—the adaptation cycle, zones, and periodization that will get you to the start line ready."
+              "content": "Explore the scored races in the [Gravel God Race Database](/gravel-races/). Read the full [scoring methodology](/methodology/).\n\nOnce you've picked your race, [Chapter 3](#training-fundamentals) covers how training actually works—the adaptation cycle, zones, and periodization that will get you to the start line ready."
             },
             {
               "type": "race_callout",
@@ -947,8 +942,8 @@
             {
               "type": "image",
               "asset_id": "ch3-before-after",
-              "alt": "Before and after comparison of trained versus untrained metrics showing improvements in VO2max, lactate threshold, and economy",
-              "caption": "12 weeks of consistent training — the numbers do not lie.",
+              "alt": "Establish a baseline, train, and retest",
+              "caption": "Read the reference and its qualifications below.",
               "layout": "inline"
             },
             {
@@ -1733,8 +1728,8 @@
             {
               "type": "image",
               "asset_id": "ch4-recovery-dash",
-              "alt": "Recovery dashboard showing three gauges for sleep quality, HRV trend, and muscle soreness indicating readiness to train",
-              "caption": "Three gauges that tell you if you are ready to train hard or need another easy day.",
+              "alt": "Review sleep, effort and soreness together",
+              "caption": "Read the reference and its qualifications below.",
               "layout": "inline"
             },
             {
@@ -1784,7 +1779,7 @@
           "blocks": [
             {
               "type": "prose",
-              "content": "You can have perfect training, a dialed bike, and excellent pacing strategy. None of it matters if you run out of fuel halfway through your race.\n\nNutrition is the third most important variable after fitness and pacing (see the [hierarchy of speed](#what-is-gravel-racing)). It determines 8% of your race result. That's enough to separate finishing strong from crawling to the line.\n\nHere's the depressing truth: many athletes never reach their potential despite doing everything right in training except for one massive detail—their nutrition sucks. Maybe they're underfueled (common) or afraid of carbs (common) or their timing is off (very common). Whatever the issue, most athletes seldom eat to support their training in a way that maximizes execution and adaptation."
+              "content": "You can have perfect training, a dialed bike, and excellent pacing strategy. None of it matters if you run out of fuel halfway through your race.\n\nNutrition is the third most important variable after fitness and pacing (see the [hierarchy of speed](#what-is-gravel-racing)). Practise it alongside pacing and workout execution.\n\nHere's the depressing truth: many athletes never reach their potential despite doing everything right in training except for one massive detail—their nutrition sucks. Maybe they're underfueled (common) or afraid of carbs (common) or their timing is off (very common). Whatever the issue, most athletes seldom eat to support their training in a way that maximizes execution and adaptation."
             }
           ]
         },

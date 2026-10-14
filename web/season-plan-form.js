@@ -70,6 +70,29 @@
       if (typeof gtag === 'function') { gtag('event', name, params || {}); }
     } catch (e) {}
   }
+  function captureAnalyticsAttribution() {
+    var accepted = /(^|; )(?:gg|rl|xl|gl)_consent=accepted(?:;|$)/.test(document.cookie);
+    var values = {analytics_consent: accepted ? 'granted' : 'denied'};
+    return new Promise(function(resolve) {
+      if (!accepted || typeof gtag !== 'function') { resolve(values); return; }
+      var script = document.querySelector('script[src*="googletagmanager.com/gtag/js"]');
+      var id = script ? new URL(script.src).searchParams.get('id') : '';
+      if (!/^G-[A-Z0-9]+$/.test(id || '')) { resolve(values); return; }
+      var count = 0, settled = false;
+      var timer = setTimeout(finish, 500);
+      function finish() { if (settled) return; settled = true; clearTimeout(timer); resolve(values); }
+      function read(field, pattern) {
+        try { gtag('get', id, field, function(value) {
+          if (settled) return;
+          if (pattern.test(String(value || ''))) values['ga4_' + field] = String(value);
+          if (++count === 2) finish();
+        }); } catch (err) { if (++count === 2) finish(); }
+      }
+      read('client_id', /^\d+\.\d+$/);
+      read('session_id', /^\d+$/);
+    });
+  }
+
   var startedTracked = false;
   function trackStart() {
     if (startedTracked) return;
@@ -305,10 +328,13 @@
       items: [{ item_name: 'Season Plan', item_category: 'season_plan', price: __SEASON_PLAN_PRICE_CENTS_DOLLARS__ }]
     });
 
-    fetch(API_URL, {
+    captureAnalyticsAttribution().then(function(attribution) {
+      Object.assign(payload, attribution);
+      return fetch(API_URL, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(payload)
+      });
     }).then(function(response) { return response.json(); }).then(function(result) {
       if (result.checkout_url) {
         ga4('season_form_submit', { races_count: races.length });

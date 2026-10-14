@@ -109,7 +109,7 @@ def build_hero() -> str:
   <div class="gg-tp-hero-bar">
     <div class="gg-tp-hero-bar-item"><strong>24 Hours</strong><span>Delivery</span></div>
     <div class="gg-tp-hero-bar-item"><strong>Matched</strong><span>Methodology</span></div>
-    <div class="gg-tp-hero-bar-item"><strong>$15/week</strong><span>One Payment</span></div>
+    <div class="gg-tp-hero-bar-item"><strong>{PRICE_PER_WEEK}/week</strong><span>One Payment</span></div>
     <div class="gg-tp-hero-bar-item"><strong>5 min</strong><span>To Start</span></div>
   </div>
   <p class="gg-tp-delivery-terms">Your plan, personally reviewed and delivered in TrainingPeaks within 24 hours.</p>
@@ -426,7 +426,7 @@ def build_faq() -> str:
 
 def build_mobile_sticky() -> str:
     return f'''<div class="gg-tp-sticky-cta" id="gg-tp-sticky-cta">
-  <a href="{QUESTIONNAIRE_URL}?src=product_page" data-cta="sticky_mobile">Build My Plan &mdash; $15/week</a>
+  <a href="{QUESTIONNAIRE_URL}?src=product_page" data-cta="sticky_mobile">Build My Plan &mdash; {PRICE_PER_WEEK}/week</a>
 </div>'''
 
 

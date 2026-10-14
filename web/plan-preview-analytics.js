@@ -1,12 +1,19 @@
 /* Shared custom-plan funnel. Never send search text, HR/FTP, email, or notes. */
 (function(){
 'use strict';
-function consented(){return /(^|; )(?:gg|rl|xl|gl)_consent=accepted(?:;|$)/.test(document.cookie);}
+function consented(root){
+ var brand=config(root).brand;
+ var prefix=brand==='xc_ski_labs'?'xl':brand==='roadie_labs'?'rl':'gg';
+ var choice=document.cookie.match(new RegExp('(?:^|; )'+prefix+'_consent=([^;]*)'));
+ if(choice)return choice[1]==='accepted';
+ // Use Gravel's canonical geographic default; Road and Ski require opt-in.
+ return prefix==='gg'&&window.ggConsentRequiresOptIn===false;
+}
 function role(root,name){return root.querySelector('[data-role="'+name+'"]');}
 function config(root){try{return JSON.parse(document.getElementById(root.dataset.configId).textContent);}catch(e){return {};}}
 var allowed=['source','brand','race_slug','hours_per_week','preferred_days_count','experience_level','goal_type','control_method','preset_id','week_number','workout_kind','plan_weeks','samples_count','error_kind','search_results','has_query','second_race_enabled','grit_enabled','destination'];
 window.planPreviewAnalytics=function(root,name,extra){
- if(!consented()||typeof window.gtag!=='function')return false;
+ if(!consented(root)||typeof window.gtag!=='function')return false;
  try{var cfg=config(root),race=role(root,'race'),data={source:'training_plan_simulator',brand:cfg.brand||'unknown',race_slug:race?race.value:cfg.race&&cfg.race.slug||'',plan_weeks:Number(role(root,'plan-weeks')&&role(root,'plan-weeks').value)||0,second_race_enabled:!!(role(root,'second-enable')&&role(root,'second-enable').checked)};
   if(!/^[a-z0-9-]{1,80}$/.test(data.race_slug))delete data.race_slug;
   Object.keys(extra||{}).forEach(function(key){if(key==='session_kind')data.workout_kind=extra[key];else if(allowed.indexOf(key)!==-1)data[key]=extra[key];});

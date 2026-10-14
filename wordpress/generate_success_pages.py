@@ -257,10 +257,11 @@ def build_training_plan_success() -> str:
     trainingpeaks = f"""
   <div data-delivery-copy="trainingpeaks">
   <div class="gg-success-hero" data-product-type="training_plan">
-    <div class="gg-success-check">&check;</div>
-    <h1>Your Training Plan Is on the Way</h1>
-    <p>Payment confirmed. Your custom plan is being generated and will be
-    delivered to your email shortly.</p>
+    <div class="gg-success-check" aria-hidden="true">?</div>
+    <h1>Check Your Training Plan Order</h1>
+    <p>Check your email for your Stripe payment receipt. Once checkout is complete,
+    your plan is personally reviewed and delivered in TrainingPeaks within 24 hours.
+    Opening this page does not confirm a payment.</p>
   </div>"""
 
     steps = """
@@ -270,9 +271,9 @@ def build_training_plan_success() -> str:
       <div class="gg-success-step-num">1</div>
       <div class="gg-success-step-text">
         <h3>Check Your Email</h3>
-        <p>Your plan is being built right now. You'll receive an email
-        once it's ready. Check spam if you don't see it within an hour,
-        and reply to that email if you have questions.</p>
+        <p>Your Stripe receipt confirms whether checkout completed. After payment,
+        watch for your reviewed plan within 24 hours. Reply to your receipt
+        if you need help with the order.</p>
       </div>
     </div>
     <div class="gg-success-step">
@@ -298,9 +299,10 @@ def build_training_plan_success() -> str:
   <div data-delivery-copy="endure" hidden>
   <div class="gg-success-hero" data-product-type="training_plan">
     <div class="gg-success-check">&check;</div>
-    <h1>Your Endure Plan Is on the Way</h1>
-    <p>Payment confirmed. Matti will review the first training block before
-    it appears in your Endure account.</p>
+    <h1>Check Your Endure Plan Order</h1>
+    <p>Check your email for your Stripe receipt. After payment, Matti reviews
+    the first training block before it appears in your Endure account.
+    Opening this page does not confirm a payment.</p>
   </div>
 
   <div class="gg-success-steps">
@@ -373,9 +375,9 @@ def build_season_plan_success() -> str:
     not the race plan's single-race pipeline output."""
     hero = f"""
   <div class="gg-success-hero" data-product-type="season_plan">
-    <div class="gg-success-check">&check;</div>
-    <h1>Your Season Plan Is Booked</h1>
-    <p>Payment confirmed. I build every Season Plan myself, from the races
+    <div class="gg-success-check" aria-hidden="true">?</div>
+    <h1>Check Your Season Plan Order</h1>
+    <p>Check your email for your Stripe receipt. After payment, I build your Season Plan from the races
     you gave me &mdash; it lands in your TrainingPeaks calendar within
     {SEASON_PLAN_DELIVERY_DAYS} days of payment, your complete questionnaire,
     and your TrainingPeaks connection all being in place. A whole season,
@@ -554,8 +556,8 @@ def build_consulting_success() -> str:
 
 PAGES = {
     'training-plans-success': {
-        'title': 'Plan Confirmed | Gravel God Cycling',
-        'description': 'Your custom training plan is being generated.',
+        'title': 'Training Plan Order | Gravel God Cycling',
+        'description': 'Check your payment receipt and the next steps for your training plan.',
         'canonical': '/training-plans/success/',
         'active_nav': 'products',
         'robots': 'noindex, follow',
@@ -563,8 +565,8 @@ PAGES = {
         'output_path': 'training-plans-success.html',
     },
     'season-plan-success': {
-        'title': 'Season Plan Confirmed | Gravel God Cycling',
-        'description': 'Your Season Plan order is confirmed.',
+        'title': 'Season Plan Order | Gravel God Cycling',
+        'description': 'Check your payment receipt and the next steps for your Season Plan.',
         'canonical': '/season-plan/success/',
         'active_nav': 'products',
         'robots': 'noindex, follow',

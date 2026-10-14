@@ -133,7 +133,7 @@ class TestGA4Tracking:
         page = all_pages["training-plans-success"]
         assert 'data-delivery-copy="trainingpeaks"' in page
         assert 'data-delivery-copy="endure" hidden' in page
-        assert "Your Endure Plan Is on the Way" in page
+        assert "Check Your Endure Plan Order" in page
         assert "Automatic device sync is not part of this pilot" in page
         assert "Upload a\n        completed FIT or TCX file from Today" in page
 
@@ -248,7 +248,7 @@ class TestTrainingPlanSuccess:
     def test_has_hero(self):
         html = build_training_plan_success()
         assert "gg-success-hero" in html
-        assert "Training Plan Is on the Way" in html
+        assert "Check Your Training Plan Order" in html
 
     def test_has_next_steps(self):
         html = build_training_plan_success()
@@ -316,15 +316,15 @@ class TestSeasonPlanSuccess:
         html = build_season_plan_success()
         assert "3 days" in html
         assert "24 hours" not in html
-        p_start = html.index("<p>Payment confirmed.")
+        p_start = html.index("<p>Check your email for your Stripe receipt.")
         p_end = html.index("</p>", p_start)
         hero_paragraph = html[p_start:p_end]
         assert "3 days" in hero_paragraph
-        assert "i build every season plan myself" in hero_paragraph.lower()
+        assert "i build your season plan" in hero_paragraph.lower()
 
     def test_says_matti_builds_it_himself(self):
         html = build_season_plan_success()
-        assert "i build every season plan myself" in html.lower()
+        assert "i build your season plan" in html.lower()
 
     def test_no_refund_line(self):
         """Sales-surface ruling: no refund line on success/sales copy."""
@@ -462,3 +462,10 @@ class TestPagesConfig:
     def test_canonical_starts_with_slash(self, key):
         assert PAGES[key]["canonical"].startswith("/")
         assert PAGES[key]["canonical"].endswith("/")
+
+
+def test_order_page_never_confirms_an_unverified_payment():
+    page = generate_success_page('training-plans-success')
+    assert 'Opening this page does not confirm a payment.' in page
+    assert 'Payment confirmed.' not in page
+    assert "Your plan is being built right now" not in page

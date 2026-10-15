@@ -9,10 +9,10 @@ SIGNUP_URL = "https://endurelabs.app/sign-up?" + urlencode({
 def get_endure_offer_html() -> str:
     return f'''<aside class="endure-trial-offer" aria-label="Endure training app">
 <style>
-.endure-trial-offer {{max-width:960px;margin:0 auto;padding:24px;box-sizing:border-box;text-align:left;color:var(--gg-color-tan);background:var(--gg-color-dark-brown);border-top:1px solid currentColor}}
-.endure-trial-offer h4 {{font:700 14px var(--gg-font-data,monospace);letter-spacing:.08em;margin:0 0 8px}}
+.endure-trial-offer {{max-width:960px;margin:0 auto;padding:24px;box-sizing:border-box;text-align:left;color:var(--gg-color-tan,#d4c5b9);background:var(--gg-color-dark-brown,#3a2e25);border-top:1px solid currentColor}}
+.endure-trial-offer h4 {{color:inherit;font:700 14px var(--gg-font-data,monospace);letter-spacing:.08em;margin:0 0 8px}}
 .endure-trial-offer p {{font:16px/1.5 var(--gg-font-editorial,Georgia,serif);margin:8px 0;max-width:66ch;color:inherit}}
-.endure-trial-offer nav {{display:flex;flex-wrap:wrap;gap:12px}}
+.endure-trial-offer nav {{color:inherit;display:flex;flex-wrap:wrap;gap:12px}}
 .endure-trial-offer a {{display:inline-flex;align-items:center;min-height:44px;padding:0 12px;color:inherit;font:700 13px var(--gg-font-data,monospace);text-decoration:underline}}
 .endure-trial-offer a:focus-visible {{outline:2px solid currentColor;outline-offset:3px}}
 .endure-trial-offer .endure-trial-terms {{font-size:14px}}

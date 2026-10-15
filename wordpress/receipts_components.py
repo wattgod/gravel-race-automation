@@ -17,6 +17,7 @@ from __future__ import annotations
 
 import datetime as _dt
 import html
+from html.parser import HTMLParser
 from typing import Iterable, List, Optional, Sequence
 
 from receipts_data import (
@@ -151,7 +152,7 @@ def render_exchange_carousel(receipts: Sequence[Receipt], *, label: str,
                      for i, ex in enumerate(exchanges, 1))
     track_id = esc(carousel_id)
     return (
-        f'<div class="gg-exchange" data-exchange-carousel aria-roledescription="carousel" '
+        f'<div class="gg-exchange" data-exchange-carousel role="region" aria-roledescription="carousel" '
         f'aria-label="{esc(label)}">'
         f'<div class="gg-exchange-track" id="{track_id}" tabindex="0" '
         f'aria-label="{esc(label)}: scroll sideways or use the arrow keys">{slides}</div>'
@@ -182,37 +183,51 @@ def get_exchange_carousel_js() -> str:
     if (!total) return;
     root.classList.add('gg-exchange--js');
 
-    function current() {
-      var left = track.scrollLeft;
-      // Scrolled to the end: the last slides fit in view and can't snap to
-      // the left edge, so the last one counts as current.
-      if (left >= track.scrollWidth - track.clientWidth - 2) return total - 1;
-      var best = 0;
-      var bestDist = Infinity;
+    // The counter reports the slides actually on screen ("1 / 3" on a
+    // phone, "1–2 / 3" when two fit), so it follows the scroll position.
+    function maxScroll() { return Math.max(0, track.scrollWidth - track.clientWidth); }
+    function visibleRange() {
+      var box = track.getBoundingClientRect();
+      var first = -1, last = -1;
       for (var i = 0; i < total; i++) {
-        var d = Math.abs(slides[i].offsetLeft - track.offsetLeft - left);
-        if (d < bestDist) { bestDist = d; best = i; }
+        var r = slides[i].getBoundingClientRect();
+        var seen = Math.min(r.right, box.right) - Math.max(r.left, box.left);
+        if (r.width > 0 && seen / r.width >= 0.5) {
+          if (first < 0) first = i;
+          last = i;
+        }
       }
-      return best;
+      if (first < 0) { first = 0; last = 0; }
+      return [first, last];
     }
     function update() {
-      if (counter) counter.textContent = (current() + 1) + ' / ' + total;
-      prev.disabled = current() === 0;
-      next.disabled = current() === total - 1;
+      var range = visibleRange();
+      var label = range[0] === range[1] ? String(range[0] + 1)
+                                        : (range[0] + 1) + '\u2013' + (range[1] + 1);
+      if (counter) counter.textContent = label + ' / ' + total;
+      // aria-disabled, not disabled: a disabled button drops keyboard focus.
+      var atStart = range[0] === 0 || track.scrollLeft <= 1;
+      var atFinish = range[1] === total - 1 || track.scrollLeft >= maxScroll() - 1;
+      prev.setAttribute('aria-disabled', atStart ? 'true' : 'false');
+      next.setAttribute('aria-disabled', atFinish ? 'true' : 'false');
     }
-    function go(i) {
-      var target = Math.max(0, Math.min(total - 1, i));
-      track.scrollTo({ left: slides[target].offsetLeft - track.offsetLeft,
-                       behavior: reduce ? 'auto' : 'smooth' });
+    function go(step) {
+      var range = visibleRange();
+      var target = Math.max(0, Math.min(total - 1, range[0] + step));
+      var pad = parseFloat(window.getComputedStyle(track).paddingLeft) || 0;
+      var offset = slides[target].getBoundingClientRect().left - track.getBoundingClientRect().left - pad;
+      var left = Math.max(0, Math.min(maxScroll(), track.scrollLeft + offset));
+      track.scrollTo({ left: left, behavior: reduce ? 'auto' : 'smooth' });
     }
+    function atEnd(btn) { return btn.getAttribute('aria-disabled') === 'true'; }
     function track_event(action) {
       if (typeof gtag === 'function') gtag('event', 'exchange_carousel', { action: action });
     }
-    prev.addEventListener('click', function() { go(current() - 1); track_event('prev'); });
-    next.addEventListener('click', function() { go(current() + 1); track_event('next'); });
+    prev.addEventListener('click', function() { if (atEnd(prev)) return; go(-1); track_event('prev'); });
+    next.addEventListener('click', function() { if (atEnd(next)) return; go(1); track_event('next'); });
     track.addEventListener('keydown', function(e) {
-      if (e.key === 'ArrowLeft') { e.preventDefault(); go(current() - 1); track_event('key_prev'); }
-      else if (e.key === 'ArrowRight') { e.preventDefault(); go(current() + 1); track_event('key_next'); }
+      if (e.key === 'ArrowLeft') { e.preventDefault(); go(-1); track_event('key_prev'); }
+      else if (e.key === 'ArrowRight') { e.preventDefault(); go(1); track_event('key_next'); }
     });
     track.addEventListener('scroll', update, { passive: true });
     window.addEventListener('resize', update);
@@ -331,7 +346,7 @@ def get_receipts_css() -> str:
 .gg-receipt-stories { display: grid; gap: var(--gg-spacing-lg); }
 
 .gg-exchange { border: var(--gg-border-standard); background: var(--gg-color-sand); }
-.gg-exchange-track { display: flex; align-items: flex-start; gap: var(--gg-spacing-md); overflow-x: auto; scroll-snap-type: x mandatory; overscroll-behavior-x: contain; padding: var(--gg-spacing-md); -webkit-overflow-scrolling: touch; }
+.gg-exchange-track { display: flex; align-items: flex-start; gap: var(--gg-spacing-md); overflow-x: auto; scroll-snap-type: x mandatory; scroll-padding-inline: var(--gg-spacing-md); overscroll-behavior-x: contain; padding: var(--gg-spacing-md); -webkit-overflow-scrolling: touch; }
 .gg-exchange-track:focus-visible { outline: 3px solid var(--gg-color-gold); outline-offset: -3px; }
 .gg-exchange-slide { flex: 0 0 auto; width: min(85%, 480px); scroll-snap-align: start; margin: 0; border: var(--gg-border-standard); background: var(--gg-color-warm-paper); }
 .gg-exchange-img { display: block; width: 100%; height: auto; border-bottom: var(--gg-border-subtle); }
@@ -342,7 +357,7 @@ def get_receipts_css() -> str:
 .gg-exchange--js .gg-exchange-nav { display: flex; }
 .gg-exchange-btn { min-width: 44px; min-height: 44px; font-family: var(--gg-font-data); font-size: var(--gg-font-size-md); font-weight: var(--gg-font-weight-bold); background: var(--gg-color-warm-paper); color: var(--gg-color-dark-brown); border: var(--gg-border-standard); cursor: pointer; transition: background-color var(--gg-transition-hover), color var(--gg-transition-hover); }
 .gg-exchange-btn:hover { background: var(--gg-color-dark-brown); color: var(--gg-color-warm-paper); }
-.gg-exchange-btn:disabled { cursor: default; color: var(--gg-color-tan); background: var(--gg-color-warm-paper); }
+.gg-exchange-btn[aria-disabled="true"], .gg-exchange-btn[aria-disabled="true"]:hover { cursor: default; color: var(--gg-color-tan); background: var(--gg-color-warm-paper); }
 .gg-exchange-counter { font-family: var(--gg-font-data); font-size: var(--gg-font-size-xs); font-weight: var(--gg-font-weight-bold); letter-spacing: var(--gg-letter-spacing-wider); color: var(--gg-color-secondary-brown); min-width: 64px; text-align: center; }
 @media (prefers-reduced-motion: reduce) { .gg-exchange-track { scroll-behavior: auto; } }
 
@@ -356,3 +371,37 @@ def get_receipts_css() -> str:
 .gg-archetype-empty { font-family: var(--gg-font-data); color: var(--gg-color-secondary-brown); }
 .gg-archetype-sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 '''
+
+
+# ── What a receipt element may say (used by the proof guard) ─────────────
+
+
+class _TextChunks(HTMLParser):
+    def __init__(self):
+        super().__init__(convert_charrefs=True)
+        self.chunks = set()
+        self.alts = set()
+
+    def handle_starttag(self, tag, attrs):
+        if tag == "img":
+            self.alts.add(" ".join((dict(attrs).get("alt") or "").split()))
+
+    def handle_data(self, data):
+        text = " ".join(data.split())
+        if text:
+            self.chunks.add(text)
+
+
+def receipt_fragments(r: Receipt) -> tuple:
+    """(text chunks, img alts) any rendering of `r` can contain. The guard
+    checks every receipt element on a page against these, so a hand-written
+    quote or name can't hide inside a valid data-receipt-id."""
+    parser = _TextChunks()
+    total = max(1, len(r.exchanges))
+    parts = [render_receipt_card(r), render_story(r),
+             render_archetype_grid([r], caption=""),
+             *(render_exchange_slide(ex, r, i, total) for i, ex in enumerate(r.exchanges, 1))]
+    for part in parts:
+        parser.feed(part)
+    parser.close()
+    return frozenset(parser.chunks), frozenset(parser.alts)

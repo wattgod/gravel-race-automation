@@ -49,9 +49,23 @@ def _carousel(html: str) -> str:
     return m.group(0)
 
 
+# A private-shaped ledger for production-path tests: the fixture with every
+# fixture marker swapped for invented values production doesn't recognise as
+# placeholders (".invalid" is a reserved TLD, the names are nobody).
+_PRIVATE_SWAPS = (
+    ("synthetic-rider-", "r-000"), ("Test Rider A", "Qazwi Xenrot"),
+    ("TestRider B.", "Qazwi B."), ("TestRiderC", "Qazwic"), ("Test Rider E", "Qazwe Xenrot"),
+    ("https://example.com/", "https://timing.invalid/"),
+    ("https://example.org/", "https://timing.invalid/"), ("Example Gravel", "Sample Gravel"),
+)
+
+
 def _private_ledger(tmp_path: Path) -> Path:
-    """A non-synthetic copy of the fixture, as a private checkout would be."""
-    doc = json.loads(json.dumps(FIXTURE))
+    """A non-synthetic, private-shaped copy of the fixture."""
+    text = rd.FIXTURE_PATH.read_text(encoding="utf-8")
+    for old, new in _PRIVATE_SWAPS:
+        text = text.replace(old, new)
+    doc = json.loads(text)
     doc.pop("synthetic")
     shutil.copytree(rd.FIXTURE_PATH.parent / "receipts_media", tmp_path / "receipts_media")
     path = tmp_path / "receipts.json"
@@ -66,7 +80,7 @@ class TestEmptyState:
     def test_no_carousel_no_people(self, empty_page):
         assert "data-exchange-carousel" not in empty_page  # no markup, no carousel JS
         assert "data-receipt-id" not in empty_page
-        assert "Test Rider" not in empty_page
+        assert "Test Rider" not in empty_page and "TestRider" not in empty_page
         assert 'id="stories"' not in empty_page
         assert 'id="archetypes"' not in empty_page
 
@@ -86,7 +100,7 @@ class TestEmptyState:
 
 class TestFixtureRender:
     def test_approved_athletes_render(self, page):
-        for name in ("Test Rider A", "Test Rider B", "Test Rider C, 50-54"):
+        for name in ("Test Rider A", "TestRider B.", "TestRiderC, 50-54"):
             assert name in page
 
     def test_unrenderable_entries_stay_out(self, page):
@@ -109,13 +123,15 @@ class TestFixtureRender:
 
     def test_every_person_element_is_inside_a_receipt(self, page):
         """Story blocks, cards, grid entries and slides all carry the id."""
-        for rid in ("synthetic-rider-a", "synthetic-rider-b", "synthetic-rider-c"):
-            assert f'<article class="gg-receipt-story" id="athlete-{rid}" data-receipt-id="{rid}">' in page
-            assert f'<li class="gg-archetype-athlete" data-receipt-id="{rid}">' in page
+        for r in rd.load_receipts():
+            assert (f'<article class="gg-receipt-story" id="{r.anchor}" '
+                    f'data-receipt-id="{r.id}">') in page
+            assert f'<li class="gg-archetype-athlete" data-receipt-id="{r.id}">' in page
 
     def test_story_voice(self, page):
-        a = re.search(r'id="athlete-synthetic-rider-a".*?</article>', page, re.S).group(0)
-        c = re.search(r'id="athlete-synthetic-rider-c".*?</article>', page, re.S).group(0)
+        by_id = {r.id: r for r in rd.load_receipts()}
+        a = re.search(rf'id="{by_id["synthetic-rider-a"].anchor}".*?</article>', page, re.S).group(0)
+        c = re.search(rf'id="{by_id["synthetic-rider-c"].anchor}".*?</article>', page, re.S).group(0)
         assert '<blockquote class="gg-receipt-story-quote">' in a  # athlete's words, quoted
         assert "gg-receipt-story-quote" not in c  # editorial, not dressed as a quote
         assert "Coached since November 2023" in c
@@ -132,7 +148,7 @@ class TestFixtureRender:
 
     def test_rendered_people_are_all_synthetic(self, page):
         names = re.findall(r'class="gg-receipt-story-name">([^<]+)<', page)
-        assert names and all(n.startswith("Test Rider ") for n in names)
+        assert names and all(n.startswith("Test") for n in names)
 
 
 # ── Archetype grid ───────────────────────────────────────────────────────
@@ -148,9 +164,19 @@ class TestArchetypeGrid:
         assert grid.count("gg-archetype-empty") == 13  # 3 covered cells in the fixture
 
     def test_cells_link_to_story_anchors(self, page):
-        for rid in ("synthetic-rider-a", "synthetic-rider-b", "synthetic-rider-c"):
-            assert f'href="#athlete-{rid}"' in page
-            assert f'id="athlete-{rid}"' in page
+        for r in rd.load_receipts():
+            assert f'href="#{r.anchor}"' in page
+            assert f'id="{r.anchor}"' in page
+
+    def test_anchors_and_media_names_are_opaque(self, page, ledger):
+        """Review finding 5: URLs and anchors don't spell out the ledger id."""
+        for r in ledger.receipts:
+            assert r.id not in r.anchor and re.fullmatch(r"athlete-[0-9a-f]{16}", r.anchor)
+            for ex in r.exchanges:
+                assert r.id not in ex.media_name
+                assert re.fullmatch(r"[0-9a-f]{16}\.png", ex.media_name)
+        assert 'href="#athlete-synthetic' not in page
+        assert "/athletes/media/synthetic" not in page
 
 
 # ── Carousel markup and accessibility ────────────────────────────────────
@@ -187,6 +213,28 @@ class TestCarousel:
         assert 'aria-label="Previous exchange"' in c and 'aria-label="Next exchange"' in c
         assert ">1 / 3</span>" in c
         assert 'aria-live="polite"' in c
+
+    def test_carousel_is_a_region(self, page):
+        assert 'role="region" aria-roledescription="carousel"' in _carousel(page)
+
+    def test_end_buttons_keep_focus(self):
+        """Review finding 8: `disabled` drops keyboard focus to <body>."""
+        js = rc.get_exchange_carousel_js()
+        assert ".disabled" not in js
+        assert "setAttribute('aria-disabled'" in js
+        assert "if (atEnd(next)) return;" in js and "if (atEnd(prev)) return;" in js
+        css = rc.get_receipts_css()
+        assert ":disabled" not in css and '[aria-disabled="true"]' in css
+
+    def test_counter_follows_scroll_position(self):
+        """Review finding 8: the counter reports the slides on screen (measured
+        from the scroll position), so "1 / 3" never jumps to "3 / 3" when two
+        slides fit; it reads "1–2 / 3" then "2–3 / 3"."""
+        js = rc.get_exchange_carousel_js()
+        assert "function visibleRange()" in js
+        assert "getBoundingClientRect()" in js
+        assert "go(1)" in js and "go(-1)" in js
+        assert "scroll-padding-inline" in rc.get_receipts_css()
 
     def test_cls_dimensions_reserved(self, page, ledger):
         imgs = re.findall(r"<img class=\"gg-exchange-img\"[^>]*>", page)
@@ -240,6 +288,12 @@ class TestScripts:
             assert "addEventListener('click'" in lines[i - 1], lines[i - 1]
         from scroll_animations import get_scroll_animation_js
         assert "gtag" not in get_scroll_animation_js()
+
+    def test_proof_link_event_param(self):
+        """Review finding 10: the parameter is proof_type, valued 'timing'."""
+        js = ga.build_athletes_js()
+        assert "gtag('event', 'proof_link_click', { proof_type: el.getAttribute('data-proof') })" in js
+        assert "{ timing:" not in js
 
     @pytest.mark.parametrize("source", ["page", "carousel"])
     def test_no_innerhtml(self, source):
@@ -370,11 +424,47 @@ def test_media_copied_under_published_names_and_stale_files_removed(tmp_path, le
     media_dir.mkdir(parents=True)
     (media_dir / "withdrawn-rider-ex-9.png").write_bytes(b"stale")
     names = ga.copy_exchange_media(ledger, tmp_path)
-    assert names == ["synthetic-rider-a-ex-1.png", "synthetic-rider-a-ex-2.png",
-                     "synthetic-rider-b-ex-1.png"]
+    assert names == sorted(ex.media_name for ex in ledger.exchanges)
     assert sorted(p.name for p in media_dir.iterdir()) == names
     for ex in ledger.exchanges:
-        assert (media_dir / ex.media_name).read_bytes() == ex.image_path.read_bytes()
+        assert rd.image_size(media_dir / ex.media_name) == (ex.width, ex.height)
+
+
+try:
+    import PIL  # noqa: F401
+    _HAS_PIL = True
+except ImportError:
+    _HAS_PIL = False
+
+
+@pytest.mark.skipif(not _HAS_PIL, reason="metadata stripping needs Pillow")
+def test_media_copy_strips_metadata(tmp_path):
+    """Review finding 11: EXIF/GPS/text chunks never reach the server."""
+    from PIL import Image, PngImagePlugin
+    src_png = tmp_path / "in.png"
+    info = PngImagePlugin.PngInfo()
+    info.add_text("Author", "private-author-marker")
+    Image.new("RGB", (5, 4), (10, 20, 30)).save(src_png, pnginfo=info)
+    src_jpg = tmp_path / "in.jpg"
+    exif = Image.Exif()
+    exif[0x013B] = "private-artist-marker"  # Artist
+    Image.new("RGB", (5, 4), (10, 20, 30)).save(src_jpg, exif=exif.tobytes())
+    for src in (src_png, src_jpg):
+        dst = tmp_path / f"out{src.suffix}"
+        assert ga.strip_image_metadata(src, dst)
+        data = dst.read_bytes()
+        assert b"private-" not in data, src.name
+        with Image.open(dst) as im:
+            assert im.size == (5, 4)
+            assert not im.getexif()
+            assert "Author" not in im.info
+
+
+def test_production_media_copy_needs_pillow(tmp_path, ledger, monkeypatch):
+    monkeypatch.setattr(ga, "strip_image_metadata", lambda src, dst: False)
+    monkeypatch.setenv(rd.ENV_BUILD, "production")
+    with pytest.raises(SystemExit, match="Pillow"):
+        ga.copy_exchange_media(ledger, tmp_path)
 
 
 # ── Deploy plumbing (scripts/push_wordpress.py; code only, never run here) ─
@@ -405,14 +495,81 @@ def test_deploy_refuses_synthetic_and_unwritten_builds(page, tmp_path, monkeypat
     assert pw.sync_athletes(str(out)) is None
 
 
-def test_deploy_accepts_a_production_build(tmp_path, monkeypatch):
-    pw = _push_wordpress()
+def _production_build(tmp_path, monkeypatch):
     monkeypatch.setenv(rd.ENV_BUILD, "production")
     monkeypatch.setenv(rd.ENV_PATH, str(_private_ledger(tmp_path)))
     for key in list(ga.COPY):
         monkeypatch.setitem(ga.COPY, key, f"Written copy for {key}.")
-    html = ga.generate_athletes_page(rd.load_ledger("gravelgod"))
+    ledger = rd.load_ledger("gravelgod")
+    html = ga.generate_athletes_page(ledger)
+    out_dir = tmp_path / "output"
+    ga.copy_exchange_media(ledger, out_dir)
+    page = out_dir / "athletes.html"
+    page.write_text(html, encoding="utf-8")
+    return page
+
+
+def test_deploy_accepts_a_production_build(tmp_path, monkeypatch):
+    pw = _push_wordpress()
+    page = _production_build(tmp_path, monkeypatch)
+    html = page.read_text(encoding="utf-8")
     assert pw.athletes_ship_blockers(html) == []
+    assert pw.athletes_media_problems(html, page.parent / "athletes" / "media") == []
+
+
+@pytest.mark.parametrize("planted,what", [
+    ('<span data-receipt-id="synthetic-rider-a"></span>', "receipt id"),
+    ("<p>Test Rider A</p>", "athlete name"),
+    ("<p>TestRider B.</p>", "athlete name"),
+    ('<a href="https://example.com/results">x</a>', "example.com"),
+    ("<p>Example quote text. Replace with the athlete's exact approved words.</p>", "template"),
+])
+def test_deploy_refuses_fixture_leftovers_without_the_synthetic_flag(
+        tmp_path, monkeypatch, planted, what):
+    """Review finding 6: the ship gate doesn't trust the synthetic flag alone."""
+    pw = _push_wordpress()
+    html = _production_build(tmp_path, monkeypatch).read_text(encoding="utf-8")
+    blockers = pw.athletes_ship_blockers(html.replace("</body>", planted + "</body>"))
+    assert any(what in b for b in blockers), blockers
+
+
+def test_deploy_refuses_media_mismatches(tmp_path, monkeypatch):
+    """Review finding 7: every referenced screenshot exists, nothing extra ships."""
+    pw = _push_wordpress()
+    page = _production_build(tmp_path, monkeypatch)
+    html = page.read_text(encoding="utf-8")
+    media_dir = page.parent / "athletes" / "media"
+    victim = sorted(media_dir.iterdir())[0]
+    victim.unlink()
+    assert any("missing locally" in p for p in pw.athletes_media_problems(html, media_dir))
+    (media_dir / "stray.png").write_bytes(b"x")
+    assert any("not referenced" in p and "stray.png" in p
+               for p in pw.athletes_media_problems(html, media_dir))
+    monkeypatch.setattr(pw, "get_ssh_credentials", lambda: pytest.fail("must not connect"))
+    assert pw.sync_athletes(str(page)) is None
+
+
+@pytest.mark.parametrize("upload", ["ok", "fails", "raises"])
+def test_sync_always_purges_the_cache(tmp_path, monkeypatch, upload):
+    """Review finding 7: purge after every upload attempt, success or not."""
+    pw = _push_wordpress()
+    page = _production_build(tmp_path, monkeypatch)
+    calls = []
+
+    def fake_upload(html_path, media_dir):
+        if upload == "raises":
+            raise RuntimeError("ssh dropped")
+        return "https://gravelgodcycling.com/athletes/" if upload == "ok" else None
+
+    monkeypatch.setattr(pw, "_upload_athletes", fake_upload)
+    monkeypatch.setattr(pw, "purge_cache", lambda: calls.append("purge") or True)
+    if upload == "raises":
+        with pytest.raises(RuntimeError):
+            pw.sync_athletes(str(page))
+    else:
+        result = pw.sync_athletes(str(page))
+        assert (result is not None) == (upload == "ok")
+    assert calls == ["purge"]
 
 
 def test_every_css_token_exists():

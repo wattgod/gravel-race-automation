@@ -225,7 +225,7 @@ document.querySelectorAll('[data-cta]').forEach(function(el) {
 });
 document.querySelectorAll('[data-proof]').forEach(function(el) {
   el.addEventListener('click', function() {
-    if (typeof gtag === 'function') gtag('event', 'proof_link_click', { timing: el.getAttribute('data-proof') });
+    if (typeof gtag === 'function') gtag('event', 'proof_link_click', { proof_type: el.getAttribute('data-proof') });
   });
 });
 ''' + get_scroll_animation_js() + '''
@@ -326,9 +326,32 @@ def generate_athletes_page(ledger=None, external_assets: dict = None) -> str:
 </html>'''
 
 
+def strip_image_metadata(src: Path, dst: Path) -> bool:
+    """Re-encode `src` to `dst` from pixels only: no EXIF, GPS, text chunks,
+    ICC or XMP. Returns False when Pillow isn't installed."""
+    try:
+        from PIL import Image
+    except ImportError:
+        return False
+    with Image.open(src) as im:
+        has_alpha = im.mode in ("RGBA", "LA", "PA") or (im.mode == "P" and "transparency" in im.info)
+        mode = "RGBA" if has_alpha else "RGB"
+        pixels = im.convert(mode)
+        clean = Image.frombytes(mode, pixels.size, pixels.tobytes())
+    suffix = dst.suffix.lower()
+    if suffix in (".jpg", ".jpeg"):
+        clean.convert("RGB").save(dst, "JPEG", quality=90)
+    elif suffix == ".webp":
+        clean.save(dst, "WEBP", quality=90)
+    else:
+        clean.save(dst, "PNG", optimize=True)
+    return True
+
+
 def copy_exchange_media(ledger, output_dir: Path) -> list:
-    """Copy each approved exchange image to output/athletes/media/ under its
-    published name. Files no longer approved are removed (withdrawal)."""
+    """Write each approved exchange image to output/athletes/media/ under its
+    published (hashed) name, metadata stripped. Files no longer approved are
+    removed (withdrawal). Production builds fail without Pillow."""
     media_dir = output_dir / "athletes" / "media"
     media_dir.mkdir(parents=True, exist_ok=True)
     wanted = {ex.media_name: ex.image_path for ex in ledger.exchanges}
@@ -336,7 +359,13 @@ def copy_exchange_media(ledger, output_dir: Path) -> list:
         if old.is_file() and old.name not in wanted:
             old.unlink()
     for name, src in sorted(wanted.items()):
-        shutil.copy2(src, media_dir / name)
+        if not strip_image_metadata(src, media_dir / name):
+            if receipts_data.is_production():
+                raise SystemExit("generate_athletes: Pillow is required in production to strip "
+                                 "screenshot metadata (pip install Pillow)")
+            print(f"  WARNING: Pillow missing; copied {name} with its metadata (dev build only)",
+                  file=sys.stderr)
+            shutil.copyfile(src, media_dir / name)
     return sorted(wanted)
 
 

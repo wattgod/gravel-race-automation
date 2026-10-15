@@ -49,6 +49,7 @@
           "theme": "synthetic-theme",
           "rank": 1,
           "render_approved_at": "2026-09-02",
+          "redaction_checked_at": "2026-09-02",
           "channels": ["gravelgod", "social"]
         },
         {
@@ -59,6 +60,7 @@
           "theme": "synthetic-theme",
           "rank": 3,
           "render_approved_at": "2026-09-02",
+          "redaction_checked_at": "2026-09-02",
           "channels": ["gravelgod"]
         }
       ]
@@ -66,7 +68,7 @@
     {
       "id": "synthetic-rider-b",
       "identity_tier": "first_last_initial",
-      "display_name": "Test Rider B",
+      "display_name": "TestRider B.",
       "age_group": "40-44",
       "ability": "competitive_amateur",
       "tags": ["masters", "time_crunched_parent"],
@@ -97,11 +99,12 @@
         {
           "id": "ex-1",
           "image": "receipts_media/synthetic-exchange-1.png",
-          "alt": "Coach: Synthetic comment three. Test Rider B: Synthetic reply three.",
+          "alt": "Coach: Synthetic comment three. TestRider B.: Synthetic reply three.",
           "date": "2026-02-02",
           "theme": "synthetic-theme",
           "rank": 2,
           "render_approved_at": "2026-09-03",
+          "redaction_checked_at": "2026-09-03",
           "channels": ["gravelgod"]
         }
       ]
@@ -109,7 +112,7 @@
     {
       "id": "synthetic-rider-c",
       "identity_tier": "first_age_group",
-      "display_name": "Test Rider C",
+      "display_name": "TestRiderC",
       "age_group": "50-54",
       "ability": "enthusiast",
       "tags": ["masters"],

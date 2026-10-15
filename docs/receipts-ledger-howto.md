@@ -17,6 +17,9 @@ The old `db/testimonials.json` (`gg-testimonials-v1`) is a different schema. Mov
 
 1. The athlete fills in the consent form. Note the response id, identity tier, channels, assets ticked (quote, result links, screenshots) and any material connection.
 2. Copy the example entry from the template into `receipts.json` and fill it in. Drop the `//` note keys if you like; the loader ignores them.
+   - `id` is **public**: it is printed in the page HTML as `data-receipt-id`. Use an opaque slug such as `r-0007`, never a name or initials. Page anchors and screenshot filenames are hashed from it.
+   - `display_name` must fit the identity tier: `Firstname Lastname` (full_name), `Firstname L.` (first_last_initial), or one word (first_age_group).
+   - `tags` must come from the allow-list in `wordpress/receipts_data.py` (`TAGS`); they are exported to social/email tools.
 3. Send the athlete the exact quote, story text and rendered card or screenshot. Record the date they approve each:
    - `quote_approved_at`: required when there is a quote
    - `story.text_approved_at`: required when there is a story
@@ -27,6 +30,9 @@ The old `db/testimonials.json` (`gg-testimonials-v1`) is a different schema. Mov
    - Crop it to the comment panel. Cut metrics (heart rate, weight, power), other people, and any name the athlete's identity tier doesn't allow.
    - Type the comments word for word into `alt`, as `Speaker: words`.
    - Set `rank`; lower numbers show first.
+   - Look at the final cropped image yourself and record the date as `redaction_checked_at`. It is required, because the build can't read pixels.
+   - Optional per-screenshot `withdrawn_at` / `consent_expires` remove just that screenshot.
+   - The build re-encodes every screenshot from its pixels, dropping EXIF/GPS/text metadata. Production builds need Pillow for this.
 5. Raise `coached_count` (it counts everyone coached, including people who say no) and update `coached_count_as_of`.
 
 ## Fields the build checks
@@ -41,9 +47,20 @@ An athlete is left out of the page (and the build prints why) when any of these 
 - the channel being built (`gravelgod` for this site) isn't in `channels`
 - `identity_tier` is `count_only`, so the athlete is only counted
 
-An exchange is left out when it has no `alt`, no `render_approved_at`, a missing image file, or no matching channel.
+An exchange is left out when it:
 
-The whole build fails when an entry has a health field (`hr`, `hrv`, `weight`, `wkg`, `med*`…) or a quote, story or transcript that mentions weight, W/kg or heart data. Results need an `https` `official_url`.
+- has no `alt`, `render_approved_at` or `redaction_checked_at`;
+- has its own `withdrawn_at` set, or its own `consent_expires` has passed;
+- has an unknown key;
+- has a missing image file;
+- has no matching channel.
+
+The whole build fails when:
+
+- an entry has a health-shaped key anywhere (`hr`, `avg_hr`, `hrv_rmssd`, `pulse`, `weight`, `wkg`, `med*`, `health`, `injury`, `diagnosis`…);
+- a quote, story, transcript or tag mentions weight, W/kg, HR, pulse or medical context (meds, cardiologist, asthma, injury…).
+
+Results need an `https` `official_url`. Production builds also refuse fixture and template leftovers: ids starting `synthetic-` or `example-`, names like "Test Rider" or "Example", example.com/org links, and the template's placeholder text.
 
 ## Building with the private ledger
 
@@ -58,16 +75,24 @@ This writes `wordpress/output/athletes.html` and copies the approved screenshots
 - `GG_RECEIPTS_PATH` is unset, or points at a synthetic ledger;
 - any `COPY` value at the top of `generate_athletes.py` still starts with `[MATTI WRITES`. Matti writes those lines himself.
 
-Without `GG_BUILD=production` the build falls back to the synthetic fixture and marks the page synthetic and noindex. `push_wordpress.py --sync-athletes` refuses to upload a synthetic page or one with unwritten copy.
+When `GG_RECEIPTS_PATH` is unset (and `GG_BUILD` isn't `production`), the build falls back to the synthetic fixture and marks the page synthetic and noindex. If `GG_RECEIPTS_PATH` is set, that ledger is used whether or not this is a production build.
+
+`push_wordpress.py --sync-athletes` refuses to upload when any of these is true:
+
+- the page is synthetic, still has unwritten copy, or contains fixture/template leftovers;
+- a screenshot the page references is missing from `wordpress/output/athletes/media/`;
+- that folder holds a file the page doesn't reference.
+
+It purges the SiteGround cache after every upload attempt.
 
 ## Deploying and withdrawing
 
 Deploy (manual, after the production build):
 
 ```
-python3 scripts/push_wordpress.py --sync-athletes --purge-cache
+python3 scripts/push_wordpress.py --sync-athletes
 ```
 
 `--sync-athletes` is not part of `--deploy-all`. It swaps the whole remote `athletes/media/` folder, so a screenshot dropped from the ledger is gone from the server after the next push.
 
-To withdraw an athlete (spec §8): set `withdrawn_at`, rebuild, run `--sync-athletes`, and purge the cache. Then do the rest of the §8 runbook (social posts, OG images, the private removal log).
+To withdraw an athlete (spec §8): set `withdrawn_at`, rebuild, and run `--sync-athletes` (it purges the cache). Then do the rest of the §8 runbook (social posts, OG images, the private removal log).

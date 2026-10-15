@@ -32,6 +32,7 @@ Usage:
 from __future__ import annotations
 
 import datetime as _dt
+import hashlib
 import json
 import os
 import re
@@ -72,21 +73,69 @@ PRODUCT_LABELS = {
     "consult": "Consult",
 }
 AGE_BANDS = ("Under 30", "30s", "40s", "50+")
+# Tags are exported to marketing tools, so they are an allow-list: free text
+# here could carry family or health detail the athlete never approved.
+TAGS = ("time_crunched_parent", "masters", "gravel_ultra", "road_racer", "multi_year",
+        "mtb", "cyclocross", "bikepacking", "triathlete", "first_gravel_race")
+EXCHANGE_KEYS = frozenset({
+    "id", "image", "alt", "date", "theme", "rank", "render_approved_at", "channels",
+    "redaction_checked_at", "withdrawn_at", "consent_expires",
+})
+# display_name shape per identity tier (count_only never renders).
+_NAME_SHAPES = {
+    "full_name": re.compile(r"^\S+(?: \S+)+$"),
+    "first_last_initial": re.compile(r"^\S+ [A-Z]\.$"),
+    "first_age_group": re.compile(r"^\S+$"),
+}
+# Production refuses ledgers that still hold fixture or template content.
+_PLACEHOLDER_ID_RE = re.compile(r"^(?:synthetic|example)-")
+_PLACEHOLDER_NAME_RE = re.compile(r"^(?:Test ?Rider|Example)", re.IGNORECASE)
+_PLACEHOLDER_URL_RE = re.compile(r"^https?://(?:[^/]*\.)?example\.(?:com|org|net)(?:[/:?#]|$)",
+                                 re.IGNORECASE)
+TEMPLATE_PLACEHOLDER_TEXTS = (
+    "Example quote text. Replace with the athlete's exact approved words.",
+    "Example story paragraph one.",
+    "Example coach comment.",
+)
 
 # Health data (spec principle 5): keys that must never appear in an entry.
-_HEALTH_KEY_RE = re.compile(
-    r"^(?:hr|hrv|rhr|bpm|bmi|weight|wkg|w_kg|w/kg|body_?fat|heart_?rate|"
-    r"resting_?hr|max_?hr|lthr|vo2|vo2max|spo2|blood\w*)$"
-    r"|weight|wkg|heart|^med(?!ia|al)",
+# Matched by token ("avg_hr", "hr_max", "hrv_rmssd", "notes_medical"), plus a
+# few substrings that are never innocent in a key.
+_HEALTH_KEY_TOKEN_RE = re.compile(
+    r"(?:^|_)(?:hr|hrv|rhr|rmssd|sdnn|pulse|bpm|bmi|kg|lthr|spo2|vo2\w*|blood\w*|"
+    r"med(?!ia(?:_|$)|al(?:s)?(?:_|$))\w*|health\w*|injur\w*|diagnos\w*|illness\w*|"
+    r"weight\w*|wkg|w_kg|body_?fat|body_?mass|mass|heart\w*|sleep\w*|symptom\w*)(?:_|$)",
     re.IGNORECASE,
 )
+_HEALTH_KEY_SUBSTR_RE = re.compile(r"weight|wkg|w/kg|heart|rmssd|medic|diagnos|injur",
+                                   re.IGNORECASE)
+
+
+def _is_health_key(key: str) -> bool:
+    key = str(key).lstrip("/")
+    return bool(_HEALTH_KEY_TOKEN_RE.search(key) or _HEALTH_KEY_SUBSTR_RE.search(key))
+
+
+# Medical words that never belong in public proof copy.
+_MEDICAL_WORDS = (
+    r"meds?|medications?|medicines?|medical|prescri\w*|doctors?|cardiolog\w*|cardiac|"
+    r"asthma\w*|a-?fib|atrial\s+fibrillation|arrhythmi\w*|beta[\s-]?blockers?|"
+    r"diabet\w*|insulin|diagnos\w*|surger\w*|cancer|chemo\w*|pregnan\w*|"
+    r"injur\w*|concussion\w*|fractur\w*|illness\w*|blood\s+pressure|cholesterol|"
+    r"thyroid\w*|anemi\w*|anaemi\w*|eating\s+disorder\w*|depression"
+)
 # The same, in prose: a quote, story or transcript that mentions body weight,
-# W/kg or heart data.
+# W/kg, heart data or medical context.
 _HEALTH_TEXT_PATTERNS = (
     re.compile(r"\b\d+(?:[.,]\d+)?\s*(?:kg|kgs|kilos?|kilograms?|lbs?|pounds)\b", re.I),
-    re.compile(r"\bw\s*/\s*kg\b|\bwkg\b|\bwatts?\s+per\s+(?:kilo|kg)", re.I),
-    re.compile(r"\b\d+\s*bpm\b|\bhrv\b|\bheart[\s-]?rate\b|\bresting\s+hr\b", re.I),
-    re.compile(r"\bbody[\s-]?fat\b|\bbmi\b|\bmedication\b", re.I),
+    re.compile(r"(?<![a-z])w\s*/\s*kg\b|\bwkg\b|\bwatts?\s*(?:/|per)\s*(?:kilo\w*|kg)\b",
+               re.I),
+    re.compile(r"\b\d+\s*bpm\b|\bhrv\b|\bheart[\s-]?rate\b|\bresting\s+hr\b|"
+               r"\bpulse\b|\brmssd\b", re.I),
+    # Upper-case HR only, so "a 3 hr ride" stays fine.
+    re.compile(r"\bHRs?\b"),
+    re.compile(r"\bbody[\s-]?fat\b|\bbmi\b|\bweigh(?:t|ed|s|ing)?\s*(?:in|loss|\d)", re.I),
+    re.compile(rf"\b(?:{_MEDICAL_WORDS})\b", re.I),
 )
 _DATE_RE = re.compile(r"^\d{4}-\d{2}-\d{2}$")
 _MONTH_RE = re.compile(r"^\d{4}-\d{2}$")
@@ -138,11 +187,12 @@ class Exchange:
     height: int
     render_approved_at: str
     channels: Tuple[str, ...]
+    redaction_checked_at: str = ""
 
     @property
     def media_name(self) -> str:
-        """Published filename: {receipt_id}-{exchange_id}{ext}."""
-        return f"{self.receipt_id}-{self.id}{self.image_path.suffix.lower()}"
+        """Published filename: an opaque hash of receipt and exchange id."""
+        return f"{opaque_key(self.receipt_id + '/' + self.id)}{self.image_path.suffix.lower()}"
 
 
 @dataclass(frozen=True)
@@ -177,7 +227,8 @@ class Receipt:
 
     @property
     def anchor(self) -> str:
-        return f"athlete-{self.id}"
+        """Page anchor for the story block: opaque, not the ledger id."""
+        return f"athlete-{opaque_key(self.id)}"
 
 
 @dataclass
@@ -200,6 +251,11 @@ class Ledger:
 
 
 # ── Path resolution ──────────────────────────────────────────────────────
+
+
+def opaque_key(value: str) -> str:
+    """Stable, non-descriptive key for URLs and anchors."""
+    return hashlib.sha256(f"gg-receipts-v2:{value}".encode("utf-8")).hexdigest()[:16]
 
 
 def is_production() -> bool:
@@ -275,7 +331,7 @@ def _health_keys(node: Any, trail: str = "") -> List[str]:
     if isinstance(node, dict):
         for key, value in node.items():
             here = f"{trail}.{key}" if trail else str(key)
-            if _HEALTH_KEY_RE.search(str(key)):
+            if _is_health_key(key):
                 found.append(here)
             found += _health_keys(value, here)
     elif isinstance(node, list):
@@ -297,6 +353,8 @@ def health_text_findings(text: str) -> List[str]:
 def _public_texts(entry: dict) -> List[Tuple[str, str]]:
     """(label, text) for every field that can reach a page."""
     texts = [("display_name", entry.get("display_name")), ("quote", entry.get("quote"))]
+    for i, tag in enumerate(entry.get("tags") or []):
+        texts.append((f"tags[{i}]", tag))
     story = entry.get("story")
     if isinstance(story, dict):
         texts.append(("story.text", story.get("text")))
@@ -364,7 +422,8 @@ def _str_list(value: Any) -> Optional[Tuple[str, ...]]:
 # ── Entry validation ─────────────────────────────────────────────────────
 
 
-def _check_exchange(ex: Any, entry_id: str, base_dir: Path, channel: str
+def _check_exchange(ex: Any, entry_id: str, base_dir: Path, channel: str,
+                    today: Optional[_dt.date] = None
                     ) -> Tuple[Optional[Exchange], Optional[str]]:
     """(Exchange, None) when renderable on `channel`, else (None, reason)."""
     if not isinstance(ex, dict):
@@ -373,11 +432,26 @@ def _check_exchange(ex: Any, entry_id: str, base_dir: Path, channel: str
     if not isinstance(ex_id, str) or not _ID_RE.match(ex_id):
         return None, f"exchange id {ex_id!r} is not a lowercase slug"
     label = f"exchange {ex_id}"
+    unknown_keys = sorted(k for k in ex if not str(k).startswith("//") and k not in EXCHANGE_KEYS)
+    if unknown_keys:
+        return None, f"{label}: unknown key(s) {unknown_keys}"
+    if ex.get("withdrawn_at"):
+        return None, f"{label}: withdrawn"
+    if ex.get("consent_expires") is not None:
+        ex_expires = _parse_date(ex.get("consent_expires"))
+        if ex_expires is None:
+            return None, f"{label}: consent_expires must be YYYY-MM-DD"
+        if ex_expires < (today or _dt.date.today()):
+            return None, f"{label}: consent expired {ex['consent_expires']}"
     alt = ex.get("alt")
     if not isinstance(alt, str) or not alt.strip():
         return None, f"{label}: missing alt (the verbatim comment transcript)"
     if _parse_date(ex.get("render_approved_at")) is None:
         return None, f"{label}: missing render_approved_at"
+    if _parse_date(ex.get("redaction_checked_at")) is None:
+        # A regex can't read a screenshot: someone has to look at it for
+        # metrics, other people and names the identity tier doesn't allow.
+        return None, f"{label}: missing redaction_checked_at (screenshot not checked by eye)"
     channels = _str_list(ex.get("channels"))
     if channels is None:
         return None, f"{label}: channels must be a list"
@@ -413,6 +487,7 @@ def _check_exchange(ex: Any, entry_id: str, base_dir: Path, channel: str
         id=ex_id, receipt_id=entry_id, image_path=image_path, alt=alt.strip(),
         date=ex["date"], theme=theme, rank=rank, width=size[0], height=size[1],
         render_approved_at=ex["render_approved_at"], channels=channels,
+        redaction_checked_at=ex["redaction_checked_at"],
     ), None
 
 
@@ -468,6 +543,10 @@ def check_entry(entry: dict, *, channel: str, today: _dt.date, base_dir: Path
     name = entry.get("display_name")
     if not isinstance(name, str) or not name.strip():
         return reject("missing display_name")
+    if not _NAME_SHAPES[tier].match(name.strip()):
+        return reject(f"display_name {name!r} doesn't fit identity_tier {tier!r} "
+                      "(first_last_initial: 'First L.'; first_age_group: one word; "
+                      "full_name: two or more words)")
     age_group = entry.get("age_group")
     band = age_band(age_group) if isinstance(age_group, str) else None
     if band is None:
@@ -479,6 +558,9 @@ def check_entry(entry: dict, *, channel: str, today: _dt.date, base_dir: Path
     tags = _str_list(entry.get("tags", []))
     if tags is None:
         return reject("tags must be a list of strings")
+    bad_tags = [t for t in tags if t not in TAGS]
+    if bad_tags:
+        return reject(f"tag(s) {bad_tags} not in the allow-list {TAGS}")
     product = entry.get("product")
     if product not in PRODUCTS:
         return reject(f"product {product!r} not in {PRODUCTS}")
@@ -544,7 +626,7 @@ def check_entry(entry: dict, *, channel: str, today: _dt.date, base_dir: Path
         return reject("exchanges must be a list")
     seen_ex = set()
     for ex in raw_exchanges:
-        built, why = _check_exchange(ex, entry_id, base_dir, channel)
+        built, why = _check_exchange(ex, entry_id, base_dir, channel, today)
         if built is not None and built.id in seen_ex:
             built, why = None, f"exchange {built.id}: duplicate id"
         if built is None:
@@ -567,6 +649,29 @@ def check_entry(entry: dict, *, channel: str, today: _dt.date, base_dir: Path
 # ── Loading ──────────────────────────────────────────────────────────────
 
 
+def placeholder_findings(entries: Any) -> List[str]:
+    """Fixture or template content left in a ledger (ids, names, URLs,
+    template text). Production builds refuse any of it."""
+    out = []
+    for entry in entries if isinstance(entries, list) else []:
+        if not isinstance(entry, dict):
+            continue
+        eid = str(entry.get("id") or "")
+        if _PLACEHOLDER_ID_RE.match(eid):
+            out.append(f"id {eid!r}")
+        name = entry.get("display_name")
+        if isinstance(name, str) and _PLACEHOLDER_NAME_RE.match(name.strip()):
+            out.append(f"{eid}: display_name {name!r}")
+        for res in entry.get("results") or []:
+            url = res.get("official_url") if isinstance(res, dict) else None
+            if isinstance(url, str) and _PLACEHOLDER_URL_RE.match(url):
+                out.append(f"{eid}: official_url {url!r}")
+        for label, text in _public_texts(entry):
+            if any(t in text for t in TEMPLATE_PLACEHOLDER_TEXTS):
+                out.append(f"{eid}: template text in {label}")
+    return out
+
+
 def parse_ledger(data: Any, *, path: Path, channel: str = "gravelgod",
                  today: Optional[_dt.date] = None) -> Ledger:
     """Validate an already-parsed ledger document."""
@@ -582,6 +687,12 @@ def parse_ledger(data: Any, *, path: Path, channel: str = "gravelgod",
         raise ReceiptsConfigError(
             f"{ENV_BUILD}=production refuses the synthetic fixture ({path})")
     today = today or _dt.date.today()
+    if is_production():
+        leftovers = placeholder_findings(entries)
+        if leftovers:
+            raise ReceiptsConfigError(
+                f"{ENV_BUILD}=production refuses fixture/template content in {path}: "
+                + "; ".join(leftovers[:10]))
 
     count = data.get("coached_count")
     if count is not None and (isinstance(count, bool) or not isinstance(count, int)

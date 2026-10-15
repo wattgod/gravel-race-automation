@@ -13,17 +13,17 @@
   "receipts": [
     {
       "id": "example-rider",
-      "//id": "Stable lowercase slug, never reused. Becomes data-receipt-id, the page anchor (#athlete-<id>) and media filenames.",
+      "//id": "PUBLIC: this id is printed in the page HTML (data-receipt-id). Use an opaque slug such as r-0007, never the athlete's name or initials. Stable, never reused. Anchors and media filenames are hashed from it.",
       "identity_tier": "first_last_initial",
       "//identity_tier": "From the consent form: full_name | first_last_initial | first_age_group | count_only. count_only is counted and never rendered.",
       "display_name": "Example R.",
-      "//display_name": "Exactly the name the tier allows: 'Firstname Lastname', 'Firstname L.' or 'Firstname' (first_age_group adds the age group itself).",
+      "//display_name": "Exactly the name the tier allows, checked by the build: full_name 'Firstname Lastname' (two or more words), first_last_initial 'Firstname L.', first_age_group 'Firstname' (one word; the age group is added on the page).",
       "age_group": "40-44",
       "//age_group": "U25, 35-39 or 60+ style. Must sit inside one grid band: Under 30 / 30s / 40s / 50+.",
       "ability": "competitive_amateur",
       "//ability": "first_timer | enthusiast | competitive_amateur | elite. Places the athlete in the age x ability grid.",
       "tags": ["masters", "time_crunched_parent"],
-      "//tags": "Free labels for filtering and marketing: time_crunched_parent, masters, gravel_ultra, road_racer, multi_year, ... Never health or family details beyond what the athlete approved.",
+      "//tags": "Allow-list only (wordpress/receipts_data.py TAGS): time_crunched_parent, masters, gravel_ultra, road_racer, multi_year, mtb, cyclocross, bikepacking, triathlete, first_gravel_race. Tags are exported to social/email tools.",
       "hours_per_week": 7,
       "//hours_per_week": "Typical training hours, or null. Shown as 'N hrs/week'.",
       "product": "coaching",
@@ -96,6 +96,12 @@
           "//rank": "Integer; lower shows first in the carousel.",
           "render_approved_at": "2026-09-02",
           "//render_approved_at": "YYYY-MM-DD the athlete approved this exact screenshot being published.",
+          "redaction_checked_at": "2026-09-02",
+          "//redaction_checked_at": "REQUIRED. YYYY-MM-DD someone looked at the final cropped image and confirmed: no HR/weight/power or other metrics, no other people, no name beyond the identity tier. The build can't read pixels.",
+          "withdrawn_at": null,
+          "//withdrawn_at": "Optional. Set to withdraw just this screenshot.",
+          "consent_expires": null,
+          "//consent_expires": "Optional YYYY-MM-DD if this screenshot's consent ends before the athlete's.",
           "channels": ["gravelgod", "social"],
           "//channels": "Channels for this screenshot; must also be in the athlete's channels."
         }

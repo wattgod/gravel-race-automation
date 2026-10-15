@@ -781,11 +781,36 @@ ATHLETES_UNSHIPPABLE_MARKERS = (
      "built from the synthetic fixture; rebuild with GG_RECEIPTS_PATH and GG_BUILD=production"),
     ("[MATTI WRITES", "COPY in wordpress/generate_athletes.py is still unwritten"),
 )
+# Fixture/template leftovers, whatever the synthetic flag says.
+ATHLETES_PLACEHOLDER_PATTERNS = (
+    (re.compile(r'data-receipt-id="(?:synthetic|example)-'), "a fixture/template receipt id"),
+    (re.compile(r"Test ?Rider|>\s*Example R\.", re.IGNORECASE), "a fixture/template athlete name"),
+    (re.compile(r"https?://(?:[^/\"']*\.)?example\.(?:com|org|net)\b", re.IGNORECASE),
+     "an example.com/.org result link"),
+    (re.compile(r"Example quote text|Example story paragraph|Example coach comment"),
+     "ledger-template placeholder text"),
+)
+_ATHLETES_MEDIA_REF_RE = re.compile(r"/athletes/media/([^\"'\s?#)<>]+)")
 
 
 def athletes_ship_blockers(html: str) -> list:
     """Reasons the generated /athletes/ HTML must not be deployed."""
-    return [why for marker, why in ATHLETES_UNSHIPPABLE_MARKERS if marker in html]
+    reasons = [why for marker, why in ATHLETES_UNSHIPPABLE_MARKERS if marker in html]
+    reasons += [f"page contains {what}" for pattern, what in ATHLETES_PLACEHOLDER_PATTERNS
+                if pattern.search(html)]
+    return reasons
+
+
+def athletes_media_problems(html: str, media_dir: Path) -> list:
+    """Every /athletes/media/<name> the page uses must exist locally, and every
+    local media file must be used (a stray file would ship a screenshot no
+    page shows, e.g. after a withdrawal)."""
+    referenced = set(_ATHLETES_MEDIA_REF_RE.findall(html))
+    local = ({f.name for f in media_dir.iterdir() if f.is_file()}
+             if media_dir.is_dir() else set())
+    problems = [f"referenced but missing locally: {n}" for n in sorted(referenced - local)]
+    problems += [f"local but not referenced by the page: {n}" for n in sorted(local - referenced)]
+    return problems
 
 
 def sync_athletes(athletes_file: str):
@@ -800,19 +825,30 @@ def sync_athletes(athletes_file: str):
         print(f"✗ Athletes page HTML not found: {html_path}")
         print("  Run: GG_BUILD=production GG_RECEIPTS_PATH=... python3 wordpress/generate_athletes.py first")
         return None
-    blockers = athletes_ship_blockers(html_path.read_text(encoding="utf-8"))
+    html = html_path.read_text(encoding="utf-8")
+    media_dir = html_path.parent / "athletes" / "media"
+    blockers = athletes_ship_blockers(html) + athletes_media_problems(html, media_dir)
     if blockers:
         for why in blockers:
             print(f"✗ Refusing to deploy /athletes/: {why}")
         return None
 
+    # Once anything may have changed on the server, always purge the cache:
+    # a withdrawn athlete must not linger in SiteGround's copy.
+    try:
+        result = _upload_athletes(html_path, media_dir)
+    finally:
+        purged = purge_cache()
+    return result if (result and purged) else None
+
+
+def _upload_athletes(html_path: Path, media_dir: Path):
     ssh = get_ssh_credentials()
     if not ssh:
         return None
     host, user, port = ssh
 
     remote_base = "~/www/gravelgodcycling.com/public_html/athletes"
-    media_dir = html_path.parent / "athletes" / "media"
     media_files = sorted(f.name for f in media_dir.glob("*") if f.is_file()) if media_dir.is_dir() else []
 
     def _ssh(command: str, timeout: int = 30):

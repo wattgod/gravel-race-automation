@@ -54,22 +54,65 @@
     return { weeks: weeks, price: price };
   }
 
+  // Calendar capacity is separate from rounded-up pricing weeks.
+  function computeCoverage(raceDateStr, quotedDate) {
+    var clock = quotedDate || new Date();
+    var today = Date.UTC(clock.getFullYear(), clock.getMonth(), clock.getDate());
+    var parts = raceDateStr.split('-').map(Number);
+    var race = Date.UTC(parts[0], parts[1] - 1, parts[2]);
+    var day = 86400000;
+    var monday = today + ((8 - new Date(today).getUTCDay()) % 7) * day;
+    var raceMonday = race - ((new Date(race).getUTCDay() + 6) % 7) * day;
+    var weeks = Math.max(0, Math.floor((raceMonday - monday) / (7 * day)) + 1);
+    return {
+      quoted_on: new Date(today).toISOString().slice(0, 10),
+      race_date: raceDateStr,
+      earliest_week_start: weeks ? new Date(monday).toISOString().slice(0, 10) : null,
+      available_training_weeks: weeks,
+      lead_in_days: Math.max(0, (Math.min(monday, race + day) - today) / day)
+    };
+  }
+
+  function coverageDescription(coverage) {
+    var text = 'Race date ' + coverage.race_date + '. ';
+    if (coverage.available_training_weeks) {
+      text += 'Up to ' + coverage.available_training_weeks + ' scheduled training ' +
+        (coverage.available_training_weeks === 1 ? 'week' : 'weeks') + ' from ' + coverage.earliest_week_start + '. ';
+    } else {
+      text += 'No full Monday-based training week remains. ';
+    }
+    if (coverage.lead_in_days) {
+      text += 'Up to ' + coverage.lead_in_days + ' early training ' +
+        (coverage.lead_in_days === 1 ? 'day' : 'days') + ' remain before ' +
+        (coverage.available_training_weeks ? 'the first Monday. ' : 'the race. ');
+    }
+    return text + 'Final training dates are confirmed during review.';
+  }
+
   function updatePriceDisplay() {
     var totalEl = document.getElementById('gg-plan-total');
+    if (!totalEl) {
+      totalEl = document.createElement('p');
+      totalEl.id = 'gg-plan-total';
+      totalEl.setAttribute('role', 'status');
+      totalEl.setAttribute('aria-live', 'polite');
+      submitBtn.parentNode.insertBefore(totalEl, submitBtn);
+    }
     var races = getRaces();
     var aRace = races.find(function(r) { return r.priority === 'A'; }) || races[0];
     if (aRace && aRace.date) {
       var pricing = computePrice(aRace.date);
       if (pricing) {
         submitBtn.textContent = 'Submit & Pay — $' + pricing.price;
-        if (totalEl) {
-          totalEl.textContent = '$' + pricing.price + ' for ' + pricing.weeks + ' weeks';
-        }
+        totalEl.textContent = '$' + pricing.price + ' one-time. ' +
+          coverageDescription(computeCoverage(aRace.date)) + ' Price uses ' +
+          pricing.weeks + ' rounded-up weeks until your race, with a ' +
+          MIN_WEEKS + '-week minimum and $' + PRICE_CAP + ' cap. Pricing weeks can differ from scheduled training weeks.';
         return;
       }
     }
     submitBtn.textContent = 'Submit & Pay';
-    if (totalEl) totalEl.textContent = 'set by your A-race date';
+    totalEl.textContent = 'Choose your A-race date to see the one-time price and available training dates.';
   }
 
   // ---- GA4 Analytics Helper ----

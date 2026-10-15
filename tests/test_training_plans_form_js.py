@@ -40,7 +40,7 @@ def test_every_event_carries_entry_surface_and_form_version():
 
 def test_purchase_total_mirrors_into_terms_block_when_present():
     assert "getElementById('gg-plan-total')" in FORM_JS
-    assert "' for ' + pricing.weeks + ' weeks'" in FORM_JS
+    assert "' rounded-up weeks until your race" in FORM_JS
 
 
 def test_saved_form_survives_stripe_back_navigation():

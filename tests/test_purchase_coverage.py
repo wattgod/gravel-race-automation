@@ -49,14 +49,37 @@ var PRICE_PER_WEEK=15, PRICE_CAP=249, MIN_WEEKS=4;
     units = max(4, math.ceil((date.fromisoformat(race) - date.fromisoformat(today)).days / 7))
     assert output['price'] == {'weeks': units, 'price': min(249, units * 15)}
     assert 'Final training dates are confirmed during review.' in output['copy']
+    if not weeks and early:
+        assert 'through race day' in output['copy']
+        assert 'before the race' not in output['copy']
+    if early == 1:
+        assert 'day remains' in output['copy']
 
 
 def test_quote_is_visible_before_payment_even_on_existing_live_markup():
-    assert "totalEl = document.createElement('p')" in SOURCE
-    assert "submitBtn.parentNode.insertBefore(totalEl, submitBtn)" in SOURCE
-    assert "rounded-up weeks until your race" in SOURCE
-    assert "Pricing weeks can differ from scheduled training weeks." in SOURCE
-    assert "' for ' + pricing.weeks + ' weeks'" not in SOURCE
+    code = """const NativeDate=Date;
+class Clock extends NativeDate { constructor(...args) { super(...(args.length ? args : ['2026-10-15T12:00:00'])); } }
+global.Date=Clock;
+var PRICE_PER_WEEK=15, PRICE_CAP=249, MIN_WEEKS=4;
+var inserted=[];
+var submitBtn={textContent:'',parentNode:{insertBefore(node, before) { if(before!==submitBtn) throw Error('quote was not placed before payment'); inserted.push(node); }}};
+var document={getElementById(id){return inserted.find(node=>node.id===id)||null;},createElement(tag){return {tag,attrs:{},textContent:'',setAttribute(k,v){this.attrs[k]=v;}};}};
+function getRaces(){return [{date:'2026-12-13',priority:'A'}];}
+"""
+    code += '\n'.join(function(name) for name in ['computePrice', 'computeCoverage', 'coverageDescription', 'updatePriceDisplay'])
+    code += "\nupdatePriceDisplay();updatePriceDisplay();console.log(JSON.stringify({inserted,button:submitBtn.textContent}));"
+    result = subprocess.run(['node', '-e', code], env={**os.environ, 'TZ': 'America/Denver'}, capture_output=True, text=True, timeout=15)
+    assert result.returncode == 0, result.stderr
+    rendered = json.loads(result.stdout)
+    assert len(rendered['inserted']) == 1
+    quote = rendered['inserted'][0]
+    assert quote['attrs'] == {'role': 'status', 'aria-live': 'polite'}
+    assert '$135 one-time' in quote['textContent']
+    assert 'Up to 8 scheduled training weeks from 2026-10-19' in quote['textContent']
+    assert '4 early training days' in quote['textContent']
+    assert '9 rounded-up weeks until your race' in quote['textContent']
+    assert '4-week minimum and $249 cap' in quote['textContent']
+    assert rendered['button'].endswith('$135')
 
 
 def test_landing_discloses_rounding_and_training_dates_without_full_week_promise():

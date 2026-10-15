@@ -82,9 +82,10 @@
       text += 'No full Monday-based training week remains. ';
     }
     if (coverage.lead_in_days) {
-      text += 'Up to ' + coverage.lead_in_days + ' early training ' +
-        (coverage.lead_in_days === 1 ? 'day' : 'days') + ' remain before ' +
-        (coverage.available_training_weeks ? 'the first Monday. ' : 'the race. ');
+      text += 'Up to ' + coverage.lead_in_days +
+        (coverage.available_training_weeks ? ' early training ' : ' calendar ') +
+        (coverage.lead_in_days === 1 ? 'day remains ' : 'days remain ') +
+        (coverage.available_training_weeks ? 'before the first Monday. ' : 'through race day. ');
     }
     return text + 'Final training dates are confirmed during review.';
   }

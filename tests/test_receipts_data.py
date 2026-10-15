@@ -267,6 +267,20 @@ MEDICAL = [
     ("quote", "I came back from injury."),
     ("story", "After surgery I raced again."),
     ("quote", "they changed my prescribed medication"),
+    # Final-pass finding 1: these returned nothing at 70602a0.
+    ("story", "battling depression"),
+    ("story", "my depression came back"),
+    ("quote", "the doctor told me to rest"),
+    ("quote", "doctor said no racing"),
+    ("story", "on antidepressants"),
+    ("story", "had a heart attack"),
+    ("quote", "my surgeon cleared me"),
+    ("story", "after my operation"),
+    ("story", "a hospital stay"),
+    ("story", "got covid in May"),
+    # Ambiguous, so excluded unless a person reviews the wording.
+    ("story", "the race doctor waved us through"),
+    ("story", "a depression in the gravel road"),
 ]
 
 
@@ -334,8 +348,8 @@ def test_withdrawn_exchange_is_never_content_checked(tmp_path):
 
 
 @pytest.mark.parametrize("text", [
-    "as prescribed", "Do the prescribed intervals", "the race doctor",
-    "a depression in the gravel road", "diagnose the pacing problem", "the pulse of the race",
+    "as prescribed", "Do the prescribed intervals", "diagnose the pacing problem",
+    "the pulse of the race",
     "a 3 hr ride", "2hrs on the trainer", "a 10 hr week", "2 HRs of riding", "8 hrs/week",
     "the media day", "Medal at the finish.",
 ])
@@ -347,6 +361,10 @@ def test_ordinary_words_are_not_health_text(text):
     ("mass_start_wave", False), ("medals", False), ("media", False), ("hours_per_week", False),
     ("health_wording_reviewed_at", False), ("body_mass", True), ("avg_hr", True),
     ("hrvRmssd", True), ("w_kg", True), ("heartrate", True), ("notes_medical", True),
+    # Final-pass finding 2: these passed at 70602a0.
+    ("bodyweight", True), ("myweight", True), ("avgheartrate", True), ("maxheartrate", True),
+    ("notesmedical", True), ("avghr", True), ("maxhr", True), ("hrmax", True),
+    ("restinghr", True), ("HRmax", True), ("medalCount", False), ("media_dir", False),
 ])
 def test_health_keys_are_matched_by_token(key, health):
     assert rd._is_health_key(key) is health

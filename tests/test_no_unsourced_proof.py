@@ -297,7 +297,23 @@ _RECEIPT_FORBIDDEN_TAGS = frozenset({
 _RECEIPT_FORBIDDEN_ATTRS = frozenset({
     "title", "value", "srcdoc", "placeholder", "content", "style", "aria-description",
     "aria-placeholder", "aria-valuetext", "label", "data", "formaction", "action",
+    "hidden", "aria-hidden",  # a hidden disclosure isn't a disclosure
 })
+# Page CSS that injects text (::before/::after content) into receipts.
+_CSS_RULE_RE = re.compile(r"([^{}]+)\{([^{}]*)\}")
+_RECEIPT_SELECTOR_RE = re.compile(r"gg-(?:receipt|exchange|archetype)|data-receipts?-(?:id|count)")
+_STYLE_BLOCK_RE = re.compile(r"<style\b[^>]*>(.*?)</style\s*>", re.DOTALL | re.IGNORECASE)
+
+
+def _receipt_css_injections(markup: str) -> list[str]:
+    findings = []
+    for block in _STYLE_BLOCK_RE.findall(markup):
+        for selector, body in _CSS_RULE_RE.findall(block):
+            if (_RECEIPT_SELECTOR_RE.search(selector)
+                    and re.search(r"(?:^|[;\s])content\s*:", body)):
+                findings.append(f"page CSS sets content: on a receipt selector "
+                                f"({' '.join(selector.split())[:80]!r})")
+    return findings
 # The slide position label the carousel renders ("2 of 7").
 _SLIDE_LABEL_RE = re.compile(r"\d+ of \d+")
 
@@ -704,6 +720,7 @@ def find_unsourced_proof(
                 f"aggregateRating without a real rating source ({total - sourced} of {total})"
             )
 
+    findings += _receipt_css_injections(html)
     scanner = _ProofScanner(page_kind, known_receipt_ids, receipt_records)
     scanner.feed(html)
     return findings + scanner.finish()
@@ -1404,6 +1421,32 @@ class TestReceiptSmugglingChannels:
     def test_smuggling_channels_are_flagged(self, name):
         findings = find_unsourced_proof(self.SMUGGLED[name], receipt_records=ledger_receipt_records())
         assert findings, name
+
+    @pytest.mark.parametrize("attr", ['hidden', 'aria-hidden="true"'])
+    def test_disclosure_cannot_be_hidden(self, attr):
+        """Final-pass finding 3: hidden / aria-hidden inside a receipt."""
+        import receipts_components as rc
+        b = next(r for r in _fixture_receipts() if r.id == "r-902")
+        card = rc.render_receipt_card(b).replace(
+            '<p class="gg-receipt-disclosure">', f'<p class="gg-receipt-disclosure" {attr}>')
+        findings = find_unsourced_proof(card, receipt_records=ledger_receipt_records())
+        assert any(attr.split("=")[0] in f for f in findings), findings
+
+    @pytest.mark.parametrize("css", [
+        '.gg-receipt-quote p::after{content:" Best coach ever"}',
+        '.gg-exchange-caption::before { content: "John Smith" }',
+        '@media (min-width:1px){ .gg-archetype-athlete a::after{content:"Rated 4.9/5"} }',
+        '[data-receipt-id="r-901"]::after{content:"Best coach ever"}',
+        '[data-receipts-count]::after{content:" 1,000+ plans sold"}',
+    ])
+    def test_page_css_cannot_inject_text_into_receipts(self, css):
+        """Final-pass finding 3: ::before/::after content on receipt selectors."""
+        html = f"<style>{css}</style><p>x</p>"
+        assert any("content:" in f for f in find_unsourced_proof(html)), css
+
+    def test_unrelated_css_content_is_fine(self):
+        html = '<style>.gg-breadcrumb-sep::before{content:"/"}</style><p>x</p>'
+        assert find_unsourced_proof(html) == []
 
     def test_rendered_slide_aria_labels_pass(self):
         html = _render("/athletes/")

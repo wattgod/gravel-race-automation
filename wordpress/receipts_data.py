@@ -130,11 +130,21 @@ def _key_tokens(key: str) -> List[str]:
 _NOT_HEALTH_KEYS = frozenset({"health_wording_reviewed_at"})
 
 
+# Run-together keys ("bodyweight", "avgheartrate", "notesmedical") are
+# caught by substring; "medic" never matches media or medal.
+_HEALTH_KEY_SUBSTR_RE = re.compile(r"weight|heart|medic")
+
+
 def _is_health_key(key: str) -> bool:
     if str(key).lstrip("/") in _NOT_HEALTH_KEYS:
         return False
     tokens = _key_tokens(key)
     if any(t in _HEALTH_KEY_TOKENS or t.startswith(_HEALTH_KEY_PREFIXES) for t in tokens):
+        return True
+    if _HEALTH_KEY_SUBSTR_RE.search(str(key).lower()):
+        return True
+    # hr at either end of a token: avghr, maxhr, restinghr, hrmax ("hrs" is hours).
+    if any(t != "hrs" and (t.startswith("hr") or t.endswith("hr")) for t in tokens):
         return True
     return any(pair in _HEALTH_KEY_PAIRS for pair in zip(tokens, tokens[1:]))
 
@@ -156,18 +166,21 @@ _HEALTH_METRIC_PATTERNS = (
     re.compile(r"\b(?:resting\s+)?pulse\b\s*(?:was|of|at|:|=)?\s*\d{2,3}\b", re.I),
     re.compile(r"\bbody[\s-]?fat\b|\bbmi\b|\bweigh(?:t|ed|s|ing)?\s*(?:in|loss|\d)", re.I),
 )
-# Medical context. Ambiguous in prose ("a depression in the road"), so a hit
-# leaves that entry or exchange out of the build (logged, never shipped)
-# unless a person reviewed the wording: health_wording_reviewed_at.
+# Medical context. Recall beats precision: a hit only leaves that entry or
+# exchange out of the build (logged, never shipped) until a person reviews
+# the wording (health_wording_reviewed_at), so "the race doctor" or "a
+# depression in the road" cost one review. Narrowed only where the false
+# positive is coaching vocabulary: "as prescribed", "prescribed intervals".
 _MEDICAL_WORDS = (
     r"meds|medications?|medicines?|medical|prescriptions?|"
     r"prescribed\s+(?:medications?|drugs?|meds)|"
-    r"my\s+(?:doctor|doc|gp|physician|cardiologist)|cardiolog\w*|cardiac|"
+    r"doctors?|my\s+(?:doc|gp|physician)|surgeons?|hospital\w*|operations?|covid\w*|"
+    r"antidepressant\w*|heart\s+attacks?|cardiolog\w*|cardiac|"
     r"asthma\w*|a-?fib|atrial\s+fibrillation|arrhythmi\w*|beta[\s-]?blockers?|"
     r"diabet\w*|insulin|diagnosis|diagnosed|surger(?:y|ies)|cancer|chemo\w*|pregnan\w*|"
     r"injur(?:y|ies|ed)|concussion\w*|fractur\w*|illness\w*|blood\s+pressure|cholesterol|"
     r"thyroid\w*|anemi\w*|anaemi\w*|eating\s+disorders?|"
-    r"(?:clinical|postnatal|post-natal|postpartum)\s+depression|depressed"
+    r"depression|depressed"
 )
 _MEDICAL_PATTERN = re.compile(rf"\b(?:{_MEDICAL_WORDS})\b", re.I)
 _HEALTH_TEXT_PATTERNS = _HEALTH_METRIC_PATTERNS + (_MEDICAL_PATTERN,)

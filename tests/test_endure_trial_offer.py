@@ -35,3 +35,12 @@ def test_generators_emit_offer_without_replacing_purchased_product_links():
     assert footer.count('class="endure-trial-offer"') == 1
     assert "Custom Training Plans" in footer
     assert "Coaching" in footer
+
+
+def test_legacy_cms_footer_has_readable_colors_without_design_token_variables():
+    text = offer.get_endure_offer_html()
+    # The live Elementor footer predates the shared --gg-color-* token sheet.
+    assert "color:var(--gg-color-tan,#d4c5b9)" in text
+    assert "background:var(--gg-color-dark-brown,#3a2e25)" in text
+    assert ".endure-trial-offer h4 {color:inherit;" in text
+    assert ".endure-trial-offer nav {color:inherit;" in text

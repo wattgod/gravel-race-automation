@@ -1174,5 +1174,490 @@
  "oregon-coast-gravel-epic": {
   "last_checked": "2026-10-08T14:03:20.136300+00:00",
   "changed": false
+ },
+ "oregon-trail-gravel": {
+  "last_checked": "2026-10-15T14:03:39.694067+00:00",
+  "changed": true,
+  "sources": {
+   "distance_mi": {
+    "value": 350,
+    "tier": 4,
+    "url": "https://www.oregontrailgravelgrinder.com/",
+    "checked": "2026-10-15T14:03:39.694067+00:00"
+   },
+   "elevation_ft": {
+    "value": 30000,
+    "tier": 4,
+    "url": "https://www.oregontrailgravelgrinder.com/",
+    "checked": "2026-10-15T14:03:39.694067+00:00"
+   }
+  }
+ },
+ "ottawa-valley-gravel-experience": {
+  "last_checked": "2026-10-15T14:03:39.694067+00:00",
+  "changed": false,
+  "sources": {
+   "distance_mi": {
+    "value": 55,
+    "tier": 1,
+    "url": "https://gravelgodcycling.com/race/ottawa-valley-gravel-experience/",
+    "checked": "2026-10-15T14:03:39.694067+00:00"
+   },
+   "elevation_ft": {
+    "value": 2500,
+    "tier": 1,
+    "url": "https://gravelgodcycling.com/race/ottawa-valley-gravel-experience/",
+    "checked": "2026-10-15T14:03:39.694067+00:00"
+   },
+   "field_size": {
+    "value": "50-100 riders",
+    "tier": 1,
+    "url": "https://ontariocycling.org/wp-content/uploads/2025/04/Ottawa-Valley-Gravel-Experience.pdf",
+    "checked": "2026-10-15T14:03:39.694067+00:00"
+   }
+  }
+ },
+ "ouachita-challenge": {
+  "last_checked": "2026-10-15T14:03:39.694067+00:00",
+  "changed": false,
+  "sources": {
+   "distance_mi": {
+    "value": 65,
+    "tier": 1,
+    "url": "https://new.mtbproject.com/trail/7046025/ouachita-challenge-race",
+    "checked": "2026-10-15T14:03:39.694067+00:00"
+   },
+   "elevation_ft": {
+    "value": 6000,
+    "tier": 1,
+    "url": "https://new.mtbproject.com/trail/7046025/ouachita-challenge-race",
+    "checked": "2026-10-15T14:03:39.694067+00:00"
+   },
+   "field_size": {
+    "value": "200-400 riders",
+    "tier": 1,
+    "url": "https://kansascyclist.com/events/OuachitaChallenge.html",
+    "checked": "2026-10-15T14:03:39.694067+00:00"
+   }
+  }
+ },
+ "ouray-gravel-grinder": {
+  "last_checked": "2026-10-15T14:03:39.694067+00:00",
+  "changed": false,
+  "sources": {
+   "distance_mi": {
+    "value": 80,
+    "tier": 1,
+    "url": "https://gravelgodcycling.com/race/ouray-gravel-grinder/",
+    "checked": "2026-10-15T14:03:39.694067+00:00"
+   },
+   "elevation_ft": {
+    "value": 7800,
+    "tier": 1,
+    "url": "https://gravelgodcycling.com/race/ouray-gravel-grinder/",
+    "checked": "2026-10-15T14:03:39.694067+00:00"
+   }
+  }
+ },
+ "pan-celtic-ultra": {
+  "last_checked": "2026-10-15T14:03:39.694067+00:00",
+  "changed": false,
+  "sources": {
+   "distance_mi": {
+    "value": 1427,
+    "tier": 1,
+    "url": "https://www.granfondoguide.com/Events/Index/11307/pan-celtic-race",
+    "checked": "2026-10-15T14:03:39.694067+00:00"
+   },
+   "elevation_ft": {
+    "value": 84645,
+    "tier": 1,
+    "url": "https://www.ultracyclingraces.com/races/pan-celtic-race-ultra-2026",
+    "checked": "2026-10-15T14:03:39.694067+00:00"
+   }
+  }
+ },
+ "paris-to-ancaster": {
+  "last_checked": "2026-10-15T14:03:39.694067+00:00",
+  "changed": false,
+  "sources": {
+   "distance_mi": {
+    "value": 68,
+    "tier": 1,
+    "url": "https://battistrada.com/en/cycling-calendar/edition/paris-to-ancaster-bike-race--uci-gravel-world-series-2026/48322/",
+    "checked": "2026-10-15T14:03:39.694067+00:00"
+   },
+   "elevation_ft": {
+    "value": 4000,
+    "tier": 1,
+    "url": "https://gravelgodcycling.com/race/paris-to-ancaster/",
+    "checked": "2026-10-15T14:03:39.694067+00:00"
+   },
+   "field_size": {
+    "value": "2,500-3,000 riders",
+    "tier": 1,
+    "url": "https://www.granfondoguide.com/Events/Index/4058/paris-to-ancaster-and-canadian-gravel-championships/home",
+    "checked": "2026-10-15T14:03:39.694067+00:00"
+   },
+   "prize_purse": {
+    "value": "UCI qualification points",
+    "tier": 1,
+    "url": "https://www.granfondoguide.com/Events/Index/4058/paris-to-ancaster-and-canadian-gravel-championships/home",
+    "checked": "2026-10-15T14:03:39.694067+00:00"
+   }
+  }
+ },
+ "parker-dam-gravel-grinder": {
+  "last_checked": "2026-10-15T14:03:39.694067+00:00",
+  "changed": true,
+  "sources": {
+   "distance_mi": {
+    "value": 50,
+    "tier": 1,
+    "url": "https://www.trans-sylvaniaproductions.com/pdgg",
+    "checked": "2026-10-15T14:03:39.694067+00:00"
+   }
+  }
+ },
+ "pekan-classics": {
+  "last_checked": "2026-10-15T14:03:39.694067+00:00",
+  "changed": false,
+  "sources": {
+   "distance_mi": {
+    "value": 101,
+    "tier": 1,
+    "url": "https://gravelgodcycling.com/race/pekan-classics/",
+    "checked": "2026-10-15T14:03:39.694067+00:00"
+   },
+   "elevation_ft": {
+    "value": 2500,
+    "tier": 1,
+    "url": "https://ucigranfondoworldseries.com/en/pekan-classics/",
+    "checked": "2026-10-15T14:03:39.694067+00:00"
+   }
+  }
+ },
+ "pickerel-buck40": {
+  "last_checked": "2026-10-15T14:03:39.694067+00:00",
+  "changed": true,
+  "sources": {
+   "elevation_ft": {
+    "value": 2500,
+    "tier": 1,
+    "url": "https://gravelgodcycling.com/race/calendar/2026/",
+    "checked": "2026-10-15T14:03:39.694067+00:00"
+   },
+   "prize_purse": {
+    "value": "Modest prizes",
+    "tier": 1,
+    "url": "https://www.ironbull.org/registration-pickerel-buck40",
+    "checked": "2026-10-15T14:03:39.694067+00:00"
+   }
+  }
+ },
+ "pirinexus-360": {
+  "last_checked": "2026-10-15T14:03:39.694067+00:00",
+  "changed": false,
+  "sources": {
+   "distance_mi": {
+    "value": 211,
+    "tier": 1,
+    "url": "https://gravelgodcycling.com/race/pirinexus-360/",
+    "checked": "2026-10-15T14:03:39.694067+00:00"
+   },
+   "elevation_ft": {
+    "value": 11150,
+    "tier": 1,
+    "url": "https://gravelgodcycling.com/race/pirinexus-360/",
+    "checked": "2026-10-15T14:03:39.694067+00:00"
+   }
+  }
+ },
+ "pisgah-monster-cross": {
+  "last_checked": "2026-10-15T14:03:39.694067+00:00",
+  "changed": false,
+  "sources": {
+   "distance_mi": {
+    "value": 69.2,
+    "tier": 4,
+    "url": "https://www.pisgahproductions.com/",
+    "checked": "2026-10-15T14:03:39.694067+00:00"
+   },
+   "elevation_ft": {
+    "value": 8777,
+    "tier": 4,
+    "url": "https://www.pisgahproductions.com/",
+    "checked": "2026-10-15T14:03:39.694067+00:00"
+   },
+   "prize_purse": {
+    "value": "None",
+    "tier": 4,
+    "url": "https://www.pisgahproductions.com/",
+    "checked": "2026-10-15T14:03:39.694067+00:00"
+   }
+  }
+ },
+ "pony-express-120": {
+  "last_checked": "2026-10-15T14:03:39.694067+00:00",
+  "changed": false,
+  "sources": {
+   "distance_mi": {
+    "value": 120,
+    "tier": 1,
+    "url": "https://www.bikereg.com/ponyexpress120graveldash?nc=1",
+    "checked": "2026-10-15T14:03:39.694067+00:00"
+   },
+   "elevation_ft": {
+    "value": 4000,
+    "tier": 1,
+    "url": "https://gravelgodcycling.com/race/pony-express-120/",
+    "checked": "2026-10-15T14:03:39.694067+00:00"
+   },
+   "field_size": {
+    "value": "200-400 riders",
+    "tier": 1,
+    "url": "https://gravelgodcycling.com/race/pony-express-120/",
+    "checked": "2026-10-15T14:03:39.694067+00:00"
+   }
+  }
+ },
+ "pony-xpress": {
+  "last_checked": "2026-10-15T14:03:39.694067+00:00",
+  "changed": true,
+  "sources": {
+   "distance_mi": {
+    "value": 100,
+    "tier": 1,
+    "url": "https://slowguyonthefastride.com/whitney-allison-pony-xpress-160-from-the-saddle/",
+    "checked": "2026-10-15T14:03:39.694067+00:00"
+   },
+   "elevation_ft": {
+    "value": 7300,
+    "tier": 1,
+    "url": "https://slowguyonthefastride.com/whitney-allison-pony-xpress-160-from-the-saddle/",
+    "checked": "2026-10-15T14:03:39.694067+00:00"
+   }
+  }
+ },
+ "prairie-burn-100": {
+  "last_checked": "2026-10-15T14:03:39.694067+00:00",
+  "changed": true,
+  "sources": {}
+ },
+ "purgatory-road-race": {
+  "last_checked": "2026-10-15T14:03:39.694067+00:00",
+  "changed": false,
+  "sources": {
+   "distance_mi": {
+    "value": 65,
+    "tier": 1,
+    "url": "https://gravelgodcycling.com/race/calendar/2026/",
+    "checked": "2026-10-15T14:03:39.694067+00:00"
+   },
+   "elevation_ft": {
+    "value": 3500,
+    "tier": 1,
+    "url": "https://gravelgodcycling.com/race/calendar/2026/",
+    "checked": "2026-10-15T14:03:39.694067+00:00"
+   }
+  }
+ },
+ "pyrenees-catalanes-gravel-tour": {
+  "last_checked": "2026-10-15T14:03:39.694067+00:00",
+  "changed": false,
+  "sources": {
+   "distance_mi": {
+    "value": 62.1,
+    "tier": 1,
+    "url": "https://font-romeu.fr/week-end-100-velo-a-font-romeu-26-27-septembre/",
+    "checked": "2026-10-15T14:03:39.694067+00:00"
+   },
+   "elevation_ft": {
+    "value": 7500,
+    "tier": 1,
+    "url": "https://font-romeu.fr/week-end-100-velo-a-font-romeu-26-27-septembre/",
+    "checked": "2026-10-15T14:03:39.694067+00:00"
+   },
+   "field_size": {
+    "value": "600-rider event cap across event formats",
+    "tier": 1,
+    "url": "https://www.elite-wheels.com/events/pyrenees-catalanes-gravel-tour-2026/",
+    "checked": "2026-10-15T14:03:39.694067+00:00"
+   }
+  }
+ },
+ "r3g3": {
+  "last_checked": "2026-10-15T14:03:39.694067+00:00",
+  "changed": false,
+  "sources": {
+   "distance_mi": {
+    "value": 104.2,
+    "tier": 4,
+    "url": "https://gravelcup.com/gravel-cup-events/r3g3-gravel-epic",
+    "checked": "2026-10-15T14:03:39.694067+00:00"
+   },
+   "elevation_ft": {
+    "value": 8909,
+    "tier": 4,
+    "url": "https://gravelcup.com/gravel-cup-events/r3g3-gravel-epic",
+    "checked": "2026-10-15T14:03:39.694067+00:00"
+   },
+   "field_size": {
+    "value": "Epic capped at 50 riders; total event field not published",
+    "tier": 4,
+    "url": "https://gravelcup.com/gravel-cup-events/r3g3-gravel-epic",
+    "checked": "2026-10-15T14:03:39.694067+00:00"
+   },
+   "prize_purse": {
+    "value": "Champion belt buckles and medal podiums; no cash purse published",
+    "tier": 4,
+    "url": "https://gravelcup.com/gravel-cup-events/r3g3-gravel-epic",
+    "checked": "2026-10-15T14:03:39.694067+00:00"
+   }
+  }
+ },
+ "race-across-france": {
+  "last_checked": "2026-10-15T14:03:39.694067+00:00",
+  "changed": false,
+  "sources": {
+   "distance_mi": {
+    "value": 1553,
+    "tier": 1,
+    "url": "https://gravelgodcycling.com/race/race-across-france/",
+    "checked": "2026-10-15T14:03:39.694067+00:00"
+   },
+   "elevation_ft": {
+    "value": 80000,
+    "tier": 1,
+    "url": "https://gravelgodcycling.com/race/race-across-france/",
+    "checked": "2026-10-15T14:03:39.694067+00:00"
+   }
+  }
+ },
+ "race-across-germany": {
+  "last_checked": "2026-10-15T14:03:39.694067+00:00",
+  "changed": false,
+  "sources": {
+   "distance_mi": {
+    "value": 683,
+    "tier": 1,
+    "url": "https://gravelgodcycling.com/race/race-across-germany/",
+    "checked": "2026-10-15T14:03:39.694067+00:00"
+   },
+   "elevation_ft": {
+    "value": 24606,
+    "tier": 1,
+    "url": "https://gravelgodcycling.com/race/race-across-germany/",
+    "checked": "2026-10-15T14:03:39.694067+00:00"
+   }
+  }
+ },
+ "race-across-spain": {
+  "last_checked": "2026-10-15T14:03:39.694067+00:00",
+  "changed": true,
+  "sources": {
+   "distance_mi": {
+    "value": 621,
+    "tier": 1,
+    "url": "https://battistrada.com/en/cycling-calendar/edition/race-across-spain-2026/50684/",
+    "checked": "2026-10-15T14:03:39.694067+00:00"
+   }
+  }
+ },
+ "race-around-austria": {
+  "last_checked": "2026-10-15T14:03:39.694067+00:00",
+  "changed": true,
+  "sources": {
+   "elevation_ft": {
+    "value": 21300,
+    "tier": 1,
+    "url": "https://battistrada.com/en/cycling-calendar/edition/race-around-austria-2025/41320/",
+    "checked": "2026-10-15T14:03:39.694067+00:00"
+   }
+  }
+ },
+ "race-around-ireland": {
+  "last_checked": "2026-10-15T14:03:39.694067+00:00",
+  "changed": false,
+  "sources": {
+   "distance_mi": {
+    "value": 1336,
+    "tier": 1,
+    "url": "https://cyclingholidays.ie/race-around-ireland-guide/",
+    "checked": "2026-10-15T14:03:39.694067+00:00"
+   },
+   "elevation_ft": {
+    "value": 72000,
+    "tier": 1,
+    "url": "https://cyclingholidays.ie/race-around-ireland-guide/",
+    "checked": "2026-10-15T14:03:39.694067+00:00"
+   }
+  }
+ },
+ "race-around-rwanda": {
+  "last_checked": "2026-10-15T14:03:39.694067+00:00",
+  "changed": false,
+  "sources": {
+   "distance_mi": {
+    "value": 621,
+    "tier": 4,
+    "url": "https://racearoundrwanda.com/",
+    "checked": "2026-10-15T14:03:39.694067+00:00"
+   },
+   "elevation_ft": {
+    "value": 62335,
+    "tier": 0,
+    "url": "https://dotwatcher.cc/race/race-around-rwanda-2026",
+    "checked": "2026-10-15T14:03:39.694067+00:00"
+   }
+  }
+ },
+ "race-to-valhalla": {
+  "last_checked": "2026-10-15T14:03:39.694067+00:00",
+  "changed": false,
+  "sources": {
+   "distance_mi": {
+    "value": 72,
+    "tier": 1,
+    "url": "https://gravelgodcycling.com/race/race-to-valhalla/",
+    "checked": "2026-10-15T14:03:39.694067+00:00"
+   },
+   "elevation_ft": {
+    "value": 7300,
+    "tier": 1,
+    "url": "https://gravelgodcycling.com/race/race-to-valhalla/",
+    "checked": "2026-10-15T14:03:39.694067+00:00"
+   },
+   "field_size": {
+    "value": "200-400 riders",
+    "tier": 3,
+    "url": "https://www.webscorer.com/race?live=1&raceid=429150",
+    "checked": "2026-10-15T14:03:39.694067+00:00"
+   }
+  }
+ },
+ "rad-am-ring-gravel": {
+  "last_checked": "2026-10-15T14:03:39.694067+00:00",
+  "changed": false,
+  "sources": {
+   "distance_mi": {
+    "value": 62,
+    "tier": 1,
+    "url": "https://gravelgodcycling.com/race/rad-am-ring-gravel/",
+    "checked": "2026-10-15T14:03:39.694067+00:00"
+   },
+   "elevation_ft": {
+    "value": 7218,
+    "tier": 1,
+    "url": "https://gravelgodcycling.com/race/rad-am-ring-gravel/",
+    "checked": "2026-10-15T14:03:39.694067+00:00"
+   },
+   "field_size": {
+    "value": "500+ participants in the latest published edition",
+    "tier": 1,
+    "url": "https://www.tour-magazin.de/en/event/everyman-race/rad-am-ring-2025-new-record-number-of-participants-at-the-nuerburgring/",
+    "checked": "2026-10-15T14:03:39.694067+00:00"
+   }
+  }
  }
 }

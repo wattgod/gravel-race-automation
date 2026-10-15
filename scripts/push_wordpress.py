@@ -784,6 +784,7 @@ ATHLETES_UNSHIPPABLE_MARKERS = (
 # Fixture/template leftovers, whatever the synthetic flag says.
 ATHLETES_PLACEHOLDER_PATTERNS = (
     (re.compile(r'data-receipt-id="(?:synthetic|example)-'), "a fixture/template receipt id"),
+    (re.compile(r'data-receipt-id="(?!r-\d{3,}")'), "a receipt id that isn't an opaque r-NNN id"),
     (re.compile(r"Test ?Rider|>\s*Example R\.", re.IGNORECASE), "a fixture/template athlete name"),
     (re.compile(r"https?://(?:[^/\"']*\.)?example\.(?:com|org|net)\b", re.IGNORECASE),
      "an example.com/.org result link"),

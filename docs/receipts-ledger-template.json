@@ -12,8 +12,8 @@
   "//coached_since": "YYYY-MM the coaching practice started.",
   "receipts": [
     {
-      "id": "example-rider",
-      "//id": "PUBLIC: this id is printed in the page HTML (data-receipt-id). Use an opaque slug such as r-0007, never the athlete's name or initials. Stable, never reused. Anchors and media filenames are hashed from it.",
+      "id": "r-001",
+      "//id": "PUBLIC: printed in the page HTML (data-receipt-id) and in marketing exports. Must be r- plus 3 or more digits (r-001, r-0042); production builds refuse anything else. Stable, never reused. Anchors and media filenames are hashed from it.",
       "identity_tier": "first_last_initial",
       "//identity_tier": "From the consent form: full_name | first_last_initial | first_age_group | count_only. count_only is counted and never rendered.",
       "display_name": "Example R.",
@@ -53,6 +53,8 @@
       "//quote_approved_at": "YYYY-MM-DD the athlete approved this exact quote in writing. Required when quote is non-empty.",
       "render_approved_at": "2026-09-02",
       "//render_approved_at": "YYYY-MM-DD the athlete approved how their card/story renders. Nothing renders without it.",
+      "health_wording_reviewed_at": null,
+      "//health_wording_reviewed_at": "Optional YYYY-MM-DD. Medical words (meds, injury, surgery...) leave an entry out of the build; set this only after a person confirms the wording isn't health data. Never overrides numeric readings (HR, weight, W/kg), which always stop the build.",
       "material_connection": {
         "kind": "none",
         "//kind": "none | comped | friend | colleague | business_partner | other.",
@@ -84,7 +86,7 @@
         {
           "id": "ex-1",
           "//id": "Slug unique within this athlete.",
-          "image": "media/example-rider-ex-1.png",
+          "image": "media/r-001-ex-1.png",
           "//image": "Path relative to this ledger file: a screenshot of the TrainingPeaks post-activity comment panel only. Crop out metrics (HR, weight, power numbers), other people, and any name the identity tier doesn't allow. PNG, JPEG or WebP.",
           "alt": "Coach: Example coach comment. Example R.: Example athlete reply.",
           "//alt": "REQUIRED verbatim transcript of every comment in the screenshot, in order, 'Speaker: words'. Used as the image alt text (screen readers, search).",

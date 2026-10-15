@@ -251,8 +251,8 @@ RECEIPTS_CHANNEL = "gravelgod"
 
 @functools.lru_cache(maxsize=None)
 def ledger_receipt_records() -> dict:
-    """{receipt id: (text chunks, img alts)} for every approved receipt: what
-    a receipt element rendered from that record may contain."""
+    """{receipt id: ReceiptFragments} for every approved receipt: what a
+    receipt element rendered from that record may contain."""
     import receipts_components
     import receipts_data
     return {r.id: receipts_components.receipt_fragments(r)
@@ -285,6 +285,21 @@ _COUNT_LINE_RE = re.compile(
     r"<(p|span|div)\b[^>]*\bdata-receipts-count=[\"']([^\"']*)[\"'][^>]*>(.*?)</\1\s*>",
     re.DOTALL | re.IGNORECASE,
 )
+
+
+# Inside a receipt element (ledger-driven pages): no element that can carry
+# text past the text-node check, and no attribute that displays text.
+_RECEIPT_FORBIDDEN_TAGS = frozenset({
+    "script", "style", "template", "iframe", "object", "embed", "input", "textarea",
+    "select", "option", "button", "noscript", "frame", "frameset", "applet", "svg",
+    "math", "canvas", "video", "audio", "meta", "link", "base", "form",
+})
+_RECEIPT_FORBIDDEN_ATTRS = frozenset({
+    "title", "value", "srcdoc", "placeholder", "content", "style", "aria-description",
+    "aria-placeholder", "aria-valuetext", "label", "data", "formaction", "action",
+})
+# The slide position label the carousel renders ("2 of 7").
+_SLIDE_LABEL_RE = re.compile(r"\d+ of \d+")
 
 
 def _strip_ledger_count_lines(markup: str, expected_text) -> tuple:
@@ -487,6 +502,9 @@ class _ProofScanner(HTMLParser):
                        "in the receipts ledger"
                        + ("" if self.known else " (this page isn't ledger-driven)"))
         root = self._receipt_root()
+        if root is not None or "data-receipt-id" in a:
+            rid = root.receipt_root if root is not None else a["data-receipt-id"]
+            self._check_receipt_markup(rid, tag, a)
         if tag == "img" and root is not None:
             root.ralts.append(" ".join((a.get("alt") or "").split()))
         if tag in _VOID:
@@ -523,11 +541,37 @@ class _ProofScanner(HTMLParser):
             if root is not None and text and self._stack[-1].tag not in _NOT_TEXT:
                 root.rchunks.append(text)
 
+    def _check_receipt_markup(self, rid: str, tag: str, attrs: dict) -> None:
+        """Inside a receipt, copy can only travel as text nodes and img alts,
+        which _check_receipt_content verifies. Elements and attributes that
+        carry text some other way are refused outright."""
+        if self.records is None:
+            return
+        if tag in _RECEIPT_FORBIDDEN_TAGS:
+            self._flag(f"data-receipt-id={rid!r} contains a <{tag}>: receipts carry text "
+                       "only as checked text nodes")
+        record = self.records.get(rid)
+        for name, value in attrs.items():
+            if name in _RECEIPT_FORBIDDEN_ATTRS:
+                self._flag(f"data-receipt-id={rid!r}: {name}= attribute on <{tag}> inside a "
+                           f"receipt ({(value or '')[:60]!r})")
+            elif name == "aria-label" and not (
+                    _SLIDE_LABEL_RE.fullmatch(value or "")
+                    or (record is not None and value in record.aria_labels)):
+                self._flag(f"data-receipt-id={rid!r}: aria-label {(value or '')[:60]!r} "
+                           "isn't one the receipt components render")
+
     def _check_receipt_content(self, frame: _Frame) -> None:
-        """A receipt element may only say what its ledger record renders to."""
+        """A receipt element may only say what its ledger record renders to,
+        and must carry the disclosure when the record has a connection."""
         if self.records is None or frame.receipt_root not in self.records:
             return
-        chunks, alts = self.records[frame.receipt_root]
+        record = self.records[frame.receipt_root]
+        chunks, alts = record.chunks, record.alts
+        endorses = bool(frame.ralts) or any(t != record.public_name for t in frame.rchunks)
+        if record.disclosure and endorses and record.disclosure not in frame.rchunks:
+            self._flag(f"data-receipt-id={frame.receipt_root!r} omits its material-connection "
+                       f"disclosure ({record.disclosure!r})")
         for text in frame.rchunks:
             if text not in chunks:
                 self._flag(f"data-receipt-id={frame.receipt_root!r} contains text that isn't "
@@ -1287,8 +1331,8 @@ class TestReceiptsLedgerResolution:
                 assert find_unsourced_proof(html, receipt_records=ledger_receipt_records()) == []
 
     @pytest.mark.parametrize("rid", [
-        "synthetic-rider-d",  # count_only: counted, never rendered
-        "synthetic-rider-e",  # withdrawn
+        "r-904",  # count_only: counted, never rendered
+        "r-905",  # withdrawn
         "made-up",
     ])
     def test_unrenderable_ids_do_not_resolve(self, rid):
@@ -1305,12 +1349,12 @@ class TestReceiptLaundering:
     """Review finding 2: a real ledger id must not vouch for hand-written copy."""
 
     LAUNDERED = [
-        '<figure data-receipt-id="synthetic-rider-a"><blockquote>Best coach ever, changed '
+        '<figure data-receipt-id="r-901"><blockquote>Best coach ever, changed '
         'my life</blockquote><cite>&mdash; John Smith</cite></figure>',
-        '<figure data-receipt-id="synthetic-rider-a"><p>Rated 4.9/5 by 300 athletes</p></figure>',
-        '<article data-receipt-id="synthetic-rider-b"><h3>TestRider B.</h3>'
+        '<figure data-receipt-id="r-901"><p>Rated 4.9/5 by 300 athletes</p></figure>',
+        '<article data-receipt-id="r-902"><h3>TestRider B.</h3>'
         '<p>&ldquo;Invented quote.&rdquo;</p></article>',
-        '<figure data-receipt-id="synthetic-rider-a"><img src="x.png" alt="Coach: invented."></figure>',
+        '<figure data-receipt-id="r-901"><img src="x.png" alt="Coach: invented."></figure>',
     ]
 
     @pytest.mark.parametrize("html", LAUNDERED)
@@ -1333,6 +1377,59 @@ class TestReceiptLaundering:
         planted = _render("/athletes/").replace("</body>", self.LAUNDERED[0] + "</body>")
         findings = find_unsourced_proof(planted, receipt_records=ledger_receipt_records())
         assert any("John Smith" in f for f in findings), findings
+
+
+class TestReceiptSmugglingChannels:
+    """Re-review finding E: copy that travels as something other than a text
+    node (attribute values, embedded documents, CSS, scripts) inside a valid
+    receipt element."""
+
+    A = "r-901"
+    SMUGGLED = {
+        "input value": '<figure data-receipt-id="r-901"><input value="Best coach ever. Rated 4.9/5" readonly></figure>',
+        "textarea": '<figure data-receipt-id="r-901"><textarea>Best coach ever</textarea></figure>',
+        "style content": '<figure data-receipt-id="r-901" class="q"><style>.q::after{content:"Best coach ever - John Smith"}</style></figure>',
+        "style attribute": '<figure data-receipt-id="r-901"><p style="--x:1">Test Rider A</p></figure>',
+        "iframe srcdoc": '<figure data-receipt-id="r-901"><iframe srcdoc="&lt;p&gt;Best coach ever&lt;/p&gt;"></iframe></figure>',
+        "title attr": '<figure data-receipt-id="r-901"><span title="Best coach ever">Test Rider A</span></figure>',
+        "aria-label": '<figure data-receipt-id="r-901"><span aria-label="Best coach ever">Test Rider A</span></figure>',
+        "script write": '<figure data-receipt-id="r-901"><script>document.write("Best coach ever")</script></figure>',
+        "template": '<figure data-receipt-id="r-901"><template>Best coach ever</template></figure>',
+        "object data": '<figure data-receipt-id="r-901"><object data="data:text/html,Best coach ever"></object></figure>',
+        "embed": '<figure data-receipt-id="r-901"><embed src="data:text/html,Best coach ever"></figure>',
+        "svg text": '<figure data-receipt-id="r-901"><svg><text>Best coach ever</text></svg></figure>',
+    }
+
+    @pytest.mark.parametrize("name", list(SMUGGLED))
+    def test_smuggling_channels_are_flagged(self, name):
+        findings = find_unsourced_proof(self.SMUGGLED[name], receipt_records=ledger_receipt_records())
+        assert findings, name
+
+    def test_rendered_slide_aria_labels_pass(self):
+        html = _render("/athletes/")
+        assert 'aria-label="1 of 3"' in html
+        assert find_unsourced_proof(html, receipt_records=ledger_receipt_records()) == []
+
+    def test_disclosure_is_required_when_the_record_has_a_connection(self):
+        """r-902 is 'coached at no charge' in the fixture."""
+        import receipts_components as rc
+        b = next(r for r in _fixture_receipts() if r.id == "r-902")
+        card = rc.render_receipt_card(b)
+        assert "Coached at no charge" in card
+        assert find_unsourced_proof(card, receipt_records=ledger_receipt_records()) == []
+        stripped = card.replace('<p class="gg-receipt-disclosure">Coached at no charge</p>', "")
+        findings = find_unsourced_proof(stripped, receipt_records=ledger_receipt_records())
+        assert any("disclosure" in f for f in findings), findings
+        slide = rc.render_exchange_slide(b.exchanges[0], b, 1, 1)
+        assert "Coached at no charge" in slide  # screenshots carry it too
+        no_disc = slide.replace('<span class="gg-exchange-disclosure">Coached at no charge</span>', "")
+        assert any("disclosure" in f for f in
+                   find_unsourced_proof(no_disc, receipt_records=ledger_receipt_records()))
+
+    def test_a_bare_name_needs_no_disclosure(self):
+        """The grid entry is a name linking to the story, which carries it."""
+        html = '<ul><li class="gg-archetype-athlete" data-receipt-id="r-902"><a href="#x">TestRider B.</a></li></ul>'
+        assert find_unsourced_proof(html, receipt_records=ledger_receipt_records()) == []
 
 
 class TestReceiptsCountLine:

@@ -82,13 +82,24 @@ EXCHANGE_KEYS = frozenset({
     "redaction_checked_at", "withdrawn_at", "consent_expires",
 })
 # display_name shape per identity tier (count_only never renders).
-_NAME_SHAPES = {
-    "full_name": re.compile(r"^\S+(?: \S+)+$"),
-    "first_last_initial": re.compile(r"^\S+ [A-Z]\.$"),
-    "first_age_group": re.compile(r"^\S+$"),
-}
+_FIRST_NAME_RE = re.compile(r"^[^\W\d_](?:[^\W\d_]|['’-])*$")
+_INITIAL_RE = re.compile(r"^\S+ ([^\W\d_])\.$")
+
+
+def _name_fits_tier(tier: str, name: str) -> bool:
+    if tier == "full_name":
+        return len(name.split()) >= 2
+    if tier == "first_last_initial":
+        m = _INITIAL_RE.match(name)
+        return bool(m and m.group(1).isupper())
+    if tier == "first_age_group":
+        return bool(_FIRST_NAME_RE.match(name))
+    return False
 # Production refuses ledgers that still hold fixture or template content.
 _PLACEHOLDER_ID_RE = re.compile(r"^(?:synthetic|example)-")
+# Ids are printed in the page (data-receipt-id) and exports, so production
+# ledgers use opaque numbered ids only.
+PRODUCTION_ID_RE = re.compile(r"^r-\d{3,}$")
 _PLACEHOLDER_NAME_RE = re.compile(r"^(?:Test ?Rider|Example)", re.IGNORECASE)
 _PLACEHOLDER_URL_RE = re.compile(r"^https?://(?:[^/]*\.)?example\.(?:com|org|net)(?:[/:?#]|$)",
                                  re.IGNORECASE)
@@ -98,45 +109,68 @@ TEMPLATE_PLACEHOLDER_TEXTS = (
     "Example coach comment.",
 )
 
-# Health data (spec principle 5): keys that must never appear in an entry.
-# Matched by token ("avg_hr", "hr_max", "hrv_rmssd", "notes_medical"), plus a
-# few substrings that are never innocent in a key.
-_HEALTH_KEY_TOKEN_RE = re.compile(
-    r"(?:^|_)(?:hr|hrv|rhr|rmssd|sdnn|pulse|bpm|bmi|kg|lthr|spo2|vo2\w*|blood\w*|"
-    r"med(?!ia(?:_|$)|al(?:s)?(?:_|$))\w*|health\w*|injur\w*|diagnos\w*|illness\w*|"
-    r"weight\w*|wkg|w_kg|body_?fat|body_?mass|mass|heart\w*|sleep\w*|symptom\w*)(?:_|$)",
-    re.IGNORECASE,
-)
-_HEALTH_KEY_SUBSTR_RE = re.compile(r"weight|wkg|w/kg|heart|rmssd|medic|diagnos|injur",
-                                   re.IGNORECASE)
+# Health data (spec principle 5). Keys are split into tokens ("avg_hr" ->
+# avg, hr; "hrvRmssd" -> hrv, rmssd), so "mass_start_wave" or "medals" are
+# not health keys but "avg_hr", "hr_max" and "notes_medical" are.
+_HEALTH_KEY_TOKENS = frozenset({
+    "hr", "hrv", "rhr", "rmssd", "sdnn", "pulse", "bpm", "bmi", "kg", "lthr", "spo2", "wkg",
+    "med", "meds", "illness", "illnesses", "sleep", "symptom", "symptoms", "heartrate",
+})
+_HEALTH_KEY_PREFIXES = ("weight", "heart", "medic", "medicat", "diagnos", "injur", "health",
+                        "blood", "vo2", "hrv", "symptom", "prescri", "bodyfat")
+_HEALTH_KEY_PAIRS = frozenset({("body", "fat"), ("body", "mass"), ("w", "kg"), ("resting", "hr")})
+
+
+def _key_tokens(key: str) -> List[str]:
+    key = re.sub(r"([a-z0-9])([A-Z])", r"\1_\2", str(key).lstrip("/"))
+    return [t for t in re.split(r"[^a-z0-9]+", key.lower()) if t]
+
+
+# Schema keys that look health-shaped but hold no health data.
+_NOT_HEALTH_KEYS = frozenset({"health_wording_reviewed_at"})
 
 
 def _is_health_key(key: str) -> bool:
-    key = str(key).lstrip("/")
-    return bool(_HEALTH_KEY_TOKEN_RE.search(key) or _HEALTH_KEY_SUBSTR_RE.search(key))
+    if str(key).lstrip("/") in _NOT_HEALTH_KEYS:
+        return False
+    tokens = _key_tokens(key)
+    if any(t in _HEALTH_KEY_TOKENS or t.startswith(_HEALTH_KEY_PREFIXES) for t in tokens):
+        return True
+    return any(pair in _HEALTH_KEY_PAIRS for pair in zip(tokens, tokens[1:]))
 
 
-# Medical words that never belong in public proof copy.
-_MEDICAL_WORDS = (
-    r"meds?|medications?|medicines?|medical|prescri\w*|doctors?|cardiolog\w*|cardiac|"
-    r"asthma\w*|a-?fib|atrial\s+fibrillation|arrhythmi\w*|beta[\s-]?blockers?|"
-    r"diabet\w*|insulin|diagnos\w*|surger\w*|cancer|chemo\w*|pregnan\w*|"
-    r"injur\w*|concussion\w*|fractur\w*|illness\w*|blood\s+pressure|cholesterol|"
-    r"thyroid\w*|anemi\w*|anaemi\w*|eating\s+disorder\w*|depression"
-)
-# The same, in prose: a quote, story or transcript that mentions body weight,
-# W/kg, heart data or medical context.
-_HEALTH_TEXT_PATTERNS = (
+# Numeric health readings and body metrics: never public, never overridable.
+# Any of these fails the whole build.
+_HEALTH_METRIC_PATTERNS = (
     re.compile(r"\b\d+(?:[.,]\d+)?\s*(?:kg|kgs|kilos?|kilograms?|lbs?|pounds)\b", re.I),
     re.compile(r"(?<![a-z])w\s*/\s*kg\b|\bwkg\b|\bwatts?\s*(?:/|per)\s*(?:kilo\w*|kg)\b",
                re.I),
-    re.compile(r"\b\d+\s*bpm\b|\bhrv\b|\bheart[\s-]?rate\b|\bresting\s+hr\b|"
-               r"\bpulse\b|\brmssd\b", re.I),
-    # Upper-case HR only, so "a 3 hr ride" stays fine.
-    re.compile(r"\bHRs?\b"),
+    re.compile(r"\b\d+\s*bpm\b|\bhrv\b|\bheart[\s-]?rate\b|\bresting\s+hr\b|\brmssd\b", re.I),
+    # Upper-case HR is always heart rate ("my HR was through the roof").
+    re.compile(r"\bHR\b"),
+    # Any-case hr next to a 2-3 digit reading ("avg hr 172", "Hr: 171",
+    # "170 hr"), but not durations ("3 hr ride", "2hrs", "10 hr week").
+    re.compile(r"\bhr\b\s*(?:was|of|at|:|=)?\s*\d{2,3}\b|"
+               r"\b\d{2,3}\s*hr\b(?!\s*(?:ride|rides|race|races|week|weeks|day|days|block|effort|s\b))",
+               re.I),
+    re.compile(r"\b(?:resting\s+)?pulse\b\s*(?:was|of|at|:|=)?\s*\d{2,3}\b", re.I),
     re.compile(r"\bbody[\s-]?fat\b|\bbmi\b|\bweigh(?:t|ed|s|ing)?\s*(?:in|loss|\d)", re.I),
-    re.compile(rf"\b(?:{_MEDICAL_WORDS})\b", re.I),
 )
+# Medical context. Ambiguous in prose ("a depression in the road"), so a hit
+# leaves that entry or exchange out of the build (logged, never shipped)
+# unless a person reviewed the wording: health_wording_reviewed_at.
+_MEDICAL_WORDS = (
+    r"meds|medications?|medicines?|medical|prescriptions?|"
+    r"prescribed\s+(?:medications?|drugs?|meds)|"
+    r"my\s+(?:doctor|doc|gp|physician|cardiologist)|cardiolog\w*|cardiac|"
+    r"asthma\w*|a-?fib|atrial\s+fibrillation|arrhythmi\w*|beta[\s-]?blockers?|"
+    r"diabet\w*|insulin|diagnosis|diagnosed|surger(?:y|ies)|cancer|chemo\w*|pregnan\w*|"
+    r"injur(?:y|ies|ed)|concussion\w*|fractur\w*|illness\w*|blood\s+pressure|cholesterol|"
+    r"thyroid\w*|anemi\w*|anaemi\w*|eating\s+disorders?|"
+    r"(?:clinical|postnatal|post-natal|postpartum)\s+depression|depressed"
+)
+_MEDICAL_PATTERN = re.compile(rf"\b(?:{_MEDICAL_WORDS})\b", re.I)
+_HEALTH_TEXT_PATTERNS = _HEALTH_METRIC_PATTERNS + (_MEDICAL_PATTERN,)
 _DATE_RE = re.compile(r"^\d{4}-\d{2}-\d{2}$")
 _MONTH_RE = re.compile(r"^\d{4}-\d{2}$")
 _ID_RE = re.compile(r"^[a-z0-9][a-z0-9-]{1,63}$")
@@ -340,14 +374,24 @@ def _health_keys(node: Any, trail: str = "") -> List[str]:
     return found
 
 
-def health_text_findings(text: str) -> List[str]:
-    """Weight, W/kg or heart-data mentions in a piece of rendered text."""
+def health_metric_findings(text: str) -> List[str]:
+    """Numeric health readings / body metrics (weight, W/kg, HR, pulse...)."""
     out = []
-    for pattern in _HEALTH_TEXT_PATTERNS:
+    for pattern in _HEALTH_METRIC_PATTERNS:
         m = pattern.search(text or "")
         if m:
             out.append(m.group(0))
     return out
+
+
+def medical_word_findings(text: str) -> List[str]:
+    """Medical context words (meds, cardiologist, injury...)."""
+    return [m.group(0) for m in _MEDICAL_PATTERN.finditer(text or "")][:3]
+
+
+def health_text_findings(text: str) -> List[str]:
+    """Both kinds, for callers that only need a yes/no."""
+    return health_metric_findings(text) + medical_word_findings(text)
 
 
 def _public_texts(entry: dict) -> List[Tuple[str, str]]:
@@ -365,14 +409,64 @@ def _public_texts(entry: dict) -> List[Tuple[str, str]]:
         if isinstance(res, dict):
             for k in ("event", "placing", "time"):
                 texts.append((f"results[{i}].{k}", res.get(k)))
-    for i, ex in enumerate(entry.get("exchanges") or []):
-        if isinstance(ex, dict):
-            texts.append((f"exchanges[{i}].alt", ex.get("alt")))
-            texts.append((f"exchanges[{i}].theme", ex.get("theme")))
     return [(label, t) for label, t in texts if isinstance(t, str) and t]
 
 
+def _exchange_texts(ex: dict) -> List[Tuple[str, str]]:
+    texts = [("alt", ex.get("alt")), ("theme", ex.get("theme"))]
+    return [(label, t) for label, t in texts if isinstance(t, str) and t]
+
+
+def _all_public_texts(entry: dict) -> List[Tuple[str, str]]:
+    """Entry texts plus every exchange's (for the production placeholder scan)."""
+    texts = _public_texts(entry)
+    for i, ex in enumerate(entry.get("exchanges") or []):
+        if isinstance(ex, dict):
+            texts += [(f"exchanges[{i}].{label}", t) for label, t in _exchange_texts(ex)]
+    return texts
+
+
+def _health_problem(label_prefix: str, node: dict, texts, *, wording_reviewed: bool
+                    ) -> Optional[str]:
+    """Raise on health keys or numeric readings; return a rejection reason
+    for unreviewed medical wording; None when clean."""
+    keys = _health_keys({k: v for k, v in node.items() if k != "exchanges"})
+    if keys:
+        raise ReceiptValidationError(
+            f"{label_prefix}: health field(s) {keys} — performance and results only "
+            "(spec principle 5)")
+    for label, text in texts:
+        hits = health_metric_findings(text)
+        if hits:
+            raise ReceiptValidationError(
+                f"{label_prefix}: {label} mentions health data {hits} — never weight, "
+                "W/kg, HR or other readings in public (spec principle 5)")
+    if wording_reviewed:
+        return None
+    for label, text in texts:
+        words = medical_word_findings(text)
+        if words:
+            return (f"{label} mentions medical context {words}; left out. Reword it, or "
+                    "set health_wording_reviewed_at once a person confirms it isn't "
+                    "health data (spec principle 5)")
+    return None
+
+
 def image_size(path: Path) -> Optional[Tuple[int, int]]:
+    """(width, height) as displayed: EXIF orientation applied when Pillow is
+    available (the published copy is transposed the same way)."""
+    try:
+        from PIL import Image, ImageOps
+    except ImportError:
+        return _header_size(path)
+    try:
+        with Image.open(path) as im:
+            return ImageOps.exif_transpose(im).size
+    except Exception:
+        return _header_size(path)
+
+
+def _header_size(path: Path) -> Optional[Tuple[int, int]]:
     """(width, height) of a PNG, JPEG or WebP, read from its header."""
     try:
         data = path.read_bytes()
@@ -423,7 +517,7 @@ def _str_list(value: Any) -> Optional[Tuple[str, ...]]:
 
 
 def _check_exchange(ex: Any, entry_id: str, base_dir: Path, channel: str,
-                    today: Optional[_dt.date] = None
+                    today: Optional[_dt.date] = None, wording_reviewed: bool = False
                     ) -> Tuple[Optional[Exchange], Optional[str]]:
     """(Exchange, None) when renderable on `channel`, else (None, reason)."""
     if not isinstance(ex, dict):
@@ -432,7 +526,9 @@ def _check_exchange(ex: Any, entry_id: str, base_dir: Path, channel: str,
     if not isinstance(ex_id, str) or not _ID_RE.match(ex_id):
         return None, f"exchange id {ex_id!r} is not a lowercase slug"
     label = f"exchange {ex_id}"
-    unknown_keys = sorted(k for k in ex if not str(k).startswith("//") and k not in EXCHANGE_KEYS)
+    # Health-shaped keys are left to the health check below, which stops the build.
+    unknown_keys = sorted(k for k in ex if not str(k).startswith("//")
+                          and k not in EXCHANGE_KEYS and not _is_health_key(k))
     if unknown_keys:
         return None, f"{label}: unknown key(s) {unknown_keys}"
     if ex.get("withdrawn_at"):
@@ -460,6 +556,10 @@ def _check_exchange(ex: Any, entry_id: str, base_dir: Path, channel: str,
         return None, f"{label}: unknown channel(s) {unknown}"
     if channel not in channels:
         return None, f"{label}: not approved for channel {channel!r}"
+    medical = _health_problem(f"receipt {entry_id} {label}", ex, _exchange_texts(ex),
+                              wording_reviewed=wording_reviewed)
+    if medical:
+        return None, f"{label}: {medical}"
     if _parse_date(ex.get("date")) is None:
         return None, f"{label}: date must be YYYY-MM-DD"
     rank = ex.get("rank")
@@ -495,21 +595,14 @@ def check_entry(entry: dict, *, channel: str, today: _dt.date, base_dir: Path
                 ) -> Tuple[Optional[Receipt], List[Tuple[str, str]]]:
     """Validate one ledger entry for one channel.
 
-    Returns (Receipt or None, rejections). Raises ReceiptValidationError on
-    health data, which must never be in the ledger's public fields at all.
+    Returns (Receipt or None, rejections). Entries that can't render on this
+    channel (withdrawn, expired, other channel, count_only) are filtered
+    first and never content-checked, so a withdrawal always builds. For the
+    rest, a health key or numeric reading raises ReceiptValidationError (the
+    whole build stops); medical wording leaves the entry out with a logged
+    reason unless health_wording_reviewed_at is set.
     """
     entry_id = entry.get("id") if isinstance(entry.get("id"), str) else "?"
-    health = _health_keys(entry)
-    if health:
-        raise ReceiptValidationError(
-            f"receipt {entry_id}: health field(s) {health} — performance and "
-            "results only (spec principle 5)")
-    for label, text in _public_texts(entry):
-        hits = health_text_findings(text)
-        if hits:
-            raise ReceiptValidationError(
-                f"receipt {entry_id}: {label} mentions health data {hits} — "
-                "never weight, W/kg or heart data in public (spec principle 5)")
 
     def reject(reason: str):
         return None, [(entry_id, reason)]
@@ -538,12 +631,20 @@ def check_entry(entry: dict, *, channel: str, today: _dt.date, base_dir: Path
         return reject(f"not approved for channel {channel!r}")
     if tier == "count_only":
         return reject("count_only: counted, never rendered")
+    reviewed_raw = entry.get("health_wording_reviewed_at")
+    if reviewed_raw is not None and _parse_date(reviewed_raw) is None:
+        return reject("health_wording_reviewed_at must be YYYY-MM-DD")
+    wording_reviewed = reviewed_raw is not None
+    medical = _health_problem(f"receipt {entry_id}", entry, _public_texts(entry),
+                              wording_reviewed=wording_reviewed)
+    if medical:
+        return reject(medical)
     if _parse_date(entry.get("render_approved_at")) is None:
         return reject("missing render_approved_at")
     name = entry.get("display_name")
     if not isinstance(name, str) or not name.strip():
         return reject("missing display_name")
-    if not _NAME_SHAPES[tier].match(name.strip()):
+    if not _name_fits_tier(tier, name.strip()):
         return reject(f"display_name {name!r} doesn't fit identity_tier {tier!r} "
                       "(first_last_initial: 'First L.'; first_age_group: one word; "
                       "full_name: two or more words)")
@@ -626,7 +727,7 @@ def check_entry(entry: dict, *, channel: str, today: _dt.date, base_dir: Path
         return reject("exchanges must be a list")
     seen_ex = set()
     for ex in raw_exchanges:
-        built, why = _check_exchange(ex, entry_id, base_dir, channel, today)
+        built, why = _check_exchange(ex, entry_id, base_dir, channel, today, wording_reviewed)
         if built is not None and built.id in seen_ex:
             built, why = None, f"exchange {built.id}: duplicate id"
         if built is None:
@@ -659,6 +760,8 @@ def placeholder_findings(entries: Any) -> List[str]:
         eid = str(entry.get("id") or "")
         if _PLACEHOLDER_ID_RE.match(eid):
             out.append(f"id {eid!r}")
+        elif not PRODUCTION_ID_RE.match(eid):
+            out.append(f"id {eid!r} is not an opaque r-NNN id (ids are public)")
         name = entry.get("display_name")
         if isinstance(name, str) and _PLACEHOLDER_NAME_RE.match(name.strip()):
             out.append(f"{eid}: display_name {name!r}")
@@ -666,7 +769,7 @@ def placeholder_findings(entries: Any) -> List[str]:
             url = res.get("official_url") if isinstance(res, dict) else None
             if isinstance(url, str) and _PLACEHOLDER_URL_RE.match(url):
                 out.append(f"{eid}: official_url {url!r}")
-        for label, text in _public_texts(entry):
+        for label, text in _all_public_texts(entry):
             if any(t in text for t in TEMPLATE_PLACEHOLDER_TEXTS):
                 out.append(f"{eid}: template text in {label}")
     return out

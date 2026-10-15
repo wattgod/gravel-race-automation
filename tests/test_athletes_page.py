@@ -53,7 +53,7 @@ def _carousel(html: str) -> str:
 # fixture marker swapped for invented values production doesn't recognise as
 # placeholders (".invalid" is a reserved TLD, the names are nobody).
 _PRIVATE_SWAPS = (
-    ("synthetic-rider-", "r-000"), ("Test Rider A", "Qazwi Xenrot"),
+    ("Test Rider A", "Qazwi Xenrot"),
     ("TestRider B.", "Qazwi B."), ("TestRiderC", "Qazwic"), ("Test Rider E", "Qazwe Xenrot"),
     ("https://example.com/", "https://timing.invalid/"),
     ("https://example.org/", "https://timing.invalid/"), ("Example Gravel", "Sample Gravel"),
@@ -104,8 +104,8 @@ class TestFixtureRender:
             assert name in page
 
     def test_unrenderable_entries_stay_out(self, page):
-        assert "synthetic-rider-d" not in page  # count_only
-        assert "synthetic-rider-e" not in page  # withdrawn
+        assert "r-904" not in page  # count_only
+        assert "r-905" not in page  # withdrawn
         assert "Test Rider E" not in page
         assert "Withdrawn, never rendered" not in page
 
@@ -130,8 +130,8 @@ class TestFixtureRender:
 
     def test_story_voice(self, page):
         by_id = {r.id: r for r in rd.load_receipts()}
-        a = re.search(rf'id="{by_id["synthetic-rider-a"].anchor}".*?</article>', page, re.S).group(0)
-        c = re.search(rf'id="{by_id["synthetic-rider-c"].anchor}".*?</article>', page, re.S).group(0)
+        a = re.search(rf'id="{by_id["r-901"].anchor}".*?</article>', page, re.S).group(0)
+        c = re.search(rf'id="{by_id["r-903"].anchor}".*?</article>', page, re.S).group(0)
         assert '<blockquote class="gg-receipt-story-quote">' in a  # athlete's words, quoted
         assert "gg-receipt-story-quote" not in c  # editorial, not dressed as a quote
         assert "Coached since November 2023" in c
@@ -194,8 +194,8 @@ class TestCarousel:
         slides = re.findall(r'<figure class="gg-exchange-slide" data-receipt-id="([^"]+)" '
                             r'data-exchange-id="([^"]+)"', page)
         # Rank order: A/ex-1 (1), B/ex-1 (2), A/ex-2 (3).
-        assert slides == [("synthetic-rider-a", "ex-1"), ("synthetic-rider-b", "ex-1"),
-                          ("synthetic-rider-a", "ex-2")]
+        assert slides == [("r-901", "ex-1"), ("r-902", "ex-1"),
+                          ("r-901", "ex-2")]
 
     def test_alt_is_the_verbatim_transcript(self, page):
         for e in FIXTURE["receipts"][:2]:
@@ -225,6 +225,13 @@ class TestCarousel:
         assert "if (atEnd(next)) return;" in js and "if (atEnd(prev)) return;" in js
         css = rc.get_receipts_css()
         assert ":disabled" not in css and '[aria-disabled="true"]' in css
+
+    def test_buttons_disable_only_at_the_true_ends(self):
+        """Re-review finding F: no disabling while part of a slide is hidden."""
+        js = rc.get_exchange_carousel_js()
+        assert "var atStart = track.scrollLeft <= 1;" in js
+        assert "var atFinish = track.scrollLeft >= maxScroll() - 1;" in js
+        assert "range[1] === total - 1 ||" not in js and "range[0] === 0 ||" not in js
 
     def test_counter_follows_scroll_position(self):
         """Review finding 8: the counter reports the slides on screen (measured
@@ -460,6 +467,24 @@ def test_media_copy_strips_metadata(tmp_path):
             assert "Author" not in im.info
 
 
+@pytest.mark.skipif(not _HAS_PIL, reason="needs Pillow")
+def test_exif_orientation_is_applied_and_dims_follow(tmp_path):
+    """Re-review finding G: a phone screenshot stored sideways with an EXIF
+    Orientation tag is published upright, and the page reserves the upright
+    width/height."""
+    from PIL import Image
+    src = tmp_path / "rotated.jpg"
+    exif = Image.Exif()
+    exif[0x0112] = 6  # rotate 90° CW on display
+    Image.new("RGB", (6, 4), (10, 20, 30)).save(src, exif=exif.tobytes())
+    assert rd.image_size(src) == (4, 6)
+    dst = tmp_path / "out.jpg"
+    assert ga.strip_image_metadata(src, dst)
+    with Image.open(dst) as im:
+        assert im.size == (4, 6)
+        assert not im.getexif()
+
+
 def test_production_media_copy_needs_pillow(tmp_path, ledger, monkeypatch):
     monkeypatch.setattr(ga, "strip_image_metadata", lambda src, dst: False)
     monkeypatch.setenv(rd.ENV_BUILD, "production")
@@ -519,6 +544,7 @@ def test_deploy_accepts_a_production_build(tmp_path, monkeypatch):
 
 @pytest.mark.parametrize("planted,what", [
     ('<span data-receipt-id="synthetic-rider-a"></span>', "receipt id"),
+    ('<span data-receipt-id="jane-smithson"></span>', "receipt id"),
     ("<p>Test Rider A</p>", "athlete name"),
     ("<p>TestRider B.</p>", "athlete name"),
     ('<a href="https://example.com/results">x</a>', "example.com"),

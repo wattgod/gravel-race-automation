@@ -18,7 +18,7 @@ from __future__ import annotations
 import datetime as _dt
 import html
 from html.parser import HTMLParser
-from typing import Iterable, List, Optional, Sequence
+from typing import Iterable, List, NamedTuple, Optional, Sequence
 
 from receipts_data import (
     ABILITIES,
@@ -135,8 +135,17 @@ def render_exchange_slide(ex: Exchange, r: Receipt, index: int, total: int) -> s
         f'<figcaption class="gg-exchange-caption">'
         f'<a class="gg-exchange-who" href="#{esc(r.anchor)}">{esc(r.public_name)}</a> '
         f'<span class="gg-exchange-when">{esc(month_year(ex.date))}</span>'
+        f'{_slide_disclosure(r)}'
         f'</figcaption></figure>'
     )
+
+
+def _slide_disclosure(r: Receipt) -> str:
+    """Material connections are disclosed next to every endorsement, the
+    screenshots included (spec principle 4)."""
+    if r.material_connection.kind == "none" or not r.material_connection.display:
+        return ""
+    return f'<span class="gg-exchange-disclosure">{esc(r.material_connection.display)}</span>'
 
 
 def render_exchange_carousel(receipts: Sequence[Receipt], *, label: str,
@@ -206,8 +215,10 @@ def get_exchange_carousel_js() -> str:
                                         : (range[0] + 1) + '\u2013' + (range[1] + 1);
       if (counter) counter.textContent = label + ' / ' + total;
       // aria-disabled, not disabled: a disabled button drops keyboard focus.
-      var atStart = range[0] === 0 || track.scrollLeft <= 1;
-      var atFinish = range[1] === total - 1 || track.scrollLeft >= maxScroll() - 1;
+      // Disabled only at the true ends of the track, never while part of a
+      // slide is still hidden.
+      var atStart = track.scrollLeft <= 1;
+      var atFinish = track.scrollLeft >= maxScroll() - 1;
       prev.setAttribute('aria-disabled', atStart ? 'true' : 'false');
       next.setAttribute('aria-disabled', atFinish ? 'true' : 'false');
     }
@@ -350,7 +361,8 @@ def get_receipts_css() -> str:
 .gg-exchange-track:focus-visible { outline: 3px solid var(--gg-color-gold); outline-offset: -3px; }
 .gg-exchange-slide { flex: 0 0 auto; width: min(85%, 480px); scroll-snap-align: start; margin: 0; border: var(--gg-border-standard); background: var(--gg-color-warm-paper); }
 .gg-exchange-img { display: block; width: 100%; height: auto; border-bottom: var(--gg-border-subtle); }
-.gg-exchange-caption { display: flex; justify-content: space-between; gap: var(--gg-spacing-sm); padding: var(--gg-spacing-xs) var(--gg-spacing-sm); font-family: var(--gg-font-data); font-size: var(--gg-font-size-2xs); letter-spacing: var(--gg-letter-spacing-wide); text-transform: uppercase; color: var(--gg-color-secondary-brown); }
+.gg-exchange-caption { display: flex; flex-wrap: wrap; justify-content: space-between; gap: var(--gg-spacing-sm); padding: var(--gg-spacing-xs) var(--gg-spacing-sm); font-family: var(--gg-font-data); font-size: var(--gg-font-size-2xs); letter-spacing: var(--gg-letter-spacing-wide); text-transform: uppercase; color: var(--gg-color-secondary-brown); }
+.gg-exchange-disclosure { flex-basis: 100%; text-transform: none; letter-spacing: var(--gg-letter-spacing-normal); }
 .gg-exchange-who { color: var(--gg-color-dark-brown); font-weight: var(--gg-font-weight-bold); text-decoration: none; }
 .gg-exchange-who:hover { color: var(--gg-color-teal); }
 .gg-exchange-nav { display: none; align-items: center; justify-content: center; gap: var(--gg-spacing-md); padding: var(--gg-spacing-sm); border-top: var(--gg-border-subtle); }
@@ -376,15 +388,28 @@ def get_receipts_css() -> str:
 # ── What a receipt element may say (used by the proof guard) ─────────────
 
 
+class ReceiptFragments(NamedTuple):
+    """What a receipt element rendered from one record may contain."""
+    chunks: frozenset      # text nodes
+    alts: frozenset        # <img alt>
+    aria_labels: frozenset
+    public_name: str
+    disclosure: str        # "" when there's no material connection
+
+
 class _TextChunks(HTMLParser):
     def __init__(self):
         super().__init__(convert_charrefs=True)
         self.chunks = set()
         self.alts = set()
+        self.aria_labels = set()
 
     def handle_starttag(self, tag, attrs):
+        a = dict(attrs)
         if tag == "img":
-            self.alts.add(" ".join((dict(attrs).get("alt") or "").split()))
+            self.alts.add(" ".join((a.get("alt") or "").split()))
+        if a.get("aria-label"):
+            self.aria_labels.add(a["aria-label"])
 
     def handle_data(self, data):
         text = " ".join(data.split())
@@ -392,10 +417,10 @@ class _TextChunks(HTMLParser):
             self.chunks.add(text)
 
 
-def receipt_fragments(r: Receipt) -> tuple:
-    """(text chunks, img alts) any rendering of `r` can contain. The guard
-    checks every receipt element on a page against these, so a hand-written
-    quote or name can't hide inside a valid data-receipt-id."""
+def receipt_fragments(r: Receipt) -> ReceiptFragments:
+    """Everything any rendering of `r` can contain. The guard checks every
+    receipt element on a page against this, so a hand-written quote or name
+    can't hide inside a valid data-receipt-id."""
     parser = _TextChunks()
     total = max(1, len(r.exchanges))
     parts = [render_receipt_card(r), render_story(r),
@@ -404,4 +429,7 @@ def receipt_fragments(r: Receipt) -> tuple:
     for part in parts:
         parser.feed(part)
     parser.close()
-    return frozenset(parser.chunks), frozenset(parser.alts)
+    disclosure = ("" if r.material_connection.kind == "none"
+                  else " ".join(r.material_connection.display.split()))
+    return ReceiptFragments(frozenset(parser.chunks), frozenset(parser.alts),
+                            frozenset(parser.aria_labels), r.public_name, disclosure)

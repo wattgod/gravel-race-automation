@@ -8,6 +8,7 @@ from __future__ import annotations
 import copy
 import datetime as dt
 import json
+import re
 import struct
 import sys
 import zlib
@@ -216,12 +217,12 @@ def test_health_field_nested_in_a_result_fails(tmp_path):
     ("quote", "Zone 2 HR cap"),
     ("quote", "4.2w/kg for 20 min"),
     ("quote", "holding 4.1 watts/kg"),
-    ("story", "doc put me on meds"),
-    ("story", "my cardiologist cleared me"),
-    ("story", "asthma flared at mile 40"),
-    ("story", "an afib episode in March"),
-    ("story", "beta blockers cap everything"),
     ("alt", "Coach: resting pulse 44? Test Rider A: yep."),
+    # Re-review finding B: lower-case hr readings passed at eb1f7de.
+    ("quote", "avg hr 172"),
+    ("story", "my hr was 180 on the climb"),
+    ("alt", "Test Rider A: Hr: 171 at the top"),
+    ("quote", "sat at 165 hr for an hour"),
 ])
 def test_health_text_fails_the_load(tmp_path, where, text):
     entry = _entry()
@@ -233,13 +234,6 @@ def test_health_text_fails_the_load(tmp_path, where, text):
         entry["exchanges"][0]["alt"] = text
     with pytest.raises(rd.ReceiptValidationError, match="health"):
         _load(tmp_path, [entry])
-
-
-@pytest.mark.parametrize("text", [
-    "a 3 hr ride", "8 hrs/week", "the media day", "pre-race nerves", "Medal at the finish.",
-])
-def test_ordinary_training_words_are_not_health_text(text):
-    assert rd.health_text_findings(text) == []
 
 
 def test_health_key_inside_an_exchange_fails(tmp_path):
@@ -256,9 +250,106 @@ def test_tags_are_an_allow_list(tmp_path):
     assert "allow-list" in _rejected_reason(ledger)
 
 
-def test_health_text_in_a_tag_fails_the_load(tmp_path):
+def test_health_reading_in_a_tag_fails_the_load(tmp_path):
     with pytest.raises(rd.ReceiptValidationError, match="health"):
-        _load(tmp_path, [_entry(tags=["afib comeback"])])
+        _load(tmp_path, [_entry(tags=["hr 172 club"])])
+
+
+# ── Medical wording: excluded and logged, never shipped, never build-wide ──
+# (re-review finding A)
+
+MEDICAL = [
+    ("story", "doc put me on meds"),
+    ("story", "my cardiologist cleared me"),
+    ("story", "asthma flared at mile 40"),
+    ("story", "an afib episode in March"),
+    ("quote", "beta blockers cap everything"),
+    ("quote", "I came back from injury."),
+    ("story", "After surgery I raced again."),
+    ("quote", "they changed my prescribed medication"),
+]
+
+
+def _with_text(entry, where, text):
+    if where == "quote":
+        entry["quote"] = text
+    elif where == "story":
+        entry["story"] = dict(entry["story"], text=text)
+    else:
+        entry["exchanges"][0]["alt"] = text
+    return entry
+
+
+@pytest.mark.parametrize("where,text", MEDICAL)
+def test_medical_wording_leaves_the_entry_out(tmp_path, where, text):
+    ledger = _load(tmp_path, [_with_text(_entry(), where, text), _entry(id="test-rider-b")])
+    assert [r.id for r in ledger.receipts] == ["test-rider-b"]  # the build still runs
+    assert "medical context" in _rejected_reason(ledger)
+
+
+@pytest.mark.parametrize("where,text", MEDICAL)
+def test_reviewed_medical_wording_renders(tmp_path, where, text):
+    entry = _with_text(_entry(health_wording_reviewed_at="2026-10-01"), where, text)
+    assert [r.id for r in _load(tmp_path, [entry]).receipts] == ["test-rider-a"]
+
+
+def test_review_never_overrides_numeric_readings(tmp_path):
+    entry = _with_text(_entry(health_wording_reviewed_at="2026-10-01"), "quote", "avg HR 172")
+    with pytest.raises(rd.ReceiptValidationError, match="health"):
+        _load(tmp_path, [entry])
+
+
+def test_bad_review_date_is_rejected(tmp_path):
+    ledger = _load(tmp_path, [_entry(health_wording_reviewed_at="yes")])
+    assert "health_wording_reviewed_at" in _rejected_reason(ledger)
+
+
+def test_medical_wording_in_one_exchange_drops_only_that_exchange(tmp_path):
+    entry = _with_text(_entry(), "alt", "Coach: how's the injury? Test Rider A: fine.")
+    ledger = _load(tmp_path, [entry])
+    assert ledger.receipts[0].exchanges == ()
+    assert "medical context" in _rejected_reason(ledger)
+
+
+@pytest.mark.parametrize("change", [
+    {"withdrawn_at": "2026-10-01"},
+    {"channels": ["roadie"]},
+    {"consent_expires": "2026-01-01"},
+    {"identity_tier": "count_only"},
+])
+@pytest.mark.parametrize("text", ["I came back from injury.", "avg HR 172", "lost 6 kg"])
+def test_unrenderable_entries_are_never_content_checked(tmp_path, change, text):
+    """A withdrawal must always build: content in an entry this channel can't
+    render never stops the build."""
+    bad = _with_text(_entry(**change), "quote", text)
+    ledger = _load(tmp_path, [bad, _entry(id="test-rider-b")])
+    assert [r.id for r in ledger.receipts] == ["test-rider-b"]
+
+
+def test_withdrawn_exchange_is_never_content_checked(tmp_path):
+    entry = _entry()
+    entry["exchanges"][0].update(withdrawn_at="2026-10-01", alt="Test Rider A: avg HR 172")
+    ledger = _load(tmp_path, [entry])
+    assert ledger.receipts[0].exchanges == ()
+
+
+@pytest.mark.parametrize("text", [
+    "as prescribed", "Do the prescribed intervals", "the race doctor",
+    "a depression in the gravel road", "diagnose the pacing problem", "the pulse of the race",
+    "a 3 hr ride", "2hrs on the trainer", "a 10 hr week", "2 HRs of riding", "8 hrs/week",
+    "the media day", "Medal at the finish.",
+])
+def test_ordinary_words_are_not_health_text(text):
+    assert rd.health_text_findings(text) == []
+
+
+@pytest.mark.parametrize("key,health", [
+    ("mass_start_wave", False), ("medals", False), ("media", False), ("hours_per_week", False),
+    ("health_wording_reviewed_at", False), ("body_mass", True), ("avg_hr", True),
+    ("hrvRmssd", True), ("w_kg", True), ("heartrate", True), ("notes_medical", True),
+])
+def test_health_keys_are_matched_by_token(key, health):
+    assert rd._is_health_key(key) is health
 
 
 @pytest.mark.parametrize("tier,name,ok", [
@@ -269,6 +360,17 @@ def test_health_text_in_a_tag_fails_the_load(tmp_path):
     ("first_age_group", "TestRider A.", False),
     ("full_name", "Test Rider", True),
     ("full_name", "TestRider", False),
+    # Re-review finding C.
+    ("first_last_initial", "Jon Ø.", True),
+    ("first_last_initial", "Åse Ø.", True),
+    ("first_last_initial", "Jon ø.", False),
+    ("first_last_initial", "Jon 3.", False),
+    ("first_age_group", "Åse", True),
+    ("first_age_group", "Mary-Ann", True),
+    ("first_age_group", "O'Neil", True),
+    ("first_age_group", "Jane.Smithson", False),
+    ("first_age_group", "Jane_Smithson", False),
+    ("first_age_group", "Jane2", False),
 ])
 def test_display_name_fits_identity_tier(tmp_path, tier, name, ok):
     """Review finding 5: a 'first + initial' consent can't render a full name."""
@@ -395,6 +497,9 @@ def test_production_refuses_a_ledger_marked_synthetic(tmp_path, monkeypatch):
 @pytest.mark.parametrize("change,what", [
     ({"id": "synthetic-rider-z"}, "id"),
     ({"id": "example-rider"}, "id"),
+    # Re-review finding D: ids are public, so production wants opaque r-NNN.
+    ({"id": "jane-smithson"}, "opaque"),
+    ({"id": "r-12"}, "opaque"),
     ({"display_name": "Test Rider Z", "identity_tier": "full_name"}, "display_name"),
     ({"display_name": "Example R."}, "display_name"),
     ({"results": [{"event": "X", "date": "2026-05-01",
@@ -407,6 +512,12 @@ def test_production_refuses_fixture_or_template_content(tmp_path, monkeypatch, c
     monkeypatch.setenv(rd.ENV_BUILD, "production")
     with pytest.raises(rd.ReceiptsConfigError, match=what):
         _load(tmp_path, [_private_entry(**change)])
+
+
+@pytest.mark.parametrize("rid", ["r-001", "r-0042", "r-1234"])
+def test_production_accepts_opaque_ids(tmp_path, monkeypatch, rid):
+    monkeypatch.setenv(rd.ENV_BUILD, "production")
+    assert _load(tmp_path, [_private_entry(id=rid)]).receipts
 
 
 def test_production_accepts_a_private_shaped_entry(tmp_path, monkeypatch):
@@ -453,7 +564,7 @@ def test_fixture_people_are_obviously_synthetic():
     race_names = {r["name"].lower() for r in json.loads(
         (ROOT / "web" / "race-index.json").read_text(encoding="utf-8"))}
     for e in doc["receipts"]:
-        assert e["id"].startswith("synthetic-"), e["id"]
+        assert re.fullmatch(r"r-9\d\d", e["id"]), e["id"]  # r-9xx: fixture range
         assert e["display_name"] in ("",) or e["display_name"].startswith("Test"), e
         assert e["consent_id"].startswith("synthetic-")
         assert e["source_ref"].startswith("synthetic-")
@@ -467,7 +578,6 @@ def test_fixture_people_are_obviously_synthetic():
             assert "Synthetic" in ex["alt"] or "synthetic" in ex["alt"]
     blob = rd.FIXTURE_PATH.read_text(encoding="utf-8")
     assert "@" not in blob, "no email addresses in fixtures"
-    import re
     assert not re.search(r"\+?\d[\d\s().-]{8,}\d", blob.replace("2026-", "").replace("2029-", "")
                          .replace("2023-", "").replace("2024-", "").replace("2025-", "")), \
         "nothing phone-shaped in fixtures"
@@ -492,7 +602,7 @@ def test_template_is_a_valid_synthetic_ledger():
     assert doc["synthetic"] is True
     assert len(doc["receipts"]) == 1
     ledger = rd.parse_ledger(doc, path=TEMPLATE, today=TODAY)
-    assert [r.id for r in ledger.receipts] == ["example-rider"]
+    assert [r.id for r in ledger.receipts] == ["r-001"]
     # Its screenshot doesn't exist in this repo, so the exchange is left out.
     assert any("image file missing" in why for _, why in ledger.rejected)
 

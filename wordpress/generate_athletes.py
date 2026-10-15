@@ -330,13 +330,15 @@ def strip_image_metadata(src: Path, dst: Path) -> bool:
     """Re-encode `src` to `dst` from pixels only: no EXIF, GPS, text chunks,
     ICC or XMP. Returns False when Pillow isn't installed."""
     try:
-        from PIL import Image
+        from PIL import Image, ImageOps
     except ImportError:
         return False
     with Image.open(src) as im:
         has_alpha = im.mode in ("RGBA", "LA", "PA") or (im.mode == "P" and "transparency" in im.info)
         mode = "RGBA" if has_alpha else "RGB"
-        pixels = im.convert(mode)
+        # Apply EXIF orientation first: the tag is dropped below, and the page's
+        # width/height (receipts_data.image_size) are the upright ones.
+        pixels = ImageOps.exif_transpose(im).convert(mode)
         clean = Image.frombytes(mode, pixels.size, pixels.tobytes())
     suffix = dst.suffix.lower()
     if suffix in (".jpg", ".jpeg"):

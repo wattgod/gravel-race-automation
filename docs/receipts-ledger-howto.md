@@ -17,7 +17,7 @@ The old `db/testimonials.json` (`gg-testimonials-v1`) is a different schema. Mov
 
 1. The athlete fills in the consent form. Note the response id, identity tier, channels, assets ticked (quote, result links, screenshots) and any material connection.
 2. Copy the example entry from the template into `receipts.json` and fill it in. Drop the `//` note keys if you like; the loader ignores them.
-   - `id` is **public**: it is printed in the page HTML as `data-receipt-id`. Use an opaque slug such as `r-0007`, never a name or initials. Page anchors and screenshot filenames are hashed from it.
+   - `id` is **public**: it is printed in the page HTML as `data-receipt-id` and in marketing exports. It must be `r-` plus three or more digits (`r-001`, `r-0042`); production builds refuse anything else. Page anchors and screenshot filenames are hashed from it.
    - `display_name` must fit the identity tier: `Firstname Lastname` (full_name), `Firstname L.` (first_last_initial), or one word (first_age_group).
    - `tags` must come from the allow-list in `wordpress/receipts_data.py` (`TAGS`); they are exported to social/email tools.
 3. Send the athlete the exact quote, story text and rendered card or screenshot. Record the date they approve each:
@@ -55,10 +55,14 @@ An exchange is left out when it:
 - has a missing image file;
 - has no matching channel.
 
-The whole build fails when:
+Entries that can't render on the channel being built (withdrawn, expired, another channel, `count_only`) are filtered out first and never content-checked, so a withdrawal always builds.
+
+For the rest, the whole build fails when:
 
 - an entry has a health-shaped key anywhere (`hr`, `avg_hr`, `hrv_rmssd`, `pulse`, `weight`, `wkg`, `med*`, `health`, `injury`, `diagnosis`…);
-- a quote, story, transcript or tag mentions weight, W/kg, HR, pulse or medical context (meds, cardiologist, asthma, injury…).
+- a quote, story, transcript or tag contains a numeric health reading or body metric (weight, W/kg, HR or pulse readings, HRV, body fat).
+
+Medical wording (meds, cardiologist, asthma, injury, surgery…) leaves just that entry, or just that screenshot, out of the build, and the build prints why. If a person has checked the wording and it isn't health data, set `health_wording_reviewed_at` on the entry; that never overrides numeric readings.
 
 Results need an `https` `official_url`. Production builds also refuse fixture and template leftovers: ids starting `synthetic-` or `example-`, names like "Test Rider" or "Example", example.com/org links, and the template's placeholder text.
 

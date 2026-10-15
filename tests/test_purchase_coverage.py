@@ -30,12 +30,12 @@ def function(name):
     return SOURCE[start:end]
 
 
-@pytest.mark.parametrize('zone', ['UTC', 'America/Denver', 'Europe/Oslo'])
+@pytest.mark.parametrize('zone', ['UTC', 'America/Denver', 'Europe/Oslo', 'Pacific/Kiritimati'])
 @pytest.mark.parametrize('today,race,weeks,early,start', VECTORS)
 def test_quote_calendar_and_unchanged_charge_units(zone, today, race, weeks, early, start):
     # The clock is controlled; native Date still handles the timezone/DST.
     code = '''const NativeDate=Date;
-class Clock extends NativeDate { constructor(...args) { super(...(args.length ? args : [TODAY+'T12:00:00'])); } }
+class Clock extends NativeDate { constructor(...args) { super(...(args.length ? args : [TODAY+'T12:00:00Z'])); } }
 global.Date=Clock;
 var PRICE_PER_WEEK=15, PRICE_CAP=249, MIN_WEEKS=4;
 ''' .replace('TODAY', json.dumps(today))
@@ -58,7 +58,7 @@ var PRICE_PER_WEEK=15, PRICE_CAP=249, MIN_WEEKS=4;
 
 def test_quote_is_visible_before_payment_even_on_existing_live_markup():
     code = """const NativeDate=Date;
-class Clock extends NativeDate { constructor(...args) { super(...(args.length ? args : ['2026-10-15T12:00:00'])); } }
+class Clock extends NativeDate { constructor(...args) { super(...(args.length ? args : ['2026-10-15T12:00:00Z'])); } }
 global.Date=Clock;
 var PRICE_PER_WEEK=15, PRICE_CAP=249, MIN_WEEKS=4;
 var inserted=[];
@@ -93,3 +93,27 @@ def test_landing_discloses_rounding_and_training_dates_without_full_week_promise
         assert 'Training weeks start on Mondays' in text
         assert 'per week of training' not in text
         assert 'pay for exactly what you need' not in text.lower()
+
+
+@pytest.mark.parametrize('instant,race', [
+    ('2026-10-19T10:30:00Z', '2026-12-15'),
+    ('2026-10-18T23:30:00Z', '2026-12-13'),
+    ('2027-03-14T06:30:00Z', '2027-05-09'),
+    ('2027-03-28T00:30:00Z', '2027-05-09'),
+])
+def test_same_instant_has_the_same_quote_in_every_customer_timezone(instant, race):
+    results = []
+    for zone in ['UTC', 'America/Denver', 'Europe/Oslo', 'Pacific/Kiritimati']:
+        code = """const NativeDate=Date;
+class Clock extends NativeDate { constructor(...args) { super(...(args.length ? args : [INSTANT])); } }
+global.Date=Clock;var PRICE_PER_WEEK=15, PRICE_CAP=249, MIN_WEEKS=4;
+""".replace('INSTANT', json.dumps(instant))
+        code += '\n'.join(function(name) for name in ['computePrice', 'computeCoverage'])
+        code += "\nconst race=" + json.dumps(race) + ";console.log(JSON.stringify({coverage:computeCoverage(race),price:computePrice(race)}));"
+        result = subprocess.run(['node', '-e', code], env={**os.environ, 'TZ': zone}, capture_output=True, text=True, timeout=15)
+        assert result.returncode == 0, result.stderr
+        results.append(json.loads(result.stdout))
+    assert all(quote == results[0] for quote in results)
+    assert results[0]['coverage']['quoted_on'] == instant[:10]
+    units = max(4, math.ceil((date.fromisoformat(race) - date.fromisoformat(instant[:10])).days / 7))
+    assert results[0]['price'] == {'weeks': units, 'price': min(249, units * 15)}

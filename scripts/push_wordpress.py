@@ -1396,7 +1396,7 @@ def sync_season_plan():
     return url
 
 
-def sync_coaching_apply(apply_file: str):
+def sync_coaching_apply(apply_file: str, remote_path: str = "coaching/apply"):
     """Upload coaching-apply.html to /coaching/apply/index.html on SiteGround via SSH+SCP."""
     ssh = get_ssh_credentials()
     if not ssh:
@@ -1409,7 +1409,9 @@ def sync_coaching_apply(apply_file: str):
         print("  Run: python3 wordpress/generate_coaching_apply.py first")
         return None
 
-    remote_base = "~/www/gravelgodcycling.com/public_html/coaching/apply"
+    if remote_path not in {"coaching/apply", "coaching/setup"}:
+        raise ValueError("Unsupported coaching page path")
+    remote_base = "~/www/gravelgodcycling.com/public_html/" + remote_path
 
     # Create remote directory
     try:
@@ -1449,8 +1451,8 @@ def sync_coaching_apply(apply_file: str):
         return None
 
     wp_url = os.environ.get("WP_URL", "https://gravelgodcycling.com")
-    print(f"✓ Uploaded coaching apply page: {wp_url}/coaching/apply/")
-    return f"{wp_url}/coaching/apply/"
+    print(f"✓ Uploaded coaching page: {wp_url}/{remote_path}/")
+    return f"{wp_url}/{remote_path}/"
 
 
 def sync_og(og_dir: str):
@@ -5050,6 +5052,9 @@ if __name__ == "__main__":
         "--coaching-apply-file", default="wordpress/output/coaching-apply.html",
         help="Path to coaching apply HTML (default: wordpress/output/coaching-apply.html)"
     )
+    parser.add_argument("--sync-coaching-setup", action="store_true",
+                        help="Upload native coaching completion page to /coaching/setup/")
+    parser.add_argument("--coaching-setup-file", default="wordpress/output/coaching-setup.html")
     parser.add_argument(
         "--sync-consulting", action="store_true",
         help="Upload consulting page to /consulting/ via SCP"
@@ -5402,7 +5407,7 @@ if __name__ == "__main__":
     has_action = any([args.json, args.sync_index, args.sync_widget, args.sync_training,
                       args.sync_guide, args.sync_guide_cluster,
                       args.sync_og, args.sync_tp, args.sync_homepage, args.sync_gravel_weekly, args.sync_about,
-                      args.sync_coaching, args.sync_coaching_apply, args.sync_season_review,
+                      args.sync_coaching, args.sync_coaching_apply, args.sync_coaching_setup, args.sync_season_review,
                       args.sync_season_plan,
                       args.sync_consulting,
                       args.sync_consult_intake,
@@ -5465,6 +5470,8 @@ if __name__ == "__main__":
 
     if args.sync_coaching_apply:
         _run("sync-coaching-apply", sync_coaching_apply, args.coaching_apply_file)
+    if args.sync_coaching_setup:
+        _run("sync-coaching-setup", sync_coaching_apply, args.coaching_setup_file, "coaching/setup")
     if args.sync_consulting:
         _run("sync-consulting", sync_consulting, args.consulting_file)
     if args.sync_consult_intake:

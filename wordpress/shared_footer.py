@@ -7,6 +7,7 @@ series hubs, and coaching apply pages.
 from __future__ import annotations
 
 from datetime import date
+from endure_offer import get_endure_offer_html
 
 SITE_BASE_URL = "https://gravelgodcycling.com"
 SUBSTACK_URL = "https://gravelgodcycling.substack.com"
@@ -68,6 +69,7 @@ def get_mega_footer_html() -> str:
   <div class="gg-mega-footer-disclaimer">
     <p>This content is produced independently by Gravel God and is not affiliated with, endorsed by, or officially connected to any race organizer, event, or governing body mentioned on this page. All ratings, opinions, and assessments represent the editorial views of Gravel God based on publicly available information and community research. Race details are subject to change &mdash; always verify with official race sources.</p>
   </div>
+{get_endure_offer_html()}
 </footer>'''
 
 

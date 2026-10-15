@@ -998,6 +998,7 @@ def check_all_generators_token_refs():
         ("coaching-apply", "generate_coaching_apply", "build_coaching_apply_css"),
         ("consulting", "generate_consulting", "build_consulting_css"),
         ("success-pages", "generate_success_pages", "build_success_css"),
+        ("athletes", "generate_athletes", "build_athletes_css"),
     ]
 
     total_checked = 0
@@ -1041,6 +1042,25 @@ def check_success_js_syntax():
               result.stderr.strip() if result.returncode != 0 else "")
     except Exception as e:
         check("Success page JS syntax", False, f"Error: {e}")
+
+
+def check_athletes_js_syntax():
+    """Validate /athletes/ page JS (exchange carousel, CTA tracking) via Node.js."""
+    print("\n── Athletes Page JS Syntax ──")
+    sys.path.insert(0, str(WORDPRESS_DIR))
+    try:
+        from generate_athletes import build_athletes_js
+        scripts = re.findall(r"<script>(.*?)</script>", build_athletes_js(), re.DOTALL)
+        for i, js in enumerate(scripts, 1):
+            result = subprocess.run(
+                ["node", "-e", f"try {{ new Function({json.dumps(js)}); console.log('OK'); }}"
+                 f" catch(e) {{ console.error(e.message); process.exit(1); }}"],
+                capture_output=True, text=True, timeout=10
+            )
+            check(f"Athletes page JS syntax (script {i}/{len(scripts)})", result.returncode == 0,
+                  result.stderr.strip() if result.returncode != 0 else "")
+    except Exception as e:
+        check("Athletes page JS syntax", False, f"Error: {e}")
 
 
 def check_insights_js_syntax():
@@ -1091,6 +1111,7 @@ def check_no_raw_transitions():
         ("coaching-apply", "generate_coaching_apply", "build_coaching_apply_css"),
         ("consulting", "generate_consulting", "build_consulting_css"),
         ("success-pages", "generate_success_pages", "build_success_css"),
+        ("athletes", "generate_athletes", "build_athletes_css"),
     ]
 
     for label, module_name, func_name in generators:
@@ -1721,6 +1742,7 @@ def main():
         check_brand_tokens_py_parity()
         check_all_generators_token_refs()
         check_success_js_syntax()
+        check_athletes_js_syntax()
         check_insights_js_syntax()
         check_whitepaper_js_syntax()
         check_no_raw_transitions()

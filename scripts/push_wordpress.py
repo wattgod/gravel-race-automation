@@ -773,6 +773,152 @@ def sync_about(about_file: str):
     return f"{wp_url}/about/"
 
 
+# /athletes/ (receipts spec §5.5). The page is built from the PRIVATE
+# receipts ledger (GG_RECEIPTS_PATH); a build from the synthetic fixture or
+# with unwritten COPY briefs must never ship.
+ATHLETES_UNSHIPPABLE_MARKERS = (
+    ('<meta name="gg-receipts-source" content="synthetic">',
+     "built from the synthetic fixture; rebuild with GG_RECEIPTS_PATH and GG_BUILD=production"),
+    ("[MATTI WRITES", "COPY in wordpress/generate_athletes.py is still unwritten"),
+)
+# Fixture/template leftovers, whatever the synthetic flag says.
+ATHLETES_PLACEHOLDER_PATTERNS = (
+    (re.compile(r'data-receipt-id="(?:synthetic|example)-'), "a fixture/template receipt id"),
+    (re.compile(r'data-receipt-id="(?!r-\d{3,}")'), "a receipt id that isn't an opaque r-NNN id"),
+    (re.compile(r"Test ?Rider|>\s*Example R\.", re.IGNORECASE), "a fixture/template athlete name"),
+    (re.compile(r"https?://(?:[^/\"']*\.)?example\.(?:com|org|net)\b", re.IGNORECASE),
+     "an example.com/.org result link"),
+    (re.compile(r"Example quote text|Example story paragraph|Example coach comment"),
+     "ledger-template placeholder text"),
+)
+_ATHLETES_MEDIA_REF_RE = re.compile(r"/athletes/media/([^\"'\s?#)<>]+)")
+
+
+def athletes_ship_blockers(html: str) -> list:
+    """Reasons the generated /athletes/ HTML must not be deployed."""
+    reasons = [why for marker, why in ATHLETES_UNSHIPPABLE_MARKERS if marker in html]
+    reasons += [f"page contains {what}" for pattern, what in ATHLETES_PLACEHOLDER_PATTERNS
+                if pattern.search(html)]
+    return reasons
+
+
+def athletes_media_problems(html: str, media_dir: Path) -> list:
+    """Every /athletes/media/<name> the page uses must exist locally, and every
+    local media file must be used (a stray file would ship a screenshot no
+    page shows, e.g. after a withdrawal)."""
+    referenced = set(_ATHLETES_MEDIA_REF_RE.findall(html))
+    local = ({f.name for f in media_dir.iterdir() if f.is_file()}
+             if media_dir.is_dir() else set())
+    problems = [f"referenced but missing locally: {n}" for n in sorted(referenced - local)]
+    problems += [f"local but not referenced by the page: {n}" for n in sorted(local - referenced)]
+    return problems
+
+
+def sync_athletes(athletes_file: str):
+    """Upload athletes.html to /athletes/index.html and replace /athletes/media/
+    (TrainingPeaks comment screenshots) on SiteGround via SSH.
+
+    The media folder is swapped whole, so an exchange removed from the ledger
+    (withdrawal, spec §8) disappears from the server on the next push.
+    """
+    html_path = Path(athletes_file)
+    if not html_path.exists():
+        print(f"✗ Athletes page HTML not found: {html_path}")
+        print("  Run: GG_BUILD=production GG_RECEIPTS_PATH=... python3 wordpress/generate_athletes.py first")
+        return None
+    html = html_path.read_text(encoding="utf-8")
+    media_dir = html_path.parent / "athletes" / "media"
+    blockers = athletes_ship_blockers(html) + athletes_media_problems(html, media_dir)
+    if blockers:
+        for why in blockers:
+            print(f"✗ Refusing to deploy /athletes/: {why}")
+        return None
+
+    # Once anything may have changed on the server, always purge the cache:
+    # a withdrawn athlete must not linger in SiteGround's copy.
+    try:
+        result = _upload_athletes(html_path, media_dir)
+    finally:
+        purged = purge_cache()
+    return result if (result and purged) else None
+
+
+def _upload_athletes(html_path: Path, media_dir: Path):
+    ssh = get_ssh_credentials()
+    if not ssh:
+        return None
+    host, user, port = ssh
+
+    remote_base = "~/www/gravelgodcycling.com/public_html/athletes"
+    media_files = sorted(f.name for f in media_dir.glob("*") if f.is_file()) if media_dir.is_dir() else []
+
+    def _ssh(command: str, timeout: int = 30):
+        return subprocess.run(
+            ["ssh", "-i", str(SSH_KEY), "-p", port, f"{user}@{host}", command],
+            check=True, capture_output=True, text=True, timeout=timeout,
+        )
+
+    try:
+        _ssh(f"mkdir -p {remote_base} && rm -rf {remote_base}/media.new && mkdir -p {remote_base}/media.new")
+    except subprocess.CalledProcessError as e:
+        print(f"✗ Failed to prepare remote athletes directory: {e.stderr.strip()}")
+        return None
+
+    if media_files:
+        try:
+            tar_cmd = ["tar", "-cf", "-", "-C", str(media_dir)] + media_files
+            ssh_cmd = ["ssh", "-i", str(SSH_KEY), "-p", port, f"{user}@{host}",
+                       f"tar -xf - -C {remote_base}/media.new"]
+            tar_proc = subprocess.Popen(tar_cmd, stdout=subprocess.PIPE)
+            ssh_proc = subprocess.Popen(ssh_cmd, stdin=tar_proc.stdout,
+                                        stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+            tar_proc.stdout.close()
+            _, stderr = ssh_proc.communicate(timeout=120)
+            if ssh_proc.returncode != 0:
+                print(f"✗ tar+ssh failed for athletes media: {stderr.decode().strip()}")
+                return None
+        except subprocess.TimeoutExpired:
+            print("✗ Athletes media upload timed out (120s)")
+            tar_proc.kill()
+            ssh_proc.kill()
+            return None
+
+    try:
+        subprocess.run(
+            ["scp", "-i", str(SSH_KEY), "-P", port, str(html_path),
+             f"{user}@{host}:{remote_base}/index.html.new"],
+            check=True, capture_output=True, text=True, timeout=30,
+        )
+        # Swap media and page together, then drop the old media.
+        _ssh(f"cd {remote_base} && rm -rf media.old && "
+             f"(if [ -d media ]; then mv media media.old; fi) && mv media.new media && "
+             f"mv index.html.new index.html && rm -rf media.old")
+    except subprocess.CalledProcessError as e:
+        print(f"✗ Upload failed for athletes page: {e.stderr.strip()}")
+        return None
+    except Exception as e:
+        print(f"✗ Error uploading athletes page: {e}")
+        return None
+
+    # Shared CSS/JS assets (the page references them via /race/assets/)
+    assets_dir = html_path.parent / "assets"
+    remote_assets = "~/www/gravelgodcycling.com/public_html/race/assets"
+    for pattern in ("gg-styles.*.css", "gg-scripts.*.js"):
+        for asset in assets_dir.glob(pattern):
+            try:
+                subprocess.run(
+                    ["scp", "-i", str(SSH_KEY), "-P", port, str(asset),
+                     f"{user}@{host}:{remote_assets}/{asset.name}"],
+                    check=True, capture_output=True, text=True, timeout=30,
+                )
+            except subprocess.CalledProcessError:
+                print(f"  ⚠ Could not upload {asset.name} (non-fatal)")
+
+    wp_url = os.environ.get("WP_URL", "https://gravelgodcycling.com")
+    print(f"✓ Uploaded athletes page + {len(media_files)} media file(s): {wp_url}/athletes/")
+    return f"{wp_url}/athletes/"
+
+
 def sync_coaching(coaching_file: str):
     """Upload coaching.html to /coaching/index.html on SiteGround via SSH+SCP."""
     ssh = get_ssh_credentials()
@@ -1609,7 +1755,7 @@ def sync_tp(tp_dir: str):
 # Utility pages whose canonical URL is the site ROOT — sync_pages must not
 # ship them under /race/ (duplicate content; removed + 301'd 2026-07-23).
 ROOT_CANONICAL_SLUGS = frozenset({
-    "about", "articles", "coaching", "consulting", "cookies", "course",
+    "about", "articles", "athletes", "coaching", "consulting", "cookies", "course",
     "gravel-tv", "gravel-weekly", "guide", "homepage", "insights", "privacy", "terms",
     "training-plans", "season-plan",
 })
@@ -2475,7 +2621,7 @@ def sync_pages(pages_dir: str, dry_run: bool = False, force_unlock: bool = False
     html_files = sorted(f for f in pages_path.glob("*.html")
                         if f.stem not in ROOT_CANONICAL_SLUGS)
     # Also check for pre-built subdirectories (vs pages, state hubs, etc.)
-    SKIP_DIRS = {"assets", "og", "prep-kit", "blog", "race"}
+    SKIP_DIRS = {"assets", "og", "prep-kit", "blog", "race", "athletes"}
     subdirs_with_pages = [
         d for d in sorted(pages_path.iterdir())
         if d.is_dir() and d.name not in SKIP_DIRS
@@ -5023,6 +5169,15 @@ if __name__ == "__main__":
         help="Path to about page HTML (default: wordpress/output/about.html)"
     )
     parser.add_argument(
+        "--sync-athletes", action="store_true",
+        help="Upload the /athletes/ page and its media (built from the private receipts ledger). "
+             "Not part of --deploy-all: it refuses synthetic or unwritten-copy builds"
+    )
+    parser.add_argument(
+        "--athletes-file", default="wordpress/output/athletes.html",
+        help="Path to athletes page HTML (default: wordpress/output/athletes.html)"
+    )
+    parser.add_argument(
         "--sync-coaching", action="store_true",
         help="Upload coaching page to /coaching/ via SCP"
     )
@@ -5402,7 +5557,7 @@ if __name__ == "__main__":
     has_action = any([args.json, args.sync_index, args.sync_widget, args.sync_training,
                       args.sync_guide, args.sync_guide_cluster,
                       args.sync_og, args.sync_tp, args.sync_homepage, args.sync_gravel_weekly, args.sync_about,
-                      args.sync_coaching, args.sync_coaching_apply, args.sync_season_review,
+                      args.sync_athletes, args.sync_coaching, args.sync_coaching_apply, args.sync_season_review,
                       args.sync_season_plan,
                       args.sync_consulting,
                       args.sync_consult_intake,
@@ -5456,6 +5611,8 @@ if __name__ == "__main__":
         _run("sync-gravel-weekly", sync_gravel_weekly, args.gravel_weekly_file, args.gravel_weekly_archive_dir)
     if args.sync_about:
         _run("sync-about", sync_about, args.about_file)
+    if args.sync_athletes:
+        _run("sync-athletes", sync_athletes, args.athletes_file)
     if args.sync_coaching:
         _run("sync-coaching", sync_coaching, args.coaching_file)
     if args.sync_season_review:

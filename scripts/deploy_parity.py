@@ -47,7 +47,7 @@ TOMBSTONES = frozenset(
 
 # Pages that exist by hand/WordPress/Elementor, not by generator rule.
 STATIC_REGISTRY = {
-    "/", "/gravel-races/", "/guide/", "/about/", "/coaching/", "/consulting/",
+    "/", "/gravel-races/", "/guide/", "/about/", "/athletes/", "/coaching/", "/consulting/",
     "/questionnaire/", "/popular-training-plans/", "/insights/", "/cookies/",
     "/privacy/", "/terms/", "/fueling-methodology/", "/course/", "/courses/",
     "/articles/", "/blog/", "/race/methodology/", "/race/calendar/",

@@ -30,14 +30,18 @@ Every page fails on:
     common given name plus surname; a publication, organisation or race
     name ("— The Guardian", "— Big Sugar", "Gravel Cyclist · 1.9K views")
     is not;
-  - a data-receipt-id that does not resolve in the receipts ledger. No
-    ledger exists yet, so no page may emit one.
+  - a data-receipt-id that does not resolve in the receipts ledger
+    (wordpress/receipts_data.py: the private ledger at GG_RECEIPTS_PATH, or
+    the synthetic fixture in CI). Only approved, unexpired, unwithdrawn
+    entries for the gravelgod channel resolve.
 
 Commercial pages also fail on:
   - any <cite> outside a receipt (a press quote is proof too);
   - scarcity ("Limited spots", "Next window", "athletes/month"), rating
     claims ("Rated 4.9/5", "4.8★", "★★★★★ (123 reviews)") and coach counts
-    ("100+ athletes coached").
+    ("100+ athletes coached"). The one exception is the receipts count line
+    (spec §3.3), an element carrying data-receipts-count whose number equals
+    the ledger's coached_count; any other count, or a mismatched one, fails.
   These are judged on rendered text (no script/style bodies or attribute
   values, so "aspect-ratio:4.5/5" isn't a rating); scarcity copy is also
   looked for in inline scripts, where A/B copy lives.
@@ -239,9 +243,101 @@ _NOT_TEXT_RE = re.compile(
     r"<(script|style|template)\b[^>]*>.*?</\1\s*>|<!--.*?-->", re.DOTALL | re.IGNORECASE
 )
 
-# Receipts ledger (spec §4.4, §6.2). Empty until the receipts component
-# lands; that change replaces this with a loader for the ledger.
-KNOWN_RECEIPT_IDS: frozenset = frozenset()
+# Receipts ledger (spec §4.4, §6.2): ids and the coached count come from
+# wordpress/receipts_data.py, which reads GG_RECEIPTS_PATH or, in CI, the
+# synthetic fixture.
+RECEIPTS_CHANNEL = "gravelgod"
+
+
+@functools.lru_cache(maxsize=None)
+def ledger_receipt_records() -> dict:
+    """{receipt id: ReceiptFragments} for every approved receipt: what a
+    receipt element rendered from that record may contain."""
+    import receipts_components
+    import receipts_data
+    return {r.id: receipts_components.receipt_fragments(r)
+            for r in receipts_data.load_receipts(RECEIPTS_CHANNEL)}
+
+
+def ledger_receipt_ids() -> frozenset:
+    return frozenset(ledger_receipt_records())
+
+
+@functools.lru_cache(maxsize=None)
+def ledger_count_line_text():
+    """The visible text of the one count line the ledger allows, or None."""
+    import receipts_components
+    import receipts_data
+    ledger = receipts_data.load_ledger(RECEIPTS_CHANNEL)
+    line = receipts_components.render_count_line(
+        ledger.coached_count, ledger.coached_since, ledger.coached_count_as_of)
+    return _visible_text(line) or None
+
+
+def clear_ledger_caches() -> None:
+    """After pointing GG_RECEIPTS_PATH at a different ledger."""
+    ledger_receipt_records.cache_clear()
+    ledger_count_line_text.cache_clear()
+
+
+# The count line: <p ... data-receipts-count="12">12 athletes coached ...</p>
+_COUNT_LINE_RE = re.compile(
+    r"<(p|span|div)\b[^>]*\bdata-receipts-count=[\"']([^\"']*)[\"'][^>]*>(.*?)</\1\s*>",
+    re.DOTALL | re.IGNORECASE,
+)
+
+
+# Inside a receipt element (ledger-driven pages): no element that can carry
+# text past the text-node check, and no attribute that displays text.
+_RECEIPT_FORBIDDEN_TAGS = frozenset({
+    "script", "style", "template", "iframe", "object", "embed", "input", "textarea",
+    "select", "option", "button", "noscript", "frame", "frameset", "applet", "svg",
+    "math", "canvas", "video", "audio", "meta", "link", "base", "form",
+})
+_RECEIPT_FORBIDDEN_ATTRS = frozenset({
+    "title", "value", "srcdoc", "placeholder", "content", "style", "aria-description",
+    "aria-placeholder", "aria-valuetext", "label", "data", "formaction", "action",
+    "hidden", "aria-hidden",  # a hidden disclosure isn't a disclosure
+})
+# Page CSS that injects text (::before/::after content) into receipts.
+_CSS_RULE_RE = re.compile(r"([^{}]+)\{([^{}]*)\}")
+_RECEIPT_SELECTOR_RE = re.compile(r"gg-(?:receipt|exchange|archetype)|data-receipts?-(?:id|count)")
+_STYLE_BLOCK_RE = re.compile(r"<style\b[^>]*>(.*?)</style\s*>", re.DOTALL | re.IGNORECASE)
+
+
+def _receipt_css_injections(markup: str) -> list[str]:
+    findings = []
+    for block in _STYLE_BLOCK_RE.findall(markup):
+        for selector, body in _CSS_RULE_RE.findall(block):
+            if (_RECEIPT_SELECTOR_RE.search(selector)
+                    and re.search(r"(?:^|[;\s])content\s*:", body)):
+                findings.append(f"page CSS sets content: on a receipt selector "
+                                f"({' '.join(selector.split())[:80]!r})")
+    return findings
+# The slide position label the carousel renders ("2 of 7").
+_SLIDE_LABEL_RE = re.compile(r"\d+ of \d+")
+
+
+def _strip_ledger_count_lines(markup: str, expected_text) -> tuple:
+    """Remove the ledger's count line; report any other data-receipts-count.
+
+    Exempt only an element with no child elements whose visible text is
+    exactly the line render_count_line() makes from the ledger, so nothing
+    can ride along ("12 athletes coached. 1,000+ plans sold.").
+    """
+    findings = []
+
+    def check(m):
+        value, inner = m.group(2), m.group(3)
+        text = _visible_text(inner)
+        if (expected_text is not None and "<" not in inner and text == expected_text
+                and value.isdigit() and expected_text.startswith(f"{value} ")):
+            return " "
+        findings.append(f"data-receipts-count={value!r} is not the receipts ledger's count "
+                        f"line ({expected_text!r}): {text[:100]!r}")
+        return " "
+
+    return _COUNT_LINE_RE.sub(check, markup), findings
 
 
 def _plain(text: str) -> str:
@@ -378,7 +474,7 @@ def person_in_attribution(text: str, *, structural: bool = False) -> str | None:
 
 class _Frame:
     __slots__ = ("tag", "in_receipt", "in_quote", "in_commercial", "commercial_root",
-                 "parts", "has_quote", "captions")
+                 "parts", "has_quote", "captions", "receipt_root", "rchunks", "ralts")
 
     def __init__(self, tag, parent, *, receipt, commercial):
         self.tag = tag
@@ -389,13 +485,18 @@ class _Frame:
         self.parts: list[str] = []
         self.has_quote = False
         self.captions: list[str] = []
+        self.receipt_root = None   # data-receipt-id of the outermost receipt element
+        self.rchunks: list[str] = []
+        self.ralts: list[str] = []
 
 
 class _ProofScanner(HTMLParser):
-    def __init__(self, page_kind: str, known_receipt_ids: frozenset):
+    def __init__(self, page_kind: str, known_receipt_ids: frozenset,
+                 receipt_records: dict | None = None):
         super().__init__(convert_charrefs=True)
         self.page_kind = page_kind
         self.known = known_receipt_ids
+        self.records = receipt_records
         self.findings: list[str] = []
         self._named: set[str] = set()
         self._stack: list[_Frame] = []
@@ -414,7 +515,14 @@ class _ProofScanner(HTMLParser):
                 self._flag(f"testimonial class .{cls} on <{tag}>")
         if "data-receipt-id" in a and a["data-receipt-id"] not in self.known:
             self._flag(f"data-receipt-id={a['data-receipt-id']!r} does not resolve "
-                       "in the receipts ledger")
+                       "in the receipts ledger"
+                       + ("" if self.known else " (this page isn't ledger-driven)"))
+        root = self._receipt_root()
+        if root is not None or "data-receipt-id" in a:
+            rid = root.receipt_root if root is not None else a["data-receipt-id"]
+            self._check_receipt_markup(rid, tag, a)
+        if tag == "img" and root is not None:
+            root.ralts.append(" ".join((a.get("alt") or "").split()))
         if tag in _VOID:
             if self._stack:  # <br> separates "Pat Q." from "Unbound 2025"
                 self._stack[-1].parts.append(_HARD)
@@ -426,8 +534,13 @@ class _ProofScanner(HTMLParser):
             for frame in self._stack:
                 if frame.tag == "figure":
                     frame.has_quote = True
-        self._stack.append(_Frame(tag, parent, receipt="data-receipt-id" in a,
-                                  commercial=commercial))
+        frame = _Frame(tag, parent, receipt="data-receipt-id" in a, commercial=commercial)
+        if "data-receipt-id" in a and root is None:
+            frame.receipt_root = a["data-receipt-id"]
+        self._stack.append(frame)
+
+    def _receipt_root(self):
+        return next((f for f in self._stack if f.receipt_root is not None), None)
 
     def handle_endtag(self, tag):
         for i in range(len(self._stack) - 1, -1, -1):
@@ -439,6 +552,50 @@ class _ProofScanner(HTMLParser):
     def handle_data(self, data):
         if self._stack:
             self._stack[-1].parts.append(data)
+            root = self._receipt_root()
+            text = " ".join(data.split())
+            if root is not None and text and self._stack[-1].tag not in _NOT_TEXT:
+                root.rchunks.append(text)
+
+    def _check_receipt_markup(self, rid: str, tag: str, attrs: dict) -> None:
+        """Inside a receipt, copy can only travel as text nodes and img alts,
+        which _check_receipt_content verifies. Elements and attributes that
+        carry text some other way are refused outright."""
+        if self.records is None:
+            return
+        if tag in _RECEIPT_FORBIDDEN_TAGS:
+            self._flag(f"data-receipt-id={rid!r} contains a <{tag}>: receipts carry text "
+                       "only as checked text nodes")
+        record = self.records.get(rid)
+        for name, value in attrs.items():
+            if name in _RECEIPT_FORBIDDEN_ATTRS:
+                self._flag(f"data-receipt-id={rid!r}: {name}= attribute on <{tag}> inside a "
+                           f"receipt ({(value or '')[:60]!r})")
+            elif name == "aria-label" and not (
+                    _SLIDE_LABEL_RE.fullmatch(value or "")
+                    or (record is not None and value in record.aria_labels)):
+                self._flag(f"data-receipt-id={rid!r}: aria-label {(value or '')[:60]!r} "
+                           "isn't one the receipt components render")
+
+    def _check_receipt_content(self, frame: _Frame) -> None:
+        """A receipt element may only say what its ledger record renders to,
+        and must carry the disclosure when the record has a connection."""
+        if self.records is None or frame.receipt_root not in self.records:
+            return
+        record = self.records[frame.receipt_root]
+        chunks, alts = record.chunks, record.alts
+        endorses = bool(frame.ralts) or any(t != record.public_name for t in frame.rchunks)
+        if record.disclosure and endorses and record.disclosure not in frame.rchunks:
+            self._flag(f"data-receipt-id={frame.receipt_root!r} omits its material-connection "
+                       f"disclosure ({record.disclosure!r})")
+        for text in frame.rchunks:
+            if text not in chunks:
+                self._flag(f"data-receipt-id={frame.receipt_root!r} contains text that isn't "
+                           f"in its ledger record: {text[:100]!r}")
+        for alt in frame.ralts:
+            if alt not in alts:
+                self._flag(f"data-receipt-id={frame.receipt_root!r} has an image alt that "
+                           f"isn't in its ledger record: {alt[:100]!r}")
 
     def finish(self) -> list[str]:
         self.close()
@@ -455,6 +612,8 @@ class _ProofScanner(HTMLParser):
         return bool(name)
 
     def _close(self, frame: _Frame) -> None:
+        if frame.receipt_root is not None:
+            self._check_receipt_content(frame)
         if frame.tag in _NOT_TEXT:
             return  # script/style bodies are not copy
         text = "".join(frame.parts)
@@ -510,7 +669,9 @@ def find_unsourced_proof(
     *,
     page_kind: str = COMMERCIAL,
     sourced_rating_counts: frozenset = frozenset(),
-    known_receipt_ids: frozenset = KNOWN_RECEIPT_IDS,
+    known_receipt_ids: frozenset | None = None,
+    receipt_records: dict | None = None,
+    count_line_text: str | None = None,
 ) -> list[str]:
     """Return every unsourced-proof finding in an HTML string (empty = clean).
 
@@ -519,14 +680,28 @@ def find_unsourced_proof(
     sourced_rating_counts: ratingCount values that trace to real Racer
     Ratings for this page (race pages only). Every other aggregateRating,
     and any that isn't in parseable JSON-LD, is a finding.
+    receipt_records: pass ledger_receipt_records() for a ledger-driven page
+    (only /athletes/ today). Every data-receipt-id must then be in the ledger
+    and every text node and image alt inside it must come from that record.
+    Without it no data-receipt-id is allowed at all.
+    known_receipt_ids: id-only check, for fixture HTML in this file.
+    count_line_text: defaults to the ledger's count line.
     """
     assert page_kind in (COMMERCIAL, EDITORIAL), page_kind
+    if receipt_records is not None:
+        known_receipt_ids = frozenset(receipt_records)
+    elif known_receipt_ids is None:
+        known_receipt_ids = frozenset()
+    if count_line_text is None:
+        count_line_text = ledger_count_line_text()
     findings = []
     if page_kind == COMMERCIAL:
         # Claims are judged on rendered text, so "4.5/5" in a script URL or
         # a CSS aspect-ratio isn't a rating. Scarcity copy is also looked
         # for in inline scripts, because A/B copy is injected from JS.
-        findings += find_unsupported_claims(_visible_text(html))
+        claim_markup, count_findings = _strip_ledger_count_lines(html, count_line_text)
+        findings += count_findings
+        findings += find_unsupported_claims(_visible_text(claim_markup))
         findings += [f"{f} in an inline <script>" for f in _scarcity_claims(_script_text(html))]
 
     total = html.count("aggregateRating")
@@ -545,7 +720,8 @@ def find_unsourced_proof(
                 f"aggregateRating without a real rating source ({total - sourced} of {total})"
             )
 
-    scanner = _ProofScanner(page_kind, known_receipt_ids)
+    findings += _receipt_css_injections(html)
+    scanner = _ProofScanner(page_kind, known_receipt_ids, receipt_records)
     scanner.feed(html)
     return findings + scanner.finish()
 
@@ -895,6 +1071,19 @@ def _source(rel: str):
     return lambda: (ROOT / rel).read_text(encoding="utf-8")
 
 
+def _athletes() -> str:
+    from generate_athletes import generate_athletes_page
+    return generate_athletes_page()
+
+
+def _athletes_empty() -> str:
+    import receipts_data
+    from generate_athletes import generate_athletes_page
+    ledger = receipts_data.load_ledger(RECEIPTS_CHANNEL)
+    ledger.receipts = []
+    return generate_athletes_page(ledger)
+
+
 PAGES = {
     "/about/": (COMMERCIAL, _about),
     "/products/training-plans/": (COMMERCIAL, _training_plans),
@@ -906,9 +1095,16 @@ PAGES = {
     "homepage": (COMMERCIAL, _homepage),
     f"/race/{SAMPLE_RACE}/training-plan/": (COMMERCIAL, _race_training_plan_page),
     "guide coaching CTA": (COMMERCIAL, _guide_coaching_cta),
+    "/athletes/": (COMMERCIAL, _athletes),
+    "/athletes/ (no approved athletes)": (COMMERCIAL, _athletes_empty),
     f"/race/{SAMPLE_RACE}/": (EDITORIAL, _race_page(SAMPLE_RACE)),
     **{f"/race/{slug}/": (EDITORIAL, _race_page(slug)) for slug in LIMITED_SPOTS_RACES},
 }
+
+
+# Pages built from the receipts ledger. Only these may carry data-receipt-id,
+# and every receipt element on them must match its ledger record.
+LEDGER_DRIVEN_PAGES = frozenset({"/athletes/", "/athletes/ (no approved athletes)"})
 
 
 @functools.lru_cache(maxsize=None)
@@ -935,7 +1131,9 @@ def test_page_has_no_unsourced_proof(name):
     sourced = frozenset()
     if name.startswith("/race/") and kind == EDITORIAL:
         sourced = _sourced_rating_counts(name.split("/")[2])
-    findings = find_unsourced_proof(html, page_kind=kind, sourced_rating_counts=sourced)
+    records = ledger_receipt_records() if name in LEDGER_DRIVEN_PAGES else None
+    findings = find_unsourced_proof(html, page_kind=kind, sourced_rating_counts=sourced,
+                                    receipt_records=records)
     assert not findings, f"{name}: " + "; ".join(findings)
 
 
@@ -1130,3 +1328,243 @@ def test_coaching_scarcity_experiment_retired():
     on_disk = json.loads((ROOT / "web" / "ab" / "experiments.json").read_text(encoding="utf-8"))
     assert "coaching_scarcity" not in {e["id"] for e in on_disk["experiments"]}
     assert "coaching_scarcity" not in _render("homepage")
+
+
+# ── Receipts ledger (spec §6.2, PR-4/PR-5) ───────────────────────────────
+
+
+def _fixture_receipts() -> list:
+    import receipts_data
+    return receipts_data.load_receipts(RECEIPTS_CHANNEL)
+
+
+class TestReceiptsLedgerResolution:
+    def test_rendered_receipts_pass_on_a_ledger_driven_page(self):
+        import receipts_components as rc
+        receipts = _fixture_receipts()
+        assert receipts, "the synthetic fixture should approve at least one receipt"
+        for r in receipts:
+            for html in (rc.render_receipt_card(r), rc.render_story(r)):
+                assert find_unsourced_proof(html, receipt_records=ledger_receipt_records()) == []
+
+    @pytest.mark.parametrize("rid", [
+        "r-904",  # count_only: counted, never rendered
+        "r-905",  # withdrawn
+        "made-up",
+    ])
+    def test_unrenderable_ids_do_not_resolve(self, rid):
+        html = f'<figure data-receipt-id="{rid}"><p>x</p></figure>'
+        findings = find_unsourced_proof(html, receipt_records=ledger_receipt_records())
+        assert any("does not resolve" in f for f in findings)
+
+    def test_athletes_page_emits_only_ledger_ids(self):
+        ids = set(re.findall(r'data-receipt-id="([^"]+)"', _render("/athletes/")))
+        assert ids and ids <= ledger_receipt_ids()
+
+
+class TestReceiptLaundering:
+    """Review finding 2: a real ledger id must not vouch for hand-written copy."""
+
+    LAUNDERED = [
+        '<figure data-receipt-id="r-901"><blockquote>Best coach ever, changed '
+        'my life</blockquote><cite>&mdash; John Smith</cite></figure>',
+        '<figure data-receipt-id="r-901"><p>Rated 4.9/5 by 300 athletes</p></figure>',
+        '<article data-receipt-id="r-902"><h3>TestRider B.</h3>'
+        '<p>&ldquo;Invented quote.&rdquo;</p></article>',
+        '<figure data-receipt-id="r-901"><img src="x.png" alt="Coach: invented."></figure>',
+    ]
+
+    @pytest.mark.parametrize("html", LAUNDERED)
+    def test_text_not_in_the_record_fails_on_a_ledger_driven_page(self, html):
+        findings = find_unsourced_proof(html, receipt_records=ledger_receipt_records())
+        assert any("isn't in its ledger record" in f for f in findings), findings
+
+    @pytest.mark.parametrize("html", LAUNDERED)
+    def test_any_receipt_id_fails_on_other_pages(self, html):
+        """Pages that aren't ledger-driven may not carry data-receipt-id at all."""
+        assert any("does not resolve" in f for f in find_unsourced_proof(html))
+
+    def test_valid_id_planted_on_about_fails(self):
+        import receipts_components as rc
+        card = rc.render_receipt_card(_fixture_receipts()[0])
+        html = _render("/about/").replace("</body>", card + "</body>")
+        assert any("isn't ledger-driven" in f for f in find_unsourced_proof(html))
+
+    def test_laundered_figure_planted_on_athletes_fails(self):
+        planted = _render("/athletes/").replace("</body>", self.LAUNDERED[0] + "</body>")
+        findings = find_unsourced_proof(planted, receipt_records=ledger_receipt_records())
+        assert any("John Smith" in f for f in findings), findings
+
+
+class TestReceiptSmugglingChannels:
+    """Re-review finding E: copy that travels as something other than a text
+    node (attribute values, embedded documents, CSS, scripts) inside a valid
+    receipt element."""
+
+    A = "r-901"
+    SMUGGLED = {
+        "input value": '<figure data-receipt-id="r-901"><input value="Best coach ever. Rated 4.9/5" readonly></figure>',
+        "textarea": '<figure data-receipt-id="r-901"><textarea>Best coach ever</textarea></figure>',
+        "style content": '<figure data-receipt-id="r-901" class="q"><style>.q::after{content:"Best coach ever - John Smith"}</style></figure>',
+        "style attribute": '<figure data-receipt-id="r-901"><p style="--x:1">Test Rider A</p></figure>',
+        "iframe srcdoc": '<figure data-receipt-id="r-901"><iframe srcdoc="&lt;p&gt;Best coach ever&lt;/p&gt;"></iframe></figure>',
+        "title attr": '<figure data-receipt-id="r-901"><span title="Best coach ever">Test Rider A</span></figure>',
+        "aria-label": '<figure data-receipt-id="r-901"><span aria-label="Best coach ever">Test Rider A</span></figure>',
+        "script write": '<figure data-receipt-id="r-901"><script>document.write("Best coach ever")</script></figure>',
+        "template": '<figure data-receipt-id="r-901"><template>Best coach ever</template></figure>',
+        "object data": '<figure data-receipt-id="r-901"><object data="data:text/html,Best coach ever"></object></figure>',
+        "embed": '<figure data-receipt-id="r-901"><embed src="data:text/html,Best coach ever"></figure>',
+        "svg text": '<figure data-receipt-id="r-901"><svg><text>Best coach ever</text></svg></figure>',
+    }
+
+    @pytest.mark.parametrize("name", list(SMUGGLED))
+    def test_smuggling_channels_are_flagged(self, name):
+        findings = find_unsourced_proof(self.SMUGGLED[name], receipt_records=ledger_receipt_records())
+        assert findings, name
+
+    @pytest.mark.parametrize("attr", ['hidden', 'aria-hidden="true"'])
+    def test_disclosure_cannot_be_hidden(self, attr):
+        """Final-pass finding 3: hidden / aria-hidden inside a receipt."""
+        import receipts_components as rc
+        b = next(r for r in _fixture_receipts() if r.id == "r-902")
+        card = rc.render_receipt_card(b).replace(
+            '<p class="gg-receipt-disclosure">', f'<p class="gg-receipt-disclosure" {attr}>')
+        findings = find_unsourced_proof(card, receipt_records=ledger_receipt_records())
+        assert any(attr.split("=")[0] in f for f in findings), findings
+
+    @pytest.mark.parametrize("css", [
+        '.gg-receipt-quote p::after{content:" Best coach ever"}',
+        '.gg-exchange-caption::before { content: "John Smith" }',
+        '@media (min-width:1px){ .gg-archetype-athlete a::after{content:"Rated 4.9/5"} }',
+        '[data-receipt-id="r-901"]::after{content:"Best coach ever"}',
+        '[data-receipts-count]::after{content:" 1,000+ plans sold"}',
+    ])
+    def test_page_css_cannot_inject_text_into_receipts(self, css):
+        """Final-pass finding 3: ::before/::after content on receipt selectors."""
+        html = f"<style>{css}</style><p>x</p>"
+        assert any("content:" in f for f in find_unsourced_proof(html)), css
+
+    def test_unrelated_css_content_is_fine(self):
+        html = '<style>.gg-breadcrumb-sep::before{content:"/"}</style><p>x</p>'
+        assert find_unsourced_proof(html) == []
+
+    def test_rendered_slide_aria_labels_pass(self):
+        html = _render("/athletes/")
+        assert 'aria-label="1 of 3"' in html
+        assert find_unsourced_proof(html, receipt_records=ledger_receipt_records()) == []
+
+    def test_disclosure_is_required_when_the_record_has_a_connection(self):
+        """r-902 is 'coached at no charge' in the fixture."""
+        import receipts_components as rc
+        b = next(r for r in _fixture_receipts() if r.id == "r-902")
+        card = rc.render_receipt_card(b)
+        assert "Coached at no charge" in card
+        assert find_unsourced_proof(card, receipt_records=ledger_receipt_records()) == []
+        stripped = card.replace('<p class="gg-receipt-disclosure">Coached at no charge</p>', "")
+        findings = find_unsourced_proof(stripped, receipt_records=ledger_receipt_records())
+        assert any("disclosure" in f for f in findings), findings
+        slide = rc.render_exchange_slide(b.exchanges[0], b, 1, 1)
+        assert "Coached at no charge" in slide  # screenshots carry it too
+        no_disc = slide.replace('<span class="gg-exchange-disclosure">Coached at no charge</span>', "")
+        assert any("disclosure" in f for f in
+                   find_unsourced_proof(no_disc, receipt_records=ledger_receipt_records()))
+
+    def test_a_bare_name_needs_no_disclosure(self):
+        """The grid entry is a name linking to the story, which carries it."""
+        html = '<ul><li class="gg-archetype-athlete" data-receipt-id="r-902"><a href="#x">TestRider B.</a></li></ul>'
+        assert find_unsourced_proof(html, receipt_records=ledger_receipt_records()) == []
+
+
+class TestReceiptsCountLine:
+    def _line(self, attr, text):
+        return f'<p class="gg-receipt-count" data-receipts-count="{attr}">{text}</p>'
+
+    def _ledger_line(self):
+        text = ledger_count_line_text()
+        assert text
+        return text, text.split(" ", 1)[0]
+
+    def test_ledger_count_line_passes(self):
+        text, n = self._ledger_line()
+        assert find_unsourced_proof(self._line(n, text)) == []
+
+    def test_rendered_count_line_passes(self):
+        import receipts_components as rc
+        import receipts_data
+        ledger = receipts_data.load_ledger(RECEIPTS_CHANNEL)
+        html = rc.render_count_line(ledger.coached_count, ledger.coached_since,
+                                    ledger.coached_count_as_of)
+        assert find_unsourced_proof(html) == []
+
+    @pytest.mark.parametrize("attr,text", [
+        ("100", "100 athletes coached since 2023-10."),           # not the ledger number
+        ("{n}", "100+ athletes coached since 2023-10."),           # text disagrees
+        ("abc", "athletes coached: 5"),
+        ("{n}", "{n} athletes coached since 2023-10."),            # truncated line
+    ])
+    def test_mismatched_count_line_fails(self, attr, text):
+        _, n = self._ledger_line()
+        html = self._line(attr.format(n=n), text.format(n=n))
+        assert any("data-receipts-count" in f for f in find_unsourced_proof(html)), \
+            find_unsourced_proof(html)
+
+    def test_claims_riding_along_in_the_count_line_fail(self):
+        """Review finding 1: the old check blanked the element after the first number."""
+        text, n = self._ledger_line()
+        smuggled = [
+            self._line(n, f"{text} 1,000+ plans sold. Rated 4.9/5. Limited spots."),
+            self._line(n, f"{n} athletes coached. 1,000+ plans sold. Rated 4.9/5. Limited spots."),
+            f'<div data-receipts-count="{n}">{text}<p>100+ athletes coached &middot; '
+            f"Rated 4.9/5</p></div>",
+            f'<div data-receipts-count="{n}"><span>{text}</span></div>',
+        ]
+        for html in smuggled:
+            findings = find_unsourced_proof(html)
+            assert any("data-receipts-count" in f for f in findings), (html, findings)
+            assert len(findings) >= 1
+
+    def test_count_outside_the_count_line_still_fails(self):
+        _, n = self._ledger_line()
+        html = f"<p>{n} athletes coached since 2023-10.</p>"
+        assert any("unverified count" in f for f in find_unsourced_proof(html))
+
+    def test_count_line_that_disagrees_with_the_ledger_fails(self):
+        text, n = self._ledger_line()
+        html = self._line(n, text)
+        other = text.replace(f"{n} athletes", f"{int(n) + 1} athletes")
+        assert any("data-receipts-count" in f
+                   for f in find_unsourced_proof(html, count_line_text=other))
+
+
+def test_pages_follow_a_different_ledger(tmp_path, monkeypatch):
+    """Review finding 1: render every guarded page against a second ledger
+    with another coached_count. A count hard-coded anywhere (or a page that
+    doesn't read the ledger) fails here."""
+    import shutil
+    import receipts_data
+    fixture_page = _athletes()  # built from the fixture ledger, before switching
+    fixture = json.loads(receipts_data.FIXTURE_PATH.read_text(encoding="utf-8"))
+    fixture["coached_count"] = fixture["coached_count"] + 25
+    fixture["coached_count_as_of"] = "2026-10-09"
+    shutil.copytree(receipts_data.FIXTURE_PATH.parent / "receipts_media", tmp_path / "receipts_media")
+    alt = tmp_path / "receipts.json"
+    alt.write_text(json.dumps(fixture), encoding="utf-8")
+    monkeypatch.setenv(receipts_data.ENV_PATH, str(alt))
+    clear_ledger_caches()
+    try:
+        expected = ledger_count_line_text()
+        assert expected.startswith(f"{fixture['coached_count']} athletes coached")
+        for name, (kind, render) in PAGES.items():
+            if name.startswith("/race/") and kind == EDITORIAL:
+                continue  # editorial pages never carry the count line; rendered above
+            html = render()
+            records = ledger_receipt_records() if name in LEDGER_DRIVEN_PAGES else None
+            findings = find_unsourced_proof(html, page_kind=kind, receipt_records=records)
+            assert not findings, f"{name} under a second ledger: {findings}"
+            if name in LEDGER_DRIVEN_PAGES:
+                assert f'data-receipts-count="{fixture["coached_count"]}"' in html
+        # The fixture build's line no longer matches this ledger.
+        assert any("data-receipts-count" in f for f in find_unsourced_proof(fixture_page))
+    finally:
+        monkeypatch.delenv(receipts_data.ENV_PATH)
+        clear_ledger_caches()

@@ -1,0 +1,186 @@
+{
+  "schema": "gg-receipts-v2",
+  "synthetic": true,
+  "_note": "SYNTHETIC FIXTURE. Every person, quote, result and screenshot here is invented for tests. Real athletes live only in the private ledger read through GG_RECEIPTS_PATH. Production builds (GG_BUILD=production) refuse this file.",
+  "coached_count": 12,
+  "coached_count_as_of": "2026-10-01",
+  "coached_since": "2023-10",
+  "receipts": [
+    {
+      "id": "r-901",
+      "identity_tier": "full_name",
+      "display_name": "Test Rider A",
+      "age_group": "25-29",
+      "ability": "first_timer",
+      "tags": ["gravel_ultra", "multi_year"],
+      "hours_per_week": 8,
+      "product": "coaching",
+      "coached_since": "2024-01",
+      "results": [
+        {
+          "event": "Example Gravel 100",
+          "date": "2026-05-30",
+          "placing": "14",
+          "field": 120,
+          "time": "6:12:40",
+          "official_url": "https://example.com/results/example-gravel-100"
+        }
+      ],
+      "quote": "Synthetic fixture quote A. Not a real athlete.",
+      "quote_approved_at": "2026-09-01",
+      "render_approved_at": "2026-09-02",
+      "material_connection": {"kind": "none", "display": ""},
+      "channels": ["gravelgod", "social", "email"],
+      "consent_id": "synthetic-consent-a",
+      "consent_expires": "2029-09-01",
+      "withdrawn_at": null,
+      "source_ref": "synthetic-private-source-ref-a",
+      "story": {
+        "text": "Synthetic fixture story A, first paragraph.\n\nSynthetic fixture story A, second paragraph.",
+        "voice": "athlete",
+        "text_approved_at": "2026-09-01"
+      },
+      "exchanges": [
+        {
+          "id": "ex-1",
+          "image": "receipts_media/synthetic-exchange-1.png",
+          "alt": "Coach: Synthetic comment one. Test Rider A: Synthetic reply one.",
+          "date": "2026-03-14",
+          "theme": "synthetic-theme",
+          "rank": 1,
+          "render_approved_at": "2026-09-02",
+          "redaction_checked_at": "2026-09-02",
+          "channels": ["gravelgod", "social"]
+        },
+        {
+          "id": "ex-2",
+          "image": "receipts_media/synthetic-exchange-2.png",
+          "alt": "Coach: Synthetic comment two. Test Rider A: Synthetic reply two.",
+          "date": "2026-04-20",
+          "theme": "synthetic-theme",
+          "rank": 3,
+          "render_approved_at": "2026-09-02",
+          "redaction_checked_at": "2026-09-02",
+          "channels": ["gravelgod"]
+        }
+      ]
+    },
+    {
+      "id": "r-902",
+      "identity_tier": "first_last_initial",
+      "display_name": "TestRider B.",
+      "age_group": "40-44",
+      "ability": "competitive_amateur",
+      "tags": ["masters", "time_crunched_parent"],
+      "hours_per_week": 6,
+      "product": "custom_plan",
+      "coached_since": "2025-02",
+      "results": [
+        {
+          "event": "Example Gravel 200",
+          "date": "2026-06-06",
+          "placing": "5",
+          "field": 40,
+          "time": "11:02:10",
+          "official_url": "https://example.org/results/example-gravel-200"
+        }
+      ],
+      "quote": "",
+      "quote_approved_at": null,
+      "render_approved_at": "2026-09-03",
+      "material_connection": {"kind": "comped", "display": "Coached at no charge"},
+      "channels": ["gravelgod"],
+      "consent_id": "synthetic-consent-b",
+      "consent_expires": "2029-09-03",
+      "withdrawn_at": null,
+      "source_ref": "synthetic-private-source-ref-b",
+      "story": null,
+      "exchanges": [
+        {
+          "id": "ex-1",
+          "image": "receipts_media/synthetic-exchange-1.png",
+          "alt": "Coach: Synthetic comment three. TestRider B.: Synthetic reply three.",
+          "date": "2026-02-02",
+          "theme": "synthetic-theme",
+          "rank": 2,
+          "render_approved_at": "2026-09-03",
+          "redaction_checked_at": "2026-09-03",
+          "channels": ["gravelgod"]
+        }
+      ]
+    },
+    {
+      "id": "r-903",
+      "identity_tier": "first_age_group",
+      "display_name": "TestRiderC",
+      "age_group": "50-54",
+      "ability": "enthusiast",
+      "tags": ["masters"],
+      "hours_per_week": null,
+      "product": "coaching",
+      "coached_since": "2023-11",
+      "results": [],
+      "quote": "Synthetic fixture quote C. Not a real athlete.",
+      "quote_approved_at": "2026-09-04",
+      "render_approved_at": "2026-09-04",
+      "material_connection": {"kind": "none", "display": ""},
+      "channels": ["gravelgod", "roadie"],
+      "consent_id": "synthetic-consent-c",
+      "consent_expires": "2029-09-04",
+      "withdrawn_at": null,
+      "source_ref": "synthetic-private-source-ref-c",
+      "story": {
+        "text": "Synthetic fixture editorial story C.",
+        "voice": "editorial",
+        "text_approved_at": "2026-09-04"
+      },
+      "exchanges": []
+    },
+    {
+      "id": "r-904",
+      "identity_tier": "count_only",
+      "display_name": "",
+      "age_group": "30-34",
+      "ability": "enthusiast",
+      "tags": [],
+      "hours_per_week": null,
+      "product": "tp_plan",
+      "coached_since": "2024-06",
+      "results": [],
+      "quote": "",
+      "quote_approved_at": null,
+      "render_approved_at": null,
+      "material_connection": {"kind": "none", "display": ""},
+      "channels": ["gravelgod"],
+      "consent_id": "synthetic-consent-d",
+      "consent_expires": "2029-09-05",
+      "withdrawn_at": null,
+      "source_ref": "synthetic-private-source-ref-d",
+      "story": null,
+      "exchanges": []
+    },
+    {
+      "id": "r-905",
+      "identity_tier": "full_name",
+      "display_name": "Test Rider E",
+      "age_group": "35-39",
+      "ability": "elite",
+      "tags": ["road_racer"],
+      "hours_per_week": 14,
+      "product": "coaching",
+      "coached_since": "2024-03",
+      "results": [],
+      "quote": "Synthetic fixture quote E. Withdrawn, never rendered.",
+      "quote_approved_at": "2026-09-05",
+      "render_approved_at": "2026-09-05",
+      "material_connection": {"kind": "none", "display": ""},
+      "channels": ["gravelgod"],
+      "consent_id": "synthetic-consent-e",
+      "consent_expires": "2029-09-05",
+      "withdrawn_at": "2026-09-20",
+      "source_ref": "synthetic-private-source-ref-e",
+      "story": null,
+      "exchanges": []
+    }
+  ]
+}

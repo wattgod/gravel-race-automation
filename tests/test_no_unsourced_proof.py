@@ -30,14 +30,18 @@ Every page fails on:
     common given name plus surname; a publication, organisation or race
     name ("— The Guardian", "— Big Sugar", "Gravel Cyclist · 1.9K views")
     is not;
-  - a data-receipt-id that does not resolve in the receipts ledger. No
-    ledger exists yet, so no page may emit one.
+  - a data-receipt-id that does not resolve in the receipts ledger
+    (wordpress/receipts_data.py: the private ledger at GG_RECEIPTS_PATH, or
+    the synthetic fixture in CI). Only approved, unexpired, unwithdrawn
+    entries for the gravelgod channel resolve.
 
 Commercial pages also fail on:
   - any <cite> outside a receipt (a press quote is proof too);
   - scarcity ("Limited spots", "Next window", "athletes/month"), rating
     claims ("Rated 4.9/5", "4.8★", "★★★★★ (123 reviews)") and coach counts
-    ("100+ athletes coached").
+    ("100+ athletes coached"). The one exception is the receipts count line
+    (spec §3.3), an element carrying data-receipts-count whose number equals
+    the ledger's coached_count; any other count, or a mismatched one, fails.
   These are judged on rendered text (no script/style bodies or attribute
   values, so "aspect-ratio:4.5/5" isn't a rating); scarcity copy is also
   looked for in inline scripts, where A/B copy lives.
@@ -239,9 +243,46 @@ _NOT_TEXT_RE = re.compile(
     r"<(script|style|template)\b[^>]*>.*?</\1\s*>|<!--.*?-->", re.DOTALL | re.IGNORECASE
 )
 
-# Receipts ledger (spec §4.4, §6.2). Empty until the receipts component
-# lands; that change replaces this with a loader for the ledger.
-KNOWN_RECEIPT_IDS: frozenset = frozenset()
+# Receipts ledger (spec §4.4, §6.2): ids and the coached count come from
+# wordpress/receipts_data.py, which reads GG_RECEIPTS_PATH or, in CI, the
+# synthetic fixture.
+RECEIPTS_CHANNEL = "gravelgod"
+
+
+@functools.lru_cache(maxsize=None)
+def ledger_receipt_ids() -> frozenset:
+    import receipts_data
+    return receipts_data.known_receipt_ids(RECEIPTS_CHANNEL)
+
+
+@functools.lru_cache(maxsize=None)
+def ledger_coached_count():
+    import receipts_data
+    return receipts_data.load_ledger(RECEIPTS_CHANNEL).coached_count
+
+
+# The count line: <p ... data-receipts-count="12">12 athletes coached ...</p>
+_COUNT_LINE_RE = re.compile(
+    r"<(p|span|div)\b[^>]*\bdata-receipts-count=[\"']([^\"']*)[\"'][^>]*>(.*?)</\1\s*>",
+    re.DOTALL | re.IGNORECASE,
+)
+
+
+def _strip_ledger_count_lines(markup: str, coached_count) -> tuple:
+    """Remove count lines whose number matches the ledger; report the rest."""
+    findings = []
+
+    def check(m):
+        value, inner = m.group(2), _visible_text(m.group(3))
+        first = re.search(r"\d[\d,]*", inner)
+        if (coached_count is not None and value.isdigit() and int(value) == coached_count
+                and first and first.group(0).replace(",", "") == value):
+            return " "
+        findings.append(f"data-receipts-count={value!r} does not match the receipts "
+                        f"ledger's coached_count ({coached_count!r}): {inner[:80]!r}")
+        return " "
+
+    return _COUNT_LINE_RE.sub(check, markup), findings
 
 
 def _plain(text: str) -> str:
@@ -510,7 +551,8 @@ def find_unsourced_proof(
     *,
     page_kind: str = COMMERCIAL,
     sourced_rating_counts: frozenset = frozenset(),
-    known_receipt_ids: frozenset = KNOWN_RECEIPT_IDS,
+    known_receipt_ids: frozenset | None = None,
+    coached_count: int | None = None,
 ) -> list[str]:
     """Return every unsourced-proof finding in an HTML string (empty = clean).
 
@@ -519,14 +561,21 @@ def find_unsourced_proof(
     sourced_rating_counts: ratingCount values that trace to real Racer
     Ratings for this page (race pages only). Every other aggregateRating,
     and any that isn't in parseable JSON-LD, is a finding.
+    known_receipt_ids / coached_count: default to the receipts ledger.
     """
     assert page_kind in (COMMERCIAL, EDITORIAL), page_kind
+    if known_receipt_ids is None:
+        known_receipt_ids = ledger_receipt_ids()
+    if coached_count is None:
+        coached_count = ledger_coached_count()
     findings = []
     if page_kind == COMMERCIAL:
         # Claims are judged on rendered text, so "4.5/5" in a script URL or
         # a CSS aspect-ratio isn't a rating. Scarcity copy is also looked
         # for in inline scripts, because A/B copy is injected from JS.
-        findings += find_unsupported_claims(_visible_text(html))
+        claim_markup, count_findings = _strip_ledger_count_lines(html, coached_count)
+        findings += count_findings
+        findings += find_unsupported_claims(_visible_text(claim_markup))
         findings += [f"{f} in an inline <script>" for f in _scarcity_claims(_script_text(html))]
 
     total = html.count("aggregateRating")
@@ -895,6 +944,19 @@ def _source(rel: str):
     return lambda: (ROOT / rel).read_text(encoding="utf-8")
 
 
+def _athletes() -> str:
+    from generate_athletes import generate_athletes_page
+    return generate_athletes_page()
+
+
+def _athletes_empty() -> str:
+    import receipts_data
+    from generate_athletes import generate_athletes_page
+    ledger = receipts_data.load_ledger(RECEIPTS_CHANNEL)
+    ledger.receipts = []
+    return generate_athletes_page(ledger)
+
+
 PAGES = {
     "/about/": (COMMERCIAL, _about),
     "/products/training-plans/": (COMMERCIAL, _training_plans),
@@ -906,6 +968,8 @@ PAGES = {
     "homepage": (COMMERCIAL, _homepage),
     f"/race/{SAMPLE_RACE}/training-plan/": (COMMERCIAL, _race_training_plan_page),
     "guide coaching CTA": (COMMERCIAL, _guide_coaching_cta),
+    "/athletes/": (COMMERCIAL, _athletes),
+    "/athletes/ (no approved athletes)": (COMMERCIAL, _athletes_empty),
     f"/race/{SAMPLE_RACE}/": (EDITORIAL, _race_page(SAMPLE_RACE)),
     **{f"/race/{slug}/": (EDITORIAL, _race_page(slug)) for slug in LIMITED_SPOTS_RACES},
 }
@@ -1130,3 +1194,63 @@ def test_coaching_scarcity_experiment_retired():
     on_disk = json.loads((ROOT / "web" / "ab" / "experiments.json").read_text(encoding="utf-8"))
     assert "coaching_scarcity" not in {e["id"] for e in on_disk["experiments"]}
     assert "coaching_scarcity" not in _render("homepage")
+
+
+# ── Receipts ledger (spec §6.2, PR-4/PR-5) ───────────────────────────────
+
+
+class TestReceiptsLedgerResolution:
+    def test_ledger_ids_resolve(self):
+        import receipts_data
+        ids = ledger_receipt_ids()
+        assert ids, "the synthetic fixture should approve at least one receipt"
+        for rid in ids:
+            assert receipts_data.resolve_receipt_id(rid, channel=RECEIPTS_CHANNEL)
+            html = f'<figure data-receipt-id="{rid}"><cite>&mdash; Test Rider A</cite></figure>'
+            assert find_unsourced_proof(html) == []
+
+    @pytest.mark.parametrize("rid", [
+        "synthetic-rider-d",  # count_only: counted, never rendered
+        "synthetic-rider-e",  # withdrawn
+        "made-up",
+    ])
+    def test_unrenderable_ids_do_not_resolve(self, rid):
+        html = f'<figure data-receipt-id="{rid}"><p>x</p></figure>'
+        assert any("does not resolve" in f for f in find_unsourced_proof(html))
+
+    def test_athletes_page_emits_only_ledger_ids(self):
+        ids = set(re.findall(r'data-receipt-id="([^"]+)"', _render("/athletes/")))
+        assert ids and ids <= ledger_receipt_ids()
+
+
+class TestReceiptsCountLine:
+    def _line(self, attr, text):
+        return f'<p class="gg-receipt-count" data-receipts-count="{attr}">{text}</p>'
+
+    def test_ledger_count_passes(self):
+        n = ledger_coached_count()
+        html = self._line(n, f"{n} athletes coached since 2023-10; those who chose not to "
+                             "be named appear only in this count.")
+        assert find_unsourced_proof(html) == []
+
+    @pytest.mark.parametrize("attr,text", [
+        ("100", "100 athletes coached since 2023-10."),           # not the ledger number
+        ("{n}", "100+ athletes coached since 2023-10."),           # text disagrees
+        ("abc", "athletes coached: 5"),
+    ])
+    def test_mismatched_count_line_fails(self, attr, text):
+        n = ledger_coached_count()
+        html = self._line(attr.format(n=n), text)
+        assert any("data-receipts-count" in f for f in find_unsourced_proof(html)), \
+            find_unsourced_proof(html)
+
+    def test_count_outside_the_count_line_still_fails(self):
+        n = ledger_coached_count()
+        html = f"<p>{n} athletes coached since 2023-10.</p>"
+        assert any("unverified count" in f for f in find_unsourced_proof(html))
+
+    def test_count_line_that_disagrees_with_the_ledger_fails(self):
+        html = self._line(12, "12 athletes coached since 2023-10.")
+        assert find_unsourced_proof(html, coached_count=12) == []
+        assert any("data-receipts-count" in f for f in find_unsourced_proof(html, coached_count=13))
+

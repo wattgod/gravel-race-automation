@@ -1,0 +1,24 @@
+{
+  "_comment": "Original scheduled dates of cancelled editions, keyed by race slug. Read by wordpress/generate_neo_brutalist.py to emit SportsEvent JSON-LD with eventStatus EventCancelled. Google's Event guidelines require startDate and say to keep the original date when an event is cancelled. Every race whose eligibility.status is 'cancelled' must have an entry here with a sourced date; tests/test_cancelled_event_jsonld.py enforces it.",
+  "gravel-fever": {
+    "start_date": "2026-10-23",
+    "end_date": "2026-10-25",
+    "source": "https://www.sporteco.com/gravel-fever-recherche-de-nouveaux-territoires-daccueil/",
+    "evidence": "devait se dérouler du 23 au 25 octobre 2026",
+    "verified": "2026-10-10"
+  },
+  "gravel-medellin": {
+    "start_date": "2026-08-08",
+    "end_date": "2026-08-08",
+    "source": "https://ucigravelworldseries.com/en/calendar-update-for-uci-gravel-events-in-colombia/",
+    "evidence": "originally planned for 8 August 2026",
+    "verified": "2026-10-10"
+  },
+  "gravel-unravel-why-not-chee": {
+    "start_date": "2026-07-18",
+    "end_date": "2026-07-18",
+    "source": "https://runscore.runsignup.com/Race/WA/Hoquiam/GravelUnravelWhyNotChee",
+    "evidence": "Sat July 18, 2026 / WHY-NOT-CHEE HAS BEEN CANCELED FOR 2026",
+    "verified": "2026-10-10"
+  }
+}

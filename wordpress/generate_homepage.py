@@ -2333,11 +2333,12 @@ def build_jsonld(stats: dict) -> str:
 # ── Page assembler ───────────────────────────────────────────
 
 
-def generate_homepage(race_index: list, race_data_dir: Path = None,
-                      guide_path: Path = None,
-                      substack_posts: list | None = None) -> str:
-    stats = compute_stats(race_index)
-    canonical_url = f"{SITE_BASE_URL}/"
+def homepage_title_and_description(stats: dict) -> tuple[str, str]:
+    """Unescaped <title> and meta description for the homepage.
+
+    Shared with scripts/validate_deploy.py so the deploy check expects
+    exactly what this generator emits.
+    """
     # Round down to nearest 10 for title stability as the catalog changes.
     # (Was nearest 50 — with 384 races that rounded to a stale-looking "350+",
     # a 34-race/9% undercount. Nearest 10 stays accurate to within single
@@ -2348,6 +2349,15 @@ def generate_homepage(race_index: list, race_data_dir: Path = None,
         f"Find your next off-road cycling event. {stats['race_count']} races "
         f"worldwide, rated on {stats['dimensions']} criteria. Training plans and race intel."
     )
+    return title, meta_desc
+
+
+def generate_homepage(race_index: list, race_data_dir: Path = None,
+                      guide_path: Path = None,
+                      substack_posts: list | None = None) -> str:
+    stats = compute_stats(race_index)
+    canonical_url = f"{SITE_BASE_URL}/"
+    title, meta_desc = homepage_title_and_description(stats)
 
     one_liners = load_editorial_one_liners(race_data_dir)
     upcoming = load_upcoming_races(race_data_dir)

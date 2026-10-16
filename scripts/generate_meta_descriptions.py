@@ -24,6 +24,11 @@ OUTPUT_FILE = PROJECT_ROOT / "seo" / "meta-descriptions.json"
 sys.path.insert(0, str(PROJECT_ROOT / "wordpress"))
 from pricing import PRICE_PER_WEEK  # data/pricing.json (D18)
 
+# Race counts in copy come from the published catalog, never a literal.
+RACE_COUNT = len(json.loads(
+    (PROJECT_ROOT / "web" / "race-index.json").read_text(encoding="utf-8")
+))
+
 # ── Race guide entries: hand-crafted with race-data linkage ───────────
 # Format: (wp_id, wp_slug, race_data_slug, description, focus_keyword)
 # Each description uses the race's personality — no templates, no filler.
@@ -273,8 +278,8 @@ TITLE_MAP = {
 MANUAL_ENTRIES = [
     # ── Core Pages ──
     (448, "page", "home",
-     "Gravel cycling data, coaching, and training plans. 328 races rated and ranked on 14 criteria. Built for cyclists who take gravel seriously.",
-     "Gravel cycling data, coaching, and training plans. 328 races rated and ranked on 14 criteria.",
+     f"Gravel cycling data, coaching, and training plans. {RACE_COUNT} races rated and ranked on 14 criteria. Built for cyclists who take gravel seriously.",
+     f"Gravel cycling data, coaching, and training plans. {RACE_COUNT} races rated and ranked on 14 criteria.",
      "gravel cycling"),
     (451, "page", "contact",
      "Contact Gravel God with questions about races, training plans, coaching, or the race database. We respond to everything.",
@@ -290,8 +295,8 @@ MANUAL_ENTRIES = [
      "Training plan questionnaire: tell us your cycling background, goals, and target race. Your answers build a plan tailored to your life.",
      None, "training plan questionnaire"),
     (5018, "page", "gravel-races",
-     "Search, filter, and compare 328 gravel races worldwide. Rated on 14 criteria including prestige, terrain, and logistics.",
-     "Search and compare 328 gravel races worldwide. Rated on 14 criteria including prestige, terrain, and logistics.",
+     f"Search, filter, and compare {RACE_COUNT} gravel races worldwide. Rated on 14 criteria including prestige, terrain, and logistics.",
+     f"Search and compare {RACE_COUNT} gravel races worldwide. Rated on 14 criteria including prestige, terrain, and logistics.",
      "gravel races"),
     (5042, "page", "resources",
      "Gravel cycling resources: race calendars, training tools, nutrition calculators, and recommended gear from real experience.",

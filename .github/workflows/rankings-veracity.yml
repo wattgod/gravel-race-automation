@@ -199,7 +199,7 @@ jobs:
             --body-file /tmp/gate-pr-body.md
 
       - name: Persist state even with no fixes
-        if: steps.changes.outputs.count == '0' && inputs.dry_run != true
+        if: steps.changes.outputs.count == '0' && inputs.dry_run != true && steps.verify.outcome == 'success'
         run: |
           if [ -d data/verification ] && [ -n "$(git status --porcelain data/verification/ 2>/dev/null)" ]; then
             git config user.name "rankings-veracity-bot"
@@ -243,5 +243,14 @@ jobs:
       - name: Fail the run if verification or gates failed
         if: always() && (steps.verify.outcome == 'failure' || steps.gates.outcome == 'failure' || steps.commit.outcome == 'failure')
         run: |
-          echo "::error::verify=${{ steps.verify.outcome }} gates=${{ steps.gates.outcome }} commit=${{ steps.commit.outcome }} — nothing unsafe reached main; see the held-for-review PR"
+          STATUS="verify=${{ steps.verify.outcome }} gates=${{ steps.gates.outcome }} commit=${{ steps.commit.outcome }}"
+          if [ "${{ steps.commit.outputs.pushed }}" = "true" ]; then
+            # verify + gates passed and the push landed; only a post-push step
+            # (the summary issue) failed, so no held-for-review PR exists.
+            echo "::error::$STATUS — the gated fixes WERE pushed to main; a step after the push (gh issue create) failed. No held-for-review PR was opened; see the run logs."
+          elif [ "${{ steps.fallback_pr.outcome }}" = "success" ]; then
+            echo "::error::$STATUS — nothing from this run reached main; the changes are in the held-for-review PR"
+          else
+            echo "::error::$STATUS — nothing from this run reached main, and no held-for-review PR was opened; see the run logs"
+          fi
           exit 1

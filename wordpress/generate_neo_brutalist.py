@@ -2620,16 +2620,73 @@ document.querySelectorAll('.gg-pack-workout').forEach(function(card) {
 
 # ── Phase 3D: JSON-LD Schema ──────────────────────────────────
 
+CANCELLED_EDITIONS_PATH = (
+    Path(__file__).resolve().parent.parent / "data" / "cancelled-editions.json"
+)
+_cancelled_editions_cache: Optional[dict] = None
+
+
+def load_cancelled_editions() -> dict:
+    """Original scheduled dates of cancelled editions, keyed by slug.
+
+    Google's Event guidelines require startDate and say a cancelled event
+    keeps its original date, but a cancelled race's date_specific is status
+    prose. The sourced original dates live in data/cancelled-editions.json.
+    """
+    global _cancelled_editions_cache
+    if _cancelled_editions_cache is None:
+        try:
+            with open(CANCELLED_EDITIONS_PATH, encoding='utf-8') as f:
+                raw = json.load(f)
+        except FileNotFoundError:
+            raw = {}
+        _cancelled_editions_cache = {
+            k: v for k, v in raw.items() if not k.startswith('_') and isinstance(v, dict)
+        }
+    return _cancelled_editions_cache
+
+
+def _cancelled_edition_dates(slug: str) -> tuple[str | None, str | None]:
+    """Return validated (startDate, endDate) for a cancelled edition, or Nones."""
+    entry = load_cancelled_editions().get(slug) or {}
+    try:
+        start = date.fromisoformat(entry.get('start_date', '')).isoformat()
+    except (TypeError, ValueError):
+        return None, None
+    try:
+        end = date.fromisoformat(entry.get('end_date') or start).isoformat()
+    except (TypeError, ValueError):
+        end = start
+    if end < start:
+        end = start
+    return start, end
+
+
 def build_sports_event_jsonld(rd: dict) -> Optional[dict]:
     """Build SportsEvent JSON-LD from normalized race data.
 
     Returns None when startDate cannot be parsed (TBD, check website, etc.)
     — omitting SportsEvent entirely is better than emitting it without a date,
     which triggers GSC "missing startDate" errors with no rich-result upside.
+
+    Cancelled races (eligibility.status == 'cancelled') emit EventCancelled
+    with the cancelled edition's original date from data/cancelled-editions.json
+    and no Offer (registration is closed).
     """
-    # Parse ISO date via shared helper
-    date_specific = rd['vitals'].get('date_specific', '')
-    start_date, end_date = parse_event_dates(date_specific)
+    eligibility = rd.get('eligibility') or {}
+    cancelled = (
+        isinstance(eligibility, dict) and eligibility.get('status') == 'cancelled'
+    )
+    if cancelled:
+        start_date, end_date = _cancelled_edition_dates(rd['slug'])
+        if not start_date:
+            logger.warning(
+                "%s: cancelled race has no original date in %s — "
+                "SportsEvent omitted", rd['slug'], CANCELLED_EDITIONS_PATH.name)
+    else:
+        # Parse ISO date via shared helper
+        date_specific = rd['vitals'].get('date_specific', '')
+        start_date, end_date = parse_event_dates(date_specific)
 
     # No parseable date → skip SportsEvent entirely
     if not start_date:
@@ -2644,7 +2701,8 @@ def build_sports_event_jsonld(rd: dict) -> Optional[dict]:
             rd.get("discipline", "gravel"),
             "Gravel Cycling",
         ),
-        "eventStatus": ("https://schema.org/EventPostponed"
+        "eventStatus": ("https://schema.org/EventCancelled" if cancelled
+                        else "https://schema.org/EventPostponed"
                         if rd.get('taking_a_break') else "https://schema.org/EventScheduled"),
         "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
         "startDate": start_date,
@@ -2697,7 +2755,9 @@ def build_sports_event_jsonld(rd: dict) -> Optional[dict]:
     gbp_match = re.search(r'£\s*(\d+)', reg)
     eur_text_match = re.search(r'(\d+)\s*EUR', reg)
     gbp_text_match = re.search(r'(\d+)\s*GBP', reg)
-    if price_match or euro_match or gbp_match or eur_text_match or gbp_text_match:
+    if cancelled:
+        pass  # No Offer: a cancelled edition has nothing to sell.
+    elif price_match or euro_match or gbp_match or eur_text_match or gbp_text_match:
         if price_match:
             price, currency = price_match.group(1), "USD"
         elif euro_match:

@@ -7272,6 +7272,19 @@ body {{ margin: 0; background: var(--gg-color-warm-paper); }}
   .gg-sticky-cta {{ padding: 10px 12px; }}
   .gg-back-to-top {{ bottom: 60px; right: 12px; width: 36px; height: 36px; }}
 }}
+
+/* Serif numbers that sit in rows or columns: equal-width digits so they line up */
+.gg-neo-brutalist-page .gg-hero-score-number,
+.gg-neo-brutalist-page .gg-stat-value,
+.gg-neo-brutalist-page .gg-rating-tile-score,
+.gg-neo-brutalist-page .gg-countdown-num {{ font-variant-numeric: tabular-nums; }}
+
+/* Headings break into even lines instead of leaving one orphan word */
+.gg-neo-brutalist-page .gg-hero h1,
+.gg-neo-brutalist-page .gg-section-title,
+.gg-neo-brutalist-page .gg-verdict-box-title,
+.gg-neo-brutalist-page .gg-faq-question h3,
+.gg-neo-brutalist-page .gg-training-primary h3 {{ text-wrap: balance; }}
 ''' + get_mega_footer_css() + '''
 </style>'''
 

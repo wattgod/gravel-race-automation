@@ -321,15 +321,16 @@ def build_honest_check() -> str:
 def build_pricing() -> str:
     return f'''<section class="gg-tp-section" id="pricing">
   <div class="gg-tp-section-label">Pricing</div>
-  <h2>{PRICE_PER_WEEK} Per Week. One Payment. No Subscription.</h2>
+  <h2>{PRICE_PER_WEEK} Per Week Until Your Race. One Payment. No Subscription.</h2>
   <div class="gg-tp-pricing-wrap">
     <div class="gg-tp-pricing-card">
       <div class="gg-tp-pricing-header">Custom Training Plan</div>
-      <div class="gg-tp-price">{PRICE_PER_WEEK}<span> / week of training</span></div>
+      <div class="gg-tp-price">{PRICE_PER_WEEK}<span> / week until your race</span></div>
       <ul class="gg-tp-pricing-list">
-        <li>Computed from your race date &mdash; pay for exactly what you need</li>
-        <li>6-week plan = {SIX_WEEK_PRICE}. 12-week plan = {TWELVE_WEEK_PRICE}. 16-week plan = {format_cents(compute_race_plan_price_cents(16))}</li>
-        <li>Capped at {PRICE_CAP} no matter how long the plan</li>
+        <li>Training weeks start on Mondays. Early partial days are separate; final training dates are confirmed during review.</li>
+        <li>Time until your race, rounded up to whole weeks</li>
+        <li>6 weeks until your race = {SIX_WEEK_PRICE}. 12 weeks = {TWELVE_WEEK_PRICE}. 16 weeks until your race = {format_cents(compute_race_plan_price_cents(16))}</li>
+        <li>Four-week minimum, capped at {PRICE_CAP}</li>
         <li>Structured .zwo workouts for Zwift/TrainingPeaks/Wahoo</li>
         <li>30+ page custom training guide</li>
         <li>Race-optimized fueling plan</li>
@@ -365,7 +366,7 @@ FAQ_ITEMS = [
     ),
     (
         "How is the price calculated?",
-        f"{PRICE_PER_WEEK} per week of training, computed from your race date. A 6-week plan is {SIX_WEEK_PRICE}. A 12-week plan is {TWELVE_WEEK_PRICE}. Anything over 16 weeks caps at {PRICE_CAP}. You pay for exactly what you need &mdash; no more.",
+        f"{PRICE_PER_WEEK} per week until your race, rounded up to whole weeks. Four-week minimum, capped at {PRICE_CAP}. Training weeks start on Mondays; early partial days are separate, so the number of scheduled training weeks can be lower than the weeks used for pricing. Final training dates are confirmed during review.",
     ),
     (
         "Is this coaching?",

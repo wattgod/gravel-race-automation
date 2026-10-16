@@ -1,52 +1,52 @@
-name: Morning Intel
-
-# Daily interpreted report (GA4 + checkout + Mission Control + errors) for
-# both brands → gravelgodcoaching@gmail.com, with snapshots committed to
-# data/intel-snapshots/ so trends compound. Spec: docs/specs/daily-intel-report.md
+name: Mission Control alias authentication diagnostic (temporary)
 
 on:
-  schedule:
-    - cron: "0 12 * * *"   # 12:00 UTC = 06:00 MT
   workflow_dispatch:
+    inputs:
+      phase:
+        type: choice
+        options: [baseline, recovery]
+        required: true
+      expected_source_sha:
+        description: Exact temporary branch commit SHA, including this reviewed diagnostic
+        type: string
+        required: true
 
 permissions:
-  contents: write
-  actions: read
+  contents: read
 
 jobs:
-  intel:
+  auth-diagnostic:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 3
+    strategy:
+      fail-fast: false
+      max-parallel: 1
+      matrix:
+        secret_name: [SUPABASE_SERVICE_KEY, SUPABASE_SERVICE_ROLE_KEY]
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.sha }}
+          persist-credentials: false
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-      - name: Install dependencies
-        run: pip install --quiet google-analytics-data supabase python-dotenv
-      - name: Write GA4 credentials
-        run: echo "$GA4_CREDENTIALS_JSON" > ga4-credentials.json
+      - name: Install same SDK and dotenv dependencies as actual collector
+        run: pip install --quiet supabase python-dotenv
+      - name: Zero-row authentication diagnostic
         env:
-          GA4_CREDENTIALS_JSON: ${{ secrets.GA4_CREDENTIALS_JSON }}
-      - name: Run Morning Intel
-        env:
-          GG_GA4_PROPERTY_ID: ${{ secrets.GG_GA4_PROPERTY_ID }}
-          RL_GA4_PROPERTY_ID: ${{ secrets.RL_GA4_PROPERTY_ID }}
-          XC_GA4_PROPERTY_ID: ${{ secrets.XC_GA4_PROPERTY_ID }}
           SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
-          SUPABASE_SERVICE_KEY: ${{ secrets.SUPABASE_SERVICE_KEY }}
-          RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
-          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
-          CRON_SECRET: ${{ secrets.CRON_SECRET }}
-          GH_TOKEN: ${{ github.token }}
-        # One surface: the Morning Console (12:45 UTC) reads this snapshot and
-        # emails the single daily digest. This job no longer emails.
-        run: python3 scripts/daily_intel.py --no-email
-      - name: Commit snapshot
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add data/intel-snapshots/
-          git diff --cached --quiet || git commit -m "chore: intel snapshot $(date +%Y-%m-%d)"
-          git pull --rebase origin main || true
-          git push
+          SUPABASE_SERVICE_KEY: ${{ secrets[matrix.secret_name] }}
+          CONSUMER_SECRET_NAME: ${{ matrix.secret_name }}
+          AUTH_DIAGNOSTIC_PHASE: ${{ inputs.phase }}
+          EXPECTED_SOURCE_SHA: ${{ inputs.expected_source_sha }}
+        run: python3 scripts/qa/gg-mission-control-auth-diagnostic.py
+      - name: Preserve safe metadata on either result
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: gg-mission-control-auth-${{ matrix.secret_name }}-${{ inputs.phase }}-${{ github.run_id }}-${{ github.run_attempt }}
+          path: gg-mission-control-auth-safe.json
+          if-no-files-found: error
+          retention-days: 7

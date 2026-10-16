@@ -211,6 +211,28 @@
     addRaceBtn.addEventListener('click', function() { addRace(); });
   }
   if (racesContainer && racesContainer.children.length === 0) { addRace(); }
+  // Public race/schedule facts only. A token-prefilled athlete stays authoritative.
+  var preview = new URLSearchParams(window.location.search);
+  if (!TOKEN && preview.get('src') === 'plan_preview') {
+    [['race_name','race_date'],['second_race_name','second_race_date']].forEach(function(keys,index) {
+      var name = preview.get(keys[0]) || '', day = preview.get(keys[1]) || '';
+      var parsed = new Date(day + 'T12:00:00Z');
+      if (!name || name.length > 120 || !/^\d{4}-\d{2}-\d{2}$/.test(day) || isNaN(parsed.getTime()) || parsed.toISOString().slice(0,10) !== day) return;
+      var entry = index === 0 ? racesContainer.children[0] : addRace();
+      if (!entry) return;
+      entry.querySelector('[name$="_name"]').value = name;
+      entry.querySelector('[name$="_date"]').value = day;
+      entry.querySelector('[name$="_priority"]').value = 'A';
+    });
+    var hoursField = form.querySelector('[name="hours_per_week"]');
+    var hours = Number(preview.get('hours'));
+    if (hoursField && hours >= 4 && hours <= 18) hoursField.value = hours < 5 ? '<5 hrs' : hours < 7 ? '5-7 hrs' : hours < 10 ? '7-10 hrs' : hours < 13 ? '10-13 hrs' : hours < 16 ? '13-16 hrs' : '16+ hrs';
+    var days = (preview.get('days') || '').split(',');
+    if (days.length >= 3 && days.every(function(day){return ['Mon','Tue','Wed','Thu','Fri','Sat','Sun'].indexOf(day) !== -1;})) {
+      form.querySelectorAll('[name="off_days"]').forEach(function(field){field.checked=days.indexOf(field.value.slice(0,3))===-1;});
+    }
+  }
+
 
   /* ---- Checkbox helper (off days) ---- */
   function getCheckboxValues(name) {

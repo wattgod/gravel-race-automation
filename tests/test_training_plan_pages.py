@@ -126,10 +126,10 @@ class TestCustomPlanPreview:
     def test_uses_versioned_engine_contract_and_race_demands(self, html):
         assert "training-plan-preview-request/v2" in html
         assert "training-plan-preview/v2" in html
-        assert "TRAINING LOAD BY WEEK" in html
+        assert "WEEKLY LOAD" in html
         assert "data-role=\"goal\"" in html
         assert "data-role=\"control\"" in html
-        assert "sample_week_number" in html
+        assert "body.sample_week_number" not in html
         assert "/api/training-plan-preview" in html
         assert '"durability":10' in html
         assert "response.engine_version" in html

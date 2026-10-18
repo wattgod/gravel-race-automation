@@ -377,9 +377,9 @@ class TestPricing:
 
     def test_example_calculations(self):
         section = build_pricing()
-        assert "6-week plan = $90" in section
-        assert "12-week plan = $180" in section
-        assert "16-week plan = $240" in section
+        assert "6 weeks until your race = $90" in section
+        assert "12 weeks = $180" in section
+        assert "16 weeks until your race = $240" in section
 
     def test_support_and_adjustment_boundary(self):
         section = build_pricing()

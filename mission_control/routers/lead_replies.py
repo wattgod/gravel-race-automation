@@ -12,6 +12,8 @@ from mission_control.services.lead_nurture import (
     dismiss_reply_suggestion,
     get_learning_metrics,
     get_reply_queue,
+    gmail_drafts_enabled,
+    reply_sync_enabled,
 )
 
 
@@ -30,6 +32,8 @@ async def lead_reply_queue(request: Request):
         "active_page": "lead_replies",
         "queue": get_reply_queue(),
         "metrics": get_learning_metrics(),
+        "sync_enabled": reply_sync_enabled(),
+        "drafts_enabled": gmail_drafts_enabled(),
     })
 
 
@@ -43,10 +47,17 @@ async def approve_lead_reply(
     result = approve_reply_suggestion(suggestion_id, draft_text)
     if not result:
         raise HTTPException(status_code=409, detail="Suggestion cannot be approved")
+    if gmail_drafts_enabled():
+        message = "The Gmail relay will create an unsent draft. Nothing was sent."
+    else:
+        message = (
+            "Copy this text into your Gmail reply and send it yourself. "
+            "No Gmail draft is created and nothing was sent."
+        )
     return HTMLResponse(
         '<div class="gg-alert gg-alert--success">'
         '<span class="gg-alert__label">Approved</span>'
-        '<span class="gg-alert__message">The Gmail relay will create an unsent draft. Nothing was sent.</span>'
+        f'<span class="gg-alert__message">{message}</span>'
         '</div>'
     )
 

@@ -24,7 +24,6 @@ FORM_JS_PATH = PROJECT_ROOT / "web" / "training-plans-form.js"
 sys.path.insert(0, str(PROJECT_ROOT / "wordpress"))
 from pricing import (  # data/pricing.json (D18)
     MIN_WEEKS,
-    PRICE_CAP,
     PRICE_PER_WEEK,
 )
 
@@ -34,10 +33,8 @@ END_MARKER = "  // GG_PRICING_CONSTANTS_END\n"
 
 def build_block() -> str:
     price_per_week = int(PRICE_PER_WEEK.replace("$", ""))
-    price_cap = int(PRICE_CAP.replace("$", ""))
     return (
         f"  var PRICE_PER_WEEK = {price_per_week};\n"
-        f"  var PRICE_CAP = {price_cap};\n"
         f"  var MIN_WEEKS = {MIN_WEEKS};\n"
     )
 

@@ -1047,6 +1047,34 @@ def test_seo_adjudication_matches_whole_path_only(monkeypatch):
     assert out[1]["adjudicated_issue"] == 119
 
 
+def test_seo_adjudication_requires_seo_context_near_match(monkeypatch):
+    import subprocess, json as _json
+    from scripts import daily_intel
+    from types import SimpleNamespace
+    issues = [
+        {
+            "number": 298,
+            "title": "intel: GG cta_click=0 with form_start=7 on 2026-08-30",
+            "body": (
+                "Attempted to curl /guide/, /race/best-gravel-races-colorado/, "
+                "and /course/coaching-start/ to verify live JS."
+            ),
+        },
+        {
+            "number": 356,
+            "title": "intel: SEO candidates crooked-gravel",
+            "body": "/race/crooked-gravel/ clicks fell from 40 to 9, reads as seasonal decay",
+        },
+    ]
+    monkeypatch.setattr(
+        subprocess, "run",
+        lambda *a, **k: SimpleNamespace(returncode=0, stdout=_json.dumps(issues), stderr=""))
+    out = daily_intel._annotate_seo_adjudications(
+        [{"target_path": "/guide/"}, {"target_path": "/race/crooked-gravel/"}])
+    assert "adjudicated_issue" not in out[0]
+    assert out[1]["adjudicated_issue"] == 356
+
+
 def _commerce_section(report):
     return report.split("## ORDER PROCESSING (LOCAL RECORDS)\n", 1)[1].split(
         "\n\n## CONSTRAINT", 1)[0]

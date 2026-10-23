@@ -1216,19 +1216,29 @@ class TestKitPitchPilot:
         assert v["A"]["steps"] is not v["C"]["steps"]
 
     def test_single_pitch_plus_one_followup(self, fake_db):
+        # Oct 23 2026: recut to Matti's text-a-friend rules (docs/email-voice-model.md).
         checkin = self._render("kit_checkin_pilot", {"race_name": "Big Sugar", "race_slug": "big-sugar"})
-        assert "one note about the custom plan for Big Sugar, and one follow-up" in checkin
-        assert "That's all the plan talk from me" in checkin  # scoped promise, not "no more email ever"
+        assert "custom plan" not in checkin and "plan talk" not in checkin  # no meta promise
         pitch = self._render("kit_pitch", {"race_name": "Big Sugar", "race_slug": "big-sugar"})
         assert pitch.count("questionnaire/?race=big-sugar") == 1
-        assert "One follow-up in a few days" in pitch
+        assert "if Big Sugar is your A-race" in pitch
         assert "Two plan adjustments" in pitch and "P.S." not in pitch
-        assert pitch.index("Reply and ask") < pitch.index('class="cta"')  # exit ramp before the CTA
+        assert pitch.index('class="cta"') < pitch.index("stepping stone")
         follow = self._render("kit_followup", {"race_name": "Big Sugar", "race_slug": "big-sugar"})
         assert follow.count("questionnaire/?race=big-sugar") == 1
-        assert "then I'll drop it" in follow
+        assert "rebuild the rest of your Big Sugar plan" in follow
         for html in (checkin, pitch, follow):
             assert "48 hours" not in html and "{{" not in html and "{race_" not in html
+
+    def test_kit_path_copy_is_text_length(self, fake_db):
+        import re as _re
+        for tpl in ("kit_checkin_pilot", "kit_pitch", "kit_followup"):
+            html = self._render(tpl, {"race_name": "Big Sugar", "race_slug": "big-sugar"})
+            body = html.split('<div class="container">')[1].split("— Matti")[0]
+            body = _re.sub(r'<p class="cta">.*?</p>', " ", body, flags=_re.S)
+            words = _re.findall(r"[\w'’-]+", _re.sub(r"<[^>]+>", " ", body))
+            assert len(words) <= 80, f"{tpl}: {len(words)} words"
+            assert body.rstrip().removesuffix("<p>").rstrip().endswith("?</p>") or tpl == "kit_checkin_pilot"
 
     def test_race_facts_come_from_race_data_only(self, fake_db):
         from mission_control.services.sequence_engine import _race_facts
@@ -1248,7 +1258,7 @@ class TestKitPitchPilot:
         assert "/questionnaire/?race=" not in html  # bad slug dropped → generic CTA
         assert "race/../x" not in html
 
-    def test_checkin_arms_differ_only_by_the_promise_line(self, fake_db):
+    def test_checkin_arms_match_once_the_promise_line_is_gone(self, fake_db):
         a = self._render("race_prep_tips", {"race_name": "Big Sugar", "race_slug": "big-sugar"})
         c = self._render("kit_checkin_pilot", {"race_name": "Big Sugar", "race_slug": "big-sugar"})
         import re as _re
@@ -1256,15 +1266,14 @@ class TestKitPitchPilot:
         a_t, c_t = strip(a), strip(c)
         assert "Did it cover what you needed?" in a_t and "Did it cover what you needed?" in c_t
         assert "happy to help" in a_t and "happy to help" in c_t
-        assert "custom plan" not in a_t and "custom plan" in c_t
+        assert "custom plan" not in a_t and "custom plan" not in c_t
 
-    def test_pitch_states_numbers_only_when_facts_exist(self, fake_db):
+    def test_pitch_never_states_course_numbers(self, fake_db):
         with_facts = self._render("kit_pitch", {"race_name": "Unbound Gravel 200", "race_slug": "unbound-200"})
-        assert "200 miles with about 11,000 feet of climbing" in with_facts
-        without = self._render("kit_pitch", {"race_name": "Mystery Race", "race_slug": "mystery-race-404"})
-        assert "miles with about" not in without and "Mystery Race" in without
+        assert "miles with about" not in with_facts and "Unbound Gravel 200" in with_facts
         anon = self._render("kit_pitch", {})
         assert "miles with about" not in anon and "questionnaire/?race=" not in anon
+        assert "if this race is your A-race" in anon
 
     def test_engine_tags_pilot_cta_with_email_surface(self, fake_db):
         from mission_control.services.sequence_engine import _inject_utm_params

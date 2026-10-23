@@ -520,8 +520,8 @@ class TestConfiguratorJS:
         assert 'weeks * 6' not in js_content
 
     def test_price_calculation_has_bounds(self, js_content):
-        """Price must be capped between $60 and $249."""
-        assert 'Math.min(249' in js_content
+        """Price has a $60 floor and no cap (cap retired 2026-10-23)."""
+        assert 'Math.min(249' not in js_content
         assert 'Math.max(60' in js_content
 
     def test_weeks_minimum_is_4(self, js_content):
@@ -649,10 +649,11 @@ class TestPriceCalculation:
     """Test price calculation logic edge cases (verified via JS string analysis)."""
 
     def test_price_formula_documented(self):
-        """Price formula: min(249, max(60, weeks * 15))."""
+        """Price formula: max(60, weeks * 15), no cap (retired 2026-10-23)."""
         js = build_inline_js()
         # Verify the exact formula is in the JS
-        assert 'Math.min(249, Math.max(60, weeks * 15))' in js
+        assert 'var price = Math.max(60, weeks * 15);' in js
+        assert 'Math.min(249' not in js
 
     @pytest.mark.parametrize("weeks,expected_price", [
         (4, 60),    # Minimum plan = $60
@@ -660,13 +661,13 @@ class TestPriceCalculation:
         (10, 150),
         (13, 195),  # Unbound typical
         (16, 240),
-        (17, 249),  # Cap kicks in at 17 weeks
-        (20, 249),  # Long plan capped
-        (52, 249),  # Year-long capped
+        (17, 255),  # No cap: the old $249 cap is gone
+        (20, 300),
+        (52, 780),  # A year out
     ])
     def test_price_at_various_weeks(self, weeks, expected_price):
         """Verify price calculation at boundary conditions."""
-        price = min(249, max(60, weeks * 15))
+        price = max(60, weeks * 15)
         assert price == expected_price
 
 

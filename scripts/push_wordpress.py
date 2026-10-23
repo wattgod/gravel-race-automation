@@ -1497,7 +1497,11 @@ def sync_season_review(variants: str = "athlete"):
 
 
 def sync_season_plan():
-    """Upload the Season Plan intake to /season-plan/index.html on
+    """RETIRED 2026-10-23: /season-plan/ now 301s to /questionnaire/ (see
+    REDIRECT_BLOCK); there is nothing to upload. Kept so the flag fails loudly
+    instead of shipping a retired product page.
+
+    Was: upload the Season Plan intake to /season-plan/index.html on
     SiteGround via SSH+SCP.
 
     A sol review of D9's build found this page had no deploy path at all:
@@ -1506,6 +1510,9 @@ def sync_season_plan():
     shipped it at /race/season-plan/ instead of /season-plan/. Mirrors
     sync_season_review's single-page upload pattern.
     """
+    print("✗ The Season Plan is retired: /season-plan/ redirects to "
+          "/questionnaire/ (run --sync-redirects). Nothing uploaded.")
+    return None
     ssh = get_ssh_credentials()
     if not ssh:
         return None
@@ -2720,6 +2727,11 @@ RewriteRule ^blog/roundup-northeast-fall-2026/?$ /blog/ [R=301,L]
 # Legacy Elementor custom-plan page (old per-week pricing copy, self-canonical,
 # not in any repo) → the current product page. Receipts spec §4 (2026-09-28).
 RewriteRule ^custom-training-plans/?$ /products/training-plans/ [R=301,L]
+
+# Season Plan retired 2026-10-23 (Matti: one product). The intake page stays
+# on disk but every visit, ?t= prefill links included, goes to the custom-plan
+# questionnaire. /season-plan/success/ is untouched (exact match only).
+RewriteRule ^season-plan/?$ /questionnaire/ [R=301,L]
 
 # /page/N/ → / (homepage pagination is meaningless, prevents noindex gap)
 RewriteRule ^page/\\d+/?$ / [R=301,L]

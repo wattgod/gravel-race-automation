@@ -91,8 +91,10 @@ def _step_delay_days(step: dict, source_data: dict | None) -> int:
 # Keys a step's source_overrides entry may replace. Timing is deliberately
 # not among them: delays are computed from the raw steps in several places
 # (enroll, the next-send delta), and an override that moved one of them
-# would desynchronise the schedule.
-_OVERRIDABLE_STEP_KEYS = ("template", "subject", "question_type")
+# would desynchronise the schedule. race_premise is overridable because a
+# source's own copy can drop the race claim the base step makes (tp_nps never
+# asks whether a race happened), so it must not inherit the base premise.
+_OVERRIDABLE_STEP_KEYS = ("template", "subject", "question_type", "race_premise")
 
 
 def _resolve_step(step: dict, enrollment: dict) -> dict:

@@ -433,6 +433,16 @@ class TestSourceAwareStepZero:
         assert (resolved["template"], resolved["subject"], resolved["delay_days"]) == ("b", "t", 0)
         assert _resolve_step(step, {"source": "y"}) is step
 
+    def test_tp_nps_drops_the_base_race_premise(self):
+        from mission_control.services.sequence_engine import _resolve_step
+        from mission_control.sequences.post_purchase import SEQUENCE
+        steps = SEQUENCE["variants"]["A"]["steps"]
+        base = {**steps[-1], "race_premise": "passed"}
+        tp = _resolve_step(base, {"source": "trainingpeaks_store"})
+        assert tp["template"] == "tp_nps" and tp["race_premise"] is None
+        stripe = _resolve_step(base, {"source": "stripe"})
+        assert stripe["race_premise"] == "passed"
+
     def test_override_templates_exist(self):
         from mission_control.config import WEB_TEMPLATES_DIR
         from mission_control.sequences import SEQUENCES

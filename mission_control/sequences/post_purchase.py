@@ -57,6 +57,8 @@ SEQUENCE = {
                      "trainingpeaks_store": {
                          "template": "tp_nps",
                          "subject": "how's the plan treating you?",
+                         # tp_nps makes no race claim; base plans have no race.
+                         "race_premise": None,
                      },
                  }},
             ],

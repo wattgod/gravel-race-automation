@@ -463,3 +463,12 @@ def test_every_css_token_exists():
     used = set(re.findall(r"var\((--gg-[a-z0-9-]+)\)", gen.build_intake_css()))
     missing = sorted(t for t in used if f"{t}:" not in tokens)
     assert missing == []
+
+
+def test_token_leaves_the_address_bar_before_ga4(details_page, start_page):
+    """The step-2 link token is a bearer credential: it must be stored and
+    scrubbed from the URL before GA4's first page_view records the URL."""
+    scrub = details_page.index("sessionStorage.setItem('gg_tp_details_token'")
+    ga4 = details_page.index("googletagmanager.com/gtag/js")
+    assert scrub < ga4
+    assert "gg_tp_details_token" not in start_page

@@ -692,6 +692,20 @@ def build_details_content() -> str:
 
 # ── Page assembly ────────────────────────────────────────────
 
+# Runs before the GA4 snippet on the step-2 page: the link token is a
+# bearer credential, so it moves to sessionStorage and leaves the address
+# bar before the first page_view can record the URL. The address is only
+# scrubbed once the token is safely stored.
+TOKEN_SCRUB_HEAD_JS = (
+    "<script>(function(){try{var u=new URL(window.location.href);"
+    "var t=u.searchParams.get('t');if(!t)return;"
+    "sessionStorage.setItem('gg_tp_details_token',t);"
+    "if(sessionStorage.getItem('gg_tp_details_token')!==t)return;"
+    "u.searchParams.delete('t');"
+    "history.replaceState(null,'',u.pathname+u.search+u.hash);"
+    "}catch(e){}})();</script>"
+)
+
 PAGES = {
     "start": {
         "title": "Build Your Plan | Gravel God Cycling",
@@ -708,6 +722,7 @@ PAGES = {
         "builder": build_details_content,
         "js_path": DETAILS_JS_PATH,
         "output_path": "plan-details.html",
+        "pre_ga4_head": TOKEN_SCRUB_HEAD_JS,
     },
 }
 
@@ -744,6 +759,7 @@ def generate_page(page_key: str, external_assets: dict | None = None) -> str:
   {get_preload_hints()}
   {page_css}
   {build_intake_css()}
+  {page.get('pre_ga4_head', '')}
   {get_ga4_head_snippet()}
   {get_ab_head_snippet()}
 </head>

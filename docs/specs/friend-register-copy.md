@@ -117,6 +117,15 @@ One thing: if anything about your life changes — schedule, knee, race date —
 
 — Matti
 
+### post_purchase · day 0 · tp_purchase_welcome   (source trainingpeaks_store only; replaces purchase_welcome for TP store buyers)
+SUBJECT: did the plan land on your calendar?
+BODY:
+{greeting} saw you picked up {{#plan_name}}{plan_name}{{/plan_name}}{{^plan_name}}the plan{{/plan_name}} on TrainingPeaks. If your week doesn't look like what the plan assumes, reply and tell me what it does look like. Easier to fix in week one than week six.
+
+Did you set the start date so it ends on race day?
+
+— Matti
+
 ### post_purchase · day 3 · week1_tips
 SUBJECT: how did the first rides feel?
 BODY:

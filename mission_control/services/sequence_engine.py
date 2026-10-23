@@ -88,6 +88,28 @@ def _step_delay_days(step: dict, source_data: dict | None) -> int:
         return step["delay_days"]
     return _DEFAULT_PLAN_WEEKS * 7 + completion_delay
 
+# Keys a step's source_overrides entry may replace. Timing is deliberately
+# not among them: delays are computed from the raw steps in several places
+# (enroll, the next-send delta), and an override that moved one of them
+# would desynchronise the schedule.
+_OVERRIDABLE_STEP_KEYS = ("template", "subject", "question_type")
+
+
+def _resolve_step(step: dict, enrollment: dict) -> dict:
+    """The step as this enrollment should receive it.
+
+    A step may carry `source_overrides: {<enrollment source>: {template,
+    subject, question_type}}` so one sequence serves buyers whose premise
+    differs at that step — e.g. a TrainingPeaks store buyer already has the
+    plan, so post_purchase day 0 must not say "got your questionnaire".
+    Steps without an entry for this source are returned unchanged.
+    """
+    override = (step.get("source_overrides") or {}).get(enrollment.get("source") or "")
+    if not override:
+        return step
+    return {**step, **{k: override[k] for k in _OVERRIDABLE_STEP_KEYS if k in override}}
+
+
 # Lock to prevent concurrent process_due_sends() from sending duplicate emails
 _processing_lock = asyncio.Lock()
 
@@ -296,7 +318,7 @@ async def _send_next_step(enrollment: dict) -> bool:
         }, {"id": enrollment["id"]})
         return True
 
-    step = steps[step_index]
+    step = _resolve_step(steps[step_index], enrollment)
     brand = seq.get("brand", "gravelgod")
 
     # Render subject with source_data substitutions
@@ -415,7 +437,7 @@ async def resend_first_step(enrollment: dict, subject: str | None = None) -> boo
     if not RESEND_API_KEY:
         return False
 
-    step = variant["steps"][0]
+    step = _resolve_step(variant["steps"][0], enrollment)
     brand = seq.get("brand", "gravelgod")
     subject = subject or _render_subject(step["subject"], enrollment.get("source_data") or {})
 

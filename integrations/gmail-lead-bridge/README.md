@@ -42,3 +42,28 @@ sends, archives, trashes, labels, or marks messages read.
 
 Google supports `GmailMessage.createDraftReply()` and installable time-driven
 triggers; see the official Gmail Service and Installable Triggers documentation.
+
+## TrainingPeaks store sales (optional, off by default)
+
+`runTpStoreSalesSync()` enrolls TrainingPeaks store buyers in the
+`post_purchase` sequence (source `trainingpeaks_store`). It has its own
+15-minute trigger and does not depend on the lead bridge trigger.
+
+1. Copy the updated `Code.gs` into the Apps Script project (same Script
+   Properties; no new credential or scope).
+2. Run `dryRunTpStoreSales()` and read the log: Mission Control parses the
+   last 14 days of "Congratulations, You Just Sold a Training Plan" mail and
+   reports per-message outcomes (`would_enroll`, `skipped_no_email`,
+   `skipped_stale`, `unverified_sender`, `unparsed`, ...). Nothing is recorded
+   or enrolled, flag or not.
+3. Set `TP_BUYER_INGEST_ENABLED=true` on Mission Control. Optional:
+   `TP_BUYER_MAX_AGE_DAYS` (default 7) — older sales are recorded as
+   `skipped_stale` and never mailed.
+4. Run `installTpStoreSalesSync()` once.
+
+While the flag is off, `/webhooks/tp-store-sales/config` answers
+`enabled: false` and the scheduled run searches no mail. A message is accepted
+only when From is `support@trainingpeaks.com` and Gmail's own (topmost)
+Authentication-Results shows DMARC or DKIM passing for trainingpeaks.com.
+Dedup is by Gmail message id in `gg_audit_log`
+(`action = tp_store_sale_processed`).

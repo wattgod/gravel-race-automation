@@ -11,7 +11,17 @@ SEQUENCE = {
             "weight": 100,
             "name": "Standard",
             "steps": [
-                {"delay_days": 0, "template": "purchase_welcome", "subject": "got your questionnaire"},
+                # A TrainingPeaks store buyer (source "trainingpeaks_store",
+                # services/tp_store_sales.py) has the plan the moment they pay,
+                # so "got your questionnaire ... inside 24 hours" is false for
+                # them. sequence_engine._resolve_step swaps template + subject.
+                {"delay_days": 0, "template": "purchase_welcome", "subject": "got your questionnaire",
+                 "source_overrides": {
+                     "trainingpeaks_store": {
+                         "template": "tp_purchase_welcome",
+                         "subject": "did the plan land on your calendar?",
+                     },
+                 }},
                 {"delay_days": 3, "template": "week1_tips", "subject": "how did the first rides feel?"},
                 {"delay_days": 10, "template": "checkin_week2", "subject": "two weeks in — quick check"},
                 {"delay_days": 21, "template": "progress_update", "subject": "the boring middle"},

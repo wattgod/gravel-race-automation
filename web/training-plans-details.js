@@ -231,7 +231,8 @@
     if (line) {
       if (!building) {
         line.textContent = '';
-      } else if (new URLSearchParams(window.location.search).get('delivery') === 'endure') {
+      } else if (new URLSearchParams(window.location.search).get('delivery') === 'endure' ||
+                 (intake && intake.delivery === 'endure')) {
         line.textContent = 'It\u2019ll be ready within ' + DELIVERY_HOURS + ' hours.';
       } else {
         line.textContent = 'It\u2019ll be in your TrainingPeaks within ' + DELIVERY_HOURS + ' hours.';

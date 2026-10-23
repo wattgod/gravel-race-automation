@@ -127,3 +127,16 @@ PUBLIC_URL = os.environ.get("PUBLIC_URL", "https://athlete-profiles-production.u
 
 # HMAC secret for unsubscribe tokens (falls back to WEBHOOK_SECRET)
 UNSUBSCRIBE_SECRET = os.environ.get("UNSUBSCRIBE_SECRET", "") or WEBHOOK_SECRET
+
+# Win-back (lead_cold_30d) — OFF unless explicitly enabled. This one flag both
+# activates the win_back_v1 / xc_win_back_v1 definitions (enroll() refuses an
+# inactive sequence) and lets the daily scheduler job select and enroll cold
+# leads. See mission_control/services/win_back.py.
+WIN_BACK_ENABLED = os.environ.get("WIN_BACK_ENABLED", "").strip().lower() in ("1", "true", "yes", "on")
+# Max contacts enrolled per daily run, so turning the flag on drains the cold
+# backlog over days instead of landing it in Matti's inbox in one afternoon.
+# Clamped to 0..100; anything unparseable falls back to 20.
+try:
+    WIN_BACK_DAILY_CAP = max(0, min(100, int(os.environ.get("WIN_BACK_DAILY_CAP", "20"))))
+except ValueError:
+    WIN_BACK_DAILY_CAP = 20

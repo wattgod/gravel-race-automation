@@ -20,6 +20,14 @@ it — the gate FAILS kit_pitch and kit_followup by construction (friend 1/5,
 copy defect. Readout 2026-10-10 on plan-funnel entry_surface=email_nurture
 (arrivals → starts → checkouts → purchases) and unsubscribes per step;
 either C becomes the track or it goes to weight 0 and the exception ends.
+
+DECISION (Oct 2026, pending Matti's approval of the PR that set it): on prod
+data the C kit check-in path outperformed A, so C becomes the track — new
+prep_kit_download enrollments go to C only (A 0 / B 0 / C 100). A and B
+stay defined, unchanged, so contacts already enrolled in them finish their
+track (the engine stores the variant on the enrollment row and reads that
+variant's steps on every send). The doctrine exception above is therefore
+standing for this sequence until Matti says otherwise.
 """
 
 _STEPS = [
@@ -35,12 +43,12 @@ _STEPS_PILOT = [
 SEQUENCE = {
     "id": "nurture_v1",
     "name": "Lead Nurture",
-    "description": "Prep-kit and exit-intent leads — one honest check-in on the kit; pilot arm adds one race-specific pitch + one follow-up.",
+    "description": "Prep-kit leads — kit check-in, one race-specific pitch, one follow-up (former pilot arm C, now 100%).",
     "trigger": "prep_kit_download",
     "active": True,
     "variants": {
-        "A": {"weight": 50, "name": "Anti-funnel", "steps": _STEPS},
+        "A": {"weight": 0, "name": "Anti-funnel (retired, in-flight only)", "steps": _STEPS},
         "B": {"weight": 0, "name": "Legacy slot (same steps)", "steps": _STEPS},
-        "C": {"weight": 50, "name": "Kit pitch pilot", "steps": _STEPS_PILOT},
+        "C": {"weight": 100, "name": "Kit pitch pilot", "steps": _STEPS_PILOT},
     },
 }

@@ -1211,7 +1211,8 @@ class TestKitPitchPilot:
         assert [s["template"] for s in v["A"]["steps"]] == ["race_prep_tips"]
         assert [s["template"] for s in v["C"]["steps"]] == ["kit_checkin_pilot", "kit_pitch", "kit_followup"]
         assert [s["delay_days"] for s in v["C"]["steps"]] == [2, 7, 11]
-        assert v["A"]["weight"] == 50 and v["C"]["weight"] == 50 and v["B"]["weight"] == 0
+        # C is the track since the Oct 2026 decision; A and B stay for in-flight rows.
+        assert v["A"]["weight"] == 0 and v["C"]["weight"] == 100 and v["B"]["weight"] == 0
         assert v["A"]["steps"] is not v["C"]["steps"]
 
     def test_single_pitch_plus_one_followup(self, fake_db):
@@ -1270,6 +1271,56 @@ class TestKitPitchPilot:
         html = self._render("kit_pitch", {"race_name": "Big Sugar", "race_slug": "big-sugar"})
         out = _inject_utm_params(html, "nurture_v1", "C", 1)
         assert "questionnaire/?race=big-sugar&src=email_nurture&utm_source=gravel_god" in out
+
+
+class TestRetiredVariantsStillSendInFlight:
+    """Oct 2026: welcome B (Sober) and nurture A went to weight 0. New
+    enrollments must never land in them, and a contact already enrolled in
+    one must keep receiving that variant's next step, because the engine
+    reads the variant stored on the enrollment row, not the weights."""
+
+    def test_new_welcome_enrollments_are_all_value_first(self, fake_db):
+        from mission_control.services.sequence_engine import enroll
+        variants = {enroll(f"w{i}@example.com", "W", "welcome_v1")["variant"] for i in range(200)}
+        assert variants == {"A"}
+
+    def test_new_nurture_enrollments_are_all_kit_path(self, fake_db):
+        from mission_control.services.sequence_engine import enroll
+        sd = {"race_name": "Big Sugar", "race_slug": "big-sugar"}
+        variants = {enroll(f"n{i}@example.com", "N", "nurture_v1", source="prep_kit_gate",
+                           source_data=sd)["variant"] for i in range(200)}
+        assert variants == {"C"}
+
+    def test_retired_variants_keep_their_steps(self, fake_db):
+        from mission_control.sequences import SEQUENCES
+        b = SEQUENCES["welcome_v1"]["variants"]["B"]
+        assert [s["template"] for s in b["steps"]] == [
+            "sober_welcome", "sober_pacing", "sober_scoring",
+            "sober_pitch", "sober_repitch", "sober_breathing"]
+        assert [s["template"] for s in SEQUENCES["nurture_v1"]["variants"]["A"]["steps"]] == ["race_prep_tips"]
+
+    @pytest.mark.parametrize("seq_id,variant,step,template", [
+        ("welcome_v1", "B", 2, "sober_scoring"),
+        ("nurture_v1", "A", 0, "race_prep_tips"),
+    ])
+    def test_in_flight_retired_enrollment_gets_its_next_step(
+            self, fake_db, monkeypatch, seq_id, variant, step, template):
+        import asyncio
+        from mission_control.services import sequence_engine as se
+        from mission_control.tests.conftest import make_enrollment
+
+        monkeypatch.setattr(se, "RESEND_API_KEY", "test-key")
+        monkeypatch.setattr(se, "_send_email_sync", lambda *a, **k: "resend-test-id")
+        enrollment = make_enrollment(
+            sequence_id=seq_id, variant=variant, current_step=step, status="active",
+            source="prep_kit_gate" if seq_id == "nurture_v1" else "exit_intent",
+            source_data={"race_name": "Big Sugar", "race_slug": "big-sugar"},
+        )
+        fake_db.store["gg_sequence_enrollments"].append(enrollment)
+        assert asyncio.run(se._send_next_step(enrollment)) is True
+        sends = fake_db.store["gg_sequence_sends"]
+        assert [s["template"] for s in sends] == [template]
+        assert enrollment["variant"] == variant
 
 
 class TestReceiptSequencesAreOneEmail:

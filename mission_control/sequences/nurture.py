@@ -20,6 +20,11 @@ it — the gate FAILS kit_pitch and kit_followup by construction (friend 1/5,
 copy defect. Readout 2026-10-10 on plan-funnel entry_surface=email_nurture
 (arrivals → starts → checkouts → purchases) and unsubscribes per step;
 either C becomes the track or it goes to weight 0 and the exception ends.
+
+race_premise "upcoming" (kit_pitch, kit_followup: both sell a plan for the race): right before a step sends, the engine re-checks it
+against the race's current published date and skips the step, with an
+audit-log entry, when it no longer holds (see
+sequence_engine._race_premise_failure).
 """
 
 _STEPS = [
@@ -28,8 +33,8 @@ _STEPS = [
 
 _STEPS_PILOT = [
     {"delay_days": 2, "template": "kit_checkin_pilot", "subject": "how'd the prep kit land?"},
-    {"delay_days": 7, "template": "kit_pitch", "subject": "the plan, for {race_name}"},
-    {"delay_days": 11, "template": "kit_followup", "subject": "week six"},
+    {"delay_days": 7, "template": "kit_pitch", "subject": "the plan, for {race_name}", "race_premise": "upcoming"},
+    {"delay_days": 11, "template": "kit_followup", "subject": "week six", "race_premise": "upcoming"},
 ]
 
 SEQUENCE = {

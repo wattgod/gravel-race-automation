@@ -21,7 +21,9 @@ SEQUENCE = {
                 # source_data.plan_weeks isn't available (see sequence_engine's
                 # _step_delay_days — DORMANT until the plan_purchased enrollment
                 # path supplies plan_weeks; see webhooks.py trigger_map gap).
-                {"delay_from_completion_days": 3, "delay_days": 42, "template": "nps_request", "subject": "did {race_name} happen?"},
+                # race_premise "passed": skipped at send time, audit-logged,
+                # unless the race has happened (_race_premise_failure).
+                {"delay_from_completion_days": 3, "delay_days": 42, "template": "nps_request", "subject": "did {race_name} happen?", "race_premise": "passed"},
             ],
         },
     },

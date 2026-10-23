@@ -298,6 +298,20 @@ async def _send_next_step(enrollment: dict) -> bool:
     step = steps[step_index]
     brand = seq.get("brand", "gravelgod")
 
+    # Freshness: a step whose copy only holds while its race is upcoming (or
+    # has passed) is re-checked against the race's current date right before
+    # it goes. A step that fails is not sent; the sequence moves on as if it
+    # had been, and the audit log says why.
+    premise_failure = _race_premise_failure(step, enrollment, brand)
+    if premise_failure:
+        db.log_action(
+            "sequence_step_skipped", "enrollment", str(enrollment["id"]),
+            f"{enrollment['sequence_id']} step {step_index} ({step['template']}) "
+            f"not sent: {premise_failure}"[:500],
+        )
+        _advance(enrollment, steps, step_index, step)
+        return True
+
     # Render subject with source_data substitutions
     subject = _render_subject(step["subject"], enrollment.get("source_data") or {})
 
@@ -351,12 +365,18 @@ async def _send_next_step(enrollment: dict) -> bool:
         "question_type": step.get("question_type") or classify_question(html),
     })
 
-    # Advance to next step
+    _advance(enrollment, steps, step_index, step)
+    return True
+
+
+def _advance(enrollment: dict, steps: list[dict], step_index: int, step: dict) -> None:
+    """Move an enrollment past step_index: schedule the next step, or
+    complete the sequence after the last one."""
     next_step = step_index + 1
     now = datetime.now(timezone.utc)
 
     if next_step >= len(steps):
-        # Sequence complete after this send
+        # Sequence complete after this step
         db.update("gg_sequence_enrollments", {
             "current_step": next_step,
             "status": "completed",
@@ -381,7 +401,82 @@ async def _send_next_step(enrollment: dict) -> bool:
             "next_send_at": next_send.isoformat(),
         }, {"id": enrollment["id"]})
 
-    return True
+
+# Race premises a step may declare (`race_premise` on the step, next to its
+# copy): "upcoming" when the copy only holds before the race (a countdown, a
+# plan pitch), "passed" when it only holds after (a debrief, "did X happen?").
+# A countdown step also states the weeks-out its copy names
+# (`race_weeks_out`), which must still be within _WEEKS_OUT_TOLERANCE weeks
+# of true. Steps without race_premise are not checked.
+_RACE_PREMISES = ("upcoming", "passed")
+_WEEKS_OUT_TOLERANCE = 1.0
+# A published date this many days or more after the one the enrollment
+# recorded is the race's next edition (the catalog rolled forward), not a
+# postponement of the edition the email is about.
+_NEXT_EDITION_DAYS = 300
+
+
+def _previous_edition(race_date):
+    """Same day one year earlier (Feb 29 -> Feb 28), as race_debrief infers."""
+    try:
+        return race_date.replace(year=race_date.year - 1)
+    except ValueError:
+        return race_date.replace(year=race_date.year - 1, day=28)
+
+
+def _race_premise_failure(step: dict, enrollment: dict, brand: str,
+                          today=None) -> str | None:
+    """Why a step's race premise no longer holds, or None when it holds or
+    the step declares none.
+
+    The race's date is its CURRENT published date (the race-dates.json maps
+    the countdown and debrief jobs enroll from), not the one recorded at
+    enrollment, so a send that was delayed, or a race that moved, is caught.
+    Default-safe: an unknown premise, or a date that cannot be found, fails.
+    """
+    premise = step.get("race_premise")
+    if not premise:
+        return None
+    if premise not in _RACE_PREMISES:
+        return f"unknown race_premise {premise!r}"
+    from mission_control.services.race_countdown import parse_race_date, published_race_date
+
+    source_data = enrollment.get("source_data") or {}
+    today = today or datetime.now(timezone.utc).date()
+    race_date, why = published_race_date(brand, source_data.get("race_slug"))
+    if race_date is None:
+        return f"race date unknown: {why}"
+
+    if premise == "upcoming":
+        if race_date <= today:
+            return f"race date {race_date} is not in the future"
+        weeks = step.get("race_weeks_out")
+        if weeks is not None:
+            if not _is_real_number(weeks):
+                return f"race_weeks_out {weeks!r} is not a number"
+            true_weeks = (race_date - today).days / 7
+            if abs(true_weeks - weeks) > _WEEKS_OUT_TOLERANCE:
+                return (f"copy says {weeks} weeks out, race is {true_weeks:.1f} "
+                        f"weeks out ({race_date})")
+        return None
+
+    # premise == "passed"
+    if race_date < today:
+        return None
+    # The published date can have rolled forward to the next edition. The
+    # email still holds when it is about the previous one: the debrief job
+    # dated it on that edition (date_inferred), or the date recorded at
+    # enrollment has passed and the published one is a year on, not a
+    # postponement.
+    if str(source_data.get("date_inferred") or "").lower() == "true":
+        if _previous_edition(race_date) < today:
+            return None
+    else:
+        recorded = parse_race_date(source_data.get("race_date"))
+        if (recorded and recorded < today
+                and (race_date - recorded).days >= _NEXT_EDITION_DAYS):
+            return None
+    return f"race date {race_date} has not passed"
 
 
 # A resubmitted season review re-sends its first email so the rider gets the
@@ -395,7 +490,8 @@ async def resend_first_step(enrollment: dict, subject: str | None = None) -> boo
 
     Sends nothing when the enrollment is unsubscribed, paused or bounced, when
     step 0 has not gone out yet (the scheduled send will already carry the
-    corrected answers), or when MAX_RESENDS is used up.
+    corrected answers), when MAX_RESENDS is used up, or when step 0's race
+    premise no longer holds (see _race_premise_failure).
     """
     if enrollment.get("status") not in ("active", "completed"):
         return False
@@ -416,6 +512,12 @@ async def resend_first_step(enrollment: dict, subject: str | None = None) -> boo
 
     step = variant["steps"][0]
     brand = seq.get("brand", "gravelgod")
+    premise_failure = _race_premise_failure(step, enrollment, brand)
+    if premise_failure:
+        db.log_action("sequence_step_skipped", "enrollment", str(enrollment["id"]),
+                      f"{enrollment['sequence_id']} step 0 ({step['template']}) "
+                      f"not resent: {premise_failure}"[:500])
+        return False
     subject = subject or _render_subject(step["subject"], enrollment.get("source_data") or {})
 
     # Claim a slot before sending, then count. Every concurrent caller counts

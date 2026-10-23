@@ -16,6 +16,7 @@ from datetime import datetime, timedelta, timezone
 from email.utils import formataddr, parseaddr
 
 from mission_control import supabase_client as db
+from mission_control.services.contact_suppression import is_suppressed
 from mission_control.config import (
     PUBLIC_URL, RESEND_API_KEY, UNSUBSCRIBE_SECRET, WEB_TEMPLATES_DIR,
 )
@@ -112,6 +113,12 @@ def enroll(
         match={"sequence_id": sequence_id, "contact_email": email},
     )
     if existing:
+        return None
+
+    # Do-not-email list (coached athletes). Only a receipt for a form the
+    # person just filed gets through.
+    if seq.get("trigger") not in _RECEIPT_TRIGGERS and is_suppressed(email):
+        logger.info("enroll blocked (do-not-email list): %s", sequence_id)
         return None
 
     # Contact-level unsubscribe guard. unsubscribe() only pauses the
@@ -258,6 +265,18 @@ async def _send_next_step(enrollment: dict) -> bool:
     if not seq:
         return False
 
+    # Do-not-email list (coached athletes): close the enrollment unsent.
+    if seq.get("trigger") not in _RECEIPT_TRIGGERS and is_suppressed(enrollment["contact_email"]):
+        db.update("gg_sequence_enrollments", {
+            "status": "completed",
+            "completed_at": datetime.now(timezone.utc).isoformat(),
+        }, {"id": enrollment["id"]})
+        db.log_action(
+            "sequence_suppressed", "enrollment", str(enrollment["id"]),
+            "Do-not-email list: coached athlete, nothing sent",
+        )
+        return True
+
     # Customer suppression — don't send marketing emails to existing customers
     if seq.get("trigger") not in _POST_PURCHASE_TRIGGERS:
         customer = db.select_one(
@@ -400,6 +419,8 @@ async def resend_first_step(enrollment: dict, subject: str | None = None) -> boo
     if enrollment.get("status") not in ("active", "completed"):
         return False
     seq = get_sequence(enrollment["sequence_id"])
+    if (seq or {}).get("trigger") not in _RECEIPT_TRIGGERS and is_suppressed(enrollment.get("contact_email")):
+        return False
     variant = (seq or {}).get("variants", {}).get(enrollment.get("variant"))
     if not variant or not variant.get("steps"):
         return False

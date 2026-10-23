@@ -1411,6 +1411,75 @@ def sync_training_plans(training_plans_file: str):
     return f"{wp_url}/products/training-plans/"
 
 
+def sync_plan_intake():
+    """Upload the two-step questionnaire (2026-10-23) via SSH+SCP:
+
+      wordpress/output/plan-start.html   → /training-plans/start/index.html
+      wordpress/output/plan-details.html → /training-plans/details/index.html
+
+    Both come from wordpress/generate_plan_intake_pages.py, with their JS
+    inlined, plus the shared CSS/JS they reference under /race/assets/.
+    Their slugs are in ROOT_CANONICAL_SLUGS so the generic sync_pages /race/
+    sweep never ships them at /race/plan-start/ (the trap sync_season_plan's
+    docstring describes). /questionnaire/ 302s to the start page once
+    --sync-redirects runs.
+    """
+    ssh = get_ssh_credentials()
+    if not ssh:
+        return None
+    host, user, port = ssh
+
+    output_dir = Path("wordpress/output")
+    pages = [
+        (output_dir / "plan-start.html", "training-plans/start"),
+        (output_dir / "plan-details.html", "training-plans/details"),
+    ]
+    missing = [str(p) for p, _ in pages if not p.exists()]
+    if missing:
+        print(f"✗ Plan intake HTML not found: {', '.join(missing)}")
+        print("  Run: python3 wordpress/generate_plan_intake_pages.py first")
+        return None
+
+    # Shared CSS/JS first: a page whose stylesheet hasn't landed renders bare.
+    remote_assets = "~/www/gravelgodcycling.com/public_html/race/assets"
+    for pattern in ("gg-styles.*.css", "gg-scripts.*.js"):
+        for asset in (output_dir / "assets").glob(pattern):
+            try:
+                subprocess.run(
+                    ["scp", "-i", str(SSH_KEY), "-P", port, str(asset),
+                     f"{user}@{host}:{remote_assets}/{asset.name}"],
+                    check=True, capture_output=True, text=True, timeout=30,
+                )
+            except subprocess.CalledProcessError:
+                print(f"  ⚠ Could not upload {asset.name} (non-fatal)")
+
+    wp_url = os.environ.get("WP_URL", "https://gravelgodcycling.com")
+    urls = []
+    for html_path, remote_rel in pages:
+        remote_base = f"~/www/gravelgodcycling.com/public_html/{remote_rel}"
+        try:
+            subprocess.run(
+                ["ssh", "-i", str(SSH_KEY), "-p", port, f"{user}@{host}",
+                 f"mkdir -p {remote_base}"],
+                check=True, capture_output=True, text=True, timeout=15,
+            )
+            subprocess.run(
+                ["scp", "-i", str(SSH_KEY), "-P", port, str(html_path),
+                 f"{user}@{host}:{remote_base}/index.html"],
+                check=True, capture_output=True, text=True, timeout=30,
+            )
+        except subprocess.CalledProcessError as e:
+            print(f"✗ Upload failed for /{remote_rel}/: {e.stderr.strip()}")
+            return None
+        except Exception as e:  # noqa: BLE001
+            print(f"✗ Error uploading /{remote_rel}/: {e}")
+            return None
+        url = f"{wp_url}/{remote_rel}/"
+        print(f"✓ Uploaded plan intake page: {url}")
+        urls.append(url)
+    return urls
+
+
 def sync_season_review(variants: str = "athlete"):
     """Upload season review questionnaires to /coaching/season-review/[<slug>/].
 
@@ -1765,6 +1834,9 @@ ROOT_CANONICAL_SLUGS = frozenset({
     "about", "articles", "athletes", "coaching", "consulting", "cookies", "course",
     "gravel-tv", "gravel-weekly", "guide", "homepage", "insights", "privacy", "terms",
     "training-plans", "season-plan",
+    # Two-step questionnaire (2026-10-23): /training-plans/start/ and
+    # /training-plans/details/, deployed by --sync-plan-intake.
+    "plan-start", "plan-details",
 })
 
 RACE_DATA_DIR = Path(__file__).resolve().parent.parent / "race-data"
@@ -2732,6 +2804,13 @@ RewriteRule ^custom-training-plans/?$ /products/training-plans/ [R=301,L]
 # on disk but every visit, ?t= prefill links included, goes to the custom-plan
 # questionnaire. /season-plan/success/ is untouched (exact match only).
 RewriteRule ^season-plan/?$ /questionnaire/ [R=301,L]
+
+# Two-step switch (2026-10-23): the long one-page questionnaire becomes
+# step 1 (race, date, name, email → checkout) at /training-plans/start/, with
+# the rest of the questions after payment at /training-plans/details/.
+# 302, not 301, so switching back is just deleting this line. The query
+# string (?race=, ?src=, ...) carries over.
+RewriteRule ^questionnaire/?$ /training-plans/start/ [R=302,L]
 
 # /page/N/ → / (homepage pagination is meaningless, prevents noindex gap)
 RewriteRule ^page/\\d+/?$ / [R=301,L]
@@ -5206,6 +5285,10 @@ if __name__ == "__main__":
         help="Comma-separated variant slugs to upload (default: athlete; e.g. exit for /coaching/exit/)"
     )
     parser.add_argument(
+        "--sync-plan-intake", action="store_true",
+        help="Upload the two-step questionnaire to /training-plans/start/ and /training-plans/details/ via SCP"
+    )
+    parser.add_argument(
         "--sync-season-plan", action="store_true",
         help="Upload the Season Plan intake to /season-plan/ via SCP"
     )
@@ -5570,7 +5653,7 @@ if __name__ == "__main__":
                       args.sync_guide, args.sync_guide_cluster,
                       args.sync_og, args.sync_tp, args.sync_homepage, args.sync_gravel_weekly, args.sync_about,
                       args.sync_athletes, args.sync_coaching, args.sync_coaching_apply, args.sync_season_review,
-                      args.sync_season_plan,
+                      args.sync_season_plan, args.sync_plan_intake,
                       args.sync_consulting,
                       args.sync_consult_intake,
                       args.sync_training_plans, args.sync_success, args.sync_pages,
@@ -5631,6 +5714,8 @@ if __name__ == "__main__":
         _run("sync-season-review", sync_season_review, args.season_review_variants)
     if args.sync_season_plan:
         _run("sync-season-plan", sync_season_plan)
+    if args.sync_plan_intake:
+        _run("sync-plan-intake", sync_plan_intake)
 
     if args.sync_coaching_apply:
         _run("sync-coaching-apply", sync_coaching_apply, args.coaching_apply_file)

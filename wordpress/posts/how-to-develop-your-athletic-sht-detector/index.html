@@ -262,7 +262,7 @@ sup a:hover{text-decoration:underline}
 .inshort .ev{font:700 13px/1.4 var(--mono);color:var(--cobalt-deep);text-decoration:underline;text-underline-offset:3px;text-decoration-thickness:2px}
 .inshort .ev:hover{color:var(--ink)}
 
-/* ladder: custom plan leads, then season, then coaching */
+/* ladder: custom plan leads, then coaching */
 .slot-ladder{margin:56px 0 10px}
 .article .ladder .lead{font:600 25px/1.3 var(--serif);margin:0 0 20px}
 .rung{color:var(--ink)}
@@ -276,7 +276,7 @@ sup a:hover{text-decoration:underline}
 .rung.main .d{margin:0;max-width:30em}
 .rung.main .btn{background:var(--paper);color:var(--ink)}
 .rung.main .btn:hover{background:#fff}
-.pair{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:6px}
+.pair{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(0,1fr);gap:6px;margin-top:6px}
 .pair .rung{background:var(--sand);padding:22px;display:flex;flex-direction:column}
 .pair .rung .d{flex:1}
 .pair .btn{background:var(--ink);align-self:flex-start}
@@ -348,7 +348,7 @@ sup a:hover{text-decoration:underline}
   .rung.main{grid-template-columns:1fr;padding:22px 18px}
   .rung.main strong{font-size:28px}
   .rung.main .d{margin-bottom:16px}
-  .pair{grid-template-columns:1fr}
+  .pair{grid-auto-flow:row}
   .foot .in{grid-template-columns:1fr;padding:34px 16px 24px}
   .foot .base{padding:0 16px 24px}
   .gg-subscribe-callout{padding:22px 18px}
@@ -706,19 +706,12 @@ h2[id],h3[id],[data-slot],figure[id]{scroll-margin-top:72px}
     <div>
       <span class="k">One race</span>
       <strong>Custom Training Plan</strong>
-      <span class="price">$15/week · capped at $249</span>
+      <span class="price">$15/week · paid once</span>
       <span class="d">One race, periodised to your date, in your TrainingPeaks calendar within 24 hours. 7-day refund.</span>
     </div>
     <a class="btn" href="/products/training-plans/" data-event="article_cta_click" data-label="custom_plan" data-cta="custom_plan">Get a custom plan <span class="chev" aria-hidden="true">&rsaquo;</span></a>
   </div>
   <div class="pair">
-    <div class="rung">
-      <span class="k">Whole year</span>
-      <strong>Season Plan</strong>
-      <span class="price">$499</span>
-      <span class="d">Every A/B/C race of the year, up to 52 weeks, four scheduled rebuilds.</span>
-      <a class="btn" href="/season-plan/" data-event="article_cta_click" data-label="season_plan" data-cta="season_plan">See the season plan <span class="chev" aria-hidden="true">&rsaquo;</span></a>
-    </div>
     <div class="rung">
       <span class="k">A human</span>
       <strong>Coaching</strong>

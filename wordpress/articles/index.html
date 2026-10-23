@@ -237,7 +237,7 @@ sup a:hover{text-decoration:underline}
 .inshort .ev{font:700 13px/1.4 var(--mono);color:var(--cobalt-deep);text-decoration:underline;text-underline-offset:3px;text-decoration-thickness:2px}
 .inshort .ev:hover{color:var(--ink)}
 
-/* ladder: custom plan leads, then season, then coaching */
+/* ladder: custom plan leads, then coaching */
 .slot-ladder{margin:56px 0 10px}
 .article .ladder .lead{font:600 25px/1.3 var(--serif);margin:0 0 20px}
 .rung{color:var(--ink)}
@@ -251,7 +251,7 @@ sup a:hover{text-decoration:underline}
 .rung.main .d{margin:0;max-width:30em}
 .rung.main .btn{background:var(--paper);color:var(--ink)}
 .rung.main .btn:hover{background:#fff}
-.pair{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:6px}
+.pair{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(0,1fr);gap:6px;margin-top:6px}
 .pair .rung{background:var(--sand);padding:22px;display:flex;flex-direction:column}
 .pair .rung .d{flex:1}
 .pair .btn{background:var(--ink);align-self:flex-start}
@@ -323,7 +323,7 @@ sup a:hover{text-decoration:underline}
   .rung.main{grid-template-columns:1fr;padding:22px 18px}
   .rung.main strong{font-size:28px}
   .rung.main .d{margin-bottom:16px}
-  .pair{grid-template-columns:1fr}
+  .pair{grid-auto-flow:row}
   .foot .in{grid-template-columns:1fr;padding:34px 16px 24px}
   .foot .base{padding:0 16px 24px}
   .gg-subscribe-callout{padding:22px 18px}

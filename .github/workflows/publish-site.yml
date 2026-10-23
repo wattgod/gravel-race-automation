@@ -1,0 +1,162 @@
+name: Publish Site
+
+# Manual "publish everything" button: regenerates every static page from main
+# and pushes it to SiteGround, the same steps as a laptop publish (Oct 2026).
+# Runs only when someone presses Run workflow; nothing here is scheduled.
+#
+# Secrets (the same ones deploy-race-page.yml already uses):
+#   SSH_PRIVATE_KEY  contents of ~/.ssh/siteground_key
+#   SSH_HOST, SSH_USER, SSH_PORT  the values in your local .env
+#   GH_PAT           read access to wattgod/gravel-god-training-plans
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: publish-site
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    env:
+      SSH_HOST: ${{ secrets.SSH_HOST }}
+      SSH_USER: ${{ secrets.SSH_USER }}
+      SSH_PORT: ${{ secrets.SSH_PORT }}
+
+    steps:
+      - name: Only publish from main
+        run: test "$GITHUB_REF" = refs/heads/main
+
+      - name: Checkout Gravel God source
+        uses: actions/checkout@v4
+
+      # The generators read ../gravel-god-training-plans/db, the sibling
+      # checkout a laptop publish has next to this repo.
+      - name: Checkout plans database
+        uses: actions/checkout@v4
+        with:
+          repository: wattgod/gravel-god-training-plans
+          token: ${{ secrets.GH_PAT }}
+          path: gravel-god-training-plans
+          sparse-checkout: db
+
+      - name: Place plans database beside the repo
+        run: |
+          set -euo pipefail
+          test -s gravel-god-training-plans/db/plans.json
+          mv gravel-god-training-plans "$GITHUB_WORKSPACE/../gravel-god-training-plans"
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+          cache: pip
+
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt
+          python3 -m playwright install --with-deps chromium
+
+      - name: Configure SSH
+        env:
+          DEPLOY_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+        run: |
+          set -euo pipefail
+          test -n "$DEPLOY_KEY"
+          test -n "$SSH_HOST"
+          test -n "$SSH_USER"
+          test -n "$SSH_PORT"
+          mkdir -p ~/.ssh
+          printf '%s\n' "$DEPLOY_KEY" > ~/.ssh/siteground_key
+          chmod 600 ~/.ssh/siteground_key
+          ssh-keyscan -p "$SSH_PORT" "$SSH_HOST" >> ~/.ssh/known_hosts 2>/dev/null
+          test -s ~/.ssh/known_hosts
+
+      # Everything is built before anything is pushed, so a failing
+      # generator stops the run with the live site untouched.
+      - name: Build pages
+        run: |
+          set -euo pipefail
+          python3 wordpress/generate_neo_brutalist.py --all
+          python3 wordpress/generate_prep_kit.py --all
+          python3 scripts/generate_markdown_profiles.py
+          python3 wordpress/generate_training_plans.py
+          python3 wordpress/generate_training_plan_pages.py --all
+          python3 wordpress/generate_state_hubs.py
+          python3 wordpress/generate_vs_pages.py
+          python3 wordpress/generate_guide.py
+          python3 wordpress/generate_legal_pages.py
+          python3 wordpress/generate_season_review.py
+          python3 wordpress/generate_plan_intake_pages.py
+
+      # Share images are nice to have: if the browser render fails, the run
+      # publishes the pages anyway and leaves the live share images as they are.
+      - name: Build share images
+        id: og
+        continue-on-error: true
+        run: python3 scripts/generate_page_og.py
+
+      - name: Push imported posts and articles
+        run: |
+          set -euo pipefail
+          K=~/.ssh/siteground_key
+          R="$SSH_USER@$SSH_HOST:www/gravelgodcycling.com/public_html"
+          O=(-q -i "$K" -P "$SSH_PORT" -o ControlMaster=auto -o ControlPath=/tmp/gg-scp-%C -o ControlPersist=120)
+          for d in wordpress/posts/*/; do
+            scp "${O[@]}" "$d/index.html" "$R/$(basename "$d")/index.html"
+          done
+          scp "${O[@]}" wordpress/articles/index.html "$R/articles/index.html"
+          for d in wordpress/articles/*/; do
+            scp "${O[@]}" "$d/index.html" "$R/articles/$(basename "$d")/index.html"
+          done
+
+      - name: Push pages
+        env:
+          OG_FLAG: ${{ steps.og.outcome == 'success' && '--sync-og' || '' }}
+        run: |
+          set -euo pipefail
+          python3 scripts/push_wordpress.py \
+            --sync-pages --sync-plan-pages --sync-training-plans --sync-training \
+            --sync-guide --sync-legal --sync-season-review --sync-plan-intake \
+            --sync-redirects $OG_FLAG --purge-cache
+
+      - name: Check the live site
+        run: |
+          set -euo pipefail
+          base=https://gravelgodcycling.com
+          v="v=$GITHUB_RUN_ID-$GITHUB_RUN_ATTEMPT"
+          fail=0
+          code() { curl -s -o /dev/null -w '%{http_code} %{redirect_url}' "$1"; }
+          for path in /training-plans/start/ /training-plans/details/ /products/training-plans/; do
+            got=$(code "$base$path?$v")
+            echo "$path -> $got"
+            case "$got" in 200*) ;; *) fail=1 ;; esac
+          done
+          got=$(code "$base/questionnaire/?$v")
+          echo "/questionnaire/ -> $got"
+          case "$got" in "302 "*/training-plans/start/*) ;; *) fail=1 ;; esac
+          got=$(code "$base/season-plan/?$v")
+          echo "/season-plan/ -> $got"
+          case "$got" in "301 "*/questionnaire/*) ;; *) fail=1 ;; esac
+          if curl -sL "$base/products/training-plans/?$v" | grep -q '\$249'; then
+            echo "::error::The live training plans page still shows \$249"
+            fail=1
+          fi
+          exit $fail
+
+      - name: Summary
+        if: always()
+        run: |
+          {
+            echo "### Publish Site"
+            echo "- Share images: ${{ steps.og.outcome }}"
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Remove SSH key
+        if: always()
+        run: rm -f ~/.ssh/siteground_key

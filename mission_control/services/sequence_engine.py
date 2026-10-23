@@ -21,8 +21,7 @@ from mission_control.config import (
 )
 from mission_control.sequences import get_sequence, SEQUENCES
 from mission_control.services.pricing import (
-    MIN_WEEKS, PRICE_CAP, PRICE_CAP_CENTS, PRICE_PER_WEEK,
-    PRICE_PER_WEEK_CENTS, compute_race_plan_price_cents,
+    MIN_WEEKS, PRICE_PER_WEEK, compute_race_plan_price_cents,
 )
 
 # Triggers that are post-purchase — should NOT be suppressed for customers
@@ -531,28 +530,23 @@ _RACE_FACT_KEYS = ("race_facts", "race_distance_mi", "race_elevation_ft",
 # Server-derived pricing tokens for sequence copy — data/pricing.json is the
 # only place these numbers live (docs/specs/goals-2027-funnel-spec.md D18).
 # Reserved the same way race_facts are: popped from source_data before this
-# runs, so a caller-supplied "price_cap" can never override the real one.
+# runs, so a caller-supplied "price_12wk" can never override the real one.
 _PRICING_TOKEN_KEYS = (
-    "price_weekly", "price_cap", "price_min", "price_6wk", "price_10wk",
-    "price_12wk", "price_14wk", "price_cap_start_weeks", "price_10_to_14_delta",
+    "price_weekly", "price_min", "price_6wk", "price_10wk",
+    "price_12wk", "price_14wk", "price_10_to_14_delta",
 )
 
 
 def _pricing_tokens() -> dict:
-    # Weeks at which the plan first hits the cap — e.g. "a 20-week plan costs
-    # the same as a 17-week one" only holds while the cap starts at 17.
-    cap_start_weeks = (PRICE_CAP_CENTS - 1) // PRICE_PER_WEEK_CENTS + 1
     price_10wk_cents = compute_race_plan_price_cents(10)
     price_14wk_cents = compute_race_plan_price_cents(14)
     return {
         "price_weekly": PRICE_PER_WEEK,
-        "price_cap": PRICE_CAP,
         "price_min": f"${compute_race_plan_price_cents(MIN_WEEKS) // 100}",
         "price_6wk": f"${compute_race_plan_price_cents(6) // 100}",
         "price_10wk": f"${price_10wk_cents // 100}",
         "price_12wk": f"${compute_race_plan_price_cents(12) // 100}",
         "price_14wk": f"${price_14wk_cents // 100}",
-        "price_cap_start_weeks": str(cap_start_weeks),
         "price_10_to_14_delta": f"${(price_14wk_cents - price_10wk_cents) // 100}",
     }
 

@@ -61,7 +61,7 @@ MIN_CONTENTS_HEADINGS (2) contents headings; `contents=False` hides it
 regardless. On wide screens only one margin rail shows at a time: with "In
 short" beside the opening, the contents rail appears once it has scrolled
 past (SHELL_JS; without JS both show). Ladder buttons carry
-data-cta="custom_plan|season_plan|coaching", so a page that also includes
+data-cta="custom_plan|coaching", so a page that also includes
 blog_tracking.get_plan_intent_tracking_script() (pass it in extra_body_end)
 gets the canonical cta_click for them.
 
@@ -181,7 +181,6 @@ DEFAULT_LADDER_LEAD = (
 
 # Ladder destinations (fixed by Matt, 2026-10-08).
 CUSTOM_PLAN_URL = "/products/training-plans/"
-SEASON_PLAN_URL = "/season-plan/"
 COACHING_URL = "/coaching/"
 
 
@@ -454,11 +453,6 @@ def mark_dash_rules(body_html: str) -> str:
     return _DASH_RULE_RE.sub(add, body_html)
 
 
-def _number_word(n: int) -> str:
-    words = ("zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten")
-    return words[n] if 0 <= n < len(words) else str(n)
-
-
 def _cta_attrs(label: str) -> str:
     return f' data-event="article_cta_click" data-label="{esc(label)}"'
 
@@ -498,34 +492,22 @@ def render_in_short(claims: Sequence[Claim]) -> str:
 
 
 def ladder_offers() -> list[dict]:
-    """The three ladder rungs, every number read from data/pricing.json."""
+    """The ladder rungs, every number read from data/pricing.json. The
+    Season Plan rung was retired 2026-10-23 (Matti: one product)."""
     race = pricing.RACE_PLAN
-    season = pricing.SEASON_PLAN
     coaching = pricing.PRICING["products"]["coaching"]
     return [
         {
             "key": "custom_plan",
             "kicker": "One race",
             "name": race["name"],
-            "price": f'{race["weekly_rate_display"]}/week · capped at {race["cap_display"]}',
+            "price": f'{race["weekly_rate_display"]}/week · paid once',
             "desc": (
                 "One race, periodised to your date, in your TrainingPeaks calendar "
                 f'within {race["delivery_hours"]} hours. {race["refund_window_days"]}-day refund.'
             ),
             "href": CUSTOM_PLAN_URL,
             "button": "Get a custom plan",
-        },
-        {
-            "key": "season_plan",
-            "kicker": "Whole year",
-            "name": season["name"],
-            "price": season["price_display"],
-            "desc": (
-                f'Every A/B/C race of the year, up to {season["max_weeks"]} weeks, '
-                f'{_number_word(season["scheduled_rebuilds"])} scheduled rebuilds.'
-            ),
-            "href": SEASON_PLAN_URL,
-            "button": "See the season plan",
         },
         {
             "key": "coaching",
@@ -1896,7 +1878,7 @@ sup a:hover{text-decoration:underline}
 .inshort .ev{font:700 13px/1.4 var(--mono);color:var(--cobalt-deep);text-decoration:underline;text-underline-offset:3px;text-decoration-thickness:2px}
 .inshort .ev:hover{color:var(--ink)}
 
-/* ladder: custom plan leads, then season, then coaching */
+/* ladder: custom plan leads, then coaching */
 .slot-ladder{margin:56px 0 10px}
 .article .ladder .lead{font:600 25px/1.3 var(--serif);margin:0 0 20px}
 .rung{color:var(--ink)}
@@ -1910,7 +1892,7 @@ sup a:hover{text-decoration:underline}
 .rung.main .d{margin:0;max-width:30em}
 .rung.main .btn{background:var(--paper);color:var(--ink)}
 .rung.main .btn:hover{background:#fff}
-.pair{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:6px}
+.pair{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(0,1fr);gap:6px;margin-top:6px}
 .pair .rung{background:var(--sand);padding:22px;display:flex;flex-direction:column}
 .pair .rung .d{flex:1}
 .pair .btn{background:var(--ink);align-self:flex-start}
@@ -1982,7 +1964,7 @@ sup a:hover{text-decoration:underline}
   .rung.main{grid-template-columns:1fr;padding:22px 18px}
   .rung.main strong{font-size:28px}
   .rung.main .d{margin-bottom:16px}
-  .pair{grid-template-columns:1fr}
+  .pair{grid-auto-flow:row}
   .foot .in{grid-template-columns:1fr;padding:34px 16px 24px}
   .foot .base{padding:0 16px 24px}
   .gg-subscribe-callout{padding:22px 18px}

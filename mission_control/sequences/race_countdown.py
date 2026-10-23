@@ -9,7 +9,7 @@ most once (which is also the year-over-year guard).
 {race_name}, {race_date}, {weeks_out} are safe here: the job guarantees all
 three in source_data before enrolling. Copy register per
 docs/email-conversion-principles.md — honest urgency only (base weeks are
-non-renewable; the $249 cap subsidizes early starts).
+non-renewable; every week bought early is base the plan keeps).
 """
 
 GG_16 = {

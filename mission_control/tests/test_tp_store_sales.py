@@ -416,13 +416,21 @@ class TestSourceAwareStepZero:
         assert "your race" not in body
 
     @pytest.mark.parametrize("step,template", [
-        (1, "week1_tips"), (2, "checkin_week2"), (3, "progress_update"), (4, "nps_request"),
+        (1, "week1_tips"), (2, "checkin_week2"), (3, "progress_update"),
     ])
     def test_other_buyers_keep_the_standard_steps(self, fake_db, step, template):
         enr = make_enrollment(sequence_id="post_purchase_v1", source="plan_purchased",
                               current_step=step, source_data={"race_name": "Example Gravel 100"})
         _subject, _body, send = self._send(fake_db, enr)
         assert send["template"] == template
+
+    def test_other_buyers_keep_the_standard_nps_step(self):
+        # Checked on the resolved step, not a send: whether nps_request sends
+        # also depends on the race-date premise, which has its own tests.
+        from mission_control.services.sequence_engine import _resolve_step
+        from mission_control.sequences.post_purchase import SEQUENCE
+        last = SEQUENCE["variants"]["A"]["steps"][-1]
+        assert _resolve_step(last, {"source": "plan_purchased"})["template"] == "nps_request"
 
     def test_override_cannot_change_timing(self):
         from mission_control.services.sequence_engine import _resolve_step

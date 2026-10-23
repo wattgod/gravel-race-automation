@@ -362,7 +362,7 @@ class TestSourceAwareStepZero:
         enr = make_enrollment(sequence_id="post_purchase_v1", source=SOURCE,
                               contact_name="Pat Example", contact_email="pat.buyer@example.com",
                               source_data={"plan_name": "Example Gravel 100 · Compete · 12wk",
-                                           "plan_weeks": 12})
+                                           "plan_weeks": 12, "race_name": "Example Gravel 100"})
         subject, body, send = self._send(fake_db, enr)
         assert subject == "did the plan land on your calendar?"
         assert send["template"] == "tp_purchase_welcome"
@@ -394,12 +394,35 @@ class TestSourceAwareStepZero:
         assert subject == "got your questionnaire"
         assert send["template"] == "purchase_welcome"
 
-    def test_override_applies_to_step_zero_only(self, fake_db):
-        enr = make_enrollment(sequence_id="post_purchase_v1", source=SOURCE, current_step=1,
-                              source_data={"plan_name": "Gravel God - A Year In Gravel"})
-        subject, _body, send = self._send(fake_db, enr)
-        assert subject == "how did the first rides feel?"
-        assert send["template"] == "week1_tips"
+    def test_base_plan_welcome_does_not_assume_a_race(self, fake_db):
+        enr = make_enrollment(sequence_id="post_purchase_v1", source=SOURCE,
+                              source_data={"plan_name": "Example Base - 10 hours/week"})
+        _subject, body, _send = self._send(fake_db, enr)
+        assert "race day" not in body
+        assert "When are you starting it?" in body
+
+    @pytest.mark.parametrize("step,template,subject", [
+        (1, "tp_week1_check", "started yet?"),
+        (2, "tp_checkin", "is the schedule surviving your week?"),
+        (3, "tp_progress", "the easy weeks"),
+        (4, "tp_nps", "how's the plan treating you?"),
+    ])
+    def test_later_steps_do_not_assume_the_plan_started(self, fake_db, step, template, subject):
+        enr = make_enrollment(sequence_id="post_purchase_v1", source=SOURCE, current_step=step,
+                              source_data={"plan_name": "Example Base - 10 hours/week"})
+        got_subject, body, send = self._send(fake_db, enr)
+        assert (got_subject, send["template"]) == (subject, template)
+        assert "{{" not in body and "{plan_name}" not in body
+        assert "your race" not in body
+
+    @pytest.mark.parametrize("step,template", [
+        (1, "week1_tips"), (2, "checkin_week2"), (3, "progress_update"), (4, "nps_request"),
+    ])
+    def test_other_buyers_keep_the_standard_steps(self, fake_db, step, template):
+        enr = make_enrollment(sequence_id="post_purchase_v1", source="plan_purchased",
+                              current_step=step, source_data={"race_name": "Example Gravel 100"})
+        _subject, _body, send = self._send(fake_db, enr)
+        assert send["template"] == template
 
     def test_override_cannot_change_timing(self):
         from mission_control.services.sequence_engine import _resolve_step

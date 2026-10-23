@@ -122,7 +122,43 @@ SUBJECT: did the plan land on your calendar?
 BODY:
 {greeting} saw you picked up {{#plan_name}}{plan_name}{{/plan_name}}{{^plan_name}}the plan{{/plan_name}} on TrainingPeaks. If your week doesn't look like what the plan assumes, reply and tell me what it does look like. Easier to fix in week one than week six.
 
-Did you set the start date so it ends on race day?
+{{#race_name}}Did you set the start date so it ends on race day?{{/race_name}}{{^race_name}}When are you starting it?{{/race_name}}
+
+— Matti
+
+### post_purchase · day 3 · tp_week1_check   (trainingpeaks_store only; TP buyers pick their own start date, so nothing assumes the plan has begun)
+SUBJECT: started yet?
+BODY:
+{greeting} once the plan starts, week 1 should feel too easy. That's calibration, not a mistake, so don't add extra. I've made that mistake enough times for both of us.
+
+Has it started yet, or is it still sitting on the calendar?
+
+— Matti
+
+### post_purchase · day 10 · tp_checkin   (trainingpeaks_store only)
+SUBJECT: is the schedule surviving your week?
+BODY:
+{greeting} a couple of weeks in, the thing I care about is whether the schedule survives your actual week. If Tuesday keeps not happening, Tuesday is wrong, not you.
+
+Which day is giving you trouble so far?
+
+— Matti
+
+### post_purchase · day 21 · tp_progress   (trainingpeaks_store only)
+SUBJECT: the easy weeks
+BODY:
+{greeting} the recovery weeks in {{#plan_name}}{plan_name}{{/plan_name}}{{^plan_name}}the plan{{/plan_name}} will feel too easy. Let them be easy, because that's where the fitness shows up.
+
+How far in are you now?
+
+— Matti
+
+### post_purchase · end · tp_nps   (trainingpeaks_store only; base plans have no race, and without plan_weeks this falls back to day 42, so the copy works mid-plan or after)
+SUBJECT: how's the plan treating you?
+BODY:
+{greeting} I want the honest version of how {{#plan_name}}{plan_name}{{/plan_name}}{{^plan_name}}the plan{{/plan_name}} is going for you, where it helps and where it's useless. The part that stings a little is the part I can fix.
+
+What would you change about it?
 
 — Matti
 

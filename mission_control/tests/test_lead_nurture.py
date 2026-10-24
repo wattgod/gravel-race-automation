@@ -576,3 +576,174 @@ class TestLeadReplyEditor:
             headers={"Authorization": "Bearer test-secret-for-tests"},
         )
         assert approve.status_code == 409
+
+
+_WEBHOOK_AUTH = {"Authorization": "Bearer test-secret-123"}
+_ADMIN_AUTH = {"Authorization": "Bearer test-secret-for-tests"}
+_FLAGS = ("LEAD_REPLY_SYNC_ENABLED", "LEAD_REPLY_GMAIL_DRAFTS_ENABLED")
+
+
+def _set_flags(monkeypatch, *, sync=False, drafts=False):
+    for name in _FLAGS:
+        monkeypatch.delenv(name, raising=False)
+    if sync:
+        monkeypatch.setenv("LEAD_REPLY_SYNC_ENABLED", "true")
+    if drafts:
+        monkeypatch.setenv("LEAD_REPLY_GMAIL_DRAFTS_ENABLED", "1")
+
+
+def _known_lead(fake_db):
+    fake_db.store["gg_sequence_enrollments"].append(
+        make_enrollment(contact_email="lead@example.com", contact_name="Jane Lead"),
+    )
+
+
+class TestSwitchOnFlags:
+    """The loop does nothing until Matti sets LEAD_REPLY_SYNC_ENABLED."""
+
+    def test_flags_default_off(self, monkeypatch):
+        from mission_control.services.lead_nurture import (
+            gmail_drafts_enabled, reply_sync_enabled,
+        )
+
+        _set_flags(monkeypatch)
+        assert reply_sync_enabled() is False
+        assert gmail_drafts_enabled() is False
+
+    def test_drafts_flag_alone_does_not_enable_drafts(self, monkeypatch):
+        from mission_control.services.lead_nurture import gmail_drafts_enabled
+
+        _set_flags(monkeypatch, drafts=True)
+        assert gmail_drafts_enabled() is False
+
+    def test_unrecognized_flag_value_stays_off(self, monkeypatch):
+        from mission_control.services.lead_nurture import reply_sync_enabled
+
+        _set_flags(monkeypatch)
+        monkeypatch.setenv("LEAD_REPLY_SYNC_ENABLED", "maybe")
+        assert reply_sync_enabled() is False
+
+    def test_disabled_bridge_gets_no_candidates(self, client, fake_db, monkeypatch):
+        _set_flags(monkeypatch)
+        _known_lead(fake_db)
+        response = client.get("/webhooks/gmail-sync/candidates", headers=_WEBHOOK_AUTH)
+        assert response.status_code == 200
+        assert response.json() == {"candidates": [], "enabled": False}
+
+    def test_disabled_sync_stores_nothing(self, client, fake_db, monkeypatch):
+        _set_flags(monkeypatch)
+        _known_lead(fake_db)
+        response = client.post(
+            "/webhooks/gmail-sync",
+            json={"threads": [{"id": "thread-off", "messages": [_message()]}]},
+            headers=_WEBHOOK_AUTH,
+        )
+        assert response.status_code == 200
+        assert response.json()["status"] == "disabled"
+        assert fake_db.store["gg_lead_messages"] == []
+        assert fake_db.store["gg_lead_reply_suggestions"] == []
+        assert fake_db.store["gg_sequence_enrollments"][0]["status"] == "active"
+
+    def test_disabled_endpoints_still_require_auth(self, client, monkeypatch):
+        _set_flags(monkeypatch)
+        assert client.get("/webhooks/gmail-sync/candidates").status_code == 401
+        assert client.get("/webhooks/gmail-sync/drafts/ready").status_code == 401
+
+    def test_enabled_sync_captures_reply_and_suggests_draft(self, client, fake_db, monkeypatch):
+        _set_flags(monkeypatch, sync=True)
+        _known_lead(fake_db)
+        candidates = client.get("/webhooks/gmail-sync/candidates", headers=_WEBHOOK_AUTH).json()
+        assert candidates["enabled"] is True
+        assert [row["email"] for row in candidates["candidates"]] == ["lead@example.com"]
+
+        response = client.post(
+            "/webhooks/gmail-sync",
+            json={"threads": [{"id": "thread-on", "messages": [_message()]}]},
+            headers=_WEBHOOK_AUTH,
+        )
+        assert response.status_code == 200
+        assert response.json()["messages"] == 1
+        suggestion = fake_db.store["gg_lead_reply_suggestions"][0]
+        assert suggestion["status"] in {"suggested", "needs_coach_answer"}
+        assert suggestion["draft_text"]
+
+        page = client.get("/lead-replies", headers=_ADMIN_AUTH)
+        assert f'id="reply-{suggestion["id"]}"' in page.text
+        assert "Gmail sync off" not in page.text
+
+    def test_sync_on_drafts_off_hands_bridge_no_drafts(self, client, fake_db, monkeypatch):
+        from mission_control.services.lead_nurture import approve_reply_suggestion, ingest_gmail_sync
+
+        _set_flags(monkeypatch, sync=True)
+        _known_lead(fake_db)
+        ingest_gmail_sync({"threads": [{"id": "thread-5", "messages": [_message()]}]})
+        suggestion = fake_db.store["gg_lead_reply_suggestions"][0]
+        assert approve_reply_suggestion(suggestion["id"], "Edited by Matti. How's the week look?")
+
+        ready = client.get("/webhooks/gmail-sync/drafts/ready", headers=_WEBHOOK_AUTH)
+        assert ready.json() == {"drafts": [], "enabled": False}
+
+        _set_flags(monkeypatch, sync=True, drafts=True)
+        ready = client.get("/webhooks/gmail-sync/drafts/ready", headers=_WEBHOOK_AUTH).json()
+        assert ready["enabled"] is True
+        assert len(ready["drafts"]) == 1
+
+    def test_manual_send_approval_says_no_draft_is_created(self, client, fake_db, monkeypatch):
+        from mission_control.services.lead_nurture import ingest_gmail_sync
+
+        _set_flags(monkeypatch, sync=True)
+        _known_lead(fake_db)
+        ingest_gmail_sync({"threads": [{"id": "thread-6", "messages": [_message()]}]})
+        suggestion = fake_db.store["gg_lead_reply_suggestions"][0]
+
+        page = client.get("/lead-replies", headers=_ADMIN_AUTH).text
+        card = page.split(f'id="reply-{suggestion["id"]}"', 1)[1].split("</article>", 1)[0]
+        assert "Approve Gmail Draft" not in card
+
+        response = client.post(
+            f"/lead-replies/{suggestion['id']}/approve",
+            data={"draft_text": "Edited by Matti. How's the week look?"},
+            headers=_ADMIN_AUTH,
+        )
+        assert response.status_code == 200
+        assert "send it yourself" in response.text
+        assert "will create an unsent draft" not in response.text
+
+    def test_editor_shows_sync_off_banner_by_default(self, client, monkeypatch):
+        _set_flags(monkeypatch)
+        page = client.get("/lead-replies", headers=_ADMIN_AUTH)
+        assert page.status_code == 200
+        assert "Gmail sync off" in page.text
+
+
+class TestNeverSends:
+    """Static guards: nothing in the reply loop can send, reply, or delete mail."""
+
+    def _read(self, relative):
+        from pathlib import Path
+
+        return (Path(__file__).resolve().parents[2] / relative).read_text()
+
+    def test_bridge_script_has_no_send_or_destructive_gmail_call(self):
+        import re
+
+        code = self._read("integrations/gmail-lead-bridge/Code.gs")
+        banned = (
+            r"\.sendEmail\(", r"\.send\(", r"\.reply\(", r"\.replyAll\(",
+            r"\.forward\(", r"moveToTrash", r"moveToArchive", r"markRead",
+            r"addLabel", r"\.deleteDraft\(", r"\.update\(",
+        )
+        for pattern in banned:
+            assert not re.search(pattern, code), pattern
+        # The only Gmail write is an unsent reply draft.
+        assert "createDraftReply(" in code
+
+    def test_server_side_loop_never_imports_a_sender(self):
+        for relative in (
+            "mission_control/services/lead_nurture.py",
+            "mission_control/routers/lead_replies.py",
+        ):
+            source = self._read(relative)
+            assert "resend" not in source.lower(), relative
+            assert "_send_email" not in source, relative
+            assert "sequence_engine" not in source, relative

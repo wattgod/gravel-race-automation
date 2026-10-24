@@ -10,6 +10,12 @@ most once (which is also the year-over-year guard).
 three in source_data before enrolling. Copy register per
 docs/email-conversion-principles.md — honest urgency only (base weeks are
 non-renewable; every week bought early is base the plan keeps).
+
+race_premise "upcoming" + race_weeks_out (the weeks the copy names, kept within a
+week of true): right before a step sends, the engine re-checks it
+against the race's current published date and skips the step, with an
+audit-log entry, when it no longer holds (see
+sequence_engine._race_premise_failure).
 """
 
 GG_16 = {
@@ -21,7 +27,7 @@ GG_16 = {
     "variants": {
         "A": {"weight": 100, "name": "Window", "steps": [
             {"delay_days": 0, "template": "countdown_16w",
-             "subject": "16 weeks to {race_name}"},
+             "subject": "16 weeks to {race_name}", "race_premise": "upcoming", "race_weeks_out": 16},
         ]},
     },
 }
@@ -35,7 +41,7 @@ GG_8 = {
     "variants": {
         "A": {"weight": 100, "name": "Triage", "steps": [
             {"delay_days": 0, "template": "countdown_8w",
-             "subject": "8 weeks to {race_name}"},
+             "subject": "8 weeks to {race_name}", "race_premise": "upcoming", "race_weeks_out": 8},
         ]},
     },
 }
@@ -50,7 +56,7 @@ RL_16 = {
     "variants": {
         "A": {"weight": 100, "name": "Window", "steps": [
             {"delay_days": 0, "template": "road_countdown_16w",
-             "subject": "16 weeks to {race_name}"},
+             "subject": "16 weeks to {race_name}", "race_premise": "upcoming", "race_weeks_out": 16},
         ]},
     },
 }
@@ -65,7 +71,7 @@ RL_8 = {
     "variants": {
         "A": {"weight": 100, "name": "Triage", "steps": [
             {"delay_days": 0, "template": "road_countdown_8w",
-             "subject": "8 weeks to {race_name}"},
+             "subject": "8 weeks to {race_name}", "race_premise": "upcoming", "race_weeks_out": 8},
         ]},
     },
 }
@@ -78,7 +84,7 @@ XC_16 = {
     "trigger": "race_countdown_16",
     "active": True,
     "variants": {"A": {"weight": 100, "name": "Window", "steps": [
-        {"delay_days": 0, "template": "xc_countdown_16w", "subject": "16 weeks to {race_name}"},
+        {"delay_days": 0, "template": "xc_countdown_16w", "subject": "16 weeks to {race_name}", "race_premise": "upcoming", "race_weeks_out": 16},
     ]}},
 }
 
@@ -90,6 +96,6 @@ XC_8 = {
     "trigger": "race_countdown_8",
     "active": True,
     "variants": {"A": {"weight": 100, "name": "Triage", "steps": [
-        {"delay_days": 0, "template": "xc_countdown_8w", "subject": "8 weeks to {race_name}"},
+        {"delay_days": 0, "template": "xc_countdown_8w", "subject": "8 weeks to {race_name}", "race_premise": "upcoming", "race_weeks_out": 8},
     ]}},
 }

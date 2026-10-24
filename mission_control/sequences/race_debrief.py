@@ -15,6 +15,11 @@ varies structurally. A frames the reply ("what went well/badly" + honest
 read offer); B is the bare friend question. The metric that matters is
 replies — attribute by looking up the enrollment's variant. Opens per
 variant are on the sequence detail page.
+
+race_premise "passed": right before a step sends, the engine re-checks it
+against the race's current published date and skips the step, with an
+audit-log entry, when it no longer holds (see
+sequence_engine._race_premise_failure).
 """
 
 GG_DEBRIEF = {
@@ -26,11 +31,11 @@ GG_DEBRIEF = {
     "variants": {
         "A": {"weight": 50, "name": "Honest read", "steps": [
             {"delay_days": 0, "template": "race_debrief",
-             "subject": "how'd {race_name} go?"},
+             "subject": "how'd {race_name} go?", "race_premise": "passed"},
         ]},
         "B": {"weight": 50, "name": "Bare question", "steps": [
             {"delay_days": 0, "template": "race_debrief_minimal",
-             "subject": "how'd {race_name} go?"},
+             "subject": "how'd {race_name} go?", "race_premise": "passed"},
         ]},
     },
 }
@@ -45,7 +50,7 @@ RL_DEBRIEF = {
     "variants": {
         "A": {"weight": 100, "name": "Debrief", "steps": [
             {"delay_days": 0, "template": "road_race_debrief",
-             "subject": "how did {race_name} go?"},
+             "subject": "how did {race_name} go?", "race_premise": "passed"},
         ]},
     },
 }
@@ -58,6 +63,6 @@ XC_DEBRIEF = {
     "trigger": "race_debrief",
     "active": True,
     "variants": {"A": {"weight": 100, "name": "Debrief", "steps": [
-        {"delay_days": 0, "template": "xc_race_debrief", "subject": "how'd {race_name} go?"},
+        {"delay_days": 0, "template": "xc_race_debrief", "subject": "how'd {race_name} go?", "race_premise": "passed"},
     ]}},
 }

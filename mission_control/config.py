@@ -42,6 +42,10 @@ REPLY_TO_EMAIL = os.environ.get("REPLY_TO_EMAIL", "gravelgodcoaching@gmail.com")
 # (absent = gravelgod); the engine looks up sender/utm here. Road sends
 # require the roadielabs.com domain to be verified in Resend first —
 # until then road sequences should stay inactive.
+# Open/click tracking is ALSO per-domain in Resend and off by default: each
+# brand's sending domain needs Domains > <domain> > Configuration > Enable
+# tracking metrics (plus its tracking CNAME), or that brand's sends never
+# record opened_at/clicked_at. The deep health check flags a blind brand.
 # Public site per brand — used to build in-email deep links (e.g. the prep kit
 # the race quiz promises to send).
 BRAND_SITE_URLS = {

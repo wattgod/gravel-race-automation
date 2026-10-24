@@ -92,10 +92,11 @@ def test_no_hardcoded_counts_or_prices_in_generators():
 # ── Plans / coaching / season review page cards ────────────────
 
 def test_plans_card_prices_from_pricing():
-    from pricing import PRICE_CAP, PRICE_PER_WEEK
+    from pricing import PRICE_PER_WEEK
     card = page_og.training_plans_card_html()
     text = _text(card)
-    assert f"PER WEEK {PRICE_PER_WEEK}" in text and f"CAPPED AT {PRICE_CAP}" in text
+    assert f"PER WEEK {PRICE_PER_WEEK}" in text and "ONE PAYMENT" in text
+    assert "CAPPED" not in text
     assert _lit(card) == "TRAINING PLANS"
 
 

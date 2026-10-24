@@ -704,6 +704,12 @@ async def resend_webhook(
 
     if event_type in ("email.opened", "email.clicked", "email.bounced", "email.complained"):
         success = record_event(resend_id, event_type)
+        if not success:
+            # Either a duplicate (already recorded) or no gg_sequence_sends
+            # row has this resend_id. Logged so a brand whose events never
+            # match is visible in Railway logs instead of silently dropped.
+            logger.info("resend webhook %s for %s matched no new send",
+                        event_type, resend_id)
         return {"status": "recorded" if success else "not_found"}
 
     return {"status": "ignored", "reason": f"unhandled event: {event_type}"}
@@ -792,6 +798,9 @@ async def tp_store_sales(
 
 # ---------------------------------------------------------------------------
 # Gmail lead bridge — Apps Script relay, approval-only drafts, never sends
+# Gated by LEAD_REPLY_SYNC_ENABLED / LEAD_REPLY_GMAIL_DRAFTS_ENABLED (both off
+# by default). The draft receipt stays open: it only records a draft the
+# bridge already made, so a flag flipped mid-run cannot hide a real draft.
 # ---------------------------------------------------------------------------
 
 @router.get("/gmail-sync/candidates")
@@ -801,9 +810,13 @@ async def gmail_sync_candidates(
 ):
     _check_rate_limit(request)
     _require_webhook_secret(authorization)
-    from mission_control.services.lead_nurture import get_sync_candidates
+    from mission_control.services.lead_nurture import get_sync_candidates, reply_sync_enabled
 
-    return {"candidates": get_sync_candidates()}
+    # Off by default (LEAD_REPLY_SYNC_ENABLED). An empty list makes the
+    # bridge return before it searches Gmail, so it reads no lead threads.
+    if not reply_sync_enabled():
+        return {"candidates": [], "enabled": False}
+    return {"candidates": get_sync_candidates(), "enabled": True}
 
 
 @router.post("/gmail-sync")
@@ -813,11 +826,17 @@ async def gmail_sync(
 ):
     _check_rate_limit(request)
     _require_webhook_secret(authorization)
+    from mission_control.services.lead_nurture import ingest_gmail_sync, reply_sync_enabled
+
+    if not reply_sync_enabled():
+        # Never read or store lead mail while the loop is switched off.
+        return {
+            "status": "disabled", "threads": 0, "recorded": 0,
+            "messages": 0, "paused": 0, "ignored": 0,
+        }
     payload = await request.json()
     if not isinstance(payload, dict) or not isinstance(payload.get("threads", []), list):
         raise HTTPException(status_code=400, detail="threads must be a list")
-    from mission_control.services.lead_nurture import ingest_gmail_sync
-
     return ingest_gmail_sync(payload)
 
 
@@ -828,9 +847,13 @@ async def gmail_sync_ready_drafts(
 ):
     _check_rate_limit(request)
     _require_webhook_secret(authorization)
-    from mission_control.services.lead_nurture import get_approved_drafts
+    from mission_control.services.lead_nurture import get_approved_drafts, gmail_drafts_enabled
 
-    return {"drafts": get_approved_drafts()}
+    # Off by default (LEAD_REPLY_GMAIL_DRAFTS_ENABLED + sync flag). With no
+    # drafts handed over the bridge creates nothing; Matti sends by hand.
+    if not gmail_drafts_enabled():
+        return {"drafts": [], "enabled": False}
+    return {"drafts": get_approved_drafts(), "enabled": True}
 
 
 @router.post("/gmail-sync/drafts/{suggestion_id}/receipt")

@@ -37,7 +37,7 @@ from shared_footer import get_mega_footer_html
 from cookie_consent import get_consent_banner_html
 from plan_simulator import (get_plan_simulator_css, get_plan_simulator_js,
                             render_plan_simulator)
-from pricing import MIN_WEEKS, PRICE_CAP, PRICE_PER_WEEK, RACE_PLAN_DELIVERY_HOURS
+from pricing import MIN_WEEKS, PRICE_PER_WEEK, RACE_PLAN_DELIVERY_HOURS
 from generate_neo_brutalist import (
     parse_event_dates,
     _safe_json_for_script,
@@ -547,7 +547,7 @@ def build_cta(rd: dict) -> str:
     <a href="{QUESTIONNAIRE_URL}?race={slug}" class="gg-btn" data-cta="tpp_footer_build" id="gg-tpp-footer-cta">BUILD MY PLAN &mdash; {PRICE_PER_WEEK}/WK</a>
     <a href="/race/{slug}/" class="gg-btn gg-btn--outline" data-cta="tpp_race_page">READ THE {name.upper()} REVIEW</a>
   </div>
-  <p class="gg-tpp-guarantee">7-day full refund. Delivery within {RACE_PLAN_DELIVERY_HOURS} hours. {PRICE_CAP} cap.</p>
+  <p class="gg-tpp-guarantee">7-day full refund. Delivery within {RACE_PLAN_DELIVERY_HOURS} hours. Paid once.</p>
 </section>'''
 
 
@@ -674,7 +674,7 @@ def build_js() -> str:
   var days = Math.ceil((race - today) / 86400000);
   if (days <= 7) return;
   var weeks = Math.max(__GG_MIN_WEEKS__, Math.ceil(days / 7));
-  var price = Math.min(weeks * __GG_PRICE_PER_WEEK__, __GG_PRICE_CAP__);
+  var price = weeks * __GG_PRICE_PER_WEEK__;
   var cd = document.getElementById('gg-tpp-countdown');
   if (cd) cd.textContent = weeks + ' WEEKS UNTIL RACE DAY';
   ['gg-tpp-hero-cta', 'gg-tpp-footer-cta'].forEach(function(id) {
@@ -701,8 +701,7 @@ def build_js() -> str:
     # Pricing sentinels come from data/pricing.json, not literals (D18).
     return (_js
             .replace('__GG_MIN_WEEKS__', str(MIN_WEEKS))
-            .replace('__GG_PRICE_PER_WEEK__', str(int(PRICE_PER_WEEK.replace('$', ''))))
-            .replace('__GG_PRICE_CAP__', str(int(PRICE_CAP.replace('$', '')))))
+            .replace('__GG_PRICE_PER_WEEK__', str(int(PRICE_PER_WEEK.replace('$', '')))))
 
 
 def generate_page(rd: dict, pack: dict) -> str:

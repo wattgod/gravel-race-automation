@@ -1,7 +1,8 @@
 # The friend-register set — GG, complete
 # Rules: every sentence about them. 2–4 short sentences. End on a real question
 # we actually want answered. Pitch lives in replies, never broadcasts.
-# Sober variant B keeps existing copy as the A/B control — none of these touch it.
+# Sober variant B keeps existing copy — none of these touch it. (Was the A/B
+# control at 50/50; retired to weight 0 Oct 2026, copy kept for in-flight B rows.)
 
 ### welcome · day 0 · welcome_value
 SUBJECT: getting ready for one of these?

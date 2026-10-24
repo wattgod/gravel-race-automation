@@ -47,7 +47,7 @@ from brand_tokens import (
 from cookie_consent import get_consent_banner_html
 from shared_footer import get_mega_footer_css, get_mega_footer_html
 from shared_header import get_site_header_css, get_site_header_html, get_site_header_js
-from pricing import MIN_WEEKS, PRICE_CAP, PRICE_PER_WEEK
+from pricing import MIN_WEEKS, PRICE_PER_WEEK
 
 # ── Constants ──────────────────────────────────────────────────
 
@@ -2344,7 +2344,7 @@ document.querySelectorAll('.gg-pack-workout').forEach(function(card) {
     if (peak < 1) { peak = 1; base = Math.max(1, base - 1); }
 
     // Price
-    var price = Math.min(__GG_PRICE_CAP__, Math.max(__GG_MIN_PRICE__, weeks * __GG_PRICE_PER_WEEK__));
+    var price = Math.max(__GG_MIN_PRICE__, weeks * __GG_PRICE_PER_WEEK__);
 
     // Session structure
     var hCfg = HOURS[hours] || HOURS['8-12'];
@@ -2612,7 +2612,6 @@ document.querySelectorAll('.gg-pack-workout').forEach(function(card) {
     # Pricing sentinels come from data/pricing.json, not literals (D18).
     return (_js
             .replace('__GG_MIN_WEEKS__', str(MIN_WEEKS))
-            .replace('__GG_PRICE_CAP__', str(int(PRICE_CAP.replace('$', ''))))
             .replace('__GG_MIN_PRICE__', str(int(PRICE_PER_WEEK.replace('$', '')) * MIN_WEEKS))
             .replace('__GG_PRICE_PER_WEEK_DISPLAY__', PRICE_PER_WEEK)
             .replace('__GG_PRICE_PER_WEEK__', str(int(PRICE_PER_WEEK.replace('$', '')))))
@@ -3759,7 +3758,7 @@ def build_training(rd: dict) -> str:
       {countdown_html}
       <div class="gg-training-primary">
         <h3>Custom Training Plan</h3>
-        <p class="gg-training-subtitle" data-ab="race_offer_price">{PRICE_PER_WEEK}/week. Less than one gel per ride. Capped at {PRICE_CAP}.</p>
+        <p class="gg-training-subtitle" data-ab="race_offer_price">{PRICE_PER_WEEK}/week. Less than one gel per ride. Paid once.</p>
         <p class="gg-training-built-for">Your race date, your available hours, and the demands above determine the build. Start with a short questionnaire; the plan follows from your answers.</p>
         <ul class="gg-training-bullets">
           <li>Race-specific workouts pushed to your device</li>
@@ -5525,7 +5524,7 @@ def build_train_for_race(
       </div>
       <div class="gg-pack-cta" id="gg-pack-cta-default">
         <a href="{plan_url}" class="gg-btn" id="gg-pack-cta-link">BUILD MY PLAN &mdash; {PRICE_PER_WEEK}/WK</a>
-        <p class="gg-pack-cta-detail">Race-specific. Built for {esc(race_name)}. {PRICE_PER_WEEK}/week, capped at {PRICE_CAP}.</p>
+        <p class="gg-pack-cta-detail">Race-specific. Built for {esc(race_name)}. {PRICE_PER_WEEK}/week, paid once.</p>
         <p class="gg-pack-cta-detail"><a href="/race/{esc(slug)}/training-plan/" data-cta="pack_plan_guide">Read the full {esc(race_name)} training guide &rarr;</a></p>
       </div>
       <div class="gg-pack-cta gg-cfg-cta" id="gg-cfg-cta" style="display:none;" aria-hidden="true">

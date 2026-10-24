@@ -2,11 +2,11 @@
 
 Loads `data/pricing.json` — see docs/specs/goals-2027-funnel-spec.md D18.
 Every generator, template, and test that needs a price imports from here
-instead of writing "$15" / "$249" / "$499" as a literal. Change the number
+instead of writing "$15" or "$60" as a literal. Change the number
 in data/pricing.json once; every consumer picks it up.
 
 Money amounts are stored in `data/pricing.json` as integer cents. Display
-strings ("$15", "$249") are also stored there so copy always matches what
+strings ("$15") are also stored there so copy always matches what
 Stripe actually charges — no `"$" + str(...)` formatting drift.
 """
 from __future__ import annotations
@@ -25,14 +25,12 @@ SEASON_PLAN = PRICING["products"]["season_plan"]
 
 # ── Race plan (backward-compatible names used across wordpress/generate_*.py) ──
 PRICE_PER_WEEK = RACE_PLAN["weekly_rate_display"]           # "$15"
-PRICE_CAP = RACE_PLAN["cap_display"]                        # "$249"
 PRICE_PER_WEEK_CENTS = RACE_PLAN["weekly_rate_cents"]        # 1500
-PRICE_CAP_CENTS = RACE_PLAN["cap_cents"]                     # 24900
 MIN_WEEKS = RACE_PLAN["minimum_weeks"]                       # 4
 RACE_PLAN_REFUND_DAYS = RACE_PLAN["refund_window_days"]      # 7
 RACE_PLAN_DELIVERY_HOURS = RACE_PLAN["delivery_hours"]       # 24
 
-# ── Season plan ──
+# ── Season plan (RETIRED 2026-10-23; kept for reconciliation and the success page) ──
 SEASON_PLAN_PRICE_DISPLAY = SEASON_PLAN["price_display"]     # "$499"
 SEASON_PLAN_PRICE_CENTS = SEASON_PLAN["price_cents"]          # 49900
 SEASON_PLAN_MAX_WEEKS = SEASON_PLAN["max_weeks"]              # 52
@@ -47,11 +45,11 @@ def compute_race_plan_price_cents(weeks: int) -> int:
     Mirrors the checkout server's `compute_plan_price` (weeks-until-race
     logic lives there; this takes weeks directly so it can be shared by
     every page that needs to *display* a price without duplicating the
-    date math). $15/week, 4-week minimum, $249 cap — never worth more than
-    the cap no matter how many weeks out the race is.
+    date math). $15/week, 4-week minimum, no cap (Matti, 2026-10-23: one
+    product, $15 for every week until the race).
     """
     weeks = max(MIN_WEEKS, int(weeks))
-    return min(weeks * PRICE_PER_WEEK_CENTS, PRICE_CAP_CENTS)
+    return weeks * PRICE_PER_WEEK_CENTS
 
 
 def format_cents(cents: int) -> str:

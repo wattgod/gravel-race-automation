@@ -2,14 +2,12 @@
 
 Three things this file guards:
 
-1. No stray money literal ("$249", "$15/week", ...) outside data/pricing.json
+1. No stray money literal ("$15/week", the retired "$249" cap, ...) outside data/pricing.json
    and the code that reads it. `find_stray_literals()` walks every file
    tracked by git and flags anything that looks like a hand-typed dollar
    figure matching the race plan's current numbers.
-2. Equivalence: the price computed by the OLD duplicated formula (weekly
-   rate * weeks, 4-week minimum, $249 cap — the formula every generator used
-   to hardcode) matches the NEW pricing.json-driven function, for every
-   week count from 1 to 60.
+2. The formula: weekly rate * weeks, 4-week minimum, NO cap (Matti,
+   2026-10-23: one product) — checked for every week count from 1 to 60.
 3. The Season Plan's shape in pricing.json, and that its reconciliation
    label is registered (docs/specs/goals-2027-funnel-spec.md D15).
 """
@@ -111,18 +109,30 @@ ALLOWLIST = {
 ALLOWLIST_GENERATED_PAGES = ("wordpress/posts/",)
 
 
+# Machine-written daily records. The morning intel report quotes merged PR
+# titles verbatim ("single $15/wk product"), so a dated snapshot is a log of
+# what happened, not a place product copy is authored.
+ALLOWLIST_PREFIXES = (
+    "data/intel-snapshots/",
+)
+
+
 def _is_allowlisted(rel_path: str) -> bool:
     if rel_path in ALLOWLIST:
+        return True
+    if rel_path.startswith(ALLOWLIST_PREFIXES):
         return True
     return rel_path.endswith("/index.html") and rel_path.startswith(ALLOWLIST_GENERATED_PAGES)
 
 
 def _stray_literal_pattern() -> re.Pattern:
     """Build the scanner regex from pricing.json's own current values, so it
-    stays correct if the weekly rate, cap, or Season Plan price ever change."""
+    stays correct if the weekly rate or Season Plan price ever change."""
     race_plan = wp_pricing.RACE_PLAN
     weekly = re.escape(race_plan["weekly_rate_display"])  # "$15"
-    cap = re.escape(race_plan["cap_display"])  # "$249"
+    # The $249 cap was retired 2026-10-23. Its literal stays in the scanner so
+    # "capped at $249" copy can't creep back into a page or email.
+    cap = re.escape("$249")
     # sol review round 2 NIT: the scanner covered the race plan's two
     # numbers but not the Season Plan's — a hardcoded "$499" anywhere
     # outside data/pricing.json and its loaders would have passed clean.
@@ -179,32 +189,32 @@ def test_no_stray_money_literals():
 
 # ── 2. Equivalence: old duplicated formula vs. new pricing.json-driven one ──
 
-def _old_race_plan_price_cents(weeks: int) -> int:
-    """The formula every generator/template/JS file used to hardcode before
-    D18: $15/week, 4-week minimum, $249 cap. This is intentionally NOT
-    imported from anywhere — it is the literal old behavior, frozen here so
-    the new function can be checked against it."""
-    OLD_PRICE_PER_WEEK_CENTS = 1500
-    OLD_PRICE_CAP_CENTS = 24900
-    OLD_MIN_WEEKS = 4
-    weeks = max(OLD_MIN_WEEKS, weeks)
-    return min(weeks * OLD_PRICE_PER_WEEK_CENTS, OLD_PRICE_CAP_CENTS)
+def _expected_race_plan_price_cents(weeks: int) -> int:
+    """The formula the checkout server charges (webhook/app.py
+    compute_plan_price): $15/week, 4-week minimum, no cap. Frozen here, not
+    imported, so the pricing.json-driven function is checked against it."""
+    PRICE_PER_WEEK_CENTS = 1500
+    MIN_WEEKS = 4
+    return max(MIN_WEEKS, weeks) * PRICE_PER_WEEK_CENTS
 
 
 @pytest.mark.parametrize("weeks", range(1, 61))
-def test_price_equivalence_1_to_60_weeks(weeks):
-    old_cents = _old_race_plan_price_cents(weeks)
-    new_cents = wp_pricing.compute_race_plan_price_cents(weeks)
-    assert old_cents == new_cents, (
-        f"{weeks} weeks: old formula={old_cents}c, new pricing.json-driven={new_cents}c"
+def test_price_formula_1_to_60_weeks(weeks):
+    expected = _expected_race_plan_price_cents(weeks)
+    actual = wp_pricing.compute_race_plan_price_cents(weeks)
+    assert expected == actual, (
+        f"{weeks} weeks: expected={expected}c, pricing.json-driven={actual}c"
     )
 
 
-def test_price_equivalence_covers_below_minimum_and_above_cap():
-    # 1..60 already covers this, but pin the two edges explicitly so a future
-    # refactor can't silently narrow the parametrize range and lose them.
-    assert wp_pricing.compute_race_plan_price_cents(1) == wp_pricing.compute_race_plan_price_cents(wp_pricing.MIN_WEEKS)
-    assert wp_pricing.compute_race_plan_price_cents(60) == wp_pricing.PRICE_CAP_CENTS
+def test_price_has_minimum_and_no_cap():
+    # Pin the edges explicitly so a future refactor can't silently narrow
+    # the parametrize range and lose them.
+    assert wp_pricing.compute_race_plan_price_cents(1) == 6000
+    assert wp_pricing.compute_race_plan_price_cents(17) == 25500
+    assert wp_pricing.compute_race_plan_price_cents(34) == 51000
+    assert not hasattr(wp_pricing, "PRICE_CAP_CENTS")
+    assert "cap_cents" not in wp_pricing.RACE_PLAN
 
 
 # ── 3. wordpress.pricing / mission_control.services.pricing agree with pricing.json ──
@@ -212,7 +222,6 @@ def test_price_equivalence_covers_below_minimum_and_above_cap():
 def test_pricing_json_is_the_source():
     raw = json.loads(PRICING_JSON_PATH.read_text())
     assert raw["products"]["race_plan"]["weekly_rate_cents"] == wp_pricing.PRICE_PER_WEEK_CENTS
-    assert raw["products"]["race_plan"]["cap_cents"] == wp_pricing.PRICE_CAP_CENTS
     assert raw["products"]["race_plan"]["minimum_weeks"] == wp_pricing.MIN_WEEKS
 
 
@@ -234,7 +243,6 @@ def test_mission_control_pricing_matches_wordpress_pricing():
     mc_pricing = importlib.import_module("mission_control.services.pricing")
 
     assert mc_pricing.PRICE_PER_WEEK_CENTS == wp_pricing.PRICE_PER_WEEK_CENTS
-    assert mc_pricing.PRICE_CAP_CENTS == wp_pricing.PRICE_CAP_CENTS
     assert mc_pricing.MIN_WEEKS == wp_pricing.MIN_WEEKS
     assert mc_pricing.SEASON_PLAN_PRICE_CENTS == wp_pricing.SEASON_PLAN_PRICE_CENTS
     for weeks in range(1, 61):
@@ -281,13 +289,10 @@ def test_season_plan_labour_budget_documented():
     assert budget["total_minutes_per_athlete_per_year"] == 105
 
 
-def test_season_plan_sits_between_race_plan_and_coaching():
-    # D2's reasoning: $499 sits between a $249 race plan and ~$2,600/yr
-    # coaching ($199 / 4 weeks * 13 cycles). Pin the ordering, not the exact
-    # coaching number (coaching pricing is out of scope for this change).
-    assert wp_pricing.PRICE_CAP_CENTS < wp_pricing.SEASON_PLAN_PRICE_CENTS
-    coaching_min_yearly_cents = 199 * 100 * 13  # $199 / 4wk cycle, 13 cycles/yr
-    assert wp_pricing.SEASON_PLAN_PRICE_CENTS < coaching_min_yearly_cents
+def test_season_plan_is_marked_retired():
+    # Retired 2026-10-23 (Matti: one product). Kept in pricing.json only so
+    # past reconciliation labels and the success page still resolve.
+    assert wp_pricing.SEASON_PLAN["retired"] is True
 
 
 def test_season_plan_reconciliation_label_registered():

@@ -2,7 +2,7 @@
 
 Loads `data/pricing.json` — the same file `wordpress/pricing.py` reads for
 the generated pages. See docs/specs/goals-2027-funnel-spec.md D18. Money
-amounts are stored as integer cents; display strings ("$15", "$249") are
+amounts are stored as integer cents; display strings ("$15") are
 stored alongside them so copy always matches what Stripe actually charges.
 """
 from __future__ import annotations
@@ -21,14 +21,13 @@ RACE_PLAN = PRICING["products"]["race_plan"]
 SEASON_PLAN = PRICING["products"]["season_plan"]
 
 PRICE_PER_WEEK = RACE_PLAN["weekly_rate_display"]            # "$15"
-PRICE_CAP = RACE_PLAN["cap_display"]                          # "$249"
 PRICE_PER_WEEK_CENTS = RACE_PLAN["weekly_rate_cents"]         # 1500
-PRICE_CAP_CENTS = RACE_PLAN["cap_cents"]                       # 24900
 MIN_WEEKS = RACE_PLAN["minimum_weeks"]                         # 4
 RACE_PLAN_REFUND_DAYS = RACE_PLAN["refund_window_days"]        # 7
 RACE_PLAN_DELIVERY_HOURS = RACE_PLAN["delivery_hours"]         # 24
 RACE_PLAN_RECONCILIATION_LABEL = RACE_PLAN["reconciliation_label"]   # "training_plan"
 
+# Season Plan: RETIRED 2026-10-23. Kept so past charges still reconcile.
 SEASON_PLAN_PRICE_DISPLAY = SEASON_PLAN["price_display"]       # "$499"
 SEASON_PLAN_PRICE_CENTS = SEASON_PLAN["price_cents"]            # 49900
 SEASON_PLAN_REBUILDS = SEASON_PLAN["scheduled_rebuilds"]        # 4
@@ -39,10 +38,10 @@ SEASON_PLAN_RECONCILIATION_LABEL = SEASON_PLAN["reconciliation_label"]  # "seaso
 
 def compute_race_plan_price_cents(weeks: int) -> int:
     """Race-plan price in cents for a given number of weeks. $15/week,
-    4-week minimum, $249 cap — mirrors wordpress.pricing's function of the
+    4-week minimum, no cap — mirrors wordpress.pricing's function of the
     same name and the checkout server's compute_plan_price."""
     weeks = max(MIN_WEEKS, int(weeks))
-    return min(weeks * PRICE_PER_WEEK_CENTS, PRICE_CAP_CENTS)
+    return weeks * PRICE_PER_WEEK_CENTS
 
 
 def compute_season_plan_rebuild_dates(purchase_date: date) -> list[date]:

@@ -242,7 +242,7 @@ def check_pricing_parity():
 
     if str(WORDPRESS_DIR) not in sys.path:
         sys.path.insert(0, str(WORDPRESS_DIR))
-    from pricing import PRICE_PER_WEEK_CENTS, PRICE_CAP_CENTS, MIN_WEEKS  # data/pricing.json (D18)
+    from pricing import PRICE_PER_WEEK_CENTS, MIN_WEEKS  # data/pricing.json (D18)
 
     def py_price(race_date_str):
         try:
@@ -253,23 +253,23 @@ def check_pricing_parity():
         today = date.today()
         days_until = (race_date - today).days
         weeks = max(MIN_WEEKS, math.ceil(days_until / 7))
-        price_cents = min(weeks * PRICE_PER_WEEK_CENTS, PRICE_CAP_CENTS)
+        price_cents = weeks * PRICE_PER_WEEK_CENTS
         return weeks, price_cents
 
-    # Test dates: 5wk, 10wk, 16wk, 30wk, past, 3 days out
+    # Test dates: 5wk, 10wk, 16wk, 30wk, 40wk, past, 3 days out
     from datetime import datetime
     test_dates = [
         (datetime.now() + timedelta(weeks=5)).strftime('%Y-%m-%d'),
         (datetime.now() + timedelta(weeks=10)).strftime('%Y-%m-%d'),
         (datetime.now() + timedelta(weeks=16)).strftime('%Y-%m-%d'),
         (datetime.now() + timedelta(weeks=30)).strftime('%Y-%m-%d'),
+        (datetime.now() + timedelta(weeks=40)).strftime('%Y-%m-%d'),
         (datetime.now() - timedelta(weeks=2)).strftime('%Y-%m-%d'),
         (datetime.now() + timedelta(days=3)).strftime('%Y-%m-%d'),
     ]
 
     js_code = """
     var PRICE_PER_WEEK = %PRICE_PER_WEEK%;
-    var PRICE_CAP = %PRICE_CAP%;
     var MIN_WEEKS = %MIN_WEEKS%;
 
     function computePrice(raceDateStr) {
@@ -278,7 +278,7 @@ def check_pricing_parity():
       today.setHours(0, 0, 0, 0);
       var days = Math.round((raceDate - today) / (1000 * 60 * 60 * 24));
       var weeks = Math.max(MIN_WEEKS, Math.ceil(days / 7));
-      var price = Math.min(weeks * PRICE_PER_WEEK, PRICE_CAP);
+      var price = weeks * PRICE_PER_WEEK;
       return {weeks: weeks, price_cents: price * 100};
     }
 
@@ -288,7 +288,6 @@ def check_pricing_parity():
     """
     js_code = (js_code
                .replace('%PRICE_PER_WEEK%', str(PRICE_PER_WEEK_CENTS // 100))
-               .replace('%PRICE_CAP%', str(PRICE_CAP_CENTS // 100))
                .replace('%MIN_WEEKS%', str(MIN_WEEKS))
                .replace('%DATES%', json.dumps(test_dates)))
 

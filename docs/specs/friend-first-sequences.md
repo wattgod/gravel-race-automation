@@ -31,7 +31,8 @@ Gate: `scripts/friend_test.py --draft-file <set> --gate` (three detectors,
   (nothing left to promise about); `test_pitch_count_promise_in_both_branches`
   is updated/removed in the same commit.
 - **Lives:** the 13 emails below. Sober variant B keeps its CURRENT copy
-  untouched as the A/B control (welcome 50/50). Countdown + post_purchase
+  untouched (it ran as the A/B control at welcome 50/50; retired Oct 2026 to
+  weight 0 — welcome is A 100 — with copy kept for in-flight B enrollments). Countdown + post_purchase
   keep their triggers/timing (day-42 → plan-end via existing plan_weeks).
 
 ## 3. The copy set (canonical)
@@ -96,7 +97,7 @@ reply — happy to help."
 
 ## 5. Rollout
 
-GG first (A vs sober-B control stands). RL follows in the same register,
+GG first (A vs sober-B control stood until Oct 2026; B now weight 0). RL follows in the same register,
 deadpan skin ("Roadie Labs would say: 'Eight weeks to the Maratona. Where
 is the training at?'") after GG shows non-negative replies/unsubs for ~2
 weeks. XC: infra BUILT Jul 17 (brand key+senders, webhook allowlist, per-brand

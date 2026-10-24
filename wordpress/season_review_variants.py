@@ -22,7 +22,7 @@ Every input name must be unique within a variant; each `checks` option is
 its own input, named by its key.
 """
 
-from pricing import SEASON_PLAN_PRICE_DISPLAY
+from pricing import PRICE_PER_WEEK
 
 SEASON = 2026
 NEXT = SEASON + 1
@@ -445,21 +445,15 @@ GOAL_2027 = {
             {"key": "C", "h": "That&#39;s step one. Step two is the part everyone skips.",
              "p": f"A custom plan for your {NEXT}, built from what you just told me."},
         ],
-        # Two plans beneath the same variant copy (D2/D15, step 5 of the
-        # build order). Kept to a price line + one button each — Matti
-        # found the earlier step-two body too complicated.
+        # One plan beneath the variant copy. The Season Plan option was
+        # retired 2026-10-23 (Matti: one product). Kept to a price line +
+        # one button — Matti found the earlier step-two body too complicated.
         "plans": [
             {
                 "key": "race",
-                "price": "Race Plan: priced by the week from your race date",
+                "price": f"Custom plan: {PRICE_PER_WEEK} a week until your race, paid once",
                 "cta": f"Build my {NEXT} plan",
                 "cta_href": "/questionnaire/?src=goals",
-            },
-            {
-                "key": "season",
-                "price": f"Season Plan: {SEASON_PLAN_PRICE_DISPLAY}, the whole year",
-                "cta": "Build my whole season",
-                "cta_href": "/season-plan/",
             },
         ],
         "decline": "Just the poster, thanks",

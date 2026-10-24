@@ -42,6 +42,10 @@ REPLY_TO_EMAIL = os.environ.get("REPLY_TO_EMAIL", "gravelgodcoaching@gmail.com")
 # (absent = gravelgod); the engine looks up sender/utm here. Road sends
 # require the roadielabs.com domain to be verified in Resend first —
 # until then road sequences should stay inactive.
+# Open/click tracking is ALSO per-domain in Resend and off by default: each
+# brand's sending domain needs Domains > <domain> > Configuration > Enable
+# tracking metrics (plus its tracking CNAME), or that brand's sends never
+# record opened_at/clicked_at. The deep health check flags a blind brand.
 # Public site per brand — used to build in-email deep links (e.g. the prep kit
 # the race quiz promises to send).
 BRAND_SITE_URLS = {
@@ -121,6 +125,31 @@ GA4_CREDENTIALS_PATH = os.environ.get("GA4_CREDENTIALS_PATH", "")
 # Stripe (optional)
 STRIPE_WEBHOOK_SECRET = os.environ.get("STRIPE_WEBHOOK_SECRET", "")
 STRIPE_API_KEY = os.environ.get("STRIPE_API_KEY", "")
+
+# TrainingPeaks store buyers -> post_purchase (services/tp_store_sales.py).
+# OFF unless TP_BUYER_INGEST_ENABLED is exactly one of 1/true/yes/on. Read at
+# call time so flipping the Railway variable needs no code change, and so a
+# merge alone changes nothing. Gmail access stays in the account-local Apps
+# Script (integrations/gmail-lead-bridge); Mission Control holds no Gmail
+# credentials.
+def tp_buyer_ingest_enabled() -> bool:
+    return os.environ.get("TP_BUYER_INGEST_ENABLED", "").strip().lower() in (
+        "1", "true", "yes", "on")
+
+
+def tp_buyer_max_age_days() -> int:
+    """A sale older than this is recorded but never enrolled (default 7).
+
+    The day-0 email asks whether the plan landed on their calendar; that
+    question is only honest within days of the purchase, so switching the
+    flag on never mails the historical backlog.
+    """
+    try:
+        days = int(os.environ.get("TP_BUYER_MAX_AGE_DAYS", "7"))
+    except ValueError:
+        return 7
+    return days if 0 < days <= 60 else 7
+
 
 # Public URL (for unsubscribe links in emails)
 PUBLIC_URL = os.environ.get("PUBLIC_URL", "https://athlete-profiles-production.up.railway.app")

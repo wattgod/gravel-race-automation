@@ -41,11 +41,11 @@ def minutes_from_intro(intro: str) -> int | None:
 
 
 def training_plans_card_html() -> str:
-    from pricing import PRICE_CAP, PRICE_PER_WEEK
+    from pricing import PRICE_PER_WEEK
     return og_topo.pillar_card(
         pillar="plans", key="training-plans", kicker="CUSTOM TRAINING PLANS",
         title_html="Your Race.<br>Your Hours.<br>Your Plan.", size=80, lines=3,
-        line=f"ONE PAYMENT · CAPPED AT {PRICE_CAP}", tag=("PER WEEK", PRICE_PER_WEEK))
+        line="ONE PAYMENT · NO SUBSCRIPTION", tag=("PER WEEK", PRICE_PER_WEEK))
 
 
 def coaching_card_html() -> str:

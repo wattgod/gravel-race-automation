@@ -1211,23 +1211,34 @@ class TestKitPitchPilot:
         assert [s["template"] for s in v["A"]["steps"]] == ["race_prep_tips"]
         assert [s["template"] for s in v["C"]["steps"]] == ["kit_checkin_pilot", "kit_pitch", "kit_followup"]
         assert [s["delay_days"] for s in v["C"]["steps"]] == [2, 7, 11]
-        assert v["A"]["weight"] == 50 and v["C"]["weight"] == 50 and v["B"]["weight"] == 0
+        # C is the track since the Oct 2026 decision; A and B stay for in-flight rows.
+        assert v["A"]["weight"] == 0 and v["C"]["weight"] == 100 and v["B"]["weight"] == 0
         assert v["A"]["steps"] is not v["C"]["steps"]
 
     def test_single_pitch_plus_one_followup(self, fake_db):
+        # Oct 23 2026: recut to Matti's text-a-friend rules (docs/email-voice-model.md).
         checkin = self._render("kit_checkin_pilot", {"race_name": "Big Sugar", "race_slug": "big-sugar"})
-        assert "one note about the custom plan for Big Sugar, and one follow-up" in checkin
-        assert "That's all the plan talk from me" in checkin  # scoped promise, not "no more email ever"
+        assert "custom plan" not in checkin and "plan talk" not in checkin  # no meta promise
         pitch = self._render("kit_pitch", {"race_name": "Big Sugar", "race_slug": "big-sugar"})
         assert pitch.count("questionnaire/?race=big-sugar") == 1
-        assert "One follow-up in a few days" in pitch
+        assert "if Big Sugar is your A-race" in pitch
         assert "Two plan adjustments" in pitch and "P.S." not in pitch
-        assert pitch.index("Reply and ask") < pitch.index('class="cta"')  # exit ramp before the CTA
+        assert pitch.index('class="cta"') < pitch.index("stepping stone")
         follow = self._render("kit_followup", {"race_name": "Big Sugar", "race_slug": "big-sugar"})
         assert follow.count("questionnaire/?race=big-sugar") == 1
-        assert "then I'll drop it" in follow
+        assert "rebuild the rest of your Big Sugar plan" in follow
         for html in (checkin, pitch, follow):
             assert "48 hours" not in html and "{{" not in html and "{race_" not in html
+
+    def test_kit_path_copy_is_text_length(self, fake_db):
+        import re as _re
+        for tpl in ("kit_checkin_pilot", "kit_pitch", "kit_followup"):
+            html = self._render(tpl, {"race_name": "Big Sugar", "race_slug": "big-sugar"})
+            body = html.split('<div class="container">')[1].split("— Matti")[0]
+            body = _re.sub(r'<p class="cta">.*?</p>', " ", body, flags=_re.S)
+            words = _re.findall(r"[\w'’-]+", _re.sub(r"<[^>]+>", " ", body))
+            assert len(words) <= 80, f"{tpl}: {len(words)} words"
+            assert body.rstrip().removesuffix("<p>").rstrip().endswith("?</p>") or tpl == "kit_checkin_pilot"
 
     def test_race_facts_come_from_race_data_only(self, fake_db):
         from mission_control.services.sequence_engine import _race_facts
@@ -1247,7 +1258,7 @@ class TestKitPitchPilot:
         assert "/questionnaire/?race=" not in html  # bad slug dropped → generic CTA
         assert "race/../x" not in html
 
-    def test_checkin_arms_differ_only_by_the_promise_line(self, fake_db):
+    def test_checkin_arms_match_once_the_promise_line_is_gone(self, fake_db):
         a = self._render("race_prep_tips", {"race_name": "Big Sugar", "race_slug": "big-sugar"})
         c = self._render("kit_checkin_pilot", {"race_name": "Big Sugar", "race_slug": "big-sugar"})
         import re as _re
@@ -1255,21 +1266,70 @@ class TestKitPitchPilot:
         a_t, c_t = strip(a), strip(c)
         assert "Did it cover what you needed?" in a_t and "Did it cover what you needed?" in c_t
         assert "happy to help" in a_t and "happy to help" in c_t
-        assert "custom plan" not in a_t and "custom plan" in c_t
+        assert "custom plan" not in a_t and "custom plan" not in c_t
 
-    def test_pitch_states_numbers_only_when_facts_exist(self, fake_db):
+    def test_pitch_never_states_course_numbers(self, fake_db):
         with_facts = self._render("kit_pitch", {"race_name": "Unbound Gravel 200", "race_slug": "unbound-200"})
-        assert "200 miles with about 11,000 feet of climbing" in with_facts
-        without = self._render("kit_pitch", {"race_name": "Mystery Race", "race_slug": "mystery-race-404"})
-        assert "miles with about" not in without and "Mystery Race" in without
+        assert "miles with about" not in with_facts and "Unbound Gravel 200" in with_facts
         anon = self._render("kit_pitch", {})
         assert "miles with about" not in anon and "questionnaire/?race=" not in anon
+        assert "if this race is your A-race" in anon
 
     def test_engine_tags_pilot_cta_with_email_surface(self, fake_db):
         from mission_control.services.sequence_engine import _inject_utm_params
         html = self._render("kit_pitch", {"race_name": "Big Sugar", "race_slug": "big-sugar"})
         out = _inject_utm_params(html, "nurture_v1", "C", 1)
         assert "questionnaire/?race=big-sugar&src=email_nurture&utm_source=gravel_god" in out
+
+
+class TestRetiredVariantsStillSendInFlight:
+    """Oct 2026: welcome B (Sober) and nurture A went to weight 0. New
+    enrollments must never land in them, and a contact already enrolled in
+    one must keep receiving that variant's next step, because the engine
+    reads the variant stored on the enrollment row, not the weights."""
+
+    def test_new_welcome_enrollments_are_all_value_first(self, fake_db):
+        from mission_control.services.sequence_engine import enroll
+        variants = {enroll(f"w{i}@example.com", "W", "welcome_v1")["variant"] for i in range(200)}
+        assert variants == {"A"}
+
+    def test_new_nurture_enrollments_are_all_kit_path(self, fake_db):
+        from mission_control.services.sequence_engine import enroll
+        sd = {"race_name": "Big Sugar", "race_slug": "big-sugar"}
+        variants = {enroll(f"n{i}@example.com", "N", "nurture_v1", source="prep_kit_gate",
+                           source_data=sd)["variant"] for i in range(200)}
+        assert variants == {"C"}
+
+    def test_retired_variants_keep_their_steps(self, fake_db):
+        from mission_control.sequences import SEQUENCES
+        b = SEQUENCES["welcome_v1"]["variants"]["B"]
+        assert [s["template"] for s in b["steps"]] == [
+            "sober_welcome", "sober_pacing", "sober_scoring",
+            "sober_pitch", "sober_repitch", "sober_breathing"]
+        assert [s["template"] for s in SEQUENCES["nurture_v1"]["variants"]["A"]["steps"]] == ["race_prep_tips"]
+
+    @pytest.mark.parametrize("seq_id,variant,step,template", [
+        ("welcome_v1", "B", 2, "sober_scoring"),
+        ("nurture_v1", "A", 0, "race_prep_tips"),
+    ])
+    def test_in_flight_retired_enrollment_gets_its_next_step(
+            self, fake_db, monkeypatch, seq_id, variant, step, template):
+        import asyncio
+        from mission_control.services import sequence_engine as se
+        from mission_control.tests.conftest import make_enrollment
+
+        monkeypatch.setattr(se, "RESEND_API_KEY", "test-key")
+        monkeypatch.setattr(se, "_send_email_sync", lambda *a, **k: "resend-test-id")
+        enrollment = make_enrollment(
+            sequence_id=seq_id, variant=variant, current_step=step, status="active",
+            source="prep_kit_gate" if seq_id == "nurture_v1" else "exit_intent",
+            source_data={"race_name": "Big Sugar", "race_slug": "big-sugar"},
+        )
+        fake_db.store["gg_sequence_enrollments"].append(enrollment)
+        assert asyncio.run(se._send_next_step(enrollment)) is True
+        sends = fake_db.store["gg_sequence_sends"]
+        assert [s["template"] for s in sends] == [template]
+        assert enrollment["variant"] == variant
 
 
 class TestReceiptSequencesAreOneEmail:

@@ -704,6 +704,12 @@ async def resend_webhook(
 
     if event_type in ("email.opened", "email.clicked", "email.bounced", "email.complained"):
         success = record_event(resend_id, event_type)
+        if not success:
+            # Either a duplicate (already recorded) or no gg_sequence_sends
+            # row has this resend_id. Logged so a brand whose events never
+            # match is visible in Railway logs instead of silently dropped.
+            logger.info("resend webhook %s for %s matched no new send",
+                        event_type, resend_id)
         return {"status": "recorded" if success else "not_found"}
 
     return {"status": "ignored", "reason": f"unhandled event: {event_type}"}

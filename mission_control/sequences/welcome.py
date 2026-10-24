@@ -1,9 +1,12 @@
 """Welcome sequence — new subscriber onboarding, anti-funnel posture.
 
-A/B test of two ENTIRELY different sequences (different subjects, topics,
-register). Measure with scripts/sequence_report.py; decide manually once
-each variant has meaningful volume — do not auto-shift weights at this
-list size.
+Was an A/B test of two ENTIRELY different sequences (different subjects,
+topics, register). Decided manually on prod data (Oct 2026, pending Matti's
+approval of the PR that set it): A outperformed the Sober control, so new
+enrollments now go to A only (A 100 / B 0). B is RETIRED, not deleted —
+its steps and sober_* templates stay so contacts already enrolled in B
+finish the track they started (the engine stores the variant on the
+enrollment row and reads that variant's steps on every send).
 
 A "Value-first": friend-register rewrite (docs/specs/friend-register-copy.md,
 Jul 16) — a single opener keyed to whatever context the capture gave us
@@ -12,7 +15,8 @@ plus one optional day-10 follow-up. No pitch in the broadcast; replies are
 the conversion engine.
 B "Sober": contract welcome, race three-act structure, how scoring works,
 plain-spec pitch, breathing technique. Plain declarative register.
-Unchanged — stays as the A/B control.
+Copy unchanged (do not edit — in-flight B enrollments still receive it);
+weight 0, so no new contact is assigned B.
 """
 
 # Friend-register set (docs/specs/friend-register-copy.md) — the pitch-count
@@ -34,11 +38,13 @@ _STEPS_B = [
 SEQUENCE = {
     "id": "welcome_v1",
     "name": "Welcome Sequence",
-    "description": "New subscriber onboarding — A/B of two distinct tracks: value-first (warm) vs sober (plain).",
+    "description": "New subscriber onboarding — value-first (warm) track; sober (plain) control retired at weight 0.",
     "trigger": "new_subscriber",
     "active": True,
     "variants": {
-        "A": {"weight": 50, "name": "Value-first", "steps": _STEPS_A},
-        "B": {"weight": 50, "name": "Sober", "steps": _STEPS_B},
+        "A": {"weight": 100, "name": "Value-first", "steps": _STEPS_A},
+        # Retired control: weight 0 keeps it out of _pick_variant for new
+        # enrollments; the entry must stay for in-flight B rows.
+        "B": {"weight": 0, "name": "Sober", "steps": _STEPS_B},
     },
 }

@@ -224,6 +224,7 @@ def live_sitemap_urls(delay: float) -> tuple[set[str], list[tuple[int, str]], li
 def shared_chrome_urls() -> set[str]:
     """Render the shared header/footer and extract their hardcoded URLs."""
     sys.path.insert(0, str(PROJECT_ROOT))
+    sys.path.insert(0, str(PROJECT_ROOT / "wordpress"))
     from wordpress.shared_footer import get_mega_footer_html
     from wordpress.shared_header import get_site_header_html
 

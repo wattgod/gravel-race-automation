@@ -109,8 +109,18 @@ ALLOWLIST = {
 ALLOWLIST_GENERATED_PAGES = ("wordpress/posts/",)
 
 
+# Machine-written daily records. The morning intel report quotes merged PR
+# titles verbatim ("single $15/wk product"), so a dated snapshot is a log of
+# what happened, not a place product copy is authored.
+ALLOWLIST_PREFIXES = (
+    "data/intel-snapshots/",
+)
+
+
 def _is_allowlisted(rel_path: str) -> bool:
     if rel_path in ALLOWLIST:
+        return True
+    if rel_path.startswith(ALLOWLIST_PREFIXES):
         return True
     return rel_path.endswith("/index.html") and rel_path.startswith(ALLOWLIST_GENERATED_PAGES)
 

@@ -760,6 +760,43 @@ async def resend_inbound_webhook(
 
 
 # ---------------------------------------------------------------------------
+# TrainingPeaks store sales — Apps Script relay -> post_purchase enrollment.
+# OFF unless TP_BUYER_INGEST_ENABLED (services/tp_store_sales.py).
+# ---------------------------------------------------------------------------
+
+@router.get("/tp-store-sales/config")
+async def tp_store_sales_config(
+    request: Request,
+    authorization: str = Header(""),
+):
+    """Tells the Apps Script whether to read Gmail at all. While the flag is
+    off the script searches nothing and sends nothing."""
+    _check_rate_limit(request)
+    _require_webhook_secret(authorization)
+    from mission_control.config import tp_buyer_ingest_enabled
+    from mission_control.services.tp_store_sales import TP_SALE_SENDER, TP_SALE_SUBJECT
+
+    return {"enabled": tp_buyer_ingest_enabled(), "sender": TP_SALE_SENDER,
+            "subject": TP_SALE_SUBJECT}
+
+
+@router.post("/tp-store-sales")
+async def tp_store_sales(
+    request: Request,
+    authorization: str = Header(""),
+):
+    _check_rate_limit(request)
+    _require_webhook_secret(authorization)
+    payload = await request.json()
+    if not isinstance(payload, dict) or not isinstance(payload.get("messages", []), list):
+        raise HTTPException(status_code=400, detail="messages must be a list")
+    from mission_control.services.tp_store_sales import ingest_tp_sale_messages
+
+    return ingest_tp_sale_messages(payload.get("messages") or [],
+                                   dry_run=payload.get("dry_run") is True)
+
+
+# ---------------------------------------------------------------------------
 # Gmail lead bridge — Apps Script relay, approval-only drafts, never sends
 # Gated by LEAD_REPLY_SYNC_ENABLED / LEAD_REPLY_GMAIL_DRAFTS_ENABLED (both off
 # by default). The draft receipt stays open: it only records a draft the

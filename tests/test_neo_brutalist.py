@@ -1156,8 +1156,7 @@ class TestSections:
 
     def test_similar_races(self, normalized_data, sample_race_index):
         html = build_similar_races(normalized_data, sample_race_index)
-        assert '<table class="gg-similar-table">' in html
-        assert 'gg-similar-row--self' in html
+        assert "gg-similar-card" in html
         assert 'data-related-race=' in html
         assert 'id="similar-races"' in html
 

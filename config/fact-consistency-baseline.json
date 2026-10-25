@@ -260,32 +260,11 @@
       "distance: vitals say 47 mi, guide_variables.race_distance says 65 mi",
       "distance: vitals say 47 mi, workout pack says 65 mi (regenerate: python scripts/generate_race_pack_previews.py --slug serenissima-gravel)"
     ],
-    "soldier-cutoff-hillduro": [
-      "distance: vitals say 56 mi, workout pack says 60 mi (regenerate: python scripts/generate_race_pack_previews.py --slug soldier-cutoff-hillduro)"
-    ],
     "the-equalizer": [
       "distance: vitals say 62 mi, workout pack says 100 mi (regenerate: python scripts/generate_race_pack_previews.py --slug the-equalizer)"
     ],
-    "the-range": [
-      "distance: vitals say 76 mi, workout pack says 100 mi (regenerate: python scripts/generate_race_pack_previews.py --slug the-range)"
-    ],
-    "trough-creek-gravel-grinder": [
-      "distance: vitals say 71.4 mi, workout pack says 50 mi (regenerate: python scripts/generate_race_pack_previews.py --slug trough-creek-gravel-grinder)"
-    ],
-    "uwharrie-forest-gravel-grinder": [
-      "distance: vitals say 55 mi, workout pack says 75 mi (regenerate: python scripts/generate_race_pack_previews.py --slug uwharrie-forest-gravel-grinder)"
-    ],
-    "waucheesi-bike-race": [
-      "distance: vitals say 88 mi, workout pack says 75 mi (regenerate: python scripts/generate_race_pack_previews.py --slug waucheesi-bike-race)"
-    ],
     "wild-horse-gravel": [
       "distance: vitals say 100 mi, workout pack says 62 mi (regenerate: python scripts/generate_race_pack_previews.py --slug wild-horse-gravel)"
-    ],
-    "wish-one-millau": [
-      "distance: vitals say 81 mi, workout pack says 70 mi (regenerate: python scripts/generate_race_pack_previews.py --slug wish-one-millau)"
-    ],
-    "worthersee-gravel-race": [
-      "distance: vitals say 93 mi, workout pack says 75 mi (regenerate: python scripts/generate_race_pack_previews.py --slug worthersee-gravel-race)"
     ]
   }
 }

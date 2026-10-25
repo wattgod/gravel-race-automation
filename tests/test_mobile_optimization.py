@@ -85,8 +85,8 @@ class TestActiveStates:
     def test_faq_question_active(self):
         assert '.gg-faq-question:active' in self.css
 
-    def test_similar_table_row_active(self):
-        assert '.gg-similar-table tbody tr:active' in self.css
+    def test_similar_card_active(self):
+        assert '.gg-similar-card:active' in self.css
 
     def test_pack_workout_active(self):
         assert '.gg-pack-workout:active' in self.css

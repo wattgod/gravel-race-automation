@@ -1,10 +1,6 @@
 {
   "_comment": "Known page contradictions from wordpress/fact_consistency.py as of 2026-10-25. This list may only shrink: fix a race, then delete its entry. tests/test_fact_consistency.py fails on anything new.",
   "known": {
-    "bald-eagle-gravel-grinder": [
-      "distance: vitals say 46.2 mi, guide_variables.race_distance says 50 mi",
-      "distance: vitals say 46.2 mi, workout pack says 50 mi (regenerate: python scripts/generate_race_pack_previews.py --slug bald-eagle-gravel-grinder)"
-    ],
     "berryman-epic": [
       "distance: vitals say 50 mi, guide_variables.race_distance says 65 mi",
       "distance: vitals say 50 mi, workout pack says 65 mi (regenerate: python scripts/generate_race_pack_previews.py --slug berryman-epic)"
@@ -20,13 +16,6 @@
     "forbidden-gravel": [
       "distance: vitals say 68.4 mi, workout pack says 55 mi (regenerate: python scripts/generate_race_pack_previews.py --slug forbidden-gravel)"
     ],
-    "garmin-gravel-worlds": [
-      "distance: vitals say 75 mi, guide_variables.race_distance says 65 mi",
-      "distance: vitals say 75 mi, workout pack says 65 mi (regenerate: python scripts/generate_race_pack_previews.py --slug garmin-gravel-worlds)"
-    ],
-    "grassroots-gravel": [
-      "distance: vitals say 75 mi, workout pack says 60 mi (regenerate: python scripts/generate_race_pack_previews.py --slug grassroots-gravel)"
-    ],
     "gravel-and-tar-classic": [
       "distance: vitals say 75 mi, workout pack says 99 mi (regenerate: python scripts/generate_race_pack_previews.py --slug gravel-and-tar-classic)"
     ],
@@ -37,30 +26,12 @@
       "distance: vitals say 82 mi, guide_variables.race_distance says 65 mi",
       "distance: vitals say 82 mi, workout pack says 65 mi (regenerate: python scripts/generate_race_pack_previews.py --slug grusk)"
     ],
-    "lowell-classic": [
-      "distance: vitals say 54 mi, guide_variables.race_distance says 62 mi",
-      "distance: vitals say 54 mi, workout pack says 62 mi (regenerate: python scripts/generate_race_pack_previews.py --slug lowell-classic)"
-    ],
-    "mid-state-gravel-grinder": [
-      "distance: vitals say 47 mi, guide_variables.race_distance says 50 mi",
-      "distance: vitals say 47 mi, workout pack says 50 mi (regenerate: python scripts/generate_race_pack_previews.py --slug mid-state-gravel-grinder)"
-    ],
     "nicolet-hot-days": [
       "distance: vitals say 68 mi, guide_variables.race_distance says 50 mi",
       "distance: vitals say 68 mi, workout pack says 50 mi (regenerate: python scripts/generate_race_pack_previews.py --slug nicolet-hot-days)"
     ],
-    "old-fashioned-gravel": [
-      "distance: vitals say 67 mi, workout pack says 55 mi (regenerate: python scripts/generate_race_pack_previews.py --slug old-fashioned-gravel)"
-    ],
-    "serenissima-gravel": [
-      "distance: vitals say 47 mi, guide_variables.race_distance says 65 mi",
-      "distance: vitals say 47 mi, workout pack says 65 mi (regenerate: python scripts/generate_race_pack_previews.py --slug serenissima-gravel)"
-    ],
     "the-equalizer": [
       "distance: vitals say 62 mi, workout pack says 100 mi (regenerate: python scripts/generate_race_pack_previews.py --slug the-equalizer)"
-    ],
-    "wild-horse-gravel": [
-      "distance: vitals say 100 mi, workout pack says 62 mi (regenerate: python scripts/generate_race_pack_previews.py --slug wild-horse-gravel)"
     ]
   }
 }

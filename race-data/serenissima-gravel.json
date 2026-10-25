@@ -5,7 +5,7 @@
     "display_name": "Serenissima Gravel",
     "tagline": "Italian flat to rolling gravel near Venice.",
     "vitals": {
-      "distance_mi": 47,
+      "distance_mi": 72,
       "elevation_ft": 2000,
       "location": "Venice, Italy",
       "location_badge": "VENICE, ITALY",
@@ -145,7 +145,7 @@
     },
     "guide_variables": {
       "race_name": "Serenissima Gravel",
-      "race_distance": "65 miles",
+      "race_distance": "72 miles",
       "race_elevation": "2,000 feet",
       "race_date": "Spring/Fall",
       "race_location": "Venice, Italy",
@@ -270,7 +270,7 @@
       },
       "length": {
         "score": 3,
-        "explanation": "Lutsenko's winning solo attack came with 80km remaining, sustaining \"3.5 hours of 100 percent full gas\" through the 132km parcours. The distance allows for tactical racing as Robin Froidevaux demonstrated in 2022, attacking 10km from home: \"I knew if I stayed with the group, it would be hard technically against the best on the last lap.\" Similar distance to Crusher in the Tushar."
+        "explanation": "The current pro race is four laps of a 28.9 km circuit, 115.6 km in all. Lutsenko's winning solo attack came with 80km remaining, sustaining \"3.5 hours of 100 percent full gas\" through the 132km parcours. The distance allows for tactical racing as Robin Froidevaux demonstrated in 2022, attacking 10km from home: \"I knew if I stayed with the group, it would be hard technically against the best on the last lap.\" Similar distance to Crusher in the Tushar."
       },
       "technicality": {
         "score": 2,
@@ -699,6 +699,12 @@
         "alt": "Course preview from Serenissima Gravel race footage",
         "credit": "YouTube / Non solo GravelAndre",
         "gif": true
+      }
+    ],
+    "changelog": [
+      {
+        "date": "2026-10-25",
+        "change": "Distance corrected from 47 to 72 miles to match the 115.6 km pro race, the flagship listed on the official event page. Length score recomputed from the published rubric."
       }
     ]
   }

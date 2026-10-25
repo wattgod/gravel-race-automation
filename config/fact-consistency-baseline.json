@@ -1,0 +1,291 @@
+{
+  "_comment": "Known page contradictions from wordpress/fact_consistency.py as of 2026-10-25. This list may only shrink: fix a race, then delete its entry. tests/test_fact_consistency.py fails on anything new.",
+  "known": {
+    "114-gravel-race": [
+      "distance: vitals say 85 mi, guide_variables.race_distance says 70 mi",
+      "distance: vitals say 85 mi, workout pack says 70 mi (regenerate: python scripts/generate_race_pack_previews.py --slug 114-gravel-race)"
+    ],
+    "alentejo-gravel": [
+      "distance: vitals say 74 mi, workout pack says 80 mi (regenerate: python scripts/generate_race_pack_previews.py --slug alentejo-gravel)"
+    ],
+    "ardenne-gravel-stages": [
+      "distance: vitals say 165 mi, workout pack says 180 mi (regenerate: python scripts/generate_race_pack_previews.py --slug ardenne-gravel-stages)"
+    ],
+    "balatonfondo": [
+      "distance: vitals say 110 mi, workout pack says 75 mi (regenerate: python scripts/generate_race_pack_previews.py --slug balatonfondo)"
+    ],
+    "bald-eagle-gravel-grinder": [
+      "distance: vitals say 46.2 mi, guide_variables.race_distance says 50 mi",
+      "distance: vitals say 46.2 mi, workout pack says 50 mi (regenerate: python scripts/generate_race_pack_previews.py --slug bald-eagle-gravel-grinder)"
+    ],
+    "belgian-waffle-ride-kansas": [
+      "distance: vitals say 111 mi, workout pack says 80 mi (regenerate: python scripts/generate_race_pack_previews.py --slug belgian-waffle-ride-kansas)"
+    ],
+    "berryman-epic": [
+      "distance: vitals say 50 mi, guide_variables.race_distance says 65 mi",
+      "distance: vitals say 50 mi, workout pack says 65 mi (regenerate: python scripts/generate_race_pack_previews.py --slug berryman-epic)"
+    ],
+    "big-sky-gravel": [
+      "distance: vitals say 100 mi, guide_variables.race_distance says 70 mi",
+      "distance: vitals say 100 mi, workout pack says 70 mi (regenerate: python scripts/generate_race_pack_previews.py --slug big-sky-gravel)"
+    ],
+    "bwr-montana": [
+      "distance: vitals say 106 mi, workout pack says 115 mi (regenerate: python scripts/generate_race_pack_previews.py --slug bwr-montana)"
+    ],
+    "bwr-north-carolina": [
+      "distance: vitals say 100 mi, workout pack says 131 mi (regenerate: python scripts/generate_race_pack_previews.py --slug bwr-north-carolina)"
+    ],
+    "bwr-san-diego": [
+      "distance: vitals say 106.5 mi, workout pack says 131 mi (regenerate: python scripts/generate_race_pack_previews.py --slug bwr-san-diego)"
+    ],
+    "bwr-utah": [
+      "distance: vitals say 117 mi, workout pack says 84 mi (regenerate: python scripts/generate_race_pack_previews.py --slug bwr-utah)"
+    ],
+    "castellon-gravel-race": [
+      "distance: vitals say 60 mi, guide_variables.race_distance says 75 mi",
+      "distance: vitals say 60 mi, workout pack says 75 mi (regenerate: python scripts/generate_race_pack_previews.py --slug castellon-gravel-race)"
+    ],
+    "cedar-blitz": [
+      "distance: vitals say 50 mi, guide_variables.race_distance says 62 mi",
+      "distance: vitals say 50 mi, workout pack says 62 mi (regenerate: python scripts/generate_race_pack_previews.py --slug cedar-blitz)"
+    ],
+    "collegiate-gravel-nationals": [
+      "distance: vitals say 50 mi, workout pack says 62 mi (regenerate: python scripts/generate_race_pack_previews.py --slug collegiate-gravel-nationals)"
+    ],
+    "dalby-grit": [
+      "distance: vitals say 68 mi, guide_variables.race_distance says 50 mi",
+      "distance: vitals say 68 mi, workout pack says 50 mi (regenerate: python scripts/generate_race_pack_previews.py --slug dalby-grit)"
+    ],
+    "dead-swede-gravel": [
+      "distance: vitals say 100 mi, workout pack says 62 mi (regenerate: python scripts/generate_race_pack_previews.py --slug dead-swede-gravel)"
+    ],
+    "dirty-dino": [
+      "distance: vitals say 98.3 mi, guide_variables.race_distance says 55 mi",
+      "distance: vitals say 98.3 mi, workout pack says 55 mi (regenerate: python scripts/generate_race_pack_previews.py --slug dirty-dino)"
+    ],
+    "dirty-hector": [
+      "distance: vitals say 40 mi, workout pack says 62 mi (regenerate: python scripts/generate_race_pack_previews.py --slug dirty-hector)"
+    ],
+    "dirty-pecan": [
+      "distance: vitals say 150 mi, guide_variables.race_distance says 65 mi",
+      "distance: vitals say 150 mi, workout pack says 65 mi (regenerate: python scripts/generate_race_pack_previews.py --slug dirty-pecan)"
+    ],
+    "dusty-bandita": [
+      "distance: vitals say 85 mi, guide_variables.race_distance says 65 mi",
+      "distance: vitals say 85 mi, workout pack says 65 mi (regenerate: python scripts/generate_race_pack_previews.py --slug dusty-bandita)"
+    ],
+    "dusty-gravel-lacs-de-leau-dheure": [
+      "distance: vitals say 60 mi, guide_variables.race_distance says 50 mi",
+      "distance: vitals say 60 mi, workout pack says 50 mi (regenerate: python scripts/generate_race_pack_previews.py --slug dusty-gravel-lacs-de-leau-dheure)"
+    ],
+    "dusty-gravel-series-andenne": [
+      "distance: vitals say 62 mi, guide_variables.race_distance says 50 mi",
+      "distance: vitals say 62 mi, workout pack says 50 mi (regenerate: python scripts/generate_race_pack_previews.py --slug dusty-gravel-series-andenne)"
+    ],
+    "epic-gran-canaria": [
+      "distance: vitals say 118 mi, workout pack says 100 mi (regenerate: python scripts/generate_race_pack_previews.py --slug epic-gran-canaria)"
+    ],
+    "fairfield-harvest-rush": [
+      "distance: vitals say 62 mi, workout pack says 55 mi (regenerate: python scripts/generate_race_pack_previews.py --slug fairfield-harvest-rush)"
+    ],
+    "fast-fitty": [
+      "distance: vitals say 54 mi, guide_variables.race_distance says 50 mi",
+      "distance: vitals say 54 mi, workout pack says 50 mi (regenerate: python scripts/generate_race_pack_previews.py --slug fast-fitty)"
+    ],
+    "flanders-legacy-gravel": [
+      "distance: vitals say 82 mi, workout pack says 75 mi (regenerate: python scripts/generate_race_pack_previews.py --slug flanders-legacy-gravel)"
+    ],
+    "forbidden-gravel": [
+      "distance: vitals say 68.4 mi, workout pack says 55 mi (regenerate: python scripts/generate_race_pack_previews.py --slug forbidden-gravel)"
+    ],
+    "garmin-gravel-worlds": [
+      "distance: vitals say 75 mi, guide_variables.race_distance says 65 mi",
+      "distance: vitals say 75 mi, workout pack says 65 mi (regenerate: python scripts/generate_race_pack_previews.py --slug garmin-gravel-worlds)"
+    ],
+    "ghost-of-the-gravel": [
+      "distance: vitals say 73 mi, guide_variables.race_distance says 100 mi",
+      "distance: vitals say 73 mi, workout pack says 100 mi (regenerate: python scripts/generate_race_pack_previews.py --slug ghost-of-the-gravel)"
+    ],
+    "gran-fondo-coimbra": [
+      "distance: vitals say 91 mi, workout pack says 100 mi (regenerate: python scripts/generate_race_pack_previews.py --slug gran-fondo-coimbra)"
+    ],
+    "granfondo-bratislava": [
+      "distance: vitals say 82 mi, workout pack says 62 mi (regenerate: python scripts/generate_race_pack_previews.py --slug granfondo-bratislava)"
+    ],
+    "grassroots-gravel": [
+      "distance: vitals say 75 mi, workout pack says 60 mi (regenerate: python scripts/generate_race_pack_previews.py --slug grassroots-gravel)"
+    ],
+    "gravel-and-granite": [
+      "distance: vitals say 56.5 mi, workout pack says 65 mi (regenerate: python scripts/generate_race_pack_previews.py --slug gravel-and-granite)"
+    ],
+    "gravel-and-tar-classic": [
+      "distance: vitals say 75 mi, workout pack says 99 mi (regenerate: python scripts/generate_race_pack_previews.py --slug gravel-and-tar-classic)"
+    ],
+    "gravel-battle-of-sumter-forest": [
+      "distance: vitals say 73 mi, workout pack says 65 mi (regenerate: python scripts/generate_race_pack_previews.py --slug gravel-battle-of-sumter-forest)"
+    ],
+    "gravel-brazil": [
+      "distance: vitals say 70 mi, workout pack says 62 mi (regenerate: python scripts/generate_race_pack_previews.py --slug gravel-brazil)"
+    ],
+    "gravel-grit-n-grind": [
+      "distance: vitals say 83 mi, workout pack says 50 mi (regenerate: python scripts/generate_race_pack_previews.py --slug gravel-grit-n-grind)"
+    ],
+    "gravel-locos": [
+      "distance: vitals say 118 mi, workout pack says 157 mi (regenerate: python scripts/generate_race_pack_previews.py --slug gravel-locos)"
+    ],
+    "gravel-unravel-bon-jon-pass-out": [
+      "distance: vitals say 80 mi, guide_variables.race_distance says 60 mi",
+      "distance: vitals say 80 mi, workout pack says 60 mi (regenerate: python scripts/generate_race_pack_previews.py --slug gravel-unravel-bon-jon-pass-out)"
+    ],
+    "gravel-unravel-why-not-chee": [
+      "distance: vitals say 69 mi, guide_variables.race_distance says 50 mi",
+      "distance: vitals say 69 mi, workout pack says 50 mi (regenerate: python scripts/generate_race_pack_previews.py --slug gravel-unravel-why-not-chee)"
+    ],
+    "gravelista": [
+      "distance: vitals say 86 mi, guide_variables.race_distance says 80 mi",
+      "distance: vitals say 86 mi, workout pack says 80 mi (regenerate: python scripts/generate_race_pack_previews.py --slug gravelista)"
+    ],
+    "great-otway-gravel-grind": [
+      "distance: vitals say 66 mi, workout pack says 60 mi (regenerate: python scripts/generate_race_pack_previews.py --slug great-otway-gravel-grind)"
+    ],
+    "grusk": [
+      "distance: vitals say 82 mi, guide_variables.race_distance says 65 mi",
+      "distance: vitals say 82 mi, workout pack says 65 mi (regenerate: python scripts/generate_race_pack_previews.py --slug grusk)"
+    ],
+    "hot-springs-gravel-gauntlet": [
+      "distance: vitals say 61 mi, workout pack says 75 mi (regenerate: python scripts/generate_race_pack_previews.py --slug hot-springs-gravel-gauntlet)"
+    ],
+    "houffa-gravel": [
+      "distance: vitals say 86 mi, workout pack says 65 mi (regenerate: python scripts/generate_race_pack_previews.py --slug houffa-gravel)"
+    ],
+    "iron-cross": [
+      "distance: vitals say 56 mi, guide_variables.race_distance says 60 mi",
+      "distance: vitals say 56 mi, workout pack says 60 mi (regenerate: python scripts/generate_race_pack_previews.py --slug iron-cross)"
+    ],
+    "just-gravel": [
+      "distance: vitals say 28 mi, guide_variables.race_distance says 50 mi",
+      "distance: vitals say 28 mi, workout pack says 50 mi (regenerate: python scripts/generate_race_pack_previews.py --slug just-gravel)"
+    ],
+    "kalona-horseshoe": [
+      "distance: vitals say 62 mi, guide_variables.race_distance says 50 mi",
+      "distance: vitals say 62 mi, workout pack says 50 mi (regenerate: python scripts/generate_race_pack_previews.py --slug kalona-horseshoe)"
+    ],
+    "kettle-mettle": [
+      "distance: vitals say 62 mi, workout pack says 80 mi (regenerate: python scripts/generate_race_pack_previews.py --slug kettle-mettle)"
+    ],
+    "la-resistance": [
+      "distance: vitals say 81 mi, workout pack says 65 mi (regenerate: python scripts/generate_race_pack_previews.py --slug la-resistance)"
+    ],
+    "lauf-gritfest": [
+      "distance: vitals say 79.5 mi, guide_variables.race_distance says 65 mi",
+      "distance: vitals say 79.5 mi, workout pack says 65 mi (regenerate: python scripts/generate_race_pack_previews.py --slug lauf-gritfest)"
+    ],
+    "little-apple-100": [
+      "distance: vitals say 62 mi, workout pack says 100 mi (regenerate: python scripts/generate_race_pack_previews.py --slug little-apple-100)"
+    ],
+    "lone-wolf-gravel": [
+      "distance: vitals say 100 mi, guide_variables.race_distance says 62 mi",
+      "distance: vitals say 100 mi, workout pack says 62 mi (regenerate: python scripts/generate_race_pack_previews.py --slug lone-wolf-gravel)"
+    ],
+    "lost-and-found-gravel": [
+      "distance: vitals say 99 mi, workout pack says 65 mi (regenerate: python scripts/generate_race_pack_previews.py --slug lost-and-found-gravel)"
+    ],
+    "lowell-classic": [
+      "distance: vitals say 54 mi, guide_variables.race_distance says 62 mi",
+      "distance: vitals say 54 mi, workout pack says 62 mi (regenerate: python scripts/generate_race_pack_previews.py --slug lowell-classic)"
+    ],
+    "maap-beechworth-granite-classic": [
+      "distance: vitals say 71 mi, workout pack says 93 mi (regenerate: python scripts/generate_race_pack_previews.py --slug maap-beechworth-granite-classic)"
+    ],
+    "majka-gran-fondo": [
+      "distance: vitals say 53.5 mi, workout pack says 73 mi (regenerate: python scripts/generate_race_pack_previews.py --slug majka-gran-fondo)"
+    ],
+    "marly-grav": [
+      "distance: vitals say 93 mi, workout pack says 65 mi (regenerate: python scripts/generate_race_pack_previews.py --slug marly-grav)"
+    ],
+    "melting-mann": [
+      "distance: vitals say 58 mi, guide_variables.race_distance says 62 mi",
+      "distance: vitals say 58 mi, workout pack says 62 mi (regenerate: python scripts/generate_race_pack_previews.py --slug melting-mann)"
+    ],
+    "mid-state-gravel-grinder": [
+      "distance: vitals say 47 mi, guide_variables.race_distance says 50 mi",
+      "distance: vitals say 47 mi, workout pack says 50 mi (regenerate: python scripts/generate_race_pack_previews.py --slug mid-state-gravel-grinder)"
+    ],
+    "nicolet-hot-days": [
+      "distance: vitals say 68 mi, guide_variables.race_distance says 50 mi",
+      "distance: vitals say 68 mi, workout pack says 50 mi (regenerate: python scripts/generate_race_pack_previews.py --slug nicolet-hot-days)"
+    ],
+    "nordsjorittet": [
+      "distance: vitals say 56 mi, workout pack says 96 mi (regenerate: python scripts/generate_race_pack_previews.py --slug nordsjorittet)"
+    ],
+    "old-fashioned-gravel": [
+      "distance: vitals say 67 mi, workout pack says 55 mi (regenerate: python scripts/generate_race_pack_previews.py --slug old-fashioned-gravel)"
+    ],
+    "opelika-okey-dokey": [
+      "distance: vitals say 104 mi, guide_variables.race_distance says 75 mi",
+      "distance: vitals say 104 mi, workout pack says 75 mi (regenerate: python scripts/generate_race_pack_previews.py --slug opelika-okey-dokey)"
+    ],
+    "oregon-trail-gravel": [
+      "distance: vitals say 350 mi, workout pack says 375 mi (regenerate: python scripts/generate_race_pack_previews.py --slug oregon-trail-gravel)"
+    ],
+    "race-to-valhalla": [
+      "distance: vitals say 72 mi, workout pack says 65 mi (regenerate: python scripts/generate_race_pack_previews.py --slug race-to-valhalla)"
+    ],
+    "rasputitsa": [
+      "distance: vitals say 53 mi, workout pack says 46 mi (regenerate: python scripts/generate_race_pack_previews.py --slug rasputitsa)"
+    ],
+    "real-west-gravel": [
+      "distance: vitals say 67 mi, workout pack says 62 mi (regenerate: python scripts/generate_race_pack_previews.py --slug real-west-gravel)"
+    ],
+    "reliance-deep-woods": [
+      "distance: vitals say 70 mi, guide_variables.race_distance says 65 mi",
+      "distance: vitals say 70 mi, workout pack says 65 mi (regenerate: python scripts/generate_race_pack_previews.py --slug reliance-deep-woods)"
+    ],
+    "river-city-gravel-fondo": [
+      "distance: vitals say 71 mi, workout pack says 62 mi (regenerate: python scripts/generate_race_pack_previews.py --slug river-city-gravel-fondo)"
+    ],
+    "safari-gravel-race": [
+      "distance: vitals say 69 mi, workout pack says 100 mi (regenerate: python scripts/generate_race_pack_previews.py --slug safari-gravel-race)"
+    ],
+    "santa-fe-century-gravelon": [
+      "distance: vitals say 54 mi, workout pack says 100 mi (regenerate: python scripts/generate_race_pack_previews.py --slug santa-fe-century-gravelon)"
+    ],
+    "sasquatch-duro": [
+      "distance: vitals say 67 mi, workout pack says 62 mi (regenerate: python scripts/generate_race_pack_previews.py --slug sasquatch-duro)"
+    ],
+    "sea-otter-europe-gravel": [
+      "distance: vitals say 68 mi, workout pack says 75 mi (regenerate: python scripts/generate_race_pack_previews.py --slug sea-otter-europe-gravel)"
+    ],
+    "serenissima-gravel": [
+      "distance: vitals say 47 mi, guide_variables.race_distance says 65 mi",
+      "distance: vitals say 47 mi, workout pack says 65 mi (regenerate: python scripts/generate_race_pack_previews.py --slug serenissima-gravel)"
+    ],
+    "soldier-cutoff-hillduro": [
+      "distance: vitals say 56 mi, workout pack says 60 mi (regenerate: python scripts/generate_race_pack_previews.py --slug soldier-cutoff-hillduro)"
+    ],
+    "the-equalizer": [
+      "distance: vitals say 62 mi, workout pack says 100 mi (regenerate: python scripts/generate_race_pack_previews.py --slug the-equalizer)"
+    ],
+    "the-range": [
+      "distance: vitals say 76 mi, workout pack says 100 mi (regenerate: python scripts/generate_race_pack_previews.py --slug the-range)"
+    ],
+    "trough-creek-gravel-grinder": [
+      "distance: vitals say 71.4 mi, workout pack says 50 mi (regenerate: python scripts/generate_race_pack_previews.py --slug trough-creek-gravel-grinder)"
+    ],
+    "uwharrie-forest-gravel-grinder": [
+      "distance: vitals say 55 mi, workout pack says 75 mi (regenerate: python scripts/generate_race_pack_previews.py --slug uwharrie-forest-gravel-grinder)"
+    ],
+    "waucheesi-bike-race": [
+      "distance: vitals say 88 mi, workout pack says 75 mi (regenerate: python scripts/generate_race_pack_previews.py --slug waucheesi-bike-race)"
+    ],
+    "wild-horse-gravel": [
+      "distance: vitals say 100 mi, workout pack says 62 mi (regenerate: python scripts/generate_race_pack_previews.py --slug wild-horse-gravel)"
+    ],
+    "wish-one-millau": [
+      "distance: vitals say 81 mi, workout pack says 70 mi (regenerate: python scripts/generate_race_pack_previews.py --slug wish-one-millau)"
+    ],
+    "worthersee-gravel-race": [
+      "distance: vitals say 93 mi, workout pack says 75 mi (regenerate: python scripts/generate_race_pack_previews.py --slug worthersee-gravel-race)"
+    ]
+  }
+}

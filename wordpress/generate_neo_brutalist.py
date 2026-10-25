@@ -48,6 +48,8 @@ from cookie_consent import get_consent_banner_html
 from shared_footer import get_mega_footer_css, get_mega_footer_html
 from shared_header import get_site_header_css, get_site_header_html, get_site_header_js
 from pricing import MIN_WEEKS, PRICE_PER_WEEK
+from page_dates import changelog_entries, format_display_date, race_updated_date
+from fact_consistency import check_race
 
 # ── Constants ──────────────────────────────────────────────────
 
@@ -2791,6 +2793,133 @@ def build_faq_jsonld(rd: dict) -> Optional[dict]:
 
 # ── Phase 3: Section Builders ─────────────────────────────────
 
+# ── Answer-first summary + byline ─────────────────────────────
+# Search engines and AI answers lift the first 40-60 words under the H1.
+# Built only from fields the page already shows (vitals, Lab score, the
+# editor's bottom line), so it never states a fact the page doesn't.
+
+RATED_BY_NAME = "Matti Rowe"
+RATED_BY_ROLE = "head coach"
+RATED_BY_URL = "/about/"
+ANSWER_SUMMARY_MAX_WORDS = 60
+
+SUMMARY_RACE_NOUNS = {
+    "gravel": "gravel race",
+    "mtb": "mountain bike race",
+    "bikepacking": "bikepacking race",
+}
+
+
+def build_author_jsonld() -> dict:
+    """Person JSON-LD for the race page's named rater."""
+    return {
+        "@type": "Person",
+        "name": RATED_BY_NAME,
+        "jobTitle": "Head Coach",
+        "url": f"{SITE_BASE_URL}{RATED_BY_URL}",
+        "worksFor": {
+            "@type": "Organization",
+            "name": "Gravel God Cycling",
+            "url": SITE_BASE_URL,
+        },
+    }
+
+
+def _summary_date_phrase(rd: dict) -> str:
+    """'2026: October 16-18' -> 'The 2026 edition runs October 16-18.'"""
+    date_specific = (rd.get('vitals', {}).get('date_specific') or '').strip()
+    match = re.match(r'^(20\d{2})\s*:\s*(.+)$', date_specific)
+    if match:
+        return f"The {match.group(1)} edition runs {match.group(2).strip().rstrip('.')}."
+    return ''
+
+
+def _split_sentences(text: str) -> list[str]:
+    return [part.strip() for part in re.split(r'(?<=[.!?])\s+', text.strip()) if part.strip()]
+
+
+def build_answer_summary(rd: dict) -> str:
+    """40-60 word plain answer under the H1: what, where, when, score, who."""
+    vitals = rd.get('vitals', {})
+    name = rd['name']
+    noun = SUMMARY_RACE_NOUNS.get(rd.get('discipline', 'gravel'), 'race')
+
+    lead = f"{name} is a"
+    distance = vitals.get('distance_mi')
+    if isinstance(distance, (int, float)) and distance > 0:
+        lead += f" {distance:,.0f}-mile {noun}"
+    else:
+        lead += f" {noun}"
+    location = (vitals.get('location') or '').strip()
+    if location and location != '--':
+        lead += f" in {location}"
+    elevation = (vitals.get('elevation') or '').strip()
+    if elevation and elevation != '--':
+        lead += f" with {elevation.replace(' ft', ' feet')} of climbing"
+    sentences = [lead + "."]
+
+    date_phrase = _summary_date_phrase(rd)
+    if date_phrase:
+        sentences.append(date_phrase)
+    sentences.append(f"Lab score: {rd['overall_score']}/100, {rd['tier_label'].title()}.")
+
+    judgment = (
+        rd.get('biased_opinion', {}).get('bottom_line', '').strip()
+        or rd.get('final_verdict', {}).get('should_you_race', '').strip()
+    )
+    words = sum(len(s.split()) for s in sentences)
+    for sentence in _split_sentences(judgment):
+        n = len(sentence.split())
+        if words + n > ANSWER_SUMMARY_MAX_WORDS:
+            break
+        sentences.append(sentence)
+        words += n
+
+    return f'<p class="gg-hero-summary">{esc(" ".join(sentences))}</p>'
+
+
+def build_hero_byline(rd: dict) -> str:
+    """Named rater with credentials + the page's real updated date."""
+    parts = [
+        f'Rated by <a href="{RATED_BY_URL}" rel="author">{esc(RATED_BY_NAME)}</a>, '
+        f'{esc(RATED_BY_ROLE)}'
+    ]
+    updated = rd.get('_updated_date')
+    if updated:
+        try:
+            parts.append(
+                f'Updated <time datetime="{esc(updated)}">'
+                f'{esc(format_display_date(updated))}</time>'
+            )
+        except ValueError:
+            pass
+    if rd.get('_changelog'):
+        parts.append('<a href="#changelog">What changed</a>')
+    return f'<p class="gg-hero-byline">{" &middot; ".join(parts)}</p>'
+
+
+def build_changelog(rd: dict) -> str:
+    """Visible 'What changed' log from race.changelog (newest first)."""
+    entries = rd.get('_changelog') or []
+    if not entries:
+        return ''
+    items = '\n'.join(
+        f'      <li><time datetime="{esc(e["date"])}">{esc(format_display_date(e["date"]))}</time> '
+        f'{esc(e["change"])}</li>'
+        for e in entries
+    )
+    return f'''<section class="gg-section" id="changelog">
+    <div class="gg-section-header">
+      <h2 class="gg-section-title">What Changed</h2>
+    </div>
+    <div class="gg-section-body">
+      <ul class="gg-changelog">
+{items}
+      </ul>
+    </div>
+  </section>'''
+
+
 def build_hero(rd: dict) -> str:
     """Build clean editorial hero — race name + score masthead."""
     score = rd['overall_score']
@@ -2875,7 +3004,9 @@ def build_hero(rd: dict) -> str:
     <span class="gg-hero-tier">{esc(rd['tier_label'])}</span>{discipline_badge}{series_badge}
     <h1>{esc(rd['name'])}</h1>
     <div class="gg-hero-vitals">{vitals_line}</div>
+    {build_hero_byline(rd)}
     {verdict_html}
+    {build_answer_summary(rd)}
     {break_html}
   </div>
   <div class="gg-hero-scores">
@@ -6250,16 +6381,41 @@ def build_similar_races(rd: dict, race_index: list) -> str:
     if not top:
         return ''
 
-    cards = []
-    for r in top:
-        tier_num = r.get('tier', 4)
-        dist = r.get('distance_mi', '')
-        dist_str = f" &middot; {dist} mi" if dist else ''
-        cards.append(f'''<a href="/race/{esc(r['slug'])}/" class="gg-similar-card" data-related-race="{esc(r['slug'])}">
-        <span class="gg-similar-tier">T{tier_num}</span>
-        <span class="gg-similar-name">{esc(r['name'])}</span>
-        <span class="gg-similar-meta">{esc(r.get('location', ''))}{dist_str} &middot; {r.get('overall_score', 0)}/100</span>
-      </a>''')
+    # An HTML table, not cards: search engines and AI answers read real
+    # <table> rows for "X vs Y" questions. This race is the first row.
+    my_index_row = next((r for r in race_index if r.get('slug') == slug), {})
+    this_row = {
+        'slug': slug,
+        'name': rd['name'],
+        'location': location,
+        'overall_score': score,
+        'tier': tier,
+        'distance_mi': my_distance or my_index_row.get('distance_mi'),
+        'elevation_ft': my_index_row.get('elevation_ft'),
+        'month': my_index_row.get('month', ''),
+    }
+
+    def _num(value, unit):
+        if isinstance(value, (int, float)) and value > 0:
+            return f"{value:,.0f} {unit}"
+        return '&mdash;'
+
+    rows = []
+    for r in [this_row] + top:
+        is_self = r['slug'] == slug
+        name_html = (
+            f'{esc(r["name"])} <span class="gg-similar-self">This race</span>'
+            if is_self else
+            f'<a href="/race/{esc(r["slug"])}/" data-related-race="{esc(r["slug"])}">{esc(r["name"])}</a>'
+        )
+        rows.append(f'''<tr{' class="gg-similar-row--self"' if is_self else ''}>
+          <th scope="row">{name_html}<span class="gg-similar-loc">{esc(r.get('location', '') or '')}</span></th>
+          <td>{esc(str(r.get('overall_score', 0)))}/100</td>
+          <td>T{esc(str(r.get('tier', 4)))}</td>
+          <td>{_num(r.get('distance_mi'), 'mi')}</td>
+          <td>{_num(r.get('elevation_ft'), 'ft')}</td>
+          <td>{esc(r.get('month', '') or '') or '&mdash;'}</td>
+        </tr>''')
 
     return f'''<section class="gg-section gg-fade-section" id="similar-races">
     <div class="gg-section-header gg-section-header--dark">
@@ -6267,8 +6423,16 @@ def build_similar_races(rd: dict, race_index: list) -> str:
       <h2 class="gg-section-title">Similar Races</h2>
     </div>
     <div class="gg-section-body">
-      <div class="gg-similar-grid">
-        {''.join(cards)}
+      <div class="gg-similar-table-wrap">
+        <table class="gg-similar-table">
+          <caption>{esc(rd['name'])} compared with similar races by Lab score, distance, climbing and month</caption>
+          <thead>
+            <tr><th scope="col">Race</th><th scope="col">Score</th><th scope="col">Tier</th><th scope="col">Distance</th><th scope="col">Climbing</th><th scope="col">Month</th></tr>
+          </thead>
+          <tbody>
+        {''.join(rows)}
+          </tbody>
+        </table>
       </div>
     </div>
   </section>'''
@@ -6355,7 +6519,8 @@ def build_webpage_jsonld(rd: dict) -> dict:
         "@type": "WebPage",
         "name": build_seo_title(rd),
         "url": canonical_url,
-        "dateModified": rd.get('_file_mtime', date.today().isoformat()),
+        "dateModified": rd.get('_updated_date', date.today().isoformat()),
+        "author": build_author_jsonld(),
         "isPartOf": {
             "@type": "WebSite",
             "name": "Gravel God Cycling",
@@ -6364,6 +6529,7 @@ def build_webpage_jsonld(rd: dict) -> dict:
         "speakable": {
             "@type": "SpeakableSpecification",
             "cssSelector": [
+                ".gg-hero-summary",
                 ".gg-overview-tagline",
                 ".gg-verdict-text",
                 ".gg-faq-answer",
@@ -6405,10 +6571,10 @@ def build_nav_header(rd: dict, race_index: list) -> str:
 def build_footer(rd: dict = None) -> str:
     """Build page footer with last-updated line and shared mega-footer."""
     updated = ''
-    if rd and rd.get('_file_mtime'):
+    if rd and rd.get('_updated_date'):
         try:
-            dt = datetime.strptime(rd['_file_mtime'], '%Y-%m-%d')
-            updated = f'<p class="gg-footer-updated">Last updated {dt.strftime("%B %Y")}</p>'
+            updated = (f'<p class="gg-footer-updated">Last updated '
+                       f'{format_display_date(rd["_updated_date"])}</p>')
         except ValueError:
             pass
     return updated + get_mega_footer_html()
@@ -6450,7 +6616,7 @@ def get_page_css() -> str:
   .gg-neo-brutalist-page .gg-rating-tile:active {{ background: var(--gg-color-sand); }}
   .gg-neo-brutalist-page .gg-faq-question:active {{ background: var(--gg-color-sand); }}
   .gg-neo-brutalist-page .gg-toc a:active {{ color: var(--gg-color-gold); }}
-  .gg-neo-brutalist-page .gg-similar-card:active {{ border-color: var(--gg-color-gold); background: var(--gg-color-sand); }}
+  .gg-neo-brutalist-page .gg-similar-table tbody tr:active {{ background: var(--gg-color-sand); }}
   .gg-neo-brutalist-page .gg-pack-workout:active {{ border-color: var(--gg-color-teal); }}
   .gg-neo-brutalist-page .gg-pack-toggle-btn:active {{ border-color: var(--gg-color-primary-brown); color: var(--gg-color-primary-brown); }}
   .gg-neo-brutalist-page .gg-email-capture-btn:active {{ opacity: 0.85; }}
@@ -6522,6 +6688,9 @@ body {{ margin: 0; background: var(--gg-color-warm-paper); }}
 .gg-neo-brutalist-page .gg-hero h1 {{ font-family: var(--gg-font-editorial); font-size: 42px; font-weight: var(--gg-font-weight-bold); line-height: 1.05; letter-spacing: var(--gg-letter-spacing-tight); margin: 0; color: var(--gg-color-dark-brown); }}
 .gg-neo-brutalist-page .gg-hero-vitals {{ font-family: var(--gg-font-data); font-size: 11px; color: var(--gg-color-secondary-brown); letter-spacing: 1px; text-transform: uppercase; margin-top: 14px; }}
 .gg-neo-brutalist-page .gg-hero-verdict {{ max-width: 620px; margin: 18px 0 0; font-family: var(--gg-font-editorial); font-size: var(--gg-font-size-base); line-height: var(--gg-line-height-relaxed); color: var(--gg-color-primary-brown); }}
+.gg-neo-brutalist-page .gg-hero-byline {{ margin: 10px 0 0; font-family: var(--gg-font-data); font-size: 11px; letter-spacing: 0.5px; color: var(--gg-color-secondary-brown); }}
+.gg-neo-brutalist-page .gg-hero-byline a {{ color: var(--gg-color-dark-brown); text-decoration: underline; text-decoration-color: var(--gg-color-gold); text-underline-offset: 3px; }}
+.gg-neo-brutalist-page .gg-hero-summary {{ max-width: 620px; margin: 14px 0 0; font-family: var(--gg-font-editorial); font-size: var(--gg-font-size-base); line-height: var(--gg-line-height-relaxed); color: var(--gg-color-dark-brown); }}
 .gg-neo-brutalist-page .gg-hero-verdict span {{ display: block; margin-bottom: 4px; font-family: var(--gg-font-data); font-size: 10px; font-weight: 700; letter-spacing: var(--gg-letter-spacing-ultra-wide); color: var(--gg-color-gold); }}
 .gg-neo-brutalist-page .gg-hero-scores {{ display: flex; gap: 28px; flex-shrink: 0; align-items: flex-start; }}
 .gg-neo-brutalist-page .gg-hero-score {{ text-align: center; flex-shrink: 0; }}
@@ -7090,12 +7259,20 @@ body {{ margin: 0; background: var(--gg-color-warm-paper); }}
 .gg-neo-brutalist-page .gg-faq-item.open .gg-faq-answer {{ max-height: 500px; padding-bottom: 16px; }}
 
 /* Similar races */
-.gg-neo-brutalist-page .gg-similar-grid {{ display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }}
-.gg-neo-brutalist-page .gg-similar-card {{ display: block; border: var(--gg-border-subtle); padding: 16px; background: var(--gg-color-warm-paper); text-decoration: none; color: var(--gg-color-dark-brown); transition: border-color 0.15s, background 0.15s; }}
-.gg-neo-brutalist-page .gg-similar-card:hover {{ border-color: var(--gg-color-gold); background: var(--gg-color-sand); }}
-.gg-neo-brutalist-page .gg-similar-tier {{ font-family: var(--gg-font-data); display: inline-block; background: var(--gg-color-gold); color: var(--gg-color-dark-brown); padding: 2px 8px; font-size: 10px; font-weight: 700; letter-spacing: var(--gg-letter-spacing-wider); margin-bottom: 6px; }}
-.gg-neo-brutalist-page .gg-similar-name {{ font-family: var(--gg-font-editorial); display: block; font-size: var(--gg-font-size-base); font-weight: var(--gg-font-weight-semibold); letter-spacing: 0; margin-bottom: 4px; }}
-.gg-neo-brutalist-page .gg-similar-meta {{ display: block; font-size: var(--gg-font-size-2xs); color: var(--gg-color-secondary-brown); letter-spacing: 0.5px; }}
+.gg-neo-brutalist-page .gg-similar-table-wrap {{ overflow-x: auto; -webkit-overflow-scrolling: touch; }}
+.gg-neo-brutalist-page .gg-similar-table {{ width: 100%; border-collapse: collapse; font-family: var(--gg-font-data); font-size: var(--gg-font-size-2xs); color: var(--gg-color-dark-brown); }}
+.gg-neo-brutalist-page .gg-similar-table caption {{ caption-side: top; text-align: left; padding: 0 0 10px; font-family: var(--gg-font-editorial); font-size: var(--gg-font-size-sm); color: var(--gg-color-secondary-brown); }}
+.gg-neo-brutalist-page .gg-similar-table th, .gg-neo-brutalist-page .gg-similar-table td {{ padding: 10px 12px; border-bottom: var(--gg-border-subtle); text-align: left; vertical-align: top; white-space: nowrap; }}
+.gg-neo-brutalist-page .gg-similar-table thead th {{ font-size: 10px; font-weight: 700; letter-spacing: var(--gg-letter-spacing-wider); text-transform: uppercase; color: var(--gg-color-secondary-brown); border-bottom: 2px solid var(--gg-color-dark-brown); }}
+.gg-neo-brutalist-page .gg-similar-table tbody th {{ font-family: var(--gg-font-editorial); font-size: var(--gg-font-size-base); font-weight: var(--gg-font-weight-semibold); white-space: normal; min-width: 180px; }}
+.gg-neo-brutalist-page .gg-similar-table tbody th a {{ color: var(--gg-color-dark-brown); text-decoration: underline; text-decoration-color: var(--gg-color-gold); text-underline-offset: 3px; }}
+.gg-neo-brutalist-page .gg-similar-table tbody th a:hover {{ color: var(--gg-color-gold); }}
+.gg-neo-brutalist-page .gg-similar-loc {{ display: block; margin-top: 2px; font-family: var(--gg-font-data); font-size: 10px; font-weight: 400; letter-spacing: 0.5px; color: var(--gg-color-secondary-brown); }}
+.gg-neo-brutalist-page .gg-similar-row--self {{ background: var(--gg-color-warm-paper); }}
+.gg-neo-brutalist-page .gg-similar-self {{ display: inline-block; margin-left: 6px; padding: 1px 6px; background: var(--gg-color-gold); font-family: var(--gg-font-data); font-size: 9px; font-weight: 700; letter-spacing: var(--gg-letter-spacing-wider); text-transform: uppercase; vertical-align: middle; }}
+.gg-neo-brutalist-page .gg-changelog {{ list-style: none; margin: 0; padding: 0; font-family: var(--gg-font-editorial); color: var(--gg-color-dark-brown); }}
+.gg-neo-brutalist-page .gg-changelog li {{ padding: 10px 0; border-bottom: var(--gg-border-subtle); line-height: var(--gg-line-height-relaxed); }}
+.gg-neo-brutalist-page .gg-changelog time {{ display: block; font-family: var(--gg-font-data); font-size: 10px; font-weight: 700; letter-spacing: var(--gg-letter-spacing-wider); text-transform: uppercase; color: var(--gg-color-secondary-brown); }}
 
 {get_site_header_css()}
 .gg-breadcrumb {{ font-family: var(--gg-font-data); font-size: 11px; padding: 8px 24px; background: var(--gg-color-sand); }}
@@ -7173,7 +7350,6 @@ body {{ margin: 0; background: var(--gg-color-warm-paper); }}
   .gg-neo-brutalist-page .gg-breakdown-grid {{ grid-template-columns: repeat(2, minmax(0, 1fr)); }}
   .gg-neo-brutalist-page .gg-breakdown-tile:nth-child(4n) {{ border-right: 1px solid var(--gg-color-tan); }}
   .gg-neo-brutalist-page .gg-breakdown-tile:nth-child(2n) {{ border-right: none; }}
-  .gg-neo-brutalist-page .gg-similar-grid {{ grid-template-columns: 1fr 1fr; }}  /* 2-col on tablet */
   .gg-neo-brutalist-page .gg-stat-grid {{ grid-template-columns: repeat(3, 1fr); gap: 10px; }}
   .gg-neo-brutalist-page .gg-news-ticker {{ display: none; }}
 }}
@@ -7210,7 +7386,6 @@ body {{ margin: 0; background: var(--gg-color-warm-paper); }}
   .gg-neo-brutalist-page .gg-news-ticker-label {{ font-size: 11px; padding: 0 10px; letter-spacing: 1px; }}
   .gg-neo-brutalist-page .gg-email-capture-row {{ flex-direction: column; gap: 8px; }}
   .gg-neo-brutalist-page .gg-email-capture-input {{ border-right: 2px solid var(--gg-color-tan); }}
-  .gg-neo-brutalist-page .gg-similar-grid {{ grid-template-columns: 1fr; }}
   .gg-neo-brutalist-page .gg-field-video-grid {{ grid-template-columns: 1fr; }}
   .gg-neo-brutalist-page .gg-review-form-row {{ grid-template-columns: 1fr; }}
   .gg-neo-brutalist-page .gg-countdown-num {{ font-size: 24px; }}
@@ -7235,6 +7410,9 @@ body {{ margin: 0; background: var(--gg-color-warm-paper); }}
 
 /* Responsive — large phones (600px) */
 @media (max-width: 600px) {{
+  .gg-neo-brutalist-page .gg-similar-table th, .gg-neo-brutalist-page .gg-similar-table td {{ padding: 10px 8px; }}
+  .gg-neo-brutalist-page .gg-similar-table tbody th {{ min-width: 0; }}
+  .gg-neo-brutalist-page .gg-similar-table tr > :nth-child(3), .gg-neo-brutalist-page .gg-similar-table tr > :nth-child(5) {{ display: none; }}  /* tier + climbing stay on desktop; phones keep score, distance, month */
   .gg-neo-brutalist-page .gg-hero {{ padding: 24px 16px; gap: 16px; }}
   .gg-neo-brutalist-page .gg-hero h1 {{ font-size: 24px; }}
   .gg-neo-brutalist-page .gg-hero-score-number {{ font-size: 40px; }}
@@ -7447,6 +7625,7 @@ def generate_page(rd: dict, race_index: list = None, external_assets: dict = Non
     tire_picks = build_tire_picks(rd)
     similar = build_similar_races(rd, race_index)
     citations_sec = build_citations_section(rd)
+    changelog = build_changelog(rd)
     footer = build_footer(rd)
     sticky_cta = ''
     latest = build_latest_sidebar(rd, (race_intel or {}).get(rd['slug'], []))
@@ -7497,7 +7676,8 @@ def generate_page(rd: dict, race_index: list = None, external_assets: dict = Non
     deep_sections = []
     for section in [course_overview, history, course_route, from_the_field,
                     racer_reviews, training, train_for_race, logistics_sec,
-                    tire_picks, news, similar, visible_faq, citations_sec]:
+                    tire_picks, news, similar, visible_faq, citations_sec,
+                    changelog]:
         if section:
             deep_sections.append(section)
 
@@ -7607,8 +7787,13 @@ def load_race_data(filepath: Path) -> dict:
     with open(filepath, 'r', encoding='utf-8') as f:
         raw = json.load(f)
     rd = normalize_race_data(raw)
-    # Store file mtime for accurate dateModified in JSON-LD
-    rd['_file_mtime'] = datetime.fromtimestamp(filepath.stat().st_mtime).strftime('%Y-%m-%d')
+    # One updated date for the byline, footer, JSON-LD and sitemap
+    # (page_dates.py). It used to be the file mtime, i.e. the build time.
+    race = raw.get('race', raw)
+    rd['_updated_date'] = race_updated_date(race, filepath)
+    rd['_changelog'] = changelog_entries(race)
+    for issue in check_race(race, filepath.stem.replace('-data', '')):
+        logger.warning("[%s] fact contradiction: %s", rd['slug'], issue)
     return rd
 
 

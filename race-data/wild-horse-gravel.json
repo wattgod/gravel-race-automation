@@ -5,7 +5,7 @@
     "display_name": "Wild Horse Gravel",
     "tagline": "Private-ranch gravel through the Book Cliffs — roads closed to the public every other day of the year.",
     "vitals": {
-      "distance_mi": 100,
+      "distance_mi": 95,
       "elevation_ft": "Varies",
       "location": "De Beque, Colorado (High Lonesome Ranch Basecamp)",
       "location_badge": "DE BEQUE, CO",
@@ -150,7 +150,7 @@
     },
     "guide_variables": {
       "race_name": "Wild Horse Gravel",
-      "race_distance": "100 miles (2027 Mustang; NOTE: 65mi/46mi/30mi was the retired 2026 config — see vitals.date_specific)",
+      "race_distance": "95 miles (2027 Mustang; NOTE: 65mi/46mi/30mi was the retired 2026 config — see vitals.date_specific)",
       "race_elevation": "Varies (2027 route/elevation not yet published by organizer)",
       "race_date": "Mid-May annually",
       "race_location": "De Beque, Colorado (High Lonesome Ranch Basecamp)",
@@ -250,7 +250,7 @@
       "tier_overrides": {},
       "marketplace_variables": {
         "race_name": "Wild Horse Gravel",
-        "race_hook": "65 miles of private-ranch Book Cliffs gravel at altitude.",
+        "race_hook": "95 miles of private-ranch Book Cliffs gravel at altitude.",
         "race_hook_detail": "Small grassroots event on roads closed to the public the rest of the year, near De Beque.",
         "distance": "100",
         "dark_mile": "30",
@@ -267,7 +267,7 @@
       },
       "length": {
         "score": 3,
-        "explanation": "Jack Luke positioned himself strategically early, noting 'I lined up at the front of the third wave and immediately started making up ground on the second wave.' The 65-mile distance with neutralized start allows tactical racing without crushing weekend warriors. Elite riders can race hard while recreational cyclists enjoy the Western Colorado scenery over manageable distance. Similar distance to Crusher in the Tushar. As Jack Luke puts it: \"The beating hot sun definitely took its toll on my pasty white complexion along this section and I was chugging away more water than probably necessary.\""
+        "explanation": "Jack Luke positioned himself strategically early, noting 'I lined up at the front of the third wave and immediately started making up ground on the second wave.' The 95-mile Mustang course with a neutralized start allows tactical racing without crushing weekend warriors. Elite riders can race hard while recreational cyclists enjoy the Western Colorado scenery over manageable distance. Similar distance to Crusher in the Tushar. As Jack Luke puts it: \"The beating hot sun definitely took its toll on my pasty white complexion along this section and I was chugging away more water than probably necessary.\""
       },
       "technicality": {
         "score": 2,
@@ -669,6 +669,12 @@
         "alt": "Course preview from Wild Horse Gravel race footage",
         "credit": "YouTube / Gravel Cyclist",
         "gif": true
+      }
+    ],
+    "changelog": [
+      {
+        "date": "2026-10-25",
+        "change": "Distance corrected from 100 to 95 miles to match the Mustang, the flagship listed on the official event page. Length score recomputed from the published rubric."
       }
     ]
   }

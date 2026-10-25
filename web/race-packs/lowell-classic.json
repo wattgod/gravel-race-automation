@@ -1,21 +1,31 @@
 {
   "slug": "lowell-classic",
   "race_name": "Lowell Classic",
-  "distance_mi": 62.0,
+  "distance_mi": 100.0,
   "demands": {
-    "durability": 2,
-    "climbing": 4,
+    "durability": 6,
+    "climbing": 3,
     "vo2_power": 2,
-    "threshold": 5,
+    "threshold": 7,
     "technical": 4,
     "heat_resilience": 1,
     "altitude": 2,
-    "race_specificity": 3
+    "race_specificity": 5
   },
   "top_categories": [
     {
-      "category": "TT_Threshold",
+      "category": "Durability",
       "score": 100,
+      "workouts": [
+        "Tired VO2max",
+        "Double Day Simulation",
+        "Progressive Fatigue"
+      ],
+      "workout_context": "At mile 60 of 100, glycogen is gone. This workout teaches your body to produce watts on fumes."
+    },
+    {
+      "category": "TT_Threshold",
+      "score": 93,
       "workouts": [
         "Single Sustained Threshold",
         "Threshold Ramps",
@@ -25,35 +35,16 @@
     },
     {
       "category": "Gravel_Specific",
-      "score": 86,
+      "score": 80,
       "workouts": [
         "Surge and Settle",
         "Terrain Microbursts"
       ],
-      "workout_context": "Lowell Classic's Gravel roads, Rural Michigan forces constant power changes. Surge over the rough stuff, settle on the smooth, repeat for 62 miles."
-    },
-    {
-      "category": "Over_Under",
-      "score": 83,
-      "workouts": [
-        "Classic Over-Unders",
-        "Ladder Over-Unders"
-      ],
-      "workout_context": "At Lowell Classic, surges push you above threshold and you have to recover while still riding. Over-unders train exactly that."
-    },
-    {
-      "category": "G_Spot",
-      "score": 79,
-      "workouts": [
-        "G-Spot Standard",
-        "G-Spot Extended",
-        "Criss-Cross"
-      ],
-      "workout_context": "88\u201392% FTP is where you'll spend the hardest sustained miles of Lowell Classic. Train it until it feels boring."
+      "workout_context": "Lowell Classic's Gravel roads, Rural Michigan forces constant power changes. Surge over the rough stuff, settle on the smooth, repeat for 100 miles."
     },
     {
       "category": "Race_Simulation",
-      "score": 71,
+      "score": 76,
       "workouts": [
         "Breakaway Simulation",
         "Variable Pace Chaos",
@@ -62,75 +53,85 @@
       "workout_context": "Race-pace efforts that mimic Lowell Classic's demands. Pacing, fueling, and tactical decisions under fatigue. Practice the race before October."
     },
     {
-      "category": "Durability",
-      "score": 60,
+      "category": "G_Spot",
+      "score": 75,
       "workouts": [
-        "Tired VO2max",
-        "Double Day Simulation",
-        "Progressive Fatigue"
+        "G-Spot Standard",
+        "G-Spot Extended",
+        "Criss-Cross"
       ],
-      "workout_context": "62 miles on west Michigan gravel roads burns energy faster than the distance suggests. Train the fade resistance now."
+      "workout_context": "88\u201392% FTP is where you'll spend the hardest sustained miles of Lowell Classic. Train it until it feels boring."
     },
     {
-      "category": "Mixed_Climbing",
-      "score": 57,
+      "category": "Over_Under",
+      "score": 65,
       "workouts": [
-        "Seated/Standing Climbs",
-        "Variable Grade Simulation"
+        "Classic Over-Unders",
+        "Ladder Over-Unders"
       ],
-      "workout_context": "Varied gradients on west Michigan gravel roads demand climbing versatility. Sit the shallow stuff, stand the steep stuff, switch without thinking."
+      "workout_context": "At Lowell Classic, surges push you above threshold and you have to recover while still riding. Over-unders train exactly that."
+    },
+    {
+      "category": "Endurance",
+      "score": 60,
+      "workouts": [
+        "Pre-Race Openers",
+        "Terrain Simulation Z2"
+      ],
+      "workout_context": "Every hard session works better with a bigger aerobic base. At 100 miles, base fitness is the difference between racing and surviving."
+    },
+    {
+      "category": "HVLI_Extended",
+      "score": 58,
+      "workouts": [
+        "HVLI Extended Z2",
+        "Multi-Hour Z2",
+        "Back-to-Back Long"
+      ],
+      "workout_context": "100 miles rewards fat oxidation. This volume work shifts your fuel mix so you're still burning fat at hour 5, not bonking at hour 3."
+    },
+    {
+      "category": "Blended",
+      "score": 51,
+      "workouts": [
+        "Z2 + VO2 Combo",
+        "Endurance with Spikes"
+      ],
+      "workout_context": "Long rides with hard efforts mixed in. Simulates what Lowell Classic's west Michigan gravel roads actually does to you."
+    },
+    {
+      "category": "Norwegian_Double",
+      "score": 51,
+      "workouts": [
+        "Norwegian 4x8 Classic",
+        "Double Threshold"
+      ],
+      "workout_context": "Two threshold sessions per week without the recovery cost of VO2max work. For 100 miles, sustainable FTP gains matter more than peak power."
+    },
+    {
+      "category": "Tempo",
+      "score": 47,
+      "workouts": [
+        "Tempo Blocks",
+        "Extended Tempo"
+      ],
+      "workout_context": "Tempo is Lowell Classic's race pace. The wattage you'll hold for 100 miles on west Michigan gravel roads. Train it until it's automatic."
     },
     {
       "category": "VO2max",
-      "score": 52,
+      "score": 40,
       "workouts": [
         "5x3 VO2 Classic",
         "Descending VO2 Pyramid",
         "Norwegian 4x8"
       ],
       "workout_context": "When someone attacks on west Michigan gravel roads, you have 10 seconds to respond or you're off the back. This builds that response."
-    },
-    {
-      "category": "Critical_Power",
-      "score": 52,
-      "workouts": [
-        "Above CP Repeats",
-        "W-Prime Depletion"
-      ],
-      "workout_context": "How long can you hold 105% FTP before you blow? At Lowell Classic, that number decides whether you bridge or get dropped."
-    },
-    {
-      "category": "Norwegian_Double",
-      "score": 48,
-      "workouts": [
-        "Norwegian 4x8 Classic",
-        "Double Threshold"
-      ],
-      "workout_context": "Double-threshold training builds sustained power with less fatigue. More FTP per hour of training."
-    },
-    {
-      "category": "Endurance",
-      "score": 40,
-      "workouts": [
-        "Pre-Race Openers",
-        "Terrain Simulation Z2"
-      ],
-      "workout_context": "Base fitness for Lowell Classic. Without this, the hard workouts break you down instead of building you up."
-    },
-    {
-      "category": "SFR_Muscle_Force",
-      "score": 38,
-      "workouts": [
-        "SFR Low Cadence",
-        "Force Repeats"
-      ],
-      "workout_context": "Low-cadence force work for 3,000ft of climbing. The slow, grinding ascents where you can't spin\u2014you push."
     }
   ],
   "race_overlay": {
-    "nutrition": "Target 40\u201360g carbs/hour for Lowell Classic\u2019s 62 miles. Front-load calories in the first half. One bottle per hour minimum, more in heat.",
+    "nutrition": "Target 60\u201380g carbs/hour for Lowell Classic\u2019s 100 miles. Start fueling within the first 30 minutes \u2014 early fueling prevents late-race collapse. Bonking at mile 60 is a nutrition failure, not a fitness failure.",
     "terrain": "Mixed terrain at Lowell Classic requires surface adaptability. Include weekly rides on west michigan gravel roads to build confidence. Expect: gravel roads, rural michigan, rolling hills."
   },
-  "pack_summary": "This 10-workout pack focuses on TT Threshold, Gravel Specific, and Over Under to prepare you for 62 miles of west michigan gravel roads in Lowell, Michigan.",
-  "generated_at": "2026-03-06"
+  "pack_summary": "This 10-workout pack focuses on Durability, TT Threshold, and Gravel Specific to prepare you for 100 miles of west michigan gravel roads in Lowell, Michigan.",
+  "generated_at": "2026-10-25"
 }

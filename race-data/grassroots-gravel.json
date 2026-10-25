@@ -5,7 +5,7 @@
     "display_name": "Grassroots Gravel",
     "tagline": "Red-rock canyons and Wet Mountain Range views on Pueblo, Colorado gravel.",
     "vitals": {
-      "distance_mi": 75,
+      "distance_mi": 113,
       "elevation_ft": 3900,
       "location": "Pueblo, Colorado",
       "location_badge": "PUEBLO, CO",
@@ -50,11 +50,11 @@
       ]
     },
     "gravel_god_rating": {
-      "overall_score": 43,
+      "overall_score": 44,
       "tier": 4,
       "tier_label": "TIER 4",
       "logistics": 3,
-      "length": 3,
+      "length": 4,
       "technicality": 2,
       "elevation": 3,
       "climate": 2,
@@ -147,7 +147,7 @@
     },
     "guide_variables": {
       "race_name": "Grassroots Gravel",
-      "race_distance": "75 miles",
+      "race_distance": "113 miles",
       "race_elevation": "approximately 3,900 feet",
       "race_date": "October 10, 2026",
       "race_location": "Pueblo, Colorado",
@@ -271,8 +271,8 @@
         "explanation": "Aaron Sudduth won the 40-mile overall while Boudewijn Van Werven claimed second in a bunch sprint against Subaru-Groove and Cinch Cycling racers, showing the race executes competitive timing and results. Friday expo and Saturday racing keeps it simple, though they're still finalizing lodging partnerships for 2026."
       },
       "length": {
-        "score": 3,
-        "explanation": "Four distances from 15 miles (The Mild, 600ft gain) up to 113 miles (The Whole, 7,900ft gain) with tactical racing possible - Van Werven's bunch sprint finish on the 75-miler proves the courses support pack dynamics, not just solo suffering. Similar distance to Crusher in the Tushar."
+        "score": 4,
+        "explanation": "Scored on The Whole, the 113-mile flagship. Four distances from 15 miles (The Mild, 600ft gain) up to 113 miles (The Whole, 7,900ft gain) with tactical racing possible - Van Werven's bunch sprint finish on the 75-miler proves the courses support pack dynamics, not just solo suffering. Longer than Belgian Waffle Ride San Diego."
       },
       "technicality": {
         "score": 2,
@@ -387,8 +387,7 @@
     ],
     "results": {
       "years": {
-        "2024": {
-        }
+        "2024": {}
       },
       "latest_year": "2024"
     },
@@ -731,6 +730,12 @@
         "alt": "Course preview from Grassroots Gravel race footage",
         "credit": "YouTube / The Ride with Ben Delaney",
         "gif": true
+      }
+    ],
+    "changelog": [
+      {
+        "date": "2026-10-25",
+        "change": "Distance corrected from 75 to 113 miles to match The Whole, the flagship listed on the official event page. Length score recomputed from the published rubric."
       }
     ]
   }

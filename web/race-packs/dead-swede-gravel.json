@@ -1,12 +1,12 @@
 {
   "slug": "dead-swede-gravel",
   "race_name": "Dead Swede Gravel",
-  "distance_mi": 62.0,
+  "distance_mi": 100.0,
   "demands": {
-    "durability": 2,
-    "climbing": 5,
+    "durability": 6,
+    "climbing": 6,
     "vo2_power": 2,
-    "threshold": 6,
+    "threshold": 8,
     "technical": 4,
     "heat_resilience": 1,
     "altitude": 6,
@@ -21,20 +21,21 @@
         "Threshold Ramps",
         "Descending Threshold"
       ],
-      "workout_context": "56ft/mi means long efforts at or near FTP on every climb. If your threshold cracks at minute 15, you'll walk the rest."
+      "workout_context": "77ft/mi means long efforts at or near FTP on every climb. If your threshold cracks at minute 15, you'll walk the rest."
     },
     {
-      "category": "Gravel_Specific",
-      "score": 86,
+      "category": "Durability",
+      "score": 83,
       "workouts": [
-        "Surge and Settle",
-        "Terrain Microbursts"
+        "Tired VO2max",
+        "Double Day Simulation",
+        "Progressive Fatigue"
       ],
-      "workout_context": "Dead Swede Gravel's High plains gravel, Ranch country forces constant power changes. Surge over the rough stuff, settle on the smooth, repeat for 62 miles."
+      "workout_context": "At mile 60 of 100, glycogen is gone. This workout teaches your body to produce watts on fumes."
     },
     {
       "category": "Over_Under",
-      "score": 84,
+      "score": 82,
       "workouts": [
         "Classic Over-Unders",
         "Ladder Over-Unders"
@@ -42,28 +43,8 @@
       "workout_context": "At Dead Swede Gravel, surges push you above threshold and you have to recover while still riding. Over-unders train exactly that."
     },
     {
-      "category": "VO2max",
-      "score": 82,
-      "workouts": [
-        "5x3 VO2 Classic",
-        "Descending VO2 Pyramid",
-        "Norwegian 4x8"
-      ],
-      "workout_context": "When someone attacks on Wyoming high plains gravel, you have 10 seconds to respond or you're off the back. This builds that response."
-    },
-    {
-      "category": "Race_Simulation",
-      "score": 82,
-      "workouts": [
-        "Breakaway Simulation",
-        "Variable Pace Chaos",
-        "Sector Simulation"
-      ],
-      "workout_context": "Race-pace efforts that mimic Dead Swede Gravel's demands. Pacing, fueling, and tactical decisions under fatigue. Practice the race before June."
-    },
-    {
       "category": "G_Spot",
-      "score": 78,
+      "score": 79,
       "workouts": [
         "G-Spot Standard",
         "G-Spot Extended",
@@ -72,66 +53,86 @@
       "workout_context": "88\u201392% FTP is where you'll spend the hardest sustained miles of Dead Swede Gravel. Train it until it feels boring."
     },
     {
-      "category": "Durability",
-      "score": 61,
-      "workouts": [
-        "Tired VO2max",
-        "Double Day Simulation",
-        "Progressive Fatigue"
-      ],
-      "workout_context": "62 miles on Wyoming high plains gravel burns energy faster than the distance suggests. Train the fade resistance now."
-    },
-    {
-      "category": "Mixed_Climbing",
-      "score": 59,
-      "workouts": [
-        "Seated/Standing Climbs",
-        "Variable Grade Simulation"
-      ],
-      "workout_context": "Varied gradients on Wyoming high plains gravel demand climbing versatility. Sit the shallow stuff, stand the steep stuff, switch without thinking."
-    },
-    {
       "category": "Endurance",
-      "score": 57,
+      "score": 68,
       "workouts": [
         "Pre-Race Openers",
         "Terrain Simulation Z2"
       ],
-      "workout_context": "Base fitness for Dead Swede Gravel. Without this, the hard workouts break you down instead of building you up."
+      "workout_context": "Every hard session works better with a bigger aerobic base. At 100 miles, base fitness is the difference between racing and surviving."
+    },
+    {
+      "category": "Gravel_Specific",
+      "score": 67,
+      "workouts": [
+        "Surge and Settle",
+        "Terrain Microbursts"
+      ],
+      "workout_context": "Dead Swede Gravel's Bighorn foothills gravel, Wyoming ranch country forces constant power changes. Surge over the rough stuff, settle on the smooth, repeat for 100 miles."
+    },
+    {
+      "category": "VO2max",
+      "score": 64,
+      "workouts": [
+        "5x3 VO2 Classic",
+        "Descending VO2 Pyramid",
+        "Norwegian 4x8"
+      ],
+      "workout_context": "7,671ft of climbing means repeated surges above threshold. VO2max work is how you survive the fifth climb, not just the first."
+    },
+    {
+      "category": "Race_Simulation",
+      "score": 64,
+      "workouts": [
+        "Breakaway Simulation",
+        "Variable Pace Chaos",
+        "Sector Simulation"
+      ],
+      "workout_context": "Race-pace efforts that mimic Dead Swede Gravel's demands. Pacing, fueling, and tactical decisions under fatigue. Practice the race before June."
+    },
+    {
+      "category": "Mixed_Climbing",
+      "score": 55,
+      "workouts": [
+        "Seated/Standing Climbs",
+        "Variable Grade Simulation"
+      ],
+      "workout_context": "7,671ft of climbing on grades that change every minute. You need to switch from seated to standing without losing rhythm."
+    },
+    {
+      "category": "HVLI_Extended",
+      "score": 48,
+      "workouts": [
+        "HVLI Extended Z2",
+        "Multi-Hour Z2",
+        "Back-to-Back Long"
+      ],
+      "workout_context": "100 miles rewards fat oxidation. This volume work shifts your fuel mix so you're still burning fat at hour 5, not bonking at hour 3."
     },
     {
       "category": "Norwegian_Double",
-      "score": 47,
+      "score": 48,
       "workouts": [
         "Norwegian 4x8 Classic",
         "Double Threshold"
       ],
-      "workout_context": "Double-threshold training builds sustained power with less fatigue. More FTP per hour of training."
+      "workout_context": "Two threshold sessions per week without the recovery cost of VO2max work. For 100 miles, sustainable FTP gains matter more than peak power."
     },
     {
-      "category": "Critical_Power",
-      "score": 43,
+      "category": "Blended",
+      "score": 42,
       "workouts": [
-        "Above CP Repeats",
-        "W-Prime Depletion"
+        "Z2 + VO2 Combo",
+        "Endurance with Spikes"
       ],
-      "workout_context": "How long can you hold 105% FTP before you blow? At Dead Swede Gravel, that number decides whether you bridge or get dropped."
-    },
-    {
-      "category": "SFR_Muscle_Force",
-      "score": 39,
-      "workouts": [
-        "SFR Low Cadence",
-        "Force Repeats"
-      ],
-      "workout_context": "Low-cadence force work for 3,500ft of climbing. The slow, grinding ascents where you can't spin\u2014you push."
+      "workout_context": "Endurance with intensity spikes baked in. Exactly what 7,671ft of climbing on Wyoming high plains gravel does to your power file on race day."
     }
   ],
   "race_overlay": {
-    "nutrition": "Target 40\u201360g carbs/hour for Dead Swede Gravel\u2019s 62 miles. Front-load calories in the first half. One bottle per hour minimum, more in heat.",
+    "nutrition": "Target 60\u201380g carbs/hour for Dead Swede Gravel\u2019s 100 miles. Start fueling within the first 30 minutes \u2014 early fueling prevents late-race collapse. Bonking at mile 60 is a nutrition failure, not a fitness failure.",
     "altitude": "Moderate altitude at Dead Swede Gravel. Arrive 2\u20133 days early. Reduce intensity expectations by 5\u201310%. Hydrate aggressively.",
-    "terrain": "Mixed terrain at Dead Swede Gravel requires surface adaptability. Include weekly rides on wyoming high plains gravel to build confidence. Expect: high plains gravel, ranch country, wyoming foothills."
+    "terrain": "Mixed terrain at Dead Swede Gravel requires surface adaptability. Include weekly rides on wyoming high plains gravel to build confidence. Expect: bighorn foothills gravel, wyoming ranch country, chip-timed community race."
   },
-  "pack_summary": "This 10-workout pack focuses on TT Threshold, Gravel Specific, and Over Under to prepare you for 62 miles of wyoming high plains gravel in Sheridan, Wyoming.",
-  "generated_at": "2026-03-06"
+  "pack_summary": "This 10-workout pack focuses on TT Threshold, Durability, and Over Under to prepare you for 100 miles of wyoming high plains gravel in Sheridan, Wyoming (Kendrick Park).",
+  "generated_at": "2026-10-25"
 }

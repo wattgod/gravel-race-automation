@@ -1,12 +1,12 @@
 {
   "slug": "wild-horse-gravel",
   "race_name": "Wild Horse Gravel",
-  "distance_mi": 62.0,
+  "distance_mi": 95.0,
   "demands": {
-    "durability": 2,
-    "climbing": 5,
+    "durability": 4,
+    "climbing": 4,
     "vo2_power": 2,
-    "threshold": 6,
+    "threshold": 8,
     "technical": 4,
     "heat_resilience": 3,
     "altitude": 6,
@@ -21,49 +21,21 @@
         "Threshold Ramps",
         "Descending Threshold"
       ],
-      "workout_context": "56ft/mi means long efforts at or near FTP on every climb. If your threshold cracks at minute 15, you'll walk the rest."
+      "workout_context": "Wild Horse Gravel's private-ranch high desert gravel rewards steady threshold power. Surging and recovering costs more watts than just holding."
     },
     {
-      "category": "Gravel_Specific",
-      "score": 86,
+      "category": "Durability",
+      "score": 85,
       "workouts": [
-        "Surge and Settle",
-        "Terrain Microbursts"
+        "Tired VO2max",
+        "Double Day Simulation",
+        "Progressive Fatigue"
       ],
-      "workout_context": "Wild Horse Gravel's High desert gravel, Canyon roads forces constant power changes. Surge over the rough stuff, settle on the smooth, repeat for 62 miles."
-    },
-    {
-      "category": "Over_Under",
-      "score": 84,
-      "workouts": [
-        "Classic Over-Unders",
-        "Ladder Over-Unders"
-      ],
-      "workout_context": "At Wild Horse Gravel, surges push you above threshold and you have to recover while still riding. Over-unders train exactly that."
-    },
-    {
-      "category": "VO2max",
-      "score": 82,
-      "workouts": [
-        "5x3 VO2 Classic",
-        "Descending VO2 Pyramid",
-        "Norwegian 4x8"
-      ],
-      "workout_context": "When someone attacks on high desert gravel, you have 10 seconds to respond or you're off the back. This builds that response."
-    },
-    {
-      "category": "Race_Simulation",
-      "score": 82,
-      "workouts": [
-        "Breakaway Simulation",
-        "Variable Pace Chaos",
-        "Sector Simulation"
-      ],
-      "workout_context": "Race-pace efforts that mimic Wild Horse Gravel's demands. Pacing, fueling, and tactical decisions under fatigue. Practice the race before May."
+      "workout_context": "At mile 60 of 95, glycogen is gone. This workout teaches your body to produce watts on fumes."
     },
     {
       "category": "G_Spot",
-      "score": 78,
+      "score": 80,
       "workouts": [
         "G-Spot Standard",
         "G-Spot Extended",
@@ -72,66 +44,95 @@
       "workout_context": "88\u201392% FTP is where you'll spend the hardest sustained miles of Wild Horse Gravel. Train it until it feels boring."
     },
     {
-      "category": "Durability",
-      "score": 76,
+      "category": "Over_Under",
+      "score": 73,
       "workouts": [
-        "Tired VO2max",
-        "Double Day Simulation",
-        "Progressive Fatigue"
+        "Classic Over-Unders",
+        "Ladder Over-Unders"
       ],
-      "workout_context": "62 miles on high desert gravel burns energy faster than the distance suggests. Train the fade resistance now."
+      "workout_context": "At Wild Horse Gravel, surges push you above threshold and you have to recover while still riding. Over-unders train exactly that."
+    },
+    {
+      "category": "Gravel_Specific",
+      "score": 73,
+      "workouts": [
+        "Surge and Settle",
+        "Terrain Microbursts"
+      ],
+      "workout_context": "Wild Horse Gravel's Book Cliffs high desert, Private-ranch gravel forces constant power changes. Surge over the rough stuff, settle on the smooth, repeat for 95 miles."
     },
     {
       "category": "Endurance",
-      "score": 69,
+      "score": 72,
       "workouts": [
         "Pre-Race Openers",
         "Terrain Simulation Z2"
       ],
-      "workout_context": "Base fitness for Wild Horse Gravel. Without this, the hard workouts break you down instead of building you up."
+      "workout_context": "Every hard session works better with a bigger aerobic base. At 95 miles, base fitness is the difference between racing and surviving."
     },
     {
-      "category": "Mixed_Climbing",
-      "score": 59,
+      "category": "VO2max",
+      "score": 70,
       "workouts": [
-        "Seated/Standing Climbs",
-        "Variable Grade Simulation"
+        "5x3 VO2 Classic",
+        "Descending VO2 Pyramid",
+        "Norwegian 4x8"
       ],
-      "workout_context": "Varied gradients on high desert gravel demand climbing versatility. Sit the shallow stuff, stand the steep stuff, switch without thinking."
+      "workout_context": "When someone attacks on private-ranch high desert gravel, you have 10 seconds to respond or you're off the back. This builds that response."
+    },
+    {
+      "category": "Race_Simulation",
+      "score": 70,
+      "workouts": [
+        "Breakaway Simulation",
+        "Variable Pace Chaos",
+        "Sector Simulation"
+      ],
+      "workout_context": "Race-pace efforts that mimic Wild Horse Gravel's demands. Pacing, fueling, and tactical decisions under fatigue. Practice the race before May."
     },
     {
       "category": "Norwegian_Double",
-      "score": 47,
+      "score": 53,
       "workouts": [
         "Norwegian 4x8 Classic",
         "Double Threshold"
       ],
-      "workout_context": "Double-threshold training builds sustained power with less fatigue. More FTP per hour of training."
+      "workout_context": "Two threshold sessions per week without the recovery cost of VO2max work. For 95 miles, sustainable FTP gains matter more than peak power."
     },
     {
-      "category": "Critical_Power",
+      "category": "HVLI_Extended",
       "score": 43,
       "workouts": [
-        "Above CP Repeats",
-        "W-Prime Depletion"
+        "HVLI Extended Z2",
+        "Multi-Hour Z2",
+        "Back-to-Back Long"
       ],
-      "workout_context": "How long can you hold 105% FTP before you blow? At Wild Horse Gravel, that number decides whether you bridge or get dropped."
+      "workout_context": "The aerobic base that lets you ride private-ranch high desert gravel at tempo for 95 miles without cracking. No shortcuts."
     },
     {
-      "category": "SFR_Muscle_Force",
-      "score": 39,
+      "category": "Tempo",
+      "score": 40,
       "workouts": [
-        "SFR Low Cadence",
-        "Force Repeats"
+        "Tempo Blocks",
+        "Extended Tempo"
       ],
-      "workout_context": "Low-cadence force work for 3,500ft of climbing. The slow, grinding ascents where you can't spin\u2014you push."
+      "workout_context": "Tempo is Wild Horse Gravel's race pace. The wattage you'll hold for 95 miles on private-ranch high desert gravel. Train it until it's automatic."
+    },
+    {
+      "category": "Mixed_Climbing",
+      "score": 40,
+      "workouts": [
+        "Seated/Standing Climbs",
+        "Variable Grade Simulation"
+      ],
+      "workout_context": "Varied gradients on private-ranch high desert gravel demand climbing versatility. Sit the shallow stuff, stand the steep stuff, switch without thinking."
     }
   ],
   "race_overlay": {
-    "nutrition": "Target 40\u201360g carbs/hour for Wild Horse Gravel\u2019s 62 miles. Front-load calories in the first half. One bottle per hour minimum, more in heat.",
+    "nutrition": "Target 60\u201380g carbs/hour for Wild Horse Gravel\u2019s 95 miles. Start fueling within the first 30 minutes \u2014 early fueling prevents late-race collapse. Bonking at mile 60 is a nutrition failure, not a fitness failure.",
     "altitude": "Moderate altitude at Wild Horse Gravel. Arrive 2\u20133 days early. Reduce intensity expectations by 5\u201310%. Hydrate aggressively.",
-    "terrain": "Mixed terrain at Wild Horse Gravel requires surface adaptability. Include weekly rides on high desert gravel to build confidence. Expect: high desert gravel, canyon roads, western colorado."
+    "terrain": "Mixed terrain at Wild Horse Gravel requires surface adaptability. Include weekly rides on private-ranch high desert gravel to build confidence. Expect: book cliffs high desert, private-ranch gravel, canyon corridors and mesas."
   },
-  "pack_summary": "This 10-workout pack focuses on TT Threshold, Gravel Specific, and Over Under to prepare you for 62 miles of high desert gravel in De Beque, Colorado.",
-  "generated_at": "2026-03-06"
+  "pack_summary": "This 10-workout pack focuses on TT Threshold, Durability, and G Spot to prepare you for 95 miles of private-ranch high desert gravel in De Beque, Colorado (High Lonesome Ranch Basecamp).",
+  "generated_at": "2026-10-25"
 }

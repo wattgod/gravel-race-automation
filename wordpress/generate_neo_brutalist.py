@@ -48,6 +48,8 @@ from cookie_consent import get_consent_banner_html
 from shared_footer import get_mega_footer_css, get_mega_footer_html
 from shared_header import get_site_header_css, get_site_header_html, get_site_header_js
 from pricing import MIN_WEEKS, PRICE_PER_WEEK
+from page_dates import race_updated_date
+from fact_consistency import check_race
 
 # ── Constants ──────────────────────────────────────────────────
 
@@ -6347,6 +6349,24 @@ def build_breadcrumb_jsonld(rd: dict, race_index: list) -> dict:
     }
 
 
+RATED_BY_NAME = "Matti Rowe"
+
+
+def build_author_jsonld() -> dict:
+    """Person JSON-LD for the race page's rater. Schema only: nothing visible."""
+    return {
+        "@type": "Person",
+        "name": RATED_BY_NAME,
+        "jobTitle": "Head Coach",
+        "url": f"{SITE_BASE_URL}/about/",
+        "worksFor": {
+            "@type": "Organization",
+            "name": "Gravel God Cycling",
+            "url": SITE_BASE_URL,
+        },
+    }
+
+
 def build_webpage_jsonld(rd: dict) -> dict:
     """Build WebPage JSON-LD with speakable targeting key content sections."""
     canonical_url = f"{SITE_BASE_URL}/race/{rd['slug']}/"
@@ -6355,7 +6375,8 @@ def build_webpage_jsonld(rd: dict) -> dict:
         "@type": "WebPage",
         "name": build_seo_title(rd),
         "url": canonical_url,
-        "dateModified": rd.get('_file_mtime', date.today().isoformat()),
+        "dateModified": rd.get('_updated_date', date.today().isoformat()),
+        "author": build_author_jsonld(),
         "isPartOf": {
             "@type": "WebSite",
             "name": "Gravel God Cycling",
@@ -6405,9 +6426,9 @@ def build_nav_header(rd: dict, race_index: list) -> str:
 def build_footer(rd: dict = None) -> str:
     """Build page footer with last-updated line and shared mega-footer."""
     updated = ''
-    if rd and rd.get('_file_mtime'):
+    if rd and rd.get('_updated_date'):
         try:
-            dt = datetime.strptime(rd['_file_mtime'], '%Y-%m-%d')
+            dt = datetime.strptime(rd['_updated_date'], '%Y-%m-%d')
             updated = f'<p class="gg-footer-updated">Last updated {dt.strftime("%B %Y")}</p>'
         except ValueError:
             pass
@@ -7607,8 +7628,12 @@ def load_race_data(filepath: Path) -> dict:
     with open(filepath, 'r', encoding='utf-8') as f:
         raw = json.load(f)
     rd = normalize_race_data(raw)
-    # Store file mtime for accurate dateModified in JSON-LD
-    rd['_file_mtime'] = datetime.fromtimestamp(filepath.stat().st_mtime).strftime('%Y-%m-%d')
+    # One updated date for the footer, JSON-LD and sitemap (page_dates.py).
+    # It used to be the file mtime, i.e. the build time.
+    race = raw.get('race', raw)
+    rd['_updated_date'] = race_updated_date(race, filepath)
+    for issue in check_race(race, filepath.stem.replace('-data', '')):
+        logger.warning("[%s] fact contradiction: %s", rd['slug'], issue)
     return rd
 
 

@@ -1,12 +1,12 @@
 {
   "slug": "114-gravel-race",
   "race_name": "114 Gravel Race",
-  "distance_mi": 70.0,
+  "distance_mi": 85.0,
   "demands": {
-    "durability": 2,
+    "durability": 4,
     "climbing": 4,
     "vo2_power": 4,
-    "threshold": 5,
+    "threshold": 7,
     "technical": 4,
     "heat_resilience": 0,
     "altitude": 2,
@@ -14,17 +14,27 @@
   },
   "top_categories": [
     {
-      "category": "Gravel_Specific",
+      "category": "TT_Threshold",
       "score": 100,
+      "workouts": [
+        "Single Sustained Threshold",
+        "Threshold Ramps",
+        "Descending Threshold"
+      ],
+      "workout_context": "114 Gravel Race's portuguese rolling gravel rewards steady threshold power. Surging and recovering costs more watts than just holding."
+    },
+    {
+      "category": "Gravel_Specific",
+      "score": 89,
       "workouts": [
         "Surge and Settle",
         "Terrain Microbursts"
       ],
-      "workout_context": "114 Gravel Race's Portuguese rolling, European gravel forces constant power changes. Surge over the rough stuff, settle on the smooth, repeat for 70 miles."
+      "workout_context": "114 Gravel Race's Portuguese rolling, European gravel forces constant power changes. Surge over the rough stuff, settle on the smooth, repeat for 85 miles."
     },
     {
       "category": "Race_Simulation",
-      "score": 100,
+      "score": 89,
       "workouts": [
         "Breakaway Simulation",
         "Variable Pace Chaos",
@@ -33,37 +43,8 @@
       "workout_context": "Race-pace efforts that mimic 114 Gravel Race's demands. Pacing, fueling, and tactical decisions under fatigue. Practice the race before March."
     },
     {
-      "category": "TT_Threshold",
-      "score": 88,
-      "workouts": [
-        "Single Sustained Threshold",
-        "Threshold Ramps",
-        "Descending Threshold"
-      ],
-      "workout_context": "57ft/mi means long efforts at or near FTP on every climb. If your threshold cracks at minute 15, you'll walk the rest."
-    },
-    {
-      "category": "Over_Under",
-      "score": 73,
-      "workouts": [
-        "Classic Over-Unders",
-        "Ladder Over-Unders"
-      ],
-      "workout_context": "At 114 Gravel Race, surges push you above threshold and you have to recover while still riding. Over-unders train exactly that."
-    },
-    {
-      "category": "VO2max",
-      "score": 71,
-      "workouts": [
-        "5x3 VO2 Classic",
-        "Descending VO2 Pyramid",
-        "Norwegian 4x8"
-      ],
-      "workout_context": "When someone attacks on portuguese rolling gravel, you have 10 seconds to respond or you're off the back. This builds that response."
-    },
-    {
       "category": "G_Spot",
-      "score": 69,
+      "score": 80,
       "workouts": [
         "G-Spot Standard",
         "G-Spot Extended",
@@ -73,17 +54,36 @@
     },
     {
       "category": "Durability",
-      "score": 62,
+      "score": 78,
       "workouts": [
         "Tired VO2max",
         "Double Day Simulation",
         "Progressive Fatigue"
       ],
-      "workout_context": "70 miles on portuguese rolling gravel burns energy faster than the distance suggests. Train the fade resistance now."
+      "workout_context": "At mile 60 of 85, glycogen is gone. This workout teaches your body to produce watts on fumes."
+    },
+    {
+      "category": "Over_Under",
+      "score": 76,
+      "workouts": [
+        "Classic Over-Unders",
+        "Ladder Over-Unders"
+      ],
+      "workout_context": "At 114 Gravel Race, surges push you above threshold and you have to recover while still riding. Over-unders train exactly that."
+    },
+    {
+      "category": "VO2max",
+      "score": 63,
+      "workouts": [
+        "5x3 VO2 Classic",
+        "Descending VO2 Pyramid",
+        "Norwegian 4x8"
+      ],
+      "workout_context": "When someone attacks on portuguese rolling gravel, you have 10 seconds to respond or you're off the back. This builds that response."
     },
     {
       "category": "Critical_Power",
-      "score": 58,
+      "score": 52,
       "workouts": [
         "Above CP Repeats",
         "W-Prime Depletion"
@@ -91,8 +91,26 @@
       "workout_context": "How long can you hold 105% FTP before you blow? At 114 Gravel Race, that number decides whether you bridge or get dropped."
     },
     {
+      "category": "Norwegian_Double",
+      "score": 52,
+      "workouts": [
+        "Norwegian 4x8 Classic",
+        "Double Threshold"
+      ],
+      "workout_context": "Two threshold sessions per week without the recovery cost of VO2max work. For 85 miles, sustainable FTP gains matter more than peak power."
+    },
+    {
+      "category": "Blended",
+      "score": 44,
+      "workouts": [
+        "Z2 + VO2 Combo",
+        "Endurance with Spikes"
+      ],
+      "workout_context": "Endurance with intensity spikes baked in. Exactly what 3,386ft of climbing on portuguese rolling gravel does to your power file on race day."
+    },
+    {
       "category": "Mixed_Climbing",
-      "score": 50,
+      "score": 44,
       "workouts": [
         "Seated/Standing Climbs",
         "Variable Grade Simulation"
@@ -101,36 +119,18 @@
     },
     {
       "category": "Anaerobic_Capacity",
-      "score": 50,
+      "score": 44,
       "workouts": [
         "2min Killers",
         "90sec Repeats"
       ],
       "workout_context": "Short, max efforts are unavoidable. Punchy climbs, gap closures, attacks on portuguese rolling gravel. If you haven't trained them, you'll crack."
-    },
-    {
-      "category": "Norwegian_Double",
-      "score": 42,
-      "workouts": [
-        "Norwegian 4x8 Classic",
-        "Double Threshold"
-      ],
-      "workout_context": "Double-threshold training builds sustained power with less fatigue. More FTP per hour of training."
-    },
-    {
-      "category": "Blended",
-      "score": 38,
-      "workouts": [
-        "Z2 + VO2 Combo",
-        "Endurance with Spikes"
-      ],
-      "workout_context": "Endurance with intensity spikes baked in. Exactly what 4,000ft of climbing on portuguese rolling gravel does to your power file on race day."
     }
   ],
   "race_overlay": {
-    "nutrition": "Target 40\u201360g carbs/hour for 114 Gravel Race\u2019s 70 miles. Front-load calories in the first half. One bottle per hour minimum, more in heat.",
+    "nutrition": "Target 60\u201380g carbs/hour for 114 Gravel Race\u2019s 85 miles. Start fueling within the first 30 minutes \u2014 early fueling prevents late-race collapse. Bonking at mile 60 is a nutrition failure, not a fitness failure.",
     "terrain": "Mixed terrain at 114 Gravel Race requires surface adaptability. Include weekly rides on portuguese rolling gravel to build confidence. Expect: portuguese rolling, european gravel, regional event."
   },
-  "pack_summary": "This 10-workout pack focuses on Gravel Specific, Race Simulation, and TT Threshold to prepare you for 70 miles of portuguese rolling gravel in Portugal.",
-  "generated_at": "2026-03-06"
+  "pack_summary": "This 10-workout pack focuses on TT Threshold, Gravel Specific, and Race Simulation to prepare you for 85 miles of portuguese rolling gravel in Portugal.",
+  "generated_at": "2026-10-25"
 }

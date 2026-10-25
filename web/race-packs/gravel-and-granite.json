@@ -1,12 +1,12 @@
 {
   "slug": "gravel-and-granite",
-  "race_name": "Gravel and Granite",
-  "distance_mi": 65.0,
+  "race_name": "Gravel n Granite",
+  "distance_mi": 56.5,
   "demands": {
     "durability": 2,
-    "climbing": 5,
+    "climbing": 3,
     "vo2_power": 2,
-    "threshold": 6,
+    "threshold": 5,
     "technical": 6,
     "heat_resilience": 0,
     "altitude": 4,
@@ -14,124 +14,123 @@
   },
   "top_categories": [
     {
-      "category": "TT_Threshold",
+      "category": "Gravel_Specific",
       "score": 100,
+      "workouts": [
+        "Surge and Settle",
+        "Terrain Microbursts"
+      ],
+      "workout_context": "Gravel n Granite's Fast gravel, Rugged granite-country terrain forces constant power changes. Surge over the rough stuff, settle on the smooth, repeat for 56 miles."
+    },
+    {
+      "category": "TT_Threshold",
+      "score": 81,
       "workouts": [
         "Single Sustained Threshold",
         "Threshold Ramps",
         "Descending Threshold"
       ],
-      "workout_context": "69ft/mi means long efforts at or near FTP on every climb. If your threshold cracks at minute 15, you'll walk the rest."
-    },
-    {
-      "category": "Gravel_Specific",
-      "score": 94,
-      "workouts": [
-        "Surge and Settle",
-        "Terrain Microbursts"
-      ],
-      "workout_context": "Gravel and Granite's Australian mountains, Local event forces constant power changes. Surge over the rough stuff, settle on the smooth, repeat for 65 miles."
-    },
-    {
-      "category": "Over_Under",
-      "score": 84,
-      "workouts": [
-        "Classic Over-Unders",
-        "Ladder Over-Unders"
-      ],
-      "workout_context": "At Gravel and Granite, surges push you above threshold and you have to recover while still riding. Over-unders train exactly that."
-    },
-    {
-      "category": "G_Spot",
-      "score": 78,
-      "workouts": [
-        "G-Spot Standard",
-        "G-Spot Extended",
-        "Criss-Cross"
-      ],
-      "workout_context": "88\u201392% FTP is where you'll spend the hardest sustained miles of Gravel and Granite. Train it until it feels boring."
+      "workout_context": "Gravel n Granite's australian granite-country adventure enduro rewards steady threshold power. Surging and recovering costs more watts than just holding."
     },
     {
       "category": "Race_Simulation",
-      "score": 71,
+      "score": 75,
       "workouts": [
         "Breakaway Simulation",
         "Variable Pace Chaos",
         "Sector Simulation"
       ],
-      "workout_context": "Race-pace efforts that mimic Gravel and Granite's demands. Pacing, fueling, and tactical decisions under fatigue. Practice the race before May."
+      "workout_context": "Race-pace efforts that mimic Gravel n Granite's demands. Pacing, fueling, and tactical decisions under fatigue. Practice the race before March."
     },
     {
       "category": "VO2max",
-      "score": 63,
+      "score": 67,
       "workouts": [
         "5x3 VO2 Classic",
         "Descending VO2 Pyramid",
         "Norwegian 4x8"
       ],
-      "workout_context": "When someone attacks on australian mountain gravel, you have 10 seconds to respond or you're off the back. This builds that response."
+      "workout_context": "When someone attacks on australian granite-country adventure enduro, you have 10 seconds to respond or you're off the back. This builds that response."
     },
     {
-      "category": "Mixed_Climbing",
-      "score": 59,
+      "category": "G_Spot",
+      "score": 65,
       "workouts": [
-        "Seated/Standing Climbs",
-        "Variable Grade Simulation"
+        "G-Spot Standard",
+        "G-Spot Extended",
+        "Criss-Cross"
       ],
-      "workout_context": "Varied gradients on australian mountain gravel demand climbing versatility. Sit the shallow stuff, stand the steep stuff, switch without thinking."
+      "workout_context": "88\u201392% FTP is where you'll spend the hardest sustained miles of Gravel n Granite. Train it until it feels boring."
+    },
+    {
+      "category": "Over_Under",
+      "score": 62,
+      "workouts": [
+        "Classic Over-Unders",
+        "Ladder Over-Unders"
+      ],
+      "workout_context": "At Gravel n Granite, surges push you above threshold and you have to recover while still riding. Over-unders train exactly that."
     },
     {
       "category": "Critical_Power",
-      "score": 59,
+      "score": 62,
       "workouts": [
         "Above CP Repeats",
         "W-Prime Depletion"
       ],
-      "workout_context": "How long can you hold 105% FTP before you blow? At Gravel and Granite, that number decides whether you bridge or get dropped."
-    },
-    {
-      "category": "Norwegian_Double",
-      "score": 47,
-      "workouts": [
-        "Norwegian 4x8 Classic",
-        "Double Threshold"
-      ],
-      "workout_context": "Double-threshold training builds sustained power with less fatigue. More FTP per hour of training."
+      "workout_context": "How long can you hold 105% FTP before you blow? At Gravel n Granite, that number decides whether you bridge or get dropped."
     },
     {
       "category": "Cadence_Work",
-      "score": 47,
+      "score": 50,
       "workouts": [
         "High Cadence Drills",
         "Cadence Pyramids"
       ],
-      "workout_context": "Smooth pedaling at 65 miles saves muscle. Bad technique at mile 10 is invisible. At mile 80 it's a cramp."
+      "workout_context": "Smooth pedaling at 56 miles saves muscle. Bad technique at mile 10 is invisible. At mile 80 it's a cramp."
     },
     {
       "category": "Durability",
-      "score": 41,
+      "score": 44,
       "workouts": [
         "Tired VO2max",
         "Double Day Simulation",
         "Progressive Fatigue"
       ],
-      "workout_context": "65 miles on australian mountain gravel burns energy faster than the distance suggests. Train the fade resistance now."
+      "workout_context": "56 miles on australian granite-country adventure enduro burns energy faster than the distance suggests. Train the fade resistance now."
     },
     {
       "category": "Endurance",
-      "score": 39,
+      "score": 42,
       "workouts": [
         "Pre-Race Openers",
         "Terrain Simulation Z2"
       ],
-      "workout_context": "Base fitness for Gravel and Granite. Without this, the hard workouts break you down instead of building you up."
+      "workout_context": "Base fitness for Gravel n Granite. Without this, the hard workouts break you down instead of building you up."
+    },
+    {
+      "category": "Anaerobic_Capacity",
+      "score": 42,
+      "workouts": [
+        "2min Killers",
+        "90sec Repeats"
+      ],
+      "workout_context": "2-minute all-out efforts on australian granite-country adventure enduro. Closing gaps, responding to attacks, sprinting for position. Train the burn."
+    },
+    {
+      "category": "Norwegian_Double",
+      "score": 42,
+      "workouts": [
+        "Norwegian 4x8 Classic",
+        "Double Threshold"
+      ],
+      "workout_context": "Double-threshold training builds sustained power with less fatigue. More FTP per hour of training."
     }
   ],
   "race_overlay": {
-    "nutrition": "Target 40\u201360g carbs/hour for Gravel and Granite\u2019s 65 miles. Front-load calories in the first half. One bottle per hour minimum, more in heat.",
-    "altitude": "Moderate altitude at Gravel and Granite. Arrive 2\u20133 days early. Reduce intensity expectations by 5\u201310%. Hydrate aggressively.",
-    "terrain": "Mixed terrain at Gravel and Granite requires surface adaptability. Include weekly rides on australian mountain gravel to build confidence. Expect: australian mountains, local event, australian gravel."
+    "nutrition": "Target 40\u201360g carbs/hour for Gravel n Granite\u2019s 56 miles. Front-load calories in the first half. One bottle per hour minimum; adjust for conditions and sweat rate.",
+    "terrain": "Mixed terrain at Gravel n Granite requires surface adaptability. Include weekly rides on australian granite-country adventure enduro to build confidence. Expect: fast gravel, rugged granite-country terrain, national park backroads."
   },
-  "pack_summary": "This 10-workout pack focuses on TT Threshold, Gravel Specific, and Over Under to prepare you for 65 miles of australian mountain gravel in Tenterfield, New South Wales, Australia.",
-  "generated_at": "2026-03-06"
+  "pack_summary": "This 10-workout pack focuses on Gravel Specific, TT Threshold, and Race Simulation to prepare you for 56 miles of australian granite-country adventure enduro in Tenterfield, New South Wales, Australia.",
+  "generated_at": "2026-10-25"
 }

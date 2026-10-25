@@ -5,7 +5,7 @@
     "display_name": "Mid-State Gravel Grinder",
     "tagline": "Gates, switchbacks, and quiet farm country gravel in central Pennsylvania.",
     "vitals": {
-      "distance_mi": 47,
+      "distance_mi": 69,
       "elevation_ft": 3858,
       "location": "Central Pennsylvania",
       "location_badge": "CENTRAL PA",
@@ -50,11 +50,11 @@
       ]
     },
     "gravel_god_rating": {
-      "overall_score": 40,
+      "overall_score": 41,
       "tier": 4,
       "tier_label": "TIER 4",
       "logistics": 2,
-      "length": 2,
+      "length": 3,
       "technicality": 2,
       "elevation": 2,
       "climate": 2,
@@ -146,7 +146,7 @@
     },
     "guide_variables": {
       "race_name": "Mid-State Gravel Grinder",
-      "race_distance": "50 miles",
+      "race_distance": "69 miles",
       "race_elevation": "3,500 feet",
       "race_date": "Summer",
       "race_location": "Central Pennsylvania",
@@ -270,8 +270,8 @@
         "explanation": "Starting at Mid-State Airport on Airport Road works fine — 7:00 AM registration, 8:30 AM close, 9:00 AM start keeps things moving. Aid stations at miles 16 and 26 for the half course with cutoff at noon. Lynn Botelho had her nutrition dialed in and the basic setup delivered what she needed."
       },
       "length": {
-        "score": 2,
-        "explanation": "The 48-mile half course hits that middle distance sweet spot — long enough for strategy but short enough for newcomers. Evan McGregor executed a patient race plan, staying with stronger riders until the decisive Tram Road descent. HoboStephen completed his first-ever bike race here after just four months of cycling. More compact than Grinduro."
+        "score": 3,
+        "explanation": "The 69-mile Full Series route is the flagship. The 48-mile half course hits that middle distance sweet spot — long enough for strategy but short enough for newcomers. Evan McGregor executed a patient race plan, staying with stronger riders until the decisive Tram Road descent. HoboStephen completed his first-ever bike race here after just four months of cycling. Similar distance to Crusher in the Tushar."
       },
       "technicality": {
         "score": 2,
@@ -703,6 +703,12 @@
         "alt": "Course preview from Mid State Gravel Grinder race footage",
         "credit": "YouTube / Kerry Werner",
         "gif": true
+      }
+    ],
+    "changelog": [
+      {
+        "date": "2026-10-25",
+        "change": "Distance corrected from 47 to 69 miles to match the Full Series route, the flagship listed on the official event page. Length score recomputed from the published rubric."
       }
     ]
   }

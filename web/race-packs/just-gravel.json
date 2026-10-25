@@ -1,12 +1,12 @@
 {
   "slug": "just-gravel",
   "race_name": "JUST.GRAVEL",
-  "distance_mi": 50.0,
+  "distance_mi": 28.0,
   "demands": {
-    "durability": 2,
+    "durability": 1,
     "climbing": 5,
     "vo2_power": 2,
-    "threshold": 6,
+    "threshold": 4,
     "technical": 6,
     "heat_resilience": 0,
     "altitude": 2,
@@ -14,27 +14,27 @@
   },
   "top_categories": [
     {
-      "category": "TT_Threshold",
+      "category": "Gravel_Specific",
       "score": 100,
+      "workouts": [
+        "Surge and Settle",
+        "Terrain Microbursts"
+      ],
+      "workout_context": "JUST.GRAVEL's UK Lake District, British gravel forces constant power changes. Surge over the rough stuff, settle on the smooth, repeat for 28 miles."
+    },
+    {
+      "category": "TT_Threshold",
+      "score": 81,
       "workouts": [
         "Single Sustained Threshold",
         "Threshold Ramps",
         "Descending Threshold"
       ],
-      "workout_context": "80ft/mi means long efforts at or near FTP on every climb. If your threshold cracks at minute 15, you'll walk the rest."
-    },
-    {
-      "category": "Gravel_Specific",
-      "score": 94,
-      "workouts": [
-        "Surge and Settle",
-        "Terrain Microbursts"
-      ],
-      "workout_context": "JUST.GRAVEL's UK Lake District, British gravel forces constant power changes. Surge over the rough stuff, settle on the smooth, repeat for 50 miles."
+      "workout_context": "143ft/mi means long efforts at or near FTP on every climb. If your threshold cracks at minute 15, you'll walk the rest."
     },
     {
       "category": "Over_Under",
-      "score": 84,
+      "score": 77,
       "workouts": [
         "Classic Over-Unders",
         "Ladder Over-Unders"
@@ -42,18 +42,8 @@
       "workout_context": "At JUST.GRAVEL, surges push you above threshold and you have to recover while still riding. Over-unders train exactly that."
     },
     {
-      "category": "G_Spot",
-      "score": 78,
-      "workouts": [
-        "G-Spot Standard",
-        "G-Spot Extended",
-        "Criss-Cross"
-      ],
-      "workout_context": "88\u201392% FTP is where you'll spend the hardest sustained miles of JUST.GRAVEL. Train it until it feels boring."
-    },
-    {
       "category": "Race_Simulation",
-      "score": 71,
+      "score": 75,
       "workouts": [
         "Breakaway Simulation",
         "Variable Pace Chaos",
@@ -63,7 +53,7 @@
     },
     {
       "category": "Mixed_Climbing",
-      "score": 59,
+      "score": 62,
       "workouts": [
         "Seated/Standing Climbs",
         "Variable Grade Simulation"
@@ -71,8 +61,18 @@
       "workout_context": "Varied gradients on uK Lake District gravel demand climbing versatility. Sit the shallow stuff, stand the steep stuff, switch without thinking."
     },
     {
+      "category": "G_Spot",
+      "score": 62,
+      "workouts": [
+        "G-Spot Standard",
+        "G-Spot Extended",
+        "Criss-Cross"
+      ],
+      "workout_context": "88\u201392% FTP is where you'll spend the hardest sustained miles of JUST.GRAVEL. Train it until it feels boring."
+    },
+    {
       "category": "Critical_Power",
-      "score": 59,
+      "score": 62,
       "workouts": [
         "Above CP Repeats",
         "W-Prime Depletion"
@@ -80,26 +80,17 @@
       "workout_context": "How long can you hold 105% FTP before you blow? At JUST.GRAVEL, that number decides whether you bridge or get dropped."
     },
     {
-      "category": "Norwegian_Double",
-      "score": 47,
-      "workouts": [
-        "Norwegian 4x8 Classic",
-        "Double Threshold"
-      ],
-      "workout_context": "Double-threshold training builds sustained power with less fatigue. More FTP per hour of training."
-    },
-    {
       "category": "Cadence_Work",
-      "score": 47,
+      "score": 50,
       "workouts": [
         "High Cadence Drills",
         "Cadence Pyramids"
       ],
-      "workout_context": "Smooth pedaling at 50 miles saves muscle. Bad technique at mile 10 is invisible. At mile 80 it's a cramp."
+      "workout_context": "Smooth pedaling at 28 miles saves muscle. Bad technique at mile 10 is invisible. At mile 80 it's a cramp."
     },
     {
       "category": "VO2max",
-      "score": 43,
+      "score": 46,
       "workouts": [
         "5x3 VO2 Classic",
         "Descending VO2 Pyramid",
@@ -108,29 +99,37 @@
       "workout_context": "When someone attacks on uK Lake District gravel, you have 10 seconds to respond or you're off the back. This builds that response."
     },
     {
-      "category": "Durability",
-      "score": 41,
-      "workouts": [
-        "Tired VO2max",
-        "Double Day Simulation",
-        "Progressive Fatigue"
-      ],
-      "workout_context": "50 miles on uK Lake District gravel burns energy faster than the distance suggests. Train the fade resistance now."
-    },
-    {
       "category": "SFR_Muscle_Force",
-      "score": 39,
+      "score": 42,
       "workouts": [
         "SFR Low Cadence",
         "Force Repeats"
       ],
       "workout_context": "Low-cadence force work for 4,000ft of climbing. The slow, grinding ascents where you can't spin\u2014you push."
+    },
+    {
+      "category": "Anaerobic_Capacity",
+      "score": 42,
+      "workouts": [
+        "2min Killers",
+        "90sec Repeats"
+      ],
+      "workout_context": "Short, max efforts are unavoidable. Punchy climbs, gap closures, attacks on uK Lake District gravel. If you haven't trained them, you'll crack."
+    },
+    {
+      "category": "Norwegian_Double",
+      "score": 33,
+      "workouts": [
+        "Norwegian 4x8 Classic",
+        "Double Threshold"
+      ],
+      "workout_context": "Double-threshold training builds sustained power with less fatigue. More FTP per hour of training."
     }
   ],
   "race_overlay": {
-    "nutrition": "Target 40\u201360g carbs/hour for JUST.GRAVEL\u2019s 50 miles. Front-load calories in the first half. One bottle per hour minimum, more in heat.",
+    "nutrition": "Standard hydration and fueling. One bottle per hour minimum. Gel or bar every 45 minutes at race intensity.",
     "terrain": "Mixed terrain at JUST.GRAVEL requires surface adaptability. Include weekly rides on uk lake district gravel to build confidence. Expect: uk lake district, british gravel, uk."
   },
-  "pack_summary": "This 10-workout pack focuses on TT Threshold, Gravel Specific, and Over Under to prepare you for 50 miles of uk lake district gravel in Southern Lake District, UK.",
-  "generated_at": "2026-03-06"
+  "pack_summary": "This 10-workout pack focuses on Gravel Specific, TT Threshold, and Over Under to prepare you for 28 miles of uk lake district gravel in Southern Lake District, UK.",
+  "generated_at": "2026-10-25"
 }

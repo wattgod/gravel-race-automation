@@ -5,7 +5,7 @@
     "display_name": "Lowell Classic",
     "tagline": "West Michigan gravel in Lowell near Grand Rapids.",
     "vitals": {
-      "distance_mi": 54,
+      "distance_mi": 100,
       "elevation_ft": 2150,
       "location": "Lowell, Michigan",
       "location_badge": "LOWELL, MICHIGAN",
@@ -49,11 +49,11 @@
       ]
     },
     "gravel_god_rating": {
-      "overall_score": 44,
-      "tier": 4,
-      "tier_label": "TIER 4",
+      "overall_score": 46,
+      "tier": 3,
+      "tier_label": "TIER 3",
       "logistics": 3,
-      "length": 3,
+      "length": 4,
       "technicality": 2,
       "elevation": 2,
       "climate": 2,
@@ -68,7 +68,10 @@
       "expenses": 3,
       "score_note": "Small grassroots west Michigan event. Near Grand Rapids but limited infrastructure.",
       "discipline": "gravel",
-      "display_tier": 4
+      "display_tier": 3,
+      "editorial_tier": 3,
+      "editorial_tier_label": "TIER 3",
+      "display_tier_label": "TIER 3"
     },
     "biased_opinion": {
       "verdict": "Grand Rapids Area Grassroots Ride",
@@ -143,7 +146,7 @@
     },
     "guide_variables": {
       "race_name": "Lowell Classic",
-      "race_distance": "62 miles",
+      "race_distance": "100 miles",
       "race_elevation": "3,000 feet",
       "race_date": "Summer",
       "race_location": "Lowell, Michigan",
@@ -258,8 +261,8 @@
         "explanation": "Fallasburg Park provides a proper start/finish venue with 320 total racers in 2022 showing solid organization capacity. The 7 AM start time and multiple distance options from 15 to 100 miles demonstrate event management experience. Being 15 miles from Grand Rapids gives airport access without small town limitations."
       },
       "length": {
-        "score": 3,
-        "explanation": "Multiple distance options serve different rider levels, from 15-mile mini to 100-mile ultra. The 38-mile option with 2,200 feet of climbing hits the sweet spot for most gravel riders. One rider noted this as their \"last gravel race of the year\" suggesting solid season-ending distance choices. Similar distance to Crusher in the Tushar."
+        "score": 4,
+        "explanation": "The 100-mile course is the flagship, with 54, 38 and 15-mile options for other levels. The 38-mile option with 2,200 feet of climbing hits the sweet spot for most gravel riders. One rider noted this as their \"last gravel race of the year\" suggesting solid season-ending distance choices. Longer than Belgian Waffle Ride San Diego."
       },
       "technicality": {
         "score": 2,
@@ -602,6 +605,12 @@
         "alt": "Course preview from Lowell Classic race footage",
         "credit": "YouTube / Up The Road",
         "gif": true
+      }
+    ],
+    "changelog": [
+      {
+        "date": "2026-10-25",
+        "change": "Distance corrected from 54 to 100 miles to match the 100-mile course, the flagship listed on the official event page. Length score recomputed from the published rubric."
       }
     ]
   }

@@ -18,6 +18,9 @@ from pathlib import Path
 from xml.etree.ElementTree import Element, SubElement, tostring
 from xml.dom.minidom import parseString
 
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "wordpress"))
+from page_dates import race_updated_date  # noqa: E402
+
 SITE_BASE_URL = "https://gravelgodcycling.com"
 
 # Only these blog categories are indexable — unknown categories excluded by default (safe)
@@ -388,13 +391,18 @@ def generate_sitemap(race_index: list, output_path: Path, data_dir: Path = None,
         tier = race.get('tier', 4)
         priority = {1: '0.9', 2: '0.8', 3: '0.6', 4: '0.5'}.get(tier, '0.5')
 
-        # Use file mtime if data_dir provided
+        # Same updated date the race page shows in its byline and JSON-LD
+        # (wordpress/page_dates.py), so the sitemap never contradicts the page.
         lastmod = today
         if data_dir:
             data_file = data_dir / f"{slug}.json"
             if data_file.exists():
-                mtime = os.path.getmtime(data_file)
-                lastmod = datetime.fromtimestamp(mtime).strftime('%Y-%m-%d')
+                try:
+                    race = json.loads(data_file.read_text(encoding="utf-8"))
+                    race = race.get("race", race)
+                except (json.JSONDecodeError, OSError):
+                    race = {}
+                lastmod = race_updated_date(race, data_file)
 
         url = SubElement(urlset, 'url')
         SubElement(url, 'loc').text = f"{SITE_BASE_URL}/race/{slug}/"

@@ -1,7 +1,7 @@
 {
   "slug": "race-to-valhalla",
   "race_name": "Race to Valhalla",
-  "distance_mi": 65.0,
+  "distance_mi": 72.0,
   "demands": {
     "durability": 2,
     "climbing": 7,
@@ -20,7 +20,7 @@
         "Surge and Settle",
         "Terrain Microbursts"
       ],
-      "workout_context": "Race to Valhalla's South Carolina mountains, Mountain gravel forces constant power changes. Surge over the rough stuff, settle on the smooth, repeat for 65 miles."
+      "workout_context": "Race to Valhalla's Blue Ridge escarpment gravel, Southeast Gravel series forces constant power changes. Surge over the rough stuff, settle on the smooth, repeat for 72 miles."
     },
     {
       "category": "TT_Threshold",
@@ -30,7 +30,7 @@
         "Threshold Ramps",
         "Descending Threshold"
       ],
-      "workout_context": "85ft/mi means long efforts at or near FTP on every climb. If your threshold cracks at minute 15, you'll walk the rest."
+      "workout_context": "101ft/mi means long efforts at or near FTP on every climb. If your threshold cracks at minute 15, you'll walk the rest."
     },
     {
       "category": "Race_Simulation",
@@ -68,7 +68,7 @@
         "Seated/Standing Climbs",
         "Variable Grade Simulation"
       ],
-      "workout_context": "5,500ft of climbing on grades that change every minute. You need to switch from seated to standing without losing rhythm."
+      "workout_context": "7,300ft of climbing on grades that change every minute. You need to switch from seated to standing without losing rhythm."
     },
     {
       "category": "Critical_Power",
@@ -87,7 +87,7 @@
         "Double Day Simulation",
         "Progressive Fatigue"
       ],
-      "workout_context": "65 miles on South Carolina mountain gravel burns energy faster than the distance suggests. Train the fade resistance now."
+      "workout_context": "72 miles on South Carolina mountain gravel burns energy faster than the distance suggests. Train the fade resistance now."
     },
     {
       "category": "VO2max",
@@ -97,7 +97,7 @@
         "Descending VO2 Pyramid",
         "Norwegian 4x8"
       ],
-      "workout_context": "5,500ft of climbing means repeated surges above threshold. VO2max work is how you survive the fifth climb, not just the first."
+      "workout_context": "7,300ft of climbing means repeated surges above threshold. VO2max work is how you survive the fifth climb, not just the first."
     },
     {
       "category": "SFR_Muscle_Force",
@@ -106,7 +106,7 @@
         "SFR Low Cadence",
         "Force Repeats"
       ],
-      "workout_context": "Low-cadence force work for 5,500ft of climbing. The slow, grinding ascents where you can't spin\u2014you push."
+      "workout_context": "Low-cadence force work for 7,300ft of climbing. The slow, grinding ascents where you can't spin\u2014you push."
     },
     {
       "category": "Anaerobic_Capacity",
@@ -128,9 +128,9 @@
     }
   ],
   "race_overlay": {
-    "nutrition": "Target 40\u201360g carbs/hour for Race to Valhalla\u2019s 65 miles. Front-load calories in the first half. One bottle per hour minimum, more in heat.",
-    "terrain": "Mixed terrain at Race to Valhalla requires surface adaptability. Include weekly rides on south carolina mountain gravel to build confidence. Expect: south carolina mountains, mountain gravel, regional event."
+    "nutrition": "Target 40\u201360g carbs/hour for Race to Valhalla\u2019s 72 miles. Front-load calories in the first half. One bottle per hour minimum; adjust for conditions and sweat rate.",
+    "terrain": "Mixed terrain at Race to Valhalla requires surface adaptability. Include weekly rides on south carolina mountain gravel to build confidence. Expect: blue ridge escarpment gravel, southeast gravel series, chattooga river country."
   },
-  "pack_summary": "This 10-workout pack focuses on Gravel Specific, TT Threshold, and Race Simulation to prepare you for 65 miles of south carolina mountain gravel in Walhalla, South Carolina.",
-  "generated_at": "2026-03-06"
+  "pack_summary": "This 10-workout pack focuses on Gravel Specific, TT Threshold, and Race Simulation to prepare you for 72 miles of south carolina mountain gravel in Walhalla, South Carolina.",
+  "generated_at": "2026-10-25"
 }

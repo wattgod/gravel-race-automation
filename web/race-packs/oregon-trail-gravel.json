@@ -1,7 +1,7 @@
 {
   "slug": "oregon-trail-gravel",
   "race_name": "Oregon Trail Gravel Grinder",
-  "distance_mi": 375.0,
+  "distance_mi": 350.0,
   "demands": {
     "durability": 10,
     "climbing": 10,
@@ -21,7 +21,7 @@
         "Double Day Simulation",
         "Progressive Fatigue"
       ],
-      "workout_context": "375 miles. Your legs will beg to quit after 120. This trains the power output you need from mile 130 onward."
+      "workout_context": "350 miles. Your legs will beg to quit after 120. This trains the power output you need from mile 130 onward."
     },
     {
       "category": "VO2max",
@@ -31,7 +31,7 @@
         "Descending VO2 Pyramid",
         "Norwegian 4x8"
       ],
-      "workout_context": "35,000ft of climbing means repeated surges above threshold. VO2max work is how you survive the fifth climb, not just the first."
+      "workout_context": "30,000ft of climbing means repeated surges above threshold. VO2max work is how you survive the fifth climb, not just the first."
     },
     {
       "category": "Race_Simulation",
@@ -50,7 +50,7 @@
         "Surge and Settle",
         "Terrain Microbursts"
       ],
-      "workout_context": "Oregon Trail Gravel Grinder's High desert gravel, Forest service roads forces constant power changes. Surge over the rough stuff, settle on the smooth, repeat for 375 miles."
+      "workout_context": "Oregon Trail Gravel Grinder's High desert gravel, Forest service roads forces constant power changes. Surge over the rough stuff, settle on the smooth, repeat for 350 miles."
     },
     {
       "category": "Endurance",
@@ -59,7 +59,7 @@
         "Pre-Race Openers",
         "Terrain Simulation Z2"
       ],
-      "workout_context": "Every hard session works better with a bigger aerobic base. At 375 miles, base fitness is the difference between racing and surviving."
+      "workout_context": "Every hard session works better with a bigger aerobic base. At 350 miles, base fitness is the difference between racing and surviving."
     },
     {
       "category": "Over_Under",
@@ -77,7 +77,7 @@
         "Seated/Standing Climbs",
         "Variable Grade Simulation"
       ],
-      "workout_context": "35,000ft of climbing on grades that change every minute. You need to switch from seated to standing without losing rhythm."
+      "workout_context": "30,000ft of climbing on grades that change every minute. You need to switch from seated to standing without losing rhythm."
     },
     {
       "category": "TT_Threshold",
@@ -87,7 +87,7 @@
         "Threshold Ramps",
         "Descending Threshold"
       ],
-      "workout_context": "93ft/mi means long efforts at or near FTP on every climb. If your threshold cracks at minute 15, you'll walk the rest."
+      "workout_context": "86ft/mi means long efforts at or near FTP on every climb. If your threshold cracks at minute 15, you'll walk the rest."
     },
     {
       "category": "HVLI_Extended",
@@ -97,7 +97,7 @@
         "Multi-Hour Z2",
         "Back-to-Back Long"
       ],
-      "workout_context": "375 miles rewards fat oxidation. This volume work shifts your fuel mix so you're still burning fat at hour 5, not bonking at hour 3."
+      "workout_context": "350 miles rewards fat oxidation. This volume work shifts your fuel mix so you're still burning fat at hour 5, not bonking at hour 3."
     },
     {
       "category": "Blended",
@@ -106,7 +106,7 @@
         "Z2 + VO2 Combo",
         "Endurance with Spikes"
       ],
-      "workout_context": "Endurance with intensity spikes baked in. Exactly what 35,000ft of climbing on high desert and forest service gravel across does to your power file on race day."
+      "workout_context": "Endurance with intensity spikes baked in. Exactly what 30,000ft of climbing on high desert and forest service gravel across does to your power file on race day."
     },
     {
       "category": "G_Spot",
@@ -129,10 +129,10 @@
     }
   ],
   "race_overlay": {
-    "nutrition": "Ultra-distance fueling for 375 miles: 80\u2013100g carbs/hour from mile 1 \u2014 don\u2019t wait until you\u2019re hungry. Practice your exact race-day nutrition in every long training ride. Carry backup calories. 375 miles burns 8,000\u201312,000+ calories \u2014 you cannot replace them all, but you must try.",
-    "altitude": "Oregon Trail Gravel Grinder with 35,000ft of climbing, much of it above 8,000ft demands altitude preparation. Arrive 5\u20137 days early for acclimatization. Expect 5\u201315% power reduction at altitude. Increase iron intake 4 weeks out. Hydrate aggressively \u2014 altitude increases fluid loss by 20\u201340%. High-altitude sun exposure.",
+    "nutrition": "Ultra-distance fueling for 350 miles: 80\u2013100g carbs/hour from mile 1 \u2014 don\u2019t wait until you\u2019re hungry. Practice your exact race-day nutrition in every long training ride. Carry backup calories. 350 miles burns 8,000\u201312,000+ calories \u2014 you cannot replace them all, but you must try.",
+    "altitude": "Oregon Trail Gravel Grinder with 30,000ft of climbing, much of it above 8,000ft demands altitude preparation. Arrive 5\u20137 days early for acclimatization. Expect 5\u201315% power reduction at altitude. Increase iron intake 4 weeks out. Hydrate aggressively \u2014 altitude increases fluid loss by 20\u201340%. High-altitude sun exposure.",
     "terrain": "Mixed terrain at Oregon Trail Gravel Grinder requires surface adaptability. Include weekly rides on high desert and forest service gravel across central oregon to build confidence. Expect: high desert gravel, forest service roads, mountain passes."
   },
-  "pack_summary": "This 10-workout pack focuses on Durability, VO2max, and Race Simulation to prepare you for 375 miles of high desert and forest service gravel across central oregon in Central Oregon (multiple towns).",
-  "generated_at": "2026-03-06"
+  "pack_summary": "This 10-workout pack focuses on Durability, VO2max, and Race Simulation to prepare you for 350 miles of high desert and forest service gravel across central oregon in Central Oregon (multiple towns).",
+  "generated_at": "2026-10-25"
 }

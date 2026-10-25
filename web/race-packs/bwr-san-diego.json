@@ -1,10 +1,10 @@
 {
   "slug": "bwr-san-diego",
   "race_name": "Belgian Waffle Ride San Diego",
-  "distance_mi": 131.0,
+  "distance_mi": 106.5,
   "demands": {
     "durability": 6,
-    "climbing": 10,
+    "climbing": 9,
     "vo2_power": 10,
     "threshold": 8,
     "technical": 8,
@@ -20,7 +20,7 @@
         "Surge and Settle",
         "Terrain Microbursts"
       ],
-      "workout_context": "Belgian Waffle Ride San Diego's technical rocky single-track alternating with forces constant power changes. Surge over the rough stuff, settle on the smooth, repeat for 131 miles."
+      "workout_context": "Belgian Waffle Ride San Diego's technical rocky single-track alternating with forces constant power changes. Surge over the rough stuff, settle on the smooth, repeat for 106 miles."
     },
     {
       "category": "Race_Simulation",
@@ -40,21 +40,21 @@
         "Descending VO2 Pyramid",
         "Norwegian 4x8"
       ],
-      "workout_context": "12,000ft of climbing means repeated surges above threshold. VO2max work is how you survive the fifth climb, not just the first."
+      "workout_context": "7,500ft of climbing means repeated surges above threshold. VO2max work is how you survive the fifth climb, not just the first."
     },
     {
       "category": "TT_Threshold",
-      "score": 89,
+      "score": 85,
       "workouts": [
         "Single Sustained Threshold",
         "Threshold Ramps",
         "Descending Threshold"
       ],
-      "workout_context": "92ft/mi means long efforts at or near FTP on every climb. If your threshold cracks at minute 15, you'll walk the rest."
+      "workout_context": "70ft/mi means long efforts at or near FTP on every climb. If your threshold cracks at minute 15, you'll walk the rest."
     },
     {
       "category": "Over_Under",
-      "score": 84,
+      "score": 78,
       "workouts": [
         "Classic Over-Unders",
         "Ladder Over-Unders"
@@ -69,7 +69,7 @@
         "Double Day Simulation",
         "Progressive Fatigue"
       ],
-      "workout_context": "At mile 60 of 131, glycogen is gone. This workout teaches your body to produce watts on fumes."
+      "workout_context": "At mile 60 of 106, glycogen is gone. This workout teaches your body to produce watts on fumes."
     },
     {
       "category": "Critical_Power",
@@ -81,17 +81,8 @@
       "workout_context": "How long can you hold 105% FTP before you blow? At Belgian Waffle Ride San Diego, that number decides whether you bridge or get dropped."
     },
     {
-      "category": "Mixed_Climbing",
-      "score": 68,
-      "workouts": [
-        "Seated/Standing Climbs",
-        "Variable Grade Simulation"
-      ],
-      "workout_context": "12,000ft of climbing on grades that change every minute. You need to switch from seated to standing without losing rhythm."
-    },
-    {
       "category": "G_Spot",
-      "score": 68,
+      "score": 66,
       "workouts": [
         "G-Spot Standard",
         "G-Spot Extended",
@@ -109,13 +100,13 @@
       "workout_context": "Short, max efforts are unavoidable. Punchy climbs, gap closures, attacks on technical rocky single-track alternating with. If you haven't trained them, you'll crack."
     },
     {
-      "category": "SFR_Muscle_Force",
-      "score": 45,
+      "category": "Mixed_Climbing",
+      "score": 61,
       "workouts": [
-        "SFR Low Cadence",
-        "Force Repeats"
+        "Seated/Standing Climbs",
+        "Variable Grade Simulation"
       ],
-      "workout_context": "Low-cadence force work for 12,000ft of climbing. The slow, grinding ascents where you can't spin\u2014you push."
+      "workout_context": "7,500ft of climbing on grades that change every minute. You need to switch from seated to standing without losing rhythm."
     },
     {
       "category": "Blended",
@@ -124,14 +115,22 @@
         "Z2 + VO2 Combo",
         "Endurance with Spikes"
       ],
-      "workout_context": "Endurance with intensity spikes baked in. Exactly what 12,000ft of climbing on technical rocky single-track alternating with does to your power file on race day."
+      "workout_context": "Endurance with intensity spikes baked in. Exactly what 7,500ft of climbing on technical rocky single-track alternating with does to your power file on race day."
+    },
+    {
+      "category": "Endurance",
+      "score": 41,
+      "workouts": [
+        "Pre-Race Openers",
+        "Terrain Simulation Z2"
+      ],
+      "workout_context": "Every hard session works better with a bigger aerobic base. At 106 miles, base fitness is the difference between racing and surviving."
     }
   ],
   "race_overlay": {
-    "nutrition": "Target 60\u201380g carbs/hour for Belgian Waffle Ride San Diego\u2019s 131 miles. Start fueling within the first 30 minutes \u2014 early fueling prevents late-race collapse. Bonking at mile 60 is a nutrition failure, not a fitness failure.",
-    "altitude": "Moderate altitude at Belgian Waffle Ride San Diego. Arrive 2\u20133 days early. Reduce intensity expectations by 5\u201310%. Hydrate aggressively.",
-    "terrain": "Highly technical terrain at Belgian Waffle Ride San Diego demands practice on similar surfaces. Ride technical rocky single-track alternating with sandy washes \u2014 sharp rocks destroy tires at race-day cadence weekly. Practice cornering, descending, and power delivery on unstable surfaces. Dial in tire pressure before race week \u2014 5 PSI wrong costs you 15+ minutes over 131 miles."
+    "nutrition": "Target 60\u201380g carbs/hour for Belgian Waffle Ride San Diego\u2019s 106 miles. Start fueling within the first 30 minutes \u2014 early fueling prevents late-race collapse. Bonking at mile 60 is a nutrition failure, not a fitness failure.",
+    "terrain": "Highly technical terrain at Belgian Waffle Ride San Diego demands practice on similar surfaces. Ride technical rocky single-track alternating with sandy washes \u2014 sharp rocks destroy tires at race-day cadence weekly. Practice cornering, descending, and power delivery on unstable surfaces. Dial in tire pressure before race week \u2014 5 PSI wrong costs you 15+ minutes over 106 miles."
   },
-  "pack_summary": "This 10-workout pack focuses on Gravel Specific, Race Simulation, and VO2max to prepare you for 131 miles of technical rocky single-track alternating with sandy washes \u2014 sharp rocks destroy tires in Del Mar, California.",
-  "generated_at": "2026-03-06"
+  "pack_summary": "This 10-workout pack focuses on Gravel Specific, Race Simulation, and VO2max to prepare you for 106 miles of technical rocky single-track alternating with sandy washes \u2014 sharp rocks destroy tires in Del Mar, California.",
+  "generated_at": "2026-10-25"
 }

@@ -1,10 +1,10 @@
 {
   "slug": "ardenne-gravel-stages",
   "race_name": "Ardenne Gravel Stages",
-  "distance_mi": 180.0,
+  "distance_mi": 165.0,
   "demands": {
     "durability": 8,
-    "climbing": 7,
+    "climbing": 10,
     "vo2_power": 4,
     "threshold": 5,
     "technical": 4,
@@ -21,26 +21,35 @@
         "Double Day Simulation",
         "Progressive Fatigue"
       ],
-      "workout_context": "180 miles. Your legs will beg to quit after 120. This trains the power output you need from mile 130 onward."
-    },
-    {
-      "category": "TT_Threshold",
-      "score": 77,
-      "workouts": [
-        "Single Sustained Threshold",
-        "Threshold Ramps",
-        "Descending Threshold"
-      ],
-      "workout_context": "67ft/mi means long efforts at or near FTP on every climb. If your threshold cracks at minute 15, you'll walk the rest."
+      "workout_context": "165 miles. Your legs will beg to quit after 120. This trains the power output you need from mile 130 onward."
     },
     {
       "category": "Over_Under",
-      "score": 76,
+      "score": 98,
       "workouts": [
         "Classic Over-Unders",
         "Ladder Over-Unders"
       ],
       "workout_context": "At Ardenne Gravel Stages, surges push you above threshold and you have to recover while still riding. Over-unders train exactly that."
+    },
+    {
+      "category": "Mixed_Climbing",
+      "score": 91,
+      "workouts": [
+        "Seated/Standing Climbs",
+        "Variable Grade Simulation"
+      ],
+      "workout_context": "14,009ft of climbing on grades that change every minute. You need to switch from seated to standing without losing rhythm."
+    },
+    {
+      "category": "TT_Threshold",
+      "score": 91,
+      "workouts": [
+        "Single Sustained Threshold",
+        "Threshold Ramps",
+        "Descending Threshold"
+      ],
+      "workout_context": "85ft/mi means long efforts at or near FTP on every climb. If your threshold cracks at minute 15, you'll walk the rest."
     },
     {
       "category": "Gravel_Specific",
@@ -49,7 +58,7 @@
         "Surge and Settle",
         "Terrain Microbursts"
       ],
-      "workout_context": "Ardenne Gravel Stages' Belgian Ardennes, Multi-stage forces constant power changes. Surge over the rough stuff, settle on the smooth, repeat for 180 miles."
+      "workout_context": "Ardenne Gravel Stages' Belgian Ardennes, Multi-stage forces constant power changes. Surge over the rough stuff, settle on the smooth, repeat for 165 miles."
     },
     {
       "category": "Race_Simulation",
@@ -59,16 +68,17 @@
         "Variable Pace Chaos",
         "Sector Simulation"
       ],
-      "workout_context": "Race-pace efforts that mimic Ardenne Gravel Stages' demands. Pacing, fueling, and tactical decisions under fatigue. Practice the race before September."
+      "workout_context": "Race-pace efforts that mimic Ardenne Gravel Stages' demands. Pacing, fueling, and tactical decisions under fatigue. Practice the race before race day."
     },
     {
-      "category": "Mixed_Climbing",
-      "score": 64,
+      "category": "G_Spot",
+      "score": 68,
       "workouts": [
-        "Seated/Standing Climbs",
-        "Variable Grade Simulation"
+        "G-Spot Standard",
+        "G-Spot Extended",
+        "Criss-Cross"
       ],
-      "workout_context": "12,000ft of climbing on grades that change every minute. You need to switch from seated to standing without losing rhythm."
+      "workout_context": "88\u201392% FTP is where you'll spend the hardest sustained miles of Ardenne Gravel Stages. Train it until it feels boring."
     },
     {
       "category": "HVLI_Extended",
@@ -78,17 +88,16 @@
         "Multi-Hour Z2",
         "Back-to-Back Long"
       ],
-      "workout_context": "180 miles rewards fat oxidation. This volume work shifts your fuel mix so you're still burning fat at hour 5, not bonking at hour 3."
+      "workout_context": "165 miles rewards fat oxidation. This volume work shifts your fuel mix so you're still burning fat at hour 5, not bonking at hour 3."
     },
     {
-      "category": "G_Spot",
-      "score": 59,
+      "category": "SFR_Muscle_Force",
+      "score": 61,
       "workouts": [
-        "G-Spot Standard",
-        "G-Spot Extended",
-        "Criss-Cross"
+        "SFR Low Cadence",
+        "Force Repeats"
       ],
-      "workout_context": "88\u201392% FTP is where you'll spend the hardest sustained miles of Ardenne Gravel Stages. Train it until it feels boring."
+      "workout_context": "Low-cadence force work for 14,009ft of climbing. The slow, grinding ascents where you can't spin\u2014you push."
     },
     {
       "category": "Endurance",
@@ -97,7 +106,7 @@
         "Pre-Race Openers",
         "Terrain Simulation Z2"
       ],
-      "workout_context": "Every hard session works better with a bigger aerobic base. At 180 miles, base fitness is the difference between racing and surviving."
+      "workout_context": "Every hard session works better with a bigger aerobic base. At 165 miles, base fitness is the difference between racing and surviving."
     },
     {
       "category": "Blended",
@@ -106,7 +115,7 @@
         "Z2 + VO2 Combo",
         "Endurance with Spikes"
       ],
-      "workout_context": "Endurance with intensity spikes baked in. Exactly what 12,000ft of climbing on belgian Ardennes gravel does to your power file on race day."
+      "workout_context": "Endurance with intensity spikes baked in. Exactly what 14,009ft of climbing on belgian Ardennes gravel does to your power file on race day."
     },
     {
       "category": "VO2max",
@@ -116,22 +125,13 @@
         "Descending VO2 Pyramid",
         "Norwegian 4x8"
       ],
-      "workout_context": "12,000ft of climbing means repeated surges above threshold. VO2max work is how you survive the fifth climb, not just the first."
-    },
-    {
-      "category": "SFR_Muscle_Force",
-      "score": 42,
-      "workouts": [
-        "SFR Low Cadence",
-        "Force Repeats"
-      ],
-      "workout_context": "Low-cadence force work for 12,000ft of climbing. The slow, grinding ascents where you can't spin\u2014you push."
+      "workout_context": "14,009ft of climbing means repeated surges above threshold. VO2max work is how you survive the fifth climb, not just the first."
     }
   ],
   "race_overlay": {
-    "nutrition": "Ultra-distance fueling for 180 miles: 80\u2013100g carbs/hour from mile 1 \u2014 don\u2019t wait until you\u2019re hungry. Practice your exact race-day nutrition in every long training ride. Carry backup calories. 180 miles burns 8,000\u201312,000+ calories \u2014 you cannot replace them all, but you must try.",
+    "nutrition": "Ultra-distance fueling for 165 miles: 80\u2013100g carbs/hour from mile 1 \u2014 don\u2019t wait until you\u2019re hungry. Practice your exact race-day nutrition in every long training ride. Carry backup calories. 165 miles burns 8,000\u201312,000+ calories \u2014 you cannot replace them all, but you must try.",
     "terrain": "Mixed terrain at Ardenne Gravel Stages requires surface adaptability. Include weekly rides on belgian ardennes gravel to build confidence. Expect: belgian ardennes, multi-stage, regional event."
   },
-  "pack_summary": "This 10-workout pack focuses on Durability, TT Threshold, and Over Under to prepare you for 180 miles of belgian ardennes gravel in Vielsalm/Engreux, Belgian Ardennes.",
-  "generated_at": "2026-03-06"
+  "pack_summary": "This 10-workout pack focuses on Durability, Over Under, and Mixed Climbing to prepare you for 165 miles of belgian ardennes gravel in Vielsalm, Gouvy, and Baraque Fraiture, Belgium.",
+  "generated_at": "2026-10-25"
 }

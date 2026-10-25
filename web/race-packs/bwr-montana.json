@@ -1,7 +1,7 @@
 {
   "slug": "bwr-montana",
-  "race_name": "BWR Montana (Belgian Waffle Ride Montana)",
-  "distance_mi": 115.0,
+  "race_name": "BWR Montana",
+  "distance_mi": 106.0,
   "demands": {
     "durability": 6,
     "climbing": 8,
@@ -20,7 +20,7 @@
         "Surge and Settle",
         "Terrain Microbursts"
       ],
-      "workout_context": "BWR Montana (Belgian Waffle Ride Montana)'s Montana Rockies gravel (~60% unpaved on the Waffle course), forces constant power changes. Surge over the rough stuff, settle on the smooth, repeat for 115 miles."
+      "workout_context": "BWR Montana's Steep gravel climbs, Smooth tarmac and rugged backcountry forces constant power changes. Surge over the rough stuff, settle on the smooth, repeat for 106 miles."
     },
     {
       "category": "Race_Simulation",
@@ -30,7 +30,7 @@
         "Variable Pace Chaos",
         "Sector Simulation"
       ],
-      "workout_context": "Race-pace efforts that mimic BWR Montana (Belgian Waffle Ride Montana)'s demands. Pacing, fueling, and tactical decisions under fatigue. Practice the race before June."
+      "workout_context": "Race-pace efforts that mimic BWR Montana's demands. Pacing, fueling, and tactical decisions under fatigue. Practice the race before June."
     },
     {
       "category": "TT_Threshold",
@@ -40,7 +40,7 @@
         "Threshold Ramps",
         "Descending Threshold"
       ],
-      "workout_context": "72ft/mi means long efforts at or near FTP on every climb. If your threshold cracks at minute 15, you'll walk the rest."
+      "workout_context": "75ft/mi means long efforts at or near FTP on every climb. If your threshold cracks at minute 15, you'll walk the rest."
     },
     {
       "category": "VO2max",
@@ -50,7 +50,7 @@
         "Descending VO2 Pyramid",
         "Norwegian 4x8"
       ],
-      "workout_context": "8,240ft of climbing means repeated surges above threshold. VO2max work is how you survive the fifth climb, not just the first."
+      "workout_context": "8,000ft of climbing means repeated surges above threshold. VO2max work is how you survive the fifth climb, not just the first."
     },
     {
       "category": "Durability",
@@ -60,7 +60,7 @@
         "Double Day Simulation",
         "Progressive Fatigue"
       ],
-      "workout_context": "At mile 60 of 115, glycogen is gone. This workout teaches your body to produce watts on fumes."
+      "workout_context": "At mile 60 of 106, glycogen is gone. This workout teaches your body to produce watts on fumes."
     },
     {
       "category": "Over_Under",
@@ -69,7 +69,7 @@
         "Classic Over-Unders",
         "Ladder Over-Unders"
       ],
-      "workout_context": "At BWR Montana (Belgian Waffle Ride Montana), surges push you above threshold and you have to recover while still riding. Over-unders train exactly that."
+      "workout_context": "At BWR Montana, surges push you above threshold and you have to recover while still riding. Over-unders train exactly that."
     },
     {
       "category": "G_Spot",
@@ -79,7 +79,7 @@
         "G-Spot Extended",
         "Criss-Cross"
       ],
-      "workout_context": "88\u201392% FTP is where you'll spend the hardest sustained miles of BWR Montana (Belgian Waffle Ride Montana). Train it until it feels boring."
+      "workout_context": "88\u201392% FTP is where you'll spend the hardest sustained miles of BWR Montana. Train it until it feels boring."
     },
     {
       "category": "Critical_Power",
@@ -88,7 +88,7 @@
         "Above CP Repeats",
         "W-Prime Depletion"
       ],
-      "workout_context": "How long can you hold 105% FTP before you blow? At BWR Montana (Belgian Waffle Ride Montana), that number decides whether you bridge or get dropped."
+      "workout_context": "How long can you hold 105% FTP before you blow? At BWR Montana, that number decides whether you bridge or get dropped."
     },
     {
       "category": "Mixed_Climbing",
@@ -97,7 +97,7 @@
         "Seated/Standing Climbs",
         "Variable Grade Simulation"
       ],
-      "workout_context": "8,240ft of climbing on grades that change every minute. You need to switch from seated to standing without losing rhythm."
+      "workout_context": "8,000ft of climbing on grades that change every minute. You need to switch from seated to standing without losing rhythm."
     },
     {
       "category": "Anaerobic_Capacity",
@@ -115,7 +115,7 @@
         "Z2 + VO2 Combo",
         "Endurance with Spikes"
       ],
-      "workout_context": "Endurance with intensity spikes baked in. Exactly what 8,240ft of climbing on Montana Rockies\u2014mountain technical terrain does to your power file on race day."
+      "workout_context": "Endurance with intensity spikes baked in. Exactly what 8,000ft of climbing on Montana Rockies\u2014mountain technical terrain does to your power file on race day."
     },
     {
       "category": "Endurance",
@@ -124,14 +124,13 @@
         "Pre-Race Openers",
         "Terrain Simulation Z2"
       ],
-      "workout_context": "Every hard session works better with a bigger aerobic base. At 115 miles, base fitness is the difference between racing and surviving."
+      "workout_context": "Every hard session works better with a bigger aerobic base. At 106 miles, base fitness is the difference between racing and surviving."
     }
   ],
   "race_overlay": {
-    "nutrition": "Target 60\u201380g carbs/hour for BWR Montana (Belgian Waffle Ride Montana)\u2019s 115 miles. Start fueling within the first 30 minutes \u2014 early fueling prevents late-race collapse. Bonking at mile 60 is a nutrition failure, not a fitness failure.",
-    "altitude": "Moderate altitude at BWR Montana (Belgian Waffle Ride Montana). Arrive 2\u20133 days early. Reduce intensity expectations by 5\u201310%. Hydrate aggressively.",
-    "terrain": "Highly technical terrain at BWR Montana (Belgian Waffle Ride Montana) demands practice on similar surfaces. Ride montana rockies\u2014mountain technical terrain at race-day cadence weekly. Expect: montana rockies gravel (~60% unpaved on the waffle course), paved valley roads, mountain terrain. Practice cornering, descending, and power delivery on unstable surfaces. Dial in tire pressure before race week \u2014 5 PSI wrong costs you 15+ minutes over 115 miles."
+    "nutrition": "Target 60\u201380g carbs/hour for BWR Montana\u2019s 106 miles. Start fueling within the first 30 minutes \u2014 early fueling prevents late-race collapse. Bonking at mile 60 is a nutrition failure, not a fitness failure.",
+    "terrain": "Highly technical terrain at BWR Montana demands practice on similar surfaces. Ride montana rockies\u2014mountain technical terrain at race-day cadence weekly. Expect: steep gravel climbs, smooth tarmac and rugged backcountry roads, fast mountain descents. Practice cornering, descending, and power delivery on unstable surfaces. Dial in tire pressure before race week \u2014 5 PSI wrong costs you 15+ minutes over 106 miles."
   },
-  "pack_summary": "This 10-workout pack focuses on Gravel Specific, Race Simulation, and TT Threshold to prepare you for 115 miles of montana rockies\u2014mountain technical terrain in Bozeman, Montana.",
-  "generated_at": "2026-07-13"
+  "pack_summary": "This 10-workout pack focuses on Gravel Specific, Race Simulation, and TT Threshold to prepare you for 106 miles of montana rockies\u2014mountain technical terrain in Bozeman, Montana.",
+  "generated_at": "2026-10-25"
 }

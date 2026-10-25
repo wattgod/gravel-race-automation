@@ -1,28 +1,18 @@
 {
   "slug": "ghost-of-the-gravel",
   "race_name": "Ghost of the Gravel",
-  "distance_mi": 100.0,
+  "distance_mi": 73.0,
   "demands": {
-    "durability": 6,
+    "durability": 2,
     "climbing": 4,
     "vo2_power": 4,
-    "threshold": 7,
+    "threshold": 5,
     "technical": 4,
     "heat_resilience": 0,
     "altitude": 2,
-    "race_specificity": 6
+    "race_specificity": 4
   },
   "top_categories": [
-    {
-      "category": "Durability",
-      "score": 100,
-      "workouts": [
-        "Tired VO2max",
-        "Double Day Simulation",
-        "Progressive Fatigue"
-      ],
-      "workout_context": "At mile 60 of 100, glycogen is gone. This workout teaches your body to produce watts on fumes."
-    },
     {
       "category": "TT_Threshold",
       "score": 100,
@@ -35,16 +25,16 @@
     },
     {
       "category": "Gravel_Specific",
-      "score": 89,
+      "score": 95,
       "workouts": [
         "Surge and Settle",
         "Terrain Microbursts"
       ],
-      "workout_context": "Ghost of the Gravel's Alberta prairie, Canadian gravel forces constant power changes. Surge over the rough stuff, settle on the smooth, repeat for 100 miles."
+      "workout_context": "Ghost of the Gravel's Alberta prairie, Canadian gravel forces constant power changes. Surge over the rough stuff, settle on the smooth, repeat for 73 miles."
     },
     {
       "category": "Race_Simulation",
-      "score": 89,
+      "score": 86,
       "workouts": [
         "Breakaway Simulation",
         "Variable Pace Chaos",
@@ -53,18 +43,8 @@
       "workout_context": "Race-pace efforts that mimic Ghost of the Gravel's demands. Pacing, fueling, and tactical decisions under fatigue. Practice the race before June."
     },
     {
-      "category": "G_Spot",
-      "score": 80,
-      "workouts": [
-        "G-Spot Standard",
-        "G-Spot Extended",
-        "Criss-Cross"
-      ],
-      "workout_context": "88\u201392% FTP is where you'll spend the hardest sustained miles of Ghost of the Gravel. Train it until it feels boring."
-    },
-    {
       "category": "Over_Under",
-      "score": 76,
+      "score": 83,
       "workouts": [
         "Classic Over-Unders",
         "Ladder Over-Unders"
@@ -73,7 +53,7 @@
     },
     {
       "category": "VO2max",
-      "score": 63,
+      "score": 81,
       "workouts": [
         "5x3 VO2 Classic",
         "Descending VO2 Pyramid",
@@ -82,36 +62,18 @@
       "workout_context": "When someone attacks on alberta prairie gravel, you have 10 seconds to respond or you're off the back. This builds that response."
     },
     {
-      "category": "HVLI_Extended",
-      "score": 56,
+      "category": "G_Spot",
+      "score": 79,
       "workouts": [
-        "HVLI Extended Z2",
-        "Multi-Hour Z2",
-        "Back-to-Back Long"
+        "G-Spot Standard",
+        "G-Spot Extended",
+        "Criss-Cross"
       ],
-      "workout_context": "100 miles rewards fat oxidation. This volume work shifts your fuel mix so you're still burning fat at hour 5, not bonking at hour 3."
-    },
-    {
-      "category": "Endurance",
-      "score": 56,
-      "workouts": [
-        "Pre-Race Openers",
-        "Terrain Simulation Z2"
-      ],
-      "workout_context": "Every hard session works better with a bigger aerobic base. At 100 miles, base fitness is the difference between racing and surviving."
-    },
-    {
-      "category": "Blended",
-      "score": 56,
-      "workouts": [
-        "Z2 + VO2 Combo",
-        "Endurance with Spikes"
-      ],
-      "workout_context": "Endurance with intensity spikes baked in. Exactly what 3,000ft of climbing on alberta prairie gravel does to your power file on race day."
+      "workout_context": "88\u201392% FTP is where you'll spend the hardest sustained miles of Ghost of the Gravel. Train it until it feels boring."
     },
     {
       "category": "Critical_Power",
-      "score": 52,
+      "score": 67,
       "workouts": [
         "Above CP Repeats",
         "W-Prime Depletion"
@@ -119,19 +81,56 @@
       "workout_context": "How long can you hold 105% FTP before you blow? At Ghost of the Gravel, that number decides whether you bridge or get dropped."
     },
     {
+      "category": "Durability",
+      "score": 57,
+      "workouts": [
+        "Tired VO2max",
+        "Double Day Simulation",
+        "Progressive Fatigue"
+      ],
+      "workout_context": "73 miles on alberta prairie gravel burns energy faster than the distance suggests. Train the fade resistance now."
+    },
+    {
+      "category": "Mixed_Climbing",
+      "score": 57,
+      "workouts": [
+        "Seated/Standing Climbs",
+        "Variable Grade Simulation"
+      ],
+      "workout_context": "Varied gradients on alberta prairie gravel demand climbing versatility. Sit the shallow stuff, stand the steep stuff, switch without thinking."
+    },
+    {
+      "category": "Anaerobic_Capacity",
+      "score": 57,
+      "workouts": [
+        "2min Killers",
+        "90sec Repeats"
+      ],
+      "workout_context": "Short, max efforts are unavoidable. Punchy climbs, gap closures, attacks on alberta prairie gravel. If you haven't trained them, you'll crack."
+    },
+    {
       "category": "Norwegian_Double",
-      "score": 52,
+      "score": 48,
       "workouts": [
         "Norwegian 4x8 Classic",
         "Double Threshold"
       ],
-      "workout_context": "Two threshold sessions per week without the recovery cost of VO2max work. For 100 miles, sustainable FTP gains matter more than peak power."
+      "workout_context": "Double-threshold training builds sustained power with less fatigue. More FTP per hour of training."
+    },
+    {
+      "category": "SFR_Muscle_Force",
+      "score": 38,
+      "workouts": [
+        "SFR Low Cadence",
+        "Force Repeats"
+      ],
+      "workout_context": "Low-cadence force work for 3,000ft of climbing. The slow, grinding ascents where you can't spin\u2014you push."
     }
   ],
   "race_overlay": {
-    "nutrition": "Target 60\u201380g carbs/hour for Ghost of the Gravel\u2019s 100 miles. Start fueling within the first 30 minutes \u2014 early fueling prevents late-race collapse. Bonking at mile 60 is a nutrition failure, not a fitness failure.",
+    "nutrition": "Target 40\u201360g carbs/hour for Ghost of the Gravel\u2019s 73 miles. Front-load calories in the first half. One bottle per hour minimum; adjust for conditions and sweat rate.",
     "terrain": "Mixed terrain at Ghost of the Gravel requires surface adaptability. Include weekly rides on alberta prairie gravel to build confidence. Expect: alberta prairie, canadian gravel, regional event."
   },
-  "pack_summary": "This 10-workout pack focuses on Durability, TT Threshold, and Gravel Specific to prepare you for 100 miles of alberta prairie gravel in Alberta, Canada.",
-  "generated_at": "2026-03-06"
+  "pack_summary": "This 10-workout pack focuses on TT Threshold, Gravel Specific, and Race Simulation to prepare you for 73 miles of alberta prairie gravel in Alberta, Canada.",
+  "generated_at": "2026-10-25"
 }

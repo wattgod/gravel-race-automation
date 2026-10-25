@@ -1,10 +1,10 @@
 {
   "slug": "fairfield-harvest-rush",
   "race_name": "Fairfield Harvest Rush",
-  "distance_mi": 55.0,
+  "distance_mi": 62.0,
   "demands": {
     "durability": 2,
-    "climbing": 3,
+    "climbing": 4,
     "vo2_power": 2,
     "threshold": 5,
     "technical": 4,
@@ -25,12 +25,21 @@
     },
     {
       "category": "Gravel_Specific",
-      "score": 92,
+      "score": 86,
       "workouts": [
         "Surge and Settle",
         "Terrain Microbursts"
       ],
-      "workout_context": "Fairfield Harvest Rush's Iowa rolling, Local event forces constant power changes. Surge over the rough stuff, settle on the smooth, repeat for 55 miles."
+      "workout_context": "Fairfield Harvest Rush's Iowa rolling, Local event forces constant power changes. Surge over the rough stuff, settle on the smooth, repeat for 62 miles."
+    },
+    {
+      "category": "Over_Under",
+      "score": 83,
+      "workouts": [
+        "Classic Over-Unders",
+        "Ladder Over-Unders"
+      ],
+      "workout_context": "At Fairfield Harvest Rush, surges push you above threshold and you have to recover while still riding. Over-unders train exactly that."
     },
     {
       "category": "G_Spot",
@@ -43,17 +52,8 @@
       "workout_context": "88\u201392% FTP is where you'll spend the hardest sustained miles of Fairfield Harvest Rush. Train it until it feels boring."
     },
     {
-      "category": "Over_Under",
-      "score": 77,
-      "workouts": [
-        "Classic Over-Unders",
-        "Ladder Over-Unders"
-      ],
-      "workout_context": "At Fairfield Harvest Rush, surges push you above threshold and you have to recover while still riding. Over-unders train exactly that."
-    },
-    {
       "category": "Race_Simulation",
-      "score": 77,
+      "score": 71,
       "workouts": [
         "Breakaway Simulation",
         "Variable Pace Chaos",
@@ -62,8 +62,17 @@
       "workout_context": "Race-pace efforts that mimic Fairfield Harvest Rush's demands. Pacing, fueling, and tactical decisions under fatigue. Practice the race before October."
     },
     {
+      "category": "Mixed_Climbing",
+      "score": 57,
+      "workouts": [
+        "Seated/Standing Climbs",
+        "Variable Grade Simulation"
+      ],
+      "workout_context": "Varied gradients on Iowa rolling gravel demand climbing versatility. Sit the shallow stuff, stand the steep stuff, switch without thinking."
+    },
+    {
       "category": "VO2max",
-      "score": 56,
+      "score": 52,
       "workouts": [
         "5x3 VO2 Classic",
         "Descending VO2 Pyramid",
@@ -73,7 +82,7 @@
     },
     {
       "category": "Critical_Power",
-      "score": 56,
+      "score": 52,
       "workouts": [
         "Above CP Repeats",
         "W-Prime Depletion"
@@ -82,17 +91,17 @@
     },
     {
       "category": "Durability",
-      "score": 54,
+      "score": 50,
       "workouts": [
         "Tired VO2max",
         "Double Day Simulation",
         "Progressive Fatigue"
       ],
-      "workout_context": "55 miles on Iowa rolling gravel burns energy faster than the distance suggests. Train the fade resistance now."
+      "workout_context": "62 miles on Iowa rolling gravel burns energy faster than the distance suggests. Train the fade resistance now."
     },
     {
       "category": "Norwegian_Double",
-      "score": 51,
+      "score": 48,
       "workouts": [
         "Norwegian 4x8 Classic",
         "Double Threshold"
@@ -100,37 +109,28 @@
       "workout_context": "Double-threshold training builds sustained power with less fatigue. More FTP per hour of training."
     },
     {
-      "category": "Mixed_Climbing",
-      "score": 46,
+      "category": "SFR_Muscle_Force",
+      "score": 38,
       "workouts": [
-        "Seated/Standing Climbs",
-        "Variable Grade Simulation"
+        "SFR Low Cadence",
+        "Force Repeats"
       ],
-      "workout_context": "Varied gradients on Iowa rolling gravel demand climbing versatility. Sit the shallow stuff, stand the steep stuff, switch without thinking."
+      "workout_context": "Low-cadence force work for 3,000ft of climbing. The slow, grinding ascents where you can't spin\u2014you push."
     },
     {
       "category": "Anaerobic_Capacity",
-      "score": 41,
+      "score": 38,
       "workouts": [
         "2min Killers",
         "90sec Repeats"
       ],
-      "workout_context": "2-minute all-out efforts on Iowa rolling gravel. Closing gaps, responding to attacks, sprinting for position. Train the burn."
-    },
-    {
-      "category": "Cadence_Work",
-      "score": 41,
-      "workouts": [
-        "High Cadence Drills",
-        "Cadence Pyramids"
-      ],
-      "workout_context": "Smooth pedaling at 55 miles saves muscle. Bad technique at mile 10 is invisible. At mile 80 it's a cramp."
+      "workout_context": "Short, max efforts are unavoidable. Punchy climbs, gap closures, attacks on Iowa rolling gravel. If you haven't trained them, you'll crack."
     }
   ],
   "race_overlay": {
-    "nutrition": "Target 40\u201360g carbs/hour for Fairfield Harvest Rush\u2019s 55 miles. Front-load calories in the first half. One bottle per hour minimum, more in heat.",
+    "nutrition": "Target 40\u201360g carbs/hour for Fairfield Harvest Rush\u2019s 62 miles. Front-load calories in the first half. One bottle per hour minimum; adjust for conditions and sweat rate.",
     "terrain": "Mixed terrain at Fairfield Harvest Rush requires surface adaptability. Include weekly rides on iowa rolling gravel to build confidence. Expect: iowa rolling, local event, midwest gravel."
   },
-  "pack_summary": "This 10-workout pack focuses on TT Threshold, Gravel Specific, and G Spot to prepare you for 55 miles of iowa rolling gravel in Fairfield, Iowa.",
-  "generated_at": "2026-03-06"
+  "pack_summary": "This 10-workout pack focuses on TT Threshold, Gravel Specific, and Over Under to prepare you for 62 miles of iowa rolling gravel in Fairfield, Iowa.",
+  "generated_at": "2026-10-25"
 }

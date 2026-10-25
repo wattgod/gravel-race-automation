@@ -1,12 +1,12 @@
 {
   "slug": "dirty-hector",
   "race_name": "Dirty Hector - New York State Championship",
-  "distance_mi": 62.0,
+  "distance_mi": 40.0,
   "demands": {
-    "durability": 2,
+    "durability": 1,
     "climbing": 7,
     "vo2_power": 5,
-    "threshold": 6,
+    "threshold": 4,
     "technical": 4,
     "heat_resilience": 1,
     "altitude": 2,
@@ -14,18 +14,8 @@
   },
   "top_categories": [
     {
-      "category": "TT_Threshold",
-      "score": 100,
-      "workouts": [
-        "Single Sustained Threshold",
-        "Threshold Ramps",
-        "Descending Threshold"
-      ],
-      "workout_context": "81ft/mi means long efforts at or near FTP on every climb. If your threshold cracks at minute 15, you'll walk the rest."
-    },
-    {
       "category": "Race_Simulation",
-      "score": 95,
+      "score": 100,
       "workouts": [
         "Breakaway Simulation",
         "Variable Pace Chaos",
@@ -34,8 +24,17 @@
       "workout_context": "Race-pace efforts that mimic Dirty Hector - New York State Championship's demands. Pacing, fueling, and tactical decisions under fatigue. Practice the race before May."
     },
     {
+      "category": "Gravel_Specific",
+      "score": 96,
+      "workouts": [
+        "Surge and Settle",
+        "Terrain Microbursts"
+      ],
+      "workout_context": "Dirty Hector - New York State Championship's Finger Lakes hills, Wine country forces constant power changes. Surge over the rough stuff, settle on the smooth, repeat for 40 miles."
+    },
+    {
       "category": "Over_Under",
-      "score": 93,
+      "score": 87,
       "workouts": [
         "Classic Over-Unders",
         "Ladder Over-Unders"
@@ -43,17 +42,37 @@
       "workout_context": "At Dirty Hector - New York State Championship, surges push you above threshold and you have to recover while still riding. Over-unders train exactly that."
     },
     {
-      "category": "Gravel_Specific",
-      "score": 91,
+      "category": "TT_Threshold",
+      "score": 83,
       "workouts": [
-        "Surge and Settle",
-        "Terrain Microbursts"
+        "Single Sustained Threshold",
+        "Threshold Ramps",
+        "Descending Threshold"
       ],
-      "workout_context": "Dirty Hector - New York State Championship's Finger Lakes hills, Wine country forces constant power changes. Surge over the rough stuff, settle on the smooth, repeat for 62 miles."
+      "workout_context": "88ft/mi means long efforts at or near FTP on every climb. If your threshold cracks at minute 15, you'll walk the rest."
+    },
+    {
+      "category": "Mixed_Climbing",
+      "score": 78,
+      "workouts": [
+        "Seated/Standing Climbs",
+        "Variable Grade Simulation"
+      ],
+      "workout_context": "Varied gradients on finger Lakes hills gravel demand climbing versatility. Sit the shallow stuff, stand the steep stuff, switch without thinking."
+    },
+    {
+      "category": "VO2max",
+      "score": 74,
+      "workouts": [
+        "5x3 VO2 Classic",
+        "Descending VO2 Pyramid",
+        "Norwegian 4x8"
+      ],
+      "workout_context": "When someone attacks on finger Lakes hills gravel, you have 10 seconds to respond or you're off the back. This builds that response."
     },
     {
       "category": "G_Spot",
-      "score": 77,
+      "score": 63,
       "workouts": [
         "G-Spot Standard",
         "G-Spot Extended",
@@ -62,37 +81,18 @@
       "workout_context": "88\u201392% FTP is where you'll spend the hardest sustained miles of Dirty Hector - New York State Championship. Train it until it feels boring."
     },
     {
-      "category": "Mixed_Climbing",
-      "score": 74,
-      "workouts": [
-        "Seated/Standing Climbs",
-        "Variable Grade Simulation"
-      ],
-      "workout_context": "5,000ft of climbing on grades that change every minute. You need to switch from seated to standing without losing rhythm."
-    },
-    {
-      "category": "VO2max",
-      "score": 70,
-      "workouts": [
-        "5x3 VO2 Classic",
-        "Descending VO2 Pyramid",
-        "Norwegian 4x8"
-      ],
-      "workout_context": "5,000ft of climbing means repeated surges above threshold. VO2max work is how you survive the fifth climb, not just the first."
-    },
-    {
       "category": "Durability",
-      "score": 65,
+      "score": 57,
       "workouts": [
         "Tired VO2max",
         "Double Day Simulation",
         "Progressive Fatigue"
       ],
-      "workout_context": "62 miles on finger Lakes hills gravel burns energy faster than the distance suggests. Train the fade resistance now."
+      "workout_context": "40 miles on finger Lakes hills gravel burns energy faster than the distance suggests. Train the fade resistance now."
     },
     {
       "category": "Critical_Power",
-      "score": 54,
+      "score": 57,
       "workouts": [
         "Above CP Repeats",
         "W-Prime Depletion"
@@ -101,16 +101,16 @@
     },
     {
       "category": "SFR_Muscle_Force",
-      "score": 49,
+      "score": 52,
       "workouts": [
         "SFR Low Cadence",
         "Force Repeats"
       ],
-      "workout_context": "Low-cadence force work for 5,000ft of climbing. The slow, grinding ascents where you can't spin\u2014you push."
+      "workout_context": "Low-cadence force work for 3,500ft of climbing. The slow, grinding ascents where you can't spin\u2014you push."
     },
     {
       "category": "Anaerobic_Capacity",
-      "score": 49,
+      "score": 52,
       "workouts": [
         "2min Killers",
         "90sec Repeats"
@@ -118,19 +118,19 @@
       "workout_context": "Short, max efforts are unavoidable. Punchy climbs, gap closures, attacks on finger Lakes hills gravel. If you haven't trained them, you'll crack."
     },
     {
-      "category": "Norwegian_Double",
-      "score": 42,
+      "category": "Blended",
+      "score": 31,
       "workouts": [
-        "Norwegian 4x8 Classic",
-        "Double Threshold"
+        "Z2 + VO2 Combo",
+        "Endurance with Spikes"
       ],
-      "workout_context": "Double-threshold training builds sustained power with less fatigue. More FTP per hour of training."
+      "workout_context": "Endurance with intensity spikes baked in. Exactly what 3,500ft of climbing on finger Lakes hills gravel does to your power file on race day."
     }
   ],
   "race_overlay": {
-    "nutrition": "Target 40\u201360g carbs/hour for Dirty Hector - New York State Championship\u2019s 62 miles. Front-load calories in the first half. One bottle per hour minimum, more in heat.",
+    "nutrition": "Target 40\u201360g carbs/hour for Dirty Hector - New York State Championship\u2019s 40 miles. Front-load calories in the first half. One bottle per hour minimum; adjust for conditions and sweat rate.",
     "terrain": "Mixed terrain at Dirty Hector - New York State Championship requires surface adaptability. Include weekly rides on finger lakes hills gravel to build confidence. Expect: finger lakes hills, wine country, state championship."
   },
-  "pack_summary": "This 10-workout pack focuses on TT Threshold, Race Simulation, and Over Under to prepare you for 62 miles of finger lakes hills gravel in Trumansburg, New York.",
-  "generated_at": "2026-03-06"
+  "pack_summary": "This 10-workout pack focuses on Race Simulation, Gravel Specific, and Over Under to prepare you for 40 miles of finger lakes hills gravel in Trumansburg, New York.",
+  "generated_at": "2026-10-25"
 }

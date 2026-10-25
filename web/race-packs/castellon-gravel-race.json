@@ -1,12 +1,12 @@
 {
   "slug": "castellon-gravel-race",
   "race_name": "Castellon Gravel Race",
-  "distance_mi": 75.0,
+  "distance_mi": 60.0,
   "demands": {
-    "durability": 4,
+    "durability": 2,
     "climbing": 4,
     "vo2_power": 4,
-    "threshold": 7,
+    "threshold": 5,
     "technical": 4,
     "heat_resilience": 0,
     "altitude": 2,
@@ -14,27 +14,17 @@
   },
   "top_categories": [
     {
-      "category": "TT_Threshold",
-      "score": 100,
-      "workouts": [
-        "Single Sustained Threshold",
-        "Threshold Ramps",
-        "Descending Threshold"
-      ],
-      "workout_context": "67ft/mi means long efforts at or near FTP on every climb. If your threshold cracks at minute 15, you'll walk the rest."
-    },
-    {
       "category": "Gravel_Specific",
-      "score": 89,
+      "score": 100,
       "workouts": [
         "Surge and Settle",
         "Terrain Microbursts"
       ],
-      "workout_context": "Castellon Gravel Race's Spanish rolling, European gravel forces constant power changes. Surge over the rough stuff, settle on the smooth, repeat for 75 miles."
+      "workout_context": "Castellon Gravel Race's Spanish rolling, European gravel forces constant power changes. Surge over the rough stuff, settle on the smooth, repeat for 60 miles."
     },
     {
       "category": "Race_Simulation",
-      "score": 89,
+      "score": 100,
       "workouts": [
         "Breakaway Simulation",
         "Variable Pace Chaos",
@@ -43,8 +33,37 @@
       "workout_context": "Race-pace efforts that mimic Castellon Gravel Race's demands. Pacing, fueling, and tactical decisions under fatigue. Practice the race before February."
     },
     {
+      "category": "TT_Threshold",
+      "score": 88,
+      "workouts": [
+        "Single Sustained Threshold",
+        "Threshold Ramps",
+        "Descending Threshold"
+      ],
+      "workout_context": "83ft/mi means long efforts at or near FTP on every climb. If your threshold cracks at minute 15, you'll walk the rest."
+    },
+    {
+      "category": "Over_Under",
+      "score": 73,
+      "workouts": [
+        "Classic Over-Unders",
+        "Ladder Over-Unders"
+      ],
+      "workout_context": "At Castellon Gravel Race, surges push you above threshold and you have to recover while still riding. Over-unders train exactly that."
+    },
+    {
+      "category": "VO2max",
+      "score": 71,
+      "workouts": [
+        "5x3 VO2 Classic",
+        "Descending VO2 Pyramid",
+        "Norwegian 4x8"
+      ],
+      "workout_context": "5,000ft of climbing means repeated surges above threshold. VO2max work is how you survive the fifth climb, not just the first."
+    },
+    {
       "category": "G_Spot",
-      "score": 80,
+      "score": 69,
       "workouts": [
         "G-Spot Standard",
         "G-Spot Extended",
@@ -54,36 +73,17 @@
     },
     {
       "category": "Durability",
-      "score": 78,
+      "score": 62,
       "workouts": [
         "Tired VO2max",
         "Double Day Simulation",
         "Progressive Fatigue"
       ],
-      "workout_context": "75 miles on spanish rolling gravel burns energy faster than the distance suggests. Train the fade resistance now."
-    },
-    {
-      "category": "Over_Under",
-      "score": 76,
-      "workouts": [
-        "Classic Over-Unders",
-        "Ladder Over-Unders"
-      ],
-      "workout_context": "At Castellon Gravel Race, surges push you above threshold and you have to recover while still riding. Over-unders train exactly that."
-    },
-    {
-      "category": "VO2max",
-      "score": 63,
-      "workouts": [
-        "5x3 VO2 Classic",
-        "Descending VO2 Pyramid",
-        "Norwegian 4x8"
-      ],
-      "workout_context": "5,000ft of climbing means repeated surges above threshold. VO2max work is how you survive the fifth climb, not just the first."
+      "workout_context": "60 miles on spanish rolling gravel burns energy faster than the distance suggests. Train the fade resistance now."
     },
     {
       "category": "Critical_Power",
-      "score": 52,
+      "score": 58,
       "workouts": [
         "Above CP Repeats",
         "W-Prime Depletion"
@@ -91,26 +91,8 @@
       "workout_context": "How long can you hold 105% FTP before you blow? At Castellon Gravel Race, that number decides whether you bridge or get dropped."
     },
     {
-      "category": "Norwegian_Double",
-      "score": 52,
-      "workouts": [
-        "Norwegian 4x8 Classic",
-        "Double Threshold"
-      ],
-      "workout_context": "Double-threshold training builds sustained power with less fatigue. More FTP per hour of training."
-    },
-    {
-      "category": "Blended",
-      "score": 44,
-      "workouts": [
-        "Z2 + VO2 Combo",
-        "Endurance with Spikes"
-      ],
-      "workout_context": "Endurance with intensity spikes baked in. Exactly what 5,000ft of climbing on spanish rolling gravel does to your power file on race day."
-    },
-    {
       "category": "Mixed_Climbing",
-      "score": 44,
+      "score": 50,
       "workouts": [
         "Seated/Standing Climbs",
         "Variable Grade Simulation"
@@ -119,18 +101,36 @@
     },
     {
       "category": "Anaerobic_Capacity",
-      "score": 44,
+      "score": 50,
       "workouts": [
         "2min Killers",
         "90sec Repeats"
       ],
       "workout_context": "Short, max efforts are unavoidable. Punchy climbs, gap closures, attacks on spanish rolling gravel. If you haven't trained them, you'll crack."
+    },
+    {
+      "category": "Norwegian_Double",
+      "score": 42,
+      "workouts": [
+        "Norwegian 4x8 Classic",
+        "Double Threshold"
+      ],
+      "workout_context": "Double-threshold training builds sustained power with less fatigue. More FTP per hour of training."
+    },
+    {
+      "category": "Blended",
+      "score": 38,
+      "workouts": [
+        "Z2 + VO2 Combo",
+        "Endurance with Spikes"
+      ],
+      "workout_context": "Endurance with intensity spikes baked in. Exactly what 5,000ft of climbing on spanish rolling gravel does to your power file on race day."
     }
   ],
   "race_overlay": {
-    "nutrition": "Target 40\u201360g carbs/hour for Castellon Gravel Race\u2019s 75 miles. Front-load calories in the first half. One bottle per hour minimum, more in heat.",
+    "nutrition": "Target 40\u201360g carbs/hour for Castellon Gravel Race\u2019s 60 miles. Front-load calories in the first half. One bottle per hour minimum; adjust for conditions and sweat rate.",
     "terrain": "Mixed terrain at Castellon Gravel Race requires surface adaptability. Include weekly rides on spanish rolling gravel to build confidence. Expect: spanish rolling, european gravel, regional event."
   },
-  "pack_summary": "This 10-workout pack focuses on TT Threshold, Gravel Specific, and Race Simulation to prepare you for 75 miles of spanish rolling gravel in Castellon, Spain.",
-  "generated_at": "2026-03-06"
+  "pack_summary": "This 10-workout pack focuses on Gravel Specific, Race Simulation, and TT Threshold to prepare you for 60 miles of spanish rolling gravel in Castellon, Spain.",
+  "generated_at": "2026-10-25"
 }

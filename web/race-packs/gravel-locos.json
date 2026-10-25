@@ -1,12 +1,12 @@
 {
   "slug": "gravel-locos",
   "race_name": "Gravel Locos",
-  "distance_mi": 157.0,
+  "distance_mi": 118.0,
   "demands": {
-    "durability": 8,
-    "climbing": 8,
+    "durability": 6,
+    "climbing": 7,
     "vo2_power": 8,
-    "threshold": 5,
+    "threshold": 8,
     "technical": 4,
     "heat_resilience": 10,
     "altitude": 2,
@@ -21,59 +21,49 @@
         "Double Day Simulation",
         "Progressive Fatigue"
       ],
-      "workout_context": "157 miles. Your legs will beg to quit after 120. This trains the power output you need from mile 130 onward."
+      "workout_context": "At mile 60 of 118, glycogen is gone. This workout teaches your body to produce watts on fumes."
     },
     {
       "category": "Race_Simulation",
-      "score": 61,
+      "score": 68,
       "workouts": [
         "Breakaway Simulation",
         "Variable Pace Chaos",
         "Sector Simulation"
       ],
-      "workout_context": "Race-pace efforts that mimic Gravel Locos' demands. Pacing, fueling, and tactical decisions under fatigue. Practice the race before May."
+      "workout_context": "Race-pace efforts that mimic Gravel Locos' demands. Pacing, fueling, and tactical decisions under fatigue. Practice the race before race day."
     },
     {
-      "category": "Endurance",
-      "score": 58,
+      "category": "TT_Threshold",
+      "score": 65,
       "workouts": [
-        "Pre-Race Openers",
-        "Terrain Simulation Z2"
+        "Single Sustained Threshold",
+        "Threshold Ramps",
+        "Descending Threshold"
       ],
-      "workout_context": "Every hard session works better with a bigger aerobic base. At 157 miles, base fitness is the difference between racing and surviving."
+      "workout_context": "51ft/mi means long efforts at or near FTP on every climb. If your threshold cracks at minute 15, you'll walk the rest."
     },
     {
       "category": "Gravel_Specific",
-      "score": 54,
+      "score": 60,
       "workouts": [
         "Surge and Settle",
         "Terrain Microbursts"
       ],
-      "workout_context": "Gravel Locos' Smooth limestone gravel, Fast Hill Country ranch roads forces constant power changes. Surge over the rough stuff, settle on the smooth, repeat for 157 miles."
+      "workout_context": "Gravel Locos' Smooth limestone gravel, Fast Hill Country ranch roads forces constant power changes. Surge over the rough stuff, settle on the smooth, repeat for 118 miles."
     },
     {
-      "category": "HVLI_Extended",
-      "score": 51,
+      "category": "Endurance",
+      "score": 57,
       "workouts": [
-        "HVLI Extended Z2",
-        "Multi-Hour Z2",
-        "Back-to-Back Long"
+        "Pre-Race Openers",
+        "Terrain Simulation Z2"
       ],
-      "workout_context": "157 miles rewards fat oxidation. This volume work shifts your fuel mix so you're still burning fat at hour 5, not bonking at hour 3."
-    },
-    {
-      "category": "VO2max",
-      "score": 49,
-      "workouts": [
-        "5x3 VO2 Classic",
-        "Descending VO2 Pyramid",
-        "Norwegian 4x8"
-      ],
-      "workout_context": "7,884ft of climbing means repeated surges above threshold. VO2max work is how you survive the fifth climb, not just the first."
+      "workout_context": "Every hard session works better with a bigger aerobic base. At 118 miles, base fitness is the difference between racing and surviving."
     },
     {
       "category": "Over_Under",
-      "score": 47,
+      "score": 56,
       "workouts": [
         "Classic Over-Unders",
         "Ladder Over-Unders"
@@ -81,36 +71,18 @@
       "workout_context": "At Gravel Locos, surges push you above threshold and you have to recover while still riding. Over-unders train exactly that."
     },
     {
-      "category": "TT_Threshold",
-      "score": 46,
+      "category": "VO2max",
+      "score": 55,
       "workouts": [
-        "Single Sustained Threshold",
-        "Threshold Ramps",
-        "Descending Threshold"
+        "5x3 VO2 Classic",
+        "Descending VO2 Pyramid",
+        "Norwegian 4x8"
       ],
-      "workout_context": "50ft/mi means long efforts at or near FTP on every climb. If your threshold cracks at minute 15, you'll walk the rest."
-    },
-    {
-      "category": "Mixed_Climbing",
-      "score": 41,
-      "workouts": [
-        "Seated/Standing Climbs",
-        "Variable Grade Simulation"
-      ],
-      "workout_context": "7,884ft of climbing on grades that change every minute. You need to switch from seated to standing without losing rhythm."
-    },
-    {
-      "category": "Blended",
-      "score": 37,
-      "workouts": [
-        "Z2 + VO2 Combo",
-        "Endurance with Spikes"
-      ],
-      "workout_context": "Endurance with intensity spikes baked in. Exactly what 7,884ft of climbing on smooth, fast Hill Country gravel with endless does to your power file on race day."
+      "workout_context": "6,000ft of climbing means repeated surges above threshold. VO2max work is how you survive the fifth climb, not just the first."
     },
     {
       "category": "G_Spot",
-      "score": 35,
+      "score": 51,
       "workouts": [
         "G-Spot Standard",
         "G-Spot Extended",
@@ -119,20 +91,48 @@
       "workout_context": "88\u201392% FTP is where you'll spend the hardest sustained miles of Gravel Locos. Train it until it feels boring."
     },
     {
+      "category": "HVLI_Extended",
+      "score": 47,
+      "workouts": [
+        "HVLI Extended Z2",
+        "Multi-Hour Z2",
+        "Back-to-Back Long"
+      ],
+      "workout_context": "118 miles rewards fat oxidation. This volume work shifts your fuel mix so you're still burning fat at hour 5, not bonking at hour 3."
+    },
+    {
+      "category": "Mixed_Climbing",
+      "score": 40,
+      "workouts": [
+        "Seated/Standing Climbs",
+        "Variable Grade Simulation"
+      ],
+      "workout_context": "6,000ft of climbing on grades that change every minute. You need to switch from seated to standing without losing rhythm."
+    },
+    {
       "category": "Anaerobic_Capacity",
-      "score": 34,
+      "score": 38,
       "workouts": [
         "2min Killers",
         "90sec Repeats"
       ],
-      "workout_context": "Short, max efforts are unavoidable. Punchy climbs, gap closures, attacks on smooth, fast Hill Country gravel with endless. If you haven't trained them, you'll crack."
+      "workout_context": "Short, max efforts are unavoidable. Punchy climbs, gap closures, attacks on open-road Hill Country gravel with water crossings. If you haven't trained them, you'll crack."
+    },
+    {
+      "category": "Critical_Power",
+      "score": 38,
+      "workouts": [
+        "Above CP Repeats",
+        "W-Prime Depletion"
+      ],
+      "workout_context": "How long can you hold 105% FTP before you blow? At Gravel Locos, that number decides whether you bridge or get dropped."
     }
   ],
   "race_overlay": {
-    "heat": "May in Hico, Texas \u2014 Late May means starting warm and climbing into 80s-90s\u00b0F with high sun. 2022's Wahoo reading of 120\u00b0F on fresh tarmac shows how brutal heat reflection can be. Begin heat acclimatization 10\u201314 days before Gravel Locos \u2014 20\u201330min sauna sessions or midday rides in full kit. Pre-load sodium 48 hours out. Target 500\u2013750ml/hr with electrolytes on race day. Race-day realities: Heat and sun on open ranch roads; Dehydration risk is the primary concern.",
-    "nutrition": "Ultra-distance fueling for 157 miles: 80\u2013100g carbs/hour from mile 1 \u2014 don\u2019t wait until you\u2019re hungry. Practice your exact race-day nutrition in every long training ride. Carry backup calories. 157 miles burns 8,000\u201312,000+ calories \u2014 you cannot replace them all, but you must try.",
-    "terrain": "Mixed terrain at Gravel Locos requires surface adaptability. Include weekly rides on smooth, fast hill country gravel with endless rollers to build confidence. Expect: smooth limestone gravel, fast hill country ranch roads, wildflower-lined paths."
+    "heat": "Late May means starting warm and climbing into 80s-90s\u00b0F with high sun. 2022's Wahoo reading of 120\u00b0F on fresh tarmac shows how brutal heat reflection can be. Begin heat acclimatization 10\u201314 days before Gravel Locos \u2014 20\u201330min sauna sessions or midday rides in full kit. Pre-load sodium 48 hours out. Target 500\u2013750ml/hr with electrolytes on race day. Race-day realities: Heat and sun on open ranch roads; Dehydration risk is the primary concern.",
+    "nutrition": "Target 60\u201380g carbs/hour for Gravel Locos\u2019s 118 miles. Start fueling within the first 30 minutes \u2014 early fueling prevents late-race collapse. Bonking at mile 60 is a nutrition failure, not a fitness failure.",
+    "terrain": "Mixed terrain at Gravel Locos requires surface adaptability. Include weekly rides on open-road hill country gravel with water crossings to build confidence. Expect: smooth limestone gravel, fast hill country ranch roads, wildflower-lined paths."
   },
-  "pack_summary": "This 10-workout pack focuses on Durability, Race Simulation, and Endurance to prepare you for 157 miles of smooth, fast hill country gravel with endless rollers in Hico, Texas.",
-  "generated_at": "2026-07-13"
+  "pack_summary": "This 10-workout pack focuses on Durability, Race Simulation, and TT Threshold to prepare you for 118 miles of open-road hill country gravel with water crossings in Hico, Texas.",
+  "generated_at": "2026-10-25"
 }

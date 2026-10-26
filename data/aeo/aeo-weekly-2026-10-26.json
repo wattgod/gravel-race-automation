@@ -1,0 +1,550 @@
+{
+  "brands": {
+    "gravelgod": {
+      "ga4": {
+        "current_window": {
+          "chatgpt.com": 2,
+          "gemini": 1,
+          "kagi.com": 1
+        },
+        "prior_window": {
+          "copilot.com": 1,
+          "perplexity.ai": 1
+        },
+        "referral_regex": "(?i)(chatgpt|openai|perplexity|claude|anthropic|copilot|gemini|bard|poe\\.com|you\\.com|phind|kagi)",
+        "referral_regex_version": 1,
+        "status": "ok"
+      },
+      "llms_serving": {
+        "first_line": "# Gravel God Race Database",
+        "marker": "# Gravel God Race Database",
+        "status": "ok"
+      },
+      "logs": {
+        "compressed_bytes": 1806434,
+        "days": {
+          "2026-10-19": {
+            "search_index": 94,
+            "status_buckets": {
+              "2xx": 46,
+              "3xx": 4,
+              "4xx": 0,
+              "5xx": 0
+            },
+            "training_crawl": 502,
+            "user_fetch": 88
+          },
+          "2026-10-20": {
+            "search_index": 79,
+            "status_buckets": {
+              "2xx": 63,
+              "3xx": 3,
+              "4xx": 0,
+              "5xx": 0
+            },
+            "training_crawl": 405,
+            "user_fetch": 59
+          },
+          "2026-10-21": {
+            "search_index": 30,
+            "status_buckets": {
+              "2xx": 40,
+              "3xx": 1,
+              "4xx": 0,
+              "5xx": 0
+            },
+            "training_crawl": 532,
+            "user_fetch": 63
+          },
+          "2026-10-22": {
+            "search_index": 76,
+            "status_buckets": {
+              "2xx": 35,
+              "3xx": 2,
+              "4xx": 0,
+              "5xx": 0
+            },
+            "training_crawl": 523,
+            "user_fetch": 61
+          },
+          "2026-10-23": {
+            "search_index": 185,
+            "status_buckets": {
+              "2xx": 40,
+              "3xx": 4,
+              "4xx": 0,
+              "5xx": 0
+            },
+            "training_crawl": 478,
+            "user_fetch": 57
+          },
+          "2026-10-24": {
+            "search_index": 182,
+            "status_buckets": {
+              "2xx": 24,
+              "3xx": 1,
+              "4xx": 0,
+              "5xx": 0
+            },
+            "training_crawl": 499,
+            "user_fetch": 50
+          },
+          "2026-10-25": {
+            "search_index": 74,
+            "status_buckets": {
+              "2xx": 21,
+              "3xx": 3,
+              "4xx": 0,
+              "5xx": 0
+            },
+            "training_crawl": 655,
+            "user_fetch": 55
+          }
+        },
+        "missing_log_dates": [],
+        "status": "ok",
+        "status_buckets": {
+          "2xx": 269,
+          "3xx": 18,
+          "4xx": 0,
+          "5xx": 0
+        }
+      },
+      "top_user_fetch_paths": [
+        {
+          "hits": 52,
+          "path": "/robots.txt"
+        },
+        {
+          "hits": 51,
+          "path": "/"
+        },
+        {
+          "hits": 14,
+          "path": "/race/glenwood-gravel/"
+        },
+        {
+          "hits": 10,
+          "path": "/blog/roundup-october-2026/"
+        },
+        {
+          "hits": 10,
+          "path": "/race/calendar/2026/"
+        },
+        {
+          "hits": 10,
+          "path": "/race/tour-divide/"
+        },
+        {
+          "hits": 7,
+          "path": "/tire/pirelli-cinturato-gravel-m/"
+        },
+        {
+          "hits": 6,
+          "path": "/tire/continental-terra-speed-40-vs-schwalbe-g-one-rs/"
+        },
+        {
+          "hits": 6,
+          "path": "/tire/continental-terra-speed-40/"
+        },
+        {
+          "hits": 5,
+          "path": "/race/badlands/"
+        }
+      ]
+    },
+    "roadie": {
+      "ga4": {
+        "current_window": {
+          "chatgpt.com": 1
+        },
+        "prior_window": {
+          "chatgpt.com": 1,
+          "copilot.com": 1
+        },
+        "referral_regex": "(?i)(chatgpt|openai|perplexity|claude|anthropic|copilot|gemini|bard|poe\\.com|you\\.com|phind|kagi)",
+        "referral_regex_version": 1,
+        "status": "ok"
+      },
+      "llms_serving": {
+        "first_line": "# Roadie Labs Race Database",
+        "marker": "# Roadie Labs Race Database",
+        "status": "ok"
+      },
+      "logs": {
+        "compressed_bytes": 841254,
+        "days": {
+          "2026-10-19": {
+            "search_index": 78,
+            "status_buckets": {
+              "2xx": 54,
+              "3xx": 4,
+              "4xx": 1,
+              "5xx": 0
+            },
+            "training_crawl": 43,
+            "user_fetch": 38
+          },
+          "2026-10-20": {
+            "search_index": 33,
+            "status_buckets": {
+              "2xx": 39,
+              "3xx": 1,
+              "4xx": 0,
+              "5xx": 0
+            },
+            "training_crawl": 79,
+            "user_fetch": 36
+          },
+          "2026-10-21": {
+            "search_index": 16,
+            "status_buckets": {
+              "2xx": 15,
+              "3xx": 0,
+              "4xx": 0,
+              "5xx": 0
+            },
+            "training_crawl": 422,
+            "user_fetch": 35
+          },
+          "2026-10-22": {
+            "search_index": 127,
+            "status_buckets": {
+              "2xx": 36,
+              "3xx": 1,
+              "4xx": 2,
+              "5xx": 0
+            },
+            "training_crawl": 676,
+            "user_fetch": 31
+          },
+          "2026-10-23": {
+            "search_index": 82,
+            "status_buckets": {
+              "2xx": 23,
+              "3xx": 0,
+              "4xx": 0,
+              "5xx": 0
+            },
+            "training_crawl": 556,
+            "user_fetch": 41
+          },
+          "2026-10-24": {
+            "search_index": 98,
+            "status_buckets": {
+              "2xx": 17,
+              "3xx": 0,
+              "4xx": 2,
+              "5xx": 0
+            },
+            "training_crawl": 382,
+            "user_fetch": 25
+          },
+          "2026-10-25": {
+            "search_index": 48,
+            "status_buckets": {
+              "2xx": 23,
+              "3xx": 0,
+              "4xx": 2,
+              "5xx": 0
+            },
+            "training_crawl": 563,
+            "user_fetch": 24
+          }
+        },
+        "missing_log_dates": [],
+        "status": "ok",
+        "status_buckets": {
+          "2xx": 207,
+          "3xx": 6,
+          "4xx": 7,
+          "5xx": 0
+        }
+      },
+      "top_user_fetch_paths": [
+        {
+          "hits": 70,
+          "path": "/"
+        },
+        {
+          "hits": 23,
+          "path": "/race/gran-fondo-il-lombardia/"
+        },
+        {
+          "hits": 12,
+          "path": "/robots.txt"
+        },
+        {
+          "hits": 8,
+          "path": "/race/bike-ms-nyc/"
+        },
+        {
+          "hits": 8,
+          "path": "/race/race-across-america/"
+        },
+        {
+          "hits": 6,
+          "path": "/race/la-marmotte/"
+        },
+        {
+          "hits": 5,
+          "path": "/race/el-tour-de-tucson/"
+        },
+        {
+          "hits": 3,
+          "path": "/race/bra-bra-fenix-internazionale/"
+        },
+        {
+          "hits": 3,
+          "path": "/race/nyc-century/"
+        },
+        {
+          "hits": 2,
+          "path": "/race/amstel-gold-race-toerversie/"
+        }
+      ]
+    },
+    "xcski": {
+      "ga4": {
+        "status": "not_configured"
+      },
+      "llms_serving": {
+        "first_line": "# XC Ski Labs Race Database",
+        "marker": "# XC Ski Labs Race Database",
+        "status": "ok"
+      },
+      "logs": {
+        "compressed_bytes": 183744,
+        "days": {
+          "2026-10-19": {
+            "search_index": 4,
+            "status_buckets": {
+              "2xx": 242,
+              "3xx": 0,
+              "4xx": 0,
+              "5xx": 0
+            },
+            "training_crawl": 954,
+            "user_fetch": 1
+          },
+          "2026-10-20": {
+            "search_index": 4,
+            "status_buckets": {
+              "2xx": 24,
+              "3xx": 0,
+              "4xx": 0,
+              "5xx": 0
+            },
+            "training_crawl": 21,
+            "user_fetch": 1
+          },
+          "2026-10-21": {
+            "search_index": 4,
+            "status_buckets": {
+              "2xx": 14,
+              "3xx": 1,
+              "4xx": 0,
+              "5xx": 0
+            },
+            "training_crawl": 38,
+            "user_fetch": 2
+          },
+          "2026-10-22": {
+            "search_index": 4,
+            "status_buckets": {
+              "2xx": 23,
+              "3xx": 0,
+              "4xx": 0,
+              "5xx": 0
+            },
+            "training_crawl": 36,
+            "user_fetch": 0
+          },
+          "2026-10-23": {
+            "search_index": 4,
+            "status_buckets": {
+              "2xx": 18,
+              "3xx": 0,
+              "4xx": 0,
+              "5xx": 0
+            },
+            "training_crawl": 40,
+            "user_fetch": 1
+          },
+          "2026-10-24": {
+            "search_index": 5,
+            "status_buckets": {
+              "2xx": 5,
+              "3xx": 0,
+              "4xx": 0,
+              "5xx": 0
+            },
+            "training_crawl": 24,
+            "user_fetch": 0
+          },
+          "2026-10-25": {
+            "search_index": 27,
+            "status_buckets": {
+              "2xx": 17,
+              "3xx": 0,
+              "4xx": 0,
+              "5xx": 0
+            },
+            "training_crawl": 20,
+            "user_fetch": 0
+          }
+        },
+        "missing_log_dates": [],
+        "status": "ok",
+        "status_buckets": {
+          "2xx": 343,
+          "3xx": 1,
+          "4xx": 0,
+          "5xx": 0
+        }
+      },
+      "top_user_fetch_paths": [
+        {
+          "hits": 4,
+          "path": "/"
+        },
+        {
+          "hits": 1,
+          "path": "/race/birkebeinerrennet/"
+        }
+      ]
+    }
+  },
+  "current_window": {
+    "end": "2026-10-25",
+    "start": "2026-10-19"
+  },
+  "generated_at_utc": "2026-10-26T10:40:37.518356Z",
+  "prior_window": {
+    "end": "2026-10-18",
+    "start": "2026-10-12"
+  },
+  "schema_version": 1,
+  "taxonomy_version": 1,
+  "unknown_agent_candidates": [
+    {
+      "brands": {
+        "gravelgod": 2433,
+        "roadie": 607,
+        "xcski": 46
+      },
+      "count": 3086,
+      "user_agent": "Mozilla/5.0 (compatible; ExaSearchBot/1.0; +https://crawler.exa.ai/)"
+    },
+    {
+      "brands": {
+        "gravelgod": 416,
+        "roadie": 510,
+        "xcski": 38
+      },
+      "count": 964,
+      "user_agent": "Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko; compatible; Reflectionbot/1.0; +https://reflection.ai/bot) Chrome/151"
+    },
+    {
+      "brands": {
+        "gravelgod": 419,
+        "roadie": 391
+      },
+      "count": 810,
+      "user_agent": "MochiImageCrawler/0.1"
+    },
+    {
+      "brands": {
+        "gravelgod": 261,
+        "roadie": 269,
+        "xcski": 18
+      },
+      "count": 548,
+      "user_agent": "Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko; compatible; KeenableBot/1.0; +https://keenable.ai/bot)"
+    },
+    {
+      "brands": {
+        "gravelgod": 58,
+        "roadie": 279
+      },
+      "count": 337,
+      "user_agent": "meta-externalads/1.1 (+https://developers.facebook.com/docs/sharing/webmasters/crawler)"
+    },
+    {
+      "brands": {
+        "gravelgod": 287
+      },
+      "count": 287,
+      "user_agent": "Mozilla/5.0 (compatible; ibou-search/2.0; +https://ibou.com/crawlers.html)"
+    },
+    {
+      "brands": {
+        "gravelgod": 75,
+        "roadie": 56
+      },
+      "count": 131,
+      "user_agent": "tphotobot/0.1 (+https://crawler.estidraft.com/bot)"
+    },
+    {
+      "brands": {
+        "gravelgod": 101,
+        "roadie": 16
+      },
+      "count": 117,
+      "user_agent": "Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko; compatible; YouBot/1.0; +https://docs.you.com/youbot; env:prod) Chrom"
+    },
+    {
+      "brands": {
+        "gravelgod": 97,
+        "roadie": 7
+      },
+      "count": 104,
+      "user_agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_1) AppleWebKit/601.2.4 (KHTML, like Gecko) Version/9.0.1 Safari/601.2.4 fac"
+    },
+    {
+      "brands": {
+        "gravelgod": 89,
+        "roadie": 12
+      },
+      "count": 101,
+      "user_agent": "Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko); compatible; SEOJuice-SearchBot/1.0; +https://seojuice.io/bot"
+    },
+    {
+      "brands": {
+        "gravelgod": 98
+      },
+      "count": 98,
+      "user_agent": "Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko); compatible; ShapBot/0.1.0"
+    },
+    {
+      "brands": {
+        "gravelgod": 49,
+        "roadie": 32,
+        "xcski": 2
+      },
+      "count": 83,
+      "user_agent": "DuckAssistBot/1.2; (+http://duckduckgo.com/duckassistbot.html)"
+    },
+    {
+      "brands": {
+        "gravelgod": 64
+      },
+      "count": 64,
+      "user_agent": "Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko); compatible; AzureAI-SearchBot/1.0;"
+    },
+    {
+      "brands": {
+        "gravelgod": 63
+      },
+      "count": 63,
+      "user_agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.0.0 Safari/537.36 (Stripebot/1.0; +h"
+    },
+    {
+      "brands": {
+        "gravelgod": 36
+      },
+      "count": 36,
+      "user_agent": "ClueWeb-Crawler/1.0 (+https://boston.lti.cs.cmu.edu/CMU-ClueWeb-Crawler/; mailto:cmu-clueweb-crawler@andrew.cmu.edu)"
+    }
+  ]
+}

@@ -29,6 +29,7 @@ from PIL import Image, ImageOps, UnidentifiedImageError
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / 'wordpress'))
 from editorial_shell import ArticleMeta, OgImage, render_editorial_page
+from article_offers import offer_for_slug, render_offer
 from sync_substack_index import LOCAL_VERSIONS
 
 SOURCES = ROOT / 'wordpress/substack_sources'
@@ -149,7 +150,7 @@ def render(meta, body):
         og_image=OgImage(url=url+meta['og_image'], width=1200, height=630) if meta.get('og_image') else None,
         json_ld=(ld,),
     )
-    return render_editorial_page(article, body, ladder=False, extra_css=CSS)
+    return render_editorial_page(article, body, ladder=False, offer_html=render_offer(offer_for_slug(meta["slug"])), extra_css=CSS)
 
 
 def import_post(post):

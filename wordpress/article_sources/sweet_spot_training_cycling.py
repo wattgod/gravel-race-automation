@@ -32,6 +32,7 @@ WORDPRESS = HERE.parent
 if str(WORDPRESS) not in sys.path:
     sys.path.insert(0, str(WORDPRESS))
 
+from article_offers import offer_for_slug, render_offer
 from editorial_shell import (  # noqa: E402
     ArticleMeta,
     Claim,
@@ -556,7 +557,8 @@ def render() -> str:
         BODY_PATH.read_text(encoding="utf-8"),
         in_short=IN_SHORT,
         in_short_on_phone="after_intro",
-        ladder=True,
+        ladder=False,
+        offer_html=render_offer(offer_for_slug(META.slug)),
         figures=FIGURES,
         extra_css=CHART_CSS,
         extra_body_end=CHART_JS,

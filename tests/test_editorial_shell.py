@@ -441,7 +441,7 @@ class TestAnalyticsAndChrome:
 
     def test_footer_nav_is_the_header_nav(self, page):
         links = es.header_nav_links()
-        assert [label for _, label in links] == ["RACES", "PRODUCTS", "SERVICES", "ARTICLES", "ABOUT"]
+        assert [label for _, label in links] == ["RACES", "PRODUCTS", "SERVICES", "ARTICLES", "RESOURCES", "ABOUT"]
         shared = get_site_header_html(None)
         for href, label in links:
             assert f'<a href="{href}">{label}</a>' in shared

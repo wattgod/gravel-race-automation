@@ -21,7 +21,7 @@ def get_site_header_html(active: str | None = None) -> str:
 
     Args:
         active: Which top-level nav item is current. One of:
-                "races", "products", "services", "articles", "about".
+                "races", "products", "services", "articles", "resources", "about".
                 Adds aria-current="page" to the matching top-level link.
     """
 
@@ -46,7 +46,6 @@ def get_site_header_html(active: str | None = None) -> str:
         <div class="gg-site-header-dropdown">
           <a href="{SITE_BASE_URL}/products/training-plans/">Custom Training Plans</a>
           <a href="{SITE_BASE_URL}/course/">Courses</a>
-          <a href="{SITE_BASE_URL}/guide/">Gravel Handbook</a>
         </div>
       </div>
       <div class="gg-site-header-item">
@@ -62,6 +61,13 @@ def get_site_header_html(active: str | None = None) -> str:
           <a href="{SUBSTACK_URL}" target="_blank" rel="noopener">Slow Mid 38s</a>
           <a href="{SITE_BASE_URL}/articles/">Hot Takes</a>
           <a href="{SITE_BASE_URL}/insights/">The State of Gravel</a>
+        </div>
+      </div>
+      <div class="gg-site-header-item">
+        <a href="{SITE_BASE_URL}/guide/"{_aria("resources")}>RESOURCES</a>
+        <div class="gg-site-header-dropdown">
+          <a href="{SITE_BASE_URL}/guide/">Gravel Handbook</a>
+          <a href="{SITE_BASE_URL}/surge-check/">Surge Check</a>
           <a href="{SITE_BASE_URL}/fueling-methodology/">White Papers</a>
         </div>
       </div>
@@ -86,7 +92,6 @@ def get_site_header_html(active: str | None = None) -> str:
       <div class="gg-mobile-nav-sub">
         <a href="{SITE_BASE_URL}/products/training-plans/">Custom Training Plans</a>
         <a href="{SITE_BASE_URL}/course/">Courses</a>
-        <a href="{SITE_BASE_URL}/guide/">Gravel Handbook</a>
       </div>
     </div>
     <div class="gg-mobile-nav-group">
@@ -102,6 +107,13 @@ def get_site_header_html(active: str | None = None) -> str:
         <a href="{SUBSTACK_URL}" target="_blank" rel="noopener">Slow Mid 38s</a>
         <a href="{SITE_BASE_URL}/articles/">Hot Takes</a>
         <a href="{SITE_BASE_URL}/insights/">The State of Gravel</a>
+      </div>
+    </div>
+    <div class="gg-mobile-nav-group">
+      <button class="gg-mobile-nav-toggle" aria-expanded="false">RESOURCES</button>
+      <div class="gg-mobile-nav-sub">
+        <a href="{SITE_BASE_URL}/guide/">Gravel Handbook</a>
+        <a href="{SITE_BASE_URL}/surge-check/">Surge Check</a>
         <a href="{SITE_BASE_URL}/fueling-methodology/">White Papers</a>
       </div>
     </div>

@@ -142,6 +142,7 @@ class TestNavParity:
         assert ">PRODUCTS</a>" in mu_plugin_source
         assert ">SERVICES</a>" in mu_plugin_source
         assert ">ARTICLES</a>" in mu_plugin_source
+        assert ">RESOURCES</a>" in mu_plugin_source
         assert ">ABOUT</a>" in mu_plugin_source
 
     def test_dropdown_sub_links(self, mu_plugin_source):

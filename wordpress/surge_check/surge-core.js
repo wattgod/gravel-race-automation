@@ -22,7 +22,7 @@ export const BANDS = [
   { max: 10, key: "smooth", label: "Smooth",
     line: (many) => `Easy, ridden easy. ${many ? "These rides were" : "This ride was"} what the workout asked for.` },
   { max: 20, key: "normal", label: "Normal",
-    line: (many) => `A few kicks, but they didn't change ${many ? "the rides" : "the ride"}. More of our riders sit here than in any other band.` },
+    line: (many) => `A few kicks, but they didn't change ${many ? "the rides" : "the ride"}. On a typical ride, 7 of the 16 riders we studied sit here, more than in any other band.` },
   { max: 30, key: "surgy", label: "Surgy",
     line: (many) => `A fifth or more of the load came in short surges. The summary says easy; the surges quietly changed ${many ? "the workouts" : "the workout"}.` },
   { max: Infinity, key: "very_surgy", label: "Very surgy",

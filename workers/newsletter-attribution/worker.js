@@ -92,7 +92,7 @@ async function click(data,env) {
   const visitorHash = await hash(data.visitor,env.EMAIL_HASH_KEY);
   // One reader browser per essay in each UTC month. No raw IP or UA is stored.
   const month = new Date().toISOString().slice(0,7);
-  await env.DB.prepare('INSERT OR IGNORE INTO clicks(essay,visitor_hash,clicked_at,is_test) VALUES(?,?,?,?)')
+  await env.DB.prepare('INSERT INTO clicks(essay,visitor_hash,clicked_at,is_test) VALUES(?,?,?,?) ON CONFLICT(essay,visitor_hash) DO UPDATE SET clicked_at=excluded.clicked_at')
     .bind(data.essay,`${month}:${visitorHash}`,now(),Number(data.is_test === true)).run();
   return json({recorded:true});
 }

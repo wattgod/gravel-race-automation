@@ -137,3 +137,13 @@ test('starting export records cannot be presented as newly verified confirmation
   assert.equal(report.articles.length,0);
   assert.equal(report.historical_website_unattributed,1);
 });
+
+test('repeat reader visits refresh recency without duplicating the reader',async()=>{
+  const {env,call}=setup();
+  const click={essay:'sweet-spot',visitor:'ac21b1bc-36c1-4be0-b7d6-d421d83e9131',user_agent:'Mozilla/5.0'};
+  await call('/click',click);
+  await env.DB.prepare('UPDATE clicks SET clicked_at=?').bind(Math.floor(Date.now()/1000)-40*86400).run();
+  assert.equal((await(await call('/report')).json()).essays[0].readers,0);
+  await call('/click',click);
+  assert.equal((await(await call('/report')).json()).essays[0].readers,1);
+});

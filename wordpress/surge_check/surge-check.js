@@ -25,7 +25,7 @@ const CYCLING = new Set(["cycling", "e_biking"]);
 const EMBED_TIMEOUT_MS = 8000;
 const HOST_SOURCE = "gravel-god-surge-check";
 const PAGE_SOURCE = "endure-surge-embed";
-const TRIAL_URL = "https://endurelabs.app/sign-up?utm_source=gravelgod&utm_medium=surge-check&utm_campaign=surge-index";
+const ENDURE_HOME = "https://endurelabs.app/?utm_source=gravelgod&utm_medium=surge-check&utm_campaign=surge-index";
 
 /** Endure's origin; a local Endure only when this page itself is local (?endure=http://localhost:3100). */
 const ENDURE = (() => {
@@ -310,7 +310,7 @@ function drawFallback() {
   fallback.append(
     el("h2", { class: "gg-sc-label", text: `${fmtDate(ride.start)} · Surge Index ${read.index} · ${read.surges.length} surges` }),
     el("div", { class: "gg-sc-chart" }, cv, tip),
-    el("a", { class: "gg-sc-cta", href: TRIAL_URL, target: "_blank", rel: "noopener", text: "See every surge in Endure →" }),
+    el("p", { class: "gg-sc-built" }, "Built on ", el("a", { href: ENDURE_HOME, target: "_blank", rel: "noopener", text: "Endure Labs" })),
   );
   const css = getComputedStyle(document.documentElement);
   const col = (n) => css.getPropertyValue(n).trim();

@@ -151,8 +151,9 @@ def build_css() -> str:
 .gg-sc-chart { position: relative; }
 .gg-sc-canvas { display: block; width: 100%; height: 200px; touch-action: none; }
 .gg-sc-tip { position: absolute; top: 0; display: none; pointer-events: none; font: 12px var(--gg-font-data); background: var(--gg-color-dark-brown); color: var(--gg-color-warm-paper); padding: 4px 8px; white-space: nowrap; }
-.gg-sc-cta { display: inline-block; margin-top: var(--gg-spacing-md); padding: 12px 20px; background: var(--gg-color-dark-brown); color: var(--gg-color-warm-paper); text-decoration: none; font: var(--gg-font-weight-semibold) var(--gg-font-size-sm) var(--gg-font-data); letter-spacing: var(--gg-letter-spacing-wide); }
-.gg-sc-cta:hover { background: var(--gg-color-teal); }
+.gg-sc-built { margin: var(--gg-spacing-sm) 0 0; font: var(--gg-font-size-xs) var(--gg-font-data); color: var(--gg-color-secondary-brown); }
+.gg-sc-built a { color: inherit; }
+.gg-sc-built a:hover { color: var(--gg-color-teal); }
 .gg-sc-method { margin-top: var(--gg-spacing-3xl); border-top: 2px solid var(--gg-color-tan); padding-top: var(--gg-spacing-lg); font-size: var(--gg-font-size-sm); color: var(--gg-color-primary-brown); }
 .gg-sc-method ul { margin: 0; padding-left: 1.2em; }
 .gg-sc-method li { margin: 6px 0; }

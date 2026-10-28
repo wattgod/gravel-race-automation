@@ -94,3 +94,10 @@ console.log(JSON.stringify(events));
     assert [e['name'] for e in events].count('cta_click')==1
     assert [e['name'] for e in events].count('article_cta_click')==1
     assert not any(e['name'] in {'sign_up','generate_lead','purchase'} for e in events)
+
+
+def test_plan_offer_reads_canonical_price(monkeypatch):
+    import article_offers
+    monkeypatch.setitem(article_offers.pricing.RACE_PLAN, 'weekly_rate_display', '$123')
+    offer = article_offers.offer_for_slug('sweet-spot-training-cycling')
+    assert offer['detail'] == '$123/week · paid once'

@@ -3223,11 +3223,12 @@ var bodyEl=tree.querySelector(".gg-decision-tree__body");
 var restartEl=tree.querySelector(".gg-decision-tree__restart");
 if(bodyEl)bodyEl.style.display="none";
 if(resultEl){
-var resultHtml='<div class="gg-decision-tree__result-title">WE RECOMMEND</div>';
-resultHtml+='<div class="gg-decision-tree__result-race">';
-resultHtml+='<a href="/race/'+target+'/">'+target.replace(/-/g," ").replace(/\b\w/g,function(c){return c.toUpperCase();})+'</a>';
-resultHtml+='</div>';
-resultEl.innerHTML=resultHtml;
+while(resultEl.firstChild)resultEl.removeChild(resultEl.firstChild);
+var rTitle=document.createElement("div");rTitle.className="gg-decision-tree__result-title";rTitle.textContent="WE RECOMMEND";
+var rRace=document.createElement("div");rRace.className="gg-decision-tree__result-race";
+var rLink=document.createElement("a");rLink.href="/race/"+encodeURIComponent(target)+"/";
+rLink.textContent=target.replace(/-/g," ").replace(/\b\w/g,function(c){return c.toUpperCase();});
+rRace.appendChild(rLink);resultEl.appendChild(rTitle);resultEl.appendChild(rRace);
 resultEl.style.display="block";
 }
 if(restartEl)restartEl.style.display="block";
@@ -3239,7 +3240,7 @@ var qEl=tree.querySelector(".gg-decision-tree__question");
 var optsEl=tree.querySelector(".gg-decision-tree__options");
 if(qEl)qEl.textContent=node.question||"";
 if(optsEl){
-optsEl.innerHTML="";
+while(optsEl.firstChild)optsEl.removeChild(optsEl.firstChild);
 (node.options||[]).forEach(function(opt){
 var b=document.createElement("button");
 b.className="gg-decision-tree__option";
@@ -3266,11 +3267,11 @@ var resultEl=tree.querySelector(".gg-decision-tree__result");
 var qEl=tree.querySelector(".gg-decision-tree__question");
 var optsEl=tree.querySelector(".gg-decision-tree__options");
 if(bodyEl)bodyEl.style.display="block";
-if(resultEl){resultEl.style.display="none";resultEl.innerHTML="";}
+if(resultEl){resultEl.style.display="none";while(resultEl.firstChild)resultEl.removeChild(resultEl.firstChild);}
 btn.style.display="none";
 if(qEl)qEl.textContent=root.question||"";
 if(optsEl){
-optsEl.innerHTML="";
+while(optsEl.firstChild)optsEl.removeChild(optsEl.firstChild);
 (root.options||[]).forEach(function(opt){
 var b=document.createElement("button");
 b.className="gg-decision-tree__option";

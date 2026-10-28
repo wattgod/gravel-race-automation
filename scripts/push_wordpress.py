@@ -456,8 +456,8 @@ def sync_guide(guide_dir: str):
                     text=True,
                     timeout=120,
                 )
-                tar_cmd.wait()
-                if ssh_cmd.returncode == 0:
+                tar_status = tar_cmd.wait()
+                if ssh_cmd.returncode == 0 and tar_status == 0:
                     print(f"✓ Uploaded {len(media_files)} media files to /guide/media/")
                 else:
                     print(f"✗ Media upload failed: {ssh_cmd.stderr.strip()}")
@@ -543,7 +543,7 @@ def sync_guide_cluster(cluster_dir: str):
         tar_proc.stdout.close()
         stdout, stderr = ssh_proc.communicate(timeout=300)
 
-        if ssh_proc.returncode != 0:
+        if ssh_proc.returncode != 0 or tar_proc.wait() != 0:
             print(f"✗ tar+ssh failed: {stderr.decode().strip()}")
             return None
     except subprocess.TimeoutExpired:
@@ -554,6 +554,22 @@ def sync_guide_cluster(cluster_dir: str):
     except Exception as e:
         print(f"✗ Error uploading guide cluster pages: {e}")
         return None
+
+    # The chapter pages open on the painted scenes, served from /guide/media/.
+    art_dir = Path(__file__).resolve().parent.parent / "guide" / "art"
+    art_files = sorted(f.name for f in art_dir.glob("*.webp")) if art_dir.exists() else []
+    if art_files:
+        art_tar = subprocess.Popen(["tar", "-cf", "-", "-C", str(art_dir)] + art_files, stdout=subprocess.PIPE)
+        art_ssh = subprocess.run(
+            ["ssh", "-i", str(SSH_KEY), "-p", port, f"{user}@{host}",
+             f"mkdir -p {remote_base}/media && tar -xf - -C {remote_base}/media"],
+            stdin=art_tar.stdout, capture_output=True, text=True, timeout=120,
+        )
+        art_tar.stdout.close()
+        if art_ssh.returncode != 0 or art_tar.wait() != 0:
+            print(f"✗ Guide art upload failed: {art_ssh.stderr.strip()}")
+            return None
+        print(f"✓ Uploaded {len(art_files)} guide art files to /guide/media/")
 
     # Fix permissions
     try:

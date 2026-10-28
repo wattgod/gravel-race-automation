@@ -12,7 +12,7 @@ from guide_ig import ch3  # noqa: E402
 IDS = {
     "ch3-supercompensation": ["REST = FASTER", "Training stress", "Supercompensation", "Detraining"],
     "ch3-zone-spectrum": ["Z2–Z4", "Active Recovery", "Neuromuscular", "106-120%", "121-150%"],
-    "ch3-pmc-chart": ["+28", "+40", "-19", "RACE READY", "Chronic Training Load"],
+    "ch3-pmc-chart": ["+28", "+40", "-19", "Race ready", "Chronic Training Load"],
     "ch3-training-phases": ["12 WEEKS", "PEAK / TAPER", "Reduce volume 40%", "VOLUME", "INTENSITY"],
     "ch3-power-duration": ["195 W", "380 W", "250 W", "138–188 W", "225–263 W", "78% of FTP"],
     "ch3-gantt-season": ["6 BLOCKS", "Off-Season", "Transition", "Mid Aug – Oct", "Base 2"],
@@ -81,7 +81,7 @@ def test_svg_attributes_use_no_var():
 
 def test_power_duration_curve_has_all_points():
     out = render("ch3-power-duration")
-    # 13 data points -> 12 cubic segments, nothing stray
-    path = re.search(r'class="gg-ig-b-pd-line" d="([^"]+)"', out).group(1)
-    assert path.count("C") == 12
+    # Glyph curve: 201 samples along the monotone cubic through the 13 data points
+    path = re.search(r'class="gg-ig-b-eg-hero gg-ig-b-eg-hero--ride" d="([^"]+)"', out).group(1)
+    assert path.count("L") == 200
     assert len(ch3._PD) == 13

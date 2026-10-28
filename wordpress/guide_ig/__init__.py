@@ -9,9 +9,11 @@ from importlib import import_module
 
 GROUPS = ("ch1_ch2", "ch3", "ch4_ch5", "ch6_ch7")
 
+from guide_ig import glyph  # shared Endure Glyph kit: its CSS/JS lead the bundle
+
 RENDERERS: dict = {}
-CSS_PARTS: list[str] = []
-JS_PARTS: list[str] = []
+CSS_PARTS: list[str] = [glyph.CSS]
+JS_PARTS: list[str] = [glyph.JS]
 
 for _name in GROUPS:
     try:

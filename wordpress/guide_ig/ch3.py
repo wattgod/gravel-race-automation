@@ -7,6 +7,8 @@ any width. No script needed.
 import html as _html
 import math
 
+from guide_ig import glyph
+
 P = "gg-ig-b"
 
 
@@ -172,66 +174,151 @@ def render_zone_spectrum(block: dict) -> str:
 
 _CTL = [25, 30, 36, 43, 50, 57, 63, 70, 75, 78, 72, 65]
 _ATL = [30, 45, 55, 50, 65, 70, 60, 80, 75, 50, 35, 25]
+def _glyph_panel(block, eyebrow, title, card, default_caption=""):
+    """GG title band + Glyph card on a light ground + gold-ruled caption."""
+    cap = block.get("caption") or default_caption
+    cap_html = f'<figcaption class="{P}-cap">{_e(cap)}</figcaption>' if cap else ""
+    return (
+        f'<figure class="{P}-panel {P}-panel--light">'
+        f'<header class="{P}-head"><p class="{P}-eyebrow">{_e(eyebrow)}</p>'
+        f'<h3 class="{P}-title">{_e(title)}</h3></header>'
+        f'<div class="{P}-eg-body">{card}</div>{cap_html}</figure>'
+    )
+
+
 _TSB = [-5, -15, -19, -7, -15, -13, 3, -10, 0, 28, 37, 40]
+_PMC_NOW = 9  # week 10: race ready; weeks 11-12 are the taper plan
+
+
+def _pmc_weekly_load():
+    """Weekly load (~) implied by the fatigue line. ATL is a 7-day exponential average, so a
+    steady daily load L through a week moves it from a0 to L + (a0 - L)/e. Solving for L and
+    times 7 gives the week's load. Week 1 has no earlier week: unknown (None), drawn hatched."""
+    k = math.exp(-1)
+    return [None] + [round(7 * (_ATL[i] - _ATL[i - 1] * k) / (1 - k)) for i in range(1, 12)]
+
+
+def _pmc_text(i, load):
+    """Header strings for week index i (mirrored by the script's update())."""
+    d = _CTL[i] - _CTL[i - 1] if i else 0
+    chip = "first week" if i == 0 else f'{"▲" if d > 0 else "▼" if d < 0 else "="} {abs(d)} vs wk {i}'
+    when = f"Week {i + 1}" + (" · now" if i == _PMC_NOW else " · plan" if i > _PMC_NOW else "")
+    ld = "⚡ no prior week" if load[i] is None else f"⚡ ~{load[i]} that week"
+    form = f"+{_TSB[i]}" if _TSB[i] > 0 else str(_TSB[i])
+    return chip, when, ld, form
 
 
 def render_pmc_chart(block: dict) -> str:
-    W, H = 1200, 300
+    W, LH, BH = 1200, 240, 56
+    load = _pmc_weekly_load()
+    xs = [(i + 0.5) / 12 * W for i in range(12)]
+    ys = lambda v: LH * (1 - v / 100)  # noqa: E731
+    cs = glyph.mono_sample([(xs[i], ys(_CTL[i])) for i in range(12)], 24)
+    fs = glyph.mono_sample([(xs[i], ys(_ATL[i])) for i in range(12)], 24)
+    cut = _PMC_NOW * 24
 
-    def line(vals):
-        return _smooth([((i + 0.5) / 12 * W, H - v / 100 * H) for i, v in enumerate(vals)])
+    # difference band: teal where fitness leads, pink where fatigue does
+    runs = []
 
-    grid = "".join(
-        f'<line class="{P}-pmc-grid" x1="0" y1="{H - v / 100 * H:.1f}" x2="{W}" y2="{H - v / 100 * H:.1f}"/>'
-        for v in (0, 50, 100)
+    def push(sign, t, b):
+        if runs and runs[-1][0] == sign:
+            runs[-1][1].append(t)
+            runs[-1][2].append(b)
+        else:
+            runs.append([sign, [t], [b]])
+
+    for k in range(len(cs)):
+        d0 = fs[k][1] - cs[k][1]
+        s0 = 1 if d0 >= 0 else -1
+        push(s0, cs[k], fs[k])
+        if k + 1 < len(cs):
+            d1 = fs[k + 1][1] - cs[k + 1][1]
+            s1 = 1 if d1 >= 0 else -1
+            if s0 != s1:
+                t = d0 / (d0 - d1)
+                x = cs[k][0] + t * (cs[k + 1][0] - cs[k][0])
+                y = cs[k][1] + t * (cs[k + 1][1] - cs[k][1])
+                push(s0, (x, y), (x, y))
+                push(s1, (x, y), (x, y))
+    band = "".join(
+        f'<path class="{P}-eg-band {P}-eg-band--{"teal" if s > 0 else "pink"}" '
+        f'd="{glyph.line_path(top + bot[::-1], close=True)}"/>'
+        for s, top, bot in runs
     )
-    svg = (
-        f'<svg class="{P}-pmc-svg" viewBox="0 0 {W} {H}" preserveAspectRatio="none" aria-hidden="true">'
-        f'{grid}<path class="{P}-pmc-atl" d="{line(_ATL)}"/><path class="{P}-pmc-ctl" d="{line(_CTL)}"/></svg>'
+    refs = "".join(
+        f'<line class="{P}-eg-ref" x1="0" x2="{W}" y1="{ys(v):.1f}" y2="{ys(v):.1f}"/>' for v in (0, 50, 100)
     )
-    yt = "".join(
-        f'<span style="top:{100 - v}%">{v}</span>' for v in (0, 50, 100)
+    lines = (
+        f'<path class="{P}-eg-fat" d="{glyph.line_path(fs[:cut + 1])}"/>'
+        f'<path class="{P}-eg-fat {P}-eg-plan" d="{glyph.line_path(fs[cut:])}"/>'
+        f'<path class="{P}-eg-case" d="{glyph.line_path(cs[:cut + 1])}"/>'
+        f'<path class="{P}-eg-hero" d="{glyph.line_path(cs[:cut + 1])}"/>'
+        f'<path class="{P}-eg-hero {P}-eg-plan" d="{glyph.line_path(cs[cut:])}"/>'
     )
-    bars = []
-    for i, v in enumerate(_TSB):
-        sign = "pos" if v >= 0 else "neg"
-        key = " " + P + "-pmc-bar--key" if i in (9, 11) else ""
-        txt = f"+{v}" if v > 0 else str(v)
-        bars.append(
-            f'<div class="{P}-pmc-col"><span class="{P}-pmc-bar {P}-pmc-bar--{sign}{key}" '
-            f'style="--h:{abs(v) / 75 * 100:.1f}"><b>{_e(txt)}</b></span></div>'
-        )
-    wk = "".join(f'<span>{i}</span>' for i in range(1, 13))
-    legend = (
-        f'<ul class="{P}-pmc-legend">'
-        f'<li><span class="{P}-pmc-sw {P}-pmc-sw--ctl"></span><strong>CTL</strong> Fitness</li>'
-        f'<li><span class="{P}-pmc-sw {P}-pmc-sw--atl"></span><strong>ATL</strong> Fatigue</li>'
-        f'<li><span class="{P}-pmc-sw {P}-pmc-sw--tsb"></span><strong>TSB</strong> Form</li></ul>'
+    svg_lines = (
+        f'<svg class="gg-eg-svg" viewBox="0 0 {W} {LH}" preserveAspectRatio="none" aria-hidden="true">'
+        f'{band}{refs}{lines}</svg>'
     )
-    defs = (
-        f'<dl class="{P}-pmc-defs">'
-        f'<div><dt>CTL · Fitness</dt><dd>Chronic Training Load — your long-term fitness trend</dd></div>'
-        f'<div><dt>ATL · Fatigue</dt><dd>Acute Training Load — recent fatigue from hard training</dd></div>'
-        f'<div><dt>TSB · Form</dt><dd>Training Stress Balance — positive = fresh, negative = fatigued</dd></div></dl>'
+    top_load = max(v for v in load if v)
+    bars = [glyph.hatch_def("gg-eg-hatch-pmc")]
+    for i in range(12):
+        x = xs[i] - 24
+        if load[i] is None:
+            bars.append(f'<rect class="{P}-eg-hat" x="{x:.1f}" y="{BH - 26}" width="48" height="26" fill="url(#gg-eg-hatch-pmc)"/>')
+            continue
+        h = load[i] / top_load * (BH - 6)
+        cls = f"{P}-eg-bar" + (f" {P}-eg-bar--plan" if i > _PMC_NOW else "")
+        bars.append(f'<rect class="{cls}" x="{x:.1f}" y="{BH - h:.1f}" width="48" height="{h:.1f}"/>')
+    svg_bars = (
+        f'<svg class="gg-eg-svg" viewBox="0 0 {W} {BH}" preserveAspectRatio="none" aria-hidden="true">'
+        f'{"".join(bars)}</svg>'
     )
-    body = (
-        f'{legend}'
-        f'<div class="{P}-pmc" role="img" aria-label="{_alt(block, "12-week performance management chart: fitness (CTL) climbs from 25 to 78, fatigue (ATL) swings, form (TSB) turns positive at week 10 for race week")}">'
-        f'<div class="{P}-pmc-hl" aria-hidden="true"><span>RACE READY</span></div>'
-        f'<p class="{P}-pmc-cap">Fitness and fatigue</p>'
-        f'<div class="{P}-pmc-top"><div class="{P}-pmc-yt" aria-hidden="true">{yt}</div>'
-        f'<div class="{P}-pmc-plot">{svg}</div></div>'
-        f'<p class="{P}-pmc-cap">Form (CTL minus ATL)</p>'
-        f'<div class="{P}-pmc-bot"><div class="{P}-pmc-zero" aria-hidden="true"><span>0</span></div>'
-        f'<div class="{P}-pmc-bars">{"".join(bars)}</div></div>'
-        f'<div class="{P}-pmc-wk"><span class="{P}-pmc-wkl">WK</span><div class="{P}-pmc-wks">{wk}</div></div></div>'
-        f'{defs}'
+    ylab = "".join(
+        f'<span class="{P}-eg-yl{" " + P + "-eg-yl--top" if v == 100 else ""}" style="top:{100 - v}%">{v}</span>'
+        for v in (100, 50, 0)
     )
-    return _panel(
-        block, "dark", "CH 3 · LOAD", "The Performance Management Chart: Fitness, Fatigue, Form",
-        "+28",
-        "Form at week 10: fitness 78 over fatigue 50. Go positive before race day.",
-        body, "CTL builds slowly. ATL spikes fast. TSB tells you when to race.",
+    nowx = xs[_PMC_NOW] / W * 100
+    plot = (
+        f'<div class="{P}-eg-past" style="width:{nowx:.2f}%"></div>'
+        f'<div class="{P}-eg-lines">{svg_lines}{ylab}'
+        f'<span class="{P}-eg-plan-l" style="left:{nowx:.2f}%">Plan</span>'
+        f'<span class="{P}-eg-note" style="left:{nowx:.2f}%;top:{100 - _CTL[_PMC_NOW]}%">Race ready</span>'
+        f'<i class="gg-eg-pt" data-eg-pt style="left:{nowx:.2f}%;top:{100 - _CTL[_PMC_NOW]}%"></i></div>'
+        f'<div class="{P}-eg-bars">{svg_bars}</div>'
+    )
+    chip, when, ld, form = _pmc_text(_PMC_NOW, load)
+    vt = f"Week {_PMC_NOW + 1}: {_CTL[_PMC_NOW]} fitness, {_ATL[_PMC_NOW]} fatigue, form {form}"
+    pw = glyph.scrub_wrap("ch3-pmc", plot, 12, _PMC_NOW, "Scrub the 12 weeks", vt, mode="band")
+    ends = (
+        f'<div class="{P}-eg-ends">'
+        f'<div style="top:{100 - _CTL[11]}%">{glyph.capsule(_CTL[11], "Fitness", "ink", "dotted")}</div>'
+        f'<div style="top:{100 - (_CTL[11] + _ATL[11]) / 2}%">{glyph.capsule(f"+{_TSB[11]}", "Form", "teal", "dotted")}</div>'
+        f'<div style="top:{100 - _ATL[11]}%">{glyph.capsule(_ATL[11], "Fatigue", "pink", "dotted")}</div></div>'
+        f'<span class="{P}-eg-loadl">⚡ load</span>'
+    )
+    extra = (
+        glyph.capsule(_ATL[_PMC_NOW], "Fatigue", "pink", field="fat")
+        + glyph.capsule(form, "Form", "teal", field="form")
+        + f'<span data-eg-f="load">{_e(ld)}</span>'
+    )
+    head = glyph.readout(_CTL[_PMC_NOW], "fitness", chip, when, extra)
+    alt = block.get("alt") or "12-week performance management chart: fitness climbs from 25 to 78, fatigue swings, form turns positive at week 10 for race week"
+    desc = (
+        f"{alt}. Chronic Training Load (fitness): {', '.join(map(str, _CTL))}. "
+        f"Acute Training Load (fatigue): {', '.join(map(str, _ATL))}. "
+        f"Training Stress Balance (form), fitness minus fatigue: "
+        f"{', '.join(('+' if v > 0 else '') + str(v) for v in _TSB)}. "
+        "Weeks 11 and 12 are planned. Week 10 is race ready."
+    )
+    data = {"fit": _CTL, "fat": _ATL, "frm": _TSB, "load": load, "now": _PMC_NOW}
+    card = glyph.glyph_card(
+        "Fitness, fatigue, form", head,
+        f'<div class="{P}-eg-wrap">{pw}{ends}</div>',
+        data=data, describedby="gg-eg-pmc-d", description=desc,
+    )
+    return _glyph_panel(
+        block, "CH 3 · LOAD", "The Performance Management Chart: Fitness, Fatigue, Form", card,
+        "CTL builds slowly. ATL spikes fast. TSB tells you when to race.",
     )
 
 
@@ -294,70 +381,121 @@ _PD_KEYS = [
     (1200, 250, "FTP (20 min)", "Your sustainable race-pace power"),
     (14400, 195, "4-hr power", "Long-race power — typically 78% of FTP"),
 ]
+_PD_N = 201
+_PD_DEF = 184  # index nearest 4 h, the round-1 hero (195 W)
+_PD_WMIN, _PD_WMAX = 100, 1000
+# Coggan % of FTP (round 1: 138-188 / 188-225 / 225-263 W at 250 W)
 _PD_ZONES = [
-    ("Z2", "Endurance", 138, 188, 1),
-    ("Z3", "Tempo", 188, 225, 2),
-    ("Z4", "Threshold", 225, 263, 3),
+    ("Z2", "Endurance", 55, 75, 1),
+    ("Z3", "Tempo", 75, 90, 2),
+    ("Z4", "Threshold", 90, 105, 3),
 ]
+_PD_FTP, _PD_KG = 250, 75
+
+
+def _pd_round(x):
+    return int(math.floor(x + 0.5))
+
+
+def _pd_dur(s):
+    """Duration label, mirrored by the script (5 s, 1 min, 1.5 min, 20 min, 4 h)."""
+    def trim(v, d):
+        return f"{round(v, d):.{d}f}".rstrip("0").rstrip(".") if d else str(int(round(v)))
+    if s < 60:
+        return f"{int(round(s))} s"
+    if s < 3600:
+        m = s / 60
+        return f"{trim(m, 1 if m < 10 else 0)} min"
+    return f"{trim(s / 3600, 1)} h"
 
 
 def render_power_duration(block: dict) -> str:
     W, H = 1000, 400
-    t0, t1 = math.log10(5), math.log10(28800)
-    wmin, wmax = 100, 1000
-
-    def ux(s):
-        return (math.log10(s) - t0) / (t1 - t0)
-
-    def uy(w):
-        return (wmax - w) / (wmax - wmin)
-
-    path = _smooth([(ux(s) * W, uy(w) * H) for s, w in _PD])
-    grid = "".join(
-        f'<line class="{P}-pd-grid" x1="0" y1="{uy(w) * H:.1f}" x2="{W}" y2="{uy(w) * H:.1f}"/>'
-        for w in (200, 400, 600, 800, 1000)
+    a, b = math.log10(5), math.log10(28800)
+    curve = glyph.mono_curve([(math.log10(s), w) for s, w in _PD])
+    samples = []
+    for k in range(_PD_N):
+        ls = a + (b - a) * k / (_PD_N - 1)
+        samples.append((ls, curve(ls)))
+    watts = [round(w, 1) for _, w in samples]
+    ux = glyph.log_scale(5, 28800, 0, 100)
+    uy = lambda w: (_PD_WMAX - w) / (_PD_WMAX - _PD_WMIN) * 100  # noqa: E731
+    pts = [((ls - a) / (b - a) * W, (_PD_WMAX - w) / (_PD_WMAX - _PD_WMIN) * H) for ls, w in samples]
+    path = glyph.line_path(pts)
+    area = glyph.line_path(pts + [(W, H), (0, H)], close=True)
+    svg_area = (
+        f'<svg class="gg-eg-svg" viewBox="0 0 {W} {H}" preserveAspectRatio="none" aria-hidden="true">'
+        f'<path class="{P}-eg-area" d="{area}"/></svg>'
     )
     svg = (
-        f'<svg class="{P}-pd-svg" viewBox="0 0 {W} {H}" preserveAspectRatio="none" aria-hidden="true">'
-        f'{grid}<path class="{P}-pd-line" d="{path}"/></svg>'
+        f'<svg class="gg-eg-svg" viewBox="0 0 {W} {H}" preserveAspectRatio="none" aria-hidden="true">'
+        f'<path class="{P}-eg-case" d="{path}"/><path class="{P}-eg-hero {P}-eg-hero--ride" d="{path}"/></svg>'
     )
     bands = "".join(
-        f'<div class="{P}-pd-band {P}-pd-band--{n}" style="top:{uy(hi) * 100:.2f}%;height:{(hi - lo) / (wmax - wmin) * 100:.2f}%">'
+        f'<div class="{P}-eg-zb {P}-eg-zb--{n}" data-eg-zb="{i}" '
+        f'style="top:{uy(_pd_round(hi / 100 * _PD_FTP)):.2f}%;'
+        f'height:{(_pd_round(hi / 100 * _PD_FTP) - _pd_round(lo / 100 * _PD_FTP)) / (_PD_WMAX - _PD_WMIN) * 100:.2f}%">'
         f'<span>{code}</span></div>'
-        for code, _, lo, hi, n in _PD_ZONES
+        for i, (code, _, lo, hi, n) in enumerate(_PD_ZONES)
     )
-    marks = "".join(
-        f'<span class="{P}-mark" style="left:{ux(s) * 100:.2f}%;top:{uy(w) * 100:.2f}%" aria-hidden="true">{i}</span>'
-        for i, (s, w, _, _) in enumerate(_PD_KEYS, 1)
+    ticks = "".join(
+        f'<div class="{P}-eg-tk" style="top:{uy(v):.2f}%"><span>{v}</span></div>' for v in (250, 500, 750)
     )
-    yt = "".join(f'<span style="top:{uy(w) * 100:.2f}%">{w}W</span>' for w in (200, 400, 600, 800, 1000))
+    keys = "".join(
+        f'<div class="{P}-eg-key{" " + P + "-eg-key--end" if s > 10000 else ""}" data-eg-key="{i}" '
+        f'style="left:{ux(s):.2f}%;top:{uy(w):.2f}%">{glyph.capsule(f"{w} W", "", "ride", "outlined")}</div>'
+        for i, (s, w, _, _) in enumerate(_PD_KEYS)
+    )
+    f0 = _PD_DEF / (_PD_N - 1)
+    w0 = round(watts[_PD_DEF])
+    plot = (
+        f'{svg_area}{bands}<div class="{P}-eg-ticks" data-eg-ticks>{ticks}</div>{svg}{keys}'
+        f'<i class="gg-eg-pt" data-eg-pt style="left:{f0 * 100:.2f}%;top:{uy(watts[_PD_DEF]):.2f}%"></i>'
+    )
+    vt = f"{_pd_dur(5 * (28800 / 5) ** f0)}: {w0} W"
+    pw = glyph.scrub_wrap("ch3-pd", plot, _PD_N, _PD_DEF, "Scrub along durations", vt, mode="point")
     xt = "".join(
-        f'<span style="left:{ux(s) * 100:.2f}%">{lbl}</span>'
-        for s, lbl in ((5, "5s"), (60, "1m"), (300, "5m"), (1200, "20m"), (3600, "1h"), (14400, "4h"), (28800, "8h"))
+        f'<span class="{P}-eg-xt{" " + P + "-eg-xt--opt" if opt else ""}" style="left:{ux(s):.2f}%">{lbl}</span>'
+        for s, lbl, opt in ((5, "5 s", 0), (60, "1 min", 0), (300, "5 min", 1), (1200, "20 min", 0), (3600, "1 h", 1), (14400, "4 h", 0), (28800, "8 h", 2))
     )
-    chips = "".join(
-        f'<li class="{P}-pd-chip {P}-pd-chip--{n}"><b>{code}</b> {_e(name)} <span>{lo}–{hi} W</span></li>'
-        for code, name, lo, hi, n in _PD_ZONES
+    ruler = f'<div class="{P}-eg-ruler" aria-hidden="true">{xt}</div>'
+    zr = lambda lo, hi: f"{_pd_round(lo / 100 * _PD_FTP)}–{_pd_round(hi / 100 * _PD_FTP)} W"  # noqa: E731
+    ledger = "".join(
+        f'<li><span class="{P}-eg-zs {P}-eg-zb--{n}"></span><b>{code}</b> {_e(name)} '
+        f'<span class="{P}-eg-zr" data-eg-zr="{i}">{zr(lo, hi)}</span></li>'
+        for i, (code, name, lo, hi, n) in enumerate(_PD_ZONES)
     )
-    tiles = "".join(
-        f'<li class="{P}-pd-tile"><span class="{P}-mark {P}-mark--static" aria-hidden="true">{i}</span>'
-        f'<div><span class="{P}-pd-tl">{_e(lbl)}</span><b class="{P}-pd-tw">{w} W</b>'
-        f'<span class="{P}-pd-tt">{_e(tip)}</span></div></li>'
-        for i, (s, w, lbl, tip) in enumerate(_PD_KEYS, 1)
+    controls = (
+        f'<span class="gg-eg-seg" role="group" aria-label="Unit">'
+        f'<button type="button" data-eg-unit="w" aria-pressed="true">W</button>'
+        f'<button type="button" data-eg-unit="wkg" aria-pressed="false">W/kg</button></span>'
+        f'<label class="gg-eg-field">Weight<input type="number" inputmode="decimal" min="30" max="200" step="0.5" '
+        f'value="{_PD_KG}" data-eg-in="kg" aria-label="Rider weight in kilograms"> kg</label>'
+        f'<label class="gg-eg-field">FTP<input type="number" inputmode="numeric" min="100" max="500" step="1" '
+        f'value="{_PD_FTP}" data-eg-in="ftp" aria-label="Functional threshold power in watts"> W</label>'
     )
-    body = (
-        f'<div class="{P}-pd" role="img" aria-label="{_alt(block, "Power-duration curve for a 250 W FTP rider: 900 W at 5 seconds falling to 170 W at 8 hours, with Z2 to Z4 bands between 138 and 263 W")}">'
-        f'<div class="{P}-pd-yt" aria-hidden="true">{yt}</div>'
-        f'<div class="{P}-pd-plot">{bands}{svg}{marks}</div>'
-        f'<div class="{P}-pd-xt" aria-hidden="true">{xt}</div></div>'
-        f'<ul class="{P}-pd-chips">{chips}</ul>'
-        f'<ul class="{P}-pd-tiles">{tiles}</ul>'
+    pct = _pd_round(w0 / _PD_FTP * 100)
+    dlt = w0 - _PD_FTP
+    extra = glyph.capsule(f"{dlt:+d}".replace("+0", "0"), "vs FTP", "ride", "filled", field="delta")
+    head = glyph.readout(w0, "W", f"{pct}% of FTP", _pd_dur(5 * (28800 / 5) ** f0), extra)
+    alt = block.get("alt") or "Power-duration curve for a 250 W FTP rider: 900 W at 5 seconds falling to 170 W at 8 hours, with Z2 to Z4 bands between 138 and 263 W"
+    desc = (
+        f"{alt}. Key points: " + "; ".join(f"{lbl} {w} W at {_pd_dur(s)}" for s, w, lbl, _ in _PD_KEYS)
+        + ". Zones as percent of FTP: " + "; ".join(f"{c} {name} {lo} to {hi}%" for c, name, lo, hi, _ in _PD_ZONES) + "."
     )
-    return _panel(
-        block, "dark", "CH 3 · POWER", "Your Power-Duration Curve: What You Can Sustain",
-        "195 W",
-        "Gravel racing is a 4-8 hour effort. Your 20-minute power matters less than your 4-hour power.",
-        body, "The power-duration curve — your physiological fingerprint as a rider.",
+    data = {
+        "w": watts, "s0": 5, "s1": 28800, "ftp": _PD_FTP, "kg": _PD_KG, "wmin": _PD_WMIN, "wmax": _PD_WMAX,
+        "zones": [[c, lo, hi] for c, _, lo, hi, _ in _PD_ZONES],
+        "keys": [[s, w] for s, w, _, _ in _PD_KEYS],
+    }
+    card = glyph.glyph_card(
+        "Power duration curve", head,
+        f'{pw}{ruler}<ul class="{P}-eg-zl">{ledger}</ul>',
+        controls_html=controls, data=data, describedby="gg-eg-pd-d", description=desc,
+    )
+    return _glyph_panel(
+        block, "CH 3 · POWER", "Your Power-Duration Curve: What You Can Sustain", card,
+        "The power-duration curve — your physiological fingerprint as a rider.",
     )
 
 
@@ -444,7 +582,120 @@ RENDERERS = {
     "ch3-before-after": render_before_after,
 }
 
-JS = ""
+JS = r"""
+GGEG.register("ch3-pmc", function (i, c) {
+  var d = c.data;
+  var dd = i ? d.fit[i] - d.fit[i - 1] : 0;
+  var chip = i === 0 ? "first week" : ((dd > 0 ? "▲" : dd < 0 ? "▼" : "=") + " " + Math.abs(dd) + " vs wk " + i);
+  var when = "Week " + (i + 1) + (i === d.now ? " · now" : (i > d.now ? " · plan" : ""));
+  var form = GGEG.signed(d.frm[i], 0);
+  c.set("num", String(d.fit[i]));
+  c.set("chip", chip);
+  c.set("when", when);
+  c.set("fat", String(d.fat[i]));
+  c.set("form", form);
+  c.set("load", d.load[i] === null ? "⚡ no prior week" : "⚡ ~" + d.load[i] + " that week");
+  var pt = c.q("[data-eg-pt]");
+  if (pt) { pt.style.left = ((i + 0.5) / 12 * 100) + "%"; pt.style.top = (100 - d.fit[i]) + "%"; }
+  return "Week " + (i + 1) + ": " + d.fit[i] + " fitness, " + d.fat[i] + " fatigue, form " + form;
+});
+
+(function () {
+  function dur(s) {
+    function trim(v, dp) { return dp ? String(parseFloat(v.toFixed(dp))) : String(Math.round(v)); }
+    if (s < 60) return Math.round(s) + " s";
+    if (s < 3600) { var m = s / 60; return trim(m, m < 10 ? 1 : 0) + " min"; }
+    return trim(s / 3600, 1) + " h";
+  }
+  function r(x) { return Math.floor(x + 0.5); }
+  function nice(unit, kg, wmin, wmax) {
+    var lo = wmin, hi = wmax;
+    if (unit === "wkg") { lo = lo / kg; hi = hi / kg; }
+    var steps = [0.5, 1, 2, 3, 4, 5, 10, 20, 25, 50, 100, 150, 200, 250, 300, 400, 500];
+    for (var k = 0; k < steps.length; k++) {
+      var st = steps[k], list = [];
+      for (var v = Math.ceil(lo / st) * st; v < hi; v += st) list.push(v);
+      if (list.length >= 2 && list.length <= 3) return list;
+    }
+    return [];
+  }
+  function num(u, w, kg, ftp) { return u === "w" ? String(r(w)) : GGEG.fmt(w / kg, 2); }
+  GGEG.register("ch3-pd", function (i, c) {
+    var d = c.data, st = c.state;
+    var w = d.w[i], f = i / (c.n - 1), s = d.s0 * Math.pow(d.s1 / d.s0, f);
+    var u = st.unit, label = dur(s);
+    var delta = u === "w" ? GGEG.signed(r(w) - st.ftp, 0) : GGEG.signed(w / st.kg - st.ftp / st.kg, 2);
+    c.set("num", num(u, w, st.kg));
+    c.set("unit", u === "w" ? "W" : "W/kg");
+    c.set("chip", r(w / st.ftp * 100) + "% of FTP");
+    c.set("when", label);
+    c.set("delta", delta === "" ? "0" : delta);
+    var pt = c.q("[data-eg-pt]");
+    if (pt) { pt.style.left = (f * 100) + "%"; pt.style.top = ((d.wmax - w) / (d.wmax - d.wmin) * 100) + "%"; }
+    return label + ": " + num(u, w, st.kg) + (u === "w" ? " W" : " W/kg") + ", " + r(w / st.ftp * 100) + "% of FTP";
+  }, function (c) {
+    var d = c.data, card = c.card;
+    var st = c.state;
+    st.unit = "w"; st.kg = d.kg; st.ftp = d.ftp;
+    function top(w) { return ((d.wmax - w) / (d.wmax - d.wmin) * 100) + "%"; }
+    function render() {
+      var u = st.unit, k, v;
+      var tk = card.querySelector("[data-eg-ticks]");
+      if (tk) {
+        while (tk.firstChild) tk.removeChild(tk.firstChild);
+        var list = nice(u, st.kg, d.wmin, d.wmax);
+        for (k = 0; k < list.length; k++) {
+          v = list[k];
+          var row = document.createElement("div");
+          row.className = "gg-ig-b-eg-tk";
+          row.style.top = top(u === "w" ? v : v * st.kg);
+          var sp = document.createElement("span");
+          sp.textContent = String(parseFloat(v.toFixed(2)));
+          row.appendChild(sp);
+          tk.appendChild(row);
+        }
+      }
+      for (k = 0; k < d.zones.length; k++) {
+        var lo = r(d.zones[k][1] / 100 * st.ftp), hi = r(d.zones[k][2] / 100 * st.ftp);
+        var band = card.querySelector('[data-eg-zb="' + k + '"]');
+        if (band) { band.style.top = top(hi); band.style.height = ((hi - lo) / (d.wmax - d.wmin) * 100) + "%"; }
+        var zr = card.querySelector('[data-eg-zr="' + k + '"]');
+        if (zr) zr.textContent = u === "w" ? lo + "–" + hi + " W" : GGEG.fmt(lo / st.kg, 2) + "–" + GGEG.fmt(hi / st.kg, 2) + " W/kg";
+      }
+      for (k = 0; k < d.keys.length; k++) {
+        var kc = card.querySelector('[data-eg-key="' + k + '"] .gg-eg-cap');
+        if (kc) kc.textContent = u === "w" ? d.keys[k][1] + " W" : GGEG.fmt(d.keys[k][1] / st.kg, 2) + " W/kg";
+      }
+      var bs = card.querySelectorAll("[data-eg-unit]");
+      for (k = 0; k < bs.length; k++) bs[k].setAttribute("aria-pressed", bs[k].getAttribute("data-eg-unit") === u ? "true" : "false");
+    }
+    var bs = card.querySelectorAll("[data-eg-unit]");
+    for (var k = 0; k < bs.length; k++) {
+      bs[k].addEventListener("click", function (e) {
+        st.unit = e.currentTarget.getAttribute("data-eg-unit");
+        render();
+        c.refresh();
+      });
+    }
+    function bind(name, key, lo, hi) {
+      var inp = card.querySelector('[data-eg-in="' + name + '"]');
+      if (!inp) return;
+      inp.addEventListener("input", function () {
+        var v = parseFloat(inp.value);
+        if (!isFinite(v) || v < lo || v > hi) { inp.setAttribute("aria-invalid", "true"); return; }
+        inp.removeAttribute("aria-invalid");
+        st[key] = v;
+        render();
+        c.refresh();
+      });
+    }
+    bind("kg", "kg", 30, 200);
+    bind("ftp", "ftp", 100, 500);
+    render();
+  });
+})();
+"""
+
 
 _CSS_RAW = """
 .gg-ig-b-panel{--b-ink:var(--gg-color-dark-brown);--b-acc:var(--gg-color-light-gold);box-sizing:border-box;width:100%;max-width:100%;margin:0 0 28px;border:3px solid var(--gg-color-dark-brown);overflow:hidden;font-family:var(--gg-font-editorial);line-height:1.4}
@@ -499,45 +750,6 @@ _CSS_RAW = """
 .gg-ig-b-zn-bar{position:absolute;top:0;bottom:0;background:var(--gg-color-primary-brown);min-width:8px}
 .gg-ig-b-zn-row--hot .gg-ig-b-zn-bar{background:var(--gg-color-gold)}
 .gg-ig-b-zn-desc{font-size:15px;line-height:1.35;margin-top:5px}
-/* pmc */
-.gg-ig-b-pmc-legend{display:flex;flex-wrap:wrap;gap:8px 26px;margin-bottom:18px;font-family:var(--gg-font-data);font-size:15px}
-.gg-ig-b-pmc-legend li{display:flex;align-items:center;gap:10px}
-.gg-ig-b-pmc-legend strong{color:var(--gg-color-white)}
-.gg-ig-b-pmc-sw{display:inline-block;width:34px;height:0;border-top:5px solid var(--gg-color-light-gold)}
-.gg-ig-b-pmc-sw--atl{border-top:5px dashed var(--gg-color-warm-paper)}
-.gg-ig-b-pmc-sw--tsb{height:14px;border-top:0;width:20px;background:var(--gg-color-light-gold)}
-.gg-ig-b-pmc{position:relative;--gut:40px;padding-top:30px}
-.gg-ig-b-pmc-hl{position:absolute;top:0;bottom:30px;left:calc(var(--gut) + (100% - var(--gut)) * 9 / 12);width:calc((100% - var(--gut)) / 12);background:var(--gg-color-light-gold);opacity:1;background:color-mix(in srgb,var(--gg-color-light-gold) 22%,transparent);border-left:3px solid var(--gg-color-light-gold);border-right:3px solid var(--gg-color-light-gold);z-index:0}
-.gg-ig-b-pmc-hl span{position:absolute;bottom:100%;left:50%;transform:translateX(-50%);margin-bottom:4px;white-space:nowrap;font-family:var(--gg-font-data);font-weight:700;font-size:14px;color:var(--gg-color-light-gold)}
-.gg-ig-b-pmc-cap{position:relative;z-index:1;font-family:var(--gg-font-data);font-size:14px;letter-spacing:1px;text-transform:uppercase;color:var(--gg-color-sand);margin:0 0 6px var(--gut)}
-.gg-ig-b-pmc-top{position:relative;z-index:1;display:flex;height:240px;margin-bottom:18px}
-.gg-ig-b-pmc-yt{position:relative;flex:0 0 var(--gut);font-family:var(--gg-font-data);font-size:12px;color:var(--gg-color-sand)}
-.gg-ig-b-pmc-yt span{position:absolute;right:8px;transform:translateY(-50%)}
-.gg-ig-b-pmc-plot{position:relative;flex:1;min-width:0}
-.gg-ig-b-pmc-svg{position:absolute;inset:0;width:100%;height:100%;display:block;overflow:visible}
-.gg-ig-b-pmc-grid{stroke:var(--gg-color-sand);stroke-opacity:.35;stroke-width:1;vector-effect:non-scaling-stroke}
-.gg-ig-b-pmc-ctl{fill:none;stroke:var(--gg-color-light-gold);stroke-width:6;vector-effect:non-scaling-stroke;stroke-linecap:round}
-.gg-ig-b-pmc-atl{fill:none;stroke:var(--gg-color-warm-paper);stroke-width:4;stroke-dasharray:10 7;vector-effect:non-scaling-stroke}
-.gg-ig-b-pmc-bot{position:relative;z-index:1;display:flex;height:200px}
-.gg-ig-b-pmc-zero{flex:0 0 var(--gut);position:relative;font-family:var(--gg-font-data);font-size:12px;color:var(--gg-color-sand)}
-.gg-ig-b-pmc-zero span{position:absolute;right:8px;top:60%;transform:translateY(-50%)}
-.gg-ig-b-pmc-bars{position:relative;flex:1;display:flex;min-width:0;border-top:0}
-.gg-ig-b-pmc-bars::after{content:"";position:absolute;left:0;right:0;top:60%;border-top:2px solid var(--gg-color-sand)}
-.gg-ig-b-pmc-col{position:relative;flex:1;min-width:0}
-.gg-ig-b-pmc-bar{position:absolute;left:14%;right:14%}
-.gg-ig-b-pmc-bar--pos{bottom:40%;height:calc(var(--h) * 1%);background:var(--gg-color-light-gold)}
-.gg-ig-b-pmc-bar--neg{top:60%;height:calc(var(--h) * 1%);background:color-mix(in srgb,var(--gg-color-sand) 55%,transparent)}
-.gg-ig-b-pmc-bar b{position:absolute;left:50%;transform:translateX(-50%);font-family:var(--gg-font-data);font-size:14px;line-height:1;font-weight:700;color:var(--gg-color-warm-paper);display:none}
-.gg-ig-b-pmc-bar--pos b{bottom:100%;margin-bottom:4px}
-.gg-ig-b-pmc-bar--neg b{top:100%;margin-top:4px}
-.gg-ig-b-pmc-bar--key b{display:block;color:var(--gg-color-light-gold);font-size:16px}
-.gg-ig-b-pmc-wk{position:relative;z-index:1;display:flex;margin-top:8px;font-family:var(--gg-font-data);font-size:12px;color:var(--gg-color-sand)}
-.gg-ig-b-pmc-wkl{flex:0 0 var(--gut);text-align:right;padding-right:8px}
-.gg-ig-b-pmc-wks{flex:1;display:flex;min-width:0}
-.gg-ig-b-pmc-wks span{flex:1;text-align:center}
-.gg-ig-b-pmc-defs{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px 24px;margin-top:24px}
-.gg-ig-b-pmc-defs dt{font-family:var(--gg-font-data);font-weight:700;font-size:15px;color:var(--gg-color-light-gold);margin-bottom:3px}
-.gg-ig-b-pmc-defs dd{font-size:15px;line-height:1.4;color:var(--gg-color-sand)}
 /* training phases */
 .gg-ig-b-tp-heads{display:flex;gap:3px;margin-bottom:14px}
 .gg-ig-b-tp-ph{min-width:0;padding:10px 12px;border:3px solid var(--gg-color-dark-brown);display:flex;flex-direction:column;gap:2px;font-family:var(--gg-font-data);line-height:1.15}
@@ -566,31 +778,6 @@ _CSS_RAW = """
 .gg-ig-b-tp-card--build{border-top:10px solid var(--gg-color-light-gold)}
 .gg-ig-b-tp-card--peak{border-top:10px solid var(--gg-color-dark-brown)}
 /* power duration */
-.gg-ig-b-pd{position:relative;display:grid;grid-template-columns:52px 1fr;grid-template-rows:auto 28px;padding-right:14px}
-.gg-ig-b-pd-yt{position:relative;height:440px;font-family:var(--gg-font-data);font-size:12px;color:var(--gg-color-sand)}
-.gg-ig-b-pd-yt span{position:absolute;right:8px;transform:translateY(-50%)}
-.gg-ig-b-pd-yt em{position:absolute;left:0;bottom:-26px;font-style:normal;font-size:12px;letter-spacing:1px}
-.gg-ig-b-pd-plot{position:relative;height:440px;border-left:3px solid var(--gg-color-sand);border-bottom:3px solid var(--gg-color-sand)}
-.gg-ig-b-pd-svg{position:absolute;inset:0;width:100%;height:100%;display:block;overflow:visible}
-.gg-ig-b-pd-grid{stroke:var(--gg-color-sand);stroke-opacity:.28;stroke-width:1;vector-effect:non-scaling-stroke}
-.gg-ig-b-pd-line{fill:none;stroke:var(--gg-color-light-gold);stroke-width:6;vector-effect:non-scaling-stroke;stroke-linecap:round;stroke-linejoin:round}
-.gg-ig-b-pd-band{position:absolute;left:0;right:0;background:color-mix(in srgb,var(--gg-color-warm-paper) 16%,transparent);border-top:1px solid var(--gg-color-sand)}
-.gg-ig-b-pd-band--2{background:color-mix(in srgb,var(--gg-color-warm-paper) 10%,transparent)}
-.gg-ig-b-pd-band--3{background:color-mix(in srgb,var(--gg-color-warm-paper) 18%,transparent)}
-.gg-ig-b-pd-band--1{background:color-mix(in srgb,var(--gg-color-warm-paper) 10%,transparent)}
-.gg-ig-b-pd-band span{position:absolute;left:8px;top:50%;transform:translateY(-50%);font-family:var(--gg-font-data);font-weight:700;font-size:12px;line-height:1;color:var(--gg-color-white)}
-.gg-ig-b-pd-xt{grid-column:2;position:relative;height:28px;font-family:var(--gg-font-data);font-size:12px;color:var(--gg-color-sand)}
-.gg-ig-b-pd-xt span{position:absolute;top:8px;transform:translateX(-50%)}
-.gg-ig-b-pd-xt span:last-child{transform:translateX(-80%)}
-.gg-ig-b-pd-chips{display:flex;flex-wrap:wrap;gap:8px 12px;margin:22px 0 18px;font-size:15px}
-.gg-ig-b-pd-chip{border:2px solid var(--gg-color-sand);padding:6px 12px;font-family:var(--gg-font-data);color:var(--gg-color-warm-paper)}
-.gg-ig-b-pd-chip b{color:var(--gg-color-white)}
-.gg-ig-b-pd-chip span{color:var(--gg-color-light-gold);font-variant-numeric:tabular-nums;margin-left:4px}
-.gg-ig-b-pd-tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px}
-.gg-ig-b-pd-tile{display:flex;gap:12px;align-items:flex-start;border-top:3px solid var(--gg-color-light-gold);padding-top:12px}
-.gg-ig-b-pd-tl{display:block;font-family:var(--gg-font-data);font-size:14px;letter-spacing:1px;text-transform:uppercase;color:var(--gg-color-sand)}
-.gg-ig-b-pd-tw{display:block;font-family:var(--gg-font-data);font-size:34px;line-height:1.1;color:var(--gg-color-light-gold)}
-.gg-ig-b-pd-tt{display:block;font-size:15px;line-height:1.4;color:var(--gg-color-warm-paper);margin-top:2px}
 /* gantt */
 .gg-ig-b-gt-months{display:flex;gap:18px;margin-bottom:6px}
 .gg-ig-b-gt-pad{flex:0 0 270px}
@@ -633,17 +820,9 @@ _CSS_RAW = """
 .gg-ig-b-zn-axis-pad{display:none}
 .gg-ig-b-zn-row{flex-direction:column;gap:8px}
 .gg-ig-b-zn-info{flex:none}
-.gg-ig-b-pmc{--gut:30px}
-.gg-ig-b-pmc-top{height:190px}
-.gg-ig-b-pmc-bot{height:150px}
-.gg-ig-b-pmc-bar{left:8%;right:8%}
-.gg-ig-b-pmc-hl span{left:auto;right:-6px;transform:none}
 .gg-ig-b-tp-ph{padding:8px 8px}
 .gg-ig-b-tp-ph b{font-size:14px}
 .gg-ig-b-tp-row{height:96px}
-.gg-ig-b-pd{grid-template-columns:40px 1fr;padding-right:12px}
-.gg-ig-b-pd-yt,.gg-ig-b-pd-plot{height:330px}
-.gg-ig-b-pd-xt span:last-child{display:none}
 .gg-ig-b-gt-months{display:block}
 .gg-ig-b-gt-pad{display:none}
 .gg-ig-b-gt-full{display:none}
@@ -657,7 +836,6 @@ _CSS_RAW = """
 .gg-ig-b-ba-row{gap:0 14px}
 }
 @media (min-width:701px){
-.gg-ig-b-pmc-bar b{display:block}
 }
 """
 
@@ -677,4 +855,63 @@ def _scope(css: str) -> str:
     return re.sub(r"(?m)^([^@{}\n]+)\{([^}]*)\}", fix, css)
 
 
-CSS = _scope(_CSS_RAW)
+_EG_CSS = """
+.gg-ig-b-eg-body{padding:20px 20px 20px}
+.gg-ig-b-eg-wrap{position:relative;padding-right:100px}
+.gg-ig-b-eg-past{position:absolute;left:0;top:0;bottom:0;background:var(--eg-past)}
+.gg-ig-b-eg-lines{position:relative;height:220px}
+.gg-ig-b-eg-bars{position:relative;height:56px;margin-top:6px}
+.gg-ig-b-eg-ref{stroke:var(--eg-none);stroke-width:1;vector-effect:non-scaling-stroke}
+.gg-ig-b-eg-yl{position:absolute;left:2px;transform:translateY(-100%);font-family:var(--eg-mono);font-size:11px;color:var(--eg-ink3);text-shadow:0 0 3px var(--eg-card),0 0 3px var(--eg-card)}
+.gg-ig-b-eg-yl--top{transform:translateY(3px)}
+.gg-ig-b-eg-band{stroke:none}
+.gg-ig-b-eg-band--teal{fill:color-mix(in srgb,var(--eg-form) 16%,var(--eg-card))}
+.gg-ig-b-eg-band--pink{fill:color-mix(in srgb,var(--eg-fat) 16%,var(--eg-card))}
+.gg-ig-b-eg-case{fill:none;stroke:var(--eg-card);stroke-width:6.25;stroke-linecap:round;stroke-linejoin:round;vector-effect:non-scaling-stroke}
+.gg-ig-b-eg-hero{fill:none;stroke:var(--eg-ink);stroke-width:2.75;stroke-linecap:round;stroke-linejoin:round;vector-effect:non-scaling-stroke}
+.gg-ig-b-eg-hero--ride{stroke:var(--eg-ride)}
+.gg-ig-b-eg-fat{fill:none;stroke:var(--eg-fat);stroke-width:1.75;stroke-linecap:round;stroke-linejoin:round;vector-effect:non-scaling-stroke}
+.gg-ig-b-eg-plan{stroke-width:2;stroke-dasharray:0 5}
+.gg-ig-b-eg-bar{fill:var(--eg-ink2)}
+.gg-ig-b-eg-bar--plan{fill:none;stroke:var(--eg-ink);stroke-width:2;stroke-dasharray:0 5;stroke-linecap:round;vector-effect:non-scaling-stroke}
+.gg-ig-b-eg-plan-l{position:absolute;top:2px;margin-left:8px;font-family:var(--eg-mono);font-size:11px;color:var(--eg-ink3)}
+.gg-ig-b-eg-note{position:absolute;transform:translate(-50%,-190%);font-family:var(--eg-mono);font-size:11px;font-weight:700;color:var(--eg-ink2);white-space:nowrap;text-shadow:0 0 3px var(--eg-card),0 0 3px var(--eg-card)}
+.gg-ig-b-eg-ends{position:absolute;right:0;top:0;width:96px;height:220px}
+.gg-ig-b-eg-ends>div{position:absolute;left:8px;transform:translateY(-50%)}
+.gg-ig-b-eg-loadl{position:absolute;right:0;bottom:2px;width:96px;padding-left:8px;font-family:var(--eg-mono);font-size:11px;color:var(--eg-ink3)}
+.gg-ig-b-eg-area{fill:color-mix(in srgb,var(--eg-ride) 16%,var(--eg-card));stroke:none}
+.gg-ig-b-eg-zb{position:absolute;left:0;right:0}
+.gg-ig-b-eg-zb--1{background:color-mix(in srgb,var(--eg-ink) 8%,transparent)}
+.gg-ig-b-eg-zb--2{background:color-mix(in srgb,var(--eg-ink) 14%,transparent)}
+.gg-ig-b-eg-zb--3{background:color-mix(in srgb,var(--eg-ink) 20%,transparent)}
+.gg-ig-b-eg-zb span{position:absolute;left:4px;top:50%;transform:translateY(-50%);font-family:var(--eg-mono);font-size:11px;font-weight:700;color:var(--eg-ink2);line-height:1}
+.gg-ig-b-eg-tk{position:absolute;left:0;right:0;border-top:1px solid var(--eg-none)}
+.gg-ig-b-eg-tk span{position:absolute;right:2px;bottom:1px;font-family:var(--eg-mono);font-size:11px;color:var(--eg-ink3);text-shadow:0 0 3px var(--eg-card),0 0 3px var(--eg-card)}
+.gg-ig-b-eg-key{position:absolute;transform:translate(-50%,-165%);z-index:2;pointer-events:none}
+.gg-ig-b-eg-key--end{transform:translate(-92%,-165%)}
+.gg-ig-b-eg-ticks{position:absolute;inset:0;pointer-events:none}
+.gg-ig-b-eg-ruler{position:relative;height:24px;border-top:1px solid var(--eg-ink3);margin-top:0}
+.gg-ig-b-eg-xt{position:absolute;top:5px;transform:translateX(-50%);font-family:var(--eg-mono);font-size:11px;color:var(--eg-ink3);white-space:nowrap}
+.gg-ig-b-eg-xt::before{content:"";position:absolute;left:50%;top:-6px;height:5px;border-left:1px solid var(--eg-ink3)}
+.gg-ig-b-eg-xt:first-child{transform:none}
+.gg-ig-b-eg-xt--opt:last-child{transform:translateX(-100%)}
+.gg-ig-b-eg-zl{display:flex;flex-wrap:wrap;gap:6px 18px;list-style:none;margin:8px 0 0;padding:0;font-family:var(--eg-mono);font-size:12px;color:var(--eg-ink2)}
+.gg-ig-b-eg-zl li{display:flex;align-items:center;gap:6px;margin:0;padding:0}
+.gg-ig-b-eg-zs{display:inline-block;width:12px;height:12px;border-radius:2px!important;box-shadow:inset 0 0 0 1px var(--eg-none)!important}
+.gg-ig-b-eg-zr{font-weight:700;color:var(--eg-ink);font-variant-numeric:tabular-nums}
+.gg-eg-pw[data-eg-scrub="ch3-pd"]{height:270px}
+@media (max-width:700px){
+.gg-ig-b-eg-body{padding:14px 12px 14px}
+.gg-ig-b-eg-wrap{padding-right:50px}
+.gg-ig-b-eg-lines{height:190px}
+.gg-ig-b-eg-ends{width:46px;height:190px}
+.gg-ig-b-eg-ends>div{left:4px}
+.gg-ig-b-eg-ends .gg-eg-capl{display:none}
+.gg-ig-b-eg-loadl{width:46px;padding-left:4px}
+.gg-ig-b-eg-xt--opt{display:none}
+.gg-eg-pw[data-eg-scrub="ch3-pd"]{height:230px}
+.gg-ig-b-eg-key[data-eg-key="1"],.gg-ig-b-eg-zb span{display:none}
+}
+"""
+
+CSS = _scope(_CSS_RAW + _EG_CSS)

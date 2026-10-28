@@ -3378,7 +3378,7 @@ def generate_guide_page(content: dict, inline: bool = False, assets_dir: Path = 
   <link rel="canonical" href="{esc(canonical_url)}">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sometype+Mono:wght@400;700&family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400;1,700&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sometype+Mono:wght@400;700&family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400;1,700&family=JetBrains+Mono:wght@400;500;700;800&family=Geist:wght@400;600&display=swap">
   <!-- GA4 -->
   {get_ga4_head_snippet()}
   {og_tags}

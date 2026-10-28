@@ -4735,6 +4735,71 @@ def sync_latest(latest_file: str):
     return f"{wp_url}/latest/"
 
 
+def sync_surge_check(surge_check_dir: str):
+    """Upload the Surge Check page (index.html, its scripts, vendor/) to /surge-check/ on SiteGround via SSH+SCP.
+
+    The page's shared CSS lives under /race/assets/ like the white paper's;
+    those hashed files go up too. Run wordpress/generate_surge_check.py first.
+    """
+    ssh = get_ssh_credentials()
+    if not ssh:
+        return None
+    host, user, port = ssh
+
+    page_dir = Path(surge_check_dir)
+    if not (page_dir / "index.html").exists():
+        print(f"✗ Surge Check page not found: {page_dir}/index.html")
+        print("  Run: python3 wordpress/generate_surge_check.py first")
+        return None
+
+    remote_base = "~/www/gravelgodcycling.com/public_html/surge-check"
+    try:
+        subprocess.run(
+            ["ssh", "-i", str(SSH_KEY), "-p", port, f"{user}@{host}", f"mkdir -p {remote_base}/vendor"],
+            check=True, capture_output=True, text=True, timeout=15,
+        )
+        files = [f for f in sorted(page_dir.rglob("*")) if f.is_file()]
+        for f in files:
+            rel = f.relative_to(page_dir).as_posix()
+            subprocess.run(
+                ["scp", "-i", str(SSH_KEY), "-P", port, str(f), f"{user}@{host}:{remote_base}/{rel}"],
+                check=True, capture_output=True, text=True, timeout=60,
+            )
+    except subprocess.CalledProcessError as e:
+        print(f"✗ Surge Check upload failed: {(e.stderr or '').strip()}")
+        return None
+    except Exception as e:
+        print(f"✗ Error uploading Surge Check page: {e}")
+        return None
+
+    assets_dir = page_dir.parent / "assets"
+    remote_assets = "~/www/gravelgodcycling.com/public_html/race/assets"
+    for pattern in ("gg-styles.*.css", "gg-scripts.*.js"):
+        for asset in assets_dir.glob(pattern):
+            try:
+                subprocess.run(
+                    ["scp", "-i", str(SSH_KEY), "-P", port, str(asset), f"{user}@{host}:{remote_assets}/{asset.name}"],
+                    check=True, capture_output=True, text=True, timeout=30,
+                )
+            except subprocess.CalledProcessError as e:
+                # The page's styles live in these files: without them it renders unstyled, so this fails the deploy.
+                print(f"✗ Shared asset upload failed ({asset.name}): {(e.stderr or '').strip()}")
+                return None
+
+    try:
+        subprocess.run(
+            ["ssh", "-i", str(SSH_KEY), "-p", port, f"{user}@{host}",
+             f"chmod 755 {remote_base} {remote_base}/vendor && find {remote_base} -type f -exec chmod 644 {{}} +"],
+            check=True, capture_output=True, text=True, timeout=15,
+        )
+    except subprocess.CalledProcessError as e:
+        print(f"⚠ Permission fix failed: {e}")
+
+    wp_url = os.environ.get("WP_URL", "https://gravelgodcycling.com")
+    print(f"✓ Uploaded Surge Check ({len(files)} files): {wp_url}/surge-check/")
+    return f"{wp_url}/surge-check/"
+
+
 def sync_whitepaper(whitepaper_file: str):
     """Upload whitepaper-fueling.html to /fueling-methodology/index.html on SiteGround via SSH+SCP."""
     ssh = get_ssh_credentials()
@@ -5341,6 +5406,14 @@ if __name__ == "__main__":
         help="Path to latest page HTML (default: wordpress/output/latest/index.html)"
     )
     parser.add_argument(
+        "--sync-surge-check", action="store_true",
+        help="Upload the Surge Check page to /surge-check/ via SCP"
+    )
+    parser.add_argument(
+        "--surge-check-dir", default="wordpress/output/surge-check",
+        help="Path to the generated Surge Check folder (default: wordpress/output/surge-check)"
+    )
+    parser.add_argument(
         "--sync-whitepaper", action="store_true",
         help="Upload white paper page to /fueling-methodology/ via SCP"
     )
@@ -5662,7 +5735,7 @@ if __name__ == "__main__":
                       args.sync_series, args.sync_blog,
                       args.sync_blog_index, args.sync_photos, args.sync_ab, args.sync_courses,
                       args.sync_meta_descriptions, args.sync_mission_control,
-                      args.sync_insights, args.sync_whitepaper, args.sync_embed, args.sync_rss,
+                      args.sync_insights, args.sync_whitepaper, args.sync_surge_check, args.sync_embed, args.sync_rss,
                       args.sync_llms_txt, args.sync_markdown, args.ping_indexnow,
                       args.sync_legal, args.sync_consent, args.sync_tire_pages,
                       args.sync_latest, args.purge_cache])
@@ -5784,6 +5857,8 @@ if __name__ == "__main__":
         _run("sync-latest", sync_latest, args.latest_file)
     if args.sync_whitepaper:
         _run("sync-whitepaper", sync_whitepaper, args.whitepaper_file)
+    if args.sync_surge_check:
+        _run("sync-surge-check", sync_surge_check, args.surge_check_dir)
     if args.sync_embed:
         _run("sync-embed", sync_embed)
     if args.sync_rss:

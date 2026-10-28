@@ -137,3 +137,25 @@ root URL**: `gravelgodcycling.com/<slug>/`. The slug never changes (no
 - Concession section is mandatory: name who shouldn't buy/believe.
 - Free-first: the article must be fully useful with zero purchase.
 - One CTA voice: the shell's ladder + subscribe blocks; no extra pitches.
+
+## Article archive (2026-10-28)
+
+`generate_articles_index.py` lists all committed `wordpress/posts/*/index.html`
+at their original URLs, the authored essays in `blog-index.json`, and full
+Substack reprints in `wordpress/articles/`. Existing WordPress/essay versions
+win over repeat Substack publications. The public archive contains only local
+article links. New WordPress imports need no manual index entry.
+
+Substack metadata refresh: `python3 scripts/sync_substack_index.py`.
+Import complete published snapshots: `python3 scripts/import_substack_posts.py
+/path/to/snapshots`. It preserves source copy/images, removes platform controls,
+rejects truncated bodies, and writes committed `wordpress/substack_sources/`
+and article directories. Re-render without network using the same command
+without a snapshots argument. Then regenerate the listing. The source metadata
+records the original published URL; Article JSON-LD includes `isBasedOn`.
+
+The training-app essay was withdrawn at Matti's request: it was not authored by
+him. `web/withdrawn-articles.json` excludes it from index regeneration, and its
+committed directory `.htaccess` returns HTTP 410 on the public site. The old
+source/artwork remain historical material only. Do not republish it or use it
+as an authorship/voice source. This supersedes its older SHIPPED/backlog notes.

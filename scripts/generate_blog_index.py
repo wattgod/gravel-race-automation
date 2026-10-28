@@ -60,7 +60,7 @@ def extract_blog_metadata(html_path):
 
     Returns dict with slug, title, category, tier, date, excerpt, og_image, url.
     """
-    slug = html_path.stem
+    slug = html_path.parent.name if html_path.name == "index.html" else html_path.stem
 
     try:
         content = html_path.read_text(errors="replace")
@@ -129,10 +129,6 @@ def generate_blog_index(blog_dir=None, output_dir=None):
     blog_path = blog_dir or BLOG_DIR
     out_path = output_dir or OUTPUT_DIR
 
-    if not blog_path.exists():
-        print(f"ERROR: Blog directory not found: {blog_path}")
-        return []
-
     html_files = sorted(blog_path.glob("*.html"))
 
     # Also scan articles directory
@@ -142,17 +138,25 @@ def generate_blog_index(blog_dir=None, output_dir=None):
         html_files.extend(sorted(f for f in articles_path.glob("*.html")
                                  if f.name != "index.html"))
 
+    withdrawn_path = PROJECT_ROOT / "web" / "withdrawn-articles.json"
+    withdrawn = set(json.loads(withdrawn_path.read_text()))
+    # Committed editorial pages supersede legacy gitignored output.
+    if blog_path == BLOG_DIR:
+        html_files.extend(sorted((PROJECT_ROOT / "wordpress/articles").glob("*/index.html")))
     if not html_files:
         print("No blog/article HTML files found.")
         return []
-
-    entries = []
+    entries_by_slug = {}
     for f in html_files:
+        slug = f.parent.name if f.name == "index.html" else f.stem
+        if slug in withdrawn:
+            continue
         meta = extract_blog_metadata(f)
         if meta and meta["category"] in PUBLISHED_CATEGORIES:
-            entries.append(meta)
+            entries_by_slug[meta["slug"]] = meta
 
     # Sort by date descending (newest first)
+    entries = list(entries_by_slug.values())
     entries.sort(key=lambda e: e["date"], reverse=True)
 
     # Write output

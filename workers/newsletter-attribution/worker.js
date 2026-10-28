@@ -101,8 +101,9 @@ async function report(url,env) {
   const tests = url.searchParams.get('tests') === '1';
   const since = Math.floor(now()/86400)*86400-(days-1)*86400;
   const predicate = tests ? '1=1' : 'is_test=0';
-  const total = await env.DB.prepare(`SELECT COUNT(*) AS confirmed, SUM(CASE WHEN article IS NULL THEN 1 ELSE 0 END) AS unattributed FROM subscribers WHERE confirmed_at >= ? AND ${predicate}`).bind(since).first();
-  const articles = await env.DB.prepare(`SELECT article,COUNT(*) AS confirmed FROM subscribers WHERE confirmed_at >= ? AND article IS NOT NULL AND ${predicate} GROUP BY article ORDER BY confirmed DESC,article`).bind(since).all();
+  const total = await env.DB.prepare(`SELECT COUNT(*) AS confirmed, SUM(CASE WHEN article IS NULL THEN 1 ELSE 0 END) AS unattributed FROM subscribers WHERE confirmed_at >= ? AND source = 'notification' AND ${predicate}`).bind(since).first();
+  const starting = await env.DB.prepare(`SELECT COUNT(*) AS n FROM subscribers WHERE confirmed_at >= ? AND source != 'notification' AND ${predicate}`).bind(since).first();
+  const articles = await env.DB.prepare(`SELECT article,COUNT(*) AS confirmed FROM subscribers WHERE confirmed_at >= ? AND source = 'notification' AND article IS NOT NULL AND ${predicate} GROUP BY article ORDER BY confirmed DESC,article`).bind(since).all();
   const clicks = await env.DB.prepare(`SELECT essay,COUNT(DISTINCT substr(visitor_hash,9)) AS readers FROM clicks WHERE clicked_at >= ? AND ${predicate} GROUP BY essay`).bind(since).all();
   const clickTotals = await env.DB.prepare(`SELECT essay,SUM(clicks) AS clicks FROM click_totals WHERE day >= ? AND ${predicate} GROUP BY essay`).bind(since).all();
   const health = await env.DB.prepare('SELECT value FROM health WHERE key = ?').bind('last_sync').first();
@@ -110,7 +111,7 @@ async function report(url,env) {
   const historical = await env.DB.prepare(`SELECT COUNT(*) AS n FROM subscribers WHERE source='historical_website' AND ${predicate}`).first();
   return json({days,include_tests:tests,confirmed:total.confirmed || 0,unattributed:total.unattributed || 0,
     articles:articles.results,essays:ESSAYS.map(e=>({...e,readers:clicks.results.find(c=>c.essay === e.key)?.readers || 0,clicks:clickTotals.results.find(c=>c.essay === e.key)?.clicks || 0})),
-    historical_website_unattributed:historical.n,last_sync:health ? Number(health.value) : null,sync_rejected:rejected ? Number(rejected.value) : 0,
+    starting_export_in_period:starting.n,historical_website_unattributed:historical.n,last_sync:health ? Number(health.value) : null,sync_rejected:rejected ? Number(rejected.value) : 0,
     goals:{monthly_income_usd:3000,monthly_confirmed_subscribers:100},
     click_definition:'Clicks exclude known bots and prefetch. Distinct browsers are measured only with analytics consent; one reader may use multiple browsers. Undetected scanners may remain. These are not delivered-email click rates.'});
 }

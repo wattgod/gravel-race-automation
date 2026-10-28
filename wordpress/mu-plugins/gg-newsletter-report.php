@@ -113,6 +113,7 @@ function gg_newsletter_report_page() {
     }
     echo '<h2>' . esc_html($data['confirmed']) . ' confirmed subscribers in this period</h2>';
     echo '<p>' . esc_html($data['unattributed']) . ' have no verified website article attribution. Pending attempts and Subscribe clicks are not counted.</p>';
+    echo '<p>' . esc_html(isset($data['starting_export_in_period']) ? $data['starting_export_in_period'] : 0) . ' existing subscriber records in this period came from the starting export. They are separate from new verified confirmations.</p>';
     echo '<h2>Website articles → confirmed subscribers</h2><table class="widefat striped"><thead><tr><th>Article</th><th>Confirmed subscribers</th></tr></thead><tbody>';
     foreach ($data['articles'] as $article) {
         echo '<tr><td><a href="' . esc_url('https://gravelgodcycling.com' . $article['article']) . '">' . esc_html($article['article']) . '</a></td><td>' . esc_html($article['confirmed']) . '</td></tr>';

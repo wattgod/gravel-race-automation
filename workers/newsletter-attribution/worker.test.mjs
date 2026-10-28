@@ -125,3 +125,15 @@ test('ordinary HTML forms redirect to the native email-prefilled signup; storage
   assert.equal(fallback.status,303);
   assert.equal(new URL(fallback.headers.get('Location')).hostname,'gravelgodcycling.substack.com');
 });
+
+test('starting export records cannot be presented as newly verified confirmations or credited again',async()=>{
+  const {call}=setup();
+  await call('/baseline',{subscribers:[{email,confirmed_at:new Date().toISOString(),source:'gravelgodcycling.com'}]});
+  await call('/capture',{email,article:'/articles/sweet-spot-training-cycling/',website:''},false);
+  await call('/confirm',{messages:[notification()]});
+  const report=await(await call('/report')).json();
+  assert.equal(report.confirmed,0);
+  assert.equal(report.starting_export_in_period,1);
+  assert.equal(report.articles.length,0);
+  assert.equal(report.historical_website_unattributed,1);
+});

@@ -660,7 +660,8 @@ def test_comments_on_a_page_are_excluded_from_the_text_diff():
     src = _module(2592).SOURCE
     data = dict(src.data, comments=COMMENTS)
     page = wp_post.render_post(dataclasses.replace(src, data=data), alt=_module(2592).ALT)
-    assert 'id="comments"' in page and page.index('id="comments"') < page.index('data-slot="ladder"')
+    assert 'id="comments"' in page
+    assert 'data-slot="ladder"' not in page  # personal race diary: no universal sales ladder
     assert imp.text_diff((FIXTURES / "2592.txt").read_text(encoding="utf-8"), page) == []
     assert "Comments are closed." in page and "<form" not in page.split('id="comments"', 1)[1].split("</section>", 1)[0]
 
@@ -685,7 +686,7 @@ def test_gallery_and_youtube_render_with_their_css_and_js_only_when_used():
         "<!--GG:FIGURE screen-shot-2022-04-22-at-5-17-43-pm-->", imp.render_youtube("QmOF0crdyRU", 30))
     page = wp_post.render_post(dataclasses.replace(src, data=data, body=body), alt=_module(2592).ALT)
     assert '<figure class="gg-gallery" style="--cols:2">' in page and page.count('class="gg-gallery-item"') == 2
-    assert "gg-yt-link" in page and "youtube-nocookie.com/embed/" in page and "<iframe" not in page
+    assert "gg-yt-link" in page and "youtube-nocookie.com/embed/" in page and page.count("<iframe") == 1  # native newsletter only; no auto-loaded video
     plain = _page(2592)
     assert ".gg-gallery{" not in plain and "youtube-nocookie" not in plain
 

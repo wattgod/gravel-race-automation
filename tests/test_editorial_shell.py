@@ -386,7 +386,7 @@ class TestAnalyticsAndChrome:
         assert "'article_slug': \"test-article\"" in page
         # Deep read fires only at 75%+ (the funnel metric).
         deep = page.split("'article_deep_read'", 1)[0]
-        assert "if (depths[i] >= 75)" in deep[-400:]
+        assert "if (depths[i] === 75)" in deep[-400:]
 
     def test_events_can_be_off(self):
         html = es.render_editorial_page(_meta(track_article_events=False), BODY)
@@ -1013,13 +1013,15 @@ class TestSweetSpotArticle:
     def test_slots_and_figures(self):
         html = SWEET_SPOT_INDEX.read_text(encoding="utf-8")
         slots = re.findall(r'data-slot="([a-z]+)"', html)
-        assert slots == ["summary", "drift", "recovery", "polarized", "ladder"]
+        assert slots == ["summary", "drift", "recovery", "polarized"]
         # Every "In short" link resolves to an anchor on the page.
         for href in re.findall(r'<a class="ev" href="#([^"]+)"', html):
             assert f'id="{href}"' in html, href
-        # Ladder sits right before the G-Spot section.
+        # One relevant offer follows the complete essay and references.
         main = _main(html).split('id="article">', 1)[1]
-        assert main.index("slot-ladder") < main.index("That Said, G-Spot") < main.index("gg-references")
+        assert "slot-ladder" not in main
+        assert main.index("gg-references") < main.index('class="article-offer"')
+        assert main.count('class="article-offer"') == 1
 
     def test_all_images_exist(self):
         html = SWEET_SPOT_INDEX.read_text(encoding="utf-8")

@@ -51,6 +51,10 @@ is trusted HTML the caller already escaped. Its contract:
   Wrap a figure in `<div class="slot" data-slot="name">` to get the mono
   figure type and a scroll target.
 
+`offer_html`: an optional pre-rendered contextual resource appended outside the
+authored sections. Article adapters disable the universal ladder when using it.
+The native newsletter signup lives once in the shared footer.
+
 `in_short`: a sequence of Claim(text_html, href, link_label, section). The
 dot next to a claim fills once the reader has passed h2 number `section`
 (0-based). `ladder`: True = default lead line, a str = custom lead (plain
@@ -161,6 +165,7 @@ from html.parser import HTMLParser
 from typing import Literal, Sequence
 
 import pricing
+from blog_tracking import get_plan_intent_tracking_script
 from brand_tokens import (
     get_favicon_head_snippet,
     get_font_face_css,
@@ -636,12 +641,10 @@ def render_footer() -> str:
     nav = "".join(f'<a href="{esc(href)}">{esc(label.title())}</a>' for href, label in header_nav_links())
     return f"""<footer class="foot">
   <div class="in">
-    <div>
-      <h3>Slow, Mid, 38s</h3>
-      <p class="pitch">More like this every week. Training science without the marketing. Race intel without the fluff.</p>
-      <a class="btn" href="{SUBSTACK_URL}" target="_blank" rel="noopener"{_cta_attrs("substack_bottom")}>Subscribe to Slow, Mid, 38s <span class="chev" aria-hidden="true">&rsaquo;</span></a>
-      <p class="fine">Free &mdash; Unsubscribe anytime</p>
-    </div>
+    <section class="newsletter-signup" aria-label="Slow, Mid, 38s newsletter">
+      <iframe src="{SUBSTACK_URL}/embed" title="Subscribe to Slow, Mid, 38s" width="480" height="320" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+      <a class="newsletter-fallback" href="{SUBSTACK_URL}/subscribe" target="_blank" rel="noopener"{_cta_attrs("substack_bottom")}>Subscribe on Substack <span aria-hidden="true">&rsaquo;</span></a>
+    </section>
     <nav aria-label="Footer">{nav}<a href="{SUBSTACK_URL}">Substack</a></nav>
   </div>
   <div class="base"><span>&copy; Gravel God Cycling</span></div>
@@ -784,7 +787,7 @@ def render_article_events_js(slug: str) -> str:
               'depth_threshold': depths[i]
             }});
             // Fire separate deep-read event at 75%+ for funnel tracking
-            if (depths[i] >= 75) {{
+            if (depths[i] === 75) {{
               gtag('event', 'article_deep_read', {{
                 'article_slug': {s},
                 'depth_threshold': depths[i]
@@ -1630,6 +1633,7 @@ def render_editorial_page(
     extra_css: str = "",
     extra_body_end: str = "",
     figures: Sequence[Figure] = (),
+    offer_html: str = "",
     in_short_on_phone: InShortOnPhone = "first",
 ) -> str:
     """Render a full editorial page. See the module docstring for the contract."""
@@ -1660,6 +1664,8 @@ def render_editorial_page(
         body = _place(body, LADDER_MARKER, render_ladder(lead), default="refs")
     else:
         body = body.replace(LADDER_MARKER, "")
+    if offer_html:
+        body += "\n" + offer_html
     body, toc = add_heading_ids(body)
     body = mark_dash_rules(body)
 
@@ -1681,6 +1687,11 @@ def render_editorial_page(
     else:
         toc_bar = rail = ""
 
+    # Commercial offers must reach the canonical plan-intent report too.
+    if offer_html:
+        tracker = get_plan_intent_tracking_script()
+        if tracker not in extra_body_end:
+            extra_body_end += "\n" + tracker
     events = render_article_events_js(meta.slug) if meta.tracks_article_events else ""
     if uses_essay:
         extra_css = ESSAY_CSS + "\n" + extra_css
@@ -1905,6 +1916,14 @@ sup a:hover{text-decoration:underline}
 .foot .pitch{font:400 19px/1.45 var(--serif);color:var(--paper);margin:0 0 18px;max-width:34em}
 .foot .fine{font:700 13px var(--mono);letter-spacing:.05em;text-transform:uppercase;color:#e2d6c7;margin:14px 0 0}
 .foot .btn{background:var(--teal)}
+.newsletter-signup{width:100%;max-width:480px}
+.newsletter-signup iframe{display:block;width:100%;height:320px;border:0;background:var(--paper)}
+.newsletter-fallback{display:inline-block;margin-top:14px;font:500 13px var(--mono);text-underline-offset:4px}
+.article-offer{border-top:1px solid var(--sand2);margin-top:56px;padding:28px 0;display:flex;align-items:center;justify-content:space-between;gap:24px}
+.article .article-offer h2{font:700 25px/1.2 var(--serif);margin:0}
+.article .article-offer-detail{font:500 13px/1.5 var(--mono);margin:10px 0 0;color:var(--ink2)}
+.article-offer .btn{flex-shrink:0;background:var(--teal);color:var(--paper)}
+@media(max-width:640px){.article-offer{align-items:flex-start;flex-direction:column;gap:18px}}
 .foot nav{display:grid;grid-template-columns:1fr 1fr;gap:6px 24px;align-content:start}
 .foot nav a{font:700 14px var(--mono);text-transform:uppercase;text-decoration:none;padding:6px 0}
 .foot .base{max-width:1296px;margin:0 auto;padding:0 32px 28px;font:700 12px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:#d9cbbb}

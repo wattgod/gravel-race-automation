@@ -159,3 +159,30 @@ him. `web/withdrawn-articles.json` excludes it from index regeneration, and its
 committed directory `.htaccess` returns HTTP 410 on the public site. The old
 source/artwork remain historical material only. Do not republish it or use it
 as an authorship/voice source. This supersedes its older SHIPPED/backlog notes.
+
+## Article signup and contextual resources
+
+All article renderers and the listing use the one native Slow, Mid, 38s signup
+in `editorial_shell.render_footer()`. It submits directly to Substack; the
+plain Substack link is a fallback. Do not substitute a Mission Control lead
+submission for a newsletter subscription. Do not infer `sign_up` from iframe
+loads, focus, clicks, or arbitrary cross-origin messages.
+
+`wordpress/article_offers.py` holds the reviewed slug-to-resource policy.
+Training pieces can offer a plan or coaching; matched race reports link to
+the current race guide; some explainers link to the relevant handbook chapter.
+Unlisted/new articles default to newsletter only. Add a mapping deliberately;
+never infer an offer from an incidental body keyword. Render at most one
+resource, outside the authored sections; leave body copy and artwork intact.
+The old universal plans/coaching ladder is disabled for imported posts and
+Sweet Spot. Prices come from `pricing.py`/`data/pricing.json`.
+
+`article_deep_read` fires once per page load at the 75% milestone. The four
+scroll-depth milestones still fire independently. `article_cta_click` describes
+article actions; commercial plan/coaching links additionally emit the canonical
+`cta_click` for the existing intent report. Those event types are separate
+measures, never summed as customer conversions.
+
+Regression: `pytest tests/test_article_conversion.py` executes the emitted JS
+for gradual scrolling, repeated scrolling, a jump to the bottom, and a real
+commercial click. It also checks every archive page's signup and reviewed offer.

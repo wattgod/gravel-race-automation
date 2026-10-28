@@ -289,6 +289,14 @@ sup a:hover{text-decoration:underline}
 .foot .pitch{font:400 19px/1.45 var(--serif);color:var(--paper);margin:0 0 18px;max-width:34em}
 .foot .fine{font:700 13px var(--mono);letter-spacing:.05em;text-transform:uppercase;color:#e2d6c7;margin:14px 0 0}
 .foot .btn{background:var(--teal)}
+.newsletter-signup{width:100%;max-width:480px}
+.newsletter-signup iframe{display:block;width:100%;height:320px;border:0;background:var(--paper)}
+.newsletter-fallback{display:inline-block;margin-top:14px;font:500 13px var(--mono);text-underline-offset:4px}
+.article-offer{border-top:1px solid var(--sand2);margin-top:56px;padding:28px 0;display:flex;align-items:center;justify-content:space-between;gap:24px}
+.article .article-offer h2{font:700 25px/1.2 var(--serif);margin:0}
+.article .article-offer-detail{font:500 13px/1.5 var(--mono);margin:10px 0 0;color:var(--ink2)}
+.article-offer .btn{flex-shrink:0;background:var(--teal);color:var(--paper)}
+@media(max-width:640px){.article-offer{align-items:flex-start;flex-direction:column;gap:18px}}
 .foot nav{display:grid;grid-template-columns:1fr 1fr;gap:6px 24px;align-content:start}
 .foot nav a{font:700 14px var(--mono);text-transform:uppercase;text-decoration:none;padding:6px 0}
 .foot .base{max-width:1296px;margin:0 auto;padding:0 32px 28px;font:700 12px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:#d9cbbb}
@@ -603,41 +611,20 @@ h2[id],h3[id],[data-slot],figure[id]{scroll-margin-top:72px}
 <p>As a cyclist, it’s all too easy to skip that annoying 30-minute workout on your TrainingPeaks calendar.  Don’t. It’ll help you on the bike (and off) more than you can imagine. If I can watch my 8-month-old while I do it, you can make it happen also.</p>
 </section>
 
-<div class="slot slot-ladder" data-slot="ladder">
-<aside class="ladder" aria-label="Training plans and coaching">
-  <p class="lead">See how we actually structure plans — polarized, race-specific, built for your life.</p>
-  <div class="rung main">
-    <div>
-      <span class="k">One race</span>
-      <strong>Custom Training Plan</strong>
-      <span class="price">$15/week · paid once</span>
-      <span class="d">One race, periodised to your date, in your TrainingPeaks calendar within 24 hours. 7-day refund.</span>
-    </div>
-    <a class="btn" href="/products/training-plans/" data-event="article_cta_click" data-label="custom_plan" data-cta="custom_plan">Get a custom plan <span class="chev" aria-hidden="true">&rsaquo;</span></a>
-  </div>
-  <div class="pair">
-    <div class="rung">
-      <span class="k">A human</span>
-      <strong>Coaching</strong>
-      <span class="price">From $199 every 4 weeks</span>
-      <span class="d">A human coach and a plan that adjusts weekly.</span>
-      <a class="btn" href="/coaching/" data-event="article_cta_click" data-label="coaching" data-cta="coaching">See coaching <span class="chev" aria-hidden="true">&rsaquo;</span></a>
-    </div>
-  </div>
+<aside class="article-offer" data-gg-added aria-label="Related resource">
+  <div><h2 data-no-toc id="custom-training-plan">Custom training plan</h2><p class="article-offer-detail">$15/week · paid once</p></div>
+  <a class="btn" href="/products/training-plans/" data-event="article_cta_click" data-label="custom_plan" data-cta="custom_plan">See training plans <span aria-hidden="true">&rsaquo;</span></a>
 </aside>
-</div>
     </article>
   </div>
 </main>
 
 <footer class="foot">
   <div class="in">
-    <div>
-      <h3>Slow, Mid, 38s</h3>
-      <p class="pitch">More like this every week. Training science without the marketing. Race intel without the fluff.</p>
-      <a class="btn" href="https://gravelgodcycling.substack.com" target="_blank" rel="noopener" data-event="article_cta_click" data-label="substack_bottom">Subscribe to Slow, Mid, 38s <span class="chev" aria-hidden="true">&rsaquo;</span></a>
-      <p class="fine">Free &mdash; Unsubscribe anytime</p>
-    </div>
+    <section class="newsletter-signup" aria-label="Slow, Mid, 38s newsletter">
+      <iframe src="https://gravelgodcycling.substack.com/embed" title="Subscribe to Slow, Mid, 38s" width="480" height="320" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+      <a class="newsletter-fallback" href="https://gravelgodcycling.substack.com/subscribe" target="_blank" rel="noopener" data-event="article_cta_click" data-label="substack_bottom">Subscribe on Substack <span aria-hidden="true">&rsaquo;</span></a>
+    </section>
     <nav aria-label="Footer"><a href="https://gravelgodcycling.com/gravel-races/">Races</a><a href="https://gravelgodcycling.com/products/training-plans/">Products</a><a href="https://gravelgodcycling.com/coaching/">Services</a><a href="https://gravelgodcycling.com/articles/">Articles</a><a href="https://gravelgodcycling.com/about/">About</a><a href="https://gravelgodcycling.substack.com">Substack</a></nav>
   </div>
   <div class="base"><span>&copy; Gravel God Cycling</span></div>
@@ -828,6 +815,29 @@ h2[id],h3[id],[data-slot],figure[id]{scroll-margin-top:72px}
 </script>
 
 <script>
+(function () {
+  var selector = [
+    'a[href*="/questionnaire"]',
+    'a[href*="/prep-kit/"]',
+    'a[href^="https://buy.stripe.com/"]',
+    'a[data-cta][href*="/coaching"]',
+    'a[data-cta][href*="/training-plans"]',
+    'a[data-cta][href*="/season-plan"]'
+  ].join(',');
+  document.querySelectorAll(selector).forEach(function (link) {
+    link.addEventListener('click', function () {
+      if (typeof gtag !== 'function') return;
+      gtag('event', 'cta_click', {
+        source: 'editorial',
+        cta_name: link.getAttribute('data-cta') || 'plan_intent',
+        cta_href: link.getAttribute('href') || '',
+        page_path: window.location.pathname
+      });
+    });
+  });
+}());
+</script>
+<script>
   // Article-specific GA4 events
   (function() {
     // Scroll depth tracking (25%, 50%, 75%, 100%)
@@ -851,7 +861,7 @@ h2[id],h3[id],[data-slot],figure[id]{scroll-margin-top:72px}
               'depth_threshold': depths[i]
             });
             // Fire separate deep-read event at 75%+ for funnel tracking
-            if (depths[i] >= 75) {
+            if (depths[i] === 75) {
               gtag('event', 'article_deep_read', {
                 'article_slug': "so-why-do-you-skip-weight-training",
                 'depth_threshold': depths[i]

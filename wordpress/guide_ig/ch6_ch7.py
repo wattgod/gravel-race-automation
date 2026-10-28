@@ -25,6 +25,28 @@ def _shell(tone: str, asset_id: str, alt: str, eyebrow: str, title: str, body: s
     )
 
 
+def _len_controls(extra: str = "") -> str:
+    """Race-length control (number + miles/hours toggle). Hidden until JS runs."""
+    return (
+        '<div class="gg-ig-d-ctl" hidden>'
+        '<label class="gg-ig-d-fld"><span>Race length</span>'
+        '<input type="number" class="gg-ig-d-len" min="1" max="999" step="any"'
+        ' inputmode="decimal" placeholder="100"></label>'
+        '<div class="gg-ig-d-seg" role="group" aria-label="Length unit">'
+        '<button type="button" data-unit="mi" aria-pressed="true">Miles</button>'
+        '<button type="button" data-unit="hr" aria-pressed="false">Hours</button></div>'
+        f'{extra}</div>'
+    )
+
+
+def _scrub_control(label: str) -> str:
+    return (
+        f'<label class="gg-ig-d-fld gg-ig-d-fld--scrub"><span>{_e(label)}</span>'
+        '<input type="range" class="gg-ig-d-pos" min="0" max="100" step="1" value="0"></label>'
+        '<button type="button" class="gg-ig-d-clear" hidden>Clear</button>'
+    )
+
+
 # ── Chapter 6: three acts ───────────────────────────────────
 
 ACTS = [
@@ -41,6 +63,13 @@ ACTS = [
 
 
 def render_three_acts(block: dict) -> str:
+    bounds = [0]
+    for a in ACTS:
+        bounds.append(bounds[-1] + a[3])
+    ticks = "".join(
+        f'<span class="gg-ig-d-acts-tick" data-pct="{b}" style="left:{b}%"></span>'
+        for b in bounds
+    )
     bar = "".join(
         f'<span class="gg-ig-d-acts-seg gg-ig-d-acts-seg--{i + 1}" style="flex:{w} 1 0">'
         f'{_e(num)}</span>'
@@ -50,17 +79,23 @@ def render_three_acts(block: dict) -> str:
     for i, (num, title, rng, _w, spark, items) in enumerate(ACTS):
         lis = "".join(f"<li>{_e(s)}</li>" for s in items)
         cols.append(
-            f'<section class="gg-ig-d-act gg-ig-d-act--{i + 1}">'
+            f'<section class="gg-ig-d-act gg-ig-d-act--{i + 1}" data-lo="{bounds[i]}"'
+            f' data-hi="{bounds[i + 1]}" data-name="{_e(num)}: {_e(title)}">'
             f'<span class="gg-ig-d-act-num">{_e(num)}</span>'
             f'<h4 class="gg-ig-d-act-name">{_e(title)}</h4>'
             f'<div class="gg-ig-d-act-range">{_e(rng)}</div>'
+            f'<div class="gg-ig-d-act-conv" hidden></div>'
             f'<svg class="gg-ig-d-act-spark" viewBox="0 0 120 40" aria-hidden="true"'
             f' focusable="false"><path d="{_e(spark)}"/></svg>'
             f'<ul class="gg-ig-d-act-list">{lis}</ul></section>'
         )
     body = (
-        f'<div class="gg-ig-d-body">'
-        f'<div class="gg-ig-d-acts-bar" aria-hidden="true">{bar}</div>'
+        f'<div class="gg-ig-d-body gg-ig-d-acts-root">'
+        f'{_len_controls(_scrub_control("Where am I in the race"))}'
+        f'<p class="gg-ig-d-status" aria-live="polite" hidden></p>'
+        f'<div class="gg-ig-d-acts-barwrap"><div class="gg-ig-d-acts-bar" aria-hidden="true">{bar}</div>'
+        f'<span class="gg-ig-d-acts-here" hidden aria-hidden="true"></span>'
+        f'<div class="gg-ig-d-acts-ticks" hidden aria-hidden="true">{ticks}</div></div>'
         f'<div class="gg-ig-d-acts">{"".join(cols)}</div></div>'
     )
     return _shell("dark", block.get("asset_id", "ch6-three-acts"), block.get("alt", ""),
@@ -135,7 +170,8 @@ def render_psych_phases(block: dict) -> str:
         f' aria-label="Mood curve across race progress: high at the start, lowest in the Dark Patch'
         f' between 40 and 60 percent, then recovering to the finish">'
         f'{bands}<path class="gg-ig-d-psy-line" d="{_smooth_path(pts)}"/>'
-        f'<circle class="gg-ig-d-psy-low" cx="{lx:.0f}" cy="{ly:.0f}" r="13"/></svg>'
+        f'<circle class="gg-ig-d-psy-low" cx="{lx:.0f}" cy="{ly:.0f}" r="13"/>'
+        f'<circle class="gg-ig-d-psy-here" cx="0" cy="0" r="12" hidden/></svg>'
     )
     cards = []
     for name, s, e, tip, details in PHASES:
@@ -143,16 +179,20 @@ def render_psych_phases(block: dict) -> str:
         dark = " gg-ig-d-psy-card--dark" if name == "Dark Patch" else ""
         lis = "".join(f"<li>{_e(d)}</li>" for d in details)
         cards.append(
-            f'<section class="gg-ig-d-psy-card{dark}">'
+            f'<section class="gg-ig-d-psy-card{dark}" data-lo="{round(s * 100)}"'
+            f' data-hi="{round(e * 100)}" data-name="{_e(name)}">'
             f'<span class="gg-ig-d-psy-range">{_e(rng)}</span>'
+            f'<span class="gg-ig-d-psy-conv" hidden></span>'
             f'<h4 class="gg-ig-d-psy-name">{_e(name)}</h4>'
             f'<p class="gg-ig-d-psy-tip">{_e(tip)}</p>'
             f'<ul class="gg-ig-d-psy-list">{lis}</ul></section>'
         )
     body = (
-        f'<div class="gg-ig-d-body">'
+        f'<div class="gg-ig-d-body gg-ig-d-psy-root">'
         f'<div class="gg-ig-d-hero"><span class="gg-ig-d-big">40–60%</span>'
         f'<span class="gg-ig-d-herolbl">of the race: the Dark Patch</span></div>'
+        f'{_len_controls(_scrub_control("Scrub the race"))}'
+        f'<p class="gg-ig-d-status" aria-live="polite" hidden></p>'
         f'<div class="gg-ig-d-psy-chart"><div class="gg-ig-d-psy-axis" aria-hidden="true">'
         f'<span>HIGH</span><span>LOW</span></div>{svg}</div>'
         f'<div class="gg-ig-d-psy-cards">{"".join(cards)}</div></div>'
@@ -202,13 +242,15 @@ def render_race_week_countdown(block: dict) -> str:
             f' aria-pressed="{sel}" aria-label="{_e(abbr)}: {_e(task)}">'
             f'<span class="gg-ig-d-wk-t">T−{last - i}</span>'
             f'<span class="gg-ig-d-wk-abbr">{_e(abbr)}</span>'
+            f'<span class="gg-ig-d-wk-date" hidden></span>'
             f'<span class="gg-ig-d-wk-task">{_e(task)}</span></button>'
         )
         lis = "".join(f"<li>{_e(d)}</li>" for d in details)
         panels.append(
             f'<div class="gg-ig-d-wk-panel" data-day="{i}">'
             f'<div class="gg-ig-d-wk-ph"><span class="gg-ig-d-wk-pabbr">{_e(abbr)}</span>'
-            f'<span class="gg-ig-d-wk-ptask">{_e(task)}</span></div>'
+            f'<span class="gg-ig-d-wk-ptask">{_e(task)}</span>'
+            f'<span class="gg-ig-d-wk-pdate" hidden></span></div>'
             f'<p class="gg-ig-d-wk-note">{_e(note)}</p>'
             f'<ul class="gg-ig-d-wk-list">{lis}</ul></div>'
         )
@@ -216,6 +258,9 @@ def render_race_week_countdown(block: dict) -> str:
         f'<div class="gg-ig-d-body gg-ig-d-wk">'
         f'<div class="gg-ig-d-hero"><span class="gg-ig-d-big">7</span>'
         f'<span class="gg-ig-d-herolbl">days out</span></div>'
+        f'<div class="gg-ig-d-ctl" hidden>'
+        f'<label class="gg-ig-d-fld"><span>Race day</span>'
+        f'<input type="date" class="gg-ig-d-rdate"></label></div>'
         f'<div class="gg-ig-d-wk-strip">{"".join(tiles)}</div>'
         f'<div class="gg-ig-d-wk-panels" aria-live="polite">{"".join(panels)}</div></div>'
     )
@@ -274,6 +319,7 @@ def render_weather_matrix(block: dict) -> str:
             sweet = " gg-ig-d-mx-cell--on" if (ti, wi) == (2, 1) else ""
             cells.append(
                 f'<button type="button" class="gg-ig-d-mx-cell gg-ig-d-mx-cell--{lv}{sweet}"'
+                f' data-ti="{ti}" data-wi="{wi}"'
                 f' data-tip="{_e(tip)}" data-level="{_e(LEVELS[lv])}"'
                 f' aria-label="{_e(tip)}. Impact {lv}, {_e(LEVELS[lv])}">{lv}</button>'
             )
@@ -286,6 +332,11 @@ def render_weather_matrix(block: dict) -> str:
         f'<div class="gg-ig-d-hero"><span class="gg-ig-d-big">60–75°F</span>'
         f'<span class="gg-ig-d-herolbl">with light wind is the sweet spot. '
         f'Anything beyond that costs watts.</span></div>'
+        f'<div class="gg-ig-d-ctl" hidden>'
+        f'<label class="gg-ig-d-fld"><span>Forecast °F</span>'
+        f'<input type="number" class="gg-ig-d-ftemp" min="-40" max="140" step="1" inputmode="decimal"></label>'
+        f'<label class="gg-ig-d-fld"><span>Wind mph</span>'
+        f'<input type="number" class="gg-ig-d-fwind" min="0" max="99" step="1" inputmode="decimal"></label></div>'
         f'<div class="gg-ig-d-mx-wrap">'
         f'<div class="gg-ig-d-mx-axisx">WIND (MPH) →</div>'
         f'<div class="gg-ig-d-mx-grid">{"".join(cells)}</div>'
@@ -405,6 +456,42 @@ CSS = """
 .gg-ig-d-mx-legend{display:flex;flex-wrap:wrap;gap:8px 18px;margin:0;padding:0;list-style:none;font-family:var(--gg-font-data);font-size:14px;font-weight:700}
 .gg-ig-d-mx-legend li{display:flex;align-items:center;gap:8px}
 .gg-ig-d-mx-chip{display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border:3px solid var(--gg-color-dark-brown);font-size:14px}
+/* interactions */
+.gg-ig-d [hidden]{display:none!important}
+.gg-ig-d-ctl{display:flex;flex-wrap:wrap;align-items:flex-end;gap:10px 18px;margin:0 0 20px}
+.gg-ig-d-fld{display:flex;flex-direction:column;gap:4px;font-family:var(--gg-font-data);font-size:12px;font-weight:700;letter-spacing:1px;text-transform:uppercase}
+.gg-ig-d-fld input[type="number"],.gg-ig-d-fld input[type="date"]{min-height:44px;width:130px;padding:0 10px;margin:0;border:3px solid var(--gg-color-dark-brown);border-radius:0;background:var(--gg-color-white);color:var(--gg-color-dark-brown);font-family:var(--gg-font-data);font-size:16px;font-weight:700}
+.gg-ig-d-fld input[type="date"]{width:170px}
+.gg-ig-d--dark .gg-ig-d-fld input{border-color:var(--gg-color-warm-paper)}
+.gg-ig-d-fld input[type="range"]{min-height:44px;width:min(320px,70vw);margin:0;accent-color:var(--gg-color-light-gold);cursor:pointer}
+.gg-ig-d-psy-root .gg-ig-d-fld input[type="range"]{accent-color:var(--gg-color-dark-brown)}
+.gg-ig-d-fld input:focus-visible,.gg-ig-d-seg button:focus-visible,.gg-ig-d-clear:focus-visible{outline:3px solid var(--gg-color-teal);outline-offset:2px}
+.gg-ig-d-seg{display:inline-flex;border:3px solid var(--gg-color-dark-brown)}
+.gg-ig-d--dark .gg-ig-d-seg{border-color:var(--gg-color-warm-paper)}
+.gg-ig-d-seg button,.gg-ig-d-clear{appearance:none;min-height:44px;min-width:64px;padding:0 14px;margin:0;border:0;border-radius:0;background:transparent;color:inherit;font-family:var(--gg-font-data);font-size:14px;font-weight:700;cursor:pointer}
+.gg-ig-d-seg button[aria-pressed="true"]{background:var(--gg-color-light-gold);color:var(--gg-color-dark-brown)}
+.gg-ig-d-clear{border:3px solid currentColor}
+.gg-ig-d p.gg-ig-d-status{margin:0 0 16px;font-family:var(--gg-font-data);font-size:16px;font-weight:700;line-height:1.4}
+.gg-ig-d-acts-barwrap{position:relative;margin:0 0 20px}
+.gg-ig-d-acts-barwrap .gg-ig-d-acts-bar{margin:0}
+.gg-ig-d-acts-here{position:absolute;top:-6px;height:46px;width:6px;margin-left:-3px;background:var(--gg-color-white);border:2px solid var(--gg-color-dark-brown);pointer-events:none}
+.gg-ig-d-acts-ticks{position:relative;height:24px;margin-top:4px}
+.gg-ig-d-acts-tick{position:absolute;top:0;transform:translateX(-50%);font-family:var(--gg-font-data);font-size:14px;font-weight:700;white-space:nowrap}
+.gg-ig-d-acts-tick:first-child{transform:none}
+.gg-ig-d-acts-tick:last-child{transform:translateX(-100%)}
+.gg-ig-d-act-conv{font-family:var(--gg-font-data);font-size:16px;font-weight:700;margin:6px 0 0;color:var(--gg-color-warm-paper)}
+.gg-ig-d-act--3 .gg-ig-d-act-conv{color:var(--gg-color-dark-brown)}
+.gg-ig-d-acts--scrub .gg-ig-d-act{opacity:.5}
+.gg-ig-d-acts--scrub .gg-ig-d-act--on{opacity:1;outline:4px solid var(--gg-color-warm-paper);outline-offset:-4px}
+.gg-ig-d-acts--scrub .gg-ig-d-act--3.gg-ig-d-act--on{outline-color:var(--gg-color-dark-brown)}
+.gg-ig-d-acts--scrub .gg-ig-d-act--on .gg-ig-d-act-list li{font-weight:700}
+.gg-ig-d-psy-conv{display:block;font-family:var(--gg-font-data);font-size:14px;font-weight:700;margin:2px 0 0}
+.gg-ig-d-psy-here{fill:var(--gg-color-white);stroke:var(--gg-color-dark-brown);stroke-width:5;vector-effect:non-scaling-stroke}
+.gg-ig-d-psy-cards--scrub .gg-ig-d-psy-card{opacity:.5}
+.gg-ig-d-psy-cards--scrub .gg-ig-d-psy-card--on{opacity:1;outline:4px solid var(--gg-color-dark-brown);outline-offset:-4px}
+.gg-ig-d-psy-cards--scrub .gg-ig-d-psy-card--dark.gg-ig-d-psy-card--on{outline-color:var(--gg-color-light-gold)}
+.gg-ig-d-wk-date{font-family:var(--gg-font-data);font-size:14px;font-weight:700}
+.gg-ig-d-wk-pdate{font-family:var(--gg-font-data);font-size:18px;font-weight:700;color:var(--gg-color-sand)}
 @media (max-width:860px){
 .gg-ig-d-acts{grid-template-columns:minmax(0,1fr)}
 .gg-ig-d-psy-cards{grid-template-columns:minmax(0,1fr)}
@@ -423,7 +510,10 @@ CSS = """
 .gg-ig-d-psy-axis{display:none}
 .gg-ig-d-wk-strip{gap:2px}
 .gg-ig-d-wk-tile{min-height:64px;padding:8px 4px;align-items:center;justify-content:center}
-.gg-ig-d-wk-t,.gg-ig-d-wk-task{display:none}
+.gg-ig-d-wk-t,.gg-ig-d-wk-task,.gg-ig-d-wk-date{display:none}
+.gg-ig-d-fld input[type="number"]{width:104px}
+.gg-ig-d-seg button{min-width:56px;padding:0 10px}
+.gg-ig-d-acts-tick{font-size:12px}
 .gg-ig-d-wk-abbr{font-size:16px;letter-spacing:0}
 .gg-ig-d-wk-pabbr{font-size:36px}
 .gg-ig-d-wk-ptask{font-size:24px}
@@ -437,29 +527,207 @@ CSS = """
 
 JS = """
 (function(){
+function num(v){var n=parseFloat(v);return isFinite(n)?n:null;}
+function trim(v){return String(Math.round(v*10)/10);}
+function fmtLen(pct,len,unit){
+  var v=pct/100*len;
+  if(unit==='hr'){var m=Math.round(v*60);return Math.floor(m/60)+':'+('0'+(m%60)).slice(-2);}
+  return trim(v);
+}
+function fmtRange(lo,hi,st){
+  if(!st.len)return '';
+  return fmtLen(lo,st.len,st.unit)+'\\u2013'+fmtLen(hi,st.len,st.unit)+(st.unit==='hr'?' h':' mi');
+}
+function fmtPoint(pct,st){
+  if(!st.len)return '';
+  return st.unit==='hr'?fmtLen(pct,st.len,'hr')+' h of '+fmtLen(100,st.len,'hr')+' h':'mile '+fmtLen(pct,st.len,'mi')+' of '+trim(st.len);
+}
+function lenState(root,onChange){
+  var st={len:null,unit:'mi',pos:null};
+  var ctl=root.querySelector('.gg-ig-d-ctl');
+  var input=root.querySelector('.gg-ig-d-len');
+  var btns=root.querySelectorAll('.gg-ig-d-seg button');
+  var pos=root.querySelector('.gg-ig-d-pos');
+  var clear=root.querySelector('.gg-ig-d-clear');
+  ctl.hidden=false;
+  function fire(){
+    var n=num(input.value);
+    st.len=(n!==null&&n>0)?n:null;
+    input.setAttribute('aria-invalid',(input.value!==''&&st.len===null)?'true':'false');
+    onChange(st);
+  }
+  input.addEventListener('input',fire);
+  btns.forEach(function(b){b.addEventListener('click',function(){
+    st.unit=b.getAttribute('data-unit');
+    btns.forEach(function(x){x.setAttribute('aria-pressed',x===b?'true':'false');});
+    fire();
+  });});
+  pos.addEventListener('input',function(){st.pos=num(pos.value);clear.hidden=false;onChange(st);});
+  clear.addEventListener('click',function(){st.pos=null;pos.value='0';clear.hidden=true;onChange(st);});
+  return st;
+}
+
+var ar=document.querySelectorAll('.gg-ig-d-acts-root');
+ar.forEach(function(root){
+  var cols=root.querySelectorAll('.gg-ig-d-act');
+  var acts=root.querySelector('.gg-ig-d-acts');
+  var ticks=root.querySelectorAll('.gg-ig-d-acts-tick');
+  var tickBox=root.querySelector('.gg-ig-d-acts-ticks');
+  var here=root.querySelector('.gg-ig-d-acts-here');
+  var status=root.querySelector('.gg-ig-d-status');
+  var pos=root.querySelector('.gg-ig-d-pos');
+  var unitWord=function(st){return st.unit==='hr'?' h':' mi';};
+  function draw(st){
+    var has=!!st.len;
+    tickBox.hidden=!has;
+    ticks.forEach(function(t){
+      t.textContent=has?(fmtLen(num(t.getAttribute('data-pct')),st.len,st.unit)+(t.getAttribute('data-pct')==='100'?unitWord(st):'')):'';
+    });
+    cols.forEach(function(c){
+      var conv=c.querySelector('.gg-ig-d-act-conv');
+      var r=fmtRange(num(c.getAttribute('data-lo')),num(c.getAttribute('data-hi')),st);
+      conv.hidden=!has;conv.textContent=r;
+    });
+    var p=st.pos;
+    var on=p!==null;
+    acts.classList.toggle('gg-ig-d-acts--scrub',on);
+    here.hidden=!on;status.hidden=!on;
+    var cur=null;
+    cols.forEach(function(c){
+      var lo=num(c.getAttribute('data-lo')),hi=num(c.getAttribute('data-hi'));
+      var hit=on&&(p>=lo&&(p<hi||(hi===100&&p<=100)));
+      c.classList.toggle('gg-ig-d-act--on',hit);
+      if(hit)cur=c;
+    });
+    if(on){
+      here.style.left=p+'%';
+      var pt=fmtPoint(p,st);
+      var txt='At '+p+'%'+(pt?' ('+pt+')':'')+' \\u00b7 '+(cur?cur.getAttribute('data-name'):'');
+      status.textContent=txt;
+      pos.setAttribute('aria-valuetext',txt);
+    }
+  }
+  var st=lenState(root,draw);
+  draw(st);
+});
+
+var pr=document.querySelectorAll('.gg-ig-d-psy-root');
+pr.forEach(function(root){
+  var cards=root.querySelectorAll('.gg-ig-d-psy-card');
+  var cardBox=root.querySelector('.gg-ig-d-psy-cards');
+  var svg=root.querySelector('.gg-ig-d-psy-svg');
+  var line=root.querySelector('.gg-ig-d-psy-line');
+  var dot=root.querySelector('.gg-ig-d-psy-here');
+  var status=root.querySelector('.gg-ig-d-status');
+  var pos=root.querySelector('.gg-ig-d-pos');
+  var vb=svg.viewBox.baseVal;
+  function pointAt(x){
+    var total=line.getTotalLength(),a=0,b=total,m,pt;
+    for(var k=0;k<24;k++){m=(a+b)/2;pt=line.getPointAtLength(m);if(pt.x<x)a=m;else b=m;}
+    return line.getPointAtLength((a+b)/2);
+  }
+  function draw(st){
+    var has=!!st.len;
+    cards.forEach(function(c){
+      var conv=c.querySelector('.gg-ig-d-psy-conv');
+      conv.hidden=!has;
+      conv.textContent=fmtRange(num(c.getAttribute('data-lo')),num(c.getAttribute('data-hi')),st);
+    });
+    var p=st.pos,on=p!==null;
+    cardBox.classList.toggle('gg-ig-d-psy-cards--scrub',on);
+    dot.hidden=!on;status.hidden=!on;
+    var cur=null;
+    cards.forEach(function(c){
+      var lo=num(c.getAttribute('data-lo')),hi=num(c.getAttribute('data-hi'));
+      var hit=on&&(p>=lo&&(p<hi||(hi===100&&p<=100)));
+      c.classList.toggle('gg-ig-d-psy-card--on',hit);
+      if(hit)cur=c;
+    });
+    if(on){
+      var pt=pointAt(p/100*vb.width);
+      dot.setAttribute('cx',pt.x);dot.setAttribute('cy',pt.y);
+      var f=fmtPoint(p,st);
+      var txt='At '+p+'%'+(f?' ('+f+')':'')+' \\u00b7 '+(cur?cur.getAttribute('data-name'):'');
+      status.textContent=txt;
+      pos.setAttribute('aria-valuetext',txt);
+    }
+  }
+  var st=lenState(root,draw);
+  draw(st);
+});
+
 var wk=document.querySelectorAll('.gg-ig-d-wk');
+var MON=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+var DOW=['SUN','MON','TUE','WED','THU','FRI','SAT'];
 wk.forEach(function(root){
   var tiles=root.querySelectorAll('.gg-ig-d-wk-tile');
   var panels=root.querySelectorAll('.gg-ig-d-wk-panel');
+  var ctl=root.querySelector('.gg-ig-d-ctl');
+  var dateIn=root.querySelector('.gg-ig-d-rdate');
+  var last=panels.length-1;
+  var base=[];
+  tiles.forEach(function(t,i){
+    base.push({abbr:t.querySelector('.gg-ig-d-wk-abbr').textContent,label:t.getAttribute('aria-label')});
+  });
   function pick(i){
     tiles.forEach(function(t){t.setAttribute('aria-pressed',t.getAttribute('data-day')===String(i)?'true':'false');});
     panels.forEach(function(p){p.hidden=p.getAttribute('data-day')!==String(i);});
   }
+  function dates(){
+    var m=/^(\\d{4})-(\\d{2})-(\\d{2})$/.exec(dateIn.value||'');
+    var t0=m?Date.UTC(+m[1],+m[2]-1,+m[3]):null;
+    tiles.forEach(function(t,i){
+      var d=t.querySelector('.gg-ig-d-wk-date'),a=t.querySelector('.gg-ig-d-wk-abbr');
+      var pd=panels[i].querySelector('.gg-ig-d-wk-pdate'),pa=panels[i].querySelector('.gg-ig-d-wk-pabbr');
+      if(t0===null){
+        d.hidden=true;pd.hidden=true;
+        a.textContent=base[i].abbr;pa.textContent=base[i].abbr;
+        t.setAttribute('aria-label',base[i].label);
+        return;
+      }
+      var dt=new Date(t0-(last-i)*86400000);
+      var dow=DOW[dt.getUTCDay()];
+      var txt=MON[dt.getUTCMonth()]+' '+dt.getUTCDate();
+      a.textContent=dow;pa.textContent=dow;
+      d.textContent=txt;d.hidden=false;
+      pd.textContent=txt;pd.hidden=false;
+      t.setAttribute('aria-label',dow+' '+txt+', '+base[i].label.split(': ').slice(1).join(': '));
+    });
+  }
+  ctl.hidden=false;
   root.classList.add('gg-ig-d-wk--js');
   tiles.forEach(function(t){t.addEventListener('click',function(){pick(t.getAttribute('data-day'));});});
-  pick(panels.length-1);
+  dateIn.addEventListener('input',dates);
+  dateIn.addEventListener('change',dates);
+  pick(last);
 });
+
 var mx=document.querySelectorAll('.gg-ig-d-mx');
+function tempBin(t){return t<50?0:t<60?1:t<=75?2:t<=90?3:4;}
+function windBin(w){return w<5?0:w<10?1:w<15?2:w<20?3:4;}
 mx.forEach(function(root){
   var read=root.querySelector('.gg-ig-d-mx-read');
   var cells=root.querySelectorAll('.gg-ig-d-mx-cell[data-tip]');
+  var tIn=root.querySelector('.gg-ig-d-ftemp');
+  var wIn=root.querySelector('.gg-ig-d-fwind');
+  root.querySelector('.gg-ig-d-ctl').hidden=false;
   function show(c){
     cells.forEach(function(x){x.classList.remove('gg-ig-d-mx-cell--on');});
     c.classList.add('gg-ig-d-mx-cell--on');
     read.textContent=c.getAttribute('data-tip')+' ('+c.getAttribute('data-level')+')';
   }
+  function fromInputs(){
+    var t=num(tIn.value),w=num(wIn.value);
+    if(t===null||w===null||w<0)return;
+    var ti=tempBin(t),wi=windBin(w);
+    cells.forEach(function(c){
+      if(c.getAttribute('data-ti')===String(ti)&&c.getAttribute('data-wi')===String(wi))show(c);
+    });
+  }
+  tIn.addEventListener('input',fromInputs);
+  wIn.addEventListener('input',fromInputs);
   cells.forEach(function(c){
-    c.addEventListener('click',function(){show(c);});
+    c.addEventListener('click',function(){tIn.value='';wIn.value='';show(c);});
     c.addEventListener('focus',function(){show(c);});
   });
 });

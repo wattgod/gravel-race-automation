@@ -13,12 +13,12 @@ BLOCK = {"caption": "A caption line.", "alt": "An alt summary"}
 
 KEY_NUMBERS = {
     "ch1-gear-essentials": ["45mm+", "Bike Frame", "Hydration"],
-    "ch1-rider-grid": ["100-160W", "280-400W", "12-20 hrs/wk", "Podium"],
+    "ch1-rider-grid": ["100-160W", "280-400W", "12-20 hrs/wk", "Podium", "3–20"],
     "ch1-hierarchy-of-speed": ["70%", "20%", "8%", "1.5%", "0.5%"],
     "ch1-gear-weight": ["14.1", "8.5<small>", "0.4<small>"],
     "ch2-scoring-dimensions": ["Unbound 200", "Mid South", "Leadville", "Field Depth"],
     "ch2-tier-distribution": ["328", "154", "47%", "25"],
-    "ch2-course-profile": ["100 MI", "2,800", "14% grade"],
+    "ch2-course-profile": ["Course profile", "2,800", "14% grade", "gg-eg-data", "Built on"],
     "ch2-field-scatter": ["4,000", "Unbound 200", "80 at the smallest"],
     "ch2-race-table": ["Belgian Waffle Ride", "12,600 ft", "94"],
 }
@@ -84,3 +84,28 @@ def test_js_is_safe():
     assert "innerHTML" not in js
     assert "insertAdjacentHTML" not in js
     assert "gtag" not in js and "dataLayer" not in js
+
+
+def test_course_profile_glyph_card():
+    import json
+    out = ch1_ch2.RENDERERS["ch2-course-profile"](BLOCK)
+    assert 'role="slider"' in out and 'aria-valuetext="Mile 40: 2,800 ft' in out
+    assert 'aria-live="polite"' in out
+    m = re.search(r'<script type="application/json" class="gg-eg-data">(.*?)</script>', out, re.S)
+    d = json.loads(m.group(1))
+    assert len(d["elev"]) == 101 and d["elev"][40] == 2800 and d["elev"][0] == 1200
+    assert d["grade"][32] == 14 and d["names"][d["cls"][32]] == "Brutal"
+    assert "innerHTML" not in ch1_ch2.JS
+
+
+def test_rider_grid_ranges_from_data():
+    out = ch1_ch2.RENDERERS["ch1-rider-grid"](BLOCK)
+    assert out.count("data-lo=") == 4 and 'type="range"' in out
+    assert ch1_ch2._hours_range("12-20 hrs/wk") == (12, 20)
+
+
+def test_interactive_controls_present():
+    assert ch1_ch2.RENDERERS["ch1-gear-essentials"](BLOCK).count('class="gg-ig-a-ge__top"') == 5
+    assert ch1_ch2.RENDERERS["ch1-hierarchy-of-speed"](BLOCK).count("gg-ig-a-pick") == 5
+    assert ch1_ch2.RENDERERS["ch2-tier-distribution"](BLOCK).count("gg-ig-a-td__row") >= 4
+    assert ch1_ch2.RENDERERS["ch2-field-scatter"](BLOCK).count('data-tier="T') >= 16

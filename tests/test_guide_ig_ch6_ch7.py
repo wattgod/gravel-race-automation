@@ -66,3 +66,45 @@ def test_matrix_complete():
 def test_week_has_seven_days():
     out = ch6_ch7.RENDERERS["ch7-race-week-countdown"](block("ch7-race-week-countdown"))
     assert out.count('class="gg-ig-d-wk-panel"') == 7
+
+
+# ── round 2: interactions ───────────────────────────────────
+
+def test_acts_defaults_unchanged_and_controls_hidden_without_js():
+    out = ch6_ch7.RENDERERS["ch6-three-acts"](block("ch6-three-acts"))
+    assert "0–40%" in out and "40–75%" in out and "75–100%" in out
+    assert out.count('class="gg-ig-d-ctl" hidden') == 1
+    assert 'class="gg-ig-d-act-conv" hidden' in out
+    assert out.count("gg-ig-d-act--") >= 3
+    assert 'data-lo="40" data-hi="75"' in out
+    assert 'type="range"' in out and "Where am I in the race" in out
+
+
+def test_psych_has_scrubber_marker_and_phase_ranges():
+    out = ch6_ch7.RENDERERS["ch6-psych-phases"](block("ch6-psych-phases"))
+    assert "gg-ig-d-psy-here" in out
+    assert out.count('data-lo="') == 5
+    assert 'data-lo="40" data-hi="60" data-name="Dark Patch"' in out
+    assert 'type="range"' in out and 'type="number"' in out
+
+
+def test_countdown_has_race_day_date_input():
+    out = ch6_ch7.RENDERERS["ch7-race-week-countdown"](block("ch7-race-week-countdown"))
+    assert 'type="date"' in out and "Race day" in out
+    assert out.count('class="gg-ig-d-wk-date" hidden') == 7
+    assert out.count('class="gg-ig-d-wk-pdate" hidden') == 7
+
+
+def test_weather_inputs_and_cell_coordinates():
+    out = ch6_ch7.RENDERERS["ch7-weather-matrix"](block("ch7-weather-matrix"))
+    assert "gg-ig-d-ftemp" in out and "gg-ig-d-fwind" in out
+    assert out.count('data-ti="') == 25
+    assert 'data-ti="4" data-wi="4"' in out
+
+
+def test_js_bins_and_formulas():
+    js = ch6_ch7.JS
+    assert "t<50?0:t<60?1:t<=75?2:t<=90?3:4" in js
+    assert "w<5?0:w<10?1:w<15?2:w<20?3:4" in js
+    assert "pct/100*len" in js
+    assert "innerHTML" not in js and "insertAdjacentHTML" not in js

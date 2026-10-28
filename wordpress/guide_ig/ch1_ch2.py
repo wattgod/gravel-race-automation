@@ -5,7 +5,10 @@ All selectors are prefixed .gg-ig-a- so groups cannot clash.
 """
 import html as _html
 import json
+import re
 from pathlib import Path
+
+from guide_ig import glyph
 
 RACE_DATA_DIR = Path(__file__).resolve().parent.parent.parent / "race-data"
 
@@ -16,7 +19,7 @@ def _e(text) -> str:
 
 
 def _panel(kind: str, tone: str, eyebrow: str, title: str, big: str, big_cap: str,
-           body: str, block: dict, extra_cls: str = "") -> str:
+           body: str, block: dict, extra_cls: str = "", pre: str = "") -> str:
     """One poster panel: dark header band, loud number, visual, caption."""
     caption = block.get("caption", "")
     cap = f'<div class="gg-ig-a__cap">{_e(caption)}</div>' if caption else ""
@@ -35,7 +38,7 @@ def _panel(kind: str, tone: str, eyebrow: str, title: str, big: str, big_cap: st
         f'<span class="gg-ig-a__big">{_e(big)}</span>'
         f'<span class="gg-ig-a__bigcap">{_e(big_cap)}</span>'
         f'</div>'
-        f'<div class="gg-ig-a__body">{body}{cap}</div>'
+        f'<div class="gg-ig-a__body">{pre}{body}{cap}</div>'
         f'</figure>'
     )
 
@@ -61,10 +64,11 @@ def render_gear_essentials(block: dict) -> str:
     for i, (name, desc, tip) in enumerate(GEAR_ITEMS, start=1):
         cards.append(
             f'<div class="gg-ig-a-ge__card">'
-            f'<div class="gg-ig-a-ge__top">'
+            f'<button type="button" class="gg-ig-a-ge__top" aria-pressed="false">'
             f'<span class="gg-ig-a-ge__num">{i:02d}</span>'
             f'<span class="gg-ig-a-ge__name">{_e(name)}</span>'
-            f'</div>'
+            f'<span class="gg-ig-a-ge__box" aria-hidden="true"></span>'
+            f'</button>'
             f'<div class="gg-ig-a-ge__desc">{_e(desc)}</div>'
             f'<div class="gg-ig-a-ge__tip">'
             f'<span class="gg-ig-a-ge__tiplabel">Tip</span>'
@@ -73,8 +77,16 @@ def render_gear_essentials(block: dict) -> str:
             f'</div>'
         )
     body = f'<div class="gg-ig-a-ge__grid">{"".join(cards)}</div>'
+    n = len(GEAR_ITEMS)
+    pre = (
+        f'<div class="gg-ig-a-ctl gg-ig-a-ge__count" data-total="{n}">'
+        f'<span class="gg-ig-a-ge__packed" role="status" aria-live="polite">0 of {n} packed</span>'
+        f'<span class="gg-ig-a-ge__pips" aria-hidden="true">'
+        + "".join('<i class="gg-ig-a-ge__pip"></i>' for _ in range(n))
+        + '</span></div>'
+    )
     return _panel("ge", "light", "CH 1 · GEAR", "Essential Gear for Race Day",
-                  str(len(GEAR_ITEMS)), "things you actually need", body, block)
+                  str(n), "things you actually need", body, block, pre=pre)
 
 
 # ── CH1 · rider grid ────────────────────────────────────────
@@ -99,15 +111,22 @@ RIDERS = [
 ]
 
 
+def _hours_range(text: str):
+    """'3-5 hrs/wk' -> (3, 5)."""
+    lo, hi = re.match(r"(\d+)-(\d+)", text).groups()
+    return int(lo), int(hi)
+
+
 def render_rider_grid(block: dict) -> str:
     cards = []
     for r in RIDERS:
+        lo, hi = _hours_range(r["hours"])
         flag = (
             '<span class="gg-ig-a-rg__flag">Biggest group</span>'
             if r["name"] == "Finisher" else ""
         )
         cards.append(
-            f'<div class="gg-ig-a-rg__card">'
+            f'<div class="gg-ig-a-rg__card" data-name="{_e(r["name"])}" data-lo="{lo}" data-hi="{hi}">'
             f'<div class="gg-ig-a-rg__top">'
             f'<div class="gg-ig-a-rg__name">{_e(r["name"])}</div>{flag}'
             f'<div class="gg-ig-a-rg__hours">{_e(r["hours"])}</div>'
@@ -125,8 +144,18 @@ def render_rider_grid(block: dict) -> str:
             f'</div>'
         )
     body = f'<div class="gg-ig-a-rg__grid">{"".join(cards)}</div>'
+    lo_all = min(_hours_range(r["hours"])[0] for r in RIDERS)
+    hi_all = max(_hours_range(r["hours"])[1] for r in RIDERS)
+    pre = (
+        f'<div class="gg-ig-a-ctl gg-ig-a-rg__ctl">'
+        f'<label class="gg-ig-a-rg__lab" for="gg-ig-a-rg-hrs">Your hours a week</label>'
+        f'<input id="gg-ig-a-rg-hrs" class="gg-ig-a-rg__range" type="range" min="{lo_all}" max="{hi_all}"'
+        f' step="1" value="6" aria-describedby="gg-ig-a-rg-match">'
+        f'<output class="gg-ig-a-rg__hrs" for="gg-ig-a-rg-hrs">6 hrs</output>'
+        f'<span id="gg-ig-a-rg-match" class="gg-ig-a-rg__match" role="status" aria-live="polite"></span></div>'
+    )
     return _panel("rg", "dark", "CH 1 · RIDERS", "Four Rider Archetypes",
-                  "3–20", "hours a week across four profiles", body, block)
+                  f"{lo_all}–{hi_all}", "hours a week across four profiles", body, block, pre=pre)
 
 
 # ── CH1 · hierarchy of speed ────────────────────────────────
@@ -147,7 +176,7 @@ def render_hierarchy(block: dict) -> str:
         w = max(val / top * 100.0, 1.2)
         hot = " is-top" if i == 0 else ""
         rows.append(
-            f'<li class="gg-ig-a-hs__row{hot}">'
+            f'<li class="gg-ig-a-hs__row{hot}" data-i="{i}">'
             f'<span class="gg-ig-a-hs__label">{_e(label)}</span>'
             f'<span class="gg-ig-a-hs__track" aria-hidden="true">'
             f'<span class="gg-ig-a-hs__fill" style="width:{w:.1f}%"></span></span>'
@@ -156,9 +185,20 @@ def render_hierarchy(block: dict) -> str:
             f'</li>'
         )
     body = f'<ol class="gg-ig-a-hs__list">{"".join(rows)}</ol>'
+    picks = "".join(
+        f'<button type="button" class="gg-ig-a-pick" data-i="{i}" data-share="{val:g}"'
+        f' data-tip="{_e(tip)}" aria-pressed="false">{_e(label)}</button>'
+        for i, (label, _pct, val, tip) in enumerate(HIERARCHY)
+    )
+    pre = (
+        f'<div class="gg-ig-a-ctl gg-ig-a-hs__ctl" data-min="{min(h[2] for h in HIERARCHY):g}">'
+        f'<div class="gg-ig-a-hs__picks" role="group" aria-label="Pick a factor">{picks}</div>'
+        f'<div class="gg-ig-a-hs__read" role="status" aria-live="polite">'
+        f'<span class="gg-ig-a-hs__rshare"></span><span class="gg-ig-a-hs__rtxt"></span></div></div>'
+    )
     return _panel("hs", "light", "CH 1 · SPEED",
                   "The Hierarchy of Speed: What Actually Makes You Faster",
-                  "70%", "of your speed is fitness", body, block)
+                  "70%", "of your speed is fitness", body, block, pre=pre)
 
 
 # ── CH1 · gear weight (toggles) ─────────────────────────────
@@ -329,17 +369,24 @@ def render_tier_distribution(block: dict) -> str:
     for label, count, pct, tip in TIERS:
         hot = " is-top" if label == "T1" else ""
         rows.append(
-            f'<li class="gg-ig-a-td__row{hot}">'
+            f'<li class="gg-ig-a-td__li"><button type="button" class="gg-ig-a-td__row{hot}"'
+            f' aria-pressed="false" data-tier="{_e(label)}" data-count="{count}" data-pct="{pct}"'
+            f' data-tip="{_e(tip)}">'
             f'<span class="gg-ig-a-td__tier">{_e(label)}</span>'
             f'<span class="gg-ig-a-td__track" aria-hidden="true">'
             f'<span class="gg-ig-a-td__fill" style="width:{count / top * 100:.1f}%"></span></span>'
             f'<span class="gg-ig-a-td__num">{_e(count)}<small>{_e(pct)}%</small></span>'
             f'<span class="gg-ig-a-td__tip">{_e(tip)}</span>'
-            f'</li>'
+            f'</button></li>'
         )
     body = f'<ol class="gg-ig-a-td__list">{"".join(rows)}</ol>'
+    pre = (
+        f'<div class="gg-ig-a-ctl gg-ig-a-td__detail" data-total="{total}" role="status" aria-live="polite">'
+        f'<span class="gg-ig-a-td__dtier"></span><span class="gg-ig-a-td__dcount"></span>'
+        f'<span class="gg-ig-a-td__dtip"></span></div>'
+    )
     return _panel("td", "dark", "CH 2 · TIERS", "How We Tier 328 Gravel Races",
-                  str(total), "gravel races in four tiers", body, block)
+                  str(total), "gravel races in four tiers", body, block, pre=pre)
 
 
 # ── CH2 · course profile ────────────────────────────────────
@@ -373,86 +420,128 @@ def _cp_class(grad: int) -> str:
     return "flat"
 
 
+def _gpanel(kind: str, eyebrow: str, title: str, card: str, block: dict) -> str:
+    """GG title band + Glyph card on a light ground + gold-ruled caption."""
+    caption = block.get("caption", "")
+    cap = f'<div class="gg-ig-a__cap">{_e(caption)}</div>' if caption else ""
+    return (
+        f'<figure class="gg-ig-a gg-ig-a--light gg-ig-a-{kind}" role="figure">'
+        f'<div class="gg-ig-a__head"><div class="gg-ig-a__eyebrow">{_e(eyebrow)}</div>'
+        f'<div class="gg-ig-a__title">{_e(title)}</div></div>'
+        f'<div class="gg-ig-a__body gg-ig-a-eg-body">{card}{cap}</div></figure>'
+    )
+
+
+_CP_PEAK_MILE = max(PROFILE, key=lambda p: p[1])[0]
+
+
+def _cp_series():
+    """Elevation (ft) at every whole mile: a monotone curve through the 21 profile points."""
+    f = glyph.mono_curve([(float(m), float(e)) for m, e, _ in PROFILE])
+    return [int(round(f(float(m)))) for m in range(PROFILE[-1][0] + 1)]
+
+
+def _cp_seg(mile: int) -> int:
+    """Which 5-mile segment a mile sits in (mile 100 belongs to the last one)."""
+    return min(mile // 5, len(PROFILE) - 2)
+
+
+def _cp_text(mile: int):
+    """Header strings for a mile (mirrored by the script's update())."""
+    g = PROFILE[_cp_seg(mile) + 1][2]
+    name = dict((k, n) for k, n, _ in _CP_CLASSES)[_cp_class(g)]
+    arrow = "▲ " if g > 0 else "▼ " if g < 0 else ""
+    return f"{_cp_series()[mile]:,}", f"{arrow}{abs(g)}% · {name}", f"Mile {mile}" + (" · peak" if mile == _CP_PEAK_MILE else "")
+
+
 def render_course_profile(block: dict) -> str:
+    W, H = 1000, 300
     max_mile = PROFILE[-1][0]
     span = _CP_HI - _CP_LO
-
-    def xy(mile, elev):
-        return mile / max_mile * 1000.0, 400.0 - (elev - _CP_LO) / span * 400.0
+    elev = _cp_series()
+    xs = lambda m: m / max_mile * W  # noqa: E731
+    ys = lambda e: H - (e - _CP_LO) / span * H  # noqa: E731
 
     polys = []
     miles_by = {k: 0 for k, _, _ in _CP_CLASSES}
     for i in range(len(PROFILE) - 1):
-        m1, e1, _g1 = PROFILE[i]
-        m2, e2, g2 = PROFILE[i + 1]
-        cls = _cp_class(g2)
+        m1, m2 = PROFILE[i][0], PROFILE[i + 1][0]
+        cls = _cp_class(PROFILE[i + 1][2])
         miles_by[cls] += m2 - m1
-        x1, y1 = xy(m1, e1)
-        x2, y2 = xy(m2, e2)
+        top = [(xs(m), ys(elev[m])) for m in range(m1, m2 + 1)]
+        pts = [(xs(m1), H)] + top + [(xs(m2), H)]
         polys.append(
-            f'<polygon class="gg-ig-a-cp__seg gg-ig-a-cp__seg--{cls}"'
-            f' points="{x1:.1f},400 {x1:.1f},{y1:.1f} {x2:.1f},{y2:.1f} {x2:.1f},400"/>'
+            f'<path class="gg-ig-a-eg-seg gg-ig-a-eg-seg--{cls}" data-seg="{i}" '
+            f'd="{glyph.line_path(pts, close=True)}"/>'
         )
-    line_pts = " ".join(f"{xy(m, e)[0]:.1f},{xy(m, e)[1]:.1f}" for m, e, _ in PROFILE)
-
-    yl = []
-    for elev in range(_CP_LO, _CP_HI + 1, 500):
-        pct = (elev - _CP_LO) / span * 100
-        yl.append(
-            f'<span class="gg-ig-a-cp__ytick" style="bottom:{pct:.1f}%">{elev:,}</span>'
-        )
-    grid = []
-    for elev in range(_CP_LO + 500, _CP_HI, 500):
-        pct = (elev - _CP_LO) / span * 100
-        grid.append(f'<span class="gg-ig-a-cp__gridline" style="bottom:{pct:.1f}%"></span>')
-    xl = []
-    for mile in range(0, max_mile + 1, 20):
-        xl.append(
-            f'<span class="gg-ig-a-cp__xtick" style="left:{mile / max_mile * 100:.1f}%">{mile}</span>'
-        )
-
+    line = glyph.line_path([(xs(m), ys(e)) for m, e in enumerate(elev)])
+    refs = "".join(
+        f'<line class="gg-ig-a-eg-ref" x1="0" x2="{W}" y1="{ys(v):.1f}" y2="{ys(v):.1f}"/>'
+        for v in range(_CP_LO + 500, _CP_HI, 500)
+    )
+    svg = (
+        f'<svg class="gg-eg-svg" viewBox="0 0 {W} {H}" preserveAspectRatio="none" aria-hidden="true">'
+        f'{"".join(polys)}{refs}<path class="gg-ig-a-eg-case" d="{line}"/>'
+        f'<path class="gg-ig-a-eg-hero" d="{line}"/></svg>'
+    )
+    yl = "".join(
+        f'<span class="gg-ig-a-eg-yl{" gg-ig-a-eg-yl--top" if v == _CP_HI else ""}" '
+        f'style="top:{(_CP_HI - v) / span * 100:.1f}%">{v:,}</span>'
+        for v in range(_CP_LO + 500, _CP_HI + 1, 500)
+    )
     peak = max(PROFILE, key=lambda p: p[1])
-    peak_x = peak[0] / max_mile * 100
-    peak_y = (peak[1] - _CP_LO) / span * 100
-    brutal = [(PROFILE[i], PROFILE[i + 1]) for i in range(len(PROFILE) - 1)
-              if _cp_class(PROFILE[i + 1][2]) == "brutal"]
-    marks = [
-        f'<span class="gg-ig-a-cp__mark" style="left:{peak_x:.1f}%;bottom:{peak_y:.1f}%">'
-        f'{peak[1]:,} ft</span>'
+    px, py = peak[0] / max_mile * 100, (_CP_HI - peak[1]) / span * 100
+    hot = [(PROFILE[i], PROFILE[i + 1]) for i in range(len(PROFILE) - 1)
+           if _cp_class(PROFILE[i + 1][2]) == "brutal"]
+    notes = [
+        f'<span class="gg-ig-a-eg-note" style="left:{px:.1f}%;top:{py:.1f}%">Peak {peak[1]:,} ft</span>'
     ]
-    for a, b in brutal:
-        mid = (a[0] + b[0]) / 2 / max_mile * 100
-        ey = (max(a[1], b[1]) - _CP_LO) / span * 100
-        marks.append(
-            f'<span class="gg-ig-a-cp__mark gg-ig-a-cp__mark--l gg-ig-a-cp__mark--hot"'
-            f' style="left:{mid:.1f}%;bottom:{ey:.1f}%">{abs(b[2])}% grade</span>'
+    for a, b in hot:
+        hx = b[0] / max_mile * 100
+        hy = (_CP_HI - max(a[1], b[1])) / span * 100
+        notes.append(
+            f'<span class="gg-ig-a-eg-note gg-ig-a-eg-note--l" style="left:{hx:.1f}%;top:{hy:.1f}%">'
+            f'{abs(b[2])}% grade</span>'
         )
-
-    legend = "".join(
-        f'<li class="gg-ig-a-cp__key"><span class="gg-ig-a-cp__sw gg-ig-a-cp__seg--{k}"></span>'
-        f'<span class="gg-ig-a-cp__keytxt"><b>{_e(name)}</b> {_e(rng)}</span>'
-        f'<span class="gg-ig-a-cp__miles">{miles_by[k]} mi</span></li>'
-        for k, name, rng in _CP_CLASSES
+    num, chip, when = _cp_text(_CP_PEAK_MILE)
+    dot = f'<i class="gg-eg-pt" data-eg-pt style="left:{px:.1f}%;top:{py:.1f}%"></i>'
+    pw = glyph.scrub_wrap(
+        "ch2-cp", svg + yl + "".join(notes) + dot, len(elev), _CP_PEAK_MILE,
+        "Scrub the 100 miles", f"Mile {_CP_PEAK_MILE}: {num} ft, {chip}", mode="point",
     )
-    body = (
-        f'<div class="gg-ig-a-cp__chart" role="img"'
-        f' aria-label="Elevation profile over {max_mile} miles from {PROFILE[0][1]:,} ft,'
-        f' peaking at {peak[1]:,} ft near mile {peak[0]}, coloured by gradient">'
-        f'<span class="gg-ig-a-cp__ylabel" aria-hidden="true">ft</span>'
-        f'<div class="gg-ig-a-cp__plot" aria-hidden="true">'
-        f'{"".join(grid)}'
-        f'<svg class="gg-ig-a-cp__svg" viewBox="0 0 1000 400" preserveAspectRatio="none"'
-        f' focusable="false" aria-hidden="true">{"".join(polys)}'
-        f'<polyline class="gg-ig-a-cp__line" points="{line_pts}"/></svg>'
-        f'{"".join(marks)}{"".join(yl)}{"".join(xl)}'
-        f'<span class="gg-ig-a-cp__xlabel">miles</span>'
-        f'</div></div>'
-        f'<ul class="gg-ig-a-cp__legend">{legend}</ul>'
+    ruler = "".join(
+        f'<span class="gg-ig-a-eg-xt" style="left:{m / max_mile * 100:.1f}%">{m}{" mi" if m == max_mile else ""}</span>'
+        for m in range(0, max_mile + 1, 20)
     )
-    return _panel("cp", "light", "CH 2 · COURSE",
-                  "Reading the Course Profile: Gradient by Segment",
-                  f"{max_mile} MI", f"from {PROFILE[0][1]:,} to {peak[1]:,} ft, colored by gradient",
-                  body, block)
+    plot = (
+        f'<div class="gg-ig-a-eg-plot">{pw}</div>'
+        f'<div class="gg-ig-a-eg-ruler" aria-hidden="true">{ruler}</div>'
+    )
+    keys = "".join(
+        f'<span class="gg-ig-a-eg-key" data-eg-cls="{k}"><i class="gg-ig-a-eg-sw gg-ig-a-eg-seg--{k}"></i>'
+        f'{_e(n)} <b>{miles_by[k]} mi</b></span>'
+        for k, n, _ in _CP_CLASSES
+    )
+    desc = (
+        f"Elevation profile over {max_mile} miles, from {PROFILE[0][1]:,} ft up to a peak of "
+        f"{peak[1]:,} ft at mile {peak[0]}, shaded by gradient class. "
+        + " ".join(f"{n} {r}: {miles_by[k]} miles." for k, n, r in _CP_CLASSES)
+    )
+    classes = [k for k, _, _ in _CP_CLASSES]
+    data = {
+        "elev": elev,
+        "seg": [_cp_seg(m) for m in range(len(elev))],
+        "grade": [PROFILE[_cp_seg(m) + 1][2] for m in range(len(elev))],
+        "cls": [classes.index(_cp_class(PROFILE[_cp_seg(m) + 1][2])) for m in range(len(elev))],
+        "keys": classes,
+        "names": [n for _, n, _ in _CP_CLASSES],
+        "peak": _CP_PEAK_MILE, "lo": _CP_LO, "hi": _CP_HI,
+    }
+    card = glyph.glyph_card(
+        "Course profile", glyph.readout(num, "ft", chip, when, keys),
+        plot, data=data, describedby="gg-eg-cp-d", description=desc,
+    )
+    return _gpanel("cp", "CH 2 · COURSE", "Reading the Course Profile: Gradient by Segment", card, block)
 
 
 # ── CH2 · field scatter ─────────────────────────────────────
@@ -477,13 +566,11 @@ def render_field_scatter(block: dict) -> str:
     for name, field, hrs, tier in SCATTER:
         x = field / _FS_MAX_FIELD * 100
         y = hrs / _FS_MAX_HRS * 100
-        label = ""
-        if tier == "T1":
-            side = " gg-ig-a-fs__name--r" if x > 60 else ""
-            label = f'<span class="gg-ig-a-fs__name{side}">{_e(name)}</span>'
+        side = " gg-ig-a-fs__name--r" if x > 60 else ""
+        label = f'<span class="gg-ig-a-fs__name{side}">{_e(name)}</span>'
         marks.append(
             f'<span class="gg-ig-a-fs__pt gg-ig-a-fs__pt--{_e(tier.lower())}"'
-            f' style="left:{x:.1f}%;bottom:{y:.1f}%">{_e(tier[1:])}{label}</span>'
+            f' data-tier="{_e(tier)}" style="left:{x:.1f}%;bottom:{y:.1f}%">{_e(tier[1:])}{label}</span>'
         )
     grid = []
     yt = []
@@ -506,7 +593,7 @@ def render_field_scatter(block: dict) -> str:
             for n, f, h, t in SCATTER if t == tier
         )
         groups.append(
-            f'<div class="gg-ig-a-fs__group gg-ig-a-fs__group--{tier.lower()}">'
+            f'<div class="gg-ig-a-fs__group gg-ig-a-fs__group--{tier.lower()}" data-tier="{tier}">'
             f'<div class="gg-ig-a-fs__ghead"><span class="gg-ig-a-fs__chip gg-ig-a-fs__pt--{tier.lower()}">'
             f'{tier[1:]}</span>Tier {tier[1:]}</div><ul>{items}</ul></div>'
         )
@@ -523,9 +610,19 @@ def render_field_scatter(block: dict) -> str:
     )
     big = f"{max(s[1] for s in SCATTER):,}"
     small = min(s[1] for s in SCATTER)
+    pills = [f'<button type="button" class="gg-ig-a-pick" data-tier="" aria-pressed="true">All {len(SCATTER)}</button>']
+    for tier in ("T1", "T2", "T3", "T4"):
+        k = sum(1 for s in SCATTER if s[3] == tier)
+        pills.append(
+            f'<button type="button" class="gg-ig-a-pick" data-tier="{tier}" aria-pressed="false">{tier} · {k}</button>'
+        )
+    pre = (
+        f'<div class="gg-ig-a-ctl gg-ig-a-fs__ctl" role="group" aria-label="Show a tier">'
+        f'{"".join(pills)}</div>'
+    )
     return _panel("fs", "dark", "CH 2 · FIELDS",
                   "Field Size vs. Race Duration: What You’re Getting Into",
-                  big, f"riders at the biggest start. {small} at the smallest.", body, block)
+                  big, f"riders at the biggest start. {small} at the smallest.", body, block, pre=pre)
 
 
 # ── CH2 · race table ────────────────────────────────────────
@@ -720,32 +817,104 @@ CSS = """
 .gg-ig-a-td__tip{grid-column:2 / 4;font-size:16px;line-height:1.45;color:var(--gg-color-sand)}
 @media(max-width:600px){.gg-ig-a-td__row{grid-template-columns:auto 1fr auto}.gg-ig-a-td__tier{grid-column:1}.gg-ig-a-td__num{grid-column:3;grid-row:1}.gg-ig-a-td__track{grid-column:2;grid-row:1;height:32px}.gg-ig-a-td__tip{grid-column:1 / 4}.gg-ig-a-td__tier{font-size:30px}}
 
-/* course profile */
-.gg-ig-a-cp__chart{position:relative;margin:36px 8px 44px 56px}
-.gg-ig-a-cp__plot{position:relative;height:clamp(220px,38vw,380px);border-left:3px solid var(--gg-color-dark-brown);border-bottom:3px solid var(--gg-color-dark-brown)}
-.gg-ig-a-cp__svg{position:absolute;inset:0;width:100%;height:100%;display:block}
-.gg-ig-a-cp__seg--flat{fill:var(--gg-color-tan);background:var(--gg-color-tan)}
-.gg-ig-a-cp__seg--mod{fill:var(--gg-color-teal);background:var(--gg-color-teal)}
-.gg-ig-a-cp__seg--steep{fill:var(--gg-color-gold);background:var(--gg-color-gold)}
-.gg-ig-a-cp__seg--brutal{fill:var(--gg-color-error);background:var(--gg-color-error)}
-.gg-ig-a-cp__seg{stroke:var(--gg-color-warm-paper);stroke-width:1;vector-effect:non-scaling-stroke}
-.gg-ig-a-cp__line{fill:none;stroke:var(--gg-color-dark-brown);stroke-width:4;stroke-linejoin:miter;vector-effect:non-scaling-stroke}
-.gg-ig-a-cp__gridline{position:absolute;left:0;right:0;border-top:2px dashed var(--gg-color-dark-brown);opacity:.25}
-.gg-ig-a-cp__ytick{position:absolute;left:-58px;width:50px;text-align:right;transform:translateY(50%);font-family:var(--gg-font-data);font-size:12px;font-weight:700;color:var(--gg-color-dark-brown)}
-.gg-ig-a-cp__xtick{position:absolute;bottom:-28px;transform:translateX(-50%);font-family:var(--gg-font-data);font-size:12px;font-weight:700;color:var(--gg-color-dark-brown)}
-.gg-ig-a-cp__xtick:first-of-type{transform:none}
-.gg-ig-a-cp__xlabel{position:absolute;right:0;bottom:-48px;font-family:var(--gg-font-data);font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase}
-.gg-ig-a-cp__ylabel{position:absolute;left:-56px;top:-30px;font-family:var(--gg-font-data);font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase}
-.gg-ig-a-cp__mark{position:absolute;transform:translate(8px,-130%);white-space:nowrap;padding:2px 8px;background:var(--gg-color-dark-brown);color:var(--gg-color-white);font-family:var(--gg-font-data);font-size:14px;font-weight:700}
-.gg-ig-a-cp__mark--l{transform:translate(-100%,-130%)}
-.gg-ig-a-cp__mark--hot{background:var(--gg-color-error)}
-.gg-ig-a-cp__legend{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr));gap:12px}
-.gg-ig-a-cp__key{display:grid;grid-template-columns:24px 1fr auto;gap:10px;align-items:center;padding:8px 10px;border:3px solid var(--gg-color-dark-brown);background:var(--gg-color-white)}
-.gg-ig-a-cp__sw{width:24px;height:24px;border:2px solid var(--gg-color-dark-brown);display:block}
-.gg-ig-a-cp__keytxt{font-size:15px;line-height:1.25}
-.gg-ig-a-cp__keytxt b{display:block;font-family:var(--gg-font-data);font-size:14px;text-transform:uppercase;letter-spacing:.5px}
-.gg-ig-a-cp__miles{font-family:var(--gg-font-data);font-size:18px;font-weight:700;font-variant-numeric:tabular-nums}
-@media(max-width:600px){.gg-ig-a-cp__chart{margin:32px 4px 44px 52px}.gg-ig-a-cp__plot{height:240px}.gg-ig-a-cp__line{stroke-width:3}}
+/* interactive controls (hidden until the script adds .is-live) */
+.gg-ig-a-ctl{display:none;margin:0 0 22px}
+.gg-ig-a.is-live .gg-ig-a-ctl{display:flex;flex-wrap:wrap;align-items:center;gap:10px 16px}
+.gg-ig-a-pick{min-height:48px;padding:8px 18px;font-size:15px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;background:var(--a-bg);color:var(--a-ink);border:3px solid var(--a-line)}
+.gg-ig-a-pick[aria-pressed="true"]{background:var(--a-ink);color:var(--a-bg)}
+
+/* gear essentials: tickable */
+.gg-ig-a-ge__count{gap:16px}
+.gg-ig-a-ge__packed{font-family:var(--gg-font-data);font-size:22px;font-weight:700;font-variant-numeric:tabular-nums}
+.gg-ig-a-ge__pips{display:flex;gap:6px}
+.gg-ig-a-ge__pip{display:block;width:34px;height:14px;border:3px solid var(--gg-color-dark-brown);background:transparent}
+.gg-ig-a-ge__pip.is-on{background:var(--gg-color-gold)}
+button.gg-ig-a-ge__top{appearance:none;width:100%;border:0;border-radius:0;text-align:left;min-height:64px;margin:0;cursor:pointer;color:inherit}
+.gg-ig-a-ge__name{flex:1;min-width:0}
+.gg-ig-a-ge__box{flex:none;width:30px;height:30px;border:3px solid var(--gg-color-light-gold);position:relative}
+.gg-ig-a-ge__card.is-packed .gg-ig-a-ge__box{background:var(--gg-color-light-gold)}
+.gg-ig-a-ge__card.is-packed .gg-ig-a-ge__box::after{content:"";position:absolute;left:7px;top:1px;width:8px;height:15px;border:solid var(--gg-color-dark-brown);border-width:0 3px 3px 0;transform:rotate(45deg)}
+.gg-ig-a.is-live .gg-ig-a-ge__card:not(.is-packed){background:var(--gg-color-warm-paper)}
+.gg-ig-a.is-live .gg-ig-a-ge__card.is-packed{border-color:var(--gg-color-gold)}
+
+/* rider grid: hours slider */
+.gg-ig-a-rg__lab{font-family:var(--gg-font-data);font-size:14px;font-weight:700;letter-spacing:2px;text-transform:uppercase}
+.gg-ig-a-rg__range{flex:1 1 220px;min-width:140px;max-width:420px;min-height:44px;margin:0;accent-color:var(--gg-color-light-gold);cursor:pointer}
+.gg-ig-a-rg__range:focus-visible{outline:3px solid var(--a-focus);outline-offset:2px}
+.gg-ig-a-rg__hrs{font-family:var(--gg-font-data);font-size:26px;font-weight:700;color:var(--gg-color-light-gold);min-width:5ch;font-variant-numeric:tabular-nums}
+.gg-ig-a-rg__match{font-family:var(--gg-font-data);font-size:16px;font-weight:700;flex:1 1 200px}
+.gg-ig-a.is-live .gg-ig-a-rg__card{transition:opacity .15s,transform .15s}
+.gg-ig-a.is-live .gg-ig-a-rg__card.is-dim{opacity:.45}
+.gg-ig-a.is-live .gg-ig-a-rg__card.is-lit{border-color:var(--gg-color-light-gold);outline:4px solid var(--gg-color-light-gold);outline-offset:3px;transform:translateY(-4px)}
+@media(prefers-reduced-motion:reduce){.gg-ig-a.is-live .gg-ig-a-rg__card{transition:none}.gg-ig-a.is-live .gg-ig-a-rg__card.is-lit{transform:none}}
+
+/* hierarchy: pick a factor */
+.gg-ig-a-hs__ctl{display:none}
+.gg-ig-a.is-live .gg-ig-a-hs__ctl{display:grid;gap:14px}
+.gg-ig-a-hs__picks{display:flex;flex-wrap:wrap;gap:10px}
+.gg-ig-a-hs__read{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 18px;padding:14px 16px;border:3px solid var(--gg-color-dark-brown);background:var(--gg-color-white)}
+.gg-ig-a-hs__rshare{font-family:var(--gg-font-data);font-size:30px;font-weight:700;line-height:1;font-variant-numeric:tabular-nums}
+.gg-ig-a-hs__rtxt{flex:1 1 260px;font-size:16px;line-height:1.45;min-width:0}
+.gg-ig-a.is-live .gg-ig-a-hs__row{opacity:.5}
+.gg-ig-a.is-live .gg-ig-a-hs__row.is-sel{opacity:1}
+.gg-ig-a.is-live .gg-ig-a-hs__tip{display:none}
+
+/* tier distribution: tap a tier */
+.gg-ig-a-td__detail{display:none}
+.gg-ig-a.is-live .gg-ig-a-td__detail{display:grid;grid-template-columns:auto 1fr;gap:4px 20px;align-items:baseline;padding:16px 18px;border:3px solid var(--gg-color-light-gold);background:var(--gg-color-near-black)}
+.gg-ig-a-td__dtier{font-family:var(--gg-font-data);font-size:52px;font-weight:700;line-height:1;color:var(--gg-color-light-gold)}
+.gg-ig-a-td__dcount{font-family:var(--gg-font-data);font-size:22px;font-weight:700;font-variant-numeric:tabular-nums}
+.gg-ig-a-td__dtip{grid-column:1 / 3;font-size:18px;line-height:1.45;color:var(--gg-color-sand)}
+button.gg-ig-a-td__row{appearance:none;display:grid;width:100%;margin:0;padding:6px 0;background:transparent;color:inherit;border:0;text-align:left;min-height:56px}
+.gg-ig-a-td__row.is-top .gg-ig-a-td__tier{color:var(--gg-color-light-gold)}
+.gg-ig-a.is-live button.gg-ig-a-td__row{opacity:.55;cursor:pointer}
+.gg-ig-a.is-live button.gg-ig-a-td__row[aria-pressed="true"]{opacity:1}
+.gg-ig-a.is-live button.gg-ig-a-td__row[aria-pressed="true"] .gg-ig-a-td__track{border-color:var(--gg-color-light-gold)}
+.gg-ig-a.is-live button.gg-ig-a-td__row[aria-pressed="true"] .gg-ig-a-td__fill{background:var(--gg-color-light-gold)}
+.gg-ig-a.is-live .gg-ig-a-td__tip{display:none}
+@media(max-width:600px){.gg-ig-a-td__dtier{font-size:40px}.gg-ig-a-td__dtip{grid-column:1 / 3}}
+
+/* field scatter: tier filter */
+.gg-ig-a-fs__ctl{margin-bottom:44px}
+.gg-ig-a-fs__name{display:none}
+.gg-ig-a-fs__pt--t1 .gg-ig-a-fs__name{display:block}
+.gg-ig-a-fs.is-sel .gg-ig-a-fs__name{display:none}
+.gg-ig-a-fs.is-sel .gg-ig-a-fs__pt{opacity:.22}
+.gg-ig-a-fs.is-sel .gg-ig-a-fs__group{opacity:.4}
+.gg-ig-a-fs.is-sel-t1 .gg-ig-a-fs__pt--t1,.gg-ig-a-fs.is-sel-t2 .gg-ig-a-fs__pt--t2,.gg-ig-a-fs.is-sel-t3 .gg-ig-a-fs__pt--t3,.gg-ig-a-fs.is-sel-t4 .gg-ig-a-fs__pt--t4{opacity:1;z-index:2}
+.gg-ig-a-fs.is-sel-t1 .gg-ig-a-fs__pt--t1 .gg-ig-a-fs__name,.gg-ig-a-fs.is-sel-t2 .gg-ig-a-fs__pt--t2 .gg-ig-a-fs__name,.gg-ig-a-fs.is-sel-t3 .gg-ig-a-fs__pt--t3 .gg-ig-a-fs__name,.gg-ig-a-fs.is-sel-t4 .gg-ig-a-fs__pt--t4 .gg-ig-a-fs__name{display:block}
+.gg-ig-a-fs.is-sel-t1 .gg-ig-a-fs__group--t1,.gg-ig-a-fs.is-sel-t2 .gg-ig-a-fs__group--t2,.gg-ig-a-fs.is-sel-t3 .gg-ig-a-fs__group--t3,.gg-ig-a-fs.is-sel-t4 .gg-ig-a-fs__group--t4{opacity:1;border-color:var(--gg-color-light-gold)}
+
+/* course profile: Glyph card */
+.gg-ig-a-eg-body{background:var(--gg-color-warm-paper)}
+.gg-ig-a-eg-body .gg-eg{margin:0}
+.gg-ig-a-eg-body .gg-ig-a__cap{margin-top:20px!important}
+.gg-ig-a-eg-plot{position:relative;height:230px}
+.gg-ig-a-eg-plot .gg-eg-pw{position:absolute;inset:0}
+.gg-ig-a-eg-seg{stroke:none}
+.gg-ig-a-eg-seg--flat{fill:color-mix(in srgb,var(--eg-ink) 7%,var(--eg-card));background:color-mix(in srgb,var(--eg-ink) 7%,var(--eg-card))}
+.gg-ig-a-eg-seg--mod{fill:color-mix(in srgb,var(--eg-ink) 15%,var(--eg-card));background:color-mix(in srgb,var(--eg-ink) 15%,var(--eg-card))}
+.gg-ig-a-eg-seg--steep{fill:color-mix(in srgb,var(--eg-ink) 28%,var(--eg-card));background:color-mix(in srgb,var(--eg-ink) 28%,var(--eg-card))}
+.gg-ig-a-eg-seg--brutal{fill:color-mix(in srgb,var(--eg-ride) 42%,var(--eg-card));background:color-mix(in srgb,var(--eg-ride) 42%,var(--eg-card))}
+.gg-ig-a-cp .gg-eg.is-scrub .gg-ig-a-eg-seg{opacity:.5}
+.gg-ig-a-cp .gg-eg.is-scrub .gg-ig-a-eg-seg.is-on{opacity:1}
+.gg-ig-a-eg-ref{stroke:var(--eg-none);stroke-width:1;vector-effect:non-scaling-stroke}
+.gg-ig-a-eg-case{fill:none;stroke:var(--eg-card);stroke-width:6.25;stroke-linecap:round;stroke-linejoin:round;vector-effect:non-scaling-stroke}
+.gg-ig-a-eg-hero{fill:none;stroke:var(--eg-ink);stroke-width:2.75;stroke-linecap:round;stroke-linejoin:round;vector-effect:non-scaling-stroke}
+.gg-ig-a-eg-yl{position:absolute;left:2px;transform:translateY(-100%);font-family:var(--eg-mono);font-size:11px;color:var(--eg-ink3);text-shadow:0 0 3px var(--eg-card),0 0 3px var(--eg-card)}
+.gg-ig-a-eg-yl--top{transform:translateY(3px)}
+.gg-ig-a-eg-note{position:absolute;transform:translate(-50%,-170%);font-family:var(--eg-mono);font-size:11px;font-weight:700;color:var(--eg-ink2);white-space:nowrap;pointer-events:none;text-shadow:0 0 3px var(--eg-card),0 0 3px var(--eg-card)}
+.gg-ig-a-eg-note--l{transform:translate(-105%,-130%)}
+.gg-ig-a-eg-ruler{position:relative;height:24px;border-top:1px solid var(--eg-ink3)}
+.gg-ig-a-eg-xt{position:absolute;top:5px;transform:translateX(-50%);font-family:var(--eg-mono);font-size:11px;color:var(--eg-ink3);white-space:nowrap}
+.gg-ig-a-eg-xt::before{content:"";position:absolute;left:50%;top:-6px;height:5px;border-left:1px solid var(--eg-ink3)}
+.gg-ig-a-eg-xt:first-child{transform:none}
+.gg-ig-a-eg-xt:last-child{transform:translateX(-100%)}
+.gg-ig-a-eg-key{display:inline-flex;align-items:center;gap:6px;padding:4px 8px 4px 4px;border-radius:999px!important;font-family:var(--eg-mono);font-size:12px;color:var(--eg-ink2);border:1px solid transparent}
+.gg-ig-a-eg-key b{color:var(--eg-ink)}
+.gg-ig-a-eg-key.is-on{border-color:var(--eg-cobalt);color:var(--eg-ink)}
+.gg-ig-a-eg-sw{display:inline-block;width:14px;height:14px;border-radius:3px!important;box-shadow:inset 0 0 0 1px var(--eg-none)!important}
+@media(max-width:600px){.gg-ig-a-eg-body{padding:12px}.gg-ig-a-eg-plot{height:190px}.gg-ig-a-eg-note--l{display:none}.gg-ig-a-eg-xt:nth-last-child(2){display:none}}
 
 /* field scatter */
 .gg-ig-a-fs__chart{margin:20px 8px 56px 52px}
@@ -799,8 +968,116 @@ CSS = """
 """
 
 
-JS = """
+JS = r"""
 (function(){
+  /* interactive panels announce themselves so their controls appear */
+  document.querySelectorAll(".gg-ig-a").forEach(function(f){ f.classList.add("is-live"); });
+
+  /* gear essentials: tick off what is packed */
+  document.querySelectorAll(".gg-ig-a-ge").forEach(function(root){
+    var cards=root.querySelectorAll(".gg-ig-a-ge__card");
+    var out=root.querySelector(".gg-ig-a-ge__packed");
+    var pips=root.querySelectorAll(".gg-ig-a-ge__pip");
+    function count(){
+      var n=0;
+      cards.forEach(function(c){
+        if(c.classList.contains("is-packed")){ n++; }
+      });
+      pips.forEach(function(p,i){ p.classList.toggle("is-on",i<n); });
+      if(out){ out.textContent=n+" of "+cards.length+" packed"; }
+    }
+    cards.forEach(function(c){
+      var b=c.querySelector("button");
+      if(!b){ return; }
+      b.addEventListener("click",function(){
+        var on=!c.classList.contains("is-packed");
+        c.classList.toggle("is-packed",on);
+        b.setAttribute("aria-pressed",on?"true":"false");
+        count();
+      });
+    });
+  });
+
+  /* rider grid: light the profiles that cover your hours */
+  document.querySelectorAll(".gg-ig-a-rg").forEach(function(root){
+    var inp=root.querySelector(".gg-ig-a-rg__range");
+    var hrs=root.querySelector(".gg-ig-a-rg__hrs");
+    var match=root.querySelector(".gg-ig-a-rg__match");
+    var cards=root.querySelectorAll(".gg-ig-a-rg__card");
+    if(!inp){ return; }
+    function show(){
+      var h=parseFloat(inp.value)||0;
+      var names=[];
+      cards.forEach(function(c){
+        var lo=parseFloat(c.getAttribute("data-lo")), hi=parseFloat(c.getAttribute("data-hi"));
+        var on=h>=lo&&h<=hi;
+        c.classList.toggle("is-lit",on);
+        c.classList.toggle("is-dim",!on);
+        if(on){ names.push(c.getAttribute("data-name")); }
+      });
+      if(hrs){ hrs.textContent=h+" hrs"; }
+      if(match){ match.textContent=names.length?names.join(" or "):"Below the first profile"; }
+    }
+    inp.addEventListener("input",show);
+    show();
+  });
+
+  /* hierarchy of speed: pick a factor, read its share */
+  document.querySelectorAll(".gg-ig-a-hs").forEach(function(root){
+    var picks=root.querySelectorAll(".gg-ig-a-pick");
+    var rows=root.querySelectorAll(".gg-ig-a-hs__row");
+    var share=root.querySelector(".gg-ig-a-hs__rshare");
+    var txt=root.querySelector(".gg-ig-a-hs__rtxt");
+    var ctl=root.querySelector(".gg-ig-a-hs__ctl");
+    if(!ctl||!picks.length){ return; }
+    var min=parseFloat(ctl.getAttribute("data-min"))||1;
+    var smallest=picks[picks.length-1].textContent;
+    function pick(i){
+      var b=picks[i];
+      var v=parseFloat(b.getAttribute("data-share"));
+      picks.forEach(function(o,k){ o.setAttribute("aria-pressed",k===i?"true":"false"); });
+      rows.forEach(function(r,k){ r.classList.toggle("is-sel",k===i); });
+      var r=v/min;
+      var rs=r>=10?String(Math.round(r)):String(Math.round(r*10)/10);
+      if(share){ share.textContent=v+"%"; }
+      if(txt){
+        txt.textContent=b.textContent+" is "+v+"% of speed"+(r>1?", "+rs+"x the weight of "+smallest+". ":". ")+b.getAttribute("data-tip");
+      }
+    }
+    picks.forEach(function(b,i){ b.addEventListener("click",function(){ pick(i); }); });
+    pick(0);
+  });
+
+  /* tier distribution: tap a tier */
+  document.querySelectorAll(".gg-ig-a-td").forEach(function(root){
+    var rows=root.querySelectorAll("button.gg-ig-a-td__row");
+    var box=root.querySelector(".gg-ig-a-td__detail");
+    if(!box||!rows.length){ return; }
+    var total=parseFloat(box.getAttribute("data-total"))||1;
+    function pick(b){
+      rows.forEach(function(o){ o.setAttribute("aria-pressed",o===b?"true":"false"); });
+      box.querySelector(".gg-ig-a-td__dtier").textContent=b.getAttribute("data-tier");
+      box.querySelector(".gg-ig-a-td__dcount").textContent=b.getAttribute("data-count")+" of "+total+" races, "+b.getAttribute("data-pct")+"%";
+      box.querySelector(".gg-ig-a-td__dtip").textContent=b.getAttribute("data-tip");
+    }
+    rows.forEach(function(b){ b.addEventListener("click",function(){ pick(b); }); });
+    pick(rows[0]);
+  });
+
+  /* field scatter: tier filter */
+  document.querySelectorAll(".gg-ig-a-fs").forEach(function(root){
+    var btns=root.querySelectorAll(".gg-ig-a-pick");
+    btns.forEach(function(b){
+      b.addEventListener("click",function(){
+        var t=(b.getAttribute("data-tier")||"").toLowerCase();
+        ["t1","t2","t3","t4"].forEach(function(k){ root.classList.remove("is-sel-"+k); });
+        root.classList.toggle("is-sel",t!=="");
+        if(t){ root.classList.add("is-sel-"+t); }
+        btns.forEach(function(o){ o.setAttribute("aria-pressed",o===b?"true":"false"); });
+      });
+    });
+  });
+
   /* gear weight toggles */
   document.querySelectorAll(".gg-ig-a-gw").forEach(function(root){
     var total=root.querySelector(".gg-ig-a-gw__total");
@@ -870,7 +1147,7 @@ JS = """
           var on=o===chip;
           o.setAttribute("aria-pressed",on?"true":"false");
           var ar=o.querySelector(".gg-ig-a-rt__arrow");
-          if(ar){ ar.textContent=on?(dir==="asc"?"\\u2191":"\\u2193"):""; }
+          if(ar){ ar.textContent=on?(dir==="asc"?"\u2191":"\u2193"):""; }
         });
         ths.forEach(function(t){
           if(parseInt(t.getAttribute("data-col"),10)===col){ t.setAttribute("aria-sort",dir==="asc"?"ascending":"descending"); }
@@ -880,4 +1157,24 @@ JS = """
     });
   });
 })();
+
+/* course profile: scrub the miles */
+GGEG.register("ch2-cp", function (i, c) {
+  var d = c.data, st = c.state;
+  var e = d.elev[i], g = d.grade[i], k = d.cls[i], s = d.seg[i];
+  var txt = String(e).replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  var chip = (g > 0 ? "▲ " : (g < 0 ? "▼ " : "")) + Math.abs(g) + "% · " + d.names[k];
+  c.set("num", txt);
+  c.set("chip", chip);
+  c.set("when", "Mile " + i + (i === d.peak ? " · peak" : ""));
+  var pt = c.q("[data-eg-pt]");
+  if (pt) { pt.style.left = (i / (c.n - 1) * 100) + "%"; pt.style.top = ((d.hi - e) / (d.hi - d.lo) * 100) + "%"; }
+  var j;
+  for (j = 0; j < st.segs.length; j++) st.segs[j].classList.toggle("is-on", j === s);
+  for (j = 0; j < st.keys.length; j++) st.keys[j].classList.toggle("is-on", st.keys[j].getAttribute("data-eg-cls") === d.keys[k]);
+  return "Mile " + i + ": " + txt + " ft, " + chip;
+}, function (c) {
+  c.state.segs = c.card.querySelectorAll("[data-seg]");
+  c.state.keys = c.card.querySelectorAll("[data-eg-cls]");
+});
 """

@@ -45,6 +45,7 @@ from generate_neo_brutalist import (
 )
 
 from guide_infographics import INFOGRAPHIC_RENDERERS
+import guide_ig
 from guide_plates import render_chapter_plate
 from shared_header import get_site_header_css, get_site_header_html, get_site_header_js
 from cookie_consent import get_consent_banner_html
@@ -773,9 +774,9 @@ def render_image(block: dict) -> str:
         return (f'<figure class="gg-guide-img{cls}">'
                 f'<img src="{src}" alt="{alt}" loading="lazy" decoding="async" '
                 f'class="gg-guide-img-el">{cap}</figure>')
-    infographic_renderer = INFOGRAPHIC_RENDERERS.get(block["asset_id"])
+    infographic_renderer = guide_ig.RENDERERS.get(block["asset_id"]) or INFOGRAPHIC_RENDERERS.get(block["asset_id"])
     if infographic_renderer:
-        return infographic_renderer(block)
+        return f'<div class="gg-ig-slot" data-ig="{esc(block["asset_id"])}">{infographic_renderer(block)}</div>'
     asset_id = esc(block["asset_id"])
     alt = esc(block.get("alt", ""))
     caption = block.get("caption", "")
@@ -3319,8 +3320,8 @@ def generate_guide_page(content: dict, inline: bool = False, assets_dir: Path = 
             chapters_html.append(CTA_BUILDERS[cta_type]())
 
     # CSS/JS
-    guide_css_content = build_guide_css()
-    guide_js_content = build_guide_js()
+    guide_css_content = build_guide_css() + "\n" + guide_ig.CSS
+    guide_js_content = build_guide_js() + ("\n(function(){\n\"use strict\";\n" + guide_ig.JS + "\n})();" if guide_ig.JS else "")
 
     if inline:
         css_html = f'<style>{guide_css_content}</style>'

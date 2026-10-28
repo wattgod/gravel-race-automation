@@ -1,8 +1,8 @@
-"""Chapter 3 (Training) charts, rebuilt as poster panels.
+"""Chapter 3 (Training) charts as Endure Glyph cards inside Gravel God panels.
 
-Static markup: SVG draws only the lines and fills (stretched, non-scaling
-strokes); every label, tick and marker is HTML so text stays a real 14px+ at
-any width. No script needed.
+SVG draws only lines and fills (stretched, non-scaling strokes); every label, tick and
+marker is HTML so text stays a real 11px+ at any width. Scripts (JS below) add the scrub
+and the controls; with no script each chart shows its default state in full.
 """
 import html as _html
 import math
@@ -17,55 +17,9 @@ def _e(v) -> str:
     return _html.escape("" if v is None else str(v), quote=True)
 
 
-def _smooth(pts):
-    """Monotone cubic through points -> SVG path (no overshoot, passes every point)."""
-    n = len(pts)
-    xs = [p[0] for p in pts]
-    ys = [p[1] for p in pts]
-    d = [(ys[i + 1] - ys[i]) / (xs[i + 1] - xs[i]) for i in range(n - 1)]
-    m = [d[0]] + [
-        (d[i - 1] + d[i]) / 2 if d[i - 1] * d[i] > 0 else 0 for i in range(1, n - 1)
-    ] + [d[-1]]
-    for i in range(n - 1):
-        if d[i] == 0:
-            m[i] = m[i + 1] = 0
-            continue
-        a, b = m[i] / d[i], m[i + 1] / d[i]
-        s = a * a + b * b
-        if s > 9:
-            t = 3 / math.sqrt(s)
-            m[i], m[i + 1] = t * a * d[i], t * b * d[i]
-    out = [f"M{xs[0]:.1f},{ys[0]:.1f}"]
-    for i in range(n - 1):
-        h = xs[i + 1] - xs[i]
-        out.append(
-            f"C{xs[i] + h / 3:.1f},{ys[i] + m[i] * h / 3:.1f} "
-            f"{xs[i + 1] - h / 3:.1f},{ys[i + 1] - m[i + 1] * h / 3:.1f} "
-            f"{xs[i + 1]:.1f},{ys[i + 1]:.1f}"
-        )
-    return " ".join(out)
-
-
-def _panel(block, theme, eyebrow, title, hero, hero_text, body, default_caption=""):
-    cap = block.get("caption") or default_caption
-    cap_html = f'<figcaption class="{P}-cap">{_e(cap)}</figcaption>' if cap else ""
-    return (
-        f'<figure class="{P}-panel {P}-panel--{theme}">'
-        f'<header class="{P}-head"><p class="{P}-eyebrow">{_e(eyebrow)}</p>'
-        f'<h3 class="{P}-title">{_e(title)}</h3></header>'
-        f'<div class="{P}-hero"><p class="{P}-hero-num">{_e(hero)}</p>'
-        f'<p class="{P}-hero-text">{_e(hero_text)}</p></div>'
-        f'<div class="{P}-body">{body}</div>'
-        f'{cap_html}</figure>'
-    )
-
-
-def _alt(block, fallback):
-    return _e(block.get("alt") or fallback)
-
-
 # ── 1. Supercompensation ────────────────────────────────────
 
+# Model points: (fraction of the 20-day cycle, level vs baseline). One point per day.
 _SC_PTS = [
     (0.00, 0), (0.05, 5), (0.10, -10), (0.15, -80), (0.20, -120), (0.25, -100),
     (0.30, -60), (0.35, -20), (0.40, 0), (0.45, 30), (0.50, 55), (0.55, 70),
@@ -79,50 +33,112 @@ _SC_STAGES = [
     (0.55, 70, "Supercompensation", "The window where fitness exceeds previous baseline — train again here"),
     (0.80, 5, "Detraining", "Wait too long and you lose the adaptation gains"),
 ]
+_SC_DAYS = 20
+_SC_DEF = 11  # the overshoot peak: "train again here"
+_SC_LVL = [o for _, o in _SC_PTS]
+_SC_ANCH = [(round(f * _SC_DAYS), n) for f, _, n, _ in _SC_STAGES]
+_SC_LO, _SC_HI = -170, 100
+
+
+def _signed(v):
+    return "0" if v == 0 else f"{v:+d}"
+
+
+def _sc_stage(day):
+    best, bd = 0, 10 ** 9
+    for k, (d, _) in enumerate(_SC_ANCH):
+        if abs(d - day) < bd:
+            best, bd = k, abs(d - day)
+    return _SC_ANCH[best][1]
+
+
+def _sc_verdict(day):
+    """Where a hard session on `day` lands, read straight from the curve (mirrored in JS)."""
+    lv = _SC_LVL[day]
+    mi = min(range(len(_SC_LVL)), key=lambda k: (_SC_LVL[k], k))
+    rec = next((k for k in range(mi + 1, len(_SC_LVL)) if _SC_LVL[k] >= 0), len(_SC_LVL))
+    if lv == 0:
+        return "Lands at baseline: no boost yet"
+    if lv > 0 and day < rec:
+        return f"Lands before the dip: {_signed(lv)} vs baseline"
+    if lv > 0:
+        return f"Lands on the overshoot: {_signed(lv)} above baseline"
+    if day < rec:
+        return f"Lands in the fatigue hole: {-lv} below baseline"
+    return f"Lands after the overshoot faded: {-lv} below baseline"
 
 
 def render_supercompensation(block: dict) -> str:
-    W, H = 1000, 400
-    lo, hi = -150, 100  # offset range shown
-
-    def y(off):
-        return (hi - off) / (hi - lo) * H
-
-    pts = [(f * W, y(o)) for f, o in _SC_PTS]
-    path = _smooth(pts)
-    base = y(0)
-    area = f"{path} L{W},{base:.1f} L0,{base:.1f} Z"
+    W, H = 1000, 220
+    n = _SC_DAYS + 1
+    yp = lambda v: (_SC_HI - v) / (_SC_HI - _SC_LO)  # noqa: E731  (0 top .. 1 bottom)
+    pts = [(f * W, yp(o) * H) for f, o in _SC_PTS]
+    cs = glyph.mono_sample(pts, 12)
+    base = yp(0) * H
+    path = glyph.line_path(cs)
+    area = glyph.line_path(cs + [(W, base), (0, base)], close=True)
     svg = (
-        f'<svg class="{P}-sc-svg" viewBox="0 0 {W} {H}" preserveAspectRatio="none" aria-hidden="true">'
+        f'<svg class="gg-eg-svg" viewBox="0 0 {W} {H}" preserveAspectRatio="none" aria-hidden="true">'
         f'<defs><clipPath id="{P}-sc-up"><rect x="0" y="0" width="{W}" height="{base:.1f}"/></clipPath>'
         f'<clipPath id="{P}-sc-dn"><rect x="0" y="{base:.1f}" width="{W}" height="{H - base:.1f}"/></clipPath></defs>'
-        f'<path class="{P}-sc-up" d="{area}" clip-path="url(#{P}-sc-up)"/>'
-        f'<path class="{P}-sc-dn" d="{area}" clip-path="url(#{P}-sc-dn)"/>'
-        f'<line class="{P}-sc-base" x1="0" y1="{base:.1f}" x2="{W}" y2="{base:.1f}"/>'
-        f'<path class="{P}-sc-line" d="{path}"/></svg>'
+        f'<path class="{P}-eg-band {P}-eg-band--teal" d="{area}" clip-path="url(#{P}-sc-up)"/>'
+        f'<path class="{P}-eg-band {P}-eg-band--pink" d="{area}" clip-path="url(#{P}-sc-dn)"/>'
+        f'<line class="{P}-eg-ref" x1="0" x2="{W}" y1="{base:.1f}" y2="{base:.1f}"/>'
+        f'<path class="{P}-eg-case" d="{path}"/><path class="{P}-eg-hero" d="{path}"/></svg>'
     )
-    marks = []
-    legend = []
-    for i, (fx, off, name, tip) in enumerate(_SC_STAGES, 1):
-        marks.append(
-            f'<span class="{P}-mark" style="left:{fx * 100:.1f}%;top:{y(off) / H * 100:.1f}%" aria-hidden="true">{i}</span>'
-        )
-        legend.append(
-            f'<li class="{P}-sc-step"><span class="{P}-mark {P}-mark--static" aria-hidden="true">{i}</span>'
-            f'<div><strong class="{P}-sc-name">{_e(name)}</strong>'
-            f'<span class="{P}-sc-tip">{_e(tip)}</span></div></li>'
-        )
-    body = (
-        f'<div class="{P}-sc-plot" role="img" aria-label="{_alt(block, "Supercompensation curve: stress drops fitness below baseline, recovery brings it back, then it overshoots before fading")}">'
-        f'{svg}{"".join(marks)}</div>'
-        f'<p class="{P}-sc-key"><span class="{P}-sc-dash" aria-hidden="true"></span>Baseline: where you started</p>'
-        f'<ol class="{P}-sc-steps">{"".join(legend)}</ol>'
+    notes = (
+        f'<span class="{P}-eg-note2" style="left:{4 / _SC_DAYS * 100:.1f}%;top:{yp(-120) * 100:.1f}%">Dip</span>'
+        f'<span class="{P}-eg-note2 {P}-eg-note2--up" style="left:{15 / _SC_DAYS * 100:.1f}%;top:{yp(22) * 100:.1f}%">Overshoot</span>'
+        f'<span class="{P}-eg-note2 {P}-eg-note2--l" style="left:0;top:{yp(0) * 100:.1f}%">Baseline</span>'
     )
-    return _panel(
-        block, "dark", "CH 3 · RECOVERY", "Supercompensation: Why Rest Makes You Faster",
-        "REST = FASTER",
-        "You don’t get faster during the workout — you get faster during recovery.",
-        body, "The foundational model — train, recover, adapt, repeat.",
+    nh = (
+        f'<div class="{P}-eg-nh" data-eg-nh style="left:{_SC_DEF / _SC_DAYS * 100:.2f}%">'
+        f'<span>Hard session</span></div>'
+    )
+    pt = (
+        f'<i class="gg-eg-pt" data-eg-pt style="left:{_SC_DEF / _SC_DAYS * 100:.2f}%;'
+        f'top:{yp(_SC_LVL[_SC_DEF]) * 100:.2f}%"></i>'
+    )
+    plot = f"{svg}{notes}{nh}{pt}"
+    vt = f"Day {_SC_DEF}: {_signed(_SC_LVL[_SC_DEF])} vs baseline, {_sc_stage(_SC_DEF)}"
+    pw = glyph.scrub_wrap("ch3-sc", plot, n, _SC_DEF, "Scrub the 20 days", vt, mode="point")
+    xt = "".join(
+        f'<span class="{P}-eg-xt{" " + P + "-eg-xt--end" if d == _SC_DAYS else ""}" '
+        f'style="left:{d / _SC_DAYS * 100:.1f}%">{"day " if d == _SC_DAYS else ""}{d}</span>'
+        for d in (0, 5, 10, 15, 20)
+    )
+    ends = (
+        f'<div class="{P}-eg-ends"><div style="top:{yp(_SC_LVL[-1]) * 100:.1f}%">'
+        f'{glyph.capsule(_signed(_SC_LVL[-1]), "Fitness", "ink", "filled")}</div></div>'
+    )
+    wrap = f'<div class="{P}-eg-wrap">{pw}<div class="{P}-eg-ruler" aria-hidden="true">{xt}</div>{ends}</div>'
+    controls = (
+        f'<label class="gg-eg-field">Next hard session'
+        f'<input class="{P}-eg-rng" type="range" min="0" max="{_SC_DAYS}" step="1" value="{_SC_DEF}" '
+        f'data-eg-in="nh" aria-label="Day of your next hard session">'
+        f'<span data-eg-f="nhday">Day {_SC_DEF}</span></label>'
+    )
+    extra = f'<span data-eg-f="verdict">{_e(_sc_verdict(_SC_DEF))}</span>'
+    head = glyph.readout(
+        _signed(_SC_LVL[_SC_DEF]), "vs baseline", _sc_stage(_SC_DEF), f"Day {_SC_DEF}", extra,
+    )
+    alt = block.get("alt") or "Supercompensation curve: stress drops fitness below baseline, recovery brings it back, then it overshoots before fading"
+    desc = (
+        f"{alt}. REST = FASTER: you get faster during recovery, not during the workout. "
+        + " ".join(f"{n_}: {t}." for _, _, n_, t in _SC_STAGES)
+        + " Level against baseline by day, 0 to 20: " + ", ".join(_signed(v) for v in _SC_LVL) + "."
+    )
+    data = {
+        "lvl": _SC_LVL, "days": _SC_DAYS, "lo": _SC_LO, "hi": _SC_HI, "def": _SC_DEF,
+        "stages": [[d, n_] for d, n_ in _SC_ANCH],
+    }
+    card = glyph.glyph_card(
+        "Fitness after a hard session", head, wrap, controls_html=controls,
+        data=data, describedby="gg-eg-sc-d", description=desc,
+    )
+    return _glyph_panel(
+        block, "CH 3 · RECOVERY", "Supercompensation: Why Rest Makes You Faster", card,
+        "The foundational model — train, recover, adapt, repeat.",
     )
 
 
@@ -137,36 +153,69 @@ _ZONES = [
     ("Z6", "Anaerobic", "121-150%", 121, 150, "121-150% FTP. Short punchy efforts for climbs and surges."),
     ("Z7", "Neuromuscular", "Max", 150, 170, "Max effort sprints. Rarely needed in gravel racing."),
 ]
+_ZN_FTP = 250
+_ZN_SPAN = 170.0
+_ZN_HOME = "Gravel racing lives in Zones 2–4."
+
+
+def _zn_w(i, ftp):
+    """Watts text for zone i at this FTP (mirrored in JS). Z1 has only a ceiling, Z7 none."""
+    _, _, _, a, b, _ = _ZONES[i]
+    r = lambda p: int(math.floor(p / 100 * ftp + 0.5))  # noqa: E731
+    if i == 0:
+        return f"≤ {r(b)} W"
+    if i == len(_ZONES) - 1:
+        return "Max"
+    return f"{r(a)}–{r(b)} W"
+
+
+def _zn_home_w(ftp):
+    r = lambda p: int(math.floor(p / 100 * ftp + 0.5))  # noqa: E731
+    return f"{r(55)}–{r(105)} W"
 
 
 def render_zone_spectrum(block: dict) -> str:
-    span = 170.0
     rows = []
-    for code, name, rng, a, b, desc in _ZONES:
+    for i, (code, name, rng, a, b, _) in enumerate(_ZONES):
         hot = code in ("Z2", "Z3", "Z4")
-        rows.append(
-            f'<li class="{P}-zn-row{" " + P + "-zn-row--hot" if hot else ""}">'
-            f'<div class="{P}-zn-info"><span class="{P}-zn-code">{_e(code)}</span>'
-            f'<span class="{P}-zn-name">{_e(name)}</span>'
-            f'<span class="{P}-zn-range">{_e(rng)}</span></div>'
-            f'<div class="{P}-zn-viz"><div class="{P}-zn-track">'
-            f'<span class="{P}-zn-bar" style="left:{a / span * 100:.2f}%;width:{(b - a) / span * 100:.2f}%"></span></div>'
-            f'<p class="{P}-zn-desc">{_e(desc)}</p></div></li>'
+        m = (
+            f'<span class="gg-eg-meter {P}-eg-zm{"" if hot else " " + P + "-eg-zm--cool"}">'
+            f'<b style="left:{a / _ZN_SPAN * 100:.2f}%;width:{(b - a) / _ZN_SPAN * 100:.2f}%"></b>'
+            f'<i class="gg-eg-tick" style="left:{100 / _ZN_SPAN * 100:.2f}%"></i></span>'
         )
-    ticks = "".join(
-        f'<span style="left:{t / span * 100:.2f}%">{t}%</span>' for t in (0, 50, 100, 150)
+        rows.append(
+            f'<li><button type="button" class="{P}-eg-row {P}-eg-zrow" data-eg-row="{i}" aria-pressed="false">'
+            f'<span class="{P}-eg-rc">{_e(code)}</span><span class="{P}-eg-rn">{_e(name)}</span>'
+            f'<span class="{P}-eg-rm">{m}</span>'
+            f'<span class="{P}-eg-rp">{_e(rng)}</span>'
+            f'<span class="{P}-eg-rw" data-eg-w="{i}">{_e(_zn_w(i, _ZN_FTP))}</span></button></li>'
+        )
+    axis = "".join(
+        f'<span style="left:{t / _ZN_SPAN * 100:.2f}%">{t}%</span>' for t in (0, 50, 100, 150)
     )
-    body = (
-        f'<div class="{P}-zn" role="img" aria-label="{_alt(block, "Seven training zones from Z1 Active Recovery to Z7 Neuromuscular on a percent of FTP scale; Z2 to Z4 highlighted")}">'
-        f'<div class="{P}-zn-axis" aria-hidden="true"><span class="{P}-zn-axis-pad"></span>'
-        f'<div class="{P}-zn-ticks">{ticks}</div></div>'
-        f'<ol class="{P}-zn-list">{"".join(rows)}</ol></div>'
+    plot = (
+        f'<div data-eg-live="ch3-zones"><div class="{P}-eg-zax" aria-hidden="true"><span class="{P}-eg-zaxp"></span>'
+        f'<span class="{P}-eg-zaxm">{axis}</span></div>'
+        f'<ul class="{P}-eg-rows">{"".join(rows)}</ul></div>'
     )
-    return _panel(
-        block, "light", "CH 3 · ZONES", "The Seven Training Zones",
-        "Z2–Z4",
-        "Gravel racing lives in Zones 2–4. Build your base there before chasing intensity.",
-        body, "The zone spectrum — from recovery spin to redline effort.",
+    controls = (
+        f'<label class="gg-eg-field">FTP<input type="number" inputmode="numeric" min="100" max="500" step="1" '
+        f'value="{_ZN_FTP}" data-eg-in="ftp" aria-label="Functional threshold power in watts"> W</label>'
+    )
+    head = glyph.readout(
+        "Z2–Z4", "", _zn_home_w(_ZN_FTP), f"FTP {_ZN_FTP} W",
+        f'<span data-eg-f="txt">{_e(_ZN_HOME)}</span>',
+    )
+    alt = block.get("alt") or "Seven training zones from Z1 Active Recovery to Z7 Neuromuscular on a percent of FTP scale; Z2 to Z4 highlighted"
+    desc = f"{alt}. " + " ".join(f"{c} {n_} {r_}: {d}" for c, n_, r_, _, _, d in _ZONES)
+    data = {"ftp": _ZN_FTP, "home": _ZN_HOME, "zones": [list(z) for z in _ZONES]}
+    card = glyph.glyph_card(
+        "Training zones", head, plot, controls_html=controls,
+        data=data, describedby="gg-eg-zn-d", description=desc,
+    )
+    return _glyph_panel(
+        block, "CH 3 · ZONES", "The Seven Training Zones", card,
+        "The zone spectrum — from recovery spin to redline effort.",
     )
 
 
@@ -331,43 +380,82 @@ _PHASES = [
     ("BUILD", "WK 6–9", 4, "build", "Weeks 6-9: Add intervals, tempo, and race-specificity."),
     ("PEAK / TAPER", "WK 10–12", 3, "peak", "Weeks 10-12: Reduce volume 40%, maintain intensity, rest up."),
 ]
+_TP_SUMMARY = "Base wk 1–5 · Build wk 6–9 · Peak / Taper wk 10–12"
+
+
+def _tp_phase(i):
+    return 0 if i < 5 else (1 if i < 9 else 2)
 
 
 def render_training_phases(block: dict) -> str:
-    def phase_of(i):
-        return "base" if i < 5 else ("build" if i < 9 else "peak")
+    W, H = 1200, 100
+    cols = "".join(
+        f'<span class="{P}-eg-cw"><i class="{P}-eg-col {P}-eg-col--{_PHASES[_tp_phase(i)][3]}" '
+        f'style="--h:{v * 100:.0f}%;--a:{30 + 70 * v:.0f}%"></i></span>'
+        for i, v in enumerate(_VOL)
+    )
+    ipts = [((i + 0.5) / 12 * W, (1 - v) * H) for i, v in enumerate(_INT)]
+    ipath = glyph.line_path(ipts)
+    refs = "".join(
+        f'<line class="{P}-eg-ref" x1="0" x2="{W}" y1="{(1 - v) * H:.1f}" y2="{(1 - v) * H:.1f}"/>' for v in (0.5, 1.0)
+    )
+    svg = (
+        f'<svg class="gg-eg-svg" viewBox="0 0 {W} {H}" preserveAspectRatio="none" aria-hidden="true">'
+        f'{refs}<path class="{P}-eg-case" d="{ipath}"/><path class="{P}-eg-hero" d="{ipath}"/></svg>'
+    )
+    ylab = "".join(
+        f'<span class="{P}-eg-yl{" " + P + "-eg-yl--top" if v == 100 else ""}" style="top:{100 - v}%">{v}</span>'
+        for v in (100, 50)
+    )
+    pt = (
+        f'<i class="gg-eg-pt" data-eg-pt style="left:{(6 + 0.5) / 12 * 100:.2f}%;top:{(1 - _INT[6]) * 100:.1f}%"></i>'
+    )
+    plot = f'<div class="{P}-eg-colrow">{cols}</div>{svg}{ylab}{pt}'
+    wi = 6
+    vt = f"Week {wi + 1}: {_PHASES[_tp_phase(wi)][0]}, volume {round(_VOL[wi] * 100)}%, intensity {round(_INT[wi] * 100)}%"
+    pw = glyph.scrub_wrap("ch3-tp", plot, 12, wi, "Scrub the 12 weeks", vt, mode="band")
+    band = "".join(
+        f'<div class="{P}-eg-ph {P}-eg-ph--{k}" style="flex:{w}"><b>{_e(n_)}</b><span>{_e(wk)}</span></div>'
+        for n_, wk, w, k, _ in _PHASES
+    )
+    wkr = "".join(f"<span>{i}</span>" for i in range(1, 13))
+    # end capsules, spread so the two never overlap
+    t_int, t_vol = (1 - _INT[11]) * 100, (1 - _VOL[11]) * 100
+    if abs(t_vol - t_int) < 14:
+        t_vol = t_int + 14
+    ends = (
+        f'<div class="{P}-eg-ends"><div style="top:{t_int:.1f}%">{glyph.capsule(round(_INT[11] * 100), "Intensity", "ink", "filled")}</div>'
+        f'<div style="top:{t_vol:.1f}%">{glyph.capsule(round(_VOL[11] * 100), "Volume", "ink", "outlined")}</div></div>'
+    )
+    wrap = (
+        f'<div class="{P}-eg-wrap">{pw}'
+        f'<div class="{P}-eg-phband" aria-hidden="true">{band}</div>'
+        f'<div class="{P}-eg-wkr" aria-hidden="true">{wkr}</div>{ends}</div>'
+    )
+    extra = (
+        f'<span class="{P}-eg-os">{glyph.capsule("", "Volume", "ink", "outlined", field="vol")}</span>'
+        f'<span class="{P}-eg-os">{glyph.capsule("", "Intensity", "ink", "filled", field="int")}</span>'
+        f'<span data-eg-f="txt">{_e(_TP_SUMMARY)}</span>'
+    )
+    head = glyph.readout(12, "weeks", "Base → Build → Peak", "3 phases", extra)
+    alt = block.get("alt") or "12-week periodization: volume builds through Base and peaks in week 7, intensity ramps through Build and peaks in week 9, both fall into the taper"
+    desc = (
+        f"{alt}. " + " ".join(t for *_, t in _PHASES)
+        + " Volume by week, percent of the scale: " + ", ".join(str(round(v * 100)) for v in _VOL)
+        + ". Intensity: " + ", ".join(str(round(v * 100)) for v in _INT) + "."
+    )
+    data = {
+        "vol": [round(v * 100) for v in _VOL], "int": [round(v * 100) for v in _INT],
+        "phases": [[n_, k, t] for n_, _, _, k, t in _PHASES], "summary": _TP_SUMMARY,
+    }
+    card = glyph.glyph_card(
+        "Twelve-week build", head, wrap, data=data, describedby="gg-eg-tp-d", description=desc,
+    )
+    return _glyph_panel(
+        block, "CH 3 · PERIODIZATION", "Periodization: Building Fitness in Three Phases", card,
+        "The 12-week build: volume peaks in Base, intensity peaks in Build, both taper for race day.",
+    )
 
-    def row(label, vals, kind):
-        cols = "".join(
-            f'<div class="{P}-tp-col {P}-tp-col--{phase_of(i)}"><span class="{P}-tp-bar {P}-tp-bar--{kind}" '
-            f'style="--h:{v * 100:.0f}"></span></div>'
-            for i, v in enumerate(vals)
-        )
-        return f'<p class="{P}-tp-label">{label}</p><div class="{P}-tp-row">{cols}</div>'
-
-    heads = "".join(
-        f'<div class="{P}-tp-ph {P}-tp-ph--{k}" style="flex:{w}"><b>{_e(n)}</b><span>{_e(wk)}</span></div>'
-        for n, wk, w, k, _ in _PHASES
-    )
-    wk = "".join(f'<span>{i}</span>' for i in range(1, 13))
-    cards = "".join(
-        f'<li class="{P}-tp-card {P}-tp-card--{k}"><b>{_e(n)}</b><span>{_e(t)}</span></li>'
-        for n, _, _, k, t in _PHASES
-    )
-    body = (
-        f'<div class="{P}-tp" role="img" aria-label="{_alt(block, "12-week periodization: volume builds through Base and peaks in week 7, intensity ramps through Build and peaks in week 9, both fall into the taper")}">'
-        f'<div class="{P}-tp-heads">{heads}</div>'
-        f'{row("VOLUME", _VOL, "vol")}{row("INTENSITY", _INT, "int")}'
-        f'<div class="{P}-tp-wk" aria-hidden="true">{wk}</div>'
-        f'<p class="{P}-tp-wkl">WEEK</p></div>'
-        f'<ul class="{P}-tp-cards">{cards}</ul>'
-    )
-    return _panel(
-        block, "light", "CH 3 · PERIODIZATION", "Periodization: Building Fitness in Three Phases",
-        "12 WEEKS",
-        "Base → Build → Peak. Skip base and your peak will have no foundation.",
-        body, "The 12-week build: volume peaks in Base, intensity peaks in Build, both taper for race day.",
-    )
 
 
 # ── 5. Power-duration ───────────────────────────────────────
@@ -499,77 +587,145 @@ def render_power_duration(block: dict) -> str:
     )
 
 
-# ── 6. Season Gantt ─────────────────────────────────────────
+# ── 6. Season band ──────────────────────────────────────────
 
-# (name, start month, end month, dates, description) on a Nov-to-Nov grid (0 = 1 Nov)
+# (name, start month, end month, description, kind) counted in months from the plan start
 _GANTT = [
-    ("Off-Season", 0, 1.5, "Nov – mid Dec", "Active recovery, cross-training, mental reset", "off"),
-    ("Base 1", 1.5, 5, "Mid Dec – Mar", "Aerobic foundation, long Z2 rides, consistency", "base"),
-    ("Base 2", 5, 7, "Apr – May", "Add tempo work, longer rides, race-surface training", "base"),
-    ("Build", 7, 9.5, "Jun – mid Aug", "Intervals, race simulation, peak training load", "build"),
-    ("Race Season", 9.5, 12, "Mid Aug – Oct", "A-race taper, B-race maintenance, peak performance", "race"),
-    ("Transition", 12, 13, "Nov", "Deload, reflect, plan next year. Ride for fun.", "trans"),
+    ("Off-Season", 0, 1.5, "Active recovery, cross-training, mental reset", "off"),
+    ("Base 1", 1.5, 5, "Aerobic foundation, long Z2 rides, consistency", "base"),
+    ("Base 2", 5, 7, "Add tempo work, longer rides, race-surface training", "base"),
+    ("Build", 7, 9.5, "Intervals, race simulation, peak training load", "build"),
+    ("Race Season", 9.5, 12, "A-race taper, B-race maintenance, peak performance", "race"),
+    ("Transition", 12, 13, "Deload, reflect, plan next year. Ride for fun.", "trans"),
 ]
-_MONTHS = ["Nov", "Dec", "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov"]
+_MONTHS12 = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
+_GT_ANCHOR = 9.5  # the A race opens the Race Season block: 9.5 months after the plan starts
+_GT_RACE_DEF = 7  # August
+_GT_N = 13
+
+
+def _gt_start(race_month):
+    """Plan start month (0 = Jan) so the A race lands mid race_month."""
+    return (race_month - int(_GT_ANCHOR)) % 12
+
+
+def _gt_pos(s, p, is_end):
+    """Month label for position p months after the plan start (mirrored in JS)."""
+    if p - math.floor(p) == 0.5:
+        return "mid " + _MONTHS12[(s + int(math.floor(p))) % 12]
+    k = math.ceil(p) - 1 if is_end else int(math.floor(p))
+    return _MONTHS12[(s + int(k)) % 12]
+
+
+def _gt_dates(s, a, b):
+    x, y = _gt_pos(s, a, False), _gt_pos(s, b, True)
+    t = x if x == y else f"{x} – {y}"
+    return t[0].upper() + t[1:]
 
 
 def render_gantt_season(block: dict) -> str:
-    n = 13
-    months = "".join(
-        f'<span><i class="{P}-gt-full">{m}</i><i class="{P}-gt-short">{m[0]}</i></span>' for m in _MONTHS
+    s = _gt_start(_GT_RACE_DEF)
+    n = _GT_N
+    band = "".join(
+        f'<span class="{P}-eg-gseg {P}-eg-gseg--{k}" style="left:{a / n * 100:.2f}%;width:{(b - a) / n * 100:.2f}%" '
+        f'title="{_e(name)}"></span>'
+        for name, a, b, _, k in _GANTT
+    )
+    flag = (
+        f'<span class="{P}-eg-gflag" style="left:{_GT_ANCHOR / n * 100:.2f}%">'
+        f'{glyph.capsule("A", "", "ink", "outlined")}</span>'
+    )
+    ruler = "".join(
+        f'<span data-eg-mo="{k}"><i class="{P}-eg-gfull">{_MONTHS12[(s + k) % 12]}</i>'
+        f'<i class="{P}-eg-gshort">{_MONTHS12[(s + k) % 12][0]}</i></span>'
+        for k in range(n)
     )
     rows = "".join(
-        f'<li class="{P}-gt-row"><div class="{P}-gt-info"><b class="{P}-gt-name">{_e(name)}</b>'
-        f'<span class="{P}-gt-dates">{_e(dates)}</span>'
-        f'<span class="{P}-gt-desc">{_e(desc)}</span></div>'
-        f'<div class="{P}-gt-track"><span class="{P}-gt-bar {P}-gt-bar--{k}" '
-        f'style="left:{a / n * 100:.2f}%;width:{(b - a) / n * 100:.2f}%"></span></div></li>'
-        for name, a, b, dates, desc, k in _GANTT
+        f'<li class="{P}-eg-gr"><span class="{P}-eg-gsw {P}-eg-gseg--{k}"></span>'
+        f'<b class="{P}-eg-gn">{_e(name)}</b>'
+        f'<span class="{P}-eg-gd" data-eg-d="{i}">{_e(_gt_dates(s, a, b))}</span>'
+        f'<span class="{P}-eg-gx">{_e(desc)}</span></li>'
+        for i, (name, a, b, desc, k) in enumerate(_GANTT)
     )
-    body = (
-        f'<div class="{P}-gt" role="img" aria-label="{_alt(block, "A 12-month season: off-season, two base blocks, build, race season, then transition")}">'
-        f'<div class="{P}-gt-months" aria-hidden="true"><span class="{P}-gt-pad"></span><div class="{P}-gt-mgrid">{months}</div></div>'
-        f'<ol class="{P}-gt-list">{rows}</ol></div>'
+    plot = (
+        f'<div data-eg-live="ch3-gantt"><div class="{P}-eg-gband">{band}{flag}</div>'
+        f'<div class="{P}-eg-gruler" aria-hidden="true">{ruler}</div>'
+        f'<ol class="{P}-eg-gl">{rows}</ol></div>'
     )
-    return _panel(
-        block, "light", "CH 3 · SEASON", "The Annual Training Calendar: 12 Months at a Glance",
-        "6 BLOCKS",
-        "Build backwards from your A-race. Every month has a purpose — even the off-season.",
-        body, "A full season planned — stack race-specific blocks with recovery windows.",
+    opts = "".join(
+        f'<option value="{m}"{" selected" if m == _GT_RACE_DEF else ""}>{_MONTHS12[m]}</option>' for m in range(12)
+    )
+    controls = (
+        f'<label class="gg-eg-field">A race month<select class="{P}-eg-sel" data-eg-in="race" '
+        f'aria-label="Month of your A race">{opts}</select></label>'
+    )
+    head = glyph.readout(
+        _MONTHS12[s], "start", f"A race: mid {_MONTHS12[_GT_RACE_DEF]}", f"{len(_GANTT)} blocks",
+        f'<span data-eg-f="txt">Blocks build backwards from the A race.</span>',
+    )
+    alt = block.get("alt") or "A 12-month season: off-season, two base blocks, build, race season, then transition"
+    desc = (
+        f"{alt}. Starting {_MONTHS12[s]} for an A race in mid {_MONTHS12[_GT_RACE_DEF]}: "
+        + "; ".join(f"{name} {_gt_dates(s, a, b)}" for name, a, b, _, _ in _GANTT) + "."
+    )
+    data = {
+        "blocks": [[name, a, b, k] for name, a, b, _, k in _GANTT], "months": _MONTHS12,
+        "anchor": _GT_ANCHOR, "race": _GT_RACE_DEF,
+    }
+    card = glyph.glyph_card(
+        "Season plan", head, plot, controls_html=controls,
+        data=data, describedby="gg-eg-gt-d", description=desc,
+    )
+    return _glyph_panel(
+        block, "CH 3 · SEASON", "The Annual Training Calendar: 12 Months at a Glance", card,
+        "A full season planned — stack race-specific blocks with recovery windows.",
     )
 
 
 # ── 7. Before / after ───────────────────────────────────────
 
+# (metric, before text, after text, before value, after value, meter max, change, note)
 _BA = [
-    ("FTP", "180W", "250W", "39% increase"),
-    ("4hr Power", "140W", "195W", "Sustained race power"),
-    ("Recovery HR", "95 bpm", "68 bpm", "Faster bounce-back"),
-    ("Time to Exhaustion", "3.5 hrs", "7+ hrs", "Double the endurance"),
-    ("Body Comp", "22% BF", "15% BF", "Power-to-weight gains"),
-    ("Race Finish", "Bottom 25%", "Top 35%", "Mid-pack competitive"),
+    ("FTP", "180W", "250W", 180, 250, 300, "+39%", "39% increase"),
+    ("4hr Power", "140W", "195W", 140, 195, 300, "+39%", "Sustained race power"),
+    ("Recovery HR", "95 bpm", "68 bpm", 95, 68, 120, "-27 bpm", "Faster bounce-back"),
+    ("Time to Exhaustion", "3.5 hrs", "7+ hrs", 3.5, 7, 8, "2x+", "Double the endurance"),
+    ("Body Comp", "22% BF", "15% BF", 22, 15, 30, "-7 pts", "Power-to-weight gains"),
+    # percentile of the field beaten: Bottom 25% -> 25, Top 35% -> 65
+    ("Race Finish", "Bottom 25%", "Top 35%", 25, 65, 100, "+40 pts", "Mid-pack competitive"),
 ]
+_BA_WHEN = "12 months"
 
 
 def render_before_after(block: dict) -> str:
     rows = "".join(
-        f'<li class="{P}-ba-row"><p class="{P}-ba-metric">{_e(m)}</p>'
-        f'<p class="{P}-ba-before">{_e(b)}</p>'
-        f'<p class="{P}-ba-after">{_e(a)}</p>'
-        f'<p class="{P}-ba-note">{_e(note)}</p></li>'
-        for m, b, a, note in _BA
+        f'<li><button type="button" class="{P}-eg-row {P}-eg-brow" data-eg-row="{i}" aria-pressed="false">'
+        f'<span class="{P}-eg-bm">{_e(m)}</span>'
+        f'<span class="{P}-eg-bv">{_e(bt)} → {_e(at)}</span>'
+        f'<span class="{P}-eg-rm">{glyph.meter(av, mx, tick=bv)}</span>'
+        f'<span class="{P}-eg-bc">{glyph.capsule(chg, "", "ink", "filled")}</span></button></li>'
+        for i, (m, bt, at, bv, av, mx, chg, _) in enumerate(_BA)
     )
-    body = (
-        f'<div class="{P}-ba-cols"><p><b>BEFORE</b><span>Untrained / 3 months</span></p>'
-        f'<p><b>AFTER</b><span>12 months structured training</span></p></div>'
-        f'<ul class="{P}-ba-list" aria-label="{_alt(block, "Before and after training: FTP 180 W to 250 W, 4 hour power 140 W to 195 W")}">{rows}</ul>'
+    key = (
+        f'<p class="{P}-eg-bkey" aria-hidden="true"><i class="{P}-eg-bkb"></i>After'
+        f'<i class="gg-eg-tick {P}-eg-bkt"></i>Before</p>'
     )
-    return _panel(
-        block, "dark", "CH 3 · RESULTS", "12 Months of Structured Training: Before vs. After",
-        "+39%",
-        "FTP from 180W to 250W. Consistent training transforms everything. A year of focused work can move you up two tiers.",
-        body, "12 weeks of consistent training — the numbers do not lie.",
+    plot = f'<div data-eg-live="ch3-ba">{key}<ul class="{P}-eg-rows">{rows}</ul></div>'
+    m, bt, at, _, _, _, chg, note = _BA[0]
+    head = glyph.readout(chg, m, f"{bt} → {at}", _BA_WHEN, f'<span data-eg-f="txt">{_e(note)}</span>')
+    alt = block.get("alt") or "Before and after training: FTP 180 W to 250 W, 4 hour power 140 W to 195 W"
+    desc = f"{alt}. Untrained, then 12 months of structured training. " + "; ".join(
+        f"{m_}: {b_} to {a_}, {c_}" for m_, b_, a_, _, _, _, c_, _ in _BA
+    ) + "."
+    data = {"rows": [[m_, b_, a_, c_, n_] for m_, b_, a_, _, _, _, c_, n_ in _BA], "when": _BA_WHEN}
+    card = glyph.glyph_card(
+        "Before and after", head, plot, data=data, describedby="gg-eg-ba-d", description=desc,
     )
+    return _glyph_panel(
+        block, "CH 3 · RESULTS", "12 Months of Structured Training: Before vs. After", card,
+        "12 weeks of consistent training — the numbers do not lie.",
+    )
+
 
 
 RENDERERS = {
@@ -697,6 +853,209 @@ GGEG.register("ch3-pmc", function (i, c) {
 """
 
 
+JS_B = r"""
+(function () {
+  function r(x) { return Math.floor(x + 0.5); }
+  function setf(card, key, t) {
+    var n = card.querySelector('[data-eg-f="' + key + '"]');
+    if (n) n.textContent = t;
+  }
+  function sg(v) { return v === 0 ? "0" : GGEG.signed(v, 0); }
+  // Cards with no scrub plot: bind row pickers / inputs ourselves.
+  function live(id, fn) {
+    var els = document.querySelectorAll('[data-eg-live="' + id + '"]');
+    for (var k = 0; k < els.length; k++) {
+      var el = els[k];
+      if (el.getAttribute("data-eg-lbound")) continue;
+      el.setAttribute("data-eg-lbound", "1");
+      var card = el.closest(".gg-eg");
+      if (!card) continue;
+      var data = {};
+      var isl = card.querySelector("script.gg-eg-data");
+      if (isl) { try { data = JSON.parse(isl.textContent); } catch (e) { data = {}; } }
+      card.classList.add("is-live");
+      fn(el, card, data);
+    }
+  }
+  function pick(el, show) {
+    var rows = el.querySelectorAll("[data-eg-row]");
+    var cur = -1;
+    function paint() {
+      for (var k = 0; k < rows.length; k++) rows[k].setAttribute("aria-pressed", k === cur ? "true" : "false");
+      show(cur);
+    }
+    for (var k = 0; k < rows.length; k++) {
+      rows[k].addEventListener("click", function (e) {
+        var i = parseInt(e.currentTarget.getAttribute("data-eg-row"), 10);
+        cur = cur === i ? -1 : i;
+        paint();
+      });
+    }
+    paint();
+    return paint;
+  }
+
+  // 1. Supercompensation
+  function stageOf(d, day) {
+    var best = 0, bd = 1e9;
+    for (var k = 0; k < d.stages.length; k++) {
+      var dd = Math.abs(d.stages[k][0] - day);
+      if (dd < bd) { bd = dd; best = k; }
+    }
+    return d.stages[best][1];
+  }
+  function verdict(d, day) {
+    var lv = d.lvl[day], mi = 0, k, rec = d.lvl.length;
+    for (k = 0; k < d.lvl.length; k++) if (d.lvl[k] < d.lvl[mi]) mi = k;
+    for (k = mi + 1; k < d.lvl.length; k++) if (d.lvl[k] >= 0) { rec = k; break; }
+    if (lv === 0) return "Lands at baseline: no boost yet";
+    if (lv > 0 && day < rec) return "Lands before the dip: " + sg(lv) + " vs baseline";
+    if (lv > 0) return "Lands on the overshoot: " + sg(lv) + " above baseline";
+    if (day < rec) return "Lands in the fatigue hole: " + (-lv) + " below baseline";
+    return "Lands after the overshoot faded: " + (-lv) + " below baseline";
+  }
+  GGEG.register("ch3-sc", function (i, c) {
+    var d = c.data, lv = d.lvl[i];
+    c.set("num", sg(lv));
+    c.set("chip", stageOf(d, i));
+    c.set("when", "Day " + i);
+    var pt = c.q("[data-eg-pt]");
+    if (pt) {
+      pt.style.left = (i / d.days * 100) + "%";
+      pt.style.top = ((d.hi - lv) / (d.hi - d.lo) * 100) + "%";
+    }
+    return "Day " + i + ": " + sg(lv) + " vs baseline, " + stageOf(d, i);
+  }, function (c) {
+    var d = c.data, inp = c.q('[data-eg-in="nh"]'), mk = c.q("[data-eg-nh]");
+    if (!inp) return;
+    function go() {
+      var day = parseInt(inp.value, 10);
+      if (!isFinite(day)) return;
+      day = Math.min(d.days, Math.max(0, day));
+      if (mk) mk.style.left = (day / d.days * 100) + "%";
+      c.set("nhday", "Day " + day);
+      c.set("verdict", verdict(d, day));
+    }
+    inp.addEventListener("input", go);
+    go();
+  });
+
+  // 2. Zone ledger
+  live("ch3-zones", function (el, card, d) {
+    var ftp = d.ftp, cur = -1;
+    function w(i) {
+      var z = d.zones[i];
+      if (i === 0) return "≤ " + r(z[4] / 100 * ftp) + " W";
+      if (i === d.zones.length - 1) return "Max";
+      return r(z[3] / 100 * ftp) + "–" + r(z[4] / 100 * ftp) + " W";
+    }
+    function show(i) {
+      cur = i;
+      var k;
+      for (k = 0; k < d.zones.length; k++) {
+        var s = el.querySelector('[data-eg-w="' + k + '"]');
+        if (s) s.textContent = w(k);
+      }
+      if (i < 0) {
+        setf(card, "num", "Z2–Z4");
+        setf(card, "unit", "");
+        setf(card, "chip", r(0.55 * ftp) + "–" + r(1.05 * ftp) + " W");
+        setf(card, "when", "FTP " + ftp + " W");
+        setf(card, "txt", d.home);
+      } else {
+        var z = d.zones[i];
+        setf(card, "num", z[0]);
+        setf(card, "unit", z[1]);
+        setf(card, "chip", w(i));
+        setf(card, "when", z[2] + " FTP");
+        setf(card, "txt", z[5]);
+      }
+    }
+    var paint = pick(el, show);
+    var inp = card.querySelector('[data-eg-in="ftp"]');
+    if (inp) inp.addEventListener("input", function () {
+      var v = parseFloat(inp.value);
+      if (!isFinite(v) || v < 100 || v > 500) { inp.setAttribute("aria-invalid", "true"); return; }
+      inp.removeAttribute("aria-invalid");
+      ftp = v;
+      show(cur);
+    });
+  });
+
+  // 4. Training phases
+  GGEG.register("ch3-tp", function (i, c) {
+    var d = c.data, ph = d.phases[i < 5 ? 0 : (i < 9 ? 1 : 2)];
+    if (!c.scrubbing) {
+      c.set("num", "12");
+      c.set("unit", "weeks");
+      c.set("chip", "Base → Build → Peak");
+      c.set("when", "3 phases");
+      c.set("txt", d.summary);
+    } else {
+      c.set("num", String(d.vol[i]));
+      c.set("unit", "% volume");
+      c.set("chip", ph[0]);
+      c.set("when", "Week " + (i + 1));
+      c.set("vol", d.vol[i] + "%");
+      c.set("int", d.int[i] + "%");
+      c.set("txt", ph[2]);
+    }
+    var pt = c.q("[data-eg-pt]");
+    if (pt) { pt.style.left = ((i + 0.5) / 12 * 100) + "%"; pt.style.top = (100 - d.int[i]) + "%"; }
+    return "Week " + (i + 1) + ": " + ph[0] + ", volume " + d.vol[i] + "%, intensity " + d.int[i] + "%";
+  });
+
+  // 6. Season band
+  live("ch3-gantt", function (el, card, d) {
+    function pos(s, p, isEnd) {
+      if (p - Math.floor(p) === 0.5) return "mid " + d.months[(s + Math.floor(p)) % 12];
+      var k = isEnd ? Math.ceil(p) - 1 : Math.floor(p);
+      return d.months[(s + k) % 12];
+    }
+    function dates(s, a, b) {
+      var x = pos(s, a, false), y = pos(s, b, true);
+      var t = x === y ? x : x + " – " + y;
+      return t.charAt(0).toUpperCase() + t.slice(1);
+    }
+    function go(m) {
+      var s = ((m - Math.floor(d.anchor)) % 12 + 12) % 12, k;
+      var mo = el.querySelectorAll("[data-eg-mo]");
+      for (k = 0; k < mo.length; k++) {
+        var nm = d.months[(s + k) % 12], is = mo[k].querySelectorAll("i");
+        if (is[0]) is[0].textContent = nm;
+        if (is[1]) is[1].textContent = nm.charAt(0);
+      }
+      for (k = 0; k < d.blocks.length; k++) {
+        var cell = el.querySelector('[data-eg-d="' + k + '"]');
+        if (cell) cell.textContent = dates(s, d.blocks[k][1], d.blocks[k][2]);
+      }
+      setf(card, "num", d.months[s]);
+      setf(card, "chip", "A race: mid " + d.months[m]);
+    }
+    var sel = card.querySelector('[data-eg-in="race"]');
+    if (sel) sel.addEventListener("change", function () {
+      var m = parseInt(sel.value, 10);
+      if (isFinite(m)) go(m);
+    });
+  });
+
+  // 7. Before / after
+  live("ch3-ba", function (el, card, d) {
+    pick(el, function (i) {
+      var row = d.rows[i < 0 ? 0 : i];
+      setf(card, "num", row[3]);
+      setf(card, "unit", row[0]);
+      setf(card, "chip", row[1] + " → " + row[2]);
+      setf(card, "when", d.when);
+      setf(card, "txt", row[4]);
+    });
+  });
+})();
+"""
+
+JS = JS + JS_B
+
+
 _CSS_RAW = """
 .gg-ig-b-panel{--b-ink:var(--gg-color-dark-brown);--b-acc:var(--gg-color-light-gold);box-sizing:border-box;width:100%;max-width:100%;margin:0 0 28px;border:3px solid var(--gg-color-dark-brown);overflow:hidden;font-family:var(--gg-font-editorial);line-height:1.4}
 .gg-ig-b-panel *{box-sizing:border-box;font-family:inherit}
@@ -709,131 +1068,15 @@ _CSS_RAW = """
 .gg-ig-b-panel--dark .gg-ig-b-head{border-bottom-color:var(--gg-color-light-gold)}
 .gg-ig-b-eyebrow{font-family:var(--gg-font-data);font-size:14px;letter-spacing:2px;text-transform:uppercase;color:var(--gg-color-light-gold);margin:0 0 8px}
 .gg-ig-b-title{font-family:var(--gg-font-editorial);font-size:30px;line-height:1.15;font-weight:700;color:var(--gg-color-white);margin:0;padding:0;text-transform:none;letter-spacing:0}
-.gg-ig-b-hero{display:flex;align-items:center;gap:12px 32px;padding:26px 28px;flex-wrap:wrap}
-.gg-ig-b-hero-num{font-family:var(--gg-font-data);font-weight:700;font-size:80px;line-height:1;letter-spacing:-2px;font-variant-numeric:tabular-nums;white-space:normal;overflow-wrap:anywhere}
-.gg-ig-b-hero-text{flex:1 1 280px;font-size:19px;line-height:1.4;font-weight:600;min-width:0}
-.gg-ig-b-panel--light .gg-ig-b-hero{background:var(--gg-color-light-gold);color:var(--gg-color-dark-brown);border-bottom:3px solid var(--gg-color-dark-brown)}
-.gg-ig-b-panel--dark .gg-ig-b-hero-num{color:var(--gg-color-light-gold)}
-.gg-ig-b-panel--dark .gg-ig-b-hero-text{color:var(--gg-color-sand)}
 .gg-ig-b-body{padding:24px 28px 26px}
 .gg-ig-b-cap{margin:0 28px 28px;padding:4px 0 4px 16px;border-left:6px solid var(--gg-color-light-gold);font-family:var(--gg-font-editorial);font-style:italic;font-size:16px;line-height:1.5}
 .gg-ig-b-panel--dark .gg-ig-b-cap{color:var(--gg-color-sand)}
-.gg-ig-b-mark{position:absolute;transform:translate(-50%,-50%);width:28px;height:28px;display:flex;align-items:center;justify-content:center;background:var(--gg-color-light-gold);color:var(--gg-color-near-black);border:3px solid var(--gg-color-near-black);font-family:var(--gg-font-data);font-weight:700;font-size:14px;line-height:1;z-index:2}
-.gg-ig-b-mark--static{position:static;transform:none;flex:0 0 28px}
-/* supercompensation */
-.gg-ig-b-sc-plot{position:relative;height:340px;border-bottom:3px solid var(--gg-color-sand);margin:6px 14px 12px}
-.gg-ig-b-sc-svg{position:absolute;inset:0;width:100%;height:100%;display:block;overflow:visible}
-.gg-ig-b-sc-line{fill:none;stroke:var(--gg-color-light-gold);stroke-width:5;vector-effect:non-scaling-stroke;stroke-linejoin:round}
-.gg-ig-b-sc-up{fill:var(--gg-color-light-gold);fill-opacity:.28}
-.gg-ig-b-sc-dn{fill:var(--gg-color-warm-paper);fill-opacity:.14}
-.gg-ig-b-sc-base{stroke:var(--gg-color-sand);stroke-width:2;stroke-dasharray:8 6;vector-effect:non-scaling-stroke}
-.gg-ig-b-sc-key{display:flex;align-items:center;gap:10px;font-family:var(--gg-font-data);font-size:14px;color:var(--gg-color-sand);margin:0 14px 20px}
-.gg-ig-b-sc-dash{width:34px;border-top:3px dashed var(--gg-color-sand);display:inline-block}
-.gg-ig-b-sc-steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px 24px}
-.gg-ig-b-sc-step{display:flex;gap:12px;align-items:flex-start}
-.gg-ig-b-sc-name{display:block;font-size:17px;color:var(--gg-color-white);margin-bottom:2px}
-.gg-ig-b-sc-tip{display:block;font-size:15px;line-height:1.4;color:var(--gg-color-sand)}
-/* zones */
-.gg-ig-b-zn-axis{display:flex;margin-bottom:6px}
-.gg-ig-b-zn-axis-pad{flex:0 0 250px}
-.gg-ig-b-zn-ticks{position:relative;flex:1;height:18px;font-family:var(--gg-font-data);font-size:12px;color:var(--gg-color-primary-brown)}
-.gg-ig-b-zn-ticks span{position:absolute;top:0;transform:translateX(-50%)}
-.gg-ig-b-zn-ticks span:first-child{transform:none}
-.gg-ig-b-zn-list{display:block}
-.gg-ig-b-zn-row{display:flex;gap:18px;padding:10px 0;border-top:3px solid var(--gg-color-sand)}
-.gg-ig-b-zn-info{flex:0 0 232px;display:grid;grid-template-columns:auto 1fr;grid-template-areas:"c n" "c r";column-gap:12px;align-items:center}
-.gg-ig-b-zn-code{grid-area:c;font-family:var(--gg-font-data);font-weight:700;font-size:26px}
-.gg-ig-b-zn-name{grid-area:n;font-weight:700;font-size:17px;line-height:1.2}
-.gg-ig-b-zn-range{grid-area:r;font-family:var(--gg-font-data);font-size:15px;font-variant-numeric:tabular-nums}
-.gg-ig-b-zn-viz{flex:1;min-width:0}
-.gg-ig-b-zn-track{position:relative;height:24px;background:var(--gg-color-sand)}
-.gg-ig-b-zn-bar{position:absolute;top:0;bottom:0;background:var(--gg-color-primary-brown);min-width:8px}
-.gg-ig-b-zn-row--hot .gg-ig-b-zn-bar{background:var(--gg-color-gold)}
-.gg-ig-b-zn-desc{font-size:15px;line-height:1.35;margin-top:5px}
-/* training phases */
-.gg-ig-b-tp-heads{display:flex;gap:3px;margin-bottom:14px}
-.gg-ig-b-tp-ph{min-width:0;padding:10px 12px;border:3px solid var(--gg-color-dark-brown);display:flex;flex-direction:column;gap:2px;font-family:var(--gg-font-data);line-height:1.15}
-.gg-ig-b-tp-ph b{font-size:16px;overflow-wrap:anywhere}
-.gg-ig-b-tp-ph span{font-size:14px}
-.gg-ig-b-tp-ph--base{background:var(--gg-color-tan)}
-.gg-ig-b-tp-ph--build{background:var(--gg-color-light-gold)}
-.gg-ig-b-tp-ph--peak{background:var(--gg-color-dark-brown);color:var(--gg-color-white)}
-.gg-ig-b-tp-label{font-family:var(--gg-font-data);font-weight:700;font-size:14px;letter-spacing:2px;margin:6px 0 4px}
-.gg-ig-b-tp-row{display:flex;height:120px;border-bottom:3px solid var(--gg-color-dark-brown);margin-bottom:10px}
-.gg-ig-b-tp-col{flex:1;min-width:0;position:relative;border-left:1px solid var(--gg-color-tan)}
-.gg-ig-b-tp-col:first-child{border-left:0}
-.gg-ig-b-tp-col--build{background:color-mix(in srgb,var(--gg-color-light-gold) 18%,transparent)}
-.gg-ig-b-tp-col--peak{background:color-mix(in srgb,var(--gg-color-dark-brown) 10%,transparent)}
-.gg-ig-b-tp-bar{position:absolute;left:12%;right:12%;bottom:0;height:calc(var(--h) * 1%)}
-.gg-ig-b-tp-bar--vol{background:var(--gg-color-dark-brown)}
-.gg-ig-b-tp-bar--int{background:var(--gg-color-gold)}
-.gg-ig-b-tp-wk{display:flex;font-family:var(--gg-font-data);font-size:12px}
-.gg-ig-b-tp-wk span{flex:1;text-align:center}
-.gg-ig-b-tp-wkl{font-family:var(--gg-font-data);font-size:12px;letter-spacing:2px;text-align:center;margin-top:2px}
-.gg-ig-b-tp-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin-top:22px}
-.gg-ig-b-tp-card{border:3px solid var(--gg-color-dark-brown);padding:12px 14px;display:flex;flex-direction:column;gap:4px;background:var(--gg-color-white)}
-.gg-ig-b-tp-card b{font-family:var(--gg-font-data);font-size:15px;letter-spacing:1px}
-.gg-ig-b-tp-card span{font-size:16px;line-height:1.4}
-.gg-ig-b-tp-card--base{border-top:10px solid var(--gg-color-tan)}
-.gg-ig-b-tp-card--build{border-top:10px solid var(--gg-color-light-gold)}
-.gg-ig-b-tp-card--peak{border-top:10px solid var(--gg-color-dark-brown)}
 /* power duration */
-/* gantt */
-.gg-ig-b-gt-months{display:flex;gap:18px;margin-bottom:6px}
-.gg-ig-b-gt-pad{flex:0 0 270px}
-.gg-ig-b-gt-mgrid{flex:1;display:grid;grid-template-columns:repeat(13,1fr);font-family:var(--gg-font-data);font-size:12px;text-align:center;min-width:0}
-.gg-ig-b-gt-mgrid i{font-style:normal}
-.gg-ig-b-gt-short{display:none}
-.gg-ig-b-gt-row{display:flex;gap:18px;align-items:center;padding:10px 0;border-top:3px solid var(--gg-color-sand)}
-.gg-ig-b-gt-info{flex:0 0 270px;display:grid;gap:1px}
-.gg-ig-b-gt-name{font-size:20px;line-height:1.15}
-.gg-ig-b-gt-dates{font-family:var(--gg-font-data);font-size:14px;font-weight:700}
-.gg-ig-b-gt-desc{font-size:15px;line-height:1.35}
-.gg-ig-b-gt-track{position:relative;flex:1;min-width:0;height:44px;background-image:linear-gradient(90deg,transparent calc(100% - 1px),var(--gg-color-tan) 0);background-size:calc(100% / 13) 100%}
-.gg-ig-b-gt-bar{position:absolute;top:0;bottom:0;border:3px solid var(--gg-color-dark-brown)}
-.gg-ig-b-gt-bar--off{background:var(--gg-color-tan)}
-.gg-ig-b-gt-bar--base{background:var(--gg-color-secondary-brown)}
-.gg-ig-b-gt-bar--build{background:var(--gg-color-light-gold)}
-.gg-ig-b-gt-bar--race{background:var(--gg-color-dark-brown)}
-.gg-ig-b-gt-bar--trans{background:var(--gg-color-sand)}
-/* before / after */
-.gg-ig-b-ba-cols,.gg-ig-b-ba-row{display:grid;grid-template-columns:1fr 1fr;gap:0 24px}
-.gg-ig-b-ba-cols p{border-bottom:3px solid var(--gg-color-light-gold);padding-bottom:8px;margin-bottom:6px}
-.gg-ig-b-ba-cols b{display:block;font-family:var(--gg-font-data);font-size:18px;letter-spacing:2px;color:var(--gg-color-white)}
-.gg-ig-b-ba-cols span{font-size:15px;color:var(--gg-color-sand)}
-.gg-ig-b-ba-row{padding:12px 0 14px;border-bottom:1px solid color-mix(in srgb,var(--gg-color-sand) 35%,transparent)}
-.gg-ig-b-ba-metric{grid-column:1/-1;font-family:var(--gg-font-data);font-size:14px;letter-spacing:1px;text-transform:uppercase;color:var(--gg-color-sand);margin-bottom:4px}
-.gg-ig-b-ba-before{font-family:var(--gg-font-data);font-size:30px;line-height:1.1;color:var(--gg-color-tan);font-variant-numeric:tabular-nums;overflow-wrap:anywhere}
-.gg-ig-b-ba-after{font-family:var(--gg-font-data);font-size:44px;line-height:1;font-weight:700;color:var(--gg-color-light-gold);font-variant-numeric:tabular-nums;overflow-wrap:anywhere}
-.gg-ig-b-ba-note{grid-column:1/-1;font-size:16px;color:var(--gg-color-warm-paper);margin-top:6px}
-.gg-ig-b-ba-row{align-items:baseline}
 @media (max-width:700px){
 .gg-ig-b-head{padding:18px 16px 16px}
 .gg-ig-b-title{font-size:24px}
-.gg-ig-b-hero{padding:20px 16px;gap:10px}
-.gg-ig-b-hero-num{font-size:52px;letter-spacing:-1px}
-.gg-ig-b-hero-text{font-size:17px;flex-basis:100%}
 .gg-ig-b-body{padding:18px 16px 20px}
 .gg-ig-b-cap{margin:0 16px 22px}
-.gg-ig-b-sc-plot{height:260px;margin:6px 14px 12px}
-.gg-ig-b-sc-key{margin:0 0 18px}
-.gg-ig-b-zn-axis-pad{display:none}
-.gg-ig-b-zn-row{flex-direction:column;gap:8px}
-.gg-ig-b-zn-info{flex:none}
-.gg-ig-b-tp-ph{padding:8px 8px}
-.gg-ig-b-tp-ph b{font-size:14px}
-.gg-ig-b-tp-row{height:96px}
-.gg-ig-b-gt-months{display:block}
-.gg-ig-b-gt-pad{display:none}
-.gg-ig-b-gt-full{display:none}
-.gg-ig-b-gt-short{display:inline}
-.gg-ig-b-gt-row{flex-direction:column;align-items:stretch;gap:8px}
-.gg-ig-b-gt-info{flex:none}
-.gg-ig-b-gt-track{flex:none;height:36px}
-.gg-ig-b-ba-before{font-size:22px}
-.gg-ig-b-ba-after{font-size:30px}
-.gg-ig-b-ba-cols{gap:0 14px}
-.gg-ig-b-ba-row{gap:0 14px}
 }
 @media (min-width:701px){
 }
@@ -914,4 +1157,97 @@ _EG_CSS = """
 }
 """
 
-CSS = _scope(_CSS_RAW + _EG_CSS)
+_EG2_CSS = """
+.gg-eg-pw[data-eg-scrub="ch3-sc"]{height:220px}
+.gg-eg-pw[data-eg-scrub="ch3-tp"]{height:180px}
+.gg-ig-b-eg-note2{position:absolute;transform:translate(-50%,8px);font-family:var(--eg-mono);font-size:11px;font-weight:700;color:var(--eg-ink2);white-space:nowrap;text-shadow:0 0 3px var(--eg-card),0 0 3px var(--eg-card);pointer-events:none}
+.gg-ig-b-eg-note2--up{transform:translate(-50%,-150%)}
+.gg-ig-b-eg-note2--l{transform:translate(0,-130%);left:4px!important;color:var(--eg-ink3)}
+.gg-ig-b-eg-nh{position:absolute;top:0;bottom:0;width:0;border-left:2px dotted var(--eg-ride);pointer-events:none;z-index:2}
+.gg-ig-b-eg-nh span{position:absolute;bottom:4px;left:6px;font-family:var(--eg-mono);font-size:11px;font-weight:700;color:var(--eg-ride);white-space:nowrap;text-shadow:0 0 3px var(--eg-card),0 0 3px var(--eg-card)}
+.gg-ig-b-eg-rng{width:150px;min-height:44px;margin:0 4px;accent-color:var(--eg-ride)}
+.gg-ig-b-eg-xt--end{transform:translateX(-100%)}
+.gg-ig-b-eg-rows{display:block;max-width:660px}
+.gg-ig-b-eg-rows li{display:block;margin:0;padding:0}
+.gg-ig-b-eg-row{appearance:none;display:grid;align-items:center;width:100%;min-height:44px;margin:0;padding:6px 8px;background:transparent;border:0;border-radius:8px!important;font-family:var(--eg-mono);color:var(--eg-ink);text-align:left;cursor:pointer}
+.gg-ig-b-eg-row:hover{background:var(--eg-paper)}
+.gg-ig-b-eg-row[aria-pressed="true"]{background:var(--eg-control);box-shadow:inset 3px 0 0 var(--eg-cobalt)!important}
+.gg-ig-b-eg-zrow{grid-template-columns:30px 124px minmax(90px,1fr) 66px 74px;gap:0 10px}
+.gg-ig-b-eg-rc{font-weight:800;font-size:14px}
+.gg-ig-b-eg-rn{font-family:var(--eg-prose);font-weight:600;font-size:14px;color:var(--eg-ink2)}
+.gg-ig-b-eg-rp{font-size:12px;color:var(--eg-ink3);text-align:right;white-space:nowrap}
+.gg-ig-b-eg-rw{font-size:12px;font-weight:700;text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums}
+.gg-ig-b-eg-rm{min-width:0}
+.gg-ig-b-eg-zm b{left:0}
+.gg-ig-b-eg-zm--cool b{background:var(--eg-none)}
+.gg-ig-b-eg-zax{max-width:660px;display:grid;grid-template-columns:30px 124px minmax(90px,1fr) 66px 74px;gap:0 10px;padding:0 8px;height:18px;font-family:var(--eg-mono);font-size:11px;color:var(--eg-ink3)}
+.gg-ig-b-eg-zaxp{grid-column:1/3}
+.gg-ig-b-eg-zaxm{position:relative}
+.gg-ig-b-eg-zaxm span{position:absolute;top:0;transform:translateX(-50%)}
+.gg-ig-b-eg-zaxm span:first-child{transform:none}
+.gg-ig-b-eg-brow{grid-template-columns:130px minmax(90px,1fr) 78px;grid-template-areas:"m v v" "r r c";gap:2px 10px}
+.gg-ig-b-eg-bm{grid-area:m;font-family:var(--eg-prose);font-weight:600;font-size:14px;color:var(--eg-ink2)}
+.gg-ig-b-eg-bv{grid-area:v;font-size:12px;color:var(--eg-ink3);font-variant-numeric:tabular-nums}
+.gg-ig-b-eg-brow .gg-ig-b-eg-rm{grid-area:r}
+.gg-ig-b-eg-bc{grid-area:c;justify-self:start}
+.gg-ig-b-eg-bkey{display:flex;align-items:center;gap:6px;font-family:var(--eg-mono);font-size:11px;color:var(--eg-ink3);margin:0 8px 6px!important}
+.gg-ig-b-eg-bkb{display:inline-block;width:18px;height:10px;background:var(--eg-ink);border-radius:2px!important}
+.gg-ig-b-eg-bkt{position:static!important;display:inline-block;height:14px;margin:0 0 0 10px!important}
+.gg-ig-b-eg-colrow{position:absolute;inset:0;display:flex;gap:3px;align-items:flex-end}
+.gg-ig-b-eg-cw{flex:1;min-width:0;height:100%;display:flex;align-items:flex-end}
+.gg-ig-b-eg-col{display:block;width:100%;height:var(--h);border-radius:2px 2px 0 0!important;background:color-mix(in srgb,var(--ph) var(--a),var(--eg-card))}
+.gg-ig-b-eg-col--base{--ph:var(--eg-none)}
+.gg-ig-b-eg-col--build{--ph:var(--eg-ride)}
+.gg-ig-b-eg-col--peak{--ph:var(--eg-form)}
+.gg-ig-b-eg-phband{display:flex;gap:3px;margin-top:6px}
+.gg-ig-b-eg-ph{min-width:0;padding:5px 6px;border-radius:4px!important;font-family:var(--eg-mono);font-size:11px;line-height:1.2;color:var(--eg-ink);display:flex;flex-direction:column;gap:1px}
+.gg-ig-b-eg-ph b{font-weight:800;overflow-wrap:anywhere}
+.gg-ig-b-eg-ph--base{background:color-mix(in srgb,var(--eg-none) 55%,var(--eg-card))}
+.gg-ig-b-eg-ph--build{background:color-mix(in srgb,var(--eg-ride) 40%,var(--eg-card))}
+.gg-ig-b-eg-ph--peak{background:color-mix(in srgb,var(--eg-form) 40%,var(--eg-card))}
+.gg-ig-b-eg-wkr{display:flex;margin-top:4px;font-family:var(--eg-mono);font-size:11px;color:var(--eg-ink3)}
+.gg-ig-b-eg-wkr span{flex:1;text-align:center}
+.gg-eg:not(.is-scrub) .gg-ig-b-eg-os{display:none}
+.gg-ig-b-eg-gband{position:relative;height:30px;background:var(--eg-paper);border-radius:4px!important}
+.gg-ig-b-eg-gseg{position:absolute;top:0;bottom:0;border-radius:3px!important;border-right:2px solid var(--eg-card)}
+.gg-ig-b-eg-gseg--off,.gg-ig-b-eg-gseg--trans{background:var(--eg-none)}
+.gg-ig-b-eg-gseg--base{background:var(--eg-ink3)}
+.gg-ig-b-eg-gseg--build{background:var(--eg-ride)}
+.gg-ig-b-eg-gseg--race{background:var(--eg-ink)}
+.gg-ig-b-eg-gflag{position:absolute;top:50%;transform:translate(-50%,-50%);z-index:2}
+.gg-ig-b-eg-gruler{display:grid;grid-template-columns:repeat(13,1fr);margin-top:4px;font-family:var(--eg-mono);font-size:11px;color:var(--eg-ink3);text-align:center}
+.gg-ig-b-eg-gruler span{border-left:1px solid var(--eg-none);padding-top:3px;min-width:0}
+.gg-ig-b-eg-gruler i{font-style:normal}
+.gg-ig-b-eg-gshort{display:none}
+.gg-ig-b-eg-gl{display:block;margin-top:12px}
+.gg-ig-b-eg-gr{display:grid;grid-template-columns:14px 104px 138px 1fr;gap:2px 10px;align-items:baseline;padding:7px 0;border-top:1px solid var(--eg-line);margin:0}
+.gg-ig-b-eg-gsw{display:inline-block;width:12px;height:12px;border-radius:2px!important;align-self:center;position:static!important;border:0!important}
+.gg-ig-b-eg-gn{font-family:var(--eg-prose);font-weight:600;font-size:14px;color:var(--eg-ink)}
+.gg-ig-b-eg-gd{font-family:var(--eg-mono);font-weight:700;font-size:12px;color:var(--eg-ink);white-space:nowrap}
+.gg-ig-b-eg-gx{font-size:12px;color:var(--eg-ink3);line-height:1.35}
+.gg-ig-b-eg-sel{min-height:44px;font-family:var(--eg-mono);font-weight:700;font-size:14px;color:var(--eg-ink);background:var(--eg-card);border:1px solid var(--eg-none);border-radius:8px!important;padding:0 8px;margin:0}
+@media (max-width:700px){
+.gg-eg-pw[data-eg-scrub="ch3-sc"]{height:190px}
+.gg-eg-pw[data-eg-scrub="ch3-tp"]{height:150px}
+.gg-ig-b-eg-rng{width:90px}
+.gg-eg-field span{white-space:nowrap}
+.gg-ig-b-eg-zrow{grid-template-columns:28px minmax(0,1fr) 78px;grid-template-areas:"c n w" "m m p";gap:4px 8px}
+.gg-ig-b-eg-zrow .gg-ig-b-eg-rc{grid-area:c}
+.gg-ig-b-eg-zrow .gg-ig-b-eg-rn{grid-area:n}
+.gg-ig-b-eg-zrow .gg-ig-b-eg-rm{grid-area:m}
+.gg-ig-b-eg-zrow .gg-ig-b-eg-rp{grid-area:p}
+.gg-ig-b-eg-zrow .gg-ig-b-eg-rw{grid-area:w}
+.gg-ig-b-eg-zax{display:none}
+.gg-ig-b-eg-brow{grid-template-columns:1fr 78px;grid-template-areas:"m m" "v v" "r c"}
+.gg-ig-b-eg-gfull{display:none}
+.gg-ig-b-eg-gshort{display:inline}
+.gg-ig-b-eg-gr{grid-template-columns:14px 1fr auto;grid-template-areas:"s n d" "x x x"}
+.gg-ig-b-eg-gr .gg-ig-b-eg-gsw{grid-area:s}
+.gg-ig-b-eg-gr .gg-ig-b-eg-gn{grid-area:n}
+.gg-ig-b-eg-gr .gg-ig-b-eg-gd{grid-area:d}
+.gg-ig-b-eg-gr .gg-ig-b-eg-gx{grid-area:x;padding-left:24px}
+.gg-ig-b-eg-ph{padding:4px 4px}
+}
+"""
+
+CSS = _scope(_CSS_RAW + _EG_CSS + _EG2_CSS)

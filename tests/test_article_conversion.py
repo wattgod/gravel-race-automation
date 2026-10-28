@@ -32,14 +32,16 @@ console.log(JSON.stringify(events));
     assert [e['depth_threshold'] for e in events if e['name']=='article_scroll_depth']==[25,50,75,100]
 
 
-def test_footer_has_one_native_newsletter_form_and_no_claimed_signup_event():
+def test_footer_captures_article_before_native_substack_handoff_without_claiming_a_subscription():
     soup=BeautifulSoup(shell.render_footer(),'html.parser')
-    frames=soup.select('iframe')
-    assert len(frames)==1
-    assert frames[0]['src'].startswith('https://gravelgodcycling.substack.com/embed')
-    assert frames[0]['title']=='Subscribe to Slow, Mid, 38s'
-    assert frames[0]['loading']=='lazy'
-    assert soup.select_one('a[data-label="substack_bottom"]')
+    forms=soup.select('form[data-newsletter-signup]')
+    assert len(forms)==1
+    assert forms[0].select_one('input[type="email"][name="email"][required]')
+    assert forms[0].select_one('input[name="website"]')
+    assert forms[0].select_one('button').get_text(strip=True)=='Continue on Substack'
+    assert 'newsletter-attribution.gravelgodcoaching.workers.dev/capture' in shell.render_footer()
+    assert 'window.location.pathname' in shell.SHELL_JS
+    assert soup.select_one('[data-label="substack_bottom"]')
     assert 'sign_up' not in shell.render_footer()
 
 
@@ -64,7 +66,7 @@ def test_every_archive_page_has_one_signup_and_only_its_reviewed_offer():
         parent=ARTICLES_DIR if essay.url.startswith('/articles/') else POSTS_DIR
         page=(parent/essay.slug/'index.html').read_text()
         soup=BeautifulSoup(page,'html.parser')
-        assert len(soup.select('iframe[title="Subscribe to Slow, Mid, 38s"]'))==1,essay.slug
+        assert len(soup.select('form[data-newsletter-signup]'))==1,essay.slug
         expected=offer_for_slug(essay.slug)
         offers=soup.select('aside.article-offer')
         assert len(offers)==(1 if expected else 0),essay.slug
@@ -72,7 +74,7 @@ def test_every_archive_page_has_one_signup_and_only_its_reviewed_offer():
         if expected:
             assert offers[0].select_one('a')['href']==expected['href']
             assert page.count("source: 'editorial'")==1
-    assert OUTPUT_PATH.read_text().count('title="Subscribe to Slow, Mid, 38s"')==1
+    assert OUTPUT_PATH.read_text().count('data-newsletter-signup action=')==1
 
 
 def test_commercial_click_emits_one_canonical_event_and_one_article_event():

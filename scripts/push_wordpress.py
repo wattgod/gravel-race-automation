@@ -412,8 +412,10 @@ def sync_guide(guide_dir: str):
     # Media lives at project_root/guide/media/, not in the output dir
     project_root = Path(__file__).resolve().parent.parent
     media_dir = project_root / "guide" / "media"
-    if media_dir.exists():
-        media_files = [f for f in media_dir.iterdir() if f.suffix in (".webp", ".mp4")]
+    # guide/art/ holds the committed character scenes; they're served from /guide/media/ too.
+    art_dir = project_root / "guide" / "art"
+    if media_dir.exists() or art_dir.exists():
+        media_files = [f for d in (media_dir, art_dir) if d.exists() for f in d.iterdir() if f.suffix in (".webp", ".mp4")]
         if media_files:
             # Create remote media directory
             try:
@@ -433,10 +435,14 @@ def sync_guide(guide_dir: str):
                 return None
 
             # Upload via tar+ssh pipe for efficiency
-            file_list = [f.name for f in media_files]
+            tar_args = []
+            for d in (media_dir, art_dir):
+                names = [f.name for f in media_files if f.parent == d]
+                if names:
+                    tar_args += ["-C", str(d)] + names
             try:
                 tar_cmd = subprocess.Popen(
-                    ["tar", "-cf", "-", "-C", str(media_dir)] + file_list,
+                    ["tar", "-cf", "-"] + tar_args,
                     stdout=subprocess.PIPE,
                 )
                 ssh_cmd = subprocess.run(
